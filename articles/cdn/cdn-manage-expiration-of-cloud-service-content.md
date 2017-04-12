@@ -1,9 +1,9 @@
 ---
-title: "Azure CDN에서 Azure Web Apps/Cloud Services, ASP.NET 및 IIS 콘텐츠의 만료를 관리하는 방법 | Microsoft Docs"
-description: "Azure CDN에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법에 대해 설명합니다."
+title: "Azure CDN에서 웹 콘텐츠의 만료 관리 | Microsoft Docs"
+description: "Azure CDN에서 Azure Web Apps/Cloud Services, ASP.NET 또는 IIS 콘텐츠의 만료를 관리하는 방법을 알아봅니다."
 services: cdn
 documentationcenter: .NET
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 61c14a27fc82b128dec41e2ed46850ac7fb554ad
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 02d0270c5763eb9dd2190bc24b793022ea536746
 
 
 ---
-# <a name="how-to-manage-expiration-of-azure-web-appscloud-services-aspnet-or-iis-content-in-azure-cdn"></a>Azure CDN에서 Azure Web Apps/Cloud Services, ASP.NET 또는 IIS 콘텐츠의 만료를 관리하는 방법
+# <a name="manage-expiration-of-azure-web-appscloud-services-aspnet-or-iis-content-in-azure-cdn"></a>Azure CDN에서 Azure Web Apps/Cloud Services, ASP.NET 또는 IIS 콘텐츠의 만료 관리
 > [!div class="op_single_selector"]
 > * [Azure Web Apps/Cloud Services, ASP.NET 또는 IIS](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Storage Blob service](cdn-manage-expiration-of-blob-content.md)
@@ -30,7 +30,7 @@ ms.openlocfilehash: 61c14a27fc82b128dec41e2ed46850ac7fb554ad
 TTL (time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로 액세스할 수 있는 파일은 Azure CDN에 캐시될 수 있습니다.  TTL은 원본 서버의 HTTP 응답에 있는 [*Cache-Control* 헤더](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)에 기반하여 결정됩니다.  이 문서에서는 Azure Web Apps, Azure Cloud Services, ASP.NET 응용 프로그램 및 IIS (Internet Information Services) 사이트에 대한 `Cache-Control` 헤더를 설정하는 방법을 설명하며, 이 헤더들은 모두 비슷하게 구성됩니다.
 
 > [!TIP]
-> 파일에 TTL을 설정하지 않을 수도 있습니다.  이 경우에 Azure CDN은 기본 TTL인 7일을 자동으로 적용합니다.
+> 파일에 TTL을 설정하지 않을 수도 있습니다.  이 경우에 Azure CDN은 기본 TTL인&7;일을 자동으로 적용합니다.
 > 
 > 파일과 다른 리소스에 대한 액세스 속도를 높이기 위해 Azure CDN이 작동하는 방법에 대한 자세한 내용은 [Azure CDN 개요](cdn-overview.md)를 참조하세요.
 > 
@@ -58,7 +58,7 @@ ASP.NET 응용 프로그램의 경우 **HttpResponse.Cache** 속성을 설정하
 
 ASP.NET의 응용 프로그램 콘텐츠를 프로그래밍 방식으로 캐시하려면 HttpCacheability를 *Public*으로 설정하여 캐시 가능한 콘텐츠로 표시되도록 합니다. 또한 캐시 유효성 검사기가 설정되었는지 확인합니다. 캐시 유효성 검사기는 SetLastModified를 호출하여 설정된 마지막으로 수정한 날짜 타임스탬프 또는 SetETag를 호출하여 설정된 etag 값일 수 있습니다. 필요에 따라, SetExpires를 호출하여 캐시 만료 시간을 지정하거나 이 문서의 앞부분에서 설명한 기본 캐시 추론을 사용할 수도 있습니다.  
 
-예를 들어 1시간 동안의 콘텐츠를 캐시하려면 다음을 추가합니다.  
+예를 들어&1;시간 동안의 콘텐츠를 캐시하려면 다음을 추가합니다.  
 
 ```csharp
 // Set the caching parameters.
@@ -75,6 +75,6 @@ Response.Cache.SetLastModified(DateTime.Now);
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

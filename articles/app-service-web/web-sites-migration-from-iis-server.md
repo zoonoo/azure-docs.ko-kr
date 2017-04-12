@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: 
 author: cephalin
 writer: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 2e846fc0-37cc-42e6-ac57-ff442ef16e85
 ms.service: app-service
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7f3cb7823eb7969faf76ca196a2ae95b214723f2
+ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
+ms.openlocfilehash: 6fdee57d33b19569ef892d0d32ea7007fd69faaf
+ms.lasthandoff: 03/23/2017
 
 
 ---
@@ -42,24 +43,16 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 * IIS5 호환 모드 - 웹 앱에서 지원되지 않습니다. 
 * 응용 프로그램 풀 – 웹 앱에서 각 사이트와 해당 자식 응용 프로그램은 동일한 응용 프로그램 풀에서 실행됩니다. 사이트의 여러 자식 응용 프로그램이 여러 응용 프로그램 풀을 사용하는 경우에는 공통 설정을 사용해 응용 프로그램을 단일 응용 프로그램 풀로 통합하거나 각 응용 프로그램을 별도의 웹 앱으로 마이그레이션하세요.
 * COM 구성 요소 – 웹 앱에서는 플랫폼에 COM 구성 요소를 등록할 수 없습니다. 웹 사이트 또는 응용 프로그램에서 COM 구성 요소를 사용하는 경우에는 구성 요소를 관리 코드로 다시 작성하고 웹 사이트 또는 응용 프로그램을 함께 배포해야 합니다.
-* ISAPI 필터 – 웹 앱에서는 ISAPI 필터를 사용할 수 있습니다. 다음을 수행해야 합니다.
+* ISAPI 확장 – 웹앱에서는 ISAPI 확장을 사용할 수 있습니다. 다음을 수행해야 합니다.
   
   * 웹 앱에 DLL 배포 
-  *  [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
-  * 아래 내용이 포함된 applicationHost.xdt 파일을 사이트 루트에 저장
+  * [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
+  * [이 문서의 섹션](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples), "임의 ISAPI 확장 로드 허용"에 설명된 내용에 따라 사이트 루트에 applicationHost.xdt 파일 배치 
     
-      <?xml version="1.0"?>
-    
-      <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-      <configSections>
-          <sectionGroup name="system.webServer">
-            <section name="isapiFilters" xdt:Transform="SetAttributes(overrideModeDefault)" overrideModeDefault="Allow" />
-          </sectionGroup>
-        </configSections>
-      </configuration>
+  
     
     웹 사이트에서 XML 문서 변환을 사용하는 방법에 대한 예제는 [Microsoft Azure 웹 사이트 변환](http://blogs.msdn.com/b/waws/archive/2014/06/17/transform-your-microsoft-azure-web-site.aspx)(영문)을 참조하세요.
-* SharePoint, FPSE*Front Page Server Extensions), FTP, SSL 인증서와 같은 다른 구성 요소는 마이그레이션되지 않습니다.
+* SharePoint, FPSE(Front Page Server Extensions), FTP, SSL 인증서와 같은 다른 구성 요소는 마이그레이션되지 않습니다.
 
 ## <a name="how-to-use-the-web-apps-migration-assistant"></a>Web App Migration Assistant 사용 방법
 이 섹션에서는 SQL Server 데이터베이스를 사용하고 온-프레미스 Windows Server 2003 R2(IIS 6.0) 컴퓨터에서 실행 중인 몇 개 웹 사이트를 마이그레이션하는 예제를 단계별로 설명합니다.
@@ -98,7 +91,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
    준비 보고서를 업로드하면 Azure에서는 준비 분석을 수행하고 결과를 보여 줍니다. 각 웹 사이트에 대한 평가 세부 정보를 읽고 문제를 모두 파악하거나 해결한 후에 계속 진행하세요. 
    
    ![](./media/web-sites-migration-from-iis-server/readiness-assessment.png)
-8. **Begin Migration**을 클릭하여 마이그레이션을 시작합니다. 이제 계정으로 로그인하기 위해 Azure로 리디렉션됩니다. 활성 Azure 구독이 있는 계정으로 로그인해야 합니다. Azure 계정이 없는 경우 [여기](https://azure.microsoft.com/pricing/free-trial/?WT.srch=1&WT.mc_ID=SEM_)에서 무료 평가판에 등록할 수 있습니다. 
+8. **Begin Migration**을 클릭하여 마이그레이션을 시작합니다. 이제 계정으로 로그인하기 위해 Azure로 리디렉션됩니다. 활성 Azure 구독이 있는 계정으로 로그인해야 합니다. Azure 계정이 없는 경우 [여기](https://azure.microsoft.com/pricing/free-trial/?WT.srch=1&WT.mc_ID=SEM_)에서 평가판에 등록할 수 있습니다. 
 9. 마이그레이션한 Azure Web Apps 및 데이터베이스에 사용할 테넌트 계정, Azure 구독 및 지역을 선택한 다음 **마이그레이션 시작**을 클릭합니다. 나중에 마이그레이션할 웹 사이트를 선택할 수 있습니다.
    
    ![](./media/web-sites-migration-from-iis-server/choose-tenant-account.png)
@@ -131,16 +124,11 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
     ![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
 ## <a name="whats-changed"></a>변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

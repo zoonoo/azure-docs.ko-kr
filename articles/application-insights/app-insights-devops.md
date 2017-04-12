@@ -1,21 +1,22 @@
 ---
-title: "Application Insights로 웹앱과 서비스 심층 진단 | Microsoft Docs"
+title: "웹 응용 프로그램 성능 모니터링 - Azure Application Insights | Microsoft Docs"
 description: "devOps 주기에 Application Insights를 적용하는 방법"
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 9599f0088647c6f017736f5cab36a04ad6024c1d
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6bc820657da4a72455d76f38dbdb06fe50b0c895
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -156,13 +157,17 @@ Visual Studio Team Services를 사용하여 앱을 빌드하고 배포한다면 
 ![빌드 주석](./media/app-insights-devops/070.png)
 
 ### <a name="work-items"></a>작업 항목
-경고가 발생하면 Application Insights는 작업 추적 시스템(현재는 Visual Studio Team Services만 해당)에서 작업 항목이 자동으로 만들어집니다.
+경고가 발생한 경우 Application Insights는 자동으로 사용자의 작업 추적 시스템에서 작업 항목을 만듭니다.
 
 ## <a name="but-what-about"></a>기타 사항
 * [개인 정보 보호 및 저장소](app-insights-data-retention-privacy.md) - 원격 분석은 Azure 보안 서버에 보관됩니다.
 * 성능 - 성능에 미치는 영향이 매우 낮습니다. 원격 분석은 일괄 처리됩니다.
-* [지원](app-insights-get-dev-support.md) - Azure 지원 프로그램을 활용할 수 있습니다. 개발자로부터 답변을 받을 수 있는 실시간 포럼이 있습니다. 그리고 마지막 수단으로 개별 도움말을 제공할 수 있습니다.
 * [가격 책정](app-insights-pricing.md) - 무료로 시작할 수 있고 낮은 볼륨에서는 계속 무료로 이용할 수 있습니다.
+
+
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>다음 단계
 Application Insights로 시작하기가 쉽습니다. 기본 옵션:
@@ -170,10 +175,5 @@ Application Insights로 시작하기가 쉽습니다. 기본 옵션:
 * 이미 실행 중인 웹앱을 계측합니다. 모든 내장 성능 원격 분석을 제공합니다. [Java](app-insights-java-live.md), [IIS 서버](app-insights-monitor-performance-live-website-now.md) 및 [Azure Web Apps](app-insights-azure.md)에서 사용할 수 있습니다.
 * 개발 중에 프로젝트를 계측합니다. [ASP.NET](app-insights-asp-net.md) 또는 [Java](app-insights-java-get-started.md) 앱, [Node.js](app-insights-nodejs.md), 여러 가지 [기타 유형](app-insights-platforms.md) 호스트에 적용할 수 있습니다. 
 * 짧은 코드 조각을 추가하여 [아무 웹 페이지](app-insights-javascript.md) 나 계측합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

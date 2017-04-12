@@ -64,7 +64,7 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 | --- | --- | --- |
 | filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects**이고 **기본값**은 **setOfObjects**입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |아니요 |
 | jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일에서 데이터를 복사할 때만 지원됩니다. | 아니요 |
-| jsonPathDefinition | 사용자 지정된 열 이름으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일에서 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 아니요 |
+| jsonPathDefinition | 사용자 지정된 열 이름(소문자로 시작)으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일에서 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 아니요 |
 | encodingName |인코딩 이름을 지정합니다. 유효한 인코딩 이름 목록은 [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) 속성을 참조하세요. 예: windows-1250 또는 shift_jis **기본값**은 **UTF-8**입니다. |아니요 |
 | nestingSeparator |중첩 수준을 구분하는데 사용되는 문자입니다. 기본값은 '.'(점)입니다. |아니요 |
 
@@ -161,9 +161,86 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 
 #### <a name="jsonformat-example"></a>JsonFormat 예제
 
-**예제 1: JSON 파일에서 데이터 복사**
+**사례 1: JSON 파일에서 데이터 복사**
 
-다음 내용을 포함하는 JSON 파일이 있고  
+JSON 파일에서 데이터를 복사하는 경우 아래의 두 가지 샘플 유형과 유의할 일반 요소를 참조하세요.
+
+**샘플 1: 개체 및 배열에서 데이터 추출**
+
+이 샘플에서는 테이블 형식 결과에서 하나의 루트 JSON 개체를 하나의 레코드로 매핑하는 것이 예상됩니다. 다음 내용을 포함하는 JSON 파일이 있고  
+
+```json
+{
+    "id": "ed0e4960-d9c5-11e6-85dc-d7996816aad3",
+    "context": {
+        "device": {
+            "type": "PC"
+        },
+        "custom": {
+            "dimensions": [
+                {
+                    "TargetResourceType": "Microsoft.Compute/virtualMachines"
+                },
+                {
+                    "ResourceManagmentProcessRunId": "827f8aaa-ab72-437c-ba48-d8917a7336a3"
+                },
+                {
+                    "OccurrenceTime": "1/13/2017 11:24:37 AM"
+                }
+            ]
+        }
+    }
+}
+```
+개체와 배열 모두에서 데이터를 추출하여 다음과 같은 형식으로 Azure SQL 테이블에 복사하려는 경우
+
+| id | deviceType | targetResourceType | resourceManagmentProcessRunId | occurrenceTime |
+| --- | --- | --- | --- | --- |
+| ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
+
+**JsonFormat** 형식의 입력 데이터 집합은 다음과 같이 정의됩니다(관련 부분만 있는 부분 정의). 더 구체적으로 살펴보면 다음과 같습니다.
+
+- `structure` 섹션은 테이블 형식 데이터로 변환하는 동안 사용자 지정된 열 이름과 해당 데이터 형식을 정의합니다. 이 섹션은 열 매핑을 수행할 필요가 없는 경우를 제외하고는 **선택적**입니다. 자세한 내용은 [사각형 데이터 집합의 구조 정의 지정](#specifying-structure-definition-for-rectangular-datasets) 섹션을 참조하세요.
+- `jsonPathDefinition`은 데이터를 추출할 위치를 나타내는 각 열의 JSON 경로를 지정합니다. 데이터를 배열에서 복사하려면 **array[x].property를 사용하여** xth 개체에서 지정된 된 속성의 값을 추출하거나 **array[*].property**를 사용하여 이러한 속성을 포함하는 모든 개체의 값을 찾을 수 있습니다.
+
+```json
+"properties": {
+    "structure": [
+        {
+            "name": "id",
+            "type": "String"
+        },
+        {
+            "name": "deviceType",
+            "type": "String"
+        },
+        {
+            "name": "targetResourceType",
+            "type": "String"
+        },
+        {
+            "name": "resourceManagmentProcessRunId",
+            "type": "String"
+        },
+        {
+            "name": "occurrenceTime",
+            "type": "DateTime"
+        }
+    ],
+    "typeProperties": {
+        "folderPath": "mycontainer/myfolder",
+        "format": {
+            "type": "JsonFormat",
+            "filePattern": "setOfObjects",
+            "jsonPathDefinition": {"id": "$.id", "deviceType": "$.context.device.type", "targetResourceType": "$.context.custom.dimensions[0].TargetResourceType", "resourceManagmentProcessRunId": "$.context.custom.dimensions[1].ResourceManagmentProcessRunId", "occurrenceTime": " $.context.custom.dimensions[2].OccurrenceTime"}      
+        }
+    }
+}
+```
+
+**샘플 2: 배열에서 동일한 패턴을 사용하여 여러 개체 배열에서 교차 적용**
+
+이 샘플에서는 테이블 형식 결과에서 하나의 루트 JSON 개체가 여러 레코드로 변환하는 것이 예상됩니다. 다음 내용을 포함하는 JSON 파일이 있고  
 
 ```json
 {
@@ -190,9 +267,9 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 
 | ordernumber | orderdate | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |
-| 01 | 20170122 | P1 | 23 | No 1 |
-| 01 | 20170122 | P2 | 13 | No 1 |
-| 01 | 20170122 | P3 | 231 | No 1 |
+| 01 | 20170122 | P1 | 23 | [{"sanmateo":"No 1"}] |
+| 01 | 20170122 | P2 | 13 | [{"sanmateo":"No 1"}] |
+| 01 | 20170122 | P3 | 231 | [{"sanmateo":"No 1"}] |
 
 **JsonFormat** 형식의 입력 데이터 집합은 다음과 같이 정의됩니다(관련 부분만 있는 부분 정의). 더 구체적으로 살펴보면 다음과 같습니다.
 
@@ -230,7 +307,7 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
             "type": "JsonFormat",
             "filePattern": "setOfObjects",
             "jsonNodeReference": "$.orderlines",
-            "jsonPathDefinition": {"ordernumber": "$.ordernumber", "orderdate": "$.orderdate", "order_pd": "prod", "order_price": "price", "city": " $.city[0].sanmateo"}         
+            "jsonPathDefinition": {"ordernumber": "$.ordernumber", "orderdate": "$.orderdate", "order_pd": "prod", "order_price": "price", "city": " $.city"}         
         }
     }
 }
@@ -243,7 +320,7 @@ JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `
 * 동일한 수준에 중복된 이름이 있는 경우 복사 활동에서는 마지막 이름이 선택됩니다.
 * 속성 이름은 대/소문자를 구분합니다. 이름은 같지만 대/소문자가 다른 두 속성은 별도의 두 속성으로 간주됩니다.
 
-**예제 2: JSON 파일에 데이터 쓰기**
+**사례 2: JSON 파일에 데이터 쓰기**
 
 SQL Database에 아래 테이블이 있고
 
@@ -256,7 +333,7 @@ SQL Database에 아래 테이블이 있고
 각 레코드에 대해 아래 형식으로 JSON 개체에 쓰려고 하는 경우
 ```json
 {
-    "id": 1,
+    "id": "1",
     "order": {
         "date": "20170119",
         "price": 2000,
@@ -284,7 +361,7 @@ SQL Database에 아래 테이블이 있고
         },
         {
             "name": "order.customer",
-            "type": "Int64"
+            "type": "String"
         }
     ],
     "typeProperties": {
@@ -350,8 +427,3 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 
 * 복합 데이터 형식(MAP, LIST)은 지원되지 않습니다.
 * Parquet 파일에는 압축 관련 옵션인 NONE, SNAPPY, GZIP 및 LZO가 포함되어 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 ORC 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 Parquet 파일에 쓸 때 Data Factory는 Parquet 서식에 대한 기본값인 SNAPPY를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
-
-
-<!--HONumber=Jan17_HO4-->
-
-

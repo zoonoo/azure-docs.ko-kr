@@ -1,6 +1,6 @@
 ---
-title: "가져오기/내보내기를 사용하여 Blob Storage로 데이터 전송| Microsoft Docs"
-description: "Azure Portal에서 가져오기 및 내보내기 작업을 만들어 Blob 저장소로 데이터를 전송하는 방법에 대해 알아봅니다."
+title: "Azure Import/Export를 사용하여 Blob Storage로 데이터 전송| Microsoft Docs"
+description: "Azure Portal에서 가져오기 및 내보내기 작업을 만들어 Blob Storage로 데이터를 전송하는 방법에 대해 알아봅니다."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -15,21 +15,22 @@ ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 787f54ca2c19d87866ede452ea1cce0b1c37f263
-ms.openlocfilehash: 50f66d229b80489e429b5db3f2c6cc5787b6884c
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: fd2338b73bd82121ed36e286446b07ccd4a8a219
+ms.lasthandoff: 03/30/2017
 
 
 ---
-# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Microsoft Azure 가져오기/내보내기 서비스를 사용하여 Blob 저장소로 데이터 전송
-## <a name="overview"></a>개요
-Azure 가져오기/내보내기 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob 저장소로 전송할 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob 저장소에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 이 서비스는 몇 TB의 데이터를 Azure로 또는 Azure에서 전송하고자 할 때 적합하지만, 제한된 대역폭 또는 높은 네트워크 비용으로 인해 네트워크를 통한 업로드 및 다운로드는 적합하지 않습니다.
+# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage로 데이터 전송
+
+Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob 저장소로 전송할 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob 저장소에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 이 서비스는 몇 TB(테라바이트)의 데이터를 Azure로 또는 Azure에서 전송하고자 할 때 적합하지만, 제한된 대역폭 또는 높은 네트워크 비용으로 인해 네트워크를 통한 업로드 및 다운로드는 적합하지 않습니다.
 
 이 서비스를 사용하려면 데이터 보안을 위해 하드 디스크 드라이브를 BitLocker 암호화해야 합니다. 이 서비스는 공용 Azure의 모든 지역에 있는 클래식 및 Azure Resource Manager 저장소 계정(표준 및 쿨 계층)을 모두 지원합니다. 이 문서의 뒷부분에 지정된 지원되는 위치 중 한 곳에 하드 디스크 드라이브를 발송해야 합니다.
 
-이 문서에서는 Azure 가져오기/내보내기 서비스 및 Azure Blob 저장소로의 데이터를 복사하기 위해 드라이브를 발송하는 방법에 대해 자세히 알아봅니다.
+이 문서에서는 Azure Import/Export 서비스 및 Azure Blob 저장소로의 데이터를 복사하기 위해 드라이브를 발송하는 방법에 대해 자세히 알아봅니다.
 
 ## <a name="when-should-i-use-the-azure-importexport-service"></a>언제 Azure 가져오기/내보내기 서비스를 사용해야 하나요?
-네트워크를 통한 데이터 업로드 또는 다운로드가 너무 느리거나 추가 네트워크 대역폭 비용이 너무 비싼 경우 Azure 가져오기/내보내기 서비스 사용을 고려할 수 있습니다.
+네트워크를 통한 데이터 업로드 또는 다운로드가 너무 느리거나 추가 네트워크 대역폭 비용이 너무 비싼 경우 Azure Import/Export 서비스 사용을 고려할 수 있습니다.
 
 다음과 같은 시나리오에서 이 서비스를 사용할 수 있습니다.
 
@@ -77,7 +78,6 @@ WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다
 ### <a name="hard-disk-drives"></a>하드 디스크 드라이브
 2.5" SSD 또는 2.5"/3.5" SATA II/III 내부 하드 드라이브만 Import/Export 서비스에서 사용하도록 지원됩니다. 최대 10TB의 하드 드라이브를 사용할 수 있습니다.
 가져오기 작업의 경우 드라이브의 첫 번째 데이터 볼륨만 처리됩니다. 데이터 볼륨은 NTFS로 포맷되어 있어야 합니다.
-하드 드라이브에 데이터를 복사할 때 2.5" SSD 또는 2.5"/3.5" SATA II/III 커넥터를 사용하여 직접 연결하거나 외장 2.5" SSD 또는 2.5"/3.5" SATA II/III USB 어댑터를 사용하여 외부에서 연결할 수 있습니다.
 
 > [!IMPORTANT]
 > 기본 제공 USB 어댑터와 함께 제공되는 외부 하드 디스크 드라이브는 이 서비스에서 지원하지 않습니다. 외장 HDD 케이스 안의 디스크도 사용할 수 없습니다. 외장 HDD를 발송하지 마세요.
@@ -196,8 +196,6 @@ Azure Portal에서 가져오기 또는 내보내기 작업의 상태를 추적�
 아래 표에서는 개별 드라이브가 가져오기 또는 내보내기 작업을 통해 전환할 때의 수명 주기를 설명합니다. 이제 Azure Portal에서 작업에 속한 각 드라이브의 현재 상태를 볼 수 있습니다.
 다음 표에서는 작업에 속한 각 드라이브가 통과할 수 있는 각각의 상태를 설명합니다.
 
-![드라이브 상태 보기](./media/storage-import-export-service/drivestate.png)
-
 | 드라이브 상태 | 설명 |
 |:--- |:--- |
 | 지정됨 | 가져오기 작업의 경우 Azure Portal에서 작업을 만들 때 드라이브의 초기 상태는 '지정됨' 상태입니다. 내보내기 작업의 경우 작업을 만들 때 드라이브가 지정되지 않으므로 초기 드라이브 상태는 '수신됨' 상태입니다. |
@@ -208,6 +206,10 @@ Azure Portal에서 가져오기 또는 내보내기 작업의 상태를 추적�
 | 완료됨(추가 정보 필요) | 데이터를 드라이브에(서) 복사하는 동안 서비스에서 몇 가지 문제가 발생하면 드라이브가 '완료됨(추가 정보 필요)' 상태로 전환합니다. 정보에는 Blob 덮어쓰기에 대한 오류, 경고 또는 정보 메시지가 포함될 수 있습니다.
 | 반송됨 | 드라이브가 데이터 센터에서 반송 주소로 반송되면 '반송됨' 상태로 전환합니다. |
 
+Azure Portal의 이 이미지는 예제 작업의 드라이브 상태를 나타냅니다.
+
+![드라이브 상태 보기](./media/storage-import-export-service/drivestate.png)
+
 다음 표에서는 드라이브 오류 상태 및 각 상태에 대해 수행하는 작업을 설명합니다.
 
 | 드라이브 상태 | 이벤트 | 해결 방법/다음 단계 |
@@ -215,9 +217,8 @@ Azure Portal에서 가져오기 또는 내보내기 작업의 상태를 추적�
 | 수신되지 않음 | 작업 운송물의 일부로 받지 못하여 '수신되지 않음'으로 표시된 드라이브가 다른 운송을 통해 도착했습니다. | 운영 팀이 드라이브를 '수신됨' 상태로 전환합니다. |
 | 해당 없음 | 작업에 포함되지 않은 드라이브가 다른 작업의 일부로 데이터 센터에 도착했습니다. | 드라이브가 추가 드라이브로 표시되며 원래 패키지와 관련된 작업이 완료되면 고객에게 반송됩니다. |
 
-
 ### <a name="time-to-process-job"></a>작업 처리 시간
-가져오기/내보내기 작업을 처리하는 데 소요되는 총 시간은 발송 시간, 작업 유형, 복사되는 데이터 유형 및 크기, 제공된 디스크 크기와 같은 다양한 요소에 따라 다릅니다. 가져오기/내보내기 서비스에는 SLA가 없습니다. REST API를 사용하여 작업 진행 상태를 좀 더 자세히 추적할 수 있습니다. 작업 나열 작업에는 복사 진행 상태를 나타내는 완료율 매개 변수가 있습니다. 시간이 매우 중요한 가져오기/내보내기 작업을 완료하는 예상 시간이 필요한 경우 문의하세요.
+가져오기/내보내기 작업을 처리하는 데 소요되는 총 시간은 발송 시간, 작업 유형, 복사되는 데이터 유형 및 크기, 제공된 디스크 크기와 같은 다양한 요소에 따라 다릅니다. Import/Export 서비스에는 SLA가 없습니다. REST API를 사용하여 작업 진행 상태를 좀 더 자세히 추적할 수 있습니다. 작업 나열 작업에는 복사 진행 상태를 나타내는 완료율 매개 변수가 있습니다. 시간이 매우 중요한 가져오기/내보내기 작업을 완료하는 예상 시간이 필요한 경우 문의하세요.
 
 ### <a name="pricing"></a>가격
 **드라이브 취급 수수료**
@@ -235,7 +236,7 @@ Blob 저장소로 데이터를 가져올 때는 트랜잭션 비용이 없습니
 ## <a name="quick-start"></a>빠른 시작
 이 섹션에서 가져오기 및 내보내기 작업을 만드는 단계별 지침을 제공합니다. 계속 진행하기 전에 모든 [필수 구성 요소](#pre-requisites) 를 충족하는지 확인하세요.
 
-## <a name="how-to-create-an-import-job"></a>가져오기 작업을 만드는 방법
+## <a name="create-an-import-job"></a>가져오기 작업 만들기
 데이터를 포함하는 하나 이상의 드라이브를 지정된 데이터 센터로 발송하여 하드 드라이브에서 Azure 저장소 계정으로 데이터를 복사하는 가져오기 작업을 만듭니다. 가져오기 작업은 하드 디스크 드라이브, 복사할 데이터, 대상 저장소 계정 및 발송 정보에 대한 세부 정보를 Azure 가져오기/내보내기 서비스에 전달합니다. 가져오기 작업 만들기는 3단계 프로세스입니다. 첫째, WAImportExport 도구를 사용하여 드라이브를 준비합니다. 둘째, Azure Portal을 사용하여 가져오기 작업을 제출합니다. 셋째, 작업을 만드는 동안 제공된 배송지 주소로 드라이브를 발송하고 작업 세부 정보에서 발송 정보를 업데이트합니다.   
 
 > [!IMPORTANT]
@@ -249,8 +250,8 @@ Azure Import/Export 서비스를 사용하여 데이터를 가져올 때 첫 번
 1. 가져올 데이터를 식별합니다. 이는 로컬 서버에 있는 디렉터리 및 독립 실행형 파일이거나 또는 네트워크 공유일 수 있습니다.  
 2. 전체 데이터 크기에 따라 필요한 드라이브 수를 결정합니다. 필요한 2.5" SSD 또는 2.5"/3.5" SATA II/III 하드 디스크 드라이브 수를 확보합니다.
 3. 대상 저장소 계정, 컨테이너, 가상 디렉터리 및 Blob을 식별합니다.
-4.  각 하드 디스크 드라이브에 복사할 독립 실행형 파일 및/또는 디렉터리를 결정합니다.
-5.  데이터 집합/드라이브 집합을 위한 CSV 파일을 만듭니다.
+4.    각 하드 디스크 드라이브에 복사할 독립 실행형 파일 및/또는 디렉터리를 결정합니다.
+5.    데이터 집합/드라이브 집합을 위한 CSV 파일을 만듭니다.
     
     **데이터 집합 CSV 파일**
     
@@ -284,8 +285,8 @@ Azure Import/Export 서비스를 사용하여 데이터를 가져올 때 첫 번
 
     [드라이브 집합 CSV 파일 준비](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file)에 대해 자세히 알아보세요.
 
-6.  [WAImportExport 도구](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)를 사용하여 하나 이상의 하드 드라이브에 데이터를 복사합니다.
-7.  드라이브 집합 CSV의 Encryption 필드에 "Encrypt"를 지정하여 하드 디스크 드라이브에서 BitLocker 암호화를 사용하도록 설정할 수 있습니다. 또는 도구를 실행하는 동안 하드 디스크 드라이브에서 BitLocker 암호화를 사용하도록 수동으로 설정하고, 드라이브 집합 CSV에 "AlreadyEncrypted"를 지정한 다음 키를 제공할 수도 있습니다.
+6.    [WAImportExport 도구](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)를 사용하여 하나 이상의 하드 드라이브에 데이터를 복사합니다.
+7.    드라이브 집합 CSV의 Encryption 필드에 "Encrypt"를 지정하여 하드 디스크 드라이브에서 BitLocker 암호화를 사용하도록 설정할 수 있습니다. 또는 도구를 실행하는 동안 하드 디스크 드라이브에서 BitLocker 암호화를 사용하도록 수동으로 설정하고, 드라이브 집합 CSV에 "AlreadyEncrypted"를 지정한 다음 키를 제공할 수도 있습니다.
 
 8. 디스크 준비를 완료한 후 하드 디스크 드라이브 또는 저널 파일에 있는 데이터를 수정하지 마세요.
 
@@ -302,7 +303,7 @@ Azure Import/Export 서비스를 사용하여 데이터를 가져올 때 첫 번
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
 ```
 
-**예제:**
+**가져오기 예제 1**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
@@ -314,7 +315,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
 ```
 
-**예제**
+**가져오기 예제 2**
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDriveSet:driveset-2.csv
 ```
@@ -325,7 +326,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDrive
 WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
 ```
 
-**예제:**
+**가져오기 예제 3**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
@@ -333,7 +334,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 WAImportExport 도구 사용에 대한 자세한 내용은 [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import.md)를 참조하세요.
 
-또한 좀 더 자세한 단계별 지침에 대해서는 [가져오기 작업을 위해 하드 드라이브를 준비하는 예제 워크플로](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) 를 참조하세요.  
+또한 좀 더 자세한 단계별 지침에 대해서는 [가져오기 작업을 위해 하드 드라이브를 준비하는 예제 워크플로](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)를 참조하세요.  
 
 ### <a name="create-the-import-job"></a>가져오기 작업 만들기
 1. 드라이브가 준비되었으면 Azure Portal에서 저장소 계정으로 이동하고 대시보드를 봅니다. **간략 상태**에서 **가져오기 작업 만들기**를 클릭합니다. 단계를 검토하고 확인란을 선택하여 드라이브를 준비했으며 사용 가능한 드라이브 저널 파일이 있음을 지정합니다.
@@ -356,7 +357,7 @@ WAImportExport 도구 사용에 대한 자세한 내용은 [가져오기 작업�
     작업이 만드는 중, 발송 중 또는 전송 중 상태이면 마법사 2단계에서 택배사 계정 번호를 업데이트할 수도 있습니다. 작업이 포장 중 상태이면 해당 작업에 대한 택배사 계정 번호를 업데이트할 수 없습니다.
 7. 포털 대시보드에서 작업 진행 상태를 추적할 수 있습니다. 각 작업 상태가 무엇을 의미하는지는 [작업 상태 보기](#viewing-your-job-status)에 대한 이전 섹션에서 확인하세요.
 
-## <a name="how-to-create-an-export-job"></a>내보내기 작업을 만드는 방법
+## <a name="create-an-export-job"></a>내보내기 작업 만들기
 내보내기 작업을 만들고 저장소 계정에서 드라이브로 데이터를 내보낸 다음 드라이브를 사용자에게 발송할 수 있도록 하나 이상의 빈 드라이브가 데이터 센터로 발송됨을 가져오기/내보내기 서비스에 알립니다.
 
 ### <a name="prepare-your-drives"></a>드라이브 준비
@@ -422,7 +423,7 @@ WAImportExport 도구 사용에 대한 자세한 내용은 [가져오기 작업�
 
 **Azure 가져오기/내보내기 서비스를 CSP 구독에 사용할 수 있나요?**
 
-아니요. Azure 가져오기/내보내기 서비스는 CSP 구독을 지원하지 않습니다. 나중에 지원이 추가될 예정입니다.
+Azure Import/Export 서비스는 CSP 구독을 지원합니다.
 
 **가져오기 작업에서 드라이브 준비 단계를 건너뛰거나 복사하지 않고 드라이브를 준비할 수 있나요?**
 
@@ -495,14 +496,10 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같이 알려진 모든 운송업�
 
 [Azure 백업의 오프라인 백업 워크플로](../backup/backup-azure-backup-import-export.md)를 참조하세요.
 
-## <a name="see-also"></a>참고 항목:
+## <a name="next-steps"></a>다음 단계
+
 * [WAImportExport 도구 설정](storage-import-export-tool-how-to.md)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
-* [Azure 가져오기 또는 내보내기 REST API 샘플](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+* [Azure Import/Export REST API 샘플](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 
 

@@ -13,16 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: a5bd3866f3150b1c787e5f3700bdbd0b74fbaf42
-ms.openlocfilehash: 666a8031a262aef72fc8c3e73647f81d79b1c916
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 598f5ce445e520b6cdc347c80f7f3dcbc9c2c9e5
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Azure 기계 학습에 대한 프로그래밍 언어는 R에 대한 빠른 시작 자습서
-Stephen F Elston, Ph.D.
+
+<!-- Stephen F Elston, Ph.D. -->
 
 ## <a name="introduction"></a>소개
 이 빠른 시작 자습서는 R 프로그래밍 언어를 사용하여 Azure 기계 학습을 빠르게 확장하는 데 도움이 됩니다. 이 R 프로그래밍 자습서를 따라 Azure 기계 학습 내에서 R 코드를 만들고 테스트하고 실행합니다. 자습서를 진행하면서 Azure 기계 학습에서 R 언어를 사용하여 완벽한 예측 솔루션이 만들어집니다.  
@@ -49,7 +51,7 @@ Microsoft Azure 기계 학습에는 강력한 기계 학습 및 데이터 조작
 * 준비된 데이터를 가지고 데이터 집합에서 여러 변수 간의 상관관계를 분석합니다.
 * 마지막으로 우유 생산의 계절성 시계열 예측 모델을 만듭니다.
 
-## <a name="a-idmlstudioainteract-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>기계 학습 스튜디오에서 R 언어와 상호 작용
+## <a id="mlstudio"></a>기계 학습 스튜디오에서 R 언어와 상호 작용
 이 섹션에서는 기계 학습 스튜디오 환경에서 R 프로그래밍 언어와 상호 작용하는 방법에 대한 일부 기본적인 과정을 안내합니다. R 언어는 Azure 기계 학습 환경에서 사용자 지정된 분석 및 데이터 조작 모듈을 만드는 강력한 도구를 제공합니다.
 
 작은 규모로 R 코드를 개발, 테스트 및 디버그하기 위해 RStudio를 사용합니다. 그런 다음 이 코드를 잘라서 Machine Learning Studio에서 [R 스크립트 실행][execute-r-script] 모듈에 붙여넣어 실행할 준비를 합니다.  
@@ -130,13 +132,13 @@ RStudio에 대한 자습서 소개는 https://support.rstudio.com/hc/sections/20
 
 [부록 A][appendixa]에 RStudio 사용에 대한 추가 정보가 일부 제공됩니다.  
 
-## <a name="a-idscriptmoduleaget-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>R 스크립트 실행 모듈의 데이터 입출력 가져오기
+## <a id="scriptmodule"></a>R 스크립트 실행 모듈의 데이터 입출력 가져오기
 이 섹션에서는 [R 스크립트 실행][execute-r-script] 모듈의 데이터를 입력 및 출력하는 방법을 설명합니다. [R 스크립트 실행][execute-r-script] 모듈의 내부 및 외부로 읽은 다양한 데이터 형식을 처리하는 방법을 검토합니다.
 
 이 섹션의 전체 코드는 앞서 다운로드한 zip 파일에 들어 있습니다.
 
 ### <a name="load-and-check-data-in-machine-learning-studio"></a>기계 학습 스튜디오에서 데이터 로드 및 확인
-#### <a name="a-idloadingaload-the-dataset"></a><a id="loading"></a>데이터 집합 로드
+#### <a id="loading"></a>데이터 집합 로드
 **csdairydata.csv** 파일을 Azure 기계 학습 스튜디오로 로드하여 시작합니다.
 
 * Azure 기계 학습 스튜디오 환경을 시작합니다.
@@ -313,7 +315,7 @@ R 장치 출력을 보려면 해당 포트를 클릭한 다음 **시각화**를 
 
 *그림 8. R 장치 포트의 그래픽 출력*  
 
-## <a name="a-idfilteringadata-filtering-and-transformation"></a><a id="filtering"></a>데이터 필터링 및 변환
+## <a id="filtering"></a>데이터 필터링 및 변환
 이 섹션에서는 캘리포니아 유제품 데이터에 몇 가지 기본 데이터 필터링 및 변환 작업을 수행합니다. 이 섹션의 끝 부분에서 분석 모델을 구축하기에 적합한 형식의 데이터를 얻게 됩니다.  
 
 더욱 구체적으로 설명하자면 이 섹션에서 여러 일반적인 데이터 정리 및 변환 작업(형식 변환, 데이터 프레임 필터링, 새 계산 열 추가, 값 변환)을 수행합니다. 이 경험이 실제로 겪게 될 많은 다양한 문제를 해결하는 데 도움이 될 것입니다.
@@ -596,7 +598,7 @@ R에서 방어적 프로그래밍이 익숙하지 않으면 이 코드가 모두
 
 이 시점에서 데이터가 정리되며 모델링할 준비가 됩니다. [R 스크립트 실행][execute-r-script] 모듈의 Result Dataset 출력에 대한 시각화된 요약을 보면 'Month' 열이 원하는 12개의 고유값을 가진 'Categorical'이라는 것을 알 수 있습니다.
 
-## <a name="a-idtimeseriesatime-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>시계열 개체 및 상관관계 분석
+## <a id="timeseries"></a>시계열 개체 및 상관관계 분석
 이 섹션에서는 몇 가지 기본 R 시계열 개체를 살펴보고 일부 변수 간의 상관관계를 분석합니다. 여기서는 여러 지연 상황에서 쌍별 상관관계 정보를 포함하는 데이터 프레임을 출력하는 것이 목표입니다.
 
 이 섹션의 전체 R 코드는 앞서 다운로드한 zip 파일에 들어 있습니다.
@@ -877,7 +879,7 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
 
 *그림 19. 상관관계 분석 결과 출력*
 
-## <a name="a-idseasonalforecastingatime-series-example-seasonal-forecasting"></a><a id="seasonalforecasting"></a>시계열 예: 계절별 예측
+## <a id="seasonalforecasting"></a>시계열 예: 계절별 예측
 이제 데이터가 분석에 적합한 형식이 되었으며 변수 간에는 중요한 상관관계가 없습니다. 이제 시계열 예측 모델을 만들어 보겠습니다. 이 모델을 사용하여 2013년 12개월 동안의 캘리포니아 우유 생산을 예측합니다.
 
 예측 모델에는 두 가지 구성 요소, 즉 추세 구성 요소와 계절 구성 요소가 포함됩니다. 이 두 구성 요소를 통해 완벽하게 예측할 수 있습니다. 이런 형식의 모델을 승법 모형이라고 합니다. 대안으로는 가법 모형이 있습니다. 이 분석을 다룰 수 있는 변수에 이미 로그 변환을 적용했습니다.
@@ -1207,7 +1209,7 @@ RMS 오차를 측정하는 함수를 사용하여 RMS 오차가 포함된 데이
 
 이러한 결과를 통해 모델에 계절 요소를 추가하면 RMS 오차가 현저히 감소한다는 사실을 알 수 있습니다. 별로 놀랍지는 않지만 학습 데이터의 RMS 오차는 예측의 RMS 오차보다 약간 적습니다.
 
-## <a name="a-idappendixaaappendix-a-guide-to-rstudio"></a><a id="appendixa"></a>부록 A - RStudio 가이드
+## <a id="appendixa"></a>부록 A - RStudio 가이드
 RStudio는 문서화된 관련 증거가 많으므로 이 부록에서는 시작할 수 있도록 RStudio 설명서의 주요 섹션에 대한 일부 링크를 제공합니다.
 
 1. 프로젝트 만들기
@@ -1224,7 +1226,7 @@ RStudio는 문서화된 관련 증거가 많으므로 이 부록에서는 시작
    
    중단점 문제 해결 기능은 https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting(영문)에 문서화되어 있습니다.
 
-## <a name="a-idappendixbaappendix-b-further-reading"></a><a id="appendixb"></a>부록 B - 추가 정보
+## <a id="appendixb"></a>부록 B - 추가 정보
 이 R 프로그래밍 자습서는 Azure 기계 학습 스튜디오에서 R 언어를 사용해야 하는 기본 사항을 소개합니다. R에 익숙하지 않은 경우 CRAN에서 두 가지 소개 자료를 사용할 수 있습니다.
 
 * R을 시작하기에 좋은 자료인 R for Beginners by Emmanuel Paradis는 http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf(영문)에 있습니다.  
@@ -1244,7 +1246,8 @@ R 시계열 패키지 카탈로그는 CRAN Task View for time series analysis(ht
 
 다음은 유용한 인터넷 리소스입니다.
 
-* DataCamp: 브라우저에서 편안하게 비디오 레슨 및 코드 연습을 배울 수 있습니다. 최신 R 기술 및 패키지에 대한 대화형 자습서가 제공됩니다. 무료 대화형 R 자습서를 https://www.datacamp.com/courses/introduction-to-r에서 확인하세요.  
+* DataCamp: 브라우저에서 편안하게 비디오 레슨 및 코드 연습을 배울 수 있습니다. 최신 R 기술 및 패키지에 대한 대화형 자습서가 제공됩니다. 무료 대화형 R 자습서를 https://www.datacamp.com/courses/introduction-to-r에서 확인하세요.
+* Programiz에서 R을 시작하는 가이드 https://www.programiz.com/r-programming
 * 클라크슨 대학교의 Kelly Black이 제공하는 빠른 R 자습서 http://www.cyclismo.org/tutorial/R/
 * 60 개 이상의 R 리소스 http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
@@ -1281,9 +1284,4 @@ R 시계열 패키지 카탈로그는 CRAN Task View for time series analysis(ht
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

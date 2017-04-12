@@ -4,7 +4,7 @@ description: "StorSimple 경고 조건 및 심각도, 경고 알림을 구성하
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: bee49253-9ac7-4131-95f6-6bf0e72b8438
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2016
+ms.date: 03/08/2017
 ms.author: anbacker
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c09a105bd321ec29f4331d2ba4c8cf80a796da45
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2a1e44920581771af77fb46984b1cea31a957d67
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -155,6 +156,7 @@ StorSimple 프로덕션 장치에서 클라우드 연결에 실패하면 장치 
 |:--- |:--- |:--- |
 | 하드웨어 구성 요소 <*구성 요소 ID*>에서 상태를 <*상태*>로 보고합니다. | |때로 일시적인 조건으로 인해 이러한 경고가 발생할 수 있습니다. 그렇다면 이 경고는 일정 시간 후에 자동으로 지워집니다. 문제가 지속되면 Microsoft 지원에 문의하세요. |
 | 오작동하는 수동 컨트롤러입니다. |수동(보조) 컨트롤러는 작동하지 않습니다. |장치는 작동하지만 컨트롤러 중 하나가 작동하지 않습니다. 해당 컨트롤러를 다시 시작하세요. 문제가 해결되지 않으면 Microsoft 지원에 문의하세요. |
+| 잠재적인 드라이브 오류를 발견했습니다. | 잠재적인 드라이브 오류를 발견했습니다. |'<*슬롯 ID*> 슬롯, <*인클로저 ID*> 인클로저의 드라이브' 하드웨어 구성 요소에 대한 잠재적인 드라이브 오류를 발견했습니다. 드라이브를 교체하는 것이 좋습니다. <br> 디스크 교체를 시작하기 전에 다음 정보를 검토합니다.<br><br>장치에 오류가 발생한 디스크가 둘 이상 있는 경우 항상 SSD 또는 HDD를 둘 이상 꺼내지 마세요. 이렇게 하면 데이터가 손실될 수 있습니다.<br><br>이전에 SSD가 포함된 슬롯에는 교체 SSD를 넣어야 합니다. HDD에도 동일하게 적용됩니다.<br><br>슬롯 번호는 0에서 11까지 지정됩니다. 슬롯 2에서 오류가 발생한 디스크는 장치(왼쪽 위)의 슬롯 3에서 오류가 발생한 디스크에 매핑됩니다.<br><br>디스크를 교체 하는 방법에 대한 자세한 내용은 https://go.microsoft.com/fwlink/?linkid=838653으로 이동 하세요. 문제가 지속되면 https://go.microsoft.com/fwlink/?linkid=838654를 통해 Microsoft 지원에 문의하세요. |
 
 ### <a name="job-failure-alerts"></a>작업 실패 경고
 | 경고 텍스트 | 이벤트 | 자세한 내용 / 권장 작업 |
@@ -213,10 +215,5 @@ StorSimple 프로덕션 장치에서 클라우드 연결에 실패하면 장치 
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 오류 및 운영 장치 문제 해결](storsimple-troubleshoot-operational-device.md)에 대해 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

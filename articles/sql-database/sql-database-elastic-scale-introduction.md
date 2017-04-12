@@ -8,7 +8,7 @@ author: ddove
 editor: 
 ms.assetid: d15a2e3f-5adf-41f0-95fa-4b945448e184
 ms.service: sql-database
-ms.custom: sharded databases
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: aa234364a8277154e486b8eca79ec30ccaa9fb0d
+ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
+ms.openlocfilehash: f1f963c1401b785b3d4ee007b6ea61f221f9ec4d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: aa234364a8277154e486b8eca79ec30ccaa9fb0d
 
 1. **Azure SQL 데이터베이스** 집합은 분할 아키텍처를 사용하여 Azure에서 호스트됩니다.
 2. **탄력적 데이터베이스 클라이언트 라이브러리** 는 분할된 데이터베이스 집합을 관리하는 데 사용됩니다.
-3. 데이터베이스 하위 집합은 **탄력적 데이터베이스 풀**에 배치됩니다. ( [풀이란?](sql-database-elastic-pool.md)참조).
+3. 데이터베이스 하위 집합은 **탄력적 풀**에 배치됩니다. ( [풀이란?](sql-database-elastic-pool.md)참조).
 4. **탄력적 데이터베이스 작업** 은 모든 데이터베이스에 대해 예약된 또는 임시 T-SQL 스크립트를 실행합니다.
 5. **분할-병합 도구** 는 데이터를 하나의 분할된 데이터베이스에서 다른 분할된 데이터베이스로 이동하는 데 사용됩니다.
 6. **탄력적 데이터베이스 쿼리** 를 통해 분할된 데이터베이스 집합의 모든 데이터베이스에 걸쳐 있는 쿼리를 작성할 수 있습니다.
@@ -79,11 +80,11 @@ ms.openlocfilehash: aa234364a8277154e486b8eca79ec30ccaa9fb0d
 분할은 응용 프로그램의 모든 트랜잭션이 분할 키의 단일 값으로 제한될 수 있는 경우에 가장 적합합니다. 그렇게 하면 모든 트랜잭션이 특정 데이터베이스에 로컬이 됩니다.
 
 ## <a name="multi-tenant-and-single-tenant"></a>다중 테넌트 및 단일 테넌트
-일부 응용 프로그램은 각 테넌트에 대해 별도의 데이터베이스를 만드는 가장 간단한 접근 방식을 사용합니다. 이 방식은 테넌트 단위에서 격리, 백업/복원 기능 및 리소스 확장 기능을 제공하는 **단일 테넌트 분할 패턴** 입니다. 단일 테넌트 분할을 사용하면 각 데이터베이스가 특정 테넌트 ID 값(또는 고객의 키 값)과 연결되지만 해당 키가 데이터 자체에 존재하지 않아도 됩니다. 각 요청을 적절한 데이터베이스에 라우팅하는 것은 응용 프로그램의 책임이고- 클라이언트 라이브러리는 이것을 단순하게 해줍니다.
+일부 응용 프로그램은 각 테넌트에 대해 별도의 데이터베이스를 만드는 가장 간단한 접근 방식을 사용합니다. 이 방식은 테넌트 단위에서 격리, 백업/복원 기능 및 리소스 확장 기능을 제공하는 **단일 테넌트 분할 패턴** 입니다. 단일 테넌트 분할을 사용하면 각 데이터베이스가 특정 테넌트 ID 값(또는 고객의 키 값)과 연결되지만 해당 키가 데이터 자체에 존재하지 않아도 됩니다. 각 요청을 적절한 데이터베이스에 라우팅하는 것은 응용 프로그램의 책임이고 클라이언트 라이브러리는 이것을 단순하게 해줍니다.
 
 ![다중 테넌트 대 단일 테넌트][4]
 
-다른 시나리오에서는 여러 테넌트를 개별 데이터베이스로 격리하지 않고 함께 데이터베이스에 포함합니다. 이 방식은 일반적인 **다중 테넌트 분할 패턴**이며, 응용 프로그램이 매우 작은 테넌트 여러 개를 관리하는 경우 적용될 수 있습니다. 다중 테넌트 분할에서 데이터베이스 테이블의 행은 모두 테넌트 ID 또는 키 분할을 식별하는 키 ID를 제공하도록 설계되었습니다. 또한 응용 프로그램 계층이 적합한 데이터베이스로 테넌트의 요청을 라우팅하고 탄력적 데이터베이스 클라이언트 라이브러리가 보조할 수 있습니다. 또한 행 수준 보안은 행 각각의 세부 정보에 액세스할 수 있는 필터에 사용될 수 있습니다. 자세한 내용은 [탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램](sql-database-elastic-tools-multi-tenant-row-level-security.md)을 참조하세요. 데이터베이스 간 데이터 재배포는 다중 테넌트 분할 패턴을 필요로 할 수 있고, 탄력적 데이터베이스 분할 병합 도구는 이 작업을 수월하게 만들어줍니다. 탄력적 풀을 사용하여 SaaS 응용 프로그램에 대한 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL 데이터베이스와 다중 테넌트 SaaS 응용 프로그램에 대한 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
+다른 시나리오에서는 여러 테넌트를 개별 데이터베이스로 격리하지 않고 함께 데이터베이스에 포함합니다. 이 방식은 일반적인 **다중 테넌트 분할 패턴**이며, 응용 프로그램이 매우 작은 테넌트 여러 개를 관리하는 경우 적용될 수 있습니다. 다중 테넌트 분할에서 데이터베이스 테이블의 행은 모두 테넌트 ID 또는 키 분할을 식별하는 키 ID를 제공하도록 설계되었습니다. 또한 응용 프로그램 계층이 적합한 데이터베이스로 테넌트의 요청을 라우팅하고 탄력적 데이터베이스 클라이언트 라이브러리가 보조할 수 있습니다. 또한 행 수준 보안은 행 각각의 세부 정보에 액세스할 수 있는 필터에 사용될 수 있습니다. 자세한 내용은 [Elastic Database 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램](sql-database-elastic-tools-multi-tenant-row-level-security.md)을 참조하세요. 데이터베이스 간 데이터 재배포는 다중 테넌트 분할 패턴을 필요로 할 수 있고, 탄력적 데이터베이스 분할 병합 도구는 이 작업을 수월하게 만들어줍니다. 탄력적 풀을 사용하여 SaaS 응용 프로그램에 대한 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL 데이터베이스와 다중 테넌트 SaaS 응용 프로그램에 대한 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 
 ### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>다중 테넌트 데이터베이스에서 단일 테넌트 데이터베이스로 데이터 이동
 SaaS 응용 프로그램을 만들 때 잠재 고객에게 평가판 소프트웨어를 제공하는 것은 일반적입니다. 이 경우 데이터에 대해 다중 테넌트 데이터베이스를 사용하는 것이 비용 효율적입니다. 그러나 잠재 고객이 고객이 되면 단일 테넌트 데이터베이스가 더 나은 성능을 제공하므로 단일 테넌트 데이터베이스가 더 좋습니다. 고객이 평가판 사용 기간 동안 데이터를 만든 경우 [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md) 를 사용하여 데이터를 다중 테넌트에서 새 단일 테넌트 데이터베이스로 이동합니다.
@@ -93,7 +94,7 @@ SaaS 응용 프로그램을 만들 때 잠재 고객에게 평가판 소프트�
 
 도구를 사용하도록 기존 데이터베이스를 변환하려면 [확장하기 위해 기존 데이터베이스 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)을 참조하세요.
 
-Elastic Database 풀의 세부 사항을 보려면 [탄력적 데이터베이스 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하거나 [자습서](sql-database-elastic-pool-create-portal.md)를 사용하여 새로운 풀을 만드세요.  
+탄력적 풀의 세부 사항을 보려면 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하거나 [탄력적 풀](sql-database-elastic-pool-manage-portal.md)을 사용하여 새로운 풀을 만드세요.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -103,10 +104,5 @@ Elastic Database 풀의 세부 사항을 보려면 [탄력적 데이터베이스
 [2]:./media/sql-database-elastic-scale-introduction/h_versus_vert.png
 [3]:./media/sql-database-elastic-scale-introduction/overview.png
 [4]:./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

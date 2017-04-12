@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database로 SQL Server 데이터베이스 마이그레이션 | Microsoft Docs"
-description: "클라우드에서 Azure SQL 데이터베이스로 온-프레미스 SQL Server 데이터베이스를 마이그레이션하는 방법을 알아봅니다. 데이터베이스 마이그레이션 도구를 사용하여 데이터베이스 마이그레이션 전에 호환성을 테스트합니다."
+description: "클라우드에서 Azure SQL Database로 SQL Server 데이터베이스를 마이그레이션하는 방법을 알아봅니다. 데이터베이스 마이그레이션 도구를 사용하여 데이터베이스 마이그레이션 전에 호환성을 테스트합니다."
 keywords: "데이터베이스 마이그레이션, SQL Server 데이터베이스 마이그레이션, 데이터베이스 마이그레이션 도구, 데이터베이스 마이그레이션, SQL 데이터베이스 마이그레이션"
 services: sql-database
 documentationcenter: 
@@ -9,55 +9,100 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: migrate
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 11/08/2016
+ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: 61fb027dfdd5830d87fe4fcfff57f685db71475e
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 272b5eade0a80b1f46af4e4df1c7801d86fee175
+ms.lasthandoff: 04/10/2017
 
 
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>클라우드에서 SQL 데이터베이스로 SQL Server 데이터베이스 마이그레이션
-이 문서에서는 온-프레미스 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database로 마이그레이션하는 방법에 대해 배웁니다. 이 데이터베이스 마이그레이션 프로세스에서는 현재 환경의 SQL Server 데이터베이스에서 SQL Database 스키마 및 데이터를 마이그레이션합니다. 마이그레이션을 정상적으로 수행하려면 기존 데이터베이스가 먼저 호환성 테스트를 통과해야 합니다. SQL Database V12를 사용하는 경우 서버 수준 및 데이터베이스 간 작업 관련 문제를 제외하면 [기능 패리티](sql-database-features.md)에 도달했습니다. SQL Server 데이터베이스를 마이그레이션하려면 [부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md) 을 사용하는 데이터베이스 및 응용 프로그램을 어느 정도 다시 엔지니어링하여 이러한 비호환성 문제를 해결해야 합니다.
+이 문서에서는 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database로 마이그레이션하는 두 가지 주요 방법에 대해 배웁니다. 첫 번째 방법이 더 간단하지만, 마이그레이션하는 동안 다소 상당한 가동 중지 시간이 있을 수 있습니다. 두 번째 방법은 좀 복잡하지만, 마이그레이션하는 동안 가동 중지 시간이 대폭 줄어듭니다.
 
-마이그레이션 시에 수행해야 하는 단계는 다음과 같습니다.
-
-* **호환성 테스트**: SQL Database와의 데이터베이스 호환성을 검사합니다. 
-* **호환성 문제가 있는 경우, 문제 해결**: 유효성 검사에 실패할 경우 유효성 검사 오류를 수정해야 합니다.  
-* **마이그레이션 수행** 데이터베이스가 호환되면 한 가지 또는 여러 가지 방법을 사용하여 마이그레이션을 수행할 수 있습니다. 
-
-SQL Server는 이러한 각 작업을 수행하는 여러 방법을 제공합니다. 이 문서에서는 각 작업에 사용할 수 있는 방법을 개략적으로 살펴봅니다. 다음 다이어그램은 작업 단계 및 방법을 보여줍니다.
-
-  ![VSSSDT 마이그레이션 다이어그램](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png)
+두 경우 모두 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)를 사용하여 원본 데이터베이스가 Azure SQL Database와 호환되는지 확인해야 합니다. SQL Database V12는 서버 수준 및 데이터베이스 간 작업 관련 문제를 제외하고 SQL Server를 사용하여 [기능 패리티](sql-database-features.md)에 접근합니다. SQL Server 데이터베이스를 마이그레이션하려면 [부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)을 사용하는 데이터베이스 및 응용 프로그램을 [어느 정도 다시 엔지니어링하여 이러한 비호환성 문제를 해결](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues)해야 합니다.
 
 > [!NOTE]
-> Microsoft Access, Sybase, MySQL Oracle, DB2를 비롯한 비-SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션해야 할 경우 [SSMA(SQL Server Migration Assistant)](http://blogs.msdn.com/b/ssma/)를 참조하세요.
-> 
-> 
-
-## <a name="database-migration-tools-test-sql-server-database-compatibility-with-sql-database"></a>데이터베이스 마이그레이션 도구의 SQL Server 데이터베이스와 SQL 데이터베이스와의 호환성 테스트
-데이터베이스 마이그레이션 프로세스를 시작하기 전에 다음 방법 중 하나를 사용하여 SQL 데이터베이스 호환성 문제를 테스트합니다.
-
-> [!div class="op_single_selector"]
-> * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-> * [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-> * [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-> * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-> 
+> Microsoft Access, Sybase, MySQL Oracle, DB2를 비롯한 비-SQL Server 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션해야 할 경우 [SSMA(SQL Server Migration Assistant)](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/)를 참조하세요.
 > 
 
-* [Visual Studio용 SQL Server 데이터 도구("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): SSDT는 가장 최근의 호환성 규칙을 사용하여 SQL 데이터베이스 V12의 호환성 문제를 감지합니다. 호환성 문제가 발견되면 이 도구에서 바로 발견된 문제를 해결할 수 있습니다. 이 방법을 사용하여 SQL Database V12의 호환성 문제를 테스트 및 해결하는 것이 좋습니다. 
-* [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage는 호환성 문제를 테스트하고 검색된 호환성 문제가 포함된 보고서를 생성하는 명령줄 유틸리티입니다. 이 도구를 사용하는 경우 가장 최근의 호환성 규칙이 사용되도록 최신 버전을 사용해야 합니다. 오류가 감지되면 다른 도구를 사용하여 발견된 호환성 문제를 해결해야 합니다. SSDT를 사용하는 것이 좋습니다.  
-* [SQL Server Management Studio의 데이터 계층 응용 프로그램 내보내기 마법사](sql-database-cloud-migrate-determine-compatibility-ssms.md): 이 마법사는 오류를 검색하여 화면에 표시합니다. 오류가 발견되지 않으면 작업을 계속 진행하여 SQL 데이터베이스에 마이그레이션을 완료할 수 있습니다. 오류가 감지되면 다른 도구를 사용하여 발견된 호환성 문제를 해결해야 합니다. SSDT를 사용하는 것이 좋습니다.
-* [SQL Azure 마이그레이션 마법사("SAMW")](sql-database-cloud-migrate-fix-compatibility-issues.md): SAMW는 Azure SQL 데이터베이스 V11 호환성 규칙을 사용하여 Azure SQL 데이터베이스 V12 호환성 문제를 감지하는 CodePlex 도구입니다. 호환성 문제가 발견될 경우 이 도구에서 바로 일부 문제를 해결할 수 있습니다. 이 도구에서 검색하는 비호환성 중에는 해결할 필요가 없는 것도 있습니다. 이 도구는 최초로 제공된 Azure SQL Database 마이그레이션 지원 도구이며 현재 SQL Server 커뮤니티를 통해 지원되고 있습니다. 또한 이 도구는 도구 자체 내에서 마이그레이션을 완료할 수 있습니다. 
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>방법 1: 마이그레이션하는 동안 가동 중지 시간을 사용한 마이그레이션
 
-## <a name="fix-database-migration-compatibility-issues"></a>데이터베이스 마이그레이션 호환성 문제 해결
-호환성 문제가 감지되면 SQL Server 데이터베이스 마이그레이션을 계속 진행하기 전에 해결해야 합니다. 원본 데이터베이스의 SQL Server 버전 및 마이그레이션하려는 데이터베이스의 복잡성에 따라 매우 다양한 호환성 문제가 발견될 수 있습니다. 이전 버전의 SQL Server에는 보다 많은 호환성 문제가 있습니다. 사용자가 선택한 검색 엔진을 사용하는 대상이 지정된 인터넷 검색 외에도 다음 리소스를 사용해 보세요.
+ 약간의 가동 중지 시간이 허용되거나 나중에 마이그레이션할 수 있도록 프로덕션 데이터베이스의 테스트 마이그레이션을 수행하려면 이 방법을 사용하세요.
+
+다음 목록에는 이 방법을 사용한 SQL Server 데이터베이스 마이그레이션의 일반적인 워크플로에 포함되어 있습니다.
+
+  ![VSSSDT 마이그레이션 다이어그램](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
+
+1. [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)의 최신 버전을 사용하여 데이터베이스 호환성에 대해 평가합니다.
+2. Transact-SQL 스크립트와 같은 필요한 수정 프로그램을 준비합니다.
+3. 마이그레이션 중인 원본 데이터베이스를 트랜잭션 방식으로 일관되게 복사하고 원본 데이터베이스를 더 이상 변경하지 않도록 합니다(또는 마이그레이션이 완료된 후에 이러한 변경 내용을 수동으로 적용할 수 있음). 클라이언트 연결을 비활성화하는 방법부터 [데이터베이스 스냅숏](https://msdn.microsoft.com/library/ms175876.aspx)을 만드는 방법까지 다양한 방법으로 데이터베이스를 정지할 수 있습니다.
+4. Transact-SQL 스크립트를 배포하여 데이터베이스 복사본에는 수정 내용을 적용합니다.
+5. 데이터베이스 복사본을 로컬 드라이브의 BACPAC 파일로 [내보냅니다](sql-database-export.md).
+6. 최상의 성능을 위해 권장되는 도구인 SQLPackage.exe와 여러 BACPAC를 사용하여 새로운 Azure SQL Database로서 .BACPAC 파일을 [가져옵니다](sql-database-import-sqlpackage.md).
+
+### <a name="optimizing-data-transfer-performance-during-migration"></a>마이그레이션하는 동안 데이터 전송 성능 최적화 
+
+다음 목록에는 가져오기 프로세스 도중 최상의 성능을 위한 권장 사항을 포함합니다.
+
+* 전송 성능을 최대화하기 위한 예산 범위 내에서 가장 높은 서비스 수준 및 성능 계층을 선택합니다. 마이그레이션을 완료한 후 규모를 축소하여 비용을 절감할 수 있습니다. 
+* .BACPAC 파일과 대상 데이터 센터 간의 거리를 최소화합니다.
+* 마이그레이션하는 동안 자동 통계 사용 안 함
+* 파티션 테이블 및 인덱스
+* 인덱싱된 뷰를 삭제하고 완료된 후 다시 만들기
+* 다른 데이터베이스에 대해 거의 쿼리되지 않은 기록 데이터를 제거하고 이 기록 데이터를 별도의 Azure SQL Database로 마이그레이션합니다. 그러면 [탄력적 쿼리](sql-database-elastic-query-overview.md)를 사용하여 이 기록 데이터를 쿼리할 수 있습니다.
+
+### <a name="optimize-performance-after-the-migration-completes"></a>마이그레이션이 완료된 후 성능 최적화
+
+마이그레이션이 완료된 후 전체 검색으로 [통계를 업데이트합니다](https://msdn.microsoft.com/library/ms187348.aspx).
+
+## <a name="method-2-use-transactional-replication"></a>방법 2: 트랜잭션 복제 사용
+
+마이그레이션하는 동안 SQL Server 데이터베이스의 운영을 중지할 수 없는 경우 마이그레이션 솔루션으로 SQL Server 트랜잭션 복제를 사용할 수 있습니다. 이 방법을 사용하려면 원본 데이터베이스가 [트랜잭션 복제의 요구 사항](https://msdn.microsoft.com/library/mt589530.aspx)을 충족해야 하고 Azure SQL Database와 호환되어야 합니다. 
+
+이 솔루션을 사용하려면 마이그레이션할 SQL Server 인스턴스에서 Azure SQL Database를 구독자로 구성합니다. 트랜잭션 복제 배포자는 새 트랜잭션이 계속 발생하는 동안 데이터베이스의 데이터를 동기화합니다(게시자). 
+
+트랜잭션 복제를 사용하면 데이터 또는 스키마에 대한 모든 변경 내용이 Azure SQL 데이터베이스에 표시됩니다. 동기화가 완료되고 마이그레이션 준비가 끝나면 Azure SQL 데이터베이스를 가리키도록 응용 프로그램의 연결 문자열을 변경합니다. 트랜잭션 복제를 통해 원본 데이터베이스에 남아 있는 모든 변경 사항을 비우고 모든 응용 프로그램이 Azure DB를 가리키면 트랜잭션 복제를 제거할 수 있습니다. Azure SQL 데이터베이스는 현재 프로덕션 시스템입니다.
+
+ ![SeedCloudTR 다이어그램](./media/sql-database-cloud-migrate/SeedCloudTR.png)
+
+> [!TIP]
+> 또한 트랜잭션 복제를 사용하여 데이터베이스의 하위 집합을 마이그레이션할 수 있습니다. 사용자가 Azure SQL 데이터베이스로 복제하는 게시물을 복제되는 데이터베이스의 테이블 하위 집합으로 제한할 수 있습니다. 복제되는 각 테이블에 대해 데이터를 행의 하위 집합 및/또는 열의 하위 집합으로 제한할 수 있습니다.
+>
+
+### <a name="migration-to-sql-database-using-transaction-replication-workflow"></a>트랜잭션 복제 워크플로를 사용하여 SQL Database로 마이그레이션
+
+> [!IMPORTANT]
+> Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 SQL Server Management Studio를 사용합니다. 이전 버전의 SQL Server Management Studio는 SQL 데이터베이스를 구독자로 설정할 수 없습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
+> 
+
+1. 배포 설정
+   -  [SSMS(SQL Server Management Studio) 사용](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
+   -  [TRANSACT-SQL 사용](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
+2. 게시물 만들기
+   -  [SSMS(SQL Server Management Studio) 사용](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
+   -  [TRANSACT-SQL 사용](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+3. 구독 만들기
+   -  [SSMS(SQL Server Management Studio) 사용](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
+   -  [TRANSACT-SQL 사용](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+
+### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>SQL Database로 마이그레이션하기 위한 몇 가지 팁과 차이점
+
+1. 로컬 배포자 사용 
+   - 이는 서버의 성능에 영향을 미칠 수 있습니다. 
+   - 성능에 영향을 미치지 않아야 하면 다른 서버를 사용할 수 있지만 관리가 복잡해집니다.
+2. 스냅숏 폴더를 선택할 때 선택하는 폴더가 복제하려는 모든 테이블의 BCP를 수용하기에 충분한지 확인합니다. 
+3. 스냅숏을 만들면 완료될 때까지 연결된 테이블을 잠그며 스냅숏을 적절하게 예약합니다. 
+4. 푸시 구독만 Azure SQL Database에서 지원됩니다. 원본 데이터베이스에서만 구독자를 추가할 수 있습니다.
+
+## <a name="resolving-database-migration-compatibility-issues"></a>데이터베이스 마이그레이션 호환성 문제 해결
+원본 데이터베이스의 SQL Server 버전 및 마이그레이션하려는 데이터베이스의 복잡성에 따라 매우 다양한 호환성 문제가 발견될 수 있습니다. 이전 버전의 SQL Server에는 보다 많은 호환성 문제가 있습니다. 사용자가 선택한 검색 엔진을 사용하는 대상이 지정된 인터넷 검색 외에도 다음 리소스를 사용해 보세요.
 
 * [Azure SQL 데이터베이스에서 지원되지 않는 하는 SQL Server 데이터베이스 기능](sql-database-transact-sql-information.md)
 * [SQL Server 2016에서 사용이 중단된 데이터베이스 엔진 기능](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
@@ -68,56 +113,12 @@ SQL Server는 이러한 각 작업을 수행하는 여러 방법을 제공합니
 
 인터넷을 검색하여 이러한 리소스를 사용하는 동시에 [MSDN SQL Server 커뮤니티 포럼](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) 또는 [StackOverflow](http://stackoverflow.com/)도 활용하세요.
 
-다음 데이터베이스 마이그레이션 도구 중 하나를 사용하여 발견된 문제를 해결합니다.
-
-> [!div class="op_single_selector"]
-> * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-> * [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-> * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-> 
-> 
-
-* [Visual Studio용 SSDT(SQL Server Data Tools) 사용](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): SSDT를 사용하려는 경우 데이터베이스 스키마를 Visual Studio용 SSDT(SQL Server Data Tools)로 가져온 다음 SQL Database V12 배포용 프로젝트를 작성합니다. 그런 후에 SSDT에서 검색되는 모든 호환성 문제를 해결합니다. 작업이 완료되면 변경 내용을 소스 데이터베이스 또는 소스 데이터베이스 복사본에 다시 동기화합니다. 현재는 SSDT를 사용하여 SQL Database V12 호환성 문제를 테스트하고 해결하는 것이 좋습니다. [SSDT 사용 연습](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)링크를 따라가세요.
-* ["SSMS"(SQL Server Management Studio)](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)사용: SSMS를 사용하려면 Transact-SQL 명령을 실행하여 또 다른 도구로 발견된 오류를 해결합니다. 이 방법은 원본 데이터베이스에서 직접 데이터베이스 스키마를 수정할 수 있는 고급 사용자가 주로 사용합니다. 
-* [SAMW(SQL Azure 마이그레이션 마법사) 사용](sql-database-cloud-migrate-fix-compatibility-issues.md): SAMW를 사용하려면 소스 데이터베이스에서 Transact-SQL 스크립트를 생성합니다. 이 마법사는 가능한 경우 항상 스크립트를 변환해 스키마가 SQL Database V12와 호환되도록 만듭니다. 변환이 완료되면 SAMW가 SQL 데이터베이스 V12에 연결하여 스크립트를 실행합니다. 이 도구는 또한 추적 파일을 분석하여 호환성 문제를 확인합니다. 스크립트는 스키마만 사용하여 생성하거나 BCP 형식의 데이터를 포함할 수 있습니다.
-
-## <a name="migrate-a-compatible-sql-server-database-to-sql-database"></a>호환되는 SQL Server 데이터베이스를 SQL 데이터베이스로 마이그레이션
-호환되는 SQL Server 데이터베이스를 마이그레이션할 수 있도록 Microsoft에서는 다양한 시나리오에 대한 여러 마이그레이션 방법을 제공합니다. 허용되는 가동 중지 시간, SQL Server 데이터베이스의 크기 및 복잡성, Microsoft Azure 클라우드 연결 여부에 따라 선택하는 마이그레이션 방법이 달라집니다.  
-
-> [!div class="op_single_selector"]
-> * [SSMS 마이그레이션 마법사](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-> * [BACPAC 파일로 내보내기](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-> * [BACPAC 파일에서 가져오기](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-> * [트랜잭션 복제자](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
-> 
-> 
-
-마이그레이션 방법을 선택하려면 먼저 마이그레이션하는 동안 데이터베이스를 정지할 수 있는지를 확인합니다. 활성 트랜잭션이 발생하는 동안 데이터베이스를 마이그레이션하면 데이터베이스가 불일치하고 데이터베이스가 손상될 수 있습니다. 클라이언트 연결을 비활성화하는 방법부터 [데이터베이스 스냅숏](https://msdn.microsoft.com/library/ms175876.aspx)을 만드는 방법까지 다양한 방법으로 데이터베이스를 정지할 수 있습니다.
-
-가동 중지 시간을 최소로 줄이고 마이그레이션하려면 데이터베이스가 트랜잭션 복제에 대한 요구 사항을 충족하는 경우 [SQL Server 트랜잭션 복제](sql-database-cloud-migrate-compatible-using-transactional-replication.md) 를 사용하세요. 약간의 가동 중지 시간이 허용되거나 나중에 마이그레이션할 수 있도록 프로덕션 데이터베이스의 테스트 마이그레이션을 수행하려면 다음 세가지 방법 중 하나를 고려해 보세요.
-
-* [SSMS 마이그레이션 마법사](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md): 중소규모 데이터베이스의 경우 호환되는 SQL Server 2005 이상 데이터베이스를 마이그레이션하려면 SQL Server Management Studio에서 [Microsoft Azure 데이터베이스에 배포 마법사](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)를 실행하기만 하면 됩니다.
-* [BACPAC 파일로 내보낸](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) 다음 [BACPAC 파일에서 가져오기](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md): 연결 문제(없음 연결, 낮은 대역폭 또는 시간 초과 문제)가 있고 데이터베이스 규모가 중간 이상인 경우 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일을 사용합니다. 이 메서드를 사용할 때는 SQL Server 스키마 및 데이터를 BACPAC 파일로 내보냅니다. 그런 다음 SQL Server Management Studio의 데이터 계층 응용 프로그램 내보내기 마법사 또는 [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 명령 프롬프트 유틸리티를 사용하여 BACPAC 파일을 SQL Database로 가져옵니다.
-* BACPAC 및 BCP 함께 사용: 데이터베이스가 매우 큰 경우 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일과 [BCP](https://msdn.microsoft.com/library/ms162802.aspx)를 함께 사용하면 병렬화 수준을 높여 성능을 개선할 수 있지만, 작업은 더 복잡해집니다. 이 점을 염두에 두고 스키마와 데이터를 따로 마이그레이션합니다.
-  
-  * [BACPAC 파일에만 스키마를 내보냅니다](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md).
-  * [BACPAC 파일의 스키마만 SQL 데이터베이스로 가져옵니다](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) .
-  * [BCP](https://msdn.microsoft.com/library/ms162802.aspx)를 사용하여 데이터를 플랫 파일로 추출한 다음 이러한 파일을 Azure SQL 데이터베이스로 [병렬 로드](https://technet.microsoft.com/library/dd425070.aspx)합니다.
-    
-     ![SQL Server 데이터베이스 마이그레이션 - 클라우드로 SQL 데이터베이스 마이그레이션.](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
-
 ## <a name="next-steps"></a>다음 단계
-* [SSDT 최신 버전](https://msdn.microsoft.com/library/mt204009.aspx)
-* [SQL Server Management Studio 최신 버전](https://msdn.microsoft.com/library/mt238290.aspx)
+* Azure SQL EMEA 엔지니어 블로그의 스크립트를 사용하여 [마이그레이션하는 동안 tempdb 사용을 모니터링합니다](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
+* Azure SQL EMEA 엔지니어 블로그의 스크립트를 사용하여 [마이그레이션이 진행되는 동안 데이터베이스의 트랜잭션 로그 공간을 모니터링합니다](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0).
+* BACPAC 파일을 사용하는 마이그레이션에 관한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)을 참조하세요.
+* 마이그레이션 후 UTC 시간 연동에 대한 내용은 [현지 표준 시간대에 맞게 기본 표준 시간대 수정](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/)을 참조하세요.
+* 마이그레이션 후 데이터베이스의 기본 언어를 변경하는 방법에 대한 내용은 [Azure SQL Database의 기본 언어 변경 방법](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/)을 참조하세요.
 
-## <a name="additional-resources"></a>추가 리소스
-* [SQL Database 기능](sql-database-features.md)
-  [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
-* [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

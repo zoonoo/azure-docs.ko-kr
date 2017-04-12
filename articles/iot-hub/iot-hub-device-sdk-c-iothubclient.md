@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 878d4da2e8283e19d4320c0cbb9c1b9d83210c98
+ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
+ms.openlocfilehash: 669ef16c4fe2edd4525db6f693c424f3027793f3
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 878d4da2e8283e19d4320c0cbb9c1b9d83210c98
 
 이 항목을 설명하기 위해 **IoTHubClient** SDK 샘플을 사용하겠습니다. 따라서 따라하려면 C용 Azure IoT 장치 SDK에 포함된 **iothub\_client\_sample\_http** 및 **iothub\_client\_sample\_amqp** 응용 프로그램을 참조하세요. 다음 섹션에 설명된 모든 내용은 이 샘플에 나와 있습니다.
 
-[Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) GitHub 리포지토리에서 **C용 Azure IoT 장치 SDK**를 찾고 [C API 참조](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html)에서 API의 세부 정보를 볼 수 있습니다.
+GitHub 리포지토리에서 [**C용 Azure IoT 장치 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://azure.github.io/azure-iot-sdk-c/index.html)에서 API의 세부 정보를 볼 수 있습니다.
 
 ## <a name="the-lower-level-apis"></a>하위 수준 API
 이전 문서에서는 **iothub\_client\_sample\_amqp** 응용 프로그램 컨텍스트 내에 있는 **IotHubClient**의 기본적인 동작을 설명했습니다. 예를 들어 다음 코드를 사용하여 라이브러리를 초기화하는 방법을 설명했습니다.
@@ -123,7 +123,7 @@ while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLI
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 
-기본적으로 백그라운드 스레드로 데이터를 전송 및 수신하는 API 집합이 하나만 있으며 백그라운드 스레드 없이 동일한 작업을 수행하는 API 집합도 있습니다. 많은 개발자들이 비-LL API를 선호하지만, 개발자가 네트워크 전송을 명시적으로 제어하고자 하는 경우에는 하위 수준 API가 유용합니다. 예를 들어, 일부 장치에서 시간에 따라 데이터를 수집하고 지정된 간격(예: 1시간에 한 번, 하루에 한 번)으로만 이벤트를 수신합니다. 하위 수준 API는 IoT Hub에서 데이터 전송 및 수신 시 명시적으로 제어하는 기능을 제공합니다. 하위 수준 API가 제공하는 단순성만을 선호하는 사람도 있습니다. 일부 작업이 백그라운드로 수행되지 않고 모두 메인 스레드에서 수행됩니다.
+기본적으로 백그라운드 스레드로 데이터를 전송 및 수신하는 API 집합이 하나만 있으며 백그라운드 스레드 없이 동일한 작업을 수행하는 API 집합도 있습니다. 많은 개발자들이 비-LL API를 선호하지만, 개발자가 네트워크 전송을 명시적으로 제어하고자 하는 경우에는 하위 수준 API가 유용합니다. 예를 들어, 일부 장치에서 시간에 따라 데이터를 수집하고 지정된 간격(예:&1;시간에 한 번, 하루에 한 번)으로만 이벤트를 수신합니다. 하위 수준 API는 IoT Hub에서 데이터 전송 및 수신 시 명시적으로 제어하는 기능을 제공합니다. 하위 수준 API가 제공하는 단순성만을 선호하는 사람도 있습니다. 일부 작업이 백그라운드로 수행되지 않고 모두 메인 스레드에서 수행됩니다.
 
 어떤 모델을 선택하든 사용하는 API와 일관되어야 합니다. **IoTHubClient\_LL\_CreateFromConnectionString**을 호출하여 시작하는 경우 후속 작업에 해당하는 하위 수준 API만 사용해야 합니다.
 
@@ -247,7 +247,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_LL_Create(&iotHubClientCo
 
 **IoTHubClient\_CreateFromConnectionString**과 동일하게 수행됩니다.
 
-보다 구체적인 초기화 메서드보다 **IoTHubClient\_CreateFromConnectionString**을 사용하려는 것이 분명해보일 수 있습니다. 하지만 장치를 IoT Hub에 등록할 때 연결 문자열이 아닌, 장치 ID 및 장치 키를 얻게 되는 것을 유의해야 합니다. [이전 문서](iot-hub-device-sdk-c-intro.md)에서 소개한 *장치 Explorer* SDK 도구는 **Azure IoT 서비스 SDK**의 라이브러리를 사용하여 장치 ID, 장치 키 및 IoT Hub 호스트 이름에서 장치 연결 문자열을 만듭니다. 따라서 **IoTHubClient\_LL\_Create**를 호출하면 연결 문자열을 생성하는 단계가 필요 없으므로 더 적합할 수 있습니다. 어떤 것이든 편한 방법을 사용하세요.
+보다 구체적인 초기화 메서드보다 **IoTHubClient\_CreateFromConnectionString**을 사용하려는 것이 분명해 보일 수 있습니다. 하지만 장치를 IoT Hub에 등록할 때 연결 문자열이 아닌, 장치 ID 및 장치 키를 얻게 되는 것을 유의해야 합니다. [이전 문서](iot-hub-device-sdk-c-intro.md)에서 소개한 *장치 Explorer* SDK 도구는 **Azure IoT 서비스 SDK**의 라이브러리를 사용하여 장치 ID, 장치 키 및 IoT Hub 호스트 이름에서 장치 연결 문자열을 만듭니다. 따라서 **IoTHubClient\_LL\_Create**를 호출하면 연결 문자열을 생성하는 단계가 필요 없으므로 더 적합할 수 있습니다. 어떤 것이든 편한 방법을 사용하세요.
 
 ## <a name="configuration-options"></a>구성 옵션
 지금까지 **IoTHubClient** 라이브러리가 작동하는 방법에 대해 설명한 모든 내용은 기본 동작에 대한 것입니다. 하지만 라이브러리가 작동하는 방식을 변경하도록 설정 가능한 몇 가지 옵션이 있습니다. 이 작업은 **IoTHubClient\_LL\_SetOption** API를 활용하여 수행합니다. 다음 예를 살펴보세요.
@@ -279,6 +279,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

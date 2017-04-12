@@ -1,5 +1,5 @@
 ---
-title: "PowerShell Microsoft Docs 사용하여 라우팅 제어 및 가상 어플라이언스 사용"
+title: "Azure Virtual Network에서 라우팅 제어 - PowerShell - 클래식 | Microsoft Docs"
 description: "PowerShell을 사용하여 VNet에서 라우팅을 제어하는 방법 알아보기 | 클래식"
 services: virtual-network
 documentationcenter: na
@@ -16,19 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 0bf0f3b64319a42a3b693f64ae705756b10be64e
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: e9564d223cb85529f1fa97bc398d35c6debcedae
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>PowerShell 사용하여 라우팅 제어 및 가상 어플라이언스(클래식) 사용
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Azure CLI](virtual-network-create-udr-arm-cli.md)
-- [템플릿](virtual-network-create-udr-arm-template.md)
-- [PowerShell(클래식)](virtual-network-create-udr-classic-ps.md)
-- [CLI(클래식)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [템플릿](virtual-network-create-udr-arm-template.md)
+> * [PowerShell(클래식)](virtual-network-create-udr-classic-ps.md)
+> * [CLI(클래식)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
@@ -52,11 +53,6 @@ ms.openlocfilehash: 0bf0f3b64319a42a3b693f64ae705756b10be64e
     -Label "Route table for front end subnet"
     ```
 
-    출력
-   
-        Name         Location   Label                          
-        ----         --------   -----                          
-        UDR-FrontEnd West US    Route table for front end subnet
 2. 다음 명령을 실행하여 경로 테이블에 경로를 만들고 백 엔드 서브넷(192.168.2.0/24)으로 보내진 모든 트래픽을 **FW1** VM(192.168.0.4)으로 보냅니다.
 
     ```powershell
@@ -65,16 +61,7 @@ ms.openlocfilehash: 0bf0f3b64319a42a3b693f64ae705756b10be64e
     -NextHopType VirtualAppliance `
     -NextHopIpAddress 192.168.0.4
     ```
-   
-    출력
-   
-        Name     : UDR-FrontEnd
-        Location : West US
-        Label    : Route table for frontend subnet
-        Routes   : 
-                   Name                 Address Prefix    Next hop type        Next hop IP address
-                   ----                 --------------    -------------        -------------------
-                   RouteToBackEnd       192.168.2.0/24    VirtualAppliance     192.168.0.4  
+
 3. 다음 명령을 실행하여 경로 테이블을 **FrontEnd** 서브넷에 연결합니다.
 
     ```powershell
@@ -97,8 +84,10 @@ ms.openlocfilehash: 0bf0f3b64319a42a3b693f64ae705756b10be64e
 2. 다음 명령을 실행하여 경로 테이블에 경로를 만들고 프런트 엔드 서브넷(192.168.1.0/24)으로 보내진 모든 트래픽을 **FW1** VM(192.168.0.4)으로 보냅니다.
 
     ```powershell
-    Get-AzureRouteTable UDR-BackEnd `
-    |Set-AzureRoute -RouteName RouteToFrontEnd -AddressPrefix 192.168.1.0/24 `
+    Get-AzureRouteTable UDR-BackEnd
+    | Set-AzureRoute `
+    -RouteName RouteToFrontEnd `
+    -AddressPrefix 192.168.1.0/24 `
     -NextHopType VirtualAppliance `
     -NextHopIpAddress 192.168.0.4
     ```
@@ -122,18 +111,10 @@ FW1 VM에 IP 전달을 사용하도록 설정하려면 다음 단계를 완료�
     | Get-AzureIPForwarding
     ```
 
-    출력
-   
-        Disabled
 2. 다음 명령을 실행하여 *FW1* VM에 대한 IP 전달을 사용하도록 설정합니다.
 
     ```powershell
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `
     | Set-AzureIPForwarding -Enable
     ```
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

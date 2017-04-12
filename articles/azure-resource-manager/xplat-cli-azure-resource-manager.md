@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 39ccb6e9b810d1c02a96b25946893ddd3e316463
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: bd6f81ee12a7bb655166cf059236175bfb9994e5
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: 39ccb6e9b810d1c02a96b25946893ddd3e316463
 Azure 명령줄 인터페이스 (Azure CLI)는 리소스 관리자를 사용하여 리소스를 배포하고 관리하는 데 사용할 수 있는 몇 가지 도구 중 하나입니다. 이 문서에서는 리소스 관리자 모드에서 Azure CLI를 사용하여 Azure 리소스 및 리소스 그룹을 관리하는 일반적인 방법을 소개합니다. 리소스를 배포하기 위해 CLI를 사용하는 방법에 대한 정보는 [Resource Manager 템플릿 및 Azure CLI를 사용하여 리소스 배포](resource-group-template-deploy-cli.md)를 참조하세요. Azure 리소스 및 Resource Manager에 대한 기본 지식은 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요.
 
 > [!NOTE]
-> Azure CLI를 사용하여 Azure 리소스를 관리하려면 `azure login` 명령을 사용하여 [Azure CLI를 설치](../xplat-cli-install.md)하고 [Azure에 로그인](../xplat-cli-connect.md)합니다. CLI가 리소스 관리자 모드에 있는지 확인합니다.(`azure config mode arm`를 실행함) 이러한 작업이 완료되면 사용할 준비가 된 것입니다.
+> Azure CLI를 사용하여 Azure 리소스를 관리하려면 `azure login` 명령을 사용하여 [Azure CLI를 설치](../cli-install-nodejs.md)하고 [Azure에 로그인](../xplat-cli-connect.md)합니다. CLI가 리소스 관리자 모드에 있는지 확인합니다.(`azure config mode arm`를 실행함) 이러한 작업이 완료되면 사용할 준비가 된 것입니다.
 > 
 > 
 
@@ -148,13 +149,8 @@ Azure CLI를 사용하여 리소스 그룹의 현재 상태를 나타내는 템�
 > 
 
 ## <a name="next-steps"></a>다음 단계
-* Azure CLI를 사용하여 배포 작업의 자세한 내용을 보고 배포 오류의 문제를 해결하려면 [Azure CLI를 통해 배포 작업 보기](resource-manager-troubleshoot-deployments-cli.md)를 참조하세요.
+* Azure CLI를 사용하여 배포 작업의 자세한 내용을 보고 배포 오류의 문제를 해결하려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
 * CLI를 사용하여 리소스에 액세스하도록 응용 프로그램이나 스크립트를 설정하려면 [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

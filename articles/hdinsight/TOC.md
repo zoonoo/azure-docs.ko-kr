@@ -53,23 +53,26 @@
 ### [저장소 옵션](hdinsight-hadoop-r-server-storage.md)
 ### [RStudio 설치](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [컨텍스트 계산](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR 및 SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## 메모리 내 처리에 Spark 사용
 ### [Data Lake Store와 함께](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [BI 도구와 함께](hdinsight-apache-spark-use-bi-tools.md)
-### [독립 실행형 앱](hdinsight-apache-spark-create-standalone-application.md)
+### [독립 실행형 앱 만들기](hdinsight-apache-spark-create-standalone-application.md)
+### [Eclipse를 사용하여 앱 개발](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [IntelliJ를 사용하여 앱 개발](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [스트리밍 이벤트 프로세스](hdinsight-apache-spark-eventhub-streaming.md)
 ### [HVAC 성능 예측](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [식품 검사 결과 예측](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [웹 사이트 로그 분석](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+### [심층 학습을 위한 Caffe 사용](hdinsight-deep-learning-caffe-spark.md)
+### [Microsoft Cognitive 도구 키트와 함께 사용](hdinsight-apache-spark-microsoft-cognitive-toolkit.md)
 ### [Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter Notebook 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 ### [셀 매직을 사용하는 Jupyter에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [스크립트 동작을 사용하는 Jupyter에서 외부 패키지 사용](hdinsight-apache-spark-python-package-installation.md)
 ### [로컬 Jupyter Notebook 사용](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Livy를 사용하는 원격 작업](hdinsight-apache-spark-livy-rest-interface.md)
-### [Eclipse를 사용하여 앱 개발](hdinsight-apache-spark-eclipse-tool-plugin.md)
-### [IntelliJ를 사용하여 앱 개발](hdinsight-apache-spark-intellij-tool-plugin.md)
-### [IntelliJ를 사용하여 원격으로 디버깅](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+### [IntelliJ를 사용하여 원격으로 작업 디버깅](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [리소스 관리](hdinsight-apache-spark-resource-manager.md)
 ### [작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 ### [알려진 문제](hdinsight-apache-spark-known-issues.md)
@@ -77,9 +80,7 @@
 ### [Phoenix 및 SQLLine 사용](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [실시간 트윗 분석](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [가상 네트워크의 클러스터 만들기](hdinsight-hbase-provision-vnet.md)
-### [VPN 연결 구성](hdinsight-hbase-geo-replication-configure-vnets.md)
-### [DNS 서버 구성](hdinsight-hbase-geo-replication-configure-dns.md)
-### [HBase 지역에서 복제 구성](hdinsight-hbase-geo-replication.md)
+### [HBase 복제 구성](hdinsight-hbase-replication.md)
 ### [Java 사용하여 앱 개발](hdinsight-hbase-build-java-maven-linux.md)
 ## Storm 사용
 ### [토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)
@@ -141,9 +142,8 @@
 #### [REST를 사용하여 앱 설치](https://msdn.microsoft.com/library/mt706515.aspx)
 #### [Azure Marketplace에 HDInsight 앱 게시](hdinsight-apps-publish-applications.md)
 ## 보안
+### [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [SSH 터널링 사용](hdinsight-linux-ambari-ssh-tunnel.md)
-### [Linux, Unix, OS X에서 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-### [Windows OS에서 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 ### [데이터에 액세스 제한](hdinsight-storage-sharedaccesssignature-permissions.md)
 ## 관리
 ### [Linux 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
@@ -171,6 +171,8 @@
 ### [클러스터 및 서비스 포트와 URI](hdinsight-hadoop-port-settings-for-services.md)
 ### [리소스 관리자 개발 도구로 마이그레이션](hdinsight-hadoop-development-using-azure-resource-manager.md)
 ### [가용성 및 안정성](hdinsight-high-availability-linux.md)
+### [HDInsight 클러스터를 최신 버전으로 업그레이드](hdinsight-upgrade-cluster.md)
+### [HDInsight 클러스터의 OS 패치](hdinsight-os-patching.md)
 ## 문제 해결
 ### [Linux에 대한 팁](hdinsight-hadoop-linux-information.md)
 ### [릴리스 정보](hdinsight-release-notes.md)
@@ -195,17 +197,7 @@
 # 관련 항목
 ## Windows 클러스터
 ### [Linux 클러스터로 Windows 클러스터 마이그레이션](hdinsight-migrate-from-windows-to-linux.md)
-### [Hadoop으로 시작](hdinsight-hadoop-tutorial-get-started-windows.md)
-### [Storm으로 시작](hdinsight-apache-storm-tutorial-get-started.md)
-### [HBase로 시작](hdinsight-hbase-tutorial-get-started.md)
-### [HDInsight 샘플 갤러리](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Hadoop MapReduce 샘플 실행](hdinsight-run-samples.md)
-### [Hadoop 클러스터 만들기](hdinsight-provision-clusters.md)
-#### [Azure Portal 사용](hdinsight-hadoop-create-windows-clusters-portal.md)
-#### [.NET SDK 사용](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
-#### [Azure CLI 사용](hdinsight-hadoop-create-windows-clusters-cli.md)
-#### [Azure PowerShell 사용](hdinsight-hadoop-create-windows-clusters-powershell.md)
-#### [Resource Manager 템플릿 사용](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 ### [클러스터의 Solr 사용](hdinsight-hadoop-solr-install-linux.md)
 ### [Giraph를 사용하여 대규모 그래프 처리](hdinsight-hadoop-giraph-install.md)
 ### [워크플로에 대해 Oozie 사용](hdinsight-use-oozie.md)
@@ -213,7 +205,6 @@
 ### [Maven을 사용하여 Java 응용 프로그램 빌드](hdinsight-hbase-build-java-maven.md)
 ### [Tez UI를 사용하여 Tez 작업 디버깅](hdinsight-debug-tez-ui.md)
 ### [스크립트 작업을 사용하여 사용자 지정](hdinsight-hadoop-customize-cluster.md)
-### [가용성 및 안정성](hdinsight-high-availability.md)
 ### [YARN 응용 프로그램 로그 액세스](hdinsight-hadoop-access-yarn-app-logs.md)
 ### [Apache Phoenix 및 SQuirreL 사용](hdinsight-hbase-phoenix-squirrel.md)
 ### [Mahout을 사용하여 영화 추천 생성](hdinsight-mahout.md)
@@ -226,8 +217,3 @@
 # 리소스
 ## [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

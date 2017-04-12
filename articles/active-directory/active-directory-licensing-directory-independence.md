@@ -1,6 +1,6 @@
 ---
-title: "여러 Azure Active Directory 추가 및 관리 | Microsoft Docs"
-description: "Azure Active Directory 추가 및 관리를 위한 지침 및 모범 사례와 더불어 디렉터리를 완전히 독립된 리소스로 설명합니다."
+title: "Azure Active Directory 디렉터리의 특징 | Microsoft Docs"
+description: "완전히 독립적인 리소스로 디렉터리를 파악하여 Azure Active Directory 디렉터리 관리"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/09/2016
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
-ms.openlocfilehash: fff714765508285f4c074b3a7287701a538fbf95
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 5ec00d5e8380f121dd9302cf08a0708c530aab9b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="add-and-manage-multiple-azure-active-directory-directories"></a>여러 Azure Active Directory 추가 및 관리
+# <a name="understand-how-multiple-azure-active-directory-directories-interact"></a>여러 Azure Active Directory 디렉터리 간의 상호 작용 방식 이해
 Azure AD(Azure Active Directory)의 각 디렉터리는 완전히 독립된 리소스로, 관리하는 다른 디렉터리와 논리적으로 독립된 완전한 기능을 갖춘 피어입니다. 또한 디렉터리 간에는 부모-자식 관계가 없습니다. 디렉터리 간 독립성에는 리소스 독립성, 관리 독립성 및 동기화 독립성이 포함됩니다.
 
 ## <a name="resource-independence"></a>리소스 독립성
@@ -47,10 +49,6 @@ Azure 클래식 포털에서 Azure AD 디렉터리를 추가하려면 왼쪽의 
 >
 >
 
+## <a name="next-steps"></a>다음 단계
 Azure AD 라이선스 문제 및 모범 사례에 대한 광범위한 개요는 [Azure Active Directory 라이선스란?](active-directory-licensing-what-is.md)을 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/20/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60458091f8c60eb1d726508724fc96eb0145e3bc
+ms.sourcegitcommit: d1d05b46591fe4b72c92c59d357681c8e1cdb336
+ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -38,10 +39,10 @@ ms.openlocfilehash: 60458091f8c60eb1d726508724fc96eb0145e3bc
 | 미디어 인코더 Premium 워크플로 |미디어 인코더 Premium 워크플로를 사용하여 인코딩 작업을 실행할 수 있습니다. |[Azure 주문형 미디어 인코더 개요 및 비교](media-services-encode-asset.md) |
 | Azure 미디어 인덱서 |미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙과 키워드를 생성할 수 있습니다. |[Azure 미디어 인덱서](media-services-index-content.md) |
 | Azure 미디어 Hyperlapse(미리 보기) |비디오 안정화를 통해 비디오에서 "범프"를 부드럽게 할 수 있습니다. 사용 가능한 클립으로 만들어 콘텐츠 속도를 높일 수도 있습니다. |[Azure 미디어 Hyperlapse](media-services-hyperlapse-content.md) |
-| Azure 미디어 인코더 |사용 중단됨 | |
-| 저장소 암호 해독 |사용 중단됨 | |
-| Azure Media Packager |사용 중단됨 | |
-| Azure Media Encryptor |사용 중단됨 | |
+| Azure 미디어 인코더 |사용되지 않음 | |
+| 저장소 암호 해독 |사용되지 않음 | |
+| Azure Media Packager |사용되지 않음 | |
+| Azure Media Encryptor |사용되지 않음 | |
 
 ## <a name="get-mediaprocessor"></a>미디어 프로세서 가져오기
 > [!NOTE]
@@ -94,10 +95,5 @@ ms.openlocfilehash: 60458091f8c60eb1d726508724fc96eb0145e3bc
 
 ## <a name="next-steps"></a>다음 단계
 미디어 프로세서 인스턴스를 가져오는 방법을 알아보았으므로 이제 Media Encoder Standard를 사용하여 자산을 인코딩하는 방법을 보여 주는 [자산을 인코딩하는 방법](media-services-rest-get-started.md) 토픽으로 이동합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

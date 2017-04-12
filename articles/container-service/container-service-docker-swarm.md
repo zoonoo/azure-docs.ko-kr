@@ -1,6 +1,6 @@
 ---
-title: "Docker Swarm을 통해 Azure Container Service 컨테이너 관리 | Microsoft 문서"
-description: "Azure 컨테이너 서비스에서 Docker Swarm에 컨테이너 배포"
+title: "Docker API를 사용하여 Azure Swarm 클러스터 관리 | Microsoft Docs"
+description: "Azure Container Service에서 Docker Swarm 클러스터에 컨테이너 배포"
 services: container-service
 documentationcenter: 
 author: rgardler
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2c6497ebe50b3493e376a871431fe5e5471479bd
-ms.openlocfilehash: 7c3f2e06f32856aa4aa603117b7f43bb54450da7
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: bd20dc4eb3948d08e3c2dd2ad2bb42d18df67796
 
 
 ---
@@ -119,6 +119,6 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

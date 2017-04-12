@@ -1,5 +1,5 @@
 ---
-title: "HDinsight에서 Apache Phoenix 및 SQuirreL 사용 | Microsoft Docs"
+title: "Azure HDinsight(HBase)에서 Apache Phoenix 및 SQuirreL 사용 | Microsoft Docs"
 description: "HDInsight에서 Apache Phoenix를 사용하는 방법 및 워크스테이션에서 SQuirreL을 설치 및 구성하여 HDInsight에서 HBase 클러스터에 연결하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -8,15 +8,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cda0f33b-a2e8-494c-972f-ae0bb482b818
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 58212ae80ef2b930661e739aeb4779c6f9bd1bec
-ms.openlocfilehash: ceb33327ec2ced7c1ffad89696e64538c7fd4a5d
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 04e078d662c861d5c587c571a42478603e291587
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -48,7 +50,8 @@ HBase 클러스터에 연결할 때 Zookeeper 중 하나에 연결해야 합니�
 
 **SQLLine을 사용하려면**
 
-1. SSH를 사용하여 클러스터에 연결합니다. 지침은 클라이언트 컴퓨터 OS에 따라 [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 또는 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+1. SSH를 사용하여 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+
 2. SSH에서 다음 명령을 실행하여 SQLLine을 실행합니다.
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin
@@ -91,9 +94,4 @@ HBase 클러스터에 연결할 때 Zookeeper 중 하나에 연결해야 합니�
 [img-squirrel-alias]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-alias.png
 [img-squirrel]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel.png
 [img-squirrel-sql]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-sql.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

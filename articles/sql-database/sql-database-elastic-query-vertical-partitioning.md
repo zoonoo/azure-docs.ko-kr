@@ -15,8 +15,10 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
+ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
+ms.openlocfilehash: 078784bcdf7a3a6d4423389d2f5ca4ffdb67c89f
+ms.lasthandoff: 02/22/2017
+
 
 
 ---
@@ -30,7 +32,10 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
 * 기본 데이터 원본을 참조하기 위해 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다.
 
 ## <a name="overview"></a>개요
-**참고**: 행 분할과 달리 이 DDL 문은 탄력적 데이터베이스 클라이언트 라이브러리를 통한 분할 맵이 있는 데이터 계층 정의에 종속되지 않습니다.
+
+> [!NOTE]
+> 행 분할과 달리 이 DDL 문은 Elastic Database 클라이언트 라이브러리를 통한 분할 맵이 있는 데이터 계층 정의에 종속되지 않습니다.
+>
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [데이터베이스 범위 자격 증명 만들기](https://msdn.microsoft.com/library/mt270260.aspx)
@@ -45,7 +50,9 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
     SECRET = '<password>'
     [;]
 
-**참고** *<username>*에 *"@servername"* 접미사가 포함되지 않아야 합니다. 
+> [!NOTE]
+> `<username>`에 **"@servername"** 접미사가 포함되지 않아야 합니다. 
+>
 
 ## <a name="create-external-data-sources"></a>외부 데이터 원본 만들기
 구문
@@ -58,9 +65,11 @@ ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
-**중요** TYPE 매개 변수는 **RDBMS**로 설정해야 합니다. 
+> [!IMPORTANT]
+> TYPE 매개 변수는 **RDBMS**로 설정해야 합니다. 
+>
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 예제에서는 외부 데이터 원본에 대한 CREATE 문 사용을 보여줍니다. 
 
     CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
@@ -130,7 +139,7 @@ SCHEMA_NAME 및 OBJECT_NAME 절은 각각 외부 테이블 정의를 원격 데�
 외부 테이블에 대한 액세스 권한이 있는 사용자는 외부 데이터 원본 정의에서 제공한 자격 증명에 따라 자동으로 기본 원격 테이블에 액세스할 수 있습니다. 외부 데이터 원본의 자격 증명을 통해 원치 않는 권한 상승을 방지하려면 외부 테이블에 대한 액세스 관리에 주의가 필요합니다. 일반 SQL 권한을 사용하여 일반 테이블에서처럼 외부 테이블에 대한 액세스를 부여하거나 취소할 수 있습니다.  
 
 ## <a name="example-querying-vertically-partitioned-databases"></a>예: 수직 분할된 데이터베이스 쿼리
-다음 쿼리는 주문 및 주문 라인을 위한 2개의 로컬 테이블과 고객을 위한 원격 테이블 간의 3방향 조인을 수행합니다. 탄력적 쿼리에 대한 참조 데이터 사용 사례의 예입니다. 
+다음 쿼리는 주문 및 주문 라인을 위한&2;개의 로컬 테이블과 고객을 위한 원격 테이블 간의&3;방향 조인을 수행합니다. 탄력적 쿼리에 대한 참조 데이터 사용 사례의 예입니다. 
 
     SELECT      
      c_id as customer,
@@ -173,18 +182,17 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
 * 탄력적 쿼리는 원격 데이터베이스에서 대부분의 계산을 수행할 수 있는 상황에서 가장 잘 실행됩니다. 일반적으로 원격 데이터베이스에서 평가할 수 있는 선택적 필더 조건자나, 원격 데이터베이스에서 완전히 수행 가능한 조인을 통해 최고의 쿼리 성능을 얻을 수 있습니다. 다른 쿼리 패턴은 원격 데이터베이스에서 대규모의 데이터 로드가 필요할 수도 있기 때문에 성능이 좋지 않을 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-행 분할된 데이터베이스(분할된 데이터베이스라고도 함)를 쿼리하려면 [분할된 클라우드 데이터베이스에서 쿼리(행 분할)](sql-database-elastic-query-horizontal-partitioning.md)을 참조하세요.
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+* 탄력적 쿼리의 개요는 [탄력적 쿼리 개요](sql-database-elastic-query-overview.md)를 참조하세요.
+* 수직 분할 자습서는 [데이터베이스 간 쿼리 시작(수직 분할)](sql-database-elastic-query-getting-started-vertical.md)을 참조하세요.
+* 행 분할(분할) 자습서는 [행 분할(분할)을 위한 탄력적 데이터베이스 쿼리 시작하기](sql-database-elastic-query-getting-started.md)를 참조하세요.
+* 행 분할된 데이터에 대한 구문 및 예제 쿼리는 [행 분할된 데이터 쿼리하기](sql-database-elastic-query-horizontal-partitioning.md)를 참조하세요.
+* 단일 원격 Azure SQL Database 또는 수평 분할 구성표의 분할을 제공하는 데이터베이스 집합에서 TRANSACT-SQL 문을 실행하는 저장된 프로시저는 [sp\_실행 \_원격](https://msdn.microsoft.com/library/mt703714)을 참조하세요.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-vertical-partitioning/verticalpartitioning.png
 
 
 <!--anchors-->
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

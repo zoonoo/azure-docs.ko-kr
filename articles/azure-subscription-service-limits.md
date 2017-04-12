@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건"
+title: "Azure 구독 제한 및 할당량 | Microsoft Docs"
 description: "일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 여기에는 최대값과 함께 제한을 늘리는 방법에 대한 정보가 포함됩니다."
 services: 
 documentationcenter: 
@@ -13,18 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/20/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 18c8997d8ee77c9c3005aa765a64ae82dce8c70c
-ms.openlocfilehash: fc519c242b2676e20c1b19bfb2b5edae73b0b926
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e26a37fbe783c2ca95679b5bdcc9b0ba0beec76b
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
 
-Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://azure.microsoft.com/pricing/)를 참조하세요. 여기에서 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하거나 서비스에 대한 가격 정보 페이지를 방문하여 비용을 예측할 수 있습니다(예: [Windows VM](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)).
+Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://azure.microsoft.com/pricing/)를 참조하세요. 여기에서 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하거나 서비스에 대한 가격 정보 페이지를 방문하여 비용을 예측할 수 있습니다(예: [Windows VM](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). 비용 관리에 대한 팁은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](billing/billing-getting-started.md)를 참조하세요.
 
 > [!NOTE]
 > **기본 제한**이상으로 제한 또는 할당량을 높이려는 경우 [무료로 온라인 고객 지원 요청을 개설](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)합니다. 다음 표에 나오는 **최대 제한** 값 이상으로 제한을 높일 수 없습니다. **최대 제한** 열이 없는 경우는 리소스에 조정 가능한 제한이 없습니다. 
@@ -60,11 +61,13 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [클라우드 서비스](#cloud-services-limits)
 * [데이터 팩터리](#data-factory-limits)
 * [데이터 레이크 분석](#data-lake-analytics-limits)
+* [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
 * [DocumentDB](#documentdb-limits)
 * [이벤트 허브](#event-hubs-limits)
 * [IoT 허브](#iot-hub-limits)
 * [키 자격 증명 모음](#key-vault-limits)
+* [Log Analytics/Operational Insights](#log-analytics-limits)
 * [미디어 서비스](#media-services-limits)
 * [모바일 고객 관리](#mobile-engagement-limits)
 * [모바일 서비스](#mobile-services-limits)
@@ -72,7 +75,6 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [네트워킹](#networking-limits)
 * [알림 허브 서비스](#notification-hub-service-limits)
-* [Operational Insights](#operational-insights-limits)
 * [리소스 그룹](#resource-group-limits)
 * [스케줄러](#scheduler-limits)
 * [이를 통해 검색](#search-limits)
@@ -130,20 +132,23 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 ### <a name="storage-limits"></a>저장소 제한
 저장소 계정 제한에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](storage/storage-scalability-targets.md)를 참조하세요.
-
+<!--like # storage accts --> 
 #### <a name="storage-service-limits"></a>저장소 서비스 제한
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### <a name="virtual-machine-disk-limits"></a>가상 컴퓨터 디스크 제한
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+#### <a name="virtual-machine-disk-limits"></a>가상 컴퓨터 디스크 제한 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-자세한 내용은 [가상 컴퓨터 크기](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+자세한 내용은 [가상 컴퓨터 크기](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
-**표준 저장소 계정**
+#### <a name="managed-virtual-machine-disks"></a>관리되는 가상 컴퓨터 디스크
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
+
+#### <a name="unmanaged-virtual-machine-disks"></a>관리되지 않는 가상 컴퓨터 디스크
 
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
-
-**프리미엄 저장소 계정**
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
@@ -170,7 +175,7 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### <a name="documentdb-limits"></a>DocumentDB 제한
-DocumentDB는 응용 프로그램의 요구에 따라 처리량과 저장소 크기를 조정하여 처리할 수 있는 뛰어난 확장성의 데이터베이스입니다. DocumentDB가 제공하는 규모에 대한 궁금한 사항은 askdocdb@microsoft.com에 전자 메일을 보내 주십시오.
+DocumentDB는 응용 프로그램의 요구에 따라 처리량과 저장소 크기를 조정하여 처리할 수 있는 뛰어난 확장성의 데이터베이스입니다. DocumentDB가 제공하는 크기에 대한 질문이 있는 경우 askdocdb@microsoft.com으로 전자 메일을 보내주세요.
 
 ### <a name="mobile-engagement-limits"></a>모바일 참여 제한
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
@@ -219,8 +224,11 @@ DocumentDB는 응용 프로그램의 요구에 따라 처리량과 저장소 크
 ### <a name="data-factory-limits"></a>데이터 팩터리 제한
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
-### <a name="data-lake-analytics-limits"></a>Data Lake 분석 제한
+### <a name="data-lake-analytics-limits"></a>Data Lake Analytics 제한
 [!INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
+
+### <a name="data-lake-store-limits"></a>Data Lake Store 제한
+[!INCLUDE [azure-data-lake-store-limits](../includes/azure-data-lake-store-limits.md)]
 
 ### <a name="stream-analytics-limits"></a>스트림 분석 제한
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
@@ -234,7 +242,7 @@ DocumentDB는 응용 프로그램의 요구에 따라 처리량과 저장소 크
 ### <a name="storsimple-system-limits"></a>StorSimple 시스템 제한
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### <a name="operational-insights-limits"></a>Operational Insights 제한
+### <a name="log-analytics-limits"></a>Log Analytics 한도
 [!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
 ### <a name="backup-limits"></a>백업 제한
@@ -267,13 +275,8 @@ SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-d
 ## <a name="see-also"></a>참고 항목
 [Azure 제한 및 증가 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [클라우드 서비스 크기](cloud-services/cloud-services-sizes-specs.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

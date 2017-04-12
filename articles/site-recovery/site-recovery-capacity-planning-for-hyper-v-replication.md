@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 79adce1f3fb9a33e60159af72e83118dd88e0946
-ms.openlocfilehash: ecddf255f4b4750bf67f2689b0274c04f8ec54b7
+ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
+ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
 
 
 ---
@@ -70,7 +70,7 @@ Azure에 복제하는 경우 이 작업을 수행할 필요가 없습니다.
 3. 인증을 설정합니다.
 
    * **인증 및 포트**에서 기본 서버의 인증 방법과 인증 포트를 선택합니다. 인증서를 사용할 경우 **인증서 선택**을 클릭하여 하나를 선택합니다. 기본 및 복구 Hyper-V 호스트가 동일한 도메인이나 신뢰할 수 있는 도메인에 있는 경우 Kerberos를 사용합니다. 서로 다른 도메인 또는 작업 그룹 배포의 경우 인증서를 사용합니다.
-   * **권한 부여 및 저장소**에서 **모든** 인증된(기본) 서버가 복제 데이터를 이 복제본 서버로 보낼 수 있게 허용합니다. 
+   * **권한 부여 및 저장소**에서 **모든** 인증된(기본) 서버가 복제 데이터를 이 복제본 서버로 보낼 수 있게 허용합니다.
 
      ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image1.png)
    * **netsh http show servicestate**를 실행하여 지정한 프로토콜/포트에 대해 수신기가 실행 중인지 확인합니다.  
@@ -85,7 +85,7 @@ Azure에 복제하는 경우 이 작업을 수행할 필요가 없습니다.
 
 1. [다운로드](https://www.microsoft.com/download/details.aspx?id=39057) the tool from the Microsoft 다운로드 Center.
 2. 기본 서버 중 하나로부터 도구를 실행합니다(또는 기본 클러스터로부터 노드 중 하나). .exe 파일을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 선택합니다.
-3. **시작하기 전에**에서 데이터를 수집하려는 기간을 지정합니다. 데이터가 대표성이 있도록 운영 시간 중에 도구를 실행하는 것이 좋습니다. 네트워크 연결의 유효성만 검사하려는 경우 1분 간만 데이터를 수집할 수 있습니다.
+3. **시작하기 전에**에서 데이터를 수집하려는 기간을 지정합니다. 데이터가 대표성이 있도록 운영 시간 중에 도구를 실행하는 것이 좋습니다. 네트워크 연결의 유효성만 검사하려는 경우&1;분 간만 데이터를 수집할 수 있습니다.
 
     ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image2.png)
 4. **기본 사이트 세부 정보**에서 독립 실행형 호스트에 대한 서버 이름이나 FQDN을 지정하거나, 클러스터에 대해 클라이언트 액세스 포인트 FQDN, 클러스터 이름 또는 모든 노드를 지정하고 **다음**을 클릭합니다. 도구가 자동으로 자신이 실행 중인 서버의 이름을 검색합니다. 도구가 지정한 서버에 대해 모니터링 가능한 VM을 선택합니다.
@@ -133,11 +133,9 @@ Azure에 복제하는 경우 이 작업을 수행할 필요가 없습니다.
 * [VMM 클라우드의 Hyper-V VM을 Azure로 복제](site-recovery-vmm-to-azure.md)
 * [Hyper-V VM(VMM 없음)을 Azure로 복제](site-recovery-hyper-v-site-to-azure.md)
 * [VMM 사이트 간에 Hyper-V VM 복제](site-recovery-vmm-to-vmm.md)
-* [SAN을 통해 VMM 사이트 간에 Hyper-V VM 복제](site-recovery-vmm-san.md)
-* [단일 VMM 서버에서 Hyper-V VM 복제](site-recovery-single-vmm.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

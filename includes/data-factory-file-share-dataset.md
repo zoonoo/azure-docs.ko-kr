@@ -48,8 +48,3 @@
 ],
 ```
 이 예제에서 SliceStart의 연도, 월, 일 및 시간은 folderPath 및 fileName 속성에서 사용하는 별도 변수로 추출됩니다.
-
-
-<!--HONumber=Jan17_HO3-->
-
-

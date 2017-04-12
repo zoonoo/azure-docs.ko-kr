@@ -1,10 +1,10 @@
 ---
-title: "Resource Manager 및 Azure Portal을 사용하여 ExpressRoute 회로 만들기 및 수정 | Microsoft 문서"
+title: "ExpressRoute 회로 만들기 및 수정: Azure Portal | Microsoft Docs"
 description: "이 문서에서는 Express 경로 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제하는 방법을 설명합니다."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 68d59d59-ed4d-482f-9cbc-534ebb090613
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 03/07/2017
 ms.author: cherylmc;ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 5c6ee9ef23e8594391a4fce313f945b31e6870a7
-ms.openlocfilehash: ed4bd2e039196e60b7366fd9d2e8a8b43ce00f30
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: 4880d63223055026a4fb1a906fb15f263d2a16df
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -25,7 +26,6 @@ ms.openlocfilehash: ed4bd2e039196e60b7366fd9d2e8a8b43ce00f30
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
-> * [클래식 - PowerShell](expressroute-howto-circuit-classic.md)
 > * [비디오 - Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
 >
@@ -122,16 +122,31 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 ![Express 경로 회로의 상태](./media/expressroute-howto-circuit-portal-resource-manager/listproperties1.png)
 
 ## <a name="modifying-an-expressroute-circuit"></a>Express 경로 회로 수정
-연결에 미치는 영향 없이 Express 경로 회로의 특정 속성을 수정할 수 있습니다. 현재는 Azure 포털을 사용하여 Express 경로 회로 속성을 수정할 수 없습니다. 하지만, PowerShell을 사용하여 회로 속성을 수정할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 Express 경로 회로 수정](expressroute-howto-circuit-arm.md#modify)섹션을 참조하세요.
+연결에 미치는 영향 없이 Express 경로 회로의 특정 속성을 수정할 수 있습니다.
 
 가동 중지 시간 없이 다음을 수행할 수 있습니다.
 
 * Express 경로 회로에 대해 Express 경로 프리미엄 추가 기능을 사용하거나 사용하지 않을 수 있습니다.
-* Express 경로 회로의 대역폭 증대 회로 대역폭 다운그레이드는 지원되지 않습니다. 
+* 포트에 사용 가능한 용량이 있는 경우 ExpressRoute 회로의 대역폭을 증가시킵니다. 회로 대역폭 다운그레이드는 지원되지 않습니다. 
 * 요금제를 데이터 요금에서 무제한 데이터 요금으로 변경합니다. 요금제를 무제한 데이터 요금에서 데이터 요금으로 변경하는 것은 지원되지 않습니다.
-* **Allow Classic Operations**을 활성화하거나 비활성화할 수 있습니다.
+* *Allow Classic Operations*을 활성화하거나 비활성화할 수 있습니다.
 
 제한 및 제한 사항에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
+
+ExpressRoute 회로를 수정하려면 아래 그림과 같이 **구성**을 클릭합니다.
+
+![회로 수정](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+
+구성 블레이드 내에서 대역폭, SKU, 요금 청구 모델을 수정하고 기존 작업을 허용할 수 있습니다.
+
+> [!IMPORTANT]
+> 기존 포트에 적절한 용량이 없는 경우 ExpressRoute 회로를 다시 만들어야 할 수 있습니다. 해당 위치에서 사용 가능한 추가 용량이 없는 경우 해당 회로를 업그레이드할 수 없습니다.
+>
+> 그러나 중단 없이 Express 경로 회로의 대역폭을 줄일 수는 없습니다. 대역폭을 다운그레이드하려면 Express 경로 회로의 프로비전을 해제하고 새 Express 경로 회로를 다시 프로비전해야 합니다.
+> 
+> 표준 회로에 허용된 것보다 많은 리소스를 사용할 경우 프리미엄 추가 기능 작업을 사용하지 않도록 설정할 수 없습니다.
+> 
+> 
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Express 경로 회로 프로비전 해제 및 삭제
 **삭제** 아이콘을 선택하여 Express 경로 회로를 삭제할 수 있습니다. 다음 사항에 유의하세요.
@@ -145,10 +160,5 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 * [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-portal-resource-manager.md)
 * [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

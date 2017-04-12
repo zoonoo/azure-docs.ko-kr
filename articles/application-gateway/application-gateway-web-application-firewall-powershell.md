@@ -1,10 +1,10 @@
 ---
-title: "새 또는 기존 Application Gateway에 웹 응용 프로그램 방화벽 구성 | Microsoft Docs"
+title: "웹 응용 프로그램 방화벽 구성 - Azure Application Gateway | Microsoft Docs"
 description: "이 문서에서는 기존 또는 새 Application Gateway에 웹 응용 프로그램 방화벽을 사용하는 방법을 안내합니다."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
 ms.service: application-gateway
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 03/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 486ed096bba7accfb3ca54aa97fb0b57b756d291
-ms.openlocfilehash: ba7bff77a52c8e432b175d1db3d9dec66ec36a2b
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 52b7728c3fc702e37f5c5fe3d6544117a11464e8
+ms.lasthandoff: 03/30/2017
 
 
 ---
@@ -25,8 +26,6 @@ ms.openlocfilehash: ba7bff77a52c8e432b175d1db3d9dec66ec36a2b
 > [!div class="op_single_selector"]
 > * [Azure 포털](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 Azure Application Gateway의 웹 응용 프로그램 방화벽(WAF)은 SQL 삽입 공격, 사이트 간 스크립팅 공격, 세션 하이재킹 등의 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다.
 
@@ -42,7 +41,7 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 
 **SKU** - WAF가 없는 일반 Application Gateway는 **Standard\_Small**, **Standard\_Medium** 및 **Standard\_Large** 크기를 지원합니다. WAF의 도입으로 두 개의 SKU, 즉 **WAF\_Medium** 및 **WAF\_Large** SKU가 추가되었습니다. 소형 Application Gateway에는 WAF가 지원되지 않습니다.
 
-**계층** - 사용 가능한 값은 **표준** 또는 **WAF**입니다. 웹 응용 프로그램 방화벽을 사용하는 경우 **WAF** 를 선택해야 합니다.
+**계층** - 사용 가능한 값은 **표준** 또는 **WAF**입니다. 웹 응용 프로그램 방화벽을 사용하는 경우 **WAF**를 선택해야 합니다.
 
 **모드** - 이 설정은 WAF 모드입니다. 허용되는 값은 **검색** 및 **방지**입니다. WAF를 검색 모드로 설정하면 모든 위협이 로그 파일에 저장됩니다. 방지 모드에서는 이벤트를 여전히 기록하지만 공격자가 Application Gateway로부터 403 권한 없음 응답을 받습니다.
 
@@ -108,7 +107,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 Azure PowerShell의 최신 버전을 사용하고 있는지 확인합니다. 자세한 내용은 [Resource Manager에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
 Azure에 로그인
 
@@ -118,7 +117,7 @@ Login-AzureRmAccount
 
 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 계정에 대한 구독을 확인합니다.
 
@@ -126,7 +125,7 @@ Login-AzureRmAccount
 Get-AzureRmSubscription
 ```
 
-### <a name="step-3"></a>3단계
+### <a name="step-3"></a>3단계:
 
 사용할 Azure 구독을 선택합니다.
 
@@ -134,7 +133,7 @@ Get-AzureRmSubscription
 Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
 ```
 
-### <a name="step-4"></a>4단계
+### <a name="step-4"></a>4단계:
 
 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
@@ -148,8 +147,6 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 > [!NOTE]
 > 응용 프로그램 게이트웨이에 사용자 지정 프로브를 구성해야 하는 경우 [PowerShell을 사용하여 사용자 지정 프로브로 응용 프로그램 게이트웨이 만들기](application-gateway-create-probe-ps.md)를 참조하세요. 자세한 내용은 [사용자 지정 프로브 및 상태 모니터링](application-gateway-probe-overview.md)을 확인합니다.
-> 
-> 
 
 ### <a name="step-5"></a>5단계
 
@@ -161,8 +158,7 @@ $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPr
 
 > [!NOTE]
 > 응용 프로그램에 대한 서브넷의 마스크 비트가 적어도 28 이상이어야 합니다. 이 값은 Application Gateway 인스턴스의 서브넷에 10개 주소를 남겨 둡니다. 서브넷 마스크가 그보다 작으면 나중에 Application Gateway의 인스턴스를 추가할 수 없습니다.
-> 
-> 
+
 
 ### <a name="step-6"></a>6단계
 
@@ -174,7 +170,7 @@ $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPr
 
 ### <a name="step-7"></a>7단계
 
- [리소스 그룹 만들기](#create-the-resource-group)
+[리소스 그룹 만들기](#create-the-resource-group)
 
 ```powershell
 $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
@@ -200,8 +196,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwp
 
 > [!IMPORTANT]
 > Application Gateway는 정의된 도메인 레이블로 만든 공용 IP 주소의 사용을 지원하지 않습니다. 도메인 레이블이 동적으로 생성된 공용 IP 주소만 지원됩니다. Application Gateway에 친숙한 dns 이름이 필요한 경우 cname 레코드를 별칭으로 사용하는 것이 좋습니다.
-> 
-> 
+
 
 ### <a name="step-10"></a>10단계
 
@@ -287,15 +282,13 @@ $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
 
 > [!NOTE]
 > **WAF\_Medium**과 **WAF\_Large** 중에 선택할 수 있으며, WAF를 사용할 때의 계층은 언제나 **WAF**입니다. 용량은 1부터 10 사이의 숫자입니다.
-> 
-> 
 
 ### <a name="step-20"></a>20단계
 
 WAF의 모드를 구성합니다. 허용되는 값은 **방지** 및 **검색**입니다.
 
 ```powershell
-$config = New-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention"
+$config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
 ### <a name="step-21"></a>21단계
@@ -305,6 +298,9 @@ $config = New-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Preven
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WebApplicationFirewallConfig $config -SslCertificates $cert -AuthenticationCertificates $authcert
 ```
+
+> [!NOTE]
+> 기본 웹 응용 프로그램 방화벽 구성을 사용하여 만든 응용 프로그램 게이트웨이는 보호를 위해 CRS 3.0으로 구성됩니다.
 
 ## <a name="get-application-gateway-dns-name"></a>응용 프로그램 게이트웨이 DNS 이름 가져오기
 
@@ -338,12 +334,7 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>다음 단계
 
- [Application Gateway 진단](application-gateway-diagnostics.md)
+[Application Gateway 진단](application-gateway-diagnostics.md)을 방문하여 진단 로깅을 구성하는 방법 및 웹 응용 프로그램 방화벽을 통해 검색 또는 방지되는 이벤트를 기록하는 방법에 대해 알아보기
 
-[시나리오]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
 

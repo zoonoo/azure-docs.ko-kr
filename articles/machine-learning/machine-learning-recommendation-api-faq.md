@@ -12,11 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/31/2017
 ms.author: luisca
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: machine-learning-datamarket-deprecation
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 18accd5252e0ecf19fed23f3c2e4628e60fe370f
+ms.sourcegitcommit: 9ac2a1bf5987fc6fc30e20a1b4a10340eeed3825
+ms.openlocfilehash: 15cf891b9c31e1f2e2b108e631f32883ce2f36a7
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -25,7 +28,7 @@ ms.openlocfilehash: 18accd5252e0ecf19fed23f3c2e4628e60fe370f
 
 > [!NOTE]
 > 이 버전 대신 Recommendations API Cognitive 서비스를 사용하기 시작해야 합니다. Recommendations Cognitive 서비스가 이 서비스를 대체하게 되며, 모든 새로운 기능이 여기에서 개발됩니다. 일괄 처리 지원, 개선된 API 탐색기, 보다 깔끔한 API 노출 영역, 보다 일관적인 등록/청구 경험 등의 새로운 기능이 있습니다.
->  [새로운 Cognitive 서비스로 마이그레이션](http://aka.ms/recomigrate)
+> [새로운 Cognitive 서비스로 마이그레이션](http://aka.ms/recomigrate)
 > 
 > 
 
@@ -43,9 +46,9 @@ ms.openlocfilehash: 18accd5252e0ecf19fed23f3c2e4628e60fe370f
 
 * 구독당 최대 모델 수: 10
 * 카탈로그에 포함할 수 있는 최대 항목 수: 100,000
-* 유지되는 사용 포인트의 최대 수는 5,000,000개입니다. 새 포인트가 업로드되거나 보고되면 가장 오래된 포인트가 삭제됩니다.
+* 유지되는 사용 포인트의 최대 수는&5;,000,000개입니다. 새 포인트가 업로드되거나 보고되면 가장 오래된 포인트가 삭제됩니다.
 * 메일로 전송할 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 현황 데이터 가져오기)는 200MB입니다.
-* 활성화되지 않은 권장 사항 모델 빌드에 대한 TPS(초당 트랜잭션 수)는 최대 2TPS입니다. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
+* 활성화되지 않은 권장 사항 모델 빌드에 대한 TPS(초당 트랜잭션 수)는 최대&2;TPS입니다. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
 
 ## <a name="purchase-and-billing"></a>구매 및 요금 청구
 **출시 기간 동안 권장 사항 비용은 얼마입니까?**
@@ -113,7 +116,7 @@ Microsoft Azure 마켓플레이스의 [제품 페이지](https://datamarket.azur
 
 **처음에 권장 사항을 설정하려면 어떻게 해야 합니까?**
 
-권장 사항을 [구독](https://datamarket.azure.com/dataset/amla/recommendations)한 후 [Azure Machine Learning 권장 사항 – 빠른 시작 가이드](machine-learning-recommendation-api-quick-start-guide.md)의 API 설명서를 사용하여 서비스를 설정해야 합니다.
+권장 사항을 [구독](https://datamarket.azure.com/dataset/amla/recommendations)한 후 [Azure 기계 학습 권장 사항 – 빠른 시작 가이드](machine-learning-recommendation-api-quick-start-guide.md)의 API 설명서를 사용하여 서비스를 설정해야 합니다.
 
 **API 설명서는 어디서 찾을 수 있습니까?** 
 
@@ -136,10 +139,5 @@ API 설명서는 [Azure Machine Learning 권장 사항 - 빠른 시작 가이드
 **사용 약관은 어디서 찾을 수 있습니까?**
 
 [Microsoft Azure 기계 학습 권장 사항 API 서비스 약관](https://datamarket.azure.com/dataset/amla/recommendations#terms)에서 찾을 수 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

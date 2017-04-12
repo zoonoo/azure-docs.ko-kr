@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dece2cd1c8645c0a2d19177d433dbfe5d6e3f6cd
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: ac73b5c2ece8044d9f75e017428c43259f8a9357
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -44,11 +45,10 @@ Promapp과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다. 
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다. 
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.  
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Promapp 추가 
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -107,17 +107,16 @@ Promapp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
    
     ![Azure AD Single Sign-On][8] 
    
-     a. **로그온 URL** 텍스트 상자에 사용자가 Promapp 사이트에 로그온하는 데 사용하는 URL(예: *https://companyname.promapp.com/instancename*)을 입력합니다.
-
-     b. **다음**을 클릭합니다.
+   1. **로그온 URL** 텍스트 상자에 사용자가 Promapp 사이트에 로그온하는 데 사용하는 URL(예: *https://companyname.promapp.com/instancename*)을 입력합니다.
+   2. **다음**을 클릭합니다.
 
 1. **Promapp에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
    
     ![Azure AD Single Sign-On][9] 
    
-    a. 인증서 다운로드를 클릭하고 파일을 컴퓨터에 저장합니다.
+   1. 인증서 다운로드를 클릭하고 파일을 컴퓨터에 저장합니다.
+   2. **다음**을 클릭합니다.
    
-    b. **다음**을 클릭합니다.
 2. Promapp 회사 사이트에 관리자로 로그인합니다. 
 3. 위쪽의 메뉴에서 **관리자**를 클릭합니다. 
    
@@ -129,11 +128,9 @@ Promapp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
    
     ![Azure AD Single Sign-On][14] 
    
-    a. Azure 클래식 포털의 **Promapp에서 Single Sign-On 구성** 대화 상자에서 **원격 로그인 URL**을 복사하고 **SSO-로그인 URL** 텍스트 상자에 붙여넣은 다음 **저장**을 누릅니다.
-   
-    b. **SSO - Single Sign-On 모드**로 **옵션**을 선택한 다음 **저장**을 클릭합니다.
-   
-    c. 다운로드한 인증서를 메모장에서 열고 첫 번째 줄(*---인증서 시작---*) 및 마지막 줄(*---인증서 끝---*) 없이 인증서 콘텐츠를 복사하며 **SSO-x.509 인증서** 텍스트 상자에 붙여넣은 다음 **저장**을 클릭합니다.
+   1. Azure 클래식 포털의 **Promapp에서 Single Sign-On 구성** 대화 상자에서 **원격 로그인 URL**을 복사하고 **SSO-로그인 URL** 텍스트 상자에 붙여넣은 다음 **저장**을 누릅니다.
+   2. **SSO - Single Sign-On 모드**로 **옵션**을 선택한 다음 **저장**을 클릭합니다.
+   3. 다운로드한 인증서를 메모장에서 열고 첫 번째 줄(*---인증서 시작---*) 및 마지막 줄(*---인증서 끝---*) 없이 인증서 콘텐츠를 복사하며 **SSO-x.509 인증서** 텍스트 상자에 붙여넣은 다음 **저장**을 클릭합니다.
 6. Azure AD 클래식 포털에서 Single Sign-On을 구성했음을 확인한다는 확인란을 선택하고 **다음**을 클릭합니다. 
    
     ![Azure AD Single Sign-On][10]
@@ -162,23 +159,20 @@ Promapp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-promapp-tutorial/create_aaduser_05.png)  
    
-    a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
+   1. 사용자 유형에서 조직의 새 사용자를 선택합니다.
+   2. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
+   3. **다음**을 클릭합니다.
    
-    b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
-   
-    c. **다음**을 클릭합니다.
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다. 
    
    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-promapp-tutorial/create_aaduser_06.png) 
    
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+   1. **이름** 텍스트 상자에 **Britta**를 입력합니다.   
+   2. **성** 텍스트 상자에 **Simon**을 입력합니다.
+   3. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+   4. **역할** 목록에서 **사용자**를 선택합니다.
+   5. **다음**을 클릭합니다.
    
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
-   
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
-   
-   d. **역할** 목록에서 **사용자**를 선택합니다.
-   e. **다음**을 클릭합니다.
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-promapp-tutorial/create_aaduser_07.png) 
@@ -186,9 +180,8 @@ Promapp에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-promapp-tutorial/create_aaduser_08.png) 
    
-    a. **새 암호**값을 적어둡니다.
-   
-    b. **완료**를 클릭합니다.   
+   1. **새 암호**값을 적어둡니다.
+   2. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-a-promapp-test-user"></a>Promapp 테스트 사용자 만들기
 Promapp 응용 프로그램은 적시에 프로비전을 지원합니다.
@@ -256,9 +249,4 @@ Promapp 응용 프로그램은 적시에 프로비전을 지원합니다.
 [400]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_400.png
 [401]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_401.png
 [402]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_402.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

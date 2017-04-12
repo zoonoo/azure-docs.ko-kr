@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 11/16/2016
-ms.author: babanisa,sethm
+ms.date: 03/09/2017
+ms.author: babanisa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 1b9423c22ff6e003a6236e01118b600a2c746db4
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 9fd40892c77630bd4f0b7abf5c3458a6dc200402
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -32,7 +33,7 @@ Azure 릴레이 서비스는 방화벽 연결을 열거나 회사 네트워크 �
 Azure 릴레이에는 다음과 같은 두 가지 기능이 있습니다.
 
 1. [하이브리드 연결](#hybrid-connections) - 다중 플랫폼 시나리오를 가능하게 하는 공개 표준 웹 소켓을 사용합니다.
-2. [WCF 릴레이](#wcf-relays) - 원격 프로시저 호출이 가능하도록 WCF(Windows Communication Foundation)를 사용합니다. WCF 릴레이는 레거시 릴레이로 많은 고객이 기존의 WCF 프로그래밍 모델과 함께 사용할 수 있습니다.
+2. [WCF 릴레이](#wcf-relays) - 원격 프로시저 호출이 가능하도록 WCF(Windows Communication Foundation)를 사용합니다. WCF 릴레이는 레거시 릴레이로 많은 고객이 기존의 WCF 프로그래밍 모델과 함께 사용합니다.
 
 하이브리드 연결과 WCF 릴레이는 모두 기업 엔터프라이즈 네트워크 내에 있는 자산에 대해 보안 연결을 사용합니다. 이들 중 무엇을 사용할지는 다음 테이블에 설명되어 있는 구체적인 요구 사항에 따라 달라집니다.
 
@@ -41,12 +42,9 @@ Azure 릴레이에는 다음과 같은 두 가지 기능이 있습니다.
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **JavaScript/NodeJS*** | |x |
-| **Java*** | |x |
+| **JavaScript/NodeJS** | |x |
 | **표준 기반 개방형 프로토콜** | |x |
 | **여러 RPC 프로그래밍 모델** | |x |
-
-*일반 공급
 
 ## <a name="hybrid-connections"></a>하이브리드 연결
 [Azure 릴레이의 하이브리드 연결](relay-hybrid-connections-protocol.md) 기능은 기존 릴레이 기능의 안전한 오픈 프로토콜의 진화된 형태로, 구현 모든 플랫폼에서 그리고 일반적인 웹 브라우저에 WebSocket API를 명시적으로 포함하는 기본 WebSocket 기능을 가진 모든 언어로 구현할 수 있습니다. 하이브리드 연결은 HTTP 및 WebSockets를 기반으로 합니다.
@@ -55,17 +53,12 @@ Azure 릴레이에는 다음과 같은 두 가지 기능이 있습니다.
 WCF 릴레이는 전체 .NET Framework(NETFX) 및 WCF를 위해 작동합니다. WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 릴레이 서비스 사이의 연결을 시작합니다. 내부적으로, 릴레이 바인딩은 클라우드에서 서비스 버스와 통합하는 WCF 채널 구성 요소를 생성하도록 설계된 새로운 전송 바인딩 요소에 매핑합니다.
 
 ## <a name="service-history"></a>서비스 변경 사항
-하이브리드 연결은 Azure Service Bus WCF 릴레이에서 빌드된 이전과 비슷한 이름의 "BizTalk Services" 기능을 대체합니다. 새로운 하이브리드 연결 기능은 기존 WCF 릴레이 기능을 보완하고 이러한 두 서비스 기능은 당분간 릴레이 서비스에 공존하게 됩니다.  일반적인 게이트웨이를 공유하지만 구현 방식은 서로 다릅니다.
+하이브리드 연결은 Azure Service Bus WCF 릴레이에서 빌드된 이전과 비슷한 이름의 "BizTalk Services" 기능을 대체합니다. 새로운 하이브리드 연결 기능은 기존 WCF 릴레이 기능을 보완하고 이러한 두 서비스 기능은 당분간 릴레이 서비스에 공존하게 됩니다. 일반적인 게이트웨이를 공유하지만 구현 방식은 서로 다릅니다.
 
 ## <a name="next-steps"></a>다음 단계:
 * [릴레이 FAQ](relay-faq.md)
 * [네임스페이스 만들기](relay-create-namespace-portal.md)
 * [.NET 시작](relay-hybrid-connections-dotnet-get-started.md)
 * [노드 시작](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Microsoft Azure StorSimple 가상 배열 배포 - Hyper-V에서 프로비전 | Microsoft Docs"
+title: "Hyper-V에서 StorSimple Virtual Array 프로비전 | Microsoft Docs"
 description: "StorSimple 가상 배열 배포에 대한 두 번째 자습서에는 Hyper-V에서 가상 배열을 프로비전하는 내용이 포함됩니다."
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4354963c-e09d-41ac-9c8b-f21abeae9913
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 03/15/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: bad431c8958f7d381bb9c0410caa3a57c6e75c19
+ms.lasthandoff: 03/16/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>StorSimple 가상 배열 배포 - Hyper-V에서 가상 배열 프로비전
+# <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>StorSimple 가상 배열 배포 - Hyper-V에서 프로비전
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
 ## <a name="overview"></a>개요
@@ -48,7 +50,7 @@ ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
 * 가상 배열을 프로비전하려면 호스트 시스템에서 다음 리소스를 전용으로 사용할 수 있습니다.
 
   * 코어 4개 이상
-  * RAM 8GB 이상
+  * RAM 8GB 이상 가상 배열을 파일 서버로서 구성하려는 경우 8GB는 2백만 개 미만의 파일을 지원합니다. 2 - 4백만 개의 파일을 지원하려면 16GB RAM이 필요합니다.
   * 네트워크 인터페이스 하나
   * 데이터용 가상 디스크 500GB
 
@@ -73,7 +75,7 @@ ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
 가상 배열을 만드는 기본 하드웨어(호스트 시스템)에서 가상 배열에 대해 다음 리소스를 전용으로 사용할 수 있도록 해야 합니다.
 
 * 코어 4개 이상
-* RAM 8GB 이상
+* RAM 8GB 이상 가상 배열을 파일 서버로서 구성하려는 경우 8GB는 2백만 개 미만의 파일을 지원합니다. 2 - 4백만 개의 파일을 지원하려면 16GB RAM이 필요합니다.
 * 네트워크 인터페이스 하나
 * 시스템 데이터용 가상 디스크 500GB
 
@@ -115,7 +117,7 @@ ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
 11. 최소 요구 사항을 충족하려면 코어 4개가 필요합니다. 4개의 가상 프로세서를 추가하려면 **Hyper-V 관리자** 창에서 호스트 시스템을 선택합니다. **가상 컴퓨터** 목록의 오른쪽 창에서 방금 만든 가상 컴퓨터를 찾습니다. 컴퓨터 이름을 선택하고 마우스 오른쪽 단추로 클릭한 후 **설정**을 선택합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image10.png)
-12. **설정** 페이지의 왼쪽 창에서 **프로세서**를 클릭합니다. 오른쪽 창에서 **가상 프로세서 수** 를 4(또는 그 이상)로 설정합니다. **Apply**를 클릭합니다.
+12. **설정** 페이지의 왼쪽 창에서 **프로세서**를 클릭합니다. 오른쪽 창에서 **가상 프로세서 수**를 4(또는 그 이상)로 설정합니다. **Apply**를 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image11.png)
 13. 최소 요구 사항을 충족하려면 가상 데이터 디스크를 500GB 추가해야 합니다. **설정** 페이지에서:
@@ -137,7 +139,7 @@ ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
 18. **이름 및 위치 지정** 페이지에서 데이터 디스크의 **이름** 및 **위치**(해당 위치로 이동 가능)를 입력합니다. **Next**를 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **500GB**(또는 그 이상)로 지정합니다. **Next**를 클릭합니다.
+19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **500GB**(또는 그 이상)로 지정합니다. 500GB가 최소 요구 사항이지만 언제나 더 큰 디스크를 프로비전할 수 있습니다. 프로비전된 후에는 디스크를 확장하거나 축소할 수 없습니다. 프로비전할 디스크의 크기에 대한 자세한 정보는 [모범 사례 문서](storsimple-ova-best-practices.md)의 크기 조정 섹션을 검토하세요. **다음**을 클릭합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. **요약** 페이지에서 가상 데이터 디스크의 세부 정보를 검토한 후 만족스러우면 **마침**을 클릭하여 디스크를 만듭니다. 마법사가 닫히고 가상 하드 디스크가 컴퓨터에 추가됩니다.
@@ -214,9 +216,4 @@ ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 가상 배열을 파일 서버로 설정](storsimple-virtual-array-deploy3-fs-setup.md)
 * [StorSimple 가상 배열을 iSCSI 서버로 설정](storsimple-virtual-array-deploy3-iscsi-setup.md)
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

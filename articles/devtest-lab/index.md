@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Devtest Labs 설명서 - 자습서 | Microsoft Docs"
 description: "다시 사용할 수 있는 아티팩트를 사용하여 신속하게 응용 프로그램 테스트 환경을 만드는 방법에 대해 알아봅니다. 자습서, 비디오 등에서는 실습을 생성하고 관리하며 보호하는 방법을 보여 줍니다."
+services: devtest-lab
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: devtest-lab
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 6ac97ee4e1c20bcca92d2c4b2d4865e286a12ed3
-ms.openlocfilehash: 079976fbc7e482944916364507aeaacb27acbdcb
+ms.sourcegitcommit: 78ae030b07f8f96ab3e4e0cb506fa8495d16543c
+ms.openlocfilehash: 19536533ad795ceab7e6223a36575a774d0cfc27
 
 ---
 #<a name="devtest-labs-documentation"></a>DevTest Labs 설명서
@@ -103,18 +114,10 @@ ms.openlocfilehash: 079976fbc7e482944916364507aeaacb27acbdcb
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/devtest-lab.pdf">
-        <div class="img"></div>
-        <div class="text">
-Devtest Lab 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

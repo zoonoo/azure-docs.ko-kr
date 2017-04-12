@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 11/28/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 67ee949acaed274a3a1522008e833d86c8442a23
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d055a859ec89ef7fec23db9bf1d574dd8cb76293
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -270,7 +271,7 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데�
 
 
 #### <a name="step-3-use-existing-image"></a>3단계: 기존 이미지 사용
-기존 이미지를 사용할 수 있으며 [기존 컴퓨터의 이미지를 사용](../../virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수도 있습니다. 이미지를 생성하는 컴퓨터는 DS* 컴퓨터가 아니어도 됩니다. 다음 단계에서는 이미지를 생성한 후 **Start-AzureStorageBlobCopy** PowerShell commandlet을 사용하여 Premium Storage 계정에 해당 이미지를 복사하는 방법을 보여 줍니다.
+기존 이미지를 사용할 수 있으며 [기존 컴퓨터의 이미지를 사용](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수도 있습니다. 이미지를 생성하는 컴퓨터는 DS*컴퓨터가 아니어도 됩니다. 다음 단계에서는 이미지를 생성한 후**Start-AzureStorageBlobCopy** PowerShell commandlet을 사용하여 Premium Storage 계정에 해당 이미지를 복사하는 방법을 보여 줍니다.
 
     #Get storage account keys:
     #Standard Storage account
@@ -551,7 +552,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 ### <a name="environment"></a>Environment
 * Windows 2012/SQL 2012
 * SP의 DB 파일 하나
-* 노드당 저장소 풀&2;개
+* 노드당 저장소 풀 2개
 
 ![Appendix1][11]
 
@@ -614,7 +615,7 @@ Always On 가용성 그룹에 속하는 특정 리소스에는 클러스터 서�
 
 #### <a name="step-4-dns-configuration"></a>4단계: DNS 구성
 원활한 전환을 구현하려면 DNS 사용 및 업데이트 방법을 고려해야 합니다.
-Always On을 설치할 때는 Windows 클러스터 리소스 그룹이 작성됩니다. 장애 조치(Failover) 클러스터 관리자를 열면 최소한&3;개의 리소스가 표시되는데, 문서에 설명되어 있는 두 리소스는 다음과 같습니다.
+Always On을 설치할 때는 Windows 클러스터 리소스 그룹이 작성됩니다. 장애 조치(Failover) 클러스터 관리자를 열면 최소한 3개의 리소스가 표시되는데, 문서에 설명되어 있는 두 리소스는 다음과 같습니다.
 
 * VNN(가상 네트워크 이름) - 클라이언트가 Always On을 통해 SQL Server에 연결하려는 경우에 연결하는 DNS 이름입니다.
 * IP 주소 리소스 – VNN과 연결된 IP 주소입니다. 둘 이상의 리소스가 있을 수 있으며, 다중 사이트 구성에서는 사이트/서브넷당 IP 주소 하나가 포함됩니다.
@@ -1126,9 +1127,4 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 [23]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_13.png
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

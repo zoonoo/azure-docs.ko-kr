@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure SQL Data Warehouse 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Service Fabric 미들웨어 플랫폼을 사용하여 클라우드 규모의 응용 프로그램에 대한 마이크로 서비스를 패키징하고 배포하는 방법에 대해 알아봅니다. 자습서, API 참조 및 코드 샘플입니다."
+services: service-fabric
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-fabric
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: d9b4e3b3df6760b15e151c5eab37c9f534784de8
+ms.sourcegitcommit: 964b9b1ab804b8e5d56863ab5a174c984ebf8235
+ms.openlocfilehash: 2180a54f576c8878e8a33bd6a5be3082188abebc
 
 ---
 #<a name="service-fabric-documentation"></a>Service Fabric 설명서
@@ -146,13 +157,13 @@ Service Fabric을 사용하여 확장성 및 안정성이 뛰어난 마이크로
             </div>
         </div>
     </li>
-</ul>   
+</ul>    
 
 
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

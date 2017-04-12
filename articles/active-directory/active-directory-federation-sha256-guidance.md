@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 4afdde65fe4c69d1944c0e1a3c5dd3300c5b970c
+ms.sourcegitcommit: e1b909f419c8c04a9332a29669148321ab3dbd2d
+ms.openlocfilehash: 2afd8e04ac325f1c9f2dee8aed867b0d0a6b558d
+ms.lasthandoff: 02/09/2017
 
 
 ---
-# <a name="change-signature-hash-algorithm-for-office-365-replying-party-trust"></a>Office 365 신뢰 당사자 트러스트에 대한 서명 해시 알고리즘 변경
+# <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Office 365 신뢰 당사자 트러스트에 대한 서명 해시 알고리즘 변경
 ## <a name="overview"></a>개요
-Azure Active Directory Federation Services(AD FS)는 변조될 수 없음을 확인하도록 해당 토큰을 Microsoft Azure Active Directory에 서명합니다. 이 서명은 SHA1 또는 SHA256을 기반으로 할 수 있습니다. 이제 Azure Active Directory에서는 SHA256 알고리즘으로 서명된 토큰을 지원하며, 최고 수준의 보안을 위해 토큰 서명 알고리즘을 SHA256으로 설정하도록 권장합니다. 이 문서에서는 토큰 서명 알고리즘을 보다 안전한 SHA256 수준으로 설정하는 데 필요한 단계를 설명합니다.
+AD FS(Active Directory Federation Services)는 변조될 수 없음을 확인하도록 해당 토큰을 Microsoft Azure Active Directory에 서명합니다. 이 서명은 SHA1 또는 SHA256을 기반으로 할 수 있습니다. 이제 Azure Active Directory에서는 SHA256 알고리즘으로 서명된 토큰을 지원하며, 최고 수준의 보안을 위해 토큰 서명 알고리즘을 SHA256으로 설정하도록 권장합니다. 이 문서에서는 토큰 서명 알고리즘을 보다 안전한 SHA256 수준으로 설정하는 데 필요한 단계를 설명합니다.
 
 ## <a name="change-the-token-signing-algorithm"></a>토큰 서명 알고리즘 변경
 아래의 두 절차 중 하나를 사용하여 서명 알고리즘을 설정한 후 AD FS는 SHA256으로 Office 365 신뢰 당사자 트러스트에 대한 토큰을 서명합니다. 추가 구성을 변경할 필요가 없으며 이 변경은 Office 365 또는 다른 Azure AD 응용 프로그램에 액세스하는 기능에 영향을 주지 않습니다.
@@ -45,10 +46,5 @@ Azure Active Directory Federation Services(AD FS)는 변조될 수 없음을 확
 
 ## <a name="also-read"></a>참조 항목
 * [Azure AD Connect를 사용하여 Office 365 트러스트 복구](connect/active-directory-aadconnect-federation-management.md#repairthetrust)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 794b1e5deca6c3bda078e3ea9006d334bc3a8052
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: fee05b9cfb176714e3313ea2e969958bb4cb19f8
 
 
 ---
@@ -47,7 +47,7 @@ ms.openlocfilehash: 794b1e5deca6c3bda078e3ea9006d334bc3a8052
 * [Azure AD 암호 관리 문제 해결](active-directory-passwords-troubleshoot.md)
 * [Azure AD 암호 관리에 대한 FAQ](active-directory-passwords-faq.md)
 
-## <a name="whats-next"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 * [Azure AD 관리](active-directory-administer.md)
 * [Azure AD에서 사용자 만들기 또는 편집](active-directory-create-users.md)
 * [Azure AD에서 그룹 관리](active-directory-manage-groups.md)

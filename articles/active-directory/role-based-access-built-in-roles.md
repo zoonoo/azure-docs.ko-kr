@@ -1,5 +1,5 @@
 ---
-title: "RBAC: 기본 제공 역할 | Microsoft Docs"
+title: "Actions 및 NotActions - Azure RBAC의 역할 | Microsoft Docs"
 description: "이 항목에서는 역할 기반 액세스 제어(RBAC)에 대한 기본 제공 역할에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/25/2016
+ms.date: 02/21/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 386e8479a64af20469e3e03180348f674b08ef8f
-
+ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
+ms.openlocfilehash: 404c4c4012eb5b6f8e7acdd7f985009b9f13b9f3
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="rbac-built-in-roles"></a>RBAC: 기본 제공 역할
+# <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 기본 제공 역할
 Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스에 할당할 수 있는 다음 기본 제공 역할이 포함되었습니다. 기본 제공 역할의 정의는 수정할 수 없습니다. 그러나 조직의 특정 요구 사항에 맞게 [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md) 을 만들 수 있습니다.
 
 ## <a name="roles-in-azure"></a>Azure의 역할
@@ -28,14 +29,17 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 
 > [!NOTE]
 > Azure 역할 정의는 끊임없이 진화하고 있습니다. 이 문서는 가능한 최신 상태로 유지되지만 Azure PowerShell에서 항상 최신 역할 정의를 확인할 수 있습니다. 가능한 cmdlets `(get-azurermroledefinition "<role name>").actions` 또는 `(get-azurermroledefinition "<role name>").notactions`을(를) 사요ㅛㅇ합니다.
-> 
-> 
+>
+>
 
 | 역할 이름 | 설명 |
 | --- | --- |
 | [API 관리 서비스 참여자](#api-management-service-contributor) |API 관리 서비스를 관리할 수 있음 |
 | [Application Insights 구성 요소 참여자](#application-insights-component-contributor) |Application Insights 구성 요소를 관리할 수 있음 |
 | [자동화 운영자](#automation-operator) |작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있음 |
+| [백업 참여자](#backup-contributor) | Recovery Services 자격 증명 모음에서 백업을 관리할 수 있습니다. |
+| [백업 운영자](#backup-operator) | Recovery Services 자격 증명 모음에서 백업 제거를 제외한 백업 관리를 수행할 수 있습니다. |
+| [백업 읽기 권한자](#backup-reader) | 모든 백업 관리 서비스를 볼 수 있습니다.  |
 | [BizTalk 참여자](#biztalk-contributor) |BizTalk 서비스를 관리할 수 있음 |
 | [ClearDB MySQL DB 참여자](#cleardb-mysql-db-contributor) |ClearDB MySQL 데이터베이스를 관리할 수 있음 |
 | [참여자](#contributor) |액세스를 제외한 모든 것을 관리할 수 있음 |
@@ -117,6 +121,98 @@ Application Insights 구성 요소를 관리할 수 있음
 | Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
 | Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
+
+### <a name="backup-contributor"></a>백업 참여자
+Recovery Services 자격 증명 모음 생성 및 다른 사용자에게 액세스 권한 부여를 제외한 모든 백업 관리 작업을 관리할 수 있습니다.
+
+| **actions** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | 가상 네트워크 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | 백업 관리에 대한 작업의 결과 관리 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Recovery Services 자격 증명 모음의 백업 패브릭 내에서 백업 컨테이너 만들기 및 관리 |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | 백업 작업 만들기 및 관리 |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 백업 작업을 Excel로 내보내기 |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | 백업 관리와 관련된 메타데이터 만들기 및 관리 |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 백업 관리 작업의 결과 만들기 및 관리 |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/* | 백업 정책 만들기 및 관리 |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | 백업할 수 있는 항목 만들기 및 관리 |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | 백업한 항목 만들기 및 관리 |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | 백업 항목을 보유하는 컨테이너 만들기 및 관리 |
+| Microsoft.RecoveryServices/Vaults/certificates/* | Recovery Services 자격 증명 모음의 백업과 관련된 인증서 만들기 및 관리 |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | 자격 증명 모음과 관련된 확장 정보 만들기 및 관리 | 
+| Microsoft.RecoveryServices/Vaults/read | Recovery Services 자격 증명 모음 읽기 |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | 새로 만든 컨테이너를 가져오기 위한 검색 작업 관리 |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/* | 등록된 ID 만들기 및 관리 |
+| Microsoft.RecoveryServices/Vaults/usages/* | Recovery Services 자격 증명 모음 만들기 및 사용 관리 |
+| Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |
+| Microsoft.Storage/storageAccounts/read | 저장소 계정 읽기 |
+| Microsoft.Support/* |지원 티켓 만들기 및 관리 |
+
+### <a name="backup-operator"></a>백업 운영자
+자격 증명 모음 생성, 백업 제거 및 다른 사용자에게 액세스 권한 부여를 제외한 모든 백업 관리 작업을 관리할 수 있습니다.
+
+| **actions** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | 가상 네트워크 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | 백업 관리에 대한 작업의 결과 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | 보호 컨테이너에 대한 작업의 결과 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | 백업된 항목에 대해 주문형 백업 작업 수행 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | 백업된 항목에 대해 수행된 작업의 결과 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read | 백업된 항목에 대해 수행된 작업의 상태 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | 백업된 항목 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | 백업된 항목의 복구 지점 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | 백업된 항목의 복구 지점을 사용하여 복원 작업 수행 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | 백업 항목 만들기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | 백업 항목을 보유하는 컨테이너 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | 백업 작업 만들기 및 관리 |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 백업 작업을 Excel로 내보내기 |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | 백업 관리와 관련된 메타데이터 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 백업 관리 작업의 결과 만들기 및 관리 |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | 백업 정책에 대해 수행된 작업의 결과 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read | 백업 정책 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | 백업할 수 있는 항목 만들기 및 관리 |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | 백업된 항목 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | 백업 항목을 보유하는 백업된 컨테이너 읽기 |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | 자격 증명 모음과 관련된 확장된 정보 읽기 | 
+| Microsoft.RecoveryServices/Vaults/extendedInformation/write | 자격 증명 모음과 관련된 확장된 정보 쓰기 | 
+| Microsoft.RecoveryServices/Vaults/read | Recovery Services 자격 증명 모음 읽기 |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | 새로 만든 컨테이너를 가져오기 위한 검색 작업 관리 |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | 자격 증명 모음의 등록된 항목에 대해 수행된 작업의 결과 읽기 |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | 자격 증명 모음의 등록된 항목 읽기 |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/write | 자격 증명 모음에 등록된 항목 쓰기 |
+| Microsoft.RecoveryServices/Vaults/usages/read | Recovery Services 자격 증명 모음의 사용 현황 읽기 |
+| Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 읽기 |
+| Microsoft.Storage/storageAccounts/read | 저장소 계정 읽기 |
+| Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+
+### <a name="backup-reader"></a>백업 읽기 권한자
+Recovery Services 자격 증명 모음의 백업 관리를 모니터링할 수 있습니다.
+
+| **actions** | |
+| --- | --- |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read  | 백업 관리에 대한 작업의 결과 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read  | 보호 컨테이너에 대한 작업의 결과 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read  | 백업된 항목에 대해 수행된 작업의 결과 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read  | 백업된 항목에 대해 수행된 작업의 상태 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read  | 백업된 항목 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read  | 백업 항목을 보유하는 컨테이너 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read  | 백업 작업의 결과 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupJobs/read  | 백업 작업 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 백업 작업을 Excel로 내보내기 |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | 백업 관리와 관련된 메타데이터 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/read  | 백업 관리 작업 결과 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read  | 백업 정책에 대해 수행된 작업의 결과 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read  | 백업 정책 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read  |  백업된 항목 읽기 |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read  | 백업 항목을 보유하는 백업된 컨테이너 읽기 |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | 자격 증명 모음과 관련된 확장된 정보 읽기 |
+| Microsoft.RecoveryServices/Vaults/read  | Recovery Services 자격 증명 모음 읽기 |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/read  | 새로 만든 컨테이너를 가져오기 위한 검색 작업의 결과 읽기 |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | 자격 증명 모음의 등록된 항목에 대해 수행된 작업의 결과 읽기 |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | 자격 증명 모음의 등록된 항목 읽기 |
+| Microsoft.RecoveryServices/Vaults/usages/read  |  Recovery Services 자격 증명 모음의 사용 현황 읽기 |
 
 ### <a name="biztalk-contributor"></a>BizTalk 참여자
 BizTalk 서비스를 관리할 수 있음
@@ -552,10 +648,4 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있음
 * [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md): 액세스 요구 사항에 맞게 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
 * [액세스 변경 기록 보고서 만들기](role-based-access-control-access-change-history-report.md): RBAC에서 역할 할당 변경을 추적합니다.
 * [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

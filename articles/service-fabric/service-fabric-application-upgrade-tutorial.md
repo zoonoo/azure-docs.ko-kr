@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 04/07/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: 68557393d6cbdc47f19dddfae05940979e2004f5
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 3fa7b8d053d0193352776e94d2ab4796ba05e166
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: 68557393d6cbdc47f19dddfae05940979e2004f5
 Azure 서비스 패브릭을 사용하면 변경된 서비스만 업그레이드하고, 업그레이드 프로세스를 통해 응용 프로그램 상태를 모니터링하여 클라우드 응용 프로그램 업그레이드 프로세스를 간소화할 수 있습니다. 문제가 발생할 경우 응용 프로그램이 자동으로 이전 버전으로 롤백합니다. 서비스 패브릭 응용 프로그램 업그레이드는 *가동 중지 시간 없이*응용 프로그램을 업그레이드합니다. 이 자습서에서는 Visual Studio를 사용하여 롤링 업그레이드를 완료하는 방법을 설명합니다.
 
 ## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>1단계: 시각적 개체 샘플 빌드 및 게시
-먼저 GitHub에서 [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects) 응용 프로그램을 다운로드합니다. 그런 후 응용 프로그램 프로젝트 **VisualObjects**를 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴 항목에서 **게시** 명령을 선택하여 응용 프로그램을 구축 및 게시합니다.
+먼저 GitHub에서 [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) 응용 프로그램을 다운로드합니다. 그런 후 응용 프로그램 프로젝트 **VisualObjects**를 마우스 오른쪽 단추로 클릭하고 서비스 패브릭 메뉴 항목에서 **게시** 명령을 선택하여 응용 프로그램을 구축 및 게시합니다.
 
 ![서비스 패브릭 응용 프로그램의 상황에 맞는 메뉴][image1]
 
@@ -85,9 +86,4 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
 [image2]: media/service-fabric-application-upgrade-tutorial/upgrade1.png
 [image3]: media/service-fabric-application-upgrade-tutorial/upgrade5.png
 [image4]: media/service-fabric-application-upgrade-tutorial/upgrade6.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

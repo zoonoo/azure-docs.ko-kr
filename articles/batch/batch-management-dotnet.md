@@ -1,5 +1,5 @@
 ---
-title: "배치 관리 .NET으로 계정 리소스 관리 | Microsoft Docs"
+title: ".NET용 클라이언트 라이브러리를 사용하여 일괄 처리 계정 리소스 관리 - Azure | Microsoft Docs"
 description: "배치 관리 .NET 라이브러리로 Azure 배치 계정 리소스를 만들고, 삭제하며, 수정합니다."
 services: batch
 documentationcenter: .net
@@ -13,17 +13,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/19/2016
+ms.date: 03/15/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 0eff62c62bb256fead360423c20b98fd7f720a51
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f635bbd8652b97c1067473e56565bf7c6520a2ba
+ms.lasthandoff: 03/18/2017
 
 
 ---
-# <a name="manage-azure-batch-accounts-and-quotas-with-batch-management-net"></a>배치 관리 .NET으로 Azure 배치 계정 및 할당량 관리
+# <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 Batch 계정 및 할당량 관리
+
 > [!div class="op_single_selector"]
-> * [Azure 포털](batch-account-create-portal.md)
+> * [Azure Portal](batch-account-create-portal.md)
 > * [배치 관리 .NET](batch-management-dotnet.md)
 > 
 > 
@@ -144,43 +147,20 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 > 
 > 
 
-## <a name="batch-management-net-azure-ad-and-resource-manager"></a>배치 관리 .NET, Azure AD 및 리소스 관리자
-배치 관리 .NET 라이브러리를 사용할 때는 대개 Azure AD([Azure Active Directory][aad_about]) 및 [Azure Resource Manager][resman_overview]를 모두 사용합니다. 아래에서 설명하는 샘플 프로젝트에서는 배치 관리 .NET API를 설명하면서 Azure Active Directory와 Resource Manager를 모두 사용합니다.
+## <a name="use-azure-ad-with-batch-management-net"></a>Batch Management .NET을 통한 Azure AD 사용
 
-### <a name="azure-active-directory"></a>Azure Active Directory
-Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증을 위해 Azure AD를 자체적으로 사용합니다. 배치 관리 .NET의 컨텍스트에서는 Azure AD를 사용하여 구독 관리자 또는 공동 관리자를 인증합니다. 이렇게 하면 관리 라이브러리에서 배치 서비스를 쿼리하고 이 문서에서 설명하는 작업을 수행할 수 있습니다.
-
-아래 설명된 샘플 프로젝트에서 Azure ADAL([Active Directory Authentication Library][aad_adal])은 사용자에게 Microsoft 자격 증명을 묻는 데 사용됩니다. 서비스 관리자 또는 공동 관리자 자격 증명을 제공하는 경우 응용 프로그램이 Azure에 구독 목록을 쿼리하고 리소스 그룹 및 배치 계정을 만들고 삭제할 수 있습니다.
-
-### <a name="resource-manager"></a>리소스 관리자
-배치 관리 .NET 라이브러리로 배치 계정을 만들 때는 일반적으로 [리소스 그룹][resman_overview] 내에서 만듭니다. [Resource Manager .NET][resman_api] 라이브러리의 [ResourceManagementClient][resman_client] 클래스를 사용하여 프로그래밍 방식으로 리소스 그룹을 만들 수 있습니다. 또는 [Azure Portal][azure_portal]을 사용하여 이전에 만든 기존 리소스 그룹에 계정을 추가할 수 있습니다.
+Batch Management .NET 라이브러리는 Azure 리소스 공급자 클라이언트이며 [Azure Resource Manager][resman_overview]와 함께 프로그래밍 방식으로 계정 리소스를 관리하는 데 사용됩니다. Azure AD는 Batch Management .NET 라이브러리를 비롯한 Azure 리소스 공급자 클라이언트 및 [Azure Resource Manager][resman_overview]를 통해 만들어지는 요청을 인증하는 데 필요합니다. Batch Management .NET을 통한 Azure AD 사용에 대한 자세한 내용은 [Azure Active Directory를 사용한 Batch 솔루션 인증](batch-aad-auth.md)을 참조하세요. 
 
 ## <a name="sample-project-on-github"></a>GitHub에서 샘플 프로젝트
-실제로 사용 중인 배치 관리 .NET을 확인하려면 GitHub의 [AccountManagment][acct_mgmt_sample] 샘플 프로젝트를 참조하세요. 이 콘솔 응용 프로그램은 [BatchManagementClient][net_mgmt_client] 및 [ResourceManagementClient][resman_client]의 만들기 및 사용을 보여 줍니다. 또한 두 클라이언트 모두에서 필요한 Azure ADAL([Active Directory Authentication Library][aad_adal])의 사용을 보여 줍니다.
 
-응용 프로그램 예제를 성공적으로 실행하려면 먼저 Azure 포털을 사용하여 Azure AD에 등록해야 합니다. [Azure Active Directory와 응용 프로그램 통합][aad_integrate]의 [응용 프로그램 추가](../active-directory/active-directory-integrating-applications.md#adding-an-application) 단계에 따라 사용자 고유 계정의 기본 디렉터리 내에 샘플 응용 프로그램을 등록합니다. 응용 프로그램 유형으로 **네이티브 클라이언트 응용 프로그램**을 선택해야 하며, **리디렉션 URI**에 유효한 URI(예: `http://myaccountmanagementsample`)를 지정할 수 있지만 실제 끝점일 필요는 없습니다.
-
-응용 프로그램을 추가한 후에는 포털의 응용 프로그램 설정에서 **Windows Azure Service Management API** 응용 프로그램에 *조직으로 Azure 서비스 관리에 액세스* 권한을 위임합니다.
-
-![Azure 포털의 응용 프로그램 권한][2]
-
-> [!TIP]
-> *다른 응용 프로그램에 대한 권한*에서 **Windows Azure Service Management API**가 보이지 않으면 **응용 프로그램 추가**를 클릭하고, **Windows Azure Service Management API**를 선택한 다음 확인란 단추를 클릭합니다. 그런 다음 위에 지정된 대로 권한을 위임합니다.
-> 
-> 
-
-위의 설명대로 응용 프로그램을 추가했으면 응용 프로그램의 리디렉션 URI 및 클라이언트 ID를 사용하여 [AccountManagment][acct_mgmt_sample] 샘플 프로젝트에서 `Program.cs`를 업데이트합니다. 응용 프로그램의 **구성** 탭에서 이러한 값을 찾을 수 있습니다.
-
-![Azure 포털의 응용 프로그램 구성][3]
-
-[AccountManagment][acct_mgmt_sample] 샘플 응용 프로그램은 다음 작업을 보여줍니다.
+실제로 사용 중인 배치 관리 .NET을 확인하려면 GitHub의 [AccountManagment][acct_mgmt_sample] 샘플 프로젝트를 참조하세요. AccountManagment 샘플 응용 프로그램은 다음 작업을 보여줍니다.
 
 1. [ADAL][aad_adal]을 사용하여 Azure AD에서 보안 토큰을 획득합니다. 사용자가 아직 로그인하지 않은 경우 Azure 자격 증명을 요구하는 메시지가 표시됩니다.
-2. Azure AD에서 획득한 보안 토큰을 사용하여 [SubscriptionClient][resman_subclient]를 만들고 Azure에서 해당 계정과 연결된 구독 목록을 쿼리합니다. 이렇게 하면 찾아낸 여러 구독 중에서 하나를 선택할 수 있습니다.
-3. 선택한 구독에 연결된 자격 증명 개체를 만듭니다.
-4. 자격 증명을 사용하여 [ResourceManagementClient][resman_client]를 만듭니다.
-5. [ResourceManagementClient][resman_client]를 사용하여 리소스 그룹을 만듭니다.
-6. [BatchManagementClient][net_mgmt_client]를 사용하여 다음과 같은 여러 배치 계정 작업을 수행합니다.
+2. Azure AD에서 획득한 보안 토큰을 사용하여 [SubscriptionClient][resman_subclient]를 만들고 Azure에서 해당 계정과 연결된 구독 목록을 쿼리합니다. 목록에 둘 이상의 구독이 포함되어 있는 경우 사용자가 구독을 선택할 수 있습니다.
+3. 선택한 구독에 연결된 자격 증명을 가져옵니다.
+4. 자격 증명을 사용하여 [ResourceManagementClient][resman_client] 개체를 만듭니다.
+5. [ResourceManagementClient][resman_client] 개체를 사용하여 리소스 그룹을 만듭니다.
+6. [BatchManagementClient][net_mgmt_client] 개체를 사용하여 여러 가지 배치 계정 작업을 수행합니다.
    * 새 리소스 그룹에 배치 계정을 만듭니다.
    * 배치 서비스에서 새로 만든 계정을 가져옵니다.
    * 새 계정에 대한 계정 키를 인쇄합니다.
@@ -191,11 +171,10 @@ Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증
    * 새로 만든 계정을 삭제합니다.
 7. 해당 리소스 그룹을 삭제합니다.
 
-새로 만든 배치 계정 및 리소스 그룹을 삭제하기 전에 [Azure Portal][azure_portal]에서 둘 다 검사할 수 있습니다.
+새로 만든 배치 계정 및 리소스 그룹을 삭제하기 전에 [Azure Portal][azure_portal]에서 볼 수 있습니다.
 
-![리소스 그룹과 배치 계정을 표시하는 Azure Portal][1]
-<br />
-*새 리소스 그룹과 배치 계정을 표시하는 Azure Portal*
+샘플 응용 프로그램을 실행하려면 먼저 Azure Portal의 Azure AD 테넌트에 응용 프로그램을 등록하고 Azure Resource Manager API에 권한을 부여해야 합니다. [Azure AD를 사용하여 Batch 관리 응용 프로그램 인증](batch-aad-auth.md#use-azure-ad-with-batch-service-solutions)에 제공된 단계를 따르세요.
+
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Azure Active Directory란?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
@@ -218,16 +197,11 @@ Azure에서는 해당 고객, 서비스 관리자 및 조직 사용자의 인증
 [net_mgmt_subscriptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.batchmanagementclient.subscriptions.aspx
 [net_mgmt_listaccounts]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.iaccountoperations.listasync.aspx
 [resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
-[resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspxs
+[resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx
 [resman_subclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.subscriptions.subscriptionclient.aspx
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

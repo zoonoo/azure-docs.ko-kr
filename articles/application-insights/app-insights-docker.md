@@ -1,21 +1,22 @@
 ---
-title: "Application Insights에서 Docker 응용 프로그램 모니터링"
+title: "Azure Application Insights에서 Docker 응용 프로그램 모니터링 | Microsoft Docs"
 description: "Docker 성능 카운터, 이벤트 및 예외는 컨테이너식 앱에서 보낸 원격 분석과 함께 Application Insights에 표시될 수 있습니다."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 2051bd0d749ccad0fc1280ce03b88fd9e2af7c08
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: b888f3e7fd56aaf8104c1b76264a3753ca37f7c9
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -24,18 +25,18 @@ ms.openlocfilehash: 2051bd0d749ccad0fc1280ce03b88fd9e2af7c08
 
 Docker를 사용하여 모든 종속성이 포함된 경량 컨테이너에 앱을 배포합니다. Docker 엔진을 실행하는 모든 호스트 컴퓨터에서 앱이 실행됩니다.
 
-Docker 호스트에서 [Application Insights 이미지](https://hub.docker.com/r/microsoft/applicationinsights/) 를 실행하면 다음과 같은 혜택이 있습니다.
+Docker 호스트에서 [Application Insights 이미지](https://hub.docker.com/r/microsoft/applicationinsights/)를 실행하면 다음과 같은 장점이 있습니다.
 
 * 호스트에서 실행하는 모든 컨테이너에 대한 수명 주기 원격 분석 – 시작, 중지 등
 * 모든 컨테이너에 대한 성능 카운터 CPU, 메모리, 네트워크 사용량 외 다수
-* 컨테이너에서 실행되는 앱에 [Java용 Application Insights SDK를 설치하면](app-insights-java-live.md) 해당 앱에 대한 모든 원격 분석에 컨테이너와 호스트 컴퓨터를 식별하는 추가적인 속성이 포함됩니다. 예를 들어, 둘 이상의 호스트에서 실행되는 앱 인스턴스가 있다면 앱 원격 분석을 호스트별로 쉽게 필터링할 수 있습니다.
+* 컨테이너에서 실행되는 앱에 [Java용 Application Insights SDK를 설치하면](app-insights-java-live.md) 해당 앱에 대한 모든 원격 분석에 컨테이너와 호스트 컴퓨터를 식별하는 추가적인 속성이 포함됩니다. 예를 들어 둘 이상의 호스트에서 실행되는 앱 인스턴스가 있다면 앱 원격 분석을 호스트별로 쉽게 필터링할 수 있습니다.
 
 ![예제](./media/app-insights-docker/00.png)
 
 ## <a name="set-up-your-application-insights-resource"></a>Application Insights 리소스 설정
 1. [Microsoft Azure Portal](https://azure.com)에 로그인하고 앱에 대한 Application Insights 리소스를 열거나 [새 리소스를 만듭니다](app-insights-create-new-resource.md). 
    
-    *어떤 리소스를 사용해야 하나요?* 호스트에서 실행하는 앱을 다른 사람이 개발한 경우에는 [새로운 Application Insights 리소스를 만들어야](app-insights-create-new-resource.md). 이 리소스에서 원격 분석을 보고 분석하게 됩니다. (앱 형식에 대해 '일반'을 선택합니다.)
+    *어떤 리소스를 사용해야 하나요?* 호스트에서 실행하는 앱을 다른 사람이 개발한 경우에는 [새로운 Application Insights 리소스를 만들어야 합니다](app-insights-create-new-resource.md). 이 리소스에서 원격 분석을 보고 분석하게 됩니다. (앱 형식에 대해 '일반'을 선택합니다.)
    
     해당 앱의 개발자인 경우에는 각 앱에 [Application Insights SDK를 추가](app-insights-java-live.md) 하셨기를 바랍니다. 실제로 모든 리소스가 단일 비즈니스 응용 프로그램의 구성 요소라면, 하나의 리소스에 원격 분석을 보내도록 모든 리소스를 구성하고, 동일한 리소스를 사용하여 Docker 수명 주기 및 성능 데이터를 표시하게 됩니다. 
    
@@ -109,7 +110,7 @@ AI SDK를 사용하여 계측되는 응용 프로그램에서 보내는 요청 �
 
 ![예제](./media/app-insights-docker/15.png)
 
-## <a name="q-a"></a>질문과 대답
+## <a name="q--a"></a>질문과 대답
 *Docker에서 얻을 수 없는 어떤 기능을 Application Insights가 제공하나요?*
 
 * 컨테이너 및 이미지별로 성능 카운터의 자세한 분석 결과를 제공합니다.
@@ -118,12 +119,15 @@ AI SDK를 사용하여 계측되는 응용 프로그램에서 보내는 요청 �
 
 *앱 자체에서 원격 분석을 가져오려면 어떻게 해야 하나요?*
 
-* Application Insights SDK를 앱에 설치합니다. 
-  [Java 웹앱](app-insights-java-get-started.md), [Windows 웹앱](app-insights-asp-net.md)에 대한 방법을 알아봅니다.
+* Application Insights SDK를 앱에 설치합니다. [Java 웹앱](app-insights-java-get-started.md), [Windows 웹앱](app-insights-asp-net.md)에 대한 방법을 알아봅니다.
 
+## <a name="video"></a>비디오
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
+## <a name="next-steps"></a>다음 단계
 
-<!--HONumber=Nov16_HO3-->
-
+* [Java용 Application Insights](app-insights-java-get-started.md)
+* [Node.js용 Application Insights](app-insights-nodejs.md)
+* [ASP.NET용 Application Insights](app-insights-asp-net.md)
 

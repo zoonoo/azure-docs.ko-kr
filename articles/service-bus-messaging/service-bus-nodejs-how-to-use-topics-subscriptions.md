@@ -1,5 +1,5 @@
 ---
-title: "Node.js와 함께 Service Bus 토픽을 사용하는 방법 | Microsoft Docs"
+title: "Node.js에서 Azure Service Bus 토픽 및 구독을 사용하는 방법 | Microsoft Docs"
 description: "Node.js app에서 Azure의 Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다."
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: d956c392a209522dd6535297316f9ed695207b00
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 24375a7c56cdad59363803ef3aae724977961b44
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: d956c392a209522dd6535297316f9ed695207b00
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포], [Node.js 클라우드 서비스][Node.js 클라우드 서비스](Windows PowerShell 사용) 또는 WebMatrix를 사용하는 웹 사이트를 참조하세요.
+빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포], Windows PowerShell을 사용하는 [Node.js 클라우드 서비스][Node.js Cloud Service] 또는 WebMatrix를 사용하는 웹 사이트를 참조하세요.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>서비스 버스를 사용하도록 응용 프로그램 구성
 서비스 버스를 사용하려면 Node.js Azure 패키지를 다운로드합니다. 이 패키지에는 서비스 버스 REST 서비스와 통신하는 라이브러리 집합이 포함되어 있습니다.
@@ -55,27 +56,27 @@ ms.openlocfilehash: d956c392a209522dd6535297316f9ed695207b00
 ### <a name="import-the-module"></a>모듈 가져오기
 메모장 또는 다른 텍스트 편집기를 사용하여 다음을 응용 프로그램의 **server.js** 파일 맨 위에 추가합니다.
 
-```
+```javascript
 var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>서비스 버스 연결 설정
 Azure 모듈은 AZURE\_SERVICEBUS\_NAMESPACE 및 AZURE\_SERVICEBUS\_ACCESS\_KEY 환경 변수를 읽고 Service Bus에 연결하는 데 필요한 정보를 가져옵니다. 이러한 환경 변수가 설정되지 않은 경우 **createServiceBusService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 클라우드 서비스의 구성 파일에서 환경 변수를 설정하는 방법에 대한 예제는 [저장소를 포함한 Node.js 클라우드 서비스][저장소를 포함한 Node.js 클라우드 서비스]를 참조하세요.
+Azure 클라우드 서비스의 구성 파일에서 환경 변수를 설정하는 방법에 대한 예제는 [저장소를 포함한 Node.js 클라우드 서비스][Node.js Cloud Service with Storage]를 참조하세요.
 
-Azure 웹 사이트의 [Azure 클래식 포털][Azure 클래식 포털]에서 환경 변수를 설정하는 방법에 대한 예제는 [저장소를 포함한 Node.js 웹 응용 프로그램][저장소를 포함한 Node.js 웹 응용 프로그램]을 참조하세요.
+Azure 웹 사이트의 [Azure 클래식 포털][Azure classic portal]에서 환경 변수를 설정하는 방법에 대한 예제는 [저장소를 포함한 Node.js 웹 응용 프로그램][Node.js Web Application with Storage]을 참조하세요.
 
 ## <a name="create-a-topic"></a>토픽 만들기
 **ServiceBusService** 개체를 사용하면 토픽으로 작업할 수 있습니다. 다음 코드는 **ServiceBusService** 개체를 만듭니다. 이 코드를 **server.js** 파일의 위쪽, Azure 모듈을 가져오기 위한 문 뒤에 추가하십시오.
 
-```
+```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
 **ServiceBusService** 개체의 **createTopicIfNotExists**를 호출하면 지정한 토픽이 반환되거나(있는 경우) 지정한 이름의 새 토픽이 만들어집니다. 다음 코드는 **createTopicIfNotExists**를 사용하여 'MyTopic'이라는 토픽을 만들거나 이 토픽에 연결합니다.
 
-```
+```javascript
 serviceBusService.createTopicIfNotExists('MyTopic',function(error){
     if(!error){
         // Topic was created or exists
@@ -86,7 +87,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 
 **createServiceBusService**는 또한 추가 옵션을 지원합니다. 이러한 옵션을 통해 메시지 TTL(Time to Live)이나 최대 토픽 크기 등 기본 토픽 설정을 재정의할 수 있습니다. 다음은 최대 토픽 크기를 5GB, TTL(Time to Live)을 1분으로 설정하는 예제입니다.
 
-```
+```javascript
 var topicOptions = {
         MaxSizeInMegabytes: '5120',
         DefaultMessageTimeToLive: 'PT1M'
@@ -102,13 +103,13 @@ serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error
 ### <a name="filters"></a>필터
 **ServiceBusService**를 사용하여 수행되는 작업에 선택적 필터링 작업을 적용할 수 있습니다. 필터링 작업은 로깅, 자동 재시도 등을 포함할 수 있습니다. 필터는 시그니쳐가 있는 메서드를 구현하는 개체입니다.
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 `next`을(를) 호출합니다.
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -116,8 +117,10 @@ function (returnObject, finalCallback, next)
 
 Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **ExponentialRetryPolicyFilter** 및 **LinearRetryPolicyFilter**가 포함되어 있습니다. 다음은 **ExponentialRetryPolicyFilter**를 사용하는 **ServiceBusService** 개체를 만듭니다.
 
-    var retryOperations = new azure.ExponentialRetryPolicyFilter();
-    var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```javascript
+var retryOperations = new azure.ExponentialRetryPolicyFilter();
+var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```
 
 ## <a name="create-subscriptions"></a>구독 만들기
 토픽 구독은 **ServiceBusService** 개체로도 만들 수 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
@@ -130,7 +133,7 @@ Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **Exponen
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
 **MatchAll** 필터는 새 구독을 만들 때 필터를 지정하지 않은 경우 사용되는 기본 필터입니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 'AllMessages'라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
     if(!error){
         // subscription created
@@ -141,7 +144,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 ### <a name="create-subscriptions-with-filters"></a>필터를 사용하여 구독 만들기
 토픽으로 전송된 메시지 중 특정 토픽 구독 내에 표시되어야 하는 메시지의 범위를 지정하는 필터를 만들 수도 있습니다.
 
-구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 구문을 검토하세요.
+구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 구문을 참조하세요.
 
 **ServiceBusService** 개체의 **createRule** 메서드를 사용하여 구독에 필터를 추가할 수 있습니다. 이 메서드를 사용하면 기존 구독에 새 필터를 추가할 수 있습니다.
 
@@ -152,7 +155,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 
 다음 예제에서는 사용자 지정 **messagenumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 `HighMessages`(이)라는 구독을 만듭니다.
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
     if(!error){
         // subscription created
@@ -187,7 +190,7 @@ var rule={
 
 마찬가지로, 다음 예제에서는 **messagenumber** 속성이 3보다 작거나 같은 메시지만 선택하는 **SqlFilter**를 사용하여 이름이 `LowMessages`인 구독을 만듭니다.
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
     if(!error){
         // subscription created
@@ -229,7 +232,7 @@ Service Bus 토픽으로 보내는 메시지는 **BrokeredMessage** 개체입니
 
 다음 예제에서는 다섯 개의 테스트 메시지를 'MyTopic'으로 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 **messagenumber** 속성 값이 달라지는 것을 알 수 있습니다(메시지를 수신하는 구독 결정).
 
-```
+```javascript
 var message = {
     body: '',
     customProperties: {
@@ -260,7 +263,7 @@ Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 25
 
 다음 예제에서는 **receiveSubscriptionMessage**를 사용하여 메시지를 받고 처리하는 방법을 보여 줍니다. 먼저 'LowMessages' 구독에서 메시지를 받고 삭제한 다음, true로 설정된 **isPeekLock**을 사용하여 'HighMessages' 구독에서 메시지를 받습니다. 그런 다음 **deleteMessage**를 사용하여 메시지를 삭제합니다.
 
-```
+```javascript
 serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
     if(!error){
         // Message received and deleted
@@ -289,42 +292,41 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
 응용 프로그램이 메시지를 처리한 후 **deleteMessage** 메서드가 호출되기 전에 크래시되는 경우, 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 **최소 한 번 이상 처리**라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 **MessageId** 속성을 사용합니다.
 
 ## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
-토픽과 구독은 영구적이므로, [Azure 클래식 포털][Azure 클래식 포털] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다.
+토픽과 구독은 영구적이므로, [Azure 클래식 포털][Azure classic portal] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다.
 다음 예제는 `MyTopic` 토픽을 삭제하는 방법을 보여 줍니다.
 
-    serviceBusService.deleteTopic('MyTopic', function (error) {
-        if (error) {
-            console.log(error);
-        }
-    });
+```javascript
+serviceBusService.deleteTopic('MyTopic', function (error) {
+    if (error) {
+        console.log(error);
+    }
+});
+```
 
 토픽을 삭제하면 토픽에 등록된 모든 구독도 삭제됩니다. 구독을 개별적으로 삭제할 수도 있습니다. 아래 예제는 `HighMessages` 구독을 `MyTopic` 토픽에서 삭제하는 방법을 보여 줍니다.
 
-    serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
-        if(error) {
-            console.log(error);
-        }
-    });
+```javascript
+serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
+    if(error) {
+        console.log(error);
+    }
+});
+```
 
 ## <a name="next-steps"></a>다음 단계
 이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
 
-* [큐, 토믹 및 구독][큐, 토믹 및 구독]을 참조하세요.
-* [SqlFilter][SqlFilter]에 대한 API 참조.
-* GitHub에서 [Node용 Azure SDK][Node용 Azure SDK] 리포지토리를 방문하세요.
+* [큐, 토픽 및 구독][Queues, topics, and subscriptions]을 참조하세요.
+* [SqlFilter][SqlFilter]에 대한 API 참조
+* GitHub에서 [Node용 Azure SDK][Azure SDK for Node] 리포지토리를 방문하세요.
 
-[Node용 Azure SDK]: https://github.com/Azure/azure-sdk-for-node
-[Azure 클래식 포털]: https://manage.windowsazure.com
-[SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[큐, 토믹 및 구독]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
-[Node.js 클라우드 서비스]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[저장소를 포함한 Node.js 클라우드 서비스]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[저장소를 포함한 Node.js 웹 응용 프로그램]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
+[Azure classic portal]: https://manage.windowsazure.com
+[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: ../app-service-web/app-service-web-get-started-nodejs.md
+[Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Node.js Web Application with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 

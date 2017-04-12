@@ -16,19 +16,13 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7b9803d7d0b4982dece276d6f5a7ec8293ce4361
-ms.openlocfilehash: 37725b1abe0ad13124b9206c9aa6fcf1185b6db4
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-with-transact-sql"></a>TRANSACT-SQL로 Azure SQL Database에 대한 활성 지역 복제 구성
-> [!div class="op_single_selector"]
-> * [개요](sql-database-geo-replication-overview.md)
-> * [쉬운 테이블](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
 
 이 문서에서는 Transact-SQL을 사용하여 Azure SQL Database에 대한 활성 지역 복제를 구성하는 방법을 보여 줍니다.
 
@@ -167,10 +161,5 @@ Transact-SQL을 사용하여 활성 지역 복제를 구성하려면 다음이 �
 ## <a name="next-steps"></a>다음 단계
 * 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
 * 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

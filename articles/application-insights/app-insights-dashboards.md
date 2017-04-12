@@ -1,21 +1,22 @@
 ---
-title: "Application Insights 포털의 대시보드 및 탐색 | Microsoft Docs"
+title: "Azure Application Insights의 대시보드 및 탐색 | Microsoft Docs"
 description: "키 APM 차트 및 쿼리의 뷰를 만듭니다."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 531927178699d6534c37dca6616fe8fdaa19e5fe
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: db3285bcdfb93c0c2b9f8972edb04e7064cfa31c
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.openlocfilehash: 531927178699d6534c37dca6616fe8fdaa19e5fe
 
 ![원격 분석을 보기 위한 주요 경로](./media/app-insights-dashboards/010-oview.png)
 
-다른 차트를 사용자 지정하고 이를 대시보드에 고정할 수 있습니다. 이런 방식으로 다른 앱에서 키 차트를 함께 가져올 수 있습니다.
+차트 및 표를 사용자 지정하고 이를 대시보드에 고정할 수 있습니다. 이런 방식으로 중앙 대시보드에 있는 여러 다른 앱의 주요 원격 분석을 함께 불러올 수 있습니다.
 
 ## <a name="dashboards"></a>대시보드
 [Microsoft Azure 포털](https://portal.azure.com) 에 로그인한 후 가장 먼저 표시되는 것이 대시보드입니다. [Azure Application Insights](app-insights-overview.md)의 원격 분석을 포함하여, 모든 Azure 리소스에서 가장 중요한 차트를 이곳에 한데 모을 수 있습니다.
@@ -119,8 +120,8 @@ ms.openlocfilehash: 531927178699d6534c37dca6616fe8fdaa19e5fe
 조사
 
 * [**응용 프로그램 맵**](app-insights-app-map.md) - 종속성 정보에서 파생된 응용 프로그램의 구성 요소를 표시하는 활성 맵입니다.
-* [**사전 진단**](app-insights-proactive-diagnostics.md) - 최근 성능 경고를 검토합니다.
-* [**라이브 스트림**](app-insights-metrics-explorer.md#live-metrics-stream) - 거의 즉각적인 고정된 메트릭 집합을 제공하며, 새 빌드를 배포 또는 디버깅할 때 유용합니다.
+* [**스마트 감지**](app-insights-proactive-diagnostics.md) - 최근 성능 경고를 검토합니다.
+* [**라이브 스트림**](app-insights-live-stream.md) - 거의 즉각적인 고정된 메트릭 집합을 제공하며, 새 빌드를 배포 또는 디버깅할 때 유용합니다.
 * [**가용성/웹 테스트**](app-insights-monitor-web-app-availability.md) - 전세계에서 웹앱에 일반 요청을 전송합니다.*
 * [**오류, 성능**](app-insights-web-monitor-performance.md) - 사용자의 앱에 대한 요청 및 사용자 앱의 [종속성](app-insights-asp-net-dependencies.md)에 대한 요청의 예외, 실패율 및 응답 시간입니다.
 * [**성능**](app-insights-web-monitor-performance.md) - 응답 시간, 종속성 응답 시간입니다.
@@ -144,19 +145,16 @@ ms.openlocfilehash: 531927178699d6534c37dca6616fe8fdaa19e5fe
 * [**잠금**](../azure-resource-manager/resource-group-lock-resources.md) - Azure 리소스를 잠급니다.
 * [**스크립트 자동화**](app-insights-powershell.md) - Azure 리소스의 정의를 내보내서 새로운 리소스의 템플릿으로 사용합니다.
 
-지원
 
-* **지원 요청** - 유료 구독이 필요합니다. [도움말 보기](app-insights-get-dev-support.md)도 참조하세요.
+## <a name="video"></a>비디오
 
-## <a name="whats-next"></a>다음 작업
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
+## <a name="next-steps"></a>다음 단계
+
 |  |  |
 | --- | --- |
 | [메트릭 탐색기](app-insights-metrics-explorer.md)<br/>필터 및 세그먼트 메트릭 |![검색 예제](./media/app-insights-dashboards/64.png) |
 | [진단 검색](app-insights-diagnostic-search.md)<br/>이벤트 찾기 및 검사, 관련 이벤트, 버그 만들기 |![검색 예제](./media/app-insights-dashboards/61.png) |
 | [분석](app-insights-analytics.md)<br/>강력한 쿼리 언어 |![검색 예제](./media/app-insights-dashboards/63.png) |
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -1,46 +1,10 @@
 ---
-title: "Azure CLI를 사용하여 Linux VM 이미지 선택 | Microsoft Docs"
-description: "리소스 관리자 배포 모델로 Linux 가상 컴퓨터를 만들 경우 이미지의 게시자, 제품 및 SKU를 확인하는 방법에 대해 알아보세요."
-services: virtual-machines-linux
-documentationcenter: 
-author: squillace
-manager: timlt
-editor: 
-tags: azure-resource-manager
-ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 08/23/2016
-ms.author: rasquill
+redirect_url: /azure/virtual-machines/linux/cli-ps-findimage
+redirect_document_id: true
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 732767bcece6d892aee7a8e6976f527fc66bb48d
-
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 079bece9b5498c24005c8ff40d1c5ce38314e334
+ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="select-linux-vm-images-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM 이미지 선택
-이 항목은 배포할 수 있는 각 위치에 대한 게시자, 제안, SKU 및 버전을 찾는 방법을 설명합니다. 예를 들면 일부 자주 사용되는 Linux VM 이미지는 다음과 같습니다.
-
-**일반적으로 사용하는 Linux 이미지 테이블**
-
-| PublisherName | 제안 | SKU |
-|:--- |:--- |:--- |:--- |
-| RedHat |RHEL |7.2 |
-| credativ |Debian |8 |
-| SUSE |openSUSE |13.2 |
-| SUSE |SLES |12-SP1 |
-| OpenLogic |CentOS |7.1 |
-| Canonical |UbuntuServer |14.04.4-LTS |
-| CoreOS |CoreOS |Stable |
-
-[!INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

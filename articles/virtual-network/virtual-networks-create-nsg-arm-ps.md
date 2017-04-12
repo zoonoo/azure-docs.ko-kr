@@ -1,6 +1,6 @@
 ---
-title: "PowerShell을 사용하여 NSG 만들기 | Microsoft Docs"
-description: "PowerShell을 사용하여 NSG를 만드는 방법 알아보기 | Resource Manager."
+title: "네트워크 보안 그룹 만들기 - Azure PowerShell | Microsoft Docs"
+description: "PowerShell을 사용하여 네트워크 보안 그룹을 만들고 배포하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 22681c4b171a185d5977bd9ce41d6a4f642feea7
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 6215abf064227f0d75a50e866b09ca2083a269d6
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-nsgs-using-powershell"></a>PowerShell을 사용하여 NSG 만들기
+# <a name="create-network-security-groups-using-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹 만들기
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -215,10 +218,5 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
 ```powershell
 Remove-AzureRmNetworkSecurityGroup -Name "NSG-FrontEnd" -ResourceGroupName "TestRG"
 ```
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

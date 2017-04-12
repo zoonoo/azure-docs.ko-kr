@@ -1,26 +1,27 @@
 ---
-title: "Application Insights에서 리소스, 역할 및 액세스 제어"
+title: "Azure Application Insights에서 리소스, 역할 및 액세스 제어 | Microsoft Docs"
 description: "조직 Insights의 소유자, 참여자 및 읽기 권한자입니다."
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2016
+ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1520fde6b60546e408772e04488e8a530a9c1344
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 50a3cb726646c46d1f46767b51428eb751e6d3fe
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights에서 리소스, 역할 및 액세스 제어
-[Microsoft Azure의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 사용하여 Visual Studio [Application Insights][시작]의 데이터에 대한 읽기 및 업데이트 액세스를 제어할 수 있습니다.
+[Microsoft Azure의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 사용하여 Azure [Application Insights][start]의 데이터에 대한 읽기 및 업데이트 액세스를 제어할 수 있습니다.
 
 > [!IMPORTANT]
 > 리소스 자체가 아닌 응용 프로그램 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 참여자** 역할을 할당합니다. 이렇게 하면 응용 프로그램 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세히 알아봅니다](#access).
@@ -32,9 +33,9 @@ ms.openlocfilehash: 1520fde6b60546e408772e04488e8a530a9c1344
 
 * **리소스** - Microsoft Azure 서비스의 인스턴스입니다. Application Insights는 응용 프로그램에서 보낸 원격 분석 데이터를 수집, 분석 및 표시합니다.  다른 유형의 Azure 리소스로는 웹 앱, 데이터베이스 및 VM이 있습니다.
   
-    모든 리소스를 보려면 [Azure Portal][portal]로 이동하여 로그인하고 찾아보기를 클릭합니다.
+    리소스를 보려면 [Azure Portal][portal]을 열고 로그인한 다음 모든 리소스를 클릭합니다. 리소스를 찾으려면 필터 필드에 리소스 이름의 일부를 입력합니다.
   
-    ![찾아보기를 선택한 다음 모두 또는 Application Insights로 필터링을 선택합니다.](./media/app-insights-resources-roles-access-control/10-browse.png)
+    ![Azure 리소스 목록](./media/app-insights-resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
@@ -45,7 +46,7 @@ ms.openlocfilehash: 1520fde6b60546e408772e04488e8a530a9c1344
 * [**구독**](https://manage.windowsazure.com) - Application Insights 또는 다른 Azure 리소스를 사용하려면 Azure 구독에 로그인합니다. 모든 리소스 그룹은 Azure 구독에 속합니다. 여기에서 패키지를 선택하고, 조직 구독인 경우 멤버와 해당 액세스 권한을 선택합니다.
 * [**Microsoft 계정**][account] - Microsoft Azure 구독, XBox Live, Outlook.com 및 기타 Microsoft 서비스에 로그인하는 데 사용하는 사용자 이름 및 암호입니다.
 
-## <a name="a-nameaccessa-control-access-in-the-resource-group"></a><a name="access"></a> 리소스 그룹의 액세스 제어
+## <a name="access"></a> 리소스 그룹의 액세스 제어
 응용 프로그램에 대해 만든 리소스 외에도 경고 및 웹 테스트에 대한 별도의 리소스가 숨겨져 있다는 사실을 이해해야 합니다. 이러한 리소스는 응용 프로그램과 동일한 [리소스 그룹](#resource-group) 에 연결됩니다. 웹 사이트 또는 저장소 같은 다른 Azure 서비스를 여기에 넣었을 수도 있습니다.
 
 ![Application Insights의 리소스](./media/app-insights-resources-roles-access-control/00-resources.png)
@@ -85,12 +86,12 @@ ms.openlocfilehash: 1520fde6b60546e408772e04488e8a530a9c1344
 * 연속 내보내기
 
 #### <a name="select-the-user"></a>사용자 선택
-![새 사용자의 전자 메일 주소를 입력합니다. 사용자 선택](./media/app-insights-resources-roles-access-control/04-user.png)
 
 원하는 사용자가 디렉터리에 없는 경우 Microsoft 계정이 있는 사람을 초대할 수 있습니다.
 Outlook.com, OneDrive, Windows Phone 또는 XBox Live를 사용하는 사람은 Microsoft 계정을 갖고 있습니다.
 
-## <a name="users-and-roles"></a>사용자 및 역할
+## <a name="related-content"></a>관련 콘텐츠
+
 * [Azure의 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
 
 <!--Link references-->
@@ -98,10 +99,5 @@ Outlook.com, OneDrive, Windows Phone 또는 XBox Live를 사용하는 사람은 
 [account]: https://account.microsoft.com
 [group]: ../azure-resource-manager/resource-group-overview.md
 [portal]: https://portal.azure.com/
-[시작]: app-insights-overview.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[start]: app-insights-overview.md
 

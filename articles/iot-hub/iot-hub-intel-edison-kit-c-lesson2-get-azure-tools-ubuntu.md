@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 시작 키트(Ubuntu 16.04)에 대한 Azure 도구 받기 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(C) 연결 - 단원 2: Azure 도구 다운로드(Ubuntu) | Microsoft Docs"
 description: "Ubuntu에 Python 및 Azure CLI(Azure 명령줄 인터페이스)를 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 97054e61b2586d74b2eab348d75b64399f66667b
-ms.openlocfilehash: 5d8f626380372847cdba72895abb4598e32f8829
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: e3b1c4dd3ff9a361c6c32cabd04fec523f8d6578
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -79,9 +80,4 @@ Azure CLI를 설치했습니다. 다음 작업은 Azure CLI를 사용하여 Azur
 [windows]: iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md
 [ubuntu]: iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md
 [macos]: iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,6 +1,8 @@
 ---
-title: "깜박임 응용 프로그램 만들기 및 배포 | Microsoft Docs"
-description: "GitHub에서 샘플 Node.js 응용 프로그램과, Raspberry Pi 3 보드에 이 응용 프로그램을 배포하기 위한 gulp를 복제합니다. 이 샘플 응용 프로그램은 보드에 연결된 LED를 2초마다 깜박이게 합니다."
+featureFlags:
+- usabilla
+title: "Azure IoT에 Raspberry Pi(노드) 연결 - 단원 1: 앱 배포 | Microsoft Docs"
+description: "GitHub에서 샘플 Node.js 응용 프로그램과, Raspberry Pi 3 보드에 이 응용 프로그램을 배포하기 위한 gulp를 복제합니다. 이 샘플 응용 프로그램은 보드에 연결된 LED를&2;초마다 깜박이게 합니다."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -13,17 +15,18 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 09554b64f31c909e413f5a93dfd6d74186bf6e21
-ms.openlocfilehash: b9e49d3637b3e3aff1a89e57c125a59877544e01
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 90ceb432bd9506dc40e340af21a3cae4e21a20b0
+ms.lasthandoff: 01/24/2017
 
 
 ---
 # <a name="create-and-deploy-the-blink-application"></a>깜박임 응용 프로그램 만들기 및 배포
 ## <a name="what-you-will-do"></a>수행할 사항
-GitHub에서 샘플 Node.js 응용 프로그램을 복제하고 gulp 도구를 사용하여 Raspberry Pi 3 보드에 이 응용 프로그램을 배포합니다. 샘플 응용 프로그램은 보드에 연결된 LED를 2초마다 깜박이게 합니다. 문제가 있으면 [문제 해결 페이지](iot-hub-raspberry-pi-kit-node-troubleshooting.md)에서 솔루션을 검색하세요.
+GitHub에서 샘플 Node.js 응용 프로그램을 복제하고 gulp 도구를 사용하여 Raspberry Pi 3 보드에 이 응용 프로그램을 배포합니다. 샘플 응용 프로그램은 보드에 연결된 LED를&2;초마다 깜박이게 합니다. 문제가 있으면 [문제 해결 페이지](iot-hub-raspberry-pi-kit-node-troubleshooting.md)에서 솔루션을 검색하세요.
 
 ## <a name="what-you-will-learn"></a>알아볼 내용
 이 문서에서는 다음에 대해 알아봅니다.
@@ -141,7 +144,7 @@ gulp deploy && gulp run
 ```
 
 ### <a name="verify-the-app-works"></a>앱 작동 확인
-Pi에 연결된 LED가 2초마다 깜빡이는 것을 볼 수 있습니다.  Led가 깜박이지 않으면 [문제 해결 가이드](iot-hub-raspberry-pi-kit-node-troubleshooting.md)에서 일반적인 문제에 대한솔루션을 참조하세요.
+Pi에 연결된 LED가&2;초마다 깜빡이는 것을 볼 수 있습니다.  Led가 깜박이지 않으면 [문제 해결 가이드](iot-hub-raspberry-pi-kit-node-troubleshooting.md)에서 일반적인 문제에 대한솔루션을 참조하세요.
 ![LED 깜박임](media/iot-hub-raspberry-pi-lessons/lesson1/led_blinking.jpg)
 
 ## <a name="summary"></a>요약
@@ -149,10 +152,5 @@ Pi 작동에 필요한 도구를 설치했으며 LED를 깜박이게 하는 샘�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 도구 얻기](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

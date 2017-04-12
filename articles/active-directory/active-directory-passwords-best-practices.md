@@ -3,7 +3,7 @@ title: "모범 사례: Azure AD 암호 관리 | Microsoft Docs"
 description: "배포 및 사용 모범 사례, 샘플 최종 사용자 설명서 및 Azure Active Directory에서 암호 관리에 대한 교육 가이드입니다."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
@@ -12,19 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 629fa1cc52963a844ee3bd7f8031ef2e5c340ae5
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="deploying-password-management-and-training-users-to-use-it"></a>암호 관리 배포 및 사용자 교육
 > [!IMPORTANT]
-> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
+>
+>
 
 암호 재설정을 사용한 후, 수행해야하는 다음 단계는 서비스를 사용하여 사용자의 조직에서 사용자를 가져오는 것입니다. 이렇게 하려면 사용자가 서비스를 제대로 사용하도록 구성했는지 확인하고 사용자가 자신의 암호를 성공적으로 관리하는 데 필요한 교육을 받아야 합니다. 이 문서는 다음 개념을 설명합니다.
 
@@ -59,7 +60,7 @@ ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
 * [Azure 관리 포털](https://manage.windowsazure.com) 또는 [Office 365 관리자 포털](https://portal.microsoftonline.com)에서 사용자를 편집합니다.
 * Azure AD Sync를 사용하여 온-프레미스 Active Directory 도메인에서 Azure AD로 사용자 속성을 동기화합니다.
 * [여기의 단계에 따라](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users)Windows PowerShell을 사용하여 사용자 속성을 편집합니다.
-*  [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
 * [**사용자가 로그인 시 등록하도록 요구하시겠습니까?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) 구성 옵션을 **예**로 설정하여 사용자가 로그인할 때 암호 재설정을 위해 등록하도록 요구합니다.
 
 시스템이 작동하기 위해 사용자가 암호를 등록할 필요는 없습니다.  예를 들어 기존 휴대폰 번호 또는 사무실 전화 번호가 로컬 디렉터리에 있는 경우 Azure AD에서 동기화할 수 있으며 자동으로 암호 재설정을 사용합니다.
@@ -73,8 +74,8 @@ ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
 2. **Azure 관리 포털** 의 [라이선스](https://manage.windowsazure.com)탭으로 이동하여 암호 재설정에 제공하려는 각 사용자에게 적절한 라이선스를 할당합니다.
 3. **암호 재설정에 대한 액세스 제한** 전환을 **예**로 설정하고 암호 재설정을 사용하도록 보안 그룹을 선택하여 느리게 시간에 따라 기능을 롤아웃하도록 선택적으로 암호 재설정을 사용자 그룹으로 제한합니다.
 4. 사용자에게 등록하도록 안내하는 전자 메일을 보내고, 액세스 패널에서 강제 등록을 사용하거나, DirSync, PowerShell 또는 [Azure 관리 포털](https://manage.windowsazure.com)을 통해 사용자 자신에 대해 적절한 인증 데이터를 업로드하여 암호 재설정을 사용하도록 사용자에게 알립니다.  이에 대한 자세한 내용은 아래에 제공됩니다.
-5. 시간이 지남에 따라 보고서 탭으로 이동하여 [**암호 재설정 등록 활동**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) 보고서를 보고 등록된 사용자를 검토합니다.
-6. 대부분의 사용자를 등록한 후, 보고서 탭으로 이동하고 [**암호 재설정 활동**](active-directory-passwords-get-insights.md#view-password-reset-activity) 보고서를 보고 암호 재설정을 사용합니다.
+5. 시간이 지남에 따라 보고서 탭으로 이동하여 [**암호 재설정 등록 활동**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity-in-the-classic-portal) 보고서를 보고 등록된 사용자를 검토합니다.
+6. 대부분의 사용자를 등록한 후, 보고서 탭으로 이동하고 [**암호 재설정 활동**](active-directory-passwords-get-insights.md#view-password-reset-activity-in-the-classic-portal) 보고서를 보고 암호 재설정을 사용합니다.
 
 여러가지 방법으로 조직에 등록하고 암호 재설정을 사용할 수 있음을 사용자에게 알립니다.  아래에서 자세히 설명합니다.
 
@@ -83,7 +84,7 @@ ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
 
   ![][001]
 
-[여기](http://1drv.ms/1xWFtQM)에서 전자 메일 템플릿을 다운로드할 수 있습니다.
+[여기](https://1drv.ms/f/s!AharQMeRmrWggcNnPlk_7xHInYJzow)에서 전자 메일 템플릿을 다운로드할 수 있습니다.
 
 ### <a name="creating-your-own-password-portal"></a>고유의 암호 포털 만들기
 암호 관리 기능을 배포하는 더 큰 고객에게 적합한 하나의 전략은 사용자가 한 위치에서 암호와 관련된 모든 것을 관리하는 데 사용할 수 있는 "암호 포털"를 생성하는 것입니다.  
@@ -122,11 +123,11 @@ AAD Connect 또는 Windows PowerShell을 통해 설정할 수 있는 속성을 �
 2. **사용자** 탭을 클릭합니다.
 3. 목록에서 관심 있는 사용자를 선택합니다.
 4. 첫 번째 탭에서 암호 재설정을 사용하는 속성으로 사용될 수 있는 **대체 전자 메일**을 찾습니다.
-   
+
    ![][005]
 5. **작업 정보** 탭을 클릭합니다.
 6. 이 페이지에서 **사무실 전화**, **휴대폰**, **인증 전화** 및 **인증 전자 메일**을 찾습니다.  사용자가 자신의 암호를 다시 설정할 수 있도록 이 속성을 설정할 수도 있습니다.
-   
+
    ![][006]
 
 각 특성을 사용할 수 있는 방법은 [암호 재설정으로 사용되는 데이터](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) 를 참조하세요.
@@ -140,10 +141,10 @@ PowerShell을 사용하여 이 데이터를 읽고 쓰는 방법은 [사용자�
 <br/>
 <br/>
 
-## <a name="links-to-password-reset-documentation"></a>암호 재설정 설명서에 대한 링크
+## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
@@ -159,9 +160,4 @@ PowerShell을 사용하여 이 데이터를 읽고 쓰는 방법은 [사용자�
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

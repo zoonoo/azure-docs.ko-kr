@@ -4,7 +4,7 @@ description: "이 자습서에 따라 Azure 모바일 앱을 사용하여 Xamari
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -39,7 +40,7 @@ ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
 * Xamarin이 포함된 Visual Studio입니다. 지침은 [Visual Studio 및 Xamarin을 위한 설치 및 설정](https://msdn.microsoft.com/library/mt613162.aspx) 을 참조하세요.
 
 > [!NOTE]
-> Azure 계정에 등록하기 전에 Azure App Service를 시작하려는 경우 [App Service 평가](https://tryappservice.azure.com/?appServiceName=mobile)로 이동하세요.  App Service에서 단기 시작 Mobile App을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정에 등록하기 전에 Azure App Service를 시작하려는 경우 [App Service 평가](https://azure.microsoft.com/try/app-service/mobile/)로 이동하세요.  App Service에서 단기 시작 Mobile App을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -83,11 +84,6 @@ ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[Azure 포털]: https://azure.portal.com/
+[Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

@@ -1,31 +1,32 @@
 ---
-title: "Application Insights의 원격 분석 샘플링 | Microsoft Docs"
+title: "Azure Application Insights의 원격 분석 샘플링 | Microsoft Docs"
 description: "제어에서 원격 분석의 양을 유지하는 방법입니다."
 services: application-insights
 documentationcenter: windows
 author: vgorbenko
-manager: douge
+manager: carmonm
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 03/24/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: b04e8a33e5253a5fcda78ad3d2f0626d69c4d9b4
+ms.sourcegitcommit: 611f4222b5ab1530658f612de39dd2712f98c250
+ms.openlocfilehash: cbc622a959c402fe25ce9ab026c1ae05f194d884
+ms.lasthandoff: 02/03/2017
 
 
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
 
-샘플링은 [Azure Application Insights](app-insights-overview.md) 의 기능이며 응용 프로그램 데이터의 올바른 분석을 통계적으로 유지하는 동안 원격 분석 트래픽 및 저장소를 줄일 수 있는 좋은 방법입니다. 필터는 관련된 항목을 선택하여 진단 조사를 수행할 때 항목 간을 탐색할 수 있도록 합니다.
+샘플링은 [Azure Application Insights](app-insights-overview.md)의 기능입니다. 응용 프로그램 데이터의 올바른 분석을 통계적으로 유지하는 동안 원격 분석 트래픽 및 저장소를 줄일 수 있는 좋은 방법입니다. 필터는 관련된 항목을 선택하여 진단 조사를 수행할 때 항목 간을 탐색할 수 있도록 합니다.
 포털에서 메트릭 개수가 나타나면 통계에 영향을 최소화하기 위해 샘플링을 고려하도록 다시 정상화됩니다.
 
-샘플링은 트래픽을 감소시키고 월별 데이터 할당량을 유지하며 제한을 방지하는 데 도움이 됩니다.
+샘플링은 트래픽 및 데이터 비용을 줄여주며 제한을 피하는 데 도움이 됩니다.
 
 ## <a name="in-brief"></a>개요:
 * 샘플링은 *n* 레코드에 1을 유지하면서 나머지는 무시합니다. 예를 들어 20%의 샘플링 속도로 5개의 이벤트 1을 유지할 수 있습니다. 
@@ -103,6 +104,17 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 * `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
   
     앱을 막 시작했을 때 할당된 값입니다. 디버깅하는 동안 이 값을 줄이지 마십시오. 
+
+* `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
+  
+    샘플링하지 않으려는 형식의 세미콜론으로 구분된 목록 인식되는 형식: 종속성, 이벤트, 예외, 페이지 보기, 요청, 추적 지정된 형식의 모든 인스턴스가 전송되고 지정되지 않은 형식은 샘플링됩니다.
+
+* `<IncludedTypes>Request;Dependency</IncludedTypes>`
+  
+    샘플링하려는 형식의 세미콜론으로 구분된 목록 인식되는 형식: 종속성, 이벤트, 예외, 페이지 보기, 요청, 추적 지정된 형식이 샘플링되고 다른 형식의 모든 인스턴스가 항상 전송됩니다.
+
+
+적응 샘플링을 **해제하려면** applicationinsights-config에서 AdaptiveSamplingTelemetryProcessor 노드를 제거합니다.
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>대체: 코드에서 적응 샘플링 구성
 .config 파일의 샘플링을 조정하는 대신 코드를 사용할 수 있습니다. 이를 통해 샘플링 속도가 다시 계산될 때마다 호출되는 콜백 함수를 지정할 수 있습니다. 예를 들어 이를 사용하여 샘플링 속도를 사용하는 작업을 찾을 수 있습니다.
@@ -340,10 +352,5 @@ ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이
 
 ## <a name="next-steps"></a>다음 단계
 * [필터링](app-insights-api-filtering-sampling.md) 은 SDK에서 보내는 항목을 더 엄격하게 제어할 수 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

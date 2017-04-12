@@ -1,6 +1,6 @@
 ---
-title: "다른 사용자의 데이터 과학 작업 복사 - Machine Learning 예제 | Microsoft Docs"
-description: "데이터 과학의 비밀: 다른 사람들이 사용자의 작업을 수행하도록 유도 클러스터링 알고리즘 예제와 같은 Cortana 분석 갤러리의 예제를 참조하세요."
+title: "다른 사용자의 데이터 과학 예제 복사 - Machine Learning - Azure | Microsoft Docs"
+description: "데이터 과학의 비밀: 다른 사람들이 사용자의 작업을 수행하도록 유도 Cortana Analytics 갤러리에서 Machine Learning 예제를 가져옵니다."
 keywords: "데이터 과학 예제,Machine Learning 예제,클러스터링 알고리즘,클러스터링 알고리즘 예제"
 services: machine-learning
 documentationcenter: na
@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d97427b0f20d15a48ebcef47cbf4e4d100c983c3
+ms.sourcegitcommit: 1e941778c194462b311e6347c56670d3e0193e90
+ms.openlocfilehash: ebc44a4190bac697697e0b651039a0e8ee8e4a95
+ms.lasthandoff: 02/10/2017
 
 
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>데이터 과학을 수행하기 위해 다른 사람의 작품 복사
 ## <a name="video-5-data-science-for-beginners-series"></a>비디오 5: 초급자를 위한 데이터 과학 시리즈
-데이터 과학의 비밀 중 하나는 다른 사람들이 사용자의 작업을 수행하도록 하는 것입니다. 사용자 고유의 Machine Learning 실험에 사용할 클러스터링 알고리즘 예제를 찾습니다.
+데이터 과학의 비밀 중 하나는 다른 사람들이 사용자의 작업을 수행하도록 하는 것입니다. Cortana Analytics 갤러리에서 사용자 고유의 Machine Learning 실험에 사용할 클러스터링 알고리즘 예제를 찾습니다.
 
 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
-> 
-> 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>이 시리즈의 다른 비디오
 *초급자를 위한 데이터 과학* 은 다섯 개의 짧은 비디오를 통해 데이터 과학을 간략히 소개합니다.
@@ -84,7 +85,7 @@ Microsoft에는 무료로 사용해 볼 수 있는 [Azure Machine Learning](http
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>기계 학습 방법을 보여 주는 실험 찾기
 [Cortana 인텔리전스 갤러리](http://aka.ms/CortanaIntelligenceGallery) 에는 데이터 과학을 처음 사용하는 사람들에게 방법 예제를 알려주기 위해 특수하게 제공된 다른 실험도 많이 있습니다. 예를 들어 이 갤러리에는 누락된 값을 처리하는 방법을 보여 주는 실험([누락된 값 처리 방법](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1))도 있습니다. 여기서는 비어 있는 값을 대체하는 15가지 방법을 안내하고 각 방법의 이점과 사용해야 하는 경우를 설명합니다.
 
-![Machine Learning Studio - 누락된 값 처리 방법에서 갤러리 실험이 열립니다.](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
+![Machine Learning Studio에서 갤러리 실험은 누락된 값에 대한 메서드를 엽니다.](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
 [Cortana 인텔리전스 갤러리](http://aka.ms/CortanaIntelligenceGallery) 는 자체 솔루션에 대한 시작점으로 사용할 수 있는 작동 중인 실험을 찾을 수 있는 위치입니다.
 
@@ -93,10 +94,4 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
 ## <a name="next-steps"></a>다음 단계
 * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
 * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Container Service로의 다중 컨테이너 Docker 응용 프로그램의 지속적인 통합 및 배포 | Microsoft Docs"
+title: "Azure Container Service 및 DC/OS를 사용한 CI/CD | Microsoft Docs"
 description: "다중 컨테이너 Docker 앱의 빌드 및 DC/OS를 실행하는 Azure Container Service 클러스터로의 배포를 완전하게 자동화하는 방법"
 services: container-service
 documentationcenter: 
@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 71fdc7b13fd3b42b136b4907c3d747887fde1a19
-ms.openlocfilehash: cdcb2a8493c6790a395251c4cf05f2a6c0770c8d
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: acfba48585b960a1ce39b77e35d292189aa9732b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: cdcb2a8493c6790a395251c4cf05f2a6c0770c8d
 ## <a name="get-started"></a>시작
 OS X, Windows 또는 Linux에서 이 연습을 실행할 수 있습니다.
 - Azure 구독이 필요합니다. 계정이 없는 경우 [계정을 등록](https://azure.microsoft.com/)할 수 있습니다.
-- [Azure 명령줄 도구](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview)를 설치합니다.
+- [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치합니다.
 
 ## <a name="what-well-create"></a>만들 항목
 설정한 앱 및 해당 배포 흐름의 몇 가지 핵심 측면을 살펴보겠습니다.
@@ -47,15 +48,18 @@ OS X, Windows 또는 Linux에서 이 연습을 실행할 수 있습니다.
 ## <a name="create-an-azure-container-service-cluster-configured-with-dcos"></a>DC/OS로 구성된 Azure Container Service 클러스터 만들기
 
 >[!IMPORTANT]
-> 보안 클러스터를 만들려면 `az acs create`를 호출할 때 SSH 공개 키 파일을 전달합니다. `--generate-ssh-keys` 옵션을 사용하여 Azure CLI 2.0에서 키를 자동으로 생성하고 동시에 전달하게 하거나 `--ssh-key-value` 옵션을 사용하여 키에 대한 경로를 제공할 수 있습니다(기본 위치는 Linux에서 `~/.ssh/id_rsa.pub`, Windows에서 `%HOMEPATH%\.ssh\id_rsa.pub`이지만 변경할 수 있음). Linux에서 SSH 공용 및 개인 키 파일을 만들려면 [Linux 및 Mac에서 SSH 키 만들기](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json)를 참조하세요. Windows에서 SSH 공용 및 개인 키 파일을 만들려면 [Windows에서 SSH 키 만들기](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json)를 참조하세요. 
+> 보안 클러스터를 만들려면 `az acs create`를 호출할 때 SSH 공개 키 파일을 전달합니다. `--generate-ssh-keys` 옵션을 사용하여 Azure CLI 2.0에서 키를 자동으로 생성하고 동시에 전달하게 하거나 `--ssh-key-value` 옵션을 사용하여 키에 대한 경로를 제공할 수 있습니다(기본 위치는 Linux에서 `~/.ssh/id_rsa.pub`, Windows에서 `%HOMEPATH%\.ssh\id_rsa.pub`이지만 변경할 수 있음).
+<!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
+> Linux에서 SSH 공용 및 개인 키 파일을 만들려면 [Linux 및 Mac에서 SSH 키 만들기](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json)를 참조하세요. 
+> Windows에서 SSH 공용 및 개인 키 파일을 만들려면 [Windows에서 SSH 키 만들기](../virtual-machines/linux/ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json)를 참조하세요. 
 
 1. 먼저 터미널 창에 [az login](/cli/azure/#login) 명령을 입력하여 Azure CLI를 사용하여 Azure 구독에 로그인합니다. 
 
     `az login`
 
-1. [az resource group create](/cli/azure/resource/group#create)를 사용하여 클러스터를 배치할 리소스 그룹을 만듭니다.
+1. [az group create](/cli/azure/group#create)를 사용하여 클러스터를 배치할 리소스 그룹을 만듭니다.
     
-    `az resource group create --name myacs-rg --location westus`
+    `az group create --name myacs-rg --location westus`
 
     본인에게 가장 가까운 [Azure 데이터 센터 지역](https://azure.microsoft.com/regions)을 지정할 수 있습니다. 
 
@@ -284,6 +288,7 @@ VSTS에서 빌드 정의를 열면 다음과 유사한 결과가 나타납니다
     ```
 
     * 레이블 값에 대해 ACS 에이전트의 FQDN(정규화된 도메인 이름) 또는 사용자 지정 도메인(예: app.contoso.com)의 URL을 지정할 수 있습니다. ACS 에이전트의 FQDN을 찾으려면 명령 `az acs list`를 실행하고 `agentPoolProfiles.fqdn`에 대한 속성을 확인합니다. 예: `myacsagents.westus.cloudapp.azure.com`
+    * 샘플 앱은 기본적으로 포트 80에서 수신 대기하며 다른 포트(예: `port 8080` 또는 `443`)에서 수신 대기하는 Docker 응용 프로그램의 경우 포트 번호를 FQDN에 연결합니다. 예: `myacsagents.westus.cloudapp.azure.com:8080` 하지만 외부에서 응용 프로그램에 액세스하려는 경우 포트 80에 쿼리해야 합니다.
     * 파일 이름 규칙 docker-compose.env.*environment-name*.yml에 따라, 이러한 설정은 명명된 환경에만 영향을 줍니다(이 경우에 *프로덕션* 환경). VSTS의 릴리스 정의를 살펴보면 각 환경 배포 작업은 이 규칙의 이름을 딴 docker-compose 파일에서 읽어오도록 설정되어 있습니다.
 
 1. 파일을 커밋하고 마스터 소스 리포지토리에 푸시하여 다른 빌드를 시작합니다.
@@ -316,7 +321,7 @@ VSTS에서 빌드 정의를 열면 다음과 유사한 결과가 나타납니다
 ## <a name="clean-up"></a>정리
 이 자습서와 관련된 계산 비용을 최소화하려면 다음 명령을 실행하고 ACS 클러스터에 관련된 배포 파이프라인 리소스를 적어둡니다.
 
-```azurecli 
+```azurecli    
 az container release list --resource-name myacs --resource-group myacs-rg
 ```
 
@@ -325,26 +330,21 @@ ACS 클러스터 삭제:
 1. ACS 클러스터를 포함하는 리소스 그룹을 찾습니다.
 1. 리소스 그룹의 블레이드 UI를 열고 블레이드의 명령 모음에서 **삭제**를 클릭합니다.
 
-Azure Container Registry 삭제:
-1. Azure Portal에서 Azure Container Registry를 검색한 후 삭제합니다. 
+Azure Container Registry 삭제: Azure Portal에서 Azure Container Registry를 검색한 후 삭제합니다. 
 
 [Visual Studio Team Services 계정은 처음 5명의 사용자에게 무료 기본 액세스 수준을 제공하지만](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/) 빌드 및 릴리스 정의를 삭제할 수 있습니다.
-1. VSTS 빌드 정의 삭제:
+
+VSTS 빌드 정의 삭제:
         
-    * 브라우저에서 빌드 정의 URL을 연 다음 **빌드 정의** 링크(현재 보고 있는 빌드 정의 이름 옆에 있음)를 클릭합니다.
-    * 삭제하려는 빌드 정의 옆에 있는 작업 메뉴를 클릭하고 **정의 삭제**를 선택합니다.
+1. 브라우저에서 빌드 정의 URL을 연 다음 **빌드 정의** 링크(현재 보고 있는 빌드 정의 이름 옆에 있음)를 클릭합니다.
+2. 삭제하려는 빌드 정의 옆에 있는 작업 메뉴를 클릭하고 **정의 삭제**를 선택합니다.
 
-    ![VSTS 빌드 정의 삭제](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
+`![VSTS 빌드 정의 삭제](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
 
-1. VSTS 릴리스 정의 삭제:
+VSTS 릴리스 정의 삭제:
 
-    * 브라우저에서 릴리스 정의 URL을 엽니다.
-    * 왼쪽의 릴리스 정의 목록에서 삭제하려는 릴리스 정의 옆에 있는 드롭다운을 클릭하고 **삭제**를 선택합니다.
+1. 브라우저에서 릴리스 정의 URL을 엽니다.
+2. 왼쪽의 릴리스 정의 목록에서 삭제하려는 릴리스 정의 옆에 있는 드롭다운을 클릭하고 **삭제**를 선택합니다.
 
-    ![VSTS 릴리스 정의 삭제](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+`![VSTS 릴리스 정의 삭제](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
 

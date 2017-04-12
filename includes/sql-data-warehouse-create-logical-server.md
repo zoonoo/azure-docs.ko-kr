@@ -38,15 +38,10 @@
     ![서버 위치](./media/sql-data-warehouse-create-logical-server/server-location.png)
     
     > [!TIP]
-    > **Azure 서비스의 서버 액세스 허용** 확인란은 이 블레이드에서 변경할 수 없습니다. [서버 방화벽] 블레이드에서 이 설정을 변경할 수 있습니다. 자세한 내용은 [보안 시작](../articles/sql-database/sql-database-get-started-security.md)을 참조하세요.
+    > **Azure 서비스의 서버 액세스 허용** 확인란은 이 블레이드에서 변경할 수 없습니다. [서버 방화벽] 블레이드에서 이 설정을 변경할 수 있습니다. 자세한 내용은 [보안 시작](../articles/sql-database/sql-database-manage-servers-portal.md)을 참조하세요.
     >
     
 9. **만들기**를 클릭합니다.
 
     ![만들기 단추](./media/sql-data-warehouse-create-logical-server/create.png)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드 | Microsoft Docs"
+title: "Azure를 사용하여 항공 예측 유지 관리 - Cortana 인텔리전스 솔루션 기술 가이드 | Microsoft Docs"
 description: "항공, 유틸리티 및 운송에서 예측 유지 관리를 위한 Microsoft Cortana Intelligence를 사용한 솔루션 템플릿에 대한 기술 지침"
 services: cortana-analytics
 documentationcenter: 
@@ -12,15 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 03/14/2017
 ms.author: fboylu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f4ad547656bb3675a8a636106b7e95e5392ab4c5
+ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
+ms.openlocfilehash: 6464dbf22fc0084ee7d50f3117dae9b6566614cd
+ms.lasthandoff: 01/25/2017
 
 
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드
+
+## <a name="important"></a>**중요**
+이 문서는 더 이상 사용되지 않습니다. 해당 정보는 항공 분야 예측 유지 관리 등과 같은 문제와 여전히 관련이 있지만 [여기](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace)에서 최신 정보가 있는 최신 문서를 찾을 수 있습니다. 
+
 ## <a name="acknowledgements"></a>**승인**
 이 문서는 데이터 과학자 Yan Zhang, Gauher Shaheen, Fidan Boylu Uz 및 Microsoft의 소프트웨어 엔지니어 Dan Grecoe가 작성하였습니다.
 
@@ -84,7 +89,7 @@ Azure 이벤트 허브 서비스는 CSV 또는 JSON 형식으로 허브에 게�
 ### <a name="azure-stream-analytics"></a>Azure 스트림 분석
 Azure 스트림 분석 서비스는 데이터 스트림에서 읽고 원하는 수의 원본으로 데이터를 출력하여 거의 실시간 분석을 제공하는 데 사용됩니다.
 
-항공 솔루션 템플릿에 대한 예측 유지 관리의 경우 Azure 스트림 분석 쿼리는 각각 Azure 이벤트 허브 서비스에서 이벤트를 소비하고 4개의 고유 위치에 출력을 갖는 4개의 하위 쿼리로 구성됩니다. 이러한 출력은 세 개의 Power BI 데이터 집합 및 하나의 Azure 저장소 위치로 구성됩니다.
+항공 솔루션 템플릿에 대한 예측 유지 관리의 경우 Azure 스트림 분석 쿼리는 각각 Azure 이벤트 허브 서비스에서 이벤트를 소비하고&4;개의 고유 위치에 출력을 갖는&4;개의 하위 쿼리로 구성됩니다. 이러한 출력은 세 개의 Power BI 데이터 집합 및 하나의 Azure 저장소 위치로 구성됩니다.
 
 Azure 스트림 분석 쿼리는 다음으로 찾을 수 있습니다.
 
@@ -142,9 +147,9 @@ Azure 기계 학습 실험 생성 방법에 대한 정보는 [예측 유지 관�
  데이터 생성기가 시작되면 파이프라인이 하이드레이션하기 시작하고 솔루션의 다양한 구성 요소가 데이터 팩터리에서 발급한 명령을 실행하는 작업을 시작합니다. 두 가지 방법으로 파이프라인을 모니터링할 수 있습니다.
 
 1. 스트림 분석 작업 중 하나는 Blob 저장소에 들어오는 원시 데이터를 씁니다. 솔루션을 성공적으로 배포한 화면에서 솔루션의 Blob 저장소 구성 요소를 클릭하고 오른쪽 창에서 열기를 클릭하면 [관리 포털](https://portal.azure.com/)로 이동합니다. Blob을 클릭합니다. 다음 패널에서 컨테이너 목록이 표시됩니다. **maintenancesadata**를 클릭합니다. 다음 패널에서 **rawdata** 폴더가 표시됩니다. rawdata 폴더 안에 hour=17, hour=18 등과 같은 이름을 가진 폴더가 표시됩니다. 이러한 폴더가 표시되는 경우 원시 데이터가 성공적으로 컴퓨터에 생성되고 Blob 저장소에 저장되고 있음을 나타냅니다. 해당 폴더에 MB의 한정된 크기로 있어야 하는 csv 파일이 표시됩니다.
-2. 파이프라인의 마지막 단계는 SQL 데이터베이스에 데이터(예: 기계 학습에서 예측)를 작성하는 것입니다. 데이터를 SQL 데이터베이스에 표시하려면 최대 3시간을 기다려야 할 수도 있습니다. 얼마나 많은 데이터를 SQL Database에서 사용할 수 있는지를 모니터링하는 한 가지 방법은 [Azure Portal](https://manage.windowsazure.com/)을 통한 것입니다. 왼쪽 패널에서 SQL DATABASES ![SQL 아이콘](media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png)을 찾아 클릭합니다. 그런 다음 데이터베이스 **pmaintenancedb**를 찾고 클릭합니다. 맨 아래의 다음 페이지에서 관리를 클릭합니다.
+2. 파이프라인의 마지막 단계는 SQL 데이터베이스에 데이터(예: 기계 학습에서 예측)를 작성하는 것입니다. 데이터를 SQL 데이터베이스에 표시하려면 최대&3;시간을 기다려야 할 수도 있습니다. 얼마나 많은 데이터를 SQL Database에서 사용할 수 있는지를 모니터링하는 한 가지 방법은 [Azure Portal](https://manage.windowsazure.com/)을 통한 것입니다. 왼쪽 패널에서 SQL DATABASES ![SQL 아이콘](media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png)을 찾아 클릭합니다. 그런 다음 데이터베이스 **pmaintenancedb**를 찾고 클릭합니다. 맨 아래의 다음 페이지에서 관리를 클릭합니다.
    
-    ![관리 아이콘](media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)등 4가지 유형의 클러스터가 제공됩니다.
+    ![관리 아이콘](media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)등&amp;4;가지 유형의 클러스터가 제공됩니다.
    
     여기에서는 새 쿼리 및 행(예: PMResult의 select count(*))의 수에 대한 쿼리를 클릭할 수 있습니다. 데이터베이스 증가에 따라 테이블의 행 수도 증가해야 합니다.
 
@@ -231,10 +236,5 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
 
 * [Microsoft Azure 비용 추정 도구(온라인)](https://azure.microsoft.com/pricing/calculator/)
 * [Microsoft Azure 비용 추정 도구(데스크톱)](http://www.microsoft.com/download/details.aspx?id=43376)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

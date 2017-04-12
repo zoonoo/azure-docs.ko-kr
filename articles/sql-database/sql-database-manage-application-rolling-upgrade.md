@@ -1,5 +1,5 @@
 ---
-title: "클라우드 재해 복구 솔루션 - SQL Database 활성 지역 복제 | Microsoft Docs"
+title: "롤링 응용 프로그램 업그레이드 - Azure SQL Database | Microsoft Docs"
 description: "Azure SQL 데이터베이스 지역에서 복제를 사용하여 클라우드 응용 프로그램의 온라인 업그레이드를 지원하는 방법을 알아봅니다."
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: d7f3d972755ec326c28fcdb95fd0600dd8ca1a91
+ms.sourcegitcommit: 66c37501b053cd9a8b4487c34e8914b75f3058ee
+ms.openlocfilehash: a99d3f9b8df5cfff98e76fe3931304221b2ca6f4
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: d7f3d972755ec326c28fcdb95fd0600dd8ca1a91
 > 
 > 
 
-SQL 데이터베이스의 [지역에서 복제](sql-database-geo-replication-overview.md) 를 사용하여 클라우드 응용 프로그램의 롤링 업그레이드를 사용하도록 설정하는 방법을 알아봅니다. 업그레이드는 중단 작업이기 때문에 무중단 업무 방식 계획 및 디자인의 일부여야 합니다. 이 문서에서는 업그레이드 프로세스를 오케스트레이션하는 두 가지 다른 방법을 살펴보고 각 옵션의 이점 및 장단점을 설명합니다. 이 문서의 목적에 맞게 해당 데이터 계층으로 독립 실행형 데이터베이스에 연결된 웹 사이트로 구성된 간단한 응용 프로그램을 사용합니다. 우리의 목표는 최종 사용자 환경에 많은 영향을 주지 않고 응용 프로그램의 버전 1을 버전 2로 업그레이드하는 것입니다. 
+SQL 데이터베이스의 [지역에서 복제](sql-database-geo-replication-overview.md) 를 사용하여 클라우드 응용 프로그램의 롤링 업그레이드를 사용하도록 설정하는 방법을 알아봅니다. 업그레이드는 중단 작업이기 때문에 무중단 업무 방식 계획 및 디자인의 일부여야 합니다. 이 문서에서는 업그레이드 프로세스를 오케스트레이션하는 두 가지 다른 방법을 살펴보고 각 옵션의 이점 및 장단점을 설명합니다. 이 문서의 목적에 맞게 해당 데이터 계층으로 단일 데이터베이스에 연결된 웹 사이트로 구성된 간단한 응용 프로그램을 사용합니다. 우리의 목표는 최종 사용자 환경에 많은 영향을 주지 않고 응용 프로그램의 버전 1을 버전 2로 업그레이드하는 것입니다. 
 
 업그레이드 옵션을 평가할 때 다음과 같은 요소를 고려해야 합니다.
 
@@ -155,6 +155,6 @@ SQL 데이터베이스의 [지역에서 복제](sql-database-geo-replication-ove
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

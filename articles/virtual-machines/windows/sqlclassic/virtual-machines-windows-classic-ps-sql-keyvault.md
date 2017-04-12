@@ -1,5 +1,5 @@
 ---
-title: "Azure VM에서 SQL Server에 대한 Azure 키 자격 증명 모음 통합 구성(클래식)"
+title: "Azure의 Windows VM에서 Key Vault를 SQL Server에 통합(클래식) | Microsoft Docs"
 description: "Azure 키 자격 증명 모음과 함께 사용하도록 SQL Server 암호화 구성을 자동화하는 방법에 대해 알아보세요. 이 항목에서는 Azure 주요 자격 증명 모음 통합을 클래식 배포 모델에서 만든 SQL Server 가상 컴퓨터와 함께 사용하는 방법에 대해 설명합니다."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2016
+ms.date: 02/17/2017
 ms.author: jroth
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 2927b9de6a70668ffeac2005842214ad2406ddae
-
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
+ms.lasthandoff: 03/25/2017
 
 ---
-# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-classic"></a>Azure VM에서 SQL Server에 대한 Azure 키 자격 증명 모음 통합 구성(클래식)
+# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(클래식)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](../sql/virtual-machines-windows-ps-sql-keyvault.md)
-> * [클래식](virtual-machines-windows-classic-ps-sql-keyvault.md)
+> * [클래식](../classic/ps-sql-keyvault.md)
 > 
 > 
 
@@ -44,7 +45,7 @@ ms.openlocfilehash: 2927b9de6a70668ffeac2005842214ad2406ddae
 PowerShell을 사용하여 Azure 키 자격 증명 모음 통합을 구성합니다. 다음 섹션에서는 필수 매개 변수 및 샘플 PowerShell 스크립트의 개요를 제공합니다.
 
 ### <a name="install-the-sql-server-iaas-extension"></a>SQL Server IaaS 확장 설치
-먼저 [SQL Server IaaS 확장을 설치](virtual-machines-windows-classic-sql-server-agent-extension.md)합니다.
+먼저 [SQL Server IaaS 확장을 설치](../classic/sql-server-agent-extension.md)합니다.
 
 ### <a name="understand-the-input-parameters"></a>입력 매개 변수 이해
 다음 표에는 다음 섹션에는 PowerShell 스크립트를 실행하는 데 필요한 매개 변수가 나열되어 있습니다.
@@ -71,15 +72,12 @@ PowerShell을 사용하여 Azure 키 자격 증명 모음 통합을 구성합니
         $serviceName = "mycloudservicename"
 2. 그런 후 다음 스크립트를 사용하여 AKV 통합을 구성 및 설정합니다.
    
-     $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force   $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv   Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
+        $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
+        $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
+        Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
 
 SQL IaaS 에이전트 확장에서 이 새로운 구성을 사용하여 SQL VM을 업데이트할 것입니다.
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

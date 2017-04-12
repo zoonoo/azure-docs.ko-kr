@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB 계층적 리소스 모델 및 개념 | Microsoft Docs"
+title: "Azure DocumentDB 리소스 모델 및 개념 | Microsoft 문서"
 description: "데이터베이스, 컬렉션, UDF(사용자 정의 함수), 문서, 리소스 관리 권한 등으로 구성된 DocumentDB의 계층적 모델에 대해 알아봅니다."
 keywords: "계층적 모델, documentdb, azure, Microsoft azure"
 services: documentdb
@@ -13,15 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 03/14/2017
 ms.author: anhoh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 51c5694379d3f35ed2595f0cafeb00c6cc527854
-ms.openlocfilehash: 94549905816707fa3dcce3c3e443122162a2c4e8
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 0c62fc01947e0f2e4b0e45d176d5af04c6250fa8
+ms.lasthandoff: 03/15/2017
 
 
 ---
-# <a name="documentdb-hierarchical-resource-model-and-concepts"></a>DocumentDB 계층적 리소스 모델 및 개념
+# <a name="documentdb-hierarchical-resource-model-and-core-concepts"></a>DocumentDB 계층적 리소스 모델 및 핵심 개념
 DocumentDB에서 관리하는 데이터베이스 엔터티를 **리소스**라고 합니다. 각 리소스는 논리적 URI를 통해 고유하게 식별됩니다. 표준 HTTP 동사, request/response 헤더 및 상태 코드를 사용해서 리소스를 사용할 수 있습니다. 
 
 이 문서를 읽어 보면 다음을 알게 됩니다.
@@ -43,7 +45,7 @@ DocumentDB에서 관리하는 데이터베이스 엔터티를 **리소스**라�
 ![DocumentDB 계층적 리소스 모델][1]  
 **계층적 리소스 모델**   
 
-리소스 작업을 시작하려면 Azure 구독을 사용해서 [DocumentDB 데이터베이스 계정을 만들어야](documentdb-create-account.md) 합니다. 데이터베이스 계정은 각각 여러 **컬렉션**을 포함하는 **데이터베이스** 집합으로 구성될 수 있고, 각 컬렉션에는 다시 **저장 프로시저, 트리거, UDF, 문서** 및 관련 **첨부 파일**이 포함됩니다. 또한 데이터베이스에는 **사용자**가 연관될 수 있으며, 이러한 각 사용자는 컬렉션, 저장 프로시저, 트리거, UDF, 문서 또는 첨부 파일에 액세스할 수 있는 **권한** 집합을 갖고 있습니다. 데이터베이스, 사용자, 사용 권한 및 컬렉션은 잘 알려진 스키마가 있는 시스템 정의 리소스인 반면 문서 및 첨부 파일에는 임의의 사용자 정의 JSON 콘텐츠가 포함됩니다.  
+리소스 작업을 시작하려면 Azure 구독을 사용해서 [데이터베이스 계정을 만들어야](documentdb-create-account.md) 합니다. 데이터베이스 계정은 각각 여러 **컬렉션**을 포함하는 **데이터베이스** 집합으로 구성될 수 있고, 각 컬렉션에는 다시 **저장 프로시저, 트리거, UDF, 문서** 및 관련 **첨부 파일**이 포함됩니다. 또한 데이터베이스에는 **사용자**가 연관될 수 있으며, 이러한 각 사용자는 컬렉션, 저장 프로시저, 트리거, UDF, 문서 또는 첨부 파일에 액세스할 수 있는 **권한** 집합을 갖고 있습니다. 데이터베이스, 사용자, 사용 권한 및 컬렉션은 잘 알려진 스키마가 있는 시스템 정의 리소스인 반면 문서 및 첨부 파일에는 임의의 사용자 정의 JSON 콘텐츠가 포함됩니다.  
 
 | 리소스 | 설명 |
 | --- | --- |
@@ -142,7 +144,7 @@ Azure Portal([http://portal.azure.com/](https://portal.azure.com/))을 통해 [D
         </tr>
         <tr>
             <td valign="top"><p>일관성 정책</p></td>
-            <td valign="top"><p>데이터베이스 계정 아래의 모든 컬렉션에 대한 기본 일관성 수준을 구성하려면 이 속성을 설정합니다. [[x-ms-consistency-level] 요청 헤더를 사용하여 요청 단위로 일관성 수준을 재정의할 수 있습니다. <p><p>이 속성은 <i>사용자 정의 리소스</i>에만 적용됩니다. 모든 시스템 정의 리소스는 강력한 일관성으로 읽기/쿼리를 지원하도록 구성됩니다.</p></td>
+            <td valign="top"><p>데이터베이스 계정 아래의 모든 컬렉션에 대한 기본 일관성 수준을 구성하려면 이 속성을 설정합니다. [x-ms-consistency-level] 요청 헤더를 사용하여 요청 단위로 일관성 수준을 재정의할 수 있습니다. <p><p>이 속성은 <i>사용자 정의 리소스</i>에만 적용됩니다. 모든 시스템 정의 리소스는 강력한 일관성으로 읽기/쿼리를 지원하도록 구성됩니다.</p></td>
         </tr>
         <tr>
             <td valign="top"><p>권한 부여 키</p></td>
@@ -159,7 +161,7 @@ DocumentDB 데이터베이스는 다음 다이어그램에 표시된 것처럼 �
 ![데이터베이스 계정 및 컬렉션 계층적 모델][2]  
 **데이터베이스는 사용자 및 컬렉션의 논리적 컨테이너입니다.**
 
-데이터베이스에는 컬렉션으로 분할된 문서 저장소가 거의 무제한으로 포함될 수 있으며, 컬렉션은 포함된 문서에 대한 트랜잭션 도메인을 형성합니다. 
+한 데이터베이스에는 컬렉션 내에서 분할된 거의 무제한의 문서 저장소를 포함할 수 있습니다.
 
 ### <a name="elastic-scale-of-a-documentdb-database"></a>DocumentDB 데이터베이스의 탄력적인 확장
 DocumentDB 데이터베이스는 기본적으로 탄력적이며 SSD 지원 문서 저장소 및 프로비전된 처리량이 몇 GB에서 페타바이트 범위까지 다양합니다. 
@@ -173,7 +175,7 @@ DocumentDB 데이터베이스는 사용자 컨테이너이기도 합니다. 다�
 DocumentDB 리소스 모델의 다른 리소스와 마찬가지로, [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 사용하여 데이터베이스를 쉽게 만들거나, 바꾸거나, 삭제하거나, 읽거나, 열거할 수 있습니다. DocumentDB는 데이터베이스 리소스의 메타데이터 읽기 또는 쿼리에 대해 강력한 일관성을 보장합니다. 데이터베이스를 삭제하면 자동으로 컬렉션 또는 컬렉션 내에 포함된 사용자에 액세스할 수 없게 됩니다.   
 
 ## <a name="collections"></a>컬렉션
-DocumentDB 컬렉션은 JSON 문서의 컨테이너입니다. 컬렉션은 배율, 트랜잭션 및 쿼리 단위이기도 합니다. 
+DocumentDB 컬렉션은 JSON 문서의 컨테이너입니다. 
 
 ### <a name="elastic-ssd-backed-document-storage"></a>탄력적 SSD 지원 문서 저장소
 컬렉션은 본질적으로 탄력적입니다. 문서를 추가하거나 제거하면 자동으로 확장 및 축소됩니다. 컬렉션은 하나 이상의 물리적 파티션 또는 서버에 걸쳐 있을 수 있는 논리적 리소스입니다. 컬렉션 내의 파티션 수는 컬렉션의 프로비전된 처리량 및 저장소 크기에 따라 DocumentDB에 의해 결정됩니다. DocumentDB의 모든 파티션은 고정된 양의 SSD 지원 저장소에 연결되며, 고가용성을 위해 복제됩니다. 파티션 관리는 Azure DocumentDB에 의해 완전히 관리되므로 복잡한 코드를 작성하거나 파티션을 관리할 필요가 없습니다. DocumentDB 컬렉션은 저장소 및 처리량이 **거의 무제한** 입니다. 
@@ -204,7 +206,7 @@ DocumentDB 쿼리 모델은 기능, 효율성 및 간결성 간의 균형을 이
 > 
 > 
 
-### <a name="multi-document-transactions"></a>다중 문서 트랜잭션
+## <a name="multi-document-transactions"></a>다중 문서 트랜잭션
 데이터베이스 트랜잭션은 데이터 동시 변경을 처리하기 위한 안전하고 예측 가능한 프로그래밍 모델을 제공합니다. RDBMS에서 비즈니스 논리를 작성하는 기존 방법은 **저장 프로시저** 및/또는 **트리거**를 작성하고 트랜잭션 실행을 위해 데이터베이스 서버에 전달하는 것입니다. RDBMS에서는 응용 프로그램 프로그래머가 다음 두 가지 프로그래밍 언어를 처리해야 합니다. 
 
 * (비트랜잭션) 응용 프로그램 프로그래밍 언어(예: JavaScript, Python, C#, Java 등)
@@ -406,14 +408,14 @@ UDF 등록 취소는 단순히 기존 UDF 리소스에 대해 HTTP DELETE를 실
 위 조각에서는 [DocumentDB JavaScript SDK](https://github.com/Azure/azure-documentdb-js)를 통한 등록(POST), 등록 취소(PUT), 읽기/나열(GET) 및 실행(POST)을 보여 주었지만 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 다른 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 사용할 수도 있습니다. 
 
 ## <a name="documents"></a>문서
-컬렉션의 임의 JSON 문서를 삽입하고, 바꾸고, 삭제하고, 읽고, 열거하고, 쿼리할 수 있습니다. DocumentDB는 스키마를 위임하지 않으며 컬렉션 내 문서 쿼리를 지원하기 위해 보조 인덱스가 필요하지 않습니다.   
+컬렉션의 임의 JSON 문서를 삽입하고, 바꾸고, 삭제하고, 읽고, 열거하고, 쿼리할 수 있습니다. DocumentDB는 스키마를 위임하지 않으며 컬렉션 내 문서 쿼리를 지원하기 위해 보조 인덱스가 필요하지 않습니다. 기본적으로 문서에 대한 최대 크기는 2MB입니다.   
 
 진정한 개방형 데이터베이스 서비스인 DocumentDB는 직렬화된 데이터 형식(예: 날짜/시간) 또는 JSON 문서에 대한 특정 인코딩을 고안하지 않습니다. DocumentDB는 다양한 문서 간의 관계를 분류하기 위한 특별한 JSON 규칙이 필요 없습니다. DocumentDB의 SQL 구문에서 특별한 주석 없이 문서를 쿼리 및 프로젝션하는 강력한 계층적 관계형 쿼리 연산자를 제공하거나 고유 속성을 사용하여 문서 간의 관계를 분류해야 합니다.  
 
 다른 모든 리소스와 마찬가지로, REST API 또는 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 사용하여 문서를 쉽게 만들고, 바꾸고, 삭제하고, 읽고, 열거하고, 쿼리할 수 있습니다. 문서를 삭제하면 중첩된 모든 첨부 파일에 해당하는 할당량이 즉시 해제됩니다. 문서의 읽기 일관성 수준은 데이터베이스 계정의 일관성 정책을 따릅니다. 응용 프로그램의 데이터 일관성 요구 사항에 따라 요청 단위로 이 정책을 재정의할 수 있습니다. 문서를 쿼리할 때 읽기 일관성은 컬렉션에 설정된 인덱싱 모드를 따릅니다. "일관성"의 경우 계정의 일관성 정책을 따릅니다. 
 
 ## <a name="attachments-and-media"></a>첨부 파일 및 미디어
-DocumentDB는 DocumentDB에 포함 또는 원격 미디어 스토어에 이진 Blob/미디어를 저장하도록 허용합니다. 또한 첨부 파일이라는 특수 문서 측면에서 미디어의 메타데이터를 나타낼 수 있습니다. DocumentDB의 첨부 파일은 다른 곳에 저장된 미디어/blob을 참조하는 특수(JSON) 문서입니다. 첨부 파일은 단순히 원격 미디어 저장소에 저장된 미디어의 메타데이터(예: 위치, 작성자 등)를 캡처하는 특수 문서입니다. 
+DocumentDB를 사용하면 DocumentDB(계정 당 최대 2GB) 또는 원격 미디어 스토어에 이진 Blob/미디어를 저장할 수 있습니다. 또한 첨부 파일이라는 특수 문서 측면에서 미디어의 메타데이터를 나타낼 수 있습니다. DocumentDB의 첨부 파일은 다른 곳에 저장된 미디어/blob을 참조하는 특수(JSON) 문서입니다. 첨부 파일은 단순히 원격 미디어 저장소에 저장된 미디어의 메타데이터(예: 위치, 작성자 등)를 캡처하는 특수 문서입니다. 
 
 DocumentDB를 사용하여 잉크 주석과 설명, 강조, 책갈피, 등급, 좋아요/싫어요 등 지정된 사용자의 전자책에 대해 연결된 메타데이터를 저장하는 특수 읽기 응용 프로그램을 고려해 보세요.   
 
@@ -460,10 +462,5 @@ DocumentDB 사용자는 사용 권한 그룹화를 위한 논리적 네임스페
 [1]: media/documentdb-resources/resources1.png
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Memcache 프로토콜을 통해 Redis Cache에 Azure App Service의 웹앱 연결 | Microsoft Docs"
+title: "Memcache 프로토콜을 통해 Redis에 Azure App Service의 웹앱 연결 | Microsoft Docs"
 description: "Memcache 프로토콜을 사용하여 Redis Cache에 Azure 앱 서비스의 웹앱 연결"
 services: app-service\web
 documentationcenter: php
 author: SyntaxC4
-manager: wpickett
+manager: erikre
 editor: riande
 ms.assetid: 0fcdf9fa-2995-4839-ba4d-cfa389c4ba06
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
+ms.sourcegitcommit: 550b4154f0fe510cb37ec4f8bdef251b06f0b495
+ms.openlocfilehash: 4d867f80cfbe5360962550fbda0091f88784b4af
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -38,7 +39,7 @@ ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
 확장 가능한 WordPress 사이트가 배포되고 Redis Cache 인스턴스가 프로비전되면 Azure 앱 서비스 웹앱에서 Memcache shim을 사용하여 진행할 준비가 됩니다.
 
 ## <a name="enable-the-web-apps-memcache-shim"></a>웹앱 Memcache shim 사용
-Memcache shim을 구성하려면 3개의 앱 설정을 만들어야 합니다. [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), [클래식 포털][3], [Azure PowerShell Cmdlet][5] 또는 [Azure 명령줄 인터페이스][5]를 포함한 다양한 방법으로 완료할 수 있습니다. 이 게시물의 목적은 [Azure Portal][4]을 사용하여 앱을 설정하는 것입니다. 다음 값은 Redis Cache의 **설정** 블레이드에서 검색할 수 있습니다.
+Memcache shim을 구성하려면&3;개의 앱 설정을 만들어야 합니다. [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), [클래식 포털][3], [Azure PowerShell Cmdlet][5] 또는 [Azure 명령줄 인터페이스][5]를 포함한 다양한 방법으로 완료할 수 있습니다. 이 게시물의 목적은 [Azure Portal][4]을 사용하여 앱을 설정하는 것입니다. 다음 값은 Redis Cache의 **설정** 블레이드에서 검색할 수 있습니다.
 
 ![Azure Redis 캐시 설정 블레이드](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -180,7 +181,7 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 축하합니다. 이제 WordPress 앱에 증가하는 처리량을 지원하기 위해 중앙 메모리 내 캐시가 생겼습니다. 웹앱 Memcache Shim은 프로그래밍 언어 또는 응용 프로그램 프레임워크와 상관 없이 Memcache 클라이언트에 사용할 수 있습니다. 피드백 게시 또는 Web Apps Memcache shim에 대한 문의는 [MSDN Forums][10] 또는 [Stackoverflow][11]에 게시하세요.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -201,9 +202,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [11]: http://stackoverflow.com/questions/tagged/azure-web-sites
 [12]: /services/cache/
 [13]: http://memcached.org
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

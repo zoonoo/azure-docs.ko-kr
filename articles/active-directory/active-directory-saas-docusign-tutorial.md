@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6d2ab680afdd60732b8cf0a39a31ad6f35a70d09
+ms.sourcegitcommit: ac53d0a2c1c0a257e86fe74e10c8781aa6305975
+ms.openlocfilehash: 662e853ca31d426a71121d22733256556ca56fc6
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -148,7 +149,7 @@ ms.openlocfilehash: 6d2ab680afdd60732b8cf0a39a31ad6f35a70d09
    
     c.  페이지 맨 아래에 있는 **닫기**  
 7. Azure 클래식 포털에서 **다음**을 클릭합니다. 
-8. Azure 클래식 포털에서** Single Sign-On 구성 확인**을 선택하고 **다음**을 클릭합니다.
+8. Azure 클래식 포털에서 **Single Sign-On 구성 확인** 을 선택하고 **다음** 을 클릭합니다.
    
     ![응용 프로그램][14]
 9. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
@@ -242,9 +243,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다.
 [59]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_27.png
 [60]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_28.png
 [61]: ./media/active-directory-saas-docusign-tutorial/tutorial_docusign_29.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

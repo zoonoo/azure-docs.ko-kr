@@ -1,10 +1,10 @@
 ---
-title: "포털을 사용하여 웹 응용 프로그램 방화벽이 있는 Application Gateway 만들기 | Microsoft Docs"
+title: "웹 응용 프로그램 방화벽이 있는 Azure Application Gateway 만들기 또는 업데이트 | Microsoft Docs"
 description: "포털을 사용하여 웹 응용 프로그램 방화벽이 있는 Application Gateway를 만드는 방법에 대해 알아보기"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 04/03/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 216b3890cde6f41c33aa34f23d7e103322d9b502
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9f16384a3944c3943dbfc094aaba37a24969e949
+ms.lasthandoff: 03/30/2017
 
 
 ---
+
 # <a name="create-an-application-gateway-with-web-application-firewall-by-using-the-portal"></a>포털을 사용하여 웹 응용 프로그램 방화벽이 있는 Application Gateway 만들기
 
 > [!div class="op_single_selector"]
 > * [Azure 포털](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 Azure Application Gateway의 웹 응용 프로그램 방화벽(WAF)은 SQL 삽입 공격, 사이트 간 스크립팅 공격, 세션 하이재킹 등의 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다. 웹 응용 프로그램은 다양한 OWASP 상위 10 일반적인 웹 취약점으로부터 보호합니다.
 
@@ -47,14 +47,12 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 
 > [!NOTE]
 > 초기 배포 중이 아닌 경우 응용 프로그램 게이트웨이를 구성하면 사용자 지정 상태 프로브, 백 엔드 풀 주소, 추가 규칙 등 응용 프로그램 게이트웨이에 대한 추가 구성이 구성됩니다.
-> 
-> 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니다. 가상 네트워크를 만들 때 여러 서브넷을 둘 수 있는 충분한 주소 공간이 있는지 확인합니다. Application Gateway를 서브넷에 배포한 경우 추가 Application Gateway를 서브넷에 추가할 수 있습니다.
 
-## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>기존 Application Gateway에 웹 응용 프로그램 방화벽을 추가하는 방법
+##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a> 기존 Application Gateway에 웹 응용 프로그램 방화벽 추가
 
 이 시나리오에서는 방지 모드에서 웹 응용 프로그램 방화벽을 지원하도록 기존 Application Gateway를 업데이트합니다.
 
@@ -66,21 +64,23 @@ Azure Portal로 이동하여 기존 Application Gateway를 선택합니다.
 
 ### <a name="step-2"></a>2단계
 
-**구성** 을 클릭하고 Application Gateway 설정을 업데이트합니다. 완료되면 **저장**
+**웹 응용 프로그램 방화벽**을 클릭하고 응용 프로그램 게이트웨이 설정을 업데이트합니다. 완료되면 **저장**
 
 웹 응용 프로그램 방화벽을 지원하도록 기존 Application Gateway를 업데이트하는 설정은 다음과 같습니다.
 
-* **계층** - 웹 응용 프로그램 방화벽을 지원하려면 선택한 계층이 **WAF**여야 합니다.
-* **SKU 크기** - 이 설정은 웹 응용 프로그램 방화벽이 있는 Application Gateway의 크기이며, 사용 가능한 옵션은 (**중형** 및 **대형**)입니다.
+* **WAF 계층으로 업그레이드** -WAF를 구성하려면 이 설정이 필요합니다.
 * **방화벽 상태** - 이 설정은 웹 응용 프로그램 방화벽을 비활성화 또는 활성화합니다.
 * **방화벽 모드** - 웹 응용 프로그램 방화벽이 악의적인 트래픽을 처리하는 방식에 대한 설정입니다. **검색** 모드는 이벤트를 기록하기만 하는 반면 **방지** 모드는 이벤트를 기록하고 악의적인 트래픽을 중지합니다.
+* **규칙 집합** - 이 설정은 백 엔드 풀 멤버를 보호하는 데 사용되는 [코어 규칙 집합](application-gateway-web-application-firewall-overview.md#core-rule-sets)을 결정합니다.
+* **사용하지 않는 규칙 구성** -가능한 가양성을 방지하기 위해 이 설정은 특정 [규칙 및 규칙 그룹](application-gateway-crs-rulegroups-rules.md)을 사용하지 않도록 설정할 수 있도록 합니다.
+
+>[!NOTE]
+> 기존 응용 프로그램 게이트웨이를 WAF SKU로 업그레이드할 때 SKU 크기는 **중형**으로 변경됩니다. 구성이 완료된 후 이 크기를 다시 구성할 수 있습니다.
 
 ![기본 설정이 표시된 블레이드][2]
 
 > [!NOTE]
 > 웹 응용 프로그램 방화벽 로그를 보려면 진단을 활성화하고 ApplicationGatewayFirewallLog를 선택해야 합니다. 테스트 목적으로 인스턴스 수 1을 선택할 수 있습니다. 그러나 두 개 미만의 인스턴스 수는 SLA에서 다루지 않으므로 권장되지 않는다는 점을 알아야 합니다. 웹 응용 프로그램 방화벽을 사용하는 경우 소형 게이트웨이를 사용할 수 없습니다.
-> 
-> 
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>웹 응용 프로그램 방화벽을 사용하여 Application Gateway를 만드는 방법
 
@@ -114,8 +114,6 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 > [!NOTE]
 > 테스트 목적으로 인스턴스 수 1을 선택할 수 있습니다. 그러나 두 개 미만의 인스턴스 수는 SLA에서 다루지 않으므로 권장되지 않는다는 점을 알아야 합니다. 웹 응용 프로그램 방화벽 시나리오에는 소형 게이트웨이가 지원되지 않습니다.
-> 
-> 
 
 ### <a name="step-3"></a>3단계
 
@@ -127,7 +125,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 ### <a name="step-4"></a>4단계
 
- **가상 네트워크 선택** 블레이드에서 **새로 만들기**
+**가상 네트워크 선택** 블레이드에서 **새로 만들기**
 
 이 시나리오에는 설명되어 있지 않지만 여기서 기존 Virtual Network를 선택할 수도 있습니다.  기존 가상 네트워크를 사용하는 경우 해당 가상 네트워크에 사용할 빈 서브넷 또는 Application Gateway 리소스의 서브넷이 필요합니다.
 
@@ -143,7 +141,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 가상 네트워크를 만든 후에는 응용 프로그램 게이트웨이에 대한 프런트 엔드 IP를 정의합니다. 이 시점에서는 프런트 엔드에 대해 공용 또는 개인 IP 주소를 선택합니다. 응용 프로그램이 인터넷 연결용인지 내부용인지에 따라 선택이 달라집니다. 이 시나리오에서는 공용 IP 주소를 사용하는 것으로 가정합니다. 개인 IP 주소를 선택하려면 **개인** 단추를 클릭하면 됩니다. 자동으로 할당된 IP 주소가 선택되거나, **특정 개인 IP 주소 선택** 확인란을 클릭하여 수동으로 입력할 수 있습니다.
 
-**공용 IP 주소 선택**을 클릭합니다. 기존 공용 IP 주소를 사용할 수 있는 경우 이 시점에서 선택될 수 있지만 이 시나리오에서는 새 공용 IP 주소를 만듭니다.  **Create new**
+**공용 IP 주소 선택**을 클릭합니다. 기존 공용 IP 주소를 사용할 수 있는 경우 이 시점에서 선택될 수 있지만 이 시나리오에서는 새 공용 IP 주소를 만듭니다. **Create new**
 
 ![공용 IP 주소 선택 블레이드][6]
 
@@ -171,7 +169,7 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 **WAF** 설정을 구성합니다.
 
 * **방화벽 상태** - 이 설정은 WAF를 켜고 끕니다.
-* **방화벽 모드** - 이 설정은 WAF가 악의적인 트래픽에 대해 수행하는 작업을 결정합니다. **검색** 을 선택하면 트래픽이 기록되기만 합니다.  **방지** 를 선택하면 트래픽이 기록되고 403 권한 없음 오류와 함께 중지됩니다.
+* **방화벽 모드** - 이 설정은 WAF가 악의적인 트래픽에 대해 수행하는 작업을 결정합니다. **검색** 을 선택하면 트래픽이 기록되기만 합니다.  **방지**를 선택하면 트래픽이 기록되고 403 권한 없음 응답에 따라 중지됩니다.
 
 ![웹 응용 프로그램 방화벽 설정][9]
 
@@ -187,13 +185,16 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 
 이러한 단계에서는 수신기, 백 엔드 풀, 백 엔드 http 설정 및 규칙에 대한 기본 설정으로 기본 Application Gateway를 만듭니다. 프로비전에 성공하면 배포에 맞게 이러한 설정을 수정할 수 있습니다.
 
+> [!NOTE]
+> 기본 웹 응용 프로그램 방화벽 구성을 사용하여 만든 응용 프로그램 게이트웨이는 보호를 위해 CRS 3.0으로 구성됩니다.
+
 ## <a name="next-steps"></a>다음 단계
 
- [Application Gateway 진단](application-gateway-diagnostics.md)
+[Application Gateway 진단](application-gateway-diagnostics.md)을 방문하여 진단 로깅을 구성하는 방법 및 웹 응용 프로그램 방화벽을 통해 검색 또는 방지되는 이벤트를 기록하는 방법에 대해 알아보기
 
- [사용자 지정 상태 프로브 만들기](application-gateway-create-probe-portal.md)
+[사용자 지정 상태 프로브 만들기](application-gateway-create-probe-portal.md)
 
- [SSL 오프로드 구성](application-gateway-ssl-portal.md)
+[SSL 오프로드 구성](application-gateway-ssl-portal.md)
 
 <!--Image references-->
 [1]: ./media/application-gateway-web-application-firewall-portal/figure1.png
@@ -209,9 +210,4 @@ Azure 포털로 이동하여 **새로 만들기** > **네트워킹** > **응용 
 [9]: ./media/application-gateway-web-application-firewall-portal/figure9.png
 [10]: ./media/application-gateway-web-application-firewall-portal/figure10.png
 [scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

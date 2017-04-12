@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/30/2016
+ms.date: 01/11/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: fef0779516da808324d4080c532c830a8bace2cb
-ms.openlocfilehash: ac55559e3dd0312c679a5b2c43d93c1532330337
+ms.sourcegitcommit: 3e2ad6b466ba4885ae14576b83d4c0f3010bab67
+ms.openlocfilehash: 9782454e3bfc697b63cde8aa28a14be0c393c36b
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -30,7 +31,7 @@ Azure Search .NET SDK 버전 3에는 이전 버전에서 변경된 사항이 일
 > [!NOTE]
 > 1.0.2-preview 또는 이전 버전을 사용하는 경우 먼저 버전 1.1로 업그레이드한 후 버전 3으로 업그레이드해야 합니다. 지침은 [부록: 1.1 버전으로 업그레이드하는 단계](#UpgradeStepsV1) 를 참조하세요.
 >
->
+> Azure Search 서비스 인스턴스는 최신 버전을 포함한 여러 REST API 버전을 지원합니다. 더 이상 최신 버전이 아닌 버전을 계속 사용할 수는 있지만 코드를 마이그레이션하여 최신 버전을 사용하는 것이 좋습니다. REST API를 사용하는 경우 api-version 매개 변수를 통해 모든 요청에 API 버전을 지정해야 합니다. .NET SDK를 사용하는 경우 사용 중인 SDK의 버전에 따라 해당하는 REST API 버전이 결정됩니다. 이전 버전의 SDK를 사용하는 경우 최신 API 버전을 지원하기 위해 서비스가 업그레이드된 경우에도 변경 내용 없이 해당 코드를 계속 실행할 수 있습니다.
 
 <a name="WhatsNew"></a>
 
@@ -482,10 +483,5 @@ SDK 버전 1.1에서 이 문제를 해결했습니다. 이제 다음과 같이 �
 이러한 이유로 모델 클래스에는 Null을 허용하는 형식을 사용하는 것이 가장 좋습니다.
 
 이 버그 및 수정에 대한 자세한 내용은 [GitHub에서 해당 문제](https://github.com/Azure/azure-sdk-for-net/issues/1063)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

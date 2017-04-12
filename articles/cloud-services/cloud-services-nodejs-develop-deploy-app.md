@@ -1,5 +1,5 @@
 ---
-title: "Node.js 시작 가이드 | Microsoft Docs"
+title: "Node.js 시작 가이드 | Microsoft 문서"
 description: "간단한 Node.js 웹 응용 프로그램을 만들고 Azure 클라우드 서비스에 배포하는 방법에 대해 알아봅니다."
 services: cloud-services
 documentationcenter: nodejs
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: eeb10e8325918ac699e3c1fe94d15eee5f730fce
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: e54861dbc851bc3d5629e84ddb61f26a06782ad4
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -164,7 +165,7 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 <!-- URL List -->
 
 [Azure 웹 사이트, 클라우드 서비스 및 가상 컴퓨터 비교]: ../app-service-web/choose-web-site-cloud-service-vm.md
-[간단한 웹앱 사용]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[간단한 웹앱 사용]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [PowerShell을 연결]: /powershell/azureps-cmdlets-docs#step-3-connect
@@ -181,9 +182,4 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

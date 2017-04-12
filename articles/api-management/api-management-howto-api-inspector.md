@@ -1,5 +1,5 @@
 ---
-title: "API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법"
+title: "API 검사기를 사용하여 호출 추적 - Azure API Management | Microsoft Docs"
 description: "API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 36231c3d2c19e129b301b76dfbbc8417b055fbae
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법
@@ -69,7 +69,7 @@ API 검사기를 사용하려면 **ocp-apim-trace: true** 요청 헤더를 작�
 ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net/apiinspectorcontainer/ZW3e23NsW4wQyS-SHjS0Og2-2?sv=2013-08-15&sr=b&sig=Mgx7cMHsLmVDv%2B%2BSzvg3JR8qGTHoOyIAV7xDsZbF7%2Bk%3D&se=2014-05-04T21%3A00%3A13Z&sp=r&verify_guid=a56a17d83de04fcb8b9766df38514742
 ```
 
-다음 단계에 설명된 대로 지정된 위치에서 추적을 다운로드하고 검토할 수 있습니다.
+다음 단계에 설명된 대로 지정된 위치에서 추적을 다운로드하고 검토할 수 있습니다. 마지막100개의 로그 항목만 저장되며 로그 위치는 교대로 재사용됩니다. 따라서 추적 기능이 활성화된 상태로 100개 이상의 호출을 할 경우 결국에는 첫 번째 추적을 덮어쓰기 시작합니다.
 
 ## <a name="inspect-trace"> </a>추적 검사
 추적에서 값을 검토하려면 **ocp-apim-trace-location** URL에서 추적 파일을 다운로드합니다. 이 파일은 JSON 형식의 텍스트 파일이며 다음 예제와 유사한 항목을 포함합니다.
@@ -265,10 +265,5 @@ ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net
 
 
 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

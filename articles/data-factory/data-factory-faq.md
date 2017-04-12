@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0dafae2cf2c3972fc09ffc67f76f6757bcc641fa
+ms.sourcegitcommit: 02d810db5433370802b866424c24464d64171ef0
+ms.openlocfilehash: 6921965c3286209e024ba59637da0c485b4a0c71
+ms.lasthandoff: 02/01/2017
 
 
 ---
@@ -87,7 +88,7 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 출력 데이터 테이블의 **가용성** 구성 설정에 따라 작업 실행 시기가 결정됩니다. 입력 데이터 집합이 지정된 경우 작업은 실행을 시작하기 전에 모든 입력 데이터 종속성이 충족되었는지 (즉, **Ready** 상태) 검사합니다.
 
 ## <a name="copy-activity---faq"></a>복사 작업 - FAQ
-### <a name="is-it-better-to-have-a-pipeline-with-multiple-activities-or-a-separate-pipeline-for-each-activity"></a>여러 작업이 포함된 파이프라인 1개보다 각 작업에 개별 파이프라인을 사용하는 것이 더 효율적인가요?
+### <a name="is-it-better-to-have-a-pipeline-with-multiple-activities-or-a-separate-pipeline-for-each-activity"></a>여러 작업이 포함된 파이프라인&1;개보다 각 작업에 개별 파이프라인을 사용하는 것이 더 효율적인가요?
 파이프라인은 관련 작업의 번들로 간주됩니다. 작업을 연결하는 데이터 집합이 파이프라인 외의 다른 작업에서 사용되지 않는 경우 파이프라인 하나에 작업을 유지할 수 있습니다. 이 경우 서로 정렬되도록 파이프라인 활성 기간을 연결할 필요가 없습니다. 또한 파이프라인을 업데이트할 때 파이프라인 내부 테이블의 데이터 무결성이 보다 완벽하게 유지됩니다. 파이프라인 업데이트는 기본적으로 파이프라인 내의 모든 작업을 중지하고 제거한 후 다시 만듭니다. 제작 관점에서는 파이프라인에 대한 하나의 JSON 파일에서 관련 작업 내의 데이터 흐름을 확인하는 것이 더 쉬울 수도 있습니다.
 
 ### <a name="what-are-the-supported-data-stores"></a>지원되는 데이터 저장소는 무엇입니까?
@@ -157,12 +158,12 @@ dataset4(데이터 팩터리 1의 파이프라인 2에 의해 생성)를 사용�
     "offset": "06:00:00"
 }
 ```
-기본값인 자정 대신 **오전 6시**에 시작하는 일별 조각입니다.     
+기본값인 자정 대신 **오전&6;시**에 시작하는 일별 조각입니다.     
 
 ### <a name="how-can-i-rerun-a-slice"></a>어떻게 조각을 다시 실행할 수 있나요?
 다음 방법 중 하나로 조각을 다시 실행할 수 있습니다.
 
-* 모니터링 및 관리 앱을 사용하여 작업 창 또는 조각을 다시 실행합니다. 지침에 대해서는 [선택한 작업 창 다시 실행](data-factory-monitor-manage-app.md#performing-batch-actions)을 참조하세요.   
+* 모니터링 및 관리 앱을 사용하여 작업 창 또는 조각을 다시 실행합니다. 지침에 대해서는 [선택한 작업 창 다시 실행](data-factory-monitor-manage-app.md#perform-batch-actions)을 참조하세요.   
 * Azure 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행**을 클릭합니다.
 * 조각의 상태를 **Waiting**으로 설정하여 **Set-AzureRmDataFactorySliceStatus** cmdlet을 실행합니다.   
 
@@ -200,9 +201,4 @@ Azure 포털에서 다음을 수행할 수도 있습니다.
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
 [hdinsight-alternate-storage]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

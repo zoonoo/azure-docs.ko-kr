@@ -12,21 +12,38 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 01/05/2017
 ms.author: masnider
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f4daec67cd35de60568ffd22010164f10785a5d4
+ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
+ms.openlocfilehash: 7fa35de8b99132ad1c10229a9bb2231f11fdbaa0
+ms.lasthandoff: 01/07/2017
 
 
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>서비스 패브릭 서비스에 대한 배치 정책
-서비스 패브릭 클러스터가 지리적으로 널리 분포된 경우, 즉 데이터 센터나 Azure 지역이 여러 곳에 배치된 경우 또는 환경이 지정학적으로 널리 분산된 경우(또는 법적 경계나 정책 경계를 고려해야 하는 경우 또는 관련된 거리에 실제 성능/지연 영향이 있는 경우) 여러 가지 규칙을 추가로 고려해야 합니다. 이러한 사항은 노드 속성 및 배치 제약 조건을 통해 구성할 수 있지만 일부는 더 복잡합니다. 상황을 좀 더 간단히 만들기 위해 이러한 추가 명령을 제공합니다. 배치 정책은 배치 제약 조건처럼 이름이 지정된 서비스 인스턴스 단위로 구성할 수 있습니다.
+일부 드문 시나리오에는 구성해야 하는 여러 가지 추가 규칙이 있습니다. 이러한 시나리오의 몇 가지 예는 다음과 같습니다.
+* 온-프레미스 데이터 센터 또는 Azure 지역 등에 걸쳐 Service Fabric 클러스터의 지리적 거리가 확대되는 경우
+* 사용자 환경이 지정학적 컨트롤 또는 관심을 갖는 법적, 정책적 경계의 여러 영역에 확대되는 경우
+* 먼 거리를 이동하거나 느리고 신뢰할 수 없는 네트워크를 전송하는 클러스터에서 이뤄지는 통신으로 인해 실제 성능/대기 시간을 고려해야 합니다.
+
+이러한 유형의 상황에서 지정된 서비스가 특정 지역에서 항상 실행되거나 실행되지 않는 것이 중요할 수 있습니다. 마찬가지로 최종 사용자의 대기 시간을 최소화하기 위해 특정 지역에 주 복제본을 배치하는 것이 중요할 수 있습니다.
+
+고급 배치 정책은 다음과 같습니다.
+
+1. 잘못된 도메인
+2. 필수 도메인
+3. 기본 설정 도메인
+4. 복제본 압축 불가
+
+다음 컨트롤은 대부분 노드 속성 및 배치 제약 조건을 통해 구성할 수 있지만 일부는 더 복잡합니다. Service Fabric Cluster Resource Manager는 좀 더 간단하게 이러한 추가 배치 정책을 제공합니다. 배치 정책은 배치 제약 조건처럼 이름이 지정된 서비스 인스턴스 단위로 구성하고 동적으로 업데이트할 수 있습니다.
 
 ## <a name="specifying-invalid-domains"></a>잘못된 도메인 지정
 InvalidDomain 배치 정책을 사용하여 특정 장애 도메인이 이 워크로드에 유효하지 않다고 지정할 수 있습니다. 이 정책을 사용하면 예를 들어 지정학적 또는 회사 정책상의 이유로 특정 영역에서 특정 서비스가 실행되지 않도록 할 수 있습니다. 별도 정책을 통해 잘못된 여러 도메인을 지정할 수 있습니다.
 
+<center>
 ![잘못된 도메인 예제][Image1]
+</center>
 
 코드:
 
@@ -44,7 +61,9 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="specifying-required-domains"></a>필수 도메인 지정
 필수 도메인 배치 정책에서는 서비스에 대한 모든 상태 저장 복제본 또는 상태 비저장 서비스 인스턴스가 지정된 도메인에 있어야 합니다. 별도 정책을 통해 여러 필수 도메인을 지정할 수 있습니다.
 
+<center>
 ![필수 도메인 예제][Image2]
+</center>
 
 코드:
 
@@ -61,9 +80,11 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 ## <a name="specifying-a-preferred-domain-for-the-primary-replicas"></a>주 복제본에 대한 기본 설정 도메인 지정
-기본 설정 주 도메인은 가능한 경우 주 도메인이 있어야 하는 장애 도메인을 선택할 수 있으므로 유용한 컨트롤입니다. 정상 상태인 경우 이 도메인이 주 도메인이 됩니다. 어떤 이유로 인해 도메인이나 주 복제본에 장애가 발생하거나 종료된 경우 주 도메인이 다른 위치로 마이그레이션되며 이 위치가 기본 도메인에 없는 경우 클러스터 Resource Manager가 기본 도메인으로 다시 이동될 수 있습니다. 기본적으로 이 설정은 상태 저장 서비스에만 적합합니다. 이 정책은 Azure 지역 또는 여러 데이터 센터 간에 걸쳐 있는 클러스터에서 가장 유용합니다. 이러한 상황에서 중복을 위해 모든 위치를 사용하고 있지만 주 복제본으로 이동되는 작업의 대기 시간을 줄이기 위해 주 복제본을 특정 위치에 배치할 수 있습니다. 기본적으로 쓰기 및 모든 읽기가 주 복제본에서 처리됩니다.
+기본 설정 주 도메인은 가능한 경우 주 복제본이 있어야 하는 장애 도메인을 선택할 수 있으므로 유용한 컨트롤입니다. 정상 상태인 경우 주 복제본은 이 도메인에 위치하게 됩니다. 어떤 이유로 인해 도메인이나 주 복제본에 장애가 발생하거나 종료된 경우 주 복제본은 다른 위치로 마이그레이션됩니다. 새 위치가 기본 설정 도메인이 아닌 경우 Cluster Resource Manager는 새 위치를 가능한 한 빨리 기본 도메인으로 이동시킵니다. 이 정책은 Azure 지역 또는 여러 데이터 센터 간에 걸쳐 있는 클러스터에서 가장 유용합니다. 이 정책은 Azure 지역 또는 여러 데이터 센터에 걸쳐 확장되는 클러스터에서 가장 유용하지만 기본적으로 특정 위치에 주 복제본을 배치합니다. 주 복제본을 해당 사용자에게 가깝게 배치하면 읽기의 경우 특히 대기 시간을 줄일 수 있습니다.
 
-![기본 주 도메인 및 장애 조치(Failover)][Image3]
+<center>
+![기본 설정 주 도메인 및 장애 조치(Failover)][Image3]
+</center>
 
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();
@@ -78,11 +99,13 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 ## <a name="requiring-replicas-to-be-distributed-among-all-domains-and-disallowing-packing"></a>모든 도메인에서 복제본을 분산하고 압축을 허용하지 않음
-지정할 수 있는 다른 정책은 항상 복제본을 사용 가능한 장애 도메인 간에 분산하도록 하는 것입니다. 클러스터가 정상 상태인 대부분의 경우에는 기본적으로 이러한 작업이 수행되지만, 지정된 파티션의 복제본이 단일 장애 또는 업그레이드 도메인에 일시적으로 압축될 수도 있는 부정적인 경우도 있습니다. 예를 들어 클러스터의 3개의 장애 도메인(0, 1 및 2)에 9개의 노드가 있고 서비스에 복제본이 3개 있더라도 장애 도메인 1과 2에서 해당 복제본에 사용되던 노드가 다운되었으며, 용량 문제 때문에 해당 도메인의 다른 어떤 노드도 유효하지 않은 경우를 가정할 수 있습니다. 서비스 패브릭이 해당 복제본의 대체 복제본을 빌드해야 할 경우 클러스터 Resource Manager는 장애 도메인 0에 해당 복제본을 추가해야 하지만, 장애 도메인 제약 조건이 위반되는 상황이 구현됩니다. 또한 전체 복제본 세트가 손실될 가능성도 높아집니다(FD 0이 영구적으로 손실될 경우). (제약 조건 및 제약 조건 우선 순위에 대한 자세한 내용은 [이 항목](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities) 을 확인하세요.)
+복제본은 _일반적으로_ 클러스터 상태가 정상인 도메인 간에 배포되지만 지정된 파티션의 복제본이 일시적으로 단일 도메인에 압축되는 경우가 있습니다. 예를 들어, 클러스터에&3;개의 장애 도메인에 있는&9;개의 노드가 있고(fd:/0, fd:/1 및 fd:/2) 서비스에&3;개의 복제본이 있다고 가정하겠습니다. fd:/1 및 fd:/2의 해당 복제본에 사용되는 노드가 중단되었다고 가정하겠습니다. 이제 일반적으로 Cluster Resource Manager는 이러한 동일한 장애 도메인에서 다른 노드를 기본으로 사용합니다. 이 경우에 용량 문제로 인해 해당 도메인의 다른 노드가 유효하지 않다고 가정하겠습니다. Cluster Resource Manager가 해당 복제본에 대한 대체 항목을 빌드하는 경우 fd:/0에서 노드를 선택해야 합니다. 그러나 _해당 작업_을 수행하면 장애 도메인 제약을 위반하는 상황이 발생합니다. 또한 전체 복제본 세트가 중단되거나 손실될 가능성도 높아집니다(FD 0이 영구적으로 손실될 경우). 제약 조건 및 제약 조건 우선 순위에 대한 자세한 내용은 [이 항목](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities)을 확인하세요.
 
-"부하 분산 장치에서 이 복제본에 대한 제약 조건 위반을 감지함:fabric:/<some service name> 보조 파티션 <some partition ID>이(가) 제약 조건을 위반함: FaultDomain" 등과 같은 상태 경고가 발생하면 이 조건을 위반했거나 유사한 작업을 수행한 것입니다. 일반적으로 이러한 경우는 일시적이지만(노드가 오랫동안 다운된 상태를 유지하지 않으며, 오래 다운되어 대체 복사본을 빌드해야 할 경우, 올바른 장애 도메인에 유효한 다른 노드가 있음) 가용성을 얻기 위해 모든 복제본을 유실할 가능성을 용인하는 워크로드도 있습니다. 동일한 파티션의 어떤 두 복제본도 동일한 장애 또는 업그레이드 도메인에서 허용되지 않도록 하는 "RequireDomainDistribution" 정책을 지정하여 이 작업을 수행할 수 있습니다.
+`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: FaultDomain`와 같은 상태 경고가 표시된 경우 이 조건 또는 비슷한 조건에 도달했습니다. 드문 경우지만 발생할 수 있습니다. 그리고 노드가 다시 돌아오기 때문에 일반적으로 이러한 상황은 일시적입니다. 노드가 중단되고 Cluster Resource Manager가 대체 노드를 빌드해야 하는 경우 일반적으로 이상적인 장애 도메인에서 사용할 수 있는 다른 노드가 있습니다.
 
-일부 워크로드는 항상 목표 개수의 복제본(상태의 복사본)을 유지하지만(전체 도메인 오류가 발생하지 않을 것이며, 일반적으로 로컬 상태를 복구할 수 있다고 믿음), 정확성 및 데이터 손실 걱정 없이 더 일찍 가동 중지 시간을 겪게 되는 워크로드도 있습니다. 대부분의 프로덕션 워크로드는 4개 이상의 복제본을 사용해서 실행되므로 기본값은 일시적으로 도메인에 여러 복제본이 압축되더라도 도메인 분산을 요구하지 않고 일반적으로 분산 및 장애 조치(failover)를 통해 상황을 처리하는 것입니다.
+일부 워크로드가 더 적은 도메인에 압축되는 경우 복제본의 대상 수가 있습니다. 이러한 워크로드는 동시에 발생하는 영구적인 도메인 오류 전체에 대해 안정적이며 일반적으로 로컬 상태를 복구할 수 있습니다. 다른 워크로드는 위험 정확성 또는 데이터의 손실이 발생하기 전에 가동 중지 시간을 감수합니다. 대부분의 프로덕션 워크로드가 세 개 이상의 복제본, 세 개 이상의 장애 도메인 및 장애 도메인당 여러 개의 유효한 노드에서 실행되기 때문에 기본적으로 도메인 배포는 필요하지 않습니다. 그러면 도메인에 일시적으로 압축된 여러 개의 복제본이 있을 수 있다는 것을 의미하지만 보통 균형 조정 및 장애 조치로 이러한 경우를 처리할 수 있습니다.
+
+지정된 워크로드에 대해 이러한 압축을 사용하지 않도록 설정하려면 서비스에서 "RequireDomainDistribution" 정책을 지정할 수 있습니다. 이 정책을 설정하면 Cluster Resource Manager를 통해 동일한 장애 도메인 또는 업그레이드 도메인에서 동일한 파티션의 복제본이 두 개가 되지 않도록 합니다.
 
 코드:
 
@@ -97,17 +120,12 @@ Powershell:
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 2 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomainDistribution")
 ```
 
-현재 지리적으로 분산되지 않은 클러스터의 서비스에 대해 이러한 구성을 사용할 수 있나요? 물론 가능합니다. 그렇지만 그렇게 해야 할 중대한 이유도 없습니다. 특히, 실제로 지리적으로 분산된 클러스터를 실행하고 있지 않다면 유효하지 않은 필수 기본 도메인 구성은 피해야 합니다. 다양한 형식의 하드웨어 또는 워크로드 구분이 진행되지 않을 경우 지정된 워크로드를 강제로 단일 랙에서 실행하거나 일부 로컬 클러스터 세그먼트를 다른 세그먼트보다 선호하는 것은 타당하지 않으며, 이러한 경우는 정상적인 배치 제약조건을 통해 처리할 수 있습니다.
+현재 지리적으로 분산되지 않은 클러스터의 서비스에 대해 이러한 구성을 사용할 수 있나요? 물론 가능합니다. 하지만 그럴 필요가 없습니다. 실제로 지리적 거리가 분산된 클러스터를 실행하지 않는 경우 필수 도메인, 잘못된 도메인, 기본 설정 도메인 구성은 피해야 합니다. 지정된 워크로드를 단일 랙에서 실행하거나 다른 로컬 클러스터의 일부 세그먼트를 기본으로 사용하려는 것은 바람직하지 않습니다. 여러 하드웨어 구성을 도메인 간에 분산하고 일반 배치 제약 조건 및 노드 속성을 통해 처리해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 서비스 구성에 사용할 수 있는 기타 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)
+* 서비스를 구성하는 데 사용할 수 있는 다른 옵션에 대한 자세한 내용은 [서비스 구성에 대해 알아보기](service-fabric-cluster-resource-manager-configure-services.md)로 이동하세요.
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png
 [Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png
 [Image3]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-preferred-primary-domain.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

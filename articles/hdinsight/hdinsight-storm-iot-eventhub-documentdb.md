@@ -8,6 +8,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 78980635-8bef-4c33-96c3-fae50e932e31
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 46bc5b3b70120cd631523fd2b27ad8b9a47e3c6d
 ms.openlocfilehash: 952480e71dac19c7772198516863b3e64be1a6b3
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -61,10 +63,5 @@ Storm 토폴로지에서 사용되는 구성 요소는 다음과 같습니다.
 ## <a name="next-steps"></a>다음 단계
 
 Storm 토폴로지에 대한 자세한 내용은 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

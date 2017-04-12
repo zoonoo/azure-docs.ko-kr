@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: f03b8d192255a3c93284f3c5e898f68a1234644f
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
 ## <a name="introduction"></a>소개
 백 엔드 앱은 Azure IoT Hub의 기본 형식, 즉 장치 쌍 및 직접 메서드를 사용하여 장치에서 장치 관리 작업을 원격으로 시작하고 모니터링할 수 있습니다.  이 문서에서는 IoT Hub를 사용하여 원격 장치를 다시 부팅하고 모니터링하기 위해 백 엔드 앱과 장치가 함께 작동하는 방법에 대한 지침과 코드를 제공합니다.
 
-클라우드 기반 백 엔드 앱에서 장치에 대한 장치 관리 작업을 원격으로 시작하고 모니터링하려면 [장치 쌍][lnk-devtwin] 및 [직접 메서드][lnk-c2dmethod]와 같은 IoT Hub 기본 형식을 사용합니다. 이 자습서에서는 백 엔드 앱 및 장치가 함께 작동하여 IoT Hub에서 원격 장치 재부팅을 시작 및 모니터링하는 방식을 보여 줍니다.
+클라우드 기반 백 엔드 앱에서 장치에 대한 장치 관리 작업을 원격으로 시작하고 모니터링하려면 [장치 쌍][lnk-devtwin] 및 [직접 메서드][lnk-c2dmethod]와 같은 IoT Hub 기본 형식을 사용합니다. 이 자습서에서는 백 엔드 앱 및 장치가 함께 작동하여 IoT Hub에서 원격 장치 다시 시작을 시작 및 모니터링하는 방식을 보여 줍니다.
 
 직접 메서드를 사용하여 클라우드의 백 엔드 앱에서 장치 관리 작업(예: 재부팅, 공장 기본 설정으로 복원 및 펌웨어 업데이트)을 시작합니다. 장치는 다음과 같은 역할을 합니다.
 
@@ -39,7 +40,7 @@ ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 * Azure Portal을 사용하여 IoT Hub를 만들고 IoT Hub에 장치 ID를 만듭니다.
-* 클라우드에서 재부팅을 호출할 수 있는 직접 메서드가 포함된 시뮬레이션된 장치 앱을 만듭니다.
+* 장치를 다시 시작하는 직접 메서드가 포함된 시뮬레이트된 장치 앱을 만듭니다. 직접 메서드는 클라우드에서 호출됩니다.
 * IoT Hub를 통해 시뮬레이션된 장치 앱에서 재부팅 직접 메서드를 호출하는 .NET 콘솔 앱을 만듭니다.
 
 이 자습서의 끝 부분에는 다음과 같은 Node.js 콘솔 장치 앱과 .NET(C#) 콘솔 백 엔드 앱이 있습니다.
@@ -50,7 +51,7 @@ ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 또는 Visual Studio 2017.
 * Node.js 버전 0.12.x 이상, <br/>  Windows 또는 Linux에서 이 자습서를 위해 Node.js를 설치하는 방법에 대해서는 [개발 환경 준비][lnk-dev-setup]에서 설명합니다.
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
@@ -59,9 +60,9 @@ ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>직접 메서드를 사용하여 장치에서 원격 재부팅 트리거
-이 섹션에서는 직접 메서드를 사용하여 장치에서 원격 재부팅을 시작하고, 장치 쌍 쿼리를 사용하여 해당 장치의 마지막 재부팅 시간을 찾는 .NET 콘솔 앱(C# 사용)을 만듭니다.
+이 섹션에서는 장치에서 직접 메서드를 사용하여 원격 다시 시작을 시작하는 .NET 콘솔 앱(C# 사용)을 만듭니다. 앱은 장치 쌍 쿼리를 사용하여 해당 장치에 대한 마지막 다시 시작 시간을 검색합니다.
 
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 이름을 **TriggerReboot**로 지정합니다.
+1. Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 바탕화면 프로젝트를 새 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 이름을 **TriggerReboot**로 지정합니다.
 
     ![새 Visual C# Windows 클래식 데스크톱 프로젝트][img-createapp]
 
@@ -199,7 +200,8 @@ ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
     ```
 8. **dmpatterns_getstarted_device.js** 파일을 저장 후 닫습니다.
    
-   [AZURE.NOTE] 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리][lnk-transient-faults]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
+> [!NOTE]
+> 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리][lnk-transient-faults]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
 
 ## <a name="run-the-apps"></a>앱 실행
@@ -210,7 +212,7 @@ ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
     ```
     node dmpatterns_getstarted_device.js
     ```
-2. **TriggerReboot** C# 콘솔 앱 실행 - **TriggerReboot** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **디버그**, **새 인스턴스 시작**을 차례로 선택합니다.
+2. C# 콘솔 앱 **TriggerReboot**를 실행합니다. **TriggerReboot** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 선택한 다음 **새 인스턴스 시작**을 선택합니다.
 
 3. 콘솔에서 직접 메서드에 대한 장치 응답을 확인합니다.
 
@@ -221,7 +223,7 @@ IoT 솔루션에서 정의된 장치 관리 패턴 집합을 확장하거나 장
 일반적으로 서비스 중단 및 가동 중지 시간을 최소화하면서 작업을 수행하도록 장치를 구성합니다.  장치 유지 관리 기간은 장치에서 해당 구성을 업데이트해야 할 경우 시간을 정의하는 데 널리 사용되는 패턴입니다. 백 엔드 솔루션에서는 장치 쌍의 desired 속성을 사용하여 유지 관리 기간을 사용하는 장치에 대한 정책을 정의하고 활성화할 수 있습니다. 장치에서 유지 관리 기간 정책을 수신하면 장치 쌍의 reported 속성을 사용하여 정책의 상태를 보고할 수 있습니다. 그런 다음 백 엔드 앱은 장치 쌍 쿼리를 사용하여 장치 및 각 정책의 규정 준수를 입증합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 직접 메서드를 사용하여 장치에서 원격 재부팅을 트리거하고, reported 속성을 사용하여 장치에서 마지막으로 재부팅한 시간을 보고하고, 장치 쌍을 쿼리하여 장치가 클라우드에서 마지막으로 다시 부팅한 시간을 확인했습니다.
+이 자습서에서는 장치에서 원격 다시 시작을 트리거하는 데 직접 메서드를 사용했습니다. 보고된 속성을 사용하여 장치에서 마지막으로 다시 시작한 시간을 보고하고, 장치 쌍을 쿼리하여 장치가 클라우드에서 마지막으로 다시 시작한 시간을 확인했습니다.
 
 IoT Hub 및 장치 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 계속 시작하려면 다음을 참조하세요
 
@@ -251,8 +253,3 @@ IoT Hub 시작을 계속하려면 [IoT Gateway SDK 시작][lnk-gateway-SDK]을 �
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

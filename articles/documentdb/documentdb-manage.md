@@ -1,30 +1,16 @@
 ---
-title: "DocumentDB 저장소 및 성능 | Microsoft Docs"
-description: "DocumentDB의 데이터 저장소 및 문서 저장소와 응용 프로그램의 용량 요구 사항을 충족하기 위해 DocumentDB를 확장하는 방법에 대해 알아봅니다."
-keywords: "문서 저장소"
-services: documentdb
-author: syamkmsft
-manager: jhubbard
-editor: cgronlun
-documentationcenter: 
-ms.assetid: d3c0bae3-1862-4203-9260-e36216a7823d
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/18/2016
-ms.author: syamk
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: d5af6e3d9ba35558e0d7850820f4b9a479a259be
-ms.openlocfilehash: 8a387dbb4ae5c8ce64c397441613d6d1fc3f08b1
+ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
+ms.openlocfilehash: 27880401ccfca4c2c504eecc1aeb128d40c501a3
 
 
 ---
 # <a name="storage-and-predictable-performance-provisioning-in-documentdb"></a>DocumentDB의 저장소 및 예측 가능한 성능 프로비전
 Azure DocumentDB는 JSON 문서에 대한 완전히 관리되고 확장성 있는 문서 지향 NoSQL 데이터베이스 서비스입니다. DocumentDB를 사용하면 가상 컴퓨터를 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft 엔지니어가 DocumentDB를 작동하고 지속적으로 모니터링합니다.  
 
-[Azure Portal](https://portal.azure.com/)을 통해 [데이터베이스 계정](documentdb-create-account.md) 및 [DocumentDB 데이터베이스](documentdb-create-database.md)를 만들어서 DocumentDB를 시작할 수 있습니다. DocumentDB 데이터베이스는 SSD(반도체 드라이브) 지원 저장소 및 처리량의 단위로 제공됩니다. 이러한 저장소 단위는 데이터베이스 계정 내에서 [데이터베이스 컬렉션을 만들어](documentdb-create-collection.md) 프로비전되며 각 컬렉션의 예약된 처리량은 응용 프로그램의 요구에 맞게 언제든지 확장/축소할 수 있습니다.
+[Azure Portal](https://portal.azure.com/)을 통해 [데이터베이스 계정](documentdb-create-account.md)을 만든 다음 [DocumentDB 컬렉션 및 데이터베이스](documentdb-create-collection.md)를 만들어서 DocumentDB를 시작할 수 있습니다. DocumentDB 데이터베이스는 SSD(반도체 드라이브) 지원 저장소 및 처리량의 단위로 제공됩니다. 이러한 저장소 단위는 데이터베이스 컬렉션을 만들 때 프로비전되며, 각 컬렉션의 예약된 처리량은 응용 프로그램의 요구에 맞게 언제든지 확장 또는 축소할 수 있습니다.
 
 응용 프로그램이 하나 이상의 컬렉션에 대한 예약된 처리량을 초과할 경우 컬렉션당 기준에 따라 요청이 제한됩니다. 즉, 응용 프로그램 요청이 경우에 따라 성공하거나 제한될 수도 있습니다.
 
@@ -142,6 +128,6 @@ Azure 포털에서 성능 수준 모니터링에 대한 지침은 [DocumentDB �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

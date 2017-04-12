@@ -1,24 +1,11 @@
 ---
-title: "SDK로 클라이언트 쪽 파티션을 구현하는 방법 | Microsoft Docs"
-description: "Azure DocumentDB SDK를 사용하여 데이터를 분할하고 여러 컬렉션 간에 요청을 라우팅하는 방법을 알아봅니다."
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: cgronlun
-documentationcenter: 
-ms.assetid: ab2a63f0-4601-42d8-b5e5-ba943319c1c8
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2016
-ms.author: mimig
+
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: 5e7aa2ead3e9c5d55f7f4c372638c0ee9c485b98
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 7023e7e7f5857db345c47c9a3aa00a816e027a96
+ms.lasthandoff: 03/29/2017
 
 
 
@@ -126,7 +113,7 @@ foreach (UserProfile activeUser in query)
 범위 분할의 특수한 사례는 범위가 단일 불연속 값인 경우로, "조회 분할"이라고도 합니다. 이 분할은 일반적으로 지역별 분할(예: 노르웨이, 덴마크 및 스웨덴이 포함된 스칸디나비아 분할) 또는 다중 테넌트 응용 프로그램의 테넌트 분할에 사용됩니다.
 
 ## <a name="samples"></a>샘플
-이러한 PartitionResolvers를 사용하고 확장하여 다음과 같은 특정 사용 사례에 맞게 사용자 고유의 확인자를 구현하는 방법에 대한 코드 조각이 포함된 [DocumentDB 분할 샘플 Github 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)를 살펴보겠습니다. 
+이러한 PartitionResolvers를 사용하고 확장하여 다음과 같은 특정 사용 사례에 맞게 사용자 고유의 확인자를 구현하는 방법에 대한 코드 조각이 포함된 [DocumentDB 분할 샘플 GitHub 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)를 살펴보겠습니다. 
 
 * GetPartitionKey에 대해 임의 람다 식을 지정하고 복합 분할 키를 구현하거나 다양한 유형의 개체를 다르게 분할하는 데 사용하는 방법
 * 수동 조회 테이블을 사용하여 분할을 수행하는 간단한 [LookupPartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Partitioners/LookupPartitionResolver.cs) 를 만드는 방법. 이 패턴은 일반적으로 지역, 테넌트 ID 또는 응용 프로그램 이름과 같은 불연속 값을 기반으로 하는 분할에 사용됩니다.
@@ -165,14 +152,9 @@ foreach (UserProfile activeUser in query)
 ## <a name="references"></a>참조
 * [DocumentDB에서 서버 쪽 분할](documentdb-partition-data.md)
 * [DocumentDB 컬렉션 및 성능 수준](documentdb-performance-levels.md)
-* [Github의 분할 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
+* [GitHub의 분할 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 * [MSDN의 DocumentDB .NET SDK 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
 * [성능 팁에 대한 DocumentDB 블로그](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

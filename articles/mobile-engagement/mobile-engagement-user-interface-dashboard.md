@@ -4,7 +4,7 @@ description: "Azure Mobile Engagement를 사용하여 응용 프로그램에 대
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 835cc39ebe7cc3a6ee8fafdaad6a36ebb301a615
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 835cc39ebe7cc3a6ee8fafdaad6a36ebb301a615
 분석 섹션에서 정보를 검색하는 대신 원하는 정확한 정보를 제공하는 방식으로 고객은 UI의 대시보드 섹션을 통해 사용자 지정된 차트를 만들어 작업 시간을 최대한 활용할 수 있습니다. 대시보드에는 지정된 시간(시간/일/주/월/사용자 지정) 동안의 각 응용 프로그램 버전별 활성 사용자 수와 응용 프로그램의 추세가 표시됩니다. 지난 7일 동안의 추세가 표시됩니다.
 
 ### <a name="see-also"></a>참고 항목
-* [문제 해결 가이드 - 분석][링크 21]
+* [문제 해결 가이드 - 분석][Link 21]
 
 ## <a name="dashboard"></a>대시보드
 * UI의 분석 섹션에서 대시보드에 표시하려는 차트의 기어 메뉴에 있는 "대시보드로 보내기" 작업을 선택하면 빈 대시보드에 차트를 추가할 수 있습니다.
@@ -98,43 +99,38 @@ ms.openlocfilehash: 835cc39ebe7cc3a6ee8fafdaad6a36ebb301a615
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[링크 1]: mobile-engagement-user-interface.md
-[링크 2]: mobile-engagement-troubleshooting-guide.md
-[링크 3]: mobile-engagement-how-tos.md
-[링크 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[링크 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[링크 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[링크 7]: https://account.windowsazure.com/PreviewFeatures
-[링크 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[링크 9]: http://azure.microsoft.com/services/mobile-engagement/
-[링크 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[링크 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[링크 12]: mobile-engagement-user-interface-navigation.md
-[링크 13]: mobile-engagement-user-interface-home.md
-[링크 14]: mobile-engagement-user-interface-my-account.md
-[링크 15]: mobile-engagement-user-interface-analytics.md
-[링크 16]: mobile-engagement-user-interface-monitor.md
-[링크 17]: mobile-engagement-user-interface-reach.md
-[링크 18]: mobile-engagement-user-interface-segments.md
-[링크 19]: mobile-engagement-user-interface-dashboard.md
-[링크 20]: mobile-engagement-user-interface-settings.md
-[링크 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[링크 22]: mobile-engagement-troubleshooting-guide-apis.md
-[링크 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[링크 24]: mobile-engagement-troubleshooting-guide-service.md
-[링크 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[링크 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[링크 27]: ../mobile-engagement-how-tos-first-push.md
-[링크 28]: ../mobile-engagement-how-tos-test-campaign.md
-[링크 29]: ../mobile-engagement-how-tos-personalize-push.md
-[링크 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[링크 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[링크 32]: ../mobile-engagement-how-tos-text-view.md
-[링크 33]: ../mobile-engagement-how-tos-web-view.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: ../mobile-engagement-how-tos-first-push.md
+[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: ../mobile-engagement-how-tos-text-view.md
+[Link 33]: ../mobile-engagement-how-tos-web-view.md
 
 

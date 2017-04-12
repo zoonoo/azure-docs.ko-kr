@@ -1,6 +1,6 @@
 ---
-title: "사물 인터넷을 위한 Azure 솔루션(IoT Hub) | Microsoft Docs"
-description: "샘플 솔루션 아키텍처 및 이를 Azure IoT Suite 및 미리 구성된 솔루션과 연결하는 방법을 포함한 Azure IoT 개요"
+title: "사물 인터넷을 위한 Azure 솔루션(IoT Suite) | Microsoft Docs"
+description: "샘플 솔루션 아키텍처 및 이를 Azure IoT Suite 및 미리 구성된 솔루션과 연결하는 방법을 비롯한 Azure의 IoT에 대한 개요입니다."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/09/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 4408f12677c9110acbea468ac62b6cac941fd451
+ms.sourcegitcommit: 37a1653ca058c60a39df95f646127bd9e7fdd556
+ms.openlocfilehash: 57c7b895579e1c1e86224a60d961721d2d4cf638
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -52,9 +53,4 @@ IoT Suite 및 미리 구성된 솔루션에 대해 계속 알아보려면 다음
 [Azure Machine Learning]: https://azure.microsoft.com/documentation/services/machine-learning/
 [Azure storage]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

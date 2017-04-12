@@ -1,14 +1,25 @@
 ---
+title: "Azure App Service - API Apps 설명서 - 자습서 | Microsoft Docs"
+description: "Azure App Service의 API Apps을 사용하여 클라우드 및 온-프레미스에서 API를 개발, 호스팅 및 사용하는 방법에 대해 알아봅니다. 자습서, 비디오 및 기타 설명서입니다."
+services: app-service\api
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: app-service\api
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: ac7a22bd592cbb1e8cdee2e6d2896c0b8ad6ea26
-
+ms.sourcegitcommit: 741a6f2be3c8c689884cdeb180ff10dac046032b
+ms.openlocfilehash: b1a568d7a8f856c7d17aa7ebd14148452c1d29db
 
 ---
 # <a name="app-service---api-apps-documentation"></a>App Service - API Apps 설명서
 
-API Apps는 Azure App Service에서 제공하는&4;개의 앱 형식 중 하나입니다. Azure App Service의 API 앱은 클라우드 및 온-프레미스에서 API를 개발, 호스팅 및 사용하도록 풍부한 기능 설정을 제공합니다. Azure App Service는 웹, 모바일 및 통합 시나리오에 대해 완전히 관리되는 플랫폼입니다.
+Azure App Service의 API Apps을 사용하여 클라우드 및 온-프레미스에서 API를 개발, 호스팅 및 사용하는 방법에 대해 알아봅니다. 자습서, 비디오 및 기타 설명서에서는 API 앱을 만들고 배포하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -121,38 +132,10 @@ API Apps는 Azure App Service에서 제공하는&4;개의 앱 형식 중 하나�
     </li>     
 </ul>
 
----
-
-<h2>참조</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>리소스</h3>
-                        <p><a href="/azure/app-service-web/app-service-web-app-azure-portal?toc=%2fazure%2fapp-service-api%2ftoc.json">Azure 포털</a></p>
-                        <p><a href="/azure/app-service-web/app-service-changes-existing-services?toc=%2fazure%2fapp-service-api%2ftoc.json">App Service 참조</a></p>
-                        <p><a href="/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started?toc=%2fazure%2fapp-service-api%2ftoc.json">WebJobs SDK</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
-        <div class="img"></div>
-        <div class="text">
-Mobile Apps 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

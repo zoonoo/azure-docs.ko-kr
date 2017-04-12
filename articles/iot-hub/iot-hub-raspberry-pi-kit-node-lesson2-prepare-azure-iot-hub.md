@@ -1,5 +1,7 @@
 ---
-title: "Azure IoT hub 만들기 및 Raspberry Pi 3 등록 | Microsoft Docs"
+featureFlags:
+- usabilla
+title: "Azure IoT에 Raspberry Pi(노드) 연결 - 단원 2: 장치 등록 | Microsoft Docs"
 description: "리소스 그룹을 만들고, Azure IoT Hub를 만들고, Azure CLI를 사용하여 IoT Hub ID 레지스트리에 Pi를 등록합니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +15,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 1f22ab6a97427f3be521c69e308386ad0b1b286b
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: add684549056a824e5534d071a5d0215e27f7a0e
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -99,10 +102,5 @@ IoT Hub를 만들고 IoT Hub에 장치 ID로 Pi를 등록했습니다. Pi에서 
 
 ## <a name="next-steps"></a>다음 단계
 [IoT Hub 메시지를 처리하고 저장하기 위해 Azure 함수 앱 및 Azure Storage 계정 만들기](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

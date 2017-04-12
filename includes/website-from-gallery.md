@@ -1,4 +1,4 @@
-Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨어에서 개발된 다양한 인기 웹 앱을 사용할 수 있습니다. Azure 마켓플레이스에서 만든 웹 앱은 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에 연결하는 데 사용되는 브라우저 외에 다른 소프트웨어를 설치하지 않아도 됩니다.
+Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨어에서 개발된 다양한 인기 웹 앱을 사용할 수 있습니다. Azure 마켓플레이스에서 만든 웹 앱은 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에 연결하는 데 사용되는 브라우저 외에 다른 소프트웨어를 설치하지 않아도 됩니다. 
 
 이 자습서에서는 다음에 대해 알아봅니다.
 
@@ -10,17 +10,17 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 ![Wordpress 블로그][13]
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
-## 포털에서 웹 앱 만들기
+## <a name="create-a-web-app-in-the-portal"></a>포털에서 웹 앱 만들기
 1. Azure Preview 포털에 로그인합니다.
 2. Azure 마켓플레이스를 열려면 **Marketplace** 아이콘을 클릭하거나
    
     ![Marketplace 아이콘][marketplace]
    
-    대시보드 오른쪽 위의 **새로 만들기**를 클릭하고 목록 아래에 있는 **Marketplace**를 선택합니다.
+    대시보드의 오른쪽 위에서 **새로 만들기**를 클릭하고 목록 아래에서 **마켓플레이스**를 선택합니다.
    
     ![새로 만들기][5]
 3. **웹 + 모바일**을 선택합니다. **WordPress**를 검색한 다음 **WordPress** 아이콘을 클릭합니다.
@@ -30,29 +30,29 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 5. **웹 앱**을 클릭하고 웹 앱을 구성하는 데 필요한 값을 입력합니다.
    
     ![앱 구성][8]
-6. **데이터베이스**를 클릭하고 MySQL 데이터베이스를 구성하는 데 필요한 값을 입력합니다.
+6. **데이터베이스**를 클릭하고 MySQL 데이터베이스를 구성하는 데 필요한 값을 입력합니다. 
    
     ![데이터베이스 구성][database]
 7. 새 리소스 그룹에 대한 이름을 입력합니다.
    
     ![리소스 그룹 설정][groupname]
-8. 필요한 경우 **구독**을 클릭하고 사용할 구독을 지정합니다.
+8. 필요한 경우 **구독**을 클릭하고 사용할 구독을 지정합니다. 
 9. 웹 앱 정의를 완료한 후 **만들기**를 클릭하고 새 웹 앱이 작성되는 동안 기다립니다.
    
    앱이 작성되면 웹 앱과 데이터베이스가 포함된 리소스 그룹이 표시됩니다.
    
    ![그룹 표시][resourcegroup]
 
-## WordPress 웹 앱 시작 및 관리
+## <a name="launch-and-manage-your-wordpress-web-app"></a>WordPress 웹 앱 시작 및 관리
 1. 새 웹 앱을 클릭하여 앱에 대한 세부 정보를 확인합니다.
    
     ![대시보드 시작][10]
-2. **Essentials** 페이지에서 **찾아보기**를 클릭하거나 **Url** 아래 링크를 클릭하여 웹 앱 시작 페이지를 엽니다.
+2. **Essentials** 페이지에서 **찾아보기**를 클릭하거나 **Url** 아래의 링크를 클릭하여 웹앱 시작 페이지를 엽니다.
    
     ![사이트 URL][browse]
-3. WordPress를 설치하지 않은 경우 WordPress에서 필요한 적절한 구성 정보를 입력하고 **WordPress 설치**를 클릭하여 구성을 완료하고 웹 앱의 로그인 페이지를 엽니다.
-4. **로그인**을 클릭하고 자격 증명을 입력합니다.
-5. 아래 웹 앱과 유사한 새 WordPress 웹 앱이 만들어집니다.
+3. WordPress를 설치하지 않은 경우 WordPress에서 필요한 적절한 구성 정보를 입력하고 **WordPress 설치** 를 클릭하여 구성을 완료하고 웹 앱의 로그인 페이지를 엽니다.
+4. **로그인** 을 클릭하고 자격 증명을 입력합니다.  
+5. 아래 웹 앱과 유사한 새 WordPress 웹 앱이 만들어집니다.    
    
     ![사용자 WordPress 사이트][13]
 
@@ -70,4 +70,7 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

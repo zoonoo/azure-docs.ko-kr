@@ -1,5 +1,5 @@
 ---
-title: "데이터를 Azure IoT Hub에 보내기 위해 시뮬레이트된 장치 샘플 앱 실행 | Microsoft Docs"
+title: "시뮬레이션된 장치 및 Azure IoT 게이트웨이 - 단원 3: 샘플 앱 실행 | Microsoft Docs"
 description: "시뮬레이트된 장치 샘플 앱을 실행하여 온도 데이터를 IoT Hub에 보내기"
 services: iot-hub
 documentationcenter: 
@@ -7,17 +7,20 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "데이터를 클라우드로"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 5d051d99-9749-4150-b3c8-573b0bda9c52
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: 94bffa363f7979b7dc37363328a358f0b139307d
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 873f3cef8cb1d115f77f0d3fa2c4b50391f66d91
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -137,8 +140,3 @@ az iot device show-connection-string --hub-name {IoT hub name} --device-id mydev
 
 ## <a name="next-steps"></a>다음 단계
 [IoT Hub에서 메시지 읽기](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
-
-
-<!--HONumber=Dec16_HO3-->
-
-

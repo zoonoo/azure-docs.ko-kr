@@ -1,23 +1,26 @@
 ---
-title: "Mac 컴퓨터 및 Azure IoT Hub 준비 | Microsoft Docs"
-description: "Mac 컴퓨터에 도구를 설치하고, IoT Hub를 만들고 IoT Hub에 장치를 등록합니다."
+title: "시뮬레이션된 장치 및 Azure IoT 게이트웨이 - 단원 2: 도구 다운로드(macOS) | Microsoft Docs"
+description: "Mac 컴퓨터에 도구를 설치하고, IoT Hub를 만들고, IoT Hub에 장치를 등록합니다."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
 keywords: "IoT 개발, IoT 소프트웨어, IoT 클라우드 서비스, 사물 인터넷 소프트웨어, Azure CLI, Python Mac 설치, Mac에 Git 설치, gulp 실행, Node Js Mac 설치"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 42f9d186-e20c-4ef9-98cc-71d39e058b06
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: f3bed8620c13372c3af50657bb54aa8dce115529
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 8b79b166fb16d6454fde46996e715779bf19eac7
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -131,9 +134,4 @@ Mac 컴퓨터에 필요한 도구 및 소프트웨어를 모두 설치했습니�
 
 ## <a name="next-steps"></a>다음 단계
 [IoT Hub 만들기 및 장치 등록](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

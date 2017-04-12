@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 Hadoop Sqoop 사용 | Microsoft Docs"
+title: "PowerShell 및 Azure HDInsight를 사용하여 Sqoop 작업 실행 | Microsoft Docs"
 description: "워크스테이션에서 Azure PowerShell을 사용하여 Hadoop 클러스터와 Azure SQL 데이터베이스 간에 Sqoop 가져오기 및 내보내기를 실행하는 방법에 대해 알아봅니다."
 editor: cgronlun
 manager: jhubbard
@@ -9,15 +9,17 @@ tags: azure-portal
 author: mumian
 ms.assetid: bbb6f53a-e019-4d01-92bd-92c208c760b6
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 08f91860ef5cc44d15621e2c465e0510e2f1c5bd
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 12bcff92f7d2f877fa90b35fddf88266488c5f78
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -176,9 +178,4 @@ HDInsight에서 Azure PowerShell을 사용하여 HDInsight 클러스터와 Azure
 * [HDInsight에 데이터 업로드](hdinsight-upload-data.md): HDInsight/Azure Blob 저장소에 데이터를 업로드하는 다른 방법을 찾습니다.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

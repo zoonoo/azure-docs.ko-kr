@@ -1,3 +1,4 @@
+
 ---
 title: "Mobile Engagement 내보내기 API 개요"
 description: "사용자 고유의 도구에서 활용하기 위해 사용자의 장치에서 생성된 원시 데이터 내보내기에 대한 기본 사항을 알아봅니다."
@@ -15,8 +16,8 @@ ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c17a1cb33616ad297d0fad9b8ea674de75bd8fb
+ms.sourcegitcommit: b1e2ddb613e713972820621d0fa836c41eb61f91
+ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
 
 
 ---
@@ -63,6 +64,9 @@ Mobile Engagement에서 데이터를 내보내려면 일반적으로 다음을 �
 * 내보내기 형식(스냅숏 또는 기록),
 * 데이터 형식,
 * 내보내기의 결과가 작성될 **Azure 저장소 컨테이너** (쓰기 액세스가 있는 유효한 SAS 포함).
+* 예를 들어 예제 컨테이너 URL 매개 변수는 https://[StorageAccountName].blob.core.windows.net/[ContainerName]?[SASWritePermissionsToken]이 됩니다.  
+
+다음은 실제 사례입니다. https://testazmeexport.blob.core.windows.net/test1234azme?sv=2015-12-11&ss=b&srt=sco&sp=rwdlac&se=2016-12-17T04:59:26Z&st=2016-12-16T20:59:26Z&spr=https&sig=KRF3aVWjp2NEJDzjlmoplmu0M9HHlLdkBWRPAFmw90Q%3D
 
 작업이 시작되려면 몇 분 정도가 걸릴 수 있으며 작은 앱에 대해 몇 초에서 많은 사용자 또는 작업의 앱에 대해 몇 시간 동안 실행될 수 있습니다.
 
@@ -73,6 +77,6 @@ Mobile Engagement에서 데이터를 내보내려면 일반적으로 다음을 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

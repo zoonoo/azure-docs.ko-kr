@@ -9,15 +9,17 @@ tags: azure-portal
 editor: cgronlun
 ms.assetid: a7665a14-0211-4521-b3e7-3b26e8029cc0
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c2edb529cde2e9658817ee370e3dc4e0266cb72e
+ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
+ms.openlocfilehash: 1f0b951e7b3ffc328604ce799590d478da36915d
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -37,7 +39,7 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
-* **HDInsight 클러스터**. HDInsight 클러스터를 만들려면 [Azure HDInsight 시작][hdinsight-get-started]을 참조하세요.
+* **HDInsight 클러스터**. 만들려면 [Azure HDInsight 시작][hdinsight-get-started]을 참조하세요.
 * **워크스테이션** 
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버 설치
@@ -97,7 +99,7 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 6. **확인** 을 클릭하여 테스트 대화 상자를 닫습니다.
 7. **확인**을 클릭합니다. **데이터베이스 및 테이블 선택** 대화 상자가 열릴 때까지 기다립니다. 몇 초 정도 걸릴 수 있습니다.
 8. 가져올 테이블을 선택한 후 **다음**을 클릭합니다. *hivesampletable* 은 HDInsight 클러스터와 함께 제공되는 샘플 hive 테이블입니다.  만들지 않은 경우 선택할 수 있습니다. Hive 쿼리 실행 및 Hive 테이블 만들기에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight-use-hive]을 참조하세요.
-9. **마침**을 클릭합니다.
+9. **Finish**를 클릭합니다.
 10. **데이터 가져오기** 대화 상자에서 쿼리를 변경하거나 지정할 수 있습니다. 이렇게 하려면 **속성**을 클릭합니다. 몇 초 정도 걸릴 수 있습니다.
 11. **정의** 탭을 클릭한 후 **명령 텍스트** 텍스트 상자에서 Hive SELECT 문에 **LIMIT 200**을 추가합니다. 이렇게 수정하면 반환되는 레코드 제한을 200으로 설정합니다.
     
@@ -126,9 +128,4 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 [img-HiveOdbc-DataSource-AdvancedOptions]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

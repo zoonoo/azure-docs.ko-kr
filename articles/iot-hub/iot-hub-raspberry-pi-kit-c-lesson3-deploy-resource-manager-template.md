@@ -1,5 +1,5 @@
 ---
-title: "Azure 함수 앱 및 저장소 계정 만들기 | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(C) 연결 - 단원 3: 템플릿 배포 | Microsoft Docs"
 description: "Azure 함수 앱은 Azure IoT Hub 이벤트를 수신 대기하고, 들어오는 메시지를 처리하고, 이를 Azure Table Storage에 씁니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: cd3ad8ed3134bfc8023155f08704b634f1f3a93c
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 402a5dac4e77f64576acb968b67df92167f54f27
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -66,17 +67,12 @@ Visual Studio Code에서 `arm-template-param.json` 파일을 업데이트합니�
 az group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-sample
 ```
 
-이러한 리소스를 만드는 데 약 5분이 걸립니다. 리소스 만들기가 진행되는 동안, 다음 문서로 이동할 수 있습니다.
+이러한 리소스를 만드는 데 약&5;분이 걸립니다. 리소스 만들기가 진행되는 동안, 다음 문서로 이동할 수 있습니다.
 
 ## <a name="summary"></a>요약
 IoT Hub 메시지를 처리하는 Azure 함수 앱과 이러한 메시지를 저장하는 Azure Storage 계정을 만들었습니다. 이제 샘플을 배포 및 실행하고 장치-클라우드 메시지를 Pi에 보낼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [샘플 응용 프로그램을 실행하여 장치-클라우드 메시지 보내기](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

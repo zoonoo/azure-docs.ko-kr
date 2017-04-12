@@ -1,6 +1,7 @@
 # 개요
 ## [Service Bus 메시징이란?](service-bus-messaging-overview.md)
 ## [서비스 버스 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
+## [서비스 버스 아키텍처](service-bus-architecture.md)
 ## [FAQ](service-bus-faq.md)
 
 # 시작
@@ -12,7 +13,7 @@
 ### [PHP](service-bus-php-how-to-use-queues.md)
 ### [Python](service-bus-python-how-to-use-queues.md)
 ### [Ruby](service-bus-ruby-how-to-use-queues.md)
-### [REST](service-bus-brokered-tutorial-rest.md)
+### [REST](/rest/api/servicebus/queues)
 ## 토픽 및 구독 사용
 ### [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 ### [Java](service-bus-java-how-to-use-topics-subscriptions.md)
@@ -39,6 +40,7 @@
 ### [분할 큐 및 항목](service-bus-partitioning.md)
 ### [배달하지 못한 편지 큐](service-bus-dead-letter-queues.md)
 ### [트랜잭션 처리](service-bus-transactions.md)
+### [진단 로그](service-bus-diagnostic-logs.md)
 ### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
@@ -48,13 +50,13 @@
 ## 관리
 ### [Service Bus 관리 라이브러리](service-bus-management-libraries.md)
 ### [Azure Resource Manager 템플릿 사용](service-bus-resource-manager-overview.md)
-### [PowerShell을 사용하여 엔터티 프로비전](service-bus-powershell-how-to-provision.md)
+### [PowerShell을 사용하여 엔터티 프로비전](service-bus-manage-with-ps.md)
 
 # 참조
 ## .NET
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
-## [PowerShell](service-bus-powershell-how-to-provision.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus)
 ## [REST (영문)](/rest/api/servicebus)
 ## [예외](service-bus-messaging-exceptions.md)
 ## [할당량](service-bus-quotas.md)
@@ -71,10 +73,5 @@
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-bus)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

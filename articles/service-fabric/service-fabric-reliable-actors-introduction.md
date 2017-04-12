@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: edb48bda7fd5d68544794ba72d17a4d70c2513af
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 9b6668bf4b3f826a1d41527ce4a7ae8d05936731
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -31,7 +32,7 @@ Reliable Actors는 [가상 행위자](http://research.microsoft.com/en-us/projec
 
 행위자 디자인 패턴이 많은 분산된 시스템 문제 및 시나리오에 잘 맞겠지만 구현하는 패턴 및 프레임워크의 제약 조건을 신중하게 고려해야 합니다. 일반적인 지침으로 문제 또는 시나리오를 모델링하기 위해 행위자 패턴을 고려합니다.
 
-* 문제 영역은 1,000개 이상이라는 많은 수의 작고 독립적인 격리된 상태 및 논리 단위를 포함합니다.
+* 문제 영역은&1;,000개 이상이라는 많은 수의 작고 독립적인 격리된 상태 및 논리 단위를 포함합니다.
 * 일련의 행위자에 걸친 상태를 쿼리하는 등 외부 구성 요소에서 중요한 상호 작용을 필요로 하지 않는 단일 스레드 개체로 작업하려고 합니다.
 * 행위자 인스턴스는 I/O 작업을 실행하여 예측할 수 없는 지연으로 호출자를 차단하지 않습니다.
 
@@ -54,7 +55,7 @@ Reliable Actors는 [가상 행위자](http://research.microsoft.com/en-us/projec
 
 행위자는 행위자 서비스의 파티션에 분산되고 이러한 파티션은 서비스 패브릭 클러스터의 노드에 분산됩니다. 각 서비스 파티션은 일련의 행위자를 포함합니다. 서비스 패브릭은 서비스 파티션의 배포 및 장애 조치를 관리합니다.
 
-예를 들어 기본 행위자 파티션 배치를 사용하여 세 개의 노드에 배포된 9개의 파티션이 포함된 행위자 서비스는 다음과 같이 분산됩니다.
+예를 들어 기본 행위자 파티션 배치를 사용하여 세 개의 노드에 배포된&9;개의 파티션이 포함된 행위자 서비스는 다음과 같이 분산됩니다.
 
 ![Reliable Actors 분배][2]
 
@@ -86,9 +87,21 @@ IMyActor myActor = ActorProxy.Create<IMyActor>(actorId, new Uri("fabric:/MyApp/M
 await myActor.DoWorkAsync();
 ```
 
+```java
+// Create actor ID with some name
+ActorId actorId = new ActorId("Actor1");
+
+// This only creates a proxy object, it does not activate an actor or invoke any methods yet.
+MyActor myActor = ActorProxyBase.create(actorId, new URI("fabric:/MyApp/MyActorService"), MyActor.class);
+
+// This will invoke a method on the actor. If an actor with the given ID does not exist, it will be activated by this method call.
+myActor.DoWorkAsync().get();
+```
+
+
 행위자 프록시 개체를 만드는 데 사용된 두 가지 정보는 행위자 ID 및 응용 프로그램 이름입니다. 응용 프로그램 이름은 행위자가 배포된 [서비스 패브릭 응용 프로그램](service-fabric-reliable-actors-platform.md#application-model) 을 식별하는 반면 해당 행위자 ID는 행위자를 고유하게 식별합니다.
 
-클라이언트 쪽 `ActorProxy` 클래스는 ID를 기준으로 행위자를 찾는 데 필요한 해결 방법을 수행하고 통신 채널을 엽니다. 또한 `ActorProxy` 에서는 통신 오류 및 장애 조치(failover) 시에 행위자를 찾도록 다시 시도합니다. 결과적으로 메시지 전달에는 다음과 같은 특징이 있습니다.
+클라이언트 쪽 `ActorProxy`(C#)/`ActorProxyBase`(Java) 클래스는 ID를 기준으로 행위자를 찾는 데 필요한 해결 방법을 수행하고 통신 채널을 엽니다. 또한 통신 오류 및 장애 조치(failover) 시에 행위자를 찾도록 다시 시도합니다. 결과적으로 메시지 전달에는 다음과 같은 특징이 있습니다.
 
 * 메시지 전달은 최선을 다합니다.
 * 행위자는 동일한 클라이언트에서 중복 메시지를 받을 수 있습니다.
@@ -122,7 +135,7 @@ Reliable Actors 런타임은 행위자 메서드에 액세스하기 위한 간�
 * *Method1*이 클라이언트 요청 *xyz789*에 대한 응답으로 *ActorId2*를 대신하여 실행되는 동안 *ActorId2*에서 *Method1*을 실행해야 하는 다른 클라이언트 요청(*abc123*)이 도착합니다. 그러나 *Method1* 의 두 번째 실행은 이전 실행이 완료될 때까지 시작하지 않습니다. 비슷하게, *ActorId2*에서 등록한 미리 알림은 클라이언트 요청 *xyz789*에 대한 응답으로 *Method1*이 실행되는 동안 실행됩니다. 미리 알림 콜백은 두 *Method1* 의 실행이 완료된 후에만 실행됩니다. 모두가 *ActorId2*에 적용되는 턴 기반 동시성으로 인한 것입니다.
 * 마찬가지로, 턴 기반 동시성은 순차적으로 발생하는 *ActorId1* 대신 *Method1*, *Method2* 및 타이머 콜백을 실행하여 증명된 것처럼 *ActorId1*에 대해서도 적용됩니다.
 * *ActorId1*을 대신한 *Method1*의 실행은 *ActorId2*를 대신한 실행과 겹칩니다. 이는 턴 기반 동시성이 전체 행위자들이 아닌 하나의 행위자 내에만 적용되기 때문입니다.
-* 일부 메서드/콜백 실행에서 메서드/콜백에 의해 반환된 `Task` 의 경우, 해당 메서드가 반환된 후에 완료됩니다. 다른 경우에 `Task` 는 메서드/콜백이 반환되는 시점에 이미 완료되었습니다. 두 경우 모두 메서드/콜백이 반환되고 `Task` 이 완료된 후에 행위자별 잠금이 해제됩니다.
+* 일부 메서드/콜백 실행에서 메서드/콜백에 의해 반환된 `Task`(C#)/`CompletableFuture`(Java)의 경우, 해당 메서드가 반환된 후에 완료됩니다. 다른 경우에 비동기 작업은 메서드/콜백이 반환되는 시점에 이미 완료되었습니다. 두 경우 모두 메서드/콜백이 반환되고 비동기 작업이 이 완료된 후에 행위자별 잠금이 해제됩니다.
 
 #### <a name="reentrancy"></a>다시 표시
 기본적으로 행위자 런타임은 다시 표시를 허용합니다. 따라서 *행위자 A*의 행위자 메서드가 *행위자 A*의 다른 메서드를 차례로 호출하는 *행위자 B*의 메서드를 호출하는 경우 해당 메서드를 실행할 수 있습니다. 즉, 동일한 논리 호출 체인 컨텍스트의 일부이기 때문입니다. 모든 타이머 및 미리 알림 호출은 새로운 논리 호출 컨텍스트에서 시작됩니다. 자세한 내용은 [Reliable Actors 다시 표시](service-fabric-reliable-actors-reentrancy.md) 를 참조하세요.
@@ -145,9 +158,4 @@ Reliable Actors 런타임은 행위자 메서드에 액세스하기 위한 간�
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

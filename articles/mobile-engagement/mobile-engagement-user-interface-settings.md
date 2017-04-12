@@ -4,7 +4,7 @@ description: "Azure Mobile Engagement를 사용하여 응용 프로그램의 전
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 858f4cb4-14de-4bb5-826f-28cadbfc928b
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3c20ee0d5abb40d7650eeaa722e87142275448d
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -40,7 +41,7 @@ ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
 
 또한 프로젝트를 검색하고 응용 프로그램이 속한 프로젝트의 이름, 설명, 소유자, 역할 권한을 확인할 수 있습니다.
 
-자세한 내용은 [UI 설명서 - 홈][링크 13]을 참조하세요.
+자세한 내용은 [UI 설명서 - 홈][Link 13]을 참조하세요.
 
   ![settings3][48]
 
@@ -52,7 +53,7 @@ ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
 ### <a name="apple-push-notification-service-apns"></a>APNS(Apple 푸시 알림 서비스)
 Apple 푸시 알림 서비스를 사용하여 네이티브 푸시를 사용하도록 설정하려면 인증서를 등록해야 합니다. 인증서 유형은 개발(DEV) 또는 프로덕션(PROD)으로 지정해야 합니다. 그런 후에 인증서와 암호를 업로드해야 합니다.
 
-자세한 내용은 [SDK 설명서 - iOS - Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법][링크 5]을 참조하세요.
+자세한 내용은 [SDK 설명서 - iOS - Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법][Link 5]을 참조하세요.
 
 ![settings4][49]
 
@@ -66,7 +67,7 @@ GCM을 사용하여 네이티브 푸시를 사용하도록 설정하려면 Googl
 
 자세한 내용은 다음을 참조하세요. 
 
-* [SDK 설명서 Android GCM을 통합하는 방법][링크 5]
+* [SDK 설명서 Android GCM을 통합하는 방법][Link 5]
 * [Google 개발자 GCM 가이드](http://developer.android.com/guide/google/gcm/gs.html)
 
 ### <a name="amazon-device-messaging-for-android-adm"></a>Amazon Device Messaging for Android(ADM)
@@ -74,7 +75,7 @@ ADM을 사용하여 네이티브 푸시를 사용하도록 설정하려면 클�
 
 자세한 내용은 다음을 참조하세요. 
 
-* [SDK 설명서 Android ADM을 통합하는 방법][링크 5]
+* [SDK 설명서 Android ADM을 통합하는 방법][Link 5]
 * [Amazon 개발자 ADM 설명서](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
 
 ![settings6][51]
@@ -91,8 +92,8 @@ ADM을 사용하여 네이티브 푸시를 사용하도록 설정하려면 클�
 ![settings12][57]
 
 ## <a name="see-also"></a>참고 항목
-* [개념][링크 6]
-* [문제 해결 가이드 서비스][링크 24]
+* [개념][Link 6]
+* [문제 해결 가이드 서비스][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -155,43 +156,38 @@ ADM을 사용하여 네이티브 푸시를 사용하도록 설정하려면 클�
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[링크 1]: mobile-engagement-user-interface.md
-[링크 2]: mobile-engagement-troubleshooting-guide.md
-[링크 3]: mobile-engagement-how-tos.md
-[링크 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[링크 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[링크 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[링크 7]: https://account.windowsazure.com/PreviewFeatures
-[링크 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[링크 9]: http://azure.microsoft.com/services/mobile-engagement/
-[링크 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[링크 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[링크 12]: mobile-engagement-user-interface-navigation.md
-[링크 13]: mobile-engagement-user-interface-home.md
-[링크 14]: mobile-engagement-user-interface-my-account.md
-[링크 15]: mobile-engagement-user-interface-analytics.md
-[링크 16]: mobile-engagement-user-interface-monitor.md
-[링크 17]: mobile-engagement-user-interface-reach.md
-[링크 18]: mobile-engagement-user-interface-segments.md
-[링크 19]: mobile-engagement-user-interface-dashboard.md
-[링크 20]: mobile-engagement-user-interface-settings.md
-[링크 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[링크 22]: mobile-engagement-troubleshooting-guide-apis.md
-[링크 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[링크 24]: mobile-engagement-troubleshooting-guide-service.md
-[링크 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[링크 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[링크 27]: ../mobile-engagement-how-tos-first-push.md
-[링크 28]: ../mobile-engagement-how-tos-test-campaign.md
-[링크 29]: ../mobile-engagement-how-tos-personalize-push.md
-[링크 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[링크 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[링크 32]: ../mobile-engagement-how-tos-text-view.md
-[링크 33]: ../mobile-engagement-how-tos-web-view.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: ../mobile-engagement-how-tos-first-push.md
+[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: ../mobile-engagement-how-tos-text-view.md
+[Link 33]: ../mobile-engagement-how-tos-web-view.md
 
 

@@ -4,7 +4,7 @@ description: "환경이 Azure의 가상 컴퓨터를 백업할 준비가 되었�
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonn
 editor: 
 keywords: "백업; 백업;"
 ms.assetid: 238ab93b-8acc-4262-81b7-ce930f76a662
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: trinadhk; jimpark; markgal;
+ms.date: 3/10/2017
+ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: b5b18d063a5926ad4acb7d0aa3935978d0fedb8c
-ms.openlocfilehash: dc7e2d041ee4e0aeb222578c2fec9525e24bb0d1
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2eb88bd81a46dbff9842887976c59d150ae4dad6
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -36,6 +37,11 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 
 사용자 환경이 이러한 조건을 이미 갖춘 경우 [VM 문서 백업](backup-azure-vms.md)을 진행합니다. 그렇지 않으면 이 문서에 따라 Azure VM을 백업하도록 환경을 준비하는 단계를 수행합니다.
 
+##<a name="supported-operating-system-for-backup"></a>지원되는 백업용 운영 체제
+ * **Linux**: Azure 백업은 Core OS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 지원합니다. _가상 컴퓨터에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 지속하는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다. 그러나 이러한 배포판을 백업에 대해서는 보증하지 않습니다._
+ * **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
+
+
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>VM 백업 및 복원 시의 제한 사항
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 다음 목록에서는 클래식 모델에서 배포할 때의 제한 사항을 제공합니다.
@@ -49,8 +55,6 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 * 지역 간 백업 및 복원은 지원되지 않습니다.
 * Azure 백업 서비스를 사용한 가상 컴퓨터 백업은 Azure의 모든 공용 지역에서 지원됩니다(지원되는 지역은 [검사 목록](https://azure.microsoft.com/regions/#services) 참조). 찾는 지역이 현재 지원되지 않는 경우, 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
 * Azure 백업 서비스를 사용하는 가상 컴퓨터 백업은 선택한 운영 체제 버전에 대해서만 지원됩니다.
-  * **Linux**: Azure 백업은 Core OS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 지원합니다. 가상 컴퓨터에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 지속하는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
-  * **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
 * 다중 DC 구성의 일부인 도메인 컨트롤러(DC) VM 복원은 PowerShell을 통해서만 지원됩니다. [다중 DC 도메인 컨트롤러 복원](backup-azure-restore-vms.md#restoring-domain-controller-vms)에 대해 자세히 알아보세요.
 * 다음과 같은 특수 네트워크 구성을 포함하는 가상 컴퓨터 복원은 PowerShell 통해서만 지원됩니다. UI에서 복원 워크플로를 사용하여 만든 VM은 복원 작업이 완료된 후 이러한 네트워크 구성을 갖지 않습니다. 자세한 내용은 [특수 네트워크 구성을 가진 VM 복원](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations)을 참조하세요.
   * 부하 분산 장치 구성에서의 가상 컴퓨터(내부 및 외부)
@@ -60,33 +64,13 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 ## <a name="create-a-backup-vault-for-a-vm"></a>VM에 대한 백업 자격 증명 모음 만들기
 백업 자격 증명 모음은 모든 백업과 시간에 따라 생성된 복구 지점을 저장하는 엔터티입니다. 백업 자격 증명 모음에는 백업 중인 가상 컴퓨터에 적용할 백업 정책도 포함됩니다.
 
+> [!IMPORTANT]
+> 2017년 3월부터는 백업 자격 증명 모음을 만드는 데 더 이상 클래식 포털을 사용할 수 없습니다. 기존 백업 자격 증명 모음은 계속 지원되고 [Azure PowerShell을 사용하여 백업 자격 증명 모음을 만들](./backup-client-automation-classic.md#create-a-backup-vault) 수 있습니다. 하지만 향후 향상되는 기능이 Recovery Services 자격 증명 모음에만 적용되므로 Microsoft에서는 모든 배포에 Recovery Services 자격 증명 모음을 만들도록 권장합니다.
+
+
 이 그림은 여러 Azure Backup 엔터티 간의 관계를 보여 줍니다.     ![Azure Backup 엔터티 및 관계](./media/backup-azure-vms-prepare/vault-policy-vm.png)
 
-백업 자격 증명 모음을 만들려면:
 
-1. [Azure 포털](http://manage.windowsazure.com/)에 로그인합니다.
-2. Azure Portal에서 **새로 만들기** > **하이브리드 통합** > **백업**을 클릭합니다. **백업**을 클릭할 때 클래식 포털로 자동으로 전환됩니다(참고 뒤에 표시).
-
-    ![Ibiza 포털](./media/backup-azure-vms-prepare/Ibiza-portal-backup01.png)
-
-   > [!NOTE]
-   > 사용자의 구독이 클래식 포털에서 마지막으로 사용된 경우 구독이 클래식 포털에서 열립니다. 이때 백업 자격 증명 모음을 만들려면 **새로 만들기** > **데이터 서비스** > **복구 서비스** > **백업 자격 증명 모음** > **빨리 만들기**(아래 이미지 참조)를 클릭합니다.
-   >
-   >
-
-    ![백업 자격 증명 모음 만들기](./media/backup-azure-vms-prepare/backup_vaultcreate.png)
-3. **이름**에는 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 대해 고유해야 합니다. 이름을 2~50자 사이로 입력합니다. 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
-4. **지역**에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 자격 증명 모음은 보호하려는 가상 컴퓨터와 동일한 지역에 있어야 합니다. 가상 컴퓨터가 여러 지역에 있으면 각 지역에 백업 자격 증명 모음을 만들어야 합니다. 백업 데이터를 저장하기 위해 저장소 계정을 지정할 필요는 없습니다. 백업 자격 증명 모음 및 Azure 백업 서비스가 자동으로 처리합니다.
-5. **구독** 에서 백업 자격 증명 모음과 연결할 구독을 선택합니다. 조직 계정이 여러 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
-6. **자격 증명 모음 만들기**를 클릭합니다. 백업 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다. 포털의 맨 아래에서 상태 알림을 모니터링합니다.
-
-    ![자격 증명 모음 알림 메시지 만들기](./media/backup-azure-vms-prepare/creating-vault.png)
-7. 자격 증명 모음이 성공적으로 만들어졌다는 메시지가 표시되고 **Recovery Services** 페이지에서 **활성**으로 표시됩니다. 자격 증명 모음이 생성된 후 즉시 적절한 저장소 중복 옵션을 선택해야 합니다. [백업 자격 증명 모음에서 저장소 중복 옵션 설정](backup-configure-vault.md#step-1-create-a-recovery-services-vault)에 대해 자세히 알아보세요.
-
-    ![백업 자격 증명 모음 목록](./media/backup-azure-vms-prepare/backup_vaultslist.png)
-8. 백업 자격 증명 모음을 클릭하면 **빠른 시작** 페이지로 이동하며, Azure 가상 컴퓨터의 백업 지침이 표시됩니다.
-
-    ![대시보드 페이지의 가상 컴퓨터 백업 지침](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 
 ## <a name="network-connectivity"></a>네트워크 연결
 VM 스냅숏을 관리하려면, 백업 확장에 Azure 공용 IP 주소에 대한 연결이 필요합니다. 올바른 인터넷 연결이 없으면, 가상 컴퓨터의 HTTP 요청 시간이 초과되고 백업 작업이 실패합니다. 배포에 액세스 제한이 있다면(예: 네트워크 보안 그룹(NSG)을 통해), 백업 트래픽에 대해 명확한 경로를 제공하기 위해 이 옵션 중 하나를 선택합니다.
@@ -126,7 +110,7 @@ VM을 백업할 때, VM의 백업 확장이 HTTPS API를 사용하여 Azure 저�
 ###### <a name="for-windows-machines"></a>Windows 컴퓨터의 경우
 로컬 시스템 계정에 대한 프록시 서버 구성을 설정합니다.
 
-1.  [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
+1. [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
 2. 관리자 권한 프롬프트에서 다음 명령을 실행합니다.
 
      ```
@@ -151,7 +135,7 @@ VM을 백업할 때, VM의 백업 확장이 HTTPS API를 사용하여 Azure 저�
 ```
 
 > [!NOTE]
-> 프록시 서버 로그에 "(407)프록시 인증 필요"가 있으면, 인증이 제대로 설정되었는지 확인합니다.
+> 프록시 서버 로그에 "(407)프록시 인증 필요"가 발견되면, 인증이 제대로 설정되었는지 확인합니다.
 >
 >
 
@@ -209,7 +193,7 @@ Azure 갤러리에서 만든 VM에는 VM 에이전트가 이미 있습니다. �
 | **작업** | **Windows** | **Linux** |
 | --- | --- | --- |
 | VM 에이전트 설치 |<li>[에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다. <li>[VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다. |<li> GitHub에서 최신 [Linux 에이전트](https://github.com/Azure/WALinuxAgent) 를 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다. <li> [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다. |
-| VM 에이전트 업데이트 |VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |[Linux VM 에이전트 업데이트](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요. <br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
+| VM 에이전트 업데이트 |VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |[Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요. <br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
 | VM 에이전트 설치 유효성 검사 |<li>Azure VM에서 *C:\WindowsAzure\Packages* 폴더로 이동합니다. <li>WaAppAgent.exe 파일을 찾습니다.<li> 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. 제품 버전 필드가 2.6.1198.718 이상이어야 합니다. |해당 없음 |
 
 [VM 에이전트](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) 및 [설치 방법](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)에 대해 알아보세요.
@@ -228,9 +212,4 @@ VM을 백업하기 위한 환경을 준비했으므로 이제 백업을 만들�
 * [가상 컴퓨터 설정](backup-azure-vms.md)
 * [VM 백업 인프라 계획](backup-azure-vms-introduction.md)
 * [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

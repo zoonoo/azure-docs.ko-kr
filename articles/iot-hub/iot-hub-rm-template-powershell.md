@@ -1,8 +1,8 @@
 ---
-title: "Azure Resource Manager 템플릿 및 PowerShell을 사용하여 IoT Hub 만들기 | Microsoft Docs"
-description: "이 자습서에 따라 Azure Resource Manager 템플릿을 사용하여 PowerShell로 IoT Hub를 만드는 작업을 시작할 수 있습니다."
+title: "템플릿을 사용하여 Azure IoT Hub 만들기(PowerShell) | Microsoft Docs"
+description: "Azure Resource Manager 템플릿을 사용하여 PowerShell로 IoT Hub를 만드는 방법입니다."
 services: iot-hub
-documentationcenter: .net
+documentationcenter: 
 author: dominicbetts
 manager: timlt
 editor: 
@@ -12,15 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2016
+ms.date: 02/24/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: cbd9c2a5d3e3f03fd9136feb35a82be0cd1ee420
+ms.sourcegitcommit: dc9f9c39a8eb644229887f76b5c441d4211af059
+ms.openlocfilehash: 6f9c36239f8485313066a594eea74bfcd168536e
+ms.lasthandoff: 02/24/2017
 
 
 ---
-# <a name="create-an-iot-hub-using-powershell"></a>Powershell을 사용하여 IoT Hub 만들기
+# <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Azure Resource Manager 템플릿을 사용하여 IoT Hub 만들기(PowerShell)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>소개
@@ -33,8 +34,8 @@ Azure 리소스 관리자를 사용하여 Azure IoT Hub를 프로그래밍 방�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
-* [Microsoft Azure PowerShell 1.0][lnk-powershell-install] 이상.
+* 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 내에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
+* [Azure PowerShell 1.0][lnk-powershell-install] 이상.
 
 > [!TIP]
 > [Azure 리소스 관리자로 Azure PowerShell 사용][lnk-powershell-arm] 문서에 PowerShell 스크립트 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스를 만드는 방법에 대한 자세한 내용이 설명되어 있습니다. 
@@ -135,7 +136,7 @@ Azure Resource Manager 템플릿을 사용하여 PowerShell에서 IoT Hub를 배
 * [IoT Hub 리소스 공급자 REST API][lnk-rest-api]의 기능을 읽어보세요.
 * Azure Resource Manager의 기능에 대해 자세히 알아보려면 [Azure Resource Manager 개요][lnk-azure-rm-overview]를 참조하세요.
 
-IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [C SDK 소개][lnk-c-sdk]
 * [Azure IoT SDK][lnk-sdks]
@@ -148,7 +149,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-powershell-arm]: ../azure-resource-manager/powershell-azure-resource-manager.md
@@ -157,9 +158,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

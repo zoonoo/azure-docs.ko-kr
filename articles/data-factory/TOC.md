@@ -25,10 +25,11 @@
 
 # 방법
 ## 데이터 이동
-### [데이터 팩터리 복사 마법사](data-factory-copy-wizard.md)
+### [복사 작업 개요](data-factory-data-movement-activities.md)
+### [데이터 팩터리 복사 마법사](data-factory-azure-copy-wizard.md)
 #### [15분 내에 1TB 로드](data-factory-load-sql-data-warehouse.md)
-### [복사 작업](data-factory-data-movement-activities.md)
-#### [성능 및 튜닝 가이드](data-factory-copy-activity-performance.md)
+### [성능 및 튜닝 가이드](data-factory-copy-activity-performance.md)
+### 커넥터
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
 #### [Azure Blob Storage](data-factory-azure-blob-connector.md)
@@ -43,13 +44,17 @@
 #### [파일 시스템](data-factory-onprem-file-system-connector.md)
 #### [FTP](data-factory-ftp-connector.md)
 #### [HDFS](data-factory-hdfs-connector.md)
+#### [HTTP](data-factory-http-connector.md)
 #### [MongoDB](data-factory-on-premises-mongodb-connector.md)
 #### [MySQL](data-factory-onprem-mysql-connector.md)
-#### [OData 원본](data-factory-odata-connector.md)
-#### [ODBC 데이터 저장소](data-factory-odbc-connector.md)
+#### [OData](data-factory-odata-connector.md)
+#### [ODBC](data-factory-odbc-connector.md)
 #### [Oracle](data-factory-onprem-oracle-connector.md)
 #### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
 #### [Salesforce](data-factory-salesforce-connector.md)
+#### [SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md)
+#### [SAP HANA](data-factory-sap-hana-connector.md)
+#### [SFTP](data-factory-sftp-connector.md)
 #### [SQL Server](data-factory-sqlserver-connector.md)
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
@@ -62,11 +67,12 @@
 ### [HDInsight Pig 작업](data-factory-pig-activity.md)
 ### [HDInsight MapReduce 작업](data-factory-map-reduce.md)
 ### [HDInsight 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
+### [HDInsight Spark 작업](data-factory-spark.md)
 ### [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
+### [Machine Learning 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
 ### [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 ### [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 ### [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
-### [Spark 프로그램 호출](data-factory-spark.md)
 ### [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ## 개발
 ### [Azure Resource Manager 템플릿](data-factory-how-to-use-resource-manager-templates.md)
@@ -84,8 +90,8 @@
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Azure 데이터 팩터리 개발자 참조](data-factory-sdks.md)
 ## [REST (영문)](/rest/api/datafactory/)
+## [JSON](data-factory-json-scripting-reference.md)
 
 # 리소스
 ## [데이터 관리 게이트웨이에 대한 릴리스 정보](data-factory-gateway-release-notes.md)
@@ -94,14 +100,9 @@
 ### [제품 권장 사항](data-factory-product-reco-usecase.md)
 ### [고객 프로파일링](data-factory-customer-profiling-usecase.md)
 ### [데이터 팩터리 및 배치를 사용하여 대규모 데이터 집합 처리](data-factory-data-processing-using-batch.md)
-## [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=data-factory)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-factory)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/data-factory/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [기능 요청](https://feedback.azure.com/forums/270578-azure-data-factory)
-
-
-<!--HONumber=Dec16_HO2-->
-
-

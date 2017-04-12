@@ -16,8 +16,9 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7a528a47373d7e9ae2cdc7d62328ed8e83112863
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 084ac505003e926e9c4b75352ec96a77f8c3584a
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -29,7 +30,7 @@ Wunderlist는 사람들이 작업할 수 있도록 할 일 목록 및 작업 관
 > 
 > 
 
-이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="triggers-and-actions"></a>트리거 및 작업
 Wunderlist 커넥터를 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
@@ -758,11 +759,6 @@ Wunderlist로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다�
 | revision |정수 |아니요 |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 

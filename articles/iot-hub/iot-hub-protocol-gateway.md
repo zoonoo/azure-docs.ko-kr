@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 01/11/2017
 ms.author: kdotchko
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 17250760526e72c05ee178e235a57082e2dfff94
+ms.sourcegitcommit: 1a8dd3d024fbe1e85a43c5b4f98901ab59c5797f
+ms.openlocfilehash: e0a7c813da53bc6ab49a456f13227b62725c5fc4
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -26,7 +27,7 @@ Azure IoT Hub는 MQTT, AMQP, HTTP 프로토콜을 통한 통신을 기본적으�
 ## <a name="azure-iot-protocol-gateway"></a>Azure IoT 프로토콜 게이트웨이
 Azure IoT 프로토콜 게이트웨이는 프로토콜 적응을 위한 프레임워크로 IoT Hub와 확장성이 뛰어난 양방향 장치 통신을 위해 디자인되었습니다. 프로토콜 게이트웨이는 특정 프로토콜을 통한 장치 연결을 수락하는 통과 구성 요소입니다. AMQP 1.0을 통해 IoT Hub에 트래픽을 브리징합니다. Azure IoT 프로토콜 게이트웨이는 오픈 소스 소프트웨어 프로젝트로 사용 가능하여 유연하게 다양한 프로토콜 및 프로토콜 버전에 대한 지원을 추가할 수 있습니다.
 
-Azure 클라우드 서비스 작업자 역할을 사용하여 확장성이 뛰어난 방식으로 Azure에서 프로토콜 게이트웨이를 배포할 수 있습니다. 또한 프로토콜 게이트웨이는 필드 게이트웨이와 같은 온-프레미스 환경에서 배포될 수 있습니다.
+Azure Service Fabric, Azure Cloud Services 작업자 역할 또는 Windows Virtual Machines를 사용하여 확장성이 뛰어난 방식으로 Azure에서 프로토콜 게이트웨이를 배포할 수 있습니다. 또한 프로토콜 게이트웨이는 필드 게이트웨이와 같은 온-프레미스 환경에서 배포될 수 있습니다.
 
 Azure IoT 프로토콜 게이트웨이는 필요한 경우 MQTT 프로토콜 동작을 사용자 지정할 수 있는 MQTT 프로토콜 어댑터를 포함합니다. IoT Hub는 MQTT v3.1.1 프로토콜을 기본적으로 지원하기 때문에, 프로토콜 사용자 지정이나 추가 기능을 위한 특정 요구 사항이 있는 경우 MQTT 프로토콜 어댑터 사용을 고려해야 합니다.
 
@@ -44,19 +45,9 @@ IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 다음을 �
 
 * [Event Hubs와 비교][lnk-compare]
 * [크기 조정, HA 및 DR][lnk-scaling]
-
-IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
-
 * [IoT Hub 개발자 가이드][lnk-devguide]
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
 
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

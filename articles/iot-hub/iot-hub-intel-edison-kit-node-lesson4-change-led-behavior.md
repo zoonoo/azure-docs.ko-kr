@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 허브에서 메시지를 사용하여 LED 깜박임 동작 변경| Microsoft Docs"
+title: "Azure IoT에 Intel Edison(노드) 연결 - 단원 4: LED 점멸 | Microsoft Docs"
 description: "LED의 켜기 및 끄기 동작을 변경하도록 메시지를 사용자 지정합니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1e892cee7b977c03b2539a6495b868cd8ab83748
-ms.openlocfilehash: 69cfb48789ef72d6594bd3db68170f83c9d171b0
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: 9a2c6dfe5d85a4da9714f9b8942cb2baf1a98466
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -107,9 +108,4 @@ LED가&2;초간 켜졌다가 다음&2;초간 꺼지는 것을 볼 수 있습니�
 [receive-cloud-to-device-messages]: iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md
 [gulpfile]: media/iot-hub-intel-edison-lessons/lesson4/updated_gulpfile_node.png
 [on-and-off]: media/iot-hub-intel-edison-lessons/lesson4/gulp_on_and_off_node.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

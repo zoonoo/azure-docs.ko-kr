@@ -16,8 +16,9 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: f73bd0a6563f8411877b55182b01f2e3e42c883f
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 76077d39f17df63abe6c08f91991095c53f5dbb8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -25,7 +26,6 @@ ms.openlocfilehash: f73bd0a6563f8411877b55182b01f2e3e42c883f
 > [!div class="op_single_selector"]
 > * [포털](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](search-get-started-management-api.md)
 > 
 > 
 
@@ -42,7 +42,7 @@ ms.openlocfilehash: f73bd0a6563f8411877b55182b01f2e3e42c883f
 
 Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 해당 암호를 지정합니다.
 
-또는 [비대화형으로 서비스 주체를 사용하여 로그인](../resource-group-authenticate-service-principal.md)할 수 있습니다.
+또는 [비대화형으로 서비스 주체를 사용하여 로그인](../azure-resource-manager/resource-group-authenticate-service-principal.md)할 수 있습니다.
 
 여러 Azure 구독이 있는 경우 Azure 구독을 설정해야 합니다. 현재 구독 목록을 보려면 다음 명령을 실행합니다.
 
@@ -138,10 +138,5 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 
 * [기타 서비스에서 데이터를 로드하기 위한 인덱서 설정](search-indexer-overview.md)
 * [.NET에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md)
 * [Azure 검색 트래픽 분석](search-traffic-analytics.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 03/10/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 783952ef1a19d18c3dd5d25c9ccf25cf3b29af45
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -114,7 +115,7 @@ LDAPS의 경우 SSL 3.0 또는 TLS를 사용해야 합니다. SSL 2.0은 지원�
 
 True/False 필터는 LDAP 디렉터리에서 지원하는 만큼 자주 보고되지 않고 **필수 기능을 찾을 수 없습니다**의 **전역 페이지**에서 보여줍니다. 예를 들어 여러 개체 형식을 가져올 때 LDAP 쿼리에 **OR** 필터를 만드는 데 사용됩니다. 하나 이상의 개체 형식을 가져올 수 있으면 LDAP 서버가 이 기능을 지원합니다.
 
-고유 식별자가 앵커인 디렉터리를 사용하는 경우 다음에서도 사용할 수 있어야 합니다.(자세한 내용은 이 문서의 뒷부분에 나오는 [앵커 구성](#configure-anchors) 섹션을 참조하세요.)  
+고유 식별자가 앵커인 디렉터리를 사용하는 경우 다음에서도 사용할 수 있어야 합니다. 자세한 내용은 [앵커 구성](#configure-anchors) 섹션을 참조하세요.  
 `1.3.6.1.4.1.4203.1.5.1` 모든 작업 특성
 
 디렉터리가 디렉터리에 한 번 호출에 들어갈 수 있는 것보다 더 많은 개체를 가진 경우 페이징을 사용하는 것이 좋습니다. 페이징이 작동하려면 다음 옵션 중 하나가 필요합니다.
@@ -138,9 +139,9 @@ ShowDeletedControl은 삭제된 개체를 볼 수 있는 USNChanged 델타 가�
 델타 가져오기는 지원 디렉터리를 감지한 때 사용할 수 있습니다. 다음과 같은 메서드가 현재 사용됩니다.
 
 * LDAP Accesslog. [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)을 참조하세요.
-* LDAP Changelog.  [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
+* LDAP Changelog. [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
 * TimeStamp. Novell/NetIQ eDirectory의 경우 커넥터는 마지막 날짜/시간을 사용하여 개체를 생성 및 업데이트합니다. Novell/NetIQ eDirectory는 삭제된 개체를 검색하는 동등한 도구를 제공하지 않습니다. 다른 델타 가져오기 메서드가 LDAP 서버에서 활성화되지 않으면 이 옵션을 사용할 수도 있습니다. 이 옵션은 삭제된 개체를 가져올 수 없습니다.
-* USNChanged.  [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
+* USNChanged. [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
 ### <a name="not-supported"></a>지원되지 않음
 다음 LDAP 기능은 지원되지 않습니다.
@@ -162,7 +163,7 @@ ShowDeletedControl은 삭제된 개체를 볼 수 있는 USNChanged 델타 가�
 * 다른 바인딩의 경우 사용자 이름/암호 중 하나에 정보를 입력하거나 인증서를 선택합니다.
 * Kerberos를 사용하여 인증하는 경우 사용자의 영역/도메인을 제공합니다.
 
-**특성 별칭** 텍스트 상자는 RFC4522 구문을 사용하여 스키마에 정의된 특성에 사용됩니다. 이러한 특성은 스키마 감지 시 감지될 수 없고 커넥터는 해당 특성을 정의하는 데 도움이 필요합니다. 예를 들어 다음은 특성 별칭 상자에 입력하여 userCertificate 특성을 이진 특성으로 올바르게 식별하는 데 필요합니다.
+**특성 별칭** 텍스트 상자는 RFC4522 구문을 사용하여 스키마에 정의된 특성에 사용됩니다. 이러한 특성은 스키마 감지 시 감지될 수 없고 커넥터는 해당 특성을 정의하는 데 도움이 필요합니다. 예를 들어 userCertificate 특성을 이진 특성으로 올바르게 식별하려면 특성 별칭 상자에 다음을 입력해야 합니다.
 
 `userCertificate;binary`
 
@@ -172,7 +173,7 @@ ShowDeletedControl은 삭제된 개체를 볼 수 있는 USNChanged 델타 가�
 
 **스키마에서 작업 특성 포함** 확인란을 선택하여 서버에서 만든 특성을 포함합니다. 여기에는 개체를 만든 시점과 마지막 업데이트 시간 등의 특성을 포함합니다.
 
-확장 가능한 개체(RFC4512/4.3)를 사용하고 이 옵션을 사용하여 모든 개체에 사용될 수 있는 모든 특성을 허용하는 경우 **스키마에 확장 가능한 특성 포함** 을 선택합니다. 이 옵션을 선택하면 스키마가 매우 커지므로 연결된 디렉터리가 이 기능을 사용하지 않는 한 옵션을 선택하지 않는 것이 좋습니다.
+확장 가능한 개체(RFC4512/4.3)를 사용하고 이 옵션을 사용하여 모든 개체에 사용될 수 있는 모든 특성을 허용하는 경우 **스키마에 확장 가능한 특성 포함**을 선택합니다. 이 옵션을 선택하면 스키마가 매우 커지므로 연결된 디렉터리가 이 기능을 사용하지 않는 한 옵션을 선택하지 않는 것이 좋습니다.
 
 ### <a name="global-parameters"></a>글로벌 매개 변수
 글로벌 매개 변수 페이지에서 델타 변경 로그 및 추가 LDAP 기능에 DN을 구성합니다. 페이지는 LDAP 서버에서 제공하는 정보로 미리 채워집니다.
@@ -220,7 +221,7 @@ ShowDeletedControl은 삭제된 개체를 볼 수 있는 USNChanged 델타 가�
 프로비전 계층 구조를 구성하여 필요할 때 자동으로 구조를 만들기 위해 커넥터를 구성할 수 있습니다. 예를 들어 네임스페이스 dc=contoso,dc=com 및 새 개체 cn=Joe, ou=시애틀, c=미국, dc=contoso, dc=com을 프로비전한 경우 해당 사항이 디렉터리에 나타나지 않으면 커넥터는 미국이라는 유형 국가 및 시애틀이라는 organizationalUnit으로 개체를 만들 수 있습니다.
 
 ### <a name="configure-partitions-and-hierarchies"></a>파티션 및 계층 구조 구성
-파티션 및 계층 구조 페이지에서 가져오기 및 내보내기하려는 개체를 사용하여 모든 네임스페이스를 선택합니다.
+파티션 및 계층 구조 페이지에서 가져오기 및 내보내려는 개체를 사용하여 모든 네임스페이스를 선택합니다.
 
 ![파티션](./media/active-directory-aadconnectsync-connector-genericldap/partitions.png)
 
@@ -228,10 +229,18 @@ ShowDeletedControl은 삭제된 개체를 볼 수 있는 USNChanged 델타 가�
 
 커넥터를 가져오고 내보낼 컨테이너 및 OU를 선택하는 것도 가능합니다.
 
+이 작업은 검색을 수행할 때 파티션의 모든 컨테이너에서 수행됩니다. 이 동작은 컨테이너가 많은 경우 성능 저하로 이어집니다.
+
+>[!NOTE]
+2017년 3월 업데이트부터 일반 LDAP 커넥터 검색은 선택한 컨테이너 범위로만 제한할 수 있습니다. 이 작업은 아래 이미지에 나와 있는 것처럼 '선택한 컨테이너에서만 검색' 확인란을 선택하여 수행할 수 있습니다.
+
+![선택한 컨테이너에서만 검색](./media/active-directory-aadconnectsync-connector-genericldap/partitions-only-selected-containers.png)
+
 ### <a name="configure-anchors"></a>앵커 구성
 이 페이지는 미리 구성된 값이 있으며 변경될 수 없습니다. 서버 공급업체가 식별된 경우 앵커는 변경할 수 없는 특성(예: 개체에 대한 GUID)으로 채워질 수 있습니다. 감지되지 않거나 변경할 수 없는 특성이 없다고 알려져 있다면 커넥터는 dn(고유 이름)을 앵커로 사용합니다.
 
 ![anchors](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
+
 
 다음은 사용되는 LDAP 서버 목록 및 앵커입니다.
 
@@ -261,10 +270,4 @@ Novell eDirectory의 경우 델타 가져오기는 개체 삭제를 탐지하지
 
 ## <a name="troubleshooting"></a>문제 해결
 * 커넥터의 문제를 해결하기 위해 로깅을 사용하는 방법에 대한 자세한 내용은 [커넥터에 ETW 추적을 사용하는 방법](http://go.microsoft.com/fwlink/?LinkId=335731)참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

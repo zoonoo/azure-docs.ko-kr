@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 946f6e480083a0007a88c85b744ddeafa0385990
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -32,7 +33,7 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 
 미디어 서비스 솔루션을 빌드하려면 다음을 사용할 수 있습니다.
 
-* [미디어 서비스 REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+* [미디어 서비스 REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * 사용 가능한 클라이언트 SDK 중 하나:
     * [.NET용 Azure 미디어 서비스 SDK](https://github.com/Azure/azure-sdk-for-media-services),
     * [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java),
@@ -46,7 +47,7 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 
 전체 크기로 보려면 이미지를 클릭합니다.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
 전체 모델은 [여기](https://media.windows.net/API/$metadata?api-version=2.15)서 볼 수 있습니다 .  
 
@@ -79,8 +80,8 @@ Azure 미디어 서비스의 모든 주요 구성 요소를 소개하는 사용 
 ![VoD 워크플로](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 >[!NOTE]
->AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
-    
+>AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다.
+
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>저장소에서 콘텐츠 보호 및 암호화하지 않고 스트리밍 미디어 배달(암호화되지 않음)
 1. 자산에 고품질 mezzanine 파일을 업로드합니다.
 
@@ -184,7 +185,8 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 계정에서 프로비전할 **스트리밍 예약 단위** 및 **인코딩 예약 단위**의 수를 지정하여 **미디어 서비스**를 확장할 수 있습니다.
 
 또한 저장소 계정을 추가하여 미디어 서비스 계정을 확장할 수 있습니다. 각 저장소 계정은 500TB로 제한됩니다. 여러 저장소 계정을 단일 미디어 서비스 계정에 연결하여 기본 제한 이상으로 저장소를 확장할 수 있습니다.
-Media Services 고객은 필요에 따라 **표준** 스트리밍 끝점이나 하나 이상의 **프리미엄** 스트리밍 끝점을 선택합니다. 표준 스트리밍 끝점은 대부분의 스트리밍 워크로드에 적합합니다. 프리미엄 스트리밍 단위와 동일한 기능을 포함합니다. 표준 스트리밍 끝점은 대부분의 스트리밍 워크로드에 적합합니다. 고급 작업이 있거나 스트리밍 용량 요구 사항이 표준 스트리밍 끝점 처리량 목표에 맞지 않거나 배율 단위(프리미엄 스트리밍 단위라고도 함)를 조정하여 증가하는 대역폭 요구를 처리하도록 스트리밍 끝점 서비스의 용량을 제어하려는 경우 배율 단위를 할당하는 것이 좋습니다.
+Media Services 고객은 필요에 따라 **표준** 스트리밍 끝점이나 하나 이상의 **프리미엄** 스트리밍 끝점을 선택합니다. 표준 스트리밍 끝점은 대부분의 스트리밍 워크로드에 적합합니다. 프리미엄 스트리밍 단위와 동일한 기능을 포함합니다.
+표준 스트리밍 끝점은 대부분의 스트리밍 워크로드에 적합합니다. 고급 작업이 있거나 스트리밍 용량 요구 사항이 표준 스트리밍 끝점 처리량 목표에 맞지 않거나 배율 단위(프리미엄 스트리밍 단위라고도 함)를 조정하여 증가하는 대역폭 요구를 처리하도록 스트리밍 끝점 서비스의 용량을 제어하려는 경우 배율 단위를 할당하는 것이 좋습니다.
 
 [이](media-services-portal-scale-streaming-endpoints.md) 항목은 관련 항목으로 연결됩니다.
 
@@ -208,9 +210,4 @@ Media Services 고객은 필요에 따라 **표준** 스트리밍 끝점이나 �
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 [live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

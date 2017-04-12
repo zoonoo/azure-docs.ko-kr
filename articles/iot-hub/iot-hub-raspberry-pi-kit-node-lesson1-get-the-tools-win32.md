@@ -1,5 +1,5 @@
 ---
-title: "도구 얻기(Windows 7 이상) | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(노드) 연결 - 단원 1: 도구 다운로드(Windows) | Microsoft Docs"
 description: "Windows 7 이상 버전에 Pi의 첫 번째 샘플 응용 프로그램에 필요한 도구 및 소프트웨어를 다운로드하여 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: 63d4a4a5cbc0d7313c5b527e5ec417d1b968483a
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 73df1a85cbcf7ee54fe625b6a150f89366ea2c14
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -73,10 +74,5 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/wi
 
 ## <a name="next-steps"></a>다음 단계
 [깜박임 샘플 응용 프로그램 만들기 및 배포](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

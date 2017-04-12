@@ -12,15 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 04/05/2017
 ms.author: nberdy
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: fc2d81ce5d1562bcc71584626d8e45a2d788b2e3
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: ce7860e291c71e825561caf3ee7eafe904101799
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="direct-methods"></a>직접 메서드
+# <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 ## <a name="overview"></a>개요
 IoT Hub를 사용하면 클라우드의 장치에서 직접 메서드를 호출할 수 있습니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 즉각적인 작업 과정이 장치의 응답 가능성 여부에 따라 달라지는 시나리오에 유용합니다. 예를 들어 장치가 오프라인일 때 장치에 SMS 깨우기(wake-up)를 보내는 경우가 여기에 해당됩니다.(SMS가 메서드 호출보다 비용이 높아지고 있습니다.)
 
@@ -34,7 +36,7 @@ IoT Hub에 **서비스 연결** 권한만 있다면 누구든 장치에서 메�
 desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 대해 궁금한 점이 있으면 [클라우드-장치 통신 지침][lnk-c2d-guidance]을 참조하세요.
 
 ## <a name="method-lifecycle"></a>메서드 수명 주기
-직접 메서드는 장치에서 구현되며, 제대로 인스턴스화하기 위해 메서드 페이로드에 0개 이상의 입력이 필요할 수 있습니다. 직접 메서드는 서비스 지향 URI를 통해 호출합니다(`{iot hub}/twins/{device id}/methods/`). 장치는 장치별 MQTT 토픽을 통해 직접 메서드를 수신합니다(`$iothub/methods/POST/{method name}/`). 향후 추가적인 장치 쪽 네트워킹 프로토콜에서 직접 메서드를 지원할 예정입니다.
+직접 메서드는 장치에서 구현되며, 제대로 인스턴스화하기 위해 메서드 페이로드에&0;개 이상의 입력이 필요할 수 있습니다. 직접 메서드는 서비스 지향 URI를 통해 호출합니다(`{iot hub}/twins/{device id}/methods/`). 장치는 장치별 MQTT 토픽을 통해 직접 메서드를 수신합니다(`$iothub/methods/POST/{method name}/`). 향후 추가적인 장치 쪽 네트워킹 프로토콜에서 직접 메서드를 지원할 예정입니다.
 
 > [!NOTE]
 > 장치에서 직접 메서드를 호출할 때 속성 이름과 값은 US-ASCII로 출력 가능한 영숫자만 포함할 수 있으며 다음 집합은 제외됩니다. ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
@@ -43,7 +45,9 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
 직접 메서드는 동기식이며 제한 시간(기본값: 30초, 최대 3600초 설정 가능)이 지나면 성공하거나 실패합니다. 직접 메서드는 장치가 온라인 상태에서 명령을 수신하는 경우에만 작동하기(예: 휴대폰에서 조명 켜기)를 바라는 대화형 시나리오에서 유용합니다. 이러한 시나리오에서는 클라우드 서비스가 결과에 최대한 빨리 대응할 수 있도록 즉각적인 성공이나 실패를 보려고 합니다. 장치는 메서드의 결과로 메시지 본문을 반환할 수 있지만 메서드가 반드시 그렇게 해야 하는 것은 아닙니다. 메서드 호출의 순서 지정 또는 동시성 의미 체계에 대한 보장은 없습니다.
 
-장치 메서드 호출은 클라우드 측에서는 HTTP 전용, 장치 측에서는 MQTT 전용입니다.
+직접 메서드는 클라우드 쪽에서는 HTTP 전용, 장치 쪽에서는 MQTT 전용입니다.
+
+메서드 요청 및 응답에 대한 페이로드는 최대 8KB의 JSON 문서입니다.
 
 ## <a name="reference-topics"></a>참조 항목:
 다음 참조 항목에서는 직접 메서드 사용에 대한 자세한 정보를 제공합니다.
@@ -139,9 +143,4 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-messages]: iot-hub-devguide-messaging.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

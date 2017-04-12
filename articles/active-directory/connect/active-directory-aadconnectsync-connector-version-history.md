@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 03/28/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 58c89833330d8dbb1147b42c086ca2c86be3e94d
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: 244ca634cfd47ee37e3845380ac05dc68d406621
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -36,6 +37,61 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 * [웹 서비스 커넥터](http://go.microsoft.com/fwlink/?LinkID=226245) 참조 설명서
 * [PowerShell 커넥터](active-directory-aadconnectsync-connector-powershell.md) 참조 설명서
 * [Lotus Domino 커넥터](active-directory-aadconnectsync-connector-domino.md) 참조 설명서
+
+## <a name="114430"></a>1.1.443.0
+
+출시 날짜: 2017년 3월
+
+### <a name="enhancements"></a>향상된 기능
+* 일반 SQL:</br>
+  **시나리오 증상:** 하나의 개체 형식에 대한 참조만 허용하고 멤버와 상호 참조하는 SQL 커넥터의 잘 알려진 제한입니다. </br>
+  **솔루션 설명:** "*" 옵션을 선택한 참조를 위한 처리 단계에서 모든 개체 형식 조합은 동기화 엔진으로 다시 반환됩니다.
+
+>[!Important]
+- 그러면 자리 표시자가 많이 생성됩니다.
+- 이름이 고유한 상호 개체 형식인지 확인해야 합니다.
+
+
+* 일반 LDAP:</br>
+ **시나리오:** 몇 가지 컨테이너만 특정 파티션에서 선택된 경우 검색은 여전히 전체 파티션에서 수행됩니다. 특정 파티션은 성능 저하로 이어질 수 있는 MA가 아닌 Synchronization Service에서 필터링됩니다. </br>
+
+ **해결 방법 설명:** 모든 컨테이너에 걸쳐 수행하고 전체 파티션에서 검색하는 대신 각 파티션에서 개체를 검색하기 위해 변경된 GLDAP 커넥터의 코드입니다.
+
+
+* Lotus Domino:
+
+  **시나리오:** 내보내기를 수행하는 동안 사용자 제거를 위한 Domino 메일 삭제 지원입니다. </br>
+  **해결 방법:** 내보내기를 수행하는 동안 사용자 제거를 위한 구성 가능한 메일 삭제 지원입니다.
+
+### <a name="fixed-issues"></a>수정된 문제:
+* 일반 웹 서비스:
+ * WebService 구성 도구를 통해 기본 SAP wsconfig 프로젝트에서 서비스 URL을 변경한 후 다음과 같은 오류가 발생한 경우: 경로의 일부를 찾을 수 없습니다.
+
+      ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
+
+* 일반 LDAP:
+ * GLDAP 커넥터에서 AD LDS의 모든 특성을 확인할 수 없음
+ * LDAP 디렉터리 스키마에서 UPN 특성이 감지되지 않는 경우 마법사 중단
+ * "objectclass" 특성이 선택되지 않은 경우 전체 가져오기를 수행하는 동안 검색 오류가 발생하지 않으면 델타 가져오기 실패
+ * A "Configure Partitions and Hierarchies” configuration page, doesn’t show any objects which type is equal to the partition for Novel servers in the Generic  
+"파티션 및 계층 구조 구성" 구성 페이지에 일반 LDAP MA의 Novel 서버에 대한 파티션과 형식이 비슷한 개체가 표시되지 않습니다. RootDSE 파티션의 개체만 표시됩니다.
+
+
+* 일반 SQL:
+ * 일반 SQL 워터마크 델타 가져오기 다중값 특성이 버그를 가져오지 않는 문제 해결
+ * 다중값 특성의 삭제/추가된 값을 내보낼 때 데이터 원본에서 삭제/추가되지 않음.  
+
+
+* Lotus Notes:
+ * 특성에 대한 값이 Null이거나 비어있다는 알림을 내보낼 때 특정 필드 "전체 이름"이 메타버스에 올바르게 표시됩니다.
+ * 중복 인증자 오류 해결
+ * 데이터가 없는 개체가 다른 개체를 통해 Lotus Domino 커넥터에서 선택된 경우 전체 가져오기를 수행하는 동안 검색 오류를 수신합니다.
+ * 델타 가져오기가 Lotus Domino 커넥터에서 실행 중인 경우 실행 마지막에 Microsoft.IdentityManagement.MA.LotusDomino.Service.exe 서비스가 때때로 응용 프로그램 오류를 반환합니다.
+ * 멤버 자격에서 사용자를 제거하려고 시도하기 위해 내보내기를 실행할 때 성공적으로 업데이트되었음이 표시되지만 실제로 사용자가 Lotus Notes의 멤버 자격에서 삭제되지는 않는 경우를 제외하면 전체 그룹 멤버는 정상적으로 작동하며 유지됩니다.
+ * 다중값 특성을 내보내는 동안 새 항목을 아래에 추가할 수 있도록 "아래에 항목 추가"로 내보내기 모드를 선택할 수 있는 기능이 Lotus MA의 GUI 구성에 추가되었습니다.
+ * 커넥터는 메일 폴더 및 ID 자격 증명 모음에서 파일을 삭제하는 데 필요한 논리를 추가합니다.
+ * 멤버 자격 삭제는 NAB 멤버 간에 작동하지 않습니다.
+ * 값은 다중값 특성에서 성공적으로 삭제되어야 합니다.
 
 ## <a name="111170"></a>1.1.117.0
 출시 날짜: 2016년 3월
@@ -98,9 +154,4 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

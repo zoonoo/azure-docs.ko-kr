@@ -1,10 +1,10 @@
 ---
-title: "PowerShell을 사용하여 다중 NIC이 있는 VM(클래식) 만들기 | Microsoft Docs"
-description: "PowerShell을 사용하여 클래식 배포 모델을 통해 다중 NIC이 있는 VM을 만드는 방법에 대해 알아봅니다."
+title: "다중 NIC이 있는 VM(클래식) 만들기 - Azure PowerShell | Microsoft Docs"
+description: "PowerShell을 사용하여 다중 NIC이 있는 VM(클래식)을 만드는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 6e50f39a-2497-4845-a5d4-7332dbc203c5
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5f6f14a3bf779de0c4ef6d1f31c283b72d3a18f7
-ms.openlocfilehash: 9243294318c3f6c4c7a3563444f0db0ebcf33f28
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 6e2bb0e228aa28c79969cba07352061abbb47951
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -140,8 +142,8 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
 4. 기본 NIC를 설정하여 고정 IP 주소를 할당합니다.
 
     ```powershell
-    Set-AzureSubnet         -SubnetNames $backendSubnetName -VM $vmConfig
-    Set-AzureStaticVNetIP   -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
+    Set-AzureSubnet            -SubnetNames $backendSubnetName -VM $vmConfig
+    Set-AzureStaticVNetIP     -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
     ```
 
 5. 각 VM에 두 번째 NIC를 추가합니다.
@@ -185,19 +187,13 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
 1. 스크립트를 저장하여 **PowerShell** 명령 프롬프트 또는 **PowerShell ISE**에서 실행합니다. 아래와 같이 초기 출력에 표시됩니다.
 
         OperationDescription    OperationId                          OperationStatus
-        --------------------    -----------                          ---------------
-        New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
-        New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
 
+        New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+        New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+        
         WARNING: No deployment found in service: 'IaaSStory-Backend'.
-2. 자격 증명 프롬프트에 필요한 정보를 입력하고 **확인**을 클릭합니다. 아래와 같은 출력이 표시됩니다.
+2. 자격 증명 프롬프트에 필요한 정보를 입력하고 **확인**을 클릭합니다. 다음 출력이 반환됩니다.
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

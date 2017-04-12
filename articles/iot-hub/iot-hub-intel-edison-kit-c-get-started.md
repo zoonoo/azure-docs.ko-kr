@@ -1,5 +1,5 @@
 ---
-title: "Intel Edison Azure IoT 시작 키트 시작 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(C) 연결 - 시작 | Microsoft Docs"
 description: "Intel Edison을 시작하고, Azure IoT Hub를 만들고, Edison을 IoT Hub에 연결합니다."
 services: iot-hub
 documentationcenter: 
@@ -13,15 +13,17 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/7/2016
+ms.date: 3/21/2017
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cb18052f74528e245264bb2f400b625fe550ed85
-ms.openlocfilehash: 4c13a79d5701c91d845b5d141631801dec2a22d1
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: 248bc4c309ed61ae00ef144ebdb4c820f285783d
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="get-started-with-intel-edison-c"></a>Intel Edison(C) 시작
+# <a name="connect-your-intel-edison-device-to-your-iot-hub-using-c"></a>C를 사용하여 IoT Hub에 Intel Edison 장치 연결
 > [!div class="op_single_selector"]
 > * [Node.JS](iot-hub-intel-edison-kit-node-get-started.md)
 > * [C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -140,8 +142,3 @@ LED의 켜기 및 끄기 동작을 변경하도록 메시지를 사용자 지정
 [receive-cloud-to-device-messages]:iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md
 [change-the-on-and-off-behavior-of-the-led]: iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md
 [troubleshooting]: iot-hub-intel-edison-kit-c-troubleshooting.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

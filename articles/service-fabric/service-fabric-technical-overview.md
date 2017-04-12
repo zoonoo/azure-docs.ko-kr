@@ -1,5 +1,5 @@
 ---
-title: "Service Fabric 용어 개요 | Microsoft Docs"
+title: "Azure Service Fabric 용어 개요 | Microsoft Docs"
 description: "서비스 패브릭의 용어에 대해 간략하게 소개하고 설명서의 나머지 부분에서 사용되는 용어와 주요 용어 개념에 대해 설명합니다."
 services: service-fabric
 documentationcenter: .net
@@ -12,16 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/25/2016
+ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b68945157d7b4a5d418c766188ad49229c6f4ab5
+ms.sourcegitcommit: e90efe810084939280b392c470e14e76d35aff01
+ms.openlocfilehash: e628143db9ceba5e159022d2eefe3e6dd9f4bf22
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="service-fabric-terminology-overview"></a>서비스 패브릭 용어 개요
 서비스 패브릭은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 이 항목에서는 설명서에서 사용되는 용어를 이해할 수 있도록 서비스 패브릭에서 사용되는 용어에 대해 자세히 설명합니다.
+
+이 섹션에 나열된 개념은 Microsoft Virtual Academy 비디오, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">핵심 개념인</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">디자인 타임 개념</a> 및 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">런타임 개념</a>에서도 설명됩니다.
 
 ## <a name="infrastructure-concepts"></a>인프라 개념
 **클러스터**: 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다.  클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다.
@@ -29,11 +32,11 @@ ms.openlocfilehash: b68945157d7b4a5d418c766188ad49229c6f4ab5
 **노드**: 클러스터의 일부인 컴퓨터로 VM 노드라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM이 Windows 서비스인 `FabricHost.exe`를 자동으로 시작하여 부팅을 실행하기 시작한 다음 `Fabric.exe` 및 `FabricGateway.exe`이라는 두 개의 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
 
 ## <a name="application-concepts"></a>응용 프로그램 개념
-**응용 프로그램 종류**: 이름/버전이 서비스 형식의 컬렉션에 할당됩니다. `ApplicationManifest.xml` 파일에 정의되고 응용 프로그램 패키지 디렉터리에 포함된 후 서비스 패브릭 클러스터의 이미지 저장소에 복사됩니다. 그런 다음 클러스터 내에서이 응용 프로그램 형식에서 명명된 응용 프로그램을 만들 수 있습니다.
+**응용 프로그램 종류**: 이름/버전이 서비스 형식의 컬렉션에 할당됩니다. `ApplicationManifest.xml` 파일에 정의되고 응용 프로그램 패키지 디렉터리에 포함된 후 서비스 패브릭 클러스터의 이미지 저장소에 복사됩니다. 그런 다음 클러스터 내에서 이 응용 프로그램 형식에서 명명된 응용 프로그램을 만들 수 있습니다.
 
 자세한 내용은 [응용 프로그램 모델](service-fabric-application-model.md) 문서를 참조하세요.
 
-**응용 프로그램 패키지**: 응용 프로그램 형식인 `ApplicationManifest.xml` 파일을 포함하는 디스크 디렉터리입니다. 응용 프로그램 형식를 구성하는 각 서비스 형식에 대한 서비스 패키지를 참조합니다. 응용 프로그램 패키지 디렉터리에 있는 파일은 서비스 패브릭 클러스터의 이미지 저장소에 복사됩니다. 예를 들어 전자 메일 응용 프로그램 형식에 대한 응용 프로그램 패키지는 큐 서비스 패키지, 프런트엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다.
+**응용 프로그램 패키지**: 응용 프로그램 형식인 `ApplicationManifest.xml` 파일을 포함하는 디스크 디렉터리입니다. 응용 프로그램 형식을 구성하는 각 서비스 형식에 대한 서비스 패키지를 참조합니다. 응용 프로그램 패키지 디렉터리에 있는 파일은 서비스 패브릭 클러스터의 이미지 저장소에 복사됩니다. 예를 들어 전자 메일 응용 프로그램 형식에 대한 응용 프로그램 패키지는 큐 서비스 패키지, 프런트 엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다.
 
 **명명된 응용 프로그램**: 응용 프로그램 패키지가 이미지 저장소에 복사된 후에 응용 프로그램 패키지의 응용 프로그램 형식을 지정하여 클러스터 내에서 응용 프로그램의 인스턴스를 만듭니다(이름/버전 사용). 각 응용 프로그램 형식 인스턴스는 `"fabric:/MyNamedApp"`와 같은 URI 이름이 할당됩니다. 클러스터 내에서 단일 응용 프로그램 형식에서 여러 명명된 응용 프로그램을 만들 수 있습니다. 또한 다른 형식의 응용 프로그램에서 명명된 응용 프로그램을 만들 수 있습니다. 명명된 응용 프로그램은 각각 독립적으로 관리되고 버전이 지정됩니다.      
 
@@ -59,6 +62,8 @@ ms.openlocfilehash: b68945157d7b4a5d418c766188ad49229c6f4ab5
 
 **구성 패키지**: 서비스 형식의 정적인 읽기 전용 구성 파일을 포함하는 디스크 디렉터리입니다(일반적으로 텍스트 파일). 서비스 형식의 `ServiceManifest.xml` 파일에서 구성 패키지 디렉터리에 파일을 참조합니다. 명명된 서비스를 만들면 구성 패키지의 파일은 명명된 서비스를 실행하기 위해 선택된 하나 이상의 노드로 복사됩니다. 그러면 코드가 실행되기 시작하며, 이제 구성 파일에 액세스할 수 있습니다.
 
+**컨테이너**: 기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 컨테이너 이미지에 서비스를 배포할 수 있습니다. 컨테이너는 응용 프로그램에서 기본 운영 체제를 가상화하는 가상화 기술입니다. 각 응용 프로그램, 해당 런타임, 종속성, 시스템 라이브러리는 운영 체제 구성물의 자체적으로 격리된 뷰에 대해 전체, 개인 액세스 권한이 있는 컨테이너 내에서 실행됩니다. Service Fabric은 Linux 및 Windows Server 컨테이너에서 Docker 컨테이너를 지원합니다.  자세한 내용은 [Service Fabric 및 컨테이너](service-fabric-containers-overview.md)를 참조하세요.
+
 **파티션 구성표**: 명명된 서비스를 만들 때 파티션 구성표를 지정합니다. 많은 양의 상태가 있는 서비스는 클러스터의 노드에 분산하는 파티션에 데이터를 분할합니다. 이렇게 하면 명명된 서비스의 상태를 조정할 수 있습니다. 상태 저장 서비스에 복제본이 있는 반면 파티션 내에서 명명된 상태 비저장 서비스에는 인스턴스가 있습니다. 일반적으로 명명된 상태 비저장 서비스는 내부 상태가 없기 때문에 하나의 파티션만을 가질 수 있습니다. 파티션 인스턴스를 가용성에 제공합니다. 인스턴스가 실패하면 다른 인스턴스는 계속 정상적으로 작동하고 서비스 패브릭은 새 인스턴스를 만듭니다. 명명된 상태 저장 서비스는 복제본 내에서 해당 상태를 유지하고 각 파티션은 동기화 상태로 유지된 모든 상태를 가진 고유한 복제를 설정합니다. 복제가 실패하면 서비스 패브릭은 기존 복제본에서 새 복제본을 작성해야 합니다.
 
 자세한 내용은 [서비스 패브릭 Reliable Services 분할](service-fabric-concepts-partitioning.md) 문서를 참조하세요.
@@ -71,6 +76,8 @@ ms.openlocfilehash: b68945157d7b4a5d418c766188ad49229c6f4ab5
 명명 서비스와 연동되는 클라이언트 및 서비스 통신 API에 대한 자세한 내용은 [서비스를 사용하여 통신](service-fabric-connect-and-communicate-with-services.md) 을 참조하세요.
 
 **이미지 저장소 서비스**: 각 서비스 패브릭 클러스터에는 배포되어 버전이 지정된 응용 프로그램 패키지가 보관되는 이미지 저장소 서비스가 있습니다. 이미지 저장소에 응용 프로그램 패키지를 복사하고 해당 응용 프로그램 패키지 내에 포함된 응용 프로그램 형식을 등록합니다. 응용 프로그램 형식을 프로비전한 후에 명명된 응용 프로그램을 만듭니다. 명명된 응용 프로그램이 모두 삭제된 후에 이미지 저장소 서비스에서 응용 프로그램 형식의 등록을 취소할 수 있습니다.
+
+이미지 저장소 서비스에 대한 자세한 내용은 [ImageStoreConnectionString 설정 이해](service-fabric-image-store-connection-string.md)를 참조하세요.
 
 이미지 저장소 서비스에 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [응용 프로그램 배포](service-fabric-deploy-remove-applications.md) 문서를 참조하세요.
 
@@ -90,10 +97,5 @@ ms.openlocfilehash: b68945157d7b4a5d418c766188ad49229c6f4ab5
 * [서비스 패브릭의 개요](service-fabric-overview.md)
 * [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
 * [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

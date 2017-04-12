@@ -1,10 +1,10 @@
 ---
-layout: LandingPage
+title: "Azure Virtual Machine Scale Sets 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "가상 컴퓨터 크기 집합을 사용하여 큰 계산, 빅 데이터 및 컨테이너화된 솔루션용 자동 크기 조정 Windows 또는 Linux VM을 만드는 방법에 대해 알아봅니다."
-title: "Azure Virtual Machines Scale Sets 설명서, 자습서 및 API 참조 | Microsoft Docs"
 services: virtual-machine-scale-sets
 author: carolz
 manager: carolz
+layout: LandingPage
 ms.assetid: 
 ms.service: virtual-machine-scale-sets
 ms.tgt_pltfrm: na
@@ -13,8 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 7b2af8e58e050100b1778d977dabe25538b84cfe
-ms.openlocfilehash: 3bb6307cee24c80cbf8d621a49d2304d9b9b5c99
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
+ms.lasthandoff: 04/12/2017
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Virtual Machine Scale Sets 설명서
@@ -41,7 +42,7 @@ ms.openlocfilehash: 3bb6307cee24c80cbf8d621a49d2304d9b9b5c99
         </a>
     </li>
        <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=virtual-machines">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -90,7 +91,22 @@ ms.openlocfilehash: 3bb6307cee24c80cbf8d621a49d2304d9b9b5c99
                     <div class="cardText">
                         <h3>명령줄</h3>
                         <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
-                        <p><a href="/azure/virtual-machines/azure-cli-arm-commands">Azure CLI</a></p>
+                        <p><a href="/cli/azure/vm">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>언어</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.JS</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>
             </div>
@@ -102,7 +118,7 @@ ms.openlocfilehash: 3bb6307cee24c80cbf8d621a49d2304d9b9b5c99
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p><a href="/rest/api/compute/">REST API 참조</a></p>
+                        <p><a href="/rest/api/virtualmachinescalesets/">가상 컴퓨터 크기 집합 API 참조</a></p>
                     </div>
                 </div>
             </div>
@@ -110,10 +126,5 @@ ms.openlocfilehash: 3bb6307cee24c80cbf8d621a49d2304d9b9b5c99
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

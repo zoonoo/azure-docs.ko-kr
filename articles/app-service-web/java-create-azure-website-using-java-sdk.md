@@ -5,7 +5,7 @@ tags: azure-classic-portal
 services: app-service\web
 documentationcenter: Java
 author: donntrenton
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 8954c456-1275-4d57-aff4-ca7d6374b71e
 ms.service: multiple
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: v-donntr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e7e2c6ef375b860ad79f0cc0c385dec2e5de2660
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 19ddcc3e8e1bb3b52eeb06d81e27793c25c1e230
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -25,14 +26,14 @@ ms.openlocfilehash: e7e2c6ef375b860ad79f0cc0c385dec2e5de2660
 <!-- Azure Active Directory workflow is not yet available on the Azure Portal -->
 
 ## <a name="overview"></a>개요
-이 연습에서는 [Azure 앱 서비스][Azure 앱 서비스]에서 웹앱을 만드는 Java 응용 프로그램용 Azure SDK를 만드는 방법을 보여 준 다음 응용 프로그램을 이 서비스에 배포합니다. 두 부분으로 구성됩니다.
+이 연습에서는 [Azure App Service][Azure App Service]에서 Web App을 만드는 Java 응용 프로그램용 Azure SDK를 만드는 방법을 나타낸 다음 응용 프로그램을 배포합니다. 두 부분으로 구성됩니다.
 
 * 1부에서는 웹 앱을 만드는 Java 응용 프로그램을 구축하는 방법을 보여줍니다.
 * 2부에서는 간단한 "Hello World" 앱을 만드는 방법을 보여준 다음, FTP 클라이언트를 사용하여 코드를 앱 서비스에 배포합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 ### <a name="software-installations"></a>소프트웨어 설치
-이 문서의 AzureWebDemo 응용 프로그램 코드는 Azure Java SDK 0.7.0을 사용하여 작성되었으며, WebPI([웹 플랫폼 설치 관리자][웹 플랫폼 설치 관리자])를 사용하여 설치할 수 있습니다. 또한 최신 버전의 [Eclipse용 Azure 도구 키트][Eclipse용 Azure 도구 키트]을 사용해야 합니다. SDK를 설치한 후 **Maven 리포지토리**에서 **인덱스 업데이트**를 실행하여 Eclipse 프로젝트의 종속성을 업데이트한 다음 **종속성** 창에서 각 패키지의 최신 버전을 다시 추가합니다. **도움말 > 설치 세부 정보**를 클릭하여 Eclipse에 설치된 소프트웨어의 버전을 확인할 수 있습니다. 최소한 다음과 같은 버전이 있어야 합니다.
+이 문서의 AzureWebDemo 응용 프로그램 코드는 Azure Java SDK 0.7.0을 사용하여 작성되었으며, [WebPI(웹 플랫폼 설치 관리자)][Web Platform Installer]를 사용하여 설치할 수 있습니다. 또한, 최신 버전의 [Eclipse용 Azure Toolkit][Azure Toolkit for Eclipse]을 사용해야 합니다. SDK를 설치한 후 **Maven 리포지토리**에서 **인덱스 업데이트**를 실행하여 Eclipse 프로젝트의 종속성을 업데이트한 다음 **종속성** 창에서 각 패키지의 최신 버전을 다시 추가합니다. **도움말 > 설치 세부 정보**를 클릭하여 Eclipse에 설치된 소프트웨어의 버전을 확인할 수 있습니다. 최소한 다음과 같은 버전이 있어야 합니다.
 
 * Java용 Microsoft Azure 라이브러리 패키지 0.7.0.20150309
 * Java EE Developers용 Eclipse IDE 4.4.2.20150219
@@ -41,7 +42,7 @@ ms.openlocfilehash: e7e2c6ef375b860ad79f0cc0c385dec2e5de2660
 이 절차를 시작하기 전에 활성 Azure를 구독하고 Azure에서 기본 AD(Active Directory)를 설정해야 합니다.
 
 ### <a name="create-an-active-directory-ad-in-azure"></a>Azure에 Active Directory(AD) 만들기
-Azure 구독에 Active Directory(AD)가 없는 경우 Microsoft 계정으로 [Azure 클래식 포털][Azure 클래식 포털]에 로그인합니다. 다중 구독인 경우, **구독** 을 클릭하고 이 프로젝트에 대해 사용 하려는 구독에 대한 기본 디렉터리를 선택합니다. **적용** 을 클릭하여 해당 구독 뷰로 전환합니다.
+Azure 구독에 Active Directory(AD)가 없는 경우, Microsoft 계정과 함께 [Azure 클래식 포털][Azure classic portal]로 로그인합니다. 다중 구독인 경우, **구독** 을 클릭하고 이 프로젝트에 대해 사용 하려는 구독에 대한 기본 디렉터리를 선택합니다. **적용** 을 클릭하여 해당 구독 뷰로 전환합니다.
 
 1. 왼쪽 창에서 **Active Directory** 를 선택합니다. **새로 만들기 > 디렉터리 > 사용자 지정 만들기**를 클릭합니다.
 2. **디렉터리 추가**에서 **새 디렉터리 만들기**를 선택합니다.
@@ -49,12 +50,12 @@ Azure 구독에 Active Directory(AD)가 없는 경우 Microsoft 계정으로 [Az
 4. **도메인**에서 도메인 이름을 입력합니다. 기본적으로 디렉터리와 함께 포함된 기본 도메인 이름입니다. `<domain_name>.onmicrosoft.com` 형식이 있습니다. 소유하는 다른 도메인 이름 또는 디렉터리 이름에 따라 이름을 지정할 수 있습니다. 나중에, 조직에서 이미 사용하는 다른 도메인 이름을 추가할 수 있습니다.
 5. **국가 또는 지역**에서 사용자 로캘을 선택합니다.
 
-AD에 대한 자세한 내용은 [Azure AD 디렉터리란?][Azure AD 디렉터리란?]을 참조하세요.
+AD에 대한 자세한 내용은 [Azure AD 디렉터리란?][What is an Azure AD directory]을 참조하세요.
 
 ### <a name="create-a-management-certificate-for-azure"></a>Azure용 관리 인증서 만들기
 Java용 Azure SDK는 관리 인증서를 사용하여 Azure 구독으로 인증합니다. 서비스 관리 API를 사용하여 구독 리소스를 관리하는 구독 소유자를 대신하여 역할하는 클라이언트 응용 프로그램을 인증하는데 사용하는 X.509 v3 인증서입니다.
 
-이 절차의 코드는 자체 서명된 인증서를 사용하여 Azure와 인증합니다. 이 절차에서는 인증서를 만들어 미리 [Azure 클래식 포털][Azure 클래식 포털]에 업로드해야 합니다. 다음 단계를 포함합니다.
+이 절차의 코드는 자체 서명된 인증서를 사용하여 Azure와 인증합니다. 이 절차는 인증서를 만들고 미리 [Azure 클래식 포털][Azure classic portal]로 업로드해야 합니다. 다음 단계를 포함합니다.
 
 * 클라이언트 인증서를 나타내는 PFX 파일을 생성하고 로컬로 저장합니다.
 * PFX 파일에서 관리 인증서(CER 파일)를 생성합니다.
@@ -62,12 +63,12 @@ Java용 Azure SDK는 관리 인증서를 사용하여 Azure 구독으로 인증�
 * Java가 해당 형식을 사용하여 인증서를 인증하기 때문에 PFX 파일을 JKS로 변환합니다.
 * 로컬 JKS 파일을 참조하는 응용 프로그램의 인증 코드를 작성합니다.
 
-이 절차를 완료하면 CER 인증서는 Azure 구독에 상주하며 JKS 인증서는 로컬 드라이브에 상주합니다. 관리 인증서에 대한 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드][Azure용 관리 인증서 만들기 및 업로드]를 참조하세요.
+이 절차를 완료하면 CER 인증서는 Azure 구독에 상주하며 JKS 인증서는 로컬 드라이브에 상주합니다. 관리 인증서에 대한 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드][Create and Upload a Management Certificate for Azure]를 참조하세요.
 
 #### <a name="create-a-certificate"></a>인증서 만들기
 자체 서명된 인증서를 만들려면, 운영 체제에서 명령 콘솔을 열고 다음 명령을 실행합니다.
 
-> **참고:** 이 명령을 실행하는 컴퓨터에 JDK가 설치되어 있어야 합니다. 또한 keytool 경로는 JDK를 설치한 위치에 따라 달라집니다. 자세한 내용은 Java 온라인 문서의 [키 및 인증서 관리 도구(keytool)][키 및 인증서 관리 도구(keytool)]를 참조하세요.
+> **참고:** 이 명령을 실행하는 컴퓨터에 JDK가 설치되어 있어야 합니다. 또한 keytool 경로는 JDK를 설치한 위치에 따라 달라집니다. 자세한 내용은 Java 온라인 문서의 [키 및 인증서 관리 도구(keytool)][Key and Certificate Management Tool (keytool)]를 참조하세요.
 > 
 > 
 
@@ -93,7 +94,7 @@ Java용 Azure SDK는 관리 인증서를 사용하여 Azure 구독으로 인증�
 * `<password>` 인증서를 보호하기 위해 선택하는 암호입니다. 최소 6자여야 합니다. 권장하지는 않지만 암호 없이 입력할 수 있습니다.
 * `<dname>` 별칭과 연관되는 X.500 고유 이름이며 자체 서명된 인증서의 발급자 및 주제 필드로 사용됩니다.
 
-자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드][Azure용 관리 인증서 만들기 및 업로드]를 참조하세요.
+자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드][Create and Upload a Management Certificate for Azure]를 참조하세요.
 
 #### <a name="upload-the-certificate"></a>인증서 업로드
 자체 서명된 인증서를 Azure에 업로드하려면 클래식 포털의 **설정** 페이지로 이동한 다음 **관리 인증서** 탭을 클릭합니다. 페이지의 맨 아래에서 **업로드** 를 클릭하고 사용자가 만든 CER 파일의 위치로 이동합니다.
@@ -214,7 +215,7 @@ AzureWebDemo 응용 프로그램의 목적은 웹 서비스 웹 앱을 만드는
 > 
 
 #### <a name="define-the-web-creation-method"></a>웹 만들기 메서드 정의
-다음으로, 웹 앱을 만드는 메서드를 정의 합니다. 이 메서드, `createWebApp`는 웹 앱 및 웹 공간의 매개 변수를 지정합니다. 또한 [WebSiteManagementClient][WebSiteManagementClient] 개체에 정의된 App Service Web Apps 관리 클라이언트를 만들고 구성합니다. 관리 클라이언트는 웹 앱을 작성하는 키입니다. 서비스 관리 API를 호출하여 응용 프로그램이 웹 앱(만들기, 업데이트 및 삭제와 같은 작업 수행)을 관리할 수 있는 RESTful 웹 서비스를 제공합니다.
+다음으로, 웹 앱을 만드는 메서드를 정의 합니다. 이 메서드, `createWebApp`는 웹 앱 및 웹 공간의 매개 변수를 지정합니다. App Service Web Apps 관리 클라이언트도 만들고 구성하며, [WebSiteManagementClient][WebSiteManagementClient] 개체로 정의됩니다. 관리 클라이언트는 웹 앱을 작성하는 키입니다. 서비스 관리 API를 호출하여 응용 프로그램이 웹 앱(만들기, 업데이트 및 삭제와 같은 작업 수행)을 관리할 수 있는 RESTful 웹 서비스를 제공합니다.
 
     private static void createWebApp() throws Exception {
 
@@ -397,7 +398,7 @@ FTP를 사용하여 웹 서비스 웹 앱에 배포에 대한 자세한 내용�
 #### <a name="get-ftp-connection-information"></a>FTP 연결 정보 가져오기
 FTP를 사용하여 새로 만든 웹 앱에 응용 프로그램 파일을 배포하려면 연결 정보를 가져와야 합니다. 두 가지 방법으로 연결 정보를 얻을 수 있습니다. 한 가지 방법은 웹 앱의 **대시보드** 페이지를 방문하는 것이고, 다른 방법은 웹 앱의 게시 프로필을 다운로드하는 것입니다. 게시 프로필은 Azure 앱 서비스에서 웹 앱에 대한 FTP 호스트 이름 및 로그온 자격 증명과 같은 정보를 제공하는 XML 파일입니다. 이 사용자 이름 및 암호를 사용하여 Azure 계정과 연결된 모든 구독에서 하나가 아닌 모든 웹 앱에 배포할 수 있습니다.
 
-[Azure 포털][Azure 포털]의 웹앱 블레이드에서 FTP 연결 정보를 가져오려면
+[Azure Portal][Azure Portal]의 웹앱 블레이드에서 FTP 연결 정보를 가져오려면
 
 1. **Essentials**에서 **FTP 호스트 이름**을 찾아 복사합니다. `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net`와 유사한 URI입니다.
 2. **Essentials**에서 **FTP/배포 사용자 이름**을 찾아 복사합니다. *webappname\deployment-username* 형식으로 있습니다(예: `WebDemoWebApp\deployer77`).
@@ -514,19 +515,14 @@ FTP를 사용하여 새로 만든 웹 앱에 응용 프로그램 파일을 배�
 [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
 
 
-[Azure 앱 서비스]: http://go.microsoft.com/fwlink/?LinkId=529714
-[웹 플랫폼 설치 관리자]: http://go.microsoft.com/fwlink/?LinkID=252838
-[Eclipse용 Azure 도구 키트]: https://msdn.microsoft.com/library/azure/hh690946.aspx
-[Azure 클래식 포털]: https://manage.windowsazure.com
-[Azure AD 디렉터리란?]: http://technet.microsoft.com/library/jj573650.aspx
-[Azure용 관리 인증서 만들기 및 업로드]: ../cloud-services/cloud-services-certs-create.md
-[키 및 인증서 관리 도구(keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
+[Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Web Platform Installer]: http://go.microsoft.com/fwlink/?LinkID=252838
+[Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh690946.aspx
+[Azure classic portal]: https://manage.windowsazure.com
+[What is an Azure AD directory]: http://technet.microsoft.com/library/jj573650.aspx
+[Create and Upload a Management Certificate for Azure]: ../cloud-services/cloud-services-certs-create.md
+[Key and Certificate Management Tool (keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
 [WebSiteManagementClient]: http://azure.github.io/azure-sdk-for-java/com/microsoft/azure/management/websites/WebSiteManagementClient.html
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
-[Azure 포털]: https://portal.azure.com
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Azure Portal]: https://portal.azure.com
 

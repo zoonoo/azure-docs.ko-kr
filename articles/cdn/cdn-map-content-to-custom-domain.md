@@ -1,9 +1,9 @@
 ---
-title: "Azure CDN(콘텐츠 배달 네트워크) 콘텐츠를 사용자 지정 도메인에 매핑하는 방법 | Microsoft Docs"
-description: "이 항목에서는 CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법을 설명합니다."
+title: "Azure CDN 콘텐츠를 사용자 지정 도메인 매핑 | Microsoft Docs"
+description: "Azure CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법을 알아봅니다."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
@@ -12,15 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567e72805c22c8100ef2d8d97c1e26a77f214ca3
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 079986e9457a4185bae273818fbc852307974638
+ms.lasthandoff: 03/04/2017
 
 
 ---
-# <a name="how-to-map-custom-domain-to-content-delivery-network-cdn-endpoint"></a>사용자 지정 도메인을 CDN(콘텐츠 배달 네트워크) 끝점에 매핑하는 방법
+# <a name="map-azure-cdn-content-to-a-custom-domain"></a>Azure CDN 콘텐츠를 사용자 지정 도메인에 매핑
 azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 대한 URL에 고유한 도메인 이름을 사용하려면 사용자 지정 도메인을 CDN 끝점에 매핑할 수 있습니다.
 
 사용자 지정 도메인을 CDN 끝점에 매핑하는 두 가지 방법이 있습니다.
@@ -52,7 +53,7 @@ azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 
 4. 끝점 블레이드의 맨 위에서 **사용자 지정 도메인 추가** 단추를 클릭합니다.  **사용자 지정 도메인 추가** 블레이드에서 새 CNAME 레코드를 만드는 데 사용할 끝점 호스트 이름이 CDN 끝점에서 파생되어 표시됩니다. 호스트 이름 주소의 형식은 **&lt;EndpointName>.azureedge.net**으로 표시됩니다.  이 호스트 이름을 복사하여 CNAME 레코드를 만드는 데 사용할 수 있습니다.  
 5. 도메인 등록 기관의 웹 사이트로 이동한 다음 DNS 레코드를 만들기 위한 섹션을 찾습니다. **도메인 이름**, **DNS** 또는 **이름 서버 관리**와 같은 섹션에서 이를 찾을 수 있습니다.
 6. CNAME을 관리하기 위한 섹션을 찾습니다. 고급 설정 페이지로 이동하여 CNAME, 별칭 또는 하위 도메인과 같은 단어를 찾아야 할 수도 있습니다.
-7. 선택한 하위 도메인(예: **www** 또는 **cdn**)을 **사용자 지정 도메인 추가** 블레이드에 제공된 호스트 이름에 매핑하는 새 CNAME 레코드를 만듭니다.
+7. 선택한 하위 도메인(예: **www** 또는 **cdn**)을 **사용자 지정 도메인 추가** 블레이드에 제공된 호스트 이름에 매핑하는 새 CNAME 레코드를 만듭니다. 
 8. **사용자 지정 도메인 추가** 블레이드로 돌아가 하위 도메인을 포함하는 사용자 지정 도메인을 대화 상자에 입력합니다. 예를 들어 `www.contoso.com` 또는 `cdn.contoso.com` 형식으로 도메인 이름을 입력합니다.   
    
    Azure에서 입력한 도메인 이름에 대한 CNAME 레코드가 있는지 확인합니다. CNAME이 올바르면 사용자 지정 도메인의 유효성이 검사됩니다.  **Verizon의 Azure CDN** (Standard 및 Premium) 끝점의 경우, 모든 CDN 에지 노드에 사용자 지정 도메인 설정이 전파되려면 최대 90분이 걸립니다.  
@@ -66,8 +67,8 @@ azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 
 4. 끝점 블레이드의 맨 위에서 **사용자 지정 도메인 추가** 단추를 클릭합니다.  **사용자 지정 도메인 추가** 블레이드에서 새 CNAME 레코드를 만드는 데 사용할 끝점 호스트 이름이 CDN 끝점에서 파생되어 표시됩니다. 호스트 이름 주소의 형식은 **&lt;EndpointName>.azureedge.net**으로 표시됩니다.  이 호스트 이름을 복사하여 CNAME 레코드를 만드는 데 사용할 수 있습니다.
 5. 도메인 등록 기관의 웹 사이트로 이동한 다음 DNS 레코드를 만들기 위한 섹션을 찾습니다. **도메인 이름**, **DNS** 또는 **이름 서버 관리**와 같은 섹션에서 이를 찾을 수 있습니다.
 6. CNAME을 관리하기 위한 섹션을 찾습니다. 고급 설정 페이지로 이동하여 **CNAME**, **별칭** 또는 **하위 도메인**과 같은 단어를 찾아야 할 수도 있습니다.
-7. 새 CNAME 레코드를 만들고 **cdnverify** 하위 도메인을 포함하는 하위 도메인 별칭을 지정합니다. 예를 들어 지정하는 하위 도메인은 **cdnverify.www** 또는 **cdnverify.cdn** 형식이 됩니다. 그런 다음 **cdnverify.&lt;EndpointName>.azureedge.net** 형식으로 CDN 끝점인 호스트 이름을 제공합니다.
-8. **사용자 지정 도메인 추가** 블레이드로 돌아가 하위 도메인을 포함하는 사용자 지정 도메인을 대화 상자에 입력합니다. 예를 들어 `www.contoso.com` 또는 `cdn.contoso.com` 형식으로 도메인 이름을 입력합니다. 이 단계에서는 하위 도메인 앞에 **cdnverify**를 추가할 필요가 없습니다.  
+7. 새 CNAME 레코드를 만들고 **cdnverify** 하위 도메인을 포함하는 하위 도메인 별칭을 지정합니다. 예를 들어 지정하는 하위 도메인은 **cdnverify.www** 또는 **cdnverify.cdn** 형식이 됩니다. 그런 다음 **cdnverify.&lt;EndpointName>.azureedge.net** 형식으로 CDN 끝점인 호스트 이름을 제공합니다. DNS 매핑은 다음과 같습니다.`cdnverify.www.consoto.com   CNAME   cdnverify.consoto.azureedge.net`  
+8. **사용자 지정 도메인 추가** 블레이드로 돌아가 하위 도메인을 포함하는 사용자 지정 도메인을 대화 상자에 입력합니다. 예를 들어 `www.contoso.com` 또는 `cdn.contoso.com` 형식으로 도메인 이름을 입력합니다. 이 단계에서는 하위 도메인 앞에 **cdncverify**를 추가할 필요가 없습니다.  
    
     Azure에서 입력한 cdnverify 도메인 이름에 대한 CNAME 레코드가 있는지 확인합니다.
 9. 이제 사용자 지정 도메인이 Azure에서 확인되었지만 도메인에 대한 트래픽은 아직 CDN 끝점으로 라우팅되지 않습니다. 사용자 지정 도메인 설정이 CDN 에지 노드에 전파되기에 충분한 시간을 기다린 후(**Verizon의 Azure CDN**의 경우 90분, **Akamai의 Azure CDN**의 경우 1-2분), DNS 등록 기관의 웹 사이트로 돌아가서 하위 도메인을 CDN 끝점에 매핑하는 다른 CNAME 레코드를 만듭니다. 예를 들어 하위 도메인을 **www** 또는 **cdn**으로 지정하고 호스트 이름을 **&lt;EndpointName>.azureedge.net**으로 지정합니다. 이 단계에서 사용자 지정 도메인 등록이 완료됩니다.
@@ -80,10 +81,5 @@ azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 
 
 ## <a name="see-also"></a>참고 항목
 [Azure에 대해 CDN(콘텐츠 배달 네트워크)을 사용하도록 설정하는 방법](cdn-create-new-endpoint.md)  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

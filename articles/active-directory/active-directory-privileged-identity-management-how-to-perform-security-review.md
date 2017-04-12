@@ -3,7 +3,7 @@ title: "액세스 검토를 수행하는 방법 | Microsoft Docs"
 description: "Azure Privileged Identity Management 응용 프로그램을 사용하여 검토를 수행하는 방법을 알아봅니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 49ee2feb-7d2e-4acf-82c1-40ff23062862
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 5b5dabe301fae4000112aa467a22cc5c37b9b592
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -52,9 +53,4 @@ Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업
 <!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

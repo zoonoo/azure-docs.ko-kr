@@ -1,5 +1,5 @@
 ---
-title: "클래식 배포 모델에서 Azure CLI를 사용하여 라우팅 제어 및 가상 어플라이언스 사용 | Microsoft Docs"
+title: "Azure Virtual Network에서 라우팅 제어 - CLI - 클래식 | Microsoft Docs"
 description: "클래식 배포 모델에서 Azure CLI를 사용하여 VNet에서 라우팅을 제어하는 방법 알아보기"
 services: virtual-network
 documentationcenter: na
@@ -16,19 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 80b452bd96e3a328899ed455b71cf68da8bfde54
-ms.openlocfilehash: b7508d1ee01c1a5b7773360cabde075553b55ac1
+ms.sourcegitcommit: 71153e46d1695611c8286d2e57b109db9e7ad9df
+ms.openlocfilehash: 4a610a65b33f91f46d011e07c6cb11523d3dae0d
+ms.lasthandoff: 02/01/2017
 
 
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Azure CLI를 사용하여 라우팅 제어 및 가상 어플라이언스(클래식) 사용
 
 > [!div class="op_single_selector"]
-- [PowerShell](virtual-network-create-udr-arm-ps.md)
-- [Azure CLI](virtual-network-create-udr-arm-cli.md)
-- [템플릿](virtual-network-create-udr-arm-template.md)
-- [PowerShell(클래식)](virtual-network-create-udr-classic-ps.md)
-- [CLI(클래식)](virtual-network-create-udr-classic-cli.md)
+> * [PowerShell](virtual-network-create-udr-arm-ps.md)
+> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [템플릿](virtual-network-create-udr-arm-template.md)
+> * [PowerShell(클래식)](virtual-network-create-udr-classic-ps.md)
+> * [CLI(클래식)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
@@ -137,10 +138,5 @@ ms.openlocfilehash: b7508d1ee01c1a5b7773360cabde075553b55ac1
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
     ```
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

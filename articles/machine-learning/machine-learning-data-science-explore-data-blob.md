@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b663a9df7e8cb692f4156f2609fb515265526868
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -60,7 +61,7 @@ ms.openlocfilehash: b663a9df7e8cb692f4156f2609fb515265526868
 
 이제 데이터를 탐색하고 이 데이터 집합에 기능을 생성할 준비가 완료되었습니다.
 
-## <a name="a-nameblob-dataexplorationaexamples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>Pandas를 사용 하 여 데이터 탐색의 예
+## <a name="blob-dataexploration"></a>Pandas를 사용 하 여 데이터 탐색의 예
 다음은 Pandas를 사용하여 데이터를 탐색하는 방법의 예입니다.
 
 1.  **행 및 열 수** 
@@ -104,10 +105,5 @@ ms.openlocfilehash: b663a9df7e8cb692f4156f2609fb515265526868
    
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: d71bbf32196bd249bdefb94e0e760847cc6ec5e0
-ms.openlocfilehash: 85a1ca7542220b8b3e84e7bad811f7f961b26ba0
+ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
+ms.openlocfilehash: 489037b0ff43c7041f3e12a49525184e7eda0290
 
 
 ---
@@ -35,7 +35,7 @@ Azure 기계 학습을 통해 웹 서비스로 기계 학습 워크플로 및 �
 * 웹 서비스를 배포하는 방법에 대한 연습은 [Azure 기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
 * 웹 서비스를 만들고 배포하는 방법에 대한 전체 연습은 [연습 1 단계: 기계 학습 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)를 참조하세요.
 * 웹 서비스 배포의 특정 예제는 다음을 참조하세요.
-  
+
   * [연습 5단계: Azure 기계 학습 웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)
   * [여러 지역에 웹 서비스를 배포하는 방법](machine-learning-how-to-deploy-to-multiple-regions.md)
 
@@ -48,7 +48,7 @@ Azure 기계 학습을 통해 웹 서비스로 기계 학습 워크플로 및 �
 ### <a name="with-powershell-cmdlets"></a>PowerShell cmdlet 사용
 웹 서비스에 대한 Azure 기계 학습 리소스 공급자는 PowerShell cmdlet을 사용하여 웹 서비스의 배포 및 관리를 활성화합니다.
 
-cmdlet을 사용하려면 먼저 [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인해야 합니다. Resource Manager를 기준으로 하는 PowerShell 명령을 호출하는 방법에 익숙하지 않은 경우 [Azure Resource Manager로 Azure PowerShell 사용](../powershell-azure-resource-manager.md#login-to-your-azure-account)을 참조하세요.
+cmdlet을 사용하려면 먼저 [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인해야 합니다. Resource Manager를 기준으로 하는 PowerShell 명령을 호출하는 방법에 익숙하지 않은 경우 [Azure Resource Manager로 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md#log-in-to-your-azure-account)을 참조하세요.
 
 예측 실험을 내보내려면 이 [샘플 코드](https://github.com/ritwik20/AzureML-WebServices)를 사용합니다. 코드에서 .exe 파일을 만든 후 다음을 입력할 수 있습니다.
 
@@ -57,10 +57,10 @@ cmdlet을 사용하려면 먼저 [Add-AzureRmAccount](https://msdn.microsoft.com
 응용 프로그램을 실행하면 웹 서비스 JSON 템플릿이 만들어집니다. 웹 서비스를 배포하는 데 템플릿을 사용하려면 다음 정보를 추가해야 합니다.
 
 * 저장소 계정 이름 및 키
-  
+
     [Azure Portal](https://portal.azure.com/) 또는 [Azure 클래식 포털](http://manage.windowsazure.com/)에서 저장소 계정 이름 및 키를 가져올 수 있습니다.
 * 약정 계획 ID
-  
+
     로그인하고 계획 이름을 클릭하여 [Azure 기계 학습 웹 서비스](https://services.azureml.net) 포털에서 계획 ID를 얻을 수 있습니다.
 
 *MachineLearningWorkspace* 노드와 동일한 수준에서 *Properties* 노드의 자식으로 JSON 템플릿에 추가합니다.
@@ -99,7 +99,6 @@ Azure 기계 학습 웹 서비스는 RESTful API입니다. .NET, Python, R, Java
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

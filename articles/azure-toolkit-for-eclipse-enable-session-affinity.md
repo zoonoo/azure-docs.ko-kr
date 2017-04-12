@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a7320a7e5052ffb4171307bc8636182447ddfc50
+ms.sourcegitcommit: 3fb7a0361717d4616ec21e55c0a202ed8bf8991d
+ms.openlocfilehash: a537a71a43b49d510a12d1293d8ee898d66efe63
 
 
 ---
@@ -28,7 +28,7 @@ Eclipse용 Azure 도구 키트 내에서 역할에 대해 HTTP 세션 선호도 
 ## <a name="to-enable-session-affinity-for-your-role"></a>역할에 대한 세션 선호도를 사용하도록 설정하려면
 1. Eclipse의 프로젝트 탐색기에서 역할을 마우스 오른쪽 단추로 클릭하고 **Azure**를 클릭한 다음 **부하 분산**을 클릭합니다.
 2. **WorkerRole1 속성 부하 분산** 대화 상자에서:
-   1.  **Enable HTTP session affinity (sticky sessions) for this role**
+   1. **Enable HTTP session affinity (sticky sessions) for this role**
    2. **사용할 입력 끝점**의 경우 **http (public:80, private:8080)**와 같이 사용할 입력 끝점을 선택합니다. 응용 프로그램은 이 끝점을 해당 HTTP 끝점으로 사용해야 합니다. 사용자의 역할에 대해 여러 끝점을 사용하도록 설정할 수 있지만 그중 하나만 선택하여 고정 세션을 지원할 수 있습니다.
    3. 응용 프로그램을 다시 빌드합니다.
 
@@ -42,26 +42,23 @@ Eclipse 도구 키트는 각 역할 인스턴스에 ARR(응용 프로그램 요�
 * 각 역할을 초기화하는 시간이 오래 걸립니다.
 * 위에서 언급한 트래픽 경로 전환기로 작동하는 내부 끝점이 추가됩니다.
 
-세션 선호도를 사용하도록 설정한 경우 세션 데이터를 유지하는 방법에 대한 예제는 [세션 선호도로 세션 데이터를 유지하는 방법][세션 선호도로 세션 데이터를 유지하는 방법]을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-[Eclipse용 Azure 도구 키트][Eclipse용 Azure 도구 키트]
+[Eclipse용 Azure 도구 키트][Azure Toolkit for Eclipse]
 
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]
+[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기][Creating a Hello World Application for Azure in Eclipse]
 
-[Eclipse용 Azure 도구 키트 설치][Eclipse용 Azure 도구 키트 설치] 
+[Eclipse용 Azure 도구 키트 설치][Installing the Azure Toolkit for Eclipse] 
 
-[세션 선호도로 세션 데이터를 유지하는 방법][세션 선호도로 세션 데이터를 유지하는 방법]
-
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java 개발자 센터]를 참조하세요.
+Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center]를 참조하세요.
 
 <!-- URL List -->
 
-[Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Eclipse용 Azure 도구 키트]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Eclipse에서 Azure용 Hello World 응용 프로그램 만들기]: http://go.microsoft.com/fwlink/?LinkID=699533
-[세션 선호도로 세션 데이터를 유지하는 방법]: http://go.microsoft.com/fwlink/?LinkID=699539
-[Eclipse용 Azure 도구 키트 설치]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -71,6 +68,6 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

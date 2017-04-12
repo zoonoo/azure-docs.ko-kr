@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/22/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: a28aace9269bafe9158cccf9bea2dc26f77cf937
-ms.openlocfilehash: 54a763530961073655257251f0381b0b379ae73c
+ms.sourcegitcommit: 5ed72d95ae258d6fa8e808cd72ab6e8a665901c9
+ms.openlocfilehash: 4c72a7c7127f2d387926ac2722aeb3f1e5f7c2a6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -39,62 +40,65 @@ DocumentDB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려�
 
 그런 다음 이 문서로 돌아와 SQL 쿼리 자습서로 몇 가지 간단한 JSON 문서 및 SQL 명령을 연습합니다.
 
-## <a name="getting-started-with-sql-commands-in-documentdb"></a>DocumentDB에서 SQL 명령 시작
+## <a id="GettingStarted"></a>DocumentDB에서 SQL 명령 시작
 DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON 문서로 시작하고 몇 개의 단순한 쿼리를 연습하겠습니다. 두 가족에 대한 다음 두 개의 JSON 문서를 고려해 보세요. DocumentDB를 사용하면 스키마나 보조 인덱스를 명시적으로 만들 필요가 없습니다. DocumentDB 컬렉션에 JSON 문서를 삽입한 후 쿼리하면 됩니다. 다음은 Andersen 가족, 부모, 자녀(및 애완 동물), 주소 및 등록 정보에 대한 간단한 JSON 문서입니다. 이 문서에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다. 
 
 **문서**  
 
-    {
-        "id": "AndersenFamily",
-        "lastName": "Andersen",
-        "parents": [
-           { "firstName": "Thomas" },
-           { "firstName": "Mary Kay"}
-        ],
-        "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
-        ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
-        "creationDate": 1431620472,
-        "isRegistered": true
-    }
-
+```JSON
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "parents": [
+     { "firstName": "Thomas" },
+     { "firstName": "Mary Kay"}
+  ],
+  "children": [
+     {
+         "firstName": "Henriette Thaulow", 
+         "gender": "female", 
+         "grade": 5,
+         "pets": [{ "givenName": "Fluffy" }]
+     }
+  ],
+  "address": { "state": "WA", "county": "King", "city": "seattle" },
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
 
 다음은 한 가지 미묘한 차이점이 있는 두 번째 문서입니다. `givenName` 및 `familyName`이 `firstName` 및 `lastName` 대신 사용됩니다.
 
 **문서**  
 
-    {
-        "id": "WakefieldFamily",
-        "parents": [
-            { "familyName": "Wakefield", "givenName": "Robin" },
-            { "familyName": "Miller", "givenName": "Ben" }
-        ],
-        "children": [
-            {
-                "familyName": "Merriam", 
-                "givenName": "Jesse", 
-                "gender": "female", "grade": 1,
-                "pets": [
-                    { "givenName": "Goofy" },
-                    { "givenName": "Shadow" }
-                ]
-            },
-            { 
-                "familyName": "Miller", 
-                 "givenName": "Lisa", 
-                 "gender": "female", 
-                 "grade": 8 }
-        ],
-        "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
-        "creationDate": 1431620462,
-        "isRegistered": false
-    }
-
-
+```json
+{
+  "id": "WakefieldFamily",
+  "parents": [
+      { "familyName": "Wakefield", "givenName": "Robin" },
+      { "familyName": "Miller", "givenName": "Ben" }
+  ],
+  "children": [
+      {
+        "familyName": "Merriam", 
+        "givenName": "Jesse", 
+        "gender": "female", "grade": 1,
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+        ]
+      },
+      { 
+        "familyName": "Miller", 
+         "givenName": "Lisa", 
+         "gender": "female", 
+         "grade": 8 }
+  ],
+  "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+  "creationDate": 1431620462,
+  "isRegistered": false
+}
+```
 
 이제 DocumentDB SQL의 몇 가지 주요 측면을 이해하기 위해 이 데이터에 대해 몇 개의 쿼리를 시도해 보겠습니다. 예를 들어 다음 쿼리는 ID 필드가 `AndersenFamily`와 일치하는 문서를 반환합니다. 쿼리가 `SELECT *`이므로 쿼리의 출력은 전체 JSON 문서입니다.
 
@@ -168,7 +172,7 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
 * DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/) 을 참조하세요.  
 * DocumentDB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
 
-## <a name="documentdb-indexing"></a>DocumentDB 인덱싱
+## <a id="Indexing"></a> DocumentDB 인덱싱
 DocumentDB SQL 구문을 시작하기 전에 DocumentDB의 인덱싱 설계를 살펴보는 것이 좋습니다. 
 
 데이터베이스 인덱스의 목적은 우수한 처리량과 짧은 대기 시간을 제공하는 동시에 다양한 형태와 모양의 쿼리를 최소 리소스 사용(예: CPU, 입출력)으로 처리하는 것입니다. 데이터베이스 쿼리에 올바른 인덱스를 선택하려면 대체로 많은 계획과 실험이 필요합니다. 이 접근 방법은 데이터가 엄격한 스키마를 준수하지 않고 빠르게 발전하는 스키마 없는 데이터베이스에 문제를 제기합니다. 
@@ -183,16 +187,16 @@ DocumentDB SQL 구문을 시작하기 전에 DocumentDB의 인덱싱 설계를 �
 
 컬렉션에 대한 인덱싱 정책을 구성하는 방법을 보여 주는 샘플은 MSDN에서 [DocumentDB 샘플](https://github.com/Azure/azure-documentdb-net) 을 참조하세요. 이제 DocumentDB SQL 구문의 세부 정보를 살펴보겠습니다.
 
-## <a name="basics-of-a-documentdb-sql-query"></a>DocumentDB SQL 쿼리의 기본 사항
+## <a id="Basics"></a>DocumentDB SQL 쿼리의 기본 사항
 ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음 WHERE 절의 필터를 소스에 적용하여 JSON 문서의 하위 집합을 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다.
 
-    SELECT [TOP <top_expression>] <select_list> 
+    SELECT <select_list> 
     [FROM <from_specification>] 
     [WHERE <filter_condition>]
     [ORDER BY <sort_specification]    
 
 
-## <a name="from-clause"></a>FROM 절
+## <a id="FromClause"></a>FROM 절
 쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 `FROM <from_specification>` 절은 선택 사항입니다. 이 절의 목적은 쿼리가 작동해야 하는 데이터 원본을 지정하는 것입니다. 일반적으로 전체 컬렉션이 소스이지만 컬렉션의 하위 집합을 대신 지정할 수 있습니다. 
 
 `SELECT * FROM Families` 와 유사한 쿼리는 전체 Families 컬렉션이 열거할 소스임을 나타냅니다. 컬렉션 이름을 사용하는 대신 특수 식별자 ROOT를 사용하여 컬렉션을 나타낼 수 있습니다. 다음 목록은 쿼리 단위로 적용되는 규칙입니다.
@@ -255,7 +259,7 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
     ]
 
 
-## <a name="where-clause"></a>WHERE 절
+## <a id="WhereClause"></a>WHERE 절
 WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에서 제공하는 JSON 문서가 결과의 일부로 포함되기 위해 충족해야 하는 조건을 지정합니다. JSON 문서가 결과에 고려되려면 지정된 조건이 "true"여야 합니다. WHERE 절은 결과에 포함될 수 있는 소스 문서의 가장 작은 절대 하위 집합을 결정하기 위해 인덱스 계층에서 사용됩니다. 
 
 다음 쿼리는 이름 속성을 포함하고 속성 값이 `AndersenFamily`인 문서를 요청합니다. 이름 속성이 없거나 값이 `AndersenFamily` 와 일치하지 않는 다른 문서는 모두 제외됩니다. 
@@ -566,7 +570,7 @@ IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확�
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary-and-coalesce-operators"></a>3항(?) 및 병합(??) 연산자
+### <a name="ternary--and-coalesce--operators"></a>3항(?) 및 병합(??) 연산자
 3항 및 병합 연산자를 사용하여 널리 사용되는 프로그래밍 언어(예: C# 및 JavaScript)와 유사하게 조건 식을 작성할 수 있습니다. 
 
 3항(?) 연산자는 새로운 JSON 속성을 즉시 생성할 때 매우 간편하게 사용할 수 있습니다. 예를 들어 쿼리를 작성하여 아래에 표시된 대로 Beginner/Intermediate/Advanced와 같이 사람이 읽을 수 있는 형식으로 클래스 수준을 분류할 수 있습니다.
@@ -586,7 +590,7 @@ IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확�
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a name="quoted-property-accessor"></a>따옴표 붙은 속성 접근자
+### <a id="EscapingReservedKeywords"></a>따옴표 붙은 속성 접근자
 따옴표 붙은 속성 연산자 `[]`를 사용하여 속성에 액세스할 수도 있습니다. 예를 들어 `SELECT c.grade` and `SELECT c["grade"]` 와 동일합니다. 이 구문은 공백, 특수 문자가 포함되어 있거나 SQL 키워드 또는 예약어와 동일한 이름을 공유하는 속성을 이스케이프해야 할 때 유용합니다.
 
     SELECT f["lastName"]
@@ -594,7 +598,7 @@ IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확�
     WHERE f["id"] = "AndersenFamily"
 
 
-## <a name="select-clause"></a>SELECT 절
+## <a id="SelectClause"></a>SELECT 절
 SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리에서 검색할 값을 지정합니다. 소스 문서에서 필터링된 하위 집합이 프로젝션 단계로 전달되며, 여기서 전달된 각 입력에 대해 지정한 JSON 값이 검색되고 새 JSON 개체가 생성됩니다. 
 
 다음 예제에서는 일반적인 SELECT 쿼리를 보여 줍니다. 
@@ -617,7 +621,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 
 ### <a name="nested-properties"></a>중첩 속성
-다음 예제에서는 두 개의 중첩된 속성 `f.address.state` 및 `f.address.city`를 프로젝션합니다.
+다음 예제에서는 두 개의 중첩된 속성 `f.address.state` and `f.address.city`와 일치하는 문서를 반환합니다.
 
 **쿼리**
 
@@ -771,7 +775,7 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
       }
     ]
 
-### <a name="value-keyword"></a>VALUE 키워드
+### <a id="ValueKeyword"></a>VALUE 키워드
 **VALUE** 키워드는 JSON 값을 반환하는 방법을 제공합니다. 예를 들어 아래 표시된 쿼리는 `{$1: "Hello World"}` 대신 스칼라 `"Hello World"`를 반환합니다.
 
 **쿼리**
@@ -851,7 +855,7 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
         "isRegistered": true
     }]
 
-### <a name="top-operator"></a>TOP 연산자
+### <a id="TopKeyword"></a>TOP 연산자
 쿼리에서 값의 수를 제한하는 데 TOP 키워드를 사용할 수 있습니다. TOP를 ORDER BY 절과 함께 사용하면 결과 집합이 정렬된 값의 처음 N개로 제한되고 그렇지 않은 경우 정의되지 않은 순서의 처음 N개 결과가 반환됩니다. SELECT 문에서는 항상 TOP 절과 함께 ORDER BY 절을 사용하는 것이 좋습니다. TOP의 영향을 받는 행을 예측 가능하게 나타내는 유일한 방법입니다. 
 
 **쿼리**
@@ -881,8 +885,65 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 
 위에 나와 있는 것처럼 상수 값 또는 매개 변수가 있는 쿼리를 사용하는 변수 값과 함께 TOP를 사용할 수 있습니다. 자세한 내용은 아래의 매개 변수가 있는 쿼리를 참조하세요.
 
-## <a name="order-by-clause"></a>ORDER BY 절
-ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 포함할 수 있습니다. 절은 선택적 ASC/DESC 인수를 포함하여 결과를 검색해야 하는 순서를 지정할 수 있습니다. Order By를 자세히 살펴보려면 [DocumentDB Order By 연습](documentdb-orderby.md)을 참조하세요.
+### <a id="Aggregates"></a>집계 함수
+`SELECT` 절에서 집계를 수행할 수도 있습니다. 집계 함수는 값 집합에서 계산을 수행하고 단일 값을 반환합니다. 예를 들어 다음 쿼리는 컬렉션 내에서 가족 문서의 수를 반환합니다.
+
+**쿼리**
+
+    SELECT COUNT(1) 
+    FROM Families f 
+
+**결과**
+
+    [{
+        "$1": 2
+    }]
+
+`VALUE` 키워드를 사용하여 집계의 스칼라 값을 반환할 수도 있습니다. 예를 들어 다음 쿼리는 단일 숫자로 값의 수를 반환합니다.
+
+**쿼리**
+
+    SELECT VALUE COUNT(1) 
+    FROM Families f 
+
+**결과**
+
+    [ 2 ]
+
+필터와 함께 조합하여 집계를 수행할 수도 있습니다. 예를 들어 다음 쿼리는 워싱턴 주의 주소로 문서 수를 반환합니다.
+
+**쿼리**
+
+    SELECT VALUE COUNT(1) 
+    FROM Families f
+    WHERE f.address.state = "WA" 
+
+**결과**
+
+    [{
+        "$1": 1
+    }]
+
+다음 표는 DocumentDB에서 지원되는 집계 함수 목록을 보여 줍니다. `SUM` 및 `AVG`는 숫자 값에 대해 수행되는 반면 `COUNT`, `MIN` 및 `MAX`는 숫자, 문자열, 부울 및 null에 대해 수행될 수 있습니다. 
+
+| 사용 현황 | 설명 |
+|-------|-------------|
+| 개수 | 식에서 항목 수를 반환합니다. |
+| 합계   | 식에서 모든 값의 합계를 반환합니다. |
+| 최소   | 식에서 최소값을 반환합니다. |
+| 최대   | 식에서 최대값을 반환합니다. |
+| 평균   | 식에서 평균값을 반환합니다. |
+
+배열 반복의 결과에 대해 집계를 수행할 수도 있습니다. 자세한 내용은 [쿼리에서 배열 반복](#Iteration)을 참조하세요.
+
+> [!NOTE]
+> Azure Portal의 쿼리 탐색기를 사용하는 경우 집계 쿼리는 쿼리 페이지에 대해 부분적으로 집계된 결과를 반환할 수 있습니다. SDK는 모든 페이지에 걸쳐 단일 누적 값을 생성합니다. 
+> 
+> 코드를 사용하여 집계 쿼리를 수행하기 위해 .NET SDK 1.12.0, .NET Core SDK 1.1.0 또는 Java SDK 1.9.5 이상이 필요합니다.    
+>
+
+## <a id="OrderByClause"></a>ORDER BY 절
+ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 포함할 수 있습니다. 절은 선택적 ASC/DESC 인수를 포함하여 결과를 검색해야 하는 순서를 지정할 수 있습니다.
 
 예를 들어 상주하는 도시의 이름 순으로 가족을 검색하는 쿼리는 다음과 같습니다.
 
@@ -926,8 +987,9 @@ ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 
       }
     ]
 
-## <a name="advanced-database-concepts-and-sql-queries"></a>고급 데이터베이스 개념 및 SQL 쿼리
-### <a name="iteration"></a>반복
+## <a id="Advanced"></a>고급 데이터베이스 개념 및 SQL 쿼리
+
+### <a id="Iteration"></a>반복
 JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 통해 새 구문을 추가했습니다. FROM 소스에서 반복 지원을 제공합니다. 다음 예제로 시작하겠습니다.
 
 **쿼리**
@@ -1006,7 +1068,22 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
       "givenName": "Lisa"
     }]
 
-### <a name="joins"></a>조인
+배열 반복의 결과에 대해 집계를 수행할 수도 있습니다. 예를 들어 다음 쿼리는 모든 가족 간의 자식 수를 계산합니다.
+
+**쿼리**
+
+    SELECT COUNT(child) 
+    FROM child IN Families.children
+
+**결과**  
+
+    [
+      { 
+        "$1": 3
+      }
+    ]
+
+### <a id="Joins"></a>조인
 관계형 데이터베이스에서는 테이블 간 조인 요구가 매우 중요합니다. 이는 정규화된 스키마 설계의 필연적인 논리적 결과입니다. 이와 반대로 DocumentDB는 스키마 없는 문서의 비정규화된 데이터 모델을 처리합니다. 이는 논리적으로 "자체 조인"과 동등합니다.
 
 언어가 지원하는 구문은 <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>입니다. 대체로 이 구문은 **N** 튜플(**N**개 값이 포함된 튜플) 집합을 반환합니다. 각 튜플은 해당 집합에 모든 컬렉션 별칭을 반복하여 생성된 값을 포함합니다. 즉, 조인에 참여하는 집합의 전체 교차곱입니다.
@@ -1128,7 +1205,7 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
         }
     }
 
-`AndersenFamily`에는 애완 동물 한 마리를 키우는 자식 한 명이 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1*1*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1*1*2 = 2개의 행을 생성합니다.
+`AndersenFamily`에는 애완 동물 한 마리를 키우는 자식 한 명이 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1*1*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그 중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1*1*2 = 2개의 행을 생성합니다.
 
 다음 예제에서는 `pet`에 대한 추가 필터가 있습니다. 이 필터는 애완 동물 이름이 "Shadow"가 아닌 튜플을 모두 제외합니다. 배열에서 튜플을 작성하고, 튜플 요소를 필터링한 다음 요소 조합을 프로젝션할 수 있습니다. 
 
@@ -1155,14 +1232,14 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
     ]
 
 
-## <a name="javascript-integration"></a>JavaScript 통합
+## <a id="JavaScriptIntegration"></a>JavaScript 통합
 DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해 직접 JavaScript 기반 응용 프로그램 논리를 실행하기 위한 프로그래밍 모델을 제공합니다. 이 경우 다음 두 가지 기능을 모두 사용할 수 있습니다.
 
 * 데이터베이스 엔진 내에 직접 JavaScript 런타임이 전체 통합되므로 컬렉션의 문서에 대해 고성능 트랜잭션 CRUD 작업 및 쿼리를 수행할 수 있습니다. 
 * 데이터베이스 트랜잭션을 사용하여 제어 흐름, 변수 범위 지정 및 예외 처리 기본 형식의 할당과 통합을 기본적으로 모델링할 수 있습니다. DocumentDB의 JavaScript 통합 지원에 대한 자세한 내용은 JavaScript 서버 쪽 프로그래밍 기능 설명서를 참조하세요.
 
-### <a name="user-defined-functions-udfs"></a>UDF(사용자 정의 함수)
-이 문서에 이미 정의되어 있는 형식과 더불어 DocumentDB SQL 사용자 정의 함수(UDF)를 지원합니다. 특히 개발자가 0개 또는 많은 인수를 전달하고 단일 인수 결과를 반환할 수 있는 스칼라 UDF가 지원됩니다. 이러한 각 인수가 유효한 JSON 값인지 확인됩니다.  
+### <a id="UserDefinedFunctions"></a>UDF(사용자 정의 함수)
+이 문서에 이미 정의되어 있는 형식과 더불어 DocumentDB SQL 사용자 정의 함수(UDF)를 지원합니다. 특히 개발자가&0;개 또는 많은 인수를 전달하고 단일 인수 결과를 반환할 수 있는 스칼라 UDF가 지원됩니다. 이러한 각 인수가 유효한 JSON 값인지 확인됩니다.  
 
 이러한 사용자 정의 함수를 사용한 사용자 지정 응용 프로그램 논리를 지원하기 위해 DocumentDB SQL 구문이 확장됩니다. UDF를 DocumentDB에 등록한 다음 SQL 쿼리의 일부로 참조할 수 있습니다. 실제로 UDF는 쿼리에서 호출되도록 설계되었습니다. 이 선택의 필연적인 결과로 UDF는 다른 JavaScript 형식(저장 프로시저 및 트리거)과 달리 컨텍스트 개체에 액세스할 수 없습니다. 쿼리는 읽기 전용으로 실행되므로 주 복제본 또는 보조 복제본에서 실행될 수 있습니다. 따라서 UDF는 다른 JavaScript 형식과 달리 보조 복제본에서 실행되도록 설계되었습니다.
 
@@ -1310,7 +1387,7 @@ DocumentDB는 익숙한 @ 표기법으로 표현된 매개 변수가 있는 쿼�
 
 매개 변수 값은 유효한 모든 JSON(문자열, 숫자, 부울, null, 짝수 배열 또는 중첩된 JSON)일 수 있습니다. 또한 DocumentDB는 스키마가 없으므로 모든 형식에 대해 매개 변수의 유효성이 검사되지 않습니다.
 
-## <a name="built-in-functions"></a>기본 제공 함수
+## <a id="BuiltinFunctions"></a>기본 제공 함수
 DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지원하며, UDF(사용자 정의 함수)처럼 쿼리 내에서 이러한 함수를 사용할 수 있습니다.
 
 | 함수 그룹          | 작업                                                                                                                                          |
@@ -1319,7 +1396,7 @@ DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지�
 | 형식 검사 함수 | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED 및 IS_PRIMITIVE                                                           |
 | 문자열 함수        | CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING 및 UPPER       |
 | 배열 함수         | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH 및 ARRAY_SLICE                                                                                         |
-|  공간 함수      | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID 및 ST_ISVALIDDETAILED                                                                           | 
+| 공간 함수       | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID 및 ST_ISVALIDDETAILED                                                                           | 
 
 현재 기본 제공 함수가 제공되는 UDF(사용자 정의 함수)를 사용 중인 경우 더 빨리 실행되고 더 효율적이므로 해당하는 기본 제공 함수를 사용해야 합니다. 
 
@@ -1428,7 +1505,7 @@ DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데
 | [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |문자열 식의 일부를 반환합니다. |
 | [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다. |
 | [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다. |
-| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |첫번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다. |
+| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |첫 번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다. |
 | [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |지정된 첫 번째 문자열 식 내의 두 번째 문자열 식에서 첫 번째로 나타나는 시작 위치를 반환하거나 문자열을 찾을 수 없는 경우 -1을 반환합니다. |
 | [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |지정된 수의 문자로 문자열의 왼쪽 부분을 반환합니다. |
 | [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |지정된 수의 문자로 문자열의 오른쪽 부분을 반환합니다. |
@@ -1489,7 +1566,7 @@ DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데
     }]
 
 ### <a name="array-functions"></a>배열 함수
-다음 스칼라 함수는 배열 입력 값에 대해 작업을 수행하고  숫자, 부울, 또는 배열 값을 반환합니다. 기본 제공 배열 함수의 테이블은 다음과 같습니다.
+다음 스칼라 함수는 배열 입력 값에 대해 작업을 수행하고 숫자, 부울, 또는 배열 값을 반환합니다. 기본 제공 배열 함수의 테이블은 다음과 같습니다.
 
 | 사용 현황 | 설명 |
 | --- | --- |
@@ -1576,7 +1653,7 @@ DocumentDB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatia
 
 DocumentDB의 지리 공간 지원에 대한 자세한 내용은 [Azure DocumentDB에서 지리 공간 데이터 작업](documentdb-geospatial.md)을 참조하세요. 공간 함수 및 DocumentDB에 대한 SQL 구문을 래핑합니다. 이제 지금까지 나타난 LINQ 쿼리 작동 방법 및 구문 조작 방법을 살펴봤습니다.
 
-## <a name="linq-to-documentdb-sql"></a>LINQ to DocumentDB SQL
+## <a id="Linq"></a>LINQ to DocumentDB SQL
 LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로그래밍 모델입니다. DocumentDB는 JSON 및 .NET 개체 간의 변환과 LINQ 쿼리 하위 집합에서 DocumentDB 쿼리로의 매핑을 용이하게 하여 LINQ와 인터페이스할 클라이언트 쪽 라이브러리를 제공합니다. 
 
 아래 그림은 DocumentDB를 사용한 LINQ 쿼리를 지원하는 아키텍처를 보여 줍니다.  개발자는 DocumentDB 클라이언트를 사용하여 쿼리를 DocumentDB 쿼리 공급자로 보내는 **IQueryable** 개체를 만들 수 있습니다. 쿼리 공급자가 LINQ 쿼리를 DocumentDB 쿼리로 변환합니다. 그런 다음 JSON 형식으로 결과 집합을 검색하기 위해 쿼리가 DocumentDB 서버로 전달됩니다. 반환된 결과는 클라이언트 쪽에서 .NET 개체 스트림으로 역직렬화됩니다.
@@ -1685,7 +1762,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
      new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //an anonymous type with 2 fields              
      new int[] { 3, child.grade, 5 };
 
-### <a name="list-of-supported-linq-operators"></a>지원되는 LINQ 연산자 목록
+### <a id="SupportedLinqOperators"></a>지원되는 LINQ 연산자 목록
 다음은 DocumentDB .NET SDK에 포함된 LINQ 공급자에서 지원되는 LINQ 연산자의 목록입니다.
 
 * **Select**: 프로젝션이 개체 생성을 포함하는 SQL SELECT로 변환합니다.
@@ -1700,6 +1777,11 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 * **지리 공간 확장 함수**: 스텁 메서드 Distance, Within, IsValid 및 IsValidDetailed에서 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
 * **사용자 정의 함수 확장 함수**: 스텁 메서드 UserDefinedFunctionProvider.Invoke에서 해당하는 사용자 정의 함수로의 변환을 지원합니다.
 * **기타**: coalesce 및 조건부 연산자의 변환을 지원합니다. 컨텍스트에 따라 Contains는 문자열 CONTAINS, ARRAY_CONTAINS 또는 SQL IN으로 변환할 수 있습니다.
+
+> [!NOTE]
+> 집계 연산자 **Count, Sum, Min, Max 및 Average**는 현재 지원되지 않지만 이후 버전의 SDK에서 사용할 수 있습니다.  
+> 
+> 
 
 ### <a name="sql-query-operators"></a>SQL 쿼리 연산자
 다음은 표준 LINQ 쿼리 연산자 중 일부가 DocumentDB 쿼리로 변환되는 방법을 보여 주는 몇 가지 예제입니다.
@@ -1892,12 +1974,12 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
     WHERE c.familyName = f.parents[0].familyName
 
 
-## <a name="executing-sql-queries"></a>SQL 쿼리 실행
+## <a id="ExecutingSqlQueries"></a>SQL 쿼리 실행
 DocumentDB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 REST API를 통해 리소스를 노출합니다. 또한 DocumentDB는 .NET, Node.js, JavaScript, Python 등 많이 사용되는 몇 개의 언어를 위한 프로그래밍 라이브러리를 제공합니다. REST API 및 다양한 라이브러리가 모두 SQL을 통한 쿼리를 지원합니다. .NET SDK는 SQL뿐 아니라 LINQ 쿼리도 지원합니다.
 
 다음 예제에서는 쿼리를 만들고 DocumentDB 데이터베이스 계정에 대해 제출하는 방법을 보여 줍니다.
 
-### <a name="rest-api"></a>REST API
+### <a id="RestAPI"></a>REST API
 DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공합니다. Azure 구독을 사용하여 데이터베이스 계정을 프로비전할 수 있습니다. DocumentDB 리소스 모델은 단일 데이터베이스 계정 아래에 있고 각각 논리적이고 안정적인 URI를 사용하여 주소 지정할 수 있는 리소스 집합으로 구성됩니다. 이 문서에서는 리소스 집합을 피드라고 합니다. 데이터베이스 계정은 각각 여러 컬렉션을 포함하는 데이터베이스 집합으로 구성되고, 각 컬렉션에는 문서, UDF 및 기타 리소스 유형이 포함됩니다.
 
 이러한 리소스를 사용한 기본 조작 모델은 HTTP 동사인 GET, PUT, POST 및 DELETE와 표준 해석을 활용합니다. POST 동사는 새 리소스를 만들거나 저장 프로시저를 실행하거나 DocumentDB 쿼리를 실행하는 데 사용됩니다. 쿼리는 항상 파생 작업이 없는 읽기 전용 작업입니다.
@@ -2024,13 +2106,13 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
     }
 
 
-쿼리 결과가 단일 결과 페이지에 모두 들어가지 않는 경우 REST API에서 `x-ms-continuation-token` 응답 헤더를 통해 연속 토큰을 반환합니다. 클라이언트는 후속 결과에 헤더를 포함하여 결과에 페이지를 매길 수 있습니다. `x-ms-max-item-count` 숫자 헤더를 통해 페이지당 결과 수를 제어할 수도 있습니다.
+쿼리 결과가 단일 결과 페이지에 모두 들어가지 않는 경우 REST API에서 `x-ms-continuation-token` 응답 헤더를 통해 연속 토큰을 반환합니다. 클라이언트는 후속 결과에 헤더를 포함하여 결과에 페이지를 매길 수 있습니다. `x-ms-max-item-count` 숫자 헤더를 통해 페이지당 결과 수를 제어할 수도 있습니다. 지정된 쿼리에 `COUNT`와 같은 집계 함수가 있는 경우 쿼리 페이지는 결과 페이지에 대해 부분적으로 집계된 값을 반환할 수 있습니다. 클라이언트는 최종 결과(예: 총 개수를 반환하는 개별 페이지에서 반환된 개수에 대한 합계)를 생성하는 이러한 결과에 대해 두 번째 수준 집계를 수행해야 합니다.
 
 쿼리에 대한 데이터 일관성 정책을 관리하려면 모든 REST API 요청처럼 `x-ms-consistency-level` 헤더를 사용합니다. 세션 일관성을 사용하려면 쿼리 요청에 최신 `x-ms-session-token` 쿠키 헤더도 에코해야 합니다. 쿼리된 컬렉션의 인덱싱 정책이 쿼리 결과의 일관성에 영향을 줄 수도 있습니다. 컬렉션에 기본 인덱싱 정책 설정을 사용할 경우 인덱스가 항상 문서 콘텐츠로 최신 상태를 유지하며 쿼리 결과가 데이터에 대해 선택한 일관성과 일치합니다. 인덱싱 정책을 지연으로 완화하면 쿼리에서 오래된 결과가 반환될 수 있습니다. 자세한 내용은 [DocumentDB 일관성 수준][consistency-levels]을 참조하세요.
 
 컬렉션에 구성된 인덱싱 정책이 지정된 쿼리를 지원할 수 없는 경우 DocumentDB 서버에서 400 "잘못된 요청"이 반환됩니다. 해시(같음) 조회에 구성된 경로 및 인덱싱에서 명시적으로 제외된 경로의 범위 쿼리에 대해 반환됩니다. 인덱스를 사용할 수 없는 경우 쿼리에서 스캔을 수행할 수 있도록 `x-ms-documentdb-query-enable-scan` 헤더를 지정할 수 있습니다.
 
-### <a name="c-net-sdk"></a>C#(.NET) SDK
+### <a id="DotNetSdk"></a>C#(.NET) SDK
 .NET SDK는 LINQ 및 SQL 쿼리를 둘 다 지원합니다. 다음 예제에서는 이 문서의 앞부분에서 소개한 단순한 필터 쿼리를 수행하는 방법을 보여 줍니다.
 
     foreach (var family in client.CreateDocumentQuery(collectionLink, 
@@ -2121,7 +2203,11 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 쿼리가 포함된 추가 샘플은 [DocumentDB .NET 샘플](https://github.com/Azure/azure-documentdb-net) 을 참조하세요. 
 
-### <a name="javascript-server-side-api"></a>JavaScript 서버 쪽 API
+> [!NOTE]
+> 집계 쿼리를 수행하려면 SDK 1.12.0 이상이 필요합니다. 집계 함수에 대한 LINQ는 지원되지 않지만 .NET SDK 1.13.0에서 사용할 수 있습니다.
+>
+
+### <a id="JavaScriptServerSideApi"></a>JavaScript 서버 쪽 API
 DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대해 직접 JavaScript 기반 응용 프로그램 논리를 실행하기 위한 프로그래밍 모델을 제공합니다. 그런 다음 컬렉션 수준에서 등록된 JavaScript 논리가 지정된 컬렉션의 문서에 대해 데이터베이스 작업을 실행할 수 있습니다. 해당 작업은 앰비언트 ACID 트랜잭션에 래핑됩니다.
 
 다음 예제에서는 JavaScript 서버 API에서 queryDocuments를 사용하여 저장 프로시저와 트리거 내부에서 쿼리를 수행하는 방법을 보여 줍니다.
@@ -2156,19 +2242,7 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
             });
     }
 
-## <a name="aggregate-functions"></a>집계 함수
-집계 함수에 대한 네이티브 지원이 진행 중이지만 그 동안 카운트 또는 합계 기능이 필요한 경우 다른 방법으로 동일한 결과를 달성할 수 있습니다.  
-
-읽기 경로에서:
-
-* 데이터를 검색하고 로컬로 카운트를 수행하여 집계 함수를 수행할 수 있습니다. `SELECT * FROM c`와 같은 전체 문서 대신 `SELECT VALUE 1`과 같은 저렴한 쿼리 프로젝션을 사용하는 것이 좋습니다. 이렇게 하면 각 결과 페이지에서 처리되는 문서 수를 최대화할 수 있으므로 필요한 경우 서비스에 대한 추가 왕복을 피할 수 있습니다.
-* 또한 저장 프로시저를 사용하여 반복된 왕복에서 네트워크 대기 시간을 최소화할 수 있습니다. 지정된 필터 쿼리에 대한 카운트를 계산하는 저장 프로시저 샘플은 [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js)를 참조하세요. 저장 프로시저를 통해 사용자는 다양한 비즈니스 논리를 집계 작업과 함께 효율적으로 결합할 수 있습니다.
-
-쓰기 경로에서:
-
-* 다른 일반적인 패턴은 "쓰기 경로"에서 결과를 미리 집계하는 것입니다. 이 방법은 "읽기" 요청의 볼륨이 "쓰기" 요청의 볼륨보다 높은 경우 특히 유용합니다. 미리 집계되었으면 단일 지점 읽기 요청으로 결과를 사용할 수 있습니다.  DocumentDB에서 미리 집계를 수행하는 가장 좋은 방법은 각 "쓰기"로 호출되는 트리거를 설정하고 구체화되는 쿼리에 대해 최신 결과를 포함하는 메타데이터 문서를 업데이트하는 것입니다. 예를 들어 [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js) 샘플을 살펴보세요. 여기서는 컬렉션에 대한 메타데이터 문서의 minSize, maxSize 및 totalSize를 업데이트합니다. 카운터, 합계 등을 업데이트하도록 샘플을 확장할 수 있습니다.
-
-## <a name="references"></a>참조
+## <a id="References"></a>참조
 1. [Azure DocumentDB 소개][introduction]
 2. [DocumentDB SQL 사양](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
@@ -2186,10 +2260,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: documentdb-introduction.md
 [consistency-levels]: documentdb-consistency-levels.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

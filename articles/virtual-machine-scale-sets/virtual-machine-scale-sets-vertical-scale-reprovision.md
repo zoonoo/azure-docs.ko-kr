@@ -16,13 +16,14 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 4533b446f661568d0e70a23bb64880022038bb9a
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 9159a5a9041864fe06785829121233379c46bb03
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>가상 컴퓨터 규모 집합을 사용하여 수직 자동 규모 조정
-이 문서에서는 다시 프로비저닝을 사용하거나 사용하지 않고 Azure [가상 컴퓨터 규모 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/) 을 수직으로 확장하는 방법을 설명합니다. 규모 집합에 있지 않은 VM의 수직 규모 조정에 대해서는 [Azure 자동화를 사용하여 Azure 가상 컴퓨터를 수직으로 확장](../virtual-machines/virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+이 문서에서는 다시 프로비저닝을 사용하거나 사용하지 않고 Azure [가상 컴퓨터 규모 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/) 을 수직으로 확장하는 방법을 설명합니다. 규모 집합에 있지 않은 VM의 수직 규모 조정에 대해서는 [Azure 자동화를 사용하여 Azure 가상 컴퓨터를 수직으로 확장](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 일명 *강화* 및 *규모 축소*라고도 하는 수직 규모 조정이란 워크로드에 따라 가상 컴퓨터(VM) 규모를 늘리거나 줄이는 것을 의미합니다. 이 작업을 가상 컴퓨터 수가 워크로드에 따라 변경되는 일명 *규모 확장* 및 *규모 감축*이라고도 하는 [수평 규모 조정](virtual-machine-scale-sets-autoscale-overview.md)과 비교해 보십시오.
 
@@ -126,9 +127,4 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

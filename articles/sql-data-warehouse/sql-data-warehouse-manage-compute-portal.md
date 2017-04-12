@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: manage
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: c1c23ab46d9b4e43154a62080cb8865b246489f9
-ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
+ms.sourcegitcommit: f9814fc0011153a25489d60d696bb567edfcebc4
+ms.openlocfilehash: a86b041424ce1757fd45c7a39350f4c4e66ee265
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -30,22 +32,13 @@ ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
 >
 >
 
-워크로드의 변화하는 요구를 충족시키도록 계산 리소스와 메모리를 확장하여 크기 조정을 실시합니다. 사용량이 많지 않은 시간 동안 리소스를 다시 조정하거나 계산 전체를 일시 중지하여 비용을 절감합니다.
-
-이 작업 컬렉션은 Azure 포털을 사용하여 다음을 수행합니다.
-
-* 계산 조정
-* 계산 일시 중지
-* 계산 다시 시작
-
-자세한 내용은 [계산 관리 개요][계산 관리 개요]를 참조하세요.
 
 ## <a name="scale-compute-power"></a>계산 능력 크기 조정
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
 계산 리소스를 변경하려면
 
-1. [Azure 포털][Azure 포털]을 열고 데이터베이스를 연 다음 **조정**을 클릭합니다.
+1. [Azure Portal][Azure portal]을 열고 데이터베이스를 연 다음 **크기 조정**을 클릭합니다.
 
     ![크기 조정을 클릭합니다.][1]
 2. 확장 블레이드에서 슬라이더를 왼쪽 또는 오른쪽으로 이동해 DWU 설정을 변경합니다.
@@ -62,7 +55,7 @@ ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
 
 데이터베이스를 일시 중지하려면
 
-1. [Azure 포털][Azure 포털]을 열고 데이터베이스를 엽니다. 상태가 **온라인**입니다.
+1. [Azure Portal][Azure portal]을 열고 데이터베이스를 엽니다. 상태가 **온라인**입니다.
 
     ![온라인 상태][6]
 2. 계산과 메모리 리소스를 일시 중지하기 위해 **일시 중지**를 클릭하면 확인 메시지가 나타납니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
@@ -80,7 +73,7 @@ ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
 
 데이터베이스를 다시 시작하려면
 
-1. [Azure 포털][Azure 포털]을 열고 데이터베이스를 엽니다. 상태가 **일시 중지됨**입니다.
+1. [Azure Portal][Azure portal]을 열고 데이터베이스를 엽니다. 상태가 **일시 중지됨**입니다.
 
     ![데이터베이스 일시 중지][4]
 2. 데이터베이스를 다시 시작하기 위해 **시작**을 클릭하면 확인 메시지가 나타납니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
@@ -94,7 +87,7 @@ ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [관리 개요][관리 개요]를 참조하세요.
+자세한 내용은 [관리 개요][Management overview]를 참조하세요.
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
@@ -106,18 +99,13 @@ ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
 [7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
 
 <!--Article references-->
-[관리 개요]: ./sql-data-warehouse-overview-manage.md
-[계산 관리 개요]: ./sql-data-warehouse-manage-compute-overview.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-[Azure 포털]: http://portal.azure.com/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Azure portal]: http://portal.azure.com/
 

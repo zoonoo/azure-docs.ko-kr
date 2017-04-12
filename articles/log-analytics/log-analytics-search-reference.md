@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics 검색 참조 | Microsoft Docs"
+title: "Azure Log Analytics 검색 참조 | Microsoft Docs"
 description: "Log Analytics 검색 참조는 검색 언어에 대해 설명하며 데이터를 검색하고 검색 결과를 좁히기 위한 식을 필터링할 때 사용할 수 있는 일반 쿼리 구문 옵션을 제공합니다."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b7c13d4b4e205fda1e5ba44fbf5eb50a96601d2e
-ms.openlocfilehash: 113dd20f1a5ac42eb7155d693f66053adea57078
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: a294ef357ea3c656e4e6392e89ad1d90b829e2cb
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -77,7 +79,7 @@ system error | sort ManagementGroupName, TimeGenerated desc | top 10
 These all are string literals
 ```
 
-이 쿼리는 발생하는 5개 단어를 모두 포함하는 결과를 검색합니다. 복잡한 문자열 검색을 수행하려면 다음과 같이 문자열 리터럴을 큰따옴표로 묶습니다.
+이 쿼리는 발생하는&5;개 단어를 모두 포함하는 결과를 검색합니다. 복잡한 문자열 검색을 수행하려면 다음과 같이 문자열 리터럴을 큰따옴표로 묶습니다.
 
 ```
 " Windows Server"
@@ -86,7 +88,7 @@ These all are string literals
 "Windows Server"와 정확히 일치하는 결과를 반환합니다.
 
 ### <a name="numbers"></a>숫자
-파서는 숫자 필드에 10 진수 정수 및 부동 소수점 수 구문을 지원합니다.
+파서는 숫자 필드에&10; 진수 정수 및 부동 소수점 수 구문을 지원합니다.
 
 예제:
 
@@ -254,7 +256,7 @@ SampleValue:[0..2]
 ```
 
 ### <a name="regular-expressions"></a>정규식
-Regex 키워드를 사용하여 정규식을 포함한 필드에 대한 검색 조건을 지정할 수 있습니다.
+Regex 키워드를 사용하여 정규식을 포함한 필드에 대한 검색 조건을 지정할 수 있습니다.  정규식에 사용할 수 있는 구문에 대한 전체 설명을 보려면 [정규식을 사용하여 Log Analytics에서 로그 검색 필터링](log-analytics-log-searches-regex.md)을 참조하세요.
 
 **구문**
 
@@ -298,7 +300,7 @@ Type:Alert AND NOT(Severity:1 OR ObjectId:"8066bbc0-9ec8-ca83-1edc-6f30d4779bcb8
 | 시스템 "Windows Server" OR 심각도:1 |시스템 AND ("Windows Server" OR 심각도:1) |
 
 ### <a name="wildcarding"></a>와일드 카드 사용
-쿼리 언어는 쿼리의 값에 대해 하나 이상의 문자를 나타내는 (*\*) 문자 사용을 지원합니다.
+쿼리 언어는 쿼리의 값에 대해 하나 이상의 문자를 나타내는 (\*) 문자 사용을 지원합니다.
 
 예제:
 
@@ -367,7 +369,7 @@ Type=Event Computer=*SQL*
 
     Type:Alert errors detected | select Name, Severity
 
-이름 and 심각도에서 데이터와 유사한 범주를 dill-into하는 검색 및 패싯을 반환하는 필드에 대해 알 수 있습니다.
+*이름* and *심각도*에서 데이터와 유사한 범주를 dill-into하는 검색 및 패싯을 반환하는 필드에 대해 알 수 있습니다.
 
 ### <a name="measure"></a>측정값
 *측정값* 명령은 통계 함수를 원시 검색 결과에 적용하는 데 사용됩니다. 이 명령은 데이터에서 *group-by* 보기를 가져오는 데 매우 유용합니다. *measure* 명령을 사용하는 경우 Log Analytics 검색은 집계된 결과가 포함된 테이블을 표시합니다.
@@ -499,7 +501,7 @@ Computer별로 성능을 그룹화하고 CounterName을 기준으로 그룹화�
 
 *설명*
 
-경고의 최대 수와 상위 5개 워크플로를 가져옵니다.
+경고의 최대 수와 상위&5;개 워크플로를 가져옵니다.
 
 **예제 14**
 
@@ -581,7 +583,29 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | me
     Type:Perf CounterName:"% Total Run Time" | Measure max(CounterValue) by Computer | where (AggregatedValue>50 and AggregatedValue<90)
 
 ### <a name="in"></a>IN
-구문
+**IN** 키워드를 사용하여 값 목록에서 항목을 선택할 수 있습니다.  사용하는 구문에 따라 사용자가 제공한 간단한 값 목록이거나 집계 값 목록일 수 있습니다.
+
+구문 1:
+
+```
+field IN {value1,value2,value3,...}
+```
+
+설명: 이 구문을 통해 간단한 목록에 모든 값을 포함할 수 있습니다
+
+
+
+예제:
+
+```
+EventID IN {1201,1204,1210}
+```
+
+```
+Computer IN {"srv01.contoso.com","srv02.contoso.com"}
+```
+
+구문 2:
 
 ```
 (Outer Query) (Field to use with inner query results) IN {Inner query | measure count() by (Field to send to outer query)} (rest  of outer query)  
@@ -810,9 +834,4 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | Ex
 
 * [로그 검색](log-analytics-log-searches.md) 을 숙지하여 솔루션에서 수집한 자세한 정보를 확인합니다.
 * [Log Analytics의 사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 로그 검색을 확장합니다.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

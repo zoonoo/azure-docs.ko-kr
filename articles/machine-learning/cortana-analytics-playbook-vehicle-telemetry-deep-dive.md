@@ -1,5 +1,5 @@
 ---
-title: "차량 원격 분석 솔루션 플레이 북: 솔루션에 대한 심층 분석 | Microsoft Docs"
+title: "차량 상태 및 주행 습관 심층 예측 - Azure | Microsoft Docs"
 description: "Cortana Intelligence의 기능을 사용하여 차량 상태 및 주행 습관에 대한 예측 가능한 통찰력 및 실시간 정보를 얻습니다."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 94fba9a2aeaebc460a513928ab76ee63c0da7cc8
-ms.openlocfilehash: 12f16b8cd7d7a4101d423aff737498251d8a5d26
+ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
+ms.openlocfilehash: 898b93ad95ab812b8b6a538048a86a8cc8951101
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -55,12 +56,12 @@ ms.openlocfilehash: 12f16b8cd7d7a4101d423aff737498251d8a5d26
 | Parking_brake_status |차량이 주차되었는지 여부를 나타냅니다. |True 또는 False |
 | Headlamp_status |헤드 램프가 켜져 있는지 여부를 나타냅니다. |True 또는 False |
 | Brake_pedal_status |브레이크 페달을 눌렀는지 여부를 나타냅니다. |True 또는 False |
-| Transmission_gear_position |차량의 트랜스미션 기어 위치 |상태: 1단, 2단, 3단, 4단, 5단, 6단, 7단, 8단 |
+| Transmission_gear_position |차량의 트랜스미션 기어 위치 |상태:&1;단,&2;단,&3;단,&4;단,&5;단,&6;단,&7;단,&8;단 |
 | Ignition_status |차량이 운행 중인지 정지 상태인지를 나타냅니다. |True 또는 False |
 | Windshield_wiper_status |방풍 와이퍼의 설정 여부를 나타냅니다. |True 또는 False |
 | ABS |ABS의 작동 여부를 나타냅니다. |True 또는 False |
 | Timestamp |데이터 요소가 생성된 타임스탬프 |Date |
-| City |차량의 위치 |이 솔루션의 경우 4개 도시: 벨뷰, 레드몬드, 사마미시, 시애틀 |
+| City |차량의 위치 |이 솔루션의 경우&4;개 도시: 벨뷰, 레드몬드, 사마미시, 시애틀 |
 
 차량 모델 참조 데이터 집합에는 모델 매핑에 대한 VIN이 포함되어 있습니다. 
 
@@ -136,7 +137,7 @@ Stream Analytics 작업
 *그림 6 - 데이터 수집을 위한 Stream Analytics 작업 쿼리*
 
 ### <a name="batch-analysis"></a>일괄 분석
-또한 더욱 충분한 일괄 분석을 위해 시뮬레이션된 차량 신호와 진단 데이터 집합의 추가 볼륨을 생성합니다. 이 작업은 일괄 처리에 적합한 대표 데이터 볼륨을 보장하는 데 필요합니다. 이 작업을 위해 1년 분량의 시뮬레이션된 차량 신호 및 진단 데이터 집합을 생성하기 위해 Azure Data Factory 워크플로에서 "PrepareSampleDataPipeline"이라는 파이프라인을 사용합니다. 요구 사항에 따라 사용자 지정할 데이터 팩터리 사용자 지정 DotNet Activity Visual Studio 솔루션을 다운로드하려면 [데이터 팩터리 사용자 지정 작업](http://go.microsoft.com/fwlink/?LinkId=717077) 을 클릭하세요. 
+또한 더욱 충분한 일괄 분석을 위해 시뮬레이션된 차량 신호와 진단 데이터 집합의 추가 볼륨을 생성합니다. 이 작업은 일괄 처리에 적합한 대표 데이터 볼륨을 보장하는 데 필요합니다. 이 작업을 위해&1;년 분량의 시뮬레이션된 차량 신호 및 진단 데이터 집합을 생성하기 위해 Azure Data Factory 워크플로에서 "PrepareSampleDataPipeline"이라는 파이프라인을 사용합니다. 요구 사항에 따라 사용자 지정할 데이터 팩터리 사용자 지정 DotNet Activity Visual Studio 솔루션을 다운로드하려면 [데이터 팩터리 사용자 지정 작업](http://go.microsoft.com/fwlink/?LinkId=717077) 을 클릭하세요. 
 
 ![일괄 처리 워크플로를 위한 샘플 데이터 준비](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
 
@@ -148,7 +149,7 @@ Stream Analytics 작업
 
 *그림 8 - PrepareSampleDataPipeline*
 
-파이프라인이 성공적으로 실행되고 "RawCarEventsTable" 데이터 집합이 "Ready"로 표시되면 1년 분량의 시뮬레이션된 차량 신호 및 진단 데이터가 생성됩니다. 다음 폴더와 "connectedcar" 컨테이너 아래 저장소 계정에 생성된 파일을 볼 수 있습니다.
+파이프라인이 성공적으로 실행되고 "RawCarEventsTable" 데이터 집합이 "Ready"로 표시되면&1;년 분량의 시뮬레이션된 차량 신호 및 진단 데이터가 생성됩니다. 다음 폴더와 "connectedcar" 컨테이너 아래 저장소 계정에 생성된 파일을 볼 수 있습니다.
 
 ![PrepareSampleDataPipeline 출력](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig9-vehicle-telematics-prepare-sample-data-pipeline-output.png) 
 
@@ -340,7 +341,7 @@ Stream Analytics 작업
 ### <a name="machine-learning"></a>기계 학습
 특정 상태 통계를 기반으로 유지 관리 또는 회수가 필요한 차량을 예측하는 것을 목표로 합니다. 다음을 가정합니다.
 
-* 다음의 3가지 조건 중 하나에 해당되는 경우 차량은 **유지 관리 서비스**가 필요합니다.
+* 다음의&3;가지 조건 중 하나에 해당되는 경우 차량은 **유지 관리 서비스**가 필요합니다.
   
   * 타이어 압력이 낮음
   * 엔진 오일 수준이 낮음
@@ -354,7 +355,7 @@ Stream Analytics 작업
 
 **유지 관리 감지 모델**
 
-3가지 표시기(타이어 압력, 엔진 오일 또는 엔진 온도) 중 하나가 해당 조건을 충족하는 경우 유지 관리 감지 모델이 이상을 보고합니다. 따라서 모델을 빌드할 때 이 3가지 변수만 고려하면 됩니다. Azure Machine Learning 실험에서는 먼저 **Select Columns in Dataset** 모듈을 사용하여 이러한 세 변수를 추출합니다. 다음으로, PCA 기반 이상 감지 모듈을 사용하여 이상 감지 모델을 빌드합니다. 
+3가지 표시기(타이어 압력, 엔진 오일 또는 엔진 온도) 중 하나가 해당 조건을 충족하는 경우 유지 관리 감지 모델이 이상을 보고합니다. 따라서 모델을 빌드할 때 이&3;가지 변수만 고려하면 됩니다. Azure Machine Learning 실험에서는 먼저 **Select Columns in Dataset** 모듈을 사용하여 이러한 세 변수를 추출합니다. 다음으로, PCA 기반 이상 감지 모듈을 사용하여 이상 감지 모델을 빌드합니다. 
 
 PCA(주성분 분석)는 기능 선택, 분류 및 이상 감지에 적용할 수 있는 기계 학습에 설정된 기술입니다. PCA는 가능하면 상관된 변수가 포함된 사례 집합을 주성분이라는 값 집합으로 변환합니다. PCA 기반 모델링의 핵심 아이디어는 데이터를 하위 차원 공간으로 표현하여 해당 기능 및 이상을 보다 쉽게 식별할 수 있도록 하는 것입니다.
 
@@ -362,7 +363,7 @@ PCA(주성분 분석)는 기능 선택, 분류 및 이상 감지에 적용할 �
 
 유지 관리 감지 문제에서 각 레코드를 타이어 압력, 엔진 오일 및 엔진 온도 좌표로 정의된 3차원 공간의 점으로 간주할 수 있습니다. 이러한 이상을 캡처하려면 3차원 공간의 원본 데이터를 PCA를 사용하여 2차원 공간에 표현하면 됩니다. 따라서 PCA에서 사용할 구성 요소 수 매개 변수를 2로 설정합니다. 이 매개 변수는 PCA 기반 이상 감지를 적용하는 데 중요한 역할을 합니다. PCA를 사용하여 데이터를 표현하면 이러한 이상을 보다 쉽게 식별할 수 있습니다.
 
-**회수 변칙 검색 모델** 회수 이상 감지 모델에서는 Select Columns in Dataset 및 PCA 기반 변칙 검색 모듈을 유사한 방식으로 사용합니다. 특히, 먼저 **Select Columns in Dataset** 모듈을 사용하여 3가지 변수(엔진 온도, 외부 온도 및 속도)를 추출합니다. 또한 엔진 온도는 일반적으로 속도와 상호 관련이 있으므로 속도 변수도 포함합니다. 다음으로 PCA 기반 이상 감지 모듈을 사용하여 3차원 공간의 데이터를 2차원 공간에 표현합니다. 엔진 온도 및 외부 온도가 정반대로 크게 움직이는 경우 회수 조건을 충족하므로 차량을 회수해야 합니다. PCA 기반 이상 감지 알고리즘을 사용하여 PCA를 수행한 후의 이상을 캡처할 수 있습니다. 
+**회수 변칙 검색 모델** 회수 이상 감지 모델에서는 Select Columns in Dataset 및 PCA 기반 변칙 검색 모듈을 유사한 방식으로 사용합니다. 특히, 먼저 **Select Columns in Dataset** 모듈을 사용하여&3;가지 변수(엔진 온도, 외부 온도 및 속도)를 추출합니다. 또한 엔진 온도는 일반적으로 속도와 상호 관련이 있으므로 속도 변수도 포함합니다. 다음으로 PCA 기반 이상 감지 모듈을 사용하여 3차원 공간의 데이터를 2차원 공간에 표현합니다. 엔진 온도 및 외부 온도가 정반대로 크게 움직이는 경우 회수 조건을 충족하므로 차량을 회수해야 합니다. PCA 기반 이상 감지 알고리즘을 사용하여 PCA를 수행한 후의 이상을 캡처할 수 있습니다. 
 
 두 모델을 학습할 때는 유지 관리 또는 회수가 필요 없는 일반 데이터를 입력으로 사용하여 PCA 기반 변칙 검색 모델을 학습해야 합니다. 점수 매기기 실험에서 학습된 변칙 검색 모델을 사용하여 차량에 유지 관리 또는 회수가 필요한지 여부를 감지합니다. 
 
@@ -705,10 +706,5 @@ Power BI 보고서 및 대시보드 설정에 관한 자세한 지침을 보려�
 
 ## <a name="summary"></a>요약
 이 문서는 차량 원격 분석 솔루션에 대한 자세한 드릴다운을 포함됩니다. 예측 및 동작과 함께 실시간 및 일괄 분석을 위한 람다 아키텍처 패턴을 설명합니다. 이 패턴은 실행 부하 과다 경로(실시간) 및 콜드 경로(일괄 처리) 분석이 필요한 다양한 사용 사례에 적용됩니다. 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
-ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 4f6ae0c3c40a10f75b46c6e44b0aa9e8ce440b4d
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -45,8 +46,9 @@ Azure DocumentDB는 다음과 같은 주요 기능 및 이점을 제공합니다
 * **완전히 관리:** 데이터베이스 및 컴퓨터 리소스를 관리할 필요가 없습니다. 완전히 관리되는 Microsoft Azure 서비스의 경우 가상 컴퓨터를 관리하거나 소프트웨어를 배포 및 구성하거나 크기 조정을 관리하거나 복잡한 데이터 계층 업그레이드를 처리할 필요가 없습니다. 모든 데이터베이스가 자동으로 백업되고 지역적 실패로부터 보호됩니다. 필요 시 쉽게 DocumentDB 계정을 추가하고 용량을 프로비전할 수 있으므로 데이터베이스 작동 및 관리 대신 응용 프로그램에 집중할 수 있습니다. 
 * **의도적인 개방성:** 기존 기술과 도구를 사용하여 신속하게 시작합니다. DocumentDB에 대한 프로그래밍은 단순하고 사용하기 쉬우며 새 도구를 채택하거나 JSON 또는 JavaScript에 대한 사용자 지정 확장을 준수할 필요가 없습니다. 단순한 RESTful HTTP 인터페이스를 통해 CRUD, 쿼리 및 JavaScript 처리를 비롯한 모든 데이터베이스 기능에 액세스할 수 있습니다. DocumentDB는 기존 형식, 언어 및 표준을 수용하며 이를 바탕으로 중요한 데이터베이스 기능을 제공합니다.
 * **자동 인덱싱:** DocumentDB는 기본적으로 데이터베이스에 있는 모든 문서를 자동으로 인덱싱하고 스키마 또는 보조 인덱스 생성을 예상하거나 요구하지 않습니다. 모든 항목을 인덱스하지 않으시겠습니까? 걱정하지 마세요. [JSON 파일에서 경로를 옵트아웃](documentdb-indexing-policies.md)할 수 있습니다.
+* **MongoDB 앱 호환성:** DocumentDB: MongoDB용 API를 사용하면 MongoDB에 대해 작성된 앱에 대한 데이터 저장소로 DocumentDB 데이터베이스를 사용할 수 있습니다. 즉 MongoDB 데이터베이스에 대해 기존 드라이버를 사용하면 MongoDB를 위해 작성된 응용 프로그램에서 이제는 DocumentDB와 통신하고 MongoDB 데이터베이스 대신 DocumentDB 데이터베이스를 사용할 수 있습니다. 대부분의 경우 연결 문자열을 변경하기만 하면 MongoDB에서 DocumentDB로 전환할 수 있습니다. [DocumentDB 소개: MongoDB용 API?](documentdb-protocol-mongodb.md)에서 자세히 알아봅니다.
 
-## <a name="a-namedata-managementahow-does-documentdb-manage-data"></a><a name="data-management"></a>DocumentDB에서 어떻게 데이터를 관리하나요?
+## <a name="data-management"></a>DocumentDB에서 어떻게 데이터를 관리하나요?
 Azure DocumentDB는 잘 정의된 데이터베이스 리소스를 통해 JSON 데이터를 관리합니다. 이러한 리소스는 고가용성을 위해 복제되며 논리적 URI로 고유한 주소 지정이 가능합니다. DocumentDB는 모든 리소스에 대해 단순한 HTTP 기반 RESTful 프로그래밍 모델을 제공합니다. 
 
 DocumentDB 데이터베이스 계정은 Azure DocumentDB에 대한 액세스 권한을 제공하는 고유 네임스페이스입니다. 데이터베이스 계정을 만들려면 먼저 다양한 Azure 서비스에 액세스할 수 있는 Azure 구독이 있어야 합니다. 
@@ -59,8 +61,8 @@ DocumentDB 내의 모든 리소스는 JSON 문서로 모델링되고 저장됩�
 
 데이터베이스 계정은 각각 여러 컬렉션을 포함하는 데이터베이스 집합으로 구성되고, 각 컬렉션에는 저장 프로시저, 트리거, UDF, 문서 및 관련 첨부 파일이 포함될 수 있습니다. 데이터베이스에는 각각 다양한 다른 컬렉션, 저장 프로시저, 트리거, UDF, 문서 또는 첨부 파일에 액세스할 권한 집합을 가진 관련 사용자도 있습니다. 데이터베이스, 사용자, 사용 권한 및 컬렉션은 잘 알려진 스키마가 있는 시스템 정의 리소스인 반면 문서, 저장 프로시저, 트리거, UDF 및 첨부 파일에는 임의의 사용자 정의 JSON 콘텐츠가 포함됩니다.  
 
-## <a name="a-namedevelopa-how-can-i-develop-apps-with-documentdb"></a><a name="develop"></a> DocumentDB를 사용하여 앱을 개발하려면 어떻게 해야 하나요?
-Azure DocumentDB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 REST API를 통해 리소스를 노출합니다. 또한 DocumentDB는 많이 사용되는 몇 개의 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 주소 캐싱, 예외 관리, 자동 재시도 등과 같은 세부 정보를 처리하여 Azure DocumentDB 작업의 많은 측면을 간소화합니다. 현재 라이브러리는 다음 언어 및 플랫폼에 사용할 수 있습니다.  
+## <a name="develop"></a> DocumentDB를 사용하여 앱을 개발하려면 어떻게 해야 하나요?
+Azure DocumentDB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 REST API를 통해 리소스를 노출합니다. 또한 DocumentDB는 많이 사용되는 몇 개의 언어를 위한 프로그래밍 라이브러리를 제공하고 MongoDB API와 호환됩니다. 라이브러리는 주소 캐싱, 예외 관리, 자동 재시도 등과 같은 세부 정보를 처리하여 Azure DocumentDB 작업의 많은 측면을 간소화합니다. 현재 라이브러리는 다음 언어 및 플랫폼에 사용할 수 있습니다.  
 
 | 다운로드 | 설명서 |
 | --- | --- |
@@ -70,6 +72,7 @@ Azure DocumentDB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어�
 | [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript 라이브러리](http://azure.github.io/azure-documentdb-js/) |
 | 해당 없음 |[서버 쪽 JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python 라이브러리](http://azure.github.io/azure-documentdb-python/) |
+| 해당 없음 | [MongoDB용 API](documentdb-protocol-mongodb.md)
 
 [Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md)를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 응용 프로그램을 테스트할 수 있습니다. DocumentDB 에뮬레이터에서 응용 프로그램이 작동하는 방식에 만족하는 경우 Azure DocumentDB 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
 
@@ -87,6 +90,14 @@ DocumentDB를 사용하면 JavaScript로만 작성된 명명된 프로그램으�
 
 DocumentDB 내의 JavaScript 실행은 JavaScript를 Transact-SQL의 최신 대체로 사용하여 관계형 데이터베이스 시스템이 지원하는 개념을 따라 모델링됩니다. 모든 JavaScript 논리는 스냅숏 격리를 사용하여 앰비언트 ACID 트랜잭션 내에서 실행됩니다. 실행 중 JavaScript에서 예외가 발생하면 전체 트랜잭션이 중단됩니다.
 
+## <a name="are-there-any-online-courses-on-documentdb"></a>DocumentDB에 온라인 과정이 있습니까?
+
+예, Azure DocumentDB에 [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) 과정이 있습니다. 
+
+>[!VIDEO https://mva.microsoft.com/en-US/training-courses-embed/azure-documentdb-planetscale-nosql-16847]
+>
+>
+
 ## <a name="next-steps"></a>다음 단계
 Azure 계정이 있나요? 그러면 [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB)에서 [DocumentDB 데이터베이스 계정을 만들기](documentdb-create-account.md)로 DocumentDB를 시작할 수 있습니다.
 
@@ -99,10 +110,5 @@ Azure 계정이 없나요? 다음을 수행할 수 있습니다.
 자세히 배울 준비가 되면 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/) 를 방문하여 사용 가능한 모든 학습 리소스를 살펴보세요. 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

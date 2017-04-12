@@ -9,20 +9,22 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 28cc7f8ac707068b5517f7dfe45687fff5a0eed3
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 74fe2d241dfcd6e572f0f20714f91c6aff970f34
+ms.lasthandoff: 03/21/2017
 
 
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Hadoop 작업용 데이터 업로드
-Azure HDInsight는 Azure Blob 저장소를 통해 모든 기능을 갖춘 HDFS(Hadoop Distributed File System)를 제공합니다. 고객에게 원활한 환경을 제공하기 위해 HDFS를 확장하여 설계되었습니다. 이를 통해 Hadoop 에코 시스템에서 구성 요소의 전체 집합이 관리하는 데이터에서 직접 작동하도록 합니다. Azure Blob 저장소와 HDFS는 데이터의 저장소 및 해당 데이터의 계산을 최적화하는 별개의 파일 시스템입니다. Azure Blob Storage 사용의 이점에 대한 자세한 내용은 [HDInsight에서 Azure Blob Storage 사용][hdinsight-storage]을 참조하세요.
+Azure HDInsight는 Azure Blob 저장소를 통해 모든 기능을 갖춘 HDFS(Hadoop Distributed File System)를 제공합니다. 고객에게 원활한 환경을 제공하기 위해 HDFS를 확장하여 설계되었습니다. 이를 통해 Hadoop 에코 시스템에서 구성 요소의 전체 집합이 관리하는 데이터에서 직접 작동하도록 합니다. Azure Blob 저장소와 HDFS는 데이터의 저장소 및 해당 데이터의 계산을 최적화하는 별개의 파일 시스템입니다. Azure Blob Storage를 사용하는 이점에 대한 자세한 내용은 [HDInsight에서 Azure Blob Storage 사용][hdinsight-storage]을 참조하세요.
 
 **필수 구성 요소**
 
@@ -58,12 +60,12 @@ Microsoft는 Azure Blob 저장소에서 작업할 다음 유틸리티를 제공�
 >
 >
 
-### <a name="a-idxplatcliaazure-cli"></a><a id="xplatcli"></a>Azure CLI
+### <a id="xplatcli"></a>Azure CLI
 Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫폼 도구입니다. Azure Blob 저장소에 데이터를 업로드하려면 다음 단계를 사용합니다:
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. [Mac, Linux 및 Windows용 Azure CLI의 설치 및 구성](../xplat-cli-install.md)
+1. [Mac, Linux 및 Windows용 Azure CLI의 설치 및 구성](../cli-install-nodejs.md)
 2. 명령 프롬프트, bash 또는 다른 셸을 열고 다음을 사용하여 Azure 구독을 인증합니다.
 
         azure login
@@ -97,15 +99,15 @@ Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫�
 >
 >
 
-### <a name="a-idpowershellaazure-powershell"></a><a id="powershell"></a>Azure PowerShell
-Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 스크립팅 환경입니다. Azure PowerShell을 실행하기 위해 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
+### <a id="powershell"></a>Azure PowerShell
+Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 스크립팅 환경입니다. Azure PowerShell을 실행하기 위해 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 **Azure Blob 저장소에 로컬 파일을 업로드하려면**
 
-1. [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)의 지침에 따라 Azure PowerShell 콘솔을 엽니다.
-2. 다음 스크립트에서 처음 5개의 변수 값을 설정합니다.
+1. [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)의 지침에 따라 Azure PowerShell 콘솔을 엽니다.
+2. 다음 스크립트에서 처음&5;개의 변수 값을 설정합니다.
 
         $resourceGroupName = "<AzureResourceGroupName>"
         $storageAccountName = "<StorageAccountName>"
@@ -125,8 +127,8 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 
 예를 들어, HDInsight와 함께 작동하도록 만들진 PowerShell 스크립트는 [HDInsight 도구](https://github.com/blackmist/hdinsight-tools)를 참조하세요.
 
-### <a name="a-idazcopyaazcopy"></a><a id="azcopy"></a>AzCopy
-AzCopy는 데이터를 Azure 저장소 계정으로 보내고 받는 작업을 간소화하도록 설계된 명령줄 도구입니다. 이 유틸리티는 독립 실행형 도구로 사용할 수도 있고 기존 응용 프로그램에 통합할 수도 있습니다. [AzCopy를 다운로드][azure-azcopy-download]합니다.
+### <a id="azcopy"></a>AzCopy
+AzCopy는 데이터를 Azure 저장소 계정으로 보내고 받는 작업을 간소화하도록 설계된 명령줄 도구입니다. 이 유틸리티는 독립 실행형 도구로 사용할 수도 있고 기존 응용 프로그램에 통합할 수도 있습니다. [AzCopy를 다운로드][azure-azcopy-download]하세요.
 
 AzCopy 구문은 다음과 같습니다.
 
@@ -134,13 +136,13 @@ AzCopy 구문은 다음과 같습니다.
 
 자세한 내용은 [AzCopy - Azure Blob용 파일 업로드/다운로드][azure-azcopy]를 참조하세요.
 
-### <a name="a-idcommandlineahadoop-command-line"></a><a id="commandline"></a>Hadoop 명령줄
+### <a id="commandline"></a>Hadoop 명령줄
 데이터가 클러스터 헤드 노드에 존재하는 경우 Hadoop 명령줄은 blob 저장소에 데이터를 저장하는데만 유용합니다.
 
 Hadoop 명령을 사용하려면 먼저 다음 방법 중 하나를 사용하여 헤드 노드에 연결해야 합니다.
 
 * **Windows 기반 HDInsight**: [원격 데스크톱을 사용하여 연결](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **Linux 기반 HDInsight**: SSH를 사용하여 연결([SSH 명령](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster) 또는 [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster))
+* **Linux 기반 HDInsight**: SSH를 사용하여 연결([SSH 명령](hdinsight-hadoop-linux-use-ssh-unix.md) 또는 [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
 
 연결된 후에 저장소에 파일을 업로드하려면 다음 구문을 사용할 수 있습니다.
 
@@ -159,7 +161,7 @@ HDInsight의 기본 파일 시스템은 Azure Blob 저장소에 있으므로 /ex
 파일과 함께 작동하는 다른 Hadoop 명령의 목록은 [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
-> HBase 클러스터에서 데이터 쓰기 시 사용되는 기본 블록 크기는 256KB입니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령을 사용하여 12GB를 초과하는 데이터를 기록하면 오류가 발생합니다. 자세한 내용은 아래 [Blob에서 쓰기를 위한 저장소 예외](#storageexception) 섹션을 참조하세요.
+> HBase 클러스터에서 데이터 쓰기 시 사용되는 기본 블록 크기는 256KB입니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령을 사용하여&12;GB를 초과하는 데이터를 기록하면 오류가 발생합니다. 자세한 내용은 아래 [Blob에서 쓰기를 위한 저장소 예외](#storageexception) 섹션을 참조하세요.
 >
 >
 
@@ -178,10 +180,10 @@ Azure 저장소를 사용하기 위한 그래픽 인터페이스를 제공하는
 ### <a name="visual-studio-tools-for-hdinsight"></a>HDInsight 용 Visual Studio Tools
 자세한 내용은 [연결된 리소스 탐색](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources)을 참조하세요.
 
-### <a name="a-idstorageexploreraazure-storage-explorer"></a><a id="storageexplorer"></a>Azure 저장소 탐색기
+### <a id="storageexplorer"></a>Azure 저장소 탐색기
 *Azure 저장소 탐색기* 는 Blob의 데이터를 검사하고 변경하는 데 유용한 도구입니다. [http://storageexplorer.com/](http://storageexplorer.com/)에서 다운로드할 수 있는 무료 오픈 소스 도구입니다. 소스 코드도 이 링크에서 사용할 수 있습니다.
 
-이 도구를 사용하기 전에 Azure 저장소 계정 이름과 계정 키를 알아야 합니다. 더 자세한 정보를 얻을 지침을 보려면 [저장소 계정 생성, 관리 또는 삭제][azure-create-storage-account]에서 "방법: 저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.  
+이 도구를 사용하기 전에 Azure 저장소 계정 이름과 계정 키를 알아야 합니다. 더 자세한 정보를 얻을 지침을 보려면 [저장소 계정 생성, 관리 또는 삭제][azure-create-storage-account]에서 "방법: 저장소 액세스 키 보기, 복사 및 다시 생성" 섹션을 참조하세요.
 
 1. Azure 저장소 탐색기를 실행합니다. 저장소 탐색기를 처음 실행하는 경우 **저장소 계정 이름** 및 **저장소 계정 키**를 묻는 메시지가 표시됩니다. 이전에 실행한 적이 있는 경우 **추가** 단추를 사용하여 새 저장소 계정 이름과 키를 추가합니다.
 
@@ -209,10 +211,10 @@ Azure 데이터 팩터리를 사용하여 Azure Blob 저장소로 데이터를 �
 
 자세한 내용은 [Azure 데이터 팩터리 설명서](https://azure.microsoft.com/documentation/services/data-factory/)를 참조하세요.
 
-### <a name="a-idsqoopaapache-sqoop"></a><a id="sqoop"></a>Apache Sqoop
+### <a id="sqoop"></a>Apache Sqoop
 Sqoop은 Hadoop과 관계형 데이터베이스 간 데이터 전송을 위해 설계된 도구입니다. 이 도구를 사용하면 SQL Server, MySQL, Oracle 등의 관계형 데이터베이스 관리 시스템(RDBMS)에서 Hadoop 분산형 파일 시스템(HDFS)으로 데이터를 가져오고, MapReduce 또는 Hive로 Hadoop의 데이터를 변환한 후 데이터를 RDBMS로 다시 내보낼 수 있습니다.
 
-Sqoop에 대한 자세한 내용은 [HDInsight와 함께 Sqoop 사용][hdinsight-use-sqoop]을 참조하세요.
+자세한 내용은 [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop]을 참조하세요.
 
 ## <a name="development-sdks"></a>개발 SDK
 Azure Blob 저장소는 다음 프로그래밍 언어에서 Azure SDK를 사용하여 액세스할 수 있습니다.
@@ -227,7 +229,7 @@ Azure Blob 저장소는 다음 프로그래밍 언어에서 Azure SDK를 사용�
 Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](https://azure.microsoft.com/downloads/)
 
 ## <a name="troubleshooting"></a>문제 해결
-### <a name="a-idstorageexceptionastorage-exception-for-write-on-blob"></a><a id="storageexception"></a>Blob에서 쓰기를 위한 저장소 예외
+### <a id="storageexception"></a>Blob에서 쓰기를 위한 저장소 예외
 **증상**: `hadoop` 또는 `hdfs dfs` 명령을 사용하여 HBase 클러스터에12GB를 초과하는 데이터를 기록하면 다음 오류가 발생할 수 있습니다.
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
@@ -299,17 +301,12 @@ Ambari 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDIns
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[azurecli]: ../xplat-cli-install.md
+[azurecli]: ../cli-install-nodejs.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 09/01/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff72e6b0465f25be94c6852f3cdd3417817b8056
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: d230450535613e85c607ef120929ea61bc2085bc
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -35,7 +36,7 @@ Azure 리소스 커넥터 API 앱을 사용하려면 먼저 해당 앱의 인스
 
 David Ebbo가 이를 설정하는 방법에 대해 [훌륭한 블로그 게시물](http://blog.davidebbo.com/2014/12/azure-service-principal.html) 을 작성했습니다. 이 블로그의 모든 지침에 따라 **테넌트 ID**, **클라이언트 ID** 및 **비밀**을 가져옵니다. 이러한 세 필드와 함께 **구독 ID**가 커넥터를 구성하는 데 필요한 항목입니다.
 
-## <a name="using-the-azure-resource-connector-in-logic-apps-designer"></a>논리 앱 디자이너에서 Azure 리소스 커넥터 사용
+## <a name="using-the-azure-resource-connector-in-logic-app-designer"></a>논리 앱 디자이너에서 Azure 리소스 커넥터 사용
 ### <a name="trigger"></a>트리거
 커넥터에서는 두 개의 트리거가 지원됩니다.
 
@@ -93,10 +94,10 @@ David Ebbo가 이를 설정하는 방법에 대해 [훌륭한 블로그 게시�
 | 메트릭 가져오기 |리소스 ID에 해당하는 메트릭을 가져옵니다. |
 
 ## <a name="do-more-with-your-connector"></a>커넥터의 추가 기능
-이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 흐름에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
+이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 흐름에 추가할 수 있습니다. [논리 앱 정의](../logic-apps/logic-apps-what-are-logic-apps.md)를 참조하세요.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure Logic Apps를 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. App Service에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure Logic Apps를 시작하려는 경우 [논리 앱 평가](https://azure.microsoft.com/try/app-service/logic/)로 이동합니다. App Service에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -105,10 +106,5 @@ David Ebbo가 이를 설정하는 방법에 대해 [훌륭한 블로그 게시�
 <!--References -->
 
 <!--Links -->
-[논리 앱 만들기]: app-service-logic-create-a-logic-app.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Creating a Logic app]: app-service-logic-create-a-logic-app.md
 

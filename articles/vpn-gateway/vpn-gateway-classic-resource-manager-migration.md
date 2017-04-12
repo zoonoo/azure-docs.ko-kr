@@ -15,15 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8efa8df1381c19aa00bd49bedb3f99086e01d9e2
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 32ca2e4b1dcf5715602b8e1e1f3026cb785fbe0c
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Resource Manager 마이그레이션에 대한 VPN Gateway 클래식
 이제 VPN Gateway을 클래식에서 Resource Manager 배포 모델로 마이그레이션할 수 있습니다. [Azure Resource Manager 기능 및 이점](../azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아볼 수 있습니다. 이 문서에서는 클래식 배포에서 새로운 Resource Manager 기반 모델로 마이그레이션하는 방법을 자세히 설명합니다. 
 
-VPN Gateway는 VNet 마이그레이션의 일환으로 클래식에서 Resource Manager로 마이그레이션됩니다. 이 마이그레이션은 한 번에 하나의 VNet 꼴로 이뤄집니다. 도구 측면에서 추가 요구 사항이나 마이그레이션에 대한 전제 조건이 없습니다. 마이그레이션 단계는 기존 VNet 마이그레이션과 동일하며 [IaaS 리소스 마이그레이션 페이지](../virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)에 설명되어 있습니다. 마이그레이션 중에 데이터 경로 가동 중지 시간이 없습니다. 따라서 기존 작업은 마이그레이션 중에 온-프레미스 연결 손실 없이 계속 작동할 것입니다. VPN 게이트웨이에 연결된 공용 IP 주소는 마이그레이션 프로세스 중에 변경되지 않습니다. 즉, 마이그레이션이 완료되면 온-프레미스 라우터를 다시 구성할 필요가 없습니다.  
+VPN Gateway는 VNet 마이그레이션의 일환으로 클래식에서 Resource Manager로 마이그레이션됩니다. 이 마이그레이션은 한 번에 하나의 VNet 꼴로 이뤄집니다. 도구 측면에서 추가 요구 사항이나 마이그레이션에 대한 전제 조건이 없습니다. 마이그레이션 단계는 기존 VNet 마이그레이션과 동일하며 [IaaS 리소스 마이그레이션 페이지](../virtual-machines/windows/migration-classic-resource-manager-ps.md)에 설명되어 있습니다. 마이그레이션 중에 데이터 경로 가동 중지 시간이 없습니다. 따라서 기존 작업은 마이그레이션 중에 온-프레미스 연결 손실 없이 계속 작동할 것입니다. VPN 게이트웨이에 연결된 공용 IP 주소는 마이그레이션 프로세스 중에 변경되지 않습니다. 즉, 마이그레이션이 완료되면 온-프레미스 라우터를 다시 구성할 필요가 없습니다.  
 
 Resource Manager에 있는 모델은 클래식 모델과 다르며 가상 네트워크 게이트웨이, 로컬 네트워크 게이트웨이 및 연결 리소스로 구성됩니다. 이것들은 각기 VPN 게이트웨이 자체를, 온-프레미스 주소 공간을 나타내는 로컬 사이트 및 둘 간의 연결을 나타냅니다. 마이그레이션이 완료되면 게이트웨이는 클래식 모델에서 사용할 수 없게 될 것이며 가상 네트워크 게이트웨이, 로컬 네트워크 게이트웨이 및 연결 개체에서의 모든 관리 작업은 Resource Manager 모델을 사용하여 수행되어야 합니다.
 
@@ -65,11 +66,6 @@ VNet에 대한 온-프레미스 연결이 온-프레미스에 직접 연결된 �
 * 영향을 받는 VNet에서 온-프레미스 위치를 나타내는 로컬 네트워크 게이트웨이로 명시적 연결을 설정합니다. 또한 IPsec 터널을 만들고 구성하기 위해 온-프레미스 라우터에서 구성을 변경해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-VPN 게이트웨이 마이그레이션 지원에 대해 학습한 후에 시작하려면 [클래식에서 Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)으로 이동합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+VPN 게이트웨이 마이그레이션 지원에 대해 학습한 후에 시작하려면 [클래식에서 Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-ps.md)으로 이동합니다.
 
 

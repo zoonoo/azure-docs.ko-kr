@@ -4,7 +4,7 @@ description: "이 문서는 이 솔루션을 사용하여 Windows 및 Linux 컴�
 services: operations-management-suite
 documentationcenter: 
 author: MGoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 03/06/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
-ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 18aa17f6af7fe492f3875e1af7cb06b613f171af
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -24,6 +25,8 @@ ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 OMS의 업데이트 관리 솔루션을 사용하면 Windows 및 Linux 컴퓨터에 대한 업데이트를 관리할 수 있습니다.  모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 대한 필수 업데이트를 설치하는 프로세스를 시작할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
+* 솔루션은 Windows Server 2008 이상에 대한 업데이트 평가 및 Windows Server 2012 이상에 대한 업데이트 배포 수행만을 지원합니다.  Server Core 및 Nano 서버 설치 옵션은 지원되지 않습니다.
+* Windows 클라이언트 운영 체제는 지원되지 않습니다.  
 * Windows 에이전트는 WSUS(Windows Server Update Services) 서버와 통신하도록 구성되거나 Microsoft Update에 대한 액세스 권한이 있어야 합니다.  
   
   > [!NOTE]
@@ -36,7 +39,7 @@ OMS의 업데이트 관리 솔루션을 사용하면 Windows 및 Linux 컴퓨터
 다음 단계를 수행하여 업데이트 관리 솔루션을 OMS 작업 영역에 추가하고 Linux 에이전트를 추가합니다. Windows 에이전트는 추가 구성 없이 자동으로 추가됩니다.
 
 > [!NOTE]
-> 현재 이 솔루션을 사용하도록 설정하면 이 솔루션의 일부인 Runbook을 지원하기 위해 OMS 작업 영역에 연결된 모든 Windows 컴퓨터가 자동으로 Hybrid Runbook Worker로 구성됩니다.  그러나 해당 솔루션은 Automation 계정에서 만든 모든 Hybrid Worker 그룹에 등록되지 않고 Hybrid Worker 그룹에 추가하여 고유한 Runbook을 실행할 수 없습니다.  Windows 컴퓨터를 이미 Hybrid Runbook Worker로 지정하고 OMS 작업 영역에 연결한 경우 Runbook이 예상대로 작동하지 않는 것을 방지하기 위해 솔루션을 추가하기 전에 OMS 작업 영역에서 제거해야 합니다.  
+> 이 솔루션을 사용하도록 설정하면 이 솔루션에 포함된 Runbook을 지원하기 위해 OMS 작업 영역에 연결된 모든 Windows 컴퓨터가 자동으로 Hybrid Runbook Worker로 구성됩니다.  그러나 자동화 계정에서 이미 정의한 모든 Hybrid Worker 그룹에 등록되지 않았습니다.  솔루션과 Hybrid Runbook Worker 그룹 멤버 자격에 동일한 계정을 사용하는 한 자동화 Runbook을 지원하기 위해 자동화 계정의 Hybrid Runbook Worker 그룹에 추가될 수 있습니다.  이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.   
 
 1. 솔루션 갤러리에서 [OMS 솔루션 추가](../log-analytics/log-analytics-add-solutions.md)에 설명된 프로세스를 사용하여 OMS 작업 영역에 업데이트 관리 솔루션을 추가합니다.  
 2. OMS 포털에서 **설정** 및 **연결된 원본**을 차례로 선택합니다.  **작업 영역 ID** 및 **기본 키** 또는 **보조 키** 중 하나를 적어둡니다.
@@ -45,12 +48,9 @@ OMS의 업데이트 관리 솔루션을 사용하면 Windows 및 Linux 컴퓨터
    a.    다음 명령을 실행하여 최신 버전의 Linux용 OMS 에이전트를 설치합니다.  <Workspace ID>을 작업 영역 ID로 바꾸고 <Key>를 기본 또는 보조 키로 바꿉니다.
    
         cd ~
-        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+        wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID>  -s <PrimaryKey> -d opinsights.azure.com 
 
-   b. 에이전트를 제거하려면 다음 명령을 실행합니다.
-   
-        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+   b. 에이전트를 제거하려면 [Linux용 OMS 에이전트 제거](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#uninstalling-the-oms-agent-for-linux) 섹션에 설명된 프로세스를 사용하세요.  
 
 ## <a name="management-packs"></a>관리 팩
 System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된 경우 이 솔루션을 추가할 때 다음 관리 팩이 System Center Operations Manager에 설치됩니다. 이 관리 팩에 대한 구성 또는 유지 관리는 필요 없습니다. 
@@ -104,7 +104,9 @@ System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된
 ## <a name="installing-updates"></a>업데이트 설치
 환경에서 모든 Windows 컴퓨터에 대한 업데이트를 평가하면 필수 업데이트가 *업데이트 배포*를 만들어 설치됩니다.  업데이트 배포는 하나 이상의 Windows 컴퓨터에 필수 업데이트를 예약하여 설치합니다.  포함되어야 하는 컴퓨터 또는 컴퓨터 그룹 외에도 배포에 대한 시간과 날짜를 명시합니다.  
 
-Azure Automation의 runbook에서 업데이트가 설치됩니다.  현재 이러한 runbook을 볼 수 없고 구성이 필요하지 않습니다.  업데이트 배포를 만든 경우 일정을 만들고 여기서 포함된 컴퓨터에 지정된 시간에 마스터 업데이트 runbook이 시작됩니다.  이 마스터 runbook은 필수 업데이트를 설치하는 각 Windows 에이전트에서 하위 runbook을 시작합니다.  
+Azure Automation의 runbook에서 업데이트가 설치됩니다.  이러한 runbook을 볼 수 없고 구성이 필요하지 않습니다.  업데이트 배포를 만든 경우 일정을 만들고 여기서 포함된 컴퓨터에 지정된 시간에 마스터 업데이트 runbook이 시작됩니다.  이 마스터 runbook은 필수 업데이트를 설치하는 각 Windows 에이전트에서 하위 runbook을 시작합니다.  
+
+Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise Linux) 이미지에서 만든 가상 컴퓨터는 Azure에 배포된 [RHUI(Red Hat Update Infrastructure)](../virtual-machines/linux/update-infrastructure-redhat.md)에 액세스하도록 등록됩니다.  다른 모든 Linux 배포판은 지원되는 방법에 따라 배포판 온라인 파일 리포지토리에서 업데이트되어야 합니다.  
 
 ### <a name="viewing-update-deployments"></a>업데이트 배포 보기
 **업데이트 배포** 타일을 클릭하여 기존 업데이트 배포의 목록을 볼 수 있습니다.  **예약됨**, **실행 중** 및 **완료됨**와 같은 상태별로 그룹화합니다.<br><br> ![업데이트 배포 일정 페이지](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
@@ -243,10 +245,5 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다.  현재 이�
 * [Log Analytics](../log-analytics/log-analytics-log-searches.md)의 로그 검색을 사용하여 자세한 업데이트 데이터 보기
 * 관리되는 컴퓨터에 대한 업데이트 준수를 표시하는 [고유한 대시보드 만들기](../log-analytics/log-analytics-dashboards.md)
 * 중요 업데이트가 컴퓨터에서 누락된 것으로 검색되거나 컴퓨터가 자동 업데이트를 사용하지 않도록 설정한 경우 [경고 만들기](../log-analytics/log-analytics-alerts.md)  
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

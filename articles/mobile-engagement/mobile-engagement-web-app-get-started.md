@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 
 
 ---
@@ -40,7 +40,7 @@ ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>웹앱용 Mobile Engagement 설정
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
+## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
 이 자습서에서는 데이터를 수집하는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다.
 
 Visual Studio로 기본 웹앱을 만들어 통합을 보여 주지만 Visual Studio 외부에서 만든 웹 응용 프로그램으로 모든 단계를 수행할 수도 있습니다. 
@@ -65,7 +65,7 @@ Visual Studio로 기본 웹앱을 만들어 통합을 보여 주지만 Visual St
    
     ![js 파일이 포함된 Visual Studio입니다.][1]
 
-## <a name="enable-realtime-monitoring"></a>실시간 모니터링 사용
+## <a name="enable-real-time-monitoring"></a>실시간 모니터링 사용
 데이터 보내기를 시작하고 사용자가 활성 상태인지 확인하려면 Mobile Engagement 백 엔드에 작업을 하나 이상 보내야 합니다. 웹앱의 컨텍스트에 있는 작업은 웹 페이지입니다. 
 
 1. 솔루션에서 **home.html** 라는 새 페이지를 만들고 웹앱에 대한 페이지의 시작으로 설정합니다. 
@@ -88,7 +88,7 @@ Visual Studio로 기본 웹앱을 만들어 통합을 보여 주지만 Visual St
         </body>
         </html>
 
-## <a name="connect-app-with-realtime-monitoring"></a>실시간 모니터링과 앱 연결
+## <a name="connect-app-with-real-time-monitoring"></a>실시간 모니터링과 앱 연결
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
   ![][2]

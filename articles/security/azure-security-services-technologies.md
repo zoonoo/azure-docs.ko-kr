@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 41239b5164de0d51848431f45f45958af29a9706
-ms.openlocfilehash: 09e078c8f806b91f8a4de55bc3abbb271823c203
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -46,12 +47,12 @@ ms.openlocfilehash: 09e078c8f806b91f8a4de55bc3abbb271823c203
 ## <a name="azure-database-security"></a>Azure 데이터베이스 보안
 * [Azure SQL 방화벽](../sql-database/sql-database-firewall-configure.md)
 * [Azure SQL 셀 수준 암호화](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
-* [Azure SQL 연결 암호화](../sql-database/sql-database-security-guidelines.md)
-* [Azure SQL 인증](../sql-database/sql-database-security-guidelines.md)
+* [Azure SQL 연결 암호화](../sql-database/sql-database-control-access.md)
+* [Azure SQL 인증](../sql-database/sql-database-control-access.md)
 * [Azure SQL 항상 암호화](https://msdn.microsoft.com/library/mt163865.aspx)
 * [Azure SQL 열 수준 암호화](https://msdn.microsoft.com/library/ms179331.aspx)
 * [Azure SQL 투명한 데이터 암호화](https://msdn.microsoft.com/library/dn948096.aspx)
-* [Azure SQL 데이터베이스 감사](../sql-database/sql-database-auditing-get-started.md)
+* [Azure SQL 데이터베이스 감사](../sql-database/sql-database-auditing.md)
 
 ## <a name="azure-identity-and-access-management"></a>Azure ID 및 액세스 관리
 * [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
@@ -72,9 +73,4 @@ ms.openlocfilehash: 09e078c8f806b91f8a4de55bc3abbb271823c203
 * [Azure express 경로](../expressroute/expressroute-introduction.md)
 * [Azure 트래픽 관리자](../traffic-manager/traffic-manager-overview.md)
 * [Azure 응용 프로그램 프록시](../active-directory/active-directory-application-proxy-enable.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

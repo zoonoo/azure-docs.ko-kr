@@ -1,5 +1,5 @@
 ---
-title: "복구 계획에 Azure 자동화 Runbook 추가 | Microsoft Docs"
+title: "클래식 포털에서 복구 계획에 Azure 자동화 Runbook 추가 | Microsoft Docs"
 description: "이 문서에서는 Azure Site Recovery에서 Azure 자동화를 사용하여 복구 계획을 확장하여 Azure로 복구하는 동안 복잡한 작업을 완료할 수 있도록 하는 방법을 설명합니다."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
-ms.date: 10/23/2016
+ms.date: 02/06/2017
 ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ce018e8057a19f1b21081b9fae4b33c3e791a000
+ms.sourcegitcommit: 44b6ff6e588d529fd833a4a7fdd61df7e933ddd8
+ms.openlocfilehash: b4105e98323b5161a22fa65707d376a7155611d6
+ms.lasthandoff: 01/30/2017
 
 
 ---
-# <a name="add-azure-automation-runbooks-to-recovery-plans---classic"></a>복구 계획에 Azure Automation Runbook 추가 - 클래식
+# <a name="add-azure-automation-runbooks-to-recovery-plans-in-the-classic-portal"></a>클래식 포털에서 복구 계획에 Azure 자동화 Runbook 추가
 이 자습서에서는 Azure Site Recovery가 복구 계획에 확장성을 제공하는 Azure 자동화와 통합하는 방법을 설명합니다. 복구 계획은 보조 클라우드에 복제 및 Azure 시나리오에 복제 둘 다에 Azure Site Recovery를 사용하여 보호되는 가상 컴퓨터의 복구를 오케스트레이션할 수 있습니다. 복구를 **일관적으로 정확**하고, **반복 가능**하며, **자동화**되도록 할 수도 있습니다. Azure에 가상 컴퓨터의 장애를 복구하는 경우, Azure 자동화와의 통합은 복구 계획을 확대하고 runbook을 실행하는 기능을 제공하므로 강력한 자동화 작업이 가능합니다.
 
 Azure Automation에 대해 아직 들어보지 못한 경우 [여기](https://azure.microsoft.com/services/automation/)에 등록하여 [여기](https://azure.microsoft.com/documentation/scripts/)에서 샘플 스크립트를 다운로드합니다. [여기](https://azure.microsoft.com/blog/?p=166264)에서 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) 및 복구 계획을 사용하여 Azure에 복구를 오케스트레이션하는 방법에 대해 더 알아봅니다.
@@ -67,10 +68,10 @@ ASR 자격 증명 모음과 동일한 하위 지역에 계정을 배치하는 �
 1. Azure 자동화 자산에 새 설정 ![](media/site-recovery-runbook-automation/04.png)을(를) 추가하고 ![](media/site-recovery-runbook-automation/05.png) 선택
 2. 변수 유형을 **문자열**
 3. 변수 이름으로 **AzureSubscriptionName**
-   
+
    ![](media/site-recovery-runbook-automation/06.png)
 4. 실제 Azure 구독 이름을 변수 값으로 지정합니다.
-   
+
    ![](media/site-recovery-runbook-automation/07_1.png)
 
 Azure 포털의 계정 설정 페이지에서 구독 이름을 확인할 수 있습니다.
@@ -82,7 +83,7 @@ Azure 자동화는 Azure PowerShell을 사용하여 구독에 연결하고 해�
 1. Azure 자동화 자산에 새 설정 ![](media/site-recovery-runbook-automation/04.png)을(를) 추가하고 ![](media/site-recovery-runbook-automation/09.png) 선택
 2. 자격 증명 형식을 **Windows PowerShell 자격 증명**
 3. 이름을 **AzureCredential**
-   
+
    ![](media/site-recovery-runbook-automation/10.png)
 4. 로그인할 사용자 이름 및 암호를 지정합니다.
 
@@ -138,32 +139,32 @@ ASR은 결정적 스크립트를 작성할 수 있도록 runbook에 컨텍스트
 ## <a name="author-an-automation-runbook"></a>자동화 Runbook 작성
 이제 프런트엔드 가상 컴퓨터에서 포트 80을 열기 위해 runbook을 만듭니다.
 
-1.  **OpenPort80**
-   
+1. **OpenPort80**
+
    ![](media/site-recovery-runbook-automation/14.png)
 2. runbook의 작성자 보기로 이동하여 초안 모드를 입력합니다.
 3. 먼저, 복구 계획 컨텍스트로 사용할 변수를 지정합니다.
-   
+
    ```
        param (
            [Object]$RecoveryPlanContext
        )
-   
+
    ```
 4. 그런 다음, 자격 증명 및 구독 이름을 사용하여 구독에 연결합니다.
-   
+
    ```
        $Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-   
+
        # Connect to Azure
        $AzureAccount = Add-AzureAccount -Credential $Cred
        $AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
        Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
    ```
-   
+
    여기에서 Azure 자산, **AzureCredential** 및 **AzureSubscriptionName**을 사용해야 합니다.
 5. 이제 끝점을 노출하려는 가상 컴퓨터의 GUID 및 끝점 세부 정보를 지정합니다. 이 경우 프런트엔드 가상 컴퓨터입니다.
-   
+
    ```
        # Specify the parameters to be used by the script
        $AEProtocol = "TCP"
@@ -172,22 +173,22 @@ ASR은 결정적 스크립트를 작성할 수 있도록 runbook에 컨텍스트
        $AEName = "Port 80 for HTTP"
        $VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
    ```
-   
+
    Azure 끝점 프로토콜, VM의 로컬 포트 및 매핑된 해당 공용 포트를 지정합니다. 이러한 변수는 VM에 끝점을 추가하는 Azure 명령에 필요한 매개 변수입니다. VMGUID는 작동에 필요한 가상 컴퓨터의 GUID를 보유합니다.
 6. 스크립트는 이제 지정한 VM GUID에 대한 컨텍스트를 추출하여 이를 통해 참조되는 가상 컴퓨터에 끝점을 만듭니다.
-   
+
    ```
        #Read the VM GUID from the context
        $VM = $RecoveryPlanContext.VmMap.$VMGUID
-   
+
        if ($VM -ne $null)
        {
            # Invoke pipeline commands within an InlineScript
-   
+
            $EndpointStatus = InlineScript {
                # Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
                # Commands include: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including parameters)
-   
+
                $Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
                    Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
                    Update-AzureVM
@@ -262,10 +263,10 @@ Azure로 장애 조치(Failover)를 실행하는 동안 Azure에 대해 보호�
 
 1. 복구 계획을 선택하고 테스트 장애 조치를 시작합니다.
 2. 계획을 실행하는 동안 해당 상태를 통해 runbook의 실행 여부를 확인할 수 있습니다.
-   
+
    ![](media/site-recovery-runbook-automation/17.png)
 3. runbook에 대해 Azure 자동화 작업 페이지에서 자세한 runbook 실행 상태를 확인할 수도 있습니다.
-   
+
    ![](media/site-recovery-runbook-automation/18.png)
 4. runbook 실행 결과 외에도 장애 조치를 완료한 후에 Azure 가상 컴퓨터 페이지를 방문하여 끝점을 살펴봄으로써 실행 성공 여부를 확인할 수 있습니다.
 
@@ -278,10 +279,4 @@ Azure로 장애 조치(Failover)를 실행하는 동안 Azure에 대해 보호�
 [Azure 자동화 개요](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure 자동화 개요")
 
 [Azure 자동화 스크립트 샘플](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure 자동화 스크립트 샘플")
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

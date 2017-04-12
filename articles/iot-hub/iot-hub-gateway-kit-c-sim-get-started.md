@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT Gateway 시작 키트 시작 | Microsoft Docs"
+title: "시뮬레이션된 장치 및 Azure IoT 게이트웨이 - 시작 | Microsoft Docs"
 description: "IoT Gateway 시작 키트 시작, Azure IoT Hub 만들기 및 IoT Hub에 게이트웨이 연결"
 services: iot-hub
 documentationcenter: 
@@ -7,17 +7,20 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "azure iot hub, iot 게이트웨이, 사물 인터넷 시작, iot 도구 키트"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 0c110b8b-bee4-4aec-a18a-dfc292aa17a3
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: c62e0cc560af18945c371af000ec08c0ddc7cd5a
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 06161c2950fbe99d2e4f9c1b416695a5f9f18ca4
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -35,7 +38,7 @@ ms.openlocfilehash: c62e0cc560af18945c371af000ec08c0ddc7cd5a
 ***
 
 ## <a name="lesson-1-configure-your-nuc"></a>단원 1: NUC 구성
-![단원 1 종단간 다이어그램](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
+![단원&1; 종단간 다이어그램](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
 
 이 단원에서는 키트에 Intel NUC(Next Unit of Computing)를 Azure IoT Gateway로 설정하고 NUC에 Azure IoT Gateway SDK 패키지를 설치한 다음 샘플 앱을 실행하여 게이트웨이 기능을 확인합니다.
 
@@ -44,7 +47,7 @@ ms.openlocfilehash: c62e0cc560af18945c371af000ec08c0ddc7cd5a
 [Intel NUC를 IoT Gateway로 설정](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)으로 이동
 
 ## <a name="lesson-2-create-your-iot-hub"></a>단원 2: IoT Hub 만들기
-![단원 2 종단간 다이어그램](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
+![단원&2; 종단간 다이어그램](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
 
 이 단원에서는 호스트 컴퓨터에 도구 및 소프트웨어를 설치합니다. 그런 다음 무료 Azure 계정을 만들고, Azure IoT Hub를 프로비전하며, IoT Hub에서 첫 번째 장치를 만듭니다.
 
@@ -107,8 +110,3 @@ Azure Resource Manager 템플릿을 사용하여 Azure 함수 앱 및 Azure Stor
 
 ## <a name="explore-more"></a>자세히 살펴보기
 자세한 내용은 [Intel IoT Gateway Kit 개발자 영역](https://software.intel.com/en-us/iot/hardware/gateways/dev-kit)을 참조하세요.
-
-
-<!--HONumber=Dec16_HO3-->
-
-

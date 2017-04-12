@@ -3,8 +3,8 @@ title: "App Service에서 API Apps 및 ASP.NET 시작 | Microsoft Docs"
 description: "Visual Studio 2015를 사용하여 Azure 앱 서비스에서 ASP.NET API 앱을 만들고, 배포하고, 사용하는 방법을 알아봅니다."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: alexkarcher-msft
+manager: erikre
 editor: 
 ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d72cf46c4a93d805ac9586696a6b41d81af733fd
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -58,7 +59,7 @@ Visual Studio 솔루션에는 다음과 같은 세 가지 프로젝트가 포함
 * ASP.NET Web API - 이 자습서 지침에서는 Visual Studio에서 ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) 와 함께 작업하는 방법에 대한 기본적인 지식이 있다고 가정합니다.
 * Azure 계정 - [무료로 Azure 계정을 열거나](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
   
-    Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 **신용 카드와 약정 없이**App Service에서 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
+    Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](https://azure.microsoft.com/try/app-service/)로 이동하세요. 여기서 **신용 카드와 약정 없이**App Service에서 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
 * [Azure SDK for.NET](https://azure.microsoft.com/downloads/archive-net-downloads/) 를 포함한 Visual Studio 2015 - SDK는 Visual Studio 2015가 아직 없는 경우 자동으로 설치합니다.
   
   * Visual Studio에서 도움말 -> Microsoft Visual Studio를 클릭하고 "Azure App Service 도구 v2.9.1" 이상을 설치해야 합니다.
@@ -66,7 +67,7 @@ Visual Studio 솔루션에는 다음과 같은 세 가지 프로젝트가 포함
     ![Azure 앱 도구 버전](./media/app-service-api-dotnet-get-started/apiversion.png)
     
     > [!NOTE]
-    > 사용자 컴퓨터에 SDK 종속성이 얼마나 있었는지에 따라 SDK를 설치하는 시간이 몇 분에서 30분 또는 그 이상이 될 수 있습니다.
+    > 사용자 컴퓨터에 SDK 종속성이 얼마나 있었는지에 따라 SDK를 설치하는 시간이 몇 분에서&30;분 또는 그 이상이 될 수 있습니다.
     > 
     > 
 
@@ -198,7 +199,7 @@ Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagge
 > 
 > 
 
-## <a name="a-idcreateapiappa-create-an-api-app-in-azure-and-deploy-code-to-it"></a><a id="createapiapp"></a> Azure에서 API 앱 만들기 및 코드 배포
+## <a id="createapiapp"></a> Azure에서 API 앱 만들기 및 코드 배포
 이 섹션에서는 Visual Studio **웹 게시** 마법사에 통합된 Azure 도구를 사용하여 Azure에서 새 API 앱을 만듭니다. 그런 다음 새 API 앱에 ToDoListDataAPI 프로젝트를 배포하고 Swagger UI를 실행하여 API를 호출합니다.
 
 1. **솔루션 탐색기**에서 ToDoListDataAPI 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
@@ -302,7 +303,7 @@ Swashbuckle은 모든 ASP.NET Web API 프로젝트에서 작동합니다. Swagge
     
     클라이언트 코드를 생성할 API 앱을 선택한 경우 Visual Studio는 이 URL에서 메타데이터를 검색합니다.
 
-## <a name="a-idcodegena-generate-client-code-for-the-data-tier"></a><a id="codegen"></a> 데이터 계층에 클라이언트 코드 생성
+## <a id="codegen"></a> 데이터 계층에 클라이언트 코드 생성
 Azure API 앱에 Swagger를 통합할 경우의 장점 중 하나는 자동 코드 생성입니다. 생성된 클라이언트 클래스는 API 앱을 호출하는 코드를 더욱 쉽게 작성하도록 합니다.
 
 ToDoListAPI 프로젝트에는 생성된 클라이언트 코드가 이미 있지만 다음 단계에서는 이를 삭제하고 다시 생성하여 코드 생성을 수행하는 방법을 확인합니다.
@@ -438,10 +439,5 @@ API 앱에 기존 웹 API 프로젝트를 배포하고 API 앱에 클라이언�
 ![Visual Studio에서 API 앱 템플릿](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
 **Azure API 앱** 프로젝트 템플릿은 **빈** ASP.NET 4.5.2 템플릿을 선택하고, 확인란을 클릭하여 Web API 지원을 추가하고, Swashbuckle NuGet 패키지를 설치하는 것과 동일합니다. 또한 탬플릿은 중복 Swagger 작업 ID가 만들어지지 않도록 하기 위해 설계된 일부 Swashbuckle 구성 코드를 추가합니다. API 앱 프로젝트를 만들면 이 자습서와 동일한 방식으로 API 앱에 배포할 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -4,7 +4,7 @@ description: "StorSimple 8000 시리즈 장치에서 StorSimple 8000 시리즈 �
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 7a513923-eb77-4078-b0ab-f8e90183796a
 ms.service: storsimple
@@ -12,15 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/22/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f16ae589c160338450a41857f88fe29763e1b9eb
+ms.sourcegitcommit: 56af9046fff24229298997b169aaf329e1692cc2
+ms.openlocfilehash: 80ff35cc47dfc38089f4c392ef4c90baf9ccc03e
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="install-update-12-on-your-storsimple-device"></a>StorSimple 장치에 업데이트 1.2 설치
+# <a name="install-update-12-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치에 업데이트 1.2 설치
 ## <a name="overview"></a>개요
 이 자습서에서는 업데이트 1 이전 소프트웨어 버전을 실행하는 StorSimple 장치에 업데이트 1.2를 설치하는 방법에 대해 설명합니다. 또한 이 자습서는 StorSimple 장치의 DATA 0 이외의 다른 네트워크 인터페이스에서 게이트웨이를 구성하는 경우 업데이트에 필요한 추가 단계를 다룹니다.
 
@@ -59,7 +61,7 @@ ms.openlocfilehash: f16ae589c160338450a41857f88fe29763e1b9eb
    
    유지 관리 모드 업데이트는 작업 중단 업데이트이므로 장치 가동 중지 시간이 발생할 수 있으며, 장치의 Windows PowerShell 인터페이스를 통해서만 적용할 수 있습니다.
    
-   ![유지 관리 페이지](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Maintenance page")
+   ![유지 관리 페이지](./media/storsimple-install-update-1/InstallUpdate12_10M.png "유지 관리 페이지")
 2. [핫픽스를 다운로드하려면](#to-download-hotfixes)에 나열된 단계를 사용하여 유지 관리 모드 업데이트를 다운로드한 후 KB3063416을 검색한 후 다운로드합니다. 이 KB는 디스크 펌웨어 업데이트를 설치합니다(다른 업데이트가 이미 설치되어 있어야 함).
 3. [유지 관리 모드 핫픽스 설치 및 확인](#to-install-and-verify-maintenance-mode-hotfixes) 에 나열된 단계를 따라 유지 관리 모드 업데이트를 설치합니다.
 4. Azure 클래식 포털에서 **유지 관리** 페이지로 이동한 후 페이지 아래쪽에서 **업데이트 검색**을 클릭하여 Windows 업데이트를 확인한 다음 **업데이트 설치**를 클릭합니다. 모든 업데이트가 정상적으로 설치되면 완료됩니다.
@@ -114,10 +116,5 @@ Azure 클래식 포털을 통해 업데이트를 설치하려고 할 때 게이�
 
 ## <a name="next-steps"></a>다음 단계
 [업데이트 1.2 릴리스](storsimple-update1-release-notes.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

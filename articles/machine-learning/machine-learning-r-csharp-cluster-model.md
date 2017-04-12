@@ -1,6 +1,6 @@
 ---
-title: "클러스터 모델 | Microsoft Docs"
-description: "클러스터 모델"
+title: "(사용되지 않음) 클러스터 모델 - Azure | Microsoft Docs"
+description: "(사용되지 않음) 클러스터 모델"
 services: machine-learning
 documentationcenter: 
 author: FrancescaLazzeri
@@ -11,16 +11,24 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: lazzeri
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8206107550173959021ea69ac533aa046f7e12e3
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 84c94b83878f851c2ac281fe33afe53e02f8456c
+ms.lasthandoff: 01/11/2017
 
 
 ---
-# <a name="cluster-model"></a>클러스터 모델
+# <a name="deprecated-cluster-model"></a>(사용되지 않음) 클러스터 모델
+
+> [!NOTE]
+> Microsoft DataMarket은 종료되고 있는 중이며 이 API는 사용되지 않습니다. 
+> 
+> [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)에서 많은 유용한 예제 실험과 API를 확인할 수 있습니다. 갤러리에 대한 자세한 내용은 [Cortana Intelligence 갤러리의 리소스 공유 및 검색](machine-learning-gallery-how-to-use-contribute-publish.md)을 참조하세요.
+
 신용 카드 발급자의 결손 공제 위험을 줄이기 위해 신용 카드 소유자의 행동 그룹을 어떻게 예측할 수 있을까요? 회사에서 직원의 성과를 향상시키기 위해 직원의 성격 특성 그룹을 어떻게 정의할 수 있을까요? 의사는 환자의 질병 특성을 기반으로 하여 환자를 어떻게 그룹으로 분류할 수 있을까요? 원칙적으로 클러스터 분석을 통해 이러한 모든 질문에 대답할 수 있습니다.   
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -80,7 +88,7 @@ ms.openlocfilehash: 8206107550173959021ea69ac533aa046f7e12e3
 > 
 > 
 
-Azure Machine Learning 내에서 새로운 빈 실험이 만들어졌으며 두 개의 [R 스크립트 실행][execute-r-script] 모듈을 작업 영역으로 가져왔습니다. 간단한 [R 스크립트 실행][execute-r-script]을 사용하여 데이터 스키마를 만든 후 데이터 스키마를 클러스터 모델 섹션에 연결하고 다시 [R 스크립트 실행][execute-r-script]을 사용하여 데이터 스키마를 만들었습니다. 그런 다음 클러스터 모델에 사용된 [R 스크립트 실행][execute-r-script]에서 웹 서비스는 Azure Machine Learning의 [R 스크립트 실행][execute-r-script]에 미리 빌드된 “k-means” 함수를 활용합니다.    
+Azure Machine Learning 내에서 새로운 빈 실험이 만들어졌으며 두 개의 [R 스크립트 실행][execute-r-script] 모듈을 작업 영역으로 가져왔습니다. 데이터 스키마는 간단한 [R 스크립트 실행][execute-r-script]으로 만들었습니다. 데이터 스키마를 클러스터 모델 섹션에 연결하고 다시 [R 스크립트 실행][execute-r-script]을 사용하여 데이터 스키마를 만들었습니다. 그런 다음 클러스터 모델에 사용된 [R 스크립트 실행][execute-r-script]에서 웹 서비스는 Azure Machine Learning의 [R 스크립트 실행][execute-r-script]에 미리 빌드된 “k-means” 함수를 활용합니다.    
 
 ![실험 흐름][3]
 
@@ -130,10 +138,5 @@ Azure Machine Learning 내에서 새로운 빈 실험이 만들어졌으며 두 
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

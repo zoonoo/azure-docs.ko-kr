@@ -16,8 +16,9 @@ ms.workload: sql-database
 ms.date: 10/12/2016
 ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: 239d009a1fc7273a50d335a0d55d61f414d99b11
-ms.openlocfilehash: dac4a96f9b62f390aeb84fe237788350c70ea5cd
+ms.sourcegitcommit: dd09cf5f9ad4bc82d9685b656eb40d31ac13fbd2
+ms.openlocfilehash: a0f5ef966bf4de86d337a561a4b9e2ded8b55488
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: dac4a96f9b62f390aeb84fe237788350c70ea5cd
 
 임시 과거 재방문 주기는 사용자가 유연한 에이징 정책을 만들 수 있도록 개별 테이블 수준에서 구성될 수 있습니다. 임시 재방문 주기를 적용하는 것은 간단합니다. 테이블 만들기 또는 스키마 변경 동안 하나의 매개 변수만 설정하면 됩니다.
 
-재방문 주기 정책을 정의하고 나면 Azure SQL Database는 자동 데이터 정리에 적합한 과거 행이 있는지 정기적으로 확인하기 시작합니다. 일치하는 행 식별 및 기록 테이블에서 제거는 시스템에서 예약하고 실행하는 백그라운드 작업에서 투명하게 발생합니다. 기록 테이블 행에 대한 Age 조건은 SYSTEM_TIME 기간의 종료를 나타내는 열을 기준으로 확인됩니다. 예를 들어 재방문 주기 기간이 6개월로 설정된 경우 정리에 적합한 테이블 행은 다음 조건을 만족합니다.
+재방문 주기 정책을 정의하고 나면 Azure SQL Database는 자동 데이터 정리에 적합한 과거 행이 있는지 정기적으로 확인하기 시작합니다. 일치하는 행 식별 및 기록 테이블에서 제거는 시스템에서 예약하고 실행하는 백그라운드 작업에서 투명하게 발생합니다. 기록 테이블 행에 대한 Age 조건은 SYSTEM_TIME 기간의 종료를 나타내는 열을 기준으로 확인됩니다. 예를 들어 재방문 주기 기간이&6;개월로 설정된 경우 정리에 적합한 테이블 행은 다음 조건을 만족합니다.
 
 ````
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
@@ -42,7 +43,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ````
 
-데이터베이스 플래그 **is_temporal_history_retention_enabled**는 기본적으로 ON에 설정되어 있지만 사용자가 ALTER DATABASE 문을 사용하여 변경할 수 있습니다. 또한 이 플래그는 [특정 시점 복원](sql-database-point-in-time-restore.md) 작업 후에 자동적으로 OFF로 설정됩니다. 데이터베이스에 대한 임시 기록 재방문 주기를 사용하도록 설정하려면 다음 문을 실행합니다.
+데이터베이스 플래그 **is_temporal_history_retention_enabled**는 기본적으로 ON에 설정되어 있지만 사용자가 ALTER DATABASE 문을 사용하여 변경할 수 있습니다. 또한 이 플래그는 [특정 시점 복원](sql-database-recovery-using-backups.md) 작업 후에 자동적으로 OFF로 설정됩니다. 데이터베이스에 대한 임시 기록 재방문 주기를 사용하도록 설정하려면 다음 문을 실행합니다.
 
 ````
 ALTER DATABASE <myDB>
@@ -169,9 +170,9 @@ SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
 일관되지 않거나 예측할 수 없는 결과가 나올 수도 있기 때문에 재방문 주기 기간을 초과하여 기록 테이블을 읽는 비즈니스 논리에 의존하지 마십시오. 임시 테이블에 있는 데이터를 분석하려면 FOR SYSTEM_TIME 절을 사용한 임시 쿼리를 하는 것이 좋습니다.
 
 ## <a name="point-in-time-restore-considerations"></a>특정 시점 복원 고려 사항
-[기존 데이터베이스를 특정 시점으로 복원](sql-database-point-in-time-restore.md)하여 새 데이터베이스를 만들 때 데이터베이스 수준에서 비활성화된 임시 재방문 주기가 있습니다. (**is_temporal_history_retention_enabled** 플래그 OFF로 설정). 이 기능을 사용하면 쿼리하기도 전에 오래된 행이 삭제되는 것에 대한 걱정 없이 복원 시 모든 기록 행을 검사할 수 있습니다. *구성된 재방문 주기를 초과하여 과거 데이터를 검사*하기 위해 사용할 수 있습니다.
+[기존 데이터베이스를 특정 시점으로 복원](sql-database-point-in-time-restore-portal.md)하여 새 데이터베이스를 만들 때 데이터베이스 수준에서 비활성화된 임시 재방문 주기가 있습니다. (**is_temporal_history_retention_enabled** 플래그 OFF로 설정). 이 기능을 사용하면 쿼리하기도 전에 오래된 행이 삭제되는 것에 대한 걱정 없이 복원 시 모든 기록 행을 검사할 수 있습니다. *구성된 재방문 주기를 초과하여 과거 데이터를 검사*하기 위해 사용할 수 있습니다.
 
-임시 테이블의 재방문 주기가 1 MONTH로 지정되었다고 가정해 봅시다. 데이터베이스가 프리미엄 서비스 계층에서 만들어진 경우 데이타베이스 상태를 35일 이전으로 돌려 데이터베이스 복사본을 만들 수 있습니다. 이를 통해 실질적으로 기록 테이블을 직접 쿼리하여 최대 65일 전까지의 기록 행을 분석할 수 있습니다.
+임시 테이블의 재방문 주기가&1; MONTH로 지정되었다고 가정해 봅시다. 데이터베이스가 프리미엄 서비스 계층에서 만들어진 경우 데이타베이스 상태를 35일 이전으로 돌려 데이터베이스 복사본을 만들 수 있습니다. 이를 통해 실질적으로 기록 테이블을 직접 쿼리하여 최대 65일 전까지의 기록 행을 분석할 수 있습니다.
 
 임시 재방문 주기 정리를 활성화하고자 한다면 특정 시점 복원을 한 후 다음 TRANSACT-SQL 문을 실행합니다.
 
@@ -186,10 +187,5 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 Channel 9을 방문하여 [실제 고객 임시 구현 성공 사례](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)를 듣고 [라이브 임시 데모](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)를 시청합니다.
 
 Temporal Tables에 관한 자세한 내용은 [MSDN 설명서](https://msdn.microsoft.com/library/dn935015.aspx)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

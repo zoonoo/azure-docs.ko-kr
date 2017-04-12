@@ -1,10 +1,10 @@
 ---
-title: "네트워크 보안 그룹 | Microsoft Docs"
+title: "Azure의 네트워크 보안 그룹 | Microsoft Docs"
 description: "네트워크 보안 그룹을 사용하여 Azure에서 분산된 방화벽을 사용하여 가상 네트워크 내에서 트래픽 흐름을 격리하고 제어하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
 ms.service: virtual-network
@@ -15,12 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
-ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6ea9db6ac7a7ba63652b860c22899a8616ea81bc
+ms.lasthandoff: 04/03/2017
 
 
 ---
-# <a name="network-security-groups"></a>네트워크 보안 그룹
+# <a name="control-network-traffic-flow-with-network-security-groups"></a>네트워크 보안 그룹을 사용하여 네트워크 트래픽 흐름을 제어합니다.
 
 NSG(네트워크 보안 그룹)는 ACL(액세스 제어 목록)의 Virtual Network에 VM 인스턴스에 대한 허용 또는 거부 네트워크 트래픽 규칙의 목록을 포함합니다. Nsg는 서브넷 또는 서브넷 내의 개별 VM 인스턴스 중 하나와 연결될 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다. 또한 개별 VM에 대한 트래픽은 해당 VM에 직접 NSG를 연결하여 추가로 제한할 수 있습니다.
 
@@ -65,8 +66,8 @@ NSG에는 인바운드 및 아웃바운드의 두 가지 규칙 집합이 포함
 ### <a name="default-tags"></a>기본 태그
 기본 태그는 IP 주소의 범주를 다루기 위해 시스템에서 제공한 식별자입니다. 모든 규칙의 **원본 주소 접두사** 및 **대상 주소 접두사** 속성에 있는 기본 태그를 사용할 수 있습니다. 3개의 기본 태그를 사용할 수 있습니다.
 
-* **VIRTUAL_NETWORK:** 모든 네트워크 주소 공간을 나타내는 기본 태그입니다. 여기에는 연결된 모든 온-프레미스 주소 공간 및 연결된 Azure VNet(로컬 네트워크)뿐만 아니라 가상 네트워크 주소 공간(Azure에 정의된 CIDR 범위)도 포함됩니다.
-* **AZURE_LOADBALANCER:** Azure의 인프라 부하 분산 장치를 나타내는 기본 태그입니다. 이 태그는 Azure의 상태 프로브가 시작되는 Azure 데이터 센터 IP로 변환됩니다.
+* **VIRTUAL_NETWORK**(**VirtualNetwork** Azure Resource Manager를 사용하는 경우): 이 기본 태그는 모든 네트워크 주소 공간을 나타냅니다. 여기에는 연결된 모든 온-프레미스 주소 공간 및 연결된 Azure VNet(로컬 네트워크)뿐만 아니라 가상 네트워크 주소 공간(Azure에 정의된 CIDR 범위)도 포함됩니다.
+* **AZURE_LOADBALANCER**(**AzureLoadBalancer** Azure Resource Manager를 사용하는 경우): 이 기본 태그는 Azure의 인프라 부하 분산 장치를 나타냅니다. 이 태그는 Azure의 상태 프로브가 시작되는 Azure 데이터 센터 IP로 변환됩니다.
 * **INTERNET:** 이 기본 태그는 가상 네트워크 외부에 있으며 공용 인터넷으로 연결할 수 있는 IP 주소 공간을 나타냅니다. 이 범위에는 [Azure 소유의 공용 IP 공간](https://www.microsoft.com/download/details.aspx?id=41653) 도 포함됩니다.
 
 ### <a name="default-rules"></a>기본 규칙
@@ -93,8 +94,8 @@ NSG에는 인바운드 및 아웃바운드의 두 가지 규칙 집합이 포함
 ## <a name="associating-nsgs"></a>NSG 연결
 사용하는 배포 모델에 따라서 NSG를 VM, NIC 및 서브넷에 연결할 수 있습니다.
 
-* **VM에 NSG 연결(클래식 배포에만 해당).**  NSG를 VM에 연결하는 경우 NSG의 네트워크 액세스 규칙은 VM을 출입하는 모든 트래픽에 적용됩니다. 
-* **NIC에 NSG 연결(리소스 관리자 배포에만 해당).**  NSG를 NIC에 연결하는 경우 NSG의 네트워크 액세스 규칙은 NIC에만 적용됩니다. 다시 말해서 다중 NIC VM에서 NSG가 단일 NIC에 적용되는 경우 다른 NIC에 바인딩된 트래픽에는 영향을 주지 않습니다. 
+* **VM에 NSG 연결(클래식 배포에만 해당).** NSG를 VM에 연결하는 경우 NSG의 네트워크 액세스 규칙은 VM을 출입하는 모든 트래픽에 적용됩니다. 
+* **NIC에 NSG 연결(리소스 관리자 배포에만 해당).** NSG를 NIC에 연결하는 경우 NSG의 네트워크 액세스 규칙은 NIC에만 적용됩니다. 다시 말해서 다중 NIC VM에서 NSG가 단일 NIC에 적용되는 경우 다른 NIC에 바인딩된 트래픽에는 영향을 주지 않습니다. 
 * **서브넷에 NSG 연결(모든 배포)**. NSG를 서브넷에 연결하는 경우 NSG의 네트워크 액세스 규칙은 서브넷의 모든 IaaS 및 PaaS 리소스에 적용됩니다. 
 
 다른 NSG를 VM(또는 배포 모델에 따라서는 NIC)에 연결할 수 있고, NIC 또는 VM이 바인딩된 서브넷에 연결할 수 있습니다. 이 경우 모든 네트워크 액세스 규칙이 NSG에서 우선적으로 다음과 같은 순서로 트래픽에 적용됩니다.
@@ -258,9 +259,4 @@ NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리�
 * [클래식 배포 모델에서 NSG를 배포합니다](virtual-networks-create-nsg-classic-ps.md).
 * [Resource Manager에서 NSG를 배포합니다](virtual-networks-create-nsg-arm-pportal.md).
 * [NSG 로그를 관리](virtual-network-nsg-manage-log.md)합니다.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "기계 학습 작업 사용 | Microsoft Docs"
+title: "Azure Data Factory를 사용하여 예측 데이터 파이프라인 만들기 | Microsoft Docs"
 description: "Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다."
 services: data-factory
 documentationcenter: 
@@ -12,60 +12,63 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 01/19/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: ec522d843b2827c12ff04afac15d89d525d88676
-ms.openlocfilehash: aa7b7ff406d06016aa6c4ee956dbf10a856a0e24
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 9686a4c7b6a71df20e15653837363e6b69418cc9
+ms.lasthandoff: 03/14/2017
 
 
 ---
-# <a name="create-predictive-pipelines-using-azure-machine-learning-activities"></a>Azure 기계 학습 작업을 사용하여 예측 파이프라인 만들기
+# <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 
-> [!div class="op_single_selector"]
-> * [Hive](data-factory-hive-activity.md) 
-> * [Pig](data-factory-pig-activity.md)
-> * [MapReduce](data-factory-map-reduce.md)
-> * [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md)
-> * [기계 학습](data-factory-azure-ml-batch-execution-activity.md)
-> * [저장 프로시저](data-factory-stored-proc-activity.md)
-> * [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md)
-> * [.NET 사용자 지정](data-factory-use-custom-activities.md)
->
+> [!div class="op_single_selector" title1="Transformation Activities"]
+> * [Hive 작업](data-factory-hive-activity.md) 
+> * [Pig 작업](data-factory-pig-activity.md)
+> * [MapReduce 작업](data-factory-map-reduce.md)
+> * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
+> * [Spark 작업](data-factory-spark.md)
+> * [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [Machine Learning 업데이트 리소스 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
+> * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
+> * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
 ## <a name="introduction"></a>소개
+
+### <a name="azure-machine-learning"></a>Azure 기계 학습
 [Azure 기계 학습](https://azure.microsoft.com/documentation/services/machine-learning/) 을 사용하여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다. 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
 
 1. **학습 실험 만들기**. Azure ML Studio를 사용하여 이 단계를 수행합니다. ML Studio는 학습 데이터를 사용하여 예측 분석 모델을 학습하고 테스트하는 데 사용하는 시각적 공동 개발 환경입니다.
 2. **예측 실험으로 변환**. 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 점수 매기기를 위해 실험을 준비하고 간소화합니다.
 3. **웹 서비스로 배포**. 점수 매기기 실험을 Azure 웹 서비스로 게시할 수 있습니다. 이 웹 서비스 끝점을 통해 데이터를 모델로 전송하고 모델로부터 결과 예측을 받을 수 있습니다.  
 
-Azure Data Factory를 사용하면 예측 분석을 위해 게시된 [Azure Machine Learning][azure-machine-learning] 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. [Azure Data Factory 소개](data-factory-introduction.md) 및 [첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 문서를 참조하여 Azure Data Factory 서비스를 빠르게 시작합니다.
+### <a name="azure-data-factory"></a>Azure 데이터 팩터리
+Data Factory는 데이터의 **이동**과 **변환**을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. 다양한 데이터 저장소에서 데이터를 수집하고 변환/처리하며 데이터 저장소에 결과 데이터를 게시할 수 있는 Azure Data Factory를 사용하여 데이터 통합 솔루션을 만들 수 있습니다.
 
-Azure 데이터 팩터리 파이프라인에서 **배치 실행 작업** 을 사용하여 Azure ML 웹 서비스를 호출하고 배치에 있는 데이터에 대한 예측을 할 수 있습니다. 자세한 내용은 [배치 실행 작업을 사용하여 Azure ML 웹 서비스 호출](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) 섹션을 참조하세요.
+Data Factory 서비스를 통해 데이터를 이동하고 변환하는 파이프라인을 실행한 다음 데이터 파이프라인을 지정된 일정(매시간, 매일, 매주 등)으로 만들 수 있습니다. 또한 데이터 파이프라인 간의 종속성과 계보를 표시하는 다양한 시각화를 제공하며 문제를 쉽고 정확하게 파악하고 모니터링 경고를 설정하는 통합된 단일 보기에서 모든 데이터 파이프라인을 모니터링합니다.
+
+[Azure Data Factory 소개](data-factory-introduction.md) 및 [첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 문서를 참조하여 Azure Data Factory 서비스를 빠르게 시작합니다.
+
+### <a name="data-factory-and-machine-learning-together"></a>Data Factory 및 Machine Learning
+Azure Data Factory를 사용하면 예측 분석을 위해 게시된 [Azure Machine Learning][azure-machine-learning] 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure 데이터 팩터리 파이프라인에서 **배치 실행 작업** 을 사용하여 Azure ML 웹 서비스를 호출하고 배치에 있는 데이터에 대한 예측을 할 수 있습니다. 자세한 내용은 [배치 실행 작업을 사용하여 Azure ML 웹 서비스 호출](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) 섹션을 참조하세요.
 
 시간이 지남에 따라 Azure ML 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용하여 다시 학습되어야 합니다. 다음 단계를 수행하여 데이터 팩터리 파이프라인에서 Azure ML 모델을 다시 학습할 수 있습니다.
 
 1. 웹 서비스로 학습 실험(예측 실험 아님)을 게시합니다. 이전 시나리오에서 웹 서비스로 예측 실험을 노출했으므로 Azure ML Studio에서 이 단계를 수행합니다.
 2. Azure ML 배치 실행 작업을 사용하여 학습 실험을 위한 웹 서비스를 호출합니다. 기본적으로, Azure ML 배치 실행 작업을 사용하여 학습 웹 서비스와 점수 매기기 웹 서비스를 모두 호출할 수 있습니다.
 
-재학습으로 완료한 후에는 새로 학습한 모델로 점수 매기기 웹 서비스(웹 서비스로 노출된 예측 실험)를 업데이트하려고 합니다. 단계는 다음과 같습니다.
-
-1. 점수 매기기 웹 서비스에 기본값이 아닌 끝점을 추가합니다. 웹 서비스의 기본 끝점은 업데이트할 수 없으므로 Azure 포털을 사용하여 기본이 아닌 끝점을 만들어야 합니다. 개념 정보와 절차적 단계는 모두 [끝점 만들기](../machine-learning/machine-learning-create-endpoint.md) 를 참조하세요.
-2. 점수 매기기에서 기본이 아닌 끝점을 사용하도록 기존 Azure ML 연결된 서비스를 업데이트합니다. 업데이트된 웹 서비스를 사용하려면 새 끝점에서 사용을 시작해야 합니다.
-3. **Azure ML 업데이트 리소스 작업** 을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다.  
-
-자세한 내용은 [업데이트 리소스 작업을 사용하여 Azure ML 모델 업데이트](#updating-azure-ml-models-using-the-update-resource-activity) 를 참조하세요.
+재학습으로 완료한 후에는 **Azure ML 업데이트 리소스 작업**을 사용하여 새로 학습한 모델로 점수 매기기 웹 서비스(웹 서비스로 노출된 예측 실험)를 업데이트합니다. 자세한 내용은 [업데이트 리소스 작업을 사용하여 모델 업데이트](data-factory-azure-ml-update-resource-activity.md) 문서를 참조하세요.
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>배치 실행 작업을 사용하여 웹 서비스 호출
 Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케스트레이션한 다음 Azure 기계 학습을 사용하는 배치 실행을 수행할 수 있습니다. 최상위 단계는 다음과 같습니다.
 
-1. Azure 기계 학습 연결된 서비스를 만듭니다. 다음이 필요합니다.
+1. Azure 기계 학습 연결된 서비스를 만듭니다. 다음 값이 필요합니다.
 
    1. **요청 URI** . 웹 서비스 페이지에서 **배치 실행** 링크를 클릭하여 요청 URI를 찾을 수 있습니다.
    2. **API 키** . 게시한 웹 서비스를 클릭하여 API 키를 찾을 수 있습니다.
-
-      1. **AzureMLBatchExecution** 작업을 사용합니다.
+   3. **AzureMLBatchExecution** 작업을 사용합니다.
 
       ![기계 학습 대시보드](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
 
@@ -252,49 +255,49 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
    3. 배치 실행 출력을 출력 데이터 집합에 지정된 Blob에 복사합니다.
 
       > [!NOTE]
-      > AzureMLBatchExecution 작업에는 0개 이상의 입력 및 1개 이상의 출력이 있을 수 있습니다.
+      > AzureMLBatchExecution 작업에는&0;개 이상의 입력 및&1;개 이상의 출력이 있을 수 있습니다.
       >
       >
 
     ```JSON
     {
         "name": "PredictivePipeline",
-        "properties": {
+         "properties": {
             "description": "use AzureML model",
-            "activities": [
-            {
-                "name": "MLActivity",
-                "type": "AzureMLBatchExecution",
-                "description": "prediction analysis on batch input",
-                "inputs": [
-                {
-                    "name": "DecisionTreeInputBlob"
-                }
-                ],
-                "outputs": [
-                {
-                    "name": "DecisionTreeResultBlob"
-                }
-                ],
-                "linkedServiceName": "MyAzureMLLinkedService",
-                "typeProperties":
-                {
-                    "webServiceInput": "DecisionTreeInputBlob",
-                    "webServiceOutputs": {
-                        "output1": "DecisionTreeResultBlob"
-                    }                
-                },
-                "policy": {
+               "activities": [
+             {
+                   "name": "MLActivity",
+                   "type": "AzureMLBatchExecution",
+                   "description": "prediction analysis on batch input",
+                   "inputs": [
+                 {
+                       "name": "DecisionTreeInputBlob"
+                 }
+                   ],
+                   "outputs": [
+                 {
+                       "name": "DecisionTreeResultBlob"
+                 }
+                   ],
+                   "linkedServiceName": "MyAzureMLLinkedService",
+                   "typeProperties":
+                   {
+                       "webServiceInput": "DecisionTreeInputBlob",
+                       "webServiceOutputs": {
+                           "output1": "DecisionTreeResultBlob"
+                       }                
+                   },
+                   "policy": {
                     "concurrency": 3,
-                    "executionPriorityOrder": "NewestFirst",
-                    "retry": 1,
-                    "timeout": "02:00:00"
-                }
-            }
-            ],
-            "start": "2016-02-13T00:00:00Z",
-            "end": "2016-02-14T00:00:00Z"
-        }
+                     "executionPriorityOrder": "NewestFirst",
+                     "retry": 1,
+                     "timeout": "02:00:00"
+                   }
+             }
+               ],
+               "start": "2016-02-13T00:00:00Z",
+               "end": "2016-02-14T00:00:00Z"
+         }
     }
     ```
 
@@ -451,7 +454,7 @@ Azure ML 실험에서 웹 서비스 입력 및 출력 포트와 전역 매개 �
 ```
 
 #### <a name="web-service-does-not-require-an-input"></a>웹 서비스에는 입력이 필요하지 않습니다.
-Azure ML 배치 실행 웹 서비스는 입력이 필요하지 않는 모든 워크플로(예: R 또는 Python 스크립트)를 실행하는 데 사용할 수 있습니다. 또는 어떠한 GlobalParameters도 노출하지 않는 판독기 모듈로 실험을 구성할 수 있습니다. 이 경우 AzureMLBatchExecution 작업은 다음과 같이 구성합니다.
+Azure ML 배치 실행 웹 서비스는 입력이 필요하지 않는 모든 워크플로(예: R 또는 Python 스크립트)를 실행하는 데 사용할 수 있습니다.  또는 어떠한 GlobalParameters도 노출하지 않는 판독기 모듈로 실험을 구성할 수 있습니다. 이 경우 AzureMLBatchExecution 작업은 다음과 같이 구성합니다.
 
 ```JSON
 {
@@ -542,250 +545,7 @@ Azure ML 웹 서비스의 판독기 및 기록기 모듈은 GlobalParameters를 
 
 
 ## <a name="updating-models-using-update-resource-activity"></a>업데이트 리소스 작업을 사용하여 모델 업데이트
-시간이 지남에 따라 Azure ML 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 ML 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. 웹 서비스를 통해 Azure ML 모델을 재학습하고 업데이트하는 일반적인 단계는 다음과 같습니다.
-
-1. [Azure 기계 학습 스튜디오](https://studio.azureml.net)에서 실험을 만듭니다.
-2. 모델에 만족하면 Azure ML Studio를 사용하여 **학습 실험** 및 점수 매기기/**예측 실험** 모두에 대해 웹 서비스를 게시합니다.
-
-다음 표에서는 이 예제에 사용된 웹 서비스에 대해 설명합니다.  자세한 내용은 [프로그래밍 방식으로 기계 학습 모델 다시 학습](../machine-learning/machine-learning-retrain-models-programmatically.md) 을 참조하세요.
-
-| 웹 서비스의 유형 | description |
-|:--- |:--- |
-| **학습 웹 서비스** |학습 데이터를 수신하고 학습된 모델을 생성합니다. 재학습의 출력은 Azure Blob 저장소에서 .ilearner 파일입니다.  웹 서비스로 학습 실험을 게시할 때 사용자에 대한 **기본 끝점** 이 자동으로 만들어집니다. 더 많은 끝점을 만들 수 있지만 예제에서는 기본 끝점만 사용합니다. |
-| **점수 매기기 웹 서비스** |레이블이 지정되지 않은 데이터 예제를 수신하고 예측을 합니다. 예측의 출력은 실험의 구성에 따라 .csv 파일 또는 Azure SQL 데이터베이스의 행과 같은 다양한 형태를 포함할 수 있습니다. 웹 서비스로 예측 실험을 게시할 때 사용자에 대한 기본 끝점이 자동으로 만들어집니다. **Azure 포털** 을 사용하여 두 번째 [기본이 아닌 업데이트 가능한 끝점](https://manage.windowsazure.com)을 만듭니다. 더 많은 끝점을 만들 수 있지만 이 예제에서는 기본이 아닌 업데이트 가능한 끝점만 사용합니다. 이에 대한 단계는 [끝점 만들기](../machine-learning/machine-learning-create-endpoint.md) 문서를 참조하세요. |
-
-다음 그림에서는 Azure ML에서 학습 및 점수 매기기 끝점 간의 관계를 보여줍니다.
-
-![웹 서비스](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
-
-**Azure ML Batch 실행 작업**을 사용하여 **학습 웹 서비스**를 호출할 수 있습니다. 학습 웹 서비스를 호출하는 것은 점수 매기기 데이터에 대해 Azure ML 웹 서비스(점수 매기기 웹 서비스)를 호출하는 것과 동일합니다. 이전 섹션에서는 Azure Data Factory 파이프라인에서 Azure ML 웹 서비스를 호출하는 방법에 대해 자세히 설명합니다.
-
-**scoring web service** 을 사용하여 두 번째 **Azure ML 업데이트 리소스 작업** 을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다. 위의 표에 설명한 대로 기본이 아닌 업데이트 가능한 끝점을 만들어 사용해야 합니다. 또한 데이터 팩터리에서 기본이 아닌 끝점을 사용하도록 기존의 연결된 서비스를 업데이트하여 항상 최신의 재학습된 모델을 사용하도록 해야 합니다.
-
-다음 시나리오는 보다 자세한 내용을 제공합니다. Azure Data Factory 파이프라인에서 Azure ML 모델을 재학습 및 업데이트하는 예제가 포함되어 있습니다.
-
-### <a name="scenario-retraining-and-updating-an-azure-ml-model"></a>시나리오: Azure ML 모델 재학습 및 업데이트
-이 섹션에서는 **Azure ML 배치 실행 작업** 을 사용하여 모델을 재학습하는 샘플 파이프라인을 제공합니다. 파이프라인은 또한 **Azure ML 업데이트 리소스 작업** 을 사용하여 점수 매기기 웹 서비스에서 모델을 업데이트합니다. 섹션에서는 또한 모든 연결된 서비스, 데이터 집합 및 파이프라인에 대한 JSON 코드 조각 예제도 제공합니다.
-
-샘플 파이프라인의 다이어그램 보기는 다음과 같습니다. 보다시피 Azure ML 배치 실행 작업은 학습 입력을 사용하여 학습 출력(iLearner 파일)을 생성합니다. Azure ML 업데이트 리소스 작업이 이 학습 출력을 사용하여 점수 매기기 웹 서비스 끝점에서 모델을 업데이트합니다. 업데이트 리소스 작업은 출력을 생성하지 않습니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 집합입니다.
-
-![파이프라인 다이어그램](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
-
-#### <a name="azure-blob-storage-linked-service"></a>Azure Blob 저장소 연결된 서비스:
-Azure 저장소는 다음 데이터를 보관합니다.
-
-* 학습 데이터. Azure ML 학습 웹 서비스에 대한 입력 데이터입니다.  
-* iLearner 파일. Azure ML 학습 웹 서비스에서의 출력입니다. 이 파일은 업데이트 리소스 작업에 대한 입력이기도 합니다.  
-
-연결된 서비스의 샘플 JSON 정의는 다음과 같습니다.
-
-```JSON
-{
-    "name": "StorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=name;AccountKey=key"
-        }
-    }
-}
-```
-
-#### <a name="training-input-dataset"></a>학습 입력 데이터 집합:
-다음 데이터 집합은 Azure ML 학습 웹 서비스에 대한 입력 학습 데이터를 나타냅니다. Azure ML 배치 실행 작업은 이 데이터 집합을 입력으로 사용합니다.
-
-```JSON
-{
-    "name": "trainingData",
-    "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-            "folderPath": "labeledexamples",
-            "fileName": "labeledexamples.arff",
-            "format": {
-                "type": "TextFormat"
-            }
-        },
-        "availability": {
-            "frequency": "Week",
-            "interval": 1
-        },
-        "policy": {          
-            "externalData": {
-                "retryInterval": "00:01:00",
-                "retryTimeout": "00:10:00",
-                "maximumRetry": 3
-            }
-        }
-    }
-}
-```
-
-#### <a name="training-output-dataset"></a>학습 출력 데이터 집합:
-다음 데이터 집합은 Azure ML 학습 웹 서비스에서 출력 iLearner 파일을 나타냅니다. Azure ML 배치 실행 작업은 이 데이터 집합을 생성합니다. 이 데이터 집합은 Azure ML 업데이트 리소스 작업에 대한 입력이기도 합니다.
-
-```JSON
-{
-    "name": "trainedModelBlob",
-    "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-            "folderPath": "trainingoutput",
-            "fileName": "model.ilearner",
-            "format": {
-                "type": "TextFormat"
-            }
-        },
-        "availability": {
-            "frequency": "Week",
-            "interval": 1
-        }
-    }
-}
-```
-
-#### <a name="linked-service-for-azure-ml-training-endpoint"></a>Azure ML 학습 끝점에 대한 연결된 서비스
-다음 JSON 코드 조각은 학습 웹 서비스의 기본 끝점을 가리키는 Azure 기계 학습 연결된 서비스를 정의합니다.
-
-```JSON
-{    
-    "name": "trainingEndpoint",
-      "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
-              "apiKey": "myKey"
-        }
-      }
-}
-```
-
-**Azure ML Studio**에서 다음을 수행하여 **mlEndpoint** 및 **apiKey**에 대한 값을 가져옵니다.
-
-1. 왼쪽 메뉴에서 **웹 서비스** 를 클릭합니다.
-2. 웹 서비스 목록에서 **학습 웹 서비스** 를 클릭합니다.
-3. **API 키** 텍스트 상자 옆의 복사를 클릭합니다. 클립보드의 키를 Data Factory JSON 편집기에 붙여넣습니다.
-4. **Azure ML studio**에서 **배치 실행** 링크를 클릭합니다.
-5. **요청** 섹션에서 **요청 URI**를 복사하여 Data Factory JSON 편집기에 붙여넣습니다.   
-
-#### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Azure ML 업데이트 가능한 점수 매기기 끝점에 대한 연결된 서비스:
-다음 JSON 코드 조각은 점수 매기기 웹 서비스의 기본이 아닌 업데이트 가능한 끝점을 가리키는 Azure 기계 학습 연결된 서비스를 정의합니다.  
-
-```JSON
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": "endpoint2Key",
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
-
-Azure ML 연결된 서비스를 만들고 배포하기 전에 [끝점 만들기](../machine-learning/machine-learning-create-endpoint.md) 문서의 단계에 따라 점수 매기기 웹 서비스에 대한 두 번째(기본이 아닌 업데이트 가능한) 끝점을 만듭니다.
-
-기본이 아닌 업데이트 가능한 끝점을 만든 후 다음을 수행합니다.
-
-* **배치 실행**을 클릭하여 **mlEndpoint** JSON 속성에 대한 URI 값을 가져옵니다.
-* **업데이트 리소스** 링크를 클릭하여 **updateResourceEndpoint** JSON 속성에 대한 URI 값을 가져옵니다. API 키는 끝점 페이지 자체의 오른쪽 하단에 있습니다.
-
-![업데이트 가능한 끝점](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
-
-#### <a name="placeholder-output-dataset"></a>자리 표시자 출력 데이터 집합:
-Azure ML 업데이트 리소스 작업은 어떠한 출력도 생성하지 않습니다. 그러나 Azure Data Factory에서 파이프라인의 일정을 구동하려면 출력 데이터 집합이 필요합니다. 따라서 이 예에서는 더미/자리 표시자 데이터 집합을 사용합니다.  
-
-```JSON
-{
-    "name": "placeholderBlob",
-    "properties": {
-        "availability": {
-            "frequency": "Week",
-            "interval": 1
-        },
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-            "folderPath": "any",
-            "format": {
-                "type": "TextFormat"
-            }
-        }
-    }
-}
-```
-
-#### <a name="pipeline"></a>파이프라인
-파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**라는 두 활동이 있습니다. Azure ML 배치 실행 작업은 학습 데이터를 입력으로 사용하여 .iLearner 파일을 출력으로 생성합니다. 이 작업은 입력 교육 데이터와 함께 학습 웹 서비스(웹 서비스로 노출된 학습 실험)를 호출하고 웹 서비스로부터 ilearner 파일을 수신합니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 집합입니다.
-
-![파이프라인 다이어그램](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
-
-```JSON
-{
-    "name": "pipeline",
-    "properties": {
-        "activities": [
-            {
-                "name": "retraining",
-                "type": "AzureMLBatchExecution",
-                "inputs": [
-                    {
-                        "name": "trainingData"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "trainedModelBlob"
-                    }
-                ],
-                "typeProperties": {
-                    "webServiceInput": "trainingData",
-                    "webServiceOutputs": {
-                        "output1": "trainedModelBlob"
-                    }              
-                 },
-                "linkedServiceName": "trainingEndpoint",
-                "policy": {
-                    "concurrency": 1,
-                    "executionPriorityOrder": "NewestFirst",
-                    "retry": 1,
-                    "timeout": "02:00:00"
-                }
-            },
-            {
-                "type": "AzureMLUpdateResource",
-                "typeProperties": {
-                    "trainedModelName": "Training Exp for ADF ML [trained model]",
-                    "trainedModelDatasetName" :  "trainedModelBlob"
-                },
-                "inputs": [
-                    {
-                        "name": "trainedModelBlob"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "name": "placeholderBlob"
-                    }
-                ],
-                "policy": {
-                    "timeout": "01:00:00",
-                    "concurrency": 1,
-                    "retry": 3
-                },
-                "name": "AzureML Update Resource",
-                "linkedServiceName": "updatableScoringEndpoint2"
-            }
-        ],
-        "start": "2016-02-13T00:00:00Z",
-           "end": "2016-02-14T00:00:00Z"
-    }
-}
-```
+재학습으로 완료한 후에는 **Azure ML 업데이트 리소스 작업**을 사용하여 새로 학습한 모델로 점수 매기기 웹 서비스(웹 서비스로 노출된 예측 실험)를 업데이트합니다. 자세한 내용은 [업데이트 리소스 작업을 사용하여 모델 업데이트](data-factory-azure-ml-update-resource-activity.md) 문서를 참조하세요.
 
 ### <a name="reader-and-writer-modules"></a>판독기 및 작성기 모듈
 웹 서비스 매개 변수를 사용하는 일반적인 시나리오는 Azure SQL 판독기 및 기록기 사용입니다. 판독기 모듈은 Azure Machine Learning Studio 외부 데이터 관리 서비스에서 실험으로 데이터를 로드하는 데 사용됩니다. 작성기 모듈은 사용자 실험에서 Azure Machine Learning Studio 외부 데이터 관리 서비스로 데이터를 저장합니다.  
@@ -873,9 +633,4 @@ AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

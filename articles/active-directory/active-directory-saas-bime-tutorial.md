@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 19adbe15694a6413842b23c27851ce582bfd727e
+ms.sourcegitcommit: bd3dd077bef87a78904ffd5d2be469b6b8bc8959
+ms.openlocfilehash: 7857480d033e4d570aa48569e08bb30846b280f6
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -30,17 +31,18 @@ ms.openlocfilehash: 19adbe15694a6413842b23c27851ce582bfd727e
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
-1. Bime에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
-3. 사용자 프로비전 구성
-4. 사용자 할당
+* Bime에 응용 프로그램 통합 사용
+* SSO(Single Sign-On) 구성
+* 사용자 프로비전 구성
+* 사용자 할당
 
 ![시나리오](./media/active-directory-saas-bime-tutorial/IC775552.png "시나리오")
 
-## <a name="enabling-the-application-integration-for-bime"></a>Bime에 응용 프로그램 통합 사용
+## <a name="enable-the-application-integration-for-bime"></a>Bime에 응용 프로그램 통합 사용
 이 섹션은 Bime에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
-### <a name="to-enable-the-application-integration-for-bime-perform-the-following-steps"></a>Bime에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.
+**Bime에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
    ![Active Directory](./media/active-directory-saas-bime-tutorial/IC700993.png "Active Directory")
@@ -61,13 +63,14 @@ ms.openlocfilehash: 19adbe15694a6413842b23c27851ce582bfd727e
    
    ![Bime](./media/active-directory-saas-bime-tutorial/IC775554.png "Bime")
    
-   ## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Bime에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
-Bime에 대한 Single Sign-on을 구성하려면 인증서의 손도장(thumbprint) 값을 검색해야 합니다.  
-이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+Bime에 대한 SSO를 구성하려면 인증서의 지문 값을 검색해야 합니다. 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
+
+**Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털의 **Bime** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-bime-tutorial/IC771709.png "Single Sign-On 구성")
@@ -90,23 +93,24 @@ Bime에 대한 Single Sign-on을 구성하려면 인증서의 손도장(thumbpri
    
    1. **SAML 인증 사용**을 선택합니다.
    2. Azure 클래식 포털의 **Bime에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **원격 로그인 URL** 텍스트 상자에 붙여넣습니다.
-   3. 내보낸 인증서에서 **지문** 값을 복사한 다음 **인증서 지문** 텍스트 상자에 붙여넣습니다.  
+   3. 내보낸 인증서에서 **지문** 값을 복사한 다음 **인증서 지문** 텍스트 상자에 붙여넣습니다.       
       
-      > [!TIP]
-      > 자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)
-      > 
+      >[!TIP]
+      >자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하세요. 
       > 
    4. **Save**를 클릭합니다.
 8. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-bime-tutorial/IC775560.png "Single Sign-On 구성")
    
-   ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
 Azure AD 사용자가 Bime에 로그인할 수 있도록 하려면 Bime으로 프로비전되어야 합니다.  
-Bime의 경우 프로비전은 수동 작업입니다.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>사용자 프로비전을 구성하려면
+* Bime의 경우 프로비전은 수동 작업입니다.
+
+**사용자 프로비전을 구성하려면 다음 단계를 수행합니다.**
+
 1. **Bime** 테넌트에 로그인합니다.
 2. 도구 모음에서 **관리자**와 **사용자**를 차례로 클릭합니다.
    
@@ -116,20 +120,19 @@ Bime의 경우 프로비전은 수동 작업입니다.
    ![사용자](./media/active-directory-saas-bime-tutorial/IC775562.png "사용자")
 4. **사용자 세부 정보** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-   ![사용자 세부 정보](./media/active-directory-saas-bime-tutorial/IC775563.png "사용자 세부 정보")
-   
-   1. 프로비전하려는 유효한 AAD 계정의 이름, 성, 로그인, 전자 메일을 입력합니다.
-   2. 저장을 클릭합니다.
+   ![사용자 세부 정보](./media/active-directory-saas-bime-tutorial/IC775563.png "사용자 세부 정보")   
+  1. 프로비전하려는 유효한 AAD 계정의 이름, 성, 로그인, 전자 메일을 입력합니다.
+  2. 저장을 클릭합니다.
 
-> [!NOTE]
-> 다른 Bime 사용자 계정 생성 도구 또는 Bime이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
-> 
-> 
+>[!NOTE]
+>다른 Bime 사용자 계정 생성 도구 또는 Bime이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>  
 
-## <a name="assigning-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
-### <a name="to-assign-users-to-bime-perform-the-following-steps"></a>Bime에 사용자를 할당하려면 다음 단계를 수행합니다.
+**Bime에 사용자를 할당하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
 2. **Bime** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
@@ -139,10 +142,5 @@ Bime의 경우 프로비전은 수동 작업입니다.
    ![예](./media/active-directory-saas-bime-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

@@ -12,19 +12,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: reference
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e993e8c0cb7b7143f9e7be5bd413f42742666fa8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 96ac017b469405e0eb106bf5eb391b5273600ab2
+ms.lasthandoff: 12/08/2016
 
 
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>SQL 데이터 웨어하우스용 PowerShell cmdlet 및 REST API
-많은 SQL 데이터 웨어하우스 관리 작업을 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다.  다음은 PowerShell 명령을 사용하여 SQL 데이터 웨어하우스의 일반적인 작업을 자동화하는 방법에 대한 몇 가지 예제입니다.  유용한 REST 예제는 [REST를 사용하여 확장성 관리][REST를 사용하여 확장성 관리] 문서를 참조하세요.
+많은 SQL 데이터 웨어하우스 관리 작업을 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다.  다음은 PowerShell 명령을 사용하여 SQL 데이터 웨어하우스의 일반적인 작업을 자동화하는 방법에 대한 몇 가지 예제입니다.  유용한 REST 예제는 [REST를 사용하여 확장성 관리][Manage scalability with REST] 문서를 참조하세요.
 
 > [!NOTE]
-> SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다.  **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다.  최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][Microsoft 웹 플랫폼 설치 관리자]를 통해 설치할 수 있습니다.  최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][Azure PowerShell 설치 및 구성 방법]을 참조하세요.
+> SQL 데이터 웨어하우스에서 Azure PowerShell을 사용하려면 Azure PowerShell 버전 1.0.3 이상을 설치해야 합니다.  **Get-Module -ListAvailable -Name Azure**를 실행하여 버전을 확인할 수 있습니다.  최신 버전은 [Microsoft 웹 플랫폼 설치 관리자][Microsoft Web Platform Installer]를 통해 설치할 수 있습니다.  최신 버전 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법][How to install and configure Azure PowerShell]을 참조하세요.
 > 
 > 
 
@@ -74,8 +76,8 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ## <a name="frequently-used-powershell-cmdlets"></a>자주 사용되는 PowerShell cmdlet
 다음 PowerShell cmdlet은 Azure SQL 데이터 웨어하우스에서 자주 사용됩니다.
 
-* [Get AzureRmSqlDatabase][Get AzureRmSqlDatabase]
-* [Get AzureRmSqlDeletedDatabaseBackup][Get AzureRmSqlDeletedDatabaseBackup]
+* [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase]
+* [Get-AzureRmSqlDeletedDatabaseBackup][Get-AzureRmSqlDeletedDatabaseBackup]
 * [Get-AzureRmSqlDatabaseRestorePoints][Get-AzureRmSqlDatabaseRestorePoints]
 * [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase]
 * [Remove-AzureRmSqlDatabase][Remove-AzureRmSqlDatabase]
@@ -88,24 +90,24 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ## <a name="next-steps"></a>다음 단계
 더 많은 PowerShell 예제는 다음을 참조하세요.
 
-* [Powershell을 사용하여 SQL 데이터 웨어하우스 만들기][Powershell을 사용하여 SQL 데이터 웨어하우스 만들기]
-* [데이터베이스 복원][데이터베이스 복원]
+* [Powershell을 사용하여 SQL Data Warehouse 만들기][Create a SQL Data Warehouse using PowerShell]
+* [데이터베이스 복원][Database restore]
 
-PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL 데이터베이스 Cmdlet][Azure SQL 데이터베이스 Cmdlet]을 참조하세요.  REST로 자동화할 수 있는 작업 목록은 [Azure SQL 데이터베이스에 대한 작업][Azure SQL 데이터베이스에 대한 작업]을 참조하세요.
+PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL Database Cmdlet][Azure SQL Database Cmdlets]을 참조하세요.  REST로 자동화할 수 있는 작업 목록은 [Azure SQL Database에 대한 작업][Operations for Azure SQL Databases]을 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[Azure PowerShell 설치 및 구성 방법]: ../powershell-install-configure.md
-[Powershell을 사용하여 SQL 데이터 웨어하우스 만들기]: ./sql-data-warehouse-get-started-provision-powershell.md
-[데이터베이스 복원]: ./sql-data-warehouse-restore-database-powershell.md
-[REST를 사용하여 확장성 관리]: ./sql-data-warehouse-manage-compute-rest-api.md
+[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Create a SQL Data Warehouse using PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
+[Database restore]: ./sql-data-warehouse-restore-database-powershell.md
+[Manage scalability with REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
-[Azure SQL 데이터베이스 Cmdlet]: https://msdn.microsoft.com/library/mt574084.aspx
-[Azure SQL 데이터베이스에 대한 작업]: https://msdn.microsoft.com/library/azure/dn505719.aspx
-[Get AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
-[Get AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/library/mt693387.aspx
+[Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
+[Operations for Azure SQL Databases]: https://msdn.microsoft.com/library/azure/dn505719.aspx
+[Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
+[Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/library/mt693387.aspx
 [Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/library/mt603642.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
@@ -117,10 +119,5 @@ PowerShell로 자동화할 수 있는 모든 작업 목록은 [Azure SQL 데이�
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 
 <!--Other Web references-->
-[Microsoft 웹 플랫폼 설치 관리자]: https://aka.ms/webpi-azps
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 

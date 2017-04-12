@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory에서 조건부 액세스 규칙을 사용하는 응용 프로그램 | Microsoft Docs"
+title: "Azure Active Directory에서 조건부 액세스 규칙을 사용하는 응용 프로그램 및 브라우저 | Microsoft Docs"
 description: "Azure Active Directory에서는 사용자를 인증할 때 조건부 액세스 제어를 통해 특정 조건을 확인하여 응용 프로그램에 대한 액세스를 허용합니다."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2016
+ms.date: 03/28/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fbc03ebf0c66950ae92ca75cf34da86dfb15a349
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9782358e59e54070c26e05c641c02c4010af5f68
+ms.lasthandoff: 04/12/2017
 
 
 ---
-# <a name="applications-that-use-conditional-access-rules-in-azure-active-directory"></a>Azure Active Directory에서 조건부 액세스 규칙을 사용하는 응용 프로그램
+# <a name="applications-and-browsers-that-use-conditional-access-rules-in-azure-active-directory"></a>Azure Active Directory에서 조건부 액세스 규칙을 사용하는 응용 프로그램 및 브라우저
+
 조건부 액세스 규칙은 Azure AD(Azure Active Directory) 연결 응용 프로그램, 페더레이션된 사전 통합 SaaS(Software as a Service) 응용 프로그램, 암호 SSO(Single Sign-On)를 사용하는 프로그램, LOB(기간 업무) 응용 프로그램 및 Azure AD 응용 프로그램 프록시를 사용하는 응용 프로그램에서 지원합니다. 조건부 액세스를 사용할 수 있는 응용 프로그램의 자세한 목록은 [조건부 액세스로 설정된 서비스](active-directory-conditional-access-technical-reference.md)를 참조하세요. 조건부 액세스는 최신 인증을 사용하는 모바일과 데스크톱 응용 프로그램 모두에서 작동합니다. 이 문서에서는 모바일 및 데스크톱 앱에서 조건부 액세스가 작동되는 방법에 대해 설명합니다.
 
 최신 인증을 사용하는 응용 프로그램에서 Azure AD 로그인 페이지를 사용할 수 있습니다. 로그인 페이지에서는 사용자에게 다단계 인증을 요구하는 메시지가 표시됩니다. 사용자의 액세스가 차단되는 경우 메시지가 표시됩니다. 최신 인증은 Azure AD에서 장치를 인증하여 장치 기반 조건부 액세스 정책을 평가하는 데 필요합니다.
@@ -41,11 +43,11 @@ Office 365 및 기타 Azure AD 연결 서비스 응용 프로그램에 대한 �
 | Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용) |
 | Office 365 Exchange Online |iOS, Android |Outlook 모바일 앱 |
 | Office 365 Exchange Online |Mac OS X |다단계 인증 및 위치 전용 Outlook 2016, 장치 기반 정책(향후 지원 예정), 비즈니스용 Skype(향후 지원 예정) |
-| Office 365 SharePoint Online |Windows 10 |Office 2016 앱, Office Universal 앱, Office 2013(최신 인증 사용), 비즈니스용 OneDrive 앱(NGSC(차세대 동기화 클라이언트) 향후 지원 예정), Office Groups(향후 지원 예정), SharePoint 앱(향후 지원 예정) |
-| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Office 2016 앱, Office 2013(최신 인증 사용), 비즈니스용 OneDrive 앱(Groove 동기화 클라이언트) |
+| Office 365 SharePoint Online |Windows 10 |Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) 참조, 미래를 위해 계획된 Office 그룹 지원, 미래를 위해 계획된 SharePoint 앱 지원 |
+| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조) |
 | Office 365 SharePoint Online |iOS, Android |Office 모바일 앱 |
 | Office 365 SharePoint Online |Mac OS X |다단계 인증 및 위치 전용 Outlook 2016, 장치 기반 정책(향후 지원 예정) |
-| Office 365 Yammer |Windows 10, iOS 및 Android |Office Yammer 앱 |
+| Office 365 Yammer |Windows 10, iOS(Android는 향후 지원 예정) |Office Yammer 앱 |
 | Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS 및 Android |Dynamics CRM 앱 |
 | PowerBI 서비스 |Windows 10, Windows 8.1, Windows 7, iOS 및 Android |PowerBI 앱 |
 | Azure 원격 앱 서비스 |Windows 10, Windows 8.1, Windows 7, iOS, Android 및 Mac OS X |Azure 원격 앱 |
@@ -110,7 +112,37 @@ Exchange에서는 중요한 두 가지 범주의 프로토콜을 제공합니다
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
+## <a name="supported-browsers"></a>지원되는 브라우저
 
-<!--HONumber=Dec16_HO5-->
+| OS                     | 브라우저                 | 지원     |
+| :--                    | :--                      | :-:         |
+| Win 10                 | IE, Edge                 | ![확인][1] |
+| Win 10                 | Chrome                   | 서비스 예정 |
+| Win 8 / 8.1            | IE                       | ![확인][1] |
+| Win 8 / 8.1            | Chrome                   | ![확인][1] |
+| Win 7                  | IE                       | ![확인][1] |
+| Win 7                  | Chrome                   | ![확인][1] |
+| iOS                    | Safari                   | ![확인][1] |
+| Android                | Chrome                   | ![확인][1] |
+| Windows Phone          | IE, Edge                 | ![확인][1] |
+| Windows Server 2016    | IE, Edge                 | ![확인][1] |
+| Windows Server 2016    | Chrome                   | 서비스 예정 |
+| Windows Server 2012 R2 | IE                       | ![확인][1] |
+| Windows Server 2012 R2 | Chrome                   | ![확인][1] |
+| Windows Server 2008 R2 | IE                       | ![확인][1] |
+| Windows Server 2008 R2 | Chrome                   | ![확인][1] |
+| Mac OS                 | Safari                   | ![확인][1] |
+| Mac OS                 | Chrome                   | 서비스 예정 |
+
+
+## <a name="next-steps"></a>다음 단계
+
+자세한 내용은 [Azure Active Directory 조건부 액세스](active-directory-conditional-access.md)를 참조하세요.
+
+
+
+<!--Image references-->
+[1]: ./media/active-directory-conditional-access-supported-apps/ic195031.png
+
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/29/2016
 ms.author: magoedte;csand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d9b12c074417e51057dea68e8cff04df5081e111
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 4fcfa2e7ec2e8257407026ed4cca0e15fd0b5bb6
 
 
 ---
@@ -31,7 +31,7 @@ Azure 자동화는 요구 사항에 맞게 크기가 조정되는 매우 안정�
 Azure 자동화에서 자동으로 실행되도록 클라우드 관리 작업을 이동하여 작업 오버헤드를 줄이고 IT 및 DevOps 직원들이 비즈니스 가치를 추가하는 작업에 집중할 수 있게 합니다.
 
 ## <a name="how-can-azure-automation-help-manage-azure-web-app"></a>어떻게 Azure 자동화가 Azure 웹앱을 관리할 수 있나요?
-[Azure PowerShell 모듈](../powershell-install-configure.md)에서 사용할 수 있는 PowerShell cmdlet을 사용하여 Azure 자동화에서 웹앱을 관리할 수 있습니다. [Azure 자동화에서는 이러한 웹앱 PowerShell cmdlet을 설치](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/)할 수 있으므로 서비스 내에서 웹앱 관리 작업을 모두 수행할 수 있습니다. Azure 자동화에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
+[Azure PowerShell 모듈](/powershell/azureps-cmdlets-docs)에서 사용할 수 있는 PowerShell cmdlet을 사용하여 Azure 자동화에서 웹앱을 관리할 수 있습니다. [Azure 자동화에서는 이러한 웹앱 PowerShell cmdlet을 설치](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/)할 수 있으므로 서비스 내에서 웹앱 관리 작업을 모두 수행할 수 있습니다. Azure 자동화에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
 
 자동화를 사용하여 앱 서비스를 관리하는 몇 가지 예는 다음과 같습니다.
 
@@ -45,6 +45,6 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 웹앱
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

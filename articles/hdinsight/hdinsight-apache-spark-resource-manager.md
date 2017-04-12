@@ -1,6 +1,6 @@
 ---
-title: "Resource Manager를 사용하여 HDInsight에서 Apache Spark 클러스터에 리소스 할당 | Microsoft 문서"
-description: "성능 향상을 위해 HDInsight에서 Spark 클러스터에 리소스 관리자를 사용하는 방법을 알아봅니다."
+title: "Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리 | Microsoft Docs"
+description: "성능 향상을 위해 Azure HDInsight에서 Spark 클러스터용 리소스를 관리하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,19 +9,22 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 9da7d4e3-458e-4296-a628-77b14643f7e4
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 626fe6fc7a7ee74e8fcfa3b6c38f0cb25dd91da6
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 68972d9422dd0861318b0f26a4543f7596d9a680
+ms.lasthandoff: 01/24/2017
 
 
 ---
-# <a name="manage-resources-for-the-apache-spark-cluster-on-hdinsight-linux"></a>HDInsight Linux에서 Apache Spark 클러스터에 대한 리소스 관리
+# <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리 
+
 이 문서에서 Spark 클러스터와 연결된 Ambari UI, YARN UI, Spark 기록 서버와 같은 인터페이스에 액세스하는 방법을 알아봅니다. 최적의 성능을 위해 클러스터 구성을 조정하는 방법에 대해 알아봅니다.
 
 **필수 조건:**
@@ -29,51 +32,51 @@ ms.openlocfilehash: 626fe6fc7a7ee74e8fcfa3b6c38f0cb25dd91da6
 다음이 있어야 합니다.
 
 * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* HDInsight Linux의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 ## <a name="how-do-i-launch-the-ambari-web-ui"></a>Ambari 웹 UI를 시작하는 방법
-1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다. 
+1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
 2. Spark 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
-   
-    ![Ambari 시작](./media/hdinsight-apache-spark-resource-manager/hdispark.cluster.launch.dashboard.png "Start Resource Manager")
+
+    ![Ambari 시작](./media/hdinsight-apache-spark-resource-manager/hdispark.cluster.launch.dashboard.png "Resource Manager 시작")
 3. 이렇게 하면 아래와 같이 Ambari 웹 UI가 시작됩니다.
-   
-    ![Ambari 웹 UI](./media/hdinsight-apache-spark-resource-manager/ambari-web-ui.png "Ambari Web UI")   
+
+    ![Ambari 웹 UI](./media/hdinsight-apache-spark-resource-manager/ambari-web-ui.png "Ambari 웹 UI")   
 
 ## <a name="how-do-i-launch-the-spark-history-server"></a>Spark 기록 서버를 시작하는 방법
 1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우).
 2. 클러스터 블레이드의 **빠른 링크**에서 **클러스터 대시보드**를 클릭합니다. **클러스터 대시보드** 블레이드에서 **Spark 기록 서버**를 클릭합니다.
-   
-    ![Spark 기록 서버](./media/hdinsight-apache-spark-resource-manager/launch-history-server.png "Spark History Server")
-   
+
+    ![Spark 기록 서버](./media/hdinsight-apache-spark-resource-manager/launch-history-server.png "Spark 기록 서버")
+
     메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
 ## <a name="how-do-i-launch-the-yarn-ui"></a>Yarn UI를 시작하는 방법
-YARN UI를 사용하여 현재 Spark 클러스터에서 실행 중인 응용 프로그램을 모니터링할 수 있습니다. 
+YARN UI를 사용하여 현재 Spark 클러스터에서 실행 중인 응용 프로그램을 모니터링할 수 있습니다.
 
 1. 클러스터 블레이드에서 **클러스터 대시보드**, **YARN**을 차례로 클릭합니다.
-   
+
     ![YARN UI 시작](./media/hdinsight-apache-spark-resource-manager/launch-yarn-ui.png)
-   
+
    > [!TIP]
    > 또는 Ambari UI에서 YARN UI를 시작할 수도 있습니다. Ambari UI를 시작하려면 클러스터 블레이드에서 **클러스터 대시보드**, **HDInsight 클러스터 대시보드의**를 차례로 클릭합니다. Ambari UI에서 **YARN**, **빠른 링크**, 활성 리소스 관리자, **ResourceManager UI**를 차례로 클릭합니다.
-   > 
-   > 
+   >
+   >
 
 ## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>Spark 응용 프로그램을 실행하는 데 최적화된 클러스터 구성이란?
-응용 프로그램 요구 사항에 따라 Spark 구성에 사용할 수 있는 세 가지 주요 매개 변수는 `spark.executor.instances`, `spark.executor.cores` 및 `spark.executor.memory`입니다. 실행자는 Spark 응용 프로그램을 위해 시작된 프로세스입니다. 작업자 노드에서 실행되며 응용 프로그램에 대한 작업을 수행해야 합니다. 각 클러스터에 대한 실행자 및 실행자 크기의 기본 수는 작업자 노드 및 작업자 노드 크기의 수에 기반하여 계산됩니다. 클러스터 헤드 노드의 `spark-defaults.conf` 에 저장됩니다. 
+응용 프로그램 요구 사항에 따라 Spark 구성에 사용할 수 있는 세 가지 주요 매개 변수는 `spark.executor.instances`, `spark.executor.cores` 및 `spark.executor.memory`입니다. 실행자는 Spark 응용 프로그램을 위해 시작된 프로세스입니다. 작업자 노드에서 실행되며 응용 프로그램에 대한 작업을 수행해야 합니다. 각 클러스터에 대한 실행자 및 실행자 크기의 기본 수는 작업자 노드 및 작업자 노드 크기의 수에 기반하여 계산됩니다. 클러스터 헤드 노드의 `spark-defaults.conf` 에 저장됩니다.
 
 세 가지 구성 매개 변수는 (클러스터에서 실행된는 모든 응용 프로그램의 경우) 클러스터 수준에서 구성될 수 있거나 각 개별 응용 프로그램에 대해 지정될 수 있습니다.
 
 ### <a name="change-the-parameters-using-ambari-ui"></a>Ambari UI를 사용하여 매개 변수 변경
 1. Ambari UI에서 **Spark**, **Configs**를 차례로 클릭한 다음 **사용자 지정 spark 기본값**을 확장합니다.
-   
+
     ![Ambari를 사용하여 매개 변수 설정](./media/hdinsight-apache-spark-resource-manager/set-parameters-using-ambari.png)
 2. 기본값으로 Spark 클러스터에서 4개의 응용 프로그램을 동시에 실행할 수 있습니다. 아래와 같이 사용자 인터페이스에서 이러한 값을 변경할 수 있습니다.
-   
+
     ![Ambari를 사용하여 매개 변수 설정](./media/hdinsight-apache-spark-resource-manager/set-executor-parameters.png)
 3. **저장** 을 클릭하여 구성 변경을 저장합니다. 페이지 맨 위에 모든 영향을 받는 서비스를 다시 시작하라는 메시지가 표시됩니다. **다시 시작**을 클릭합니다.
-   
+
     ![서비스 다시 시작](./media/hdinsight-apache-spark-resource-manager/restart-services.png)
 
 ### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Jupyter notebook에서 실행 중인 응용 프로그램에 대한 매개 변수 변경
@@ -81,10 +84,10 @@ Jupyter notebook에서 실행 중인 응용 프로그램의 경우 `%%configure`
 
 다음 코드 조각에서는 Jupyter에서 실행 중인 응용 프로그램에 대한 구성을 변경하는 방법을 보여 줍니다.
 
-    %%configure 
+    %%configure
     {"executorMemory": "3072M", "executorCores": 4, “numExecutors”:10}
 
-구성 매개 변수는 JSON 문자열로 전달되어야 하며, 아래 예제 열과 같이 매직 뒤의 다음 줄에 있어야 합니다. 
+구성 매개 변수는 JSON 문자열로 전달되어야 하며, 아래 예제 열과 같이 매직 뒤의 다음 줄에 있어야 합니다.
 
 ### <a name="change-the-parameters-for-an-application-submitted-using-spark-submit"></a>spark-submit를 사용하여 제출된 응용 프로그램에 대한 매개 변수 변경
 다음 명령은 `spark-submit`을 사용하여 제출된 배치 응용 프로그램에 대한 구성 매개 변수를 변경하는 방법의 예제입니다.
@@ -97,22 +100,22 @@ Jupyter notebook에서 실행 중인 응용 프로그램의 경우 `%%configure`
     curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 
 ### <a name="how-do-i-change-these-parameters-on-a-spark-thrift-server"></a>Spark Thrift 서버에서 이러한 매개 변수를 변경하려면 어떻게 해야 하나요?
-Spark Thrift 서버에서는 Spark 클러스터에 대한 JDBC/ODBC 액세스를 제공하고 Spark SQL 쿼리를 제공하는 데 사용됩니다. Power BI, Tableau 등과 같은 도구는 ODBC 프로토콜을 사용하여 Spark SQL 쿼리를 Spark 응용 프로그램으로 실행하기 위해 Spark Thrift 서버와 통신합니다. Spark 클러스터를 만들 경우 Spark Thrift 서버에서 각 헤드 노드에 하나씩 두 개의 인스턴스를 시작합니다. 각 Spark Thrift 서버는 YARN UI에서 Spark 응용 프로그램으로 표시됩니다. 
+Spark Thrift 서버에서는 Spark 클러스터에 대한 JDBC/ODBC 액세스를 제공하고 Spark SQL 쿼리를 제공하는 데 사용됩니다. Power BI, Tableau 등과 같은 도구는 ODBC 프로토콜을 사용하여 Spark SQL 쿼리를 Spark 응용 프로그램으로 실행하기 위해 Spark Thrift 서버와 통신합니다. Spark 클러스터를 만들 경우 Spark Thrift 서버에서 각 헤드 노드에 하나씩 두 개의 인스턴스를 시작합니다. 각 Spark Thrift 서버는 YARN UI에서 Spark 응용 프로그램으로 표시됩니다.
 
 Spark Thrift 서버는 Spark 동적 실행자 할당을 사용하며 따라서 `spark.executor.instances` 을 사용하지 않습니다. 대신 Spark Thrift 서버는 `spark.dynamicAllocation.minExecutors` 및 `spark.dynamicAllocation.maxExecutors`을 사용하여 실행자 수를 지정합니다. 구성 매개 변수 `spark.executor.cores` 및 `spark.executor.memory`를 사용하여 실행자 크기를 수정합니다. 아래와 같이 이러한 매개 변수를 변경할 수 있습니다.
 
 * **고급 spark-thrift-sparkconf** 범주를 확장하여 `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors` 및 `spark.executor.memory` 매개 변수를 업데이트합니다.
-  
+
     ![Spark Thrift 서버 구성](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-1.png)    
 * **사용자 지정 spark thrift sparkconf** 범주를 확장하여 `spark.executor.cores` 매개 변수를 업데이트합니다.
-  
+
     ![Spark Thrift 서버 구성](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-2.png)
 
 ### <a name="how-do-i-change-the-driver-memory-of-the-spark-thrift-server"></a>Spark Thrift 서버의 드라이버 메모리를 변경하려면 어떻게 해야 하나요?
 Spark Thrift 서버 드라이버 메모리는 헤드 노드 RAM 크기의 25%로 구성되어 제공된 헤드 노드의 총 RAM 크기는 14GB보다 큽니다. 아래와 같이 Ambari UI를 사용하여 드라이버 메모리 구성을 변경할 수 있습니다.
 
 * Ambari UI에서 **Spark**, **Configs**를 차례로 클릭하고 **고급 spark-env**를 확장한 다음 **spark_thrift_cmd_opts**에 대한 값을 제공합니다.
-  
+
     ![Spark Thrift 서버 RAM 구성](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-ram.png)
 
 ## <a name="i-do-not-use-bi-with-spark-cluster-how-do-i-take-the-resources-back"></a>Spark 클러스터와 함께 BI를 사용하지 않습니다. 리소스를 회수하려면 어떻게 해야 하나요?
@@ -120,22 +123,36 @@ Spark 동적 할당을 사용하기 때문에 Thrift 서버에서 사용되는 �
 
 1. Ambari UI의 왼쪽된 창에서 **Spark**를 클릭합니다.
 2. 다음 페이지에서 **Spark Thrift 서버**를 클릭합니다.
-   
+
     ![Thrift 서버 다시 시작](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-1.png)
 3. Spark Thrift 서버가 실행되는 두 개의 헤드 노드가 표시되어야 됩니다. 헤드 노드 중 하나를 클릭합니다.
-   
+
     ![Thrift 서버 다시 시작](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-2.png)
 4. 다음 페이지는 헤드 노드에서 실행 중인 모든 서비스를 나열합니다. 목록에서 Spark Thrift 서버 옆에 있는 드롭다운 단추를 클릭한 다음 **중지**를 클릭합니다.
-   
+
     ![Thrift 서버 다시 시작](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-3.png)
 5. 다른 헤드 노드에서도 이 단계를 반복합니다.
 
 ## <a name="my-jupyter-notebooks-are-not-running-as-expected-how-can-i-restart-the-service"></a>내 Jupyter Notebook이 예상대로 실행되지 않습니다. 서비스를 다시 시작하려면 어떻게 해야 하나요?
 1. 아래와 같이 Ambari 웹 UI를 시작합니다. 왼쪽의 탐색 창에서 **Jupyter**, **서비스 작업**, **모두 다시 시작**을 차례로 클릭합니다. 그러면 모든 헤드 노드에서 Jupyter 서비스가 시작됩니다.
-   
-    ![Jupyter 다시 시작](./media/hdinsight-apache-spark-resource-manager/restart-jupyter.png "Restart Jupyter")
 
-## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>참고 항목
+    ![Jupyter 다시 시작](./media/hdinsight-apache-spark-resource-manager/restart-jupyter.png "Jupyter 다시 시작")
+
+## <a name="how-do-i-know-if-i-am-running-out-of-resource"></a>리소스가 부족한지 어떻게 알 수 있나요?
+1. 위와 같이 Yarn UI를 시작합니다. 화면 위쪽의 클러스터 메트릭 테이블에서 **사용된 메모리** 및 **총 메모리** 열 값을 확인합니다. 두 값이 매우 비슷하면 리소스가 충분하지 않아 다음 응용 프로그램을 시작하지 못할 수 있습니다. 동일한 현상이 **사용된 VCore** 및 **총 VCore** 열에도 적용됩니다. 또한 기본 보기에서 **수락** 상태이고 **실행 중** 또는 **실패** 상태로 전환되지 않은 응용 프로그램이 있는 경우에도 리소스가 충분하지 않아 시작하지 못함을 나타낼 수 있습니다.
+
+    ![리소스 제한](./media/hdinsight-apache-spark-resource-manager/resource-limit.png "리소스 제한")
+
+## <a name="how-do-i-kill-a-running-application-to-free-up-resource"></a>리소스 확보를 위해 실행 중인 응용 프로그램을 종료하려면 어떻게 해야 하나요?
+1. Yarn UI의 왼쪽 패널에서 **실행 중**을 클릭합니다. 실행 중인 응용 프로그램 목록에서 종료할 응용 프로그램을 결정하고 **ID**를 클릭합니다.
+
+    ![App1 종료](./media/hdinsight-apache-spark-resource-manager/kill-app1.png "App1 종료")
+
+2. 오른쪽 위 구석에서 **응용 프로그램 종료**를 클릭하고 **확인**을 클릭합니다.
+
+    ![App2 종료](./media/hdinsight-apache-spark-resource-manager/kill-app2.png "App2 종료")
+
+## <a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
@@ -169,10 +186,5 @@ Spark 동적 할당을 사용하기 때문에 Thrift 서버에서 사용되는 �
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: storage-create-storage-account.md 
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+[azure-create-storageaccount]: storage-create-storage-account.md
 

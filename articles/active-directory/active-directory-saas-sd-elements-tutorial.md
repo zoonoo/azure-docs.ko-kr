@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53aa0a84a7f22c8cda5144eb6e1b82f38b72acb8
+ms.sourcegitcommit: b2eb87a88721a3fd1ecdfa573c6a6d49ed02d344
+ms.openlocfilehash: 7166f4d3046f573d2f60d747edf2eefbbd0439c2
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -44,7 +45,7 @@ SD Elements와의 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.  
@@ -126,7 +127,7 @@ SD Elements 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
     > [!NOTE] 
     > 테넌트에 대한 실제 발급자 URL 및 회신 URL이 필요한 경우 [SD Elements 지원 팀](mailto:support@sdelements.com)에 문의합니다.
 
-    c. **Next**를 클릭합니다.
+    c. **다음**을 클릭합니다.
 
 
 1. **SD Elements에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
@@ -135,7 +136,7 @@ SD Elements 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
    
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 2. Single Sign-On을 사용하려면 [SD Elements 지원 팀](mailto:support@sdelements.com) 에 문의하고 다운로드한 인증서 파일을 제공합니다.
 3. 다른 브라우저 창에서 SD Elements 테넌트에 관리자 권한으로 로그인합니다.
 4. 위쪽의 메뉴에서 시스템 및 Single Sign-On을 차례로 클릭합니다. 
@@ -313,9 +314,4 @@ SD Elements 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
 [203]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

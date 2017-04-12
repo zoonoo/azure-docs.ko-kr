@@ -1,10 +1,10 @@
 ---
-title: "템플릿을 사용하여 다중 NIC이 있는 VM 만들기 | Microsoft Docs"
-description: "템플릿을 사용하여 Azure Resource Manager를 통해 다중 NIC이 있는 VM을 만듭니다."
+title: "다중 NIC이 있는 개인 VM 만들기 - Azure Resource Manager 템플릿 | Microsoft Docs"
+description: "Azure Resource Manager 템플릿을 사용하여 다중 NIC이 있는 개인 VM을 만듭니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 486f7dd5-cf2f-434c-85d1-b3e85c427def
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 05a3d3e1c6c608b1dcfd0a4d4ed795cb1d22456b
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 99292dedfd83c0adde6b7352e08e7ae3b0b14513
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -93,7 +95,7 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
     },
     ```
 
-6. **vmSize**에는 값 *Standard_DS3*이 포함되어 있습니다. 특정 VM 크기만 여러 NIC를 사용할 수 있습니다. [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Linux VM 크기](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서에서 어떤 VM 크기가 여러 NIC를 지원하는지 확인할 수 있습니다.
+6. **vmSize**에는 값 *Standard_DS3*이 포함되어 있습니다. 특정 VM 크기만 여러 NIC를 사용할 수 있습니다. [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Linux VM 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서에서 어떤 VM 크기가 여러 NIC를 지원하는지 확인할 수 있습니다.
 
 7. 아래로 스크롤하여 **resources** 로 이동한 후 첫 번째 요소를 확인합니다. 여기에는 저장소 계정이 설명되어 있습니다. 이 저장소 계정은 각 데이터베이스 VM에서 사용하는 데이터 디스크를 유지 관리하는 데 사용됩니다. 이 시나리오의 각 데이터베이스 VM에는 일반 저장소에 OS 디스크가 있고 SSD(프리미엄) 저장소에 두 개의 데이터 디스크가 저장되어 있습니다.
 
@@ -281,7 +283,7 @@ TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Azure CLI를 사용하여 템플릿 배포
 Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **`azure config mode`** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
     ```azurecli
@@ -315,10 +317,5 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
         data:    Tags: null
         data:
         info:    group create command OK
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

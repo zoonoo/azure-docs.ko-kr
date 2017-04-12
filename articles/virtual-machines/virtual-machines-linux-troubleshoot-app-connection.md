@@ -1,33 +1,10 @@
 ---
-title: "Linux VM 응용 프로그램 액세스 문제 해결 | Microsoft Docs"
-description: "다음과 같은 자세한 문제 해결 단계를 사용하여 Azure의 Linux 가상 컴퓨터에서 실행되는 응용 프로그램 연결 관련 문제를 격리하세요."
-services: virtual-machines-linux
-documentationcenter: 
-author: iainfoulds
-manager: timlt
-editor: 
-tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: "응용 프로그램을 시작할 수 없음, 프로그램이 열리지 않음, 수신 포트가 차단됨, 프로그램을 시작할 수 없음, 수신 포트 차단됨"
-ms.assetid: b9ff7cd0-0c5d-4c3c-a6be-3ac47abf31ba
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: support-article
-ms.date: 09/27/2016
-ms.author: iainfou
+redirect_url: /azure/virtual-machines/linux/troubleshoot-app-connection
+redirect_document_id: true
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f14da3010c1f5b76b4015f785911ff996ece9376
-
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: cd4860daaa835cdfe343ea039f56c0d450d2d49a
+ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="troubleshoot-application-connectivity-issues-on-a-linux-azure-virtual-machine"></a>Linux Azure 가상 컴퓨터에서 응용 프로그램 연결 문제 해결
-[!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

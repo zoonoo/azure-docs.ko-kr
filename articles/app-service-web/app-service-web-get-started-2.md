@@ -4,7 +4,7 @@ description: "몇 분 안에 첫 번째 웹앱에 멋진 기능 추가"
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 542671c2-22f0-4f20-8b4b-fa477264c492
 ms.service: app-service-web
@@ -15,13 +15,14 @@ ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
-ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 34cccf6a0962f72e04a90516fa7643db2533d85d
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>첫 번째 웹앱에 기능 추가
-[5분 안에 Azure에 웹앱 배포](app-service-web-get-started-cli-nodejs.md)에서 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 샘플 웹앱을 배포합니다. 이 문서에서는 개발한 웹앱에 몇 가지 중요한 기능을 신속하게 추가합니다. 잠시 후에 다음을 수행합니다.
+[5분 안에 Azure에 웹앱 배포](app-service-web-get-started-dotnet.md)에서 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 샘플 웹앱을 배포합니다. 이 문서에서는 개발한 웹앱에 몇 가지 중요한 기능을 신속하게 추가합니다. 잠시 후에 다음을 수행합니다.
 
 * 사용자에게 인증 적용
 * 자동으로 앱 크기 조정
@@ -42,7 +43,7 @@ ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
 1. 방금 연 앱의 포털 블레이드에서 **설정** > **인증/권한 부여**를 클릭합니다.  
     ![인증 - 설정 블레이드](./media/app-service-web-get-started/aad-login-settings.png)
 2. **켜기** 를 클릭하여 인증을 켭니다.  
-3. **인증 공급자**에서** Azure Active Directory**를 클릭합니다.  
+3. **인증 공급자**에서**Azure Active Directory**를 클릭합니다.  
     ![인증 - Azure AD 선택](./media/app-service-web-get-started/aad-login-config.png)
 4. **Azure Active Directory 설정** 블레이드에서 **Express**를 클릭한 다음 **확인**을 클릭합니다. 기본 설정에 따라 기본 디렉터리에 새 Azure AD 응용 프로그램이 생성됩니다.  
     ![인증 - express 구성](./media/app-service-web-get-started/aad-login-express.png)
@@ -128,7 +129,7 @@ ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
 
 축하합니다. 이제 경고가 생겼습니다.
 
-이 경고 설정은&5;분마다 CPU 사용률을 확인합니다. 사용률이 90%를 초과하면 권한이 있는 사용자와 함께 전자 메일 경고를 받게 됩니다. 경고를 받을 권한이 있는 모든 사용자를 보려면 앱의 포털 블레이드로 돌아가서 **액세스** 단추를 클릭합니다.  
+이 경고 설정은 5분마다 CPU 사용률을 확인합니다. 사용률이 90%를 초과하면 권한이 있는 사용자와 함께 전자 메일 경고를 받게 됩니다. 경고를 받을 권한이 있는 모든 사용자를 보려면 앱의 포털 블레이드로 돌아가서 **액세스** 단추를 클릭합니다.  
 ![경고를 받는 사람 확인](./media/app-service-web-get-started/alert-rbac.png)
 
 **구독 관리자**는 이미 앱의 **소유자**임을 확인할 수 있습니다. Azure 구독(예: 평가판 구독)의 계정 관리자인 경우도 이 그룹에 포함됩니다. Azure 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
@@ -153,10 +154,5 @@ ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
   [Tinfoil Security](https://www.tinfoilsecurity.com/)에서 제공하는 서비스를 사용하여 최신 위협에 대해 웹앱을 스캔합니다.
 * [백그라운드 작업 실행](../azure-functions/functions-overview.md) - 데이터 처리, 보고 등의 작업을 실행합니다.
 * [앱 서비스 작동 방법 알아보기](../app-service/app-service-how-works-readme.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

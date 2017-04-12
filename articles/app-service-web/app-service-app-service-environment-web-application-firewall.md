@@ -4,7 +4,7 @@ description: "앱 서비스 환경의 앞에 웹 응용 프로그램 방화벽�
 services: app-service\web
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d4378398e666fe5ae2c7c55b377ae74880b857de
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 36f38409366d2a0b52387091c5e93296756a0178
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: d4378398e666fe5ae2c7c55b377ae74880b857de
 ## <a name="overview"></a>개요
 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/)에서 사용 가능한 [Azure용 Barracuda WAF](https://www.barracuda.com/programs/azure)와 같은 웹 응용 프로그램 방화벽은 SQL 주입, 교차 사이트 스크립팅, 맬웨어 업로드와 DDos 응용 프로그램 및 다른 공격을 막는 인바운드 웹트래 픽을 검사하여 웹 응용 프로그램 보안을 도와줍니다. 데이터 손실 방지 DLP (Data Loss Prevention)에 대한 백엔드 웹 서버로부터의 응답도 검사합니다. 앱 서비스 환경은 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 응용 프로그램에 이상적인 환경을 제공합니다.
 
-+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## <a name="setup"></a>설정
 이 문서에서는 Barracuda WAF의 다중 부하 분산 인스턴스 뒤의 앱 서비스 환경을 구성하여 WAF의 트래픽만이 앱 서비스 환경에 도달할 수 있게 하고 DMZ로부터는 접근할 수 없습니다. Azure 트래픽 관리자를 Azure 데이터 센터와 지역 간의 작업 부하를 위해 Barracuda WAF 앞에 놓겠습니다. 설치 프로그램의 높은 수준의 다이어그램은 아래와 비슷합니다.
@@ -59,7 +60,7 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 
 ![관리 끝점 추가][AddManagementEndpoint]
 
-브라우저를 사용하여 클라우드 서비스에서 관리 끝점으로 이동 합니다. 클라우드 서비스 이름이 test.cloudapp.net 이라면 http://test.cloudapp.net:8000로 이동하여 이 끝점에 액세스합니다. 로그인 페이지를 참조해야 아래와 같은 WAF VM 설치 단계에서 지정한 자격 증명을 사용하여 로그인할 수 있습니다.
+브라우저를 사용하여 클라우드 서비스에서 관리 끝점으로 이동 합니다. 클라우드 서비스 이름이 test.cloudapp.net 이라면 http://test.cloudapp.net:8000 로 이동하여 이 끝점에 액세스합니다. 로그인 페이지를 참조해야 아래와 같은 WAF VM 설치 단계에서 지정한 자격 증명을 사용하여 로그인할 수 있습니다.
 
 ![관리 로그인 페이지][ManagementLoginPage]
 
@@ -109,9 +110,4 @@ Barracuda에는 Azure의 가상 컴퓨터에 WAF를 배포하는 방법에 대�
 [TrafficManagerEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/TrafficManagerEndpoint.png
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

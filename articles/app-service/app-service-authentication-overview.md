@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b3a588465a7abfb1f121a93de9e4613559ea5ca2
+ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
+ms.openlocfilehash: e89ba5613c615c41af93e8f63b3703da8395095c
 
 
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure 앱 서비스의 인증 및 권한 부여
-## <a name="what-is-app-service-authentication-authorization"></a>앱 서비스 인증/권한 부여란?
+## <a name="what-is-app-service-authentication--authorization"></a>앱 서비스 인증/권한 부여란?
 앱 서비스 인증/권한 부여는 앱 백 엔드에서 코드를 변경하지 않아도 되도록 사용자로 로그인하는 응용 프로그램에 대한 방법을 제공하는 기능입니다. 응용 프로그램을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다.
 
 앱 서비스는 페더레이션된 ID를 사용하며 여기서 타사 ID 공급자는 계정을 저장하고 사용자를 인증합니다. 응용 프로그램은 앱에서 해당 정보 자체를 저장할 필요가 없도록 공급자의 ID 정보를 사용합니다. 앱 서비스는 기본적으로 Azure Active Directory, Facebook, Google, Microsoft 계정 및 Twitter와 같은 다섯 가지 ID 공급자를 지원합니다. 앱은 개수에 관계 없이 이러한 ID 공급자를 사용하여 최종 사용자에게 로그인 방법에 대한 옵션을 제공할 수 있습니다. 기본 지원을 확장하려면 다른 ID 공급자 또는 [사용자 고유의 사용자 지정 ID 솔루션][custom-auth]을 통합할 수 있습니다.
@@ -29,7 +29,7 @@ ms.openlocfilehash: b3a588465a7abfb1f121a93de9e4613559ea5ca2
 지금 바로 시작하려는 경우 다음 자습서 중 하나를 참조하세요.
 
 * [iOS 앱][iOS](또는 [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] 또는 [Cordova])에 인증 추가
-* [Azure App Service의 API 앱에 대한 사용자 인증][apia-user]
+* [Azure App Service의 API Apps에 대한 사용자 인증][apia-user]
 * [Azure App Service 시작 - 2부][web-getstarted]
 
 ## <a name="how-authentication-works-in-app-service"></a>앱 서비스에서 인증이 작동하는 방식
@@ -69,11 +69,11 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 > 
 > 
 
-서비스 간 시나리오의 경우 앱 서비스가 Azure Active Directory를 사용하여 응용 프로그램을 보호할 수 있습니다. 호출 응용 프로그램은 Azure Active Directory의 클라이언트 ID 및 클라이언트 암호를 제공하여 얻은 Azure Active Directory 서비스 주체 권한 부여 토큰을 제공해야 합니다. ASP.NET API 앱을 사용하는 이 시나리오의 예는 [API 앱에 대한 서비스 주체 인증][apia-service] 자습서에서 설명합니다.
+서비스 간 시나리오의 경우 앱 서비스가 Azure Active Directory를 사용하여 응용 프로그램을 보호할 수 있습니다. 호출 응용 프로그램은 Azure Active Directory의 클라이언트 ID 및 클라이언트 암호를 제공하여 얻은 Azure Active Directory 서비스 주체 권한 부여 토큰을 제공해야 합니다. ASP.NET API Apps를 사용하는 이 시나리오의 예는 [API Apps에 대한 서비스 주체 인증][apia-service] 자습서에서 설명합니다.
 
 앱 서비스 인증을 사용하여 서비스 간 시나리오를 처리하려면 클라이언트 인증서 또는 기본 인증을 사용하면 됩니다. Azure의 클라이언트 인증서에 대한 자세한 내용은 [웹앱에 대한 TLS 상호 인증을 구성하는 방법](../app-service-web/app-service-web-configure-tls-mutual-auth.md)을 참조하세요. ASP.NET에서 기본 인증에 대한 자세한 내용은 [ASP.NET Web API 2에서의 인증 필터](http://www.asp.net/web-api/overview/security/authentication-filters)를 참조하세요.
 
-앱 서비스 논리 앱에서 API 앱으로 서비스 계정 인증은 [논리 앱으로 앱 서비스에서 호스트되는 사용자 지정 API 사용](../app-service-logic/app-service-logic-custom-hosted-api.md)에 구체적으로 설명된 특수 사례입니다.
+앱 서비스 논리 앱에서 API Apps로 서비스 계정 인증은 [논리 앱으로 앱 서비스에서 호스트되는 사용자 지정 API 사용](../logic-apps/logic-apps-custom-hosted-api.md)에 구체적으로 설명된 특수 사례입니다.
 
 ## <a name="a-nameauthorizationahow-authorization-works-in-app-service"></a><a name="authorization"></a>앱 서비스에서 권한 부여가 작동하는 방식
 응용 프로그램에 액세스할 수 있는 요청을 완벽하게 제어할 수 있습니다. 다음 동작 중 하나로 앱 서비스 인증/권한 부여를 구성할 수 있습니다.
@@ -90,7 +90,7 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
   
     이 경우 인증/권한 부여 기능이 꺼집니다. 인증 및 권한 부여 작업이 전적으로 응용 프로그램 코드에 의해 처리됩니다.
 
-이전 동작은 Azure 포털의 **요청이 인증되지 않은 경우에 수행할 동작** 을 통해 제어됩니다. *공급자 이름*으로 로그인**을 선택하는 경우 모든 요청은 인증되어야 합니다. **요청 허용(작업 없음)**은 코드에 대한 권한 부여 결정을 연기하지만 여전히 인증 정보를 제공합니다. 코드에서 모든 항목을 처리하게 하려는 경우 인증/권한 부여 기능을 비활성화할 수 있습니다.
+이전 동작은 Azure 포털의 **요청이 인증되지 않은 경우에 수행할 동작**을 통해 제어됩니다. *공급자 이름*으로 로그인**을 선택하는 경우 모든 요청은 인증되어야 합니다. **요청 허용(작업 없음)**은 코드에 대한 권한 부여 결정을 연기하지만 여전히 인증 정보를 제공합니다. 코드에서 모든 항목을 처리하게 하려는 경우 인증/권한 부여 기능을 비활성화할 수 있습니다.
 
 ## <a name="working-with-user-identities-in-your-application"></a>응용 프로그램에서 사용자 ID 사용
 앱 서비스는 특수 헤더를 사용하여 일부 사용자 정보를 응용 프로그램에 전달합니다. 외부 요청은 이러한 헤더를 금지하며 앱 서비스 인증/권한 부여를 통해 설정된 경우에만 존재합니다. 다음은 이러한 헤더의 예입니다.
@@ -135,7 +135,7 @@ ID 공급자 중 하나를 사용하여 인증하려면 먼저 ID 공급자를 �
 Azure Active Directory에 대한 클라이언트에서 제어된 흐름을 사용하려는 경우 다음 리소스를 사용합니다.
 
 * [iOS용 Active Directory 인증 라이브러리 사용][ADAL-iOS]
-* [용 Active Directory 인증 라이브러리 사용][ADAL-Android]
+* [Android용 Active Directory 인증 라이브러리 사용][ADAL-Android]
 * [Windows 및 Xamarin용 Active Directory 인증 라이브러리 사용][ADAL-dotnet]
 
 Facebook에 대한 클라이언트에서 제어된 흐름을 사용하려는 경우 다음 리소스를 사용합니다.
@@ -151,10 +151,10 @@ Google에 대한 클라이언트에서 제어된 흐름을 사용하려는 경�
 * [iOS용 Google 로그인 SDK 사용](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 
 ### <a name="api-applications"></a>API 응용 프로그램
-다음 자습서에서는 API 앱을 보호하는 방법을 보여 줍니다.
+다음 자습서에서는 API Apps를 보호하는 방법을 보여 줍니다.
 
-* [Azure App Service의 API 앱에 대한 사용자 인증][apia-user]
-* [Azure App Service의 API 앱에 대한 서비스 주체 인증][apia-service]
+* [Azure App Service의 API Apps에 대한 사용자 인증][apia-user]
+* [Azure App Service의 API Apps에 대한 서비스 주체 인증][apia-service]
 
 [apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
 [apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
@@ -183,6 +183,6 @@ Google에 대한 클라이언트에서 제어된 흐름을 사용하려는 경�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

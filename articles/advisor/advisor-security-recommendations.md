@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: a560aa9cc6c70fd3827f649627466c9071b8ab8b
-ms.openlocfilehash: 4345e544d2e2bcc90ee2e3caf5bf6dfc19f01ca3
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: dbdbae0f87d8d115407026b263c65c3b387fa178
+ms.lasthandoff: 02/21/2017
 
 ---
 # <a name="advisor-security-recommendations"></a>Advisor 보안 권장 사항 관리
@@ -38,7 +39,7 @@ Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합
 3. Advisor 대시보드에서 **보안** 탭을 클릭하고 권장 사항을 받아보려는 구독을 선택합니다.
 
 > [!NOTE]
-> Advisor는 **소유자, 참가자 또는 읽기 권한자** 역할이 할당된 구독에 대한 권장 사항을 생성합니다.  
+> Advisor 권장 사항을 보려면 먼저 구독을 Advisor에 **등록**해야 합니다. 구독은 **구독 소유자**가 Advisor 대시보드를 시작하고 **권장 사항 가져오기** 단추를 클릭할 때 등록됩니다. 이 작업은 **한 번만** 수행하면 됩니다. 구독이 등록되면 구독, 리소스 그룹 또는 특정 리소스에 대한 **소유자**, **참여자** 또는 **리더**는 Advisor 권장 사항에 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -47,9 +48,4 @@ Advisor 권장 사항에 대한 자세한 내용은 다음 리소스를 참조�
 -  [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 -  [Advisor 비용 권장 사항](advisor-performance-recommendations.md)
  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

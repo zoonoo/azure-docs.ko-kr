@@ -1,9 +1,21 @@
 ---
-layout: LandingPage
+title: "Azure Traffic Manager 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "응용 프로그램 성능을 최적화하기 위해 들어오는 트래픽을 관리하는 방법에 대해 알아봅니다. 설명서에서는 Azure 또는 외부 서비스 끝점에 트래픽을 분산하는 방법을 보여 줍니다."
+services: traffic-manager
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: traffic-manager
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 17727bace2ffbe77123e8d027b4a49b6ca92669e
+ms.lasthandoff: 03/18/2017
 
 ---
 #<a name="traffic-manager-documentation"></a>Traffic Manager 설명서
@@ -48,7 +60,7 @@ ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
         </a>
     </li>
     <li>
-        <a href="/azure/traffic-manager/traffic-manager-how-traffic-manager-works">
+        <a href="/azure/traffic-manager/traffic-manager-create-profile">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -91,39 +103,35 @@ ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>언어</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager">PowerShell</a></p>
+                        <p><a href="/cli/azure/network/traffic-manager">Azure CLI</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.JS</a></p>
+                        <p><a href="http://www.rubydoc.info/gems/azure_mgmt_traffic_manager">Ruby</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt163667">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p>Traffic Manager REST API</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163667.aspx">REST API 참조</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

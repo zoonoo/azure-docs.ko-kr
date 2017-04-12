@@ -4,7 +4,7 @@ description: "HTTP 동작 및 해당 속성 개요"
 services: 
 documentationcenter: 
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 522624ccb14d295359ff5585e1b46b618b45c305
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: d3514dad84bea024ad6215711877a9784a8d8ffd
 
 
 ---
@@ -29,7 +29,7 @@ HTTP 작업을 사용하여 조직에 대한 워크플로를 확장하고 HTTP�
 * 관리하는 웹 사이트가 중단되면 활성화되는(트리거) 논리 앱 워크플로를 만듭니다.
 * HTTP를 통해 모든 끝점과 통신하여 다른 서비스로 워크플로를 확장합니다.
 
-논리 앱에서 HTTP 동작 사용을 시작하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+논리 앱에서 HTTP 동작 사용을 시작하려면 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="use-the-http-trigger"></a>HTTP 트리거 사용
 트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요](connectors-overview.md).
@@ -85,14 +85,14 @@ HTTP 트리거 매개 변수에 대한 전체 세부 정보는 [MSDN](https://ms
 5. 도구 모음 왼쪽 위를 클릭하여 저장합니다. 논리 앱이 저장 및 게시(활성화)됩니다.
 
 ## <a name="http-trigger"></a>HTTP 트리거
-여기에는 이 커넥터가 지원하는 트리거에 대한 세부 정보가 나와 있습니다. HTTP 커넥터에는 1개의 트리거가 있습니다.
+여기에는 이 커넥터가 지원하는 트리거에 대한 세부 정보가 나와 있습니다. HTTP 커넥터에는&1;개의 트리거가 있습니다.
 
 | 트리거 | 설명 |
 | --- | --- |
 | http |HTTP 호출을 수행하고 응답 콘텐츠를 반환합니다. |
 
 ## <a name="http-action"></a>HTTP 동작
-여기에는 이 커넥터가 지원하는 동작에 대한 세부 정보가 나와 있습니다. HTTP 커넥터에는 1개의 가능한 동작이 있습니다.
+여기에는 이 커넥터가 지원하는 동작에 대한 세부 정보가 나와 있습니다. HTTP 커넥터에는&1;개의 가능한 동작이 있습니다.
 
 | 작업 | 설명 |
 | --- | --- |
@@ -125,7 +125,7 @@ HTTP 요청에 대한 출력 세부 정보는 다음과 같습니다.
 | 상태 코드 |int |HTTP 상태 코드 |
 
 ## <a name="authentication"></a>인증
-Azure 앱 서비스의 논리 앱 기능을 사용하면 HTTP 끝점에 대해 다른 유형의 인증을 사용할 수 있습니다. 이 인증은 HTTP, **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** 및 **[HTTP 웹후크](connectors-native-webhook.md)** 커넥터와 함께 사용할 수 있습니다. 다음 인증 유형은 구성할 수 있습니다.
+Logic Apps 기능을 사용하면 HTTP 끝점에 대해 다른 유형의 인증을 사용할 수 있습니다. 이 인증은 HTTP, **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** 및 **[HTTP 웹후크](connectors-native-webhook.md)** 커넥터와 함께 사용할 수 있습니다. 다음 인증 유형은 구성할 수 있습니다.
 
 * [기본 인증](#basic-authentication)
 * [클라이언트 인증서 인증](#client-certificate-authentication)
@@ -187,7 +187,7 @@ Azure 앱 서비스의 논리 앱 기능을 사용하면 HTTP 끝점에 대해 �
 | --- | --- | --- |
 | 형식* |type |인증 유형(Azure AD OAuth의 경우 `ActiveDirectoryOAuth` 여야 함) |
 | 테넌트* |tenant |Azure AD 테넌트의 테넌트 식별자 |
-| 대상* |audience | `https://management.core.windows.net/` |
+| 대상* |audience |`https://management.core.windows.net/` |
 | 클라이언트 ID* |clientId |Azure AD 응용 프로그램의 클라이언트 ID |
 | 암호* |secret |토큰을 요청하는 클라이언트의 암호 |
 
@@ -209,11 +209,11 @@ Azure 앱 서비스의 논리 앱 기능을 사용하면 HTTP 끝점에 대해 �
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
+이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../logic-apps/logic-apps-create-a-logic-app.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

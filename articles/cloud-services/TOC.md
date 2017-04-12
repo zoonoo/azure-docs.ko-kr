@@ -36,8 +36,8 @@
 #### [클라우드 서비스 역할에서 작업을 사용하여 .NET 설치](cloud-services-dotnet-install-dotnet.md)
 
 ### 원격 데스크톱 구성
-#### [Visual Studio](cloud-services-role-enable-remote-desktop.md)
-#### [Node.JS](cloud-services-nodejs-enable-remote-desktop.md)
+#### [포털](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [클래식 포털](cloud-services-role-enable-remote-desktop.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## 배포
@@ -115,8 +115,3 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

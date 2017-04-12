@@ -12,11 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
+ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
+ms.openlocfilehash: afecb15f36525c53a66f30047dffe8a3e8f36107
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -53,7 +54,7 @@ API 관리 로거는 [API 관리 REST API](http://aka.ms/smapi)를 사용하여 
 
 로거를 만들려면 다음 URL 템플릿을 사용하여 HTTP PUT 요청을 만듭니다.
 
-    https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
 
 * `{your service}` 를 API 관리 서비스 인스턴스의 이름으로 바꿉니다.
 * `{new logger name}` 을 새 로거에 대하여 원하는 이름으로 바꿉니다. [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) 정책을 구성할 때 이 이름을 참조하게 됩니다.
@@ -66,25 +67,27 @@ API 관리 로거는 [API 관리 REST API](http://aka.ms/smapi)를 사용하여 
 
 다음 템플릿을 사용하여 요청 본문을 지정합니다.
 
-    {
-      "type" : "AzureEventHub",
-      "description" : "Sample logger description",
-      "credentials" : {
-        "name" : "Name of the Event Hub from the Azure Classic Portal",
-        "connectionString" : "Endpoint=Event Hub Sender connection string"
-        }
+```json
+{
+  "type" : "AzureEventHub",
+  "description" : "Sample logger description",
+  "credentials" : {
+    "name" : "Name of the Event Hub from the Azure Classic Portal",
+    "connectionString" : "Endpoint=Event Hub Sender connection string"
     }
+}
+```
 
 * `type`은 `AzureEventHub`로 설정해야 합니다.
-* `description`는 로거에 대한 선택적 설명을 제공하고 원하는 경우 길이가 0인 문자열이 될 수 있습니다.
+* `description`는 로거에 대한 선택적 설명을 제공하고 원하는 경우 길이가&0;인 문자열이 될 수 있습니다.
 * `credentials`는 Azure 이벤트 허브의 `name` 및 `connectionString`을 포함합니다.
 
-요청을 만들 때 로거가 생성되면 `201 Created` 의 상태 코드가 반환됩니다. 
+요청을 만들 때 로거가 생성되면 `201 Created` 의 상태 코드가 반환됩니다.
 
 > [!NOTE]
 > 다른 가능한 반환 코드 및 해당 이유의 경우 [로거 만들기](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT)를 참조하세요. 목록, 업데이트, 삭제 등의 다른 작업을 수행하는 방법을 보려면 [로거](https://msdn.microsoft.com/library/azure/mt592020.aspx) 엔터티 설명서를 참조하세요.
-> 
-> 
+>
+>
 
 ## <a name="configure-log-to-eventhubs-policies"></a>log-to-eventhubs 정책 구성
 API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-eventhubs 정책을 구성할 수 있습니다. log-to-eventhubs 정책은 인바운드 정책 섹션 또는 아웃바운드 정책 섹션에서 사용할 수 있습니다.
@@ -101,9 +104,11 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 
 ![정책 편집기][event-hub-policy]
 
-    <log-to-eventhub logger-id ='logger-id'>
-      @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
-    </log-to-eventhub>
+```xml
+<log-to-eventhub logger-id ='logger-id'>
+  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+</log-to-eventhub>
+```
 
 `logger-id` 를 이전 단계에서 구성한 API 관리 로거의 이름으로 바꿉니다.
 
@@ -113,8 +118,8 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 
 ## <a name="next-steps"></a>다음 단계
 * Azure 이벤트 허브에 대해 자세히 알아보기
-  * [Azure 이벤트 허브 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Azure 이벤트 허브 시작](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [EventProcessorHost를 사용하여 메시지 수신](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [이벤트 허브 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)
 * API 관리 및 이벤트 허브 통합에 대해 자세히 알아보기
   * [로거 엔터티 참조](https://msdn.microsoft.com/library/azure/mt592020.aspx)
@@ -123,8 +128,8 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 
 ## <a name="watch-a-video-walkthrough"></a>연습 동영상 시청
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Integrate-Azure-API-Management-with-Event-Hubs/player]
-> 
-> 
+>
+>
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
@@ -134,15 +139,4 @@ API 관리에 로거가 구성되면 원하는 이벤트를 기록하는 log-to-
 [sending-policy]: ./media/api-management-howto-log-event-hubs/sending-policy.png
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
-
-
-
-
-
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

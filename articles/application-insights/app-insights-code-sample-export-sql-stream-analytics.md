@@ -1,5 +1,5 @@
 ---
-title: "연습: Application Insights에서 SQL 데이터베이스로 원격 분석 내보내기"
+title: "Azure Application Insights에서 SQL로 내보내기 | Microsoft Docs"
 description: "스트림 분석을 사용하여 Application Insights 데이터를 SQL로 계속 내보냅니다."
 services: application-insights
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.topic: article
 ms.date: 03/06/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: abaeb614e304c4ae78e6a1d43d19c99698e50494
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6fc9394cbc60a1ea9bc9989d271f1008acf0379b
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: 스트림 분석을 사용하여 Application Insights에서 SQL로 내보내기
-이 문서에서는 [연속 내보내기][export] 및 [Azure 스트림 분석](https://azure.microsoft.com/services/stream-analytics/)을 사용하여 [Azure Application Insights][시작]에서 Azure SQL 데이터베이스로 원격 분석 데이터를 이동하는 방법을 보여줍니다. 
+이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)을 사용하여 [Azure Application Insights][start]에서 Azure SQL Database로 원격 분석 데이터를 이동하는 방법을 보여줍니다. 
 
 연속 내보내기는 원격 분석 데이터를 JSON 형식으로 Azure 저장소로 이동합니다. Azure 스트림 분석을 사용하여 JSON 개체를 구문 분석하고 데이터베이스 테이블에 행을 만들 것입니다.
 
@@ -232,7 +233,7 @@ Application Insights 리소스의 이름 및 iKey를 가져오려면 해당 개�
 
 ```
 
-처음 몇 가지 속성은 페이지 보기 데이터에만 해당됩니다. 다른 원격 분석 유형 내보내기에 다른 속성이 있습니다.  [속성 형식 및 값에 대한 자세한 데이터 모델 참조](app-insights-export-data-model.md)
+처음 몇 가지 속성은 페이지 보기 데이터에만 해당됩니다. 다른 원격 분석 유형 내보내기에 다른 속성이 있습니다. [속성 형식 및 값에 대한 자세한 데이터 모델 참조](app-insights-export-data-model.md)
 
 ## <a name="set-up-output-to-database"></a>데이터베이스에 출력 설정
 SQL을 출력으로 선택합니다.
@@ -261,7 +262,6 @@ SQL 데이터베이스를 지정합니다.
 
 
 ## <a name="related-articles"></a>관련된 문서
-* [작업자 역할을 사용하여 SQL로 내보내기](app-insights-code-sample-export-telemetry-sql-database.md)
 * [스트림 분석을 사용하여 PowerBI로 내보내기](app-insights-export-power-bi.md)
 * [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](app-insights-export-data-model.md)
 * [Application Insights에서 연속 내보내기](app-insights-export-telemetry.md)
@@ -273,11 +273,6 @@ SQL 데이터베이스를 지정합니다.
 [export]: app-insights-export-telemetry.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
-[시작]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[start]: app-insights-overview.md
 
 

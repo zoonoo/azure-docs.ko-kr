@@ -31,9 +31,4 @@ Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경
 
 이러한 파일이 존재하지 않으면 Azure는 임시 배포 스크립트를 만들고 실행합니다.  위의 명령을 사용하여 만드는 것과 같습니다.
 
-[Azure 명령줄 인터페이스]: http://azure.microsoft.com/downloads/
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+[Azure command-line interface]: http://azure.microsoft.com/downloads/

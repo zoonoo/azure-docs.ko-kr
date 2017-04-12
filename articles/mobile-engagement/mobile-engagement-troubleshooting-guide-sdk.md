@@ -4,7 +4,7 @@ description: "Azure Mobile Engagement에서 SDK 통합 문제 해결"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: de265cf1-2f88-43ef-8616-156ada5be7b6
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dd898a35c64e350fafbf20b4de42a23eecf3f29b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 46a86bf99c1afd09ae3921a205d27532246171c9
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -46,8 +47,8 @@ ms.openlocfilehash: dd898a35c64e350fafbf20b4de42a23eecf3f29b
 
 **참고 항목:**
 
-* [SDK 설명서 - 통합 가이드][링크 5] 
-* [문제 해결 가이드 - 푸시][링크 23]
+* [SDK 설명서 - 통합 가이드][Link 5] 
+* [문제 해결 가이드 - 푸시][Link 23]
 
 #### <a name="sdk-upgrade"></a>SDK 업그레이드
 * SDK를 업그레이드하여 이전 버전 SDK의 문제를 해결해야 합니다(대개 최신 버전 장치 OS와 관련이 있음).
@@ -64,7 +65,7 @@ ms.openlocfilehash: dd898a35c64e350fafbf20b4de42a23eecf3f29b
 
 **참고 항목:**
 
-* [개념 - 용어집][링크 6]
+* [개념 - 용어집][Link 6]
 
 ## <a name="advanced-coding-issues"></a>고급 코딩 문제
 ### <a name="issue"></a>문제
@@ -79,9 +80,9 @@ ms.openlocfilehash: dd898a35c64e350fafbf20b4de42a23eecf3f29b
 * Azure Mobile Engagement는 iOS 및 Android에 대해 참조용으로 Azure Mobile Engagement에서 사용하는 내부 패키지의 전체 목록을 게시합니다. Azure Mobile Engagement의 일부 기능은 Android, iOS, 웹, Windows, Windows Phone 등의 특정 플랫폼에만 제공됩니다.
 
 ### <a name="see-also"></a>참고 항목
-* [문제 해결 가이드 - 푸시][링크 23] 
-* [SDK 설명서 - 릴리스 정보][링크 5]
-* [SDK 설명서 - 업그레이드 가이드][링크 5]
+* [문제 해결 가이드 - 푸시][Link 23] 
+* [SDK 설명서 - 릴리스 정보][Link 5]
+* [SDK 설명서 - 업그레이드 가이드][Link 5]
 
 ## <a name="application-crashes"></a>응용 프로그램 작동 중단
 ### <a name="issue"></a>문제
@@ -93,8 +94,8 @@ ms.openlocfilehash: dd898a35c64e350fafbf20b4de42a23eecf3f29b
 * 최신 버전의 SDK로 업그레이드하면 응용 프로그램 작동 중단의 원인이 되는 Azure Mobile Engagement SDK의 알려진 문제가 해결되는 경우도 있습니다. 따라서 작동 중단 문제를 조사할 때는 사용 중인 플랫폼의 릴리스 정보를 확인하세요.
 
 ### <a name="see-also"></a>참고 항목
-* [SDK 설명서 - 릴리스 정보][링크 5]
-* [SDK 설명서 - 업그레이드 가이드][링크 5]
+* [SDK 설명서 - 릴리스 정보][Link 5]
+* [SDK 설명서 - 업그레이드 가이드][Link 5]
 
 ## <a name="app-store-upload-failures"></a>앱 스토어 업로드 오류
 ### <a name="issue"></a>문제
@@ -105,39 +106,34 @@ ms.openlocfilehash: dd898a35c64e350fafbf20b4de42a23eecf3f29b
 * 스토어에 앱을 업로드하는 데 문제가 있으면 최신 버전 SDK 및 사용 중인 플랫폼의 릴리스 정보를 확인하세요.
 
 <!--Link references-->
-[링크 1]: mobile-engagement-user-interface.md
-[링크 2]: mobile-engagement-troubleshooting-guide.md
-[링크 3]: mobile-engagement-how-tos.md
-[링크 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[링크 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[링크 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[링크 7]: https://account.windowsazure.com/PreviewFeatures
-[링크 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[링크 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
-[링크 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
-[링크 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
-[링크 12]: mobile-engagement-user-interface-navigation.md
-[링크 13]: mobile-engagement-user-interface-home.md
-[링크 14]: mobile-engagement-user-interface-my-account.md
-[링크 15]: mobile-engagement-user-interface-analytics.md
-[링크 16]: mobile-engagement-user-interface-monitor.md
-[링크 17]: mobile-engagement-user-interface-reach.md
-[링크 18]: mobile-engagement-user-interface-segments.md
-[링크 19]: mobile-engagement-user-interface-dashboard.md
-[링크 20]: mobile-engagement-user-interface-settings.md
-[링크 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[링크 22]: mobile-engagement-troubleshooting-guide-apis.md
-[링크 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[링크 24]: mobile-engagement-troubleshooting-guide-service.md
-[링크 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[링크 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[링크 27]: mobile-engagement-user-interface-reach-campaign.md
-[링크 28]: mobile-engagement-user-interface-reach-criterion.md
-[링크 29]: mobile-engagement-user-interface-reach-content.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-user-interface-reach-campaign.md
+[Link 28]: mobile-engagement-user-interface-reach-criterion.md
+[Link 29]: mobile-engagement-user-interface-reach-content.md
 
 

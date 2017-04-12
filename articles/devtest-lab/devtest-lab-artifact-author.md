@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 03/16/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: e86af029422340bdfa38ba233f0ed61f6f1d8ca2
+ms.lasthandoff: 03/17/2017
 
 
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-vm"></a>DevTest Lab VM에 대한 사용자 지정 아티팩트 만들기
-> [AZURE.VIDEO how-to-author-custom-artifacts] 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/how-to-author-custom-artifacts/player]
 > 
 > 
 
@@ -75,7 +76,7 @@ ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
 | 요소 이름 | Required? | 설명 |
 | --- | --- | --- |
 | type |예 |매개 변수 값의 형식입니다. 허용되는 형식은 아래 목록을 참조하세요. |
-| displayName 예 |랩에서 사용자에게 표시되는 매개 변수의 이름입니다. | |
+| displayName |예 |랩에서 사용자에게 표시되는 매개 변수의 이름입니다. | |
 | 설명 |예 |랩에 표시되는 매개 변수의 설명입니다. |
 
 허용 유형은 다음과 같습니다.
@@ -129,10 +130,5 @@ ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
 
 ## <a name="next-steps"></a>다음 단계
 * [랩에 Git 아티팩트 리포지토리를 추가](devtest-lab-add-artifact-repo.md)하는 방법에 대해 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

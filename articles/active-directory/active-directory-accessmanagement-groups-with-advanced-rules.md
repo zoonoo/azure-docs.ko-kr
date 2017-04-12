@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: d83372fbce5f49d7cd038a15bd271e9d8a463b7b
-ms.openlocfilehash: f1cff67f31da87d6361603f0216a68c55686db0e
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: 00424292fbc5321a77a4e924530ade97739208d4
 
 
 ---
@@ -27,12 +27,12 @@ Azure 클래식 포털은 고급 규칙을 설정할 수 있는 기능을 제공
 
 > [!NOTE]
 > 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다. 중첩 그룹 구성원은 현재 응용 프로그램에 대한 그룹 기반 할당에서 지원되지 않습니다.
-> 
+>
 > 그룹의 동적 멤버 자격에는 할당될 Azure AD Premium 라이선스가 필요합니다.
-> 
+>
 > * 그룹의 규칙을 관리하는 관리자
 > * 그룹의 모든 멤버
-> 
+>
 
 ## <a name="to-create-the-advanced-rule"></a>고급 규칙을 만들려면
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **Active Directory**를 선택한 다음 조직의 디렉터리를 엽니다.
@@ -57,17 +57,18 @@ Azure 클래식 포털은 고급 규칙을 설정할 수 있는 기능을 제공
 속성에는 올바른 개체 형식 접두어(user 또는 device)가 있어야 합니다.
 mail -ne null 규칙은 유효성 검사에 실패합니다.
 
-올바른 규칙은 다음과 같습니다. 
+올바른 규칙은 다음과 같습니다.
 
 user.mail-ne null
 
 고급 규칙 본문의 총 길이는 2048자를 초과할 수 없습니다.
 
 > [!NOTE]
-> 문자열 및 regex 연산은 대/소문자를 구분합니다. 따옴표(")를 포함하는 문자열은 ' 문자를 사용하여 이스케이프해야 합니다(예: user.department -eq \`"Sales").
+> 문자열 및 regex 연산은 대/소문자를 구분합니다.
+> 따옴표(")를 포함하는 문자열은 ' 문자를 사용하여 이스케이프해야 합니다(예: user.department -eq \`"Sales").
 > 문자열 형식 값에 대해서만 따옴표를 사용하고, 영어 따옴표만 사용합니다.
-> 
-> 
+>
+>
 
 ## <a name="supported-expression-rule-operators"></a>지원되는 식 규칙 연산자
 다음 표에는 지원되는 모든 식 규칙 연산자와 고급 규칙 본문에 사용할 수 있는 해당 구문이 나와 있습니다.
@@ -86,14 +87,14 @@ user.mail-ne null
 ## <a name="operator-precedence"></a>연산자 우선 순위
 
 모든 연산자는 낮은 우선 순위에서 높은 우선 순위까지 나열되며(-any -all -or -not -nq -ne -startsWith -notStartsWith-contains -notContains -match -notMatch), 같은 줄의 연산자는 동등한 우선 순위를 가집니다.
- 
+
 모든 연산자는 하이픈(-) 접두사를 사용하거나 사용하지 않을 수 있습니다.
 
 괄호는 항상 필요한 것이 아니지만, 우선 순위가 요구 사항을 충족하지 못할 경우 괄호를 추가하면 됩니다. 예를 들면 다음과 같습니다.
 
-   user.department –eq "Marketing" –and user.country –eq "US" 
-   
-이는 다음과 동등합니다. 
+   user.department –eq "Marketing" –and user.country –eq "US"
+
+이는 다음과 동등합니다.
 
    (user.department –eq "Marketing") –and (user.country –eq "US")
 
@@ -173,7 +174,7 @@ user.mail-ne null
 
 ## <a name="use-of-null-values"></a>Null 값 사용
 
-규칙에 null 값을 지정하려면 "null" 또는 $null을 사용하면 됩니다. 예제: 
+규칙에 null 값을 지정하려면 "null" 또는 $null을 사용하면 됩니다. 예제:
 
    user.mail -ne null은 user.mail –ne $null과 동등합니다.
 
@@ -197,7 +198,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 규칙에 다중 값 속성을 포함하려면 다음과 같이 "-any" 연산자를 사용합니다.
 
   user.assignedPlans -any assignedPlan.service -startsWith "SCO"
-  
+
 ## <a name="direct-reports-rule"></a>직접 보고 규칙
 사용자의 관리자 특성에 따라 그룹의 멤버를 채울 수 있습니다.
 
@@ -207,11 +208,11 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 2. **그룹** 탭을 선택하고 편집할 그룹을 엽니다.
 3. **구성** 탭을 선택한 다음 **고급 규칙**을 선택합니다.
 4. 다음 구문을 사용하여 규칙을 입력합니다.
-   
+
     *Direct Reports for {obectID_of_manager}*에 대한 직접 보고. 직접 보고에 대해 유효한 규칙의 예는 다음과 같습니다.
-   
+
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-   
+
     여기서 "62e19b97-8b3d-4d4a-a106-4ce66896a863"은 관리자의 objectID입니다. 개체 ID는 관리자인 사용자의 사용자 페이지의 **프로필 탭** 에 있는 Azure AD에서 찾을 수 있습니다.
 5. 이 규칙을 저장하면 규칙을 만족하는 모든 사용자가 그룹의 구성원으로 가입됩니다. 그룹을 처음 채울 때는 몇 분 정도 걸릴 수 있습니다.
 
@@ -239,10 +240,10 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 > [!NOTE]
 > Azure 클래식 포털에서 "간단한 규칙" 드롭다운을 사용하여 이러한 장치 규칙을 만들 수 없습니다.
-> 
-> 
+>
+>
 
-## <a name="additional-information"></a>추가 정보
+## <a name="next-steps"></a>다음 단계
 이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
 
 * [그룹의 동적 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md)
@@ -250,7 +251,6 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 * [그룹 설정을 구성하는 Azure Active Directory cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
 
 
 

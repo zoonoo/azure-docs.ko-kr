@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87b90a164daad8c376b0b8536ec8338a3be548e1
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: 3778964172946fa928e2a908943f50897957eb42
 
 
 ---
@@ -26,18 +26,18 @@ ms.openlocfilehash: 87b90a164daad8c376b0b8536ec8338a3be548e1
 ## <a name="assign-a-role-to-a-user"></a>사용자에게 역할 할당
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. **더 많은 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음 **Enter**를 선택합니다.
-   
+
    ![사용자 관리 열기](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 3. **사용자 및 그룹** 블레이드에서 **모든 사용자**를 선택합니다.
-   
+
    ![모든 사용자 블레이드 열기](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
 4. **사용자 및 그룹 - 모든 사용자** 블레이드의 목록에서 사용자를 선택합니다.
 5. 선택한 사용자에 대한 블레이드에서 **디렉터리 역할**을 선택한 다음 **디렉터리 역할** 목록의 역할에 사용자를 할당합니다. 사용자 및 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요.
-   
+
       ![역할에 사용자 할당](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. **저장**을 선택합니다.
 
-## <a name="whats-next"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 * [사용자 추가](active-directory-users-create-azure-portal.md)
 * [새 Azure 포털에서 사용자의 암호 재설정](active-directory-users-reset-password-azure-portal.md)
 * [사용자의 작업 정보 변경](active-directory-users-work-info-azure-portal.md)
@@ -46,7 +46,6 @@ ms.openlocfilehash: 87b90a164daad8c376b0b8536ec8338a3be548e1
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

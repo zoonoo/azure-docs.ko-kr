@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
+ms.sourcegitcommit: fdc53ee24c623218e218cdda1c24dffbbec50bc5
+ms.openlocfilehash: e7c7e9504985fa98185286ee9a28cec80fb87df6
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -24,15 +25,15 @@ ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
 > [!div class="op_single_selector"]
 > * [Azure 클래식 포털 - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 > * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-> 
-> 
+>
+>
 
 <br>
 
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. Azure AD 도메인 서비스는 현재 리소스 관리자 모델을 지원하지 않습니다.
-> 
-> 
+>
+>
 
 다음 단계에서는 구성 요소 접근 방식을 사용하여 Windows 기반 Azure 가상 컴퓨터를 만들고 미리 구성하는 Azure PowerShell 명령 집합을 사용자 지정하는 방법을 보여 줍니다. 다음 단계는 Windows 기반 Azure 가상 컴퓨터를 빌드하고 Azure AD 도메인 서비스 관리되는 도메인에 가입하는 데 도움이 됩니다.
 
@@ -119,7 +120,7 @@ VM에 대한 서브넷을 설정합니다.
 
 * Windows Server 2012 R2 Datacenter 이미지를 사용함
 * 매우 작은 가상 컴퓨터임
-* 이름이 contoso-test임
+* 이름이 Contoso100-test임
 * contoso100 관리되는 도메인에 자동으로 가입된 도메인임
 * 관리되는 도메인과 동일한 가상 네트워크에 추가됨
 
@@ -156,10 +157,4 @@ Windows 가상 컴퓨터를 만들고 자동으로 Azure AD 도메인 서비스 
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD Domain Services - 시작 가이드](active-directory-ds-getting-started.md)
 * [Azure AD 도메인 서비스 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

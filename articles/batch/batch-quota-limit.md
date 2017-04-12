@@ -1,5 +1,5 @@
 ---
-title: "배치 서비스 할당량 및 제한 | Microsoft Docs"
+title: "Azure Batch의 서비스 할당량 및 제한 | Microsoft Docs"
 description: "기본 Azure 배치 할당량, 한도 및 제약 조건에 대해 알아보고 할당량 증가를 요청하는 방법에 대해 알아봅니다."
 services: batch
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 1a530bf6e9afca9a7cdc1f68e8eefdbf077dc516
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: a0f47a19f7ef1832e64e9a0bdc4bda3434f77aa2
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="quotas-and-limits-for-the-azure-batch-service"></a>Azure 배치 서비스에 대한 할당량 및 제한
+# <a name="batch-service-quotas-and-limits"></a>배치 서비스 할당량 및 제한
+
 다른 Azure 서비스와 마찬가지로 배치 서비스와 관련하여 특정 리소스에 대한 제한이 있습니다. 이러한 제한 대부분은 Azure 구독 또는 계정 수준에서 적용되는 기본 할당량입니다. 이 문서는 그러한 기본값을 설명하고 할당량 증가를 요청하는 방법을 설명합니다.
 
 배치에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기본값의 할당량 중 두 개 이상을 늘려야 할 수 있습니다. 할당량을 늘리려면 무료 온라인 [고객지원 요청](#increase-a-quota) 을 개설합니다.
@@ -30,12 +33,7 @@ ms.openlocfilehash: 1a530bf6e9afca9a7cdc1f68e8eefdbf077dc516
 > 
 > 
 
-## <a name="subscription-quotas"></a>구독 할당량
-| **리소스** | **기본 제한** | **최대 제한** |
-| --- | --- | --- |
-| 구독당 지역별 배치 계정 |1 |50 |
-
-## <a name="batch-account-quotas"></a>배치 계정 할당량
+## <a name="resource-quotas"></a>리소스 할당량
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ## <a name="other-limits"></a>기타 제한
@@ -100,9 +98,4 @@ ms.openlocfilehash: 1a530bf6e9afca9a7cdc1f68e8eefdbf077dc516
 [support_sev]: http://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

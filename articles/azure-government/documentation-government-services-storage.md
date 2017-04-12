@@ -1,23 +1,23 @@
 ---
 title: "Azure Government 저장소 | Microsoft 문서"
 description: "Azure Government용 응용 프로그램 개발에 대한 지침 및 기능 비교를 제공합니다."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: 83df022b-d791-4efb-9fdf-8afe47a885d5
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/13/2016
+ms.date: 12/22/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: e9287ab74e9bed8681b66fa9a168c8d7c403c63b
-ms.openlocfilehash: 8c9488e302540ca0c67926f6aa6fad591c6ce037
+ms.sourcegitcommit: 831334f2b835d00aa3fd22292764b69e85d735a6
+ms.openlocfilehash: a6b61df5884031eb5b53f983b834357bd23a622e
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -36,7 +36,8 @@ ms.openlocfilehash: 8c9488e302540ca0c67926f6aa6fad591c6ce037
 | [핫/쿨 Blob Storage] (../storage/storage-blob-storage-tiers.md) |해당 없음 |해당 없음 |
 | [저장소 서비스 암호화] (../storage/storage-service-encryption.md) |GA |GA |
 | [Premium Storage] (../storage/storage-premium-storage.md) |GA |해당 없음 | DS 시리즈 가상 컴퓨터가 포함됩니다. |
-| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA | 현재 클래식 저장소 계정만 지원됩니다. |
+| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA |
+| [StorSimple] (../storsimple/storsimple-ova-overview.md) |GA |GA |
 
 ### <a name="variations"></a>변형
 Azure Government의 저장소 계정에 대한 URL은 다양합니다.
@@ -68,6 +69,11 @@ API에 대한 자세한 내용은 <a href="https://msdn.microsoft.com/en-us/libr
 >
 >
 
+> [!NOTE]
+> StorSimple Manager 서비스 배포 시 Azure Portal 및 클래식 포털에 각각 https://portal.azure.us/와 https://manage.windowsazure.us/ URL을 사용합니다. StorSimple Virtual Array에 대한 배포 지침의 경우 [StorSimple Virtual Array 시스템 요구 사항](../storsimple/storsimple-ova-system-requirements.md), StorSimple 8000 시리즈의 경우 [StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항](../storsimple/storsimple-system-requirements.md)을 참조한 후 왼쪽 탐색의 배포 섹션으로 이동하세요. 일반적인 StorSimple 설명서의 경우 [StorSimple이란?] (../storsimple/index.md)을 참조하세요.
+>
+>
+
 ### <a name="considerations"></a>고려 사항
 다음 정보는 Azure 저장소에 대한 Azure Government 경계를 식별합니다.
 
@@ -77,9 +83,4 @@ API에 대한 자세한 내용은 <a href="https://msdn.microsoft.com/en-us/libr
 
 ## <a name="next-steps"></a>다음 단계
 부가 정보 및 업데이트를 보려면 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government 블로그</a>를 구독하세요.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

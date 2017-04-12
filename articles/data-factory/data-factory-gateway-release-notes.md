@@ -11,12 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/03/2017
 ms.author: spelluru
 published: true
 translationtype: Human Translation
-ms.sourcegitcommit: 65c036240618f3e426707d57eeb6b194410a9084
-ms.openlocfilehash: 0110a2d21e7e83d2a185962eb120c560cc0ac0b6
+ms.sourcegitcommit: db0face48d84680eabd82245bd38bd49b204f9ae
+ms.openlocfilehash: a88b791bad9f71f16700ccc7efdee8ef493478a9
+ms.lasthandoff: 02/13/2017
 
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
@@ -27,15 +28,36 @@ ms.openlocfilehash: 0110a2d21e7e83d2a185962eb120c560cc0ac0b6
 *  [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)
 *  [Azure 데이터 팩터리를 사용하여 온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 
 
-## <a name="current-version-2561641"></a>현재 버전 (2.5.6164.1)
+
+## <a name="current-version-2762192"></a>현재 버전(2.7.6219.2)
+
+### <a name="whats-new"></a>새로운 기능
+- 이제 서비스 주체를 사용하여 Azure Data Lake Store로 인증할 수 있습니다. 이전에는 OAuth만 지원했습니다.
+- 게이트웨이의 온프레미스 데이터 저장소에 있는 Oracle에서 데이터를 읽기 위한 새 드라이버를 패키징했습니다.
+
+### <a name="enhancements-"></a>향상된 기능
+- Oracle 데이터 원본에서 데이터 읽기 성능 개선
+- 수정됨: OData 원본 OAuth 토큰 만료 문제
+- 수정됨: 28비트 이상의 Oracle 10진수를 읽을 수 없는 문제
+
+
+## <a name="earlier-versions"></a>이전 버전
+
+## <a name="2661922"></a>2.6.6192.2
+### <a name="whats-new"></a>새로운 기능
+- 고객이 게이트웨이 등록 경험에 대한 피드백을 제공할 수 있습니다.
+- 새 압축 형식 지원: ZIP (Deflate)
+
+### <a name="enhancements-"></a>향상된 기능
+- Oracle Sink, HDFS 원본에 대한 성능 개선
+- 게이트웨이 자동 업데이트, 게이트웨이 병렬 처리 용량에 대한 버그 수정
+
+
+## <a name="2561641"></a>2.5.6164.1
 ### <a name="enhancements"></a>향상된 기능
 - 더욱 강력하고 향상된 게이트웨이 등록 환경- 게이트웨이 등록 프로세스 동안 진행 상태를 추적할 수 있어, 더 나은 응답성의 등록 환경이 만들어졌습니다.
 - 게이트웨이 복원 프로세스 개선-이 업데이트를 사용하여 게이트웨이 백업 파일이 없는 경우에도 게이트웨이를 복구할 수 있습니다. 포털에서 연결된 서비스 자격 증명을 다시 설정해야 합니다.
 - 버그 수정
-
-
-
-## <a name="earlier-versions"></a>이전 버전
 
 ## <a name="2461511"></a>2.4.6151.1
 
@@ -75,7 +97,7 @@ ms.openlocfilehash: 0110a2d21e7e83d2a185962eb120c560cc0ac0b6
 
 *  수동으로 설치하는 동안 게이트웨이에서 사용할 언어/문화권을 선택할 수 있습니다.
 
-*  게이트웨이가 정상적으로 작동하지 않으면 문제를 쉽게 해결할 수 있도록 지난 7일 동안의 게이트웨이 로그를 Microsoft에 전송할 수 있습니다. 게이트웨이가 클라우드 서비스에 연결되어 있지 않으면 게이트웨이 로그를 저장하고 보관할 수 있습니다.  
+*  게이트웨이가 정상적으로 작동하지 않으면 문제를 쉽게 해결할 수 있도록 지난&7;일 동안의 게이트웨이 로그를 Microsoft에 전송할 수 있습니다. 게이트웨이가 클라우드 서비스에 연결되어 있지 않으면 게이트웨이 로그를 저장하고 보관할 수 있습니다.  
 
 *  게이트웨이 구성 관리자에 대한 사용자 인터페이스 개선 사항:
 
@@ -100,7 +122,7 @@ ms.openlocfilehash: 0110a2d21e7e83d2a185962eb120c560cc0ac0b6
 
 *  게이트웨이를 자동 업데이트하는 동안 다시 시작이 필요하면 경고 대화 상자가 표시됩니다. 바로 또는 나중에 다시 시작하도록 선택할 수 있습니다. 
 
-*  자동 업데이트가 실패하면 게이트웨이 설치 관리자는 자동 업데이트를 최대 3회까지 다시 시도합니다.
+*  자동 업데이트가 실패하면 게이트웨이 설치 관리자는 자동 업데이트를 최대&3;회까지 다시 시도합니다.
 
 *  성능 개선
 
@@ -185,7 +207,7 @@ ms.openlocfilehash: 0110a2d21e7e83d2a185962eb120c560cc0ac0b6
 
 ### <a name="1556121"></a>1.5.5612.1
 
-*  Azure Data Factory에 대해 관계형 데이터베이스 5개(MySQL, PostgreSQL, DB2, Teradata, Sybase) 지원
+*  Azure Data Factory에 대해 관계형 데이터베이스&5;개(MySQL, PostgreSQL, DB2, Teradata, Sybase) 지원
 *  압축 지원(Gzip 및 Deflate)
 *  성능 개선
 *  버그 수정
@@ -213,9 +235,4 @@ ms.openlocfilehash: 0110a2d21e7e83d2a185962eb120c560cc0ac0b6
 ### <a name="1051442"></a>1.0.5144.2
 
 *  Azure 데이터 팩터리 시나리오에 영향을 주는 변경은 없습니다.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

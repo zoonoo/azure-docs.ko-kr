@@ -7,13 +7,9 @@
 ## IP 주소
 ### [리소스 관리자](virtual-network-ip-addresses-overview-arm.md)
 ### [클래식](virtual-network-ip-addresses-overview-classic.md)
-## 가상 컴퓨터
-### [네트워크 인터페이스](virtual-network-network-interface-overview.md)
-### [이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 # 시작
-## [가상 네트워크 만들기](virtual-networks-create-vnet-arm-pportal.md)
-## [가상 네트워크에 VM 배포](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+## [첫 가상 네트워크 만들기](virtual-network-get-started-vnet-subnet.md)
 
 # 방법
 ## 계획 및 디자인
@@ -49,6 +45,10 @@
 #### [포털](virtual-networks-create-vnetpeering-arm-portal.md)
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [템플릿](virtual-networks-create-vnetpeering-arm-template-click.md)
+
+### [네트워크 인터페이스](virtual-network-network-interface.md)
+
+### [공용 IP 주소](virtual-network-public-ip-address.md)
 
 ### 가상 컴퓨터
 
@@ -97,12 +97,14 @@
 ##### [샘플 응용 프로그램](virtual-networks-sample-app.md)
 
 ## 구성
-### 가속된 네트워킹
-#### [Azure 포털](virtual-network-accelerated-networking-portal.md)
+### VM에 대해 가속된 네트워킹
+#### [Azure Portal](virtual-network-accelerated-networking-portal.md)
 #### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### [VM 네트워크 처리량 최적화](virtual-network-optimize-network-bandwidth.md)
 ### 액세스 제어 목록
 #### [클래식 포털](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
+### [VM 및 클라우드 서비스의 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ## 관리
 ### 네트워크 보안 그룹
@@ -121,11 +123,12 @@
 ### 경로
 #### [포털](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+### [처리량 테스트](virtual-network-bandwidth-testing.md)
 
 # 참조
-## [PowerShell(리소스 관리자)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell(클래식)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [Azure CLI](/cli/azure/)
+## [PowerShell(리소스 관리자)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell(클래식)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST(리소스 관리자)](https://msdn.microsoft.com/library/mt163658.aspx)
 ## [REST(클래식)](https://msdn.microsoft.com/library/jj157182.aspx)
@@ -145,8 +148,3 @@
 ## [네트워킹 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-network)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

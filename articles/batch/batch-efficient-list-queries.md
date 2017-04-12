@@ -1,5 +1,5 @@
 ---
-title: "Azure 배치의 효율적인 목록 쿼리 | Microsoft Docs"
+title: "효율적인 목록 쿼리 디자인 - Azure Batch | Microsoft Docs"
 description: "풀, 작업, 태스크 및 계산 노드와 같은 배치 리소스에 대한 정보를 요청할 때 쿼리를 필터링하여 성능을 향상시킵니다."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 62487d3d26ba66ce2ba88ae1a71858d68e68544c
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 791b7a22e5b7edd2e31f6ab01131530a8053ac2b
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="query-the-azure-batch-service-efficiently"></a>효율적인 Azure 배치 서비스 쿼리
+# <a name="create-queries-to-list-batch-resources-efficiently"></a>쿼리를 만들어서 효율적으로 Batch 리소스 나열
+
 여기에서 [배치 .NET][api_net] 라이브러리를 사용하여 작업, 태스크 및 계산 노드를 쿼리할 때 서비스에서 반환되는 데이터의 양을 줄여 Azure 배치 응용 프로그램의 성능을 향상시키는 방법을 알아봅니다.
 
 거의 모든 배치 응용 프로그램은 정기적으로 배치 서비스를 쿼리하는 특정 형식의 모니터링 또는 다른 작업을 수행해야 합니다. 예를 들어 대기 중인 태스크가 작업에 남아 있는지 여부를 확인하려면 작업의 모든 태스크에 대한 데이터를 가져와야 합니다. 풀의 노드 상태를 확인하려면 풀의 모든 노드에서 데이터를 가져와야 합니다. 이 문서에서는 가장 효율적인 방법으로 이러한 쿼리를 실행하는 방법에 대해 설명합니다.
@@ -289,9 +292,4 @@ MSDN의 [Azure 배치 포럼][forum]은 Batch를 설명하고 서비스에 대�
 [net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

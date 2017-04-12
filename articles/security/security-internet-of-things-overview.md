@@ -1,6 +1,6 @@
 ---
-title: "사물 인터넷 보안 개요 | Microsoft Docs"
-description: " Azure IoT(사물 인터넷) 서비스는 광범위한 기능을 제공합니다. 이 문서에서는 Azure에서 IoT 솔루션을 보호하는 방법을 이해하도록 도움을 줍니다. "
+title: "Azure의 IoT(사물 인터넷) 보안 | Microsoft Docs"
+description: " Azure IoT(사물 인터넷) 서비스는 광범위한 기능을 제공합니다. 이 문서에서는 Azure에서 IoT 솔루션을 보호하는 방법을 이해하도록 도움을 줍니다.. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 5778f554e83426f5fba12a25d2bbce13db4a9226
-ms.openlocfilehash: ebfeb83c2bc3b96ef2e7474d60639cfb2da0018d
+ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
+ms.openlocfilehash: 3793f5453b74b6c06d9e58b426d89099298e1288
 
 
 ---
@@ -70,6 +70,6 @@ IoT 인프라를 보호하려면 엄격한 보안 심층 전략이 필요합니�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

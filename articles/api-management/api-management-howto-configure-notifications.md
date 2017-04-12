@@ -1,5 +1,5 @@
 ---
-title: "Azure API 관리에서 알림 및 전자 메일 템플릿을 구성하는 방법"
+title: "Azure API Management에서 알림 및 메일 템플릿 구성 | Microsoft Docs"
 description: "Azure API 관리에서 알림 및 메일 템플릿을 구성하는 방법에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: d99e2d885d56e3752a3b1caf51e52c801acaab52
-ms.openlocfilehash: 8e3c98108672dcd2ae48da7b2a9eeb174cee76e1
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 3d8b74e32059cfc1a4c3a8fc7d3bd04676ee80c8
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Azure API 관리에서 알림 및 전자 메일 템플릿을 구성하는 방법
@@ -29,7 +29,7 @@ API 관리는 특정 이벤트에 대한 알림을 구성하는 기능과 API �
 ![게시자 포털][api-management-management-console]
 
 > [!NOTE] 
-> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][API 관리 서비스 인스턴스 만들기] 자습서에서 [API Management 서비스 인스턴스 만들기][API Management 서비스 인스턴스 만들기]를 참조하세요.
+> 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][Get started with Azure API Management] 자습서의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 
 왼쪽의 **API Management** 메뉴에서 **알림**을 클릭하여 사용 가능한 알림을 봅니다.
 
@@ -111,17 +111,12 @@ API Management 인스턴스의 메일 템플릿을 보고 구성하려면 왼쪽
 [api-management-email-template]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
 
 
-[게시자 알림 구성]: #publisher-notifications
-[메일 템플릿 구성]: #email-templates
+[Configure publisher notifications]: #publisher-notifications
+[Configure email templates]: #email-templates
 
-[그룹을 만들고 사용하는 방법]: api-management-howto-create-groups.md
-[그룹과 개발자를 연결하는 방법]: api-management-howto-create-groups.md#associate-group-developer
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
-[API Management 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 

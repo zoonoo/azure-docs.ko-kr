@@ -15,29 +15,30 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae4e75c7ac318a414672cf791bb35d1615f45dea
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: deed3fbd7cd27f54767ae9b26c27c1e1a0106208
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>OMS(Operations Management Suite) 관리 솔루션의 보기(Preview)
 > [!NOTE]
 > 현재 Preview로 제공되는 OMS의 사용자 지정 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.    
-> 
-> 
+>
+>
 
 [OMS(Operations Management Suite)의 관리 솔루션](operations-management-suite-solutions.md)은 대개 데이터를 시각화하기 위한 하나 이상의 보기를 포함합니다.  이 문서에서는 [뷰 디자이너](../log-analytics/log-analytics-view-designer.md)에서 만들어진 보기를 내보내고 관리 솔루션에 포함하는 방법을 설명합니다.  
 
 > [!NOTE]
-> 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [OMS(Operations Management Suite)의 관리 솔루션 만들기](operations-management-suite-solutions-creating.md)에서 설명한 매개 변수와 변수가 사용됩니다. 
-> 
-> 
+> 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [OMS(Operations Management Suite)의 관리 솔루션 만들기](operations-management-suite-solutions-creating.md)에서 설명한 매개 변수와 변수가 사용됩니다.
+>
+>
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 [관리 솔루션을 만드는](operations-management-suite-solutions-creating.md) 방법과 솔루션 파일의 구조를 잘 알고 있다고 가정합니다.
 
 ## <a name="overview"></a>개요
-관리 솔루션에 보기를 포함하려면 [솔루션 파일](operations-management-suite-solutions-creating.md)에서 이에 대한 **리소스**를 만듭니다.  보기의 세부 구성을 설명하는 JSON은 일반적으로 복잡하며 일반적인 솔루션 작성자가 수동으로 만들 수 있는 것이 아닙니다.  가장 일반적인 방법은 [뷰 디자이너](../log-analytics/log-analytics-view-designer.md)를 사용하여 보기를 만들고, 내보내고 나서, 세부 구성을 솔루션에 추가하는 것입니다. 
+관리 솔루션에 보기를 포함하려면 [솔루션 파일](operations-management-suite-solutions-creating.md)에서 이에 대한 **리소스**를 만듭니다.  보기의 세부 구성을 설명하는 JSON은 일반적으로 복잡하며 일반적인 솔루션 작성자가 수동으로 만들 수 있는 것이 아닙니다.  가장 일반적인 방법은 [뷰 디자이너](../log-analytics/log-analytics-view-designer.md)를 사용하여 보기를 만들고, 내보내고 나서, 세부 구성을 솔루션에 추가하는 것입니다.
 
 보기를 솔루션에 추가하는 기본 단계는 다음과 같습니다.  각 단계는 아래 섹션에서 자세히 설명합니다.
 
@@ -46,7 +47,7 @@ ms.openlocfilehash: ae4e75c7ac318a414672cf791bb35d1615f45dea
 3. 보기 세부 정보를 추가합니다.
 
 ## <a name="export-the-view-to-a-file"></a>보기를 파일로 내보내기
-[Log Analytics 뷰 디자이너](../log-analytics/log-analytics-view-designer.md)의 지침에 따라 보기를 파일로 내보냅니다.  내보낸 파일의 형식은 [솔루션 파일과 같은 요소](operations-management-suite-solutions-creating.md#management-solution-files)가 포함된 JSON 형식이 됩니다.  
+[Log Analytics 뷰 디자이너](../log-analytics/log-analytics-view-designer.md)의 지침에 따라 보기를 파일로 내보냅니다.  내보낸 파일의 형식은 [솔루션 파일과 같은 요소](operations-management-suite-solutions-solution-file.md)가 포함된 JSON 형식이 됩니다.  
 
 보기 파일의 **resources** 요소에는 OMS 작업 영역을 나타내는 **Microsoft.OperationalInsights/workspaces** 형식의 리소스가 포함됩니다.  이 요소에는 보기를 나타내고 세부 구성이 들어 있는 **views** 형식의 하위 요소가 포함됩니다.  이 요소의 세부 정보를 복사하여 솔루션에 붙여넣습니다.
 
@@ -69,11 +70,11 @@ ms.openlocfilehash: ae4e75c7ac318a414672cf791bb35d1615f45dea
             "Author": "[variables('ViewAuthor')]",
             "Source": "Local",
             "Dashboard": ,
-            "OverviewTile": 
+            "OverviewTile":
         }
     }
 
-솔루션 파일의 [variables](operations-management-suite-solutions-creating.md#variables) 요소에 다음 변수를 추가하고 해당 값을 솔루션의 값으로 바꿉니다.
+솔루션 파일의 variables 요소에 다음 변수를 추가하고 해당 값을 솔루션의 값으로 바꿉니다.
 
     "LogAnalyticsApiVersion": "2015-11-01-preview",
     "ViewAuthor": "Your name."
@@ -91,7 +92,7 @@ ms.openlocfilehash: ae4e75c7ac318a414672cf791bb35d1615f45dea
 * 변수는 솔루션에서 정의되고 적절한 속성에서 사용되어야 합니다.
 
 ## <a name="add-the-view-details"></a>보기 세부 정보 추가
-내보낸 보기 파일의 보기 리소스에는 보기의 세부 구성이 들어 있는 **properties** 요소의 두 가지 요소 **Dashboard** 및 **OverviewTile**이 포함됩니다.  이 두 가지 요소와 해당 내용을 솔루션 파일에 있는 보기 리소스의 **properties** 요소에 복사합니다. 
+내보낸 보기 파일의 보기 리소스에는 보기의 세부 구성이 들어 있는 **properties** 요소의 두 가지 요소 **Dashboard** 및 **OverviewTile**이 포함됩니다.  이 두 가지 요소와 해당 내용을 솔루션 파일에 있는 보기 리소스의 **properties** 요소에 복사합니다.
 
 ## <a name="example"></a>예
 예를 들어 다음 샘플에서는 보기가 있는 단순 솔루션 파일을 보여 줍니다.  공간 문제로 **Dashboard** 및 **OverviewTile** 내용에는 줄임표(...)가 표시됩니다.
@@ -179,10 +180,4 @@ ms.openlocfilehash: ae4e75c7ac318a414672cf791bb35d1615f45dea
 ## <a name="next-steps"></a>다음 단계
 * [관리 솔루션](operations-management-suite-solutions-creating.md)을 만드는 방법에 대한 자세한 내용을 알아보세요.
 * [관리 솔루션에 Automation runbook](operations-management-suite-solutions-resources-automation.md)을 포함합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

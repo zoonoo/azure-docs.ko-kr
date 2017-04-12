@@ -1,19 +1,21 @@
 # 개요
 ## [Application Gateway란?](application-gateway-introduction.md)
-## [웹 응용 프로그램 방화벽](application-gateway-webapplicationfirewall-overview.md)
+## [Application Gateway FAQ](application-gateway-faq.md)
+## [웹 응용 프로그램 방화벽](application-gateway-web-application-firewall-overview.md)
+### [코어 규칙 집합 및 규칙](application-gateway-crs-rulegroups-rules.md)
 ## [상태 모니터링](application-gateway-probe-overview.md)
 ## [URL 라우팅](application-gateway-url-route-overview.md)
 ## [다중 사이트](application-gateway-multi-site-overview.md)
 ## [종단 간 SSL](application-gateway-backend-ssl.md)
 ## [Websocket](application-gateway-websocket.md)
-## [서비스 한도](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # 시작
 ## Application Gateway 만들기
 ### 공용 주소
 #### [포털](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
-#### [CLI](application-gateway-create-gateway-cli.md)
+#### [Azure CLI](application-gateway-create-gateway-cli.md)
 #### [PowerShell(클래식)](application-gateway-create-gateway.md)
 ### 내부 연결
 #### [PowerShell](application-gateway-ilb-arm.md)
@@ -22,6 +24,8 @@
 ## 웹 응용 프로그램 방화벽 구성
 ### [포털](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+## 웹 응용 프로그램 방화벽 규칙 사용자 지정
+### [포털](application-gateway-customize-waf-rules-portal.md)
 ## SSL 오프로드 구성
 ### [포털](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
@@ -38,19 +42,18 @@
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell(클래식)](application-gateway-create-probe-classic-ps.md)
 ## [부하 분산 서비스 조합](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
-## 관리
-### [진단](application-gateway-diagnostics.md)
-### [문제 해결](application-gateway-troubleshooting-502.md)
-
+## 문제 해결
+### [Application Gateway의 오류 해결](application-gateway-troubleshooting-502.md)
+### [진단 로깅 및 메트릭](application-gateway-diagnostics.md)
 # 참조
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
-## [Azure CLI 2.0 미리 보기](/cli/azure/network/application-gateway)
+## [Azure CLI 2.0](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
-## [REST (영문)](https://msdn.microsoft.com/library/mt684941)
+## [REST (영문)](https://docs.microsoft.com/rest/api/applicationgateway)
 ## [REST(클래식)](https://msdn.microsoft.com/library/azure/mt299393)
 # 관련 항목
 ## [ExpressRoute](/azure/expressroute/)
@@ -65,8 +68,3 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-application-gateway)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

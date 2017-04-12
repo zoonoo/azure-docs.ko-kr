@@ -1,21 +1,22 @@
 ---
-title: "Application Insights에서 종속성 추적"
+title: "Azure Application Insights의 종속성 추적 | Microsoft Docs"
 description: "Application Insights를 사용하여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e2e81139152549eaa40d788c80cfdd2388b2d55d
-ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -34,7 +35,9 @@ ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
 * 웹 페이지
   * AJAX 호출
 
-[TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency)를 사용하여 클라이언트 및 서버 코드 모두에서 다른 종속성을 모니터링하는 사용자 고유의 SDK 호출을 작성할 수도 있습니다.
+모니터링은 선택한 방법과 관련된 [바이트 코드 계측](https://msdn.microsoft.com/library/z9z62c29.aspx)을 사용하여 작동합니다. 성능 오버 헤드가 최소화됩니다.
+
+[TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency)를 사용하여 클라이언트 및 서버 코드 모두에서 다른 종속성을 모니터링하는 사용자 고유의 SDK 호출을 작성할 수도 있습니다.
 
 ## <a name="set-up-dependency-monitoring"></a>종속성 모니터링 설정
 부분 종속성 정보는 [Application Insights SDK](app-insights-asp-net.md)에서 자동으로 수집됩니다. 전체 데이터를 가져오려면 호스트 서버에 대한 적절한 에이전트를 설치합니다.
@@ -81,7 +84,7 @@ ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
 ## <a name="ajax-calls"></a>AJAX 호출
 브라우저 블레이드에는 [웹 페이지의 JavaScript](app-insights-javascript.md)에서 실행한 AJAX 호출의 기간 및 실패율이 표시됩니다. 이는 종속성으로 표시됩니다.
 
-## <a name="a-namediagnosisa-diagnose-slow-requests"></a><a name="diagnosis"></a> 느린 요청 진단
+## <a name="diagnosis"></a> 느린 요청 진단
 각 요청 이벤트는 종속성 호출, 예외 및 기타 앱에서 요청을 처리하는 동안 추적된 이벤트와 연결됩니다. 따라서 일부 요청이 잘못 수행되는 경우 종속성의 느린 응답 때문인지 여부를 확인할 수 있습니다.
 
 이에 대한 예제를 살펴보겠습니다.
@@ -172,7 +175,7 @@ ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
 ## <a name="custom-dependency-tracking"></a>사용자 지정 종속성 추적
 표준 종속성 추적 모듈은 데이터베이스 및 REST API와 같은 외부 종속성을 자동으로 검색합니다. 하지만 일부 추가 구성 요소를 동일한 방식으로 취급할 수도 있습니다.
 
-표준 모듈에 의해 사용되는 동일한 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) 를 사용하여 종속성 정보를 보내는 코드를 작성할 수 있습니다.
+표준 모듈에 의해 사용되는 동일한 [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency) 를 사용하여 종속성 정보를 보내는 코드를 작성할 수 있습니다.
 
 예를 들면, 사용자가 직접 작성하지 않은 어셈블리 코드를 작성하는 경우, 응답 시간 기여도를 알아보기 위해 모든 호출의 시간을 잴 수 있습니다. Application Insights에서 종속성 차트에 표시되는 이 데이터를 가지려면, `TrackDependency`을 사용하여 이것을 보냅니다.
 
@@ -202,13 +205,12 @@ ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
   * IIS 호스트: 호스트 서버에 [Application Insights 에이전트](app-insights-monitor-performance-live-website-now.md)를 설치합니다.
   * Azure 웹앱: 웹앱 제어판에서 Application Insights 탭을 열고 Application Insights를 설치합니다.
 
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="next-steps"></a>다음 단계
 * [예외](app-insights-asp-net-exceptions.md)
 * [사용자 및 페이지 데이터](app-insights-javascript.md)
 * [Availability](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

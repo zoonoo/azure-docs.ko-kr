@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2016
+ms.date: 03/08/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: da356a95fc372c140e089a943e5fcb680f0c9fd7
-ms.openlocfilehash: 009fde75bff1b7746ad0ae247a3b895366f54b84
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 6c0c6b24f9d669e7ed45e6b2acf2e75390e5e1f4
+ms.lasthandoff: 03/09/2017
 
 ---
 
@@ -39,13 +40,23 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 OS 업데이트 문제는 일반적으로 컴퓨터를 재부팅해야 하며 이로 인해 일시적인 가용성 손실이 발생합니다. Service Fabric에서 해당 서비스에 대한 트래픽을 다른 노드로 리디렉션하므로 이것 자체는 문제가 아닙니다. 하지만 OS 업데이트가 클러스터 간에 조정되지 않는다면 많은 노드가 한 번에 다운될 가능성이 있습니다. 이러한 동시 재부팅은 서비스 또는 적어도 특정 파티션(상태 저장 서비스)에 대한 총체적인 가용성 손실을 유도할 수 있습니다.
 
-향후에는 업데이트 도메인 간에 조정되는 OS 업데이트 정책을 지원하여 재부팅하거나 다른 예기치 않은 오류가 발생해도 가용성이 유지되도록 보장합니다.
+향후에는 완전 자동화되고 업데이트 도메인 간에 조정되는 OS 업데이트 정책을 지원하여 재부팅하거나 다른 예기치 않은 오류가 발생해도 가용성이 유지되도록 할 것입니다.
 
-그때까지는 OS 업데이트를 한 번에 한 노드씩 직접 수행하는 것이 유일한 안전 옵션입니다.
+그 동안에는 클러스터 관리자가 수동으로 각 노드의 패치를 안전한 방식으로 시작할 수 있는 [스크립트를 제공](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/)합니다.
+
+### <a name="can-i-use-large-virtual-scale-sets-in-my-sf-cluster"></a>SF 클러스터 내에서 큰 가상 크기 집합을 사용할 수 있나요? 
+
+**간단한 대답** - 아니요 
+
+**자세한 대답** - VMSS(큰 가상 크기 집합)은 최대 1000개 VM 인스턴스까지 VMSS를 확장하도록 허용하지만 PG(배치 그룹)을 사용하여 이 작업을 수행합니다. FD(장애 도메인) 및 UD(업그레이드 도메인)는 Service Fabric이 서비스 복제본/서비스 인스턴스의 배치 결정을 내리는 데 사용하는 배치 그룹 내에서만 일관됩니다. FD 및 UD는 배치 그룹 내에서만 호환되므로 SF에서 사용할 수 없습니다. 예를 들어 PG1의 VM1이 토폴로지 FD=0을 갖고 PG2의 VM9가 토폴로지 FD=4를 갖는 경우 VM1 및 VM2가&2;개의 다른 하드웨어 랙에 있다는 것을 의미하지는 않으므로 SF는 이 경우 FD 값을 사용하여 배치 결정을 내릴 수 없습니다.
+
+현재 큰 VMSS에서는 수준&4; 부하 분산 지원 부족과 같은 기타 문제가 나타납니다. [큰 VMSS 대한 세부 정보](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)를 참조하세요.
+
+
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Service Fabric 클러스터의 최소 크기는 어떻게 되나요? 작으면 안되는 이유는 무엇인가요?
 
-프로덕션 워크로드를 시행하는 Service Fabric 클러스터에 지원되는 최소 크기는 5개 노드입니다. 개발/테스트 시나리오에 대해 3개의 노드 클러스터를 지원합니다.
+프로덕션 워크로드를 시행하는 Service Fabric 클러스터에 지원되는 최소 크기는&5;개 노드입니다. 개발/테스트 시나리오에 대해&3;개의 노드 클러스터를 지원합니다.
 
 Service Fabric 클러스터는 이름 지정 서비스 및 장애 조치(Failover) 관리자를 포함한 일련의 상태 저장 시스템 서비스를 실행하므로 이러한 최소 크기가 존재합니다. 이러한 클러스터에 어떤 서비스가 배포되었고 현재 호스트되는 위치를 추적하며 강력한 일관성을 따릅니다. 한편 강력한 일관성은 해당 서비스 상태로 특정 업데이트를 위해 *쿼럼*을 획득하는 기능에 의존하는데, 여기서 쿼럼은 지정된 서비스에 대한 복제본(N/2 +1)의 엄격한 다수성을 나타냅니다.
 
@@ -57,7 +68,7 @@ Service Fabric 클러스터는 이름 지정 서비스 및 장애 조치(Failove
 
 **세 개 노드**: 세 개 노드(N=3)를 사용하며 쿼럼을 만들기 위한 요건은 계속해서 두 개 노드입니다(3/2 + 1 = 2). 따라서 개별 노드를 손실하고 쿼럼을 계속 유지할 수 있습니다.
 
-업그레이드를 안전하게 수행하고 개별 노드 오류에도 대응 가능하므로(동시에 발생하지만 않는다면) 개발/테스트에 대해 세 개 노드 클러스터 구성이 지원됩니다. 프로덕션 워크로드를 위해 이러한 동시 오류에 대해 복원력이 있어야 하므로 5개의 노드가 필요합니다.
+업그레이드를 안전하게 수행하고 개별 노드 오류에도 대응 가능하므로(동시에 발생하지만 않는다면) 개발/테스트에 대해 세 개 노드 클러스터 구성이 지원됩니다. 프로덕션 워크로드를 위해 이러한 동시 오류에 대해 복원력이 있어야 하므로&5;개의 노드가 필요합니다.
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>비용 절감을 위해 야간/주말에 내 클러스터를 해제할 수 있나요?
 
@@ -103,16 +114,19 @@ Reliable Services는 일반적으로 분할되므로 저장할 수 있는 양은
 
 Reliable Services와 마찬가지로 행위자 서비스에 저장할 수 있는 데이터 양은 클러스터에 있는 노드 간에 사용 가능한 총 디스크 공간 및 메모리 양에 의해서만 제한됩니다. 하지만 개별 행위자는 적은 양의 상태 및 관련 비즈니스 논리를 캡슐화하는 데 사용할 경우 가장 효과적입니다. 일반적으로 개별 행위자는 킬로바이트 단위로 측정되는 상태를 포함하게 됩니다.
 
+## <a name="other-questions"></a>기타 질문
+
 ### <a name="how-does-service-fabric-relate-to-containers"></a>Service Fabric은 컨테이너와 어떻게 연결되나요?
 
 컨테이너는 서비스와 해당 종속성을 패키지하는 간단한 방법을 제공하여 모든 환경에서 일관성 있게 실행되고 단일 컴퓨터에서 격리된 방식으로 작동할 수 있도록 합니다. Service Fabric은 [컨테이너에 패키지된 서비스](service-fabric-containers-overview.md)를 비롯하여 서비스를 배포 및 관리하는 방법을 제공합니다.
 
+### <a name="are-you-planning-to-open-source-service-fabric"></a>Service Fabric의 오픈 소스 계획이 있나요?
+
+GitHub에서 Reliable Services 및 Reliable Actors 프레임워크에 대한 오픈 소스를 계획 중이며 해당 프로젝트에 대한 참여를 허용합니다. 공지되면 [Service Fabric 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)에서 자세한 내용을 확인하세요.
+
+현재는 Service Fabric 런타임에 대한 오픈 소스 계획은 없습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 - [핵심 Service Fabric 개념 및 모범 사례에 대해 알아보기](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

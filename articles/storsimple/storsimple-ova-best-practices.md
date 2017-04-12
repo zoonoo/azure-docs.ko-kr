@@ -4,7 +4,7 @@ description: "StorSimple 가상 배열을 배포하고 관리하는 모범 사�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 57ac6eeb-c47c-442d-a5f4-b360d81a76a6
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2016
+ms.date: 03/15/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 242951777b80d249cb2e0ef4ec497c3447246c19
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: f04cf73d9cb651bf97aff855bf7d19e296796e50
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -32,7 +33,7 @@ Microsoft Azure StorSimple 가상 배열은 하이퍼바이저 및 Microsoft Azu
 이 모범 사례에서는 가상 배열의 초기 설치 및 배포 시 따라야 하는 지침을 다룹니다. 이 모범 사례에는 가상 컴퓨터 프로비전, 그룹 정책 설정, 크기 조정, 네트워킹 설정, 저장소 계정 구성, 가상 배열에 대한 공유 및 볼륨 만들기와 관련된 예가 포함됩니다. 
 
 ### <a name="provisioning"></a>프로비전
-StorSimple 가상 배열은 호스트 서버의 하이퍼바이저(Hyper-V 또는 VMware)에 프로비전된 VM(가상 컴퓨터)입니다. 가상 컴퓨터를 프로비전할 때 호스트에서 사용 가능한 리소스가 충분한지 확인해야 합니다. 자세한 내용은 배열을 프로비전하기 위한 [최소 리소스 요구 사항](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements) 을 참조하세요. 
+StorSimple 가상 배열은 호스트 서버의 하이퍼바이저(Hyper-V 또는 VMware)에 프로비전된 VM(가상 컴퓨터)입니다. 가상 컴퓨터를 프로비전할 때 호스트에서 사용 가능한 리소스가 충분한지 확인해야 합니다. 자세한 내용은 배열을 프로비전하기 위한 [최소 리소스 요구 사항](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements)을 참조하세요. 
 
 가상 배열을 프로비전할 때에는 다음 모범 사례를 구현하세요.
 
@@ -48,7 +49,7 @@ StorSimple 가상 배열 크기를 조정할 때 다음 요소를 고려합니�
 
 * 볼륨 또는 공유에 사용할 로컬 예약. 프로비전되고 계층화된 볼륨 또는 공유 각각에 대한 로컬 계층에서 공간의 약 12%가 예약되어 있습니다. 파일 시스템에 로컬로 고정된 볼륨에 공간의 대략 10%가 예약되어 있습니다.
 * 스냅숏 오버헤드. 로컬 계층의 공간 약 15%가 스냅숏에 대해 예약됩니다.
-* 복원이 필요합니다. 새 작업으로 복원을 수행하는 경우 크기 조정 시 복원에 필요한 공간을 고려해야 합니다. 복원은 크기가 같거나 좀 더 큰 공유 또는 볼륨에 수행됩니다.
+* 복원이 필요합니다. 새 작업으로 복원을 수행하는 경우 크기 조정 시 복원에 필요한 공간을 고려해야 합니다. 복원은 크기가 같은 공유 또는 볼륨에 수행됩니다.
 * 예기치 않은 증가를 대비하여 버퍼를 약간 할당해야 합니다.
 
 앞의 요소를 기반으로 크기 조정 요구 사항을 다음과 같은 수식으로 나타낼 수 있습니다.
@@ -118,7 +119,7 @@ StorSimple 가상 배열 크기를 조정할 때 다음 요소를 고려합니�
 * GPO(그룹 정책 개체)가 가상 배열에 적용되지 않도록 합니다. 가상 배열(자식 노드)이 부모로부터 GPO를 자동으로 상속하지 않도록 상속을 차단할 수 있습니다. 자세한 내용은 [블록 상속](https://technet.microsoft.com/library/cc731076.aspx)으로 이동합니다.
 
 ### <a name="networking"></a>네트워킹
-가상 배열에 대한 네트워크 구성은 로컬 웹 UI를 통해 수행됩니다. 가상 네트워크 인터페이스는 가상 배열이 프로비전되는 하이퍼바이저를 통해 설정됩니다. [네트워크 설정](storsimple-ova-deploy3-fs-setup.md) 페이지를 사용하여 가상 네트워크 인터페이스 IP 주소, 서브넷 및 게이트웨이를 구성하세요.  또한 장치의 기본 및 보조 DNS 서버, 시간 설정 그리고 선택적으로 프록시 설정을 구성할 수 있습니다. 대부분의 네트워크 구성은 일 회 설정입니다. 가상 배열을 배포하기 전에 [StorSimple 네트워킹 요구 사항](storsimple-ova-system-requirements.md#networking-requirements) 을 검토하세요.
+가상 배열에 대한 네트워크 구성은 로컬 웹 UI를 통해 수행됩니다. 가상 네트워크 인터페이스는 가상 배열이 프로비전되는 하이퍼바이저를 통해 설정됩니다. [네트워크 설정](storsimple-ova-deploy3-fs-setup.md) 페이지를 사용하여 가상 네트워크 인터페이스 IP 주소, 서브넷 및 게이트웨이를 구성하세요.  또한 장치의 기본 및 보조 DNS 서버, 시간 설정 그리고 선택적으로 프록시 설정을 구성할 수 있습니다. 대부분의 네트워크 구성은 일 회 설정입니다. 가상 배열을 배포하기 전에 [StorSimple 네트워킹 요구 사항](storsimple-ova-system-requirements.md#networking-requirements)을 검토하세요.
 
 가상 배열을 배포할 때에는 다음과 같은 모범 사례를 따르는 것이 좋습니다.
 
@@ -156,10 +157,10 @@ StorSimple 가상 배열이 파일 서버로 구성되면 공유를 프로비전
 가상 장치에 공유 또는 볼륨을 프로비전 할 때에는 다음과 같은 모범 사례를 염두에 두어야 합니다.
 
 * 계층화 공유의 프로비전된 크기와 관련된 파일 크기가 계층화 성능에 영향을 줄 수 있습니다. 큰 파일로 작업하면 계층화가 매우 느려질 수 있습니다. 큰 파일을 사용하는 경우 가장 큰 파일이 공유 크기의 3% 보다 작은 것이 좋습니다.
-* 가상 배열에 최대 16개 볼륨/공유를 만들 수 있습니다. 로컬로 고정되면 볼륨/공유는 50GB에서 2TB 사이일 수 있습니다. 계층화된 경우 볼륨/공유가 500GB에서 20TB 사이여야 합니다. 
-* 볼륨을 만들 때에는 향후 성장뿐 아니라 예상 데이터 사용량을 고려해야 합니다. 볼륨은 나중에 확장할 수 없지만 언제나 좀 더 큰 볼륨으로 복원할 수 있습니다.
+* 가상 배열에 최대 16개 볼륨/공유를 만들 수 있습니다. 로컬로 고정 및 계층화된 볼륨/공유의 크기 한도의 경우 언제나 [StorSimple 가상 배열 제한](storsimple-ova-limits.md)을 참조하세요.
+* 볼륨을 만들 때에는 향후 성장뿐 아니라 예상 데이터 사용량을 고려해야 합니다. 볼륨은 나중에 확장할 수 없습니다.
 * 볼륨을 만든 후 StorSimple 볼륨의 크기를 축소할 수 없습니다.
-* StorSimple 의 계층화 볼륨에 쓸 경우 볼륨 데이터가 특정 임계값(볼륨에 대해 예약된 로컬 공간에 비례)에 도달하면 IO가 제한됩니다. 이 볼륨에 계속 쓰면 IO가 현저하게 느려집니다. 프로비전된 용량을 초과하여 계층화 볼륨에 계속 쓸 수는 있지만(당사에서는 사용자가 프로비전된 용량을 초과하여 쓰는 것을 적극적으로 제지하지 않음) 용량을 초과하여 사용한 영향에 대해 알리는 경고 알림이 표시됩니다. 경고가 표시되면 볼륨 데이터를 삭제하거나 볼륨을 더 큰 볼륨에 복원(볼륨 확장은 현재 지원되지 않음)하는 등의 문제 해결 조치를 수행해야 합니다.
+* StorSimple 의 계층화 볼륨에 쓸 경우 볼륨 데이터가 특정 임계값(볼륨에 대해 예약된 로컬 공간에 비례)에 도달하면 IO가 제한됩니다. 이 볼륨에 계속 쓰면 IO가 현저하게 느려집니다. 프로비전된 용량을 초과하여 계층화 볼륨에 계속 쓸 수는 있지만(당사에서는 사용자가 프로비전된 용량을 초과하여 쓰는 것을 적극적으로 제지하지 않음) 용량을 초과하여 사용한 영향에 대해 알리는 경고 알림이 표시됩니다. 경고가 표시되면 볼륨 데이터 삭제(볼륨 확장은 현재 지원되지 않음) 등의 문제 해결 조치를 수행해야 합니다.
 * 재해 복구 사용 사례의 경우 허용되는 공유/볼륨의 수가 16개이고 병렬로 처리할 수 있는 최대 공유/볼륨 수가 16이므로 공유/볼륨의 수와 RPO 및 RTO 사이에는 아무 관계가 없습니다. 
 
 #### <a name="volumeshare-type"></a>볼륨/공유 유형
@@ -285,10 +286,5 @@ Windows 인덱싱 프로세스를 사용하는 경우 다음 지침을 따르세
 
 ## <a name="see-also"></a>참고 항목
 StorSimple Manager 서비스를 통해 [StorSimple 가상 배열을 관리하는 방법](storsimple-ova-manager-service-administration.md) 에 대해 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

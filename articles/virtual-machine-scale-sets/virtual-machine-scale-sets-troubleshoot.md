@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 7d122d04dfd9cb1f565e86b60f2180f9534588c9
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bd45a0fb99a77851aa7b91d23bd4b830b6f5cc7b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 7d122d04dfd9cb1f565e86b60f2180f9534588c9
 다음은 몇 가지 고려해야 할 사항입니다.
 
 * 각 VM에 얼마나 많은 코어가 있고 각 코어를 로드하고 있나요?
-  위의 Azure 빠른 시작 템플릿 예제에는 단일 코어를 로드하는 do_work.php 스크립트가 있습니다. Standard_A1 또는 D1과 같은 단일 코어 VM 크기보다 큰 VM을 사용하는 경우 이 부하를 여러 번 실행해야 합니다. [Azure에서 Windows 가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  위의 Azure 빠른 시작 템플릿 예제에는 단일 코어를 로드하는 do_work.php 스크립트가 있습니다. Standard_A1 또는 D1과 같은 단일 코어 VM 크기보다 큰 VM을 사용하는 경우 이 부하를 여러 번 실행해야 합니다. [Azure에서 Windows 가상 컴퓨터 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * VM 규모 집합에 얼마나 많은 VM이 있고 각각에서 작업을 수행하고 있나요?
   
     크기 조정 이벤트는 자동 크기 조정 규칙에서 내부 정의된 시간 동안 규모 집합에 있는 **모든** VM에 대해서 평균 CPU가 임계값을 초과했을 경우에만 수행됩니다.
@@ -51,7 +52,7 @@ ms.openlocfilehash: 7d122d04dfd9cb1f565e86b60f2180f9534588c9
     이는 Azure Resource Manager 리소스의 상태를 보여 주는 필수적인 문제 해결 도구입니다. 구독을 클릭하고 문제를 해결하려는 리소스 그룹을 살펴봅니다. 계산 리소스 공급자 아래에서, 만든 VM 규모 집합을 살펴보고 배포 상태를 보여 주는 인스턴스 보기를 확인합니다. 또한 VM 규모 집합에서 VM 인스턴스 보기를 확인합니다. 그런 다음 Microsoft.Insights 리소스 공급자로 이동하여 자동 크기 조정 규칙이 올바른지 확인합니다.
 * 진단 확장이 작동 중이고 성능 데이터를 내보내고 있나요?
   
-    **업데이트:** 더 이상 진단 확장을 설치하지 않아도 되는 호스트 기반 메트릭 파이프라인을 사용하도록 Azure 자동 크기 조정 기능이 향상되었습니다. 즉, 새 파이프라인을 사용하여 자동 크기 조정 응용 프로그램을 만들 경우 다음 단락의 내용은 더 이상 적용되지 않습니다. 호스트 파이프라인을 사용하도록 변환된 Azure 템플릿의 예는 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale, https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale을 포함합니다. 
+    **업데이트:** 더 이상 진단 확장을 설치하지 않아도 되는 호스트 기반 메트릭 파이프라인을 사용하도록 Azure 자동 크기 조정 기능이 향상되었습니다. 즉, 새 파이프라인을 사용하여 자동 크기 조정 응용 프로그램을 만들 경우 다음 단락의 내용은 더 이상 적용되지 않습니다. 호스트 파이프라인을 사용하도록 변환된 Azure 템플릿의 예제는 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale입니다. 
   
     자동 크기 조정을 위한 호스트 기반 메트릭을 사용하는 것이 좋은 이유는 다음과 같습니다.
   
@@ -82,9 +83,4 @@ ms.openlocfilehash: 7d122d04dfd9cb1f565e86b60f2180f9534588c9
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
 [explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
 [tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

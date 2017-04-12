@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/22/2016
-ms.author: mfussell
+ms.date: 02/17/2017
+ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: 41acd377d456fa5e85e3a8ff0b12f7f6eff6cdfe
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 0379cd02fe663fbe9f024bc2f786186b0ea1358b
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="partition-service-fabric-reliable-services"></a>서비스 패브릭 Reliable Services 분할
-이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
+이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
 
 ## <a name="partitioning"></a>분할
 분할은 서비스 패브릭에만 있는 것이 아닙니다. 사실, 분할은 확장 가능한 서비스 구축의 코어 패턴입니다. 광범위한 의미로 분할을 상태(데이터) 분할의 개념으로 생각하고 확장성 및 성능 향상을 위해 더 작은 액세스 가능한 단위로 계산할 수 있습니다. 분할의 잘 알려진 양식은 [데이터 분할][wikipartition]로서 분할이라고도 합니다.
@@ -44,7 +45,7 @@ ms.openlocfilehash: 41acd377d456fa5e85e3a8ff0b12f7f6eff6cdfe
 
 서비스 패브릭 상태 저장 서비스의 컨텍스트에서 분할은 특정 서비스 파티션이 서비스 전체 상태의 부분을 담당하는 것을 결정하는 프로세스를 말합니다. (앞서 언급했듯이 파티션은 [복제본](service-fabric-availability-services.md)의 집합입니다.) 서비스 패브릭에 대한 흥미로운 사항은 다른 노드에 파티션을 배치하기 때문에 노드의 리소스 제한까지 확장이 가능하다는 점입니다. 데이터 요구 사항이 늘어나고 파티션이 늘어나면 서비스 패브릭이 노드 간에 파티션의 균형을 다시 조정합니다. 따라서 하드웨어 리소스가 계속해서 효율적으로 사용됩니다.
 
-예를 들어 5 노드 클러스터와 10개의 파티션 및 세 복제본의 대상을 가지도록 구성된 서비스로 시작합니다. 이 경우 서비스 패브릭은 클러스터에 복제본을 분산 및 배포하고 노드당&2;개의 기본 [복제본](service-fabric-availability-services.md) 이 발생합니다.
+예를 들어 5 노드 클러스터와 10개의 파티션 및 세 복제본의 대상을 가지도록 구성된 서비스로 시작합니다. 이 경우 서비스 패브릭은 클러스터에 복제본을 분산 및 배포하고 노드당 2개의 기본 [복제본](service-fabric-availability-services.md) 이 발생합니다.
 클러스터를 10개의 노드로 확장해야 하는 경우 서비스 패브릭은 10개의 모든 노드에 기본 [복제본](service-fabric-availability-services.md) 을 다시 분산합니다. 마찬가지로 5개의 노드로 다시 조정하는 경우 서비스 패브릭은 5개의 노드로 모든 복제본을 다시 분산합니다.  
 
 그림 2는 클러스터 크기 조정 전과 후의 10개의 파티션 배포를 보여 줍니다.
@@ -310,7 +311,7 @@ ms.openlocfilehash: 41acd377d456fa5e85e3a8ff0b12f7f6eff6cdfe
     }
     ```
     
-    단계 별로 안내하겠습니다. 코드는 쿼리 문자열 매개 변수 `lastname` 의 첫 글자를 char로 읽습니다. 그런 다음 성의 첫 글자에 있는&16;진수 값에서 `A` 의&16;진수 값을 빼서 이 글자에 대한 파티션 키를 결정합니다.
+    단계 별로 안내하겠습니다. 코드는 쿼리 문자열 매개 변수 `lastname` 의 첫 글자를 char로 읽습니다. 그런 다음 성의 첫 글자에 있는 16진수 값에서 `A` 의 16진수 값을 빼서 이 글자에 대한 파티션 키를 결정합니다.
     
     ```CSharp
     string lastname = context.Request.QueryString["lastname"];
@@ -359,7 +360,7 @@ ms.openlocfilehash: 41acd377d456fa5e85e3a8ff0b12f7f6eff6cdfe
     
     ![브라우저 스크린 샷](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-샘플의 전체 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)에서 확인할 수 있습니다.
+샘플의 전체 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 서비스 패브릭 개념에 대한 자세한 내용은 다음을 참조하십시오.
@@ -369,9 +370,4 @@ ms.openlocfilehash: 41acd377d456fa5e85e3a8ff0b12f7f6eff6cdfe
 * [서비스 패브릭 응용 프로그램의 용량 계획](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

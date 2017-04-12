@@ -1,10 +1,10 @@
 ---
-title: "Azure Portal을 사용하여 ARM 모드에서 정적 개인 IP를 설정하는 방법 | Microsoft Docs"
-description: "개인 IP(DIP) 및 Azure 포털을 사용하여 ARM 모드에서 관리 방법 이해"
+title: "VM에 대한 개인 IP 주소 구성 - Azure Portal | Microsoft Docs"
+description: "Azure Portal을 사용하여 가상 컴퓨터에 대한 개인 IP 주소를 구성하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
@@ -15,21 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5d56a0d2c9c44d37520c6a9a3db326f9bdc5420e
-ms.openlocfilehash: e4f6d14f79536c58e40d3ac4b48d00a8c397f1b4
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 672462fad715758e50680fa5bade4b1f9d50e6e5
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="how-to-set-a-static-private-ip-address-in-the-azure-portal"></a>Azure 포털에서 정적 개인 IP 주소를 설정하는 방법
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 컴퓨터에 대한 개인 IP 주소 구성
 
 > [!div class="op_single_selector"]
-- [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
-- [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-- [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
-- [Azure Portal(클래식)](virtual-networks-static-private-ip-classic-pportal.md)
-- [PowerShell(클래식)](virtual-networks-static-private-ip-classic-ps.md)
-- [Azure CLI(클래식)](virtual-networks-static-private-ip-classic-cli.md)
+> * [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
+> * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
+> * [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
+> * [Azure Portal(클래식)](virtual-networks-static-private-ip-classic-pportal.md)
+> * [PowerShell(클래식)](virtual-networks-static-private-ip-classic-ps.md)
+> * [Azure CLI(클래식)](virtual-networks-static-private-ip-classic-cli.md)
 
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -96,18 +98,13 @@ Azure 포털을 사용하여 리소스 관리자 배포 모드에서 VM을 만�
 > 
 
 ## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>VM에서 정적 개인 IP 주소를 제거하는 방법
-위에서 만든 VM에서 정적 개인 IP 주소를 제거하려면 다음 단계를 수행합니다.
+위에서 만든 VM에서 정적 개인 IP 주소를 제거하려면 다음 단계를 완료합니다.
 
-1. 위에 표시된 **IP 주소** 블레이드에서 **할당** 아래에 **동적**을 클릭하고 **저장**을 클릭합니다.
+위에 표시된 **IP 주소** 블레이드에서 **할당** 아래에 **동적**을 클릭하고 **저장**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.
 * [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
 * [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,26 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 12/13/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: d5af6e3d9ba35558e0d7850820f4b9a479a259be
-ms.openlocfilehash: 7c73de46500ac565680f2d16da05b4821507cd93
+ms.sourcegitcommit: 803d295f0d9f08fdfe7ee4550bd093b98bd80631
+ms.openlocfilehash: 594f8c79e6e98a3e727416b0bf1867481b33dd2c
 
 
 ---
 # <a name="request-increased-documentdb-account-quotas"></a>DocumentDB 계정 할당량 증가 요청
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 에는 Azure 지원에 문의하여 조정할 수 있는 일련의 기본 할당량이 있습니다.  이 문서에서는 할당량 증가를 요청하는 방법을 보여 줍니다.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)는 응용 프로그램의 요구에 따라 처리량과 저장소 크기를 조정하여 처리할 수 있는 뛰어난 확장성의 데이터베이스입니다. DocumentDB가 제공하는 규모에 대한 궁금한 사항은 askdocdb@microsoft.com.에 전자 메일을 보내 주십시오.
 
-이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.  
-
-* Azure 지원에 문의하여 조정할 수 있는 DocumentDB 데이터베이스 할당량은 무엇인가요?
-* 어떻게 DocumentDB 계정 할당량 조정을 요청할 수 있나요?
-
-## <a name="a-idquotasa-documentdb-account-quotas"></a><a id="Quotas"></a> DocumentDB 계정 할당량
-다음 표에 DocumentDB 할당량이 나와 있습니다. 별표(*)가 표시된 할당량은 Azure 지원부에 문의하여 조정할 수 있습니다.
-
-[!INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
+이 문서에서는 Azure 지원으로 할당량 증가를 요청하는 방법을 보여 줍니다.
 
 ## <a name="a-idrequestquotaincreasea-request-a-quota-adjustment"></a><a id="RequestQuotaIncrease"></a> 할당량 조정 요청
 다음 단계에서는 할당량 조정을 요청하는 방법을 보여 줍니다.
@@ -60,6 +52,6 @@ ms.openlocfilehash: 7c73de46500ac565680f2d16da05b4821507cd93
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

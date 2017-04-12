@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 03/02/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: f57b400dc20dc08221c0a8a770fd78f5885f634c
-ms.openlocfilehash: 0beb98220f043dc7c66cc494c3de00e0993798a6
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: be485debb4d8a2d1f64e1752bc204f1634d53c97
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -53,7 +54,7 @@ Azure 표준 SLA로 Power BI Embedded를 사용 가능합니다. 자세한 내�
 가격 책정 정보의 경우 [Power BI Embedded 가격](http://go.microsoft.com/fwlink/?LinkId=760527) 을 참조하세요.
 
 ## <a name="what-is-a-report-session-and-how-is-it-billed"></a>보고서 세션이란 무엇이며 어떻게 청구되나요?
-세션이란 최종 사용자와 Power BI Embedded 보고서 간의 상호 작용 집합입니다. Power BI Embedded 보고서가 사용자에게 표시될 때마다 세션이 시작되고 구독 소유자에게 비용이 청구됩니다. 세션 요금은 보고서의 시각적 요소 수나 보고서 콘텐츠를 새로 고치는 빈도와 상관없이 정액으로 청구됩니다. 사용자가 보고서를 닫을 때 또는 세션이 1시간 후 시간 초과된 경우 세션이 종료됩니다.
+세션이란 최종 사용자와 Power BI Embedded 보고서 간의 상호 작용 집합입니다. Power BI Embedded 보고서가 사용자에게 표시될 때마다 세션이 시작되고 구독 소유자에게 비용이 청구됩니다. 세션 요금은 보고서의 시각적 요소 수나 보고서 콘텐츠를 새로 고치는 빈도와 상관없이 정액으로 청구됩니다. 사용자가 보고서를 닫을 때 또는 세션이&1;시간 후 시간 초과된 경우 세션이 종료됩니다.
 
 ## <a name="do-you-offer-any-tools-or-guidance-to-help-me-estimate-how-many-renderssession-i-should-expect-how-will-i-know-how-many-renders-have-been-completed"></a>렌더링/세션 수를 예상할 수 있도록 도구 또는 참고 자료를 제공하나요? 완료된 렌더링의 수를 알 수 있는 방법은 무엇인가요?
 Azure 포털에서는 구독에 대해 수행된 렌더링/보고서 세션 수에 대한 청구 세부 정보를 제공합니다.
@@ -89,14 +90,11 @@ Power BI Embedded 모델에는 Azure AD 테넌트의 고객이 있어야 한다�
 지금 무료로 시작할 수 있습니다. Azure 구독이 있는 경우 이제 Azure 포털에서 직접 Power BI Embedded를 프로비전할 수 있습니다.  [무료 Azure 계정](https://azure.microsoft.com/free/)을 만들 수도 있습니다. Power BI Embedded 서비스를 프로비전하면 직접 Power BI REST API를 쉽게 사용하거나 [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472)에서 사용할 수 있는 개발자 SDK를 사용할 수 있습니다. 개발자 SDK를 활용하는 방법에 대한 샘플을 제공합니다.
 
 ## <a name="see-also"></a>참고 항목
-* [Microsoft Power BI Embedded란](power-bi-embedded-what-is-power-bi-embedded.md)
-* [Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
 
+[Microsoft Power BI Embedded란?](power-bi-embedded-what-is-power-bi-embedded.md)
+[Microsoft Power BI Embedded 시작](power-bi-embedded-get-started.md)
+[샘플 시작](power-bi-embedded-get-started-sample.md)   
+[JavaScript Embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](http://community.powerbi.com/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

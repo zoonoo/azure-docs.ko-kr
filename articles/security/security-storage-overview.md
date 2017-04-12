@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage 보안 개요 | Microsoft Docs"
-description: " Azure 저장소는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 저장소 솔루션입니다. 이 문서에서는 Azure 저장소에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공합니다. "
+title: "Azure Storage에 사용될 수 있는 보안 기능"
+description: " 이 문서에서는 Azure Storage에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공합니다.. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 488fe9c38d2e8ca26c1d0cf4d3f937e0c3faa902
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: 2db6effdaf2e23d00eefdde82d074dd5d47857d7
 
 
 ---
@@ -101,7 +101,6 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/services/
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

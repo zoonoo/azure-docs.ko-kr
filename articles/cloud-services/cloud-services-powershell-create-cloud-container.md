@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e86afaa9813a45c31d7c1d8725995ba5fc73f574
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 89e517a17417475f975dbaa0cee8517145a7c6c3
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: e86afaa9813a45c31d7c1d8725995ba5fc73f574
 3. [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx) 를 사용하여 로그인합니다.
 
    > [!NOTE]
-   > Azure PowerShell cmdlet을 설치하고 Azure 구독에 연결하는 방법에 대한 자세한 지침은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+   > Azure PowerShell cmdlet을 설치하고 Azure 구독에 연결하는 방법에 대한 자세한 지침은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
    >
    >
 4. **New-AzureService** cmdlet을 사용하여 빈 Azure 클라우드 서비스 컨테이너를 만듭니다.
@@ -55,6 +55,6 @@ Get-help New-AzureService
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

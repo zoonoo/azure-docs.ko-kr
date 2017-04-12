@@ -10,15 +10,17 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: ce9c572a-1e98-46bf-9581-13a9767f1fa5
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 03/07/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 8bea5c13b8657be737cdc135b2d46bd0068b6b88
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -31,17 +33,11 @@ Visual Studio용 Data Lake 도구는 Data Lake Analytics 및 HDInsight에 모두
 
 이 자습서를 완료하고 Visual Studio에서 Data Lake 도구를 사용하려면 다음이 필요합니다.
 
-* Azure HDInsight 클러스터: Linux 기반 또는 Windows 기반 클러스터는 이 문서의 단계를 사용합니다. 클러스터를 만드는 방법에 자세한 내용은 다음 중 하나를 참조하세요.
-  
-  * [Linux 기반 HDInsight 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
-  * [Windows 기반 HDInsight 사용 시작](hdinsight-hadoop-tutorial-get-started-windows.md)
+* Azure HDInsight 클러스터: 만들려면 [Linux 기반 HDInsight 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * 다음 소프트웨어가 설치된 워크스테이션
   
-  * Windows 8.1, Windows 8 또는 Windows 7
-  * Visual Studio(다음 버전 중 하나)
-    
-    * Visual Studio 2013 Community/Professional/Premium/Ultimate [업데이트 4](https://www.microsoft.com/download/details.aspx?id=44921)
-    * Visual Studio 2015(Community/Enterprise)
+  * Windows 10, Windows 8.1, Windows 8 또는 Windows 7.
+  * Visual Studio 2013/2015/2017.
     
     > [!NOTE]
     > 현재 Visual Studio용 Data Lake 도구는 영어 버전으로만 제공됩니다.
@@ -49,7 +45,8 @@ Visual Studio용 Data Lake 도구는 Data Lake Analytics 및 HDInsight에 모두
     > 
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구 설치
-[웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/)를 사용하여 Data Lake 도구를 설치할 수 있습니다. 사용 중인 Visual Studio 버전과 일치하는 버전을 선택해야 합니다. Visual Studio가 설치되어 있지 않은 경우 [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/)를 사용하여 최신 Visual Studio Community 및 Azure SDK를 설치할 수 있습니다.
+
+Data Lake Tools은 Visual Studio 2017에 기본적으로 설치됩니다. 이전 버전의 경우 [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/)를 사용하여 설치할 수 있습니다. 사용 중인 Visual Studio 버전과 일치하는 버전을 선택해야 합니다. Visual Studio가 설치되어 있지 않은 경우 [웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/)를 사용하여 최신 Visual Studio Community 및 Azure SDK를 설치할 수 있습니다.
 
 ![Visual Studio용 Data Lake 도구 웹 플랫폼 설치 관리자][1]
 
@@ -103,7 +100,7 @@ HDInsight 클러스터에 대해 Hive 스크립트를 테스트하려면 많은 
 
 Visual Studio용 Data Lake 도구를 사용하여 일부 Hive 작업의 YARN 로그를 수집하고 표시하여 사용자가 Hive 작업 내에 무엇이 있는지 볼 수 있습니다.
 
-### <a name="view-the-hivesampletable"></a> **hivesampletable**
+### <a name="view-the-hivesampletable"></a>**hivesampletable**
 모든 HDInsight 클러스터에는 *hivesampletable*이라는 샘플 Hive 테이블이 함께 제공됩니다. 여기서는 이 테이블을 사용하여 Hive 테이블을 나열하고, 테이블 스키마를 보고, Hive 테이블의 행을 나열하는 방법을 보여줍니다.
 
 **Hive 테이블을 나열하고 Hive 테이블 스키마를 보려면**
@@ -128,7 +125,7 @@ GUI를 사용하여 Hive 테이블을 만들거나 Hive 쿼리를 사용할 수 
    
     ![Data Lake 도구: HDInsight Visual Studio 도구 hive 테이블 만들기][7]
 
-### <a name="a-namerunqueriesavalidate-and-run-hive-queries"></a><a name="run.queries"></a>Hive 쿼리 유효성 검사 및 실행
+### <a name="run.queries"></a>Hive 쿼리 유효성 검사 및 실행
 다음 두 가지 방법으로 Hive 쿼리를 만들고 실행할 수 있습니다.
 
 * 임시 쿼리 만들기
@@ -278,9 +275,4 @@ Visual Studio용 Data Lake 도구는 Pig 스크립트를 만들어 HDInsight 클
 [hdinsight.access.application.logs]: hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/24/2017
 ms.author: zhangya;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ec9a07a26f6c0cd100d963063304d96b75d71dd
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: a30620c8a6ec52fd9b3268c4c83f89181cf6d9f5
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -25,9 +26,7 @@ ms.openlocfilehash: 6ec9a07a26f6c0cd100d963063304d96b75d71dd
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-이 토픽은 기능 선택의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이들 예는 Azure 기계 학습 스튜디오에서 가져온 것입니다. 
-
-기능의 엔지니어링 및 선택은 [팀 데이터 과학 프로세스란 무엇입니까?](data-science-process-overview.md)에 설명된 TDSP의 한 부분입니다. 기능 엔지니어링 및 선택은 TDSP의 **개발 기능** 단계의 일부입니다.
+기능의 엔지니어링 및 선택은 [팀 데이터 과학 프로세스가 무엇인가요?](data-science-process-overview.md)에 설명된 팀 데이터 과학 프로세스의 한 부분입니다. 기능 엔지니어링 및 선택은 TDSP의 **개발 기능** 단계의 일부입니다.
 
 * **기능 엔지니어링**이 프로세스에서는 데이터의 기존 원시 기능에서 추가 관련 기능을 만들고 학습 알고리즘의 예측 능력을 향상시키려 합니다.
 * **선택 기능**: 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 원래 데이터 기능의 주요 하위 집합을 선택합니다.
@@ -48,7 +47,7 @@ Azure 기계 학습 스튜디오에서는 기능 선택에 제공되는 모듈�
 
 ![기능 선택 예](./media/machine-learning-data-science-select-features/feature-Selection.png)
 
-예를 들어, [필터 기반 기능 선택][filter-based-feature-selection] 모듈 사용을 고려합니다. 편의상 위에 개요된 텍스트 마이닝 예를 계속 사용하겠습니다. [기능 해싱][feature-hashing] 모듈을 통해 256개의 기능 집합을 생성한 후 회귀 모델을 빌드하려고 하며, 응답 변수는 "Col1"이고 1 ~ 5 범위의 서적 검토 등급을 나타낸다고 가정합니다. "기능 점수 매기기 메서드”를 "Pearson 상관"으로 설정하고 "대상 열”은 "Col1"로 설정하며 "원하는 기능 수"는 50으로 설정합니다. 그러면 [필터 기반 기능 선택][filter-based-feature-selection] 모듈에서 대상 특성이 "Col1"과 함께 50개의 기능이 포함된 데이터 집합을 생성합니다. 다음 그림에서는 방금 설명한 입력 매개 변수와 이 실험의 흐름을 보여줍니다.
+예를 들어, [필터 기반 기능 선택][filter-based-feature-selection] 모듈 사용을 고려하세요. 편의상 위에 개요된 텍스트 마이닝 예를 계속 사용하겠습니다. [기능 해싱][feature-hashing] 모듈을 통해 256개의 기능 집합을 생성한 후 회귀 모델을 빌드하려고 하며, 응답 변수는 "Col1"이고 1 ~ 5 범위의 서적 검토 등급을 나타낸다고 가정합니다. "기능 점수 매기기 메서드”를 "Pearson 상관"으로 설정하고 "대상 열”은 "Col1"로 설정하며 "원하는 기능 수"는 50으로 설정합니다. 그러면 [필터 기반 기능 선택][filter-based-feature-selection] 모듈에서 대상 특성이 "Col1"과 함께 50개의 기능이 포함된 데이터 집합을 생성합니다. 다음 그림에서는 방금 설명한 입력 매개 변수와 이 실험의 흐름을 보여줍니다.
 
 ![기능 선택 예](./media/machine-learning-data-science-select-features/feature-Selection1.png)
 
@@ -71,10 +70,5 @@ Azure 기계 학습 스튜디오에서는 기능 선택에 제공되는 모듈�
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

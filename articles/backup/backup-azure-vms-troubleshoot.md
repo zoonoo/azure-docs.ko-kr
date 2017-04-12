@@ -1,5 +1,5 @@
 ---
-title: "Azure Virtual Machine 백업 문제 해결 | Microsoft Docs"
+title: "Azure Virtual Machines의 백업 오류 문제 해결 | Microsoft Docs"
 description: "Azure 가상 컴퓨터의 백업 및 복원 문제 해결"
 services: backup
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2016
-ms.author: trinadhk;jimpark;
+ms.date: 01/18/2017
+ms.author: trinadhk;markgal;jpallavi;
 translationtype: Human Translation
-ms.sourcegitcommit: 6fa4e4b2ed8818cfb55a3ac039c8134f7e2a6096
-ms.openlocfilehash: 9fc01460d653ffecc16c916d5538ef20bf699135
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: e40a31b7226bd94a3d0e07f528a87f4f686e5bdc
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -32,21 +33,22 @@ ms.openlocfilehash: 9fc01460d653ffecc16c916d5538ef20bf699135
 ## <a name="backup"></a>백업
 | 오류 세부 정보 | 해결 방법 |
 | --- | --- |
-| VM이 더 이상 존재하지 않기 때문에 작업을 수행할 수 없습니다. - 백업 데이터를 삭제하지 않고 가상 컴퓨터의 보호를 중지합니다. 자세한 내용: Http://go.microsoft.com/fwlink/?LinkId=808124 |이는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 계속 VM을 검색할 때 발생합니다. 이 오류를 해결하려면  <ol><li> 동일한 이름 및 동일한 리소스 그룹 이름[클라우드 서비스 이름]으로 가상 컴퓨터를 다시 만듭니다.<br>또는</li><li> 백업 데이터를 삭제하거나 삭제하지 않고 가상 컴퓨터의 보호를 중지합니다. [자세한 내용](http://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| 스냅숏 상태에 대해 VM 에이전트와 통신할 수 없습니다. VM이 인터넷에 액세스하도록 합니다. 또한 http://go.microsoft.com/fwlink/?LinkId=800034의 문제 해결 가이드에서 설명했듯이 VM 에이전트를 업데이트합니다. |이 오류는 VM 에이전트에 문제가 있거나 Azure 인프라에 대한 네트워크 액세스가 어떤 방식으로든 차단된 경우에 발생합니다. VM 스냅숏 문제 디버깅에 대해 [자세히 알아봅니다](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md).<br> VM 에이전트가 아무 문제도 유발하지 않으면, VM을 다시 시작합니다. 가끔 잘못된 VM 상태가 문제를 일으킬 수 있으며 VM을 다시 시작하여 "잘못된 상태"를 초기화합니다. |
+| VM이 더 이상 존재하지 않기 때문에 작업을 수행할 수 없습니다. - 백업 데이터를 삭제하지 않고 가상 컴퓨터의 보호를 중지합니다. 자세한 내용: http://go.microsoft.com/fwlink/?LinkId=808124 |이는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 계속 VM을 검색할 때 발생합니다. 이 오류를 해결하려면  <ol><li> 동일한 이름 및 동일한 리소스 그룹 이름[클라우드 서비스 이름]으로 가상 컴퓨터를 다시 만듭니다.<br>또는</li><li> 백업 데이터를 삭제하거나 삭제하지 않고 가상 컴퓨터의 보호를 중지합니다. [자세한 내용](http://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
+| 스냅숏 상태에 대해 VM 에이전트와 통신할 수 없습니다. VM이 인터넷에 액세스하도록 합니다. 또한 http://go.microsoft.com/fwlink/?LinkId=800034 의 문제 해결 가이드에서 설명했듯이 VM 에이전트를 업데이트합니다. |이 오류는 VM 에이전트에 문제가 있거나 Azure 인프라에 대한 네트워크 액세스가 어떤 방식으로든 차단된 경우에 발생합니다. VM 스냅숏 문제 디버깅에 대해 [자세히 알아봅니다](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md).<br> VM 에이전트가 아무 문제도 유발하지 않으면, VM을 다시 시작합니다. 가끔 잘못된 VM 상태가 문제를 일으킬 수 있으며 VM을 다시 시작하여 "잘못된 상태"를 초기화합니다. |
 | 복구 서비스 확장 작업이 실패했습니다. - 최신 가상 컴퓨터 에이전트가 가상 컴퓨터에 표시되고 에이전트 서비스가 실행되도록 하세요. 백업 작업을 다시 시도하고 실패한 경우 Microsoft 지원에 문의하세요. |VM 에이전트가 만료된 경우에 이 오류가 throw됩니다. 아래의 "VM 에이전트 업데이트" 섹션을 참조하여 VM 에이전트를 업데이트합니다. |
 | 가상 컴퓨터가 존재하지 않습니다. - 해당 가상 컴퓨터가 존재하는지 확인하거나 다른 가상 컴퓨터를 선택하세요. |이는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 계속 VM을 검색할 때 발생합니다. 이 오류를 해결하려면  <ol><li> 동일한 이름 및 동일한 리소스 그룹 이름[클라우드 서비스 이름]으로 가상 컴퓨터를 다시 만듭니다.<br>또는<br></li><li>백업 데이터를 삭제하지 않고 가상 컴퓨터의 보호를 중지합니다. [자세한 내용](http://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| 명령을 실행하지 못했습니다. - 현재 이 항목에 대해 다른 작업이 진행 중입니다. 이전 작업이 완료될 때까지 기다린 후 다시 시도하세요. |VM에 대한 기존 백업 또는 복원 작업이 실행 중이며, 기존 작업이 실행되는 동안에는 새 작업을 시작할 수 없습니다. |
-| 백업 자격 증명 모음에서 VHD를 복사하는 작업이 시간 초과되었습니다. 몇 분 후에 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |이 오류는 복사할 데이터가 너무 많은 경우에 발생합니다. 데이터 디스크가 16개 미만인지 확인합니다. |
+| 명령을 실행하지 못했습니다. - 현재 이 항목에 대해 다른 작업이 진행 중입니다. 이전 작업이 완료될 때까지 기다린 후 다시 시도하세요. |VM에 대한 기존 백업이 실행 중이며, 기존 작업이 실행되는 동안에는 새 작업을 시작할 수 없습니다. |
+| 백업 자격 증명 모음에서 VHD를 복사하는 작업이 시간 초과되었습니다. 몇 분 후에 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. | 저장소 쪽에서 일시적인 오류가 발생하거나 백업 서비스가 제한 시간 내에 VM을 호스트하는 저장소 계정에서 Vault로 데이터를 전송하기 위한 충분한 IOPS를 얻지 못하는 경우에 이러한 문제가 발생합니다. 백업을 설정하는 동안 [모범 사례](backup-azure-vms-introduction.md#best-practices)를 따랐는지 확인하세요. VM을 로드되지 않은 다른 저장소 계정으로 이동한 후 백업을 다시 시도하세요.|
 | 내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |이 오류는 다음 두 가지 이유로 발생할 수 있습니다. <ol><li> VM 저장소에 액세스하는 데 일시적인 문제가 있습니다. [Azure 상태](https://azure.microsoft.com/en-us/status/)를 확인하여 하위 지역의 계산, 저장소 또는 네트워크와 관련하여 진행 중인 문제가 있는지 확인합니다. 문제가 해결되면 백업 작업을 다시 시도합니다. <li>원래 VM이 삭제되었으므로 복구 지점을 가져올 수 없습니다. 삭제된 VM의 백업 데이터를 유지하지만 백업 오류를 제거하려면 VM의 보호를 해제하고 데이터 유지 옵션을 선택합니다. 이 작업을 수행하면 예약된 백업 작업 및 되풀이 오류 메시지가 중지됩니다. |
 | 선택한 항목에 Azure Recovery Services 서비스 확장을 설치하지 못했습니다. Azure Recovery Services 확장의 필수 조건인 VM 에이전트가 있어야 합니다. Azure VM 에이전트를 설치하고 등록 작업 다시 시작 |<ol> <li>VM 에이전트가 제대로 설치되었는지 확인합니다. <li>VM 구성의 플래그가 올바르게 설정되었는지 확인합니다.</ol> VM 에이전트 설치 및 VM 에이전트 설치의 유효성을 검사하는 방법에 대해 [자세히 알아보세요](#validating-vm-agent-installation). |
 | “COM+” 오류로 인해 확장 설치가 실패하면 Microsoft Distributed Transaction Coordinator와 통신할 수 없습니다. |이는 대개 COM+ 서비스가 실행되고 있지 않음을 의미합니다. 이 문제 해결에 대한 도움은 Microsoft 지원에 문의하세요. |
 | “이 드라이브는 BitLocker 드라이브 암호화로 잠겨 있습니다.”라는 VSS 작업 오류와 함께 스냅숏 작업이 실패했습니다. 제어판에서 이 드라이브의 잠금을 해제해야 합니다. |VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결 되었는지 관찰합니다. |
-| 프리미엄 저장소에 저장된 가상 하드 디스크에 있는 가상 컴퓨터는 백업을 지원하지 않습니다. |없음. |
+| VM이 백업을 허용하지 않는 상태입니다. |<ul><li>VM이 실행 중 및 종료 사이의 일시적 상태인지 확인합니다. 그럴 경우 VM 상태가 이러한 상태 중 하나가 될 때까지 기다렸다가 백업을 다시 트리거하세요. <li> VM이 Linux 에이전트이고 [Security Enhanced Linux] 커널 모듈을 사용하는 경우 보안 정책에서 Linux 에이전트 경로(_/var/lib/waagent_)를 제외하여 백업 확장이 설치되도록 해야 합니다.  |
 | Azure 가상 컴퓨터를 찾을 수 없습니다. |이는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 계속 VM을 검색할 때 발생합니다. 이 오류를 해결하려면  <ol><li>동일한 이름 및 동일한 리소스 그룹 이름[클라우드 서비스 이름]으로 가상 컴퓨터를 다시 만듭니다. <br>또는 <li> 이 VM에 대한 보호를 사용하지 않도록 설정하여 백업 작업이 생성되지 않게 합니다. </ol> |
 | 가상 컴퓨터에는 가상 컴퓨터 에이전트가 존재하지 않습니다. 필수 구성 요소 및 VM 에이전트를 설치하고 작업을 다시 시작하세요. |[자세히 알아보세요](#vm-agent) . |
 | VSS 기록기가 오류 상태이므로 스냅숏 작업이 실패함 |오류 상태인 VSS(볼륨 섀도 복사본 서비스) 기록기를 다시 시작해야 합니다. 이를 위해 관리자 권한 명령 프롬프트에서 _vssadmin list writers_를 실행합니다. 출력에는 모든 VSS 기록기와 해당 상태가 포함됩니다. "[1] 안정" 상태가 아닌 모든 VSS 기록기는 관리자 권한 명령 프롬프트에서 다음 명령을 실행하여 다시 시작합니다.<br> _net stop serviceName_ <br> _net start serviceName_|
 | 구성의 구문 분석 실패로 인해 스냅숏 작업이 실패함 |이 문제는 MachineKeys 디렉터리 _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_에 대한 권한 변경 때문에 발생합니다. <br>아래 명령을 실행하고 MachineKeys 디렉터리에 대한 권한이 기본 권한인지 확인합니다.<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> 기본 권한은 다음과 같습니다.<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>MachineKeys 디렉터리에 대해 기본값과 다른 권한이 표시되면 아래 단계에 따라 권한을 수정하고, 인증서를 삭제한 후 백업을 트리거하세요.<ol><li>MachineKeys 디렉터리에 대한 권한을 수정합니다.<br>디렉터리에 대해 탐색기 보안 속성 및 고급 보안 설정을 사용하여 권한을 기본값으로 다시 설정하고, 디렉터리에서 추가(기본값 이외) 사용자 개체를 제거하고, 'Everyone ' 권한이 다음에 대해 특수한 액세스 권한을 갖는지 확인합니다.<br>-폴더 나열/데이터 읽기 <br>-특성 읽기 <br>-확장된 특성 읽기 <br>-파일 만들기/데이터 쓰기 <br>-폴더 만들기/데이터 추가<br>-특성 쓰기<br>-확장된 특성 쓰기<br>- 읽기 권한<br><br><li>‘Issued To’ = Windows Azure Service Management for Extensions가 지정된 인증서 삭제<ul><li>[인증서 콘솔 열기](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>‘Issued To’ = “Windows Azure Service Management for Extensions”가 지정된 인증서 삭제(개인 -> 인증서)</ul><li>VM 백업을 트리거합니다. </ol>|
+| 가상 컴퓨터가 BEK만으로 암호화되었기 때문에 유효성 검사에 실패했습니다. BEK와 KEK 모두로 암호화된 가상 컴퓨터에서만 백업을 사용할 수 있습니다. |이 경우 가상 시스템을 BitLocker 암호화 키와 키 암호화 키를 모두 사용하여 암호화해야 합니다. 그런 후에 백업을 사용하도록 설정해야 합니다. |
 
 ## <a name="jobs"></a>작업
 | 오류 세부 정보 | 해결 방법 |
@@ -69,6 +71,7 @@ ms.openlocfilehash: 9fc01460d653ffecc16c916d5538ef20bf699135
 | 복원 작업에 지정된 저장소 계정 유형은 온라인 상태가 아닙니다. 복원 작업에 지정된 저장소 계정이 온라인 상태인지 확인하세요. |이는 Azure 저장소의 일시적인 오류 또는 가동 중지로 인해 발생할 수 있습니다. 다른 저장소 계정을 선택하세요. |
 | 리소스 그룹 할당량에 도달했습니다. Azure 포털의 일부 리소스 그룹을 삭제하거나 Azure 지원에 문의하여 제한을 늘리세요. |없음 |
 | 선택한 서브넷이 존재하지 않습니다. 존재하는 서브넷을 선택하세요. |없음 |
+| 백업 서비스는 구독의 리소스에 액세스할 수 있는 권한이 없습니다. |이 문제를 해결하려면 먼저 [VM 복원 구성 선택](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration)의 **백업된 디스크 복원** 섹션에 제공된 단계에 따라 디스크를 복원합니다. 그 후에는 [복원된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)에 설명된 PowerShell 단계를 사용하여 복원된 디스크에서 전체 VM을 만듭니다. |
 
 ## <a name="policy"></a>정책
 | 오류 세부 정보 | 해결 방법 |
@@ -97,7 +100,7 @@ Windows VM의 경우
 Linux VM의 경우
 
 * [Linux VM 에이전트 업데이트](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요.
-배포 리포지토리를 사용할 때만 에이전트를 업데이트할 것을 **강력히 권장**합니다. github에서 에이전트 코드를 직접 다운로드한 후 업데이트하는 것은 바람직하지 않습니다. 최신 에이전트를 배포할 수 없는 경우 배포 지원에 문의하여 최신 에이전트를 설치하는 방법에 대한 지침을 얻으세요. github 리포지토리에서 최신 [Microsoft Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent/releases) 정보를 확인할 수 있습니다. 
+배포 리포지토리를 사용할 때만 에이전트를 업데이트할 것을 **강력히 권장**합니다. github에서 에이전트 코드를 직접 다운로드한 후 업데이트하는 것은 바람직하지 않습니다. 최신 에이전트를 배포할 수 없는 경우 배포 지원에 문의하여 최신 에이전트를 설치하는 방법에 대한 지침을 얻으세요. github 리포지토리에서 최신 [Microsoft Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent/releases) 정보를 확인할 수 있습니다.
 
 ### <a name="validating-vm-agent-installation"></a>VM 에이전트 설치의 유효성 검사
 Windows VM에서 VM 에이전트 버전을 확인하는 방법
@@ -119,7 +122,7 @@ VM 백업은 기본 저장소에 대한 스냅숏 명령 실행을 사용합니�
    ```
 3. VM이 RDP에서 종료되므로 VM 상태가 잘못 보고됩니다.  <br>
    RDP에서 가상 컴퓨터를 종료하는 경우 VM 상태가 올바르게 반영되는지 포털에서 다시 확인하세요. 그렇지 않은 경우 VM 대시보드의 '종료' 옵션을 사용하여 포털에서 VM을 종료하세요.
-4. 4개를 초과하는 VM이 동일한 클라우드 서비스를 공유하는 경우에는, 4개를 초과하는 VM 백업이 한 번에 시작되지 않게 백업 시간을 준비하도록 여러 백업 정책을 구성합니다. 백업 시작 시간을 정책 사이에 한 시간 분산시키도록 합니다.
+4. 4개를 초과하는 VM이 동일한 클라우드 서비스를 공유하는 경우에는,&4;개를 초과하는 VM 백업이 한 번에 시작되지 않게 백업 시간을 준비하도록 여러 백업 정책을 구성합니다. 백업 시작 시간을 정책 사이에 한 시간 분산시키도록 합니다.
 5. VM이 높은 CPU/메모리에서 실행 중입니다.<br>
    가상 컴퓨터가 높은 CPU/메모리 사용량(&gt;90%)에서 실행 중인 경우 스냅숏 작업이 큐 대기되고 지연되어 결국 시간이 초과됩니다. 이러한 상황에서는 주문형 백업을 시도하세요.
 
@@ -149,9 +152,4 @@ VM 백업은 기본 저장소에 대한 스냅숏 명령 실행을 사용합니�
 > [고정 내부 개인 IP 설정](../virtual-network/virtual-networks-reserved-private-ip.md)에 대한 자세한 내용을 확인합니다.
 >
 >
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

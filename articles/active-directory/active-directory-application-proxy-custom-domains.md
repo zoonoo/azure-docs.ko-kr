@@ -1,22 +1,22 @@
 ---
-title: "Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업 | Microsoft Docs"
-description: "Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업에 대해 설명"
+title: "Azure AD 응용 프로그램 프록시의 사용자 지정 도메인 | Microsoft Docs"
+description: "앱의 URL이 사용자가 액세스하는 위치에 관계 없이 동일하도록 Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인을 관리합니다."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5d9c932094caccf4b37c54cfdd8f9cce1e01ef07
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: b8edebd4e7dfdbf85a9beb6d126acaf7ec66dd01
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: 5d9c932094caccf4b37c54cfdd8f9cce1e01ef07
 2. 응용 프로그램이 응용 프로그램 목록에 나타나면 선택하고 **구성**을 클릭합니다.
 3. **외부 URL**아래에 사용자 지정 도메인을 입력합니다.
 4. 외부 URL이 https인 경우 Azure가 응용 프로그램의 URL의 유효성을 검사할 수 있도록 인증서를 업로드하라는 메시지가 표시됩니다. 응용 프로그램의 외부 URL과 일치하는 와일드 카드 인증서를 업로드할 수도 있습니다. 이 도메인은 [Azure 확인된 도메인](https://msdn.microsoft.com/library/azure/jj151788.aspx)목록 안에 있어야 합니다. Azure는 응용 프로그램에 대한 외부 URL과 일치하는 응용 프로그램 또는 와일드카드 인증서의 도메인 URL에 대한 인증서가 있어야 합니다.
-5. 사용자 응용 프로그램 목록 내 응용 프로그램에 대한 내외부 액세스와 단일 바로 가기를 위해 동일한 URL을 갖게 해주는 응용 프로그램에 내부 URL을 라우팅하는 DNS 기록을 추가합니다.
+5. 내부 URL 경로를 응용 프로그램으로 조정하는 DNS 레코드를 추가합니다. 이 레코드는 앱에 대한 내부 및 외부 액세스에 동일한 URL을 사용할 수 있도록 하고 사용자의 응용 프로그램 목록에 단일 바로 가기가 추가되도록 합니다.
 
 ## <a name="frequently-asked-questions-about-working-with-custom-domains"></a>사용자 지정 도메인 작업에 대한 질문과 대답
 Q: 이미 업로드한 인증서를 다시 업로드하지 않고 선택할 수 있습니까?  
@@ -70,17 +70,15 @@ A: 예, 자체 서명된 인증서가 허용됩니다. 개인 인증 기관을 �
 Q: 내 테넌트에 대한 모든 인증서를 볼 수 있는 곳이 있습니까?  
 A: 현재 버전에서는 지원되지 않습니다.  
 
-## <a name="see-also"></a>참고 항목
-* [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
-* [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
-* [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
+## <a name="next-steps"></a>다음 단계
+* Azure AD 인증을 사용하여 게시된 앱에 대해 [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
+* 게시된 앱에 대해 [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
 * [Azure AD에 사용자 지정 도메인 이름 추가](active-directory-add-domain.md)
 
-최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

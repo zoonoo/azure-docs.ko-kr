@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/15/2016
+ms.date: 02/28/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 699d0c37adb9618827b6b39d74d09c2f9ba92913
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 37b0abfa38282d7e8789ba5687f0937a60262464
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>Azure에서 SQL Server 가상 컴퓨터 연결(리소스 관리자)
 > [!div class="op_single_selector"]
 > * [리소스 관리자](virtual-machines-windows-sql-connect.md)
-> * [클래식](../sqlclassic/virtual-machines-windows-classic-sql-connect.md)
+> * [클래식](../classic/sql-connect.md)
 > 
 > 
 
@@ -32,7 +33,7 @@ ms.openlocfilehash: 699d0c37adb9618827b6b39d74d09c2f9ba92913
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-이 문서의 클래식 버전을 보려면 [Azure 클래식의 SQL Server 가상 컴퓨터에 연결](../sqlclassic/virtual-machines-windows-classic-sql-connect.md)을 참조하세요.
+이 문서의 클래식 버전을 보려면 [Azure 클래식의 SQL Server 가상 컴퓨터에 연결](../classic/sql-connect.md)을 참조하세요.
 
 프로비저닝 및 연결의 전체 연습 과정을 확인하려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)을 참조하세요.
 
@@ -112,10 +113,5 @@ Resource Manager를 통해 SQL Server 가상 컴퓨터 이미지를 프로비전
 [학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) 합니다.
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

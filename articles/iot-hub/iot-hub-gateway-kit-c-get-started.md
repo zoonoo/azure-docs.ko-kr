@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT Gateway 시작 키트 시작 | Microsoft Docs"
+title: "SensorTag 장치 및 Azure IoT 게이트웨이 - 시작 | Microsoft Docs"
 description: "IoT Gateway 시작 키트를 시작하여 Azure IoT Hub를 만들고 SensorTag 및 게이트웨이를 IoT Hub에 연결합니다."
 services: iot-hub
 documentationcenter: 
@@ -7,17 +7,20 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "azure iot hub, iot 게이트웨이, 사물 인터넷 시작, iot 도구 키트"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 56d05f4e-f2c1-4b22-8701-f01e14deead6
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ab8f4f7bbb823cc56783a0cb39bb22157c74087f
-ms.openlocfilehash: fb45ef6239827ea2860b707b2bb5016ea680ad17
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: dd14d137c23fbccb3616b60db8a63e668ae7ea80
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -107,8 +110,3 @@ Azure Resource Manager 템플릿을 사용하여 Azure 함수 앱 및 Azure Stor
 
 ## <a name="explore-more"></a>자세히 살펴보기
 자세한 내용은 [Intel IoT Gateway Kit 개발자 영역](http://software.intel.com/iot/microsoft-azure)을 참조하세요.
-
-
-<!--HONumber=Jan17_HO1-->
-
-

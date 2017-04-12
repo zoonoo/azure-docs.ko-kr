@@ -11,18 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 52316e90cd2207ee20033cd96f981692b20b5ece
-ms.openlocfilehash: d581ecc99220befefcd8c2f14a756debb3ab2eb1
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 6017fa3fe2134452bf24d2fc54c8f82b08862dbb
+ms.lasthandoff: 03/18/2017
 
 
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스
 이 페이지는 Azure AD(Azure Active Directory)에서 다양한 응용 프로그램 관련 기능에 대해 작성된 모든 문서의 전체 목록을 제공합니다.
 
-원하는 정보에 따라 읽을 문서에 대한 지침 뿐만 아니라 각 주요 기능 영역에 대한 간략한 소개가 있습니다. 
+원하는 정보에 따라 읽을 문서에 대한 지침 뿐만 아니라 각 주요 기능 영역에 대한 간략한 소개가 있습니다.
 
 ## <a name="overview-articles"></a>개요 문서
 아래의 문서는 Azure AD 응용 프로그램 관리 기능에 대한 간략한 설명을 원하는 사람에게 좋은 방법입니다.
@@ -99,7 +100,7 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 | 타사 ID 공급자를 사용하여 SSO를 사용하도록 설정하는 방법에 대한 참고 자료 |[Single Sign-On을 사용하도록 설정하는 데 사용할 수 있는 호환 가능한 타사 ID 공급자 목록](https://aka.ms/ssoproviders) |
 | Windows 10 사용자가 Azure AD 조인을 통해 Single Sign-On의 이점을 얻을 수 있는 방법 |[Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-overview.md) |
 
-Azure AD Connect는 [모든 버전의 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)에 사용할 수 있습니다. Azure AD 셀프 서비스 암호 재설정은 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 및 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)에 사용할 수 있습니다. 온-프레미스 AD에 대한 비밀번호 쓰기 저장은 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다. 
+Azure AD Connect는 [모든 버전의 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)에 사용할 수 있습니다. Azure AD 셀프 서비스 암호 재설정은 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 및 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)에 사용할 수 있습니다. 온-프레미스 AD에 대한 비밀번호 쓰기 저장은 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
 
 ### <a name="conditional-access-enforce-additional-security-requirements-for-high-risk-apps"></a>조건부 액세스: 위험도 높은 앱에 대한 추가 보안 요구 사항 적용
 앱 및 리소스에 Single Sign-On을 설정하면 앱에 대한 모든 로그인에서 특정 보안 요구 사항을 적용하여 중요한 응용 프로그램을 보호할 수 있습니다. 예를 들어 Azure AD를 사용하여 원래 앱이 해당 기능을 지원하는지 여부에 관계 없이 특정 앱에 대한 모든 액세스가 항상 Multi-Factor Authentication을 요구하도록 할 수 있습니다. 조건부 액세스의 또 다른 일반적인 예는 특히 중요한 응용 프로그램에 액세스하기 위해 사용자가 조직의 신뢰할 수 있는 네트워크에 연결하도록 요구하는 점입니다.
@@ -107,9 +108,9 @@ Azure AD Connect는 [모든 버전의 Azure Active Directory](https://azure.micr
 | 문서 가이드 |  |
 |:---:| --- |
 | Azure AD, Office365 및 Intune에 제공되는 조건부 액세스 기능 소개 |[조건부 액세스를 사용한 위험 관리](active-directory-conditional-access.md) |
-| 다음 형식의 리소스에 조건부 액세스를 사용하는 방법 |[SaaS 앱에 대한 조건부 액세스](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Office 365 서비스에 대한 조건부 액세스](active-directory-conditional-access-device-policies.md)<br /><br />[온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Azure AD 앱 프록시를 통해 게시된 온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-application-proxy-conditional-access.md) |
-| 장치 기반 조건부 액세스 정책을 사용하기 위해 Azure Active Directory로 장치를 등록하는 방법 |[Azure Active Directory 장치 등록 개요](active-directory-conditional-access-device-registration-overview.md)<br /><br />[도메인에 가입된 Windows 장치에 대한 자동 장치 등록을 사용하도록 설정하는 방법](active-directory-conditional-access-automatic-device-registration.md)<br />- [Windows 8.1 장치에 대한 단계](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)<br />- [Windows 7 장치에 대한 단계](active-directory-conditional-access-automatic-device-registration-windows7.md) |
-| Multi-Factor Authentication과 관련된 정책에 Android 버전의 Azure Authenticator 앱을 사용하는 방법 |[Android용 Azure Authenticator](active-directory-conditional-access-azure-authenticator-app.md) |
+| 다음 형식의 리소스에 조건부 액세스를 사용하는 방법 |[SaaS 앱에 대한 조건부 액세스](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Office 365 서비스에 대한 조건부 액세스](active-directory-conditional-access-device-policies.md)<br /><br />[온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-conditional-access.md)<br /><br />[Azure AD 앱 프록시를 통해 게시된 온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-application-proxy-conditional-access.md) |
+| 장치 기반 조건부 액세스 정책을 사용하기 위해 Azure Active Directory로 장치를 등록하는 방법 |[Azure Active Directory 장치 등록 개요](active-directory-conditional-access-device-registration-overview.md)<br /><br />[도메인에 가입된 Windows 장치에 대한 자동 장치 등록을 사용하도록 설정하는 방법](active-directory-conditional-access-automatic-device-registration.md)<br />- [Windows 8.1 장치에 대한 단계](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices)<br />- [Windows 7 장치에 대한 단계](active-directory-device-registration.md#configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices) |
+| 2단계 확인에 Microsoft Authenticator 앱을 사용하는 방법 |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
 조건부 액세스는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
 
@@ -141,7 +142,7 @@ Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용
 자동화된 사용자 프로비전은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 프로비전되는 사용자를 관리](#managing-access-to-applications)할 수 있습니다.
 
 ### <a name="building-applications-that-integrate-with-azure-ad"></a>Azure AD와 통합되는 응용 프로그램 작성
-조직이 기간 업무(LoB) 응용 프로그램 개발 또는 유지 관리하거나 Azure Active Directory를 사용하는 고객이 있는 개발자라면 다음 자습서는 Azure AD와 응용 프로그램을 통합하는 데 도움이 됩니다. 
+조직이 기간 업무(LoB) 응용 프로그램 개발 또는 유지 관리하거나 Azure Active Directory를 사용하는 고객이 있는 개발자라면 다음 자습서는 Azure AD와 응용 프로그램을 통합하는 데 도움이 됩니다.
 
 | 문서 가이드 |  |
 |:---:| --- |
@@ -177,7 +178,7 @@ Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용
 B2B 공동 작업 미리 보기는 [모든 버전의 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)에 현재 사용할 수 있습니다.
 
 ### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>액세스 패널: 앱 및 셀프 서비스 기능에 액세스하기 위한 포털
-Azure AD 액세스 패널은 최종 사용자가 자신의 앱을 시작하고 해당 앱 및 그룹 멤버 자격을 관리할 수 있도록 하는 셀프 서비스 기능에 액세스하는 위치에 있습니다. 액세스 패널 외에도 SSO를 사용한 앱에 액세스하기 위한 다른 옵션이 아래 목록에 포함됩니다. 
+Azure AD 액세스 패널은 최종 사용자가 자신의 앱을 시작하고 해당 앱 및 그룹 멤버 자격을 관리할 수 있도록 하는 셀프 서비스 기능에 액세스하는 위치에 있습니다. 액세스 패널 외에도 SSO를 사용한 앱에 액세스하기 위한 다른 옵션이 아래 목록에 포함됩니다.
 
 | 문서 가이드 |  |
 |:---:| --- |
@@ -209,10 +210,4 @@ Azure Active Directory의 다른 버전에 포함된 보고서를 보려면 [여
 [Azure Active Directory 도메인 서비스](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

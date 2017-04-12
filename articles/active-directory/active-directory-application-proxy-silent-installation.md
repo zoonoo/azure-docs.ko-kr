@@ -1,30 +1,38 @@
 ---
-title: "Azure AD 응용 프로그램 프록시 커넥터를 자동으로 설치하는 방법 | Microsoft Docs"
-description: "Azure AD 응용 프로그램 프록시 커넥터를 자동으로 설치하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법에 대해 설명합니다."
+title: "Azure AD 응용 프로그램 프록시 커넥터 자동 설치 | Microsoft Docs"
+description: "Azure AD 응용 프로그램 프록시 커넥터를 무인으로 설치하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법에 대해 설명합니다."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fe96fb2159a7d0dba0ad391d25f38f79cf8aeeb3
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: cf00d47efc613f7bdc152c1b5f0d0830fb44a785
+ms.lasthandoff: 02/06/2017
 
 
 ---
 # <a name="how-to-silently-install-the-azure-ad-application-proxy-connector"></a>Azure AD 응용 프로그램 프록시 커넥터를 자동으로 설치하는 방법
 사용자 인터페이스를 사용하도록 설정되지 않은 Windows Server 또는 여러 Windows 서버에 설치 스크립트를 보낼 수 있습니다. 이 항목에서는 무인 설치가 Azure AD 응용 프로그램 프록시 커넥터를 설치하고 등록할 수 있도록 하는 Windows PowerShell 스크립트를 만드는 방법에 대해 설명합니다.
 
+이 기능은 다음을 수행하는 데 유용 합니다.
+
+* UI 계층이 없는 경우 또는 컴퓨터에 RDP를 수행할 수 없는 경우 컴퓨터에 커넥터를 설치합니다.
+* 한 번에 여러 커넥터를 설치하고 등록합니다.
+* 커넥터 설치 및 등록을 다른 절차의 일부분으로 통합합니다.
+* 커넥터 비트를 포함하지만 등록되지 않은 표준 서버 이미지를 만듭니다.
+
 ## <a name="enabling-access"></a>액세스 사용
-응용 프로그램 프록시는 네트워크 내부에서 커넥터라고 불리는 간단한 Windows Server 서비스를 설치하여 사용합니다. 응용 프로그램 프록시 커넥터가 작동하려면 전역 관리자 및 암호를 사용하여 Azure AD 디렉터리에 등록되어야 합니다. 일반적으로 이러한 등록 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력됩니다. 또는 Windows PowerShell을 사용하여 자격 증명 개체를 만들어 등록 정보를 입력하거나, 고유한 토큰을 만들고 이 토큰을 사용하여 등록 정보를 입력할 수 있습니다.
+응용 프로그램 프록시는 네트워크 내부에서 커넥터라고 불리는 간단한 Windows Server 서비스를 설치하여 사용합니다. 응용 프로그램 프록시 커넥터가 작동하려면 전역 관리자 및 암호를 사용하여 Azure AD 디렉터리에 등록되어야 합니다. 일반적으로 이러한 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력됩니다. 또는 Windows PowerShell을 사용하여 자격 증명 개체를 만들어 등록 정보를 입력하거나, 고유한 토큰을 만들고 이 토큰을 사용하여 등록 정보를 입력할 수 있습니다.
 
 ## <a name="step-1--install-the-connector-without-registration"></a>1단계: 등록 없이 커넥터 설치
 다음과 같이 커넥터를 등록하지 않고 커넥터 MSI를 설치합니다.
@@ -41,7 +49,7 @@ ms.openlocfilehash: fe96fb2159a7d0dba0ad391d25f38f79cf8aeeb3
 * 오프라인으로 만든 토큰을 사용하여 커넥터 등록
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Windows PowerShell 자격 증명 개체를 사용하여 커넥터 등록
-1. 다음을 실행하여 Windows PowerShell 자격 증명 개체를 만듭니다. 여기서 "<username>" 및 "<password>"는 디렉터리의 사용자 이름 및 암호로 바꿔야 합니다.
+1. 다음을 실행하여 Windows PowerShell 자격 증명 개체를 만듭니다. 여기서 \<사용자 이름\> 및 \<암호\>는 디렉터리의 사용자 이름 및 암호로 바꿔야 합니다.
    
         $User = "<username>"
         $PlainPassword = '<password>'
@@ -108,25 +116,18 @@ ms.openlocfilehash: fe96fb2159a7d0dba0ad391d25f38f79cf8aeeb3
         }
 
 
+2. 토큰을 만들었으면 토큰을 사용하여 SecureString을 만듭니다.
 
-
-
-1. 토큰을 만들었으면 토큰을 사용하여 SecureString을 만듭니다. <br>
    `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
-2. 다음 Windows PowerShell 명령을 실행합니다. 여기서 SecureToken은 위에서 만든 토큰의 이름이고 tenantID는 테넌트의 GUID입니다. <br>
+
+3. 다음 Windows PowerShell 명령을 실행하여 \<테넌트 GUID\>를 디렉터리 ID로 대체합니다.
+
    `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
 
-## <a name="see-also"></a>참고 항목
-* [Azure Active Directory에 대한 응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)
+## <a name="next-steps"></a>다음 단계 
 * [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)
 * [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
 * [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
 
-최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

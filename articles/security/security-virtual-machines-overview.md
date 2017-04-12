@@ -1,6 +1,6 @@
 ---
-title: "Azure Virtual Machines 보안 개요 | Microsoft Docs"
-description: " Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어를 구입 및 유지 관리하지 않고도 가상화의 유연성을 제공합니다.  이 문서에서는 Azure 가상 컴퓨터에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공합니다. "
+title: "Azure Virtual Machines에 사용되는 Azure 보안 기능 | Microsoft Docs"
+description: " Azure Virtual Machines에서 사용될 수 있는 핵심 Azure 보안 기능에 대한 개요입니다. Azure VM은 VM을 실행하는 실제 하드웨어를 구입 및 유지 관리할 필요가 없는 가상화의 유연성을 제공합니다. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 3f504db7d67fdf196fbdaaaba2e09d989449b101
-ms.openlocfilehash: 0be0500296ad9bed302f65da9ef8de63e0ed08f6
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 70d22ae8d7f67f1e12a233e004f1eb749927e7d8
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -70,8 +71,8 @@ Microsoft 맬웨어 방지 프로그램을 배포하고 사용할 때 다음과 
 
 * [Azure Cloud Services 및 가상 컴퓨터용 Microsoft 맬웨어 방지 프로그램](azure-security-antimalware.md)
 * [Azure 가상 컴퓨터에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
-* [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
+* [Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](../virtual-machines/windows/classic/install-trend.md)
+* [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](../virtual-machines/windows/classic/install-symantec.md)
 * [Azure 가상 컴퓨터에 대한 새로운 맬웨어 방지 옵션 - McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 * [Azure 마켓플레이스의 보안 솔루션](https://azure.microsoft.com/marketplace/?term=security)
 
@@ -151,9 +152,4 @@ Azure 가상 컴퓨터는 FISMA, FedRAMP, HIPAA, PCI DSS Level 1 및 기타 주�
 
 * [Microsoft 보안 센터: 규정 준수](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 * [신뢰할 수 있는 클라우드: Microsoft Azure 보안, 개인 정보 보호 정책 및 규정 준수](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

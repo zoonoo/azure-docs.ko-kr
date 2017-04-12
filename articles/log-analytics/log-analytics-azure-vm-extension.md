@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: cab40991e5b0628f422b9eb91130d8135c1434f1
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 87e888bf3d7355b36c42e8787abe9bf1cb191fcd
+ms.lasthandoff: 04/03/2017
 
 
 ---
-# <a name="connect-azure-virtual-machines-to-log-analytics"></a>Log Analytics에 Azure 가상 컴퓨터 연결
+# <a name="connect-azure-virtual-machines-to-log-analytics-with-a-log-analytics-agent"></a>Log Analytics 에이전트에서 Azure 가상 컴퓨터를 Log Analytics에 연결
+
 Windows 및 Linux 컴퓨터의 경우 로그 및 메트릭을 수집하는 좋은 방법은 Log Analytics로 에이전트를 설치하는 것입니다.
 
 Azure 가상 컴퓨터에 Log Analytics 에이전트를 설치하는 가장 쉬운 방법은 Log Analytics VM 확장을 사용하는 것입니다.  이 확장을 사용하면 설치 프로세스가 간소화되고 지정한 Log Analytics 작업 영역에 데이터를 전송하도록 에이전트가 자동으로 구성됩니다. 에이전트도 자동으로 업그레이드되므로 최신 기능 및 수정 사항을 받아볼 수 있습니다.
@@ -28,14 +31,14 @@ Azure 가상 컴퓨터에 Log Analytics 에이전트를 설치하는 가장 쉬�
 Windows 가상 컴퓨터에 대해 *Microsoft Monitoring Agent* 가상 컴퓨터 확장을 사용하도록 설정합니다.
 Linux 가상 컴퓨터에 대해 *OMS Agent For Linux* 가상 컴퓨터 확장을 사용하도록 설정합니다.
 
-[Azure 가상 컴퓨터 확장](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Linux 에이전트](../virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대해 자세히 알아봅니다.
+[Azure 가상 컴퓨터 확장](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Linux 에이전트](../virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대해 자세히 알아봅니다.
 
 로그 데이터에 대해 에이전트 기반 컬렉션을 사용하는 경우 수집할 로그 및 메트릭을 지정하도록 [Log Analytics의 데이터 원본](log-analytics-data-sources.md) 을 구성해야 합니다.
 
 > [!IMPORTANT]
 > [Azure Diagnostics](log-analytics-azure-storage.md)를 사용하여 로그 데이터를 인덱싱하도록 Log Analytics를 구성했으며 동일한 로그를 수집하도록 에이전트를 구성하면 해당 로그가 두 번 수집됩니다. 두 데이터 원본 모두에 대해 청구됩니다. 에이전트를 설치한 경우 에이전트만을 사용하여 로그 데이터를 수집해야 합니다. Azure Diagnostics로부터 로그 데이터를 수집하도록 Log Analytics를 구성하지 않습니다.
-> 
-> 
+>
+>
 
 다음과 같은 3가지 방법으로 Log Analytics 가상 컴퓨터 확장을 사용하도록 설정할 수 있습니다.
 
@@ -61,6 +64,12 @@ Log Analytics용 에이전트를 설치하고 [Azure Portal](https://portal.azur
    ![연결됨](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
 
 ## <a name="enable-the-vm-extension-using-powershell"></a>PowerShell을 통해 VM 확장 사용
+PowerShell을 사용하여 가상 컴퓨터를 구성할 때 **workspaceId** 및 **workspaceKey**를 제공해야 합니다. json 구성의 속성 이름은 **대/소문자를 구분**합니다.
+
+OMS 포털의 **설정** 페이지나 앞 예제처럼 PowerShell을 사용하여 ID와 키를 찾을 수 있습니다.
+
+![작업 영역 ID 및 기본 키](./media/log-analytics-azure-vm-extension/oms-analyze-azure-sources.png)
+
 Azure 클래식 가상 컴퓨터와 Resource Manager 가상 컴퓨터에 대한 명령이 서로 다릅니다.  다음은 클래식 및 Resource Manager 가상 컴퓨터의 예제입니다.
 
 클래식 가상 컴퓨터의 경우 다음 PowerShell 예제를 사용합니다.
@@ -112,9 +121,6 @@ $location = $vm.Location
 
 
 ```
-PowerShell을 사용하여 가상 컴퓨터를 구성할 때 **작업 영역 ID** 및 **기본 키**를 제공해야 합니다. OMS 포털의 **설정** 페이지나 앞 예제처럼 PowerShell을 사용하여 ID와 키를 찾을 수 있습니다.
-
-![작업 영역 ID 및 기본 키](./media/log-analytics-azure-vm-extension/oms-analyze-azure-sources.png)
 
 ## <a name="deploy-the-vm-extension-using-a-template"></a>템플릿을 사용하여 VM 확장 배포
 Azure Resource Manager로 응용 프로그램의 배포 및 구성을 정의하는 간단한 템플릿을(JSON 형식으로) 만들 수 있습니다. 이 템플릿은 리소스 관리자 템플릿이며 배포를 정의하는 선언적 방법을 제공합니다. 템플릿을 사용하여 수명 주기 내내 응용 프로그램을 반복적으로 배포하며 안심하고 일관된 상태로 리소스를 배포할 수 있습니다.
@@ -360,13 +366,26 @@ Resource Manager 템플릿의 일부로 Log Analytics 에이전트를 포함하�
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
 
-## <a name="troubleshooting-windows-virtual-machines"></a>Windows Virtual Machines 문제 해결
+## <a name="troubleshooting-the-log-analytics-vm-extension"></a>Log Analytics VM 확장 문제 해결
+일반적으로 Azure Portal 또는 Azure PowerShell 중 하나에서 무엇인가 작동하지 않을 경우 메시지가 표시됩니다.
+
+1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+2. VM을 찾아서 VM 세부 정보를 엽니다.
+3. **확장**을 클릭하여 OMS 확장을 사용하는지 여부를 확인합니다.
+
+   ![VM 확장 보기](./media/log-analytics-azure-vm-extension/oms-vmview-extensions.png)
+
+4. *MicrosoftMonitoringAgent*(Windows) 또는 *OmsAgentForLinux*(Linux) 확장을 클릭하고 세부 정보를 봅니다. 
+
+   ![VM 확장 세부 정보](./media/log-analytics-azure-vm-extension/oms-vmview-extensiondetails.png)
+
+### <a name="troubleshooting-windows-virtual-machines"></a>Windows Virtual Machines 문제 해결
 *Microsoft Monitoring Agent* VM 에이전트 확장이 설치되지 않거나 문제를 보고할 경우 다음 절차를 수행하여 문제를 해결할 수 있습니다.
 
 1. [KB 2965986](https://support.microsoft.com/kb/2965986#mt1)의 절차를 통해 Azure VM 에이전트가 올바르게 설치되어 작동하는지 확인합니다.
    * VM 에이전트 로그 파일 `C:\WindowsAzure\logs\WaAppAgent.log`를 검토할 수도 있습니다.
    * 로그가 없는 경우 VM 에이전트가 설치되지 않은 것입니다.
-     * [클래식 VM에 Azure VM 에이전트 설치](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+     * [클래식 VM에 Azure VM 에이전트 설치](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 2. 다음 절차를 통해 Microsoft Monitoring Agent 확장 하트 비트 작업이 실행되고 있는지 확인합니다.
    * 가상 컴퓨터에 로그인합니다.
    * 작업 스케줄러를 열고 `update_azureoperationalinsight_agent_heartbeat` 작업을 찾습니다.
@@ -378,18 +397,18 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 6. 가상 컴퓨터 `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`에 나타나는 PowerShell 창에서 다음을 입력하여Microsoft Monitoring Agent의 상태를 봅니다. 
 7. `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`에서 Microsoft Monitoring Agent 설정 로그 파일을 검토합니다.
 
-자세한 내용은 [Windows 확장 문제 해결](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+자세한 내용은 [Windows 확장 문제 해결](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
-## <a name="troubleshooting-linux-virtual-machines"></a>Linux Virtual Machines 문제 해결
+### <a name="troubleshooting-linux-virtual-machines"></a>Linux Virtual Machines 문제 해결
 *OMS Agent for Linux* VM 에이전트 확장이 설치되지 않거나 문제를 보고할 경우 다음 절차를 수행하여 문제를 해결할 수 있습니다.
 
 1. 확장 상태가 *알 수 없음*이면 VM 에이전트 로그 파일 `/var/log/waagent.log`를 검토하여 Azure VM 에이전트가 올바르게 설치되어 작동하고 있는지 확인합니다. 
    * 로그가 없는 경우 VM 에이전트가 설치되지 않은 것입니다.
-   * [Linux VM에 Azure VM 에이전트 설치](../virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+   * [Linux VM에 Azure VM 에이전트 설치](../virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 2. 그 밖의 비정상 상태에 대해 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` 및 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`에서 OMS Agent for Linux VM 확장 로그 파일을 검토합니다. 
 3. 확장 상태가 정상이나 데이터가 업로드되지 않는 경우 `/var/opt/microsoft/omsagent/log/omsagent.log`에서 OMS Agent for Linux 로그 파일을 검토합니다.
 
-자세한 내용은 [Linux 확장 문제 해결](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+자세한 내용은 [Linux 확장 문제 해결](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 데이터 원본](log-analytics-data-sources.md) 을 구성하여 수집할 로그 및 메트릭을 지정합니다.
@@ -400,10 +419,4 @@ Azure에 없는 컴퓨터의 경우, 다음 문서에 설명된 방법을 사용
 
 * [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md)
 * [Log Analytics에 Linux 컴퓨터 연결](log-analytics-linux-agents.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c41ef7c2bf4c7d66e8596627585cd3014a9ac839
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 7129137e6deca6ae4cbb5096058b58b32056d415
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,8 +29,8 @@ Azure에서 제공하는 Node.js 버전은 지속적으로 업데이트됩니다
 
 > [!NOTE]
 > Azure 클라우드 서비스(웹 또는 작업자 역할)에서 응용 프로그램을 호스트하며 응용 프로그램을 처음 배포하는 것이면 Azure는 Azure에서 사용 가능한 기본 버전 중 하나와 일치할 경우 개발 환경에 설치한 것과 동일한 버전의 Node.js를 사용하려고 합니다.
-> 
-> 
+>
+>
 
 ## <a name="versioning-with-packagejson"></a>package.json을 사용하여 버전 관리
 **package.json** 파일에 다음을 추가하여 사용할 Node.js의 버전을 지정할 수 있습니다.
@@ -58,48 +59,43 @@ Azure에서 제공하는 Node.js 버전은 지속적으로 업데이트됩니다
 Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 제공되지 않는 버전을 사용할 수도 있습니다. 응용 프로그램이 Azure 웹 사이트로 호스트된 경우 **iisnode.yml** 파일을 사용하면 됩니다. 다음 단계에서는 Azure 웹 사이트에서 사용자 지정 버전의 Node.Js를 사용하는 프로세스를 단계별로 안내합니다.
 
 1. 새 디렉터리를 만든 후 디렉터리 내에 **server.js** 파일을 만듭니다. **server.js** 파일에는 다음이 포함되어야 합니다.
-   
+
         var http = require('http');
         http.createServer(function(req,res) {
           res.writeHead(200, {'Content-Type': 'text/html'});
           res.end('Hello from Azure running node version: ' + process.version + '</br>');
         }).listen(process.env.PORT || 3000);
-   
+
     웹 사이트를 검색할 때 사용되는 Node.js 버전이 표시됩니다.
 2. 새로운 웹 사이트를 만들고 사이트 이름을 기록해 둡니다. 예를 들어 다음 코드는 [Azure 명령줄 도구] 를 사용하여 **mywebsite**라는 새 Azure 웹 사이트를 만든 후 웹 사이트에 Git 리포지토리를 사용하도록 설정합니다.
-   
+
         azure site create mywebsite --git
 3. **server.js** 파일이 포함된 디렉터리의 자식으로 **bin** 디렉터리를 새로 만듭니다.
 4. 응용 프로그램과 함께 사용할 특정 버전의 **node.exe** (Windows 버전)를 다운로드합니다. 예를 들어 다음 코드는 **curl** 을 사용하여 버전 0.8.1을 다운로드합니다.
-   
+
         curl -O http://nodejs.org/dist/v0.8.1/node.exe
-   
+
     이전에 만든 **bin** 폴더에 **node.exe** 파일을 저장합니다.
 5. **server.js** 파일과 동일한 디렉터리에 **iisnode.yml** 파일을 만든 후 **iisnode.yml** 파일에 다음 콘텐츠를 추가합니다.
-   
+
         nodeProcessCommandLine: "D:\home\site\wwwroot\bin\node.exe"
-   
+
     이 경로는 Azure 웹 사이트에 응용 프로그램을 게시한 후 프로젝트 내의 **node.exe** 파일이 있는 위치입니다.
 6. 응용 프로그램을 게시합니다. 예를 들어 이전에 --git 매개 변수를 사용하여 새로운 웹 사이트를 만들었으므로 다음 명령은 로컬 Git 리포지토리에 응용 프로그램 파일을 추가한 후 웹 사이트 리포지토리에 푸시합니다.
-   
+
         git add .
         git commit -m "testing node v0.8.1"
         git push azure master
-   
+
     응용 프로그램이 게시된 후 브라우저에서 웹 사이트를 엽니다. "Hello from Azure running node version: v0.8.1"이라는 메시지가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-지금까지 응용 프로그램에서 사용되는 Node.js 버전을 지정하는 방법을 배웠습니다. 이제 [모듈 작업] 방법, [Node.js 웹 사이트 빌드 및 배포](app-service-web/web-sites-nodejs-develop-deploy-mac.md) 방법, [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]을 알아보겠습니다.
+지금까지 응용 프로그램에서 사용되는 Node.js 버전을 지정하는 방법을 배웠습니다. 이제 [모듈 작업] 방법, [Node.js 웹 사이트 빌드 및 배포](app-service-web/app-service-web-get-started-nodejs.md) 방법, [Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]을 알아보겠습니다.
 
-자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
+자세한 내용은 [Node.js 개발자 센터](https://azure.microsoft.com/develop/nodejs/)를 참조하세요.
 
-[Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]: xplat-cli-install.md
-[Azure 명령줄 도구]: xplat-cli-install.md
+[Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]:cli-install-nodejs.md
+[Azure 명령줄 도구]:cli-install-nodejs.md
 [모듈 작업]: nodejs-use-node-modules-azure-apps.md
-[Node.js 웹 사이트 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[build and deploy a Node.js Web Site]: app-service-web/app-service-web-get-started-nodejs.md
 

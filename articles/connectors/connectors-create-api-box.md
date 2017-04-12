@@ -18,6 +18,7 @@ ms.author: mandia
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: bb6bef230f4ba4f7019fd2f120c2115d97649b81
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -263,10 +264,5 @@ Box 폴더에서 파일을 수정할 때 흐름을 트리거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

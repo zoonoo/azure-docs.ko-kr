@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 37c9d6808b3282d86583f6305672405775a7f306
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 851319639f1443c062b87305bbde351f41846433
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -54,8 +55,9 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 이러한 링크는 서비스를 자세히 탐색하는 데 유용합니다.
 
 * [Azure Active Directory B2C 가격 책정 정보](https://azure.microsoft.com/pricing/details/active-directory-b2c/)를 참조하세요.
-* [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 또는 [adal](http://stackoverflow.com/questions/tagged/adal) 태그를 사용하여 스택 오버플로에 대한 도움말을 봅니다.
-* [사용자 의견](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 의견을 보내주세요. 사용자의 의견을 듣고 싶습니다! 게시물의 제목에 "AzureADB2C:" 구문을 사용해야 찾을 수 있습니다.
+* Azure Active Directory B2C에 대한 [코드 샘플](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c)을 검토합니다. 
+* [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c) 태그를 사용하여 Stack Overflow에 대한 도움말을 봅니다.
+* [사용자 의견](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)을 사용하여 의견을 보내주세요. 사용자의 의견을 듣고 싶습니다!
 * [Azure AD B2C 프로토콜 참조](active-directory-b2c-reference-protocols.md)를 검토합니다.
 * [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)를 검토합니다.
 * [Azure Active Directory B2C FAQ](active-directory-b2c-faqs.md)를 참고하세요.
@@ -63,10 +65,5 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 
 ## <a name="get-security-updates-for-our-products"></a>당사 제품에 대한 보안 업데이트 가져오기
 [이 페이지](https://technet.microsoft.com/security/dd252948) 를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

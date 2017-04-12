@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-/ms.date: 1/18/2017
+ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: aba595f3eab2835cffb7b2678a72515b983f4cec
-ms.openlocfilehash: 7637a700ef718162f3042c53e469424cdcd218de
+ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
+ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
+ms.lasthandoff: 03/28/2017
 
 
 ---
@@ -38,14 +39,14 @@ Linux에서 파일 저장소 사용에 대한 자세한 내용은 [Linux에서 A
 ## <a name="video-using-azure-file-storage-with-windows"></a>비디오: Windows에서 Azure 파일 저장소 사용
 Windows에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주는 비디오는 다음과 같습니다.
 
-> [!비디오 https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
 ## <a name="about-this-tutorial"></a>이 자습서 정보
 이 시작 자습서에서는 Microsoft Azure 파일 저장소 사용에 대한 기본 사항을 설명합니다. 이 자습서에서는 다음 작업을 수행합니다.
 
-* Azure 포털 또는 PowerShell을 사용하여 새 Azure 파일 공유를 만들고, 디렉터리를 추가하고, 로컬 파일을 공유로 업로드하고, 디렉터리의 파일을 나열하는 방법을 보여 줍니다.
+* Azure Portal 또는 PowerShell을 사용하여 새 Azure File 공유를 만들고, 디렉터리를 추가하고, 로컬 파일을 공유에 업로드하고, 디렉터리에 있는 파일을 나열합니다.
 * SMB 공유와 마찬가지로 파일 공유를 마운트합니다.
 * .NET용 Azure 저장소 클라이언트 라이브러리를 사용하여 온-프레미스 응용 프로그램에서 파일 공유에 액세스할 수 있습니다. 콘솔 응용 프로그램을 만들고 파일 공유를 사용하여 다음과 같은 작업을 수행합니다.
   * 콘솔 창에 공유의 파일 내용 쓰기
@@ -57,8 +58,8 @@ Windows에서 Azure 파일 공유를 만들고 사용하는 방법을 보여주�
 
 파일 저장소는 이제 모든 저장소 계정에 대해 지원되므로 기존 저장소 계정을 사용하거나 새 저장소 계정을 만들 수 있습니다. 새 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account) (영문)을 참조하세요.
 
-## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Azure 포털을 사용하여 파일 공유 관리
-[Azure 포털](https://portal.azure.com) 은 고객이 파일 공유를 관리하기 위한 사용자 인터페이스를 제공합니다. 포털에서 다음을 수행할 수 있습니다.
+## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Azure Portal을 사용하여 파일 공유 관리
+[Azure Portal](https://portal.azure.com)은 고객이 파일 공유를 관리하기 위한 사용자 인터페이스를 제공합니다. 포털에서 다음을 수행할 수 있습니다.
 
 * 파일 공유 만들기
 * 파일 공유에 대해 파일 업로드 및 다운로드
@@ -210,15 +211,15 @@ SMB 3.0에 대한 지원을 통해 파일 저장소는 이제 SMB 3.0 클라이�
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>Windows를 실행하는 Azure 가상 컴퓨터에서 공유 마운트
 Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Windows를 실행하는 Azure 가상 컴퓨터를 만든 후 원격으로 연결하여 공유를 마운트하겠습니다.
 
-1. 먼저 [Azure 포털에서 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 지침에 따라 새 Azure 가상 컴퓨터를 만듭니다.
-2. 다음으로 [Azure 포털을 사용하여 Windows 가상 컴퓨터에 로그온](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 지침에 따라 가상 컴퓨터에 원격으로 연결합니다.
+1. 먼저 [Azure Portal에서 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 지침에 따라 새 Azure 가상 컴퓨터를 만듭니다.
+2. 다음으로 [Azure Portal을 사용하여 Windows 가상 컴퓨터에 로그온](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 지침에 따라 가상 컴퓨터에 원격으로 연결합니다.
 3. 가상 컴퓨터에서 PowerShell 창을 엽니다.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>가상 컴퓨터의 저장소 계정 자격 증명 유지
-파일 공유에 마운트하기 전에 먼저 가상 컴퓨터에서 저장소 계정 자격 증명을 유지합니다. 이 단계를 진행하면 Windows는 가상 컴퓨터가 다시 부팅될 때 파일 공유에 자동으로 다시 연결될 수 있습니다. 계정 자격 증명을 유지하려면 가상 컴퓨터의 PowerShell 창에서 `cmdkey` 명령을 실행합니다. `<storage-account-name>`를 저장소 계정의 이름으로 바꾸고 `<storage-account-key>`를 저장소 계정 키로 바꿉니다.
+파일 공유에 마운트하기 전에 먼저 가상 컴퓨터에서 저장소 계정 자격 증명을 유지합니다. 이 단계를 진행하면 Windows는 가상 컴퓨터가 다시 부팅될 때 파일 공유에 자동으로 다시 연결될 수 있습니다. 계정 자격 증명을 유지하려면 가상 컴퓨터의 PowerShell 창에서 `cmdkey` 명령을 실행합니다. `<storage-account-name>`를 저장소 계정의 이름으로 바꾸고 `<storage-account-key>`를 저장소 계정 키로 바꿉니다. 아래 예제와 같이 "AZURE" 도메인을 명시적으로 지정해야 합니다. 
 
 ```
-cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 ```
 
 이제 Windows는 가상 컴퓨터가 다시 부팅될 때 해당 파일 공유에 다시 연결됩니다. PowerShell 창에서 `net use` 명령을 실행하여 공유에 다시 연결되었는지 확인할 수 있습니다.
@@ -238,10 +239,10 @@ net use z: \\samples.file.core.windows.net\logs
 이전 단계의 저장소 계정 자격 증명을 저장했으므로 `net use` 명령에 이러한 자격 증명을 제공할 필요가 없습니다. 자격 증명을 저장하지 않은 경우 다음 예제와 같이 `net use` 명령에 전달되는 매개 변수로 포함합니다.
 
 ```
-net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
+net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:AZURE\<storage-account-name> <storage-account-key>
 
 example :
-net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+net use z: \\samples.file.core.windows.net\logs /u:AZURE\samples <storage-account-key>
 ```
 
 이제 다른 드라이브의 경우처럼 가상 컴퓨터에서 파일 저장소 공유를 사용할 수 있습니다. 명령 프롬프트에서 표준 파일 명령을 실행하거나 파일 탐색기에서 마운트된 공유 및 해당 내용을 확인할 수 있습니다. .NET Framework의 [System.IO 네임스페이스](http://msdn.microsoft.com/library/gg145019.aspx) 에서 제공하는 것과 같은 표준 Windows 파일 I/O API를 사용하여 파일 공유에 액세스하는 가상 컴퓨터 내에서 코드를 실행할 수도 있습니다.
@@ -263,17 +264,29 @@ net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
 파일 저장소를 호출하는 코드를 작성하려면 .NET 및 Java 또는 Azure 저장소 REST API용 저장소 클라이언트 라이브러리를 사용할 수 있습니다. 이 섹션의 예제에서는 데스크톱에서 실행 중인 간단한 콘솔 응용 프로그램에서 [.NET용 Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/mt347887.aspx) 를 사용하여 파일 공유로 작업하는 방법을 설명합니다.
 
 ### <a name="create-the-console-application-and-obtain-the-assembly"></a>콘솔 응용 프로그램 만들기 및 어셈블리 가져오기
-Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 클라이언트 라이브러리를 포함하는 NuGet 패키지를 설치하려면:
+Visual Studio에서 새로운 Windows 콘솔 응용 프로그램을 만듭니다. 다음 단계에서는 Visual Studio 2017에서 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다. 이 단계는 다른 버전의 Visual Studio에서도 유사합니다.
 
-1. Visual Studio에서 **파일 > 새 프로젝트**를 선택한 다음 Visual C# 템플릿 목록에서 **Windows > 콘솔 응용 프로그램**을 선택합니다.
-2. 콘솔 응용 프로그램 이름을 지정한 다음 **확인**을 클릭합니다.
-3. 프로젝트가 만들어지면 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치** 를 클릭하여 .NET용 Azure 저장소 클라이언트 라이브러리 패키지와 종속성을 설치합니다.
+1. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
+2. **설치됨** > **템플릿** > **Visual C#** > **Windows 기본 바탕 화면**을 선택합니다.
+3. **콘솔 앱(.NET Framework)**를 선택합니다.
+4. **이름:** 필드에서 응용 프로그램의 이름을 입력합니다.
+5. **확인**을 선택합니다.
 
-또한 이 문서의 코드 예제에서 [Microsoft Azure 구성 관리자 라이브러리](https://msdn.microsoft.com/library/azure/mt634646.aspx) 를 사용하여 콘솔 응용 프로그램의 app.config 파일에서 저장소 연결 문자열을 검색합니다. 응용 프로그램이 Microsoft Azure 또는 데스크톱이나 모바일, 웹 응용 프로그램에서 실행되는지 여부와 관계없이 런타임 시 Azure 구성 관리자를 사용하여 연결 문자열을 검색할 수 있습니다.
+이 자습서의 모든 코드 예제는 콘솔 응용 프로그램에 있는 `Program.cs` 파일의 `Main()` 메서드에 추가될 수 있습니다.
 
-Azure 구성 관리자 패키지를 설치하려면 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 "ConfigurationManager"를 검색하고 **설치** 를 클릭하여 패키지를 설치합니다.
+Azure 클라우드 서비스, 웹앱, 데스크톱 및 모바일 응용 프로그램을 포함하여 .NET 응용 프로그램의 모든 형식에서 Azure Storage 클라이언트 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 응용 프로그램을 사용합니다.
 
-Azure 구성 관리자 사용은 선택 사항입니다. 또한 .NET Framework의 [ConfigurationManager 클래스](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx)와 같은 API를 사용할 수 있습니다.
+### <a name="use-nuget-to-install-the-required-packages"></a>NuGet을 사용하여 필요한 패키지 설치
+이 자습서를 완료하기 위해 프로젝트에서 참조해야 하는 두 개의 패키지가 있습니다.
+
+* [.NET용 Microsoft Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/): 이 패키지는 저장소 계정에서 데이터 리소스에 프로그래밍 방식의 액세스를 제공합니다.
+* [.NET용 Microsoft Azure 구성 관리자 라이브러리](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): 이 패키지는 응용 프로그램을 실행하는 위치에 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
+
+NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단계를 수행하세요.
+
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+2. 온라인에서 "WindowsAzure.Storage"를 검색하고 **설치** 를 클릭하여 저장소 클라이언트 라이브러리와 종속성을 설치합니다.
+3. 온라인에서 "WindowsAzure.ConfigurationManager"를 검색하고 **설치**를 클릭하여 Azure 구성 관리자를 설치합니다.
 
 ### <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>저장소 계정 자격 증명을 app.config 파일에 저장
 다음에는 프로젝트의 app.config 파일에 자격 증명을 저장합니다. 다음과 비슷하게 app.config 파일을 편집합니다. 여기서는 `myaccount`을(를) 저장소 계정 이름으로 바꾸고 `mykey`을(를) 저장소 계정 키로 바꿉니다.
@@ -295,8 +308,8 @@ Azure 구성 관리자 사용은 선택 사항입니다. 또한 .NET Framework�
 > 
 > 
 
-### <a name="add-namespace-declarations"></a>네임스페이스 선언 추가
-솔루션 탐색기에서 `program.cs` 파일을 열고 파일 맨 위에 다음 네임스페이스 선언을 추가합니다.
+### <a name="add-using-directives"></a>지시문을 사용하여 추가
+솔루션 탐색기에서 `Program.cs` 파일을 열고 지시문을 사용하여 파일 맨 위에 다음을 추가합니다.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -541,11 +554,11 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ## <a name="troubleshooting-file-storage-using-metrics"></a>메트릭을 사용하여 파일 저장소 문제 해결
 이제 Azure 저장소 분석이 파일 저장소에 대한 메트릭을 지원합니다. 메트릭 데이터를 사용하여 요청을 추적하고 문제를 진단할 수 있습니다.
 
-[Azure 포털](https://portal.azure.com)에서 파일 저장소에 대한 메트릭을 사용하도록 설정할 수 있습니다. 또한 REST API 또는 저장소 클라이언트 라이브러리의 유사한 기능 중 하나를 통해 파일 서비스 설정 속성을 호출하여 프로그래밍 방식으로 메트릭을 사용하도록 설정할 수도 있습니다.
+[Azure Portal](https://portal.azure.com)에서 File Storage에 대한 메트릭을 사용하도록 설정할 수 있습니다. 또한 REST API 또는 저장소 클라이언트 라이브러리의 유사한 기능 중 하나를 통해 파일 서비스 설정 속성을 호출하여 프로그래밍 방식으로 메트릭을 사용하도록 설정할 수도 있습니다.
 
 다음 코드 예제에서는 .NET용 저장소 클라이언트 라이브러리를 사용하여 파일 저장소에 대한 메트릭을 사용하도록 설정하는 방법을 보여줍니다.
 
-먼저 위에서 추가한 항목 이외에 다음 `using` 문을 program.cs 파일에 추가합니다.
+먼저 위에서 추가한 항목 외에도 다음 `using` 지시문을 `Program.cs` 파일에 추가합니다.
 
 ```csharp
 using Microsoft.WindowsAzure.Storage.File.Protocol;
@@ -602,52 +615,62 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
    
     우리는 현재 AD 기반 인증 또는 ACL을 지원하지 않지만 우리의 기능 요청 목록에 해당 기능을 포함합니다. 현재 Azure 저장소 계정 키는 파일 공유에 대한 인증을 제공합니다. REST API 또는 클라이언트 라이브러리를 통해 공유 액세스 서명(SAS)을 사용하여 해결 방법을 제공합니다. SAS를 사용하면 지정된 시간 간격에 대해 유효한 특정 권한을 가진 토큰을 생성할 수 있습니다. 예를 들어 지정된 파일에 대한 읽기 전용 액세스 권한을 가진 토큰을 생성할 수 있습니다. 이 토큰이 유효한 동안 이 토큰을 가진 누구나 해당 파일에 대한 읽기 전용 액세스 권한을 갖습니다.
    
-    SAS는 REST API 또는 클라이언트 라이브러리를 통해서만 지원됩니다. SMB 프로토콜을 통해 파일 공유를 마운트할 때 SAS를 사용하여 해당 콘텐츠에 대한 액세스를 위임할 수 없습니다.
-2. **Azure 파일 공유는 인터넷을 통해 공개적으로 볼 수 있습니까 아니면 Azure에서만 연결할 수 있습니까?**
-   
-    포트 445(TCP 아웃바운드)가 열려 있고 클라이언트가 SMB 3.0 프로토콜을 지원하면(*예:*Windows 8 또는 Windows Server 2012) 인터넷을 통해 파일 공유를 사용할 수 있습니다.  
-3. **Azure 가상 컴퓨터와 파일 공유 사이의 네트워크 트래픽을 구독에 대해 비용이 청구되는 외부 대역폭으로 계산합니까?**
+    SAS는 REST API 또는 클라이언트 라이브러리를 통해서만 지원됩니다. SMB 프로토콜을 통해 파일 공유를 마운트할 때 SAS를 사용하여 해당 콘텐츠에 대한 액세스를 위임할 수 없습니다. 
+
+2. **웹 브라우저를 통해 특정 파일에 대한 액세스를 어떻게 제공할 수 있습니까?**
+   SAS를 사용하면 지정된 시간 간격에 대해 유효한 특정 권한을 가진 토큰을 생성할 수 있습니다. 예를 들어, 특정 기간 동안 특정 파일에 대해 읽기 전용 액세스 권한이 있는 토큰을 생성할 수 있습니다. 이 URL을 소유한 사람은 토큰이 유효한 동안 모든 웹 브라우저에서 직접 다운로드할 수 있습니다. 저장소 탐색기 같은 UI에서 SAS 키를 쉽게 생성할 수 있습니다.
+
+3.   **Azure File Storage의 파일에 액세스하는 다른 방법은 무엇입니까?**
+    SMB 3.0 프로토콜을 사용하여 로컬 컴퓨터에서 파일 공유를 마운트하거나 [저장소 탐색기](http://storageexplorer.com/) 또는 Cloudberry 같은 도구를 사용하여 파일 공유의 파일을 액세스할 수 있습니다. 응용 프로그램에서 클라이언트 라이브러리, REST API 또는 Powershell을 사용하여 Azure 파일 공유의 파일에 액세스할 수 있습니다.
+    
+4.   **내 로컬 컴퓨터에서 Azure 파일 공유를 어떻게 마운트할 수 있습니까?** 포트 445(TCP 아웃바운드)가 열려 있고 클라이언트가 SMB 3.0 프로토콜을 지원하는 한(*예:* Windows 8 또는 Windows Server 2012) SMB 프로토콜을 통해 파일 공유를 마운트할 수 있습니다. 로컬 ISP 공급자를 사용하여 포트의 차단을 해제합니다. 일시적으로 저장소 탐색기 또는 Cloudberry와 같은 타사 프로그램을 사용하여 파일을 볼 수 있습니다.
+
+5. **Azure 가상 컴퓨터와 파일 공유 사이의 네트워크 트래픽을 구독에 대해 비용이 청구되는 외부 대역폭으로 계산합니까?**
    
     파일 공유와 가상 컴퓨터가 서로 다른 지역에 있는 경우 이들 사이의 트래픽은 외부 대역폭으로 비용 청구됩니다.
-4. **네트워크 트래픽이 같은 지역의 가상 컴퓨터와 파일 공유 사이에 있는 경우 무료입니까?**
+6. **네트워크 트래픽이 같은 지역의 가상 컴퓨터와 파일 공유 사이에 있는 경우 무료입니까?**
    
     예. 트래픽은 동일한 지역에 있는 경우 무료입니다.
-5. **온-프레미스 가상 컴퓨터에서 Azure 파일 저장소로 연결하는 것은 Azure Express 경로에 따라 달라집니까?**
+7. **온-프레미스 가상 컴퓨터에서 Azure 파일 저장소로 연결하는 것은 Azure Express 경로에 따라 달라집니까?**
    
     아니요. Express 경로가 없더라도 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)를 열어 놓기만 하면 온-프레미스에서 여전히 파일 공유에 액세스할 수 있습니다. 그러나 원하는 경우 Express 경로를 파일 저장소와 함께 사용할 수 있습니다.
-6. **장애 조치 클러스터에 대한 "파일 공유 감시"는 Azure 파일 저장소의 사용 사례 중 하나입니까?**
+8. **장애 조치 클러스터에 대한 "파일 공유 감시"는 Azure 파일 저장소의 사용 사례 중 하나입니까?**
    
     이 기능은 현재 지원되지 않습니다.
-7. **파일 저장소는 지금 바로 LRS 또는 GRS를 통해서만 복제됩니다. 맞습니까?**  
+9. **파일 저장소는 지금 바로 LRS 또는 GRS를 통해서만 복제됩니다. 맞습니까?**  
    
     우리는 RA-GRS를 지원할 계획이지만 아직 공유할 일정이 없습니다.
-8. **Azure 파일 저장소에 대한 기존 저장소 계정을 언제 사용할 수 있습니까?**
+10. **Azure 파일 저장소에 대한 기존 저장소 계정을 언제 사용할 수 있습니까?**
    
     Azure 파일 저장소는 이제 모든 저장소 계정에 대해 사용하도록 설정되었습니다.
-9. **이름 바꾸기 작업도 REST API에 추가됩니까?**
+11. **이름 바꾸기 작업도 REST API에 추가됩니까?**
    
     이름 바꾸기는 우리의 REST API에서 아직 지원되지 않습니다.
-10. **포함된 공유를 지정할 수 있습니까, 다시 말해서 공유 밑에 공유를 지정할 수 있습니까?**
+12. **포함된 공유를 지정할 수 있습니까, 다시 말해서 공유 밑에 공유를 지정할 수 있습니까?**
     
     아니요. 파일 공유는 마운트할 수 있는 가상 드라이버이므로 포함된 공유는 지원되지 않습니다.
-11. **공유 내의 폴더에 대한 읽기 전용 또는 쓰기 전용 권한을 지정할 수 있습니까?**
+13. **공유 내의 폴더에 대한 읽기 전용 또는 쓰기 전용 권한을 지정할 수 있습니까?**
     
     SMB를 통해 파일 공유를 마운트하는 경우 이 수준의 사용 권한 제어는 없습니다. 그러나 REST API 또는 클라이언트 라이브러리를 통해 공유 액세스 서명(SAS)를 만들어 이 목적을 달성할 수 있습니다.  
-12. **파일 저장소의 파일의 압축을 풀려고 하면 성능이 느려집니다. 어떻게 해야 하나요?**
+14. **파일 저장소의 파일의 압축을 풀려고 하면 성능이 느려집니다. 어떻게 해야 하나요?**
     
     다수의 파일을 파일 저장소로 전송하려면 네트워크 전송을 위해 최적화된 도구인 AzCopy, Azure Powershell(Windows) 또는 Azure CLI(Linux/Unix)를 사용하는 것이 좋습니다.
-13. **Azure 파일로 성능 저하 문제를 해결하기 위해 출시된 패치**
+15. **Azure 파일로 성능 저하 문제를 해결하기 위해 출시된 패치**
     
-    Windows 팀은 고객이 Windows 8.1 또는 Windows Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 발생하는 성능 저하 문제를 해결하기 위해 최근에 패치를 출시했습니다. 자세한 내용은 관련된 KB 문서인 [Windows 8.1 또는 Server 2012 R2에서 Azure Files Storage에 액세스할 때 성능 저하](https://support.microsoft.com/en-us/kb/3114025)를 확인하세요.
-14. **IBM MQ로 Azure 파일 저장소 사용**
+    Windows 팀은 고객이 Windows 8.1 또는 Windows Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 발생하는 성능 저하 문제를 해결하기 위해 최근에 패치를 출시했습니다. 자세한 내용은 관련된 KB 문서인 [Windows 8.1 또는 Server 2012 R2에서 Azure Files Storage에 액세스할 때 성능 저하](https://support.microsoft.com/kb/3114025)를 확인하세요.
+16. **IBM MQ로 Azure 파일 저장소 사용**
     
     IBM은 해당 서비스로 Azure 파일 저장소를 구성할 때 IBM MQ 고객을 안내하는 문서를 출시했습니다. 자세한 내용은 [Microsoft Azure 파일 서비스와 IBM MQ 다중 인스턴스 큐 관리자를 설치하는 방법](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)을 참조하세요.
-15. **Azure File Storage 오류를 어떻게 해결합니까?**
+17. **Azure File Storage 오류를 어떻게 해결합니까?**
     
     종단 간 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-file-connection-problems.md)를 참조할 수 있습니다.               
-16. ** FileSystemWatcher를 사용하여 Azure File Service 공유에서 파일 및 디렉터리의 만들기/수정/삭제와 같은 이벤트를 수신 대기할 수 있나요?
 
-아니요. Azure 웹 작업 SDK를 사용할 수 있습니다. 트리거되거나 트리거되지 않은 고유한 바인딩을 작성하고 파일 저장소에서 이벤트를 수신 대기할 수 있습니다. [새 트리거 및 바인더를 작성하기 위한 지침](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)에서 시작하기 위한 세부 정보를 찾을 수 있습니다.
+18. **Azure Files에서 서버 쪽 암호화를 사용하하려면 어떻게 해야 하나요?**
+
+    Azure Files에서 [서버 쪽 암호화](storage-service-encryption.md)는 현재 미리 보기 상태입니다. 미리 보기 중에 [Azure Portal](https://portal.azure.com)을 사용하여 만든 Azure Resource Manager 저장소 계정에서 이 기능을 사용할 수 있습니다. 이 기능을 사용하는 추가 비용은 없습니다. Azure File Storage에 저장소 서비스 암호화를 사용하도록 설정하면 데이터가 자동으로 암호화됩니다. 
+    
+    나중에 [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md) 또는 [Microsoft Azure Storage 리소스 공급자 API](/rest/api/storagerp/storageaccounts)에서 File Storage에 대한 암호화를 지원할 예정입니다. 
+    Azure Storage에서 휴지 상태인 암호화에 대한 자세한 정보는 [저장소 서비스 암호화](storage-service-encryption.md)를 참조하고 미리 보기 중에 질문이 있는 경우 ssediscussions@microsoft.com에 문의하시면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
@@ -660,6 +683,7 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 * [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)
 * [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md)
 * [Azure 저장소에서 Azure CLI 사용](storage-azure-cli.md#create-and-manage-file-shares)
+* [Azure File Storage 문제 해결](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>참조
 * [Storage Client Library for .NET 참조](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -670,9 +694,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 * [Azure 파일 저장소의 내면(영문)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

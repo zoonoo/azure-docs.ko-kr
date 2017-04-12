@@ -1,6 +1,6 @@
 ---
-title: "Azure 모니터링 개요 | Microsoft Docs"
-description: "경고, 웹후크, 자동 크기 조정 등을 포함하여 Microsoft Azure에서 Azure Monitor의 상위 수준 개요입니다."
+title: "Azure Monitor 개요 | Microsoft Docs"
+description: "Azure Monitor는 경고, webhook, 자동 크기 조정 및 자동화를 사용하기 위해 통계를 수집합니다. 또한 문서에서는 다른 Microsoft 모니터링 옵션을 나열합니다."
 author: rboucher
 manager: carmonm
 editor: 
@@ -12,34 +12,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 03/31/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f8ff117966b11e7415abaa5e7a0735742d7ef99
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 8e2b1a31b9875b8403e6c97c097ba65985f5f3b5
+ms.lasthandoff: 03/31/2017
 
 
 ---
 
-# <a name="overview-of-monitoring-in-microsoft-azure"></a>Microsoft Azure의 모니터링 개요
+# <a name="overview-of-azure-monitor"></a>Azure Monitor 개요
 이 문서에서는 Azure 리소스 모니터링의 개념적 개요를 제공합니다. 특정 유형의 리소스 정보에 대한 포인터를 제공합니다.  비 Azure 관점에서의 응용 프로그램 모니터링에 대한 개략적인 정보는 [모니터링 및 진단 지침](../best-practices-monitoring.md)을 참조하세요.
 
-Azure 모니터의 동영상 연습에서 제공됩니다.  
-[Microsoft Azure 모니터링 및 진단을 탐색합니다](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). Azure 모니터를 사용할 수 있는 시나리오를 설명하는 추가 비디오는 [Microsoft Azure 모니터링 및 진단 탐색](https://channel9.msdn.com/events/Ignite/2016/BRK2234)에 있습니다.  
+Azure Monitor의 동영상 연습도 제공됩니다.  
+[Azure Monitor 시작](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) Azure Monitor를 사용할 수 있는 시나리오를 설명하는 추가 비디오는 [Microsoft Azure 모니터링 및 진단 탐색](https://channel9.msdn.com/events/Ignite/2016/BRK2234)에 있습니다.  
 
 클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 통해 응용 프로그램 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
 
 다음 다이어그램에서는 수집할 수 있는 유형의 로그 및 해당 데이터로 수행할 수 있는 작업 Azure 모니터링의 개념 보기를 보여 줍니다.   
 
-![비 계산 리소스의 모니터링 및 진단에 대한 논리 모델](./media/monitoring-overview/MonitoringAzureResources-non-compute_v3.png)
-
-그림 1: 비 계산 리소스의 모니터링 및 진단에 개념 모델
+![비 계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview/Monitoring_Azure_Resources-compute_v4.png)
 
 <br/>
 
-![계산 리소스의 모니터링 및 진단에 대한 논리 모델](./media/monitoring-overview/MonitoringAzureResources-compute_v3.png)
+![계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview/Monitoring_Azure_Resources-non-compute_v4.png)
 
-그림 2: 계산 리소스의 모니터링 및 진단을 위한 개념 모델
 
 ## <a name="monitoring-sources"></a>모니터링 소스
 ### <a name="activity-logs"></a>활동 로그
@@ -55,7 +53,7 @@ Cloud Services, Virtual Machines 및 Service Fabric과 같은 일부 계산 리�
 ### <a name="resource---metrics-and-diagnostics-logs"></a>리소스 - 메트릭 및 진단 로그
 수집 가능한 메트릭은 리소스 종류에 따라 다릅니다. 예를 들어 Virtual Machines는 디스크 IO 및 % CPU에 대한 통계를 제공합니다. 하지만 이러한 통계는 큐 크기와 메시지 처리량과 같은 메트릭을 대신 제공하는 Service Bus 큐에 대해 존재하지 않습니다.
 
-계산 리소스의 경우 게스트 OS에 대한 메트릭과 Azure Diagnostics과 같은 진단 모듈에 대한 메트릭을 가져올 수 있습니다. Azure Diagnostics은 수집 진단 데이터를 수집하고 다른 위치(예: Azure Storage)로의 라우팅할 수 있게 합니다.
+계산 리소스의 경우 게스트 OS에 대한 메트릭과 Azure Diagnostics과 같은 진단 모듈에 대한 메트릭을 가져올 수 있습니다. Azure Diagnostics은 진단 데이터를 수집하고 다른 위치(예: Azure Storage)로의 라우팅할 수 있게 합니다.
 
 현재 수집 가능한 메트릭의 목록은 [지원되는 메트릭](monitoring-supported-metrics.md)에서 제공됩니다.
 
@@ -113,7 +111,8 @@ Azure Monitor REST API, 플랫폼 간 CLI(명령줄 인터페이스), PowerShell
 * 타사 도구로 라우팅하여 실시간 분석을 수행할 수 있도록 Event Hubs로 보내기
 
 ### <a name="automate"></a>자동화
-모니터링 데이터를 사용하여 이벤트를 트리거하거나 전체 프로세스를 트리거할 수 있습니다. 예를 들면 다음과 같습니다.
+모니터링 데이터를 사용하여 경고를 트리거하거나 전체 프로세스를 트리거할 수 있습니다.
+예를 들면 다음과 같습니다.
 
 * 데이터를 사용하여 응용 프로그램 부하에 따라 계산 인스턴스 크기를 자동으로 조정
 * 메트릭이 미리 결정된 임계값을 초과하는 경우 전자 메일 보내기
@@ -134,7 +133,7 @@ Azure에는 운영 체제 미설치 인프라부터 응용 프로그램 원격 �
 
 * [Azure Monitor](http://aka.ms/azmondocs) – Azure 인프라(작업 로그)와 개별 Azure 리소스(진단 로그)의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다. 이 문서는 Azure Monitor 설명서의 일부입니다. Azure Monitor 이름은 Ignite 2016에서 9월 25일 릴리스되었습니다.  이전 이름은 "Azure Insights"입니다.  
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) – Azure 모니터링의 데이터에 원활히 통합된 사용자 서비스의 응용 프로그램 계층에서 발생하는 문제에 대한 다양한 검색 및 진단을 제공합니다. App Service Web Apps에 대한 기본 진단 플랫폼입니다.  다른 서비스에서 데이터를 라우팅할 수 있습니다.  
-* [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)의 [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 부분 – Azure 리소스의 온-프레미스 및 타사 클라우드 기반 인프라(예: AWS)에 대한 전체적인 IT 관리 솔루션을 제공합니다.  Azure Monitor의 데이터를 Log Analytics로 직접 라우팅할 수 있으므로 전체 환경에 대한 메트릭 및 로그를 한 곳에서 볼 수 있습니다.     
+* [Operations Management Suite](https://www.microsoft.com/oms/)의 [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 부분 – Azure 리소스의 온-프레미스 및 타사 클라우드 기반 인프라(예: AWS)에 대한 전체적인 IT 관리 솔루션을 제공합니다.  Azure Monitor의 데이터를 Log Analytics로 직접 라우팅할 수 있으므로 전체 환경에 대한 메트릭 및 로그를 한 곳에서 볼 수 있습니다.     
 
 ## <a name="next-steps"></a>다음 단계
 자세한 정보
@@ -144,10 +143,5 @@ Azure에는 운영 체제 미설치 인프라부터 응용 프로그램 원격 �
 * [Azure 진단](../azure-diagnostics.md) - Cloud Service, Virtual Machine 또는 Service Fabric 응용 프로그램에서 문제를 진단하려는 경우
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) - 앱 서비스 웹앱에서 문제를 진단하려는 경우
 * [Azure Storage 문제 해결](../storage/storage-e2e-troubleshooting.md) - 저장소 Blob, 테이블 및 큐를 사용하는 경우
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 및 [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 및 [Operations Management Suite](https://www.microsoft.com/oms/)
 

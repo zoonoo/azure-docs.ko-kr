@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/24/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: b0c3c5dfd695b28b75bf44c9f835b34966413a9a
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -25,17 +26,13 @@ ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
 
 > [!NOTE]
 > Azure Multi-factor Authentication 공급자는 정식 버전의 Azure MFA에서 제공하는 기능을 활용하는 데 사용됩니다. **Azure MFA, Azure AD Premium 또는 EMS을 통해 라이선스를 갖고 있지 않은**사용자를 위한 기능입니다.  Azure MFA, Azure AD Premium 및 EMS는 기본적으로 Azure MFA의 전체 버전을 포함합니다.  라이선스를 보유한 경우 Multi-Factor Auth 공급자가 필요하지 않습니다.
-> 
-> 
 
 SDK를 다운로드하려면 Azure Multi-Factor Auth 공급자가 필요합니다.
 
 > [!IMPORTANT]
-> SDK를 다운로드하려면 Azure MFA, AAD Premium 또는 EMS 라이선스가 있더라도 Azure Multi-Factor Auth 공급자를 만들어야 합니다.  이를 위해 Azure Multi-Factor Auth 공급자를 만들고 이미 라이선스를 보유한 경우 공급자는 반드시 **활성화된 사용자당** 모델을 사용하도록 합니다. 그런 다음 Azure MFA, Azure AD Premium 또는 EMS 라이선스를 포함하는 디렉터리에 공급자를 연결합니다.  이렇게 하면 사용자가 소유한 라이선스 수보다 SDK를 사용하는 고유 사용자가 더 많은 경우에만 요금이 청구됩니다.
-> 
-> 
+> SDK를 다운로드하려면 Azure MFA, AAD Premium 또는 EMS 라이선스가 있더라도 Azure Multi-Factor Auth 공급자를 만들어야 합니다.  이를 위해 Azure Multi-Factor Auth 공급자를 만들고 이미 라이선스를 보유한 경우 공급자는 반드시 **활성화된 사용자당** 모델을 사용하도록 합니다. 그런 다음 Azure MFA, Azure AD Premium 또는 EMS 라이선스를 포함하는 디렉터리에 공급자를 연결합니다.  이 구성을 사용하면 사용자가 소유한 라이선스 수보다는&2;단계 인증을 수행하는 고유 사용자가 더 많은 경우에만 요금이 청구됩니다.
 
-## <a name="to-create-a-multi-factor-auth-provider"></a>Multi-Factor Auth 공급자를 만들려면
+## <a name="create-a-multi-factor-auth-provider"></a>Multi-Factor Auth 공급자 만들기
 다음 단계를 따라 Azure Multi-Factor Auth 공급자를 만듭니다.
 
 1. 관리자 권한으로 [Azure 클래식 포털](https://manage.windowsazure.com)에 로그인합니다.
@@ -50,7 +47,7 @@ SDK를 다운로드하려면 Azure Multi-Factor Auth 공급자가 필요합니�
    ![MFA 공급자 만들기](./media/multi-factor-authentication-get-started-auth-provider/authprovider4.png)
 7. 다음 필드를 입력하고 **만들기**를 선택합니다.
    1. **이름** – Multi-Factor Auth 공급자의 이름입니다.
-   2. **사용 모델** - 개별 사용자를 활성화하거나 확인당 지불하려는지 여부입니다. 두 가지 옵션 중 하나를 선택하세요.
+   2. **사용 모델** – 두 가지 옵션 중 하나를 선택합니다.
       * 인증당 - 인증 단위로 요금이 청구되는 구매 모델입니다. 일반적으로 소비자 지향 응용 프로그램에서 Azure Multi-Factor Authentication을 사용하는 시나리오에 사용됩니다.
       * 활성화된 사용자별 – 활성화된 사용자 단위로 요금이 청구되는 구매 모델입니다. 일반적으로 Office 365와 같은 응용 프로그램에 대한 직원 액세스에 사용합니다. 이미 Azure MFA에 대한 사용이 허가된 사용자가 있는 경우 이 옵션을 선택합니다.
    3. **디렉터리** – Multi-Factor Authentication 공급자와 연결된 Azure Active Directory 테넌트입니다. 다음에 주의하세요.
@@ -60,10 +57,5 @@ SDK를 다운로드하려면 Azure Multi-Factor Auth 공급자가 필요합니�
         ![MFA 공급자 만들기](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 8. 만들기를 클릭하면 Multi-Factor Authentication 공급자가 생성되고 **Multi-Factor Authentication 공급자를 성공적으로 만들었습니다**라는 메시지가 표시됩니다. **확인**을 클릭합니다.
    ![MFA 공급자 만들기](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

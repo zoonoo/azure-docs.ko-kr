@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 79948e3ec83dc8d56f0fa38998a48ee3518f8962
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e9e8dfa79ac0b902b8ecbcf9911e38ef49f754ec
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -83,7 +84,7 @@ Azure Machine Learning에는 이러한 각 분류 유형을 다루는 여러 모
 
 그림 3. 붓꽃 2클래스 분류 문제 실험 점수 매기기
 
-이제 웹 서비스의 입력 및 출력을 설정해야 합니다. 입력은 붓꽃 기능 입력인 [모델 점수 매기기][score-model]의 오른쪽 입력 포트입니다. 출력은 관심 있는 사항이 예측 클래스(점수가 매겨진 레이블)인지 점수가 매겨진 확률인지 아니면 둘 다인지에 따라 선택합니다. 이 예에서는 둘 다에 관심이 있다고 가정합니다. 원하는 출력 열을 선택하려면 [데이터 집합의 열 선택][select-columns] 모듈을 사용합니다. [데이터 집합의 열 선택][select-columns] 모듈을 클릭하고, **열 선택기 시작**을 클릭한 다음 **점수가 매겨진 레이블** 및 **점수가 매겨진 확률**을 선택합니다. [데이터 집합의 열 선택][select-columns] 모듈의 출력 포트를 설정하고 다시 실행하면 **웹 서비스 게시** 단추를 클릭하여 점수 매기기 실험을 웹 서비스로 게시할 준비가 완료될 것입니다. 마지막 실험은 그림 4와 같이 표시됩니다.
+이제 웹 서비스의 입력 및 출력을 설정해야 합니다. 입력은 붓꽃 기능 입력인 [모델 점수 매기기][score-model]의 오른쪽 입력 부분입니다. 출력은 관심 있는 사항이 예측 클래스(점수가 매겨진 레이블)인지 점수가 매겨진 확률인지 아니면 둘 다인지에 따라 선택합니다. 이 예에서는 둘 다에 관심이 있다고 가정합니다. 원하는 출력 열을 선택하려면 [데이터 집합의 열 선택][select-columns] 모듈을 사용합니다. [데이터 집합의 열 선택][select-columns] 모듈을 클릭하고, **열 선택기 시작**을 클릭한 다음 **점수가 매겨진 레이블** 및 **점수가 매겨진 확률**을 선택합니다. [데이터 집합의 열 선택][select-columns] 모듈의 출력 포트를 설정하고 다시 실행하면 **웹 서비스 게시** 단추를 클릭하여 점수 매기기 실험을 웹 서비스로 게시할 준비가 완료될 것입니다. 마지막 실험은 그림 4와 같이 표시됩니다.
 
 ![붓꽃 2클래스 분류 실험](./media/machine-learning-interpret-model-results/4.png)
 
@@ -151,7 +152,7 @@ Azure Machine Learning에는 이러한 각 분류 유형을 다루는 여러 모
 
 그림 11. 자동차 가격 회귀 문제 실험
 
-[모델 점수 매기기][score-model] 모듈을 시각화하면 그 결과는 그림 12와 비슷합니다.
+[모델 점수 매기기][score-model] 모듈을 시각화하면 결과는 그림 12와 비슷합니다.
 
 ![자동차 가격 예측 문제의 점수 매기기 결과](./media/machine-learning-interpret-model-results/12.png)
 
@@ -240,7 +241,7 @@ Azure Machine Learning의 [매치박스 추천 학습][train-matchbox-recommende
 
 ![매치박스 추천](./media/machine-learning-interpret-model-results/19_1.png)
 
-추천 시스템의 일반적인 Azure Machine Learning 실험은 그림 20과 비슷합니다. 추천 시스템 모듈을 사용하는 방법은 [매치박스 추천 학습][train-matchbox-recommender] 및 [매치박스 추천 점수 매기기][score-matchbox-recommender]를 참조하세요.
+추천 시스템의 일반적인 Azure Machine Learning 실험은 그림 20과 비슷합니다. 추천 시스템 모듈 사용 방법에 대한 자세한 내용은 [매치박스 추천 학습][train-matchbox-recommender] 및 [매치박스 추천 점수 매기기][score-matchbox-recommender]를 참조하세요.
 
 ![추천 시스템 실험](./media/machine-learning-interpret-model-results/20.png)
 
@@ -314,9 +315,4 @@ Azure Machine Learning의 [매치박스 추천 학습][train-matchbox-recommende
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

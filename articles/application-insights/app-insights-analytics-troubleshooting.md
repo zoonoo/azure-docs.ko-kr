@@ -1,5 +1,5 @@
 ---
-title: "Analytics 문제 해결 - Application Insights의 강력한 검색 도구 | Microsoft Docs"
+title: "Azure Application Insights 내 Analytics 문제 해결 | Microsoft Docs"
 description: "Application Insights Analytics에 문제가 있습니까? 여기에서 시작합니다. "
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 07/11/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 263e8955608d87869937ea6584f88233fd690f72
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 82a1888cca687ce60f811c2c3cec6b971d4a0461
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,21 +32,21 @@ ms.openlocfilehash: 263e8955608d87869937ea6584f88233fd690f72
 
 확장을 사용하지 않도록 설정하거나 다른 브라우저를 사용합니다.
 
-## <a name="a-namee-aa-unexpected-error"></a><a name="e-a"></a> "예기치 않은 오류"
+## <a name="e-a"></a> "예기치 않은 오류"
 ![예기치 않은 오류 화면](./media/app-insights-analytics-troubleshooting/010.png)
 
 포털 런타임에 내부 오류 발생 – 처리되지 않은 예외.
 
 * 브라우저의 캐시를 삭제합니다. 
 
-## <a name="a-namee-ba403-please-try-to-reload"></a><a name="e-b"></a>403 ... 다시 로드하세요.
+## <a name="e-b"></a>403 ... 다시 로드하세요.
 ![403 ... 다시 로드하십시오.](./media/app-insights-analytics-troubleshooting/020.png)
 
 인증 관련 오류 발생(인증 또는 액세스 토크 생성 시). 브라우저 설정을 변경해야 포털 복구가 가능할 수도 있습니다.
 
 * 브라우저에서 [타사 쿠키가 사용되도록 설정되어 있는지](#cookies) 확인합니다. 
 
-## <a name="a-nameauthenticationa403-verify-security-zone"></a><a name="authentication"></a>403... 보안 영역 확인
+## <a name="authentication"></a>403... 보안 영역 확인
 ![403... 보안 영역 확인](./media/app-insights-analytics-troubleshooting/030.png)
 
 인증 관련 오류 발생(인증 또는 액세스 토크 생성 시). 브라우저 설정을 변경해야 포털 복구가 가능할 수도 있습니다.
@@ -68,12 +69,12 @@ ms.openlocfilehash: 263e8955608d87869937ea6584f88233fd690f72
      https://login.microsoftonline.com<br/>
      https://login.windows.net
 
-## <a name="a-namee-da404-resource-not-found"></a><a name="e-d"></a>404 ... 리소스를 찾을 수 없음
+## <a name="e-d"></a>404 ... 리소스를 찾을 수 없음
 ![404 ... 리소스를 찾을 수 없음](./media/app-insights-analytics-troubleshooting/040.png)
 
 응용 프로그램 리소스가 Application Insights에서 삭제되어서 더는 사용할 수 없습니다. URL을 Analytics 페이지에 저장하면 이 오류가 발생합니다.
 
-## <a name="a-namee-ea403-no-authorization"></a><a name="e-e"></a>403 ... 권한 없음
+## <a name="e-e"></a>403 ... 권한 없음
 ![403 ... 권한 없음](./media/app-insights-analytics-troubleshooting/050.png)
 
 Analytics에서 이 응용 프로그램을 열 권한이 없습니다.
@@ -81,7 +82,7 @@ Analytics에서 이 응용 프로그램을 열 권한이 없습니다.
 * 다른 사람에게 링크를 받았습니까? [이 리소스 그룹의 독자 또는 참가자](app-insights-resources-roles-access-control.md)에 포함되어 있는지 확인합니다.
 * 다른 자격 증명으로 링크를 저장했습니까? [Azure 포털](https://portal.azure.com)을 열고 로그아웃한 다음, 다시 링크를 열고 올바른 자격 증명을 입력합니다.
 
-## <a name="a-namehtml-storagea403-html5-storage"></a><a name="html-storage"></a>403 ... HTML5 저장소
+## <a name="html-storage"></a>403 ... HTML5 저장소
 포털에서는 HTML5 localStorage와 sessionStorage를 사용합니다.
 
 * Chrome: 설정, 개인 정보 보호, 콘텐츠 설정.
@@ -89,31 +90,24 @@ Analytics에서 이 응용 프로그램을 열 권한이 없습니다.
 
 ![403 ... HTML5 저장소를 사용하려고 합니다.](./media/app-insights-analytics-troubleshooting/060.png)
 
-## <a name="a-namee-ga404-subscription-not-found"></a><a name="e-g"></a>404 ... 구독을 찾을 수 없음
+## <a name="e-g"></a>404 ... 구독을 찾을 수 없음
 ![404 ... 구독을 찾을 수 없음](./media/app-insights-analytics-troubleshooting/070.png)
 
 URL이 올바르지 않습니다. 
 
 * [Application Insights 포털](https://portal.azure.com)에서 앱 리소스를 엽니다. 그런 다음 Analytics 단추를 사용합니다.
 
-## <a name="a-namee-ha404-page-doesnt-exist"></a><a name="e-h"></a>404 ... 페이지가 없습니다.
+## <a name="e-h"></a>404 ... 페이지가 없습니다.
 ![404 ... 페이지가 존재하지 않습니다.](./media/app-insights-analytics-troubleshooting/080.png)
 
 URL이 올바르지 않습니다.
 
 * [Application Insights 포털](https://portal.azure.com)에서 앱 리소스를 엽니다. 그런 다음 Analytics 단추를 사용합니다.
 
-## <a name="a-namecookiesaenable-third-party-cookies"></a><a name="cookies"></a>타사 쿠키 사용
+## <a name="cookies"></a>타사 쿠키 사용
   [타사 쿠키를 사용하지 않도록 설정하는 방법](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers)을 참조하세요. 하지만 타사 쿠키를 **사용하도록 설정**해야 합니다.
 
-## <a name="a-namee-xaif-all-else-fails"></a><a name="e-x"></a>모든 작업이 실패하면
-[문의하세요](app-insights-get-dev-support.md).
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,21 +1,22 @@
 ---
-title: "Analytics 사용 - Application Insights의 강력한 검색 도구 | Microsoft Docs"
+title: "Analytics 사용 - Azure Application Insights의 강력한 검색 도구 | Microsoft Docs"
 description: "Application Insights의 강력한 진단 검색 도구인 Analytics를 사용하는 방법에 대해 설명합니다. "
 services: application-insights
 documentationcenter: 
 author: danhadari
-manager: douge
+manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: f9c02c11c6f0143f8da7a329f23033120f31ba59
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: d7f6f9582a3d15563c19d69845836a92a35ee95e
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -154,7 +155,7 @@ IntelliSense에 사용할 수 있는 연산자 및 식 요소를 지정하라는
 ![제한된 막대가 있는 차트](./media/app-insights-analytics-using/pin-08.png)
 
 ## <a name="export-to-excel"></a>Excel로 내보내기
-쿼리를 실행한 후 .csv 파일을 다운로드할 수 있습니다. 이렇게 하려면 **Excel로 내보내기**를 클릭합니다.
+쿼리를 실행한 후 .csv 파일을 다운로드할 수 있습니다. **Excel로 내보내기**를 클릭합니다.
 
 ## <a name="export-to-power-bi"></a>Power BI에 내보내기
 쿼리에 커서를 놓고 **Power BI로 내보내기**를 선택합니다.
@@ -167,10 +168,22 @@ Power BI를 사용하여 다양한 원본에서 데이터를 결합하는 대시
 
 [Power BI에 내보내기에 대한 자세한 정보](app-insights-export-power-bi.md)
 
+## <a name="deep-link"></a>딥 링크
+
+다른 사용자에게 보낼 수 있는 **공유 링크로 내보내기**에서 링크를 가져옵니다. 사용자에게 [리소스 그룹에 대한 액세스 권한](app-insights-resources-roles-access-control.md)이 있는 경우 해당 쿼리가 Analytics UI에서 열립니다.
+
+(링크에서 쿼리 텍스트는 "?q=", gzip 압축 및 base-64 인코딩 다음에 나타납니다. 코드를 작성하여 사용자에게 제공하는 딥 링크를 생성할 수 있습니다. 단, [REST API](https://dev.applicationinsights.io/)를 사용하여 코드에서 분석을 실행하는 것이 좋습니다.)
+
 
 ## <a name="automation"></a>Automation
 
-[데이터 액세스 REST API](https://dev.applicationinsights.io/)(예: PowerShell 사용)를 통해 Analytics 쿼리를 실행할 수 있습니다.
+[데이터 액세스 REST API](https://dev.applicationinsights.io/)를 실행하여 분석 쿼리를 실행합니다. [예](https://dev.applicationinsights.io/apiexplorer/query?appId=DEMO_APP&apiKey=DEMO_KEY&query=requests%0A%7C%20where%20timestamp%20%3E%3D%20ago%2824h%29%0A%7C%20count)(PowerShell 사용):
+
+```PS
+curl "https://api.applicationinsights.io/beta/apps/DEMO_APP/query?query=requests%7C%20where%20timestamp%20%3E%3D%20ago(24h)%7C%20count" -H "x-api-key: DEMO_KEY"
+```
+
+분석 UI와는 달리 REST API가 타임스탬프 제한을 쿼리에 자동으로 추가하지 않습니다. 엄청난 응답을 받지 않으려면 반드시 where-clause를 직접 추가해야 합니다.
 
 
 
@@ -210,13 +223,10 @@ CSV 파일에서 데이터를 가져올 수 있습니다. 일반적인 용도는
 
 [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html)를 사용하는 경우 Analytics를 사용하여 로그를 쿼리할 수 있습니다. [Analytics로 데이터를 파이프하는 플러그 인](https://github.com/Microsoft/logstash-output-application-insights)을 사용합니다. 
 
+## <a name="video"></a>비디오
 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

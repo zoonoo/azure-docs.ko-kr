@@ -4,7 +4,7 @@ description: "Windows Phone Silverlight 앱에서 Azure Mobile Engagement 도달
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: d3516a6b-db9f-4cdb-a475-4148edf81af1
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 72f69e334172ad69bedb9c8fc4d270a607d1598f
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -282,10 +283,5 @@ UI를 사용자 지정하려면 `EngagementReachHandler` 클래스의 서브클�
 [응용 프로그램 정책]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
 [Content Policies]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
 [특정 응용 프로그램 유형에 대한 추가 요구 사항]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

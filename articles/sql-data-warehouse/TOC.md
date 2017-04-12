@@ -3,16 +3,15 @@
 ## [SQL Data Warehouse란 무엇입니까?](sql-data-warehouse-overview-what-is.md)
 ## [데이터 웨어하우스 워크로드](sql-data-warehouse-overview-workload.md)
 ## [분선 데이터](sql-data-warehouse-distributed-data.md)
+## [질문과 대답](sql-data-warehouse-overview-faq.md)
 
 # 시작
 
-## SQL 데이터 웨어하우스 만들기
-### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## [초보자를 위한 자습서](sql-data-warehouse-get-started-tutorial.md)
 ## [모범 사례](sql-data-warehouse-best-practices.md)
 ## [관리](sql-data-warehouse-overview-manage.md)
 ## [지원 받기](sql-data-warehouse-get-started-create-support-ticket.md)
+## [문제 해결](sql-data-warehouse-troubleshoot.md)
 
 # 방법
 
@@ -27,11 +26,16 @@
 ## 연결
 
 ### [개요](sql-data-warehouse-connect-overview.md)
-### [연결 문자열](sql-data-warehouse-connection-strings.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Visual Studio 설치](sql-data-warehouse-install-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [연결 문자열](sql-data-warehouse-connection-strings.md)
+
+## 생성
+### [Azure Portal](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## 개발
 
@@ -78,9 +82,9 @@
 
 ### [개요](sql-data-warehouse-overview-load.md)
 ### [샘플 데이터](sql-data-warehouse-load-sample-databases.md)
+### [Azure 데이터 레이크 저장소](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [SQL Server에서 BCP](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 ### [데이터 팩터리](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [PolyBase 지침](sql-data-warehouse-load-polybase-guide.md)
@@ -98,7 +102,7 @@
 ### [데이터 마이그레이션](sql-data-warehouse-migrate-data.md)
 ### [프리미엄 저장소로 마이그레이션](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## 일시 중지 및 확장
+## 관리 계산
 
 ### [개요](sql-data-warehouse-manage-compute-overview.md)
 ### [쉬운 테이블](sql-data-warehouse-manage-compute-portal.md)
@@ -112,7 +116,6 @@
 ### [Columnstore 압축](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [쿼리](sql-data-warehouse-manage-monitor.md)
 ### [워크로드](sql-data-warehouse-develop-concurrency.md)
-### [문제 해결](sql-data-warehouse-troubleshoot.md)
 
 ## 보안
 
@@ -143,8 +146,3 @@
 ### [비즈니스 인텔리전스](sql-data-warehouse-partner-business-intelligence.md)
 ### [데이터 통합](sql-data-warehouse-partner-data-integration.md)
 ### [데이터 관리](sql-data-warehouse-partner-data-management.md)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

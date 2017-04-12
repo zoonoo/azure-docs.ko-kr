@@ -4,7 +4,7 @@ description: "모바일 서비스 응용 프로그램을 앱 서비스 모바일
 services: app-service\mobile
 documentationcenter: 
 author: adrianhall
-manager: dwrede
+manager: adrianha
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: c157517124d8c4c17cff6e8701135e16d41ee194
-ms.openlocfilehash: b1c7f3951d8865feb1cd7600f3bb6d1741d7cde0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 596bcd2f38a39cc1404d422214ab49ae79df744c
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -43,7 +44,7 @@ ms.openlocfilehash: b1c7f3951d8865feb1cd7600f3bb6d1741d7cde0
 * 다른 ASP.NET 프로젝트 형식 및 경로를 지원합니다. 이제 모바일 백 엔드 프로젝트와 동일한 프로젝트에서 MVC 및 Web API 컨트롤러를 호스팅할 수 있습니다.
 * 새로운 앱 서비스 인증 기능을 지원하며 이는 웹 및 모바일 앱에서 일반 인증 구성을 사용할 수 있게 합니다.
 
-## <a name="a-nameoverviewabasic-upgrade-overview"></a><a name="overview"></a>기본 업그레이드 개요
+## <a name="overview"></a>기본 업그레이드 개요
 대부분의 경우 새 모바일 앱 서버 SDK로 전환한 다음 새 모바일 앱 인스턴스에 코드를 다시 게시하기만 하면 간단히 업그레이드할 수 있습니다. 그러나 고급 인증 시나리오 및 예약된 작업 사용과 같이 추가 구성이 필요한 일부 시나리오도 있습니다. 각 시나리오는 이후 섹션에서 설명합니다.
 
 > [!TIP]
@@ -62,7 +63,7 @@ ms.openlocfilehash: b1c7f3951d8865feb1cd7600f3bb6d1741d7cde0
 3. 새 버전의 클라이언트 응용 프로그램 릴리스
 4. (선택 사항) 원래 마이그레이션된 인스턴스 삭제
 
-## <a name="a-namemobile-app-versionacreating-a-second-application-instance"></a><a name="mobile-app-version"></a>두 번째 응용 프로그램 인스턴스 만들기
+## <a name="mobile-app-version"></a>두 번째 응용 프로그램 인스턴스 만들기
 업그레이드의 첫 번째 단계는 새 버전의 응용 프로그램을 호스트할 모바일 앱 리소스를 만드는 것입니다. 기존 모바일 서비스를 이미 마이그레이션한 경우 동일한 호스팅 계획에 이 버전을 만들려고 합니다. [Azure Portal] 을 열고 마이그레이션된 응용 프로그램으로 이동합니다. 앱 서비스 계획에서 실행 중인지 확인합니다.
 
 다음으로 [.NET 백 엔드 만들기 지침](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)을 수행하여 두 번째 응용 프로그램 인스턴스를 만듭니다. 앱 서비스 계획 또는 "호스팅 계획"을 선택하라는 메시지가 나타나면 마이그레이션된 응용 프로그램의 계획을 선택합니다.
@@ -214,7 +215,7 @@ Azure 모바일 서비스에서 시스템 속성은 기본적으로 전송되지
     ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
     traceWriter.Info("Hello, World");  
 
-## <a name="a-nameauthenticationaauthentication-considerations"></a><a name="authentication"></a>인증 고려 사항
+## <a name="authentication"></a>인증 고려 사항
 이제 모바일 서비스의 인증 구성 요소는 앱 서비스 인증/권한 부여 기능으로 옮겨졌습니다. [모바일 앱에 인증 추가](app-service-mobile-ios-get-started-users.md) 항목을 읽어서 사이트에 이 옵션을 사용하는 데 대해 알아볼 수 있습니다.
 
 AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그램에서 기존 등록을 활용할 수 있어야 합니다. 단순히 ID 공급자의 포털로 이동하고 새 리디렉션 URL을 등록에 추가해야 합니다. 그런 다음 클라이언트 ID 및 암호를 통해 앱 서비스 인증/권한 부여를 구성합니다.
@@ -237,7 +238,7 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 ### <a name="custom-authentication"></a>사용자 지정 인증
 앱이 사용자 지정 인증 솔루션을 사용하는 경우 업그레이드된 사이트가 시스템에 액세스하도록 하려 합니다. [.NET 서버 SDK 개요] 에서 사용자 지정 인증에 대한 새 지침을 수행하여 솔루션을 통합할 수 있습니다. 사용자 지정 인증 구성 요소가 여전히 미리 보기 상태입니다.
 
-## <a name="a-nameupdating-clientsaupdating-clients"></a><a name="updating-clients"></a>클라이언트 업데이트
+## <a name="updating-clients"></a>클라이언트 업데이트
 작동하는 모바일 앱 백 엔드가 있으면 그것을 사용하는 클라이언트 응용 프로그램의 새 버전에서 작동할 수 있습니다. 또한 모바일 앱은 클라이언트 SDK의 새 버전을 포함하고 위의 서버 업그레이드와 유사합니다. 따라서 모바일 앱 버전을 설치하기 전에 모바일 서비스 SDK에 대한 모든 참조를 제거해야 합니다.
 
 버전 간의 주요 변경 사항 중 하나는 생성자가 응용 프로그램 키를 더 이상 필요로 하지 않는다는 점입니다. 이제 모바일 앱의 URL에 간단히 전달할 수 있습니다. 예를 들어 .NET 클라이언트에서 `MobileServiceClient` 생성자는 다음과 같습니다.
@@ -260,21 +261,16 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 [Azure Portal]: https://portal.azure.com/
 [구성]: https://manage.windowsazure.com/
 [모바일 앱 정의]: app-service-mobile-value-prop.md
-[웹 사이트와 Mobile Services를 이미 사용하고 있습니다. App Service가 내게 어떤 도움을 주나요?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
+[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [모바일 앱 서버 SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Mobile Apps 만들기]: app-service-mobile-xamarin-ios-get-started.md
-[Mobile Apps에 푸시 알림 추가]: app-service-mobile-xamarin-ios-get-started-push.md
-[모바일 앱에 인증 추가]: app-service-mobile-xamarin-ios-get-started-users.md
+[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
+[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
+[Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure 스케줄러]: /en-us/documentation/services/scheduler/
 [웹 작업]: ../app-service-web/websites-webjobs-resources.md
 [.NET 서버 SDK를 사용하는 방법]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Mobile Services에서 App Service 모바일 앱으로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
-[기존 Mobile Services를 App Service로 마이그레이션]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [앱 서비스 가격 책정]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET 서버 SDK 개요]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

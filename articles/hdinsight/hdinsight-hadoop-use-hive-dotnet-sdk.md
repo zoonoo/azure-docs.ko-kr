@@ -9,15 +9,17 @@ tags: azure-portal
 author: mumian
 ms.assetid: 4e291890-f8b4-426c-b5e8-d4fd512ff042
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 4ef2546b34461a8303c5ced22adec0d1e36dfa96
-ms.openlocfilehash: 47849e2700d5da391a5cc3b3f1dbf00dd8c8deea
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 6e9626cf8da4e4106dfedc164af0f0ba52bf2f06
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -35,7 +37,7 @@ HDInsight.NET SDK를 사용하여 Hive 쿼리를 제출하는 방법에 대해 �
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **HDInsight에 Hadoop 클러스터**. [HDInsight에서 Linux 기반 Hadoop 사용 시작](hdinsight-use-sqoop.md#create-cluster-and-sql-database)을 참조하세요.
-* **Visual Studio 2012/2013/2015**.
+* **Visual Studio 2013/2015/2017**
 
 ## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Hive 쿼리 제출
 HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 
@@ -150,10 +152,5 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

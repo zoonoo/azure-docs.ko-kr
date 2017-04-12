@@ -3,7 +3,7 @@ title: "Microsoft Azure Storage용 Python을 사용하는 클라이언트 쪽 �
 description: "Python용 Azure 저장소 클라이언트 라이브러리는 Azure 저장소 응용 프로그램의 보안을 최대화하기 위해 클라이언트 쪽 암호화를 지원합니다."
 services: storage
 documentationcenter: python
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: f9bf7981-9948-4f83-8931-b15679a09b8a
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 4eff4ebb948f88a93b403d6375c1342918120ac5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -120,7 +121,7 @@ tableservice batch() 메서드를 통해 배치가 컨텍스트 관리자로 생
 
 저장소 클라이언트 라이브러리는 제공된 KEK 및 키 확인자가 다음 인터페이스를 구현할 것으로 예상합니다. [Azure 주요 자격 증명 모음](https://azure.microsoft.com/services/key-vault/) 지원이 보류 중이며, 완료 시 이 라이브러리에 통합될 예정입니다.
 
-## <a name="client-api-interface"></a>클라이언트 API / 인터페이스
+## <a name="client-api--interface"></a>클라이언트 API / 인터페이스
 저장소 서비스 개체(예: blockblobservice)가 생성된 후에 사용자는 암호화 정책 key_encryption_key, key_resolver_function 및 require_encryption을 구성하는 필드에 값을 할당할 수 있습니다. 사용자는 KEK만, 확인자만 또는 둘 다를 제공할 수 있습니다. key_encryption_key는 key 래핑/래핑 해제에 대한 논리를 제공하고 키 식별자를 사용하여 식별 되는 기본 키 유형입니다. key_resolver_function은 암호 해독 프로세스에서 키를 해독하기 위해 사용됩니다. 지정된 키 식별자에 대해 유효한 KEK를 반환합니다. 이것은 사용자에게 여러 위치에서 관리되는 여러 키 중 하나를 선택할 수 있게 합니다.
 
 KEK는 데이터를 성공적으로 암호화하기 위해 다음 메서드를 구현해야 합니다.
@@ -241,8 +242,3 @@ encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ## <a name="next-steps"></a>다음 단계
 *  [Java PyPi 패키지에 대한 Azure 저장소 클라이언트 라이브러리](https://pypi.python.org/pypi/azure-storage)
 *  [Python 소스 코드용 Azure 저장소 클라이언트 라이브러리](https://github.com/Azure/azure-storage-python)
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
+ms.lasthandoff: 03/18/2017
 
 
 ---
@@ -28,17 +29,19 @@ ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 ![클라우드의 MFA](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
-## <a name="prerequisites"></a>필수 조건
-사용자가 Azure Multi-Factor Authentication을 사용할 수 있도록 하려면 다음 필수 조건을 충족해야 합니다.
+## <a name="prerequisite"></a>필수 요소
+[Azure 구독 등록](https://azure.microsoft.com/pricing/free-trial/) - 아직 Azure 구독이 없는 경우 등록해야 합니다. Azure MFA를 시작하고 사용하려면 평가판 구독을 사용할 수 있습니다.
 
-1. [Azure 구독 등록](https://azure.microsoft.com/pricing/free-trial/) - 아직 Azure 구독이 없는 경우 등록해야 합니다. Azure MFA를 시작하고 사용하려면 평가판 구독을 사용할 수 있습니다.
-2. [Multi-Factor Auth 공급자를 만들고](multi-factor-authentication-get-started-auth-provider.md) 디렉터리에 할당하거나 [사용자에게 라이선스를 할당](multi-factor-authentication-get-started-assign-licenses.md)합니다.
+## <a name="enable-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 사용
+사용자가 Azure Multi-Factor Authentication을 포함하는 라이선스를 가지고 있는 한 Azure MFA를 설정하도록 수행할 필요가 없습니다. 개별 사용자 단위로&2;단계 인증 요구를 시작할 수 있습니다. Azure MFA를 활성화하는 라이선스는 다음과 같습니다.
+- Azure Multi-Factor Authentication
+- Azure Active Directory Premium
+- Enterprise Mobility + Security
 
-> [!NOTE]
-> 라이선스는 Azure MFA, Azure AD Premium 또는 EMS(Enterprise Mobility Suite) 사용자가 사용할 수 있습니다.  MFA는 Azure AD Premium 및 EMS에 포함되어 있습니다. 라이선스가 충분한 경우 인증 공급자를 만들 필요가 없습니다.
+이러한 세 가지 라이선스 중 하나가 없거나 모든 사용자를 포함할 충분한 라이선스가 없는 경우에도 괜찮습니다. 별도 단계를 수행하고 디렉터리에 [Multi-Factor Auth 공급자를 만들](multi-factor-authentication-get-started-auth-provider.md)어야 합니다.
 
-## <a name="turn-on-two-step-verification-for-users"></a>사용자에 대한 2단계 확인을 설정합니다.
-사용자에 대한 2단계 확인을 요구하려면 사용자의 상태를 사용 안 함에서 사용으로 변경합니다.  사용자 상태에 대한 자세한 내용은 [Azure Multi-Factor Authentication의 사용자 상태](multi-factor-authentication-get-started-user-states.md)를 참조하세요.
+## <a name="turn-on-two-step-verification-for-users"></a>사용자에 대한&2;단계 확인을 설정합니다.
+사용자에 대한&2;단계 확인을 요구하려면 사용자의 상태를 사용 안 함에서 사용으로 변경합니다.  사용자 상태에 대한 자세한 내용은 [Azure Multi-Factor Authentication의 사용자 상태](multi-factor-authentication-get-started-user-states.md)를 참조하세요.
 
 다음 절차를 사용하여 사용자에 대해 MFA를 사용하도록 설정합니다.
 
@@ -60,9 +63,9 @@ ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 10. 사용자의 상태가 **사용 안 함**에서 **사용**으로 변경됩니다.
     ![사용자 사용 설정](./media/multi-factor-authentication-get-started-cloud/user.png)
 
-사용자를 사용하도록 설정하면 전자 메일을 통해 알려야 합니다. 다음에 로그인하려는 경우 2단계 확인에 대한 해당 계정을 등록하라는 메시지가 표시됩니다. 2단계 확인을 사용하기 시작하면 비 브라우저 앱이 잠기지 않도록 방지하려면 앱 암호를 설정해야 합니다.
+사용자를 사용하도록 설정하면 전자 메일을 통해 알려야 합니다. 다음에 로그인하려는 경우&2;단계 확인에 대한 해당 계정을 등록하라는 메시지가 표시됩니다. 2단계 확인을 사용하기 시작하면 비 브라우저 앱이 잠기지 않도록 방지하려면 앱 암호를 설정해야 합니다.
 
-## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>PowerShell을 사용하여 2단계 확인 자동 켜기
+## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>PowerShell을 사용하여&2;단계 확인 자동 켜기
 [Azure AD PowerShell](/powershell/azureps-cmdlets-docs)을 사용하여 [상태](multi-factor-authentication-whats-next.md)를 변경하려면 다음을 사용할 수 있습니다.  `$st.State` 를 다음 중 하나로 변경할 수 있습니다.
 
 * 사용
@@ -97,10 +100,5 @@ PowerShell을 사용하면 많은 사용자에 대해 사용을 설정할 수 �
 
 ## <a name="next-steps"></a>다음 단계
 클라우드에서 Azure Multi-Factor Authentication을 설정했으므로 배포를 구성 및 설정할 수 있습니다. 자세한 내용은 [Azure Multi-Factor Authentication 구성](multi-factor-authentication-whats-next.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

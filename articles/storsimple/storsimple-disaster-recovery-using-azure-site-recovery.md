@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery를 사용하여 StorSimple의 파일 공유에 대한 DR 자동화 | Microsoft Docs"
-description: "StorSimple 저장소에서 호스트되는 파일 공유에 대한 재해 복구 솔루션을 만들기 위한 단계 및 모범 사례를 설명합니다."
+title: "Azure Site Recovery로 StorSimple 파일 공유 DR 자동화 | Microsoft Docs"
+description: "Microsoft Azure StorSimple 저장소에서 호스팅되는 파일 공유에 대한 재해 복구 솔루션을 만들기 위한 단계와 모범 사례에 대해 설명합니다."
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 05/16/2016
 ms.author: vidarmsft
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
-ms.openlocfilehash: d454c138b75bbf3227dd1d5f52594e3c78e15766
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 700dffe72af853d0daa9af06c0b316e0363ab30b
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -122,7 +123,7 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
    > 이렇게 하면 파일 공유를 일시적으로 사용할 수 없게 됩니다.
    >
    >
-2. Azure Site Recovery 포털에서 파일 서버 VM의 [가상 컴퓨터 보호를 사용](../site-recovery/site-recovery-hyper-v-site-to-azure.md#step-6-enable-replication)하도록 설정합니다.
+2. Azure Site Recovery 포털에서 파일 서버 VM의 [가상 컴퓨터 보호를 사용](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication)하도록 설정합니다.
 3. 초기 동기화가 시작되면 대상을 다시 연결할 수 있습니다. iSCSI 초기자로 이동하여 StorSimple 장치를 선택한 다음 **연결**을 클릭합니다.
 4. 동기화가 완료되고 VM 상태가 **보호됨**이면 VM을 선택하고 **구성** 탭을 선택한 다음 VM 네트워크(장애 조치(failover)된 VM이 속할 네트워크)를 적절하게 업데이트합니다. 네트워크가 표시되지 않으면 동기화가 아직 진행되고 있는 것입니다.
 
@@ -301,9 +302,4 @@ VM에서 [Azure 가상 컴퓨터 준비 평가 도구](http://azure.microsoft.co
 
 ## <a name="summary"></a>요약
 Azure Site Recovery를 사용하여 StorSimple 저장소에 호스트된 파일 공유가 있는 파일 서버 VM에 대한 전체 자동화된 재해 복구 계획을 만들 수 있습니다. 중단이 발생할 경우 어디서나 몇 초 이내에 장애 조치(failover)를 시작하고 몇 분 만에 응용 프로그램을 가동할 수 있습니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

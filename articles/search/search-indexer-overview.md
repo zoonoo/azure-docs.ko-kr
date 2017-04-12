@@ -18,6 +18,7 @@ ms.author: heidist
 translationtype: Human Translation
 ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
 ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
+ms.lasthandoff: 01/19/2017
 
 ---
 
@@ -74,9 +75,4 @@ Azure SQL 또는 DocumentDB와 같은 일반적으로 사용 가능한 인덱서
 * [Azure 테이블 저장소](search-howto-indexing-azure-tables.md)
 * [Azure 검색 Blob 인덱서를 사용하여 CSV Blob 인덱싱(미리 보기)](search-howto-index-csv-blobs.md)
 * [Azure 검색 Blob 인덱서를 사용하여 JSON Blob 인덱싱(미리 보기)](search-howto-index-json-blobs.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Data Factory - 이름 지정 규칙 | Microsoft Docs"
+title: "Azure Data Factory 엔터티 이름 지정 규칙 | Microsoft Docs"
 description: "데이터 팩터리 엔터티에 대한 이름 지정 규칙을 설명합니다."
 services: data-factory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: db9bdc5eeedf5f57605862ea7e8c2cfe63074b19
+ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
+ms.openlocfilehash: 18c212867ac6e380d3ee01c590b22f9168f762db
 
 
 ---
-# <a name="azure-data-factory---naming-rules"></a>Azure 데이터 팩터리 - 이름 지정 규칙
+# <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - 이름 지정 규칙
 다음 테이블에서 데이터 팩터리 아티팩트에 대한 이름 지정 규칙을 제공합니다.
 
 | 이름 | 이름 고유성 | 유효성 검사 |
@@ -32,6 +32,6 @@ ms.openlocfilehash: db9bdc5eeedf5f57605862ea7e8c2cfe63074b19
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

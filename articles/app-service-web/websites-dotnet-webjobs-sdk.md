@@ -3,8 +3,8 @@ title: "Azure WebJobs SDK 정의"
 description: "Azure WebJobs SDK에 대해 소개하고 SDK의 정의, SDK가 유용한 일반적인 시나리오 및 코드 샘플에 대해 설명합니다."
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: ggailey777
+manager: erikre
 editor: jimbe
 ms.assetid: 8281267b-572b-4b14-a328-6704493ea682
 ms.service: app-service-web
@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2d21cd34427921ad789b4c95212c07caddd5a966
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="what-is-the-azure-webjobs-sdk"></a>Azure WebJobs SDK 정의
-## <a name="a-idoverviewaoverview"></a><a id="overview"></a>개요
+## <a id="overview"></a>개요
 이 문서에서는 WebJobs SDK의 정의에 대해 설명하고 이 SDK가 유용한 몇 가지 일반적인 시나리오를 검토하며 코드에서 SDK를 사용하는 방법을 간략하게 제공합니다.
+
+[!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
 [WebJobs](websites-webjobs-resources.md) 는 웹앱, API 앱 또는 모바일 앱과 동일한 컨텍스트에서 프로그램이나 스크립트를 실행할 수 있도록 하는 Azure 앱 서비스의 기능입니다. [WebJobs SDK](websites-webjobs-resources.md) 의 목적은 WebJob이 이미지 처리, 큐 처리, RSS 집계, 파일 유지 관리, 전자 메일 보내기 등을 수행하는 일반적인 작업에 대해 작성하는 코드를 간소화하는 것입니다. WebJobs SDK에는 Azure 저장소 및 서비스 버스 작업, 작업 예약 및 오류 처리, 기타 여러 일반적인 시나리오를 위한 기본 제공 기능이 있습니다. 또한 확장 가능하도록 디자인되었습니다. [WebJobs SDK는 오픈 소스](https://github.com/Azure/azure-webjobs-sdk/)이며 [확장에 대한 오픈 소스 리포지토리](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)가 있습니다.
 
@@ -31,7 +34,7 @@ WebJob SDK에는 다음 구성 요소가 포함되어 있습니다.
 * **NuGet 패키지**. Visual Studio 콘솔 응용 프로그램 프로젝트에 추가하는 NuGet 패키지는 WebJobs SDK 특성으로 메서드를 데코레이팅하여 코드가 사용하는 프레임워크를 제공합니다.
 * **대시보드**. WebJobs SDK의 일부분은 Azure 앱 서비스에 포함되어 있으며 NuGet 패키지를 사용하여 작성하는 프로그램에 풍부한 모니터링 및 진단을 제공합니다. 이러한 모니터링 및 진단 기능을 사용하기 위해 코드를 작성할 필요는 없습니다.
 
-## <a name="a-idscenariosascenarios"></a><a id="scenarios"></a>시나리오
+## <a id="scenarios"></a>시나리오
 다음은 Azure WebJobs SDK로 보다 쉽게 처리할 수 있는 일반적인 시나리오입니다.
 
 * 이미지 처리 또는 기타 CPU 집중 작업. 웹 사이트의 일반적인 기능은 이미지나 비디오를 업로드하는 것입니다. 업로드한 후에 콘텐츠를 조작하려는 경우도 많지만 이 작업을 수행하기 위해 사용자를 기다리게 하고 싶지는 않을 것입니다.
@@ -46,7 +49,7 @@ WebJob SDK에는 다음 구성 요소가 포함되어 있습니다.
 
 WebJobs SDK는 일반적인 오류 처리 시나리오를 손쉽게 처리할 수 있도록 합니다. 함수가 실패하면 알림을 보내도록 경고를 설정할 수 있고, 지정된 시간 내에 함수가 완료되지 않으면 자동으로 취소되도록 시간 제한을 설정할 수 있습니다.
 
-## <a name="a-idcodea-code-samples"></a><a id="code"></a> 코드 샘플
+## <a id="code"></a> 코드 샘플
 Azure 저장소를 사용하는 일반적인 작업을 처리하기 위한 코드는 간단합니다. 콘솔 응용 프로그램의 `Main` 메서드에 작성한 메서드에 대한 호출을 관장하는 `JobHost` 개체를 만듭니다. WebJobs SDK 프레임워크는 사용하는 WebJobs SDK 특성을 토대로 메서드를 호출할 시기와 사용할 매개 변수 값을 파악합니다. SDK는 함수가 호출되도록 하는 조건을 지정하는 *트리거*와 메서드 매개 변수에서 정보를 입출력하는 방법을 지정하는 *바인더*를 제공합니다.
 
 예를 들어 [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) 특성은 큐에 메시지가 수신되면 함수가 호출되도록 할 수 있고, 바이트 배열 또는 사용자 지정 형식에 대해 메시지 형식이 JSON이면 해당 메시지가 자동으로 역직렬화됩니다. [BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) 특성은 Azure 저장소 계정에서 새 Blob을 만들 때마다 프로세스를 트리거합니다.
@@ -129,7 +132,7 @@ WebJobs SDK의 트리거 및 바인더 기능은 작성해야 하는 코드를 �
     }
 ```
 
-## <a name="a-idschedulea-scheduling"></a><a id="schedule"></a> 예약
+## <a id="schedule"></a> 예약
 `TimerTrigger` 특성은 일정에 따라 실행할 함수를 트리거할 수 있도록 합니다. WebJobs SDK `TimerTrigger`를 사용하여 WebJob의 개별 함수를 예약하거나 Azure 전체에 WebJob을 예약할 수 있습니다. 코드 샘플은 다음과 같습니다.
 
 ```
@@ -148,12 +151,12 @@ public class Functions
 ## <a name="extensibility"></a>확장성
 기본 제공되는 기능만 사용하도록 제한되지 않습니다. WebJobs SDK에서는 사용자 지정 트리거와 바인더를 작성할 수 있습니다.  예를 들어, 캐시 이벤트 및 정기적인 일정에 대한 트리거를 작성할 수 있습니다. [오픈 소스 리포지토리](https://github.com/Azure/azure-webjobs-sdk-extensions)에는 [WebJobs SDK 확장성에 대한 자세한 가이드](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)와 트리거 및 바인더 작성을 시작하는데 도움이 될만한 샘플 코드가 포함됩니다.
 
-## <a name="a-idworkerroleausing-the-webjobs-sdk-outside-of-webjobs"></a><a id="workerrole"></a>WebJobs 외부에서 WebJobs SDK 사용
+## <a id="workerrole"></a>WebJobs 외부에서 WebJobs SDK 사용
 WebJobs SDK를 사용하는 프로그램은 표준 콘솔 응용 프로그램이며 WebJob으로 실행할 필요 없이 어디서나 실행할 수 있습니다. 개발 컴퓨터에서는 로컬로 프로그램을 테스트하고, 프로덕션에서는 클라우드 서비스 작업자 역할 또는 Windows 서비스 중 원하는 환경에서 프로그램을 실행할 수 있습니다. 
 
 그러나 대시보드는 Azure 앱 서비스 웹 앱에 대한 확장으로만 사용할 수 있습니다. WebJob 외부에서 실행하되 대시보드는 계속 사용하려는 경우 WebJobs SDK 대시보드 연결 문자열이 참조하는 것과 같은 저장소 계정을 사용하도록 웹 앱을 구성할 수 있습니다. 그러면 해당 웹 앱의 WebJobs 대시보드에 다른 위치에서 실행 중인 프로그램의 함수 실행에 대한 데이터가 표시됩니다. URL https://*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions를 사용하여 대시보드로 이동할 수 있습니다. 자세한 내용은 [WebJobs SDK를 사용한 로컬 개발을 위해 대시보드 가져오기](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)를 참조하세요. 단, 이 블로그 게시물에는 이전 연결 문자열 이름이 표시됩니다. 
 
-## <a name="a-idnostorageadashboard-features"></a><a id="nostorage"></a>대시보드 기능
+## <a id="nostorage"></a>대시보드 기능
 WebJobs SDK는 WebJobs SDK 트리거 또는 바인더를 사용하지 않더라도 몇 가지 이점을 제공합니다.
 
 * 대시보드에서 함수를 호출할 수 있습니다.
@@ -162,14 +165,9 @@ WebJobs SDK는 WebJobs SDK 트리거 또는 바인더를 사용하지 않더라�
 
 자세한 내용은 [함수를 수동으로 호출하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) 및 [로그를 작성하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)을 참조하세요. 
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
+## <a id="nextsteps"></a>다음 단계
 WebJobs SDK에 대한 자세한 내용은 [Azure WebJobs 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
 WebJobs SDK의 최신 개선 사항에 대한 정보는 [릴리스 정보](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

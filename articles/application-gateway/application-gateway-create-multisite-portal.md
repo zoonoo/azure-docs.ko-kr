@@ -1,5 +1,5 @@
 ---
-title: "Azure Portal에서 여러 사이트를 호스트하는 기존 응용 프로그램 게이트웨이 구성 | Microsoft Docs"
+title: "Azure Application Gateway에서 여러 사이트 호스트 | Microsoft Docs"
 description: "이 문서에서는 Azure 포털을 통해 동일한 게이트웨이에서 여러 웹 응용 프로그램을 호스트하는 기존 Azure 응용 프로그램 게이트웨이를 구성하는 지침을 제공합니다."
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
-ms.openlocfilehash: ce548953a6503e146dc67401eaf57f30fe521632
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 90b7e2f7f5327684f173bd7e10f21e65bea8fbe7
 
 
 ---
@@ -143,6 +143,6 @@ Azure 포털(https://portal.azure.com)에서 기존 응용 프로그램 게이�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

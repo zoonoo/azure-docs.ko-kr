@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2016
+ms.date: 03/09/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 3d24c0c29da8c97e5fcff524dc88746982fda77c
-ms.openlocfilehash: a34a30a301e213ad227c21196a0b6299dbc4d357
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 900f0b4c38f08d1e3017954db01cf32362765578
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.openlocfilehash: a34a30a301e213ad227c21196a0b6299dbc4d357
 
 * 활성 Azure 구독. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][lnk_free_trial]을 참조하세요.
 * 시뮬레이트된 장치를 만들기 위한 [Node.js][lnk-node] 버전 0.12.x 이상
-* 새 규칙으로 미리 구성된 솔루션 백 엔드를 수정하기 위한 Microsoft Visual Studio 2015
+* 새 규칙으로 미리 구성된 솔루션 백 엔드를 수정하기 위한 Visual Studio 2015 또는 Visual Studio 2017
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
@@ -216,7 +217,7 @@ ms.openlocfilehash: a34a30a301e213ad227c21196a0b6299dbc4d357
  
 ## <a name="additional-information"></a>추가 정보
 
-연산자 ** > **을 변경하는 것은 좀 더 복잡하여 이 자습서에서 다루지 않습니다. 원하는 연산자를 사용하도록 Stream Analytics 작업을 변경할 수는 있으나 솔루션 포털에서 해당 연산자를 적용하는 것이 더 복잡한 작업입니다. 
+연산자 **>**을 변경하는 것은 좀 더 복잡하여 이 자습서에서 다루지 않습니다. 원하는 연산자를 사용하도록 Stream Analytics 작업을 변경할 수는 있으나 솔루션 포털에서 해당 연산자를 적용하는 것이 더 복잡한 작업입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 사용자 지정 규칙을 만드는 방법을 살펴보았으므로 이제 미리 구성된 솔루션에 대해 자세히 알아볼 수 있습니다.
@@ -228,11 +229,6 @@ ms.openlocfilehash: a34a30a301e213ad227c21196a0b6299dbc4d357
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-node]: http://nodejs.org
-[lnk-builtin-rule]: iot-suite-getstarted-preconfigured-solutions.md#add-a-rule-for-the-new-device
+[lnk-builtin-rule]: iot-suite-getstarted-preconfigured-solutions.md#view-alarms
 [lnk-dynamic-telemetry]: iot-suite-dynamic-telemetry.md
 [lnk-logic-app]: iot-suite-logic-apps-tutorial.md
-
-
-<!--HONumber=Dec16_HO3-->
-
-

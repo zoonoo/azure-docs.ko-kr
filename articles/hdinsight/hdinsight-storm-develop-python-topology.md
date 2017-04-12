@@ -8,27 +8,35 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4b667dda33c61c44090cf89ebeebece0b19c84ea
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 8b32aa77e1dbe18076d73e10914b59be107c3588
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
+
 Apache Storm은 여러 언어를 지원하여 한 토폴로지에 여러 언어의 구성 요소를 결합할 수 있습니다. 이 문서에서는 HDInsight에서 Java 및 Clojure 기반 Storm 토폴로지에서 Python 구성 요소를 사용하는 방법을 배웁니다.
 
+> [!IMPORTANT]
+> 이 문서는 Windows 및 Linux 기반 HDInsight 클러스터 사용에 관한 단계를 제공합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
 ## <a name="prerequisites"></a>필수 조건
+
 * Python 2.7 이상
 * Java JDK 1.7 이상
 * [Leiningen](http://leiningen.org/)
 
 ## <a name="storm-multi-language-support"></a>Storm 다중 언어 지원
+
 Storm은 모든 프로그래밍 언어로 작성된 구성 요소와 함께 작동하도록 설계되었지만 이를 위해서는 구성 요소에서 [Storm에 대한 Thrift 정의](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift)가 작동하는 방식을 이해해야 합니다. Python의 경우 모듈은 Apache Storm 프로젝트의 일부로 제공되므로 Storm과 쉽게 인터페이스할 수 있습니다. 이 모듈을 [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py)에서 찾을 수 있습니다.
 
 Apache Storm은 JVM(Java Virtual Machine)에서 실행되는 Java 프로세스이므로 다른 언어로 작성된 구성 요소는 하위 프로세스로 실행됩니다. JVM에서 실행되는 Storm 비트는 stdin/stdout을 통해 전송되는 JSON 메시지를 사용하여 이러한 하위 프로세스와 통신합니다. 구성 요소 간의 통신에 대한 자세한 내용은 [다중 언어 프로토콜](https://storm.apache.org/documentation/Multilang-protocol.html) (영문) 설명서에서 확인할 수 있습니다.
@@ -50,7 +58,7 @@ Storm 모듈(https://github.com/apache/storm/blob/master/storm-multilang/python/
 
 ## <a name="python-components-with-a-java-topology"></a>Java 토폴로지를 포함하는 Python 구성 요소
 > [!NOTE]
-> 이 예제는 [JavaTopology](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) 디렉터리의 **https://github.com/Azure-Samples/hdinsight-python-storm-wordcount** 에서 사용할 수 있습니다. Maven 기반 프로젝트입니다. Maven에 대해 잘 모르는 경우 Storm 토폴로지에 대한 Maven 프로젝트를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Storm으로 Java 기반 토폴로지 개발](hdinsight-storm-develop-java-topology.md) 을 참조하세요.
+> 이 예제는 **JavaTopology** 디렉터리의 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) 에서 사용할 수 있습니다. Maven 기반 프로젝트입니다. Maven에 대해 잘 모르는 경우 Storm 토폴로지에 대한 Maven 프로젝트를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Storm으로 Java 기반 토폴로지 개발](hdinsight-storm-develop-java-topology.md) 을 참조하세요.
 > 
 > 
 
@@ -116,7 +124,7 @@ Apache Storm을 실행하는 HDInsight 클러스터에\로 프로젝트를 배�
 
 ## <a name="python-components-with-a-clojure-topology"></a>Clojure 토폴로지를 포함하는 Python 구성 요소
 > [!NOTE]
-> 이 예제는 [ClojureTopology](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) 디렉터리의 **https://github.com/Azure-Samples/hdinsight-python-storm-wordcount** 에서 사용할 수 있습니다.
+> 이 예제는 **ClojureTopology** 디렉터리의 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) 에서 사용할 수 있습니다.
 > 
 > 
 
@@ -139,7 +147,7 @@ Apache Storm을 실행하는 HDInsight 클러스터에\로 프로젝트를 배�
    
         lein uberjar
    
-     `wordcount-1.0-SNAPSHOT.jar` 디렉터리의 `target\uberjar+uberjar` 에서 사용할 수 있습니다.
+    `wordcount-1.0-SNAPSHOT.jar` 디렉터리의 `target\uberjar+uberjar` 에서 사용할 수 있습니다.
 2. 다음 방법 중 하나를 사용하여 토폴로지를 HDInsight 클러스터에 배포하고 실행합니다.
    
    * **Linux 기반 HDInsight**
@@ -149,10 +157,8 @@ Apache Storm을 실행하는 HDInsight 클러스터에\로 프로젝트를 배�
              scp wordcount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:wordcount-1.0-SNAPSHOT.jar
         
          USERNAME을 클러스터에 대한 SSH 사용자로 바꾸고 CLUSTERNAME을 HDInsight 클러스터의 이름으로 바꿉니다.
-     2. 파일이 클러스터에 복사된 후에는 SSH를 사용하여 클러스터에 연결하고 작업을 제출합니다. HDInsight에서 SSH 사용에 대한 자세한 내용은 다음을 참조하세요.
-        
-        * [Linux, Unix 또는 OS X에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Windows에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+     2. 파일이 클러스터에 복사된 후에는 SSH를 사용하여 클러스터에 연결하고 작업을 제출합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+     
      3. 연결되면 다음을 사용하여 토폴로지를 시작합니다.
         
              storm jar wordcount-1.0-SNAPSHOT.jar wordcount.core wordcount
@@ -177,10 +183,5 @@ Apache Storm을 실행하는 HDInsight 클러스터에\로 프로젝트를 배�
 
 * [MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법](hdinsight-hadoop-streaming-python.md)
 * [Pig 및 Hive에서 UDF(사용자 정의 함수)를 사용하는 방법](hdinsight-python.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

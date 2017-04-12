@@ -4,7 +4,7 @@ description: "ACR(액세스 제어 레코드)을 관리하여 어떤 호스트�
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 11252938-5b97-4178-8c37-f58eaa3d00b1
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 037da7a5647f5b3d2b0cf1364fab050406be3b62
+ms.sourcegitcommit: f45d8e2b848e930a790e7bf38c2b09fbdaaf2fab
+ms.openlocfilehash: 30b6aedd9b4b7913f6862b34582f3ae96c9eae5f
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="use-the-storsimple-manager-service-to-manage-access-control-records-for-the-storsimple-virtual-array"></a>StorSimple 관리자 서비스를 사용하여 StorSimple 가상 배열에 대한 액세스 제어 레코드 관리
+# <a name="use-storsimple-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>StorSimple Manager를 사용하여 StorSimple 가상 배열에 대한 액세스 제어 레코드 관리
+
 ## <a name="overview"></a>개요
 ACR(액세스 제어 레코드)을 사용하면 어떤 호스트가 StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치라고도 함)장치의 볼륨에 연결할 수 있는지 지정할 수 있습니다. ACR은 특정 볼륨으로 설정되며 호스트의 IQN(iSCSI 정규화된 이름)을 포함합니다. 호스트가 볼륨에 연결하려고 할 때 해당 장치는 IQN 이름에 대한 볼륨과 연결된 ACR을 확인하고 일치하는 경우 이 연결이 확정됩니다. **구성** 페이지의 **액세스 제어 레코드** 섹션은 호스트의 해당 IQN으로 모든 액세스 제어 레코드를 표시합니다.
 
@@ -103,10 +106,5 @@ Azure 클래식 포털의 **구성** 페이지에서 ACR을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [볼륨 추가 및 ACR 구성](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "DNS 영역 및 레코드 | Microsoft Docs"
+title: "DNS 영역 및 레코드 개요-Azure DNS | Microsoft Docs"
 description: "Microsoft Azure DNS에서 DNS 영역 및 레코드 호스팅에 대한 지원 개요."
 services: dns
 documentationcenter: na
@@ -11,16 +11,18 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: f4c17d03ff637659a7bc7cde378878d8a4827b80
-ms.openlocfilehash: 38ff556271a84fbf385dab03a7551b3eb7413c81
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 4e25ec1ece6017dc58c24ce593802293b7fc12b8
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="dns-zones-and-records"></a>DNS 영역 및 레코드
+# <a name="overview-of-dns-zones-and-records"></a>DNS 영역 및 레코드 개요
 
 이 페이지는 도메인, DNS 영역, DNS 레코드 및 레코드 집합의 핵심 개념과 Azure DNS에서 지원되는 방식에 대해 설명합니다.
 
@@ -58,25 +60,25 @@ Azure DNS는 [와일드카드 레코드](https://en.wikipedia.org/wiki/Wildcard_
 
 CNAME 레코드 집합은 동일한 이름의 다른 레코드 집합과 함께 존재할 수 없습니다. 예를 들어 상대 이름이 'www'인 CNAME 레코드 집합과 상대 이름이 'www'인 A 레코드를 동시에 만들 수 없습니다.
 
-영역 루트(이름 = '@'))는 항상 영역을 만들 때 생성된 NS 및 SOA 레코드 집합을 포함하므로 영역 루트에 CNAME 레코드 집합을 만들 수 없습니다.
+영역 루트(이름 = '@')는 항상 영역을 만들 때 생성된 NS 및 SOA 레코드 집합을 포함하므로 영역 루트에 CNAME 레코드 집합을 만들 수 없습니다.
 
 이러한 제약 조건은 DNS 표준에서 발생하며 Azure DNS의 제한 사항이 아닙니다.
 
 ### <a name="ns-records"></a>NS 레코드
 
-NS 레코드는 각 영역의 루트에서 자동으로 생성되며(이름 = '@'), 영역이 삭제될 경우 자동으로 삭제됩니다(별도로 삭제할 수 없음).  이 레코드 집합의 TTL을 수정할 수 있지만 영역에 할당된 Azure DNS 이름 서버를 참조하도록 사전 구성된 레코드는 수정할 수 없습니다.
+NS 레코드는 각 영역의 루트(name = '@')에서 자동으로 생성되며 영역이 삭제될 경우 자동으로 삭제됩니다(별도로 삭제할 수 없음).  이 레코드 집합의 TTL을 수정할 수 있지만 영역에 할당된 Azure DNS 이름 서버를 참조하도록 사전 구성된 레코드는 수정할 수 없습니다.
 
 영역 루트를 제외한 영역 내 다른 NS 레코드를 만들고 삭제할 수 있습니다.  이 경우 하위 영역을 구성할 수 있습니다([Azure DNS에 하위 도메인 위임](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns) 참조).
 
 ### <a name="soa-records"></a>SOA 레코드
 
-SOA 레코드는 각 영역의 루트에서 자동으로 생성되며(이름 = '@'), 영역이 삭제될 경우 자동으로 삭제됩니다.  SOA 레코드는 별도로 생성 또는 삭제할 수 없습니다.
+SOA 레코드는 각 영역의 루트(name = '@')에서 자동으로 생성되며 영역이 삭제될 경우 자동으로 삭제됩니다.  SOA 레코드는 별도로 생성 또는 삭제할 수 없습니다.
 
 SOA 레코드에서 'host' 속성(Azure DNS에서 제공한 기본 이름 서버 이름을 참조하도록 사전 구성됨)을 제외한 모든 속성을 수정할 수 있습니다.
 
 ### <a name="spf-records"></a>SPF 레코드
 
-SPF(Sender Policy Framework ) 레코드는 지정된 도메인 이름 대신 전자 메일을 전송하도록 허용된 전자 메일 서버를 지정하는 데 사용합니다.  SPF 레코드를 올바르게 구성하는 것은 수신자가 전자 메일을 '정크'로 지정하지 않도록 하는 데 중요합니다.
+SPF(Sender Policy Framework) 레코드는 지정된 도메인 이름 대신 전자 메일을 전송하도록 허용된 전자 메일 서버를 지정하는 데 사용합니다.  SPF 레코드를 올바르게 구성하는 것은 수신자가 전자 메일을 '정크'로 지정하지 않도록 하는 데 중요합니다.
 
 DNS RFC는 원래 이 시나리오를 지원하기 위한 새로운 'SPF' 레코드 유형으로 소개되었습니다. 기존 이름 서버를 지원하기 위해 TXT 레코드 유형을 사용하여 SPF 레코드를 지정할 수도 있습니다.  이러한 모호성으로 인한 혼란은 [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1)로 해결되었습니다.  즉, SPF 레코드는 TXT 레코드 종류만 사용하여 만들어야 하며 SPF 레코드 종류는 사용되지 않습니다.
 
@@ -86,7 +88,7 @@ DNS RFC는 원래 이 시나리오를 지원하기 위한 새로운 'SPF' 레코
 
 [SRV 레코드](https://en.wikipedia.org/wiki/SRV_record)는 다양한 서비스에서 서버 위치를 지정하는 데 사용됩니다. Azure DNS에서 SRV 레코드를 지정할 경우
 
-* *서비스*와 *프로토콜*은 레코드 집합 이름에 포함하여 지정하고 밑줄로 접두사를 지정해야 합니다.  예를 들어 '\_sip.\_tcp.name'입니다.  영역 루트에 있는 레코드의 경우 레코드 이름에 '@'을 지정하지 않아도 되며 서비스와 프로토콜만 사용합니다(예: '\_sip.\_tcp').
+* *서비스*와 *프로토콜*은 레코드 집합 이름에 포함하여 지정하고 밑줄로 접두사를 지정해야 합니다.  예를 들어 '\_sip.\_tcp.name'입니다.  영역 루트에 있는 레코드의 경우 레코드 이름에 '@'를 지정하지 않아도 되며 서비스와 프로토콜만 사용합니다(예: '\_sip.\_tcp').
 * *우선 순위*, *가중치*, *포트*, *대상*은 레코드 집합에서 각 레코드의 매개 변수로 지정됩니다.
 
 ### <a name="txt-records"></a>TXT 레코드
@@ -139,10 +141,5 @@ Azure DNS를 사용할 경우 다음과 같은 기본 제한이 적용됩니다.
 
 * Azure DNS 사용을 시작하려면 [DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md) 및 [DNS 레코드 만들기](dns-getstarted-create-recordset-portal.md) 방법에 대해 알아보세요.
 * 기존 DNS 영역을 마이그레이션하려면 [DNS 영역 파일 가져오기 및 내보내기](dns-import-export.md) 방법에 대해 알아보세요.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

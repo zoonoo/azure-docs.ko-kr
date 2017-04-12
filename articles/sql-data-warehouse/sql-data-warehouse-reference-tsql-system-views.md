@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: reference
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c73e24c13f69db893d63e9925116d860dccc1120
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -240,9 +242,4 @@ SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므�
 
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

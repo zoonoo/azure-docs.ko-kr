@@ -1,5 +1,5 @@
 ---
-title: "비디오를 자르는 방법 | Microsoft 문서"
+title: "Media Encoder Standard로 비디오를 자르는 방법 - Azure | Microsoft Docs"
 description: "이 문서에서는 미디어 인코더 표준으로 비디오를 자르는 방법을 보여 줍니다."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2017
 ms.author: anilmur;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7b0d7469e9c3688092bf7f98962ede0e4d7ef951
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 5be8472e242db6d17306ba086e4fe06e769018d7
 
 
 ---
@@ -145,6 +145,6 @@ AMS에서 제공하는 훌륭한 기능에 대해 자세히 알아보려면 Azur
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

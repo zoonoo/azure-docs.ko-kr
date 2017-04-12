@@ -1,6 +1,6 @@
 ---
-title: "탄력적 작업을 사용하여 규모가 확장된 Azure SQL Database 만들기 및 관리 | Micosoft Docs"
-description: "탄력적 데이터베이스 작업 만들기 및 관리 과정을 단계별로 안내합니다."
+title: "Azure SQL Database의 그룹 관리 | Microsoft Docs"
+description: "탄력적 작업 만들기 및 관리 과정을 단계별로 안내합니다."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -8,7 +8,7 @@ author: ddove
 editor: 
 ms.assetid: f858344d-085b-4022-935e-1b5fa20adbac
 ms.service: sql-database
-ms.custom: jobs
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,23 +16,20 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 7b3c6d29ad7ded2ea65f378a1f807235c688d738
-ms.openlocfilehash: 2e652979d56e8f14179102a946761874553219df
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 7058139814a0a20d6fb6305e1e469946bb6b7d77
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>탄력적 작업을 사용하여 규모가 확장된 Azure SQL 데이터베이스 만들기 및 관리(미리 보기)
-> [!div class="op_single_selector"]
-> * [Azure 포털](sql-database-elastic-jobs-create-and-manage.md)
-> * [PowerShell](sql-database-elastic-jobs-powershell.md)
-> 
-> 
 
-**탄력적 데이터베이스 작업** 은 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 수집 등의 관리 작업을 실행하여 데이터베이스 그룹의 관리를 간소화합니다. 탄력적 데이터베이스 작업은 현재 Azure 포털 및 PowerShell cmdlet을 통해 사용할 수 있습니다. 그러나 Azure 포털 화면은 [탄력적 데이터베이스 풀(미리 보기)](sql-database-elastic-pool.md)의 모든 데이터베이스에서 실행되도록 기능이 제한됩니다. [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-scale-introduction.md)를 사용하여 만든 분할된 데이터베이스 집합 또는 사용자 정의 컬렉션을 포함하여 데이터베이스의 그룹에서 스크립트의 추가 기능 및 실행에 액세스하려면 [PowerShell을 사용하여 작업 만들기 및 관리](sql-database-elastic-jobs-powershell.md)를 참조하세요. 작업에 대한 자세한 내용은 [탄력적 데이터베이스 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요. 
+
+**탄력적 데이터베이스 작업** 은 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 수집 등의 관리 작업을 실행하여 데이터베이스 그룹의 관리를 간소화합니다. 탄력적 데이터베이스 작업은 현재 Azure 포털 및 PowerShell cmdlet을 통해 사용할 수 있습니다. 그러나 Azure Portal 화면은 [탄력적 풀(미리 보기)](sql-database-elastic-pool.md)의 모든 데이터베이스에서 실행되도록 기능이 제한됩니다. [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-scale-introduction.md)를 사용하여 만든 분할된 데이터베이스 집합 또는 사용자 정의 컬렉션을 포함하여 데이터베이스의 그룹에서 스크립트의 추가 기능 및 실행에 액세스하려면 [PowerShell을 사용하여 작업 만들기 및 관리](sql-database-elastic-jobs-powershell.md)를 참조하세요. 작업에 대한 자세한 내용은 [탄력적 데이터베이스 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
-* Azure 구독. 무료 평가판에 대한 내용은 [무료 1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* 탄력적 데이터베이스 풀 [탄력적 데이터베이스 풀 정보](sql-database-elastic-pool.md)를 참조하세요.
+* Azure 구독. 무료 평가판에 대해서는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* 탄력적 풀. [탄력적 풀에 대한 정보](sql-database-elastic-pool.md)를 참조하세요.
 * 탄력적 데이터베이스 작업 서비스 구성 요소의 설치 [탄력적 데이터베이스 작업 서비스](sql-database-elastic-jobs-service-installation.md) 설치를 참조하세요.
 
 ## <a name="creating-jobs"></a>작업 만들기
@@ -89,7 +86,7 @@ ms.openlocfilehash: 2e652979d56e8f14179102a946761874553219df
 ## <a name="checking-job-status"></a>작업 상태 확인
 작업이 시작된 후에 진행 상태를 확인할 수 있습니다.
 
-1. 탄력적 데이터베이스 풀 페이지에서 **작업 관리**를 클릭합니다.
+1. 탄력적 풀 페이지에서 **작업 관리**를 클릭합니다.
    
     !["작업 관리"를 클릭합니다.][2]
 2. 작업 이름을 클릭합니다. **상태** 는 "완료" 또는 "실패"일 수 있습니다. 생성 및 실행 날짜와 시간을 포함한 작업 세부 정보가 표시됩니다. 아래 목록(c)은 날짜와 시간 정보를 포함하여 풀에 있는 데이터베이스에 대한 스크립트의 진행 상태를 보여줍니다.
@@ -110,10 +107,5 @@ ms.openlocfilehash: 2e652979d56e8f14179102a946761874553219df
 [4]: ./media/sql-database-elastic-jobs-create-and-manage/failed.png
 [5]: ./media/sql-database-elastic-jobs-create-and-manage/screen-2.png
 
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "REST API를 사용하여 역할 기반 액세스 제어 관리"
+title: "REST를 사용한 역할 기반 액세스 제어 - Azure AD | Microsoft Docs"
 description: "REST API를 사용하여 역할 기반 액세스 제어 관리"
 services: active-directory
 documentationcenter: na
@@ -12,21 +12,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
+ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
+ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
 
 
 ---
-# <a name="managing-role-based-access-control-with-the-rest-api"></a>REST API를 사용하여 역할 기반 액세스 제어 관리
+# <a name="manage-role-based-access-control-with-the-rest-api"></a>REST API를 사용하여 역할 기반 액세스 제어 관리
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
-> 
-> 
 
 Azure 포털 및 Azure Resource Manager API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
@@ -43,13 +41,13 @@ Azure 포털 및 Azure Resource Manager API의 RBAC(역할 기반 액세스 제�
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 1. *{scope}* 를 역할 할당을 나열하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
-   
+
    * 구독: /subscriptions/{subscription-id}  
    * 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. *{api-version}* 을 2015-07-01로 바꿉니다.
 3. *{filter}* 를 역할 할당 목록을 필터링하기 위해 적용하려는 조건으로 바꿉니다.
-   
+
    * 하위 범위에서는 역할 할당을 포함시키지 않고 지정된 범위에 대해서만 역할 할당 나열: `atScope()`    
    * 특정 사용자, 그룹 또는 응용 프로그램에 대해서만 역할 할당 나열: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
    * 그룹에서 상속된 역할 할당을 포함하여 특정 사용자에 대한 역할 할당 나열 | `assignedTo('{objectId of user}')`
@@ -93,7 +91,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 1. *{scope}* 를 역할 할당을 나열하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
-   
+
    * 구독: /subscriptions/{subscription-id}  
    * 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -134,7 +132,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 1. *{scope}* 를 역할 할당을 만들려는 범위로 바꿉니다. 부모 범위에서 역할 할당을 만들 때 모든 자식 범위는 같은 역할 할당을 상속합니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
-   
+
    * 구독: /subscriptions/{subscription-id}  
    * 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
    * 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -192,7 +190,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 1. *{scope}* 를 역할 할당을 만들려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
-   
+
    * 구독: /subscriptions/{subscription-id}  
    * 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -233,13 +231,13 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 1. *{scope}* 를 역할을 나열하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
-   
+
    * 구독: /subscriptions/{subscription-id}  
    * 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. *{api-version}* 을 2015-07-01로 바꿉니다.
 3. *{filter}* 를 역할 목록을 필터링하기 위해 적용할 조건으로 바꿉니다.
-   
+
    * 지정된 범위 및 해당 자식 범위에서 할당에 사용할 수 있는 역할 나열: `atScopeAndBelow()`
    * 정확한 표시 이름을 사용하여 역할 검색: `roleName%20eq%20'{role-display-name}'` 역할의 정확한 표시 이름에 대한 URL 인코딩 형식을 사용합니다. 예를 들어, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
@@ -316,7 +314,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 1. *{scope}* 를 역할 할당을 나열하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
-   
+
    * 구독: /subscriptions/{subscription-id}  
    * 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -396,7 +394,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 1. *{scope}*을 사용자 지정 역할의 첫 번째 *AssignableScope*으로 바꿉니다. 다음 예제는 서로 다른 수준에 대한 범위를 지정하는 방법을 보여 줍니다.
-   
+
    * 구독: /subscriptions/{subscription-id}  
    * 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -499,7 +497,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 1. *{scope}*을 사용자 지정 역할의 첫 번째 *AssignableScope*으로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
-   
+
    * 구독: /subscriptions/{subscription-id}  
    * 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -602,7 +600,7 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 1. *{scope}* 를 역할 정의를 삭제하려는 범위로 바꿉니다. 다음 예제에서는 서로 다른 수준에 대해 범위를 지정하는 방법을 보여 줍니다.
-   
+
    * 구독: /subscriptions/{subscription-id}  
    * 리소스 그룹: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * 리소스: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -649,12 +647,12 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 
 ```
 
+## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

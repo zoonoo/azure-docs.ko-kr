@@ -18,6 +18,7 @@ ms.author: yushwang
 translationtype: Human Translation
 ms.sourcegitcommit: 5961c73c3f147ab6b3eca4e9d920003df1ca2c82
 ms.openlocfilehash: 298eab8ad562cfb32edf8609ac29052dc403f406
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -55,10 +56,5 @@ BGP는 직접 또는 간접 연결 여부에 관계없이 서로 다른 네트�
 
 ## <a name="next-steps"></a>다음 단계
 프레미스 간 연결 및 VNet 간 연결에 대해 BGP를 구성하는 단계는 [Azure VPN Gateway에서 BGP 시작하기](vpn-gateway-bgp-resource-manager-ps.md) 를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

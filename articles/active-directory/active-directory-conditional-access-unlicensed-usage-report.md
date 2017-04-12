@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3400d00112b4b66cceef602dba5cb8666e49e0e4
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -44,10 +45,5 @@ Azure AD Premium 라이선스가 없는 경우에 적용되는 조건부 액세�
 ## <a name="see-also"></a>참고 항목
 * [Office 365 및 기타 Azure Active Directory 연결 앱과 함께 조건부 액세스 사용](active-directory-conditional-access.md)
 * [Azure AD 조건부 액세스 시작하기](active-directory-conditional-access-azuread-connected-apps.md) 
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

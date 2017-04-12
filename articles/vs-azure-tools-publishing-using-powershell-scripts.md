@@ -15,8 +15,9 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
-ms.openlocfilehash: d82984d87d6517ce429ca887436b88995ede997b
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 6041c627d87f0223b9c718f3883a709ff81c28e1
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -37,7 +38,7 @@ Visual Studio에서 웹 응용 프로그램을 만들 경우 Windows PowerShell 
 Azure 개발 시 Visual Studio에서 PowerShell을 사용하기 위한 추가 도구와 리소스를 사용할 수 있습니다. [Visual Studio용 PowerShell](http://go.microsoft.com/fwlink/?LinkId=404012)을 참조하세요.
 
 ## <a name="generating-the-publish-scripts"></a>게시 스크립트 생성
-새 프로젝트를 만들 때 [이 지침](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 따라 웹 사이트를 호스팅하는 가상 컴퓨터의 게시 스크립트를 생성할 수 있습니다. 또한 [Azure App Service에서 웹앱용 게시 스크립트를 생성](app-service-web/web-sites-dotnet-get-started.md)할 수도 있습니다.
+새 프로젝트를 만들 때 [이 지침](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 따라 웹 사이트를 호스팅하는 가상 컴퓨터의 게시 스크립트를 생성할 수 있습니다. 또한 [Azure App Service에서 웹앱용 게시 스크립트를 생성](app-service-web/app-service-web-get-started-dotnet.md)할 수도 있습니다.
 
 ## <a name="scripts-that-visual-studio-generates"></a>Visual Studio에서 생성하는 스크립트
 Visual Studio는 2개의 Windows PowerShell 파일이 포함되어 있는 솔루션 수준 폴더 **PublishScripts** , 가상 컴퓨터 또는 웹 사이트의 게시 스크립트, 스크립트에 사용할 수 있는 함수가 포함된 모듈을 만듭니다. Visual Studio는 또한 배포하는 프로젝트의 상세 정보를 지정하는 JSON 형식으로 파일을 생성합니다.
@@ -343,9 +344,4 @@ Windows PowerShell 명령 프롬프트에서 사용할 수 있는 함수에 대�
 
 ## <a name="next-steps"></a>다음 단계
 [Windows PowerShell을 사용하여 스크립팅](https://technet.microsoft.com/library/bb978526.aspx)을 읽어 PowerShell 스크립팅에 대해 자세히 알아보고 [스크립트 센터](https://azure.microsoft.com/documentation/scripts/)에서 기타 Azure PowerShell 스크립트에 대해 알아보세요.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

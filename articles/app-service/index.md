@@ -1,13 +1,25 @@
 ---
+title: "Azure App Service 설명서 - 자습서, API 참조 | Microsoft Docs"
+description: "자습서, 비디오, API 참조 및 기타 설명서를 사용하여 플랫폼이나 장치에 대한 웹 및 모바일 앱을 만드는 데 App Service를 사용하는 방법에 대해 알아봅니다."
+services: app-service
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: app-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: a9afed4d89a2eb114af42ae409ff8ab72899b598
-ms.openlocfilehash: a7ae2c57b4f894165df0f2fd7560f8476ac1db0d
+ms.sourcegitcommit: ebcde75ba7d5ed155fb7ec822ba037de5141c31c
+ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
 
 ---
 #<a name="app-service-documentation"></a>App Service 설명서
 
-App Service는 Microsoft Azure의 PaaS(Platform-as-a-Service) 제품입니다. 플랫폼 및 장치에 웹 및 모바일 앱을 만듭니다. SaaS 솔루션과 앱을 통합하고 온-프레미스 응용 프로그램을 사용하여 연결하고 비즈니스 프로세스를 자동화합니다.
+자습서, 비디오, API 참조 및 기타 설명서를 사용하여 플랫폼이나 장치에 대한 웹 및 모바일 앱을 개발하고 호스팅하는 데 App Service를 사용하는 방법에 대해 알아봅니다. SaaS 솔루션과 앱을 통합하고 온-프레미스 응용 프로그램을 사용하여 연결하고 비즈니스 프로세스를 자동화하는 방법에 대해 알아봅니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -120,50 +132,10 @@ App Service는 Microsoft Azure의 PaaS(Platform-as-a-Service) 제품입니다. �
     </li>
 </ul>
 
----
-
-<h2>참조</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>리소스</h3>
-                        <p><a href="/azure/app-service-web/app-service-web-app-azure-portal?toc=%2fazure%2fapp-service%2ftoc.json">Azure 포털</a></p>
-                        <p><a href="/azure/app-service-web/app-service-changes-existing-services?toc=%2fazure%2fapp-service%2ftoc.json">App Service 참조</a></p>
-                        <p><a href="/azure/app-service-web/app-service-best-practices?toc=%2fazure%2fapp-service%2ftoc.json">모범 사례</a></p>
-                        <p><a href="/azure/app-service-web/websites-webjobs-resources?toc=%2fazure%2fapp-service%2ftoc.json">WebJob 리소스</a></p>
-                        <p><a href="/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started?toc=%2fazure%2fapp-service%2ftoc.json">WebJobs SDK</a></p>
-                      </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (영문)</h3>
-                        <p><a href="/rest/api/appservice/">REST API 참조</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service.pdf">
-        <div class="img"></div>
-        <div class="text">
-App Service 설명서 다운로드 </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

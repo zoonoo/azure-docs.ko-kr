@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 1b439e2b48cc009e727a49c271318cfd4ead9ef2
+ms.sourcegitcommit: a287ebd634a9305229424d0efea266146f88a952
+ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -31,11 +32,16 @@ ms.openlocfilehash: 1b439e2b48cc009e727a49c271318cfd4ead9ef2
 ## <a name="data-source-providers"></a>데이터 원본 공급자
 다음 데이터 원본 공급자는 온-프레미스 또는 클라우드 데이터 원본에 연결할 경우 메모리 내 또는 직접 쿼리 데이터 모델에 지원됩니다.
 
-|  | **데이터 원본** | **메모리 내** | **직접 쿼리** |
-| --- | --- | --- | --- |
-| **클라우드** |Azure SQL 데이터 웨어하우스 |SQL Server용 .NET Framework 데이터 공급자 |SQL Server용 .NET Framework 데이터 공급자 |
+### <a name="cloud"></a>클라우드
+| **데이터 원본** | **메모리 내** | **직접 쿼리** |
+|  --- | --- | --- |
+| Azure SQL 데이터 웨어하우스 |SQL Server용 .NET Framework 데이터 공급자 |SQL Server용 .NET Framework 데이터 공급자 |
 | Azure SQL 데이터베이스 |SQL Server용 .NET Framework 데이터 공급자 |SQL Server용 .NET Framework 데이터 공급자 | |
-| (게이트웨이를 통한)**온-프레미스** |SQL Server |SQL Server Native Client 11.0 |SQL Server용 .NET Framework 데이터 공급자 |
+
+### <a name="on-premises-via-gateway"></a>온-프레미스(게이트웨이 사용)
+|**데이터 원본** | **메모리 내** | **직접 쿼리** |
+|  --- | --- | --- |
+| SQL Server |SQL Server Native Client 11.0 |SQL Server용 .NET Framework 데이터 공급자 |
 | SQL Server |SQL Server용 Microsoft OLE DB Provider |SQL Server용 .NET Framework 데이터 공급자 | |
 | SQL Server |SQL Server용 .NET Framework 데이터 공급자 |SQL Server용 .NET Framework 데이터 공급자 | |
 | Oracle |Oracle용 Microsoft OLE DB Provider |.NET용 Oracle Data Provider | |
@@ -71,10 +77,5 @@ ms.openlocfilehash: 1b439e2b48cc009e727a49c271318cfd4ead9ef2
 
 ## <a name="next-steps"></a>다음 단계
 온-프레미스 데이터 원본이 있는 경우 [온-프레미스 게이트웨이](analysis-services-gateway.md)를 설치해야 합니다. SSDT 또는 SSMS에서 서버를 관리하는 방법에 대해 알아보려면 [사용자 서버 관리](analysis-services-manage.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

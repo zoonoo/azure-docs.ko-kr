@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 84aaff1f1e8a92583107295643e0ada81376fab0
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Azure RemoteApp을 사용하여 모든 장치에서 Windows 앱 실행
 > [!IMPORTANT]
-> Azure RemoteApp은 중단될 예정입니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -121,10 +122,5 @@ Access는 데이터베이스이므로 모든 사용자가 Access 데이터 공�
 지금까지 컬렉션을 만드는 방법을 살펴보았으므로 이제 [Office 365를 사용하는 컬렉션](remoteapp-tutorial-o365anywhere.md)을 만들어 보겠습니다. 또는 로컬 네트워크에 액세스할 수 있는 [하이브리드 컬렉션 ](remoteapp-create-hybrid-deployment.md)을 만들 수 있습니다.
 
 <!--Image references-->
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

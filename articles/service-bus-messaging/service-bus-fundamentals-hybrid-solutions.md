@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 03/08/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 4d7523c2bd865039cc989b3d6a288f870288b102
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
 
 **그림 1: 서비스 버스는 클라우드를 통해 응용 프로그램을 연결하기 위한 다중 테넌트 서비스를 제공합니다.**
 
-네임스페이스 내에서 각각 다른 방식으로 응용 프로그램을 연결하는 네 가지 통신 메커니즘 인스턴스를 하나 이상 사용할 수 있습니다. 선택 항목은 다음과 같습니다.
+네임스페이스 내에서 각각 다른 방식으로 응용 프로그램을 연결하는 세 가지 통신 메커니즘 인스턴스를 하나 이상 사용할 수 있습니다. 선택 항목은 다음과 같습니다.
 
 * *큐*- 단방향 통신을 허용합니다. 각 큐는 수신될 때까지 전송된 메시지를 저장하는 중간자( *브로커*라고도 함) 역할을 합니다. 단일 수신자가 각 메시지를 수신합니다.
 * *토픽* - *구독*을 사용하여 단방향 통신 기능을 제공합니다. 토픽 하나에 구독이 여러 개 포함될 수 있습니다. 큐와 마찬가지로 토픽은 브로커 역할을 하지만 각 구독은 필요에 따라 필터를 사용하여 특정 기준과 일치하는 메시지만 수신할 수 있습니다.
@@ -40,7 +41,7 @@ ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
 
 큐, 토픽 또는 릴레이를 만들 때 이름을 지정합니다. 이 이름은 네임스페이스 이름과 결합되어 개체의 고유 식별자를 만듭니다. 응용 프로그램은 서비스 버스에 이 이름을 제공한 다음 해당 큐, 토픽 또는 릴레이를 사용하여 서로 통신할 수 있습니다. 
 
-릴레이 시나리오에서 이러한 개체를 사용하기 위해 Windows 응용 프로그램은 WCF(Windows Communication Foundation)를 사용할 수 있습니다. 큐와 토픽의 경우 Windows 응용 프로그램이 서비스 버스로 정의된 메시지 API를 사용할 수 있습니다. 이러한 개체를 Windows 이외의 응용 프로그램에서 더욱 쉽게 사용할 수 있도록 Microsoft는 Java, Node.js 및 기타 언어용 SDK를 제공합니다. HTTP를 통해 REST API를 사용하여 큐 및 토픽에 액세스할 수도 있습니다. 
+릴레이 시나리오에서 이러한 개체를 사용하기 위해 Windows 응용 프로그램은 WCF(Windows Communication Foundation)를 사용할 수 있습니다. 큐와 토픽의 경우 Windows 응용 프로그램이 서비스 버스로 정의된 메시지 API를 사용할 수 있습니다. 이러한 개체를 Windows 이외의 응용 프로그램에서 더욱 쉽게 사용할 수 있도록 Microsoft는 Java, Node.js 및 기타 언어용 SDK를 제공합니다. HTTP를 통해 [REST API](/rest/api/servicebus/)를 사용하여 큐 및 토픽에 액세스할 수도 있습니다. 
 
 서비스 버스 자체가 클라우드(즉, Microsoft Azure 데이터 센터)에서 실행되는 경우에도 서비스 버스를 사용하는 응용 프로그램은 다른 곳에서 실행될 수 있음을 이해하는 것이 중요합니다. 예를 들어 서비스 버스를 사용하여 Azure에서 실행되는 응용 프로그램이나 고유한 데이터 센터 내부에서 실행되는 응용 프로그램을 연결할 수 있습니다. 서비스 버스를 사용하여 Azure 또는 다른 클라우드 플랫폼에서 실행되는 응용 프로그램을 온-프레미스 응용 프로그램이나 태블릿 및 휴대폰과 연결할 수도 있습니다. 가전 제품, 센서 및 기타 장치를 중앙 응용 프로그램에 연결하거나 서로 연결할 수도 있습니다. 서비스 버스는 거의 모든 곳에서 액세스할 수 있는 클라우드의 통신 메커니즘입니다. 사용 방법은 응용 프로그램에서 수행해야 하는 작업에 따라 달라집니다.
 
@@ -55,15 +56,15 @@ ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
 
 각 메시지는 각각 키/값 쌍인 속성 집합과 메시지 페이로드의 두 부분으로 이루어져 있습니다. 페이로드는 이진, 텍스트 또는 XML일 수 있습니다. 메시지가 사용되는 방법은 응용 프로그램에서 수행하려는 작업에 따라 달라집니다. 예를 들어 최근 판매에 대한 메시지를 보내는 응용 프로그램은 *Seller="Ava"* 및 *Amount=10000* 속성을 포함할 수 있습니다. 메시지 본문은 서명된 판매 계약의 스캔 이미지를 포함하거나, 이러한 이미지가 없는 경우 비어 있을 수 있습니다.
 
-수신기는 두 가지 방법으로 서비스 버스 큐에서 메시지를 읽을 수 있습니다. 첫 번째 옵션은 *[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*라고 하며, 큐에서 메시지를 제거하고 즉시 삭제합니다. 이 옵션은 간단하지만 수신기에서 메시지 처리를 마치기 전에 크래시가 발생할 경우 메시지가 손실됩니다. 큐에서 제거되었기 때문에 다른 수신기가 메시지에 액세스할 수 없습니다. 
+수신기는 두 가지 방법으로 서비스 버스 큐에서 메시지를 읽을 수 있습니다. 첫 번째 옵션은 *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*라고 하며, 큐에서 메시지를 제거하고 즉시 삭제합니다. 이 옵션은 간단하지만 수신기에서 메시지 처리를 마치기 전에 크래시가 발생할 경우 메시지가 손실됩니다. 큐에서 제거되었기 때문에 다른 수신기가 메시지에 액세스할 수 없습니다. 
 
-두 번째 옵션은 *[PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*이라고 하며, 이 문제를 해결하는 데 도움이 됩니다. **ReceiveAndDelete**와 마찬가지로 **PeekLock**을 통한 읽기 시에도 큐에서 메시지가 제거됩니다. 그러나 메시지를 삭제하지 않습니다. 대신, 메시지를 잠가서 다른 수신기에 표시되지 않도록 하고 다음 세 가지 이벤트 중 하나를 기다립니다.
+두 번째 옵션은 *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*이라고 하며, 이 문제를 해결하는 데 도움이 됩니다. **ReceiveAndDelete**와 마찬가지로 **PeekLock**을 통한 읽기 시에도 큐에서 메시지가 제거됩니다. 그러나 메시지를 삭제하지 않습니다. 대신, 메시지를 잠가서 다른 수신기에 표시되지 않도록 하고 다음 세 가지 이벤트 중 하나를 기다립니다.
 
-* 수신기에서 메시지를 성공적으로 처리하면 **[Complete()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)**를 호출하고 큐에서 메시지를 삭제합니다. 
-* 수신기에서 메시지를 성공적으로 처리할 수 없다고 결정하면 **[Abandon()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon)**을 호출합니다. 큐가 메시지에서 잠금을 제거하고 다른 수신기가 사용할 수 있게 합니다.
+* 수신기에서 메시지를 성공적으로 처리하면 [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)를 호출하고 큐에서 메시지를 삭제합니다. 
+* 수신기에서 메시지를 성공적으로 처리할 수 없다고 결정하면 [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon)을 호출합니다. 큐가 메시지에서 잠금을 제거하고 다른 수신기가 사용할 수 있게 합니다.
 * 수신기가 구성 가능한 기간(기본적으로 60초) 내에 둘 다 호출하지 않으면 큐가 수신기에서 실패했다고 가정합니다. 이 경우 수신기가 **Abandon**을 호출한 것처럼 동작하고 다른 수신기가 메시지를 사용할 수 있게 합니다.
 
-여기서 발생할 수 있는 문제는 동일한 메시지가 두 개의 수신기에 두 번 배달될 수 있다는 것입니다. 서비스 버스 큐를 사용하는 응용 프로그램은 이 문제에 대비해야 합니다. 중복 검색을 쉽게 수행할 수 있도록 각 메시지에는 고유한 **[MessageID](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId)** 속성이 있습니다. 이 속성은 기본적으로 큐에서 메시지를 읽는 횟수에 관계없이 동일하게 유지됩니다. 
+여기서 발생할 수 있는 문제는 동일한 메시지가 두 개의 수신기에 두 번 배달될 수 있다는 것입니다. 서비스 버스 큐를 사용하는 응용 프로그램은 이 문제에 대비해야 합니다. 중복 검색이 용이하도록 각 메시지에는 고유한 [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) 속성이 있습니다. 기본적으로 이 속성은 큐에서 메시지를 읽는 횟수에 관계없이 동일하게 유지됩니다. 
 
 큐는 다양한 상황에서 유용합니다. 큐를 사용하면 응용 프로그램이 동시에 실행되지 않는 경우에도 서로 통신할 수 있으므로 일괄 처리 및 모바일 응용 프로그램에서 특히 유용합니다. 여러 수신기가 있는 큐는 전송된 메시지가 이러한 수신기에 분산되므로 자동 부하 분산 기능도 제공합니다.
 
@@ -80,7 +81,7 @@ ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
 * 구독자 2는 *Seller="Ruby"* 속성과 값이 100,000보다 큰 *Amount* 속성이 포함된 메시지를 받습니다. Ruby는 판매 관리자이므로 자신의 매출과 판매자에 관계없이 모든 대규모 매출을 보려고 합니다.
 * 구독자 3은 해당 필터를 *True*로 설정합니다. 이렇게 하면 모든 메시지를 받습니다. 이 응용 프로그램이 감사 내역을 유지 관리하므로 모든 메시지를 확인해야 하는 경우를 예로 들 수 있습니다.
 
-큐와 마찬가지로 토픽 구독자는 [**ReceiveAndDelete** 또는 **PeekLock**](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)을 사용하여 메시지를 읽을 수 있습니다. 그러나 큐와 달리 토픽으로 전송된 단일 메시지를 여러 구독에서 받을 수 있습니다. 흔히 *게시 및 구독*(*게시/구독*)이라고 불리는 이 접근 방법은 여러 응용 프로그램이 동일한 메시지에 관련된 경우에 유용합니다. 올바른 필터를 정의하면 각 구독자가 확인해야 하는 메시지 스트림 부분만 볼 수 있습니다.
+큐와 마찬가지로 토픽 구독자는 [ReceiveAndDelete 또는 PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)을 사용하여 메시지를 읽을 수 있습니다. 그러나 큐와 달리 토픽으로 전송된 단일 메시지를 여러 구독에서 받을 수 있습니다. 흔히 *게시 및 구독*(*게시/구독*)이라고 불리는 이 접근 방법은 여러 응용 프로그램이 동일한 메시지에 관련된 경우에 유용합니다. 올바른 필터를 정의하면 각 구독자가 확인해야 하는 메시지 스트림 부분만 볼 수 있습니다.
 
 ## <a name="relays"></a>릴레이
 큐와 토픽은 둘 다 브로커를 통해 단방향 비동기 통신을 제공합니다. 트래픽이 한 방향으로만 진행되며, 보낸 사람과 받는 사람 간에 직접 연결이 없습니다. 그러나 이런 방식을 원하지 않는 경우 어떻게 해야 할까요? 응용 프로그램이 메시지 보내기와 받기를 모두 수행해야 하거나 메시지 저장을 위한 브로커가 필요하지 않도록 응용 프로그램 간에 직접 링크를 설정하려는 등의 이러한 시나리오를 처리하기 위해 서비스 버스는 그림 4와 같은 *릴레이*를 제공합니다.
@@ -116,9 +117,4 @@ Azure 서비스 버스 릴레이는 도움이 됩니다. 릴레이를 통해 양
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

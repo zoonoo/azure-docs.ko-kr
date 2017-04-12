@@ -1,6 +1,6 @@
 ---
-title: "Log Analytics에서 Service Fabric 솔루션을 사용하여 사용자 환경 최적화 | Microsoft Docs"
-description: "Service Fabric 솔루션을 사용하여 Service Fabric 응용 프로그램, 마이크로 서비스, 노드 및 클러스터의 위험과 상태를 평가할 수 있습니다."
+title: "Azure Portal을 사용하여 Log Analytics로 Service Fabric 응용 프로그램 평가 | Microsoft Docs"
+description: "Azure Portal에서 Log Analytics의 Service Fabric 솔루션을 사용하여 Service Fabric 응용 프로그램, 마이크로 서비스, 노드 및 클러스터의 위험과 상태를 평가할 수 있습니다."
 services: log-analytics
 documentationcenter: 
 author: niniikhena
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ac94bca1657efbe0ce94db953933f026217d1c8a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="service-fabric-solution-in-log-analytics"></a>Log Analytics의 서비스 패브릭 데이터 솔루션
+# <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Azure Portal에서 Service Fabric 응용 프로그램 및 마이크로 서비스 평가
+
 > [!div class="op_single_selector"]
 > * [리소스 관리자](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
-> 
-> 
+>
+>
 
 이 문서에서는 Log Analytics에서 Service Fabric 솔루션을 사용하여 Service Fabric 클러스터 간의 문제를 파악 및 해결하는 방법에 대해 설명합니다.
 
@@ -79,11 +81,11 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 * 왼쪽 창의 설정으로 이동하고 데이터 >> Windows 성능 카운터 >> "Add the selected performance counters(선택한 성능 카운터 추가)": ![Service Fabric](./media/log-analytics-service-fabric/7.png)을 선택합니다.
 * 로그 검색에서 다음 쿼리를 사용하여 노드에 대한 주요 메트릭을 살펴봅니다.
   </br>
-  
-    a. 최근 1시간 동안 모든 노드에 대한 평균 CPU 사용률을 비교하여 어떤 노드에 문제가 있으며 노드에 급증이 나타나는 시간 간격을 확인합니다.
-  
+
+    a. 최근&1;시간 동안 모든 노드에 대한 평균 CPU 사용률을 비교하여 어떤 노드에 문제가 있으며 노드에 급증이 나타나는 시간 간격을 확인합니다.
+
     ``` Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
-  
+
     ![서비스 패브릭](./media/log-analytics-service-fabric/10.png)
 
     b. 다음 쿼리로 각 노드에서 사용 가능한 메모리에 대한 비슷한 꺾은선형 차트를 확인합니다.
@@ -115,8 +117,8 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 > [!NOTE]
 > 리소스 그룹 선택 시, 기존의 Log Analytics 작업 영역으로 작업 중인 경우 "기존 사용"을 선택하고 OMS 작업 영역을 포함하는 리소스 그룹을 검색합니다. 그렇지 않은 경우 새 작업 영역을 만듭니다.
 > ![Service Fabric](./media/log-analytics-service-fabric/8.png)
-> 
-> 
+>
+>
 
 이 템플릿을 배포하면 Log Analytics 작업 영역에 연결된 저장소 계정을 볼 수 있습니다. 이 인스턴스에서는 위에서 만든 Exchange 작업 영역에 하나 이상의 저장소 계정을 추가했습니다.
 ![Service Fabric](./media/log-analytics-service-fabric/9.png)
@@ -144,15 +146,9 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
 > [!NOTE]
 > 대시보드 맨 위에서 **Data based on last 7 days(최근 7일에 따른 데이터)**를 클릭하여 Service Fabric 솔루션에서 이러한 이벤트 범위를 변경할 수 있습니다. 최근 7일, 1일 또는 6시간 내에 생성된 이벤트를 보여 줄 수 있습니다. 또는 **사용자 지정**을 선택하고 사용자 지정 날짜 범위를 지정할 수 있습니다.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 Service Fabric 이벤트 데이터를 볼 수 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

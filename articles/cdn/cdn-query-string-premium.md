@@ -1,9 +1,9 @@
 ---
-title: "쿼리 문자열이 포함된 요청 중 Verizon의 Azure CDN 프리미엄 캐싱 동작 제어 | Microsoft Docs"
+title: "쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어 - Premium | Microsoft Docs"
 description: "Azure CDN 쿼리 문자열 캐싱은 파일에 쿼리 문자열이 포함된 경우 파일이 캐시되는 방법을 제어합니다."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 20efef4e60da6a0ab07eab22ff18e7ae9ab12a30
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 145067c2ce50b41c4783f4de4052c0e7cb529fc7
 
 
 ---
-# <a name="controlling-caching-behavior-of-cdn-requests-with-query-strings---premium"></a>쿼리 문자열이 포함된 CDN 요청의 캐싱 동작 제어 - 프리미엄
+# <a name="control-azure-cdn-caching-behavior-with-query-strings---premium"></a>쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어 - Premium
 > [!div class="op_single_selector"]
 > * [Standard](cdn-query-string.md)
 > * [Verizon의 Azure CDN Premium](cdn-query-string-premium.md)
@@ -62,6 +62,6 @@ ms.openlocfilehash: 20efef4e60da6a0ab07eab22ff18e7ae9ab12a30
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,31 +1,37 @@
 ---
-title: Azure 보안 모범 사례 및 패턴 | Microsoft Docs
-description: 이 문서는 Azure 보안 모범 사례 및 패턴에 관한 소개와 다른 Azure 리소스에 대한 보안 모범 사례의 엄선된 목록을 제공합니다.
+title: "Azure 보안 모범 사례 및 패턴 | Microsoft Docs"
+description: "이 문서는 Azure 보안 모범 사례 및 패턴에 관한 소개와 다른 Azure 리소스에 대한 보안 모범 사례의 엄선된 목록을 제공합니다."
 services: azure-security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-
+ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
+ms.date: 03/06/2017
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 1cc0d2d1e9a62ff8531f963413ff573713d508ad
+ms.lasthandoff: 03/07/2017
+
 
 ---
-# Azure 보안 모범 사례 및 패턴
-현재 다음과 같은 Azure 보안 모범 사례 및 패턴 문서가 있습니다. Azure 보안 모범 사례 및 패턴과 관련하여 늘어가는 목록이 업데이트되는 것을 보려면 이 사이트를 정기적으로 방문하도록 합니다.
+# <a name="azure-security-best-practices-and-patterns"></a>Azure 보안 모범 사례 및 패턴
+현재 다음과 같은 Azure 보안 모범 사례 및 패턴 문서가 있습니다. Azure 보안 모범 사례 및 패턴과 관련하여 늘어가는 목록이 업데이트되는 것을 보려면 이 사이트를 정기적으로 방문하도록 합니다.  
 
 * [Azure 네트워크 보안 모범 사례](azure-security-network-security-best-practices.md)
 * [Azure 데이터 보안 및 암호화 모범 사례](azure-security-data-encryption-best-practices.md)
 * [ID 관리 및 액세스 제어 보안 모범 사례](azure-security-identity-management-best-practices.md)
 * [사물 인터넷 보안 모범 사례](azure-security-iot-best-practices.md)
-* [Microsoft Azure IaaS에서 소프트웨어 업데이트에 대한 모범 사례](azure-security-best-practices-software-updates-iaas.md)
+* [Azure IaaS 보안 모범 사례] (azure-security-iaas.md)
 * [Azure 경계 보안 모범 사례](../best-practices-network-security.md)
 * [Azure에서 보안 하이브리드 네트워크 아키텍처 구현](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+* [Azure PaaS 모범 사례] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
 
 Azure는 솔루션을 빌드할 수 있도록 안전한 플랫폼을 제공합니다. Azure의 솔루션을 보다 안전하게 만들기 위한 서비스와 기술도 제공합니다. 사용할 수 있는 옵션이 많기 때문에 많은 분들이 Microsoft가 보안 개선의 모범 사례 및 패턴으로 추천하는 내용에 관해 관심을 표명했습니다.
 
@@ -43,4 +49,3 @@ Azure는 솔루션을 빌드할 수 있도록 안전한 플랫폼을 제공합�
 
 Azure 보안 아키텍처 및 모범 사례에 대한 많은 문서를 갖추려고 합니다. 추가할 항목이 있으시면 이 페이지의 아래쪽에 있는 토론 영역에서 알려주세요.
 
-<!---HONumber=AcomDC_0921_2016-->

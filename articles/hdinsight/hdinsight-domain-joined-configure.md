@@ -9,6 +9,7 @@ editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c28ad5efa3cfcdc63559b50056ca6c79f8d600c9
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 424ee513afce6ab689c8804594754b1b49234754
+ms.lasthandoff: 03/25/2017
 
 
 ---
@@ -31,9 +33,9 @@ Azure AD(Azure Active Directory) 및 [Apache Ranger](http://hortonworks.com/apac
 
 최종 토폴로지의 예는 다음과 같습니다.
 
-![도메인에 가입된 HDInsight 토폴로지](.\\media\\hdinsight-domain-joined-configure\\hdinsight-domain-joined-topology.png)
+![도메인에 가입된 HDInsight 토폴로지](./media/hdinsight-domain-joined-configure/hdinsight-domain-joined-topology.png)
 
-현재 Azure AD는 클래식 가상 네트워크(VNet)만 지원하고 Linux 기반 HDInsight 클러스터는 Azure Resource Manager 기반 VNet만 지원하므로 HDInsight Azure AD를 통합하려면 두 VNet이 있어야 하고 또 두 VNet을 피어링해야 합니다. 두 배포 모델의 비교 정보는 [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](../resource-manager-deployment-model.md)를 참조하세요. 두 VNet이 Azure AD DS와 동일한 지역에 있어야 합니다.
+현재 Azure AD는 클래식 가상 네트워크(VNet)만 지원하고 Linux 기반 HDInsight 클러스터는 Azure Resource Manager 기반 VNet만 지원하므로 HDInsight Azure AD를 통합하려면 두 VNet이 있어야 하고 또 두 VNet을 피어링해야 합니다. 두 배포 모델의 비교 정보는 [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요. 두 VNet이 Azure AD DS와 동일한 지역에 있어야 합니다.
 
 Azure 서비스 이름은 전역적으로 고유해야 합니다. 이 자습서에서는 다음 이름이 사용됩니다. Contoso는 가상의 이름입니다. 자습서를 공부할 때 *contoso*를 다른 이름으로 바꿔야 합니다. 
 
@@ -200,9 +202,9 @@ Azure 서비스 이름은 전역적으로 고유해야 합니다. 이 자습서�
    * 암호: (암호 입력)
      
      사용자 이름 및 암호는 로컬 관리자입니다.
-4.  **다음**
+4. **다음**
 5. **지역/가상 네트워크**에서, 마지막 단계에서 만든 새 가상 네트워크(contosoaadvnet)를 선택하고 **다음**을 클릭합니다.
-6. **완료**를 클릭합니다.
+6. 페이지 맨 아래에 있는 **완료**을 참조하세요.
 
 **RDP로 VM에 연결하려면**
 
@@ -237,7 +239,7 @@ Azure 서비스 이름은 전역적으로 고유해야 합니다. 이 자습서�
 7. 서버 풀의 현재 가상 컴퓨터를 선택하고 **다음**을 클릭합니다.
 8. **다음**을 클릭하여 역할을 건너뜁니다.
 9. **원격 서버 관리 도구**를 확장하고, **역할 관리 도구**를 확장하고, **AD DS 및 AD LDS 도구**와 **DNS 서버 도구**를 선택한 후 **다음**을 클릭합니다. 
-10.  **다음**
+10. **다음**
 11. **Install**을 클릭합니다.
 
 자세한 내용은 [가상 컴퓨터에 Active Directory 관리 도구 설치](../active-directory-domain-services/active-directory-ds-admin-guide-administer-domain.md#task-2---install-active-directory-administration-tools-on-the-virtual-machine)를 참조하세요.
@@ -324,7 +326,7 @@ VNet을 만든 후에는 Azure AD VNet과 동일한 DNS 서버를 사용하도�
 8. **확인**을 클릭합니다.
 
 ## <a name="create-hdinsight-cluster"></a>HDInsight 클러스터 만들기
-이 섹션에서는 Azure Portal 또는 [Azure Resource Manager 템플릿](../resource-group-template-deploy.md)을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터를 만듭니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. Resource Manager 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [Resource Manager 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-create-windows-clusters-arm-templates.md)를 참조하세요.
+이 섹션에서는 Azure Portal 또는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터를 만듭니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. Resource Manager 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [Resource Manager 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-create-windows-clusters-arm-templates.md)를 참조하세요.
 
 **Azure Portal을 사용하여 도메인에 가입된 HDInsight 클러스터를 만들려면**
 
@@ -375,7 +377,7 @@ VNet을 만든 후에는 Azure AD VNet과 동일한 DNS 서버를 사용하도�
 
 1. Azure Portal에서 Resource Manager 템플릿을 열려면 다음 이미지를 클릭합니다. Resource Manager 템플릿은 공용 blob 컨테이너에 있습니다. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="./media/hdinsight-domain-joined-configure/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. **매개 변수** 블레이드에서 다음 값을 입력합니다.
    
    * **구독**: (Azure 구독을 선택합니다.)
@@ -404,11 +406,6 @@ VNet을 만든 후에는 Azure AD VNet과 동일한 DNS 서버를 사용하도�
 ## <a name="next-steps"></a>다음 단계
 * Azure PowerShell을 사용하여 도메인 가입 HDInsight 클러스터를 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 도메인 가입 HDInsight 클러스터 구성](hdinsight-domain-joined-configure-use-powershell.md)을 참조하세요.
 * Hive 정책 및 Hive 쿼리 실행에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터에 대한 Hive 정책 구성](hdinsight-domain-joined-run-hive.md)을 참조하세요.
-* 도메인에 가입된 HDInsight 클러스터에서 SSH를 사용하여 Hive 쿼리를 실행하는 방법에 대한 자세한 내용은 [Linux, Unix 또는 OS X에서 SSH를 HDInsight의 Linux 기반 Hadoop과 함께 사용](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* SSH를 사용하여 도메인에 가입된 HDInsight 클러스터에 연결하려면 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
 
 

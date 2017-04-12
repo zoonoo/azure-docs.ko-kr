@@ -1,5 +1,5 @@
 ---
-title: "PowerShell을 사용하여 Azure VM의 Always On 가용성 그룹 구성"
+title: "PowerShell을 사용하여 Azure VM의 Always On 가용성 그룹 구성 | Microsoft 문서"
 description: "이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, PowerShell을 사용하여 Azure에 Always On 가용성 그룹을 만듭니다."
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,35 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/22/2016
+ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 9504b2f74fa0161b6c4dfb6a510913256b99629a
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 261e90106e8aac520d2360de2c02d5d33d478d5d
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-with-powershell"></a>PowerShell을 사용하여 Azure VM의 Always On 가용성 그룹 구성
 > [!div class="op_single_selector"]
-> * [Resource Manager: 템플릿](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [리소스 관리자: 수동](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-> * [클래식: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-> * [클래식: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
-> 
-> 
+> * [클래식: UI](../classic/portal-sql-alwayson-availability-groups.md)
+> * [클래식: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+<br/>
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 
+
+Azure Resource Manager를 사용하여 이 작업을 완료하려면 [Azure Virtual Machines의 SQL Server AlwaysOn 가용성 그룹](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md)을 참조하세요.
 
 Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQL Server 시스템 비용 절감을 지원합니다. 이 자습서에서는 Azure 환경 안에서 종단 간에 SQL Server Always On 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다. 자습서 마지막에서 Azure의 SQL Server Always On 솔루션은 다음 요소로 구성됩니다.
 
 * 프런트 엔드 및 백 엔드 서브넷을 비롯한 여러 서브넷을 포함하는 가상 네트워크
 * AD(Active Directory) 도메인을 포함한 도메인 컨트롤러
 * 백 엔드 서브넷에 배포되고 AD 도메인에 가입된 SQL Server VM 2개
-* 노드 과반수 쿼럼 모델을 포함하는 3-노드 WSFC 클러스터
+* 노드 과반수 쿼럼 모델을 포함하는 3노드 Windows 장애 조치 클러스터
 * 가용성 데이터베이스의 두 개의 동기 커밋 복제본이 포함된 가용성 그룹
 
-비용 효율성이나 기타 Azure에서의 다른 요인이 아닌 단순성 때문에 이 시나리오가 선택됩니다. 예를 들어, Azure에서 계산 시간을 줄이기 위해 2노드 WSFC 클러스터에서 쿼럼 파일 공유 감시로 도메인 컨트롤러를 사용하여 두 개의 복제된 가용성 그룹에 대한 VM 수를 최소화할 수 있습니다. 이 방법을 사용하면 위의 구성에서 하나로 VM 수가 줄어듭니다.
+비용 효율성이나 기타 Azure에서의 다른 요인이 아닌 단순성 때문에 이 시나리오가 선택됩니다. 예를 들어, Azure에서 계산 시간을 줄이기 위해 2노드 장애 조치 클러스터에서 쿼럼 파일 공유 감시로 도메인 컨트롤러를 사용하여 두 개의 복제된 가용성 그룹에 대한 VM 수를 최소화할 수 있습니다. 이 방법을 사용하면 위의 구성에서 하나로 VM 수가 줄어듭니다.
 
 이 자습서는 각 단계를 상세히 설명하지 않고 위에서 설명한 솔루션을 설정하는 데 필요한 단계를 보여주기 위한 것입니다. 따라서 GUI 구성 단계를 보여주는 대신 PowerShell 스크립팅을 사용하여 각 단계를 신속히 진행합니다. 여기서는 다음을 가정합니다.
 
@@ -221,7 +221,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
             -ChangePasswordAtLogon $false `
             -Enabled $true
    
-    **CORP\Install**은 SQL Server 서비스 인스턴스, WSFC 클러스터, 가용성 그룹과 연관된 모든 항목을 구성하는 데 사용합니다. **CORP\SQLSvc1** 및 **CORP\SQLSvc2**는 두 SQL Server VM에 대한 SQL Server 서비스 계정으로 사용됩니다.
+    **CORP\Install**은 SQL Server 서비스 인스턴스, 장애 조치 클러스터, 가용성 그룹과 연관된 모든 항목을 구성하는 데 사용합니다. **CORP\SQLSvc1** 및 **CORP\SQLSvc2**는 두 SQL Server VM에 대한 SQL Server 서비스 계정으로 사용됩니다.
 7. 이후 다음 명령을 실행하여 도메인에서 컴퓨터 개체를 만들 권한을 **CORP\Install**에 부여합니다.
    
         Cd ad:
@@ -233,7 +233,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
    
-    위에서 지정한 GUID는 컴퓨터 개체 유형의 GUID입니다. WSFC 클러스터에서 Active Directory 개체를 만들기 위해 **CORP\Install** 계정에는 **모든 속성 읽기** 및 **컴퓨터 개체 만들기** 권한이 필요합니다. **모든 속성 읽기** 권한은 이미 CORP\Install에 기본적으로 부여되어 있으므로 명시적으로 부여하지 않아도 됩니다. WSFC 클러스터를 만드는 데 필요한 권한에 대한 자세한 내용은 [장애 조치 클러스터 단계별 가이드: Active Directory의 계정 구성](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)을 참조하세요.
+    위에서 지정한 GUID는 컴퓨터 개체 유형의 GUID입니다. 장애 조치 클러스터에서 Active Directory 개체를 만들기 위해 **CORP\Install** 계정에는 **모든 속성 읽기** 및 **컴퓨터 개체 만들기** 권한이 필요합니다. **모든 속성 읽기** 권한은 이미 CORP\Install에 기본적으로 부여되어 있으므로 명시적으로 부여하지 않아도 됩니다. 장애 조치 클러스터를 만드는 데 필요한 권한에 대한 자세한 내용은 [장애 조치 클러스터 단계별 가이드: Active Directory의 계정 구성](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)을 참조하세요.
    
     Active Directory 및 사용자 개체 구성을 완료하면 2개의 SQL Server VM이 만들어져 이 도메인에 연결됩니다.
 
@@ -252,7 +252,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
         $dnsSettings = New-AzureDns -Name "ContosoBackDNS" -IPAddress "10.10.0.4"
    
     일반적으로 Azure 가상 네트워크의 **10.10.0.0/16** 서브넷에 만든 최초의 VM에 IP 주소 **10.10.0.4**가 할당됩니다. **IPCONFIG**를 실행하여 이 DC 서버의 주소를 확인해야 합니다.
-2. 다음 파이프 명령을 실행하여 이름이 **ContosoQuorum**인 WSFC 클러스터의 첫 번째 VM을 만듭니다.
+2. 다음 파이프 명령을 실행하여 이름이 **ContosoQuorum**인 장애 조치 클러스터의 첫 번째 VM을 만듭니다.
    
         New-AzureVMConfig `
             -Name $quorumServerName `
@@ -371,8 +371,8 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
    
     SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL Server에 설치되었습니다.
 
-## <a name="initialize-the-wsfc-cluster-vms"></a>WSFC 클러스터 VM 초기화
-이 섹션에서는 WSFC 클러스터 및 SQL Server 설치에 사용할 3개의 서버를 수정해야 합니다. 구체적으로 살펴보면 다음과 같습니다.
+## <a name="initialize-the-failover-cluster-vms"></a>장애 조치 클러스터 VM 초기화
+이 섹션에서는 장애 조치 클러스터 및 SQL Server 설치에 사용할 3개의 서버를 수정해야 합니다. 구체적으로 살펴보면 다음과 같습니다.
 
 * (모든 서버) **장애 조치 클러스터링** 기능을 설치해야 합니다.
 * (모든 서버) **CORP\Install**을 컴퓨터 **관리자**로 추가해야 합니다.
@@ -476,8 +476,8 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. **Azure VM에서 Always On 가용성 그룹을 위한 WSFC 클러스터 만들기** 에서 [CreateAzureFailoverCluster.ps1](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) 을 로컬 작업 디렉터리로 다운로드합니다. 이 스크립트를 사용하면 작동 가능한 WSFC 클러스터를 만들 수 있습니다. WSFC가 Azure 네트워크와 상호 작용하는 방식에 대한 중요 정보는 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)를 참조하세요.
-8. 작업 디렉터리로 변경하고 다운로드한 스크립트로 WSFC 클러스터를 만듭니다.
+7. **Azure VM에서 Always On 가용성 그룹을 위한 장애 조치 클러스터 만들기** 에서 [CreateAzureFailoverCluster.ps1](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) 을 로컬 작업 디렉터리로 다운로드합니다. 이 스크립트를 사용하면 작동 가능한 장애 조치 클러스터를 만들 수 있습니다. Windows 클러스터링이 Azure 네트워크와 상호 작용하는 방식에 대한 중요 정보는 [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)를 참조하세요.
+8. 작업 디렉터리로 변경하고 다운로드한 스크립트로 장애 조치 클러스터를 만듭니다.
    
         Set-ExecutionPolicy Unrestricted -Force
         .\CreateAzureFailoverCluster.ps1 -ClusterName "$clusterName" -ClusterNode "$server1","$server2","$serverQuorum"
@@ -499,7 +499,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
          New-Item $backup -ItemType directory
          net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
          icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
-11. **ContosoSQL1**에 이름이 **MyDB1**인 데이터베이스를 만들고 전체 백업과 로그 백업을 모두 만든 다음 **WITH NORECOVERY ** 옵션을 사용하여 해당 백업을 **ContosoSQL2**에 복원합니다.
+11. **ContosoSQL1**에 이름이 **MyDB1**인 데이터베이스를 만들고 전체 백업과 로그 백업을 모두 만든 다음 **WITH NORECOVERY** 옵션을 사용하여 해당 백업을 **ContosoSQL2**에 복원합니다.
     
          Invoke-SqlCmd -Query "CREATE database $db"
          Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
@@ -560,13 +560,8 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
              -Database $db
 
 ## <a name="next-steps"></a>다음 단계
-이제 Azure에서 가용성 그룹을 만들어 SQL Server Always On을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-windows-classic-ps-sql-int-listener.md)을 참조하세요.
+이제 Azure에서 가용성 그룹을 만들어 SQL Server Always On을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성](../classic/ps-sql-int-listener.md)을 참조하세요.
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

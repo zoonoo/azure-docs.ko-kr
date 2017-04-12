@@ -12,16 +12,55 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.custom: queries
+ms.date: 01/30/2017
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b8ca8430765ef2377d2ef693a67951cff08534e
+ms.sourcegitcommit: 68655fff239bfd76f93ab9177d161d9534cbb901
+ms.openlocfilehash: 150113dda95ab021dd7ad8696b5886373ba982b8
+ms.lasthandoff: 01/31/2017
 
 
 ---
 # <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 CTAS(Create Table As Select)
-`CTAS`(Create Table As Select)는 현재 제공되고 있는 가장 중요한 T-SQL 기능 중 하나이며, 이는 SELECT 문의 출력을 기반으로 새 테이블을 만드는 완전하게 병렬화된 연산입니다. `CTAS`는 테이블 사본을 만드는 가장 간단하고 빠른 방법입니다. CTAS는 `SELECT..INTO`의 보강된 버전으로 간주할 수 있습니다. 이 문서는 `CTAS`에 대한 예제와 모범 사례를 모두 제공합니다.
+`CTAS`(Create Table As Select)는 현재 제공되고 있는 가장 중요한 T-SQL 기능 중 하나이며, 이는 SELECT 문의 출력을 기반으로 새 테이블을 만드는 완전하게 병렬화된 연산입니다. `CTAS`는 테이블 사본을 만드는 가장 간단하고 빠른 방법입니다. 이 문서는 `CTAS`에 대한 예제와 모범 사례를 모두 제공합니다.
+
+## <a name="selectinto-vs-ctas"></a>SELECT..INTO 및 CTAS
+`CTAS`는 `SELECT..INTO`의 매우 강력한 버전으로 간주할 수 있습니다.
+
+다음은 간단한 `SELECT..INTO` 문의 예제입니다.
+
+```sql
+SELECT *
+INTO    [dbo].[FactInternetSales_new]
+FROM    [dbo].[FactInternetSales]
+```
+
+위의 예제에서 `[dbo].[FactInternetSales_new]`는 Azure SQL Data Warehouse의 테이블 기본값이므로 CLUSTERED COLUMNSTORE INDEX를 포함한 ROUND_ROBIN 분산 테이블로 만들어집니다.
+
+그러나 `SELECT..INTO`에서는 작업의 일부로 배포 메서드 또는 인덱스 유형을 변경할 수 없습니다. 여기는 `CTAS`이 들어오는 곳입니다.
+
+위의 문을 `CTAS` 로 변환하는 것은 매우 간단합니다.
+
+```sql
+CREATE TABLE [dbo].[FactInternetSales_new]
+WITH
+(
+    DISTRIBUTION = ROUND_ROBIN
+,    CLUSTERED COLUMNSTORE INDEX
+)
+AS
+SELECT  *
+FROM    [dbo].[FactInternetSales]
+;
+```
+
+`CTAS`를 사용하면 테이블 형식뿐만 아니라 테이블 데이터의 배포도 변경할 수 있습니다. 
+
+> [!NOTE]
+> `CTAS` 작업에서 색인만 변경하려고 하고 원본 테이블이 해시로 배포되는 경우 동일한 배포 열과 데이터 형식을 유지하면 `CTAS` 작업이 가장 잘 수행됩니다. 이렇게 하면 보다 효율적으로 작업하는 동안 배포 간 데이터 이동을 방지할 수 있습니다.
+> 
+> 
 
 ## <a name="using-ctas-to-copy-a-table"></a>CTAS를 사용하여 테이블 복사
 `CTAS` 는 DDL을 변경할 수 있도록 테이블 복사본을 만드는 데 가장 흔히 사용됩니다. 예를 들어 원래 `ROUND_ROBIN`으로 테이블을 만들었는데 열에 배포된 테이블로 변경하고 싶다면, `CTAS`를 통해 배포 열을 변경할 수 있습니다. `CTAS` 를 사용해 분할, 인덱싱 또는 열 유형도 변경할 수 있습니다.
@@ -88,50 +127,19 @@ DROP TABLE FactInternetSales_old;
 ```
 
 > [!NOTE]
-> Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다.  쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다.  통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][통계] 항목을 참조하세요.
+> Azure SQL 데이터 웨어하우스는 자동 만들기 또는 통계 자동 업데이트를 아직 지원하지 않습니다.  쿼리에서 최상의 성능을 얻으려면, 데이터를 처음 로드하거나 데이터에 상당한 변화가 발생한 후에 모든 테이블의 모든 열에서 통계가 만들어지는 것이 중요합니다.  통계에 대한 자세한 설명은 개발 항목 그룹의 [통계][Statistics] 항목을 참조하세요.
 > 
 > 
 
 ## <a name="using-ctas-to-work-around-unsupported-features"></a>CTAS를 사용하여 지원되지 않는 기능 해결
 `CTAS` 를 사용하면 아래에 나와 있는 여러 지원되지 않는 기능과 관련된 문제도 해결할 수 있습니다. 많은 경우 이는 코드가 규정을 준수하면서도 SQL 데이터 웨어하우스에서 더 빠르게 실행되는 윈/윈 상황으로 입증될 수 있습니다. 이는 완전히 병렬화된 디자인의 결과입니다. CTAS로 해결할 수 있는 시나리오는 다음과 같습니다.
 
-* SELECT..INTO
 * UPDATE에 대한 ANSI JOINS
 * DELETE에 대한 ANSI JOIN
 * MERGE 문
 
 > [!NOTE]
 > "CTAS를 먼저" 생각해 보십시오. `CTAS` 를 사용하여 문제를 해결할 수 있다면 그 결과로 더 많은 데이터를 작성하더라도 대개 CTAS를 사용하는 것이 가장 효율적인 문제 해결 방식입니다.
-> 
-> 
-
-## <a name="selectinto"></a>SELECT..INTO
-솔루션의 여러 위치에 `SELECT..INTO` 를 사용할 수 있습니다.
-
-아래에 `SELECT..INTO` 문의 예제가 나와 있습니다.
-
-```sql
-SELECT *
-INTO    #tmp_fct
-FROM    [dbo].[FactInternetSales]
-```
-
-위의 문을 `CTAS` 로 변환하는 것은 매우 간단합니다.
-
-```sql
-CREATE TABLE #tmp_fct
-WITH
-(
-    DISTRIBUTION = ROUND_ROBIN
-)
-AS
-SELECT  *
-FROM    [dbo].[FactInternetSales]
-;
-```
-
-> [!NOTE]
-> 현재 CTAS는 배포 열 지정이 필요합니다.  배포 열을 의도적으로 변경하려는 것이 아니라면 기본 테이블과 같은 배포 열을 선택하는 경우 `CTAS`가 가장 빠르게 실행됩니다. 이 전략을 사용하면 데이터가 이동되지 않기 때문입니다.  성능이 그다지 중요하지 않은 작은 테이블을 만드는 경우에는 배포 열을 결정하지 않아도 되도록 `ROUND_ROBIN`을 지정할 수 있습니다.
 > 
 > 
 
@@ -431,22 +439,17 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 [CTAS][CTAS] 사용에 대한 자세한 내용은 MSDN을 참조하세요. 이는 Azure SQL 데이터 웨어하우스의 매우 중요한 문 중 하나이므로, 완전하게 이해해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-더 많은 개발 팁은 [개발 개요][개발 개요]를 참조하세요.
+더 많은 개발 팁은 [개발 개요][development overview]를 참조하세요.
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-ctas/ctas-results.png
 
 <!--Article references-->
-[개발 개요]: sql-data-warehouse-overview-develop.md
-[통계]: ./sql-data-warehouse-tables-statistics.md
+[development overview]: sql-data-warehouse-overview-develop.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

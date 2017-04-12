@@ -1,6 +1,6 @@
 ---
-title: "자동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자"
-description: "Azure Resource Manager 모드에서 Azure 가상 컴퓨터로 Always On 가용성 그룹을 만듭니다. 이 자습서는 주로 사용자 인터페이스를 사용하여 자동으로 전체 솔루션을 만듭니다."
+title: "Azure Resource Manager VM의 고가용성 설정 | Microsoft Docs"
+description: "이 자습서에서는 Azure Resource Manager 모드에서 Azure Virtual Machines로 Always On 가용성 그룹을 만드는 방법을 보여 줍니다."
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -8,47 +8,39 @@ manager: jhubbard
 editor: 
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/20/2016
-ms.author: MikeRayMSFT
+ms.workload: iaas-sql-server
+ms.date: 03/17/2017
+ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 27967ee372c379de08ae0c4740638cbeaabc4e55
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 00b81ad58f411babd9ab745dfb6f8fe85e35d663
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-automatically---resource-manager"></a>자동으로 Azure VM의 Always On 가용성 그룹 구성 - 리소스 관리자
-> [!div class="op_single_selector"]
-> * [Resource Manager: 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [리소스 관리자: 수동](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-> * [클래식: UI](../sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-> * [클래식: PowerShell](../sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
-> 
-> 
 
-<br/>
+이 자습서에서는 Azure Resource Manager 가상 컴퓨터로 SQL Server 가용성 그룹을 만드는 방법을 보여 줍니다. 자습서에서는 Azure 블레이드를 사용하여 템플릿을 구성합니다. 이 자습서를 살펴보면서 기본 설정을 검토하고 필요한 설정을 입력하며 포털에서 블레이드를 업데이트할 수 있습니다.
 
-이 종단 간 자습서에서는 Azure 리소스 관리자 가상 컴퓨터로 SQL Server 가용성 그룹을 만드는 방법을 보여줍니다. 자습서에서는 Azure 블레이드를 사용하여 템플릿을 구성합니다. 이 자습서를 살펴보면서 기본 설정을 검토하고 필요한 설정을 입력하며 포털에서 블레이드를 업데이트합니다.
-
-자습서 마지막에 Azure의 SQL Server 가용성 그룹 솔루션은 다음 요소로 구성됩니다.
+전체 자습서에서는 다음 요소를 포함하여 Azure VM에서 SQL Server 가용성 그룹을 만듭니다.
 
 * 프런트 엔드 및 백 엔드 서브넷을 비롯한 여러 서브넷을 포함하는 가상 네트워크
 * AD(Active Directory) 도메인을 포함한 두 개의 도메인 컨트롤러
 * 백 엔드 서브넷에 배포되고 AD 도메인에 가입된 SQL Server VM 2개
-* 노드 과반수 쿼럼 모델을 포함하는 3-노드 WSFC 클러스터
+* 노드 과반수 쿼럼 모델을 포함하는 3노드 장애 조치 클러스터
 * 가용성 데이터베이스의 두 개의 동기 커밋 복제본이 포함된 가용성 그룹
 
-아래 그림은 솔루션을 그래픽으로 표현한 것입니다.
+다음 그림은 전체 솔루션을 나타냅니다.
 
 ![Azure에서 AG에 대한 테스트 랩 아키텍처](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/0-EndstateSample.png)
 
 이 솔루션의 리소스는 모두 단일 리소스 그룹에 속해 있습니다.
 
-이 자습서에서는 다음을 가정합니다.
+이 자습서를 시작하기 전에 먼저 다음을 확인해야 합니다.
 
 * Azure 계정이 있습니다. 계정이 없는 경우 [평가판 계정에 등록](http://azure.microsoft.com/pricing/free-trial/)합니다.
 * GUI를 사용하여 가상 컴퓨터 갤러리에서 SQL Server VM을 프로비전하는 방법을 이미 알고 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)
@@ -59,7 +51,7 @@ ms.openlocfilehash: 27967ee372c379de08ae0c4740638cbeaabc4e55
 > 
 > 
 
-이 자습서에서는 다음 작업에 Azure 포털을 사용합니다.
+이 자습서에서는 다음 작업에 Azure Portal을 사용합니다.
 
 * 포털에서 Always On 템플릿 선택
 * 템플릿 설정 검토 및 환경에 대한 몇 가지 구성 설정 업데이트
@@ -80,37 +72,37 @@ Azure는 전체 솔루션에 대한 갤러리 이미지를 제공합니다. 템�
 5. **배포 모델 선택**에서 **Resource Manager**를 선택합니다.
 
 ### <a name="basics"></a>기본 사항
-**기본 사항** 을 클릭하고 다음을 구성합니다.
+**기본 사항**을 클릭하고 다음 설정을 구성합니다.
 
 * **관리자 사용자 이름** 은 도메인 관리자 권한을 가진 사용자 계정이며 SQL Server의 두 인스턴스 모두에 있는 SQL Server sysadmin 고정 서버 역할의 멤버입니다. 이 자습서에서는 **DomainAdmin**을 사용합니다.
 * **암호** 는 도메인 관리자 계정의 암호입니다. 복잡한 암호를 사용합니다. 암호를 확인합니다.
-* **구독** 은 가용성 그룹에 대해 배포된 모든 리소스를 실행하기 위해 Azure에서 청구하는 구독입니다. 계정에 여러 구독이 있는 경우 다른 구독을 지정할 수 있습니다.
-* **리소스 그룹** 은 이 자습서에서 만든 모든 Azure 리소스가 속하게 될 그룹의 이름입니다. 이 자습서에서는 **SQL-HA-RG**를 사용합니다. 자세한 내용은 (Azure 리소스 관리자 개요)[resource-group-overview.md/#resource-groups]를 참조하세요.
-* **위치** 는 이 자습서에 대한 리소스를 만들 위치인 Azure 지역입니다. Azure 지역을 선택하여 인프라를 호스트합니다.
+* **구독**은 가용성 그룹에 대해 배포된 모든 리소스를 실행하기 위해 Azure에서 청구하는 구독입니다. 계정에 여러 구독이 있는 경우 다른 구독을 지정할 수 있습니다.
+* **리소스 그룹**은 이 자습서에서 만든 모든 Azure 리소스가 속한 그룹의 이름입니다. 이 자습서에서는 **SQL-HA-RG**를 사용합니다. 자세한 내용은 (Azure 리소스 관리자 개요)[resource-group-overview.md/#resource-groups]를 참조하세요.
+* **위치**는 이 자습서에서 리소스를 만들 Azure 지역입니다. Azure 지역을 선택합니다.
 
-다음과 같이 **기본 사항** 블레이드가 표시됩니다.
+다음 그림은 완료된 **기본 사항** 블레이드입니다.
 
 ![기본 사항](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
 * **확인**을 클릭합니다.
 
 ### <a name="domain-and-network-settings"></a>도메인 및 네트워크 설정
-이 Azure 갤러리 템플릿은 새 도메인 컨트롤러를 사용하여 새 도메인을 만듭니다. 또한 새 네트워크와 두 개의 서브넷을 만듭니다. 템플릿은 기존 도메인 또는 가상 네트워크에서 서버를 만들 수 없습니다. 다음 단계는 도메인 및 네트워크 설정을 구성하는 것입니다.
+이 Azure 갤러리 템플릿은 도메인 및 도메인 컨트롤러를 만듭니다. 또한 네트워크와 두 개의 서브넷을 만듭니다. 템플릿은 기존 도메인 또는 가상 네트워크에서 서버를 만들 수 없습니다. 다음 단계는 도메인 및 네트워크 설정을 구성하는 것입니다.
 
 **도메인 및 네트워크 설정** 블레이드에서 도메인 및 네트워크 설정에 미리 설정된 값을 검토합니다.
 
-* **포리스트 루트 도메인 이름** 은 클러스터를 호스팅하는 AD 도메인에 사용할 도메인 이름입니다. 자습서에는 **contoso.com**을 사용합니다.
-* **가상 네트워크 이름** 은 Azure 가상 네트워크에 대한 네트워크 이름입니다. 이 자습서에서는 **autohaVNET**을 사용합니다.
-* **도메인 컨트롤러 서브넷 이름** 은 도메인 컨트롤러를 호스팅하는 일부 가상 네트워크의 이름입니다. 이 자습서에서는 **subnet-1**을 사용합니다. 이 서브넷은 주소 접두사 **10.0.0.0/24**를 사용합니다.
-* **SQL Server 서브넷 이름** 은 SQL Server 및 파일 공유 감시를 호스팅하는 일부 가상 네트워크의 이름입니다. 이 자습서에서는 **subnet-2**를 사용합니다. 이 서브넷은 주소 접두사 **10.0.1.0/26**을 사용합니다.
+* **포리스트 루트 도메인 이름**은 클러스터를 호스팅하는 AD 도메인에 사용할 도메인 이름입니다. 자습서에는 **contoso.com**을 사용합니다.
+* **가상 네트워크 이름** 은 Azure 가상 네트워크에 대한 네트워크 이름입니다. **autohaVNET**을 사용합니다.
+* **도메인 컨트롤러 서브넷 이름** 은 도메인 컨트롤러를 호스팅하는 일부 가상 네트워크의 이름입니다. **subnet-1**을 사용합니다. 이 서브넷은 주소 접두사 **10.0.0.0/24**를 사용합니다.
+* **SQL Server 서브넷 이름** 은 SQL Server 및 파일 공유 감시를 호스팅하는 일부 가상 네트워크의 이름입니다. **subnet-2**를 사용합니다. 이 서브넷은 주소 접두사 **10.0.1.0/26**을 사용합니다.
 
 Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 개요](../../../virtual-network/virtual-networks-overview.md)를 참조하세요.  
 
-**도메인 및 네트워크 설정** 은 다음과 같이 표시됩니다.
+**도메인 및 네트워크 설정**은 다음 이미지와 같이 표시됩니다.
 
 ![도메인 및 네트워크 설정](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/2-domain.png)
 
-필요한 경우에 이러한 값을 변경할 수 있습니다. 이 자습서에는 미리 설정된 값을 사용합니다.
+필요한 경우에 이러한 값을 변경할 수 있습니다. 이 자습서에서는 미리 설정된 값을 사용합니다.
 
 * 설정을 검토하고 **확인**을 클릭합니다.
 
@@ -119,7 +111,7 @@ Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 
 
 * **가용성 그룹 이름** 은 가용성 그룹에 대해 클러스터된 리소스 이름입니다. 이 자습서에서는 **Contoso-ag**를 사용합니다.
 * **가용성 그룹 수신기 이름** 은 클러스터 및 내부 부하 분산 장치에서 사용됩니다. SQL Server에 연결된 클라이언트는 이 이름을 사용하여 데이터베이스의 적절한 복제본에 연결할 수 있습니다. 이 자습서에서는 **Contoso-listener**를 사용합니다.
-* **가용성 그룹 수신기 포트** 는 SQL Server 수신기가 사용할 TCP 포트를 지정합니다. 이 자습서에는 기본 포트 **1433**을 사용합니다.
+* **가용성 그룹 수신기 포트**는 SQL Server 수신기의 TCP 포트를 지정합니다. 이 자습서에는 기본 포트 **1433**을 사용합니다.
 
 필요한 경우에 이러한 값을 변경할 수 있습니다. 이 자습서에는 미리 설정된 값을 사용합니다.  
 
@@ -141,7 +133,7 @@ Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 
 * **파일 공유 감시 가상 컴퓨터 크기** 는 파일 공유 감시에 대한 가상 컴퓨터 크기입니다. 이 자습서에서는 **A1**을 사용합니다.
 * **SQL 저장소 계정** 은 SQL Server 데이터 및 운영 체제 디스크를 확보하는 저장소 계정의 이름입니다. 이 자습서에서는 **alwaysonsql01**을 사용합니다.
 * **DC 저장소 계정** 은 도메인 컨트롤러에 대한 저장소 계정의 이름입니다. 이 자습서에서는 **alwaysondc01**을 사용합니다.
-* **SQL Server 데이터 디스크 크기** (TB 단위)는 SQL Server 데이터 디스크의 크기(TB 단위)입니다. 1~4 사이에서 숫자를 지정합니다. 각 SQL Server에 연결될 데이터 디스크의 크기입니다. 이 자습서에서는 **1**을 사용합니다.
+* **SQL Server 데이터 디스크 크기** (TB 단위)는 SQL Server 데이터 디스크의 크기(TB 단위)입니다. 1~4 사이에서 숫자를 지정합니다. 이 자습서에서는 **1**을 사용합니다.
 * **저장소 최적화** 는 워크로드 형식에 따라 SQL Server 가상 컴퓨터에 대한 특정 저장소 구성 설정을 설정합니다. 이 시나리오에서 모든 SQL Server는 읽기 전용으로 설정된 Azure 디스크 호스트 캐시로 프리미엄 저장소를 사용합니다. 또한 이러한 세 가지 설정 중 하나를 선택하여 워크로드에 대한 SQL Server 설정을 최적화할 수 있습니다.
   
   * **일반 워크로드** 는 특정 구성 설정을 설정하지 않음
@@ -155,9 +147,9 @@ Azure의 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 
 * 설정을 검토하고 **확인**을 클릭합니다.
 
 #### <a name="a-note-about-storage"></a>저장소에 대한 정보
-추가 최적화는 SQL Server 데이터 디스크의 크기에 따라 달라집니다. 데이터 디스크의 각 테라바이트에 Azure는 추가 1TB 프리미엄 저장소(SSD)를 추가합니다. 서버가 2TB 이상이 필요한 경우 템플릿은 각 SQL Server에 저장소 풀을 만듭니다. 저장소 풀은 여러 디스크가 높은 용량, 복원력 및 성능을 제공하도록 구성된 저장소 가상화의 형태입니다.  그런 다음 템플릿은 저장소 풀에 저장소 공간을 만들고 이를 운영 체제에 단일 데이터로 표시합니다. 템플릿은 SQL Server에서 이 디스크를 데이터 디스크로 지정합니다. 템플릿은 다음 설정으로 SQL Server에서 저장소 풀을 조정합니다.
+추가 최적화는 SQL Server 데이터 디스크의 크기에 따라 달라집니다. 데이터 디스크의 각 테라바이트에 Azure는 추가 1TB 프리미엄 저장소(SSD)를 추가합니다. 서버가 2TB 이상이 필요한 경우 템플릿은 각 SQL Server에 저장소 풀을 만듭니다. 저장소 풀은 여러 디스크가 높은 용량, 복원력 및 성능을 제공하도록 구성된 저장소 가상화의 형태입니다.  그런 다음 템플릿은 저장소 풀에 저장소 공간을 만들고 운영 체제에 단일 데이터 디스크를 표시합니다. 템플릿은 SQL Server에서 이 디스크를 데이터 디스크로 지정합니다. 템플릿은 다음 설정으로 SQL Server에서 저장소 풀을 조정합니다.
 
-* 줄무늬 크기는 가상 디스크에 대한 인터리빙 설정입니다. 트랜잭션 워크로드에서는 64KB로 설정됩니다. 데이터 웨어하우징 워크로드에서는 256KB로 설정됩니다.
+* 줄무늬 크기는 가상 디스크에 대한 인터리빙 설정입니다. 트랜잭션 워크로드에는 64KB가 사용되고, 데이터 웨어하우징 워크로드에는 256KB가 사용됩니다.
 * 복원력은 단순합니다(복원력 없음).
 
 > [!NOTE]
@@ -177,12 +169,12 @@ SQL Server 구성 모범 사례에 대한 자세한 내용은 [Azure 가상 컴�
 ### <a name="sql-server-settings"></a>SQL 서버 설정
 **SQL Server 설정** 에서 SQL Server VM 이름 접두사, SQL Server 버전, SQL Server 서비스 계정과 암호 및 SQL 자동 패치 유지 관리 일정을 검토하고 수정합니다.
 
-* **SQL Server 이름 접두사** 는 각 SQL Server의 이름을 만드는 데 사용됩니다. 이 자습서에서는 **Contoso-ag**를 사용합니다. SQL Server 이름은 *Contoso-ag-0* 및 *Contoso-ag-1*입니다.
-* **SQL Server 버전** 은 SQL Server의 버전입니다. 이 자습서에서는 **SQL Server 2014**를 사용합니다. 또한 **SQL Server 2012** 또는 **SQL Server 2016**을 선택할 수 있습니다.
+* **SQL Server 이름 접두사** 는 각 SQL Server의 이름을 만드는 데 사용됩니다. 이 자습서에서는 **sqlserver**를 사용합니다. 템플릿에서는 SQL Server VM 이름을 *sqlserver-0* 및 *sqlserver-1*로 지정합니다.
+* **SQL Server 버전**은 SQL Server의 버전입니다. 이 자습서에서는 **SQL Server 2014**를 사용합니다. 또한 **SQL Server 2012** 또는 **SQL Server 2016**을 선택할 수 있습니다.
 * **SQL Server 서비스 계정 사용자 이름** 은 SQL Server 서비스에 대한 도메인 계정 이름입니다. 이 자습서에서는 **sqlservice**를 사용합니다.
 * **암호** 는 SQL Server 서비스 계정에 대한 암호입니다.  복잡한 암호를 사용합니다. 암호를 확인합니다.
-* **SQL 자동 패치 유지 관리 일정** 은 Azure에서 SQL Server를 자동으로 패치하는 요일을 식별합니다. 이 자습서에서는 **일요일**을 입력합니다.
-* **SQL 자동 패치 유지 관리 시작 시간** 은 Azure 지역에서 자동 패치를 시작하는 시각입니다.
+* **SQL 자동 패치 유지 관리 일정**은 Azure에서 SQL Server를 자동으로 패치하는 요일을 식별합니다. 이 자습서에서는 **일요일**을 입력합니다.
+* **SQL 자동 패치 유지 관리 시작 시간**은 Azure 지역에서 자동 패치가 시작되는 시각입니다.
 
 > [!NOTE]
 > 각 VM에 대한 패치 창은 한 시간씩 지연됩니다. 서비스 중단을 방지하기 위해 한 번에 하나의 가상 컴퓨터가 패치됩니다.
@@ -199,7 +191,7 @@ SQL Server 구성 모범 사례에 대한 자세한 내용은 [Azure 가상 컴�
 ### <a name="buy"></a>구입
 이 마지막 블레이드는 **사용 약관** 및 **개인 정보 취급 방침**을 포함합니다. 이 정보를 검토합니다. Azure에서 가상 컴퓨터 및 가용성 그룹에 필요한 기타 모든 리소스 만들기를 시작하도록 준비가 된 경우 **만들기**를 클릭합니다.
 
-Azure 포털에서 리소스 그룹 및 모든 리소스를 만듭니다.
+Azure Portal에서 리소스 그룹 및 모든 리소스를 만듭니다.
 
 ## <a name="monitor-deployment"></a>배포 모니터링
 Azure 포털에서 배포 진행률을 모니터링합니다. 배포를 나타내는 아이콘은 Azure 포털 대시보드에 자동으로 고정됩니다.
@@ -207,30 +199,18 @@ Azure 포털에서 배포 진행률을 모니터링합니다. 배포를 나타�
 ![Azure 대시보드](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
 
 ## <a name="connect-to-sql-server"></a>SQL Server에 연결
-SQL Server의 새 인스턴스는 인터넷에 연결되지 않은 가상 컴퓨터에서 실행됩니다. 그러나 도메인 컨트롤러는 인터넷에 연결됩니다. 원격 데스크톱으로 SQL server에 연결하기 위해 도메인 컨트롤러 중 하나에 대한 첫 번째 RDP입니다. 도메인 컨트롤러에서 SQL Server에 두 번째 RDP를 엽니다.
+SQL Server의 새 인스턴스는 인터넷에 연결된 IP 주소가 있는 가상 컴퓨터에서 실행됩니다. 각 SQL Server에 직접 RDP할 수 있습니다.
 
-기본 도메인 컨트롤러에 RDP하려면 다음 단계를 수행합니다.
+SQL Server에 RDP하려면 다음 단계를 수행합니다.
 
 1. Azure 포털 대시보드에서 해당 배포에 성공했습니다.
 2. **리소스**를 클릭합니다.
-3. **리소스** 블레이드에서 기본 도메인 컨트롤러에 대한 가상 컴퓨터의 컴퓨터 이름인 **ad-primary-dc**를 클릭합니다.
-4. **ad-primary-dc** click **연결**합니다. 브라우저에서 원격 연결 개체를 열거나 저장할지 여부를 묻습니다. **열기**를 클릭합니다.
-   ![DC에 연결](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/13-ad-primary-dc-connect.png)
+3. **리소스** 블레이드에서 SQL Server 중 하나에 대한 가상 컴퓨터의 컴퓨터 이름인 **sqlserver-0**을 클릭합니다.
+4. **sqlserver-0**에 대한 블레이드에서 **연결**을 클릭합니다. 브라우저에서 원격 연결 개체를 열거나 저장할지 여부를 묻습니다. **열기**를 클릭합니다.
 5. **원격 데스크톱 연결** 은 이 원격 연결의 게시자를 식별할 수 없음을 경고할 수 있습니다. **연결**을 클릭합니다.
-6. Windows 보안은 기본 도메인 컨트롤러의 IP 주소에 연결할 자격 증명을 입력하라는 메시지를 표시합니다. **다른 계정 사용**을 클릭합니다. **사용자 이름**에 **contoso\DomainAdmin**을 입력합니다. 관리자 사용자 이름으로 선택한 계정입니다. 템플릿을 구성할 때 선택한 복잡한 암호를 사용합니다.
-7. **원격 데스크톱** 은 보안 인증서의 문제로 인해 원격 컴퓨터를 인증할 수 없음을 경고할 수 있습니다. 보안 인증서 이름이 표시됩니다. 이 자습서를 따른 경우 이름은 **ad-primary-dc.contoso.com**이 됩니다. **예**를 클릭합니다.
+6. Windows 보안은 기본 도메인 컨트롤러의 IP 주소에 연결할 자격 증명을 입력하라는 메시지를 표시합니다. **다른 계정 사용**을 클릭합니다. **사용자 이름**에 **contoso\DomainAdmin**을 입력합니다. 템플릿에서 관리자 사용자 이름을 설정할 때 이 계정을 구성했습니다. 템플릿을 구성할 때 선택한 복잡한 암호를 사용합니다.
+7. **원격 데스크톱** 은 보안 인증서의 문제로 인해 원격 컴퓨터를 인증할 수 없음을 경고할 수 있습니다. 보안 인증서 이름이 표시됩니다. 이 자습서를 따른 경우 이름은 **sqlserver-0.contoso.com**이 됩니다. **예**를 클릭합니다.
 
-이제 기본 도메인 컨트롤러에 연결됩니다. SQL Server에 RDP하려면 다음 단계를 수행합니다.
-
-1. 도메인 컨트롤러에서 **원격 데스크톱 연결**을 엽니다.
-2. **컴퓨터**에 SQL Server 중 하나의 이름을 입력합니다. 이 자습서에는 **sqlserver-0**을 입력합니다.
-3. 도메인 컨트롤러에 대한 RDP에 사용한 것과 동일한 사용자 계정 및 암호를 사용합니다.
-
-이제 SQL Server에 대한 RDP와 연결됩니다. SQL Server management studio를 열고 SQL Server의 기본 인스턴스에 연결하며 가용성 그룹이 구성되는지 확인합니다.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
+이제 SQL Server에 대한 RDP와 연결됩니다. SQL Server Management Studio를 열고 SQL Server의 기본 인스턴스에 연결하며 가용성 그룹이 구성되는지 확인합니다.
 
 

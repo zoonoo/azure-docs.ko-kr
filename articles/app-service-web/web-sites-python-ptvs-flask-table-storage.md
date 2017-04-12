@@ -5,7 +5,7 @@ services: app-service\web
 tags: python
 documentationcenter: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: d8e70a29-aca1-4010-95f5-cfe769e3be06
 ms.service: app-service-web
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 07/07/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 02080901ef6c87f169b38a1cc90f52098c199454
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 96b27bdd528b0f57b9e0a9959ead23b8f820a82d
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -40,7 +41,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -65,7 +66,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 ## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
 저장소 작업을 사용하려면 Azure 저장소 계정이 필요합니다. 다음 단계에 따라 저장소 계정을 만들 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 포털의 왼쪽 위에서 **새로 만들기** 아이콘을 클릭한 다음 **데이터 + 저장소** > **저장소 계정**을 클릭합니다. **만들기**를 클릭하고 저장소 계정에 고유한 이름을 지정한 다음 이를 위한 새 [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다.
    
       ![빠른 생성](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureStorageCreate.png)
@@ -175,7 +176,7 @@ Python Tools for Visual Studio, Flask 및 Azure 테이블 저장소에 대해 �
 [Python에서 테이블 저장소 서비스를 사용하는 방법]: ../storage/storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
-[Azure 포털]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Azure SDK for .NET]: http://azure.microsoft.com/downloads/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -190,9 +191,4 @@ Python Tools for Visual Studio, Flask 및 Azure 테이블 저장소에 대해 �
 [클라우드 서비스 프로젝트]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure 저장소]: http://azure.microsoft.com/documentation/services/storage/
 [Python용 Azure SDK]: https://github.com/Azure/azure-sdk-for-python
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

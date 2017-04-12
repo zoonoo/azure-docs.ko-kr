@@ -16,17 +16,13 @@ ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e16587c3eb7366c92297455e8a175ab118174526
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: f63bd47c15439e6fedc0f6edf579681697155592
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="sql-database-advisor-using-the-azure-portal"></a>Azure Portal을 사용하는 SQL Database 관리자
-> [!div class="op_single_selector"]
-> * [SQL 데이터베이스 관리자 개요](sql-database-advisor.md)
-> * [포털](sql-database-advisor-portal.md)
-> 
-> 
 
 Azure 포털의 Azure SQL 데이터베이스 관리자를 사용하여 현재 쿼리 성능을 향상시킬 수 있는 기존 SQL 데이터베이스에 대한 권장 사항을 검토하고 구현할 수 있습니다.
 
@@ -50,7 +46,7 @@ Azure 포털의 "스키마 문제 해결" 권장 사항의 예는 다음과 같�
 
 ![스키마 문제 해결](./media/sql-database-advisor-portal/sql-database-advisor-schema-issue.png)
 
-권장 사항은 아래 4개의 카테고리에서 성능의 잠재적 영향 순으로 정렬됩니다.
+권장 사항은 아래&4;개의 카테고리에서 성능의 잠재적 영향 순으로 정렬됩니다.
 
 | 영향 | 설명 |
 |:--- |:--- |
@@ -71,7 +67,7 @@ Azure 포털의 "스키마 문제 해결" 권장 사항의 예는 다음과 같�
 3. 필요에 따라 **권장 사항**의 기본 목록에 인덱스를 다시 추가하려면 **삭제 취소**를 클릭하세요.
 
 ## <a name="applying-recommendations"></a>권장 사항 적용
-SQL Database 관리자는 다음 3가지 옵션을 사용하여 권장 사항을 사용하도록 설정하는 방법을 완전히 제어할 수 있게 합니다. 
+SQL Database 관리자는 다음&3;가지 옵션을 사용하여 권장 사항을 사용하도록 설정하는 방법을 완전히 제어할 수 있게 합니다. 
 
 * 개별 권장 구성을 한 번에 하나씩 적용합니다.
 * 권장 사항을 자동으로 적용하도록 관리자를 설정합니다(현재 인덱스 권장 사항에만 적용됨).
@@ -152,10 +148,5 @@ SQL 데이터베이스 관리자는 SQL 데이터베이스 성능 향상을 위�
 * [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

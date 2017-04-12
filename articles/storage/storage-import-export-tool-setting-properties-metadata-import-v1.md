@@ -1,6 +1,6 @@
 ---
-title: "가져오기 프로세스 중에 속성 및 메타데이터 설정 | Microsoft Docs"
-description: "Import-Export 도구를 실행하여 드라이브를 준비할 때 대상 Blob에 설정할 속성과 메타데이터를 지정하는 방법을 알아봅니다."
+title: "Azure Import/Export를 사용하여 속성 및 메타데이터 설정 - v1 | Microsoft Docs"
+description: "Azure Import/Export 도구를 실행하여 드라이브를 준비할 때 대상 BLOB에 설정할 속성과 메타데이터를 지정하는 방법을 알아봅니다. Import/Export 도구 v1을 나타냅니다."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -12,17 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 5d75bdb5ff39934e02d9af721b51e0aca24026bb
-ms.openlocfilehash: f49604cf6738da3576ed2a65ca96d083d5e8219b
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 6455ce57572f9ec36d0ebae88c1ddd9f40f237bf
+ms.lasthandoff: 03/30/2017
 
 
 ---
 
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>가져오기 프로세스 중에 속성 및 메타데이터 설정
-Microsoft Azure Import/Export 도구를 실행하여 드라이브를 준비할 때 대상 Blob에 설정할 속성과 메타데이터를 지정할 수 있습니다. 다음 단계를 수행하세요.  
+Microsoft Azure Import/Export 도구를 실행하여 드라이브를 준비할 때 대상 BLOB에 설정할 속성과 메타데이터를 지정할 수 있습니다. 다음 단계를 수행하세요.  
   
 1.  Blob 속성을 설정하려면 속성 이름 및 값을 지정하는 텍스트 파일을 로컬 컴퓨터에 만듭니다.  
   
@@ -53,7 +54,7 @@ Blob 속성을 지정하려면 로컬 텍스트 파일을 만들고 속성 이�
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
-    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>  
+    <UploadMethod>Windows Azure Import/Export service</UploadMethod>  
     <DataSetName>SampleData</DataSetName>  
     <CreationDate>10/1/2013</CreationDate>  
 </Metadata>  
@@ -68,11 +69,7 @@ Azure Import/Export 도구를 실행하여 가져오기 작업을 준비할 때 
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp\BlueRay.ISO /dstblob:favorite/BlueRay.ISO /MetadataFile:c:\WAImportExport\SampleMetadata.txt /PropertyFile:c:\WAImportExport\SampleProperties.txt  
 ```
   
-## <a name="see-also"></a>참고 항목  
-[Import-Export 서비스 메타데이터 및 속성 파일 형식](storage-import-export-file-format-metadata-and-properties.md)
+## <a name="next-steps"></a>다음 단계
 
-
-
-<!--HONumber=Dec16_HO2-->
-
+* [가져오기-내보내기 서비스 메타데이터 및 속성 파일 형식](storage-import-export-file-format-metadata-and-properties.md)
 

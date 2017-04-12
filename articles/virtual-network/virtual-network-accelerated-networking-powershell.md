@@ -4,7 +4,7 @@ description: "PowerShell을 사용하여 Azure 가상 컴퓨터에 대한 가속
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a0b63599-c23b-40b5-a8ab-23af8b07dded
@@ -15,15 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 979ff03320063fc02366c738a10f028bcecba76b
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5edba79e5c65f0e9411a418ac1a121fd938feff2
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="accelerated-networking-for-a-virtual-machine"></a>가상 컴퓨터에 대한 가속 네트워킹
+# <a name="accelerated-networking-for-a-virtual-machine-using-powershell"></a>PowerShell을 사용하는 가상 컴퓨터에 대한 가속 네트워킹
 > [!div class="op_single_selector"]
-> * [Azure 앱 서비스에서 웹앱](virtual-network-accelerated-networking-portal.md)
+> * [Azure Portal](virtual-network-accelerated-networking-portal.md)
 > * [PowerShell](virtual-network-accelerated-networking-powershell.md)
 > 
 > 
@@ -54,7 +56,7 @@ ms.openlocfilehash: 979ff03320063fc02366c738a10f028bcecba76b
 * **VM 만들기:** VM을 만들 때 가속 네트워킹이 설정된 네트워크 인터페이스만 VM에 연결할 수 있습니다. 이 네트워크 인터페이스를 기존 VM에 연결할 수 없습니다.
 * **지역:** 미국 중서부 및 유럽 서부 Azure 지역에만 제공됩니다. 이 지역 집합은 나중에 확장될 것입니다.
 * **지원되는 운영 체제:** Microsoft Windows Server 2012 R2 및 Windows Server 2016 Technical Preview 5. Linux 및 Windows Server 2012 지원은 곧 추가될 예정입니다.
-* **VM 크기:** Standard_D15_v2 및 Standard_DS15_v2만 VM 인스턴스 크기로 지원됩니다. 자세한 내용은 [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 문서를 참조하세요. 지원되는 VM 인스턴스 크기 집합은 앞으로 확장될 예정입니다.
+* **VM 크기:** Standard_D15_v2 및 Standard_DS15_v2만 VM 인스턴스 크기로 지원됩니다. 자세한 내용은 [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 문서를 참조하세요. 지원되는 VM 인스턴스 크기 집합은 앞으로 확장될 예정입니다.
 
 이러한 제한 사항이 변경되면 [Azure 가상 네트워킹 업데이트](https://azure.microsoft.com/updates/accelerated-networking-in-preview) 페이지에 공지됩니다.
 
@@ -125,10 +127,5 @@ ms.openlocfilehash: 979ff03320063fc02366c738a10f028bcecba76b
 13. Windows 단추를 마우스 오른쪽 단추로 클릭하고 **장치 관리자**를 클릭합니다. 다음 그림과 같이 **네트워크** 옵션을 확장할 때 아래에 **Mellanox ConnectX-3 Virtual Function Ethernet Adapter**가 표시되는지 확인합니다.
     
     ![장치 관리자](./media/virtual-network-accelerated-networking-powershell/image2.png)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

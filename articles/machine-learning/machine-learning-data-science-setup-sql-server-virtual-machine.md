@@ -12,16 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/24/2017
 ms.author: xibingao;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 353f09a8a6fa3798d764d41618a8f0b3ba83e3d0
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: 497b683b1058e134c3c79dbc8c8a119ff20e330b
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="set-up-an-azure-sql-server-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>고급 분석을 위해 Azure SQL Server 가상 컴퓨터를 IPython Notebook으로 설정
-이 토픽에서는 클라우드 기반 데이터 과학 환경의 일부로 사용할 SQL Server 가상 컴퓨터를 프로비전 및 구성하는 방법을 보여 줍니다. Windows 가상 컴퓨터는 IPython Notebook, Azure 저장소 탐색기 및 AzCopy와 같은 지원 도구뿐만 아니라 데이터 과학 프로젝트에 유용한 기타 유틸리티로 구성됩니다. 예를 들어 Azure 저장소 탐색기와 AzCopy는 로컬 컴퓨터에서 Azure Blob 저장소로 데이터를 업로드하거나 Blob 저장소에서 로컬 컴퓨터로 데이터를 다운로드하는 데 편리한 방법을 제공합니다.
+이 토픽에서는 클라우드 기반 데이터 과학 환경의 일부로 사용할 SQL Server 가상 컴퓨터를 프로비전 및 구성하는 방법을 보여 줍니다. Windows 가상 컴퓨터는 IPython Notebook, Azure Storage Explorer 및 AzCopy와 같은 지원 도구뿐만 아니라 데이터 과학 프로젝트에 유용한 기타 유틸리티로 구성됩니다. 예를 들어 Azure 저장소 탐색기와 AzCopy는 로컬 컴퓨터에서 Azure Blob 저장소로 데이터를 업로드하거나 Blob 저장소에서 로컬 컴퓨터로 데이터를 다운로드하는 데 편리한 방법을 제공합니다.
 
 Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개의 이미지가 있습니다. 데이터 요구 사항에 적합한 SQL Server VM 이미지를 선택하세요. 권장 이미지는 다음과 같습니다.
 
@@ -33,7 +34,7 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
   > 
   > 
 
-## <a name="a-nameprovisionaconnect-to-the-azure-classic-portal-and-provision-an-sql-server-virtual-machine"></a><a name="Provision"></a>Azure 클래식 포털에 연결 및 SQL Server 가상 컴퓨터 프로비전
+## <a name="Provision"></a>Azure 클래식 포털에 연결 및 SQL Server 가상 컴퓨터 프로비전
 1. 사용자 계정을 사용하여 [Azure 클래식 포털](http://manage.windowsazure.com/) 에 로그인합니다.
    Azure 계정이 없는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
 2. Azure 클래식 포털 웹 페이지의 왼쪽 아래에서 **+새로 만들기**, **계산**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
@@ -83,7 +84,7 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
    * 실행 중(프로비전 중)
    * 실행 중
 
-## <a name="a-nameremotedesktopaopen-the-virtual-machine-using-remote-desktop-and-complete-setup"></a><a name="RemoteDesktop"></a>원격 데스크톱을 사용하여 가상 컴퓨터 열기 및 설치 완료
+## <a name="RemoteDesktop"></a>원격 데스크톱을 사용하여 가상 컴퓨터 열기 및 설치 완료
 1. 프로비전이 완료되면 가상 컴퓨터의 이름을 클릭하여 대시보드 페이지로 이동합니다. 페이지 맨 아래에 있는 **Connect**를 클릭합니다.
 2. Windows 원격 데스크톱 프로그램(`%windir%\system32\mstsc.exe`)을 사용하여 rpd 파일을 열도록 선택합니다.
 3. **Windows 보안** 대화 상자에서, 이전 단계에서 지정한 로컬 관리자 계정의 암호를 입력합니다.
@@ -92,28 +93,28 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 
 Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 가상 컴퓨터는 다른 컴퓨터와 상당히 유사하게 작동합니다. SQL Server Management Studio(가상 컴퓨터에서 실행 중인)가 설치되어 있는 기본 SQL Server 인스턴스에 일반적인 방식으로 연결합니다.
 
-## <a name="a-nameinstallipythonainstall-ipython-notebook-and-other-supporting-tools"></a><a name="InstallIPython"></a>IPython Notebook 및 기타 지원 도구 설치
+## <a name="InstallIPython"></a>IPython Notebook 및 기타 지원 도구 설치
 IPython Notebook 서버 역할을 하도록 새 SQL Server VM을 구성하고 AzCopy, Azure 저장소 탐색기, 유용한 데이터 과학 Python 패키지 등의 추가 지원 도구를 설치할 수 있도록 특별한 사용자 지정 스크립트가 제공됩니다. 설치하려면 다음을 수행합니다.
 
-* **Windows 시작** 아이콘을 마우스 오른쪽 단추로 클릭하고 **명령 프롬프트(관리자)**를 클릭합니다.
-* 다음 명령을 복사하여 명령 프롬프트에 붙여 넣습니다.
+1. **Windows 시작** 아이콘을 마우스 오른쪽 단추로 클릭하고 **명령 프롬프트(관리자)**를 클릭합니다.
+2. 다음 명령을 복사하여 명령 프롬프트에 붙여 넣습니다.
   
         set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
         @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
-* 메시지가 표시되면 IPython Notebook 서버에 대한 원하는 암호를 입력합니다.
-* 사용자 지정 스크립트는 다음과 같은 여러 설치 후 절차를 자동화합니다.
-  * IPython Notebook 서버 설치 및 설정
-  * 이전에 만든 끝점에 대해 Windows 방화벽에서 TCP 포트 열기
-  * SQL Server 원격 연결
-  * IPython Notebook 서버 원격 연결
-  * 샘플 IPython Notebook 및 SQL 스크립트 가져오기
-  * 유용한 데이터 과학 Python 패키지 다운로드 및 설치
-  * AzCopy 및 Azure 저장소 탐색기 와 같은 Azure 도구 다운로드 및 설치   
+3. 메시지가 표시되면 IPython Notebook 서버에 대한 원하는 암호를 입력합니다.
+4. 사용자 지정 스크립트는 다음과 같은 여러 설치 후 절차를 자동화합니다.
+    * IPython Notebook 서버 설치 및 설정
+    * 이전에 만든 끝점에 대해 Windows 방화벽에서 TCP 포트 열기
+    * SQL Server 원격 연결
+    * IPython Notebook 서버 원격 연결
+    * 샘플 IPython Notebook 및 SQL 스크립트 가져오기
+    * 유용한 데이터 과학 Python 패키지 다운로드 및 설치
+    * AzCopy 및 Azure 저장소 탐색기 와 같은 Azure 도구 다운로드 및 설치   
     <br>
-* 모든 로컬 또는 원격 브라우저에서(여기서 port는 가상 컴퓨터를 프로비전하는 동안 선택한 IPython 공용 포트) `https://<virtual_machine_DNS_name>:<port>`형식의 URL을 사용하여 IPython Notebook에 액세스하고 실행할 수 있습니다.
-* IPython Notebook 서버는 백그라운드 서비스로 실행되며, 가상 컴퓨터를 다시 시작하면 자동으로 다시 시작됩니다.
+5. 모든 로컬 또는 원격 브라우저에서(여기서 port는 가상 컴퓨터를 프로비전하는 동안 선택한 IPython 공용 포트) `https://<virtual_machine_DNS_name>:<port>`형식의 URL을 사용하여 IPython Notebook에 액세스하고 실행할 수 있습니다.
+6. IPython Notebook 서버는 백그라운드 서비스로 실행되며, 가상 컴퓨터를 다시 시작하면 자동으로 다시 시작됩니다.
 
-## <a name="a-nameoptionalaattach-data-disk-as-needed"></a><a name="Optional"></a>필요에 따라 데이터 디스크 연결
+## <a name="Optional"></a>필요에 따라 데이터 디스크 연결
 VM 이미지에 데이터 디스크, 즉 C 드라이브(OS 디스크) 및 D 드라이브(임시 디스크) 이외의 디스크가 포함되지 않은 경우 데이터를 저장할 데이터 디스크를 하나 이상 추가해야 합니다. SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads용 VM 이미지는 SQL Server 데이터 및 로그 파일용 추가 디스크로 미리 구성된 상태로 제공됩니다.
 
 > [!NOTE]
@@ -121,12 +122,12 @@ VM 이미지에 데이터 디스크, 즉 C 드라이브(OS 디스크) 및 D 드�
 > 
 > 
 
-추가 데이터 디스크를 연결하려면 다음 과정을 안내하는 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)에 설명된 단계를 따릅니다.
+추가 데이터 디스크를 연결하려면 다음 과정을 안내하는 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)에 설명된 단계를 따릅니다.
 
 1. 이전 단계에서 프로비전한 가상 컴퓨터에 빈 디스크 연결
 2. 가상 컴퓨터에서 새 디스크 초기화
 
-## <a name="a-namessmsaconnect-to-sql-server-management-studio-and-enable-mixed-mode-authentication"></a><a name="SSMS"></a>SQL Server Management Studio에 연결하여 혼합 모드 인증 설정
+## <a name="SSMS"></a>SQL Server Management Studio에 연결하여 혼합 모드 인증 설정
 SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증을 사용할 수 있습니다. 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 혼합 모드 인증을 위해 SQL Server를 구성하십시오. 혼합 모드 인증은 SQL Server 인증과 Windows 인증을 모두 허용합니다. SQL 인증 모드는 데이터 가져오기 모듈을 사용하여 [Azure 기계 학습 스튜디오](https://studio.azureml.net) 의 SQL Server VM 데이터베이스에서 직접 데이터를 수집하는 데 필요합니다.
 
 1. 원격 데스크톱을 사용하여 가상 컴퓨터에 연결되어 있는 동안 Windows **검색** 창에 SMSS(**SQL Server Management Studio**)를 입력합니다. SSMS(SQL Server Management Studio)를 클릭하여 시작합니다. 나중에 사용하기 위해 바탕 화면에 SSMS의 바로 가기를 추가할 수 있습니다.
@@ -166,7 +167,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
    ![다시 시작][9]
 5. **SQL Server Management Studio** 대화 상자에서 **예**를 클릭하여 SQL Server를 다시 시작한다는 데 동의합니다.
 
-## <a name="a-nameloginsacreate-sql-server-authentication-logins"></a><a name="Logins"></a>SQL Server 인증 로그인 만들기
+## <a name="Logins"></a>SQL Server 인증 로그인 만들기
 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 SQL Server 인증 로그인을 하나 이상 만들어야 합니다.  
 
 SQL Server Management Studio를 사용하거나 프로그래밍 방식으로 새 SQL Server 로그인을 만들 수 있습니다. SQL 인증을 사용하는 새 sysadmin 사용자를 프로그래밍 방식으로 만들려면 **새 쿼리** 를 시작하고 다음 스크립트를 실행합니다. <새 사용자 이름\> 및 <새 암호\>를 원하는 *사용자 이름* 및 *암호*로 바꿉니다. 
@@ -209,7 +210,7 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
     ![sysadmin][12]
 12. 확인을 클릭합니다.
 
-## <a name="a-namednsadetermine-the-dns-name-of-the-virtual-machine"></a><a name="DNS"></a>가상 컴퓨터의 DNS 이름 확인
+## <a name="DNS"></a>가상 컴퓨터의 DNS 이름 확인
 다른 컴퓨터에서 SQL Server 데이터베이스 엔진에 연결하려면 가상 컴퓨터의 DNS(Domain Name System) 이름을 알아야 합니다.
 
 이 이름은 인터넷에서 가상 컴퓨터를 식별하는 이름입니다. IP 주소를 사용할 수 있지만 Azure가 중복 또는 유지 관리를 위해 리소스를 이동할 경우 IP 주소가 변경될 수 있습니다. DNS 이름은 새 IP 주소로 리디렉션할 수 있으므로 안정적입니다.
@@ -217,7 +218,7 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 1. Azure 클래식 포털(또는 이전 단계)에서 **가상 컴퓨터**를 선택합니다.
 2. **가상 컴퓨터 인스턴스** 페이지의 **DNS 이름** 열에서, **http://**로 시작하는 가상 컴퓨터의 DNS 이름을 찾아서 복사합니다. 사용자 인터페이스에 전체 이름이 표시되지 않을 수도 있지만 이름을 마우스 오른쪽 단추로 클릭하고 복사를 선택합니다.
 
-## <a name="a-namecdeaconnect-to-the-database-engine-from-another-computer"></a><a name="cde"></a>다른 컴퓨터에서 데이터베이스 엔진에 연결
+## <a name="cde"></a>다른 컴퓨터에서 데이터베이스 엔진에 연결
 1. 인터넷에 연결된 컴퓨터에서 SQL Server Management Studio를 엽니다.
 2. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자의 **서버 이름** 상자에 가상 컴퓨터의 DNS 이름(이전 작업에서 확인된 이름) 및 공개 끝점 포트 번호를 *DNS이름,포트번호* 형식(예: **tutorialtestVM.cloudapp.net,57500**)으로 입력합니다.
 3. **인증** 상자에 **SQL Server 인증**을 선택합니다.
@@ -225,7 +226,7 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 5. **암호** 상자에, 이전 작업에서 만든 로그인의 암호를 입력합니다.
 6. **Connect**를 클릭합니다.
 
-## <a name="a-nameamlconnectaconnect-to-the-database-engine-from-azure-machine-learning"></a><a name="amlconnect"></a>Azure 기계 학습에서 데이터베이스 엔진에 연결
+## <a name="amlconnect"></a>Azure 기계 학습에서 데이터베이스 엔진에 연결
 팀 데이터 과학 프로세스의 이후 단계에서는 [Azure 기계 학습 스튜디오](https://studio.azureml.net) 를 사용하여 기계 학습 모델을 빌드 및 배포합니다. 학습 또는 점수 매기기를 위해 SQL Server VM 데이터베이스에서 직접 Azure 기계 학습으로 데이터를 수집하려면 새 **Azure 기계 학습 스튜디오** 실험에서 [데이터 가져오기](https://studio.azureml.net) 모듈을 사용합니다. 이 토픽은 팀 데이터 과학 프로세스 가이드 링크를 통해 보다 자세히 다룹니다. 지침은 [Azure 기계 학습 스튜디오란?](machine-learning-what-is-ml-studio.md)을 참조하세요.
 
 1. [데이터 가져오기 모듈](https://msdn.microsoft.com/library/azure/dn905997.aspx)의 **속성** 창에 있는 **데이터 원본** 드롭다운 목록에서 **Azure SQL Database**를 선택합니다.
@@ -233,9 +234,9 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 3. **서버 사용자 계정 이름** 텍스트 상자에 SQL 사용자 이름을 입력합니다.
 4. **서버 사용자 계정 암호** 텍스트 상자에 SQL 사용자의 암호를 입력합니다.
    
-   ![Azure ML 데이터 가져오기][13]
+   ![Azure 기계 학습 데이터 가져오기][13]
 
-## <a name="a-nameshutdownashutdown-and-deallocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제
+## <a name="shutdown"></a>사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제
 Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 **중지(할당 해제)** 상태에 있어야 합니다.
 
 > [!NOTE]
@@ -273,10 +274,5 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [12]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/25sysadmin.png
 [13]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/amlreader.png
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

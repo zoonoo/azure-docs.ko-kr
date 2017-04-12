@@ -3,7 +3,7 @@ title: "Azure Active Directory Premium 시작하기"
 description: "볼륨 라이선스 웹 사이트를 통해 Azure Active Directory Premium Edition을 등록하는 방법을 설명하는 항목입니다."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: curtand
 manager: femila
 ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
@@ -12,10 +12,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2017
-ms.author: markvi
+ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 73cbbce9ae3d727632b8cac2a29c2b1b92332ae7
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -136,9 +137,4 @@ Microsoft 클라우드 서비스의 서비스 및 기능에 대한 가용성은 
 [10]: ./media/active-directory-get-started-premium/contosolicenseplan.png
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

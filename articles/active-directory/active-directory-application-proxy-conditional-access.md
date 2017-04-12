@@ -1,5 +1,5 @@
 ---
-title: "Azure AD 응용 프로그램 프록시를 사용하여 게시된 응용 프로그램에 대한 조건부 액세스"
+title: "온-프레미스 앱에 대한 조건부 액세스 - Azure AD | Microsoft Docs"
 description: "Azure AD 응용 프로그램 프록시를 사용하여, 게시하는 응용 프로그램에 대해 조건부 액세스를 설정하는 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3b1ec45073a7d9abb7eb12c009ce60357a0d1545
+ms.sourcegitcommit: 164e3b0af47cd98f2d20fce7344230608e9fbe8c
+ms.openlocfilehash: 72b823998ebd570acc34e6a7ca034f64881db0c4
 
 
 ---
-# <a name="working-with-conditional-access"></a>조건부 액세스로 작업하기
+# <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시에서 조건부 액세스 작업
 응용 프로그램 프록시를 사용하여 게시된 응용 프로그램에 대한 조건부 액세스 권한을 부여하도록 액세스 규칙을 구성할 수 있습니다. 다음을 수행할 수 있습니다.
 
 * 응용 프로그램 당 Multi-Factor Authentication 요구
@@ -43,11 +43,11 @@ ms.openlocfilehash: 3b1ec45073a7d9abb7eb12c009ce60357a0d1545
 3. **응용 프로그램**을 클릭하고 아래로 스크롤하여 **액세스 규칙** 섹션을 클릭합니다. 액세스 규칙 섹션은 페더레이션 인증을 사용하는 응용 프로그램 프록시를 사용하여 게시된 응용 프로그램에 대해서만 표시됩니다.
 4. **액세스 규칙 사용**을 **켜기**로 설정하여 규칙을 사용합니다.
 5. 규칙을 적용할 사용자 및 그룹을 지정합니다. **그룹 추가** 단추를 사용하여 액세스 규칙이 적용되는 하나 이상의 그룹을 선택합니다. 이 대화 상자는 선택한 그룹을 제거하는 데 사용할 수도 있습니다.  그룹에 적용할 규칙이 선택되면 액세스 규칙이 지정된 보안 그룹 중 하나에 속한 사용자에 대해서만 적용됩니다.  
-   
+
    * 규칙에서 보안 그룹을 명시적으로 제외하려면 **제외**를 선택하고 하나 이상의 그룹을 지정합니다. 제외 목록에 있는 그룹 회원인 사용자는 Multi-Factor Authentication을 수행하지 않아도 됩니다.  
    * 사용자별 다단계 인증 기능을 사용하여 사용자가 구성된 경우 이 설정이 응용 프로그램 다단계 인증 규칙보다 우선적으로 적용됩니다. 즉, 사용자별 Multi-Factor Authentication을 위해 구성된 사용자는 응용 프로그램의 Multi-Factor Authentication 규칙에서 제외되더라도 Multi-Factor Authentication을 수행해야 함을 의미합니다. [Multi-Factor Authentication 및 사용자별 설정](../multi-factor-authentication/multi-factor-authentication.md)에 대해 자세히 알아보세요.
 6. 설정하려는 액세스 규칙을 선택합니다.
-   
+
    * **Multi-Factor Authentication 필요**: 액세스 규칙이 적용되는 사용자는 규칙이 적용되는 응용 프로그램에 액세스하기 전에 Multi-Factor Authentication을 완료해야 합니다.
    * **직장이 아닐 때 Multi-Factor Authentication 요구**: 신뢰되는 IP 주소에서 응용 프로그램에 액세스하고자 하는 사용자는 Multi-Factor Authentication을 수행하지 않아도 됩니다. 신뢰되는 IP 주소 범위는 Multi-Factor Authentication 설정 페이지에서 구성할 수 있습니다.
    * **직장이 아닐 때 액세스 차단**: 회사 네트워크 외부에서 응용 프로그램에 액세스하고자 하는 사용자는 응용 프로그램에 액세스할 수 없습니다.
@@ -69,7 +69,6 @@ ms.openlocfilehash: 3b1ec45073a7d9abb7eb12c009ce60357a0d1545
 
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

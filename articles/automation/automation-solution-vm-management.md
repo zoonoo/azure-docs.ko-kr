@@ -4,7 +4,7 @@ description: "VM 관리 솔루션은 Azure Resource Manager Virtual Machines을 
 services: automation
 documentationCenter: 
 authors: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
@@ -12,17 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 83b9f84ed017b4777b70777c653cc24ca19ab648
-ms.openlocfilehash: aadd8ec3d4d6d70c8ba7c28cd00fa21379b48929
+ms.sourcegitcommit: 5ae60cb8ba3d391d3babd1ab575b4f32e139a185
+ms.openlocfilehash: f2c9a5ef2a8f517b9b2072be57f4d8c51b7694c6
+ms.lasthandoff: 02/15/2017
 
 ---
 
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Automation의 업무 시간 외 VM 시작/중지 [미리 보기] 솔루션
 
-업무 시간 외 VM 시작/중지[미리 보기] 솔루션은 사용자가 정의한 일정에 따라 Azure 리소스 관리자 및 클래식가상 컴퓨터를 시작하고 중지하며 OMS Log Analytics를 통해 가상 컴퓨터를 시작하고 중지하는 성공적인 Automation 작업에 대한 정보를 제공합니다.  
+업무 시간 외 VM 시작/중지[미리 보기] 솔루션은 사용자가 정의한 일정에 따라 Azure Resource Manager 가상 컴퓨터를 시작하고 중지하며 OMS Log Analytics를 통해 가상 컴퓨터를 시작하고 중지하는 성공적인 Automation 작업에 대한 정보를 제공합니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -79,8 +80,8 @@ StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | 이 솔루션으로 관리
 
 일정 | 설명|
 ---------|------------|
-StartByResourceGroup-Schedule-MS-Mgmt | StartByResourceGroup runbook에 대한 일정은 이 솔루션에서 관리하는 VM의 시작을 수행합니다.|
-StopByResourceGroup-Schedule-MS-Mgmt | StopByResourceGroup runbook에 대한 일정은 이 솔루션에서 관리하는 VM의 종료를 수행합니다.|
+StartByResourceGroup-Schedule-MS-Mgmt | StartByResourceGroup runbook에 대한 일정은 이 솔루션에서 관리하는 VM의 시작을 수행합니다. 생성되면 UTC 표준 시간대를 기본값으로 사용합니다.|
+StopByResourceGroup-Schedule-MS-Mgmt | StopByResourceGroup runbook에 대한 일정은 이 솔루션에서 관리하는 VM의 종료를 수행합니다. 생성되면 UTC 표준 시간대를 기본값으로 사용합니다.|
 
 ### <a name="credentials"></a>자격 증명
 
@@ -116,7 +117,7 @@ O365Credential | 전자 메일을 보낼 유효한 Office 365 사용자 계정�
 
 8. 마지막으로 **솔루션 추가** 블레이드에서 **구성**을 선택하면 **매개 변수** 블레이드가 표시됩니다.  **매개 변수** 블레이드에서 다음을 수행해야 합니다.  
    - 이 솔루션으로 관리될 VM을 포함하는 리소스 그룹 이름인 **대상 리소스 그룹 이름**을 지정합니다.  이름은 두 개 이상 입력할 수 있으며 각 이름을 세미콜론(;)으로 구분해야 하고 대/소문자가 구분됩니다.  구독 내 모든 리소스 그룹의 VM을 대상으로 하려는 경우에는 와일드카드 사용이 지원됩니다.
-   - 대상 리소스 그룹의 VM을 시작하고 중지하는 되풀이 날짜 및 시간인 **일정**을 선택합니다.  
+   - 대상 리소스 그룹의 VM을 시작하고 중지하는 되풀이 날짜 및 시간인 **일정**을 선택합니다.  기본적으로 일정은 UTC 표준 시간대로 구성되며 다른 지역을 선택할 수 없습니다.  솔루션을 구성한 후 일정을 특정 표준 시간대로 구성하려면 아래의 [시작 및 종료 일정 수정](#modifying-the-startup-and-shutdown-schedule)을 참조하세요.    
 
 10. 솔루션에 필요한 초기 설정을 모두 구성하고 나면 **만들기**를 선택합니다.  모든 설정에 대한 유효성이 검사되고 구독 내에 솔루션 배포가 시도됩니다.  이 프로세스를 완료하려면 몇 초 정도가 소요되며 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 
 
@@ -243,10 +244,5 @@ StartVM 및 StopVM Runbook의 시간에 따른 작업 상태를 보여줍니다.
 
 
    
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

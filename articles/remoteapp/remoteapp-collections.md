@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7c526faeef2418cfbbca7948004691e127327020
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 7891ce3b04cd5978440dd8af73dc95d1d123ed92
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="what-kind-of-collection-do-you-need-for-azure-remoteapp"></a>Azure RemoteApp에 필요한 컬렉션의 종류는 무엇입니까?
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -70,14 +71,14 @@ Azure RemoteApp은 Microsoft 계정과 Azure Active Directory 계정을 모두 �
 | 타사 Azure 지원 ID 공급자(예: Ping) |예 |예 |예 | |
 | Multi-Factor Authentication | |예 |예 |예 |
 
-### <a name="cloud-and-cloud-vnet"></a>클라우드 및 클라우드 + VNET
+### <a name="cloud-and-cloud--vnet"></a>클라우드 및 클라우드 + VNET
 클라우드 컬렉션을 사용하면 Microsoft 계정, Azure AD 계정 또는 둘의 혼합을 사용할 수 있습니다. 사용자에게 가장 적합한 계정을 사 합니다.
 
 Microsoft 계정을 사용하기 위한 특정 요구 사항이 없습니다. 
 
 Azure AD 계정을 사용하려는 경우 Azure AD 테넌트가 구독에 연결된 테넌트와 일치하는지 확인해야 합니다. Azure RemoteApp 구독을 만들 때 사용한 Azure AD 테넌트는 사용자의 구독에 자동으로 연결되었습니다. 권한을 부여하는 모든 Azure AD 사용자는 같은 테넌트여야 합니다. 필요한 경우 구독과 관련된 [Azure AD 테넌트를 변경](remoteapp-changetenant.md) 할 수 있습니다.
 
-### <a name="hybrid-or-cloud-azure-ad-ad"></a>하이브리드(또는 클라우드 + Azure AD + AD)
+### <a name="hybrid-or-cloud--azure-ad--ad"></a>하이브리드(또는 클라우드 + Azure AD + AD)
 Azure AD + 온-프레미스 Active Directory 사용은 하이브리드 컬렉션에 대한 전제 조건입니다. 두 디렉터리를 통합하려면 AD Connect를 사용해야 합니다. 하지만 AD 연결을 구성하는 방법의 경우 몇 가지 선택이 있습니다. 
 
 암호 동기화 사용 또는 AD 페더레이션 사용 등 두 가지 AD Connect 시나리오가 있습니다. [AD Connect 정보](../active-directory/active-directory-aadconnect.md) 를 체크 아웃하여 둘 중 가장 적합한 시나리오를 알아냅니다.
@@ -90,10 +91,5 @@ Azure AD 및 Active Directory를 구성하는 데 필요한 단계는 [Azure Rem
 알겠습니다. 방법을 알았으므로 첫 번째 Azure RemoteApp 컬렉션을 만드는 한 가지만 남았습니다.
 
 [클라우드 컬렉션 만들기](remoteapp-create-cloud-deployment.md) 또는 [하이브리드 컬렉션을 만들기](remoteapp-create-hybrid-deployment.md) - 그냥 만들어만 보세요!
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

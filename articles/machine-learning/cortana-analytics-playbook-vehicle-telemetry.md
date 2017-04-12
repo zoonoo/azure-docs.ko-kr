@@ -1,5 +1,5 @@
 ---
-title: "차량 원격 분석 솔루션 플레이북 | Microsoft Docs"
+title: "차량 상태 및 주행 습관 예측 - Azure | Microsoft Docs"
 description: "Cortana Intelligence의 기능을 사용하여 차량 상태 및 주행 습관에 대한 예측 가능한 통찰력 및 실시간 정보를 얻습니다."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 307ed83dc1f47bb86af4a476acbb51876012ff25
-ms.openlocfilehash: e4311a740ccb4cac2c1d6e7e1197a736d3a4a777
+ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
+ms.openlocfilehash: 3467c5549381f1354987fead424646afe847739c
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -57,10 +58,5 @@ Microsoft의 Cortana Intelligence는 데이터를 지능형 작업으로 변환�
 
 * **시뮬레이트된 차량 신호 및 진단**: 차량 텔레매틱스 시뮬레이터는 지정된 시간에 차량의 상태 및 주행 패턴에 해당하는 진단 정보 및 신호를 내보냅니다. 
 * **차량 카탈로그**: 모델 매핑에 대한 VIN이 포함된 참조 데이터 집합입니다.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

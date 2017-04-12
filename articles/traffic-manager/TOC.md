@@ -1,29 +1,31 @@
 # 개요
-## [Traffic Manager란?](traffic-manager-overview.md)
-## [Traffic Manager 작동 방식](traffic-manager-how-traffic-manager-works.md)
-## [Traffic Manager 끝점](traffic-manager-endpoint-types.md)
-## [Traffic Manager 끝점 모니터링 및 장애 조치(failover)](traffic-manager-monitoring.md)
-## [트래픽 라우팅 방법](traffic-manager-routing-methods.md)
-## [중첩된 프로필](traffic-manager-nested-profiles.md)
-## [Traffic Manager 성능 고려 사항](traffic-manager-performance-considerations.md)
-## [Azure Resource Manager 지원](traffic-manager-powershell-arm.md)
+## [트래픽 관리자란?](traffic-manager-overview.md)
+## [라우팅 메서드](traffic-manager-routing-methods.md)
+### [Traffic Manager에서 사용한 국가/지역 계층 구조](traffic-manager-geographic-regions.md)
+## [끝점 유형](traffic-manager-endpoint-types.md)
+## [끝점 모니터링](traffic-manager-monitoring.md)
+## [FAQ](traffic-manager-FAQs.md)
 
 # 시작
-## [끝점 관리](traffic-manager-manage-endpoints.md)
-## [프로필 관리](traffic-manager-manage-profiles.md)
-## [인터넷 도메인이 Traffic Manager를 가리키도록 설정](traffic-manager-point-internet-domain.md)
+## [Traffic Manager 프로필 만들기](traffic-manager-create-profile.md)
 
 # 방법
-## [라우팅 방법 구성](traffic-manager-configure-routing-method.md)
-## [설정 테스트](traffic-manager-testing-settings.md)
-## [성능 저하된 끝점 문제 해결](traffic-manager-troubleshooting-degraded.md)
+
+## [지리적 라우팅 메서드 구성](traffic-manager-configure-geographic-routing-method.md)
+## [우선 순위 라우팅 메서드 구성](traffic-manager-configure-priority-routing-method.md)
+## [가중 라우팅 메서드 구성](traffic-manager-configure-weighted-routing-method.md)
+## [성능 라우팅 방법 구성](traffic-manager-configure-performance-routing-method.md)
+## [끝점 관리](traffic-manager-manage-endpoints.md)
+## [프로필 관리](traffic-manager-manage-profiles.md)
+## [Traffic Manager 설정 확인](traffic-manager-testing-settings.md)
 ## [부하 분산 서비스 조합](traffic-manager-load-balancing-azure.md)
-## [네트워크 리소스 사용](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
+## [Traffic Manager 성능 테스트](traffic-manager-performance-considerations.md)
+## [PowerShell을 사용하여 Traffic Manager 관리](traffic-manager-powershell-arm.md)
+## [인터넷 도메인이 Traffic Manager를 가리키도록 설정](traffic-manager-point-internet-domain.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
-## [PowerShell(클래식)](/powershell/servicemanagement/azure.trafficmanager/v3.1.0/azure.trafficmanager)
-## [Azure CLI 2.0 미리 보기](/cli/azure/network/traffic-manager)
+## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
+## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
@@ -43,8 +45,3 @@
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=traffic-manager)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

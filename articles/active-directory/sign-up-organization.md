@@ -3,20 +3,20 @@ title: "조직으로 Azure 등록"
 description: "회사 또는 학교 계정을 사용하여 이미 소유하고 있는 기존 사용자 계정, 정책, 설정 또는 온-프레미스 서버 배포를 활용하고 조직의 온-프레미스 ID 인프라와 Azure AD 간의 효율성을 개선하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: curtand
 manager: femila
-editor: 
 ms.assetid: 1b7f6dc2-bbdb-4aee-a615-db2f991f46ed
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markvi
+ms.date: 03/09/2017
+ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: bdbe25307b8b5e811dad374583d9ba3b96e212a5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -35,10 +35,5 @@ ms.openlocfilehash: bdbe25307b8b5e811dad374583d9ba3b96e212a5
 * [Microsoft Azure 블로그](https://azure.microsoft.com/blog/)
 * [Azure AD란?](active-directory-whatis.md)
 * [클라우드에서 온-프레미스 ID 인프라 사용](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

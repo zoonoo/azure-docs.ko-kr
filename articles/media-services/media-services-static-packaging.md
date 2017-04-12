@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 4f05f188633e2d5103e29ae4501f7ea9a832acba
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -533,7 +534,7 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 
                 ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
-                   "H264 Multiple Bitrate 720p",
+                   "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
@@ -882,7 +883,7 @@ AES-128을 사용하여 HLS를 암호화하려는 경우 동적 암호화(권장
 
                 ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
-                   "H264 Multiple Bitrate 720p",
+                   "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
@@ -1255,7 +1256,7 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 
                 ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
-                   "H264 Multiple Bitrate 720p",
+                   "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
@@ -1458,10 +1459,5 @@ PlayReady를 사용하여 콘텐츠를 보호하려는 경우 [동적 암호화]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

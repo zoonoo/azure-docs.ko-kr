@@ -1,5 +1,5 @@
 ---
-title: "Azure Functions를 사용하여 Azure Stream Analytic에서 Azure Redis Cache로 출력 | Microsoft Docs"
+title: "Azure Functions에 대한 Stream Analytics 실시간 처리 | Microsoft Docs"
 description: "Service Bus Queue에 연결된 Azure 함수를 사용하여 Stream Analytic 작업의 출력으로 Azure Redis Cache를 채우는 방법을 알아봅니다."
 keywords: "데이터 스트림, Redis Cache, Service Bus Queue"
 services: stream-analytics
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 03/28/2017
 ms.author: ryancraw
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e792f8c8b1ffddbd534b1660421e4cc89a63d35a
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: 3753846e955308a7607d92ed25648d75b9cc3a35
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -204,9 +205,4 @@ Microsoft Azure를 처음 사용하는 경우 [무료 Azure 평가판 계정](ht
 [servicebus-getstarted]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [use-rediscache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 [functions-getstarted]: ../azure-functions/functions-create-first-azure-function.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

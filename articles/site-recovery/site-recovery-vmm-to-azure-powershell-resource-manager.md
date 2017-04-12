@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 62aa837026d11e9c262c68cbdd9c78b1302bc380
+ms.sourcegitcommit: 2c070a6f46e41023ecd2ff7fb5c39b0d021aaef0
+ms.openlocfilehash: 0a900d4ddf6a751a4bf54720d3b62cf9e59e0a71
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -26,8 +27,8 @@ ms.openlocfilehash: 62aa837026d11e9c262c68cbdd9c78b1302bc380
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [클래식 포털](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - 클래식](site-recovery-deploy-with-powershell.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>개요
 Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 배포 시나리오의 전체 목록은 [Azure Site Recovery 개요](site-recovery-overview.md)를 참조하세요.
@@ -48,8 +49,8 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다.
-> 
-> 
+>
+>
 
 ## <a name="before-you-start"></a>시작하기 전에
 다음 필수 조건이 충족되었는지 확인합니다.
@@ -58,12 +59,12 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 * [Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. 계정이 없는 분은 [무료 계정](https://azure.microsoft.com/free)으로 시작할 수 있습니다. [Azure Site 복구 관리자 가격 책정](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해서도 알아보세요.
 * CSP 구독 시나리오에 복제하려면 CSP 구독이 필요합니다. [CSP 프로그램에 등록하는 방법](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx)에서 CSP 프로그램에 대해 자세히 알아보세요.
 * Azure로 복제된 데이터를 저장하려면 Azure v2 저장소(Resource Manager) 계정이 있어야 합니다. 계정의 지역에서 복제 기능을 사용하도록 설정해야 합니다. 계정은 Azure Site Recovery 서비스와 같은 지역에 있어야 하며, 같은 구독 또는 CSP 구독에 연결되어야 합니다. Azure 저장소 설정에 대한 자세한 내용은 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md) 를 참조하세요.
-* 보호할 가상 컴퓨터가 [Azure 가상 컴퓨터 필수 조건](site-recovery-best-practices.md#azure-virtual-machine-requirements)을 준수하는지 확인해야 합니다.
+* 보호할 가상 컴퓨터가 [Azure 가상 컴퓨터 필수 조건](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 준수하는지 확인해야 합니다.
 
 > [!NOTE]
 > 현재, VM 수준 작업만 Powershell을 통해 수행할 수 있습니다. 복구 계획 수준 작업에 대한 지원이 곧 제공될 것입니다.  지금은 '보호되는 VM' 수준에서만 장애 조치(Failover)를 수행할 수 있고 복구 수준에서는 수행할 수 없습니다.
-> 
-> 
+>
+>
 
 ### <a name="vmm-prerequisites"></a>VMM 필수 구성 요소
 * System Center 2012 R2에서 실행되는 VMM 서버가 필요합니다.
@@ -74,7 +75,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
   * 원본 Hyper-V 서버에 있는 하나 이상의 가상 컴퓨터.
 * VMM 클라우드 설정에 대해 자세히 알아봅니다.
   * [System Center 2012 R2 VMM에서 사설 클라우드의 새로운 기능](http://go.microsoft.com/fwlink/?LinkId=324952)과 [VMM 2012 및 클라우드](http://go.microsoft.com/fwlink/?LinkId=324956)에서 사설 VMM 클라우드에 대해 알아봅니다.
-  *  [VMM 클라우드 패브릭 구성](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
+  * [VMM 클라우드 패브릭 구성](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
   * 클라우드 패브릭 요소가 구현되면 [VMM에서 사설 클라우드 만들기](http://go.microsoft.com/fwlink/p/?LinkId=324953) 및 [연습: System Center 2012 SP1 VMM으로 사설 클라우드 만들기](http://go.microsoft.com/fwlink/p/?LinkId=324954)에 대해 알아보세요.
 
 ### <a name="hyper-v-prerequisites"></a>Hyper-V 필수 조건
@@ -108,43 +109,43 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 ## <a name="step-1-set-the-subscription"></a>1단계: 구독 설정
 1. Azure powershell에서 다음 cmdlet을 사용하여 Azure 계정에 로그인합니다.
-   
+
         $UserName = "<user@live.com>"
         $Password = "<password>"
         $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
         $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
         Login-AzureRmAccount #-Credential $Cred
 2. 구독 목록을 가져옵니다. 각 구독의 subscriptionID 목록도 함께 표시될 것입니다. 복구 서비스 자격 증명 모음을 만들려는 구독의 subscriptionID를 메모합니다.
-   
+
         Get-AzureRmSubscription
 3. 구독 ID를 알려주어 복구 서비스 자격 증명 모음을 만들 구독을 설정합니다.
-   
+
         Set-AzureRmContext –SubscriptionID <subscriptionId>
 
 ## <a name="step-2-create-a-recovery-services-vault"></a>2단계: 복구 서비스 자격 증명 모음 만들기
 1. 또한 Azure Resource Manager에 리소스 그룹이 없는 경우 만듭니다.
-   
+
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
 2. 새 복구 서비스 자격 증명 모음을 만들고, 만든 ASR 자격 증명 모음 개체를 변수에 저장합니다(나중에 사용됨). Get-AzureRMRecoveryServicesVault cmdlet을 사용하여 ASR 자격 증명 모음 개체 게시 만들기를 검색할 수도 있습니다.
-   
+
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>3단계: 복구 서비스 자격 증명 모음 설정
 
 다음 명령을 실행하여 자격 증명 모음 컨텍스트를 설정합니다.
-   
+
        Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## <a name="step-4-install-the-azure-site-recovery-provider"></a>4단계: Azure Site Recovery 공급자 설치
 1. VMM 컴퓨터에서 다음 명령을 실행하여 디렉터리를 만듭니다.
-   
+
        New-Item c:\ASR -type directory
 2. 다음 명령을 실행하고 다운로드한 공급자를 사용하여 파일을 추출합니다.
-   
+
        pushd C:\ASR\
        .\AzureSiteRecoveryProvider.exe /x:. /q
 3. 다음 명령을 사용하여 공급자를 설치합니다.
-   
+
        .\SetupDr.exe /i
        $installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
        do
@@ -155,10 +156,10 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
            $isNotInstalled = $false;
          }
        }While($isNotInstalled)
-   
+
    설치가 완료될 때까지 기다립니다.
 4. 다음 명령을 사용하여 자격 증명 모음에 서버를 등록합니다.
-   
+
        $BinPath = $env:SystemDrive+"\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin"
        pushd $BinPath
        $encryptionFilePath = "C:\temp\".\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
@@ -166,7 +167,7 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 ## <a name="step-5-create-an-azure-storage-account"></a>5단계: Azure 저장소 계정 만들기
 
 Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증명 모음과 동일한 지역에 지역에서 복제가 활성화된 계정을 만듭니다.
-   
+
         $StorageAccountName = "teststorageacc1"    #StorageAccountname
         $StorageAccountGeo  = "Southeast Asia"     
         $ResourceGroupName =  “myRG”             #ResourceGroupName
@@ -177,7 +178,7 @@ Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증
 ## <a name="step-6-install-the-azure-recovery-services-agent"></a>6단계: Azure 복구 서비스 에이전트 설치
 1. [http://aka.ms/latestmarsagent](http://aka.ms/latestmarsagent) 에서 Azure 복구 서비스 에이전트를 다운로드하여 보호할 VMM 클라우드에 있는 각 Hyper-V 호스트 서버에 설치합니다.
 2. 모든 VMM 호스트에 다음 명령을 실행합니다.
-   
+
        marsagentinstaller.exe /q /nu
 
 ## <a name="step-7-configure-cloud-protection-settings"></a>7단계: 클라우드 보호 설정 구성
@@ -190,25 +191,25 @@ Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증
         $policryresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider HyperVReplicaAzure -ReplicationFrequencyInSeconds $replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId "/subscriptions/q1345667/resourceGroups/test/providers/Microsoft.Storage/storageAccounts/teststorageacc1"
 
 1. 다음 명령을 실행하여 보호 컨테이너를 가져옵니다.
-   
+
        $PrimaryCloud = "testcloud"
        $protectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
 2. 생성된 작업을 사용하고 친숙한 정책 이름을 알려주어 변수에 정책 세부 정보를 가져옵니다.
-   
+
        $policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $policyname
 3. 복제 정책을 사용하여 보호 컨테이너 연결을 시작합니다.
-   
+
        $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $protectionContainer  
 4. 작업이 완료되면 다음 명령을 실행합니다.
-   
+
        $job = Get-AzureRmSiteRecoveryJob -Job $associationJob
-   
+
        if($job -eq $null -or $job.StateDescription -ne "Completed")
        {
          $isJobLeftForProcessing = $true;
        }
 5. 작업에서 처리를 완료하면 다음 명령을 실행합니다.
-   
+
        if($isJobLeftForProcessing)
        {
          Start-Sleep -Seconds 60
@@ -220,22 +221,22 @@ Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증
 ## <a name="step-8-configure-network-mapping"></a>8단계: 네트워크 매핑 구성
 네트워크 매핑을 시작하기 전에 원본 VMM 서버의 가상 컴퓨터가 VM 네트워크에 연결되었는지 확인합니다. 또한 Azure 가상 네트워크를 하나 이상 만듭니다.
 
- [Azure Resource Manager 및 PowerShell을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+[Azure Resource Manager 및 PowerShell을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 
 단일 Azure 네트워크에 여러 가상 컴퓨터 네트워크를 매핑할 수 있습니다. 대상 네트워크에 여러 서브넷이 있고 이 서브넷 중 하나의 이름이 원본 가상 컴퓨터가 있는 서브넷과 같으면 복제본 가상 컴퓨터가 장애 조치(Failover) 후에 대상 서브넷에 연결됩니다. 일치하는 이름을 가진 대상 서브넷이 없으면 가상 컴퓨터가 네트워크의 첫 번째 서브넷에 연결됩니다.
 
 1. 첫 번째 명령은 현재 Azure Site Recovery 자격 증명 모음의 서버를 가져옵니다. 이 명령은 $Servers 어레이 변수에 Microsoft Azure Site Recovery 서버를 저장합니다.
-   
+
         $Servers = Get-AzureRmSiteRecoveryServer
 2. 두 번째 명령은 $Servers 어레이의 첫 번째 서버에 대한 사이트 복구 네트워크를 가져옵니다. 이 명령은 $Networks 변수에 네트워크를 저장합니다.
 
         $Networks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]
 
 1. 세 번째 명령은 Azure 가상 네트워크를 가져온 다음 해당 값을 $AzureVmNetworks 변수에 저장합니다.
-   
+
         $AzureVmNetworks =  Get-AzureRmVirtualNetwork
 2. 최종 cmdlet은 기본 네트워크와 Azure 가상 컴퓨터 네트워크 사이에 매핑을 만듭니다. cmdlet은 $Networks의 첫 번째 요소로 기본 네트워크를 지정합니다. cmdlet은 $AzureVmNetworks의 첫 번째 요소로 가상 컴퓨터 네트워크를 지정합니다.
-   
+
         New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureVMNetworkId $AzureVmNetworks[0]
 
 ## <a name="step-9-enable-protection-for-virtual-machines"></a>9단계: 가상 컴퓨터의 보호 활성화
@@ -243,17 +244,17 @@ Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증
 
  다음 사항에 유의하세요.
 
-* 가상 컴퓨터는 Azure 요구 사항을 충족해야 합니다. 계획 가이드의 [필수 조건 및 지원](site-recovery-best-practices.md) 에서 해당 요구 사항을 확인하세요.
+* 가상 컴퓨터는 Azure 요구 사항을 충족해야 합니다. 계획 가이드의 [필수 조건 및 지원](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) 에서 해당 요구 사항을 확인하세요.
 * 보호를 사용하도록 설정하려면 가상 컴퓨터에 대해 운영 체제 및 운영 체제 디스크 속성을 설정해야 합니다. VMM에서 가상 컴퓨터 템플릿을 사용하여 가상 컴퓨터를 만들 때 속성을 설정할 수 있습니다. 가상 컴퓨터 속성의 **일반** 및 **하드웨어 구성** 탭에서 기존 가상 컴퓨터에 대해 이러한 속성을 설정할 수도 있습니다. 이러한 속성을 VMM에서 설정하지 않는 경우 Azure Site Recovery 포털에서 구성할 수 있습니다.
 
 1. 보호를 활성화하려면 다음 명령을 실행하여 보호 컨테이너를 가져옵니다.
-   
+
           $ProtectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $CloudName
 2. 다음 명령을 실행하여 VM(보호 엔터티)을 가져옵니다.
-   
+
            $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -friendlyName $VMName -ProtectionContainer $protectionContainer
 3. 다음 명령을 실행하여 VM에 DR을 사용하도록 설정합니다.
-   
+
           $jobResult = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable –Force -Policy $policy -RecoveryAzureStorageAccountId  $storageID "/subscriptions/217653172865hcvkchgvd/resourceGroups/rajanirgps/providers/Microsoft.Storage/storageAccounts/teststorageacc1
 
 ## <a name="test-your-deployment"></a>배포 테스트
@@ -266,23 +267,23 @@ Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증
 
 ### <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
 - 다음 명령을 실행하여 테스트 장애 조치(Failover)를 시작합니다.
-   
+
        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
-   
+
        $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
 ### <a name="run-a-planned-failover"></a>계획된 장애 조치(Failover) 실행
 - 다음 명령을 실행하여 계획된 장애 조치(Failover)를 시작합니다.
-   
+
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
-   
+
         $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
 ### <a name="run-an-unplanned-failover"></a>계획되지 않은 장애 조치 실행
 - 다음 명령을 실행하여 계획되지 않은 장애 조치(Failover)를 시작합니다.
-   
+
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
-   
+
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
 ## <a name="a-namemonitora-monitor-activity"></a><a name=monitor></a> 작업 모니터
@@ -307,10 +308,4 @@ Azure 저장소 계정이 없는 경우 다음 명령을 실행하여 자격 증
 
 ## <a name="next-steps"></a>다음 단계
 [자세히 알아보세요](https://msdn.microsoft.com/library/azure/mt637930.aspx) .
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

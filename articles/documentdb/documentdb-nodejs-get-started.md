@@ -1,7 +1,7 @@
 ---
 title: "DocumentDB용 NoSQL Node.js 자습서 | Microsoft Docs"
 description: "DocumentDB Node.js SDK를 사용하여 NoSQL 데이터베이스 및 콘솔 응용 프로그램을 만드는 NoSQL Node.js 자습서입니다. DocumentDB는 JSON에 대한 NoSQL 데이터베이스입니다."
-keywords: "Node.js 자습서, 노드 데이터베이스"
+keywords: "node.js 자습서, 노드 데이터베이스"
 services: documentdb
 documentationcenter: node.js
 author: AndrewHoh
@@ -16,8 +16,9 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 08f4cd48ea41d66203e296415181d5da14327854
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 2b8ac838e9387b04467f03d0608da05b3edfdd26
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -25,8 +26,9 @@ ms.openlocfilehash: 08f4cd48ea41d66203e296415181d5da14327854
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
-> * [Java](documentdb-java-get-started.md)
+> * [MongoDB용 Node.js](documentdb-mongodb-samples.md)
 > * [Node.JS](documentdb-nodejs-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
@@ -63,7 +65,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a name="a-idsetupnodeastep-2-setup-your-nodejs-application"></a><a id="SetupNode"></a>2단계: Node.js 응용 프로그램 설치
+## <a id="SetupNode"></a>2단계: Node.js 응용 프로그램 설치
 1. 자주 사용하는 터미널을 엽니다.
 2. Node.js 응용 프로그램을 저장하려는 폴더 또는 디렉터리를 찾습니다.
 3. 다음 명령을 사용하여 두 개의 빈 JavaScript 파일을 만듭니다.
@@ -78,7 +80,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 잘하셨습니다. 설치를 완료했으므로 코드를 작성해 보겠습니다.
 
-## <a name="a-idconfigastep-3-set-your-apps-configurations"></a><a id="Config"></a>3단계: 앱의 구성 설정
+## <a id="Config"></a>3단계: 앱의 구성 설정
 원하는 텍스트 편집기에서 ```config.js```을 엽니다.
 
 그런 다음 아래 코드 조각을 복사하고 붙여넣은 다음 속성 ```config.endpoint``` 및 ```config.primaryKey```를 DocumentDB 끝점 URI 및 기본 키로 설정합니다. 이러한 구성은 모두 [Azure 포털](https://portal.azure.com)에서 찾을 수 있습니다.
@@ -175,7 +177,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
     // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
-## <a name="a-idconnecta-step-4-connect-to-a-documentdb-account"></a><a id="Connect"></a>4단계: DocumentDB 계정에 연결
+## <a id="Connect"></a>4단계: DocumentDB 계정에 연결
 텍스트 편집기에서 빈 ```app.js``` 파일을 엽니다. 다음 코드를 복사하고 붙여넣어서 ```documentdb``` 모듈 및 새로 만든 ```config``` 모듈을 가져옵니다.
 
     // ADD THIS PART TO YOUR CODE
@@ -259,7 +261,7 @@ documentdb 계정을 시작하는 코드가 있다면 DocumentDB 리소스와 �
 
 축하합니다. DocumentDB 데이터베이스가 성공적으로 생성되었습니다.
 
-## <a name="a-idcreatecollastep-6-create-a-collection"></a><a id="CreateColl"></a>6단계: 컬렉션 만들기
+## <a id="CreateColl"></a>6단계: 컬렉션 만들기
 > [!WARNING]
 > **CreateDocumentCollectionAsync** 는 가격 책정 의미가 포함된 새 컬렉션을 만듭니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
 > 
@@ -313,7 +315,7 @@ documentdb 계정을 시작하는 코드가 있다면 DocumentDB 리소스와 �
 
 축하합니다. DocumentDB 컬렉션이 성공적으로 생성되었습니다.
 
-## <a name="a-idcreatedocastep-7-create-a-document"></a><a id="CreateDoc"></a>7단계: 문서 만들기
+## <a id="CreateDoc"></a>7단계: 문서 만들기
 **DocumentClient** 클래스의 [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 함수를 사용하여 [문서](documentdb-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 이제 DocumentDB 문서를 삽입할 수 있습니다.
 
 ```config``` 체에 저장된 JSON 데이터를 포함하는 문서를 만들기 위해 **getCollection** 함수 아래에 있는 **getFamilyDocument** 함수를 복사하고 붙여넣습니다. 다시 동일한 ID를 가진 문서가 이미 있는지 확인합니다.
@@ -367,7 +369,7 @@ documentdb 계정을 시작하는 코드가 있다면 DocumentDB 리소스와 �
 
 ![Node.js 자습서 - 계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램 - 노드 데이터베이스](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-## <a name="a-idqueryastep-8-query-documentdb-resources"></a><a id="Query"></a>8단계: DocumentDB 리소스 쿼리
+## <a id="Query"></a>8단계: DocumentDB 리소스 쿼리
 DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리](documentdb-sql-query.md) 를 지원합니다. 다음 샘플 코드에서는 컬렉션에는 문서에 대해 실행할 수 있는 쿼리를 보여줍니다.
 
 **queryCollection** 함수를 복사하여 app.js 파일의 **getFamilyDocument** 함수 아래에 붙여넣습니다. DocumentDB는 아래와 같이 SQL과 비슷한 쿼리를 지원합니다. 복잡한 쿼리 작성에 대한 자세한 내용은 [쿼리 실습](https://www.documentdb.com/sql/demo) 및 [쿼리 설명서](documentdb-sql-query.md)를 확인합니다.
@@ -406,7 +408,7 @@ DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리
 
 ![Node.js 자습서 - 쿼리의 의미와 범위를 보여 주는 다이어그램 - 노드 데이터베이스](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
-DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때문에 [FROM](documentdb-sql-query.md#from-clause) 키워드는 쿼리에서 선택 사항입니다. 따라서 "FROM Families f"를 "FROM root r" 또는 선택한 다른 변수 이름으로 교체할 수 있습니다. DocumentDB는 패밀리, 루트 또는 선택한 변수 이름이 기본적으로 현재 컬렉션을 참조하는 것으로 유추합니다.
+DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때문에 [FROM](documentdb-sql-query.md#FromClause) 키워드는 쿼리에서 선택 사항입니다. 따라서 "FROM Families f"를 "FROM root r" 또는 선택한 다른 변수 이름으로 교체할 수 있습니다. DocumentDB는 패밀리, 루트 또는 선택한 변수 이름이 기본적으로 현재 컬렉션을 참조하는 것으로 유추합니다.
 
 **getFamilyDocument**에 대한 호출 아래에 코드를 복사하고 붙여넣어서 **queryCollection** 함수를 실행합니다.
 
@@ -424,7 +426,7 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 
 축하합니다. 쿼리된 DocumentDB 문서가 성공적으로 생성되었습니다.
 
-## <a name="a-idreplacedocumentastep-9-replace-a-document"></a><a id="ReplaceDocument"></a>9단계: 문서 바꾸기
+## <a id="ReplaceDocument"></a>9단계: 문서 바꾸기
 DocumentDB는 JSON 문서 바꾸기를 지원합니다.
 
 **replaceFamilyDocument** 함수를 복사하여 app.js 파일의 **queryCollection** 함수 아래에 붙여넣습니다.
@@ -471,7 +473,7 @@ DocumentDB는 JSON 문서 바꾸기를 지원합니다.
 
 축하합니다. DocumentDB 문서가 성공적으로 대체되었습니다.
 
-## <a name="a-iddeletedocumentastep-10-delete-a-document"></a><a id="DeleteDocument"></a>10단계: 문서 삭제
+## <a id="DeleteDocument"></a>10단계: 문서 삭제
 DocumentDB는 JSON 문서 삭제를 지원합니다.
 
 **deleteFamilyDocument** 함수를 복사하여 **replaceFamilyDocument** 함수 아래에 붙여넣습니다.
@@ -515,7 +517,7 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
 
 축하합니다. DocumentDB 문서가 성공적으로 삭제되었습니다.
 
-## <a name="a-iddeletedatabaseastep-11-delete-the-node-database"></a><a id="DeleteDatabase"></a>11단계: 노드 데이터베이스 삭제
+## <a id="DeleteDatabase"></a>11단계: 노드 데이터베이스 삭제
 만든 데이터베이스를 삭제하면 데이터베이스와 모든 자식 리소스(컬렉션, 문서 등)가 제거됩니다.
 
 **cleanup** 함수를 복사하여 **deleteFamilyDocument** 함수 아래에 붙여넣어 데이터베이스와 모든 자식 리소스를 제거합니다.
@@ -550,7 +552,7 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
     .then(() => { exit(`Completed successfully`); })
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
-## <a name="a-idrunastep-12-run-your-nodejs-application-all-together"></a><a id="Run"></a>12단계: Node.js 응용 프로그램 모두 함께 실행
+## <a id="Run"></a>12단계: Node.js 응용 프로그램 모두 함께 실행
 함수를 호출는 시퀀스는 모두 다음과 같아야 합니다.
 
     getDatabase()
@@ -601,8 +603,8 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
 
 축하합니다. Node.js 자습서를 만들고 완료했으며 첫 번째 DocumentDB 콘솔 응용 프로그램이 있습니다.
 
-## <a name="a-idgetsolutionaget-the-complete-nodejs-tutorial-solution"></a><a id="GetSolution"></a>전체 Node.js 자습서 솔루션 다운로드
-이 자습서의 단계를 완료할 시간이 없거나 코드를 다운로드하려는 경우 [Github](https://github.com/Azure-Samples/documentdb-node-getting-started)에서 가져올 수 있습니다.
+## <a id="GetSolution"></a>전체 Node.js 자습서 솔루션 다운로드
+이 자습서의 단계를 완료할 시간이 없거나 코드를 다운로드하려는 경우 [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started)에서 가져올 수 있습니다.
 
 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 실행하려면 다음이 필요합니다.
 
@@ -627,9 +629,4 @@ npm을 통해 **documentdb** 모듈을 설치합니다. 다음 명령을 사용�
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

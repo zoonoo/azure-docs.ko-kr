@@ -4,7 +4,7 @@ description: "Azure Mobile Engagement에 대한 문제 해결 가이드"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 8b4275da-c0b4-4690-824a-48e9d7a1fc6e
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 01862d158f4771989ae6eb3b20fe8e080123a231
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -88,10 +89,5 @@ ms.openlocfilehash: 01862d158f4771989ae6eb3b20fe8e080123a231
   * 쉼표(",")를 구분 기호 문자로 사용합니다. .csv 구문 기호 문자를 쉼표(",")에서 세미콜론(";") 등의 다른 문자로 변경하도록 요청하는 서비스 요청을 개설할 수 있습니다.
   * 부울 값 "true"와 "false"에 소문자만 사용합니다.
   * 최대 파일 크기인 35MB보다 작은 파일을 사용합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

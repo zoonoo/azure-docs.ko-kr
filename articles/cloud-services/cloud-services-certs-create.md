@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/20/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c530f08842efde1ab87cfd111f1957ae685748f3
-ms.openlocfilehash: 77d3cb18c52a10236eb40e6ffde1ed9e2753af3f
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 885180e9759d0702d4e0988a7a1b4eb9097d4433
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -92,7 +93,7 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate)수 있습니다.
 
 ### <a name="linux"></a>Linux
-[이](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서에서는 SSH로 인증서를 만드는 방법을 설명합니다.
+[이](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서에서는 SSH로 인증서를 만드는 방법을 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [서비스 인증서를 Azure 클래식 포털](cloud-services-configure-ssl-certificate.md)(또는 [Azure Portal](cloud-services-configure-ssl-certificate-portal.md))에 업로드합니다.
@@ -103,10 +104,5 @@ Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-
 > Azure 포털은 API에 액세스하는 데 관리 인증서를 사용하지 않고 사용자 계정을 사용합니다.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

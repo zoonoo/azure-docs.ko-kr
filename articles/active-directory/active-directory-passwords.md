@@ -1,9 +1,9 @@
 ---
-title: "Azure AD 암호 재설정 | Microsoft Docs"
+title: "Azure Active Directory 암호 재설정 | Microsoft Docs"
 description: "암호 재설정, 변경, 암호 관리 보고 및 로컬 온-프레미스 Active Directory에 쓰기 저장을 포함한 Azure AD의 암호 관리 기능 설명."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: be6164fc-bae1-49df-af76-761329ba70a1
@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a6287228622070d566266f184dc1c32ec6c3dea5
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: 4904a3e21a54a2c60ee8b35a46370a9759a029f3
+ms.lasthandoff: 03/28/2017
 
 
 ---
-# <a name="azure-ad-password-reset-for-it-administrators"></a>IT 관리자에 대한 Azure AD 암호 재설정
+# <a name="azure-active-directory-password-reset-for-it-administrators"></a>IT 관리자에 대한 Azure Active Directory 암호 재설정
 > [!IMPORTANT]
-> Azure 또는 O365 암호를 재설정하려고 하나요?  그렇다면 [이 섹션으로 건너뛰십시오](#users-how-to-manage-your-own-password).
-> 
-> 
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
+>
+>
 
-셀프 서비스는 오랫동안 비용 절감 및 노동 절감 수단으로 전세계 IT 부서에서의 주요 목표가 되어 왔습니다.  실제로, 시장은 클라우드 또는 온-프레미스에서 온-프레미스 그룹, 암호 또는 사용자 프로필을 관리할 수 있는 제품으로 넘쳐납니다. Azure AD는 사용하기 가장 쉬운 방법 및 오늘날 가능한 가장 강력한 셀프서비스 기능을 제공하여 이들 제품과 차별을 두었습니다.
+셀프 서비스는 오랫동안 비용 절감 및 노동 절감 수단으로 전세계 IT 부서에서의 주요 목표가 되어 왔습니다.  실제로, 시장은 클라우드 또는 온-프레미스에서 온-프레미스 그룹, 암호 또는 사용자 프로필을 관리할 수 있는 제품으로 넘쳐납니다. Azure AD(Azure Active Directory)는 사용하기 가장 쉬운 방법 및 오늘날 가능한 가장 강력한 셀프서비스 기능을 제공하여 다른 제품과 차별을 두었습니다.
 
 **Azure AD 암호 관리** 는 정의한 보안 정책을 준수하는 동안 언제, 언제 어디에서든 모든 장치에서 암호를 관리할 수 있는 기능들입니다.
 
@@ -80,7 +81,7 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 | 항목 |  |
 | --- | --- |
 | 클라우드 사용자를 위해 암호 재설정하려면 어떻게 해야 하나요? |[사용자가 클라우드 Azure Active Directory 암호를 재설정하도록 설정](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) |
-| 온-프레미스 사용자에 대한 암호 재설정및 변경은 어떻게 해야 하나요? |[사용자가 온-프레미스 Active Directory 암호를 재설정하거나 변경하도록 설정](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) |
+| 온-프레미스 사용자에 대한 암호 재설정 및 변경은 어떻게 해야 하나요? |[사용자가 온-프레미스 Active Directory 암호를 재설정하거나 변경하도록 설정](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) |
 | 암호 재설정을 특정 사용자 집합으로 범위를 지정하려면 어떻게 해야 하나요? |[암호 재설정을 특정 사용자로 제한](active-directory-passwords-customize.md#restrict-access-to-password-reset) |
 | 클라우드 암호 재설정을 테스트하려면 어떻게 해야 하나요? |[사용자로 Azure AD 암호 재설정](active-directory-passwords-getting-started.md#step-3-reset-your-azure-ad-password-as-a-user) |
 | 온-프레미스 암호 재설정을 테스트하려면 어떻게 해야 하나요? |[사용자로 온-프레미스 AD 암호 재설정](active-directory-passwords-getting-started.md#step-5-reset-your-ad-password-as-a-user) |
@@ -117,8 +118,8 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 | 항목 |  |
 | --- | --- |
 | 암호 재설정 보고서를 보려면 어디로 가야 하나요? |[암호 관리 보고서 개요](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
-| 조직 내에서 사용자가 암호 재설정을 사용하는 방법을 어디서 확인할 수 있나요? |[암호 재설정 활동 보기](active-directory-passwords-get-insights.md#view-password-reset-activity) |
-| 등록하는 사용자가 얼마나 많은지 및 등록한 것이 무엇인지를 어디서 확인할 수 있나요? |[암호 재설정 등록 활동 보기](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) |
+| 조직 내에서 사용자가 암호 재설정을 사용하는 방법을 어디서 확인할 수 있나요? |[암호 재설정 활동 보기](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
+| 등록하는 사용자가 얼마나 많은지 및 등록한 것이 무엇인지를 어디서 확인할 수 있나요? |[암호 재설정 등록 활동 보기](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
 | API에서 암호 재설정 보고서는 어떻게 얻을 수 있나요? |[Azure AD 응용 프로그램을 만들어 보고 API에 액세스](active-directory-reporting-api-getting-started.md) |
 | API를 통해 어떤 종류의 암호 재설정 보고 정보를 사용할 수 있나요? |[보고 API에서 사용할 수 있는 암호 재설정 및 등록 이벤트](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
 
@@ -169,8 +170,8 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 #### <a name="enforce-password-reset-registration-at-sign-in-to-office-365-apps---november-2015"></a>Office 365 앱에 로그인 시 암호 재설정 등록 적용 - 2015년 11월
 * 이제 [적용된 등록](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) 기능을 사용하도록 설정한 후에 사용자는 회사 또는 학교 계정을 사용하여 로그인하는 위치를 등록해야 합니다.  이는 대부분의 조직에서 암호 재설정에 등록할 수 있는 속도를 크게 증가시킵니다.  이 새로운 기능을 사용하여 2주 만에 대규모 조직의 등록을 확인했습니다.
 
-#### <a name="support-for-unlocking-active-directory-accounts-without-resetting-a-password---november-2015"></a>암호 재설정 없이 잠금 해제한 Active Directory 계정에 대한 지원 - 2015년 11월
-* 요즘은 (재설정 없이) 잠금 해제만해도 엄청난 기술 지원 드라이버입니다.  사실 대부분의 조직에서는 계정을 잠금 해제하는 데 암호 재설정 예산의 최대 70%를 소비합니다.  이러한 요구를 충족하려면 이제 사용자가 Azure AD 암호 재설정을 사용하여 암호 재설정에서 별도로 AD 계정을 잠금 해제하는 기능을 설정할 수 있습니다.  다음에서 설정하는 방법을 확인합니다. [설정: 사용자가 암호를 재설정하지 않고 해당 AD 계정의 잠금을 해제하도록 설정](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password)
+#### <a name="support-for-unlocking-on-premises-ad-accounts-without-resetting-a-password---november-2015"></a>암호 재설정 없이 잠금 해제한 온-프레미스 AD 계정에 대한 지원 - 2015년 11월
+* 요즘은 (재설정 없이) 잠금 해제만해도 엄청난 기술 지원 드라이버입니다.  사실 대부분의 조직에서는 계정을 잠금 해제하는 데 암호 재설정 예산의 최대 70%를 소비합니다.  이러한 요구를 충족하려면 이제 사용자가 Azure AD 암호 재설정을 사용하여 암호 재설정에서 별도로 온-프레미스 AD 계정을 잠금 해제하는 기능을 설정할 수 있습니다.  다음에서 설정하는 방법을 확인합니다. [설정: 사용자가 암호를 재설정하지 않고 해당 온-프레미스 AD 계정의 잠금을 해제하도록 설정](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password)
 
 #### <a name="usability-updates-to-registration-page---october-2015"></a>등록 페이지에 사용 편의성 업데이트 - 2015년 10월
 * 이제 사용자가 이미 등록된 데이터를 가진 경 "올바름"을 클릭하여 메일 또는 전화 통화를 다시 보낼 필요 없이 데이터를 업데이트할 수 있습니다.
@@ -193,7 +194,7 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 #### <a name="account-unlock-support-during-password-reset---june-2015"></a>암호 재설정 시 계정 잠금 해제 지원 - 2015년 6월
 * 비밀번호 쓰기 저장을 사용하고 계정이 잠겼을 때 암호를 재설정하는 경우 Active Directory 계정의 잠금을 자동으로 해제합니다.
 
-#### <a name="branded-sspr-registration---april-2015"></a>SSPR 등록 브랜드 - 2015년 4월
+#### <a name="branded-self-service-password-reset-sspr-registration---april-2015"></a>SSPR(셀프 서비스 암호 재설정) 등록 브랜드 - 2015년 4월
 * 암호 재설정 등록 페이지는 이제 회사 로고로 브랜드 지정됩니다!
 
 #### <a name="security-questions---march-2015"></a>보안 질문 - 2015년 3월
@@ -209,10 +210,10 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 
 * 오늘날 myapps.microsoft.com에 액세스할 때 등록된 해당 데이터를 업데이트하도록 사용자를 상기하도록 지원하지만 모든 로그인에 해당 작업을 수행할 수 있는 기능을 위해 최선을 다하고 있습니다.
 
-## <a name="links-to-password-reset-documentation"></a>암호 재설정 설명서에 대한 링크
+## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**시작하기**](active-directory-passwords-getting-started.md) -사용자가 클라우드 또는 온-프레미스 암호를 다시 설정하고 변경할 수 있는 방법에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
@@ -221,10 +222,4 @@ Azure AD Premium 또는 기본 가격에 대한 자세한 내용은 [Active Dire
 * [**FAQ**](active-directory-passwords-faq.md) -자주 묻는 질문에 답변합니다.
 * [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
 * [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

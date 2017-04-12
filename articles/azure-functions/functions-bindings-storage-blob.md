@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
-ms.author: chrande
+ms.date: 03/06/2017
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 593f97bf0fc855e2d122e093961013f923e2e053
-ms.openlocfilehash: b3d9dcceb8e0a3a7c31e4a0a8cf1eb9dd82bf6c8
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 7b4ae9281bca20949c37b2c797e4a1a677665929
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.openlocfilehash: b3d9dcceb8e0a3a7c31e4a0a8cf1eb9dd82bf6c8
 <a name="trigger"></a>
 
 ## <a name="storage-blob-trigger"></a>Storage Blob 트리거
-Azure Storage Blob 트리거를 사용하면 신규 및 업데이트된 Blob에 대한 저장소 컨테이너를 모니터링하고 이에 반응할 수 있습니다. 
+Azure Storage Blob 트리거를 통해 저장소 컨테이너에서 새롭고 업데이트된 Blob을 모니터링하고 변경 사항이 감지되면 함수 코드를 실행할 수 있습니다. 
 
 함수에 대한 Storage Blob 트리거는 function.json의 `bindings` 배열에서 다음과 같은 JSON 개체를 사용합니다.
 
@@ -54,7 +55,9 @@ Azure Storage Blob 트리거를 사용하면 신규 및 업데이트된 Blob에 
 다음 사항에 유의하세요.
 
 * `path`에 대해서는 [Name patterns](#pattern)를 참조하여 Blob 이름 패턴을 형성하는 방법에 대해 알아보세요.
-* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성]()을 참조하세요. 
+* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md)을 참조하세요. 
+
+소비 계획을 실행할 때 함수 앱이 유휴 상태가 되는 경우 새 Blob 처리에 하루 최대 10분이 걸릴 수 있습니다. 함수 앱이 실행되면 Blob이 더 신속하게 처리됩니다. 이 초기 지연을 방지하려면 Always On을 활성화하여 App Service 계획을 사용하거나 다른 메커니즘을 사용하여 Blob 이름을 포함하는 큐 메시지처럼 Blob 처리를 트리거합니다. 
 
 또한 자세한 내용은 다음 부제목 중 하나를 참조하세요.
 
@@ -97,7 +100,7 @@ Azure Storage Blob 트리거를 사용하면 신규 및 업데이트된 Blob에 
 
 이 경로에는 *images* 컨테이너에 *{20140101}-soundfile.mp3*라는 Blob이 있으며 함수 코드에 있는 `name` 변수 값은 *soundfile.mp3*입니다. 
 
-<a name"receipts"></a>
+<a name="receipts"></a>
 
 ### <a name="blob-receipts"></a>Blob 수신 확인
 Azure Functions 런타임은 동일한 새 Blob 또는 업데이트된 Blob에 대해 Blob 트리거 함수가 두 번 이상 호출되지 않도록 합니다. 이를 위해 *Blob 수신 확인*을 유지 관리하여 지정된 Blob 버전이 처리되었는지 확인합니다.
@@ -224,7 +227,7 @@ Azure Storage Blob 입력 바인딩을 사용하면 함수의 저장소 컨테�
 다음 사항에 유의하세요.
 
 * `path`는 컨테이너 이름과 Blob 이름을 포함해야 합니다. 예를 들어 함수에 하나의 [큐 트리거](functions-bindings-storage-queue.md)가 있는 경우 `"path": "samples-workitems/{queueTrigger}"`를 사용하여 트리거 메시지에서 지정된 Blob 이름과 일치하는 이름을 가진 Blob을 `samples-workitems` 컨테이너에서 가리키도록 할 수 있습니다.   
-* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성]()을 참조하세요. 
+* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md)을 참조하세요. 
 
 <a name="inputusage"></a>
 
@@ -235,7 +238,7 @@ C# 함수에서 `<T> <name>`같은 함수 시그니처의 명명된 매개 변�
 Blob을 다음 중 원하는 형식으로 deserialize할 수 있습니다.
 
 * 모든 [개체](https://msdn.microsoft.com/library/system.object.aspx)는 JSON 직렬화된 Blob 데이터에 유용 합니다.
-  사용자 지정 입력 형식을 선언하는 경우(예: `FooType`), Azure Functions에서 지정된 형식에 JSON 데이터를 deserialize하려고 시도합니다.
+  사용자 지정 입력 형식을 선언하는 경우(예: `InputType`), Azure Functions에서 지정된 형식에 JSON 데이터를 deserialize하려고 시도합니다.
 * 문자열은 텍스트 Blob 데이터에 유용합니다.
 
 C# 함수에서 다음 형식 중 하나에 바인딩할 수도 있으며, Functions 런타임이 해당 형식을 사용하여 Blob 데이터를 deserialize하려고 시도하게 됩니다.
@@ -287,7 +290,7 @@ C# 함수에서 다음 형식 중 하나에 바인딩할 수도 있으며, Funct
 
 <a name="incsharp"></a>
 
-### <a name="input-usage-in-c"></a>C에서입력 사용# #
+### <a name="input-usage-in-c"></a>C에서 입력 사용# #
 
 ```cs
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
@@ -328,16 +331,16 @@ Azure Storage Blob 출력 바인딩을 사용하면 함수의 저장소 컨테�
 {
   "name": "<Name of output parameter in function signature>",
   "type": "blob",
-  "direction": "out"
+  "direction": "out",
   "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
+  "connection": "<Name of app setting - see below>"
 }
 ```
 
 다음 사항에 유의하세요.
 
 * `path`는 작성할 컨테이너 이름과 Blob 이름을 포함해야 합니다. 예를 들어 함수에 하나의 [큐 트리거](functions-bindings-storage-queue.md)가 있는 경우 `"path": "samples-workitems/{queueTrigger}"`를 사용하여 트리거 메시지에서 지정된 Blob 이름과 일치하는 이름을 가진 Blob을 `samples-workitems` 컨테이너에서 가리키도록 할 수 있습니다.   
-* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성]()을 참조하세요. 
+* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md)을 참조하세요. 
 
 <a name="outputusage"></a>
 
@@ -347,7 +350,7 @@ C# 함수에서 `out <T> <name>`같은 함수 시그니처의 명명된 `out` �
 다음 형식 중 하나를 사용하여 출력 Blob을 작성할 수 있습니다.
 
 * 모든 [개체](https://msdn.microsoft.com/library/system.object.aspx)는 JSON 직렬화에 유용합니다.
-  사용자 지정 출력 형식을 선언하는 경우(예: `out FooType paramName`), Azure Functions에서 개체를 JSON으로 직렬화하려고 시도합니다. 함수가 종료될 때 출력 매개 변수가 null이면 Functions 런타임은 Blob을 null 개체로 만듭니다.
+  사용자 지정 출력 형식을 선언하는 경우(예: `out OutputType paramName`), Azure Functions에서 개체를 JSON으로 직렬화하려고 시도합니다. 함수가 종료될 때 출력 매개 변수가 null이면 Functions 런타임은 Blob을 null 개체로 만듭니다.
 * 문자열(`out string paramName`)은 텍스트 Blob 데이터에 유용합니다. Functions 런타임은 함수가 종료될 때 문자열 매개 변수가 null이 아닌 경우에만 Blob을 생성합니다.
 
 C# 함수에서 다음 중 원하는 형식으로 출력할 수 있습니다.
@@ -358,8 +361,6 @@ C# 함수에서 다음 중 원하는 형식으로 출력할 수 있습니다.
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
-* `ICollector<T>`(여러 blob 출력)
-* `IAsyncCollector<T>`(비동기 버전의 `ICollector<T>`)
 
 <a name="outputsample"></a>
 
@@ -368,10 +369,5 @@ C# 함수에서 다음 중 원하는 형식으로 출력할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

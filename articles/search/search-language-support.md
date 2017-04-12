@@ -1,6 +1,6 @@
 ---
-title: "Azure Search에서 다국어 문서에 대한 인덱스 만들기 | Microsoft Docs"
-description: "  Azure 검색은 Lucene 및 Microsoft 제공 자연어 처리 기술을 통해 56개 언어를 지원합니다."
+title: "Azure Search 여러 언어 | Microsoft Docs"
+description: "Azure 검색은 Lucene 및 Microsoft 제공 자연어 처리 기술을 통해 56개 언어를 지원합니다."
 services: search
 documentationcenter: 
 author: yahnoosh
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: jlembicz
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: e05fb86a6911768440512dab725a950d2890eb87
+ms.sourcegitcommit: 6feadcc02aa0047dc2028d016687d3ad2859eb44
+ms.openlocfilehash: dbbab31bac66ce73dbf9883992713a2c16581e19
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -39,7 +40,7 @@ ms.openlocfilehash: e05fb86a6911768440512dab725a950d2890eb87
 >
 
 ## <a name="define-a-new-field-definition"></a>새 필드 정의
-1. [Azure 포털](https://portal.azure.com) 에 로그인하고 검색 서비스의 서비스 블레이드를 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 검색 서비스의 서비스 블레이드를 엽니다.
 2. 서비스 대시보드 위쪽의 명령 모음에 있는 **인덱스 추가** 를 클릭하여 새 인덱스를 시작하거나, 기존 인덱스를 여러 기존 인덱스에 추가하는 새 필드에 대해 분석기를 설정합니다.
 3. 언어 분석기 선택을 위한 분석기 탭 등, 인덱스 스키마 정의 옵션을 제공하는 필드 블레이드가 나타납니다.
 4. 필드에서 이름을 입력하고 데이터 형식을 선택하며 필드를 전체 텍스트 검색 가능, 검색 결과에서 검색 가능, 패싯 탐색 구조에서 사용 가능, 정렬 가능 등으로 표시하는 속성을 설정하여 필드 정의를 시작합니다.
@@ -91,9 +92,4 @@ ms.openlocfilehash: e05fb86a6911768440512dab725a950d2890eb87
 [1]: ./media/search-language-support/AnalyzerTab.png
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

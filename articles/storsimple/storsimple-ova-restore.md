@@ -4,7 +4,7 @@ description: "StorSimple 가상 배열의 백업을 복원하는 방법에 대�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4d0deb8c-e3c7-4bc4-b89d-9881041960cb
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2801bc0fc645f9ed23733d1025f1cb42a5174022
+ms.sourcegitcommit: 840deacac773846a9c57d9437cb6f331cd8fcecb
+ms.openlocfilehash: 5ec5cab591907ccc5d9139da2ba149325daf8422
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="restore-from-a-backup-of-your-storsimple-virtual-array"></a>StorSimple 가상 배열의 백업에서 복원
+# <a name="restore-from-a-backup-set-of-shares-and-volumes-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 있는 일련의 공유 및 볼륨 백업에서 복원
+
 ## <a name="overview"></a>개요
 이 문서는 2016년 3월 GA(일반 공급) 버전 또는 이상 버전을 실행하는 Microsoft Azure StorSimple 가상 배열(StorSimple 온-프레미스 가상 장치 또는 StorSimple 가상 장치라고도 함)에 적용됩니다. StorSimple 가상 배열에 대한 공유 또는 볼륨의 백업 세트에서 복원하는 단계별 방법을 설명합니다. 또한 파일 서버로 구성된 StorSimple 가상 배열에 항목 수준 복원이 작동하는 방식을 자세히 설명합니다.
 
@@ -98,16 +101,11 @@ ms.openlocfilehash: 2801bc0fc645f9ed23733d1025f1cb42a5174022
 
 StorSimple 가상 배열에서 공유를 만들고, 공유를 백업하고, 데이터를 복원하는 방법을 보려면 동영상을 시청하세요.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Use-the-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-the-StorSimple-Virtual-Array/player]
 > 
 > 
 
 ## <a name="next-steps"></a>다음 단계
 [로컬 웹 UI를 사용하여 StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

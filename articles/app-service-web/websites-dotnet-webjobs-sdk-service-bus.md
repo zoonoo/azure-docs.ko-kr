@@ -3,8 +3,8 @@ title: "WebJob SDK를 사용하여 Azure 서비스 버스로 작업하는 방법
 description: "WebJobs SDK를 사용하여 Azure 서비스 버스 큐 및 항목으로 작업하는 방법에 대해 알아봅니다."
 services: app-service\web, service-bus
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: ggailey777
+manager: erikre
 editor: jimbe
 ms.assetid: 2114a934-135b-42b8-871c-6cc040214e76
 ms.service: app-service-web
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d5205b1c693b8c1f199235784263f3f7b6189ff
+ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
+ms.openlocfilehash: e44199dec6de1e89545f3d122481aa81e97d75ac
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -43,7 +44,7 @@ public class Program
 
 [전체 서비스 버스 코드 예제](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs) 는 GitHub.com의 azure-webjobs-sdk-samples 리포지토리에 있습니다.
 
-## <a name="a-idprerequisitesa-prerequisites"></a><a id="prerequisites"></a> 필수 조건
+## <a id="prerequisites"></a> 필수 조건
 서비스 버스로 작업하려면 다른 WebJobs SDK 패키지와 함께 [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) NuGet 패키지를 설치해야 합니다. 
 
 또한 저장소 연결 문자열과 함께 AzureWebJobsServiceBus 연결 문자열을 설정해야 합니다.  다음 예제와 같이 App.config 파일의 `connectionStrings` 섹션에서 이 작업을 수행할 수 있습니다.
@@ -58,7 +59,7 @@ App.config 파일에 서비스 버스 연결 문자열 설정을 포함하는 �
 
 Azure 런타임 환경에서 연결 문자열을 설정할 수도 있으며, 이 문자열은 Azure에서 WebJob이 실행될 때 App.config 설정을 재정의합니다. 자세한 내용은 [WebJobs SDK 시작](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account)을 참조하세요.
 
-## <a name="a-idtriggera-how-to-trigger-a-function-when-a-service-bus-queue-message-is-received"></a><a id="trigger"></a> 서비스 버스 큐 메시지가 수신될 때 함수를 트리거하는 방법
+## <a id="trigger"></a> 서비스 버스 큐 메시지가 수신될 때 함수를 트리거하는 방법
 큐 메시지가 수신될 때 WebJobs SDK에서 호출하는 함수를 작성하려면 `ServiceBusTrigger` 특성을 사용합니다. 특성 생성자는 폴링할 큐의 이름을 지정하는 매개 변수를 사용합니다.
 
 ### <a name="how-servicebustrigger-works"></a>ServiceBusTrigger 작동 방식
@@ -98,7 +99,7 @@ POCO 속성을 사용하여 동일한 함수의 Blob 및 테이블로 작업하�
 ### <a name="types-servicebustrigger-works-with"></a>ServiceBusTrigger가 작동하는 유형
 `string` 및 POCO 유형 외에 바이트 배열 또는 `BrokeredMessage` 개체에서 `ServiceBusTrigger` 특성을 사용할 수 있습니다.
 
-## <a name="a-idcreatea-how-to-create-service-bus-queue-messages"></a><a id="create"></a> 서비스 버스 큐 메시지를 만드는 방법
+## <a id="create"></a> 서비스 버스 큐 메시지를 만드는 방법
 새 큐 메시지를 만드는 함수를 작성하려면 `ServiceBus` 특성을 사용하고 특성 생성자로 큐 이름을 전달합니다. 
 
 ### <a name="create-a-single-queue-message-in-a-non-async-function"></a>비동기가 아닌 함수로 단일 큐 메시지를 만들기
@@ -135,7 +136,7 @@ POCO 유형 매개 변수의 경우 함수가 종료되면 큐 메시지가 항�
 
 `Add` 메서드를 호출하면 각 큐 메시지가 즉시 생성됩니다.
 
-## <a name="a-idtopicsahow-to-work-with-service-bus-topics"></a><a id="topics"></a>서비스 버스 항목으로 작업하는 방법
+## <a id="topics"></a>서비스 버스 항목으로 작업하는 방법
 서비스 버스 항목에 메시지가 수신될 때 SDK에서 호출하는 함수를 작성하려면 다음 코드 샘플과 같이 항목 이름 및 구독 이름을 가져오는 생성자와 함께 `ServiceBusTrigger` 특성을 사용합니다.
 
         public static void WriteLog([ServiceBusTrigger("outputtopic","subscription1")] string message,
@@ -154,9 +155,9 @@ POCO 유형 매개 변수의 경우 함수가 종료되면 큐 메시지가 항�
 * `MessageProcessor` 전략 패턴을 통해 큐/토픽별로 프로세서를 지정할 수 있습니다.
 * 메시지 처리 동시성이 기본적으로 지원됩니다. 
 * `ServiceBusConfiguration.MessageOptions`를 통해 `OnMessageOptions`를 쉽게 사용자 지정할 수 있습니다.
-* 관리 권한이 없을 수 있는 시나리오에 대해 `ServiceBusTriggerAttribute`/`ServiceBusAttribute`에서 [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71)를 지정하는 것을 허용합니다. 
+* 관리 권한이 없을 수 있는 시나리오에 대해 `ServiceBusTriggerAttribute`/`ServiceBusAttribute`에서 [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71)를 지정하는 것을 허용합니다. 관리 AccessRights가 없으면 Azure Webjob에서 존재하지 않는 큐 및 토픽을 자동으로 프로비전할 수 없습니다.
 
-## <a name="a-idqueuesarelated-topics-covered-by-the-storage-queues-how-to-article"></a><a id="queues"></a>저장소 큐 방법 문서에서 다루는 관련 항목
+## <a id="queues"></a>저장소 큐 방법 문서에서 다루는 관련 항목
 서비스 버스에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)을 참조하세요. 
 
 이 문서에서 다루는 항목은 다음과 같습니다.
@@ -170,12 +171,7 @@ POCO 유형 매개 변수의 경우 함수가 종료되면 큐 메시지가 항�
 * 수동으로 함수 트리거
 * 로그 작성
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> 다음 단계
+## <a id="nextsteps"></a> 다음 단계
 이 가이드에서는 Azure 서비스 버스 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bbe3370442ad4117a1a08d0b23595dd98aaba5b5
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 16e8c4ba332cbaba86a13d7b815d0561618cb28b
 
 
 ---
@@ -57,7 +57,7 @@ ms.openlocfilehash: bbe3370442ad4117a1a08d0b23595dd98aaba5b5
 **관리자가 아닌** 사용자를 대신하여 이 액세스에 대한 서로 다른 자격 증명의 사용을 반영하기 위해 **smmReadOnlyConnectionString**을 사용합니다. 이러한 자격 증명은 전역 분할된 데이터베이스 맵에 대한 쓰기 권한을 제공하지 않아야 하기 때문입니다. 
 
 ## <a name="connection-credentials"></a>연결 자격 증명
- [**OpenConnectionForKey**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) 메서드를 사용하여 분할 키와 연결된 분할된 데이터베이스에 액세스할 때 추가 자격 증명이 필요합니다. 이러한 자격 증명은 분할된 데이터베이스에 있는 로컬 분할된 데이터베이스 맵 테이블에 대한 읽기 전용 액세스 권한을 제공해야 합니다. 이 권한은 분할된 데이터베이스의 데이터 종속 라우팅에 대한 연결 유효성 검사를 수행하는 데 필요합니다. 이 코드 조각은 데이터 종속 라우팅의 컨텍스트에서 데이터 액세스를 허용합니다. 
+[**OpenConnectionForKey**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) 메서드를 사용하여 분할 키와 연결된 분할된 데이터베이스에 액세스할 때 추가 자격 증명이 필요합니다. 이러한 자격 증명은 분할된 데이터베이스에 있는 로컬 분할된 데이터베이스 맵 테이블에 대한 읽기 전용 액세스 권한을 제공해야 합니다. 이 권한은 분할된 데이터베이스의 데이터 종속 라우팅에 대한 연결 유효성 검사를 수행하는 데 필요합니다. 이 코드 조각은 데이터 종속 라우팅의 컨텍스트에서 데이터 액세스를 허용합니다. 
 
     using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>( 
     targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate)) 
@@ -66,12 +66,12 @@ ms.openlocfilehash: bbe3370442ad4117a1a08d0b23595dd98aaba5b5
 
     "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-관리 자격 증명과 마찬가지로 "username@server". 형식의 값을 사용하지 말고 "username"을 사용합니다.  또한 서버 이름과 데이터베이스 이름은 연결 문자열에 포함되지 않습니다. **OpenConnectionForKey** 호출은 키에 따라 올바른 분할된 데이터베이스로 연결을 자동으로 지정하기 때문입니다. 따라서 데이터베이스 이름과 서버 이름이 제공되지 않습니다. 
+관리 자격 증명과 마찬가지로 "username@server" 형태의 값을 사용하지 않습니다. 대신 "username"만 사용합니다.  또한 서버 이름과 데이터베이스 이름은 연결 문자열에 포함되지 않습니다. **OpenConnectionForKey** 호출은 키에 따라 올바른 분할된 데이터베이스로 연결을 자동으로 지정하기 때문입니다. 따라서 데이터베이스 이름과 서버 이름이 제공되지 않습니다. 
 
 ## <a name="see-also"></a>참고 항목
 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)
 
-[SQL 데이터베이스 보안 설정](sql-database-security.md)
+[SQL 데이터베이스 보안 설정](sql-database-security-overview.md)
 
 [탄력적 데이터베이스 작업 시작](sql-database-elastic-jobs-getting-started.md)
 
@@ -80,6 +80,6 @@ ms.openlocfilehash: bbe3370442ad4117a1a08d0b23595dd98aaba5b5
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

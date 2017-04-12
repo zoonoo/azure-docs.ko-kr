@@ -11,18 +11,18 @@ keywords: "컨테이너, Marathon, 마이크로 서비스, DC/OS, Azure"
 ms.assetid: 16ecc16e-e504-480e-8dc3-cac14e9e1561
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: befd26888b653c660cc614221684732771496aed
+ms.sourcegitcommit: 3f6bc85230b57d7b9523a87f90783c27039ef820
+ms.openlocfilehash: 1ea024d83c1d8881467be1556675a47c605fee66
 
 
 ---
-# <a name="create-an-application-or-userspecific-marathon-service"></a>응용 프로그램 또는 사용자 특정 Marathon 서비스 만들기
+# <a name="create-an-application-or-user-specific-marathon-service"></a>응용 프로그램 또는 사용자 특정 Marathon 서비스 만들기
 Azure 컨테이너 서비스는 Apache Mesos 및 Marathon을 미리 구성하는 마스터 서버 집합을 제공합니다. 클러스터에서 응용 프로그램을 오케스트레이션하는 데 사용할 수 있지만 이러한 목적으로는 마스터 서버를 사용하지 않는 것이 좋습니다. 예를 들어 Marathon 구성을 조정하려면 마스터 서버 자체에 로그인하고 변경해야 합니다. 이 방법에서는 표준과 약간 다르고 독립적으로 처리 및 관리해야 하는 고유 마스터 서버를 권장합니다. 또한 한 팀에 필요한 구성은 다른 팀에게는 최적의 구성이 아닐 수도 있습니다.
 
 이 문서에서는 응용 프로그램 또는 사용자 특정 Marathon 서비스를 추가하는 방법을 설명합니다.
@@ -34,7 +34,7 @@ DC/OS Orchestrator 유형을 사용하여 [Azure Container Service의 인스턴�
 
 [!INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)]
 
-## <a name="create-an-application-or-userspecific-marathon-service"></a>응용 프로그램 또는 사용자 특정 Marathon 서비스 만들기
+## <a name="create-an-application-or-user-specific-marathon-service"></a>응용 프로그램 또는 사용자 특정 Marathon 서비스 만들기
 만들려는 응용 프로그램 서비스의 이름을 정의하는 JSON 구성 파일을 만드는 것으로 시작합니다. 여기서는 프레임워크 이름으로 `marathon-alice` 를 사용합니다. `marathon-alice.json`과 같이 파일을 저장합니다.
 
 ```json
@@ -61,6 +61,6 @@ dcos config set marathon.url http://<hostname>/service/marathon-alice/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

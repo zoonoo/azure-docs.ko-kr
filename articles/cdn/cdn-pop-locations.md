@@ -3,7 +3,7 @@ title: "Azure CDN POP 위치 | Microsoft Azure"
 description: "이 항목에서는 Azure CDN POP 위치를 나열합니다."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e7e4ae6b889ef86d03106c9653bf9247ac21636
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 6d4c9dda6ccf6011d2b2ff5951b9fe42c158e216
 
 
 ---
@@ -44,11 +44,11 @@ ms.openlocfilehash: 3e7e4ae6b889ef86d03106c9653bf9247ac21636
 | 오스트레일리아 및 뉴질랜드 |멜버른, 오스트레일리아<br />시드니, 오스트레일리아 |**&#x2713;**\* |
 
 ## <a name="see-also"></a>참고 항목
-* [Verizon 에지 서버 IP 범위에서 Azure CDN](https://msdn.microsoft.com/library/mt757330.aspx)
+* [허용 목록에 대한 최신 IP 주소를 얻기 위한 Azure CDN 에지 노드 API](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

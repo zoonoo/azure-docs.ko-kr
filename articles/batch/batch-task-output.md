@@ -1,5 +1,5 @@
 ---
-title: "Azure 배치의 작업 및 태스크 지속성 | Microsoft Docs"
+title: "Azure Storage에 작업 및 태스크 출력 유지 - Azure Batch | Microsoft Docs"
 description: "Azure Storage를 배치 태스크 및 작업 출력의 영구 저장소로 사용하고 이 보관된 출력을 Azure 포털에서 표시하도록 설정하는 방법을 알아봅니다."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 1ae4ee2e8728ac8bcbc1dc528eb76d11a2f3d8a3
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 3b3aa18eb52993843be1feeb8e0b2a43339413c3
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="persist-azure-batch-job-and-task-output"></a>Azure 배치 작업 및 태스크 출력 보관
+# <a name="persist-results-from-completed-jobs-and-tasks-to-azure-storage"></a>Azure Storage에 완료된 작업 및 태스크의 결과 유지
+
 배치에서 실행하는 태스크는 일반적으로 저장한 후 나중에 작업의 다른 태스크, 작업을 실행한 클라이언트 응용 프로그램 또는 둘 다에서 검색해야 하는 출력을 생성합니다. 이 출력은 입력 데이터 또는 태스크 실행과 관련된 로그 파일을 처리하여 생성되는 파일일 수 있습니다. 이 문서에서는 규칙 기반 기술을 사용하여 이러한 태스크 출력을 Azure Blob 저장소에 보관함으로써 풀, 작업 및 계산 노드를 삭제한 후에도 사용할 수 있도록 하는 .NET 클래스 라이브러리를 소개합니다.
 
 이 문서의 기술을 사용하면 [Azure Portal][portal]에서 **저장된 출력 파일** 및 **저장된 로그**에서 태스크 출력을 볼 수도 있습니다.
@@ -207,9 +210,9 @@ Azure Portal에서 태스크 출력 및 로그를 보려면 관심 있는 출력
 ![Azure Portal의 태스크 출력 블레이드][2]
 
 ## <a name="code-sample"></a>코드 샘플
-[PersistOutputs][github_persistoutputs] 샘플 프로젝트는 GitHub의 [Azure 배치 코드 샘플][github_samples] 중 하나입니다. 이 Visual Studio 2015 솔루션은 Azure 배치 파일 규칙 라이브러리를 사용하여 영구 저장소에 태스크 출력을 보관하는 방법을 보여 줍니다. 샘플을 실행하려면 다음 단계를 수행합니다.
+[PersistOutputs][github_persistoutputs] 샘플 프로젝트는 GitHub의 [Azure 배치 코드 샘플][github_samples] 중 하나입니다. 이 Visual Studio 솔루션은 Azure Batch 파일 규칙 라이브러리를 사용하여 영구 저장소에 태스크 출력을 보관하는 방법을 보여 줍니다. 샘플을 실행하려면 다음 단계를 수행합니다.
 
-1. **Visual Studio 2015**에서 프로젝트를 엽니다.
+1. **Visual Studio 2015 이상**에서 프로젝트를 엽니다.
 2. Microsoft.Azure.Batch.Samples.Common 프로젝트에서 배치 및 저장소 **계정 자격 증명**을 **AccountSettings.settings**에 추가합니다.
 3. **빌드** 합니다(하지만 실행하지 않음). 메시지가 표시되면 모든 NuGet 패키지를 복원합니다.
 4. Azure 포털을 사용하여 [PersistOutputsTask](batch-application-packages.md) 에 대한 **응용 프로그램 패키지**를 업로드합니다. `PersistOutputsTask.exe` 및 종속 어셈블리를 .zip 패키지에 포함하고, 응용 프로그램 ID를 "PersistOutputsTask"로, 응용 프로그램 패키지 버전을 "1.0"으로 설정합니다.
@@ -248,9 +251,4 @@ Azure Portal에서 태스크 출력 및 로그를 보려면 관심 있는 출력
 
 [1]: ./media/batch-task-output/task-output-01.png "포털의 저장된 출력 파일 및 저장된 로그 선택기"
 [2]: ./media/batch-task-output/task-output-02.png "Azure Portal의 태스크 출력 블레이드"
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

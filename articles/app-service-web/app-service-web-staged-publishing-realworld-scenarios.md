@@ -17,6 +17,7 @@ ms.author: sumuth
 translationtype: Human Translation
 ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
 ms.openlocfilehash: 5284022ea473db893800b0f64b5bf4f811d994aa
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -164,7 +165,7 @@ ms.openlocfilehash: 5284022ea473db893800b0f64b5bf4f811d994aa
     * prefix. Only numbers, letters, and underscores please!
     */
     $table_prefix = getenv('DB_PREFIX');
-```
+    ```
 
 #### <a name="use-relative-paths"></a>상대 경로 사용
 WordPress 앱에서 구성하는 마지막 한 가지는 상대 경로입니다. WordPress는 URL 정보를 데이터베이스에 저장합니다. 이 저장소는 콘텐츠를 한 환경에서 다른 환경으로 이동하는 것을 더욱 어렵게 만듭니다. 로컬에서 스테이지로 또는 스테이지에서 프로덕션 환경으로 이동할 때마다 데이터베이스를 업데이트해야 합니다. 한 환경에서 다른 환경으로 데이터베이스를 배포할 때마다 이 배포로 인해 발생할 수 있는 문제의 위험을 줄이려면 WordPress 관리자 대시보드를 사용하여 설치할 수 있는 [상대 루트 링크 플러그 인](https://wordpress.org/plugins/root-relative-urls/)을 사용합니다.
@@ -342,7 +343,7 @@ require_once(ABSPATH. 'wp-settings.php');
 
 #### <a name="set-up-the-courier2-deployment-module"></a>Courier2 배포 모듈 설정
 [Courier2](http://umbraco.com/products/more-add-ons/courier-2) 모듈을 사용하면 콘텐츠, 스타일시트 및 개발 모듈을 마우스 오른쪽 단추로 클릭하여 스테이징 웹앱에서 프로덕션 웹앱으로 간단하게 푸시할 수 있습니다. 이 프로세스는 업데이트를 배포할 때 프로덕션 웹앱이 손상될 위험을 줄입니다.
-`*.azurewebsites.net` 도메인 및 사용자 지정 도메인(예: http://abc.com)에 대한 Courier2 라이선스를 구입합니다. 라이선스를 구입한 후 다운로드한 라이선스(.LIC 파일)를 `bin` 폴더에 저장합니다.
+`*.azurewebsites.net` 도메인 및 사용자 지정 도메인 (예:  http://abc.com ) 에 대한 Courier2 라이선스를 구입합니다. 라이선스를 구입한 후 다운로드한 라이선스(.LIC 파일)를 `bin` 폴더에 저장합니다.
 
 ![라이선스 파일을 bin 폴더에 넣기](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)
 
@@ -442,9 +443,4 @@ Courier는 한 버전의 Umbraco CMS에서 다른 버전으로 업그레이드�
 [Azure 앱 서비스에서 웹 앱에 대한 스테이징 환경 설정](web-sites-staged-publishing.md)
 
 [비 프로덕션 배포 슬롯에 대한 웹 액세스를 차단하는 방법](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

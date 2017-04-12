@@ -1,5 +1,5 @@
 ---
-title: "Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리 | Microsoft Docs"
+title: "Azure Machine Learning 웹 서비스 포털 사용 | Microsoft Docs"
 description: "Azure 기계 학습 작업 영역에 대한 액세스를 관리하고, ML API 웹 서비스를 배포 및 관리합니다."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 02/28/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3b04aa7406f44130deb4f12c856b459369301449
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: ad1314aa4b504bd2cb3285789073d4f1de1f545d
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -32,6 +33,19 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * 끝점을 추가하거나 삭제 합니다(기존 서비스에만 해당).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>새 Resources Manager 기반 웹 서비스를 관리하기 위한 권한
+
+새 웹 서비스는 Azure 리소스로 배포됩니다. 따라서 새 웹 서비스를 배포하고 관리하기 위한 올바른 권한이 있어야 합니다.  새로운 웹 서비스를 배포 또는 관리하려면 웹 서비스가 배포된 구독에 대한 참여자 또는 관리자 역할을 할당받아야 합니다. Machine Learning 작업 영역에 다른 사용자를 초대하는 경우 구독에 대한 참여자 또는 관리자 역할을 할당해야 해당 사용자가 웹 서비스를 배포하거나 관리할 수 있습니다. 
+
+사용자에게 Azure Machine Learning 웹 서비스 포털에서 리소스에 액세스할 수 있는 올바른 권한이 없으면 웹 서비스를 배포하려고 할 때 다음과 같은 오류가 발생합니다.
+
+*웹 서비스 배포에 실패했습니다. 이 계정은 작업 영역을 포함하는 Azure 구독에 대한 충분한 액세스 권한이 없습니다. 웹 서비스를 Azure에 배포하려면 같은 계정을 작업 영역에 초대하여 작업 영역을 포함하는 Azure 구독에 액세스할 권한이 이 계정에 제공되어야 합니다.*
+
+작업 영역을 만드는 방법에 대한 자세한 내용은 [Azure Machine Learning 작업 영역 만들기 및 공유](machine-learning-create-workspace.md)를 참조하세요.
+
+액세스 권한 설정에 대한 자세한 내용은 [Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기 - 공개 미리 보기](../active-directory/role-based-access-control-manage-assignments.md)를 참조하세요.
+
 
 ## <a name="manage-new-web-services"></a>새 웹 서비스 관리
 새 웹 서비스를 관리하려면
@@ -92,8 +106,8 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * **계획 설명** 은 계획과 관련된 비용 및 용량에 대한 정보를 표시합니다.
 * **계획 사용량** 은 계획에 대한 요금이 청구된 트랜잭션 및 계산 시간 수를 표시합니다.
 * **웹 서비스** 해당 계획을 사용하는 웹 서비스의 수를 표시합니다.
-* **호출별 최상위 웹 서비스** 계획과 대조하여 요금이 청구되는 호출을 발생시키는 최상위 4개 웹 서비스를 표시합니다.
-* **계산 시간별 최상위 웹 서비스** 계획과 대조하여 요금이 청구되는 계산 리소스를 사용하는 최상위 4개 웹 서비스를 표시합니다.
+* **호출별 최상위 웹 서비스** 계획과 대조하여 요금이 청구되는 호출을 발생시키는 최상위&4;개 웹 서비스를 표시합니다.
+* **계산 시간별 최상위 웹 서비스** 계획과 대조하여 요금이 청구되는 계산 리소스를 사용하는 최상위&4;개 웹 서비스를 표시합니다.
 
 ## <a name="manage-classic-web-services"></a>기존 웹 서비스 관리
 > [!NOTE]
@@ -174,10 +188,5 @@ Machine Learning Studio의 작업 영역에 액세스할 수 있는 계정을 �
 > **ML 스튜디오에 로그인** 링크를 클릭하면 현재 로그인된 Microsoft 계정을 사용하여 기계 학습 스튜디오가 열립니다. Azure 클래식 포털에 로그인하여 작업 영역을 만드는 데 사용한 Microsoft 계정에는 해당 작업 영역을 열 수 있는 권한이 자동으로 부여되지 않습니다. 작업 영역을 열려면 작업 영역의 소유자로 정의된 Microsoft 계정으로 로그인하거나 작업 공간 소유자의 참가 초대를 받아야 합니다.
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

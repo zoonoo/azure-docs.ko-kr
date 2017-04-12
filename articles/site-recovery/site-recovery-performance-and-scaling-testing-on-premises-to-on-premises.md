@@ -1,5 +1,5 @@
 ---
-title: "Site Recovery를 사용하여 온-프레미스 간 Hyper-V 복제에 대한 성능 테스트 및 확장 결과 | Microsoft Docs"
+title: "사이트 간 Hyper-V 복제에 대한 Azure Site Recovery 테스트 결과 | Microsoft Docs"
 description: "이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 복제에 온-프레미스에 대한 성능 테스트에 대하여 정보를 제공합니다."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b3c35bf129dd1566f3e2084caacc0330b5a6fc32
+ms.sourcegitcommit: 1b95723ec9886835c5967c9efe95b4922390a847
+ms.openlocfilehash: 92b5200016b943c06ef7732344d4136bd3c491b7
+ms.lasthandoff: 02/15/2017
 
 
 ---
-# <a name="performance-test-and-scale-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Site Recovery를 사용하여 온-프레미스 간 Hyper-V 복제에 대한 성능 테스트 및 확장 결과
+# <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>온-프레미스 Hyper-V 복제에서 온-프레미스에 대한 Site Recovery 테스트 결과
 Microsoft Azure Site Recovery를 사용하여 가상 컴퓨터 및 물리적 서버의 복제를 Azure 또는 보조 데이터 센터에 오케스트레이션하고 관리합니다. 이 문서는 두 개의 온-프레미스 데이터 센터 사이에 Hyper-v 가상 컴퓨터를 복제할 때 수행한 성능 테스트의 결과를 제공합니다.
 
 ## <a name="overview"></a>개요
@@ -71,7 +72,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 ![보조 결과](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744918.png)
 
 ### <a name="effect-of-replication-on-network-utilization"></a>네트워크 사용률에 미치는 복제 효과
-기존 대역폭은 초당 5GB인데 반해 기본 및 보조 노드(압축 사용 시) 간에 네트워크 대역폭은 초당 평균 275MB가 사용됩니다.
+기존 대역폭은 초당 5Gb인데 반해 기본 및 보조 노드(압축 사용 시) 간에 네트워크 대역폭은 초당 평균 275Mb가 사용됩니다.
 
 ![결과 네트워크 사용률](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744919.png)
 
@@ -94,8 +95,8 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 * 기본 사이트에는 470 개의 가상 컴퓨터를 실행하는 5개의 Hyper-V 서버를 포함하는 클러스터가 있습니다.
 * 가상 컴퓨터는 다른 작업을 수행하며 모두 Azure Site Recovery 보호가 설정되어 있습니다.
 * 클러스터 노드에 대한 저장소는 iSCSI SAN을 통해 제공됩니다. 모델 – Hitachi HUS130.
-* 각 클러스터는 서버의 각각 1Gbps인 네트워크 카드(NIC)가 4개 있습니다.
-* 네트워크 카드 중 2개는 iSCSI 개인 네트워크에 연결되며 다른 2개는 외부 엔터프라이즈 네트워크에 연결됩니다. 외부 네트워크 중 하나는 클러스터 통신 전용으로 예약됩니다.
+* 각 클러스터는 서버의 각각&1;Gbps인 네트워크 카드(NIC)가&4;개 있습니다.
+* 네트워크 카드 중&2;개는 iSCSI 개인 네트워크에 연결되며 다른&2;개는 외부 엔터프라이즈 네트워크에 연결됩니다. 외부 네트워크 중 하나는 클러스터 통신 전용으로 예약됩니다.
 
 ![기본 하드웨어 요구 사항](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744922.png)
 
@@ -105,7 +106,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 | VMM 서버 |2 | | |2 |1Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-recovery-site"></a>보조(복구) 사이트
-* 보조 사이트는 6개의 노드 장애 조치 클러스터가 있습니다.
+* 보조 사이트는&6;개의 노드 장애 조치 클러스터가 있습니다.
 * 클러스터 노드에 대한 저장소는 iSCSI SAN을 통해 제공됩니다. 모델 – Hitachi HUS130.
 
 ![기본 하드웨어 사양](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744923.png)
@@ -125,13 +126,13 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 | 워크로드 | I/O 크기(KB) | 액세스 % | 쓰기 % | 미해결 I/O | I/O 패턴 |
 | --- | --- | --- | --- | --- | --- |
 | 파일 서버 |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |모두 100% 임의 |
-| SQL Server(볼륨 1) SQL Server(볼륨 2) |864 |100%100% |70%0% |88 |100% 임의 100% 순차 |
+| SQL Server(볼륨 1) SQL Server(볼륨 2) |864 |100%100% |70%0% |88 |100% 임의&100;% 순차 |
 | Exchange |32 |100% |67% |8 |100% 임의 |
 | 워크스테이션/VDI |464 |66%34% |70%95% |11 |둘 다 100% 임의 |
 | 웹 파일 서버 |4864 |33%34%33% |95%95%95% |888 |모두 75% 임의 |
 
 ### <a name="virtual-machine-configuration"></a>가상 컴퓨터 구성
-* 기본 클러스터의 470개의 가상 컴퓨터입니다.
+* 기본 클러스터의&470;개의 가상 컴퓨터입니다.
 * VHDX 디스크에 있는 모든 가상 컴퓨터입니다.
 * 표에 요약된 작업을 실행하는 가상 컴퓨터입니다. 모두 VMM 템플릿으로 생성되었습니다.
 
@@ -146,7 +147,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 ### <a name="azure-site-recovery-settings"></a>Azure Site Recovery 설정
 * Azure Site Recovery는 온-프레미스 간 보호로 구성됨
-* VMM 서버에는 Hyper-V 클러스터 서버 및 해당 가상 컴퓨터를 비롯하여 4개의 클라우드로 구성됩니다.
+* VMM 서버에는 Hyper-V 클러스터 서버 및 해당 가상 컴퓨터를 비롯하여&4;개의 클라우드로 구성됩니다.
 
 | 기본 VMM 클라우드 | 클라우드에서 보호된 가상 컴퓨터 | 복제 빈도 | 추가 복구 지점 |
 | --- | --- | --- | --- |
@@ -170,10 +171,4 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 ## <a name="next-steps"></a>다음 단계
 * [2개의 온-프레미스 VMM 사이트 간 보호 설정](site-recovery-vmm-to-vmm.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

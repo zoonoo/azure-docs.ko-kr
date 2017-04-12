@@ -1,9 +1,21 @@
 ---
-layout: LandingPage
+title: "Azure Stream Analytics 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "완전히 관리되는 이벤트 처리를 사용하여 클라우드에서 IoT 분석을 실행하는 방법에 대해 알아봅니다. 응용 프로그램, 센서, 장치 등에서 실시간으로 데이터를 분석합니다."
+services: stream-analytics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: stream-analytics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
+ms.sourcegitcommit: 4835208ce6dcff978cb7b4d722763f705dc6dd33
+ms.openlocfilehash: 8cfa25410edc7c54e9139a596ab39d8d580f44a5
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -49,7 +61,7 @@ ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
         </a>
     </li>
     <li>
-        <a href="/azure/Stream-Analytics/">
+        <a href="/azure/stream-analytics/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,7 +79,7 @@ ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
         </a>
     </li>
      <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
+        <a href="/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -85,7 +97,7 @@ ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
         </a>
     </li>
      <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-twitter-sentiment-analysis-trends">
+        <a href="/azure/stream-analytics/stream-analytics-twitter-sentiment-analysis-trends">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -103,7 +115,7 @@ ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
         </a>
     </li>
      <li>
-        <a href="/azure/Stream-Analytics/stream-analytics-machine-learning-integration-tutorial">
+        <a href="/azure/stream-analytics/stream-analytics-machine-learning-integration-tutorial">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -130,7 +142,8 @@ ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="Command-Line</h3>
+                    <div class="cardText">
+                        <h3>명령줄</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics">PowerShell</a></p>
                     </div>
                 </div>
@@ -141,7 +154,8 @@ ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="Languages</h3>
+                    <div class="cardText">
+                        <h3>언어</h3>
                         <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/dn834998">쿼리 언어</a></p>
                     </div>
@@ -153,7 +167,8 @@ ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="REST</h3>
+                    <div class="cardText">
+                        <h3>REST (영문)</h3>
                         <p><a href="/rest/api/streamanalytics">REST API 참조</a></p>
                     </div>
                 </div>
@@ -162,10 +177,5 @@ ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

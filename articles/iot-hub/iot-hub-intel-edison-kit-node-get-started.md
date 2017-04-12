@@ -1,27 +1,29 @@
 ---
-title: "Intel Edison Azure IoT 시작 키트 시작 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(노드) 연결 - 도구 다운로드 | Microsoft Docs"
 description: "Intel Edison을 시작하고, Azure IoT Hub를 만들고, Edison을 IoT Hub에 연결합니다."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "intel edison 개발, azure iot 허브, 사물 인터넷 시작, 사물 인터넷 자습서, adafruit 사물 인터넷, intel edison arduino, arduino 시작"
+keywords: "intel edison 개발, azure iot hub, 사물 인터넷 시작, 사물 인터넷 자습서, adafruit 사물 인터넷, intel edison arduino, arduino 시작"
 ms.assetid: a7c9cf2d-c102-41b0-aa45-41285c6877eb
 ms.service: iot-hub
 ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/7/2016
+ms.date: 3/21/2017
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cb18052f74528e245264bb2f400b625fe550ed85
-ms.openlocfilehash: 61f14728d5b985815b64b2c13c7f0df42e4de485
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: 43b6efb64c24405ae3638f6d04da5d21e30a55e1
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="get-started-with-intel-edison-nodejs"></a>Intel Edison 시작(Node.js)
+# <a name="connect-your-intel-edison-device-to-your-iot-hub-using-nodejs"></a>Node.js를 사용하여 IoT Hub에 Intel Edison 장치 연결
 > [!div class="op_single_selector"]
 > * [Node.JS](iot-hub-intel-edison-kit-node-get-started.md)
 > * [C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -140,8 +142,3 @@ LED의 켜기 및 끄기 동작을 변경하도록 메시지를 사용자 지정
 [receive-cloud-to-device-messages]: iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md
 [change-the-on-and-off-behavior-of-the-led]: iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md
 [troubleshooting]: iot-hub-intel-edison-kit-node-troubleshooting.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

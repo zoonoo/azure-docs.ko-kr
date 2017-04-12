@@ -1,23 +1,23 @@
 ---
 title: "Azure Government 계산 | Microsoft 문서"
 description: "Azure Government용 응용 프로그램 개발에 대한 지침 및 기능 비교를 제공합니다."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/29/2016
+ms.date: 3/13/2017
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: a0374d6aeae42641e906a7f8e39bfc58eaacf096
-ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 146fcd9788bab55e4abd9e70dcfe25741f041d34
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -26,16 +26,20 @@ ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
 이 서비스와 사용 방법에 대한 자세한 정보는 [Azure Virtual Machines 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ### <a name="variations"></a>변형
-다음 VM Sku는 Azure Government에서 일반 공급(GA)됩니다.
+제품(VM)는 Azure Government에서 사용할 수 있습니다.
 
-| VM SKU | 미국 정부 VA | 미국 정부 IA | 참고 사항 |
-| --- | --- | --- | --- |
-| 문자열(UTF-8 형식) 또는 |GA |GA |없음 |
-| Dv1 |GA |- |없음 |
-| DSv1 |GA |- |없음 |
-| Dv2 |GA |GA |15 출시 예정 |
-| F |GA |GA |없음 |
-| G |계획 |- |없음 |
+| 제품(VM) | 미국 정부 VA | 미국 정부 IA | US DOD 동부 | US DOD 서부
+| --- | --- | --- |--- |--- |
+| A0-A7 |Y |Y |Y |Y |Y |
+| Av2 |Y |Y |Y |Y |Y |
+| D 시리즈 |Y |N |N |N |
+| Dv2 시리즈 |Y |Y |Y |Y |
+| DS 시리즈 |Y |N |N |N |
+| DSv2 시리즈 |Y |N |Y |Y |
+| F 시리즈 |Y |Y |Y |Y |
+| FS 시리즈 |Y |N |Y |Y |
+| G 시리즈 |Y |N |N |N |
+| GS 시리즈 |Y |N |N |N |
 
 ### <a name="data-considerations"></a>데이터 고려 사항
 다음 정보는 Azure 가상 컴퓨터에 대한 Azure Government 경계를 식별합니다.
@@ -46,10 +50,5 @@ ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
 
 ## <a name="next-steps"></a>다음 단계
 추가 정보 및 업데이트는 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government 블로그</a>를 구독하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

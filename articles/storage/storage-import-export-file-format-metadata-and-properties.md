@@ -1,5 +1,5 @@
 ---
-title: "Import-Export 서비스 메타데이터 및 속성 파일 형식 | Microsoft Docs"
+title: "Azure Import/Export 메타데이터 및 속성 파일 형식 | Microsoft Docs"
 description: "가져오기 또는 내보내기 작업의 일부인 하나 이상의 Blob에 대해 메타데이터 및 속성을 지정하는 방법을 알아봅니다."
 author: muralikk
 manager: syadav
@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: 8c8800682a0ce2c52962a41c1c09fbc59595dee2
+ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
+ms.openlocfilehash: 9aa7815eae9ae3c1771cd0efdc8b9db4ad2e0b65
+ms.lasthandoff: 03/30/2017
 
 
 ---
-# <a name="import-export-service-metadata-and-properties-file-format"></a>Import-Export 서비스 메타데이터 및 속성 파일 형식
+# <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure Import/Export 서비스 메타데이터 및 속성 파일 형식
 가져오기 작업 또는 내보내기 작업의 일부로 하나 이상의 Blob에 대한 메타데이터 및 속성을 지정할 수 있습니다. 가져오기 작업의 일부로 만들어지는 Blob에 대한 메타데이터 또는 속성을 설정하려면 가져올 데이터가 있는 하드 드라이브에 메타데이터 또는 속성 파일을 제공합니다. 내보내기 작업의 경우 메타데이터 및 속성은 반환된 하드 드라이브에 포함된 메타데이터 또는 속성 파일에 기록됩니다.  
   
 ## <a name="metadata-file-format"></a>메타데이터 파일 형식  
@@ -63,16 +64,13 @@ ms.openlocfilehash: 8c8800682a0ce2c52962a41c1c09fbc59595dee2
 |`Last-Modified`|string|선택 사항입니다. Blob에 대한 마지막 수정 시간입니다. 내보내기 작업에만 해당합니다.|  
 |`Etag`|string|선택 사항입니다. Blob의 ETag 값입니다. 내보내기 작업에만 해당합니다.|  
 |`Content-Length`|string|선택 사항입니다. Blob의 크기(바이트)입니다. 내보내기 작업에만 해당합니다.|  
-|`Content-Type`|문자열|선택 사항입니다. Blob의 콘텐츠 형식입니다.|  
+|`Content-Type`|string|선택 사항입니다. Blob의 콘텐츠 형식입니다.|  
 |`Content-MD5`|string|선택 사항입니다. Blob의 MD5 해시입니다.|  
 |`Content-Encoding`|문자열|선택 사항입니다. Blob의 콘텐츠 인코딩입니다.|  
 |`Content-Language`|문자열|선택 사항입니다. Blob의 콘텐츠 언어입니다.|  
 |`Cache-Control`|string|선택 사항입니다. Blob의 캐시 제어 문자열입니다.|  
-  
- Blob 메타데이터 및 속성을 설정하는 방법에 대한 자세한 규칙은 [Blob 속성 설정](/rest/api/storageservices/fileservices/set-blob-properties), [Blob 메타데이터 설정](/rest/api/storageservices/fileservices/set-blob-metadata) 및 [Blob 리소스에 대한 속성 및 메타데이터 설정 및 검색](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources)을 참조하세요.
 
+## <a name="next-steps"></a>다음 단계
 
-
-<!--HONumber=Dec16_HO2-->
-
+Blob 메타데이터 및 속성을 설정하는 방법에 대한 자세한 규칙은 [Blob 속성 설정](/rest/api/storageservices/fileservices/set-blob-properties), [Blob 메타데이터 설정](/rest/api/storageservices/fileservices/set-blob-metadata) 및 [Blob 리소스에 대한 속성 및 메타데이터 설정 및 검색](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources)을 참조하세요.
 

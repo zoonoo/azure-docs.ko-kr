@@ -15,8 +15,9 @@ ms.workload: Supportability
 ms.date: 06/01/2016
 ms.author: BernardoAMunoz
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6de24842669e29ea7d6796f63fa2a8ae36930531
+ms.sourcegitcommit: d777bc6bd477c5b6645fc8bd7b6d57a5d2f89e22
+ms.openlocfilehash: e465e2c1503add186a4b134e85bd9aab61d5c0ad
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -43,7 +44,7 @@ Azure 포털에서 리소스 상태 블레이드는 리소스의 상태에 대�
 Azure 포털에 로그인하면 리소스 상태 블레이드에 액세스하는 두 가지 방법이 있습니다. 
 
 ### <a name="open-the-resource-blade"></a>리소스 블레이드 열기
-지정된 리소스에 대한 리소스 블레이드를 엽니다. 리소스 블레이드 옆에 열리는 설정 블레이드에서 리소스 상태를 클릭하여 리소스 상태 블레이드를 엽니다. 
+지정된 리소스에 대한 리소스 블레이드를 엽니다. 리소스 블레이드 옆에 열리는 왼쪽 블레이드에서 지원 + 문제 해결 아래에 있는 리소스 상태를 클릭하여 리소스 상태 블레이드를 엽니다. 
 
 ![리소스 상태 블레이드](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
 
@@ -54,7 +55,7 @@ Azure 포털에 로그인하면 리소스 상태 블레이드에 액세스하는
 
 ![도움말 + 지원](./media/resource-health-overview/HelpAndSupport.png)
 
-타일을 클릭하면 구독에 있는 모든 리소스를 나열하는 리소스 상태 구독 블레이드가 열립니다. 각 리소스 옆에 해당 상태를 나타내는 아이콘이 있습니다. 각 리소스를 클릭하면 리소스 상태 블레이드가 열립니다.
+도움말 + 지원 블레이드 옆에 열리는 왼쪽 블레이드에서 지원 + 문제 해결 아래에 있는 리소스 상태를 클릭합니다. 이를 클릭하면 구독에 있는 모든 리소스를 나열하는 리소스 상태 구독 블레이드가 열립니다. 각 리소스 옆에 해당 상태를 나타내는 아이콘이 있습니다. 각 리소스를 클릭하면 리소스 상태 블레이드가 열립니다.
 
 **리소스 상태 타일**
 
@@ -77,7 +78,7 @@ Azure 포털에 로그인하면 리소스 상태 블레이드에 액세스하는
 
 ![리소스를 사용할 수 없음](./media/resource-health-overview/Unavailable.png)
 
-### <a name="unavailable-customer-initiated"></a>사용할 수 없음 – 고객이 시작
+### <a name="unavailable--customer-initiated"></a>사용할 수 없음 – 고객이 시작
 리소스는 리소스 중지 또는 다시 시작 요청과 같은 고객 요청으로 인해 사용할 수 없습니다. 이는 파란색 정보 아이콘으로 표시됩니다. 
 
 ![사용자 시작된 작업으로 인해 리소스를 사용할 수 없업](./media/resource-health-overview/userInitiated.png)
@@ -106,10 +107,5 @@ Azure 포털에 로그인하면 리소스 상태 블레이드에 액세스하는
 
 ## <a name="feedback"></a>사용자 의견
 Microsoft는 사용자 의견 및 제안을 항상 환영합니다! [제안 사항](https://feedback.azure.com/forums/266794-support-feedback)을 보내 주시기 바랍니다. [Twitter](https://twitter.com/azuresupport)나 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure)을 통해 참여하실 수도 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

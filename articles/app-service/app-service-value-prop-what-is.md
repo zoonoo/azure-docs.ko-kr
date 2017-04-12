@@ -16,8 +16,9 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: a773e43b28b144dd8341b276eee3fa504d4f1080
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
 다음은 앱 서비스의 몇 가지 주요 기능입니다.
 
 * **여러 언어 및 프레임워크** - 앱 서비스에서는 ASP.NET, Node.js, Java, PHP 및 Python을 최고 수준으로 지원합니다. 앱 서비스 VM에서 [Windows PowerShell 및 기타 스크립트 또는 실행 파일](../app-service-web/web-sites-create-web-jobs.md) 을 실행할 수도 있습니다.
-* **DevOps 최적화** - Visual Studio Team Services, GitHub, BitBucket으로 [연속 통합 및 배포](../app-service-web/app-service-continuous-deployment.md) 를 설정합니다. [테스트 및 스테이징 환경](../app-service-web/web-sites-staged-publishing.md)을 통해 업데이트를 승격합니다. [A/B 테스트](../app-service-web/app-service-web-test-in-production-get-start.md)를 수행합니다. [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [플랫폼 간 CLI(명령줄 인터페이스)](../xplat-cli-install.md)를 사용하여 App Service에서 앱을 관리합니다.
+* **DevOps 최적화** - Visual Studio Team Services, GitHub, BitBucket으로 [연속 통합 및 배포](../app-service-web/app-service-continuous-deployment.md) 를 설정합니다. [테스트 및 스테이징 환경](../app-service-web/web-sites-staged-publishing.md)을 통해 업데이트를 승격합니다. [A/B 테스트](../app-service-web/app-service-web-test-in-production-get-start.md)를 수행합니다. [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [플랫폼 간 CLI(명령줄 인터페이스)](../cli-install-nodejs.md)를 사용하여 App Service에서 앱을 관리합니다.
 * **고가용성을 가진 글로벌 규모 조정** - 수동 또는 자동으로 규모를 [강화](../app-service-web/web-sites-scale.md) 또는 [확장](../monitoring-and-diagnostics/insights-how-to-scale.md)합니다. Microsoft의 글로벌 데이터 센터 인프라의 모든 위치에서 앱을 호스팅하고 앱 서비스 [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) 를 사용하면 고가용성이 보장됩니다.
 * **SaaS 플랫폼 및 온-프레미스 데이터에 연결** - 엔터프라이즈 시스템(예: SAP, Siebel 및 Oracle), SaaS 서비스(예: Salesforce 및 Office 365), 인기 있는 인터넷 서비스(예: Facebook 및 Twitter) 등을 위한 50개 이상의 [커넥터](../connectors/apis-list.md) 에서 선택합니다. [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md)를 사용하여 온-프레미스 데이터에 액세스합니다.
 * **보안 및 규정 준수** - 앱 서비스는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)입니다.
@@ -49,7 +50,7 @@ App Service는 여러 *앱 형식*을 제공하며 각각은 특정 워크로드
 * [**Web Apps**](../app-service-web/app-service-web-overview.md) - 웹 사이트와 웹 응용 프로그램을 호스팅합니다.
 * [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) 모바일 앱 백 엔드를 호스팅합니다.
 * [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - 클라우드 API를 호스팅합니다.
-* [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - 비즈니스 프로세스를 자동화하고 코드를 작성하지 않고도 클라우드를 통해 시스템과 데이터를 통합합니다.
+* [**Logic Apps**](../logic-apps/logic-apps-what-are-logic-apps.md) - 비즈니스 프로세스를 자동화하고 코드를 작성하지 않고도 클라우드를 통해 시스템과 데이터를 통합합니다.
 
 여기서 *앱* 이라는 단어는 워크로드를 전용으로 실행하는 호스팅 리소스를 의미합니다. 예를 들어 "웹앱"의 경우 함께 브라우저에 대한 기능을 제공하는 계산 리소스와 응용 프로그램 코드를 모두 웹앱으로 생각하는 것이 익숙할 것입니다. 하지만 앱 서비스에서 *웹앱* 은 Azure에서 응용 프로그램 코드를 호스팅하기 위해 제공하는 계산 리소스입니다. 
 
@@ -66,7 +67,7 @@ App Service는 여러 *앱 형식*을 제공하며 각각은 특정 워크로드
 App Service 계획은 다음을 정의합니다.
 
 - **지역**(미국 서부, 미국 동부 등)
-- **확장 개수**(1, 2, 3개 인스턴스 등)
+- **확장 개수**(1,&2;,&3;개 인스턴스 등)
 - **인스턴스 크기**(소, 중, 대)
 - **SKU**(무료, 공유, 기본, 표준, 프리미엄)
 
@@ -82,18 +83,13 @@ App Service 계획의 **SKU** 및 **규모**에 따라 호스트되는 앱 수�
 앱 서비스 비용에 대한 정보는 [앱 서비스 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
 ## <a name="test-drive-app-service"></a>App Service 시험 사용
-[샘플 웹앱, 모바일 앱 또는 논리 앱을 만들고](http://go.microsoft.com/fwlink/?LinkId=523751) 1시간 동안 재생합니다. 신용 카드나 약정, 번거로운 과정도 필요하지 않습니다.
+[샘플 웹앱, 모바일 앱 또는 논리 앱을 만들고](https://azure.microsoft.com/try/app-service/)&1;시간 동안 재생합니다. 신용 카드나 약정, 번거로운 과정도 필요하지 않습니다.
 
 또는 [무료 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)을 열고 시작 자습서 중 하나를 사용해 봅니다.
 
 * [자습서: 웹앱 만들기](../app-service-web/app-service-web-get-started.md)
 * [자습서: 모바일 앱 만들기](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [자습서: API 앱 만들기](../app-service-api/app-service-api-dotnet-get-started.md)
-* [자습서: 논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
+* [자습서: 논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 

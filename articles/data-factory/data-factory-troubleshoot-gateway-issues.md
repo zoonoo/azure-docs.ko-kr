@@ -2,7 +2,6 @@
 title: "데이터 관리 게이트웨이 문제 해결 | Microsoft Docs"
 description: "데이터 관리 게이트웨이와 관련된 문제를 해결하기 위한 팁을 제공합니다."
 services: data-factory
-documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
@@ -14,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2017
 ms.author: jingwang
+published: true
 translationtype: Human Translation
-ms.sourcegitcommit: 03e15660e04e192d9035c25f1a8030310413c118
-ms.openlocfilehash: 738fcd1e2b33bf072f004eb95265ed87e6e931c0
-
+ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
+ms.openlocfilehash: d04bf7c5a457b90c5128050642bee6a2623787a0
+ms.lasthandoff: 03/29/2017
 
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>데이터 관리 게이트웨이 사용 관련 문제 해결
@@ -40,7 +40,7 @@ ms.openlocfilehash: 738fcd1e2b33bf072f004eb95265ed87e6e931c0
 #### <a name="resolution"></a>해결 방법
 방화벽 프록시 서버 설정을 검사하여 이 설정이 컴퓨터와 [다운로드 센터](https://download.microsoft.com/) 간의 네트워크 연결을 차단하는지 확인한 후 상황에 따라 설정을 업데이트합니다.
 
-또는 다운로드 센터에 액세스할 수있는 다른 컴퓨터의 [다운로드 센터](https://www.microsoft.com/en-US/download/details.aspx?id=39717)에서 최신 게이트웨이의 설치 파일을 다운로드할 수 있습니다. 그런 다음 설치 프로그램 파일을 게이트웨이 호스트 컴퓨터에 복사한 다음 수동으로 실행하여 게이트웨이를 설치하고 업데이트할 수 있습니다.
+또는 다운로드 센터에 액세스할 수있는 다른 컴퓨터의 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 최신 게이트웨이의 설치 파일을 다운로드할 수 있습니다. 그런 다음 설치 프로그램 파일을 게이트웨이 호스트 컴퓨터에 복사한 다음 수동으로 실행하여 게이트웨이를 설치하고 업데이트할 수 있습니다.
 
 ### <a name="2-problem"></a>2. 문제
 Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트웨이를 설치하려고 할 때 이 오류가 표시됩니다.
@@ -91,10 +91,12 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 ![게이트웨이 키가 잘못되었거나 비어 있음](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>원인
-게이트웨이 키가 다시 생성되었거나 게이트웨이가 포털에서 삭제되었습니다.
+게이트웨이 키가 다시 생성되었거나 게이트웨이가 Azure Portal에서 삭제되었습니다. 데이터 관리 게이트웨이 설치가 최신이 아닌 경우에도 발생할 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
-게이트웨이가 여전히 존재하면 포털에서 게이트웨이 키를 생성하고 복사 단추를 사용하여 전체 키를 복사합니다. 게이트웨이를 등록하려면 이 창에 붙여넣습니다. 그렇지 않은 경우 게이트웨이를 다시 만들고 처음부터 다시 시작합니다.
+데이터 관리 게이트웨이 설치가 최신 버전인지 확인하고 Microsoft [다운로드 센터](https://go.microsoft.com/fwlink/p/?LinkId=271260)에서 최신 버전을 찾을 수 있습니다.
+
+설치가 최신이고 게이트웨이가 포털에 여전히 존재하는 경우 Azure Portal에서 게이트웨이 키를 생성하고 복사 단추를 사용하여 전체 키를 복사한 다음 이 창에 붙여넣어 게이트웨이를 등록합니다. 그렇지 않은 경우 게이트웨이를 다시 만들고 처음부터 다시 시작합니다.
 
 ### <a name="6-problem"></a>6. 문제
 게이트웨이 등록할 때 다음 오류 메시지가 표시될 수 있습니다.
@@ -284,9 +286,4 @@ Windows 이벤트 로그에서 자세한 게이트웨이 로그 정보를 확인
  게이트웨이 관련 문제를 해결할 때는 이벤트 뷰어에서 오류 수준 이벤트를 찾아봅니다.
 
 ![데이터 관리 게이트웨이 - 이벤트 뷰어의 로그](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

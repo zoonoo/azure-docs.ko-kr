@@ -1,39 +1,51 @@
 ---
 title: "Azure Active Directory 조건부 액세스 기술 참조 | Microsoft Docs"
 description: "조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다."
-services: active-directory
+services: active-directory.
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/20/2016
+ms.date: 03/28/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: a5c84d7ef67c49042eb85965593f44915a666df9
+ms.sourcegitcommit: 4296bbc7123f6571ad564351612864a6315d8abf
+ms.openlocfilehash: 450f3e001a0bc4a45fea4c4f0a81e676e9a80cc4
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 조건부 액세스 기술 참조
+
 ## <a name="services-enabled-with-conditional-access"></a>조건부 액세스로 설정된 서비스
+
 조건부 액세스 규칙은 다양한 Azure AD 응용 프로그램 종류에서 지원됩니다. 이 목록에는 다음이 포함됩니다.
 
-* Azure AD 응용 프로그램 갤러리의 페더레이션 응용 프로그램
-* Azure AD 응용 프로그램 갤러리의 암호 SSO 응용 프로그램
+
 * Azure 응용 프로그램 프록시에 등록된 응용 프로그램
-* Azure AD에 등록된 개발 LOB(기간 업무) 및 다중 테넌트 응용 프로그램
-* Visual Studio Online
 * Azure 원격 앱
+* Azure AD에 등록된 개발 LOB(기간 업무) 및 다중 테넌트 응용 프로그램
 * Dynamics CRM
+* Azure AD 응용 프로그램 갤러리의 페더레이션 응용 프로그램
 * Microsoft Office 365 Yammer
 * Microsoft Office 365 Exchange Online
 * Microsoft Office 365 SharePoint Online(비즈니스용 OneDrive 포함)
+* Microsoft Power BI 
+* Azure AD 응용 프로그램 갤러리의 암호 SSO 응용 프로그램
+* Visual Studio Online
+
+
+
+
+
+
+
+
 
 ## <a name="enable-access-rules"></a>액세스 규칙 사용
 각 규칙을 응용 프로그램 단위로 사용하거나 사용하지 않도록 설정할 수 있습니다. **설정** 인 경우 규칙을 사용할 수 있으며 응용 프로그램에 액세스하는 사용자에게 적용됩니다. **해제** 인 경우 규칙을 사용할 수 없으며 사용자 로그인 환경에 영향을 주지 않습니다.
@@ -54,8 +66,8 @@ ms.openlocfilehash: a5c84d7ef67c49042eb85965593f44915a666df9
 “회사” 네트워크 지정 옵션
 
 1. 신뢰할 수 있는 IP 주소 범위는 [다단계 인증 구성 페이지](../multi-factor-authentication/multi-factor-authentication-whats-next.md)에서 구성합니다. 조건부 액세스 정책은 각 인증 요청 및 토큰 발급의 구성 범위를 사용하여 규칙을 평가합니다. 
-2. Corpnet 내부 클레임을 사용하여 구성합니다. 이 옵션은 AD FS를 이용하여 페더레이트된 디렉터리와 함께 사용할 수 있습니다. [Coronet 내부 클레임에 대해 자세히 알아보기](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)
-3. 공용 IP 주소 범위를 구성합니다. 구성 탭에서 디렉터리에 대한 공용 IP 주소를 설정할 수 있습니다. 조건부 액세스는 ‘회사' IP 주소에 이 주소를 사용합니다. MFA 설정 페이지에서 강제하는 IP 주소 50개 제한을 넘는 추가 범위를 구성할 수 있습니다.
+2. Corpnet 내부 클레임을 사용하여 구성합니다. 이 옵션은 AD FS를 이용하여 페더레이트된 디렉터리와 함께 사용할 수 있습니다. 회사 네트워크 내부 클레임에 대한 자세한 내용은 [Tusted IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)를 참조하세요.
+
 
 ## <a name="rules-based-on-application-sensitivity"></a>응용 프로그램 민감도에 기반한 규칙
 다른 서비스에 대한 액세스에 영향을 주지 않고 중요한 서비스의 보안이 유지되도록 허용하는 응용 프로그램 단위로 규칙이 구성됩니다. 응용 프로그램의 **구성** 탭에서 조건부 액세스 규칙을 구성할 수 있습니다. 
@@ -75,10 +87,5 @@ ms.openlocfilehash: a5c84d7ef67c49042eb85965593f44915a666df9
 ## <a name="related-topics"></a>관련된 항목
 * [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](active-directory-conditional-access.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

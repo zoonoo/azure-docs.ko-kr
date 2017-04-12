@@ -1,6 +1,6 @@
 ---
-title: "장치 구성 | Microsoft Docs"
-description: "최초 사용을 위해 Raspberry Pi 3을 구성하고 Raspberry Pi 하드웨어에 최적화된 무료 운영 체제인 Raspbian OS를 설치합니다."
+title: "Azure IoT에 Raspberry Pi(노드) 연결 - 단원 1: 장치 구성 | Microsoft Docs"
+description: Configure Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: ad1b0eb76d9d82af1ea5f8f1c7bda13656b1ab47
+ms.sourcegitcommit: 5b80d471c78973f8c2f6b1ad4e1240c66f0505ef
+ms.openlocfilehash: 5afe1110944641daaeace5ef02b2c9fa8d2a8e05
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -50,7 +51,7 @@ ms.openlocfilehash: ad1b0eb76d9d82af1ea5f8f1c7bda13656b1ab47
 다음 항목도 필요합니다.
 
 * Pi를 연결할 유선 또는 무선 연결.
-* OS 이미지를 microSD 카드에 굽기 위한 USB-SD 어댑터 또는 miniSD 카드.
+* 운영 체제 이미지를 microSD 카드에 굽기 위한 USB-SD 어댑터 또는 miniSD 카드.
 * Windows, Mac 또는 Linux를 실행하는 컴퓨터  컴퓨터는 microSD 카드에 Raspbian을 설치하는 데 사용됩니다.
 * 필요한 도구 및 소프트웨어를 다운로드하기 위한 인터넷 연결.
 
@@ -79,6 +80,9 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 > [!NOTE]
 > Raspberry가 정상 작동하는 데 충분한 전원이 공급되도록 2A 이상인 키트의 전원 공급 장치를 사용하는 것이 좋습니다.
+
+## <a name="enable-ssh"></a>SSH 사용
+2016년 11월 릴리스를 기준으로 Raspbian은 기본적으로 SSH 서버를 비활성화했습니다. 수동으로 활성화해야 합니다. [공식 지침](https://www.raspberrypi.org/documentation/remote-access/ssh/)을 참조하거나 모니터를 연결하고 **기본 설정 -> Raspberry Pi 구성**으로 이동하여 SSH를 사용하도록 설정할 수 있습니다.
 
 ## <a name="connect-raspberry-pi-3-to-the-network"></a>Raspberry Pi 3을 네트워크에 연결
 Pi를 유선 네트워크 또는 무선 네트워크에 연결합니다. Pi가 컴퓨터와 같은 네트워크에 연결되어 있어야 합니다. 예를 들어 Pi를 컴퓨터가 연결된 스위치와 같은 스위치에 연결할 수 있습니다.
@@ -113,10 +117,5 @@ LED 극성이 중요합니다. 이 극성 설정은 일반적으로 활성(낮�
 
 ## <a name="next-steps"></a>다음 단계
 [도구 얻기](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

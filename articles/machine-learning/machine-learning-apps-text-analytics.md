@@ -12,11 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 04/04/2017
 ms.author: onewth
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: ../cognitive-services/cognitive-services-text-analytics-quick-start
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: f4389705a81b531bd706cbabc0b4c3b171febd5f
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -360,10 +363,5 @@ API는 다음과 같은 형식의 JSON 형식으로 출력을 반환합니다.
 | Id |레코드에 대한 식별자입니다. 입력에 포함된 ID와 같습니다. |
 | TopicId |레코드가 할당된 토픽 ID입니다. |
 | Distance |레코드가 토픽에 속할 신뢰도입니다. Distance가 0에 가까울수록 신뢰도가 높아집니다. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

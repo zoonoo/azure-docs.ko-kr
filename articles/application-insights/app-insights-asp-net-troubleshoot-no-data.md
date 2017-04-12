@@ -4,18 +4,19 @@ description: "Azure Application Insights에서 데이터를 볼 수 없나요? �
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: b625bd693de1a8e24a0236403c69e500db1aec2d
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: db8d7b0e117276dd63ee83a1c2337e69253184b8
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -33,18 +34,18 @@ ms.openlocfilehash: b625bd693de1a8e24a0236403c69e500db1aec2d
 
 기존 앱을 모니터링하려고 웹 서버에 *[상태 모니터를 설치](app-insights-monitor-performance-live-website-now.md)했지만 결과가 보이지 않습니다.*
 
-* [상태 모니터 문제 해결](app-insights-monitor-performance-live-website-now.md#troubleshooting)을 참조하세요. 
+* [상태 모니터 문제 해결](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)을 참조하세요. 
 
-## <a name="a-nameq01ano-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Visual Studio에 'Application Insights 추가' 옵션이 없음
-*Visual Studio에서 새 프로젝트를 만들 때 또는 솔루션 탐색기에서 기존 프로젝트를 마우스 오른쪽 단추로 클릭할 때 Application Insights 옵션이 표시되지 않습니다.*
+## <a name="q01"></a>Visual Studio에 'Application Insights 추가' 옵션이 없음
+*Solution Explorer에서 기존 프로젝트를 마우스 오른쪽 단추로 클릭할 때 Application Insights 옵션이 표시되지 않습니다.*
 
 * 이 도구가 모든 유형의 .NET 프로젝트를 지원하지는 않습니다. 웹 및 WCF 프로젝트는 지원됩니다. 데스크톱 또는 서비스 응용 프로그램 같은 기타 프로젝트 유형은 여전히 [수동으로 프로젝트에 Application Insights SDK를 추가](app-insights-windows-desktop.md)할 수 있습니다.
-* [Visual Studio 2013 업데이트 3 이후](http://go.microsoft.com/fwlink/?LinkId=397827)가 설치되어 있는지 확인하세요. Application Insights 도구와 함께 사전설치되어 제공됩니다.
-* **도구**, **확장 및 업데이트**를 차례로 선택하고 **Application Insights Tools**가 설치 및 활성화되었는지 확인하세요. 그렇다면 **업데이트** 를 클릭하여 제공되는 업데이트가 있는지 확인합니다.
+* [Visual Studio 2013 업데이트 3 이후](http://go.microsoft.com/fwlink/?LinkId=397827)가 설치되어 있는지 확인하세요. Application Insights SDK를 제공하는 개발자 분석 도구가 사전 설치되어 제공됩니다.
+* **도구**, **확장 및 업데이트**를 차례로 선택하고 **개발자 분석 도구**가 설치 및 활성화되었는지 확인하세요. 그렇다면 **업데이트** 를 클릭하여 제공되는 업데이트가 있는지 확인합니다.
 * 새 프로젝트 대화 상자를 열고 ASP.NET 웹 응용 프로그램을 선택합니다. Application Insights 옵션이 보이면 도구가 설치된 것입니다. 옵션이 보이지 않으면 Application Insights Tools를 다시 설치해 보세요.
 
-## <a name="a-nameq02aadding-application-insights-failed"></a><a name="q02"></a>Application Insights 추가 실패
-*새 웹 프로젝트를 만들 때 또는 기존 프로젝트에 Application Insights를 추가하려고 할 때 오류 메시지가 표시됩니다.*
+## <a name="q02"></a>Application Insights 추가 실패
+*기존 프로젝트에 Application Insights를 추가하려고 할 때 오류 메시지가 표시됩니다.*
 
 가능한 원인:
 
@@ -59,12 +60,12 @@ ms.openlocfilehash: b625bd693de1a8e24a0236403c69e500db1aec2d
 * [Application Insights를 기존 프로젝트에 추가](app-insights-asp-net.md): 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 "Application Insights 추가"를 선택합니다.
 * 여전히 작동하지 않는 경우 [수동 절차](app-insights-windows-services.md) 에 따라 포털에서 리소스에 추가한 다음 SDK를 프로젝트에 추가합니다. 
 
-## <a name="a-nameemptykeyai-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
+## <a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
 Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어댑터에 문제가 있을 수 있습니다.
 
-솔루션 탐색기에서 `ApplicationInsights.config` 를 마우스 오른쪽 단추로 클릭하고 **Application Insights 구성**을 선택합니다. Azure에 로그인하고 Application Insights 리소스를 만들거나 기존 리소스를 다시 사용하도록 초대하는 대화 상자가 표시됩니다.
+솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Application Insights > Application Insights 구성**을 차례로 선택합니다. Azure에 로그인하고 Application Insights 리소스를 만들거나 기존 리소스를 다시 사용하도록 초대하는 대화 상자가 표시됩니다.
 
-## <a name="a-namenugetbuilda-nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a> 빌드 서버에 "NuGet 패키지가 없음"
+## <a name="NuGetBuild"></a> 빌드 서버에 "NuGet 패키지가 없음"
 *개발 컴퓨터에서 디버깅을 수행하면 모든 것이 정상적으로 빌드되지만 빌드 서버에서는 NuGet 오류가 발생합니다.*
 
 [NuGet 패키지 복원](http://docs.nuget.org/Consume/Package-Restore) 및 [자동 패키지 복원](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore)을 참조하세요.
@@ -75,14 +76,14 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 가능한 원인:
 
 * Application Insights 리소스를 수동으로 만들었거나 프로젝트가 Application Insights 도구에서 지원되지 않는 유형입니다.
-* Visual Studio에서 Application Insights 도구가 비활성화되었습니다.
+* Visual Studio에서 개발자 분석 도구가 비활성화되었습니다. 
 * Visual Studio 버전이 2013 업데이트 3보다 오래되었습니다.
 
 해결 방법:
 
 * Visual Studio가 2013 업데이트 3 이상 버전인지 확인하세요.
-* **도구**, **확장 및 업데이트**를 차례로 선택하고 **Application Insights Tools**가 설치 및 활성화되었는지 확인하세요. 그렇다면 **업데이트** 를 클릭하여 제공되는 업데이트가 있는지 확인합니다.
-* 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **Application Insights 구성**명령이 보이면 그 명령을 사용하여 Application Insights 서비스의 리소스에 프로젝트를 연결합니다.
+* **도구**, **확장 및 업데이트**를 차례로 선택하고 **개발자 분석 도구**가 설치 및 활성화되었는지 확인하세요. 그렇다면 **업데이트** 를 클릭하여 제공되는 업데이트가 있는지 확인합니다.
+* 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **Application Insights > Application Insights 구성** 명령이 보이면 그 명령을 사용하여 Application Insights 서비스의 리소스에 프로젝트를 연결합니다.
 
 명령이 보이지 않으면 프로젝트가 Application Insights 도구에서 바로 지원되지 않는 유형입니다. 원격 분석을 보려면 [Azure 포털](https://portal.azure.com)에 로그인하고, 왼쪽의 탐색 모음에서 Application Insights를 선택하고, 응용 프로그램을 선택합니다.
 
@@ -123,7 +124,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
     요약 차트 몇 개가 보일 것입니다. 요약 차트를 클릭하면 세부 정보를 수 있습니다.
 * Visual Studio에서 앱을 디버깅하는 동안 Application Insights 단추를 클릭합니다.
 
-## <a name="a-nameq03a-no-server-data-or-no-data-at-all"></a><a name="q03"></a> 서버 데이터 없음(데이터가 하나도 없음)
+## <a name="q03"></a> 서버 데이터 없음(데이터가 하나도 없음)
 *앱을 실행한 다음 Microsoft Azure에서 Application Insights 서비스를 열었지만, 모든 차트에 '수집하는 방법을 알아보세요...' 또는 '구성되지 않았습니다' 메시지가 표시됩니다.* 또는 *페이지 보기와 사용자 데이터만 표시되고 서버 데이터는 표시되지 않습니다.*
 
 * Visual Studio의 디버그 모드에서 응용 프로그램을 실행합니다(F5). 응용 프로그램을 사용하여 원격 분석을 생성합니다. Visual Studio 출력 창에서 기록된 이벤트를 볼 수 있는지 확인합니다. 
@@ -140,10 +141,10 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * [Microsoft Azure 홈 대시보드](https://portal.azure.com)에서 서비스 상태 맵을 살펴봅니다. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 응용 프로그램 블레이드를 닫고 다시 엽니다.
 * 또한 [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 확인합니다.
-* `TelemetryClient`인스턴스 또는 `TelemetryContext`의 계측 키가 변경될 수 있는 코드를 [서버 쪽 SDK](app-insights-api-custom-events-metrics.md)에 작성했습니까? 또는 너무 촘촘하게 걸러내는 [필터 또는 샘플링 구성](app-insights-api-filtering-sampling.md) 을 작성했습니까?
+* `TelemetryClient`인스턴스 또는 `TelemetryContext`의 계측 키가 변경될 수 있는 코드를 [서버 쪽 SDK](app-insights-api-custom-events-metrics.md)에 작성했습니까? 또는 너무 촘촘하게 걸러내는 [필터 또는 샘플링 구성](app-insights-api-filtering-sampling.md)을 작성했습니까?
 * ApplicationInsights.config를 편집한 경우 [TelemetryInitializers 및 TelemetryProcessors](app-insights-api-filtering-sampling.md)의 구성을 신중하게 확인합니다. 형식 또는 매개 변수를 잘못 명명하면 SDK에서 빈 데이터를 보내게 될 수 있습니다.
 
-## <a name="a-nameq04ano-data-on-page-views-browsers-usage"></a><a name="q04"></a>페이지 보기, 브라우저, 사용량에 데이터 없음
+## <a name="q04"></a>페이지 보기, 브라우저, 사용량에 데이터 없음
 *서버 응답 시간 및 서버 요청 차트에는 데이터가 보이는데 페이지 보기 로드 시간, 브라우저 또는 사용량 블레이드에는 데이터가 없습니다.*
 
 데이터는 웹 페이지의 스크립트에서 비롯됩니다. 
@@ -183,10 +184,5 @@ Azure 웹 사이트에는 사용할 수는 없습니다.
 
 ## <a name="still-not-working"></a>여전히 작동하지 않습니다.
 * [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

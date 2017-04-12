@@ -17,6 +17,7 @@ ms.author: gwallace
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: baf389dcdfb38053b9feb976d19b471838f1315e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -299,10 +300,5 @@ SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 �
 
 * [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

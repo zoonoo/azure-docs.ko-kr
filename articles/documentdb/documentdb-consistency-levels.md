@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB에서 일관성 수준 | Microsoft Docs"
+title: "Azure DocumentDB의 일관성 수준 | Microsoft 문서"
 description: "DocumentDB에는 최종 일관성, 가용성 및 대기 시간을 절충하여 조정하는 데 유용한 네 가지 일관성 수준이 있습니다."
 keywords: "최종 일관성, Documentdb, Azure, Microsoft Azure"
 services: documentdb
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: dc5ddeaaa865260c58422ed00c015689946b63f5
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: af8e53d7cc074bf669b967014223ee88476d1686
+ms.lasthandoff: 03/29/2017
 
 
 ---
-# <a name="consistency-levels-in-documentdb"></a>DocumentDB의 일관성 수준
+# <a name="tunable-data-consistency-levels-in-documentdb"></a>DocumentDB의 튜닝 가능한 데이터 일관성 수준
 Azure DocumentDB는 처음부터 전역 배포를 염두에 두고 설계되었습니다. 예측 가능한 짧은 대기 시간을 보증하고, 99.99% 가용성 SLA와 여러 개의 잘 정의된 관대한 일관성 모델을 제공하도록 설계되었습니다. 현재 DocumentDB는 4가지 일관성 수준(강력, 제한된 부실, 세션, 최종)을 제공합니다. DocumentDB는 다른 NoSQL 데이터베이스에서 흔히 제공하는 **강력**하고 **최종 일관성**있는 모델 외에도 두 가지 신중하게 변환된 조작 가능한 일관성 모델(**제한된 부실**과 **세션**)을 제공합니다. DocumentDB는 실제 사용 사례에서도 유용하다는 것이 입증되었습니다. 이 네 가지 일관성 수준을 통해 일관성, 가용성, 대기 시간 사이에서 타당하게 절충합니다. 
 
 ## <a name="scope-of-consistency"></a>일관성 범위
@@ -75,7 +77,7 @@ Azure DocumentDB는 처음부터 전역 배포를 염두에 두고 설계되었�
 | **일관적인 접두사 보증** |예 |예 |예 |예 |
 | **단조 읽기** |예 |예, 항상 부실 창 바깥의 전체 지역 및 지역 내부. |예, 주어진 세션 |아니요 |
 | **단조 쓰기** |예 |예 |예 |예 |
-| **자신의 쓰기 읽기** |예 |예 |예(쓰기 지역) |아니요 |
+| **자신의 쓰기 읽기** |예 |예(쓰기 지역) | 예 |아니요 |
 
 ## <a name="configuring-the-default-consistency-level"></a>기본 일관성 수준 구성
 1. [Azure 포털](https://portal.azure.com/)의 이동 표시줄에서 **DocumentDB(NoSQL)**를 클릭합니다.
@@ -116,9 +118,4 @@ Azure DocumentDB는 처음부터 전역 배포를 염두에 두고 설계되었�
   [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

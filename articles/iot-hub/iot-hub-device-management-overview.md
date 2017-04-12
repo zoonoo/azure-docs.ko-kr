@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 03/09/2017
 ms.author: briz
 translationtype: Human Translation
-ms.sourcegitcommit: 55d3f08de7f8c7ba68faba1945e8fd960e888853
-ms.openlocfilehash: 5e1b1333212af0b9042e7ed3793c08e305085519
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -38,7 +39,11 @@ IoT는 특유의 장치 관리 과제를 수반하며 모든 기업 수준의 �
 
 * **규모 및 자동화**: IoT 솔루션은 일상적인 작업을 자동화할 수 있는 간단한 도구를 필요로 하며 비교적 적은 수의 운영 담당자가 수백만 대의 장치를 관리할 수 있도록 해 줍니다. 운영자는 매일 원격에서 일괄적으로 장치 작업을 처리하고 운영자가 주의를 기울여야 하는 문제가 발생할 때만 경고를 받게 됩니다.
 * **개방성 및 호환성**: 장치 생태계는 매우 다양합니다. 관리 도구는 다수의 장치 클래스, 플랫폼 및 프로토콜을 수용하도록 조정되어야 합니다. 운영자는 가장 제한된 내장형 단일 프로세스 칩에서 강력하고 완벽하게 작동하는 컴퓨터에 이르는 많은 종류의 장치를 지원할 수 있어야 합니다.
-* **컨텍스트 인식**: IoT 환경은 동적이며 변화무쌍합니다. 서비스 안정성이 다른 무엇보다 가장 중요합니다. 장치 관리 작업은 유지 관리 중단 시간이 중대한 비즈니스 작업에 영향을 미치거나 위험한 상황을 만들지 않도록 SLA 유지 관리 기간, 네트워크 및 전력 상태, 사용 중인 조건, 장치의 지리적 위치를 감안해야 합니다.
+* **컨텍스트 인식**: IoT 환경은 동적이며 변화무쌍합니다. 서비스 안정성이 다른 무엇보다 가장 중요합니다. 장치 관리 작업은 유지 관리 중단 시간이 중대한 비즈니스 작업에 영향을 미치거나 위험한 상황을 만들지 않도록 다음 요소를 감안해야 합니다.
+    * SLA 유지 관리 기간
+    * 네트워크 및 전력 상태
+    * 사용 중인 조건
+    * 장치의 지리적 위치
 * **많은 역할 서비스**: IoT 운영 역할 특유의 워크플로와 프로세스에 대한 지원이 중요합니다. 운영 담당자는 내부 IT 부서에 주어진 제약 조건에 맞도록 작업을 진행해야 합니다.  또한 실시간 장치 운영 정보를 감독자 및 기타 관리 역할 담당자에게 표면화시키는 지속 가능한 방법을 찾아내야 합니다.
 
 ## <a name="device-lifecycle"></a>장치 수명 주기
@@ -109,9 +114,4 @@ IoT Hub 장치 관리 기능에 대해 계속 알아보려면 [장치 관리 시
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

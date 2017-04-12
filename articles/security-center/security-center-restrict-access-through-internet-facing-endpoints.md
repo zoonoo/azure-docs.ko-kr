@@ -1,6 +1,6 @@
 ---
 title: "Azure Security Center에서 인터넷 끝점을 통한 액세스 제한 | Microsoft Docs"
-description: "이 문서에서는 Azure 보안 센터 권장 사항 **인터넷 끝점을 통한 액세스 제한**을 구현하는 방법을 보여 줍니다."
+description: "이 문서에서는 Azure Security Center 권장 사항 **인터넷 끝점을 통한 액세스 제한**을 구현하는 방법을 보여 줍니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9316339551fdc6b8b266886b120fea5d7c1ef28f
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -27,23 +28,28 @@ Azure 보안 센터는 네트워크 보안 그룹(NSG)에 "임의" 원본 IP 주
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
 1. **권장 사항 블레이드**에서 **인터넷 끝점을 통한 액세스 제한**을 선택합니다.
+
    ![인터넷 끝점을 통한 액세스 제한][1]
 2. **인터넷 끝점을 통한 액세스 제한**블레이드가 열립니다. 이 블레이드에 잠재적인 보안 문제를 발생시키는 인바운드 규칙이 있는 가상 컴퓨터(VM)를 나열합니다. VM을 선택합니다.
+
    ![VM 선택][2]
 3. **NSG** 블레이드는 네트워크 보안 그룹 정보, 관련 인바운드 규칙 및 연결된 VM을 표시합니다. **인바운드 규칙 편집** 을 선택하여 인바운드 규칙 편집을 계속 진행합니다.
+
    ![네트워크 보안 그룹 블레이드][3]
 4. **인바운드 보안 규칙** 블레이드에서 편집할 인바운드 규칙을 선택합니다. 이 예제에서는 **AllowWeb**을 선택합니다.
+
    ![인바운드 보안 규칙][4]
-   
+
    참고로 **기본 규칙** 을 선택하여 모든 NSG에 의해 포함된 기본 규칙 집합을 확인할 수도 있습니다. 기본 규칙은 삭제할 수 없지만, 가장 낮은 우선순위가 할당되기 때문에 직접 만든 규칙으로 재정의할 수 있습니다. [규칙 기본](../virtual-network/virtual-networks-nsg.md#default-rules)에 대해 자세히 알아보세요.
+
    ![기본 규칙][5]
 5. **AllowWeb** 블레이드에서 인바운드 규칙의 속성을 **원본** IP 주소가 IP 주소 또는 IP 주소 블록이 되도록 편집합니다. 인바운드 규칙의 속성에 대해 자세히 알아보려면 [NSG 규칙](../virtual-network/virtual-networks-nsg.md#nsg-rules)을 확인합니다.
-   
+
    ![인바운드 규칙 편집][6]
 
 ## <a name="see-also"></a>참고 항목
@@ -69,9 +75,4 @@ Azure 보안 센터는 네트워크 보안 그룹(NSG)에 "임의" 원본 IP 주
 [4]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/inbound-security-rules.png
 [5]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/default-rules.png
 [6]: ./media/security-center-restrict-access-thru-internet-facing-endpoint/edit-inbound-rule.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

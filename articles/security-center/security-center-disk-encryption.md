@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2016
+ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 ![디스크 암호화 권장 사항](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> 이 문서의 정보는 Azure 보안 센터의 미리 보기 버전에 적용됩니다.
+> 이 문서의 정보는 키 암호화 키(Azure Backup을 사용하여 가상 컴퓨터를 백업하는 데 필요한)를 사용하지 않고 가상 컴퓨터를 암호화하는 데 적용됩니다. 키 암호화 키를 사용하여 암호화된 Azure Virtual Machines에 Azure Backup을 지원하는 방법은 [Windows 및 Linux Azure Virtual Machines을 위한 Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) 문서를 참조하세요.
 >
 >
 
@@ -141,10 +142,10 @@ Azure 디스크 암호화 필수 구성 요소 스크립트는 스크립트를 �
 
 ![PowerShell 출력](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
-두 가지 방법으로 가상 컴퓨터를 암호화하는 암호화 명령을 실행할 수 있습니다. 첫 번째 방법은 PowerShell ISE 콘솔에서 다음 명령을 입력하는 것입니다.
+두 가지 방법으로 가상 컴퓨터의 모든 드라이브를 암호화하는 암호화 명령을 실행할 수 있습니다. 첫 번째 방법은 PowerShell ISE 콘솔에서 다음 명령을 입력하는 것입니다.
 
 ~~~
-Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId
+Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId -VolumeType All
 ~~~
 
 이 명령 키를 입력한 후에 **ENTER**키를 누릅니다.
@@ -178,9 +179,4 @@ PowerShell ISE로 돌아갑니다. 스크립트가 완료되면 아래 그림에
 * [Azure 보안 센터에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법 알아보기
 * [Azure 보안 센터 FAQ](security-center-faq.md) – 서비스 사용에 관한 질문과 대답 찾기
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 및 규정 준수에 관한 블로그 게시물 찾기
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

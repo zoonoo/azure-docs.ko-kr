@@ -1,10 +1,10 @@
 ---
-title: "포털을 사용하여 SSL 오프로드에 대한 응용 프로그램 게이트웨이 구성 | Microsoft Docs"
+title: "SSL 오프로드 구성 - Azure Application Gateway - Azure Portal | Microsoft Docs"
 description: "이 페이지에서는 포털을 사용하여 SSL 오프로드와 함께 응용 프로그램 게이트웨이를 만드는 지침을 제공합니다."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
 ms.service: application-gateway
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0105c00b40143981c4f5dba621f91425b80f31cf
-ms.openlocfilehash: 2463136502ae37347e0d621902f2b7f93e239af5
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: a9cb2d921d1be226661311d91367b2b6f44fa0dc
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -26,8 +27,6 @@ ms.openlocfilehash: 2463136502ae37347e0d621902f2b7f93e239af5
 > * [쉬운 테이블](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 > * [Azure 클래식 PowerShell](application-gateway-ssl.md)
-> 
-> 
 
 Azure 응용 프로그램 게이트웨이 구성을 사용하여 웹 팜에서 발생하는 비용이 많이 드는 SSL(Secure Sockets Layer) 암호 해독 작업을 방지하기 위한 게이트웨이에서 SSL 세션을 종료합니다. SSL 오프로드는 또한 프런트 엔드 서버 설치 및 웹 응용 프로그램의 관리를 간소화합니다.
 
@@ -71,7 +70,7 @@ Azure 포털로 이동하여 기존 응용 프로그램 게이트웨이를 선�
 
 ## <a name="create-a-rule-and-associate-it-to-the-listener"></a>규칙을 만들고 수신기에 연결
 
-이제 수신기가 만들어졌습니다. 수신기에서 트래픽을 처리할 규칙을 만들 차례입니다.
+이제 수신기가 만들어졌습니다. 수신기에서 트래픽을 처리할 규칙을 만들 차례입니다. 규칙은 쿠키 기반 세션 선호도가 사용되는지 여부를 비롯하여 여러 구성 설정, 프로토콜, 포트 및 상태 프로브에 따라 백 엔드 풀에 트래픽이 라우팅되는 방식을 정의합니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -95,9 +94,4 @@ Azure 응용 프로그램 게이트웨이를 사용하여 사용자 지정 상�
 [2]: ./media/application-gateway-ssl-portal/figure2.png
 [3]: ./media/application-gateway-ssl-portal/figure3.png
 [4]: ./media/application-gateway-ssl-portal/figure4.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

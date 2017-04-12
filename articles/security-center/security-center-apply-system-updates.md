@@ -1,6 +1,6 @@
 ---
 title: "Azure Security Center의 시스템 업데이트 적용 | Microsoft Docs"
-description: "이 문서에서는 Azure 보안 센터 권장 사항 **시스템 업데이트 적용** 및 **시스템 업데이트 후 다시 부팅**을 구현하는 방법을 보여 줍니다."
+description: "이 문서에서는 Azure Security Center 권장 사항 **시스템 업데이트 적용** 및 **시스템 업데이트 후 다시 부팅**을 구현하는 방법을 보여 줍니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8fc8917555028d3045166e462362d502e677e4a0
+ms.sourcegitcommit: 53f4898f31ef19a39e1448235ed14c8fc7df7b3b
+ms.openlocfilehash: 50cdea437db5387813c6a3905d14b6904d2aba34
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -25,23 +26,30 @@ Azure Security Center는 누락된 운영 체제 업데이트에 대해 매일 W
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  단계별 가이드는 아닙니다.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
 1. **권장 사항** 블레이드에서 **시스템 업데이트 적용**을 선택합니다.
+
    ![시스템 업데이트 적용][1]
 2. 시스템 업데이트를 누락한 VM의 목록을 표시하는 **시스템 업데이트 적용** 블레이드가 열립니다. VM을 선택합니다.
+
    ![VM 선택][2]
 3. 해당 VM에 대한 누락된 업데이트의 목록을 표시하는 블레이드가 열립니다. 시스템 업데이트를 선택합니다. 이 예제에서는 KB3156016을 선택해 보겠습니다.
+
    ![누락된 보안 업데이트][3]
+
 4. **보안 업데이트** 블레이드의 단계를 따라 누락된 업데이트를 적용합니다.
-   ![Security update][4]
+
+   ![보안 업데이트][4]
 
 ## <a name="reboot-after-system-updates"></a>시스템 업데이트 후 다시 부팅
 1. **권장 사항** 블레이드로 돌아갑니다. 시스템 업데이트를 적용한 후 **시스템 업데이트 후 다시 부팅**이라는 새 항목이 생성되었습니다. 이 항목을 통해 시스템 업데이트 적용 프로세스를 완료하려면 VM을 다시 부팅해야 한다는 것을 알 수 있습니다.
+
    ![시스템 업데이트 후 다시 부팅][5]
 2. **시스템 업데이트 후 다시 부팅**을 선택합니다. 시스템 업데이트 적용 프로세스를 완료하기 위해 다시 시작해야 하는 VM의 목록을 표시하는 **시스템 업데이트를 완료하기 위한 다시 시작이 보류 중입니다** 블레이드가 열립니다.
+
    ![다시 시작 보류 중][6]
 
 프로세스를 완료하려면 Azure에서 VM을 다시 시작합니다.
@@ -64,9 +72,4 @@ Azure Security Center는 누락된 운영 체제 업데이트에 대해 매일 W
 [4]: ./media/security-center-apply-system-updates/security-update.png
 [5]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
 [6]: ./media/security-center-apply-system-updates/restart-pending.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

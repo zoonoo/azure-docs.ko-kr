@@ -1,5 +1,5 @@
 ---
-title: "액세스 변경 기록 보고서 만들기 | Microsoft Docs"
+title: "액세스 보고 - Azure RBAC | Microsoft Docs"
 description: "지난 90일 동안 역할 기반 액세스 제어와 함께 Azure 구독 액세스에 대한 모든  변경 내용을 나열하는 보고서를 생성합니다."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2016
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 44295ff647cbfd2d63ffe08d101da66b83a924f6
-
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: 433dc731c342924d962e2f08e392556558a0168d
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="create-an-access-change-history-report"></a>액세스 변경 기록 보고서 만들기
+# <a name="create-an-access-report-for-role-based-access-control"></a>역할 기반 액세스 제어에 대한 액세스 보고서 만들기
 언제든지 누군가가 구독 내부의 액세스를 부여하거나 취소하면 변경 내용이 Azure 이벤트에 기록됩니다. 지난 90일 동안 모든 변경 내용을 보려면 액세스 변경 기록 보고서를 만들 수 있습니다.
 
 ## <a name="create-a-report-with-azure-powershell"></a>Azure PowerShell에서 보고서 만들기
@@ -43,7 +44,7 @@ PowerShell에서 액세스 변경 기록 보고서를 만들려면 `Get-AzureRMA
 | **SubscriptionId** |Azure 구독의 GUID |
 | **SubscriptionName** |Azure 구독의 이름 |
 
-이 예제 명령은 지난 7일 동안 구독에서 발생한 모든 액세스 변경 내용을 나열합니다.
+이 예제 명령은 지난&7;일 동안 구독에서 발생한 모든 액세스 변경 내용을 나열합니다.
 
 ```
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
@@ -59,13 +60,8 @@ Azure 명령줄 인터페이스(CLI)에서 액세스 변경 기록 보고서를 
 
 ![Changelog가 스크린샷으로 표시됨 - 스크린샷](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-## <a name="see-also"></a>참고 항목
-*  [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)
-*  [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+## <a name="next-steps"></a>다음 단계
+* [Azure RBAC에서 사용자 지정 역할](role-based-access-control-custom-roles.md)
+* [PowerShell을 사용하여 Azure RBAC](role-based-access-control-manage-access-powershell.md)를 관리하는 방법을 알아봅니다.
 
 

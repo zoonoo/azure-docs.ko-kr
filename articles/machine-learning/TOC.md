@@ -1,17 +1,24 @@
 # 개요
+
 ## [Machine Learning은 무엇인가요?](machine-learning-what-is-machine-learning.md)
-## Machine Learning 스튜디오
-### [스튜디오는 무엇인가요?](machine-learning-what-is-ml-studio.md)
-### [스튜디오 기능](machine-learning-studio-overview-diagram.md)
-### [인포 그래픽: ML 기본 사항](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## Team Data Science Process
 ### [개요](http://aka.ms/datascienceprocess)
 ### [수명 주기](data-science-process-overview.md)
 ### [연습](data-science-process-walkthroughs.md)
+
+## Machine Learning 스튜디오
+### [스튜디오는 무엇인가요?](machine-learning-what-is-ml-studio.md)
+### [스튜디오 기능](machine-learning-studio-overview-diagram.md)
+### [인포 그래픽: ML 기본 사항](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## [질문과 대답](machine-learning-faq.md)
 ## [새로운 기능](machine-learning-whats-new.md)
+
 # 시작
+
 ## [첫 번째 실험 만들기](machine-learning-create-experiment.md)
+
 ## 연습 예
 ### [예측 솔루션 만들기](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1: 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -20,6 +27,7 @@
 ### [4: 학습 및 평가 ](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 ### [5: 웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)
 ### [6:웹 서비스 액세스](machine-learning-walkthrough-6-access-web-service.md)
+
 ## 초급자를 위한 데이터 과학
 ### [1: 다섯 질문](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
 ### [2: 데이터가 준비되었습니까?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
@@ -29,8 +37,8 @@
 
 ## [R 빠른 시작](machine-learning-r-quickstart.md)
 
-
 # 방법
+
 ## 도구 및 유틸리티 설정
 ### [환경 설정](machine-learning-data-science-environment-setup.md)
 ### [가상 컴퓨터 설정](machine-learning-data-science-virtual-machines.md)
@@ -49,9 +57,11 @@
 #### [문제 해결](machine-learning-troubleshooting-creating-ml-workspace.md)
 #### [ARM을 사용하여 배포](machine-learning-deploy-with-resource-manager-template.md)
 #### [다른 지역에서 만들기](machine-learning-multi-geo.md)
+
 ## 비즈니스 요구 사항 분석
 ### [기술 요구 사항](machine-learning-data-science-plan-your-environment.md)
 ### [시나리오 식별](machine-learning-data-science-plan-sample-scenarios.md)
+
 ## 데이터 획득 및 이해
 ### 저장소로 데이터 로드
 #### [개요](machine-learning-data-science-ingest-data.md)
@@ -95,6 +105,7 @@
 ##### [점수 매기기 모델](machine-learning-data-science-spark-model-consumption.md)
 ##### [데이터 탐색](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
 ##### [Scala 및 Spark 사용](machine-learning-data-science-process-scala-walkthrough.md)
+
 ## 모델 개발
 ### 기능 엔지니어링 및 선택
 #### [개요](machine-learning-data-science-create-features.md)
@@ -103,7 +114,7 @@
 #### [Hive 쿼리 사용](machine-learning-data-science-create-features-hive.md)
 #### [TDSP 기능 선택](machine-learning-data-science-select-features.md)
 ### 모델을 만들고 학습 수행
-#### [점수 매기기로 변환](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+#### [실험 수명 주기 관리](machine-learning-version-control.md)
 #### [반복 관리](machine-learning-manage-experiment-iterations.md)
 #### [PowerShell을 사용하여 모델 만들기](machine-learning-create-models-and-endpoints-with-powershell.md)
 #### 알고리즘 선택
@@ -120,20 +131,21 @@
 ##### [R 스크립트 실행](machine-learning-extend-your-experiment-with-r.md)
 ##### [사용자 지정 R 모듈](machine-learning-custom-r-modules.md)
 ##### [Python 스크립트 실행](machine-learning-execute-python-scripts.md)
-## 모델 배포 및 사용
+
+## 모델 운영
 ### [개요](machine-learning-deploy-consume-web-service-guide.md)
 ### 모델 배포
-#### [작동 방법](machine-learning-model-progression-experiment-to-web-service.md)
-#### [새 웹 서비스 배포](machine-learning-webservice-deploy-a-web-service.md)
 #### [웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)
+#### [작동 방법](machine-learning-model-progression-experiment-to-web-service.md)
+#### [배포 준비](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [외부 데이터 사용](machine-learning-web-services-that-use-import-export-modules.md)
 #### [다중 지역 배포](machine-learning-how-to-deploy-to-multiple-regions.md)
 #### [웹 서비스 매개 변수 사용](machine-learning-web-service-parameters.md)
 #### [로깅 사용](machine-learning-web-services-logging.md)
 ### 웹 서비스 관리
-#### [끝점 만들기](machine-learning-create-endpoint.md)
 #### [웹 서비스 포털 사용](machine-learning-manage-new-webservice.md)
 #### [API를 사용하여 관리](machine-learning-manage-web-service-endpoints-using-api-management.md)
+#### [끝점 만들기](machine-learning-create-endpoint.md)
 #### [크기 조정](machine-learning-scaling-webservice.md)
 ### 모델 다시 학습
 #### [개요](machine-learning-retrain-machine-learning-model.md)
@@ -147,6 +159,8 @@
 #### [Excel 사용](machine-learning-consuming-from-excel.md)
 #### [Excel 추가 기능 사용](machine-learning-excel-add-in-for-web-services.md)
 #### [웹앱 템플릿 사용](machine-learning-consume-web-service-with-web-app-template.md)
+#### [Batch 풀 사용](machine-learning-dedicated-capacity-for-bes-jobs.md)
+
 ## 예
 ### [샘플 실험](machine-learning-sample-experiments.md)
 ### [샘플 데이터 집합](machine-learning-use-sample-datasets.md)
@@ -158,10 +172,12 @@
 #### [SQL Data Warehouse 사용](machine-learning-data-science-process-sqldw-walkthrough.md)
 
 # 참조
+
 ## [PowerShell 모듈(신규)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
 ## [PowerShell 모듈(클래식)](machine-learning-powershell-module.md)
 ## [알고리즘 및 모듈 참조](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [REST (영문)](/rest/api/machinelearning)
+## [REST API 참조](/rest/api/machinelearning)
+## [웹 서비스 오류 코드](machine-learning-web-service-error-codes.md)
 
 # 관련 항목
 
@@ -176,17 +192,11 @@
 ### [자습서](machine-learning-gallery-tutorials.md)
 ### [컬렉션](machine-learning-gallery-collections.md)
 ### [사용자 지정 모듈](machine-learning-gallery-custom-modules.md)
+
 ## Cortana 분석
 ### API
 #### [이상 감지](machine-learning-apps-anomaly-detection-api.md)
-#### [텍스트 분석](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-#### 추천
-##### [개요](machine-learning-recommendation-api-sample-application.md)
-##### [빠른 시작](machine-learning-recommendation-api-quick-start-guide.md)
-##### [참조](machine-learning-recommendation-api-documentation.md)
-##### [JavaScript 사용](machine-learning-recommendation-api-javascript-integration.md)
-##### [FAQ](machine-learning-recommendation-api-faq.md)
 #### 예측 유지 관리
 ##### [개요](cortana-analytics-playbook-predictive-maintenance.md)
 ##### [아키텍처](cortana-analytics-architecture-predictive-maintenance.md)
@@ -197,7 +207,7 @@
 ##### [설정](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # 리소스
-## [Machine Learning REST 오류 코드](/machine-learning/machine-learning-web-service-error-codes)
+
 ## [Net# 신경망 언어](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=machine-learning)
@@ -206,8 +216,3 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-machine-learning)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [실시간 채팅에서 도움 받기](machine-learning-live-chat.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/15/2016
+ms.date: 03/22/2017
 ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 122b672c784357d781ac55e11fb9f648fdbbac24
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 91049ee124999269a326106cbd6fc211cc027d26
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -46,8 +47,8 @@ ms.openlocfilehash: 122b672c784357d781ac55e11fb9f648fdbbac24
 > 
 
 ## <a name="install-the-sdk-and-tools"></a>SDK 및 도구 설치
-### <a name="to-use-visual-studio-2017-rc"></a>Visual Studio 2017 RC 사용
-Service Fabric 도구는 Visual Studio 2017 RC의 Azure 개발 및 관리 워크로드의 일부입니다. 이 워크로드를 Visual Studio 설치의 일부로 사용하도록 설정해야 합니다.
+### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017을 사용하려면 다음을 수행합니다.
+Service Fabric 도구는 Visual Studio 2017의 Azure 개발 및 관리 워크로드의 일부입니다. 이 워크로드를 Visual Studio 설치의 일부로 사용하도록 설정해야 합니다.
 또한 웹 플랫폼 설치 관리자를 사용하여 Microsoft Azure Service Fabric SDK를 설치해야 합니다.
 
 * [Microsoft Azure Service Fabric SDK 설치][core-sdk]
@@ -62,16 +63,16 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 * [Microsoft Azure Service Fabric SDK 설치][core-sdk]
 
 > [!WARNING]
-> 고객들이 이러한 시작 링크를 사용할 때 또는 이들 링크를 Chrome 브라우저에서 사용했을 때 설치하는 동안 오류를 보고했습니다. 이것들은 Web Platform Installer에서 알려진 문제로 처리 중에 있습니다.  해결 방법으로 다음을 시도해 보십시오.
->- Internet Explorer 또는 Edge 브라우저에서 위의 링크를 시작하거나, 또는
+> 고객들이 이러한 시작 링크를 사용할 때 또는 이들 링크를 Chrome 브라우저에서 사용했을 때 설치하는 동안 오류를 보고했습니다. 이러한 오류는 웹 플랫폼 설치 관리자에서 알려진 문제로 현재 해결 중입니다.  다음 해결 방법을 시도해 보세요.
+>- Internet Explorer 또는 Edge 브라우저에서 위의 링크를 실행합니다. 또는
 >- 시작 메뉴에서 Web Platform Installer를 시작하고, "Service Fabric"을 검색하여 SDK를 설치합니다.
 > 
 > 불편을 끼쳐드려 죄송합니다. 
 
 현재 버전은 다음과 같습니다.
-* Service Fabric SDK 2.4.145
-* Service Fabric 런타임 5.4.145
-* Visual Studio 2015 도구 1.4.41209
+* Service Fabric SDK 2.5.216
+* Service Fabric 런타임 5.5.216
+* Visual Studio 2015 도구 1.5.50311.1
 
 지원되는 버전 목록은 [Service Fabric 지원](service-fabric-support.md)을 참조하세요.
 
@@ -99,9 +100,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 링크"
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 링크"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -25,10 +25,11 @@
 ## 자동화
 ### [Azure Automation](automation-manage-key-vault.md)
 ### [CLI를 사용하여 생성 및 관리](key-vault-manage-with-cli.md)
+### [CLI 2.0을 사용하여 생성 및 관리](key-vault-manage-with-cli2.md)
 
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
-## [Azure 2.0 CLI(미리 보기)](/cli/azure/keyvault)
+## [Azure CLI 2.0](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
@@ -46,8 +47,3 @@
 ## [가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [블로그](http://blogs.technet.com/b/kv/)
 ## [포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

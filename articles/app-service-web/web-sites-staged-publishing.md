@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: 
 author: cephalin
 writer: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.service: app-service
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: b7890150da382e4ef08323654c076ff8236e3e79
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 8ec4e8699eb2f2e060db264634b04abfacf40e34
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: b7890150da382e4ef08323654c076ff8236e3e79
 웹앱, 모바일 백 엔드 및 API 앱을 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포할 때 **표준** 또는 **프리미엄** App Service 계획 모드에서 실행 시 기본 프로덕션 슬롯 대신 개별 배포 슬롯으로 배포할 수 있습니다. 배포 슬롯은 실제로 고유한 호스트 이름이 있는 라이브 앱입니다. 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 응용 프로그램을 배포 슬롯에 배포하면 다음과 같은 이점이 있습니다.
 
 * 프로덕션 슬롯과 교환하기 전에 준비 배포 슬롯에서 앱 변경 사항의 유효성을 검사할 수 있습니다.
-* 먼저 슬롯으로 앱을 배포하고 프로덕션으로 교환하기 때문에 프로덕션으로 교환되기 전에 슬롯에 있는 모든 인스턴스가 준비되어 있는 상태입니다. 따라서 앱을 배포할 때 가동 중지가 발생하지 않습니다. 트래픽 리디렉션은 중단 없이 원활하게 수행되며 교환 작업으로 인해 삭제되는 요청은 없습니다. 사전 교환 유효성 검사가 필요하지 않은 경우 [자동 교환](#configure-auto-swap-for-your-web-app) 을 구성하여 이 전체 워크플로를 자동화할 수 있습니다.
+* 먼저 슬롯으로 앱을 배포하고 프로덕션으로 교환하기 때문에 프로덕션으로 교환되기 전에 슬롯에 있는 모든 인스턴스가 준비되어 있는 상태입니다. 따라서 앱을 배포할 때 가동 중지가 발생하지 않습니다. 트래픽 리디렉션은 중단 없이 원활하게 수행되며 교환 작업으로 인해 삭제되는 요청은 없습니다. 사전 교환 유효성 검사가 필요하지 않은 경우 [자동 교환](#Auto-Swap) 을 구성하여 이 전체 워크플로를 자동화할 수 있습니다.
 * 교환 후에는 이전의 준비된 앱이 들어 있던 슬롯 안에 이전의 프로덕션 앱이 들어갑니다. 프로덕션 슬롯과 교환한 변경 내용이 예상과 다른 경우 같은 교환 작업을 즉시 수행하여 "마지막 양호 상태"로 돌아갈 수 있습니다.
 
 각 앱 서비스 계획 모드는 다양한 수의 배포 슬롯을 지원합니다. 앱 모드가 지원하는 슬롯의 수를 알아보려면 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
@@ -58,7 +59,7 @@ ms.openlocfilehash: b7890150da382e4ef08323654c076ff8236e3e79
     여러 개의 슬롯을 만든 후에는 프로덕션이 아닌 슬롯으로부터 구성을 복제할 수 있습니다.
    
     ![구성 원본][MultipleConfigurationSources]
-4. 앱의 리소스 블레이드에서 **배포 슬롯**을 클릭하고 배포 슬롯을 하나 클릭하여 해당 슬롯의 리소스 블레이드를 엽니다. 그러면 다른 앱과 마찬가지로 메트릭 집합 및 구성이 표시됩니다. 배포 슬롯을 보고 있다는 사실을 상기시키기 위해 블레이드 상단에 슬롯 이름이 표시됩니다.
+4. 앱의 리소스 블레이드에서 **배포 슬롯**을 클릭한 다음 배포 슬롯을 클릭하여 해당 슬롯의 리소스 블레이드를 엽니다. 그러면 다른 앱과 마찬가지로 메트릭 집합 및 구성이 표시됩니다. 배포 슬롯을 보고 있다는 사실을 상기시키기 위해 블레이드 상단에 슬롯 이름이 표시됩니다.
    
     ![배포 슬롯 제목][StagingTitle]
 5. 슬롯의 블레이드에서 앱 URL을 클릭합니다. 배포 슬롯은 고유의 호스트 이름을 가지고 있고 Live App이기도 합니다. 배포 슬롯에 대한 공용 액세스를 제한하려면 [앱 서비스 웹 앱 – 비 프로덕션 배포 슬롯에 대한 웹 액세스 차단](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)을 참조하세요.
@@ -129,6 +130,8 @@ ms.openlocfilehash: b7890150da382e4ef08323654c076ff8236e3e79
 앱이 대상 슬롯의 구성에서 동작하는 방식을 정확하게 미리 볼 수 있습니다. 유효성 검사를 완료하면 별도 단계에서 교환을 완료합니다. 이 단계는 원본 슬롯이 이미 원하는 구성으로 준비되고 클라이언트에서 가동 중지 시간이 발생하지 않는다는 추가적인 이점을 제공합니다.  
 
 다단계 교환에 사용 가능한 Azure PowerShell cmdlet 샘플은 배포 슬롯 섹션에 대한 Azure PowerShell cmdlet에 포함되어 있습니다.
+
+<a name="Auto-Swap"></a>
 
 ## <a name="configure-auto-swap"></a>자동 교환 구성
 자동 교환은 앱의 최종 사용자를 위해 중단 시간 및 콜드 부팅이 발생하지 않는 앱을 지속적으로 배포하려는 DevOps 시나리오를 간소화합니다. 배포 슬롯이 자동 교환에 대해 프로덕션에 구성될 때, 해당 슬롯에 이미 준비된 후에 해당 슬롯에 코드 업데이트를 푸시할 때마다 App Service가 앱을 프로덕션으로 자동 교환합니다.
@@ -232,11 +235,11 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 ## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>배포 슬롯에 대한 Azure CLI(Azure 명령줄 인터페이스) 명령
 Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, App Service 배포 슬롯을 관리하는 기능을 지원합니다.
 
-* Azure CLI 설치 및 구성 지침과 Azure CLI를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
+* Azure CLI 설치 및 구성 지침과 Azure CLI를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하세요.
 * Azure CLI에서 Azure 앱 서비스에 사용할 수 있는 명령을 나열하려면 `azure site -h`를 호출합니다.
 
 > [!NOTE] 
-> 배포 슬롯에 대한 [Azure CLI 2.0(미리 보기)](https://github.com/Azure/azure-cli) 명령의 경우 [az appservice web deployment slot](/cli/azure/appservice/web/deployment/slot)을 참조하세요.
+> 배포 슬롯에 대한 [Azure CLI 2.0](https://github.com/Azure/azure-cli) 명령의 경우 [az appservice web deployment slot](/cli/azure/appservice/web/deployment/slot)을 참조하세요.
 
 - - -
 ### <a name="azure-site-list"></a>azure site list
@@ -268,7 +271,7 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, App Se
 
 - - -
 > [!NOTE]
-> 작업에서 웹앱을 확인합니다. [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751) 에서는 신용 카드와 약정 없이 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
+> 작업에서 웹앱을 확인합니다. [앱 서비스 체험](https://azure.microsoft.com/try/app-service/) 에서는 신용 카드와 약정 없이 수명이 짧은 스타터 앱을 즉시 만들 수 있습니다.
 > 
 > 
 
@@ -291,10 +294,5 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, App Se
 [Autoswap1]: ./media/web-sites-staged-publishing/AutoSwap01.png
 [Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

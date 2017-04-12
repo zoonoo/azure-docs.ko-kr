@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics에서 Active Directory 복제 상태 솔루션 | Microsoft Docs"
+title: "Azure Log Analytics를 사용하여 Active Directory 복제 상태 모니터링 | Microsoft Docs"
 description: "Active Directory 복제 상태 솔루션 팩은 정기적으로 모든 복제 오류에 대한 Active Directory 환경을 모니터링하고 OMS 대시보드에서 결과를 보고합니다."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 49e5cc5045f5bd626826b4992b8b49f886ef7bde
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ffae86cb963f0df7f879effbace073d7e830cd94
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="active-directory-replication-status-solution-in-log-analytics"></a>Log Analytics에서 Active Directory 복제 상태 솔루션
+# <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Log Analytics를 사용하여 Active Directory 복제 상태 모니터링
+
 Active Directory는 엔터프라이즈 IT 환경의 핵심 구성 요소입니다. 고가용성 및 고성능을 보장하기 위해 각 도메인 컨트롤러에 Active Directory 데이터베이스의 자체 복사본이 있습니다. 도메인 컨트롤러는 변경 내용을 엔터프라이즈 전체에 전파하기 위해 서로 복제합니다. 이 복제 프로세스의 오류는 엔터프라이즈에서 다양한 문제를 발생시킬 수 있습니다.
 
 AD 복제 상태 솔루션 팩은 정기적으로 모든 복제 오류에 대한 Active Directory 환경을 모니터링하고 OMS 대시보드에서 결과를 보고합니다.
@@ -47,7 +50,7 @@ OMS에 도메인 컨트롤러를 직접 연결하지 않으려면 도메인에�
 3. 해당 컴퓨터에서 다음 레지스트리 키를 설정합니다.
 
    * 키: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * 값: **IsTarge**
+   * 값: **IsTarget**
    * 값 데이터: **true**
 
    > [!NOTE]
@@ -115,31 +118,31 @@ AD 복제 상태 데이터를 OMS에 전송하면 현재 복제 오류 수를 �
 
 ## <a name="ad-replication-status-faq"></a>AD 복제 상태 FAQ
 **Q: AD 복제 상태 데이터는 얼마나 자주 업데이트되나요?**
- A: 정보에는 5일마다 업데이트됩니다.
+A: 정보에는 5일마다 업데이트됩니다.
 
 **Q: 이 데이터가 업데이트되는 빈도를 구성하는 방법이 있나요?**
- A: 지금은 없습니다.
+A: 지금은 없습니다.
 
 **Q: 복제 상태를 보려면 내 OMS 작업 영역에 모든 도메인 컨트롤러를 추가해야 하나요?**
- A: 아니요, 단일 도메인 컨트롤러만 추가되어야 합니다. OMS 작업 영역에 도메인 컨트롤러가 여러 개 있는 경우 모든 데이터는 OMS에 전송됩니다.
+A: 아니요, 단일 도메인 컨트롤러만 추가되어야 합니다. OMS 작업 영역에 도메인 컨트롤러가 여러 개 있는 경우 모든 데이터는 OMS에 전송됩니다.
 
 **Q: 내 OMS 작업 영역에 도메인 컨트롤러를 추가하고 싶지 않습니다. 여전히 AD 복제 상태 솔루션을 사용할 수 있습니까?**
 A: 예. 이 기능을 활성화하도록 레지스트리 키의 값을 설정할 수 있습니다. [AD 데이터를 OMS에 전송하도록 비 도메인 컨트롤러 활성화하기](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)를 참조하세요.
 
 **Q: 데이터 수집을 수행하는 프로세스의 이름은 무엇인가요?**
- A: AdvisorAssessment.exe
+A: AdvisorAssessment.exe
 
 **Q: 데이터를 수집하려면 시간이 얼마나 걸리나요?**
- A: 데이터 수집 시간은 Active Directory 환경의 크기에 따라 달라지지만 일반적으로 약 15분 미만이 소요됩니다.
+A: 데이터 수집 시간은 Active Directory 환경의 크기에 따라 달라지지만 일반적으로 약 15분 미만이 소요됩니다.
 
 **Q: 어떤 유형의 데이터를 수집하나요?**
- A: 복제 정보는 LDAP를 통해 수집됩니다.
+A: 복제 정보는 LDAP를 통해 수집됩니다.
 
 **Q: 데이터를 수집하는 경우 구성하는 방법이 있나요?**
- A: 지금은 없습니다.
+A: 지금은 없습니다.
 
 **Q: 데이터를 수집하려면 어떤 권한이 필요합니까?**
- A: 일반적으로 Active Directory에 대한 일반 사용자 권한으로 충분합니다.
+A: 일반적으로 Active Directory에 대한 일반 사용자 권한으로 충분합니다.
 
 ## <a name="troubleshoot-data-collection-problems"></a>데이터 수집 문제 해결
 데이터를 수집하기 위해 AD 복제 상태 솔루션 팩에 OMS 작업 영역에 연결될 하나 이상의 도메인 컨트롤러가 필요합니다. 이 작업을 수행할 때까지 **데이터가 여전히 수집되고 있음**을 나타내는 메시지가 표시됩니다.
@@ -150,9 +153,4 @@ OMS 또는 SCOM에 도메인 컨트롤러를 직접 연결하지 않으려면 [A
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics의 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

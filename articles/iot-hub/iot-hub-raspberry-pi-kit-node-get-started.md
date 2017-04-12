@@ -1,27 +1,34 @@
 ---
-title: "Raspberry Pi 3 시작 | Microsoft Docs"
-description: "Raspberry Pi 3을 시작하고, Azure IoT Hub를 만들고, Pi를 IoT Hub에 연결합니다."
+title: "Azure IoT에 Raspberry Pi(노드) 연결 - 시작 | Microsoft Docs"
+description: "Raspberry Pi 3 장치로 시작하고, Azure IoT hub를 만들고 Pi를 IoT hub에 연결합니다."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timlt
 tags: 
 keywords: "Azure IoT Hub, 사물 인터넷 시작, IoT 도구 키트"
+experimental: true
+experiment_id: xshi-happypathemu-20161202
 ms.assetid: b0e14bfa-8e64-440a-a6ec-e507ca0f76ba
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: e453ad240c7f537ef2d150564996827ebcb9474d
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: 8d283531fc7905e9691feccca25fffd27499e2bb
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="get-started-with-raspberry-pi-3-nodejs"></a>Raspberry Pi 3 시작(Node.JS)
+# <a name="connect-your-raspberry-pi-3-device-to-your-iot-hub-using-nodejs"></a>Node.js를 사용하여 IoT Hub에 Raspberry Pi 3 장치 연결
+> [!div class="op_single_selector"]
+> * [Node.JS](iot-hub-raspberry-pi-kit-node-get-started.md)
+> * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
 이 자습서에서는 Raspbian을 실행하는 Raspberry Pi 3 작업의 기초부터 학습합니다. 그런 다음 [Azure IoT Hub](iot-hub-what-is-iot-hub.md)를 사용하여 장치를 클라우드에 원활하게 연결하는 방법을 알아봅니다. Windows 10 IoT Core 샘플이 필요하면 [Windows 개발자 센터](http://www.windowsondevices.com/)로 이동하세요.
 
@@ -47,7 +54,7 @@ Raspberry Pi 3의 첫 번째 응용 프로그램을 빌드 및 배포하기 위�
 [도구 얻기](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)로 이동.
 
 ### <a name="create-and-deploy-the-blink-application"></a>깜박임 응용 프로그램 만들기 및 배포
-Github에서 샘플 Node.js 깜박임 응용 프로그램을 복제하고, gulp를 사용하여 이 응용 프로그램을 Raspberry Pi 3 보드에 배포합니다. 이 샘플 응용 프로그램은 보드에 연결된 LED를 2초마다 깜박이게 합니다.
+Github에서 샘플 Node.js 깜박임 응용 프로그램을 복제하고, gulp를 사용하여 이 응용 프로그램을 Raspberry Pi 3 보드에 배포합니다. 이 샘플 응용 프로그램은 보드에 연결된 LED를&2;초마다 깜박이게 합니다.
 
 *예상 완료 시간: 5분*  
 
@@ -125,10 +132,5 @@ LED의 켜기 및 끄기 동작을 변경하도록 메시지를 사용자 지정
 
 ## <a name="troubleshooting"></a>문제 해결
 단원을 진행하는 동안 문제가 있으면 [문제 해결](iot-hub-raspberry-pi-kit-node-troubleshooting.md) 문서를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

@@ -7,6 +7,7 @@ author: telmosampaio
 manager: carmonm
 editor: 
 tags: azure-resource-manager,azure-service-management
+redirect_url: ./azure-resource-manager/resource-manager-deployment-model
 ms.assetid: 18a235d8-38ac-4886-9e56-b3855c73ffff
 ms.service: virtual-network
 ms.devlang: na
@@ -16,8 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: b08630777e9cb66e3baae24ad9befc93a47e65db
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: e3c8f61be72309354471451a33664c4b5497eb0e
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -54,21 +56,16 @@ Azure에는 다음 두 포털이 있습니다.
 일부 리소스 및 기능은 하나의 포털 또는 다른 포털에서만 생성 및 구성할 수 있습니다. 일부 리소스 또는 기능은 두 포털 모두에서는 생성 또는 구성할 수 없으며, PowerShell, CLI 또는 둘 모두로 구성할 수 있습니다. 각 Azure 리소스에 대한 설명서에서 어떤 메서드로 생성할 수 있는지 자세히 설명합니다. 
 
 ## <a name="powershell"></a>PowerShell
-[PowerShell](powershell-install-configure.md) 에서 명령줄이나 작성 스크립트를 사용하여 Windows 컴퓨터에서 Azure 리소스를 생성 및 구성할 수 있습니다.  개별 Azure 리소스에는 [Resource Manager cmdlet](https://msdn.microsoft.com/library/azure/mt125356.aspx), [서비스 관리 cmdlet](https://msdn.microsoft.com/library/azure/dn708504.aspx) 또는 두 가지 모두가 있을 수 있습니다.  일부 리소스 및 기능은 PowerShell 또는 CLI를 사용해서만 생성 및/또는 구성할 수 있습니다. 리소스에 따라 리소스 관리자 PowerShell cmdlet 사용 시 Azure 리소스의 생성 및 구성에 두 가지 옵션을 가질 수 있습니다.
+[PowerShell](/powershell/azureps-cmdlets-docs) 에서 명령줄이나 작성 스크립트를 사용하여 Windows 컴퓨터에서 Azure 리소스를 생성 및 구성할 수 있습니다.  개별 Azure 리소스에는 [Resource Manager cmdlet](https://msdn.microsoft.com/library/azure/mt125356.aspx), [서비스 관리 cmdlet](https://msdn.microsoft.com/library/azure/dn708504.aspx) 또는 두 가지 모두가 있을 수 있습니다.  일부 리소스 및 기능은 PowerShell 또는 CLI를 사용해서만 생성 및/또는 구성할 수 있습니다. 리소스에 따라 리소스 관리자 PowerShell cmdlet 사용 시 Azure 리소스의 생성 및 구성에 두 가지 옵션을 가질 수 있습니다.
 
 * **PowerShell cmdlet만:** 각 리소스에 대해 cmdlet를 사용하여 각 Azure 리소스를 개별적으로 생성 및 구성할 수 있습니다. 이 작업은 명령줄에서 또는 저장할 수 있는 PowerShell 스크립트 및 버전으로 여러 명령을 포함하여 수행할 수 있습니다.
 * **Azure 리소스 관리자 템플릿을 사용한 PowerShell cmdlet:** PowerShell에서 Azure 리소스 관리자 템플릿을 사용하여 Azure 리소스를 생성할 수 있습니다. 템플릿을 저장하고 버전을 지정할 수 있습니다. [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md) 문서를 참조하여 더 알아볼 수 있습니다. 다운로드하고 수정할 수 있는 일반 솔루션에 대해 몇 가지 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 도 지원됩니다.
 
 ## <a name="cli"></a>CLI
-CLI를 사용하여 Windows, OS X 또는 Linux 컴퓨터에서 Azure 리소스를 생성 및 구성할 수 있습니다.  [Azure CLI 설치](xplat-cli-install.md) 문서를 참조하여 선택한 운영 체제에서 CLI를 설치합니다. PowerShell처럼 [Resource Manager](xplat-cli-azure-resource-manager.md) 또는 [클래식(서비스 관리)](virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 배포 모델을 사용하여 리소스를 생성하는지 여부에 따라 사용해야 하는 명령이 서로 다릅니다.
+CLI를 사용하여 Windows, OS X 또는 Linux 컴퓨터에서 Azure 리소스를 생성 및 구성할 수 있습니다.  [Azure CLI 설치](cli-install-nodejs.md) 문서를 참조하여 선택한 운영 체제에서 CLI를 설치합니다. PowerShell처럼 [Resource Manager](xplat-cli-azure-resource-manager.md) 또는 [클래식(서비스 관리)](virtual-machines/linux/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 배포 모델을 사용하여 리소스를 생성하는지 여부에 따라 사용해야 하는 명령이 서로 다릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager](azure-resource-manager/resource-group-overview.md)에 대해 알아봅니다.
 * [템플릿 설계](best-practices-resource-manager-design-templates.md)방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

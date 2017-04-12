@@ -15,26 +15,27 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4e86a871222def32f7779f07eab5668d366ecec4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6dcc79a2adf81c82d245c99116f28eb4db983396
+ms.lasthandoff: 12/08/2016
 
 
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>미디어 인코더 Premium 워크플로를 사용한 고급 인코딩
 > [!NOTE]
 > 중국에서는 이 토픽에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다.
-> 
-> 
+>
+>
 
 프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
 
 ## <a name="overview"></a>개요
-Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플로** 미디어 프로세서를 도입 중입니다. 이 프로세서는 프리미엄 주문형 워크플로에 고급 인코딩 기능을 제공합니다. 
+Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플로** 미디어 프로세서를 도입 중입니다. 이 프로세서는 프리미엄 주문형 워크플로에 고급 인코딩 기능을 제공합니다.
 
-다음 토픽에서는 **미디어 인코더 Premium 워크플로**와 관련된 세부 정보를 간략하게 설명합니다. 
+다음 토픽에서는 **미디어 인코더 Premium 워크플로**와 관련된 세부 정보를 간략하게 설명합니다.
 
 * [미디어 인코더 Premium 워크플로에서 지원하는 형식](media-services-premium-workflow-encoder-formats.md) – **미디어 인코더 Premium 워크플로**에서 지원하는 파일 형식 및 코덱에 대해 설명합니다.
-* [인코더 비교](media-services-encode-asset.md#compare_encoders) 섹션에서는 **미디어 인코더 프리미엄 워크플로** 및 **미디어 인코더 표준**의 Encoding 기능을 비교합니다.
+* [Azure 주문형 미디어 인코더의 비교 개요](media-services-encode-asset.md)는 **미디어 인코더 프리미엄 워크플로** 및 **Media Encoder Standard**의 인코딩 기능을 비교합니다.
 
 이 토픽에서는 .NET을 사용하여 **미디어 인코더 Premium 워크플로** 로 인코딩하는 방법을 보여 줍니다.
 
@@ -47,29 +48,29 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
 워크플로 파일은 자산으로 미디어 서비스 계정에 업로드되고 이 자산은 인코딩 태스크에 전달되어야 합니다.
 
-다음 예제에서는 **미디어 인코더 Premium 워크플로**를 사용하여 인코딩하는 방법을 보여 줍니다. 
+다음 예제에서는 **미디어 인코더 Premium 워크플로**를 사용하여 인코딩하는 방법을 보여 줍니다.
 
-다음 단계를 수행합니다. 
+다음 단계를 수행합니다.
 
-1. 자산을 만들고 워크플로 파일을 업로드합니다. 
+1. 자산을 만들고 워크플로 파일을 업로드합니다.
 2. 자산을 만들고 소스 미디어 파일을 업로드합니다.
 3. "미디어 인코더 Premium 워크플로" 미디어 프로세서를 가져옵니다.
-4. 작업 및 태스크를 만듭니다. 
-   
+4. 작업 및 태스크를 만듭니다.
+
     대부분의 경우 태스크에 대한 구성 문자열은 비어 있습니다(다음 예제 참조). 인코딩 태스크에 XML 문자열을 제공하는 경우 런타임 속성을 동적으로 설정해야 하는 몇 가지 고급 시나리오가 있습니다. 이러한 시나리오의 예로는 오버레이 만들기, 순차 또는 병렬 미디어 연결, 자막 작성 등이 있습니다.
 5. 태스크에 입력 자산 두 개를 추가합니다.
-   
+
     a. 첫 번째 – 워크플로 자산입니다.
-   
+
     b. 두 번째 – 비디오 자산입니다.
-   
-    **참고**: 워크플로 자산은 미디어 자산보다 먼저 태스크에 추가되어야 합니다. 
-   이 태스크에 대한 구성 문자열은 비어 있어야 합니다. 
+
+    **참고**: 워크플로 자산은 미디어 자산보다 먼저 태스크에 추가되어야 합니다.
+   이 태스크에 대한 구성 문자열은 비어 있어야 합니다.
 6. 인코딩 작업을 제출합니다.
 
 다음은 전체 예제입니다. 미디어 서비스 .NET 개발을 설정하는 방법에 대한 자세한 내용은 [.NET을 사용한 미디어 서비스 개발](media-services-dotnet-how-to-use.md)을 참조하세요
 
-     using System; 
+     using System;
     using System.Linq;
     using System.Configuration;
     using System.IO;
@@ -116,7 +117,7 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
                 var workflowAsset = CreateAssetAndUploadSingleFile(_workflowFilePath);
                 var videoAsset = CreateAssetAndUploadSingleFile(_singleMP4InputFilePath);
-                IAsset outputAsset = CreateEncodingJob(workflowAsset, videoAsset); 
+                IAsset outputAsset = CreateEncodingJob(workflowAsset, videoAsset);
 
             }
 
@@ -131,18 +132,10 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
                 Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                var accessPolicy = _context.AccessPolicies.Create(assetName, TimeSpan.FromDays(30),
-                                                                    AccessPermissions.Write | AccessPermissions.List);
-
-                var locator = _context.Locators.CreateLocator(LocatorType.Sas, asset, accessPolicy);
-
                 Console.WriteLine("Upload {0}", assetFile.Name);
 
                 assetFile.Upload(singleFilePath);
                 Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                locator.Delete();
-                accessPolicy.Delete();
 
                 return asset;
             }
@@ -151,7 +144,7 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
             {
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("Premium Workflow encoding job");
-                // Get a media processor reference, and pass to it the name of the 
+                // Get a media processor reference, and pass to it the name of the
                 // processor to use for the specific task.
                 IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
 
@@ -164,9 +157,9 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
                 // Specify the input asset to be encoded.
                 task.InputAssets.Add(workflow);
                 task.InputAssets.Add(video); // we add one asset
-                // Add an output asset to contain the results of the job. 
-                // This output is specified as AssetCreationOptions.None, which 
-                // means the output asset is not encrypted. 
+                // Add an output asset to contain the results of the job.
+                // This output is specified as AssetCreationOptions.None, which
+                // means the output asset is not encrypted.
                 task.OutputAssets.AddNew("Output asset",
                     AssetCreationOptions.None);
 
@@ -177,12 +170,12 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
                 // Launch the job.
                 job.Submit();
 
-                // Check job execution and wait for job to finish. 
+                // Check job execution and wait for job to finish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
                 progressJobTask.Wait();
 
-                // If job state is Error the event handling 
-                // method for job progress should log errors.  Here we check 
+                // If job state is Error the event handling
+                // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)
                 {
@@ -276,10 +269,4 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

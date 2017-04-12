@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2016
+ms.date: 03/02/2017
 ms.author: seanmck
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0f0db912ac3cee02f4268996bf2409440afade86
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -89,10 +90,5 @@ Visual Studio에서 디버그 시 FabricConnectionDeniedException 오류가 나�
 ## <a name="next-steps"></a>다음 단계
 * [시스템 상태 보고서와 함께 클러스터 이해 및 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [서비스 패브릭 탐색기로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

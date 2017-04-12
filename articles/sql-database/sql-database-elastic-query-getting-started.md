@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 531fdbbeab09a67be9636b3a70eabbb4148f7400
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -36,8 +37,8 @@ ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
 1. **탄력적 데이터베이스 도구 응용 프로그램** 을 빌드하고 실행하세요. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)섹션에서 7단계까지 수행합니다. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
 
     ![명령 프롬프트][1]
-2. 명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
-3. [Azure 포털](https://portal.azure.com) 에서 사용자의 v12 서버 내에 새로운 3개의 데이터베이스가 보여야 합니다.
+2. 명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을&4;번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
+3. [Azure Portal](https://portal.azure.com)에서 사용자의 v12 서버 내에 새로운&3;개의 데이터베이스가 보여야 합니다.
 
    ![Visual Studio 확인][2]
 
@@ -46,12 +47,14 @@ ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
    다음 섹션에서는 분할 된 데이터베이스 간 데이터의 다양한 쿼리를 지원하는 샘플 데이터베이스 끝점을 만듭니다.
 
 ## <a name="create-an-elastic-query-database"></a>탄력적 쿼리 데이터베이스 만들기
-1. [Azure 포털](https://portal.azure.com) 을 열고 로그인 합니다.
+1. [Azure Portal](https://portal.azure.com)을 열고 로그인합니다.
 2. 분할 된 데이터베이스를 설치한 동일 서버에서 새 Azure SQL 데이터베이스를 만듭니다. 데이터베이스 이름을"ElasticDBQuery."로 합니다.
 
     ![Azure 포털 및 가격 책정 계층][3]
 
-    참고: 기존 데이터베이스를 사용할 수 있습니다. 그럴 경우, 사용자가 실행하고 싶은 쿼리가 포함된 분할된 데이터베이스가 아닙니다. 이 데이터베이스는 탄력적 데이터베이스 쿼리에 대한 메타데이터 개체를 만들기 위해 사용됩니다.
+    > [!NOTE]
+    > 기존 데이터베이스를 사용할 수 있습니다. 그럴 경우, 사용자가 실행하고 싶은 쿼리가 포함된 분할된 데이터베이스가 아닙니다. 이 데이터베이스는 탄력적 데이터베이스 쿼리에 대한 메타데이터 개체를 만들기 위해 사용됩니다.
+    >
 
 ## <a name="create-database-objects"></a>데이터베이스 개체 만들기
 ### <a name="database-scoped-master-key-and-credentials"></a>데이터베이스-범위 마스터 키 및 자격 증명
@@ -119,7 +122,6 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 
 다른 분할된 데이터베이스에 저장된 **Customers** 테이블의 모든 행으로 Excel 시트를 채웁니다.
 
-## <a name="next-steps"></a>다음 단계
 이제 Excel의 강력한 데이터 시각화 함수를 사용할 수 있습니다. 탄력적 쿼리 데이터 베이스의 데이터 통합 도구 및 BI과 연결하기 위해 서버 이름, 데이터베이스 이름, 자격 증명과 연결 문자열을 사용할 수 있습니다. SQL Server 도구에 대한 데이터 소스로 지원 되는지 확인 합니다. 탄력적 쿼리 데이터베이스 및 기타 SQL Server 데이터베이스와 마찬가지로 외부 테이블 및 도구와 연결할 수 있는 SQL Server 테이블을 참조할 수 있습니다.
 
 ### <a name="cost"></a>비용
@@ -127,7 +129,14 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 
 가격 정보는 [SQL 데이터베이스 가격 정보](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## <a name="next-steps"></a>다음 단계
+
+* 탄력적 쿼리의 개요는 [탄력적 쿼리 개요](sql-database-elastic-query-overview.md)를 참조하세요.
+* 수직 분할 자습서는 [데이터베이스 간 쿼리 시작(수직 분할)](sql-database-elastic-query-getting-started-vertical.md)을 참조하세요.
+* 수직 분할된 데이터에 대한 구문 및 예제 쿼리는 [수직 분할된 데이터 쿼리하기](sql-database-elastic-query-vertical-partitioning.md)를 참조하세요.
+* 행 분할된 데이터에 대한 구문 및 예제 쿼리는 [행 분할된 데이터 쿼리하기](sql-database-elastic-query-horizontal-partitioning.md)를 참조하세요.
+* 단일 원격 Azure SQL Database 또는 수평 분할 구성표의 분할을 제공하는 데이터베이스 집합에서 TRANSACT-SQL 문을 실행하는 저장된 프로시저는 [sp\_실행 \_원격](https://msdn.microsoft.com/library/mt703714)을 참조하세요.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png
@@ -136,9 +145,4 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

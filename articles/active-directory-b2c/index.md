@@ -1,9 +1,21 @@
 ---
-layout: LandingPage
+title: "Azure Active Directory B2C 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "클라우드에서 포괄적인 소비자 ID 관리를 배포하는 방법에 대해 알아봅니다. 설명서에서는 소비자 지향 웹 및 모바일 앱을 보호하는 방법을 보여 줍니다."
+services: active-directory-b2c
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: active-directory-b2c
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: e3ffd8f83b4ad25d28f6d0afd82efc6150d98fa2
-ms.openlocfilehash: c5f925446b5e2cc7ea8739e22e9d093428700483
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 2bb7fe165fc88df62a2b12ccf666da0a7965d43b
+ms.lasthandoff: 03/27/2017
 
 ---
 
@@ -77,7 +89,7 @@ Active Directory B2C를 사용하여 클라우드에서 포괄적인 소비자 I
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>제3자 libraryC를 사용하여 iOS 앱 만들기</h3>
+                        <h3>타사 라이브러리를 사용하여 iOS 앱 만들기</h3>
                     </div>
                 </div>
             </div>
@@ -175,19 +187,5 @@ Active Directory B2C를 사용하여 클라우드에서 포괄적인 소비자 I
         </a>
     </li>
 </ul>
-
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-b2c.pdf">
-        <div class="img"></div>
-        <div class="text">
-Active Directory B2C 설명서 다운로드 </div>
-    </a>
-</div>
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

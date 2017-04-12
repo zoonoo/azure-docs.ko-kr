@@ -1,5 +1,5 @@
 ---
-title: "Reliable Actors 이벤트 | Microsoft Docs"
+title: "행위자 기반 Azure 마이크로 서비스의 이벤트 | Microsoft Docs"
 description: "서비스 패브릭 Reliable Actors의 이벤트에 대해 소개합니다."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2016
+ms.date: 03/02/2017
 ms.author: amanbha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e57ea14e8d0664df624037759685f11baa312d26
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 92df9505416c5b4326f007dbf4b920f2c7ec3bd8
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -80,10 +81,4 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
 * [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [샘플 코드](https://github.com/Azure/servicefabric-samples)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

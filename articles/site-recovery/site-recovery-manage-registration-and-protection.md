@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/19/2016
+ms.date: 03/27/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3710f5966889b805b3ea8d2a3fe33fa9ab86c2ec
-ms.openlocfilehash: 5dff369ca32f9f4487684b27c57d2722ab9ad954
+ms.sourcegitcommit: f57c88cbace41af233f542880c6199b3e278700e
+ms.openlocfilehash: c8d893dbac1a4f6cb3f05f857e186bca155e5865
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -29,22 +30,32 @@ Azure Site Recovery 서비스는 BCDR(비즈니스 연속성 및 재해 복구 �
 
 이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
-## <a name="unregister-a-configuration-server"></a>구성 서버 등록 취소
+## <a name="unregister-a-connected-configuration-server"></a>연결된 구성 서버 등록 취소
 
-VMware VM 또는 Windows/Linux 물리적 서버를 Azure에 복제하는 경우 다음과 같이 자격 증명 모음에서 구성 서버를 등록 취소할 수 있습니다.
+VMware VM 또는 Windows/Linux 물리적 서버를 Azure에 복제하는 경우 다음과 같이 자격 증명 모음에서 연결된 구성 서버를 등록 취소할 수 있습니다.
 
 1. 컴퓨터 보호 사용 안 함. **보호된 항목** > **복제된 항목**을 클릭하고 컴퓨터를 마우스 오른쪽 단추로 클릭한 후 > **삭제**를 클릭합니다.
 2. 모든 정책 연결 해제. **사이트 복구 인프라** > **VMWare 및 물리적 컴퓨터** > **복제 정책**에서 연결된 정책을 두 번 클릭합니다. 구성 서버를 마우스 오른쪽 단추로 클릭하고 > **연결 해제**를 클릭합니다.
 3. 추가 온-프레미스 프로세스 또는 마스터 대상 서버를 제거합니다. **사이트 복구 인프라** > **VMWare 및 물리적 컴퓨터** > **구성 서버**에서 서버를 마우스 오른쪽 단추로 클릭하고 > **삭제**를 클릭합니다.
 4. 구성 서버를 삭제합니다.
 5. 마스터 대상 서버에서 실행되는 이동성 서비스를 수동으로 제거합니다(별도의 서버이거나 구성 서버에서 실행 중).
-6. 구성 서버를 제거합니다.
-7. 추가 프로세스 서버를 제거합니다.
+6. 추가 프로세스 서버를 제거합니다.
+7. 구성 서버를 제거합니다.
 8. 구성 서버에서 Site Recovery에 의해 설치된 MySQL 인스턴스를 제거합니다.
 9. 구성 서버의 레지스트리에서 ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery`` 키를 삭제합니다.
 
-구성 서버가 Azure에 연결 또는 연결되지 않았든 명령은 동일합니다.
+## <a name="unregister-a-unconnected-configuration-server"></a>연결되지 않은 구성 서버 등록 취소
 
+VMware VM 또는 Windows/Linux 물리적 서버를 Azure에 복제하는 경우 다음과 같이 자격 증명 모음에서 연결되지 않은 구성 서버를 등록 취소할 수 있습니다.
+
+1. 컴퓨터 보호 사용 안 함. **보호된 항목** > **복제된 항목**을 클릭하고 컴퓨터를 마우스 오른쪽 단추로 클릭한 후 > **삭제**를 클릭합니다. **컴퓨터 관리 중지**를 선택합니다.
+2. 추가 온-프레미스 프로세스 또는 마스터 대상 서버를 제거합니다. **사이트 복구 인프라** > **VMWare 및 물리적 컴퓨터** > **구성 서버**에서 서버를 마우스 오른쪽 단추로 클릭하고 > **삭제**를 클릭합니다.
+3. 구성 서버를 삭제합니다.
+4. 마스터 대상 서버에서 실행되는 이동성 서비스를 수동으로 제거합니다(별도의 서버이거나 구성 서버에서 실행 중).
+5. 추가 프로세스 서버를 제거합니다.
+6. 구성 서버를 제거합니다.
+7. 구성 서버에서 Site Recovery에 의해 설치된 MySQL 인스턴스를 제거합니다.
+8. 구성 서버의 레지스트리에서 ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery`` 키를 삭제합니다.
 
 ## <a name="unregister-a-connected-vmm-server"></a>연결된 VMM 서버 등록 취소
 
@@ -226,9 +237,4 @@ VMM 서버 없이 Hyper-V VM을 Azure에 복제하는 경우 이 절차를 사�
         $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"
         $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
         $replicationService.RemoveReplicationRelationship($vm.__PATH)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

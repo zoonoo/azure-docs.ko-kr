@@ -12,16 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
 ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
 ms.openlocfilehash: 1ef11386d9040c3929546ea05cd15237defd8a28
+ms.lasthandoff: 12/19/2016
 
 
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>연습 4단계: 예측 분석 모델 학습 및 평가
-이 토픽에는 연습의 4번째 단계인 [Azure Machine Learning에서 예측 분석 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)이 포함되어 있습니다.
+이 토픽에는 연습의&4;번째 단계인 [Azure Machine Learning에서 예측 분석 솔루션 개발](machine-learning-walkthrough-develop-predictive-solution.md)이 포함되어 있습니다.
 
 1. [기계 학습 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [기존 데이터 업로드](machine-learning-walkthrough-2-upload-data.md)
@@ -44,7 +45,7 @@ Azure Machine Learning Studio를 사용하여 기계 학습 모델을 만들 때
 
 ## <a name="train-the-models"></a>모델 학습
 
-이 실험에서는 [2클래스 향상된 의사 결정 트리][ two-class-boosted-decision-tree] 모듈 및 [2클래스 지원 벡터 컴퓨터] [ two-class-support-vector-machine] 모듈을 추가할 것입니다.
+이 실험에서는 [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈 및 [2클래스 지원 벡터 컴퓨터][two-class-support-vector-machine] 모듈을 추가할 것입니다.
 
 ### <a name="two-class-boosted-decision-tree"></a>2클래스 향상된 의사 결정 트리
 
@@ -56,7 +57,7 @@ Azure Machine Learning Studio를 사용하여 기계 학습 모델을 만들 때
    
    [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈은 일반 모델을 초기화하고 [모델 학습][train-model]에서는 학습 데이터를 사용하여 모델을 학습합니다. 
 
-3. 왼쪽 [R 스크립트 실행][ execute-r-script] 모듈의 왼쪽 출력을 [모델 학습][train-model] 모듈의 오른쪽 입력 부분에 연결합니다(이 연습의 [3단계](machine-learning-walkthrough-3-create-new-experiment.md)에서 학습을 위해 데이터 분할 모듈 왼쪽의 데이터를 사용하기로 결정함).
+3. 왼쪽 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력을 [모델 학습][train-model] 모듈의 오른쪽 입력 부분에 연결합니다(이 연습의 [3단계](machine-learning-walkthrough-3-create-new-experiment.md)에서 학습을 위해 데이터 분할 모듈 왼쪽의 데이터를 사용하기로 결정함).
    
    > [!TIP]
    > 이 실험에서는 [R 스크립트 실행][execute-r-script] 모듈에 대한 입력 중 두 개와 출력 중 하나가 필요하지 않으므로 연결되지 않은 상태로 유지해도 됩니다. 
@@ -209,9 +210,4 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

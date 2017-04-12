@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b1c05963afa27ff4d24270048d3071f0fb02c00
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 46dd298a5664d914e55d45c5b7599d5983287476
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,14 +32,14 @@ ms.openlocfilehash: 6b1c05963afa27ff4d24270048d3071f0fb02c00
 * SQL Database 암호화 및 감사를 위한 정책을 정의합니다.
 * 모든 구독 간에 SQL Database 리소스의 보안을 모니터링합니다.
 * 보안 문제를 신속하게 파악하고 해결합니다.
-* [Azure SQL Database 위협 감지](../sql-database/sql-database-threat-detection-get-started.md)에 대한 경고를 통합합니다.
+* [Azure SQL Database 위협 감지](../sql-database/sql-database-threat-detection.md)에 대한 경고를 통합합니다.
 
 Security Center는 SQL Database 리소스를 보호하는 것 외에도, Azure 가상 컴퓨터, Cloud Services, App Services, 가상 네트워크 등에 대한 보안 모니터링 및 관리도 제공합니다. [여기](security-center-intro.md)에서 보안에 대해 자세히 알아보세요.
 
 ## <a name="prerequisites"></a>필수 조건
 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 보안 센터의 무료 계층은 구독을 사용하여 사용하도록 설정됩니다. 보안 센터의 무료 및 표준 계층에 대한 자세한 내용은 [보안 센터 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
 
-보안 센터는 역할 기반 액세스를 지원합니다. 역할 기반 액세스 제어(RBAC)에 대해 자세히 알아보려면 [Azure Active Directory 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요. 보안 센터 FAQ에서는 [보안 센터에서 권한 처리 방법](security-center-faq.md#how-are-permissions-handled-in-azure-security-center)에 대한 정보를 제공합니다.
+보안 센터는 역할 기반 액세스를 지원합니다. 역할 기반 액세스 제어(RBAC)에 대해 자세히 알아보려면 [Azure Active Directory 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요. 보안 센터 FAQ에서는 [보안 센터에서 권한 처리 방법](security-center-faq.md#permissions)에 대한 정보를 제공합니다.
 
 ## <a name="access-security-center"></a>보안 센터 엑세스
 [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에서 보안 센터에 액세스합니다. [포털에 로그인](https://portal.azure.com/)하고 **보안 센터 옵션**을 선택합니다.
@@ -79,7 +80,7 @@ Azure 리소스에 대한 권장 사항을 보려면 Security Center 블레이�
 아래와 같이 보안 센터에서 감사 및 위협 감지가 사용되지 않은 SQL Server를 보여 줍니다. 감사를 켠 후에는 보안 경고를 받을 수 있도록 위협 감지 설정 및 전자 메일 설정을 구성할 수 있습니다. 위협 감지는 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 감지할 때 이를 경고합니다. 경고는 보안 센터 대시보드에 표시됩니다.
 ![감사 및 위협 감지][5]
 
-[SQL Database 위협 감지 시작](../sql-database/sql-database-threat-detection-get-started.md)의 단계에 따라 위협 감지를 켜고 구성하며, 비정상적인 활동이 검색될 때 보안 경고가 수신되는 전자 메일 목록을 구성할 수 있습니다.
+[Azure Portal에서 SQL Database 위협 감지](../sql-database/sql-database-threat-detection-portal.md)의 단계에 따라 위협 감지를 켜고 구성하며, 비정상적인 활동이 검색될 때 보안 경고가 수신되는 전자 메일 목록을 구성할 수 있습니다.
 
 권장 사항에 대한 자세한 내용은 [보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
 
@@ -90,7 +91,7 @@ Azure 리소스에 대한 권장 사항을 보려면 Security Center 블레이�
 자세한 내용은 [보안 상태 모니터링](security-center-monitoring.md)을 참조하세요.
 
 ## <a name="manage-and-respond-to-security-alerts"></a>보안 경고 관리 및 응답
-Security Center는 [Azure SQL 위협 감지](../sql-database/sql-database-threat-detection-get-started.md) 및 기타 Azure 리소스에서 자동으로 로그 데이터를 수집, 분석 및 통합하여 실제 위협을 감지하고 거짓 긍정을 줄입니다. 우선 순위가 지정된 보안 경고의 목록은 문제를 신속하게 조사해야 하는 정보 및 공격을 해결하는 방법에 대한 권장 사항과 함께 보안 센터에 표시됩니다.
+Security Center는 [Azure SQL 위협 감지](../sql-database/sql-database-threat-detection.md) 및 기타 Azure 리소스에서 자동으로 로그 데이터를 수집, 분석 및 통합하여 실제 위협을 감지하고 거짓 긍정을 줄입니다. 우선 순위가 지정된 보안 경고의 목록은 문제를 신속하게 조사해야 하는 정보 및 공격을 해결하는 방법에 대한 권장 사항과 함께 보안 센터에 표시됩니다.
 
 경고를 보려면 보안 센터 블레이드에서 **보안 경고** 타일을 선택합니다. **보안 경고** 블레이드에서 경고를 선택하고 해당 경고를 트리거하는 이벤트 및 공격을 완화하기 위해 수행해야 하는 단계(있는 경우)에 대해 자세히 알아봅니다. 이 예제에서는 **잠재적인 SQL 삽입**을 선택하겠습니다.
 ![보안 경고][7]
@@ -115,9 +116,4 @@ Security Center는 [Azure SQL 위협 감지](../sql-database/sql-database-threat
 [6]: ./media/security-center-sql-database/monitor-health.png
 [7]: ./media/security-center-sql-database/alert.png
 [8]: ./media/security-center-sql-database/sql-injection.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

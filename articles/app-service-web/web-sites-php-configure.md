@@ -12,24 +12,25 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/16/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ece7ee4f0235f5677e03526cef8935809770cd93
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 52db4d82faa0db07224f48b6600e690e34808e91
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Azure 앱 서비스 웹 앱에서 PHP 구성
 ## <a name="introduction"></a>소개
-이 가이드에서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱에 대한 기본 제공 PHP 런타임을 구성하고 사용자 지정 PHP 런타임을 제공하며 확장을 사용하도록 설정하는 방법을 보여 줍니다. 앱 서비스를 사용하려면 [무료 평가판]에 등록해야 합니다. 이 가이드를 최대한 활용하려면 먼저 앱 서비스에서 PHP 웹 앱을 만들어야 합니다.
+이 가이드에서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱에 대한 기본 제공 PHP 런타임을 구성하고 사용자 지정 PHP 런타임을 제공하며 확장을 사용하도록 설정하는 방법을 보여 줍니다. 앱 서비스를 사용하려면 [평가판]에 등록해야 합니다. 이 가이드를 최대한 활용하려면 먼저 앱 서비스에서 PHP 웹 앱을 만들어야 합니다.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="how-to-change-the-built-in-php-version"></a>방법: 기본 제공 PHP 버전 변경
-기본적으로 PHP 5.4는 앱 서비스 웹 앱을 만들 때 설치하여 바로 사용할 수 있습니다. 사용 가능한 릴리스 버전, 관련 기본 구성 및 사용하도록 설정된 확장을 보는 최상의 방법은 [phpinfo()] 함수를 호출하는 스크립트를 배포하는 것입니다.
+기본적으로 PHP 5.5는 앱 서비스 웹 앱을 만들 때 설치하여 바로 사용할 수 있습니다. 사용 가능한 릴리스 버전, 관련 기본 구성 및 사용하도록 설정된 확장을 보는 최상의 방법은 [phpinfo()] 함수를 호출하는 스크립트를 배포하는 것입니다.
 
-PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용하도록 설정되어 있지 않습니다. PHP 버전을 업데이트하려면 다음 방법 중 하나를 따르세요.
+PHP 5.6 및 PHP 7.0 버전도 사용할 수 있지만 기본적으로는 사용하도록 설정되어 있지 않습니다. PHP 버전을 업데이트하려면 다음 방법 중 하나를 따르세요.
 
 ### <a name="azure-portal"></a>Azure 포털
 1. [Azure 포털](https://portal.azure.com) 에서 웹앱을 찾아 **설정** 단추를 클릭합니다.
@@ -48,10 +49,10 @@ PHP 5.5 및 PHP 5.6 버전 사용할 수 있지만 기본적으로 이는 사용
         PS C:\> Login-AzureRmAccount
 2. 웹앱에 대한 PHP 버전을 설정합니다.
    
-        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+        PS C:\> Set-AzureWebsite -PhpVersion {5.5 | 5.6 | 7.0} -Name {app-name}
 3. PHP 버전이 설정되었습니다. 이러한 설정을 확인할 수 있습니다.
    
-        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
+        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
 ### <a name="azure-command-line-interface-linux-mac-windows"></a>Azure 명령줄 인터페이스(Linux, Mac, Windows)
 Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 설치해야 합니다.
@@ -61,10 +62,20 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
         azure login
 2. 웹앱에 대한 PHP 버전을 설정합니다.
    
-        azure site set --php-version [5.4 | 5.5] {site-name}
+        azure site set --php-version {5.5 | 5.6 | 7.0} {app-name}
+
 3. PHP 버전이 설정되었습니다. 이러한 설정을 확인할 수 있습니다.
    
-        azure site show {site-name}
+        azure site show {app-name}
+
+> [!NOTE] 
+> 위에 해당하는 [Azure CLI 2.0](https://github.com/Azure/azure-cli) 명령은 다음과 같습니다.
+>
+>
+
+    az login
+    az appservice web config update --php-version {5.5 | 5.6 | 7.0} -g {resource-group-name} -n {app-name}
+    az appservice web config show -g {resource-group-name} -n {app-name}
 
 ## <a name="how-to-change-the-built-in-php-configurations"></a>방법: 기본 제공 PHP 구성 변경
 기본 제공 PHP 런타임에 대해 아래 단계에 따라 구성 옵션을 변경할 수 있습니다. php.ini 지시문에 대한 자세한 내용은 [php.ini 지시문 목록]을 참조하세요.
@@ -99,7 +110,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 
 ### <a name="configure-via-ini-settings"></a>Ini 설정을 통해 구성
 1. `ext` 디렉터리를 `d:\home\site` 디렉터리에 추가합니다.
-2. `.dll` 확장 파일을 `ext` 디렉터리에 둡니다(예: `php_mongo.dll` `php_xdebug.dll`). 확장이 기본 버전의 PHP(본 문서 게시 시점에는 PHP 5.4)와 호환되며 VC9 및 nts(non-thread-safe)와 호환 가능해야 합니다.
+2. `.dll` 확장 파일을 `ext` 디렉터리에 둡니다(예: `php_xdebug.dll`). 확장이 기본 버전의 PHP와 호환되며 VC9 및 nts(non-thread-safe)와 호환 가능해야 합니다.
 3. `PHP_INI_SCAN_DIR` 키 및 `d:\home\site\ini` 값으로 웹앱에 앱 설정을 추가합니다.
 4. `d:\home\site\ini`에 `extensions.ini`라는 `ini` 파일을 만듭니다.
 5. php.ini 파일에서 사용한 것과 동일한 구문을 사용하여 구성 설정을 `extensions.ini` 파일에 추가합니다. 예를 들어 MongoDB 및 XDebug 확장을 사용하려면 `extensions.ini` 파일에 다음 텍스트를 포함합니다.
@@ -111,7 +122,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 
 ### <a name="configure-via-app-setting"></a>앱 설정을 통해 구성
 1. `bin` 디렉터리를 루트 디렉터리에 추가합니다.
-2. `.dll` 확장 파일을 `bin` 디렉터리에 둡니다(예: `php_mongo.dll`). 확장이 기본 버전의 PHP(본 문서 게시 시점에는 PHP 5.4)와 호환되며 VC9 및 nts(non-thread-safe)와 호환 가능해야 합니다.
+2. `.dll` 확장 파일을 `bin` 디렉터리에 둡니다(예: `php_xdebug.dll`). 확장이 기본 버전의 PHP와 호환되며 VC9 및 nts(non-thread-safe)와 호환 가능해야 합니다.
 3. 웹 앱에 배포합니다.
 4. Azure 포털에서 웹앱을 찾아 **설정** 단추를 클릭합니다.
    
@@ -147,7 +158,7 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 <a name="composer" />
 
 ## <a name="how-to-enable-composer-automation-in-azure"></a>방법: Azure에서 작성기 자동화를 사용하도록 설정
-앱 서비스가 PHP 프로젝트에 있는 경우 기본적으로 composer.json로 작업하지 않습니다. [Git 배포](app-service-web-php-get-started.md)를 사용하는 경우 작성기 확장을 사용하여 `git push` 중에 composer.json 처리를 사용할 수 있습니다.
+앱 서비스가 PHP 프로젝트에 있는 경우 기본적으로 composer.json로 작업하지 않습니다. [Git 배포](app-service-deploy-local-git.md)를 사용하는 경우 작성기 확장을 사용하여 `git push` 중에 composer.json 처리를 사용할 수 있습니다.
 
 > [!NOTE]
 > [여기에서 앱 서비스의 최고 수준 작성기 지원에 투표](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip)할 수 있습니다.
@@ -172,11 +183,11 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
-[무료 평가판]: https://www.windowsazure.com/pricing/free-trial/
+[평가판]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [php.ini 지시문 목록]: http://www.php.net/manual/en/ini.list.php
@@ -193,10 +204,5 @@ Azure 명령줄 인터페이스를 사용하려면 **Node.js** 를 컴퓨터에 
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

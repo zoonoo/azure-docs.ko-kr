@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2016
+ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 58d1b84c1a9fe19937846842f30f5e7b48cda1c7
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: bd042908fec2dcf499dd1cb5230f62ec4be9fdea
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 58d1b84c1a9fe19937846842f30f5e7b48cda1c7
 Service Bus는 기본, 표준 및 [프리미엄](service-bus-premium-messaging.md) 계층으로 제공됩니다. 자신이 만든 Service Bus 서비스 네임스페이스 각각에 서비스 계층을 선택할 수 있으며, 이 계층 선택은 해당 네임스페이스 안에서 모든 엔터티에 적용됩니다.
 
 > [!NOTE]
-> 최신 Service Bus 가격 책정에 대한 자세한 내용은 [Azure Service Bus 가격 책정 페이지](https://azure.microsoft.com/pricing/details/service-bus/) 및 [Service Bus FAQ](service-bus-faq.md#service-bus-pricing)를 참조하세요.
+> 최신 Service Bus 가격 책정에 대한 자세한 내용은 [Azure Service Bus 가격 책정 페이지](https://azure.microsoft.com/pricing/details/service-bus/) 및 [Service Bus FAQ](service-bus-faq.md#pricing)를 참조하세요.
 >
 >
 
@@ -39,7 +40,7 @@ Service Bus는 다음 두 미터를 큐와 토픽/구독에 사용합니다.
 
 표준 기본 요금은 Azure 구독별로 매월 한 번만 청구됩니다. 즉 단일 표준 또는 프리미엄 계층 Service Bus 네임스페이스를 만든 후에는 추가 기본 요금의 반복적인 발생 없이 동일한 Azure 구독 내에서 원하는 여러 개의 추가적인 표준 또는 프리미엄 계층 네임스페이스를 만들 수 있습니다.
 
-2014년 11월 1일 이전에 만들어진 모든 기존 서비스 버스 네임스페이스는 자동으로 표준 계층에 배치되었습니다. 이 때문에 현재 서비스 버스에 사용할 수 있는 모든 기능에 계속 액세스할 수 있습니다. 이후 필요하다면 [Azure 클래식 포털][Azure 클래식 포털]을 사용하여 기본 계층으로 다운그레이드할 수 있습니다.
+2014년 11월 1일 이전에 만들어진 모든 기존 서비스 버스 네임스페이스는 자동으로 표준 계층에 배치되었습니다. 이 때문에 현재 서비스 버스에 사용할 수 있는 모든 기능에 계속 액세스할 수 있습니다. 이후 필요하다면 [Azure 클래식 포털][Azure classic portal]을 사용하여 기본 계층으로 다운그레이드할 수 있습니다.
 
 다음 표는 기본 및 표준/프리미엄 계층 간의 기능적 차이점에 대해 요약합니다.
 
@@ -139,20 +140,15 @@ WCF 릴레이는 표준 계층 네임 스페이스 에서만 사용할 수 있�
 
 예:
 
-1. 10,000개의 장치가 각각 단일 AMQP 연결을 통해 연결되며 Service Bus 토픽으로부터 명령을 받습니다. 장치는 이벤트 허브로 원격 분석 이벤트를 보냅니다. 모든 장치가 매일 12시간 동안 연결하는 경우 다음 연결 요금이 적용됩니다(타 Service Bus 토픽 요금 외에 추가): 연결 10,000개 * * 12시간 * * 31일/744=조정된 연결 5,000개. 월별 허용 조정된 연결 1,000개 이후에는 4,000개의 조정된 연결에 대해 조정된 연결 1개당 0.03달러의 요금이 부과되어 총 120달러입니다.
-2. 10,000개의 장치가 시간 제한이 0이 아니며 HTTP를 통해 서비스 버스 큐에서 메시지를 수신합니다. 모든 장치가 매일 12시간 동안 연결하는 경우 다음 연결 요금이 적용됩니다(타 Service Bus 요금 외에 추가): HTTP 수신 연결 10,000개 * * 일일 12시간 * * 31일/744=조정된 연결 5,000개.
+1. 10,000개의 장치가 각각 단일 AMQP 연결을 통해 연결되며 Service Bus 토픽으로부터 명령을 받습니다. 장치는 이벤트 허브로 원격 분석 이벤트를 보냅니다. 모든 장치가 매일 12시간 동안 연결하는 경우 다음 연결 요금이 적용됩니다(타 Service Bus 토픽 요금 외에 추가): 연결 10,000개 *12시간* 31일/744=조정된 연결 5,000개. 월별 허용 조정된 연결 1,000개 이후에는 4,000개의 조정된 연결에 대해 조정된 연결 1개당 0.03달러의 요금이 부과되어 총 120달러입니다.
+2. 10,000개의 장치가 시간 제한이 0이 아니며 HTTP를 통해 서비스 버스 큐에서 메시지를 수신합니다. 모든 장치가 매일 12시간 동안 연결하는 경우 다음 연결 요금이 적용됩니다(타 Service Bus 요금 외에 추가): HTTP 수신 연결 10,000개 *일일 12시간* 31일/744=조정된 연결 5,000개.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>조정된 연결 요금은 큐와 토픽/구독에 적용되나요?
 예. 시스템 또는 장치 수에 관계 없이 HTTP를 사용하여 이벤트를 보내는 데에는 연결 요금이 부과되지 않습니다. 0이 아닌 시간 제한을 사용한 HTTP를 통한 이벤트 수신은 경우에 따라 "긴 폴링"이라고 하며 조정된 연결 요금이 발생합니다. AMQP 연결에서는 연결이 송신 또는 수신에 사용되는지 여부에 관계없이 조정된 연결 요금이 발생합니다. 기본 네임스페이스에서는 조정된 연결 100개가 무료로 허용됩니다. Azure 구독에 대해 허용되는 조정된 연결의 최대 개수이기도 합니다. Azure 구독의 모든 표준 네임스페이스에서 최초 1,000개의 조정된 연결은 추가 비용 없이(기본 요금 외) 포함되어 있습니다. 이러한 허용치는 여러 서비스 간 메시징 상황에 충분히 부합하므로, 조정된 연결 요금은 보통 대규모 클라이언트에서 AMQP나 HTTP 롱 폴링을 사용하려는 경우에만 관련이 있습니다. 더 효율적인 이벤트 스트리밍이나 여러 장치 또는 응용 프로그램 인스턴스와의 양방향 통신을 구현하려는 경우를 예로 들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Service Bus 가격 책정에 대한 자세한 내용은 [Azure Service Bus 가격 책정 페이지](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
-* Service Bus 가격 책정 및 대금 청구에 대한 몇 가지 일반적인 FAQ를 보려면 [Service Bus FAQ](service-bus-faq.md#service-bus-pricing)를 참조하세요.
+* Service Bus 가격 책정 및 대금 청구에 대한 몇 가지 일반적인 FAQ를 보려면 [Service Bus FAQ](service-bus-faq.md#pricing)를 참조하세요.
 
-[Azure 클래식 포털]: http://manage.windowsazure.com
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Azure classic portal]: http://manage.windowsazure.com
 

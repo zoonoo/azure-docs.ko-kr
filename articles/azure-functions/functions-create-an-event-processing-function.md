@@ -79,6 +79,6 @@ Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

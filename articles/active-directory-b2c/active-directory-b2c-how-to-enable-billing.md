@@ -13,14 +13,13 @@ ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 0475c0f209cde80177df7dbf23eaf8dd17a44752
-ms.openlocfilehash: b5754a08e0683344cc97bdc664ed26ef9a9cf34d
+ms.sourcegitcommit: 43224628d5726ac2fb0e8c27c649421af7ceeee4
+ms.openlocfilehash: 6cf375fbfe265a53591b9987ebd32db6df73fcb4
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Azure 구독을 Azure B2C 테넌트와 연결하여 사용 요금 지불
-> [!IMPORTANT]
-> 곧 제공될 예정입니다. 이 기능은 모든 B2C 테넌트에 제공되지는 않습니다.
 
 Azure AD B2C(Azure Active Directory B2C)에 대한 사용 요금은 Azure 구독에 지속적으로 청구됩니다. 테넌트 관리자는 B2C 테넌트 자체를 만든 후에 Azure AD B2C 테넌트를 Azure 구독에 명시적으로 연결할 필요가 있습니다.  이 연결은 대상 Azure 구독에 Azure AD "B2C 테넌트" 리소스를 만들어서 이루어집니다. 많은 B2C 테넌트는 다른 Azure 리소스(예: VM, 데이터 저장소, LogicApps)와 함께 단일 Azure 구독에 연결할 수 있습니다.
 
@@ -69,11 +68,14 @@ B2C 테넌트 리소스를 클릭하면 다음을 수행할 수 있습니다.
 
 ![B2C 리소스 설정](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
+## <a name="known-issues"></a>알려진 문제
+- B2C 테넌트 삭제. B2C 테넌트를 만들었다가 삭제한 후 동일한 도메인 이름으로 다시 만들 경우 동일한 도메인 이름을 사용하여 "연결" 리소스를 삭제한 후 다시 만드세요.  Azure Portal을 통해 구독 테넌트의 "모든 리소스"에서 이 "연결" 리소스를 찾을 수 있습니다.
+- 지역별 리소스 위치에 자체적인 제한 적용.  드물지만 사용자가 Azure 리소스 만들기에 대해 지역별 제한을 구축했을 수 있습니다.  이 제한 때문에 Azure 구독과 테넌트 B2C 간에 연결을 만들지 못할 수 있습니다. 유연하게 작업하려면 이러한 제한을 완화하세요.
 
 ## <a name="next-steps"></a>다음 단계
 각 B2C 테넌트에 대해 이러한 단계가 완료되면 Azure 직접 또는 기업 계약 세부 정보에 따라 비용이 Azure 구독에 청구됩니다.
-- Azure 구독을 선택한 상태에서 사용 현황 및 청구를 검토합니다.
-- 사용 현황 보고 API를 사용하여 자세한 일일 사용 현황 보고서를 검토합니다(미정).
+- Azure 구독을 선택한 상태에서 사용 현황 및 청구 검토
+- [사용 현황 보고 API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)를 사용하여 자세한 일일 사용 현황 보고서 검토
 
 
 
@@ -81,9 +83,4 @@ B2C 테넌트 리소스를 클릭하면 다음을 수행할 수 있습니다.
 [gog]: http://google.com/        
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/    
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

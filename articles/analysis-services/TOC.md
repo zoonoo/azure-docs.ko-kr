@@ -16,9 +16,10 @@
 
 # 리소스
 ##[데이터 원본 연결](analysis-services-datasource.md)
-##[데이터 공급자](analysis-services-data-providers.md) 
+##[데이터 공급자](analysis-services-data-providers.md)
+##[.odc 파일 만들기](analysis-services-odc.md)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

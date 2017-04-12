@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: d6ac6253caaf5af1f8a14a499653c8afcbb7a2d8
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a8221c35a440ae859c82072ea170b438dc40d261
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -115,7 +116,7 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 
 클래식 배포 모델에서 만든 리소스는 다음 특징을 공유합니다.
 
-*  [클래식 포털](https://manage.windowsazure.com)
+* [클래식 포털](https://manage.windowsazure.com)
   
      ![클래식 포털](./media/resource-manager-deployment-model/classic-portal.png)
   
@@ -188,9 +189,9 @@ Azure 포털을 사용하면 클래식 배포를 통해 만들어진 리소스�
 ## <a name="migrate-from-classic-to-resource-manager"></a>클래식에서 Resource Manager로 마이그레이션
 클래식 배포에서 Resource Manager 배포로 마이그레이션할 준비가 되었다면 다음을 참조하세요.
 
-1. [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-2. [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-3. [Azure PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](../virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)
+1. [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+2. [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+3. [Azure PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 4. [Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
@@ -212,15 +213,10 @@ Azure Resource Manager를 사용하여 만든 가상 컴퓨터, 가상 네트워
 
 **Azure 리소스 관리자 템플릿 예제는 어디서 찾을 수 있습니까?**
 
-[Azure 리소스 관리자 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)에서 포괄적인 시작 템플릿 집합을 찾을 수 있습니다.
+[Azure Resource Manager 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)에서 포괄적인 시작 템플릿 집합을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 가상 컴퓨터, 가상 네트워크 및 저장소 계정을 정의하는 템플릿을 만들기 위해 연습하려면 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
 * 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

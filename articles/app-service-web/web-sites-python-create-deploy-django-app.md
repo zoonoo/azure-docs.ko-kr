@@ -5,7 +5,7 @@ services: app-service\web
 documentationcenter: python
 tags: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 9be1a05a-9460-49ae-94fb-9798f82c11cf
 ms.service: app-service-web
@@ -16,8 +16,9 @@ ms.topic: hero-article
 ms.date: 02/19/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7fbe958a20099f829f2c4c38344969372217e634
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c6679cf7a6b059ee7c28e1754c54afa6414d633a
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: 7fbe958a20099f829f2c4c38344969372217e634
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -112,10 +113,10 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
 
 IIS 구성 파일. 배포 스크립트에서는 적절한 web.x.y.config를 사용하며 이를 web.config로 복사합니다.
 
-### <a name="optional-files-customizing-deployment"></a>선택적 파일 - 배포 사용자 지정
+### <a name="optional-files---customizing-deployment"></a>선택적 파일 - 배포 사용자 지정
 [!INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
-### <a name="optional-files-python-runtime"></a>선택적 파일 - Python 런타임
+### <a name="optional-files---python-runtime"></a>선택적 파일 - Python 런타임
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 ### <a name="additional-files-on-server"></a>서버의 추가 파일
@@ -135,7 +136,7 @@ Python 가상 환경. 호환되는 가상 환경이 웹앱에 없는 경우 배�
 * Windows, 명령줄 사용
 * Mac/Linux, 명령줄 사용
 
-## <a name="web-app-development-windows-python-tools-for-visual-studio"></a>웹앱 배포 - Windows - Python Tools for Visual Studio
+## <a name="web-app-development---windows---python-tools-for-visual-studio"></a>웹앱 배포 - Windows - Python Tools for Visual Studio
 ### <a name="clone-the-repository"></a>리포지토리 복제
 먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제합니다. 자세한 내용은 [Azure 앱 서비스에 로컬 Git 배포](app-service-deploy-local-git.md)를 참조하세요.
 
@@ -201,7 +202,7 @@ Visual Studio에는 배포 진행률이 표시되지 않습니다. 출력을 검
 
 Azure URL로 이동하여 변경 내용을 확인합니다.
 
-## <a name="web-app-development-windows-command-line"></a>웹앱 배포 - Windows - 명령줄
+## <a name="web-app-development---windows---command-line"></a>웹앱 배포 - Windows - 명령줄
 ### <a name="clone-the-repository"></a>리포지토리 복제
 먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에 로컬 Git 배포](app-service-deploy-local-git.md)를 참조하세요.
 
@@ -281,7 +282,7 @@ requirements.txt를 업데이트합니다.
 
 Azure URL로 이동하여 변경 내용을 확인합니다.
 
-## <a name="web-app-development-maclinux-command-line"></a>웹앱 배포 - Mac/Linux - 명령줄
+## <a name="web-app-development---maclinux---command-line"></a>웹앱 배포 - Mac/Linux - 명령줄
 ### <a name="clone-the-repository"></a>리포지토리 복제
 먼저 Azure 포털에서 제공된 URL을 사용하여 리포지토리를 복제하고 Azure 리포지토리를 원격으로 추가합니다. 자세한 내용은 [Azure 앱 서비스에 로컬 Git 배포](app-service-deploy-local-git.md)를 참조하세요.
 
@@ -365,13 +366,13 @@ requirements.txt를 업데이트합니다.
 
 Azure URL로 이동하여 변경 내용을 확인합니다.
 
-## <a name="troubleshooting-package-installation"></a>문제 해결 - 패키지 설치
+## <a name="troubleshooting---package-installation"></a>문제 해결 - 패키지 설치
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## <a name="troubleshooting-virtual-environment"></a>문제 해결 - 가상 환경
+## <a name="troubleshooting---virtual-environment"></a>문제 해결 - 가상 환경
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="troubleshooting-static-files"></a>문제 해결 - 정적 파일
+## <a name="troubleshooting---static-files"></a>문제 해결 - 정적 파일
 Django에는 정적 파일 수집 개념이 있습니다. 이는 모든 정적 파일을 원래 위치에서 가져와 단일 폴더에 복사합니다. 이 응용 프로그램의 경우 `/static`에 복사됩니다.
 
 이 작업은 정적 파일이 다른 Django ‘앱’에서 가져온 파일일 수 있기 때문에 수행됩니다. 예를 들어 Django 관리 인터페이스의 정적 파일은 가상 환경에서 Django 라이브러리 하위 폴더에 있습니다. 이 응용 프로그램에서 정의된 정적 파일은 `/app/static`에 있습니다. 추가 Django ‘앱’을 사용할 경우 정적 파일을 여러 위치에 둘 수 있습니다.
@@ -392,7 +393,7 @@ Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경
 
 그런 다음 `\static` 폴더를 `.gitignore`에서 제거하고 Git 리포지토리에 추가합니다.
 
-## <a name="troubleshooting-settings"></a>문제 해결 - 설정
+## <a name="troubleshooting---settings"></a>문제 해결 - 설정
 응용 프로그램의 여러 설정이 `DjangoWebProject/settings.py`에서 변경될 수 있습니다.
 
 개발자의 편의를 위해 디버그 모드가 사용하도록 설정됩니다. 이 모드의 장점은 로컬로 실행할 때 정적 파일을 수집하지 않고도 이미지 및 다른 정적 콘텐츠를 볼 수 있다는 점입니다.
@@ -454,7 +455,7 @@ SQL 데이터베이스 및 MySQL 사용에 대한 자세한 정보:
 [MySQL]: web-sites-python-ptvs-django-mysql.md
 
 <!--External Link references-->
-[Python 2.7용 Azure SDK]: http://go.microsoft.com/fwlink/?linkid=254281
+[Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
 [Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990
 [python.org]: http://www.python.org/
 [Windows용 Git]: http://msysgit.github.io/
@@ -464,9 +465,4 @@ SQL 데이터베이스 및 MySQL 사용에 대한 자세한 정보:
 [Visual Studio]: http://www.visualstudio.com/
 [Python Tools for Visual Studio 설명서]: http://aka.ms/ptvsdocs
 [Django 설명서]: https://www.djangoproject.com/
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

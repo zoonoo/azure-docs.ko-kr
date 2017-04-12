@@ -9,6 +9,7 @@
 ## [Java SDK](data-lake-analytics-get-started-java-sdk.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli.md)
+## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
 ## [REST API](data-lake-analytics-get-started-rest-api.md)
 ## [Python](data-lake-analytics-get-started-python.md)
 
@@ -45,6 +46,7 @@
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
 ## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST (영문)](/rest/api/datalakeanalytics/)
+## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
 
 # 리소스
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-analytics)
@@ -53,8 +55,3 @@
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
 ## [Azure Data Lake 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -1,5 +1,5 @@
 ---
-title: "Azure 릴레이 하이브리드 연결 프로토콜 | Microsoft Docs"
+title: "Azure 릴레이 하이브리드 연결 프로토콜 가이드 | Microsoft Docs"
 description: "Azure 릴레이 하이브리드 연결 프로토콜 가이드입니다."
 services: service-bus-relay
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: sethm
+ms.date: 03/23/2017
+ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 16071ba6c99e41af9fe7614fcc3254cd7e786e89
-ms.openlocfilehash: 497f54903bef564bab687103a763c7a7b58da074
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: a433b918f48b42d3bf7ee8ee16bd912e278a381d
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -95,7 +96,7 @@ wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token
 
 | 코드 | 오류 | 설명 |
 | --- | --- | --- |
-| 404 | 찾을 수 없음 |하이브리드 연결 **경로**가 유효하지 않거나 기본 URL이 잘못되었습니다. |
+| 404 |찾을 수 없음 |하이브리드 연결 **경로**가 유효하지 않거나 기본 URL이 잘못되었습니다. |
 | 401 |권한 없음 |보안 토큰은 누락되었거나 잘못되었거나 유효하지 않습니다. |
 | 403 |사용할 수 없음 |보안 토큰이 이 작업의 이 경로에 대해 올바르지 않습니다. |
 | 500 |내부 오류 |서비스에 오류가 발생했습니다. |
@@ -118,7 +119,7 @@ wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token
 * **connectHeaders** – 발신자가 릴레이 끝점으로 보낸 모든 HTTP 헤더로, Sec-WebSocket-Protocol 및 Sec-WebSocket-Extensions 헤더를 포함합니다.
 
 #### <a name="accept-message"></a>수락 메시지
-``` JSON
+```json
 {                                                           
     "accept" : {
         "address" : "wss://168.61.148.205:443/$hc/{path}?..."    
@@ -136,9 +137,6 @@ JSON 메시지에서 제공되는 주소 URL은 발신자 소켓을 수락하거
 
 #### <a name="accepting-the-socket"></a>소켓 수락
 수락하면 수신기가 제공된 주소로 웹 소켓 연결을 설정합니다.
-
-미리 보기 기간 동안, 주소 URI는 기본 IP 주소를 사용할 수 있으며 서버가 제공한 TLS 인증서는 해당 주소에 대한 유효성 검사가 실패합니다.
-이는 미리 보기 도중 수정됩니다.
 
 "수락" 메시지에 "Sec-WebSocket-Protocol" 헤더가 있는 경우, 해당 프로토콜을 지원하고 웹 소켓이 설정된 대로 헤더를 설정하면 수신기는 웹 소켓만 수락합니다.
 
@@ -186,7 +184,7 @@ URL은 수락 소켓을 설정하는 데 현재 상태로 사용되어야 하지
 | statusCode |예 |숫자 HTTP 상태 코드 |
 | statusDescription |예 |거부 이유를 읽을 수 있는 사람 |
 
-결과 URI는 WebSocket 연결을 설정하기 위해 사용되고, TLS 인증서는 미리 보기 도중에 주소와 일치하지 않을 수 있으므로, 유효성 검사를 사용하지 못할 수 있습니다.
+결과 URI는 WebSocket 연결을 설정하는 데 사용됩니다.
 
 올바르게 완료한 경우 이 핸드셰이크는 웹 소켓 설정되지 않았기 때문에 HTTP 오류 코드 410과 함께 의도적으로 실패합니다. 오류가 발생하는 경우 옵션은 다음과 같습니다.
 
@@ -201,7 +199,7 @@ URL은 수락 소켓을 설정하는 데 현재 상태로 사용되어야 하지
 * **token** – 네임스페이스 또는 **수신** 권한을 부여하는 하이브리드 연결의 유효한 URL 인코딩 Service Bus 공유 액세스 토큰입니다.
 
 #### <a name="renewtoken-message"></a>renewToken 메시지
-``` JSON
+```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
         "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
@@ -231,7 +229,7 @@ wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=
 
 | 매개 변수 | Required? | 설명 |
 | --- | --- | --- |
-| sb-hc-action |예 |수신기 역할의 경우 매개 변수는 `action=connect`이어야 합니다. |
+| sb-hc-action |예 |발신자 역할의 경우 매개 변수는 `action=connect`여야 합니다. |
 | {path} |예 |(다음 단락 참조) |
 | sb-hc-token |예\* |수신기는 네임스페이스 또는 **발신** 권한을 부여하는 하이브리드 연결의 유효한 URL 인코딩 Service Bus 공유 액세스 토큰을 제공해야 합니다. |
 | sb-hc-id |아니요 |종단 간 진단 추적을 허용하고 수락 핸드셰이크 중 수신기에 대해 사용할 수 있는 옵션 ID입니다. |
@@ -248,7 +246,7 @@ wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id
 
 | 코드 | 오류 | 설명 |
 | --- | --- | --- |
-| 404 | 찾을 수 없음 |하이브리드 연결 `path`가 유효하지 않거나 기본 URL이 잘못되었습니다. |
+| 404 |찾을 수 없음 |하이브리드 연결 `path`가 유효하지 않거나 기본 URL이 잘못되었습니다. |
 | 401 |권한 없음 |보안 토큰은 누락되었거나 잘못되었거나 유효하지 않습니다. |
 | 403 |사용할 수 없음 |보안 토큰이 이 작업의 이 경로에 대해 올바르지 않습니다. |
 | 500 |내부 오류 |서비스에 오류가 발생했습니다. |
@@ -267,10 +265,5 @@ wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id
 * [네임스페이스 만들기](relay-create-namespace-portal.md)
 * [.NET 시작](relay-hybrid-connections-dotnet-get-started.md)
 * [노드 시작](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

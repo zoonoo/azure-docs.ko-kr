@@ -1,5 +1,5 @@
 ---
-title: "데이터 자산을 관리하는 방법 | Microsoft Docs"
+title: "Azure Data Catalog에서 데이터 자산을 관리하는 방법 | Microsoft Docs"
 description: "Azure Data Catalog에 등록된 데이터 자산의 표시 여부 및 소유권을 제어하는 방법을 강조하는 방법 문서입니다."
 services: data-catalog
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 49d939205c85bad8bf7422ef4d9fa02501bb8df7
+ms.sourcegitcommit: cd3184059a0970bb7c9b59803cf37125abbbd879
+ms.openlocfilehash: 45a7b2df88a2edf2bccdfc9d2aaea932f2096f24
 
 
 ---
-# <a name="how-to-manage-data-assets"></a>데이터 자산을 관리하는 방법
+# <a name="how-to-manage-data-assets-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 자산을 관리하는 방법
 ## <a name="introduction"></a>소개
 **Azure Data Catalog** 는 데이터 원본 검색을 위한 기능을 제공하여 사용자가 분석을 수행하고 결정을 내리는 데 필요한 데이터 원본을 검색하고 이해할 수 있도록 합니다. 이 검색 기능은 모든 사용자가 가장 넓은 범위의 사용 가능한 데이터 원본을 이해하고 찾을 수 있는 경우 엄청난 영향을 가집니다. 이를 고려하여 데이터 카탈로그의 기본 동작은 모든 등록된 데이터 원본을 모든 카탈로그 사용자에게 표시하며 검색할 수 있게 합니다.
 
@@ -31,8 +31,8 @@ ms.openlocfilehash: 49d939205c85bad8bf7422ef4d9fa02501bb8df7
 
 > [!NOTE]
 > 이 문서에서 설명한 기능은 Azure Data Catalog의 표준 버전에서만 사용할 수 있습니다. 무료 버전에서는 소유권 및 데이터 자산의 표시를 제한하기 위한 기능을 제공하지 않습니다.
-> 
-> 
+>
+>
 
 ## <a name="managing-ownership-of-data-assets"></a>데이터 자산의 소유권 관리
 기본적으로 데이터 카탈로그에 등록된 데이터 자산은 소유되지 않습니다. 카탈로그에 액세스할 수 있는 권한 가진 모든 사용자는 이러한 자산을 검색하고 주석을 달 수 있습니다. 사용자는 소유하지 않은 데이터 자산의 소유권을 가져올 수 있고 자신이 소유한 자산의 표시를 제한할 수 있습니다.
@@ -41,8 +41,8 @@ ms.openlocfilehash: 49d939205c85bad8bf7422ef4d9fa02501bb8df7
 
 > [!NOTE]
 > 데이터 카탈로그의 소유권은 카탈로그에 저장된 메타데이터에 영향을 줍니다. 기본 데이터 원본에 대한 권한을 부여하지 않습니다.
-> 
-> 
+>
+>
 
 ### <a name="taking-ownership"></a>소유권 가져오기
 사용자는 데이터 카탈로그 포털에서 “소유권 가져오기” 옵션을 선택하여 데이터 자산의 소유권을 가져올 수 있습니다. 소유하지 않은 데이터 자산의 소유권을 가져오기 위해 특별한 권한이 필요하지 않습니다. 어떤 사용자든지 소유하지 않은 데이터 자산의 소유권을 가져올 수 있습니다.
@@ -52,8 +52,8 @@ ms.openlocfilehash: 49d939205c85bad8bf7422ef4d9fa02501bb8df7
 
 > [!NOTE]
 > 소유한 데이터 자산에 둘 이상의 개인이 소유자인 것이 좋습니다.
-> 
-> 
+>
+>
 
 ### <a name="removing-owners"></a>소유자 제거
 자산 소유자가 공동 소유자를 추가할 수 있는 것처럼 자산 소유자는 공동 소유자를 제거할 수 있습니다.
@@ -65,8 +65,8 @@ ms.openlocfilehash: 49d939205c85bad8bf7422ef4d9fa02501bb8df7
 
 > [!NOTE]
 > 가능한 경우에는 개별 사용자가 아닌 보안 그룹에 자산 소유권 및 표시 여부 권한을 할당해야 합니다.
-> 
-> 
+>
+>
 
 ## <a name="catalog-administrators"></a>카탈로그 관리자
 데이터 카탈로그 관리자는 암시적으로 카탈로그에서 모든 자산의 공동 소유자입니다. 자산 소유자는 카탈로그 관리자에게 표시되지 않도록 할 수 없고 관리자는 카탈로그의 모든 데이터 자산의 소유권 및 표시 여부를 관리할 수 있습니다.
@@ -76,7 +76,6 @@ ms.openlocfilehash: 49d939205c85bad8bf7422ef4d9fa02501bb8df7
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,0 +1,142 @@
+---
+title: "Azure Event Hubs 진단 로그 | Microsoft Docs"
+description: "Azure에서 Event Hubs에 대한 진단 로그를 설정하는 방법을 알아봅니다."
+keywords: 
+documentationcenter: 
+services: event-hubs
+author: banisadr
+manager: 
+editor: 
+ms.assetid: 
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/27/2017
+ms.author: sethm;babanisa
+translationtype: Human Translation
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 8b0484b2d4f6474be728531fbda65896f30eccc4
+ms.lasthandoff: 03/29/2017
+
+
+---
+# <a name="event-hubs-diagnostic-logs"></a>Event Hubs 진단 로그
+
+Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
+* **[활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
+* **[진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
+
+## <a name="turn-on-diagnostic-logs"></a>진단 로그 설정
+진단 로그는 기본적으로 **해제**되어 있습니다. 진단 로그를 사용하도록 설정하려면:
+
+1.    Azure Portal에서 스트리밍 작업 블레이드로 이동합니다.
+
+2.    **모니터링** 아래의 **진단 로그** 블레이드로 이동합니다.
+
+    ![진단 로그에 대한 블레이드 탐색](./media/event-hubs-diagnostic-logs/image1.png)  
+
+3.    **진단 켜기**를 선택합니다.
+
+    ![진단 로그 설정](./media/event-hubs-diagnostic-logs/image2.png)
+
+4.    **상태**로 **켜기**를 선택합니다.
+
+    ![진단 로그의 상태 변경](./media/event-hubs-diagnostic-logs/image3.png)
+
+5.    저장소 계정, 이벤트 허브 또는 Azure Log Analytics와 같이 원하는 보관 대상을 설정합니다.
+
+6.    수집할 로그의 범주(예: **실행** 또는 **작성**)를 선택합니다.
+
+7.    새 진단 설정을 저장합니다.
+
+새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 블레이드에 로그가 나타납니다.
+
+진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)를 참조하세요.
+
+## <a name="diagnostic-logs-categories"></a>진단 로그 범주
+Event Hubs는 다음 두 가지 범주에 대한 진단 로그를 캡처합니다.
+
+* **ArchivalLogs:** 이벤트 허브 보관, 특히 보관 오류와 관련된 로그입니다.
+* **OperationalLogs:** 이벤트 허브 작업 중에 발생하는 정보, 특히 이벤트 허브 만들기, 사용된 리소스 및 작업 상태와 같은 작업 유형입니다.
+
+## <a name="diagnostic-logs-schema"></a>진단 로그 스키마
+모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 예제에 설명된 형식을 사용하는 문자열 필드가 있습니다.
+
+### <a name="archive-logs-schema"></a>보관 로그 스키마
+
+보관 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
+
+이름 | 설명
+------- | -------
+TaskName | 실패한 작업에 대한 설명입니다.
+ActivityId | 추적에 사용되는 내부 ID입니다.
+trackingId | 추적에 사용되는 내부 ID입니다.
+resourceId | Azure Resource Manager 리소스 ID입니다.
+eventHub | 이벤트 허브 전체 이름(네임스페이스 이름 포함)입니다.
+partitionId | 데이터가 기록되는 이벤트 허브 파티션입니다.
+archiveStep | ArchiveFlushWriter
+startTime | 실패 시작 시간입니다.
+failures | 실패가 발생한 횟수입니다.
+durationInSeconds | 실패 기간입니다.
+Message | 오류 메시지입니다.
+카테고리 | ArchiveLogs
+
+보관 로그 JSON 문자열 예제는 다음과 같습니다.
+
+```json
+{
+     "TaskName": "EventHubArchiveUserError",
+     "ActivityId": "21b89a0b-8095-471a-9db8-d151d74ecf26",
+     "trackingId": "21b89a0b-8095-471a-9db8-d151d74ecf26_B7",
+     "resourceId": "/SUBSCRIPTIONS/854D368F-1828-428F-8F3C-F2AFFA9B2F7D/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
+     "eventHub": "fbettati-opera-eventhub:eventhub:eh123~32766",
+     "partitionId": "1",
+     "archiveStep": "ArchiveFlushWriter",
+     "startTime": "9/22/2016 5:11:21 AM",
+     "failures": 3,
+     "durationInSeconds": 360,
+     "message": "Microsoft.WindowsAzure.Storage.StorageException: The remote server returned an error: (404) Not Found. ---> System.Net.WebException: The remote server returned an error: (404) Not Found.\r\n   at Microsoft.WindowsAzure.Storage.Shared.Protocol.HttpResponseParsers.ProcessExpectedStatusCodeNoException[T](HttpStatusCode expectedStatusCode, HttpStatusCode actualStatusCode, T retVal, StorageCommandBase`1 cmd, Exception ex)\r\n   at Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.<PutBlockImpl>b__3e(RESTCommand`1 cmd, HttpWebResponse resp, Exception ex, OperationContext ctx)\r\n   at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndGetResponse[T](IAsyncResult getResponseResult)\r\n   --- End of inner exception stack trace ---\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.StorageAsyncResult`1.End()\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.AsyncExtensions.<>c__DisplayClass4.<CreateCallbackVoid>b__3(IAsyncResult ar)\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.",
+     "category": "ArchiveLogs"
+}
+```
+
+### <a name="operation-logs-schema"></a>작업 로그 스키마
+
+작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
+
+이름 | 설명
+------- | -------
+ActivityId | 추적 목적에 사용되는 내부 ID입니다.
+EventName | 작업 이름입니다.     
+resourceId | Azure Resource Manager 리소스 ID입니다.
+SubscriptionId | 구독 ID가 표시됩니다.
+EventTimeString | 작업 시간입니다.
+EventProperties | 작업 속성입니다.
+가동 상태 | 작업 상태입니다.
+Caller | 작업 호출자(Azure Portal 또는 관리 클라이언트)입니다.
+카테고리 | OperationalLogs
+
+작업 로그 JSON 문자열 예제는 다음과 같습니다.
+
+```json
+Example:
+{
+     "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
+     "EventName": "Create EventHub",
+     "resourceId": "/SUBSCRIPTIONS/1A2109E3-9DA0-455B-B937-E35E36C1163C/RESOURCEGROUPS/DEFAULT-SERVICEBUS-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/SHOEBOXEHNS-CY4001",
+     "SubscriptionId": "1a2109e3-9da0-455b-b937-e35e36c1163c",
+     "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
+     "EventProperties": "{\"SubscriptionId\":\"1a2109e3-9da0-455b-b937-e35e36c1163c\",\"Namespace\":\"shoeboxehns-cy4001\",\"Via\":\"https://shoeboxehns-cy4001.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
+     "Status": "Succeeded",
+     "Caller": "ServiceBus Client",
+     "category": "OperationalLogs"
+}
+```
+
+## <a name="next-steps"></a>다음 단계
+* [Event Hubs 소개](event-hubs-what-is-event-hubs.md)
+* [이벤트 허브 API 개요](event-hubs-api-overview.md)
+* [이벤트 허브 시작](event-hubs-csharp-ephcs-getstarted.md)
+

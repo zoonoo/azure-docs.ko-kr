@@ -12,11 +12,12 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
+ms.date: 03/28/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 008ad40e93e5ce22e4c182114a940f4a5133a2f2
+ms.sourcegitcommit: d7aa8568dd6fdd806d8ad70e408f108c722ec1ce
+ms.openlocfilehash: b56d75d49e0b95025dd1a0bae532f677958eac8d
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -43,10 +44,7 @@ Reliable Services의 최상위에 구축되는 Reliable Actor 프레임워크는
 Reliable Actors 자체는 Reliable Services에 구축된 응용 프로그램 프레임워크이므로 서비스 패브릭 플랫폼과 완전히 통합되며 플랫폼이 제공하는 모든 기능을 완벽히 활용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Reliable Actors에 대해 자세히 알아보거나](service-fabric-reliable-actors-introduction.md) [첫 번째 Reliable Actor 서비스 작성](service-fabric-reliable-actors-get-started.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
+[Reliable Actors에 대해 자세히 알아보기](service-fabric-reliable-actors-introduction.md) 또는 [첫 번째 Reliable Actor 서비스를 작성](service-fabric-reliable-actors-get-started.md)하여 시작
+[Windows 또는 Linux에서 서비스를 컨테이너화하는 방법에 대해 자세히 알아보기](service-fabric-deploy-container.md)
 
 

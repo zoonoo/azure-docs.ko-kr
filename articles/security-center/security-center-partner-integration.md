@@ -12,11 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
 ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -56,7 +57,7 @@ Security Center는 현재 다음 파트너와 통합합니다.
 
 파트너 솔루션을 배포하면 솔루션의 상태에 대한 정보를 볼 수 있으며 Security Center 메인 대시보드에서 파트너 솔루션 타일의 기본 관리 태스크를 수행할 수 있습니다. Security Center에서 파트너 솔루션을 관리하는 방법에 대한 자세한 내용은 [Azure Security Center로 파트너 솔루션 모니터링](security-center-partner-solutions.md)을 참조하세요.
 
-![파트너 통합](./media/security-center-partner-integration/security-center-partner-integration-fig1.png)
+![파트너 통합](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
 
 
 ## <a name="see-also"></a>참고 항목
@@ -69,9 +70,4 @@ Security Center는 현재 다음 파트너와 통합합니다.
 * [Azure 보안 센터를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure 보안 센터 FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

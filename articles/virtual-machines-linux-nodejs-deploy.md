@@ -6,6 +6,8 @@ documentationcenter: nodejs
 author: stepro
 manager: dmitryr
 editor: 
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: /azure
 ms.assetid: 857a812d-c73e-4af7-a985-2d0baf8b6f71
 ms.service: multiple
 ms.devlang: nodejs
@@ -17,6 +19,7 @@ ms.author: stephpr
 translationtype: Human Translation
 ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
 ms.openlocfilehash: 0de0314902805a2bdb37ce3c6f79ec221f3aed31
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -257,10 +260,5 @@ Git는 특정 시간에 호출되는 많은 후크를 노출하여 리포지토�
 이 문서는 Node.js 응용 프로그램을 사용하고 Azure에서 실행되는 Linux 가상 컴퓨터에 배포하는 방법을 보여주었습니다. Azure의 Linux 가상 컴퓨터에 대해 자세히 알아보려면 [Azure의 Linux 소개](/documentation/articles/virtual-machines-linux-introduction/)를 참조하세요.
 
 Azure에서 Node.js 응용 프로그램을 개발하는 방법에 대한 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

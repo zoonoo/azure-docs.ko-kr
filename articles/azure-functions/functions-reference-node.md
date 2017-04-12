@@ -1,6 +1,6 @@
 ---
-title: "Azure Functions NodeJS 개발자 참조 | Microsoft Docs"
-description: "NodeJS를 사용하여 Azure Functions를 개발하는 방법을 알아봅니다."
+title: "Azure Functions에 대한 JavaScript 개발자 참조 | Microsoft Docs"
+description: "JavaScript를 사용하여 Azure Functions를 개발하는 방법을 알아봅니다."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -15,22 +15,23 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/13/2016
-ms.author: chrande
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 116b0fd67701e69a81b7f736bbd241427eb33e34
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 2c2d352a8aaf572612e64bd69e6e45616c15891d
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="azure-functions-nodejs-developer-reference"></a>Azure Functions NodeJS 개발자 참조
+# <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 > [!div class="op_single_selector"]
 > * [C# 스크립트](functions-reference-csharp.md)
 > * [F# 스크립트](functions-reference-fsharp.md)
-> * [Node.JS](functions-reference-node.md)
+> * [JavaScript](functions-reference-node.md)
 > 
 > 
 
-Azure Functions에 대한 노드/JavaScript 환경은 런타임과 통신하고 바인딩을 통해 데이터를 수신 및 전송하는 `context` 개체가 전달되는 함수를 쉽게 내보낼 수 있도록 합니다.
+Azure Functions에 대한 JavaScript 환경은 런타임과 통신하고 바인딩을 통해 데이터를 수신 및 전송하는 `context` 개체가 전달되는 함수를 쉽게 내보낼 수 있도록 합니다.
 
 이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다.
 
@@ -139,7 +140,7 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 ```
 
 ## <a name="node-version--package-management"></a>노드 버전 및 패키지 관리
-노드 버전이 현재 `5.9.1`에서 잠겨 있습니다. 더 많은 버전에 대한 지원을 추가하고 구성할 수 있도록 연구 중입니다.
+노드 버전이 현재 `6.5.0`에서 잠겨 있습니다. 더 많은 버전에 대한 지원을 추가하고 구성할 수 있도록 연구 중입니다.
 
 함수 앱의 파일 시스템에 있는 함수 폴더에 *package.json* 파일을 업로드하여 함수에 패키지를 포함시킬 수 있습니다. 파일 업로드 지침은 **Azure Functions 개발자 참조 토픽** 의 [함수 앱 파일을 업데이트하는 방법](functions-reference.md#fileupdate)섹션을 참조하세요. 
 
@@ -155,13 +156,15 @@ context.res = { status: 202, body: 'You successfully ordered more coffee!' };
 ```javascript
 // Import the underscore.js library
 var _ = require('underscore');
-var version = process.version; // version === 'v5.9.1'
+var version = process.version; // version === 'v6.5.0'
 
 module.exports = function(context) {
     // Using our imported underscore.js library
     var matched_names = _
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
+
+노드는 함수가 캐시된 패키지를 공유할 수 있도록 함수 앱의 루트에 `package.json`을 포함해야 합니다. 버전 충돌이 있는 경우 함수 수준에서 `package.json`을 추가할 수 있습니다. 그러나 성능상의 이유로 이렇게 구현하지 않아야 합니다. 
 
 ## <a name="environment-variables"></a>환경 변수
 환경 변수 또는 앱 설정 값을 가져오려면 다음 코드 예제와 같이 `process.env`를 사용합니다.
@@ -194,10 +197,5 @@ function GetEnvironmentVariable(name)
 * [Azure Functions C# 개발자 참조](functions-reference-csharp.md)
 * [Azure Functions F# 개발자 참조](functions-reference-fsharp.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

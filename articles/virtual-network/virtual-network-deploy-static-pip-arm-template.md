@@ -1,10 +1,10 @@
 ---
-title: "템플릿을 사용하여 고정 공용 IP가 있는 VM 만들기 | Microsoft Docs"
-description: "템플릿을 사용하여 Azure Resource Manager를 통해 고정 공용 IP가 있는 VM을 만드는 방법에 대해 알아봅니다."
+title: "고정 공용 IP 주소를 사용하는 VM 만들기 - Azure Resource Manager 템플릿 | Microsoft Docs"
+description: "Azure Resource Manager 템플릿을 사용하여 고정 공용 IP 주소를 사용하는 VM을 만드는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: d551085a-c7ed-4ec6-b4c3-e9e1cebb774c
@@ -15,20 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 67f2f420eecc89a9ffce2fb9ba4781a8fcb0d03b
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: 1bb49c0c03a3103194d068b511fa92ecb996caf3
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="create-a-vm-with-a-static-public-ip-using-a-template"></a>템플릿을 사용하여 고정 공용 IP가 있는 VM 배포
+# <a name="create-a-vm-with-a-static-public-ip-address-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 고정 공용 IP 주소를 사용하는 VM 만들기
 
 > [!div class="op_single_selector"]
-- [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
-- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-- [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-- [템플릿](virtual-network-deploy-static-pip-arm-template.md)
-- [PowerShell(클래식)](virtual-networks-reserved-public-ip.md)
+> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+> * [템플릿](virtual-network-deploy-static-pip-arm-template.md)
+> * [PowerShell(클래식)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -169,7 +171,7 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Azure CLI를 사용하여 템플릿 배포
 Azure CLI를 사용하여 템플릿을 배포하려면 다음 단계를 완료합니다.
 
-1. Azure CLI를 사용한 적이 없는 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md)의 지침을 따라 이를 설치하고 구성합니다.
+1. Azure CLI를 사용한 적이 없는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)의 지침을 따라 이를 설치하고 구성합니다.
 2. 아래와 같이 `azure config mode` 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
     ```azurecli
@@ -203,10 +205,5 @@ Azure CLI를 사용하여 템플릿을 배포하려면 다음 단계를 완료�
         data:    Tags: null
         data:
         info:    group create command OK
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

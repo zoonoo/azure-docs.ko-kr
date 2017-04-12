@@ -1,5 +1,5 @@
 ---
-title: "HDInsight 클러스터용 Azure Resource Manager 개발 도구에 마이그레이션 | Microsoft 문서"
+title: "HDInsight용 Azure Resource Manager 도구에 마이그레이션 | Microsoft Docs"
 description: "HDInsight 클러스터용 Azure Resource Manager 개발 도구에 마이그레이션하는 방법"
 services: hdinsight
 editor: cgronlun
@@ -8,19 +8,22 @@ author: nitinme
 documentationcenter: 
 ms.assetid: 05efedb5-6456-4552-87ff-156d77fbe2e1
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ed11d7883de119f18491faa4080c0758bf8d6d02
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 3606df64b619b62f8b9e5aec2abc4efc994c37e3
+ms.lasthandoff: 01/24/2017
 
 
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>HDInsight 클러스터용 Azure Resource Manager 기반 개발 도구에 마이그레이션
+
 HDInsight에서는 HDInsight용 ASM(Azure 서비스 관리자) 기반 도구를 지원하지 않습니다. Azure PowerShell, Azure CLI 또는 HDInsight .NET SDK를 사용하여 HDInsight 클러스터와 함께 사용한 경우 앞으로 ARM(Azure Resource Manager) 기반 버전의 PowerShell, CLI 및 .NET SDK를 사용하는 것이 좋습니다. 이 문서는 새 ARM 기반 접근 방법에 마이그레이션하는 방법에 대한 포인터를 제공합니다. 해당되는 경우 이 문서에서도 HDInsight에 대한 ASM 및 ARM 접근 방법 간의 차이점을 지적합니다.
 
 > [!IMPORTANT]
@@ -48,8 +51,6 @@ Azure Resource Manager로 사용할 수 있는 새 명령은 다음과 같습니
 * `azure hdinsight cluster resize` - 클러스터에서 작업자 노드 수를 동적으로 변경합니다.
 * `azure hdinsight cluster enable-http-access` - 클러스터에 대한 HTTPs 액세스를 사용합니다(기본적으로).
 * `azure hdinsight cluster disable-http-access` - 클러스터에 대한 HTTPs 액세스를 사용하지 않습니다.
-* `azure hdinsight-enable-rdp-access` - Windows 기반 HDInsight 클러스터에서 원격 데스크톱 프로토콜을 사용합니다.
-* `azure hdinsight-disable-rdp-access` - Windows 기반 HDInsight 클러스터에서 원격 데스크톱 프로토콜을 사용하지 않습니다.
 * `azure hdinsight script-action` - 클러스터에서 스크립트 작업을 만들기/관리하기 위한 명령을 제공합니다.
 * `azure hdinsight config` - `hdinsight cluster create` 명령으로 사용할 수 있는 구성 파일을 만들기 위한 명령을 제공하여 구성 정보를 제공합니다.
 
@@ -91,11 +92,11 @@ MapReduce, Hive 및 Pig를 대화형으로 실행하는 다른 방법에 대한 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Azure Resource Manager로 Azure PowerShell 마이그레이션
 [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)에서 ARM(Azure Resource Manager) 모드인 Azure PowerShell에 대한 일반 정보를 찾을 수 있습니다.
 
-Azure PowerShell ARM cmdlet은 ASM cmdlet과 나란히 설치될 수 있습니다. 두 가지 모드에서 cmdlet을 이름으로 구분할 수 있습니다.  ARM 모드에는 ASM 모드의 *AzureRmHDInsight*와 비교되는 cmdlet 이름의 *AzureHDInsight*가 있습니다.  예를 들어 *New-AzureRmHDInsightCluster*와  *New-AzureHDInsightCluster*입니다. 매개 변수 및 스위치에는 새 이름이 있을 수 있고 ARM을 사용하는 경우 많은 새 매개 변수를 사용할 수 있습니다.  예를 들어 일부 cmdlet에는 *-ResourceGroupName*이라는 새 스위치가 필요합니다. 
+Azure PowerShell ARM cmdlet은 ASM cmdlet과 나란히 설치될 수 있습니다. 두 가지 모드에서 cmdlet을 이름으로 구분할 수 있습니다.  ARM 모드에는 ASM 모드의 *AzureRmHDInsight*와 비교되는 cmdlet 이름의 *AzureHDInsight*가 있습니다.  예를 들면 *New-AzureRmHDInsightCluster* 및 *New-AzureHDInsightCluster*가 있습니다. 매개 변수 및 스위치에는 새 이름이 있을 수 있고 ARM을 사용하는 경우 많은 새 매개 변수를 사용할 수 있습니다.  예를 들어 일부 cmdlet에는 *-ResourceGroupName*이라는 새 스위치가 필요합니다. 
 
 HDInsight cmdlet를 사용하기 전에 Azure 계정에 연결하고 새 리소스 그룹을 만들어야 합니다.
 
-* Login-AzureRmAccount 또는 [Select-AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx)입니다.  [Azure Resource Manager를 사용하여 서비스 사용자 인증](../resource-group-authenticate-service-principal.md)
+* Login-AzureRmAccount 또는 [Select-AzureRmProfile](https://msdn.microsoft.com/library/mt619310.aspx)입니다. [Azure Resource Manager를 사용하여 서비스 사용자 인증](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### <a name="renamed-cmdlets"></a>이름이 바뀐 cmdlet
@@ -234,19 +235,19 @@ Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](https://msdn.microsoft.c
 
 | 방법... ARM 기반 HDInsight SDK 사용 | 링크 |
 | --- | --- |
-| .NET SDK를 사용하여 HDInsight 클러스터 만들기 | [.NET SDK를 사용하여 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
-| .NET SDK와 스크립트 작업을 사용하여 클러스터 사용자 지정 | [스크립트 작업을 사용하여 HDInsight Linux 클러스터 사용자 지정](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
+| .NET SDK를 사용하여 HDInsight 클러스터 만들기 |[.NET SDK를 사용하여 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
+| .NET SDK와 스크립트 작업을 사용하여 클러스터 사용자 지정 |[스크립트 작업을 사용하여 HDInsight Linux 클러스터 사용자 지정](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
 | .NET SDK와 Azure Active Directory를 사용하여 대화형으로 응용 프로그램 인증 |[.NET SDK를 사용하여 Hive 쿼리 실행](hdinsight-hadoop-use-hive-dotnet-sdk.md)을 참조하세요. 이 문서의 코드 조각에서는 대화형 인증 접근 방법을 사용합니다. |
-| .NET SDK와 Azure Active Directory를 사용하여 비대화형으로 응용 프로그램 인증 | [HDInsight에 대한 비대화형 응용 프로그램 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
-| .NET SDK를 사용하여 Hive 작업 제출 | [Hive 작업 제출](hdinsight-hadoop-use-hive-dotnet-sdk.md) |
-| .NET SDK를 사용하여 Pig 작업 제출 | [Pig 작업 제출](hdinsight-hadoop-use-pig-dotnet-sdk.md) |
-| .NET SDK를 사용하여 Sqoop 작업 제출 | [Sqoop 작업 제출](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) |
-| .NET SDK를 사용하여 HDInsight 클러스터 나열 | [HDInsight 클러스터 나열](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
-| .NET SDK를 사용하여 HDInsight 클러스터 크기 조정 | [HDInsight 클러스터 크기 조정](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
-| .NET SDK를 사용하여 HDInsight 클러스터에 대한 액세스 권한 부여/해지 | [HDInsight 클러스터에 대한 액세스 권한 부여/해지](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |
-| .NET SDK를 사용하여 HDInsight 클러스터에 대한 HTTP 사용자 자격 증명 업데이트 | [HDInsight 클러스터에 대한 HTTP 사용자 자격 증명 업데이트](hdinsight-administer-use-dotnet-sdk.md#update-http-user-credentials) |
-| .NET SDK를 사용하여 HDInsight 클러스터에 대한 기본 저장소 계정 찾기 | [HDInsight 클러스터에 대한 기본 저장소 계정 찾기](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
-| .NET SDK를 사용하여 HDInsight 클러스터 삭제 | [HDInsight 클러스터 삭제](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
+| .NET SDK와 Azure Active Directory를 사용하여 비대화형으로 응용 프로그램 인증 |[HDInsight에 대한 비대화형 응용 프로그램 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
+| .NET SDK를 사용하여 Hive 작업 제출 |[Hive 작업 제출](hdinsight-hadoop-use-hive-dotnet-sdk.md) |
+| .NET SDK를 사용하여 Pig 작업 제출 |[Pig 작업 제출](hdinsight-hadoop-use-pig-dotnet-sdk.md) |
+| .NET SDK를 사용하여 Sqoop 작업 제출 |[Sqoop 작업 제출](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) |
+| .NET SDK를 사용하여 HDInsight 클러스터 나열 |[HDInsight 클러스터 나열](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
+| .NET SDK를 사용하여 HDInsight 클러스터 크기 조정 |[HDInsight 클러스터 크기 조정](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
+| .NET SDK를 사용하여 HDInsight 클러스터에 대한 액세스 권한 부여/해지 |[HDInsight 클러스터에 대한 액세스 권한 부여/해지](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |
+| .NET SDK를 사용하여 HDInsight 클러스터에 대한 HTTP 사용자 자격 증명 업데이트 |[HDInsight 클러스터에 대한 HTTP 사용자 자격 증명 업데이트](hdinsight-administer-use-dotnet-sdk.md#update-http-user-credentials) |
+| .NET SDK를 사용하여 HDInsight 클러스터에 대한 기본 저장소 계정 찾기 |[HDInsight 클러스터에 대한 기본 저장소 계정 찾기](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
+| .NET SDK를 사용하여 HDInsight 클러스터 삭제 |[HDInsight 클러스터 삭제](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
 
 ### <a name="examples"></a>예
 다음은 ARM 기반 SDK 및 ASM 기반 SDK에 해당하는 코드 조각을 사용하여 작업을 수행하는 방법에 대한 일부 예제입니다.
@@ -324,7 +325,7 @@ Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](https://msdn.microsoft.c
                 Location = "West US",
                 ClusterType = "Hadoop",
                 Version = "3.1",
-                OSType = OSType.Windows,
+                OSType = OSType.Linux,
                 DefaultStorageAccountName = "mystorage.blob.core.windows.net",
                 DefaultStorageAccountKey =
                     "O9EQvp3A3AjXq/W27rst1GQfLllhp0gUeiUUn2D8zX2lU3taiXSSfqkZlcPv+nQcYUxYw==",
@@ -362,10 +363,5 @@ Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](https://msdn.microsoft.c
 * 새 명령(ARM)
   
         client.Clusters.Delete(resourceGroup, dnsname);
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

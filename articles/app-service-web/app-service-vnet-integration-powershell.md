@@ -4,7 +4,7 @@ description: "PowerShell을 사용하여 가상 네트워크에 연결하고 작
 services: app-service
 documentationcenter: 
 author: ccompy
-manager: wpickett
+manager: erikre
 editor: cephalin
 ms.assetid: a5c76e77-972a-431c-b14b-3611dae1631b
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b0dcf833981364abfbc77d0cd6dfde8beb081b7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e8763f1ab7e51e10ae59cf2b6b2c609f0f45dcd3
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -119,7 +120,7 @@ PowerShell 창을 열고 다음을 사용하여 Azure 계정 및 구독을 설�
 
 인증서는 **$Configuration.GeneratedCertificatePath** 에 지정된 위치에서 찾을 수 있습니다.
 
-인증서를 수동으로 업로드하려면 [Azure Portal][azureportal]을 사용하고 **가상 네트워크(클래식)** > **VPN 연결** > **지점 및 사이트 간** > **인증서 관리**를 찾습니다. 여기에서 인증서를 업로드합니다.
+인증서를 수동으로 업로드하려면 [Azure Portal][azureportal]을 사용하고 **Virtual Network(클래식)** > **VPN 연결** > **지점 및 사이트 간** > **인증서 관리**를 찾습니다. 여기에서 인증서를 업로드합니다.
 
 ##### <a name="get-the-point-to-site-package"></a>지점 및 사이트 간 패키지 가져오기
 웹앱에서 가상 네트워크 연결을 설정하는 다음 단계는 지점 및 사이트 간 패키지를 가져오고 웹앱에 제공하는 것입니다.
@@ -703,9 +704,4 @@ PowerShell 창을 열고 다음을 사용하여 Azure 계정 및 구독을 설�
 <!--Links-->
 [createvpngateway]: http://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/
 [azureportal]: http://portal.azure.com
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

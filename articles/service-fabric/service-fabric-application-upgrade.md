@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: ab167a74ddab1e38369ce9fa466022365ca08bee
+ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
+ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -44,6 +45,18 @@ Azure 서비스 패브릭 응용 프로그램은 서비스의 컬렉션입니다
 
 모니터링되지 않는 수동 모드는 업데이트 도메인에서 업그레이드가 수행될 때마다 다음 업데이트 도메인에서 업그레이드가 시작하도록 수동 작업이 필요합니다. 서비스 패브릭 상태 검사가 수행되지 않습니다. 관리자는 다음 업데이트 도메인에서 업그레이드가 시작되기 전에 상태 또는 상태 검사를 수행합니다.
 
+## <a name="upgrade-default-services"></a>기본 서비스 업그레이드
+응용 프로그램의 업그레이드 프로세스 동안 Service Fabric 응용 프로그램 내의 기본 서비스를 업그레이드할 수 있습니다. 기본 서비스는 [응용 프로그램 매니페스트](service-fabric-application-model.md#describe-an-application)에 정의됩니다. 기본 서비스를 업그레이드하는 표준 규칙은 다음과 같습니다.
+
+1. 클러스터에 존재하지 않는 새 [응용 프로그램 매니페스트](service-fabric-application-model.md#describe-an-application)의 기본 서비스가 만들어집니다.
+> [!TIP]
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize)를 true로 설정하여 다음 규칙을 사용해야 합니다. 이 기능은 v5.5에서 지원됩니다.
+
+2. 이전 [응용 프로그램 매니페스트](service-fabric-application-model.md#describe-an-application) 및 새 버전 모두에 있는 기존 서비스가 업데이트됩니다. 클러스터에 있는 설명을 새 버전의 서비스 설명으로 덮어씁니다. 기본 서비스 실패를 업데이트하는 경우 응용 프로그램 업그레이드가 자동으로 롤백됩니다.
+3. 이전 [응용 프로그램 매니페스트](service-fabric-application-model.md#describe-an-application)에 있지만 새 버전에 없는 기본 서비스가 삭제됩니다. **기본 서비스를 삭제하는 작업은 되돌릴 수 없습니다.**
+
+응용 프로그램의 경우 업그레이드가 롤백되면 기본 서비스가 업그레이드를 시작하기 전의 상태로 되돌아갑니다. 하지만 삭제된 서비스를 만들 수 없습니다.
+
 ## <a name="application-upgrade-flowchart"></a>응용 프로그램 업그레이드 순서도
 이 단락 다음에 나오는 순서도는 서비스 패브릭 응용 프로그램의 업그레이드 프로세스를 이해하는 데 도움이 될 수 있습니다. 특히 *HealthCheckStableDuration*, *HealthCheckRetryTimeout* 및 *UpgradeHealthCheckInterval*을 비롯한 시간 제한이 한 업데이트 도메인의 업그레이드를 성공 또는 실패로 간주하는 시간을 어떻게 제어하는지 잘 설명되어 있습니다.
 
@@ -63,9 +76,4 @@ Azure 서비스 패브릭 응용 프로그램은 서비스의 컬렉션입니다
 [응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

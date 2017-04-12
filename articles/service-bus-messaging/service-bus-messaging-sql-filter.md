@@ -1,5 +1,5 @@
 ---
-title: "Azure AD 구문 참조 | Microsoft Docs"
+title: "Azure Service Bus SQLFilter 구문 참조 | Microsoft Docs"
 description: "SQLFilter 문법에 대한 세부 정보입니다."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 03/23/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 5fb6b670ffa496d6626347bc50d537d35d51e08c
-ms.openlocfilehash: 8a5571ed56c6aa20cf157e7787004e2c329c9d54
+ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
+ms.openlocfilehash: c5127a457e99772a52b76e28e7fd3a3e4dd861b0
+ms.lasthandoff: 03/24/2017
 
 
 ---
@@ -221,7 +222,7 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
   
     -   속성이 존재하지 않거나 속성 값이 `null`인 경우 `property IS NULL`은 `true`로 평가됩니다.  
   
-속성 평가 의미 체계:  
+### <a name="property-evaluation-semantics"></a>속성 평가 의미 체계  
   
 -   존재하지 않는 시스템 속성을 평가하려고 시도하면 [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) 예외가 throw됩니다.  
   
@@ -273,7 +274,7 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
 +---+---+---+---+  
 ```  
   
-연산자 바인딩 의미 체계:  
+### <a name="operator-binding-semantics"></a>연산자 바인딩 의미 체계
   
 -   `>`, `>=`, `<`, `<=`, `!=`, `=`과 같은 비교 연산자는 데이터 형식 승격 및 암시적 변환에서 C# 연산자 바인딩과 동일한 의미 체계를 따릅니다.  
   
@@ -283,8 +284,3 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
 
 - [SQLFilter 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [SQLRuleAction 클래스](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-
-
-<!--HONumber=Nov16_HO4-->
-
-

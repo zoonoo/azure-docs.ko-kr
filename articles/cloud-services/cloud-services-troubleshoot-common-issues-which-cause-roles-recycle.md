@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/30/2016
+ms.date: 4/6/2017
 ms.author: v-six
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 00b09be636a01872070a1bec5f0f19885496bbcc
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 47a9736fd6498d15305fb2296446c61e709ad0b8
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -55,7 +56,7 @@ Azure에 응용 프로그램 패키지를 배포하기 전에 `DiagnosticsConnec
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  Microsoft Visual Studio용 Azure Tools를 사용하여 응용 프로그램을 개발하는 경우 [속성 페이지](https://msdn.microsoft.com/library/ee405486) 를 사용하여 이 값을 설정할 수 있습니다.
+  Microsoft Visual Studio용 Azure Tools를 사용하여 응용 프로그램을 개발하는 경우 속성 페이지를 사용하여 이 값을 설정할 수 있습니다.
 
 ## <a name="exported-certificate-does-not-include-private-key"></a>내보낸 인증서는 개인 키를 포함하지 않습니다.
 SSL에서 웹 역할을 실행하려면 내보낸 관리 인증서가 개인 키를 포함해야 합니다. *Windows 인증서 관리자*를 사용하여 인증서를 내보내는 경우 **개인 키 내보내기** 옵션에 대해 **예**를 선택해야 합니다. 인증서는 현재 지원되는 유일한 형식인 PFX 형식으로 내보내야 합니다.
@@ -69,9 +70,4 @@ SSL에서 웹 역할을 실행하려면 내보낸 관리 인증서가 개인 키
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [실행]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

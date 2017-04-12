@@ -3,7 +3,7 @@ title: "Mobile Apps를 사용하여 Android 앱에 푸시 알림 추가 | Micros
 description: "Mobile Apps를 사용하여 Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
 services: app-service\mobile
 documentationcenter: android
-manager: erikre
+manager: adrianha
 editor: 
 author: ysxu
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
@@ -17,6 +17,7 @@ ms.author: yuaxu
 translationtype: Human Translation
 ms.sourcegitcommit: ef43d1df2a64d85f256b28cd7db5a4f4356a7ec0
 ms.openlocfilehash: 055f55966de1e5c1bb41a6e0bf1c0da1758a3ed0
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -81,9 +82,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Android 빠른 시작]: app-service-mobile-android-get-started.md
 
 [Google Play Services SDK 설정]:https://developers.google.com/android/guides/setup
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,10 +1,10 @@
 ---
-title: "Log Analytics에서 System Center Operations Manager 평가 솔루션을 사용하여 환경 최적화 | Microsoft Docs"
+title: "Azure Log Analytics를 사용하여 System Center Operations Manager 환경 최적화 | Microsoft Docs"
 description: "System Center Operations Manager 평가 솔루션을 사용하여 일정한 간격으로 서버 환경의 위험 및 상태를 평가할 수 있습니다."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 04eebbe19354ab1e927ee2bb41f25dc6676a7c93
-ms.openlocfilehash: c28e73f0a6833793561d8702eb6c6480b9fbc0a4
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 97ae17912eaa7508e3ae1315800408664a340837
+ms.lasthandoff: 03/11/2017
 
 
 ---
 
-# <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution-in-log-analytics"></a>Log Analytics에서 System Center Operations Manager 평가(미리 보기) 솔루션을 사용하여 환경 최적화
+# <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>System Center Operations Manager 평가(미리 보기) 솔루션을 사용하여 환경 최적화
 
 System Center Operations Manager 평가 솔루션을 사용하여 일정한 간격으로 System Center Operations Manager 서버 환경의 위험 및 상태를 평가할 수 있습니다. 이 문서에서는 잠재적인 문제에 대해 올바른 조치를 취할 수 있도록 솔루션을 설치하고, 구성하고, 사용하도록 도와줍니다.
 
@@ -43,12 +45,17 @@ System Center Operations Manager 평가 솔루션을 사용하여 일정한 간�
 
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-- 관리 그룹의 Operations Manager 관리 서버 하나가 OMS에 연결되도록 구성되어야 합니다. Operations Manager 관리 서버를 OMS에 연결하려면 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md#connecting-operations-manager-to-oms)을 참조하세요.
-    - OMS 관리 컴퓨터 그룹을 사용하여 관리 그룹에서 둘 이상의 관리 서버를 모니터링하는 경우 평가를 하나의 관리 서버에서 실행하도록 구성해야 합니다. 자세한 내용은 [평가 규칙 구성](#configure-the-assessment-rule)을 참조하세요.
-- OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대한 자세한 내용은 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)를 참조하세요.
-- System Center Operations Manager 평가에서 Operations Manager 에이전트를 사용하는 경우 Operations Manager 실행 계정을 사용해야 합니다. 자세한 내용은 [OMS용 Operations Manager 실행 계정](#operations-manager-run-as-accounts-for-oms)을 참조하세요.
-    >[!NOTE]
-    솔루션을 추가하면 SCOM 서버에 AdvisorAssessment.exe 파일이 추가됩니다. 구성 데이터가 판독되고 처리를 위해 클라우드의 OMS 서비스로 전송됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다.
+ - OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)의 지침에 따라 솔루션을 설치합니다.
+
+ - 작업 영역에 솔루션을 추가한 후에 대시보드의 System Center Operations Manager 평가 타일은 추가 구성이 필요하다는 메시지를 표시합니다. 타일을 클릭하고 페이지에 언급한 구성 단계를 따릅니다.
+
+ ![System Center Operations Manager 대시보드 타일](./media/log-analytics-scom-assessment/scom-configrequired-tile.png)
+
+ OMS의 솔루션 구성 페이지에 설명한 단계를 수행하여 스크립트를 통해 System Center Operations Manager를 구성할 수 있습니다.
+
+ 대신, SCOM 콘솔을 통해 평가를 구성하려면 아래와 동일한 순서로 단계를 수행합니다.
+1. [System Center Operations Manager 평가를 위한 계정으로 실행 설정](#operations-manager-run-as-accounts-for-oms)  
+2. [System Center Operations Manager 평가 규칙 구성](#configure-the-assessment-rule)
 
 # <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager 평가 데이터 수집 세부 정보
 
@@ -58,7 +65,7 @@ System Center Operations Manager 평가는 사용하도록 설정한 서버를 �
 
 | 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |  ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![예](./media/log-analytics-scom-assessment/oms-bullet-green.png)  | ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![예](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | 7일 |
+| Windows |  ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![예](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![아니요](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | 7일 |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>OMS용 Operations Manager 실행 계정
 
@@ -73,7 +80,11 @@ OMS는 부가 가치 서비스를 제공하는 작업을 위해 관리 팩을 �
 3. Windows 계정을 만드는 마법사에 따라 실행 계정을 만듭니다. 사용할 계정은 아래와 같은 필수 조건을 모두 충족하는 식별된 계정입니다.
 
     >[!NOTE]
-    실행 계정은 다음 요구 사항을 충족해야 합니다. – 환경 내 모든 서버에서 로컬 관리자 그룹의 도메인 계정 멤버(모든 Operations Manager 역할 – 관리 서버, OpsMgr 데이터베이스, 데이터 웨어하우스, 보고, 웹 콘솔, 게이트웨이) – 평가되는 관리 그룹에 대한 Operations Manager 관리자 역할 – 모든 SQL 서버 또는 Operations Manager에 사용되는 인스턴스의 SysAdmin 역할
+    실행 계정은 다음 요구 사항을 충족해야 합니다.
+    - 환경의 모든 서버에서 로컬 관리자 그룹의 도메인 계정 구성원(모든 Operations Manager 역할 - 관리 서버, OpsMgr 데이터베이스, 데이터 웨어하우스, 보고, 웹 콘솔, 게이트웨이)
+    - 평가 중인 관리 그룹에 대한 Operation Manager 관리자 역할
+    - [스크립트](#sql-script-to-grant-granular-permissions-to-the-run-as-account)를 실행하여 Operations Manager에서 사용하는 SQL 인스턴스의 실행 계정에 세부적인 사용 권한을 부여합니다.
+      참고: 이 계정에 sysadmin 권한이 이미 있는 경우 스크립트 실행을 건너뜁니다.
 
 4. **배포 보안**에서 **More secure**(보다 안전)을 선택합니다.
 5. 계정이 분산되는 관리 서버를 지정합니다.
@@ -82,7 +93,7 @@ OMS는 부가 가치 서비스를 제공하는 작업을 위해 관리 팩을 �
 5. 프로필 이름은 *Microsoft System Center Advisor SCOM 평가 실행 프로필*이어야 합니다.
 6. 오른쪽 클릭하여 속성을 업데이트하고 조금 전 3단계에서 만든 실행 계정을 추가합니다.
 
-### <a name="sql-script-granting-permissions-to-the-run-as-account"></a>실행 계정에 대한 권한을 부여하는 SQL 스크립트
+### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>실행 계정에 대한 세부적인 사용 권한을 부여하는 SQL 스크립트
 
 Operations Manager에 사용되는 SQL 인스턴스에서 다음 SQL 스크립트를 실행하여 실행 계정에 필요한 권한을 부여합니다.
 
@@ -144,8 +155,8 @@ System Center Operations Manager 평가 솔루션의 관리 팩에는 *Microsoft
 1. Operations Manager 콘솔의 **제작** 작업 영역에서 **규칙** 창의 *Microsoft System Center Advisor SCOM 평가 실행 평가 규칙*이라는 규칙을 검색합니다.
 2. 검색 결과에서 *유형: 관리 서버*라는 텍스트를 포함하는 항목을 선택합니다.
 3. 규칙을 오른쪽 클릭한 다음 **재정의** > **다음 클래스의 특정 개체: 관리 서버**를 클릭합니다.
-4.  사용 가능한 관리 서버 목록에서 규칙을 실행할 관리 서버를 선택합니다.
-5.  **사용** 매개 변수 값에 대한 재정의 값을 **참**으로 변경해야 합니다.  
+4.    사용 가능한 관리 서버 목록에서 규칙을 실행할 관리 서버를 선택합니다.
+5.    **사용** 매개 변수 값에 대한 재정의 값을 **참**으로 변경해야 합니다.  
     ![재정의 매개 변수](./media/log-analytics-scom-assessment/rule.png)
 
 이 창에 있는 동안 다음 정차를 사용하여 실행 빈도를 구성합니다.
@@ -168,7 +179,7 @@ System Center Operations Manager 평가 솔루션의 관리 팩에는 *Microsoft
 
 ### <a name="how-weights-are-calculated"></a>가중치 계산 방법
 
-가중치는 3개의 주요 요인을 기반으로 하는 집계 값입니다.
+가중치는&3;개의 주요 요인을 기반으로 하는 집계 값입니다.
 
 - 식별된 문제로 인해 문제가 발생될 수 있는 *확률* 입니다. 확률이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
 - 문제가 발생된 경우 조직에 대한 문제의 *영향* 입니다. 영향이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
@@ -232,7 +243,7 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>권장 사항이 무시되었는지 확인하려면
 
-1. 예약된 다음 평가가 실행된 후(기본적으로 7일마다) 지정된 권장 사항이 평가 대시보드에 무시됨으로 표시됩니다.
+1. 예약된 다음 평가가 실행된 후(기본적으로&7;일마다) 지정된 권장 사항이 평가 대시보드에 무시됨으로 표시됩니다.
 2. 다음 로그 검색 쿼리를 사용하여 무시된 모든 권장 사항을 나열할 수 있습니다.
 
     ```
@@ -243,15 +254,21 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 ## <a name="system-center-operations-manager-assessment-solution-faq"></a>System Center Operations Manager 평가 솔루션 FAQ
 
+*평가 솔루션을 내 OMS 작업 공간에 추가합니다. 하지만 권장 사항이 표시되지 않습니다. 이유* 솔루션을 추가한 후, 다음 단계 보기를 사용하여 OMS 대시보드의 권장 사항을 봅니다.  
+
+- [System Center Operations Manager 평가를 위한 계정으로 실행 설정](#operations-manager-run-as-accounts-for-oms)  
+- [System Center Operations Manager 평가 규칙 구성](#configure-the-assessment-rule)
+
+
 *평가를 실행 빈도를 구성하는 방법이 있나요?* 예. [실행 빈도 구성](#configure-the-run-frequency)을 참조하세요.
 
-*System Center Operations Manager 평가 솔루션을 추가한 후 다른 서버가 발견되면, 이 서버를 평가하나요?* 예, 검색된 이후 기본적으로 7일마다 평가됩니다.
+*System Center Operations Manager 평가 솔루션을 추가한 후 다른 서버가 발견되면, 이 서버를 평가하나요?* 예, 검색된 이후 기본적으로&7;일마다 평가됩니다.
 
 *데이터 수집을 수행하는 프로세스의 이름은 무엇인가요?* AdvisorAssessment.exe
 
 *AdvisorAssessment.exe 프로세스가 왜 실행되나요?* AdvisorAssessment.exe는 평가 규칙을 사용하도록 설정된 관리 서버의 HealthService에서 실행됩니다. 이 프로세스를 사용하는 경우 전체 환경에 대한 검색은 원격 데이터 수집을 통해 수행됩니다.
 
-*데이터 수집에 시간이 얼마나 걸리나요?* 서버의 데이터 수집은 약 1시간이 걸립니다. Operations Manager 인스턴스 또는 데이터베이스가 많은 환경에서는 더 오래 걸릴 수 있습니다.
+*데이터 수집에 시간이 얼마나 걸리나요?* 서버의 데이터 수집은 약&1;시간이 걸립니다. Operations Manager 인스턴스 또는 데이터베이스가 많은 환경에서는 더 오래 걸릴 수 있습니다.
 
 *평가 간격을 1440분 미만으로 설정하면 어떻게 되나요?* 평가는 최다 하루에 한번 실행하도록 미리 구성됩니다. 간격 값을 1440분 미만의 값으로 재정의하면 평가는 1440분을 간격 값으로 사용합니다.
 
@@ -271,9 +288,4 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 ## <a name="next-steps"></a>다음 단계
 
 - [로그를 검색](log-analytics-log-searches.md)하여 자세한 System Center Operations Manager 평가 데이터 및 권장 사항을 확인합니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

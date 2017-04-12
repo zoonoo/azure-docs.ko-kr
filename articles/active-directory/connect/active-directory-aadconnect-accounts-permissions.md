@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
+ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
+ms.openlocfilehash: e5f643d444fb2bf00aa91083f5d09962372e0dbb
 
 
 ---
@@ -29,11 +29,13 @@ Azure AD Connect 설치 마법사는 두 가지 다른 경로를 제공합니다
 ## <a name="related-documentation"></a>관련 설명서
 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory-aadconnect.md)에 대한 설명서를 읽지 않은 경우 다음 테이블에서 관련 항목에 대한 링크를 제공합니다.
 
-| 항목 |
+|항목 |링크|  
 | --- | --- |
-| Express 설정을 사용하여 설치 |
-| 사용자 지정 설정을 사용하여 설치 |
-| DirSync에서 업그레이드 |
+|Azure AD Connect 다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](./active-directory-aadconnect-get-started-express.md)|
+|사용자 지정 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](./active-directory-aadconnect-get-started-custom.md)|
+|DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|설치 후 | [설치 확인 및 라이선스 할당 ](active-directory-aadconnect-whats-next.md)|
 
 ## <a name="express-settings-installation"></a>Express 설정 설치
 Express 설정에서는 온-프레미스 Active Directory를 Azure AD Connect에 필요한 사용 권한으로 구성하도록 AD DS 설치 마법사가 엔터프라이즈 관리자 자격 증명을 요청합니다. DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증명은 DirSync에서 사용되는 계정의 암호를 다시 설정하는 데 사용됩니다. 또한 Azure AD 전역 관리자 자격 증명이 필요합니다.
@@ -45,7 +47,7 @@ Express 설정에서는 온-프레미스 Active Directory를 Azure AD Connect에
 | AD DS에 연결 |온-프레미스 Active Directory 자격 증명 |Active Directory의 Enterprise Admins(EA) 그룹의 구성원 |<li>Active Directory에서 [계정](#active-directory-account) 을 만들고 권한을 부여합니다. 만든 계정은 동기화 중에 디렉터리 정보를 읽고 쓰는 데 사용됩니다.</li> |
 
 ### <a name="enterprise-admin-credentials"></a>엔터프라이즈 관리자 자격 증명
-이러한 자격 증명은 설치 중에 사용되고 설치가 완료된 후에 사용됩니다. 도메인 관리자가 아닌 엔터프라이즈 관리자가 모든 도메인에서 Active Directory에 사용 권한을 설정할 수 있습니다.
+이러한 자격 증명은 설치 중에 사용되고 설치가 완료된 후에 사용되지 않습니다. 도메인 관리자가 아닌 엔터프라이즈 관리자가 모든 도메인에서 Active Directory에 사용 권한을 설정해야 합니다.
 
 ### <a name="global-admin-credentials"></a>글로벌 관리자 자격 증명
 이러한 자격 증명은 설치 중에 사용되고 설치가 완료된 후에 사용되지 않습니다. Azure AD에 대한 변경 내용을 동기화하는 데 사용된 [Azure AD 계정](#azure-ad-service-account) 을 만드는 데 사용합니다. 또한 계정을 사용하면 Azure AD에서 기능으로 동기화할 수 있습니다.
@@ -84,9 +86,9 @@ Azure AD Connect를 설치할 때 **디렉터리 연결** 페이지에 지정한
 | 기능 | 권한 |
 | --- | --- |
 | 암호 동기화 |<li>디렉터리 변경 내용 복제</li>  <li>모든 디렉터리 변경 내용 복제 |
-| Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](../active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
+| Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
 | 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions)에 설명된 특성에 사용 권한을 작성합니다. |
-| 장치 쓰기 저장 |[장치 쓰기 저장](../active-directory-aadconnect-feature-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다. |
+| 장치 쓰기 저장 |[장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다. |
 | 그룹 쓰기 저장 |배포 그룹을 찾을 수 있어야 하는 OU에서 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다. |
 
 ## <a name="upgrade"></a>업그레이드
@@ -134,6 +136,6 @@ Azure AD의 계정은 동기화 서비스의 사용에 생성됩니다. 이 계�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

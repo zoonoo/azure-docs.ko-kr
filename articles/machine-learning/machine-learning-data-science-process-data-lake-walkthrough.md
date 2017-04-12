@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Lake에서 확장성 있는 데이터 과학: 종단 간 연습 | Microsoft Docs"
+title: "Azure Data Lake를 사용한 확장성 있는 데이터 과학: 종단 간 연습 | Microsoft Docs"
 description: "Azure Data Lake를 사용하여 데이터 집합에 대해 데이터 탐색 및 이진 분류 작업을 수행하는 방법입니다."
 services: machine-learning
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/30/2017
 ms.author: bradsev;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8c625752b40cffd0e7f791bd3a360f4bfb4622e7
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: c7444d457592538a26834091c77f49a3c1ef8591
+ms.lasthandoff: 02/24/2017
 
 
 ---
-# <a name="scalable-data-science-in-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake에서 확장성 있는 데이터 과학: 종단 간 연습
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake를 사용한 확장성 있는 데이터 과학: 종단 간 연습
 이 연습에서는 팁을 요금으로 지급할지 여부를 예측하기 위해 NYC Taxi Trip 및 요금 데이터 집합 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여 줍니다. [팀 데이터 과학 프로세스](http://aka.ms/datascienceprocess), 종단 간, 데이터 획득에서 모델 학습 후 모델을 게시하는 웹 서비스 배포 단계까지 안내합니다.
 
 ### <a name="azure-data-lake-analytics"></a>Azure 데이터 레이크 분석
@@ -46,21 +47,13 @@ Azure 기계 학습 스튜디오는 예측 모델을 빌드 및 배포하는 데
 이 토픽을 시작하기 전에 다음이 있어야 합니다.
 
 * Azure 구독. 아직 가지고 있지 않은 경우 [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* [권장] Visual Studio 2013 또는 2015. 아직 이러한 버전이 설치되지 않은 경우 [여기](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)에서 무료 Community Edition을 다운로드할 수 있습니다. Visual Studio 섹션 아래에서 **Community 2015 다운로드** 단추를 클릭합니다. 
+* [권장] Visual Studio 2013 이상. 아직 이러한 버전이 설치되지 않은 경우 [Visual Studio Community](https://www.visualstudio.com/vs/community/)에서 무료로 다운로드할 수 있습니다.
 
 > [!NOTE]
 > Visual Studio 대신 Azure 포털을 사용하여 Azure Data Lake 쿼리를 제출할 수도 있습니다. Visual Studio 및 포털에서 이 작업을 수행하는 방법에 대한 지침은 **U-SQL로 데이터 처리**섹션에서 설명합니다. 
 > 
 > 
 
-* Azure Data Lake 미리 보기 등록
-
-> [!NOTE]
-> 이러한 서비스는 미리 보기 상태이므로 Azure Data Lake 저장소(ADLS) 및 Azure Data Lake 분석(ADLA) 사용에 대한 승인을 받아야 합니다. 첫 번째 ADLS 또는 ADLA를 만들 때 등록하라는 메시지가 표시됩니다. 등록하려면 **미리 보기 등록**을 클릭하고 규약 내용을 읽은 후 **확인**을 클릭합니다. 예를 들어 다음은 ADLS 등록 페이지입니다.
-> 
-> 
-
- ![2](./media/machine-learning-data-science-process-data-lake-walkthrough/2-ADLA-preview-signup.PNG)
 
 ## <a name="prepare-data-science-environment-for-azure-data-lake"></a>Azure Data Lake에 대한 데이터 과학 환경 준비
 이 연습에 대한 데이터 과학 환경을 준비하려면 다음 리소스를 만듭니다.
@@ -72,13 +65,15 @@ Azure 기계 학습 스튜디오는 예측 모델을 빌드 및 배포하는 데
 * Visual Studio용 Azure Data Lake 도구(권장)
 
 이 섹션에서는 이러한 각 리소스를 만드는 방법에 대한 지침을 제공합니다. Azure 기계 학습에서 Python 대신 Hive 테이블을 사용하여 모델을 작성하려는 경우 HDInsight(Hadoop) 클러스터를 프로비전해야 합니다. 이러한 대체 절차는 아래의 해당 섹션에 설명되어 있습니다.
-<br/>
 
-> AZURE.NOTE **Azure Data Lake Store**는 별도로 만들거나 **Azure Data Lake Analytics**을 만들 때 기본 저장소로 만들 수 있습니다. 아래에서는 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 저장소 계정을 별도의 단계로 만들지 않아도 됩니다.
-> <br/>
+
+> [!NOTE]
+> **Azure Data Lake Store**는 별도로 만들거나 **Azure Data Lake Analytics**을 만들 때 기본 저장소로 만들 수 있습니다. 아래에서는 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 저장소 계정을 별도의 단계로 만들지 않아도 됩니다.
+>
 > 
-> ### <a name="create-an-azure-data-lake-store"></a>Azure 데이터 레이크 저장소 만들기
-> 
+
+### <a name="create-an-azure-data-lake-store"></a>Azure 데이터 레이크 저장소 만들기
+
 
 [Azure 포털](http://portal.azure.com)에서 ADLS를 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 여기 설명된 **옵션 구성** 블레이드의 **DataSource** 블레이드에서 클러스터 AAD ID를 설정해야 합니다. 
 
@@ -151,7 +146,7 @@ U-SQL을 실행하려면 Visual Studio를 열고 **파일 --> 새로 만들기 -
 
 ![9](./media/machine-learning-data-science-process-data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="a-nameingestadata-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>데이터 수집: 공용 Blob에서 데이터 읽기
+### <a name="ingest"></a>데이터 수집: 공용 Blob에서 데이터 읽기
 Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()**를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 12개 trip 파일을 모두 읽는 데 **trip\_data_{\*\}.csv**를 사용할 수 있습니다. 
 
     ///Read in Trip data
@@ -213,7 +208,7 @@ Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_accoun
 
  ![11](./media/machine-learning-data-science-process-data-lake-walkthrough/11-data-in-ADL.PNG)
 
-### <a name="a-namequalityadata-quality-checks"></a><a name="quality"></a>데이터 품질 검사
+### <a name="quality"></a>데이터 품질 검사
 Trip 및 fare 테이블을 읽은 후 다음과 같은 방식으로 데이터 품질 검사를 수행할 수 있습니다. 결과 CSV 파일은 Azure Blob 저장소 또는 Azure Data Lake 저장소에 출력할 수 있습니다. 
 
 medallion 수와 medallion의 고유 번호를 찾습니다.
@@ -285,7 +280,7 @@ pickup_longitude 조건으로 유효하지 않은 레코드를 찾습니다.
 
 
 
-### <a name="a-nameexploreadata-exploration"></a><a name="explore"></a>데이터 탐색
+### <a name="explore"></a>데이터 탐색
 데이터를 잘 이해하기 위해 몇 가지 데이터 탐색을 수행할 수 있습니다.
 
 왕복 및 비왕복 여정의 분포를 찾습니다.
@@ -352,7 +347,7 @@ pickup_longitude 조건으로 유효하지 않은 레코드를 찾습니다.
     USING Outputters.Csv(); 
 
 
-### <a name="a-namejoinajoin-trip-and-fare-tables"></a><a name="join"></a>trip 및 fare 테이블 조인
+### <a name="join"></a>trip 및 fare 테이블 조인
 medallion, hack_license 및 pickup_time으로 trip 및 fare 테이블을 조인할 수 있습니다.
 
     //join trip and fare table
@@ -394,7 +389,7 @@ medallion, hack_license 및 pickup_time으로 trip 및 fare 테이블을 조인�
     USING Outputters.Csv();
 
 
-### <a name="a-namesampleadata-sampling"></a><a name="sample"></a>데이터 샘플링
+### <a name="sample"></a>데이터 샘플링
 먼저 조인된 테이블에서 0.1%의 데이터를 임의로 선택합니다.
 
     //random select 1/1000 data for modeling purpose
@@ -434,7 +429,7 @@ medallion, hack_license 및 pickup_time으로 trip 및 fare 테이블을 조인�
     USING Outputters.Csv(); 
 
 
-### <a name="a-namerunarun-u-sql-jobs"></a><a name="run"></a>U-SQL 작업 실행
+### <a name="run"></a>U-SQL 작업 실행
 U-SQL 스크립트 편집을 마치면 Azure Data Lake 분석 계정을 사용하여 서버에 제출할 수 있습니다. **Data Lake**, **작업 제출**을 클릭하고 **분석 계정**, **병렬 처리**를 선택하고 **제출** 단추를 클릭합니다.  
 
  ![12](./media/machine-learning-data-science-process-data-lake-walkthrough/12-submit-USQL.PNG)
@@ -691,10 +686,5 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 * [실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
 * [팀 데이터 과학 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
 * [Azure HDInsight에서 Spark를 사용하는 데이터 과학 프로세스 개요](machine-learning-data-science-spark-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

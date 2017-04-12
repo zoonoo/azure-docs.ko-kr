@@ -1,7 +1,7 @@
 ---
-title: "5가지 데이터 과학 질문 - 초급자를 위한 데이터 과학 | Microsoft Docs"
+title: "5가지 데이터 과학 질문 - 초급자를 위한 데이터 과학 - Azure | Microsoft Docs"
 description: "데이터 과학으로 답변할 수 있는 5가지 질문부터 시작하는 5개의 짧은 비디오인 초급자를 위한 데이터 과학을 통해 데이터 과학에 대해 빠르게 알아볼 수 있습니다."
-keywords: "데이터 과학 수행,데이터 과학 초급자,초급자를 위한 데이터 과학, 질문 유형,데이터 과학 질문,데이터 과학 비디오"
+keywords: "데이터 과학 수행,데이터 과학 초급자,초급자를 위한 데이터 과학, 데이터 과학 기본 사항,데이터 과학 질문,데이터 과학 비디오, 데이터 과학 소개"
 services: machine-learning
 documentationcenter: na
 author: cjgronlund
@@ -13,25 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da5960c6ca030218a405e8827737680d24af4228
+ms.sourcegitcommit: 50d1f8dfc7ce2d8bf4b04cff68698eafd56ce9c2
+ms.openlocfilehash: 518a7d2b5e43d8133d54ab583e4545a3ee9b3cba
+ms.lasthandoff: 02/10/2017
 
 
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>초급자를 위한 데이터 과학 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
-최고의 데이터 과학자가 제공하는 5개의 짧은 비디오로 구성된 *초급자를 위한 데이터 과학*에서 데이터 과학을 빠르게 살펴보세요. 이러한 비디오는 기초적이지만 데이터 과학에 관심이 있든 데이터 과학자와 함께 일하든 상관없이 유용한 정보를 제공합니다.
+최고의 데이터 과학자가 제공하는&5;개의 짧은 비디오로 구성된 *초급자를 위한 데이터 과학*에서 데이터 과학을 빠르게 살펴보세요. 이러한 비디오는 기초적이지만 데이터 과학에 관심이 있든 데이터 과학자와 함께 일하든 상관없이 유용한 정보를 제공합니다.
 
 이 첫 번째 비디오는 데이터 과학이 대답할 수 있는 종류의 질문에 대한 것입니다. 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
-> 
-> 
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>이 시리즈의 다른 비디오
-*초급자를 위한 데이터 과학* 은 총 25분 동안 데이터 과학을 간략히 소개합니다. 다른 4개의 비디오를 확인해 보세요.
+*초급자를 위한 데이터 과학* 은 총 25분 동안 데이터 과학을 간략히 소개합니다. 다른&4;개의 비디오를 확인해 보세요.
 
 * 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
 * 비디오 2: [데이터 과학에 사용할 수 있게 데이터가 준비되었나요?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4분 56초)*
@@ -48,14 +49,14 @@ ms.openlocfilehash: da5960c6ca030218a405e8827737680d24af4228
 
 데이터 과학은 숫자와 이름(범주 또는 레이블이라고도 함)을 사용하여 질문에 대한 답변을 예측합니다.
 
-뜻밖일 수도 있지만 *데이터 과학으로 답변되는 질문은 다음 5개뿐입니다*.
+뜻밖일 수도 있지만 *데이터 과학으로 답변되는 질문은 다음&5;개뿐입니다*.
 
 * 이것은 A인가요 B인가요?
 * 이것은 이상한가요?
 * 양 또는 개수는 얼마인가요?
 * 어떻게 구성되어 있나요?
 * 다음에는 어떻게 해야 하나요?
-  
+
   이러한 각 질문은 알고리즘이라고 하는 별도의 기계 학습 방법군에 따라 답변됩니다.
 
 알고리즘을 레시피로, 데이터를 재료로 생각하면 도움이 될 것입니다. 알고리즘은 답변을 얻기 위해 데이터를 조합하고 혼합하는 방법을 설명합니다. 컴퓨터는 믹서기와 같습니다. 알고리즘의 어려운 작업 대부분을 꽤 빠르게 처리합니다.
@@ -65,7 +66,7 @@ ms.openlocfilehash: da5960c6ca030218a405e8827737680d24af4228
 
 ![분류 알고리즘: 이것은 A인가요 B인가요?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-classification-algorithms.png)
 
-이 알고리즘군을 2클래스 분류라고 합니다.
+이 알고리즘군을&2;클래스 분류라고 합니다.
 
 두 가지 가능한 답변이 있는 질문에 유용합니다.
 
@@ -74,7 +75,7 @@ ms.openlocfilehash: da5960c6ca030218a405e8827737680d24af4228
 * 이 타이어는 다음 1,000마일을 가는 동안 터질까요? 예 또는 아니요?
 * 어떤 방식이 더 많은 고객을 이끌까요? 5달러 쿠폰 또는 25% 할인?
 
-이 질문을 3개 이상의 옵션을 포함하도록 “이것은 A인가요? B인가요? C인가요? D인가요?” 등과 같이 다시 쓸 수 있습니다.  이것을 다중 클래스 분류라고 하며 이 분류 방식은 몇 개 또는 몇천 개의 가능한 답변이 있을 때 유용합니다. 다중 클래스 분류는 가능성이 가장 높은 하나를 선택합니다.
+이 질문을&3;개 이상의 옵션을 포함하도록 “이것은 A인가요? B인가요? C인가요? D인가요?” 등과 같이 다시 쓸 수 있습니다.  이것을 다중 클래스 분류라고 하며 이 분류 방식은 몇 개 또는 몇천 개의 가능한 답변이 있을 때 유용합니다. 다중 클래스 분류는 가능성이 가장 높은 하나를 선택합니다.
 
 ## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>질문 2: 이것은 이상한가요?는 변칙 감지 알고리즘을 사용합니다.
 데이터 과학으로 답변을 얻을 수 있는 다음 질문은 이것은 이상한가요?입니다. 이 질문은 변칙 감지라고 하는 알고리즘군을 통해 답변됩니다.
@@ -140,10 +141,4 @@ ms.openlocfilehash: da5960c6ca030218a405e8827737680d24af4228
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
 * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

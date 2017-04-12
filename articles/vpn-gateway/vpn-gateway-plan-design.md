@@ -1,10 +1,10 @@
 ---
-title: "VPN Gateway 계획 및 설계 | Microsoft Docs"
+title: "프레미스 간 연결을 위한 계획 및 설계: Azure VPN Gateway | Microsoft Docs"
 description: "크로스-프레미스, 하이브리드, VNet 간 연결에 대한 VPN 게이트웨이 계획 및 설계에 대해 알아보세요."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/25/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 03f9294b558a075705fca4bd647a2154e155a1ea
+ms.sourcegitcommit: d2087d4a1844379ae642c9ce5b08d62edef2fccf
+ms.openlocfilehash: 21723b3c8ab636f6c4a497abece59ce83a46d65f
 
 
 ---
@@ -117,7 +117,7 @@ VPN 장치를 구성해본 경험이 필요하거나 누군가가 장치를 대�
 
 **강제 터널링 다이어그램**
 
-![강제 터널링 연결](./media/vpn-gateway-plan-design/forced-tunnel.png "forced tunneling")
+![Azure VPN Gateway 강제 터널링 다이어그램](./media/vpn-gateway-plan-design/forced-tunneling-diagram.png)
 
 두 배포 모델에서 다양한 도구를 사용하여 강제 터널링 연결을 구성할 수 있습니다. 자세한 내용은 다음 테이블을 참조하세요. 이 구성에 사용할 수 있게 된 새 문서, 새로운 배포 모델 및 추가 도구로 이 표를 업데이트합니다. 문서를 사용할 수 있는 경우 표에서 직접 링크를 제공합니다.
 
@@ -131,6 +131,6 @@ VPN 장치를 구성해본 경험이 필요하거나 누군가가 장치를 대�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -4,7 +4,7 @@ description: "Azure 앱 서비스에서 앱을 강화하여 용량 및 기능을
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 0ab1dcc8ccc621f5dabfffffb17fd1822f78eb1c
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 75ddbacbd4dd14597b786d26f0730477f6c85811
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -80,8 +81,8 @@ ms.openlocfilehash: 0ab1dcc8ccc621f5dabfffffb17fd1822f78eb1c
 * **무료** 및 **공유** 계획 계층은 32비트 응용 프로그램만 지원합니다.
 
 ### <a name="debugger-support"></a>디버거 지원
-* 디버거 지원은 App Service 계획당 1건의 연결에서 **무료**, **공유** 및 **기본** 모드에 대해 사용할 수 있습니다.
-* 디버거 지원은 App Service 계획당 5건의 동시 연결에서 **표준** 및 **프리미엄** 모드에 대해 사용할 수 있습니다.
+* 디버거 지원은 App Service 계획당&1;건의 연결에서 **무료**, **공유** 및 **기본** 모드에 대해 사용할 수 있습니다.
+* 디버거 지원은 App Service 계획당&5;건의 동시 연결에서 **표준** 및 **프리미엄** 모드에 대해 사용할 수 있습니다.
 
 <a name="OtherFeatures"></a>
 
@@ -89,7 +90,7 @@ ms.openlocfilehash: 0ab1dcc8ccc621f5dabfffffb17fd1822f78eb1c
 * 개발자를 비롯하여 모든 사용자에게 유용한 가격 및 기능을 포함하여 앱 서비스 계획의 나머지 모든 기능에 대한 자세한 내용은 [앱 서비스 가격 정보](https://azure.microsoft.com/pricing/details/web-sites/)를 참조하세요.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정은 없습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](https://azure.microsoft.com/try/app-service/)로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정은 없습니다.
 > 
 > 
 
@@ -115,9 +116,9 @@ ms.openlocfilehash: 0ab1dcc8ccc621f5dabfffffb17fd1822f78eb1c
 * 확장성 있고 복원력이 뛰어난 아키텍처 빌드를 포함하여 Azure 앱 서비스 모범 사례에 대한 자세한 내용은 [모범 사례: Azure 앱 서비스 웹앱](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)을 참조하세요.
 * 앱 서비스 앱 크기 조정에 대한 비디오는 다음 리소스를 참조하세요.
   
-  * [Azure 웹 사이트 크기를 조정하는 방법 - 스테판 스차코우(Stefan Schackow)](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
-  * [Azure 웹 사이트, CPU 또는 예약 리소스 크기 자동 조정 - 스테판 스차코우(Stefan Schackow)](/documentation/videos/auto-scaling-azure-web-sites/)
-  * [Azure 웹 사이트 크기 조정 방법 - 스테판 스차코우(Stefan Schackow)](/documentation/videos/how-azure-web-sites-scale/)
+  * [Azure 웹 사이트 크기를 조정하는 방법 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
+  * [Azure 웹 사이트, CPU 또는 예약 리소스 크기 자동 조정 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/resources/videos/auto-scaling-azure-web-sites/)
+  * [Azure 웹 사이트 크기 조정 방법 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)
 
 <!-- LINKS -->
 [vmsizes]:/pricing/details/app-service/
@@ -140,9 +141,4 @@ ms.openlocfilehash: 0ab1dcc8ccc621f5dabfffffb17fd1822f78eb1c
 [ResourceGroup]: ./media/web-sites-scale/scale10ResourceGroup.png
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

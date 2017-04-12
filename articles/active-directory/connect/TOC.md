@@ -11,7 +11,7 @@
 
 # 시작하기
 ## [필수 구성 요소](active-directory-aadconnect-prerequisites.md)
-## [Azure AD Connect 설치](active-directory-aadconnect-accounts-permissions.md)
+## [Azure AD Connect 설치](active-directory-aadconnect-select-installation.md)
 ### [Express 설정](active-directory-aadconnect-get-started-express.md)
 ### [사용자 지정 설정](active-directory-aadconnect-get-started-custom.md)
 ### [DirSync에서 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)
@@ -22,8 +22,10 @@
 ## 계획 및 디자인
 ### [설계 개념](active-directory-aadconnect-design-concepts.md)
 ### [Azure AD Connect에 대한 토폴로지](active-directory-aadconnect-topologies.md)
+### [Single Sign-On](active-directory-aadconnect-sso.md)
+### [Azure의 Active Directory Federation Services](active-directory-aadconnect-azure-adfs.md)
 ### [인스턴스에 대한 특별 고려 사항](active-directory-aadconnect-instances.md)
-
+### [Azure AD가 이미 있는 경우](active-directory-aadconnect-existing-tenant.md)
 ## [Azure AD Connect 관리](active-directory-aadconnect-whats-next.md)
 ### [O365 및 Azure AD에 대한 인증서 갱신](active-directory-aadconnect-o365-certs.md)
 ### [장치 쓰기 저장 사용](active-directory-aadconnect-feature-device-writeback.md)
@@ -32,21 +34,27 @@
 ### [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 
+
 ## Azure AD Connect 동기화 관리
-### [일반 SQL 커넥터 단계별 가이드](active-directory-aadconnectsync-connector-genericsql-step-by-step.md)
 ### [실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [암호 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [통과 인증](active-directory-aadconnect-pass-through-authentication.md)
 ### [Azure AD 서비스 계정](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [설치 마법사](active-directory-aadconnectsync-installation-wizard.md)
 ### [기본 구성 변경](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [필터링 구성](active-directory-aadconnectsync-configure-filtering.md)
 ### [스케줄러](active-directory-aadconnectsync-feature-scheduler.md)
 ### [디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md)
+
+### [Azure AD Sync 서비스 계정 암호 변경](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [AD 휴지통 사용](active-directory-aadconnectsync-recycle-bin.md)
+
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
-#### [작업](active-directory-aadconnectsync-service-manager-ui-operations.md?toc=%2fazure%2factive-directory%2faad-connect%2ftoc.json)
+#### [작업](active-directory-aadconnectsync-service-manager-ui-operations.md)
 #### [커넥터](active-directory-aadconnectsync-service-manager-ui-connectors.md)
 #### [메타버스 디자이너](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)
 #### [메타 버스 검색](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+
 
 ## 페더레이션 서비스 관리
 ### [관리 및 사용자 지정](active-directory-aadconnect-federation-management.md)
@@ -55,17 +63,16 @@
 ## 문제 해결
 ### [연결](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [동기화 중 오류](active-directory-aadconnect-troubleshoot-sync-errors.md)
-
+### [개체가 동기화되지 않음](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
+### [암호 동기화](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [LocalDB 10GB 제한에서 복구하는 방법](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # 참조
-## [Windows PowerShell 커넥터](active-directory-aadconnectsync-connector-powershell.md)
-## [일반 SQL 커넥터](active-directory-aadconnectsync-connector-genericsql.md)
-## [일반 LDAP 커넥터](active-directory-aadconnectsync-connector-genericldap.md)
-## [Lotus Domino 커넥터](active-directory-aadconnectsync-connector-domino.md)
 ## [ID 동기화 및 중복 특성 복원력](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [포트 및 프로토콜이 필요한 하이브리드 ID](active-directory-aadconnect-ports.md)
 ## [미리 보기의 기능](active-directory-aadconnect-feature-preview.md)
 ## [버전 기록](active-directory-aadconnect-version-history.md)
+## [계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md)
 
 ## Azure AD Connect 동기화
 ### [Azure Active Directory에 동기화된 특성](active-directory-aadconnectsync-attributes-synchronized.md)
@@ -87,8 +94,3 @@
 # 리소스
 ##[Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
 ##[DirSync 사용 중단](active-directory-aadconnect-dirsync-deprecated.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

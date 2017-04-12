@@ -1,9 +1,21 @@
 ---
-layout: LandingPage
+title: "Azure Site Recovery 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "복제본을 배포하고 관리하여 물리적 서버 및 가상 컴퓨터에 대한 클라우드 재해 복구 및 비즈니스 연속성을 설정하는 방법에 대해 알아봅니다."
+services: site-recovery
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: site-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
+ms.sourcegitcommit: 491bbfe61cf387f18b903caa45529be206876d49
+ms.openlocfilehash: fe253f5d95b0b9351d6ffd382cbba0c490074f15
+ms.lasthandoff: 02/28/2017
 
 ---
 # <a name="site-recovery-documentation"></a>Site Recovery 설명서
@@ -30,7 +42,25 @@ ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
         </a>
     </li>
     <li>
-        <a href="/azure/site-recovery/site-recovery-best-practices">
+        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=recovery-manager">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Site Recovery 비디오 라이브러리</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/site-recovery/site-recovery-vmware-to-azure">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,6 +77,42 @@ ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/site-recovery/site-recovery-hyper-v-site-to-azure">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure에 Hyper-V VM 복제 시작(VMM 없음)</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/site-recovery/site-recovery-vmm-to-azure">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure에 VMM 클라우드의 Hyper-V VM 복제 시작</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+   </li>
 </ul>
 
 ---
@@ -80,10 +146,5 @@ ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 01/07/2017
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d41a332d0d4265bc2802be65c7f89aa07e46ae97
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 2a7f2cb27cb4ed2d23fee09d53f85283a8592b3a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -44,8 +45,8 @@ Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액
 
 이 자습서는 Azure에서 웹 응용 프로그램을 만들기 위한 기본 사항을 잘 알고 있는 웹 개발자를 대상으로 합니다. Azure 웹앱에 대한 자세한 내용은 [웹앱 개요](../app-service-web/app-service-web-overview.md)를 참조하세요.
 
-## <a name="a-idpackagesaadd-nuget-packages"></a><a id="packages"></a>NuGet 패키지 추가
-웹 응용 프로그램을 위해 설치해야 하는 2개의 패키지가 있습니다.
+## <a id="packages"></a>NuGet 패키지 추가
+웹 응용 프로그램을 위해 설치해야 하는&2;개의 패키지가 있습니다.
 
 * Active Directory 인증 라이브러리 - Azure Active Directory를 조작하고 사용자 ID를 관리하기 위한 메서드를 포함합니다.
 * Azure 주요 자격 증명 모음 라이브러리 - Azure 주요 자격 증명 모음을 조작하기 위한 메서드를 포함합니다.
@@ -58,8 +59,8 @@ Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액
     Install-Package Microsoft.Azure.KeyVault
 
 
-## <a name="a-idwebconfigamodify-webconfig"></a><a id="webconfig"></a>Web.Config 수정
-다음과 같이 web.config 파일에 추가해야 하는 3개의 응용 프로그램 설정이 있습니다.
+## <a id="webconfig"></a>Web.Config 수정
+다음과 같이 web.config 파일에 추가해야 하는&3;개의 응용 프로그램 설정이 있습니다.
 
     <!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
     <add key="ClientId" value="clientid" />
@@ -71,7 +72,7 @@ Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액
 
 응용 프로그램을 Azure 웹앱으로 호스트하지 않으려는 경우 web.config에 실제 ClientId, 클라이언트 암호 및 암호 URI 값을 추가해야 합니다. 그렇지 않으면 보안 강화를 위해 Azure 포털에서 실제 값을 추가할 것이므로 이러한 더미 값을 그대로 둡니다.
 
-## <a name="a-idgettokenaadd-method-to-get-an-access-token"></a><a id="gettoken"></a>액세스 토큰을 가져오는 메서드 추가
+## <a id="gettoken"></a>액세스 토큰을 가져오는 메서드 추가
 주요 자격 증명 모음 API를 사용하려면 액세스 토큰이 필요합니다. 주요 자격 증명 모음 클라이언트가 주요 자격 증명 모음 API 호출을 처리하지만 액세스 토큰을 가져오는 함수를 제공해야 합니다.  
 
 다음은 Azure Active Directory에서 액세스 토큰을 가져오는 코드입니다. 이 코드는 응용 프로그램의 아무 곳에나 배치할 수 있습니다. 이 경우 Utils 또는 EncryptionHelper 클래스를 추가하겠습니다.  
@@ -103,7 +104,7 @@ Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액
 > 
 > 
 
-## <a name="a-idappstartaretrieve-the-secret-on-application-start"></a><a id="appstart"></a>응용 프로그램 시작 시 암호 검색
+## <a id="appstart"></a>응용 프로그램 시작 시 암호 검색
 이제 주요 자격 증명 모음 API를 호출하고 암호를 검색하는 코드가 필요합니다. 다음 코드는 사용하기 전에 호출되기만 하면 아무 곳에나 배치할 수 있습니다. 이 경우 시작 시 한 번 실행되어 응용 프로그램에서 암호를 사용할 수 있도록 Global.asax의 Application Start 이벤트에 이 코드를 배치했습니다.
 
     //add these using statements
@@ -113,14 +114,14 @@ Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액
     // I put my GetToken method in a Utils class. Change for wherever you placed your method.
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 
-    var sec = kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]).Result.Value;
+    var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]);
 
     //I put a variable in a Utils class to hold the secret for general  application use.
-    Utils.EncryptSecret = sec;
+    Utils.EncryptSecret = sec.Value;
 
 
 
-## <a name="a-idportalsettingsaadd-app-settings-in-the-azure-portal-optional"></a><a id="portalsettings"></a>Azure 포털에서 앱 설정 추가(선택 사항)
+## <a id="portalsettings"></a>Azure 포털에서 앱 설정 추가(선택 사항)
 Azure 웹앱이 있는 경우 이제 Azure 포털에서 AppSettings의 실제 값을 추가할 수 있습니다. 이 작업을 수행하면 실제 값이 web.config에 포함되지 않고 별도 액세스 제어 기능이 있는 포털을 통해 보호됩니다. 이러한 값은 web.config에 입력된 값을 대체합니다. 이름이 같아야 합니다.
 
 ![Azure 포털에 표시되는 응용 프로그램 설정][1]
@@ -133,38 +134,33 @@ Azure 웹앱이 있는 경우 이제 Azure 포털에서 AppSettings의 실제 �
 3. 인증서를 사용하도록 웹앱에 코드 추가
 4. 웹앱에 인증서 추가
 
-**인증서 얻기 또는 만들기** 학습을 위한 목적으로 테스트 인증서를 만듭니다. 다음은 개발자 명령 프롬프트에서 인증서를 만들기 위해 사용할 수 있는 몇 가지 명령입니다. 인증서 파일을 만들 디렉터리로 변경합니다.
-
-    makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2015 -e 07/31/2016 -r
-    pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
+**인증서 얻기 또는 만들기** 학습을 위한 목적으로 테스트 인증서를 만듭니다. 다음은 개발자 명령 프롬프트에서 인증서를 만들기 위해 사용할 수 있는 몇 가지 명령입니다. 인증서 파일을 만들 디렉터리로 변경합니다.  또한 인증서의 시작 및 종료 날짜는 현재 날짜 더하기 1년을 사용합니다.
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
 .pfx에 대한 종료 날짜와 암호를 메모해 둡니다(이 예에서는 07/31/2016 및 test123). 아래에서 필요합니다.
 
 테스트 인증서 만들기에 대한 자세한 내용은 [방법: 사용자 고유의 테스트 인증서 만들기](https://msdn.microsoft.com/library/ff699202.aspx)
 
-**인증서를 Azure AD 응용 프로그램에 연결** 이제 인증서를 만들었고 Azure AD 응용 프로그램에 연결해야 합니다. 하지만 Azure 관리 포털에서는 당장은 이 기능을 지원하지 않습니다. 대신 Powershell을 사용해야 합니다. 다음은 실행해야 하는 명령입니다.
+**인증서를 Azure AD 응용 프로그램에 연결** 이제 인증서를 만들었고 Azure AD 응용 프로그램에 연결해야 합니다. 현재 Azure Portal에서는 이 워크플로를 지원하지 않으며, PowerShell을 통해 완료할 수 있습니다. 다음 명령을 실행하여 인증서를 Azure AD 응용 프로그램과 연결합니다.
 
     $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+    $x509.Import("C:\data\KVWebApp.cer")
+    $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
 
-    PS C:\> $x509.Import("C:\data\KVWebApp.cer")
+    # If you used different dates for makecert then adjust these values
+    $now = [System.DateTime]::Now
+    $yearfromnow = $now.AddYears(1)
 
-    PS C:\> $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
+    $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -CertValue $credValue -StartDate $now -EndDate $yearfromnow
 
-    PS C:\> $now = [System.DateTime]::Now
+    $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
-    # this is where the end date from the cert above is used
-    PS C:\> $yearfromnow = [System.DateTime]::Parse("2016-07-31")
-
-    PS C:\> $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
-
-    PS C:\> $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
-
-    PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+    Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
 
     # get the thumbprint to use in your app settings
-    PS C:\>$x509.Thumbprint
+    $x509.Thumbprint
 
-이러한 명령을 실행하면 Azure AD에서 응용 프로그램을 볼 수 있습니다. 먼저 응용 프로그램이 표시되지 않으면 "회사에서 사용하는 응용 프로그램" 대신 "회사에서 소유하고 있는 응용 프로그램"을 검색합니다.
+이러한 명령을 실행하면 Azure AD에서 응용 프로그램을 볼 수 있습니다. 검색 시 검색 대화 상자에서 “회사에서 사용하는 응용 프로그램” 대신 “회사가 보유한 응용 프로그램”을 선택하세요.
 
 Azure AD 응용 프로그램 개체 및 ServicePrincipal 개체에 대해 자세히 알아보려면 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/active-directory-application-objects.md)
 
@@ -234,15 +230,10 @@ StoreLocation은 LocalMachine이 아닌, CurrentUser입니다. 테스트 인증�
 
 **주요 자격 증명 모음에 암호로 인증서 추가** 웹앱 서비스에 인증서를 직접 업로드하는 대신, 암호로 주요 자격 증명 모음에 저장하고 해당 위치에서 배포할 수 있습니다. 다음은 다음 블로그 게시물 [주요 자격 증명 모음을 통해 Azure 웹앱 인증서 배포](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>다음 단계
+## <a id="next"></a>다음 단계
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 C# 클라이언트 API 참조](https://msdn.microsoft.com/library/azure/dn903628.aspx)를 참조하세요.
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

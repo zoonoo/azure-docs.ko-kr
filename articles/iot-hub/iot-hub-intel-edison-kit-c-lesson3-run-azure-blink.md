@@ -1,5 +1,5 @@
 ---
-title: "샘플 응용 프로그램을 실행하여 Azure IoT Hub에 장치-클라우드 메시지 보내기 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(C) 연결 - 단원 3: 메시지 전송 | Microsoft Docs"
 description: "IoT Hub에 메시지를 보내고 LED를 깜빡이는 샘플 응용 프로그램을 Intel Edison에 배포하고 실행합니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: cb18052f74528e245264bb2f400b625fe550ed85
-ms.openlocfilehash: 59db4ca0afcfd2757a725f5d56c0810f6547c924
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 5c63363660845f970b03f67363cc495ef8cb94c7
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -112,8 +113,3 @@ Edison에서 깜빡이는 샘플 응용 프로그램을 새로 배포하고 실�
 [process-and-store-iot-hub-messages]: iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md
 [sample-application-with-sent-and-received-messages]: media/iot-hub-intel-edison-lessons/lesson3/gulp_run_c.png
 [read-messages-persisted-in-azure-storage]: iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

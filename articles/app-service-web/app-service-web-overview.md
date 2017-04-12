@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: a8fb8f7d338fa2f33b8fe6565f119e0be6419f41
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2a1e1004a4dab48aed75740a24ff5556242eaa67
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -46,7 +47,7 @@ Web Apps을 사용할 수 있는 일반적인 응용 프로그램 시나리오�
 웹앱에 적용하는 앱 서비스의 주요 기능은 다음과 같습니다.
 
 * **여러 언어 및 프레임워크** - 앱 서비스에서는 ASP.NET, Node.js, Java, PHP 및 Python을 최고 수준으로 지원합니다. 앱 서비스 VM에서 [PowerShell 및 기타 스크립트 또는 실행 파일](web-sites-create-web-jobs.md) 을 실행할 수도 있습니다.
-* **DevOps 최적화** - Visual Studio Team Services, GitHub, BitBucket으로 [연속 통합 및 배포](app-service-continuous-deployment.md) 를 설정합니다. [테스트 및 스테이징 환경](web-sites-staged-publishing.md)을 통해 업데이트를 승격합니다. [A/B 테스트](app-service-web-test-in-production-get-start.md)를 수행합니다. [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [플랫폼 간 CLI(명령줄 인터페이스)](../xplat-cli-install.md)를 사용하여 App Service에서 앱을 관리합니다.
+* **DevOps 최적화** - Visual Studio Team Services, GitHub, BitBucket으로 [연속 통합 및 배포](app-service-continuous-deployment.md) 를 설정합니다. [테스트 및 스테이징 환경](web-sites-staged-publishing.md)을 통해 업데이트를 승격합니다. [A/B 테스트](app-service-web-test-in-production-get-start.md)를 수행합니다. [Azure PowerShell](/powershell/azureps-cmdlets-docs) 또는 [플랫폼 간 CLI(명령줄 인터페이스)](../cli-install-nodejs.md)를 사용하여 App Service에서 앱을 관리합니다.
 * **고가용성을 가진 글로벌 규모 조정** - 수동 또는 자동으로 규모를 [강화](web-sites-scale.md) 또는 [확장](../monitoring-and-diagnostics/insights-how-to-scale.md)합니다. Microsoft의 글로벌 데이터 센터 인프라의 모든 위치에서 앱을 호스팅하고 앱 서비스 [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) 를 사용하면 고가용성이 보장됩니다.
 * **SaaS 플랫폼 및 온-프레미스 데이터에 연결** - 엔터프라이즈 시스템(예: SAP, Siebel 및 Oracle), SaaS 서비스(예: Salesforce 및 Office 365), 인기 있는 인터넷 서비스(예: Facebook 및 Twitter) 등을 위한 50개 이상의 [커넥터](../connectors/apis-list.md) 에서 선택합니다. [하이브리드 연결](../biztalk-services/integration-hybrid-connection-overview.md) 및 [Azure Virtual Networks](web-sites-integrate-with-vnet.md)를 사용하여 온-프레미스 데이터에 액세스합니다.
 * **보안 및 규정 준수** - 앱 서비스는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)입니다.
@@ -61,22 +62,17 @@ Azure는 앱 서비스의 웹앱 뿐만 아니라 웹 사이트와 웹 응용 �
 App Service의 새 웹앱에 샘플 코드를 배포하여 시작하려면 다음 드롭다운 상자의 자습서 중 하나를 수행합니다. 무료 Azure 계정이 필요합니다.
 
 > [!div class="op_single_selector"]
-> * [5분 내 Azure에 첫 번째 HTML 사이트 배포](app-service-web-get-started-html-cli-nodejs.md)
-> * [5분 내 Azure에 첫 번째 ASP.NET 웹앱 배포](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [5분 내 Azure에 첫 번째 PHP 웹앱 배포](app-service-web-get-started-php-cli-nodejs.md)
-> * [5분 내 Azure에 첫 번째 Node.js 웹앱 배포](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [5분 내 Azure에 첫 번째 Python 웹앱 배포](app-service-web-get-started-python-cli-nodejs.md)
+> * [5분 내 Azure에 첫 번째 ASP.NET 웹앱 배포](app-service-web-get-started-dotnet.md)
+> * [5분 내 Azure에 첫 번째 PHP 웹앱 배포](app-service-web-get-started-php.md)
+> * [5분 내 Azure에 첫 번째 Node.js 웹앱 배포](app-service-web-get-started-nodejs.md)
 > * [5분 내 Azure에 첫 번째 Java 웹앱 배포](app-service-web-get-started-java.md)
+> * [5분 내 Azure에 첫 번째 Python 웹앱 배포](app-service-web-get-started-python.md)
+> * [5분 내 Azure에 첫 번째 HTML 사이트 배포](app-service-web-get-started-html.md)
 > 
 > 
 
 > [!NOTE]
-> Azure 계정 없이 [App Service를 체험](http://go.microsoft.com/fwlink/?LinkId=523751)할 수 있습니다. 시작 앱을 만들고 최대 한 시간 동안 해당 앱을 사용하여 재생합니다. -- 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정 없이 [App Service를 체험](https://azure.microsoft.com/try/app-service/)할 수 있습니다. 시작 앱을 만들고 최대 한 시간 동안 해당 앱을 사용하여 재생합니다. -- 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

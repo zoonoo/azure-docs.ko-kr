@@ -4,7 +4,7 @@ description: "Windows Phone Silverlight에서 Engagement API를 사용하는 방
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: ae2ba2e8-f75b-4dee-a164-a7dd65d35a23
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: f8ed91048ecfb1e7d19bb000216618b4e0c4b381
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -336,9 +337,4 @@ SDK는 IDE 콘솔에서 테스트 로그를 생성하도록 구성될 수 있습
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -5,7 +5,7 @@ keywords: "앱 서비스, Azure 앱 서비스, 규모, 확장성, 앱 서비스 
 services: app-service
 documentationcenter: 
 author: btardif
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: f403c971-4450-432b-8cea-3eeb426c0147
 ms.service: app-service
@@ -18,6 +18,7 @@ ms.author: byvinyal
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ec043a9e01aca2e843e50cef8b90328ba1939ea5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -41,10 +42,5 @@ Azure 앱 서비스에서 호스팅되는 응용 프로그램은 [대규모로 �
 이 섹션에서는 모든 요소를 이해하고 장치에서 확장성 목표를 달성하는 데 필요한 App Service 기능을 활용하는 전략을 세울 수 있습니다.
 
 [!INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

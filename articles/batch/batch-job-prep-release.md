@@ -1,5 +1,5 @@
 ---
-title: "배치에서 작업 준비 및 정리 | Microsoft Docs"
+title: "계산 노드에서 작업을 준비하고 완료하는 태스크 만들기 - Azure Batch | Microsoft Docs"
 description: "작업 수준 준비 태스크를 사용하여 Azure Batch 계산 노드로의 데이터 전송을 최소화하고 작업 완료 시 태스크를 해제하여 노드를 정리합니다."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/04/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 9b71f09611832c2a8133cc21347d612d495b70aa
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 6a2525c02ce7bd3969469d2e28a5fccc948f89b1
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="run-job-preparation-and-completion-tasks-on-azure-batch-compute-nodes"></a>Azure 배치 계산 노드에서 작업 준비와 완료 작업 실행
+# <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Batch 계산 노드에서 작업 준비 및 작업 릴리스 태스크 실행
+
  가끔씩 Azure Batch 작업에는 실행되기 전에 특정 형식으로 구성된 설정과 해당 작업이 완료된 이후의 사후 작업 유지 관리가 필요합니다. 즉 계산 노드에 공통 작업 입력 데이터를 다운로드하거나 해당 작업이 완료된 후 작업 출력 데이터를 Azure Storage에 업로드해야 할 수도 있습니다. **작업 준비** 및 **작업 해제**를 사용하면 이러한 작업을 수행할 수 있습니다.
 
 ## <a name="what-are-job-preparation-and-release-tasks"></a>작업 준비 및 해제 태스크에 대한 정의
@@ -222,9 +225,4 @@ Azure Batch 팀 멤버 중 하나에서 작성하고 응용 프로그램과 데�
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

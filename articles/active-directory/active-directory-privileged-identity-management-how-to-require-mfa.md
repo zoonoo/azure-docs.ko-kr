@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/03/2017
+ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d36fb97f22802b040d2d527ccfd7a48327fe0cb4
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -47,10 +48,5 @@ ms.openlocfilehash: d36fb97f22802b040d2d527ccfd7a48327fe0cb4
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Storage 샘플 | Microsoft Docs"
+title: "Azure Storage 코드 샘플 | Microsoft Docs"
 description: "Azure 저장소에 대한 샘플 코드 및 응용 프로그램을 확인하고 다운로드하여 실행합니다. .NET, Java, Node.js 및 C++ 저장소 클라이언트 라이브러리를 사용하여 blob, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다."
 services: storage
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fe7be9085c0f6ad0aa2cf3d7dcb03381efd05f6f
+ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
+ms.openlocfilehash: dc466ed5dbd7ad14dd1c84760d9205b940acf504
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: fe7be9085c0f6ad0aa2cf3d7dcb03381efd05f6f
 ## <a name="overview"></a>개요
 작업 중인 Azure 저장소 샘플을 보고 다운로드하려면 아래 링크를 사용합니다.
 
-## <a name="azure-code-sample-library"></a>Azure 코드 샘플 라이브러리
-[Azure 코드 샘플 라이브러리](https://azure.microsoft.com/documentation/samples/?service=storage) 에는 다운로드하여 로컬로 실행할 수 있는 Azure 저장소에 대한 샘플이 포함되어 있습니다. 코드 샘플 라이브러리에서 .zip 형식으로 샘플 코드를 제공합니다. 또는 각 샘플에 대한 GitHub 리포지토리를 찾아 복제할 수 있습니다.
+## <a name="azure-code-samples-library"></a>Azure 코드 샘플 라이브러리
+[Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage) 라이브러리에는 로컬로 다운로드하여 실행할 수 있는 Azure Storage의 샘플이 포함되어 있습니다. 코드 샘플 라이브러리에서 .zip 형식으로 샘플 코드를 제공합니다. 또는 각 샘플에 대한 GitHub 리포지토리를 찾아 복제할 수 있습니다.
 
 ## <a name="getting-started-samples"></a>샘플 시작하기
 * [5분 만에 Azure 저장소 시작](storage-getting-started-guide.md)
@@ -34,19 +34,12 @@ ms.openlocfilehash: fe7be9085c0f6ad0aa2cf3d7dcb03381efd05f6f
 ## <a name="net-samples"></a>.NET 샘플
 .NET 샘플을 탐색하려면 [.NET 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/) 를 NuGet에서 다운로드합니다. .NET 저장소 클라이언트 라이브러리를 [Azure SDK for.NET](https://azure.microsoft.com/downloads/)에서도 사용할 수 있습니다.
 
-* [.NET에서 Azure Blob 서비스 시작](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
-* [.NET에서 Azure 큐 서비스 시작](https://azure.microsoft.com/documentation/samples/storage-queue-dotnet-getting-started/)
-* [.NET에서 Azure 테이블 서비스 시작](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
-* [.NET에서 Azure 파일 서비스 시작](https://azure.microsoft.com/documentation/samples/storage-file-dotnet-getting-started/)
-* [Azure Blob 저장소 사진 갤러리 웹 응용 프로그램](https://azure.microsoft.com/documentation/samples/storage-blobs-dotnet-webapp/)
-* [Azure 저장소를 사용하여 동시성 관리](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
+* [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
 
 ## <a name="java-samples"></a>Java 샘플
 Java 샘플을 탐색하려면 [Java 저장소 클라이언트 라이브러리](https://github.com/azure/azure-storage-java)를 다운로드합니다.
 
-* [Blob 시작](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/blob/gettingstarted)
-* [테이블 시작](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted)
-* [큐 시작](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/queue/gettingstarted)
+* [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
 
 ## <a name="nodejs-samples"></a>Node.js 샘플
 Node.js 샘플을 탐색하려면 [Node.js 저장소 클라이언트 라이브러리](https://github.com/Azure/azure-storage-node)를 다운로드합니다.
@@ -66,7 +59,8 @@ C++ 샘플을 탐색하려면 [C++ 저장소 클라이언트 라이브러리](ht
 * [테이블 시작](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
 * [큐 시작](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
+
 ### <a name="net-resources"></a>.NET 리소스
 * [.NET 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-net)
 * [.NET 클라이언트 라이브러리 참조](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -86,6 +80,6 @@ C++ 샘플을 탐색하려면 [C++ 저장소 클라이언트 라이브러리](ht
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

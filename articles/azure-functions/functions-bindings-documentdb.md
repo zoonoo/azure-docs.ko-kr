@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/10/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 3c406de579e3f09b521b60861230106c952f4357
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2ac78606f851068fa0fb7dcab3bac1c629b9cdb3
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -53,7 +54,7 @@ DocumentDB 입력 바인딩은 DocumentDB 문서를 검색하고 함수의 명�
 다음 사항에 유의하세요.
 
 * `id`는 `{queueTrigger}`와 유사한 바인딩을 지원하며 이는 큐 메시지의 문자열 값을 문서 ID로 사용합니다.
-* `connection`은 반드시 DocumentDB 계정에 대한 끝점을 가리키는(값 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`를 갖는) 앱 설정의 이름이어야 합니다. 함수 포털 UI를 통해 DocumentDB 계정을 만들 경우 계정 만들기 프로세스에서 사용자를 위한 앱 설정이 만들어집니다. 기존 DocumentDB 계정을 사용하려면 [이 앱 설정을 수동으로 구성]()해야 합니다. 
+* `connection`은 반드시 DocumentDB 계정에 대한 끝점을 가리키는(값 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`를 갖는) 앱 설정의 이름이어야 합니다. 함수 포털 UI를 통해 DocumentDB 계정을 만들 경우 계정 만들기 프로세스에서 사용자를 위한 앱 설정이 만들어집니다. 기존 DocumentDB 계정을 사용하려면 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md)해야 합니다. 
 * 지정된 문서가 없는 경우 함수에 대해 명명된 입력 매개 변수가 `null`로 설정됩니다. 
 
 ## <a name="input-usage"></a>입력 사용
@@ -132,7 +133,7 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="a-iddocdboutputadocumentdb-output-binding"></a><a id="docdboutput"></a>DocumentDB 출력 바인딩
+## <a id="docdboutput"></a>DocumentDB 출력 바인딩
 DocumentDB 출력 바인딩을 사용하면 Azure DocumentDB 데이터베이스에 새 문서를 작성할 수 있습니다. 
 
 출력 바인딩은 function.json의 `bindings` 배열에서 다음과 같은 JSON 개체를 사용합니다. 
@@ -152,12 +153,33 @@ DocumentDB 출력 바인딩을 사용하면 Azure DocumentDB 데이터베이스�
 다음 사항에 유의하세요.
 
 * 데이터베이스 및 컬렉션이 없는 경우 `createIfNotExists`를 `true`로 설정하여 만듭니다. 기본값은 `false`입니다. 새 컬렉션이 예약된 처리량을 사용하여 만들어지면 가격 책정 면에서 의미하는 바가 있습니다. 자세한 내용은 [DocumentDB 가격](https://azure.microsoft.com/pricing/details/documentdb/)을 참조하세요.
-* `connection`은 반드시 DocumentDB 계정에 대한 끝점을 가리키는(값 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`를 갖는) 앱 설정의 이름이어야 합니다. 함수 포털 UI를 통해 DocumentDB 계정을 만들 경우 계정 만들기 프로세스에서 사용자를 위한 새로운 앱 설정이 만들어집니다. 기존 DocumentDB 계정을 사용하려면 [이 앱 설정을 수동으로 구성]()해야 합니다. 
+* `connection`은 반드시 DocumentDB 계정에 대한 끝점을 가리키는(값 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`를 갖는) 앱 설정의 이름이어야 합니다. 함수 포털 UI를 통해 DocumentDB 계정을 만들 경우 계정 만들기 프로세스에서 사용자를 위한 새로운 앱 설정이 만들어집니다. 기존 DocumentDB 계정을 사용하려면 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md)해야 합니다. 
 
 ## <a name="output-usage"></a>출력 사용
 이 섹션에서는 함수 코드에서 DocumentDB 출력 바인딩을 사용하는 방법을 보여 줍니다.
 
-함수에서 출력 매개 변수를 작성하는 경우 기본적으로 새 문서는 사용자의 데이터베이스에 생성되며, 자동으로 생성된 GUID를 문서 ID로 사용합니다. 출력 매개 변수의 `id` JSON 속성을 지정하여 출력 문서의 문서 ID를 지정할 수 있습니다. 해당 ID의 문서가 이미 있는 경우 출력 문서는 이를 덮어씁니다. 
+함수에서 출력 매개 변수를 작성하는 경우 기본적으로 새 문서는 사용자의 데이터베이스에 생성되며, 자동으로 생성된 GUID를 문서 ID로 사용합니다. 출력 매개 변수의 `id` JSON 속성을 지정하여 출력 문서의 문서 ID를 지정할 수 있습니다. 
+
+>[!Note]  
+>기존 문서의 ID를 지정하면 새 출력 문서에 의해 덮어쓰여집니다. 
+
+다음 형식 중 하나를 사용하여 출력에 작성할 수 있습니다.
+
+* 모든 [개체](https://msdn.microsoft.com/library/system.object.aspx)는 JSON 직렬화에 유용합니다.
+  사용자 지정 출력 형식을 선언하는 경우(예: `out FooType paramName`), Azure Functions에서 개체를 JSON으로 직렬화하려고 시도합니다. 함수가 종료될 때 출력 매개 변수가 null이면 Functions 런타임은 Blob을 null 개체로 만듭니다.
+* 문자열(`out string paramName`)은 텍스트 Blob 데이터에 유용합니다. Functions 런타임은 함수가 종료될 때 문자열 매개 변수가 null이 아닌 경우에만 Blob을 생성합니다.
+
+C# 함수에서 다음 중 원하는 형식으로 출력할 수 있습니다.
+
+* `TextWriter`
+* `Stream`
+* `CloudBlobStream`
+* `ICloudBlob`
+* `CloudBlockBlob` 
+* `CloudPageBlob` 
+
+여러 문서를 출력하기 위해 `ICollector<T>` 또는 `IAsyncCollector<T>`에 바인딩할 수 있으며, 여기서 `T`는 지원되는 형식 중 하나입니다.
+
 
 <a name="outputsample"></a>
 
@@ -288,8 +310,4 @@ module.exports = function (context) {
   context.done();
 };
 ```
-
-
-<!--HONumber=Nov16_HO3-->
-
 

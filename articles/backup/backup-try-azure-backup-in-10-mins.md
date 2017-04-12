@@ -1,42 +1,32 @@
 ---
-title: "Resource Manager 배포 모델을 사용하여 Windows에서 Azure 백업이 포함된 Azure로 파일 및 폴더 백업 | Microsoft 문서"
-description: "자격 증명 모음을 만들고, 복구 서비스 에이전트를 설치하고, 파일과 폴더를 Azure에 백업하여 Windows Server 데이터를 백업하는 방법을 알아봅니다."
+title: "Azure(Resource Manager)에 Windows 파일 및 폴더 백업 | Microsoft Docs"
+description: "Resource Manager 배포를 통해 Windows 파일 및 폴더를 Azure로 백업하는 방법을 알아봅니다."
 services: backup
 documentationcenter: 
 author: markgalioto
 manager: carmonm
 editor: 
-keywords: "백업 방법, 백업하는 방법"
+keywords: "백업 방법; 백업 방법; 파일 및 폴더 백업"
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/20/2017
+ms.date: 2/23/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: e0b8830861c18c6720bd64b6c15092d12bc1425e
-ms.openlocfilehash: a8de3f159e5041c868172f45a31930f180e31a9a
+ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
+ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
+ms.lasthandoff: 02/24/2017
 
 
 ---
-# <a name="first-look-back-up-files-and-folders-with-azure-backup-using-the-resource-manager-deployment-model"></a>소개: Resource Manager 배포 모델을 사용하여 Azure 백업이 포함된 파일 및 폴더 백업
-이 문서는 Resource Manager를 사용하여 Azure 백업이 포함된 Azure에 Windows 서버(또는 Windows 클라이언트) 파일 및 폴더를 백업하는 방법을 설명합니다. 기본 사항을 안내하기 위해 마련된 자습서입니다. Azure 백업을 시작하려는 분들은 여기서 시작하시면 됩니다.
+# <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>먼저 보기: Resource Manager 배포에서 파일 및 폴더 백업
+이 문서는 Resource Manager 배포를 사용하여 Windows Server(또는 Windows 컴퓨터) 파일 및 폴더를 Azure에 백업하는 방법을 설명합니다. 기본 사항을 안내하기 위해 마련된 자습서입니다. Azure 백업을 시작하려는 분들은 여기서 시작하시면 됩니다.
 
 Azure 백업에 대해 자세히 알아보려면 이 [개요](backup-introduction-to-azure-backup.md)를 읽어보세요.
 
-Azure에 파일 및 폴더를 백업하려면 다음과 같은 작업이 필요합니다.
-
-![1단계](./media/backup-try-azure-backup-in-10-mins/step-1.png) 아직 Azure 구독이 없는 경우 만듭니다.<br>
-![2단계](./media/backup-try-azure-backup-in-10-mins/step-2.png) Recovery Services 자격 증명 모음을 만듭니다.<br>
-![3단계](./media/backup-try-azure-backup-in-10-mins/step-3.png) 필요한 파일을 다운로드합니다.<br>
-![4단계](./media/backup-try-azure-backup-in-10-mins/step-4.png) Recovery Services 에이전트를 설치 및 등록합니다.<br>
-![5단계](./media/backup-try-azure-backup-in-10-mins/step-5.png) 파일 및 폴더를 백업합니다.
-
-![Azure 백업을 사용하여 Windows 컴퓨터를 백업하는 방법](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
-
-## <a name="get-an-azure-subscription"></a>Azure 구독 가져오기
 Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
 ## <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
@@ -57,24 +47,39 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 
     ![Recovery Services 자격 증명 모음 만들기 3단계](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다.
-5. **구독** 메뉴에서 사용할 구독을 선택합니다. 구독을 하나만 사용하면 해당 구독이 나타나고 다음 단계로 건너뛸 수 있습니다.
-6. **리소스 그룹**에서 다음 중 하나를 수행합니다.
-    - **새로 만들기**를 선택하고 새 리소스 그룹의 이름을 제공합니다.</br>
+4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 대해 고유해야 합니다. 이름을 2~50자 사이로 입력합니다. 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
+
+5. **구독** 섹션에서 드롭다운 메뉴를 사용하여 Azure 구독을 선택합니다. 구독을 하나만 사용하면 해당 구독이 나타나고 다음 단계로 건너뛸 수 있습니다. 사용할 구독을 잘 모르는 경우 기본(또는 제안된) 구독을 사용합니다. 조직 계정이 여러 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
+
+6. **리소스 그룹** 섹션에서:
+
+    * 리소스 그룹을 새로 만들려면 **새로 만들기**를 선택합니다.
     또는
-    - **기존 항목 사용**을 선택하고 구독의 리소스 그룹 목록에서 리소스 그룹을 선택합니다.
+    * **기존 그룹 사용**을 선택하고 드롭다운 메뉴를 클릭하여 사용 가능한 리소스 그룹 목록을 봅니다.
+
+  리소스 그룹에 대한 전체 정보는 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 7. **위치** 를 클릭하여 자격 증명 모음에 대한 지리적 지역을 선택합니다. 선택에 따라 백업 데이터가 전송되는 지역이 결정됩니다.
-8. **만들기**를 클릭합니다.
 
-    자격 증명 모음을 만들고 배포할 때 포털에서 메시지를 제공합니다. 작업이 완료된 후 자격 증명 모음이 목록에 표시되지 않을 경우 **새로 고침**을 클릭합니다. ![새로 고침 단추 클릭](./media/backup-try-azure-backup-in-10-mins/refresh.png)</br>
-    목록이 새로 고쳐지면 자격 증명 모음을 선택하여 블레이드를 엽니다.
+8. Recovery Services 자격 증명 모음 블레이드의 하단에서 **만들기**를 클릭합니다.
+
+    Recovery Services 자격 증명 모음을 만드는 데 몇 분 정도 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 복구 서비스 자격 증명 모음 목록에 나타납니다. 몇 분이 지나도 자격 증명 모음이 보이지 않으면 **새로 고침**을 클릭합니다.
+
+    ![새로 고침 단추 클릭](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
+
+    Recovery Services 자격 증명 모음 목록에 사용자의 자격 증명 모음이 보이면 저장소 중복을 설정할 준비가 된 것입니다.
 
 ### <a name="set-storage-redundancy-for-the-vault"></a>자격 증명 모음에 저장소 중복 설정
-처음으로 복구 서비스 자격 증명 모음을 만들 때 저장소가 복제되는 방식을 결정합니다.
+Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 원하는 대로 구성해야 합니다.
 
-1. Recovery Services 자격 증명 모음 목록에서 새 자격 증명 모음을 클릭하여 블레이드를 엽니다.
-2. 새 자격 증명 모음 블레이드에서 **백업 인프라**를 클릭합니다.
+1. **Recovery Services 자격 증명 모음** 블레이드에서 새 자격 증명 모음을 클릭합니다.
+
+    ![Recovery Services 자격 증명 모음 목록에서 새 자격 증명 모음 선택](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+
+    자격 증명 모음을 선택하면 **Recovery Services 자격 증명 모음** 블레이드가 좁아지고 설정 블레이드(*맨 위에 자격 증명 모음 이름이 있음*) 및 자격 증명 모음 세부 정보 블레이드가 열립니다.
+
+    ![새 자격 증명 모음의 저장소 구성 보기](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+2. 새 자격 증명 모음의 설정 블레이드에서 세로 슬라이드를 사용하여 관리 섹션 쪽으로 아래로 스크롤하여 **백업 인프라**를 클릭합니다.
     [백업 인프라] 블레이드가 열립니다.
 3. [백업 인프라] 블레이드에서 **백업 구성**을 클릭하여 **백업 구성** 블레이드를 엽니다.
 
@@ -83,7 +88,7 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 
     ![저장소 구성 선택 항목](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 끝점으로 사용하는 경우 계속해서 지역 중복 저장소를 사용합니다. Azure를 기본이 아닌 백업 저장소 끝점으로 사용하는 경우 로컬 중복 저장소를 선택하면 Azure에서 데이터 저장 비용이 절감됩니다. 이 [개요](../storage/storage-redundancy.md)에서 [지역 중복](../storage/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/storage-redundancy.md#locally-redundant-storage) 저장소 옵션에 대해 자세히 알아봅니다.
+    기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 끝점으로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 저장소 끝점으로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/storage-redundancy.md#geo-redundant-storage) 및 [로컬 중복](../storage/storage-redundancy.md#locally-redundant-storage) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/storage-redundancy.md)를 참조하세요.
 
 이제 자격 증명 모음을 만들었으므로 파일과 폴더를 백업하도록 자격 증명 모음을 구성합니다.
 
@@ -118,27 +123,27 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 
 5. 다운로드 팝업 메뉴에서 **저장**을 클릭합니다.
 
-    기본적으로 **MARSagentinstaller.exe** 파일이 다운로드 폴더에 저장됩니다. 설치 관리자가 완료되면 설치 관리자를 실행할지 묻는 팝업이 표시되거나 폴더를 엽니다.
+    기본적으로 **MARSagentinstaller.exe** 파일이 다운로드 폴더에 저장됩니다. 설치 관리자가 완료되면 설치 관리자를 실행할지 아니면 폴더를 열지 묻는 팝업이 표시됩니다.
 
-    ![Windows Server 또는 Windows 클라이언트의 에이전트 다운로드](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
+    ![인프라 준비](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
-    에이전트를 아직 설치할 필요가 없습니다. 이는 자격 증명 모음 자격 증명을 다운로드한 후에 수행할 작업입니다.
+    에이전트를 아직 설치할 필요가 없습니다. 에이전트는 자격 증명 모음을 다운로드한 후에 설치할 수 있습니다.
 
 6. **인프라 준비** 블레이드에서 **다운로드**를 클릭합니다.
 
     ![자격 증명 모음 자격 증명 다운로드](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    자격 증명 모음 자격 증명이 [다운로드] 폴더로 다운로드됩니다. 자격 증명 모음 자격 증명 다운로드가 완료되면 자격 증명을 열거나 저장할지 묻는 팝업이 나타납니다. **저장**을 클릭합니다. 실수로 **열기**를 클릭하면 자격 증명 모음 자격 증명을 열려고 하는 대화 상자가 나타나지 않습니다. 자격 증명 모음 자격 증명을 열 수 없습니다. 다음 단계로 진행합니다. 자격 증명 모음 자격 증명은 [다운로드] 폴더에 있습니다.   
+    자격 증명 모음 자격 증명이 [다운로드] 폴더로 다운로드됩니다. 자격 증명 모음 다운로드가 완료되면 자격 증명을 열거나 저장할지 묻는 팝업이 나타납니다. **Save**를 클릭합니다. 실수로 **열기**를 클릭하면 자격 증명 모음 자격 증명을 열려고 하는 대화 상자가 나타나지 않습니다. 자격 증명 모음 자격 증명을 열 수 없습니다. 다음 단계를 진행합니다. 자격 증명 모음은 다운로드 폴더에 있습니다.   
 
     ![자격 증명 모음 자격 증명 다운로드 완료](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 
 ## <a name="install-and-register-the-agent"></a>에이전트 설치 및 등록
 
 > [!NOTE]
-> Azure Portal을 통한 백업 활성화가 지원될 예정입니다. 현재는 Microsoft Azure Recovery Services 에이전트 온-프레미스를 사용하여 파일과 폴더를 백업합니다.
+> Azure Portal을 통한 백업 활성화는 아직 사용할 수 없습니다. Microsoft Azure Recovery Services 에이전트를 사용하여 파일과 폴더를 백업합니다.
 >
 
-1. 다운로드 폴더(또는 기타 저장 위치)에서 **MARSagentinstaller.exe** 를 찾아 두 번 클릭합니다.
+1. 다운로드 폴더(또는 기타 저장 위치)에서 **MARSagentinstaller.exe**를 찾아서 두 번 클릭합니다.
 
     설치 관리자는 Recovery Services 에이전트를 추출, 설치 및 등록할 때 일련의 메시지를 제공합니다.
 
@@ -182,7 +187,7 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 
     매일(하루에 최대 속도로&3;회) 또는 매주 백업을 예약할 수 있습니다.
 
-    ![Windows Server 백업에 대한 항목](./media/backup-try-azure-backup-in-10-mins/specify-backup-schedule-close.png)
+    ![Windows Server 백업 항목](./media/backup-try-azure-backup-in-10-mins/specify-backup-schedule-close.png)
 
    > [!NOTE]
    > 백업 일정을 지정하는 방법은 [Azure 백업을 사용하여 테이프 인프라 대체](backup-azure-backup-cloud-as-tape.md)문서를 참조하세요.
@@ -190,7 +195,7 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 
 8. **보존 정책 선택** 페이지에서 백업 복사본의 **보존 정책**을 선택합니다.
 
-    보존 정책은 백업의 저장 기간을 나타냅니다. 모든 백업 지점에 대한 "일반 정책"을 지정하는 대신 백업이 발생하는 시기에 따라 다른 보존 정책을 지정할 수 있습니다. 매일, 매주, 매월 및 매년 보존 정책을 요구 사항에 맞게 수정할 수 있습니다.
+    보존 정책은 백업 데이터가 저장되는 기간을 지정합니다. 모든 백업 지점에 대한 "일반 정책"을 지정하는 대신 백업이 발생하는 시기에 따라 다른 보존 정책을 지정할 수 있습니다. 매일, 매주, 매월 및 매년 보존 정책을 요구 사항에 맞게 수정할 수 있습니다.
 9. 초기 백업 유형 선택 페이지에서 초기 백업 유형을 선택합니다. **네트워크를 통해 자동으로** 옵션이 선택된 상태로 두고 **다음**을 클릭합니다.
 
     네트워크를 통해 자동으로 백업하거나 오프라인으로 백업할 수 있습니다. 이 문서의 나머지 부분은 자동 백업 프로세스를 설명합니다. 오프라인 백업을 선호하는 경우 [Azure 백업의 오프라인 백업 워크플로](backup-azure-backup-import-export.md) 문서에서 자세한 내용을 참조하세요.
@@ -200,9 +205,9 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 ### <a name="to-back-up-files-and-folders-for-the-first-time"></a>처음으로 파일 및 폴더를 백업하려면
 1. 복구 서비스 에이전트에서 **지금 백업** 을 클릭하여 네트워크를 통한 초기 시드 작업을 완료합니다.
 
-    ![지금 Windows Server 백업](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
+    ![Windows Server 지금 백업](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 2. 확인 페이지에서 컴퓨터를 백업하는 데 지금 백업 마법사가 사용할 설정을 검토합니다. 그런 다음 **백업**을 클릭합니다.
-3. **닫기** 를 클릭하여 마법사를 닫습니다. 백업 프로세스가 완료되기 전에 이를 수행한 경우 마법사는 백그라운드에서 계속해서 실행할 수 있습니다.
+3. **닫기** 를 클릭하여 마법사를 닫습니다. 백업 프로세스가 완료되기 전에 마법사를 닫으면 마법사가 백그라운드에서 계속 실행됩니다.
 
 초기 백업 작업이 완료되면 백업 콘솔에 **작업 완료** 상태가 표시됩니다.
 
@@ -215,9 +220,4 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 * [Windows 컴퓨터 백업](backup-configure-vault.md)에 대해 자세히 알아보세요.
 * 파일과 폴더를 백업했으므로 이제 [자격 증명 모음 및 서버](backup-azure-manage-windows-server.md)를 관리할 수 있습니다.
 * 백업을 복원해야 하는 경우 이 문서를 참조하여 [Windows 컴퓨터에 파일을 복원](backup-azure-restore-windows-server.md)할 수 있습니다.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

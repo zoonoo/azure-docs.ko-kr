@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/05/2017
+ms.date: 03/16/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 8f11b9a6606e30e323295d4144497fae90040d2a
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -87,17 +88,17 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 
 인코딩하는 방법에 관한 지침은 [미디어 인코더 표준을 사용하여 자산을 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)을 참조하세요.
 
-## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>콘텐츠 키를 만들어 인코딩된 자산에 연결
+## <a id="create_contentkey"></a>콘텐츠 키를 만들어 인코딩된 자산에 연결
 미디어 서비스에서 콘텐츠 키에는 자산을 암호화할 키가 들어 있습니다.
 
 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md)를 참조하세요.
 
-## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>콘텐츠 키의 인증 정책을 구성합니다.
+## <a id="configure_key_auth_policy"></a>콘텐츠 키의 인증 정책을 구성합니다.
 미디어 서비스는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 권한 부여 정책은 사용자가 구성해야 하며 이 키를 클라이언트에 배달하기 위해서는 해당 클라이언트(플레이어)를 충족시켜야 합니다. 콘텐츠 키 권한 부여 정책에는 열기 또는 토큰 제한과 같은 하나 이상의 권한 부여 제한이 있을 수 있습니다.
 
 자세한 내용은 [콘텐츠 키 권한 부여 정책 구성](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption)을 참조하세요.
 
-## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>자산 배달 정책 구성
+## <a id="configure_asset_delivery_policy"></a>자산 배달 정책 구성
 자산에 대한 배달 정책을 구성합니다. 자산 배달 정책 구성에는 다음이 포함됩니다.
 
 * DRM 라이선스 획득 URL.
@@ -106,7 +107,7 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 
 자세한 내용은 [자산 배달 정책 구성 ](media-services-rest-configure-asset-delivery-policy.md)을 참조하세요.
 
-## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>스트리밍 URL을 얻기 위해 주문형 스트리밍 로케이터 만들기
+## <a id="create_locator"></a>스트리밍 URL을 얻기 위해 주문형 스트리밍 로케이터 만들기
 사용자에게 Smooth, DASH 또는 HLS에 대한 스트리밍 URL을 제공해야 합니다.
 
 > [!NOTE]
@@ -133,7 +134,7 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 
 [AMS 플레이어](http://amsplayer.azurewebsites.net/azuremediaplayer.html) 를 사용하여 스트림을 테스트할 수 있습니다.
 
-## <a name="a-idexampleaexample"></a><a id="example"></a>예제
+## <a id="example"></a>예제
 다음 샘플에서는 .Net - 버전 3.5.2용 Azure 미디어 서비스 SDK에 도입된 기능을 보여줍니다.(특히, Widevine 라이선스 템플릿을 정의하고 Azure 미디어 서비스에서 Widevine 라이선스를 요청하는 기능). 다음 Nuget 패키지 명령은 패키지를 설치하는 데 사용되었습니다.
 
     PM> Install-Package windowsazure.mediaservices -Version 3.5.2
@@ -159,6 +160,9 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
               </appSettings>
         </configuration>
 7. Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮어씁니다.
+
+    >[!NOTE]
+    >다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
 
     입력 파일이 있는 폴더를 가리키도록 변수를 업데이트해야 합니다.
 
@@ -275,27 +279,17 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }
 
                 static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
                 {
-                    var encodingPreset = "H264 Multiple Bitrate 720p";
+                    var encodingPreset = "Adaptive Streaming";
 
                     IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
                                             inputAsset.Name,
@@ -484,7 +478,6 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
                     return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
                 }
 
-
                 private static string ConfigureWidevineLicenseTemplate()
                 {
                     var template = new WidevineMessage
@@ -617,9 +610,4 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 [AMS로 Widevine 패키징 구성](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
 [Azure 미디어 서비스에서 Google Widevine 라이선스 전달 서비스 발표](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

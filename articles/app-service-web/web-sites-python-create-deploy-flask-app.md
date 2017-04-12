@@ -5,7 +5,7 @@ services: app-service\web
 documentationcenter: python
 tags: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: b7f4ca3a-0b52-4108-90a7-f7e07ac73da0
 ms.service: app-service-web
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a0aa48be45b5d0cbac7953e0106c465161e7228
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: f95a85804d009321f77998fafc4700b1c879fcee
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: 6a0aa48be45b5d0cbac7953e0106c465161e7228
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -360,10 +361,5 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 [Visual Studio]: http://www.visualstudio.com/
 [Python Tools for Visual Studio 설명서]: http://aka.ms/ptvsdocs
 [Flask 설명서]: http://flask.pocoo.org/ 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

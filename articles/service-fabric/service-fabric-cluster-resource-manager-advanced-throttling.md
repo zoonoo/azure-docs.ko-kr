@@ -12,18 +12,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 01/05/2017
 ms.author: masnider
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ce3e53a4edfa8b97ce4fdb6b553d0b6c917f54e4
+ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
+ms.openlocfilehash: 8a8419497bda3f1df523d6aff28028548abc155a
+ms.lasthandoff: 01/07/2017
 
 
 ---
-# <a name="throttling-the-behavior-of-the-service-fabric-cluster-resource-manager"></a>서비스 패브릭 클러스터 Resource Manager의 동작 제한
-클러스터 Resource Manager를 올바르게 구성한 경우에도 클러스터가 중단될 수 있습니다. 예를 들어 동시 노드 또는 장애 도메인 오류가 있을 수 있습니다. 업그레이드 중에 이러한 문제가 발생하면 어떻게 하나요? Resource Manager에서 이러한 문제를 수정하기 위해 최선을 다하겠지만 이러한 경우 클러스터 자체에서 안정화(노드 다시 작동, 네트워크 상태 정상화, 수정된 비트 배포)되도록 방어벽을 고려해 보려고 할 수 있습니다. 이러한 상황을 위해 서비스 패브릭 클러스터 Resource Manager는 여러 가지 제한을 포함합니다. 이러한 제한은 작업을 중단할 수 있으므로 클러스터에서 실제로 수행할 수 있는 병렬 작업의 양을 신중히 계산할 뿐만 아니라 계획되지 않은 거시적 재구성 이벤트(즉, "매우 좋지 않은 날")에 자주 응답해야 하는 경우에만 사용해야 합니다.
 
-일반적으로 자체적으로 수정할 때 클러스터를 제한하여 리소스 사용을 금지하는 대신 다른 옵션(정규 코드 업데이트 및 시작할 클러스터의 예정 시간 초과 방지)을 통해 매우 나쁜 날을 방지하는 것이 좋습니다. 이러한 제한은 경험을 통해 문제가 없는 것으로 확인된 기본값을 갖지만, 예상되는 실제 부하에 맞게 조정할 수도 있습니다. 클러스터를 과도하게 제한하거나 과부하를 부여하지 않는 것이 가장 좋은 방법이지만 클러스터가 안정화되는 데 더 오랜 시간이 걸리더라도 수정될 때까지 몇 가지 제한을 설정해야 하는 경우가 있습니다.
+# <a name="throttling-the-behavior-of-the-service-fabric-cluster-resource-manager"></a>서비스 패브릭 클러스터 Resource Manager의 동작 제한
+클러스터 Resource Manager를 올바르게 구성한 경우에도 클러스터가 중단될 수 있습니다. 예를 들어 동시 노드 또는 장애 도메인 오류가 있을 수 있습니다. 업그레이드 중에 이러한 문제가 발생하면 어떻게 하나요? 클러스터 Resource Manager에서 모든 문제를 해결하려고 시도하지만 이로 인해 클러스터에 변동이 발생할 수 있습니다. 제한은 클러스터가 리소스를 사용하여 자체적으로 안정화(노드 다시 작동, 네트워크 파티션 정상화, 수정된 비트 배포)할 수 있도록 방어벽을 제공하는 데 도움이 됩니다.
+
+이러한 상황을 위해 Service Fabric 클러스터 Resource Manager는 여러 가지 제한을 포함합니다. 이러한 제한은 꽤 큰 장애물입니다. 이러한 설정을 기본값에서 다른 값으로 변경해서는 안 됩니다. 단, 클러스터가 병렬로 수행할 수 있는 작업량과 관련한 세심한 수학적 계산을 수행한 경우는 예외입니다.
+
+제한은 Service Fabric 팀이 경험을 통해 양호한 기본값으로 확인한 기본값으로 설정됩니다. 이러한 기본값을 변경해야 하는 경우 예상되는 실제 부하에 맞게 조정해야 합니다. 메인라인 상황에서 클러스터 안정화에 시간이 더 오래 걸리더라도 일부 제한을 설정해야 하는지 결정할 수 있습니다.
 
 ## <a name="configuring-the-throttles"></a>제한 구성
 기본적으로 포함된 제한은 다음과 같습니다.
@@ -40,15 +44,37 @@ ms.openlocfilehash: ce3e53a4edfa8b97ce4fdb6b553d0b6c917f54e4
 </Section>
 ```
 
-대부분의 경우 고객이 이미 리소스 제한 환경에 있기 때문에(예: 네트워크 대역폭이 적용되는 병렬 복제본 빌드의 요구 사항과 관련이 없는 개별 노드 또는 디스크로 제한됨) 이러한 제한을 사용한다는 것을 알고 있습니다. 즉, 이러한 작업은 성공하지 못하거나 느려질 수 있습니다.  이러한 상황에서 고객은 제한된 동안 전반적인 실행 안정성이 떨어질 수 있다는 사실을 이해하는 것은 물론, 클러스터가 안정적인 상태가 될 때까지 걸리는 시간을 연장할 수 있다는 사실을 통해 안심하고 작업할 수 있었습니다.
+독립 실행형 배포의 경우 ClusterConfig.json 또는 Azure 호스티드 클러스터의 경우 Template.json을 통해 수행됩니다.
+
+```json
+"fabricSettings": [
+  {
+    "name": "PlacementAndLoadBalancing",
+    "parameters": [
+      {
+          "name": "GlobalMovementThrottleThreshold",
+          "value": "1000"
+      },
+      {
+          "name": "GlobalMovementThrottleCountingInterval",
+          "value": "600"
+      },
+      {
+          "name": "MovementPerPartitionThrottleThreshold",
+          "value": "50"
+      },
+      {
+          "name": "MovementPerPartitionThrottleCountingInterval",
+          "value": "600"
+      }
+    ]
+  }
+]
+```
+
+대부분의 경우 고객은 이미 리소스 제약 환경을 사용하고 있기 때문에 이러한 제한을 예전부터 사용하고 있습니다. 이러한 환경의 몇 가지 예로 개별 노드 또는 디스크로 제한된 네트워크 대역폭이 있습니다. 이 경우 처리량 제한으로 인해 많은 복제본을 동시에 만들 수 없습니다. 별도의 제한이 없이도 이러한 유형의 제한 때문에 오류에 대한 응답으로 발생하는 작업이 성공하지 못하거나 느려집니다. 이러한 상황에서 고객은 클러스터가 안정적인 상태에 도달하는 데 걸리는 시간이 더 길어진다는 것을 알고 있습니다. 고객은 또한 제한된 상태에서는 전반적인 안정성이 낮은 상태로 실행될 수 있다는 사실도 알고 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 클러스터 리소스 관리자가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
-* 클러스터 리소스 관리자에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [서비스 패브릭 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+* 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)
+* 클러스터 Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 이에 대해 자세히 알아보려면 [Service Fabric 클러스터를 설명](service-fabric-cluster-resource-manager-cluster-description.md)하는 이 문서를 확인하세요.
 

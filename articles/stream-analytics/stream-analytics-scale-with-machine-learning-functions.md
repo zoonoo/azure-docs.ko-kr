@@ -1,5 +1,5 @@
 ---
-title: "Azure Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기 조정 | Microsoft Docs"
+title: "Azure Stream Analytics 및 AzureML 함수를 사용한 작업 크기 조정 | Microsoft Docs"
 description: "Azure Machine Learning 함수를 사용할 때 Stream Analytics 작업의 크기를 적절하게 조정하는 방법(분할, SU 수량 등)에 대해 알아봅니다."
 keywords: 
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ad7ac0056cead32332b63add61655dbc1d2cb37c
+ms.sourcegitcommit: b36fd0b4a52ae2e13a5b5dcde412994a0656e3d3
+ms.openlocfilehash: 27f2ac3d54226501e254d9a8fef6cc378eb9a860
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -30,17 +31,17 @@ Stream Analytics의 Machine Learning 함수는 Stream Analytics 쿼리 언어에
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Machine Learning 함수를 사용하여 Stream Analytics 작업 구성
 Stream Analytics 작업에 대한 Machine Learning 함수를 구성할 때 두 가지 매개 변수를 고려해야 합니다. 하나는 Machine Learning 함수 호출의 배치 크기이고, 다른 하나는 Stream Analytics 작업에 프로비전된 스트리밍 단위(SU)입니다. 이러한 개매 변수의 적절한 값을 결정하려면 먼저 대기 시간과 처리량, 즉, Stream Analytics 작업의 대기 시간과 각 SU의 처리량을 결정해야 합니다. SU를 추가하면 작업 실행 비용이 증가하기는 하지만 언제나 SU를 작업에 추가하여 적절하게 분할된 Stream Analytics 쿼리의 처리량을 높일 수 있습니다.
 
-따라서 Stream Analytics 작업을 실행할 때 대기 시간 *허용 오차* 를 결정하는 것이 중요합니다. Azure Machine Learning 서비스 요청의 실행 대기 시간이 길어지면 당연히 배치 크기가 커지고, 결과적으로 Stream Analytics 작업의 대기 시간이 더욱 길어집니다. 반면, 배치 크기를 늘리면 Stream Analytics 작업이 같은 수*의 Machine Learning 웹 서비스 요청으로 *더 많은 이벤트 *를 처리할 수 있습니다. Machine Learning 웹 서비스의 대기 시간이 배치 크기에 비례해서 거의 선형적으로 증가하는 경우가 종종 있기 때문에 주어진 상황에서 Machine Learning 웹 서비스에 가장 경제적인 배치 크기를 고려해야 합니다. 웹 서비스 요청의 기본 배치 크기는 1000이며 [Stream Analytics REST API](https://msdn.microsoft.com/library/mt653706.aspx "Stream Analytics REST API") 또는 [Stream Analytics용 PowerShell 클라이언트](stream-analytics-monitor-and-manage-jobs-use-powershell.md "Stream Analytics용 PowerShell 클라이언트")를 사용하여 수정할 수 있습니다.
+따라서 Stream Analytics 작업을 실행할 때 대기 시간 *허용 오차* 를 결정하는 것이 중요합니다. Azure Machine Learning 서비스 요청의 실행 대기 시간이 길어지면 당연히 배치 크기가 커지고, 결과적으로 Stream Analytics 작업의 대기 시간이 더욱 길어집니다. 반면, 배치 크기를 늘리면 Stream Analytics 작업이 같은 수*의 Machine Learning 웹 서비스 요청으로 *더 많은 이벤트* 를 처리할 수 있습니다. Machine Learning 웹 서비스의 대기 시간이 배치 크기에 비례해서 거의 선형적으로 증가하는 경우가 종종 있기 때문에 주어진 상황에서 Machine Learning 웹 서비스에 가장 경제적인 배치 크기를 고려해야 합니다. 웹 서비스 요청의 기본 배치 크기는 1000이며 [Stream Analytics REST API](https://msdn.microsoft.com/library/mt653706.aspx "Stream Analytics REST API") 또는 [Stream Analytics용 PowerShell 클라이언트](stream-analytics-monitor-and-manage-jobs-use-powershell.md "Stream Analytics용 PowerShell 클라이언트")를 사용하여 수정할 수 있습니다.
 
 배치 크기가 결정되면 함수가 초당 처리할 이벤트 수에 따라 SU(스트리밍 단위)의 양을 결정할 수 있습니다. 스트리밍 단위에 대한 자세한 내용은 [Stream Analytics 크기 조정 작업](stream-analytics-scale-jobs.md#configuring-streaming-units)문서를 참조하세요.
 
 1SU 작업과 3SU 작업도 20개의 동시 연결을 갖는다는 점을 제외하면, 일반적으로 6SU마다 Machine Learning 웹 서비스에 대한 20개의 동시 연결이 있습니다.  예를 들어 입력 데이터 속도가 초당 200,000 이벤트이고 배치 크기를 기본값인 1000으로 두면 1000 이벤트 미니 배치가 포함된 웹 서비스 대기 시간은 200ms입니다. 즉, 모든 연결에서 Machine Learning 웹 서비스에 초당 5개의 요청을 만들 수 있습니다. 연결이 20개이면 Stream Analytics 작업에서 200ms 동안 20,000개 이벤트를 처리할 수 있으므로 초당 100,000개 이벤트를 처리할 수 있습니다. 그러므로 초당 200,000 이벤트를 처리하려면 Stream Analytics 작업에 동시 연결 40개가 필요하고, 12SU가 필요하다는 결론이 나옵니다. 아래 다이어그램은 Stream Analytics 작업에서 Machine Learning 웹 서비스 끝점으로 전송되는 요청을 보여줍니다. 6SU마다 Machine Learning 웹 서비스에 대한 최대 동시 연결 20개가 있습니다.
 
-![Machine Learning 함수 2 작업 예제를 사용하여 Stream Analytics 크기 조정](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Scale Stream Analytics with Machine Learning Functions 2 job example")
+![Machine Learning 함수 2 작업 예제를 사용한 Stream Analytics 크기 조정](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Machine Learning 함수 2 작업 예제를 사용한 Stream Analytics 크기 조정")
 
 일반적으로 배치 크기가 ***B***이고, 배치 크기 B의 웹 서비스 대기 시간이 ***L***밀리초이면 SU ***N***개가 포함된 Stream Analytics 작업의 처리량은 다음과 같습니다.
 
-![Machine Learning 함수 수식을 사용하여 Stream Analytics 크기 조정](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Scale Stream Analytics with Machine Learning Functions Formula")
+![Machine Learning 함수 수식을 사용한 Stream Analytics 크기 조정](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Machine Learning 함수 수식을 사용한 Stream Analytics 크기 조정")
 
 Machine Learning 웹 서비스 쪽의 '최대 동시 호출'도 고려해야 합니다. 이 값을 최대 값(현재는 200)으로 설정하는 것이 좋습니다.
 
@@ -73,7 +74,7 @@ Machine Learning 웹 서비스 쪽의 '최대 동시 호출'도 고려해야 합
 정서 분석 Machine Learning 웹 서비스의 대기 시간이 1000개 미만 이벤트 배치에서는 200ms, 5,000 이벤트 배치에서는 250ms, 10,000 이벤트 배치에서는 300ms, 또는 25,000 이벤트 배치에서는 500ms라고 가정하겠습니다.
 
 1. 첫 번째 옵션을 사용할 경우(추가 SU를 프로비전하지 **않음**) 배치 크기를 **25,000**으로 늘릴 수 있습니다. 이렇게 하면 작업에서 Machine Learning 웹 서비스에 대한 동시 연결 20개(호출당 대기 시간 500ms)를 사용하여 1,000,000 이벤트를 처리할 수 있습니다. Machine Learning 웹 서비스 요청에 대한 감정 함수 요청으로 인해 Stream Analytics 작업의 대기 시간이 **200ms**에서 **500ms**로 증가합니다. 그러나 배치 크기를 무한정 늘릴 수는 **없습니다**. Machine Learning 웹 서비스는 작업 후 100초가 지나면 웹 서비스 요청 시간이 초과되므로 요청의 페이로드 크기가 4MB 이하여야 하기 때문입니다.
-2. 두 번째 옵션을 사용할 경우 배치 크기는 1000으로 유지되고 웹 서비스 대기 시간이 200ms이므로, 웹 서비스에 대한 동시 연결 20개마다 1000 * 20 * 5 이벤트 = 초당 100,000 이벤트를 처리할 수 있습니다. 따라서 초당 1,000,000 이벤트를 처리하려면 작업에 60SU가 필요합니다. 첫 번째 옵션과 비교하면, Stream Analytics 작업에서 웹 서비스 배치 요청을 더 많이 만들며, 그로 인해 비용도 함께 증가합니다.
+2. 두 번째 옵션을 사용할 경우 배치 크기는 1000으로 유지되고 웹 서비스 대기 시간이 200ms이므로, 웹 서비스에 대한 동시 연결 20개마다 1000 *20* 5 이벤트 = 초당 100,000 이벤트를 처리할 수 있습니다. 따라서 초당 1,000,000 이벤트를 처리하려면 작업에 60SU가 필요합니다. 첫 번째 옵션과 비교하면, Stream Analytics 작업에서 웹 서비스 배치 요청을 더 많이 만들며, 그로 인해 비용도 함께 증가합니다.
 
 아래는 SU 및 배치 크기(초당 이벤트 수)에 따른 Stream Analytics 작업의 처리량을 보여 주는 테이블입니다.
 
@@ -95,7 +96,7 @@ Machine Learning 웹 서비스 쪽의 '최대 동시 호출'도 고려해야 합
 ## <a name="new-function-related-monitoring-metrics"></a>새 함수 관련 모니터링 메트릭
 Stream Analytics 작업의 모니터링 영역에 함수 관련 메트릭 세 개가 추가되었습니다. 이 세 개 함수는 아래 그림에 나와 있는 것처럼 FUNCTION REQUESTS, FUNCTION EVENTS 및 FAILED FUNCTION REQUESTS입니다.
 
-![Machine Learning 함수 메트릭을 사용하여 Stream Analytics 크기 조정](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Scale Stream Analytics with Machine Learning Functions Metrics")
+![Machine Learning 함수 메트릭을 사용한 Stream Analytics 크기 조정](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Machine Learning 함수 메트릭을 사용한 Stream Analytics 크기 조정")
 
 함수는 아래와 같이 정의됩니다.
 
@@ -118,13 +119,8 @@ Stream Analytics 작업의 모니터링 영역에 함수 관련 메트릭 세 �
 Stream Analytics에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
-* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

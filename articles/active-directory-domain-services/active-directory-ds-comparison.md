@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 67575bbbb7d99ffeef3cb5dab74f4a68065bacc1
+ms.sourcegitcommit: 1c4045bd9b705ab3e909a06035f27b85635fdf36
+ms.openlocfilehash: 3d83a919d8e7bc59bd51e226c56ff2bb42c87955
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -40,6 +41,7 @@ Azure AD Domain Services를 사용할지 Azure에서 고유한 AD 인프라(자�
 | [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**도메인 가입**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**NTLM 및 Kerberos를 사용하여 도메인 인증**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
+| [**Kerberos 제한 위임**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|리소스 기반|리소스 기반 및 계정 기반|
 | [**사용자 지정 OU 구조**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
 | [**스키마 확장**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
 | [**AD 도메인/포리스트 트러스트**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
@@ -57,6 +59,7 @@ Azure AD Domain Services 도메인은 Microsoft에서 관리합니다. 패치, �
 
 #### <a name="dns-server"></a>DNS 서버
 Azure AD Domain Services 관리되는 도메인은 관리되는 DNS 서비스를 포함합니다. 'AAD DC 관리자' 그룹의 구성원은 관리되는 도메인에서 DNS를 관리할 수 있습니다. 이 그룹의 구성원에게는 관리되는 도메인에 대한 모든 DNS 관리 권한이 주어집니다. RSAT(원격 서버 관리 도구) 패키지에 포함된 'DNS 관리 콘솔'을 사용하여 DNS 관리를 수행할 수 있습니다.
+[자세한 정보](active-directory-ds-admin-guide-administer-dns.md)
 
 #### <a name="domain-or-enterprise-administrator-privileges"></a>도메인 또는 엔터프라이즈 관리자 권한
 AAD DS 관리되는 도메인에서는 이러한 상승된 권한이 제공되지 않습니다. 이러한 높은 권한이 설치/실행되어야 하는 응용 프로그램은 관리되는 도메인에 대해 실행될 수 없습니다. 관리 권한의 작은 하위 집합은 'AAD DC 관리자'라는 위임된 관리 그룹의 구성원에 제공됩니다. 이러한 권한에는 DNS를 구성하고 그룹 정책을 구성하며 도메인 가입 컴퓨터에서 관리자 권한을 얻을 수 있는 권한 등이 포함됩니다.
@@ -67,8 +70,13 @@ AD 도메인에 컴퓨터를 가입하는 방법과 비슷하게 가상 컴퓨�
 #### <a name="domain-authentication-using-ntlm-and-kerberos"></a>NTLM 및 Kerberos를 사용하여 도메인 인증
 Azure AD Domain Services에서 회사 자격 증명을 사용하여 관리되는 도메인으로 인증할 수 있습니다. 자격 증명은 Azure AD 테넌트와 동기화된 상태로 유지됩니다. 동기화된 테넌트의 경우 Azure AD Connect를 통해 온-프레미스를 만든 자격 증명의 변경 내용을 Azure AD로 동기화하도록 합니다. DIY 도메인 설치를 사용하여 사용자가 해당 회사 자격 증명으로 인증하도록 온-프레미스 계정 포리스트와 도메인 트러스트 관계를 설정해야 합니다. 또는 AD 복제를 설정하여 Azure 도메인 컨트롤러 가상 컴퓨터에 사용자 암호를 동기화해야 합니다.
 
+#### <a name="kerberos-constrained-delegation"></a>Kerberos 제한 위임
+Active Directory Domain Services 관리되는 도메인에서 '도메인 관리자' 권한이 없습니다. 따라서 계정 기반(기존의) kerberos 제한 위임을 구성할 수 없습니다. 하지만 보다 안전한 리소스 기반 제한 위임은 구성할 수 있습니다.
+[자세한 정보](active-directory-ds-enable-kcd.md)
+
 #### <a name="custom-ou-structure"></a>사용자 지정 OU 구조
-'AAD DC 관리자' 그룹의 구성원은 관리되는 도메인 내에서 사용자 지정 OU를 만들 수 있습니다.
+'AAD DC 관리자' 그룹의 구성원은 관리되는 도메인 내에서 사용자 지정 OU를 만들 수 있습니다. 사용자 지정 OU를 만든 사용자에게는 OU에 대한 모든 관리 권한이 부여됩니다. 
+[자세한 정보](active-directory-ds-admin-guide-create-ou.md)
 
 #### <a name="schema-extensions"></a>스키마 확장
 Azure AD Domain Services 관리되는 도메인의 기본 스키마를 확장할 수 없습니다. 따라서 AD 스키마에 대한 확장에 의존하는 응용 프로그램(예: 사용자 개체에서 새 특성)을 AAD-DS 도메인으로 전환할 수 없습니다.
@@ -81,12 +89,14 @@ Azure AD Domain Services 관리되는 도메인의 기본 스키마를 확장할
 
 #### <a name="secure-ldap"></a>보안 LDAP
 Azure AD Domain Services를 구성하여 인터넷을 포함하여 관리되는 도메인에 대한 보안 LDAP 액세스를 제공할 수 있습니다.
+[자세한 정보](active-directory-ds-admin-guide-configure-secure-ldap.md)
 
 #### <a name="ldap-write"></a>LDAP 쓰기
 관리되는 도메인은 사용자 개체에 대한 읽기 전용입니다. 따라서 사용자 개체의 특성에 대한 LDAP 쓰기 작업을 수행하는 응용 프로그램은 관리되는 도메인에서 작동하지 않습니다. 또한 사용자 암호는 관리되는 도메인 내에서 변경할 수 없습니다. 또 다른 예로는 관리되는 도메인 내에서 그룹 멤버 자격 또는 그룹 특성을 수정하는 작업이 있으며 이는 허용되지 않습니다. 그러나 (PowerShell/Azure Portal을 통해) Azure AD 또는 온-프레미스 AD에서 만든 사용자 특성 또는 암호를 변경하는 경우 AAD-DS 관리되는 도메인에 동기화됩니다.
 
 #### <a name="group-policy"></a>그룹 정책
-복잡한 그룹 정책 구성은 AAD-DS 관리되는 도메인에서 지원되지 않습니다. 예를 들어 도메인에 있는 각 사용자 지정 OU에 별도 GPO를 만들거나 배포할 수 없습니다. 또는 GP를 대상으로 하는 WMI 필터링을 사용할 수 없습니다. 'AADDC 컴퓨터' 및 'AADDC 사용자' 컨테이너에 대한 기본 제공 GPO는 각각 그룹 정책을 구성하도록 사용자 지정될 수 있습니다.
+'AADDC 컴퓨터' 및 'AADDC 사용자' 컨테이너에 대한 기본 제공 GPO는 각각 그룹 정책을 구성하도록 사용자 지정될 수 있습니다. 'AAD DC 관리자' 그룹의 구성원은 사용자 지정 GPO를 만들고 사용자 지정 OU를 포함한 기존의 OU에 연결할 수 있습니다.
+[자세한 정보](active-directory-ds-admin-guide-administer-group-policy.md)
 
 #### <a name="geo-dispersed-deployments"></a>지역 분산된 배포
 Azure AD Domain Services 관리되는 도메인은 Azure의 단일 가상 네트워크에서 사용할 수 있습니다. 도메인 컨트롤러를 전 세계 여러 Azure 지역에서 사용할 수 있어야 하는 시나리오의 경우 Azure IaaS VM에서 도메인 컨트롤러를 설정하는 것이 적절한 대안이 될 수 있습니다.
@@ -100,8 +110,8 @@ Windows Server AD 설치에서 제공되는 기능 중 일부가 필요한 배�
 
 > [!NOTE]
 > 배포 사용 사례에 DIY 옵션이 더 적합한지 결정할 수 있습니다. [의견 공유](active-directory-ds-contact-us.md) 를 고려하여 나중에 Azure AD Domain Services를 선택하는 데 도움이 되는 기능을 이해할 수 있습니다. 이 피드백은 서비스를 배포 요구 사항 및 사용 사례에 적합하도록 발전시키는 데 도움이 됩니다.
-> 
-> 
+>
+>
 
 [Azure Virtual Machines에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx) 을 게시하여 DIY 설치를 보다 쉽게 만들 수 있습니다.
 
@@ -109,10 +119,4 @@ Windows Server AD 설치에서 제공되는 기능 중 일부가 필요한 배�
 * [기능 - Azure AD Domain Services](active-directory-ds-features.md)
 * [배포 시나리오 - Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

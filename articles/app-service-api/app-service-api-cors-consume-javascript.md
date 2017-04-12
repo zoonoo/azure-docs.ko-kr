@@ -3,8 +3,8 @@ title: "App Service에서 CORS 지원 | Microsoft Docs"
 description: "Azure 앱 서비스에서 CORS 지원을 사용하는 방법을 알아봅니다."
 services: app-service\api
 documentationcenter: .net
-author: tdykstra
-manager: wpickett
+author: alexkarcher-msft
+manager: erikre
 editor: 
 ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c
 ms.service: app-service-api
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/27/2016
-ms.author: rachelap
+ms.author: alkarche
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 79fe018bb6721c431a935dda14b36968688d34e3
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
 * [CORS를 구성하는 방법](#corsconfig) 섹션에서는 API 앱, 웹앱 또는 모바일 앱에 CORS를 구성하는 방법을 일반적으로 설명합니다. 이는 .NET, Node.js 및 Java를 포함하여 앱 서비스에서 지원하는 모든 프레임워크에 동일하게 적용됩니다. 
 * [.NET 시작 자습서 계속](#tutorialstart) 섹션을 시작하면 해당 문서는 [첫 번째 API Apps 시작 자습서](app-service-api-dotnet-get-started.md)에서 수행한 작업을 빌드하여 CORS 지원을 설명하는 자습서입니다. 
 
-## <a name="a-idcorsconfiga-how-to-configure-cors-in-azure-app-service"></a><a id="corsconfig"></a> Azure 앱 서비스에서 CORS을 구성하는 방법
+## <a id="corsconfig"></a> Azure 앱 서비스에서 CORS을 구성하는 방법
 Azure 포털에서 또는 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 도구를 사용하여 CORS를 구성할 수 있습니다.
 
 #### <a name="configure-cors-in-the-azure-portal"></a>Azure 포털에서 CORS 구성
@@ -41,7 +42,7 @@ Azure 포털에서 또는 [Azure Resource Manager](../azure-resource-manager/res
    ![설정 블레이드에서 CORS 선택](./media/app-service-api-cors-consume-javascript/clicksettings.png)
 4. 텍스트 상자에서 가져올 JavaScript 호출을 허용하려는 URL을 입력합니다.
 
-    예를 들어 todolistangular라는 웹앱에 JavaScript 응용 프로그램을 배포한 경우 "https://todolistangular.azurewebsites.net"을 입력합니다. 대신 별표(*)를 입력하여 모든 원본 도메인이 허용되도록 지정할 수 있습니다.
+    예를 들어 todolistangular라는 웹앱에 JavaScript 응용 프로그램을 배포한 경우 " https://todolistangular.azurewebsites.net " 을 입력합니다. 대신 별표(*)를 입력하여 모든 원본 도메인이 허용되도록 지정할 수 있습니다.
 
 
 1. **Save**를 클릭합니다.
@@ -51,7 +52,7 @@ Azure 포털에서 또는 [Azure Resource Manager](../azure-resource-manager/res
    **저장**을 클릭하면 API 앱이 지정된 URL의 JavaScript 호출을 수락합니다.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Azure 리소스 관리자 도구를 사용하여 CORS 구성
-명령줄 도구에서 [Azure PowerShell](/powershell/azureps-cmdlets-docs)과 [Azure CLI](../xplat-cli-install.md) 등의 [Azure Resource Manager 템플릿](../resource-group-authoring-templates.md)을 사용하여 API 앱에 대한 CORS를 구성할 수도 있습니다. 
+명령줄 도구에서 [Azure PowerShell](/powershell/azureps-cmdlets-docs)과 [Azure CLI](../cli-install-nodejs.md) 등의 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 API 앱에 대한 CORS를 구성할 수도 있습니다. 
 
 CORS 속성을 설정하는 Azure Resource Manager 템플릿의 예를 보려면 [이 자습서의 응용 프로그램 예제에 대한 리포지토리에 있는 azuredeploy.json 파일](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json)을 엽니다. 다음 예제와 같은 탬플릿의 섹션을 찾습니다.
 
@@ -61,7 +62,7 @@ CORS 속성을 설정하는 Azure Resource Manager 템플릿의 예를 보려면
             ]
         }
 
-## <a name="a-idtutorialstarta-continuing-the-net-getting-started-tutorial"></a><a id="tutorialstart"></a> .NET 시작 자습서 계속
+## <a id="tutorialstart"></a> .NET 시작 자습서 계속
 API 앱에 Node.js 또는 Java 시작 시리즈를 수행 중인 경우 시작 시리즈를 완료했습니다. [다음 단계](#next-steps) 섹션으로 건너뛰어 API 앱에 대한 추가 학습을 위한 제안을 찾습니다.
 
 이 문서의 나머지 부분은 .NET 시작 시리즈를 계속 진행하며 성공적으로 [첫 번째 자습서](app-service-api-dotnet-get-started.md)를 완료했다고 가정합니다.
@@ -248,10 +249,5 @@ API 앱으로 Azure API 관리를 사용하는 경우 API 앱 대신 API 관리�
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 앱 서비스 CORS 지원을 사용하여 클라이언트 JavaScript 코드가 다른 도메인에서 API를 호출할 수 있는 방법을 살펴보았습니다. API 앱에 대한 자세한 내용은 [App Service에서 인증 소개](../app-service/app-service-authentication-overview.md)를 참고하고 [API 앱에 대한 사용자 인증](app-service-api-dotnet-user-principal-auth.md) 자습서로 이동합니다.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

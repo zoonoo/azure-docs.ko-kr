@@ -1,5 +1,5 @@
 ---
-title: "콘텐츠 보호 개요 | Microsoft 문서"
+title: "Azure Media Services를 사용한 콘텐츠 보호 | Microsoft Docs"
 description: "이 기사는 미디어 서비스 콘텐츠 보호에 대한 개요를 제공합니다."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 9d3718cf80e023f4c5b9c523375b77083a9d7be7
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: bf2bd9bca8817f64790ac62d2981a51aa36566a3
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -27,10 +28,8 @@ Microsoft Azure 미디어 서비스를 사용하면 컴퓨터를 떠날 때부�
 
 ![PlayReady로 보호](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
-> [!NOTE]
-> 동적 암호화를 사용할 수 있으려면 먼저 암호화된 콘텐츠를 스트리밍하려는 스트리밍 끝점에서 하나 이상의 스트리밍 예약 단위를 가져와야 합니다.
-> 
-> 
+>[!NOTE]
+>AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다. 
 
 이 토픽에서는 AMS를 사용한 콘텐츠 보호를 이해하는 것과 관련된 [개념 및 용어](media-services-content-protection-overview.md) 를 설명합니다. 토픽에는 콘텐츠 보호 태스크의 수행 방법을 보여 주는 토픽에 대한 [링크](media-services-content-protection-overview.md#common-scenarios) 도 포함되어 있습니다. 
 
@@ -45,10 +44,6 @@ Microsoft Azure Media Services를 사용하면 AES 암호화되지 않은 키 �
 
 플레이어가 스트림을 요청하면 Media Services는 지정된 키를 사용하고 AES 암호화되지 않은 키 또는 DRM 암호화를 사용하여 동적으로 사용자의 콘텐츠를 암호화합니다. 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 권한 부여 정책을 평가합니다.
 
-> [!NOTE]
-> 동적 암호화를 이용하려면 먼저 암호화된 콘텐츠를 배달할 계획인 스트리밍 끝점에 대한 주문형 스트리밍 단위를 하나 이상 가져와야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
-> 
-> 
 
 ## <a name="storage-encryption"></a>저장소 암호화
 AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로컬에서 암호화한 다음에 암호화되어 저장된 Azure Storage에 업로드하려면 저장소 암호화를 사용합니다. 저장소 암호화로 보호된 자산은 자동으로 암호 해제되어 인코딩되기 전에 암호화된 파일 시스템에 배치됩니다. 그리고 필요에 따라 새 출력 자산으로 다시 업로드되기 전에 다시 암호화됩니다. 저장소 암호화를 사용하는 기본적인 사례는 디스크에 저장된 상태일 때 강력한 암호화로 고품질의 입력 미디어 파일을 보호하려는 경우입니다.
@@ -96,6 +91,10 @@ Media Services는 DRM(PlayReady, Widevine, FairPlay) 라이선스 및 AES 암호
 * [암호기/스트리밍 서버와 함께 Azure PlayReady License 서비스를 통합하는 방법](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server)
 * [castLabs를 사용하여 Azure 미디어 서비스에 DRM 라이선스 제공](media-services-castlabs-integration.md)
 
+>[!NOTE]
+>외부 DRM 서버(기술)를 사용하고 AMS에서 스트리밍하는 시나리오는 현재 지원되지 않습니다.
+
+
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -116,9 +115,4 @@ Media Services는 DRM(PlayReady, Widevine, FairPlay) 라이선스 및 AES 암호
 [Azure ACS를 사용하여 토큰을 발급합니다](http://mingfeiy.com/acs-with-key-services).
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

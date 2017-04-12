@@ -4,7 +4,7 @@ description: "Python Tools for Visual Studio를 사용하여 Azure 테이블 저
 services: app-service\web
 documentationcenter: python
 author: huguesv
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: f075124b-db79-4e51-b394-09187dd6c634
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/07/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 50c742443ec7535b9f38f8f7a6ee618ff4071e78
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 4aa0e4d036b7031e51abc6ac53872db64c2f90b4
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -39,7 +40,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -190,9 +191,4 @@ Python Tools for Visual Studio, Bottle 및 Azure 테이블 저장소에 대해 �
 [클라우드 서비스 프로젝트]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure 저장소]: http://azure.microsoft.com/documentation/services/storage/
 [Python용 Azure SDK]: https://github.com/Azure/azure-sdk-for-python
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

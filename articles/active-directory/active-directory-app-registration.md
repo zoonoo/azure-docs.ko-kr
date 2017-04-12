@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: bf1b8783ccbc3b3e3185eb10c7f772b58352aab7
-ms.openlocfilehash: 073940bb607b953af324d784a45958977e1af3a2
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: d2dd84007832c56f5893f0ea9f5effcf5ec5816b
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -35,7 +36,7 @@ Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트로 응�
 
 ## <a name="update-application-settings-from-the-azure-portal"></a>Azure Portal에서 응용 프로그램 설정 업데이트
 
-Azure Portal을 사용하여 기존 응용 프로그램 설정을 쉽게 수정할 수 있습니다. 예를 들어 Azure AD에서 토큰 응답을 발급하는 회신 URL을 구성할 수 있습니다. 또한 응용 프로그램이 MS Graph API에 액세스할 수 있도록 다른 응용 프로그램에 대한 권한을 구성할 수도 있습니다. 이러한 모든 작업은 응용 프로그램 설정 페이지에서 수행할 수 있습니다.
+Azure Portal을 사용하여 기존 응용 프로그램 설정을 쉽게 수정할 수 있습니다. 예를 들어 Azure AD에서 토큰 응답을 발급하는 회신 URL을 구성할 수 있습니다. 또한 응용 프로그램이 Microsoft Graph API에 액세스할 수 있도록 다른 응용 프로그램에 대한 권한을 구성할 수도 있습니다. 이러한 모든 작업은 응용 프로그램 설정 페이지에서 수행할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 페이지의 오른쪽 위 모서리에서 계정을 선택하여 Azure AD 테넌트를 선택합니다.
@@ -44,7 +45,7 @@ Azure Portal을 사용하여 기존 응용 프로그램 설정을 쉽게 수정�
   * **속성** 페이지에서 응용 프로그램의 일반 정보를 수정할 수 있습니다. 여기에는 응용 프로그램 이름, 로그인 URL 및 로그아웃 URL이 포함되어 있습니다.
   * **회신 URL** 페이지에서 Azure AD가 토큰 응답을 보내는 회신 URL을 추가할 수 있습니다.
   * **소유자** 페이지에서 응용 프로그램 소유자를 추가할 수 있습니다.
-  * **권한** 페이지에서 앱에 대한 권한을 구성할 수 있습니다. 예를 들어 MS Graph API에 액세스하려면 API 선택기에서 **추가**를 클릭하고 **Microsoft Graph**를 선택한 다음 필요한 권한을 선택합니다(예: **디렉터리 데이터 읽기**).
+  * **권한** 페이지에서 앱에 대한 권한을 구성할 수 있습니다. 예를 들어 Microsoft Graph API에 액세스하려면 API 선택기에서 **추가**를 클릭하고 **Microsoft Graph**를 선택한 다음 필요한 권한을 선택합니다(예: **디렉터리 데이터 읽기**).
   * **키** 페이지에서 응용 프로그램 비밀을 추가할 수 있습니다. 비밀은 만든 직후에 한 번만 표시되므로 나중에 사용하기 위해 복사해 둡니다.
 
 ## <a name="use-the-inline-manifest-editor"></a>인라인 매니페스트 편집기 사용
@@ -60,10 +61,5 @@ Azure Portal을 사용하여 기존 응용 프로그램 설정을 쉽게 수정�
 ## <a name="next-steps"></a>다음 단계
 
 1. Azure AD를 사용하여 인증을 수행하는 응용 프로그램에 대한 자세한 연습에 대해 [빠른 시작](active-directory-developers-guide.md)을 확인합니다.
-2. [Github](https://github.com/azure-samples)에서 코드 샘플에 대한 전체 목록을 확인합니다.
-
-
-
-<!--HONumber=Dec16_HO5-->
-
+2. [GitHub](https://github.com/azure-samples)에서 코드 샘플에 대한 전체 목록을 확인합니다.
 

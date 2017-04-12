@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 891461bd5069bd7ea5b3c20f301c9ddd9b2f035e
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: 62d5b9d1698dc8f0331fc9ced8fc9611055db06e
 
 
 ---
@@ -36,7 +36,7 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정, 데이
 
 
 ## <a name="install-azure-powershell-10-or-greater"></a>Azure PowerShell 1.0 이상 설치
-[Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md#prerequisites)의 필수 조건 섹션을 참조하세요.
+[Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)의 필수 조건 섹션을 참조하세요.
 
 ## <a name="manage-accounts"></a>계정 관리
 데이터 레이크 분석 작업을 실행하려면 데이터 레이크 분석 계정이 있어야 합니다. Azure HDInsight와 달리 작업을 실행하지 않는 경우 분석 계정에 대해 비용을 지불하지 않습니다.  작업이 실행되는 시간에 대해서만 비용을 지불합니다.  자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.  
@@ -269,7 +269,7 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
         -ItemType Table `
         -Path "master.dbo.mytable"
 
-### <a name="test-existence-of-catalog-item"></a>카탈로그 항목의 존재 여부 테스트
+### <a name="test-existence-of--catalog-item"></a>카탈로그 항목의 존재 여부 테스트
     Test-AzureRmDataLakeAnalyticsCatalogItem  `
         -Account $adlAnalyticsAccountName `
         -ItemType Database `
@@ -319,7 +319,7 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 * [Azure 포털을 사용하여 Azure 데이터 레이크 분석 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## <a name="appendix-a---data-lake-analytics-arm-template"></a>부록 A - Data Lake 분석 ARM 템플릿
-다음 ARM 템플릿은 데이터 레이크 분석 계정 및 해당 종속 데이터 레이크 저장소 계정을 배포하는 데 사용할 수 있습니다.  Json 파일로 저장한 다음 PowerShell 스크립트를 사용하여 해당 템플릿을 호출합니다. 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](../resource-group-template-deploy.md#deploy-with-powershell) 및 [Azure Resource Manager 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
+다음 ARM 템플릿은 데이터 레이크 분석 계정 및 해당 종속 데이터 레이크 저장소 계정을 배포하는 데 사용할 수 있습니다.  Json 파일로 저장한 다음 PowerShell 스크립트를 사용하여 해당 템플릿을 호출합니다. 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](../azure-resource-manager/resource-group-template-deploy.md) 및 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -377,6 +377,6 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

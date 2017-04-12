@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8ba349a3d247f0d42e869baef456cde2e6ee62b1
+ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
+ms.openlocfilehash: eb2e260e71d9ebc3000b440d0413c7d557e15258
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 8ba349a3d247f0d42e869baef456cde2e6ee62b1
 API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자입니다. 이 가이드에서는 개발자를 만들고, 개발자가 API 관리 인스턴스로 사용 가능하도록 설정된 API 및 제품을 사용할 수 있도록 초대하는 방법을 보여 줍니다. 프로그래밍 방식으로 사용자 계정 관리에 대한 내용은 [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) 참조에서 [사용자 엔터티](https://msdn.microsoft.com/library/azure/dn776330.aspx) 설명서를 참조하세요.
 
 ## <a name="create-developer"> </a>새 개발자 만들기
-새 개발자를 만들려면 API 관리 서비스에 대해 Azure Portal에서 **게시자 포털**을 클릭합니다. API 관리 게시자 포털로 이동됩니다. 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][API 관리 서비스 인스턴스 만들기] 자습서에서 [API Management 서비스 인스턴스 만들기][API Management 서비스 인스턴스 만들기]를 참조하세요.
+새 개발자를 만들려면 API 관리 서비스에 대해 Azure Portal에서 **게시자 포털**을 클릭합니다. API 관리 게시자 포털로 이동됩니다. 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][Get started with Azure API Management] 자습서의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 
 ![게시자 포털][api-management-management-console]
 
@@ -40,7 +40,7 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 
 ![새 개발자][api-management-new-developer]
 
-**활성** 상태의 개발자 계정은 구독하는 모든 API에 액세스하는 데 사용할 수 있습니다. 새로 만든 개발자와 추가 그룹을 연결하려면 [그룹과 개발자를 연결하는 방법][그룹과 개발자를 연결하는 방법]을 참조하세요.
+**활성** 상태의 개발자 계정은 구독하는 모든 API에 액세스하는 데 사용할 수 있습니다. 새로 만든 개발자와 추가 그룹을 연결하려면 [그룹과 개발자를 연결하는 방법][How to associate groups with developers]을 참조하세요.
 
 ## <a name="invite-developer"> </a>개발자 초대
 개발자를 초대하려면 왼쪽의 **API Management** 메뉴에서 **사용자**를 클릭한 다음 **사용자 초대**를 클릭합니다.
@@ -55,7 +55,7 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 
 ![초대 확인][api-management-invite-developer-confirmation]
 
-개발자를 초대하면 메일이 개발자에게 전송됩니다. 이 메일은 템플릿을 사용하여 생성되며 사용자 지정 가능합니다. 자세한 내용은 [메일 템플릿 구성][메일 템플릿 구성]을 참조하세요.
+개발자를 초대하면 메일이 개발자에게 전송됩니다. 이 메일은 템플릿을 사용하여 생성되며 사용자 지정 가능합니다. 자세한 내용은 [메일 템플릿 구성][Configure email templates]을 참조하세요.
 
 초대가 허용되면 계정이 활성 상태가 됩니다.
 
@@ -79,7 +79,7 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 ![확인 보류 중][api-management-pending-verification]
 
 ## <a name="next-steps"> </a>다음 단계
-개발자 계정이 생성된 후에는 계정과 역할을 연결하고 해당 계정으로 제품 및 API를 구독할 수 있습니다. 자세한 내용은 [그룹을 만들고 사용하는 방법][그룹을 만들고 사용하는 방법]을 참조하세요.
+개발자 계정이 생성된 후에는 계정과 역할을 연결하고 해당 계정으로 제품 및 API를 구독할 수 있습니다. 자세한 내용은 [그룹을 만들고 사용하는 방법][How to create and use groups]을 참조하세요.
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
 [api-management-add-new-user]: ./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png
@@ -91,21 +91,21 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 [api-management-pending-verification]: ./media/api-management-howto-create-or-invite-developers/api-management-pending-verification.png
 [api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
 [api-management-reset-password]: ./media/api-management-howto-create-or-invite-developers/api-management-reset-password.png
-[]: ./media/api-management-howto-create-or-invite-developers/.png
-
-[새 개발자 만들기]: #create-developer
-[개발자 초대]: #invite-developer
-[개발자 계정 비활성화 또는 다시 활성화]: #block-developer
-[다음 단계]: #next-steps
-[그룹을 만들고 사용하는 방법]: api-management-howto-create-groups.md
-[그룹과 개발자를 연결하는 방법]: api-management-howto-create-groups.md#associate-group-developer
-
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
-[API Management 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
-[메일 템플릿 구성]: api-management-howto-configure-notifications.md#email-templates
 
 
+[Create a new developer]: #create-developer
+[Invite a developer]: #invite-developer
+[Deactivate or reactivate a developer account]: #block-developer
+[Next steps]: #next-steps
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-<!--HONumber=Nov16_HO3-->
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Configure email templates]: api-management-howto-configure-notifications.md#email-templates
+
+
+
+<!--HONumber=Dec16_HO3-->
 
 

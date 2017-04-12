@@ -12,6 +12,7 @@
 ### [크로스-원본 자원 공유](cdn-cors.md)
 
 ## 관리
+### [사용자 지정 도메인에 HTTPS 사용](cdn-custom-ssl.md)
 ### [PowerShell로 관리](cdn-manage-powershell.md)
 ### TTL(Time to Live) 구성
 #### [Web Apps/Cloud Services, ASP.NET 또는 IIS 콘텐츠](cdn-manage-expiration-of-cloud-service-content.md)
@@ -62,6 +63,6 @@
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,9 +1,9 @@
 ---
-title: "Azure Active Directory B2B 공동 작업 미리 보기: 간단하고 안전한 클라우드 파트너 통합 | Microsoft Docs"
+title: "Azure Active Directory B2B 공동 작업 미리 보기 정보 | Microsoft Docs"
 description: "Azure Active Directory B2B 공동 작업은 비즈니스 파트너가 선택적으로 회사 응용 프로그램에 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다."
 services: active-directory
 documentationcenter: 
-author: viv-liu
+author: sasubram
 manager: femila
 editor: 
 tags: 
@@ -13,39 +13,103 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 03/18/2017
+ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 40c98146f1bbf1b1d53cd27044ce383c33098870
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4bfd76a00ba694096ef0b045b14beb757ba0809f
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="azure-ad-b2b-collaboration-preview-simple-secure-cloud-partner-integration"></a>Azure AD B2B 공동 작업 미리 보기: 간단하고 안전한 클라우드 파트너 통합
-회사가 핵심 업무에 더 집중할수록 다른 비즈니스와 제휴할 필요성이 증가하고 있습니다. 회사는 효과적인 공동 작업을 진행할 수 있도록 해당 파트너와 쉽고 안전하게 리소스(예: 회사 응용 프로그램에 대한 액세스)를 공유할 필요가 있습니다. Azure Active Directory B2B 공동 작업은 파트너가 자체 관리 ID를 사용하여 기업 응용 프로그램 및 데이터에 선택적으로 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다. Azure AD B2B 공동 작업은 다음과 같은 특징이 있습니다.
 
-* **간단함**: 각 파트너 사용자는 기존의 Azure AD 계정 또는 초대 수락 중 쉽게 만든 계정을 사용합니다. 앱 액세스 패널을 통해 이 사용자에게 선택한 회사 앱 또는 응용 프로그램 집합에 대한 직접 액세스를 제공할 수 있습니다.
-* **안전함**: 관리자는 Azure AD 디렉터리를 통해 회사 앱에 대한 모든 액세스를 제어합니다. 공동 작업이 종료되면 파트너 사용자가 Azure AD에서 제거되고 앱에 대한 해당 액세스는 즉시 취소됩니다. 또한 파트너 사용자가 파트너 조직을 떠나는 경우에도 액세스가 자동으로 상실됩니다.
-* **원활함**: 회사 앱에 대한 액세스가 필요한 파트너 회사는 **Azure AD가 없어도 됩니다.**  Azure AD B2B 공동 작업은 이러한 파트너가 앱에 즉시 액세스할 수 있도록 간단한 사용자 등록 환경을 제공합니다.
+# <a name="about-the-azure-ad-b2b-collaboration-preview"></a>Azure AD B2B 공동 작업 미리 보기 정보
+이 문서에서는 새로운 Azure AD(Azure Active Directory) B2B 공동 작업 공개 미리 보기의 목표, 기능 및 이점을 설명합니다.
 
-Azure AD B2B 공동 작업을 실행하면서 [공개 미리 보기를 알리는 블로그 게시물](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) 및 [심층 분석 동영상](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-B2B-collaboration-demo)을 확인해 보세요.
+IT 전문가와 정보 근로자는 모두 여러 Azure AD B2B 공동 작업 기능의 이점을 활용할 수 있습니다. 규모, 업계 또는 규정 준수 및 정부 요구 사항에 상관 없이 어디서든 다른 조직의 파트너와 긴밀히 작업할 수 있습니다. 내부 데이터를 완전하게 제어하면서 파트너가 문서, 리소스 및 응용 프로그램에 액세스하도록 할 수 있습니다.
 
-Azure AD B2B 공동 작업, Azure AD B2C 및 Azure AD 다중 테넌트 앱에 대한 사용 사례 비교는 [Azure AD를 사용하여 외부 ID 관리 기능 비교](active-directory-b2b-compare-external-identities.md)를 참조하세요.
+개발자인 경우 Azure AD B2B API를 사용하여 조직을 안전하게 통합하는 응용 프로그램을 작성할 수 있습니다. 정보 근로자 사용자의 경우 프로세스 및 탐색은 간단합니다.
 
-## <a name="related-articles"></a>관련 문서
+## <a name="how-b2b-collaboration-works"></a>B2B 공동 작업 작동 방식
+
+현재 미리 보기 릴리스에서 파트너 조직과 관계를 설정하기 위해 IT 전문가 및 정보 근로자는 Azure Portal 또는 초대 관리자 API를 통해 다른 조직의 사용자를 한 번에 한 명 또는 몇 명씩 추가할 수 있습니다.
+
+관리자는 Azure Portal(https://portal.azure.com) 및 PowerShell에서 새로운 포털 환경을 사용하여 관계를 설정할 수 있습니다.
+
+정보 근로자는 http://myapps.microsoft.com에서 액세스 패널 환경을 사용할 수 있습니다.
+
+개발자는 Azure AD B2B 초대 관리자 API를 통해 응용 프로그램을 만들어 B2B 공동 작업 사용자를 추가하고 초대 및 온보딩 워크플로를 사용자 지정할 수 있습니다.
+
+B2B 공동 작업 사용자는 일반적으로 초대 및 충전 프로세스를 통해 추가됩니다. 작동 방식은 다음과 같습니다.
+
+1. WoodGrove의 John Doe는 Gmail 주소(gsamoogle@gmail.com)를 사용하여 Sam Oogle을 사용자로 추가하려고 합니다.
+
+2. John Doe는 WoodGrove 포털(portal.azure.com) 또는 액세스 패널(myapps.microsoft.com)로 이동한 후 로그인하고 WoodGrove 디렉터리 또는 그룹이나 응용 프로그램에 사용자 Sam Oogle을 추가합니다.
+
+3. John Doe는 Sam Oogle에게 보낼 사용자 지정 초대 전자 메일을 지정합니다.
+
+4. John Doe가 초대를 보내면 아래와 같이 사용자 Sam Oogle이 WoodGrove용 Azure AD에 만들어집니다.
+
+  ![portal.azure.com의 관리자 사용자 인터페이스](media/active-directory-b2b-what-is-azure-ad-b2b/user-is-added.png)
+
+5. 사용자를 만든 후 Azure AD는 Sam Oogle에게 초대 전자 메일을 보냅니다.
+
+  ![Sam Oogle에게 보낸 초대 메일](media/active-directory-b2b-what-is-azure-ad-b2b/invitation-mail-sent-to-sam.png)
+
+6. 초대에서 Sam Oogle은 **시작**을 선택합니다.  
+Azure Portal이 열립니다.
+
+7. Sam Oogle이 Azure Portal에 로그인합니다.
+
+8. Azure AD는 다음과 같이 Sam Oogle의 토큰 정보로 Azure AD에 사용자 개체를 업데이트합니다.
+
+  ![Azure Portal의 Sam Oogle 사용자 프로필](media/active-directory-b2b-what-is-azure-ad-b2b/user-profile-is-populated.png)
+
+9. 이제 사용자 Sam Oogle이 초대를 상환하였고 WoodGrove 리소스에 액세스할 수 있습니다. 또한 Azure AD의 다른 모든 사용자와 같이 Sam Oogle은 관리자에 의해 관리받을 수 있습니다. 사용자 목록은 다음과 같이 표시됩니다.
+
+  ![Azure AD 사용자 목록](media/active-directory-b2b-what-is-azure-ad-b2b/sam-now-user-in-azure-ad.png)
+
+## <a name="public-preview-features"></a>공개 미리 보기 기능
+사용자의 의견에 따라 B2B 공동 작업 공개 미리 보기 새로 고침에는 다음을 포함하는 주요 기능을 제공합니다.
+
+* 관리자의 경우 [Azure Portal](https://portal.azure.com)의 사용자 인터페이스가 개선되었습니다. 예를 들어 관리자가 B2B 사용자를 디렉터리, 그룹 또는 응용 프로그램에 초대할 수 있습니다.  
+
+* 정보 근로자의 경우 [액세스 패널](https://myapps.microsoft.com)에 B2B 공동 작업 셀프 서비스 초대 기능이 제공됩니다. 정보 근로자는 자신이 관리하는 셀프 서비스 그룹 또는 응용 프로그램에 B2B 공동 작업 사용자를 초대할 수 있습니다.
+
+* 사용자는 모든 전자 메일 주소를 사용할 수 있습니다. Office 365 또는 온-프레미스 Microsoft Exchange 주소, outlook.com 주소 또는 소셜 주소(Gmail, Yahoo! 등)에 상관 없이 사용자는 Azure AD에서 만든 계정이나 Microsoft 계정으로 초대된 조직에 액세스할 수 있습니다.
+
+* 전문적인 테넌트 브랜드 초대 전자 메일을 만듭니다.
+
+* 초대 API를 사용하여 사용자 성향을 사용자 지정합니다.
+
+* 초대 조직의 B2B 공동 작업 사용자에 대한 다단계 인증을 설정합니다.
+
+* 관리자 이외의 사용자에게 초대를 위임합니다.
+
+* B2B 공동 작업에 대한 PowerShell 지원을 제공합니다.
+
+* 감사 및 보고 기능을 제공합니다.
+
+## <a name="help-us-shape-your-features"></a>기능 형성 지원
+ 
+B2B 공동 작업 개선 방법에 대한 의견을 지속적으로 수렴하고 있습니다. [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)에서 토론에 참가하여 Azure AD B2B 공동 작업에 대한 사용자 시나리오, 모범 사례 및 원하는 사항을 공유해 보세요.
+ 
+[B2B 공동 작업 아이디어](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas) 사이트에서 아이디어를 제출하고 향후 기능에 대해 투표할 수도 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
 Azure AD B2B 공동 작업에 대한 다른 문서 찾아보기:
 
-* [작동 방법](active-directory-b2b-how-it-works.md)
-* [자세한 연습](active-directory-b2b-detailed-walkthrough.md)
-* [CSV 파일 형식 참조](active-directory-b2b-references-csv-file-format.md)
-* [외부 사용자 토큰 형식](active-directory-b2b-references-external-user-token-format.md)
-* [외부 사용자 개체 특성 변경 사항](active-directory-b2b-references-external-user-object-attribute-changes.md)
-* [현재 미리 보기 제한 사항](active-directory-b2b-current-preview-limitations.md)
+* [Azure Active Directory 관리자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-admin-add-users.md)
+* [정보 근로자가 B2B 공동 작업 사용자를 추가하는 방법](active-directory-b2b-iw-add-users.md)
+* [B2B 공동 작업 초대 전자 메일의 요소](active-directory-b2b-invitation-email.md)
+* [B2B 공동 작업 초대 상환](active-directory-b2b-redemption-experience.md)
+* [Azure AD B2B 공동 작업 라이선스](active-directory-b2b-licensing.md)
+* [Azure Active Directory B2B 공동 작업 문제 해결](active-directory-b2b-troubleshooting.md)
+* [Azure Active Directory B2B 공동 작업 자주 묻는 질문(FAQ)](active-directory-b2b-faq.md)
+* [Azure Active Directory B2B 공동 작업 API 및 사용자 지정](active-directory-b2b-api.md)
+* [B2B 공동 작업 사용자에 대한 다단계 인증](active-directory-b2b-mfa-instructions.md)
+* [초대 없이 B2B 공동 작업 사용자 추가](active-directory-b2b-add-user-without-invite.md)
+* [B2B 공동 작업 사용자 감사 및 보고](active-directory-b2b-auditing-and-reporting.md)
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

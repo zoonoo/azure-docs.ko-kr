@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f754bea6c87b1d029179d65aeba861fcbda4d197
+ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
+ms.openlocfilehash: 3e09a2069c3342cce78b0d8bcaca310b3de2af08
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: f754bea6c87b1d029179d65aeba861fcbda4d197
 Heroku를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 * Heroku에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-* 사용자가 해당 Azure AD 계정으로 Heroku에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
+* 사용자가 해당 Azure AD 계정으로 Heroku SSO(Single Sign-On)에 자동으로 로그온되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
@@ -35,26 +36,25 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 Heroku와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure 구독
-* Heroku Single Sign-On이 설정된 구독
+* Huddle SSO(Single Sign-On)가 설정된 구독
 
-> [!NOTE]
-> 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
-> 
+>[!NOTE]
+>이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다. 
 > 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  
 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. 갤러리에서 Heroku 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+* 갤러리에서 Heroku 추가
+* Azure AD Single Sign-on 구성 및 테스트
 
-## <a name="adding-heroku-from-the-gallery"></a>갤러리에서 Heroku 추가
+## <a name="add-heroku-from-the-gallery"></a>갤러리에서 Heroku 추가
 Heroku의 Azure AD 통합을 구성하려면 갤러리의 Heroku를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 Heroku를 추가하려면 다음 단계를 수행합니다.**
@@ -79,7 +79,7 @@ Heroku의 Azure AD 통합을 구성하려면 갤러리의 Heroku를 관리되는
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Heroku에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하는 Heroku 사용자가 누구인지 알고 있어야 합니다. 즉, Azure AD 사용자와 Heroku의 관련 사용자 간에 연결이 설정되어야 합니다.  
@@ -91,9 +91,9 @@ Heroku에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 3. **[Heroku 테스트 사용자 만들기](#creating-an-heroku-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Heroku에 만듭니다.
 4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 이 섹션에서는 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Heroku 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **Heroku에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
@@ -108,42 +108,30 @@ Heroku에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
    
     ![Single Sign-On 구성](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_04.png) 
    
-   > [!NOTE]
-   > 로그온 URL 및 식별자 URL의 올바른 값을 모르는 경우 이를 가져오는 방법에 대한 지침은 "[Heroku에서 SSO를 사용하려면 다음 단계를 수행합니다.](#x123)"를 참조하세요.   
-   > 
-   > 
+   >[!NOTE]
+   >로그온 URL 및 식별자 URL의 올바른 값을 모르는 경우 이를 가져오는 방법에 대한 지침은 "[Heroku에서 SSO를 사용하려면 다음 단계를 수행합니다.](#x123)"를 참조하세요.   
+   >
 
-    a. **로그온 URL** 텍스트 상자에 **“https://sso.heroku.com/saml/\<company name\>/init”** 패턴을 사용하여 사용자가 Heroku 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다. 
-
-    b. **식별자** 텍스트 상자에 "**https://sso.heroku.com/saml/\<company name\>**" 패턴으로 URL을 입력합니다.  
-
-    c. **다음**을 클릭합니다.
-
+    1. **로그온 URL** 텍스트 상자에 **“https://sso.heroku.com/saml/\<company name\>/init”** 패턴을 사용하여 사용자가 Heroku 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다. 
+    2. **식별자** 텍스트 상자에 "**https://sso.heroku.com/saml/\<company name\>**" 패턴으로 URL을 입력합니다.  
+    3. **다음**을 클릭합니다.
 
 1. **Heroku의 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_05.png) 
-   
-    a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
-   
-    b. **다음**을 클릭합니다.
+    1. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
+    2. **다음**을 클릭합니다.
 2. Heroku에서 SSO를 사용하려면 다음 단계를 수행합니다.
    
-    a. 관리자 권한으로 되어 Heroku 계정에 로그인합니다.
-   
-    b. **설정** 탭을 클릭합니다.
-   
-    c. **Single Sign-On 페이지**에서 **메타데이터 업로드**를 클릭합니다.
-   
-    d. Azure 클래식 포털에서 다운로드한 메타데이터 파일을 업로드합니다.
-   
-    e. 설정이 완료되면 관리자에게 확인 대화 상자가 표시되며, 최종 사용자의 SSO 로그인 URL이 표시됩니다.
-   
-    f. <a name="x123"></a>**Heroku 로그인 URL** 및 **Heroku 엔터티 ID**를 복사한 다음 Azure AD 클래식 포털에서 **앱 설정 구성** 페이지로 다시 이동하여 로그온 URL 텍스트 상자에 값을 붙여넣습니다.
+    1. 관리자 권한으로 되어 Heroku 계정에 로그인합니다.
+    2. **설정** 탭을 클릭합니다.
+    3. **Single Sign-On 페이지**에서 **메타데이터 업로드**를 클릭합니다.
+    4. Azure 클래식 포털에서 다운로드한 메타데이터 파일을 업로드합니다.
+    5. 설정이 완료되면 관리자에게 확인 대화 상자가 표시되며, 최종 사용자의 SSO 로그인 URL이 표시됩니다.
+    6. <a name="x123"></a>**Heroku 로그인 URL** 및 **Heroku 엔터티 ID**를 복사한 다음 Azure AD 클래식 포털에서 **앱 설정 구성** 페이지로 다시 이동하여 로그온 URL 텍스트 상자에 값을 붙여넣습니다.
 
-    ![Single Sign-on 구성](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_52.png) 
-
-    g. **다음**을 클릭합니다.
+    ![Single Sign-On 구성](./media/active-directory-saas-heroku-tutorial/tutorial_heroku_52.png) 
+    7. **다음**을 클릭합니다.
 
 1. Single Sign-On 구성 확인을 선택한 후 **다음**을 클릭합니다.
    
@@ -152,7 +140,7 @@ Heroku에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
    
     ![Azure AD Single Sign-On][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션에서는 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만듭니다.  
 
 ![Azure AD 사용자 만들기][20]
@@ -172,47 +160,36 @@ Heroku에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-heroku-tutorial/create_aaduser_05.png) 
-   
-    a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
-   
-    b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
-   
-    c. **다음**을 클릭합니다.
+    1. 사용자 유형에서 조직의 새 사용자를 선택합니다.
+    2. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
+    3. **다음**을 클릭합니다.
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-heroku-tutorial/create_aaduser_06.png) 
-   
-   a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
-   
-   b. **성** 텍스트 상자에 **Simon**을 입력합니다.
-   
-   c. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
-   
-   d. **역할** 목록에서 **사용자**를 선택합니다.
-   
-   e. **다음**을 클릭합니다.
+   1. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+   2. **성** 텍스트 상자에 **Simon**을 입력합니다.
+   3. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+   4. **역할** 목록에서 **사용자**를 선택합니다.
+   5. **다음**을 클릭합니다.
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-heroku-tutorial/create_aaduser_07.png) 
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-heroku-tutorial/create_aaduser_08.png) 
-   
-    a. **새 암호**값을 적어둡니다.
-   
-    b. **완료**를 클릭합니다.   
+    1. **새 암호**값을 적어둡니다.
+    2. **완료**를 클릭합니다.   
 
-### <a name="creating-an-heroku-test-user"></a>Heroku 테스트 사용자 만들기
+### <a name="create-an-heroku-test-user"></a>Heroku 테스트 사용자 만들기
 이 섹션에서는 Heroku에서 Britta Simon이라는 사용자를 만듭니다. Heroku는 기본적으로 사용하도록 설정된 Just-In-Time 프로비전을 지원합니다.
 
 이 섹션에 작업 항목이 없습니다. Heroku에 액세스할 때 사용자가 아직 존재하지 않는 경우 새 사용자가 만들어집니다. 계정이 프로비전되면 최종 사용자에게 확인 메일이 제공됩니다. 이 경우 최종 사용자는 승인 링크를 클릭해야 합니다.
 
-> [!NOTE]
-> 사용자를 수동으로 만들어야 하는 경우 Heroku 지원 팀에 문의해야 합니다.
-> 
-> 
+>[!NOTE]
+>사용자를 수동으로 만들어야 하는 경우 Heroku 지원 팀에 문의해야 합니다.
+>  
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Heroku에 대한 액세스 권한을 부여합니다.
 
 ![사용자 할당][200] 
@@ -233,8 +210,9 @@ Heroku에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
    
     ![사용자 할당][205]
 
-### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.  
+
 액세스 패널에서 Heroku 타일을 클릭하면 Heroku 응용 프로그램에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
@@ -258,9 +236,4 @@ Heroku에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 [203]: ./media/active-directory-saas-heroku-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-heroku-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-heroku-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

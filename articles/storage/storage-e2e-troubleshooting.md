@@ -1,5 +1,5 @@
 ---
-title: "Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결 | Microsoft Docs"
+title: "진단 및 메시지 분석기를 사용한 Azure Storage 문제 해결 | Microsoft Docs"
 description: "Azure 저장소 분석, AzCopy 및 Microsoft Message Analyzer를 사용한 종단 간 문제 해결을 보여 주는 자습서"
 services: storage
 documentationcenter: dotnet
@@ -11,45 +11,45 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/15/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 2c8b4226b89c196fa69a1ab3fdeb11b110192a20
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: f32f61824de6a0195fc57b8cb0d73a89c7a06067
+ms.lasthandoff: 03/16/2017
 
 
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure 저장소 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 메시지 분석기를 사용한 종단 간 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
-## <a name="overview"></a>개요
 진단 및 문제 해결은 Microsoft Azure 저장소를 사용하는 클라이언트 응용 프로그램을 빌드 및 지원하기 위한 핵심 기술입니다. 오류 및 성능 문제의 진단 및 문제 해결은 Azure 응용 프로그램의 분산된 특성 때문에 기존 환경에서보다 더욱 복잡할 수 있습니다.
 
-이 자습서에서는 성능에 영향을 줄 수 있는 클라이언트의 특정 오류를 확인하는 방법 및 클라이언트 응용 프로그램을 최적화하기 위해 Microsoft 및 Azure 저장소에서 제공하는 도구를 사용하여 종단 간에서 비롯한 해당 오류의 문제 해결 방법을 보여 줍니다.
+이 자습서에서는 성능에 영향을 줄 수 있는 특정 오류를 확인하는 방법 및 클라이언트 응용 프로그램을 최적화하기 위해 Microsoft 및 Azure Storage에서 제공하는 도구를 사용하여 종단 간에서 비롯한 해당 오류의 문제 해결 방법을 보여 줍니다.
 
 이 자습서는 종단 간 문제 해결 시나리오의 실습 탐색을 제공합니다. Azure 저장소 응용 프로그램의 문제 해결에 대한 심층적인 개념 가이드는 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Azure 저장소 응용 프로그램 문제 해결 도구
 Microsoft Azure 저장소를 사용하는 클라이언트 응용 프로그램 문제를 해결하기 위해 여러 도구 조합을 사용하여 문제가 발생한 시기 및 문제의 가능한 원인을 확인할 수 있습니다. 이러한 도구로는 다음이 있습니다.
 
-* **Azure 저장소 분석**. [Azure 저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx) 은 Azure 저장소에 대한 로깅 및 메트릭을 제공합니다.
+* **Azure 저장소 분석**. [Azure 저장소 분석](/rest/api/storageservices/fileservices/Storage-Analytics) 은 Azure 저장소에 대한 로깅 및 메트릭을 제공합니다.
   
-  * **저장소 메트릭** 은 저장소 계정에 대한 트랜잭션 메트릭 및 용량 메트릭을 추적합니다. 메트릭을 사용하여 다양한 여러 측정값에 따른 응용 프로그램의 성능을 확인할 수 있습니다. 저장소 분석에서 추적하는 메트릭 유형에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](http://msdn.microsoft.com/library/azure/hh343264.aspx) 를 참조하세요.
-  * **저장소 로깅** 은 Azure 저장소 서비스에 대한 각 요청을 서버 쪽 로그에 기록합니다. 로그는 수행된 작업, 작업의 상태 및 대기 시간 정보를 비롯하여 각 요청의 자세한 데이터를 추적합니다. 저장소 분석에서 로그에 기록한 요청 및 응답 데이터에 대한 자세한 내용은 [저장소 분석 로그 형식](http://msdn.microsoft.com/library/azure/hh343259.aspx) 을 참조하세요.
+  * **저장소 메트릭** 은 저장소 계정에 대한 트랜잭션 메트릭 및 용량 메트릭을 추적합니다. 메트릭을 사용하여 다양한 여러 측정값에 따른 응용 프로그램의 성능을 확인할 수 있습니다. 저장소 분석에서 추적하는 메트릭 유형에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](/rest/api/storageservices/fileservices/Storage-Analytics-Metrics-Table-Schema) 를 참조하세요.
+  * **저장소 로깅** 은 Azure 저장소 서비스에 대한 각 요청을 서버 쪽 로그에 기록합니다. 로그는 수행된 작업, 작업의 상태 및 대기 시간 정보를 비롯하여 각 요청의 자세한 데이터를 추적합니다. 저장소 분석에서 로그에 기록한 요청 및 응답 데이터에 대한 자세한 내용은 [저장소 분석 로그 형식](/rest/api/storageservices/fileservices/Storage-Analytics-Log-Format) 을 참조하세요.
 
 > [!NOTE]
 > 영역 중복 저장소(ZRS)의 복제 유형이 있는 저장소 계정에는 현재 활성화된 메트릭 또는 로깅 기능이 없습니다. 
 > 
 > 
 
-* **Azure 포털**. [Azure 포털](https://portal.azure.com)에서 저장소 계정에 대한 메트릭 및 로깅을 구성할 수 있습니다. 또한 시간이 지남에 따라 응용 프로그램이 어떻게 수행되는지 보여 주는 차트 및 그래프를 볼 수 있으며, 응용 프로그램이 지정된 메트릭에 대해 예상과 다르게 수행되는 경우 이를 알려 주도록 경고를 구성할 수도 있습니다.
+* **Azure Portal**. [Azure Portal](https://portal.azure.com)에서 저장소 계정에 대한 메트릭 및 로깅을 구성할 수 있습니다. 또한 시간이 지남에 따라 응용 프로그램이 어떻게 수행되는지 보여 주는 차트 및 그래프를 볼 수 있으며, 응용 프로그램이 지정된 메트릭에 대해 예상과 다르게 수행되는 경우 이를 알려 주도록 경고를 구성할 수도 있습니다.
   
-    Azure 포털에서 모니터링 구성에 대한 자세한 내용은 [Azure 포털에서 저장소 계정 모니터링](storage-monitor-storage-account.md) 을 참조하세요.
+    Azure Portal에서 모니터링 구성에 대한 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md) 을 참조하세요.
 * **AzCopy**. Azure 저장소의 서버 로그는 Blob으로 저장되므로 AzCopy를 사용하여 해당 로그 Blob을, Microsoft Message Analyzer를 사용한 분석의 로컬 디렉터리로 복사할 수 있습니다. AzCopy에 대한 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md) 을 참조하세요.
 * **Microsoft Message Analyzer**. Message Analyzer는 로그 파일을 사용하여 로그 데이터를 시각적 형식으로 표시하는 도구입니다. 이 도구를 이용하면 오류 및 성능 문제를 분석하는 데 사용할 수 있는 유용한 집합으로 로그 데이터를 필터링, 검색 및 그룹화할 수 있습니다. Message Analyzer에 대한 자세한 내용은 [Microsoft Message Analyzer 운영 가이드](http://technet.microsoft.com/library/jj649776.aspx)를 참조하세요.
 
 ## <a name="about-the-sample-scenario"></a>샘플 시나리오 정보
-이 자습서에서는 Azure 저장소 메트릭이 Azure 저장소를 호출하는 응용 프로그램에 대한 낮은 성공률을 나타내는 시나리오를 살펴보겠습니다. 낮은 성공률 메트릭( **Azure 포털** 및 메트릭 테이블에서 [PercentSuccess](https://portal.azure.com) 로 표시됨)은 성공은 했지만 299보다 큰 HTTP 상태 코드를 반환하는 작업을 추적합니다. 서버 쪽 저장소 로그 파일에서 이러한 작업은 트랜잭션 상태 **ClientOtherErrors**로 기록됩니다. 낮은 비율의 성공 메트릭에 대한 자세한 내용은 [메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)을 참조하세요.
+이 자습서에서는 Azure 저장소 메트릭이 Azure 저장소를 호출하는 응용 프로그램에 대한 낮은 성공률을 나타내는 시나리오를 살펴보겠습니다. 낮은 성공률 메트릭( **Azure Portal** 및 메트릭 테이블에서 [PercentSuccess](https://portal.azure.com) 로 표시됨)은 성공은 했지만 299보다 큰 HTTP 상태 코드를 반환하는 작업을 추적합니다. 서버 쪽 저장소 로그 파일에서 이러한 작업은 트랜잭션 상태 **ClientOtherErrors**로 기록됩니다. 낮은 비율의 성공 메트릭에 대한 자세한 내용은 [메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)을 참조하세요.
 
 Azure 저장소 작업은 299보다 큰 HTTP 상태 코드를 정상적인 기능의 일부로 반환할 수 있습니다. 그러나 일부의 경우에 이러한 오류는 성능 향상을 위해 클라이언트 응용 프로그램을 최적화할 수 있음을 나타냅니다.
 
@@ -88,16 +88,16 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 * **HTTP 네트워크 추적 로그**, Azure 저장소에 대한 작업을 비롯하여 HTTP/HTTPS 요청 및 응답 데이터에 대한 데이터를 수집합니다. 이 자습서에서는 Message Analyzer를 통해 네트워크 추적을 생성합니다.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>서버 쪽 로깅 및 메트릭 구성
-먼저 Azure 저장소 로깅 및 메트릭을 구성하여 분석할 클라이언트 응용 프로그램의 데이터를 수집해야 합니다. [Azure 포털](https://portal.azure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 로깅 및 메트릭 구성에 대한 자세한 내용은 MSDN에서 [저장소 메트릭 사용 및 메트릭 데이터 보기](http://msdn.microsoft.com/library/azure/dn782843.aspx) 및 [저장소 로깅 사용 및 로그 데이터 액세스](http://msdn.microsoft.com/library/azure/dn782840.aspx)를 참조하세요.
+먼저 Azure 저장소 로깅 및 메트릭을 구성하여 분석할 클라이언트 응용 프로그램의 데이터를 수집해야 합니다. [Azure Portal](https://portal.azure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 로깅 및 메트릭 구성에 대한 자세한 내용은 MSDN에서 [저장소 메트릭 사용 및 메트릭 데이터 보기](http://msdn.microsoft.com/library/azure/dn782843.aspx) 및 [저장소 로깅 사용 및 로그 데이터 액세스](http://msdn.microsoft.com/library/azure/dn782840.aspx)를 참조하세요.
 
-**Azure 포털을 통해**
+**Azure Portal을 통해**
 
-[Azure 포털](https://portal.azure.com)을 사용하여 저장소 계정의 로깅 및 메트릭을 구성하려면 [Azure 포털에서 저장소 계정 모니터링](storage-monitor-storage-account.md)의 지침을 따릅니다.
+[Azure Portal](https://portal.azure.com)을 사용하여 저장소 계정의 로깅 및 메트릭을 구성하려면 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md)의 지침을 따릅니다.
 
 > [!NOTE]
-> Azure 포털을 사용하여 분 메트릭을 설정할 수는 없습니다. 그러나 이 자습서의 목적에 맞게 그리고 응용 프로그램의 성능 문제를 조사하도록 메트릭을 설정하는 것이 좋습니다. 아래와 같이 PowerShell을 사용하거나 저장소 클라이언트 라이브러리를 사용하여 프로그래밍 방식으로 분 메트릭을 설정할 수 있습니다.
+> Azure Portal을 사용하여 분 메트릭을 설정할 수는 없습니다. 그러나 이 자습서의 목적에 맞게 그리고 응용 프로그램의 성능 문제를 조사하도록 메트릭을 설정하는 것이 좋습니다. 아래와 같이 PowerShell을 사용하거나 저장소 클라이언트 라이브러리를 사용하여 프로그래밍 방식으로 분 메트릭을 설정할 수 있습니다.
 > 
-> Azure 포털은 분 메트릭을 표시할 수 없으며 시간별 메트릭만 표시할 수 있습니다.
+> Azure Portal은 분 메트릭을 표시할 수 없으며 시간별 메트릭만 표시할 수 있습니다.
 > 
 > 
 
@@ -171,15 +171,17 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
 
 자세한 내용은 Technet의 [네트워크 추적 기능 사용(영문)](http://technet.microsoft.com/library/jj674819.aspx) 을 참조하세요.
 
-## <a name="review-metrics-data-in-the-azure-portal"></a>Azure 포털에서 메트릭 데이터 검토
-응용 프로그램을 일정 기간 실행하면 [Azure 포털](https://portal.azure.com) 에 표시되는 메트릭 차트를 검토하여 서비스가 수행된 방법을 관찰할 수 있습니다. 먼저 Azure 포털의 저장소 계정으로 이동하고 **성공 비율** 메트릭에 대한 차트를 추가합니다.
+## <a name="review-metrics-data-in-the-azure-portal"></a>Azure Portal에서 메트릭 데이터 검토
+응용 프로그램을 일정 기간 실행하면 [Azure Portal](https://portal.azure.com)에 표시되는 메트릭 차트를 검토하여 서비스가 수행된 방법을 관찰할 수 있습니다.
 
-이제 추가한 다른 메트릭과 함께 **성공 비율** 이 Azure 포털의 모니터링 차트에 표시됩니다. Message Analyzer에서 로그를 분석하여 조사하는 시나리오에서 성공률이 100% 아래인 몇 가지를 볼 수 있습니다.
+먼저 Azure Portal의 저장소 계정으로 이동합니다. 기본적으로 **성공 비율**이 포함된 모니터링 차트가 계정 블레이드에 표시됩니다. 이전에 다른 메트릭을 표시하도록 차트를 수정한 경우 **성공 비율** 메트릭을 추가합니다.
 
-모니터링 페이지에 메트릭을 추가하는 방법에 대한 자세한 내용은 [방법: 메트릭 테이블에 메트릭 추가](storage-monitor-storage-account.md#how-to-add-metrics-to-the-metrics-table)를 참조하세요.
+이제 추가한 다른 메트릭과 함께 **성공 비율**이 모니터링 차트에 표시됩니다. Message Analyzer에서 로그를 분석하여 조사하는 시나리오에서 성공률이 100% 아래인 몇 가지를 볼 수 있습니다.
+
+메트릭 차트 추가 및 사용자 지정에 대한 자세한 내용은 [메트릭 차트 사용자 지정](storage-monitor-storage-account.md#customize-metrics-charts)을 참조하세요.
 
 > [!NOTE]
-> 저장소 메트릭을 사용하도록 설정한 이후 Azure 포털에 메트릭 데이터가 표시되는 데 약간의 시간이 걸릴 수 있습니다. 현재 시간이 경과할 때까지 이전 시간에 대한 시간별 메트릭이 Azure 포털에 표시되지 않기 때문입니다. 현재는 분 메트릭도 Azure 포털에 표시되지 않습니다. 따라서 메트릭을 사용하도록 설정한 시간에 따라 메트릭 데이터가 표시되는 데에는 최대 2시간까지 걸릴 수 있습니다.
+> 저장소 메트릭을 사용하도록 설정한 이후 Azure Portal에 메트릭 데이터가 표시되는 데 약간의 시간이 걸릴 수 있습니다. 현재 시간이 경과할 때까지 이전 시간에 대한 시간별 메트릭이 Azure Portal에 표시되지 않기 때문입니다. 현재는 분 메트릭도 Azure Portal에 표시되지 않습니다. 따라서 메트릭을 사용하도록 설정한 시간에 따라 메트릭 데이터가 표시되는 데에는 최대 2시간까지 걸릴 수 있습니다.
 > 
 > 
 
@@ -369,11 +371,6 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
 
 * [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)
 * [저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx)
-* [Azure 포털에서 저장소 계정 모니터링](storage-monitor-storage-account.md)
+* [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 * [Microsoft Message Analyzer 운영 가이드](http://technet.microsoft.com/library/jj649776.aspx)
-
-
-<!--HONumber=Dec16_HO1-->
-
-

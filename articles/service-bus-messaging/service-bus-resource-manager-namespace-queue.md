@@ -1,5 +1,5 @@
 ---
-title: "Azure Resource Manager 템플릿을 사용하여 큐가 있는 Service Bus 네임스페이스 만들기 | Microsoft Docs"
+title: "템플릿을 사용하여 Azure Service Bus 네임스페이스 및 큐 만들기 | Microsoft Docs"
 description: "Azure Resource Manager 템플릿을 사용하여 서비스 버스 네임스페이스 및 큐 만들기"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,20 +12,20 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/14/2016
+ms.date: 01/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 71e11a2279350236e0f65ac0b310034fb464d71a
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 777a515daa57f6a6af0ebec41412a3edbd1eaf19
 
 
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 서비스 버스 네임스페이스 및 큐 만들기
 이 문서에서는 서비스 버스 네임스페이스 및 큐를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
-템플릿을 만드는 더 자세한 내용은 [Azure Resource Manager 템플릿 작성][Azure Resource Manager 템플릿 작성]를 참조하세요.
+템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]을 참조하세요.
 
-전체 템플릿은 GitHub에서 [서비스 버스 네임스페이스 및 큐 템플릿][서비스 버스 네임스페이스 및 큐 템플릿]을 참조하세요.
+전체 템플릿은 GitHub에서 [Service Bus 네임스페이스 및 큐 템플릿][Service Bus namespace and queue template]을 참조하세요.
 
 > [!NOTE]
 > 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다.
@@ -35,7 +35,7 @@ ms.openlocfilehash: 71e11a2279350236e0f65ac0b310034fb464d71a
 > * [서비스 버스 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
 > * [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 최신 템플릿을 확인하려면 "Service Bus"에 대한 [Azure 빠른 시작 템플릿][Azure 빠른 시작 템플릿] 갤러리 및 검색을 방문하세요.
+> 최신 템플릿을 확인하려면 Service Bus에 대한 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리에서 “Service Bus”를 검색하세요.
 > 
 > 
 
@@ -56,7 +56,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 만들 서비스 버스 네임스페이스 이름입니다.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string",
 "metadata": { 
@@ -68,7 +68,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
 서비스 버스 네임스페이스에서 만든 큐의 이름입니다.
 
-```
+```json
 "serviceBusQueueName": {
 "type": "string"
 }
@@ -77,7 +77,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 템플릿의 서비스 버스 API 버전입니다.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -86,7 +86,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 ## <a name="resources-to-deploy"></a>배포할 리소스
 큐가 있는 **메시징**형식의 표준 서비스 버스 네임스페이스를 만듭니다.
 
-```
+```json
 "resources ": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
@@ -115,12 +115,14 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-```
+
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-```
+
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
@@ -130,17 +132,17 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 이제 Azure Resource Manager를 사용하여 리소스를 만들고 배포했으므로 다음 문서를 참조하여 이러한 리소스를 관리하는 방법에 대해 알아봅니다.
 
 * [PowerShell을 사용하여 서비스 버스 관리](service-bus-powershell-how-to-provision.md)
-* [서비스 버스 탐색기로 서비스 버스 리소스 관리](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+* [서비스 버스 탐색기로 서비스 버스 리소스 관리](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Azure Resource Manager 템플릿 작성]: ../resource-group-authoring-templates.md
-[서비스 버스 네임스페이스 및 큐 템플릿]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
-[Azure 빠른 시작 템플릿]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[서비스 버스 큐에 대해 자세한 알아봅니다.]: service-bus-queues-topics-subscriptions.md
-[Azure Resource Manager로 Azure PowerShell 사용]: ../powershell-azure-resource-manager.md
-[Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용]: ../xplat-cli-azure-resource-manager.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
+[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Learn more about Service Bus queues]: service-bus-queues-topics-subscriptions.md
+[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

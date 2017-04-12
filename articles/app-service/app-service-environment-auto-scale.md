@@ -4,7 +4,7 @@ description: "자동 크기 조정 및 앱 서비스 환경"
 services: app-service
 documentationcenter: 
 author: btardif
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c02e030b442cc150f87945a48660a5ba2987a309
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 41ad9eb4d248b1f3e6c888c3037b121511799193
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -227,16 +228,11 @@ Frank는 응용 프로그램에 대해 잘 알고 있습니다. 직원이 사무
 [scale-rule]: ./media/app-service-environment-auto-scale/scale-rule.png
 [asp-scale]: ./media/app-service-environment-auto-scale/asp-scale.png
 [ASP-Inflation]: ./media/app-service-environment-auto-scale/asp-inflation-rate.png
-[수식1]: ./media/app-service-environment-auto-scale/equation1.png
-[수식2]: ./media/app-service-environment-auto-scale/equation2.png
-[수식3]: ./media/app-service-environment-auto-scale/equation3.png
-[수식4]: ./media/app-service-environment-auto-scale/equation4.png
+[Equation1]: ./media/app-service-environment-auto-scale/equation1.png
+[Equation2]: ./media/app-service-environment-auto-scale/equation2.png
+[Equation3]: ./media/app-service-environment-auto-scale/equation3.png
+[Equation4]: ./media/app-service-environment-auto-scale/equation4.png
 [ASP-Total-Inflation]: ./media/app-service-environment-auto-scale/asp-total-inflation-rate.png
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -12,19 +12,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/24/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: d67271ebf90ac2a1870787de7cfe6459526fcb37
-ms.openlocfilehash: 60cd63540d91e11729f2a305b999548d5c6b9320
-
+ms.sourcegitcommit: 0ac8ca0c5407925728ed0431294a3234b58d6e63
+ms.openlocfilehash: 04506596ba21c3ebef7237eaad8c5d786ad672fe
+ms.lasthandoff: 02/27/2017
 
 ---
+
 # <a name="install-net-on-a-cloud-service-role"></a>클라우드 서비스 역할에 .NET 설치
 이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 게스트 OS와 함께 제공되는 버전과는 다른 .NET Framework 버전을 설치하는 방법을 설명합니다. 예를 들어 이러한 단계를 사용하여 어떤 버전의 .NET 4.6도 포함되지 않은 Azure 게스트 OS 제품군 4에 .NET 4.6.1을 설치할 수 있습니다. 게스트 OS 릴리스에 대한 최신 정보는 [Azure 게스트 OS 릴리스 뉴스](cloud-services-guestos-update-matrix.md)를 참조하세요.
 
 >[!NOTE]
 >게스트 OS 5에 .NET 4.6이 포함됨
+
+>[!IMPORTANT]
+>Azure SDK 2.9에는 게스트 OS 4 이하에서 .NET 4.6을 배포하는 데 제한이 있습니다. 수정 사항은 [여기](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9)에 제공됩니다.
 
 웹 및 작업자 역할에 .NET을 설치하는 프로세스에는 .NET 설치 관리자 패키지를 클라우드 프로젝트의 일부로 포함하고 설치 관리자를 해당 역할의 시작 작업의 일부로 시작하는 과정이 포함됩니다.  
 
@@ -32,7 +36,7 @@ ms.openlocfilehash: 60cd63540d91e11729f2a305b999548d5c6b9320
 * 설치하려는 .NET Framework의 웹 설치 관리자 다운로드
   * [.NET 4.6.1 웹 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=671729)
 * 웹 역할의 경우
-  1. **솔루션 탐색기** 내 클라우드 서비스 프로젝트의 **역할** 아래에서 역할을 마우스 오른쪽 단추로 클릭하고 **추가>새 폴더**를 선택합니다.  *bin*
+  1. **솔루션 탐색기** 내 클라우드 서비스 프로젝트의 **역할** 아래에서 역할을 마우스 오른쪽 단추로 클릭하고 **추가>새 폴더**를 선택합니다. *bin*
   2. **bin** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가>기존 항목**을 선택합니다. .NET 설치 관리자를 선택하고 bin 폴더에 추가합니다.
 * 작업자 역할의 경우
   1. 역할을 마우스 오른쪽 단추로 클릭하고 **추가>기존 항목**을 선택합니다. .NET 설치 관리자를 선택하고 역할에 추가합니다. 
@@ -189,22 +193,17 @@ ms.openlocfilehash: 60cd63540d91e11729f2a305b999548d5c6b9320
 서비스를 배포할 때 시작 작업이 실행되고 .NET Framework(이미 설치되지 않은 경우)를 설치합니다. 프레임워크를 설치하는 동안 역할은 사용 중 상태가 되며, 프레임워크 설치에 필요한 경우 역할이 다시 시작될 수도 있습니다. 
 
 ## <a name="additional-resources"></a>추가 리소스
-* [.NET Framework 설치][.NET Framework 설치]
-* [방법: 설치된 .NET Framework 버전 확인][방법: 설치된 .NET Framework 버전 확인]
-* [.NET Framework 설치 문제 해결][.NET Framework 설치 문제 해결]
+* [.NET Framework 설치][Installing the .NET Framework]
+* [방법: 설치된 .NET Framework 버전 확인][How to: Determine Which .NET Framework Versions Are Installed]
+* [.NET Framework 설치 문제 해결][Troubleshooting .NET Framework Installations]
 
-[방법: 설치된 .NET Framework 버전 확인]: https://msdn.microsoft.com/library/hh925568.aspx
-[.NET Framework 설치]: https://msdn.microsoft.com/library/5a4x27ek.aspx
-[.NET Framework 설치 문제 해결]: https://msdn.microsoft.com/library/hh925569.aspx
+[How to: Determine Which .NET Framework Versions Are Installed]: https://msdn.microsoft.com/library/hh925568.aspx
+[Installing the .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
+[Troubleshooting .NET Framework Installations]: https://msdn.microsoft.com/library/hh925569.aspx
 
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

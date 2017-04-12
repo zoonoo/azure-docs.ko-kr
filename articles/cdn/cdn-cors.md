@@ -3,7 +3,7 @@ title: "CORS에서 Azure CDN 사용 | Microsoft Docs"
 description: "CORS(크로스-원본 자원 공유)와 함께 CDN(콘텐츠 배달 네트워크)을 사용하는 방법을 알아봅니다."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e4f7e947ab3e9ee67224edc9cad07d82524af2b7
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
 
 
 ---
@@ -25,20 +25,34 @@ ms.openlocfilehash: e4f7e947ab3e9ee67224edc9cad07d82524af2b7
 CORS(크로스 원본 자원 공유)는 특정 도메인에서 실행되는 웹 응용 프로그램이 다른 도메인의 자원에 액세스할 수 있도록 하는 HTTP 기능입니다. 사이트 간 스크립팅 공격 가능성을 줄이기 위해 모든 최신 웹 브라우저는 [동일 원본 정책](http://www.w3.org/Security/wiki/Same_Origin_Policy)이라는 보안 제한을 구현합니다.  이 경우 웹 페이지는 다른 도메인의 API를 호출할 수 없습니다.  CORS는 한 도메인(원본 도메인)에서 다른 도메인의 API를 호출할 수 있는 안전한 방법을 제공합니다.
 
 ## <a name="how-it-works"></a>작동 방법
-1. 브라우저는 **Origin** HTTP 헤더를 사용하여 OPTIONS 요청을 보냅니다. 이 헤더의 값은 부모 페이지를 제공하는 도메인입니다. https://www.contoso.com의 페이지가 fabrikam.com 도메인의 사용자 데이터에 액세스하려고 하면 다음 요청 헤더가 fabrikam.com으로 전송됩니다. 
-   
+CORS 요청에는 *간단한 요청*과 *복잡한 요청*의 두 가지 유형이 있습니다.
+
+### <a name="for-simple-requests"></a>간단한 요청:
+
+1. 브라우저는 추가 **원본** HTTP 요청 헤더를 포함하여 CORS 요청을 보냅니다. 이 헤더의 값은 부모 페이지를 제공한 원본입니다. 이 값은 *프로토콜* *도메인* 및 *포트*로 정의됩니다.  https://www.contoso.com의 페이지가 fabrikam.com 원본의 사용자 데이터에 액세스하려고 하면 다음 요청 헤더가 fabrikam.com으로 전송됩니다.
+
    `Origin: https://www.contoso.com`
+
 2. 서버는 다음으로 응답할 수 있습니다.
-   
+
    * 허용되는 원본 사이트를 나타내는 응답의 **Access-Control-Allow-Origin** 헤더 예:
-     
+
      `Access-Control-Allow-Origin: https://www.contoso.com`
-   * 서버에서 크로스-원본 요청을 허용하지 않을 경우 표시되는 오류 페이지
-   * 모든 도메인을 허용하는 와일드카드를 사용한 **Access-Control-Allow-Origin** 헤더
-     
+
+   * 서버가 원본 헤더를 확인한 후 교차 원본 요청을 허용하지 않으면 403과 같은 HTTP 오류 코드 표시
+
+   * 모든 원본을 허용하는 와일드카드를 사용한 **Access-Control-Allow-Origin** 헤더
+
      `Access-Control-Allow-Origin: *`
 
-복잡한 HTTP 요청의 경우 전체 요청을 보내기 전에 먼저 권한이 있는지 확인하기 위해 수행되는 "실행 전" 요청이 있습니다.
+### <a name="for-complex-requests"></a>복잡한 요청:
+
+복잡한 요청은 실제 CORS 요청을 전송하기 전에 브라우저가 *실행 전 요청*(즉, 예비 프로브)을 전송해야 하는 CORS 요청입니다. 실행 전 요청은 원래 CORS 요청을 진행할 수 있고 동일한 URL에 대한 `OPTIONS` 요청인 경우에 서버 승인을 요청합니다.
+
+> [!TIP]
+> CORS 흐름 및 일반적인 문제에 대한 자세한 내용은 [REST API에 대한 CORS 가이드](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/)를 참조하세요.
+>
+>
 
 ## <a name="wildcard-or-single-origin-scenarios"></a>와일드카드 또는 단일 원본 시나리오
 Azure CDN의 CORS는 **Access-Control-Allow-Origin** 헤더가 와일드카드(*) 또는 단일 원본으로 설정될 때 추가 구성 없이 자동으로 작동합니다.  CDN은 첫 번째 응답을 캐시하며 후속 요청은 동일한 헤더를 사용하게 됩니다.
@@ -85,6 +99,6 @@ Azure CDN 표준 프로필에서 와일드카드 원본을 사용하지 않고 �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

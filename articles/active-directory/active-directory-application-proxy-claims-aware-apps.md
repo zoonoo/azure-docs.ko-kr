@@ -1,22 +1,23 @@
 ---
-title: "응용 프로그램 프록시에서 클레임 인식 앱으로 작업"
-description: "Azure AD 응용 프로그램 프록시를 작동시키는 방법에 대해 설명합니다."
+title: "클레임 인식 앱 - Azure AD 앱 프록시 | Microsoft Docs"
+description: "사용자의 안전한 원격 액세스를 위해 ADFS 클레임을 허용하는 온-프레미스 ASP.NET 응용 프로그램을 게시하는 방법입니다."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: 91e6211b-fe6a-42c6-bdb3-1fff0312db15
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 164f9fada5565110d37c0f191bcdfac9ec8e48e8
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: ff07a52f6a503f07f5919b63f345878571742cac
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -34,23 +35,19 @@ ms.openlocfilehash: 164f9fada5565110d37c0f191bcdfac9ec8e48e8
 
 ## <a name="adfs-configuration"></a>ADFS 구성
 1. ADFS 관리를 엽니다.
-2. **신뢰 당사자 트러스트**로 이동하여 응용 프로그램 프록시로 게시하고자 하는 앱을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.  
+2. **신뢰 당사자 트러스트**로 이동하여 응용 프로그램 프록시로 게시하려는 앱을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.  
+
    ![신뢰 당사자 트러스트 앱 이름을 마우스 오른쪽 단추로 클릭 - 스크린샷](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
+
 3. **끝점** 탭에 있는 **끝점 유형** 아래에서 **WS-Federation**을 선택합니다.
 4. **신뢰할 수 있는 URL** 아래에 **외부 URL** 아래에 있는 응용 프로그램 프록시에 입력한 URL을 입력하고 **확인**을 클릭합니다.  
+
    ![끝점 추가 - 신뢰할 수 있는 URL 값 설정 - 스크린샷](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
-## <a name="see-also"></a>참고 항목
-* [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
+## <a name="next-steps"></a>다음 단계
 * [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
 * [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
 * [네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용](active-directory-application-proxy-native-client.md)
 
-최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

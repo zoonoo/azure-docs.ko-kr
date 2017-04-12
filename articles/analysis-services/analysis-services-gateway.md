@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
 ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
 ms.openlocfilehash: 90584f60864589744888817ea71d0eb0d4d170ff
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -132,9 +133,4 @@ TCP 대신 HTTPS를 사용하여 Azure Service Bus와 통신하도록 게이트�
 ## <a name="next-steps"></a>다음 단계
 * [Analysis Services 관리](analysis-services-manage.md)
 * [Azure Analysis Services에서 데이터 가져오기](analysis-services-connect.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

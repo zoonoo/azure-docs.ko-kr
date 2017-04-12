@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 71da2f8aaa994c8cfc48f968a5275f7f79604251
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 7f719fb38709f4bb7083b7f21a5979f7e0588d0f
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -28,41 +29,40 @@ ms.openlocfilehash: 71da2f8aaa994c8cfc48f968a5275f7f79604251
 
 * [파일을 열 때 할당량 오류 발생](#quotaerror)
 * [Windows 또는 Linux에서 Azure File Storage에 액세스할 때 성능이 저하됨](#slowboth)
+* [Azure File Storage에서 읽기 및 쓰기 작업을 추적하는 방법](#traceop)
 
 **Windows 클라이언트 문제**
 
 * [Windows 8.1 또는 Windows Server 2012 R2에서 Azure File Storage에 액세스할 때 성능이 저하됨](#windowsslow)
 * [Azure 파일 공유를 탑재할 때 오류 53 발생](#error53)
-* [Net use에 성공했지만 Windows Explorer에 탑재된 Azure 파일 공유가 표시되지 않음](#netuse)
+* [오류 87 Azure File Share를 마운트하려고 시도하는 중 매개 변수가 올바르지 않음](#error87)
+* [Net use에 성공했지만 Windows Explorer에 탑재된 Azure 파일 공유 또는 드라이브 문자가 표시되지 않음](#netuse)
 * [내 저장소 계정에 "/"가 포함되고 net use 명령이 실패함](#slashfails)
 * [내 응용 프로그램/서비스가 탑재된 Azure Files 드라이브에 액세스할 수 없음.](#accessfiledrive)
 * [성능 최적화를 위한 추가 권장 사항](#additional)
+* [파일을 Azure Files에 업로드/복사할 때 "암호화를 지원하지 않는 대상에 파일을 복사하는 중임" 오류 발생](#encryption)
 
 **Linux 클라이언트 문제**
 
-* [파일을 Azure Files에 업로드/복사할 때 "암호화를 지원하지 않는 대상에 파일을 복사하는 중임" 오류 발생](#encryption)
-* [기존 파일 공유에서 "호스트가 중단됨" 오류 발생 또는 탑재 지점에서 list 명령을 실행할 때 셸이 중단됨](#errorhold)
+* [일시적인 IO 오류 - 기존 파일 공유에서 “호스트가 중단됨(오류 112)”오류 발생 또는 탑재 지점에서 list 명령을 실행할 때 셸이 중단됨](#errorhold)
 * [Linux VM에 Azure Files를 탑재할 때 탑재 오류 115 발생](#error15)
-* [Linux VM에서 "ls" 등 명령의 임의 지연 발생](#delayproblem)
+* [Linux VM에 탑재된 Azure 파일 공유의 성능이 느려짐](#delayproblem)
+* [탑재 오류(11): Ubuntu 4.8 이상 커널에 탑재하는 경우 일시적으로 사용할 수 없는 리소스](#ubuntumounterror)
 
 <a id="quotaerror"></a>
 
 ## <a name="quota-error-when-trying-to-open-a-file"></a>파일을 열 때 할당량 오류 발생
 Windows에서 다음과 같은 오류 메시지가 수신됩니다.
 
-**1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044**
-
-**STATUS_QUOTA_EXCEEDED**
-
-**Not enough quota is available to process this command**
-
-**Invalid handle value GetLastError: 53**
+`1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044`
+`STATUS_QUOTA_EXCEEDED`
+`Not enough quota is available to process this command`
+`Invalid handle value GetLastError: 53`
 
 Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 
-**<filename> [permission denied]**
-
-**Disk quota exceeded**
+`<filename> [permission denied]`
+`Disk quota exceeded`
 
 ### <a name="cause"></a>원인
 파일에 허용되는 동시 열린 핸들의 상한에 도달했기 때문에 문제가 발생합니다.
@@ -75,7 +75,9 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 ## <a name="slow-performance-when-accessing-file-storage-from-windows-or-linux"></a>Windows 또는 Linux에서 File Storage에 액세스할 때 성능이 저하됨
 * 최소 I/O 크기에 대한 특정 요구 사항이 없을 경우 최적 성능을 위해 I/O 크기로 1MB를 사용하는 것이 좋습니다.
 * 쓰기를 통해 확장 중인 파일의 최종 크기를 알고 파일에 아직 기록되지 않은 꼬리에 0이 포함될 때 소프트웨어에 호환성 문제가 없다면 모든 쓰기를 확장 쓰기로 설정하는 대신 파일 크기를 미리 설정합니다.
-
+* copy 메서드를 다음과 같이 올바르게 사용합니다.
+      * 두 파일 공유 간의 전송에는 AZCopy를 사용합니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy#file-copy)을 참조하세요.
+      * 온-프레미스 컴퓨터와 파일 공유 간에는 Robocopy를 사용합니다. 자세한 내용은 [빠른 복사를 위한 다중 스레드 robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/)(영문)를 참조하세요.
 <a id="windowsslow"></a>
 
 ## <a name="slow-performance-when-accessing-the-file-storage-from-windows-81-or-windows-server-2012-r2"></a>Windows 8.1 또는 Windows Server 2012 R2에서 File Storage에 액세스할 때 성능이 저하됨
@@ -87,14 +89,21 @@ Windows 8.1 또는 Windows Server 2012 R2를 실행 중인 클라이언트에서
 
 핫픽스가 설치된 경우 다음 출력이 표시됩니다.
 
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies**
-
-**{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1**
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
+`{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1`
 
 > [!NOTE]
 > 2015년 12월부터 Azure Marketplace의 Windows Server 2012 R2 이미지에는 핫픽스 KB3114025가 기본적으로 설치되어 있습니다.
 >
 >
+
+<a id="traceop"></a>
+
+### <a name="how-to-trace-the-read-and-write-operations-in-azure-file-storage"></a>Azure File Storage에서 읽기 및 쓰기 작업을 추적하는 방법
+
+[Microsoft Message Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=44226)는 클라이언트의 요청을 명확한 텍스트로 보여줄 수 있고 연결 요청 및 트랜잭션(여기서는 REST가 아니라 SMB로 가정) 간에 상당히 좋은 관계가 있습니다.  많은 IaaS VM 작업자가 있는 경우 각 클라이언트에서 이를 실행해야 하기 때문에 시간이 많이 소요된다는 단점이 있습니다.
+
+ProcMon과 함께 Message Analyze를 사용하면 응용 프로그램 코드가 트랜잭션에 역할을 할 수 있는 좋은 아이디어를 얻을 수 있습니다.
 
 <a id="additional"></a>
 
@@ -128,8 +137,9 @@ Portqry 사용에 대한 자세한 내용은 [Portqry.exe 명령줄 유틸리티
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 IT 조직과 협력하여 [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 포트 445 아웃바운드를 엽니다.
 
+<a id="error87"></a>
 ### <a name="cause-3"></a>원인 3
-클라이언트에서 NTLMv1 통신이 사용될 경우 “시스템 오류 53”이 수신될 수도 있습니다. NTLMv1을 사용하도록 설정하면 클라이언트 보안이 약화됩니다. 따라서 Azure Files에 대한 통신이 차단됩니다. 이것이 오류의 원인인지 확인하려면 다음 레지스트리 하위 키가 3의 값으로 설정되어 있는지 확인합니다.
+클라이언트에서 NTLMv1 통신이 사용될 경우 “시스템 오류 53 또는 시스템 오류 87”이 수신될 수도 있습니다. NTLMv1을 사용하도록 설정하면 클라이언트 보안이 약화됩니다. 따라서 Azure Files에 대한 통신이 차단됩니다. 이것이 오류의 원인인지 확인하려면 다음 레지스트리 하위 키가 3의 값으로 설정되어 있는지 확인합니다.
 
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
@@ -179,7 +189,7 @@ Azure Files는 NTLMv2 인증만 지원합니다. 클라이언트에 그룹 정�
 ### <a name="solution"></a>해결 방법
 응용 프로그램을 실행하는 동일한 사용자 계정으로 드라이브를 탑재하세요. psexec 등의 도구를 사용하여 이 작업을 수행할 수 있습니다.
 
-또는 네트워크 서비스 또는 시스템 계정과 같은 권한을 가진 새 사용자를 만들고 해당 계정으로 **cmdkey** 및 **net use**를 실행할 수 있습니다. 사용자 이름은 저장소 계정 이름이어야 하고 암호는 저장소 계정 키이어야 합니다. **net use**에 대한 또 다른 옵션은 **net use** 명령의 user name 및 password 매개 변수로 저장소 계정 이름 및 키를 전달하는 것입니다.
+**net use**에 대한 또 다른 옵션은 **net use** 명령의 user name 및 password 매개 변수로 저장소 계정 이름 및 키를 전달하는 것입니다.
 
 이러한 지침을 따른 후 “시스템 오류 1312가 발생했습니다. 지정된 로그온 세션이 없습니다. 이미 종료된 것 같습니다.”라는 오류 메시지가 시스템/네트워크 서비스 계정에 대해 **net use**를 실행할 때 수신될 수 있습니다. 이 문제가 발생하면 **net use**에 전달되는 사용자 이름에 도메인 정보(예: "[저장소 계정 이름].file.core.windows.net")가 포함되는지 확인합니다.
 
@@ -205,14 +215,34 @@ Bitlocker로 암호화된 파일을 Azure Files로 복사할 수 있습니다. �
 
 <a id="errorhold"></a>
 
-## <a name="host-is-down-error-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>기존 파일 공유에서 “호스트가 중단됨” 오류 발생 또는 탑재 지점에서 list 명령을 실행할 때 셸이 중단됨
+## <a name="host-is-down-error-112-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>기존 파일 공유에서 “호스트가 중단됨(오류 112)” 오류 발생 또는 탑재 지점에서 list 명령을 실행할 때 셸이 중단됨
 ### <a name="cause"></a>원인
-Linux 클라이언트에서 클라이언트가 장시간 유휴 상태일 경우 이 오류가 발생합니다. 이 오류가 발생하면 클라이언트 연결이 끊어지고 클라이언트 연결 시간이 초과됩니다.
+Linux 클라이언트에서 클라이언트가 장시간 유휴 상태일 경우 이 오류가 발생합니다. 클라이언트가 오랫동안 유휴 상태일 경우 클라이언트 연결이 끊어지고 연결 시간이 초과됩니다. 
+
+연결은 다양한 이유로 인해 유휴 상태가 될 수 있습니다. 기본값인 "소프트" 탑재 옵션을 사용하는 경우 서버에 TCP 연결을 다시 설정하지 않는 네트워크 통신 오류가 발생합니다.
+
+또 다른 이유는 오래된 커널에 표시되지 않는 일부 재연결 수정 사항 때문입니다.
 
 ### <a name="solution"></a>해결 방법
-이 문제는 Linux 커널에서 [변경 집합](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)의 일부로 수정되었고 Linux 배포로 백포팅 대기 중입니다.
 
-이 문제를 해결하려면 연결을 유지하여 유휴 상태 전환을 방지하고, 주기적으로 쓰는 Azure 파일 공유에서 파일을 보관합니다. 이 작업은 만든/수정된 날짜를 파일에 다시 쓰는 등의 쓰기 작업이어야 합니다. 그렇지 않으면 캐시된 결과를 얻을 수 있고 작업이 연결을 트리거하지 않을 수 있습니다.
+하드 탑재를 지정하면 클라이언트는 연결될 때까지 또는 명시적으로 중단될 때까지 대기하게 되어 네트워크 시간 제한으로 인해 오류가 발생하지 않도록 할 수 있습니다. 하지만 사용자는 무한 대기할 수 있고 필요에 따라 연결을 중단해야 함을 알아야 합니다.
+
+Linux 커널의 이러한 재연결 문제는 현재 다음 변경 집합의 일부로 수정되었습니다.
+
+* [소켓 재연결 후에 오랫동안 smb3 세션 재연결이 지연되지 않도록 재연결 수정](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
+
+* [소켓 재연결 직후 에코 서비스 호출](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
+
+* [CIFS: 재연결 동안 가능한 메모리 손상 수정](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+
+* [CIFS: 재연결 동안 가능한 뮤텍스 이중 잠금 해결 - 커널 v4.9 이상](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) 
+
+그러나 이 변경 내용이 모든 Linux 배포판에 아직 이식되지 않은 것일 수 있습니다. 이 항목과 다른 재연결 수정 사항이 있는 인기 Linux 커널의 알려진 목록입니다. 4.4.40+ 4.8.16+ 4.9.1+
+최신 수정 사항을 선택하기 위해 권장되는 커널 버전 이상으로 전환할 수 있습니다.
+
+### <a name="workaround"></a>해결 방법
+최신 커널 버전으로 전환할 수 없는 경우 30초보다 짧은 간격으로 쓰는 Azure 파일 공유에 파일을 보관하여 이 문제를 해결할 수 있습니다. 이 작업은 만든/수정된 날짜를 파일에 다시 쓰는 등의 쓰기 작업이어야 합니다. 그렇지 않으면 캐시된 결과를 얻을 수 있고 작업이 재연결을 트리거하지 않을 수 있습니다. 
+
 
 <a id="error15"></a>
 
@@ -225,23 +255,31 @@ Linux 배포는 아직 SMB 3.0의 암호화 기능을 지원하지 않습니다.
 
 <a id="delayproblem"></a>
 
-## <a name="linux-vm-experiencing-random-delays-in-commands-like-ls"></a>Linux VM에서 "ls" 등 명령의 임의 지연 발생
+## <a name="azure-file-share-mounted-on-linux-vm-experiencing-slow-performance"></a>Linux VM에 탑재된 Azure 파일 공유의 성능이 느려짐
+
+성능 저하의 가능한 원인은 캐싱이 해제되었기 때문일 수 있습니다. 캐시를 사용하도록 설정했는지를 확인하려면 "cache="를 찾아봅니다.  *cache=none*은 캐싱이 비활성화되었음을 나타냅니다. 기본 캐싱이나 "엄격한" 캐싱 모드를 활성화하는 명령을 탑재하기 위해 기본 탑재 명령을 사용하거나 명시적으로 **cache=strict** 옵션을 추가하여 공유를 다시 탑재하세요.
+
+일부 시나리오에서 serverino mount 옵션은 ls 명령이 모든 디렉터리 항목에 대해 통계를 실행하도록 할 수 있으며 큰 디렉터리를 나열할 때는 성능이 저하될 수 있습니다. "/etc/fstab" 항목에서 탑재 옵션을 확인할 수 있습니다.
+
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+
+명령 **sudo mount | grep cifs**를 실행하고 출력을 확인하여 올바른 옵션이 사용되고 있는지 간단히 확인할 수도 있습니다.
+
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs
+(rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
+dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+
+cache=strict 또는 serverino 옵션이 없는 경우 [설명서](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share)의 mount 명령을 실행하여 은 Azure 파일을 분리했다가 탑재한 다음 "/etc/fstab" 항목에 올바른 옵션이 있는지 다시 확인합니다.
+
+<a id="ubuntumounterror"></a>
+## <a name="mount-error11-resource-temporarily-unavailable-when-mounting-to-ubuntu-48-kernel"></a>탑재 오류(11): Ubuntu 4.8 이상 커널에 탑재하는 경우 일시적으로 사용할 수 없는 리소스
+
 ### <a name="cause"></a>원인
-mount 명령에 **serverino** 옵션이 포함되지 않으면 이 문제가 발생할 수 있습니다. **serverino**가 없으면 ls 명령은 모든 파일에 대해 **stat**를 실행합니다.
+클라이언트가 암호화 지원을 요청하지만 지원되지 않는 Ubuntu 16.10 커널(v.4.8)의 알려진 문제입니다. 
 
 ### <a name="solution"></a>해결 방법
-"/etc/fstab" 항목에서 **serverino**를 확인합니다.
-
-//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X, file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
-
-**serverino** 옵션이 없으면 **serverino** 옵션이 선택된 상태에서 Azure Files를 탑재 해제하고 다시 탑재합니다.
-
+Ubuntu 16.10이 수정될 때까지 “vers=2.1” 탑재 옵션을 지정하거나 Ubuntu 16.04를 사용합니다.
 ## <a name="learn-more"></a>자세한 정보
 * [Windows에서 Azure File Storage 시작](storage-dotnet-how-to-use-files.md)
 * [Linux에서 Azure File Storage 시작](storage-how-to-use-files-linux.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -15,21 +15,22 @@ ms.topic: hero-article
 ms.date: 02/06/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: 28c41f08bf8eaf7e6679040bb8fbab2e134d08fb
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
 > [!div class="op_single_selector"]
-> * [Azure 포털](site-recovery-vmm-to-azure.md)
+> * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [클래식 포털](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - 클래식](site-recovery-deploy-with-powershell.md)
 >
 >
 
-Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)을 확인하세요.
+Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)
 
 ## <a name="overview"></a>개요
 이 문서에서는 사이트 복구를 배포하여 VMM 사설 클라우드에 있는 Hyper-V 호스트 서버의 Hyper-V 가상 컴퓨터를 Azure에 복제하는 방법을 설명합니다.
@@ -50,7 +51,7 @@ Azure에서 다음 항목이 필요합니다.
 | **필수 요소** | **세부 정보** |
 | --- | --- |
 | **Azure 계정** |[Microsoft Azure](https://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. 사이트 복구 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/). |
-| **Azure 저장소** |복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. <br/><br/>[표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 필요합니다. 계정은 Site Recovery 서비스와 동일한 지역에서 동일한 구독과 연결되어야 합니다. 프리미엄 저장소 계정으로 복제는 현재 지원되지 않으며 사용할 수 없습니다.<br/><br/>[자세히 알아보세요](../storage/storage-introduction.md) . |
+| **Azure 저장소** |복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. <br/><br/>[표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 필요합니다. 계정은 사이트 복구와 같은 하위 지역에 있고 같은 구독과 연결되어 있어야 합니다. 프리미엄 저장소 계정으로 복제는 현재 지원되지 않으며 사용할 수 없습니다.<br/><br/>[자세히 알아보세요](../storage/storage-introduction.md) . |
 | **Azure 네트워크** |장애 조치(Failover) 발생 시 Azure VM에서 연결할 Azure 가상 네트워크가 필요합니다. Azure 가상 네트워크는 사이트 복구 자격 증명 모음과 동일한 지역에 있어야 합니다. |
 
 ## <a name="on-premises-prerequisites"></a>온-프레미스 필수 조건
@@ -60,13 +61,13 @@ Azure에서 다음 항목이 필요합니다.
 | --- | --- |
 | **VMM** |물리적 또는 가상 독립 실행형 서버나 가상 클러스터로 배포된 VMM 서버가 하나 이상 필요합니다. <br/><br/>VMM 서버는 최신 누적 업데이트를 설치한 System Center 2012 R2를 실행해야 합니다.<br/><br/>VMM 서버에는 클라우드가 하나 이상 구성되어 있어야 합니다.<br/><br/>보호할 원본 클라우드에는 VMM 호스트 그룹이 하나 이상 있어야 합니다.<br/><br/>Keith Mayer 블로그의 [연습: System Center 2012 SP1 VMM에서 사설 클라우드 만들기](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) 에서 VMM 클라우드 설정에 대해 자세히 알아봅니다. |
 | **Hyper-V** |VMM 클라우드에 있는 하나 이상의 Hyper-V 호스트 서버 또는 클러스터가 필요합니다. 호스트 서버는 하나 이상의 VM이 있어야 합니다. <br/><br/>Hyper-V 서버는 **Windows Server 2012 R2** 이상(Hyper-V 역할 수행) 또는 **Microsoft Hyper-V Server 2012 R2**를 실행하고 최신 업데이트가 설치되어 있어야 합니다.<br/><br/>보호하려는 VM을 포함하는 Hyper-V 서버는 모두 VMM 클라우드에 위치해야 합니다.<br/><br/>클러스터에서 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. [자세히 알아보세요](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) . |
-| **보호된 컴퓨터** |보호하려는 VM은 [Azure 요구 사항을](site-recovery-best-practices.md#azure-virtual-machine-requirements)준수해야 합니다. |
+| **보호된 컴퓨터** | 보호하려는 VM은 [Azure 요구 사항을](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)준수해야 합니다. |
 
 ## <a name="network-mapping-prerequisites"></a>네트워크 매핑 필수 조건
 Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원본 VMM 서버의 VM 네트워크와 대상 Azure 네트워크 간을 매핑하여 다음을 가능하게 합니다.
 
-* 속해 있는 복구 계획에 관계없이 동일한 네트워크에서 장애 조치(Failover)되는 모든 컴퓨터가 서로 연결할 수 있습니다.
-* 네트워크 게이트웨이가 대상 Azure 네트워크에서 설정된 경우 가상 컴퓨터가 다른 온-프레미스 가상 컴퓨터에 연결할 수 있습니다.
+* 동일한 네트워크에서 장애 조치(Failover)되는 모든 컴퓨터는 복구 계획이 있는지 여부와 상관 없이 서로 연결할 수 있습니다.
+* 네트워크 게이트웨이가 대상 Azure 네트워크에서 설정된 경우 가상 컴퓨터는 다른 온-프레미스 가상 컴퓨터에 연결할 수 있습니다.
 * 네트워크 매핑을 구성하지 않으면 동일한 복구 계획에서 장애 조치(Failover)되는 가상 컴퓨터만 Azure로의 장애 조치(Failover) 후에 서로 연결할 수 있습니다.
 
 네트워크 매핑을 배포하려면 다음이 필요합니다.
@@ -74,13 +75,12 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 * 원본 VMM 서버에서 보호할 가상 컴퓨터가 VM 네트워크에 연결되어야 합니다. 해당 네트워크가 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.
 * 복제된 가상 컴퓨터가 장애 조치(Failover) 후 연결할 수 있는 Azure 네트워크. 이 네트워크는 장애 조치(Failover) 시 선택합니다. 네트워크는 Azure Site Recovery 구독과 동일한 지역에 있어야 합니다.
 
-다음과 같이 네트워크 매핑을 준비합니다.
 
-1. [자세히 알아보세요](site-recovery-network-mapping.md) .
-2. VMM에서 VM 네트워크를 준비합니다.
+VMM에서 네트워크 준비:
 
    * [논리 네트워크를 설정합니다](https://technet.microsoft.com/library/jj721568.aspx).
    * [VM 네트워크를 설정합니다](https://technet.microsoft.com/library/jj721575.aspx).
+
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>1단계: 사이트 복구 자격 증명 모음 만들기
 1. 등록할 VMM 서버에서 [관리 포털](https://portal.azure.com) 에 로그인합니다.
@@ -146,7 +146,7 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 12. **클라우드 메타데이터 동기화** 에서 VMM 서버에 있는 모든 클라우드의 메타데이터를 자격 증명 모음과 동기화할 것인지를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 모든 클라우드를 동기화하지 않는 경우 이 설정을 선택 취소된 상태로 두고 VMM 콘솔의 클라우드 속성에서 각 클라우드를 개별적으로 동기화할 수 있습니다.
 13. **다음** 을 클릭하여 프로세스를 완료합니다. 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 자격 증명 모음의 **서버** 페이지에 있는 **VMM 서버** 탭에 해당 서버가 표시됩니다.
 
-    ![Lastpage](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
+    ![마지막 페이지](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 자격 증명 모음의 **서버** 페이지에 있는 **VMM 서버** 탭에 해당 서버가 표시됩니다.
 
@@ -215,9 +215,9 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 1. 빠른 시작 페이지에서 **VMM 클라우드에 대해 보호 설정**을 클릭합니다.
 2. **보호된 항목** 탭에서 구성할 클라우드를 클릭하고 **구성** 탭으로 이동합니다.
-3.  **대상** select **Azure**을 확인하세요.
+3. **대상** select **Azure**을 확인하세요.
 4. **저장소 계정** 에서 복제를 위해 사용할 Azure Storage 계정을 선택합니다.
-5. **저장된 데이터 암호화**를 **끄기**로 설정합니다. 이 설정은 온-프레미스 사이트와 Azure 간에 복제된 데이터를 암호화하도록 지정합니다.
+5. **저장된 데이터 암호화**를 **끄기**로 설정합니다. 이 설정은 온-프레미스 사이트와 Azure 간의 복제 중에 데이터를 암호화하도록 지정합니다.
 6. **복사 빈도** 에서 기본 설정을 그대로 둡니다. 이 값은 원본 위치와 대상 위치 사이에 데이터를 동기화해야 하는 빈도를 지정합니다.
 7. **복구 지점 유지**에서 기본 설정을 그대로 둡니다. 기본값인 0인 경우에는 주 가상 컴퓨터의 가장 최근 복구 지점만 복제본 호스트 서버에 저장됩니다.
 8. **응용 프로그램에 일관된 스냅숏의 빈도**에서 기본 설정을 그대로 둡니다. 이 값은 스냅숏을 만드는 빈도를 지정합니다. 스냅숏은 VSS(볼륨 섀도 복사본 서비스)를 사용하여 스냅숏이 만들어질 때 응용 프로그램이 일관된 상태가 되도록 합니다.  값을 설정할 경우 구성할 추가 복구 지점 수보다 적은지 확인하세요.
@@ -253,7 +253,7 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 ## <a name="step-8-enable-protection-for-virtual-machines"></a>8단계: 가상 컴퓨터의 보호 활성화
 서버, 클라우드 및 네트워크가 제대로 구성되었으면 클라우드에서 가상 컴퓨터에 대한 보호를 설정할 수 있습니다. 다음 사항에 유의하세요.
 
-* 가상 컴퓨터는 [Azure 요구 사항](site-recovery-best-practices.md#azure-virtual-machine-requirements)을 충족해야 합니다.
+* 가상 컴퓨터는 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 충족해야 합니다.
 * 보호를 사용하도록 설정하려면 가상 컴퓨터에 대해 운영 체제 및 운영 체제 디스크 속성을 설정해야 합니다. VMM에서 가상 컴퓨터 템플릿을 사용하여 가상 컴퓨터를 만들 때 속성을 설정할 수 있습니다. 가상 컴퓨터 속성의 **일반** 및 **하드웨어 구성** 탭에서 기존 가상 컴퓨터에 대해 이러한 속성을 설정할 수도 있습니다. 이러한 속성을 VMM에서 설정하지 않는 경우 Azure Site Recovery 포털에서 구성할 수 있습니다.
 
     ![가상 컴퓨터 만들기](./media/site-recovery-vmm-to-azure-classic/enable-new.png)
@@ -274,7 +274,7 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
     ![가상 컴퓨터 확인](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 2. 가상 컴퓨터 속성의 **구성** 탭에서 다음 네트워크 속성을 수정할 수 있습니다.
 
-* **대상 가상 컴퓨터의 네트워크 어댑터 수** - 네트워크 어댑터 수는 대상 가상 컴퓨터에 지정하는 크기로 지정됩니다. 가상 컴퓨터 크기로 지원되는 어댑터 수에 대해서는 [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-linux-sizes.md#size-tables)을 확인합니다. 가상 컴퓨터의 크기를 수정하고 설정을 저장하면 다음에 **구성** 페이지를 열 때 네트워크 어댑터의 수가 변경됩니다. 대상 가상 컴퓨터의 네트워크 어댑터 수는 원본 가상 컴퓨터의 최소 네트워크 어댑터 수이며 선택한 가상 컴퓨터 크기에서 지원하는 최대 네트워크 어댑터 수입니다. 다음과 같습니다.
+* **대상 가상 컴퓨터의 네트워크 어댑터 수** - 네트워크 어댑터 수는 대상 가상 컴퓨터에 지정하는 크기로 지정됩니다. 가상 컴퓨터 크기로 지원되는 어댑터 수에 대해서는 [가상 컴퓨터 크기 사양](../virtual-machines/linux/sizes.md)을 확인합니다. 가상 컴퓨터의 크기를 수정하고 설정을 저장하면 다음에 **구성** 페이지를 열 때 네트워크 어댑터의 수가 변경됩니다. 대상 가상 컴퓨터의 네트워크 어댑터 수는 원본 가상 컴퓨터의 최소 네트워크 어댑터 수이며 선택한 가상 컴퓨터 크기에서 지원하는 최대 네트워크 어댑터 수입니다. 다음과 같습니다.
 
   * 원본 컴퓨터의 네트워크 어댑터 수가 대상 컴퓨터 크기에 허용되는 어댑터 수보다 작거나 같은 경우, 대상의 어댑터 수는 소스와 동일해야 합니다.
   * 원본 가상 컴퓨터의 어댑터의 수가 대상 크기에 허용된 수를 초과하면 대상 크기 최대치가 사용됩니다.
@@ -296,15 +296,15 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 테스트 장애 조치(Failover)에서는 격리된 네트워크에서 장애 조치(Failover) 및 복구 메커니즘을 시뮬레이션합니다. 다음 사항에 유의하세요.
 
 * 장애 조치(Failover) 후에 원격 데스크탑을 사용하여 Azure의 가상 컴퓨터에 연결하려면 가상 컴퓨터에서 원격 데스크탑 연결을 사용하도록 설정하고 나서 테스트 장애 조치(Failover)를 실행합니다.
-* 장애 조치(Failover) 후에 공개 IP 주소를 사용하여 원격 데스크탑을 통해 Azure의 가상 컴퓨터에 연결합니다. 이 작업을 하려면 공개 주소를 사용하여 가상 컴퓨터에 연결하지 못하도록 차단하는 도메인 정책이 없어야 합니다.
+* 장애 조치 후에 공용 IP 주소를 사용하여 원격 데스크톱을 통해 Azure VM에 연결합니다. 이 작업을 하려면 공개 주소를 사용하여 가상 컴퓨터에 연결하지 못하도록 차단하는 도메인 정책이 없어야 합니다.
 
 > [!NOTE]
-> Azure에 장애 조치를 수행할 때 최상의 성능을 얻으려면 보호된 컴퓨터에 Azure 에이전트를 설치하도록 합니다. 더 빨리 부팅하고 문제가 발생한 경우 진단에도 도움이 됩니다. Linux 에이전트는 [여기](https://github.com/Azure/WALinuxAgent)에서 찾을 수 있습니다. Windows 에이전트는 [여기](http://go.microsoft.com/fwlink/?LinkID=394789)에서 찾을 수 있습니다.
+> Azure에 장애 조치할 때 최상의 성능을 얻으려면 Azure 에이전트를 VM에 설치했는지 확인합니다. 이렇게 하면 부팅이 빨라지고 문제 해결에 도움이 됩니다. [Linux 에이전트](https://github.com/Azure/WALinuxAgent) 또는 [Windows 에이전트](http://go.microsoft.com/fwlink/?LinkID=394789)를 다운로드합니다.
 >
 >
 
 ### <a name="create-a-recovery-plan"></a>복구 계획 만들기
-1. **복구 계획** 탭에서 새 계획을 추가합니다. 이름을 지정하고 **원본 유형**에 **VMM**, **원본**에 원본 VMM 서버를 지정합니다. 대상은 Azure입니다.
+1. **복구 계획** 탭에서 새 계획을 추가합니다. **원본 유형**에 **VMM**, **원본**에 원본 VMM 서버의 이름을 지정합니다. 대상은 Azure입니다.
 
     ![복구 계획 만들기](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 2. **가상 컴퓨터 선택** 페이지에서 복구 계획에 추가할 가상 컴퓨터를 선택합니다. 이러한 가상 컴퓨터는 복구 계획 기본 그룹(그룹 1)에 추가됩니다. 단일 복구 계획에서 최대 100개의 가상 컴퓨터가 테스트되었습니다.
@@ -322,7 +322,7 @@ Azure로의 테스트 장애 조치(Failover)를 실행하는 두 가지 방법�
 * **Azure 네트워크를 사용하지 않는 테스트 장애 조치(Failover)**- 이 유형의 테스트 장애 조치는 Azure에서 가상 컴퓨터가 제대로 작동하는지 확인합니다. 장애 조치(Failover) 후에 가상 컴퓨터가 Azure 네트워크에 연결되지 않습니다.
 * **Azure 네트워크를 사용하는 장애 조치(Failover) 테스트**- 이 유형의 장애 조치(Failover)는 전체 복제 환경이 예상대로 작동하고 장애 조치(Failover)된 가상 컴퓨터가 지정한 대상 Azure 네트워크에 연결되는지 확인합니다. 테스트 장애 조치(Failover)에 대한 서브넷 처리의 경우 테스트 가상 컴퓨터의 서브넷이 복제본 가상 컴퓨터의 서브넷에 따라 확인됩니다. 이는 복제본 가상 컴퓨터의 서브넷이 원본 가상 컴퓨터의 서브넷을 기반으로 하는 일반 복제의 경우와 다릅니다.
 
-Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정된 가상 컴퓨터에 대해 테스트 장애 조치(Failover)를 실행하려는 경우 아무 것도 준비할 필요가 없습니다. Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 실행하려면 Azure 프로덕션 네트워크에서 격리된 새 Azure 네트워크를 만듭니다.(Azure에서 새 네트워크를 만들 때의 기본 동작) 자세한 내용은 [테스트 장애 조치(Failover)를 실행](site-recovery-failover.md#run-a-test-failover)하는 방법을 살펴봅니다.
+Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정된 가상 컴퓨터에 대해 테스트 장애 조치(Failover)를 실행하려는 경우 아무 것도 준비할 필요가 없습니다. Azure 대상 네트워크를 사용하여 테스트 장애 조치(Failover)를 실행하려면 Azure 프로덕션 네트워크에서 격리된 새 Azure 네트워크를 만듭니다.(Azure에서 새 네트워크를 만들 때의 기본 동작) 자세한 내용은 [테스트 장애 조치(Failover)를 실행](site-recovery-failover.md)하는 방법을 살펴봅니다.
 
 또한 예상 대로 작동하는 복제된 가상 컴퓨터에 대한 인프라를 설정해야 합니다. 예를 들어, 도메인 컨트롤러 및 DNS와 가상 컴퓨터를 Azure Site Recovery를 사용하여 Azure에 복제할 수 있으며 테스트 장애 조치를 사용하여 테스트 네트워크에서 만들 수 있습니다. 자세한 내용은 [Active Directory의 테스트 장애 조치(failover) 시 고려 사항](site-recovery-active-directory.md#test-failover-considerations) 섹션을 살펴봅니다.
 
@@ -334,12 +334,12 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
     ![네트워크 없음](./media/site-recovery-vmm-to-azure-classic/test-no-network.png)
 3. 클라우드에 대해 데이터 암호화를 사용하도록 설정된 상태에서 클라우드에 데이터 암호화를 사용하도록 설정하는 옵션을 켤 경우 VMM 서버에 공급자를 설치하는 동안 **암호화 키** 에서 발급된 인증서를 선택합니다.
 4. **작업** 탭에서 장애 조치 진행률을 추적할 수 있습니다. 또한 Azure 포털에서 가상 컴퓨터 테스트 복제본을 확인할 수 있어야 합니다. 온-프레미스 네트워크에서 가상 컴퓨터에 액세스할 수 있도록 설정한 경우 가상 컴퓨터에 대한 원격 데스크톱 연결을 시작할 수 있습니다.
-5. 장애 조치가 **테스트 완료** 단계에 도달하면 **테스트 완료**를 클릭하여 테스트 장애 조치를 완료합니다. **작업** 탭으로 드릴다운하여 장애 조치 진행률 및 상태를 추적하고 필요한 작업을 수행할 수 있습니다.
-6. 장애 조치(Failover) 후에는 Azure Portal에서 가상 컴퓨터 테스트 복제본을 확인할 수 있습니다. 온-프레미스 네트워크에서 가상 컴퓨터에 액세스할 수 있도록 설정한 경우 가상 컴퓨터에 대한 원격 데스크톱 연결을 시작할 수 있습니다. 다음을 수행합니다.
+5. 장애 조치가 **테스트 완료** 단계에 도달하면 **완료된 테스트**를 클릭하여 장애 조치를 완료합니다. **작업** 탭으로 드릴다운하여 장애 조치 진행률 및 상태를 추적하고 필요한 작업을 수행할 수 있습니다.
+6. 장애 조치 후에는 Azure Portal에서 가상 컴퓨터 테스트 복제본을 확인할 수 있습니다. 온-프레미스 네트워크에서 가상 컴퓨터에 액세스할 수 있도록 설정한 경우 가상 컴퓨터에 대한 원격 데스크톱 연결을 시작할 수 있습니다. 다음을 수행합니다.
 
    1. 가상 컴퓨터가 성공적으로 시작되는지 확인합니다.
    2. 장애 조치(Failover) 후에 원격 데스크탑을 사용하여 Azure의 가상 컴퓨터에 연결하려면 가상 컴퓨터에서 원격 데스크탑 연결을 사용하도록 설정하고 나서 테스트 장애 조치(Failover)를 실행합니다. 또한 가상 컴퓨터에 RDP 끝점도 추가해야 합니다. 이를 위해서 [Azure 자동화 Runbook](site-recovery-runbook-automation.md) 을 활용할 수 있습니다.
-   3. 장애 조치(Failover)는 원격 데스크톱을 사용하여 Azure에서 가상 컴퓨터에 연결하기 위해 공용 IP 주소를 사용하는 경우, 공용 주소를 사용하여 가상 컴퓨터에 연결하지 않는 도메인 정책이 없어야 합니다.
+   3. 장애 조치(Failover) 후에 원격 데스크톱을 사용하여 Azure에서 가상 컴퓨터에 연결하기 위해 공용 IP 주소를 사용하는 경우, 공용 주소를 사용하여 가상 컴퓨터에 연결하지 않는 도메인 정책이 없어야 합니다.
 7. 테스트가 완료되면 다음을 수행합니다.
 
    * **테스트 장애 조치(Failover)가 완료되었습니다**를 클릭합니다. 테스트 환경을 정리하여 자동으로 테스트 가상 컴퓨터의 전원을 끄고 컴퓨터를 삭제합니다.
@@ -348,9 +348,4 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 
 ## <a name="next-steps"></a>다음 단계
 [복구 계획 설정](site-recovery-create-recovery-plans.md) 및 [장애 조치(failover)](site-recovery-failover.md)에 대해 알아봅니다.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 03/31/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3b14e3c9513d9e5ef022e3a2db0ab9e95598c0d7
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: ebee9b7d45cae0259968313b0908be148f47d6b3
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -38,7 +39,7 @@ ms.openlocfilehash: 3b14e3c9513d9e5ef022e3a2db0ab9e95598c0d7
 
  각 산업 페이지에는 해당 산업과 관련하여 가장 인기 있는 갤러리 항목의 목록이 표시됩니다.
 갤러리에서 산업별 리소스를 모두 보려면 **모두 보기**를 클릭합니다.
-이 페이지에서 갤러리에 있는 모든 리소스를 찾아보거나, 또는 페이지 왼쪽에서 필터 조건을 선택하고 맨 위에서 검색어를 입력하여 검색할 수 있습니다.
+이 페이지에서 갤러리의 모든 리소스를 찾아볼 수 있습니다. 또한 페이지 왼쪽에서 필터 조건을 선택하고 맨 위에 검색어를 입력하여 검색할 수 있습니다.
 
 ![이 항목을 친구 들과 공유](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
@@ -49,10 +50,5 @@ ms.openlocfilehash: 3b14e3c9513d9e5ef022e3a2db0ab9e95598c0d7
 **[갤러리로 이동 >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

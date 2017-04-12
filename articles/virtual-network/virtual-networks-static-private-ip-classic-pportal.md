@@ -1,10 +1,10 @@
 ---
-title: "Azure Portal을 사용하여 클래식 모드에서 정적 개인 IP를 설정하는 방법 | Microsoft Docs"
-description: "정적 개인 IP 및 Azure 포털을 사용하여 클래식 모드에서 정적 개인 IP를 관리하는 방법 이해"
+title: "VM(클래식)에 대한 개인 IP 주소 구성 - Azure Portal | Microsoft Docs"
+description: "Azure Portal을 사용하여 가상 컴퓨터(클래식)에 대한 개인 IP 주소를 구성하는 방법을 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-service-management
 ms.assetid: b8ef8367-58b2-42df-9f26-3269980950b8
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a9a18f67a5c124f5f6d00a852f44ab5d071a7715
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: bde6de3495c2909b63b1f85e420a4ff5e7ac2c1a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-set-a-static-private-ip-address-classic-in-the-azure-portal"></a>Azure 포털에서 정적 개인 IP 주소(클래식) 설정 방법
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 컴퓨터(클래식)에 대한 개인 IP 주소 구성
+
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -79,10 +82,5 @@ ms.openlocfilehash: a9a18f67a5c124f5f6d00a852f44ab5d071a7715
 * [예약된 공용 IP](virtual-networks-reserved-public-ip.md) 주소에 대해 알아봅니다.
 * [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소에 대해 알아봅니다.
 * [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

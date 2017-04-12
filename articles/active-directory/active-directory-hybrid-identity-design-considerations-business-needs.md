@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/08/2016
+ms.date: 03/21/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73b5a52b143d17283f677ce3181d8381db41d3c4
+ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
+ms.openlocfilehash: 60f1ec092635910ae8c98cc0197fdfbf358f01be
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -55,7 +56,7 @@ ms.openlocfilehash: 73b5a52b143d17283f677ce3181d8381db41d3c4
 * 이 통합이 현재 운영 중입니까 아니면 파일럿입니까?
 
 > [!NOTE]
-> 모든 앱 및 클라우드 서비스의 정확한 매핑이 되지 않은 경우 클라우드 앱 검색 도구를 사용할 수 있습니다. 이 도구는 조직의 모든 비즈니스 및 소비자 클라우드 앱에 가시성이 있는 IT 부서를 제공할 수 있습니다. 따라서 사용 패턴 및 클라우드 응용 프로그램에 액세스하는 사용자에 대한 세부 정보를 포함하여 조직의 섀도 IT를 더 쉽게 발견할 수 있습니다. 이 도구에 액세스하려면 [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
+> 모든 앱 및 클라우드 서비스의 정확한 매핑이 되지 않은 경우 클라우드 앱 검색 도구를 사용할 수 있습니다. 이 도구는 조직의 모든 비즈니스 및 소비자 클라우드 앱에 가시성이 있는 IT 부서를 제공할 수 있습니다. 따라서 사용 패턴 및 클라우드 응용 프로그램에 액세스하는 사용자에 대한 세부 정보를 포함하여 조직의 섀도 IT를 더 쉽게 발견할 수 있습니다. 시작하려면 [클라우드 앱 검색](active-directory-cloudappdiscovery-whatis.md)을 참조하세요.
 > 
 > 
 
@@ -108,10 +109,5 @@ ms.openlocfilehash: 73b5a52b143d17283f677ce3181d8381db41d3c4
 
 ## <a name="see-also"></a>참고 항목
 [디자인 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

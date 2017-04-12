@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: e6b1c8cbf45fea4f5af16231003ccc07a2a53233
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 3. 사용자 프로비전 구성
 4. 사용자 프로비전 구성
 
-![시나리오](./media/active-directory-saas-workday-tutorial/IC782919.png "Scenario")
+![시나리오](./media/active-directory-saas-workday-tutorial/IC782919.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-workday"></a>Workday에 응용 프로그램 통합 사용
 이 섹션에서는 Workday에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명합니다.
@@ -46,11 +47,11 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![응용 프로그램](./media/active-directory-saas-workday-tutorial/IC700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-workday-tutorial/IC700994.png "응용 프로그램")
 
 4. **응용 프로그램 갤러리**를 열려면 **앱 추가**를 클릭한 다음 **조직에서 사용할 응용 프로그램 추가**를 클릭합니다.
    
-    ![원하는 작업을 선택하세요.](./media/active-directory-saas-workday-tutorial/IC700995.png "What do you want to do?")
+    ![원하는 작업을 선택하세요.] (./media/active-directory-saas-workday-tutorial/IC700995.png "원하는 작업을 선택하세요.")
 
 5. **검색 상자**에 **Workday**를 입력합니다.
    
@@ -68,15 +69,15 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. **Workday** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-workday-tutorial/IC782920.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-workday-tutorial/IC782920.png "Single Sign-On 구성")
 
 2. **Workday에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-workday-tutorial/IC782921.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-workday-tutorial/IC782921.png "Single Sign-On 구성")
 
-3. **앱 URL 구성** 페이지에서 다음 단계를 수행하고 **다음**을 선택합니다.
+3. **앱 URL 구성** 페이지에서 다음 단계를 수행하고 **다음**을 클릭합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-workday-tutorial/IC782957.png "Configure App URL")
+    ![앱 URL 구성](./media/active-directory-saas-workday-tutorial/IC782957.png "앱 URL 구성")
    
     a. **로그온 URL** 텍스트 상자에서 `https://impl.workday.com/<tenant>/login-saml2.htmld` 패턴을 사용하여 Workday에 로그인할 때 사용자가 사용한 URL을 입력합니다.
    
@@ -89,25 +90,25 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
 4. **Workday에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
  
-    ![Single Sign-On 구성](./media/active-directory-saas-workday-tutorial/IC782922.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-workday-tutorial/IC782922.png "Single Sign-On 구성")
 
 5. 다른 웹 브라우저 창에서 Workday 회사 사이트에 관리자 권한으로 로그인합니다.
 
 6. **메뉴 \> 워크벤치**로 이동합니다.
    
-    ![워크벤치](./media/active-directory-saas-workday-tutorial/IC782923.png "Workbench")
+    ![워크벤치](./media/active-directory-saas-workday-tutorial/IC782923.png "워크벤치")
 
 7. **계정 관리**로 이동합니다.
    
-    ![계정 관리](./media/active-directory-saas-workday-tutorial/IC782924.png "Account Administration")
+    ![계정 관리](./media/active-directory-saas-workday-tutorial/IC782924.png "계정 관리")
 
 8. **테넌트 설정 편집 - 보안**으로 이동합니다.
    
-    ![테넌트 보안 편집](./media/active-directory-saas-workday-tutorial/IC782925.png "Edit Tenant Security")
+    ![테넌트 보안 편집](./media/active-directory-saas-workday-tutorial/IC782925.png "테넌트 보안 편집")
 
 9. **리디렉션 URL** 섹션에서 다음 단계를 수행합니다.
    
-    ![리디렉션 URL](./media/active-directory-saas-workday-tutorial/IC7829581.png "Redirection URLs")
+    ![리디렉션 URL](./media/active-directory-saas-workday-tutorial/IC7829581.png "리디렉션 URL")
    
     a. **행 추가**를 클릭합니다.
    
@@ -124,7 +125,7 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
 1. **SAML 설정** 섹션에서 다음 단계를 수행합니다.
    
-    ![SAML 설정](./media/active-directory-saas-workday-tutorial/IC782926.png "SAML Setup")
+    ![SAML 설정](./media/active-directory-saas-workday-tutorial/IC782926.png "SAML 설정")
    
     a.  **SAML 인증 사용**을 선택합니다.
    
@@ -132,7 +133,7 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
 2. SAML ID 공급자 섹션에서 다음 단계를 수행합니다.
    
-    ![SAML ID 공급자](./media/active-directory-saas-workday-tutorial/IC7829271.png "SAML Identity Providers")
+    ![SAML ID 공급자](./media/active-directory-saas-workday-tutorial/IC7829271.png "SAML ID 공급자")
    
     a. ID 공급자 이름 텍스트 상자에 공급자 이름(예: *SPInitiatedSSO*)을 입력합니다.
    
@@ -144,16 +145,16 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
     e. **ID 공급자 공개 키 인증서**를 클릭한 다음 **만들기**를 클릭합니다. 
 
-    ![생성](./media/active-directory-saas-workday-tutorial/IC782928.png "Create")
+    ![만들기](./media/active-directory-saas-workday-tutorial/IC782928.png "만들기")
 
     f. **x509 공개 키 만들기**를 클릭합니다. 
 
-    ![만들기](./media/active-directory-saas-workday-tutorial/IC782929.png "Create")
+    ![만들기](./media/active-directory-saas-workday-tutorial/IC782929.png "만들기")
 
 
 1. **x509 공개 키 보기** 섹션에서 다음 단계를 수행합니다. 
    
-    ![x509 공개 키 보기](./media/active-directory-saas-workday-tutorial/IC782930.png "View x509 Public Key") 
+    ![x509 공개 키 보기](./media/active-directory-saas-workday-tutorial/IC782930.png "x509 공개 키 보기") 
    
     a. **이름** 텍스트 상자에 인증서 이름(예: *PPE\_SP*)을 입력합니다.
    
@@ -181,7 +182,7 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
 
 2. 다음 단계를 수행합니다. 
    
-    ![SSO 구성](./media/active-directory-saas-workday-tutorial/IC7829351111.png "SSO configuration")
+    ![SSO 구성](./media/active-directory-saas-workday-tutorial/IC7829351111.png "SSO 구성")
    
     a.  **x509 개인 키 쌍**을 사용하도록 설정합니다.
    
@@ -195,19 +196,19 @@ ms.openlocfilehash: a9b5410785c0d4a979d04483037069cad6a5dfd7
    
     f. **인증 요청 서명 메서드**로 **SHA256**을 선택합니다. 
    
-    ![인증 요청 서명 메서드](./media/active-directory-saas-workday-tutorial/IC782932.png "Authentication Request Signature Method") 
+    ![인증 요청 서명 메서드](./media/active-directory-saas-workday-tutorial/IC782932.png "인증 요청 서명 메서드") 
    
     g. **확인**을 클릭합니다. 
    
-    ![확인](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
+    ![확인](./media/active-directory-saas-workday-tutorial/IC782933.png "확인")
 
 3. Azure 클래식 포털의 **Workday에서 Single Sign-On 구성** 페이지에서 **다음**을 클릭합니다. 
    
-    ![Single Sign-On 구성](./media/active-directory-saas-workday-tutorial/IC782934.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-workday-tutorial/IC782934.png "Single Sign-On 구성")
 
 4. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다. 
    
-    ![Single Sign-On 구성](./media/active-directory-saas-workday-tutorial/IC782935111.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-workday-tutorial/IC782935111.png "Single Sign-On 구성")
 
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 Workday에 테스트 사용자를 프로비전하려면 Workday 지원팀에 문의해야 합니다.  
@@ -221,17 +222,12 @@ Workday 지원팀이 사용자를 만듭니다.
 
 2. **Workday** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-    ![사용자 할당](./media/active-directory-saas-workday-tutorial/IC782935.png "Assign Users")
+    ![사용자 할당](./media/active-directory-saas-workday-tutorial/IC782935.png "사용자 할당")
 
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-    ![예](./media/active-directory-saas-workday-tutorial/IC767830.png "Yes")
+    ![예](./media/active-directory-saas-workday-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "도구 얻기(macOS 10.10) | Microsoft Docs"
+title: "Azure IoT에 Raspberry Pi(노드) 연결 - 단원 1: 도구 다운로드(macOS) | Microsoft Docs"
 description: "macOS에 Pi의 첫 번째 샘플 응용 프로그램에 필요한 도구 및 소프트웨어를 다운로드하여 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: cd3d9a6db98f5239fc6231464605848789751c7d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: f157a68f502f018bab83a377367f92ce20f89adf
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -82,10 +83,5 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/os
 
 ## <a name="next-steps"></a>다음 단계
 [깜박임 샘플 응용 프로그램 만들기 및 배포](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

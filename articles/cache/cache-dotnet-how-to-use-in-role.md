@@ -12,21 +12,24 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 03/17/2017
 ms.author: sdanie
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57851e6dc52e331eefde0a940987d2a68f98f0bf
-
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: e8347c21610118af4ebaa80b24edd0838bc58cf8
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="how-to-use-in-role-cache-for-azure-cache"></a>Azure 캐시용 In-Role Cache 사용 방법
-이 가이드에서는 **Azure 캐시용 In-Role Cache**를 사용하는 방법에 대해 설명합니다. 샘플은 C\# 코드로 작성되었고 .NET API를 사용합니다. **캐시 클러스터 구성**, **캐시 클라이언트 구성**, **캐시에서 개체 추가 및 삭제, 캐시에 ASP.NET 세션 상태 저장**, **캐시를 사용하여 ASP.NET 페이지 출력 캐싱 활성화** 등의 시나리오를 다룹니다. In-Role Cache 사용에 대한 자세한 내용은 [다음 단계][다음 단계] 섹션을 참조하세요.
-
 > [!IMPORTANT]
-> 작년 [알림](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)에 따라 Azure 관리된 캐시 서비스 및 Azure In-Role Cache 서비스가 2016년 11월 30일에 종료됩니다. [Azure Redis Cache](https://azure.microsoft.com/services/cache/)를 사용할 것을 권장합니다. 마이그레이션에 대한 자세한 내용은 [관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션](../redis-cache/cache-migrate-to-redis.md)을 참조하세요.
+> 작년 [알림](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)에 따라 Azure Managed Cache Service 및 Azure In-Role Cache 서비스가 **2016년 11월 30일에 종료되었습니다**. [Azure Redis Cache](https://azure.microsoft.com/services/cache/)를 사용할 것을 권장합니다. 마이그레이션에 대한 자세한 내용은 [관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션](../redis-cache/cache-migrate-to-redis.md)을 참조하세요.
 > 
 > 
+
+이 가이드에서는 **Azure 캐시용 In-Role Cache**를 사용하는 방법에 대해 설명합니다. 샘플은 C\# 코드로 작성되었고 .NET API를 사용합니다. **캐시 클러스터 구성**, **캐시 클라이언트 구성**, **캐시에서 개체 추가 및 삭제, 캐시에 ASP.NET 세션 상태 저장**, **캐시를 사용하여 ASP.NET 페이지 출력 캐싱 활성화** 등의 시나리오를 다룹니다. In-Role Cache 사용에 대한 자세한 내용은 [다음 단계][Next Steps] 섹션을 참조하세요.
+
+
 
 <a name="what-is"></a>
 
@@ -40,7 +43,7 @@ In-Role Cache는 Azure 응용 프로그램에 캐싱 계층을 제공합니다. 
 In-Role Cache는 Azure 클라우드 서비스(호스티드 서비스라고도 함)에 역할 인스턴스를 호스트하는 가상 컴퓨터의 메모리 일부를 사용하여 캐싱을 수행하는 방법을 제공합니다. 배포 옵션에서 유연성이 훨씬 뛰어나고, 매우 큰 크기의 캐시도 사용할 수 있으며, 캐시와 관련된 할당량 제한이 없습니다.
 
 > [!IMPORTANT]
-> Azure SDK 2.6부터 In-Role Cache에서는 Microsoft Azure 저장소 SDK 버전 4.3을 사용합니다. 이전 버전의 Azure SDK에서는 In-Role Cache에서 Azure Storage SDK 1.7을 사용했습니다. Azure SDK가 2.6 이전 버전인 In-Role Cache를 사용하는 응용 프로그램은 Azure 저장소 버전 2011-08-18이 사용 중단되는 2016년 8월 1일 전까지 Azure SDK 2.6으로 마이그레이션해야 합니다. 자세한 내용은 [Azure SDK 2.6 릴리스 정보 - In-Role Cache](../app-service-web/azure-sdk-dotnet-release-notes-2-6.md#in-role-cache-updates) 및 [Microsoft Azure Storage 서비스 버전 제거 업데이트(2016에 확장)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)를 참조하세요.
+> Azure SDK 2.6부터 In-Role Cache에서는 Microsoft Azure Storage SDK 버전 4.3을 사용합니다. 이전 버전의 Azure SDK에서는 In-Role Cache에서 Azure Storage SDK 1.7을 사용했습니다. Azure SDK가 2.6 이전 버전인 In-Role Cache를 사용하는 응용 프로그램은 Azure Storage 버전 2011-08-18이 사용 중단되는 2016년 8월 1일 전까지 Azure SDK 2.6으로 마이그레이션해야 합니다. 자세한 내용은 [Azure SDK 2.6 릴리스 정보 - In-Role Cache](../app-service-web/azure-sdk-dotnet-release-notes-2-6.md#in-role-cache-updates) 및 [Microsoft Azure Storage 서비스 버전 제거 업데이트(2016에 확장)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)를 참조하세요.
 > 
 > 
 
@@ -62,7 +65,7 @@ In-Role Cache는 Azure 클라우드 서비스(호스티드 서비스라고도 �
 * 개별 캐시에서 고가용성을 선택적으로 구성할 수 있습니다.
 * 지역, 태그, 알림 등 확장된 캐싱 기능을 사용할 수 있습니다.
 
-이 가이드에서는 In-Role Cache를 시작하기 위한 개요를 제공합니다. 이 시작하기 가이드의 범위를 벗어나는 기능에 대해 자세히 알아보려면 [In-Role Cache 개요][In-Role Cache 개요]를 참조하세요.
+이 가이드에서는 In-Role Cache를 시작하기 위한 개요를 제공합니다. 이 시작 가이드의 범위를 벗어나는 이러한 기능에 대해 자세히 알아보려면 [In-Role Cache 개요][Overview of In-Role Cache]를 참조하세요.
 
 <a name="getting-started-cache-role-instance"></a>
 
@@ -74,8 +77,8 @@ In-Role Cache는 역할 인스턴스를 호스트하는 가상 컴퓨터의 메�
 
 역할 인스턴스에 캐싱을 사용하려면 캐시 클러스터를 구성한 다음 캐시 클라이언트를 구성해야 합니다. 그래야 캐시 클라이언트가 캐시 클러스터에 액세스할 수 있습니다.
 
-* [캐시 클러스터 구성][캐시 클러스터 구성]
-* [캐시 클라이언트 구성][캐시 클라이언트 구성]
+* [캐시 클러스터 구성][Configure the cache cluster]
+* [캐시 클라이언트 구성][Configure the cache clients]
 
 <a name="enable-caching"></a>
 
@@ -96,7 +99,7 @@ In-Role Cache는 역할 인스턴스를 호스트하는 가상 컴퓨터의 메�
 
 ![RoleCache8][RoleCache8]
 
-캐싱이 활성화되었으면 캐시 클러스터 저장소 계정을 구성할 수 있습니다. In-Role Cache를 사용하려면 Azure 저장소 계정이 필요합니다. 이 저장소 계정은 캐시 클러스터를 구성하는 모든 가상 컴퓨터에서 액세스하는 캐시 클러스터에 대한 구성 데이터를 유지하는 데 사용됩니다. 캐시 클러스터 역할 속성 페이지의 **캐싱** 탭(**명명된 캐시 설정** 위에 있음)에서 이 저장소 계정을 지정할 수 있습니다.
+캐싱이 활성화되었으면 캐시 클러스터 저장소 계정을 구성할 수 있습니다. In-Role Cache를 사용하려면 Azure Storage 계정이 필요합니다. 이 저장소 계정은 캐시 클러스터를 구성하는 모든 가상 컴퓨터에서 액세스하는 캐시 클러스터에 대한 구성 데이터를 유지하는 데 사용됩니다. 캐시 클러스터 역할 속성 페이지의 **캐싱** 탭(**명명된 캐시 설정** 위에 있음)에서 이 저장소 계정을 지정할 수 있습니다.
 
 ![RoleCache10][RoleCache10]
 
@@ -106,7 +109,7 @@ In-Role Cache는 역할 인스턴스를 호스트하는 가상 컴퓨터의 메�
 
 캐시의 크기를 결정하는 구성 요소는 역할의 VM 크기, 역할의 인스턴스 개수, 캐시 클러스터가 전용 역할과 공동 배치된 역할 중 무엇으로 구성되어 있는가 등입니다.
 
-> 이 섹션에서는 캐시 크기 구성에 대한 간단한 개요를 제공합니다. 캐시 크기 및 기타 용량 계획 고려 사항에 대한 자세한 내용은 [In-Role Cache 캐시 용량 고려 사항][In-Role Cache 캐시 용량 고려 사항]을 참조하세요.
+> 이 섹션에서는 캐시 크기 구성에 대한 간단한 개요를 제공합니다. 캐시 크기 및 기타 용량 계획 고려 사항에 대한 자세한 내용은 [In-Role Cache 캐시 용량 계획 고려 사항][In-Role Cache Capacity Planning Considerations]을 참조하세요.
 > 
 > 
 
@@ -125,11 +128,11 @@ VM 크기별 총 메모리는 다음과 같습니다.
 * **큼**: 7GB
 * **매우 큼**: 14GB
 
-> 이러한 메모리 크기는 OS, 캐시 프로세스, 캐시 데이터 및 응용 프로그램에서 공유하는 VM에서 사용할 수 있는 총 메모리의 양을 나타냅니다. 가상 컴퓨터 크기 구성에 대한 자세한 내용은 [가상 컴퓨터 크기 구성 방법][가상 컴퓨터 크기 구성 방법]을 참조하세요. **매우 큼** VM 크기에서는 캐시가 지원되지 않습니다.
+> 이러한 메모리 크기는 OS, 캐시 프로세스, 캐시 데이터 및 응용 프로그램에서 공유하는 VM에서 사용할 수 있는 총 메모리의 양을 나타냅니다. 가상 컴퓨터 크기 구성에 대한 자세한 내용은 [가상 컴퓨터 크기 구성 방법][How to Configure Virtual Machine Sizes]을 참조하세요. **매우 큼** VM 크기에서는 캐시가 지원되지 않습니다.
 > 
 > 
 
-**공동 배치된 역할** 캐싱을 지정하면 가상 컴퓨터 메모리의 지정된 백분율에 따라 캐시 크기가 결정됩니다. **전용 역할** 캐싱을 지정하면 가상 컴퓨터에서 사용할 수 있는 모든 메모리가 캐싱에 사용됩니다. 역할 인스턴스 두 개를 구성하면 가상 컴퓨터의 결합된 메모리가 사용됩니다. 이렇게 하여 캐시 클러스터가 형성됩니다. 사용 가능한 캐싱 메모리는 여러 역할 인스턴스 간에 분산되지만 단일 리소스로서 캐시의 클라이언트에 표시됩니다. 추가 역할 인스턴스를 구성하면 마찬가지로 캐시 크기가 커집니다. 하는 크기의 캐시를 프로비전하는 데 필요한 설정을 지정하려면 용량 계획 스프레드시트를 사용할 수 있습니다. 자세한 내용은 [In-Role Cache 용량 계획 고려 사항][In-Role Cache 캐시 용량 고려 사항]을 참조하세요.
+**공동 배치된 역할** 캐싱을 지정하면 가상 컴퓨터 메모리의 지정된 백분율에 따라 캐시 크기가 결정됩니다. **전용 역할** 캐싱을 지정하면 가상 컴퓨터에서 사용할 수 있는 모든 메모리가 캐싱에 사용됩니다. 역할 인스턴스 두 개를 구성하면 가상 컴퓨터의 결합된 메모리가 사용됩니다. 이렇게 하여 캐시 클러스터가 형성됩니다. 사용 가능한 캐싱 메모리는 여러 역할 인스턴스 간에 분산되지만 단일 리소스로서 캐시의 클라이언트에 표시됩니다. 추가 역할 인스턴스를 구성하면 마찬가지로 캐시 크기가 커집니다. 원하는 크기의 캐시를 프로비전하는 데 필요한 설정을 지정하려면 용량 계획 스프레드시트를 사용할 수 있습니다. 자세한 내용은 [In-Role Cache 용량 계획 고려 사항][In-Role Cache Capacity Planning Considerations]을 참조하세요.
 
 캐시 클러스터 구성을 마쳤으면 캐시에 액세스하도록 캐시 클라이언트를 구성할 수 있습니다.
 
@@ -150,7 +153,7 @@ In-Role Cache 캐시에 액세스하려면 클라이언트가 동일한 배포 �
 
 NuGet 패키지는 역할의 구성 파일에 필요한 구성을 추가하고, Azure 응용 프로그램의 ServiceConfiguration.cscfg 파일에 캐시 클라이언트 진단 수준 설정을 추가하고, 필요한 어셈블리 참조를 추가하는 여러 가지 작업을 수행합니다.
 
-> ASP.NET 웹 역할의 경우 Caching NuGet 패키지는 web.config에 주석으로 처리된 두 개의 섹션도 추가합니다. 첫 번째 섹션은 세션 상태가 캐시에 저장되도록 하고, 두 번째 섹션은 ASP.NE페이지 출력 캐싱을 활성화합니다. 자세한 내용은 [방법: 캐시에 ASP.NET 세션 상태 저장] 및 [방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장][방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장]을 참조하세요.
+> ASP.NET 웹 역할의 경우 Caching NuGet 패키지는 web.config에 주석으로 처리된 두 개의 섹션도 추가합니다. 첫 번째 섹션은 세션 상태가 캐시에 저장되도록 하고, 두 번째 섹션은 ASP.NE페이지 출력 캐싱을 활성화합니다. 자세한 내용은 [방법: 캐시에 ASP.NET 세션 상태 저장] 및 [방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장][How To: Store ASP.NET Page Output Caching in the Cache]을 참조하세요.
 > 
 > 
 
@@ -199,7 +202,7 @@ NuGet 패키지는 역할의 web.config 또는 app.config에 다음과 같은 �
       </ConfigurationSettings>
     </Role>
 
-> In-Role Cache는 캐시 서버 및 캐시 클라이언트 진단 수준을 모두 제공합니다. 진단 수준은 캐싱을 위해 수집되는 진단 정보의 수준을 구성하는 단일 설정입니다. 자세한 내용은 [In-Role Cache 문제 해결 및 진단][In-Role Cache 문제 해결 및 진단]을 참조하세요.
+> In-Role Cache는 캐시 서버 및 캐시 클라이언트 진단 수준을 모두 제공합니다. 진단 수준은 캐싱을 위해 수집되는 진단 정보의 수준을 구성하는 단일 설정입니다. 자세한 내용은 [In-Role Cache 문제 해결 및 진단][Troubleshooting and Diagnostics for In-Role Cache]을 참조하세요.
 > 
 > 
 
@@ -223,11 +226,11 @@ ASP.NET 웹 역할인 경우에는 다음 어셈블리 참조도 추가됩니다
 ## <a name="working-with-caches"></a>캐시 작업
 이 섹션의 각 단계에서는 일반적인 캐싱 작업 수행 방법에 대해 설명합니다.
 
-* [방법: DataCache 개체 만들기][방법: DataCache 개체 만들기]
-* [방법: 캐시에서 개체 추가 및 검색][방법: 캐시에서 개체 추가 및 검색]
-* [방법: 캐시에서 개체의 만료 지정][방법: 캐시에서 개체의 만료 지정]
+* [방법: DataCache 개체 만들기][How To: Create a DataCache Object]
+* [방법: 캐시에서 개체 추가 및 검색][How To: Add and Retrieve an Object from the Cache]
+* [방법: 캐시에서 개체의 만료 지정][How To: Specify the Expiration of an Object in the Cache]
 * [방법: 캐시에 ASP.NET 세션 상태 저장][방법: 캐시에 ASP.NET 세션 상태 저장]
-* [방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장][방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장]
+* [방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장][How To: Store ASP.NET Page Output Caching in the Cache]
 
 <a name="create-cache-object"></a>
 
@@ -236,7 +239,7 @@ ASP.NET 웹 역할인 경우에는 다음 어셈블리 참조도 추가됩니다
 
     using Microsoft.ApplicationServer.Caching;
 
-> 필요한 참조를 추가하는 Caching NuGet 패키지를 설치한 후에도 Visual Studio에서 using 문의 유형을 인식하지 못하면 프로젝트의 대상 프로필이 .NET Framework 4.0 이상인지, **Client Profile**을 지정하지 않는 프로필 중 하나를 선택했는지를 확인하세요. 캐시 클라이언트 구성에 대한 자세한 내용은 [캐시 클라이언트 구성][캐시 클라이언트 구성]을 참조하세요.
+> 필요한 참조를 추가하는 Caching NuGet 패키지를 설치한 후에도 Visual Studio에서 using 문의 유형을 인식하지 못하면 프로젝트의 대상 프로필이 .NET Framework 4.0 이상인지, **Client Profile**을 지정하지 않는 프로필 중 하나를 선택했는지를 확인하세요. 캐시 클라이언트 구성에 대한 자세한 내용은 [캐시 클라이언트 구성][Configure the cache clients]을 참조하세요.
 > 
 > 
 
@@ -315,7 +318,7 @@ ASP.NET 웹 역할인 경우에는 다음 어셈블리 참조도 추가됩니다
 <a name="store-session"></a>
 
 ## <a name="how-to-store-aspnet-session-state-in-the-cache"></a>방법: 캐시에 ASP.NET 세션 상태 저장
-In-Role Cache의 세션 상태 공급자는 ASP.NET 응용 프로그램의 Out of Process 저장소 메커니즘입니다. 이 공급자를 사용하면 메모리 내 또는 SQL Server 데이터베이스가 아니라 Azure 캐시에 세션 상태를 저장할 수 있습니다. 캐싱 세션 상태 공급자를 사용하려면 먼저 캐시 클러스터를 구성하고, [In-Role Cache 시작하기][In-Role Cache 시작]에서 설명한 대로 Caching NuGet 패키지를 사용하여 캐싱용 ASP.NET 응용 프로그램을 구성하십시오. Caching NuGet 패키지를 설치하면 주석으로 처리된 섹션이 web.config에 추가됩니다. 이 섹션에는 ASP.NET 응용 프로그램에서 In-Role Cache에 세션 상태 제공자를 사용하는 데 필요한 구성이 포함되어 있습니다.
+In-Role Cache의 세션 상태 제공자는 ASP.NET 응용 프로그램의 Out of Process 저장소 메커니즘입니다. 이 공급자를 사용하면 메모리 내 또는 SQL Server 데이터베이스가 아니라 Azure 캐시에 세션 상태를 저장할 수 있습니다. 캐싱 세션 상태 제공자를 사용하려면 먼저 캐시 클러스터를 구성하고, [In-Role Cache 시작하기][Getting Started with In-Role Cache]에서 설명한 대로 Caching NuGet 패키지를 사용하여 캐싱용 ASP.NET 응용 프로그램을 구성합니다. Caching NuGet 패키지를 설치하면 주석으로 처리된 섹션이 web.config에 추가됩니다. 이 섹션에는 ASP.NET 응용 프로그램에서 In-Role Cache에 세션 상태 제공자를 사용하는 데 필요한 구성이 포함되어 있습니다.
 
     <!--Uncomment this section to use In-Role Cache for session state caching
     <system.web>
@@ -330,18 +333,18 @@ In-Role Cache의 세션 상태 공급자는 ASP.NET 응용 프로그램의 Out o
       </sessionState>
     </system.web>-->
 
-> Caching NuGet 패키지를 설치한 후에도 주석으로 처리된 이 섹션이 web.config에 포함되지 않으면 [NuGet 패키지 관리자 설치][NuGet 패키지 관리자 설치]에서 최신 NuGet 패키지 관리자를 설치했는지 확인하고, 패키지를 제거한 후 다시 설치합니다.
+> Caching NuGet 패키지를 설치한 후에도 주석으로 처리된 이 섹션이 web.config에 포함되지 않으면 [NuGet 패키지 관리자 설치][NuGet Package Manager Installation]에서 최신 NuGet 패키지 관리자를 설치했는지 확인하고, 패키지를 제거한 후 다시 설치합니다.
 > 
 > 
 
-In-Role Cache에 세션 상태 공급자를 사용하려면 지정된 섹션의 주석 처리를 제거합니다. 제공된 코드 조각에 기본 캐시가 지정되어 있습니다. 다른 캐시를 사용하려면 **cacheName** 특성에서 원하는 캐시를 지정하세요.
+In-Role Cache에 세션 상태 제공자를 사용하려면 지정된 섹션의 주석 처리를 제거합니다. 제공된 코드 조각에 기본 캐시가 지정되어 있습니다. 다른 캐시를 사용하려면 **cacheName** 특성에서 원하는 캐시를 지정하세요.
 
-캐싱 서비스 세션 상태 공급자에 대해 자세히 알아보려면 [In-Role Cache용 세션 상태 공급자][In-Role Cache용 세션 상태 공급자]를 참조하세요.
+캐싱 서비스 세션 상태 제공자를 사용하는 것에 대해 자세히 알아보려면 [In-Role Cache용 세션 상태 제공자][Session State Provider for In-Role Cache]를 참조하세요.
 
 <a name="store-page"></a>
 
 ## <a name="how-to-store-aspnet-page-output-caching-in-the-cache"></a>방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장
-In-Role Cache의 출력 캐시 공급자는 출력 캐시 데이터의 Out of Process 저장소 메커니즘입니다. 이 데이터는 완전한 HTTP 응답(페이지 출력 캐싱)에 특별히 사용됩니다. 공급자가 ASP.NET 4에 도입된 새로운 출력 캐시 공급자 확장 포인트에 연결됩니다. 출력 캐시 공급자를 사용하려면 먼저 캐시 클러스터를 구성하고, [In-Role Cache 시작][In-Role Cache 시작]에서 설명한 대로 Caching NuGet 패키지를 사용하여 캐싱용 ASP.NET 응용 프로그램을 구성하세요. Caching NuGet 패키지를 설치하면 주석으로 처리된 다음 섹션이 web.config에 추가됩니다. 이 섹션에는 ASP.NET 응용 프로그램에서 In-Role Cache에 출력 캐시 공급자를 사용하는 데 필요한 구성이 포함되어 있습니다.
+In-Role Cache의 출력 캐시 공급자는 출력 캐시 데이터의 Out of Process 저장소 메커니즘입니다. 이 데이터는 완전한 HTTP 응답(페이지 출력 캐싱)에 특별히 사용됩니다. 공급자가 ASP.NET 4에 도입된 새로운 출력 캐시 공급자 확장 포인트에 연결됩니다. 출력 캐시 공급자를 사용하려면 먼저 캐시 클러스터를 구성하고, [In-Role Cache 시작하기][Getting Started with In-Role Cache]에서 설명한 대로 Caching NuGet 패키지를 사용하여 캐싱용 ASP.NET 응용 프로그램을 구성합니다. Caching NuGet 패키지를 설치하면 주석으로 처리된 다음 섹션이 web.config에 추가됩니다. 이 섹션에는 ASP.NET 응용 프로그램에서 In-Role Cache에 출력 캐시 공급자를 사용하는 데 필요한 구성이 포함되어 있습니다.
 
     <!--Uncomment this section to use In-Role Cache for output caching
     <caching>
@@ -356,7 +359,7 @@ In-Role Cache의 출력 캐시 공급자는 출력 캐시 데이터의 Out of Pr
       </outputCache>
     </caching>-->
 
-> Caching NuGet 패키지를 설치한 후에도 주석으로 처리된 이 섹션이 web.config에 포함되지 않으면 [NuGet 패키지 관리자 설치][NuGet 패키지 관리자 설치]에서 최신 NuGet 패키지 관리자를 설치했는지 확인하고, 패키지를 제거한 후 다시 설치합니다.
+> Caching NuGet 패키지를 설치한 후에도 주석으로 처리된 이 섹션이 web.config에 포함되지 않으면 [NuGet 패키지 관리자 설치][NuGet Package Manager Installation]에서 최신 NuGet 패키지 관리자를 설치했는지 확인하고, 패키지를 제거한 후 다시 설치합니다.
 > 
 > 
 
@@ -366,9 +369,9 @@ In-Role Cache에 출력 캐시 공급자를 사용하려면 지정된 섹션의 
 
     <%@ OutputCache Duration="60" VaryByParam="*" %>
 
-이 예제에서는 캐시된 페이지 데이터가 캐시에 60초 동안 머물게 되며, 각 매개 변수 조합에 따라 페이지의 다른 버전이 캐시됩니다. 사용 가능한 옵션에 대한 자세한 내용은 [OutputCache 지시문][OutputCache 지시문]을 참조하세요.
+이 예제에서는 캐시된 페이지 데이터가 캐시에 60초 동안 머물게 되며, 각 매개 변수 조합에 따라 페이지의 다른 버전이 캐시됩니다. 사용 가능한 옵션에 대한 자세한 내용은 [OutputCache 지시문][OutputCache Directive]을 참조하세요.
 
-In-Role Cache에 출력 캐시 공급자를 사용하는 방법에 대한 자세한 내용은 [In-Role Cache용 출력 캐시 공급자][In-Role Cache용 출력 캐시 공급자]를 참조하세요.
+In-Role Cache용 출력 캐시 공급자를 사용하는 것에 대한 자세한 내용은 [In-Role Cache용 출력 캐시 공급자][Output Cache Provider for In-Role Cache]를 참조하세요.
 
 <a name="next-steps"></a>
 
@@ -376,29 +379,29 @@ In-Role Cache에 출력 캐시 공급자를 사용하는 방법에 대한 자세
 이제 In-Role Cache의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 캐싱 작업을 수행하는 방법을 알아보세요.
 
 * 다음 MSDN 참조를 확인하세요. [In-Role Cache][In-Role Cache]
-* In-Role Cache로 마이그레이션하는 방법: [In-Role Cache로 마이그레이션][In-Role Cache로 마이그레이션]
-* 샘플 확인: [In-Role Cache 샘플][In-Role Cache 샘플]
-* In-Role Cache에 대한 TechEd 2013에서 [최대 성능: Azure 캐싱으로 클라우드 서비스 응용 프로그램 가속화][최대 성능: Azure 캐싱으로 클라우드 서비스 응용 프로그램 가속화] 세션을 참조하세요.
+* In-Role Cache로 마이그레이션하는 방법: [In-Role Cache로 마이그레이션][Migrate to In-Role Cache]
+* 샘플 확인: [In-Role Cache 샘플][In-Role Cache Samples]
+* In-Role Cache에 대한 TechEd 2013에서 [최대 성능: Azure Caching으로 클라우드 서비스 응용 프로그램 가속화][Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching] 세션을 참조하세요.
 
 <!-- INTRA-TOPIC LINKS -->
-[다음 단계]: #next-steps
-[In-Role Cache란?]: #what-is
-[Azure 캐시 만들기]: #create-cache
-[어떤 유형의 캐싱이 내게 적절한가요?]: #choosing-cache
-[In-Role Cache 서비스 시작]: #getting-started-cache-service
-[In-Role Cache를 사용하도록 Visual Studio 프로젝트 준비]: #prepare-vs
-[캐싱을 사용하도록 응용 프로그램 구성]: #configure-app
-[In-Role Cache 시작]: #getting-started-cache-role-instance
-[캐시 클러스터 구성]: #enable-caching
-[원하는 캐시 크기 구성]: #cache-size
-[캐시 클라이언트 구성]: #NuGet
-[캐시 작업]: #working-with-caches
-[방법: DataCache 개체 만들기]: #create-cache-object
-[방법: 캐시에서 개체 추가 및 검색]: #add-object
-[방법: 캐시에서 개체의 만료 지정]: #specify-expiration
+[Next Steps]: #next-steps
+[What is In-Role Cache?]: #what-is
+[Create an Azure Cache]: #create-cache
+[Which type of caching is right for me?]: #choosing-cache
+[Getting Started with the In-Role Cache Service]: #getting-started-cache-service
+[Prepare Your Visual Studio Project to Use In-Role Cache]: #prepare-vs
+[Configure Your Application to Use Caching]: #configure-app
+[Getting Started with In-Role Cache]: #getting-started-cache-role-instance
+[Configure the cache cluster]: #enable-caching
+[Configure the desired cache size]: #cache-size
+[Configure the cache clients]: #NuGet
+[Working with Caches]: #working-with-caches
+[How To: Create a DataCache Object]: #create-cache-object
+[How To: Add and Retrieve an Object from the Cache]: #add-object
+[How To: Specify the Expiration of an Object in the Cache]: #specify-expiration
 [방법: 캐시에 ASP.NET 세션 상태 저장]: #store-session
-[방법: 캐시에 ASP.NET 페이지 출력 캐싱 저장]: #store-page
-[지원되는 .NET Framework 프로필을 대상으로 지정]: #prepare-vs-target-net
+[How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
+[Target a Supported .NET Framework Profile]: #prepare-vs-target-net
 
 <!-- IMAGES --> 
 [RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
@@ -412,31 +415,26 @@ In-Role Cache에 출력 캐시 공급자를 사용하는 방법에 대한 자세
 [RoleCache10]: ./media/cache-dotnet-how-to-use-in-role/cache17.png
 
 <!-- LINKS -->
-[가상 컴퓨터 크기 구성 방법]: http://go.microsoft.com/fwlink/?LinkId=164387
-[프로그래밍 방식으로 캐시 클라이언트 구성]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
-[방법: 페이지의 캐시 가능성을 프로그래밍 방식으로 설정]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[방법: ASP.NET 페이지의 캐시 가능성을 선언적으로 설정]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[In-Role Cache 캐시 용량 고려 사항]: http://go.microsoft.com/fwlink/?LinkId=252651
-[In-Role Cache 샘플]: http://msdn.microsoft.com/library/jj189876.aspx
+[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
+[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[In-Role Cache Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=252651
+[In-Role Cache Samples]: http://msdn.microsoft.com/library/jj189876.aspx
 [In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=252658
 [In-Role Cache]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[최대 성능: Azure 캐싱으로 클라우드 서비스 응용 프로그램 가속화]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
-[In-Role Cache로 마이그레이션]: http://msdn.microsoft.com/library/hh914163.aspx
-[NuGet 패키지 관리자 설치]: http://go.microsoft.com/fwlink/?LinkId=240311
-[In-Role Cache용 출력 캐시 공급자]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
-[OutputCache 지시문]: http://go.microsoft.com/fwlink/?LinkId=251979
-[In-Role Cache 개요]: http://go.microsoft.com/fwlink/?LinkId=254172
-[In-Role Cache용 세션 상태 공급자]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
-[팀 블로그]: http://blogs.msdn.com/b/windowsazure/
-[In-Role Cache 문제 해결 및 진단]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
-[Azure AppFabric 캐시: 캐싱 세션 상태]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
+[Migrate to In-Role Cache]: http://msdn.microsoft.com/library/hh914163.aspx
+[NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
+[Output Cache Provider for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
+[OutputCache Directive]: http://go.microsoft.com/fwlink/?LinkId=251979
+[Overview of In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=254172
+[Session State Provider for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
+[Team Blog]: http://blogs.msdn.com/b/windowsazure/
+[Troubleshooting and Diagnostics for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
+[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[내게 적합한 Azure 캐시 기능]: cache-faq.md#which-azure-cache-offering-is-right-for-me
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
 
 

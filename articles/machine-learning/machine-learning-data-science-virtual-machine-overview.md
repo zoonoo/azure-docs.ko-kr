@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/01/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9d4df15fb4514817d9233ab4e5bd0eb65e5a95dc
+ms.sourcegitcommit: 6c664a055e577881d4fcccd5b0ba4047d88aa9ef
+ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -50,18 +51,23 @@ ms.openlocfilehash: 9d4df15fb4514817d9233ab4e5bd0eb65e5a95dc
 데이터 과학 가상 컴퓨터에는 다수의 유명한 데이터 과학 도구가 이미 설치 및 구성되어 있습니다. 다양한 Azure 데이터 및 분석 제품을 사용하기 쉽게 해주는 도구도 포함되어 있습니다. Microsoft R Server를 사용하거나 SQL Server 2016을 사용하여 대규모 데이터 집합에서 예측 모델을 조사하고 구축할 수 있습니다. 오픈 소스 커뮤니티 및 Microsoft의 다양한 도구는 물론 샘플 코드와 노트북이 포함되어 있습니다. 다음 테이블에는 데이터 과학 가상 컴퓨터의 Windows 및 Linux 버전에 포함된 주요 구성 요소를 항목별로 정리하여 비교해 두었습니다.
 
 | **Windows 버전** | **Linux 버전** |
-| --- | --- |
-| Microsoft R Server Developer Edition |Microsoft R Server Developer Edition |
-| Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 |
-| Jupyter 노트북 서버(R, Python) |JupyterHub: 다중 사용자 Jupyter 노트북(R, Python, Julia) |
-| SQL Server 2016 Developer Edition: R Services를 통한 확장성 있는 데이터베이스 내 분석 |Postgres, SQuirreL SQL(데이터베이스 도구), SQL Server 드라이버, 명령줄(bcp, sqlcmd) |
-| Visual Studio Community 버전 2015(IDE) </br> - Azure HDInsight(Hadoop), Data Lake, SQL Server Data Tools </br> - Node.js, Python, R tools for Visual Studio |IDE 및 편집기 </br> - Azure 도구 키트 플러그인 포함 Eclipse </br> - Emacs(ESS, auctex 포함) gedit |
+| -- | --|
+| 인기 있는 패키지가 사전 설치된 Microsoft R Open | 인기 있는 패키지가 사전 설치된 Microsoft R Open |
+| MicrosoftML 알고리즘 및 Microsoft R 조작화를 포함하는 Microsoft R Server Developer Edition  |Microsoft R Server Developer Edition |
+| Anaconda Python 2.7, 3.5 |인기 있는 패키지가 사전 설치된 Anaconda Python 2.7, 3.5|
+| 인기 있는 패키지가 사전 설치된 JuliaPro | 인기 있는 패키지가 사전 설치된 JuliaPro |
+| Jupyter Notebook Server(R, Python, Julia) |JupyterHub: 다중 사용자 Jupyter Notebook(R, Python, Julia, PySpark) |
+| SQL Server 2016 SP1 Developer Edition: R Services를 통한 확장성 있는 데이터베이스 내 분석 |PostgreSQL, SQuirreL SQL(데이터베이스 도구), SQL Server 드라이버 및 명령줄(bcp, sqlcmd) |
+|-  Visual Studio Community Edition 2015(IDE) </br> - Azure HDInsight(Hadoop), Data Lake, SQL Server Data Tools </br> - Visual Studio용 Node.js, Python 및 R 도구(RTVS 0.5) </br>- R Studio Desktop|IDE 및 편집기 </br> - Azure 도구 키트 플러그인 포함 Eclipse </br> - Emacs(ESS, auctex 포함) gedit </br> - IntelliJ IDEA</br> - PyCharm</br> - Atom</br> - Visual Studio Code|
 | Power BI 데스크톱 |-- |
-| 기계 학습 도구 </br> - Azure Machine Learning과 통합 </br> - CNTK(Deep Learning/AI) </br> - Xgboost(데이터 과학 시합에 인기 있는 ML 도구) </br> - Vowpal Wabbit(빨리 배우는 온라인 학습기) </br> - Rattle(시각적인 빠른 시작 데이터 및 분석 도구) </br> - Mxnet(Deep Learning/AI) |기계 학습 도구 </br> - Azure Machine Learning과 통합 </br> - CNTK(Deep Learning/AI) </br> - Xgboost(데이터 과학 시합에 인기 있는 ML 도구) </br> - Vowpal Wabbit(빨리 배우는 온라인 학습기) </br> - Rattle(시각적인 빠른 시작 데이터 및 분석 도구) |
+| 기계 학습 도구 </br> - Azure Machine Learning과 통합 </br> - Microsoft Cognitive Toolkit(CNTK 2.0) Deep Learning/AI </br> - Xgboost(데이터 과학 시합에 인기 있는 ML 도구) </br> - Vowpal Wabbit(빨리 배우는 온라인 학습기) </br> - Rattle(시각적인 빠른 시작 데이터 및 분석 도구) </br> - Mxnet(Deep Learning/AI) </br> -Tensorflow  |기계 학습 도구 </br> - Azure Machine Learning과 통합 </br> - CNTK(Deep Learning/AI) </br> - Xgboost(데이터 과학 시합에 인기 있는 ML 도구) </br> - Vowpal Wabbit(빨리 배우는 온라인 학습기) </br> - Rattle(시각적인 빠른 시작 데이터 및 분석 도구) </br> -Mxnet(Deep Learning/AI)|
 | Azure 및 Cortana Intelligence Suite 서비스 액세스를 위한 SDK |Azure 및 Cortana Intelligence Suite 서비스 액세스를 위한 SDK |
 | Azure 및 빅 데이터 리소스의 데이터 이동 및 관리를 위한 도구: Azure Storage Explorer, CLI, PowerShell, AdlCopy(Azure Data Lake), AzCopy, dtui(DocumentDB 용), Microsoft 데이터 관리 게이트웨이 |Azure 및 빅 데이터 리소스의 데이터 이동 및 관리를 위한 도구: Azure Storage Explorer, CLI |
 | Git, Visual Studio Team Services 플러그인 |Git |
 | 가장 인기 있는 Linux의 Windows 포트/GitBash를 통해 액세스할 수 있는 Unix 명령줄 유틸리티/명령 프롬프트 |-- |
+| Weka | Weka |
+| Drill | Drill |
+| --| Spark local |
 
 ## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Windows 데이터 과학 VM을 시작하는 방법
 * [이 페이지](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/)로 이동하고 녹색 **가상 컴퓨터 만들기**를 선택하여 Windows에서 VM 인스턴스를 생성합니다.
@@ -77,15 +83,10 @@ ms.openlocfilehash: 9d4df15fb4514817d9233ab4e5bd0eb65e5a95dc
 ## <a name="next-steps"></a>다음 단계
 ### <a name="for-the-windows-data-science-vm"></a>Windows 데이터 과학 VM
 * Windows 버전에서 사용할 수 있는 도구를 실행하는 방법에 대한 자세한 내용은 [Microsoft 데이터 과학 가상 컴퓨터 프로비전](machine-learning-data-science-provision-vm.md)을 참조하세요.
-* Windows VM에서 데이터 과학 프로젝트에 필요한 다양한 작업을 수행하는 방법에 대한 자세한 내용은 [데이터 과학 가상 컴퓨터로 할 수 있는 10가지 일](machine-learning-data-science-vm-do-ten-things.md)을 참조하세요.
+* Windows VM에서 데이터 과학 프로젝트에 필요한 다양한 작업을 수행하는 방법에 대한 자세한 내용은 [데이터 과학 가상 컴퓨터로 할 수 있는&10;가지 일](machine-learning-data-science-vm-do-ten-things.md)을 참조하세요.
 
 ### <a name="for-the-linux-data-science-vm"></a>Linux 데이터 과학 VM
 * Linux 버전에서 사용할 수 있는 도구를 실행하는 방법에 대한 자세한 내용은 [Linux 데이터 과학 가상 컴퓨터 프로비전](machine-learning-data-science-linux-dsvm-intro.md)을 참조하세요.
 * Linux VM을 통해 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여주는 연습은 [Linux 데이터 과학 가상 컴퓨터의 데이터 과학](machine-learning-data-science-linux-dsvm-walkthrough.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

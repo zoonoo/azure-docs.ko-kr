@@ -1,29 +1,39 @@
 ---
-title: "Azure CLI를 사용하여 NSG 관리 | Microsoft 문서"
-description: "Azure CLI를 사용하여 NSG를 관리하는 방법에 대해 알아봅니다."
+title: "네트워크 보안 그룹 관리 - Azure CLI 2.0 | Microsoft Docs"
+description: "Azure CLI(명령줄 인터페이스) 2.0을 사용하여 네트워크 보안 그룹을 관리하는 방법에 대해 알아봅니다."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed17d314-07e6-4c7f-bcf1-a8a2535d7c14
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2016
+ms.date: 02/21/2017
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e42818f9c810cc72996178b2f9a41e1bc98c6734
-ms.openlocfilehash: 68406c2c2b88150c17c9a2d2996b6dd0209c2972
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: dcb0455fe223e99b4f1b0035b1d1109ecf5ee268
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="manage-nsgs-using-the-azure-cli"></a>Azure CLI를 사용하여 NSG 관리
+# <a name="manage-network-security-groups-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 네트워크 보안 그룹 관리
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
+
+## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전 
+
+다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다. 
+
+- [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI 
+- [Azure CLI 2.0](#View-existing-NSGs) - 리소스 관리 배포 모델용 차세대 CLI(이 문서)
+
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -33,312 +43,301 @@ ms.openlocfilehash: 68406c2c2b88150c17c9a2d2996b6dd0209c2972
 
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
-[!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
+## <a name="prerequisite"></a>필수 요소
+아직 설치하지 않은 경우 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치 및 구성하고 [az login](/cli/azure/#login)을 사용하여 Azure 계정에 로그인합니다. 
 
-## <a name="retrieve-information"></a>정보 검색
-기존 NSG를 보고 기존 NSG에 대한 규칙을 검색하며 NSG가 연결된 리소스에 대해 알아볼 수 있습니다.
 
-### <a name="view-existing-nsgs"></a>기존 NSG 보기
-특정 리소스 그룹에 있는 NSG 목록을 보려면 아래와 같이 `azure network nsg list` 명령을 실행합니다.
+## <a name="view-existing-nsgs"></a>기존 NSG 보기
+특정 리소스 그룹에서 NSG 목록을 보려면 `-o table` 출력 형식으로 [az network nsg list](/cli/azure/network/nsg#list) 명령을 실행합니다.
 
 ```azurecli
-azure network nsg list --resource-group RG-NSG
+az network nsg list -g RG-NSG -o table
 ```
 
 예상 출력:
 
-    info:    Executing command network nsg list
-    + Getting the network security groups
-    data:    Name          Location
-    data:    ------------  --------
-    data:    NSG-BackEnd   westus
-    data:    NSG-FrontEnd  westus
-    info:    network nsg list command OK
+    Location    Name          ProvisioningState    ResourceGroup    ResourceGuid
+    ----------  ------------  -------------------  ---------------  ------------------------------------
+    centralus   NSG-BackEnd   Succeeded            RG-NSG           <guid>
+    centralus   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
 
-### <a name="list-all-rules-for-an-nsg"></a>NSG에 대한 모든 규칙 나열
-**NSG-FrontEnd**로 명명된 NSG의 규칙을 보려면 아래와 같이 `azure network nsg show` 명령을 실행합니다. 
+## <a name="list-all-rules-for-an-nsg"></a>NSG에 대한 모든 규칙 나열
+**NSG-FrontEnd**라는 NSG 규칙을 보려면 [JMESPATH 쿼리 필터](/cli/azure/query-az-cli2) 및 `-o table` 출력 형식을 사용하여 [az network nsg show](/cli/azure/network/nsg#show) 명령을 실행합니다.
 
 ```azurecli
-azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd
+    az network nsg show \
+    --resource-group RG-NSG \
+    --name NSG-FrontEnd \
+    --query '[defaultSecurityRules[],securityRules[]][].{Name:name,Desc:description,Access:access,Direction:direction,DestPortRange:destinationPortRange,DestAddrPrefix:destinationAddressPrefix,SrcPortRange:sourcePortRange,SrcAddrPrefix:sourceAddressPrefix}' \
+    -o table
 ```
 
 예상 출력:
 
-    info:    Executing command network nsg show
-    + Looking up the network security group "NSG-FrontEnd"
-    data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
-    data:    Name                            : NSG-FrontEnd
-    data:    Type                            : Microsoft.Network/networkSecurityGroups
-    data:    Location                        : westus
-    data:    Provisioning state              : Succeeded
-    data:    Tags                            : displayName=NSG - Front End
-    data:    Security group rules:
-    data:    Name                           Source IP          Source Port  Destination IP  Destination Port  Protocol  Direction  Access  Priority
-    data:    -----------------------------  -----------------  -----------  --------------  ----------------  --------  ---------  ------  --------
-    data:    rdp-rule                       Internet           *            *               3389              Tcp       Inbound    Allow   100
-    data:    web-rule                       Internet           *            *               80                Tcp       Inbound    Allow   101
-    data:    AllowVnetInBound               VirtualNetwork     *            VirtualNetwork  *                 *         Inbound    Allow   65000
-    data:    AllowAzureLoadBalancerInBound  AzureLoadBalancer  *            *               *                 *         Inbound    Allow   65001
-    data:    DenyAllInBound                 *                  *            *               *                 *         Inbound    Deny    65500
-    data:    AllowVnetOutBound              VirtualNetwork     *            VirtualNetwork  *                 *         Outbound   Allow   65000
-    data:    AllowInternetOutBound          *                  *            Internet        *                 *         Outbound   Allow   65001
-    data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500
-    info:    network nsg show command OK
-
+    Name                           Desc                                                    Access    Direction    DestPortRange    DestAddrPrefix    SrcPortRange    SrcAddrPrefix
+    -----------------------------  ------------------------------------------------------  --------  -----------  ---------------  ----------------  --------------  -----------------
+    AllowVnetInBound               Allow inbound traffic from all VMs in VNET              Allow     Inbound      *                VirtualNetwork    *               VirtualNetwork
+    AllowAzureLoadBalancerInBound  Allow inbound traffic from azure load balancer          Allow     Inbound      *                *                 *               AzureLoadBalancer
+    DenyAllInBound                 Deny all inbound traffic                                Deny      Inbound      *                *                 *               *
+    AllowVnetOutBound              Allow outbound traffic from all VMs to all VMs in VNET  Allow     Outbound     *                VirtualNetwork    *               VirtualNetwork
+    AllowInternetOutBound          Allow outbound traffic from all VMs to Internet         Allow     Outbound     *                Internet          *               *
+    DenyAllOutBound                Deny all outbound traffic                               Deny      Outbound     *                *                 *               *
+    rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
+    web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> 또한 `azure network nsg rule list --resource-group RG-NSG --nsg-name NSG-FrontEnd`을 사용하여 **NSG-FrontEnd** NSG에서 규칙을 나열할 수 있습니다.
+> [az network nsg rule list](/cli/azure/network/nsg/rule#list)를 사용하여 NSG에서 사용자 지정 규칙을 나열할 수도 있습니다.
 >
 
-### <a name="view-nsg-associations"></a>NSG 연결 보기
+## <a name="view-nsg-associations"></a>NSG 연결 보기
 
-**NSG-FrontEnd** NSG가 연결된 리소스를 보려면 아래와 같이 `azure network nsg show` 명령을 실행합니다. 유일한 차이점은 **--json** 매개 변수를 사용하는 것입니다.
+**NSG-FrontEnd** NSG가 연결된 리소스를 보려면 아래와 같이 `az network nsg show` 명령을 실행합니다. 
 
 ```azurecli
-azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json
+az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterfaces]'
 ```
 
 아래와 같이 **NetworkInterfaces** 및 **서브넷** 속성을 찾아봅니다.
 
-    "networkInterfaces": [],
-    ...
-    "subnets": [
-        {
-            "id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
-        }
-    ],
-    ...
+```json
+[
+  [
+    {
+      "addressPrefix": null,
+      "etag": null,
+      "id": "/subscriptions/<guid>/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNET/subnets/FrontEnd",
+      "ipConfigurations": null,
+      "name": null,
+      "networkSecurityGroup": null,
+      "provisioningState": null,
+      "resourceGroup": "RG-NSG",
+      "resourceNavigationLinks": null,
+      "routeTable": null
+    }
+  ],
+  null
+]
+```
 
 위의 예에서 NSG는 NIC(네트워크 인터페이스)에 연결되지 않고 **FrontEnd**라는 서브넷에 연결됩니다.
 
-## <a name="manage-rules"></a>규칙 관리
-기존 NSG에 규칙을 추가하고 기존 규칙을 편집하며 규칙을 제거할 수 있습니다.
-
-### <a name="add-a-rule"></a>규칙 추가
+## <a name="add-a-rule"></a>규칙 추가
 컴퓨터에서 **NSG-FrontEnd** NSG에 포트 **443**에 대한 **인바운드** 트래픽을 허용하는 규칙을 추가하려면 다음 명령을 입력합니다.
 
 ```azurecli
-azure network nsg rule create --resource-group RG-NSG \
-    --nsg-name NSG-FrontEnd \
-    --name allow-https \
-    --description "Allow access to port 443 for HTTPS" \
-    --protocol Tcp \
-    --source-address-prefix * \
-    --source-port-range * \
-    --destination-address-prefix * \
-    --destination-port-range 443 \
-    --access Allow \
-    --priority 102 \
-    --direction Inbound
+az network nsg rule create  \
+--resource-group RG-NSG \
+--nsg-name NSG-FrontEnd  \
+--name allow-https \
+--description "Allow access to port 443 for HTTPS" \
+--access Allow \
+--protocol Tcp  \
+--direction Inbound \
+--priority 102 \
+--source-address-prefix "*"  \
+--source-port-range "*"  \
+--destination-address-prefix "*" \
+--destination-port-range "443"
 ```
 
 예상 출력:
 
-    info:    Executing command network nsg rule create
-    + Looking up the network security rule "allow-https"
-    + Creating a network security rule "allow-https"
-    + Looking up the network security group "NSG-FrontEnd"
-    data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/allow-https
-    data:    Name                            : allow-https
-    data:    Type                            : Microsoft.Network/networkSecurityGroups/securityRules
-    data:    Provisioning state              : Succeeded
-    data:    Description                     : Allow access to port 443 for HTTPS
-    data:    Source IP                       : *
-    data:    Source Port                     : *
-    data:    Destination IP                  : *
-    data:    Destination Port                : 443
-    data:    Protocol                        : Tcp
-    data:    Direction                       : Inbound
-    data:    Access                          : Allow
-    data:    Priority                        : 102
-    info:    network nsg rule create command OK
+```json
+{
+  "access": "Allow",
+  "description": "Allow access to port 443 for HTTPS",
+  "destinationAddressPrefix": "*",
+  "destinationPortRange": "443",
+  "direction": "Inbound",
+  "etag": "W/\"<guid>\"",
+  "id": "/subscriptions/<guid>/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/allow-https",
+  "name": "allow-https",
+  "priority": 102,
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-NSG",
+  "sourceAddressPrefix": "*",
+  "sourcePortRange": "*"
+}
+```
 
-### <a name="change-a-rule"></a>규칙 변경
-**인터넷**에서 인바운드 트래픽을 허용하도록 위에서 만든 규칙을 변경하려면 다음 명령을 실행합니다.
+## <a name="change-a-rule"></a>규칙 변경
+**인터넷**에서만 인바운드 트래픽을 허용하도록 위에서 만든 규칙을 변경하려면 [az network nsg rule update](/cli/azure/network/nsg/rule#update) 명령을 실행합니다.
 
 ```azurecli
-azure network nsg rule set --resource-group RG-NSG \
-    --nsg-name NSG-FrontEnd \
-    --name allow-https \
-    --source-address-prefix Internet
+az network nsg rule update \
+--resource-group RG-NSG \
+--nsg-name NSG-FrontEnd \
+--name allow-https \
+--source-address-prefix Internet
 ```
 
 예상 출력:
 
-    info:    Executing command network nsg rule set
-    + Looking up the network security group "NSG-FrontEnd"
-    + Setting a network security rule "allow-https"
-    + Looking up the network security group "NSG-FrontEnd"
-    data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/allow-https
-    data:    Name                            : allow-https
-    data:    Type                            : Microsoft.Network/networkSecurityGroups/securityRules
-    data:    Provisioning state              : Succeeded
-    data:    Description                     : Allow access to port 443 for HTTPS
-    data:    Source IP                       : Internet
-    data:    Source Port                     : *
-    data:    Destination IP                  : *
-    data:    Destination Port                : 443
-    data:    Protocol                        : Tcp
-    data:    Direction                       : Inbound
-    data:    Access                          : Allow
-    data:    Priority                        : 102
-    info:    network nsg rule set command OK
+```json
+{
+"access": "Allow",
+"description": "Allow access to port 443 for HTTPS",
+"destinationAddressPrefix": "*",
+"destinationPortRange": "443",
+"direction": "Inbound",
+"etag": "W/\"<guid>\"",
+"id": "/subscriptions/<guid>/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/allow-https",
+"name": "allow-https",
+"priority": 102,
+"protocol": "Tcp",
+"provisioningState": "Succeeded",
+"resourceGroup": "RG-NSG",
+"sourceAddressPrefix": "Internet",
+"sourcePortRange": "*"
+}
+```
 
-### <a name="delete-a-rule"></a>규칙 삭제
+## <a name="delete-a-rule"></a>규칙 삭제
 위에서 만든 규칙을 삭제하려면 다음 명령을 실행합니다.
 
 ```azurecli
-azure network nsg rule delete --resource-group RG-NSG \
-    --nsg-name NSG-FrontEnd \
-    --name allow-https \
-    --quiet
+az network nsg rule delete \
+--resource-group RG-NSG \
+--nsg-name NSG-FrontEnd \
+--name allow-https
 ```
 
-> [!NOTE]
-> `--quiet` 매개 변수를 사용하면 삭제를 확인하지 않아도 됩니다.
->
 
-예상 출력:
-
-    info:    Executing command network nsg rule delete
-    + Looking up the network security group "NSG-FrontEnd"
-    + Deleting network security rule "allow-https"
-    info:    network nsg rule delete command OK
-
-## <a name="manage-associations"></a>연결 관리
-NSG를 서브넷 및 NIC에 연결할 수 있습니다. 또한 연결된 모든 리소스에서 NSG를 분리할 수 있습니다.
-
-### <a name="associate-an-nsg-to-a-nic"></a>NIC에 NSG 연결
-**NSG-FrontEnd** NSG를 **TestNICWeb1** NIC에 연결하려면 다음 명령을 실행합니다.
+## <a name="associate-an-nsg-to-a-nic"></a>NIC에 NSG 연결
+**NSG-FrontEnd** NSG를 **TestNICWeb1** NIC에 연결하려면 [az network nic update](/cli/azure/network/nic#update) 명령을 사용합니다.
 
 ```azurecli
-azure network nic set --resource-group RG-NSG \
-    --name TestNICWeb1 \
-    --network-security-group-name NSG-FrontEnd
+az network nic update \
+--resource-group RG-NSG \
+--name TestNICWeb1 \
+--network-security-group NSG-FrontEnd    
 ```
 
 예상 출력:
 
-    info:    Executing command network nic set
-    + Looking up the network interface "TestNICWeb1"
-    + Looking up the network security group "NSG-FrontEnd"
-    + Updating network interface "TestNICWeb1"
-    + Looking up the network interface "TestNICWeb1"
-    data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1
-    data:    Name                            : TestNICWeb1
-    data:    Type                            : Microsoft.Network/networkInterfaces
-    data:    Location                        : westus
-    data:    Provisioning state              : Succeeded
-    data:    MAC address                     : 00-0D-3A-30-A1-F8
-    data:    Enable IP forwarding            : false
-    data:    Tags                            : displayName=NetworkInterfaces - Web
-    data:    Network security group          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
-    data:    Virtual machine                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Compute/virtualMachines/Web1
-    data:    IP configurations:
-    data:      Name                          : ipconfig1
-    data:      Provisioning state            : Succeeded
-    data:      Public IP address             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/publicIPAddresses/TestPIPWeb1
-    data:      Private IP address            : 192.168.1.5
-    data:      Private IP Allocation Method  : Dynamic
-    data:      Subnet                        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-    data:
-    info:    network nic set command OK
-
-### <a name="dissociate-an-nsg-from-a-nic"></a>NIC에서 NSG 분리
-
-**NSG-FrontEnd** NSG를 **TestNICWeb1** NIC에서 분리하려면 다음 명령을 실행합니다.
-
-```azurecli
-azure network nic set --resource-group RG-NSG --name TestNICWeb1 --network-security-group-id ""
+```json
+{
+  "dnsSettings": {
+    "appliedDnsServers": [],
+    "dnsServers": [],
+    "internalDnsNameLabel": null,
+    "internalDomainNameSuffix": "k0wkaguidnqrh0ud.gx.internal.cloudapp.net",
+    "internalFqdn": null
+  },
+  "enableAcceleratedNetworking": false,
+  "enableIpForwarding": false,
+  "etag": "W/\"<guid>\"",
+  "id": "/subscriptions/<guid>/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1",
+  "ipConfigurations": [
+    {
+      "applicationGatewayBackendAddressPools": null,
+      "etag": "W/\"<guid>\"",
+      "id": "/subscriptions/<guid>/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1",
+      "loadBalancerBackendAddressPools": null,
+      "loadBalancerInboundNatRules": null,
+      "name": "ipconfig1",
+      "primary": true,
+      "privateIpAddress": "192.168.1.6",
+      "privateIpAddressVersion": "IPv4",
+      "privateIpAllocationMethod": "Static",
+      "provisioningState": "Succeeded",
+      "publicIpAddress": null,
+      "resourceGroup": "RG-NSG",
+      "subnet": {
+        "addressPrefix": null,
+        "etag": null,
+        "id": "/subscriptions/<guid>/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+        "ipConfigurations": null,
+        "name": null,
+        "networkSecurityGroup": null,
+        "provisioningState": null,
+        "resourceGroup": "RG-NSG",
+        "resourceNavigationLinks": null,
+        "routeTable": null
+      }
+    }
+  ],
+  "location": "centralus",
+  "macAddress": "00-0D-3A-91-A9-60",
+  "name": "TestNICWeb1",
+  "networkSecurityGroup": {
+    "defaultSecurityRules": null,
+    "etag": null,
+    "id": "/subscriptions/<guid>/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd",
+    "location": null,
+    "name": null,
+    "networkInterfaces": null,
+    "provisioningState": null,
+    "resourceGroup": "RG-NSG",
+    "resourceGuid": null,
+    "securityRules": null,
+    "subnets": null,
+    "tags": null,
+    "type": null
+  },
+  "primary": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-NSG",
+  "resourceGuid": "<guid>",
+  "tags": {},
+  "type": "Microsoft.Network/networkInterfaces",
+  "virtualMachine": null
+}
 ```
 
-> [!NOTE]
-> `network-security-group-id` 매개 변수에 대한 ""(비어 있음) 값에 유의합니다. NSG에 대한 연결을 제거하는 방법입니다. `network-security-group-name` 매개 변수로 동일하게 수행할 수 없습니다.
-> 
+## <a name="dissociate-an-nsg-from-a-nic"></a>NIC에서 NSG 분리
 
-예상된 결과:
-
-    info:    Executing command network nic set
-    + Looking up the network interface "TestNICWeb1"
-    + Updating network interface "TestNICWeb1"
-    + Looking up the network interface "TestNICWeb1"
-    data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1
-    data:    Name                            : TestNICWeb1
-    data:    Type                            : Microsoft.Network/networkInterfaces
-    data:    Location                        : westus
-    data:    Provisioning state              : Succeeded
-    data:    MAC address                     : 00-0D-3A-30-A1-F8
-    data:    Enable IP forwarding            : false
-    data:    Tags                            : displayName=NetworkInterfaces - Web
-    data:    Virtual machine                 : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Compute/virtualMachines/Web1
-    data:    IP configurations:
-    data:      Name                          : ipconfig1
-    data:      Provisioning state            : Succeeded
-    data:      Public IP address             : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/publicIPAddresses/TestPIPWeb1
-    data:      Private IP address            : 192.168.1.5
-    data:      Private IP Allocation Method  : Dynamic
-    data:      Subnet                        : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-    data:
-    info:    network nic set command OK
-
-### <a name="dissociate-an-nsg-from-a-subnet"></a>서브넷에서 NSG 분리
-**NSG-FrontEnd** NSG를 **FrontEnd** 서브넷에서 분리하려면 다음 명령을 실행합니다.
+**TestNICWeb1** NIC에서 **NSG-FrontEnd** NSG의 연결을 해제하려면 [az network nsg rule update](/cli/azure/network/nsg/rule#update) 명령을 다시 실행하고 `--network-security-group` 인수를 빈 문자열(`""`)로 바꿉니다.
 
 ```azurecli
-azure network vnet subnet set --resource-group RG-NSG \
-    --vnet-name TestVNet \
-    --name FrontEnd \
-    --network-security-group-id ""
+az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-security-group ""
 ```
 
-예상 출력:
+출력에서 `networkSecurityGroup` 키는 null로 설정됩니다.
 
-    info:    Executing command network vnet subnet set
-    + Looking up the subnet "FrontEnd"
-    + Setting subnet "FrontEnd"
-    + Looking up the subnet "FrontEnd"
-    data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-    data:    Type                            : Microsoft.Network/virtualNetworks/subnets
-    data:    ProvisioningState               : Succeeded
-    data:    Name                            : FrontEnd
-    data:    Address prefix                  : 192.168.1.0/24
-    data:    IP configurations:
-    data:      /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1
-    data:      /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1
-    data:
-    info:    network vnet subnet set command OK
+## <a name="dissociate-an-nsg-from-a-subnet"></a>서브넷에서 NSG 분리
+**FrontEnd** 서브넷에서 **NSG-FrontEnd** NSG의 연결을 해제하려면 [az network nsg rule update](/cli/azure/network/nsg/rule#update) 명령을 다시 실행하고 `--network-security-group` 인수를 빈 문자열(`""`)로 바꿉니다.
 
-### <a name="associate-an-nsg-to-a-subnet"></a>서브넷에 NSG 연결
+```azurecli
+az network vnet subnet update \
+--resource-group RG-NSG \
+--vnet-name testvnet \
+--name FrontEnd \
+--network-security-group ""
+```
+
+출력에서 `networkSecurityGroup` 키는 null로 설정됩니다.
+
+## <a name="associate-an-nsg-to-a-subnet"></a>서브넷에 NSG 연결
 **NSG-FrontEnd** NSG를 **FrontEnd** 서브넷에 다시 연결하려면 다음 명령을 실행합니다.
 
 ```azurecli
-azure network vnet subnet set --resource-group RG-NSG \
-    --vnet-name TestVNet \
-    --name FrontEnd \
-    --network-security-group-name NSG-FronEnd
+az network vnet subnet update \
+--resource-group RG-NSG \
+--vnet-name testvnet \
+--name FrontEnd \
+--network-security-group NSG-FrontEnd
 ```
 
-> [!NOTE]
-> **NSG-FrontEnd** NSG가 **TestVNet** 가상 네트워크와 동일한 리소스 그룹에 있는 경우 위의 명령이 작동합니다. NSG가 다른 리소스 그룹에 있으면 대신 `--network-security-group-id` 매개 변수를 사용하고 NSG에 대한 전체 ID를 제공해야 합니다. `azure network nsg show --resource-group RG-NSG --name NSG-FrontEnd --json`을 실행하며 **id** 속성을 찾아 보아 id를 검색할 수 있습니다. 
-> 
+출력에서 `networkSecurityGroup` 키는 다음 값에 유사한 항목이 있습니다.
 
-예상 출력:
-
-        info:    Executing command network vnet subnet set
-        + Looking up the subnet "FrontEnd"
-        + Looking up the network security group "NSG-FrontEnd"
-        + Setting subnet "FrontEnd"
-        + Looking up the subnet "FrontEnd"
-        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-        data:    Type                            : Microsoft.Network/virtualNetworks/subnets
-        data:    ProvisioningState               : Succeeded
-        data:    Name                            : FrontEnd
-        data:    Address prefix                  : 192.168.1.0/24
-        data:    Network security group          : [object Object]
-        data:    IP configurations:
-        data:      /subscriptions/[Subscription Id]resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1
-        data:      /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1
-        data:
-        info:    network vnet subnet set command OK
+```json
+"networkSecurityGroup": {
+    "defaultSecurityRules": null,
+    "etag": null,
+    "id": "/subscriptions/0e220bf6-5caa-4e9f-8383-51f16b6c109f/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd",
+    "location": null,
+    "name": null,
+    "networkInterfaces": null,
+    "provisioningState": null,
+    "resourceGroup": "RG-NSG",
+    "resourceGuid": null,
+    "securityRules": null,
+    "subnets": null,
+    "tags": null,
+    "type": null
+  }
+  ```
 
 ## <a name="delete-an-nsg"></a>NSG 삭제
 리소스에 연결되지 않은 경우 NSG를 삭제할 수 있습니다. NSG를 삭제하려면 다음 단계를 수행합니다.
@@ -349,22 +348,9 @@ azure network vnet subnet set --resource-group RG-NSG \
 4. NSG를 삭제하려면 다음 명령을 실행합니다.
 
     ```azurecli
-    azure network nsg delete --resource-group RG-NSG --name NSG-FrontEnd --quiet
+    az network nsg delete --resource-group RG-NSG --name NSG-FrontEnd
     ```
-
-    예상 출력:
-
-        info:    Executing command network nsg delete
-        + Looking up the network security group "NSG-FrontEnd"
-        + Deleting network security group "NSG-FrontEnd"
-        info:    network nsg delete command OK
-
 ## <a name="next-steps"></a>다음 단계
-* [로깅을 사용합니다](virtual-network-nsg-manage-log.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [로깅을 사용합니다](virtual-network-nsg-manage-log.md) .
 
 

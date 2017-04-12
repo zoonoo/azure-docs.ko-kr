@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT hub 만들기 및 Intel Edison 등록 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(C) 연결 - 단원 2: 장치 등록 | Microsoft Docs"
 description: "리소스 그룹를 만들고 Azure IoT hub를 만들고, Azure CLI를 사용하여 Azure IoT hub에 Edison을 등록합니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: eed6c2b652df689732138fc9ce792728d7752f23
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 9eebae32bf469e0744855ed9f98306bd36eb9671
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -103,8 +104,3 @@ IoT Hub를 만들고 IoT Hub에 장치 ID로 Edison을 등록했습니다. Ediso
 
 [troubleshooting]: iot-hub-intel-edison-kit-c-troubleshooting.md
 [process-and-store-iot-hub-messages]: iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

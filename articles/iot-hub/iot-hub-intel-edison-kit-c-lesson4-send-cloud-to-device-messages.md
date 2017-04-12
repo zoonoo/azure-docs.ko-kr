@@ -1,5 +1,5 @@
 ---
-title: "샘플 응용 프로그램을 실행하여 Azure IoT Hub에서 클라우드-장치 메시지 받기 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(C) 연결 - 단원 4: 메시지 수신 | Microsoft Docs"
 description: "샘플 응용 프로그램은 Edison에서 실행되며 IoT Hub에서 들어오는 메시지를 모니터링합니다. 새로운 gulp 작업은 IoT Hub에서 Edison으로 메시지를 보내고 LED를 깜빡입니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: d492fa295237f6ff333aefb2181975e8af948723
-ms.openlocfilehash: 48e5c46d53ce412384e8667904e84b9ebd454cff
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: b4d76eeb1bc0b406800c89c4952900350d8eafa8
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -97,8 +98,3 @@ IoT Hub에서 Edison에 메시지를 보내서 LED를 깜빡이는 데 성공했
 [create-an-azure-function-app-and-storage-account]: iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md
 [gulp-command-and-blink-messages]: media/iot-hub-intel-edison-lessons/lesson4/gulp_blink_c.png
 [change-the-on-and-off-behavior-of-the-led]: iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -1,5 +1,5 @@
 ---
-title: "Application Insights에서 메트릭 탐색 | Microsoft Docs"
+title: "Azure Application Insights에서 메트릭 탐색 | Microsoft Docs"
 description: "메트릭 탐색기에 차트를 해석하는 방법 및 메트릭 탐색기 블레이드를 사용자 지정하는 방법입니다."
 services: application-insights
 documentationcenter: 
@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 03/08/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 6c644b124ad8c994170152006ff61c11e363e7ab
-ms.openlocfilehash: 951aac469ab7bca90014a8af115448833152bb6a
+ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
+ms.openlocfilehash: 8005e1c485b9ce2e19e134a12206058ef54a5a8b
+ms.lasthandoff: 03/16/2017
 
 
 ---
@@ -28,14 +29,14 @@ ms.openlocfilehash: 951aac469ab7bca90014a8af115448833152bb6a
 
 ![](./media/app-insights-metrics-explorer/01-overview.png)
 
-Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대부분의 경우 사용자 지정할 수 있으며 블레이드에 차트를 더 추가할 수 있습니다. 개요 블레이드에서 "서버 응답" 같은 제목이 있는 더 자세한 차트를 클릭하거나 **메트릭 탐색기**를 클릭하여 사용자 지정 차트를 만들 수 있는 새 블레이드를 엽니다.
+Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대부분의 경우 사용자 지정할 수 있으며 블레이드에 차트를 더 추가할 수 있습니다. 개요 블레이드에서 더 자세한 차트("Servers"와 같은 타일이 있음)를 클릭하거나 **메트릭 탐색기**를 클릭하여 사용자 지정 차트를 만들 수 있는 새 블레이드를 엽니다.
 
 ## <a name="time-range"></a>시간 범위
 모든 블레이드의 차트 또는 표에서 다루는 시간 범위를 변경할 수 있습니다.
 
 ![Azure 포털에서 응용 프로그램의 개요 블레이드 열기](./media/app-insights-metrics-explorer/03-range.png)
 
-일부 데이터가 표시되어야 하지만 아직 표시되지 않은 경우 새로 고침을 클릭합니다. 차트는 특정 간격에 따라 자체적으로 새로 고쳐지지만 시간 범위가 더 클 경우 간격이 늘어납니다. 릴리스 모드에서 차트에 분석 파이프라인을 내놓기 위한 데이터에는 시간이 걸릴 수 있습니다.
+일부 데이터가 표시되어야 하지만 아직 표시되지 않은 경우 새로 고침을 클릭합니다. 차트는 특정 간격에 따라 자체적으로 새로 고쳐지지만 시간 범위가 더 클 경우 간격이 늘어납니다. 차트에 분석 파이프라인을 내놓기 위한 데이터에는 시간이 걸릴 수 있습니다.
 
 차트의 일부를 확대하려면 해당 부분을 끕니다.
 
@@ -115,6 +116,11 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
 ![모든 메트릭의 선택을 취소하여 기본값 표시](./media/app-insights-metrics-explorer/06-total.png)
 
+## <a name="pin-y-axis"></a>Y축 고정 
+기본적으로 차트는 값 퀀텀을 시각적으로 나타내기 위해 0부터 시작해서 데이터 범위의 최대값까지 Y축 값을 표시합니다. 그렇지만 경우에 따라 값의 경미한 변화를 시각적으로 확인하기 위해 컨텀 이상에 관심이 있을 수 있습니다. 이와 같은 사용자 지정을 위해서는 Y축 범위 편집 기능을 사용하여 Y축 최소값 또는 최대값을 원하는 위치에 고정합니다.
+"고급 설정" 확인란을 클릭하여 Y축 범위 설정 표시
+
+![고급 설정을 클릭하고, 사용자 지정 범위를 선택한 후 최소값 및 최대값 지정](./media/app-insights-metrics-explorer/y-axis-range.png)
 
 ## <a name="filter-your-data"></a>데이터 필터링
 속성 값의 선택한 집합에 대한 메트릭 보기:
@@ -158,23 +164,9 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
 ![메트릭 탐색기 위쪽에 있는 단추](./media/app-insights-metrics-explorer/17-reset.png)
 
-<a name="live-metrics-stream"></a>
+## <a name="live-metrics-stream"></a>라이브 메트릭 스트림
 
-## <a name="live-metrics-stream-instant-metrics-for-close-monitoring"></a>라이브 메트릭 스트림: 면밀한 모니터링을 위한 인스턴트 메트릭
-라이브 메트릭 스트림은 거의 실시간에 가까운 1초의 대기 시간으로 응용 프로그램 메트릭을 바로 표시합니다. 이 기능은 새 빌드를 릴리스하고 예상한 대로 작동하는지 확인하려고 할 때 또는 실시간으로 인시던트를 조사할 때 특히 유용합니다.
-
-![개요 블레이드에서 라이브 스트림 클릭](./media/app-insights-metrics-explorer/live-stream.png)
-
-메트릭 탐색기와 달리, 라이브 메트릭 스트림은 고정된 메트릭 집합을 표시합니다. 해당 데이터는 차트에 있는 동안만 지속된 후 삭제됩니다.
-
-### <a name="live-failures"></a>라이브 실패
-
-실패 또는 예외가 기록된 경우 라이브 스트림은 샘플을 선택합니다. **일시 중지**를 클릭하여 특정 샘플을 유지하고 세부 정보 표시할 이벤트를 선택합니다.
-
-![샘플링된 라이브 실패](./media/app-insights-metrics-explorer/live-stream-failures.png)
-
-
-라이브 메트릭 스트림은 최신 버전의 [웹용 Application Insights SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)에서 사용할 수 있습니다.
+원격 분석을 더 빠르게 즉시 보려면 [라이브 스트림](app-insights-live-stream.md)을 엽니다. 대부분의 메트릭은 집계 프로세스 때문에 몇 분 정도 지나야 표시됩니다. 반면 라이브 메트릭은 짧은 대기 시간에 최적화되었습니다. 
 
 ## <a name="set-alerts"></a>경고 설정
 메트릭의 비정상적인 값에 대한 알림을 메일로 받으려면 경고를 추가합니다. 계정 관리자나 특정 메일 주소로 메일을 보내도록 선택할 수 있습니다.
@@ -183,16 +175,6 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 
 [경고에 대해 알아봅니다][alerts].
 
-## <a name="export-to-excel"></a>Excel로 내보내기
-메트릭 탐색기에 표시된 메트릭 데이터를 Excel 파일로 내보낼 수 있습니다. 내보낸 데이터에는 포털에서 볼 수 있는 모든 차트와 테이블의 데이터가 포함되어 있습니다.
-
-![메트릭 탐색기에서 경고 규칙, 경고 추가 선택](./media/app-insights-metrics-explorer/31-export.png)
-
-각 차트 또는 테이블에 대한 데이터는 Excel 파일의 별도 시트에 내보내집니다.
-
-표시된 내용이 내보내지는 내용입니다. 내보내는 데이터의 범위를 변경하려면 시간 범위 또는 필터를 변경합니다. 테이블의 경우, **추가 로드** 명령이 표시되어 있으면 내보내기를 클릭하기 전에 이 명령을 클릭하여 내보낼 데이터를 더 지정할 수 있습니다.
-
-*내보내기는 현재 Internet Explorer 및 Chrome에 대해서만 작동합니다. 우리는 다른 브라우저에 대한 지원 추가에 관하여 연구 중입니다.*
 
 ## <a name="continuous-export"></a>연속 내보내기
 데이터를 외부에서 처리할 수 있도록 지속적으로 내보내려면 [연속 내보내기](app-insights-export-telemetry.md)를 사용하는 것이 좋습니다.
@@ -201,7 +183,9 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 보다 풍부한 데이터 보기를 사용하려는 경우 [Power BI를 내보낼](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)수 있습니다.
 
 ## <a name="analytics"></a>분석
-[분석](app-insights-analytics.md) 은 강력한 쿼리 언어를 사용하여 원격 분석을 분석하는 더욱 유용한 방법입니다. 메트릭의 결과를 결합하거나 계산하려는 경우 또는 앱의 최근 성능을 면밀히 조사하려는 경우에 사용합니다. 반면, 대시보드의 차트와 경고를 자동으로 새로 고치려는 경우에는 메트릭 탐색기를 사용합니다.
+[분석](app-insights-analytics.md) 은 강력한 쿼리 언어를 사용하여 원격 분석을 분석하는 더욱 유용한 방법입니다. 메트릭의 결과를 결합하거나 계산하려는 경우 또는 앱의 최근 성능을 면밀히 조사하려는 경우에 사용합니다. 
+
+메트릭 차트에서 분석 아이콘을 클릭하여 해당하는 분석 쿼리를 직접 가져올 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 *차트에 데이터가 표시되지 않습니다.*
@@ -212,6 +196,10 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 * 메트릭에 정의되지 않은 속성으로 차트를 그룹화한 경우 차트에 아무 것도 표시되지 않습니다. '그룹화 기준'을 지우거나 다른 그룹화 속성을 선택하세요.
 * 성능 데이터(CPU, IO 속도 등)는 Java 웹 서비스, Windows 데스크톱 앱, [IIS Web Apps 및 서비스(상태 모니터를 설치한 경우)](app-insights-monitor-performance-live-website-now.md) 및 [Azure Cloud Services](app-insights-azure.md)에 사용할 수 있습니다. Azure 웹 사이트에는 사용할 수는 없습니다.
 
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
+
 ## <a name="next-steps"></a>다음 단계
 * [Application Insights를 사용하여 사용량 모니터링](app-insights-overview-usage.md)
 * [진단 검색 사용](app-insights-diagnostic-search.md)
@@ -221,9 +209,4 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 [alerts]: app-insights-alerts.md
 [start]: app-insights-overview.md
 [track]: app-insights-api-custom-events-metrics.md
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

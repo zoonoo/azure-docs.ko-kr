@@ -1,6 +1,6 @@
 ---
-title: "깜박임 응용 프로그램 만들기 및 배포 | Microsoft Docs"
-description: "GitHub에서 샘플 C 응용 프로그램과, Raspberry Pi 3 보드에 이 응용 프로그램을 배포하기 위한 gulp를 복제합니다. 이 샘플 응용 프로그램은 보드에 연결된 LED를 2초마다 깜박이게 합니다."
+title: "Azure IoT에 Raspberry Pi(C) 연결 - 단원 1: 앱 배포 | Microsoft Docs"
+description: "GitHub에서 샘플 C 응용 프로그램과, Raspberry Pi 3 보드에 이 응용 프로그램을 배포하기 위한 gulp를 복제합니다. 이 샘플 응용 프로그램은 보드에 연결된 LED를&2;초마다 깜박이게 합니다."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -13,17 +13,18 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 61a0ef0a262d4a81fd6c1012fcc2c96569a9dda4
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 5b16230178fa82c7f227e3e3f8742fa16b00c719
+ms.lasthandoff: 01/24/2017
 
 
 ---
 # <a name="create-and-deploy-the-blink-application"></a>깜박임 응용 프로그램 만들기 및 배포
 ## <a name="what-you-will-do"></a>수행할 사항
-GitHub에서 샘플 C 응용 프로그램을 복제하고 gulp 도구를 사용하여 Raspberry Pi 3에 샘플 응용 프로그램을 배포합니다. 샘플 응용 프로그램은 보드에 연결된 LED를 2초마다 깜박이게 합니다. 문제가 있으면 [문제 해결 페이지](iot-hub-raspberry-pi-kit-c-troubleshooting.md)에서 솔루션을 검색하세요.
+GitHub에서 샘플 C 응용 프로그램을 복제하고 gulp 도구를 사용하여 Raspberry Pi 3에 샘플 응용 프로그램을 배포합니다. 샘플 응용 프로그램은 보드에 연결된 LED를&2;초마다 깜박이게 합니다. 문제가 있으면 [문제 해결 페이지](iot-hub-raspberry-pi-kit-c-troubleshooting.md)에서 솔루션을 검색하세요.
 
 ## <a name="what-you-will-learn"></a>알아볼 내용
 이 문서에서는 다음에 대해 알아봅니다.
@@ -149,10 +150,5 @@ Pi 작동에 필요한 도구를 설치했으며 LED를 깜박이게 하는 샘�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 도구 얻기](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

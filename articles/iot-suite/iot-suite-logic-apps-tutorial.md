@@ -4,7 +4,7 @@ description: "논리 앱을 비즈니스 프로세스에 대한 Azure IoT Suite�
 services: 
 suite: iot-suite
 documentationcenter: 
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 4629a7af-56ca-4b21-a769-5fa18bc3ab07
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2016
-ms.author: araguila
+ms.date: 03/09/2017
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a010e0dff76390020b74ada6d6144e411e304268
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -30,6 +31,8 @@ ms.openlocfilehash: a010e0dff76390020b74ada6d6144e411e304268
 
 * Azure 구독에서 미리 구성된 원격 모니터링 솔루션을 프로비전합니다.
 * 비즈니스 프로세스를 트리거하는 전자 메일을 보낼 수 있도록 SendGrid 계정을 만듭니다. [SendGrid](https://sendgrid.com/) 에서 **무료 평가판**을 클릭하여 무료 평가판 계정을 등록할 수 있습니다. 무료 평가판 계정을 등록한 후에는 SendGrid에서 메일 전송 권한을 부여하는 [API 키](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) 를 만들어야 합니다. 이 API 키는 자습서의 뒷부분에서 필요합니다.
+
+이 자습서를 완료하려면 미리 구성된 솔루션 백 엔드에서 동작을 수정하기 위해 Visual Studio 2015 또는 Visual Studio 2017이 필요합니다.
 
 미리 구성된 원격 모니터링 솔루션을 이미 프로비전했다고 가정하고 [Azure Portal][lnk-azureportal]에서 해당 솔루션에 대한 리소스 그룹으로 이동합니다. 리소스 그룹 이름이 원격 모니터링 솔루션을 프로비전할 때 선택한 솔루션 이름과 같습니다. 리소스 그룹에서 Azure 클래식 포털에서 찾을 수 있는 Azure Active Directory 응용 프로그램을 제외하고 솔루션에 대해 프로비전된 모든 Azure 리소스를 볼 수 있습니다. 다음 스크린샷은 미리 구성된 원격 모니터링 솔루션에 대한 예제 **리소스 그룹** 블레이드를 보여 줍니다.
 
@@ -48,7 +51,7 @@ ms.openlocfilehash: a010e0dff76390020b74ada6d6144e411e304268
    
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 6. **요청**을 선택합니다. 이 작업은 특정 JSON 형식 페이로드와 함께 들어오는 HTTP 요청이 트리거로 작동하도록 지정합니다.
-7. 다음을 요청 본문 JSON 스키마에 붙여 넣습니다.
+7. 다음 코드를 요청 본문 JSON 스키마에 붙여 넣습니다.
    
     ```
     {
@@ -116,8 +119,8 @@ ms.openlocfilehash: a010e0dff76390020b74ada6d6144e411e304268
     ```
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
-        { "Send Message", "<Http Post to this UR>" },
-        { "Raise Alarm", "<Http Post to this UR> }
+        { "Send Message", "<Http Post to this URL>" },
+        { "Raise Alarm", "<Http Post to this URL>" }
     };
     ```
 5. 변경 내용을 솔루션에 저장하고 Visual Studio를 종료합니다.
@@ -169,9 +172,4 @@ ms.openlocfilehash: a010e0dff76390020b74ada6d6144e411e304268
 [lnk-devsetup]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/dev-setup.md
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

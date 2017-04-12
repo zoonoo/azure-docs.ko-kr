@@ -4,7 +4,7 @@ description: "Azure 앱 서비스에서 PowerShell을 사용하여 앱을 백업
 services: app-service
 documentationcenter: 
 author: NKing92
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 7ea8661e-aefb-4823-9626-6bff980cdebf
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2095543e6cb964c9f1aa036c62e9ff6f80dc7c3
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 172b55a68662dd98c4af946d51f3ece51f7835e1
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -49,7 +50,7 @@ PowerShell을 사용하여 SAS URL을 생성할 수 있습니다. 이 문서에�
         $sasUrl = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1) -FullUri
 
 ## <a name="install-azure-powershell-132-or-greater"></a>Azure PowerShell 1.3.2 이상 설치
-Azure PowerShell 설치 및 사용에 대한 지침은 [Azure Resource Manager로 Azure PowerShell 사용](../powershell-install-configure.md) 을 참조하세요.
+Azure PowerShell 설치 및 사용에 대한 지침은 [Azure Resource Manager로 Azure PowerShell 사용](/powershell/azureps-cmdlets-docs) 을 참조하세요.
 
 ## <a name="create-a-backup"></a>백업 만들기
 New-AzureRmWebAppBackup cmdlet을 사용하여 웹앱의 백업을 만듭니다.
@@ -151,9 +152,4 @@ Remove-AzureRmWebAppBackup cmdlet으로 백업 개체를 파이프하여 삭제�
 
         $backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
         $backup | Remove-AzureRmWebAppBackup -Overwrite
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

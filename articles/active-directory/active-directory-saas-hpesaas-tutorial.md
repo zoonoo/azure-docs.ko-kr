@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 92d61ff08b70e89b5e5310cf4b0f7fb88abf3ef9
+ms.sourcegitcommit: 0837cb33bf438fb7fd9665d21d411f0170cdd393
+ms.openlocfilehash: 59939dd678452fc29b1861b70073e6f79c230196
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -44,7 +45,7 @@ HPE SaaS와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.  
@@ -109,7 +110,7 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **로그온 URL** 텍스트 상자에 사용자가 HPE SaaS 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다. **“https://login.saas.hpe.com/msg”** 고객은 응용 프로그램 특정 URL로 이를 변경할 수도 있습니다.
 
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 
 
 1. **HPE SaaS의 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
@@ -118,7 +119,7 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
    
     a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **Next**를 클릭합니다.
+    b. **다음**을 클릭합니다.
 2. 응용 프로그램에 대해 구성된 SSO를 가져오려면 HPE SaaS 지원 팀에 다운로드한 메타데이터 파일을 첨부하여 메일을 보냅니다. 그러면 SSO 통합에 대해 구성할 수 있습니다.
 3. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
    
@@ -176,7 +177,7 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
    
     a. **새 암호**값을 적어둡니다.
    
-    b. **완료**를 클릭합니다.   
+    b. 페이지 맨 아래에 있는 **완료**을 참조하세요.   
 
 ### <a name="creating-a-hpe-saas-test-user"></a>HPE SaaS 테스트 사용자 만들기
 이 섹션은 HPE SaaS에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. HPE SaaS 계정에 사용자를 추가하려면 HPE SaaS 지원 팀에 문의하세요. 
@@ -232,9 +233,4 @@ HPE SaaS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 [203]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

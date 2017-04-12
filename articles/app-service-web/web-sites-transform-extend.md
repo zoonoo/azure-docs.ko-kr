@@ -4,7 +4,7 @@ description: "XDT(XML 문서 변환) 선언을 사용하여 Azure 앱 서비스 
 author: cephalin
 writer: cephalin
 editor: mollybos
-manager: wpickett
+manager: erikre
 services: app-service
 documentationcenter: 
 ms.assetid: b441a286-ef38-4abc-b102-cdb249baf5bc
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2e10b89aecd12dd9eeb91855242421bf8d7c0a0b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: abd55399ef780df945a2d643940a71425d085692
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -169,7 +170,7 @@ applicationHost.config 파일에 웹 앱 확장을 등록하려면 확장 루트
 키 `WEBSITE_PRIVATE_EXTENSIONS` 및 `0` 값으로 앱 설정을 추가하여 배포 및 확인 중에 웹앱의 모든 개인(사전 설치 아님) 확장을 사용하지 않도록 설정할 수 있습니다.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -179,10 +180,5 @@ applicationHost.config 파일에 웹 앱 확장을 등록하려면 확장 루트
 <!-- IMAGES -->
 [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

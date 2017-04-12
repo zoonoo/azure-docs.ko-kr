@@ -1,6 +1,6 @@
 ---
-title: "비율 차이 테스트 | Microsoft Docs"
-description: "비율 차이 테스트"
+title: "(사용되지 않음) 비율 차이 테스트 - Azure | Microsoft Docs"
+description: "(사용되지 않음) 비율 차이 테스트"
 services: machine-learning
 documentationcenter: 
 author: aniedea
@@ -11,16 +11,24 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: aniedea
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b45b4689e6254afd603d434dc0b21dad90addd95
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 18023b5057d1eeca88a341d62cbeb543102b3abf
+ms.lasthandoff: 01/11/2017
 
 
 ---
-# <a name="difference-in-proportions-test"></a>비율 차이 테스트
+# <a name="deprecated-difference-in-proportions-test"></a>(사용되지 않음) 비율 차이 테스트
+
+> [!NOTE]
+> Microsoft DataMarket은 종료되고 있는 중이며 이 API는 사용되지 않습니다. 
+> 
+> [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)에서 많은 유용한 예제 실험과 API를 확인할 수 있습니다. 갤러리에 대한 자세한 내용은 [Cortana Intelligence 갤러리의 리소스 공유 및 검색](machine-learning-gallery-how-to-use-contribute-publish.md)을 참조하세요.
+
 두 비율이 통계적으로 다른가요? 사용자가 두 개의 동영상을 비교하여 한 동영상의 '좋아요' 비율이 다른 동영상에 비해 상당히 더 높은지 확인하려 한다고 가정합니다. 큰 샘플을 사용할 경우 비율 0.50과 0.51 간에는 통계적으로 상당한 차이가 있을 수 있습니다. 작은 샘플을 사용할 경우 이러한 비율이 실제로 다른지를 확인하기 위한 데이터가 충분하지 않을 수 있습니다. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -125,10 +133,5 @@ Azure 기계 학습 내에서 두 개의 [R 스크립트 실행][execute-r-scrip
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

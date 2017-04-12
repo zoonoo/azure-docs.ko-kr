@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 시작 키트(macOS 10.10)에 대한 도구 받기 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(C) 연결 - 단원 1: 도구 다운로드(macOS) | Microsoft Docs"
 description: "macOS에 Edison의 첫 번째 샘플 응용 프로그램에 필요한 도구 및 소프트웨어를 다운로드하여 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 6d7f9df965967839b191c6587080d01aa68095ed
-ms.openlocfilehash: 66db1b2dbd8a76fb53d301c5189ea99f3b6df6ba
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 6bfefbdb7728d375ea05a17978ece84aaf8e2821
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -91,9 +92,4 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/os
 [windows]: iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md
 [ubuntu]: iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md
 [macos]: iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

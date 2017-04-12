@@ -1,17 +1,30 @@
 ---
+title: "Azure CDN 설명서 - 자습서, API 참조 | Microsoft Docs"
+description: "CDN(Content Delivery Network)을 사용하여 글로벌 데이터 센터에서 모든 장치에 콘텐츠를 제공하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
+services: cdn
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: cdn
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 79a8dc0dc2e81d0b159b07bbb496f04e06e5d28a
+ms.sourcegitcommit: 642f9469722dfe701db8e353f4aa2b17edc00081
+ms.openlocfilehash: 67fdc8b9b4db5d311a8247995d7f8f626b90e5c5
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="cdn-documentation"></a>CDN 설명서
 
-Azure CDN(Content Delivery Network)은 개발자에게 Azure 또는 기타 위치에서 호스트되는 고대역폭 콘텐츠를 제공하기 위한 글로벌 솔루션을 제공합니다.  CDN을 사용하여 Azure Blob 저장소, 웹 응용 프로그램, 가상 컴퓨터, 응용 프로그램 폴더 또는 기타 HTTP/HTTPS 위치에서 로드된 공개적으로 사용 가능한 개체를 캐시할 수 있습니다.  CDN은 일반적으로 이미지, 스타일 시트, 문서, 파일, 클라이언트쪽 스크립트 및 HTML 페이지와 같은 정적 콘텐츠를 제공하기 위해 사용됩니다.
+CDN(Content Delivery Network)을 사용하여 Azure 또는 다른 프로그램에서 호스팅되는 고대역폭 콘텐츠를 제공하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 CDN을 사용하여 글로벌 데이터 센터에서 모든 장치에 콘텐츠를 제공하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/best-practices-CDN">
+        <a href="/azure/best-practices-cdn">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -109,16 +122,5 @@ Azure CDN(Content Delivery Network)은 개발자에게 Azure 또는 기타 위�
 </ul>
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cdn.pdf">
-        <div class="img"></div>
-        <div class="text">
-Azure CDN 설명서 다운로드 </div>
-    </a>
-</div>
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

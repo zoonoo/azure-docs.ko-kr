@@ -4,7 +4,7 @@ description: "PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예�
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
 ms.openlocfilehash: 37a10d284afa6b9ee2aa65e7ec015c3c364f551d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -218,7 +219,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
 10. JSON 개요에서 JSON 코드에 강조를 표시하려면 **CPUHigh appInsights** 을 클릭합니다. 이것은 경고입니다.
-11. `location` 및 `isEnabled` 속성을 찾아 아래와 같이 설정합니다. 다른 3 개의 경고(자주색 전구)에 대해 동일한 작업을 수행합니다.
+11. `location` 및 `isEnabled` 속성을 찾아 아래와 같이 설정합니다. 다른&3; 개의 경고(자주색 전구)에 대해 동일한 작업을 수행합니다.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
 12. 배포할 준비가 되었습니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **배포** > **New 배포ment**을 참조하십시오..
@@ -260,7 +261,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성하는 확장성이 뛰어난 응용 프로그램의 모든 성공적인 배포의 열쇠입니다. 이 자습서에서는 Azure 리소스 관리자 템플릿을 사용하여 Azure에 단일 리소스 그룹으로 두 microservies 응용 프로그램을 배포했습니다. 응용 프로그램을 템플릿으로 변환하고 예측 가능한 방식으로 프로비전하고 배포하기 위해 필요한 정보를 제공했습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-[agile 방법론을 적용하고 지속적으로 마이크로 서비스 응용 프로그램 및 [플라이팅 배포](app-service-web-test-in-production-controlled-test-flight.md)와 같은 고급 배포 기술을 쉽게 게시](app-service-agile-software-development.md)하는 방법을 알아봅니다.
+[agile 방법론을 적용하고 지속적으로 마이크로 서비스 응용 프로그램 및 와 같은 고급 배포 기술을 쉽게 게시](app-service-agile-software-development.md)하는 방법을 알아봅니다 [플라이팅 배포](app-service-web-test-in-production-controlled-test-flight.md).
 
 <a name="resources"></a>
 
@@ -271,10 +272,5 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 * [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure 리소스 관리자로 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Azure에서 리소스 그룹 배포 문제 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

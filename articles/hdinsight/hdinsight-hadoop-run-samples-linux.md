@@ -1,6 +1,6 @@
 ---
-title: "Linux 기반 HDInsight에서 Hadoop MapReduce 샘플 실행 | Microsoft 문서"
-description: "Linux 기반 HDInsight에서 MapReduce 샘플 사용 시작 SSH를 사용하여 클러스터에 연결한 다음 Hadoop 명령을 사용하여 샘플 작업을 실행합니다."
+title: "HDInsight에서 Hadoop MapReduce 샘플 실행 | Microsoft Docs"
+description: "HDInsight에서 MapReduce 샘플 사용 시작 SSH를 사용하여 클러스터에 연결한 다음 Hadoop 명령을 사용하여 샘플 작업을 실행합니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -9,30 +9,34 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d4b6db263becb722cabfab2160c0a460034eae72
+ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
+ms.openlocfilehash: d94e633273ef298079673c100c6edbf95dc3c96d
+ms.lasthandoff: 03/25/2017
 
 
 ---
 # <a name="run-the-hadoop-samples-in-hdinsight"></a>HDInsight에서 Hadoop 샘플 실행
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히는 데 사용할 수 있는 MapReduce 샘플 집합을 제공합니다. 이 문서에서는 사용 가능한 샘플을 살펴보고 그 중 일부를 실행하는 과정을 안내합니다.
+HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히는 데 사용할 수 있는 MapReduce 샘플 집합을 제공합니다. 이 문서에서는 사용 가능한 샘플을 살펴보고 그 중 일부를 실행하는 과정을 안내합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* **Azure 구독**: [Azure 무료 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+
+
 * **Linux 기반 HDInsight 클러스터**: [Linux의 HDInsight에서 Hive와 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
-* **SSH 클라이언트**: HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-  
-  * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-  * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+  > [!IMPORTANT]
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+
+* **SSH 클라이언트**: 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="the-samples"></a>샘플
 **위치**: 샘플은 HDInsight 클러스터 **/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar**에 있습니다.
@@ -65,15 +69,13 @@ Linux 기반 HDInsight 클러스터는 Hadoop MapReduce 작업 실행을 익히�
 **소스 코드**: 이러한 샘플에 대한 소스 코드는 HDInsight 클러스터 **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**에 포함되어 있습니다.
 
 > [!NOTE]
->  `2.2.4.9-1` 은 HDInsight 클러스터용 Hortonworks Data Platform의 버전이며 HDInsight 업데이트 시 변경될 수 있습니다.
+> `2.2.4.9-1` 은 HDInsight 클러스터용 Hortonworks Data Platform의 버전이며 HDInsight 업데이트 시 변경될 수 있습니다.
 > 
 > 
 
 ## <a name="how-to-run-the-samples"></a>샘플을 실행하는 방법
-1. 다음 문서에 설명된 대로 SSH를 사용하여 HDInsight에 연결합니다.
-   
-   * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-   * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+1. SSH를 사용하여 HDInsight에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+
 2. `username@#######:~$` 프롬프트에서 다음 명령을 사용하여 샘플을 나열합니다.
    
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
@@ -137,7 +139,7 @@ Sudoku 예제에는 "Include a puzzle on the command line" 등 다소 유용하�
     ? ? ? ? 4 5 ? 7 8
 
 > [!NOTE]
->  `2.2.4.9-1` 부분은 HDInsight 클러스터에 업데이트가 적용됨에 따라 변경될 수 있습니다.
+> `2.2.4.9-1` 부분은 HDInsight 클러스터에 업데이트가 적용됨에 따라 변경될 수 있습니다.
 > 
 > 
 
@@ -221,9 +223,4 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

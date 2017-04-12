@@ -1,6 +1,6 @@
 ---
-title: "R을 사용하여 작성한 Machine Learning 웹 서비스 예제 | Microsoft Docs"
-description: "R 코드와 기계 학습을 사용하여 만든 후 Azure 마켓플레이스에 게시한 유용한 웹 서비스 예제 집합을 찾아보세요."
+title: "(사용되지 않음) R을 사용하여 작성한 Machine Learning 웹 서비스 예제 - Azure | Microsoft Docs"
+description: "(사용되지 않음) R 코드와 Machine Learning을 사용하여 만든 후 Azure Marketplace에 게시한 유용한 웹 서비스 예제 집합을 찾아보세요."
 keywords: "csharp, r 코드, 웹 서비스 예제"
 services: machine-learning
 documentationcenter: 
@@ -12,16 +12,24 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: jaymathe
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c3e94cf69d55de9c31a48de35e86a1ae9149a63
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 303fb71faf73d4a1b6d17b4ca66b83b15157332b
+ms.lasthandoff: 01/11/2017
 
 
 ---
-# <a name="web-services-examples-using-r-code-on-azure-machine-learning-and-published-to-microsoft-azure-marketplace"></a>Azure 기계 학습의 R 코드를 사용하고 Microsoft Azure 마켓플레이스에 게시된 웹 서비스 예제
+# <a name="deprecated-web-services-examples-using-r-code-on-azure-machine-learning-and-published-to-microsoft-azure-marketplace"></a>(사용되지 않음) Azure Machine Learning의 R 코드를 사용하고 Microsoft Azure Marketplace에 게시된 웹 서비스 예제
+
+> [!NOTE]
+> Microsoft DataMarket은 종료되고 있는 중이며 이 API는 사용되지 않습니다. 
+> 
+> [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)에서 많은 유용한 예제 실험과 API를 확인할 수 있습니다. 갤러리에 대한 자세한 내용은 [Cortana Intelligence 갤러리의 리소스 공유 및 검색](machine-learning-gallery-how-to-use-contribute-publish.md)을 참조하세요.
+
 이 문서에는 Azure 기계 학습을 사용하여 만든 다음 Azure 마켓플레이스에 게시된 예제 웹 서비스가 나와 있습니다. 각 웹 서비스 예제에는 서비스를 테스트하고 사용자가 비슷한 서비스를 직접 만들 수 있는 방법을 설명하는 샘플 데이터 집합이 포함된 광범위한 문서가 첨부되어 있습니다. 
 
 Azure 기계 학습 스튜디오에서 사용자는 R 코드를 작성한 후 몇 번의 클릭만으로 전 세계의 응용 프로그램과 장치에서 사용될 수 있는 웹 서비스로 게시할 수 있습니다. 
@@ -68,10 +76,5 @@ Azure 기계 학습 스튜디오에서 사용자는 R 코드를 작성한 후 �
 [1]: ./media/machine-learning-r-csharp-web-service-examples/machine-learning-r-code-options-for-using-and-sharing-cloud.png
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

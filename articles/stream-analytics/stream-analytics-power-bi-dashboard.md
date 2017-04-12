@@ -1,5 +1,5 @@
 ---
-title: "Stream Analytics의 Power BI 대시보드 | Microsoft Docs"
+title: "Azure Stream Analytics의 Power BI 대시보드 | Microsoft Docs"
 description: "실시간 스트리밍 Power BI 대시보드를 사용하여 비즈니스 인텔리전스를 수집하고 Stream Analytics 작업에서 대량의 데이터를 분석합니다."
 keywords: "분석 대시보드, 실시간 대시보드"
 services: stream-analytics
@@ -13,172 +13,147 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c954e85aa61803b4afe82c2e9d30729035ac094f
+ms.sourcegitcommit: 3dbc49d35def6d7b12ade529d1dd1156dee9d75b
+ms.openlocfilehash: 09c54f8cce119c1cbe6a08e969236612447d9e17
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="stream-analytics--power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
-Azure Stream Analytics을 사용하면 최고의 비즈니스 인텔리전스 도구 중 하나인 Microsoft Power BI를 이용할 수 있습니다. Azure Stream Analytics을 사용하여 대용량, 스트리밍 데이터를 분석하고 실시간 Power BI 분석 대시보드에서 이해를 넓히는 방법에 대해 알아봅니다.
+# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
+Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 도구 중 하나인 Microsoft Power BI를 이용할 수 있습니다. Azure Stream Analytics를 사용하여 대용량, 스트리밍 데이터를 분석하고 실시간 Power BI 분석 대시보드로부터 정보를 얻는 방법에 대해 알아봅니다.
 
-[Microsoft Power BI](https://powerbi.com/) 를 사용하여 라이브 대시보드를 빠르게 만들 수 있습니다. [시나리오를 설명하는 동영상을 시청합니다](https://www.youtube.com/watch?v=SGUpT-a99MA).
+[Microsoft Power BI](https://powerbi.com/) 를 사용하여 라이브 대시보드를 빠르게 만들 수 있습니다. [이 시나리오를 보여주는 비디오를 보세요](https://www.youtube.com/watch?v=SGUpT-a99MA).
 
-이 문서에서는 Azure Stream Analytics 작업에 대한 출력으로 Power BI를 사용하여 사용자 고유의 사용자 지정 비즈니스 인텔리전스 도구를 만들고 실시간 대시보드를 활용하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Stream Analytics 작업에 대한 출력으로 Power BI를 사용하여 사용자 고유의 사용자 지정 비즈니스 인텔리전스 도구를 만드는 방법에 대해 알아봅니다. 실시간 대시보드를 활용하는 방법도 학습합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* Microsoft Azure 계정
-* 스트리밍 데이터를 소비하는 Stream Analytics 작업에 대한 입력. Stream Analytics은 Azure 이벤트 허브 또는 Azure Blob 저장소의 입력을 허용합니다.  
-* Power BI에 대한 회사 또는 학교 계정
-
-## <a name="create-azure-stream-analytics-job"></a>Azure Stream Analytics 작업 만들기
-[Azure 클래식 포털](https://manage.windowsazure.com)에서, **새로 만들기, 데이터 서비스, Stream Analytics, 빠른 생성**을 클릭합니다.
-
-다음 값을 지정한 다음 **Stream Analytics 작업 만들기**를 클릭합니다.
-
-* **작업 이름** - 작업 이름을 입력합니다. 예를 들어, **DeviceTemperatures**입니다.
-* **지역** - 작업이 위치할 지역을 선택합니다. 최적의 성능을 보장하고 지역 간의 데이터 전송 비용이 발생하지 않도록 동일한 지역에 작업 및 이벤트 허브를 배치하는 것이 좋습니다.
-* **저장소 계정** -이 영역 내에서 실행되는 모든 Stream Analytics 작업에 대한 모니터링 데이터를 저장하는데 사용하려는 저장소 계정을 선택합니다. 기존 저장소 계정을 선택하거나 새 계정을 만드는 옵션이 있습니다.
-
-왼쪽 창에서 **Stream Analytics** 을 클릭하여 Stream Analytics 작업을 표시합니다.
-
-![graphic1][graphic1]
-
-> [!TIP]
-> 새 작업은 **시작되지 않음**상태로 표시됩니다. 페이지 맨 아래의 **시작** 단추가 비활성화됩니다. 작업을 시작하기 전에 작업 입력, 출력, 쿼리 등을 구성해야 할 때 예상되는 동작입니다.
-> 
-> 
-
-## <a name="specify-job-input"></a>작업 입력 지정
-이 자습서에서는 JSON 직렬화 및 UTF-8 인코딩을 포함한 입력으로 이벤트 허브를 사용한다고 가정합니다.
-
-* 작업 이름을 클릭합니다.
-* 페이지의 맨 위에서 **입력**을 클릭한 다음 **입력 추가**를 클릭합니다. 열리는 대화 상자에서 다양한 단계를 진행하면서 입력을 설정합니다.
-* **데이터 스트림**을 선택한 다음 오른쪽 단추를 클릭합니다.
-* **이벤트 허브**를 선택한 다음 오른쪽 단추를 클릭합니다.
-* 세 번째 페이지에서 다음 값을 입력하거나 선택합니다.
-  * **입력 별칭** - 이 작업 입력의 이름을 입력합니다. 이 이름은 나중에 쿼리에서 사용하게 됩니다.
-  * **이벤트 허브** -만든 이벤트 허브가 Stream Analytics 작업과 동일한 구독에 포함된 경우 이벤트 허브가 있는 네임스페이스를 선택합니다.
-* 이벤트 허브가 다른 구독에 있으면 **다른 구독의 이벤트 허브 사용**을 선택하고 **서비스 버스 네임스페이스**, **이벤트 허브 이름**, **이벤트 허브 정책 이름**, **이벤트 허브 정책 키** 및 **이벤트 허브 파티션 수**에 대한 정보를 수동으로 입력합니다.
-
-> [!NOTE]
-> 이 샘플에서는 기본값인 16개인 파티션을 사용합니다.
-> 
-> 
-
-* **이벤트 허브 이름** - 사용하는 Azure 이벤트 허브의 이름을 선택합니다.
-* **이벤트 허브 정책 이름** -사용 중인 이벤트 허브에 대한 이벤트 허브 정책을 선택합니다. 이 정책에 관리 권한이 있는지 확인합니다.
-* **이벤트 허브 소비자 그룹** – 이 그룹을 비우거나 이벤트 허브에 있는 소비자 그룹을 지정할 수 있습니다. 이벤트 허브의 각 소비자 그룹에는 한 번에 5개의 판독기만 허용됩니다. 따라서 사용자 작업에 따라 올바른 소비자 그룹을 결정합니다. 필드를 비워두면 기본 소비자 그룹을 사용합니다.
-* 오른쪽 단추를 클릭합니다.
-* 다음 값을 지정합니다.
-  * **이벤트 직렬 변환기 형식** - JSON
-  * **인코딩** - UTF8
-* 확인 단추를 클릭하여 이 소스를 추가하고 Stream Analytics이 이벤트 허브에 성공적으로 연결될 수 있는지 확인합니다.
+* Microsoft Azure 계정.
+* Power BI에 대한 회사 또는 학교 계정.
+* [실시간 사기 감지](stream-analytics-real-time-fraud-detection.md) 시나리오의 완료. 읽고 있는 문서는 이제 [실시간 사기 감지](stream-analytics-real-time-fraud-detection.md)에 설명된 워크플로에서 빌드되고 Power BI 스트리밍 데이터 집합 출력을 추가합니다.
 
 ## <a name="add-power-bi-output"></a>Power BI 출력 추가
-1. 페이지의 맨 위에서 **출력**을 클릭한 다음 **출력 추가**를 클릭합니다. Power BI가 출력 옵션으로 표시됩니다.
-   
-   ![graphic2][graphic2]  
-2. **Power BI** 를 선택한 다음 오른쪽 단추를 클릭합니다.
-3. 다음과 유사한 화면이 표시됩니다.
-   
-   ![graphic3][graphic3]  
-4. 이 단계에서는 Stream Analytics 작업 출력을 위한 회사 또는 학교 계정을 제공합니다. Power BI 계정이 있는 경우 **지금 권한 부여**를 선택합니다. 그렇지 않은 경우 **지금 등록**을 선택합니다. [다음은 Power BI 등록에 대한 세부 정보를 통해 탐색하는 좋은 블로그입니다](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
-   
-   ![graphic11][graphic11]  
-5. 그러면 다음과 같은 화면이 표시됩니다.
-   
-   ![graphic4][graphic4]  
+이제 작업에 대한 입력이 존재하며 Power BI에 대한 출력을 정의할 수 있습니다.
 
-아래와 같이 값을 제공합니다.
+1. 작업 대시보드 중간에 있는 **출력** 상자를 선택합니다. 그런 다음 **+ 추가**를 선택하여 출력을 만듭니다.
 
-* **출력 별칭** – 쉽게 참조할 수 있는 모든 출력 별칭을 입력할 수 있습니다. 이 출력 별칭은 작업에 대한 여러 출력을 포함하려는 경우에 특히 유용합니다. 이 경우 쿼리에서 이 출력을 참조해야 합니다. 예를 들어, 출력 별칭 값 = “OutPbi”을 사용합니다.
-* **데이터 집합 이름** - Power BI 출력에 포함할 데이터 집합 이름을 입력합니다. 예를 들어, “pbidemo”를 사용합니다.
-* **테이블 이름** -Power BI 출력의 데이터 집합 아래 테이블 이름을 입력합니다. "Pbidemo"라고 입력합니다. 현재, Stream Analytics 작업의 Power BI 출력에는 하나의 데이터 집합에 하나의 테이블만 있을 수 있습니다.
-* **작업 영역** – 데이터 집합을 만들려고 하는 Power BI 테넌트에서 작업 영역을 선택합니다.
+    ![출력 추가](./media/stream-analytics-power-bi-dashboard/create-pbi-output.png)
 
-> [!NOTE]
-> 이 데이터 집합 및 테이블을 Power BI 계정에서 명시적으로 만들어서는 안 됩니다. 그것들은 Stream Analytics 작업을 시작해 Power BI로 출력을 쏟아붓기 시작할 때 자동으로 생성됩니다. 작업 쿼리가 결과 생성하지 않으면 데이터 집합 및 테이블은 생성되지 않은 것입니다.
-> 
-> 
+2. **출력 별칭**을 제공합니다. 쉽게 참조할 수 있는 모든 출력 별칭을 사용할 수 있습니다. 이 출력 별칭은 작업에 대한 여러 출력을 포함하려는 경우 유용합니다. 이 경우 쿼리에서 이 출력을 참조합니다. 예를 들어, 출력 별칭 값 "StreamAnalyticsRealTimeFraudPBI"를 사용해 보겠습니다.
 
-* **확인**, **연결 테스트**를 클릭하면 이제 출력 구성이 완료됩니다.
+3. **권한 부여**를 선택합니다.
+
+    ![권한 부여 추가](./media/stream-analytics-power-bi-dashboard/pbi-authorize.png)
+
+4. Azure 자격 증명(회사 또는 학교 계정)을 제공할 수 있는 창이 열립니다. 또한 Azure 작업에 Power BI 영역에 대한 액세스 권한을 제공합니다.
+
+    ![권한 부여 필드](./media/stream-analytics-power-bi-dashboard/authorize-area.png)
+
+5. 권한 부여는 필요한 정보를 제공한 후 사라집니다. **새 출력** 영역에는 **데이터 집합 이름** 및 **테이블 이름**을 위한 필드가 있습니다.
+
+    ![PBI 작업 영역](./media/stream-analytics-power-bi-dashboard/pbi-workspace.png)
+
+6. 다음과 같이 정의합니다.
+    * **그룹 영역**: 데이터 집합을 만들려는 Power BI 테넌트에서 작업 영역을 선택합니다.
+    * **데이터 집합 이름**: Power BI 출력에 포함할 데이터 집합 이름을 입력합니다. 예를 들어, "StreamAnalyticsRealTimeFraudPBI"를 사용해 보겠습니다.
+    * **테이블 이름**: Power BI 출력의 데이터 집합 아래 테이블 이름을 입력합니다. 예를 들어, "StreamAnalyticsRealTimeFraudPBI"를 사용해 보겠습니다. 현재, Stream Analytics 작업의 Power BI 출력에는 하나의 데이터 집합에 하나의 테이블만 있을 수 있습니다.
+
+7. **만들기**를 선택합니다. 이제 출력 구성이 완료됩니다.
 
 > [!WARNING]
-> 또한 이 Stream Analytics 작업에서 제공한 이름과 동일한 이름의 데이터 집합과 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어씁니다.
-> 
-> 
+> 이 Stream Analytics 작업에서 사용한 것과 동일한 이름의 데이터 집합과 테이블이 Power BI에 있는 경우에는 기존 데이터를 덮어씁니다.
+> 또한 이 데이터 집합 및 테이블을 Power BI 계정에 명시적으로 만들지 않는 것이 좋습니다. 이들은 Stream Analytics 작업을 시작하고 작업이 Power BI로 출력을 시작할 때 자동으로 생성됩니다. 작업 쿼리가 결과 생성하지 않으면 데이터 집합 및 테이블은 생성되지 않습니다.
+>
+>
+
+데이터 집합은 다음과 같은 설정으로 만들어집니다.
+* **defaultRetentionPolicy: BasicFIFO**:데이터는 FIFO이고, 최대 200,000개의 행이 있습니다.
+* **defaultMode: pushStreaming**: 스트리밍 타일 및 기존의 보고서 기반 시각적 개체(즉, 푸시)를 모두 지원합니다.
+
+지금은 다른 플래그로 데이터 집합을 만들 수 없습니다.
+
+Power BI 데이터 집합에 대한 자세한 내용은 [Power BI REST API](https://msdn.microsoft.com/library/mt203562.aspx)를 참조하세요.
+
 
 ## <a name="write-query"></a>쿼리 작성
-작업의 **쿼리** 탭으로 이동합니다. Power BI에서 원하는 쿼리, 출력을 작성합니다. 예를들어 다음 SQL 쿼리와 같을 수 있습니다.
-
-    SELECT
-        MAX(hmdt) AS hmdt,
-        MAX(temp) AS temp,
-        System.TimeStamp AS time,
-        dspl
-    INTO
-        OutPBI
-    FROM
-        Input TIMESTAMP BY time
-    GROUP BY
-        TUMBLINGWINDOW(ss,1),
-        dspl
+작업의 **쿼리** 탭으로 이동합니다. Power BI에서 원하는 쿼리, 출력을 작성합니다. 예를 들어 이는 통신 업계에서 SIM 사기를 적발하는 다음 SQL 쿼리와 유사할 수 있습니다.
 
 
+```
+/* Our criteria for fraud:
+ Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
 
-사용자의 작업을 시작합니다. 이벤트 허브는 이벤트를 수신하고 쿼리가 예상된 결과를 생성하는지 확인합니다. 쿼리가 0개의 행을 출력하면, Power BI 데이터 집합 및 테이블이 자동으로 만들어지지 않습니다.
+ SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+ INTO "StreamAnalyticsRealTimeFraudPBI"
+ FROM "StreamAnalyticsRealTimeFraudInput" CS1 TIMESTAMP BY CallRecTime
+ JOIN "StreamAnalyticsRealTimeFraudInput" CS2 TIMESTAMP BY CallRecTime
+
+/* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
+ ON CS1.CallingIMSI = CS2.CallingIMSI
+
+/* ...and date between CS1 and CS2 is between one and five seconds */
+ AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+
+/* Where the switch location is different */
+ WHERE CS1.SwitchNum != CS2.SwitchNum
+ GROUP BY TumblingWindow(Duration(second, 1))
+```
 
 ## <a name="create-the-dashboard-in-power-bi"></a>Power BI에서 대시보드 만들기
-[Powerbi.com](https://powerbi.com) 으로 이동하고 회사 또는 학교 계정으로 로그인합니다. Stream Analytics 작업 쿼리가 결과를 출력하면, 사용자 데이터 집합이 이미 생성되어 표시됩니다.
 
-![graphic5][graphic5]
+1. [Powerbi.com](https://powerbi.com)으로 이동한 다음 회사 또는 학교 계정으로 로그인합니다. Stream Analytics 작업 쿼리가 결과를 출력하면, 다음 그림처럼 데이터 집합이 이미 생성되어 표시됩니다.
 
-대시보드를 만들기 위해 대시보드 옵션으로 이동하고 새 대시보드를 만듭니다.
+    ![스트리밍 데이터 집합](./media/stream-analytics-power-bi-dashboard/streaming-dataset.png)
 
-![graphic6][graphic6]
+2. **타일 추가**를 클릭한 다음, 사용자 지정 스트리밍 데이터를 선택합니다.
 
-이 예에서는 "데모 대시보드"라고 레이블을 지정합니다.
+    ![사용자 지정 스트리밍 데이터 집합](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
-이제 Stream Analytics 작업에서 만든 데이터 집합을 클릭합니다(현재 예제에서는 pbidemo). 이 데이터 집합 위에 차트를 만들려면 페이지로 이동합니다. 다음은 만들 수 있는 보고서의 한 예입니다.
+3. 목록에서 데이터 집합을 선택합니다.
 
-Σ temp 및 시간 필드를 선택합니다. 자동으로 차트에 대한 값과 축으로 이동됩니다.
+    ![스트리밍 데이터 집합](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
-![graphic7][graphic7]
+4. 시각화 카드를 만듭니다. 그런 다음 **fraudulentcalls** 필드를 선택합니다.
 
-이렇게 하면 아래와 같이 차트를 자동으로 가져옵니다.
+    ![사기 추가](./media/stream-analytics-power-bi-dashboard/add-fraud.png)
 
-![graphic8][graphic8]
+    이제 사기 카운터가 나타납니다.
 
-값 섹션에서 temp에 대한 드롭 다운을 클릭하고 차트의 온도로 **평균**을 선택하고 **시각화**를 선택하고 **꺾은선형 차트**를 선택합니다.
+    ![사기 카운터](./media/stream-analytics-power-bi-dashboard/fraud-counter.png)
 
-![graphic9][graphic9]
+5. 타일을 추가하는 연습을 다시 살펴보세요. 그러나 이번에는 꺾은선형 차트를 선택합니다. 값으로 **fraudulentcalls**를, 축으로 **windowend**를 추가합니다. 다음 스크린 샷에 표시된 것처럼 지난 10분을 선택합니다.
 
-이제 시간이 지남에 따라 꺾은선형 차트의 평균을 얻을 수 있습니다.  아래와 같이 Pin 옵션을 사용하면, 이전에 만든 대시보드로 고정할 수 있습니다.
+![사기 호출](./media/stream-analytics-power-bi-dashboard/fraud-calls.png)
 
-![graphic10][graphic10]
 
-이제이 고정된 이 보고서를 사용하여 대시보드를 보면 실시간으로 업데이트되는 보고서가 표시됩니다. 스파이크 temp나 이와 같은 이벤트에서 데이터를 변경하려고 시도하면 사용자 대시보드에 반영된 실시간 효과가 표시됩니다.
+이 자습서에서는 데이터 집합에 대해 한 종류의 차트를 만드는 방법을 설명합니다. Power BI는 조직에 대한 다른 고객 비즈니스 인텔리전스 도구를 만드는 데 도움이 됩니다. Power BI 대시보드의 다른 예제는 [Power BI 시작](https://youtu.be/L-Z_6P56aas?t=1m58s) 비디오를 보세요.
 
-이 자습서에서는 데이터 집합에 대한 한 종류의 차트를 만드는 방법에 대해 설명합니다. Power BI는 조직에 대한 다른 고객 비즈니스 인텔리전스 도구를 만드는 데 도움이 됩니다. Power BI 대시보드의 다른 예제는 [Power BI 시작](https://youtu.be/L-Z_6P56aas?t=1m58s) 비디오를 보세요.
+Power BI 출력 구성 및 Power BI 그룹 사용 방법에 대한 자세한 내용은 [Power BI 섹션](stream-analytics-define-outputs.md#power-bi)의 [Stream Analytics 출력 이해](stream-analytics-define-outputs.md "Stream Analytics 출력 이해")를 검토하세요. [Power BI의 대시보드](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/)는 또 하나의 유용한 리소스입니다.
 
-Power BI 출력 구성 및 Power BI 그룹 사용 방법에 대한 자세한 내용은 [Power BI 섹션](stream-analytics-define-outputs.md#power-bi)의 [Stream Analytics 출력 이해]와 (stream-analytics-define-outputs.md "Stream Analytics 출력 이해")를 검토하세요. Power BI를 사용한 대시보드 만들기에 대해 알 수 있는 다른 유용한 리소스는 [Power BI의 대시보드](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/)입니다.
+## <a name="learn-about-limitations-and-best-practices"></a>제한 사항 및 모범 사례에 대해 알아보기
+Power BI는 [Power BI](https://powerbi.microsoft.com/pricing "Power BI 가격 책정")에 설명된 바와 같이 동시성과 처리량 제약 조건을 모두 사용합니다.
 
-## <a name="limitations-and-best-practices"></a>제한 사항 및 모범 사례
-Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI 가격 책정")
+현재는 대략 1초당 한 번 Power BI를 호출할 수 있습니다. 스트리밍 시각적 개체는 15KB의 패킷을 지원합니다. 이보다 크면 스트리밍 시각적 개체가 실패합니다(푸시는 계속 작동).
 
-때문에 Power BI는 Azure Stream Analytics으로 상당한 데이터 부하 감소가 이루어 지는 경우에 가장 적합합니다.
-TumblingWindow 또는 HoppingWindow를 사용하여 데이터 푸시가 최대 1초마다 푸시되도록 하고 쿼리가 처리량 요구 사항 이내에 들도록 하는 것이 좋습니다. 다음 수식을 사용하여 수 초 내에 창에 공급할 값을 계산할 수 있습니다.
+이러한 제한 사항 때문에 Power BI는 Azure Stream Analytics가 데이터 부하를 상당히 줄이는 경우에 가장 적합합니다.
+연속 창 또는 도약 창을 사용하여 데이터 푸시가 최대 초당 한번의 푸시를 수행하고 쿼리가 처리량 요구 사항 범위 내에 있도록 하는 것이 좋습니다.
 
-![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
+다음 수식을 사용하여 값을 초 단위로 계산하여 창에 제공할 수 있습니다.
 
-예를 들어 매초마다 데이터를 보내는 1,000개의 장치가 있다면 시간당 1,000,000행을 지원하는 Power BI Pro SKU를 사용하면서 Power BI에서 장치별 평균 데이터를 확인하고 아래 표시된 것과 같이 장치별로 최대 4초마다 푸시를 수행할 수 있습니다.  
+![수식 1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
 
-![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
+예:
+- 1,000대의 장치가 1초 간격으로 데이터를 보내고 있습니다.
+- 시간당 1,000,000개의 행을 지원하는 Power BI Pro SKU를 사용하고 있습니다.
+- 장치당 평균 데이터 양을 Power BI에 게시하려 합니다.
 
-이를 위해 원래 쿼리가 아래와 같이 변경됩니다.
+그 결과, 수식은 다음과 같습니다.
+
+![수식 2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
+
+이는 원래 쿼리를 다음과 같이 변경할 수 있다는 의미합니다.
 
     SELECT
         MAX(hmdt) AS hmdt,
@@ -193,54 +168,21 @@ TumblingWindow 또는 HoppingWindow를 사용하여 데이터 푸시가 최대 1
         TUMBLINGWINDOW(ss,4),
         dspl
 
-### <a name="powerbi-view-refresh"></a>PowerBI 보기 새로 고침
-일반적인 질문은 다음과 같습니다. "PowerBI에서 대시보드가 왜 자동으로 업데이트되지 않나요?"
-
-이에 대한 답변을 얻기 위해 PowerBI에서 질문 및 답변에 "타임스탬프가 오늘인 임시 최대값"과 같이 질문하고 대시보드에 해당 타일을 고정합니다.
 
 ### <a name="renew-authorization"></a>권한 부여 갱신
-작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우에 Power BI 계정을 다시 인증해야 합니다. MFA(Multi-Factor Authentication)가 AAD(Azure Active Directory) 테넌트에 구성된 경우 2주마다 Power BI 권한 부여도 갱신해야 합니다. 이 문제의 증상은 작업 출력이 없으며 작업 로그에 "사용자 인증 오류"가 표시됩니다.
+작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우 Power BI 계정을 다시 인증해야 합니다. Azure Multi-Factor Authentication가 Azure Active Directory(Azure AD) 테넌트에서 구성된 경우 2주마다 Power BI 권한 부여도 갱신해야 합니다. 갱신하지 않으면 작업 출력 부족 또는 작업 로그에 "인증 사용자 오류"와 같은 증상을 볼 수 있습니다.
 
-![graphic12][graphic12]
+마찬가지로 토큰이 만료된 후 작업이 시작되려고 하는 경우 오류가 발생하고 작업이 실패합니다. 이 문제를 해결하려면 실행 중인 작업을 중지하고 Power BI 출력으로 이동합니다. 데이터 손실을 방지하기 위해 **권한 부여 갱신** 링크를 클릭한 다음 **마지막 중지 시간**부터 작업을 다시 시작합니다.
 
-마찬가지로 토큰이 만료된 동안 작업이 시작되려고 하는 경우 오류가 발생하고 작업이 실패합니다. 오류는 다음과 같이 표시됩니다.
-
-![PowerBI 유효성 검사 오류](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-expire.png) 
-
-이 문제를 해결하려면 실행 중인 작업을 중지하고 Power BI 출력으로 이동합니다.  "권한 부여 갱신" 링크를 클릭하고 마지막 중지 시간부터 작업을 다시 시작하여 데이터 손실을 방지합니다.
-
-![PowerBI 유효성 검사 갱신](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renew.png) 
-
-Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영역에서 녹색 경고가 표시됩니다.
-
-![PowerBI 유효성 검사 갱신](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renewed.png) 
+Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영역에 문제가 해결되었음을 나타내는 녹색 알림이 표시됩니다.
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
-* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-[graphic1]: ./media/stream-analytics-power-bi-dashboard/1-stream-analytics-power-bi-dashboard.png
-[graphic2]: ./media/stream-analytics-power-bi-dashboard/2-stream-analytics-power-bi-dashboard.png
-[graphic3]: ./media/stream-analytics-power-bi-dashboard/3-stream-analytics-power-bi-dashboard.png
-[graphic4]: ./media/stream-analytics-power-bi-dashboard/4-stream-analytics-power-bi-dashboard.png
-[graphic5]: ./media/stream-analytics-power-bi-dashboard/5-stream-analytics-power-bi-dashboard.png
-[graphic6]: ./media/stream-analytics-power-bi-dashboard/6-stream-analytics-power-bi-dashboard.png
-[graphic7]: ./media/stream-analytics-power-bi-dashboard/7-stream-analytics-power-bi-dashboard.png
-[graphic8]: ./media/stream-analytics-power-bi-dashboard/8-stream-analytics-power-bi-dashboard.png
-[graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
-[graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
-[graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
-[graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
-[graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

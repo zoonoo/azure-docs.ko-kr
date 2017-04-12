@@ -1,5 +1,5 @@
 ---
-title: "Azure Security Center에서 보안 상태 모니터링 | Microsoft Docs"
+title: "Azure Security Center에서 보안 모니터링 | Microsoft Docs"
 description: "이 문서는 Azure Security Center의 모니터링 기능을 시작하는 데 도움이 됩니다."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 03/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: b0694222548e39718f6626c1b1666584445f8398
-ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: d796566676e13b312832dd543f52d3475d877ef8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,35 +34,36 @@ ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
 
 **리소스 보안 상태** 타일에서 리소스 보안 상태를 모니터링할 수 있습니다. 아래 예제와 같이 높거나 보통 수준의 심각도이며 주의가 필요한 여러 문제를 확인할 수 있습니다. 활성화된 보안 정책은 모니터링되는 컨트롤 유형에 영향을 줍니다.
 
-![리소스 보안 상태 타일](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
+![리소스 보안 상태 타일](./media/security-center-monitoring/security-center-monitoring-fig1-new001-2017.png)
 
 보안 센터에서 보안 업데이트가 누락된 VM 또는 [네트워크 보안 그룹](/virtual-network/virtual-networks-nsg.md)에 속하지 않은 서브넷과 같이 조치가 필요한 취약점을 확인한 경우 이 타일에서 해당 보안 상태를 나열합니다.
 
-### <a name="monitor-virtual-machines"></a>가상 컴퓨터 모니터링
-**리소스 보안 상태** 타일에서 **가상 컴퓨터**를 클릭하면 아래와 같은 **가상 컴퓨터** 블레이드가 열리면서 보안 센터에서 모니터링하고 있는 VM 목록 전체, 등록 및 방지 단계에 대한 자세한 내용을 보여 줍니다.
+### <a name="monitor-compute"></a>모니터 계산
+**리소스 보안 상태** 타일에서 **계산**을 클릭하면 **계산** 블레이드가 열리고 다음과 같은 세 가지 탭이 표시됩니다.
 
-![가상 컴퓨터에서 누락된 시스템 업데이트](./media/security-center-monitoring/security-center-monitoring-fig2-ga.png)
+- **개요**: 모니터링 및 가상 컴퓨터 권장 사항입니다.
+- **Virtual Machines**: 모든 가상 컴퓨터와 현재 보안 상태를 나열합니다.
+- **Cloud Services**: Security Center에서 모니터링하는 모든 웹 및 작업자 역할의 목록을 나열합니다.
 
-* 등록 단계
-* 가상 컴퓨터 권장 사항
-* 가상 컴퓨터
+![가상 컴퓨터에서 누락된 시스템 업데이트](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
 
-각 섹션에서 개별 옵션을 선택하면 해당 문제를 해결하는 권장 단계에 관한 자세한 내용을 볼 수 있습니다. 이와 관련하여 아래 섹션에서 더 자세히 설명합니다.
+각 탭에는 여러 섹션이 있으며, 각 섹션에서 개별 옵션을 선택하면 특정 문제를 해결하는 권장 단계에 관한 자세한 내용을 볼 수 있습니다. 
 
 #### <a name="monitoring-recommendations"></a>권장 사항 모니터링
-이 섹션은 데이터 수집을 위해 초기화된 VM의 총 수 및 현재 상태를 보여 줍니다. 모든 VM에서 데이터 수집이 초기화되면 보안 센터 보안 정책을 수신할 준비가 됩니다. 이 항목을 클릭하면 **데이터 수집 설치 상태** 블레이드가 열리고 아래와 같이 **설치 상태** 열에서 VM의 이름 및 데이터 수집의 현재 상태를 확인할 수 있습니다.
+이 섹션은 데이터 수집을 위해 초기화된 VM의 총 수 및 현재 상태를 보여 줍니다. 모든 VM에서 데이터 수집이 초기화되면 보안 센터 보안 정책을 수신할 준비가 됩니다. 이 항목을 클릭하면 **VM 에이전트가 없거나 응답하지 않습니다** 블레이드가 열립니다. 
 
-![가상 컴퓨터의 초기화 상태](./media/security-center-monitoring/security-center-monitoring-fig3-ga.png)
+![가상 컴퓨터에서 누락된 시스템 업데이트](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+
 
 #### <a name="virtual-machine-recommendations"></a>가상 컴퓨터 권장 사항
 이 섹션에는 Azure Security Center에서 모니터링하는 [각 VM에 대한 권장 사항](security-center-virtual-machine-recommendations.md)이 있습니다. 첫 번째 열에는 권장 사항이 나열되고, 두 번째 열에는 해당 권장 사항으로 영향을 받은 VM의 총 수가 표시되며, 세 번째 열에는 아래와 같이 문제의 심각도가 표시됩니다.
 
-![가상 컴퓨터 권장 사항](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
+![가상 컴퓨터 권장 사항](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
 
 > [!NOTE]
 > 공용 끝점이 하나 이상 있는 VM은 **네트워크 토폴로지** 목록의 **네트워킹 상태** 블레이드에 표시됩니다.
-> 
-> 
+>
+>
 
 각 권장 사항에는 클릭하면 수행되는 작업 집합이 있습니다. 예를 들어 **누락된 시스템 업데이트**를 클릭하면 **누락된 시스템 업데이트** 블레이드가 열립니다. 아래와 같이 패치를 누락한 VM 및 누락된 업데이트의 심각도를 나열합니다.
 
@@ -87,13 +89,13 @@ ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
 
 > [!NOTE]
 > 여기와 **권장 사항** 블레이드에서 보여 주는 보안 권장 사항은 서로 동일합니다. 권장 사항 해결에 대한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요. 이 내용은 VM뿐 아니라 **리소스 상태** 타일에서 제공되는 모든 리소스에도 적용할 수 있습니다.
-> 
-> 
+>
+>
 
 #### <a name="virtual-machines-section"></a>가상 컴퓨터 섹션
 이 섹션에서는 모든 VM과 권장 사항에 대한 개요를 제공합니다. 각 열에는 아래와 같이 일단의 권장 사항이 표시됩니다.
 
-![모든 가상 컴퓨터 및 권장 사항 개요](./media/security-center-monitoring/security-center-monitoring-fig7-ga.png)
+![모든 가상 컴퓨터 및 권장 사항 개요](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
 
 각 권장 사항에 표시되는 아이콘은 주의를 기울여야 하는 VM 및 권장 사항의 형식을 식별하는 데 도움이 됩니다.
 
@@ -103,12 +105,12 @@ ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
 
 이 블레이드에는 VM에 대한 보안 세부 정보가 있습니다. 이 블레이드의 하단에서 권장되는 작업과 각 문제의 심각도를 볼 수 있습니다.
 
-#### <a name="cloud-services-preview-section"></a>클라우드 서비스(미리 보기) 섹션
-클라우드 서비스 상태는 가상 컴퓨터의 **보안 상태** 타일에 포함되어 있습니다. OS 버전이 오래된 경우 아래와 같이 권장 사항이 표시됩니다.
+#### <a name="cloud-services-section"></a>클라우드 서비스 섹션
+클라우드 서비스에는 운영 체제 버전이 오래된 경우 아래의 스크린샷과 같이 권장 사항이 표시됩니다.
 
-![클라우드 서비스 상태](./media/security-center-monitoring/security-center-monitoring-fig8-new2.png)
+![클라우드 서비스 상태](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-권장 사항에 있는 단계를 수행하여 OS 버전을 업데이트해야 합니다. 예를 들어 IIS에 자동으로 배포된 웹앱으로 Windows Server를 실행하는 WebRole1 또는 WorkerRole1 행에 있는 빨간색 경고를 클릭하면 아래와 같이 해당 권장 사항에 대한 자세한 정보를 포함한 새 블레이드가 열립니다.
+권장 사항(이전 예제에는 해당되지 않음)이 있는 시나리오의 경우 권장 사항의 단계를 따라 운영 체제 버전을 업데이트해야 합니다. 업데이트를 사용할 수 있는 경우 경고가 표시됩니다(문제의 심각도에 따라 빨간색 또는 주황색). IIS에 자동으로 배포된 웹앱으로 Windows Server를 실행하는 WebRole1 또는 WorkerRole1 행에 있는 이 경고를 클릭하면 아래와 같이 해당 권장 사항에 대한 자세한 정보를 포함한 새 블레이드가 열립니다.
 
 ![클라우드 서비스 세부 정보](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
@@ -214,10 +216,4 @@ ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
 * [Azure Security Center에서 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

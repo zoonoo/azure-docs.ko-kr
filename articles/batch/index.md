@@ -1,13 +1,26 @@
 ---
+title: "Azure Batch 설명서 - 자습서, API 참조 | Microsoft Docs"
+description: "Batch를 사용하여 대규모 병렬 및 고성능 컴퓨팅 응용 프로그램을 효율적으로 실행하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
+services: batch
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: batch
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: acf8bdbd4938583f8259c30cb253ee33b4c971ad
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: e36c82b7fb93659ad2fb3b7af5b6660438293bc9
+ms.lasthandoff: 03/18/2017
 
 ---
 #<a name="batch-documentation"></a>Batch 설명서
 
-Azure 배치를 통해 클라우드에서 효율적으로 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 실행할 수 있습니다. 배치 서비스를 통해 응용 프로그램을 병렬로 규모에 따라 실행하도록 Azure 계산 리소스를 정의합니다. 인프라를 수동으로 만들거나 관리할 걱정 없이 주문형 또는 예약된 작업을 실행할 수 있습니다.
+클라우드에서 Batch를 사용하여 대규모 병렬 및 고성능 컴퓨팅 응용 프로그램을 효율적으로 실행하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 인프라를 수동으로 구성하거나 관리하지 않고 병렬 또는 대규모로 응용 프로그램을 실행하도록 Azure 계산 리소스를 정의하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -47,7 +60,7 @@ Azure 배치를 통해 클라우드에서 효율적으로 대규모 병렬 및 H
         </a>
     </li>
     <li>
-        <a href="/azure/Batch/batch-account-create-portal">
+        <a href="/azure/batch/batch-account-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -112,7 +125,8 @@ Azure 배치를 통해 클라우드에서 효율적으로 대규모 병렬 및 H
                 <div class="card">
                     <div class="cardText">
                         <h3>명령줄</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch">PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch">PowerShell</a></p>
+                        <p><a href="/cli/azure/batch">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
@@ -126,8 +140,8 @@ Azure 배치를 통해 클라우드에서 효율적으로 대규모 병렬 및 H
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Python</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.JS</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>
             </div>
@@ -147,16 +161,5 @@ Azure 배치를 통해 클라우드에서 효율적으로 대규모 병렬 및 H
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
-        <div class="img"></div>
-        <div class="text">
-Azure Batch 설명서 다운로드 </div>
-    </a>
-</div>
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

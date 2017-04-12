@@ -10,12 +10,13 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 08/26/2016
 ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
 ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -47,7 +48,7 @@ ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
 5. [API를 사용](app-insights-api-custom-events-metrics.md) 하여 원격 분석을 전송합니다.
 6. 앱을 실행하고 Azure 포털에서 만든 리소스의 원격 분석을 참조하세요.
 
-## <a name="a-nametelemetryaexample-code"></a><a name="telemetry"></a>예제 코드
+## <a name="telemetry"></a>예제 코드
 ```C#
 
     public partial class Form1 : Form
@@ -89,10 +90,5 @@ ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
 * [진단 검색](app-insights-diagnostic-search.md)
 * [메트릭 탐색](app-insights-metrics-explorer.md)
 * [분석 쿼리 작성](app-insights-analytics.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

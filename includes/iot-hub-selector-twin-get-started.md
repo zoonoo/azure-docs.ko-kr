@@ -5,7 +5,7 @@
 > 
 
 ## <a name="introduction"></a>소개
-장치 쌍은 장치의 상태 정보(메타데이터, 상태 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 IoT Hub에 연결하는 각 장치에 대해 하나의 장치 쌍을 유지합니다.
+장치 쌍은 장치의 상태 정보(메타데이터, 상태 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 여기에 연결하는 각 장치에 대해 하나의 장치 쌍을 유지합니다.
 
 장치 쌍의 용도:
 
@@ -28,7 +28,7 @@
 ![][img-twin]
 
 또한 솔루션 백 엔드는 위의 모든 데이터를 기반으로 하는 장치 쌍을 쿼리할 수 있습니다.
-장치 쌍에 대한 자세한 내용은 [쌍 장치 이해][lnk-twins]를 그리고 쿼리에 대한 참조는 [IoT Hub 쿼리 언어][lnk-query]를 참조하세요.
+장치 쌍에 대한 자세한 내용은 [쌍 장치 이해][lnk-twins]를 참조하고 쿼리는 [IoT Hub 쿼리 언어][lnk-query] 참조를 참고하세요.
 
 > [!NOTE]
 > 현재 장치 쌍은 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 장치에서만 액세스할 수 있습니다. 기존 장치 앱이 MQTT를 사용하도록 변환하는 방법에 관한 설명은 [MQTT 지원][lnk-devguide-mqtt] 문서를 참조하세요.
@@ -49,7 +49,3 @@
 [lnk-d2c]: ../articles/iot-hub/iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
-
-<!--HONumber=Dec16_HO1-->
-
-

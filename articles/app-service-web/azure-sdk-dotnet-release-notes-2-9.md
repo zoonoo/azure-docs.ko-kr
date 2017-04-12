@@ -3,8 +3,7 @@ title: "Azure SDK for .NET 2.9 릴리스 정보"
 description: "Azure SDK for .NET 2.9 릴리스 정보"
 services: app-service\web
 documentationcenter: .net
-author: Juliako
-manager: erikre
+author: chrissfanos
 editor: 
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
@@ -12,11 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 11/16/2016
+ms.date: 02/24/2017
 ms.author: juliako;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 52ae631ad516767682122b0b5c05efb19e462209
-ms.openlocfilehash: a8be2c34358c817ca35ccfe46c97409a57ed539a
+ms.sourcegitcommit: 71c5a4f1b816fdcfe7ef267c20e6ed42e6cc51e6
+ms.openlocfilehash: 3c3fb275a7c980f71a3a30e6875b9515321bad99
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -43,6 +43,10 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 ### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 가상 컴퓨터
 
 - 이제 Visual Studio에서는 OS 제품군 5(Windows Server 2016) 가상 컴퓨터에 클라우드 서비스를 배포하도록 지원합니다. 기존 클라우드 서비스의 경우, 새 OS 제품군을 대상으로 설정을 변경할 수 있습니다. 새 클라우드 서비스를 만들 때 .NET 4.6 이상을 사용하여 서비스를 만들려면 선택하는 경우 기본적으로 서비스는 OS 제품군 5를 사용하게 됩니다.  자세한 내용은 [게스트 OS 제품군 지원 테이블](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/)을 참조하세요.
+
+#### <a name="known-issues"></a>알려진 문제
+
+- Azure .NET SDK 2.9.6에는 지원되지 않는 .NET framework(예: .NET 4.6)를 사용하여 프로젝트를 OS 제품군 5 미만으로 배포하는 것을 차단하는 제한 사항이 도입되었습니다. 해결 방법이 [여기](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9)에 제공됩니다.
 
  
 ### <a name="azure-in-role-cache"></a>Azure In-Role Cache 
@@ -71,7 +75,7 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 
 * 앱 서비스 프로비전 대화 상자의 "서비스" 탭에서 보조 앱 서비스에 대한 지원 
 
-## <a name="azure-data-lake-tools-for-visual-studio-2015-update-2"></a> Visual Studio 2015 업데이트 2용 Azure Data Lake 도구
+## <a name="azure-data-lake-tools-for-visual-studio-2015-update-2"></a>Visual Studio 2015 업데이트 2용 Azure Data Lake 도구
 이 업데이트는 다음을 포함합니다.
 
 * **Azure Data Lake 도구** 가 Azure SDK for .NET 릴리스에 병합됩니다. 이 도구는 Azure SDK를 설치할 때 자동으로 설치됩니다. 
@@ -83,14 +87,9 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 **HDInsight 도구** 에서 Tez 그래프 표시 및 기타 언어 수정을 포함하여 HDInsight 버전 3.3을 지원합니다.
 
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
-이 릴리스는 ARM 템플릿에 대한 [KeyVault](../resource-manager-keyvault-parameter.md) 지원을 추가합니다.
+이 릴리스는 Resource Manager 템플릿에 대한 [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) 지원을 추가했습니다.
 
 ## <a name="see-also"></a>참고 항목
 [Azure SDK 2.9 발표 게시물](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

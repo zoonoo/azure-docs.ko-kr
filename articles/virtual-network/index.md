@@ -1,10 +1,21 @@
 ---
-layout: LandingPage
-+toc_rel: breadcrumb.json
+title: "Azure Virtual Network 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "클라우드에서 가상 네트워크를 사용하는 방법에 대해 알아봅니다. 설명서에서는 VNet을 배포하고 사용하여 리소스를 시작하고 온-프레미스 네트워크와 통합하는 방법을 보여 줍니다."
+services: virtual-network
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: virtual-network
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
+ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
+ms.openlocfilehash: d65301d1ca71f62b52c97f1de772a61c33933b8a
+ms.lasthandoff: 03/18/2017
 
 ---
 # <a name="virtual-network-documentation"></a>Virtual Network 설명서
@@ -13,7 +24,7 @@ ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-overview">
+        <a href="/azure/virtual-network/virtual-networks-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -49,7 +60,7 @@ ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
         </a>
     </li>
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-pportal">
+        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-pportal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,7 +78,7 @@ ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
         </a>
     </li>
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-ps">
+        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-ps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -85,7 +96,7 @@ ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
         </a>
     </li>
     <li>
-        <a href="/azure/Virtual-Network/virtual-networks-create-vnet-arm-cli">
+        <a href="/azure/virtual-network/virtual-networks-create-vnet-arm-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -114,9 +125,9 @@ ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
                 <div class="card">
                     <div class="cardText">
                         <h3>명령줄</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell(리소스 관리자)</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell(클래식)</a></p>
-                        <p><a href="/cli/azure">Azure CLI</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network">PowerShell(리소스 관리자)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking">PowerShell(클래식)</a></p>
+                        <p><a href="/cli/azure/network">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
@@ -149,10 +160,5 @@ ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

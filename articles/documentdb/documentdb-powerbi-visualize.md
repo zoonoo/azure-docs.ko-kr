@@ -3,7 +3,7 @@ title: "DocumentDB 커넥터에 대한 Power BI 자습서 | Microsoft Docs"
 description: "이 Power BI 자습서를 사용하여 JSON을 가져오고, 통찰력 있는 보고서를 만들고, DocumentDB 및 Power BI 커넥터를 사용하여 데이터를 시각화할 수 있습니다."
 keywords: "power bi 자습서, 데이터 시각화, power bi 커넥터"
 services: documentdb
-author: h0n
+author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
-ms.author: hawong
+ms.date: 02/14/2016
+ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35c469ce0cfb99dc6a26fbcc0734938ad6b66fd7
+ms.sourcegitcommit: 089b250e36eb3e091ad63d716acaf6259a958898
+ms.openlocfilehash: 3f2103a1d3838b73f10d567721693a9b813d0edb
 
 
 ---
@@ -88,7 +88,7 @@ DocumentDB 계정에서 화산 데이터를 검색하고 아래와 같은 대화
     데이터베이스 이름, 컬렉션 이름 및 SQL 문을 비워 둡니다. 이러한 필드는 선택 사항입니다.  대신 데이터의 출처를 식별하기 위해 탐색기를 사용하여 데이터베이스와 컬렉션을 선택합니다.
    
     ![DocumentDB Power BI 커넥터에 대한 Power BI 자습서 - 데스크톱 연결 창](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-7. 처음으로 이 끝점에 연결하는 경우 계정 키를 입력하라는 메시지가 표시됩니다.  Azure 포털의 **[읽기 전용 키](documentdb-manage-account.md#keys)** 블레이드에서 **기본 키** 상자로부터 키를 가져오거나, 데모 계정을 사용할 수 있습니다. 이 경우 키는 `RcEBrRI2xVnlWheejXncHId6QRcKdCGQSW6uSUEgroYBWVnujW3YWvgiG2ePZ0P0TppsrMgscoxsO7cf6mOpcA==`입니다. 계정 키를 입력하고 **연결**을 클릭합니다.
+7. 처음으로 이 끝점에 연결하는 경우 계정 키를 입력하라는 메시지가 표시됩니다.  Azure 포털의 **[읽기 전용 키](documentdb-manage-account.md#keys)** 블레이드에서 **기본 키** 상자로부터 키를 가져오거나, 데모 계정을 사용할 수 있습니다. 이 경우 키는 `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`입니다. 계정 키를 입력하고 **연결**을 클릭합니다.
    
     보고서를 작성할 때는 읽기 전용 키를 사용하는 것이 좋습니다.  이렇게 하면 불필요하게 마스터 키가 잠재적인 보안 위험에 노출되는 것을 방지할 수 있습니다. 읽기 전용 키는 Azure 포털의 [키](documentdb-manage-account.md#keys) 블레이드에서 가져오거나, 위에서 제공한 데모 계정 정보를 사용할 수 있습니다.
    
@@ -216,6 +216,6 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

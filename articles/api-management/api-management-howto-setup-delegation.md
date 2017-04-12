@@ -12,11 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: antonba
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3522d157e19b5202efc61ce38bce216252fbe2e7
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 0be893406c6a20193b10b728fff2cec06f562069
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -64,7 +65,7 @@ ms.openlocfilehash: 3522d157e19b5202efc61ce38bce216252fbe2e7
    * 위의 계산된 해시와 **sig** 쿼리 매개 변수 값을 비교합니다. 두 해시가 일치하면 다음 단계를 진행하고, 그렇지 않으면 요청을 거부합니다.
 3. 로그인/등록에 대한 요청을 받고 있음을 확인합니다. **작업** 쿼리 매개 변수는 "**SignIn**"으로 설정됩니다.
 4. 로그인 또는 등록에 대한 UI를 사용자에게 표시합니다.
-5. 사용자가 등록하고 있는 경우 API 관리에서 사용자의 해당 계정을 만들어야 합니다. [사용자를 만듭니다] . 이때 사용자 ID를 사용자 저장소에 있는 것과 동일한 사용자 ID 또는 추적할 수 있는 사용자 ID로 설정해야 합니다.
+5. 사용자가 등록하고 있는 경우 API 관리에서 사용자의 해당 계정을 만들어야 합니다. API 관리 REST API로 [사용자를 만듭니다]. 이때 사용자 ID를 사용자 저장소에 있는 것과 동일한 사용자 ID 또는 추적할 수 있는 사용자 ID로 설정해야 합니다.
 6. 사용자가 인증되면
    
    * [SSO(Single-Sign-On) 토큰을 요청] 합니다.
@@ -131,34 +132,37 @@ ms.openlocfilehash: 3522d157e19b5202efc61ce38bce216252fbe2e7
 
 **returnUrl의 해시를 생성하는 C# 코드**
 
-    using System.Security.Cryptography;
+```c#
+using System.Security.Cryptography;
 
-    string key = "delegation validation key";
-    string returnUrl = "returnUrl query parameter";
-    string salt = "salt query parameter";
-    string signature;
-    using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
-    {
-        signature = Convert.ToBase64String(encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl)));
-        // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
-        // compare signature to sig query parameter
-    }
-
+string key = "delegation validation key";
+string returnUrl = "returnUrl query parameter";
+string salt = "salt query parameter";
+string signature;
+using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
+{
+    signature = Convert.ToBase64String(encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl)));
+    // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+    // compare signature to sig query parameter
+}
+```
 
 **returnUrl의 해시를 생성하는 NodeJS 코드**
 
-    var crypto = require('crypto');
+```
+var crypto = require('crypto');
 
-    var key = 'delegation validation key'; 
-    var returnUrl = 'returnUrl query parameter';
-    var salt = 'salt query parameter';
+var key = 'delegation validation key'; 
+var returnUrl = 'returnUrl query parameter';
+var salt = 'salt query parameter';
 
-    var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
-    var digest = hmac.update(salt + '\n' + returnUrl).digest();
-    // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
-    // compare signature to sig query parameter
+var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
+var digest = hmac.update(salt + '\n' + returnUrl).digest();
+// change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+// compare signature to sig query parameter
 
-    var signature = digest.toString('base64');
+var signature = digest.toString('base64');
+```
 
 ## <a name="next-steps"></a>다음 단계
 위임에 대한 자세한 내용은 다음 비디오를 참조하세요.
@@ -167,18 +171,13 @@ ms.openlocfilehash: 3522d157e19b5202efc61ce38bce216252fbe2e7
 > 
 > 
 
-[개발자 로그인 및 등록 위임]: #delegate-signin-up
-[제품 구독 위임]: #delegate-product-subscription
+[Delegating developer sign-in and sign-up]: #delegate-signin-up
+[Delegating product subscription]: #delegate-product-subscription
 [SSO(Single-Sign-On) 토큰을 요청]: http://go.microsoft.com/fwlink/?LinkId=507409
-[create a user]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
+[사용자를 만듭니다]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
 [제품 구독을 위해 REST API를 호출]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
-[다음 단계]: #next-steps
+[Next steps]: #next-steps
 [아래 제공된 예제 코드]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

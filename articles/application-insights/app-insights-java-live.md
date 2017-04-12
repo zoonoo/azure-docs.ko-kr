@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/10/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: c2b0a0554b2899b082079f75e9d235edc0f71042
+ms.sourcegitcommit: 42e682eb8e0a740393648e9fe49244c3a02a9867
+ms.openlocfilehash: eb6bce9be34467e472fbae6cbf154f3b789b6ddc
 
 
 ---
@@ -32,14 +32,14 @@ J2EE 서버에서 이미 실행 중인 웹 응용 프로그램이 있는 경우 
 > 
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Application Insights 계측 키 가져오기
-1.  [Microsoft Azure 포털](https://portal.azure.com)
-2. 새 Application Insights 리소스 만들기
-   
-    ![+를 클릭하고 Application Insights 선택](./media/app-insights-java-live/01-create.png)
-3. Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
+1. [Microsoft Azure 포털](https://portal.azure.com)
+2. 새 Application Insights 리소스를 만들고 Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
    
     ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/app-insights-java-live/02-create.png)
-4. 새 리소스의 계측 키를 찾습니다. 코드 프로젝트에 이 키를 곧바로 붙여넣어야 합니다.
+
+    리소스가 몇 초 후에 생성됩니다.
+
+4. 새 리소스를 열고 계측 키를 가져옵니다. 코드 프로젝트에 이 키를 곧바로 붙여넣어야 합니다.
    
     ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-live/03-key.png)
 
@@ -53,6 +53,8 @@ J2EE 서버에서 이미 실행 중인 웹 응용 프로그램이 있는 경우 
 SDK를 추가한 폴더에 ApplicationInsights.xml을 만듭니다. 다음 XML을 삽입합니다.
 
 Azure 포털에서 가져온 계측 키를 대체합니다.
+
+```XML
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
@@ -83,7 +85,7 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 
       </TelemetryInitializers>
     </ApplicationInsights>
-
+```
 
 * 계측 키는 원격 분석의 모든 항목과 함께 전송되며 리소스에서 표시하도록 Application Insights에 알려줍니다.
 * HTTP 요청 구성 요소는 선택 사항입니다. 자동으로 포털에 요청 및 응답 시간에 대한 원격 분석을 보냅니다.
@@ -93,6 +95,8 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 프로젝트에서 web.xml 파일을 찾아 열고, 응용 프로그램 필터가 구성된 웹 앱 노드 아래 다음 코드 조각을 병합합니다.
 
 가장 정확한 결과를 얻으려면 필터를 다른 모든 필터 전에 매핑해야 합니다.
+
+```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -104,6 +108,7 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+```
 
 ## <a name="5-check-firewall-exceptions"></a>5. 방화벽 예외를 확인합니다.
 [예외를 설정하여 나가는 데이터를 내보내야](app-insights-ip-addresses.md)할 수 있습니다.
@@ -135,6 +140,6 @@ HTTP 요청에 대한 원격 분석은 개요 블레이드에 표시됩니다. (
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

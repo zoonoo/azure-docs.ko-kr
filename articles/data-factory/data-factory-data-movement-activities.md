@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 03/24/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: ef5c1f296a0a4ee6476db663e85c49c351f826b9
-ms.openlocfilehash: 53a2012a1d928c961cbfbdcea485ae18d776360f
+ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
+ms.openlocfilehash: 25e266441e902a06d980b3b51abdd4fcf668d4d2
+ms.lasthandoff: 03/27/2017
 
 
 ---
@@ -66,13 +67,14 @@ Azure Data Factory에서는 복사 활동을 사용해 여러 온-프레미스 �
 ### <a name="supported-file-formats"></a>지원 파일 형식
 Azure Blob, Azure Data Lake Store, Amazon S3, FTP, 파일 시스템 및 HDFS와 같은 두 파일 기반 데이터 저장소간에 **파일을 있는 그대로 복사**할 수 있습니다. 이와 같이 복사하려는 경우 입력 및 출력 데이터 집합 정의에서 모두 [format 섹션](data-factory-create-datasets.md) 을 건너뛰면 됩니다. 그러면 데이터가 직렬화/역직렬화되지 않고 효율적으로 복사됩니다.
 
-또한 복사 작업에서는 **텍스트, Avro, ORC, Parquet 및 JSON** 등 지정된 형식의 파일을 읽고 씁니다. 예를 들어 다음 복사 활동을 수행할 수 있습니다.
+복사 작업은 지정된 형식의 파일에서 읽고 씁니다. **텍스트, Avro, ORC, Parquet 및 JSON**, 압축 코덱 **GZip, Deflate, BZip2 및 ZipDeflate**가 지원됩니다. 예를 들어 다음 복사 활동을 수행할 수 있습니다.
 
-* Azure Blob에서 텍스트(CSV) 형식의 데이터를 복사하여 Azure SQL Database에 씁니다.
+* Azure Blob에서 GZip 압축 텍스트(CSV) 형식의 데이터를 복사하여 Azure SQL Database에 씁니다.
 * 온-프레미스 파일 시스템에서 텍스트(CSV) 형식의 파일을 복사하여 Avro 형식으로 Azure Blob에 씁니다.
-* Azure SQL Database의 데이터를 복사하여 ORC 형식으로 온-프레미스 HDFS에 씁니다.
+* 온-프레미스 SQL Server에서 데이터를 복사하여 ORC 형식으로 Azure Data Lake Store에 씁니다.
+* 온-프레미스 파일 시스템에서 압축된 파일을 복사하고 압축을 푼 다음 Azure Data Lake Store에 씁니다.
 
-## <a name="a-nameglobalaglobally-available-data-movement"></a><a name="global"></a>전역적으로 사용 가능한 데이터 이동
+## <a name="global"></a>전역적으로 사용 가능한 데이터 이동
 Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만 사용할 수 있습니다. 그러나 복사 작업을 지원하는 서비스는 다음과 같은 지역 및 지리에서 전역적으로 사용할 수 있습니다. 전역적으로 사용 가능한 토폴로지에서는 대개 지역 간 홉이 없는 효율적인 데이터 이동이 가능합니다. 지역별 Data Factory 및 데이터 이동 기능 사용 가능 여부는 [지역별 서비스](https://azure.microsoft.com/regions/#services) 를 참조하세요.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>클라우드 데이터 저장소 간의 데이터 복사
@@ -81,32 +83,34 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | 대상 데이터 저장소의 지리적 위치 | 대상 데이터 저장소의 지역 | 데이터 이동에 사용되는 지역 |
 |:--- |:--- |:--- |
 | 미국 | 미국 동부 | 미국 동부 |
-| 을 참조하세요. | 미국 동부 2 | 미국 동부 2 |
-| 을 참조하세요. | 미국 중부 | 미국 중부 |
-| 을 참조하세요. | 미국 중북부 | 미국 중북부 |
-| 을 참조하세요. | 미국 중남부 | 미국 중남부 |
-| 을 참조하세요. | 미국 중서부 | 미국 중서부 |
-| 가 필요합니다. | 미국 서부 | 미국 서부 |
-| 을 참조하세요. | 미국 서부 2 | 미국 서부 |
+| &nbsp; | 미국 동부 2 | 미국 동부 2 |
+| &nbsp; | 미국 중부 | 미국 중부 |
+| &nbsp; | 미국 중북부 | 미국 중북부 |
+| &nbsp; | 미국 중남부 | 미국 중남부 |
+| &nbsp; | 미국 중서부 | 미국 중서부 |
+| &nbsp; | 미국 서부 | 미국 서부 |
+| &nbsp; | 미국 서부 2 | 미국 서부 |
 | 캐나다 | 캐나다 동부 | 캐나다 중부 |
-| 을 참조하세요. | 캐나다 중부 | 캐나다 중부 |
+| &nbsp; | 캐나다 중부 | 캐나다 중부 |
 | 브라질 | 브라질 남부 | 브라질 남부 |
 | 유럽 | 북유럽 | 북유럽 |
-| 을 참조하세요. | 서유럽 | 서유럽 |
+| &nbsp; | 서유럽 | 서유럽 |
+| 영국 | 영국 서부 | 영국 남부 |
+| &nbsp; | 영국 남부 | 영국 남부 |
 | 아시아 태평양 | 동남아시아 | 동남아시아 |
-| 을 참조하세요. | 동아시아 | 동남아시아 |
+| &nbsp; | 동아시아 | 동남아시아 |
 | 오스트레일리아 | 오스트레일리아 동부 | 오스트레일리아 동부 |
-| 을 참조하세요. | 오스트레일리아 남동부 | 오스트레일리아 남동부 |
+| &nbsp; | 오스트레일리아 남동부 | 오스트레일리아 남동부 |
 | 일본 | 일본 동부 | 일본 동부 |
-| 을 참조하세요. | 일본 서부 | 일본 동부 |
+| &nbsp; | 일본 서부 | 일본 동부 |
 | 인도 | 인도 중부 | 인도 중부 |
-| 을 참조하세요. | 인도 서부 | 인도 중부 |
-| 을 참조하세요. | 인도 남부 | 인도 중부 |
+| &nbsp; | 인도 서부 | 인도 중부 |
+| &nbsp; | 인도 남부 | 인도 중부 |
 
+또는 복사 작업 `typeProperties`에서 `executionLocation` 속성을 지정하여 복사를 수행하는 데 사용할 Data Factory 서비스의 지역을 명시적으로 지정할 수 있습니다. 이 속성에 대한 지원되는 값은 위의 **데이터 이동에 사용되는 지역** 열에 나열됩니다. 데이터는 복사 동안 유선을 통해 해당 지역으로 이동됩니다. 예를 들어 영국의 Azure 저장소 간을 복사하려면 `"executionLocation": "Japan East"`를 지정하여 일본을 통해 라우팅되도록 할 수 있습니다([샘플 JSON](#by-using-json-scripts) 참조).
 
 > [!NOTE]
-> 대상 데이터 저장소의 지역이 위의 목록에 없는 경우 대체 지역을 탐색하지 않으며 복사 활동은 실패합니다.
->
+> 대상 데이터 저장소의 지역이 위의 목록에 없거나 검색 가능하지 않을 경우 `executionLocation`을 지정하지 않을 경우 기본적으로 복사 작업이 대체 지역을 거치지 않고 실패합니다. 지원되는 지역 목록은 시간이 지남에 따라 확장됩니다.
 >
 
 ### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간 데이터 복사
@@ -123,7 +127,7 @@ Azure 포털, Visual Studio 또는 Azure PowerShell에서 Data Factory Editor를
 
 이름, 설명, 입력/출력 테이블, 정책 등의 JSON 속성은 모든 형식의 활동에 사용할 수 있습니다. 활동의 `typeProperties` 섹션에서 사용 가능한 속성은 각 활동 형식에 따라 다릅니다.
 
-복사 활동의 경우 `typeProperties` 섹션은 원본 및 싱크의 형식에 따라 달라집니다. 해당 데이터 저장소에 대한 복사 활동에서 지원하는 형식 속성에 대해 알아보려면 [지원되는 소스 및 싱크](#supported-data-stores) 섹션에서 소스/싱크를 클릭하세요.   
+복사 활동의 경우 `typeProperties` 섹션은 원본 및 싱크의 형식에 따라 달라집니다. 해당 데이터 저장소에 대한 복사 활동에서 지원하는 형식 속성에 대해 알아보려면 [지원되는 소스 및 싱크](#supported-data-stores-and-formats) 섹션에서 소스/싱크를 클릭하세요.
 
 샘플 JSON 정의는 다음과 같습니다.
 
@@ -151,10 +155,9 @@ Azure 포털, Visual Studio 또는 Azure PowerShell에서 Data Factory Editor를
             "type": "BlobSource"
           },
           "sink": {
-            "type": "SqlSink",
-            "writeBatchSize": 10000,
-            "writeBatchTimeout": "60:00:00"
-          }
+            "type": "SqlSink"
+          },
+          "executionLocation": "Japan East"          
         },
         "Policy": {
           "concurrency": 1,
@@ -180,7 +183,7 @@ Azure Data Factory의 데이터 이동(복사 활동) 성능에 영향을 주는
 Data Factory에서 예약 및 실행이 작동하는 방식에 대한 자세한 내용은 [예약 및 실행](data-factory-scheduling-and-execution.md) 을 참조하세요. 순차/순서가 지정된 방식으로 하나씩 여러 복사 작업을 실행하는 것이 가능합니다. [순차적으로 복사](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence) 섹션을 참조하세요.
 
 ## <a name="type-conversions"></a>형식 변환
-다른 데이터 저장소에는 서로 다른 네이티브 형식 시스템이 있습니다. 복사 활동에서는 다음과 같은&2;단계 방식을 통해 소스 형식에서 싱크 형식으로의 자동 형식 변환을 수행합니다.
+다른 데이터 저장소에는 서로 다른 네이티브 형식 시스템이 있습니다. 복사 활동에서는 다음과 같은 2단계 방식을 통해 소스 형식에서 싱크 형식으로의 자동 형식 변환을 수행합니다.
 
 1. 네이티브 소스 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
@@ -190,9 +193,4 @@ Data Factory에서 예약 및 실행이 작동하는 방식에 대한 자세한 
 ## <a name="next-steps"></a>다음 단계
 * 복사 작업에 대해 자세히 알아보려면 [Azure Blob 저장소에서 Azure SQL Database로 데이터를 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 * 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소로 데이터를 이동하는 방법에 대해 알아보려면 [온-프레미스에서 클라우드 데이터 저장소로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

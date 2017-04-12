@@ -1,5 +1,5 @@
 ---
-title: "Azure AD v2.0 끝점 | Microsoft Docs"
+title: "Azure AD v2.0 끝점의 차이점 | Microsoft Docs"
 description: "원래의 Azure AD와 v2.0 끝점 간의 비교입니다."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 8a8f8af9b23c66461385a73f80c148a2fdd652d5
+ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
+ms.openlocfilehash: 9f00013c4eb6c32707489d5f78a5e95b7419bcd2
 
 
 ---
@@ -109,11 +109,11 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 #### <a name="offline-access"></a>오프라인 액세스
 v2.0 끝점에는 앱에 대해 잘 알려진 새 권한( `offline_access` 범위)을 사용해야 할 수 있습니다.  모든 앱이 연장된 기간 동안 사용자를 대신하여 리소스에 액세스해야 할 경우, 사용자가 앱을 자주 쓰지 않는 경우에도 이 권한을 요청해야 합니다.  `offline_access` 범위는 “오프라인으로 데이터에 엑세스"라는 동의 대화 상자로 사용자에게 표시되며 반드시 동의해야 합니다.  `offline_access` 권한 요청은 웹앱이 OAuth 2.0 refresh_token을 v2.0 끝점에서 받을 수 있도록 해줍니다.  Refresh_token은 수명이 길며, 액세스의 기간이 확장된 새로운 OAuth 2.0 access_token으로 바꿀 수 있습니다.  
 
-앱이 `offline_access` 범위를 요청하지 않으면 refresh_token을 받을 수 없습니다.  즉, OAuth 2.0 권한 부여 코드 흐름에서 authorization_code를 교환하는 경우 `/token` 끝점에서 access_token만 받게 됩니다.  해당 access_token은 짧은 기간(일반적으로 1시간) 동안 유효하지만 결국 만료됩니다.  해당 시점에 앱은 사용자를 `/authorize` 끝점으로 다시 리디렉션하여 새 authorization_code를 검색해야 합니다.  리디렉션 중에 앱 형식에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수도 있고 그렇지 않을 수도 있습니다.
+앱이 `offline_access` 범위를 요청하지 않으면 refresh_token을 받을 수 없습니다.  즉, OAuth 2.0 권한 부여 코드 흐름에서 authorization_code를 교환하는 경우 `/token` 끝점에서 access_token만 받게 됩니다.  해당 access_token은 짧은 기간(일반적으로&1;시간) 동안 유효하지만 결국 만료됩니다.  해당 시점에 앱은 사용자를 `/authorize` 끝점으로 다시 리디렉션하여 새 authorization_code를 검색해야 합니다.  리디렉션 중에 앱 형식에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수도 있고 그렇지 않을 수도 있습니다.
 
 OAuth 2.0, refresh_token 및 access_token에 대한 자세한 내용은[v2.0 프로토콜 참조](active-directory-v2-protocols.md)를 확인하세요.
 
-#### <a name="openid-profile--email"></a>OpenID, 프로필 및 전자 메일
+#### <a name="openid-profile-and-email"></a>OpenID, 프로필 및 전자 메일
 원래의 Azure Active Directory 서비스에서 가장 기본적인 OpenID Connect 로그인 흐름은 결과 id_token의 사용자에 대해 다양한 정보를 제공합니다.  id_token의 클레임에는 사용자의 이름, 기본 설정된 사용자 이름, 전자 메일 주소, 개체 ID 등이 있습니다.
 
 이제 `openid` 범위가 허용하는 앱의 액세스 정보를 제한할 것입니다.  ‘openid’ 범위는 앱이 사용자를 로그인시키고 해당 사용자에 대한 앱별 식별자만 수신할 수 있게 합니다.  앱에 있는 사용자의 개인 식별 정보(PII)를 가져오려면 앱은 사용자로부터 추가 권한을 요청해야 합니다.  이를 수행할 수 있는 두 가지의 새로운 범위, 즉 `email` 및 `profile` 범위를 도입할 것입니다.
@@ -132,6 +132,6 @@ v2.0 끝점을 사용할 때 고려해야 할 몇 가지 제한 사항이 있습
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

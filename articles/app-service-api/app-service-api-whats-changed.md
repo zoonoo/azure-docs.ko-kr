@@ -4,7 +4,7 @@ description: "Azure 앱 서비스의 API 앱에 대한 새로운 기능을 알�
 services: app-service\api
 documentationcenter: .net
 author: mohitsriv
-manager: wpickett
+manager: erikre
 editor: tdykstra
 ms.assetid: a9b58066-e8fd-48b8-a651-4613b1736433
 ms.service: app-service-api
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d60ca38364d7ea7991af18e39407f42a8c9abb84
+ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
+ms.openlocfilehash: 4970db1f7b780ed0048f4c1839fff33bed640278
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -28,7 +29,7 @@ API 앱의 주요 기능(인증, CORS 및 API 메타데이터)이 앱 서비스�
 
 ![API 앱 개요](./media/app-service-api-whats-changed/api-apps-overview.png)
 
-API 앱 업데이트의 핵심 디자인 원칙은 선택한 언어의 API를 있는 그대로 가져올 수 있도록 하는 것입니다.  API가 웹 앱 또는 모바일 앱으로 이미 배포된 경우* 앱을 다시 배포하지 않아도 새 기능을 활용할 수 있습니다. 현재 API 앱 미리 보기를 사용하는 경우 자세한 내용은 아래의 마이그레이션 지침을 참조하세요.
+API 앱 업데이트의 핵심 디자인 원칙은 선택한 언어의 API를 있는 그대로 가져올 수 있도록 하는 것입니다.  API가 웹 앱 또는 모바일 앱으로 이미 배포된 경우 앱을 다시 배포하지 않아도 새 기능을 활용할 수 있습니다. 현재 API 앱 미리 보기를 사용하는 경우 자세한 내용은 아래의 마이그레이션 지침을 참조하세요.
 
 ### <a name="authentication"></a>인증
 기존 턴키 API 앱, 모바일 서비스/앱 및 웹앱 인증 기능이 통합되었으며 관리 포털의 단일 Azure 앱 서비스 인증 블레이드에서 사용할 수 있습니다. 앱 서비스의 인증 서비스에 대한 소개는 [앱 서비스 인증/권한 부여 확장](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)을 참조하세요.
@@ -114,17 +115,12 @@ SDK 2.8.1에 대한 자세한 내용은 알림 [블로그 게시물](https://azu
 4. 배포 시 다른 API 앱의 끝점과 함께 모든 API 앱(및 클라이언트)의 앱 설정을 채웁니다. API 앱이 url을 제어하므로 이는 템플릿 배포에 표시됩니다.
 
 ## <a name="using-api-apps-with-logic-apps"></a>논리 앱과 API 앱 사용
-새 API 앱 모델은 [논리 앱 스키마 버전 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md)에서 제대로 작동합니다.
+새 API 앱 모델은 [논리 앱 스키마 버전 2015-08-01](../logic-apps/logic-apps-schema-2015-08-01.md)에서 제대로 작동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [API 앱 설명서 섹션](https://azure.microsoft.com/documentation/services/app-service/api/)의 문서를 참조하세요. API 앱에 대한 새 모델을 반영하도록 업데이트되었습니다. 또한 포럼에서 마이그레이션에 대한 추가 지침 또는 세부 정보를 확인할 수 있습니다.
 
 * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps)
 * [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-api-apps)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

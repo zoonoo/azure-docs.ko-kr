@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning 스튜디오에서 샘플 데이터 집합 사용 | Microsoft Docs"
-description: "기계 학습 스튜디오에 포함된 샘플 모델에 사용되는 데이터 집합에 대한 설명 실험에 대해 이 샘플 데이터 집합을 사용할 수 있습니다."
+title: "Machine Learning Studio에서 샘플 데이터 집합 사용 | Microsoft Docs"
+description: "Machine Learning Studio에 포함된 샘플 모델에서 사용되는 데이터 집합을 설명합니다. 실험에 대해 이 샘플 데이터 집합을 사용할 수 있습니다."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -12,29 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 03/20/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a19e10d9bc4c2d0f6579518583f100b5ca76c23
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: dd4a672d419a0f5140ffc006bcf58a9bf1e752f4
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="use-the-sample-data-sets-in-azure-machine-learning-studio"></a>Azure 기계 학습 스튜디오에서 예제 데이터 집합 사용
+# <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure 기계 학습 스튜디오에서 샘플 데이터 집합 사용
 [top]: #machine-learning-sample-datasets
 
-Azure 기계 학습에서 새 작업 영역을 만들 때 다양한 샘플 데이터 집합 및 실험이 기본적으로 포함됩니다. 이 샘플 데이터 집합의 많은 부분이 [Azure Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)에서 샘플 모델로 사용되며, 일반적으로 나머지는 기계 학습에 사용되는 데이터의 다양한 형식의 예제로 포함됩니다.
+Azure Machine Learning에서 새 작업 영역을 만들 때 다양한 샘플 데이터 집합 및 실험이 기본적으로 포함됩니다. 이 샘플 데이터 집합 중 다수는 [Azure Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)의 샘플 모델에서 사용됩니다. 나머지는 Machine Learning에서 일반적으로 사용되는 다양한 유형의 데이터 예로 포함됩니다.
 
-일부 데이터 집합은 Azure BLOB 저장소에서 사용할 수 있습니다. 이 데이터 집합의 경우 다음 표에서 바로 이동할 수 있는 링크를 제공합니다. [데이터 가져오기][import-data] 모듈을 사용하여 이 데이터 집합을 실험에 사용할 수 있습니다.
+일부 데이터 집합은 Azure Blob Storage에서 사용할 수 있습니다. 이러한 데이터 집합의 경우 다음 표에서 직접 링크가 제공됩니다. [데이터 가져오기][import-data] 모듈을 사용하여 이 데이터 집합을 실험에 사용할 수 있습니다.
 
-이러한 샘플 데이터 집합의 나머지는 기계 학습 스튜디오에서 새 실험을 만들거나 열 때 실험 캔버스 왼쪽에 있는 모듈 팔레트의 **Saved Datasets** 아래에 나열됩니다.
+이러한 샘플 데이터 집합의 나머지는 Machine Learning Studio에서 새 실험을 만들거나 열 때 실험 캔버스 왼쪽에 있는 모듈 팔레트의 **저장된 데이터 집합** 아래에 있는 작업 영역에서 사용할 수 있습니다.
 실험 캔버스로 끌어와 이러한 데이터 집합을 실험에서 사용할 수 있습니다.
 
-<!--
-For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
-
-[sample-experiments]: machine-learning-sample-experiments.md
--->
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -48,7 +44,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <tr>
   <td valign=top>성인 인구 조사 소득 이진 분류 데이터 집합</td>
   <td valign=top>
-조정 소득 지수가 100보다 큰 16세 이상 취업한 성인을 대상으로 한 1994 인구 조사 데이터베이스의 하위 집합입니다.<p> </p><b>사용:</b>인구 통계를 기반으로 사람을 분류하여 개인의 소득이 연간 50,000을 초과할지 예측합니다.<p> </p><b>관련 조사:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+조정 소득 지수가 100보다 큰 16세 이상 취업한 성인을 대상으로 한 1994 인구 조사 데이터베이스의 하위 집합입니다.<p> </p><b>사용:</b> 인구 통계를 기반으로 사람을 분류하여 개인의 소득이 연간 50,000을 초과할지 예측합니다.<p> </p><b>관련 조사:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=airport-codes-dataset>
@@ -61,7 +57,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <tr>
   <td valign=top>자동차 가격 데이터(원시)</td>
   <td valign=top>
-가격, 실린더 및 MPG 수와 같은 기능, 보험 위험 점수를 포함하여 상표 및 모델별 자동차에 대한 정보입니다.<p> </p>위험 점수는 처음에 자동차 가격과 관련되고 보험 회계사에게 기호화로 알려진 프로세스에서 실제 위험에 맞게 조정됩니다. +3 값은 자동차가 위험함을 나타내고 -3 값은 매우 안전함을 나타냅니다.<p> </p><b>사용:</b> 회귀 및 다변수 분류를 사용하여 기능별 위험 점수를 예측합니다. <p> </p><b>관련 조사:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+가격, 실린더 및 MPG 수와 같은 기능, 보험 위험 점수를 포함하여 상표 및 모델별 자동차에 대한 정보입니다.<p> </p>위험 점수는 처음에 자동차 가격과 관련되고 보험 회계사에게 기호화로 알려진 프로세스에서 실제 위험에 맞게 조정됩니다. +3 값은 자동차가 위험함을 나타내고 -3 값은 안전함을 나타냅니다.<p> </p><b>사용:</b> 회귀 및 다변수 분류를 사용하여 기능별 위험 점수를 예측합니다. <p> </p><b>관련 조사:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=bike-rental-uci-dataset>
@@ -149,7 +145,7 @@ KDD Cup 2009 고객 관계 예측 챌린지의 레이블(<a href="http://www.sig
 <tr ID=flight-delays-data>
   <td valign=top>비행 지연 데이터</td>
   <td valign=top>
-미국 운수부 TranStats 데이터 컬렉션에서 가져온 여객기 운항정시성 데이터(<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">정시</a>)<p> </p>데이터 집합은 2013년 4월-10월 기간에 해당합니다. Azure ML Studio로 업로드하기 전에 데이터 집합이 다음과 같이 처리됩니다.<ul><li>데이터 집합은 미국 본토에서 비행이 가장 많은 공항 70곳만을 포함하도록 필터링되었습니다.</li><li>취소된 비행은 15분 초과 지연으로 레이블이 지정되었습니다.</li><li>우회 비행은 필터링되었습니다.</li><li>다음 열이 선택되었습니다. Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled</li></ul>
+미국 운수부 TranStats 데이터 컬렉션에서 가져온 여객기 운항정시성 데이터(<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">정시</a>)<p> </p>데이터 집합은 2013년 4월-10월 기간에 해당합니다. Azure Machine Learning Studio로 업로드하기 전에 데이터 집합이 다음과 같이 처리됩니다.<ul><li>데이터 집합은 미국 본토에서 비행이 가장 많은 공항 70곳만을 포함하도록 필터링되었습니다.</li><li>취소된 비행은 15분 초과 지연으로 레이블이 지정되었습니다.</li><li>우회 비행은 필터링되었습니다.</li><li>다음 열이 선택되었습니다. Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled</li></ul>
 </td>
 </tr>
 
@@ -177,7 +173,7 @@ german.data 파일을 사용한 UCI Statlog(독일 신용 카드) 데이터 집�
 <tr ID=imdb-movie-titles>
   <td valign=top>IMDB 영화 제목</td>
   <td valign=top>
-이 데이터 집합에는 Twitter 트윗에서 평가된 영화에 대한 정보가 포함됩니다(IMDB 영화 ID, 영화 제목과 장르, 제작 연도). 이 데이터 집합에는 170,000 개의 영화가 있습니다. 이 데이터 집합은 논문 "S.  Dooms, T. De Pessemier and L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013"에서 소개되었습니다.
+이 데이터 집합에는 Twitter 트윗에서 평가된 영화에 대한 정보가 포함됩니다(IMDB 영화 ID, 영화 제목, 장르, 제작 연도). 이 데이터 집합에는 170,000 개의 영화가 있습니다. 데이터 집합은 논문 "S. Dooms, T. De Pessemier 및 L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013"에서 소개되었습니다.
   </td>
 </tr>
 
@@ -230,7 +226,7 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
 <tr>
   <td valign=top>강철 가열 냉각 다중 클래스 데이터 집합</td>
   <td valign=top>
-이 데이터 집합은 강철 가열 냉각 시도에서 얻은 일련의 레코드를 결과 강철 유형의 물리적 특성(너비, 두께, 유형(코일, 시트 등))과 함께 포함합니다.<p> </p><b>사용:</b> 두 가지 숫자 클래스 특성인 경도 또는 강도의 하나를 예측합니다. 특성 간의 상관 관계를 분석할 수도 있습니다.<p> </p>강철 등급은 SAE 및 기타 조직에서 정의된 집합 표준을 따릅니다. 특정 '등급'(클래스 변수)을 찾고 있고 필요한 값을 파악하려고 합니다. <p> </p><b>관련 조사:</b> Sterling, D. & Buntine, W., (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>강철 등급에 대한 유용한 지침은 <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+이 데이터 집합은 강철 가열 냉각 시도에서 얻은 일련의 레코드를 결과 강철 유형의 물리적 특성(너비, 두께, 유형(코일, 시트 등))과 함께 포함합니다.<p> </p><b>사용:</b> 두 가지 숫자 클래스 특성인 경도 또는 강도의 하나를 예측합니다. 특성 간의 상관 관계를 분석할 수도 있습니다.<p> </p>강철 등급은 SAE 및 기타 조직에서 정의된 집합 표준을 따릅니다. 특정 '등급'(클래스 변수)을 찾고 있고 필요한 값을 파악하려고 합니다. <p> </p><b>관련 조사:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>강철 등급에 대한 유용한 지침은 <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   에서 찾을 수 있습니다.</td>
 </tr>
 
@@ -243,14 +239,14 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
 <tr ID=weather-dataset>
   <td valign=top>날씨 데이터 집합</td>
   <td valign=top>
-NOAA에서 제공한 시간별 지상 기상 관측(<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">201304부터 201310까지의 병합된 데이터</a>).<p> </p>기상 데이터는 2013년 4월-10월 기간에 공항 기상 관측소에서 수행된 관측을 포함합니다. Azure ML Studio로 업로드하기 전에 데이터 집합이 다음과 같이 처리됩니다.<ul><li>기상 관측소 ID가 해당 공항 ID에 매핑되었습니다.</li><li>비행이 가장 많은 공항 70곳과 연계되지 않은 기상 관측소가 필터링되었습니다.</li><li>Date 열은 Year, Month 및 Day 열로 분할되었습니다.</li><li>다음 열이 선택되었습니다. AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li></ul>
+NOAA에서 제공한 시간별 지상 기상 관측(<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">201304부터 201310까지의 병합된 데이터</a>).<p> </p>기상 데이터는 2013년 4월-10월 기간에 공항 기상 관측소에서 수행된 관측을 포함합니다. Azure Machine Learning Studio로 업로드하기 전에 데이터 집합이 다음과 같이 처리됩니다.<ul><li>기상 관측소 ID가 해당 공항 ID에 매핑되었습니다.</li><li>비행이 가장 많은 공항 70곳과 연계되지 않은 기상 관측소가 필터링되었습니다.</li><li>Date 열은 Year, Month 및 Day 열로 분할되었습니다.</li><li>다음 열이 선택되었습니다. AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li></ul>
   </td>
 </tr>
 
 <tr ID=wikipedia-sp-500-dataset>
   <td valign=top>Wikipedia SP 500 데이터 집합</td>
   <td valign=top>
-데이터는 XML 데이터로 저장되는 각 S&P 500 회사의 자료에 따라 Wikipedia(<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>)에서 파생됩니다.<p> </p>Azure 기계 학습 스튜디오로 업로드하기 전에 데이터 집합은 다음과 같이 처리되었습니다.<ul><li>각 특정 회사에 대한 텍스트 콘텐츠 추출</li><li>위치 형식 지정 제거</li><li>영숫자가 아닌 문자 제거</li><li>모든 텍스트를 소문자로 변환</li><li>알려진 회사 범주가 추가됨</li></ul><p> </p>일부 회사의 경우 문서를 찾을 수 없으므로 레코드 수가 500개 미만입니다.
+데이터는 XML 데이터로 저장되는 각 S&P 500 회사의 자료에 따라 Wikipedia(<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>)에서 파생됩니다.<p> </p>Azure Machine Learning Studio로 업로드하기 전에 데이터 집합이 다음과 같이 처리됩니다.<ul><li>각 특정 회사에 대한 텍스트 콘텐츠 추출</li><li>위치 형식 지정 제거</li><li>영숫자가 아닌 문자 제거</li><li>모든 텍스트를 소문자로 변환</li><li>알려진 회사 범주가 추가됨</li></ul><p> </p>일부 회사의 경우 문서를 찾을 수 없으므로 레코드 수가 500개 미만입니다.
   </td>
 </tr>
 
@@ -282,7 +278,7 @@ RCV1-V2 Reuters 뉴스 데이터 집합에 있는 학습 예제의 기능입니�
 <tr ID=intrusion-detection>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td valign=top>
-KDD Cup 1999 지식 검색 및 데이터 마이닝 도구 경합(<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>)의 데이터 집합.<p> </p>데이터 집합이 다운로드되어 Azure Blob Storage(<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>)에 저장되었고 학습 및 테스트 데이터 집합을 둘 다 포함합니다. 학습 데이터 집합에는 레이블을 비롯한 약 126,000개 행과 43개 열이 있고, 3개 열은 레이블 정보 부분이고, 숫자 및 문자열/범주 기능으로 구성된 40개 열은 모델 학습에 사용할 수 있습니다. 테스트 데이터에는 22,500개 정도 테스트 예제가 있고 학습 데이터에는 같은 열 43개가 있습니다.
+KDD Cup 1999 지식 검색 및 데이터 마이닝 도구 경합(<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>)의 데이터 집합.<p> </p>데이터 집합이 다운로드되어 Azure Blob Storage(<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>)에 저장되었고 학습 및 테스트 데이터 집합을 둘 다 포함합니다. 학습 데이터 집합에는 레이블을 포함하여 약 126,000개 행과 43개 열이 있습니다. 3개 열은 레이블 정보 부분이며 숫자 및 문자열/범주 기능으로 구성된 40개 열은 모델 학습에 사용할 수 있습니다. 테스트 데이터에는 22,500개 정도 테스트 예제가 있고 학습 데이터에는 같은 열 43개가 있습니다.
 
   </td>
 </tr>
@@ -290,7 +286,7 @@ KDD Cup 1999 지식 검색 및 데이터 마이닝 도구 경합(<a href="http:/
 <tr ID=rcv1-v2-topics-qrels>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td valign=top>
-RCV1-V2 Reuters 뉴스 데이터 집합의 뉴스 기사에 대한 토픽 할당입니다. 하나의 뉴스 기사를 여러 항목에 할당할 수 있습니다. 각 행의 형식은 "<topic name>  <document id> 1"입니다. 이 데이터 집합에는 260만 개의 항목 할당이 포함됩니다. 이 데이터 집합은 David. D. Lewis가 제공했습니다.
+RCV1-V2 Reuters 뉴스 데이터 집합의 뉴스 기사에 대한 토픽 할당입니다. 하나의 뉴스 기사를 여러 항목에 할당할 수 있습니다. 각 행의 형식은 "&lt;항목 이름&gt; &lt;문서 ID&gt; 1"입니다. 이 데이터 집합에는 260만 개의 항목 할당이 포함됩니다. 이 데이터 집합은 David. D. Lewis가 제공했습니다.
   </td>
 </tr>
 
@@ -310,9 +306,4 @@ RCV1-V2 Reuters 뉴스 데이터 집합의 뉴스 기사에 대한 토픽 할당
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

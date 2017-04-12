@@ -382,7 +382,7 @@ SDK는 최대 5회까지 함수를 호출하여 큐 메시지를 처리합니다
             host.RunAndBlock();
         }
 
-### <a name="configure-queuetrigger-settings"></a>QueueTrigger 설정 구성
+### <a name="configure-queuetrigger--settings"></a>QueueTrigger 설정 구성
 큐 메시지 처리에 적용되는 다음 설정을 구성할 수 있습니다.
 
 * 병렬로 실행하도록 동시에 선택되는 최대 큐 메시지 수(기본값은 16).

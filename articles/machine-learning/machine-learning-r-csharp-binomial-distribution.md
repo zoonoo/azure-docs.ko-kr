@@ -1,6 +1,6 @@
 ---
-title: "이항 분포 패키지 | Microsoft Docs"
-description: "이항 분포 패키지"
+title: "(사용되지 않음) 이항 분포 패키지 - Azure | Microsoft Docs"
+description: "(사용되지 않음) 이항 분포 패키지"
 services: machine-learning
 documentationcenter: 
 author: ireiter
@@ -11,16 +11,24 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: ireiter
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 82e679e1565bfb18c09ffd30c8b49a69b67e0aeb
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 4d4a343be86909acf054eaaf9cc4a1b0df5a4209
+ms.lasthandoff: 01/11/2017
 
 
 ---
-# <a name="binomial-distribution-suite"></a>이항 분포 패키지
+# <a name="deprecated-binomial-distribution-suite"></a>(사용되지 않음) 이항 분포 패키지
+
+> [!NOTE]
+> Microsoft DataMarket은 종료되고 있는 중이며 이 API는 사용되지 않습니다. 
+> 
+> [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)에서 많은 유용한 예제 실험과 API를 확인할 수 있습니다. 갤러리에 대한 자세한 내용은 [Cortana Intelligence 갤러리의 리소스 공유 및 검색](machine-learning-gallery-how-to-use-contribute-publish.md)을 참조하세요.
+
 이항 분포 패키지는 이항 분포를 생성하고 처리하는 데 도움이 되는 일련의 샘플 웹 서비스([이항 생성기](https://datamarket.azure.com/dataset/aml_labs/bdg5), [확률 계산기](https://datamarket.azure.com/dataset/aml_labs/bdp4), [변위치 계산기](https://datamarket.azure.com/dataset/aml_labs/bdq5))입니다. 이 서비스를 통해 임의 길이의 이항 분포 시퀀스를 생성하고 지정된 확률에서 변위치를 계산하며 지정된 변위치에서 확률을 계산할 수 있습니다. 각 서비스는 선택된 서비스를 기반으로 서로 다른 출력을 내보냅니다(아래 설명 참조). 이항 분포 패키지는 R 통계 패키지에 포함된 R 함수 qbinom, rbinom 및 pbinom을 기반으로 합니다. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -285,10 +293,5 @@ ms.openlocfilehash: 82e679e1565bfb18c09ffd30c8b49a69b67e0aeb
 [5]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_5.png
 
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/29/2016
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 6f75781af24d1ad4cb6460f0dfd528684aaad57f
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 7a03e1417617453c43edcc3787da10d171359757
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -30,7 +31,7 @@ Microsoft Azure 플랫폼 간 명령줄 도구 버전 0.10.5 릴리스에서는 
 리소스 그룹을 관리하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure 리소스 및 리소스 그룹 관리](../azure-resource-manager/xplat-cli-azure-resource-manager.md)를 참조하세요. 
 
 > [!NOTE] 
-> 또한 리소스 관리 배포 모델용 차세대 CLI(Python으로 작성)인 [Azure CLI 2.0(미리 보기)](https://github.com/Azure/azure-cli)도 사용해 보세요.
+> 또한 Python으로 작성된 리소스 관리 배포 모델용 차세대 CLI인 [Azure CLI 2.0](https://github.com/Azure/azure-cli)도 사용해 보세요.
 >
 >
 
@@ -178,9 +179,4 @@ App Service 계획을 만들려면 **azure appserviceplan create** 명령을 사
 * Azure Resource Manager CLI 지원에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure 리소스 및 리소스 그룹 관리](../azure-resource-manager/xplat-cli-azure-resource-manager.md)를 참조하세요.
 * PowerShell을 사용하여 App Service를 관리하는 방법에 대한 자세한 내용은 [Azure Resource Manager 기반 PowerShell을 사용하여 Azure 웹앱 관리](app-service-web-app-azure-resource-manager-powershell.md)를 참조하세요.
 * Linux의 Azure App Service에 대해 알아보려면 [Linux의 Azure App Service 소개](app-service-linux-intro.md)를 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

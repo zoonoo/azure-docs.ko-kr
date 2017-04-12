@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT Hub 만들기 및 Adafruit Feather M0 WiFi 등록 | Microsoft Docs"
+title: "Azure IoT에 Arduino 연결 - 단원 2: 장치 등록 | Microsoft Docs"
 description: "리소스 그룹과 Azure IoT Hub를 만들고, Azure CLI를 사용하여 Azure IoT Hub에 Adafruit Feather M0 WiFi를 등록합니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 232c391e61e7e7ec053d2e7170f9abe4c79d9528
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: ac9421be9211d53f8b5239c356201ee3efd27999
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -103,8 +104,3 @@ IoT Hub를 만들고 IoT Hub에 장치 ID로 Arduino 보드를 등록했습니�
 
 [troubleshoot]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md
 [process-and-store-iot-hub-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

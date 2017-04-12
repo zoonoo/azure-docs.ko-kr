@@ -4,7 +4,7 @@ description: "앱 서비스가 기존 모바일 서비스 프로젝트에 제공
 services: app-service\mobile
 documentationcenter: ios
 author: adrianhall
-manager: dwrede
+manager: adrianha
 editor: 
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -63,10 +64,5 @@ ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
 *Azure 앱 서비스* 에서는 모바일 앱에 대한 비공개 테스트 및 스테이징 환경을 여러 개 만들 수 있습니다. 배포 전에 이러한 환경을 사용하여 테스트를 수행합니다. 가동 중지 시간 없이 프로덕션으로 교환합니다. 웹앱이 미리 로드되어 최상의 고객 경험을 보장합니다.
 
 이 *자습서* 에 따라 기존 모바일 서비스에 [앱 서비스](app-service-mobile-migrating-from-mobile-services.md)를 이용하기 시작할 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

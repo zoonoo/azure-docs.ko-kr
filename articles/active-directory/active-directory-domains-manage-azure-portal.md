@@ -3,7 +3,7 @@ title: "Azure Active Directory 미리 보기에서 사용자 지정 도메인 �
 description: "Azure Active Directory에서 도메인 이름 관리에 대한 관리 개념 및 방법"
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a

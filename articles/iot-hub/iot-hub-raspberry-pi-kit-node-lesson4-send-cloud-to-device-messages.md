@@ -1,5 +1,7 @@
 ---
-title: "샘플 응용 프로그램을 실행하여 클라우드-장치 메시지 받기 | Microsoft Docs"
+featureFlags:
+- usabilla
+title: "Azure IoT에 Raspberry Pi(노드) 연결 - 단원 4: 클라우드-장치 | Microsoft Docs"
 description: "샘플 응용 프로그램은 Pi에서 실행되며 IoT Hub에서 들어오는 메시지를 모니터링합니다. 새로운 gulp 작업은 IoT Hub에서 Pi로 메시지를 보내고 LED를 깜빡입니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +15,12 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 4a42967ceddcd1ad8d6fdd861367a6060578353b
-ms.openlocfilehash: 06ade85c7f24ed4b55de3d57a86ad747f5ae9f2f
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 92ee9d6faae9f539c663395e47714609a146f2df
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -87,10 +90,5 @@ IoT Hub에서 Pi에 메시지를 보내서 LED를 깜빡이는 데 성공했습�
 
 ## <a name="next-steps"></a>다음 단계
 [LED 켜기 및 끄기 동작 변경](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

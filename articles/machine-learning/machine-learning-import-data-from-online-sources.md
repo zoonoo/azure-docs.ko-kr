@@ -13,18 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/24/2017
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 701c54bac16cbf208fd655fd72f2d4acfc0ba891
-ms.openlocfilehash: 89856f6509d0d2e2e472a61db70b9b04dc1ac7b7
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: afecdde0cbc0bcbe0932b23dc1a8e067d02ded12
+ms.lasthandoff: 12/20/2016
 
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>데이터 가져오기 모듈을 사용하여 다양한 온라인 데이터 원본에서 Azure 기계 학습 스튜디오로 데이터 가져오기
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
-
 이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure 기계 학습 실험으로 이동하는 데 필요한 정보를 설명합니다.
 
 > [!NOTE]
@@ -34,8 +32,10 @@ ms.openlocfilehash: 89856f6509d0d2e2e472a61db70b9b04dc1ac7b7
 
 <!-- -->
 
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+
 ## <a name="introduction"></a>소개
-Azure 기계 학습 스튜디오 내에서 [데이터 가져오기][import-data] 모듈을 사용하여 실험을 실행하는 동안 여러 온라인 데이터 원본 중 하나의 데이터에 액세스할 수 있습니다.
+[Azure Machine Learning Studio](https://studio.azureml.net/Home)에서 [데이터 가져오기][import-data] 모듈을 사용하여 실험을 실행하는 동안 여러 온라인 데이터 원본 중 하나의 데이터에 액세스할 수 있습니다.
 
 * HTTP을 사용하는 웹 URL
 * HiveQL을 사용하는 Hadoop
@@ -45,7 +45,7 @@ Azure 기계 학습 스튜디오 내에서 [데이터 가져오기][import-data]
 * 온-프레미스 SQL Server 데이터베이스
 * 데이터 피드 공급자, OData 현재
 
-Azure 기계 학습 스튜디오에서 실험을 수행하기 위한 워크플로는 캔버스에 구성 요소 끌어서 놓기로 구성됩니다. 온라인 데이터 원본에 액세스하려면 실험에 [데이터 가져오기][import-data] 모듈을 추가하고 **데이터 원본**을 선택한 다음 데이터에 액세스하는 데 필요한 매개 변수를 제공합니다. 지원되는 온라인 데이터 원본을 아래 표에 항목별로 나타냈습니다. 또한 이 테이블은 지원되는 파일 형식 및 데이터에 액세스하는 데 사용되는 매개 변수도 요약합니다.
+Studio 실험에서 온라인 데이터 원본에 액세스하려면 [데이터 가져오기][import-data] 모듈을 추가하고 **데이터 원본**을 선택한 다음 데이터에 액세스하는 데 필요한 매개 변수를 제공합니다. 지원되는 온라인 데이터 원본을 아래 표에 항목별로 나타냈습니다. 또한 이 테이블은 지원되는 파일 형식 및 데이터에 액세스하는 데 사용되는 매개 변수도 요약합니다.
 
 실험이 실행 중인 동안 이 학습 데이터에 액세스하므로 데이터는 해당 실험에서만 사용할 수 있습니다. 비교에 의해 데이터 집합 모듈에 저장된 데이터를 작업 영역의 아무 실험에나 사용할 수 있습니다.
 
@@ -80,9 +80,4 @@ Azure 기계 학습 **데이터 가져오기** 모듈은 다음과 같은 데이
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

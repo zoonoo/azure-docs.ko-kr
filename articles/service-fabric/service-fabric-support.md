@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Fabric 지원 옵션 | Microsoft Docs"
+title: "Azure Service Fabric 지원 옵션 살펴보기 | Microsoft Docs"
 description: "지원되는 Azure Service Fabric 클러스터 버전 및 파일 지원 티켓에 대한 링크"
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2016
+ms.date: 03/10/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: d848bebea962e8ba883266188cd0bafe991dd804
-ms.openlocfilehash: 5d27e6622faeee7cf9f4cdb2911171ef29d94b5c
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 44e95f78b5fe592713570e53f2469c88202a02aa
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -79,11 +80,9 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
 | **Service Fabric 런타임 클러스터** | **지원 종료 날짜** |
 | --- | --- |
 | 5.3.121 이전의 모든 클러스터 버전 |2017년 1월 20일 |
-| 5.3.121.* |2017년 2월 24일 |
-| 5.3.204.* |2017년 2월 24일 |
-| 5.3.301.* |2017년 2월 24일 |
-| 5.3.311.* |2017년 2월 24일 |
-| 5.4. *. * |현재 버전 및 종료 날짜 |
+| 5.3.* |2017년 2월 24일 |
+| 5.4.* |2017년 5월 10일     |
+| 5.5.* |현재 버전 및 종료 날짜
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -97,9 +96,4 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: http://aka.ms/servicefabricdocs
 [sample-repos]: http://aka.ms/servicefabricsamples
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,35 +1,10 @@
 ---
-title: "Azure VM에 대한 계획된 유지 관리 예약 방법 | Microsoft Docs"
-description: "Azure VM에 계획된 유지 관리 예약 방법에 대해 알아봅니다."
-services: virtual-machines-linux
-documentationcenter: 
-author: igalf
-manager: timlt
-editor: 
-tags: azure-service-management,azure-resource-manager
-ms.assetid: 619a65ce-f913-4c92-a7ba-2971a839c306
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
-ms.date: 02/13/2016
-ms.author: igalf
+redirect_url: /azure/virtual-machines/linux/planned-maintenance-schedule
+redirect_document_id: true
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 2f4e32f48ed26ffe1d1cb6bf7cdbd99bc56688a2
-
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: b0c7ff302ced031dab63174f8e9da96626fa2cf7
+ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>Azure VM에 계획된 유지 관리 예약 방법
-> [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델에서 계획된 유지 관리에 대한 정보는 [여기](virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
-
-[!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../includes/virtual-machines-common-planned-maintenance-schedule.md)]
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

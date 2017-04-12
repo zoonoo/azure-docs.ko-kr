@@ -1,6 +1,6 @@
 ---
-title: "클라우드 재해 복구 솔루션 - SQL Database 활성 지역 복제 | Microsoft Docs"
-description: "Azure SQL 데이터베이스의 앱 데이터 백업에 대한 지역에서 복제를 사용하여 무중단 업무 방식 계획에 대한 클라우드 재해 복구 솔루션을 디자인하는 방법을 알아봅니다."
+title: "재해 복구 응용 프로그램 설계 - Azure SQL Database | Microsoft Docs"
+description: "지역에서 복제를 사용하여 Azure SQL Database 재해 복구를 위한 응용 프로그램 설계에 대해 알아봅니다."
 keywords: "클라우드 재해 복구, 재해 복구 솔루션, 앱 데이터 백업, 지역에서 복제, 무중단 업무 방식 계획"
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: data-management
 ms.date: 07/20/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 5afcde0df03cb953eb8387cc8beea8851f36c516
+ms.sourcegitcommit: 7e607debe47efb6a22ca6fa47a40554d13d29359
+ms.openlocfilehash: dd56a8d1ee428b1845ed80f0b899cc73c2c4b7f6
 
 
 ---
-# <a name="design-an-application-for-cloud-disaster-recovery-using-active-geo-replication-in-sql-database"></a>SQL 데이터베이스에서 활성 지역 복제를 사용하여 클라우드 재해 복구를 위한 응용 프로그램 설계
+# <a name="application-design-for-cloud-disaster-recovery-using-active-geo-replication-in-sql-database"></a>SQL Database에서 활성 지역 복제를 사용하여 클라우드 재해 복구를 위한 응용 프로그램 설계
 > [!NOTE]
 > [활성 지역 복제](sql-database-geo-replication-overview.md)는 현재 모든 계층의 모든 데이터베이스에 대해 제공됩니다.
 >
@@ -187,6 +187,6 @@ SQL 데이터베이스에서 [활성 지역 복제](sql-database-geo-replication
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

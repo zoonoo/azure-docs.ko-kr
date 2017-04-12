@@ -15,41 +15,42 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 876b6a81c5fba7cd9567f913860dd5bdc2391c15
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 0ddac6ef30439e6bea04d63c41662bc49309de2c
+ms.lasthandoff: 03/22/2017
 
 
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Azure 큐 저장소를 사용하여 .NET으로 Media Services 작업 알림 모니터링
-작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. Azure 큐 저장소를 사용해 미디어 서비스 작업 알림을 모니터링하거나(이 항목에서 설명된 대로) StateChanged 이벤트 처리기를 정의하여( [이](media-services-check-job-progress.md) 항목에서 설명된 대로) 진행률을 확인할 수 있습니다.  
+작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. Azure Queue Storage를 사용해 Azure Media Services 작업 알림을 모니터링하여 진행률을 확인할 수 있습니다(이 문서의 설명 참조). [.NET을 사용하여 작업 진행률 모니터링](media-services-check-job-progress.md)에 설명된 대로 **StateChanged** 이벤트 처리기를 정의할 수도 있습니다.  
 
-## <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications"></a>Azure 큐 저장소를 사용하여 Media Services 작업 알림을 모니터링합니다.
-Microsoft Azure Media Services에는 미디어 작업을 처리할 때 알림 메시지를 [Azure Queue Storage](../storage/storage-dotnet-how-to-use-queues.md)에 제공하는 기능이 있습니다. 이 항목에서는 큐 저장소에서 이 알림 메시지를 가져오는 방법을 보여 줍니다.
+## <a name="use-queue-storage-to-monitor-media-services-job-notifications"></a>Queue Storage를 사용하여 Media Services 작업 알림 모니터링
+미디어 작업을 처리할 때 Media Services에서 [Queue Storage](../storage/storage-dotnet-how-to-use-queues.md)에 알림을 배달할 수 있습니다. 이 항목에서는 큐 저장소에서 이 알림 메시지를 가져오는 방법을 보여 줍니다.
 
-세계 어디에서나 큐 저장소에 배달된 메시지에 액세스할 수 있습니다. Azure 큐 메시징 아키텍처는 안정적이고 확장성이 뛰어납니다. 다른 메서드를 사용하는 동안 큐 저장소를 폴링하는 것이 좋습니다.
+세계 어디에서나 큐 저장소에 배달된 메시지에 액세스할 수 있습니다. Queue Storage 메시징 아키텍처는 안정적이고 확장성이 뛰어납니다. 다른 방법을 사용하는 것보다 메시지에 대한 Queue Storage를 폴링하는 것이 좋습니다.
 
 Media Services 알림 수신에 대한 일반적인 시나리오는 인코딩 작업 후 일부 추가 작업을 수행해야 하는 콘텐츠 관리 시스템을 개발하는 경우(예를 들어, 다음에는 워크플로에서 다음 단계를 트리거하거나 콘텐츠를 게시)입니다.
 
 ### <a name="considerations"></a>고려 사항
-Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 개발할 때 다음 사항을 고려합니다.
+Queue Storage를 사용하는 Media Services 응용 프로그램을 개발할 때 다음 사항을 고려합니다.
 
-* 큐 서비스는 선입 선출(FIFO) 순차적 전달을 보장하지 않습니다. 자세한 내용은 [Azure 큐 및 Azure 서비스 버스 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하세요.
-* Azure 저장소 큐는 푸시 서비스가 아닙니다. 큐를 폴링해야 합니다.
+* Queue Storage는 선입 선출(FIFO) 순차적 전달을 보장하지 않습니다. 자세한 내용은 [Azure 큐 및 Azure 서비스 버스 큐 비교 및 대조](https://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하세요.
+* Queue Storage는 푸시 서비스가 아닙니다. 큐를 폴링해야 합니다.
 * 개수에 관계 없이 큐를 사용할 수 있습니다. 자세한 내용은 [큐 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/Queue-Service-REST-API)를 참조하세요.
-* Azure 저장소 큐에는 일부 제한 사항이 있으며 [Azure 큐 및 Azure 서비스 버스 큐 비교 및 대조](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)문서에서 설명합니다.
+* Queue Storage에는 알아야 할 몇 가지 제한 사항 및 주의 사항이 있습니다. 이러한 내용은 [Azure 큐 및 Azure Service Bus 큐 - 비교 및 대조](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)에 설명되어 있습니다.
 
 ### <a name="code-example"></a>코드 예제
 이 섹션의 코드는 다음 작업을 수행합니다.
 
 1. 알림 메시지 형식에 매핑되는 **EncodingJobMessage** 클래스를 정의합니다. 코드는 큐에서 수신한 메시지를 **EncodingJobMessage** 유형의 개체로 deserialize합니다.
-2. app.config 파일에서 미디어 서비스 및 저장소 계정 정보를 로드합니다. 이 정보를 사용하여 **CloudMediaContext** 및 **CloudQueue** 개체를 만듭니다.
+2. app.config 파일에서 미디어 서비스 및 저장소 계정 정보를 로드합니다. 코드 예제에서는 이 정보를 사용하여 **CloudMediaContext** 및 **CloudQueue** 개체를 만듭니다.
 3. 인코딩 작업에 대한 알림 메시지를 받는 큐를 만듭니다.
 4. 큐에 매핑되는 알림 끝점을 만듭니다.
 5. 알림 끝점 작업에 연결하고 인코딩 작업을 제출합니다. 작업에 연결하는 여러 알림 끝점이 있을 수 있습니다.
-6. 이 예제에서 작업 처리의 최종 상태에만 관심이 있으므로 **NotificationJobState.FinalStatesOnly**를 **AddNew** 메서드로 전달합니다.
+6. **NotificationJobState.FinalStatesOnly**를 **AddNew** 메서드에 전달합니다. 이 예제에서는 작업 처리의 최종 상태만 확인합니다.
 
         job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-7. NotificationJobState.All을 전달하는 경우 모든 상태 변경 알림(큐에 대기 -> 예약됨 -> 처리 중 -> 완료됨)을 가져와야 합니다. 그러나 앞에서 설명한 대로 Azure 저장소 큐 서비스가 순차적 전달을 보장하지 않습니다. 주문 메시지에 타임스탬프 속성(아래 예제에서는 EncodingJobMessage 형식에서 정의됨)을 사용할 수 있습니다. 중복된 알림 메시지를 받을 수 있습니다. ETag 속성(EncodingJobMessage 형식에서 정의됨)을 사용하여 중복을 확인합니다. 또한 일부 상태 변경 알림을 건너뛸 수 있습니다.
+7. **NotificationJobState.All**을 전달하는 경우 모든 상태 변경 알림(큐에 대기, 예약됨, 처리 중, 완료됨)을 가져와야 합니다. 그러나 앞에서 설명한 대로 Queue Storage가 순차적 전달을 보장하지 않습니다. 메시지의 순서를 지정하려면 **Timestamp** 속성(아래 예제에서는 **EncodingJobMessage** 형식에서 정의됨)을 사용합니다. 중복된 메시지도 허용됩니다. 중복을 확인하려면 **ETag 속성**(**EncodingJobMessage** 형식에서 정의됨)을 사용합니다. 또한 일부 상태 변경 알림을 건너뛸 수 있습니다.
 8. 10초마다 큐를 검사하여 작업이 완성된 상태가 될 때를 기다립니다. 처리된 후 메시지를 삭제합니다.
 9. 큐와 알림 끝점을 삭제합니다.
 
@@ -187,7 +188,7 @@ Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 �
                 // Create a task with the conversion details, using a configuration file.
                 ITask task = job.Tasks.AddNew("My encoding Task",
                     processor,
-                    "H264 Multiple Bitrate 720p",
+                    "Adaptive Streaming",
                     Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.None);
 
                 // Specify the input asset to be encoded.
@@ -316,7 +317,7 @@ Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 �
         }
     }
 
-위의 예제는 다음과 같이 출력됩니다. 값은 달라질 수 있습니다.
+위 예제는 다음과 같이 출력됩니다. 값은 달라질 수 있습니다.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4
@@ -345,15 +346,10 @@ Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 �
 
 
 ## <a name="next-step"></a>다음 단계
-미디어 서비스 학습 경로 검토
+미디어 서비스 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

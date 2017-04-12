@@ -1,5 +1,5 @@
 ---
-title: "Windows 서비스 및 작업자 역할용 Application Insights | Microsoft Docs"
+title: "Windows 서버 및 작업자 역할용 Azure Application Insights | Microsoft Docs"
 description: "ASP.NET 응용 프로그램에 Application Insights SDK를 수동으로 추가하여 사용량, 가용성 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: .net
@@ -14,13 +14,14 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aac35e524759d5f4356e9a9e386f658e9003d2ca
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 97d750035e79d4780738e660d05e1a41085d51f1
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="manually-configure-application-insights-for-aspnet-4-applications"></a>ASP.NET 4 응용 프로그램에 대한 Application Insights를 수동으로 구성
-[Application Insights](app-insights-overview.md)는 웹 개발자가 라이브 응용 프로그램의 성능 및 사용을 모니터링할 수 있도록 하는 확장 가능한 도구입니다. 이를 수동으로 구성하여 Windows 서비스, 작업자 역할 및 다른 ASP.NET 응용 프로그램을 모니터링할 수 있습니다. 웹앱의 경우 수동 구성은 Visual Studio에서 제공되는 [자동 설치](app-insights-asp-net.md) 에 대한 대안입니다.
+# <a name="manually-configure-application-insights-for-aspnet-applications"></a>ASP.NET 응용 프로그램에 대한 Application Insights를 수동으로 구성
+[Application Insights](app-insights-overview.md)는 웹 개발자가 라이브 응용 프로그램의 성능 및 사용을 모니터링할 수 있도록 하는 확장 가능한 도구입니다. 이를 수동으로 구성하여 Windows 서버, 작업자 역할 및 다른 ASP.NET 응용 프로그램을 모니터링할 수 있습니다. 웹앱의 경우 수동 구성은 Visual Studio에서 제공되는 [자동 설치](app-insights-asp-net.md) 에 대한 대안입니다.
 
 ![예제 성능 모니터링 차트](./media/app-insights-windows-services/10-perf.png)
 
@@ -30,7 +31,7 @@ ms.openlocfilehash: aac35e524759d5f4356e9a9e386f658e9003d2ca
 * [Microsoft Azure](http://azure.com)구독. 팀 또는 조직에 Azure 구독이 있는 경우 소유자가 [Microsoft 계정](http://live.com)을 사용하여 사용자를 추가할 수 있습니다.
 * Visual Studio 2013 이상.
 
-## <a name="a-nameadda1-create-an-application-insights-resource"></a><a name="add"></a>1. Application Insights 리소스 만들기
+## <a name="add"></a>1. Application Insights 리소스 만들기
 [Azure 포털](https://portal.azure.com/)에 로그인한 다음 새 Application Insights 리소스를 만듭니다. 응용 프로그램 유형으로 ASP.NET을 선택합니다.
 
 ![새로 만들기, Application Insights 클릭](./media/app-insights-windows-services/01-new-asp.png)
@@ -46,13 +47,13 @@ Azure에서 [리소스](app-insights-resources-roles-access-control.md) 는 서�
 
 새 리소스르 만들기 위해 방금 수행한 단계는 모든 응용 프로그램을 모니터링하는 좋은 방법입니다. 이제 데이터를 보낼 수 있습니다.
 
-## <a name="a-namesdka2-install-the-sdk-in-your-application"></a><a name="sdk"></a>2. 응용 프로그램에 SDK 설치
-Application Insights SDK의 설치 및 구성은 작업하는 플랫폼에 따라 달라 집니다. ASP.NET 앱의 경우, 쉽습니다.
+## <a name="sdk"></a>2. Application Insights 패키지를 응용 프로그램에 설치합니다.
+Application Insights 패키지의 설치 및 구성은 작업하는 플랫폼에 따라 달라 집니다. ASP.NET 앱의 경우, 쉽습니다.
 
 1. Visual Studio에서 웹앱 프로젝트의 NuGet 패키지를 편집합니다.
    
     ![마우스 오른쪽 단추로 프로젝트 클릭 및 Nuget 패키지 관리 선택](./media/app-insights-windows-services/03-nuget.png)
-2. 웹앱용 Application Insights SDK를 설치합니다.
+2. Windows 서버 앱용 Application Insights 패키지를 설치합니다.
    
     !["Application Insights" 검색](./media/app-insights-windows-services/04-ai-nuget.png)
    
@@ -60,10 +61,10 @@ Application Insights SDK의 설치 및 구성은 작업하는 플랫폼에 따�
    
     예. API만 사용하여 사용자 고유의 원격 분석을 보내려는 경우 코어 API(Microsoft.ApplicationInsights)를 선택합니다. Windows Server 패키지에는 코어 API와 성능 카운터 수집 및 종속성 모니터링과 같은 다양한 다른 패키지가 자동으로 포함됩니다. 
 
-#### <a name="to-upgrade-to-future-sdk-versions"></a>SDK의 나중 버전으로 업그레이드하려면
+#### <a name="to-upgrade-to-future-package-versions"></a>패키지의 나중 버전으로 업그레이드하려면
 종종 새 버전의 SDK가 릴리스됩니다.
 
-[SDK의 새 릴리스](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/)로 업그레이드하려면, NuGet 패키지 관리자를 다시 열고 설치된 패키지를 필터링합니다. **Microsoft.ApplicationInsights.Web**을 선택하고 **업그레이드**를 선택합니다.
+[패키지의 새 릴리스](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/)로 업그레이드하려면, NuGet 패키지 관리자를 다시 열고 설치된 패키지를 필터링합니다. **Microsoft.ApplicationInsights.WindowsServer**을 선택하고 **업그레이드**를 선택합니다.
 
 ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업그레이드 전에 복사본을 저장하고 나중에 변경 내용을 새 버전에 병합합니다.
 
@@ -82,14 +83,16 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
     `<InstrumentationKey>` *복사한 계측 키* `</InstrumentationKey>`
 * 솔루션 탐색기에서 ApplicationInsights.config라는 속성이 **빌드 작업 = 콘텐츠, 출력 디렉터리로 복사 = 복사**로 설정되도록 합니다.
 
-## <a name="a-nameruna-run-your-project"></a><a name="run"></a> 프로젝트 실행
+[다양한 빌드 구성을 위해 키를 전환](app-insights-separate-resources.md)하려면 계측 키를 코드로 설정하는 것이 유용합니다. 키를 코드로 설정하면 `.config` 파일에서 설정할 필요가 없습니다.
+
+## <a name="run"></a> 프로젝트 실행
 **F5** 키를 사용하여 응용 프로그램을 실행하고 여러 페이지를 열어 원격 분석을 생성해 봅니다.
 
 Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 ![Visual Studio에서 이벤트 수](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
-## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> 원격 분석 보기
+## <a name="monitor"></a> 원격 분석 보기
 [Azure 포털](https://portal.azure.com/) 로 돌아가서 Application Insights 리소스를 찾습니다.
 
 개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예:
@@ -126,12 +129,11 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 > 
 > 
 
+## <a name="video"></a>비디오
+
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
 ## <a name="next-steps"></a>다음 단계
 * [원격 분석 더 추가](app-insights-asp-net-more.md) 합니다.
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

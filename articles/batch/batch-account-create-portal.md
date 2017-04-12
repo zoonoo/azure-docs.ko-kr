@@ -12,17 +12,20 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2016
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: fb53c1748d42e605048d1ab4e033460399c75911
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 09be891b5385871554f45bc1f824b4351ffd3bc2
+ms.lasthandoff: 03/21/2017
 
 
 ---
-# <a name="create-an-azure-batch-account-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure 배치 계정 만들기
+# <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
+
 > [!div class="op_single_selector"]
-> * [쉬운 테이블](batch-account-create-portal.md)
+> * [Azure Portal](batch-account-create-portal.md)
 > * [배치 관리 .NET](batch-management-dotnet.md)
 > 
 > 
@@ -57,7 +60,7 @@ ms.openlocfilehash: fb53c1748d42e605048d1ab4e033460399c75911
 
 ![Azure 포털에서 배치 계정 블레이드][account_blade]
 
-* **배치 계정 URL**: [배치 API](batch-technical-overview.md#batch-development-apis)로 응용 프로그램을 개발할 때 배치 리소스에 액세스하려면 계정 URL이 필요합니다. 배치 계정 URL의 형식은 다음과 같습니다.
+* **배치 계정 URL**: [배치 API](batch-apis-tools.md#batch-development-apis)로 응용 프로그램을 개발할 때 배치 리소스에 액세스하려면 계정 URL이 필요합니다. 배치 계정 URL의 형식은 다음과 같습니다.
   
     `https://<account_name>.<region>.batch.azure.com`
 
@@ -104,7 +107,7 @@ Azure 구독 및 다른 Azure 서비스처럼 특정 [할당량 및 제한](batc
 Azure 포털을 사용하는 것 외에도 다음 항목으로 배치 계정을 만들고 관리할 수 있습니다.
 
 * [배치 PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
-* [Azure CLI](../xplat-cli-install.md)
+* [Azure CLI](../cli-install-nodejs.md)
 * [배치 관리 .NET](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>다음 단계
@@ -125,9 +128,4 @@ Azure 포털을 사용하는 것 외에도 다음 항목으로 배치 계정을 
 [account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [quotas]: ./media/batch-account-create-portal/quotas.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

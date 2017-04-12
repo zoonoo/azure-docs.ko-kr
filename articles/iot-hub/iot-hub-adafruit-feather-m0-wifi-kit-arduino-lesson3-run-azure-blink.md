@@ -1,5 +1,5 @@
 ---
-title: "샘플 응용 프로그램을 실행하여 Azure IoT Hub에 장치-클라우드 메시지 보내기 | Microsoft Docs"
+title: "Azure IoT에 Arduino(C) 연결 - 단원 3: 샘플 실행 | Microsoft Docs"
 description: "IoT Hub에 메시지를 보내고 LED를 깜빡이는 샘플 응용 프로그램을 Adafruit Feather M0 WiFi에 배포하고 실행합니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 569a28ae496f196c0f59be499cdef36550cc2ffa
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 631a6677e4801b1c3475b9e8f2726219dd101132
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -149,8 +150,3 @@ IoT Hub에 장치-클라우드 메시지를 보내기 위해 Arduino 보드에 �
 [deployed-the-blink-app]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md
 [sample-application-with-sent-and-received-messages]: media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson3/gulp_run_arduino.png
 [read-messages-persisted-in-azure-storage]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md
-
-
-<!--HONumber=Dec16_HO2-->
-
-

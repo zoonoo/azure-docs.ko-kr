@@ -14,24 +14,27 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2016
-ms.author: wesmc
+ms.date: 02/27/2017
+ms.author: glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 04a5e190a69b1a1a4d0fe6c49c16ddb15593ba38
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: 53dcaea155471d47eb61317c52d38524c05e4600
+ms.lasthandoff: 03/01/2017
+
 
 ---
 
-# <a name="best-practices-for-azure-functions"></a>Azure Functions에 대한 모범 사례
+# <a name="tips-for-improving-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성을 향상시키기 위한 팁
 
 ##<a name="overview"></a>개요
 
-이 문서에서는 함수 앱 구현을 고려하는 사용자를 위해 여러 모범 사례를 모았습니다. Azure 함수 앱이 Azure App Service라는 것을 염두에 두어야 합니다. 그래야 이러한 모범 사례가 적용됩니다.
+이 문서에서는 함수 앱 구현을 고려하는 사용자를 위해 여러 모범 사례를 모았습니다. 함수 앱이 Azure App Service의 앱이라는 것을 염두에 두어야 합니다. 따라서 App Service 모범 사례도 적용됩니다.
 
 
 ## <a name="avoid-large-long-running-functions"></a>큰 장기 실행 함수를 방지
 
-큰 장기 실행 함수는 예기치 않은 시간 초과 문제를 발생시킬 수 있습니다. 함수는 많은 Node.js 종속성으로 인해 커질 수 있습니다. 이러한 종속성을 가져오면 로드 시간이 높아져 예기치 않은 제한 시간으로 이어질 수 있습니다. Node.js 종속성은 사용자 코드에서 여러 `require()` 문에 의해 명백하게 로드될 수 있습니다. 또한 자체적으로 내부 종속성을 갖는 사용자 코드에 의해 로드되는 하나의 모듈에 따라 암시적일 수 있습니다.  
+큰 장기 실행 함수는 예기치 않은 시간 초과 문제를 발생시킬 수 있습니다. 함수는 많은 Node.js 종속성으로 인해 커질 수 있습니다. 이러한 종속성을 가져오면 로드 시간이 높아져 예기치 않은 제한 시간으로 이어질 수 있습니다. Node.js 종속성은 사용자 코드에서 여러 `require()` 문에 의해 명백하게 로드될 수 있습니다. 또한 자체적으로 내부 종속성을 갖는 사용자 코드에 의해 로드되는 하나의 모듈에 따라 종속성은 암시적일 수 있습니다.  
 
 큰 함수를 더 작은 함수 집합으로 리팩터링할 때마다 함께 작동하고 빠른 응답을 반환합니다. 예를 들어 webhook 또는 HTTP 트리거 함수는 특정 시간 제한 내의 승인 응답이 필요할 수 있습니다. HTTP 트리거 페이로드를 큐 트리거 함수에 의해 처리되도록 큐에 전달할 수 있습니다. 이 방법은 실제 작업을 연기하고 즉각적인 응답을 반환할 수 있습니다. webhook의 경우 즉각적인 응답을 요구하는 것이 일반적입니다.
 
@@ -68,10 +71,8 @@ Idempotent 함수는 특히 타이머 트리거 사용이 권장됩니다. 예�
 
 큐 항목을 이미 처리한 경우 함수는 수행되지 않습니다.
 
-Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제공된 방어 수단을 활용하세요. 예를 들어 [Azure Storage 큐 트리거](functions-bindings-storage.md#storagequeuetrigger)를 위한 설명서에서 **포이즌 큐 메시지 처리**를 참조하세요.
+Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제공된 방어 수단을 활용하세요. 예를 들어 [Azure Storage 큐 트리거](functions-bindings-storage-queue.md#trigger)를 위한 설명서에서 **포이즌 큐 메시지 처리**를 참조하세요.
  
-
-
 
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>동일한 함수 앱에서 테스트와 프로덕션 코드의 혼합 금지.
 
@@ -103,10 +104,6 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 * [Azure Functions C# 개발자 참조](functions-reference-csharp.md)
 * [Azure Functions F# 개발자 참조](functions-reference-fsharp.md)
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [패턴 및 사례 HTTP 성능 최적화](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md)
 
 

@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1eada96773b1d9c6adb9326c9100da7cde8abf77
-ms.openlocfilehash: 8df936a03868412adf34672108f40829c41f33ab
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: aac56543b2b3b7fa8f8baf1cc719ead79b3c1b00
+ms.lasthandoff: 02/28/2017
 
 ---
 
-# <a name="single-sign-on-with-application-proxy"></a>응용 프로그램 프록시를 사용하는 Single Sign-On
+# <a name="provide-single-sign-on-to-your-apps-with-application-proxy"></a>응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공
 Single Sign-On은 Azure AD 응용 프로그램 프록시의 핵심 요소입니다. 다음 단계를 통해 최상의 사용자 환경을 제공합니다.
 
 1. 사용자가 클라우드에 로그인합니다.  
@@ -62,7 +64,7 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 #### <a name="connector-and-published-server-in-the-same-domain"></a>동일한 도메인 내의 커넥터와 게시된 서버
 1. Active Directory에서 **도구** > **사용자 및 컴퓨터**로 이동합니다.
 2. 커넥터를 실행하는 서버를 선택합니다.
-3. 마우스 오른쪽 단추를 클릭하고 **속성** > **위임**을 선택합니다.
+.3. 마우스 오른쪽 단추를 클릭하고 **속성** > **위임**을 선택합니다.
 4. **지정한 서비스에 대한 위임용으로만 이 컴퓨터 트러스트**를 선택합니다. **이 계정으로 위임된 자격 증명을 사용할 수 있는 서비스** 아래에서 해당 응용 프로그램 서버의 SPN ID 값을 추가합니다.
 5. 그러면 응용 프로그램 프록시 커넥터가 목록에 정의된 응용 프로그램에 대해 AD에서 사용자를 가장할 수 있습니다.
 
@@ -105,10 +107,12 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 
 ![비 Windows SSO 다이어그램](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
+Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 대해 확인하려는 모든 정보](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd)를 참조하세요.
+
 ### <a name="delegated-login-identity"></a>위임된 로그인 ID
 위임된 로그인 ID를 사용하면 다른 두 개의 로그인 시나리오를 처리할 수 있습니다.
 
-* 일반적으로 전자 메일 주소가 아닌 사용자 이름 또는 SAM 계정 이름 형식의 사용자 ID((username@domain))를 가져오는 비Windows 응용 프로그램
+* 일반적으로 전자 메일 주소가 아닌 사용자 이름 또는 SAM 계정 이름이라는 형식으로 사용자 ID를 가져오는(username@domain) 비 Windows 응용 프로그램.
 * Azure AD의 UPN과 온-프레미스 Active Directory의 UPN이 다른 대체 로그인 구성.
 
 응용 프로그램 프록시를 사용하여 Kerberos 티켓을 얻기 위해 어떤 ID를 사용할지 선택할 수 있습니다. 이 설정은 응용 프로그램별입니다. 이러한 옵션 중 일부는 전자 메일 주소 형식을 받아들이지 않는 시스템에 적합한 반면 다른 것들은 대체 로그인을 위해 설계되었습니다.
@@ -122,7 +126,7 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 
 이 기능을 사용하면 다른 온-프레미스 및 클라우드 ID가 있는 여러 조직이 사용자에게 다른 사용자 이름 및 암호를 입력하도록 하지 않고 클라우드에서 온-프레미스 앱으로 SSO를 갖게 할 수 있습니다. 이 작업은 다음의 조직을 포함합니다.
 
-* 내부적으로 여러 도메인((joe@us.contoso.com,, joe@eu.contoso.com)) 및 클라우드의 단일 도메인((joe@contoso.com))이 있습니다.
+* 내부적으로 여러 도메인(joe@us.contoso.com, joe@eu.contoso.com)과 클라우드에서 단일 도메인(joe@contoso.com)이 있습니다.
 * 내부적으로 라우팅이 가능하지 않은 도메인 이름(joe@contoso.usa)과 클라우드에서 법적 도메인이 있습니다.
 * 내부적으로 도메인 이름을 사용하지 마십시오(joe).
 * 온-프레미스 및 클라우드에서 다른 별칭을 사용합니다. 예: joe-johns@contoso.com 및 joej@contoso.com  
@@ -130,7 +134,7 @@ Active Directory 구성은 응용 프로그램 프록시 커넥터와 게시된 
 또한 비Windows 백 엔드 서버의 경우 매우 일반적인 시나리오인 전자 메일 주소 형식의 주소를 허용하지 않는 응용 프로그램에는 도움이 됩니다.
 
 ### <a name="setting-sso-for-different-cloud-and-on-prem-identities"></a>다른 클라우드 및 온-프레미스 ID에 SSO 설정
-1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 저장소로 Azure AD를 사용하는 Office 365, Windows 10 장치 및 다른 응용 프로그램에 로그인하는 방법을 결정합니다.  
+1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 저장소로 Azure AD를 사용하는 Office&365;, Windows&10; 장치 및 다른 응용 프로그램에 로그인하는 방법을 결정합니다.  
    ![사용자 식별 스크린샷 - 사용자 계정 이름 드롭다운](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. 수정하려는 응용 프로그램에 대한 응용 프로그램 구성 설정에서 사용할 **위임된 로그인 ID** 를 선택합니다.
 
@@ -157,9 +161,4 @@ SSO 프로세스에 오류가 있으면 [문제 해결](active-directory-applica
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

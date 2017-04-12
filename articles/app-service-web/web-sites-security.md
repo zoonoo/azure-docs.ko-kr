@@ -4,7 +4,7 @@ description: "웹앱, 모바일 앱 백 엔드, 또는 Azure 앱 서비스에서
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 5ce560b4-42d7-4b20-935c-0445fd539e39
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a5154bace333ee89fa40b7a02e2d0020a55dfa6
+ms.sourcegitcommit: eaf3df69428124127ef3daf134bc948cd0988ec6
+ms.openlocfilehash: c1956e97444077f197ab5d0fd67097ddea0f7244
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -50,21 +51,21 @@ Azure가 응용 프로그램이 실행되는 인프라 및 플랫폼의 보안�
 이 문서에서는 웹 기반 응용 프로그램의 보안 고려 사항을 모두 다루지는 않습니다. 응용 프로그램 보안 유지를 위한 기본적인 추가 지침을 보려면 [OWASP(Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page)(영문)에서 OWASP 구성원이 결정하는 최신 상위 10가지 중대 웹 응용 프로그램 보안 결함을 나열하는 [상위 10대 프로젝트](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)를 참조하세요.
 
 ## <a name="perform-penetration-testing-on-your-app"></a>앱에 대한 침투 테스트 수행
-앱 서비스 앱에서 취약점 테스트를 시작하는 가장 쉬운 방법 중 하나는 [Tinfoil Security와 통합](/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) 을 사용하여 앱에서 한 번의 클릭으로 취약점 검사를 수행하는 것입니다. 이해하기 쉬운 보고서에서 테스트 결과를 확인하고 단계별 지침에 따라 각 취약점을 수정하는 방법을 알아볼 수 있습니다.
+앱 서비스 앱에서 취약점 테스트를 시작하는 가장 쉬운 방법 중 하나는 [Tinfoil Security와 통합](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) 을 사용하여 앱에서 한 번의 클릭으로 취약점 검사를 수행하는 것입니다. 이해하기 쉬운 보고서에서 테스트 결과를 확인하고 단계별 지침에 따라 각 취약점을 수정하는 방법을 알아볼 수 있습니다.
 
 사용자 고유의 침투 테스트를 수행하거나 다른 스캐너 도구 모음 또는 공급자를 사용하려면 [Azure 침투 테스트 승인 프로세스](https://security-forms.azure.com/penetration-testing/terms) 에 따라 원하는 침투 테스트를 수행하기 위한 사전 승인을 얻어야 합니다.
 
-## <a name="a-namehttpsa-secure-communication-with-customers"></a><a name="https"></a> 고객과 보안 통신
+## <a name="https"></a> 고객과 보안 통신
 앱 서비스 앱에 대해 만든 **\*.azurewebsites.net** 도메인 이름을 사용하는 경우 모든 **\*.azurewebsites.net** 도메인 이름에 대해 SSL 인증서가 제공되므로 HTTPS를 즉시 사용할 수 있습니다. 사이트에서 [사용자 지정 도메인 이름](web-sites-custom-domain-name.md)을 사용하는 경우 SSL 인증서를 업로드하여 해당 사용자 지정 도메인에 대해 [HTTPS를 사용하도록 설정](web-sites-configure-ssl-certificate.md)할 수 있습니다.
 
 [HTTPS](https://en.wikipedia.org/wiki/HTTPS) 를 사용하도록 설정하면 앱과 사용자 간의 통신에서 MITM 공격으로부터 보호할 수 있습니다.
 
 ## <a name="secure-data-tier"></a>데이터 계층 보안
-앱 서비스는 SQL 데이터베이스와 긴밀하게 통합되며 모든 연결 문자열은 전체적으로 암호화되고 앱이 실행되는 VM에서만, *그리고* 앱이 실행될 때만 해독됩니다. 또한 Azure SQL Database는 [저장 시 암호화](https://msdn.microsoft.com/library/dn948096.aspx), [항상 암호화](https://msdn.microsoft.com/library/mt163865.aspx), [동적 데이터 마스킹](../sql-database/sql-database-dynamic-data-masking-get-started.md), [위협 감지](../sql-database/sql-database-threat-detection-get-started.md) 등 사이버 위협으로부터 응용 프로그램 데이터를 보호하는 다양한 보안 기능을 포함합니다. 중요한 데이터나 규정 준수 요구 사항이 있는 경우 데이터를 보호하는 방법에 대한 자세한 내용은 [SQL 데이터베이스 보안](../sql-database/sql-database-security.md) 을 참조하세요.
+앱 서비스는 SQL 데이터베이스와 긴밀하게 통합되며 모든 연결 문자열은 전체적으로 암호화되고 앱이 실행되는 VM에서만, *그리고* 앱이 실행될 때만 해독됩니다. 또한 Azure SQL Database는 [저장 시 암호화](https://msdn.microsoft.com/library/dn948096.aspx), [항상 암호화](https://msdn.microsoft.com/library/mt163865.aspx), [동적 데이터 마스킹](../sql-database/sql-database-dynamic-data-masking-get-started.md), [위협 감지](../sql-database/sql-database-threat-detection.md) 등 사이버 위협으로부터 응용 프로그램 데이터를 보호하는 다양한 보안 기능을 포함합니다. 중요한 데이터나 규정 준수 요구 사항이 있는 경우 데이터를 보호하는 방법에 대한 자세한 내용은 [SQL 데이터베이스 보안](../sql-database/sql-database-security-overview.md) 을 참조하세요.
 
 ClearDB와 같은 타사 데이터베이스 공급자를 사용하는 경우 보안 모범 사례에 대한 공급자 설명서를 직접 참조해야 합니다.  
 
-## <a name="a-namedevelopa-secure-development-and-deployment"></a><a name="develop"></a> 개발 및 배포 보안
+## <a name="develop"></a> 개발 및 배포 보안
 ### <a name="publishing-profiles-and-publish-settings"></a>게시 프로필 및 게시 설정
 **Visual Studio**, **Web Matrix**, **Azure PowerShell** 또는 **Azure CLI(Azure 명령줄 인터페이스)**와 같은 유틸리티를 사용하여 응용 프로그램을 개발하거나, 관리 작업을 수행하거나, 작업을 자동화할 경우 *게시 설정* 파일 또는 *게시 프로필*을 사용할 수 있습니다. 두 파일 형식 모두 Azure로 사용자를 인증하고 무단 액세스를 방지하도록 보호합니다.
 
@@ -110,16 +111,11 @@ Azure 플랫폼 보안에 대한 자세한 내용, **보안 인시던트 또는 
 공격을 감지하는 데 유용할 수 있는 앱 서비스 앱의 로깅 정보에 대한 자세한 내용은 [진단 로깅 사용](web-sites-enable-diagnostic-log.md)을 참조하세요.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. App Service에서 단기 스타터 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가](https://azure.microsoft.com/try/app-service/)로 이동합니다. App Service에서 단기 스타터 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
 ## <a name="whats-changed"></a>변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

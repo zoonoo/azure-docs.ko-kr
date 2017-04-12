@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB 방화벽 지원 | Microsoft Docs"
+title: "Azure DocumentDB 방화벽 지원 및 IP 액세스 제어 | Microsoft Docs"
 description: "Azure DocumentDB 데이터베이스 계정에서 방화벽을 지원하도록 IP 액세스 제어 정책을 사용하는 방법을 알아봅니다."
 keywords: "IP 액세스 제어, 방화벽 지원"
 services: documentdb
@@ -14,11 +14,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
-ms.author: ankshah; kraman
+ms.date: 03/10/2017
+ms.author: ankshah
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eb3c5c2adbaedc4bfb1e68f26b88079aeabe50f5
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 7acbdda2e8179219c21370d20d30a94feb405fce
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -31,14 +32,14 @@ Azure DocumentDB 데이터베이스 계정에 저장된 데이터를 보호하�
 ![IP 기반 액세스 제어의 연결 프로세스를 보여주는 다이어그램](./media/documentdb-firewall-support/documentdb-firewall-support-flow.png)
 
 ## <a name="connections-from-cloud-services"></a>클라우드 서비스에서 연결
-Azure에서 클라우드 서비스는 DocumentDB를 사용하여 중간 계층 서비스 논리를 호스팅하는 매우 일반적인 방법입니다. 클라우드 서비스에서 DocumentDB 데이터베이스 계정에 액세스할 수 있게 하려면 [Azure 지원에 문의](#configure-ip-policy)하여 클라우드 서비스의 공용 IP 주소를 DocumentDB 데이터베이스 계정에 연결된 허용된 IP 주소 목록에 추가해야 합니다.  이렇게 하면 클라우드 서비스의 모든 역할 인스턴스가 DocumentDB 데이터베이스 계정에 액세스할 수 있습니다. 다음 스크린샷처럼 Azure Portal에서 클라우드 서비스의 IP 주소를 검색할 수 있습니다. 
+Azure에서 클라우드 서비스는 DocumentDB를 사용하여 중간 계층 서비스 논리를 호스팅하는 매우 일반적인 방법입니다. 클라우드 서비스에서 DocumentDB 데이터베이스 계정에 액세스할 수 있게 하려면 [IP 액세스 제어 정책을 구성](#configure-ip-policy)하여 클라우드 서비스의 공용 IP 주소를 DocumentDB 데이터베이스 계정에 연결된 허용된 IP 주소 목록에 추가해야 합니다.  이렇게 하면 클라우드 서비스의 모든 역할 인스턴스가 DocumentDB 데이터베이스 계정에 액세스할 수 있습니다. 다음 스크린샷처럼 Azure Portal에서 클라우드 서비스의 IP 주소를 검색할 수 있습니다.
 
 ![Azure Portal에 표시된 클라우드 서비스의 공용 IP 주소를 보여주는 스크린샷](./media/documentdb-firewall-support/documentdb-public-ip-addresses.png)
 
 추가 역할 인스턴스를 추가하여 클라우드 서비스를 규모 확장할 때 이러한 새 인스턴스는 자동으로 DocumentDB 데이터베이스 계정에 대한 액세스 권한을 갖습니다. 동일한 클라우드 서비스에 포함되기 때문입니다.
 
 ## <a name="connections-from-virtual-machines"></a>가상 컴퓨터에서 연결
-[가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/) 또는 [가상 컴퓨터 크기 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 역시 DocumentDB를 사용하여 중간 계층 서비스를 호스트하는 데 사용할 수 있습니다.  가상 컴퓨터에서 액세스할 수 있도록 DocumentDB 데이터베이스 계정을 구성하려면 [Azure 지원에 문의](#configure-ip-policy)하여 가상 컴퓨터 및/또는 가상 컴퓨터 크기 집합의 공용 IP 주소를 DocumentDB 데이터베이스 계정에 허용되는 IP 주소 중 하나로 구성해야 합니다. 다음 스크린샷처럼 Azure Portal에서 가상 컴퓨터의 IP 주소를 검색할 수 있습니다.
+[가상 컴퓨터](https://azure.microsoft.com/services/virtual-machines/) 또는 [가상 컴퓨터 크기 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 역시 DocumentDB를 사용하여 중간 계층 서비스를 호스트하는 데 사용할 수 있습니다.  가상 컴퓨터에서 액세스할 수 있도록 DocumentDB 데이터베이스 계정을 구성하려면 [IP 액세스 제어 정책을 구성](#configure-ip-policy)하여 가상 컴퓨터 및/또는 가상 컴퓨터 크기 집합의 공용 IP 주소를 DocumentDB 데이터베이스 계정에 허용되는 IP 주소 중 하나로 구성해야 합니다. 다음 스크린샷처럼 Azure Portal에서 가상 컴퓨터의 IP 주소를 검색할 수 있습니다.
 
 ![Azure Portal에 표시된 가상 컴퓨터의 공용 IP 주소를 보여주는 스크린샷](./media/documentdb-firewall-support/documentdb-public-ip-addresses-dns.png)
 
@@ -47,41 +48,32 @@ Azure에서 클라우드 서비스는 DocumentDB를 사용하여 중간 계층 �
 ## <a name="connections-from-the-internet"></a>인터넷에서 연결
 인터넷에 있는 컴퓨터에서 DocumentDB 데이터베이스 계정에 액세스하려면 컴퓨터의 클라이언트 IP 주소 또는 IP 주소 범위를 DocumentDB 데이터베이스 계정에 허용되는 IP 주소 목록에 추가해야 합니다. 
 
-## <a name="a-idconfigure-ip-policya-configuring-the-ip-access-control-policy"></a><a id="configure-ip-policy"></a> IP 액세스 제어 정책 구성
-데이터베이스 계정에서 IP 액세스 제어 정책을 사용하도록 설정하려면 Azure Portal을 사용하여 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 통해 요청을 제출해야 합니다.
+## <a id="configure-ip-policy"></a> IP 액세스 제어 정책 구성
+Azure Portal에서나, [Azure CLI](documentdb-automation-resource-manager-cli.md), [Azure Powershell](documentdb-manage-account-with-powershell.md)을 통해 프로그래밍 방식으로 또는 `ipRangeFilter` 속성을 업데이트하여 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 IP 액세스 제어 정책을 설정할 수 있습니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 예: "13.91.6.132,13.91.6.1/24". 이러한 메서드를 통해 데이터베이스 계정을 업데이트할 때에는 기본 설정으로 다시 설정되지 않도록 모든 속성을 채워야 합니다.
 
-1. [도움말 + 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 블레이드에서 **새 지원 요청**을 선택합니다.
-2. **새 지원 요청 블레이드**에서 **기본**을 선택합니다.
-3. **기본** 블레이드에서 다음을 선택합니다.
-   * **문제 유형**: 할당량
-   * **구독**: IP 액세스 제어 정책을 추가할 계정에 연결된 구독입니다.
-   * **할당량 유형**: DocumentDB
-   * **지원 계획**: 할당량 지원 - 포함됨.
-4. **문제** 블레이드에서 다음을 수행합니다.
-   * **심각도**: C - 최소 영향 선택
-   * **세부 정보**: 상자에 다음 텍스트를 복사하고 계정 이름 및 IP 주소를 포함합니다. "DocumentDB 데이터베이스 계정에 대한 방화벽 지원을 사용하도록 설정하겠습니다. 데이터베이스 계정: *계정 이름 입력*. 허용 IP 주소/범위: *IP 주소/범위를 CIDR 형식으로 입력(예: 13.91.6.132, 13.91.6.1/24)*."
-   * **Next**를 클릭합니다. 
-5. **연락처 정보** 블레이드에서 연락처 세부 정보를 입력하고 **만들기**를 클릭합니다. 
+> [!NOTE]
+> DocumentDB 데이터베이스 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 컴퓨터에서 시도하는 모든 DocumentDB 데이터베이스 계정 액세스가 차단됩니다. 이 모델 때문에 액세스 제어의 무결성을 보장하기 위해 포털에서 데이터 평면 작업을 검색하는 기능도 차단됩니다.
 
-요청이 수신되면 24시간 내에 IP 액세스 제어가 활성화됩니다. 요청이 완료되면 알림이 제공됩니다.
+개발을 간소화하기 위해 Azure Portal에서는 클라이언트 컴퓨터의 IP를 식별하여 허용된 목록에 추가하여 컴퓨터에서 실행되는 앱이 DocumentDB 계정에 액세스할 수 있도록 합니다. 포털에서 볼 수 있듯이 여기서 클라이언트 IP 주소가 검색됩니다. 이것은 컴퓨터의 클라이언트 IP 주소일 수 있지만 네트워크 게이트웨이의 IP 주소일 수도 있습니다. 프로덕션으로 이동하기 전에 반드시 제거하세요.
 
-![도움말 + 지원 블레이드의 스크린샷](./media/documentdb-firewall-support/documentdb-firewall-support-request-access.png)
+Azure Portal에서 IP 액세스 제어 정책을 설정하려면 DocumentDB 계정 블레이드로 이동하고 탐색 메뉴에서 **방화벽**을 클릭한 후 **켜기**를 클릭합니다. 
 
-![문제 블레이드의 스크린샷](./media/documentdb-firewall-support/documentdb-firewall-support-request-access-ticket.png)
+![Azure Portal에서 방화벽 블레이드를 여는 방법을 보여 주는 스크린샷](./media/documentdb-firewall-support/documentdb-azure-portal-firewall.png)
+
+새 창에서 Azure Portal에서 계정에 액세스할 수 있는지 여부를 지정하고 다른 주소 및 범위를 적절히 추가한 후 **저장**을 클릭합니다.  
+
+![Azure Portal에서 방화벽 설정을 구성하는 방법을 보여 주는 스크린샷](./media/documentdb-firewall-support/documentdb-azure-portal-firewall-configure.png)
 
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>IP 액세스 제어 정책 문제 해결
 ### <a name="portal-operations"></a>포털 작업
-DocumentDB 데이터베이스 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 컴퓨터에서 시도하는 모든 DocumentDB 데이터베이스 계정 액세스가 차단됩니다. 이 모델 때문에 액세스 제어의 무결성을 보장하기 위해 포털에서 데이터 평면 작업을 검색하는 기능도 차단됩니다. 
+DocumentDB 데이터베이스 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 컴퓨터에서 시도하는 모든 DocumentDB 데이터베이스 계정 액세스가 차단됩니다. 따라서 컬렉션 탐색 및 문서 쿼리와 같은 포털 데이터 평면 작업을 사용하려면 포털의 **방화벽** 블레이드를 사용하여 Azure Portal 액세스를 명시적으로 허용해야 합니다. 
 
-### <a name="sdk-rest-api"></a>SDK 및 Rest API
+![Azure Portal에 대한 액세스를 사용하도록 설정하는 방법을 보여 주는 스크린샷](./media/documentdb-firewall-support/documentdb-azure-portal-access-firewall.png)
+
+### <a name="sdk--rest-api"></a>SDK 및 Rest API
 보안상의 이유로 허용 목록에 없는 컴퓨터에서 SDK 또는 REST API를 통해 액세스를 시도하면 추가 정보 없이 일반적인 404 찾을 수 없음 응답이 반환됩니다. DocumentDB 데이터베이스 계정에 대해 구성된 허용 IP 목록을 확인하여 DocumentDB 데이터베이스 계정에 올바른 정책 구성이 적용되고 있는지 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 네트워크 관련 성능 팁에 대한 정보는 [성능 팁](documentdb-performance-tips.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

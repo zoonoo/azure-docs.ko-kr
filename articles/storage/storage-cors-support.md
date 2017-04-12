@@ -3,7 +3,7 @@ title: "CORS(Cross-Origin Resource Sharing) 지원 | Microsoft Docs"
 description: "Microsoft Azure 저장소 서비스에 대해 CORS 지원을 사용하도록 설정하는 방법을 설명합니다."
 services: storage
 documentationcenter: .net
-author: cbrooks
+author: cbrooksmsft
 manager: carmonm
 editor: tysonn
 ms.assetid: a0229595-5b64-4898-b8d6-fa2625ea6887
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 2/22/2017
 ms.author: cbrooks
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c61be739ce592d75b04bee15d14850cdf94c09da
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: e50e55fb6471add71b3d2ebd477a91ec424a4fab
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -100,7 +101,7 @@ CORS 규칙에는 다음 제한이 적용됩니다.
 
 규칙은 요청 본문에 포함된 순서대로 처리되므로 모범 사례에 따르면 원본과 관련하여 가장 제한적인 규칙을 목록에서 첫 번째로 지정하는 것이 좋습니다. 그러면 해당 규칙이 먼저 평가됩니다. 모든 원본을 허용하는 규칙과 같이 제한 수준이 가장 낮은 규칙은 목록의 맨 끝에 지정합니다.
 
-### <a name="example-cors-rules-evaluation"></a>예제 - CORS 규칙 평가
+### <a name="example--cors-rules-evaluation"></a>예제 - CORS 규칙 평가
 다음 예제에서는 저장소 서비스에 대해 CORS 규칙을 설정하는 작업의 요청 본문 중 일부분을 보여 줍니다. 요청을 생성하는 방법에 대한 자세한 내용은 [Blob 서비스 속성 설정](https://msdn.microsoft.com/library/hh452235.aspx), [큐 서비스 속성 설정](https://msdn.microsoft.com/library/hh452232.aspx) 및 [테이블 서비스 속성 설정](https://msdn.microsoft.com/library/hh452240.aspx)을 참조하세요.
 
 ```xml
@@ -136,7 +137,7 @@ CORS 규칙에는 다음 제한이 적용됩니다.
 | **메서드** |**원본** |**요청 헤더** |**일치하는 규칙** |**결과** |
 | **PUT** |http://www.contoso.com |x-ms-blob-콘텐츠-유형 |첫 번째 규칙 |성공 |
 | **GET** |http://www.contoso.com |x-ms-blob-콘텐츠-유형 |두 번째 규칙 |성공 |
-| **GET** |http://www.contoso.com |x-ms-blob-콘텐츠-유형 |두 번째 규칙 |실패 |
+| **GET** |http://www.contoso.com |x-ms-client-request-id |두 번째 규칙 |실패 |
 
 첫 번째 요청은 첫 번째 규칙과 일치합니다. 원본 도메인이 허용되는 도메인과 일치하고, 메서드가 허용되는 메서드와 일치하며, 헤더가 허용되는 헤더와 일치하므로 해당 요청은 성공합니다.
 
@@ -189,10 +190,5 @@ GET/HEAD가 아닌 메서드를 사용하는 요청의 경우 저장소 서비�
 [테이블 서비스 속성 설정](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [W3C 교차 원본 자원 공유 사양](http://www.w3.org/TR/cors/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

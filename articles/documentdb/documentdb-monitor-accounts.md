@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ea24ad915b3d6f5180182a454c03edc578f7b761
-ms.openlocfilehash: 3751d1a24684bbf9b7230eb3ab4827ee2ba52379
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: aabca8fd228b1fc7c60d295a9502dece29db1b68
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -76,7 +77,7 @@ Azure 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
    ![복제 및 사용자 지정 완료 옵션이 강조 표시된 총 요청 차트의 스크린샷](./media/documentdb-monitor-accounts/madocdb7.png)  
 
 이제 파트에 표시되는 메트릭 및 시간 범위를 사용자 지정하면서 이 파트를 다른 메트릭 파트로 처리할 수 있습니다.  이렇게 하면 두 가지 다른 메트릭 차트를 동시에 병렬로 볼 수 있습니다.  
-    ![총 요청 차트 및 지난 1시간의 새로운 총 요청 차트의 스크린샷](./media/documentdb-monitor-accounts/madocdb8.png)  
+    ![총 요청 차트 및 지난&1;시간의 새로운 총 요청 차트의 스크린샷](./media/documentdb-monitor-accounts/madocdb8.png)  
 
 ## <a name="set-up-alerts-in-the-portal"></a>포털에서 경고 설정
 1. [Azure Portal](https://portal.azure.com/)에서 **서비스 더 보기**, **DocumentDB(NoSQL)**를 차례로 클릭하고 성능 메트릭 경고를 설정할 DocumentDB 계정의 이름을 클릭합니다.
@@ -122,11 +123,6 @@ Azure 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
    ![업데이트된 총 요청 지난 시간 타일의 스크린샷](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
 
 ## <a name="next-steps"></a>다음 단계
-DocumentDB에 대한 자세한 내용은 [DocumentDB 용량 관리](documentdb-manage.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+DocumentDB 용량 계획에 대한 자세한 내용은 [DocumentDB Capacity Planner 계산기](https://www.documentdb.com/capacityplanner)를 참조하세요.
 
 

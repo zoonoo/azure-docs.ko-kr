@@ -1,5 +1,5 @@
 ---
-title: "Azure 포털을 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치 만들기 | Microsoft Docs"
+title: "인터넷 연결 부하 분산 장치 만들기 - Azure Portal | Microsoft Docs"
 description: "Azure 포털을 사용하여 Resource Manager에서 인터넷 연결 부하 분산 장치를 만드는 방법에 대해 알아봅니다."
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 01/23/2017
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 5ce773311b691bf28ea3e9590ab74603a1a9b641
-ms.openlocfilehash: 052a9e6a511875dcb2a79ecad89ee09b32948d06
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
 
 ---
 
@@ -54,7 +54,7 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 ## <a name="set-up-a-load-balancer-in-azure-portal"></a>Azure 포털에서 부하 분산 장치 설정
 
 > [!IMPORTANT]
-> 이 예제에서는 **myVNet**이라는 가상 네트워크가 있다고 가정합니다. 이렇게 하려면 [가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요. 또한 **myVNet** 내에 **LB-Subnet-BE**라는 서브넷이 있고 **web1** 및 **web2**라는 2개의 VM이 myVNet**의 **myAvailSet**이라는 동일한 가용성 집합 내에 각각 포함되어 있다고 가정합니다. VM을 만들려면 [이 링크](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+> 이 예제에서는 **myVNet**이라는 가상 네트워크가 있다고 가정합니다. 이렇게 하려면 [가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요. 또한 **myVNet** 내에 **LB-Subnet-BE**라는 서브넷이 있고 **web1** 및 **web2**라는&2;개의 VM이 **myVNet**의 **myAvailSet**이라는 동일한 가용성 집합 내에 각각 포함되어 있다고 가정합니다. VM을 만들려면 [이 링크](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 1. 브라우저에서 Azure 포털 [http://portal.azure.com](http://portal.azure.com) 으로 이동하고 Azure 계정으로 로그인합니다.
 2. 화면 왼쪽 상단에서 **새로 만들기** > **네트워킹** > **부하 분산 장치**를 선택합니다.
@@ -68,7 +68,7 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 ## <a name="create-a-back-end-address-pool"></a>백 엔드 주소 풀 만들기
 
 1. 부하 분산 장치가 성공적으로 배포되면 리소스 내에서 선택합니다. 설정에서 백 엔드 풀을 선택합니다. 백 엔드 풀의 이름을 입력합니다. 표시되는 블레이드 위쪽의 **추가** 단추를 클릭합니다.
-2. **백 엔드 풀 추가** 블레이드에서 **가상 컴퓨터 추가**를 클릭합니다.  **가용성 집합** 아래에서 **가용성 집합**을 선택하고 **myAvailSet**을 선택합니다. 다음으로, 블레이드의 가상 컴퓨터 섹션에서 **가상 컴퓨터 선택**을 선택하고 부하 분산을 위해 만들어진 두 개의 VM인 **web 1** 및 **web2**를 클릭합니다. 아래 이미지에 표시된 대로 있는 왼쪽의 파란색 확인 표시를 선택해야 합니다. **가상 컴퓨터 선택** 블레이드에서 확인을 클릭한 후 **선택**을 클릭한 다음 **백 엔드 풀 추가** 블레이드에서 **확인**을 클릭합니다.
+2. **백 엔드 풀 추가** 블레이드에서 **가상 컴퓨터 추가**를 클릭합니다.  **가용성 집합** 아래에서 **가용성 집합**을 선택하고 **myAvailSet**을 선택합니다. 다음으로, 블레이드의 가상 컴퓨터 섹션에서 **가상 컴퓨터 선택**을 선택하고 부하 분산을 위해 만들어진 두 개의 VM인 **web&1;** 및 **web2**를 클릭합니다. 아래 이미지에 표시된 대로 있는 왼쪽의 파란색 확인 표시를 선택해야 합니다. **가상 컴퓨터 선택** 블레이드에서 확인을 클릭한 후 **선택**을 클릭한 다음 **백 엔드 풀 추가** 블레이드에서 **확인**을 클릭합니다.
 
     ![백 엔드 주소 풀에 추가 ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 
@@ -115,6 +115,6 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

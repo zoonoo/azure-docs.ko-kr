@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
-ms.openlocfilehash: 143e4a856a31a44a9ec909d07d5f24710a6e2803
+ms.sourcegitcommit: 86742dc7ee1429a0cdb23f4da3fa58341468afbc
+ms.openlocfilehash: 02ed9be91db6de7f27810fe6b91d8604425073ae
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.openlocfilehash: 143e4a856a31a44a9ec909d07d5f24710a6e2803
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
-![시나리오](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776788.png "Scenario")
+![시나리오](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776788.png "시나리오")
 
 ## <a name="enabling-the-application-integration-for-xmatters-ondemand"></a>xMatters OnDemand에 응용 프로그램 통합 사용
 이 섹션은 xMatters OnDemand에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -48,19 +49,19 @@ ms.openlocfilehash: 143e4a856a31a44a9ec909d07d5f24710a6e2803
 
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
-    ![응용 프로그램](./media/active-directory-saas-xmatters-ondemand-tutorial/IC700994.png "Applications")
+    ![응용 프로그램](./media/active-directory-saas-xmatters-ondemand-tutorial/IC700994.png "응용 프로그램")
 
 4. 페이지 맨 아래에 있는 **추가** 를 클릭합니다.
    
-    ![응용 프로그램 추가](./media/active-directory-saas-xmatters-ondemand-tutorial/IC749321.png "Add application")
+    ![응용 프로그램 추가](./media/active-directory-saas-xmatters-ondemand-tutorial/IC749321.png "응용 프로그램 추가")
 
 5. **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
    
-    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-xmatters-ondemand-tutorial/IC749322.png "Add an application from gallerry")
+    ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-xmatters-ondemand-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
 6. **검색 상자**에 **xMatters OnDemand**를 입력합니다.
    
-    ![응용 프로그램 갤러리](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776789.png "Application gallery")
+    ![응용 프로그램 갤러리](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776789.png "응용 프로그램 갤러리")
 
 7. 결과 창에서 **xMatters OnDemand**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
@@ -72,15 +73,15 @@ ms.openlocfilehash: 143e4a856a31a44a9ec909d07d5f24710a6e2803
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 1. Azure 클래식 포털의 **XMatters OnDemand** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776791.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776791.png "Single Sign-On 구성")
 
 2. **xMatters OnDemand에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776792.png "Configure single sign-on")
+    ![Single Sign-On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776792.png "Single Sign-On 구성")
 
 3. **앱 URL 구성** 페이지에서 다음 단계를 수행합니다.
    
-    ![앱 URL 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776793.png "Configure app URL")
+    ![앱 URL 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776793.png "앱 URL 구성")
    
     a. **XMatters OnDemand 로그인 URL** 텍스트 상자에서 `https://<tenant-name>.XMattersOnDemandapp.com` 패턴을 사용하여 URL을 입력합니다.
    
@@ -93,17 +94,17 @@ ms.openlocfilehash: 143e4a856a31a44a9ec909d07d5f24710a6e2803
     > 
     > 
    
-    ![Single Sign-On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776794.png "Configure single sign on")
+    ![Single Sign On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776794.png "Single Sign On 구성")
 
 5. 다른 웹 브라우저 창에서 xMatters OnDemand 회사 사이트에 관리자 권한으로 로그인합니다.
 
 6. 위쪽에 도구 모음에서 **관리자**를 클릭한 후 왼쪽 탐색 모음에서 **회사 세부 정보**를 클릭합니다.
    
-    ![관리자](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776795.png "Admin")
+    ![관리자](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776795.png "관리자")
 
 7. **SAML 구성** 페이지에서 다음 단계를 수행합니다.
    
-    ![SAML 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "SAML configuration")
+    ![SAML 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "SAML 구성")
    
     a. **SAML 사용**을 선택합니다.
    
@@ -115,11 +116,11 @@ ms.openlocfilehash: 143e4a856a31a44a9ec909d07d5f24710a6e2803
    
     e. 회사 상세 정보 페이지 위쪽에서 **변경 내용 저장**을 클릭합니다.
     
-    ![회사 세부 정보](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Company details")
+    ![회사 상세 정보](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "회사 상세 정보")
 
 8. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
-    ![Single Sign On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776798.png "Configure single sign on")
+    ![Single Sign On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776798.png "Single Sign On 구성")
 
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 Azure AD 사용자가 XMatters OnDemand에 로그인할 수 있도록 하려면 XMatters OnDemand로 프로비전되어야 합니다.  
@@ -132,13 +133,13 @@ XMatters OnDemand의 경우 프로비전은 수동 작업입니다.
 
 3. **사용자 추가**를 클릭합니다.
   
-    ![사용자](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "Users")
+    ![사용자](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "사용자")
 
 4. **활성**을 선택합니다.
 
 5. **사용자 추가** 섹션에서 다음 단계를 수행합니다.
    
-    ![사용자 추가](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "Add a User")
+    ![사용자 추가](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "사용자 추가")
    
     a. 프로비전하려는 유효한 AAD 계정의 **사용자 ID**, **이름**, **성** 및 **사이트**를 입력합니다.
     
@@ -153,17 +154,12 @@ XMatters OnDemand의 경우 프로비전은 수동 작업입니다.
 
 2. **XMatters OnDemand** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
-    ![사용자 할당](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776799.png "Assign users")
+    ![사용자 할당](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776799.png "사용자 할당")
 
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
-    ![예](./media/active-directory-saas-xmatters-ondemand-tutorial/IC767830.png "Yes")
+    ![예](./media/active-directory-saas-xmatters-ondemand-tutorial/IC767830.png "예")
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

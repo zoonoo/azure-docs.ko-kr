@@ -16,42 +16,28 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
+ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
+ms.openlocfilehash: bd3aea04266baebbba1b953d5a2b7c4b2fb41a87
+ms.lasthandoff: 03/28/2017
 
 
 ---
 # <a name="overview-sql-database-active-geo-replication"></a>개요: SQL 데이터베이스 활성 지역 복제
-활성 지역 복제를 사용하면 동일하거나 다른 데이터 센터 위치(하위 지역)에 최대&4;개의 읽기 기능한 보조 데이터베이스를 구성할 수 있습니다. 데이터 센터 정전 또는 주 데이터베이스에 연결하지 못하는 경우 쿼리 및 장애 조치(failover)에 보조 데이터베이스를 사용할 수 있습니다. 활성 지역 복제는 동일한 구독 내에 있는 데이터베이스 간에 수행되어야 합니다.
+활성 지역 복제를 사용하면 동일하거나 다른 데이터 센터 위치(하위 지역)에 최대 4개의 읽기 기능한 보조 데이터베이스를 구성할 수 있습니다. 데이터 센터 정전 또는 주 데이터베이스에 연결하지 못하는 경우 쿼리 및 장애 조치(failover)에 보조 데이터베이스를 사용할 수 있습니다. 활성 지역 복제는 동일한 구독 내에 있는 데이터베이스 간에 수행되어야 합니다.
 
 > [!NOTE]
 > 현재 활성 지역 복제(읽기 가능한 보조)는 모든 서비스 계층에 있는 모든 데이터베이스에 대해 사용 가능합니다. 2017년 4월부로 읽을 수 없는 보조 유형은 사용 중지되며 기존의 읽을 수 없는 데이터베이스는 읽을 수 있는 보조 데이터베이스로 자동으로 업그레이드됩니다.
-> 
-> 
+>  
 
  [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md) 또는 [REST API - 데이터베이스 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt163685.aspx)를 사용하여 활성 지역 복제를 구성할 수 있습니다.
 
-> [!div class="op_single_selector"]
-> * [구성: Azure 포털](sql-database-geo-replication-portal.md)
-> * [구성: PowerShell](sql-database-geo-replication-powershell.md)
-> * [구성: T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
-
 어떠한 이유로 주 데이터베이스가 실패하거나 단순히 오프라인으로 전환해야 하는 경우 보조 데이터베이스로 *장애 조치* 할 수 있습니다. 장애 조치가 보조 데이터베이스 중 하나로 활성화된 경우 모든 다른 보조가 새 보조로 자동으로 연결됩니다.
 
-[Azure Portal](sql-database-geo-replication-failover-portal.md), [PowerShell](sql-database-geo-replication-failover-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [REST API - 계획된 장애 조치(failover)](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) 또는 [REST API - 계획되지 않은 장애 조치(Failover)](https://msdn.microsoft.com/library/azure/mt582027.aspx)를 사용하여 보조 데이터베이스로 장애 조치할 수 있습니다.
-
-> [!div class="op_single_selector"]
-> * [장애 조치: Azure 포털](sql-database-geo-replication-failover-portal.md)
-> * [장애 조치: PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [장애 조치: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
+[Azure Portal](sql-database-geo-replication-failover-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [REST API - 계획된 장애 조치(failover)](https://msdn.microsoft.com/library/mt575007.aspx) 또는 [REST API - 계획되지 않은 장애 조치(Failover)](https://msdn.microsoft.com/library/mt582027.aspx)를 사용하여 보조 데이터베이스로 장애 조치할 수 있습니다.
 
 장애 조치(failover) 후에는 새로운 주 데이터베이스에서 서버 및 데이터베이스의 인증 요구 사항이 구성되어 있는지 확인합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
 
-활성 지역 복제 기능은 매커니즘을 구현하여 동일한 Microsoft Azure 지역이나 다른 지역(지역 중복)에서 데이터베이스 중복을 제공합니다. 활성 지역 복제는 데이터베이스에서 커밋된 트랜잭션을 서로 다른 서버의 최대&4;개의 데이터베이스 복사본으로 비동기적으로 복제하고 격리를 위해 RCSI(읽기 커밋된 스냅숏 격리)를 사용합니다. 활성 지역 복제가 구성되면 지정된 서버에 보조 데이터베이스가 생성됩니다. 원본 데이터베이스는 주 데이터베이스가 됩니다. 주 데이터베이스는 커밋된 트랜잭션을 각 보조 데이터베이스로 비동기적으로 복제합니다. 전체 트랜잭션만 복제됩니다. 지정된 지점에서 보조 데이터베이스는 주 데이터베이스보다 약간 뒤에 있을 수 있는 반면 보조 데이터는 절대 부분 트랜잭션을 갖지 않습니다. 특정 RPO 데이터를 [비즈니스 연속성 개요](sql-database-business-continuity.md)에서 찾을 수 있습니다.
+활성 지역 복제 기능은 매커니즘을 구현하여 동일한 Microsoft Azure 지역이나 다른 지역(지역 중복)에서 데이터베이스 중복을 제공합니다. 활성 지역 복제는 데이터베이스에서 커밋된 트랜잭션을 서로 다른 서버의 최대 4개의 데이터베이스 복사본으로 비동기적으로 복제하고 격리를 위해 RCSI(읽기 커밋된 스냅숏 격리)를 사용합니다. 활성 지역 복제가 구성되면 지정된 서버에 보조 데이터베이스가 생성됩니다. 원본 데이터베이스는 주 데이터베이스가 됩니다. 주 데이터베이스는 커밋된 트랜잭션을 각 보조 데이터베이스로 비동기적으로 복제합니다. 전체 트랜잭션만 복제됩니다. 지정된 지점에서 보조 데이터베이스는 주 데이터베이스보다 약간 뒤에 있을 수 있는 반면 보조 데이터는 절대 부분 트랜잭션을 갖지 않습니다. 특정 RPO 데이터를 [비즈니스 연속성 개요](sql-database-business-continuity.md)에서 찾을 수 있습니다.
 
 활성 지역 복제의 주요 이점 중 하나는 복구 시간이 짧은 데이터베이스 수준 재해 복구 솔루션을 제공한다는 것입니다. 다른 지역의 서버에 보조 데이터베이스를 배치하면 응용 프로그램의 복원력이 극대화됩니다. 지역 간 중복을 사용하면 자연 재해, 치명적인 사람의 실수 또는 악의적 행동으로 인해 데이터 센터의 일부 또는 전체가 영구적으로 손실되더라도 응용 프로그램을 복구할 수 있습니다. 다음 그림은 미국 중북부 지역에 주 데이터베이스, 미국 중남부 지역에 보조 데이터베이스가 구성된 활성 지역 복제의 예입니다.
 
@@ -102,7 +88,7 @@ ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
 * **Azure Resource Manager API 및 역할 기반 보안**: 활성 지역 복제는 [Azure Resource Manager 기반 PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt163571.aspx)을 포함하여 관리용 [Azure Resource Manager API](sql-database-geo-replication-powershell.md)를 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 > [!NOTE]
-> 활성 지역 복제의 여러 새로운 기능은 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 기반 [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) 및 [Azure SQL Database PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)에서만 지원됩니다. 이전 버전과의 호환성을 위해 (클래식) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) 및 [Azure SQL Database(클래식) cmdlet](https://msdn.microsoft.com/library/azure/dn546723.aspx)이 지원되므로 Azure Resource Manager 기반 API를 사용하는 것이 좋습니다. 
+> 활성 지역 복제의 여러 새로운 기능은 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 기반 [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) 및 [Azure SQL Database PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)에서만 지원됩니다. 이전 버전과의 호환성을 위해 [(클래식) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) 및 [Azure SQL Database(클래식) cmdlet](https://msdn.microsoft.com/library/azure/dn546723.aspx)이 지원되므로 Azure Resource Manager 기반 API를 사용하는 것이 좋습니다. 
 > 
 > 
 
@@ -121,10 +107,10 @@ ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
 ### <a name="powershell"></a>PowerShell
 | Cmdlet | 설명 |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/azure/mt603648.aspx) |하나 이상의 데이터베이스를 가져옵니다. |
+| [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx) |하나 이상의 데이터베이스를 가져옵니다. |
 | [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |
-| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt619393.aspx) |장애 조치를 시작하기 위해 보조 데이터베이스로 전환합니다. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/en-us/library/mt603457.aspx) |SQL 데이터베이스와 지정된 보조 데이터베이스 간의 데이터 복제를 종료합니다. |
+| [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx) |장애 조치를 시작하기 위해 보조 데이터베이스로 전환합니다. |
+| [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) |SQL 데이터베이스와 지정된 보조 데이터베이스 간의 데이터 복제를 종료합니다. |
 | [Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) |Azure SQL 데이터베이스와 리소스 그룹 또는 SQL Server 간의 지역에서 복제 링크를 가져옵니다. |
 |  | |
 
@@ -133,7 +119,7 @@ ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
 | --- | --- |
 | [데이터베이스 생성 또는 업데이트(createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx) |주 보조 데이터베이스 또는 보조 데이터베이스를 만들거나, 업데이트하거나, 복원합니다. |
 | [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://msdn.microsoft.com/library/azure/mt643934.aspx) |만들기 작업 동안 상태를 반환합니다. |
-| [보조 데이터베이스를 주 데이터베이스로 설정(계획된 장애 조치(Failover))](https://msdn.microsoft.com/ibrary/azure/mt575007.aspx) |지역에서 복제 파트너 관계의 보조 데이터베이스를 새로운 주 데이터베이스로 승격합니다. |
+| [보조 데이터베이스를 주 데이터베이스로 설정(계획된 장애 조치(Failover))](https://msdn.microsoft.com/library/azure/mt575007.aspx) |지역에서 복제 파트너 관계의 보조 데이터베이스를 새로운 주 데이터베이스로 승격합니다. |
 | [보조 데이터베이스를 주 데이터베이스로 설정(계획되지 않은 장애 조치(Failover))](https://msdn.microsoft.com/library/azure/mt582027.aspx) |강제로 보조 데이터베이스로 장애 조치하고 보조 데이터베이스를 주 데이터베이스로 설정합니다. |
 | [복제 링크 가져오기](https://msdn.microsoft.com/library/azure/mt600929.aspx) |지역에서 복제 파트너 관계의 지정된 SQL 데이터베이스에 대한 모든 복제 링크를 가져옵니다. sys.geo_replication_links 카탈로그 뷰에 표시되는 정보를 검색합니다. |
 | [복제 링크 가져오기](https://msdn.microsoft.com/library/azure/mt600778.aspx) |지역에서 복제 파트너 관계의 지정된 SQL 데이터베이스에 대한 특정 복제 링크를 가져옵니다. sys.geo_replication_links 카탈로그 뷰에 표시되는 정보를 검색합니다. |
@@ -145,10 +131,5 @@ ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
 * 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 * 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)를 참조하세요.
 * 새로운 주 서버 및 데이터베이스의 인증 요구 사항에 대해 알아보려면 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

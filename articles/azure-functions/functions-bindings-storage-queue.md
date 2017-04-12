@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
-ms.author: chrande
+ms.date: 01/18/2017
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 36cf563a8318acb9371c48ba7d29e24694446e45
+ms.sourcegitcommit: 770cac8809ab9f3d6261140333ec789ee1390daf
+ms.openlocfilehash: bf9bd2a1b5acdf5a4a4f862bef693f8c60c63a33
 
 
 ---
@@ -46,12 +46,12 @@ Azure Storage 큐 트리거를 사용하면 새 메시지에 대한 저장소 �
 }
 ```
 
-`connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성]()을 참조하세요.
+`connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 저장소 계정을 만들거나 기존 계정을 선택할 때 **통합** 탭에서 이 앱 설정을 구성할 수 있습니다. 이 앱 설정을 수동으로 만들려면 [App Service 설정 관리](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)를 참조하세요.
 
 host.json 파일에 [추가 설정](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json)을 입력하여 저장소 큐 트리거를 더욱 세밀하게 조정할 수 있습니다.  
 
 ### <a name="handling-poison-queue-messages"></a>포이즌 큐 메시지 처리
-큐 트리거 함수가 실패하는 경우 Azure Functions는 해당 함수를 지정된 큐 메시지에 대해 기본적으로 최대 5번(첫 번째 시도 포함) 다시 시도합니다. 5번 모두 실패할 경우 함수는 메시지를 *&lt;originalqueuename>-poison*이라는 Storage 큐에 추가합니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다. 
+큐 트리거 함수가 실패하는 경우 Azure Functions는 해당 함수를 지정된 큐 메시지에 대해 최대&5;번(첫 번째 시도 포함) 다시 시도합니다. 5번 모두 실패할 경우 Functions는 *&lt;originalqueuename>-poison*이라는 Storage 큐에 메시지를 추가합니다. 메시지를 기록하거나 수동 작업이 필요하다는 알림을 보내 포이즌 큐의 메시지를 처리하는 함수를 작성할 수 있습니다. 
 
 포이즌 메시지를 수동으로 처리하려는 경우 `dequeueCount`을 확인하여 처리를 위해 메시지를 선택한 횟수를 가져올 수 있습니다([큐 트리거 메타데이터](#meta) 참조).
 
@@ -63,11 +63,10 @@ C# 함수에서 `<T> <name>`같은 함수 시그니처의 명명된 매개 변�
 
 큐 메시지를 다음 중 원하는 형식으로 역직렬화할 수 있습니다.
 
-* 모든 [개체](https://msdn.microsoft.com/library/system.object.aspx) - JSON 직렬화 메시지에 유용합니다.
-  사용자 지정 입력 형식을 선언하는 경우(예: `FooType`), Azure Functions에서 지정된 형식에 JSON 데이터를 deserialize하려고 시도합니다.
-* 문자열
-* 바이트 배열 
-* `CloudQueueMessage` (C#) 
+* [개체](https://msdn.microsoft.com/library/system.object.aspx) - JSON 직렬화 메시지에 사용됩니다. 사용자 지정 입력 유형을 선언하면 런타임에서 JSON 개체를 deserialize하려고 시도합니다. 
+* string
+* 바이트 배열
+* [CloudQueueMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.aspx)(C#만 해당)
 
 <a name="meta"></a>
 
@@ -148,7 +147,7 @@ public static void Run(string myQueueItem,
 
 ```javascript
 module.exports = function (context) {
-    context.log('Node.js queue trigger function processed work item' context.bindings.myQueueItem);
+    context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
     context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
@@ -177,45 +176,46 @@ Azure Storage 큐 출력 바인딩을 사용하면 메시지를 함수의 Storag
 }
 ```
 
-`connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성]()을 참조하세요.
+`connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [App Service 설정 관리](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)를 참조하세요.
 
 <a name="outputusage"></a>
 
 ## <a name="output-usage"></a>출력 사용
-C# 함수에서 `out <T> <name>`같은 함수 시그니처의 명명된 `out` 매개 변수를 사용하여 큐 메시지를 작성합니다. 여기서 `T`는 메시지를 직렬화하려는 데이터 형식이며, `paramName`은 [출력 바인딩](#output)에서 사용자가 지정한 이름입니다. Node.js 함수에서 `context.bindings.<name>`을 사용하여 출력에 액세스합니다.
+C# 함수에서는 `out <T> <name>` 같은 함수 시그니처의 명명된 `out` 매개 변수를 사용하여 큐 메시지를 씁니다. 여기서 `T`는 메시지를 직렬화하려는 데이터 형식이고, `paramName`은 [출력 바인딩](#output)에서 사용자가 지정한 이름입니다. Node.js 함수에서 `context.bindings.<name>`을 사용하여 출력에 액세스합니다.
 
 코드의 데이터 형식 중 하나를 사용하여 큐 메시지를 출력할 수 있습니다.
 
-* 모든 [개체](https://msdn.microsoft.com/library/system.object.aspx)는 JSON 직렬화에 유용합니다.
-  사용자 지정 출력 형식을 선언하는 경우(예: `out FooType paramName`), Azure Functions에서 개체를 JSON으로 직렬화하려고 시도합니다. 함수가 종료될 때 출력 매개 변수가 null이면 Functions 런타임은 큐 메시지를 null 개체로 만듭니다.
-* 문자열 - (`out string paramName`)은 테스트 메시지에 유용합니다. Functions 런타임은 함수가 종료될 때 문자열 매개 변수가 null이 아닌 경우에만 메시지를 생성합니다.
-* 바이트 배열 - (`out byte[]`) 
-* `out CloudQueueMessage` - C#에만 해당 
+* 모든 [개체](https://msdn.microsoft.com/library/system.object.aspx): `out MyCustomType paramName`  
+JSON 직렬화에 사용됩니다.  사용자 지정 출력 유형을 선언하면 런타임에서 개체를 JSON으로 직렬화하려고 시도합니다. 함수가 종료될 때 출력 매개 변수가 null이면 런타임에서 null 개체로 큐 메시지를 만듭니다.
+* 문자열: `out string paramName`  
+테스트 메시지에 사용됩니다. 런타임은 함수가 종료될 때 문자열 매개 변수가 null이 아닌 경우에만 메시지를 생성합니다.
+* 바이트 배열: `out byte[]` 
 
-C#에서 `ICollector<T>` 또는 `IAsyncCollector<T>`에 바인딩할 수 있으며, 여기서 `T`는 지원되는 형식 중 하나입니다.
+다음은 C# 함수에서 지원되는 추가 출력 유형입니다.
+
+* [CloudQueueMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.aspx): `out CloudQueueMessage` 
+* `ICollector<T>` 또는 `IAsyncCollector<T>` 여기서 `T`은 지원되는 유형 중 하나입니다.
 
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>출력 샘플
 [Storage 큐 트리거](functions-bindings-storage-queue.md), Storage Blob 입력 및 Storage Blob 출력을 정의하는 다음과 같은 function.json이 있다고 가정합니다.
 
-큐 트리거를 사용하고 큐 메시지를 쓰는 저장소 큐 출력 바인딩에 대한 *function.json* 예제:
+수동 트리거를 사용하고 큐 메시지에 입력을 쓰는 저장소 큐 출력 바인딩에 대한 *function.json* 예제:
 
 ```json
 {
   "bindings": [
     {
-      "name": "myQueueItem",
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
-      "type": "queueTrigger",
-      "direction": "in"
+      "type": "manualTrigger",
+      "direction": "in",
+      "name": "input"
     },
     {
-      "name": "myQueue",
-      "queueName": "samples-workitems-out",
-      "connection": "MyStorageConnection",
       "type": "queue",
+      "name": "myQueueItem",
+      "queueName": "myqueue",
+      "connection": "my_storage_connection",
       "direction": "out"
     }
   ],
@@ -233,19 +233,19 @@ C#에서 `ICollector<T>` 또는 `IAsyncCollector<T>`에 바인딩할 수 있으�
 ### <a name="output-sample-in-c"></a>C에서 출력 샘플# #
 
 ```cs
-public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
+public static void Run(string input, out string myQueueItem, TraceWriter log)
 {
-    myQueue = myQueueItem + "(next step)";
+    myQueueItem = "New message: " + input;
 }
 ```
 
 또는 여러 메시지를 전송하려면 다음을 수행합니다.
 
 ```cs
-public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
+public static void Run(string input, ICollector<string> myQueueItem, TraceWriter log)
 {
-    myQueue.Add(myQueueItem + "(step 1)");
-    myQueue.Add(myQueueItem + "(step 2)");
+    myQueueItem.Add("Message 1: " + input);
+    myQueueItem.Add("Message 2: " + "Some other message.");
 }
 ```
 
@@ -263,7 +263,8 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 ```javascript
 module.exports = function(context) {
-    context.bindings.myQueue = context.bindings.myQueueItem + "(next step)";
+    // Define a new message for the myQueueItem output binding.
+    context.bindings.myQueueItem = "new message";
     context.done();
 };
 ```
@@ -272,20 +273,21 @@ module.exports = function(context) {
 
 ```javascript
 module.exports = function(context) {
-    context.bindings.myQueue = [];
-
-    context.bindings.myQueueItem.push("(step 1)");
-    context.bindings.myQueueItem.push("(step 2)");
+    // Define a message array for the myQueueItem output binding. 
+    context.bindings.myQueueItem = ["message 1","message 2"];
     context.done();
 };
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
+Storage 큐 트리거 및 바인딩을 사용하는 함수의 예제는 [Azure 서비스에 연결된 Azure Function 만들기](functions-create-an-azure-connected-function.md)를 참조하세요.
+
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

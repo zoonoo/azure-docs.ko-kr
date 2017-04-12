@@ -3,7 +3,7 @@ title: "Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법 | Micro
 description: "내부 네트워크에 연결되는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: 08ea0ce3-3a2c-4ddf-9394-6d75c8030cb1
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 79434166999d4f847f28cf6a05a21f1cd002d75f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 15430904979108cbebe4a64a8ae07f2f01b82690
 
 
 ---
@@ -51,7 +51,7 @@ ms.openlocfilehash: 79434166999d4f847f28cf6a05a21f1cd002d75f
 * [등록](https://azure.microsoft.com/services/remoteapp/) 합니다.
 * Azure RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다.
 * 온-프레미스 네트워크에 대한 정보 수집: IP 주소 정보 및 VPN 장치 세부 정보입니다.
-* [Azure PowerShell](../powershell-install-configure.md) 모듈을 설치합니다.
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs) 모듈을 설치합니다.
 * 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 사용자마다 하나의 Azure Active Directory 사용자 계정 이름(예: name@contoso.com))이 필요합니다. Azure AD와 Active Directory 간에 UPN이 일치하는지 확인합니다.
 * 템플릿 이미지를 선택합니다. Azure RemoteApp 템플릿 이미지는 사용자를 위해 게시하려는 앱 및 프로그램을 포함합니다. 자세한 내용은 [Azure RemoteApp 이미지 옵션](remoteapp-imageoptions.md) 을 참조하세요.
 * Office 365 ProPlus 이미지를 사용하려고 하나요? [여기](remoteapp-officesubscription.md)서 정보를 확인하세요.
@@ -126,7 +126,7 @@ Azure RemoteApp 앱은 사용자에게 제공하는 앱 또는 프로그램입�
    
    **참고:**
    
-   “user@domain.com” 형식을 사용해야 합니다.
+   *user@domain.com* 형식을 사용해야 합니다.
    
    컬렉션에서 Office 365 ProPlus를 사용하는 경우 사용자에 대해 Active Directory ID를 사용해야 합니다. 그러면 라이선스 유효성 검사에 도움이 됩니다.
 3. 사용자가 확인되면 **저장**을 클릭합니다.
@@ -140,6 +140,6 @@ Azure RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

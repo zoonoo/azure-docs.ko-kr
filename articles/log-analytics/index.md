@@ -1,9 +1,21 @@
 ---
-layout: LandingPage
+title: "Azure Log Analytics 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Log Analytics를 사용하여 실제 위치에 관계 없이 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성된 데이터를 수집하고 분석하는 방법에 대해 알아봅니다."
+services: log-analytics
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: log-analytics
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ffb5ebc79807a81e53c2bca3fa5672a11e777663
+ms.sourcegitcommit: b44e02d3e22722c05adce10c3b527adf9be20f00
+ms.openlocfilehash: 9d5d1ada86a2cb1b6f6f70d9c662708f81b5bcc6
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -13,7 +25,7 @@ Operations Management Suite에서 Log Analytics를 사용하여 클라우드 및
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/log-analytics/log-analytics-overview">
+      <a href="/azure/log-analytics/log-analytics-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -84,12 +96,19 @@ Operations Management Suite에서 Log Analytics를 사용하여 클라우드 및
             </div>
         </div>
     </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (영문)</h3>
+                        <p><a href="/rest/api/loganalytics">REST API 참조</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li> 
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

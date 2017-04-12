@@ -1,9 +1,9 @@
 ---
-title: "PIM의 역할 | Microsoft Docs"
+title: "Azure AD Privileged Identity Management의 역할 | Microsoft Docs"
 description: "Azure 권위 있는 ID 관리 확장을 사용하여 권한 있는 ID에 사용되는 역할을 알아봅니다."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/01/2016
-ms.author: kgremban
+ms.date: 02/27/2017
+ms.author: billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0831755c619fb33c49a6df87141ca3a0a4714f71
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: be32a7125807905f12699dba92b260d80ac2c4de
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="roles-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management의 역할
+# <a name="different-administrative-role-in-azure-active-directory-pim"></a>Azure Active Directory PIM의 다른 관리자 역할
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 조직의 사용자를 Azure AD의 다른 관리 역할에 할당할 수 있습니다. 이러한 역할 할당은 사용자를 추가 또는 제거하거나 서비스 설정을 변경하는 등 사용자가 Azure AD, Office 365, 기타 Microsoft Online Services, 연결된 응용 프로그램에서 수행할 수 있는 작업을 제어합니다.  
@@ -63,7 +64,7 @@ PIM에서는 사용자가 [필요할 때 역할을 활성화](active-directory-p
 ## <a name="roles-not-managed-in-pim"></a>PIM에서 관리되지 않는 역할
 위에서 언급한 것을 제외하고 Exchange Online 또는 SharePoint Online 내에 있는 역할은 Azure AD에 표시되지 않으므로 PIM에서 볼 수 없습니다. 이러한 Office 365 서비스에서 세분화된 역할 할당 변경에 대한 자세한 내용은 [Office 365의 사용 권한](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d)을 참조하세요.
 
-Azure 구독 및 리소스 그룹도 Azure AD에 표시되지 않습니다. Azure 구독을 관리하려면 [Azure 관리자 역할을 추가하거나 변경하는 방법](../billing-add-change-azure-subscription-administrator.md)을 참조하고, Azure RBAC에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+Azure 구독 및 리소스 그룹도 Azure AD에 표시되지 않습니다. Azure 구독을 관리하려면 [Azure 관리자 역할을 추가하거나 변경하는 방법](../billing/billing-add-change-azure-subscription-administrator.md)을 참조하고, Azure RBAC에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
@@ -71,7 +72,7 @@ Azure 구독 및 리소스 그룹도 Azure AD에 표시되지 않습니다. Azur
 ## <a name="user-roles-and-signing-in"></a>사용자 역할 및 로그인
 일부 Microsoft 서비스 및 응용 프로그램의 경우 사용자를 역할에 할당하는 방법만으로 사용자를 관리자로 지정하지 못할 수 있습니다.
 
-Azure 클래식 포털에 액세스하려면 사용자가 Azure 구독을 관리하지 않더라도 사용자는 서비스 관리자이거나 Azure 구독에서 공동 관리자여야 합니다.  예를 들어 클래식 포털에서 Azure AD에 대한 구성 설정을 관리하려면 사용자는 Azure AD의 전역 관리자이고 Azure 구독에서 구독 공동 관리자여야 합니다.  Azure 구독에 사용자를 추가하는 방법을 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing-add-change-azure-subscription-administrator.md)을 참조하세요.
+Azure 클래식 포털에 액세스하려면 사용자가 Azure 구독을 관리하지 않더라도 사용자는 서비스 관리자이거나 Azure 구독에서 공동 관리자여야 합니다.  예를 들어 클래식 포털에서 Azure AD에 대한 구성 설정을 관리하려면 사용자는 Azure AD의 전역 관리자이고 Azure 구독에서 구독 공동 관리자여야 합니다.  Azure 구독에 사용자를 추가하는 방법을 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing/billing-add-change-azure-subscription-administrator.md)을 참조하세요.
 
 Microsoft Online Services에 액세스하려면 서비스 포털을 열거나 관리 작업을 수행하기 전에 사용자에게 라이선스도 할당되어야 합니다.
 
@@ -88,10 +89,5 @@ Microsoft Online Services에 액세스하려면 서비스 포털을 열거나 �
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

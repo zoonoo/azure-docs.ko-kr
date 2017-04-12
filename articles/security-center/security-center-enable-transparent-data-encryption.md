@@ -1,6 +1,6 @@
 ---
 title: "Azure Security Center에서 투명한 데이터 암호화 사용 | Microsoft Docs"
-description: "이 문서에서는 Azure 보안 센터 권장 사항 **투명한 데이터 암호화 사용**을 구현하는 방법을 보여 줍니다."
+description: "이 문서에서는 Azure Security Center 권장 사항 **투명한 데이터 암호화 사용**을 구현하는 방법을 보여 줍니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6944454190d2744cd7cd9a25d9876c5c7427b5f8
+ms.sourcegitcommit: f532f1aea9b8c4be6707862be4001099aa3c1d32
+ms.openlocfilehash: 2a2963affdbff3710ad08f86c6ed4e6304335559
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -27,8 +28,8 @@ ms.openlocfilehash: 6944454190d2744cd7cd9a25d9876c5c7427b5f8
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다.  단계별 가이드는 아닙니다.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
 1. **권장 사항** 블레이드에서 **투명한 데이터 암호화 사용**을 선택합니다.
@@ -37,9 +38,9 @@ ms.openlocfilehash: 6944454190d2744cd7cd9a25d9876c5c7427b5f8
    ![SQL DB를 선택하여 TDE 활성화][2]
 3. **투명한 데이터 암호화** 블레이드의 데이터 암호화에서 **켜기**를 선택하고 블레이드의 위쪽 리본에서 **저장**을 선택합니다.
    ![TDE 켜기][3]
-   
+
    선택한 SQL Database에서 TDE가 사용되도록 설정되면 **암호화 상태**가 **암호화됨**으로 변경됩니다.    
-   
+
    ![암호화 상태][4]
 
 ## <a name="see-also"></a>참고 항목
@@ -63,9 +64,4 @@ ms.openlocfilehash: 6944454190d2744cd7cd9a25d9876c5c7427b5f8
 [2]:./media/security-center-enable-tde-on-sql-databases/transparent-data-encryption-blade.png
 [3]: ./media/security-center-enable-tde-on-sql-databases/turn-on-tde.png
 [4]: ./media/security-center-enable-tde-on-sql-databases/encrypted.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

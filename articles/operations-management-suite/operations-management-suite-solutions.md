@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 03/01/2017
 ms.author: bwren
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: d6bf108a4d03855171d2b9c5552c57f8ee6f1f9b
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 2443dd73fdf441721bd6f6f340da515d9f5a22a2
+ms.lasthandoff: 03/22/2017
 
 
 ---
-# <a name="management-solutions-in-operations-management-suite-oms-preview"></a>OMS(Operations Management Suite)(Preview)의 관리 솔루션
+# <a name="working-with-management-solutions-in-operations-management-suite-oms-preview"></a>OMS(Operations Management Suite)(미리 보기)에서 관리 솔루션 사용
 > [!NOTE]
 > 현재 Preview로 제공되는 OMS의 관리 솔루션에 대한 예비 설명서입니다.    
 > 
@@ -112,10 +114,5 @@ OMS 포털을 사용하면 현재 작업 영역에 설치된 Microsoft 솔루션
 ## <a name="next-steps"></a>다음 단계
 * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates)에서 다양한 Resource Manager 템플릿 샘플을 검색합니다.
 * 자신만의 [관리 솔루션](operations-management-suite-solutions-creating.md)을 만듭니다.
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

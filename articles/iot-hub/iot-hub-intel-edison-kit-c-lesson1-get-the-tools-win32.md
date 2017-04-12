@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 시작 키트(Windows 7 이상)에 대한 도구 받기 | Microsoft Docs"
+title: "Azure IoT에 Intel Edison(C) 연결 - 단원 1: 도구 다운로드(Windows) | Microsoft Docs"
 description: "Windows 7 이상 버전에 Edison의 첫 번째 샘플 응용 프로그램에 필요한 도구 및 소프트웨어를 다운로드하여 설치합니다."
 services: iot-hub
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/8/2016
+ms.date: 3/21/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: 111018da51823f928e7f2b815db8621ecda65025
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 79dcbe8cbefe4f607991359fbfc6948b5e90ace9
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -88,9 +89,4 @@ Visual Studio Code를 [다운로드](https://code.visualstudio.com/docs/setup/wi
 [windows]: iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md
 [ubuntu]: iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md
 [macos]: iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

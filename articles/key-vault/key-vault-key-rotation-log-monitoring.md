@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
 translationtype: Human Translation
-ms.sourcegitcommit: 4115a3638519896c3710ddc33dd0caa2e8d9d720
-ms.openlocfilehash: 05e33c56e6aa6bedfa2e6b8ff18fe182d87ed80e
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: cc872e8d9bc0662f46d5f394f9c98885e34fe67a
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -247,7 +248,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id
 로깅이 활성화되면 감사 로그가 지정된 저장소 계정으로 수집하기 시작합니다. 이러한 로그에는 Key Vault를 어떻게, 언제, 누가 액세스하는지에 대한 이벤트가 포함됩니다.
 
 > [!NOTE]
-> Key Vault 작업 후 10분 내에 로깅 정보에 액세스할 수 있습니다. 이 시간은 일반적으로 10분보다 짧습니다.
+> Key Vault 작업 후 10분 내에 로깅 정보에 액세스할 수 있습니다. 이 시간은 일반적으로&10;분보다 짧습니다.
 >
 >
 
@@ -411,12 +412,12 @@ project.json이라는 파일에 다음 콘텐츠를 추가합니다.
 
 *Azure Blob Storage* 형식의 출력을 추가합니다. 이렇게 하면 입력에서 방금 정의한 sync.txt 파일을 가리키게 됩니다. 이 파일은 함수에서 확인하는 최신 이벤트의 타임스탬프를 작성하는 데 사용됩니다. 위의 코드에서는 이 매개 변수를 *outputBlob*이라고 합니다.
 
-이제 함수가 준비되었습니다. 다시 **개발** 탭으로 전환하고 코드를 저장합니다. 출력 창에서 컴파일 오류를 확인하고 적절히 수정합니다. 코드가 컴파일되면 해당 코드는 이제 1분마다 Key Vault 로그를 확인하고 모든 새 이벤트를 정의된 Service Bus 큐에 푸시합니다. 함수가 트리거될 때마다 로깅 정보가 로그 창에 기록되는 것이 보입니다.
+이제 함수가 준비되었습니다. 다시 **개발** 탭으로 전환하고 코드를 저장합니다. 출력 창에서 컴파일 오류를 확인하고 적절히 수정합니다. 코드가 컴파일되면 해당 코드는 이제&1;분마다 Key Vault 로그를 확인하고 모든 새 이벤트를 정의된 Service Bus 큐에 푸시합니다. 함수가 트리거될 때마다 로깅 정보가 로그 창에 기록되는 것이 보입니다.
 
 ### <a name="azure-logic-app"></a>Azure 논리 앱
 다음으로 함수가 Service Bus 큐에 푸시하는 이벤트를 선택하고 콘텐츠를 구문 분석한 후 일치하는 조건에 따라 전자 메일을 보내는 Azure 논리 앱을 만들어야 합니다.
 
-**새로 만들기 -> 논리 앱**으로 이동하여 [논리 앱을 만듭니다](../app-service-logic/app-service-logic-create-a-logic-app.md).
+**새로 만들기 -> 논리 앱**으로 이동하여 [논리 앱을 만듭니다](../logic-apps/logic-apps-create-a-logic-app.md).
 
 논리 앱을 만들었으면 해당 논리 앱으로 이동하여 **편집**을 선택합니다. 논리 앱 편집기 내에서 **Service Bus 큐**를 선택하고 큐에 연결하기 위한 Service Bus 자격 증명을 입력합니다.
 
@@ -436,10 +437,5 @@ project.json이라는 파일에 다음 콘텐츠를 추가합니다.
 
 작업의 경우 **Office 365 - 전자 메일 보내기**를 선택합니다. 정의된 조건에서 **false**를 반환하는 경우 보낼 전자 메일을 작성하도록 필드를 채웁니다. Office 365가 없는 경우 같은 결과를 얻을 수 있는 대안을 살펴볼 수 있습니다.
 
-현재는 1분마다 새로운 Key Vault 감사 로그를 확인하는 종단 간 파이프라인이 있습니다. 이 파이프라인은 새 로그가 발견되면 Service Bus 큐에 푸시합니다. 새 메시지가 큐에 도착하면 논리 앱이 트리거됩니다. 이벤트 내의 *appid*가 호출 응용 프로그램의 앱 ID와 일치하지 않으면 전자 메일이 발송됩니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+현재는&1;분마다 새로운 Key Vault 감사 로그를 확인하는 종단 간 파이프라인이 있습니다. 이 파이프라인은 새 로그가 발견되면 Service Bus 큐에 푸시합니다. 새 메시지가 큐에 도착하면 논리 앱이 트리거됩니다. 이벤트 내의 *appid*가 호출 응용 프로그램의 앱 ID와 일치하지 않으면 전자 메일이 발송됩니다.
 

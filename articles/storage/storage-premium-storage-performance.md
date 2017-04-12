@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 3aa4f497a928fe4bb894f01202b116429e6f5649
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 69fbac5acdc812917d1e022d19768a8d72955783
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -36,7 +37,7 @@ ms.openlocfilehash: 3aa4f497a928fe4bb894f01202b116429e6f5649
 
 프리미엄 저장소에서 실행되는 작업은 성능이 매우 중요하므로 특별히 프리미엄 저장소에 대한 지침을 제공합니다. 적절한 예제를 제공합니다. 표준 저장소 디스크가 있는 IaaS VM에서 실행되는 응용 프로그램에 이러한 지침 중 일부를 적용할 수도 있습니다.
 
-시작하기 전에 Premium Storage를 처음 사용하는 경우 먼저 [Premium Storage: Azure 가상 컴퓨터 워크로드를 위한 고성능 저장소](storage-premium-storage.md) 문서 및 [Azure Premium Storage 확장성 및 성능 목표](storage-scalability-targets.md#premium-storage-accounts)를 읽어 보세요.
+시작하기 전에 Premium Storage를 처음 사용하는 경우 먼저 [Premium Storage: Azure 가상 컴퓨터 워크로드를 위한 고성능 저장소](storage-premium-storage.md) 및 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md) 문서를 읽어 보세요.
 
 ## <a name="application-performance-indicators"></a>응용 프로그램 성과 지표
 응용 프로그램이 사용자 요청을 얼마나 빨리 처리하는지, 응용 프로그램이 요청 당 얼마나 많은 데이터를 처리하는지, 응용 프로그램이 특정 기간 동안 얼마나 많은 요청을 처리하는지, 사용자가 요청을 제출한 후 응답을 받기까지 얼마나 오래 기다려야 하는지와 같은 성과 지표를 사용하여 응용 프로그램이 잘 수행하는지 여부를 평가합니다. 이러한 성과 지표에 대한 기술 용어는 IOPS, 처리량 또는 대역폭 및 대기 시간입니다.
@@ -352,7 +353,7 @@ Azure 프리미엄 저장소는 선택한 VM 크기 및 디스크 크기에 따�
 
 Windows 및 Linux용으로 각각 일반 벤치마킹 도구 Iometer 및 FIO를 사용했습니다. 이러한 도구는 작업과 같은 프로덕션을 시뮬레이션하는 여러 스레드를 생성하고 시스템 성능을 측정합니다. 도구를 사용하여 일반적으로 응용 프로그램에 대해 변경할 수 없는 블록 크기 및 큐 크기와 같은 매개 변수를 구성할 수도 있습니다. 응용 프로그램 작업의 다양한 유형에 대해 프리미엄 디스크로 프로비전된 높은 확장성의 VM에 최대 성능을 구동하도록 유연성을 제공합니다. 각 벤치마킹 도구에 대한 자세한 내용은 [Iometer](http://www.iometer.org/) 및 [FIO](http://freecode.com/projects/fio)를 방문하세요.
 
-아래 예제를 수행하려면 Standard DS14 VM을 만들고 VM에 11개의 프리미엄 저장소 디스크를 연결합니다. 11개의 디스크는 "None"으로 호스트 캐싱을 사용하여 10개의 디스크를 구성하고 NoCacheWrites라는 볼륨으로 스트라이프합니다. 나머지 디스크에 "ReadOnly"로 호스트 캐싱을 구성하고 이 디스크를 사용하여 CacheReads라는 볼륨을 만듭니다. 이 설치를 사용하여 Standard DS14 VM에서 최대 읽기 및 쓰기 성능을 확인할 수 있습니다. 프리미엄 디스크가 있는 DS14 VM을 만드는 방법에 대한 자세한 단계는 [가상 컴퓨터 데이터 디스크에 대한 Premium Storage 계정 만들기 및 사용](storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 참조하세요.
+아래 예제를 수행하려면 Standard DS14 VM을 만들고 VM에 11개의 프리미엄 저장소 디스크를 연결합니다. 11개의 디스크는 "None"으로 호스트 캐싱을 사용하여 10개의 디스크를 구성하고 NoCacheWrites라는 볼륨으로 스트라이프합니다. 나머지 디스크에 "ReadOnly"로 호스트 캐싱을 구성하고 이 디스크를 사용하여 CacheReads라는 볼륨을 만듭니다. 이 설치를 사용하여 Standard DS14 VM에서 최대 읽기 및 쓰기 성능을 확인할 수 있습니다. 프리미엄 디스크가 있는 DS14 VM을 만드는 방법에 대한 자세한 단계는 [가상 컴퓨터 데이터 디스크에 대한 Premium Storage 계정 만들기 및 사용](storage-premium-storage.md)을 참조하세요.
 
 *캐시 준비 중*  
 ReadOnly 호스트 캐싱을 사용한 디스크는 디스크 제한보다 더 높은 IOPS를 부여할 수 있습니다. 호스트 캐시에서 이 최대 읽기 성능을 얻으려면 먼저 이 디스크의 캐시를 준비해야 합니다. 이렇게 하면 벤치마킹 도구에서 CacheReads 볼륨을 구동하는 읽기 IO는 실제로 디스크가 아닌 캐시에 도달합니다. 캐시는 단일 캐시가 사용된 디스크에서 추가 IOPS 결과에 도달합니다.
@@ -593,9 +594,4 @@ SQL Server 사용자의 경우 SQL Server에 대한 성능 모범 사례의 문�
 
 * [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
 * [Azure 프리미엄 저장소는 Azure VM의 SQL Server에 대해 가장 높은 성능을 제공합니다](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

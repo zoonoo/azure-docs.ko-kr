@@ -1,6 +1,6 @@
 ---
 title: "Azure Functions Storage 테이블 바인딩 | Microsoft Docs"
-description: "Azure Functions에서 Azure Storage 트리거 및 바인딩을 사용하는 방법을 파악합니다."
+description: "Azure Functions에서 Azure Storage 바인딩을 사용하는 방법을 이해합니다."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -17,15 +17,16 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 963a15ce1218ea7b3244e58377b9624680f5930b
-ms.openlocfilehash: e41e72957846dbcdab15960b67caab80882e49e1
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 67c308f8216ebd291ae483c9b18d43528687e9a9
+ms.lasthandoff: 03/29/2017
 
 
 ---
 # <a name="azure-functions-storage-table-bindings"></a>Azure Functions Storage 테이블 바인딩
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-이 문서에서는 Azure Functions에서 Azure Storage 테이블 트리거 및 바인딩을 구성하고 코딩하는 방법을 설명합니다. Azure Functions는 Azure Storage 테이블에 대한 입력 및 출력 바인딩을 지원합니다.
+이 문서에서는 Azure Functions에서 Azure Storage 테이블 바인딩을 구성하고 코딩하는 방법을 설명합니다. Azure Functions는 Azure Storage 테이블에 대한 입력 및 출력 바인딩을 지원합니다.
 
 Storage 테이블 바인딩은 다음과 같은 시나리오를 지원합니다.
 
@@ -190,6 +191,7 @@ Node.js 또는 C# 함수에서 개체를 직렬화할 수 있습니다. C# 함�
 * 구현하는 모든 형식 `ITableEntity`
 * `ICollector<T>`(여러 엔터티를 출력. [샘플](#outcsharp)을 참조하세요.)
 * `IAsyncCollector<T>`(비동기 버전의 `ICollector<T>`)
+* `CloudTable` (Azure Storage SDK 사용. [샘플](#readmulti)을 참조하세요.)
 
 <a name="outputsample"></a>
 
@@ -275,15 +277,16 @@ let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
 ```javascript
 module.exports = function (context) {
 
-    context.bindings.outputTable = [];
+    context.bindings.tableBinding = [];
 
-    for (i = 1; i < 10; i++) {
-        context.bindings.outputTable.push({
+    for (var i = 1; i < 10; i++) {
+        context.bindings.tableBinding.push({
             PartitionKey: "Test",
             RowKey: i.toString(),
             Name: "Name " + i
         });
-
+    }
+    
     context.done();
 };
 ```
@@ -338,10 +341,5 @@ public class Person : TableEntity
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

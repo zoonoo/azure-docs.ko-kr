@@ -1,6 +1,6 @@
 ---
-title: "이진 분류자 | Microsoft Docs"
-description: "이진 분류자"
+title: "(사용되지 않음) 이진 분류자 - Azure | Microsoft Docs"
+description: "(사용되지 않음) 이진 분류자"
 services: machine-learning
 documentationcenter: 
 author: jaymathe
@@ -11,16 +11,24 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: jaymathe
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: db2fc1df586f925277026a418a073917978c0718
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: d1d4f35a7e77a5fac1e8ecb1a82c14cca3406676
+ms.lasthandoff: 01/11/2017
 
 
 ---
-# <a name="binary-classifier"></a>이진 분류자
+# <a name="deprecated-binary-classifier"></a>(사용되지 않음) 이진 분류자
+
+> [!NOTE]
+> Microsoft DataMarket은 종료되고 있는 중이며 이 API는 사용되지 않습니다. 
+> 
+> [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)에서 많은 유용한 예제 실험과 API를 확인할 수 있습니다. 갤러리에 대한 자세한 내용은 [Cortana Intelligence 갤러리의 리소스 공유 및 검색](machine-learning-gallery-how-to-use-contribute-publish.md)을 참조하세요.
+
 데이터 집합이 있고 독립 변수를 기반으로 이진 종속 변수를 예측하려 한다고 가정합니다. '로지스틱 회귀 분석'은 이러한 예측에 널리 사용되는 통계 기법입니다. 여기서 종속 변수는 이진 또는 이분법적이고 p는 관심을 가지는 특성의 존재 확률입니다. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -122,10 +130,5 @@ Azure Machine Learning 내에서 새로운 빈 실험이 만들어졌으며 두 
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -43,6 +43,14 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
+## 디스크 저장소 
+### [Resource Manager 및 PowerShell을 사용하여 VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md)
+### [Azure CLI 2.0을 사용하여 Linux VM 만들기](../virtual-machines/linux/quick-create-cli.md)
+### [PowerShell을 사용하여 관리 디스크를 Windows VM에 연결](../virtual-machines/windows/attach-disk-ps.md)
+### [관리 디스크를 Linux VM에 추가](../virtual-machines/linux/add-disk.md)
+### [Windows에서 스냅숏을 사용하여 관리 디스크로서 저장된 VHD 복사본 만들기](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+### [Linux에서 스냅숏을 사용하여 관리 디스크로서 저장된 VHD 복사본 만들기](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+
 # 방법
 ## [저장소 계정을 만드는](storage-create-storage-account.md)
 ## Blob 사용
@@ -62,13 +70,21 @@
 ### [개요](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Azure 파일 문제 해결](storage-troubleshoot-file-connection-problems.md)
 ### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-## 가상 컴퓨터 디스크 사용
+## 디스크 사용
+### [Windows VM용 디스크 및 VHD](storage-about-disks-and-vhds-windows.md)
+### [Linux VM용 디스크 및 VHD](storage-about-disks-and-vhds-linux.md)
+### [Azure Managed Disks 개요](storage-managed-disks-overview.md)
+### [Azure VM을 Azure Managed Disks로 마이그레이션](../virtual-machines/windows/migrate-to-managed-disks.md)
+### [AWS 및 기타 플랫폼에서 Managed Disks로 마이그레이션](../virtual-machines/windows/on-prem-to-azure.md)
+### [Azure IaaS VM에 대한 질문과 대답](storage-faq-for-disks.md)
 ### Premium Storage
-#### [VM 작업을 위한 고성능 저장소](storage-premium-storage.md)
-#### [프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)
+#### [VM 디스크용 고성능 Premium Storage](storage-premium-storage.md)
 #### [고성능을 위한 디자인](storage-premium-storage-performance.md)
 ### 표준 저장소
-#### [증분 스냅숏을 사용하여 VM 디스크 백업](storage-incremental-snapshots.md)
+#### [비용 효율적인 표준 저장소와 관리되지 않는 VM 디스크 및 관리되는 VM 디스크](storage-standard-storage.md)
+### 관리되지 않는 디스크 사용
+#### [프리미엄 저장소로 마이그레이션](storage-migration-to-premium-storage.md)
+#### [증분 스냅숏을 사용하여 관리되지 않는 VM 디스크 백업](storage-incremental-snapshots.md)
 ## 계획 및 디자인
 ### [복제](storage-redundancy.md)
 ### [확장성 및 성능 대상](storage-scalability-targets.md)
@@ -84,7 +100,7 @@
 ### [속성 및 메타데이터 설정 및 검색](storage-properties-metadata.md)
 ## 관리
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI 2.0(미리 보기)](storage-azure-cli.md)
+### [Azure CLI 2.0](storage-azure-cli.md)
 ### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Automation](automation-manage-storage.md)
 ## 보안
@@ -111,9 +127,9 @@
 ## 데이터 전송
 ### [저장소로 또는 반대로 데이터 이동](storage-moving-data.md)
 ### [AzCopy 명령줄 유틸리티](storage-use-azcopy.md)
-### [가져오기-내보내기 서비스 사용](storage-import-export-service.md)
-### [가져오기-내보내기 도구 사용](storage-import-export-tool-how-to.md)
-#### [가져오기-내보내기 도구 설정](storage-import-export-tool-setup.md)
+### [Import/Export 서비스 사용](storage-import-export-service.md)
+### [Import/Export 도구 사용](storage-import-export-tool-how-to.md)
+#### [Import/Export 도구 설정](storage-import-export-tool-setup.md)
 #### [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import.md)
 ##### [가져오기 프로세스 중에 속성 및 메타데이터 설정](storage-import-export-tool-setting-properties-metadata-import.md)
 ##### [가져오기 작업을 위한 하드 드라이브를 준비하는 샘플 워크플로](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
@@ -122,12 +138,12 @@
 #### [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)
 #### [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)
 #### [내보내기 작업 복구](storage-import-export-tool-repairing-an-export-job-v1.md)
-#### [가져오기-내보내기 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
-#### [가져오기-내보내기 서비스 매니페스트 파일 형식](storage-import-export-file-format-manifest.md)
-#### [가져오기-내보내기 서비스 메타데이터 및 속성 파일 형식](storage-import-export-file-format-metadata-and-properties.md)
-#### [가져오기-내보내기 서비스 로그 파일 형식](storage-import-export-file-format-log.md)
-### [가져오기-내보내기 도구 사용(v1)](storage-import-export-tool-how-to-v1.md)
-#### [가져오기-내보내기 도구 설정](storage-import-export-tool-setup-v1.md)
+#### [Import/Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
+#### [Import/Export 서비스 매니페스트 파일 형식](storage-import-export-file-format-manifest.md)
+#### [Import/Export 서비스 메타데이터 및 속성 파일 형식](storage-import-export-file-format-metadata-and-properties.md)
+#### [Import/Export 서비스 로그 파일 형식](storage-import-export-file-format-log.md)
+### [Import/Export 도구 사용(v1)](storage-import-export-tool-how-to-v1.md)
+#### [Import/Export 도구 설정](storage-import-export-tool-setup-v1.md)
 #### [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-tool-preparing-hard-drives-import-v1.md)
 ##### [가져오기 프로세스 중에 속성 및 메타데이터 설정](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 ##### [가져오기 작업을 위한 하드 드라이브를 준비하는 샘플 워크플로](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
@@ -136,31 +152,31 @@
 #### [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)
 #### [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)
 #### [내보내기 작업 복구](storage-import-export-tool-repairing-an-export-job-v1.md)
-#### [가져오기-내보내기 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
-#### [가져오기-내보내기 서비스 매니페스트 파일 형식](storage-import-export-file-format-manifest.md)
-#### [가져오기-내보내기 서비스 메타데이터 및 속성 파일 형식](storage-import-export-file-format-metadata-and-properties.md)
-#### [가져오기-내보내기 서비스 로그 파일 형식](storage-import-export-file-format-log.md)
-### [Azure 가져오기-내보내기 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
+#### [Import/Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
+#### [Import/Export 서비스 매니페스트 파일 형식](storage-import-export-file-format-manifest.md)
+#### [Import/Export 서비스 메타데이터 및 속성 파일 형식](storage-import-export-file-format-metadata-and-properties.md)
+#### [Import/Export 서비스 로그 파일 형식](storage-import-export-file-format-log.md)
+### [Azure Import/Export 서비스 REST API 사용](storage-import-export-using-the-rest-api.md)
 #### [가져오기 작업 만들기](storage-import-export-creating-an-import-job.md)
 #### [내보내기 작업 만들기](storage-import-export-creating-an-export-job.md)
 #### [작업에 대한 상태 정보 검색](storage-import-export-retrieving-state-info-for-a-job.md)
 #### [작업 열거](storage-import-export-enumerating-jobs.md)
 #### [작업 취소 및 삭제](storage-import-export-cancelling-and-deleting-jobs.md)
 #### [드라이브 매니페스트 백업](storage-import-export-backing-up-drive-manifests.md)
-#### [가져오기-내보내기 작업에 대한 진단 및 오류 복구](storage-import-export-diagnostics-and-error-recovery.md)
+#### [Import/Export 작업에 대한 진단 및 오류 복구](storage-import-export-diagnostics-and-error-recovery.md)
 # 참조
 ## [PowerShell](/powershell/storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [리소스 관리자](/dotnet/api/microsoft.azure.management.storage)
-### [데이터 이동](https://msdn.microsoft.com/library/azure/mt684990.aspx)
+### [데이터 이동](/dotnet/api/microsoft.windowsazure.storage.datamovement)
 ### [Blob, 큐, 테이블 및 파일](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-## [Java](/java/api/)
+## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.JS](http://azure.github.io/azure-storage-node)
 ## [Ruby](http://azure.github.io/azure-storage-ruby)
 ## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
 ## [C++](http://azure.github.io/azure-storage-cpp)
-## [iOS](https://github.com/Azure/azure-storage-ios)
+## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST (영문)
 ### [Blob, 큐, 테이블 및 파일](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
@@ -185,6 +201,7 @@
 ## Azure Storage 탐색기
 ### [저장소 탐색기(미리 보기)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [저장소 탐색기(미리 보기)를 사용하여 Blob 관리](../vs-azure-tools-storage-explorer-blobs.md)
+### [Azure File Storage와 함께 저장소 탐색기(미리 보기) 사용](../vs-azure-tools-storage-explorer-files.md)
 
 ## NuGet 패키지
 ### [.NET용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)
@@ -203,8 +220,3 @@
 ### [Ruby](https://github.com/Azure/azure-storage-ruby)
 ### [Python](https://github.com/Azure/azure-storage-python)
 ### [iOS](https://github.com/Azure/azure-storage-ios)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

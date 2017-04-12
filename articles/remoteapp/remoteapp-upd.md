@@ -14,18 +14,19 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 40874984ca29f6a284270e743b7cf70a396f81d1
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: e1a1848bac1cb339569b813ae5c5e214e1ec2409
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-does-azure-remoteapp-save-user-data-and-settings"></a>Azure RemoteApp이 사용자 데이터와 설정을 저장하는 방법
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
-Azure RemoteApp은 장치와 세션에서 사용자 ID 및 사용자 지정을 저장합니다. 이 사용자 데이터는 사용자 프로필 디스크(UPD)라고 하는 사용자별 컬렉션 디스크에 저장됩니다. 디스크는 사용자를 따르며 사용자가 로그인한 위치와 관계 없이 일관된 환경을 보장합니다. 저장 
+Azure RemoteApp은 장치와 세션에서 사용자 ID 및 사용자 지정을 저장합니다. 이 사용자 데이터는 사용자 프로필 디스크(UPD)라고 하는 사용자별 컬렉션 디스크에 저장됩니다. 디스크는 사용자를 따르며 사용자가 로그인한 위치와 관계 없이 일관된 환경을 보장합니다.
 
 사용자 프로필 디스크는 사용자에게 완전히 투명합니다. 사용자는 자신의 문서 폴더에 문서를 저장하고(로컬 드라이브처럼 표시된) 일반적인 방법으로 해당 앱 설정을 변경합니다. 동시에 모든 장치에서 Azure RemoteApp에 연결할 때 모든 개인 설정이 유지됩니다. 사용자가 볼 수 있는 것은 같은 위치의 해당 데이터입니다.
 
@@ -61,7 +62,7 @@ Outlook 및 Azure RemoteApp 사용에 대한 자세한 내용은 [이 문서](re
 아니요. UPD를 네트워크 공유로 사용할 수 없습니다. 사용자가 Azure RemoteApp에 연결된 경우에만 UPD를 사용자가 사용할 수 있습니다.
 
 ## <a name="if-i-delete-a-user-from-a-collection-is-their-upd-deleted"></a>컬렉션에서 사용자를 삭제하면 해당 UPD가 삭제됩니까?
-아니요, 사용자를 삭제하는 경우 UPD를 자동으로 삭제하지 않으며, 대신 컬렉션을 삭제할 때까지 데이터를 저장합니다. 컬렉션을 삭제 한 후&90;일 동안 모든 UPD를 삭제합니다. 
+아니요, 사용자를 삭제하는 경우 UPD를 자동으로 삭제하지 않으며, 대신 컬렉션을 삭제할 때까지 데이터를 저장합니다. 컬렉션을 삭제 한 후 90일 동안 모든 UPD를 삭제합니다. 
 
 컬렉션에서 UPD를 삭제해야 할 경우 Azure RemoteApp에 문의하여 우리쪽에서 UPD를 삭제할 수 있습니다.
 
@@ -145,10 +146,5 @@ Net-PSDrive cmdlet을 사용하여 다음과 같이 드라이브를 탑재할 �
 
 
 이렇게 하면 New-PSDrive cmdlet에서  -Credential 매개 변수를 건너뛸 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

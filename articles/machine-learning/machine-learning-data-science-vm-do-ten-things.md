@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: gokuma;weig;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1072ab3d7c8cc472258925baaa2ef82cdfb17eed
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 3b608f341278ceaef9dd112cea38f138be69ee44
+ms.lasthandoff: 03/29/2017
 
 
 ---
@@ -30,7 +31,7 @@ Microsoft DSVM(데이터 과학 가상 컴퓨터)은 다양한 데이터 탐색 
 3. 클라이언트 응용 프로그램이 간단한 웹 서비스 인터페이스를 사용하여 모델에 액세스할 수 있도록 Azure 기계 학습에서 R 및 Python을 사용하여 구축된 모델 운영
 4. Azure Portal 또는 Powershell을 사용하여 Azure 리소스 관리
 5. Azure 파일 저장소를 DSVM에 탑재 가능한 드라이브로 만들어 저장소 공간을 확장하고 전체 팀에서 대규모 데이터 집합/코드 공유
-6. Github를 사용하여 팀과 코드를 공유하고 사전 설치된 Git 클라이언트(Git Bash Git GUI)를 사용하여 리포지토리에 액세스
+6. GitHub를 사용하여 팀과 코드를 공유하고 사전 설치된 Git 클라이언트(Git Bash Git GUI)를 사용하여 리포지토리에 액세스
 7. Azure Blob 저장소, Azure Data Lake, Azure HDInsight(Hadoop), Azure DocumentDB, Azure SQL 데이터 웨어하우스 및 데이터베이스 등의 다양한 Azure 데이터 및 분석 서비스에 액세스
 8. DSVM에 사전 설치된 Power BI Desktop을 사용하여 보고서 및 대시보드를 구축하여 클라우드에 배포
 9. 프로젝트 요구 사항에 맞게 DSVM을 동적으로 확장
@@ -43,7 +44,7 @@ Microsoft DSVM(데이터 과학 가상 컴퓨터)은 다양한 데이터 탐색 
 
 **필수 구성 요소**
 
-* Azure 구독이 필요합니다. [여기](https://azure.microsoft.com/free/)서 무료 평가판에 등록할 수 있습니다.
+* Azure 구독이 필요합니다. [여기](https://azure.microsoft.com/free/)서 평가판에 등록할 수 있습니다.
 * Azure 포털에서 데이터 과학 가상 컴퓨터를 프로비전하는 방법에 대한 지침은 [가상 컴퓨터 만들기](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm)에서 확인할 수 있습니다.
 
 ## <a name="1-explore-data-and-develop-models-using-microsoft-r-server-or-python"></a>1. Microsoft R 서버 또는 Python을 사용하여 데이터 탐색 및 모델 개발
@@ -236,20 +237,20 @@ Azure 파일 공유를 만들었으니 이제 Azure의 모든 가상 컴퓨터�
 
 이제 VM의 일반적인 드라이브처럼 이 드라이브에 액세스할 수 있습니다.
 
-## <a name="6-share-code-with-your-team-using-github"></a>6. Github를 사용하여 팀과 코드 공유
-Github는 개발자 커뮤니티에서 공유하는 다양한 기술을 사용하는 여러 도구를 위한 수많은 샘플 코드 및 소스를 찾을 수 있는 코드 리포지토리입니다. Github는 코드 파일 버전을 추적하고 저장하는 기술로 Git를 사용합니다. Github는 팀의 공유 코드 및 문서를 저장하는 고유의 리포지토리를 만들고, 버전 제어를 구현하고, 코드를 보고 의견을 제시하는 액세스 권한을 제어할 수 있는 플랫폼이기도 합니다. Git 사용에 대한 자세한 내용을 보려면 [Github 도움말 페이지](https://help.github.com/) 를 방문하세요. 팀과 협력하고, 커뮤니티에서 개발한 코드를 사용하고, 다시 커뮤니티에 코드에 대한 의견을 제시하는 방법 중 하나로 Github를 사용할 수 있습니다.
+## <a name="6-share-code-with-your-team-using-github"></a>6. GitHub를 사용하여 팀과 코드 공유
+GitHub는 개발자 커뮤니티에서 공유하는 다양한 기술을 사용하는 여러 도구를 위한 수많은 샘플 코드 및 소스를 찾을 수 있는 코드 리포지토리입니다. Github는 코드 파일 버전을 추적하고 저장하는 기술로 Git를 사용합니다. GitHub는 팀의 공유 코드 및 문서를 저장하는 고유의 리포지토리를 만들고, 버전 제어를 구현하고, 코드를 보고 의견을 제시하는 액세스 권한을 제어할 수 있는 플랫폼이기도 합니다. Git 사용에 대한 자세한 내용을 보려면 [GitHub 도움말 페이지](https://help.github.com/)를 방문하세요. 팀과 협력하고, 커뮤니티에서 개발한 코드를 사용하고, 다시 커뮤니티에 코드에 대한 의견을 제시하는 방법 중 하나로 GitHub를 사용할 수 있습니다.
 
-DSVM은 Github 리포지토리에 액세스할 수 있는 클라이언트 도구가 이미 GUI와 명령줄에 내장되어 있습니다. Git 및 Github를 사용하는 명령줄 도구는 Git Bash입니다. DSVM에 설치된 Visual Studio에는 Git 확장 기능이 있습니다. 시작 메뉴 및 바탕 화면에서 이러한 도구의 시작 아이콘을 찾을 수 있습니다.
+DSVM은 GitHub 리포지토리에 액세스할 수 있는 클라이언트 도구가 이미 GUI와 명령줄에 내장되어 있습니다. Git 및 GitHub를 사용하는 명령줄 도구는 Git Bash입니다. DSVM에 설치된 Visual Studio에는 Git 확장 기능이 있습니다. 시작 메뉴 및 바탕 화면에서 이러한 도구의 시작 아이콘을 찾을 수 있습니다.
 
-Github 리포지토리에서 코드를 다운로드하려면 ```git clone``` 명령을 사용하세요. 예를 들어 Microsoft가 현재 디렉터리에 게시한 데이터 과학 리포지토리를 다운로드하려면 ```git-bash```에 액세스한 후 다음 명령을 사용합니다.
+GitHub 리포지토리에서 코드를 다운로드하려면 ```git clone``` 명령을 사용하세요. 예를 들어 Microsoft가 현재 디렉터리에 게시한 데이터 과학 리포지토리를 다운로드하려면 ```git-bash```에 액세스한 후 다음 명령을 사용합니다.
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-Visual Studio에서 동일한 복제 작업을 수행할 수 있습니다. 아래 스크린샷은 Visual Studio에서 Git 및 Github 도구에 액세스하는 방법을 보여 줍니다.
+Visual Studio에서 동일한 복제 작업을 수행할 수 있습니다. 아래 스크린샷은 Visual Studio에서 Git 및 GitHub 도구에 액세스하는 방법을 보여 줍니다.
 
 ![Visual Studio의 Git](./media/machine-learning-data-science-vm-do-ten-things/VSGit.PNG)
 
-github.com에서 제공하는 여러 리소스를 통해 Git를 사용하여 Github 리포지토리를 작업하는 방법에 대한 자세한 내용을 찾을 수 있습니다. [참고 자료](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) 를 보시면 많은 도움이 될 것입니다.
+github.com에서 제공하는 여러 리소스를 통해 Git를 사용하여 GitHub 리포지토리를 작업하는 방법에 대한 자세한 내용을 찾을 수 있습니다. [참고 자료](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) 를 보시면 많은 도움이 될 것입니다.
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7. 다양한 Azure 데이터 및 분석 서비스에 액세스
 ### <a name="azure-blob"></a>Azure Blob
@@ -865,10 +866,5 @@ Microsoft에서는 다양한 일반 데이터 분석 요구 사항을 해결할 
 
 ## <a name="summary"></a>요약
 이는 Microsoft 데이터 과학 가상 컴퓨터에서 할 수 있는 여러 가지 일 중의 극히 일부에 불과합니다. 그 외에도 다양한 방법으로 효과적인 분석 환경을 만들 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

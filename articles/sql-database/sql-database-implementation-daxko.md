@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
-ms.custom: app development case study
+ms.custom: customer implementations
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 98a83c735a79cdba080dd74af8e2677788c075e3
+ms.sourcegitcommit: b759e9936a45f989088de5e89a59371c5ea64e1c
+ms.openlocfilehash: 079a05d16ccebb705f410e25f0ed5762db20ae22
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -89,15 +90,10 @@ Azure SQL 데이터베이스는 빠르고 안정적인 서비스를 즐기는 Sp
 ## <a name="more-information"></a>자세한 정보
 * Azure의 탄력적 풀에 대한 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 * 데이터베이스 도구 및 탄력적 크기 조정에 대한 자세한 내용은 [탄력적 데이터베이스 도구 및 탄력적 크기 조정](sql-database-elastic-scale-get-started.md)을 참조하세요.
-* SQL Server 데이터베이스 마이그레이션에 대한 자세한 내용은 [Azure SQL 마이그레이션 마법사](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)를 참조하세요.
+* SQL Server 데이터베이스 마이그레이션에 대한 자세한 내용은 [Azure에 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 * 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
 * 웹 역할 및 작업자 역할에 대한 자세한 내용은 [작업자 역할](../fundamentals-introduction-to-azure.md#compute)을 참조하세요.    
 * Azure 서비스 버스에 대한 자세한 내용은 [Azure 서비스 버스](https://azure.microsoft.com/services/service-bus/)를 참조하세요.
 * 자동 크기 조정에 대한 자세한 내용은 [클라우드 서비스 크기 조정](../cloud-services/cloud-services-how-to-scale.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

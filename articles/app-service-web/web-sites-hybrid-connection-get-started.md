@@ -4,7 +4,7 @@ description: "Azure 앱 서비스의 웹 앱과 정적 TCP 포트를 사용하�
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: a46ed26b-df8e-4fc3-8e05-2d002a6ee508
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/03/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a27a8eed4ed5814cec3880567f506d0854ddbd62
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: cb656dd952e76ee29e102fff531d34a45e4630e4
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -31,14 +32,14 @@ SQL Server, MySQL, HTTP Web API 및 대부분의 사용자 지정 웹 서비스�
 > 
 
 ## <a name="prerequisites"></a>필수 조건
-* Azure 구독. 무료 구독에 대해서는 [Azure 1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
+* Azure 구독. 무료 구독에 대해서는 [Azure&1;개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
   
-    Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+    Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 * 하이브리드 연결을 사용하여 온-프레미스 SQL Server 또는 SQL Server Express 데이터베이스를 사용하려면 TCP/IP를 고정 포트에서 사용할 수 있어야 합니다. SQL Server의 기본 인스턴스는 고정 포트 1433을 사용하므로 권장됩니다. 하이브리드 연결에 사용하기 위해 SQL Server Express를 설치 및 구성하는 방법에 대한 자세한 내용은 [하이브리드 연결을 사용하여 Azure 웹 사이트에서 온-프레미스 SQL Server에 연결](http://go.microsoft.com/fwlink/?LinkID=397979)을 참조하세요.
 * 이 문서의 뒷부분에서 설명하는 온-프레미스 하이브리드 연결 관리자 에이전트를 설치하는 컴퓨터는 다음 조건을 충족해야 합니다.
   
   * 포트 5671을 통해 Azure에 연결할 수 있어야 합니다.
-  * 온-프레미스 리소스의 *hostname*에서 다음을 수행합니다.*포트번호* 에 연결할 수 있어야 합니다. 
+  * 온-프레미스 리소스의 *ostname*에서 다음을 수행합니다.*포트번호* 에 연결할 수 있어야 합니다. 
 
 > [!NOTE]
 > 이 자습서의 단계에서는 온-프레미스 하이브리드 연결 에이전트를 호스트하는 컴퓨터에서 브라우저를 사용하고 있다고 가정합니다.
@@ -86,8 +87,8 @@ SQL Server, MySQL, HTTP Web API 및 대부분의 사용자 지정 웹 서비스�
    
    * **이름**에서 연결 이름을 입력합니다.
    * **호스트 이름**에서 리소스를 호스트하는 온-프레미스 컴퓨터의 이름을 입력합니다.
-   * **포트**에서 온-프레미스 리소스가 사용하는 포트 번호(SQL Server 기본 인스턴스의 경우 1433)를 입력합니다.
-   *  **Biz Talk 서비스**
+   * **포트**에서 온-프레미스 리소스가 사용하는 포트 번호(SQL Server 기본 인스턴스의 경우&1433;)를 입력합니다.
+   * **Biz Talk 서비스**
 4. **BizTalk 서비스 만들기** 블레이드가 열립니다. BizTalk 서비스의 이름을 입력한 다음 **확인**을 클릭합니다.
    
     ![BizTalk 서비스 만들기][CreateHCCreateBTS]
@@ -224,7 +225,7 @@ SQL Server, MySQL, HTTP Web API 및 대부분의 사용자 지정 웹 서비스�
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- IMAGES -->
-[새로 만들기]:./media/web-sites-hybrid-connection-get-started/B01New.png
+[New]:./media/web-sites-hybrid-connection-get-started/B01New.png
 [NewWebsite]:./media/web-sites-hybrid-connection-get-started/B02NewWebsite.png
 [WebsiteCreationBlade]:./media/web-sites-hybrid-connection-get-started/B03WebsiteCreationBlade.png
 [WebSiteRunningBlade]:./media/web-sites-hybrid-connection-get-started/B04WebSiteRunningBlade.png
@@ -247,9 +248,4 @@ SQL Server, MySQL, HTTP Web API 및 대부분의 사용자 지정 웹 서비스�
 [HCMInstalling]:./media/web-sites-hybrid-connection-get-started/D08HCMInstalling.png
 [HCMInstallComplete]:./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
 [HCStatusConnected]:./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

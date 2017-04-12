@@ -4,7 +4,7 @@ description: "TLS에 클라이언트 인증서 인증을 사용 하 여 웹앱�
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: db2f48b248e2232f913a99b4ffbc0d18b77407e8
+ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
+ms.openlocfilehash: db69852cffd1ff331ac4a640b04ea4360d00bf75
+ms.lasthandoff: 03/22/2017
 
 
 ---
@@ -39,13 +40,16 @@ ms.openlocfilehash: db2f48b248e2232f913a99b4ffbc0d18b77407e8
 
 {}의 모든 항목은 웹앱 정보로 대체하고 다음의 JSON content와 함께 enableclient.json이라고 불리는 파일을 만드세요.
 
-> { "location": "My Web App Location",   
-> "properties": {  
-> "clientCertEnabled": true } }  
-> 
-> 
+    {
+        "location": "My Web App Location",
+        "properties": {
+            "clientCertEnabled": true
+        }
+    }
 
 웹앱이 어떤 곳(예: 미국 중부 북쪽 또는 미국 서부 등)에 위치하든 “위치" 값을 변경해야 합니다.
+
+https://resources.azure.com을 사용하여 `clientCertEnabled` 속성을 `true`로 대칭 이동할 수도 있습니다.
 
 > **참고:** Powershell에서 ARMClient를 실행하는 경우 역 틱(`)을 사용하여 JSON 파일에 대한 @ 기호를 이스케이프해야 합니다.
 > 
@@ -191,9 +195,4 @@ ASP.NET을 사용할 때 클라이언트 인증서 인증을 사용하도록 앱
             }
         }
     }
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

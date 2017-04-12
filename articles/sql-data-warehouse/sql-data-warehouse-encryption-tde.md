@@ -12,11 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 177062eab9f2825a510aa1b66117ce942c959352
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: b1db3bdfdfb54bda325c9b971cfcb4dd5efa333a
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -35,7 +37,7 @@ TDE(투명한 데이터 암호화)를 사용하려면 관리자 또는 dbmanager
 ## <a name="enabling-encryption"></a>암호화 설정
 SQL 데이터 웨어하우스에 대한 TDE를 사용하려면 다음 단계를 따르세요.
 
-1.  [Azure 포털](https://portal.azure.com)
+1. [Azure 포털](https://portal.azure.com)
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
 3. **투명한 데이터 암호화** 옵션 선택 ![][1]
 4. **켜기** 설정 선택 ![][2]
@@ -45,7 +47,7 @@ SQL 데이터 웨어하우스에 대한 TDE를 사용하려면 다음 단계를 
 ## <a name="disabling-encryption"></a>암호화 비활성화
 SQL 데이터 웨어하우스에 대한 TDE를 비활성화하려면 다음 단계를 따르세요.
 
-1.  [Azure 포털](https://portal.azure.com)
+1. [Azure 포털](https://portal.azure.com)
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
 3. **투명한 데이터 암호화** 옵션 선택 ![][1]
 4. **끄기** 설정 선택 ![][4]
@@ -59,7 +61,7 @@ SQL 데이터 웨어하우스에 대한 TDE를 비활성화하려면 다음 단�
 * [sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--MSDN references-->
-[투명한 데이터 암호화(TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 [sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
 [sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx
 
@@ -71,9 +73,4 @@ SQL 데이터 웨어하우스에 대한 TDE를 비활성화하려면 다음 단�
 [5]: ./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png
 
 <!--Link references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

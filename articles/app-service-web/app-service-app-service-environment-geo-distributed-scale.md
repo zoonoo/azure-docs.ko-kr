@@ -4,7 +4,7 @@ description: "트래픽 관리자 및 앱 서비스 환경으로 지역 분포�
 services: app-service
 documentationcenter: 
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 482667df5897eeeef60786373edbbf6d5902c909
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e7f816713cc74ca27dd7718e8071f48dd653e213
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -42,7 +43,7 @@ ms.openlocfilehash: 482667df5897eeeef60786373edbbf6d5902c909
 분산된 앱 공간을 빌드하기 전에 미리 약간 정보가 있는 편이 좋습니다.
 
 * **앱에 대한 사용자 지정 도메인:** 고객이 앱에 액세스하는 데 사용할 사용자 지정 도메인 이름은 무엇입니까?  샘플 앱의 경우 사용자 지정 도메인 이름은 *www.scalableasedemo.com*
-* **Traffic Manager 도메인:** 도메인 이름은 [Azure Traffic Manager 프로필][AzureTrafficManagerProfile]을 만들 때 선택해야 합니다.  이 이름은 *trafficmanager.net* 접미사와 결합하여 트래픽 관리자에서 관리되는 도메인 항목을 등록합니다.  샘플 앱의 경우 선택한 이름은 *scalable-ase-demo*입니다.  결과적으로 트래픽 관리자에서 관리되는 전체 도메인 이름은 *scalable-ase-demo.trafficmanager.net*입니다.
+* **트래픽 관리자 도메인:** 도메인 이름은 [Azure Traffic Manager 프로필][AzureTrafficManagerProfile]을 만들 때 선택해야 합니다.  이 이름은 *trafficmanager.net* 접미사와 결합하여 트래픽 관리자에서 관리되는 도메인 항목을 등록합니다.  샘플 앱의 경우 선택한 이름은 *scalable-ase-demo*입니다.  결과적으로 트래픽 관리자에서 관리되는 전체 도메인 이름은 *scalable-ase-demo.trafficmanager.net*입니다.
 * **앱 공간을 크기 조정하는 전략:** 응용 프로그램 공간은 단일 지역의 여러 App Service Environment에 걸쳐 분산됩니까?  여러 영역?  두 방법을 혼합 및 일치?  결정은 고객 트래픽이 생성되는 기대치 뿐만 아니라 백 엔드 인프라를 지원하는 앱의 나머지 부분이 확장할 수 있는 방법에 기반해야 합니다.  예를 들어 100% 상태 비저장 응용 프로그램의 경우 Azure 지역 마다 여러 App Service Environment의 조합을 사용하여 앱을 크게 확장할 수 있으며 여러 Azure 지역에 걸쳐 배포된 App Service Environment로 곱해집니다.  선택할 수 있는 15+ 공용 Azure 지역으로 고객은 전세계 하이퍼 규모의 응용 프로그램 공간을 진정으로 구축할 수 있습니다.  이 문서에 사용되는 샘플 앱의 경우 세 가지 앱 서비스 환경을 단일 Azure 지역(미국 중남부)에서 만들었습니다.
 * **App Service Environment에 대한 명명 규칙:** 각 App Service Environment에는 고유한 이름이 있어야 합니다.  하나 또는 두 개의 앱 서비스 환경 외에도 각 앱 서비스 환경을 식별하는 데 도움이 되는 명명 규칙을 파악하는 것이 좋습니다.  샘플 앱의 경우 간단한 명명 규칙을 사용했습니다.  세 가지 App Service Environment의 이름은 *fe1ase*, *fe2ase*, 및 *fe3ase*입니다.
 * **앱에 대한 명명 규칙:** 앱의 여러 인스턴스가 배포되기 때문에 이름은 배포된 앱의 인스턴스 각각에 필요합니다.  하나의 잘 알려지지 않지만 매우 편리한 앱 서비스 환경의 기능은 동일한 앱 이름을 여러 앱 서비스 환경에 걸쳐 사용할 수 있다는 점입니다.  각 앱 서비스 환경에 고유한 도메인 접미사가 있으므로 개발자는 각 환경에 정확히 동일한 앱 이름을 다시 사용하도록 선택할 수 있습니다.  예를 들어 개발자가 앱을 *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net* 등과 같이 명명할 수 있습니다.  그러나 샘플 앱의 경우 각 앱 인스턴스에도 고유한 이름이 지정됩니다.  앱 인스턴스에 사용되는 이름은 *webfrontend1*, *webfrontend2* 및 *webfrontend3*입니다.
@@ -131,9 +132,4 @@ Powershell [Azure Resource Manager Traffic Manager 지원][ARMTrafficManager]에
 [CNAMEforCustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CNAMECustomDomain-1.png
 [DNSLookup]:  ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

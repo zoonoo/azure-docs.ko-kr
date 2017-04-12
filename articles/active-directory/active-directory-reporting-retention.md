@@ -12,48 +12,55 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2016
-ms.author: dhanyahk
+ms.date: 11/30/2016
+ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7e0e1ede67509de9f47293eb7257ecc56c0df93d
+ms.sourcegitcommit: 47594d1d435ee92d57150a01a99765bab0e87846
+ms.openlocfilehash: 2ac62c2c04975167b243b49bf2c536900e77df73
 
 
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 보고서 보존 정책
 *이 설명서는 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)의 일부입니다.*
 
-Azure AD(Azure Active Directory)의 보고서는 특정 일수 동안 여기에 지정된 데이터를 보존합니다.
 
-| 보고서 | 설명 |
-| --- | --- |
-| 알 수 없는 원본에서 로그인 |30일 |
-| 여러 번의 실패 후 로그인 |30일 |
-| 여러 지역에서의 로그인 |30일 |
-| 의심스러운 작업이 있는 IP 주소에서 로그인 |30일 |
-| 감염 가능성이 있는 장치에서 로그인 |30일 |
-| 비정상적인 로그인 작업 |30일 |
-| 비정상적인 로그인 활동을 포함하는 사용자 |30일 |
-| 자격 증명이 손실된 사용자 |30일 |
-| 감사 보고서 |180일 |
-| 암호 재설정 활동(Azure AD) |30일 |
-| 암호 재설정 활동(ID 관리자) |30일 |
-| 암호 재설정 등록 활동(Azure AD) |30일 |
-| 암호 재설정 등록 활동(ID 관리자) |30일 |
-| 셀프 서비스 그룹 활동(Azure AD) |30일 |
-| 셀프 서비스 그룹 활동(ID 관리자) |30일 |
-| 응용 프로그램 사용 현황 |30일 |
-| 계정 프로비전 활동 |30일 |
-| 암호 롤오버 상태 |30일 |
-| 계정 프로비전 오류 |30일 |
-| RMS 사용 현황 |30일 |
-| 가장 활동적인 RMS 사용자 |30일 |
-| RMS 장치 사용 현황 |30일 |
-| RMS 사용 응용 프로그램 사용 현황 |30일 |
+이 문서에서는 Azure Active Directory의 여러 작업 보고서에 대한 데이터 보존과 함께 가장 일반적인 질문에 대한 대답을 제공합니다. 
+
+작업 데이터 수집을 시작하려면 어떻게 해야 합니까?
+
+| Azure AD 버전 | 수집 시작 |
+| :--              | :--   |
+| Azure AD Premium P1 <br /> Azure AD Premium P2 | 구독 등록 시 |
+| Azure AD Free | 처음으로 [Azure Active Directory 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)를 열거나 [보고 API](https://aka.ms/aadreports)를 사용할 때  |
 
 
+Azure Portal에서 작업 데이터를 사용할 수 있는 시기는 언제입니까?
+
+- **즉시** - 이미 Azure 클래식 포털에서 보고서로 작업한 적이 있는 경우
+- **2시간 이내** - Azure 클래식 포털에서 보고 기능을 설정하지 않은 경우
+
+보안 신호 수집을 시작하려면 어떻게 해야 합니까?  
+보안 신호의 경우 ID 보호 센터를 사용하도록 옵트인할 때 수집 프로세스가 시작됩니다. 
+
+수집된 데이터의 저장 기간은 얼마입니까?
+
+**작업 보고서**    
+
+| 보고서 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--    | :--           | :--                | :--                |
+| 디렉터리 감사 | 7 일 | 30일 | 30일 |
+| 로그인 작업 |    7 일 | 30일 | 30일 |
+
+**보안 신호**
+
+| 보고서 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--    | :--           | :--                | :--                |
+| 위험한 로그인 | 7 일 | 30일 | 90일 |
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+
+<!--HONumber=Feb17_HO1-->
 
 

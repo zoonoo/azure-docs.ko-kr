@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/30/2016
+ms.date: 03/08/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e96941bebe07553f8575be4f5dd4ead3271225c9
-ms.openlocfilehash: 924f3287a2b34103eba56310e8e4c4e3e063a44b
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: df7c127f4ab140cb26c82e723964f1d99f03131a
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -49,7 +50,7 @@ Azure Service Fabric에 있어서 용량 계획, 클러스터 최적화 및 클�
 <table><tr><th>비디오</th><th>PowerPoint 데크</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=NgldAdSGD_405167344">
 <img src="./media/service-fabric-patterns-and-scenarios/hyperscaleweb.png" WIDTH="360" HEIGHT="244">
-</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=CPMLBLSGD_7705167344">초대형 웹</a></td></tr>
+</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=CPMLBLSGD_7705167344">하이퍼스케일(hyper-scale) 웹</a></td></tr>
 </table>
 
 ## <a name="iot"></a>IoT
@@ -94,14 +95,9 @@ Visual Studio Team Services를 통한 지속적인 통합/지속적인 업데이
 <table><tr><th>비디오</th><th>PowerPoint 데크</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=V1ERJhSGD_305167344">
 <img src="./media/service-fabric-patterns-and-scenarios/containers.png" WIDTH="360" HEIGHT="244">
-</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mlYsZRSGD_2105167344">컨테이너 및 Linux Support</a></td></tr>
+</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mlYsZRSGD_2105167344">컨테이너 및 Linux 지원</a></td></tr>
 </table>
 
 ## <a name="next-steps"></a>다음 단계
 지금까지 Service Fabric 패턴 및 시나리오에 대해 배웠습니다. 이제 [클러스터 만들기 및 관리](service-fabric-deploy-anywhere.md), [Cloud Services 앱을 Service Fabric으로 마이그레이션](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [지속적인 업데이트 설정](service-fabric-set-up-continuous-integration.md) 및 [컨테이너 배포](service-fabric-containers-overview.md) 방법에 대해 자세히 알아봅니다.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

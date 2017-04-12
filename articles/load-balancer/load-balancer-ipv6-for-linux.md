@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: f14a0473ebcf21e04759cb8eb77eb684c4d9a9cb
+ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
+ms.openlocfilehash: 5c591e7f1838c86ca74caea9dd3a5e8f874fd8a7
+ms.lasthandoff: 03/29/2017
 
 ---
 
@@ -44,7 +45,9 @@ Azure Marketplace의 Linux 가상 컴퓨터 이미지 중 일부에는 기본적
    * **Ubuntu 12.04 and 14.04**에서 `/etc/network/interfaces.d/eth0.cfg` 파일을 편집합니다.
    * **Ubuntu 16.04**에서 `/etc/network/interfaces.d/50-cloud-init.cfg` 파일을 편집합니다.
 
-        iface eth0 inet6 auto        up sleep 5        up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
+         iface eth0 inet6 auto
+             up sleep 5
+             up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
 
 3. IPv6 주소를 갱신합니다.
 
@@ -70,7 +73,7 @@ Azure Marketplace의 Linux 가상 컴퓨터 이미지 중 일부에는 기본적
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="rhel-centos-oracle-linux"></a>RHEL / CentOS / Oracle Linux
+## <a name="rhel--centos--oracle-linux"></a>RHEL / CentOS / Oracle Linux
 
 1. 파일 `/etc/sysconfig/network` 을 편집하고 다음 매개 변수를 추가합니다.
 
@@ -87,7 +90,7 @@ Azure Marketplace의 Linux 가상 컴퓨터 이미지 중 일부에는 기본적
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="sles-11-opensuse-13"></a>SLES 11 및 openSUSE 13
+## <a name="sles-11--opensuse-13"></a>SLES 11 및 openSUSE 13
 
 Azure의 최근 SLES 및 openSUSE 이미지는 DHCPv6를 사용해 미리 구성되었습니다. 이러한 이미지를 사용할 경우 추가 변경이 필요하지 않습니다. 이전 또는 사용자 지정 SUSE 이미지를 기반으로 하는 VM인 경우 다음 단계를 사용합니다.
 
@@ -146,9 +149,4 @@ Azure의 최근 CoreOS 이미지는 DHCPv6를 사용해 미리 구성되었습�
     ```bash
     sudo systemctl restart systemd-networkd
     ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

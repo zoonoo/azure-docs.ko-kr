@@ -4,7 +4,7 @@ description: "백업에서 앱을 복원하는 방법에 대해 알아봅니다.
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8136df6507f1d79872a286abb5810e595c9425ff
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 71d07e64480d4b4eaff7fdef53c8f5ff7a97a944
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -81,7 +82,7 @@ ms.openlocfilehash: 8136df6507f1d79872a286abb5810e595c9425ff
 또한 REST API를 사용하여 앱 서비스 앱을 백업 및 복원할 수 있습니다( [REST를 사용하여 앱 서비스 앱 백업 및 복원](websites-csm-backup.md)참조).
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -100,9 +101,4 @@ ms.openlocfilehash: 8136df6507f1d79872a286abb5810e595c9425ff
 [ManagementServicesOperationLogsList]: ./media/web-sites-restore/11ManagementServicesOperationLogsList.png
 [DetailsButton]: ./media/web-sites-restore/12DetailsButton.png
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

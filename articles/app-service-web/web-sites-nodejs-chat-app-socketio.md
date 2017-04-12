@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 0fcb0e2d8feea3c72688aace6d53edca728dd48b
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: 4f5c04525437aefeccbe58e06b084433d0413dc1
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -65,7 +66,7 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 > 
 > 
 
-1. Azure CLI(Azure 명령줄 인터페이스)를 설치하고 Azure 구독에 연결합니다. [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
+1. Azure CLI(Azure 명령줄 인터페이스)를 설치하고 Azure 구독에 연결합니다. [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하세요.
 2. Azure에서 리포지토리를 처음 설정하는 경우 로그인 자격 증명을 만들어야 합니다. Azure CLI에서 다음 명령을 입력합니다.
    
         azure site deployment user set [username] [password]
@@ -283,10 +284,10 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 [App Service Web Apps]: http://go.microsoft.com/fwlink/?LinkId=529714
 [웹 앱 가격 책정 페이지]: http://go.microsoft.com/fwlink/?LinkId=511643
 [Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]: ../cloud-services/cloud-services-nodejs-chat-app-socketio.md
-[Install and Configure the Azure CLI]: ../xplat-cli-install.md
+[Install and Configure the Azure CLI]: ../cli-install-nodejs.md
 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Node.js 개발자 센터]: /develop/nodejs/
-[App Service 체험]: http://go.microsoft.com/fwlink/?LinkId=523751
+[App Service 체험]: https://azure.microsoft.com/try/app-service/
 [Azure 웹 사이트의 인스턴스 선호도]: https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/
 [Azure Redis 캐시에서 캐시 만들기]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 
@@ -299,9 +300,4 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
 [completed-app]: ./media/web-sites-nodejs-chat-app-socketio/websitesocketcomplete.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

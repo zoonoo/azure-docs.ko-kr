@@ -18,6 +18,7 @@ ms.author: brjohnst
 translationtype: Human Translation
 ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
 ms.openlocfilehash: 3a5131323f438109d94137cb4f577054ec13227f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -178,10 +179,5 @@ serviceClient.Indexes.Delete("hotels");
 
 ## <a name="next-steps"></a>다음 단계
 Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md) 할 준비가 되었습니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

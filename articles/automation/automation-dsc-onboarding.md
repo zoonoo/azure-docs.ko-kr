@@ -1,5 +1,5 @@
 ---
-title: "Azure 자동화 DSC를 통한 관리를 위한 물리적 및 가상 컴퓨터 온보드| Microsoft Docs"
+title: "Azure Automation DSC를 통한 관리를 위한 컴퓨터 온보드 | Microsoft Docs"
 description: "Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 설정 방법"
 services: automation
 documentationcenter: dev-center-name
@@ -14,8 +14,9 @@ ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 18c6a55f2975305203bf20a040ac29bc9527a124
-ms.openlocfilehash: 0832b5866b49800cc0aecda8f4e473f89b12139b
+ms.sourcegitcommit: e2257730f0c62dbc0313ce7953fc5f953dae8ac3
+ms.openlocfilehash: f81536322ad1bb16e4af326e0b053da47690619c
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -196,7 +197,7 @@ AWS DSC 도구 키트를 사용하여 Azure 자동화 DSC에 의한 구성 관�
 
 ## <a name="generating-dsc-metaconfigurations"></a>DSC 메타 구성 생성
 
-일반적으로 컴퓨터를 Azure 자동화 DSC에 등록하려면 DSC 메타 구성은 적용될 때 생성될 수 있으며 컴퓨터의 DSC 에이전트가 Azure 자동화 DSC에서 끌어오거나 보고하도록 지시합니다. Azure 자동화 DSC에 대한 DSC 메타 구성은 PowerShell DSC 구성 또는 Azure 자동화 PowerShell cmdlet을 사용하여 생성될 수 있습니다.
+일반적으로 컴퓨터를 Azure Automation DSC에 등록하려면 [DSC 메타 구성](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig)은 적용될 때 생성될 수 있으며 컴퓨터의 DSC 에이전트가 Azure Automation DSC에서 끌어오거나 보고하도록 지시합니다. Azure 자동화 DSC에 대한 DSC 메타 구성은 PowerShell DSC 구성 또는 Azure 자동화 PowerShell cmdlet을 사용하여 생성될 수 있습니다.
 
 > [!NOTE]
 > DSC 메타 구성은 관리를 위해 자동화 계정에 컴퓨터를 등록하는 데 필요한 암호를 포함합니다. 사용한 후에 만들거나 삭제한 DSC 메타 구성을 제대로 보호해야 합니다.
@@ -319,7 +320,11 @@ AWS DSC 도구 키트를 사용하여 Azure 자동화 DSC에 의한 구성 관�
 
 3. 등록할 컴퓨터의 이름 뿐만 아니라 자동화 계정에 대한 등록 키 및 URL을 입력합니다. 모든 다른 매개 변수는 선택 사항입니다. 자동화 계정에 대한 등록 키와 등록 URL을 확인하려면 아래의 [**등록 보호**](#secure-registration) 섹션에서 제공합니다.
 4. 컴퓨터가 Azure 자동화 DSC에 DSC 상태 정보를 보고하지만 구성 또는 PowerShell 모듈을 끌어오지 않도록 하려면 **ReportOnly** 매개 변수를 true로 설정합니다.
-5. 스크립트를 실행합니다. 이제 작업 디렉터리에 **DscMetaConfigs** 라는 폴더가 있어야 하며 이는 등록할 컴퓨터에 대한 PowerShell DSC 메타 구성을 포함합니다.
+5. 스크립트를 실행합니다. 이제 작업 디렉터리에 **DscMetaConfigs**라는 폴더가 있어야 하며 이는 등록할 컴퓨터에 대한 PowerShell DSC 메타 구성을 포함합니다(관리자로).
+
+    ```powershell
+    Set-DscLocalConfigurationManager -Path ./DscMetaConfigs
+    ```
 
 ### <a name="using-the-azure-automation-cmdlets"></a>Azure 자동화 cmdlet 사용
 
@@ -338,17 +343,20 @@ PowerShell DSC 로컬 구성 관리자 기본값이 해당 사용 사례와 일�
         ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
         OutputFolder = "$env:UserProfile\Desktop\";
     }
-
     # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
     # For more info about splatting, run: Get-Help -Name about_Splatting
     Get-AzureRmAutomationDscOnboardingMetaconfig @Params
-     ```
-
-    이제 작업 디렉터리에 ***DscMetaConfigs***라는 폴더가 있어야 하며 이는 등록할 컴퓨터에 대한 PowerShell DSC 메타 구성을 포함합니다.
+    ```
+    
+4. 이제 ***DscMetaConfigs***라는 폴더가 있어야 하며 이는 등록할 컴퓨터에 대한 PowerShell DSC 메타 구성을 포함합니다(관리자로).
+    
+    ```powershell
+    Set-DscLocalConfigurationManager -Path $env:UserProfile\Desktop\DscMetaConfigs
+    ```
 
 ## <a name="secure-registration"></a>등록 보호
 
-PowerShell DSC 풀 또는 보고 서버(Azure 자동화 DSC 포함)에 대한 DSC 노드 인증을 허용하는 V2WMF 5 DSC 등록 프로토콜을 통해 Azure 자동화 계정에 컴퓨터를 안전하게 온보드할 수 있습니다. 노드는 **등록 URL**에 있는 서버에 등록되며 **등록 키**를 통해 인증됩니다. 등록하는 동안 DSC 노드와 DSC 풀/보고 서버가 이 노드에 대해, 서버 게시-등록에 대한 인증에 사용할 고유 인증서를 협상합니다. 이 프로세스는 노드가 손상되어 악의적 동작을 수행하는 등, 온보드된 노드가 다른 노드를 가장하는 것을 방지합니다. 등록 후 해당 등록 키는 다시 인증에 사용되지 않으며 노드에서 삭제됩니다.
+PowerShell DSC 풀 또는 보고 서버(Azure 자동화 DSC 포함)에 대한 DSC 노드 인증을 허용하는 V2WMF 5 DSC 등록 프로토콜을 통해 Azure 자동화 계정에 컴퓨터를 안전하게 온보드할 수 있습니다. 노드는 **등록 URL**에 있는 서버에 등록되며 **등록 키**를 통해 인증됩니다. 등록하는 동안 DSC 노드와 DSC 풀/보고 서버가 이 노드에 대해, 서버 게시-등록에 대한 인증에 사용할 고유 인증서를 협상합니다. 이 프로세스는 노드가 손상되어 악의적 동작을 수행하는 등, 온보드된 노드가 다른 노드를 가장하는 것을 방지합니다.  등록 후 해당 등록 키는 다시 인증에 사용되지 않으며 노드에서 삭제됩니다.
 
 Azure Preview 포털의 **키 관리** 블레이드에서 DSC 등록 프로토콜에 필요한 정보를 가져올 수 있습니다. 자동화 계정의 **Essentials** 패널에서 키 아이콘을 클릭하여 이 블레이드를 엽니다.
 
@@ -384,9 +392,4 @@ Azure VM 필요 상태 구성 확장의 상태를 보거나 문제를 해결하�
 * [Azure 자동화 DSC 개요](automation-dsc-overview.md)
 * [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

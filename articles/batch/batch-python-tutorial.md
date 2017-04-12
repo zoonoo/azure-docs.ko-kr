@@ -1,6 +1,6 @@
 ---
-title: "자습서 - Python용 Azure Batch 클라이언트 라이브러리 사용 | Microsoft Docs"
-description: "Azure 배치의 기본 개념과 간단한 시나리오를 통해 배치 서비스를 개발하는 방법을 알아봅니다."
+title: "자습서 - Python용 Azure Batch SDK 사용 | Microsoft Docs"
+description: "Azure Batch의 기본 개념을 알아보고 Python을 사용하여 간단한 솔루션을 빌드합니다."
 services: batch
 documentationcenter: python
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 155c535c66788d807c47a3eaae50c94ab6b94164
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d1c327e90ca3343703784c22aba93280d4599723
+ms.lasthandoff: 04/03/2017
 
 
 ---
-# <a name="get-started-with-the-azure-batch-python-client"></a>Azure 배치 Python 클라이언트 시작
+# <a name="get-started-with-the-batch-sdk-for-python"></a>Python용 Batch SDK 시작
+
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
@@ -212,7 +215,7 @@ if __name__ == '__main__':
 
 목록 축약을 사용하여 컬렉션의 각 파일에 `upload_file_to_container` 함수를 호출하고 두 개의 [ResourceFile][py_resource_file] 컬렉션이 채워집니다. `upload_file_to_container` 함수가 다음과 같이 나타납니다.
 
-```
+```python
 def upload_file_to_container(block_blob_client, container_name, file_path):
     """
     Uploads a local file to an Azure Blob storage container.
@@ -362,7 +365,7 @@ def create_pool(batch_service_client, pool_id,
 * 풀의 **ID**(*id* - 필수)<p/>배치에서 대부분의 엔터티처럼 새 풀은 배치 계정 내에서 고유 ID를 가지고 있어야 합니다. 코드는 해당 ID를 사용하여 이 풀을 참조하고 이를 통해 Azure [Portal][azure_portal]에서 풀을 확인합니다.
 * **계산 노드 수**(*target_dedicated* - 필수)<p/>이 속성은 풀에 배포해야 하는 VM 수를 지정합니다. 모든 배치 계정에서 배치 계정에 있는 **코어**(및 계산 노드)의 수를 제한하는 기본 **할당량**이 있어야 합니다. 기본 할당량 및 [할당량을 증가](batch-quota-limit.md#increase-a-quota)하는 방법에 대한 지침(예: 배치 계정의 최대 코어 수)은 [Azure 배치 서비스에 대한 할당량 및 한도](batch-quota-limit.md)에서 찾을 수 있습니다. "풀이 X 노드보다 더 멀리 도달할 수 없는 경우" 이 코어 할당량이 원인일 수 있습니다.
 * 노드의 **운영 체제**(*virtual_machine_configuration* **또는** *cloud_service_configuration* - 필수)<p/>*python_tutorial_client.py*에서 [VirtualMachineConfiguration][py_vm_config]을 사용하여 Linux 노드 풀을 만듭니다. `common.helpers`에서 `select_latest_verified_vm_image_with_node_agent_sku` 함수는 [Azure Virtual Machines Marketplace][vm_marketplace] 이미지를 사용하는 방법을 간소화합니다. 마켓플레이스 이미지를 사용하는 방법에 대한 자세한 내용은 [Azure Batch 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md) 을 참조하세요.
-* **계산 노드 크기** (*vm_size* - 필수)<p/>[VirtualMachineConfiguration][py_vm_config]의 Linux 노드를 지정하는 것이기 때문에 [Azure의 가상 컴퓨터 크기](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 VM 크기(이 샘플의 `STANDARD_A1`)를 지정합니다. 다시 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md) 을 참조하세요.
+* **계산 노드 크기** (*vm_size* - 필수)<p/>[VirtualMachineConfiguration][py_vm_config]의 Linux 노드를 지정하는 것이기 때문에 [Azure의 가상 컴퓨터 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 VM 크기(이 샘플의 `STANDARD_A1`)를 지정합니다. 다시 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md) 을 참조하세요.
 * **시작 태스크**(*start_task* - 필수 아님)<p/>위의 실제 노드 속성과 함께 풀의 [StartTask][py_starttask]를 지정할 수도 있습니다(필수 아님). StartTask는 해당 노드가 풀을 연결할 때 각 노드에서 실행하고 이 때마다 노드가 다시 시작됩니다. StartTask는 태스크가 실행하는 응용 프로그램을 설치하는 등 태스크를 실행하기 위해 계산 노드를 준비하는 데 특히 유용합니다.<p/>이 샘플 응용 프로그램에서 StartTask는 저장소(StartTask의 **resource_files** 속성을 사용하여 지정됨)에서 다운로드하는 파일을 StartTask *작업 디렉터리*에서 노드에서 실행되는 모든 태스크를 액세스할 수 있는 *공유* 디렉터리에 복사합니다. 기본적으로 노드가 풀에 조인하면 각 노드의 공유 디렉터리에 `python_tutorial_task.py` 를 복사하므로 노드에서 실행되는 모든 태스크가 공유 디렉터리에 액세스할 수 있습니다.
 
 `wrap_commands_in_shell` 도우미 함수에 대한 호출을 볼 수 있습니다. 이 함수는 별도 명령의 컬렉션을 사용하고 작업의 명령줄 속성에 적절한 단일 명령줄을 만듭니다.
@@ -569,7 +572,7 @@ def download_blobs_from_container(block_blob_client,
 ## <a name="step-8-delete-containers"></a>8단계: 컨테이너 삭제
 Azure 저장소에 있는 데이터에 대한 요금이 부과되므로 배치 작업에 더 이상 필요 없는 모든 Blob을 제거하는 것이 좋습니다. *python_tutorial_client.py*에서 [BlockBlobService.delete_container][py_delete_container]를 세 번 호출하여 수행합니다.
 
-```
+```python
 # Clean up storage resources
 print('Deleting containers...')
 blob_client.delete_container(app_container_name)
@@ -705,9 +708,4 @@ Press ENTER to exit...
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "포털의 배치 자격 증명"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "포털의 저장소 자격 증명"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "배치 솔루션 워크플로(최소 다이어그램)"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

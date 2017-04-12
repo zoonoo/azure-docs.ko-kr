@@ -20,7 +20,7 @@ ms.openlocfilehash: 6d3f4908fd8e245960ba1b1b1244aafeb06922eb
 
 
 ---
-# <a name="storsimple-8000-series-update-01-release-notes-october-2014"></a>StorSimple 8000 시리즈 업데이트 0.1 릴리스 정보-2014 년 10 월
+# <a name="storsimple-8000-series-update-01-release-notes--october-2014"></a>StorSimple 8000 시리즈 업데이트 0.1 릴리스 정보-2014 년 10 월
 ## <a name="overview"></a>개요
 다음 릴리스 정보는 2014년 10월에 출시된 StorSimple 8000 시리즈 업데이트 0.1에 대한 중요한 미해결 문제를 식별합니다. 또한 이 릴리스에 포함된 StorSimple 소프트웨어 및 펌웨어 업데이트의 목록을 포함합니다. 일반적으로 StorSimple 8000 시리즈 릴리스 버전이 2014년 7월에 사용할 수 있게 변경된 후 첫 번째 릴리스이며 소프트웨어 버전 6.3.9600.17312에 해당합니다.  
 

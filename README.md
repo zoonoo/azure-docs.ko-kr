@@ -1,3 +1,8 @@
+## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft 오픈 소스 준수 사항
+
+이 프로젝트에는 [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)(Microsoft 오픈 소스 준수 사항)이 적용됩니다.
+자세한 내용은 [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)(준수 사항 FAQ)를 참조하거나 [opencode@microsoft.com](mailto:opencode@microsoft.com)에 추가 질문 또는 의견을 알려주세요.
+
 # <a name="azure-technical-documentation-contributor-guide"></a>Azure 기술 설명서 참여자 가이드
 [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure)에 게시되는 Azure 기술 설명서에 대한 원본을 보관하는 GitHub 리포지토리입니다.
 
@@ -12,7 +17,6 @@ Azure 설명서에 관심을 가져 주셔서 감사합니다.
 * [리포지토리 조직](#repository-organization)
 * [GitHub, Git 및 이 리포지토리 사용](#use-github-git-and-this-repository)
 * [항목의 서식을 지정하는 Markdown을 사용하는 방법](#how-to-use-markdown-to-format-your-topic)
-* [피드백, 의견 및 지원](./contributor-guide/feedback-and-comments.md)
 * [추가 리소스](#more-resources)
 * [모든 참여자 가이드 문서의 인덱스](contributor-guide/contributor-guide-index.md)(새 페이지를 엽니다.)
 
@@ -21,9 +25,6 @@ Azure 설명서에 관심을 가져 주셔서 감사합니다.
 
 * GitHub 사용자 인터페이스에서 기술 문서에 쉽게 참여할 수 있습니다. 이 리포지토리에서 문서를 찾거나 [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) 문서로 이동하여 해당 문서에 대한 GitHub 원본으로 이동하는 문서의 링크를 클릭합니다.
 * 기존 문서의 많은 부분을 변경하거나 이미지를 추가 또는 변경하고 혹은 새 문서에 참가하는 경우, 이 리포지토리를 분기하고 Git Bash인 Markdown Pad를 설치하고 일부 git 명령을 알아보아야 합니다.
-
-## <a name="code-of-conduct"></a>준수 사항
-이 프로젝트에는 [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)(Microsoft 오픈 소스 준수 사항)이 적용됩니다. 자세한 내용은 [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)(준수 사항 FAQ)를 참조하거나 [opencode@microsoft.com](mailto:opencode@microsoft.com)에 추가 질문 또는 의견을 알려주세요.
 
 ## <a name="about-your-contributions-to-azure-content"></a>Azure 콘텐츠에 참가 방법
 ### <a name="minor-corrections"></a>사소한 수정
@@ -84,9 +85,4 @@ GitBash를 설치하고 로컬에서 작동하도록 선택하면 새 로컬 작
 
 ## <a name="more-resources"></a>추가 리소스
 모든 지침 항목은 [참여자 가이드의 인덱스](contributor-guide/contributor-guide-index.md)를 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

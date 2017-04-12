@@ -4,7 +4,7 @@ description: "Azure 앱 서비스에서 앱의 백업을 만드는 방법에 대
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5675c2e0c44356002595620df9b06c38a771af56
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: b00c320eeb1e8b30a0fad9634844ceeca60d1c29
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -169,7 +170,7 @@ ms.openlocfilehash: 5675c2e0c44356002595620df9b06c38a771af56
 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 [Azure에서 앱 복원](web-sites-restore.md)을 참조하세요. 또한 REST API를 사용하여 앱 서비스 앱을 백업 및 복원할 수 있습니다( [REST를 사용하여 앱 서비스 앱 백업 및 복원](websites-csm-backup.md)참조).
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -180,17 +181,12 @@ ms.openlocfilehash: 5675c2e0c44356002595620df9b06c38a771af56
 [BackUpNow]: ./media/web-sites-backup/04BackUpNow.png
 [BackupProgress]: ./media/web-sites-backup/05BackupProgress.png
 [SetAutomatedBackupOn]: ./media/web-sites-backup/06SetAutomatedBackupOn.png
-[Frequency(빈도)]: ./media/web-sites-backup/07Frequency.png
+[Frequency]: ./media/web-sites-backup/07Frequency.png
 [StartDate]: ./media/web-sites-backup/08StartDate.png
 [StartTime]: ./media/web-sites-backup/09StartTime.png
 [SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
 [ImagesFolder]: ./media/web-sites-backup/11Images.png
 [LogsFolder]: ./media/web-sites-backup/12Logs.png
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

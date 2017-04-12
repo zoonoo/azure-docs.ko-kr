@@ -4,7 +4,7 @@ description: "설정 및 앱 데이터 동기화에 대한 IT 관리자의 질�
 services: active-directory
 keywords: "엔터프라이즈 상태 로밍 설정, windows 클라우드, 엔터프라이즈 상태 로밍에 대한 질문과 대답"
 documentationcenter: 
-author: femila
+author: tanning
 manager: swadhwa
 editor: curtand
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 03/08/2017
+ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: f5b9a4d83e21dfefc12ea2931702a9dce3f03016
-ms.openlocfilehash: bd4352cd6f8a909d518b0c5527d6c0e63e4bad51
+ms.sourcegitcommit: 7d472733e80ae03294ba1ac9e97d1afd3aa0fa91
+ms.openlocfilehash: c7d8eefe560a361690cc4daf6550b2a8c894f318
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -120,23 +121,12 @@ Microsoft에서는 사용자 프로필 로밍, UE-V, 엔터프라이즈 상태 �
 조직에서 Azure RMS 사용 제한된 무료 구독을 통해 Windows 10에서 이미 로밍을 사용 중인 경우에는 유료 Azure RMS 구독을 구입해도 로밍 기능에 영향을 주지 않으며 IT 관리자가 구성을 변경할 필요가 없습니다.
 
 ## <a name="known-issues"></a>알려진 문제
-* 스마트 카드 또는 가상 스마트 카드를 사용하여 Windows 장치에 로그인하려고 하면 설정 동기화가 중지됩니다. 이 문제는 추후에 있을 Windows 10 업데이트에서 해결될 것입니다.
-* 작업에 동기화된 Internet Explorer 즐겨찾기용 Windows 10에 대한 7월 누적 업데이트가 필요합니다(10586.494 빌드 이상).
-* Windows Information Protection으로 보호된 데이터는 엔터프라이즈 상태 로밍을 통해 동기화되지 않습니다. 또한 Windows Information Protection이 활성화된 컴퓨터는 테마 동기화가 발생하지 않습니다.
-* 특정 조건에서 엔터프라이즈 상태 로밍은 Azure Multi-Factor Authentication이 구성된 경우 데이터를 동기화하는 데 실패할 수 있습니다.
-
-  * Azure Active Directory 포털에서 [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) 을 필요로 하도록 장치가 구성된 경우 암호를 사용하여 Windows 10 장치에 로그인하는 동안 설정을 동기화하는 데 실패할 수 있습니다. 이러한 형식의 Multi-Factor Authentication 구성은 Azure 관리자 계정을 보호하도록 계획되었습니다. 관리자 사용자는 Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN을 사용하거나 Multi-Factor Authentication을 완료하여 해당 Windows 10 장치에 로그인함으로써 동기화할 수 있습니다.
-  * 관리자가 Active Directory Federation Services Multi-Factor Authentication 조건부 액세스 정책을 구성하고 장치에 대한 액세스 토큰이 만료된 경우 동기화는 실패할 수 있습니다.  Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN을 사용하거나 Multi-Factor Authentication을 완료하여 로그인 및 로그아웃해야 합니다.
-* 컴퓨터가 Azure Active Directory 장치에 자동 등록되어 도메인에 가입된 경우 오랜 시간 동안 오프사이트 상태이면 동기화 실패가 발생할 수 있고 도메인 인증을 완료할 수 없습니다. 이 문제를 해결하려면 동기화를 다시 시작할 수 있도록 컴퓨터를 회사 네트워크에 연결합니다.
+알려진 문제 목록은 [문제 해결](active-directory-windows-enterprise-state-roaming-troubleshooting.md) 섹션의 문서를 참조하세요. 
 
 ## <a name="related-topics"></a>관련된 항목
 * [엔터프라이즈 상태 로밍 개요](active-directory-windows-enterprise-state-roaming-overview.md)
 * [Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화](active-directory-windows-enterprise-state-roaming-enable.md)
 * [설정 동기화에 대한 그룹 정책 및 MDM 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Windows 10 로밍 설정 참조](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+* [문제 해결](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 

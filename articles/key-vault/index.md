@@ -1,11 +1,24 @@
 ---
-layout: LandingPage
+title: "Azure Key Vault 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Key Vault를 사용하여 클라우드 리소스, 앱 및 솔루션에 액세스하고 암호화하는 키를 만들고 유지 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
+services: key-vault
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: key-vault
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
+ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
+ms.openlocfilehash: 1913116e8d43d25a01ea2a8f4eb112c001dbc7ff
+ms.lasthandoff: 03/22/2017
 
 ---
+
 # <a name="key-vault-documentation"></a>Key Vault 설명서
 
 Azure Key Vault를 사용하여 클라우드 응용 프로그램 및 서비스에서 사용하는 암호화 키 및 암호를 보호하고 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 리소스 및 솔루션에 액세스하고 암호화하는 키를 만들고 유지 관리하는 방법을 보여 줍니다.
@@ -114,7 +127,7 @@ Azure Key Vault를 사용하여 클라우드 응용 프로그램 및 서비스�
                     <div class="cardText">
                         <h3>명령줄</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault">PowerShell</a></p>
-                         <p><a href="/cli/azure/keyvault">Azure 2.0 CLI(미리 보기)</a></p>
+                         <p><a href="/cli/azure/keyvault">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -150,10 +163,5 @@ Azure Key Vault를 사용하여 클라우드 응용 프로그램 및 서비스�
 </ul>
 
 ---
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

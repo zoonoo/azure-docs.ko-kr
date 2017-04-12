@@ -1,5 +1,5 @@
 ---
-title: "Ruby를 통해 Service Bus 큐를 사용하는 방법 | Microsoft Docs"
+title: "Ruby를 통해 Azure Service Bus 큐를 사용하는 방법 | Microsoft Docs"
 description: "Azure에서 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Ruby로 작성되었습니다."
 services: service-bus-messaging
 documentationcenter: ruby
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bde6cfe0daa95fc64e18be308798263544119b9f
+ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
+ms.openlocfilehash: 343dc0d39f284488f03e1d1ba3df21ae616e97d9
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -25,48 +26,12 @@ ms.openlocfilehash: bde6cfe0daa95fc64e18be308798263544119b9f
 
 이 가이드에서는 서비스 버스 큐를 사용하는 방법을 설명합니다. 샘플은 Ruby로 작성되었으며 Azure gem을 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기, 메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다. Service Bus 큐에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
-## <a name="what-are-service-bus-queues"></a>서비스 버스 큐 정의
-Service Bus 큐는 *조정된 메시징* 통신 모델을 지원합니다. 큐를 사용하는 경우 분산 응용 프로그램의 구성 요소가 서로 직접 통신하지 않고 중간자 역할을 하는 큐를 통해 메시지를 교환합니다. 메시지 생산자(보낸 사람)는 메시지를 큐로 전달한 후 계속해서 처리합니다.
-메시지 소비자(받는 사람)는 비동기적으로 큐에서 메시지를 끌어와서 처리합니다. 생산자는 계속해서 추가 메시지를 처리하고 보내기 위해 소비자의 회신을 기다릴 필요가 없습니다. 큐는 하나 이상의 경쟁 소비자에게 **FIFO(선입선출)** 메시지 배달을 제공합니다. 즉, 일반적으로 메시지가 큐에 추가된 순서대로 받는 사람이 메시지를 받고 처리하며, 각 메시지가 하나의 메시지 소비자에 의해서만 수신 및 처리됩니다.
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-![QueueConcepts](./media/service-bus-ruby-how-to-use-queues/sb-queues-08.png)
-
-서비스 버스 큐는 다양한 시나리오에 사용할 수 있는 범용 기술입니다.
-
-* [다층 계층 Azure 응용 프로그램](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)에서 웹 역할과 작업자 역할 간의 통신
-* [하이브리드 솔루션](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md)에서 온-프레미스 앱과 Azure 호스티드 앱 간의 통신
-* 서로 다른 조직이나 조직의 부서에서 온-프레미스로 실행되는 분산 응용 프로그램 구성 요소 간의 통신
-
-큐를 사용하면 응용 프로그램 규모를 더 효율적으로 확장할 수 있으며, 아키텍처의 복원력을 증가시킬 수 있습니다.
-
-## <a name="create-a-namespace"></a>네임스페이스 만들기
-Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 서비스 버스 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. Azure Portal에서는 ACS 연결을 사용하여 네임스페이스를 만들지 않으므로 명령줄 인터페이스를 통해 네임스페이스를 만들어야 합니다.
-
-네임스페이스를 만들려면
-
-1. Azure PowerShell 콘솔을 엽니다.
-2. 다음 명령을 입력하여 서비스 버스 네임스페이스를 만듭니다. 원하는 네임스페이스 값을 입력하고 응용 프로그램과 같은 지역을 지정합니다.
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
    
-    ```
-    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
-   
-    ![Create Namespace](./media/service-bus-ruby-how-to-use-queues/showcmdcreate.png)
-    ```
-
-## <a name="obtain-management-credentials-for-the-namespace"></a>네임스페이스에 대한 관리 자격 증명 얻기
-새 네임스페이스에 대해 큐 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다.
-
-Azure 서비스 버스 네임스페이스를 만들 때 실행한 PowerShell cmdlet이 네임스페이스 관리에 사용할 수 있는 키를 표시합니다. **DefaultKey** 값을 복사합니다. 이 자습서의 뒷부분에 나오는 코드에 이 값을 사용할 것입니다.
-
-![키 복사](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
-
-> [!NOTE]
-> [Azure Portal](https://portal.azure.com/)에 로그인하여 Service Bus 네임스페이스에 대한 연결 정보로 이동하여 이 키를 찾을 수도 있습니다.
-> 
-> 
-
 ## <a name="create-a-ruby-application"></a>Ruby 응용 프로그램 만들기
-Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](/develop/ruby/tutorials/web-app-with-linux-vm/)를 참조하세요.
+Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)를 참조하세요.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>서비스 버스를 사용하도록 응용 프로그램 구성
 Azure 서비스 버스를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용합니다.
@@ -85,7 +50,7 @@ require "azure"
 ## <a name="set-up-an-azure-service-bus-connection"></a>Azure 서비스 버스 연결 설정
 Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS_KEY** 환경 변수를 읽고 Service Bus 네임스페이스에 연결하는 데 필요한 정보를 가져옵니다. 이러한 환경 변수를 설정하지 않은 경우 **Azure::ServiceBusService**를 사용하기 전에 다음 코드로 네임스페이스 정보를 지정해야 합니다.
 
-```
+```ruby
 Azure.config.sb_namespace = "<your azure service bus namespace>"
 Azure.config.sb_access_key = "<your azure service bus access key>"
 ```
@@ -95,7 +60,7 @@ Azure.config.sb_access_key = "<your azure service bus access key>"
 ## <a name="how-to-create-a-queue"></a>큐를 만드는 방법
 **Azure::ServiceBusService** 개체를 사용하면 큐로 작업할 수 있습니다. 큐를 만들려면 **create_queue()** 메서드를 사용합니다. 다음 예제에서는 큐를 만들거나 오류를 출력합니다.
 
-```
+```ruby
 azure_service_bus_service = Azure::ServiceBusService.new
 begin
   queue = azure_service_bus_service.create_queue("test-queue")
@@ -106,7 +71,7 @@ end
 
 추가 옵션을 사용하여 **Azure::ServiceBus::Queue** 개체를 전달할 수도 있습니다. 추가 옵션을 사용하면 메시지 TTL(Time to Live) 또는 최대 큐 크기와 같은 기본 큐 설정을 재정의할 수 있습니다. 다음 예제에서는 최대 큐 크기를 5GB, TTL(Time to Live)을 1분으로 설정하는 방법을 보여 줍니다.
 
-```
+```ruby
 queue = Azure::ServiceBus::Queue.new("test-queue")
 queue.max_size_in_megabytes = 5120
 queue.default_message_time_to_live = "PT1M"
@@ -119,7 +84,7 @@ Service Bus 큐에 메시지를 보내기 위해 응용 프로그램은 **Azure:
 
 다음 예제에서는 **send\_queue\_message()**를 사용하여 'myqueue'라는 큐에 테스트 메시지를 보내는 방법을 보여 줍니다.
 
-```
+```ruby
 message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
 message.correlation_id = "test-correlation-id"
 azure_service_bus_service.send_queue_message("test-queue", message)
@@ -130,13 +95,13 @@ Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB
 ## <a name="how-to-receive-messages-from-a-queue"></a>큐에서 메시지를 받는 방법
 **Azure::ServiceBusService** 개체의 **receive\_queue\_message()** 메서드를 사용하여 큐에서 메시지를 받습니다. 기본적으로 메시지는 큐에서 삭제하지 않고 읽고 잠급니다. 그러나 **:peek_lock** 옵션을 **false**로 설정하여 메시지를 읽고 큐에서 삭제할 수 있습니다.
 
-기본 동작은 읽기 및 삭제가 2단계 작업으로 수행되도록 하므로 메시지 누락이 허용되지 않는 응용 프로그램도 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후, **delete\_queue\_message()** 메서드를 호출하고 삭제될 메시지를 매개 변수로 제공하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete\_queue\_message()** 메서드는 메시지를 이용되는 것으로 표시하고 큐에서 제거합니다.
+기본 동작은 읽기 및 삭제가&2;단계 작업으로 수행되도록 하므로 메시지 누락이 허용되지 않는 응용 프로그램도 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후, **delete\_queue\_message()** 메서드를 호출하고 삭제될 메시지를 매개 변수로 제공하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete\_queue\_message()** 메서드는 메시지를 이용되는 것으로 표시하고 큐에서 제거합니다.
 
 **:peek\_lock** 매개 변수를 **false**로 설정하면 메시지 읽기 및 삭제가 가장 간단한 모델이 되며, 오류 발생 시 메시지를 처리하지 않는 것을 허용하는 응용 프로그램의 시나리오에 가장 적합합니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. 서비스 버스가 메시지를 이용되는 것으로 표시했기 때문에 응용 프로그램이 다시 시작되고 메시지 이용을 다시 시작할 때 크래시 전에 이용된 메시지는 누락됩니다.
 
 다음 예제에서는 **receive\_queue\_message()**를 사용하여 메시지를 받고 처리하는 방법을 보여 줍니다. 이 예제에서는 먼저 **false**로 설정된 **:peek\_lock**을 사용하여 메시지를 받고 삭제한 후 다른 메시지를 받고 그런 다음 **delete\_queue\_message()**를 사용하여 메시지를 삭제합니다.
 
-```
+```ruby
 message = azure_service_bus_service.receive_queue_message("test-queue",
   { :peek_lock => false })
 message = azure_service_bus_service.receive_queue_message("test-queue")
@@ -157,10 +122,5 @@ azure_service_bus_service.delete_queue_message(message)
 * GitHub에서 [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) 리포지토리를 방문하세요.
 
 이 문서에서 설명한 Azure Service Bus 큐와 [Ruby에서 큐 Storage를 사용하는 방법](../storage/storage-ruby-how-to-use-queue-storage.md) 문서에서 설명한 Azure 큐를 비교하려면 [Azure 큐 및 Azure Service Bus 큐 - 비교 및 대조](service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

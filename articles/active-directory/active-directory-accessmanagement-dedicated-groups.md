@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3cacf9edde4ed2cabf996e390bb1e00113bc47cb
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 92b9c88ec49424c96c3bd21bc5c4ce390352c17b
 
 
 ---
@@ -25,11 +25,11 @@ Azure Active Directory(Azure AD)에서 전용 그룹 기능은 Azure AD 미리 �
 
 > [!NOTE]
 > 전용 그룹에는 할당된 Azure AD Premium 라이선스가 필요합니다.
-> 
+>
 > * 그룹의 규칙을 관리하는 관리자
 > * 규칙에 따라 그룹의 멤버로 선택된 모든 사용자
-> 
-> 
+>
+>
 
 **전용 그룹을 사용하도록 설정하려면**
 
@@ -51,6 +51,7 @@ Azure Active Directory(Azure AD)에서 전용 그룹 기능은 Azure AD 미리 �
 
 동적 그룹 멤버 자격에 대한 *고급* 규칙(여러 비교를 포함할 수 있는 규칙)을 만드는 방법에 대해 자세히 알아보려면 [특성을 사용하여 고급 규칙 만들기](active-directory-accessmanagement-groups-with-advanced-rules.md)를 참조하세요.
 
+### <a name="next-steps"></a>다음 단계
 이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
 
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
@@ -60,7 +61,6 @@ Azure Active Directory(Azure AD)에서 전용 그룹 기능은 Azure AD 미리 �
 
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

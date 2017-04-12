@@ -1,6 +1,6 @@
 ---
-title: "API 관리 주요 개념"
-description: "API, 제품, 역할, 그룹 및 기타 API 관리의 주요 개념에 대해 알아봅니다."
+title: "Azure API Management에 API 가져오기 | Microsoft Docs"
+description: "Azure API Management에 API 및 해당 작업을 가져오는 방법에 알아봅니다."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 126fd84259c604785cdd5db0543f78539c1db9c7
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: c851b88fc1067e65044266d07775717c028e75d9
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-import-the-definition-of-an-api-with-operations-in-azure-api-management"></a>Azure API 관리에서 작업과 함께 API의 정의를 가져오는 방법
@@ -28,10 +28,10 @@ API 및 그 작업은 다음 형식으로 가져올 수 있습니다.
 * WADL
 * Swagger
 
-이 가이드에서는 새로운 API를 만들고 그 작업과 함께 한번에 가져오는 방법을 보여 줍니다. API를 수동으로 만들고 작업을 추가하는 방법에 대해서는 [API를 만드는 방법][API를 만드는 방법] 및 [API에 작업을 추가하는 방법][API에 작업을 추가하는 방법]을 참조하세요.
+이 가이드에서는 새로운 API를 만들고 그 작업과 함께 한번에 가져오는 방법을 보여 줍니다. API를 수동으로 만들고 작업을 추가하는 방법에 대해서는 [API를 만드는 방법][How to create APIs] 및 [API에 작업을 추가하는 방법][How to add operations to an API]을 참조하세요.
 
 ## <a name="import-api"> </a>API 가져오기
-게시자 포털에서 API를 만들고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure Portal에서 **게시자 포털**을 클릭합니다. 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][API 관리 서비스 인스턴스 만들기] 자습서에서 [API Management 서비스 인스턴스 만들기][API Management 서비스 인스턴스 만들기]를 참조하세요.
+게시자 포털에서 API를 만들고 구성합니다. 게시자 포털에 액세스하려면 API 관리 서비스에 대해 Azure Portal에서 **게시자 포털**을 클릭합니다. 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작][Get started with Azure API Management] 자습서의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 
 ![게시자 포털][api-management-management-console]
 
@@ -39,7 +39,7 @@ API 및 그 작업은 다음 형식으로 가져올 수 있습니다.
 
 ![API 가져오기][api-management-import-apis]
 
-**API 가져오기** 창에는 3개의 탭이 있으며 각기 API 사양을 제공하는 3가지 방법에 해당합니다.
+**API 가져오기** 창에는&3;개의 탭이 있으며 각기 API 사양을 제공하는&3;가지 방법에 해당합니다.
 
 * **클립보드에서** 지정된 입력란에 API 사양을 붙여넣을 수 있습니다.
 * **파일에서** API 사양을 포함하는 파일로 이동하여 선택할 수 있습니다.
@@ -73,8 +73,8 @@ API는 WADL 또는 Swagger를 사용하여 내보낼 수 있습니다. 원하는
 ## <a name="next-steps"> </a>다음 단계
 API를 만들고 작업을 가져온 후 추가 설정을 검토 및 구성하고, 제품에 API를 추가하고, 개발자가 사용할 수 있도록 게시할 수 있습니다. 자세한 내용은 다음 가이드를 참조하세요.
 
-* [API 설정을 구성하는 방법][API 설정을 구성하는 방법]
-* [제품을 만들고 게시하는 방법][제품을 만들고 게시하는 방법]
+* [API 설정을 구성하는 방법][How to configure API settings]
+* [제품을 만들고 게시하는 방법][How to create and publish a product]
 
 [api-management-management-console]: ./media/api-management-howto-import-api/api-management-management-console.png
 [api-management-import-apis]: ./media/api-management-howto-import-api/api-management-api-import-apis.png
@@ -82,21 +82,16 @@ API를 만들고 작업을 가져온 후 추가 설정을 검토 및 구성하�
 [api-management-export-api]: ./media/api-management-howto-import-api/api-management-export-api.png
 [api-management-export-api-format]: ./media/api-management-howto-import-api/api-management-export-api-format.png
 
-[API 가져오기]: #import-api
-[API 내보내기]: #export-api
-[API 설정 구성]: #configure-api-settings
-[다음 단계]: #next-steps
+[Import an API]: #import-api
+[Export an API]: #export-api
+[Configure API settings]: #configure-api-settings
+[Next steps]: #next-steps
 
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
-[API Management 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[API에 작업을 추가하는 방법]: api-management-howto-add-operations.md
-[제품을 만들고 게시하는 방법]: api-management-howto-add-products.md
-[API를 만드는 방법]: api-management-howto-create-apis.md
-[API 설정을 구성하는 방법]: api-management-howto-create-apis.md#configure-api-settings
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create APIs]: api-management-howto-create-apis.md
+[How to configure API settings]: api-management-howto-create-apis.md#configure-api-settings
 

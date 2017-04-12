@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics의 로그 검색 | Microsoft Docs"
+title: "Azure Log Analytics에서 로그 검색을 사용하여 데이터 찾기 | Microsoft Docs"
 description: "로그 검색을 사용하면 사용자 환경 내에서 여러 소스의 컴퓨터 데이터를 서로 연결하고 결합할 수 있습니다."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e1810850651cff4680ea558178ebf92aeac4faa
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: d4935af0647f0629cca327a7e87c29f1252af382
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="log-searches-in-log-analytics"></a>Log Analytics의 로그 검색
+# <a name="find-data-using-log-searches"></a>로그 검색을 사용하여 데이터 찾기
+
 Log Analytics의 핵심은 사용자 환경 내에서 여러 원본의 모든 컴퓨터 데이터를 서로 연결하고 결합할 수 있게 하는 로그 검색 기능입니다. 솔루션도 로그 검색에서 제공되어 특정 문제 영역 주위에 피벗된 메트릭을 가져옵니다.
 
 검색 페이지에서, 쿼리를 만든 다음 검색 시 패싯 컨트롤을 사용하여 결과를 필터링할 수 있습니다. 변환, 필터링 및 결과를 보고하는 고급 쿼리를 만들 수도 있습니다.
@@ -48,7 +51,7 @@ Log Analytics의 핵심은 사용자 환경 내에서 여러 원본의 모든 �
 
 이러한 필터는 실제로 개체 유형/클래스가 아닙니다. *유형* 은 한 개의 태그, 속성 또는 문자열/이름/범주이며 하나의 데이터에 첨부됩니다. 시스템의 일부 문서는 **Type:ConfigurationAlert**로 태그가 지정되고 일부는 **Type:Perf** 또는 **Type:Event** 등으로 태그가 지정됩니다. 각 검색 결과, 문서, 레코드 또는 항목은 각 데이터에 대한 원시 속성 및 값을 표시하고 필드에 지정된 값이 있는 레코드만 검색하려는 경우 필드 이름을 사용하여 필터에 지정할 수 있습니다.
 
-*유형* 은 실제로 모든 레코드가 있는 필드이며 다른 필드와 다르지 않습니다. 형식 필드의 값을 기반으로 설정되었습니다. 해당 레코드를 다른 형태 또는 모습을 갖습니다. 부수적으로, **Type=Perf** 또는 **Type=Event**는 성능 데이터 또는 이벤트를 쿼리하는 방법을 알아보아야 하는 구문입니다.
+*유형*은 실제로 모든 레코드가 있는 필드이며 다른 필드와 다르지 않습니다. 형식 필드의 값을 기반으로 설정되었습니다. 해당 레코드를 다른 형태 또는 모습을 갖습니다. 부수적으로, **Type=Perf** 또는 **Type=Event**는 성능 데이터 또는 이벤트를 쿼리하는 방법을 알아보아야 하는 구문입니다.
 
 필드 이름 뒤 또는 값 앞에 콜론 (:) 또는 등호 (=) 중 하나를 사용할 수 있습니다. **Type:Event** and **Type=Event** 는 의미가 동일하며 선호하는 스타일을 선택할 수 있습니다.
 
@@ -257,7 +260,7 @@ MEASURE는 Log Analytics 검색에서 가장 용도가 많은 명령 중 하나�
 
 ![측정값 개수 검색](./media/log-analytics-log-searches/oms-search-measure-count01.png)
 
-예를 들어 위 이미지에는 **컴퓨터** 필드가 있으며 결과에 739,000개의 이벤트가 있고 이 레코드 중에서 **컴퓨터** 필드에 고유한 값은 68개입니다. 타일은 **컴퓨터** 필드에 기록되는 가장 일반적인 5개의 값인 상위 5개만을 표시하며) 해당 필드에 특정 값을 포함하는 문서 수를 기준으로 정렬됩니다. 이 이미지에 있는 거의 369,000개 이미지 중 90,000개는 OpsInsights04.contoso.com 컴퓨터에서, 83,000개는 DB03.contoso.com 컴퓨터 등에서 생성된 것입니다.
+예를 들어, 위의 이미지에서는 **컴퓨터** 필드가 표시되고 결과에서 거의 73만 9천개까지 이벤트를 보여줍니다. 해당 레코드에는 **컴퓨터** 필드에 대한 68개의 고유한 값이 있습니다. 타일은 **컴퓨터** 필드에 기록되는 가장 일반적인 5개의 값인 상위 5개만을 표시하며) 해당 필드에 특정 값을 포함하는 문서 수를 기준으로 정렬됩니다. 이 이미지에 있는 거의 369,000개 이미지 중 90,000개는 OpsInsights04.contoso.com 컴퓨터에서, 83,000개는 DB03.contoso.com 컴퓨터 등에서 생성된 것입니다.
 
 타일이 상위 5개만 표시하므로 모든 값을 보려면 어떻게 해야 합니까?
 
@@ -379,7 +382,7 @@ Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor T
 Type=Perf AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03")
 ```
 
-컴퓨터가 있으므로 또한 2개의 핵심 성과 지표 (KPI) 즉, CPU 사용량 % 및 % 사용 가능한 디스크 공간을 선택하려 합니다. 따라서 쿼리의 부분은 다음과 같이 됩니다.
+컴퓨터가 있으므로 또한&2;개의 핵심 성과 지표 (KPI) 즉, CPU 사용량 % 및 % 사용 가능한 디스크 공간을 선택하려 합니다. 따라서 쿼리의 부분은 다음과 같이 됩니다.
 
 ```
 Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS
@@ -439,7 +442,7 @@ Type=Perf  CounterName="% Processor Time"  InstanceName="_Total" | Measure Avg(C
 
 Microsoft System Center Operations Manager에 익숙하다면 where 명령을 관리 팩 측면에서 생각할 수 있습니다. 예제가 규칙인 경우 쿼리의 첫번째 부분이 데이터 원본이고 where 명령은 조건 검색입니다.
 
-**내 대시보드**에서 컴퓨터 CPU가 과도하게 사용되는 경우 참조하는 모니터로서 쿼리를 타일로 사용할 수 있습니다. 대시보드에 대해 자세히 알아보려면 [Log Analytics에서 사용자 지정 대시보드 만들기](log-analytics-dashboards.md)를 참조하세요. 또한 모바일 앱을 사용하여 대시보드를 만들고 사용할 수 있습니다. 자세한 내용은 [OMS Mobile App](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)(OMS 모바일 앱)을 참조하세요. 다음 이미지의 아래쪽 두 타일에서 목록을 표시한 모니터를 숫자로 볼 수 있습니다 . 기본적으로 항상 수는 0으로, 목록은 비어 있어야 합니다. 그렇지 않은 경우 경고 조건을 나타냅니다. 필요한 경우 이것을 사용하여 압력을 받는 컴퓨터를 볼 수 있습니다.
+**내 대시보드**에서 컴퓨터 CPU가 과도하게 사용되는 경우 참조하는 모니터로서 쿼리를 타일로 사용할 수 있습니다. 대시보드에 대해 자세히 알아보려면 [Log Analytics에서 사용자 지정 대시보드 만들기](log-analytics-dashboards.md)를 참조하세요. 또한 모바일 앱을 사용하여 대시보드를 만들고 사용할 수 있습니다. 자세한 내용은 [OMS Mobile App](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)(OMS 모바일 앱)을 참조하세요. 다음 이미지의 아래쪽 두 타일에서 목록을 표시한 모니터를 숫자로 볼 수 있습니다 . 기본적으로 항상 수는&0;으로, 목록은 비어 있어야 합니다. 그렇지 않은 경우 경고 조건을 나타냅니다. 필요한 경우 이것을 사용하여 압력을 받는 컴퓨터를 볼 수 있습니다.
 
 ![모바일 대시보드](./media/log-analytics-log-searches/oms-search-mobile.png)
 
@@ -574,9 +577,4 @@ Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval
 
 * [Log Analytics의 사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 로그 검색을 확장합니다.
 * Log Analytics에 제공되는 모든 검색 필드 및 패싯을 보려면 [Log Analytics log search reference](log-analytics-search-reference.md) (Log Analytics 로그 검색 참조)를 검토합니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -4,7 +4,7 @@ description: "Azure 앱 서비스에서 RESTful API 호출을 사용하여 앱�
 services: app-service
 documentationcenter: 
 author: NKing92
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: f94d0aea-edc1-43ab-9b51-ea7375859276
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: nicking
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 1ad2911f809a17e4a6c0f2fe9087e1d9eb2da39e
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -253,9 +254,4 @@ Azure 앱 서비스에서는 백업을 만들 때 제공된 SAS URL을 사용하
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

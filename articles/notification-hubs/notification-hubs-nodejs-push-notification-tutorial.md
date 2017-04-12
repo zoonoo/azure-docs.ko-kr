@@ -5,7 +5,7 @@ keywords: "푸시 알림, 푸시 알림, node.js 푸시, ios 푸시"
 services: notification-hubs
 documentationcenter: nodejs
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: facd5c50cb65bc1f656c0b5adf1e81087644934a
+ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
+ms.openlocfilehash: dc4987b16b2e930641c6c90eff8b65c1bf8d573c
+ms.lasthandoff: 03/21/2017
 
 
 ---
@@ -80,7 +81,7 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
 ![Azure 포털 - 알림 허브](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> [Azure PowerShell](/powershell/azureps-cmdlets-docs)에서 제공하는 **Get-AzureSbNamespace** cmdlet 또는 [Azure CLI(Azure 명령줄 인터페이스)](../xplat-cli-install.md)로 **azure sb namespace show** 명령을 사용하여 연결 문자열을 검색할 수도 있습니다.
+> [Azure PowerShell](/powershell/azureps-cmdlets-docs)에서 제공하는 **Get-AzureSbNamespace** cmdlet 또는 [Azure CLI(Azure 명령줄 인터페이스)](../cli-install-nodejs.md)로 **azure sb namespace show** 명령을 사용하여 연결 문자열을 검색할 수도 있습니다.
 > 
 > 
 
@@ -212,9 +213,4 @@ Azure 알림 허브를 사용하려면 푸시 알림 REST 라이브러리와 통
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 [connectionstring]: https://portal.azure.com
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

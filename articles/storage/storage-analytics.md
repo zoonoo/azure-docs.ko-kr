@@ -1,5 +1,5 @@
 ---
-title: "저장소 분석을 사용하여 로그 및 메트릭 데이터 수집 | Microsoft Docs"
+title: "Azure Storage 분석을 사용하여 로그 및 메트릭 데이터 수집 | Microsoft Docs"
 description: "저장소 분석을 사용하면 모든 저장소 서비스에 대한 메트릭 데이터를 추적하고 Blob, 큐 및 테이블 저장소에 대한 로그를 수집할 수 있습니다."
 services: storage
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/03/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af5fae5c5153c91fe78bdfb310c407a2c4462e04
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 4680985e5c66444ca8a356cc92d45dc0f1838f55
+ms.lasthandoff: 03/06/2017
 
 
 ---
 # <a name="storage-analytics"></a>저장소 분석
-## <a name="overview"></a>개요
+
 Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다.
 
 저장소 분석을 사용하려면 모니터링할 각 서비스에 대해 저장소 분석을 개별적으로 사용하도록 설정해야 합니다. [Azure 포털](https://portal.azure.com)에서 활성화할 수 있습니다. 자세한 내용은 [Azure 포털에서 저장소 계정 모니터링](storage-monitor-storage-account.md)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 저장소 분석을 사용하도록 설정할 수도 있습니다. [Blob Service 속성 가져오기](https://msdn.microsoft.com/library/hh452239.aspx), [큐 서비스 속성 가져오기](https://msdn.microsoft.com/library/hh452243.aspx), [Table service 속성 가져오기](https://msdn.microsoft.com/library/hh452238.aspx) 및 [파일 서비스 속성 가져오기](https://msdn.microsoft.com/library/mt427369.aspx) 작업을 사용하여 각 서비스에 대해 저장소 분석을 사용하도록 설정합니다.
@@ -80,12 +81,12 @@ Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메�
 | 특성 | 설명 |
 | --- | --- |
 | <service-name> |저장소 서비스의 이름입니다. 예: blob, table, queue |
-| YYYY |로그의 4자리 연도입니다. 예: 2011 |
-| MM |로그의 2자리 월입니다. 예: 07 |
-| DD |로그의 2자리 월입니다. 예: 07 |
+| YYYY |로그의&4;자리 연도입니다. 예: 2011 |
+| MM |로그의&2;자리 월입니다. 예: 07 |
+| DD |로그의&2;자리 월입니다. 예: 07 |
 | hh |로그의 시작 시간을 나타내는 24시간 UTC 형식의 2자리 시간입니다. 예: 18 |
-| MM |로그의 시작 분을 나타내는 2자리 숫자입니다. 현재 저장소 분석 버전에서는 이 값이 지원되지 않으며 해당 값은 항상 00입니다. |
-| <counter> |1시간 동안 저장소 서비스에 대해 생성되는 로그 Blob의 수를 나타내는 0부터 시작되는 6자리 카운터입니다. 이 카운터는 000000부터 시작됩니다. 예: 000001 |
+| MM |로그의 시작 분을 나타내는&2;자리 숫자입니다. 현재 저장소 분석 버전에서는 이 값이 지원되지 않으며 해당 값은 항상 00입니다. |
+| <counter> |1시간 동안 저장소 서비스에 대해 생성되는 로그 Blob의 수를 나타내는&0;부터 시작되는&6;자리 카운터입니다. 이 카운터는 000000부터 시작됩니다. 예: 000001 |
 
 이전 예제가 결합된 완전한 샘플 로그 이름이 아래에 나와 있습니다.
 
@@ -102,7 +103,7 @@ Azure 저장소 분석은 로깅을 수행하며 저장소 계정에 대한 메�
 
 | 특성 | 설명 |
 | --- | --- |
-| LogType |로그에 읽기, 쓰기 또는 삭제 작업과 관련된 정보가 포함되는지 여부를 설명합니다. 이 값에는 한 가지 형식이 포함될 수도 있고 3개 형식이 모두 조합(쉼표로 구분)되어 포함될 수도 있습니다. 예제 1: 쓰기; 예제 2: 읽기,쓰기; 예제 3: 읽기,쓰기,삭제하기. |
+| LogType |로그에 읽기, 쓰기 또는 삭제 작업과 관련된 정보가 포함되는지 여부를 설명합니다. 이 값에는 한 가지 형식이 포함될 수도 있고&3;개 형식이 모두 조합(쉼표로 구분)되어 포함될 수도 있습니다. 예제 1: 쓰기; 예제 2: 읽기,쓰기; 예제 3: 읽기,쓰기,삭제하기. |
 | StartTime |로그에서 가장 오래된 항목의 시간(YYYY-MM-DDThh:mm:ssZ 형식)입니다. 예: 2011-07-31T18:21:46Z |
 | EndTime |로그에서 가장 최신 항목의 시간(YYYY-MM-DDThh:mm:ssZ 형식)입니다. 예: 2011-07-31T18:22:09Z |
 | LogVersion |로그 형식의 버전입니다. 현재 지원되는 유일한 값: 1.0 |
@@ -125,7 +126,7 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 Blob
 ### <a name="transaction-metrics"></a>트랜잭션 메트릭
 각 저장소 서비스 및 요청한 API 작업에 대해 시간 또는 분 간격으로 유용한 데이터 집합이 기록됩니다. 이러한 데이터에는 수신/송신, 가용성, 오류, 분류된 요청 비율 등이 포함됩니다. 트랜잭션 세부 정보의 전체 목록은 [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/hh343264.aspx) 항목에서 확인할 수 있습니다.
 
-트랜잭션 데이터는 두 개의 수준, 즉 서비스 수준과 API 작업 수준에서 기록됩니다. 서비스 수준에서는 서비스에 대한 요청이 없더라도 요청한 모든 API 작업을 요약하는 통계가 1시간마다 테이블 엔터티에 기록됩니다. API 작업 수준에서는 해당 시간 동안 작업이 요청된 경우에만 통계가 엔터티에 기록됩니다.
+트랜잭션 데이터는 두 개의 수준, 즉 서비스 수준과 API 작업 수준에서 기록됩니다. 서비스 수준에서는 서비스에 대한 요청이 없더라도 요청한 모든 API 작업을 요약하는 통계가&1;시간마다 테이블 엔터티에 기록됩니다. API 작업 수준에서는 해당 시간 동안 작업이 요청된 경우에만 통계가 엔터티에 기록됩니다.
 
 예를 들어 Blob service에 대해 **GetBlob** 작업을 수행하면 저장소 분석 메트릭이 요청을 기록한 다음 **GetBlob** 작업뿐만 아니라 Blob service에 대해 집계된 데이터에도 포함합니다. 하지만 해당 시간 동안 요청된 **GetBlob** 작업이 없으면 해당 작업에 대한 `$MetricsTransactionsBlob`에 엔터티가 기록되지 않습니다.
 
@@ -137,7 +138,7 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 Blob
 > 
 > 
 
-용량 데이터는 저장소 계정의 Blob 서비스에 대해 매일 기록되며 2개 테이블 엔터티가 작성됩니다. 이러한 엔터티 중 하나는 사용자 데이터에 대한 통계를 제공하며 다른 하나는 저장소 분석에서 사용하는 `$logs` Blob 컨테이너에 대한 통계를 제공합니다. `$MetricsCapacityBlob` 테이블에는 다음 통계가 포함됩니다.
+용량 데이터는 저장소 계정의 Blob 서비스에 대해 매일 기록되며&2;개 테이블 엔터티가 작성됩니다. 이러한 엔터티 중 하나는 사용자 데이터에 대한 통계를 제공하며 다른 하나는 저장소 분석에서 사용하는 `$logs` Blob 컨테이너에 대한 통계를 제공합니다. `$MetricsCapacityBlob` 테이블에는 다음 통계가 포함됩니다.
 
 * **Capacity**: 저장소 계정의 Blob 서비스가 사용하는 저장소의 양(바이트)입니다.
 * **ContainerCount**: 저장소 계정의 Blob 서비스에 포함된 Blob 컨테이너의 수입니다.
@@ -146,11 +147,11 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 Blob
 용량 메트릭에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/hh343264.aspx)를 참조하세요.
 
 ### <a name="how-metrics-are-stored"></a>메트릭 저장 방법
-각 저장소 서비스의 모든 메트릭 데이터는 해당 서비스용으로 예약된 테이블 3개에 저장됩니다. 이러한 테이블은 각각 트랜잭션 정보용, 세부 트랜잭션 정보용, 용량 정보용 테이블입니다. 트랜잭션 및 세부 트랜잭션 정보는 요청과 응답 데이터로 구성되며 용량 정보는 저장소 사용량 데이터로 구성됩니다. 다음 표에서 설명하는 대로 이름이 지정된 테이블에서 저장소 계정 Blob 서비스의 시간 메트릭, 분 메트릭 및 용량 정보에 액세스할 수 있습니다.
+각 저장소 서비스의 모든 메트릭 데이터는 해당 서비스용으로 예약된 테이블&3;개에 저장됩니다. 이러한 테이블은 각각 트랜잭션 정보용, 세부 트랜잭션 정보용, 용량 정보용 테이블입니다. 트랜잭션 및 세부 트랜잭션 정보는 요청과 응답 데이터로 구성되며 용량 정보는 저장소 사용량 데이터로 구성됩니다. 다음 표에서 설명하는 대로 이름이 지정된 테이블에서 저장소 계정 Blob 서비스의 시간 메트릭, 분 메트릭 및 용량 정보에 액세스할 수 있습니다.
 
 | 메트릭 수준 | 테이블 이름 | 지원되는 버전 |
 | --- | --- | --- |
-| 시간 메트릭, 기본 위치 |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/>  $MetricsTransactionsQueue |2013-08-15 이전 버전만 해당됩니다. 이러한 이름은 계속 지원되기는 하지만 아래에 나와 있는 테이블을 사용하도록 전환하는 것이 좋습니다. |
+| 시간 메트릭, 기본 위치 |$MetricsTransactionsBlob  <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |2013-08-15 이전 버전만 해당됩니다. 이러한 이름은 계속 지원되기는 하지만 아래에 나와 있는 테이블을 사용하도록 전환하는 것이 좋습니다. |
 | 시간 메트릭, 기본 위치 |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |2013-08-15를 포함한 모든 버전. |
 | 분 메트릭, 기본 위치 |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |2013-08-15를 포함한 모든 버전. |
 | 시간 메트릭, 보조 위치 |$MetricsHourSecondaryTransactionsBlob  <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |2013-08-15를 포함한 모든 버전. 읽기 권한의 지역 중복 복제를 사용하도록 설정해야 합니다. |
@@ -163,7 +164,7 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 Blob
 Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 테이블 서비스 API를 사용하면 메트릭 테이블의 모든 데이터에 액세스할 수 있습니다. 저장소 계정 관리자는 테이블 엔터티를 읽고 삭제할 수는 있지만 작성하거나 업데이트할 수는 없습니다.
 
 ## <a name="billing-for-storage-analytics"></a>저장소 분석 청구
-저장소 분석은 저장소 계정 소유자가 사용하도록 설정하며 기본적으로 사용하도록 설정되어 있지는 않습니다. 모든 메트릭 데이터는 저장소 계정 서비스를 통해 작성됩니다. 따라서 저장소 분석에서 수행하는 각 쓰기 작업에 대해 요금이 청구됩니다. 또한 메트릭 데이터에 사용되는 저장소에도 요금이 청구됩니다.
+모든 메트릭 데이터는 저장소 계정 서비스를 통해 작성됩니다. 따라서 저장소 분석에서 수행하는 각 쓰기 작업에 대해 요금이 청구됩니다. 또한 메트릭 데이터에 사용되는 저장소에도 요금이 청구됩니다.
 
 저장소 분석에서 수행하는 다음 작업에 대해 요금이 청구될 수 있습니다.
 
@@ -191,10 +192,5 @@ Azure 관리되는 라이브러리에서 제공하는 .NET API를 비롯한 테�
 * [저장소 분석 메트릭 정보](https://msdn.microsoft.com/library/hh343258.aspx)
 * [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/hh343264.aspx)
 * [저장소 분석에서 기록한 작업 및 상태 메시지](https://msdn.microsoft.com/library/hh343260.aspx)  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: e82cc23dac2b765ee3dc8ae2eb1e4f7f2e49675a
-ms.openlocfilehash: 9e7dbb2b218796e3484bee05c6026c801c7780b7
+ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
+ms.openlocfilehash: 10926263ee2657dc96fb1873733d349cf0956e92
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -38,7 +39,7 @@ ms.openlocfilehash: 9e7dbb2b218796e3484bee05c6026c801c7780b7
 | 데이터 작업 - 감사 |사용 가능. 자세한 내용은 [여기](data-lake-store-diagnostic-logs.md) 를 참조하세요. |사용 가능 |
 | 미사용 암호화 데이터 |투명한, 서버 쪽 <ul><li>서비스 관리 키 사용</li><li>Azure KeyVault의 고객 관리 키 사용</li></ul> |<ul><li>투명한, 서버 쪽</li> <ul><li>서비스 관리 키 사용</li><li>Azure KeyVault의 고객 관리 키 사용(출시 예정)</li></ul><li>클라이언트 쪽 암호화</li></ul> |
 | 관리 작업(예: 계정 만들기) |[역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md) ) |[역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md) ) |
-| 개발자 SDK |.NET, Java, Node.js |.NET, Java, Python, Node.js, c + +, Ruby |
+| 개발자 SDK |.NET, Java, Python, Node.js |.NET, Java, Python, Node.js, c + +, Ruby |
 | 분석 워크로드 성능 |병렬 분석 워크로드에 대해 최적화된 성능입니다. 높은 처리량 및 IOPS. |분석 워크로드에 대해 최적화되지 않음 |
 | 크기 한도 |계정 크기, 파일 크기 또는 파일 수에 한도가 없음 |문서화된 특정 한도 [여기](../azure-subscription-service-limits.md#storage-limits) |
 | 지리적 중복 |로컬 중복(Azure 하위 지역에 있는 데이터의 여러 복사본) |로컬 중복(LRS), 전역 중복(GRS), 읽기 액세스 전역 중복(RA-GRS). 자세한 내용은 [여기](../storage/storage-redundancy.md) 참조 |
@@ -49,10 +50,5 @@ ms.openlocfilehash: 9e7dbb2b218796e3484bee05c6026c801c7780b7
 ### <a name="next-steps"></a>다음 단계
 * [Azure Data Lake Store 개요](data-lake-store-overview.md)
 * [Data Lake 저장소 시작](data-lake-store-get-started-portal.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

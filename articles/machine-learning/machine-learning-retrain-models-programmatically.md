@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 70004ff5c59427dfd5c58e5633cae95a08a18a3a
+ms.sourcegitcommit: 0dc0f84ed65e76a95dcac523e42268039212773c
+ms.openlocfilehash: 5032e66556622e44e5f5bba84c4ddf5318b1e194
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -44,10 +45,11 @@ ms.openlocfilehash: 70004ff5c59427dfd5c58e5633cae95a08a18a3a
 5. Census Model을 입력합니다.
 6. 실험 캔버스 맨 아래에서 **실행**을 클릭합니다.
 7. **웹 서비스 설정**을 클릭하고 **재학습 웹 서비스**를 선택합니다. 
+
+다음은 초기 실험을 보여 줍니다.
    
    ![초기 실험.][2]
 
-다이어그램 2: 초기 실험.
 
 ## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>예측 실험을 만들고 웹 서비스로 게시
 다음으로 서술적 실험을 만듭니다.
@@ -56,8 +58,11 @@ ms.openlocfilehash: 70004ff5c59427dfd5c58e5633cae95a08a18a3a
 2. **실행**을 클릭합니다. 
 3. 실험 실행이 완료된 후 **웹 서비스 배포[기존]**을 클릭하고 **웹 서비스 배포[신규]**를 선택합니다.
 
+> [!NOTE] 
+> 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요. 
+
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>학습 실험을 학습 웹 서비스로 배포
-학습된 모델을 다시 학습하려면 재학습 웹 서비스로 만든 학습 실험을 배포해야 합니다. 이 웹 서비스가 학습된 모델을 새로 생성할 수 있으려면 *웹 서비스 출력* 모듈이 *[모델 학습][train-model]* 모듈에 연결되어야 합니다.
+학습된 모델을 다시 학습하려면 재학습 웹 서비스로 만든 학습 실험을 배포해야 합니다. 이 웹 서비스가 학습된 모델을 새로 생성할 수 있으려면 *웹 서비스 출력* 모듈이 *[학습 모델][train-model]* 모듈에 연결되어야 합니다.
 
 1. 학습 실험으로 돌아가려면 왼쪽 창에서 실험 아이콘을 클릭한 다음 Census Model이라는 실험을 클릭합니다.  
 2. 실험 항목 검색 상자에 웹 서비스를 입력합니다. 
@@ -79,7 +84,7 @@ ms.openlocfilehash: 70004ff5c59427dfd5c58e5633cae95a08a18a3a
 
 ![실행 후 결과 워크플로.][4]
 
-다이어그램 3: 실행 후 결과 워크플로.
+
 
 ## <a name="retrain-the-model-with-new-data-using-bes"></a>BES를 사용하여 새 데이터로 모델 다시 학습
 이 예에서는 재학습 응용 프로그램을 만드는 데 C#을 사용합니다. 또한 Python 또는 R 샘플 코드를 사용하여 이 작업을 수행할 수 있습니다.
@@ -182,9 +187,4 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") 
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

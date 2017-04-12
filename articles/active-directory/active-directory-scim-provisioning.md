@@ -17,6 +17,7 @@ ms.author: asmalser
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3349f890391aec7fc6361b149d148d828cbe3b97
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -52,7 +53,7 @@ Azure AD 응용 프로그램 갤러리에 있는 "사용자 지정" 앱 기능�
 
 **SCIM을 지원하는 응용 프로그램을 연결하려면:**
 
-1. 웹 브라우저에서 Azure 관리 포털(https://manage.windowsazure.com)을 시작합니다.
+1. 웹 브라우저에서 Azure 관리 포털( https://manage.windowsazure.com )을 시작합니다.
 2. **Active Directory > 디렉터리 > [사용자의 디렉터리] > 응용 프로그램**으로 이동하고 **추가 > 갤러리에서 응용 프로그램 추가**를 선택합니다.
 3. 왼쪽에서 **사용자 지정** 탭을 선택하고 응용 프로그램에 이름을 입력한 다음 확인 표시 아이콘을 클릭하여 앱 개체를 만듭니다.
 
@@ -96,7 +97,7 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현
 
 **샘플 SCIM 끝점을 만들려면:**
 
-1.  [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
+1. [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. 패키지의 압축을 풀고 C:\AzureAD-BYOA-Provisioning-Samples와 같은 위치에서 Windows 컴퓨터에 넣습니다.
 3. 이 폴더에 Visual Studio에 있는 FileProvisioningAgent 솔루션을 시작합니다.
 4. **도구 > 라이브러리 패키지 관리자 > 패키지 관리자 콘솔**을 선택하고 FileProvisioningAgent 프로젝트에 다음과 같은 명령을 실행하여 솔루션 참조를 확인합니다.
@@ -112,7 +113,7 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현
 
 **Azure AD에서 샘플 SCIM 끝점을 등록하려면:**
 
-1. 웹 브라우저에서 Azure 관리 포털(https://manage.windowsazure.com)을 시작합니다.
+1. 웹 브라우저에서 Azure 관리 포털( https://manage.windowsazure.com )을 시작합니다.
 2. **Active Directory > 디렉터리 > [사용자의 디렉터리] > 응용 프로그램**으로 이동하고 **추가 > 갤러리에서 응용 프로그램 추가**를 선택합니다.
 3. 왼쪽에서 **사용자 지정** 탭을 선택하고 "SCIM 테스트 앱"과 같은 이름을 입력한 다음 확인 표시 아이콘을 클릭하여 앱 개체를 만듭니다. 만든 응용 프로그램 개체는 SCIM 끝점 뿐만 아니라 Single Sign-On을 프로비전하고 구현하는 대상 앱을 나타내도록 합니다.
 
@@ -678,9 +679,4 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 [3]: ./media/active-directory-scim-provisioning/scim-figure-3.PNG
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

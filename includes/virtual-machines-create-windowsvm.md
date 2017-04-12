@@ -1,32 +1,56 @@
-1. [클래식 포털](http://manage.windowsazure.com)에 로그인 합니다. 
-2. 창 맨 아래의 명령 모음에서 **새로 만들기**를 클릭합니다.
-3. **계산**에서 **가상 컴퓨터**를 클릭한 후 **갤러리에서**를 클릭합니다.
-   
-    ![명령 모음의 갤러리에서로 이동](./media/virtual-machines-create-WindowsVM/fromgallery.png)
-4. 이렇게 한 후 첫 번째 화면의 사용 가능한 이미지 목록에서 가상 컴퓨터의 **이미지를 선택** 할 수 있습니다. 갤러리에서 이미지를 선택하거나 업로드한 이미지 및 디스크에서 선택할 수 있습니다. 사용 가능한 이미지는 사용 중인 구독에 따라 달라집니다.
-5. 두 번째 화면에서는 컴퓨터 이름, 크기 및 관리자 사용자 이름과 암호를 선택할 수 있습니다. 앱 또는 워크로드를 실행하는 데 필요한 계층과 크기를 사용합니다. 다음은 몇 가지 팁입니다.
-   
-   * **가상 컴퓨터 이름** 에는 문자, 숫자 및 하이픈만 포함할 수 있습니다. 또한 문자로 시작해야 하고 문자 또는 숫자로 끝나야 합니다.
-   * **새 사용자 이름** 은 서버를 관리하는 데 사용하는 관리 계정을 나타냅니다. 암호의 길이는 8-123자여야 하며 소문자, 대문자, 숫자 및 특수 문자 중 적어도 3가지를 포함해야 합니다. **가상 컴퓨터에 연결하고 로그온하는 데 이 사용자 이름과 암호가 필요합니다**.
-   * 가상 컴퓨터의 크기는 사용 비용과 구성 옵션(예: 연결할 수 있는 데이터 디스크 수)에 영향을 미칩니다. 자세한 내용은 [가상 컴퓨터의 크기](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
-6. 세 번째 화면에서는 네트워킹, 저장소 및 가용성에 대한 리소스를 구성할 수 있습니다. 다음은 몇 가지 팁입니다.
-   
-   * **클라우드 서비스 DNS 이름** 은 가상 컴퓨터에 연결하는 데 사용되는 URI의 일부가 되는 전역 DNS 이름입니다. 이 이름은 Azure에서 고유해야 하므로 자체 클라우드 서비스 이름을 새로 만들어야 합니다. 클라우드 서비스는 [여러 가상 컴퓨터](../articles/virtual-machines/virtual-machines-windows-classic-connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 사용하는 시나리오에서 중요합니다.
-   * **지역/선호도 그룹/가상 네트워크**에는 사용자 위치에 해당하는 지역을 사용합니다. 대신 가상 네트워크를 지정하도록 선택할 수도 있습니다.
-   * 가상 컴퓨터에서 가상 네트워크를 사용하려는 경우 가상 컴퓨터를 만들 때 **반드시** 가상 네트워크를 지정해야 합니다. VM을 만든 후에는 가상 컴퓨터를 가상 네트워크에 가입할 수 없습니다. 자세한 내용은 [Azure Virtual Network 개요](../articles/virtual-network/virtual-networks-overview.md)(영문)를 참조하세요.
-   * 끝점을 구성하는 방법에 대한 지침은 [가상 컴퓨터로 끝점을 설정하는 방법](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)(영문)을 참조하세요.
-7. 네 번째 구성 화면에서는 VM 에이전트를 설치하고 사용 가능한 확장 중 일부를 구성할 수 있습니다.
-   
-   > [!NOTE]
-   > VM 에이전트는 가상 컴퓨터를 조작 또는 관리하는 데 유용한 확장을 설치하기 위한 환경을 제공합니다. 자세한 내용은 [VM 에이전트 및 확장 정보](../articles/virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 참조하세요.  
-   > 
-   > 
-8. 가상 컴퓨터가 만들어지면 클래식 포털의 **가상 컴퓨터**아래에 새 가상 컴퓨터가 나열됩니다. 해당 클라우드 서비스 및 저장소 계정도 만들어진 후 해당 섹션에 나열됩니다. 가상 컴퓨터와 클라우드 서비스가 둘 다 자동으로 시작되고 해당 상태가 **실행 중**으로 나열됩니다.
-   
-    ![가상 컴퓨터의 VM 에이전트 및 끝점 구성](./media/virtual-machines-create-WindowsVM/vmcreated.png)
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+
+2. 왼쪽 위에서 **새로 만들기 > 계산 > Windows Server 2016 Datacenter**를 클릭합니다.
+
+    ![포털에서 Azure VM 이미지로 이동](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
+
+3. Windows Server 2016 Datacenter에서 클래식 배포 모델을 선택합니다. 만들기를 클릭합니다.
+
+    ![포털에서 사용할 수 있는 Azure VM 이미지를 보여 주는 스크린샷](./media/virtual-machines-common-portal-create-fqdn/deployment-classic-model.png)
+
+## <a name="1-basics-blade"></a>1. 기본 사항 블레이드
+
+기본 사항 블레이드에는 가상 컴퓨터에 대한 관리 정보가 필요합니다.
+
+1. 가상 컴퓨터의 **이름**을 입력합니다. 이 예제에서 _HeroVM_은 가상 컴퓨터의 이름입니다. 이름은 1-15자 길이여야 하며 특수 문자를 포함할 수 없습니다.
+
+2. **사용자 이름** 및 VM에서 로컬 계정을 만드는 데 사용되는 강력한 **암호**를 입력합니다. 로컬 계정은 VM에 로그온하고 VM을 관리하는 데 사용됩니다. 이 예제에서 _azureuser_는 사용자 이름입니다.
+
+ 암호는 8-123자 길이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 등 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 자세한 내용은 [사용자 이름 및 암호 요구 사항](../articles/virtual-machines/windows/faq.md)을 참조하세요.
+
+3. **구독**은 선택 사항입니다. 일반적인 설정 중 하나는 "종량제"입니다.
+
+4. 기존 **리소스 그룹**을 선택하거나 새 리소스 그룹의 이름을 입력합니다. 이 예제에서 _HeroVMRG_는 리소스 그룹의 이름입니다.
+
+5. VM을 실행할 Azure 데이터 센터 **위치**를 선택합니다. 이 예제에서 **미국 동부**는 위치입니다.
+
+6. 완료되면 **다음**을 클릭하여 다음 블레이드를 계속 진행합니다.
+
+    ![Azure VM을 구성하기 위한 기본 사항 블레이드에서 설정을 보여 주는 스크린샷](./media/virtual-machines-common-portal-create-fqdn/basics-blade-classic.png)
+
+## <a name="2-size-blade"></a>2. 크기 블레이드
+
+크기 블레이드는 VM의 구성 세부 정보를 식별하고 OS, 프로세서 수, 디스크 저장소 유형, 예상 월간 사용 비용 등을 포함하여 다양한 옵션을 나열합니다.  
+
+VM 크기를 선택하고 **선택**을 클릭하여 계속 진행합니다. 이 예제에서 _DS1_\__V2 표준_은 VM 크기입니다.
+
+  ![선택할 수 있는 Azure VM 크기를 보여 주는 크기 블레이드의 스크린샷](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
 
 
+## <a name="3-settings-blade"></a>3. 설정 블레이드
 
-<!--HONumber=Nov16_HO3-->
+설정 블레이드에서는 저장소 및 네트워크 옵션을 요청합니다. 기본 설정을 적용할 수 있습니다. Azure는 필요에 따라 적절한 항목을 만듭니다.
 
+지원하는 가상 컴퓨터 크기를 선택한 경우 디스크 유형에서 프리미엄(SSD)을 선택하여 Azure Premium Storage를 사용해 볼 수 있습니다.
 
+변경 작업이 완료되면 **확인**을 클릭합니다.
+
+## <a name="4-summary-blade"></a>4. 요약 블레이드
+
+요약 블레이드에는 이전 블레이드에서 지정한 설정이 나열됩니다. 이미지를 만들 준비가 되면 **확인**을 클릭합니다.
+
+ ![가상 컴퓨터의 지정된 설정을 제공하는 요약 블레이드 보고서](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
+
+가상 컴퓨터가 만들어지면 포털의 **모든 리소스** 아래에 새 가상 컴퓨터가 나열되고, 대시보드에 가상 컴퓨터의 타일이 표시됩니다. 해당 클라우드 서비스 및 저장소 계정도 생성되고 나열됩니다. 가상 컴퓨터와 클라우드 서비스가 둘 다 자동으로 시작되고 해당 상태가 **실행 중**으로 나열됩니다.
+
+ ![가상 컴퓨터의 VM 에이전트 및 끝점 구성](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)

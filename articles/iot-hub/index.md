@@ -1,12 +1,25 @@
 ---
-layout: LandingPage
+title: "Azure IoT Hub 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모니터링, 제어하는 방법에 대해 알아봅니다. 자습서, API, 참조, 비디오 및 기타 설명서입니다."
+services: iot-hub
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: iot-hub
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e2a0b62ff9eb5e1f8941b4e1f9def7ab9454ce67
+ms.lasthandoff: 04/03/2017
 
 ---
-#<a name="iot-hub-documentation"></a>IoT Hub 설명서
+
+# <a name="iot-hub-documentation"></a>IoT Hub 설명서
 
 IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모니터링, 제어하는 방법에 대해 알아봅니다. 자습서, API 참조, 비디오 및 기타 설명서를 통해 IoT 장치와 솔루션 백 엔드 간의 안정적인 양방향 통신을 배포할 수 있습니다. 
 
@@ -127,8 +140,10 @@ IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모�
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET(서비스)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET(장치)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">.NET(서비스)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iothub">Java(장치)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">.NET(서비스)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java(장치)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.8/index.html">노드(서비스)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.8/index.html">노드(장치)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDK</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Gateway SDK</a></p>
                     </div>
@@ -153,10 +168,5 @@ IoT Hub를 사용하여 수백만 개의 사물 인터넷 자산을 연결, 모�
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

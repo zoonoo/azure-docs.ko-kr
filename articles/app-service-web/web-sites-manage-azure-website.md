@@ -4,7 +4,7 @@ description: "Azure 앱 서비스에서 웹 앱 관리를 위한 리소스에 �
 services: app-service\web
 documentationcenter: 
 author: erikre
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: d5e2887a-84f9-4747-a573-867635cb8b39
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dadae052868fcb0952b4480525efc0267a4a8e22
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 50630084a3df9bc1fed27efb41bc557d0e03916f
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -29,7 +30,7 @@ Azure 포털에서 다양한 웹앱 관리 작업을 수행할 수 있습니다.
 
 ## <a name="before-you-deploy-your-web-app-to-production"></a>웹 앱을 프로덕션으로 배포하기 전에 수행할 작업
 ### <a name="choose-a-tier"></a>계층 선택
-Azure 앱 서비스는 5개의 계층, 무료, 공유, 기본, 표준 및 프리미엄으로 제공됩니다. 각 계층의 기능 및 가격에 대한 자세한 내용은 [가격 세부 정보](/pricing/details/app-service/)를 참조하세요. 
+Azure 앱 서비스는 5개의 계층, 무료, 공유, 기본, 표준 및 프리미엄으로 제공됩니다. 각 계층의 기능 및 가격에 대한 자세한 내용은 [가격 세부 정보](https://azure.microsoft.com/pricing/details/app-service/)를 참조하세요. 
 
 * [앱 서비스 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) 에서는 같은 계층에 여러 웹 앱을 그룹화할 수 있습니다.
 * 웹 앱을 만든 후에 언제든지 [계층을 전환](web-sites-scale.md) 할 수 있습니다.
@@ -83,14 +84,9 @@ Visual Studio Team Services를 사용하는 경우 소스 제어에서 연속 �
 
 <!-- Anchors. -->
 
-[사이트를 프로덕션 환경으로 배포하기 전에 수행할 작업]: #before-you-deploy-your-site-to-production
-[웹 사이트를 실행하는 동안 수행할 작업]: #while-your-website-is-running
-[웹 사이트를 업데이트할 때 수행할 작업]: #when-you-update-your-website
+[Before you deploy your site to production]: #before-you-deploy-your-site-to-production
+[While your website is running]: #while-your-website-is-running
+[When you update your website]: #when-you-update-your-website
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

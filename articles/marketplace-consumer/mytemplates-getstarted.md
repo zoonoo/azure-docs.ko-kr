@@ -136,6 +136,6 @@ Azure 포털에서 **템플릿** 리소스를 만드는 두 가지 방법이 있
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

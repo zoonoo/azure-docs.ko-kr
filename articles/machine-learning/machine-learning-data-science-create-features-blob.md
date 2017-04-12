@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 03/24/2017
 ms.author: bradsev;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -57,10 +58,10 @@ ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
 
 이제 데이터를 탐색하고 이 데이터 집합에 기능을 생성할 준비가 완료되었습니다.
 
-## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>기능 생성
+## <a name="blob-featuregen"></a>기능 생성
 다음 두 섹션에는 Python 스크립트를 사용하여 표시기 값과 범주화 기능으로 범주 기능을 생성하는 방법을 보여줍니다.
 
-### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>표시기 값 기반 기능 생성
+### <a name="blob-countfeature"></a>표시기 값 기반 기능 생성
 범주 기능은 다음과 같은 방법으로 만들 수 있습니다.
 
 1. 범주 열의 분포를 검사합니다.
@@ -79,7 +80,7 @@ ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>범주화 기능 생성
+### <a name="blob-binningfeature"></a>범주화 기능 생성
 범주화된 기능을 생성하려면 다음 단계를 진행합니다.
 
 1. 열 시퀀스를 추가하여 숫자 열을 범주화합니다.
@@ -93,7 +94,7 @@ ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure 기계 학습에서 데이터 사용
+## <a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure 기계 학습에서 데이터 사용
 데이터를 탐색하고 필요한 기능을 만든 후에는 다음 단계에 따라 샘플링한 또는 기능화한 데이터를 Azure blob에 업로드하여 Azure 기계 학습에서 사용할 수 있습니다. Azure 기계 학습 스튜디오에서 추가 기능을 만들 수도 있습니다.
 
 1. 로컬 파일에 데이터 프레임을 씁니다.
@@ -123,10 +124,5 @@ ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
 3. 이제 아래 그림과 같이 Azure 기계 학습 [데이터 가져오기](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 모듈을 사용하여 blob에서 데이터를 읽을 수 있습니다.
 
 ![판독기 blob](./media/machine-learning-data-science-process-data-blob/reader_blob.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

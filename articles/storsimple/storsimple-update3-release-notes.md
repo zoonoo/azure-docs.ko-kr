@@ -4,7 +4,7 @@ description: "StorSimple 8000 시리즈 업데이트 3의 새로운 기능, 문�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/14/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3a2795fd08b838edcf255e518f705683cc2df15e
+ms.sourcegitcommit: 0e31079494eb709a3333d6c8735f47f8406fea05
+ms.openlocfilehash: 846ff5124be258580c060bfe64bab1a4ccd31202
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="storsimple-8000-series-update-3-release-notes"></a>StorSimple 8000 시리즈 업데이트 3 릴리스 정보
+# <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치의 업데이트 3 릴리스 정보
+
 ## <a name="overview"></a>개요
 다음 릴리스 정보는 새로운 기능에 대해 설명하고 StorSimple 8000 시리즈 업데이트 3에 대한 중요한 미해결 문제를 식별합니다. 또한 이 릴리스에 포함된 StorSimple 소프트웨어 업데이트 목록을 포함합니다. 
 
@@ -39,7 +42,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 * **자동화된 공간 재사용 변경** – 업데이트 3부터 공간 재사용 알고리즘이 시스템의 대기 컨트롤러 실행되어 실행이 빨라집니다. 공간 재사용을 작동하는 데 필요한 포트에 대한 자세한 내용은 [StorSimple 네트워킹 요구 사항](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device)을 참조하세요.
 * **성능 향상** – 업데이트 3에서는 클라우드에 대한 읽기-쓰기 성능이 개선되었습니다.
-* **마이그레이션 관련 개선** – 이 릴리스에서는 5000/7000 시리즈 장치에서 8000 시리즈 장치로 마이그레이션 기능을 위해 여러 버그 수정 및 개선이 수행되었습니다. 마이그레이션 기능을 사용하는 방법에 대한 자세한 내용은 [5000/7000 시리즈 장치에서 8000 시리즈 장치로 마이그레이션](https://www.microsoft.com/en-us/download/details.aspx?id=47322)을 참조하세요. 
+* **마이그레이션 관련 개선** – 이 릴리스에서는 5000/7000 시리즈 장치에서 8000 시리즈 장치로 마이그레이션 기능을 위해 여러 버그 수정 및 개선이 수행되었습니다. 마이그레이션 기능을 사용하는 방법에 대한 자세한 내용은 [5000/7000 시리즈 장치에서 8000 시리즈 장치로 마이그레이션](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)을 참조하세요. 
 * **관련된 수정 모니터링** - 이 릴리스에서는 차트, 서비스 대시보드 및 장치 대시보드 모니터링과 관련된 버그가 수정되었습니다.
 
 ## <a name="issues-fixed-in-update-3"></a>업데이트 3에서 해결된 문제
@@ -90,10 +93,5 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 ## <a name="next-step"></a>다음 단계
 StorSimple 장치에 [업데이트 3를 설치](storsimple-install-update-3.md) 하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

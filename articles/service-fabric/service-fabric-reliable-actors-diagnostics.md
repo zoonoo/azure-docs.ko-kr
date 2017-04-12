@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/05/2016
+ms.date: 01/04/2017
 ms.author: abhisram
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: c9f62c97dfa4941feaee5960497ba6d727e1e2b3
+ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
+ms.openlocfilehash: 1a8a36d3b6f14c75965afca970be808015059dbb
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -171,9 +172,5 @@ Reliable Actors 런타임은 행위자 활성화 및 비활성화와 관련하�
 * [신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법](service-fabric-reliable-actors-platform.md)
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [샘플 코드](https://github.com/Azure/servicefabric-samples)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+* [PerfView의 EventSource 공급자](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
 

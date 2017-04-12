@@ -1,24 +1,10 @@
 ---
-title: "DocumentDB의 자동 인덱싱 | Microsoft Docs"
-description: "Azure DocumentDB의 자동 인덱싱 작동 방식에 대해 알아봅니다."
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: mimig1
-documentationcenter: 
-ms.assetid: 126bfd36-9332-4127-8747-1a1c806760f7
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2016
-ms.author: mimig
 redirect_url: https://azure.microsoft.com/services/documentdb/
 ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9b88c62a7ea76d61ff593217392c3225624bb886
+ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
+ms.openlocfilehash: 4c7b8965b7fe5de7a8ff839be2b9e555bd8d502c
+ms.lasthandoff: 01/21/2017
 
 
 
@@ -70,11 +56,6 @@ DocumentDB의 인덱싱은 다중 테넌트를 처리하고 저장소 효율성�
 ## <a name="a-namenextstepsa-next-steps"></a><a name="NextSteps"></a> 다음 단계
 * 2015년 8월 31일 - 9월 4일 사이에 41st Internal Conference on Very Large Databases에서 발표되는 ["Azure DocumentDB를 사용한 스키마 제약 없는 인덱싱"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)을 다운로드합니다.
 * [DocumentDB SQL을 사용한 쿼리](documentdb-sql-query.md)
-*  [여기](documentdb-indexing-policies.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [여기](documentdb-indexing-policies.md)
 
 

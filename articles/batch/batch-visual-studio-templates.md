@@ -1,6 +1,6 @@
 ---
-title: "Azure 배치용 Visual Studio 템플릿 | Microsoft Docs"
-description: "이러한 Visual Studio 프로젝트 템플릿을 통해 Azure 배치에서 계산 집약적인 워크로드를 어떻게 구현 및 실행할 수 있는지 알아봅니다."
+title: "Visual Studio 프로젝트 템플릿을 사용하여 Batch 솔루션을 구축하기 시작 - Azure | Microsoft Docs"
+description: "Visual Studio 프로젝트 템플릿을 통해 Azure Batch에서 계산 집약적인 워크로드를 어떻게 구현하고 실행할 수 있는지 알아봅니다."
 services: batch
 documentationcenter: .net
 author: fayora
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 84e7e6ddf03172e646c55e7e3bf45a32feb15b06
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 53c9b75599af48be82c63bc7a9df31d4c2de13a3
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="visual-studio-project-templates-for-azure-batch"></a>Azure 배치용 Visual Studio 프로젝트 템플릿
+# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Visual Studio 프로젝트 템플릿을 사용하여 Batch 솔루션 빠르게 시작
+
 배치용 **작업 관리자** 및 **태스크 프로세서 Visual Studio 템플릿**은 최소한의 노력으로 배치에서 계산 집약적 워크로드를 구현 및 실행하는 데 도움이 되는 코드를 제공합니다. 이 문서에서는 이러한 템플릿을 설명하고 템플릿을 사용하는 방법에 대한 지침을 제공합니다.
 
 > [!IMPORTANT]
@@ -52,7 +55,7 @@ ms.openlocfilehash: 84e7e6ddf03172e646c55e7e3bf45a32feb15b06
 ## <a name="prerequisites"></a>필수 조건
 Batch 템플릿을 사용하려면 다음이 필요합니다.
 
-* Visual Studio 2015 이상이 이미 설치되어 있는 컴퓨터
+* Visual Studio 2015 이상이 설치되어 있는 컴퓨터
 * [Visual Studio 갤러리][vs_gallery]에서 Visual Studio 확장으로 제공되는 Batch 템플릿. 템플릿을 얻는 방법은 두 가지입니다.
   
   * Visual Studio에서 **확장 및 업데이트** 대화 상자를 사용하여 템플릿을 설치합니다(자세한 내용은 [Visual Studio 확장 찾기 및 사용][vs_find_use_ext] 참조). **확장 및 업데이트** 대화 상자에서 다음 두 확장을 검색하여 다운로드합니다.
@@ -65,7 +68,7 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
 ## <a name="preparation"></a>준비
 작업 관리자 및 태스크 프로세서 프로그램 간에 코드를 쉽게 공유할 수 있으므로 작업 관리자 및 태스크 프로세서를 포함할 수 있는 솔루션을 만드는 것이 좋습니다. 이 솔루션을 만들려면 다음 단계를 따르세요.
 
-1. Visual Studio 2015를 열고 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
+1. Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **템플릿** 아래에서 **기타 프로젝트 형식**을 확장하고 **Visual Studio 솔루션**을 클릭한 후 **빈 솔루션**을 선택합니다.
 3. 응용 프로그램 및 이 솔루션의 용도를 설명하는 이름을 입력합니다(예: "LitwareBatchTaskPrograms").
 4. 새 솔루션을 만들려면 **확인**을 클릭합니다.
@@ -84,7 +87,7 @@ Batch 템플릿을 사용하려면 다음이 필요합니다.
 ### <a name="create-a-job-manager-using-the-template"></a>템플릿을 사용하여 작업 관리자 만들기
 이전에 만든 솔루션에 작업 관리자를 추가하려면 다음 단계를 수행합니다.
 
-1. Visual Studio 2015에서 기존 솔루션을 엽니다.
+1. Visual Studio에서 기존 솔루션을 엽니다.
 2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트**를 클릭합니다.
 3. **Visual C#** 아래에서 **클라우드**를 클릭한 후 **Azure 배치 작업 관리자 및 작업 분할자**를 클릭합니다.
 4. 응용 프로그램을 설명하고 이 프로젝트를 작업 관리자로 식별하는 이름을 입력합니다(예: "LitwareJobManager").
@@ -253,7 +256,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 ### <a name="create-a-task-processor-using-the-template"></a>템플릿을 사용하여 태스크 프로세서 만들기
 이전에 만든 솔루션에 태스크 프로세서를 추가하려면 다음 단계를 수행합니다.
 
-1. Visual Studio 2015에서 기존 솔루션을 엽니다.
+1. Visual Studio에서 기존 솔루션을 엽니다.
 2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **새 프로젝트**를 클릭합니다.
 3. **Visual C#** 아래에서 **클라우드**를 클릭한 후 **Azure 배치 태스크 프로세서**를 클릭합니다.
 4. 응용 프로그램을 설명하고 이 프로젝트를 태스크 프로세서로 식별하는 이름을 입력합니다(예: "LitwareTaskProcessor").
@@ -359,7 +362,7 @@ Run() 구현에서는 다음에 액세스할 수 있습니다.
 
 **태스크 실패**
 
-오류가 발생한 경우 예외를 throw하여 Run() 메서드를 종료할 수 있지만 이렇게 하면 최상위 예외 처리기가 태스크 종료 코드 제어 하에 있게 됩니다. 예를 들어 진단 목적을 위해 다양한 오류 유형을 구분할 수 있도록 종료 코드를 제어해야 하는 경우 또는 일부 오류 모드에서 특정 작업만 종료해야 하므로 0이 아닌 종료 코드를 반환하여 Run() 메서드를 종료해야 합니다. 이것이 태스크 종료 코드가 됩니다.
+오류가 발생한 경우 예외를 throw하여 Run() 메서드를 종료할 수 있지만 이렇게 하면 최상위 예외 처리기가 태스크 종료 코드 제어 하에 있게 됩니다. 예를 들어 진단 목적을 위해 다양한 오류 유형을 구분할 수 있도록 종료 코드를 제어해야 하는 경우 또는 일부 오류 모드에서 특정 작업만 종료해야 하므로&0;이 아닌 종료 코드를 반환하여 Run() 메서드를 종료해야 합니다. 이것이 태스크 종료 코드가 됩니다.
 
 ### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>태스크 프로세서 템플릿에서 종료 코드 및 예외
 종료 코드 및 예외는 프로그램 실행 결과를 확인하는 메커니즘을 제공하며 프로그램의 실행 시 발생하는 문제를 식별하는 데 도움이 될 수 있습니다. 태스크 프로세서 템플릿은 이 섹션에 설명된 종료 코드 및 예외를 구현합니다.
@@ -451,9 +454,4 @@ MSDN의 [Azure 배치 포럼][forum]은 Batch를 설명하고 서비스에 대�
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

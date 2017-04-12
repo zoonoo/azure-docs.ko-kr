@@ -16,8 +16,9 @@ ms.workload: integration
 ms.date: 09/19/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 6770aa8387fe3d381fd9c566ca0c38c88a4b1e55
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -34,7 +35,7 @@ Twilio를 사용하여 다음을 수행할 수 있습니다.
 * Twilio에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
 * 메시지 가져오기, 메시지 나열 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 새 Twilio 메시지를 받은 경우 이 메시지를 가져와 서비스 버스 워크플로에서 사용할 수 있습니다. 
 
-논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
+논리 앱에 작업을 추가하려면 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
 ## <a name="triggers-and-actions"></a>트리거 및 작업
 Twilio 커넥터에는 다음 작업이 포함됩니다. 트리거는 없습니다. 
@@ -89,8 +90,7 @@ Twilio 커넥터에는 다음 작업이 포함됩니다. 트리거는 없습니�
 
 | 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
 | --- | --- | --- | --- | --- | --- |
-| 받는 사람
- |string |no |쿼리 |없음 |To phone number |
+| 받는 사람 |string |no |쿼리 |없음 |To phone number |
 | 원본 |string |no |쿼리 |없음 |From phone number |
 | DateSent |string |no |쿼리 |없음 |이 날짜(GMT 형식, YYYY-MM-DD로 지정)에 보낸 메시지만 표시합니다. 예: DateSent=2009-07-06. 같지 않음을 지정할 수도 있습니다. 예를 들어 자정 또는 그 이전에 전송된 메시지의 경우 DateSent<=YYYY-MM-DD, 자정 또는 그 이후에 전송된 메시지의 경우 DateSent>=YYYY-MM-DD를 사용합니다. |
 | PageSize |정수 |no |쿼리 |50 |각 목록 페이지에서 반환할 리소스의 개수입니다. 기본값은 50입니다. |
@@ -125,8 +125,7 @@ Twilio 커넥터에는 다음 작업이 포함됩니다. 트리거는 없습니�
 | 속성 이름 | 데이터 형식 | 필수 |
 | --- | --- | --- |
 | 원본 |string |예 |
-| 받는 사람
- |string |예 |
+| 받는 사람 |string |예 |
 | body |string |yes |
 | media_url |array |no |
 | status_callback |string |no |
@@ -139,8 +138,7 @@ Twilio 커넥터에는 다음 작업이 포함됩니다. 트리거는 없습니�
 | --- | --- | --- |
 | body |string |no |
 | 원본 |string |no |
-| 받는 사람
- |string |no |
+| 받는 사람 |string |no |
 | status |string |no |
 | sid |string |no |
 | account_sid |string |no |
@@ -241,11 +239,6 @@ Twilio 커넥터에는 다음 작업이 포함됩니다. 트리거는 없습니�
 | end_date |string |no |
 
 ## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
 
 

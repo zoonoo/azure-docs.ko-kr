@@ -4,7 +4,7 @@ description: "Windows 유니버설 앱에 대해 분석 및 푸시 알림과 함
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 48103867-7f64-4646-b019-42bd797d38e2
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 59a4c270be4bb9a0d247ce81da548b58ce4baf3f
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 939d6adc548d5d6ef66909bcf52f11a4106c3be9
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.openlocfilehash: 59a4c270be4bb9a0d247ce81da548b58ce4baf3f
 ## <a name="set-up-mobile-engagement-for-your-windows-universal-app"></a>Windows 유니버설 앱용 Mobile Engagement 설정
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
+## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
 이 자습서에서는 데이터를 수집하고 푸시 알림을 보내는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다. 전체 통합 설명서는 [Mobile Engagement Windows 유니버설 SDK 통합](mobile-engagement-windows-store-sdk-overview.md)에서 확인할 수 있습니다.
 
 여기서는 통합을 시연하기 위해 Visual Studio를 사용하여 기본적인 앱을 만듭니다.
@@ -42,7 +43,7 @@ ms.openlocfilehash: 59a4c270be4bb9a0d247ce81da548b58ce4baf3f
 
 1. Visual Studio를 시작하고 **홈** 화면에서 **새 프로젝트**를 선택합니다.
 2. 팝업에서 **Windows** -> **유니버설** -> **비어 있는 앱(유니버설 Windows)**을 선택합니다. 앱 **이름** 및 **솔루션 이름**을 입력하고 **확인**을 클릭합니다.
-   
+
     ![][1]
 
 이제 다음에 Azure Mobile Engagement SDK를 통합할 Windows 유니버설 앱 프로젝트가 만들어졌습니다.
@@ -50,86 +51,85 @@ ms.openlocfilehash: 59a4c270be4bb9a0d247ce81da548b58ce4baf3f
 ### <a name="connect-your-app-to-mobile-engagement-backend"></a>Mobile Engagement 백 엔드에 앱 연결
 1. 프로젝트에서 [MicrosoftAzure.MobileEngagement] Nuget 패키지를 설치합니다. Windows와 Windows Phone 플랫폼을 모두 대상으로 하는 경우 두 프로젝트에 대해 이 작업을 수행해야 합니다. Windows 8.x 및 Windows Phone 8.1에 대해 동일한 Nuget 패키지는 각 프로젝트에 올바른 플랫폼별 이진 파일을 배치합니다.
 2. **Package.appxmanifest** 를 열고 다음 기능이 추가되어 있는지 확인합니다.
-   
+
         Internet (Client)
-   
+
     ![][2]
 3. 이제 앞서 Mobile Engagement 앱에 대해 복사한 연결 문자열을 `Resources\EngagementConfiguration.xml` 파일의 `<connectionString>` 태그와 `</connectionString>` 태그 사이에 붙여넣습니다.
-   
+
     ![][3]
 
-    >[AZURE.TIP] 앱이 Windows와 Windows Phone 플랫폼을 모두 대상으로 하는 경우 여전히 지원하는 각 플랫폼에 하나씩 두 개의 Mobile Engagement 응용 프로그램을 만들어야 합니다. 두 개의 앱을 가지면 대상에 올바른 구분을 생성할 수 있고 각 플랫폼을 대상으로 하는 적절한 알림을 보낼 수 있습니다.
+    > [!TIP]
+    > 앱이 Windows와 Windows Phone 플랫폼을 모두 대상으로 하는 경우 여전히 지원하는 각 플랫폼에 하나씩 두 개의 Mobile Engagement 응용 프로그램을 만들어야 합니다. 두 개의 앱을 가지면 대상에 올바른 구분을 생성할 수 있고 각 플랫폼을 대상으로 하는 적절한 알림을 보낼 수 있습니다.
 
-    > [AZURE.IMPORTANT] NuGet이 아직 Windows 10 UWP 응용 프로그램에서 SDK 리소스를 자동으로 복사하지 않습니다. Nuget 패키지를 설치하는 경우 표시된 단계(readme.txt)를 따라 수동으로 수행해야 합니다.  
+    > [!IMPORTANT]
+    > NuGet이 아직 Windows 10 UWP 응용 프로그램에서 SDK 리소스를 자동으로 복사하지 않습니다. Nuget 패키지를 설치하는 경우 표시된 단계(readme.txt)를 따라 수동으로 수행해야 합니다.  
 
 1. 파일 `App.xaml.cs`에서:
-   
+
     a. `using` 구문 추가:
-   
+
             using Microsoft.Azure.Engagement;
-   
+
     b. Engagement를 초기화하는 메서드 추가:
-   
+
            private void InitEngagement(IActivatedEventArgs e)
            {
              EngagementAgent.Instance.Init(e);
-   
+
              //... rest of the code
            }
-   
+
     c. **OnLaunched** 메서드에서 SDK 초기화:
-   
+
             protected override void OnLaunched(LaunchActivatedEventArgs e)
             {
               InitEngagement(e);
-   
+
               //... rest of the code
             }
-   
+
     c. **OnActivated** 메서드에 다음을 삽입하고 아직 없는 경우 해당 메서드 추가:
-   
+
             protected override void OnActivated(IActivatedEventArgs e)
             {
               InitEngagement(e);
-   
+
               //... rest of the code
             }
 
-## <a name="a-idmonitoraenable-realtime-monitoring"></a><a id="monitor"></a>실시간 모니터링 사용
+## <a name="a-idmonitoraenable-real-time-monitoring"></a><a id="monitor"></a>실시간 모니터링 사용
 데이터 보내기를 시작하고 사용자가 활성 상태인지 확인하려면 Mobile Engagement 백 엔드에 화면(활동)을 하나 이상 보내야 합니다.
 
 1. **MainPage.xaml.cs**에서 다음 `using` 문을 추가합니다.
-   
+
     Microsoft.Azure.Engagement.Overlay; 사용
 2. **MainPage**의 기본 클래스를 **Page**에서 **EngagementPageOverlay**로 변경합니다.
-   
+
         class MainPage : EngagementPageOverlay
 3. 파일 `MainPage.xaml`에서:
-   
+
     a. 다음 줄을 네임스페이스 선언에 추가합니다.
-   
+
         xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
-   
+
     b. XML 태그 이름의 **Page**를 **engagement:EngagementPageOverlay**로 바꿉니다.
 
 > [!IMPORTANT]
 > 페이지가 `OnNavigatedTo` 메서드를 재정의하는 경우에는 `base.OnNavigatedTo(e)`을(를) 호출해야 합니다. 그렇지 않으면 활동이 보고되지 않습니다. `EngagementPage`은(는) `OnNavigatedTo` 메서드 내에서 `StartActivity`을(를) 호출합니다. 이 작업은 기본 템플릿에 `OnNavigatedTo` 메서드가 있는 Windows Phone 프로젝트에서 특히 중요합니다.
-> 
-> [!IMPORTANT]
-> **Windows 10 유니버설 앱**의 경우 위에서 언급한 방법이 아니라 [이 권장 방법](mobile-engagement-windows-store-advanced-reporting.md#recommended-method-overload-your-codepagecode-classes)을 사용합니다.
-> 
-> 
+>
+> **Windows 10 Universal 앱**의 경우 위에서 설명한 방법보다 [Windows 유니버설 앱 Engagement SDK의 고급 보고](mobile-engagement-windows-store-advanced-reporting.md)의 “권장 방법: Page 클래스 오버로드” 섹션에서 권장하는 방법을 사용합니다.
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>실시간 모니터링과 앱 연결
+## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>실시간 모니터링과 앱 연결
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
+## <a name="a-idintegrate-pushaenable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>푸시 알림 및 앱 내 메시징 사용
 Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 내 메시징을 사용하여 사용자와 상호 작용하고 사용자에게 메시지를 보낼 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다.
 다음 섹션에서는 이러한 알림과 메시지를 받도록 앱을 설정합니다.
 
 ### <a name="enable-your-app-to-receive-wns-push-notifications"></a>WNS 푸시 알림을 받도록 앱 설정
 1. `Package.appxmanifest` 파일의 **응용 프로그램** 탭에서 **알림**에 있는 **알림 가능:**을 **예**로 설정합니다.
-   
+
     ![][5]
 
 ### <a name="initialize-the-reach-sdk"></a>도달률 SDK 초기화
@@ -146,24 +146,25 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 ### <a name="grant-access-to-mobile-engagement-to-send-notifications"></a>알림을 보내도록 Mobile Engagement 액세스 권한 부여
 1. 웹 브라우저에서 [Windows 스토어 개발자 센터] 를 열어 로그인하고 필요한 경우 계정을 만드십시오.
 2. 오른쪽 위 모서리에 있는 **대시보드**를 클릭한 다음 왼쪽 패널 메뉴에서 **새 앱 만들기**를 클릭합니다.
-   
+
     ![][9]
 3. 해당 이름을 예약하여 앱을 만듭니다.
-   
+
     ![][10]
 4. 앱이 만들어지면 왼쪽 메뉴에서 **서비스 -> 푸시 알림**으로 이동합니다.
-   
+
     ![][11]
 5. 푸시 알림 섹션에서 **Live 서비스 사이트** 링크를 클릭합니다.
-   
+
     ![][12]
 6. 푸시 자격 증명 섹션으로 이동합니다. **앱 설정** 섹션에 있는지 확인한 다음 **패키지 SID** 및 **클라이언트 암호**를 복사합니다.
-   
+
     ![][13]
 7. Mobile Engagement 포털의 **설정**으로 이동하여 왼쪽의 **네이티브 푸시** 섹션을 클릭합니다. 그런 다음 **편집** 단추를 클릭하여 다음과 같이 **패키지 SID(보안 식별자)** 및 **암호 키**를 입력합니다.
-   
+
     ![][6]
 8. 마지막으로 Visual Studio 앱과 앱 스토어에 만들어진 이 앱이 연결되어 있는지 확인합니다. Visual Studio의 **스토어에 앱 연결** 을 클릭합니다.
+
     ![][7]
 
 ## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>앱에 알림 보내기
@@ -175,10 +176,10 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 ![][8]
 
 <!-- URLs. -->
-[Mobile Engagement Windows 유니버설 SDK 설명서]: ../mobile-engagement-windows-store-integrate-engagement/
+[Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
 [Windows 스토어 개발자 센터]: https://dev.windows.com
-[Windows 유니버설 앱 - 오버레이 통합]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
+[Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
@@ -193,9 +194,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

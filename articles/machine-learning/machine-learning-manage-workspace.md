@@ -12,19 +12,47 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/27/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: c5479dd817e8929ff5e9129d4643d49758e7ab16
-ms.openlocfilehash: 32e74821309507fed4a20b005dbfbba12ffb0703
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: 94800f51baf83311c33490cada5f991ff2101da9
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Azure 기계 학습 작업 영역 관리
+
 > [!NOTE]
-> 이 문서의 절차는 Azure Machine Learning 기존 웹 서비스와 관련됩니다. Machine Learning 웹 서비스 포털의 웹 서비스 관리에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요.
+> Machine Learning 웹 서비스 포털의 웹 서비스 관리에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요.
 > 
 > 
+
+Azure Portal 또는 Azure 클래식 포털에서 Machine Learning 작업 영역을 관리할 수 있습니다.
+
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## <a name="use-the-azure-portal"></a>Azure 포털 사용
+
+Azure Portal에서 작업 영역을 관리하려면:
+
+1. Azure 구독 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. 페이지 맨 위에 있는 검색 상자에 "machine learning 작업 영역"을 입력한 다음 선택 **Machine Learning 작업 영역**을 선택합니다.
+3. 관리하려는 작업 영역을 클릭합니다.
+
+표준 리소스 관리 정보 및 사용할 수 있는 옵션 외에 다음을 수행할 수 있습니다.
+
+- **속성** 보기 - 이 페이지에는 작업 영역 및 리소스 정보가 표시됩니다. 이 작업 영역이 연결된 구독 및 리소스 그룹을 변경할 수 있습니다.
+- **저장소 키 다시 동기화** - 이 작업 영역은 저장소 계정에 대한 키를 유지 관리합니다. 저장소 계정이 키를 변경하면 **키 다시 동기화**를 클릭하여 작업 영역과 키를 동기화할 수 있습니다.
+
+이 작업 영역과 연결된 웹 서비스를 관리하려면 Machine Learning 웹 서비스 포털을 사용하세요. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](machine-learning-manage-new-webservice.md)를 참조하세요.
+
+> [!NOTE]
+> 새로운 웹 서비스를 배포 또는 관리하려면 웹 서비스가 배포된 구독에 대한 참여자 또는 관리자 역할을 할당받아야 합니다. Machine Learning 작업 영역에 다른 사용자를 초대하는 경우 구독에 대한 참여자 또는 관리자 역할을 할당해야 해당 사용자가 웹 서비스를 배포하거나 관리할 수 있습니다. 
+> 
+>액세스 권한 설정에 대한 자세한 내용은 [Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기 - 공개 미리 보기](../active-directory/role-based-access-control-manage-assignments.md)를 참조하세요.
+
+## <a name="use-the-azure-classic-portal"></a>Azure 클래식 포털 사용
 
 Azure 클래식 포털을 사용하여 기계 학습 작업 영역을 관리하면 다음을 수행할 수 있습니다.
 
@@ -33,8 +61,6 @@ Azure 클래식 포털을 사용하여 기계 학습 작업 영역을 관리하�
 * 작업 영역에서 만든 웹 서비스 관리
 * 작업 영역 삭제
 
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 또한 대시보드 탭은 작업 영역 사용 개요 및 작업 영역 정보의 간략 상태를 보여 줍니다.  
 
 > [!TIP]
@@ -42,7 +68,7 @@ Azure 클래식 포털을 사용하여 기계 학습 작업 영역을 관리하�
 > 
 > 
 
-작업 영역을 관리하려면
+Azure 클래식 포털에서 작업 영역을 관리하려면:
 
 1. Microsoft Azure 계정을 사용하여 [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다. Azure 구독에 연결된 계정을 사용합니다.
 2. Microsoft Azure 서비스 패널에서 **기계 학습**을 클릭합니다.
@@ -54,7 +80,7 @@ Azure 클래식 포털을 사용하여 기계 학습 작업 영역을 관리하�
 * **구성** - 작업 영역에 대한 액세스를 관리할 수 있습니다.
 * **웹 서비스** - 이 작업 영역에서 게시된 웹 서비스를 관리할 수 있습니다.
 
-## <a name="to-monitor-how-the-workspace-is-being-used"></a>작업 영역이 사용되는 방식을 모니터링하려면
+### <a name="to-monitor-how-the-workspace-is-being-used"></a>작업 영역이 사용되는 방식을 모니터링하려면
 **대시보드 탭** 을 클릭합니다.
 
 대시보드에서 작업 영역의 전체 사용 현황을 살펴보고 작업 영역에 대한 개략적인 정보를 얻을 수 있습니다.
@@ -68,7 +94,7 @@ Azure 클래식 포털을 사용하여 기계 학습 작업 영역을 관리하�
 > 
 > 
 
-## <a name="to-grant-or-suspend-access-for-users"></a>사용자에 대한 액세스 권한을 부여하거나 일시 중단하려면
+### <a name="to-grant-or-suspend-access-for-users"></a>사용자에 대한 액세스 권한을 부여하거나 일시 중단하려면
 **구성** 탭을 클릭합니다.
 
 구성 탭에서 수행할 수 있는 작업은 다음과 같습니다.
@@ -77,7 +103,7 @@ Azure 클래식 포털을 사용하여 기계 학습 작업 영역을 관리하�
 
 Machine Learning Studio의 작업 영역에 액세스할 수 있는 계정을 추가로 관리하려면 **대시보드** 탭에서 **ML Studio에 로그인**을 클릭합니다.(**ML Studio에 로그인**과 관련된 위 참고 사항 참조). 그러면 작업 영역에서 기계 학습 스튜디오가 열립니다. 여기서 **설정** 탭을 클릭한 다음 **사용자**를 클릭합니다. **더 많은 사용자 초대**를 클릭하여 사용자에게 작업 영역에 대한 액세스 권한을 부여하거나 사용자를 선택하고 **제거**를 클릭할 수 있습니다.
 
-## <a name="to-manage-web-services-in-this-workspace"></a>이 작업 영역에서 웹 서비스를 관리하려면
+### <a name="to-manage-web-services-in-this-workspace"></a>이 작업 영역에서 웹 서비스를 관리하려면
 **웹 서비스** 탭을 클릭합니다.
 
 이 작업 영역에서 게시된 웹 서비스의 목록이 표시될 것입니다.
@@ -110,10 +136,5 @@ Machine Learning Studio의 작업 영역에 액세스할 수 있는 계정을 �
 * **설명** 웹 서비스에 대한 설명을 입력할 수 있습니다. 설명은 필수 필드입니다.
 * **로깅** 오류 끝점에 대한 로깅을 사용하거나 사용하지 않도록 설정할 수 있습니다. 로깅에 대한 자세한 내용은 [Machine Learning 웹 서비스에 대한 로깅 사용](machine-learning-web-services-logging.md)을 참조하세요.
 * **샘플 데이터 사용** 요청-응답 서비스 테스트에 사용할 수 있는 샘플 데이터를 제공할 수 있습니다. 기계 학습 스튜디오에서 웹 서비스를 만든 경우 샘플 데이터는 모델을 학습하는 데 사용된 데이터에서 가져옵니다. 서비스를 프로그래밍 방식으로 만들 경우 JSON 패키지의 일부로 제공된 예제 데이터에서 가져온 데이터를 사용합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

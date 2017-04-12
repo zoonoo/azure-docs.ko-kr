@@ -1,10 +1,10 @@
 ---
-title: "StorSimple 시스템 제한 | Microsoft Docs"
+title: "StorSimple 8000 시리즈 시스템 제한 | Microsoft Docs"
 description: "StorSimple 8000 시리즈 구성 요소 및 연결에 대한 시스템 제한 및 권장 크기에 대해 설명합니다."
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: c7392678-0924-46c6-9c59-1665cb9b6586
 ms.service: storsimple
@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/06/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 884f9ad8cf3c0862fa0f235ee19efd0dbdadbab6
-
+ms.sourcegitcommit: dd9e7f672a9f991fd06530a968a3369b752148a2
+ms.openlocfilehash: 3e4f7bfd117696ddb25156e027e29c0d21f27804
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="storsimple-system-limits"></a>StorSimple 시스템 제한
+# <a name="what-are-storsimple-8000-series-system-limits"></a>StorSimple 8000 시리즈 시스템 제한이란?
 ## <a name="overview"></a>개요
 StorSimple는 데이터 센터에 대해 확장 가능하고 유연한 저장소를 제공합니다. 그러나 StorSimple 솔루션의 계획, 배포 및 작동 시 염두에 두어야 하는 일부 제한 사항이 있습니다. 다음 표에서 이러한 제한에 대해 설명하고 일부 권장 사항을 제공하므로 StorSimple 솔루션을 최대한 활용할 수 있습니다.
 
@@ -32,12 +33,12 @@ StorSimple는 데이터 센터에 대해 확장 가능하고 유연한 저장소
 | 로컬로 고정된 볼륨의 최대 수 |32 | |
 | 대역폭 템플릿당 일정의 최대 수 |168 |매시간, 매일에 대한 일정(24*7). |
 | 물리적 장치의 계층화된 볼륨 최대 크기 |8100 및 8600의 경우 64TB |8100과 8600은 물리적 장치입니다. |
-| Azure 내 가상 장치의 계층화된 볼륨 최대 크기 |8010의 경우 30TB <br></br>  8020의 경우 64TB |8010과 8020은 각각 표준 저장소와 프리미엄 저장소를 사용하는 Azure의 가상 장치입니다. |
-| 물리적 장치의 로컬로 고정된 볼륨 최대 크기 |8100의 경우 8.5TB <br></br>  8600의 경우 22.5TB |8100과 8600은 물리적 장치입니다. |
+| Azure 내 가상 장치의 계층화된 볼륨 최대 크기 |8010의 경우 30TB <br></br> 8020의 경우 64TB |8010과 8020은 각각 표준 저장소와 프리미엄 저장소를 사용하는 Azure의 가상 장치입니다. |
+| 물리적 장치의 로컬로 고정된 볼륨 최대 크기 |8100의 경우 8.5TB <br></br> 8600의 경우 22.5TB |8100과 8600은 물리적 장치입니다. |
 | iSCSI 연결의 최대 수 |512 | |
 | 초기자에서 iSCSI 연결의 최대 수 |512 | |
 | 장치당 액세스 제어 레코드의 최대 수 |64 | |
-| 백업 정책당 볼륨의 최대 수 |24 | |
+| 백업 정책당 볼륨의 최대 수 |20 | |
 | 일정당 유지된 백업의 최대 수(백업 정책에서) |64 | |
 | 백업 정책당 일정의 최대 수 |10 | |
 | 볼륨당 유지할 수 있는 모든 형식의 최대 스냅숏 수 |256 |이 숫자에는 로컬 스냅숏과 클라우드 스냅숏이 포함됩니다. |
@@ -48,7 +49,7 @@ StorSimple는 데이터 센터에 대해 확장 가능하고 유연한 저장소
 | 클라우드 스냅숏에 대한 처리 속도 |15분/TB |<ul><li>클라우드 스냅숏이 백업에서 할당된 볼륨 데이터의 TB당 업로드할 수 있도록 준비하는 최소 시간입니다. </li><li> 총 클라우드 스냅숏 시간은 이 시간을 스냅숏 업로드 시간에 더해서 계산합니다. 이 시간은 클라우드에 대한 인터넷 대역폭의 영향을 받습니다. |
 | 최대 클라이언트 읽기/쓰기 처리량(SSD 계층에서 제공 시)* |단일 10GbE 네트워크 인터페이스와 함께 920/720MB/초 |MPIO 및 2개의 네트워크 인터페이스와 함께 최대 2x |
 | 최대 클라이언트 읽기/쓰기 처리량(HDD 계층에서 제공 시)* |120/250MB/초 | |
-| 업데이트 3 이상의 경우 최대 클라이언트 읽기/쓰기 처리량(클라우드 계층에서 제공 시) * |계층화된 볼륨의 경우 40/60MB/s<br><br>볼륨을 만드는 동안 선택된 보관 옵션이 있는 계층화된 볼륨의 경우 60/80MB/s |읽기 처리량은 충분한 I/O 큐 깊이를 생성 및 유지 관리하는 클라이언트에 따라 달라집니다. <br><br>수행하는 속도는 사용되는 기본 저장소 계정의 속도에 따라 달라 집니다. |
+| 업데이트 3 이상의 경우 최대 클라이언트 읽기/쓰기 처리량(클라우드 계층에서 제공 시) * |계층화된 볼륨의 경우&40;/60MB/s<br><br>볼륨을 만드는 동안 선택된 보관 옵션이 있는 계층화된 볼륨의 경우&60;/80MB/s |읽기 처리량은 충분한 I/O 큐 깊이를 생성 및 유지 관리하는 클라이언트에 따라 달라집니다. <br><br>수행하는 속도는 사용되는 기본 저장소 계정의 속도에 따라 달라 집니다. |
 
 &#42; I/O 형식당 최대 처리량은 100% 읽기 및 100% 쓰기 시나리오로 측정되었습니다. 실제 처리량은 낮을 수 있으며 I/O 조합 및 네트워크 상태에 따라 다릅니다.
 
@@ -56,10 +57,5 @@ StorSimple는 데이터 센터에 대해 확장 가능하고 유연한 저장소
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 시스템 요구 사항](storsimple-system-requirements.md)을 검토하십시오. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

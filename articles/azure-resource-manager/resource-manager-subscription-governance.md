@@ -17,6 +17,7 @@ ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
 ms.openlocfilehash: 9f4f0ce9e389fa560345c77502db8e225827f054
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -250,10 +251,5 @@ Azure가 처음으로 릴리스되었을 때 구독에 대한 액세스 제어�
 
 ## <a name="next-steps"></a>다음 단계
 * 이제 구독 관리에 대해 살펴보았으며 실제 권장 사항에 대해 알아보겠습니다. [Azure 구독 관리 구현 예제](resource-manager-subscription-examples.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

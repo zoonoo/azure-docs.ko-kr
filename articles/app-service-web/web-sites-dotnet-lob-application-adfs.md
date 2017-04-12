@@ -4,7 +4,7 @@ description: "Azure App Service에서 온-프레미스 STS로 인증하는 LOB(�
 services: app-service\web
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 0fa9f7a1-37bd-4d11-845f-aeff6fc9e4ca
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.workload: web
 ms.date: 08/31/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 29b7146837f8a88baebd67fc448954f01388d67b
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 22fe6397120c36e1aa716f4711fbe9e7c72d17e8
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -86,14 +87,17 @@ Azure 앱 서비스 웹 앱에서 다음 기능이 있는 기본 ASP.NET 응용 
 4. App_Start\Startup.Auth.cs에서 다음 정적 문자열 정의를 변경합니다.  
    
    <pre class="prettyprint">
-private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"]; <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+   private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+   <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
    
    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
    </pre>
-5. 이제 해당 Web.config를 변경합니다. Web.config를 열고 다음 앱 설정을 수정합니다.  <pre class="prettyprint">
+5. 이제 해당 Web.config를 변경합니다. Web.config를 열고 다음 앱 설정을 수정합니다.  
+   
+   <pre class="prettyprint">
    &lt;appSettings&gt;
    &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
    &lt;add key="webpages:Enabled" value="false" /&gt;
@@ -207,7 +211,16 @@ Azure에서 게시된 웹 앱을 디버거에 연결하려는 경우(즉, 게시
     
     <pre class="prettyprint">
     c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"] => add( store = "_OpaqueIdStore", types = ("<mark>http://contoso.com/internal/sessionid</mark>"), query = "{0};{1};{2};{3};{4}", param = "useEntropy", param = c1.Value, param = c1.OriginalIssuer, param = "", param = c2.Value);
+    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+     => add(
+         store = "_OpaqueIdStore",
+         types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+         query = "{0};{1};{2};{3};{4}",
+         param = "useEntropy",
+         param = c1.Value,
+         param = c1.OriginalIssuer,
+         param = "",
+         param = c2.Value);
     </pre>
     
     사용자 지정 규칙은 이 스크린샷과 같습니다.
@@ -266,7 +279,9 @@ RP 트러스트 구성에서 그룹 멤버 자격을 역할 클레임으로 포�
    
     <pre class="prettyprint">
     <mark>[Authorize(Roles="Test Group")]</mark>
-    public ActionResult About() { ViewBag.Message = "Your application description page.";
+    public ActionResult About()
+    {
+        ViewBag.Message = "Your application description page.";
    
         return View();
     }
@@ -286,8 +301,12 @@ RP 트러스트 구성에서 그룹 멤버 자격을 역할 클레임으로 포�
     AD FS 서버의 이벤트 뷰어에서 이 오류를 조사하면 다음 예외 메시지를 확인할 수 있습니다.  
    
     <pre class="prettyprint">
-    Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>동일한 클라이언트 브라우저 세션에서 마지막 ‘11’초 동안 ‘6’번 요청했습니다.</mark> 자세한 내용은 관리자에게 문의하세요.
-   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)  </pre>
+    Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details.
+       at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+       at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+       at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+       at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
+    </pre>
    
     이 오류의 원인은 사용자의 역할에 권한이 부여되지 않은 경우 기본적으로 MVC에서 401 권한 없음을 반환하기 때문입니다. 이 경우 ID 공급자(AD FS)에 대한 재인증 요청이 트리거됩니다. 사용자가 이미 인증되었으므로 AD FS가 동일한 페이지로 돌아가고 또 다른 401이 발생하여 리디렉션 루프가 생성됩니다. 단순한 논리로 AuthorizeAttribute의 `HandleUnauthorizedRequest` 메서드를 재정의하여 리디렉션 루프를 계속하는 대신 의미 있는 내용을 표시할 수 있습니다.
 5. 프로젝트에서 AuthorizeAttribute.cs라는 파일을 만들어 다음 코드를 붙여 넣습니다.
@@ -338,10 +357,5 @@ Azure App Service Web Apps은 [하이브리드 연결](../biztalk-services/integ
 * [WIF에서 Katana로 VS2013 웹 프로젝트 마이그레이션](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
 * [Active Directory Federation Services 개요](http://technet.microsoft.com/library/hh831502.aspx)
 * [WS-Federation 1.1 사양](http://download.boulder.ibm.com/ibmdl/pub/software/dw/specs/ws-fed/WS-Federation-V1-1B.pdf?S_TACT=105AGX04&S_CMP=LP)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

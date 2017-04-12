@@ -40,12 +40,14 @@
 ## [클라우드 서비스의 여러 VIP 구성](load-balancer-multivip.md)
 ## [부하 분산 서비스 조합](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [여러 IP 구성 사용](load-balancer-multiple-ip.md)
+### [여러 IP 구성 사용(CLI)](load-balancer-multiple-ip-cli.md)
+### [여러 IP 구성 사용(PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Azure Load Balancer에 대한 Log analytics](load-balancer-monitor-log.md)
 ## [Linux VM에 대한 DHCPv6 구성](load-balancer-ipv6-for-linux.md)
 
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
-## [Azure CLI 2.0(미리 보기)](/cli/azure/network/lb)
+## [Azure CLI 2.0](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
@@ -65,8 +67,3 @@
 # 리소스
 ## [가격 책정](https://azure.microsoft.com/pricing/details/load-balancer/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=load-balancer)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

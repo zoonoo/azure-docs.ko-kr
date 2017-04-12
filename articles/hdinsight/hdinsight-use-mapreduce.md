@@ -9,6 +9,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 7f321501-d62c-4ffc-b5d6-102ecba6dd76
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +17,9 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: ab40eb8b53e2e685be52d24ecf2c32b193b12b85
+ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
+ms.openlocfilehash: 8be0f2f30f815277c4953c223d91c2571c2521a5
+ms.lasthandoff: 03/17/2017
 
 
 ---
@@ -27,7 +29,7 @@ ms.openlocfilehash: ab40eb8b53e2e685be52d24ecf2c32b193b12b85
 
 이 문서에서 HDInsight 클러스터의 Hadoop에서 MapReduce작업을 실행하는 방법에 대해 배웁니다. Java MapReduce 작업으로 구현된 기본 단어 계산 작업을 실행합니다.
 
-## <a name="a-idwhatisawhat-is-mapreduce"></a><a id="whatis"></a>MapReduce는 무엇입니까?
+## <a id="whatis"></a>MapReduce는 무엇입니까?
 
 Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 작성하기 위한 소프트웨어 프레임워크입니다. 입력된 데이터는 사용자 클러스터의 노드에 걸쳐 동시에 처리되는 독립적인 청크로 분할됩니다. MapReduce 작업은 두 함수로 구성됩니다:
 
@@ -60,7 +62,7 @@ HDInsight에서 Hadoop 스트리밍을 사용하는 예는 다음을 참조하�
 
 * [Python MapReduce 작업 개발](hdinsight-hadoop-streaming-python.md)
 
-## <a name="a-iddataaabout-the-sample-data"></a><a id="data"></a>샘플 데이터 정보
+## <a id="data"></a>샘플 데이터 정보
 
 이 예에서는 샘플 데이터로 HDInsight 클러스터에서 텍스트 문서로 제공되는 Leonardo Da Vinci의 노트북을 사용합니다.
 
@@ -74,7 +76,7 @@ Azure Blob 저장소가 HDInsight의 기본 저장소이므로 **/example/data/g
 > 이전 구문에서 **wasbs:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**입니다.
 
 
-## <a name="a-idjobaabout-the-example-mapreduce"></a><a id="job"></a>예제 MapReduce 정보
+## <a id="job"></a>예제 MapReduce 정보
 
 이 예제에서 사용되는 MapReduce 작업은 **wasbs://example/jars/hadoop-mapreduce-examples.jar**에위치하며 HDInsight 클러스터와 제공됩니다. 여기에는 사용자가 **davinci.txt**를 대상으로 실행하는 단어 계산 예가 포함되어 있습니다.
 
@@ -157,7 +159,7 @@ public class WordCount {
 
 고유한 MapReduce 작업을 작성하는 방법에 대한 지침은 [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce-linux.md)을 참조하세요.
 
-## <a name="a-idrunarun-the-mapreduce"></a><a id="run"></a>MapReduce 실행
+## <a id="run"></a>MapReduce 실행
 
 HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 있습니다. 어떤 메서드가 적합한지 결정하는 다음 테이블을 사용하여 연습할 수 있는 링크를 따르세요.
 
@@ -171,7 +173,7 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>다음 단계
+## <a id="nextsteps"></a>다음 단계
 
 MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 수 있습니다. HDInsight에서 데이터로 작업하는 편리한 방법을 제공하는 Pig 및 Hive와 같은 기술 뿐만 아니라 MapReduce 응용 프로그램을 쉽게 정의할 수 있는 Java 기반 프레임 워크도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
@@ -180,22 +182,16 @@ MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 
 * [HDInsight에서 Apache Hadoop을 사용하여 Scalding MapReduce 작업 개발](hdinsight-hadoop-mapreduce-scalding.md)
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
-* [HDInsight 샘플 실행][hdinsight-samples]
+
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-samples]: hdinsight-run-samples.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 
