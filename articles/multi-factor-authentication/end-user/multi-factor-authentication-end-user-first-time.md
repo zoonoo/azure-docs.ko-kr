@@ -13,12 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 03/15/2017
 ms.author: kgremban
+ms.custom: end-user
 translationtype: Human Translation
 ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
 ms.openlocfilehash: 6dafec65b2e8091954cae39994d0013d9fd06558
-
+ms.lasthandoff: 12/22/2016
 
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>2단계 인증에 내 계정 설정
@@ -97,9 +98,4 @@ QR 판독기를 사용하는 대신 모바일 앱에 수동으로 계정을 추�
 * 기본 옵션 변경 및 [2단계 인증을 위한 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
 * 2단계 인증을 지원하지 않는 네이티브 장치 앱에 대해 [앱 암호](multi-factor-authentication-end-user-app-passwords.md)를 설정합니다.
 * 휴대폰 서비스가 없는 경우에도 빠르고 안전한 인증을 위해서는 [Microsoft Authenticator 앱](microsoft-authenticator-app-how-to.md)을 확인하세요.
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

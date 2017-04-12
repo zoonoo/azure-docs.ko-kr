@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "azure iot hub, 사물 인터넷 클라우드, azure iot hub 장치 만들기, ti sensortag, ti ble"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 2c18f5ae-e39a-48ae-a9fe-04bb595740a0
 ms.service: iot-hub
 ms.devlang: c

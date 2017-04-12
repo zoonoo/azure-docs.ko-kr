@@ -64,7 +64,7 @@ ms.lasthandoff: 03/10/2017
 2. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 3. **로그인** 페이지에서 구독에 대한 자격 증명을 제공합니다.
    
-   ![로그인](./media/sql-database-get-started/login.png)
+   ![로그인](./media/sql-database-get-started-portal/login.png)
 
 
 <a name="create-logical-server-bk"></a>
@@ -99,7 +99,7 @@ ms.lasthandoff: 03/10/2017
 
 2. 설치한 후에 Windows 검색 상자에서 **Microsoft SQL Server Management Studio**를 입력하고 **Enter** 키를 클릭하여 SSMS를 엽니다.
 
-   ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
+   ![SQL Server Management Studio](./media/sql-database-connect-query-ssms/ssms.png)
 
 3. **서버에 연결** 대화 상자에서 Active Directory 인증 방법 중 하나를 선택한 다음 적절한 인증 정보를 제공합니다. 방법 선택에 대한 자세한 내용은 [Azure Active Directory 인증](sql-database-aad-authentication.md) 및 [Azure AD MFA에 대한 SSMS 지원](sql-database-ssms-mfa-authentication.md)을 참조하세요.
 

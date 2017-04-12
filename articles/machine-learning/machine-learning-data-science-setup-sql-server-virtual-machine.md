@@ -96,23 +96,23 @@ Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 �
 ## <a name="InstallIPython"></a>IPython Notebook 및 기타 지원 도구 설치
 IPython Notebook 서버 역할을 하도록 새 SQL Server VM을 구성하고 AzCopy, Azure 저장소 탐색기, 유용한 데이터 과학 Python 패키지 등의 추가 지원 도구를 설치할 수 있도록 특별한 사용자 지정 스크립트가 제공됩니다. 설치하려면 다음을 수행합니다.
 
-* **Windows 시작** 아이콘을 마우스 오른쪽 단추로 클릭하고 **명령 프롬프트(관리자)**를 클릭합니다.
-* 다음 명령을 복사하여 명령 프롬프트에 붙여 넣습니다.
+1. **Windows 시작** 아이콘을 마우스 오른쪽 단추로 클릭하고 **명령 프롬프트(관리자)**를 클릭합니다.
+2. 다음 명령을 복사하여 명령 프롬프트에 붙여 넣습니다.
   
         set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
         @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
-* 메시지가 표시되면 IPython Notebook 서버에 대한 원하는 암호를 입력합니다.
-* 사용자 지정 스크립트는 다음과 같은 여러 설치 후 절차를 자동화합니다.
-  * IPython Notebook 서버 설치 및 설정
-  * 이전에 만든 끝점에 대해 Windows 방화벽에서 TCP 포트 열기
-  * SQL Server 원격 연결
-  * IPython Notebook 서버 원격 연결
-  * 샘플 IPython Notebook 및 SQL 스크립트 가져오기
-  * 유용한 데이터 과학 Python 패키지 다운로드 및 설치
-  * AzCopy 및 Azure 저장소 탐색기 와 같은 Azure 도구 다운로드 및 설치   
+3. 메시지가 표시되면 IPython Notebook 서버에 대한 원하는 암호를 입력합니다.
+4. 사용자 지정 스크립트는 다음과 같은 여러 설치 후 절차를 자동화합니다.
+    * IPython Notebook 서버 설치 및 설정
+    * 이전에 만든 끝점에 대해 Windows 방화벽에서 TCP 포트 열기
+    * SQL Server 원격 연결
+    * IPython Notebook 서버 원격 연결
+    * 샘플 IPython Notebook 및 SQL 스크립트 가져오기
+    * 유용한 데이터 과학 Python 패키지 다운로드 및 설치
+    * AzCopy 및 Azure 저장소 탐색기 와 같은 Azure 도구 다운로드 및 설치   
     <br>
-* 모든 로컬 또는 원격 브라우저에서(여기서 port는 가상 컴퓨터를 프로비전하는 동안 선택한 IPython 공용 포트) `https://<virtual_machine_DNS_name>:<port>`형식의 URL을 사용하여 IPython Notebook에 액세스하고 실행할 수 있습니다.
-* IPython Notebook 서버는 백그라운드 서비스로 실행되며, 가상 컴퓨터를 다시 시작하면 자동으로 다시 시작됩니다.
+5. 모든 로컬 또는 원격 브라우저에서(여기서 port는 가상 컴퓨터를 프로비전하는 동안 선택한 IPython 공용 포트) `https://<virtual_machine_DNS_name>:<port>`형식의 URL을 사용하여 IPython Notebook에 액세스하고 실행할 수 있습니다.
+6. IPython Notebook 서버는 백그라운드 서비스로 실행되며, 가상 컴퓨터를 다시 시작하면 자동으로 다시 시작됩니다.
 
 ## <a name="Optional"></a>필요에 따라 데이터 디스크 연결
 VM 이미지에 데이터 디스크, 즉 C 드라이브(OS 디스크) 및 D 드라이브(임시 디스크) 이외의 디스크가 포함되지 않은 경우 데이터를 저장할 데이터 디스크를 하나 이상 추가해야 합니다. SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads용 VM 이미지는 SQL Server 데이터 및 로그 파일용 추가 디스크로 미리 구성된 상태로 제공됩니다.

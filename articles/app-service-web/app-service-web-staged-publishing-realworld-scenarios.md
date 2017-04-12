@@ -165,7 +165,7 @@ ms.lasthandoff: 12/20/2016
     * prefix. Only numbers, letters, and underscores please!
     */
     $table_prefix = getenv('DB_PREFIX');
-```
+    ```
 
 #### <a name="use-relative-paths"></a>상대 경로 사용
 WordPress 앱에서 구성하는 마지막 한 가지는 상대 경로입니다. WordPress는 URL 정보를 데이터베이스에 저장합니다. 이 저장소는 콘텐츠를 한 환경에서 다른 환경으로 이동하는 것을 더욱 어렵게 만듭니다. 로컬에서 스테이지로 또는 스테이지에서 프로덕션 환경으로 이동할 때마다 데이터베이스를 업데이트해야 합니다. 한 환경에서 다른 환경으로 데이터베이스를 배포할 때마다 이 배포로 인해 발생할 수 있는 문제의 위험을 줄이려면 WordPress 관리자 대시보드를 사용하여 설치할 수 있는 [상대 루트 링크 플러그 인](https://wordpress.org/plugins/root-relative-urls/)을 사용합니다.
