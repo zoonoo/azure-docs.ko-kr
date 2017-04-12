@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8a6b48437eecd9f2f5c3fe8447b31192d8318149
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 65e3564111b1f291bead685ae0c831951460c827
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -76,7 +76,7 @@ Always On 가용성 그룹, 데이터베이스 미러링, 로그 전달, Azure B
 Azure VM, 저장소 및 네트워킹은 온-프레미스, 가상화되지 않은 IT 인프라에서는 작동 특성이 달라집니다. Azure에서 SQL Server HADR 솔루션을 성공적으로 구현하기 위해서는 이러한 차이점을 이해하고 그에 맞게 솔루션을 설계해야 합니다.
 
 ### <a name="high-availability-nodes-in-an-availability-set"></a>가용성 집합의 고가용성 노드
-Azure의 가용성 집합을 사용하면 고가용성 노드를 별도의 오류 도메인(FD)과 업데이트 도메인(UD)에 배치할 수 있습니다. 같은 가용성 집합에 배치할 Azure VM이라면 같은 클라우드 서비스에 배포해야 합니다. 같은 클라우드 서비스에 있는 노드만 같은 가용성 집합에 참여할 수 있습니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+Azure의 가용성 집합을 사용하면 고가용성 노드를 별도의 오류 도메인(FD)과 업데이트 도메인(UD)에 배치할 수 있습니다. 같은 가용성 집합에 배치할 Azure VM이라면 같은 클라우드 서비스에 배포해야 합니다. 같은 클라우드 서비스에 있는 노드만 같은 가용성 집합에 참여할 수 있습니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ### <a name="failover-cluster-behavior-in-azure-networking"></a>Azure 네트워킹에서 장애 조치 클러스터의 동작
 Azure에 RFC 호환이 아닌 DHCP 서비스를 사용하면 특정한 장애 조치 클러스터 구성에 오류가 발생할 수 있습니다. 클러스터 노드에 같은 IP 주소가 사용되는 것과 같이 클러스터 네트워크 이름에 중복된 IP 주소가 할당될 수 있기 때문입니다. 이는 Windows 장애 조치 클러스터 기능에 의존하는 Always On 가용성 그룹을 구현할 때 문제가 될 수 있습니다.

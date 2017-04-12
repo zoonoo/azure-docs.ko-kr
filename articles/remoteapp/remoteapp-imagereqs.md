@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: a37804025cbd298ef2b98c84b5cc59c0cba07dd9
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 75b0f8d6b25a80f11002b683152cfb294cbb68bd
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="requirements-for-azure-remoteapp-images"></a>Azure RemoteApp 이미지에 대한 요구 사항
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -50,10 +51,5 @@ Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요�
 * 스냅숏 체인으로부터의 VHD 업로드는 지원되지 않습니다.
 
 Azure RemoteApp에 대한 이미지 만들기에 대한 자세한 내용은 [Azure RemoteApp 이미지 만들기](remoteapp-imageoptions.md) 를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

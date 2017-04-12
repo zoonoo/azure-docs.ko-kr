@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5ec9f7ad24dad833758d3b981fd4d8735119d813
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 045d5148cd3f12dac63c961ccf7c953d355ed725
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -67,19 +69,14 @@ SET을 사용하여 한 번에 하나의 변수만 설정할 수 있습니다. �
 변수 할당에 SELECT 또는 UPDATE를 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-더 많은 개발 팁은 [개발 개요][개발 개요]를 참조하세요.
+더 많은 개발 팁은 [개발 개요][development overview]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[개발 개요]: sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

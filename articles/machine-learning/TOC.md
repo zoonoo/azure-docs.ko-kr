@@ -196,7 +196,6 @@
 ## Cortana 분석
 ### API
 #### [이상 감지](machine-learning-apps-anomaly-detection-api.md)
-#### [텍스트 분석](machine-learning-apps-text-analytics.md)
 #### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 #### 예측 유지 관리
 ##### [개요](cortana-analytics-playbook-predictive-maintenance.md)

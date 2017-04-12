@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 23bdde763de6f437a0dec74c51722cbcfc19b141
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: bd44ba6795bc89ff4d250caf38520a72dd37c448
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,7 +31,7 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 * **EventHubWriter**: 무작위로 데이터를 생성하여 이벤트 허브에 기록합니다.
 * **EventHubReader**: Event Hubs에서 데이터를 읽어 Storm 로그에 데이터를 로깅합니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 이 프로젝트의 Java 버전은 [HDInsight의 Storm(Java)으로 Azure Event Hubs에서 이벤트 처리](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
 
 ## <a name="scpnet"></a>SCP.NET
@@ -46,7 +46,7 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 프로젝트에서 사용하는 Microsoft.SCP.Net.SDK NuGet 패키지는 HDInsight에 설치된 Storm의 주요 버전과 일치해야 합니다. HDInsight 버전 3.3 및 3.4의 Storm은 Storm 버전 0.10.x를 사용하므로 SCP.NET 버전 0.10.x.x를 사용해야 합니다. HDInsight 3.5는 Storm 1.0.x를 사용하므로 이 클러스터 버전에서 SCP.NET 버전 1.0.x.x를 사용해야 합니다.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 HDInsight 3.4 이상은 Mono를 사용하여 C# 토폴로지를 실행합니다. Mono에서는 대부분의 항목이 제대로 작동합니다. 하지만 [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/) 문서에서 잠재적인 비호환성이 있는지 확인해야 합니다.
 
@@ -198,12 +198,12 @@ HDInsight 3.5에서 이 솔루션을 사용하려면 [https://github.com/hdinsig
 이벤트 허브는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) 문서의 **Event Hub 만들기** 섹션에 있는 정보를 참조하세요.
 
 1. 이벤트 허브가 생성된 후에는 Azure Portal에서 EventHub 블레이드를 보고 **공유 액세스 정책**을 선택합니다. **+ 추가**를 선택하여 다음 정책을 추가합니다.
-   
+
    | 이름 | 권한 |
    | --- | --- |
    | 기록기 |보내기 |
    | 판독기 |수신 대기 |
-   
+
     ![정책](./media/hdinsight-storm-develop-csharp-event-hub-topology/sas.png)
 
 2. **판독기** 및 **기록기** 정책을 선택합니다. 이러한 값은 나중에 사용되므로 두 정책에 대한 **PRIMARY KEY** 값을 복사 및 저장합니다.
@@ -215,7 +215,7 @@ HDInsight 3.5에서 이 솔루션을 사용하려면 [https://github.com/hdinsig
 2. [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub)에서 솔루션을 다운로드합니다.
 
 3. **EventHubWriter** 프로젝트에서 **App.config** 파일을 엽니다. 앞에서 구성한 Event Hub에 대한 정보를 다음 키에 대한 값에 입력합니다.
-   
+
    | 키 | 값 |
    | --- | --- |
    | EventHubPolicyName |기록기(*보내기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
@@ -231,7 +231,7 @@ HDInsight 3.5에서 이 솔루션을 사용하려면 [https://github.com/hdinsig
 1. **EventHubReader** 프로젝트를 엽니다.
 
 2. **EventHubReader**에 대한 **App.config**를 엽니다. 앞에서 구성한 Event Hub에 대한 정보를 다음 키에 대한 값에 입력합니다.
-   
+
    | 키 | 값 |
    | --- | --- |
    | EventHubPolicyName |판독기(*수신 대기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
@@ -245,15 +245,15 @@ HDInsight 3.5에서 이 솔루션을 사용하려면 [https://github.com/hdinsig
 ## <a name="deploy-the-topologies"></a>토폴로지 배포
 
 1. **솔루션 탐색기**에서 **EventHubReader** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **HDInsight에서 Storm에 제출**을 선택합니다.
-   
+
     ![storm에 제출](./media/hdinsight-storm-develop-csharp-event-hub-topology/submittostorm.png)
 
 2. **토폴로지 제출** 화면에서 **Storm 클러스터**를 선택합니다. **추가 구성**을 확장하고 **Java 파일 경로**, **...**을 차례로 선택한 다음 이전에 다운로드한 jar 파일을 포함하고 있는 디렉터리를 선택합니다. 마지막으로 **제출**을 클릭합니다.
-   
+
     ![제출 대화 상자 이미지](./media/hdinsight-storm-develop-csharp-event-hub-topology/submit.png)
 
 3. 토폴로지가 제출되었으면 **Storm Topologies Viewer** 가 나타납니다. 토폴로지 정보를 보려면 왼쪽 창에서 **EventHubReader** 토폴로지를 선택합니다.
-   
+
     ![예제 저장소 보기](./media/hdinsight-storm-develop-csharp-event-hub-topology/topologyviewer.png)
 
 4. **솔루션 탐색기**에서 **EventHubWriter** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **HDInsight에서 Storm에 제출**을 선택합니다.
@@ -267,7 +267,7 @@ HDInsight 3.5에서 이 솔루션을 사용하려면 [https://github.com/hdinsig
 8. Bolt에 대한 **구성 요소 요약**을 열려면 다이어그램에서 **LogBolt** 구성 요소를 두 번 클릭합니다.
 
 9. **Executors** 섹션에서 **Port** 열의 링크 중 하나를 선택합니다. 그러면 구성 요소가 로깅한 정보가 표시됩니다. 기록된 정보는 다음 텍스트와 유사합니다.
-   
+
         2017-03-02 14:51:29.255 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,255 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1830978598,"deviceId":"8566ccbc-034d-45db-883d-d8a31f34068e"}
         2017-03-02 14:51:29.283 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,283 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1756413275,"deviceId":"647a5eff-823d-482f-a8b4-b95b35ae570b"}
         2017-03-02 14:51:29.313 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,312 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1108478910,"deviceId":"206a68fa-8264-4d61-9100-bfdb68ee8f0a"}
@@ -289,5 +289,4 @@ HDInsight 3.5에서 이 솔루션을 사용하려면 [https://github.com/hdinsig
 * [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [SCP 프로그래밍 가이드](hdinsight-storm-scp-programming-guide.md)
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
-
 

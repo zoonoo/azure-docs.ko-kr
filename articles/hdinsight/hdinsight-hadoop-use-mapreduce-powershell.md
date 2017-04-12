@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9eafaca75bbf3db639a42c8206d2ac506c255273
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 936212bf634a0245ea70318fcad703a87bf63c5f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/22/2017
 * **Azure HDInsight(HDInsight의 Hadoop) 클러스터**
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 * **Azure PowerShell이 포함된 워크스테이션**.
 
@@ -61,13 +61,13 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
     [!code-powershell[기본](../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
 2. 새 **Azure PowerShell** 명령 프롬프트를 엽니다. **mapreducejob.ps1** 파일의 디렉터리 위치를 변경한 다음 명령을 사용하여 스크립트를 실행합니다.
-   
+
         .\mapreducejob.ps1
-   
+
     스크립트를 실행하는 경우 HDInsight 클러스터의 이름 및 클러스터의 HTTPS/관리자 계정 이름 및 암호를 묻는 메시지가 나타납니다. Azure 구독에서 인증을 받으라는 메시지도 표시될 수 있습니다.
 
 3. 작업이 완료되면 다음 텍스트와 유사한 출력이 나타납니다.
-    
+
         Cluster         : CLUSTERNAME
         ExitCode        : 0
         Name            : wordcount
@@ -77,12 +77,12 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
         StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
         SubmissionTime  : 12/5/2014 8:34:09 PM
         JobId           : job_1415949758166_0071
-    
+
     이 출력은 작업이 성공적으로 완료되었음을 나타냅니다.
-    
+
     > [!NOTE]
     > **ExitCode** 가 0이 아닌 값이면 [문제 해결](#troubleshooting)을 참조하세요.
-    
+
     이 예제에서도 다운로드한 파일을 스크립트를 실행한 디렉터리의 **output.txt** 파일에 저장합니다.
 
 ### <a name="view-output"></a>출력 보기
@@ -122,5 +122,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
-
 

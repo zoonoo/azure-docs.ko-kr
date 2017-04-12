@@ -17,9 +17,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
-ms.openlocfilehash: bd9133fde0c3ebfd915c8ae33daa6d0113b37889
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 059fd9c1578cb987aec09a2f72099a0472c9b119
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -27,8 +27,8 @@ ms.lasthandoff: 02/07/2017
 이 항목에서는 Azure HDInsight의 Windows 기반 Hadoop 클러스터에서 완료된 YARN (Yet Another Resource Negotiator) 응용 프로그램에 대한 로그에 액세스하는 방법에 대해 설명합니다.
 
 > [!IMPORTANT]
-> 이 문서의 정보는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. Linux 기반 HDInsight 클러스터에서 YARN 로그 액세스에 대한 정보는 [HDInsight의 Linux 기반 Hadoop에 대한 YARN 응용 프로그램 로그 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-> 
+> 이 문서의 정보는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요. Linux 기반 HDInsight 클러스터에서 YARN 로그 액세스에 대한 정보는 [HDInsight의 Linux 기반 Hadoop에 대한 YARN 응용 프로그램 로그 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+>
 
 
 ### <a name="prerequisites"></a>필수 조건
@@ -70,9 +70,9 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 
 
 ## <a name="yarn-resourcemanager-ui"></a>YARN ResourceManager UI
-YARN ResourceManager UI 클러스터 헤드 노드에서 실행되며 Azure 포털 대시보드를 통해 액세스할 수 있습니다. 
+YARN ResourceManager UI 클러스터 헤드 노드에서 실행되며 Azure 포털 대시보드를 통해 액세스할 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. 
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **찾아보기**, **HDInsight 클러스터**, YARN 응용 프로그램 로그에 액세스할 Windows 기반 클러스터를 차례로 클릭합니다.
 3. 위쪽 메뉴에서 **대시보드**를 클릭합니다. **HDInsight 쿼리 콘솔**이라는 새 브라우저 탭에 페이지가 열립니다.
 4. **HDInsight 쿼리 콘솔**에서 **Yarn UI**를 클릭합니다.

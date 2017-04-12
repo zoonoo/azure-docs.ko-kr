@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.date: 03/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 01294f8f8fdaa65a5f33dbf6d35c0baa342cacc8
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 154cd7eec65559ec2263a12b8977ec0af0a78743
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -39,12 +39,11 @@ Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사�
 구성 단계에는 Azure Active Directory 인증의 구성 및 사용을 위한 다음 절차가 포함됩니다.
 
 1. Azure AD를 만들고 채웁니다.
-2. Azure SQL 데이터베이스 V12에 데이터베이스가 있는지 확인합니다. (SQL 데이터 웨어하우스의 경우 필요하지 않음)
-3. 옵션: 현재 Azure 구독과 연결된 Active Directory를 연결하거나 변경합니다.
-4. Azure SQL Server 또는 [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)에 대한 Azure Active Directory 관리자를 만듭니다.
-5. 클라이언트 컴퓨터를 구성합니다.
-6. Azure AD ID에 매핑된 데이터베이스에서 포함된 데이터베이스 사용자를 만듭니다.
-7. Azure AD ID를 사용하여 데이터베이스에 연결합니다.
+2. 옵션: 현재 Azure 구독과 연결된 Active Directory를 연결하거나 변경합니다.
+3. Azure SQL Server 또는 [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)에 대한 Azure Active Directory 관리자를 만듭니다.
+4. 클라이언트 컴퓨터를 구성합니다.
+5. Azure AD ID에 매핑된 데이터베이스에서 포함된 데이터베이스 사용자를 만듭니다.
+6. Azure AD ID를 사용하여 데이터베이스에 연결합니다.
 
 > [!NOTE]
 > Azure AD를 만들고 채운 후 Azure SQL Database 및 SQL Data Warehouse에서 Azure AD를 구성하는 방법은 [Azure SQL Database에서 Azure AD 구성](sql-database-aad-authentication-configure.md)을 참조하세요.

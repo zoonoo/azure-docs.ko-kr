@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4f4013225e3ea7afb34628bab47ec3b1432bb2b2
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 691caf95971ccdd37b12bbc178627f25b228a782
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>클래식 Linux 가상 컴퓨터를 이미지로 캡처하는 방법
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행하는](../../virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 방법을 알아봅니다.
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Resource Manager 모델을 사용하여 이러한 단계를 수행하는](../capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 방법을 알아봅니다.
 
 이 문서에서는 Linux를 실행하는 클래식 Azure VM(Virtual Machine)을 캡처하여 다른 Virtual Machines를 만들 때 이미지로 사용하는 방법을 소개합니다. 이 이미지에는 OS 디스크를 비롯해 VM에 연결된 데이터 디스크가 포함됩니다. 여기에 네트워킹 구성은 포함되지 않으므로 이미지에서 다른 VM을 만들 때 네트워킹을 구성해야 합니다.
 
@@ -34,7 +34,7 @@ Azure는 사용자가 업로드한 이미지와 함께 해당 이미지를 **Ima
 이러한 단계는 이미 클래식 배포 모델을 사용하여 Azure VM을 만들었으며 데이터 디스크 연결을 비롯해 운영 체제 구성을 완료했다는 것을 전제로 합니다. VM을 만들어야 할 경우 [Linux 가상 컴퓨터를 만드는 방법][How to Create a Linux Virtual Machine]을 참조하세요.
 
 ## <a name="capture-the-virtual-machine"></a>가상 컴퓨터 캡처
-1. 선택한 SSH 클라이언트를 사용하여 [VM에 연결](../../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)합니다.
+1. 선택한 SSH 클라이언트를 사용하여 [VM에 연결](../mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)합니다.
 2. SSH 창에서 다음 명령을 입력합니다. `waagent` 의 출력은 이 유틸리티의 버전에 따라 약간 다를 수 있습니다.
 
     ```bash
@@ -98,7 +98,7 @@ Azure는 사용자가 업로드한 이미지와 함께 해당 이미지를 **Ima
 
 또는 [Azure 클래식 포털][Azure classic portal]에서 **갤러리에서** 방법을 사용한 후 만든 이미지를 선택하여 사용자 지정 VM을 만듭니다. 자세한 내용은 [사용자 지정 VM을 만드는 방법][How to Create a Custom Virtual Machine]을 참조하세요
 
-**참고 항목:** [Azure Linux 에이전트 사용자 가이드](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+**참고 항목:** [Azure Linux 에이전트 사용자 가이드](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Azure classic portal]:http://manage.windowsazure.com
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md

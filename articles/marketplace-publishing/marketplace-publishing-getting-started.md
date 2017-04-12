@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: b76185c0a4a0e17b663affee9a02b65f222fedeb
-ms.openlocfilehash: d679096476406831c1fda4f695adff84e63d6ae8
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 9d7176b018d25b2a60b2175c289dde7490f8d101
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -71,7 +71,7 @@ Azure 게시자로 Azure 마켓플레이스를 통해 해당 클라우드 기반
 ### <a name="virtual-machine-image-specific"></a>가상 컴퓨터 이미지별
 * [온-프레미스로 VM 이미지 만들기](marketplace-publishing-vm-image-creation-on-premise.md)
 * [Azure Portal에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Azure Portal에서 Linux를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure Portal에서 Linux를 실행하는 가상 컴퓨터 만들기](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [VHD를 만드는 동안 발생하는 일반적인 문제 해결](marketplace-publishing-vm-image-creation-troubleshooting.md)
 
 ## <a name="how-to-manage-your-solution"></a>솔루션을 관리하는 방법
