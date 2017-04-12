@@ -59,7 +59,7 @@ ms.lasthandoff: 03/10/2017
 2. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 3. **로그인** 페이지에서 구독에 대한 자격 증명을 제공합니다.
    
-   ![로그인](./media/sql-database-get-started/login.png)
+   ![로그인](./media/sql-database-get-started-portal/login.png)
 
 
 <a name="create-logical-server-bk"></a>
@@ -84,11 +84,11 @@ ms.lasthandoff: 03/10/2017
 
 1. SQL Server Management Studio를 열고 SQL Server 인증 및 서버 관리자 계정을 사용하여 서버 관리자로 서버에 연결합니다.
 
-   ![서버 연결](./media/sql-database-get-started/connect-to-server.png)
+   ![서버 연결](./media/sql-database-get-started-portal/connect-to-server.png)
 
 2. **Connect**를 클릭합니다.
 
-   ![연결된 서버](./media/sql-database-get-started/connected-to-server.png)
+   ![연결된 서버](./media/sql-database-get-started-portal/connected-to-server.png)
 
 3. 개체 탐색기에서 **보안**을 확장하고, **로그인**을 확장하여 서버의 기존 로그인을 살펴봅니다. 새 서버의 유일한 로그인은 서버 관리자 계정에 대한 로그인입니다.
 

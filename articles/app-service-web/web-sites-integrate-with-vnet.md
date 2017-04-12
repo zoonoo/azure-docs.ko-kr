@@ -95,7 +95,7 @@ VNET에 게이트웨이가 없거나 Point to Site(지점과 사이트 간)가 �
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Resource Manager VNET에서 Point to Site(지점과 사이트 간) 활성화
-게이트웨이 및 지점-사이트 간 연결을 사용하여 Resource Manager VNET을 구성하려면 [PowerShell을 사용하여 가상 네트워크에 지점 및 사이트 간 연결 구성][ V2VNETP2S]에 설명된 대로 PowerShell을 사용하거나 [Azure Portal을 사용하여 VNet에 지점 및 사이트 간 연결 구성][V2VNETPortal]에 설명된 대로 Azure Portal을 사용할 수 있습니다.  이 기능을 수행하는 UI는 아직 제공되지 않습니다. 
+게이트웨이 및 지점-사이트 간 연결을 사용하여 Resource Manager VNET을 구성하려면 [PowerShell을 사용하여 가상 네트워크에 지점 및 사이트 간 연결 구성][V2VNETP2S]에 설명된 대로 PowerShell을 사용하거나 [Azure Portal을 사용하여 VNet에 지점 및 사이트 간 연결 구성][V2VNETPortal]에 설명된 대로 Azure Portal을 사용할 수 있습니다.  이 기능을 수행하는 UI는 아직 제공되지 않습니다. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>미리 구성된 VNET 만들기
 게이트웨이 및 Point to Site(지점과 사이트 간)를 통해 구성되는 새 VNET을 만들려는 경우 앱 서비스 네트워킹 UI의 기능을 사용하면 됩니다. 단, 이 기능은 Resource Manager VNET에만 해당됩니다.  클래식 게이트웨이 및 Point to Site(지점과 사이트 간)를 사용하여 클래식 VNET을 만들려면 네트워킹 사용자 인터페이스를 통해 이 작업을 수동으로 진행해야 합니다. 

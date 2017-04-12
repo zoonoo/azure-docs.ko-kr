@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 03/15/2017
 ms.author: kgremban
+ms.custom: end-user
 translationtype: Human Translation
 ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
 ms.openlocfilehash: dd9b0692dbc044e4bed26cfe7e9e4be11450a595
-
+ms.lasthandoff: 12/22/2016
 
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure Multi-Factor Authentication은 무엇을 의미하나요?
@@ -46,10 +47,5 @@ IT 부서의 누군가로부터 메일을 받았거나 상사가 사용자의 �
 | [설정 변경](multi-factor-authentication-end-user-manage-settings.md) |전화 번호 또는 기본 등록 방법 등의 설정을 변경하는 방법을 보여 줍니다. |
 | [앱 암호에 대한 도움말](multi-factor-authentication-end-user-app-passwords.md) |앱 암호 만들기 및 사용에 대한 정보를 찾아보세요. |
 | [모바일 앱 사용](microsoft-authenticator-app-how-to.md) |[Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

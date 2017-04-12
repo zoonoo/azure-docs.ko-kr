@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "클라우드의 데이터, 클라우드 데이터 수집, iot 클라우드 서비스, iot 데이터"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 5a6ec9c1-d83c-41c1-beaf-7c0d3395d77f
 ms.service: iot-hub
 ms.devlang: c

@@ -17,9 +17,9 @@ ms.date: 02/27/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 88d54250c0ce8feff78e2bf122be1c69dd0d8008
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1fc13142d3e4f54e0945032a404eb497746ee5a0
+ms.lasthandoff: 04/12/2017
 
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>HDInsight의 Hive 및 Pig에서 Python UDF(사용자 정의 함수) 사용
@@ -31,7 +31,7 @@ Hive 및 Pig는 HDInsight의 데이터 작업에 적합하지만 보다 일반�
 * HDInsight 클러스터
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 * 텍스트 편집기
 
@@ -161,7 +161,7 @@ def create_structure(input):
 입력에 대한 일관된 스키마가 없으므로, 앞에서 **LINE** 입력을 chararray로 정의했습니다. Python 스크립트는 데이터를 출력에 대한 일관된 스키마로 변환합니다.
 
 1. **@outputSchema** 문은 Pig에 반환되는 데이터의 형식을 정의합니다. 이 경우 Pig 데이터 형식은 **데이터 모음**입니다. 모음에는 모두 chararray(문자열)인 다음과 같은 필드가 포함됩니다.
-   
+
    * date - 로그 항목이 생성된 날짜
    * time - 로그 항목이 생성된 시간
    * classname - 항목이 생성된 클래스 이름
@@ -188,14 +188,14 @@ SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SS
 1. Python 예제인 [streaming.py](#streamingpy)와 [pig_python.py](#jythonpy)를 사용하여 개발 컴퓨터에 파일의 로컬 사본을 만듭니다.
 
 2. `scp` 를 사용하여 파일을 HDInsight 클러스터에 복사합니다. 예를 들어 다음 명령은 **mycluster**라는 클러스터에 파일을 복사합니다.
-   
+
         scp streaming.py pig_python.py myuser@mycluster-ssh.azurehdinsight.net:
 
 3. SSH를 사용하여 클러스터에 연결합니다. 예를 들어 다음은 **myuser**라는 사용자로 **mycluster**라는 클러스터에 연결합니다.
-   
+
         ssh myuser@mycluster-ssh.azurehdinsight.net
 4. SSH 세션에서 이전에 업로드된 python 파일을 클러스터의 WASB 저장소에 추가합니다.
-   
+
         hdfs dfs -put streaming.py /streaming.py
         hdfs dfs -put pig_python.py /pig_python.py
 
@@ -205,7 +205,7 @@ SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SS
 
 1. `hive` 명령을 사용하여 Hive 셸을 시작합니다. 셸이 로드되면 `hive>` 프롬프트가 한 번 표시됩니다.
 2. `hive>` 프롬프트에 다음을 입력합니다.
-   
+
    ```hive
    add file wasbs:///streaming.py;
    SELECT TRANSFORM (clientid, devicemake, devicemodel)
@@ -215,7 +215,7 @@ SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SS
    ORDER BY clientid LIMIT 50;
    ```
 3. 마지막 줄을 입력하면 작업이 시작됩니다. 작업이 완료되면 다음 예제와 유사한 출력을 반환합니다.
-   
+
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
@@ -227,7 +227,7 @@ SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SS
 1. `pig` 명령을 사용하여 셸을 시작합니다. 셸이 로드되면 `grunt>` 프롬프트가 한 번 표시됩니다.
 
 2. `grunt>` 프롬프트에 다음 문을 입력합니다.
-   
+
    ```pig
    Register wasbs:///pig_python.py using jython as myfuncs;
    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
@@ -237,7 +237,7 @@ SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SS
    ```
 
 3. 다음 줄을 입력하면 작업이 시작됩니다. 작업이 완료되면 다음과 유사한 출력을 반환합니다.
-   
+
         ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
         ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
         ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
@@ -245,17 +245,17 @@ SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SS
         ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
 4. `quit`를 사용하여 Grunt 셸을 종료한 후 다음을 사용하여 로컬 파일 시스템에 있는 pig_python.py 파일을 편집합니다.
-   
+
     nano pig_python.py
 
 5. 편집기에서 다음 줄의 시작 부분에 있는 `#` 문자를 제거하여 해당 줄의 주석 처리를 제거합니다.
-   
+
         #from pig_util import outputSchema
-   
+
     변경했으면 Ctrl+X를 사용하여 편집기를 종료합니다. Y를 선택한 다음 enter 키를 눌러 변경 내용을 저장합니다.
 
 6. `pig` 명령을 사용하여 셸을 다시 시작합니다. `grunt>` 프롬프트에서 다음 문을 사용하여 Jython 인터프리터를 사용하는 Python 스크립트를 실행합니다.
-   
+
    ```pig
    Register 'pig_python.py' using streaming_python as myfuncs;
    LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
@@ -263,7 +263,7 @@ SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SS
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
    ```
-   
+
     이 작업이 완료되면 이전에 Jython을 사용하여 스크립트를 실행한 때와 같은 출력이 표시됩니다.
 
 ### <a name="powershell"></a>PowerShell
@@ -272,7 +272,7 @@ SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SS
 
 1. Python 예제인 [streaming.py](#streamingpy)와 [pig_python.py](#jythonpy)를 사용하여 개발 컴퓨터에 파일의 로컬 사본을 만듭니다.
 2. 다음 PowerShell 스크립트를 사용하여 **streaming.py**와 **pig\_python.py** 파일을 서버에 업로드합니다. 스크립트의 첫 3개 줄에서 Azure HDInsight 클러스터의 이름과 **streaming.py** 및 **pig\_python.py** 파일의 경로를 바꿉니다.
-   
+
    ```powershell
     # Login to your Azure subscription
     # Is there an active Azure subscription?
@@ -314,7 +314,7 @@ SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SS
    ```
 
     이 스크립트는 HDInsight 클러스터의 정보를 검색한 후 계정 및 기본 저장소 계정의 키를 추출하고 컨테이너의 루트에 파일을 업로드합니다.
-   
+
    > [!NOTE]
    > 그 외에 스크립트를 업로드하는 방법은 [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md) 문서에서 찾아볼 수 있습니다.
 
@@ -484,5 +484,4 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 * [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
-
 

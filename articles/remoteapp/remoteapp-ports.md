@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 114ed651f914060818f10efac849e7f85a3da981
-ms.openlocfilehash: f41396e4aa0c7b6cc2f1768e0c2ba3b95ee31cd3
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 9390af174262e0dd2bb5beb30ae08b3063c1a5e6
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="list-of-ports-and-urls-to-permit-access-for-azure-remoteapp-deployed-in-customer-virtual-network"></a>고객 가상 네트워크에 배포된 Azure RemoteApp에 대한 액세스를 허용하는 포트 및 URL 목록입니다.
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -48,10 +49,5 @@ Azure RemoteApp 클라우드나 하이브리드 컬렉션을 VNET(Virtual Networ
 * https://*.core.windows.net  
 * 아웃바운드: TCP: 443  
 * 선택 사항 - UDP: 3391 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

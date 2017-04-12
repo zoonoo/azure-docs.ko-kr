@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 83c063bb003ccda80ba6c1a74aadcd624d77ae47
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2a1e1004a4dab48aed75740a24ff5556242eaa67
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -62,12 +62,12 @@ Azure는 앱 서비스의 웹앱 뿐만 아니라 웹 사이트와 웹 응용 �
 App Service의 새 웹앱에 샘플 코드를 배포하여 시작하려면 다음 드롭다운 상자의 자습서 중 하나를 수행합니다. 무료 Azure 계정이 필요합니다.
 
 > [!div class="op_single_selector"]
-> * [5분 내 Azure에 첫 번째 HTML 사이트 배포](app-service-web-get-started-html-cli-nodejs.md)
-> * [5분 내 Azure에 첫 번째 ASP.NET 웹앱 배포](app-service-web-get-started-dotnet-cli-nodejs.md)
-> * [5분 내 Azure에 첫 번째 PHP 웹앱 배포](app-service-web-get-started-php-cli-nodejs.md)
-> * [5분 내 Azure에 첫 번째 Node.js 웹앱 배포](app-service-web-get-started-nodejs-cli-nodejs.md)
-> * [5분 내 Azure에 첫 번째 Python 웹앱 배포](app-service-web-get-started-python-cli-nodejs.md)
+> * [5분 내 Azure에 첫 번째 ASP.NET 웹앱 배포](app-service-web-get-started-dotnet.md)
+> * [5분 내 Azure에 첫 번째 PHP 웹앱 배포](app-service-web-get-started-php.md)
+> * [5분 내 Azure에 첫 번째 Node.js 웹앱 배포](app-service-web-get-started-nodejs.md)
 > * [5분 내 Azure에 첫 번째 Java 웹앱 배포](app-service-web-get-started-java.md)
+> * [5분 내 Azure에 첫 번째 Python 웹앱 배포](app-service-web-get-started-python.md)
+> * [5분 내 Azure에 첫 번째 HTML 사이트 배포](app-service-web-get-started-html.md)
 > 
 > 
 

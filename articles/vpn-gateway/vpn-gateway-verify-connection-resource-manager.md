@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: b5bad71095e4b7e3b26df15780467526200ffa10
@@ -35,14 +35,20 @@ PowerShell을 사용하여 확인하려면 최신 버전의 Azure Resource Manag
 
 ### <a name="log-in-to-your-azure-account"></a>Azure 계정에 로그인
 1. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다.
-   
-        Login-AzureRmAccount
+
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. 계정에 대한 구독을 확인합니다.
-   
-        Get-AzureRmSubscription 
+
+  ```powershell
+  Get-AzureRmSubscription
+  ``` 
 3. 사용할 구독을 지정합니다.
-   
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 
 ### <a name="verify-your-connection"></a>연결 확인
 
@@ -57,17 +63,25 @@ PowerShell을 사용하여 확인하려면 최신 버전의 Azure PowerShell cmd
 
 ### <a name="log-in-to-your-azure-account"></a>Azure 계정에 로그인
 1. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다.
-   
-        Login-AzureRmAccount
+
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. 계정에 대한 구독을 확인합니다.
-   
-        Get-AzureRmSubscription 
+
+  ```powershell
+  Get-AzureRmSubscription 
+  ```
 3. 사용할 구독을 지정합니다.
-   
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. 로그인하여 클래식 배포 모델에 대한 서비스 관리 cmdlet을 사용합니다.
 
-        Add-AzureAccount
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ### <a name="verify-your-connection"></a>연결 확인
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]

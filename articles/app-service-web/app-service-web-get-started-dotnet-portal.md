@@ -1,5 +1,5 @@
 ---
-title: "Umbraco 웹앱을 Azure Portal에&5;분 안에 배포 | Microsoft Docs"
+title: "Umbraco 웹앱을 Azure Portal에 5분 안에 배포 | Microsoft Docs"
 description: "샘플 ASP.NET 앱을 배포하여 App Service에서 웹앱을 실행하는 작업이 얼마나 쉬운지 알아봅니다. 결과를 즉시 확인합니다."
 services: app-service\web
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.topic: hero-article
 ms.date: 02/10/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: fa3f31cdd708729071876ffad707bea70567da83
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 6b1dede903083d1771733330a069b6ab533d9f00
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="deploy-an-umbraco-web-app-in-the-azure-portal-in-five-minutes"></a>Umbraco 웹앱을 Azure Portal에&5;분 안에 배포
+# <a name="deploy-an-umbraco-web-app-in-the-azure-portal-in-five-minutes"></a>Umbraco 웹앱을 Azure Portal에 5분 안에 배포
 
 이 자습서는 [Umbraco](https://our.umbraco.org/) 웹앱을 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 몇 분 이내에 배포하는 데 도움이 됩니다.
 
@@ -103,7 +103,7 @@ Azure에서 앱 배포가 완료되면 다른 알림이 표시됩니다.
     ![Umbraco 구성 - Azure App Service의 첫 번째 Umbraco](./media/app-service-web-get-started-dotnet-portal/umbraco-config.png)
     
 ## <a name="next-steps"></a>다음 단계
-* [Visual Studio를 사용하여 ASP.NET 웹앱을 Azure App Service에 배포](web-sites-dotnet-get-started.md) - 포함된 응용 프로그램 템플릿 중 하나를 사용하여 Visual Studio에서 Azure 웹앱을 새로 만드는 방법을 알아봅니다.
+* [Visual Studio를 사용하여 ASP.NET 웹앱을 Azure App Service에 배포](app-service-web-get-started-dotnet.md) - 포함된 응용 프로그램 템플릿 중 하나를 사용하여 Visual Studio에서 Azure 웹앱을 새로 만드는 방법을 알아봅니다.
 * [Azure App Service에 코드 배포](web-sites-deploy.md)- FTP 또는 소스 제어 리포지토리에서 배포하는 방법을 알아봅니다.
 * [첫 번째 웹앱에 기능 추가](app-service-web-get-started-2.md) - Azure 앱을 한 단계 업그레이드합니다. 사용자를 인증합니다. 요구에 따라 규모를 조정합니다. 몇 가지 성능 경고를 설정합니다. 이 모든 작업이 클릭 몇 번으로 가능합니다.
 

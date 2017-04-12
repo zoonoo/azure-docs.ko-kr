@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 04/02/2017
 ms.author: kgremban
+ms.custom: end-user
 translationtype: Human Translation
 ms.sourcegitcommit: ec52f719f33db0d893d707b59293fa75a8ff4314
 ms.openlocfilehash: 033392783fd98cbdb23fd0254c93687754808286
-
+ms.lasthandoff: 02/10/2017
 
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>암호가 아닌 휴대폰을 사용하여 로그인
@@ -90,9 +91,4 @@ Windows PC, XBOX 또는 Office 앱과 같은 모든 데스크톱 버전의 Micro
 Microsoft Authenticator 앱을 다운로드하지 않은 경우 확인하세요. 앱은 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있고 휴대폰 로그인은 [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)용 Microsoft Authenticator 앱에서 사용할 수 있습니다.
 
 일반적으로 앱에 대한 질문이 있으면 [Microsoft Authenticator FAQ](microsoft-authenticator-app-faq.md)를 살펴보세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

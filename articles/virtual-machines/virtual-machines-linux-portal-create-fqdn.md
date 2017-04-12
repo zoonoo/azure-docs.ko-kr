@@ -1,39 +1,10 @@
 ---
-title: "Azure Portal에서 Linux VM에 대한 FQDN 만들기 | Microsoft Docs"
-description: "Azure Portal에서 가상 컴퓨터를 기반으로 한 Resource Manager에 대한 정규화된 도메인 이름 또는 FQDN을 만드는 방법에 대해 알아봅니다."
-services: virtual-machines-linux
-documentationcenter: 
-author: iainfoulds
-manager: timlt
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: 2cd6c249-a737-4a0a-b5ba-e1c09e551b30
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 03/14/2017
-ms.author: iainfou
-ms.custom: H1Hack27Feb2017
+redirect_url: /azure/virtual-machines/linux/portal-create-fqdn
+redirect_document_id: true
 translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: b35d2886c1319623a2a56851e52fa25228bd0592
-ms.lasthandoff: 03/03/2017
-
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f039e0f9e0a1d5ed2c639357b78cbd242c2b0d22
+ms.lasthandoff: 04/03/2017
 
 ---
-# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Linux VM용 Azure Portal에서 정규화된 도메인 이름 만들기
-
-Resource Manager 배포 모델을 사용하여 [Azure 포털](https://portal.azure.com) 에서 VM(가상 컴퓨터)을 만들 때, 가상 컴퓨터의 공용 IP 리소스가 자동으로 만들어집니다. 이 IP 주소를 사용하여 VM에 원격으로 액세스합니다. 기본적으로 포털에서 [정규화된 도메인 이름](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)또는 FQDN을 만들지는 않지만 VM을 만들면 이름을 추가할 수 있습니다. 이 문서에서는 DNS 이름 또는 FQDN을 만드는 단계를 보여 줍니다.
-
-[!INCLUDE [virtual-machines-common-portal-create-fqdn](../../includes/virtual-machines-common-portal-create-fqdn.md)]
-
-이제 `ssh ops@mydns.westus.cloudapp.azure.com`을 사용하는 경우처럼 이 DNS 이름을 사용하여 원격으로 VM에 연결할 수 있습니다.
-
-## <a name="next-steps"></a>다음 단계
-VM에는 공용 IP 및 DNS 이름이 있으므로 nginx, MongoDB, Docker와 같은 일반적인 응용 프로그램 프레임워크 또는 서비스를 배포할 수 있습니다.
-
-또한 Azure 배포 구축에 대한 팁은 [Resource Manager 사용](../azure-resource-manager/resource-group-overview.md)에서 자세히 읽어볼 수 있습니다.
-
 

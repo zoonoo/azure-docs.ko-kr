@@ -16,6 +16,7 @@ ms.author: asmalser
 translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
 ms.openlocfilehash: 245c2de65ca771cdc0e6371010246725c407ae11
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -36,10 +37,4 @@ SAML 토큰이 포함된 Azure AD의 응답은 일반적으로 https://login.win
 * [사전 통합된 앱에 대해 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법](active-directory-saml-claims-customization.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saml-debugging/fiddler.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+[1]: ../media/active-directory-saml-debugging/fiddler.png

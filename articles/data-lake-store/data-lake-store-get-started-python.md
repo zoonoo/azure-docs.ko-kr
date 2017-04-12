@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 04/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 8a3f3d8bfe670f2a4d1a4642b2380764aa6daeb4
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 9e4efc9de7979c98fcb4afbe530c73e9013326c3
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -31,6 +31,7 @@ ms.lasthandoff: 02/17/2017
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
+> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -48,7 +49,7 @@ Azure용 Python SDK 및 Azure Data Lake Store를 사용하여 폴더 만들기, 
 
 ## <a name="install-the-modules"></a>모듈 설치
 
-Python을 사용한 Data Lake Store 작업을 위해서는&3;가지 모듈을 설치해야 합니다.
+Python을 사용한 Data Lake Store 작업을 위해서는 3가지 모듈을 설치해야 합니다.
 
 * `azure-mgmt-resource` 모듈. Active Directory 등 Azure 모듈을 포함합니다...
 * `azure-mgmt-datalake-store` 모듈. Azure Data Lake Store 계정 관리 작업이 포함됩니다. 이 모듈에 대한 자세한 내용은 [Azure Data Lake Store 관리 모듈 참조](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)를 참조하세요.

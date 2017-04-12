@@ -16,8 +16,9 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: 618d067bf3b4ab279c7d4fcc72454fe4e69d0364
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 76077d39f17df63abe6c08f91991095c53f5dbb8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -25,7 +26,6 @@ ms.openlocfilehash: 618d067bf3b4ab279c7d4fcc72454fe4e69d0364
 > [!div class="op_single_selector"]
 > * [포털](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](search-get-started-management-api.md)
 > 
 > 
 
@@ -138,10 +138,5 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 
 * [기타 서비스에서 데이터를 로드하기 위한 인덱서 설정](search-indexer-overview.md)
 * [.NET에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md)
 * [Azure 검색 트래픽 분석](search-traffic-analytics.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 
