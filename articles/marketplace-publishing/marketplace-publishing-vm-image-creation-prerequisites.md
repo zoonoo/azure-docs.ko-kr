@@ -15,15 +15,16 @@ ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8c2dbd0a79a616e291c974c16d20d423cbb25ce2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure 마켓플레이스용 가상 컴퓨터 이미지를 만들기 위한 기술 필수 조건
 시작하기 전에 프로세스를 자세히 읽고 각 단계를 어디에서, 왜 수행하는지를 이해해야 합니다. 제품 만들기 프로세스를 시작하기 전에 회사 정보와 기타 데이터를 최대한 많이 준비하고 필요한 도구를 다운로드하고 기술 구성 요소를 만들어야 합니다. 이 문서를 검토하여 이러한 항목에 대해 명확히 알아야 합니다.  
 
-## <a name="download-needed-tools-applications"></a>필요한 도구 및 응용 프로그램 다운로드
+## <a name="download-needed-tools--applications"></a>필요한 도구 및 응용 프로그램 다운로드
 프로세스를 시작하기 전에 다음 항목이 준비되어 있어야 합니다.
 
 * 대상으로 하는 운영 체제에 따라 [Azure 다운로드](https://azure.microsoft.com/downloads/) 페이지에서 [Azure PowerShell cmdlet](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) 또는 [Linux 명령줄 인터페이스 도구](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409)를 설치합니다.
@@ -51,17 +52,5 @@ Windows 또는 Linux에서 Azure 기반 VM을 개발할 수 있습니다. Azure 
 * 클라우드 기반 개발에서는 모든 개발 단계를 Azure에 있는 VHD에서 원격으로 수행합니다.
 * 온-프레미스 개발에서는 VHD를 다운로드하고 온-프레미스 인프라를 사용하여 VHD를 개발해야 합니다. 이 방법은 가능하지만 권장되지는 않습니다. Windows 또는 SQL용을 온-프레미스로 개발하려면 관련 온-프레미스 라이선스 키가 필요합니다. VM을 만든 후에는 SQL Server를 포함하거나 설치할 수 없습니다. 또한 제품은 SQL Azure 포털에서 승인된 이미지를 기반으로 해야 합니다. 온-프레미스로 개발하려는 경우에는 클라우드에서 개발할 때와 다른 몇몇 단계를 수행해야 합니다. 관련 정보는 [온-프레미스 VM 이미지 만들기](marketplace-publishing-vm-image-creation-on-premise.md)를 참조하세요.
 
-## <a name="next-steps"></a>다음 단계
-필수 조건을 검토하고 필요한 작업을 마쳤으므로 [가상 컴퓨터 이미지 게시 가이드](marketplace-publishing-vm-image-creation.md)에 자세히 설명된 가상 컴퓨터 이미지 제품 만들기로 진행할 수 있습니다.
-
-## <a name="see-also"></a>참고 항목
-* [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
-* [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

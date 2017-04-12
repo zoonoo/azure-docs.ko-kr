@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c56a1dc92c27d55b90554e23dd9763ff98ce6cc7
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a8221c35a440ae859c82072ea170b438dc40d261
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -189,9 +189,9 @@ Azure 포털을 사용하면 클래식 배포를 통해 만들어진 리소스�
 ## <a name="migrate-from-classic-to-resource-manager"></a>클래식에서 Resource Manager로 마이그레이션
 클래식 배포에서 Resource Manager 배포로 마이그레이션할 준비가 되었다면 다음을 참조하세요.
 
-1. [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-2. [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
-3. [Azure PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](../virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager.md)
+1. [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+2. [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+3. [Azure PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 4. [Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## <a name="frequently-asked-questions"></a>질문과 대답

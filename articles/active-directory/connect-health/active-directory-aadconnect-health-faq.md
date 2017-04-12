@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 04/04/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 6ad2194a71e0d36ba4a0b9a46ca6dbcd58b619ff
-ms.openlocfilehash: 06a8b79f0740e902bb7f9412b449a98b2f0167ea
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: e22a1ccb958942cfa3c67194430af6bc74fdba64
+ms.openlocfilehash: 233691d19aa2553744f92af17f7ecf9fda2290e0
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
@@ -52,7 +52,7 @@ ms.lasthandoff: 02/16/2017
 
 | 등록된 에이전트 | 필요한 라이선스 | 모니터링 구성 예제 |
 | ------ | --------------- | --- |
-| 1 | 1 | Azure AD Connect 서버&1;개 |
+| 1 | 1 | Azure AD Connect 서버 1개 |
 | 2 | 26| Azure AD Connect 서버 1개 및 도메인 컨트롤러 1개 |
 | 3 | 51 | AD FS(Active Directory Federation Services) 서버 1개, AD FS 프록시 1개, 도메인 컨트롤러 1개 |
 | 4 | 76 | AD FS 서버 1개, AD FS 프록시 1개, 도메인 컨트롤러 2개 |
@@ -67,7 +67,7 @@ Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 응용 프로그램 �
 
 다음 숫자는 근사값입니다.
 
-* CPU 사용량:&1;-5% 증가
+* CPU 사용량: 1-5% 증가
 * 메모리 사용량: 전체 시스템 메모리의 최대 10%
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Health Agent는 다음과 같은 원인으로 등록에 실패할 수 있습니�
 
 **Q: "Health Service 데이터가 최신 상태가 아닙니다."라는 경고가 표시됩니다. 이 문제를 어떻게 해결하나요?**
 
-Azure AD Connect Health는&2;시간 동안 서버에서 데이터 지점을 수신하지 않으면 이 경고를 생성합니다. 이 경고가 발생하는 여러 이유가 있을 수 있습니다.
+Azure AD Connect Health는 2시간 동안 서버에서 데이터 지점을 수신하지 않으면 이 경고를 생성합니다. 이 경고가 발생하는 여러 이유가 있을 수 있습니다.
 
 * 방화벽이 트래픽을 차단하고 있어서 에이전트가 필수 끝점과 통신할 수 없습니다. 특히 웹 응용 프로그램 프록시 서버에서 자주 발생하는 문제입니다. 필수 끝점 및 포트에 아웃바운드 통신을 허용해야 합니다. 자세한 내용은 [요구 사항 섹션](active-directory-aadconnect-health-agent-install.md#requirements)을 참조하세요.
 * 아웃바운드 통신은 네트워크 계층에서 SSL 검사를 받습니다. 이로 인해 에이전트에서 사용하는 인증서가 검사 서버/엔터티로 교체되고, Azure AD Connect Health 서비스로 데이터를 업로드하는 프로세스가 실패합니다.
@@ -138,22 +138,6 @@ Azure AD Connect Health는&2;시간 동안 서버에서 데이터 지점을 수�
 **Q: Azure AD Connect Health 경고는 어떻게 해결하나요?**
 
 Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD Connect Health 에이전트가 정기적으로 성공 조건을 검색하여 서비스에 보고합니다. 일부 경고의 경우 시간을 기준으로 경고가 제거됩니다. 즉, 동일한 오류 조건이 경고 생성으로부터 72시간 내에 관찰되지 않으면 경고가 자동으로 해결됩니다.
-
-## <a name="migration-questions"></a>마이그레이션 관련 질문
-
-이 섹션은 Azure AD Connect Health 데이터의 예정된 마이그레이션에 대한 알림을 받은 고객에게만 적용됩니다.
-
-**Q: 마이그레이션이 발생한 후에 내 에이전트를 다시 등록하거나 내 알림 설정을 다시 구성해야 하나요?**
-
-아니요. 에이전트 등록 정보 및 알림 설정은 마이그레이션의 일부로 이동됩니다.
-
-**Q: 마이그레이션하고 얼마 후에 포털에 데이터가 표시되기 시작하나요?**
-
-마이그레이션하고 한 시간 후에 포털에 데이터가 표시되기 시작합니다.
-
-**Q: 기존 활성 경고는 어떻게 되나요?**
-
-모든 해당 경고는 마이그레이션하고&1;시간 이내에 다시 활성화됩니다.
 
 ## <a name="related-links"></a>관련 링크
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

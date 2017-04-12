@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: 101d0b2733a43b99b32efae8a9510ffca2a2e467
-ms.lasthandoff: 01/31/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -125,7 +125,7 @@ PowerShell을 사용하여 [New-AzureStorageAccount](http://msdn.microsoft.com/l
 > 이러한 명령은 현재 저장소 계정 컨텍스트가 PowerShell에 이미 설정되어 있다고 가정합니다.   PowerShell 설정에 대한 자세한 내용은 [Azure PowerShell 설정](marketplace-publishing-powershell-setup.md) 을 참조하세요.  
 > 
 > ### <a name="create-a-storage-account-by-using-the-command-line-tool-for-mac-and-linux"></a>Mac 및 Linux용 명령줄 도구를 사용하여 저장소 계정 만들기
-> [Linux 명령줄 도구](../virtual-machines/virtual-machines-linux-cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 다음과 같이 저장소 계정을 만듭니다.
+> [Linux 명령줄 도구](../virtual-machines/linux/cli-manage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 다음과 같이 저장소 계정을 만듭니다.
 > 
 > 
 

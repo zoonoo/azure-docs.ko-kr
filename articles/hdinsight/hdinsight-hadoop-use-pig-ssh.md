@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 4fe50acbbf9424275c5746b3bdabc79b08b027d3
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 22862d87562e9d9ec9d509eab2f65c850f4aa6d6
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -40,7 +40,7 @@ Pig Latin 프로그래밍 언어를 사용하면 원하는 출력을 생성하�
 * Linux 기반 HDInsight(HDInsight의 Hadoop) 클러스터
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 * SSH 클라이언트. Linux, Unix 및 Mac OS에는 SSH 클라이언트가 함께 제공됩니다. Windows 사용자는 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)와 같은 클라이언트를 다운로드해야 합니다.
 
@@ -59,24 +59,24 @@ HDInsight에서의 SSH 사용에 대한 자세한 내용은 [HDInsight에서 SSH
 
 ## <a id="pig"></a>Pig 명령 사용
 1. 연결되면 다음 명령을 사용하여 Pig CLI(명령줄 인터페이스)를 시작합니다.
-   
+
         pig
-   
+
     잠시 후 `grunt>` 프롬프트가 표시됩니다.
 2. 다음 문을 입력합니다.
-   
+
         LOGS = LOAD 'wasbs:///example/data/sample.log';
-   
+
     이 명령은 sample.log 파일의 내용을 로그에 로드합니다. 다음을 사용하여 파일의 내용을 볼 수 있습니다.
-   
+
         DUMP LOGS;
 3. 이어서 다음을 사용하여 각 레코드에서 로깅 수준만 추출하는 정규식을 적용하여 데이터를 변환합니다.
-   
+
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-   
+
     **DUMP** 를 사용하여 변환 후 데이터를 볼 수 있습니다. 이 예제의 경우 `DUMP LEVELS;`입니다.
 4. 다음 문을 사용하여 변환 적용을 계속합니다. `DUMP`를 사용하여 각 단계 후의 변환 결과를 확인합니다.
-   
+
     <table>
     <tr>
     <th>문</th><th>기능</th>
@@ -95,25 +95,25 @@ HDInsight에서의 SSH 사용에 대한 자세한 내용은 [HDInsight에서 SSH
     </tr>
     </table>
 5. `STORE` 문을 사용하여 변환 결과를 저장할 수도 있습니다. 예를 들어 다음은 클러스터의 기본 저장소 컨테이너에 있는 **/example/data/pigout** 디렉터리에 `RESULT`를 저장합니다.
-   
+
         STORE RESULT into 'wasbs:///example/data/pigout';
-   
+
    > [!NOTE]
    > 데이터는 지정된 디렉터리에 **part-nnnnn**이라는 파일로 저장됩니다. 해당 디렉터리가 이미 존재하는 경우 오류가 발생합니다.
-   > 
-   > 
+   >
+   >
 6. 성가신 프롬프트를 종료하려면 다음 문을 입력합니다.
-   
+
         QUIT;
 
 ### <a name="pig-latin-batch-files"></a>Pig Latin 배치 파일
 Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있습니다.
 
 1. 성가신 프롬프트를 종료 한 후 다음 명령을 사용하여 STDIN을 **pigbatch.pig**라는 파일에 파이프할 수 있습니다. 이 파일은 SSH 세션에 로그인한 계정에 대한 홈 디렉터리에 만들어집니다.
-   
+
         cat > ~/pigbatch.pig
 2. 다음 줄에 입력하거나 붙여 넣은 다음 완료되면 Ctrl+D를 사용합니다.
-   
+
         LOGS = LOAD 'wasbs:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
@@ -122,11 +122,11 @@ Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있
         RESULT = order FREQUENCIES by COUNT desc;
         DUMP RESULT;
 3. Pig 명령을 사용하여 **pigbatch.pig** 파일을 실행하려면 다음을 사용합니다.
-   
+
         pig ~/pigbatch.pig
-   
+
     일괄 처리 작업이 완료되면 다음과 같은 출력이 표시되며, 이 출력은 이전 단계에서 `DUMP RESULT;` 를 사용했을 때와 같습니다.
-   
+
         (TRACE,816)
         (DEBUG,434)
         (INFO,96)
@@ -146,5 +146,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
-
 

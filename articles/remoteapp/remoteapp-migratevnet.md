@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dbc8a612d05f8456e55eb26c58cd4461ced4a521
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 10b5f4844a38fe97852dee8634e8cf54f1a23a1e
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-migrate-a-hybrid-collection-from-a-remoteapp-vnet-to-an-azure-vnet"></a>RemoteApp VNET에서 Azure VNET으로 하이브리드 컬렉션을 마이그레이션하는 방법
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -53,10 +54,5 @@ ms.openlocfilehash: dbc8a612d05f8456e55eb26c58cd4461ced4a521
 완료되었습니다!
 
 궁금한 사항이 있거나 특별한 지원이 필요한 경우 [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help)이라는 RemoteApp VNET을 이미 만들었다고 가정합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

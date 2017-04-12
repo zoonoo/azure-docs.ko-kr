@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: d78e5a50f5c0416aa5f7caa92d51f688abb1efcc
-ms.openlocfilehash: adfc80090c732fc0dfa2fa35056451921d242f6a
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a7fae61f9b2dc400cbbd7054c11ec622f8683ccb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/03/2017
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
 1. Pagerduty에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
+2. SSO(Single Sign-On) 구성
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 02/03/2017
    
    ![PagerDuty](./media/active-directory-saas-pagerduty-tutorial/IC778530.png "PagerDuty")
    
-## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Pagerduty에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 02/03/2017
       >자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
       >
 
-  2. Base&64;로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
+  2. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
   3. Azure 클래식 포털의 **Pagerduty에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **로그인 URL** 텍스트 상자에 붙여넣습니다.
   4. Azure 클래식 포털의 **Pagerduty에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
   5. **Single Sign-On 켜기**를 선택합니다.
@@ -113,10 +113,11 @@ ms.lasthandoff: 02/03/2017
    ![Single Sign-On 구성](./media/active-directory-saas-pagerduty-tutorial/IC778538.png "Single Sign-On 구성")
    
 
-## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
 Azure AD 사용자가 Pagerduty에 로그인할 수 있도록 하려면 Pagerduty로 프로비전되어야 합니다.  
-Pagerduty의 경우 프로비전은 수동 작업입니다.
+
+* Pagerduty의 경우 프로비전은 수동 작업입니다.
 
 **사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
 
@@ -129,17 +130,17 @@ Pagerduty의 경우 프로비전은 수동 작업입니다.
    
    ![팀 초대](./media/active-directory-saas-pagerduty-tutorial/IC778540.png "팀 초대")
    
-   > [!NOTE]
-   > 추가된 모든 사용자는 PagerDuty 계정을 만들도록 초대를 받게 됩니다.
+   >[!NOTE]
+   >추가된 모든 사용자는 PagerDuty 계정을 만들도록 초대를 받게 됩니다.
    > 
    > 
 
-> [!NOTE]
-> 다른 Pagerduty 사용자 계정 생성 도구 또는 Pagerduty가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[!NOTE]
+>다른 Pagerduty 사용자 계정 생성 도구 또는 Pagerduty가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 > 
 > 
 
-## <a name="assigning-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
 **Pagerduty에 사용자를 할당하려면 다음 단계를 수행합니다.**
@@ -152,6 +153,10 @@ Pagerduty의 경우 프로비전은 수동 작업입니다.
    
    ![예](./media/active-directory-saas-pagerduty-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
+SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
+## <a name="additional-resources"></a>추가 리소스
+
+* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 

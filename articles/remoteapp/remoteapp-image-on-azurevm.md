@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: efd70d9843f3d8db0c2396c79eacb230fcdfa467
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c7ecd590503fcd2bc3ba06919a2f1a5c0fd0943e
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="create-a-azure-remoteapp-image-based-on-an-azure-virtual-machine"></a>Azure 가상 컴퓨터를 기반으로 Azure RemoteApp 이미지 만들기
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 

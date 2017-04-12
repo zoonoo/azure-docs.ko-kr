@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 9916eb7deaae6acb784cac1b7b64d93a03f3c590
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 92cad42344fb6f77b3088f74ea0e37a542bd0378
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -58,11 +58,11 @@ SSMS를 사용하여 Azure RemoteApp 컬렉션을 만드는 단계는 다음과 
 갤러리에서 "Windows Server 원격 데스크톱 세션 호스트 Windows Server 2012 R2" 이미지를 사용하여 새 VM을 만듭니다.
 
 ### <a name="2-install-ssms-from-sql-express"></a>2. SQL Express에서 SSMS 설치
-새 VM으로 이동하고 다음 다운로드 페이지로 이동합니다. [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/en-us/download/details.aspx?id=42299)
+새 VM으로 이동하고 다음 다운로드 페이지로 이동합니다. [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/download/details.aspx?id=42299)
 
 SSMS를 다운로드하는 옵션이 있습니다. 다운로드한 후에 설치 디렉터리로 이동하고 SSMS를 설치하려면 설치 프로그램을 실행합니다.
 
-또한 SQL Server 2014 서비스 팩 1을 설치해야 합니다. 다음에서 다운로드할 수 있습니다. [Microsoft SQL Server 2014 Service Pack 1(SP1)](https://www.microsoft.com/en-us/download/details.aspx?id=46694)
+또한 SQL Server 2014 서비스 팩 1을 설치해야 합니다. 다음에서 다운로드할 수 있습니다. [Microsoft SQL Server 2014 Service Pack 1(SP1)](https://www.microsoft.com/download/details.aspx?id=46694)
 
 SQL Server 2014 서비스 팩 1에는 Azure SQL 데이터베이스로 작업하기 위한 중요한 기능이 포함됩니다.
 

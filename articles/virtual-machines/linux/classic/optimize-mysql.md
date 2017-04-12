@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: bd313ae585667cc80d44ae50f9d97659b8de62eb
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e910c47d88434fae76f9c2d3bcb8a258d7d3fde4
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/27/2017
 가상 하드웨어 선택과 소프트웨어 구성 모두에서 Azure의 MySQL 성능에 영향을 주는 많은 요소가 있습니다. 이 문서에서는 저장소, 시스템 및 데이터베이스 구성을 통해 성능을 최적화하는 방법에 중점을 둡니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 사용하기 위한 별도의 두 가지 배포 모델, 즉 [Azure Resource Manager](../../../resource-manager-deployment-model.md)와 클래식 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델을 사용한 Linux VM 최적화에 대한 내용은 [Azure에서 Linux VM 최적화](../../virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+> Azure에는 리소스를 만들고 사용하기 위한 별도의 두 가지 배포 모델, 즉 [Azure Resource Manager](../../../resource-manager-deployment-model.md)와 클래식 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델을 사용한 Linux VM 최적화에 대한 내용은 [Azure에서 Linux VM 최적화](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ## <a name="utilize-raid-on-an-azure-virtual-machine"></a>Azure 가상 컴퓨터에서 RAID 활용
 저장소는 클라우드 환경에서 데이터베이스 성능에 영향을 주는 핵심 요소입니다. 단일 디스크에 비해 RAID는 동시 연결을 통해 더욱 빠른 액세스를 제공할 수 있습니다. 자세한 내용은 [표준 RAID 수준](http://en.wikipedia.org/wiki/Standard_RAID_levels)(영문)을 참조하세요.   
@@ -71,7 +71,7 @@ Azure 클래식 포털의 가상 컴퓨터 페이지에서 데이터 디스크�
     sudo grep SCSI /var/log/dmesg
 
 #### <a name="create-raid-with-the-additional-disks"></a>추가 디스크를 사용하여 RAID 만들기
-다음 단계에서는 [Linux에서 소프트웨어 RAID를 구성](../../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하는 방법을 설명합니다.
+다음 단계에서는 [Linux에서 소프트웨어 RAID를 구성](../configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하는 방법을 설명합니다.
 
 > [!NOTE]
 > XFS 파일 시스템을 사용하는 경우 RAID를 만든 후에 다음 단계를 실행합니다.

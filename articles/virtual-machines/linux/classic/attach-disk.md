@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: fc2a181a301ca56e41f586428e2994fcdf6d704d
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [리소스 관리자 배포 모델을 사용하여 데이터 디스크를 연결](../../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하는 방법을 참조하세요.
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [리소스 관리자 배포 모델을 사용하여 데이터 디스크를 연결](../add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하는 방법을 참조하세요.
 
 빈 디스크와 데이터가 포함된 디스크를 모두 Azure VM에 연결할 수 있습니다. 두 유형의 디스크 모두 Azure Storage 계정에 상주하는 .vhd 파일입니다. Linux 컴퓨터에 디스크를 추가하는 것처럼 디스크를 연결한 후에는 사용할 준비를 하기 위해 디스크를 초기화하고 포맷해야 합니다. 이 문서에서는 새 디스크를 초기화하고 포맷하는 방법뿐만 아니라 빈 디스크와 이미 데이터가 있는 디스크를 모두 VM에 연결하는 방법에 대해 자세히 설명합니다.
 
@@ -229,10 +229,10 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 * [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법][Logon]
 * [Linux 가상 컴퓨터에서 디스크를 분리하는 방법](detach-disk.md)
 * [클래식 배포 모델에서 Azure CLI 사용](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Azure에서 Linux VM에 RAID 구성](../../virtual-machines-linux-configure-raid.md)
-* [Azure에서 Linux VM에 LVM 구성](../../virtual-machines-linux-configure-lvm.md)
+* [Azure에서 Linux VM에 RAID 구성](../configure-raid.md)
+* [Azure에서 Linux VM에 LVM 구성](../configure-lvm.md)
 
 <!--Link references-->
-[Agent]:../../virtual-machines-linux-agent-user-guide.md
-[Logon]:../../virtual-machines-linux-mac-create-ssh-keys.md
+[Agent]:../agent-user-guide.md
+[Logon]:../mac-create-ssh-keys.md
 

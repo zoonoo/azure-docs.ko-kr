@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -17,9 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2d72731304aee0952abbb1f3b2c24b620118fc6c
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 272b5eade0a80b1f46af4e4df1c7801d86fee175
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,7 +44,7 @@ ms.lasthandoff: 03/18/2017
 2. Transact-SQL 스크립트와 같은 필요한 수정 프로그램을 준비합니다.
 3. 마이그레이션 중인 원본 데이터베이스를 트랜잭션 방식으로 일관되게 복사하고 원본 데이터베이스를 더 이상 변경하지 않도록 합니다(또는 마이그레이션이 완료된 후에 이러한 변경 내용을 수동으로 적용할 수 있음). 클라이언트 연결을 비활성화하는 방법부터 [데이터베이스 스냅숏](https://msdn.microsoft.com/library/ms175876.aspx)을 만드는 방법까지 다양한 방법으로 데이터베이스를 정지할 수 있습니다.
 4. Transact-SQL 스크립트를 배포하여 데이터베이스 복사본에는 수정 내용을 적용합니다.
-5. 데이터베이스 복사본을 로컬 드라이브의 BACPAC 파일로 [내보냅니다](sql-database-export-sqlpackage.md).
+5. 데이터베이스 복사본을 로컬 드라이브의 BACPAC 파일로 [내보냅니다](sql-database-export.md).
 6. 최상의 성능을 위해 권장되는 도구인 SQLPackage.exe와 여러 BACPAC를 사용하여 새로운 Azure SQL Database로서 .BACPAC 파일을 [가져옵니다](sql-database-import-sqlpackage.md).
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>마이그레이션하는 동안 데이터 전송 성능 최적화 

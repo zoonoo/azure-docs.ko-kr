@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 65fc37a1fd1d1d0149b98767117f8faafb5dcd2b
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: acfba48585b960a1ce39b77e35d292189aa9732b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -50,8 +50,8 @@ OS X, Windows 또는 Linux에서 이 연습을 실행할 수 있습니다.
 >[!IMPORTANT]
 > 보안 클러스터를 만들려면 `az acs create`를 호출할 때 SSH 공개 키 파일을 전달합니다. `--generate-ssh-keys` 옵션을 사용하여 Azure CLI 2.0에서 키를 자동으로 생성하고 동시에 전달하게 하거나 `--ssh-key-value` 옵션을 사용하여 키에 대한 경로를 제공할 수 있습니다(기본 위치는 Linux에서 `~/.ssh/id_rsa.pub`, Windows에서 `%HOMEPATH%\.ssh\id_rsa.pub`이지만 변경할 수 있음).
 <!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
-> Linux에서 SSH 공용 및 개인 키 파일을 만들려면 [Linux 및 Mac에서 SSH 키 만들기](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json)를 참조하세요. 
-> Windows에서 SSH 공용 및 개인 키 파일을 만들려면 [Windows에서 SSH 키 만들기](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json)를 참조하세요. 
+> Linux에서 SSH 공용 및 개인 키 파일을 만들려면 [Linux 및 Mac에서 SSH 키 만들기](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json)를 참조하세요. 
+> Windows에서 SSH 공용 및 개인 키 파일을 만들려면 [Windows에서 SSH 키 만들기](../virtual-machines/linux/ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json)를 참조하세요. 
 
 1. 먼저 터미널 창에 [az login](/cli/azure/#login) 명령을 입력하여 Azure CLI를 사용하여 Azure 구독에 로그인합니다. 
 

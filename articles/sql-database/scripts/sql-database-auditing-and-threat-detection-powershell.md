@@ -17,17 +17,17 @@ ms.workload: database
 ms.date: 03/07/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 736da582caea53d236add0fdb6ebd46f9a58b64a
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 5de010931880d04e1c7f65190eff141c0a836cf9
+ms.lasthandoff: 04/04/2017
 
 ---
 
 # <a name="configure-sql-database-auditing-and-threat-detection-using-powershell"></a>PowerShell을 사용하여 SQL Database 감사 및 위협 감지 구성
 
-이 샘플 PowerShell은 SQL Database 감사 및 위협 감지를 구성합니다. 
+이 샘플 PowerShell은 SQL Database 감사 및 위협 감지를 구성합니다. 이 샘플을 실행하려면 최신 [Azure PowerShell](/powershell/azureps-cmdlets-docs)을 설치했는지 확인합니다.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 

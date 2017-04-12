@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 19ba92fae63cadef20cd5414fa23bf4821ab6d56
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 809941992e719ea2eb85cc900063ea218e8fccbb
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -56,7 +56,7 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정 
     Enter the code E1A2B3C4D to authenticate.
 
 > [!NOTE]
-> Azure 계정이 없는 경우 다른 유형의 계정이 필요하다는 오류 메시지가 표시됩니다. 현재 Azure 계정에서 계정을 만들려면 [Azure Active Directory에서 회사 또는 학교 ID 만들기](../virtual-machines/virtual-machines-windows-create-aad-work-id.md)를 참조하세요.
+> Azure 계정이 없는 경우 다른 유형의 계정이 필요하다는 오류 메시지가 표시됩니다. 현재 Azure 계정에서 계정을 만들려면 [Azure Active Directory에서 회사 또는 학교 ID 만들기](../virtual-machines/windows/create-aad-work-id.md)를 참조하세요.
 
 브라우저에서 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 을 열고 명령 출력에 제공된 코드를 입력합니다.
 

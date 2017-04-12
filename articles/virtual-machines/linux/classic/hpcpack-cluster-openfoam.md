@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: a779dd05623e84250d5595311d7d87d83f1298ad
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 2f92ebd82e5ac64f921e236a77657a1abc478a7c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -41,7 +41,7 @@ Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함하는 대규모 HPC
   
   **알아야 할 추가 사항**
   
-  * Azure의 Linux RDMA 네트워킹 필수 구성 요소에 대해서는 [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+  * Azure의 Linux RDMA 네트워킹 필수 구성 요소에 대해서는 [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](../../windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
   * PowerShell 스크립트 배포 옵션을 사용하는 경우에는 단일 클라우드 서비스 내의 모든 Linux 계산 노드가 RDMA 네트워크 연결을 사용하도록 배포합니다.
   * Linux 노드를 배포한 후 SSH에 연결하여 추가 관리 작업을 수행합니다. Azure Portal에서 각 Linux VM에 대한 SSH 연결 세부 정보를 확인하세요.  
 * **Intel MPI** - Azure의 SLES 12 HPC 계산 노드에서 OpenFOAM를 실행하려면 [Intel.com 사이트](https://software.intel.com/en-us/intel-mpi-library/)에서 Intel MPI Library 5 런타임을 설치해야 합니다. (Intel MPI 5는 CentOS 기반 HPC 이미지에 미리 설치되어 있습니다.)  이후 단계에서 필요한 경우 Linux 계산 노트에 Intel MPI를 설치합니다. 이 단계를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동합니다. 그런 다음 해당 Intel MPI 버전에 대한 .tgz 파일의 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.

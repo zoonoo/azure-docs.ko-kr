@@ -15,12 +15,19 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: masnider;
 translationtype: Human Translation
-ms.sourcegitcommit: 1472bd1647b620d1f0489cdabbed58e72585aef7
-ms.openlocfilehash: ad1f713f2b12af4f778b9b14edf33a568d2aa8b1
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 1237f467cf993170eaf1345134fb732d4f0b1171
+ms.lasthandoff: 04/03/2017
 
 ---
 
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 수명 주기 개요
+> [!div class="op_single_selector"]
+> * [Windows에서 C#](service-fabric-reliable-services-lifecycle.md)
+> * [Linux에서 Java](service-fabric-reliable-services-lifecycle-java.md)
+>
+>
+
 Reliable Services의 수명 주기를 고려할 경우 수명 주기에 대한 기본 사항이 가장 중요합니다. 일반적으로:
 
 * 시작 중
@@ -110,9 +117,4 @@ Service Fabric은 이 복제본에서 메시지 처리를 중지하고 수행 �
 * [Reliable Services 소개](service-fabric-reliable-services-introduction.md)
 * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
 * [신뢰할 수 있는 서비스 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

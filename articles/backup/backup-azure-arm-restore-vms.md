@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 3/12/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1dc2883056eab9764cda674b42fa40c517550ccd
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 61f09a6f103b9cedaf19f1128a21fa8d5df974a1
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -128,7 +128,7 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 
 복원 작업이 완료된 후에 다음을 수행할 수 있습니다.
 * [템플릿을 사용하여 복원된 VM 사용자 지정](#use-templates-to-customize-restore-vm)
-* [복원된 디스크를 사용하여 기존 가상 컴퓨터에 연결](../virtual-machines/virtual-machines-windows-attach-disk-portal.md)
+* [복원된 디스크를 사용하여 기존 가상 컴퓨터에 연결](../virtual-machines/windows/attach-disk-portal.md)
 * [PowerShell을 사용하여 복원된 디스크에서 새 가상 컴퓨터를 만듭니다.](./backup-azure-vms-automation.md#restore-an-azure-vm)
 
 **복원 구성** 블레이드에서 **확인**을 클릭하여 복원 구성을 완료합니다. **복원** 블레이드에서 **복원**을 클릭하여 복원 작업을 트리거합니다.
@@ -193,7 +193,7 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 * Ubuntu와 같은 클라우드 초기화 기반 Linux 배포를 사용하는 경우 보안상의 이유로 복원 후 암호를 차단합니다. 복원된 VM에서 VMAccess 확장을 사용하여 [암호를 재설정](../virtual-machines/linux/classic/reset-access.md)하세요. 복원 후 암호를 다시 설정하지 않으려면 이러한 배포에서 SSH 키를 사용하는 것이 좋습니다.
 * 백업 구성 중에 나타나는 확장을 설치하지만 사용할 수 없습니다. 문제가 있는 경우 확장을 다시 설치하세요. 
 * 백업 VM에 고정 IP, post 복원이 있는 경우 복원된 VM을 만들 때 충돌을 방지하기 위해 복원된 VM는 동적 IP를 갖습니다. [복원된 VM에 고정 IP를 추가](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)할 수 있는 방법에 대한 자세한 내용
-* 복원된 VM에는 가용성 값 집합이 없습니다. 복원된 디스크를 사용하여 PowerShell 또는 템플릿에서 VM을 만드는 경우 복원 디스크 옵션을 사용하고 [가용성 집합을 추가](../virtual-machines/virtual-machines-windows-create-availability-set.md#use-powershell-to-create-an-availability-set)하는 것이 좋습니다. 
+* 복원된 VM에는 가용성 값 집합이 없습니다. 복원된 디스크를 사용하여 PowerShell 또는 템플릿에서 VM을 만드는 경우 복원 디스크 옵션을 사용하고 [가용성 집합을 추가](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set)하는 것이 좋습니다. 
 
 ## <a name="backup-for-restored-vms"></a>복원된 VM에 대한 백업
 원래 백업한 VM과 같은 이름으로 같은 리소스 그룹에 VM을 복원하면, 백업이 VM 사후 복원에 계속 진행됩니다. VM을 다른 리소스 그룹에 복원하거나, 복원된 VM에 다른 이름을 지정하면, 새 VM으로 간주되어 복원된 VM에 대한 백업을 설정해야 합니다.

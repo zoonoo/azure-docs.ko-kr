@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 4558a91c7f1e1f5ee825e167e20988878d164862
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 18c369c4e8ccf828c35ec4a964e61f13613f899b
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-stop-being-billed-for-azure-remoteapp"></a>Azure RemoteApp에 대한 비용 청구를 중지하는 방법
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -34,10 +35,5 @@ ms.openlocfilehash: 4558a91c7f1e1f5ee825e167e20988878d164862
 3. 구독에서 각 컬렉션에 대해 이 단계를 반복합니다. 
 
 각 컬렉션을 삭제하는 데 몇 분 정도 소요될 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0b035ad1505e45c8c0820c825ff609df6e6100f0
-ms.openlocfilehash: 20642b0c1864cede5326e98f6ce3145314acc49a
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: dd673ba36689c83021a27d593139f0676b0c5e79
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -26,12 +27,10 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 ## <a name="authentication-protocols-articles-and-reference"></a>인증 프로토콜 기사 및 참조
 * [Azure AD의 서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md) - Azure AD의 서명 키 롤오버 주기, 키를 자동으로 업데이트하기 위해 수행할 수 있는 변경 사항, 가장 일반적인 응용 프로그램 시나리오를 업데이트하는 방법에 대해 알아봅니다.
 * [지원되는 토큰 및 클레임 유형](active-directory-token-and-claims.md) - Azure AD에서 발급되는 토큰의 클레임에 대해 알아봅니다.
-* [페더레이션 메타데이터](https://msdn.microsoft.com/library/azure/dn195592.aspx) - Azure AD에서 생성되는 메타데이터 문서를 찾고 해석하는 방법을 알아봅니다.
-* [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx) - Azure AD의 OAuth 2.0 구현에 대해 알아봅니다.
-* [OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx) - 권한 부여 프로토콜 OAuth 2.0을 인증에 사용하는 방법을 알아봅니다.
-* [SAML 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn195591.aspx) - Azure AD의 Single Sign On 및 Single Sign Out SAML 프로필에 대해 알아봅니다.
-* [WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx) - Azure AD의 WS-Federation 1.2에 대해 알아봅니다.
-* [증 프로토콜 문제 해결](https://msdn.microsoft.com/library/azure/dn195584.aspx) - Azure AD를 사용할 때 문제를 방지하고 오류를 해석 및 해결하는 방법을 알아봅니다.
+* [페더레이션 메타데이터](active-directory-federation-metadata.md) - Azure AD에서 생성되는 메타데이터 문서를 찾고 해석하는 방법을 알아봅니다.
+* [Azure AD의 OAuth 2.0](active-directory-protocols-oauth-code.md) - Azure AD의 OAuth 2.0 구현에 대해 알아봅니다.
+* [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) - 권한 부여 프로토콜 OAuth 2.0을 인증에 사용하는 방법을 알아봅니다.
+* [SAML 프로토콜 참조](active-directory-saml-protocol-reference.md) - Azure AD의 Single Sign On 및 Single Sign Out SAML 프로필에 대해 알아봅니다.
 
 ## <a name="see-also"></a>참고 항목
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
@@ -39,10 +38,5 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 [인증에 Azure AD 사용](../../app-service-web/web-sites-authentication-authorization.md)
 
 [Active Directory 코드 샘플](active-directory-code-samples.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

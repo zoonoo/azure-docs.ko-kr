@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 5267ed6a2d9278b79e9fb98c1067eceae819cb6f
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 262acf8150b5065c3b7b79494856b2bdadd4e4ba
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -47,8 +47,8 @@ ms.lasthandoff: 03/22/2017
 
 |이름|설명|
 |---|---|
-|adminUsername|관리자 사용자 이름. 사용자 이름은 [Azure 사용자 이름 요구 사항](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 준수해야 합니다.|
-|adminPassword|관리자 암호. 이 암호는 [Azure 암호 요구 사항](../virtual-machines/virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 준수해야 합니다.|
+|adminUsername|관리자 사용자 이름. 사용자 이름은 [Azure 사용자 이름 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 준수해야 합니다.|
+|adminPassword|관리자 암호. 이 암호는 [Azure 암호 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 준수해야 합니다.|
 |dnsLabelPrefix|PublicIPAddressName1에 대한 DNS 이름. DNS 이름은 VM에 할당된 공용 IP 주소 중 하나로 확인됩니다. 이 이름은 VM을 만든 Azure 하위 지역(위치) 내에서 고유해야 합니다.|
 |dnsLabelPrefix1|PublicIPAddressName2에 대한 DNS 이름. DNS 이름은 VM에 할당된 공용 IP 주소 중 하나로 확인됩니다. 이 이름은 VM을 만든 Azure 하위 지역(위치) 내에서 고유해야 합니다.|
 |OSVersion|VM의 Windows/Linux 버전. 운영 체제는 선택한 특정 Windows/Linux 버전의 완전 패치된 이미지입니다.|
@@ -81,7 +81,7 @@ PowerShell을 사용하여 템플릿을 배포하려면 다음 단계를 완료�
 
     템플릿 배포를 위해 선택한 옵션에 관계 없이, 이 문서의 [매개 변수](#parameters) 섹션에 나열된 매개 변수 값을 제공해야 합니다. 매개 변수 파일을 사용하여 매개 변수를 제공하도록 선택한 경우 GitHub의 [매개 변수 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)을 컴퓨터의 새 파일에 복사합니다. 파일의 값을 수정합니다. 만든 파일을 `-TemplateParameterFile` 매개 변수의 값으로 사용합니다.
     
-    OSVersion, ImagePublisher 및 imageOffer 매개 변수의 유효한 값을 확인하려면 [Windows VM 이미지 탐색 및 선택](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) 문서의 단계를 완료합니다.
+    OSVersion, ImagePublisher 및 imageOffer 매개 변수의 유효한 값을 확인하려면 [Windows VM 이미지 탐색 및 선택](../virtual-machines/windows/cli-ps-findimage.md) 문서의 단계를 완료합니다.
 
     >[!TIP]
     >dnslabelprefix를 사용할 수 있는지 확실하지 않은 경우 `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` 명령을 입력하여 확인합니다. 사용할 수 있으면 이 명령은 `True`를 반환합니다.
@@ -96,7 +96,7 @@ Azure CLI 1.0을 사용하여 템플릿을 배포하려면 다음 단계를 완�
 
     템플릿 배포를 위해 선택한 옵션에 관계 없이, 이 문서의 [매개 변수](#parameters) 섹션에 나열된 매개 변수 값을 제공해야 합니다. 매개 변수 파일을 사용하여 매개 변수를 제공하도록 선택한 경우 GitHub의 [매개 변수 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)을 컴퓨터의 새 파일에 복사합니다. 파일의 값을 수정합니다. 만든 파일을 `--parameters-file`(-e) 매개 변수의 값으로 사용합니다.
     
-    OSVersion, ImagePublisher 및 imageOffer 매개 변수의 유효한 값을 확인하려면 [Windows VM 이미지 탐색 및 선택](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) 문서의 단계를 완료합니다.
+    OSVersion, ImagePublisher 및 imageOffer 매개 변수의 유효한 값을 확인하려면 [Windows VM 이미지 탐색 및 선택](../virtual-machines/windows/cli-ps-findimage.md) 문서의 단계를 완료합니다.
 
 2. VM이 배포된 후에 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 단계를 완료하여 VM에 연결하고 배포된 운영 체제에 개인 IP 주소를 추가합니다. 운영 체제에 공용 IP 주소를 추가하지 마세요.
 

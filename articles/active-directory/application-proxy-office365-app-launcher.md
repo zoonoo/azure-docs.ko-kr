@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/25/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 5818efb315a0452beea03cde1adc657a9520dcac
-ms.openlocfilehash: 1fe3f3a697618bec5d314c6ebf161da37efc1346
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 28f100276511c1ae978466870ff48f885dd53c28
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -27,13 +27,11 @@ ms.lasthandoff: 03/01/2017
 
 >[!NOTE]
 >응용 프로그램 프록시 기능은 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있습니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
->
 
 앱 내 특정 페이지(*https://expenseApp-contoso.msappproxy.net/login/login.aspx*)에 사용자를 이동시키려는 경우 Azure AD PowerShell 모듈을 사용하여 해당 인스턴스에 대한 사용자 지정 홈 페이지 URL을 정의할 수 있습니다
 
 >[!NOTE]
 >사용자에게 게시된 응용 프로그램에 대한 액세스 권한을 제공하면 [Azure AD 액세스 패널](active-directory-saas-access-panel-introduction.md) 및 [Office 365 앱 시작 관리자](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher)에 앱이 표시됩니다.
->
 
 사용자가 앱을 시작하면 기본적으로 게시된 앱의 루트 도메인 URL로 이동됩니다. 방문 페이지는 일반적으로 홈 페이지 URL로 설정됩니다. 예를 들어, 백 엔드 앱인 http://ExpenseApp의 경우 URL은 *https://expenseApp-contoso.msappproxy.net*으로 게시됩니다. 기본적으로 홈 페이지 URL은 *https://expenseApp-contoso.msappproxy.net*으로 설정됩니다.
 
@@ -139,6 +137,6 @@ PowerShell을 사용하여 패키지를 설치하려면 다음을 수행합니�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD 응용 프로그램 프록시를 사용하여 SharePoint에 원격 액세스 사용하도록 설정](application-proxy-enable-remote-access-sharepoint.md)<br>
-[Azure Portal에서 응용 프로그램 프록시 사용](https://github.com/Microsoft/azure-docs-pr/blob/master/articles/active-directory/active-directory-application-proxy-enable.md)
+- [Azure AD 응용 프로그램 프록시를 사용하여 SharePoint에 원격 액세스 사용하도록 설정](application-proxy-enable-remote-access-sharepoint.md)
+- [Azure Portal에서 응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)
 

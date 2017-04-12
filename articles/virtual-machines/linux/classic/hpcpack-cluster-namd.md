@@ -16,9 +16,9 @@ ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1e1e3b405d752c459ecfc7f74fbdafc148c147b5
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f46facee3e45704f74a13db7a18274f5ce90ceff
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -61,7 +61,7 @@ Linux **ssh-keygen** 명령을 실행하여 공개 키 및 개인 키를 포함�
    ![개인 및 공용 키][keys]
 
 ### <a name="add-the-key-pair-to-the-hpc-pack-cluster"></a>HPC 팩 클러스터에 키 쌍 추가
-1. 클러스터를 배포할 때 제공한 도메인 자격 증명(예: hpc\clusteradmin)을 사용하여 [원격 데스크톱을 통해 헤드 노드에 연결](../../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)합니다. 헤드 노드에서 클러스터를 관리합니다.
+1. 클러스터를 배포할 때 제공한 도메인 자격 증명(예: hpc\clusteradmin)을 사용하여 [원격 데스크톱을 통해 헤드 노드에 연결](../../windows/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)합니다. 헤드 노드에서 클러스터를 관리합니다.
 2. 표준 Windows Server 절차를 사용하여 클러스터의 Active Directory 도메인에 도메인 사용자 계정을 만듭니다. 예를 들어 헤드 노드에서 Active Directory 사용자 및 컴퓨터 도구를 사용합니다. 이 문서의 예에서는 hpclab 도메인에 hpcuser라는 도메인 사용자를 만든다고 가정합니다(hpclab\hpcuser).
 3. HPC 팩 클러스터에 도메인 사용자를 클러스터 사용자로 추가합니다. 지침은 [클러스터 사용자 추가 또는 제거](https://technet.microsoft.com/library/ff919330.aspx)를 참조하세요.
 4. C:\cred.xml이라는 이름의 파일을 만들고 RSA 키 데이터를 여기에 복사합니다. 이 문서의 끝에 있는 샘플 파일에서 예제를 확인할 수 있습니다.

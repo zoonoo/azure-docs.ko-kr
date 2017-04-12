@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 90e443fe69afdda8786dd00ffb32e9680a476cd4
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: ee480f4382a93a2420f7c73f7259ce1f0a03d595
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -92,7 +92,7 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
 ## <a name="general-recommendations-and-best-practices"></a>일반 권장 사항 및 모범 사례
 * SQL Server Enterprise Edition을 사용할 경우 가상 컴퓨터의 최소 권장 크기는 **A3** 입니다. **A4** 가상 컴퓨터 크기는 Analysis Services 및 Reporting Services의 SQL Server BI 배포에 권장됩니다.
   
-    현재 VM 크기에 대한 자세한 내용은 [Azure에 대한 가상 컴퓨터 크기](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+    현재 VM 크기에 대한 자세한 내용은 [Azure에 대한 가상 컴퓨터 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * 디스크 관리에 대한 모범 사례는 **C**: 및 **D**: 이외의 드라이브에서 데이터를 저장하고 파일을 기록 및 백업하는 것입니다. 예를 들어 데이터 디스크 **E**: 및 **F**:를 만듭니다.
   
   * 기본 드라이브 **C**:에 대한 드라이브 캐싱 정책은 데이터 작업에 적합하지 않습니다.

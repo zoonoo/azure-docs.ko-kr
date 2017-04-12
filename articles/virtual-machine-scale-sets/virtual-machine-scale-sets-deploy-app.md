@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 9a92490239f22bd4c57c902ac53898aff1adf530
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f39840ab2fb31775c9703799393d8c386a8451ee
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -32,7 +32,7 @@ VM 크기 집합에서 실행되는 응용 프로그램은 일반적으로 다�
 ## <a name="install-new-software-on-a-platform-image-at-deployment-time"></a>배포 시 플랫폼 이미지에 새 소프트웨어 설치
 이 컨텍스트의 플랫폼 이미지는 Azure 마켓플레이스의 운영 체제 이미지(Ubuntu 16.04, Windows Server 2012 R2 등)과 같은 운영 체제 이미지입니다.
 
-[VM 확장](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 플랫폼 이미지에 새 소프트웨어를 설치할 수 있습니다. VM 확장은 VM이 배포될 때 실행되는 소프트웨어입니다. 사용자 지정 스크립트 확장을 사용하여 배포 시에 원하는 모든 코드를 실행할 수 있습니다. Azure 자동 크기 조정과 통합된 IIS 및 .NET MVC 응용 프로그램을 설치하기 위해 [Azure DSC(필요한 상태 구성) 확장](virtual-machine-scale-sets-dsc.md)을 사용하는 Azure Resource Manager 템플릿 예제는 [여기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale)에 있습니다.
+[VM 확장](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 플랫폼 이미지에 새 소프트웨어를 설치할 수 있습니다. VM 확장은 VM이 배포될 때 실행되는 소프트웨어입니다. 사용자 지정 스크립트 확장을 사용하여 배포 시에 원하는 모든 코드를 실행할 수 있습니다. Azure 자동 크기 조정과 통합된 IIS 및 .NET MVC 응용 프로그램을 설치하기 위해 [Azure DSC(필요한 상태 구성) 확장](virtual-machine-scale-sets-dsc.md)을 사용하는 Azure Resource Manager 템플릿 예제는 [여기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale)에 있습니다.
 
 이 방법의 장점은 응용 프로그램 코드와 OS 간에 분리 수준이 형성되고 응용 프로그램을 별도로 유지할 수 있다는 것입니다. 물론 이동하는 부분도 있습니다. 다운로드하고 구성할 스크립트가 많이 있으면 VM 배포 시간이 더 오래 걸릴 수 있습니다.
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
-ms.openlocfilehash: cc8044f78da504c5cd9155c887b24f6880645262
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: a78d37ee59663896acc3192f8ae03575270101a8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: cc8044f78da504c5cd9155c887b24f6880645262
 이 자습서는 [앱 서비스 환경](app-service-app-service-environment-intro.md) (ASE)에서 웹앱 및 앱 서비스 계획을 만드는 방법을 보여줍니다. 
 
 > [!NOTE]
-> 웹앱을 만드는 방법을 알아보지만 앱 서비스 환경이 아니어도 된다면 [.NET 웹앱 만들기](web-sites-dotnet-get-started.md) 또는 기타 언어와 프레임워크에 관련된 자습서 중 하나를 참조하세요.
+> 웹앱을 만드는 방법을 알아보지만 앱 서비스 환경이 아니어도 된다면 [.NET 웹앱 만들기](app-service-web-get-started-dotnet.md) 또는 기타 언어와 프레임워크에 관련된 자습서 중 하나를 참조하세요.
 > 
 > 
 
@@ -58,7 +59,7 @@ ms.openlocfilehash: cc8044f78da504c5cd9155c887b24f6880645262
     ASE에서 내부 VIP를 사용하는 경우 해당 ASE에 있는 앱의 URL은 [*사이트 이름*].[*ASE 생성 중에 지정된 하위 도메인*]과 같습니다.   
     ASE 생성 중에 ASP를 선택한 후 **이름**에서 하위 도메인 업데이트가 표시됩니다.
 
-## <a name="a-namecreateplana-create-an-app-service-plan"></a><a name="createplan"></a> 앱 서비스 계획 만들기
+## <a name="createplan"></a> 앱 서비스 계획 만들기
 앱 서비스 환경에서 앱 서비스 계획을 만들 때 ASE에 공유 작업자가 없기 때문에 작업자 선택이 다릅니다.  사용해야 하는 작업자는 관리자에 의해 ASE에 할당된 작업자입니다.  즉, 새 계획을 만들려면 ASE 작업자 풀에 할당된 수가 작업자 풀의 모든 계획에서 전체 인스턴스 수보다 많아야 합니다.  ASE 작업자 풀의 작업자 수가 부족하여 계획을 만들 수 없는 경우 ASE 관리자와 함께 추가해야 합니다.
 
 앱 서비스 환경에서 호스팅되는 앱 서비스 계획의 또 다른 차이점은 가격 책정을 선택할 수 없다는 점입니다.  앱 서비스 환경이 있는 경우 시스템에서 사용되는 계산 리소스에 대한 비용을 지불하며 해당 환경의 계획에 대한 추가 요금은 없습니다.  일반적으로 앱 서비스 계획을 만들 때 청구를 결정하는 가격 책정 계획을 선택합니다.  앱 서비스 환경은 기본적으로 콘텐츠를 만들 수 있는 개인 위치입니다.  따라서 콘텐츠 호스트 비용이 아니라 환경에 대한 비용을 지불합니다.
@@ -107,9 +108,4 @@ ASE에서 웹앱을 실행하고 앱 서비스 계획을 관리하기 위해 고
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
 [ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

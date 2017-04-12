@@ -4,7 +4,7 @@ description: "Azure Application Insights에서 무엇인가 명확하지 않거�
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.workload: mobile
@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
-ms.openlocfilehash: e066a7fc671399ba44bec35a2ea860fccddb4cc5
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 35f57e1046597d30adb65b81b1e73226cb08c05f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -48,7 +48,7 @@ Enterprise 계획을 사용해야 연속 내보내기 등 특정 기능을 얻�
 [가격 책정 계획을 참조하세요](https://azure.microsoft.com/pricing/details/application-insights/).
 
 
-## <a name="a-nameq14awhat-does-application-insights-modify-in-my-project"></a><a name="q14"></a>Application Insights에서 내 프로젝트를 어떻게 수정하나요?
+## <a name="q14"></a>Application Insights에서 내 프로젝트를 어떻게 수정하나요?
 세부 정보는 프로젝트의 유형에 따라 달라집니다. 웹 응용 프로그램의 경우:
 
 * 프로젝트에 다음 파일이 추가됩니다.
@@ -73,28 +73,28 @@ Enterprise 계획을 사용해야 연속 내보내기 등 특정 기능을 얻�
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>이전 SDK 버전에서 업그레이드하려면 어떻게 해야 합니까?
 사용자의 응용 프로그램 유형에 적합한 SDK는 [릴리스 정보](app-insights-release-notes.md) 를 참조하세요.
 
-## <a name="a-nameupdateahow-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경하려면 어떻게 해야 하나요?
+## <a name="update"></a>내 프로젝트에서 데이터를 보내는 Azure 리소스를 변경하려면 어떻게 해야 하나요?
 솔루션 탐색기에서 `ApplicationInsights.config` 를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트**를 선택합니다. Azure에서 기존 또는 새 리소스로 데이터를 보낼 수 있습니다. 업데이트 마법사는 서버 SDK에서 데이터를 전송하는 위치를 결정하는 ApplicationInsights.config의 계측 키를 변경합니다. "모두 업데이트"를 선택 취소하지 않은 한, 웹 페이지에 표시되는 키도 변경됩니다.
 
-#### <a name="a-namedataahow-long-is-data-retained-in-the-portal-is-it-secure"></a><a name="data"></a>데이터가 포털에 얼마나 오래 보존되나요? 안전한가요?
+#### <a name="data"></a>데이터가 포털에 얼마나 오래 보존되나요? 안전한가요?
 [데이터 보존 및 개인 정보][data]를 살펴보십시오.
 
 ## <a name="logging"></a>로깅
-#### <a name="a-namepostahow-do-i-see-post-data-in-diagnostic-search"></a><a name="post"></a>진단 검색에서 POST 데이터를 어떻게 확인하나요?
+#### <a name="post"></a>진단 검색에서 POST 데이터를 어떻게 확인하나요?
 POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사용할 수 있습니다. 메시지 매개 변수에 데이터를 배치합니다. 이것은 필터링할 수 없지만 문자열 속성에 대한 제한보다 긴 제한이 있습니다.
 
 ## <a name="security"></a>보안
 #### <a name="is-my-data-secure-in-the-portal-how-long-is-it-retained"></a>내 데이터는 포털에서 안전하나요? 얼마나 오래 유지되나요?
 [데이터 보존 및 개인 정보][data]를 참조하세요.
 
-## <a name="a-nameq17a-have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> Application Insights의 모든 기능을 사용하도록 어떻게 설정하나요?
+## <a name="q17"></a> Application Insights의 모든 기능을 사용하도록 어떻게 설정하나요?
 | 표시 내용 | 시작 방법 | 원하는 이유 |
 | --- | --- | --- |
 | 가용성 차트 |[웹 테스트](app-insights-monitor-web-app-availability.md) |웹 앱이 작동 중인지 확인 |
 | 서버 앱 성능: 응답시간. ... |[프로젝트에 Application Insights 추가](app-insights-asp-net.md) 또는 [서버에 AI 상태 모니터 설치](app-insights-monitor-performance-live-website-now.md)(또는 [종속성 추적](app-insights-api-custom-events-metrics.md#trackdependency)을 위한 자체 코드 작성) |성능 문제 검색 |
 | 종속성 원격 분석 |[서버에 AI 상태 모니터 설치](app-insights-monitor-performance-live-website-now.md) |데이터베이스 또는 다른 외부 구성 요소의 문제 진단 |
-| 예외에서 스택 추적 가져오기 |[TrackException 호출을 코드에 삽입](app-insights-search-diagnostic-logs.md#exceptions)(하지만 일부는 자동으로 보고됨) |예외 감지 및 진단 |
-| 로그 추적 검색 |[로깅 어댑터 추가](app-insights-search-diagnostic-logs.md) |예외, 성능 문제 진단 |
+| 예외에서 스택 추적 가져오기 |[TrackException 호출을 코드에 삽입](app-insights-asp-net-exceptions.md)(하지만 일부는 자동으로 보고됨) |예외 감지 및 진단 |
+| 로그 추적 검색 |[로깅 어댑터 추가](app-insights-asp-net-trace-logs.md) |예외, 성능 문제 진단 |
 | 클라이언트 사용 기본 사항: 페이지 보기, 세션,... |[웹 페이지의 JavaScript 이니셜라이저](app-insights-javascript.md) |사용 현황 분석 |
 | 클라이언트 사용자 지정 메트릭 |[웹 페이지에서 추적 호출](app-insights-api-custom-events-metrics.md) |사용자 환경 향상 |
 | 서버 사용자 지정 메트릭 |[서버에서 호출 추적](app-insights-api-custom-events-metrics.md) |비즈니스 인텔리전스 |

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
 translationtype: Human Translation
-ms.sourcegitcommit: f67ff1cc18b23c3d4006121e266a5d96933e49bf
-ms.openlocfilehash: d6c4d0b9f9cbf05341d30fe75e9828d0237a1962
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 18c7a013c01fee26c5455535af6d9fba2b98fac7
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -56,7 +56,7 @@ Metadata Service는 http://{ip}/metadata/{version}/scheduledevents 형식의 버
 Metadata Service를 쿼리할 때 *Metadata: true* 헤더를 제공해야 합니다. 
 
 ### <a name="enable-scheduled-events"></a>Scheduled Events 사용
-처음으로 예약된 이벤트를 호출하면 Azure는 Virtual Machine의 기능을 암시적으로 사용하도록 설정합니다. 결과적으로 최대&2;분인 첫 번째 호출에서 지연된 응답을 예상해야 합니다.
+처음으로 예약된 이벤트를 호출하면 Azure는 Virtual Machine의 기능을 암시적으로 사용하도록 설정합니다. 결과적으로 최대 2분인 첫 번째 호출에서 지연된 응답을 예상해야 합니다.
 
 ### <a name="testing-your-logic-with-user-initiated-operations"></a>사용자 시작 작업을 사용하여 논리 테스트
 사용자 논리를 테스트하려면 Azure Portal, API, CLI 또는 PowerShell을 사용하여 예정된 이벤트가 발생하는 작업을 시작할 수 있습니다. 가상 컴퓨터를 다시 시작하면 다시 부팅과 같은 이벤트 형식으로 예정된 이벤트가 발생합니다. 가상 컴퓨터를 다시 배포하면 다시 배포와 같은 이벤트 형식으로 예정된 이벤트가 발생합니다.
@@ -328,5 +328,5 @@ if __name__ == '__main__':
 
 ```
 ## <a name="next-steps"></a>다음 단계 
-[Azure에서 가상 컴퓨터에 대한 계획된 유지 관리](./virtual-machines-linux-planned-maintenance.md)
+[Azure에서 가상 컴퓨터에 대한 계획된 유지 관리](linux/planned-maintenance.md)
 
