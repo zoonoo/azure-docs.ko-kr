@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 022a910e5acfe12c03348df4476cc17f13c5c1d3
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 304ba7c5057b27c459bccbb75d3a711567757675
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="troubleshoot-creating-remoteapp-cloud-collections"></a>RemoteApp 클라우드 컬렉션 만들기 문제 해결
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -45,10 +46,5 @@ Azure의 컬렉션 프로비전을 대기하는 중에 "GoldImageInvalid" 등의
     PlatformImageTrialModeOnly
 
 이 오류가 발생한 경우, 일반적으로 유료 계정으로 업그레이드되었음을 의미하지만 서비스의 평가 모드 중에만 유효한 Microsoft 제공 이미지를 사용하려고 함을 의미합니다. 이 경우, 다시 클라우드 컬렉션을 만들어 보지만 올바른 이미지를 지정해야 합니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

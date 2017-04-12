@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: tobiast
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 6cb781b9bc0cfe672e2734661be958d4794e08d8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d15ab88be778b8cc081e07fb95fbd99164f18ba1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -41,7 +41,7 @@ Azure에는 현재 Azure SQL server 작업 부하를 호스팅하기 위한 두 
 Azure SQL DB에 연결하는 것은 다르지 않고 데이터베이스에 연결하는 방법에는 ODBC(Open Database connectivity) 및 OLE DB(개체 연결 및 포함 데이터베이스)의 두 가지가 있습니다. 최근 몇 년간 Microsoft는 [기본 관계형 데이터 액세스에 대해 ODBC](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/)에 맞추어 왔습니다. ODBC은 비교적 간단하고 OLE DB보다 훨씬 빠릅니다. 한 가지 주의할 점은 ODBC는 이전 C 스타일 API를 사용한다는 것입니다. 
 
 ## <a id="Create"></a>1단계: Azure SQL Database 만들기
-샘플 데이터베이스를 만드는 방법을 알아보려면 [시작 페이지](sql-database-get-started.md) 를 참조하세요.  또는 [짧은&2;분 비디오](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/)를 보고 Azure Portal을 사용하여 Azure SQL Database를 만듭니다.
+샘플 데이터베이스를 만드는 방법을 알아보려면 [시작 페이지](sql-database-get-started.md) 를 참조하세요.  또는 [짧은 2분 비디오](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/)를 보고 Azure Portal을 사용하여 Azure SQL Database를 만듭니다.
 
 ## <a id="ConnectionString"></a>2단계: 연결 문자열 가져오기
 Azure SQL Database를 프로비전한 후 연결 정보를 확인하고 방화벽 액세스에 대한 클라이언트 IP를 추가하려면 다음 단계를 수행해야 합니다. 
@@ -79,7 +79,7 @@ Visual Studio에서 빌드한 [이 샘플을 사용하여 Windows에서 ODBC를 
 축하합니다. 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하는 읽기를 계속할 수 있습니다. 
 
 ## <a id="Linux"></a>5 단계: Linux C/C++ 응용 프로그램에서 연결
-아직 새 소식을 듣지 못했다면 Visual Studio에서 이제 C++ Linux 응용 프로그램도 개발할 수 있습니다. [Linux 개발용 Visual C++](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) 블로그에서 이 새 시나리오에 대해 참고할 수 있습니다. Linux용으로 빌드하려면 Linux distro가 실행되고 있는 원격 컴퓨터가 필요합니다. 원격 컴퓨터가 없다면 [Linux Azure 가상 컴퓨터](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 신속하게 하나를 설정할 수 있습니다. 
+아직 새 소식을 듣지 못했다면 Visual Studio에서 이제 C++ Linux 응용 프로그램도 개발할 수 있습니다. [Linux 개발용 Visual C++](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) 블로그에서 이 새 시나리오에 대해 참고할 수 있습니다. Linux용으로 빌드하려면 Linux distro가 실행되고 있는 원격 컴퓨터가 필요합니다. 원격 컴퓨터가 없다면 [Linux Azure 가상 컴퓨터](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 신속하게 하나를 설정할 수 있습니다. 
 
 이 자습서에서는 Ubuntu 16.04 Linux 배포판이 설치되어 있다고 가정합니다. 여기 나온 단계는 Ubuntu 15.10, Red Hat 6 및 Red Hat 7에도 적용 해야 합니다. 
 

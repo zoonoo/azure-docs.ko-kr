@@ -17,8 +17,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 7a75cb16a1d71b55b7b74107a82b9becbe7f6cb3
-ms.openlocfilehash: 22ce8f67cd3546a0983ce395372e8459e895c136
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 1ceb55ba137a61d6bc2121a6b23df2c87e5b7ce2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -108,7 +109,7 @@ ms.openlocfilehash: 22ce8f67cd3546a0983ce395372e8459e895c136
 
 1. [새 SQL Server에서 방화벽 포트를 엽니다](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server). 
 
-   열어야 하는 포트 번호는 사용자의 환경에 따라 달라집니다. 미러링 끝점 및 Azure Load Balancer 상태 프로브에 대한 포트를 엽니다..
+   열어야 하는 포트 번호는 사용자의 환경에 따라 달라집니다. 미러링 끝점 및 Azure Load Balancer 상태 프로브에 대한 포트를 엽니다.
 
 1. [새 SQL Server에서 가용성 그룹에 복제본을 추가합니다](http://msdn.microsoft.com/library/hh213239.aspx).
 
@@ -183,10 +184,5 @@ ms.openlocfilehash: 22ce8f67cd3546a0983ce395372e8459e895c136
 * [Always On 가용성 그룹](http://msdn.microsoft.com/library/hh510230.aspx)
 * [Azure 가상 컴퓨터](http://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Azure Load Balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
-* [Azure 가용성 집합](../../virtual-machines-windows-manage-availability.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+* [Azure 가용성 집합](../manage-availability.md)
 

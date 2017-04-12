@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 53c54c490e7888edef0dc83d1657adbb3db0b745
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 06a67e4d2134baf54e88708d64981b897ecb74a0
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -65,7 +65,7 @@ SQL Database에서 리소스 수요를 처리하는 데이터베이스의 기능
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
-탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다.  SQL 데이터베이스 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이&0;이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
+탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다.  SQL 데이터베이스 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
 
 ## <a name="elastic-pool-properties"></a>탄력적 풀 속성
 
@@ -112,7 +112,7 @@ SQL Database에서 리소스 수요를 처리하는 데이터베이스의 기능
 
 * [Azure Portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md) 및 REST API를 사용하여 탄력적 풀을 만들고 관리할 수도 있습니다.
 * 탄력적 풀을 사용할 때의 지침은 [탄력적 풀 지침](sql-database-elastic-pool-guidance.md)을 참조하세요.
-* 비디오는 [Azure SQL Database 탄력적 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)을 참조하세요.
+* 비디오는 [Azure SQL Database 탄력적 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)을 참조하세요.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 71537845edcca85a7d0722dd32264da9f6b579e9
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1eb8115b13fb18074b4c4726b69e3d9faf387c32
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-plan-your-virtual-network-for-azure-remoteapp"></a>Azure RemoteApp에 대한 가상 네트워크를 계획하는 방법
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -56,10 +57,5 @@ Azure RemoteApp 컬렉션을 나타내며 여기에서 액세스가 필요한 Re
 
 ## <a name="virtual-network-with-forced-tunneling"></a>강제 터널링을 통한 가상 네트워크
 [강제 터널링](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) 은 이제 모든 새 Azure RemoteApp 컬렉션에 지원됩니다. 현재 강제 터널링을 지원하기 위해 기존 컬렉션의 마이그레이션이 지원되지 않습니다.  Azure RemoteApp에 연결 중인 VNET을 사용하여 모든 기존 컬렉션을 삭제하고 컬렉션에서 활성화된 강제 터널링을 가져오도록 새 것을 만들어야 합니다. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

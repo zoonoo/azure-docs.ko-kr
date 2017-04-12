@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 03/31/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: ca55f1c295d99ff92abaef1a919d4c90d3c33b8a
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 8e2b1a31b9875b8403e6c97c097ba65985f5f3b5
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -34,13 +34,10 @@ Azure Monitor의 동영상 연습도 제공됩니다.
 
 ![비 계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview/Monitoring_Azure_Resources-compute_v4.png)
 
-그림 1: 비 계산 리소스의 모니터링 및 진단에 개념 모델
-
 <br/>
 
 ![계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview/Monitoring_Azure_Resources-non-compute_v4.png)
 
-그림 2: 계산 리소스의 모니터링 및 진단을 위한 개념 모델
 
 ## <a name="monitoring-sources"></a>모니터링 소스
 ### <a name="activity-logs"></a>활동 로그

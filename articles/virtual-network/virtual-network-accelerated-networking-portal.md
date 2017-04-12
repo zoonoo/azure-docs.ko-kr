@@ -17,9 +17,9 @@ ms.date: 09/26/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: a2e8e0dc40a63c363f295149e35f9823c8e90fa8
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 90dc3b45f470bfac03c34c1a20a7b54b9acbc281
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -56,7 +56,7 @@ ms.lasthandoff: 02/28/2017
 * **VM 만들기:** VM을 만들 때 가속 네트워킹이 설정된 네트워크 인터페이스만 VM에 연결할 수 있습니다. 이 네트워크 인터페이스를 기존 VM에 연결할 수 없습니다.
 * **지역:** 미국 중서부 및 유럽 서부 Azure 지역에만 제공됩니다. 이 지역 집합은 나중에 확장될 것입니다.
 * **지원되는 운영 체제:** Microsoft Windows Server 2012 R2 및 Windows Server 2016 Technical Preview 5. Linux 및 Windows Server 2012 지원은 곧 추가될 예정입니다.
-* **VM 크기:** Standard_D15_v2 및 Standard_DS15_v2만 VM 인스턴스 크기로 지원됩니다. 자세한 내용은 [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 문서를 참조하세요. 지원되는 VM 인스턴스 크기 집합은 앞으로 확장될 예정입니다.
+* **VM 크기:** Standard_D15_v2 및 Standard_DS15_v2만 VM 인스턴스 크기로 지원됩니다. 자세한 내용은 [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 문서를 참조하세요. 지원되는 VM 인스턴스 크기 집합은 앞으로 확장될 예정입니다.
 
 이러한 제한 사항이 변경되면 [Azure 가상 네트워킹 업데이트](https://azure.microsoft.com/updates/accelerated-networking-in-preview) 페이지에 공지됩니다.
 

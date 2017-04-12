@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/02/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: e1101c92118e56768c668d19f6556517d5a79c51
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: fe8a84d7e6d88f11498c288e0424ba204d7f06fd
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -38,7 +38,7 @@ Data Lake Store에서 HDInsight를 사용하는 몇 가지 중요한 고려 사�
 
 * HBase 클러스터(Windows 및 Linux)의 경우 Data Lake Store는 기본 및 추가 저장소 중 하나에 대해서도 저장소 옵션으로 *지원되지 않습니다*.
 
-PowerShell을 사용하여 Data Lake Store를 사용하도록 HDInsight를 구성하려면 다음&5;개 섹션의 지침을 따릅니다.
+PowerShell을 사용하여 Data Lake Store를 사용하도록 HDInsight를 구성하려면 다음 5개 섹션의 지침을 따릅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음 요구 사항을 충족하는지 확인합니다.
@@ -49,7 +49,7 @@ PowerShell을 사용하여 Data Lake Store를 사용하도록 HDInsight를 구�
 * **Azure Active Directory 서비스 주체**: 이 자습서에서는 Azure AD(Azure Active Directory)에서 서비스 주체를 만드는 방법을 설명합니다. 그러나 서비스 주체를 만들려면 Azure AD 관리자여야 합니다. 관리자인 경우 이 필수 요소를 건너뛰고 자습서를 진행할 수 있습니다.
 
     >[!NOTE]
-    >Azure AD 관리자인 경우에만 서비스 주체를 만들 수 있습니다. Azure AD 관리자가 서비스 주체를 만들어야 Data Lake Store와 HDInsight 클러스터를 만들 수 있습니다. [인증서를 사용하여 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate)에 설명된 대로 인증서를 사용하여 서비스 주체를 만들어야 합니다.
+    >Azure AD 관리자인 경우에만 서비스 주체를 만들 수 있습니다. Azure AD 관리자가 서비스 주체를 만들어야 Data Lake Store와 HDInsight 클러스터를 만들 수 있습니다. [인증서를 사용하여 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority)에 설명된 대로 인증서를 사용하여 서비스 주체를 만들어야 합니다.
     >
 
 ## <a name="create-a-data-lake-store-account"></a>Data Lake 저장소 계정 만들기
@@ -71,7 +71,7 @@ Data Lake Store 계정을 만들려면 다음을 수행합니다.
 
     > [!NOTE]
     > Data Lake Store 리소스 공급자를 등록하고 `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`과 유사한 오류가 발생하는 경우 구독을 Data Lake Store에 대한 허용 목록에 추가할 수 없습니다. Data Lake Store 공개 미리 보기에 Azure 구독을 사용하려면 [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)의 지침에 따르세요.
-    > 
+    >
 
 2. 로그인하라는 메시지가 표시되면 구독 관리자 또는 소유자 중 하나로 로그인합니다.
 3. Data Lake Store 계정은 Azure 리소스 그룹과 연결됩니다. 리소스 그룹을 만들기 시작합니다.

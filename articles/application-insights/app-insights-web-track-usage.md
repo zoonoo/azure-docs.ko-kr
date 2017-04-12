@@ -14,15 +14,16 @@ ms.topic: article
 ms.date: 06/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f86986fea6fc48a4a6ed09022e8026e0645dfc56
-ms.openlocfilehash: 971558d287191c6b7b5ea9d135e6fe37c904aa76
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 8e32014147c322e09af08e5c05d83aea13041a4c
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="usage-analysis-for-web-applications-with-application-insights"></a>Application Insights를 사용한 웹 응용 프로그램의 사용 현황 분석
 사람들이 사용자의 응용 프로그램을 어떻게 사용하는지 알면 사람들에게 가장 중요한 시나리오로 개발 작업을 하는 데 초점을 맞출 수 있으며, 사람들이 달성하기 더 쉽거나 어려워하는 목표에 대한 통찰력을 얻을 수 있습니다. 
 
-Azure Application Insights는&2;단계 사용 현황 추적을 제공합니다.
+Azure Application Insights는 2단계 사용 현황 추적을 제공합니다.
 
 * **사용자, 세션 및 페이지 보기 데이터** - 독점적으로 제공합니다.  
 * **사용자 지정 원격 분석** - [코드를 작성][api]하여 앱의 사용자 경험을 통해 사용자를 추적합니다. 
@@ -317,10 +318,6 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 * [API 사용 - 개요][api]
 * [JavaScript API 참조](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
-## <a name="video"></a>비디오
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
-> 
-> 
 
 <!--Link references-->
 
@@ -334,10 +331,5 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 [portal]: http://portal.azure.com/
 [windows]: app-insights-windows-get-started.md
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 
