@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9f9908466dbfd471bc881387c0968c924140c67b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 99292dedfd83c0adde6b7352e08e7ae3b0b14513
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -95,7 +95,7 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
     },
     ```
 
-6. **vmSize**에는 값 *Standard_DS3*이 포함되어 있습니다. 특정 VM 크기만 여러 NIC를 사용할 수 있습니다. [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Linux VM 크기](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서에서 어떤 VM 크기가 여러 NIC를 지원하는지 확인할 수 있습니다.
+6. **vmSize**에는 값 *Standard_DS3*이 포함되어 있습니다. 특정 VM 크기만 여러 NIC를 사용할 수 있습니다. [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [Linux VM 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서에서 어떤 VM 크기가 여러 NIC를 지원하는지 확인할 수 있습니다.
 
 7. 아래로 스크롤하여 **resources** 로 이동한 후 첫 번째 요소를 확인합니다. 여기에는 저장소 계정이 설명되어 있습니다. 이 저장소 계정은 각 데이터베이스 VM에서 사용하는 데이터 디스크를 유지 관리하는 데 사용됩니다. 이 시나리오의 각 데이터베이스 VM에는 일반 저장소에 OS 디스크가 있고 SSD(프리미엄) 저장소에 두 개의 데이터 디스크가 저장되어 있습니다.
 

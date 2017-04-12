@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 7a34394ebc83e106bd2755ea2e3d966837c01be6
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c07773be6e4a2274287920de9420f4c8b96f58e1
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="accessing-your-apps-in-azure-remoteapp"></a>Azure RemoteApp에서 앱에 액세스
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -173,10 +174,5 @@ Windows Phone 8.1 스토어에서 Microsoft 원격 데스크톱 앱을 설치하
 8. 이 경우 RemoteApp을 시작하기 위한 기본적인 앱 집합에 액세스할 수 있습니다.
    
     ![Azure RemoteApp에 대한 데모 피드](./media/remoteapp-clients/WinPhone8.png)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

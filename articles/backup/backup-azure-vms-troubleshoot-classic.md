@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/23/2017
 ms.author: trinadhk;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
-ms.openlocfilehash: 2149407ff4e04f6a52a45c419382617810a63633
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 284a1b64fbb15d0aa800182c6671d447e191b76a
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -107,16 +108,11 @@ Windows VM의 경우
 
 Linux VM의 경우
 
-* [Linux VM 에이전트 업데이트](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요.
+* [Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요.
 
 ### <a name="validating-vm-agent-installation"></a>VM 에이전트 설치의 유효성 검사
 Windows VM에서 VM 에이전트 버전을 확인하는 방법
 
 1. Azure Virtual Machine에 로그온하고 *C:\WindowsAzure\Packages* 폴더로 이동합니다. WaAppAgent.exe 파일을 찾습니다.
 2. 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. 제품 버전 필드가 2.6.1198.718 이상이어야 합니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

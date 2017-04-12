@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 3/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 8ea8de916a36a1b5274f42513b0446f99707c179
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 2cbd477776329ef84ef615b6c28c56cfee12fc99
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -50,7 +50,7 @@ AWS(Amazon Web Services)와 Azure AD를 통합하도록 구성하려면 다음 �
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD SSO를 테스트하는 데 도움을 주기 위해 제공되었습니다.  
 
-이 자습서에 설명된 시나리오는 다음 세 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 AWS(Amazon Web Services) 추가 
 2. Azure AD SSO 구성 및 테스트

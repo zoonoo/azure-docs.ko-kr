@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: ca5f5696e9478d5087a09fff16742f65ea3e5589
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 9cf87aa75b2ef65719a38e446a81086d265e7f4d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -69,9 +69,9 @@ NoSQL 데이터베이스 시스템을 비교하는 데는 다음 요구 사항 �
 |Active Directory 통합(RBAC)| Azure Portal에서 액세스 제어(IAM)를 사용하여 데이터베이스 계정에 대한 액세스도 제공할 수 있습니다. IAM은 역할 기반 액세스 제어를 제공하며 Active Directory와 통합됩니다. 다음 이미지처럼 개인 및 그룹에 대해 기본 제공 역할이나 사용자 지정 역할을 사용할 수 있습니다.<br><br>![Azure Portal에서 액세스 제어(IAM) - NoSQL 데이터베이스 보안 설명](./media/documentdb-nosql-database-security/nosql-database-security-identity-access-management-iam-rbac.png)|
 |글로벌 복제|DocumentDB는 단추 클릭만으로 Azure 전 세계 데이터 센터 어디로나 데이터를 복제할 수 있는 턴키 전역 분산을 제공합니다. 글로벌 복제를 통해 전역적으로 크기를 조정하고 전 세계 데이터에 짧은 대기 시간으로 액세스할 수 있습니다.<br><br>보안 컨텍스트에서 글로벌 복제는 지역별 오류에 대해 데이터 보호를 보장해줍니다.<br><br>[데이터를 글로벌 배포](documentdb-distribute-data-globally.md)에 대한 자세한 정보|
 |지역별 장애 조치|데이터를 둘 이상의 데이터 센터에 복제한 경우 DocumentDB는 자동으로 롤오버되고 사용자 작업을 통해 지역 데이터 센터가 오프라인으로 전환되어야 합니다. 데이터가 복제된 지역을 사용하여 장애 조치 지역의 우선 순위가 지정된 목록을 만들 수 있습니다. <br><br>[Azure DocumentDB의 지역별 장애 조치](documentdb-regional-failovers.md)에 대한 자세한 정보|
-|로컬 복제|단일 데이터 센터 내에서도 DocumentDB는 원하는 [일관성 수준](documentdb-consistency-levels.md)을 부여하는 고가용성을 위해 데이터를 자동으로 복제합니다. 이렇게 하면  [99.99% 가동 시간 가용성 SLA](https://azure.microsoft.com/support/legal/sla/documentdb/v1_0/)가 보장되고 다른 NoSQL 데이터베이스 서비스가 제공할 수 없는 재정적 보장이 함께 제공됩니다.|
+|로컬 복제|단일 데이터 센터 내에서도 DocumentDB는 원하는 [일관성 수준](documentdb-consistency-levels.md)을 부여하는 고가용성을 위해 데이터를 자동으로 복제합니다. 이렇게 하면  [99.99% 가동 시간 가용성 SLA](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/)가 보장되고 다른 NoSQL 데이터베이스 서비스가 제공할 수 없는 재정적 보장이 함께 제공됩니다.|
 |자동 온라인 백업|DocumentDB 데이터베이스는 정기적으로 백업되며 georedundant 저장소에 저장됩니다. <br><br>[DocumentDB로 자동 온라인 백업 및 복원](documentdb-online-backup-and-restore.md)에 대한 자세한 정보|
-|삭제된 데이터 복원|자동 온라인 백업을 사용하여 실수로 삭제한 데이터를 이벤트 후 최대&30;일 이내에 복구할 수 있습니다. <br><br>[DocumentDB로 자동 온라인 백업 및 복원](documentdb-online-backup-and-restore.md)에 대한 자세한 정보|
+|삭제된 데이터 복원|자동 온라인 백업을 사용하여 실수로 삭제한 데이터를 이벤트 후 최대 30일 이내에 복구할 수 있습니다. <br><br>[DocumentDB로 자동 온라인 백업 및 복원](documentdb-online-backup-and-restore.md)에 대한 자세한 정보|
 |중요한 데이터 보호 및 격리|PII 및 기타 기밀 데이터를 특정 컬렉션 및 읽기-쓰기로 격리할 수 있으며 읽기 전용 액세스를 특정 사용자로 제한할 수 있습니다.|
 |공격 모니터|감사 로깅 및 활동 로그를 사용하여 계정에서 정상 및 비정상적인 활동을 모니터링할 수 있습니다. 리소스에 대해 어떤 작업이 누구에 의해 수행되었는지, 작업 상태 등을 확인할 수 있습니다.<br><br>![Azure DocumentDB에 대한 활동 로그](./media/documentdb-nosql-database-security/nosql-database-security-application-logging.png)|
 |공격에 대응|잠재적인 공격을 보고하기 위해 Azure 지원에 연락한 경우 5단계 인시던트 대응 프로세스가 시작됩니다. 5단계 프로세스의 목표는 문제가 검색되어 조사가 시작된 후 정상적인 서비스 보안 및 작업을 가능한 신속히 복원하는 것입니다.<br><br>[클라우드에서 Microsoft Azure의 보안 대응](https://aka.ms/securityresponsepaper)에 대한 자세한 정보|

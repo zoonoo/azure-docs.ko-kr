@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 537fbe37b0ee21cb5d2c9f1ba437ac178850fee2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a486dcb3f994cd78311ee86521a6792a4d57438e
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="troubleshoot-creating-azure-remoteapp-hybrid-collections"></a>Azure RemoteApp 하이브리드 컬렉션 만들기 문제 해결
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -71,10 +72,5 @@ Azure의 컬렉션 프로비전을 대기하는 중에 "GoldImageInvalid" 등의
 
 ## <a name="what-domain-name-did-you-specify-when-you-created-your-collection"></a>컬렉션을 만들 때 어떤 도메인 이름을 지정했나요?
 만들거나 추가한 도메인 이름은 내부 도메인 이름(Azure AD 도메인 이름이 아님)이어야 하며 확인할 수 있는 DNS 형식(contoso.local)이어야 합니다. 예를 들어 Active Directory 내부 이름(contoso.local) 및 Active Directory UPN(contoso.com)이 있는 경우 컬렉션을 만들 때 내부 이름을 사용해야 합니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

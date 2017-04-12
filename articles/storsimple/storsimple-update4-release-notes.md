@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/21/2017
+ms.date: 04/04/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: a545925bdade693f4db7db45228188dae7e5ff38
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 23f1bbb066c5b6481988ee841ad8979d78abf084
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -52,8 +52,6 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 * **StorSimple 진단 도구** – 업데이트 4에서 StorSimple 진단 도구는 시스템, 네트워크, 성능 및 하드웨어 구성 요소 상태와 관련된 문제를 쉽게 진단 및 해결할 수 있도록 릴리스되었습니다. 이 도구는 StorSimple용 Windows PowerShell을 통해 실행됩니다. 자세한 정보는 [StorSimple 진단 도구를 사용한 문제 해결](storsimple-8000-diagnostics.md)을 참조하세요.
 
 * **UI 기반 StorSimple 마이그레이션 도구** - 이 릴리스 전에 5000-7000 시리즈에서 데이터 마이그레이션에는 사용자가 Azure PowerShell 인터페이스를 사용하여 마이그레이션 워크플로의 일부를 실행해야 했습니다. 이 릴리스에서 사용하기 쉬운 UI 기반 StorSimple 마이그레이션 도구는 동일한 마이그레이션 워크플로를 용이하게 하는 지원에 사용 가능합니다. 이 도구는 복구 버킷의 통합도 허용합니다. 
-
-* **StorSimple Snapshot Manager에 대한 MPIO 지원** - 이 릴리스에서 StorSimple Snapshot Manager에 대한 MPIO 지원을 구현했습니다.
 
 * **FIPS 관련 변경 사항** - 이 릴리스부터 Microsoft Azure Government 및 Azure 공용 클라우드 계정에 대한 모든 StorSimple 8000 시리즈 장치에는 기본적으로 FIPS가 활성화됩니다.
 

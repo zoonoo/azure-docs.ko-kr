@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 2bd8f7ac127cd34b2d5129ecb49c56e2adf257b8
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c6de21da824a6e81c38f36c41c05ddd704fadcb6
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -130,7 +131,7 @@ Azure Marketplace 같은 마켓플레이스를 통해 제품을 광고하고 판
 ### <a name="free-form-configurations"></a>자유 형식 구성
 표면적으로는 자유 형식 구성이 이상적으로 보입니다. VM 유형을 선택할 수 있고 임의의 수의 노드 및 그 노드와 연결된 디스크를 제공하고 매개 변수가 템플릿에 제공하듯이 편리한 기능을 제공합니다. 그러나 이 접근 방식은 일부 시나리오에는 적합하지 않습니다.
 
-[가상 컴퓨터의 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 다양한 VM 유형과 사용 가능한 크기 및 각각 연결할 수 있는 지속형 디스크의 수(2, 4, 8, 16, 또는 32)를 식별합니다. 각각의 연결된 디스크는 500 IOPS를 제공하며 이 디스크의 배수는 해당 IOPS의 승수로 풀링될 수 있습니다. 예를 들어 디스크 16개는 8,000 IOPS를 제공하도록 풀링될 수 있습니다. 풀링은 Microsoft Windows 저장소 공간 또는 Linux의 RAID(Redundant Array of Inexpensive Disks)를 사용하여 운영 체제에서 구성을 사용하여 수행됩니다.
+[가상 컴퓨터의 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 다양한 VM 유형과 사용 가능한 크기 및 각각 연결할 수 있는 지속형 디스크의 수(2, 4, 8, 16, 또는 32)를 식별합니다. 각각의 연결된 디스크는 500 IOPS를 제공하며 이 디스크의 배수는 해당 IOPS의 승수로 풀링될 수 있습니다. 예를 들어 디스크 16개는 8,000 IOPS를 제공하도록 풀링될 수 있습니다. 풀링은 Microsoft Windows 저장소 공간 또는 Linux의 RAID(Redundant Array of Inexpensive Disks)를 사용하여 운영 체제에서 구성을 사용하여 수행됩니다.
 
 자유 형식 구성에서는 여러 VM 인스턴스, 해당 인스턴스의 다양한 VM 형식 및 크기, VM 형식의 다양한 디스크 및 VM 콘텐츠를 구성하는 하나 이상의 스크립트를 선택할 수 있습니다.
 
@@ -347,10 +348,5 @@ jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 �
 * Azure 리소스 관리자에서 보안을 처리하는 방법에 대한 권장 사항을 보려면 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)
 * 템플릿 내부 및 외부로 상태를 공유하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

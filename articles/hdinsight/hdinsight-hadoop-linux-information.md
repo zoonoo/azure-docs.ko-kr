@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/02/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 792907646a602004904eef5c4000f464881c6c4b
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 79e122beb0f31c46bbb9951a2dee223de4a77e1f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/25/2017
 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 Linux 환경에서 Hadoop을 제공합니다. 대부분의 작업에 대해 Linux 설치에서 모든 다른 Hadoop으로 정확하게 작동해야 합니다. 이 문서를 알고 있어야 하는 특정 차이점을 호출합니다.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -218,7 +218,7 @@ __Azure Data Lake Store__를 사용하는 경우 다음 링크를 참조하여 �
     2. 다음을 사용하여 HBase 셸을 시작합니다.
 
             hbase shell
-    
+
     3. HBase 셸이 로드되면 다음을 사용하여 지역 서버를 수동으로 조정합니다.
 
             balancer

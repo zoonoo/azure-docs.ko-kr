@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: ranjithr;wadeh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 802a6126302a30aefae5841f42d8b9d782065638
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 79e5329332c457c738c082277ee7b79eb8ead049
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Azure 웹앱에서 노드 응용 프로그램에 대한 모범 사례 및 문제 해결 가이드
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-이 문서에서는 Azure 웹앱에서 실행되는 [노드 응용 프로그램](app-service-web-nodejs-get-started.md) ([iisnode](https://github.com/azure/iisnode) 사용)에 대한 모범 사례 및 문제 해결 단계에 대해 배워봅니다.
+이 문서에서는 Azure 웹앱에서 실행되는 [노드 응용 프로그램](app-service-web-get-started-nodejs.md) ([iisnode](https://github.com/azure/iisnode) 사용)에 대한 모범 사례 및 문제 해결 단계에 대해 배워봅니다.
 
 > [!WARNING]
 > 프로덕션 사이트에서 문제 해결 단계를 사용할 때는 주의하세요. 비프로덕션 설정(예: 스테이징 슬롯)에서 앱의 문제를 해결하는 것이 좋으며 문제가 해결되면 스테이징 슬롯을 프로덕션 슬롯으로 교환하는 것이 좋습니다.
@@ -252,16 +253,11 @@ NODE.exe 내에 NODE\_PENDING\_PIPE\_INSTANCES라는 설정이 있습니다. 기
 ## <a name="more-resources"></a>추가 리소스
 Azure 앱 서비스에서 다음 링크를 따라 node.js 응용 프로그램에 대해 자세히 알아보세요.
 
-* [Azure 앱 서비스에서 Node.js 웹앱 시작](app-service-web-nodejs-get-started.md)
+* [Azure 앱 서비스에서 Node.js 웹앱 시작](app-service-web-get-started-nodejs.md)
 * [Azure 앱 서비스에서 Node.js 웹 앱을 디버그하는 방법](web-sites-nodejs-debug.md)
 * [Azure 응용 프로그램에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)
 * [Azure 앱 서비스 웹앱: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 개발자 센터](../nodejs-use-node-modules-azure-apps.md)
 * [Super 암호 Kudu 디버그 콘솔 탐색](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

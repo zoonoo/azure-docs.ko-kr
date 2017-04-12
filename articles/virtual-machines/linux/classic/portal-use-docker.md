@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 0197d78185cda05cec3512e6a4ad411ae0da60da
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 932744208d9d53c87e31dcdf9e34539750be4bdb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -159,7 +159,7 @@ WARNING: No swap limit support
 
 <!--Link references-->
 [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Azure Linux 에이전트]:../../virtual-machines-linux-agent-user-guide.md
+[Azure Linux 에이전트]:../agent-user-guide.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
 
 [https를 사용하여 Docker 실행]:http://docs.docker.com/articles/https/

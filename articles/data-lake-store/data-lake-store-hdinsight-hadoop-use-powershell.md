@@ -14,9 +14,9 @@ ms.workload: big-data
 ms.date: 02/14/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: d8100903d78a9ca8d88d2649ad5245ce3f456518
-ms.openlocfilehash: c21f244408ed6f6ca3168ee193bcba4d3b26cd40
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 230cbb12830793ca4e6b9679c5c37c4733c00f02
+ms.lasthandoff: 04/05/2017
 
 
 ---
@@ -57,7 +57,7 @@ PowerShell을 사용하여 데이터 레이크 저장소와 함께 작동하도�
 * **Windows SDK**. [여기](https://dev.windows.com/en-us/downloads)에서 설치할 수 있습니다. 이를 사용하여 보안 인증서를 만듭니다.
 * **Azure Active Directory 서비스 사용자**. 이 자습서의 단계에서는 Azure AD에서 서비스 사용자를 만드는 방법에 대한 지침을 제공합니다. 그러나 서비스 사용자를 만들려면 Azure AD 관리자여야 합니다. Azure AD 관리자인 경우 이 필수 조건을 건너뛰고 자습서를 진행할 수 있습니다.
 
-    **Azure AD 관리자가 아닌 경우** 서비스 사용자를 만드는 데 필요한 단계를 수행할 수 없습니다. 이 경우 먼저 Azure AD 관리자가 서비스 사용자를 만들어야 Data Lake Store와 HDInsight 클러스터를 만들 수 있습니다. 또한 [인증서를 사용하여 서비스 사용자 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate)에 설명된 대로 인증서를 사용하여 서비스 사용자를 만들어야 합니다.
+    **Azure AD 관리자가 아닌 경우** 서비스 사용자를 만드는 데 필요한 단계를 수행할 수 없습니다. 이 경우 먼저 Azure AD 관리자가 서비스 사용자를 만들어야 Data Lake Store와 HDInsight 클러스터를 만들 수 있습니다. 또한 [인증서를 사용하여 서비스 사용자 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority)에 설명된 대로 인증서를 사용하여 서비스 사용자를 만들어야 합니다.
 
 ## <a name="create-an-azure-data-lake-store"></a>Azure 데이터 레이크 저장소 만들기
 다음 단계에 따라 데이터 레이크 저장소를 만듭니다.
@@ -118,7 +118,7 @@ Azure 데이터 레이크에 대한 Active Directory 인증을 설정하려면 �
 
         $certificateFileDir = "<my certificate directory>"
         cd $certificateFileDir
-        
+
         makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
 
     개인 키 암호를 입력하라는 메시지가 표시됩니다. 명령을 성공적으로 실행한 후 지정한 인증서 디렉터리에서 **CertFile.cer** 및 **mykey.pvk**를 확인해야 합니다.
@@ -194,7 +194,7 @@ Azure 데이터 레이크에 대한 Active Directory 인증을 설정하려면 �
 
     cmdlet이 성공적으로 완료된 후 클러스터 세부 정보가 나열되는 출력이 표시됩니다.
 
-        
+
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>HDInsight 클러스터에서 테스트 작업을 실행하여 데이터 레이크 저장소 사용
 HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업을 실행하여 HDInsight 클러스터가 데이터 레이크 저장소에 액세스할 수 있는지 테스트할 수 있습니다. 이렇게 하려면 데이터 레이크 저장소에 이전에 업로드한 샘플 데이터를 사용하여 테이블을 만드는 샘플 Hive 작업을 실행합니다.
 
@@ -228,7 +228,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 ## <a name="access-data-lake-store-using-hdfs-commands"></a>HDFS 명령을 사용한 액세스 데이터 레이크 저장소
 데이터 레이크 저장소를 사용하도록 HDInsight 클러스터를 구성한 후 HDFS 셸 명령을 사용하여 저장소에 액세스할 수 있습니다.
 
-이 섹션에서는 사용자가 만든 HDInsight Linux 클러스터로 SSH하고 HDFS 명령을 실행합니다. 
+이 섹션에서는 사용자가 만든 HDInsight Linux 클러스터로 SSH하고 HDFS 명령을 실행합니다.
 
 * Windows 클라이언트를 사용하여 클러스터로 SSH하는 경우 [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
 * Linux 클라이언트를 사용하여 클러스터로 SSH하는 경우 [Linux에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.

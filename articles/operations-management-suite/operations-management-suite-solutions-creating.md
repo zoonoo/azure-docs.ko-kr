@@ -16,15 +16,15 @@ ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 9d1a89e84b7340bf4bb3d759b4ae856431efcc0e
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: e1e915e07591ed104a30e9194ec6228b04519b8c
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>OMS(Operations Management Suite)에서 관리 솔루션 설계 및 만들기(미리 보기)
 > [!NOTE]
-> 현재 Preview로 제공되는 OMS의 사용자 지정 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.   j
+> 현재 Preview로 제공되는 OMS의 사용자 지정 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.
 
 [관리 솔루션](operations-management-suite-solutions.md)은 고객이 OMS 작업 영역에 추가할 수 있는 패키지 관리 시나리오를 제공하여 OMS(Operations Management Suite)의 기능을 확장합니다.  이 문서에서는 가장 일반적인 요구 사항에 적합한 관리 솔루션을 설계하고 만들기 위한 기본 프로세스를 제공합니다.  관리 솔루션을 처음 만드는 경우 이 프로세스를 시작 지점으로 사용한 다음, 요구 사항이 진화함에 따라 더 복잡한 솔루션에 대한 개념을 활용할 수 있습니다.
 

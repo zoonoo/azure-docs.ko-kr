@@ -17,9 +17,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6c468c8ed0d817a32c343d55cac780b904ee8668
-ms.openlocfilehash: 6cedd18c22bcd97f7fb2b6926bdf637fe9f04ab4
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 989f45eed033409b1ade183827719acdd9a4b0b4
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,7 +29,7 @@ HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아�
 
 
 > [!IMPORTANT]
-> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. Linux 기반 클러스터로 스크립트 작업 사용에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발(Linux)](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요. Linux 기반 클러스터로 스크립트 작업 사용에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발(Linux)](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
 >
 >
 
@@ -93,7 +93,7 @@ Windows 운영 체제에서 HDInsight 클러스터를 만드는 경우 스크립
 
     Write-HDILog "$configFileName has been configured."
 
-스크립트에서는 구성 파일 이름, 수정하려는 속성, 설정하려는 값 및 설명의&4;가지 매개 변수가 사용됩니다. 예:
+스크립트에서는 구성 파일 이름, 수정하려는 속성, 설정하려는 값 및 설명의 4가지 매개 변수가 사용됩니다. 예:
 
     hive-site.xml hive.metastore.client.socket.timeout 90
 

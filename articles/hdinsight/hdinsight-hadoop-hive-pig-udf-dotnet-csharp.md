@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 257138fddc75b39985ba974b1314e978a554b1e2
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: f9ea34229e2f6e498c2826be04c09fb2da6393e3
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -30,7 +30,7 @@ Hive 및 Pig는 Azure HDInsight의 데이터 작업에 적합하지만 보다 �
 이 문서에서 Hive 및 Pig와 함께 C#를 사용 하는 방법에 대해 알아봅니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 운영 체제로 Windows를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> 이 문서의 단계에는 운영 체제로 Windows를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -165,7 +165,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
     ORDER BY clientid LIMIT 50;
     ```
 
-    이 쿼리는 `hivesampletable`에서 `clientid`, `devicemake` 및 `devicemodel` 필드를 선택하고 해당 필드를 HiveCSharp.exe 응용 프로그램으로 전달합니다. 쿼리는 응용 프로그램이&3;개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel` 및 `phoneHash`로 저장됩니다. 또한 쿼리는 기본 저장소 컨테이너(`add file wasbs:///HiveCSharp.exe`)의 루트에서 HiveCSharp.exe를 찾는다고 예상합니다.
+    이 쿼리는 `hivesampletable`에서 `clientid`, `devicemake` 및 `devicemodel` 필드를 선택하고 해당 필드를 HiveCSharp.exe 응용 프로그램으로 전달합니다. 쿼리는 응용 프로그램이 3개의 필드를 반환할 것을 예상하며 `clientid`, `phoneLabel` 및 `phoneHash`로 저장됩니다. 또한 쿼리는 기본 저장소 컨테이너(`add file wasbs:///HiveCSharp.exe`)의 루트에서 HiveCSharp.exe를 찾는다고 예상합니다.
 
 5. **제출** 을 클릭하여 HDInsight 클러스터에 작업을 제출합니다. **Hive 작업 요약** 창이 열립니다.
 
@@ -228,7 +228,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
         bin\pig
 
     `grunt>` 프롬프트가 표시됩니다.
-    
+
 3. .NET Framework 응용 프로그램을 사용하여 Pig 작업을 실행하려면 다음을 입력합니다.
 
         DEFINE streamer `pigudf.exe` SHIP('pigudf.exe');

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 07/12/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4a289aec3b163fbf0ab44c6e9ca9a3d1d95803dc
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 360b99c8ab93f016fd2225e8e874fda2ca21df3c
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -29,6 +29,6 @@ ms.lasthandoff: 03/27/2017
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../../../includes/virtual-machines-common-classic-configure-availability.md)]
 
 ## <a name="next-steps"></a>다음 단계
-클래식 배포에 대한 추가 문서는 [Azure의 오픈 소스 컴퓨팅 및 Linux](../../virtual-machines-linux-opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+클래식 배포에 대한 추가 문서는 [Azure의 오픈 소스 컴퓨팅 및 Linux](../opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 1fea38ed4caacfee0c69d024b1ea6dbdcbccaf1d
-ms.openlocfilehash: 0f558871b2dfc85d2713c3511829dcbf41aea17b
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: e30297bd0cc65105c92d6428035d2e6c156448af
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -140,7 +141,7 @@ queueSvc.peekMessages('myqueue', function(error, result, response){
 > 
 
 ## <a name="how-to-dequeue-the-next-message"></a>큐에서 다음 메시지를 제거하는 방법
-메시지 처리는&2;단계 프로세스입니다.
+메시지 처리는 2단계 프로세스입니다.
 
 1. 메시지를 큐에서 제거합니다.
 2. 메시지를 삭제합니다.
@@ -192,7 +193,7 @@ queueSvc.getMessages('myqueue', function(error, result, response){
 * `options.numOfMessages` - 메시지 배치를 검색합니다(최대 32개).
 * `options.visibilityTimeout` - 표시하지 않는 시간 제한을 더 길거나 짧게 설정합니다.
 
-다음 예에서는 **getMessages** 메서드를 사용하여 한 번 호출에 15개의 메시지를 가져옵니다. 그런 다음에 for 루프를 사용하여 각 메시지를 처리합니다. 또한 이 메서드에서 반환되는 모든 메시지의 표시하지 않는 시간 제한을&5;분으로 설정합니다.
+다음 예에서는 **getMessages** 메서드를 사용하여 한 번 호출에 15개의 메시지를 가져옵니다. 그런 다음에 for 루프를 사용하여 각 메시지를 처리합니다. 또한 이 메서드에서 반환되는 모든 메시지의 표시하지 않는 시간 제한을 5분으로 설정합니다.
 
 ```
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
@@ -339,21 +340,11 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
-[Azure App Service에서 Node.js 웹앱 만들기]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Azure App Service에서 Node.js 웹앱 만들기]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Azure Table Service를 사용하는 Node.js 웹앱]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 
-
-[Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
-[plus-new]: ./media/storage-nodejs-how-to-use-queues/plus-new.png
-[quick-create-storage]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png
 
 [Azure Cloud Service에 Node.js 응용 프로그램 빌드 및 배포]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Web Matrix를 사용하여 Azure에 Node.js 웹앱 빌드 및 배포]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

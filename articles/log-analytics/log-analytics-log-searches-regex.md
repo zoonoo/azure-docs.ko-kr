@@ -14,39 +14,39 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 73739f4f154bebe271ce29bd285122ea7f56d769
-ms.openlocfilehash: bcf36cdec6c1dda7aa0213c42adf8d0281dc28d2
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 6c01fe7a791742d283505057a310891a075029ef
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>정규식을 사용하여 Log Analytics에서 로그 검색 필터링
 
-[로그 검색](log-analytics-log-searches.md)을 사용하면 Log Analytics 리포지토리에서 정보를 추출할 수 있습니다.  [필터 식](log-analytics-search-reference.md#filter-expression)을 사용하면 특정 조건에 따라 검색 결과를 필터링할 수 있습니다.  **RegEx** 키워드를 사용하면 이 필터에 대한 정규식을 지정할 수 있습니다.  
+[로그 검색](log-analytics-log-searches.md)을 사용하면 Log Analytics 리포지토리에서 정보를 추출할 수 있습니다.  [필터 식](log-analytics-search-reference.md#filter-expressions)을 사용하면 특정 조건에 따라 검색 결과를 필터링할 수 있습니다.  **RegEx** 키워드를 사용하면 이 필터에 대한 정규식을 지정할 수 있습니다.  
 
 이 문서에서는 Log Analytics에서 사용하는 정규식 구문에 대한 세부 정보를 제공합니다.
 
 
 ## <a name="regex-keyword"></a>RegEx 키워드
 
-다음 구문을 통해 로그 검색에서 **RegEx** 키워드를 사용합니다.  이 문서에서 다른 섹션을 사용하여 정규식 자체의 구문을 확인할 수 있습니다. 
+다음 구문을 통해 로그 검색에서 **RegEx** 키워드를 사용합니다.  이 문서에서 다른 섹션을 사용하여 정규식 자체의 구문을 확인할 수 있습니다.
 
     field:Regex("Regular Expression")
     field=Regex("Regular Expression")
 
-예를 들어, *경고* 또는 *오류* 유형의 경고 레코드를 반환하는 정규식을 사용하려면 다음 로그 검색을 사용합니다. 
+예를 들어, *경고* 또는 *오류* 유형의 경고 레코드를 반환하는 정규식을 사용하려면 다음 로그 검색을 사용합니다.
 
     Type=Alert AlertSeverity=RegEx("Warning|Error")
 
 ## <a name="partial-matches"></a>부분 일치
 정규식은 속성의 전체 텍스트와 일치해야 합니다.  부분 일치는 레코드를 반환하지 않습니다.  예를 들어, srv01.contoso.com이라는 컴퓨터에서 레코드를 반환하려고 시도한 경우 다음 로그 검색은 레코드를 반환**하지** 않습니다.
 
-    Computer=RegEx("srv..") 
+    Computer=RegEx("srv..")
 
-이름의 첫 번째 부분만 정규식과 일치하기 때문입니다.  다음 두 개의 로그 검색은 전체 이름과 일치하기 때문에 이 컴퓨터에서 레코드를 반환합니다. 
+이름의 첫 번째 부분만 정규식과 일치하기 때문입니다.  다음 두 개의 로그 검색은 전체 이름과 일치하기 때문에 이 컴퓨터에서 레코드를 반환합니다.
 
     Computer=RegEx("srv..@")
-    Computer=RegEx("srv...contoso.com") 
+    Computer=RegEx("srv...contoso.com")
 
 ## <a name="characters"></a>문자
 다른 문자를 지정합니다.

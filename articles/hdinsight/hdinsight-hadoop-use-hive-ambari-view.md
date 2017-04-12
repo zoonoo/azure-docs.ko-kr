@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: a846d5a70451ed3082b90d87b90bef0eb6da5993
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 511d6dd1933f44cd0cb5ba800972a7c112a24c04
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -37,7 +37,7 @@ Ambari는 Linux 기반 HDInsight 클러스터와 함께 제공되는 관리 및 
 * Linux 기반 HDInsight 클러스터입니다. 클러스터를 만드는 방법에 대한 정보는 [Linux 기반 HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="open-the-hive-view"></a>Hive 뷰를 엽니다.
 
@@ -68,7 +68,7 @@ Azure Portal에서 HDInsight 클러스터를 선택한 다음 **빠른 링크** 
 Hive 보기에서 다음 단계를 사용하여 Hive 쿼리를 실행합니다.
 
 1. 페이지의 **쿼리 편집기** 섹션에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
-   
+
     ```hiveql
     DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -76,12 +76,12 @@ Hive 보기에서 다음 단계를 사용하여 Hive 쿼리를 실행합니다.
     STORED AS TEXTFILE LOCATION '/example/data/';
     SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
     ```
-   
+
     이러한 문은 다음 작업을 수행합니다.
-   
+
    * **DROP TABLE** - 테이블이 이미 있는 경우 테이블과 데이터 파일을 삭제합니다.
 
-   * **CREATE EXTERNAL TABLE** - Hive에서 새 “외부” 테이블을 만듭니다. 
+   * **CREATE EXTERNAL TABLE** - Hive에서 새 “외부” 테이블을 만듭니다.
    외부 테이블은 테이블 정의만 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
 
    * **ROW FORMAT** - 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
@@ -89,43 +89,43 @@ Hive 보기에서 다음 단계를 사용하여 Hive 쿼리를 실행합니다.
    * **STORED AS TEXTFILE LOCATION** - 데이터가 저장된 위치(example/data 디렉터리) 및 텍스트로 저장되었음을 Hive에 알립니다.
 
    * **SELECT** - t4 열에 ERROR 값이 포함된 모든 행의 수를 선택합니다.
-     
+
      > [!NOTE]
      > 외부 원본에서 기본 데이터를 업데이트하길 원하는 경우에는 외부 테이블을 사용해야 합니다. 예: 자동화된 데이터 업로드 프로세스나 또 다른 MapReduce 작업 사용 외부 테이블을 삭제하면 데이터는 삭제되지 *않고* 테이블 정의만 삭제됩니다.
 
 2. 쿼리를 시작하려면 [쿼리 편집기] 아래쪽의 **실행** 단추를 사용합니다. 주황색으로 바뀌고 텍스트가 **실행 중지**로 변경됩니다. 쿼리 편집기 아래에 **쿼리 프로세스 결과** 섹션이 나타나고 작업에 대한 정보가 표시될 것입니다.
-   
+
    > [!IMPORTANT]
    > 일부 브라우저에서는 로그 또는 결과 정보가 올바르게 새로 고침되지 않을 수 있습니다. 작업을 실행했는데 로그가 업데이트되거나 결과가 반환되지 않고 작업이 계속 실행되는 것 같으면 Mozilla FireFox 또는 Google Chrome를 사용해 보세요.
- 
+
 3. 쿼리가 완료되면 **쿼리 프로세스 결과** 섹션에 작업 결과가 표시됩니다. 쿼리가 완료되면 **실행 중지** 단추도 녹색 **실행** 단추로 다시 바뀝니다. **결과** 탭에는 다음 정보가 표시됩니다.
-   
+
         sev       cnt
         [ERROR]   3
-   
+
     **로그** 탭을 사용하면 작업에서 생성된 로깅 정보를 볼 수 있습니다.
-   
+
    > [!TIP]
    > **프로세스 결과 쿼리** 섹션 맨 위 왼쪽에서 **결과 저장** 드롭다운 대화 상자를 사용하여 결과를 다운로드하거나 저장할 수 있습니다.
 
 4. 이 쿼리의 처음 네 줄을 선택한 다음 **실행**을 선택합니다. 작업이 완료되어도 결과가 없습니다. 쿼리의 일부를 선택했을 때 **실행** 단추를 사용하면 선택한 문만 실행됩니다. 이 예에서는 테이블에서 행을 검색하는 최종 문이 선택한 네 줄에 포함되지 않았습니다. 해당 줄만 선택하고 **실행**단추를 사용하면 예상된 결과가 표시됩니다.
 
 5.새 워크시트를 추가하려면 **쿼리 편집기** 아래쪽의 **새 워크시트** 단추를 사용합니다. 새 워크시트에 다음 HiveQL 문을 입력합니다.
-   
+
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
     ```
-   
-    These statements perform the following actions:
-   
+
+  이러한 문은 다음 작업을 수행합니다.
+
    * **CREATE TABLE IF NOT EXISTS** - 테이블이 아직 없는 경우 테이블을 만듭니다. **EXTERNAL** 키워드가 사용되지 않으므로 내부 테이블이 생성됩니다. 내부 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에서 전적으로 관리됩니다. 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 
    * **STORED AS ORC** - 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
 
    * **덮어쓰기 삽입... SELECT** - [ERROR]가 포함된 **log4jLogs** 테이블에서 행을 선택한 다음 **errorLogs** 테이블에 데이터를 삽입합니다.
-     
-     **실행** 단추를 사용하여 해당 쿼리를 실행합니다. 쿼리가&0;개의 행을 반환할 때 **결과** 탭에는 어떠한 정보도 포함되지 않습니다. 쿼리가 완료되면 상태는 **SUCCEEDED**로 표시됩니다.
+
+     **실행** 단추를 사용하여 해당 쿼리를 실행합니다. 쿼리가 0개의 행을 반환할 때 **결과** 탭에는 어떠한 정보도 포함되지 않습니다. 쿼리가 완료되면 상태는 **SUCCEEDED**로 표시됩니다.
 
 ### <a name="hive-settings"></a>Hive 설정
 
@@ -174,13 +174,13 @@ Hive 보기에서 다음 단계를 사용하여 Hive 쿼리를 실행합니다.
 ## <a name="saved-queries"></a>저장된 쿼리
 
 1. 쿼리 편집기에서 워크시트를 만들고 다음 쿼리를 입력합니다.
-   
+
     ```hiveql
     SELECT * from errorLogs;
     ```
-   
+
     작동하는지 확인하려면 쿼리를 실행합니다. 결과는 다음 예제와 유사합니다.
-   
+
         errorlogs.t1     errorlogs.t2     errorlogs.t3     errorlogs.t4     errorlogs.t5     errorlogs.t6     errorlogs.t7
         2012-02-03     18:35:34     SampleClass0     [ERROR]     incorrect     id     
         2012-02-03     18:55:54     SampleClass1     [ERROR]     incorrect     id     
@@ -235,5 +235,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
-
 

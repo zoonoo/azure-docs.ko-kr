@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 4ad7970b94949bf105ddf549279d4d1bcbad5f40
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: c92eec471cf080a651d6f12e9db9fa391beabd2a
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-use-your-office-365-subscription-with-azure-remoteapp"></a>Azure RemoteApp으로 Office 365 구독을 사용하는 방법
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -117,10 +118,5 @@ Office 365 ProPlus를 포함하는 컬렉션에 사용자 지정 이미지를 �
 * [Office 배포 도구를 사용하여 Office 365 제품에 대한 간편 실행 배포](https://technet.microsoft.com/library/JJ219423.aspx)
 * [Office 배포 도구를 사용하여 Office 365 ProPlus 배포 및 업데이트](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (동영상)
 * [Office 365 ProPlus에 대한 업데이트 설정 구성](https://technet.microsoft.com/library/dn761708.aspx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

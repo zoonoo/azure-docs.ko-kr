@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 590cb831ad265d9b83713f573c92d8675e64db3d
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 7b4ae9281bca20949c37b2c797e4a1a677665929
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -55,7 +55,7 @@ Azure Storage Blob 트리거를 통해 저장소 컨테이너에서 새롭고 �
 다음 사항에 유의하세요.
 
 * `path`에 대해서는 [Name patterns](#pattern)를 참조하여 Blob 이름 패턴을 형성하는 방법에 대해 알아보세요.
-* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성]()을 참조하세요. 
+* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md)을 참조하세요. 
 
 소비 계획을 실행할 때 함수 앱이 유휴 상태가 되는 경우 새 Blob 처리에 하루 최대 10분이 걸릴 수 있습니다. 함수 앱이 실행되면 Blob이 더 신속하게 처리됩니다. 이 초기 지연을 방지하려면 Always On을 활성화하여 App Service 계획을 사용하거나 다른 메커니즘을 사용하여 Blob 이름을 포함하는 큐 메시지처럼 Blob 처리를 트리거합니다. 
 
@@ -227,7 +227,7 @@ Azure Storage Blob 입력 바인딩을 사용하면 함수의 저장소 컨테�
 다음 사항에 유의하세요.
 
 * `path`는 컨테이너 이름과 Blob 이름을 포함해야 합니다. 예를 들어 함수에 하나의 [큐 트리거](functions-bindings-storage-queue.md)가 있는 경우 `"path": "samples-workitems/{queueTrigger}"`를 사용하여 트리거 메시지에서 지정된 Blob 이름과 일치하는 이름을 가진 Blob을 `samples-workitems` 컨테이너에서 가리키도록 할 수 있습니다.   
-* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성]()을 참조하세요. 
+* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md)을 참조하세요. 
 
 <a name="inputusage"></a>
 
@@ -340,7 +340,7 @@ Azure Storage Blob 출력 바인딩을 사용하면 함수의 저장소 컨테�
 다음 사항에 유의하세요.
 
 * `path`는 작성할 컨테이너 이름과 Blob 이름을 포함해야 합니다. 예를 들어 함수에 하나의 [큐 트리거](functions-bindings-storage-queue.md)가 있는 경우 `"path": "samples-workitems/{queueTrigger}"`를 사용하여 트리거 메시지에서 지정된 Blob 이름과 일치하는 이름을 가진 Blob을 `samples-workitems` 컨테이너에서 가리키도록 할 수 있습니다.   
-* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성]()을 참조하세요. 
+* `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md)을 참조하세요. 
 
 <a name="outputusage"></a>
 

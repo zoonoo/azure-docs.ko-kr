@@ -16,9 +16,9 @@ ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
-ms.openlocfilehash: f9c53a981376cf534c50d80ae2f60fc01f193e4d
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: ceb2d7a28cc416186f3faf1dc5228fce161c34c5
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -35,10 +35,10 @@ SQL DB용 탄력적 데이터베이스 트랜잭션은 여러 개의 다른 SQL 
 
 * Azure의 다중 데이터베이스 응용 프로그램: 이 시나리오의 경우 데이터가 SQL DB의 여러 데이터베이스에 걸쳐 수직으로 분할되어 있고 다른 종류의 데이터가 다른 데이터베이스에 상주합니다. 일부 작업은 둘 이상의 데이터베이스에 보관되는 데이터에 대한 변경을 필요로 합니다. 응용 프로그램은 여러 데이터베이스에 걸쳐 변경을 조정하고 원자성을 보장하기 위해 탄력적 데이터베이스 트랜잭션을 사용합니다.
 * Azure의 분할된 데이터베이스 응용 프로그램: 이 시나리오의 경우, 데이터 계층은 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) 또는 자체 분할을 사용하여 SQL DB의 여러 데이터베이스에 걸쳐있는 데이터를 수평적으로 분할합니다. 한 가지 주요한 사용 사례는 여러 테넌트에 변경이 미칠 때 분할된 다중 테넌트 응용 프로그램에 원자성 변경을 수행해야 하는 경우입니다. 서로 다른 데이터베이스에 상주하는 하나의 테넌트에서 다른 테넌트로 전송하는 인스턴스를 생각해 볼 수 있습니다. 두 번째 사례는 대규모 테넌트에 필요한 용량을 공급하기 위한 세분화된 분할이며, 일반적으로 원자성 작업이 동일한 테넌트의 여러 데이터베이스에까지 결과적으로 영향을 미쳐야 하는 필요성을 수반합니다. 세 번째 사례는 여러 데이터베이스에 걸쳐 복제되는 참조 데이터에 대한 원자성 업데이트입니다. 이러한 방식의 트랜잭션 처리된, 원자성, 작업은 미리 보기를 사용하여 여러 데이터베이스에 걸쳐 조정될 수 있습니다.
-  탄력적 데이터베이스 트랜잭션은 여러 데이터베이스에 걸쳐 트랜잭션 원자성을 보장하기 위해&2;단계 커밋을 사용합니다. 이것은 단일 트랜잭션 내에 한 번에 100개 미만의 데이터베이스가 관여되는 트랜잭션에 적합합니다. 이 한도가 강제로 적용되지는 않지만, 한도를 초과하는 경우 탄력적 데이터베이스의 성능 및 성공률이 불리해질 수 있다는 것을 예상해야 합니다.
+  탄력적 데이터베이스 트랜잭션은 여러 데이터베이스에 걸쳐 트랜잭션 원자성을 보장하기 위해 2단계 커밋을 사용합니다. 이것은 단일 트랜잭션 내에 한 번에 100개 미만의 데이터베이스가 관여되는 트랜잭션에 적합합니다. 이 한도가 강제로 적용되지는 않지만, 한도를 초과하는 경우 탄력적 데이터베이스의 성능 및 성공률이 불리해질 수 있다는 것을 예상해야 합니다.
 
 ## <a name="installation-and-migration"></a>설치 및 마이그레이션
-SQL DB의 탄력적 데이터베이스 트랜잭션 기능은 .NET 라이브러리 System.Data.dll 및 System.Transactions.dll 업데이트를 통해 제공됩니다. DLL은 원자성을 보장하기 위해 필요한 경우&2;단계 커밋이 사용되도록 합니다. 탄력적 데이터베이스 트랜잭션을 사용하여 응용 프로그램 개발을 시작하려면 [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) 이상 버전을 설치합니다. 이전 버전의 .NET framework를 실행하면, 트랜잭션이 분산 트랜잭션으로 승격하지 못하고 예외가 발생합니다.
+SQL DB의 탄력적 데이터베이스 트랜잭션 기능은 .NET 라이브러리 System.Data.dll 및 System.Transactions.dll 업데이트를 통해 제공됩니다. DLL은 원자성을 보장하기 위해 필요한 경우 2단계 커밋이 사용되도록 합니다. 탄력적 데이터베이스 트랜잭션을 사용하여 응용 프로그램 개발을 시작하려면 [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) 이상 버전을 설치합니다. 이전 버전의 .NET framework를 실행하면, 트랜잭션이 분산 트랜잭션으로 승격하지 못하고 예외가 발생합니다.
 
 설치 후에는 SQL DB 연결과 함께 System.Transactions에 분산 트랜잭션 API를 사용할 수 있습니다. 기존 MSDTC 응용 프로그램에서 이러한 API를 사용하고 있는 경우에는 4.6.1 Framework를 설치한 후에 .NET 4.6에 대한 기존 응용 프로그램을 간단히 다시 빌드합니다. 프로젝트가 .NET 4.6을 대상으로 하는 경우에는, 새 Framework 버전에서 업데이트된 DLL이 자동으로 사용되고 분산 트랜잭션 API 호출이 SQL DB 연결과 함께 성공합니다.
 
@@ -143,7 +143,6 @@ SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이�
 
 * SQL DB의 데이터베이스 간 트랜잭션만 지원됩니다. 다른 [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) 리소스 공급자 및 SQL DB 이외의 데이터베이스는 탄력적 데이터베이스 트랜잭션에 참여할 수 없습니다. 탄력적 데이터베이스 트랜잭션은 온-프레미스 SQL Server와 Azure SQL 데이터베이스 사이에서 확장될 수 없습니다. 온-프레미스 분산 트랜잭션을 위해서는 MSDTC를 계속 사용하세요. 
 * .NET 응용 프로그램의 클라이언트 조정 트랜잭션만 지원됩니다. BEGIN DISTRIBUTED TRANSACTION 같은 T-SQL에 대한 서버 쪽 지원이 계획되어 있지만 아직 제공되지 않습니다. 
-* Azure SQL DB V12의 데이터베이스만 지원됩니다.
 * WCF 서비스에서 트랜잭션은 지원되지 않습니다. 예를 들어 트랜잭션을 실행하는 WCF 서비스 메서드가 있습니다. 트랜잭션 범위 내로 호출을 묶으면 [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception)으로 실패합니다.
 
 ## <a name="next-steps"></a>다음 단계

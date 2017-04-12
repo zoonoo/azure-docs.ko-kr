@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 03/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: db01dd7ff7590c6cb43b5f8bc39674f585160856
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 10e2f35bdaf1b6e00e3d8dde34dd5809a89cde30
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -37,18 +37,18 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 * Azure HDInsight(HDInsight의 Hadoop) 클러스터(Windows 또는 Linux 기반)
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 * Visual Studio 2012, 2013, 2015 또는 2017.
 
 ## <a name="create-the-application"></a>응용 프로그램 만들기
 
-HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 
+HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다.
 
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다.
 
 2. 새 프로젝트에서 다음 값을 입력하거나 선택합니다.
-   
+
    | 속성 | 값 |
    | ------ | ------ |
    | Category | Templates/Visual C#/Windows |
@@ -60,11 +60,11 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 4. **도구** 메뉴에서 **라이브러리 패키지 관리자** 또는 **Nuget 패키지 관리자**를 선택한 다음 **패키지 관리자 콘솔**을 선택합니다.
 
 5. .NET SDK 패키지를 설치하려면 다음 명령을 사용합니다.
-   
+
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
 6. 솔루션 탐색기에서 **Program.cs** 를 두 번 클릭하여 엽니다. 기존 코드를 다음으로 바꿉니다.
-   
+
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;
     using Microsoft.Azure.Management.HDInsight.Job.Models;
@@ -117,7 +117,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
         }
     }
     ```
-    
+
 7. 응용 프로그램을 시작하려면 **F5** 키를 누릅니다.
 
 8. 응용 프로그램을 종료하려면 **ENTER** 키를 누릅니다.

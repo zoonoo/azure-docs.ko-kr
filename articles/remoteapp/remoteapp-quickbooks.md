@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4015aede386913607df8a9499c0f08c414ee6959
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 17fbef55920c4f06f895739b89a0acc6ff08bd9d
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-do-you-deploy-quickbooks-in-azure-remoteapp"></a>Azure RemoteApp에서 QuickBooks를 배포하려면 어떻게 해야 할까요?
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -48,10 +49,5 @@ ms.openlocfilehash: 4015aede386913607df8a9499c0f08c414ee6959
 
 ## <a name="deployment-architecture"></a>배포 아키텍처
 ![QuickBooks + Azure RemoteApp 배포](./media/remoteapp-quickbooks/ra-quickbooks.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

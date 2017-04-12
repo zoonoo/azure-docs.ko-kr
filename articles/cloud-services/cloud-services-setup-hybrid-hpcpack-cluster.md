@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: a0e80acad4e8db2177e699f90f7296c64b38e718
-ms.openlocfilehash: da7102882b9dcf7db1285c0ec004ce1ad3859853
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 0fcfcc53641ebdf8a668b353db8eebb3bc64795d
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,7 +29,7 @@ Microsoft HPC Pack 2012 R2 및 Azure를 사용하여 소규모 하이브리드 H
 
 이 자습서에서는 Azure의 확장 가능한 주문형 계산 리소스를 사용하여 계산이 많이 사용되는 응용 프로그램을 실행하는 방법을 보여 줍니다. 이 방법을 클러스터 "클라우드로 버스트"라고도 합니다.
 
-이 자습서는 이전에 계산 클러스터나 HPC Pack 2012 R2를 사용한 경험이 없다고 가정합니다. 데모를 위해 하이브리드 계산 클러스터를 신속하게 배포하도록 도와주는 역할만 합니다. 하이브리드 HPC Pack 클러스터를 프로덕션 환경에 대규모로 배포하거나 HPC Pack 2016을 사용하는 단계 및 고려 사항은 [자세한 지침](http://go.microsoft.com/fwlink/p/?LinkID=200493)을 참조하세요. Azure Virtual Machine의 자동화된 클러스터 배포를 포함한 HPC Pack을 사용한 다른 시나리오의 경우 [Azure에서 Microsoft HPC Pack을 사용하는 HPC 클러스터 옵션](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+이 자습서는 이전에 계산 클러스터나 HPC Pack 2012 R2를 사용한 경험이 없다고 가정합니다. 데모를 위해 하이브리드 계산 클러스터를 신속하게 배포하도록 도와주는 역할만 합니다. 하이브리드 HPC Pack 클러스터를 프로덕션 환경에 대규모로 배포하거나 HPC Pack 2016을 사용하는 단계 및 고려 사항은 [자세한 지침](http://go.microsoft.com/fwlink/p/?LinkID=200493)을 참조하세요. Azure Virtual Machine의 자동화된 클러스터 배포를 포함한 HPC Pack을 사용한 다른 시나리오의 경우 [Azure에서 Microsoft HPC Pack을 사용하는 HPC 클러스터 옵션](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure 구독** - Azure 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/) 을 만들 수 있습니다.
@@ -191,7 +192,7 @@ HPC Cluster Manager를 사용하여 Azure 노드를 배포하고 작업을 제�
     사용 가능한 크기에 대한 자세한 내용은 [클라우드 서비스에 적합한 크기](cloud-services-sizes-specs.md)를 참조하세요.
 4. **Completing the Add Node Wizard** 페이지에서 **Finish**를 클릭합니다.
    
-     이제 **AzureCN-0001** 및 **AzureCN-0002**라는 Azure 노드&2;개가 HPC Cluster Manager에 표시됩니다. 둘 다 **배포되지 않음** 상태입니다.
+     이제 **AzureCN-0001** 및 **AzureCN-0002**라는 Azure 노드 2개가 HPC Cluster Manager에 표시됩니다. 둘 다 **배포되지 않음** 상태입니다.
    
     ![추가된 노드][add_node3]
 
@@ -269,7 +270,7 @@ Azure에서 클러스터 리소스를 사용하려면 HPC Cluster Manager를 통
 ## <a name="next-steps"></a>다음 단계
 * [HPC Pack](https://technet.microsoft.com/library/cc514029)설명서를 참조하세요.
 * 대규모 하이브리드 HPC Pack 클러스터 배포를 설정하려면 [Microsoft HPC Pack을 사용하여 Azure 작업자 역할 인스턴스로 버스트](http://go.microsoft.com/fwlink/p/?LinkID=200493)를 참조하세요.
-* Azure Resource Manager 템플릿 사용 등 Azure에서 HPC Pack 클러스터를 만드는 다른 방법은 [Azure에서 Microsoft HPC Pack을 사용하는 HPC 클러스터 옵션](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+* Azure Resource Manager 템플릿 사용 등 Azure에서 HPC Pack 클러스터를 만드는 다른 방법은 [Azure에서 Microsoft HPC Pack을 사용하는 HPC 클러스터 옵션](../virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 * Azure의 큰 계산 및 HPC 클라우드 솔루션 범위에 대한 자세한 내용은 [Azure에서의 큰 계산: 배치 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스](../batch/big-compute-resources.md) 를 참조하세요.
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
@@ -308,9 +309,4 @@ Azure에서 클러스터 리소스를 사용하려면 HPC Cluster Manager를 통
 [stop_node2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node2.png
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

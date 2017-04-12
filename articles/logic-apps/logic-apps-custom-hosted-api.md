@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 05/31/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: fc509ef8b30fadb6e026f346d4adbd6ef759624a
-ms.openlocfilehash: 74aae9f757f56e94b583069a1fdee7efaafe467c
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 9d169bcc0b1e89866d04cced474ee9c0e6ba6952
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -28,7 +28,7 @@ Azure Logic Apps에는 다양한 서비스에 대해 40개가 넘는 커넥터�
 
 ## <a name="deploy-your-web-app"></a>웹앱 배포
 
-우선 Azure App Service에서 API를 웹앱으로 배포해야 합니다. [ASP.NET 웹앱을 만들 때의 기본 배포](../app-service-web/web-sites-dotnet-get-started.md)에 대해 자세히 알아보세요. 논리 앱에서 API를 호출할 수 있지만 최상의 경험을 위해 논리 앱 작업과 쉽게 통합하도록 Swagger 메타데이터를 추가하는 것이 좋습니다. [Swagger 메타데이터 추가](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui)에 대해 자세히 알아보세요.
+우선 Azure App Service에서 API를 웹앱으로 배포해야 합니다. [ASP.NET 웹앱을 만들 때의 기본 배포](../app-service-web/app-service-web-get-started-dotnet.md)에 대해 자세히 알아보세요. 논리 앱에서 API를 호출할 수 있지만 최상의 경험을 위해 논리 앱 작업과 쉽게 통합하도록 Swagger 메타데이터를 추가하는 것이 좋습니다. [Swagger 메타데이터 추가](../app-service-api/app-service-api-dotnet-get-started.md#use-swagger-api-metadata-and-ui)에 대해 자세히 알아보세요.
 
 ### <a name="api-settings"></a>API 설정
 

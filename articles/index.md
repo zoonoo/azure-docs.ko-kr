@@ -4,9 +4,9 @@ hide_bc: true
 title: "Microsoft Azure 설명서"
 description: "Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다."
 translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 355f6d4457668459676aeafb39701e65bb6673df
-ms.lasthandoff: 04/08/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 6156ec5732cb9f24d762afe12a678fabe9c93069
+ms.lasthandoff: 04/10/2017
 
 ---
 <div id="main" class="v2">
@@ -2600,10 +2600,10 @@ ms.lasthandoff: 04/08/2017
                                                     <a href="https://pypi.python.org/pypi/azure">Python SDK 가져오기</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/index">시작</a>
+                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/index">API 참조</a>
+                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API 참조</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/resources/samples/?platform=python">샘플 받기</a>
@@ -2809,7 +2809,7 @@ ms.lasthandoff: 04/08/2017
                                                     <a href="http://aka.ms/webpi-azure-cli">Windows용 Azure CLI 다운로드</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/azure-cli-arm-commands/index">참조</a>
+                                                    <a href="/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">참조</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2832,7 +2832,7 @@ ms.lasthandoff: 04/08/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/azure-tools/index">Azure용 Visual Studio 도구</a>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Azure용 Visual Studio 도구</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">다운로드</a>
@@ -2904,10 +2904,10 @@ ms.lasthandoff: 04/08/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com/index">Storage 탐색기</a>
+                                                    <a href="http://storageexplorer.com">Storage 탐색기</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/index">시작</a>
+                                                    <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">시작</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Linux용 다운로드</a>

@@ -15,14 +15,15 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 593718b0d0d99f813321cb9ad6a7241e2315f6d0
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 41c8a13ebd008ed4f9d8a5399bf8e272bf0fd7b2
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="update-a-collection-in-azure-remoteapp"></a>Azure RemoteApp에서 컬렉션 업데이트
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -41,10 +42,5 @@ ms.openlocfilehash: 593718b0d0d99f813321cb9ad6a7241e2315f6d0
    * **업데이트 후 사용자에게 60분의 시간 제공**. 업데이트가 완료되면 Azure RemoteApp에서 현재 앱을 사용 중인 사용자에게 작업을 저장하고 로그오프 했다가 다시 로그인하라는 메시지를 표시합니다. 60분이 지난 후에도 로그오프하지 않은 모든 사용자는 자동으로 로그오프됩니다. 사용자는 즉시 다시 로그인할 수 있습니다.
    * **사용자를 즉시 로그아웃**. 업데이트가 완료되면 경고 없이 모든 사용자를 자동으로 로그오프합니다. 이 옵션을 선택하면 사용자가 데이터를 잃을 수 있습니다. 그러나 즉시 앱에 다시 연결하는 것은 가능합니다.
 6. 확인 표시를 클릭하여 업데이트를 시작합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

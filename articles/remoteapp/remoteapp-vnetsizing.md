@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 0639e19423adc842a708982997852fb8d10df779
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 9375981db64ec4a1ae523e958423b5f5787cec33
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="sizing-information-for-a-vnet-in-azure-remoteapp"></a>Azure RemoteApp의 VNET에 대한 크기 정보
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -33,10 +34,5 @@ VNET(가상 네트워크)에서 Azure RemoteApp을 사용할 경우 RemoteApp에
 
 * [개인 VNET에서 Azure VNET으로 마이그레이션](remoteapp-migratevnet.md)
 * [Azure RemoteApp과 함께 사용하기 위해 Azure VNET의 유효성을 검사](remoteapp-vnet.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

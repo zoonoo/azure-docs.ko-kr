@@ -15,9 +15,9 @@ ms.workload: storage
 ms.date: 03/07/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ab1a58aab138cc81b25731a9454b083d54ded81
-ms.openlocfilehash: eff408bc70288ada1039df7432f43b02420f2c37
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: bffc77ba9e0413356ac366e85f2accb3c2087192
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/15/2017
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>가상 컴퓨터 디스크에 대한 확장성 목표
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-자세한 내용은 [Windows VM 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Linux VM 크기](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+자세한 내용은 [Windows VM 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Linux VM 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ## <a name="managed-virtual-machine-disks"></a>관리되는 가상 컴퓨터 디스크
 

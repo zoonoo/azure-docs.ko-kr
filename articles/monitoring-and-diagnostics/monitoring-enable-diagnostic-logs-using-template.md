@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 2/14/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: f4e7b1f2ac7f10748473605eacee71bf0cd538e6
-ms.openlocfilehash: 2b28045c3ec32a703c62aeb509777750342ffbb3
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 87403d68bfb57645417d6255329af7fd0d757f50
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -26,7 +27,8 @@ ms.openlocfilehash: 2b28045c3ec32a703c62aeb509777750342ffbb3
 Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방법은 리소스 형식에 따라 다릅니다.
 
 * **비-계산** 리소스(예를 들어, 네트워크 보안 그룹, 논리 앱, 자동화)는 [이 문서에 설명된 진단 설정](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)을 사용합니다.
-* **계산** 리소스(WAD/LAD 기반)는 [이 문서에 설명된 WAD/LAD 구성 파일](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)을 사용합니다..
+* <seg>
+  **계산** 리소스(WAD/LAD 기반)는 [이 문서에 설명된 WAD/LAD 구성 파일](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)을 사용합니다..</seg>
 
 이 문서에서는 두 방법 중 하나를 사용하여 진단을 구성하는 방법을 설명합니다.
 
@@ -231,19 +233,14 @@ Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방�
 3. 모든 XML 문자를 올바르게 이스케이프하여 WADCfg XML 파일의 내용을 XMLCfg 속성에 추가합니다.
 
 > [!WARNING]
-> 이 마지막 단계는 이해하기 어려울 수 있습니다. [이 문서를 참조](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) 하세요.
+> 이 마지막 단계는 이해하기 어려울 수 있습니다. [이 문서를 참조](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) 하세요.
 > 
 > 
 
-샘플을 포함한 전체 과정은 [이 문서](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 설명되어 있습니다.
+샘플을 포함한 전체 과정은 [이 문서](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 설명되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 진단 로그에 대해 자세히 알아보기](monitoring-overview-of-diagnostic-logs.md)
 * [이벤트 허브로 Azure 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

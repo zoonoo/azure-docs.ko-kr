@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 96d88513eb4817b208d45883ed0c926921c7c10e
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델에서 Docker VM 확장을 사용하는 방법에 대한 정보는 [여기](../../virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델에서 Docker VM 확장을 사용하는 방법에 대한 정보는 [여기](../dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
-이 항목에서는 모든 플랫폼의 Azure CLI에서 서비스 관리(asm) 모드로 Docker VM 확장을 사용하여 VM을 만드는 방법을 설명합니다. [Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대한 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한없이 호스트하는 Docker VM을 만들 수 있습니다. 컨테이너와 해당 이점에 대한 간략한 설명을 확인하려면 [Docker 요약 화이트보드](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)를 참조하세요.
+이 항목에서는 모든 플랫폼의 Azure CLI에서 서비스 관리(asm) 모드로 Docker VM 확장을 사용하여 VM을 만드는 방법을 설명합니다. [Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대한 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한없이 호스트하는 Docker VM을 만들 수 있습니다. 컨테이너와 해당 이점에 대한 간략한 설명을 확인하려면 [Docker 요약 화이트보드](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)를 참조하세요.
 
 ## <a name="how-to-use-the-docker-vm-extension-with-azure"></a>Azure와 함께 Docker VM 확장을 사용하는 방법
 Azure와 함께 Docker VM 확장을 사용하려면 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-sdk-tools-xplat) (Azure CLI) 0.8.6 이상 버전을 설치해야 합니다(이 문서를 작성할 당시 현재 버전은 0.10.0임). Mac, Linux 및 Windows에 Azure CLI를 설치할 수 있습니다.
@@ -56,10 +56,10 @@ Azure CLI를 사용하려면 먼저 Azure 계정 자격 증명을 사용자 플�
 ### <a name="install-docker-and-use-the-docker-vm-extension-for-azure"></a>Docker 설치 및 Azure용 Docker VM 확장 사용
 사용자 컴퓨터에 Docker를 로컬로 설치하려면 [Docker 설치 지침](https://docs.docker.com/installation/#installation) 을 따르세요.
 
-Azure 가상 컴퓨터에서 Docker를 사용하려면 VM에 사용하는 Linux 이미지에 [Azure Linux VM 에이전트](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)가 설치되어 있어야 합니다. 현재 이 에이전트를 설치할 수 있는 이미지의 유형은 다음의 두 가지뿐입니다.
+Azure 가상 컴퓨터에서 Docker를 사용하려면 VM에 사용하는 Linux 이미지에 [Azure Linux VM 에이전트](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)가 설치되어 있어야 합니다. 현재 이 에이전트를 설치할 수 있는 이미지의 유형은 다음의 두 가지뿐입니다.
 
 * Azure 이미지 갤러리의 Ubuntu 이미지 또는
-* Azure Linux VM 에이전트를 설치 및 구성하여 만든 사용자 지정 Linux 이미지. Azure VM 에이전트로 사용자 지정 Linux VM을 빌드하는 방법에 대한 자세한 내용은 [Azure Linux VM 에이전트](../../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+* Azure Linux VM 에이전트를 설치 및 구성하여 만든 사용자 지정 Linux 이미지. Azure VM 에이전트로 사용자 지정 Linux VM을 빌드하는 방법에 대한 자세한 내용은 [Azure Linux VM 에이전트](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ### <a name="using-the-azure-image-gallery"></a>Azure 이미지 갤러리 사용
 Bash 또는 터미널 세션에서 다음 Azure CLI 명령을 사용하여 VM 갤러리에서 사용하려는 최신 Ubuntu 이미지를 찾아 다음을 입력하여 사용합니다.
@@ -181,5 +181,5 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 
 [Docker 사용자 가이드]:https://docs.docker.com/userguide/
 
-[Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작]:../../virtual-machines-linux-docker-compose-quickstart.md
+[Azure 가상 컴퓨터에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작]:../docker-compose-quickstart.md
 

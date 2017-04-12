@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 03/28/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 7dc79fad1a87f015475cd2643c8bec55192b2a15
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9782358e59e54070c26e05c641c02c4010af5f68
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -114,19 +114,23 @@ Exchange에서는 중요한 두 가지 범주의 프로토콜을 제공합니다
 
 ## <a name="supported-browsers"></a>지원되는 브라우저
 
-
-| OS                     | 브라우저                 | 지원 |
-| :--                    | :--                      | :-:     |
+| OS                     | 브라우저                 | 지원     |
+| :--                    | :--                      | :-:         |
 | Win 10                 | IE, Edge                 | ![확인][1] |
 | Win 10                 | Chrome                   | 서비스 예정 |
 | Win 8 / 8.1            | IE                       | ![확인][1] |
+| Win 8 / 8.1            | Chrome                   | ![확인][1] |
 | Win 7                  | IE                       | ![확인][1] |
-| iOS                     | Safari                   | ![확인][1] |
+| Win 7                  | Chrome                   | ![확인][1] |
+| iOS                    | Safari                   | ![확인][1] |
 | Android                | Chrome                   | ![확인][1] |
-| WinPhone               | IE, Edge                 | ![확인][1] |
+| Windows Phone          | IE, Edge                 | ![확인][1] |
 | Windows Server 2016    | IE, Edge                 | ![확인][1] |
+| Windows Server 2016    | Chrome                   | 서비스 예정 |
 | Windows Server 2012 R2 | IE                       | ![확인][1] |
-| Windows Server 2008 R2     | IE                       | ![확인][1] |
+| Windows Server 2012 R2 | Chrome                   | ![확인][1] |
+| Windows Server 2008 R2 | IE                       | ![확인][1] |
+| Windows Server 2008 R2 | Chrome                   | ![확인][1] |
 | Mac OS                 | Safari                   | ![확인][1] |
 | Mac OS                 | Chrome                   | 서비스 예정 |
 

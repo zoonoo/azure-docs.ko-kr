@@ -91,6 +91,7 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST (영문)](/rest/api/datafactory/)
+## [JSON](data-factory-json-scripting-reference.md)
 
 # 리소스
 ## [데이터 관리 게이트웨이에 대한 릴리스 정보](data-factory-gateway-release-notes.md)

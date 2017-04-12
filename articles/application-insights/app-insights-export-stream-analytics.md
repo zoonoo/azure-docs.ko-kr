@@ -4,7 +4,7 @@ description: "Stream Analytics를 사용하면 Application Insights에서 내보
 services: application-insights
 documentationcenter: 
 author: noamben
-manager: douge
+manager: carmonm
 ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209
 ms.service: application-insights
 ms.workload: tbd
@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: be47e9de14700b66a3f1c59554762303987f67be
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c1a76f521cbee673eb473d40bb15badd40cead5f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -135,7 +136,7 @@ ms.openlocfilehash: be47e9de14700b66a3f1c59554762303987f67be
 
 **회사 또는 학교 계정** 을 제공하여 스트림 분석에 Power BI 리소스에 대한 액세스 권한을 부여합니다. 그런 다음 출력 및 대상 Power BI 데이터 집합과 테이블의 이름을 지정합니다.
 
-![이름&3;개를 생성합니다.](./media/app-insights-export-stream-analytics/170.png)
+![이름 3개를 생성합니다.](./media/app-insights-export-stream-analytics/170.png)
 
 ## <a name="set-the-query"></a>쿼리 설정
 쿼리는 입력에서 출력으로 번역을 제어합니다.
@@ -238,11 +239,5 @@ Noam Ben Zeev에서는 Stream Analytics를 사용하여 내보낸 데이터를 �
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
-* [추가 샘플 및 연습](app-insights-code-samples.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

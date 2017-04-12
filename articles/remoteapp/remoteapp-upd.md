@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dd281ead7d2c06af98ea0baea31d897b5be0d9d7
-ms.openlocfilehash: 04d8031a4c5f06d56afc1d08d4a4fa5fb50f8a25
-ms.lasthandoff: 01/12/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: e1a1848bac1cb339569b813ae5c5e214e1ec2409
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-does-azure-remoteapp-save-user-data-and-settings"></a>Azure RemoteApp이 사용자 데이터와 설정을 저장하는 방법
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -62,7 +62,7 @@ Outlook 및 Azure RemoteApp 사용에 대한 자세한 내용은 [이 문서](re
 아니요. UPD를 네트워크 공유로 사용할 수 없습니다. 사용자가 Azure RemoteApp에 연결된 경우에만 UPD를 사용자가 사용할 수 있습니다.
 
 ## <a name="if-i-delete-a-user-from-a-collection-is-their-upd-deleted"></a>컬렉션에서 사용자를 삭제하면 해당 UPD가 삭제됩니까?
-아니요, 사용자를 삭제하는 경우 UPD를 자동으로 삭제하지 않으며, 대신 컬렉션을 삭제할 때까지 데이터를 저장합니다. 컬렉션을 삭제 한 후&90;일 동안 모든 UPD를 삭제합니다. 
+아니요, 사용자를 삭제하는 경우 UPD를 자동으로 삭제하지 않으며, 대신 컬렉션을 삭제할 때까지 데이터를 저장합니다. 컬렉션을 삭제 한 후 90일 동안 모든 UPD를 삭제합니다. 
 
 컬렉션에서 UPD를 삭제해야 할 경우 Azure RemoteApp에 문의하여 우리쪽에서 UPD를 삭제할 수 있습니다.
 
