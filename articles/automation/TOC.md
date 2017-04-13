@@ -1,16 +1,17 @@
 # 개요
 ## [Azure Automation이란?](automation-intro.md)
 # 시작
-## [Runbook 만들기](automation-first-runbook-graphical.md)
-## [PowerShell Runbook 만들기](automation-first-runbook-textual-powershell.md)
-## [PowerShell 워크플로 Runbook 만들기](automation-first-runbook-textual.md)
-## [역할 기반 액세스 제어 관리](automation-role-based-access-control.md)
+## Runbook 자습서
+### [그래픽 Runbook 만들기](automation-first-runbook-graphical.md)
+### [PowerShell Runbook 만들기](automation-first-runbook-textual-powershell.md)
+### [PowerShell 워크플로 Runbook 만들기](automation-first-runbook-textual.md)
 # 방법
-## 인증 설정
+## 인증 및 보안
 ### [Azure Automation의 인증](automation-security-overview.md)
-### [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)
-### [Azure 서비스 관리 및 Resource Manager](automation-sec-configure-aduser-account.md)
-### [Amazon 웹 서비스](automation-sec-configure-aws-account.md)
+### [Azure 실행 계정 구성](automation-sec-configure-azure-runas-account.md)
+### [Azure AD 사용자 계정 구성](automation-sec-configure-aduser-account.md)
+### [AWS로 인증 구성](automation-sec-configure-aws-account.md)
+### [역할 기반 액세스 제어 관리](automation-role-based-access-control.md)
 ## Runbook 만들기
 ### [Runbook 유형](automation-runbook-types.md)
 ### [Runbook 만들기 및 가져오기](automation-creating-importing-runbook.md)

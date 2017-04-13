@@ -81,6 +81,7 @@
 ### [명명된 네트워크](active-directory-known-networks-azure-portal.md)
 ### [보고서 마이그레이션](active-directory-reporting-migration.md)
 ### [보존](active-directory-reporting-retention.md)
+### [대기 시간](active-directory-reporting-latencies-azure-portal.md)
 ### [FAQ](active-directory-reporting-faq.md)
 ### 문제 해결
 #### [누락된 감사 데이터](active-directory-reporting-troubleshoot-missing-audit-data.md)
@@ -109,8 +110,9 @@
 ##### [비정상적인 로그인](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [암호 관리](active-directory-manage-passwords.md)
-### [고유 암호 업데이트](active-directory-passwords-update-your-own-password.md)
-### [셀프 서비스 암호 재설정 설정하기](active-directory-passwords.md)
+### [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
+### [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
+### [관리자가 셀프 서비스 암호 재설정을 사용하도록 설정](active-directory-passwords.md)
 ### [암호 관리 이해](active-directory-passwords-how-it-works.md)
 ### [정책 및 제한 사항 이해](active-directory-passwords-policy.md)
 ### 암호 재설정
@@ -155,19 +157,12 @@
 ### [앱에 대한 원격 액세스 제공](active-directory-application-proxy-get-started.md)
 #### [앱 프록시 사용](active-directory-application-proxy-enable.md)
 #### [커넥터 이해](application-proxy-understand-connectors.md)
-
-#### 앱 게시
-##### [Azure Portal](application-proxy-publish-azure-portal.md)
-##### [클래식 포털](active-directory-application-proxy-publish.md)
-
+#### [앱 게시](application-proxy-publish-azure-portal.md)
 #### [보안](application-proxy-security-considerations.md)
 #### [네트워크](application-proxy-network-topology-considerations.md)
 #### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
 #### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-
-#### 별도 네트워크에 게시
-##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
-##### [클래식 포털](active-directory-application-proxy-connectors.md)
+#### [별도 네트워크에 게시](active-directory-application-proxy-connectors-azure-portal.md)
 #### [프록시 서버](application-proxy-working-with-proxy-servers.md)
 #### [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)
 #### [앱 액세스](active-directory-appssoaccess-whatis.md)
@@ -181,6 +176,11 @@
 #### [자동 설치](active-directory-application-proxy-silent-installation.md)
 #### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [문제 해결](active-directory-application-proxy-troubleshoot.md)
+#### 클래식 포털 사용
+##### [커넥터 다운로드](application-proxy-enable-classic-portal.md)
+##### [앱 게시](active-directory-application-proxy-publish.md)
+##### [커넥터 사용](active-directory-application-proxy-connectors.md)
+
 
 ### 엔터프라이즈 앱 관리
 #### [사용자 할당](active-directory-coreapps-assign-user-azure-portal.md)
@@ -200,8 +200,21 @@
 #### [셀프 서비스 액세스](active-directory-self-service-application-access.md)
 #### [SSO 인증서](active-directory-sso-certs.md)
 #### [테넌트 제한 사항](active-directory-tenant-restrictions.md)
+#### [SCIM 프로비전 사용자 사용](active-directory-scim-provisioning.md)
 
-### [SCIM 프로비전 사용자 사용](active-directory-scim-provisioning.md)
+### [문제 해결](active-directory-application-troubleshoot-content-map.md)
+#### 응용 프로그램 개발
+##### [구성 및 등록](active-directory-application-dev-config-content-map.md)
+##### [개발](active-directory-application-dev-development-content-map.md)
+#### 응용 프로그램 관리
+##### [구성](active-directory-application-config-content-map.md)
+##### [로그인](active-directory-application-sign-in-content-map.md)
+##### [프로비전](active-directory-application-provisioning-content-map.md)
+##### [액세스 관리](active-directory-application-access-content-map.md)
+##### [액세스 패널](active-directory-application-access-panel-content-map.md)
+##### [응용 프로그램 프록시](active-directory-application-proxy-content-map.md)
+##### [조건부 액세스](active-directory-application-conditional-access-content-map.md)
+
 ### [문서 라이브러리](active-directory-apps-index.md)
 
 ## 디렉터리 관리
@@ -315,6 +328,12 @@
 ### [서명 해시 알고리즘 변경](active-directory-federation-sha256-guidance.md)
 
 ## [문제 해결](active-directory-troubleshooting.md)
+
+## Azure AD 개념 증명(PoC) 배포
+### [PoC 플레이 북: 소개](active-directory-playbook-intro.md)
+### [PoC 플레이 북: 재료](active-directory-playbook-ingredients.md)
+### [PoC 플레이 북: 구현](active-directory-playbook-implementation.md)
+### [PoC 플레이 북: 구성 요소](active-directory-playbook-building-blocks.md)
 
 
 # 참조

@@ -29,13 +29,13 @@
 ##### [테이블 바인딩](functions-bindings-storage-table.md)
 #### [타이머 트리거](functions-bindings-timer.md)
 #### [Twilio 출력 바인딩](functions-bindings-twilio.md)
+### [Functions 프록시 정의](functions-proxies.md)
 ### [Azure Portal에서 함수 앱 만들기](functions-create-function-app-portal.md) 
+### [예약된 정리 작업 수행하기](functions-scenario-database-table-cleanup.md)
 ### [Azure Functions 테스트](functions-test-a-function.md)
 ### [로컬에서 개발 및 디버깅](functions-run-local.md)
 ### [Azure Functions에 대한 모범 사례](functions-best-practices.md)
-### [Azure Functions을 사용하여 예약된 정리 작업 수행하기](functions-scenario-database-table-cleanup.md)
-### [OpenAPI 정의 만들기(미리 보기)](functions-api-definition-getting-started.md)
-#### [함수 참조의 OpenAPI 2.0](functions-api-definition.md)
+### [OpenAPI 정의 만들기](functions-api-definition-getting-started.md)
 
 ## 관리
 ### [함수 앱에 대한 설정 구성](functions-how-to-use-azure-function-app-settings.md)
