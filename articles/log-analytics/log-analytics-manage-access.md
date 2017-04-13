@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/09/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
@@ -78,7 +78,7 @@ Azure Portal에서 작업 영역에 대한 세부 정보를 볼 수 있습니다
 Log Analytics 작업 영역에 대한 액세스를 제어하는 두 가지 사용 권한 모델이 있습니다.
 
 1. 레거시 Log Analytics 사용자 역할
-2. [Azure 역할 기반 액세스](../active-directory/role-based-access-control-configure.md) 
+2. [Azure 역할 기반 액세스](../active-directory/role-based-access-control-configure.md)
 
 다음 표에서는 각 사용 권한 모델을 사용하여 설정할 수 있는 액세스를 요약합니다.
 
@@ -101,13 +101,14 @@ Log Analytics 포털에서 다음 활동을 수행하려면 Azure 권한도 필�
 | 관리 솔루션 추가 및 제거                        | 리소스 그룹 쓰기 <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | 가격 책정 계층 변경                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | *Backup* 및 *Site Recovery* 솔루션 타일에서 데이터 보기 | 관리자 / 공동 관리자 | 클래식 배포 모델을 사용하여 배포된 리소스 액세스 |
- 
+
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Azure 권한을 사용하여 Log Analytics에 대한 액세스 관리
 Azure 권한을 사용하여 Log Analytics 작업 영역에 대한 액세스 권한을 부여하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)의 단계를 따릅니다.
 
 사용자가 Log Analytics 작업 영역에서 Azure 읽기 권한 이상을 보유하는 경우 Log Analytics 작업 영역을 볼 때 **OMS 포털** 태스크를 클릭하여 OMS 포털을 열 수 있습니다.
 
-Log Analytics 포털을 열 때 레거시 Log Analytics 사용자 역할을 사용하도록 전환합니다. Log Analytics 포털에서 역할 할당이 없는 경우 서비스에서 [작업 영역에 대해 보유한 Azure 권한을 확인](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource)합니다. Log Analytics 포털의 역할 할당은 다음과 같이 사용하여 결정합니다.
+Log Analytics 포털을 열 때 레거시 Log Analytics 사용자 역할을 사용하도록 전환합니다. Log Analytics 포털에서 역할 할당이 없는 경우 서비스에서 [작업 영역에 대해 보유한 Azure 권한을 확인](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource)합니다.
+Log Analytics 포털의 역할 할당은 다음과 같이 사용하여 결정합니다.
 
 | 조건                                                   | 할당된 Log Analytics 사용자 역할 | 참고 |
 |--------------------------------------------------------------|----------------------------------|-------|
@@ -119,7 +120,7 @@ Log Analytics 포털을 열 때 레거시 Log Analytics 사용자 역할을 사�
 | CSP(클라우드 솔루션 공급자) 관리 구독용 <br> 로그인한 계정이 작업 영역에 연결된 Azure Active Directory 내에 있음 | 관리자 | 일반적으로 CSP의 고객 |
 | CSP(클라우드 솔루션 공급자) 관리 구독용 <br> 로그인한 계정이 작업 영역에 연결된 Azure Active Directory 내에 있지 않음 | 참여자 | 일반적으로 CSP |
 
-<sup>1</sup> 역할 정의에 대한 자세한 내용은 [Azure 권한](../active-directory/role-based-access-control-custom-roles.md)을 참조하세요. 역할을 평가할 경우 `*`의 작업이 `Microsoft.OperationalInsights/workspaces/*`와 동일하지 않습니다. 
+<sup>1</sup> 역할 정의에 대한 자세한 내용은 [Azure 권한](../active-directory/role-based-access-control-custom-roles.md)을 참조하세요. 역할을 평가할 경우 `*`의 작업이 `Microsoft.OperationalInsights/workspaces/*`와 동일하지 않습니다.
 
 Azure Portal에 대해 주의해야 할 사항:
 

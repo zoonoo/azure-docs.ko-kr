@@ -119,10 +119,10 @@ SQL Database의 탄력적 풀은 테넌트 격리 기능과 테넌트 데이터�
 | --- | --- |
 | 테넌트 격리 및 리소스 공유 |[탄력적 풀](sql-database-elastic-pool.md): SQL Database 리소스 풀을 할당하고 여러 데이터베이스 간에 해당 리소스를 공유합니다. 또한 개별 데이터베이스는 테넌트 워크로드 변화로 인한 용량 수요의 급등에 대처하기 위해 풀에서 리소스를 필요한 만큼 끌어올 수 있습니다. 탄력적 풀 자체는 필요에 따라 위로 또는 아래로 확장할 수 있습니다. 탄력적 풀은 풀 수준에서 관리, 모니터링 및 문제 해결을 위한 편의성도 제공합니다. |
 | 데이터베이스 전반에 대한 DevOps 편의성 |[탄력적 풀](sql-database-elastic-pool.md): 위의 설명을 참조하세요. |
-| [탄력적 쿼리](sql-database-elastic-query-horizontal-partitioning.md): 보고 또는 테넌트 전반에 대한 분석을 위해 데이터베이스 전반에 쿼리를 수행합니다. | |
-| [탄력적 작업:](sql-database-elastic-jobs-overview.md)데이터베이스 유지 관리 작업 또는 데이터베이스 스키마 변경 내용을 패키지한 다음 여러 데이터베이스에 안정적으로 배포합니다. | |
-| [탄력적 트랜잭션:](sql-database-elastic-transactions-overview.md)원자성 또는 격리 방식으로 여러 개의 데이터베이스에 대한 변경을 처리합니다. 응용 프로그램에서 다수의 데이터베이스 작업에 대해 "양자택일"을 보장해야 하는 경우에는 탄력적 트랜잭션이 필요합니다. | |
-| [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md): 데이터 배포를 관리하고 테넌트를 데이터베이스에 매핑합니다. | |
+| | [탄력적 쿼리](sql-database-elastic-query-horizontal-partitioning.md): 보고 또는 테넌트 전반에 대한 분석을 위해 데이터베이스 전반에 쿼리를 수행합니다. |
+| | [탄력적 작업:](sql-database-elastic-jobs-overview.md)데이터베이스 유지 관리 작업 또는 데이터베이스 스키마 변경 내용을 패키지한 다음 여러 데이터베이스에 안정적으로 배포합니다. |
+| | [탄력적 트랜잭션:](sql-database-elastic-transactions-overview.md)원자성 또는 격리 방식으로 여러 개의 데이터베이스에 대한 변경을 처리합니다. 응용 프로그램에서 다수의 데이터베이스 작업에 대해 "양자택일"을 보장해야 하는 경우에는 탄력적 트랜잭션이 필요합니다. |
+| | [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md): 데이터 배포를 관리하고 테넌트를 데이터베이스에 매핑합니다. |
 
 ## <a name="shared-models"></a>공유 모델
 앞서 언급했듯이, 대부분의 SaaS 공급자에게 공유 모델 방식은 테넌트 격리 문제는 물론 응용 프로그램 개발 및 유지 관리의 복잡성과 관련해서도 문제를 유발할 수 있습니다. 그러나 소비자에게 서비스를 직접 제공하는 다중 테넌트 응용 프로그램의 경우, 테넌트 격리 요구 사항은 비용 최소화만큼 우선 순위가 높지 않을 수 있습니다. 이 경우에는 비용을 줄이기 위해서 하나 이상의 데이터베이스에 높은 밀도로 테넌트를 압축할 수 있습니다. 단일 데이터베이스 또는 다수의 분할된 데이터베이스를 사용하는 공유 데이터베이스 모델은 리소스 공유 효율을 높이고 전체 비용을 낮출 수 있습니다. Azure SQL 데이터베이스는 고객이 보안 향상 및 데이터 계층의 대규모 관리를 위해 격리를 구축하는 데 도움이 되는 몇 가지 기능을 제공합니다.
@@ -132,10 +132,10 @@ SQL Database의 탄력적 풀은 테넌트 격리 기능과 테넌트 데이터�
 | 보안 격리 기능 |[행 수준 보안](https://msdn.microsoft.com/library/dn765131.aspx) |
 | [데이터베이스 스키마](https://msdn.microsoft.com/library/dd207005.aspx) | |
 | 데이터베이스 전반에 대한 DevOps 편의성 |[탄력적 쿼리](sql-database-elastic-query-horizontal-partitioning.md) |
-| [탄력적 작업](sql-database-elastic-jobs-overview.md) | |
-| [탄력적 트랜잭션](sql-database-elastic-transactions-overview.md) | |
-| [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) | |
-| [탄력적 데이터베이스 분할 및 병합](sql-database-elastic-scale-overview-split-and-merge.md) | |
+| | [탄력적 작업](sql-database-elastic-jobs-overview.md) |
+| | [탄력적 트랜잭션](sql-database-elastic-transactions-overview.md) |
+| | [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md) |
+| | [탄력적 데이터베이스 분할 및 병합](sql-database-elastic-scale-overview-split-and-merge.md) |
 
 ## <a name="summary"></a>요약
 테넌트 격리 요구 사항은 대부분의 SaaS 다중 테넌트 응용 프로그램에서 중요합니다. 격리를 제공하는 최상의 옵션은 테넌트별 데이터베이스 방식으로 많이 기울어집니다. 나머지 두 방식의 경우에는 숙련된 개발 직원이 격리 기능을 제공해야 하는 복잡한 응용 프로그램 계층에 투자를 해야 하므로 비용과 위험이 많이 증가합니다. 서비스 개발 초기에 격리 요구 사항을 처리하지 않은 상태에서, 나중에 보강해 넣으려면 처음 두 가지 모델의 경우 비용이 훨씬 많이 들 수 있습니다. 테넌트별 데이터베이스 모델과 관련된 주요 단점은 공유 감소로 인해 클라우드 리소스 비용이 증가한다는 것과, 많은 데이터베이스를 유지 및 관리해야 한다는 것입니다. SaaS 응용 프로그램 개발자는 이러한 절충에 어려움을 겪는 경우가 많습니다.
