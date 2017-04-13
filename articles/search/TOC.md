@@ -48,16 +48,19 @@
 ### [인덱스 JSON blob](search-howto-index-json-blobs.md)
 ### [Azure VM에서 SQL Server에 대한 인덱서 연결 구성](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [인덱서의 필드 매핑](search-indexer-field-mappings.md)
-##  검색 환경
-### [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-### [Lucene 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-### [Lucene 구문 쿼리 예제](search-query-lucene-examples.md)
-### [필터 식 구문](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+##  Search 
+### [전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)
+### 쿼리 생성
+#### [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+#### [Lucene 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+#### [Lucene 구문 쿼리 예제](search-query-lucene-examples.md)
+#### [필터 식 구문](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+### 사용자 지정 검색
+#### [언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support)
+#### [사용자 지정 분석기](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [점수 매기기](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [제안](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [패싯 탐색](search-faceted-navigation.md)
-### [언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support)
-### [사용자 지정 분석기](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 
 # 참조
 ## [.NET](/dotnet/api/microsoft.azure.search)

@@ -16,6 +16,11 @@
 ### [문제 해결 및 모니터링](troubleshooting-monitoring.md)
 ### [단일 인스턴스 SAP HANA](hana-get-started.md)
 ### [S/4 HANA 또는 BW/4 HANA 배포 가이드](cal-s4h.md)
+### Backup
+#### [개요](sap-hana-backup-guide.md)
+#### [파일 수준 백업](sap-hana-backup-file-level.md)
+#### [저장소 스냅숏](sap-hana-backup-storage-snapshots.md)
+
 ## SAP NetWeaver
 ### [개요 및 아키텍처](suse-quickstart.md)
 ### [계획 및 구현](planning-guide.md)

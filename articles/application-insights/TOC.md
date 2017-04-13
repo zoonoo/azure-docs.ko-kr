@@ -30,7 +30,6 @@
 # 방법
 ## 계획 및 디자인
 ### [웹앱 및 서비스 심층 진단](app-insights-devops.md)
-### [Application Insights 및 HockeyApp을 사용한 개발자 분석](app-insights-developer-analytics.md)
 ### [웹 응용 프로그램의 성능 모니터링](app-insights-web-monitor-performance.md)
 ### [Application Insights를 사용하여 사용량 분석](app-insights-overview-usage.md)
 ### [Application Insights 리소스 구분](app-insights-separate-resources.md)
@@ -39,6 +38,7 @@
 
 ## 구성
 ### Azure
+#### [프로파일러](app-insights-profiler.md)
 #### [진단](app-insights-azure-diagnostics.md)
 
 ### ASP.NET
@@ -139,11 +139,6 @@
 
 ## [가격 책정](https://azure.microsoft.com/pricing/details/application-insights/)  
 
-## [샘플 및 연습](app-insights-code-samples.md)
-### [연습: Microsoft Dynamics CRM Online에 대한 원격 분석 설정](app-insights-sample-mscrm.md)
-### [연습: Stream Analytics를 사용하여 SQL로 내보내기](app-insights-code-sample-export-sql-stream-analytics.md)
-### [코드 샘플: 내보내는 데이터 구문 분석](app-insights-code-sample-export-telemetry-sql-database.md)
-
 ## 뉴스
 
 ### [블로그](https://azure.microsoft.com/blog/tag/application-insights/)
@@ -156,7 +151,7 @@
 ### [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ### [스택 오버플로](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [사용자 음성](https://visualstudio.uservoice.com/forums/357324-application-insights)
-### [지원](app-insights-get-dev-support.md)
+### [지원](https://azure.microsoft.com/support/)
 
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=application-insights)
 

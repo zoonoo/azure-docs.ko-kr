@@ -11,6 +11,7 @@
 ## [Java SDK 사용](data-lake-store-get-started-java-sdk.md)
 ## [REST API 사용](data-lake-store-get-started-rest-api.md)
 ## [Azure CLI 사용](data-lake-store-get-started-cli.md)
+## [Azure CLI 2.0 사용](data-lake-store-get-started-cli-2.0.md)
 ## [Node.js 사용](data-lake-store-manage-use-nodejs.md)
 ## [Python 사용](data-lake-store-get-started-python.md)
 
@@ -49,6 +50,7 @@
 ### [Power BI와 함께 사용](data-lake-store-power-bi.md)
 ### [데이터 카탈로그와 함께 사용](data-lake-store-with-data-catalog.md)
 ### [SQL Data Warehouse의 PolyBase와 함께 사용](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [SQL Server Integration Services와 함께 사용](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)
 ### [More Azure 통합 옵션](data-lake-store-integrate-with-other-services.md)
 
 ## 관리
@@ -63,6 +65,7 @@
 ## [Python(계정 관리)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python(파일 시스템 관리)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST (영문)](/rest/api/datalakestore)
+## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
 
 # 리소스
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-store)
