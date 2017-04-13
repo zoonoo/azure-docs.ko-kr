@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: b12f823d723b013755fc868b883faefa2072eb75
 ms.openlocfilehash: 9b21fed003f96dbf7ebd72d6f46fff91acbf039e
+ms.lasthandoff: 12/02/2016
 
 
 ---
@@ -412,9 +413,4 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 ## <a name="next-steps"></a>다음 단계
 * 조건에 대한 사용자 지정 필드를 사용하여 쿼리를 빌드하기 위해 [검색 로그](log-analytics-log-searches.md) 에 대해 알아봅니다.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 
