@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "클라우드에 arduino 연결, azure iot hub, 사물 인터넷 클라우드, azure iot hub 장치 만들기, arduino 클라우드"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: 5edc690b-7a1d-4ebc-b011-ff27bfffe6e8
 ms.service: iot-hub
 ms.devlang: arduino
