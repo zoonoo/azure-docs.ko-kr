@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 3dd207805c1a8f53c6cc74da08cc9378609581c5
-ms.lasthandoff: 03/23/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: d67043f2e0a062796f4d6167b28774ce494027c2
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -30,7 +30,7 @@ Azure AD(Azure Active Directory) B2C로 OAuth 2.0 액세스 토큰을 사용하�
 Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다. 디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 아직 없는 경우 [B2C 디렉터리를 만든](active-directory-b2c-get-started.md) 후에 이 가이드를 계속 진행합니다.
 
 > [!NOTE]
-> 클라이언트 응용 프로그램 및 Web API는 동일한 Azure AD B2C 디렉터리를 사용해야 합니다.
+> 클라이언트 응용 프로그램 및 웹 API는 동일한 Azure AD B2C 디렉터리를 사용해야 합니다.
 >
 
 ## <a name="create-a-web-api"></a>Web API 만들기
@@ -76,12 +76,12 @@ git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
     * `ida:ClientId`을 Web API 응용 프로그램 ID로 바꿉니다.
     * `ida:SignUpSignInPolicyId`을 "등록 또는 로그인" 정책 이름으로 바꿉니다.
 
-2. `TaskWebApp` 프로젝트에서 `web.config`을 열고 다음 값을 바꿉니다.
-    * `ida:Tenant`을 테넌트 이름으로 바꿉니다.
-    * `ida:ClientId`을 웹앱 응용 프로그램 ID로 바꿉니다.
+2. `TaskWebApp` 프로젝트에서 `web.config`를 열고 다음 값을 바꿉니다.
+    * `ida:Tenant`를 테넌트 이름으로 바꿉니다.
+    * `ida:ClientId`를 웹앱 응용 프로그램 ID로 바꿉니다.
     * `ida:ClientSecret`을 웹앱 비밀 키로 바꿉니다.
-    * `ida:SignUpSignInPolicyId`을 "등록 또는 로그인" 정책 이름으로 바꿉니다.
-    * `ida:EditProfilePolicyId`을 "프로필 편집" 정책 이름으로 바꿉니다.
+    * `ida:SignUpSignInPolicyId`를 "등록 또는 로그인" 정책 이름으로 바꿉니다.
+    * `ida:EditProfilePolicyId`를 "프로필 편집" 정책 이름으로 바꿉니다.
     * `ida:ResetPasswordPolicyId`을 "암호 재설정" 정책 이름으로 바꿉니다.
 
 

@@ -13,16 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 619ea430b13c16e8e4338413613d5798f36458ba
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 81eca4b41b6a0726e5fcf851074bfb7dfca16fb8
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기
+
+S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통한 연결입니다. 이 연결 유형은 할당된 공용 IP 주소를 가지고 NAT 다음에 위치하지 않는 온-프레미스에 있는 VPN 장치를 필요로 합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
+
+![사이트 간 VPN 게이트웨이 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
+
+이 문서에서는 클래식 배포 모델 및 Azure Portal을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN Gateway 연결을 만드는 과정을 안내합니다. 클래식 배포 모델의 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,24 +38,13 @@ ms.lasthandoff: 03/25/2017
 >
 >
 
-
-S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통한 연결입니다. 이 연결 유형은 할당된 공용 IP 주소를 가지고 NAT 다음에 위치하지 않는 온-프레미스에 있는 VPN 장치를 필요로 합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
-
-이 문서에서는 클래식 배포 모델 및 Azure Portal을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN Gateway 연결을 만드는 과정을 안내합니다. 
-
-![사이트 간 VPN 게이트웨이 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
-
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>사이트 간 연결에 대한 배포 모델 및 메서드
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-아래 표에서는 현재 사용할 수 있는 배포 모델 및 사이트 간 구성을 위한 메서드를 보여 줍니다. 구성 단계를 포함한 문서를 사용할 수 있는 경우 아래 표에서 관련 링크를 직접 제공합니다.
-
-[!INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
-
 #### <a name="additional-configurations"></a>추가 구성
 VNet을 서로 연결하되 온-프레미스 위치에는 연결하지 않으려는 경우 [VNet간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요. 이미 연결되어 있는 VNet에 사이트 간 연결을 추가하려는 경우 [기존 VPN 게이트웨이와 연결된 VNet에 S2S 연결 추가](vpn-gateway-multi-site.md)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
 구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
 
 * 호환되는 VPN 장치 및 구성할 수 있는 사람. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 장치를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
@@ -57,8 +53,7 @@ VNet을 서로 연결하되 온-프레미스 위치에는 연결하지 않으려
 * 현재 공유 키를 지정하고 VPN Gateway 연결을 만드는 데 PowerShell이 필요합니다. 최신 버전의 Azure SM(서비스 관리) PowerShell cmdlet을 설치합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. 이 구성에 PowerShell을 사용할 때 관리자 권한으로 실행되고 있는지 확인합니다. 
 
 > [!NOTE]
-> 사이트 간 연결을 구성할 때 VPN 장치에 공용 IPv4 IP 주소가 필요합니다.                                                                                                                                                                               
->
+> 사이트 간 연결을 구성할 때 VPN 장치에 공용 IPv4 IP 주소가 필요합니다.
 >
 
 ### <a name="values"></a>이 연습에 대한 샘플 구성 값
@@ -103,7 +98,7 @@ S2S 연결에 사용할 가상 네트워크를 만들 때 지정한 주소 공�
 8. 대시보드에서 VNet을 쉽게 찾을 수 있으려면 **대시보드에 고정**을 선택한 다음 **만들기**를 클릭합니다.
 
     ![대시보드에 고정](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Pin to dashboard")
-9. '만들기'를 클릭한 후에 VNet의 진행 상황을 반영하는 대시보드에 타일이 표시됩니다. 타일은 VNet이 생성되면서 변경됩니다.
+9. [만들기]를 클릭하면 VNet의 진행 상황을 반영하는 타일이 대시보드에 표시됩니다. 타일은 VNet이 생성되면서 변경됩니다.
 
     ![가상 네트워크 타일 만들기](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "가상 네트워크 만들기")
 
@@ -120,12 +115,12 @@ S2S 연결에 사용할 가상 네트워크를 만들 때 지정한 주소 공�
 ## <a name="dns"></a>3. DNS 서버 지정
 DNS 설정이 S2S 구성의 일부가 아니지만 이름을 확인하려는 경우 DNS가 필요합니다.
 
-가상 네트워크를 만든 후 이름 확인을 처리하기 위해 DNS 서버의 IP 주소를 추가할 수 있습니다. 가상 네트워크에 대한 설정을 열고 DNS 서버를 클릭하고 이름을 확인하는 데 사용할 DNS 서버의 IP 주소를 추가합니다. 이 설정은 DNS 서버를 만들지 않습니다. 설정 예제에서는 공용 DNS 서버를 사용합니다. 일반적으로 개인 DNS 서버를 사용하려고 합니다. 리소스와 통신할 수 있는 DNS 서버를 추가해야 합니다.
+가상 네트워크를 만든 후에 DNS 서버의 IP 주소를 추가하여 이름 확인을 처리할 수 있습니다. 가상 네트워크에 대한 설정을 열고 DNS 서버를 클릭하고 이름을 확인하는 데 사용할 DNS 서버의 IP 주소를 추가합니다. 이 설정은 DNS 서버를 만들지 않습니다. 설정 예제에서는 공용 DNS 서버를 사용합니다. 일반적으로 개인 DNS 서버를 사용하려고 합니다. 리소스와 통신할 수 있는 DNS 서버를 추가해야 합니다.
 
 1. 포털에서 가상 네트워크를 찾습니다.
 2. 가상 네트워크의 블레이드에서 **설정** 섹션 아래에 있는 **DNS 서버**를 클릭합니다.
 3. DNS 서버를 추가합니다.
-4. 페이지의 맨 위에서 **저장**을 클릭하여 설정을 저장합니다.
+4. 설정을 저장하려면 페이지의 위쪽에서 **저장**을 클릭합니다.
  
 ## <a name="localsite"></a>4. 로컬 사이트 구성
 
@@ -147,7 +142,7 @@ DNS 설정이 S2S 구성의 일부가 아니지만 이름을 확인하려는 경
 
 ## <a name="gatewaysubnet"></a>5. 게이트웨이 서브넷 구성
 
-VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 VPN Gateway 서비스가 사용할 IP 주소를 포함합니다.
+VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 VPN 게이트웨이 서비스에서 사용하는 IP 주소를 포함합니다.
 
 1. **새 VPN 연결** 블레이드에서 **게이트웨이 즉시 만들기** 확인란을 선택합니다. '선택적 게이트웨이 구성' 블레이드가 표시됩니다. 확인란을 선택하지 않은 경우 게이트웨이 서브넷을 구성하기 위한 블레이드를 볼 수 없습니다.
 
@@ -161,7 +156,7 @@ VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨
     ![게이트웨이 서브넷 추가](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "게이트웨이 서브넷 추가")
 
 ## <a name="sku"></a>6. SKU와 VPN 유형 지정
-1. 게이트웨이 **크기**를 선택합니다. 가상 네트워크 게이트웨이를 만드는 데 사용할 게이트웨이 SKU입니다. 포털에서 'SKU 기본값'은 **기본**입니다. 게이트웨이 SKU에 대한 자세한 내용은 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
+1. 게이트웨이 **크기**를 선택합니다. 이 크기는 가상 네트워크 게이트웨이를 만드는 데 사용하는 게이트웨이 SKU입니다. 포털에서 'SKU 기본값'은 **기본**입니다. 게이트웨이 SKU에 대한 자세한 내용은 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
 
     ![SKUL 및 VPN 유형 선택](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "SKU 및 VPN 유형 선택")
 2. 게이트웨이에 대한 **라우팅 유형**을 선택합니다. VPN 유형이라고도 합니다. 게이트웨이를 한 가지 유형에서 다른 유형으로 변환할 수 없기 때문에 올바른 게이트웨이 유형을 선택해야 합니다. VPN 장치는 선택한 라우팅 유형과 호환되어야 합니다. VPN 유형에 대한 자세한 내용은 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#vpntype)를 참조하세요. '경로 기반' 및 '정책 기반' VPN 유형을 참조하는 문서를 볼 수 있습니다. '동적'은 '경로 기반'에 해당하고 '고정'은 '정책 기반'에 해당합니다.
@@ -170,46 +165,66 @@ VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨
 
 ## <a name="vpndevice"></a>7. VPN 장치 구성
 
-특정 구성 정보는 장치 제조업체에 문의하고 장치를 구성합니다. Azure와 잘 작동하는 VPN 장치에 대한 자세한 내용은 [VPN 장치](vpn-gateway-about-vpn-devices.md) 를 참조합니다. 또한 사용하려는 VPN 장치에 대한 [알려진 장치 호환성 문제](vpn-gateway-about-vpn-devices.md#known)를 확인합니다. 
+온-프레미스 네트워크에 대한 사이트 간 연결에는 VPN 장치가 필요합니다. 모든 VPN 장치에 대해 구성 단계를 제공하지는 않지만 다음 링크의 정보가 유용할 수 있습니다.
 
-VPN 장치를 구성할 때 만든 VPN Gateway의 IP 주소가 필요합니다. 가상 네트워크의 **개요**로 이동하여 IP 주소를 찾을 수 있습니다.
+- 호환되는 VPN 장치에 대한 내용은 [VPN 장치](vpn-gateway-about-vpn-devices.md)를 참조하세요. 
+- 장치 구성 설정에 대한 링크는 [확인된 VPN 장치](vpn-gateway-about-vpn-devices.md#devicetable)를 참조하세요. 해당 링크가 가장 효율적으로 제공됩니다. 최신 구성 정보에 대해서는 항상 장치 제조업체에 문의하는 것이 가장 좋습니다.
+- 장치 구성 샘플을 편집하는 방법에 대한 정보는 [샘플 편집](vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
+- IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipsec)를 참조하세요.
+- VPN 장치를 구성하기 전에 사용하려는 VPN 장치에 대한 [알려진 장치 호환성 문제](vpn-gateway-about-vpn-devices.md#known)를 확인합니다.
+
+VPN 장치를 구성하려면 다음 항목이 필요합니다.
+
+- 가상 네트워크 게이트웨이의 공용 IP 주소 가상 네트워크의 **개요**로 이동하여 IP 주소를 찾을 수 있습니다.
+- 공유 키 - 사이트 간 VPN 연결을 만들 때 지정하는 것과 동일한 공유 키입니다. 이 예제에서는 매우 기본적인 공유 키를 사용합니다. 사용할 복잡한 키를 생성해야 합니다.
 
 ## <a name="CreateConnection"></a>8. 연결 만들기
 이 단계에서는 공유 키를 설정하고 연결을 만듭니다. 설정한 키는 VPN 장치 구성에 사용된 동일한 키여야 합니다.
 
 > [!NOTE]
-> 현재 이 단계는 Azure Portal에서 지원되지 않습니다. Azure PowerShell cmdlet의 SM(서비스 관리) 버전을 사용해야 합니다.                                                                                                                                                                             
->
+> 현재 이 단계는 Azure Portal에서 지원되지 않습니다. Azure PowerShell cmdlet의 SM(서비스 관리) 버전을 사용해야 합니다.                                        >
 >
 
 ### <a name="step-1-connect-to-your-azure-account"></a>1단계. Azure 계정에 연결
 
 1. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
-        Login-AzureRmAccount
+  ```powershell
+  Login-AzureRmAccount
+  ```
 2. 계정에 대한 구독을 확인합니다.
 
-        Get-AzureRmSubscription
+  ```powershell
+  Get-AzureRmSubscription
+  ```
 3. 둘 이상의 구독이 있는 경우 사용할 구독을 선택합니다.
 
-        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
 4. SM 버전의 PowerShell cmdlet를 추가합니다.
 
-        Add-AzureAccount
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>2단계. 공유 키 설정 및 연결 만들기
 
-PowerShell 및 클래식 배포 모델을 사용하는 경우 포털에 있는 리소스의 이름은 종종 PowerShell을 사용하는 경우에 Azure에서 예상하는 이름이 아닐 수 있습니다. 다음 단계를 통해 네트워크 구성 파일을 내보내서 이름의 정확한 값을 가져올 수 있습니다.
+PowerShell 및 클래식 배포 모델을 사용하는 경우 포털에 있는 리소스의 이름은 종종 PowerShell을 사용하는 경우에 Azure에서 예상하는 이름이 아닐 수 있습니다. 다음 단계에서는 네트워크 구성 파일을 내보내어 이름의 정확한 값을 가져올 수 있습니다.
 
 1. 컴퓨터에 디렉터리를 만들고 디렉터리에 네트워크 구성 파일을 내보냅니다. 이 예제에서는 네트워크 구성 파일을 C:\AzureNet으로 내보냅니다.
 
-         Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```powershell
+  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+  ```
 2. xml 편집기에서 네트워크 구성 파일을 열고 'LocalNetworkSite 이름' 및 'VirtualNetworkSite 이름'의 값을 확인합니다. 값을 반영하도록 예제를 수정합니다. 공백이 포함된 이름을 지정할 때는 값을 작은따옴표로 묶습니다.
 
 3. 공유 키를 설정하고 연결을 만듭니다. '-SharedKey'는 사용자가 생성하고 지정하는 값입니다. 이 예제에서는 'abc123'을 사용했지만 좀 더 복잡한 항목을 생성하여 사용할 수 있습니다. 중요한 점은 여기에서 지정한 값이 VPN 장치를 구성하는 경우 지정한 것과 동일한 값이어야 한다는 것입니다.
 
-        Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
-        -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+  ```powershell
+  Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
+  -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+  ```
 연결이 생성된 경우 결과는 **상태: 성공**입니다.
 
 ## <a name="verify"></a>9. 연결 확인

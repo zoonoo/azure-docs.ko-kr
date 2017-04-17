@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 9a648ca8f91529bc5aaa7b8ffbcfddb40864f409
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 4b8627f3cdd13578f9b4c35297bf5d550dccfd07
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="troubleshooting-you-cant-get-there-from-here-on-a-windows-device"></a>Windows 장치 상에서 '여기에서 가져올 수 없습니다' 문제 해결
+# <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Windows 장치 상에서 '여기에서 가져올 수 없습니다'
 
 예를 들어 조직의 SharePoint Online 인트라넷에 액세스하려 할 때 *여기에서 가져올 수 없습니다*라는 메시지가 있는 페이지가 표시될 수 있습니다. 관리자가 특정 조건 하에서는 조직의 리소스에 액세스하지 못하도록 하는 조건부 액세스 정책을 구성했기 때문에 이 페이지가 표시됩니다. 이 문제를 해결하기 위해 기술 지원팀 또는 관리자에게 문의하기 전에 사용자가 직접 시도해 볼 수 있는 몇 가지 조치가 있습니다.
 

@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 02e30f7fcbe0782528460b542a75f1d11c7286a1
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 076a85b7b965f163255e919eb61700aef0d1fc18
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -70,7 +70,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
     **인증** 설정에 **인증 없음**을 지정했는지 확인합니다. Visual Studio의 버전에 따라 다른 기본값을 설정할 수 있습니다. 변경하려면 **인증 변경**을 클릭하고 **인증 없음**을 선택합니다.
 
-    Visual Studio 2015에서 수행하는 경우 **클라우드에서 호스트** 확인란을 선택 취소합니다. 자습서의 이후 단계에서는 [Azure 리소스를 프로비전](#provision-the-azure-resources)하고 [응용 프로그램을 Azure에 게시](#publish-the-application-to-azure)합니다. **클라우드에서 호스트** 를 선택된 채로 두고 Visual Studio에서 앱 서비스 웹앱을 프로비전하는 예제는 [ASP.NET 및 Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 시작하기](../app-service-web/web-sites-dotnet-get-started.md)를 참조하세요.
+    Visual Studio 2015에서 수행하는 경우 **클라우드에서 호스트** 확인란을 선택 취소합니다. 자습서의 이후 단계에서는 [Azure 리소스를 프로비전](#provision-the-azure-resources)하고 [응용 프로그램을 Azure에 게시](#publish-the-application-to-azure)합니다. **클라우드에서 호스트** 를 선택된 채로 두고 Visual Studio에서 앱 서비스 웹앱을 프로비전하는 예제는 [ASP.NET 및 Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 시작하기](../app-service-web/app-service-web-get-started-dotnet.md)를 참조하세요.
    
     ![프로젝트 템플릿 선택][cache-select-template]
 4. **확인** 을 클릭하여 프로젝트를 만듭니다.
@@ -86,7 +86,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 ### <a name="add-the-entity-framework-nuget-package"></a>Entity Framework NuGet 패키지 추가
 
 1. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
-2. `Package Manager Console` 창에서 다음 명령을 실행합니다.
+2. **패키지 관리자 콘솔** 창에서 다음 명령을 실행합니다.
     
     ```
     Install-Package EntityFramework
