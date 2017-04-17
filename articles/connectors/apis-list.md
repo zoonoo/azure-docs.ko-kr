@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 01/27/2017
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: a469a6e29e07029b7eab4e80e132b9276c5b18df
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 53bb5d64e27458b4a88981bd20ea4236b31431ec
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -87,7 +87,7 @@ EAI 및 EDI를 포함하는 B2B 시나리오에 대한 논리 앱을 만들려�
 
 ## <a name="custom-connectors-and-certification-for-microsoft-azure"></a>Microsoft Azure의 사용자 지정 커넥터 및 인증
 
-사용자 고유의 커넥터를 만들고 싶습니까 또는 원하는 커넥터를 찾을 수 없습니까? [Logic Apps 플랫폼을 확장](../logic-apps/logic-apps-create-api-app.md)하고 기본 커넥터로 제공되지 않는 API 또는 시스템을 호출하는 API Apps를 만들 수 있습니다. 또한 Microsoft Azure 인증을 위해 API Apps을 제출한 다음 Azure를 통해 사용할 수 있습니다. [Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/) 솔루션 가져오기에 대해 자세히 알아보세요.
+사용자 지정 코드를 실행하거나 커넥터로 사용할 수 없는 API를 호출하려면 REST 기반 API Apps를 사용자 지정 커넥터로 만들어 [Logic Apps 플랫폼](../logic-apps/logic-apps-create-api-app.md)을 확장할 수 있습니다. 사용자 지정 API Apps를 Azure에서 공개하고 사용할 수 있게 하려면 [Microsoft Azure 인증 프로그램](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/)에 추천을 제출합니다.
 
 ## <a name="get-help"></a>도움말 보기
 

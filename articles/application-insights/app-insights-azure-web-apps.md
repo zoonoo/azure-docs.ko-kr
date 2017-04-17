@@ -10,13 +10,13 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
+ms.topic: get-started-article
+ms.date: 03/30/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: d7a8d669e75991f6707641e4ce53c9b63d04853c
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 8d9d39d63209b8ab6884ddeff569687b55591f95
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -52,6 +52,8 @@ Azure에서 웹앱을 이미 실행 중인 경우 이미 일부 요청 및 오�
 Application Insights는 앱에 SDK를 설치하여 더 자세한 원격 분석을 제공할 수 있습니다. 특히 추적 로그를 수집하고 [사용자 지정 원격 분석을 작성](app-insights-api-custom-events-metrics.md)하고 보다 자세한 예외 보고서를 가져올 수 있습니다.
 
 1. **Visual Studio**(2013 업데이트 2 이상)에서 프로젝트를 위한 Application Insights를 구성합니다.
+
+    웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 > Application Insights** 또는 **Application Insights 구성**을 선택합니다.
    
     ![웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 추가 또는 구성 선택](./media/app-insights-azure-web-apps/03-add.png)
    
@@ -91,11 +93,17 @@ Application Insights는 앱에 SDK를 설치하여 더 자세한 원격 분석�
 
 원격 분석을 통해 좀더 강력하게 검색하려면 [분석 쿼리 언어](app-insights-analytics-tour.md)를 사용합니다.
 
+## <a name="more-telemetry"></a>추가 원격 분석
+
+* [웹 페이지 로드 데이터](app-insights-javascript.md)
+* [사용자 지정 원격 분석](app-insights-api-custom-events-metrics.md)
+
 ## <a name="video"></a>비디오
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>다음 단계
+* [라이브 앱에서 프로파일러를 실행합니다](app-insights-profiler.md).
 * [Azure 진단을 사용](app-insights-azure-diagnostics.md) 하여 Application Insights에 보냅니다.
 * [서비스 상태 메트릭을 모니터링](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
 * 작업 이벤트가 발생하거나 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)합니다.
