@@ -18,9 +18,9 @@ ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2e8ff5304d4ccc63f92567b22c0508e3fc7b9bcf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 71903120a77aa4d8fd58ea600488d3464570b0cb
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-portal"></a>Azure Portal을 사용하여 Docker 컨테이너 호스팅 솔루션 배포
@@ -36,7 +36,11 @@ Azure 컨테이너 서비스는 인기 있는 오픈 소스 컨테이너 클러�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Azure 구독**: 없는 경우 지금 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록하세요. 
+* **Azure 구독**: 없는 경우 지금 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록하세요. 대규모 클러스터의 경우, 종량제 구독이나 다른 구매 옵션을 고려하세요.
+
+    > [!NOTE]
+    > Azure 구독 사용량 및 [리소스 할당량](../azure-subscription-service-limits.md)(예: 코어 할당량)으로 배포하는 클러스터 크기를 제한할 수 있습니다. 할당량 증가를 요청하려면 추가 비용 없이 [온라인 고객 지원 요청](../azure-supportability/how-to-create-azure-support-request.md)을 개설합니다.
+    >
 
 * **SSH RSA 공개 키**: 포털 또는 Azure 빠른 시작 템플릿 중 하나를 통해 배포하는 경우 Azure Container Service 가상 컴퓨터에 대한 인증을 위해 공개 키를 제공해야 합니다. SSH(보안 셸) RSA 키를 만들려면 [OS X 및 Linux](../virtual-machines/linux/mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/linux/ssh-from-windows.md) 지침을 참조하세요. 
 
@@ -109,7 +113,7 @@ Azure 컨테이너 서비스는 인기 있는 오픈 소스 컨테이너 클러�
 ## <a name="create-a-cluster-by-using-a-quickstart-template"></a>빠른 시작 템플릿을 사용하여 클러스터 만들기
 Azure Container Service에서 클러스터를 배포하는 데 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 추가 또는 고급 Azure 구성을 포함하도록 제공된 빠른 시작 템플릿을 수정할 수 있습니다. Azure 빠른 시작 템플릿을 사용하여 Azure Container Service 클러스터를 만들려면 Azure 구독이 필요합니다. 없는 경우 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)에 등록하세요. 
 
-템플릿 및 Azure CLI 2.0을 사용하여 클러스터를 배포하려면 다음 단계를 수행합니다([설치 및 설정 지침](/cli/azure/install-az-cli2.md) 참조).
+템플릿 및 Azure CLI 2.0을 사용하여 클러스터를 배포하려면 다음 단계를 수행합니다([설치 및 설정 지침](/cli/azure/install-az-cli2) 참조).
 
 > [!NOTE] 
 > Windows 시스템의 경우 Azure PowerShell을 사용하여 템플릿을 배포하는 데 비슷한 단계를 사용할 수 있습니다. 이 섹션의 뒷부분에 나오는 단계를 참조하세요. [포털](../azure-resource-manager/resource-group-template-deploy-portal.md) 또는 다른 방법을 통해 템플릿을 배포할 수도 있습니다.

@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 04/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 981155c38bdc8cb54639d2271be1f3bd3036125c
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,9 +49,16 @@ Site Recovery는 온-프레미스 물리적 서버와 가상 컴퓨터를 클라
 
 ## <a name="migrate-on-premises-vms-and-physical-servers"></a>온-프레미스 VM 및 물리적 서버를 마이그레이션합니다.
 
-온-프레미스 Hyper-V VM, VMware VM 및 물리적 서버를 마이그레이션하려면 정기 복제에 사용되는 것과 거의 동일한 단계를 수행합니다. Recovery Services 자격 증명 모음을 설정하고 마이그레이션할 대상에 따라 필수 관리 서버를 구성하며 자격 증명 모음에 추가하고 복제 설정을 지정합니다. 마이그레이션하려는 컴퓨터에 복제를 사용하도록 설정하고 빠른 테스트 장애 조치를 실행하여 모두 예상대로 작동하는지 확인합니다.
+온-프레미스 Hyper-V VM, VMware VM 및 물리적 서버를 마이그레이션하려면 정기 복제에 사용되는 것과 거의 동일한 단계를 수행합니다.
 
-복제 환경이 제대로 작동하는지 확인한 후에 시나리오의 [지원 기능](site-recovery-failover.md)에 따라 계획되거나 계획되지 않은 장애 조치를 사용합니다. 마이그레이션의 경우 장애 조치를 커밋할 필요가 없습니다. 대신 마이그레이션할 각 컴퓨터에 대해 **마이그레이션 완료** 옵션을 선택합니다. **마이그레이션 완료** 작업은 마이그레이션 프로세스를 마치고 가상 컴퓨터에 대한 복제를 제거하며 컴퓨터에 대한 Site Recovery 청구를 중지합니다.
+1. Recovery Services 자격 증명 모음 설정
+2. 마이그레이션할 대상에 따라 VMware, VMM, Hyper-V와 같은 필수 관리 서버를 구성하며 자격 증명 모음에 추가하고 복제 설정을 지정합니다.
+3. 마이그레이션할 컴퓨터에 대해 복제를 사용하도록 설정
+4. 초기 마이그레이션 후 빠른 테스트 장애 조치를 실행하여 모두 예상대로 작동하는지 확인합니다.
+5. 복제 환경이 제대로 작동하는지 확인한 후에 시나리오의 [지원 기능](site-recovery-failover.md)에 따라 계획되거나 계획되지 않은 장애 조치를 사용합니다. 가능하면 계획된 장애 조치를 사용하는 것이 좋습니다.
+6. 마이그레이션의 경우 장애 조치를 커밋하거나 항목을 삭제할 필요가 없습니다. 대신 마이그레이션할 각 컴퓨터에 대해 **마이그레이션 완료** 옵션을 선택합니다.
+     - **복제된 항목**에서 VM를 마우스 오른쪽 단추로 클릭하고 **마이그레이션 완료**를 클릭합니다. **확인**을 클릭하여 완료합니다. **Site Recovery 작업**의 마이그레이션 완료 작업을 모니터링하여 VM 속성에서 진행률을 추적할 수 있습니다.
+     - **마이그레이션 완료** 작업은 마이그레이션 프로세스를 마치고 가상 컴퓨터에 대한 복제를 제거하며 컴퓨터에 대한 Site Recovery 청구를 중지합니다.
 
 ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 

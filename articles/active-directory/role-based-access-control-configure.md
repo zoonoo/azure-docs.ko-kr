@@ -15,13 +15,13 @@ ms.workload: identity
 ms.date: 03/27/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 9bbacea92e54609818d69173fafcea2ee8f849d3
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 9fb0fdf1a2a48c5c9daf7d0ec22e85221bfb6b28
+ms.lasthandoff: 04/07/2017
 
 
 ---
-# <a name="use-role-assignments-to-manage-access-to-your-azure-subscription-resources"></a>역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리
+# <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리
 > [!div class="op_single_selector"]
 > * [사용자 또는 그룹에 따른 액세스 관리](role-based-access-control-manage-assignments.md)
 > * [리소스에 따른 액세스 관리](role-based-access-control-configure.md)

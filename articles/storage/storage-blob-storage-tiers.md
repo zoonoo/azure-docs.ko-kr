@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
-ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 618d31e991d9405ece6533727d700e316ae85bec
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -161,7 +161,7 @@ Blob 저장소 계정에서는 저장소 계층에 따라 Blob 저장소에 새 
     이를 선택하면 성능 계층은 표준으로 설정됩니다. 계층화된 저장소는 프리미엄 성능 계층과 함께 사용할 수 없습니다.
 6. 저장소 계정의 복제 옵션을 **LRS**, **GRS** 또는 **RA-GRS**로 선택합니다. 기본값은 **RA-GRS**입니다.
    
-    LRS = 로컬 중복 저장소; GRS = 지역 중복 저장소(2개 지역); RA-GRS는 읽기 액세스 지역 중복 저장소입니다(두 번째 저장소에 대한 읽기 액세스 권한이 있는&2;개 지역).
+    LRS = 로컬 중복 저장소; GRS = 지역 중복 저장소(2개 지역); RA-GRS는 읽기 액세스 지역 중복 저장소입니다(두 번째 저장소에 대한 읽기 액세스 권한이 있는 2개 지역).
    
     Azure 저장소 복제 옵션에 대한 자세한 내용은 아래의 [Azure 저장소 복제](storage-redundancy.md)를 확인하세요.
 7. 요구 사항에 적합한 저장소 계층을 선택합니다. 즉 **액세스 계층**을 **쿨** 또는 **핫**으로 설정합니다. 기본값은 **핫**입니다.
@@ -209,7 +209,7 @@ Blob 저장소 계정에 저장된 데이터를 저장 및 액세스하는 비�
 > 
 
 Blob 저장소 서비스에 대한 저장소 사용량을 모니터링하려면 용량 메트릭을 활성화해야 합니다.
-이를 활성화하면 용량 데이터는 저장소 계정의 Blob 서비스에 대해 매일 기록되고 동일한 저장소 계정 내에서 *$MetricsCapacityBlob* 테이블에 작성된 테이블 항목으로 기록됩니다.
+이를 활성화하면 용량 데이터는 저장소 계정의 Blob service에 대해 매일 기록되고 동일한 저장소 계정 내에서 *$MetricsCapacityBlob* 테이블에 작성된 테이블 항목으로 기록됩니다.
 
 Blob 저장소 서비스에 대한 데이터 액세스 패턴을 모니터링하려면 API 수준에서 시간당 트랜잭션 메트릭을 활성화해야 합니다.
 이를 활성화하면 API당 트랜잭션은 매시간 집계되며 동일한 저장소 계정 내에서 *$MetricsHourPrimaryTransactionsBlob* 테이블로 작성된 테이블 항목으로 기록됩니다. *$MetricsHourSecondaryTransactionsBlob* 테이블은 RA-GRS 저장소 계정의 경우 보조 끝점에 트랜잭션을 기록합니다.
@@ -241,7 +241,7 @@ Blob 저장소 서비스에 대한 데이터 액세스 패턴을 모니터링하
 ##### <a name="transaction-costs"></a>트랜잭션 비용
 트랜잭션 메트릭 테이블에서 API에 대한 모든 항목에 대한 *'TotalBillableRequests'*의 합계는 특정 API에 대한 트랜잭션의 총 수를 나타냅니다. *예를 들어* 지정된 기간의 총 *'GetBlob'* 트랜잭션 수는 *'user;GetBlob'* 행 키가 있는 모든 항목에 대해 청구 가능한 요청의 총합으로 계산될 수 있습니다.
 
-트랜잭션은 서로 다른 가격이 책정되므로 Blob 저장소 계정에 대한 트랜잭션 비용을 예상하려면 트랜잭션을&3;개의 그룹으로 세분화해야 합니다.
+트랜잭션은 서로 다른 가격이 책정되므로 Blob 저장소 계정에 대한 트랜잭션 비용을 예상하려면 트랜잭션을 3개의 그룹으로 세분화해야 합니다.
 
 * *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* 및 *'CopyBlob'*과 같은 쓰기 트랜잭션
 * *'DeleteBlob'* 및 *'DeleteContainer'*와 같은 삭제 트랜잭션
@@ -254,7 +254,7 @@ Blob 저장소 서비스에 대한 데이터 액세스 패턴을 모니터링하
 트랜잭션 메트릭 테이블에서 API에 대한 모든 항목에 대한 *'TotalIngress'* 의 합계는 특정 API에 대한 수신 데이터의 총 크기를 바이트로 나타냅니다.
 마찬가지로 *'TotalEgress'* 의 합계는 송신 데이터의 총 크기를 바이트로 나타냅니다.
 
-Blob 저장소 계정에 대한 데이터 액세스 비용을 예상하려면 트랜잭션을&2;개의 그룹으로 세분화해야 합니다.
+Blob 저장소 계정에 대한 데이터 액세스 비용을 예상하려면 트랜잭션을 2개의 그룹으로 세분화해야 합니다.
 
 * 저장소 계정에서 검색되는 데이터 크기는 주로 *'GetBlob'* 및 *'CopyBlob'* 작업에 대한 *'TotalEgress'* 합계를 확인하여 예상할 수 있습니다.
 * 저장소 계정에 작성되는 데이터 크기는 주로 *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* 및 *'AppendBlock'* 작업에 대한 *'TotalIngress'* 합계를 확인하여 예상할 수 있습니다.
@@ -268,7 +268,8 @@ Blob 저장소 계정에 대한 지역에서 복제 데이터 전송의 비용�
 
 ### <a name="migrating-existing-data"></a>기존 데이터 마이그레이션
 Blob 저장소 계정은 저장 전용 블록 및 추가 Blob에 맞게 특별히 설정됩니다. 테이블, 큐, 파일 및 디스크는 물론 Blob도 저장할 수 있는 기존의 범용 저장소 계정은 Blob 저장소 계정으로 변환할 수 없습니다. 저장소 계층을 사용하려면, 새로운 Blob 저장소 계정을 만들어서 기존 데이터를 새로 만든 계정으로 마이그레이션해야 합니다.
-다음 방법을 통해 기존 데이터를 온-프레미스 저장소 장치, 타사 클라우드 저장소 공급자 또는 기존 Azure 범용 저장소 계정에서 Blob 저장소 계정으로 마이그레이션할 수 있습니다.
+
+다음 방법을 통해 기존 데이터를 온-프레미스 저장소 장치, 타사 클라우드 저장소 공급자 또는 기존 Azure 범용 저장소 계정에서 Blob Storage 계정으로 마이그레이션할 수 있습니다.
 
 #### <a name="azcopy"></a>AzCopy
 AzCopy는 Azure 저장소의 데이터를 고속으로 복사하기 위해 설계된 Windows 명령줄 유틸리티입니다. AzCopy를 사용하여 기존 범용 저장소 계정의 데이터를 Blob 저장소 계정으로 복사하거나, 온-프레미스 저장소 장치의 데이터를 Blob 저장소 계정에 업로드할 수 있습니다.
