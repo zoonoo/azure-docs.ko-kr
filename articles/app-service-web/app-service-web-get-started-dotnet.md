@@ -1,6 +1,6 @@
 ---
-title: "5분 내에 Azure에서 첫 번째 ASP.NET 웹앱 만들기 | Microsoft Docs"
-description: "간단한 ASP.NET 응용 프로그램을 배포하여 App Service에서 웹앱을 실행하는 작업이 얼마나 쉬운지 알아봅니다."
+title: "5분 만에 Azure에서 첫 번째 ASP.NET 웹앱 만들기 | Microsoft Docs"
+description: "간단한 ASP.NET 응용 프로그램을 배포하여 App Service에서 웹앱을 실행하는 작업이 얼마나 쉬운지 알아봅시다."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -21,17 +21,17 @@ ms.lasthandoff: 04/04/2017
 
 
 ---
-# <a name="create-your-first-aspnet-web-app-in-azure-in-five-minutes"></a>5분 내에 Azure에서 첫 번째 ASP.NET 웹앱 만들기
+# <a name="create-your-first-aspnet-web-app-in-azure-in-five-minutes"></a>5분 만에 Azure에서 첫 번째 ASP.NET 웹앱 만들기
 
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-이 빠른 시작을 사용하면 몇 분 만에 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 첫 번째 ASP.NET 웹앱을 배포할 수 있습니다. 완료하면 클라우드에서 간단한 웹앱을 실행할 수 있습니다.
+이 자습서를 따라하면 단 몇 분 만에 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 첫 번째 ASP.NET 웹앱을 배포할 수 있습니다. 완료하면 클라우드에서 간단한 웹앱을 실행할 수 있습니다.
 
 ![Azure App Service의 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 자습서에서는 Visual Studio 2017을 사용하여 ASP.NET 웹앱을 빌드하고 Azure에 배포하는 방법을 보여 줍니다. Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설정하는 동안 **Azure 개발**을 사용할 수 있는지 확인합니다.
+이 자습서에서는 Visual Studio 2017을 사용하여 ASP.NET 웹앱을 빌드하고 Azure에 배포하는 방법을 보여줍니다. Visual Studio 2017이 아직 설치되지 않으면 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설정할 때 **Azure 개발** 항목을 활성화 했는지 확인하세요.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,7 @@ Visual Studio에서 `Ctrl`+`Shift`+`N`를 사용하여 새 프로젝트를 만�
    
 ![새 프로젝트 대화 상자](./media/app-service-web-get-started-dotnet/new-project.png)
 
-모든 종류의 ASP.NET 웹앱을 Azure에 배포할 수 있습니다. 이 자습서의 경우 **MVC** 템플릿을 선택하고 인증이 **인증 없음**으로 설정되어 있는지 확인합니다.
+모든 종류의 ASP.NET 웹앱을 Azure에 배포할 수 있습니다. 이 자습서의 경우 **MVC** 템플릿을 선택하고 인증은 **인증 없음**으로 설정했습니다.
       
 **확인**을 클릭합니다.
 
@@ -61,7 +61,7 @@ Visual Studio에서 `Ctrl`+`Shift`+`N`를 사용하여 새 프로젝트를 만�
 
 ![프로젝트 개요 페이지에서 게시](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-그러면 **App Service 만들기** 대화 상자가 열리고 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있습니다.
+그러면 **App Service 만들기** 대화 상자가 열리고 Azure에서 ASP.NET 웹앱을 실행하는데 필요한 모든 Azure 리소스를 만들 수 있습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -69,7 +69,7 @@ Visual Studio에서 `Ctrl`+`Shift`+`N`를 사용하여 새 프로젝트를 만�
    
 ![Azure에 로그인](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
 
-일단 로그인되면 이 대화 상자에서 Azure 웹앱에 필요한 모든 리소스를 만들 준비가 되었습니다.
+로그인에 성공하면 이 대화 상자에서 Azure 웹앱에 필요한 모든 리소스를 만들 수 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
