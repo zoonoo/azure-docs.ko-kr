@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 7dc5210c073a3130bfc9ffdbc9ce33e19ca5bc1a
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Azure SQL Database에 대한 자세한 내용은 [SQL Database](sql-database-ove
 
 다음 표에서는 Azure SQL Database 및 SQL Server의 주요 기능을 나열하고 지원 가능성을 명시하며 각 플랫폼에서 기능에 대한 자세한 정보를 볼 수 있는 링크를 제공합니다. Transact-SQL 기능의 경우 기능의 범주에 해당하는 테이블의 링크를 따라갑니다. 특정 유형의 기능을 지원하지 않는 이유에 대한 자세한 배경은 [Azure SQL Database Transact-SQL의 차이점](sql-database-transact-sql-information.md)을 참조하세요.
 
-V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 웹 페이지를 방문하고 해당 필터를 사용해 보세요.
+Azure SQL Database에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 웹 페이지를 방문하고 해당 필터를 사용해 보세요.
 
 * [SQL 데이터베이스 서비스](https://azure.microsoft.com/updates/?service=sql-database)에 대해 필터링되었습니다.
 * SQL 데이터베이스 기능의 [GA(General Availability) 공지](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) 에 대해 필터링되었습니다.

@@ -12,30 +12,30 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/17/2017
+ms.date: 04/06/2017
 ms.author: edmaca, yanacai
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f5a27eba14560a56ad5020daf7741f37ac2cc6f2
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="tutorial-develop-u-sql-scripts-using-data-lake-tools-for-visual-studio"></a>자습서: Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Visual Studio용 데이터 레이크 도구를 설치하는 방법과 Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트를 작성하고 테스트하는 방법을 알아봅니다.
+Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 작성 및 테스트
 
 U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 분석하기 위한 확장성이 탁월한 언어입니다. 자세한 내용은 [U-SQL 참조](http://go.microsoft.com/fwlink/p/?LinkId=691348)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-* **Visual Studio 2015 업데이트 3, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012 Enterprise(Ultimate/Premium), Professional, Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다. Visual Studio 2017은 현재 지원되지 않습니다.**
+* **Visual Studio 2017(데이터 저장소 및 처리 워크로드 아래), Visual Studio 2015 업데이트 3, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012. Enterprise(Ultimate/Premium), Professional, Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다.**
 * **Microsoft Azure SDK for .NET 버전 2.7.1 이상**.  [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
 * **[Visual Studio용 Data Lake 도구](http://aka.ms/adltoolsvs)**.
 
-    Visual Studio용 Data Lake 도구가 설치되면 "Azure" 노드의 서버 탐색기에서 "Data Lake 분석" 노드가 표시됩니다(Ctrl+Alt+S를 눌러 서버 탐색기를 열 수 있음).
+    Data Lake Tools for Visual Studio가 설치되면 “Azure” 노드의 서버 탐색기에서 “Data Lake Analytics” 노드가 표시됩니다(Ctrl+Alt+S를 눌러 서버 탐색기 열기).
 
-* **Data Lake Analytics 계정 및 예제 데이터** Data Lake Tools는 Data Lake Analytics 계정 만들기를 지원하지 않습니다. Azure Portal, Azure PowerShell, .NET SDK 또는 Azure CLI를 사용하여 계정을 만들 수 있습니다.
+* **Data Lake Analytics 계정 및 예제 데이터** Data Lake Tools는 Data Lake Analytics 계정 만들기를 지원하지 않습니다. Azure Portal, Azure PowerShell, .NET SDK 또는 Azure CLI를 사용하여 계정을 만듭니다.
 사용자 편의를 위해 Data Lake Analytics 서비스를 만들고 원본 데이터 파일을 업로드하기 위한 PowerShell 스크립트는 [자습서 준비를 위한 Appx-A PowerShell 샘플](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial)에서 찾을 수 있습니다.
 
     경우에 따라 계정을 만들고 수동으로 데이터를 업로드하기 위해 [Azure Portal을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)의 다음 두 섹션을 살펴볼 수 있습니다.
@@ -44,7 +44,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
     2. [기본 데이터 레이크 저장소 계정에 SearchLog.tsv를 업로드하기](data-lake-analytics-get-started-portal.md#prepare-source-data).
 
 ## <a name="connect-to-azure"></a>Azure에 연결
-**데이터 레이크 분석에 연결하기**
+**Data Lake Analytics에 연결**
 
 1. Visual Studio를 엽니다.
 2. **보기** 메뉴에서 **서버 탐색기**를 클릭하여 서버 탐색기를 엽니다. 또는 **[CTRL]+[ALT]+S**키를 누릅니다.
@@ -54,9 +54,9 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 ## <a name="upload-source-data-files"></a>원본 데이터 파일 업로드
 자습서 앞쪽의 **필수 구성 요소** 섹션에서 일부 데이터를 업로드했습니다.  
 
-사용자 고유의 데이터를 사용하려는 경우 데이터 레이크 도구에서 데이터를 업로드하는 절차는 다음과 같습니다.
+사용자 고유의 데이터를 사용하려면 Data Lake Tools에서 데이터를 업로드하는 단계를 따릅니다.
 
-**종속 Azure 데이터 레이크 계정에 파일 업로드하기**
+**종속 Azure Data Lake 계정에 파일 업로드**
 
 1. **서버 탐색기**에서 **Azure**, **Data Lake Analytics**, Data Lake Analytics 계정, **저장소 계정**을 차례로 확장합니다. 데이터 레이크 저장소 계정, 연결된 데이터 레이크 저장소 계정, 연결된 Azure 저장소 계정이 표시됩니다. 기본 데이터 레이크 계정의 레이블은 “기본 저장소 계정”입니다.
 2. 기본 Data Lake 저장소 계정을 마우스 오른쪽 단추로 클릭한 후 **탐색기**를 클릭합니다.  Visual Studio 탐색기용 데이터 레이크 도구 창이 열립니다.  왼쪽에 트리 보기가 오른쪽에 콘텐츠 보기가 표시됩니다.
@@ -65,7 +65,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
     ![U-SQL Visual Studio 프로젝트 U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**연결된 Azure Blob 저장소 계정에 파일 업로드**
+**연결된 Azure Blob Storage 계정에 파일 업로드**
 
 1. **서버 탐색기**에서 **Azure**, **Data Lake Analytics**, Data Lake Analytics 계정, **저장소 계정**을 차례로 확장합니다. 데이터 레이크 저장소 계정, 연결된 데이터 레이크 저장소 계정, 연결된 Azure 저장소 계정이 표시됩니다.
 2. Azure 저장소 계정을 확장합니다.
@@ -76,7 +76,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 ## <a name="develop-u-sql-scripts"></a>U-SQL 스크립트 개발
 데이터 레이크 분석 작업은 U-SQL 언어로 작성됩니다. U-SQL에 대한 자세한 내용은 [U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
 
-**데이터 레이크 분석 작업 만들기 및 제출하기**
+**Data Lake Analytics 작업 만들기 및 제출하기**
 
 1. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 2. **U-SQL 프로젝트** 유형을 선택합니다.
@@ -128,9 +128,9 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
        이름이 자동 완성되고 행 집합, 클래스, 데이터베이스, 스키마, 사용자 정의 개체(UDO)에 대해 구성원이 표시됩니다.
 
        카탈로그 엔터티(데이터베이스, 스키마, 테이블, UDO 등)용 IntelliSense는 사용자의 계산 계정과 관련됩니다. 상단 도구 모음에서 현재 활성 계산 계정, 데이터베이스, 스키마를 확인하고 드롭다운 목록을 통해 전환할 수 있습니다.
-   * **확장* 열**
+   * **확장 * 열**
 
-       *의 오른쪽을 클릭하면*아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 이동하고 아래쪽 화살표를 클릭합니다.
+       *의 오른쪽을 클릭하면 * 아래에 파란색 밑줄이 표시됩니다. 파란색 밑줄에 마우스 커서를 이동하고 아래쪽 화살표를 클릭합니다.
        ![Data Lake Visual Studio 도구 확장 *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
 
        **열 확장**을 클릭하면 도구가 열 이름으로 *을 대체합니다.
@@ -167,7 +167,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
 
    * 작업 요약. 현재 작업에 대한 요약 정보(예: 상태, 진행, 실행 시간, 런타임 이름, 제출자 등)를 표시합니다.   
    * 작업 세부 정보. 제공된 작업에 대한 스크립트, 리소스, 꼭짓점 실행 보기를 비롯한 세부 정보입니다.
-   * 작업 그래프 진행, 데이터 읽기, 데이터 쓰기, 실행 시간, 노드당 평균 실행 시간, 입력 처리량, 출력 처리량 같은 작업 정보를 시각화하도록&4;개의 그래프가 제공됩니다.
+   * 작업 그래프 진행, 데이터 읽기, 데이터 쓰기, 실행 시간, 노드당 평균 실행 시간, 입력 처리량, 출력 처리량 같은 작업 정보를 시각화하도록 4개의 그래프가 제공됩니다.
    * 메타데이터 작업 모든 메타데이터 작업을 표시합니다.
    * 상태 내역
    * 진단 Visual Studio용 데이터 레이크 도구는 작업 실행을 자동으로 진단합니다. 작업에 오류 또는 성능 문제가 있으면 경고가 표시됩니다. 자세한 내용은 작업 진단(링크 TBD) 부분을 참조하세요.

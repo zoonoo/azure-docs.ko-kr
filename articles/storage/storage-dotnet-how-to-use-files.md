@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fcdeac53c79551000b48a47a1afc65e082bcc692
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: b835b04d6ef6d06e35add4f503e6800099e97383
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -259,6 +259,16 @@ net use z: \\samples.file.core.windows.net\logs /u:AZURE\samples <storage-accoun
 > 일부 인터넷 서비스 공급자는 포트 445를 차단할 수 있으므로 서비스 공급자에게 확인해야 할 수 있습니다.
 > 
 > 
+
+### <a name="unmount-the-file-share"></a>파일 공유 마운트 해제
+파일 공유를 마운트 해제하려면 `/delete` 옵션과 함께 `net use` 명령을 사용할 수 있습니다.
+
+```
+net use <drive-letter> /delete
+
+example :
+net use z: /delete
+```
 
 ## <a name="develop-with-file-storage"></a>파일 저장소를 사용하여 개발
 파일 저장소를 호출하는 코드를 작성하려면 .NET 및 Java 또는 Azure 저장소 REST API용 저장소 클라이언트 라이브러리를 사용할 수 있습니다. 이 섹션의 예제에서는 데스크톱에서 실행 중인 간단한 콘솔 응용 프로그램에서 [.NET용 Azure 저장소 클라이언트 라이브러리](https://msdn.microsoft.com/library/mt347887.aspx) 를 사용하여 파일 공유로 작업하는 방법을 설명합니다.
@@ -633,7 +643,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
     예. 트래픽은 동일한 지역에 있는 경우 무료입니다.
 7. **온-프레미스 가상 컴퓨터에서 Azure 파일 저장소로 연결하는 것은 Azure Express 경로에 따라 달라집니까?**
    
-    아니요. Express 경로가 없더라도 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)를 열어 놓기만 하면 온-프레미스에서 여전히 파일 공유에 액세스할 수 있습니다. 그러나 원하는 경우 Express 경로를 파일 저장소와 함께 사용할 수 있습니다.
+    아니요. ExpressRoute가 없더라도 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)를 열어 놓기만 하면 온-프레미스에서 여전히 파일 공유에 액세스할 수 있습니다. 그러나 원하는 경우 Express 경로를 파일 저장소와 함께 사용할 수 있습니다.
 8. **장애 조치 클러스터에 대한 "파일 공유 감시"는 Azure 파일 저장소의 사용 사례 중 하나입니까?**
    
     이 기능은 현재 지원되지 않습니다.
@@ -666,11 +676,13 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
     종단 간 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-file-connection-problems.md)를 참조할 수 있습니다.               
 
 18. **Azure Files에서 서버 쪽 암호화를 사용하하려면 어떻게 해야 하나요?**
+> [!NOTE]
+> Azure Files에서 [서버 쪽 암호화](storage-service-encryption.md)는 현재 미리 보기 상태입니다. 미리 보기 중에 질문이 있는 경우 [SSEDiscussion](mailto:ssediscussions@microsoft.com)에 문의할 수 있습니다.
 
-    Azure Files에서 [서버 쪽 암호화](storage-service-encryption.md)는 현재 미리 보기 상태입니다. 미리 보기 중에 [Azure Portal](https://portal.azure.com)을 사용하여 만든 Azure Resource Manager 저장소 계정에서 이 기능을 사용할 수 있습니다. 이 기능을 사용하는 추가 비용은 없습니다. Azure File Storage에 저장소 서비스 암호화를 사용하도록 설정하면 데이터가 자동으로 암호화됩니다. 
+    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
     
-    나중에 [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md) 또는 [Microsoft Azure Storage 리소스 공급자 API](/rest/api/storagerp/storageaccounts)에서 File Storage에 대한 암호화를 지원할 예정입니다. 
-    Azure Storage에서 휴지 상태인 암호화에 대한 자세한 정보는 [저장소 서비스 암호화](storage-service-encryption.md)를 참조하고 미리 보기 중에 질문이 있는 경우 ssediscussions@microsoft.com에 문의하시면 됩니다.
+    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
+    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
 
 ## <a name="next-steps"></a>다음 단계
 Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.

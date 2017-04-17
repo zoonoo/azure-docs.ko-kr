@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 04/07/2017
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
-ms.openlocfilehash: d1320daaf4b0bd8c1a7b7c8e37fa8b81c4a53e64
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: c0c5ab8a9db60ff375b7d823e40f83cbc4d2b4c3
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -90,7 +90,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
    
     ![배포된 응용 프로그램 UI][deployed-app-ui]
    
-    WordCount 응용 프로그램은 간단합니다. 클라이언트쪽 JavaScript 코드를 포함하여 임의의 다섯 개의 문자 "words"를 생성하며 이는 ASP.NET Web API를 통해 응용 프로그램에 릴레이됩니다. 상태 저장 서비스는 계산된 단어의 수를 추적합니다. 단어의 첫 번째 문자를 기준으로 분할됩니다. [샘플 시작](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/)에서 WordCount 앱에 대한 소스 코드를 찾을 수 있습니다.
+    WordCount 응용 프로그램은 간단합니다. 클라이언트쪽 JavaScript 코드를 포함하여 임의의 다섯 개의 문자 "words"를 생성하며 이는 ASP.NET Web API를 통해 응용 프로그램에 릴레이됩니다. 상태 저장 서비스는 계산된 단어의 수를 추적합니다. 단어의 첫 번째 문자를 기준으로 분할됩니다. [클래식 샘플 시작](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount)에서 WordCount 앱에 대한 소스 코드를 찾을 수 있습니다.
    
     배포된 응용 프로그램은 네 개의 파티션을 포함합니다. 그러므로 A부터 G로 시작하는 단어는 첫 번째 파티션에 저장되고 H부터 N까지로 시작하는 단어는 두 번째 파티션에 저장되는 방식으로 계속됩니다.
 
@@ -188,19 +188,19 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
    
     또는 Service Fabric Explorer에서 응용 프로그램에 **프로비전 해제 형식** 을 선택합니다.
 3. 클러스터는 끄되 응용 프로그램 데이터와 추적은 유지하려면 시스템 트레이 앱에서 **로컬 클러스터 중지** 를 클릭합니다.
-4. 클러스터를 완전히 제거하려면 시스템 트레이 앱에서 **로컬 클러스터 제거** 를 클릭합니다. 다음에 Visual Studio에서 F5 키를 누르면 이 옵션이 다른 느린 배포를 발생시킵니다. 일정 시간 동안 로컬 클러스터를 사용하지 않거나 또는 리소스를 확보해야 할 경우에만 로컬 클러스트를 제거합니다.
+4. 클러스터를 완전히 제거하려면 시스템 트레이 앱에서 **로컬 클러스터 제거**를 클릭합니다. 다음에 Visual Studio에서 F5 키를 누르면 이 옵션이 다른 느린 배포를 발생시킵니다. 일정 시간 동안 로컬 클러스터를 사용하지 않거나 또는 리소스를 확보해야 할 경우에만 로컬 클러스트를 제거합니다.
 
-## <a name="one-node-and-five-node-cluster-mode"></a>1개 노드 및&5;개 노드 클러스터 모드
-응용 프로그램을 개발할 때 종종 코드 작성, 디버깅, 코드 변경, 디버깅을 빠르게 반복하여 수행합니다. 이 프로세스를 최적화할 수 있기 위해 로컬 클러스터는&1;개 노드 및&5;개 노드 등 두 가지 모드에서 실행할 수 있습니다. 클러스터 모드는 모두 해당되는 혜택이 있습니다. 5개 노드 클러스터 모드를 사용하면 실제 클러스터와 함께 사용할 수 있습니다. 장애 조치 시나리오를 테스트하고 더 많은 인스턴스 및 서비스의 복제본을 사용할 수 있습니다. 1개 노드 클러스터 모드는 서비스를 빠르게 배포하고 등록하는 데 최적화되어 Service Fabric 런타임을 사용하여 신속하게 코드의 유효성을 검사할 수 있습니다.
+## <a name="one-node-and-five-node-cluster-mode"></a>1개 노드 및 5개 노드 클러스터 모드
+응용 프로그램을 개발할 때 종종 코드 작성, 디버깅, 코드 변경, 디버깅을 빠르게 반복하여 수행합니다. 이 프로세스를 최적화할 수 있기 위해 로컬 클러스터는 1개 노드 및 5개 노드 등 두 가지 모드에서 실행할 수 있습니다. 클러스터 모드는 모두 해당되는 혜택이 있습니다. 5개 노드 클러스터 모드를 사용하면 실제 클러스터와 함께 사용할 수 있습니다. 장애 조치 시나리오를 테스트하고 더 많은 인스턴스 및 서비스의 복제본을 사용할 수 있습니다. 1개 노드 클러스터 모드는 서비스를 빠르게 배포하고 등록하는 데 최적화되어 Service Fabric 런타임을 사용하여 신속하게 코드의 유효성을 검사할 수 있습니다.
 
-1개 노드 클러스터 또는&5;개 노드 클러스터 모드 모두 에뮬레이터 또는 시뮬레이터가 아닙니다. 컬 개발 클러스터는 다중 컴퓨터 클러스터에 있는 동일한 플랫폼 코드를 실행합니다.
+1개 노드 클러스터 또는 5개 노드 클러스터 모드 모두 에뮬레이터 또는 시뮬레이터가 아닙니다. 컬 개발 클러스터는 다중 컴퓨터 클러스터에 있는 동일한 플랫폼 코드를 실행합니다.
 
 > [!WARNING]
 > 클러스터 모드를 변경할 때 현재 클러스터가 시스템에서 제거되고 새 클러스터가 생성됩니다. 클러스터 모드를 변경할 때 클러스터에 저장해야 하는 데이터가 삭제됩니다.
 > 
 > 
 
-모드를&1;개 노드 클러스터로 변경하려면 Service Fabric Local Cluster Manager에서 **클러스터 모드 전환**을 선택합니다.
+모드를 1개 노드 클러스터로 변경하려면 Service Fabric Local Cluster Manager에서 **클러스터 모드 전환**을 선택합니다.
 
 ![클러스터 모드 전환][switch-cluster-mode]
 

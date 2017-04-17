@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: a8e5d36d31aabc9226206f52d8543566c5218494
-ms.openlocfilehash: 6c833cd40439fef1fe9cca2591d36a6c49630579
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 6508b5a5d7d654954c68f9390c62a7871c1f032c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -75,7 +75,7 @@ Azure 저장소 개발을 쉽게 시작할 수 있습니다. 이 자습서에서
 ## <a name="run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator"></a>Azure 저장소 에뮬레이터에 대해 첫 번째 Azure 저장소 응용 프로그램 실행
 [Azure 저장소 에뮬레이터](storage-use-emulator.md) 는 개발 목적으로 Azure Blob, 큐 및 테이블 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. 저장소 에뮬레이터를 사용하면 Azure 구독 또는 저장소 계정을 만들지 않고도, 그리고 비용 발생 없이 저장소 응용 프로그램을 로컬로 테스트할 수 있습니다.
 
-이제 Visual Studio에서 Azure 빠른 시작 샘플 프로젝트 중 하나를 사용하여 간단한 Azure 저장소 응용 프로그램을 만들어 보겠습니다. 이 자습서에서는 **Azure Blob Storage**, **Azure Table Storage** 및 **Azure Queue Storage** 샘플 프로젝트를 집중적으로 다룹니다.
+이제 Visual Studio에서 Azure 빠른 시작 샘플 프로젝트 중 하나를 사용하여 간단한 Azure Storage 응용 프로그램을 만들어 보겠습니다. 이 자습서에서는 **Azure Blob Storage**, **Azure Table Storage** 및 **Azure Queue Storage** 샘플 프로젝트를 집중적으로 다룹니다.
 
 1. Visual Studio를 시작합니다.
 2. **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.

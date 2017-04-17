@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 23927acae12f0db13fe6dd24a4e1fde8ced25d40
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 5c6a6fcf86867fb2195a31d636003f16ed503da2
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -502,6 +502,9 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 6. 배포 작업이 완료되면 **마침** 을 클릭합니다.
 
 배포할 때 구성 파일의 값은 엔터티가 Azure Data Factory 서비스에 배포되기 전에 데이터 팩터리 엔터티에 대한 JSON 파일에서 속성 값을 설정하는 데 사용됩니다.   
+
+## <a name="use-azure-key-vault"></a>Azure Key Vault 사용
+연결 문자열과 같은 중요한 데이터를 코드 리포지토리에 커밋하는 것은 보안 정책에 위배되는 경우가 종종 있습니다. Azure Key Vault에 중요 정보를 저장하고 Data Factory 엔터티를 게시하면서 사용하는 방법에 대한 자세한 내용은 GitHub의 [ADF 보안 게시](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish)(영문) 샘플을 참조하세요. Visual Studio에 대한 보안 게시 확장을 통해 비밀이 Key Vault에 저장되도록 하고 이에 대한 참조만 연결된 서비스/배포 구성에 지정하도록 할 수 있습니다. 이러한 참조는 Data Factory 엔터티를 Azure에 게시할 때 확인됩니다. 그런 다음 이러한 파일을 비밀을 노출하지 않고 원본 리포지토리에 커밋할 수 있습니다.
 
 ## <a name="summary"></a>요약
 이 자습서에서는 HDInsight hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터를 처리하는 데 Azure 데이터 팩터리를 만들었습니다. Azure 포털에서 다음 단계를 수행하기 위해 데이터 팩터리 편집기를 사용했습니다.  

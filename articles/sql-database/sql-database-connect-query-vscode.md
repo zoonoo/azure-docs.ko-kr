@@ -18,22 +18,36 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: fd5cb0d45d0955b7e4c471dc5ccecac65ad7400a
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ff5d156ab2b701233c4cdbf08e3d6e517c01b9fb
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL Database: Visual Studio Code를 사용하여 데이터에 연결 및 쿼리
 
-[Visual Studio Code](https://code.visualstudio.com/docs)는 확장을 지원하는 Windows, macOS, Linux용 그래픽 코드 편집기입니다. [mssql 확장](https://aka.ms/mssql-marketplace)인 Visual Studio Code를 사용하여 Azure SQL Database를 연결하고 쿼리합니다. 이 빠른 시작은 Visual Studio Code를 사용하여 Azure SQL Database에 연결하고 쿼리, 삽입, 업데이트 및 삭제 문을 실행하는 방법을 자세히 설명합니다.
+[Visual Studio Code](https://code.visualstudio.com/docs)는 Microsoft SQL Server, Azure SQL Database 및 SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원하는 Linux, macOS, Windows용 그래픽 코드 편집기입니다. 이 빠른 시작은 Visual Studio 코드를 사용하여 Azure SQL Database에 연결한 후 Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.
 
 이 빠른 시작은 다음과 같은 빠른 시작 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 
 - [DB 만들기 - 포털](sql-database-get-started-portal.md)
 - [DB 만들기 - CLI](sql-database-get-started-cli.md)
 
-시작하기 전에 최신 버전의 [Visual Studio Code](https://code.visualstudio.com/Download)를 설치하고 했는지 [mssql 확장](https://aka.ms/mssql-marketplace)을 로드했는지 확인합니다. mssql 확장에 대한 설치 지침은 [VS Code 설치](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code)를 참조하세요. 
+시작하기 전에 최신 버전의 [Visual Studio Code](https://code.visualstudio.com/Download)를 설치하고 했는지 [mssql 확장](https://aka.ms/mssql-marketplace)을 로드했는지 확인합니다. mssql 확장에 대한 설치 지침은 [VS Code 설치](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) 및 [Visual Studio Code용 mssql](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)을 참조하세요. 
+
+## <a name="configure-vs-code-mac-os-only"></a>VS Code 구성(Mac OS만 해당)
+
+### <a name="mac-os"></a>**Mac OS**
+macOS의 경우 mssql 확장에서 사용하는 DotNet Core에 대한 필수 구성 요소인 OpenSSL을 설치해야 합니다. 터미널을 열고 다음 명령을 입력하여 **brew** 및 **OpenSSL***을 설치합니다. 
+
+```bash
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew install openssl
+mkdir -p /usr/local/lib
+ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
+ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
+```
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
@@ -43,7 +57,7 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
 3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사하여 이 빠른 시작에서 나중에 사용합니다.
 
-    <img src="./media/sql-database-connect-query-ssms/connection-information.png" alt="connection information" style="width: 780px;" />
+    <img src="./media/sql-database-connect-query-vscode/connection-information.png" alt="connection information" style="width: 780px;" />
 
 ## <a name="set-language-mode-to-sql"></a>언어 모드를 SQL로 설정
 
@@ -51,7 +65,7 @@ Visual Studio Code에서 언어 모드를 **SQL**로 설정하여 mssql 명령 �
 
 1. 새 Visual Studio Code 창을 엽니다. 
 
-2. **CTRL+K, M**을 누르고 **SQL**을 입력한 다음 **ENTER** 키를 눌러서 언어 모드를 SQL로 설정합니다. 
+2. **⌘+K,M** 또는 **CTRL+K,M**(각각 Mac 및 Windows 옵션)을 누르고 **SQL**을 입력한 다음 **ENTER** 키를 눌러서 언어 모드를 SQL로 설정합니다. 
 
 <img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
 
@@ -61,13 +75,11 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 1. VS Code에서 **CTRL+SHIFT+P**(또는 **F1** 키)를 눌러서 명령 팔레트를 엽니다.
 
-2. **sqlcon**을 입력하고 **ENTER** 키를 누릅니다.
+2. **sqlcon**을 입력하고 **ENTER** 키를 누른 후 언어를 **SQL**로 설정합니다.
 
-3. **예**를 클릭하여 언어를 **SQL**로 설정합니다.
+3. **ENTER** 키를 눌러서 **연결 프로필 만들기**를 선택합니다. 그러면 SQL Server 인스턴스의 연결 프로필을 만듭니다.
 
-4. **ENTER** 키를 눌러서 **연결 프로필 만들기**를 선택합니다. 그러면 SQL Server 인스턴스의 연결 프로필을 만듭니다.
-
-5. 프롬프트에 따라 새 연결 프로필의 연결 속성을 지정합니다. 각 값을 지정한 후에 **ENTER** 키를 눌러서 계속합니다. 
+4. 프롬프트에 따라 새 연결 프로필의 연결 속성을 지정합니다. 각 값을 지정한 후에 **ENTER** 키를 눌러서 계속합니다. 
 
    다음 테이블에서는 연결 프로필 속성을 설명합니다.
 
@@ -81,9 +93,9 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
    | **암호를 저장하시겠습니까?** | **예** 또는 **아니요**를 선택합니다. |
    | **[옵션]이 프로필의 이름 입력** | **mySampleDatabase**와 같은 연결 프로필 이름을 입력합니다. 
 
-6. **ESC** 키를 누르면 프로필을 만들고 연결하도록 사용자에게 알려 주는 정보 메시지가 닫힙니다.
+5. **ESC** 키를 누르면 프로필을 만들고 연결하도록 사용자에게 알려 주는 정보 메시지가 닫힙니다.
 
-7. 상태 표시줄에서 연결을 확인합니다.
+6. 상태 표시줄에서 연결을 확인합니다.
 
    <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
 
@@ -100,7 +112,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. **CTRL+SHIFT+E**를 눌러서 Product 및 ProductCategory 테이블에서 데이터를 검색합니다.
+2. **CTRL+SHIFT+E**를 눌러서 Product 및 ProductCategory 테이블에서 데이터를 검색합니다.
 
     <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
 
@@ -130,7 +142,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
            ,GETDATE() );
    ```
 
-3. **CTRL+SHIFT+E**를 눌러서 Product 테이블에서 새 행을 삽입합니다.
+2. **CTRL+SHIFT+E**를 눌러서 Product 테이블에서 새 행을 삽입합니다.
 
 ## <a name="update-data"></a>데이터 업데이트
 
@@ -144,7 +156,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
    WHERE Name = 'myNewProduct';
    ```
 
-3. **CTRL+SHIFT+E**를 눌러서 Product 테이블에서 지정된 행을 업데이트합니다.
+2. **CTRL+SHIFT+E**를 눌러서 Product 테이블에서 지정된 행을 업데이트합니다.
 
 ## <a name="delete-data"></a>데이터 삭제
 
@@ -157,10 +169,15 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
    WHERE Name = 'myNewProduct';
    ```
 
-3. **CTRL+SHIFT+E**를 눌러서 Product 테이블에서 지정된 행을 삭제합니다.
+2. **CTRL+SHIFT+E**를 눌러서 Product 테이블에서 지정된 행을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Visual Studio Code에 대한 자세한 내용은 [Visual Studio Code](https://code.visualstudio.com/docs)를 참조하세요.
-- SQL Server Management Studio를 사용하여 데이터를 쿼리 및 편집하는 방법에 대한 정보는 [SSMS](https://msdn.microsoft.com/library/ms174173.aspx)를 참조하세요.
+- SQL Server Management Studio를 사용하여 연결 및 쿼리하려면 [SSMS를 사용하여 연결 및 쿼리](sql-database-connect-query-ssms.md)를 참조하세요.
+- .NET을 사용하여 연결 및 쿼리하려면 [.NET을 사용하여 연결 및 쿼리](sql-database-connect-query-dotnet.md)를 참조하세요.
+- PHP를 사용하여 연결 및 쿼리하려면 [PHP를 사용하여 연결 및 쿼리](sql-database-connect-query-php.md)를 참조하세요.
+- Node.js를 사용하여 연결 및 쿼리하려면 [Node.js를 사용하여 연결 및 쿼리](sql-database-connect-query-nodejs.md)를 참조하세요.
+- Java를 사용하여 연결 및 쿼리하려면 [Java를 사용하여 연결 및 쿼리](sql-database-connect-query-java.md)를 참조하세요.
+- Python을 사용하여 연결 및 쿼리하려면 [Python을 사용하여 연결 및 쿼리](sql-database-connect-query-python.md)를 참조하세요.
+- Ruby를 사용하여 연결 및 쿼리하려면 [Ruby를 사용하여 연결 및 쿼리](sql-database-connect-query-ruby.md)를 참조하세요.
 

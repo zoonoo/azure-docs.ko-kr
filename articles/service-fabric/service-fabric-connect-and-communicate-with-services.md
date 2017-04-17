@@ -85,9 +85,8 @@ Azure의 서비스 패브릭 클러스터는 Azure 부하 분산 장치 뒤에 �
                 this.httpListener.Prefixes.Add(uriPrefix);
                 this.httpListener.Start();
 
-                string uriPublished = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
-
-                return Task.FromResult(this.publishUri);
+                string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+                return Task.FromResult(publishUri);
             }
 
             ...
@@ -99,7 +98,7 @@ Azure의 서비스 패브릭 클러스터는 Azure 부하 분산 장치 뒤에 �
 
             protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
             {
-                return new[] {new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
+                return new[] { new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
             }
 
             ...

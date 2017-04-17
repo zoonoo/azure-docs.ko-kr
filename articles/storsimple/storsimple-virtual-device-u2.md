@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 04/07/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 48d9d8ae97eb763932dd6a59a7df01ae92c92eff
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d9ba200dba2b1460a9d3c9ba07e2bca54c30b53a
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -33,7 +33,7 @@ StorSimple 가상 장치 모델은 두 가지 모델 즉, 표준 8010(이전의 
 | **최대 용량** |30TB |64TB |
 | **Azure VM** |Standard_A3(4 코어, 7GB 메모리) |Standard_DS3 (4 코어, 14GB 메모리) |
 | **버전 호환성** |사전 업데이트 2 이상을 실행하는 버전 |업데이트 2 이상을 실행하는 버전 |
-| **지역 가용성** |모든 Azure 지역 |Premium Storage를 지원하는 모든 Azure 지역<br></br> Premium Storage 지역은 [지역별 Azure 서비스](https://azure.microsoft.com/en-us/regions/services) 목록에서 *디스크 저장소*의 행에 해당하는 지역입니다. |
+| **지역 가용성** |모든 Azure 지역 |Premium Storage 및 DS3 Azure VM을 지원하는 모든 Azure 지역<br></br> [이 목록](https://azure.microsoft.com/en-us/regions/services)을 사용하여 *Virtual Machines > DS 시리즈* 및 *저장소 > 디스크 저장소*를 자신의 지역에서 사용할 수 있습니다. |
 | **저장소 유형** |로컬 디스크에 Azure 표준 저장소 사용<br></br> [표준 저장소 계정을 만드는](../storage/storage-create-storage-account.md) |로컬 디스크<sup>2</sup> <br></br>[프리미엄 저장소 계정을 만드는](../storage/storage-premium-storage.md) 방법 알아보기 |
 | **워크로드 지침** |백업으로부터 항목 수준 파일 읽어오기 |클라우드 개발 및 테스트 시나리오, 짧은 대기 시간, 높은 성능 워크로드  <br></br>재해 복구용 보조 장치 |
 
