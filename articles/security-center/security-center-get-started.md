@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/11/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 40636aa9d847b97ea872bf4689a1da6e3eb23eb4
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: fcc43e5d98f75b34f2d65c9e1ce8eeba7762caaf
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -44,13 +44,13 @@ Security Center는 해당 보안 상태를 평가하고 보안 권장 사항을 
 
 다음 단계에서는 Security Center의 구성 요소를 액세스하여 사용하는 방법을 설명합니다. 여기서는 데이터 수집을 해제하도록 선택하는 경우 이 기능을 해제하는 방법을 보여 줍니다.
 
-## <a name="access-security-center"></a>Security Center 엑세스
+## <a name="access-security-center"></a>Security Center 액세스
 포털에서 다음 단계에 따라 Security Center에 액세스합니다.
 
 1. **Microsoft Azure** 메뉴에서 **Security Center**를 선택합니다.
 
    ![Azure 메뉴][1]
-2. 처음으로 Security Center에 액세스하는 경우 **시작** 블레이드가 열립니다. **예! Azure Security Center를 시작하겠습니다.**를 선택하여 **Security Center** 블레이드를 열고 데이터 수집을 사용하도록 설정합니다.
+2. 처음으로 Security Center에 액세스하는 경우 **시작** 블레이드가 열립니다. **Security Center 시작**을 선택하여 **Security Center** 블레이드를 열고 데이터 수집을 사용하도록 설정합니다.
    ![시작 화면][10]
 3. 시작 블레이드에서 Security Center를 시작하거나 Microsoft Azure 메뉴에서 Security Center를 선택하면 **Security Center** 블레이드가 열립니다. 향후 **Security Center** 블레이드에 손쉽게 액세스하려면 오른쪽 위에 있는 **대시보드에 블레이드 고정** 옵션을 선택합니다.
    ![대시보드 옵션에 블레이드 고정][2]
@@ -82,10 +82,16 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
 
 ### <a name="view-the-health-and-security-state-of-your-resources"></a>리소스의 상태 및 보안 상태 보기
 1. **Security Center** 블레이드로 돌아갑니다. **리소스 보안 상태** 타일에는 가상 컴퓨터, 네트워킹, 데이터 및 응용 프로그램의 보안 상태에 대한 지표가 포함되어 있습니다.
-2. 자세한 내용을 보려면 **가상 컴퓨터** 를 선택합니다. **가상 컴퓨터** 블레이드가 열려 가상 컴퓨터의 맬웨어 방지 프로그램, 시스템 업데이트, 다시 시작 및 OS 취약성의 상태 요약을 보여 줍니다.
-   ![Azure Security Center의 리소스 상태 타일][6]
-3. **가상 컴퓨터 권장 사항**에서 권장 사항을 선택하여 자세한 정보를 보거나 필요한 제어를 구성하는 작업을 선택합니다.
-4. **가상 컴퓨터** 아래에서 VM을 선택하여 세부 정보를 추가로 표시합니다.
+2. **Compute**를 선택하여 자세한 정보를 봅니다. 세 개의 탭을 보여 주는 **Compute** 블레이드가 열립니다.
+
+  - **개요**: 모니터링 및 가상 컴퓨터 권장 사항을 포함합니다.
+  - **가상 컴퓨터**: 모든 가상 컴퓨터와 현재 보안 상태를 나열합니다.
+  - **클라우드 서비스**: Security Center에서 모니터링하는 웹 및 작업자 역할을 나열합니다.
+
+    ![Azure 보안 센터의 리소스 상태 타일][6]
+
+3. **개요** 탭의 **가상 컴퓨터 권장 사항**에서 권장 사항을 선택하여 자세한 정보를 보거나 필요한 제어를 구성하는 작업을 선택합니다.
+4. **가상 컴퓨터** 탭에서 VM을 선택하여 추가 세부 정보를 봅니다.
 
 ### <a name="view-security-alerts"></a>보안 경고 보기
 1. **Security Center** 블레이드로 돌아가서 **보안 경고** 타일을 선택합니다. **보안 경고** 블레이드가 열려 경고 목록을 보여 줍니다. 보안 로그 및 네트워크 활동의 보안 상태 분석에서 이러한 경고를 생성합니다. 통합된 파트너 솔루션에서 보내는 경고도 있습니다.
@@ -102,7 +108,7 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
 1. **Security Center** 블레이드로 돌아갑니다. **파트너 솔루션** 타일에서 Azure 구독과 통합된 파트너 솔루션의 상태를 한 눈에 모니터링할 수 있습니다.
 2. **파트너 솔루션** 타일을 선택합니다. 블레이드가 열리고 Security Center에 연결된 파트너 솔루션의 목록을 보여 줍니다.
    ![파트너 솔루션][9]
-3. 파트너 솔루션을 선택합니다. 이 예에서는 **F5-WAF2** 솔루션을 선택합니다.  블레이드가 열리고 파트너 솔루션의 상태 및 솔루션의 관련 리소스를 보여 줍니다. **솔루션 콘솔** 을 선택하여 이 솔루션에 대한 파트너 관리 환경을 엽니다.
+3. 파트너 솔루션을 선택합니다. 이 예에서는 **QualysVa1** 솔루션을 선택합니다.  블레이드가 열리고 파트너 솔루션의 상태 및 솔루션의 관련 리소스를 보여 줍니다. **솔루션 콘솔** 을 선택하여 이 솔루션에 대한 파트너 관리 환경을 엽니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center의 보안 모니터링 및 정책 관리 구성 요소를 소개했습니다. 이제 Security Center에 익숙해졌으므로 다음 단계를 수행하세요.
