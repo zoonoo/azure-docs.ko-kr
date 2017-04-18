@@ -13,10 +13,11 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: brandwe
+ms.author: xerners
 translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
 ms.openlocfilehash: c74e63621d422f8fa13bc1dd2730ec2c3325a46a
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -233,10 +234,5 @@ ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게
 * [ADAL을 사용하여 iOS에서 앱 간 SSO를 사용하도록 설정하는 방법](active-directory-sso-ios.md)  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
