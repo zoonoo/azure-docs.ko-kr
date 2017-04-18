@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/24/2017
+ms.date: 04/06/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f03099391600bc3b918eb3a8c866c16a02052b7a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -67,7 +67,7 @@ ExpressRoute의 경우 ExpressRoute 회로에 연결하여 Virtual Network("VNet
 ![ExpressRoute 사례 3 - 가상 네트워크 간에 최적이 아닌 라우팅](./media/expressroute-optimize-routing/expressroute-case3-problem.png)
 
 ### <a name="solution-assign-a-high-weight-to-local-connection"></a>솔루션: 로컬 연결에 높은 가중치 할당
-해결책은 간단합니다. VNet 및 회로가 있는 위치를 알고 있으므로 각 VNet이 선호하는 경로를 알려줄 수 있습니다. 구체적으로 예를 들어 원격 연결보다 로컬 연결에 더 높은 가중치를 할당합니다. VNet이 여러 연결에서 다른 VNet의 접두사를 수신하는 경우 가중치가 가장 높은 연결을 선호하여 해당 접두사에 대상으로 지정된 트래픽을 보냅니다.
+해결책은 간단합니다. VNet 및 회로가 있는 위치를 알고 있으므로 각 VNet이 선호하는 경로를 알려줄 수 있습니다. 구체적으로 예를 들어 원격 연결보다 로컬 연결에 더 높은 가중치를 할당합니다(구성 예제는 [여기](expressroute-howto-linkvnet-arm.md#modify-a-virtual-network-connection) 참조). VNet이 여러 연결에서 다른 VNet의 접두사를 수신하는 경우 가중치가 가장 높은 연결을 선호하여 해당 접두사에 대상으로 지정된 트래픽을 보냅니다.
 
 ![ExpressRoute 사례 3 솔루션 - 로컬 연결에 높은 가중치 할당](./media/expressroute-optimize-routing/expressroute-case3-solution.png)
 
@@ -75,3 +75,4 @@ ExpressRoute의 경우 ExpressRoute 회로에 연결하여 Virtual Network("VNet
 > 또한 여러 ExpressRoute 회로 설정한 경우 위의 두 번째 시나리오에서 설명한 기술인 AS PATH 접두사를 적용하는 대신 연결의 가중치를 구성하여 VNet에서 온-프레미스 네트워크로의 라우팅에 영향을 줄 수 있습니다. 각 접두사의 경우 트래픽을 전송하는 방법을 결정할 때 AS Path 길이 앞에 있는 연결 가중치를 항상 살펴봅니다.
 >
 >
+

@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/10/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e476a80a3846b8c80c35d6803d5518727f008824
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2ac78606f851068fa0fb7dcab3bac1c629b9cdb3
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -153,7 +153,7 @@ DocumentDB 출력 바인딩을 사용하면 Azure DocumentDB 데이터베이스�
 다음 사항에 유의하세요.
 
 * 데이터베이스 및 컬렉션이 없는 경우 `createIfNotExists`를 `true`로 설정하여 만듭니다. 기본값은 `false`입니다. 새 컬렉션이 예약된 처리량을 사용하여 만들어지면 가격 책정 면에서 의미하는 바가 있습니다. 자세한 내용은 [DocumentDB 가격](https://azure.microsoft.com/pricing/details/documentdb/)을 참조하세요.
-* `connection`은 반드시 DocumentDB 계정에 대한 끝점을 가리키는(값 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`를 갖는) 앱 설정의 이름이어야 합니다. 함수 포털 UI를 통해 DocumentDB 계정을 만들 경우 계정 만들기 프로세스에서 사용자를 위한 새로운 앱 설정이 만들어집니다. 기존 DocumentDB 계정을 사용하려면 [이 앱 설정을 수동으로 구성]()해야 합니다. 
+* `connection`은 반드시 DocumentDB 계정에 대한 끝점을 가리키는(값 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`를 갖는) 앱 설정의 이름이어야 합니다. 함수 포털 UI를 통해 DocumentDB 계정을 만들 경우 계정 만들기 프로세스에서 사용자를 위한 새로운 앱 설정이 만들어집니다. 기존 DocumentDB 계정을 사용하려면 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md)해야 합니다. 
 
 ## <a name="output-usage"></a>출력 사용
 이 섹션에서는 함수 코드에서 DocumentDB 출력 바인딩을 사용하는 방법을 보여 줍니다.

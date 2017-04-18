@@ -17,6 +17,7 @@
 ### [Linux에서 Java](service-fabric-create-your-first-linux-application-with-java.md)
 ### [Linux에서 C#](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [로컬 클러스터에 앱 배포](service-fabric-get-started-with-a-local-cluster.md)
+## [독립 실행형 클러스터 만들기](service-fabric-get-started-standalone-cluster.md)
 
 # 방법
 ## 응용 프로그램 빌드
@@ -145,6 +146,7 @@
 ### 응용 프로그램 배포 또는 제거
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+#### [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 ### [응용 프로그램 업그레이드 개요](service-fabric-application-upgrade.md)
 ### [응용 프로그램 업그레이드 구성](service-fabric-visualstudio-configure-upgrade.md)
 ### [응용 프로그램 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)
@@ -208,9 +210,9 @@
 ### [서비스 이동](service-fabric-cluster-resource-manager-movement-cost.md)
 
 # 참조
-## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
-## [Java API](/java/api/microsoft.servicefabric.services)
-## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [PowerShell](/powershell/module/ServiceFabric/)
+## [Java API](/java/api/)
+## [.NET](/dotnet/api/)
 ## [REST (영문)](/rest/api/servicefabric)
 
 # 리소스

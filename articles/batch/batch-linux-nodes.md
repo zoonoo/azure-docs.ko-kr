@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 4e0194f98ebcaffba2c5a89833a969112294e83a
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a3858428439e4671489bfc17b043daacc4d3f157
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -36,7 +36,7 @@ Azure 배치를 사용하여 Linux 및 Windows 가상 컴퓨터에서 병렬 계
 
 **클라우드 서비스 구성** 은 Windows 계산 노드 *만*제공합니다. 사용 가능한 계산 노드 크기는 [클라우드 서비스 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열되고 사용 가능한 운영 체제는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md)에 나열됩니다. Azure 클라우드 서비스 노드를 포함하는 풀을 만드는 경우 노드 크기 및 해당 "OS 제품군"만 지정해야 하며 이전에 언급한 문서에서 찾을 수 있습니다. Windows 계산 노드의 풀에는 클라우드 서비스가 가장 일반적으로 사용됩니다.
 
-**가상 컴퓨터 구성** 은 계산 노드에 대한 Linux와 Windows 이미지를 제공합니다. 사용 가능한 계산 노드 크기는 [Azure에서 가상 컴퓨터에 대한 크기](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Linux) 및 [Azure에서 가상 컴퓨터에 대한 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)에 나열되어 있습니다. 가상 컴퓨터 구성 노드를 포함하는 풀을 만들 때 노드 크기, 가상 컴퓨터 이미지 참조 및 노드에 설치할 배치 노드 에이전트 SKU도 지정해야 합니다.
+**가상 컴퓨터 구성** 은 계산 노드에 대한 Linux와 Windows 이미지를 제공합니다. 사용 가능한 계산 노드 크기는 [Azure에서 가상 컴퓨터에 대한 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Linux) 및 [Azure에서 가상 컴퓨터에 대한 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)에 나열되어 있습니다. 가상 컴퓨터 구성 노드를 포함하는 풀을 만들 때 노드 크기, 가상 컴퓨터 이미지 참조 및 노드에 설치할 배치 노드 에이전트 SKU도 지정해야 합니다.
 
 ### <a name="virtual-machine-image-reference"></a>가상 컴퓨터 이미지 참조
 배치 서비스는 [가상 컴퓨터 크기 조정 설정](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) 을 사용하여 Linux 계산 노드를 제공합니다. [Azure Marketplace][vm_marketplace]에서 이러한 가상 컴퓨터에 대한 운영 체제 이미지를 제공합니다. 가상 컴퓨터 이미지 참조를 구성할 때 마켓플레이스 가상 컴퓨터 이미지의 속성을 지정합니다. 가상 컴퓨터 이미지 참조를 만들 때 다음 속성이 필요합니다.
@@ -49,7 +49,7 @@ Azure 배치를 사용하여 Linux 및 Windows 가상 컴퓨터에서 병렬 계
 | 버전 |최신 |
 
 > [!TIP]
-> 이러한 속성 및 마켓플레이스 이미지를 나열하는 방법에 대한 자세한 내용은 [CLI 또는 PowerShell로 Azure의 Linux 가상 컴퓨터 이미지 이동 및 선택](../virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 알아볼 수 있습니다. 일부 마켓플레이스 이미지가 현재 배치와 호환되지 않습니다. 자세한 내용은 [노드 에이전트 SKU](#node-agent-sku)를 참조하세요..
+> 이러한 속성 및 마켓플레이스 이미지를 나열하는 방법에 대한 자세한 내용은 [CLI 또는 PowerShell로 Azure의 Linux 가상 컴퓨터 이미지 이동 및 선택](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 알아볼 수 있습니다. 일부 마켓플레이스 이미지가 현재 배치와 호환되지 않습니다. 자세한 내용은 [노드 에이전트 SKU](#node-agent-sku)를 참조하세요.
 >
 >
 
@@ -299,7 +299,7 @@ for node in nodes:
                                          login.remote_login_port))
 ```
 
-다음은&4;개의 Linux 노드를 포함하는 풀에 대한 이전 코드의 샘플 출력입니다.
+다음은 4개의 Linux 노드를 포함하는 풀에 대한 이전 코드의 샘플 출력입니다.
 
 ```
 Password:

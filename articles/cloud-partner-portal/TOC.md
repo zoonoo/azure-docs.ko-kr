@@ -9,6 +9,7 @@
 ## Virtual Machines 관리
 ### [작성자 가상 컴퓨터 제품](./cloud-partner-portal-publish-virtual-machine.md)
 #### [필수 구성 요소](./cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm)
+#### [Microsoft 개발자 계정 등록](./cloud-partner-portal-dev-center-accounts-registration.md)
 #### [새 VM 제품 만들기](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer)
 #### [제품 설정 양식](./cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form)
 #### [SKU 양식](./cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus)
@@ -21,6 +22,7 @@
 ### [기존 제품 업데이트](./cloud-partner-portal-update-existing-offer.md)
 ### [VM 제품/SKU 삭제](./cloud-partner-portal-delete-an-offer.md)
 ### [클라우드 파트너 포털로 마이그레이션](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+## [Azure Marketplace 판매자 가이드](./cloud-partner-portal-seller-guide.md)
 
 ## [마케팅 리더 관리](./cloud-partner-portal-marketing-lead-management.md)
 ### [Azure 테이블](./cloud-partner-portal-lead-management-instructions-azure-table.md)

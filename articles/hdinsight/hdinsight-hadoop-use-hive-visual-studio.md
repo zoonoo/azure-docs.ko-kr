@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 0627155a86f961531cfb11c0d8dc7a66eafbf0cf
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 125531d8d52d4e27951a9e6cae0c50582c5b110e
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,12 +36,12 @@ Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 Hive
 * Azure HDInsight(HDInsight의 Hadoop) 클러스터
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 * Visual Studio(다음 버전 중 하나)
-  
+
     * Visual Studio 2013 Community/Professional/Premium/Ultimate [업데이트 4](https://www.microsoft.com/download/details.aspx?id=44921)
-  
+
     * Visual Studio 2015(모든 버전)
 
     * Visual Studio 2017(모든 버전)
@@ -62,23 +62,23 @@ Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 Hive
    STORED AS TEXTFILE LOCATION '/example/data/';
    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
    ```
-   
+
     이러한 문은 다음 작업을 수행합니다.
-   
+
    * `DROP TABLE`: 테이블이 있는 경우 이 문에서 삭제합니다.
 
    * `CREATE EXTERNAL TABLE`: Hive에서 새 '외부' 테이블을 만듭니다. 외부 테이블은 Hive에 테이블 정의만 저장하고, 데이터는 원래 위치에 남아 있습니다.
-     
+
      > [!NOTE]
      > 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
-     > 
+     >
      > 외부 테이블을 삭제하면 데이터는 삭제되지 **않고** 테이블 정의만 삭제됩니다.
 
    * `ROW FORMAT`: 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
 
    * `STORED AS TEXTFILE LOCATION`: 데이터가 저장된 위치(example/data 디렉터리) 및 텍스트로 저장되었음을 Hive에 알립니다.
 
-   * `SELECT`: `t4` 열에 `[ERROR]` 값이 포함된 모든 행의 수를 선택합니다. 이 문에서는 이 값을 포함하는 행이&3;개 있으므로 `3` 값이 반환되어야 합니다.
+   * `SELECT`: `t4` 열에 `[ERROR]` 값이 포함된 모든 행의 수를 선택합니다. 이 문에서는 이 값을 포함하는 행이 3개 있으므로 `3` 값이 반환되어야 합니다.
 
    * `INPUT__FILE__NAME LIKE '%.log'` - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 이 절은 데이터가 포함된 sample.log 파일로 검색을 제한합니다.
 
@@ -95,7 +95,7 @@ Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 Hive
 6. 또한 프로젝트를 만들지 않고도 Hive 쿼리를 실행할 수 있습니다. **서버 탐색기**에서 **Azure** > **HDInsight**를 확장하고, HDInsight 서버를 마우스 오른쪽 단추로 클릭한 다음 **Hive 쿼리 작성**을 선택합니다.
 
 7. 나타나는 **temp.hql** 문서에서 다음 HiveQL 문을 추가합니다.
-   
+
    ```hiveql
    set hive.execution.engine=tez;
    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -103,9 +103,9 @@ Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 Hive
    ```
 
     이러한 문은 다음 작업을 수행합니다.
-   
+
    * `CREATE TABLE IF NOT EXISTS`: 테이블이 아직 없는 경우 테이블을 만듭니다. `EXTERNAL` 키워드가 사용되지 않으므로 이 문으로 내부 테이블이 생성됩니다. 내부 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에 의해 관리됩니다.
-     
+
      > [!NOTE]
      > `EXTERNAL` 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 

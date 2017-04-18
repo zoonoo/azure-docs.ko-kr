@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1729d9ba3f873800127ba3ca77676b843611fded
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a321f9c03f3ec8f898ddf9bdd588c1d79bfd163a
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="azure-remoteapp---testing-your-network-bandwidth-usage-with-some-common-scenarios"></a>Azure RemoteApp - 몇 가지 일반적 시나리오로 네트워크 대역폭 사용량 테스트
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -100,10 +101,5 @@ ms.openlocfilehash: 1729d9ba3f873800127ba3ca77676b843611fded
 * [Azure RemoteApp 네트워크 대역폭 사용량 예측](remoteapp-bandwidth.md)
 * [Azure RemoteApp - 네트워크 대역폭과 체감 품질을 함께 작동하는 방식은 무엇인가요?](remoteapp-bandwidthexperience.md)
 * [Azure RemoteApp 네트워크 대역폭 - 일반적인 지침(자체 테스트를 수행할 수 없는 경우)](remoteapp-bandwidthguidelines.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

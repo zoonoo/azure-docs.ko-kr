@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: 733c151012e3d896f720fbc64120432aca594bda
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 0664888dbb14aaa353d5d126cdf799b62711d71f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -106,9 +106,9 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
     ```PowerShell
     $azureAdApplication    
     ```
-    응용 프로그램 ID(출력에서**applicationID** )를 적어둡니다.
+    출력에서 응용 프로그램 ID(applicationID)를 적어둡니다.
 
-이 단계에서 다음과 같은&4;가지 값이 있어야 합니다.
+이 단계에서 다음과 같은 4가지 값이 있어야 합니다.
 
 * 테넌트 ID
 * 구독 ID
@@ -184,7 +184,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
    > [!IMPORTANT]
    > **resourceGroupName** 값을 Azure 리소스 그룹의 이름으로 바꿉니다.
    >
-   > 데이터 팩터리 이름(**dataFactoryName**)을 고유한 이름으로 업데이트합니다. 데이터 팩터리 이름은 전역적으로 고유해야 합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
+   > 데이터 팩터리 이름(dataFactoryName)을 고유한 이름으로 업데이트합니다. 데이터 팩터리 이름은 전역적으로 고유해야 합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 
 7. **데이터 팩터리**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
@@ -473,7 +473,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
     }
     ```
 
-15. 솔루션 탐색기에서 프로젝트(**DataFactoryAPITestApp**)를 확장하고 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가**를 클릭합니다. "**System.Configuration**" 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
+15. 솔루션 탐색기에서 프로젝트(DataFactoryAPITestApp)를 확장하고 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가**를 클릭합니다. **System.Configuration** 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
 16. 콘솔 응용 프로그램을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
 17. Azure Blob 저장소의 **adftutorial** 컨테이너에 하나 이상의 파일이 있는지 확인합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 **Emp.txt** 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
@@ -486,7 +486,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
    * 연결된 서비스: **LinkedService_AzureStorage**
    * 데이터 집합: **DatasetBlobSource** 및 **DatasetBlobDestination**
    * 파이프라인: **PipelineBlobSample**
-20. 지정된 Azure SQL Database의 "**emp**" 테이블에서 두 개의 직원 레코드가 만들어졌는지 확인합니다.
+20. 지정된 Azure SQL Database의 **emp** 테이블에서 두 개의 직원 레코드가 만들어졌는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 | 항목 | 설명 |

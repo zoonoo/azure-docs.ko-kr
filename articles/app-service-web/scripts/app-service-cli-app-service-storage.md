@@ -9,16 +9,16 @@ editor:
 tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
 ms.service: app-service
-ms.devlang: multiple
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: e8d49bbf8b2562a5aec47e900bbc4a462dd0d05b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 98396d532cb121c770ecfa5e3641d7665501de77
+ms.lasthandoff: 04/04/2017
 
 ---
 
@@ -26,9 +26,7 @@ ms.lasthandoff: 03/21/2017
 
 이 시나리오에서는 Azure Storage 계정 및 Azure 웹앱을 만드는 방법을 알아봅니다. 그런 다음 앱 설정을 사용하여 저장소 계정을 웹앱에 연결합니다.
 
-필요한 경우 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)에 있는 지침을 사용하여 Azure CLI를 설치한 다음, `az login`을 실행하여 Azure와 연결합니다.
-
-이 샘플은 Bash 셸에서 작동합니다. Windows 클라이언트에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 실행](../../virtual-machines/virtual-machines-windows-cli-options.md)을 참조하세요.
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -54,3 +52,4 @@ ms.lasthandoff: 03/21/2017
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
 추가 App Service CLI 스크립트 샘플은 [Azure App Service 설명서](../app-service-cli-samples.md)에서 확인할 수 있습니다.
+

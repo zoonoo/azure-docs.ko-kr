@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 4818c0c036c7e462af5b8d99f1085f8d9025156c
-ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: bd45a0fb99a77851aa7b91d23bd4b830b6f5cc7b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
 다음은 몇 가지 고려해야 할 사항입니다.
 
 * 각 VM에 얼마나 많은 코어가 있고 각 코어를 로드하고 있나요?
-  위의 Azure 빠른 시작 템플릿 예제에는 단일 코어를 로드하는 do_work.php 스크립트가 있습니다. Standard_A1 또는 D1과 같은 단일 코어 VM 크기보다 큰 VM을 사용하는 경우 이 부하를 여러 번 실행해야 합니다. [Azure에서 Windows 가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  위의 Azure 빠른 시작 템플릿 예제에는 단일 코어를 로드하는 do_work.php 스크립트가 있습니다. Standard_A1 또는 D1과 같은 단일 코어 VM 크기보다 큰 VM을 사용하는 경우 이 부하를 여러 번 실행해야 합니다. [Azure에서 Windows 가상 컴퓨터 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * VM 규모 집합에 얼마나 많은 VM이 있고 각각에서 작업을 수행하고 있나요?
   
     크기 조정 이벤트는 자동 크기 조정 규칙에서 내부 정의된 시간 동안 규모 집합에 있는 **모든** VM에 대해서 평균 CPU가 임계값을 초과했을 경우에만 수행됩니다.
@@ -82,9 +83,4 @@ ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
 [explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
 [tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

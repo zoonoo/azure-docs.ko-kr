@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "arduino led 프로젝트, arduino led 깜박임, arduino led 깜박임 코드, arduino 깜박임 프로그램, arduino 깜박임 예제"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: b0a7d076-d580-4686-9f7d-c0712750b615
 ms.service: iot-hub
 ms.devlang: arduino

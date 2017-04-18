@@ -12,7 +12,7 @@
     ```
 2. 다음 릴레이 `constants`를 하이브리드 연결 연결 정보에 대한 `listener.js`에 추가합니다. 대괄호 안의 자리 표시자를 하이브리드 연결을 만들 때 얻은 적절한 값으로 바꿉니다.
    
-   1. `const ns` - 릴레이 네임스페이스
+   1. `const ns` - 릴레이 네임스페이스(FQDN 사용 - 예: `{namespace}.servicebus.windows.net`)
    2. `const path` - 하이브리드 연결의 이름
    3. `const keyrule` - SAS 키의 이름
    4. `const key` - SAS 키 값
@@ -71,9 +71,4 @@
         console.log('error' + err);
     });
     ```
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

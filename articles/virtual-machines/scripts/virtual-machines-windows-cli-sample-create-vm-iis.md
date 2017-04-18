@@ -9,16 +9,16 @@ editor: tysonn
 tags: 
 ms.assetid: 
 ms.service: virtual-machines-Windows
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/28/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 7ba43d1ab626331b9663bb7fef9af986810533c2
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ab824eca29dd0957199b708be818a451e94bdbbc
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/21/2017
 
 이 스크립트는 Windows Server 2016을 실행하는 Azure Virtual Machine을 만들고 Azure Virtual Machine 사용자 지정 스크립트 확장을 사용하여 IIS를 설치합니다. 스크립트를 실행하면 가상 컴퓨터의 공용 IP 주소에서 기본 IIS 웹 사이트에 액세스할 수 있습니다.
 
-필요한 경우 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)에 있는 지침을 사용하여 Azure CLI를 설치한 다음, `az login`을 실행하여 Azure와 연결합니다.
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-이 샘플은 Bash 셸에서 작동합니다. Windows에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 실행](../virtual-machines-windows-cli-options.md)을 참조하세요.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -58,5 +58,5 @@ az group delete --name myResourceGroup --yes
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
-추가 가상 컴퓨터 CLI 스크립트 샘플은 [Azure Windows VM 설명서](../virtual-machines-windows-cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 확인할 수 있습니다.
+추가 가상 컴퓨터 CLI 스크립트 샘플은 [Azure Windows VM 설명서](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 확인할 수 있습니다.
 

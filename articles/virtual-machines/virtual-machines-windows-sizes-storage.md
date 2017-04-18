@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: a17064f4d25e0f8cf406451e2d227d72511ac171
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 586b77c357f64f853374a7ba59e766b015d572c2
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -34,13 +34,13 @@ ms.lasthandoff: 03/24/2017
 
 
 ## <a name="other-sizes"></a>기타 크기
-- [범용](virtual-machines-windows-sizes-general.md)
-- [Compute에 최적화](virtual-machines-windows-sizes-compute.md)
+- [범용](windows/sizes-general.md)
+- [Compute에 최적화](windows/sizes-compute.md)
 - [메모리에 최적화](virtual-machines-windows-sizes-memory.md)
-- [GPU에 최적화](virtual-machines-windows-sizes-gpu.md)
-- [고성능 계산](virtual-machines-windows-sizes-hpc.md)
+- [GPU에 최적화](windows/sizes-gpu.md)
+- [고성능 계산](windows/sizes-hpc.md)
 
 ## <a name="next-steps"></a>다음 단계
-[ACU(Azure Compute 단위)](virtual-machines-windows-acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
+[ACU(Azure Compute 단위)](windows/acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
 
 

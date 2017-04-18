@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: ccec356c653cf5d3c767fd273c37ea5685607135
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 6e03b6072b5244aca2810f704c485384de5aedf8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/25/2017
 ## <a name="scenario-diagram"></a>시나리오 다이어그램
 이 시나리오에서는 외부 사용자가 도메인에 가입된 서버에서 실행되는 응용 프로그램에 액세스해야 합니다. 응용 프로그램 서버 및 복제본 DC를 실행하는 VM은 Azure 가상 네트워크에 설치됩니다. 다음 다이어그램과 같이 [사이트 간 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) 연결을 통해 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있으며, 더 빠른 연결을 위해 [Express 경로](../expressroute/expressroute-locations-providers.md)를 사용할 수 있습니다.
 
-응용 프로그램 서버 및 DC는 계산 처리 분산을 위해 별개의 클라우드 서비스에 배포되고 내결함성 향상을 위해 [가용성 집합](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 내에 배포됩니다.
+응용 프로그램 서버 및 DC는 계산 처리 분산을 위해 별개의 클라우드 서비스에 배포되고 내결함성 향상을 위해 [가용성 집합](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 내에 배포됩니다.
 DC는 Active Directory 복제를 사용하여 온-프레미스 DC 및 서로 간에 복제됩니다. 동기화 도구가 필요하지 않습니다.
 
 ![Azure VNet에서 복제 Active Directory 도메인 컨트롤러의 다이어그램][1]

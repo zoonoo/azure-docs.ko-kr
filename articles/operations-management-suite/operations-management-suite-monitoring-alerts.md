@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 04/11/2017
 ms.author: bwren
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: f2b0655bdddc162c7c8ef7d478b2ce1fd1993f15
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -73,10 +74,5 @@ Log Analytics의 데이터 원본으로 SCOM을 사용하는 경우 OMS 리포�
 
 ## <a name="next-steps"></a>다음 단계
 * [SCOM(System Center Operations Manager)의 경고](https://technet.microsoft.com/library/hh212913.aspx)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

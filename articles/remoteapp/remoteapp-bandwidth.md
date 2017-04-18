@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 045410664ec70c846abbf32a36dcc8f70ac471be
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 8b5f4568fa4e505b28011134cc8669ea50e17cf6
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="estimate-azure-remoteapp-network-bandwidth-usage"></a>Azure RemoteApp 네트워크 대역폭 사용량 예측
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -43,10 +44,5 @@ Azure RemoteApp은 RDP(원격 데스크톱 프로토콜)를 사용하여 Azure �
 장치 리디렉션에 대해 다루지만 저장소, 프린터, 스캐너, 웹 카메라 및 기타 USB 장치와 같은 연결된 장치로 인한 네트워크 트래픽의 대역폭 영향은 고려하지 않았습니다. 이러한 장치는 일반적으로 대역폭 수요를 일시적으로 급증시키며 작업이 완료되면 효과가 사라집니다. 그러나 자주 수행되는 경우 대역폭 수요가 상당히 증가할 수 있습니다.
 
 동일한 네트워크에서 하나의 사용자가 다른 사용자에게 미칠 수 있는 영향도 고려하지 않았습니다. 예를 들어 하나의 사용자가 100MB/s 네트워크에서 4K 비디오를 사용하는 경우 같은 네트워크의 다른 사용자가 이와 동일한 작업을 수행하는 데 상당한 영향을 받을 수 있습니다. 시스템 성능에 대한 일반적이거나 포괄적인 접근 방식을 제공하기 위해 동시 사용의 영향을 확인하는 것이 점점 어려워지고 있습니다. 현재로서는 기본 프로토콜 기술이 사용 가능한 네트워크 대역폭 사용을 최적화하지만 이 기술에는 제한 사항이 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

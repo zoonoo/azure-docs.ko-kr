@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 11d9869e656014fe7106f9c66975792c5faa357d
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: b1d9c1c75d29e39bbd9433197ad06a56da5dc799
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/20/2017
 * Azure 앱 서비스에서 데이터베이스를 사용하는 웹 프로젝트를 [웹앱](http://go.microsoft.com/fwlink/?LinkId=529714) 에 배포하는 방법
 
 > [!NOTE]
-> 긴 자습서입니다. Azure 앱 서비스 및 Visual Studio 웹 프로젝트에 대한 간략한 소개를 보려면 [Azure 앱 서비스에서 ASP.NET 웹앱 만들기](web-sites-dotnet-get-started.md)를 참조하세요. 문제 해결 정보는 [문제 해결](#troubleshooting) 섹션을 참조하세요.
+> 긴 자습서입니다. Azure 앱 서비스 및 Visual Studio 웹 프로젝트에 대한 간략한 소개를 보려면 [Azure 앱 서비스에서 ASP.NET 웹앱 만들기](app-service-web-get-started-dotnet.md)를 참조하세요. 문제 해결 정보는 [문제 해결](#troubleshooting) 섹션을 참조하세요.
 > 
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [앱 서비스 평가](https://azure.microsoft.com/try/app-service/)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
@@ -581,7 +581,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 * SQL 데이터베이스 프로비전 오류 - 현재 SDK가 설치되었는지 확인합니다. 2.8.1 이전 버전은 VS에서 데이터베이스 서버 또는 데이터베이스를 만들려고 할 때 일부 시나리오에서 오류가 발생하는 버그가 있습니다.
 * Azure 리소스를 만들 때 오류 메시지 "구독 제공 형식에서 작업을 지원하지 않습니다" - 위와 동일합니다.
-* 배포 시 오류 - [기본 ASP.NET 배포](web-sites-dotnet-get-started.md) 문서 진행을 고려합니다. 배포 시나리오는 더 간단하고 동일한 문제가 있는 경우 격리시키기 쉽습니다. 예를 들어 일부 엔터프라이즈 환경에서 회사 방화벽은 웹 배포가 Azure에 대한 필요한 종류의 연결을 만들지 못하도록 합니다.
+* 배포 시 오류 - [기본 ASP.NET 배포](app-service-web-get-started-dotnet.md) 문서 진행을 고려합니다. 배포 시나리오는 더 간단하고 동일한 문제가 있는 경우 격리시키기 쉽습니다. 예를 들어 일부 엔터프라이즈 환경에서 회사 방화벽은 웹 배포가 Azure에 대한 필요한 종류의 연결을 만들지 못하도록 합니다.
 * 배포 시 웹 게시 마법사에서 연결 문자열 선택 옵션 없음 - 다른 메서드를 사용하여 Azure 리소스를 만든 경우(예: 포털에서 만든 웹앱 및 SQL 데이터베이스에 배포하려는 경우) SQL 데이터베이스는 웹앱에 연결되지 않을 수 있습니다. VS를 사용하여 새 웹앱 및 데이터베이스를 만드는 가장 쉬운 솔루션은 자습서에 표시된 것과 같습니다. 자습서를 다시 시작하지 않아도 됩니다. -- 웹 게시 마법사에서 새 웹앱을 만들도록 선택할 수 있고 프로젝트를 만들 때 얻은 것과 동일한 Azure 리소스 만들기 대화 상자를 가져옵니다.
 * Google 또는 Facebook 개발자 포털에 대한 지침은 만료되었습니다. - 이 자습서의 후반부에 있는 주요 Disqus 설명을 참조하세요.
 

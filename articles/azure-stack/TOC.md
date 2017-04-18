@@ -8,6 +8,7 @@
 ## 시작
 ### [배포 필수 조건](azure-stack-deploy.md)
 ### [배포](azure-stack-run-powershell-script.md)
+### [포털 활성화](azure-stack-run-powershell-script.md#activate-the-administrator-and-tenant-portals)
 ### [등록](azure-stack-register.md)
 ## 방법
 ### [Azure Stack POC에 연결](azure-stack-connect-azure-stack.md)
@@ -56,6 +57,7 @@
 #### [Azure Stack 개요에 대한 App Service](azure-stack-app-service-overview.md)
 #### [시작하기 전에](azure-stack-app-service-before-you-get-started.md)
 #### [App Service 리소스 공급자 배포](azure-stack-app-service-deploy.md)
+#### [App Service 오프라인 배포](azure-stack-app-service-deploy-offline.md)
 #### [웹 작업자 역할 추가](azure-stack-app-service-add-worker-roles.md)
 #### [배포 소스 구성](azure-stack-app-service-configure-deployment-sources.md)
 #### [Azure Stack의 App Service에서 FTP를 사용하도록 설정](azure-stack-app-service-enable-ftp.md)
@@ -80,7 +82,7 @@
 ### [개요](azure-stack-storage-overview.md)
 ### [차이점 및 고려 사항](azure-stack-acs-differences-tp2.md)
 ## 네트워크
-### [Azure Stack용 iDNS](azure-stack-understanding-dns-in-tp2.md)
+### [Azure Stack용 iDNS](azure-stack-understanding-dns.md)
 ### [Azure Stack의 DNS](azure-stack-dns.md)
 ### [사이트 간 VPN 연결 이해](azure-stack-create-vpn-connection-one-node-tp2.md)
 ## Key Vault

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 6eb692f7c3374f9073944b8c4c0f34af2ed35b3c
-ms.lasthandoff: 01/19/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9068e0e92e15491d3377a1b8f42071b56373396e
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/19/2017
 스크립트 작업은 클러스터 구성 설정을 지정하거나 클러스터에서 추가 서비스, 도구 또는 기타 소프트웨어를 설치하여 Azure HDInsight 클러스터를 사용자 지정하는 방법입니다. 클러스터를 생성하는 동안 또는 실행 중인 클러스터에 대해 스크립트 작업을 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="what-are-script-actions"></a>스크립트 작업 정의
 
@@ -184,7 +184,7 @@ line 1: #!/usr/bin/env: No such file or directory
 
 파일을 다운로드할 때 apt-get 또는 인터넷을 통해 데이터를 전송하는 기타 작업을 사용하여 패키지를 설치하면 일시적인 네트워킹 오류로 인해 작업이 실패할 수 있습니다. 예를 들어 통신하는 원격 리소스가 백업 노드로의 장애 조치(failover) 중일 수 있습니다.
 
-스크립트를 일시적인 오류에 대해 탄력적으로 만들려면 다시 시도 논리를 구현할 수 있습니다. 다음은 전달된 모든 명령을 실행하고(명령이 실패할 경우) 최대&3;번 다시 시도하는 함수 예제입니다. 각 다시 시도 사이에는&2;초 동안 대기됩니다.
+스크립트를 일시적인 오류에 대해 탄력적으로 만들려면 다시 시도 논리를 구현할 수 있습니다. 다음은 전달된 모든 명령을 실행하고(명령이 실패할 경우) 최대 3번 다시 시도하는 함수 예제입니다. 각 다시 시도 사이에는 2초 동안 대기됩니다.
 
 ```bash
 #retry
@@ -282,7 +282,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 * __공개적으로 읽을 수 있는 URI__(예: OneDrive, Dropbox 등)
 
-* HDInsight 클러스터와 연결된 __Azure Data Lake Store 계정__ HDInsight와 함께 Azure Data Lake Store를 사용하는 방법에 대한 자세한 내용은 [Data Lake Store를 사용하여 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 
+* HDInsight 클러스터와 연결된 __Azure Data Lake Store 계정__ HDInsight와 함께 Azure Data Lake Store를 사용하는 방법에 대한 자세한 내용은 [Data Lake Store를 사용하여 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
 
     > [!NOTE]
     > HDInsight에서 Data Lake Store에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다.
@@ -373,5 +373,4 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 * [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 * [HDInsight.NET SDK 참조](https://msdn.microsoft.com/library/mt271028.aspx) 를 사용하여 HDInsight를 관리하는 .NET 응용 프로그램을 만드는 방법을 알아봅니다.
 * [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.
-
 

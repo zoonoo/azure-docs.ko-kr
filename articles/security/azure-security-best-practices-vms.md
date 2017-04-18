@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/02/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1d010dd85ccf2dd708a7740eb8399fc06a603574
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c306000e898f5fe0260ef3347988923266ed096e
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -65,7 +65,7 @@ RBAC와 같은 기능을 활용하여 데이터 액세스 제어를 적용하지
 
 ## <a name="vm-availability-and-network-access"></a>VM 가용성 및 네트워크 액세스
 
-VM에서 고가용성의 중요한 응용 프로그램을 실행할 경우에는 여러 VM을 사용하는 것이 좋습니다. 가용성 향상을 위해 [가용성 집합](../virtual-machines/virtual-machines-windows-infrastructure-availability-sets-guidelines.md)에서 최소 2개 이상의 VM을 생성하세요.
+VM에서 고가용성의 중요한 응용 프로그램을 실행할 경우에는 여러 VM을 사용하는 것이 좋습니다. 가용성 향상을 위해 [가용성 집합](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md)에서 최소 2개 이상의 VM을 생성하세요.
 
 또한 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)에서는 부하 분산된 VM이 동일한 가용성 집합에 속해야 합니다. 이러한 VM을 인터넷에서 액세스해야 할 경우 [인터넷 연결 부하 분산 장치](../load-balancer/load-balancer-internet-overview.md)를 구성해야 합니다.
 
@@ -123,7 +123,7 @@ VM에 대해 강력한 보안 태세를 적용하지 않는 조직은 설정된 
 
 리소스 남용은 VM 프로세스가 소비해야 하는 것보다 더 많은 리소스를 소비하는 경우 문제가 될 수 있습니다. VM의 성능 문제로 인해 가용성의 보안 원칙을 위반하는 서비스 중단이 발생할 수 있습니다. 이러한 이유로 문제가 발생하는 동안 VM 액세스를 적극적으로, 또한 정상적인 작업 중 측정된 기준 성능에 대해 사전 대처식으로 모니터링해야 합니다.
 
-[Azure 진단 로그 파일](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)을 분석하여 VM 리소스를 모니터링하고 성능 및 가용성을 손상시킬 수 있는 잠재적인 문제를 식별할 수 있습니다. Azure 진단 확장은 Windows 기반 VM에 모니터링 및 진단 기능을 제공합니다. 확장을 [Azure Resource Manager 템플릿](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)에 속하도록 포함시켜서 이러한 기능을 사용하도록 설정할 수 있습니다.
+[Azure 진단 로그 파일](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)을 분석하여 VM 리소스를 모니터링하고 성능 및 가용성을 손상시킬 수 있는 잠재적인 문제를 식별할 수 있습니다. Azure 진단 확장은 Windows 기반 VM에 모니터링 및 진단 기능을 제공합니다. 확장을 [Azure Resource Manager 템플릿](../virtual-machines/windows/extensions-diagnostics-template.md)에 속하도록 포함시켜서 이러한 기능을 사용하도록 설정할 수 있습니다.
 
 또한 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 사용하여 리소스 상태에 대한 가시성도 얻을 수 있습니다.
 

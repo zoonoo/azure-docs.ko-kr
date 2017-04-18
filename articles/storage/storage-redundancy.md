@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 349be81b5d1d5ccc1510360974b4e3b10471cf7f
-ms.openlocfilehash: 13cd31bdce89ae898a6e22a1d27b5aed819ccc0a
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 72e07c4fd686feee5045ef3b9a504d2ea41f8675
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -50,7 +51,7 @@ RA-GRS(읽기 액세스 지역 중복 저장소)는 새 저장소 계정을 만�
 >
 
 ## <a name="locally-redundant-storage"></a>로컬 중복 저장소
-LRS(로컬 중복 저장소)는 저장소 계정을 만든 지역의 데이터 센터에 호스트된 저장소 배율 단위 내에서 데이터를 세 번 복제합니다. 쓰기 요청은&3;개의 복제본 모두에 쓰여진 경우에만 성공적으로 반환합니다. 이러한&3;개의 복제본은 하나의 저장소 배율 단위 내에서 각기 별도 오류 도메인 및 업그레이드 도메인에 상주합니다.
+LRS(로컬 중복 저장소)는 저장소 계정을 만든 지역의 데이터 센터에 호스트된 저장소 배율 단위 내에서 데이터를 세 번 복제합니다. 쓰기 요청은 3개의 복제본 모두에 쓰여진 경우에만 성공적으로 반환합니다. 이러한 3개의 복제본은 하나의 저장소 배율 단위 내에서 각기 별도 오류 도메인 및 업그레이드 도메인에 상주합니다.
 
 저장소 배율 단위는 저장소 노드의 랙 컬렉션입니다. 오류 도메인(FD)은 실패의 물리적 단위를 나타내는 노드 그룹이며 동일한 물리적 랙에 속하는 노드로 간주될 수 있습니다. UD(업그레이드 도메인)는 서비스 업그레이드(롤아웃) 중 함께 업그레이드되는 노드 그룹입니다. 세 개의 복제본이 하나의 저장소 배율 단위 내 UD 및 FD에 걸쳐 분포되어 하드웨어 오류가 단일 랙에 영향을 주는 경우나 롤아웃 도중 노드가 업그레이드되는 경우에도 데이터를 사용할 수 있도록 보장합니다.
 
@@ -108,6 +109,7 @@ GRS를 사용하면 기본 지역 및 보조 지역은 LRS에 설명된 바와 �
 | 오스트레일리아 남동부 |오스트레일리아 동부 |
 | 인도 남부 |인도 중부 |
 | 인도 중부 |인도 남부 |
+| 인도 서부 |인도 남부 |
 | 미국 정부 아이오와 |미국 정부 버지니아 |
 | 미국 정부 버지니아 |미국 정부 아이오와 |
 | 캐나다 중부 |캐나다 동부 |
@@ -140,10 +142,5 @@ Azure에서 지원되는 지역에 대한 최신 정보는 [Azure 지역](https:
 * [Azure 저장소 확장성 및 성능 목표](storage-scalability-targets.md)
 * [Microsoft Azure 저장소 중복 옵션 및 읽기 액세스 지역 중복 저장소 ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [SOSP 문서 - Azure 저장소: 일관성과 가용성이 뛰어난 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

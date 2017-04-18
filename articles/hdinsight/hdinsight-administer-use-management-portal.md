@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 58011fe25a96edfe2744990180b2f2866537bd37
-ms.openlocfilehash: ec35e177d1bb94671b1703020c9aa863a3805af1
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 316a3b6bd0ff32213df4baa9f722ff36ecc41d22
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -28,7 +30,7 @@ ms.openlocfilehash: ec35e177d1bb94671b1703020c9aa863a3805af1
 이 문서의 정보는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 클러스터 관리에 대한 자세한 내용은 [Azure Portal을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)를 참조하세요.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -329,7 +331,7 @@ Yarn 사용자 인터페이스를 사용하려면 HDInsight 쿼리 콘솔에서 
 
     ![HDInsight에서 원격 데스크톱 비활성화 구성 해제](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
-    만료 날짜에 대한 기본 값은&1;주일입니다.
+    만료 날짜에 대한 기본 값은 1주일입니다.
 
    > [!NOTE]
    > HDInsight .NET SDK를 통해 클러스터에서 원격 데스크톱을 사용하도록 설정할 수도 있습니다. 다음과 같은 방식으로 HDInsight 클라이언트 개체에서 **EnableRdp** 메서드를 사용합니다 **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. 마찬가지로, 클러스터에서 원격 데스크톱을 사용하지 않도록 설정하려면 **client.DisableRdp(clustername, location)**을 사용할 수 있습니다. 이러한 메서드에 대한 자세한 내용은 [HDInsight .NET SDK 참조](http://go.microsoft.com/fwlink/?LinkId=529017)를 참조하세요. Windows에서 실행되는 HDInsight 클러스터에만 적용됩니다.
@@ -376,9 +378,4 @@ Yarn 사용자 인터페이스를 사용하려면 HDInsight 쿼리 콘솔에서 
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop 명령줄"
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

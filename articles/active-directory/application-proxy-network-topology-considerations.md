@@ -11,20 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 03/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 4b21bf6bc1be59facd503000a4f83a56189d55d3
-ms.openlocfilehash: aea1b35348bec0affe2288ff683e0320e2b0f714
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 6869453e0776405841890978eef97f549be97541
+ms.lasthandoff: 04/03/2017
 
 
 ---
 
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory 응용 프로그램 프록시를 사용할 때 네트워크 토폴로지 고려 사항
-> [!NOTE]
-> 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
->
 
 이 문서에서는 응용 프로그램을 원격으로 게시 및 액세스하기 위해 Azure AD(Azure Active Directory) 응용 프로그램 프록시를 사용할 때 네트워크 토폴로지 고려 사항을 설명합니다.
 
@@ -88,7 +85,6 @@ Azure 및 회사 네트워크 간에 전용 VPN 또는 ExpressRoute가 있는 �
 
 > [!NOTE]
 원하는 대기 시간 특성을 얻기 위해 홉 2와 홉 3을 최적화해야 하는 몇 가지 시나리오가 있습니다. 예를 들어. 네트워크와 Azure 데이터 센터 간에 VPN 또는 ExpressRoute가 설정된 경우 이러한 홉을 최적화할 수 있습니다.
->
 
 ### <a name="pattern-2-take-advantage-of-expressroute-with-public-peering"></a>패턴 2: 공용 피어링이 있는 ExpressRoute 활용
 
@@ -110,7 +106,7 @@ Azure 및 회사 네트워크 간에 개인 피어링이 있는 전용 VPN 또�
 
 조직은 더욱 더 네트워크를 호스티드 환경으로 이동하고 있습니다. 이렇게 함으로써 회사 네트워크에 포함되는 호스티드 환경에 앱을 배치할 수 있으며 계속 도메인 내에 있게 됩니다. 이 경우 이전 섹션에서 설명한 패턴을 새 응용 프로그램 위치에 적용할 수 있습니다.
 
-다른 위치 및 네트워크에 있는 대상 앱에 커넥터 그룹을 사용하는 것이 좋습니다. 이 옵션을 고려하는 경우 [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds)를 참조하세요.
+다른 위치 및 네트워크에 있는 대상 앱에 커넥터 그룹을 사용하는 것이 좋습니다. 이 옵션을 고려하는 경우 [Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)를 참조하세요.
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
 
@@ -173,8 +169,9 @@ ExpressRoute 링크가 공용 피어링을 사용하는 경우 프록시와 커�
 ![전 세계의 개요를 보여 주는 다이어그램 및 이 사용 사례에서 홉이 정렬되는 방식](./media/application-proxy-network-topologies/application-proxy-pattern5c.png)
 
 ## <a name="next-steps"></a>다음 단계
-[응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)<br>
-[Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)<br>
-[조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)<br>
-[응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
+
+- [응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)
+- [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
+- [조건부 액세스 사용](active-directory-application-proxy-conditional-access.md)
+- [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
 

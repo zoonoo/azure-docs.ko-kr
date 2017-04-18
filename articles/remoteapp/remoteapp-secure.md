@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: fb524efc41b1eaa36319726b3b8b534857e2afc7
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 13085f51529dadb739b4c629bb50d8aff0c9d8c2
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="secure-apps-and-resources-in-azure-remoteapp"></a>Azure RemoteApp의 앱 및 리소스 보호
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -48,10 +49,5 @@ Azure RemoteApp은 사용자에게 중앙에서 관리되는 Windows 앱에 대�
 * RemoteApp PowerShell 모듈을 통한 리디렉션 구성([여기](remoteapp-redirection.md) 참조)은 정책을 적용할 클라이언트 컴퓨터에 따라 다르므로 보안이 주된 목표라면 템플릿 이미지 로컬 정책이나 그룹 정책을 통해 정책을 적용할 수 있습니다.
 * [Windows Server 2012 R2 정책](https://technet.microsoft.com/library/hh831791.aspx)
 * [Office 2013 정책](https://technet.microsoft.com/library/cc178969.aspx)([Office 도구 모음을 사용자 지정하는 방법](https://technet.microsoft.com/library/cc179143.aspx) 포함)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

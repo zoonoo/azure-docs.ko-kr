@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
-ms.openlocfilehash: c8ed0760650f7fb3c85eef4ec7f72c60bb0efd00
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: c3440ac34a195bfc831ee2fa2ff916b16e92a2ac
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -32,7 +32,7 @@ Azure Resource Manager 템플릿 및 Azure REST API를 사용하여 HDInsight �
 Azure REST API를 사용하면 HDInsight 클러스터 등과 같은 새 리소스 생성을 포함하여 Azure 플랫폼에서 호스트되는 관리 작업을 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -17,9 +17,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 6f0fe474787efc15db5c75266cde369725832aab
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c9b7cc0321ba06a5d30ea5bd467efe4feeb73b99
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -87,7 +87,7 @@ S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 �
 
 1. 사용자의 구독으로 [Azure Portal](http://portal.azure.com)에 로그인합니다.
 
-1. [Azure 가용성 집합을 만듭니다](../../virtual-machines-windows-create-availability-set.md).
+1. [Azure 가용성 집합을 만듭니다](../create-availability-set.md).
 
    가용성 집합은 장애 도메인 및 업데이트 도메인에 대해 가상 컴퓨터를 그룹화합니다. 가용성 집합을 사용하면 응용 프로그램은 네트워크 스위치 또는 서버 랙의 전원 장치와 같은 단일 지점의 오류에 영향을 받지 않습니다. 
 

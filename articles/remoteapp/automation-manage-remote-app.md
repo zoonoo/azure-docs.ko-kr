@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: magoedte;csand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3e21af65ecb6f0ce70048846a9786271dd4cc985
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 59ac11f153c0bd74a1106400dbbf5790968b657c
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="managing-azure-remoteapp-using-azure-automation"></a>Azure 자동화를 사용하여 Azure RemoteApp 관리
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -42,10 +43,5 @@ Azure 자동화에서 자동으로 실행되도록 클라우드 관리 작업을
 Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure RemoteApp을 관리하는 방법을 알아보았으므로 이제 다음 링크에 따라 Azure 자동화에 대해 자세히 알아보세요.
 
 * Azure 자동화 [시작 자습서](../automation/automation-first-runbook-graphical.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

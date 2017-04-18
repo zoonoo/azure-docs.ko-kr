@@ -13,16 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 80939bb48c29ba39e2d347cb80d6169d79329cfc
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d6f4caebeeced1286f24dd5fcb4f5fc7d8591785
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure Portal에서 사이트 간 연결 만들기
+
+S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통한 연결입니다. 이 연결 유형은 할당된 공용 IP 주소를 가지고 NAT 다음에 위치하지 않는 온-프레미스에 있는 VPN 장치를 필요로 합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
+
+![사이트 간 VPN 게이트웨이 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
+
+이 문서에서는 Azure Resource Manager 배포 모델 및 Azure 포털을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 게이트웨이 연결을 만드는 과정을 안내합니다. 다른 배포 도구를 사용하거나 클래식 배포 모델의 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -32,23 +39,13 @@ ms.lasthandoff: 03/25/2017
 >
 
 
-S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통한 연결입니다. 이 연결 유형은 할당된 공용 IP 주소를 가지고 NAT 다음에 위치하지 않는 온-프레미스에 있는 VPN 장치를 필요로 합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
-
-이 문서에서는 Azure Resource Manager 배포 모델 및 Azure 포털을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 게이트웨이 연결을 만드는 과정을 안내합니다. 
-
-![사이트 간 VPN 게이트웨이 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
-
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>사이트 간 연결에 대한 배포 모델 및 메서드
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-아래 표에서는 현재 사용할 수 있는 배포 모델 및 사이트 간 구성을 위한 메서드를 보여 줍니다. 구성 단계를 포함한 문서를 사용할 수 있는 경우 아래 표에서 관련 링크를 직접 제공합니다.
-
-[!INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
-
 #### <a name="additional-configurations"></a>추가 구성
 VNet을 서로 연결하되 온-프레미스 위치에는 연결하지 않으려는 경우 [VNet간 연결 구성](vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요. 이미 연결되어 있는 VNet에 사이트 간 연결을 추가하려는 경우 [기존 VPN 게이트웨이와 연결된 VNet에 S2S 연결 추가](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
 구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
 
 * 호환되는 VPN 장치 및 구성할 수 있는 사람. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
@@ -88,7 +85,7 @@ DNS는 사이트 간 연결에 필요하지 않습니다. 하지만 가상 네�
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. 게이트웨이 서브넷 만들기
-VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 VPN Gateway 서비스가 사용할 IP 주소를 포함합니다. 가능하면 /28 또는 /27 CIDR 블록을 사용하여 게이트웨이 서브넷을 만듭니다. 이렇게 하면 앞으로 게이트웨이 구성 요구 사항에 맞는 충분한 IP 주소를 갖게 됩니다.
+VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 VPN 게이트웨이 서비스에서 사용하는 IP 주소를 포함합니다. 가능하면 /28 또는 /27 CIDR 블록을 사용하여 게이트웨이 서브넷을 만듭니다. 이렇게 하면 향후의 가능한 게이트웨이 구성 요구 사항을 수용하는 데 충분한 IP 주소를 갖게 됩니다.
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
 
@@ -106,7 +103,7 @@ VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨
 
 ## <a name="CreateConnection"></a>7. 사이트 간 VPN 연결 만들기
 
-이 단계에서는 가상 네트워크 게이트웨이와 온-프레미스 VPN 장치 사이에 사이트 간 VPN 연결을 만듭니다. 이 섹션을 시작하기 전에 가상 네트워크 게이트웨이 및 로컬 네트워크 게이트웨이를 다 만들었는지 확인합니다.
+이 단계에서는 가상 네트워크 게이트웨이와 온-프레미스 VPN 장치 사이의 사이트 간 VPN 연결을 만듭니다. 이 섹션을 시작하기 전에 가상 네트워크 게이트웨이 및 로컬 네트워크 게이트웨이를 다 만들었는지 확인합니다.
 
 [!INCLUDE [vpn-gateway-add-site-to-site-connection-rm-portal](../../includes/vpn-gateway-add-site-to-site-connection-s2s-rm-portal-include.md)]
 

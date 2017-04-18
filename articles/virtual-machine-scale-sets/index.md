@@ -13,9 +13,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c9a4b71fc888f5b2b9a32af80d1d4947ff731157
-ms.openlocfilehash: 091259841325103ce6733796f1cfe9109e39877b
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
+ms.lasthandoff: 04/12/2017
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Virtual Machine Scale Sets 설명서
@@ -118,7 +118,7 @@ ms.lasthandoff: 02/09/2017
                 <div class="card">
                     <div class="cardText">
                         <h3>REST (영문)</h3>
-                        <p><a href="/rest/api/compute">Compute REST API 참조</a></p>
+                        <p><a href="/rest/api/virtualmachinescalesets/">가상 컴퓨터 크기 집합 API 참조</a></p>
                     </div>
                 </div>
             </div>

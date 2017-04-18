@@ -9,16 +9,16 @@ editor:
 tags: azure-service-management
 ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
 ms.service: app-service
-ms.devlang: multiple
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f5317827d58e0103e43d0d5e1e68c1ada0c4d7bc
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: c576157f2c641a916f7b595fe0d2d1c0af2c0066
+ms.lasthandoff: 04/04/2017
 
 ---
 
@@ -26,9 +26,7 @@ ms.lasthandoff: 03/21/2017
 
 이 시나리오에서는 Azure SQL Database 및 Azure 웹앱을 만드는 방법을 알아봅니다. 그런 다음 앱 설정을 사용하여 SQL Database를 웹앱에 연결합니다.
 
-필요한 경우 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)에 있는 지침을 사용하여 Azure CLI를 설치한 다음, `az login`을 실행하여 Azure와 연결합니다.
-
-이 샘플은 Bash 셸에서 작동합니다. Windows 클라이언트에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 실행](../../virtual-machines/virtual-machines-windows-cli-options.md)을 참조하세요.
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8057e9ce27f9df3e9455d48d9c8196033612c8f3
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 0e82c639ea7bfceb89f0cf9c59ab657a951f2d5f
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="using-app-v-apps-in-azure-remoteapp"></a>Azure RemoteApp에서 App-V 앱 사용
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -41,10 +42,5 @@ Azure RemoteApp를 통해 기존 App-V 인프라를 쉽게 사용할 수 있습�
 | 글로벌(컴퓨터) |게시 서버를 사용하여 미리 게시 또는 대상 지정 |앱(대용량)을 업데이트하려면 Azure 이미지를 업데이트해야 합니다. 이미지의 일부 공간을 차지합니다. | |
 
  사용자 지정 이미지 및 하이브리드 컬렉션을 만든 후 응용 프로그램을 게시하고, 사용자를 할당하고, 어디서나 임의 장치에 배달된 Azure RemoteApp에서 호스팅되는 기존 App-V 응용 프로그램을 즐길 수 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

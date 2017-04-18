@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-overview
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: thmullan;jackr
 translationtype: Human Translation
-ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
-ms.openlocfilehash: b7c6a2bcdf975233d7afe6c20bd886cfcc02de2a
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3efb68c12cd05fc0c4ac68497f8c20d1c671df82
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/17/2017
 SQL의 모든 버전에서 사용할 수 있는 보안 기능의 전체 개요에 대해서는 [SQL Server 데이터베이스 엔진 및 Azure SQL 데이터베이스를 위한 보안 센터](https://msdn.microsoft.com/library/bb510589)를 참조하세요. 추가 정보는 에서도 사용할 수는 [보안 및 Azure SQL 데이터베이스 기술 백서](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF).
 
 ## <a name="protect-data"></a>데이터 보호
-SQL Database는 이동 중인 데이터의 경우 [전송 계층 보안](https://support.microsoft.com/en-us/kb/3135244), 미사용 데이터의 경우 [투명한 데이터 암호화](http://go.microsoft.com/fwlink/?LinkId=526242) 및 사용 중인 데이터의 경우 [상시 암호화](https://msdn.microsoft.com/library/mt163865.aspx)를 제공하여 데이터를 보호합니다. 
+SQL Database는 이동 중인 데이터의 경우 [전송 계층 보안](https://support.microsoft.com/kb/3135244), 미사용 데이터의 경우 [투명한 데이터 암호화](http://go.microsoft.com/fwlink/?LinkId=526242) 및 사용 중인 데이터의 경우 [상시 암호화](https://msdn.microsoft.com/library/mt163865.aspx)를 제공하여 데이터를 보호합니다. 
 
 > [!IMPORTANT]
 >Azure SQL 데이터베이스에 대한 모든 연결은 데이터베이스로/로부터 데이터 “전송 중"에 항상 암호화(SSL/TLS)가 필요합니다. 응용 프로그램의 연결 문자열에서 연결을 암호화하고 서버 인증서를 신뢰하지 *않도록* 매개 변수를 지정해야 합니다(Azure 클래식 포털에서 연결 문자열을 복사하는 경우 이 작업이 자동으로 수행됨). 그렇지 않으면 연결에서 서버의 ID를 확인할 수 없으며 "메시지 가로채기(man-in-the-middle)" 공격에 취약할 수 있습니다. 예를 들어, ADO.NET 드라이버의 경우 이러한 연결 문자열 매개 변수는 **Encrypt=True** 및 **TrustServerCertificate=False**입니다. 
@@ -71,7 +71,7 @@ SQL Database는 감사 및 위협 검색 기능을 제공하여 데이터를 보
 SQL Database 감사는 데이터베이스 활동을 추적하고 데이터베이스 이벤트를 Azure Storage 계정의 감사 로그에 기록하여 규정 준수를 유지하는 데 도움을 줍니다. 감사를 통해 진행 중인 데이터베이스 활동을 파악하고 이전 활동을 분석 및 조사하여 잠재적인 위협이나 의심스러운 악용 및 보안 위반을 식별할 수 있습니다. 자세한 내용은 [SQL Database 감사 시작](sql-database-auditing.md)을 참조하세요.  
 
 ### <a name="threat-detection"></a>위협 감지
-위협 검색은 Azure SQL Database 서비스에 구축되는 추가적 보안 인텔리전스 계층을 제공하여 감사 기능을 보완합니다. 이 기능은 비정상적인 데이터베이스 활동을 파악하고, 수집하고, 검색하기 위해&24;시간 내내 작동합니다. 의심스러운 활동, 잠재적 취약성, SQL 삽입 공격 및 비정상적인 데이터베이스 액세스 패턴에 대해 경고합니다. 제공되는 유익하고 실행 가능한 지침에 따라 경고에 대응할 수 있습니다. 자세한 내용은 [SQL 데이터베이스 위협 감지 시작](sql-database-threat-detection.md)을 참조하세요.  
+위협 검색은 Azure SQL Database 서비스에 구축되는 추가적 보안 인텔리전스 계층을 제공하여 감사 기능을 보완합니다. 이 기능은 비정상적인 데이터베이스 활동을 파악하고, 수집하고, 검색하기 위해 24시간 내내 작동합니다. 의심스러운 활동, 잠재적 취약성, SQL 삽입 공격 및 비정상적인 데이터베이스 액세스 패턴에 대해 경고합니다. 제공되는 유익하고 실행 가능한 지침에 따라 경고에 대응할 수 있습니다. 자세한 내용은 [SQL 데이터베이스 위협 감지 시작](sql-database-threat-detection.md)을 참조하세요.  
  
 ### <a name="data-masking"></a>데이터 마스킹 
 SQL 데이터베이스 동적 데이터 마스킹에서는 권한이 없는 사용자에 대해 중요한 데이터를 마스킹해 표시함으로써 데이터 노출을 제한합니다. 동적 데이터 마스킹은 Azure SQL Database에서 잠재적으로 중요한 데이터를 자동으로 검색하고 응용 프로그램 계층에 미치는 영향을 최소화하면서 이러한 필드를 마스킹할 수 있는 실행 가능한 권장 사항을 제공합니다. 이 기능은 지정된 데이터베이스 필드를 통해 쿼리의 결과 집합에 있는 중요한 데이터를 혼란스럽게 만들면서 작동하지만 데이터베이스의 데이터를 변경하지는 않습니다. 자세한 내용은 [Azure SQL Database 동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md) 시작을 참조하세요.

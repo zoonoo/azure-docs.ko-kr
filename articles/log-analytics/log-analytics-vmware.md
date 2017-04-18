@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
 ms.openlocfilehash: 813120692232096275f3a7500c3b54e16af26b77
+ms.lasthandoff: 11/17/2016
 
 ---
 
@@ -197,9 +198,4 @@ Syslog 타임스탬프에 대한 ESXi 호스트 버그가 있었습니다. 자�
 * Log Analytics의 [로그 검색](log-analytics-log-searches.md)을 통한 자세한 VMware 호스트 데이터 보기
 * VMware 호스트 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](log-analytics-dashboards.md)
 * 특정 VMware 호스트 이벤트가 발생하는 경우의 [경고 만들기](log-analytics-alerts.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -17,21 +17,21 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 365d6ad9ec0e0a7ad8d9742d863540646257e298
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 193cb2570e4c71c5205cc029543a3a7602a6574e
+ms.lasthandoff: 04/03/2017
 
 ---
 
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure에서 Windows 가상 컴퓨터에 대한 크기
 
-이 문서에서는 Windows 앱 및 워크로드를 실행하는 데 사용할 수 있는 Azure 가상 컴퓨터에 대한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.  이 문서는 [Linux 가상 컴퓨터](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에도 적용됩니다.
+이 문서에서는 Windows 앱 및 워크로드를 실행하는 데 사용할 수 있는 Azure 가상 컴퓨터에 대한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.  이 문서는 [Linux 가상 컴퓨터](linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에도 적용됩니다.
 
 > [!IMPORTANT]
 >* 다양한 크기의 가격 책정에 대한 자세한 내용은 [가상 컴퓨터 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)을 참조하세요. 
 >* Azure VM에 대한 일반적인 제한은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 >* 저장소 비용은 저장소 계정에 사용된 페이지에 따라 개별적으로 계산됩니다. 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
-> * [ACU(Azure Compute 단위)](virtual-machines-windows-acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
+> * [ACU(Azure Compute 단위)](windows/acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
 >
 >
 <br>    
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/27/2017
 
 <br>
 
-[ACU(Azure Compute 단위)](virtual-machines-windows-acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
+[ACU(Azure Compute 단위)](windows/acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.
 
 사용할 수 있는 다른 VM 크기에 대한 자세한 정보:
 - [범용](virtual-machines-windows-sizes-general.md)

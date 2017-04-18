@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/12/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 49545648a069f25820f6a6e483072be8410b091e
 ms.openlocfilehash: 0fc9eb7869ebe7316e4aed0d561638a05bc9a91c
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -89,10 +90,5 @@ Azure Data Factory Copy Wizard는 일반적으로 종단 간 데이터 통합 �
 
 ## <a name="next-steps"></a>다음 단계
 Data Factory 복사 마법사를 사용하여 복사 작업이 있는 파이프라인을 만드는 방법은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

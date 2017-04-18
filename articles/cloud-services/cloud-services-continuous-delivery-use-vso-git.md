@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 91e061820e8edc81bca395dc78d3e1e840b21438
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: da4bb7fcbb45afed5d45f4d48c0b90e44503daf8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -44,7 +45,7 @@ Visual Studio Team Services를 사용하여 Azure에 자동으로 빌드 및 배
    
     ![][4]
 2. 이 연습의 단계에 따라 웹앱 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트가 .NET Framework 4 또는 그 이상을 대상으로 하는지 확인합니다. Visual Studio 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할과 작업자 역할을 추가합니다.
-   웹앱을 만들려는 경우 **ASP.NET 웹 응용 프로그램** 프로젝트 템플릿을 선택한 후 **MVC**를 선택합니다. 자세한 내용은 [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](../app-service-web/web-sites-dotnet-get-started.md) 를 참조하세요.
+   웹앱을 만들려는 경우 **ASP.NET 웹 응용 프로그램** 프로젝트 템플릿을 선택한 후 **MVC**를 선택합니다. 자세한 내용은 [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](../app-service-web/app-service-web-get-started-dotnet.md) 를 참조하세요.
 3. 솔루션의 바로 가기 메뉴를 열고 **커밋**을 선택합니다.
    
     ![][7]
@@ -232,9 +233,4 @@ Visual Studio Team Services에서 Git 사용에 대해 더 많은 팁을 알아�
 [45]: ./media/cloud-services-continuous-delivery-use-vso-git/SyncChanges2.PNG
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

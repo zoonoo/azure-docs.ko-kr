@@ -9,16 +9,16 @@ editor: tysonn
 tags: 
 ms.assetid: 
 ms.service: virtual-machines-Windows
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: ee48cbbb0f044c6f178373501cec81d4b4cdcb3b
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 9e46aa85ae69d749423c8b86813c819d94adb24c
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/21/2017
 
 이 스크립트 샘플에서는 항상 사용 가능하고 부하 분산된 구성에서 구성된 여러 Ubuntu 가상 컴퓨터를 실행하는 데 필요한 모든 항목을 만듭니다. 스크립트를 실행하면 3개의 가상 컴퓨터가 Azure 가용성 집합에 조인되고 Azure Load Balancer를 통해 액세스할 수 있습니다.
 
-필요한 경우 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)에 있는 지침을 사용하여 Azure CLI를 설치한 다음, `az login`을 실행하여 Azure와 연결합니다. 또한 스크립트의 시작 부분에 있는 $AdminPassword 변수를 고유하고 적절한 암호 복잡성 요구 사항에 맞게 변경해야 합니다.
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-이 샘플은 Bash 셸에서 작동합니다. Windows에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 실행](../virtual-machines-windows-cli-options.md)을 참조하세요.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -66,5 +66,5 @@ az group delete --name myResourceGroup --yes
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
-추가 가상 컴퓨터 CLI 스크립트 샘플은 [Azure Windows VM 설명서](../virtual-machines-windows-cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 확인할 수 있습니다.
+추가 가상 컴퓨터 CLI 스크립트 샘플은 [Azure Windows VM 설명서](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 확인할 수 있습니다.
 

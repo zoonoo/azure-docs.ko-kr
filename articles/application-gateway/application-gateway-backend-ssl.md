@@ -13,24 +13,24 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 04/04/2017
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 5009b13cec57e6974f71610c84fdaad837085df0
-ms.openlocfilehash: 5f81d8146f8000e73a2eb578ff2371a62c8875e9
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 40368e31790a7ffa2d34a51a13e78d028cd0a1eb
+ms.lasthandoff: 04/05/2017
 
 
 ---
 # <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Application Gateway의 SSL 정책 및 종단간 SSL에 대한 개요
 
-Application Gateway는 게이트웨이에서 SSL 종료를 지원합니다. 그 후의 트래픽은 일반적으로 암호화되지 않은 상태로 백 엔드 서버로 흐릅니다. 이 기능을 사용하면 비용이 많이 드는 암호화/암호 해독 오버 헤드로부터 웹 서버의 부담을 줄일 수 있습니다. 그러나 암호화되지 않은 백 엔드 통신을 허용할 수 없는 일부 고객도 있습니다. 이 암호화되지 않은 통신은 보안/규정 준수 요구 사항 때문이거나 응용 프로그램이 보안 연결만 수락하는 것이기 때문일 수 있습니다. 이러한 응용 프로그램을 위해 이제 Application Gateway는 종단 간 SSL 암호화를 지원합니다.
+Application Gateway는 게이트웨이에서 SSL 종료를 지원합니다. 그 후의 트래픽은 일반적으로 암호화되지 않은 상태로 백 엔드 서버로 흐릅니다. 이 기능을 사용하면 비용이 많이 드는 암호화 및 암호 해독 오버헤드로부터 웹 서버의 부담을 줄일 수 있습니다. 그러나 암호화되지 않은 백 엔드 통신을 허용할 수 없는 일부 고객도 있습니다. 이 암호화되지 않은 통신은 보안 요구 사항, 규정 준수 요구 사항 때문이거나 응용 프로그램에서 보안 연결만 수락할 수 있기 때문일 수 있습니다. 이러한 응용 프로그램을 위해 Application Gateway에서 종단 간 SSL 암호화를 지원합니다.
 
 ## <a name="overview"></a>개요
 
-종단 간 SSL은 민감한 데이터를 암호화하여 백 엔드로 안전하게 전송하는 동시에 Application Gateway가 제공하는 계층 7 부하 분산 기능의 장점을 이용할 수 있습니다. 이러한 일부 기능으로는 쿠키 선호도, URL 기반 라우팅, 사이트 기반 라우팅 지원, X-Forwarded-* 헤더 삽입 기능 등이 있습니다.
+종단 간 SSL을 사용하면 Application Gateway에서 제공하는 계층 7 부하 분산 기능의 이점을 활용하면서 중요한 데이터를 암호화하여 백 엔드로 안전하게 전송할 수 있습니다. 이러한 기능 중 일부는 쿠키 기반 세션 선호도, URL 기반 라우팅, 사이트 기반 라우팅 지원 또는 X-Forwarded-* 헤더 삽입 기능입니다.
 
-종단 간 SSL 통신 모드를 구성한 경우 Application Gateway가 게이트웨이에서 사용자 SSL 세션을 종료하고 사용자 트래픽을 해독합니다. 그런 다음 구성된 규칙을 적용하여 트래픽을 라우팅할 적절한 백 엔드 풀 인스턴스를 선택합니다. 그 후 Application Gateway가 백 엔드 서버에 새로운 SSL 연결을 시작하고 백 엔드 서버의 공개 키 인증서를 사용하여 데이터를 다시 암호화한 다음 백 엔드에 요청을 전송합니다. 종단 간 SSL은 BackendHTTPSetting에서 프로토콜 설정을 Https로 설정하면 활성화되어 백 엔드 풀에 적용됩니다. 종단 간 SSL이 활성화된 백 엔드 풀의 각 백 엔드 서버는 보안 통신을 허용하도록 인증서를 사용하여 구성해야 합니다.
+종단 간 SSL 통신 모드로 구성한 경우 Application Gateway가 게이트웨이에서 SSL 세션을 종료하고 사용자 트래픽을 암호 해독합니다. 그런 다음 구성된 규칙을 적용하여 트래픽을 라우팅할 적절한 백 엔드 풀 인스턴스를 선택합니다. 그런 다음 Application Gateway에서 백 엔드 서버에 대한 새로운 SSL 연결을 시작하고, 백 엔드 서버의 공개 키 인증서를 사용하여 데이터를 다시 암호화한 다음, 백 엔드에 해당 요청을 전송합니다. 종단 간 SSL은 BackendHTTPSetting에서 프로토콜 설정을 HTTPS로 설정하여 활성화된 후에 백 엔드 풀에 적용됩니다. 종단 간 SSL이 활성화된 백 엔드 풀의 각 백 엔드 서버는 보안 통신을 허용하도록 인증서를 사용하여 구성해야 합니다.
 
 ![종단 간 SSL 시나리오][1]
 
@@ -44,9 +44,9 @@ Application Gateway는 알려진 백 엔드 인스턴스, 즉 Application Gatewa
 
 응용 프로그램 게이트웨이는 사용자가 구성 가능한 SSL 협상 정책도 지원합니다. 이 정책을 통해 사용자는 응용 프로그램 게이트웨이에서 SSL 연결을 보다 세밀하게 제어할 수 있습니다.
 
-1. SSL 2.0 및 3.0은 모든 Application Gateway에 대해 기본적으로 비활성화됩니다. 전혀 구성할 수 없습니다.
+1. SSL 2.0 및 3.0은 모든 Application Gateway에 대해 기본적으로 비활성화됩니다. 이러한 정책은 전혀 구성할 수 없습니다.
 2. SSL 정책 정의를 사용하여 다음 세 가지 프로토콜 **TLSv1\_0**, **TLSv1\_1**, **TLSv1\_2** 중에서 원하는 것을 비활성화할 수 있습니다.
-3. SSL 정책을 하나도 정의하지 않으면&3;개(TLSv1\_0, TLSv1\_1, TLSv1_2) 모두 활성화됩니다.
+3. SSL 정책을 하나도 정의하지 않으면 3개(TLSv1\_0, TLSv1\_1, TLSv1_2) 모두 활성화됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
-ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 003a32f2ef67f8aa63ed7be2553fa0f0c3afc08a
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -49,9 +50,9 @@ ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
   3. **테넌트 ID**를 가져옵니다. 
   4. **ADFCopyTutorialApp** 응용 프로그램을 **데이터 팩터리 참가자** 역할에 할당합니다.  
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)을 설치합니다.  
-* **PowerShell** 을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
+* **PowerShell**을 시작하고 다음 단계를 수행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
   
-  1. 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
+  1. 다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
     
     ```PowerShell 
     Login-AzureRmAccount
@@ -172,10 +173,10 @@ JSON 정의는 **AzureBlobInput**이라는 데이터 집합을 정의하며 이�
 * **linkedServiceName**을 **AzureStorageLinkedService**로 설정합니다. 
 * **folderPath**는 **adftutorial** 컨테이너로 설정되고 **fileName**은 **emp.txt**로 설정됩니다.  
 * 서식 **형식**을 **TextFormat**으로 설정합니다.
-* 텍스트 파일에는 **FirstName**과 **LastName**의 두 필드가 쉼표(**columnDelimiter**)로 구분되어 있습니다.    
-* **가용성**은 **매시간**으로 설정됩니다([빈도]는 [매시간]으로, [간격]은 [1]로 설정). 따라서 데이터 팩터리는 지정한 Blob 컨테이너(**adftutorial**)의 루트 폴더에서 한 시간마다 입력 데이터를 찾습니다. 
+* 텍스트 파일에는 **FirstName**과 **LastName**의 두 필드가 쉼표(columnDelimiter)로 구분되어 있습니다.    
+* **가용성**은 **매시간**으로 설정됩니다([빈도]는 [매시간]으로, [간격]은 [1]로 설정). 따라서 Data Factory 는 지정한 Blob 컨테이너(adftutorial)의 루트 폴더에서 한 시간마다 입력 데이터를 찾습니다. 
 
-입력 데이터 집합의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob은 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다.
+입력 데이터 집합의 **fileName**을 지정하지 않는 경우 입력 폴더(folderPath)의 모든 파일/Blob은 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다.
 
 **출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.&lt;Guid&gt;.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
@@ -230,7 +231,7 @@ JSON 정의는 **AzureSqlOutput**이라는 데이터 집합을 정의하며 이�
 * **linkedServiceName**을 **AzureSqlLinkedService**로 설정합니다.
 * **tablename**을 **emp**로 설정합니다.
 * 데이터베이스의 emp 테이블에 **ID**, **FirstName** 및 **LastName**이라는 세 개의 열이 있습니다. ID는 ID 열이므로 여기서 **FirstName** 및 **LastName**만 지정해야 합니다.
-* **가용성**은 **매시간**으로 설정됩니다(**빈도**는 **매시간**으로, **간격**은 **1**로 설정).  데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을&1;시간마다 생성합니다.
+* **가용성**은 **매시간**으로 설정됩니다(빈도는 매시간으로, 간격은 1로 설정).  데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
 ### <a name="pipelinejson"></a>pipeline.json
 
@@ -360,7 +361,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 * 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 * "**구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.**" 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요. 
   
-  * Azure PowerShell에서 다음 명령을 실행하여 Data Factory 공급자를 등록합니다. 
+  * Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 공급자를 등록합니다. 
 
     ```PowerShell    
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -428,7 +429,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 * **adftutorial** 컨테이너에 대한 Blob으로 **emp.txt**라는 텍스트 파일을 만들어 업로드합니다. 
 * **AzureSqlLinkedService**가 가리키는 Azure SQL Database에 **emp**라는 테이블을 만듭니다.
 
-1. 메모장을 시작하고 다음 텍스트를 붙여넣은 다음 **emp.txt**로 하드 드라이브의 **C:\ADFGetStartedPSH** 폴더에 저장합니다. 
+1. 메모장을 시작합니다. 다음 텍스트를 복사하여 **emp.txt**로 하드 드라이브의 **C:\ADFGetStartedPSH** 폴더에 저장합니다. 
 
     ```   
     John, Doe
@@ -456,7 +457,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
     클라이언트가 Azure SQL Server에 액세스할 수 없는 경우 컴퓨터(IP 주소)의 액세스를 허용하도록 Azure SQL Server의 방화벽을 구성해야 합니다. Azure SQL Server의 방화벽을 구성하는 단계는 [이 문서](../sql-database/sql-database-configure-firewall-settings.md) 를 참조하세요.
 
 ### <a name="create-input-dataset"></a>입력 데이터 집합 만들기
-이 단계에서는 **AzureStorageLinkedService** 연결된 서비스가 나타내는 Azure Storage의 Blob 컨테이너를 가리키는 **AzureBlobInput**이라는 데이터 집합을 만듭니다. 이 Blob 컨테이너(**adftutorial**)는 **emp.txt** 파일에 입력 데이터를 포함합니다. 
+이 단계에서는 **AzureStorageLinkedService** 연결된 서비스가 나타내는 Azure Storage의 Blob 컨테이너를 가리키는 **AzureBlobInput**이라는 데이터 집합을 만듭니다. 이 Blob 컨테이너(adftutorial)는 **emp.txt** 파일에 입력 데이터를 포함합니다. 
 
 1. 이 명령을 **cmd**라는 변수에 할당합니다. 
 
@@ -475,7 +476,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
     ```
 
 ### <a name="create-output-dataset"></a>출력 데이터 집합 만들기
-이 단계에서는 **AzureSqlOutput**이라는 출력 테이블을 만듭니다. 이 데이터 집합은 **AzureSqlLinkedService**가 나타내는 Azure SQL Database에서 SQL 테이블(**emp**)을 가리킵니다. 파이프라인은 입력 Blob에서 **emp** 테이블로 데이터를 복사합니다. 
+이 단계에서는 **AzureSqlOutput**이라는 출력 테이블을 만듭니다. 이 데이터 집합은 **AzureSqlLinkedService**가 나타내는 Azure SQL Database에서 SQL 테이블(emp)을 가리킵니다. 파이프라인은 입력 Blob에서 **emp** 테이블로 데이터를 복사합니다. 
 
 1. 이 명령을 **cmd**라는 변수에 할당합니다.
 
@@ -573,9 +574,4 @@ IF ((ConvertFrom-Json $results2).value -ne $NULL) {
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
 
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

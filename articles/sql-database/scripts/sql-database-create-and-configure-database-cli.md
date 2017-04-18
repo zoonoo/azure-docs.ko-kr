@@ -17,9 +17,9 @@ ms.workload: database
 ms.date: 04/04/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2e65b7a5c44c240c1bc7dea8119c821a7bca2120
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 7a8a6c634cb4be2da654a971d9412f981d4e0e8a
+ms.lasthandoff: 04/11/2017
 
 ---
 
@@ -49,7 +49,7 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az sql server create](/cli/azure/sql/server#create) | SQL Database를 호스팅하는 논리 서버를 만듭니다. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall#create) | 입력한 IP 주소 범위의 서버에서 모든 SQL Database에 액세스할 수 있도록 방화벽 규칙을 만듭니다. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | 입력한 IP 주소 범위의 서버에서 모든 SQL Database에 액세스할 수 있도록 방화벽 규칙을 만듭니다. |
 | [az sql db create](/cli/azure/sql/db#create) | 논리 서버에 SQL Database를 만듭니다. |
 | [az group delete](/cli/azure/resource#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 

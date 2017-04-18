@@ -12,9 +12,9 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 5a8813e08d10bc2fa34a49b8b7dd01074da7426e
-ms.lasthandoff: 04/08/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 51c3caba1ca77c678dff316ef91e547b8190d632
+ms.lasthandoff: 04/12/2017
 
 ---
 <div class="content">
@@ -47,8 +47,9 @@ ms.lasthandoff: 04/08/2017
         <h2 style="margin-top: 36px">자습서</h2>
         <p>Linux 가상 컴퓨터를 빌드하고 배포합니다.</p>
         <ul class="spaced">
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-manage-vm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Linux VM 생성 및 관리</a></li>
-            <li><a href="/azure/virtual-machines/virtual-machines-linux-tutorial-load-balance-nodejs?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">고가용성 VM 부하 분산</a></li>
+            <li><a href="/azure/virtual-machines/linux/tutorial-manage-vm">Windows VM 생성 및 관리</a></li>
+            <li><a href="/azure/virtual-machines/linux/tutorial-load-balance-nodejs">고가용성 VM 부하 분산</a></li>
+            <li><a href="/azure/virtual-machines/linux/tutorial-create-vmss">VM 크기 집합 만들기</a></li>
         </ul>
         <h2>샘플</h2>
         <p>Azure에 첫 번째 응용 프로그램을 배포합니다.</p>

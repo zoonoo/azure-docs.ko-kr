@@ -14,7 +14,7 @@
 ## [라우팅 요구 사항](expressroute-routing.md)
 ## [NAT 요구 사항](expressroute-nat.md)
 ## [QoS 요구 사항](expressroute-qos.md)
-## [클래식에서 Resource Manager로 서킷 이동](expressroute-move.md)
+## [클래식에서 Resource Manager로의 회로 이동 정보](expressroute-move.md)
 
 # 방법
 ## 회로 만들기 및 수정
@@ -29,6 +29,7 @@
 ## [ExpressRoute에 대한 가상 네트워크 게이트웨이 구성](expressroute-howto-add-gateway-resource-manager.md)
 ## [ExpressRoute 및 사이트 간 공존 연결 구성](expressroute-howto-coexist-resource-manager.md)
 ## [클래식에서 Resource Manager로 회로 이동](expressroute-howto-move-arm.md)
+## [클래식에서 Resource Manager로 연결된 가상 네트워크 마이그레이션](expressroute-migration-classic-resource-manager.md)
 ## ExpressRoute에 대해 라우터 구성
 ### [라우터 구성](expressroute-config-samples-routing.md)
 ### [NAT에 대한 라우터 구성 샘플](expressroute-config-samples-nat.md)

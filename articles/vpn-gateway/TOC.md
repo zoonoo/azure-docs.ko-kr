@@ -24,13 +24,10 @@
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure 포털(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-### [클래식 포털(클래식)](virtual-networks-configure-vnet-to-vnet-connection.md)
 ## 배포 모델 간 VNet-VNet 연결 구성
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## 사이트 간 및 ExpressRoute 공존 연결 만들기
-### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-### [PowerShell(클래식)](../expressroute/expressroute-howto-coexist-classic.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## [사이트 간 및 ExpressRoute 공존 연결 구성](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## 강제 터널링 구성
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell(클래식)](vpn-gateway-about-forced-tunneling.md)
@@ -50,8 +47,8 @@
 ## [VPN Gateway(클래식) 구성](vpn-gateway-configure-vpn-gateway-mp.md)
 
 # 참조
-## [PowerShell](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell(클래식)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
+## [PowerShell(클래식)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
 ## [REST (영문)](https://msdn.microsoft.com/library/mt163859)
 ## [REST(클래식)](https://msdn.microsoft.com/library/jj154113)
 

@@ -12,11 +12,12 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/10/2017
+ms.date: 04/13/2017
 ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
 ms.openlocfilehash: b95f37db90b105962c01545e25c8e14c53257ebc
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -50,7 +51,7 @@ Azure Redis Cache는 Microsoft에서 관리하는 전용 Redis Cache에 액세�
 
     boolean useSsl = true;
     /* In this line, replace <name> with your cache name: */
-    JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
+    JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6380, useSsl);
     shardInfo.setPassword("<key>"); /* Use your access key. */
 
 > [!NOTE]
@@ -69,7 +70,7 @@ Azure Redis Cache는 Microsoft에서 관리하는 전용 Redis Cache에 액세�
       {
         boolean useSsl = true;
         /* In this line, replace <name> with your cache name: */
-        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379, useSsl);
+        JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6380, useSsl);
         shardInfo.setPassword("<key>"); /* Use your access key. */
         Jedis jedis = new Jedis(shardInfo);
         jedis.set("foo", "bar");
@@ -81,9 +82,4 @@ Azure Redis Cache는 Microsoft에서 관리하는 전용 Redis Cache에 액세�
 ## <a name="next-steps"></a>다음 단계
 * [캐시 진단을 사용](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics)하도록 설정하면 캐시의 상태를 [모니터링](https://msdn.microsoft.com/library/azure/dn763945.aspx)할 수 있습니다.
 * 공식 [Redis 설명서](http://redis.io/documentation)를 읽어보세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -9,20 +9,24 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: be1c613744d510e4ace636b47fdf730462a2ae07
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 85fa6ab8f7f5ad31347901a0be932d2474594802
+ms.lasthandoff: 04/06/2017
 
 ---
 
 # <a name="restart-vms"></a>VM 다시 시작
+
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 이 샘플에서는 일부 VM을 가져와 다시 시작하는 몇 가지 방법을 보여 줍니다.
 
@@ -38,7 +42,7 @@ az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
-이 샘플은 Bash 셸에서 작동합니다. Windows 클라이언트에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 실행](../virtual-machines-windows-cli-options.md)을 참조하세요.
+이 샘플은 Bash 셸에서 작동합니다. Windows 클라이언트에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 실행](../windows/cli-options.md)을 참조하세요.
 
 
 ## <a name="sample-script"></a>샘플 스크립트
@@ -93,5 +97,5 @@ az group delete -n myResourceGroup --no-wait --yes
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
-추가 가상 컴퓨터 CLI 스크립트 샘플은 [Azure Linux VM 설명서](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 확인할 수 있습니다.
+추가 가상 컴퓨터 CLI 스크립트 샘플은 [Azure Linux VM 설명서](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 확인할 수 있습니다.
 

@@ -17,9 +17,9 @@ ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: b5fafb9603957a93a0ca8fbc6dd53798070641a4
-ms.openlocfilehash: da013207a2c804898d1a93dfd7875ed2a2deed22
-ms.lasthandoff: 01/19/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 96a7410ec90d31e565ea8338d908564c209c6a4f
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/19/2017
 이 문서에 있는 정보는 Windows 기반 HDInsight 클러스터에 지정됩니다. Linux 기반 클러스터는 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 HDInsight 클러스터를 사용자 지정하는 방법은 추가 Azure 저장소 계정 포함, hadoop 구성 파일(core-site.xml, hive-site.xml 등) 변경, 클러스터의 공통 위치에 공유 라이브러리(예: Hive, Oozie) 추가 등을 비롯해 다양합니다. 이러한 사용자 지정은 Azure PowerShell, Azure HDInsight .NET SDK 또는 Azure 포털을 통해 수행할 수 있습니다. 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기][hdinsight-provision-cluster]를 참조하세요.
 

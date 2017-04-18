@@ -17,18 +17,18 @@ ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: c9e3c1d2a1f5b83c59fa2a22f3cb4d89df203384
-ms.openlocfilehash: 010a8a377150292fcb533a1af99adcc7c782bceb
-ms.lasthandoff: 01/19/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d4fcab5f30f917812a6e6af3c54d51cecde8ea87
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Solr 설치 및 사용
 
-스크립트 작업을 사용하여 Solr로 Windows 기반 HDInsight 클러스터를 사용자 지정하는 방법 및 데이터를 검색하기 위해 Solr를 사용하는 방법을 알아봅니다. 
+스크립트 작업을 사용하여 Solr로 Windows 기반 HDInsight 클러스터를 사용자 지정하는 방법 및 데이터를 검색하기 위해 Solr를 사용하는 방법을 알아봅니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. Linux 기반 클러스터와 함께 Solr을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터에 Solr 설치 및 사용(Linux)](hdinsight-hadoop-solr-install-linux.md)을 참조하세요.
+> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요. Linux 기반 클러스터와 함께 Solr을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터에 Solr 설치 및 사용(Linux)](hdinsight-hadoop-solr-install-linux.md)을 참조하세요.
 
 
 *스크립트 작업*을 사용하여 Azure HDInsight에서 모든 형식의 클러스터(Hadoop, Storm, HBase, Spark)에 Solr을 설치할 수 있습니다. HDInsight 클러스터에 Solr을 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob( [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1))에서 다운로드할 수 있습니다.

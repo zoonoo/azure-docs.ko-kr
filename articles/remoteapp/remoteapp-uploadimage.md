@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: ericor
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: b948a8c0394fffcfa63b5b48646639118cba8953
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: dcf897cfb03316312613a641f1758cd4636d06b7
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="upload-a-custom-image-for-azure-remoteapp"></a>Azure RemoteApp에 대한 사용자 지정 이미지 업로드
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -53,10 +54,5 @@ ms.openlocfilehash: b948a8c0394fffcfa63b5b48646639118cba8953
 * Azure PowerShell이 아닌 Windows PowerShell을 사용해야 합니다. 업로드 프로세스 중 특정 모듈이 필요하기 때문에 Azure PowerShell 모듈을 설치해야 합니다.
 * 스크립트를 변경하지 않아야 하며, 유효성 검사는 사용자 편의를 위한 것입니다.
 * 업로드 중 Vhd 파일이 잠기면, 파일을 복사하거나 새 위치로 이동하여 다시 업로드해봅니다. 업로드를 방지하는 일부 Windows 프로세스가 있을 수 있습니다.  
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

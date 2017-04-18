@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: fefd6f08d3150a28f73d7733fb397f7db38aef95
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 7d67ae1bd0c53f99d9c298f5ae8f161e6a484359
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -55,7 +55,7 @@ Resource Manager 리소스에 대한 자세한 내용은 [Azure Resource Manager
     ```
    
     > [!NOTE]
-    > 회사 또는 학교 ID가 있고&2;단계 인증이 사용되도록 설정되지 않은 경우 `azure login -u`와 해당 ID를 사용하여 대화형 세션 없이 로그인합니다. 회사 또는 학교 ID가 없는 경우 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수 있습니다](../virtual-machines/virtual-machines-linux-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > 회사 또는 학교 ID가 있고 2단계 인증이 사용되도록 설정되지 않은 경우 `azure login -u`와 해당 ID를 사용하여 대화형 세션 없이 로그인합니다. 회사 또는 학교 ID가 없는 경우 [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들 수 있습니다](../virtual-machines/linux/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
     
 2. **리소스 그룹 만들기**  
 모든 리소스는 리소스 그룹에 배포되어야 합니다. 이 자습서의 경우 리소스 그룹의 이름을 **vmsstest1**로 지정합니다.
@@ -132,9 +132,9 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
    * 가상 네트워크 및 서브넷에 대한 IP 주소 이름 및 접두사입니다.
    * 가상 네트워크, 부하 분산 장치 및 네트워크 인터페이스의 이름 및 식별자입니다.
    * 규모 집합의 컴퓨터와 연결된 계정에 대한 저장소 계정 이름입니다.
-   * 가상 컴퓨터에 설치되어 있는 진단 확장에 대한 설정입니다. 진단 확장에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용한 모니터링 및 진단으로 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+   * 가상 컴퓨터에 설치되어 있는 진단 확장에 대한 설정입니다. 진단 확장에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용한 모니터링 및 진단으로 Windows 가상 컴퓨터 만들기](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-4. 템플릿에 추가된 리소스 부모 요소 아래에 저장소 계정 리소스를 추가합니다. 이 템플릿은 루프를 사용하여 운영 체제 디스크 및 진단 데이터가 저장되는 권장되는&5;개의 저장소 계정을 만듭니다. 이 계정 집합은 현재 최대인 규모 집합에서 최대 100개의 가상 컴퓨터를 지원할 수 있습니다. 템플릿에 대한 매개 변수에서 제공하는 접미사와 결합된 변수에서 정의된 문자 지정자와 함께 각 저장소 계정 이름이 지정됩니다.
+4. 템플릿에 추가된 리소스 부모 요소 아래에 저장소 계정 리소스를 추가합니다. 이 템플릿은 루프를 사용하여 운영 체제 디스크 및 진단 데이터가 저장되는 권장되는 5개의 저장소 계정을 만듭니다. 이 계정 집합은 현재 최대인 규모 집합에서 최대 100개의 가상 컴퓨터를 지원할 수 있습니다. 템플릿에 대한 매개 변수에서 제공하는 접미사와 결합된 변수에서 정의된 문자 지정자와 함께 각 저장소 계정 이름이 지정됩니다.
    
         {
           "type": "Microsoft.Storage/storageAccounts",
@@ -479,7 +479,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
     이 값은 가상 컴퓨터 크기 집합의 리소스 식별자입니다.
     
     * **timeGrain**  
-    이 값은 수집되는 메트릭의 세분성입니다. 이 템플릿에서는&1;분으로 설정됩니다.
+    이 값은 수집되는 메트릭의 세분성입니다. 이 템플릿에서는 1분으로 설정됩니다.
     
     * **statistic**  
     이 값은 자동 크기 조정 작업을 수용하기 위해 메트릭을 결합하는 방법을 결정합니다. 가능한 값은 평균, 최소, 최대입니다. 이 템플릿에서는 가상 컴퓨터의 평균 총 CPU 사용량이 수집됩니다.
@@ -506,7 +506,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
     이 값은 크기 집합에서 추가되거나 제거된 가상 컴퓨터의 수입니다. 이 값은 1 이상이어야 합니다. 기본값은 1입니다. 이 템플릿에서 규모 집합의 컴퓨터 수는 임계값에 도달한 경우 1씩 증가합니다.
 
     * **cooldown**  
-    이 값은 다음 작업이 발생하기 전에 마지막 크기 조정 작업 이후에 대기 시간입니다. 이 값은&1;분에서&1;주 사이여야 합니다.
+    이 값은 다음 작업이 발생하기 전에 마지막 크기 조정 작업 이후에 대기 시간입니다. 이 값은 1분에서 1주 사이여야 합니다.
 
 12. 템플릿 파일을 저장합니다.    
 

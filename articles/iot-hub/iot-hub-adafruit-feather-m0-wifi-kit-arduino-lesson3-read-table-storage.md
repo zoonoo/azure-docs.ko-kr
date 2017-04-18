@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "클라우드의 데이터, 클라우드 데이터 컬렉션, IoT 클라우드 서비스, IoT 데이터"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: 386083e0-0dbb-48c0-9ac2-4f8fb4590772
 ms.service: iot-hub
 ms.devlang: arduino

@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e80bf82df28fbce8a1019c6eb07cfcae4cbba930
-ms.openlocfilehash: 34f5c92dc565e644bd8c569bfbea65e92ace5a19
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 290271855ac54af8c99311ff675a08d1e6942d93
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -38,14 +38,14 @@ Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클
 Ambari 웹 UI는 기본적으로 Linux 운영 체제를 사용하는 HDInsight 클러스터와 함께 제공됩니다.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. 
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요. 
 
 ## <a name="connectivity"></a>연결
 
-Ambari 웹 UI는 HTTPS://CLUSTERNAME.azurehdidnsnsight.net의 HDInsight 클러스터에서 사용할 수 있습니다. 여기서 **CLUSTERNAME**은 클러스터 이름입니다. 
+Ambari 웹 UI는 HTTPS://CLUSTERNAME.azurehdidnsnsight.net의 HDInsight 클러스터에서 사용할 수 있습니다. 여기서 **CLUSTERNAME**은 클러스터 이름입니다.
 
 > [!IMPORTANT]
-> HTTPS를 요구하는 HDInsight에서 Ambari로 연결 또한 관리자 계정 이름(기본값: **admin**)과 클러스터를 만들 때 제공한 암호를 사용하여 Ambari에 인증해야 합니다. 
+> HTTPS를 요구하는 HDInsight에서 Ambari로 연결 또한 관리자 계정 이름(기본값: **admin**)과 클러스터를 만들 때 제공한 암호를 사용하여 Ambari에 인증해야 합니다.
 
 ## <a name="ssh-tunnel-proxy"></a>SSH 터널(프록시)
 
@@ -147,7 +147,7 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
 > [!NOTE]
 > 서비스에 대한 **Quick Links** 링크를 선택한 경우 SSL(Secure Sockets Layer) 터널을 사용하여 클러스터에 대한 웹 트래픽을 프록시하지 않으면 "server not found" 오류가 반환됩니다. 이 정보를 표시하는 데 사용되는 웹 응용 프로그램이 인터넷에 노출되지 않기 때문입니다.
-> 
+>
 > HDInsight로 SSL 터널 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## <a name="management"></a>관리
@@ -171,7 +171,7 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 1. 관리하려는 호스트를 선택합니다.
 
 2. **Actions** 메뉴를 사용하여 수행할 작업을 선택합니다.
-   
+
    * **Start all components** - 호스트에서 모든 구성 요소를 시작합니다.
 
    * **Stop all components** - 호스트에서 모든 구성 요소를 중지합니다.
@@ -189,12 +189,12 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
    * **Restart** - 호스트에서 DataNode 또는 NodeManagers를 중지하고 시작합니다.
 
    * **Decommission** - 호스트를 클러스터에서 제거합니다.
-     
+
      > [!NOTE]
      > HDInsight 클러스터에서는 이 작업을 사용하지 마세요.
 
    * **Recommission** - 이전에 서비스를 해지한 호스트를 클러스터에 추가합니다.
-     
+
      > [!NOTE]
      > HDInsight 클러스터에서는 이 작업을 사용하지 마세요.
 
@@ -212,14 +212,14 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 1. **대시보드** 또는 **서비스** 페이지에서 서비스를 선택합니다.
 
 2. **요약** 탭 위쪽에서 **서비스 작업** 단추를 사용하여 수행할 작업을 선택합니다. 모든 노드의 서비스를 다시 시작합니다.
-   
+
     ![서비스 작업](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
-   
+
    > [!NOTE]
    > 클러스터가 실행되는 동안 일부 서비스를 다시 시작하면 경고가 발생할 수 있습니다. 이 문제를 방지하려면 **서비스 작업** 단추를 사용하여 다시 시작하기 전에 서비스에 대한 **유지 관리 모드**를 사용하도록 설정합니다.
 
 3. 동작이 선택되어 있고, 백그라운드 작업이 발생하면 페이지 위쪽에 있는 **# op** 항목의 숫자가 증가합니다. 백그라운드 작업 목록을 표시하도록 구성한 경우 백그라운드 작업 목록이 표시됩니다.
-   
+
    > [!NOTE]
    > 서비스에 대한 **유지 관리 모드**를 사용하도록 설정하여 작업이 완료된 후에는 **서비스 작업** 단추를 사용하여 이 모드를 해제해야 합니다.
 
@@ -228,7 +228,7 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 1. **대시보드** 또는 **서비스** 페이지에서 서비스를 선택합니다.
 
 2. **Configs** 탭을 선택합니다. 현재 구성이 표시됩니다. 이전 구성의 목록도 표시됩니다.
-   
+
     ![구성](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
 
 3. 구성을 수정하려면 표시된 목록을 클릭하고 **Save**를 선택합니다. 또는 이전 구성을 선택한 다음 **Make current** 를 선택하여 이전 설정으로 롤백할 수 있습니다.
@@ -242,5 +242,4 @@ Ambari 뷰를 사용하면 개발자가 [Ambari 보기 프레임워크](https://
 * Hive 뷰: Hive 뷰를 사용하면 웹 브라우저에서 직접 Hive 쿼리를 실행할 수 있습니다. 쿼리를 저장하고 결과 확인하며 클러스터 저장소에 결과를 저장하거나 로컬 시스템에 다운로드할 수 있습니다. Hive 뷰 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 뷰 사용](hdinsight-hadoop-use-hive-ambari-view.md)을 참조하세요.
 
 * Tez 뷰: Tez 뷰를 사용하면 Tez 작업 실행 방법 및 작업에서 사용되는 리소스 정보를 확인하여 작업을 더 잘 이해하고 최적화합니다.
-
 

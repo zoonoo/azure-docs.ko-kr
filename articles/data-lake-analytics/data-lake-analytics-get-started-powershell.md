@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2016
+ms.date: 04/06/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
-ms.openlocfilehash: a1244ee080d333338b1f0d9e49d1776822f535ed
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 32f115a4d901a43abf1bf69d1c0c72b65ec7368c
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -112,7 +113,7 @@ Azure PowerShell을 사용하여 Azure Data Lake 분석 계정을 만들고, [U-
 
     # Download the sample file from Azure Blob storage
     $context = New-AzureStorageContext -StorageAccountName $storageAccount -Anonymous
-    $blobs = Azure\Get-AzureStorageBlob -Container $container -Context $context
+    $$blobs = Get-AzureStorageBlob -Container $container -Context $context
     $blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
 
     # Upload the file to the default Data Lake Store account    
@@ -122,7 +123,7 @@ Azure PowerShell을 사용하여 Azure Data Lake 분석 계정을 만들고, [U-
 
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeAccount
+    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeStoreAccount
     echo $dataLakeStoreName
 
 > [!NOTE]
@@ -206,9 +207,4 @@ Azure PowerShell을 사용하여 Azure Data Lake 분석 계정을 만들고, [U-
 * U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
 * 관리 작업을 보려면 [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 * 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

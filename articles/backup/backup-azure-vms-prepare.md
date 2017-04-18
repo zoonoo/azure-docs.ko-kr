@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 3/10/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 9d9c56697a022fac2ad84b7688445cad3e489658
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 2eb88bd81a46dbff9842887976c59d150ae4dad6
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -38,7 +38,7 @@ Azure VM(가상 컴퓨터)을 백업하려면 세 가지 조건을 충족해야 
 사용자 환경이 이러한 조건을 이미 갖춘 경우 [VM 문서 백업](backup-azure-vms.md)을 진행합니다. 그렇지 않으면 이 문서에 따라 Azure VM을 백업하도록 환경을 준비하는 단계를 수행합니다.
 
 ##<a name="supported-operating-system-for-backup"></a>지원되는 백업용 운영 체제
- * **Linux**: Azure 백업은 Core OS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 지원합니다. _가상 컴퓨터에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 지속하는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다. 그러나 이러한 배포판을 백업에 대해서는 보증하지 않습니다._
+ * **Linux**: Azure 백업은 Core OS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 지원합니다. _가상 컴퓨터에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 지속하는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다. 그러나 이러한 배포판을 백업에 대해서는 보증하지 않습니다._
  * **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
 
 
@@ -193,7 +193,7 @@ Azure 갤러리에서 만든 VM에는 VM 에이전트가 이미 있습니다. �
 | **작업** | **Windows** | **Linux** |
 | --- | --- | --- |
 | VM 에이전트 설치 |<li>[에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다. <li>[VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다. |<li> GitHub에서 최신 [Linux 에이전트](https://github.com/Azure/WALinuxAgent) 를 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다. <li> [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다. |
-| VM 에이전트 업데이트 |VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |[Linux VM 에이전트 업데이트](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요. <br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
+| VM 에이전트 업데이트 |VM 에이전트 업데이트는 [VM 에이전트 이진](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치하면 되는 간단한 작업입니다. <br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |[Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 지침을 따르세요. <br><br>VM 에이전트를 업데이트하는 동안 실행 중인 백업 작업이 없도록 합니다. |
 | VM 에이전트 설치 유효성 검사 |<li>Azure VM에서 *C:\WindowsAzure\Packages* 폴더로 이동합니다. <li>WaAppAgent.exe 파일을 찾습니다.<li> 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동한 다음 **세부 정보** 탭을 선택합니다. 제품 버전 필드가 2.6.1198.718 이상이어야 합니다. |해당 없음 |
 
 [VM 에이전트](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) 및 [설치 방법](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)에 대해 알아보세요.

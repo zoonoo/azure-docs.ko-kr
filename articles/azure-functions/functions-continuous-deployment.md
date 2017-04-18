@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 66753c80223e33c3add9d37aa4d81656472391ca
-ms.openlocfilehash: e1a869d3c3512f32eab7840f5abc17abd8ce8004
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: dbcee4d57448c6f25de24d5995b85849d6d82f77
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -27,7 +28,7 @@ Azure Functions를 통해 함수 앱에 대한 연속 배포를 쉽게 구성할
 연속 배포는 여러 개의 빈번한 작성자가 통합되는 프로젝트에 적합한 옵션입니다. 또한 함수 코드에서 소스 제어를 유지 관리할 수 있습니다. 현재 지원되는 배포 원본은 다음과 같습니다.
 
 * [Bitbucket](https://bitbucket.org/)
-* [Dropbox](https://bitbucket.org/)
+* [Dropbox](https://www.dropbox.com/)
 * [Git 로컬 리포지토리](../app-service-web/app-service-deploy-local-git.md)
 * Git 외부 리포지토리
 * [GitHub]
@@ -141,9 +142,4 @@ FTP 또는 로컬 Git 리포지토리가 있는 함수 앱에서 파일을 다�
     요청된 경우 함수 앱 배포에 대한 사용자 이름 및 암호를 제공합니다.  
 
 [GitHub]: https://github.com/
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

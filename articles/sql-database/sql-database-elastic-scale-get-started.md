@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: a1e45a1ea15f76bcc7c0cd3bceca703818b3a9ff
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f77c49c47ae7b75a2cbc1cd7521739cafdfba342
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -75,7 +75,7 @@ ms.lasthandoff: 03/07/2017
   * [Azure SQL과 탄력적 DB - Entity Framework와 통합](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [스크립트 센터의 분할된 데이터베이스 탄력성](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * 블로그: [탄력적인 확장 발표](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
-* Microsoft Virtual Academy: [Elastic Database 클라이언트 라이브러리 비디오와 분할을 사용하여 확장 구현](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554?l=lWyQhF1fC_6306218965) 
+* Microsoft Virtual Academy: [Elastic Database 클라이언트 라이브러리 비디오와 분할을 사용하여 확장 구현](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554?l=lWyQhF1fC_6306218965) 
 * 채널 9: [탄력적인 확장 개요 비디오](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * 토론 포럼: [Azure SQL 데이터베이스 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * 성능 측정을 위한: [분할된 맵 관리자에 대한 성능 카운터](sql-database-elastic-database-client-library.md)

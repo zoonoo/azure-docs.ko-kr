@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3dbeba840501f395c9bad07109fe8ea47947a5fa
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a84aa7e3ac7de717c2a628abcf6f5f11b05411e8
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-add-a-user-to-your-azure-remoteapp-collection"></a>Azure RemoteApp 컬렉션에 사용자를 추가하는 방법
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -60,10 +61,5 @@ RemoteApp에 대한 Active Directory 구성에 대한 [자세한 내용](remotea
 
 ## <a name="office-365-proplus-user-account-information"></a>Office 365 ProPlus 사용자 계정 정보
 컬렉션에서 Office 365 ProPlus 템플릿 이미지를 사용하는 경우 *또는* Office 365를 사용하는 사용자 지정 이미지를 만든 경우 Office 365 구독이 있는 Azure Active Directory 사용자만 구독의 기본 도메인에 대해 추가할 수 있습니다. 자세한 내용은 [Azure RemoteApp과 함께 Office 365 사용](remoteapp-o365.md) 을 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

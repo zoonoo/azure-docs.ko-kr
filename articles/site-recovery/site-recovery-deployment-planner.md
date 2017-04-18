@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 431f73e1be45dec9aa0fe186cb22078f8d95588d
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -91,9 +91,9 @@ Site Recovery Deployment Planner 공개 미리 보기는 현재 VMware에서 Azu
 
     예:  
     .zip 파일을 E:\ 드라이브에 복사하고 압축을 풉니다.
-   E:\ASR Deployment Planner-Preview_v1.1.zip
+   E:\ASR Deployment Planner-Preview_v1.2.zip
 
-    E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
 ## <a name="capabilities"></a>기능
 다음 세 가지 모드 중 하나에서 명령줄 도구(ASRDeploymentPlanner.exe)를 실행할 수 있습니다.
@@ -146,6 +146,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | (선택 사항) vCenter server/vSphere ESXi 호스트에 연결하는 데 사용하는 암호입니다. 지금 지정하지 않으면 나중에 명령을 실행할 때 지정하도록 요구하는 메시지가 표시됩니다.|
 | -StorageAccountName | (선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 저장소 계정 이름입니다. 도구에서 이 저장소 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다.|
 | -StorageAccountKey | (선택 사항) 저장소 계정에 액세스하는 데 사용되는 저장소 계정 키입니다. Azure Portal > 저장소 계정 > <*저장소 계정 이름*> > 설정 > 선택키 > Key1(또는 클래식 저장소 계정의 기본 선택키)로 차례로 이동합니다. |
+| -Environment | (선택 사항) 대상 Azure Storage 계정 환경입니다. AzureCloud, AzureUSGovernment, AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 클라우드인 경우 매개 변수를 사용하세요. |
+
 
 최소 15-30일 동안 VM을 프로파일링하는 것이 좋습니다. ASRDeploymentPlanner.exe는 프로파일링 기간 동안 계속 실행됩니다. 도구에서는 프로파일링 시간을 일 단위로 입력합니다. 도구의 빠른 테스트를 위해 몇 시간 또는 몇 분 동안 프로파일링하려면 공개 미리 보기에서 시간을 동등한 측정 일 수로 변환해야 합니다. 예를 들어 30분 동안 프로파일링하려면 입력은 30/(60 * 24) = 0.021일이어야 합니다. 허용되는 최소 프로파일링 시간은 30분입니다.
 
@@ -284,11 +286,12 @@ Site Recovery에서 복제 중에 온-프레미스 환경에서 Azure로 달성�
 
 |매개 변수 이름 | 설명 |
 |-|-|
-| -operation | GetThroughput |
+| -Operation | GetThroughput |
 | -Directory | (선택 사항) 프로파일링된 데이터(프로파일링 중에 생성된 파일)가 저장되는 UNC 또는 로컬 디렉터리 경로입니다. 이 데이터는 보고서를 생성하는 데 필요합니다. 디렉터리 이름을 지정하지 않으면 'ProfiledData' 디렉터리가 사용됩니다. |
 | -StorageAccountName | 온-프레미스 환경에서 Azure로의 데이터 복제에서 사용되는 대역폭을 확인하기 위해 사용하는 저장소 계정 이름입니다. 도구에서 이 저장소 계정에 테스트 데이터를 업로드하여 사용되는 대역폭을 찾습니다. |
 | -StorageAccountKey | 저장소 계정에 액세스하는 데 사용되는 저장소 계정 키입니다. Azure Portal > 저장소 계정 > <*저장소 계정 이름*> > 설정 > 선택키 > Key1(또는 클래식 저장소 계정의 기본 선택키)로 차례로 이동합니다. |
 | -VMListFile | 사용되는 대역폭을 계산하기 위해 프로파일링할 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. 이 파일에는 VM 이름/IP 주소가 한 줄에 하나씩 있어야 합니다. 파일에 지정된 VM 이름은 vCenter 서버/vSphere ESXi 호스트의 VM 이름과 동일해야 합니다.<br>예를 들어 VMList.txt 파일에는 다음과 같은 VM이 포함되어 있습니다.<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Environment | (선택 사항) 대상 Azure Storage 계정 환경입니다. AzureCloud, AzureUSGovernment, AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 클라우드인 경우 매개 변수를 사용하세요. |
 
 이 도구는 지정된 디렉터리에 여러 개의 asrvhdfile<#>.vhd(여기서 #은 파일 수) 64MB 파일을 만듭니다. 도구에서 처리량을 확인하기 위해 저장소 계정에 파일을 업로드합니다. 처리량이 측정된 후 저장소 계정과 로컬 서버에서 이러한 파일을 모두 삭제합니다. 도구가 처리량을 계산하는 동안 어떤 이유로든 종료되는 경우 저장소 또는 로컬 서버에서 파일을 삭제하지 않습니다. 따라서 직접 삭제해야 합니다.
 
@@ -480,6 +483,10 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **NIC 수**: VM의 NIC 수입니다.
 
+**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다. 현재 Azure Site Recovery는 BIOS 부팅 유형만 지원합니다. EFI 부팅 유형의 모든 가상 컴퓨터는 호환되지 않는 VM 워크시트에 나열됩니다. 
+
+**OS 종류**: VM의 OS 종류입니다. Windows, Linux 또는 기타일 수 있습니다.
+
 ## <a name="incompatible-vms"></a>호환되지 않는 VM
 
 ![호환되지 않는 VM에 대한 Excel 스프레드시트](./media/site-recovery-deployment-planner/incompatible-vms.png)
@@ -489,6 +496,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 **VM 호환성**: 지정된 VM을 Site Recovery에서 사용할 수 없는 이유를 나타냅니다. 이유는 게시된 [저장소 한도](https://aka.ms/azure-storage-scalbility-performance)를 기반으로 VM의 각 호환되지 않는 디스크에 대해 설명되며 다음 중 하나일 수 있습니다.
 
 * 디스크 크기가 1023GB보다 큽니다. Azure Storage는 현재 1TB보다 큰 디스크 크기를 지원하지 않습니다.
+* 부팅 유형은 EFI입니다. 현재 Azure Site Recovery는 BIOS 부팅 유형 가상 컴퓨터만 지원합니다.
 
 * 총 VM 크기(복제 + TFO)가 지원되는 저장소 계정 크기 한도(35TB)를 초과합니다. 이러한 비호환성은 일반적으로 VM의 단일 디스크가 표준 저장소에 대해 지원되는 최대 Azure 또는 Site Recovery 한도를 초과하는 성능 특성을 가지고 있는 경우에 발생합니다. 이러한 인스턴스는 VM을 프리미엄 저장소 영역에 푸시합니다. 그러나 프리미엄 저장소 계정의 최대 지원 크기는 35TB이며, 보호된 단일 VM을 여러 저장소 계정에서 보호할 수 없습니다. 또한 보호되는 VM에 대해 테스트 장애 조치를 실행하면 복제가 진행 중인 저장소 계정과 동일한 계정에서 실행된다는 점에 유의해야 합니다. 이 인스턴스에서 복제 진행과 테스트 장애 조치를 동시에 성공하려면 디스크 크기를 2배로 설정합니다.
 * 원본 IOPS가 디스크당 지원되는 저장소 IOPS 한도(5000)를 초과합니다.
@@ -511,6 +519,10 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 **메모리(MB)**: VM의 RAM 양입니다.
 
 **NIC 수**: VM의 NIC 수입니다.
+
+**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다. 현재 Azure Site Recovery는 BIOS 부팅 유형만 지원합니다. EFI 부팅 유형의 모든 가상 컴퓨터는 호환되지 않는 VM 워크시트에 나열됩니다. 
+
+**OS 종류**: VM의 OS 종류입니다. Windows, Linux 또는 기타일 수 있습니다.
 
 
 ## <a name="site-recovery-limits"></a>사이트 복구 제한
@@ -549,6 +561,18 @@ Deployment Planner를 업데이트하려면 다음을 수행합니다.
 
 
 ## <a name="version-history"></a>버전 기록
+### <a name="12"></a>1.2
+업데이트: 2017년 4월 7일
+
+다음 수정 사항이 추가되었습니다.
+
+* 가상 컴퓨터가 보호에 대해 호환되는지 여부를 확인하기 위해 각 가상 컴퓨터에 대한 부팅 유형(BIOS 또는 EFI) 검사가 추가되었습니다.
+* 호환되는 VM 및 호환되지 않는 VM 워크시트에서 각 가상 컴퓨터에 대한 OS 종류 정보가 추가되었습니다.
+* 미국 정부 및 중국 Microsoft Azure 지역에서는 GetThroughput 작업이 지원되지 않습니다.
+* vCenter 및 ESXi 서버에 대한 몇 가지 추가 필수 요건이 추가되었습니다.
+* 로캘 설정이 영어 이외로 설정되면 잘못된 보고서가 생성됩니다.
+
+
 ### <a name="11"></a>1.1
 업데이트: 2017년 3월 9일
 

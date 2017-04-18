@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 04/07/2017
 ms.author: masnider;
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 8ecde1ba2c7a18d0237b92a404eeb1e2d7348378
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 6b1627ee9c55ecb58bdb1263eb49458caab99322
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -82,7 +82,7 @@ Reliable Services의 개요는 다음 Microsoft Virtual Academy 비디오를 시
 
 모든 내부 상태를 저장하지 않으므로 이 계산기 예제는 간단해집니다. 하지만 대부분의 서비스는 상태 비저장이 아닙니다. 대신 다른 저장소에 상태를 외장화합니다. (예를 들어 세션 상태를 백업 저장소 또는 캐시에 유지하는 모든 웹앱은 상태 비저장이 아닙니다.)
 
-서비스 패브릭에서 상태 비저장 서비스가 사용되는 방법의 일반적인 예로 웹 응용 프로그램에 대한 공용 API를 노출하는 프런트 엔드가 있습니다. 프런트 엔드 서비스는 상태 저장 서비스에 사용자의 요청을 완료하라고 말합니다. 이 경우 상태 비저장 서비스가 수신 대기 중인 알려진 포트(예: 80)에 클라이언트의 호출이 전송됩니다. 이 상태 비저장 서비스는 호출을 받고 해당 호출이 신뢰할 수 있는 대상에서 왔는지 및 어떤 서비스를 대상으로 하는지 확인합니다.  그런 다음 상태 비저장 서비스는 상태 저장 서비스의 올바른 파티션으로 호출을 전달하고 응답을 대기합니다. 상태 비저장 서비스가 응답을 받으면 원래 클라이언트에 응답합니다. 이러한 서비스의 예제는 [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount/WordCount.WebService) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Actors/VisualObjectActor/VisualObjectWebService) 샘플에 있습니다. 샘플에 있는 이 패턴의 한 가지 예제이며 다른 샘플에는 다른 사용자도 있습니다.
+서비스 패브릭에서 상태 비저장 서비스가 사용되는 방법의 일반적인 예로 웹 응용 프로그램에 대한 공용 API를 노출하는 프런트 엔드가 있습니다. 프런트 엔드 서비스는 상태 저장 서비스에 사용자의 요청을 완료하라고 말합니다. 이 경우 상태 비저장 서비스가 수신 대기 중인 알려진 포트(예: 80)에 클라이언트의 호출이 전송됩니다. 이 상태 비저장 서비스는 호출을 받고 해당 호출이 신뢰할 수 있는 대상에서 왔는지 및 어떤 서비스를 대상으로 하는지 확인합니다.  그런 다음 상태 비저장 서비스는 상태 저장 서비스의 올바른 파티션으로 호출을 전달하고 응답을 대기합니다. 상태 비저장 서비스가 응답을 받으면 원래 클라이언트에 응답합니다. 이러한 서비스의 예제는 [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Actors/VisualObjectActor/VisualObjectWebService) 샘플에 있습니다. 샘플에 있는 이 패턴의 한 가지 예제이며 다른 샘플에는 다른 사용자도 있습니다.
 
 ### <a name="stateful-reliable-services"></a>상태 저장 신뢰할 수 있는 서비스
 상태 저장 서비스는 상태의 일부분이 일관적으로 유지되고 순서대로 있어야 서비스가 작동할 수 있습니다. 수신하는 업데이트에 따라 일부 값의 이동 평균을 지속적으로 계산하는 서비스를 고려할 수 있습니다. 이 서비스를 수행하려면 처리해야 하는 수신 요청의 현재 집합과 현재 평균이 있어야 합니다. 정보를 검색, 처리하고 외부 저장소(예: Azure Blob 또는 현재 테이블 저장소)에 저장하는 모든 서비스는 상태 저장입니다. 외부 상태 저장소에 상태를 보관합니다.

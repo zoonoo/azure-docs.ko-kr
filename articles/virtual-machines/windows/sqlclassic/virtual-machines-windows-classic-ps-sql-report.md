@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 8f62547316e4ecc02da0341aab94010d880115f8
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/25/2017
 * **Azure 구독**: Azure 구독에서 사용 가능한 코어 수를 확인합니다. 권장되는 VM 크기인 **A3**을 만드는 경우 **4**개의 사용 가능한 코어가 필요합니다. **A2**의 VM 크기를 사용하는 경우 **2**개의 사용 가능한 코어가 필요합니다.
   
   * 구독의 코어 제한을 확인하려면, Azure 클래식 포털의 왼쪽 창에서 설정을 클릭하고 위쪽 메뉴에서 사용을 클릭합니다.
-  * 코어 할당량을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. VM 크기 정보는 [Azure에 대한 가상 컴퓨터 크기](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+  * 코어 할당량을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. VM 크기 정보는 [Azure에 대한 가상 컴퓨터 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * **Windows PowerShell 스크립팅**: 이 항목에서는 Windows PowerShell의 기본 작동 지식이 있다고 가정합니다. Windows PowerShell을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
   
   * [Windows Server에서 Windows PowerShell 시작](https://technet.microsoft.com/library/hh847814.aspx)

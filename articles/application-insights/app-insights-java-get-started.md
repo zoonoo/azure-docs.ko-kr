@@ -397,5 +397,5 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 

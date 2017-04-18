@@ -16,16 +16,15 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: de47a15dd4009b9a33a53fd981bc178eaa50c035
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ef5d4af5d5dad2b548ab01be5ba9c4769b21416a
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="save-iot-hub-messages-that-contain-information-like-sensor-data-to-azure-table-storage"></a>Azure 테이블 저장소에 센서 데이터와 같은 정보를 포함한 IoT Hub 메시지 저장
 
-> [!Note]
-> 이 자습서를 시작하기 전에 [Azure IoT Hub에 ESP8266 연결](/iot-hub-arduino-huzzah-esp8266-get-started.md)을 완료했는지 확인합니다. [Azure IoT Hub에 ESP8266 연결](/iot-hub-arduino-huzzah-esp8266-get-started.md)에서 IoT 장치와 IoT Hub를 설정하고 장치에서 실행할 샘플 응용 프로그램을 배포합니다. 응용 프로그램에서 수집된 센서 데이터를 IoT Hub로 보냅니다.
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-will-learn"></a>알아볼 내용
 
@@ -39,7 +38,7 @@ Azure 저장소 계정 및 Azure 함수 앱을 만들어 Azure 테이블 저장�
 
 ## <a name="what-you-will-need"></a>필요한 사항
 
-- 다음 요구 사항을 다루는 [Azure IoT Hub에 ESP8266 연결](/iot-hub-arduino-huzzah-esp8266-get-started.md) 자습서
+- 다음 요구 사항을 다루는 [Azure IoT Hub에 ESP8266 연결](iot-hub-arduino-huzzah-esp8266-get-started.md) 자습서
   - 활성 Azure 구독.
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 실행 중인 응용 프로그램
@@ -205,6 +204,4 @@ IoT Hub에서 기본 제공 Event Hub 호환 끝점을 노출하여 응용 프�
 
 Azure 저장소 계정과 Azure 함수 앱을 만들어 IoT Hub에서 받는 메시지를 Azure 테이블 저장소에 저장했습니다.
 
-계속해서 IoT Hub을 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
-
-- [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

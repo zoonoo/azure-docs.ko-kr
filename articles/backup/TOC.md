@@ -19,6 +19,7 @@
 ## Azure Backup 서버
 ### [Azure 포털에서 Azure Backup Server 작업 준비](backup-azure-microsoft-azure-backup.md)
 ### [클래식 포털에서 Azure Backup Server 작업 준비](backup-azure-microsoft-azure-backup-classic.md)
+### [Azure Backup Server를 사용하여 VMware 서버 백업](backup-azure-backup-server-vmware.md)
 ### [Azure Backup Server를 사용하여 Exchange 백업](backup-azure-exchange-mabs.md)
 ### [Azure Backup Server를 사용하여 SharePoint 팜 백업](backup-azure-backup-sharepoint-mabs.md)
 ### [Azure Backup Server를 사용하여 SQL 백업](backup-azure-sql-mabs.md)

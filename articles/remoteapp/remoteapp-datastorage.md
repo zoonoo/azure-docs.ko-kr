@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 6cc74e3d3bd704dab1a43b66374b51c1f3e2a0a2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 75d5415d33324d957617426e75909a6c6c58b1f9
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="never-store-sensitive-data-on-custom-images"></a>사용자 지정 이미지에 중요 데이터를 저장하지 않음
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -47,10 +48,5 @@ Azure RemoteApp에서 사용자 고유의 응용 프로그램을 호스팅할 �
 * 사용자 지정 이미지를 만들 때 이미지에 손실될 수 있는 중요 이미지를 저장하지 않습니다.
 * 중요한 데이터는 항상 별도의 파일 서버, 클라우드의 별도 Azure VM에 상주해야 하며 항상 Azure RemoteApp에서 응용 프로그램을 호스팅하는 VM 인스턴스 외부에 있어야 합니다. 
 * 사용자 데이터는 사용자 프로필 디스크(UPD)에 저장되어 유지됩니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

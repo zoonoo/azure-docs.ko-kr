@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: d0f4323c22858300d95af7407cdb14995507ee60
 ms.openlocfilehash: 952697dff7dca2779a6eb5375afa41c0b130aad4
+ms.lasthandoff: 11/23/2016
 
 
 ---
@@ -162,9 +163,4 @@ OMS 포털을 사용하면 데이터를 CSV 파일로 내보낸 다음 검색 AP
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics 시작](log-analytics-get-started.md) 에서 Log Analytics에 대한 정보와 Log Analytics를 몇 분 만에 시작 및 실행하는 방법에 대해 알아보세요.
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

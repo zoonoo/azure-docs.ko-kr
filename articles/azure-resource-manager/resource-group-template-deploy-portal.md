@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e4851e872349fa6483e1f1a340d0968e845a3518
-ms.openlocfilehash: e74845bfa06bb9a53420260dfb45e72d711f4373
-ms.lasthandoff: 01/14/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: c0bf0f6ce533e13c9dde0f0b89325a404047a9d8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -108,6 +108,6 @@ ms.lasthandoff: 01/14/2017
 * 배포 오류를 해결하려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
 * 배포 또는 리소스 그룹에서 템플릿을 검색하려면 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-* 배포 자동화에 대한&4;가지 시리즈는 [Azure 가상 컴퓨터에 대한 응용 프로그램 배포 자동화](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 이 시리즈에서는 응용 프로그램 아키텍처, 액세스 및 보안, 가용성 및 규모, 응용 프로그램 배포에 대해 다룹니다.
+* 배포 자동화에 대한 4가지 시리즈는 [Azure 가상 컴퓨터에 대한 응용 프로그램 배포 자동화](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 이 시리즈에서는 응용 프로그램 아키텍처, 액세스 및 보안, 가용성 및 규모, 응용 프로그램 배포에 대해 다룹니다.
 
 

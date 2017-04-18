@@ -13,16 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/11/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 9df9d10d436ac56c881c9547f3095b630d4cb97f
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ff70484dff03a44d23d2cf34ce115fd57c4b0390
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>클래식 포털을 사용하여 사이트 간 연결로 VNet 만들기
+
+S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통한 연결입니다. 이 연결 유형은 할당된 공용 IP 주소를 가지고 NAT 다음에 위치하지 않는 온-프레미스에 있는 VPN 장치를 필요로 합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
+
+![사이트 간 VPN 게이트웨이 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
+
+이 문서에서는 클래식 배포 모델 및 클래식 포털을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 게이트웨이 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. 클래식 배포 모델의 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,21 +38,13 @@ ms.lasthandoff: 03/17/2017
 >
 >
 
-이 문서에서는 클래식 배포 모델 및 클래식 포털을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 게이트웨이 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
-
-![사이트 간 VPN 게이트웨이 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
-
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>사이트 간 연결에 대한 배포 모델 및 메서드
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
-
-아래 표에서는 현재 사용할 수 있는 배포 모델 및 사이트 간 구성을 위한 메서드를 보여 줍니다. 구성 단계를 포함한 문서를 사용할 수 있는 경우 아래 표에서 관련 링크를 직접 제공합니다.
-
-[!INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
-
 #### <a name="additional-configurations"></a>추가 구성
 Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요. 이미 연결되어 있는 VNet에 사이트 간 연결을 추가하려는 경우 [기존 VPN 게이트웨이와 연결된 VNet에 S2S 연결 추가](vpn-gateway-multi-site.md)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
+
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+
 구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
 
 * 호환되는 VPN 장치 및 구성할 수 있는 사람. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 장치를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.

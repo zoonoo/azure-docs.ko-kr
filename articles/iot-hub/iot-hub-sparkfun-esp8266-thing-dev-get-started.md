@@ -16,13 +16,15 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: a1d6dba724b93d1ea05474b8680bf2226c23bddc
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: be140e86047cae304bfb5c32c5cdd9135413df82
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>Sparkfun ESP8266 Thing Dev를 클라우드의 Azure IoT Hub에 연결
+
+[!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ![DHT22, Thing Dev 및 IoT Hub 간 연결](media/iot-hub-sparkfun-thing-dev-get-started/1_connection-hdt22-thing-dev-iot-hub.png)
 
@@ -287,9 +289,5 @@ Arduino IDE에 Sparkfun ESP8266 Thing Dev 패키지를 설치합니다.
 
 IoT Hub에 Sparkfun ESP8266 Thing Dev를 성공적으로 연결하고 캡처한 센서 데이터를 IoT Hub에 보냈습니다. 
 
-계속해서 IoT Hub을 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
-- [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
-- [IoT Hub 메시지를 Azure 데이터 저장소에 저장](iot-hub-store-data-in-azure-table-storage.md)
-- [Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-power-bi.md)
-- [Azure Web Apps를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)

@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 74bba898d2a4f5e35b2312dd28cb515a2e159df2
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: a9a305e4c07e2c348b1c1503d53f1da05da57966
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="app-requirements"></a>앱 요구 사항
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -59,10 +60,5 @@ RemoteApp용 응용 프로그램을 개발하기 위해 다음 지침을 사용�
 * 모든 사용자를 위해 CPU 가용성을 최대화하려면 [백그라운드 작업 ](https://msdn.microsoft.com/library/aa380665.aspx) 을 비활성화하거나 리소스를 많이 사용하지 않는 효율적인 백그라운드 작업을 만듭니다.
 * 다중 사용자, 다중 프로세서 환경을 위해 응용 프로그램 [스레드 사용량](https://msdn.microsoft.com/library/aa383520.aspx) 을 조정하여 균형을 맞추어야 합니다.
 * 성능을 최적화하려면 응용 프로그램이 클라이언트 세션에서 실행 중인지 [감지](https://msdn.microsoft.com/library/aa380798.aspx) 하도록 하는 것이 좋습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

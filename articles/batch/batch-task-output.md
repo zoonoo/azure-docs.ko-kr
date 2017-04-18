@@ -182,7 +182,7 @@ Azure 배치 파일 규칙 라이브러리를 사용하여 보관된 출력을 �
 ```csharp
 foreach (CloudTask task in myJob.ListTasks())
 {
-    foreach (TaskOutputStorage output in
+    foreach (OutputFileReference output in
         task.OutputStorage(storageAccount).ListOutputs(
             TaskOutputKind.TaskOutput))
     {

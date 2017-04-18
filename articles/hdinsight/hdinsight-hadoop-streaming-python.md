@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 6ce490fb903d4ed2177b95145bb98fb3eeb0654f
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 71acfdc7748b85b64d4c46072d5c8ee61c0b1768
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,10 +36,10 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 * HDInsight 클러스터의 Linux 기반 Hadoop
 
   > [!IMPORTANT]
-  > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+  > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 * 텍스트 편집기
-  
+
   > [!IMPORTANT]
   > 텍스트 편집기에서 줄 끝으로 LF를 사용해야 합니다. CRLF를 사용하는 경우 Linux 기반 HDInsight 클러스터에서 MapReduce 작업을 실행할 때 오류가 발생할 수 있습니다. 확실하지 않은 경우 [MapReduce 실행](#run-mapreduce) 섹션의 선택 단계를 사용하여 모든 CRLF를 LF로 변환합니다.
 
@@ -241,23 +241,23 @@ if __name__ == "__main__":
 다음 단계에 따라 클러스터에 연결하고 SSH 세션에서 스트리밍 MapReduce 작업을 실행합니다.
 
 1. SSH를 사용하여 클러스터에 연결합니다.
-   
+
    `ssh username@clustername-ssh.azurehdinsight.net`
-   
+
    > [!NOTE]
    > SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다(예: `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`).
 
 2. (선택 사항) mapper.py 및 reducer.py 파일을 만들 때 줄 끝으로 CRLF를 사용하는 텍스트 편집기를 사용하거나 편집기가 사용하는 줄 끝을 모르는 경우 다음 명령을 사용하여 mapper.py 및 reducer.py에서 CRLF를 LF로 변환합니다.
-   
+
     `perl -pi -e 's/\r\n/\n/g' mappery.py`
     `perl -pi -e 's/\r\n/\n/g' reducer.py`
 
 3. 다음 명령을 사용하여 MapReduce 작업을 시작합니다.
-   
+
     `yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input /example/data/gutenberg/davinci.txt -output /example/wordcountout`
-   
+
     다음은 명령어의 일부입니다.
-   
+
    * **hadoop-streaming.jar**: 스트리밍 MapReduce 작업을 수행할 때 사용합니다. 제공하는 외부 MapReduce 코드로 Hadoop에 접속합니다.
 
    * **-files**: 이 MapReduce 작업에 필요한 Hadoop 특정 파일을 지정하고 모든 작업자 노드에 복사됩니다.
@@ -269,7 +269,7 @@ if __name__ == "__main__":
    * **-input**: 단어 수를 계산할 입력 파일을 지정합니다.
 
    * **-output**: 출력 내용을 작성할 디렉터리를 지정합니다.
-     
+
      > [!NOTE]
      > 이 명령어로 디렉터리를 새로 만들 수 있습니다.
 
@@ -309,7 +309,7 @@ if __name__ == "__main__":
 
     # Create the streaming job definition
     # Note: This assumes that the mapper.py and reducer.py
-    #       are in the root of default storage. If you put them in a 
+    #       are in the root of default storage. If you put them in a
     #       subdirectory, change the -Files parameter to the correct path.
     $jobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
         -Files "/mapper.py", "/reducer.py" `
@@ -457,5 +457,4 @@ HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠�
 * [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
-
 

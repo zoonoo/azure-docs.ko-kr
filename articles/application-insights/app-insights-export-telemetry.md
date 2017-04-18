@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: a06d97216373ddc6a35160e6226b8eee8df52d27
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 4ad60c18d451ee5f92eafaf5ca81176698496dd2
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -156,7 +156,7 @@ Where
 연속 내보내기가 다시 시작됩니다.
 
 ## <a name="export-samples"></a>내보내기 샘플
-* [작업자 역할을 사용하여 SQL로 내보내기][exportcode]
+
 * [Stream Analytics를 사용하여 SQL로 내보내기][exportasa]
 * [Stream Analytics 샘플 2](app-insights-export-stream-analytics.md)
 
@@ -190,14 +190,13 @@ Where
     예. 사용 안함을 클릭합니다.
 
 ## <a name="code-samples"></a>코드 샘플
-* [작업자 역할을 사용하여 내보낸 JSON 구문 분석][exportcode]
+
 * [Stream Analytics 샘플](app-insights-export-stream-analytics.md)
 * [Stream Analytics를 사용하여 SQL로 내보내기][exportasa]
 * [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](app-insights-export-data-model.md)
 
 <!--Link references-->
 
-[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 

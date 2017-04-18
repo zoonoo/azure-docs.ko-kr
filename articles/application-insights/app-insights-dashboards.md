@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 097a8aeecc783199b25d95dbc470dcabefa37ced
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: db3285bcdfb93c0c2b9f8972edb04e7064cfa31c
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -145,9 +145,6 @@ ms.lasthandoff: 03/16/2017
 * [**잠금**](../azure-resource-manager/resource-group-lock-resources.md) - Azure 리소스를 잠급니다.
 * [**스크립트 자동화**](app-insights-powershell.md) - Azure 리소스의 정의를 내보내서 새로운 리소스의 템플릿으로 사용합니다.
 
-지원
-
-* **지원 요청** - 유료 구독이 필요합니다. [도움말 보기](app-insights-get-dev-support.md)도 참조하세요.
 
 ## <a name="video"></a>비디오
 

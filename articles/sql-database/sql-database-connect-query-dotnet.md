@@ -1,6 +1,6 @@
 ---
 title: ".NET을 사용하여 Azure SQL Database에 연결(C#) | Microsoft Docs"
-description: "이 빠른 시작에 포함된 샘플 코드를 사용하여 C#으로 최신 응용 프로그램을 개발하고 Azure SQL 데이터베이스로 클라우드에서 강력한 관계형 데이터베이스를 통해 지원할 수 있습니다."
+description: "Azure SQL Database에 연결 및 쿼리하는 데 사용할 수 있는 .NET 코드 샘플을 제시합니다."
 services: sql-database
 documentationcenter: 
 author: ajlam
@@ -8,37 +8,42 @@ manager: jhubbard
 editor: 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start
+ms.custom: quick start connect
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 03/28/2017
+ms.date: 04/05/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: c6c0c218b8d0456d37a4514238675fd8e75faf9d
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: c36c3a3f651bcee38b953b12e48cab8d93a34207
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="azure-sql-database-use-net-c-to-connect-and-query-data"></a>Azure SQL Database: .NET(C#)을 사용하여 데이터에 연결 및 쿼리
 
-[C# 및 ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx)를 사용하여 Azure SQL Database에 연결하고 쿼리합니다. 이 가이드는 C#을 사용하여 Azure SQL Database에 연결하고 쿼리, 삽입, 업데이트 및 삭제 문을 실행하는 방법을 자세히 설명합니다.
+이 빠른 시작은 [C# 및 ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx)을 사용하여 Azure SQL Database에 연결한 후 Windows, Mac OS 및 Ubuntu Linux 플랫폼에서 Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.
 
 이 빠른 시작은 다음과 같은 빠른 시작 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 
 - [DB 만들기 - 포털](sql-database-get-started-portal.md)
 - [DB 만들기 - CLI](sql-database-get-started-cli.md)
 
-## <a name="configure-development-environment"></a>개발 환경 구성
+## <a name="install-net"></a>.NET 설치
 
-다음 섹션에서는 Azure SQL Database 작업을 수행하기 위해 기존 Mac OS, Linux(Ubuntu) 및 Windows 개발 환경을 구성하는 방법을 자세히 설명합니다.
+### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework 및 .NET Core**
+
+Visual Studio 2017 Community는 Android, iOS, Windows뿐만 아니라 웹 및 데이터베이스 응용 프로그램, 클라우드 서비스를 위한 최신 응용 프로그램을 만들기 위해 완전한 기능을 갖춘 확장 가능한 평가판 IDE입니다. 전체 .NET Framework 또는 .NET Core만 설치할 수 있습니다. 이 빠른 시작의 코드 조각은 둘 중 하나에서 작동합니다. 컴퓨터에 이미 Visual Studio가 설치된 경우 다음 몇 단계를 건너뜁니다.
+
+1. [설치 프로그램](https://go.microsoft.com/fwlink/?LinkId=691978)을 다운로드합니다. 
+2. 설치 관리자를 실행하고 설치 메시지에 따라 설치를 완료합니다.
 
 ### <a name="mac-os"></a>**Mac OS**
 터미널을 열고 .NET Core 프로젝트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **brew**, **OpenSSL** 및 **.NET Core**를 설치합니다. 
 
-```C#
+```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew install openssl
@@ -52,20 +57,12 @@ MacOS에 .NET Core를 설치합니다. [공식 설치 관리자](https://go.micr
 ### <a name="linux-ubuntu"></a>**Linux(Ubuntu)**
 터미널을 열고 .NET Core 프로젝트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **.NET Core**를 설치합니다.
 
-```C#
+```bash
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
 sudo apt-get install dotnet-dev-1.0.1
 ```
-
-### <a name="windows"></a>**Windows**
-Visual Studio 2015 Community Edition 및.NET Framework를 설치합니다. 컴퓨터에 이미 Visual Studio가 설치된 경우 다음 몇 단계를 건너뜁니다.
-
-Visual Studio 2015 Community는 Android, iOS, Windows뿐만 아니라 웹 및 데이터베이스 응용 프로그램, 클라우드 서비스를 위한 최신 응용 프로그램을 만들기 위해 완전한 기능을 갖춘 확장 가능한 평가판 IDE입니다.
-
-1. [설치 프로그램](https://go.microsoft.com/fwlink/?LinkId=691978)을 다운로드합니다. 
-2. 설치 관리자를 실행하고 설치 메시지에 따라 설치를 완료합니다.
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
@@ -309,5 +306,11 @@ namespace ConsoleApplication1
 ## <a name="next-steps"></a>다음 단계
 
 - .NET 설명서는 [.NET 설명서](https://docs.microsoft.com/dotnet/)를 참조하세요.
-- Visual Studio Code를 사용하여 데이터를 쿼리 및 편집하는 방법에 대한 정보는 [Visual Studio Code](https://code.visualstudio.com/docs)를 참조하세요.
+- SQL Server Management Studio를 사용하여 연결 및 쿼리하려면 [SSMS를 사용하여 연결 및 쿼리](sql-database-connect-query-ssms.md)를 참조하세요.
+- Visual Studio를 사용하여 연결 및 쿼리하려면 [Visual Studio 코드를 사용하여 연결 및 쿼리](sql-database-connect-query-vscode.md)를 참조하세요.
+- PHP를 사용하여 연결 및 쿼리하려면 [PHP를 사용하여 연결 및 쿼리](sql-database-connect-query-php.md)를 참조하세요.
+- Node.js를 사용하여 연결 및 쿼리하려면 [Node.js를 사용하여 연결 및 쿼리](sql-database-connect-query-nodejs.md)를 참조하세요.
+- Java를 사용하여 연결 및 쿼리하려면 [Java를 사용하여 연결 및 쿼리](sql-database-connect-query-java.md)를 참조하세요.
+- Python을 사용하여 연결 및 쿼리하려면 [Python을 사용하여 연결 및 쿼리](sql-database-connect-query-python.md)를 참조하세요.
+- Ruby를 사용하여 연결 및 쿼리하려면 [Ruby를 사용하여 연결 및 쿼리](sql-database-connect-query-ruby.md)를 참조하세요.
 

@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security-protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/17/2017
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL Database - 하위 클라이언트 지원 및 감사에 대한 IP 끝점 변경
 [데이터베이스 감사](sql-database-auditing.md)는 TDS 리디렉션을 지원하는 SQL 클라이언트와 함께 자동으로 작동합니다. BLOB 감사 메서드를 사용하는 경우에는 해당 리디렉션이 적용되지 않습니다.
 
-## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>하위 클라이언트 지원
+## <a id="subheading-1"></a>하위 클라이언트 지원
 TDS 7.4를 구현하는 모든 클라이언트는 리디렉션도 지원해야 합니다. 이에 대한 예외에는 리디렉션 기능이 완전히 지원되지 않는 JDBC 4.0 및 리디렉션이 구현되지 않은 Node.JS용 Tedious가 포함됩니다.
 
 TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결 문자열에서 서버 FQDN을 수정해야 합니다.
@@ -43,7 +43,7 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 
 **주석:** 위의 서버 FDQN 수정은 각 데이터베이스에서 구성 단계에 대한 요구 없이 SQL 서버 수준 감사 정책의 적용에도 유용할 수 있습니다.
 
-## <a name="a-idsubheading-2aip-endpoint-changes-when-enabling-auditing"></a><a id="subheading-2"></a>감사를 사용하도록 설정할 때 IP 끝점 변경
+## <a id="subheading-2"></a>감사를 사용하도록 설정할 때 IP 끝점 변경
 테이블 감사를 사용하도록 설정하면 데이터베이스의 IP 끝점이 변경됩니다. 엄격한 방화벽 설정이 있으면 해당 방화벽 설정을 적절하게 업데이트하세요.
 
 새 데이터베이스 IP 끝점은 데이터베이스 지역에 따라 달라집니다.

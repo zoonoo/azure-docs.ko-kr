@@ -18,9 +18,9 @@ ms.date: 09/15/2016
 ms.author: negat
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 06e7418111762a0388ce1704ba5abaa9c3a10349
-ms.openlocfilehash: e0853070b5a3f9d44baebecac625a5ad6b9ef755
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 308355e7d66c977f5cbfc8de3b939b76c2f8f83c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/01/2017
 이제 기본 설정을 사용하여 신속하게 크기 집합을 만들 수 있습니다.
 
 * `Basics` 블레이드에서 크기 집합의 이름을 입력합니다. 이 이름은 크기 집합 앞에 있는 부하 분산 장치 FQDN의 기반이 됩니다. 따라서 모든 Azure에서 고유해야 합니다.
-* 원하는 OS 유형을 선택하고, 원하는 사용자 이름을 입력한 후 원하는 인증 유형을 선택합니다. 암호를 선택하는 경우 12자 이상이어야 하고 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자의 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 자세한 내용은 [사용자 이름 및 암호 요구 사항](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요. `SSH public key`를 선택하는 경우 개인 키가 아니라 공개 키만 붙여넣어야 합니다.
+* 원하는 OS 유형을 선택하고, 원하는 사용자 이름을 입력한 후 원하는 인증 유형을 선택합니다. 암호를 선택하는 경우 12자 이상이어야 하고 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자의 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 자세한 내용은 [사용자 이름 및 암호 요구 사항](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요. `SSH public key`를 선택하는 경우 개인 키가 아니라 공개 키만 붙여넣어야 합니다.
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 

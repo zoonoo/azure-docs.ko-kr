@@ -9,16 +9,16 @@ editor: tysonn
 tags: 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 061aaa9fbd2f01029bb174378fb7c4571ede4785
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: a532629eee3a0a01795df312a80a5095ddff9fa0
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/21/2017
 
 이 스크립트는 두 개의 가상 컴퓨터를 만들고 해당 컴퓨터에 들어오는 트래픽의 보안을 유지합니다. 첫 번째 가상 컴퓨터는 인터넷에 액세스할 수 있고 포트 3389 및 포트 80에서 트래픽을 허용하도록 네트워크 보안 그룹(NSG)을 구성합니다. 두 번째 가상 컴퓨터는 인터넷에 액세스할 수 없고 NSG가 첫 번째 가상 컴퓨터의 트래픽을 허용하도록 구성합니다. 
 
-필요한 경우 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)에 있는 지침을 사용하여 Azure CLI를 설치한 다음, `az login`을 실행하여 Azure와 연결합니다.
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-이 샘플은 Bash 셸에서 작동합니다. Windows에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 실행](../virtual-machines-windows-cli-options.md)을 참조하세요.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -60,5 +60,5 @@ az group delete --name myResourceGroup --yes
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
-추가 가상 컴퓨터 CLI 스크립트 샘플은 [Azure Windows VM 설명서](../virtual-machines-windows-cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 확인할 수 있습니다.
+추가 가상 컴퓨터 CLI 스크립트 샘플은 [Azure Windows VM 설명서](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 확인할 수 있습니다.
 

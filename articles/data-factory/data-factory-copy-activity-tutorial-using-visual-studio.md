@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/02/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 39824fa66dee9f1bd57687e59ece97f4f4636b7d
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9716d18773fca8dd4612d681d1f9588106aacb14
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -148,10 +148,10 @@ ms.lasthandoff: 03/24/2017
    * **linkedServiceName**을 **AzureStorageLinkedService**로 설정합니다. 이 연결된 서비스는 2단계에서 만들었습니다.
    * **folderPath**를 **adftutorial** 컨테이너로 설정합니다. 또한 **fileName** 속성을 사용하여 폴더 내의 Blob 이름을 지정할 수도 있습니다. Blob 이름을 지정하지 않으므로 컨테이너에 있는 모든 Blob의 데이터가 입력 데이터로 간주됩니다.  
    * 서식 **형식**을 **TextFormat**으로 설정합니다.
-   * 텍스트 파일에는 **FirstName**과 **LastName**의 두 필드가 쉼표(**columnDelimiter**)로 구분되어 있습니다.    
-   * **가용성**은 **매시간**으로 설정됩니다(**빈도**는 **매시간**으로, **간격**은 **1**로 설정). 따라서 데이터 팩터리는 지정한 Blob 컨테이너(**adftutorial**)의 루트 폴더에서 한 시간마다 입력 데이터를 찾습니다. 
+   * 텍스트 파일에는 **FirstName**과 **LastName**의 두 필드가 쉼표(columnDelimiter)로 구분되어 있습니다.    
+   * **가용성**은 **매시간**으로 설정됩니다([빈도]는 [매시간]으로, [간격]은 [1]로 설정). 따라서 Data Factory는 지정한 Blob 컨테이너(adftutorial)의 루트 폴더에서 한 시간마다 입력 데이터를 찾습니다. 
    
-   **입력** 데이터 집합의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob은 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다.
+   **입력** 데이터 집합의 **fileName**을 지정하지 않는 경우 입력 폴더(folderPath)의 모든 파일/Blob은 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다.
    
    **출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.&lt;Guid&gt;.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
    
@@ -180,7 +180,7 @@ ms.lasthandoff: 03/24/2017
 2. **새 항목 추가** 대화 상자에서 **Azure SQL**을 선택하고 **추가**를 클릭합니다. 
 3. JSON 텍스트를 다음 JSON으로 바꾸고 **AzureSqlTableLocation1.json** 파일을 저장합니다.
 
-    ```json
+  ```json
     {
      "name": "OutputDataset",
      "properties": {
@@ -213,7 +213,7 @@ ms.lasthandoff: 03/24/2017
    * **linkedServiceName**을 **AzureSqlLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
    * **tablename**을 **emp**로 설정합니다.
    * 데이터베이스의 emp 테이블에 **ID**, **FirstName** 및 **LastName**이라는 세 개의 열이 있습니다. ID는 ID 열이므로 여기서 **FirstName** 및 **LastName**만 지정해야 합니다.
-   * **가용성**은 **매시간**으로 설정됩니다(**빈도**는 **매시간**으로, **간격**은 **1**로 설정).  데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
+   * **가용성**은 **매시간**으로 설정됩니다(빈도는 매시간으로, 간격은 1로 설정).  데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
 > [!NOTE]
 > JSON 속성에 대한 자세한 내용은 [Azure SQL Database 간의 데이터 이동](data-factory-azure-sql-connector.md#linked-service-properties) 을 참조하세요.
@@ -227,7 +227,7 @@ ms.lasthandoff: 03/24/2017
 2. **새 항목 추가** 대화 상자에서 **데이터 파이프라인 복사**를 선택하고 **추가**를 클릭합니다. 
 3. JSON을 다음 JSON으로 바꾸고 **CopyActivity1.json** 파일을 저장합니다.
 
-    ```json   
+  ```json   
     {
      "name": "ADFTutorialPipeline",
      "properties": {
@@ -281,7 +281,7 @@ ms.lasthandoff: 03/24/2017
    
    start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예를 들어 2016-10-14T16:32:41Z입니다. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. 
    
-   **종료** 속성 값을 지정하지 않는 경우 "**시작 + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다.
+   **종료** 속성 값을 지정하지 않는 경우 **시작 + 48시간**으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다.
    
    앞의 예에서는 각 데이터 조각이 1시간마다 생성되므로 24개 데이터 조각이 있게 됩니다.
 
@@ -325,7 +325,7 @@ ms.lasthandoff: 03/24/2017
 
 다음 사항에 유의하세요. 
 
-* "**구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.**" 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요. 
+* “구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.” 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요. 
   
   * Azure PowerShell에서 다음 명령을 실행하여 Data Factory 공급자를 등록합니다. 
 

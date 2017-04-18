@@ -17,9 +17,9 @@ ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: ed825353b3a042fe79985f4c79ec476dbd7cf5a5
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 3dc3006d65fb257a8c2c3a27143349b5979a7e6f
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -30,7 +30,7 @@ Storm 대시보드를 사용하면 사용자의 웹 브라우저를 사용하는
 Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 모니터링 및 관리 솔루션을 만들기 위해 사용할 수 있는 Storm REST API를 필요로 합니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 운영 체제로 Windows를 사용하는 HDInsight 클러스터에 Storm이 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> 이 문서의 단계에는 운영 체제로 Windows를 사용하는 HDInsight 클러스터에 Storm이 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 >
 > Linux를 사용하는 HDInsight 클러스터에서 Storm 토폴로지 배포 및 관리에 대한 자세한 내용은 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)를 참조하세요.
 

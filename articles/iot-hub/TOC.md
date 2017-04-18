@@ -103,6 +103,7 @@
 #### [Power BI에서 데이터 시각화](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Web Apps를 사용하여 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Azure Machine Learning을 사용한 날씨 예측](iot-hub-weather-forecast-machine-learning.md)
+#### [iothub-explorer를 사용하여 장치 관리](iot-hub-device-management-iothub-explorer.md)
 
 ### [Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
@@ -110,6 +111,7 @@
 #### [Power BI에서 데이터 시각화](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Web Apps를 사용하여 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Azure Machine Learning을 사용한 날씨 예측](iot-hub-weather-forecast-machine-learning.md)
+#### [iothub-explorer를 사용하여 장치 관리](iot-hub-device-management-iothub-explorer.md)
 
 
 ### [Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
@@ -138,54 +140,13 @@
 ### [Linux에서 시뮬레이션](iot-hub-linux-gateway-sdk-get-started.md)
 ### [Windows에서 시뮬레이션](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 ## IoT Gateway Starter Kit 사용
-### [시뮬레이션된 장치](iot-hub-gateway-kit-c-sim-get-started.md)
-#### 단원 1: NUC 구성
-##### [Intel NUC를 IoT 게이트웨이로 설정](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+### IoT Gateway Starter Kit 구성
+#### [Intel NUC를 IoT 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+#### [IoT 게이트웨이를 IoT Hub에 연결](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+#### [데이터 변환에 IoT 게이트웨이 사용](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-#### 단원 2: IoT Hub 만들기
-##### [도구 얻기(Windows 7 이상)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
-##### [도구 얻기(Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
-##### [도구 얻기(macOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
-##### [IoT Hub 만들기 및 장치 등록](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
-
-#### 단원 3: 시뮬레이트된 장치에서 메시지 받기
-##### [BLE 샘플 앱 구성 및 실행](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
-##### [IoT Hub에서 메시지 읽기](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
-
-#### 단원 4: Azure 테이블 저장소로 메시지 저장
-##### [Azure 함수 앱 및 Azure Storage 계정 만들기](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
-##### [Azure 테이블 저장소에 유지되는 메시지 읽기](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
-
-#### [단원 5: 첫 번째 Azure IoT 게이트웨이 모듈 만들기](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-#### [문제 해결](iot-hub-gateway-kit-c-sim-troubleshooting.md)
-
-### [SensorTag 장치](iot-hub-gateway-kit-c-get-started.md)
-#### 단원 1: NUC 구성
-##### [Intel NUC를 IoT 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-
-#### 단원 2: IoT Hub 만들기
-##### [도구 얻기(Windows 7 이상)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
-##### [도구 얻기(Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
-##### [도구 얻기(macOS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
-##### [IoT Hub 만들기 및 장치 등록](iot-hub-gateway-kit-c-lesson2-register-device.md)
-
-#### 단원 3: 시뮬레이트된 장치에서 메시지 받기
-##### [BLE 샘플 앱 구성 및 실행](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
-##### [IoT Hub에서 메시지 읽기](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
-
-#### 단원 4: Azure 테이블 저장소로 메시지 저장
-##### [Azure 함수 앱 및 Azure Storage 계정 만들기](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
-##### [Azure 테이블 저장소에 유지되는 메시지 읽기](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
-
-#### [단원 5: 첫 번째 Azure IoT 게이트웨이 모듈 만들기](iot-hub-gateway-kit-c-lesson5-create-gateway-module.md)
-
-##### [문제 해결](iot-hub-gateway-kit-c-troubleshooting.md)
-
-## [C용 IoT 장치 SDK 사용](iot-hub-device-sdk-c-intro.md)
-### [IoTHubClient 사용](iot-hub-device-sdk-c-iothubclient.md)
-### [직렬 변환기 사용](iot-hub-device-sdk-c-serializer.md)
 
 # 방법
 ## 계획
@@ -211,6 +172,9 @@
 #### [장치 및 서비스 SDK](iot-hub-devguide-sdks.md)
 #### [MQTT 지원](iot-hub-mqtt-support.md)
 #### [용어](iot-hub-devguide-glossary.md)
+### [C용 IoT 장치 SDK 사용](iot-hub-device-sdk-c-intro.md)
+#### [IoTHubClient 사용](iot-hub-device-sdk-c-iothubclient.md)
+#### [직렬 변환기 사용](iot-hub-device-sdk-c-serializer.md)
 ### 장치-클라우드 메시지 처리
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
@@ -268,8 +232,8 @@
 ## [Azure CLI 2.0 미리 보기](/cli/azure/iot)
 ## [.NET(서비스)](/dotnet/api/microsoft.azure.devices)
 ## [.NET(장치)](/dotnet/api/microsoft.azure.devices.client)
-## [.NET(서비스)](/java/api/com.microsoft.azure.iot.service.auth)
-## [Java(장치)](/java/api/com.microsoft.azure.iothub)
+## [.NET(서비스)](/java/api/com.microsoft.azure.sdk.iot.service)
+## [Java(장치)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
 ## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
 ## [REST(리소스 공급자)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

@@ -185,6 +185,8 @@
     items:
     - name: "DB 복사"
       href: sql-database-copy.md
+    - name: "DB 가져오기"
+      href: sql-database-import.md
     - name: "DB 내보내기"
       href: sql-database-export.md
   - name: "모니터링 및 튜닝"
@@ -209,16 +211,6 @@
       href: sql-database-compatibility-level-query-performance-130.md
 - name: "방법 가이드"
   items:
-  - name: "방화벽 관리"
-    items:
-    - name: "포털"
-      href: sql-database-configure-firewall-settings.md
-    - name: "PowerShell"
-      href: sql-database-configure-firewall-settings-powershell.md
-    - name: "REST API"
-      href: sql-database-configure-firewall-settings-rest.md
-    - name: "Transact-SQL"
-      href: sql-database-configure-firewall-settings-tsql.md
   - name: "탄력적 풀 관리"
     items:
     - name: "포털"
@@ -249,20 +241,10 @@
       href: sql-database-always-encrypted-azure-key-vault.md
     - name: "마스크 구성"
       href: sql-database-dynamic-data-masking-get-started-portal.md
-  - name: "복구"
-    items:
-    - name: "포털"
-      href: sql-database-get-started-backup-recovery-portal.md
-    - name: "PowerShell"
-      href: sql-database-get-started-backup-recovery-powershell.md
-    - name: "단일 테이블"
-      href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-  - name: "보존"
-    items:
-    - name: "보존 - 포털"
-      href: sql-database-manage-long-term-backup-retention-portal.md
-    - name: "보존 - PowerShell"
-      href: sql-database-manage-long-term-backup-retention-powershell.md
+  - name: "단일 테이블 복구"
+    href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
+  - name: "백업을 위한 자격 증명 모음 구성"
+    href: sql-database-long-term-backup-retention-configure.md
   - name: "데이터 지역에서 복제"
     items:
     - name: "포털"
@@ -277,10 +259,6 @@
       href: sql-database-disaster-recovery-drills.md
   - name: "데이터 이동"
     items:
-    - name: "가져오기 - 포털"
-      href: sql-database-import-portal.md
-    - name: "가져오기 - SQLPackage"
-      href: sql-database-import-sqlpackage.md
     - name: "BCP를 사용하여 데이터 로드"
       href: sql-database-load-from-csv-with-bcp.md
     - name: "ADF를 사용하여 데이터 로드"

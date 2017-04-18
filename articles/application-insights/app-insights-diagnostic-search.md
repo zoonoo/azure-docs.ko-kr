@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 5e3cf1407079a166fbe5e24abae2248ef467ebbb
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 08390472c6480200751f37028fef594fb055f118
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -165,7 +165,7 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 * [.NET](app-insights-asp-net-trace-logs.md) 또는 [Java](app-insights-java-trace-logs.md)의 즐겨찾는 로깅 프레임워크에서 로그 추적을 캡처합니다. 이는 로그 추적을 통해 검색하고 페이지 보기, 예외 사항 및 기타 이벤트와 상관 관계를 지정할 수 있음을 의미합니다. 
 * [코드를 작성](app-insights-api-custom-events-metrics.md)하여 사용자 지정 이벤트, 페이지 보기 및 예외 사항을 보냅니다. 
 
-[Application Insights에 로그 및 사용자 지정 원격 분석을 보내는 방법에 대해 알아봅니다](app-insights-search-diagnostic-logs.md).
+[Application Insights에 로그 및 사용자 지정 원격 분석을 보내는 방법에 대해 알아봅니다](app-insights-asp-net-trace-logs.md).
 
 ## <a name="questions"></a>질문 및 답변
 ### <a name="limits"></a>얼마나 많은 데이터가 보존되나요?
@@ -173,7 +173,7 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 [제한 요약](app-insights-pricing.md#limits-summary)을 참조하세요.
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>내 서버 요청에서 게시 데이터를 어떻게 볼 수 있나요?
-게시 데이터를 자동으로 기록하지는 않지만 [TrackTrace 또는 로그 호출](app-insights-search-diagnostic-logs.md)을 사용할 수 있습니다. 메시지 매개 변수에 게시 데이터를 넣습니다. 속성을 필터링할 수 있는 동일한 방법으로 메시지에서 필터링할 수는 없지만 크기 제안은 더 깁니다.
+게시 데이터를 자동으로 기록하지는 않지만 [TrackTrace 또는 로그 호출](app-insights-asp-net-trace-logs.md)을 사용할 수 있습니다. 메시지 매개 변수에 게시 데이터를 넣습니다. 속성을 필터링할 수 있는 동일한 방법으로 메시지에서 필터링할 수는 없지만 크기 제안은 더 깁니다.
 
 ## <a name="video"></a>비디오
 
@@ -181,7 +181,7 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 
 ## <a name="add"></a>다음 단계
 * [분석에서 복잡한 쿼리 작성](app-insights-analytics-tour.md)
-* [Application Insights에 로그 및 사용자 지정 원격 분석 전송](app-insights-search-diagnostic-logs.md)
+* [Application Insights에 로그 및 사용자 지정 원격 분석 전송](app-insights-asp-net-trace-logs.md)
 * [가용성 및 응답성 테스트 설정](app-insights-monitor-web-app-availability.md)
 * [문제 해결](app-insights-troubleshoot-faq.md)
 

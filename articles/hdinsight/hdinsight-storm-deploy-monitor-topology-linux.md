@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 03/22/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 00fa4810e41bdbc19d0a2663cfe1437c6e678ab3
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 53092b0cfcf2bf9a09b36f6425724669f770e7fb
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,8 +27,8 @@ ms.lasthandoff: 03/25/2017
 이 문서에서는 HDInsight 클러스터의 Storm에서 실행되는 Storm 토폴로지의 모니터링 및 관리에 관한 기본 사항을 알아봅니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 HDInsight 클러스터의 Linux 기반 Storm이 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. 
-> 
+> 이 문서의 단계에는 HDInsight 클러스터의 Linux 기반 Storm이 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요. 
+>
 > Windows 기반 HDInsight에서 토폴로지의 배포 및 모니터링에 대한 정보는 [Windows 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)
 
 
@@ -78,20 +78,20 @@ HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지
 ## <a name="submit-a-topology-ssh-and-the-storm-command"></a>토폴로지 제출: SSH 및 Storm 명령
 
 1. SSH를 사용하여 HDInsight 클러스터에 연결합니다. **USERNAME**을 SSH 로그인의 이름으로 바꿉니다. **CLUSTERNAME** 을 HDInsight 클러스터 이름으로 바꿉니다.
-   
+
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-   
+
     SSH를 사용하여 HDInsight 클러스터로 연결하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. 다음 명령을 사용하여 예제 토폴로지를 시작합니다.
-   
+
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
-   
+
     이 명령은 클러스터에서 예제 WordCount 토폴로지를 시작합니다. 이 토폴로지는 임의로 문장을 생성하고 문장에서 각 단어의 발생 횟수를 계산합니다.
-   
+
    > [!NOTE]
    > 클러스터에 토폴로지를 제출할 때 `storm` 명령을 사용하기 전에 먼저 Jar 파일을 포함하는 클러스터를 복사해야 합니다. 클러스터에 파일을 복사하려면 `scp` 명령을 사용할 수 있습니다. 예를 들어 `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
-   > 
+   >
    > WordCount 예제 및 다른 Storm 스타터 예제는 `/usr/hdp/current/storm-client/contrib/storm-starter/`에서 클러스터에 이미 포함되어 있습니다.
 
 ## <a name="submit-a-topology-programmatically"></a>토폴로지 제출: 프로그래밍 방식으로
@@ -187,11 +187,11 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 * **토폴로지 요약**: 토폴로지에 대한 기본 정보입니다.
 * **토폴로지 동작**: 토폴로지에 대해 수행할 수 있는 관리 작업입니다.
-  
+
   * **활성화**- 비활성화된 토폴로지 처리를 다시 시작합니다.
   * **비활성화**- 실행 중인 토폴로지를 일시 중지합니다.
   * **균형 다시 맞추기**- 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 이 작업을 사용하면 토폴로지가 병렬 처리를 조정하여 클러스터에서 증가하거나 감소한 노드 수를 보충할 수 있습니다.
-    
+
     자세한 내용은 <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Storm 토폴로지의 병렬 처리 이해</a>를 참조하세요.
   * **중단**- 지정된 시간 제한 후 Storm 토폴로지를 종료합니다.
 * **토폴로지 통계**: 토폴로지에 대한 통계입니다. 페이지에서 나머지 항목에 대한 시간 프레임을 설정하려면 **창** 열에 있는 링크를 사용합니다.
@@ -245,5 +245,4 @@ REST API에서 반환되는 정보는 클러스터와 동일한 Azure 가상 네
 Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는 방법에 대해 배웠으므로 [Maven을 사용하여 Java 기반 토폴로지를 개발](hdinsight-storm-develop-java-topology.md)하는 방법을 알아봅니다.
 
 추가 예제 토폴로지 목록은 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
-
 
