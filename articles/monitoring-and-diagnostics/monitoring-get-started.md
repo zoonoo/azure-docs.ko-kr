@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 692a0086bd8e0dd6b57de1db0f4e2a9b4f2f0bda
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6e1a1f522b9632c7d162d36ad5baa23d6130f8b6
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -29,11 +30,6 @@ Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 �
 2. **모니터** 옵션을 클릭하여 **모니터** 블레이드를 엽니다. 이 블레이드에서는 모든 모니터링 설정과 데이터를 하나의 통합 보기로 모읍니다. 처음에는 **활동 로그** 섹션이 열립니다.
    
     ![모니터 블레이드 탐색](./media/monitoring-get-started/monitor-blade-nav.png)
-   
-   > [!WARNING]
-   > 위쪽에 표시되는 **서비스 알림** 및 **알림 그룹** 옵션은 이러한 기능의 비공개 미리 보기에 가입한 사용자에게만 표시됩니다.
-   > 
-   > 
    
     Azure Monitor에는 데이터 모니터링의 3가지 기본 범주, 즉 **활동 로그**, **메트릭** 및 **진단 로그**가 있습니다.
 3. **활동 로그** 를 클릭하여 활동 로그 섹션이 표시되는지 확인합니다.
@@ -88,7 +84,7 @@ Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 �
     
     ![공용 경고 블레이드](./media/monitoring-get-started/monitor-alerts-nopp.png)
     
-    여기서 Azure 리소스에 대한 모든 [**경고**](monitoring-overview-alerts.md)를 관리할 수 있습니다. 이 블레이드에는 메트릭, 활동 로그 이벤트(비공개 미리 보기), Application Insights 웹 테스트(위치) 및 Application Insights 사전 진단에 대한 경고가 포함됩니다. 경고는 전송될 이메일 또는 웹후크 URL에 대한 HTTP POST를 트리거할 수 있습니다.
+    여기서 Azure 리소스에 대한 모든 [**경고**](monitoring-overview-alerts.md)를 관리할 수 있습니다. 여기에는 메트릭, 활동 로그 이벤트, Application Insights 웹 테스트(위치) 및 Application Insights 사전 진단에 대한 경고가 포함됩니다. 경고는 전송될 이메일 또는 웹후크 URL에 대한 HTTP POST를 트리거할 수 있습니다.
 13. 경고를 만들려면 **메트릭 경고 추가** 를 클릭합니다.
     
     ![메트릭 경고 추가](./media/monitoring-get-started/monitor-alerts-add.png)
@@ -102,11 +98,6 @@ Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 �
 ![Azure Monitor 대시보드](./media/monitoring-get-started/monitor-final-dash.png)
 
 ## <a name="next-steps"></a>다음 단계
-*  [Azure Monitor 개요](monitoring-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [Azure Monitor 개요](monitoring-overview.md)
 
 
