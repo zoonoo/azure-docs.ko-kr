@@ -18,7 +18,7 @@ ms.author: garye
 translationtype: Human Translation
 ms.sourcegitcommit: 21d2c20a3ac8dc4fee0680028d6c004c80a3ae38
 ms.openlocfilehash: 2835e4e8be2a11b659118f836d53c84a2c021263
-ms.lasthandoff: 03/02/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -335,7 +335,7 @@ Azure Machine Learning이 필요를 충족한다고 결정했으면 표준 계�
 
 **Azure 기계 학습의 무료 평가판이 있나요?**
 
- Azure Machine Learning에는 무료 구독 옵션이 포함되며 이에 대한 내용은 [Machine Learning 가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)에 설명됩니다. Machine Learning Studio에는 [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2)에 로그인할 때 사용 가능한&8;시간의 빠른 평가판이 포함됩니다.
+ Azure Machine Learning에는 무료 구독 옵션이 포함되며 이에 대한 내용은 [Machine Learning 가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)에 설명됩니다. Machine Learning Studio에는 [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2)에 로그인할 때 사용 가능한 8시간의 빠른 평가판이 포함됩니다.
 
  또한 Azure 무료 평가판에 등록하면 한 달 동안 모든 Azure 서비스를 사용해볼 수 있습니다. Azure 무료 평가판에 대한 자세한 내용을 보려면 [Azure 무료 평가판 FAQ](https://azure.microsoft.com/pricing/free-trial-faq/)를 방문하세요.
 
@@ -455,11 +455,11 @@ Azure Machine Learning 웹 서비스 포털의 계획 페이지에서 모든 계
 
 RRS 워크로드의 경우 요청하신 모든 API 트랜잭션 호출 및 해당 요청과 연관된 계산 시간에 대한 비용이 청구됩니다. RRS 프로덕션 API 트랜잭션 비용은 요청하신 총 API 호출 수에 트랜잭션 1,000개당 가격을 곱하여 계산됩니다(트랜잭션별 일할 계산). RRS API 프로덕션 API 계산 시간 비용은 각 API 호출 실행에 필요한 시간에 총 API 트랜잭션 수를 곱하고 프로덕션 API 계산 시간당 가격을 곱하여 계산됩니다.
 
-예를 들어 표준 S1 초과분의 경우 한 번 실행하는 데 0.72초가 걸리는 API 트랜잭션이 1,000,000개 있다면 프로덕션 API 트랜잭션 비용은 $500(1,000,000 * $0.50/1K API 트랜잭션)이고 프로덕션 API 계산 시간은 $400(1,000,000 * 0.72초 * $2/시간)로 총 $900의 금액이 산정됩니다.
+예를 들어 표준 S1 초과분의 경우 한 번 실행하는 데 0.72초가 걸리는 API 트랜잭션이 1,000,000개 있다면 프로덕션 API 트랜잭션 비용은 $500(1,000,000 $0.50/1K API 트랜잭션)이고 프로덕션 API 계산 시간은 $400(1,000,000 0.72초 * $2/시간)로 총 $900의 금액이 산정됩니다.
 
 BES 워크로드도 같은 방식으로 청구됩니다. 하지만 API 트랜잭션 비용은 제출한 일괄 작업 수를, 계산 비용은 해당 일괄 작업과 연관된 계산 시간을 나타냅니다. BES 프로덕션 API 트랜잭션 비용은 제출한 총 작업 수에 트랜잭션 1,000개당 가격을 곱하여 계산됩니다(트랜잭션별 일할 계산). BES API 프로덕션 API 계산 시간 비용은 작업의 각 행 실행에 필요한 시간에 작업의 총 행 수, 총 작업 수, 프로덕션 API 계산 시간당 가격을 곱하여 계산됩니다. Machine Learning 계산기를 사용할 때 트랜잭션 미터는 제출하려는 작업 수를, 트랜잭션 필드당 시간은 각 작업의 모든 행을 실행하는 데 필요한 총 시간을 나타냅니다.
 
-예를 들어 표준 S1 초과분에 대해 각 0.72초가 필요한 행 500개로 구성된 각 작업을 하루에 100개 제출한다고 가정해 보겠습니다. 월간 초과 비용은 프로덕션 API 트랜잭션 비용 $1.55(하루 100개 작업 = 3,100개 작업/1개월 * $0.50/1K API 트랜잭션)이며 프로덕션 API 계산 시간은 $620(500행 * 0.72초 * 3,100개 작업 * $2/시간)로 총 $621.55의 금액이 산정됩니다.
+예를 들어 표준 S1 초과분에 대해 각 0.72초가 필요한 행 500개로 구성된 각 작업을 하루에 100개 제출한다고 가정해 보겠습니다. 월간 초과 비용은 프로덕션 API 트랜잭션 비용 $1.55(하루 100개 작업 = 3,100개 작업/1개월 $0.50/1K API 트랜잭션)이며 프로덕션 API 계산 시간은 $620(500행 0.72초 3,100개 작업 $2/시간)로 총 $621.55의 금액이 산정됩니다.
 
 ### <a name="azure-machine-learning-classic-web-services"></a>Azure Machine Learning 클래식 웹 서비스
 **종량제를 계속 사용할 수 있나요?**
@@ -545,7 +545,7 @@ Machine Learning 서비스는 다중 테넌트 서비스입니다. 백 엔드에
 ### <a name="guest-access"></a>게스트 액세스
 **Azure 기계 학습 스튜디오의 게스트 액세스란?**
 
-게스트 액세스는 제한적인 체험 서비스입니다. Azure Machine Learning Studio에서 인증 없이 무료로 실험을 만들어 실행할 수 있습니다. 게스트 세션은 저장할 수 없으며 임시로 유지되고,&8;시간으로 제한됩니다. 또한 R 및 Python이 제대로 지원되지 않고 스테이징 API가 충분하지 않으며 데이터 집합 크기와 저장소 용량도 제한됩니다. 하지만 Microsoft 계정으로 로그인한 사용자는 저장이 가능한 작업 영역과 보다 포괄적인 기능이 포함되어 있는 이전에 설명된 Machine Learning Studio의 무료 계층에 모두 액세스할 수 있습니다. 무료 Machine Learning 환경을 선택하려면 [https://studio.azureml.net](https://studio.azureml.net) 에서 **시작하기**를 클릭하고 **게스트 액세스**를 선택하거나 Microsoft 계정으로 로그인합니다.
+게스트 액세스는 제한적인 체험 서비스입니다. Azure Machine Learning Studio에서 인증 없이 무료로 실험을 만들어 실행할 수 있습니다. 게스트 세션은 저장할 수 없으며 임시로 유지되고, 8시간으로 제한됩니다. 또한 R 및 Python이 제대로 지원되지 않고 스테이징 API가 충분하지 않으며 데이터 집합 크기와 저장소 용량도 제한됩니다. 하지만 Microsoft 계정으로 로그인한 사용자는 저장이 가능한 작업 영역과 보다 포괄적인 기능이 포함되어 있는 이전에 설명된 Machine Learning Studio의 무료 계층에 모두 액세스할 수 있습니다. 무료 Machine Learning 환경을 선택하려면 [https://studio.azureml.net](https://studio.azureml.net) 에서 **시작하기**를 클릭하고 **게스트 액세스**를 선택하거나 Microsoft 계정으로 로그인합니다.
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/

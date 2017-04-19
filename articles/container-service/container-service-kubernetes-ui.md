@@ -58,7 +58,7 @@ $ az acs kubernetes install-cli
 다음을 실행하여 Kubernetes 웹 UI를 시작할 수 있습니다.
 
 ```console
-$ az acs kubernetes browse
+$ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
 그러면 보안 프록시에 로컬 시스템을 Kubernetes 웹 UI에 연결할 것을 지정하도록 구성된 웹 브라우저가 열립니다.
