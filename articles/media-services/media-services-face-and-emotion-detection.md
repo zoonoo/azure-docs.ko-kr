@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 04/17/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
 ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
 ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -48,7 +49,7 @@ ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
 
 검색 및 추적된 얼굴은 개별적인 추적을 나타내는 얼굴 ID 번호뿐만 아니라 이미지 내에서 얼굴의 위치를 픽셀 단위로 나타내는 좌표(왼쪽, 위쪽, 너비 및 높이)와 함께 반환됩니다. 얼굴 ID 번호는 프레임 안에 정면 얼굴이 없거나 겹쳐진 상황에서 재설정될 가능성이 크므로 결과적으로 일부 사용자에게 여러 ID가 할당될 수 있습니다.
 
-### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>출력 JSON 파일의 요소
+### <a id="output_elements"></a>출력 JSON 파일의 요소
 얼굴 검색 및 추적 작업의 경우 출력 결과는 지정된 파일 내에서 얼굴에 대한 메타데이터를 JSON 형식으로 포함합니다.
 
 얼굴 검색 및 추적 JSON에는 다음 특성이 포함됩니다.
@@ -82,7 +83,7 @@ ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
 **Azure 미디어 얼굴 탐지기**로 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다. 다음은 얼굴 검색에 대한 구성 기본 설정입니다.
 
     {
-      "version":"1.0"
+      "version":"1.0",
       "options":{
           "TrackingMode": "Faster"
       }
@@ -521,10 +522,5 @@ ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

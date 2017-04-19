@@ -17,7 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
 ms.openlocfilehash: b0c3c5dfd695b28b75bf44c9f835b34966413a9a
-ms.lasthandoff: 03/04/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/04/2017
 SDK를 다운로드하려면 Azure Multi-Factor Auth 공급자가 필요합니다.
 
 > [!IMPORTANT]
-> SDK를 다운로드하려면 Azure MFA, AAD Premium 또는 EMS 라이선스가 있더라도 Azure Multi-Factor Auth 공급자를 만들어야 합니다.  이를 위해 Azure Multi-Factor Auth 공급자를 만들고 이미 라이선스를 보유한 경우 공급자는 반드시 **활성화된 사용자당** 모델을 사용하도록 합니다. 그런 다음 Azure MFA, Azure AD Premium 또는 EMS 라이선스를 포함하는 디렉터리에 공급자를 연결합니다.  이 구성을 사용하면 사용자가 소유한 라이선스 수보다는&2;단계 인증을 수행하는 고유 사용자가 더 많은 경우에만 요금이 청구됩니다.
+> SDK를 다운로드하려면 Azure MFA, AAD Premium 또는 EMS 라이선스가 있더라도 Azure Multi-Factor Auth 공급자를 만들어야 합니다.  이를 위해 Azure Multi-Factor Auth 공급자를 만들고 이미 라이선스를 보유한 경우 공급자는 반드시 **활성화된 사용자당** 모델을 사용하도록 합니다. 그런 다음 Azure MFA, Azure AD Premium 또는 EMS 라이선스를 포함하는 디렉터리에 공급자를 연결합니다.  이 구성을 사용하면 사용자가 소유한 라이선스 수보다는 2단계 인증을 수행하는 고유 사용자가 더 많은 경우에만 요금이 청구됩니다.
 
 ## <a name="create-a-multi-factor-auth-provider"></a>Multi-Factor Auth 공급자 만들기
 다음 단계를 따라 Azure Multi-Factor Auth 공급자를 만듭니다.
