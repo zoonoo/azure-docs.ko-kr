@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 01/04/2017
 ms.author: dekapur
 translationtype: Human Translation
-ms.sourcegitcommit: bb93d4dac1853a317bbd6ac70946753f35be264e
-ms.openlocfilehash: bc1dd1d2c378e628094fe717d9c89298aca1f7b4
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: e2b969151876fac34b2a5c05ce050ee6b51004d0
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/06/2017
 
 세 가지 방법으로 서비스에서 상태를 보고할 수 있습니다.
 
-* [Partition](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.aspx) 또는 [CodePackageActivationContext](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.aspx) 개체를 사용합니다.  
+* [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) 또는 [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext) 개체를 사용합니다.  
   `Partition` 및 `CodePackageActivationContext` 개체를 사용하여 현재 컨텍스트의 일부인 요소의 상태를 보고할 수 있습니다. 예를 들어 복제본의 일부로 실행되는 코드는 해당 복제본, 복제본이 속하는 파티션 및 복제본을 포함하는 응용 프로그램에 대해서만 상태를 보고할 수 있습니다.
 * `FabricClient`를 사용합니다.   
   `FabricClient` 를 사용하면 클러스터가 [보안](service-fabric-cluster-security.md) 상태가 아니거나 서비스가 관리자 권한으로 실행되는 경우에 서비스 코드에서 상태를 보고할 수 있습니다. 대부분의 실제 시나리오에서는 이 경우가 해당되지 않습니다. `FabricClient`를 사용하면 클러스터의 일부인 모든 엔터티의 상태를 보고할 수 있습니다. 하지만 이상적으로 서비스 코드는 자체 상태와 관련된 보고서만 보내야 합니다.

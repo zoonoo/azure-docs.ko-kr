@@ -13,12 +13,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 04/18/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: cdf9d576b6a7d3afcfb0839ce8bab2103fba14ed
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -944,86 +944,6 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     -n, --name <name>                      the name of the backend address pool
     -s, --subscription <subscription>      the subscription identifier
 
-<BR>
-
-    network lb address-pool add [options] <resource-group> <lb-name> <name>
-
-백 엔드 주소 풀 범위는 부하 분산 장치가 Azure Resource Manager를 사용하여 끝점에서 들어오는 네트워크 트래픽을 라우팅하는 리소스를 확인하는 방법입니다. 백 엔드 주소 풀 범위를 만들고 이름을 지정한 후("azure network lb address-pool create" 명령 참조) "network interfaces"라는 리소스로 정의된 끝점을 추가해야 합니다.
-
-백 엔드 주소 범위를 구성하려면 하나 이상의 "네트워크 인터페이스"가 필요합니다(자세한 내용은 "azure network lb nic" 명령줄 참조).
-
-다음 예제에서는 이전에 만든 "nic1" 네트워크 인터페이스를 사용하여 백 엔드 주소 풀 범위를 만들었습니다.
-
-    azure network lb address-pool add -g myresourcegroup -l mylb -n mybackendpool -a nic1
-
-    info:    Executing command network lb address-pool add
-    + Looking up the load balancer "mylb"
-    + Getting network interfaces
-    + Updating network interface "nic1"
-    + Looking up the load balancer "mylb"
-    data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
-    data:    Name:                      mybackendpool
-    data:    Type:                      Microsoft.Network/loadBalancers/backendAddressPools
-    data:    Provisioning state:        Succeeded
-    data:    Backend IP configurations:
-    data:     id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/NIC-config
-    data:    Load balancing rules:
-    data:
-    info:    network lb address-pool add command OK
-
-매개 변수 옵션:
-
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the backend address pool
-    -i, --vm-id <vm-id>                    the virtual machine identifier.
-    e.g. "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>,/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>"
-    -m, --vm-name <vm-name>                the name of the virtual machine
-    -d, --nic-id <nic-id>                  the network interface identifier.
-    e.g. ""/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkInterfaces/<nic-name>"
-    -a, --nic-name <nic-name>              the name of the network interface
-    -s, --subscription <subscription>      the subscription identifier
-
-<BR>
-
-    network lb address-pool remove [options] <resource-group> <lb-name> <name>
-
-백엔드 IP 주소 풀 범위에서 네트워크 인터페이스를 제거합니다.
-
-    azure network lb address-pool remove -g myresourcegroup -l mylb -n mybackendpool -a nic1
-
-    info:    Executing command network lb address-pool remove
-    + Looking up the load balancer "mylb"
-    + Getting network interfaces
-    + Updating network interface "nic1"
-    + Looking up the load balancer "mylb"
-    data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/mybackendpool
-    data:    Name:                      mybackendpool
-    data:    Type:                      Microsoft.Network/loadBalancers/backendAddressPools
-    data:    Provisioning state:        Succeeded
-    data:    Backend IP configurations:
-    data:    Load balancing rules:
-    data:
-    info:    network lb address-pool remove command OK
-
-매개 변수 옵션:
-
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -n, --name <name>                      the name of the backend address pool
-    -i, --vm-id <vm-id>                    the virtual machine identifier.
-    e.g. "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>,/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines/<vm-name>"
-    -m, --vm-name <vm-name>                the name of the virtual machine
-    -d, --nic-id <nic-id>                  the network interface identifier.
-    e.g. ""/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkInterfaces/<nic-name>"
-    -a, --nic-name <nic-name>              the name of the network interface
-    -s, --subscription <subscription>      the subscription identifier
 <BR>
 
     network lb address-pool list [options] <resource-group> <lb-name>

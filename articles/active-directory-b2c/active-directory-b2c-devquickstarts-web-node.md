@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/10/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 443516838190ccad408bc2b3b6b63513b3a3041e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a4d9394983539da52105bda6cf06273205f8b0ad
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -40,9 +40,6 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전략을 개발했습�
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
 전체 응용 프로그램은 이 자습서 마지막 부분에서 제공됩니다.
-
-> [!WARNING]
-지금은 Web API 작업 서버와 이 서버에 연결되는 클라이언트에 대해 동일한 **클라이언트 ID**/**응용 프로그램 ID** 및 정책을 사용해야 합니다. iOS 및 Android 자습서에도 적용됩니다. 이전에 이러한 빠른 시작 중 하나에서 응용 프로그램을 만든 경우, 해당 값을 사용하고 새로 만들지 않습니다.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Azure AD B2C 디렉터리 가져오기
 

@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: fdbe5ff497b7acc9d8521b8ba1a016ae11bc69d2
-ms.openlocfilehash: 26140426eb2a5376af003248a0de6685999ac5a2
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: b42d2bd64dbaf44f1be85d687b27ffe47eb0db53
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="connection-libraries-for-sql-database-and-sql-server"></a>SQL 데이터베이스 및 SQL Server용 연결 라이브러리
 
-이 항목에는 클라이언트 프로그램에서 Azure SQL Database 또는 Microsoft SQL Server에 연결하는 데 사용할 수 있는 각 라이브러리 또는 *드라이버*가 나열되어 있습니다.
+이 항목에는 클라이언트 프로그램에서 Azure SQL Database 또는 Microsoft SQL Server에 연결하는 데 사용할 수 있는 각 라이브러리 또는 *드라이버*가 나열되어 있습니다. 
 
 | 언어 | 플랫폼 | 추가 리소스 | 다운로드 |
 |:--- |:--- |:--- |:--- |
@@ -38,13 +39,10 @@ ms.openlocfilehash: 26140426eb2a5376af003248a0de6685999ac5a2
 ## <a name="related-links"></a>관련 링크
 
 - 클라이언트에서 연결하기 위한 [SQL Server 드라이버](https://docs.microsoft.com/sql/connect/sql-server-drivers/)
-- [.NET(C#)을 사용하여 SQL Database에 연결](sql-database-develop-dotnet-simple.md), ADO.NET
-- [Node.js를 사용하여 SQL 데이터베이스에 연결](sql-database-develop-nodejs-simple.md)
-- [Python을 사용하여 SQL Database에 연결](sql-database-develop-python-simple.md), pymssql
-- [Ruby를 사용하여 SQL 데이터베이스에 연결](sql-database-develop-ruby-simple.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+- [.NET(C#)을 사용하여 SQL 데이터베이스에 연결](sql-database-connect-query-dotnet.md)
+- [PHP를 사용하여 SQL 데이터베이스에 연결](sql-database-connect-query-php.md)
+- [Node.js를 사용하여 SQL 데이터베이스에 연결](sql-database-connect-query-nodejs.md)
+- [Java를 사용하여 SQL 데이터베이스에 연결](sql-database-connect-query-java.md)
+- [Python을 사용하여 SQL 데이터베이스에 연결](sql-database-connect-query-python.md)
+- [Ruby를 사용하여 SQL 데이터베이스에 연결](sql-database-connect-query-ruby.md)
 

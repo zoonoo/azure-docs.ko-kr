@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 05/26/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: e1863b43706ffc200bb94c4a26ae75080a6dd857
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 37d25c8c7b47bf8ef3b4d5c6d3978b13c52329c3
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -47,7 +48,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
    이전 단계에서 언급한 연결 URL을 사용합니다. 웹 사이트의 보안 인증서에 문제가 있음을 나타내는 오류가 표시됩니다. **이 웹 페이지에서 계속 진행**을 클릭합니다.
    
    ![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
-2. 가상 장치의 웹 UI에 **StorSimpleAdmin**으로 로그인합니다. [Hyper-V에서 StorSimple 가상 배열 프로비전](storsimple-ova-deploy2-provision-hyperv.md) 또는 [VMware에서 StorSimple 가상 배열 프로비전](storsimple-ova-deploy2-provision-vmware.md)의 3단계: 가상 장치 시작에서 변경한 장치 관리자 암호를 입력합니다.
+2. 가상 장치의 웹 UI에 **StorSimpleAdmin**으로 로그인합니다. [Hyper-V에서 StorSimple 가상 배열 프로비전](storsimple-ova-deploy2-provision-hyperv.md) 또는 [VMware에서 StorSimple 가상 배열 프로비전](storsimple-ova-deploy2-provision-vmware.md)의 3단계: 가상 장치 시작에서 변경한 장치 관리자 암호를 입력합니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
    
    ![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 3. **홈** 페이지로 이동합니다. 이 페이지는 StorSimple Manager 서비스에 가상 장치를 구성하고 등록하는 데 필요한 다양한 설정을 설명합니다. **네트워크 설정**, **웹 프록시 설정**, **시간 설정**은 선택 사항입니다. 필요한 설정은 **장치 설정** 및 **클라우드 설정**입니다.
@@ -183,10 +184,5 @@ StorSimple 가상 배열을 파일 서버로 구성하고 등록하는 방법을
 
 ## <a name="next-steps"></a>다음 단계
 로컬 웹 UI를 사용하여 [StorSimple 가상 배열을 관리](storsimple-ova-web-ui-admin.md)하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

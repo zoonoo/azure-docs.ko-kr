@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c2c46637ccccd01c1c3056d6a25ef605cfd68f2d
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d1094e1b350883c206a9180ff71bd8613156360a
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="getting-started-with-password-management"></a>암호 관리 시작
 > [!IMPORTANT]
-> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-my-password).
 >
 >
 
@@ -69,9 +69,9 @@ ms.lasthandoff: 03/29/2017
 * [**팁 9: 문제 해결** - 여전히 도움이 필요한 경우 사용자를 지원할 충분한 정보 포함](#tip-9-troubleshoot---if-you-still-need-help-include-enough-information-for-us-to-assist-you)
 
 ### <a name="top-tip-documentation-navigation---use-our-table-of-contents-and-your-browsers-find-feature-to-find-answers"></a>최고의 팁: 설명서 탐색 - 목차 및 브라우저의 찾기 기능을 사용하여 답변 찾기
-설명서 중 하나를 사용하는 경우 관리자가 목차에서 학습하도록 모든 흥미로운 위치에 대한 빠른 링크를 제공하기 위해 노력해 왔습니다. 
+설명서 중 하나를 사용하는 경우 관리자가 목차에서 학습하도록 모든 흥미로운 위치에 대한 빠른 링크를 제공하기 위해 노력해 왔습니다.
 
-아래 목차를 확인해 보세요. 
+아래 목차를 확인해 보세요.
 * [Azure AD 암호 재설정: 설명서 목차](https://docs.microsoft.com/azure/active-directory/active-directory-passwords)
 
 ### <a name="tip-1-licensing---make-sure-you-understand-the-licensing-requirements"></a>팁 1: 라이선스 - 라이선스 요구 사항 이해
@@ -93,9 +93,9 @@ Azure AD 암호 재설정의 기능을 작동하려면 조직에서 할당된 �
  * ...평가판이 만들어지기 시작한 후 처음 30일 동안 **또는**
  * ...베니티 도메인이 없는 경우 **및** Azure AD Connect가 ID를 동기화하지 않는 경우
  * **_필수_**: 값이 있는 인증 전자 메일, 대체 전자 메일, 인증 전화, 휴대폰 또는 사무실 전화 중 **하나**
-* **두 개의 게이트 정책이 적용됩니다.** 
+* **두 개의 게이트 정책이 적용됩니다.**
  * ...평가판의 처음 30일이 경과된 후 **또는**
- * ....베니티 도메인이 있는 경우 **또는** 
+ * ....베니티 도메인이 있는 경우 **또는**
  * ...온-프레미스 환경에서 ID를 동기화하도록 Azure AD Connect를 활성화한 경우
  * _**필수**_: 값이 있는 인증 전자 메일, 대체 전자 메일, 인증 전화, 휴대폰 또는 사무실 전화 중 **두 개**
 
@@ -145,7 +145,7 @@ Azure AD Connect 응용 프로그램 이벤트 로그에는 실시간으로 비�
 * [쓰기 저장 배포 - 3단계: 방화벽 구성](#step-3-configure-your-firewall)
 * [쓰기 저장 배포 - 4단계: 적절한 사용 권한 설정](#step-4-set-up-the-appropriate-active-directory-permissions)
 
-### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>팁 7: 보고 - Azure AD SSPR 감사 로그로 암호를 등록 또는 재설정하는 사용자 확인 
+### <a name="tip-7-reporting---see-who-is-registering-or-resetting-passwords-with-the-azure-ad-sspr-audit-logs"></a>팁 7: 보고 - Azure AD SSPR 감사 로그로 암호를 등록 또는 재설정하는 사용자 확인
 암호 재설정이 배포되고 작동하면 다음 논리적 단계는 작동하는 것을 확인하고 여전히 등록이 필요한 사용자, 재설정 시 사용자가 직면하는 일반적인 문제 및 기능에 대한 투자 수익을 분석하는 것입니다.
 
 Azure AD 암호 재설정 감사 로그를 사용하여 Azure Portal, PowerBI, Azure AD 보고 이벤트 API, PowerShell에서 이 작업 등을 수행할 수 있습니다.  이 보고 기능을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
@@ -495,7 +495,7 @@ Azure AD Connect 도구는 ServiceBus 끝점에 주기적인 ping/keepalive를 �
 ## <a name="next-steps"></a>다음 단계
 다음은 모든 Azure AD 암호 재설정 설명서 페이지에 대한 링크입니다.
 
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-your-password).
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-my-password).
 * [**작동 방식**](active-directory-passwords-how-it-works.md) - 6개의 다양한 구성 요소 서비스 및 기능에 대해 알아봅니다.
 * [**사용자 지정**](active-directory-passwords-customize.md) - 모양과 느낌 및 조직의 요구에 맞게 서비스의 동작을 사용자 지정하는 방법에 대해 알아봅니다
 * [**모범 사례**](active-directory-passwords-best-practices.md) - 사용자의 조직에서 신속하게 배포하고 효과적으로 암호를 관리하는 방법에 대해 알아봅니다.

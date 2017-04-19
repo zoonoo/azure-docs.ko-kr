@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure 자동화를 사용하여 Amazon Web Ser
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
 ms.service: automation
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/13/2017
+ms.date: 04/14/2017
 ms.author: tiandert; bwren
 translationtype: Human Translation
-ms.sourcegitcommit: ff1acafaacc40dd8a04b008df7cd479c811a7af0
-ms.openlocfilehash: 62b6c09f749aa36307206e23d36bd86b5b8ce455
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e0b784006b4933fe986890c09afa965934511784
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 62b6c09f749aa36307206e23d36bd86b5b8ce455
 이 문서에서는 Azure 자동화를 사용하여 AWS(Amazon Web Service) 구독에서 가상 컴퓨터를 프로비전하고 해당 VM에 특정 이름을 지정하는 방법을 설명합니다. 이는 AWS에서 VM "태그 지정"이라고 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 문서에서는 Azure 자동화 계정 및 AWS 구독이 필요합니다. Azure 자동화 계정을 설정하고 AWS 구독 자격 증명으로 구성하는 데 대한 자세한 내용은 [Configure Authentication with Amazon Web Services(Amazon Web Services로 인증 구성)](automation-sec-configure-aws-account.md)를 참조하세요.  이 계정은 아래 단계에서 참조되므로 먼저 AWS 구독 자격 증명으로 생성하거나 업데이트한 다음 진행해야 합니다.
+이 문서에서는 Azure 자동화 계정 및 AWS 구독이 필요합니다. Azure 자동화 계정을 설정하고 AWS 구독 자격 증명으로 구성하는 데 대한 자세한 내용은 [Configure Authentication with Amazon Web Services(Amazon Web Services로 인증 구성)](automation-configure-aws-account.md)를 참조하세요.  이 계정은 아래 단계에서 참조되므로 먼저 AWS 구독 자격 증명으로 생성하거나 업데이트한 다음 진행해야 합니다.
 
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Amazon Web Services PowerShell 모듈 배포
 Microsoft의 VM 프로비전 Runbook은 AWS PowerShell 모듈을 활용하여 작업을 수행합니다. 다음 단계를 수행하여 AWS 구독 자격 증명으로 구성된 자동화 계정에 모듈을 추가합니다.  
@@ -113,10 +114,5 @@ Runbook 테스트를 진행하기 전에 몇 가지 사항을 확인해야 합�
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
 * Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 확인하려면 [Azure 자동화 Runbook 형식](automation-runbook-types.md)
 * PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure 자동화에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

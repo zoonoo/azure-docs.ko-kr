@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 03/062/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 6f646b3776f0aa0bbfba227c81ac5fc4fde9265f
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 78dbbaa272d9889add5bc833c7557618f41056db
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/10/2017
 
 이 문서에서는 [Azure Portal](http://portal.azure.com)을 사용하여 SQL Database에 대한 활성 지역 복제를 구성하고 장애 조치(Failover)를 시작하는 방법을 보여 줍니다.
 
-Azure 포털에서 장애 조치를 시작하려면 [Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치(Failover) 시작](sql-database-geo-replication-failover-portal.md)을 참조하세요.
+Azure 포털에서 장애 조치를 시작하려면 [Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치(Failover) 시작](sql-database-geo-replication-portal.md)을 참조하세요.
 
 > [!NOTE]
 > 현재 활성 지역 복제(읽기 가능한 보조)는 모든 서비스 계층에 있는 모든 데이터베이스에 대해 사용 가능합니다. 2017년 4월부로 읽을 수 없는 보조 유형은 사용 중지되며 기존의 읽을 수 없는 데이터베이스는 읽을 수 있는 보조 데이터베이스로 자동으로 업그레이드됩니다.
@@ -81,7 +81,7 @@ Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리�
 
 이 명령은 보조 데이터베이스를 주 역할로 즉시 전환합니다. 
 
-역할이 전환되는 동안 두 데이터베이스를 모두 사용할 수 없는 (0-25초의 순서로) 짧은 기간이 있습니다. 주 데이터베이스에 여러 개의 보조 데이터베이스가 있는 경우 이 명령을 사용하면 새로운 주 데이터베이스에 연결할 다른 보조 데이터베이스가 자동으로 다시 구성됩니다. 전체 작업은 정상적인 상황에서 완료하는데&1;분 미만이 걸려야 합니다. 
+역할이 전환되는 동안 두 데이터베이스를 모두 사용할 수 없는 (0-25초의 순서로) 짧은 기간이 있습니다. 주 데이터베이스에 여러 개의 보조 데이터베이스가 있는 경우 이 명령을 사용하면 새로운 주 데이터베이스에 연결할 다른 보조 데이터베이스가 자동으로 다시 구성됩니다. 전체 작업은 정상적인 상황에서 완료하는데 1분 미만이 걸려야 합니다. 
 
 > [!NOTE]
 > 주 데이터베이스가 온라인이고 명령이 실행될 때 트랜잭션을 커밋하면 일부 데이터가 손실될 수 있습니다.
