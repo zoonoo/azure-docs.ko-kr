@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: dcd7aef734da26a4357d11ff3da9501f55963a00
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -49,7 +50,7 @@ ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
 * Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * 테이블을 만들 수 있는 데이터베이스.
   
-  * 또는 몇 분 이내에 [**AdventureWorksLT** 데모 데이터베이스를 만들](sql-database-get-started.md) 수 있습니다.
+  * 또는 몇 분 이내에 [**AdventureWorksLT** 데모 데이터베이스를 만들](sql-database-get-started-portal.md) 수 있습니다.
 * SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전). 
   다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
   
@@ -359,9 +360,4 @@ Azure SQL Database의 확장 이벤트에 대한 기본 항목은 다음과 같�
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

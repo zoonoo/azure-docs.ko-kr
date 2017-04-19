@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6ed35ca1b83f5f7221824d99817800c1e42e68c1
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 51e4665b6372859021237144a0bf7f6763a2638b
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -55,7 +55,7 @@ ms.lasthandoff: 04/12/2017
    > **암호 변경** 옵션이 [액세스 패널] 창에 표시되지 않으면 조직이 [Azure AD에서 암호 관리](../active-directory/active-directory-passwords-getting-started.md)를 구성했는지 확인합니다.
    >
    >
-4. **암호 변경** 페이지에서 기존(이전) 암호를 입력하고 새 암호를 입력한 다음 확인합니다. 
+4. **암호 변경** 페이지에서 기존(이전) 암호를 입력하고 새 암호를 입력한 다음 확인합니다.
 
     ![Azure AD 도메인 서비스에 대한 가상 네트워크를 만듭니다.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/12/2017
 암호를 변경하고 나서 몇 분 후에 Azure Active Directory Domain Services에서 새 암호를 사용할 수 있습니다. 몇 분(일반적으로 약 20분) 후에 새로 변경한 암호를 사용하여 관리되는 도메인에 가입된 컴퓨터에 로그인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [고유한 암호를 업데이트하는 방법](../active-directory/active-directory-passwords-update-your-own-password.md#reset-your-password)
+* [고유한 암호를 업데이트하는 방법](../active-directory/active-directory-passwords-update-your-own-password.md#reset-my-password)
 * [Azure AD에서 암호 관리 시작](../active-directory/active-directory-passwords-getting-started.md)
 * [동기화된 Azure AD 테넌트의 Azure Active Directory Domain Services에 대한 암호 동기화 활성화](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Azure Active Directory Domain Services 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)

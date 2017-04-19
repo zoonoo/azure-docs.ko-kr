@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: bf7dd55be2b0e6ae43fc148ff36d8d2141a2f12b
-ms.lasthandoff: 12/20/2016
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: b5df0883f20cd484970587b17d5df646022ba84f
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -135,7 +135,7 @@ Active Directory의 구성 확인:
 
 ## <a name="additional-information"></a>추가 정보
 * [조건부 액세스를 사용한 위험 관리](../active-directory-conditional-access.md)
-* [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](https://msdn.microsoft.com/library/azure/dn788908.aspx)
+* [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
