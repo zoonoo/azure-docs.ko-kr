@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "클라우드에서 데이터 검색, IoT 클라우드 서비스"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
 ms.assetid: 8c5558bb-3c31-4445-90e6-b1a978738545
 ms.service: iot-hub
 ms.devlang: c

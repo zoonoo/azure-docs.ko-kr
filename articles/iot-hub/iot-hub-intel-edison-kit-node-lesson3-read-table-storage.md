@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "클라우드의 데이터, 클라우드 데이터 컬렉션, IoT 클라우드 서비스, IoT 데이터"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
 ms.assetid: fa2c7efe-7e34-4e39-bb70-015c15ac69ed
 ms.service: iot-hub
 ms.devlang: nodejs

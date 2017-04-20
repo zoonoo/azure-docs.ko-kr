@@ -7,6 +7,8 @@ author: shizn
 manager: timlt
 tags: 
 keywords: "Raspbian 설치, Raspbian 다운로드, Raspbian 설치 방법, Raspbian 설정, Raspberry Pi 설치 Raspbian, Raspberry Pi 설치 OS, Raspberry Pi SD 카드 설치, Raspberry Pi 연결, Raspberry Pi에 연결, Raspberry Pi 연결"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started
 ms.assetid: 43f7c2cf-f1a5-4dd5-93f0-7e546c6dc91e
 ms.service: iot-hub
 ms.devlang: node

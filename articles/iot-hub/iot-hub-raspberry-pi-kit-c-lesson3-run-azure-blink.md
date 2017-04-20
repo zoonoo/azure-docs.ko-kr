@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "깜박임 LED 클라우드 Pi, 클라우드에서 LED 깜빡이기"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
 ms.assetid: e38df29f-f77f-435f-9add-46814297564f
 ms.service: iot-hub
 ms.devlang: c

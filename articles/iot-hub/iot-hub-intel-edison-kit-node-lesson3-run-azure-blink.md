@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "iot 클라우드 서비스, arduino 클라우드, arduino 클라우드에 데이터 전송"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
 ms.assetid: 1b3b1074-f4d4-42ac-b32c-55f18b304b44
 ms.service: iot-hub
 ms.devlang: nodejs

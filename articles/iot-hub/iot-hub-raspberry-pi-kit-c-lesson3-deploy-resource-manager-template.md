@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "클라우드에 데이터 저장, 클라우드에 저장된 데이터, IoT 클라우드 서비스"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
 ms.assetid: 4bcfb071-b3ae-48cc-8ea5-7e7434732287
 ms.service: iot-hub
 ms.devlang: c
