@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 5d741836f5defd5d9287b90e53e71aeea439a1df
-ms.openlocfilehash: 81a7a57e6b025710660f7d55145ee286b71acf24
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 4019b379939e43e4e974552f1f0be245c5b1d33e
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -38,7 +38,7 @@ Azure AD 응용 프로그램 프록시는 다음과 같은 보안 이점을 제�
 **조건부 액세스:** 네트워크에 대한 연결이 설정되기 전에 더 풍부한 정책 제어를 적용합니다.
 
 * 조건부 액세스에서는 백 엔드 응용 프로그램에 어떤 트래픽을 허용할지에 대한 제한 사항을 추가로 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필에 따라 제한 사항을 정의할 수 있습니다.
-* 이 기능을 통해 공격자에 대한 추가적인 장벽을 만들 수 있습니다. 조건부 액세스에 대한 자세한 내용은 [Azure AD 조건부 액세스 시작](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-azuread-connected-apps)을 참조하세요.
+* 이 기능을 통해 공격자에 대한 추가적인 장벽을 만들 수 있습니다. 조건부 액세스에 대한 자세한 내용은 [Azure AD 조건부 액세스 시작](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-azuread-connected-apps)을 참조하세요.
 
 **트래픽 종료:** 모든 트래픽이 클라우드에서 종료됩니다.
 
@@ -53,14 +53,14 @@ Azure AD 응용 프로그램 프록시는 다음과 같은 보안 이점을 제�
 
 * 데이터에 Machine Learning 기반 인텔리전스를 사용하는 Azure AD ID 보호는 Digital Crimes Unit 및 Microsoft 보안 대응 센터로부터 피드됩니다. 따라서 손상된 계정을 사전에 식별하고 위험도 높은 로그인으로부터 실시간 보호를 제공합니다. 감염된 장치에서 익명의 네트워크를 통한 액세스, 일반적이고 가능성이 적은 위치 등 다양한 요소를 고려합니다.
 * SIEM(보안 정보 및 이벤트 관리) 시스템과 통합을 위해 이러한 많은 보고서 및 이벤트가 API를 통해 제공됩니다.
-* 자세한 내용은 [Azure AD ID 보호](https://azure.microsoft.com/en-us/documentation/articles/active-directory-identityprotection)를 참조하세요.
+* 자세한 내용은 [Azure AD ID 보호](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection)를 참조하세요.
 
 **원격 액세스 서비스:** 온-프레미스 서버의 유지 관리 및 패치 적용에 대해 걱정하지 않아도 됩니다.
 
 * Azure AD 응용 프로그램 프록시는 Microsoft가 소유한 인터넷 규모 서비스이므로 항상 최신 보안 패치 및 업그레이드가 제공되어야 합니다.
 * 패치가 적용되지 않은 소프트웨어는 여전히 다수의 공격 대상입니다. 당사의 서비스 모델에서는 에지 서버를 관리해야 하는 부담으로부터 벗어날 수 있습니다.
 
-Azure AD와 함께 제공되는 원격 액세스 서비스는 [Azure 보안 센터](https://azure.microsoft.com/en-us/support/trust-center)에 명시된 지침과 표준에 따라 작동합니다.
+Azure AD와 함께 제공되는 원격 액세스 서비스는 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center)에 명시된 지침과 표준에 따라 작동합니다.
 
 다음 다이어그램은 Azure AD를 통해 온-프레미스 응용 프로그램에 안전하게 원격으로 액세스할 수 있는 방법을 보여 줍니다.
 
@@ -114,7 +114,7 @@ Azure AD 응용 프로그램 프록시는 두 부분으로 구성됩니다.
 
 1. 응용 프로그램 프록시 서비스가 앱에 대한 구성 설정을 확인합니다. 앱이 Azure AD에서 사전 인증을 사용하도록 구성된 경우 사용자는 인증하기 위해 Azure AD STS로 리디렉션됩니다. 통과를 사용하여 앱을 게시한 경우 이 단계를 건너뜁니다.
 
- a. Azure AD로 인증하는 동안 응용 프로그램 프록시는 특정 응용 프로그램에 대한 조건부 액세스 정책 요구 사항을 확인합니다. 이 단계에서는 응용 프로그램에 사용자를 할당했는지 확인합니다. MFA(Multi-Factor Authentication)가 필요한 경우 인증 시퀀스는 사용자에게&2;단계 인증을 위한 메시지를 표시합니다.
+ a. Azure AD로 인증하는 동안 응용 프로그램 프록시는 특정 응용 프로그램에 대한 조건부 액세스 정책 요구 사항을 확인합니다. 이 단계에서는 응용 프로그램에 사용자를 할당했는지 확인합니다. MFA(Multi-Factor Authentication)가 필요한 경우 인증 시퀀스는 사용자에게 2단계 인증을 위한 메시지를 표시합니다.
 
  b. 모든 확인을 거친 후에 Azure AD STS에서 응용 프로그램에 대해 서명된 토큰을 발급하고 사용자를 다시 응용 프로그램 프록시 서비스로 리디렉션합니다.
 

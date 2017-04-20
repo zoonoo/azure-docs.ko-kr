@@ -18,7 +18,7 @@ ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
 ms.openlocfilehash: e68815c2dafc596c3560ad3fcb2a7bf96d29182b
-ms.lasthandoff: 03/06/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -71,7 +71,7 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
 ## <a name="view-alarms"></a>알람 보기
 
-알람 기록 패널은&5;대의 장치에서 예상한 원격 분석 값보다 높은 값을 보고하는 것을 보여줍니다.
+알람 기록 패널은 5대의 장치에서 예상한 원격 분석 값보다 높은 값을 보고하는 것을 보여줍니다.
 
 ![솔루션 대시보드의 TODO 알람 기록][img-alarms]
 
@@ -115,7 +115,7 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
 ## <a name="update-desired-properties"></a>desired 속성 업데이트
 
-이제 수정이 필요할 수 있는 장치 집합을 식별했습니다. 하지만 15초라는 데이터 빈도가 문제를 명확하게 진단하기에 충분하지 않다고 판단했습니다. 문제를 더 잘 진단할 수 있도록 더 많은 데이터 요소를 제공하기 위해 원격 분석 빈도를&5;초로 변경합니다. 이러한 구성 변경은 솔루션 포털에서 원격 장치에 푸시할 수 있습니다. 한 번 변경하고, 영향을 평가한 다음 결과에 따라 조치를 취할 수 있습니다.
+이제 수정이 필요할 수 있는 장치 집합을 식별했습니다. 하지만 15초라는 데이터 빈도가 문제를 명확하게 진단하기에 충분하지 않다고 판단했습니다. 문제를 더 잘 진단할 수 있도록 더 많은 데이터 요소를 제공하기 위해 원격 분석 빈도를 5초로 변경합니다. 이러한 구성 변경은 솔루션 포털에서 원격 장치에 푸시할 수 있습니다. 한 번 변경하고, 영향을 평가한 다음 결과에 따라 조치를 취할 수 있습니다.
 
 영향을 받는 장치에 대해 **TelemetryInterval** desired 속성을 변경하는 작업을 실행하려면 다음 단계를 수행하세요. 장치에서 새로운 **TelemetryInterval** 속성 값을 받으면 15초가 아닌 5초마다 원격 분석을 보내도록 구성이 변경됩니다.
 
@@ -123,11 +123,11 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
 1. 작업 이름을 **원격 분석 간격 변경**으로 지정합니다.
 
-1. **원하는 속성 이름** **desired.Config.TelemetryInterval**의 값을&5;초로 변경합니다.
+1. **원하는 속성 이름** **desired.Config.TelemetryInterval**의 값을 5초로 변경합니다.
 
 1. **예약**을 선택합니다.
 
-    ![TelemetryInterval 속성을&5;초로 변경][img-change-interval]
+    ![TelemetryInterval 속성을 5초로 변경][img-change-interval]
 
 1. 작업 진행률은 포털의 **관리 작업** 페이지에서 모니터링 할 수 있습니다.
 
@@ -148,7 +148,7 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
     ![필터 목록 표시][img-old-filter]
 
-1. 이제 장치 목록에 펌웨어 버전이 오래된 장치만 표시됩니다. 이 목록에는 **비정상 상태의 장치** 필터로 식별된&5;대의 장치와&3;대의 추가 장치가 포함됩니다.
+1. 이제 장치 목록에 펌웨어 버전이 오래된 장치만 표시됩니다. 이 목록에는 **비정상 상태의 장치** 필터로 식별된 5대의 장치와 3대의 추가 장치가 포함됩니다.
 
     ![오래된 장치를 보여주는 필터링된 장치 목록 보기][img-filtered-old-list]
 

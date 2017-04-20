@@ -4,7 +4,7 @@ description: "응용 프로그램 등록 및 구축을 위해 Azure Active Direc
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: terrylan
+manager: mbaldwin
 editor: 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 151b9bd8f29a1112c9ad839f2729309dba97c283
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -47,7 +48,7 @@ Azure AD 사용자가 응용 프로그램에 로그인하도록 허용하려면 
 3. 자동으로 "기본 디렉터리"에 로그인되어야 합니다. 그렇지 않은 경우 오른쪽 위 모퉁이에서 계정 이름을 클릭하여 디렉터리를 전환할 수 있습니다.
 4. **빠른 태스크** 섹션에서 **사용자 추가**를 선택합니다.
 5. [사용자 추가 양식]에 다음 세부 정보를 입력합니다.
-   
+
    * 이름: (적절한 값 선택)
    * 사용자 이름: (이 관리자의 사용자 이름 선택)
    * 프로필: (이름, 성, 직위 및 부서에 대한 적절한 값 입력)
@@ -57,16 +58,10 @@ Azure AD 사용자가 응용 프로그램에 로그인하도록 허용하려면 
 8. 임시 암호를 변경하려면 이 새 사용자 계정으로 [https://login.microsoftonline.com](https://login.microsoftonline.com)에 로그인하고 요청된 경우 암호를 변경합니다.
 
 ## <a name="use-an-organizational-azure-subscription"></a>조직 Azure 구독 사용
-이전에 조직 계정으로 Azure 구독을 등록했으면 이미 테넌트를 가지고 있습니다.  [Azure Portal](https://portal.azure.com)에서 "더 많은 서비스" 및 "Azure Active Directory"로 이동할 때 테넌트를 찾아야 합니다.  필요에 따라 이 테넌트를 무료로 사용할 수 있습니다. 
+이전에 조직 계정으로 Azure 구독을 등록했으면 이미 테넌트를 가지고 있습니다.  [Azure Portal](https://portal.azure.com)에서 "더 많은 서비스" 및 "Azure Active Directory"로 이동할 때 테넌트를 찾아야 합니다.  필요에 따라 이 테넌트를 무료로 사용할 수 있습니다.
 
 ## <a name="start-from-scratch"></a>처음부터 시작
 위의 모든 항목을 이해할 수 없어도 걱정하지 마세요.  새 조직으로 Azure에 등록하려면 [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) 을 방문하기만 하면 됩니다.  프로세스를 완료하면 등록할 때 선택한 도메인 이름을 가진 자신만의 Azure AD 테넌트가 생깁니다.  [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 모음에서 "Azure Active Directory"로 이동하여 테넌트를 찾을 수 있습니다.
 
 Azure 등록 과정의 일부로 신용 카드 정보를 제공해야 합니다.  믿고 진행할 수 있습니다. Azure AD에서의 응용 프로그램 게시 및 새 테넌트 만들기에 대한 비용은 청구되지 않습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

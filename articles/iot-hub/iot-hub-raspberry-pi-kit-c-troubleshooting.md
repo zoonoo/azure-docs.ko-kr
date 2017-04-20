@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "IoT 문제, 사물 인터넷 문제"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
 ms.assetid: 3653c79b-8a0c-41d4-b0bf-f6b4edb4d233
 ms.service: iot-hub
 ms.devlang: c

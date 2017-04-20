@@ -31,7 +31,7 @@
 ## 계획 및 디자인
 ### [웹앱 및 서비스 심층 진단](app-insights-devops.md)
 ### [웹 응용 프로그램의 성능 모니터링](app-insights-web-monitor-performance.md)
-### [Application Insights를 사용하여 사용량 분석](app-insights-overview-usage.md)
+### [Application Insights를 사용하여 사용량 분석](app-insights-web-track-usage.md)
 ### [Application Insights 리소스 구분](app-insights-separate-resources.md)
 ### [Application Insights에서 다음을 수행하는 방법](app-insights-how-do-i.md)
 
@@ -49,7 +49,6 @@
 #### [종속성](app-insights-asp-net-dependencies.md)
 #### [릴리스 주석](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-#### [FAQ](app-insights-troubleshoot-faq.md)
 
 
 ### J2EE
@@ -92,6 +91,7 @@
 #### [시작합니다.](app-insights-analytics-tour.md)
 #### [큐에 메시지가 없을 때](app-insights-analytics-using.md)
 #### [가져오기](app-insights-analytics-import.md)
+#### [진단](app-insights-analytics-diagnostics.md)
 
 ## 자동화
 
@@ -146,6 +146,7 @@
 ### [SDK 릴리스 정보](app-insights-release-notes.md)
 ### [개발자 분석 도구에 대한 릴리스 정보](app-insights-release-notes-vsix.md)
 
+## [FAQ](app-insights-troubleshoot-faq.md)
 
 ## 도움말
 ### [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  

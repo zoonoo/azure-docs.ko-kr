@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: single databases
+ms.custom: DBs and servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: b986fc881a39ca3a28d6f5f968cefe19c05b5dc5
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ebfc2a6a2e16140953abbb9da3b81702fcc26e60
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -54,9 +54,10 @@ Microsoft Azure SQL Database에서 사용하는 기본 데이터베이스 데이
 ## <a name="how-do-i-manage-an-azure-sql-database"></a>Azure SQL Database를 관리하려면 어떻게 해야 하나요?
 
 몇 가지 메서드를 사용하여 Azure SQL Database 논리 서버를 관리할 수 있습니다.
-- [Azure 포털](sql-database-manage-portal.md)
-- [PowerShell](sql-database-manage-powershell.md)
-- [Transact-SQL](sql-database-manage-azure-ssms.md)
+- [Azure 포털](sql-database-manage-overview.md)
+- [PowerShell](sql-database-manage-overview.md)
+- [Transact-SQL](sql-database-connect-query-ssms.md)
+- [Contact.java](sql-database-connect-query-vscode.md)
 - [REST (영문)](/rest/api/sql/)
 
 ## <a name="next-steps"></a>다음 단계

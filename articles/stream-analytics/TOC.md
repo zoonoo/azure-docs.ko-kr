@@ -45,7 +45,7 @@
 
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
-## [.NET](/dotnet/api/streamanalytics.tests.operationtests)
+## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [쿼리 언어](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST (영문)](/rest/api/streamanalytics)
 

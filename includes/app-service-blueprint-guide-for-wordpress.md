@@ -6,7 +6,7 @@
 * [MySQL 복제 클러스터 지원 WordPress 웹앱 배포](/documentation/templates/wordpress-mysql-replication/)
 * [Percona 클러스터를 사용하여 사용자 고유의 마스터-마스터 MySQL 클러스터 빌드](/documentation/templates/mysql-ha-pxc/) 및 [클러스터를 관리하는 방법에 대한 자세한 내용](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
 * [마스터-슬레이브 구성을 사용하여 MySQL 복제 클러스터로 지원되는 WordPress 배포](/documentation/templates/mysql-replication/)
-* [ProjectNami에서 관리하는 SQL Azure DB로 지원되는 WordPress 앱 배포](/marketplace/partners/projectnami/projectnami/)
+* [ProjectNami에서 관리하는 SQL Azure DB로 지원되는 WordPress 앱 배포](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ProjectNami.ProjectNami?tab=Overview)
 
 ## <a name="troubleshooting-wordpress-application"></a>WordPress 응용 프로그램 문제 해결
 * [WordPress 앱의 문제를 해결하는 방법](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
@@ -24,9 +24,4 @@
 * [supercache 플러그 인을 사용하여 WordPress 앱을 가속화하는 방법](http://ruslany.net/2008/12/speed-up-wordpress-on-iis-70/)
 * [IIS 출력 캐싱을 사용하여 캐싱을 제공하는 방법](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
 * [정적 콘텐츠에 대한 브라우저 캐싱을 사용하도록 설정하는 방법](http://www.iis.net/configreference/system.webserver/staticcontent)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

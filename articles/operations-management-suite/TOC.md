@@ -3,15 +3,9 @@
 ## [OMS 아키텍처](operations-management-suite-architecture.md)
 
 # 시작
-## 통찰 및 분석
-### [Log Analytics에 등록](../log-analytics/log-analytics-get-started.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Automation 및 제어
-### [내 첫 번째 runbook](../automation/automation-first-runbook-graphical.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## 보호 및 복구
-### [Azure Backup 소개](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## 보안 및 규정 준수
-### [보안 및 감사](oms-security-getting-started.md)
-### [데이터 보안](oms-security-data-security.md)
+## 연습
+### [서비스 맵](operations-management-suite-walkthrough-servicemap.md)
+
 
 # 방법
 

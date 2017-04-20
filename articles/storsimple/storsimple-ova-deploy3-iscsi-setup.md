@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 07/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 715720d22b58ddd3d0e5042de151219e49549c5e
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: cc5136c209483b6b72e8d456084338688792c0d0
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -52,7 +53,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
     이전 단계에서 언급한 연결 URL을 사용합니다. 웹 사이트의 보안 인증서에 문제가 있음을 알려주는 오류가 표시됩니다. **이 웹 페이지에서 계속 진행**을 클릭합니다.
    
     ![보안 인증서 오류](./media/storsimple-ova-deploy3-iscsi-setup/image3.png)
-2. 가상 장치의 웹 UI에 **StorSimpleAdmin**으로 로그인합니다. [StorSimple 가상 배열 배포 - Hyper-V에서 가상 장치 프로비전](storsimple-ova-deploy2-provision-hyperv.md) 또는 [StorSimple 가상 배열 배포 - VMware에서 가상 장치 프로비전](storsimple-ova-deploy2-provision-vmware.md)의 3단계: 가상 장치 시작에서 변경한 장치 관리자 암호를 입력합니다.
+2. 가상 장치의 웹 UI에 **StorSimpleAdmin**으로 로그인합니다. [StorSimple 가상 배열 배포 - Hyper-V에서 가상 장치 프로비전](storsimple-ova-deploy2-provision-hyperv.md) 또는 [StorSimple 가상 배열 배포 - VMware에서 가상 장치 프로비전](storsimple-ova-deploy2-provision-vmware.md)의 3단계: 가상 장치 시작에서 변경한 장치 관리자 암호를 입력합니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다. 
    
     ![로그인 페이지](./media/storsimple-ova-deploy3-iscsi-setup/image4.png)
 3. **홈** 페이지로 이동합니다. 이 페이지는 StorSimple Manager 서비스에 가상 장치를 구성하고 등록하는 데 필요한 다양한 설정을 설명합니다. **네트워크 설정**, **웹 프록시 설정**, **시간 설정**은 선택 사항입니다. 필요한 설정은 **장치 설정** 및 **클라우드 설정**입니다.
@@ -91,7 +92,7 @@ StorSimple 가상 장치를 구성하고 설정하기 전에 다음 사항을 �
    
     **웹 프록시** 페이지에서:
    
-   1. *http://*호스트 IP 주소 또는 FDQN*:포트 번호* 형식으로 **웹 프록시 URL**을 입력합니다. HTTPS URL은 지원되지 않습니다.
+   1. *http://host-IP 주소* 또는 *FDQN:포트 번호* 형식으로 **웹 프록시 URL**을 입력합니다. HTTPS URL은 지원되지 않습니다.
    2. **인증**은 **기본** 또는 **없음**으로 지정합니다.
    3. 인증을 사용하는 경우에는 **사용자 이름** 및 **암호**도 제공해야 합니다.
    4. **적용**을 클릭합니다. 구성된 웹 프록시 설정의 유효성을 검사하고 적용합니다.
@@ -242,10 +243,5 @@ Windows Server 2012를 실행하는 Windows 호스트의 iSCSI 정규화된 이�
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

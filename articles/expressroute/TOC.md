@@ -26,7 +26,9 @@
 ## 가상 네트워크를 Express 경로 회로에 연결합니다.
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-linkvnet-arm.md)
-## [ExpressRoute에 대한 가상 네트워크 게이트웨이 구성](expressroute-howto-add-gateway-resource-manager.md)
+## ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
+### [Azure 포털](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [ExpressRoute 및 사이트 간 공존 연결 구성](expressroute-howto-coexist-resource-manager.md)
 ## [클래식에서 Resource Manager로 회로 이동](expressroute-howto-move-arm.md)
 ## [클래식에서 Resource Manager로 연결된 가상 네트워크 마이그레이션](expressroute-migration-classic-resource-manager.md)

@@ -74,6 +74,8 @@
 ### [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 ### [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 ### [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+### [Azure Analysis Services에서 모델 다시 처리](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+
 ## 개발
 ### [Azure Resource Manager 템플릿](data-factory-how-to-use-resource-manager-templates.md)
 ### [샘플](data-factory-samples.md)

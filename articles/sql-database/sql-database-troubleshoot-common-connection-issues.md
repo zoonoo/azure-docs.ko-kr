@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 7e48069b84c1048617a86fbc334a04462b52deda
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 914084ff790ceb2e11852c5dae757b935f813062
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -80,20 +80,6 @@ Azure 데이터베이스를 이동하거나 다시 구성하는 중이어서 SQL
 2. 클라이언트와 인터넷 간의 모든 방화벽에서 포트 1433이 아웃바운드 연결에 대해 열려 있는지 확인합니다. [SQL Server 액세스를 허용하도록 Windows 방화벽 구성](https://msdn.microsoft.com/library/cc646023.aspx) 및 [포트 및 프로토콜이 필요한 하이브리드 ID](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports)에서 Azure Active Directory 인증을 위해 열어야 하는 추가 포트와 관련된 추가 포인터를 검토하세요.
 3. 연결 문자열 및 기타 연결 설정을 확인합니다. [연결 문제 항목](sql-database-connectivity-issues.md#connections-to-azure-sql-database)의 연결 문자열 섹션을 참조하세요.
 4. 대시보드에서 서비스 상태를 확인합니다. 지역별 가동 중단이 있다고 생각되는 경우 [가동 중단에서 복구](sql-database-disaster-recovery.md) 를 참조하여 새 지역으로 복구하는 단계를 따르세요.
-
-## <a name="all-topics-for-azure-sql-database-connection-problems"></a>Azure SQL Database 연결 문제와 관련된 모든 항목
-다음 테이블에는 Azure SQL Database 서비스에 직접 적용되는 모든 연결 문제 항목이 나와 있습니다.
-
-| &nbsp; | 제목 | 설명 |
-| ---:|:--- |:--- |
-| 1 |[Azure SQL 데이터베이스에 대한 연결 문제 해결](sql-database-troubleshoot-common-connection-issues.md) |Azure SQL 데이터베이스의 연결 문제를 해결하기 위한 시작 페이지입니다. 이 페이지에서는 Azure SQL 데이터베이스의 일시적인 오류 및 영구적이거나 일시적이지 않은 오류를 식별하고 해결하는 방법을 설명합니다. |
-| 2 |[SQL 연결 오류와 일시적 SQL 데이터베이스 오류의 문제 해결, 진단 및 예방](sql-database-connectivity-issues.md) |SQL 연결 오류 또는 Azure SQL 데이터베이스의 일시적 오류를 해결, 진단 및 방지하는 방법을 알아봅니다. |
-| 3 |[일반적인 일시적 오류 처리 지침](../best-practices-retry-general.md) |Azure SQL 데이터베이스에 연결할 때 발생하는 일시적인 오류를 처리하기 위한 일반적인 지침을 제공합니다. |
-| 4 |[Microsoft Azure SQL 데이터베이스의 연결 문제 해결](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) |이 도구는 문제를 식별하고 연결 오류를 해결하는 데 도움을 줍니다. |
-| 5 |[&lt;y&gt; 서버의 &lt;x&gt; 데이터베이스를 현재 사용할 수 없습니다. 나중에 다시 연결해 보십시오." 오류 해결](sql-database-troubleshoot-connection.md) |“40613 오류: &lt;y&gt; 서버의 &lt;x&gt; 데이터베이스를 현재 사용할 수 없습니다. 나중에 다시 연결해 보십시오.”를 식별하고 해결하는 방법을 설명합니다. |
-| 6 |[SQL 데이터베이스 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제](sql-database-develop-error-messages.md) |일반적인 데이터베이스 연결 오류, 데이터베이스 복사 문제 및 일반적인 오류와 같은 SQL 데이터베이스 클라이언트 응용 프로그램에 대한 SQL 오류 코드에 대한 정보를 제공합니다. |
-| 7 |[단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침](sql-database-performance-guidance.md) |응용 프로그램에 적합한 서비스 계층을 확인하는 데 도움이 되는 지침을 제공합니다. 또한 Azure SQL 데이터베이스를 최대한 활용하도록 응용 프로그램을 조정하기 위한 권장 지침도 제공합니다. |
-| 8 |[SQL 데이터베이스 개발 개요](sql-database-develop-overview.md) |이 항목에서는 SQL 데이터베이스에 연결하고 상호 작용하는 데 사용할 수 있는 여러 기술에 대한 코드 샘플의 링크를 제공합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure SQL 데이터베이스 성능 문제 해결](sql-database-troubleshoot-performance.md)

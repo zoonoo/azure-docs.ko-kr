@@ -34,10 +34,11 @@
 ## 여러 사이트 간 연결 구성
 ### [Azure 포털](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell(클래식)](vpn-gateway-multi-site.md)
-## [PowerShell을 사용하여 Azure VPN Gateway에 대한 BGP 구성](vpn-gateway-bgp-resource-manager-ps.md)
+## [VPN Gateway용 BGP 구성](vpn-gateway-bgp-resource-manager-ps.md)
 ## [항상 사용 가능한 활성-활성 연결 구성](vpn-gateway-activeactive-rm-powershell.md)
 ## [PowerShell을 사용하여 로컬 네트워크 게이트웨이 설정 수정](vpn-gateway-modify-local-network-gateway.md)
 ## [VPN 게이트웨이 연결 확인](vpn-gateway-verify-connection-resource-manager.md)
+## [VNet에 대한 VPN 처리량의 유효성 검사](vpn-gateway-validate-throughput-to-vnet.md)
 ## [VPN 게이트웨이 다시 설정](vpn-gateway-resetgw-classic.md)
 ## VPN Gateway 삭제
 ### [Azure 포털](vpn-gateway-delete-vnet-gateway-portal.md)

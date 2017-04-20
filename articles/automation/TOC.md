@@ -1,17 +1,20 @@
 # 개요
 ## [Azure Automation이란?](automation-intro.md)
 # 시작
+## [Azure Automation 시작](automation-offering-get-started.md)
 ## Runbook 자습서
 ### [그래픽 Runbook 만들기](automation-first-runbook-graphical.md)
 ### [PowerShell Runbook 만들기](automation-first-runbook-textual-powershell.md)
 ### [PowerShell 워크플로 Runbook 만들기](automation-first-runbook-textual.md)
 # 방법
 ## 인증 및 보안
-### [Azure Automation의 인증](automation-security-overview.md)
-### [Azure 실행 계정 구성](automation-sec-configure-azure-runas-account.md)
-### [Azure AD 사용자 계정 구성](automation-sec-configure-aduser-account.md)
-### [AWS로 인증 구성](automation-sec-configure-aws-account.md)
+### [독립 실행형 Automation 계정 만들기](automation-create-standalone-account.md)
+### [Azure AD 사용자 계정 만들기](automation-create-aduser-account.md)
+### [AWS로 인증 구성](automation-config-aws-account.md)
+### [PowerShell을 사용하여 Azure 실행 계정 만들기](automation-update-account-powershell.md)
+### [Automation 계정 구성의 유효성 검사](automation-verify-runas-authentication.md)
 ### [역할 기반 액세스 제어 관리](automation-role-based-access-control.md)
+### [Automation 계정 관리](automation-manage-account.md)
 ## Runbook 만들기
 ### [Runbook 유형](automation-runbook-types.md)
 ### [Runbook 만들기 및 가져오기](automation-creating-importing-runbook.md)
@@ -71,7 +74,7 @@
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
 ## [PowerShell(클래식)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
-## [REST (영문)](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST (영문)](/rest/api/automation)
 ## [REST(클래식)](https://msdn.microsoft.com/library/azure/mt163781)
 # 리소스
 ## [릴리스 정보](https://azure.microsoft.com/updates/?product=automation)

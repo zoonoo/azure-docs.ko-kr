@@ -18,7 +18,7 @@ ms.author: syamk
 translationtype: Human Translation
 ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
 ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
-ms.lasthandoff: 03/08/2017
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -559,7 +559,7 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
     - 지역: 앱 사용자에게 가장 가까운 지역 선택
     - 데이터베이스 서버: 데이터베이스 없음을 클릭한 다음 **만들기**를 클릭합니다. 
 
-4. "todo-net-app * 화면”에서 **연결 유효성 검사**를 클릭합니다. 연결을 확한 후 **게시**합니다. 
+4. "todo-net-app **화면”에서**연결 유효성 검사를 클릭합니다. 연결을 확한 후 **게시***합니다. 
     
     그러면 응용 프로그램이 브라우저에 표시됩니다.
 
