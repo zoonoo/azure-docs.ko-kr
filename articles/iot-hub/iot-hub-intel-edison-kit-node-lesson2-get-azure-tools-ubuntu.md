@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "Azure cli, IoT 클라우드 서비스, Arduino 클라우드"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-intel-edison-kit-node-get-started
 ms.assetid: 6dcb34bf-54a3-4af0-ba89-95d5cfafceff
 ms.service: iot-hub
 ms.devlang: nodejs

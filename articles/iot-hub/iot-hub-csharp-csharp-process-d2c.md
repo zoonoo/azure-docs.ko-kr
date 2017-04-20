@@ -55,41 +55,44 @@ Visual Studio의 **SimulatedDevice** 프로젝트에서 `SendDeviceToCloudMessag
 
 ```
 private static async void SendDeviceToCloudMessagesAsync()
+{
+    double minTemperature = 20;
+    double minHumidity = 60;
+    Random rand = new Random();
+
+    while (true)
     {
-        double avgWindSpeed = 10; // m/s
-        Random rand = new Random();
+        double currentTemperature = minTemperature + rand.NextDouble() * 15;
+        double currentHumidity = minHumidity + rand.NextDouble() * 20;
 
-        while (true)
+        var telemetryDataPoint = new
         {
-            double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+            deviceId = "myFirstDevice",
+            temperature = currentTemperature,
+            humidity = currentHumidity
+        };
+        var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+        string levelValue;
 
-            var telemetryDataPoint = new
-            {
-                deviceId = "myFirstDevice",
-                windSpeed = currentWindSpeed
-            };
-            var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
-            string levelValue;
-
-            if (rand.NextDouble() > 0.7)
-            {
-                messageString = "This is a critical message";
-                levelValue = "critical";
-            }
-            else
-            {
-                levelValue = "normal";
-            }
-            
-            var message = new Message(Encoding.ASCII.GetBytes(messageString));
-            message.Properties.Add("level", levelValue);
-            
-            await deviceClient.SendEventAsync(message);
-            Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
-
-            await Task.Delay(1000);
+        if (rand.NextDouble() > 0.7)
+        {
+            messageString = "This is a critical message";
+            levelValue = "critical";
         }
+        else
+        {
+            levelValue = "normal";
+        }
+        
+        var message = new Message(Encoding.ASCII.GetBytes(messageString));
+        message.Properties.Add("level", levelValue);
+        
+        await deviceClient.SendEventAsync(message);
+        Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
+
+        await Task.Delay(1000);
     }
+}
 ```
 
 이 메서드는 장치에서 보낸 메시지에 `"level": "critical"` 속성을 임의로 추가합니다. 그러면 솔루션 백 엔드에 의한 즉각적인 작업을 요구하는 메시지를 시뮬레이션합니다. 장치 앱에서 메시지 본문 대신 메시지 속성에 이 정보를 전달하므로 IoT Hub에서 메시지를 적절한 메시지 대상으로 라우팅할 수 있습니다.
