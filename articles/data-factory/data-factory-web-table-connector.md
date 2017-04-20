@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 04/12/2017
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/29/2017
 
 현재 Data Factory는 웹 테이블에서 다른 데이터 저장소로 데이터 이동이 아닌 다른 데이터 저장소에서 웹 테이블 대상으로 데이터 이동만을 지원합니다.
 
-> [!NOTE]
+> [!IMPORTANT]
 > 이 웹 커넥터는 현재 HTML 페이지에서 테이블 콘텐츠를 추출하도록 지원합니다. HTTP/s 끝점에서 데이터를 검색하려면 [HTTP 커넥터](data-factory-http-connector.md)를 대신 사용합니다.
 
 ## <a name="getting-started"></a>시작

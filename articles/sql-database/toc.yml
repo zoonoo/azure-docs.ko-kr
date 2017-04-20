@@ -4,8 +4,6 @@
   items:
   - name: "SQL DB 정보"
     href: sql-database-technical-overview.md
-  - name: "SQL DB 비교"
-    href: sql-database-features.md
 - name: "빠른 시작"
   expanded: true
   items:
@@ -69,8 +67,12 @@
       href: sql-database-benchmark-overview.md
     - name: "제한"
       href: sql-database-resource-limits.md
-  - name: "도구"
-    href: sql-database-manage-overview.md
+    - name: "PaaS 또는 IaaS"
+      href: sql-database-paas-vs-sql-server-iaas.md  
+    - name: "기능"
+      href: sql-database-features.md
+    - name: "도구"
+      href: sql-database-manage-overview.md
   - name: "데이터 분할"
     items:
     - name: "분할된 데이터베이스"
@@ -185,6 +187,8 @@
     items:
     - name: "DB 복사"
       href: sql-database-copy.md
+    - name: "DB 가져오기"
+      href: sql-database-import.md
     - name: "DB 내보내기"
       href: sql-database-export.md
   - name: "모니터링 및 튜닝"
@@ -209,16 +213,6 @@
       href: sql-database-compatibility-level-query-performance-130.md
 - name: "방법 가이드"
   items:
-  - name: "방화벽 관리"
-    items:
-    - name: "포털"
-      href: sql-database-configure-firewall-settings.md
-    - name: "PowerShell"
-      href: sql-database-configure-firewall-settings-powershell.md
-    - name: "REST API"
-      href: sql-database-configure-firewall-settings-rest.md
-    - name: "Transact-SQL"
-      href: sql-database-configure-firewall-settings-tsql.md
   - name: "탄력적 풀 관리"
     items:
     - name: "포털"
@@ -239,30 +233,16 @@
     items:
     - name: "Azure AD 인증"
       href: sql-database-aad-authentication-configure.md
-    - name: "감사"
-      href: sql-database-auditing-portal.md
-    - name: "위협 감지"
-      href: sql-database-threat-detection-portal.md
     - name: "암호화 - 인증서 저장소"
       href: sql-database-always-encrypted.md
     - name: "암호화 - 키 자격 증명 모음"
       href: sql-database-always-encrypted-azure-key-vault.md
     - name: "마스크 구성"
       href: sql-database-dynamic-data-masking-get-started-portal.md
-  - name: "복구"
-    items:
-    - name: "포털"
-      href: sql-database-get-started-backup-recovery-portal.md
-    - name: "PowerShell"
-      href: sql-database-get-started-backup-recovery-powershell.md
-    - name: "단일 테이블"
-      href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-  - name: "보존"
-    items:
-    - name: "보존 - 포털"
-      href: sql-database-manage-long-term-backup-retention-portal.md
-    - name: "보존 - PowerShell"
-      href: sql-database-manage-long-term-backup-retention-powershell.md
+  - name: "단일 테이블 복구"
+    href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
+  - name: "백업을 위한 자격 증명 모음 구성"
+    href: sql-database-long-term-backup-retention-configure.md
   - name: "데이터 지역에서 복제"
     items:
     - name: "포털"
@@ -277,10 +257,6 @@
       href: sql-database-disaster-recovery-drills.md
   - name: "데이터 이동"
     items:
-    - name: "가져오기 - 포털"
-      href: sql-database-import-portal.md
-    - name: "가져오기 - SQLPackage"
-      href: sql-database-import-sqlpackage.md
     - name: "BCP를 사용하여 데이터 로드"
       href: sql-database-load-from-csv-with-bcp.md
     - name: "ADF를 사용하여 데이터 로드"
@@ -410,6 +386,8 @@
   items:
   - name: "FAQ"
     href: sql-database-faq.md
+  - name: "공용 데이터 집합"
+    href: sql-database-public-data-sets.md  
   - name: "연결 문제 해결"
     href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
   - name: "가격"
@@ -436,3 +414,5 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: "탄력적 풀 사용자 지정 대시보드"
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
+
+

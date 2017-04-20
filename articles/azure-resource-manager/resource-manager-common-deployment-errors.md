@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b31ecb83665208151e48f81e6148928bbf21d1b5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: bfbb3356454b9ef8b1834d03e7b76de9860a12c9
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -171,7 +171,7 @@ az account set --subscription {subscription-name}
   Message=Deployment template validation failed
   ```
 
-   이 오류는 템플릿 식이 복잡할 수 있기 때문에 쉽게 발생합니다. 예를 들어 저장소 계정에 대한 다음 이름 할당에는 대괄호 집합&1;개, 함수&3;개, 괄호 집합&3;개, 작은 따옴표 집합&1;개, 속성&1;개가 포함됩니다.
+   이 오류는 템플릿 식이 복잡할 수 있기 때문에 쉽게 발생합니다. 예를 들어 저장소 계정에 대한 다음 이름 할당에는 대괄호 집합 1개, 함수 3개, 괄호 집합 3개, 작은 따옴표 집합 1개, 속성 1개가 포함됩니다.
 
   ```json
   "name": "[concat('storage', uniqueString(resourceGroup().id))]",
@@ -191,7 +191,7 @@ az account set --subscription {subscription-name}
   for type {resource-type} has incorrect segment lengths.
   ```
 
-   루트 수준 리소스에는 리소스 형식에 포함된 세그먼트보다 이름에 포함된 세그먼트가&1;개 더 적어야 합니다. 각 세그먼트는 슬래시로 구분됩니다. 다음 예제에서는&2;개 세그먼트가 형식에 있고&1;개 세그먼트가 이름에 있으므로 **유효한 이름**입니다.
+   루트 수준 리소스에는 리소스 형식에 포함된 세그먼트보다 이름에 포함된 세그먼트가 1개 더 적어야 합니다. 각 세그먼트는 슬래시로 구분됩니다. 다음 예제에서는 2개 세그먼트가 형식에 있고 1개 세그먼트가 이름에 있으므로 **유효한 이름**입니다.
 
   ```json
   {
@@ -230,7 +230,7 @@ az account set --subscription {subscription-name}
   ]
   ```
 
-   리소스 공급자 간에 적용되는 Resource Manager 형식에서 세그먼트를 제대로 갖추는 것이 까다로울 수 있습니다. 예를 들어 웹 사이트에 리소스 잠금을 적용하려면&4;개 세그먼트가 있는 형식이 필요합니다. 따라서 이름에는 다음과 같이&3;개 세그먼트가 있습니다.
+   리소스 공급자 간에 적용되는 Resource Manager 형식에서 세그먼트를 제대로 갖추는 것이 까다로울 수 있습니다. 예를 들어 웹 사이트에 리소스 잠금을 적용하려면 4개 세그먼트가 있는 형식이 필요합니다. 따라서 이름에는 다음과 같이 3개 세그먼트가 있습니다.
 
   ```json
   {
@@ -465,7 +465,7 @@ az vm list-usage --location "South Central US"
 ]
 ```
 
-미국 서부 지역의 코어를&5;개 이상 만드는 템플릿을 배포하는 경우에 다음과 같은 배포 오류 메시지가 표시됩니다.
+미국 서부 지역의 코어를 5개 이상 만드는 템플릿을 배포하는 경우에 다음과 같은 배포 오류 메시지가 표시됩니다.
 
 ```
 Code=OperationNotAllowed
@@ -508,7 +508,7 @@ Code=InvalidContentLink
 Message=Unable to download deployment content from ...
 ```
 
-아마 사용할 수 없는 중첩된 템플릿에 연결하려고 했을 것입니다.. 중첩된 템플릿에 제공된 URI를 다시 한 번 확인합니다. 저장소 계정에 해당 템플릿이 있는 경우 액세스 가능한 URI인지 확인합니다. SAS 토큰을 전달해야 합니다. 자세한 내용은 [Azure 리소스 관리자에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
+아마 사용할 수 없는 중첩된 템플릿에 연결하려고 했을 것입니다. 중첩된 템플릿에 제공된 URI를 다시 한 번 확인합니다. 저장소 계정에 해당 템플릿이 있는 경우 액세스 가능한 URI인지 확인합니다. SAS 토큰을 전달해야 합니다. 자세한 내용은 [Azure 리소스 관리자에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
 
 ### <a name="requestdisallowedbypolicy"></a>RequestDisallowedByPolicy
 구독에 배포 중에 수행을 시도하는 작업을 방해하는 리소스 정책이 포함된 경우 이 오류가 발생합니다. 오류 메시지에서 정책 식별자를 찾습니다.
@@ -638,11 +638,11 @@ az policy definition show --name regionPolicyAssignment
 
    ![배포 이벤트 선택](./media/resource-manager-common-deployment-errors/select-deployment-events.png)
 
-3. 각 리소스에 대한 이벤트의 시퀀스를 검사합니다. 각 작업의 상태에 주의합니다. 예를 들어 다음 이미지는 병렬로 배포된&3;개의 저장소 계정을 보여 줍니다. 3개의 저장소 계정이 동시에 시작되었다는 것을 볼 수 있습니다.
+3. 각 리소스에 대한 이벤트의 시퀀스를 검사합니다. 각 작업의 상태에 주의합니다. 예를 들어 다음 이미지는 병렬로 배포된 3개의 저장소 계정을 보여 줍니다. 3개의 저장소 계정이 동시에 시작되었다는 것을 볼 수 있습니다.
 
    ![병렬 배포](./media/resource-manager-common-deployment-errors/deployment-events-parallel.png)
 
-   다음 이미지는 동시에 배포되지 않은&3;개의 저장소 계정을 보여 줍니다. 두 번째 저장소 계정은 첫 번째 저장소 계정에 종속되고 세 번째 저장소 계정은 두 번째 저장소 계정에 종속됩니다. 따라서 다음 저장소 계정이 시작되기 전에 첫 번째 저장소 계정이 시작, 승인, 완료됩니다.
+   다음 이미지는 동시에 배포되지 않은 3개의 저장소 계정을 보여 줍니다. 두 번째 저장소 계정은 첫 번째 저장소 계정에 종속되고 세 번째 저장소 계정은 두 번째 저장소 계정에 종속됩니다. 따라서 다음 저장소 계정이 시작되기 전에 첫 번째 저장소 계정이 시작, 승인, 완료됩니다.
 
    ![순차 배포](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
 
@@ -679,13 +679,13 @@ Resource Manager는 템플릿의 유효성을 검사하는 동안 순환적 종�
 
 | 오류 | 문서 |
 | --- | --- |
-| 사용자 지정 스크립트 확장 오류 |[Windows VM 확장 오류](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />또는<br />[Linux VM 확장 오류](../virtual-machines/virtual-machines-linux-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| OS 이미지 프로비전 오류 |[새 Windows VM 오류](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />또는<br />[새 Linux VM 오류](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| 할당 오류 |[Windows VM 할당 오류](../virtual-machines/virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />또는<br />[Linux VM 할당 오류](../virtual-machines/virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| 연결 시도 시 SSH(secure Shell) 오류 |[Linux VM에 대한 Secure Shell 연결](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| VM에서 실행 중인 응용 프로그램 연결 오류 |[Windows VM에서 실행 중인 응용 프로그램](../virtual-machines/virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />또는<br />[Linux VM에서 실행 중인 응용 프로그램](../virtual-machines/virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
-| 원격 데스크톱 연결 오류 |[Windows VM에 대한 원격 데스크톱 연결](../virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| 다시 배포로 해결되는 연결 오류 |[새 Azure 노드로 가상 컴퓨터 다시 배포](../virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| 사용자 지정 스크립트 확장 오류 |[Windows VM 확장 오류](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />또는<br />[Linux VM 확장 오류](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| OS 이미지 프로비전 오류 |[새 Windows VM 오류](../virtual-machines/windows/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />또는<br />[새 Linux VM 오류](../virtual-machines/linux/troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| 할당 오류 |[Windows VM 할당 오류](../virtual-machines/windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />또는<br />[Linux VM 할당 오류](../virtual-machines/linux/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| 연결 시도 시 SSH(secure Shell) 오류 |[Linux VM에 대한 Secure Shell 연결](../virtual-machines/linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| VM에서 실행 중인 응용 프로그램 연결 오류 |[Windows VM에서 실행 중인 응용 프로그램](../virtual-machines/windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)<br />또는<br />[Linux VM에서 실행 중인 응용 프로그램](../virtual-machines/linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| 원격 데스크톱 연결 오류 |[Windows VM에 대한 원격 데스크톱 연결](../virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| 다시 배포로 해결되는 연결 오류 |[새 Azure 노드로 가상 컴퓨터 다시 배포](../virtual-machines/windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | 클라우드 서비스 오류 |[클라우드 서비스 배포 문제](../cloud-services/cloud-services-troubleshoot-deployment-problems.md) |
 
 다음 표에는 다른 Azure 서비스에 대한 문제 해결 항목이 나와 있습니다. 리소스를 배포 또는 구성하는 것과 관련된 문제를 중점적으로 설명합니다. 리소스와 함께 런타임 문제를 해결하는 데 도움이 필요한 경우 Azure 서비스에 대한 설명서를 참조하세요.

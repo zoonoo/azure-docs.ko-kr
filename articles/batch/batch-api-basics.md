@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/08/2017
+ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f323afdea34e973f3ecdd54022f04b3f0d86afb1
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -46,7 +46,7 @@ Azure 배치 서비스의 핵심 구성 요소 개요에서는 배치 개발자�
 다음 섹션에서는 이러한 내용 및 분산된 전산 시나리오를 사용할 수 있는 Batch의 다른 리소스를 설명합니다.
 
 > [!NOTE]
-> 배치 서비스를 사용하려면 [배치 계정](batch-account-create-portal.md)이 필요합니다. 또한 거의 모든 솔루션에서는 파일 저장 및 검색을 위해 [Azure Storage][azure_storage] 계정을 사용합니다. 배치는 현재 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형만 지원합니다.
+> 배치 서비스를 사용하려면 [배치 계정](#account)이 필요합니다. 또한 거의 모든 솔루션에서는 파일 저장 및 검색을 위해 [Azure Storage][azure_storage] 계정을 사용합니다. 배치는 현재 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명한 대로 **범용** 저장소 계정 유형만 지원합니다.
 >
 >
 
@@ -69,7 +69,16 @@ Azure 배치 서비스의 핵심 구성 요소 개요에서는 배치 개발자�
 * [응용 프로그램 패키지](#application-packages)
 
 ## <a name="account"></a>계정
-배치 계정은 배치 서비스 내에서 고유 하게 식별되는 엔터티입니다. 모든 처리는 배치 계정과 연결됩니다. 배치 서비스를 사용하여 작업을 수행하는 경우 계정 이름 및 하나의 계정 키가 모두 필요합니다. [Azure 포털을 사용하여 Azure 배치 계정을 만들](batch-account-create-portal.md)수 있습니다.
+배치 계정은 배치 서비스 내에서 고유 하게 식별되는 엔터티입니다. 모든 처리는 배치 계정과 연결됩니다.
+
+[Azure Portal](batch-account-create-portal.md) 또는 프로그래밍 방식(예: [배치 관리 .NET 라이브러리](batch-management-dotnet.md))을 통해 Azure 배치 계정을 만들 수 있습니다. 계정을 만들 때 Azure 저장소 계정을 연결할 수 있습니다.
+
+배치는 *풀 할당 모드* 속성을 기반으로 하는 두 가지 계정 구성을 지원합니다. 두 구성은 배치 서비스로 인증하고 배치 [풀](#pool)을 프로비전하고 관리하기 위한 다양한 옵션을 제공합니다(이 문서의 뒷부분 참조). 
+
+
+* **배치 서비스**(기본값): 공유 키 인증 또는 [Azure Active Directory 인증](batch-aad-auth.md)을 사용하여 배치 API에 액세스할 수 있습니다. 배치 리소스는 백그라운드 상태로 Azure에서 관리되는 계정에 할당됩니다.   
+* **사용자 구독**: [Azure Active Directory 인증](batch-aad-auth.md)만 사용하여 배치 API에 액세스할 수 있습니다. 배치 계산 리소스는 Azure 구독에 직접 할당됩니다. 이 모드는 계산 노드를 구성하고 다른 서비스와 통합할 수 있는 유연성을 제공합니다. 이 모드에서는 배치 계정에 Azure 키 자격 증명 모음을 추가로 설정해야 합니다.
+ 
 
 ## <a name="compute-node"></a>계산 노드
 계산 노드는 응용 프로그램의 워크로드 중 일부를 처리하도록 전담하는 Azure VM(가상 컴퓨터)입니다. 노드의 크기에 따라 노드에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. Azure 클라우드 서비스 또는 가상 컴퓨터 마켓플레이스 이미지를 사용하여 Windows 또는 Linux 노드의 풀을 만들 수 있습니다. 이러한 옵션에 대한 자세한 내용은 다음 [풀](#pool) 을 참조하세요.
@@ -89,13 +98,16 @@ Azure 배치 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. 배
 
 풀에 추가된 모든 노드에는 고유 이름 및 IP 주소가 할당됩니다. 노드가 풀에서 제거되면 운영 체제 또는 파일에 적용된 모든 변경 내용이 손실되며, 해당 이름 및 IP 주소가 나중에 사용할 수 있도록 해제됩니다. 노드가 풀에서 제거되면 수명이 끝납니다.
 
-풀을 만들 때는 다음과 같은 특성을 지정할 수 있습니다.
+풀을 만들 때 다음과 같은 특성을 지정할 수 있습니다. 일부 설정은 배치 [계정](#account)의 풀 할당 모드에 따라 다릅니다.
 
 * 계산 노드 **운영 체제** 및 **버전**
 
-    풀의 노드에서 운영 체제를 선택하는 경우 **가상 컴퓨터 구성** 및 **Cloud Services 구성** 등의 두 가지 옵션이 있습니다.
+    > [!NOTE]
+    > 배치 서비스 풀 할당 모드에서 풀의 노드에 대한 운영 체제를 선택하는 경우 두 가지 옵션, 즉 **가상 컴퓨터 구성**과 **Cloud Services 구성**이 있습니다. 사용자 구독 모드에서는 가상 시스템 구성만 사용할 수 있습니다.
+    >
 
-    **가상 컴퓨터 구성**은 [Azure 가상 컴퓨터 마켓플레이스][vm_marketplace]에서 계산 노드에 대한 Linux와 Windows 이미지를 제공합니다.
+    **가상 컴퓨터 구성**은 [Azure Virtual Machines Marketplace][vm_marketplace]에서 계산 노드에 대한 Linux 및 Windows 이미지를 모두 제공하고, 사용자 구독 할당 모드에서 사용자 지정 VM 이미지를 사용하는 옵션을 제공합니다.
+
     가상 컴퓨터 구성 노드를 포함하는 풀을 만들 때 노드 크기뿐만 아니라 **가상 컴퓨터 이미지 참조** 및 노드에 설치할 배치 **노드 에이전트 SKU**도 지정해야 합니다. 이러한 풀 속성에 대한 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
 
     **클라우드 서비스 구성** 은 Windows 계산 노드 *만*제공합니다. 클라우드 서비스 구성 풀에 사용 가능한 운영 체제는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md)에 나열됩니다. 클라우드 서비스 노드를 포함하는 풀을 만드는 경우 노드 크기 및 해당 *OS 제품군*만을 지정해야 합니다. Windows 계산 노드 풀을 만들 때 클라우드 서비스가 가장 일반적으로 사용됩니다.
@@ -313,17 +325,27 @@ Azure 배치 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 �
 
 ## <a name="pool-network-configuration"></a>풀 네트워크 구성
 
-Azure Batch에서 계산 노드의 풀을 만드는 경우 풀의 계산 노드를 생성해야 하는 Azure [VNet(가상 네트워크)](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)의 ID를 지정할 수 있습니다.
-
-* **클라우드 서비스 구성** 풀만이 VNet을 할당할 수 있습니다.
+Azure 배치에서 계산 노드의 풀을 만드는 경우 API를 사용하여 풀의 계산 노드를 만들어야 하는 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md)의 ID를 지정할 수 있습니다.
 
 * VNet은 다음과 같아야 합니다.
 
    * Azure Batch 계정과 동일한 Azure **지역**이어야 합니다.
    * Azure Batch 계정과 동일한 **구독**이어야 합니다.
-   * **클래식** VNet이어야 합니다. Azure Resource Manager 배포 모델을 사용하여 만든 VNet은 지원되지 않습니다.
 
 * VNet에는 풀의 `targetDedicated` 속성에 맞도록 사용 가능한 **IP 주소**가 충분히 있어야 합니다. 서브넷에 사용 가능한 IP 주소가 충분하지 않으면 Batch 서비스는 풀에서 계산 노드를 부분적으로 할당하고 크기 조정 오류를 반환합니다.
+
+* 지정된 서브넷은 배치 서비스의 통신이 계산 노드에서 작업을 예약할 수 있도록 허용해야 합니다. 계산 노드에 대한 통신이 VNet과 연결된 **NSG(네트워크 보안 그룹)**에서 거부되는 경우 배치 서비스는 계산 노드의 상태를 **사용할 수 없음**으로 설정합니다. 
+
+* 지정된 VNet에 연결된 NSG가 있으면 인바운드 통신이 활성화되어야 합니다. Linux 풀의 경우 29876, 29877 및 22 포트를, Windows 풀의 경우 포트 3389 포트를 사용할 수 있어야 합니다.
+
+VNet에 대한 추가 설정은 배치 계정의 풀 할당 모드에 따라 다릅니다.
+
+### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>배치 서비스에서 프로비전된 풀에 대한 VNet
+
+배치 서비스 할당 모드에서는 **Cloud Services 구성** 풀만 VNet을 할당할 수 있습니다. 또한 지정된 VNet은 **클래식** VNet이어야 합니다. Azure Resource Manager 배포 모델을 사용하여 만든 VNet은 지원되지 않습니다.
+   
+
+
 * *MicrosoftAzureBatch* 서비스 주체에는 지정된 VNet에 대한 [클래식 가상 컴퓨터 참가자](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) RBAC(역할 기반 액세스 제어) 역할이 있어야 합니다. Azure Portal에서 다음을 수행합니다.
 
   * **VNet**, **액세스 제어(IAM)** > **역할** > **클래식 가상 컴퓨터 참가자** > **추가**를 차례로 선택합니다.
@@ -331,7 +353,13 @@ Azure Batch에서 계산 노드의 풀을 만드는 경우 풀의 계산 노드�
   * **MicrosoftAzureBatch** 확인란을 확인합니다.
   * **선택** 단추를 선택합니다.
 
-* 계산 노드에 대한 통신이 VNet와 연결된 **NSG(네트워크 보안 그룹)**에서 거부된 경우 Batch 서비스는 계산 노드의 상태를 **사용할 수 없음**으로 설정합니다. 서브넷은 Azure Batch 서비스의 통신이 계산 노드에서 태스크를 예약할 수 있도록 허용해야 합니다.
+
+
+### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>사용자 구독에서 프로비전된 풀에 대한 VNet
+
+사용자 구독 할당 모드에서는 **가상 컴퓨터 구성** 풀만 지원되며, VNet을 할당할 수 있습니다. 또한 지정된 VNet은 **Resource Manager** 기반 VNet이어야 합니다. 클래식 배포 모델을 사용하여 만든 VNet은 지원되지 않습니다.
+
+
 
 ## <a name="scaling-compute-resources"></a>계산 리소스 크기 조정
 [자동 크기 조정](batch-automatic-scaling.md)으로 배치 서비스가 계산 시나리오의 현재 워크로드 및 리소스 사용량에 따라 풀의 계산 노드 수를 동적으로 조정하도록 할 수 있습니다. 그러면 필요한 리소스만을 사용하고 필요하지 않은 리소스를 해제하여 응용 프로그램을 실행하는 전체 비용을 낮출 수 있습니다.

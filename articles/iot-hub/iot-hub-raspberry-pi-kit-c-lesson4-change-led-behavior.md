@@ -7,6 +7,8 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "Raspberry Pi로 LED 제어, Raspberry Pi LED 제어, Raspberry Pi 제어 LED"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
 ms.assetid: 0201b8ed-d5e6-4445-9a4d-1305003d1eff
 ms.service: iot-hub
 ms.devlang: c

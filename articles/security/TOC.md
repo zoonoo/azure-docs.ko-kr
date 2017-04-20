@@ -50,7 +50,7 @@
 ### [IoT 보안 모범 사례](../iot-suite/iot-security-best-practices.md)
 
 ## 보안 아키텍처
-### [데이터 분류](azure-security-data-classification.md)
+### [데이터 분류](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03)
 ### [Azure에 빌드된 응용 프로그램에 대한 재해 복구 및 고가용성](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 # 관련 항목

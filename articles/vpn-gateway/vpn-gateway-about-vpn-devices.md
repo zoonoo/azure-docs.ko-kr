@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/03/2017
+ms.date: 04/11/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: ab0a0ecba9d9e930cbc0ec5d4b83e252d2e50f7b
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 03ba7f0df69da073fd876fc4c06121952e594a02
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -33,7 +33,7 @@ VPN Gateway를 사용하여 S2S(사이트 간) 크로스-프레미스 VPN 연결
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>테이블 확인 시 주의 사항:
 
-* Azure VPN 게이트웨이에 대한 용어가 변경되었습니다. 두 용어를 모두 사용할 수 있습니다. 기능은 변경되지 않고 이름만 변경됩니다.
+* Azure VPN 게이트웨이에 대한 용어가 변경되었습니다. 기능은 변경되지 않고 이름만 변경됩니다.
   * 정적 라우팅 = 정책 기반
   * 동적 라우팅 = 경로 기반
 * 고성능 VPN Gateway 및 경로 기반 VPN Gateway에 대한 사양은 별도로 언급하지 않는 한 동일합니다. 예를 들어 경로 기반 VPN Gateway와 호환되는 확인된 VPN 장치는 Azure 고성능 VPN Gateway와도 호환됩니다.
@@ -45,7 +45,7 @@ VPN Gateway를 사용하여 S2S(사이트 간) 크로스-프레미스 VPN 연결
 ## <a name="devicetable"></a>확인된 VPN 장치
 장치 공급업체와 협력하여 표준 VPN 장치의 유효성을 검사했습니다. 다음 목록에 포함된 장치 제품군의 모든 장치는 Azure VPN 게이트웨이에서 작동해야 합니다. 구성할 솔루션에 대해 만들어야 하는 게이트웨이 유형을 확인하려면 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md) 를 참조하세요.
 
-VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크를 참조하세요. VPN 장치 지원은 장치 제조업체에 문의하세요.
+VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크를 참조하세요.  구성 지침에 대한 링크가 가장 효율적으로 제공됩니다. VPN 장치 지원은 장치 제조업체에 문의하세요.
 
 |**공급업체**          |**장치 패밀리**     |**최소 OS 버전** |**정책 기반** |**경로 기반** |
 | ---                | ---                  | ---                   | ---            | ---           |
@@ -59,7 +59,6 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 | 시스코 |ASR |정책 기반: IOS 15.1<br>경로 기반: IOS 15.2 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | 시스코 |ISR |정책 기반: IOS 15.0<br>경로 기반*: IOS 15.1 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[구성 샘플*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 이상 |[구성 가이드](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |호환되지 않음 |
-| Dell SonicWALL |TZ 시리즈, NSA 시리즈<br>SuperMassive 시리즈<br>E-클래스 NSA 시리즈 |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[SonicOS 6.2에 대한 구성 가이드](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9에 대한 구성 가이드](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[SonicOS 6.2에 대한 구성 가이드](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9에 대한 구성 가이드](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 |BIG-IP 시리즈 |12.0 |[구성 가이드](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[구성 가이드](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.4.2 |[구성 가이드](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[구성 가이드](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
 | IIJ(Internet Initiative Japan) |SEIL 시리즈 |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[구성 가이드](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |호환되지 않음 |
@@ -71,6 +70,7 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 | 개방형 시스템 AG |핵심 업무 제어 보안 게이트웨이 |해당 없음 |[구성 가이드](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[구성 가이드](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(출시 예정) |호환되지 않음 |
 | Palo Alto Networks |PAN-OS를 실행하는 모든 장치 |PAN-OS<br>정책 기반: 6.1.5 이상<br>경로 기반: 7.1.4 |[구성 가이드](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[구성 가이드](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
+| SonicWall |TZ 시리즈, NSA 시리즈<br>SuperMassive 시리즈<br>E-클래스 NSA 시리즈 |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[SonicOS 6.2에 대한 구성 가이드](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9에 대한 구성 가이드](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[SonicOS 6.2에 대한 구성 가이드](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9에 대한 구성 가이드](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | WatchGuard |모두 |Fireware XTM<br> 정책 기반: v11.11.x<br>경로 기반: v11.12.x |[구성 가이드](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[구성 가이드](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 (*) ISR 7200 시리즈 라우터는 정책 기반 VPN만을 지원합니다.
@@ -100,11 +100,11 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 | &lt;SP_AzureGatewayIpAddress&gt; |이 정보는 가상 네트워크와 관련이 있으며 **게이트웨이 IP 주소**인 관리 포털에 있습니다. |
 | &lt;SP_PresharedKey&gt; |이 정보는 가상 네트워크와 관련이 있으며 키 관리인 관리 포털에 있습니다. |
 
-## <a name="IPSec"></a>IPsec/IKE 매개 변수
+## <a name="ipsec"></a>IPsec/IKE 매개 변수
 > [!NOTE]
-> 다음 테이블에 나열된 값이 Azure VPN Gateway에서 지원되더라도 현재 Azure VPN Gateway에서 특정 알고리즘 또는 매개 변수의 조합을 지정하거나 선택할 메커니즘이 없습니다. 온-프레미스 VPN 장치에서 제약 조건을 지정해야 합니다.
+> 다음 테이블에 나열된 값이 Azure VPN Gateway에서 지원되더라도 현재 Azure VPN Gateway에서 특정 알고리즘 또는 매개 변수의 조합을 지정하거나 선택할 메커니즘이 없습니다. 온-프레미스 VPN 장치에서 제약 조건을 지정해야 합니다. 또한 **MSS**를 **1350**에 고정해야 합니다.
 > 
-> 또한 **MSS**를 **1350**에 고정해야 합니다.
+>
 
 아래 표에:
 
@@ -182,6 +182,8 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 
 > [!IMPORTANT]
 > 해당 내용은 타사 VPN 장치 및 Azure VPN 게이트웨이 간의 알려진 호환성 문제입니다. Azure 팀은 여기에 나열된 문제를 해결하기 위해 공급 업체와 함께 적극적으로 작업 중입니다. 문제가 해결되면 이 페이지는 가장 최신 정보로 업데이트됩니다. 주기적으로 다시 확인하세요.
+>
+>
 
 ###<a name="feb-16-2017"></a>2017년 2월 16일
 
@@ -189,5 +191,5 @@ Azure 경로 기반 VPN에 대한 **7.1.4 이전 버전으로 Palo Alto Networks
 
 1. Palo Alto Networks 장치의 펌웨어 버전을 확인합니다. PAN-OS 버전이 7.1.4보다 오래된 경우 7.1.4로 업그레이드하세요.
 2. Palo Alto Networks 장치에서 Azure VPN Gateway로 연결하는 경우 단계 2 SA(또는 빠른 모드 SA) 수명을 28,800초(8시간)로 변경합니다.
-3. 그래도 연결 문제가 발생하면 Azure Portal에서 지원 요청을 여세요.
+3. 여전히 연결 문제가 발생하면 Azure Portal에서 지원 요청을 여세요.
 

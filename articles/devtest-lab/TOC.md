@@ -19,6 +19,7 @@
 ### [비용 관리 구성](devtest-lab-configure-cost-management.md)
 ### [가상 네트워크 구성](devtest-lab-configure-vnet.md)
 ### [공유 IP 주소 이해](devtest-lab-shared-ip.md)
+### [템플릿 및 PowerShell을 사용하여 랩 수정 자동화](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 
 ## 아티팩트 관리
 ### [아티팩트 리포지토리 추가](devtest-lab-add-artifact-repo.md)
@@ -27,7 +28,7 @@
 
 ## VM 기본 항목 및 템플릿 관리
 ### [클레임할 수 있는 VM 만들기](devtest-lab-add-claimable-vm.md)
-### [Azure Resource Manager 템플릿으로 다중 VM 환경 만들기](devtest-lab-create-environment-from-arm.md)
+### [Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기](devtest-lab-create-environment-from-arm.md)
 ### [마켓플레이스 이미지 구성](devtest-lab-configure-marketplace-images.md)
 ### [수식 및 이미지 비교](devtest-lab-comparing-vm-base-image-types.md)
 ### [수식 관리](devtest-lab-manage-formulas.md)

@@ -25,6 +25,16 @@
 ### [배치 PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
 ### [배치 진단 로그](batch-diagnostics.md)
+### [배치 분석](batch-analytics.md)
+#### [풀 만들기 이벤트](batch-pool-create-event.md)
+#### [풀 삭제 시작 이벤트](batch-pool-delete-start-event.md)
+#### [풀 삭제 완료 이벤트](batch-pool-delete-complete-event.md)
+#### [풀 크기 조정 시작 이벤트](batch-pool-resize-start-event.md)
+#### [풀 크기 조정 완료 이벤트](batch-pool-resize-complete-event.md)
+#### [작업 시작 이벤트](batch-task-start-event.md)
+#### [작업 완료 이벤트](batch-task-complete-event.md)
+#### [작업 실패 이벤트](batch-task-fail-event.md)
+### [Azure Batch 계산 노드 환경 변수](batch-compute-node-environment-variables.md)
 
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
-ms.author: anandy;billmath
+ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: ed3b3b114af2844405779f65fa8c3e89ae6a6c35
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a6a8300046a0f17061e74b793b254cdca1e1a265
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Azure에서 Active Directory Federation Services 배포
@@ -119,8 +119,8 @@ Express 경로를 사용하는 것이 좋지만 조직에 가장 적합한 연�
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### <a name="4----deploy-virtual-machines"></a>4.    가상 컴퓨터 배포
-다음 단계는 인프라의 다양한 역할을 호스팅하는 가상 컴퓨터를 배포하는 것입니다. 각 가용성 집합에서 최소 두 대의 컴퓨터를 사용하는 것이 좋습니다. 기본 배포를 위해 여섯 개의 가상 컴퓨터를 만듭니다.
+### <a name="4-deploy-virtual-machines"></a>4. 가상 컴퓨터 배포
+다음 단계는 인프라의 다양한 역할을 호스팅하는 가상 컴퓨터를 배포하는 것입니다. 각 가용성 집합에서 최소 두 대의 컴퓨터를 사용하는 것이 좋습니다. 기본 배포를 위해 4개의 가상 컴퓨터를 만듭니다.
 
 | 컴퓨터 | 역할 | 서브넷 | 가용성 집합 | 저장소 계정 | IP 주소 |
 |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -146,8 +146,8 @@ DNS를 관리하는 경우 고정 IP 주소를 사용하는 것이 좋습니다.
 * DNS을 사용하여 두 서버를 복제본 도메인 컨트롤러로 승격
 * 서버 관리자를 사용하는 AD FS 역할을 설치하여 AD FS 서버를 구성합니다.
 
-### <a name="6----deploying-internal-load-balancer-ilb"></a>6.    ILB(내부 부하 분산 장치) 배포
-**6.1.    ILB 만들기**
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6. ILB(내부 부하 분산 장치) 배포
+**6.1. ILB 만들기**
 
 ILB를 배포하려면 Azure 포털에서 부하 분산 장치를 선택하고 추가(+)를 클릭합니다.
 
@@ -172,7 +172,7 @@ ILB를 배포하려면 Azure 포털에서 부하 분산 장치를 선택하고 �
 
 다음 단계는 백 엔드 풀 및 백 엔드 프로브를 구성하는 것입니다.
 
-**6.2.    ILB 백 엔드 풀 구성**
+**6.2. ILB 백 엔드 풀 구성**
 
 부하 분산 장치 패널에서 새로 만든 ILB를 선택합니다. 설정 패널이 열립니다. 
 
@@ -183,7 +183,7 @@ ILB를 배포하려면 Azure 포털에서 부하 분산 장치를 선택하고 �
 
 ![ILB 백 엔드 풀 구성](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
 
-**6.3.    프로브 구성**
+**6.3. 프로브 구성**
 
 ILB 설정 패널에서 프로브를 선택합니다.
 
@@ -192,7 +192,7 @@ ILB 설정 패널에서 프로브를 선택합니다.
 
 ![ILB 프로브 구성](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
-**6.4.    부하 분산 규칙 만들기**
+**6.4. 부하 분산 규칙 만들기**
 
 트래픽을 효과적으로 분산하기 위해 ILB는 부하 분산 규칙을 사용하여 구성해야 합니다. 부하 분산 규칙을 만들려면 
 
@@ -202,23 +202,23 @@ ILB 설정 패널에서 프로브를 선택합니다.
 
 ![ILB 분산 규칙 구성](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5.    ILB를 사용하여 DNS 업데이트**
+**6.5. ILB를 사용하여 DNS 업데이트**
 
 DNS 서버로 이동하고 ILB에 대한 CNAME을 만듭니다. CNAME은 ILB의 IP 주소를 가리키는 IP 주소를 가진 페더레이션 서비스를 제공해야 합니다. 예를 들어 ILB DIP 주소가 10.3.0.8이고 설치된 페더레이션 서비스가 fs.contoso.com이면 10.3.0.8을 가리키는 fs.contoso.com에 대한 CNAME을 만듭니다.
 이렇게 하면 fs.contoso.com과 관련된 모든 통신은 ILB로 끝나게 되고 적절하게 라우팅됩니다.
 
-### <a name="7----configuring-the-web-application-proxy-server"></a>7.    웹 응용 프로그램 프록시 서버 구성
-**7.1.    AD FS 서버에 연결할 웹 응용 프로그램 프록시 서버 구성**
+### <a name="7-configuring-the-web-application-proxy-server"></a>7. 웹 응용 프로그램 프록시 서버 구성
+**7.1. AD FS 서버에 연결할 웹 응용 프로그램 프록시 서버 구성**
 
-웹 응용 프로그램 프록시 서버가 ILB 다음에 AD FS 서버에 연결할 수 있도록 하려면 ILB용 %systemroot%\system32\drivers\etc\hosts에 레코드를 만듭니다. DN(고유 이름)은 페더레이션 서비스 이름(예: fs.contoso.com)이 되도록 해야 합니다. 또한 IP 항목은 ILB의 IP 주소(이 예제에서와 같이&10;.3.0.8)여야 합니다.
+웹 응용 프로그램 프록시 서버가 ILB 다음에 AD FS 서버에 연결할 수 있도록 하려면 ILB용 %systemroot%\system32\drivers\etc\hosts에 레코드를 만듭니다. DN(고유 이름)은 페더레이션 서비스 이름(예: fs.contoso.com)이 되도록 해야 합니다. 또한 IP 항목은 ILB의 IP 주소(이 예제에서와 같이 10.3.0.8)여야 합니다.
 
-**7.2.    웹 응용 프로그램 프록시 역할 설치**
+**7.2. 웹 응용 프로그램 프록시 역할 설치**
 
 웹 응용 프로그램 프록시 서버가 ILB 다음에 AD FS 서버에 연결할 수 있는지를 확인한 후에 웹 응용 프로그램 프록시 서버를 설치할 수 있습니다. 웹 응용 프로그램 프록시 서버는 도메인에 조인되지 않습니다. 원격 액세스 역할을 선택하여 두 개의 웹 응용 프로그램 프록시 서버에 웹 응용 프로그램 프록시 역할을 설치합니다. 서버 관리자에서는 WAP 설치를 완료하도록 안내합니다.
 WAP를 배포하는 방법에 대한 자세한 내용은 [웹 응용 프로그램 프록시 서버 설치 및 구성](https://technet.microsoft.com/library/dn383662.aspx)을 참고합니다.
 
-### <a name="8----deploying-the-internet-facing-public-load-balancer"></a>8.    인터넷 연결 (공용) 부하 분산 장치 배포
-**8.1.    인터넷 연결 (공용) 부하 분산 장치 만들기**
+### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  인터넷 연결 (공용) 부하 분산 장치 배포
+**8.1.  인터넷 연결 (공용) 부하 분산 장치 만들기**
 
 Azure 포털에서 부하 분산 장치를 선택하고 추가를 클릭합니다. 부하 분산 장치 만들기 패널에 다음 정보를 입력합니다.
 
@@ -232,7 +232,7 @@ Azure 포털에서 부하 분산 장치를 선택하고 추가를 클릭합니�
 
 ![부하 분산 장치 목록](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
-**8.2.    공용 IP에 DNS 레이블 할당**
+**8.2. 공용 IP에 DNS 레이블 할당**
 
 부하 분산 장치 패널에서 새로 만든 부하 분산 장치 항목을 클릭하여 구성에 대한 패널을 가져옵니다. 다음 단계를 수행하여 공용 IP에 DNS 레이블을 구성합니다.
 
@@ -244,26 +244,26 @@ Azure 포털에서 부하 분산 장치를 선택하고 추가를 클릭합니�
 
 ![인터넷 연결 부하 분산 장치 구성(DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.    인터넷 연결 (공용) 부하 분산 장치에 대한 백 엔드 풀 구성** 
+**8.3. 인터넷 연결 (공용) 부하 분산 장치에 대한 백 엔드 풀 구성** 
 
 내부 부하 분산 장치 만들기와 동일한 단계를 따라 WAP 서버에 대한 가용성 집합으로 인터넷 연결 (공용) 부하 분산 장치에 대한 백 엔드 풀을 구성합니다. 예를 들어 contosowapset입니다.
 
 ![인터넷 연결 부하 분산 장치의 백 엔드 풀 구성](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
-**8.4.    프로브 구성**
+**8.4. 프로브 구성**
 
 내부 부하 분산 장치를 구성하는 동일한 단계를 따라 WAP 서버의 백 엔드 풀에 대한 프로브를 구성합니다.
 
 ![인터넷 연결 부하 분산 장치의 프로브 구성](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
-**8.5.    부하 분산 규칙 만들기**
+**8.5. 부하 분산 규칙 만들기**
 
 ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 구성합니다.
 
 ![인터넷 연결 부하 분산 장치의 분산 규칙 구성](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### <a name="9----securing-the-network"></a>9.    네트워크 보안
-**9.1.    내부 서브넷 보안**
+### <a name="9-securing-the-network"></a>9. 네트워크 보안
+**9.1. 내부 서브넷 보안**
 
 전반적으로 내부 서브넷을 효율적으로 보호하기 위해 다음 규칙이 필요합니다(아래에 나열된 순서로).
 
@@ -276,7 +276,7 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 
 [주석]: <> (![INT 액세스 규칙(인바운드)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [주석]: <> (![INT 액세스 규칙(아웃바운드)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
 
-**9.2.    DMZ 서브넷 보안**
+**9.2. DMZ 서브넷 보안**
 
 | 규칙 | 설명 | 흐름 |
 |:--- |:--- |:---:|
@@ -292,7 +292,7 @@ ILB와 같은 단계를 수행하여 TCP 443에 대한 부하 분산 규칙을 �
 > 
 > 
 
-### <a name="10----test-the-ad-fs-sign-in"></a>10.    AD FS 로그인 테스트
+### <a name="10-test-the-ad-fs-sign-in"></a>10. AD FS 로그인 테스트
 가장 쉬운 방법은 IdpInitiatedSignon.aspx 페이지를 사용하여 AD FS를 테스트하는 것입니다. 이렇게 하려면 AD FS 속성에 IdpInitiatedSignOn을 사용해야 합니다. AD FS 설치를 확인하려면 다음 단계를 수행합니다.
 
 1. 아래 AD FS 서버의 cmdlet을 실행하고 PowerShell을 사용하여 사용하도록 설정합니다.

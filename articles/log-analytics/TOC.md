@@ -48,6 +48,7 @@
 ### [경고 관리 솔루션](log-analytics-solution-alert-management.md)
 ## 솔루션 사용
 ### [솔루션 개요](log-analytics-add-solutions.md)
+### [Activity Log Analytics](log-analytics-activity.md)(활동 로그 분석)
 ### [AD 평가](log-analytics-ad-assessment.md)
 ### [AD 복제 상태](log-analytics-ad-replication-status.md)
 ### [경고 관리](log-analytics-solution-alert-management.md)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 78617dc7e3a4b6eb4fc32d32b6850b8c0832d6d8
-ms.openlocfilehash: 9819c5f6a3aea53664d86e3a23b25946c0f2b731
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a63514af636696d168931150cbda2fd30e0b32ce
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -44,17 +44,99 @@ Azure Active Directory의 보고 아키텍처는 다음 구성 요소로 구성�
 * 한 주 동안 얼마나 많은 사용자가 로그인했나요?
 * 이러한 로그인의 상태란?
 
+모든 로그인 활동 데이터의 첫 번째 진입점은 **Azure Active Directory**의 [활동] 섹션의 **로그인**입니다. Directory.
+
+
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/61.png "로그인 활동")
+
+
+감사 로그에는 다음 항목을 보여 주는 기본 목록 보기가 있습니다.
+
+- 관련된 사용자
+- 사용자에 로그인한 응용 프로그램
+- 로그인 상태
+- 로그인 시간
+
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/41.png "로그인 활동")
+
+도구 모음에서 **열**을 클릭하여 목록 보기를 사용자 지정할 수 있습니다.
+
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/19.png "로그인 활동")
+
+그러면 추가 필드를 표시하거나 이미 표시된 필드를 제거할 수 있습니다.
+
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/42.png "로그인 활동")
+
+목록 보기에서 항목을 클릭하면 사용할 수 있는 세부 정보를 모두 얻을 수 있습니다.
+
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/43.png "로그인 활동")
+
+
+## <a name="filtering-sign-in-activities"></a>로그인 활동 필터링
+
+보고된 데이터를 자신에게 적합한 수준으로 좁히려면 다음 필드를 사용하여 로그인 데이터를 필터링할 수 있습니다.
+
+- 시간 간격
+- 사용자
+- 응용 프로그램
+- 클라이언트
+- 로그인 상태
+
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/44.png "로그인 활동")
+
+
+**시간 간격** 필터를 사용하면 반환된 데이터의 시간 범위를 정의할 수 있습니다.  
+가능한 값은 다음과 같습니다.
+
+- 1개월
+- 7 일
+- 24시간
+- 사용자 지정
+
+사용자 지정 시간 범위를 선택하면 시작 시간과 종료 시간을 구성할 수 있습니다.
+
+**사용자** 필터를 사용하면 관심 있는 사용자의 이름이나 UPN(사용자 계정 이름)을 지정할 수 있습니다.
+
+**응용 프로그램** 필터를 사용하면 관심 있는 응용 프로그램의 이름을 지정할 수 있습니다.
+
+**클라이언트** 필터를 사용하면 관심 있는 장치에 대한 정보를 지정할 수 있습니다.
+
+**로그인 상태** 필터를 사용하면 다음 필터 중 하나를 선택할 수 있습니다.
+
+- 모두
+- 성공
+- 실패
+
+
+## <a name="sign-in-activities-shortcuts"></a>로그인 활동 바로 가기
+
+Azure Active Directory 외에도 Azure Portal에서는 로그인 활동 데이터에 대한 다음 두 개의 추가 진입점을 제공합니다.
+
+- 개요
+- Enterprise 응용 프로그램
+
+
+### <a name="users-and-groups-sign-ins-activities"></a>사용자 및 그룹 로그인 활동
+
+보고서에서 사용자 로그인에 의해 제공되는 정보를 사용하여 다음과 같은 질문에 대한 대답을 찾습니다.
+
+- 사용자의 로그인 패턴이란?
+- 한 주 동안 얼마나 많은 사용자가 로그인했나요?
+- 이러한 로그인의 상태란?
+
+
+
 이 데이터에 대한 진입점은 **사용자 및 그룹**의 **개요** 섹션에서 사용자 로그인 그래프입니다.
 
- ![보고](./media/active-directory-reporting-activity-sign-ins/05.png "Reporting")
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/45.png "로그인 활동")
 
 사용자 로그인 그래프에서는 지정된 기간 내에 모든 사용자에 대한 로그인의 주간 집계를 보여 줍니다. 시간에 대한 기본값은 30일입니다.
 
-![보고](./media/active-directory-reporting-activity-sign-ins/02.png "Reporting")
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/46.png "로그인 활동")
 
-로그인 그래프에서 날짜를 클릭하면 로그인 활동의 자세한 목록이 표시됩니다.
+로그인 그래프에서 한 날짜를 클릭하면 해당 날짜의 로그인 활동에 대한 자세한 목록이 표시됩니다.
 
-![보고](./media/active-directory-reporting-activity-sign-ins/03.png "Reporting")
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/41.png "로그인 활동")
 
 로그인 활동 목록에서 각 행은 다음과 같이 선택된 로그인에 대한 자세한 내용을 보여 줍니다.
 
@@ -63,6 +145,12 @@ Azure Active Directory의 보고 아키텍처는 다음 구성 요소로 구성�
 * 어떤 응용 프로그램이 로그인할 대상이었나요?
 * 로그인의 IP 주소는 무엇인가요?
 * 로그인의 상태는 어떠했나요?
+
+**로그인** 옵션은 모든 사용자의 로그인에 대한 전체 개요를 제공합니다.
+
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/51.png "로그인 활동")
+
+
 
 ## <a name="usage-of-managed-applications"></a>관리되는 응용 프로그램의 사용량
 
@@ -74,43 +162,27 @@ Azure Active Directory의 보고 아키텍처는 다음 구성 요소로 구성�
 
 이 데이터에 대한 진입점은 **엔터프라이즈 응용 프로그램**의 **개요** 섹션에 있는 지난 30일 간의 보고서에서 조직에 포함된 상위 3개의 응용 프로그램입니다.
 
- ![보고](./media/active-directory-reporting-activity-sign-ins/06.png "Reporting")
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/64.png "로그인 활동")
 
 지정된 기간 동안 상위 3가지 응용 프로그램에 대한 로그인의 주간 사용량 그래프 집계입니다. 시간에 대한 기본값은 30일입니다.
 
-![보고](./media/active-directory-reporting-activity-sign-ins/78.png "Reporting")
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/47.png "로그인 활동")
 
 원하면 특정 응용 프로그램에 포커스를 설정할 수 있습니다.
+
 
 ![보고](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Reporting")
 
 앱 사용량 그래프에서 날짜를 클릭하면 로그인 활동의 자세한 목록이 표시됩니다.
 
-![보고](./media/active-directory-reporting-activity-sign-ins/top_app_sign_ins.png "Reporting")
+
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/48.png "로그인 활동")
+
 
 **로그인** 옵션을 선택하면 응용 프로그램에 대한 모든 로그인 이벤트의 전체적인 개요를 보여 줍니다.
 
-![보고](./media/active-directory-reporting-activity-sign-ins/85.png "Reporting")
+![로그인 활동](./media/active-directory-reporting-activity-sign-ins/49.png "로그인 활동")
 
-열 선택기를 사용하여 표시하려는 데이터 필드를 선택할 수 있습니다.
-
-![보고](./media/active-directory-reporting-activity-sign-ins/column_chooser.png "Reporting")
-
-## <a name="filtering-sign-ins"></a>로그인 필터링
-다음 필드를 사용하여 표시된 데이터의 양을 제한하도록 로그인을 필터링할 수 있습니다.
-
-* 날짜 및 시간 
-* 사용자의 사용자 계정 이름
-* 응용 프로그램 이름
-* 클라이언트 이름
-* 로그인 상태
-
-![보고](./media/active-directory-reporting-activity-sign-ins/293.png "Reporting")
-
-활동에서 로그인의 항목을 필터링하는 다른 방법은 특정 항목을 검색하는 것입니다.
-검색 메서드를 사용하면 특정 **사용자**, **그룹** 또는 **응용 프로그램**에 대한 로그인의 범위를 지정할 수 있습니다.
-
-![보고](./media/active-directory-reporting-activity-sign-ins/84.png "Reporting")
 
 
 ## <a name="next-steps"></a>다음 단계

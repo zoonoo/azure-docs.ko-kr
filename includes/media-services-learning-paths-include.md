@@ -2,8 +2,3 @@
 
 * [Media Services 라이브 스트리밍 워크플로](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 * [Media Services 주문형 스트리밍 워크플로](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

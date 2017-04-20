@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 04/06/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: cd3184059a0970bb7c9b59803cf37125abbbd879
-ms.openlocfilehash: 19d4c3990c88f82f60cd253ffdcbd2005d00ad79
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: fb8f43f5bb5725da30e67cdf5d7b066fe40ed003
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -72,9 +73,4 @@ Azure Data Catalog는 조직이 기존 투자에서 더 많은 가치를 얻을 
 * [데이터 자산을 관리하는 방법](data-catalog-how-to-manage.md)
 * [비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)
 * [질문과 대답](data-catalog-frequently-asked-questions.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

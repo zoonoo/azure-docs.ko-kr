@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2017
+ms.date: 04/05/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 5da00d1d64b258773fa485baa804b283fde731c3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -148,11 +148,63 @@ Security Center는 대상 가상 컴퓨터에서 실행되는 의심스러운 �
 ![의심스러운 프로세스 경고](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
 ### <a name="multiple-domain-accounts-queried"></a>여러 도메인 계정 쿼리
-Security Center는 도메인 계정을 쿼리하는 여러 시도를 감지할 수 있으며 이는 일반적으로 네트워크 정찰 중에 공격자에 의해 발생합니다. 공격자는 이 기술을 활용하여 사용자를 식별하고 도메인 관리자 계정을 식별하고 도메인 컨트롤러인 컴퓨터를 식별하고 다른 도메인과 잠재적인 도메인 트러스트 관계가 있는지를 식별하는 도메인을 쿼리할 수 있습니다.
+Security Center는 Active Directory 도메인 계정을 쿼리하는 여러 시도를 감지할 수 있으며 이는 일반적으로 네트워크 정찰 중에 공격자에 의해 발생합니다. 공격자는 이 기술을 활용하여 사용자를 식별하고 도메인 관리자 계정을 식별하고 도메인 컨트롤러인 컴퓨터를 식별하고 다른 도메인과 잠재적인 도메인 트러스트 관계가 있는지를 식별하는 도메인을 쿼리할 수 있습니다.
 
 이러한 유형의 경고 예제는 다음과 같습니다.
 
 ![여러 도메인 계정 경고](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
+
+### <a name="local-administrators-group-members-were-enumerated"></a>로컬 관리자 그룹 구성원이 열거됨
+
+Security Center는 Windows Server 2016 및 Windows 10에서 보안 이벤트 4798이 트리거될 때 경고를 트리거합니다. 로컬 관리자 그룹이 열거될 때 발생하며 이는 일반적으로 네트워크 정찰 중에 공격자에 의해 발생합니다. 공격자는 이 기술을 활용하여 관리자 권한을 가진 사용자의 ID를 쿼리합니다.
+
+이러한 유형의 경고 예제는 다음과 같습니다.
+
+![로컬 관리자](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
+
+### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>대/소문자의 비정상적인 혼합
+
+Security Center는 명령줄에서 대/소문자 혼합이 사용된 것을 감지하면 경고를 트리거합니다. 일부 공격자는 이 기술을 사용하여 대/소문자 또는 해시 기반 컴퓨터 규칙을 숨길 수 있습니다.
+
+이러한 유형의 경고 예제는 다음과 같습니다.
+
+![비정상적인 혼합](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
+
+### <a name="suspected-kerberos-golden-ticket-attack"></a>의심스러운 Kerberos Golden Ticket 공격
+
+공격자는 Kerberos "Golden Ticket"을 만들기 위해 손상된 [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) 키를 사용하여 공격자가 원하는 사용자를 가장할 수 있습니다. Security Center에서 이 활동 유형을 감지할 때 경고를 트리거합니다.
+
+> [!NOTE] 
+> Kerberos Golden Ticket에 대한 자세한 내용은 [Windows 10 자격 증명 도난 방지 가이드](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx)(영문)를 참조하세요.
+
+이러한 유형의 경고 예제는 다음과 같습니다.
+
+![Golden ticket](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
+
+### <a name="suspicious-account-created"></a>의심스러운 계정 생성
+
+Security Center는 기존의 기본 제공 관리 권한 계정과 매우 유사한 계정을 만들 때 경고를 트리거합니다. 이 기술은 사용자 검증으로 알아 채지 못하도록 하기 위해 공격자가 악의적인 계정을 만드는 데 사용할 수 있습니다.
+ 
+이러한 유형의 경고 예제는 다음과 같습니다.
+
+![의심스러운 계정](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
+
+### <a name="suspicious-firewall-rule-created"></a>의심스러운 방화벽 규칙 생성됨
+
+공격자는 악의적 응용 프로그램이 명령 및 컨트롤과 통신할 수 있도록 사용자 지정 방화벽 규칙을 만들어 호스트 보안을 우회하거나 손상된 호스트를 통해 네트워크로 공격을 시도할 수 있습니다. Security Center는 의심스러운 위치의 실행 파일에서 새 방화벽 규칙이 생성된 것을 감지하면 경고를 트리거합니다.
+ 
+이러한 유형의 경고 예제는 다음과 같습니다.
+
+![방화벽 규칙](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
+
+### <a name="suspicious-combination-of-hta-and-powershell"></a>HTA 및 PowerShell의 의심스러운 조합
+
+Security Center는 Microsoft HTML Application Host(HTA)에서 PowerShell 명령이 실행되는 것을 감지하면 경고를 트리거합니다. 공격자가 악의적인 PowerShell 스크립트를 실행하기 위해 사용하는 기법입니다.
+ 
+이러한 유형의 경고 예제는 다음과 같습니다.
+
+![HTA 및 PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
+
 
 ## <a name="network-analysis"></a>네트워크 분석
 Security Center 네트워크 위협 감지는 Azure IPFIX(인터넷 프로토콜 흐름 정보 내보내기)에서 보안 정보를 자동으로 수집하여 작동합니다. 위협을 식별하도록 종종 여러 소스의 정보를 상호 연결하는 이 정보를 분석합니다.

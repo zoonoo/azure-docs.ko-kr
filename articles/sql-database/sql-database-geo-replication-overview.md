@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: bd3aea04266baebbba1b953d5a2b7c4b2fb41a87
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 8d8743529f4f0b9e8c036d328d63bea247279fe3
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -29,11 +29,11 @@ ms.lasthandoff: 03/28/2017
 > 현재 활성 지역 복제(읽기 가능한 보조)는 모든 서비스 계층에 있는 모든 데이터베이스에 대해 사용 가능합니다. 2017년 4월부로 읽을 수 없는 보조 유형은 사용 중지되며 기존의 읽을 수 없는 데이터베이스는 읽을 수 있는 보조 데이터베이스로 자동으로 업그레이드됩니다.
 >  
 
- [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md) 또는 [REST API - 데이터베이스 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt163685.aspx)를 사용하여 활성 지역 복제를 구성할 수 있습니다.
+ [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-transact-sql.md) 또는 [REST API - 데이터베이스 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt163685.aspx)를 사용하여 활성 지역 복제를 구성할 수 있습니다.
 
 어떠한 이유로 주 데이터베이스가 실패하거나 단순히 오프라인으로 전환해야 하는 경우 보조 데이터베이스로 *장애 조치* 할 수 있습니다. 장애 조치가 보조 데이터베이스 중 하나로 활성화된 경우 모든 다른 보조가 새 보조로 자동으로 연결됩니다.
 
-[Azure Portal](sql-database-geo-replication-failover-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [REST API - 계획된 장애 조치(failover)](https://msdn.microsoft.com/library/mt575007.aspx) 또는 [REST API - 계획되지 않은 장애 조치(Failover)](https://msdn.microsoft.com/library/mt582027.aspx)를 사용하여 보조 데이터베이스로 장애 조치할 수 있습니다.
+[Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md), [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md), [REST API - 계획된 장애 조치(failover)](https://msdn.microsoft.com/library/mt575007.aspx) 또는 [REST API - 계획되지 않은 장애 조치(Failover)](https://msdn.microsoft.com/library/mt582027.aspx)를 사용하여 보조 데이터베이스로 장애 조치할 수 있습니다.
 
 장애 조치(failover) 후에는 새로운 주 데이터베이스에서 서버 및 데이터베이스의 인증 요구 사항이 구성되어 있는지 확인합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 03/28/2017
 ## <a name="programmatically-managing-active-geo-replication"></a>활성 지역 복제를 프로그래밍 방식으로 관리
 앞서 설명한 것처럼 Azure PowerShell 및 REST API를 사용하여 활성 지역 복제를 프로그래밍 방식으로 관리할 수 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다.
 
-* **Azure Resource Manager API 및 역할 기반 보안**: 활성 지역 복제는 [Azure Resource Manager 기반 PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt163571.aspx)을 포함하여 관리용 [Azure Resource Manager API](sql-database-geo-replication-powershell.md)를 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
+* **Azure Resource Manager API 및 역할 기반 보안**: 활성 지역 복제는 [Azure Resource Manager 기반 PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt163571.aspx)을 포함하여 관리용 [Azure Resource Manager API](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)를 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 > [!NOTE]
 > 활성 지역 복제의 여러 새로운 기능은 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 기반 [Azure SQL REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) 및 [Azure SQL Database PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)에서만 지원됩니다. 이전 버전과의 호환성을 위해 [(클래식) REST API](https://msdn.microsoft.com/library/azure/dn505719.aspx) 및 [Azure SQL Database(클래식) cmdlet](https://msdn.microsoft.com/library/azure/dn546723.aspx)이 지원되므로 Azure Resource Manager 기반 API를 사용하는 것이 좋습니다. 

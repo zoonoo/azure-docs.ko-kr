@@ -47,6 +47,7 @@
 ### [디렉터리 확장](active-directory-aadconnectsync-feature-directory-extensions.md)
 
 ### [Azure AD Sync 서비스 계정 암호 변경](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [AD DS 계정 암호 변경](active-directory-aadconnectsync-change-addsacct-pass.md)
 ### [AD 휴지통 사용](active-directory-aadconnectsync-recycle-bin.md)
 
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
@@ -58,6 +59,7 @@
 
 ## 페더레이션 서비스 관리
 ### [관리 및 사용자 지정](active-directory-aadconnect-federation-management.md)
+### [Azure AD의 여러 인스턴스를 AD FS의 단일 인스턴스로 페더레이션](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
 ## 문제 해결

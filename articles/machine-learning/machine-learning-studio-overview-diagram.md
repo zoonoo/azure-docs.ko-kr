@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/16/2016
+ms.date: 04/04/2017
 ms.author: haining;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 5e9aa39ccf91f98336e5db179b532930f7e83313
 ms.openlocfilehash: 35bf8b41288afd31ba7e6f861beb7a7bf2a36d94
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -50,10 +51,5 @@ ms.openlocfilehash: 35bf8b41288afd31ba7e6f861beb7a7bf2a36d94
 * 기계 학습 스튜디오에서 사용 가능한 기계 학습 알고리즘에 대해 자세히 알아보려면 [Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법](machine-learning-algorithm-choice.md)을 참조하세요.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

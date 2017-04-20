@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
 ms.openlocfilehash: 874e9abb7ae7e06808645ae2ab7cd5b3c0d36e04
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 874e9abb7ae7e06808645ae2ab7cd5b3c0d36e04
 
 사용자 지정 이벤트, 예외 보고서 및 추적을 보내도록 코드를 작성할 수 있습니다. 이미 log4J, log4net, NLog 또는 System.Diagnostics.Trace 같은 로깅 프레임 워크를 사용하는 경우, 이러한 로그를 수집하고 검색에 포함할 수 있습니다. 이렇게 하면 사용자 동작, 예외 및 기타 이벤트와 로그 추적을 쉽게 상호 연관시킬 수 있습니다.
 
-## <a name="a-namesendabefore-you-write-custom-telemetry"></a><a name="send"></a>사용자 지정 원격 분석 작성 이전
+## <a name="send"></a>사용자 지정 원격 분석 작성 이전
 아직 [프로젝트에 Application Insights를 설정][start]하지 않았다면 지금 설정하세요.
 
 응용 프로그램을 실행할 때, 해당 프로그램이 서버에서 받은 요청, 클라이언트에서 기록하는 뷰 페이지 및 확인할 수 없는 예외를 포함하여 진단 검색에서 표시되는 일부 원격 분석을 전송하게 됩니다.
@@ -40,7 +41,7 @@ SDK가 자동으로 전송하는 원격 분석을 보려면 진단 검색을 엽
 ## <a name="sampling"></a>샘플링
 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하여 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
 
-## <a name="a-nameeventsacustom-events"></a><a name="events"></a>사용자 지정 이벤트
+## <a name="events"></a>사용자 지정 이벤트
 사용자 지정 이벤트는 [진단 검색][diagnostic] 및 [메트릭 탐색기][metrics]에 모두 표시됩니다. 이것들을 장치, 웹 페이지 및 서버 응용 프로그램에서 보낼 수 있습니다. 이것들은 진단 목적 및 [사용 패턴을 이해][track]하기 위해 사용될 수 있습니다.
 
 사용자 지정 이벤트는 숫자 측정값처럼 이름이 있고, 필터링 할 수 있는 속성을 전달할 수 있습니다.
@@ -95,7 +96,7 @@ SDK가 자동으로 전송하는 원격 분석을 보려면 진단 검색을 엽
 
 ![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-4.png)
 
-## <a name="a-namepagesa-page-views"></a><a name="pages"></a> 페이지 보기
+## <a name="pages"></a> 페이지 보기
 페이지 보기 원격 분석이 trackPageView() 호출에 의해 [웹 페이지에 삽입하는 JavaScript 조각][usage]으로 전송됩니다. 주 목적은 개요 페이지에 보이는 페이지 보기의 개수를 더하는 것입니다.
 
 일반적으로 이는 각 HTML 페이지에 한번씩 호출되지만 예를 들어, 단일 페이지 앱이 있고 사용자가 더 많은 데이터를 가져올 때마다 새 페이지를 기록하려는 경우 더 많은 호출을 삽입할 수 있습니다.
@@ -108,7 +109,7 @@ SDK가 자동으로 전송하는 원격 분석을 보려면 진단 검색을 엽
      {Game: currentGame.name, Difficulty: currentGame.difficulty});
 
 
-## <a name="a-nametracea-trace-telemetry"></a><a name="trace"></a> 원격 분석 추적
+## <a name="trace"></a> 원격 분석 추적
 추적 원격 분석은 진단 로그를 만들기 위해 삽입하는 코드입니다. 
 
 예를 들어 다음과 같이 호출을 삽입할 수 있습니다:
@@ -133,7 +134,7 @@ Log4Net, NLog 또는 System.Diagnostics.Trace와 같은 로깅 프레임워크�
 
 NuGet 패키지는 필요한 어셈블리를 설치하고 web.config 또는 app.config를 수정합니다.
 
-#### <a name="a-namepepperainsert-diagnostic-log-calls"></a><a name="pepper"></a>진단 로그 호출 삽입
+#### <a name="pepper"></a>진단 로그 호출 삽입
 System.Diagnostics.Trace를 사용하는 경우 일반적인 호출 방법은 다음과 같습니다.
 
     System.Diagnostics.Trace.TraceWarning("Slow response - database01");
@@ -146,7 +147,7 @@ Log4net 또는 NLog를 원할 경우
 
 추적 필터를 선택하면 진단 검색에서 메시지를 보게 됩니다.
 
-### <a name="a-nameexceptionsaexceptions"></a><a name="exceptions"></a>예외
+### <a name="exceptions"></a>예외
 Application Insights에서 예외 보고서를 가져옴으로써 매우 강력한 환경을 제공하며, 특히 실패한 요청과 예외 사이를 탐색하고 예외 스택을 읽을 수 있습니다.
 
 경우에 따라 [몇 줄의 코드를 삽입][exceptions]하여 예외를 자동으로 발견하고 있는지 확인할 필요가 있습니다.
@@ -246,24 +247,24 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
         .Add(new MyTelemetryInitializer());
     }
 
-### <a name="a-namerequestsa-server-web-requests"></a><a name="requests"></a> 서버 웹 요청
+### <a name="requests"></a> 서버 웹 요청
 [웹 서버에 상태 모니터를 설치][redfield]하거나 [웹 프로젝트에 Application Insights를 추가][greenbrown]할 때 원격 분석 요청이 자동으로 전송됩니다. 또한 이것은 메트릭 탐색기와 개요 페이지에서 요청 및 응답 시간 차트에 공급됩니다.
 
 추가 이벤트를 전송하려면 TrackRequest() API를 사용할 수 있습니다.
 
-## <a name="a-namequestionsaq--a"></a><a name="questions"></a>질문 및 답변
-### <a name="a-nameemptykeyai-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
+## <a name="questions"></a>질문 및 답변
+### <a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
 Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 설치한 것 같습니다.
 
 솔루션 탐색기에서 `ApplicationInsights.config` 를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트**를 선택합니다. Azure에 로그인하고 Application Insights 리소스를 만들거나 기존 리소스를 다시 사용하도록 초대하는 대화 상자가 표시됩니다. 이 경우 문제가 해결된 것입니다.
 
-### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>얼마나 많은 데이터가 보존되나요?
+### <a name="limits"></a>얼마나 많은 데이터가 보존되나요?
 각 응용 프로그램에서 초당 최대 500개의 이벤트가 보존됩니다. 이벤트는&7;일 동안 보존됩니다.
 
 ### <a name="some-of-my-events-or-traces-dont-appear"></a>내 이벤트 또는 추적의 일부가 표시 되지 않습니다.
 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하여 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
 
-## <a name="a-nameaddanext-steps"></a><a name="add"></a>다음 단계
+## <a name="add"></a>다음 단계
 * [가용성 및 응답성 테스트 설정][availability]
 * [문제 해결][qna]
 
@@ -278,12 +279,7 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [track]: app-insights-api-custom-events-metrics.md
-[usage]: app-insights-web-track-usage.md
+[usage]: app-insights-javascript.md
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

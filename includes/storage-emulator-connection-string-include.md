@@ -5,16 +5,14 @@ Account name: devstoreaccount1
 Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
-
 > [!NOTE]
-> 저장소 에뮬레이터에서 지원하는 인증 키는 클라이언트 인증 코드의 기능을 테스트할 때만 사용할 수 있으며 보안 기능은 제공하지 않습니다. 프로덕션 저장소 계정과 키를 저장소 에뮬레이터에서 사용할 수는 없습니다. 또한 개발 계정을 프로덕션 데이터에 사용해서는 안 됩니다.
+> 저장소 에뮬레이터에서 지원하는 인증 키는 클라이언트 인증 코드의 기능을 테스트할 때만 사용할 수 있으며 보안 기능은 제공하지 않습니다. 프로덕션 저장소 계정과 키를 저장소 에뮬레이터에서 사용할 수는 없습니다. 개발 계정을 프로덕션 데이터에 사용해서는 안 됩니다.
 > 
-> 저장소 에뮬레이터는 HTTP를 통해서만 연결을 지원합니다. 그러나 Azure 프로덕션 저장소 계정에서 리소스에 액세스하기 위한 프로토콜로 HTTPS를 사용하는 것이 좋습니다.
-> 
+> 저장소 에뮬레이터는 HTTP를 통해서만 연결을 지원합니다. 그러나 프로덕션 Azure Storage 계정에서 리소스에 액세스하기 위한 프로토콜로 HTTPS를 사용하는 것이 좋습니다.
 > 
 
 #### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>바로 가기를 사용하여 에뮬레이터 계정에 연결
-응용 프로그램에서 저장소 에뮬레이터에 연결하는 가장 쉬운 방법은 바로 가기를 참조하는 응용 프로그램의 구성 파일 내에서 연결 문자열을 구성하는 것입니다.`UseDevelopmentStorage=true` 예를 들어 app.config 파일의 저장소 에뮬레이터에 대한 연결 문자열은 다음과 같습니다. 
+응용 프로그램에서 저장소 에뮬레이터에 연결하는 가장 쉬운 방법은 바로 가기를 참조하는 응용 프로그램의 구성 파일에서 연결 문자열을 구성하는 것입니다.`UseDevelopmentStorage=true` 예를 들어 *app.config* 파일의 저장소 에뮬레이터에 대한 연결 문자열은 다음과 같습니다. 
 
 ```xml
 <appSettings>
@@ -30,7 +28,7 @@ DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
 AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;
 BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
 TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;
-QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1; 
+QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 ```
 
 이 값은 위에 표시된 바로 가기 `UseDevelopmentStorage=true`와 동일합니다.
@@ -41,9 +39,4 @@ QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 ```
 UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
 ```
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
