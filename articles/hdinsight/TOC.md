@@ -28,7 +28,6 @@
 ## 쿼리 일괄 처리에 Hadoop 사용
 ### [Hadoop과 Hive](hdinsight-use-hive.md)
 #### [Hive View 사용](hdinsight-hadoop-use-hive-ambari-view.md)
-#### [SSH 사용](hdinsight-hadoop-use-hive-ssh.md)
 #### [Beeline 사용](hdinsight-hadoop-use-hive-beeline.md)
 #### [cURL 사용](hdinsight-hadoop-use-hive-curl.md)
 #### [PowerShell 사용](hdinsight-hadoop-use-hive-powershell.md)
@@ -109,6 +108,7 @@
 ### [Spark와 함께 사용](hdinsight-apache-spark-with-kafka.md)
 ### [Storm과 함께 사용](hdinsight-apache-storm-with-kafka.md)
 ## 개발
+### [C# 스트리밍 MapReduce 프로그램 개발](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Scalding MapReduce 작업 개발](hdinsight-hadoop-mapreduce-scalding.md)
 ### [HDInsight 도구를 사용하여 Spark 앱 만들기](hdinsight-apache-spark-eclipse-tool-plugin.md)
@@ -199,6 +199,7 @@
 # 관련 항목
 ## Windows 클러스터
 ### [Linux 클러스터로 Windows 클러스터 마이그레이션](hdinsight-migrate-from-windows-to-linux.md)
+### [Linux 클러스터로 .NET 솔루션 마이그레이션](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 ### [Hadoop MapReduce 샘플 실행](hdinsight-run-samples.md)
 ### [클러스터의 Solr 사용](hdinsight-hadoop-solr-install-linux.md)
 ### [Giraph를 사용하여 대규모 그래프 처리](hdinsight-hadoop-giraph-install.md)

@@ -4,8 +4,6 @@
   items:
   - name: "SQL DB 정보"
     href: sql-database-technical-overview.md
-  - name: "SQL DB 비교"
-    href: sql-database-features.md
 - name: "빠른 시작"
   expanded: true
   items:
@@ -69,8 +67,12 @@
       href: sql-database-benchmark-overview.md
     - name: "제한"
       href: sql-database-resource-limits.md
-  - name: "도구"
-    href: sql-database-manage-overview.md
+    - name: "PaaS 또는 IaaS"
+      href: sql-database-paas-vs-sql-server-iaas.md  
+    - name: "기능"
+      href: sql-database-features.md
+    - name: "도구"
+      href: sql-database-manage-overview.md
   - name: "데이터 분할"
     items:
     - name: "분할된 데이터베이스"
@@ -231,10 +233,6 @@
     items:
     - name: "Azure AD 인증"
       href: sql-database-aad-authentication-configure.md
-    - name: "감사"
-      href: sql-database-auditing-portal.md
-    - name: "위협 감지"
-      href: sql-database-threat-detection-portal.md
     - name: "암호화 - 인증서 저장소"
       href: sql-database-always-encrypted.md
     - name: "암호화 - 키 자격 증명 모음"
@@ -388,6 +386,8 @@
   items:
   - name: "FAQ"
     href: sql-database-faq.md
+  - name: "공용 데이터 집합"
+    href: sql-database-public-data-sets.md  
   - name: "연결 문제 해결"
     href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
   - name: "가격"
@@ -414,3 +414,5 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: "탄력적 풀 사용자 지정 대시보드"
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
+
+

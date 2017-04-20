@@ -5,7 +5,7 @@
 ## [어떤 워크로드를 보호할 수 있나요?](site-recovery-workload.md)
 ## [Site Recovery 지원 매트릭스](site-recovery-support-matrix-to-azure.md)
 ## [FAQ](site-recovery-faq.md)
-## [소개 영상 보기](https://azure.microsoft.com/resources/videos/index/?services=recovery-manager)
+## [소개 영상 보기](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # 시작
 ## [VMware VM을 Azure에 복제](site-recovery-vmware-to-azure.md)
@@ -21,7 +21,7 @@
 ### [네트워크 인프라 고려 사항](site-recovery-network-design.md)
 ### [용량을 계획하고 VMware 복제를 Azure에 확장](site-recovery-plan-capacity-vmware.md)
 ### [Azure로 VMware 복제를 위한 Deployment Planner](site-recovery-deployment-planner.md)
-### [Hyper-V 복제를 위한 Site Recovery Capacity Planner](site-recovery-capacity-planner.md)
+### [Hyper-V 복제를 위한 Capacity Planner](site-recovery-capacity-planner.md)
 
 ## 구성
 ### [원본 환경 설정](site-recovery-set-up-vmware-to-azure.md)

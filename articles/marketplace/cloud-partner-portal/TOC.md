@@ -23,7 +23,7 @@
 ### [VM 제품/SKU 삭제](./cloud-partner-portal-delete-an-offer.md)
 ### [클라우드 파트너 포털로 마이그레이션](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 
-## [마케팅 리더 관리](../../cloud-partner-portal/cloud-partner-portal-marketing-lead-management.md)
+## [잠재 고객 가져오기](./cloud-partner-portal-get-customer-leads.md)
 ### [Azure 테이블](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-azure-table.md)
 ### [Dynamics CRM online](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-dynamics.md)
 ### [Salesforce](../../cloud-partner-portal/cloud-partner-portal-lead-management-instructions-salesforce.md)
@@ -31,5 +31,4 @@
 
 ## [게시자 프로필 관리](./cloud-partner-portal-manage-publisher-profile.md)
 ## [사용자 관리](./cloud-partner-portal-manage-users.md)
-## [사용자 의견 제공](./cloud-partner-portal-give-feedback.md)
 ## [지원 받기](./cloud-partner-portal-support-for-cloud-partner-portal.md)

@@ -76,6 +76,7 @@
 ## [Azure Backup 자격 증명 모음 삭제](backup-azure-delete-vault.md)
 ## [오프라인 백업 구성](backup-azure-backup-import-export.md)
 ## [테이프 라이브러리 교체](backup-azure-backup-cloud-as-tape.md)
+## [Linux VM의 응용 프로그램 일치 백업](backup-azure-linux-app-consistent.md)
 
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
