@@ -1,7 +1,7 @@
 # 개요
 ## [개요](active-directory-b2c-overview.md)
 ## [응용 프로그램 유형](active-directory-b2c-apps.md)
-## [프로덕션 규모와 B2C 테넌트 미리 보기 비교](active-directory-b2c-reference-tenant-type.md)
+## [지역 가용성 및 데이터 상주](active-directory-b2c-reference-tenant-type.md)
 
 # 시작
 ## [Azure AD B2C 디렉터리 만들기](active-directory-b2c-get-started.md)

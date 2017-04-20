@@ -3,7 +3,7 @@
 ## [FAQ](event-hubs-faq.md)
 
 # 시작
-## [Event Hub 만들기](event-hubs-create.md)
+## [이벤트 허브 만들기](event-hubs-create.md)
 ## 이벤트 보내기
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 ### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
@@ -42,15 +42,15 @@
 ### [Resource Manager 템플릿을 사용하여 이벤트 허브 만들기 및 배포](event-hubs-resource-manager-namespace-event-hub.md)
 
 # 참조
+## Java
+### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
+### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
 ## .NET
 ### [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
 ### [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
 ### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
+### [Microsoft.ServiceBus.Messaging.EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 ### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
-## Java
-### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
-### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
 ## [REST (영문)](/rest/api/eventhub)
 ## [예외](event-hubs-messaging-exceptions.md)
 ## [할당량](event-hubs-quotas.md)

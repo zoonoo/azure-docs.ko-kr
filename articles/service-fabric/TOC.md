@@ -5,7 +5,7 @@
 ## [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
 ## [아키텍처](service-fabric-architecture.md)
 ## [용어](service-fabric-technical-overview.md)
-## [콘텐츠 로드맵](service-fabric-content-roadmap.md)
+## [주요 내용](service-fabric-content-roadmap.md)
 
 # 시작
 ## 개발 환경 설정
@@ -17,7 +17,8 @@
 ### [Linux에서 Java](service-fabric-create-your-first-linux-application-with-java.md)
 ### [Linux에서 C#](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [로컬 클러스터에 앱 배포](service-fabric-get-started-with-a-local-cluster.md)
-## [독립 실행형 클러스터 만들기](service-fabric-get-started-standalone-cluster.md)
+## [Azure에서 첫 번째 클러스터 만들기](service-fabric-get-started-azure-cluster.md)
+## [첫 번째 독립 실행형 클러스터 만들기](service-fabric-get-started-standalone-cluster.md)
 
 # 방법
 ## 응용 프로그램 빌드
@@ -124,7 +125,6 @@
 #### [액세스 제어](service-fabric-cluster-security-roles.md)
 #### [클러스터 구성](service-fabric-cluster-fabric-settings.md)
 #### [클러스터 인증서 추가 또는 롤오버](service-fabric-cluster-security-update-certs-azure.md) 
-#### [Party 클러스터 무료 체험](http://aka.ms/tryservicefabric)
 
 ### 독립 실행형 클러스터
 #### [배포를 위한 계획 및 준비](service-fabric-cluster-standalone-deployment-preparation.md)

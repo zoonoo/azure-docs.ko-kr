@@ -1,4 +1,5 @@
-# [개요](active-directory-developers-guide.md)
+# 개요
+## [개발자 가이드](active-directory-developers-guide.md)
 ## [앱 및 Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [개발자 용어집](active-directory-dev-glossary.md)
 ## [AAD Graph API](active-directory-graph-api.md)
@@ -39,14 +40,12 @@
 ## [브랜딩 지침](active-directory-branding-guidelines.md)
 ## SAML 사용
 ### [Azure AD 및 SAML](active-directory-saml-protocol-reference.md)
-### [Access Control에서 반환되는 SAML 보기](active-directory-java-view-saml-returned-by-access-control.md)
 ### [클레임 사용자 지정](active-directory-saml-claims-customization.md)
 ### [SAML 기반 SSO 디버그](active-directory-saml-debugging.md)
 ### [Single Sign-On SAML 프로토콜](active-directory-single-sign-on-protocol-reference.md)
 ### [Single Sign-Out SAML 프로토콜](active-directory-single-sign-out-protocol-reference.md)
 ## Visual Studio 사용
 ### [Azure Active Directory 및 Visual Studio 연결 서비스 시작(MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
-### [내 MVC 프로젝트의 변경 내용](Visual Studio Azure Active Directory connected service.md)?](vs-active-directory-dotnet-what-happened
 ### [인증 검색 중 오류 발생](vs-active-directory-error.md)
 ### [WebApi 시작](vs-active-directory-webapi-getting-started.md)
 ### [내 Web API 프로젝트의 변경된 내용](vs-active-directory-webapi-what-happened.md)
@@ -59,7 +58,8 @@
 ### [페더레이션 메타데이터](active-directory-federation-metadata.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
-# [v2.0 끝점](active-directory-appmodel-v2-overview.md)
+### [서비스-서비스 호출](active-directory-protocols-oauth-service-to-service.md)
+# v2.0 끝점
 ## [개요](active-directory-appmodel-v2-overview.md)
 ### [차이점](active-directory-v2-compare.md)
 ### [앱 형식](active-directory-v2-flows.md)
@@ -82,12 +82,11 @@
 ## 참조
 ### [앱 등록 참조](active-directory-v2-registration-portal.md)
 ### [인증 라이브러리](active-directory-v2-libraries.md)
+### [v2.0 인증 프로토콜](active-directory-v2-protocols.md)
+#### [토큰 참조](active-directory-v2-tokens.md)
+#### [OAuth 2.0 인증 코드 흐름](active-directory-v2-protocols-oauth-code.md)
+#### [OpenID Connect](active-directory-v2-protocols-oidc.md)
+#### [암시적 흐름](active-directory-v2-protocols-implicit.md)
+#### [OAuth 2.0 클라이언트 자격 증명](active-directory-v2-protocols-oauth-client-creds.md)
 ### [범위](active-directory-v2-scopes.md)
-### [토큰 참조](active-directory-v2-tokens.md)
-### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-### [암시적 흐름](active-directory-v2-protocols-implicit.md)
-### [OAuth 2.0 인증 코드 흐름](active-directory-v2-protocols-oauth-code.md)
-### [OAuth 2.0 클라이언트 자격 증명](active-directory-v2-protocols-oauth-client-creds.md)
-### [OAuth 2.0 및 OpenID](active-directory-v2-protocols.md)
-### [서비스-서비스 호출](active-directory-protocols-oauth-service-to-service.md)
 # [샘플](active-directory-code-samples.md)

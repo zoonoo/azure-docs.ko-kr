@@ -19,6 +19,7 @@
 ### [비용 관리 구성](devtest-lab-configure-cost-management.md)
 ### [가상 네트워크 구성](devtest-lab-configure-vnet.md)
 ### [공유 IP 주소 이해](devtest-lab-shared-ip.md)
+### [템플릿 및 PowerShell을 사용하여 랩 수정 자동화](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 
 ## 아티팩트 관리
 ### [아티팩트 리포지토리 추가](devtest-lab-add-artifact-repo.md)

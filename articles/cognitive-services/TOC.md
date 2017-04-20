@@ -287,10 +287,10 @@
 ### [언어](Translator/languages.md)
 ### [허브](Translator/translator-hub-overview.md)
 ### [CTF](Translator/collaborative-translation-framework-reporting-api.md)
-### [Speech Translation API 개요](Translator/speech-overview.md)
-### [Speech Translation API 참조](http://docs.microsofttranslator.com/speech-translate.html)
-### [텍스트 변환 API 개요](Translator/text-overview.md)
-### [텍스트 변환 API 참조](http://docs.microsofttranslator.com/text-translate.html)
+### [Translator Speech API 개요](Translator/speech-overview.md)
+### [Translator Speech API 참조](http://docs.microsofttranslator.com/speech-translate.html)
+### [Translator Text API 개요](Translator/text-overview.md)
+### [Translator Text API 참조](http://docs.microsofttranslator.com/text-translate.html)
 
 ## 비디오
 ### [개요](Video/Home.md)
