@@ -132,7 +132,7 @@ Azure 계정이 없는 경우 [무료 평가판 버전을 요청](http://azure.m
 이 연습 끝에 나오는 "Azure 계정 정리" 섹션의 단계를 수행해야 $200의 무료 Azure 크레딧을 최대한 활용할 수 있습니다.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>자습서에 필요한 Azure 리소스 프로비전
-이 자습서는 *진입* 및 *진출* 데이터 스트림을 받기 위해&2;개의 이벤트 허브가 필요합니다. Azure SQL Database는 Stream Analytics 작업의 결과를 출력합니다. Azure 저장소는 차량 등록에 대한 참조 데이터를 저장합니다.
+이 자습서는 *진입* 및 *진출* 데이터 스트림을 받기 위해 2개의 이벤트 허브가 필요합니다. Azure SQL Database는 Stream Analytics 작업의 결과를 출력합니다. Azure 저장소는 차량 등록에 대한 참조 데이터를 저장합니다.
 
 GitHub에 있는 TollApp 폴더의 Setup.ps1 스크립트를 사용하여 필요한 모든 리소스를 만들 수 있습니다. 시간 형편상 이를 실행하는 것이 좋습니다. Azure Portal에서 이러한 리소스를 구성하는 방법에 대해 자세히 알아보려면 "Azure Portal에서 자습서 리소스 구성" 부록을 참조하세요.
 
@@ -221,7 +221,7 @@ Visual Studio에서 SQL Database(대상)에 연결합니다.
 8. 서버 탐색기를 엽니다.
    
     ![서버 탐색기](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)
-9. TollDataDB 데이터베이스에 있는&4;개의 테이블을 봅니다.
+9. TollDataDB 데이터베이스에 있는 4개의 테이블을 봅니다.
    
     ![TollDataDB 데이터베이스의 테이블](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
 
@@ -255,7 +255,7 @@ PowerShell 스크립트는 TollApp 응용 프로그램 예제를 사용하여 �
 6. 원본은 **Event hub**입니다.
 7. **Service Bus 네임스페이스**는 드롭다운에서 TollData 항목이어야 합니다.
 8. **Event hub 이름**은 **항목**으로 설정해야 합니다.
-9. **Event hub 정책 이름*은 **RootManageSharedAccessKey**(기본값)입니다.
+9. **Event hub 정책 이름*은**RootManageSharedAccessKey**(기본값)입니다.
 10. **이벤트 직렬화 형식**에 대해 **JSON**을, **인코딩**에 대해 **UTF8**을 선택합니다.
    
     설정이 다음과 같이 표시됩니다.
@@ -375,7 +375,7 @@ WHERE Registration.Expired = '1'
 
 참조 데이터를 사용하여 쿼리를 테스트하려면 이미 수행한 참조 데이터에 대한 입력 원본을 정의해야 합니다.
 
-이 쿼리를 테스트하려면 **쿼리** 탭에 쿼리를 붙여넣고 **테스트**를 클릭한 다음&2;개의 입력 원본 및 등록 샘플 데이터를 지정하고 **테스트**를 클릭합니다.  
+이 쿼리를 테스트하려면 **쿼리** 탭에 쿼리를 붙여넣고 **테스트**를 클릭한 다음 2개의 입력 원본 및 등록 샘플 데이터를 지정하고 **테스트**를 클릭합니다.  
    
 ![테스트의 출력](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image46.png)
 
@@ -386,7 +386,7 @@ WHERE Registration.Expired = '1'
 
 ![작업 대시보드의 시작 단추 스크린샷](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image48.png)
 
-대화 상자가 나타나면 **시작 출력** 시간을 **사용자 지정 시간**으로 변경합니다. 현재 시간보다&1;시간 이전으로 변경합니다. 자습서를 시작할 때 이벤트를 생성하기 시작했으므로 이렇게 변경하면 이벤트 허브의 모든 이벤트가 확실히 처리될 수 있습니다. 이제 **시작** 단추를 클릭하여 작업을 시작합니다.
+대화 상자가 나타나면 **시작 출력** 시간을 **사용자 지정 시간**으로 변경합니다. 현재 시간보다 1시간 이전으로 변경합니다. 자습서를 시작할 때 이벤트를 생성하기 시작했으므로 이렇게 변경하면 이벤트 허브의 모든 이벤트가 확실히 처리될 수 있습니다. 이제 **시작** 단추를 클릭하여 작업을 시작합니다.
 
 ![사용자 지정 시간 선택 항목](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image49.png)
 
@@ -434,7 +434,7 @@ Azure Stream Analytics에 대한 자세한 내용을 알아보려면 [온라인 
 ## <a name="clean-up-your-azure-account"></a>Azure 계정 정리
 1. Azure Portal에서 Stream Analytics 작업을 중지합니다.
    
-    Setup.ps1 스크립트는&2;개의 이벤트 허브 및 SQL Database를 만듭니다. 다음 지침을 통해 자습서 끝부분에서 리소스를 정리할 수 있습니다.
+    Setup.ps1 스크립트는 2개의 이벤트 허브 및 SQL Database를 만듭니다. 다음 지침을 통해 자습서 끝부분에서 리소스를 정리할 수 있습니다.
 2. PowerShell 창에서 **.\\Cleanup.ps1**을 입력합니다. 그러면 자습서에서 사용한 리소스를 삭제하는 스크립트가 시작됩니다.
    
    > [!NOTE]
