@@ -119,7 +119,7 @@ ms.lasthandoff: 03/14/2017
 6. **Next**를 클릭합니다.
 7. **백업 일정 지정** 페이지에서 **백업 일정**을 지정하고 **다음**을 클릭합니다.
 
-    매일(하루에 최대 속도로&3;회) 또는 매주 백업을 예약할 수 있습니다.
+    매일(하루에 최대 속도로 3회) 또는 매주 백업을 예약할 수 있습니다.
 
     ![Windows Server 백업에 대한 항목](./media/backup-configure-vault-classic/specify-backup-schedule-close.png)
 

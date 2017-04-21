@@ -46,7 +46,7 @@ Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액
 이 자습서는 Azure에서 웹 응용 프로그램을 만들기 위한 기본 사항을 잘 알고 있는 웹 개발자를 대상으로 합니다. Azure 웹앱에 대한 자세한 내용은 [웹앱 개요](../app-service-web/app-service-web-overview.md)를 참조하세요.
 
 ## <a id="packages"></a>NuGet 패키지 추가
-웹 응용 프로그램을 위해 설치해야 하는&2;개의 패키지가 있습니다.
+웹 응용 프로그램을 위해 설치해야 하는 2개의 패키지가 있습니다.
 
 * Active Directory 인증 라이브러리 - Azure Active Directory를 조작하고 사용자 ID를 관리하기 위한 메서드를 포함합니다.
 * Azure 주요 자격 증명 모음 라이브러리 - Azure 주요 자격 증명 모음을 조작하기 위한 메서드를 포함합니다.
@@ -60,7 +60,7 @@ Azure Active Directory에 등록되고 주요 자격 증명 모음에 대한 액
 
 
 ## <a id="webconfig"></a>Web.Config 수정
-다음과 같이 web.config 파일에 추가해야 하는&3;개의 응용 프로그램 설정이 있습니다.
+다음과 같이 web.config 파일에 추가해야 하는 3개의 응용 프로그램 설정이 있습니다.
 
     <!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
     <add key="ClientId" value="clientid" />

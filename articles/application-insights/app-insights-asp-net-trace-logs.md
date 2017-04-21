@@ -149,7 +149,7 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 모든 이벤트와 요청이 파이프라인을 통과할 때까지 다소 시간이 걸릴 수 있습니다.
 
 ### <a name="limits"></a>얼마나 많은 데이터가 보존되나요?
-각 응용 프로그램에서 초당 최대 500개의 이벤트가 보존됩니다. 이벤트는&7;일 동안 보존됩니다.
+각 응용 프로그램에서 초당 최대 500개의 이벤트가 보존됩니다. 이벤트는 7일 동안 보존됩니다.
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>예상되는 로그 항목의 일부가 표시되지 않습니다.
 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에서의 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하고 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)

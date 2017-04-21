@@ -54,7 +54,7 @@ Azure 표준 SLA로 Power BI Embedded를 사용 가능합니다. 자세한 내�
 가격 책정 정보의 경우 [Power BI Embedded 가격](http://go.microsoft.com/fwlink/?LinkId=760527) 을 참조하세요.
 
 ## <a name="what-is-a-report-session-and-how-is-it-billed"></a>보고서 세션이란 무엇이며 어떻게 청구되나요?
-세션이란 최종 사용자와 Power BI Embedded 보고서 간의 상호 작용 집합입니다. Power BI Embedded 보고서가 사용자에게 표시될 때마다 세션이 시작되고 구독 소유자에게 비용이 청구됩니다. 세션 요금은 보고서의 시각적 요소 수나 보고서 콘텐츠를 새로 고치는 빈도와 상관없이 정액으로 청구됩니다. 사용자가 보고서를 닫을 때 또는 세션이&1;시간 후 시간 초과된 경우 세션이 종료됩니다.
+세션이란 최종 사용자와 Power BI Embedded 보고서 간의 상호 작용 집합입니다. Power BI Embedded 보고서가 사용자에게 표시될 때마다 세션이 시작되고 구독 소유자에게 비용이 청구됩니다. 세션 요금은 보고서의 시각적 요소 수나 보고서 콘텐츠를 새로 고치는 빈도와 상관없이 정액으로 청구됩니다. 사용자가 보고서를 닫을 때 또는 세션이 1시간 후 시간 초과된 경우 세션이 종료됩니다.
 
 ## <a name="do-you-offer-any-tools-or-guidance-to-help-me-estimate-how-many-renderssession-i-should-expect-how-will-i-know-how-many-renders-have-been-completed"></a>렌더링/세션 수를 예상할 수 있도록 도구 또는 참고 자료를 제공하나요? 완료된 렌더링의 수를 알 수 있는 방법은 무엇인가요?
 Azure 포털에서는 구독에 대해 수행된 렌더링/보고서 세션 수에 대한 청구 세부 정보를 제공합니다.
