@@ -34,7 +34,7 @@ Azure Active Directory ID 보호는 Azure AD Premium P2 버전의 기능으로, 
 
 ## <a name="getting-started"></a>시작
 
-Microsoft는&10;년 넘게 클라우드 기반 ID를 보호하고 있습니다. Azure Active Directory ID 보호를 사용하는 경우 사용자 환경에서 Microsoft가 ID 보호를 위해 사용하는 것과 동일한 보호 시스템을 사용할 수 있습니다.
+Microsoft는 10년 넘게 클라우드 기반 ID를 보호하고 있습니다. Azure Active Directory ID 보호를 사용하는 경우 사용자 환경에서 Microsoft가 ID 보호를 위해 사용하는 것과 동일한 보호 시스템을 사용할 수 있습니다.
 
 대부분의 보안 침해는 공격자가 사용자의 ID를 도용하여 환경에 대한 액세스 권한을 얻을 때 발생합니다. 시간이 지나면서 공격자는 점점 더 효과적으로 제3자 침해를 활용하고 정교한 피싱 공격을 사용하고 있습니다. 일단 공격자가 더 낮은 권한을 가진 사용자 계정에 대한 액세스 권한을 얻게 되면 측면 이동을 통해 비교적 간단하게 중요한 회사 리소스에 대한 액세스 권한을 얻게 됩니다.
 

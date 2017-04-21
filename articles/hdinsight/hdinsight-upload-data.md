@@ -107,7 +107,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 **Azure Blob 저장소에 로컬 파일을 업로드하려면**
 
 1. [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)의 지침에 따라 Azure PowerShell 콘솔을 엽니다.
-2. 다음 스크립트에서 처음&5;개의 변수 값을 설정합니다.
+2. 다음 스크립트에서 처음 5개의 변수 값을 설정합니다.
 
         $resourceGroupName = "<AzureResourceGroupName>"
         $storageAccountName = "<StorageAccountName>"
@@ -161,7 +161,7 @@ HDInsight의 기본 파일 시스템은 Azure Blob 저장소에 있으므로 /ex
 파일과 함께 작동하는 다른 Hadoop 명령의 목록은 [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
-> HBase 클러스터에서 데이터 쓰기 시 사용되는 기본 블록 크기는 256KB입니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령을 사용하여&12;GB를 초과하는 데이터를 기록하면 오류가 발생합니다. 자세한 내용은 아래 [Blob에서 쓰기를 위한 저장소 예외](#storageexception) 섹션을 참조하세요.
+> HBase 클러스터에서 데이터 쓰기 시 사용되는 기본 블록 크기는 256KB입니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령을 사용하여 12GB를 초과하는 데이터를 기록하면 오류가 발생합니다. 자세한 내용은 아래 [Blob에서 쓰기를 위한 저장소 예외](#storageexception) 섹션을 참조하세요.
 >
 >
 
