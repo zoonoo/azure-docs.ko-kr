@@ -39,7 +39,7 @@ Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드�
 ## <a name="what-are-the-characteristics-of-metrics"></a>메트릭의 특징은 무엇인가요?
 메트릭에는 다음과 같은 특성이 있습니다.
 
-* 모든 메트릭은 **1분 빈도**입니다. 리소스로부터&1;분마다 메트릭 값을 받으므로 거의 실시간으로 리소스의 상태를 확인할 수 있습니다.
+* 모든 메트릭은 **1분 빈도**입니다. 리소스로부터 1분마다 메트릭 값을 받으므로 거의 실시간으로 리소스의 상태를 확인할 수 있습니다.
 * 메트릭은 **즉시 사용할 수 있습니다**. 옵트인하거나 추가 진단을 설정하지 않아도 됩니다.
 * 각 메트릭에 대해 **30일 동안의 기록** 에 액세스할 수 있습니다. 리소스의 성능이나 상태에서 최근 및 월별 추세를 신속하게 살펴볼 수 있습니다.
 
@@ -85,7 +85,7 @@ Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드�
 >
 
 ## <a name="access-metrics-via-the-rest-api"></a>REST API를 통해 메트릭 액세스
-Azure Monitor API를 통해 Azure Metrics에 액세스할 수 있습니다. 메트릭 검색 및 액세스에 사용할 수 있는&2;가지 API가 있습니다.
+Azure Monitor API를 통해 Azure Metrics에 액세스할 수 있습니다. 메트릭 검색 및 액세스에 사용할 수 있는 2가지 API가 있습니다.
 
 * [Azure Monitor 메트릭 정의 REST API](https://msdn.microsoft.com/library/mt743621.aspx)를 사용하여 서비스에 사용 가능한 메트릭 목록에 액세스합니다.
 * [Azure Monitor 메트릭 REST API](https://msdn.microsoft.com/library/mt743622.aspx)를 사용하여 실제 메트릭 데이터에 액세스합니다.

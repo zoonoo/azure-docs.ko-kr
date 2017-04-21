@@ -211,7 +211,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 | SDL 단계               | 빌드 |  
 | 적용 가능한 기술 | 일반 |
 | 특성              | 해당 없음  |
-| 참조              | [IE8 보안&5;부: 포괄적 보호](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)(영문), [MIME 형식](http://en.wikipedia.org/wiki/Mime_type)(영문) |
+| 참조              | [IE8 보안 5부: 포괄적 보호](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)(영문), [MIME 형식](http://en.wikipedia.org/wiki/Mime_type)(영문) |
 | 단계 | X-Content-Type-Options 헤더는 개발자가 콘텐츠를 MIME 스니핑하지 않아야 한다고 지정할 수 있는 HTTP 헤더입니다. 이 헤더는 MIME 스니핑 공격을 완화하도록 설계되었습니다. 사용자가 제어할 수 있는 콘텐츠를 포함할 수 있는 각 페이지에 대해 X-Content-Type-Options: nosniff HTTP 헤더를 사용해야 합니다. 응용 프로그램의 모든 페이지에 대해 필수 헤더를 전역으로 사용하도록 설정하려면 다음 중 하나를 수행할 수 있습니다.|
 
 ### <a name="example"></a>예제
@@ -397,7 +397,7 @@ public class ResourcesController : ApiController
 | 참조              | [ASP.NET Core 1.0에서 CORS(원본 간 요청) 사용](https://docs.asp.net/en/latest/security/cors.html)(영문) |
 | 단계 | <p>ASP.NET Core 1.0에서 CORS는 미들웨어 또는 MVC를 통해 사용하도록 설정할 수 있습니다. MVC를 통해 CORS를 사용하도록 설정하는 경우 동일한 CORS 서비스를 사용하지만 CORS 미들웨어는 사용하지 않습니다.</p>|
 
-**방법&1;** 미들웨어로 CORS 사용 설정: 전체 응용 프로그램에 대해 CORS를 사용하도록 설정하려면 UseCors 확장 메서드를 사용하여 CORS 미들웨어를 요청 파이프라인에 추가합니다. 원본 간 정책은 CorsPolicyBuilder 클래스를 사용하여 CORS 미들웨어를 추가할 때 지정할 수 있습니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
+**방법 1** 미들웨어로 CORS 사용 설정: 전체 응용 프로그램에 대해 CORS를 사용하도록 설정하려면 UseCors 확장 메서드를 사용하여 CORS 미들웨어를 요청 파이프라인에 추가합니다. 원본 간 정책은 CorsPolicyBuilder 클래스를 사용하여 CORS 미들웨어를 추가할 때 지정할 수 있습니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
 
 ### <a name="example"></a>예제
 첫 번째 방법은 UseCors를 람다로 호출하는 것입니다. 람다는 다음과 같이 CorsPolicyBuilder 개체를 사용합니다. 
@@ -432,7 +432,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-**방법&2;** MVC에서 CORS 사용 설정: 개발자가 MVC를 사용하여 작업별, 컨트롤러별로 특정 CORS를 적용하거나 모든 컨트롤러에 대해 전역적으로 CORS를 적용할 수 있습니다.
+**방법 2** MVC에서 CORS 사용 설정: 개발자가 MVC를 사용하여 작업별, 컨트롤러별로 특정 CORS를 적용하거나 모든 컨트롤러에 대해 전역적으로 CORS를 적용할 수 있습니다.
 
 ### <a name="example"></a>예제
 작업별: 특정 작업에 대해 CORS 정책을 지정하려면 해당 작업에 [EnableCors] 특성을 추가합니다. 정책 이름을 지정합니다. 

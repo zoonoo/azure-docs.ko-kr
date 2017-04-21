@@ -56,7 +56,7 @@ Azure CLI는 Azure에 대한 다중 플랫폼 명령줄 환경을 제공합니�
 
 최신 Azure CLI를 설치하려면 다음 단계를 따르세요.
 
-1. 터미널 창에서 다음 명령을 실행합니다. Azure CLI를 설치하는 데&5;분 정도 걸릴 수 있습니다.
+1. 터미널 창에서 다음 명령을 실행합니다. Azure CLI를 설치하는 데 5분 정도 걸릴 수 있습니다.
 
    ```bash
    pip install --upgrade azure-cli

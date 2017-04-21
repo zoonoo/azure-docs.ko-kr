@@ -189,7 +189,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 2. **다이어그램 보기**에 파이프라인의 개요와 이 자습서에 사용된 데이터 집합이 표시됩니다.
 
     ![다이어그램 타일](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
-3. [다이어그램 보기]에서 `sprocsampleout` 데이터 집합을 두 번 클릭합니다. 준비 상태의 조각이 표시됩니다. 조각은 JSON에서 시작 시간 및 종료 시간 사이의 매시간 생성되므로&5;개 조각입니다.
+3. [다이어그램 보기]에서 `sprocsampleout` 데이터 집합을 두 번 클릭합니다. 준비 상태의 조각이 표시됩니다. 조각은 JSON에서 시작 시간 및 종료 시간 사이의 매시간 생성되므로 5개 조각입니다.
 
     ![다이어그램 타일](media/data-factory-stored-proc-activity/data-factory-slices.png)
 4. 조각이 **Ready** 상태일 때 Azure SQL Database에 대해 `select * from sampletable` 쿼리를 실행하여 저장 프로시저에 의해 데이터가 테이블에 삽입되었는지 확인합니다.
