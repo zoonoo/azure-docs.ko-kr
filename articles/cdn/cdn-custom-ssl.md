@@ -78,7 +78,7 @@ HTTPS 기능의 주요 특성 몇 가지는 다음과 같습니다.
     
     ![사용자 지정 HTTPS 대화 상자](./media/cdn-custom-ssl/domain-validation-email-example.png)
 
-승인 후에는 DigiCert가 사용자 지정 도메인 이름을 SAN 인증서에 추가합니다. 인증서는&1;년 동안 유효하며 만료되기 전 자동으로 갱신됩니다.
+승인 후에는 DigiCert가 사용자 지정 도메인 이름을 SAN 인증서에 추가합니다. 인증서는 1년 동안 유효하며 만료되기 전 자동으로 갱신됩니다.
 
 ## <a name="step-3-wait-for-the-propagation-then-start-using-your-feature"></a>3단계: 적용될 때까지 기다린 후 기능 사용 시작
 
