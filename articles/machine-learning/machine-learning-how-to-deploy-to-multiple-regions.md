@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/19/2017
 ms.author: v-donglo
 translationtype: Human Translation
 ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
 ms.openlocfilehash: ba27d4adf73b4d5d3747567b54aeb5f0d06f8243
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -48,10 +49,5 @@ ms.openlocfilehash: ba27d4adf73b4d5d3747567b54aeb5f0d06f8243
 9. **저장소 계정** 드롭다운에서 웹 서비스에 저장할 저장소 계정을 선택합니다.
 10. **가격 계획** 드롭다운에서 8단계에서 선택한 영역에서 계획을 선택합니다.
 11. **복사**를 클릭합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
