@@ -104,7 +104,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 * **서로 다른 Azure 위치에 배치되어야 하는 VM**. Azure에서 VNet은 지역적입니다. 여러 위치에 걸쳐 있지 않습니다. 따라서 안에서 VM을 호스트할 각 Azure 위치에 대해 하나 이상의 VNet이 필요합니다.
 * **서로 완전히 격리해야 하는 워크로드**. 동일한 IP 주소 공간을 사용하더라도 서로 다른 워크로드를 격리하기 위해 별도의 VNet을 만들 수 있습니다.
 
-위에 나와 있는 제한은 하나의 하위 지역,&1;개 구독을 기준으로 한다는 점에 유의합니다. 즉, 여러 구독을 사용하여 Azure에서 유지 관리할 수 있는 리소스의 제한을 늘릴 수 있습니다. 사이트 간 VPN 또는 Express 경로 회로를 사용하여 다양한 구독에서 VNet에 연결할 수 있습니다.
+위에 나와 있는 제한은 하나의 하위 지역, 1개 구독을 기준으로 한다는 점에 유의합니다. 즉, 여러 구독을 사용하여 Azure에서 유지 관리할 수 있는 리소스의 제한을 늘릴 수 있습니다. 사이트 간 VPN 또는 Express 경로 회로를 사용하여 다양한 구독에서 VNet에 연결할 수 있습니다.
 
 ### <a name="subscription-and-vnet-design-patterns"></a>구독 및 VNet 디자인 패턴
 아래 표에서는 구독 및 VNet을 사용하기 위한 몇 가지 일반적인 디자인 패턴을 보여 줍니다.
@@ -112,9 +112,9 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 | 시나리오 | 다이어그램 | 장점 | 단점 |
 | --- | --- | --- | --- |
 | 단일 구독, 앱당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure1.png) |관리할 구독이 하나뿐입니다. |Azure 지역당 최대 Vnet 수입니다. 이후에 구독이 더 필요합니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요. |
-| 앱당&1;개 구독, 앱당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure2.png) |구독당 두 개의 VNet만 사용합니다. |앱이 너무 많은 경우 관리하기 어렵습니다. |
-| 사업부당&1;개 구독, 앱당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure3.png) |구독 및 VNet 수 간에 균형을 유지합니다. |사업부(구독)당 최대 VNet 수입니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요. |
-| 사업부당&1;개 구독, 앱 그룹당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure4.png) |구독 및 VNet 수 간에 균형을 유지합니다. |서브넷과 NSG를 사용하여 앱을 격리해야 합니다. |
+| 앱당 1개 구독, 앱당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure2.png) |구독당 두 개의 VNet만 사용합니다. |앱이 너무 많은 경우 관리하기 어렵습니다. |
+| 사업부당 1개 구독, 앱당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure3.png) |구독 및 VNet 수 간에 균형을 유지합니다. |사업부(구독)당 최대 VNet 수입니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요. |
+| 사업부당 1개 구독, 앱 그룹당 두 VNet |![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure4.png) |구독 및 VNet 수 간에 균형을 유지합니다. |서브넷과 NSG를 사용하여 앱을 격리해야 합니다. |
 
 ### <a name="number-of-subnets"></a>서브넷 수
 다음과 같은 시나리오에서는 VNet에 여러 서브넷이 있는 것이 좋습니다.
@@ -130,9 +130,9 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 | 시나리오 | 다이어그램 | 장점 | 단점 |
 | --- | --- | --- | --- |
 | 단일 서브넷, 앱당 응용 프로그램 계층당 여러 NSG |![단일 서브넷](./media/virtual-network-vnet-plan-design-arm/figure5.png) |관리할 서브넷이 하나뿐입니다. |각 응용 프로그램을 격리하는 데 여러 NSG가 필요합니다. |
-| 앱당&1;개 서브넷, 응용 프로그램 계층당 여러 NSG |![앱당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure6.png) |관리할 NSG가 소수입니다. |관리할 서브넷이 여러 개입니다. |
-| 응용 프로그램 계층당&1;개 서브넷, 앱당 여러 NSG |![계층당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure7.png) |서브넷 및 NSG 수 간에 균형을 유지합니다. |구독당 최대 NSG 수입니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요. |
-| 앱당, 응용 프로그램 계층당&1;개 서브넷, 서브넷당 여러 NSG |![앱당 계층당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure8.png) |가능하면 NSG 수가 더 적습니다. |관리할 서브넷이 여러 개입니다. |
+| 앱당 1개 서브넷, 응용 프로그램 계층당 여러 NSG |![앱당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure6.png) |관리할 NSG가 소수입니다. |관리할 서브넷이 여러 개입니다. |
+| 응용 프로그램 계층당 1개 서브넷, 앱당 여러 NSG |![계층당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure7.png) |서브넷 및 NSG 수 간에 균형을 유지합니다. |구독당 최대 NSG 수입니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요. |
+| 앱당, 응용 프로그램 계층당 1개 서브넷, 서브넷당 여러 NSG |![앱당 계층당 서브넷](./media/virtual-network-vnet-plan-design-arm/figure8.png) |가능하면 NSG 수가 더 적습니다. |관리할 서브넷이 여러 개입니다. |
 
 ## <a name="sample-design"></a>샘플 디자인
 이 문서의 정보가 어떻게 적용되는지를 설명하기 위해 다음 시나리오를 고려합니다.
@@ -199,7 +199,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 * 각 사업부에는 모든 응용 프로그램에 사용되는 단일 테스트/개발 VNet이 있어야 합니다.
 * 각 응용 프로그램은 대륙당(북아메리카 및 유럽) 서로 다른 2개의 Azure 데이터 센터에서 호스트됩니다.
 
-이러한 요구에 따라 각 사업부에 대한 구독이 필요합니다. 이런 방식으로 사업부의 리소스 사용량은 다른 사업부에 대한 제한에 포함되지 않습니다. VNet 수를 최소화하려고 하므로 아래처럼 **사업부당&1;개 구독, 앱 그룹당&2;개 VNet** 패턴의 사용을 고려합니다.
+이러한 요구에 따라 각 사업부에 대한 구독이 필요합니다. 이런 방식으로 사업부의 리소스 사용량은 다른 사업부에 대한 제한에 포함되지 않습니다. VNet 수를 최소화하려고 하므로 아래처럼 **사업부당 1개 구독, 앱 그룹당 2개 VNet** 패턴의 사용을 고려합니다.
 
 ![단일 구독](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
@@ -229,9 +229,9 @@ VNet에는 다음 속성이 포함될 수 있습니다.
 * 온-프레미스 데이터 센터로의 연결은 기존 VPN 장치를 사용해야 합니다.
 * 각 위치에 있는 데이터베이스는 하루에 한 번의 다른 Azure 위치에 복제됩니다.
 
-이러한 요구 사항에 따라, 응용 프로그램 계층당&1;개의 서브넷을 사용할 수 있으며 응용 프로그램당 트래픽을 필터링하기 위해 여러 NSG를 사용할 수 있습니다. 이런 방식으로 각 VNet에 3개의 서브넷(프런트 엔드, 응용 프로그램 계층 및 데이터 센터) 및 서브넷당 응용 프로그램당 1개 NSG만 포함합니다. 이 경우 **응용 프로그램 계층당 하나의 서브넷, 앱당 여러 NSG** 디자인 패턴의 사용을 고려해야 합니다. 아래 그림은 **ProdBU1US1** VNet을 나타내는 디자인 패턴의 사용을 보여 줍니다.
+이러한 요구 사항에 따라, 응용 프로그램 계층당 1개의 서브넷을 사용할 수 있으며 응용 프로그램당 트래픽을 필터링하기 위해 여러 NSG를 사용할 수 있습니다. 이런 방식으로 각 VNet에 3개의 서브넷(프런트 엔드, 응용 프로그램 계층 및 데이터 센터) 및 서브넷당 응용 프로그램당 1개 NSG만 포함합니다. 이 경우 **응용 프로그램 계층당 하나의 서브넷, 앱당 여러 NSG** 디자인 패턴의 사용을 고려해야 합니다. 아래 그림은 **ProdBU1US1** VNet을 나타내는 디자인 패턴의 사용을 보여 줍니다.
 
-![계층당&1;개 서브넷, 계층당 응용 프로그램당&1;개 NSG](./media/virtual-network-vnet-plan-design-arm/figure11.png)
+![계층당 1개 서브넷, 계층당 응용 프로그램당 1개 NSG](./media/virtual-network-vnet-plan-design-arm/figure11.png)
 
 그러나 VNet 간, 온-프레미스 데이터 센터 간의 VPN 연결을 위한 별도의 서브넷을 만들어야 합니다. 또한 각 서브넷에 대한 주소 공간도 지정해야 합니다. 아래 그림은 **ProdBU1US1** VNet에 대한 샘플 솔루션을 보여 줍니다. 각 VNet에 대해 이 시나리오를 복제합니다. 각 색상은 서로 다른 응용 프로그램을 나타냅니다.
 
