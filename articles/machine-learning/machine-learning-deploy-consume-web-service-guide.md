@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/19/2017
 ms.author: v-donglo
 translationtype: Human Translation
 ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
 ms.openlocfilehash: 489037b0ff43c7041f3e12a49525184e7eda0290
+ms.lasthandoff: 12/19/2016
 
 
 ---
@@ -96,9 +97,4 @@ Azure 기계 학습 웹 서비스 포털에서 웹 서비스를 테스트할 수
 
 ### <a name="from-a-rest-based-client"></a>REST 기반 클라이언트에서
 Azure 기계 학습 웹 서비스는 RESTful API입니다. .NET, Python, R, Java 등과 같은 다양한 플랫폼에서 이러한 API를 사용할 수 있습니다. [Microsoft Azure Machine Learning 웹 서비스 포털](https://services.azureml.net)의 웹 서비스에 대한 **사용** 페이지에는 시작하는 데 도움을 줄 수 있는 샘플 코드가 있습니다. 자세한 내용은 [Machine Learning 실험에서 배포된 Azure Machine Learning 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
