@@ -35,7 +35,7 @@ Hadoop 에코 시스템에 대해 알아보기 위해 가상 컴퓨터에서 Hor
 
 ## <a name="download-and-install-the-virtual-machine"></a>가상 컴퓨터 다운로드 및 설치
 1. [Hortonworks 다운로드](http://hortonworks.com/downloads/#sandbox)로 이동합니다.
-2. **VIRTUALBOX용 다운로드**를 클릭하여 VM 기반 최신 Hrotonworks 샌드박스를 다운로드합니다. 다운로드가 시작되기 전에 Hortonworks를 등록하라는 메시지가 표시됩니다. 네트워크 속도에 따라 다운로드하는 데&1; ~&2; 시간이 걸립니다.
+2. **VIRTUALBOX용 다운로드**를 클릭하여 VM 기반 최신 Hrotonworks 샌드박스를 다운로드합니다. 다운로드가 시작되기 전에 Hortonworks를 등록하라는 메시지가 표시됩니다. 네트워크 속도에 따라 다운로드하는 데 1 ~ 2 시간이 걸립니다.
    
     ![VirtualBox에 대한 Hortonworks Sandbox를 다운로드용 링크 이미지](./media/hdinsight-hadoop-emulator-get-started/download-sandbox.png)
 3. 동일한 웹 페이지에서 **Virtual Box에서 가져오기** 링크를 클릭하여 가상 컴퓨터에 대한 설치 지침이 포함된 PDF를 다운로드합니다.
