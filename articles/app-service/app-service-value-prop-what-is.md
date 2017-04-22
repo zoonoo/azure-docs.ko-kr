@@ -67,7 +67,7 @@ App Service는 여러 *앱 형식*을 제공하며 각각은 특정 워크로드
 App Service 계획은 다음을 정의합니다.
 
 - **지역**(미국 서부, 미국 동부 등)
-- **확장 개수**(1,&2;,&3;개 인스턴스 등)
+- **확장 개수**(1, 2, 3개 인스턴스 등)
 - **인스턴스 크기**(소, 중, 대)
 - **SKU**(무료, 공유, 기본, 표준, 프리미엄)
 
@@ -83,7 +83,7 @@ App Service 계획의 **SKU** 및 **규모**에 따라 호스트되는 앱 수�
 앱 서비스 비용에 대한 정보는 [앱 서비스 가격 책정](https://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
 ## <a name="test-drive-app-service"></a>App Service 시험 사용
-[샘플 웹앱, 모바일 앱 또는 논리 앱을 만들고](https://azure.microsoft.com/try/app-service/)&1;시간 동안 재생합니다. 신용 카드나 약정, 번거로운 과정도 필요하지 않습니다.
+[샘플 웹앱, 모바일 앱 또는 논리 앱을 만들고](https://azure.microsoft.com/try/app-service/) 1시간 동안 재생합니다. 신용 카드나 약정, 번거로운 과정도 필요하지 않습니다.
 
 또는 [무료 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)을 열고 시작 자습서 중 하나를 사용해 봅니다.
 
