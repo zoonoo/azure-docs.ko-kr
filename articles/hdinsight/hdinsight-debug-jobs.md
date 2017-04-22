@@ -38,7 +38,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 테이블 저장�
 * ambariserverlog
 * ambariagentlog
 
-Windows 기반 클러스터에&3;개의 테이블을 만듭니다.
+Windows 기반 클러스터에 3개의 테이블을 만듭니다.
 
 * setuplog: HDInsight 클러스터를 프로비전/설정할 때 발생한 이벤트/예외의 로그입니다.
 * hadoopinstalllog: 클러스터에 Hadoop를 설치하는 경우 발생한 이벤트/예외의 로그입니다. 이 테이블은 사용자 지정 매개 변수를 사용하여 만든 클러스터와 관련된 문제를 디버깅하는 데 유용할 수 있습니다.
