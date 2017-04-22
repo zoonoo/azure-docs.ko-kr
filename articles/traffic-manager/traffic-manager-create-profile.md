@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/22/2017
     6. **만들기**를 클릭합니다.
     7. Traffic Manager 프로필의 전역 배포가 완료되면 리소스 중 하나로 해당 리소스 그룹에 나열됩니다.
 
-![Traffic Manager 프로필 만들기](./media/traffic-manager-create-profile/Create-traffic-manager-profile.png)
+    ![Traffic Manager 프로필 만들기](./media/traffic-manager-create-profile/Create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Traffic Manager 끝점 추가
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 03/22/2017
 5.    다음 Azure Web Apps 끝점에 대해 3, 4단계를 반복합니다. **우선 순위** 값을 **2**로 설정한 상태에서 추가해야 합니다.
 6.    두 끝점 추가가 완료되면 **온라인**인 모니터링 상태와 함께 **Traffic Manager 프로필** 블레이드에 표시됩니다.
 
-![Traffic Manager 끝점 추가](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
+    ![Traffic Manager 끝점 추가](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>Traffic Manager 프로필 사용
 1.    포털의 검색 창에서 이전 섹션에서 만든 **Traffic Manager 프로필** 이름을 검색합니다. 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.

@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: 9ef430dfaa43f9bc4294593c8abbdaf457ef07c8
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -36,37 +37,53 @@ Azure 저장소 계정은 JDK, 응용 프로그램 서버, 임의 구성 요소�
 
 ## <a name="to-import-your-storage-accounts-using-a-publish-settings-file"></a>게시 설정 파일을 사용하여 저장소 계정 가져오기
 1. **저장소 계정** 대화 상자에서 **PUBLISH-SETTINGS 파일에서 가져오기**을 클릭합니다.
+
 2. (게시 설정 파일을 로컬 컴퓨터에 이미 저장한 경우에는 이 단계를 건너뜁니다.) **구독 정보 가져오기** 대화 상자에서 **PUBLISH-SETTINGS 파일 다운로드**을 클릭합니다. Azure 계정에 로그인하지 않은 경우에는 로그인을 요청하는 메시지가 표시됩니다. 그 후 Azure 게시 설정 파일을 저장하도록 요청하는 메시지가 표시됩니다. (로그인 페이지에 이렇게 표시되는 지침은 무시할 수 있습니다. 이러한 지침은 Azure 포털에 의해 제공되며 Visual Studio 사용자를 위한 것입니다.) 로컬 컴퓨터에 저장합니다.
+
 3. **구독 정보 가져오기** 대화 상자에서 **찾아보기** 단추를 클릭하고 이전에 로컬에 저장해 놓은 게시 설정 파일을 선택한 다음 **열기**를 클릭합니다.
+
 4. **확인**을 클릭하여 **구독 정보 가져오기** 대화 상자를 닫습니다.
 
 ## <a name="to-create-a-new-storage-account"></a>새 저장소 계정 만들기
 1. **저장소 계정** 대화 상자에서 **추가**를 클릭합니다.
+
 2. **저장소 계정 추가** 대화 상자에서 **새로 만들기**를 클릭합니다.
+
 3. **New Storage Account** 대화 상자에서 다음 항목에 대한 값을 지정합니다.
+
    * 저장소 계정 이름
+
    * 저장소 계정의 위치
+
    * 저장소 계정에 대한 설명
+
    * 저장소 계정이 속해 있는 구독
+
 4. **확인**를 클릭하여 **새 저장소 계정** 대화 상자를 닫습니다.
 
 저장소 계정을 만드는 데 몇 분 정도 걸릴 수 있습니다. 계정이 생성된 후에 **확인**를 클릭하여 **저장소 계정 추가** 대화 상자를 닫으면, 새 저장소 계정이 사용 가능한 저장소 계정 목록에 추가됩니다.
 
 ## <a name="to-add-an-existing-storage-account-to-the-list"></a>기존 저장소 계정을 목록에 추가
 1. Azure 저장소 계정이 없는 경우에는 위의 **새 저장소 계정 만들기 섹션** 에 나열된 단계에 따라서 계정을 만듭니다. (또는 [Azure Management Portal][Azure Management Portal]에서 새 저장소 계정을 만들 수 있습니다.)
+
 2. **저장소 계정** 대화 상자에서 **추가**를 클릭합니다.
+
 3. **저장소 계정 추가** 대화 상자에서 **이름** 및 **선택키**의 값을 입력합니다. 계정 이름 및 액세스 키는 기존 Azure 저장소 계정에 대한 값이어야 합니다. 저장소 계정 이름 및 키를 보려면 [Azure Management Portal][Azure Management Portal]의 **저장소** 섹션을 사용합니다. **Add Storage Account** 대화 상자는 다음과 유사한 모양입니다.
    
-    ![][ic719497]
+   ![][ic719497]
+
 4. **확인**을 클릭하여 **저장소 계정 추가** 대화 상자를 닫습니다.
 
 ## <a name="to-modify-a-storage-account-to-use-a-new-access-key"></a>새 액세스 키를 사용하도록 저장소 계정 수정
 1. **저장소 계정** 대화 상자에서 편집할 저장소 계정을 클릭한 후 **편집**을 클릭합니다.
+
 2. **저장소 계정 선택기 편집** 대화 상자에서 **선택키** 값을 수정합니다.
+
 3. **확인**을 클릭하고 **저장소 계정 선택기 편집** 대화 상자를 닫습니다.
 
 ## <a name="to-remove-a-storage-account-from-the-list-maintained-in-eclipse"></a>Eclipse에 유지 관리되는 목록에서 저장소 계정 제거
 1. **저장소 계정** 대화 상자에서 편집할 저장소 계정을 클릭한 후 **제거**를 클릭합니다.
+
 2. 저장소 계정을 제거한다는 메시지가 표시되면 **OK** 를 클릭합니다.
 
 > [!NOTE]
@@ -98,9 +115,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

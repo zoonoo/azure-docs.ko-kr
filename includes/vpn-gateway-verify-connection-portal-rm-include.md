@@ -5,9 +5,3 @@ Azure Portal에서 연결로 이동하여 Resource Manager VPN 게이트웨이�
 3. 확인하려는 연결의 이름을 클릭하여 **Essentials**을 엽니다. Essentials에서 연결에 대한 자세한 정보를 볼 수 있습니다. 연결에 성공하면 **상태**가 '성공함' 및 '연결됨'으로 표시됩니다.
    
     ![Azure Portal을 사용하여 VPN 게이트웨이 연결 확인](./media/vpn-gateway-verify-connection-portal-rm-include/connectionsucceeded.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
-
