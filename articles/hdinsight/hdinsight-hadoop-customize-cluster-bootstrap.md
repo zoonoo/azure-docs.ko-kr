@@ -42,7 +42,7 @@ ms.lasthandoff: 02/22/2017
 * webhcat-site.xml
 * yarn-site.xml
 
-Bootstrap을 사용하는 방법은&3;가지가 있습니다.
+Bootstrap을 사용하는 방법은 3가지가 있습니다.
 
 * Azure PowerShell 사용
 * .NET SDK 사용
