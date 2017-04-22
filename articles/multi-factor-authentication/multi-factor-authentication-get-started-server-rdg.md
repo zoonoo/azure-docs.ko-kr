@@ -42,7 +42,7 @@ Azure Multi-Factor Authentication 서버에 RADIUS 인증을 보내도록 RD 게
 4. 각 서버에 대한 공유 암호를 만듭니다.
 
 ## <a name="configure-nps"></a>NPS 구성
-RD 게이트웨이는 NPS를 사용하여 Azure Multi-Factor Authentication에 RADIUS 요청을 보냅니다. NPS를 구성하려면 먼저 RD 게이트웨이가&2;단계 확인이 완료되기 전에 시간 초과되는 것을 방지하도록 시간 제한 설정을 변경합니다. 그런 다음 MFA 서버에서 RADIUS 인증을 받도록 NPS를 업데이트합니다. NPS를 구성하려면 다음 절차를 따르십시오.
+RD 게이트웨이는 NPS를 사용하여 Azure Multi-Factor Authentication에 RADIUS 요청을 보냅니다. NPS를 구성하려면 먼저 RD 게이트웨이가 2단계 확인이 완료되기 전에 시간 초과되는 것을 방지하도록 시간 제한 설정을 변경합니다. 그런 다음 MFA 서버에서 RADIUS 인증을 받도록 NPS를 업데이트합니다. NPS를 구성하려면 다음 절차를 따르십시오.
 
 ### <a name="modify-the-timeout-policy"></a>시간 제한 정책 수정
 
