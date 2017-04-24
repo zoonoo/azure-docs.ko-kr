@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2017
+ms.date: 04/17/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 15ac382f72cab455246ffcc05f08c8aba5876c8f
-ms.openlocfilehash: c90bb4f41661aedec2bde53abe035fe9bcc80320
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 49aeb711de73bf967f330ec54385fb8bb36dd7ca
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -35,18 +35,18 @@ Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결
 ### <a name="what-are-my-cross-premises-connection-options"></a>내 프레미스 간 연결 옵션은 무엇입니까?
 다음 프레미스 간 연결을 지원합니다.
 
-* [사이트 간](vpn-gateway-howto-site-to-site-resource-manager-portal.md) – IPsec 통한 VPN 연결(IKE v1 및 IKE v2). 이 연결 유형은 VPN 장치 또는 RRAS가 필요합니다.
-* [지점 및 사이트 간](vpn-gateway-howto-point-to-site-resource-manager-portal.md) -SSTP를 통한 VPN 연결(보안 소켓 터널링 프로토콜). 이 연결에는 VPN 장치가 필요하지 않습니다.
-* [VNet 간](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) - 이 유형의 연결은 사이트 간 구성과 동일합니다. VNet 간 연결은 IPsec를 통한 VPN 연결(IKE v1 및 IKE v2)입니다. VPN 장치가 필요하지 않습니다.
-* [다중 사이트](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) - 가상 네트워크에 여러 온-프레미스 사이트를 연결할 수 있는 사이트 간 구성의 변형입니다.
-* [Express 경로](../expressroute/expressroute-introduction.md) - Express 경로는 공용 인터넷을 사용하지 않고 WAN에서 Azure에 직접 연결합니다. 자세한 내용은 [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md) 및 [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)를 참조하세요.
+* 사이트 간 – IPsec 통한 VPN 연결(IKE v1 및 IKE v2). 이 연결 유형은 VPN 장치 또는 RRAS가 필요합니다. 자세한 내용은 [사이트 간](vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 참조하세요.
+* 지점 및 사이트 간 -SSTP를 통한 VPN 연결(보안 소켓 터널링 프로토콜). 이 연결에는 VPN 장치가 필요하지 않습니다. 자세한 내용은 [지점 및 사이트 간](vpn-gateway-howto-point-to-site-resource-manager-portal.md)을 참조하세요.
+* VNet 간 - 이 유형의 연결은 사이트 간 구성과 동일합니다. VNet 간 연결은 IPsec를 통한 VPN 연결(IKE v1 및 IKE v2)입니다. VPN 장치가 필요하지 않습니다. 자세한 내용은 [VNet 간](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 참조하세요.
+* 다중 사이트 - 가상 네트워크에 여러 온-프레미스 사이트를 연결할 수 있는 사이트 간 구성의 변형입니다. 자세한 내용은 [다중 사이트](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)를 참조하세요.
+* ExpressRoute - ExpressRoute는 공용 인터넷을 통한 VPN 연결을 사용하지 않고 WAN에서 Azure에 직접 연결합니다. 자세한 내용은 [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md) 및 [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)를 참조하세요.
 
 VPN Gateway 연결에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>사이트 간 연결과 지점 및 사이트 간 연결의 차이점은 무엇입니까?
-**사이트 간** 구성은 온-프레미스 위치와 Azure 사이에 있습니다. 즉, 라우팅 구성을 어떻게 선택하느냐에 따라 프레미스에 있는 원하는 컴퓨터에서 가상 네트워크 내에 있는 원하는 가상 컴퓨터 또는 역할 인스턴스에 연결할 수 있습니다. 이 연결은 항상 사용할 수 있는 프레미스 간 연결에 유용한 옵션이며 하이브리드 구성에 적합합니다. 이 연결 유형에서는 네트워크의 가장자리에 배포되어야 하는 IPsec VPN 어플라이언스(하드웨어 또는 소프트 어플라이언스)를 사용합니다. 이 유형의 연결을 만들려면 필수 VPN 하드웨어와 외부 연결 IPv4 주소가 있어야 합니다.
+**사이트 간**(IPsec/IKE VPN 터널) 구성은 온-프레미스 위치와 Azure 사이에 있습니다. 즉, 라우팅 및 사용 권리를 어떻게 구성하는지에 따라 프레미스에 있는 원하는 컴퓨터에서 가상 네트워크 내에 있는 원하는 가상 컴퓨터 또는 역할 인스턴스에 연결할 수 있습니다. 이 연결은 항상 사용할 수 있는 프레미스 간 연결에 유용한 옵션이며 하이브리드 구성에 적합합니다. 이 연결 유형에서는 네트워크의 가장자리에 배포되어야 하는 IPsec VPN 어플라이언스(하드웨어 장치 또는 소프트 어플라이언스)를 사용합니다. 이 유형의 연결을 만들려면 NAT 뒤에 있지 않은 외부 연결 IPv4 주소가 있어야 합니다.
 
-**지점 및 사이트 간** 구성을 사용하면 모든 위치의 단일 컴퓨터에서 가상 네트워크에 있는 모든 컴퓨터에 연결할 수 있습니다. Windows 인박스 VPN 클라이언트를 사용합니다. 지점 및 사이트 간 구성 중에 가상 네트워크 내의 가상 컴퓨터 또는 역할 인스턴스에 컴퓨터를 연결할 수 있도록 해주는 설정이 포함된 인증서 및 VPN 클라이언트 구성 패키지를 설치합니다. 가상 네트워크에 연결하려고 하지만 온-프레미스에 없는 경우에 유용합니다. 사이트 간 연결에 필요한 VPN 하드웨어 또는 외부 연결 IPv4 주소에 액세스할 수 없을 때 유용한 옵션입니다.
+**지점 및 사이트 간**(SSTP를 통한 VPN) 구성을 사용하면 모든 위치의 단일 컴퓨터에서 가상 네트워크에 있는 모든 컴퓨터에 연결할 수 있습니다. Windows 인박스 VPN 클라이언트를 사용합니다. 지점 및 사이트 간 구성 중에 가상 네트워크 내의 가상 컴퓨터 또는 역할 인스턴스에 컴퓨터를 연결할 수 있도록 해주는 설정이 포함된 인증서 및 VPN 클라이언트 구성 패키지를 설치합니다. 가상 네트워크에 연결하려고 하지만 온-프레미스에 없는 경우에 유용합니다. 사이트 간 연결에 필요한 VPN 하드웨어 또는 외부 연결 IPv4 주소에 액세스할 수 없을 때 유용한 옵션입니다.
 
 게이트웨이에 경로 기반 VPN 유형을 사용하여 사이트 간 연결을 만들기만 하면 사이트 간 연결과 지점 및 사이트 간 연결을 동시에 사용하도록 가상 네트워크를 구성할 수 있습니다. 경로 기반 VPN 유형은 클래식 배포 모델에서 동적 게이트웨이라고 합니다.
 
@@ -64,7 +64,7 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 ### <a name="do-i-need-a-gatewaysubnet"></a>'GatewaySubnet'이 필요한가요?
 예. 게이트웨이 서브넷은 가상 네트워크 게이트웨이 서비스가 사용하는 IP 주소를 포함합니다. 가상 네트워크 게이트웨이를 구성하려면 VNet의 게이트웨이 서브넷을 만들어야 합니다. 모든 게이트웨이 서브넷이 제대로 작동하려면 이름을 'GatewaySubnet'으로 지정해야 합니다. 게이트웨이 서브넷에 다른 이름을 지정하지 않습니다. 게이트웨이 서브넷에 VM 또는 다른 항목을 배포하지 않습니다.
 
-게이트웨이 서브넷을 만드는 경우 서브넷이 포함하는 IP 주소의 수를 지정합니다. 게이트웨이 서브넷의 IP 주소는 게이트웨이 서비스에 할당됩니다. 일부 구성은 게이트웨이 서비스에 다른 구성보다 더 많은 IP 주소가 할당되어야 합니다. 이후 성장 및 새로운 연결 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하는 것이 좋습니다. 따라서 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 게이트웨이 서브넷을 /28 이상으로 만드는 것이 좋습니다(/28, /27, /26등). 만들려는 구성에 대한 요구 사항을 검토하고 가지고 있는 게이트웨이 서브넷이 그러한 요구 사항을 충족하는지 확인하세요.
+게이트웨이 서브넷을 만드는 경우 서브넷이 포함하는 IP 주소의 수를 지정합니다. 게이트웨이 서브넷의 IP 주소는 게이트웨이 서비스에 할당됩니다. 일부 구성은 게이트웨이 서비스에 다른 구성보다 더 많은 IP 주소가 할당되어야 합니다. 이후 성장 및 새로운 연결 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하는 것이 좋습니다. 따라서 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 게이트웨이 서브넷을 /27 이상으로 만드는 것이 좋습니다(/27, /26, /25 등). 만들려는 구성에 대한 요구 사항을 검토하고 가지고 있는 게이트웨이 서브넷이 그러한 요구 사항을 충족하는지 확인하세요.
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>가상 컴퓨터 또는 역할 인스턴스를 내 게이트웨이 서브넷에 배포할 수 있습니까?
 아니요.
@@ -107,11 +107,23 @@ VPN 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하�
 자세한 내용은 [VPN Gateway 구성 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
 
 ## <a name="site-to-site-connections-and-vpn-devices"></a>사이트 간 연결 및 VPN 장치
-### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>VPN 장치를 선택할 때 고려할 사항은 무엇입니까?
-장치 공급업체와 협력하여 표준 사이트 간 VPN 장치의 유효성을 검사했습니다. 알려진 호환 VPN 장치, 해당 구성 지침 또는 샘플 및 장치 사양 목록은 [여기](vpn-gateway-about-vpn-devices.md)서 확인할 수 있습니다. 호환하는 것으로 알려진 목록의 장치 제품군에 포함된 모든 장치는 가상 네트워크에서 작동합니다. VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 장치 구성 샘플 또는 링크를 참조하세요.
 
-### <a name="what-do-i-do-if-i-have-a-vpn-device-that-isnt-in-the-known-compatible-device-list"></a>사용 중인 VPN 장치가 알려진 호환 장치 목록에 없는 경우 어떻게 해야 합니까?
-사용 중인 장치가 알려진 호환 VPN 장치 목록에 표시되지 않지만 해당 장치를 VPN 연결에 사용하려면 해당 장치가 [여기에](vpn-gateway-about-vpn-devices.md)나열된 지원되는 IPsec/IKE 구성 옵션 및 매개 변수를 충족하는지 확인해야 합니다. 최소 요구 사항을 충족하는 장치는 VPN 게이트웨이에서 잘 작동합니다. 추가 지원 및 구성 지침은 장치 제조업체에 문의하세요.
+### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>VPN 장치를 선택할 때 고려할 사항은 무엇입니까?
+장치 공급업체와 협력하여 표준 사이트 간 VPN 장치의 유효성을 검사했습니다. 알려진 호환 VPN 장치, 해당 구성 지침 또는 샘플 및 장치 사양 목록은 [VPN 장치 정보](vpn-gateway-about-vpn-devices.md) 문서에서 확인할 수 있습니다. 호환하는 것으로 알려진 목록의 장치 제품군에 포함된 모든 장치는 가상 네트워크에서 작동합니다. VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 장치 구성 샘플 또는 링크를 참조하세요.
+
+### <a name="where-can-i-find-configuration-settings-for-vpn-devices"></a>VPN 장치에 대한 구성 설정을 어디서 찾을 수 있나요?
+
+장치 구성 설정에 대한 링크는 [확인된 VPN 장치](vpn-gateway-about-vpn-devices.md#devicetable)를 참조하세요. 장치 구성에 대한 링크가 가장 효율적으로 제공됩니다. 최신 구성 정보에 대해서는 항상 장치 제조업체에 문의하는 것이 가장 좋습니다.
+
+VPN 장치를 구성하기 전에 사용하려는 VPN 장치에 대한 [알려진 장치 호환성 문제](vpn-gateway-about-vpn-devices.md#known)를 확인합니다.
+
+### <a name="how-do-i-edit-vpn-device-configuration-samples"></a>VPN 장치 구성 샘플을 편집하려면 어떻게 하나요?
+
+장치 구성 샘플을 편집하는 방법에 대한 정보는 [샘플 편집](vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
+
+### <a name="where-do-i-find-ipsec-and-ike-parameters"></a>IPsec 및 IKE 매개 변수를 어디서 찾을 수 있나요?
+
+IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipsec)를 참조하세요.
 
 ### <a name="why-does-my-policy-based-vpn-tunnel-go-down-when-traffic-is-idle"></a>트래픽이 유휴 상태일 때 정책 기반 VPN 터널이 다운되는 이유는 무엇인가요?
 정책 기반(정적 라우팅이라고도 함) VPN 게이트웨이에서 예상되는 동작입니다. 터널의 트래픽이 5분 이상 유휴 상태인 경우 터널은 삭제됩니다. 하지만 트래픽이 어느 방향으로든 흐름이 시작되면 즉시 터널이 다시 설정됩니다.
@@ -121,11 +133,11 @@ VPN 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하�
 
 다른 소프트웨어 VPN 솔루션은 업계 표준 IPsec 구현을 따르는 경우에만 Microsoft 게이트웨이에 사용할 수 있습니다. 구성 및 지원 지침은 소프트웨어 공급 업체에 문의하세요.
 
-## <a name="a-namep2sapoint-to-site-connections"></a><a name="P2S"></a>지점 및 사이트 간 연결
+## <a name="P2S"></a>지점 및 사이트 간 연결
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-## <a name="a-namev2vmultiavnet-to-vnet-and-multi-site-connections"></a><a name="V2VMulti"></a>VNet 간 연결 및 다중 사이트 연결
+## <a name="V2VMulti"></a>VNet 간 연결 및 다중 사이트 연결
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
@@ -152,7 +164,7 @@ Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 
 ### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>IPsec VPN을 사용하는 가상 네트워크를 Express 경로 회로에 연결할 수 있습니까?
 예, 지원됩니다. 자세한 내용은 [공존하는 Express 경로 및 사이트 간 VPN 연결 구성](../expressroute/expressroute-howto-coexist-classic.md)을 참조하세요.
 
-## <a name="a-namebgpabgp"></a><a name="bgp"></a>BGP
+## <a name="bgp"></a>BGP
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
 ## <a name="cross-premises-connectivity-and-vms"></a>크로스-프레미스 연결 및 VM

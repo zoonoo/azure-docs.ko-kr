@@ -7,14 +7,12 @@
 | 제한 | 32k 이벤트/초 | 제한은 분을 기준으로 측정됩니다.
 | 데이터 보존 | 90일 | 이 리소스는 [검색](../articles/application-insights/app-insights-diagnostic-search.md), [분석](../articles/application-insights/app-insights-analytics.md) 및 [메트릭 탐색기](../articles/application-insights/app-insights-metrics-explorer.md)의 경우입니다.
 | [가용성 다단계 테스트](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) 자세한 결과 보존 | 90일 | 이 리소스는 각 단계의 자세한 결과를 제공합니다.
-| 속성 및 메트릭 이름 길이 | 150 |
-| 속성 값 문자열 길이 | 8,192 |
-| 추적 및 예외 메시지 길이 | 10k |
+| 최대 이벤트 크기 | 64K | 
+| 속성 및 메트릭 이름 길이 | 150 | 자세한 내용은 아래 설명을 참조하세요.
+| 속성 값 문자열 길이 | 8,192 | 자세한 내용은 아래 설명을 참조하세요.
+| 추적 및 예외 메시지 길이 | 10k | 자세한 내용은 아래 설명을 참조하세요.
 | 앱당 [가용성 테스트](../articles/application-insights/app-insights-monitor-web-app-availability.md) 수  | 10 |
 
 자세한 내용은 [Application Insights의 가격 책정 및 할당량 정보](../articles/application-insights/app-insights-pricing.md)를 참조하세요.
 
-
-<!--HONumber=Feb17_HO2-->
-
-
+데이터 필드 제한에 대한 자세한 내용은 [형식 스키마 기준](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)을 참조하세요.

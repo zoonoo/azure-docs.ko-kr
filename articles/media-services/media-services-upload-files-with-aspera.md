@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/22/2017
+ms.date: 04/17/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 44fe2f5c0a3f050a93368589d9ea6b8ea3e35d26
-ms.openlocfilehash: 60a35bbda79a45bd0ac24e76b0a20720afe79774
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 86cb6a979d3aa429c0f501a5ebf37db4bff8ba99
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -31,6 +31,7 @@ Azure용 **Aspera Server On Demand**는 [Azure Marketplace](https://azure.micros
 
 이 자습서에서는 Azure에서 **Aspera Server On Demand** 서비스를 사용하여 Media Services 계정과 연결된 저장소 계정에 파일을 업로드하는 단계를 안내합니다. 
 
+[여기](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest)에서는 Aspera 및 Media Services와 함께 Azure Functions를 사용하는 방법을 보여 주는 예제를 찾을 수 있습니다.
 
 >[!NOTE]
 >Azure Media Services MP(미디어 프로세서)에서 처리할 수 있는 최대 파일 크기에 제한이 있습니다. 파일 크기 제한에 대한 세부 정보는 [이](media-services-quotas-and-limitations.md) 항목을 참조하세요.

@@ -1,6 +1,6 @@
 ---
-title: "Windows 장치의 Azure Portal 상에서 &quot;여기에서 가져올 수 없습니다&quot; 문제 해결 | Microsoft Docs"
-description: "조직의 온라인 리소스의 액세스 문제를 해결하기 위해 수행할 수 있는 단계를 알아봅니다."
+title: "Windows 장치의 Azure Portal 상의 여기에서 가져올 수 없습니다 | Microsoft Docs"
+description: "여기에서 가져올 수 없는 위치 및 이 대화 상자에서 실행되지 않도록 방지하기 위해 확인할 점에 대해 알아봅니다."
 services: active-directory
 keywords: "장치 기반 조건부 액세스, 장치 등록, 장치 등록 사용, 장치 등록 및 MDM"
 documentationcenter: 
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 04/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 4b8627f3cdd13578f9b4c35297bf5d550dccfd07
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 42dcc653b50698cf8ce8145dfb51f27be7ece440
+ms.lasthandoff: 04/12/2017
 
 
 ---

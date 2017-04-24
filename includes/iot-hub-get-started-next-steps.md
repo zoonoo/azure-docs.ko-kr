@@ -6,3 +6,4 @@
 - [Azure Web Apps를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
 - [Azure Machine Learning에서 IoT Hub의 센서 데이터를 사용한 날씨 예측](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)
 - [iothub-explorer를 사용하여 장치 관리](../articles/iot-hub/iot-hub-device-management-iothub-explorer.md)
+- [Logic Apps를 사용하여 원격 모니터링 및 알림](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)

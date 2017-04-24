@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/03/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 58af25d90b419b3ddb986118a8c9ba3b42aa95a6
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 3366348e6ea3ae296bc249090e75c16ebe9fc1fb
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -48,20 +48,28 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 3. 위의 이미지에 표시된 대로 다음과 같은 정보를 사용하여 SQL Database 형식을 작성합니다.     
    - 데이터베이스 이름: **mySampleDatabase**
    - 리소스 그룹: **myResourceGroup**
-   - 원본: **샘플(AdventureWorksLT)**
+   - 소스: **샘플(AdventureWorksLT)**
 
-4. **서버**를 클릭하여 새 데이터베이스에 서버를 만들고 구성합니다. 전역적으로 고유한 서버 이름을 지정하는 **새 서버 형식**을 채우고 서버 관리자 로그인에 이름을 제공한 다음 사용자가 선택한 암호를 지정합니다. 
+   > [!IMPORTANT]
+   > 이 빠른 시작의 나머지 부분에 사용되기 때문에 이 양식에서 샘플 데이터베이스를 선택해야 합니다.
+   > 
+
+4. **서버**를 클릭한 다음 전역적으로 고유한 서버 이름을 지정하는 **새 서버 양식**을 채우고 서버 관리자 로그인에 이름을 제공한 다음 사용자가 선택한 암호를 지정합니다. 
+
+   > [!IMPORTANT]
+   > 여기에 지정한 서버 관리자 로그인 및 암호는 이 빠른 시작의 뒷부분에 나오는 서버 및 데이터베이스에 로그인해야 합니다. 나중에 사용하기 위해 이 정보를 기억하거나 기록합니다. 
+   >  
 
     ![create database-server](./media/sql-database-get-started-portal/create-database-server.png)
-5. **선택**을 클릭합니다.
+5. 양식을 완료하는 경우 **선택**을 클릭합니다.
 
-6. **가격 책정 계층**을 클릭하고 새 데이터베이스의 서비스 계층 및 성능 수준을 지정합니다. 이 빠른 시작의 경우 저장소의 **20 DTU** 및 **250**GB를 선택합니다.
+6. **가격 책정 계층**을 클릭하고 새 데이터베이스의 서비스 계층 및 성능 수준을 지정합니다. 슬라이더를 사용하여 **20DTU** 및 **250**GB의 저장소를 선택합니다. DTU에 대한 자세한 내용은 [DTU란?](sql-database-what-is-a-dtu.md)을 참조하세요.
 
     ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-7. **Apply**를 클릭합니다.  
+7. DTU 크기를 선택한 후에 **적용**을 클릭합니다.  
 
-8. **만들기**를 클릭하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
+8. 이제 SQL Database 양식을 완료했으므로 **만들기**를 클릭하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
 
 9. 도구 모음에서 **알림**을 클릭하여 배포 프로세스를 모니터링합니다.
 
@@ -72,13 +80,26 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 
 방화벽 규칙을 만들어서 특정 IP 주소에 대한 방화벽을 열지 않으면 SQL Database 서비스는 외부 응용 프로그램 및 도구가 서버 또는 서버의 데이터베이스에 연결되지 않도록 방지하는 서버 수준에 방화벽을 만듭니다. 다음 단계에 따라 클라이언트의 IP 주소에 대한 [SQL Database 서버 수준 방화벽 규칙](sql-database-firewall-configure.md)을 만들고 IP 주소에만 SQL Database 방화벽을 통해 외부 연결을 사용하도록 설정합니다. 
 
-1. 배포가 완료되면 왼쪽 메뉴에서 **SQL Database**를 클릭하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 데이터베이스에 대한 개요 페이지가 열리고 이 페이지에 정규화된 서버 이름(예: **mynewserver20170327.database.windows.net**)이 표시되며 추가 구성을 위한 옵션도 제공됩니다.
+> [!NOTE]
+> SQL Database는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다
+>
 
-      ![서버 방화벽 규칙](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+1. 배포가 완료되면 왼쪽 메뉴에서 **SQL Database**를 클릭한 다음 SQL Database 페이지에서 **mySampleDatabase**를 클릭합니다. 데이터베이스에 대한 개요 페이지가 열리고 이 페이지에 정규화된 서버 이름(예: **mynewserver20170411.database.windows.net**)이 표시되며 추가 구성을 위한 옵션도 제공됩니다.
+
+   > [!IMPORTANT]
+   > 이후 빠른 시작에서 서버 및 해당 데이터베이스에 연결하려면 이 정규화된 서버 이름이 필요합니다.
+   > 
+
+      ![서버 이름](./media/sql-database-get-started-portal/server-name.png) 
 
 2. 이전 이미지에 표시된 대로 도구 모음에서 **서버 방화벽 설정**을 클릭합니다. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다. 
 
-3. 도구 모음에서 **클라이언트 IP 추가**를 클릭하고 **저장**을 클릭합니다. 현재 IP 주소에 대한 서버 수준 방화벽 규칙이 생성됩니다.
+      ![서버 방화벽 규칙](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+
+
+3. 도구 모음에서 **클라이언트 IP 추가**를 클릭하여 현재 IP 주소를 새 방화벽 규칙에 추가합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
+
+4. **Save**를 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
       ![set server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
@@ -86,13 +107,12 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 
 이제 SQL Server Management Studio 또는 이전에 만든 서버 관리자 계정을 사용하여 이 IP 주소에서 원하는 다른 도구를 사용하여 SQL Database 서버 및 해당 데이터베이스에 연결할 수 있습니다.
 
-> [!NOTE]
-> SQL Database는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다
->
+> [!IMPORTANT]
+> SQL Database 방화벽을 통한 액세스는 기본적으로 모든 Azure 서비스에 대해 사용됩니다. 이 페이지에서 **끄기**를 클릭하여 모든 Azure 서비스에 대해 사용하지 않도록 설정합니다.
 
 ## <a name="query-the-sql-database"></a>SQL Database 쿼리
 
-SQL Database를 만들 경우 **AdventureWorksLT** 샘플 데이터베이스를 사용하여 채웁니다(이 빠른 시작의 앞부분에 있는 UI 만들기에서 선택한 옵션 중 하나임). 이제 데이터를 쿼리하기 위해 Azure Portal 내에서 기본 제공 쿼리 도구를 사용해 보겠습니다. 
+이제 Azure에서 샘플 데이터베이스를 만들었으므로 Azure Portal 내에서 기본 제공 쿼리 도구를 사용하여 데이터베이스에 연결하고 데이터를 쿼리할 수 있는지 확인해 보겠습니다. 
 
 1. 데이터베이스에 대한 SQL Database 페이지의 도구 모음에서 **도구**를 클릭합니다. **도구** 페이지가 열립니다.
 

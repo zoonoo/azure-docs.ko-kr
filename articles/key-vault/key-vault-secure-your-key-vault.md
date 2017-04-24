@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a28e325e8a7e902a64f8cc267e2f0d3be151bcb3
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -31,7 +31,7 @@ Azure Key Vault는 클라우드 응용 프로그램에 대한 암호화 키와 �
 
 여기서 다루는 항목에 대한 간략한 개요는 다음과 같습니다.
 
-[Azure Active Directory를 통한 인증](#authentication-using-azure-active-direcrory) - 관리 평면과 데이터 평면을 통해 키 자격 증명 모음에 액세스하기 위해 호출자에서 Azure Active Directory를 통해 인증하는 방법을 설명합니다. 
+[Azure Active Directory를 통한 인증](#authentication-using-azure-active-directory) - 관리 평면과 데이터 평면을 통해 키 자격 증명 모음에 액세스하기 위해 호출자에서 Azure Active Directory를 통해 인증하는 방법을 설명합니다. 
 
 [관리 평면 및 데이터 평면](#management-plane-and-data-plane) - 관리 평면과 데이터 평면은 키 자격 증명 모음에 액세스하는 데 사용되는 두 액세스 평면입니다. 각 액세스 평면마다 특정 작업을 지원합니다. 여기서는 각 평면에서 사용하는 액세스 끝점, 지원되는 작업 및 액세스 제어 방법을 설명합니다. 
 

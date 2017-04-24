@@ -28,6 +28,8 @@ Azure VPN 게이트웨이는 온-프레미스 BGP 장치에 다음 경로를 알
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Azure VPN 게이트웨이에 기본 경로(0.0.0.0/0)를 보급할 수 있나요?
 예.
 
+그러면 모든 VNet 송신 트래픽을 온-프레미스 사이트로 강제하고 VNet VM이 인터넷에서 VM으로 RDP 또는 SSH와 같이 인터넷의 공용 통신을 직접 수락하지 않도록 방지하게 됩니다.
+
 ### <a name="can-i-advertise-the-exact-prefixes-as-my-virtual-network-prefixes"></a>가상 네트워크 접두사로 정확한 접두사를 보급할 수 있나요?
 
 아니요. 가상 네트워크 주소 접두사와 동일한 접두사의 보급은 Azure 플랫폼에서 차단되거나 필터링됩니다. 그러나 가상 네트워크 내에 포함된 접두사의 상위 집합에 해당하는 접두사를 보급할 수 있습니다. 
@@ -65,9 +67,4 @@ Azure 로컬 네트워크 게이트웨이는 온-프레미스 네트워크에 �
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>BGP 피어링 세션에 대해 온-프레미스 VPN 장치에 무엇을 추가해야 하나요?
 IPsec S2S VPN 터널을 가리키는 VPN 장치에서 Azure BGP 피어 IP 주소의 호스트 경로를 추가해야 합니다. 예를 들어, Azure VPN 피어 IP가 "10.12.255.30"이라면 VPN 장치에서 일치하는 IPsec 터널 인터페이스의 nexthop 인터페이스와 "10.12.255.30"에 대한 호스트 경로를 추가해야 합니다.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 38fe7818771f6a6965cb324631d0935959576541
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 6c309a14e00324a9335bde61fe175ec3906c066d
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/09/2017
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [Microsoft Visual Studio 2015 이상](http://visualstudio.com). 이 자습서의 스크린샷에서는 Visual Studio 2017을 사용합니다.
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/free/)을 참조하세요.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/free/)을 참조하세요.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs 네임스페이스 및 Event Hub 만들기
 
@@ -119,14 +119,14 @@ ms.lasthandoff: 03/09/2017
      }
      ```
     
-     이 클래스는 이벤트 허브에서 받는 이벤트를 처리하기 위해 **EventProcessorHost** 에서 호출합니다. `SimpleEventProcessor` 클래스는 초시계를 사용하여 **EventProcessorHost** 컨텍스트에서 검사점 메서드를 주기적으로 호출합니다. 따라서 수신기가 다시 시작되는 경우&5;분 이하의 처리 작업은 손실됩니다.
+     이 클래스는 Event Hub에서 받는 이벤트를 처리하기 위해 **EventProcessorHost**에 의해 호출됩니다. `SimpleEventProcessor` 클래스는 초시계를 사용하여 **EventProcessorHost** 컨텍스트에서 검사점 메서드를 주기적으로 호출합니다. 따라서 수신기가 다시 시작되는 경우 5분 이하의 처리 작업은 손실됩니다.
 11. **Program** 클래스에서 파일 맨 위에 다음 `using` 문을 추가합니다.
     
      ```csharp
      using Microsoft.ServiceBus.Messaging;
      ```
     
-     그런 다음 `Program` 클래스의 `Main` 메서드를 다음 코드로 바꾸고 이전에 저장한 이벤트 허브 이름 및 네임스페이스 수준 연결 문자열과 이전 섹션에서 복사한 저장소 계정 및 키를 대체합니다. 
+     그런 다음 `Program` 클래스의 `Main` 메서드를 다음 코드로 바꾸고 이전에 저장한 Event Hub 이름 및 네임스페이스 수준 연결 문자열과 이전 섹션에서 복사한 저장소 계정 및 키를 대체합니다. 
     
      ```csharp
      static void Main(string[] args)
@@ -168,7 +168,7 @@ ms.lasthandoff: 03/09/2017
 [Azure portal]: https://portal.azure.com
 
 ## <a name="next-steps"></a>다음 단계
-이제 이벤트 허브를 만들고 데이터를 보내고 받는 작업 중인 응용 프로그램을 구축했으므로 다음 링크를 방문하여 더 자세히 알아볼 수 있습니다.
+이제 Event Hub를 만들고 데이터를 보내고 받는 작업 중인 응용 프로그램을 구축했으므로 다음 링크를 방문하여 더 자세히 알아볼 수 있습니다.
 
 * [이벤트 프로세서 호스트](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * [Event Hubs 개요][Event Hubs overview]
