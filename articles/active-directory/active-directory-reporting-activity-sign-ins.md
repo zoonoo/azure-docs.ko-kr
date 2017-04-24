@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a63514af636696d168931150cbda2fd30e0b32ce
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: f6c0bb59d9eb16da6c7daea2e722e32ac7dbc2d7
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -44,7 +44,7 @@ Azure Active Directory의 보고 아키텍처는 다음 구성 요소로 구성�
 * 한 주 동안 얼마나 많은 사용자가 로그인했나요?
 * 이러한 로그인의 상태란?
 
-모든 로그인 활동 데이터의 첫 번째 진입점은 **Azure Active Directory**의 [활동] 섹션의 **로그인**입니다. Directory.
+모든 로그인 작업 데이터의 첫 번째 진입점은 **Azure Active**  Directory의 [작업] 섹션에 있는 **로그인**입니다.
 
 
 ![로그인 활동](./media/active-directory-reporting-activity-sign-ins/61.png "로그인 활동")
