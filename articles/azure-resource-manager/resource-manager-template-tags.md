@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 04/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: cec255f5bf017c98fbd1f198a78dfb963acc3cd0
 ms.openlocfilehash: 7d4d325cc1b2d953c766f5381a2e6d4b5805b90c
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -30,10 +31,5 @@ ms.openlocfilehash: 7d4d325cc1b2d953c766f5381a2e6d4b5805b90c
 ## <a name="next-steps"></a>다음 단계
 * 태그 관리에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](resource-group-using-tags.md)을 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

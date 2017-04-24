@@ -51,7 +51,7 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 
 ![두 번째 대화 상자에서 상태 비저장 서비스 프로젝트 만들기](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
-이제 솔루션에는&2;개의 프로젝트가 있습니다.
+이제 솔루션에는 2개의 프로젝트가 있습니다.
 
 * *HelloWorld*. *서비스*가 포함된 *응용 프로그램* 프로젝트입니다. 또한 응용 프로그램을 배포하는 데 도움이 되는 다양한 PowerShell 스크립트 뿐만 아니라 응용 프로그램을 설명하는 응용 프로그램 매니페스트가 포함되어 있습니다.
 * *HelloWorldStateless*. 서비스 프로젝트입니다. 상태 비저장 서비스 구현을 포함합니다.

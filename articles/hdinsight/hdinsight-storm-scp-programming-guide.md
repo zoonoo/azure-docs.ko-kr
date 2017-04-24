@@ -105,7 +105,7 @@ ISCPTxSpout는 트랜잭션 Spout용 인터페이스입니다.
         void Fail(long seqId, Dictionary<string, Object> parms);        
     }
 
-해당하는 비트랜잭션 함수와 마찬가지로 `NextTx()`, `Ack()` 및 `Fail()`은 모두 C\# 프로세스 내 단일 스레드의 조밀한 루프에서 호출됩니다. 내보낼 데이터가 없으면 CPU를 너무 많이 낭비하지 않도록&10;밀리초 등의 짧은 시간 동안 `NextTx` 을(를) 유휴 상태로 유지하는 것이 좋습니다.
+해당하는 비트랜잭션 함수와 마찬가지로 `NextTx()`, `Ack()` 및 `Fail()`은 모두 C\# 프로세스 내 단일 스레드의 조밀한 루프에서 호출됩니다. 내보낼 데이터가 없으면 CPU를 너무 많이 낭비하지 않도록 10밀리초 등의 짧은 시간 동안 `NextTx` 을(를) 유휴 상태로 유지하는 것이 좋습니다.
 
 `NextTx()`을(를) 호출하여 새 트랜잭션을 시작하고 출력 매개 변수 `seqId`을(를) 사용하여 트랜잭션을 식별하며 `Ack()` 및 `Fail()`에서도 사용됩니다. 사용자는 `NextTx()`에서 Java 쪽으로 데이터를 내보낼 수 있습니다. 재생을 지원하기 위해 데이터는 ZooKeeper에 저장됩니다. ZooKeeper의 용량은 매우 제한되어 있으므로 사용자는 트랜잭션 Spout에서 데이터를 대량으로 내보내서는 안 되며 메타데이터만 내보내야 합니다.
 
@@ -558,7 +558,7 @@ SCP 구성 요소는 Java 쪽과 C\# 쪽을 포함합니다. 네이티브 Java S
         "output.schema" {"default" ["sentence"]}
       })
 
-여기에서 `plugin.name`은(는) SCP SDK에서 제공된 `SCPHost.exe`(으)로 지정됩니다. SCPHost.exe는 정확히&3;개의 매개 변수를 허용합니다.
+여기에서 `plugin.name`은(는) SCP SDK에서 제공된 `SCPHost.exe`(으)로 지정됩니다. SCPHost.exe는 정확히 3개의 매개 변수를 허용합니다.
 
 1. 첫 번째 매개 변수는 DLL 이름으로, 이 예에서는 `"HelloWorld.dll"` 입니다.
 2. 두 번째 매개 변수는 Class 이름으로, 이 예에서는 `"Scp.App.HelloWorld.Generator"` 입니다.
@@ -568,7 +568,7 @@ SCP 구성 요소는 Java 쪽과 C\# 쪽을 포함합니다. 네이티브 Java S
 
 ## <a name="scp-programming-examples"></a>SCP 프로그래밍 예제
 ### <a name="helloworld"></a>HelloWorld
-**HelloWorld** 는 SCP.Net의 사용법을 확인할 수 있는 매우 간단한 예제입니다. 여기에는 **generator**라는 Spout와 **splitter** 및 **counter**라는 Bolt&2;개가 포함된 비트랜잭션 토폴로지가 사용됩니다. **generator** Spout는 일부 문장을 임의로 생성하여 **splitter**로 내보냅니다. **splitter** Bolt는 이러한 문장을 단어로 분할한 다음 **counter** Bolt로 단어를 내보냅니다. "counter" Bolt는 사전을 사용하여 각 단어가 나오는 횟수를 기록합니다.
+**HelloWorld** 는 SCP.Net의 사용법을 확인할 수 있는 매우 간단한 예제입니다. 여기에는 **generator**라는 Spout와 **splitter** 및 **counter**라는 Bolt 2개가 포함된 비트랜잭션 토폴로지가 사용됩니다. **generator** Spout는 일부 문장을 임의로 생성하여 **splitter**로 내보냅니다. **splitter** Bolt는 이러한 문장을 단어로 분할한 다음 **counter** Bolt로 단어를 내보냅니다. "counter" Bolt는 사전을 사용하여 각 단어가 나오는 횟수를 기록합니다.
 
 이 예제에는 **HelloWorld.spec** 및 **HelloWorld\_EnableAck.spec**의 두 가지 사양 파일이 있습니다. C\# 코드는 Java 쪽에서 pluginConf를 가져와 승인이 사용되는지 여부를 확인할 수 있습니다.
 
@@ -602,7 +602,7 @@ SCP 구성 요소는 Java 쪽과 C\# 쪽을 포함합니다. 네이티브 Java S
 ### <a name="helloworldtx"></a>HelloWorldTx
 **HelloWorldTx** 예제에서는 트랜잭션 토폴로지 구현 방법을 보여 줍니다. 이 예제에는 **generator** Spout, **partial-count** Batch Bolt 및 **count-sum** Commit Bolt가 있습니다. 또한 미리 작성된 txt 파일 **DataSource0.txt**, **DataSource1.txt** 및 **DataSource2.txt**의 세 개가 있습니다.
 
-각 트랜잭션에서 **generator** Spout는 미리 작성된&3;개 파일 중&2;개를 임의로 선택하여 이 두 파일 이름을 **partial-count** Bolt로 내보냅니다. 그러면 **partial-count** Batch Bolt는 먼저 수신된 튜플에서 파일 이름을 가져온 다음 파일을 열고 해당 파일의 단어 수를 계산합니다. 그리고 마지막으로 단어 수를 **count-sum** Bolt로 내보냅니다. **count-sum** Bolt는 총 단어 개수의 요약을 표시합니다.
+각 트랜잭션에서 **generator** Spout는 미리 작성된 3개 파일 중 2개를 임의로 선택하여 이 두 파일 이름을 **partial-count** Bolt로 내보냅니다. 그러면 **partial-count** Batch Bolt는 먼저 수신된 튜플에서 파일 이름을 가져온 다음 파일을 열고 해당 파일의 단어 수를 계산합니다. 그리고 마지막으로 단어 수를 **count-sum** Bolt로 내보냅니다. **count-sum** Bolt는 총 단어 개수의 요약을 표시합니다.
 
 **정확히 한 번** 의미 체계를 적용하려면 Commit Bolt **count-sum**은 해당 트랜잭션이 재생된 트랜잭션인지 여부를 판단해야 합니다. 이 예제에서는 "count-sum"에 정적 멤버 변수가 있습니다.
 

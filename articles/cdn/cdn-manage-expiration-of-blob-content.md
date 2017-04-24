@@ -31,7 +31,7 @@ ms.lasthandoff: 03/21/2017
 [Azure Storage](../storage/storage-introduction.md#blob-storage)에서 [Blob 서비스](../storage/storage-introduction.md)는 Azure CDN과 통합된 여러 Azure 기반 원본 중 하나입니다.  TTL(time-to-live)이 경과할 때까지 공개적으로 액세스 가능한 모든 Blob 콘텐츠는 Azure CDN에 캐시될 수 있습니다.  TTL은 Azure Storage의 HTTP 응답에 있는 [*캐시 제어* 헤더](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) 에 의해 결정됩니다.
 
 > [!TIP]
-> Blob에 TTL을 설정하지 않을 수 있습니다.  이 경우에 Azure CDN은 기본 TTL인&7;일을 자동으로 적용합니다.
+> Blob에 TTL을 설정하지 않을 수 있습니다.  이 경우에 Azure CDN은 기본 TTL인 7일을 자동으로 적용합니다.
 > 
 > Blob 및 다른 파일에 대한 액세스 속도를 가속하기 위해 Azure CDN이 작동하는 방법에 대한 자세한 내용은 [Azure CDN 개요](cdn-overview.md)를 참조하세요.
 > 
@@ -101,7 +101,7 @@ class Program
 ## <a name="other-methods"></a>다른 방법
 * [Azure 명령줄 인터페이스](../cli-install-nodejs.md)
   
-    Blob을 업로드하는 경우 `-p` 전환을 사용하여 *cacheControl* 속성을 설정합니다.  이 예제에서는 TTL을&1;시간(3600초)으로 설정합니다.
+    Blob을 업로드하는 경우 `-p` 전환을 사용하여 *cacheControl* 속성을 설정합니다.  이 예제에서는 TTL을 1시간(3600초)으로 설정합니다.
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt

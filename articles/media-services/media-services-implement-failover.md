@@ -57,7 +57,7 @@ ms.lasthandoff: 03/15/2017
 > 
 
 ## <a name="prerequisites"></a>필수 조건
-* 신규 또는 기존 Azure 구독의 Media Services 계정&2;개. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
+* 신규 또는 기존 Azure 구독의 Media Services 계정 2개. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * 운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8.
 * .NET Framework 4.5 또는 .NET Framework 4
 * Visual Studio 2010 SP1 또는 later version (Professional, Premium, Ultimate, 또는 Express).
