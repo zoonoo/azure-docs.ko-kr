@@ -16,9 +16,9 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: 271f447a36f42330ed7b8dea78b32c06eebdeda6
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: e5ef305d926a57e32cdebd44f3dbe2185c735dd4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -40,6 +40,7 @@ ms.lasthandoff: 02/17/2017
 클래식 모드에서 Resource Manager 모드로 VM을 마이그레이션하는 경우 백업 자격 증명 모음에 있는 클래식 VM을 백업하는 작업은 복구 서비스 자격 증명 모음에 자동으로 마이그레이션되지 않습니다. VM 백업의 마이그레이션을 위한 다음 단계를 따르세요.
 
 1. 백업 자격 증명 모음에서 **보호된 항목** 탭으로 이동하고 VM을 선택합니다. [보호 중지](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)를 클릭합니다. *연결된 백업 데이터 삭제* 옵션을 **검사하지 않음**으로 둡니다.
-2. 클래식 모드에서 Resource Manager 모드로 가상 컴퓨터를 마이그레이션합니다. 가상 컴퓨터에 해당하는 저장소 및 네트워크가 Resource Manager 모드로 마이그레이션되도록 합니다.
-3. 자격 증명 모음 대시보드를 기반으로 **백업** 작업을 사용하여 복구 서비스 자격 증명 모음을 만들고 마이그레이션된 가상 컴퓨터에 백업을 구성합니다. [복구 서비스 자격 증명 모음에서 백업을 사용하도록 설정](backup-azure-vms-first-look-arm.md)
+2. [Azure Portal](https://portal.azure.com)에서 VM에 대한 **확장** 메뉴로 이동하고 **VMSnapshot/VMSnapshotLinux** 확장을 제거합니다.
+3. 클래식 모드에서 Resource Manager 모드로 가상 컴퓨터를 마이그레이션합니다. 가상 컴퓨터에 해당하는 저장소 및 네트워크가 Resource Manager 모드로 마이그레이션되도록 합니다.
+4. 자격 증명 모음 대시보드를 기반으로 **백업** 작업을 사용하여 복구 서비스 자격 증명 모음을 만들고 마이그레이션된 가상 컴퓨터에 백업을 구성합니다. [복구 서비스 자격 증명 모음에서 백업을 사용하도록 설정](backup-azure-vms-first-look-arm.md)
 

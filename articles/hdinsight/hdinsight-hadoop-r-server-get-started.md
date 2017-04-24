@@ -13,34 +13,43 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/28/2017
+ms.date: 04/13/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: f816a6972c0e80c6a7063705917ecf18debc75f6
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>HDInsight에서 R 서버 사용 시작
+
 HDInsight에는 HDInsight 클러스터에 통합되는 R Server 옵션이 포함되어 있습니다. 이를 통해 R 스크립트에서 Spark 및 MapReduce를 사용하여 분산된 계산을 실행할 수 있습니다. 이 문서에서는 HDInsight 클러스터에서 R Server를 만든 다음 R 스크립트를 실행하여 분산된 R 계산에 Spark를 사용하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* **Azure 구독**: 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. 자세한 내용은 [Azure 무료 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)로 이동합니다.
+
+* **Azure 구독**: 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. 자세한 내용은 [Azure 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) 문서로 이동합니다.
 * **SSH(보안 셸) 클라이언트**: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* **SSH 키(선택 사항)**: 암호 또는 공개 키를 사용하여 클러스터에 연결할 때 사용되는 SSH 계정을 보호할 수 있습니다. 암호를 사용하면 작업이 보다 간편하며, 공개/개인 키 쌍을 만들지 않고도 시작할 수 있습니다. 하지만 키를 사용하는 것이 더 안전합니다.
 
-  * **SSH 키(선택 사항)**: 암호 또는 공개 키를 사용하여 클러스터에 연결할 때 사용되는 SSH 계정을 보호할 수 있습니다. 암호를 사용하면 작업이 보다 간편하며, 공개/개인 키 쌍을 만들지 않고도 시작할 수 있습니다. 하지만 키를 사용하는 것이 더 안전합니다.
+> [!NOTE]
+> 이 문서의 단계에서는 암호를 사용하는 것으로 가정합니다.
 
-      이 문서의 단계에서는 암호를 사용하는 것으로 가정합니다.
 
 ### <a name="access-control-requirements"></a>액세스 제어 요구 사항
+
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## <a name="create-the-cluster"></a>클러스터 만들기
-> [!NOTE]
-> 이 문서의 단계에서는 기본 구성 정보를 사용하여 HDInsight 클러스터에서 R Server를 만드는 방법을 안내합니다. 기타 클러스터 구성 설정(예: 저장소 계정 추가, Azure 가상 네트워크 사용 또는 Hive용 Metastore 만들기)에 대한 자세한 내용은 [Linux 기반 HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. Azure 리소스 관리 템플릿을 사용하여 R 서버를 만들려면 [R 서버 HDInsight 클러스터 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/)를 참조하세요.
->
->
+## <a name="automated-cluster-creation"></a>자동화된 클러스터 생성
+
+ARM 템플릿, SDK 및 PowerShell을 사용하여 HDInsight R 서버 생성을 자동화할 수 있습니다.
+
+* Azure 리소스 관리 템플릿을 사용하여 R 서버를 만들려면 [R 서버 HDInsight 클러스터 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/)를 참조하세요.
+* .NET SDK를 사용하여 R 서버를 만들려면 [.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)를 참조하세요.
+* PowerShell을 사용하여 R 서버를 배포하려면 [PowerShell을 사용하여 HDInsight에서 R 서버 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) 문서를 참조하세요.
+
+
+## <a name="create-the-cluster-using-the-azure-portal"></a>Azure Portal을 사용하여 클러스터 만들기
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
@@ -164,6 +173,7 @@ HDInsight에는 HDInsight 클러스터에 통합되는 R Server 옵션이 포함
    > 방법과 상관없이 처음 로그인 할 때는 두 번 인증해야 합니다.  첫 번째 인증에서 클러스터 관리자 사용자 ID와 암호를 제공하고, 두 번째 프롬프트에서 SSH 사용자 ID와 암호를 제공합니다. 후속 로그인에서는 SSH 사용자 ID와 암호만 필요합니다.
 
 ## <a name="connect-to-the-r-server-edge-node"></a>R 서버 가장자리 노드에 연결
+
 SSH를 사용하여 HDInsight 클러스터의 R 서버 가장자리 노드에 연결합니다.
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
@@ -225,6 +235,7 @@ WASB 스타일 주소 지정을 사용할 수도 있습니다.
 `rxHadoopListFiles("wasbs:///")`
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Microsoft R Server 또는 Microsoft R 클라이언트의 원격 인스턴스에서 HDI의 R Server 사용
+
 클러스터에 액세스하기 위한 공개/개인 키 쌍 사용과 관련하여 위의 섹션에서 데스크톱 또는 랩톱 컴퓨터 상에 실행되는 Microsoft R Server 또는 Microsoft R 클라이언트의 원격 인스턴스에서 HDI Hadoop Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다(온라인 [RevoScaleR Hadoop Spark 시작 가이드](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)의 [Spark용 계산 컨텍스트 만들기](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) 섹션에서 Hadoop 클라이언트인 Microsoft R Server 만들기를 참조).  이렇게 하려면 랩톱 컴퓨터에서 RxSpark 계산 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript와 같은 옵션을 지정해야 합니다. 예:
 
 ```
@@ -253,6 +264,7 @@ WASB 스타일 주소 지정을 사용할 수도 있습니다.
 
 
 ## <a name="use-a-compute-context"></a>계산 컨텍스트 사용
+
 계산 컨텍스트를 사용하여 계산을 가장자리 노드에서 로컬로 수행할지 여부 또는 HDInsight 클러스터의 노드 간에 분산할지 여부를 제어할 수 있습니다.
 
 1. RStudio Server 또는 R 콘솔(SSH 세션)에서 다음을 사용하여 HDInsight의 기본 저장소에 예제 데이터를 로드합니다.
@@ -376,6 +388,7 @@ WASB 스타일 주소 지정을 사용할 수도 있습니다.
 
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>여러 노드에 R 코드 분산
+
 R Server를 사용하면 손쉽게 기존 R 코드를 가져와 `rxExec`를 통해 클러스터의 여러 노드에서 실행할 수 있습니다. 이는 매개 변수 스윕 또는 시뮬레이션을 수행할 때 유용합니다. 다음은 `rxExec`를 사용하는 방법에 대한 예입니다.
 
 `rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )`
@@ -402,6 +415,7 @@ R Server를 사용하면 손쉽게 기존 R 코드를 가져와 `rxExec`를 통�
     ```
 
 ## <a name="accessing-data-in-hive-and-parquet"></a>Hive 및 Parquet의 데이터 액세스
+
 R Server 9.0 이상에서 제공되는 새로운 기능을 사용하면 Spark 계산 컨텍스트의 ScaleR 함수에서 Hive 및 Parquet의 데이터에 직접 액세스하여 사용할 수 있습니다. 이러한 기능은 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 소스 함수를 통해 사용할 수 있습니다. 이 함수는 Spark SQL을 사용하여 Spark DataFrame에 데이터를 직접 로드하여 ScaleR을 통해 분석합니다.  
 
 다음은 새 기능을 사용하는 일부 샘플 코드를 제공합니다.
@@ -456,6 +470,7 @@ R Server 9.0 이상에서 제공되는 새로운 기능을 사용하면 Spark �
 
 
 ## <a name="install-r-packages"></a>R 패키지 설치
+
 SSH를 통해 에지 노드에 연결한 경우 에지 노드에 추가 R 패키지를 설치하려면 R 콘솔 내에서 직접 `install.packages()`를 사용할 수 있습니다. 그러나 클러스터의 작업자 노드에 R 패키지를 설치해야 하는 경우에는 스크립트 작업을 사용해야 합니다.
 
 스크립트 작업은 HDInsight 클러스터에 대한 구성을 변경하거나 추가 소프트웨어를 설치하는 데 사용되는 Bash 스크립트입니다. 여기서는 추가 R 패키지를 설치하는 데 사용됩니다. 스크립트 작업을 사용하여 추가 패키지를 설치하려면 다음 단계를 사용하세요.
@@ -501,6 +516,7 @@ SSH를 통해 에지 노드에 연결한 경우 에지 노드에 추가 R 패키
 4. **만들기** 를 선택하여 스크립트를 실행합니다. 스크립트가 완료되면 모든 작업자 노드에서 R 패키지를 사용할 수 있습니다.
 
 ## <a name="using-microsoft-r-server-operationalization"></a>Microsoft R Server 조작화 사용
+
 데이터 모델링이 완료되면 모델 조작화를 수행하여 예측할 수 있습니다. Microsoft R Server 조작화를 구성하려면 다음 단계를 수행합니다.
 
 먼저 ssh를 에지 노드로 실행합니다. 예: ```ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net```
@@ -514,16 +530,16 @@ ssh를 사용한 후 디렉터리를 다음 디렉터리로 변경하고 아래�
 
 One-box 구성으로 Microsoft R Server 조작화를 구성하려면 다음을 수행합니다.
 
-* "1.  Configure R Server for Operationalization"(R Server 조작화 구성)을 선택합니다.
-* "A.  One-box (web + compute nodes)"(One-box(웹 + 계산 노드))를 선택합니다.
+* "1.  R Server 조작화 구성"을 선택합니다.
+* "A.  One-box(웹 + 계산 노드)"를 선택합니다.
 * **admin**(관리자) 사용자의 암호를 입력합니다.
 
 ![one-box 조작화](./media/hdinsight-hadoop-r-server-get-started/admin-util-one-box-.png)
 
 선택적 단계로 아래와 같이 진단 테스트를 실행하여 진단 검사를 수행할 수 있습니다.
 
-* "6.  Run diagnostic tests"(진단 테스트 실행)를 선택합니다.
-* "A.  Test configuration"(구성 테스트)을 선택합니다.
+* "6.  진단 테스트 실행"을 선택합니다.
+* "A.  구성 테스트"를 선택합니다.
 * 위의 구성 단계에서 사용자 이름("admin")과 암호를 입력합니다.
 * Confirm Overall Health(전체 상태 확인)이 pass(합격)인지 확인합니다.
 * 관리 유틸리티를 종료합니다.
@@ -577,6 +593,7 @@ remoteLogin(
 
 
 ### <a name="decommission-the-worker-nodes"></a>작업자 노드 서비스 해제
+
 Microsoft R Server는 현재 Yarn을 통해 관리되지 않습니다. 작업자 노드 서비스를 해제하지 않으면 Yarn 리소스 관리자가 서버에서 사용하는 리소스를 인식하지 못하기 때문에 예상대로 작동하지 않습니다. 이 문제를 방지하려면 계산 노드의 크기를 조정할 위치에 있는 작업자 노드의 서비스를 해제하는 것이 좋습니다.
 
 작업자 노드 서비스를 해제하는 단계는 다음과 같습니다.
@@ -599,11 +616,12 @@ Microsoft R Server는 현재 Yarn을 통해 관리되지 않습니다. 작업자
 
 * ssh를 서비스 해제된 각 작업자 노드로 실행합니다.
 * `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`을 사용하여 관리 유틸리티를 실행합니다.
-* "1"을 입력하여 "1.  Configure R Server for Operationalization" 옵션을 선택합니다.
-* "c"를 입력하여 "C.  Compute node"(계산 노드) 옵션을 선택합니다. 그러면 작업자 노드에 계산 노드가 구성됩니다.
+* "1"을 입력하여 "1.  운영을 위해 R 서버 구성" 옵션을 선택합니다.
+* "c"를 입력하여 "C.  계산 노드" 옵션을 선택합니다. 그러면 작업자 노드에 계산 노드가 구성됩니다.
 * 관리 유틸리티를 종료합니다.
 
 ### <a name="add-compute-nodes-details-on-web-node"></a>웹 노드에 계산 노드 세부 정보 추가
+
 서비스 해제된 모든 작업자 노드에서 계산 노드를 실행하도록 구성한 후에는 에지 노드로 돌아가서 Microsoft R Server 웹 노드 구성에 서비스 해제된 작업자 노드의 IP 주소를 추가합니다.
 
 * ssh를 에지 노드로 실행합니다.
@@ -613,6 +631,7 @@ Microsoft R Server는 현재 Yarn을 통해 관리되지 않습니다. 작업자
 ![작업자 노드 서비스 해제 명령줄](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
 
 ## <a name="next-steps"></a>다음 단계
+
 이제 R 서버를 포함하는 새 HDInsight 클러스터를 만드는 방법 및 SSH 세션에서 R 콘솔 사용 기본 사항을 이해했으므로 다음을 사용하여 HDInsight에서 R 서버로 작업하는 다른 방법을 확인할 수 있습니다.
 
 * [HDInsight에 RStudio Server 추가(클러스터 생성 동안 설치되지 않은 경우)](hdinsight-hadoop-r-server-install-r-studio.md)

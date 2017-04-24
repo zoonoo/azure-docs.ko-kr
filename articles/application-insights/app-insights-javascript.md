@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: c4e1ecc824b09fd7523cdc7a29559adca19488f3
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a06ba41193f00f4aa2c7af4e5430ed15f9bb877c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -108,7 +108,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 ![Portal.azure.com에서 앱의 리소스 열고 설정, 브라우저를 클릭합니다.](./media/app-insights-javascript/03.png)
 
-*아직 아무 데이터도 없나요? 페이지 위쪽에서**새로 고침**을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](app-insights-troubleshoot-faq.md)을 참조하세요.*
+*아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침**을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](app-insights-troubleshoot-faq.md)을 참조하세요.*
 
 브라우저 블레이드는 미리 설정된 필터와 차트를 선택할 수 있는 [메트릭 탐색기 블레이드](app-insights-metrics-explorer.md)입니다. 원하는 경우 시간 범위, 필터 및 차트 구성을 편집하고 즐겨찾기로 결과를 저장할 수 있습니다. **기본값 복원** 을 클릭하여 원래 블레이드 구성으로 돌아갑니다.
 
@@ -230,6 +230,6 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP/HTTPS 호�
 ## <a name="next"></a> 다음 단계
 * [사용 현황 추적](app-insights-web-track-usage.md)
 * [사용자 지정 이벤트 및 메트릭](app-insights-api-custom-events-metrics.md)
-* [빌드 - 측정 - 학습](app-insights-overview-usage.md)
+* [빌드 - 측정 - 학습](app-insights-web-track-usage.md)
 
 
