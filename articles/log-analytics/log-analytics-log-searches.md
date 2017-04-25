@@ -382,7 +382,7 @@ Type=Perf  ObjectName:Processor  InstanceName:_Total  CounterName:"% Processor T
 Type=Perf AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03")
 ```
 
-컴퓨터가 있으므로 또한&2;개의 핵심 성과 지표 (KPI) 즉, CPU 사용량 % 및 % 사용 가능한 디스크 공간을 선택하려 합니다. 따라서 쿼리의 부분은 다음과 같이 됩니다.
+컴퓨터가 있으므로 또한 2개의 핵심 성과 지표 (KPI) 즉, CPU 사용량 % 및 % 사용 가능한 디스크 공간을 선택하려 합니다. 따라서 쿼리의 부분은 다음과 같이 됩니다.
 
 ```
 Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS
@@ -442,7 +442,7 @@ Type=Perf  CounterName="% Processor Time"  InstanceName="_Total" | Measure Avg(C
 
 Microsoft System Center Operations Manager에 익숙하다면 where 명령을 관리 팩 측면에서 생각할 수 있습니다. 예제가 규칙인 경우 쿼리의 첫번째 부분이 데이터 원본이고 where 명령은 조건 검색입니다.
 
-**내 대시보드**에서 컴퓨터 CPU가 과도하게 사용되는 경우 참조하는 모니터로서 쿼리를 타일로 사용할 수 있습니다. 대시보드에 대해 자세히 알아보려면 [Log Analytics에서 사용자 지정 대시보드 만들기](log-analytics-dashboards.md)를 참조하세요. 또한 모바일 앱을 사용하여 대시보드를 만들고 사용할 수 있습니다. 자세한 내용은 [OMS Mobile App](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)(OMS 모바일 앱)을 참조하세요. 다음 이미지의 아래쪽 두 타일에서 목록을 표시한 모니터를 숫자로 볼 수 있습니다 . 기본적으로 항상 수는&0;으로, 목록은 비어 있어야 합니다. 그렇지 않은 경우 경고 조건을 나타냅니다. 필요한 경우 이것을 사용하여 압력을 받는 컴퓨터를 볼 수 있습니다.
+**내 대시보드**에서 컴퓨터 CPU가 과도하게 사용되는 경우 참조하는 모니터로서 쿼리를 타일로 사용할 수 있습니다. 대시보드에 대해 자세히 알아보려면 [Log Analytics에서 사용자 지정 대시보드 만들기](log-analytics-dashboards.md)를 참조하세요. 또한 모바일 앱을 사용하여 대시보드를 만들고 사용할 수 있습니다. 자세한 내용은 [OMS Mobile App](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)(OMS 모바일 앱)을 참조하세요. 다음 이미지의 아래쪽 두 타일에서 목록을 표시한 모니터를 숫자로 볼 수 있습니다 . 기본적으로 항상 수는 0으로, 목록은 비어 있어야 합니다. 그렇지 않은 경우 경고 조건을 나타냅니다. 필요한 경우 이것을 사용하여 압력을 받는 컴퓨터를 볼 수 있습니다.
 
 ![모바일 대시보드](./media/log-analytics-log-searches/oms-search-mobile.png)
 
