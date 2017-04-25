@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c173f1b6937739f662eb41aa1886e66cb06ed729
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -41,12 +41,13 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
-3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사합니다.
+3. 데이터베이스의 **개요** 페이지에서 아래 이미지와 같이 정규화된 서버 이름을 검토합니다. 서버 이름 위로 마우스를 가져가면 **복사하려면 클릭** 옵션이 표시됩니다.
 
    ![연결 정보](./media/sql-database-connect-query-ssms/connection-information.png) 
 
+4. Azure SQL Database 서버의 로그인 정보를 잊어버린 경우 SQL Database 서버 페이지로 이동하여 서버 관리자 이름을 확인하고 필요한 경우 암호를 다시 설정합니다. 
 
-## <a name="connect-to-the-server-and-your-new-database"></a>서버와 새 데이터베이스에 연결
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>SQL Database 논리 서버의 데이터베이스에 연결
 
 SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결합니다. 
 
@@ -65,7 +66,7 @@ SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결
 
    ![서버 연결](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. **옵션**을 클릭합니다. **데이터베이스에 연결** 섹션에서 **mySampleDatabase**를 입력하여 이전에 만든 데이터베이스에 연결합니다.
+3. **서버에 연결** 대화 상자에서 **옵션**을 클릭합니다. **데이터베이스에 연결** 섹션에서 **mySampleDatabase**를 입력하여 이 데이터베이스에 연결합니다.
 
    ![서버에서 db에 연결](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -73,7 +74,7 @@ SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결
 
    ![연결된 서버](./media/sql-database-connect-query-ssms/connected.png)  
 
-4. 개체 탐색기에서 **데이터베이스**를 확장한 다음 **mySampleDatabase**를 확장하여 샘플 데이터베이스에 있는 개체를 봅니다.
+5. 개체 탐색기에서 **데이터베이스**를 확장한 다음 **mySampleDatabase**를 확장하여 샘플 데이터베이스에 있는 개체를 봅니다.
 
 ## <a name="query-data"></a>쿼리 데이터
 
@@ -91,7 +92,7 @@ SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결
 
 3. 도구 모음에서 **실행**을 클릭하여 Product 및 ProductCategory 테이블에서 데이터를 검색합니다.
 
-    <img src="./media/sql-database-connect-query-ssms/query.png" alt="query" style="width: 780px;" />
+    ![쿼리](./media/sql-database-connect-query-ssms/query.png)
 
 ## <a name="insert-data"></a>데이터 삽입
 

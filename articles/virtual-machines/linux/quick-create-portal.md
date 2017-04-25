@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/03/2017
+ms.date: 04/13/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 25ffd1c5bf289fa98a4b350eb916b386eee7f05c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: ab29f01980bc7c3a8f12aaa55ff35baa3bf3f9fb
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 
 Azure Portal을 통해 Azure Virtual Machines를 만들 수 있습니다. 이 메서드는 가상 컴퓨터 및 관련된 모든 리소스를 만들고 구성하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작은 Azure Portal을 사용하여 가상 컴퓨터를 만드는 과정을 설명합니다.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 ## <a name="create-ssh-key-pair"></a>SSH 키 쌍 만들기
 
@@ -52,9 +52,9 @@ Azure Portal(http://portal.azure.com)에 로그인합니다.
 
     ![포털 블레이드에서 VM에 대한 기본 정보 입력](./media/quick-create-portal/create-vm-portal-basic-blade.png)  
 
-4. VM의 크기를 선택하고 **선택**을 클릭합니다. 
+4. VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 **지원되는 디스크 형식** 필터를 변경합니다. 
 
-    ![포털 블레이드에서 VM에 대한 크기 선택](./media/quick-create-portal/create-vm-portal-size-blade.png)
+    ![VM 크기를 보여 주는 스크린샷](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
 5. 설정 블레이드의 **Managed Disks 사용**에서 **예**를 선택하고 나머지 설정에 대해 기본값을 그대로 적용한 후 **확인**을 클릭합니다.
 
@@ -71,7 +71,7 @@ Azure Portal(http://portal.azure.com)에 로그인합니다.
 2. 리소스 그룹의 블레이드에 있는 리소스 목록에서 **네트워크 보안 그룹**을 클릭합니다. NSG 이름은 끝에 -nsg가 추가된 VM 이름이어야 합니다.
 3. **인바운드 보안 규칙** 머리글을 클릭하여 인바운드 규칙의 목록을 엽니다. 이미 목록에서 RDP의 규칙이 표시됩니다.
 4. **+ 추가**를 클릭하여 **인바운드 보안 규칙 추가** 블레이드를 엽니다.
-5. **이름**에서 **nginx**를 입력하고 **포트 범위**가 80으로 설정되고 **작업**이 **허용**으로 설정되었는지 확인한 다음 **확인**을 클릭합니다.
+5. **이름**에서 **nginx**를 입력합니다. **포트 범위**를 80으로 설정하고 **작업**을 **허용**으로 설정해야 합니다. **확인**을 클릭합니다.
 
 
 ## <a name="connect-to-virtual-machine"></a>가상 컴퓨터에 연결
@@ -104,7 +104,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-ngix-welcome-page"></a>NGIX 시작 페이지 보기
 
-NGINX를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 사용자가 선택한 웹 브라우저를 사용하여 기본 NGINX 시작 페이지를 볼 수 있습니다. 위에 설명한 `publicIpAddress`을 사용하여 기본 페이지를 방문해야 합니다. 
+NGINX를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 사용자가 선택한 웹 브라우저를 사용하여 기본 NGINX 시작 페이지를 볼 수 있습니다. 설명한 `publicIpAddress`을 사용하여 기본 페이지를 방문해야 합니다. 
 
 ![NGINX 기본 사이트](./media/quick-create-cli/nginx.png) 
 ## <a name="delete-virtual-machine"></a>가상 컴퓨터 삭제

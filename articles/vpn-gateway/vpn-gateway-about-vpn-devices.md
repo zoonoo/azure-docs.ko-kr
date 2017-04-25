@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 03ba7f0df69da073fd876fc4c06121952e594a02
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: d7c4c5b118dade39bd47ae2c7836157589fcb45a
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -33,21 +33,21 @@ VPN Gateway를 사용하여 S2S(사이트 간) 크로스-프레미스 VPN 연결
 
 ###<a name="items-to-note-when-viewing-the-tables"></a>테이블 확인 시 주의 사항:
 
-* Azure VPN 게이트웨이에 대한 용어가 변경되었습니다. 기능은 변경되지 않고 이름만 변경됩니다.
+* Azure VPN 게이트웨이에 대한 용어가 변경되었습니다. 기능이 변경되지 않았습니다. 이름만 변경됩니다.
   * 정적 라우팅 = 정책 기반
   * 동적 라우팅 = 경로 기반
 * 고성능 VPN Gateway 및 경로 기반 VPN Gateway에 대한 사양은 별도로 언급하지 않는 한 동일합니다. 예를 들어 경로 기반 VPN Gateway와 호환되는 확인된 VPN 장치는 Azure 고성능 VPN Gateway와도 호환됩니다.
 
 > [!NOTE]
-> 사이트 간 연결을 구성할 때 VPN 장치에 공용 IPv4 IP 주소가 필요합니다.                                                                                                                                                                               
+> 사이트 간 연결을 구성할 때 VPN 장치에 공용 IPv4 IP 주소가 필요합니다.
+>                
 
-
-## <a name="devicetable"></a>확인된 VPN 장치
+## <a name="devicetable"></a>확인된 VPN 장치 및 장치 구성 가이드
 장치 공급업체와 협력하여 표준 VPN 장치의 유효성을 검사했습니다. 다음 목록에 포함된 장치 제품군의 모든 장치는 Azure VPN 게이트웨이에서 작동해야 합니다. 구성할 솔루션에 대해 만들어야 하는 게이트웨이 유형을 확인하려면 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md) 를 참조하세요.
 
-VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크를 참조하세요.  구성 지침에 대한 링크가 가장 효율적으로 제공됩니다. VPN 장치 지원은 장치 제조업체에 문의하세요.
+VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크를 참조하세요. 구성 지침에 대한 링크가 가장 효율적으로 제공됩니다. VPN 장치 지원은 장치 제조업체에 문의하세요.
 
-|**공급업체**          |**장치 패밀리**     |**최소 OS 버전** |**정책 기반** |**경로 기반** |
+|**공급업체**          |**장치 패밀리**     |**최소 OS 버전** |**정책 기반 구성 지침** |**경로 기반 구성 지침** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |호환되지 않음  |[구성 가이드](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
 | Allied Telesis     |AR 시리즈 VPN 라우터 |2.9.2                  |곧 출시됩니다     |호환되지 않음  |
@@ -81,7 +81,7 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 ## <a name="editing"></a>장치 구성 샘플 편집
 제공된 VPN 장치 구성 샘플을 다운로드한 후 환경에 대한 설정을 반영하기 위해 일부 값을 바꿔야 합니다.
 
-###<a name="to-edit-a-sample"></a>샘플을 편집하려면
+### <a name="to-edit-a-sample"></a>샘플을 편집하려면
 
 1. 메모장을 사용하여 샘플을 엽니다.
 2. 모든 <*text*> 문자열을 검색하여 환경에 관련된 값으로 바꿉니다. < 및 >를 포함해야 합니다. 이름을 지정할 때 선택하는 이름은 고유해야 합니다. 명령이 작동하지 않는 경우 해당 장치 제조업체 설명서를 참조하세요.
@@ -106,7 +106,7 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 > 
 >
 
-아래 표에:
+다음 테이블에서
 
 * SA = 보안 연결
 * IKE 1단계는 "주 모드"라고도 합니다.
@@ -185,7 +185,7 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 >
 >
 
-###<a name="feb-16-2017"></a>2017년 2월 16일
+### <a name="feb-16-2017"></a>2017년 2월 16일
 
 Azure 경로 기반 VPN에 대한 **7.1.4 이전 버전으로 Palo Alto Networks 장치**: 7.1.4 이전의 PAN-OS 버전으로 Palo Alto Networks에서 VPN 장치를 사용하고 Azure 경로 기반 VPN 게이트웨이에 연결 문제가 발생하는 경우 다음 단계를 수행하세요.
 

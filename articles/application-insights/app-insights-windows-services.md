@@ -14,9 +14,9 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 97d750035e79d4780738e660d05e1a41085d51f1
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 29598f052778759ed362e3aa4b997acb799717ef
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -115,10 +115,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 디버그 모드에서 실행할 때는 파이프라인을 통해 원격 분석이 신속하게 수행되므로 데이터가 몇 초 내에 표시됩니다. 릴리스 구성에서 앱을 배포할 때는 데이터가 더 천천히 누적됩니다.
 
 #### <a name="no-data-after-you-publish-to-your-server"></a>서버에 게시한 후 데이터가 없나요?
-서버 방화벽에서 나가는 트래픽에 대해 다음 포트를 엽니다.
-
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
+서버 방화벽에서 나가는 트래픽에 대해 포트를 엽니다. 필수 주소 목록은 [이 페이지](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses)를 참조하세요. 
 
 #### <a name="trouble-on-your-build-server"></a>빌드 서버에 문제가 있나요?
 [이 문제 해결 항목](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild)을 참조하세요.

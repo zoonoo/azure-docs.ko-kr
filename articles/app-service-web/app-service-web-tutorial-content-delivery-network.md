@@ -9,9 +9,9 @@ ms.topic: hero-article
 ms.service: app-service-web
 manager: erikre
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a12eab1f7bc4177f659771d58a58f749507c994c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 8194e669f943a6c47f02ae0d2a55e0e720420489
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="connect-a-web-app-to-a-content-delivery-network"></a>Content Delivery Network에 Web App 연결
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/12/2017
 
 ## <a name="step-2---create-a-cdn-profile"></a>2단계 - CDN 프로필 만들기
 
-왼쪽 탐색 창에서 `+ New` 단추를 클릭하고 **웹 + 모바일**을 클릭합니다. [웹 + 모바일] 범주 아래에서 **CDN**을 선택합니다.
+왼쪽 탐색 창에서 **+ 새로 만들기** 단추를 클릭하고 **웹 + 모바일**을 클릭합니다. [웹 + 모바일] 범주 아래에서 **CDN**을 선택합니다.
 
 **이름**, **위치**, **리소스 그룹**, **가격 책정 계층**을 지정한 다음 **만들기**를 클릭합니다.
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/12/2017
 
 ## <a name="step-3---create-a-cdn-endpoint"></a>3단계 - CDN 끝점 만들기
 
-검색 상자 옆에 있는 명령의 `+ Endpoint`을 클릭하면 끝점 만들기 블레이드가 시작됩니다.
+검색 상자 옆에 있는 명령의 **+ 끝점**을 클릭하면 끝점 생성 블레이드가 시작됩니다.
 
 **이름**, **원본 유형**, **원본 호스트 이름**을 지정한 다음 **추가**를 클릭합니다.
 

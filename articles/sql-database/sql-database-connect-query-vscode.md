@@ -15,12 +15,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
+ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ff5d156ab2b701233c4cdbf08e3d6e517c01b9fb
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/12/2017
 ## <a name="configure-vs-code-mac-os-only"></a>VS Code 구성(Mac OS만 해당)
 
 ### <a name="mac-os"></a>**Mac OS**
-macOS의 경우 mssql 확장에서 사용하는 DotNet Core에 대한 필수 구성 요소인 OpenSSL을 설치해야 합니다. 터미널을 열고 다음 명령을 입력하여 **brew** 및 **OpenSSL***을 설치합니다. 
+macOS의 경우 mssql 확장에서 사용하는 DotNet Core에 대한 필수 구성 요소인 OpenSSL을 설치해야 합니다. 터미널을 열고 다음 명령을 입력하여 **brew** 및 **OpenSSL**을 설치합니다. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -55,9 +55,11 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
-3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사하여 이 빠른 시작에서 나중에 사용합니다.
+3. 데이터베이스의 **개요** 페이지에서 다음 이미지와 같이 정규화된 서버 이름을 검토합니다. 서버 이름 위로 마우스를 가져가면 **복사하려면 클릭** 옵션이 표시됩니다.
 
-    <img src="./media/sql-database-connect-query-vscode/connection-information.png" alt="connection information" style="width: 780px;" />
+   ![연결 정보](./media/sql-database-connect-query-ssms/connection-information.png) 
+
+4. Azure SQL Database 서버의 로그인 정보를 잊어버린 경우 SQL Database 서버 페이지로 이동하여 서버 관리자 이름을 확인하고 필요한 경우 암호를 다시 설정합니다. 
 
 ## <a name="set-language-mode-to-sql"></a>언어 모드를 SQL로 설정
 
@@ -65,17 +67,22 @@ Visual Studio Code에서 언어 모드를 **SQL**로 설정하여 mssql 명령 �
 
 1. 새 Visual Studio Code 창을 엽니다. 
 
-2. **⌘+K,M** 또는 **CTRL+K,M**(각각 Mac 및 Windows 옵션)을 누르고 **SQL**을 입력한 다음 **ENTER** 키를 눌러서 언어 모드를 SQL로 설정합니다. 
+2. 상태 표시줄의 오른쪽 아래 모서리에서 **일반 텍스트**를 클릭합니다.
+3. 열린 **언어 선택 모드** 드롭 다운 메뉴에서 **SQL**을 입력한 다음 **ENTER** 키를 눌러서 언어 모드를 SQL로 설정합니다. 
 
-<img src="./media/sql-database-connect-query-vscode/vscode-language-mode.png" alt="SQL language mode" style="width: 780px;" />
+   ![SQL 언어 모드](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-the-server"></a>서버에 연결
+## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>SQL Database 논리 서버의 데이터베이스에 연결
 
 Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
+> [!IMPORTANT]
+> 계속하기 전에 서버, 데이터베이스 및 로그인 정보를 준비했는지 확인합니다. 연결 프로필 정보를 입력하기 시작하면 Visual Studio Code에서 포커스를 변경하는 경우 연결 프로필 만들기를 다시 시작해야 합니다.
+>
+
 1. VS Code에서 **CTRL+SHIFT+P**(또는 **F1** 키)를 눌러서 명령 팔레트를 엽니다.
 
-2. **sqlcon**을 입력하고 **ENTER** 키를 누른 후 언어를 **SQL**로 설정합니다.
+2. **sqlcon**을 입력하고 **ENTER** 키를 누릅니다.
 
 3. **ENTER** 키를 눌러서 **연결 프로필 만들기**를 선택합니다. 그러면 SQL Server 인스턴스의 연결 프로필을 만듭니다.
 
@@ -97,7 +104,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 6. 상태 표시줄에서 연결을 확인합니다.
 
-   <img src="./media/sql-database-connect-query-vscode/vscode-connection-status.png" alt="Connection status" style="width: 780px;" />
+   ![연결 상태](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
 ## <a name="query-data"></a>쿼리 데이터
 
@@ -114,7 +121,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 2. **CTRL+SHIFT+E**를 눌러서 Product 및 ProductCategory 테이블에서 데이터를 검색합니다.
 
-    <img src="./media/sql-database-connect-query-vscode/query.png" alt="Query" style="width: 780px;" />
+    ![쿼리](./media/sql-database-connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>데이터 삽입
 

@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: aef5bce6f440f4a0a57763f915d307297f50281b
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -73,8 +73,7 @@ Azure Active Directory의 감사 로그는 규정 준수를 위한 시스템 활
 보고된 데이터를 자신에게 적합한 수준으로 좁히려면 다음 필드를 사용하여 감사 데이터를 필터링할 수 있습니다.
 
 - 날짜 범위
-- 초기자
-- Category
+- 초기자(작업자)
 - Category
 - 활동 리소스 종류
 - 작업
@@ -92,7 +91,7 @@ Azure Active Directory의 감사 로그는 규정 준수를 위한 시스템 활
 
 사용자 지정 시간 범위를 선택하면 시작 시간과 종료 시간을 구성할 수 있습니다.
 
-**초기자** 필터를 사용하면 행위자 이름이나 UPN(사용자 계정 이름)을 정의할 수 있습니다.
+**초기자** 필터를 사용하면 작업자 이름이나 UPN(사용자 계정 이름)을 정의할 수 있습니다.
 
 **범주** 필터를 사용하면 다음 필터 중 하나를 선택할 수 있습니다.
 
@@ -311,7 +310,7 @@ Azure Active Directory의 감사 로그는 규정 준수를 위한 시스템 활
 * 응용 프로그램의 이름이 변경되었나요?
 * 누가 응용 프로그램에 동의했나요?
 
-응용 프로그램과 관련된 감사 데이터를 검토하려면 **Enterprise 응용 프로그램** 블레이드의 **활동** 섹션에 있는 **감사 로그**에서 필터링된 보기를 찾을 수 있습니다. 이 진입점에는 미리 선택된 **활동 리소스 종류**로 **응용 프로그램**이 있습니다.
+응용 프로그램과 관련된 감사 데이터를 검토하려면 **Enterprise 응용 프로그램** 블레이드의 **활동** 섹션에 있는 **감사 로그**에서 필터링된 보기를 찾을 수 있습니다. 이 진입점에는 미리 선택된 **활동 리소스 종류**인 **엔터프라이즈 응용 프로그램**이 있습니다.
 
 ![감사 로그](./media/active-directory-reporting-activity-audit-logs/134.png "감사 로그")
 

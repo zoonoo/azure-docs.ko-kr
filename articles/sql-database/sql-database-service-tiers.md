@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
-ms.custom: overview
+ms.custom: resources
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,15 +17,15 @@ ms.workload: data-management
 wms.date: 03/06/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 827394be9485685388879c1eb4cee4d79ef9fe51
-ms.lasthandoff: 04/07/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 85b7336958c90b477eea8ea185a69bab2bd87a79
+ms.lasthandoff: 04/15/2017
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 것 이해
 
-[Azure SQL Database](sql-database-technical-overview.md)는 네 가지 서비스 계층, 즉 **Basic**, **Standard**, **Premium** 및 **Premium RS**를 제공합니다. 각 서비스 계층은 여러 워크로드를 다룰 여러 성능 수준을 제공합니다. 더 높은 성능 수준은 더욱 높은 처리량을 제공하도록 설계된 추가 리소스를 제공합니다. 가동 중지 시간 없이 서비스 계층 및 성능 수준을 동적으로 변경할 수 있습니다. 기본, 표준 및 프리미엄 서비스 계층은 모두 가동 시간 SLA가 99.99%이고 유연한 비즈니스 연속성 옵션, 보안 기능 및 시간당 대금 청구 기능을 제공합니다. Premium RS 계층은 SLA는 감소하더라도 Premium 계층과 동일한 수준의 성능, 보안 기능 및 비즈니스 연속성 기능을 제공합니다.
+[Azure SQL Database](sql-database-technical-overview.md)는 네 가지 서비스 계층, 즉 **Basic**, **Standard**, **Premium** 및 **Premium RS**를 제공합니다. 각 서비스 계층은 여러 워크로드를 다룰 여러 성능 수준을 제공합니다. 더 높은 성능 수준은 더욱 높은 처리량을 제공하도록 설계된 추가 리소스를 제공합니다. 가동 중지 시간 없이 서비스 계층 및 성능 수준을 동적으로 변경할 수 있습니다. Basic, Standard, Premium 및 Premium RS 서비스 계층은 모두 가동 시간 SLA가 99.99%이고 유연한 비즈니스 연속성 옵션, 보안 기능 및 시간당 대금 청구 기능을 제공합니다. Premium RS 계층은 SLA는 감소하더라도 Premium 계층과 동일한 수준의 성능, 보안 기능 및 비즈니스 연속성 기능을 제공합니다.
 
 > [!IMPORTANT]
 > Premium RS 데이터베이스는 Premium 또는 Standard 데이터베이스보다 낮은 수의 중복 복사본으로 실행됩니다. 따라서 서비스 오류가 발생하면 최대 5분 간격으로 백업에서 데이터베이스를 복구할 수 있어야 합니다.
@@ -61,7 +61,7 @@ ms.lasthandoff: 04/07/2017
 최소 서비스 계층을 결정하면 데이터베이스에 대한 성능 수준을 결정할 준비가 되었습니다(DTU의 수). 표준 S2 및 S3 성능 수준이 좋은 시작점인 경우가 많습니다. 높은 CPU 또는 IO 요구 사항의 데이터베이스의 경우 프리미엄 성능 수준이 적합한 시작점입니다. 프리미엄은 더 많은 CPU를 제공하고 높은 표준 성능 수준에 비해 10배 이상의 IO에서 시작합니다.
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>단일 데이터베이스 서비스 계층 및 성능 수준
-단일 데이터베이스의 경우 각 서비스 계층 내에는 여러 성능 수준이 있습니다. [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# 및 REST API를 사용하여 워크로드 요구에 가장 잘 맞는 수준을 선택할 수 있는 유연성이 있습니다. 
+단일 데이터베이스의 경우 각 서비스 계층 내에는 여러 성능 수준이 있습니다. Azure Portal, [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database), C# 및 REST API를 사용하여 워크로드 요구에 가장 잘 맞는 수준을 선택할 수 있는 유연성이 있습니다.  
 
 호스팅된 데이터베이스 수에 관계 없이, 데이터베이스는 보장된 리소스 집합을 가져오며 데이터베이스의 예상되는 성능 특징은 영향을 받지 않습니다.
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/07/2017
 
 ## <a name="scaling-up-or-scaling-down-a-single-database"></a>단일 데이터베이스 확장 및 축소
 
-처음으로 서비스 계층 및 성능 수준을 선택한 후에 단일 데이터베이스를 실제 환경에 따라 동적으로 확장 또는 축소할 수 있습니다. 규모를 확장 또는 축소해야 하는 경우는 [Azure Portal](sql-database-manage-single-databases-portal.md), [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](sql-database-manage-single-databases-tsql.md), C# 및 REST API를 사용하여 Azure Portal에서 데이터베이스의 계층을 간편하게 변경할 수 있습니다. 
+처음으로 서비스 계층 및 성능 수준을 선택한 후에 단일 데이터베이스를 실제 환경에 따라 동적으로 확장 또는 축소할 수 있습니다. 규모를 확장 또는 축소해야 하는 경우는 Azure Portal, [PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database), C# 및 REST API를 사용하여 Azure Portal에서 데이터베이스의 계층을 간편하게 변경할 수 있습니다. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
@@ -87,10 +87,6 @@ ms.lasthandoff: 04/07/2017
 * 프리미엄 서비스 계층에서 다운그레이드하는 경우는 먼저 모든 지역에서 복제 관계를 종료해야 합니다. [가동 중단에서 복구](sql-database-disaster-recovery.md) 토픽에 설명된 단계에 따라 주 데이터베이스와 활성 보조 데이터베이스 간의 복제 프로세스를 중지할 수 있습니다.
 * 복원 서비스는 여러 서비스 계층에서 서로 다르게 제공됩니다. 다운그레이드하는 경우 지정 시간으로 복원하는 기능을 잃게 되거나 백업 보존 기간이 단축될 수 있습니다. 자세한 내용은 [Azure SQL 데이터베이스 백업 및 복원](sql-database-business-continuity.md)을 참조하세요.
 * 데이터베이스의 새로운 속성은 변경이 완료될 때까지 적용되지 않습니다.
-
-> [!IMPORTANT]
-> 자세한 단계는 [Azure Portal에서 단일 데이터베이스 관리](sql-database-manage-single-databases-portal.md), [PowerShell을 사용하여 단일 데이터베이스 관리](scripts/sql-database-monitor-and-scale-database-powershell.md) 또는 [Transact-SQL을 사용하여 단일 데이터베이스 관리](sql-database-manage-single-databases-tsql.md)를 참조하세요.
->
 
 ## <a name="elastic-pool-service-tiers-and-performance-in-edtus"></a>탄력적 풀 서비스 계층 및 eDTU의 성능
 
@@ -127,7 +123,7 @@ P11/P15 데이터베이스를 만들 때 최대 크기 값을 1TB(기본값) 또
 
 지원되는 하위 지역 중 하나에 있는 기존 P11 및 P15 데이터베이스의 경우 저장소 최대 크기를 4TB로 늘릴 수 있습니다. 이 작업은 Azure Portal, PowerShell 또는 Transact-SQL로 수행할 수 있습니다. 다음 예제에서는 ALTER DATABASE 명령을 사용하여 변경되는 최대 크기를 보여 줍니다.
 
- ```t-sql
+ ```sql
 ALTER DATABASE <myDatabaseName> 
    MODIFY (MAXSIZE = 4096 GB);
 ```
@@ -144,13 +140,13 @@ ALTER DATABASE <myDatabaseName>
 - 활성 지역 복제 시나리오의 경우:
    - 지역에서 복제 관계 설정: 주 데이터베이스가 P11 또는 P15인 경우 보조 데이터베이스는 P11 또는 P15이어야 합니다. 낮은 성능 계층은 4TB를 지원하지 않으므로 보조 데이터베이스로 거부됩니다.
    - 지역에서 복제 관계에서 주 데이터베이스 업그레이드: 주 데이터베이스에서 최대 크기를 4TB로 변경하면 보조 데이터베이스에서도 동일한 변경 사항이 트리거됩니다. 변경 내용을 적용하려면 주 데이터베이스에서 두 가지 업그레이드에 성공해야 합니다. 4TB 옵션에 대한 지역 제한 사항이 적용됩니다(위 참조). 4TB를 지원하지 않는 지역에 보조 데이터베이스가 있는 경우 주 데이터베이스는 업그레이드되지 않습니다.
-- P11-4TB/P15-4TB 데이터베이스 로드에 대한 Import/Export 서비스 사용은 지원되지 않습니다. SqlPackage.exe를 사용하여 데이터를 [가져오기](sql-database-import-sqlpackage.md) 및 [내보내기](sql-database-export.md)합니다.
+- P11-4TB/P15-4TB 데이터베이스 로드에 대한 Import/Export 서비스 사용은 지원되지 않습니다. SqlPackage.exe를 사용하여 데이터를 [가져오기](sql-database-import.md) 및 [내보내기](sql-database-export.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [탄력적 풀](sql-database-elastic-pool-guidance.md) 및 [탄력적 풀에 대한 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)에 대해 자세히 알아봅니다.
 * [탄력적 풀을 모니터링, 관리 및 크기 조정](sql-database-elastic-pool-manage-portal.md)하고 [단일 데이터베이스의 성능을 모니터링](sql-database-single-database-monitor.md)하는 방법에 대해 알아봅니다.
-* SQL Database 계층에 대해 알아 보았으면 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 사용해보고 [첫 번째 SQL Database를 만드는 방법](sql-database-get-started.md)에 대해 알아보세요.
+* SQL Database 계층에 대해 알아 보았으면 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 사용해보고 [첫 번째 SQL Database를 만드는 방법](sql-database-get-started-portal.md)에 대해 알아보세요.
 * 마이그레이션 시나리오의 경우 [DTU 계산기](http://dtucalculator.azurewebsites.net/)를 사용하여 필요한 DTU의 수를 대략적으로 예상합니다. 
 
 
