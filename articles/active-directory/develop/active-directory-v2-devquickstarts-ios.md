@@ -1,5 +1,5 @@
 ---
-title: "Azure AD v&2;.0 끝점을 사용하여 iOS 응용 프로그램에 로그인 추가 | Microsoft Docs"
+title: "Azure AD v 2.0 끝점을 사용하여 iOS 응용 프로그램에 로그인 추가 | Microsoft Docs"
 description: "타사 라이브러리를 사용하여 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 iOS 앱을 빌드하는 방법입니다."
 services: active-directory
 documentationcenter: 
