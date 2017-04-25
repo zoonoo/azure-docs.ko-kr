@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/25/2017
+ms.date: 04/17/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
 ms.openlocfilehash: 2d1a4cf1ab1f66f51eb29a4b8cee07dca8d88719
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -53,7 +54,7 @@ ms.openlocfilehash: 2d1a4cf1ab1f66f51eb29a4b8cee07dca8d88719
     ```    
    * 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
     ```PowerShell
-    Get-AzureRmSubscription 
+    Get-AzureRmSubscription    
     ```
    * 다음 명령을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
     ```PowerShell
@@ -413,9 +414,4 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 | [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다. |
 | [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) |이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
