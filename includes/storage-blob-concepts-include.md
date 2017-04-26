@@ -22,5 +22,5 @@ Blob 서비스에는 다음 구성 요소가 포함됩니다.
   
     *페이지 Blob* 은 최대 1TB 크기까지 가능하며 빈번한 읽기/쓰기 작업에 대해 더 효율적입니다. Azure 가상 컴퓨터는 OS 및 데이터 디스크로 페이지 Blob을 사용합니다.
   
-    컨테이너 및 Blob를 명명하는 세부 정보는 [컨테이너, Blob 및 메타데이터 명명 및 참조](/rest/api/storageservices/fileservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)를 참조하세요.
+    컨테이너 및 Blob를 명명하는 세부 정보는 [컨테이너, Blob 및 메타데이터 명명 및 참조](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)를 참조하세요.
 

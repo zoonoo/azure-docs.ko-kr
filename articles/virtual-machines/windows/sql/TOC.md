@@ -1,6 +1,6 @@
 # 개요
 ## [Azure VM의 SQL Server란?](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+## [가격 책정](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
  
 # 시작
@@ -48,9 +48,4 @@
 ## [SQL Server 도구](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)
 ## [SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

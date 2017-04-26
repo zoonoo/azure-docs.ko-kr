@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
-ms.openlocfilehash: f1f963c1401b785b3d4ee007b6ea61f221f9ec4d
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 2a7c761062dcf5da016a2e106274839f5f6c0d13
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -94,7 +94,7 @@ SaaS 응용 프로그램을 만들 때 잠재 고객에게 평가판 소프트�
 
 도구를 사용하도록 기존 데이터베이스를 변환하려면 [확장하기 위해 기존 데이터베이스 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)을 참조하세요.
 
-탄력적 풀의 세부 사항을 보려면 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하거나 [탄력적 풀](sql-database-elastic-pool-manage-portal.md)을 사용하여 새로운 풀을 만드세요.  
+탄력적 풀의 세부 사항을 보려면 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool.md)을 참조하거나 [탄력적 풀](sql-database-elastic-pool-manage-portal.md)을 사용하여 새로운 풀을 만드세요.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

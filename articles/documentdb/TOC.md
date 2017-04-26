@@ -4,6 +4,7 @@
 ## [DocumentDB 소개: MongoDB용 API?](documentdb-protocol-mongodb.md)
 ## [핵심 개념](documentdb-resources.md)
 ## [글로벌 분포](documentdb-distribute-data-globally.md)
+## [지역별 장애 조치](documentdb-regional-failovers.md)
 ## [보안](documentdb-nosql-database-security.md)
 ## [NoSQL TCO 분석](https://aka.ms/documentdb-tco-paper)
 ## 시나리오
@@ -47,7 +48,6 @@
 ### [데이터 모델링](documentdb-modeling-data.md)
 ### [자동으로 데이터 만료](documentdb-time-to-live.md)
 ### [백업 및 복원](documentdb-online-backup-and-restore.md)
-### [지역별 장애 조치](documentdb-regional-failovers.md)
 ### 자동화
 #### [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 #### [Azure CLI 1.0: 계정 만들기](documentdb-automation-resource-manager-cli-nodejs.md)

@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 3fb7a0361717d4616ec21e55c0a202ed8bf8991d
-ms.openlocfilehash: a537a71a43b49d510a12d1293d8ee898d66efe63
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: ab8623d6f9751ed6d71d9a5b1c0d5e939c442862
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -27,10 +28,14 @@ Eclipse용 Azure 도구 키트 내에서 역할에 대해 HTTP 세션 선호도 
 
 ## <a name="to-enable-session-affinity-for-your-role"></a>역할에 대한 세션 선호도를 사용하도록 설정하려면
 1. Eclipse의 프로젝트 탐색기에서 역할을 마우스 오른쪽 단추로 클릭하고 **Azure**를 클릭한 다음 **부하 분산**을 클릭합니다.
+
 2. **WorkerRole1 속성 부하 분산** 대화 상자에서:
-   1. **Enable HTTP session affinity (sticky sessions) for this role**
-   2. **사용할 입력 끝점**의 경우 **http (public:80, private:8080)**와 같이 사용할 입력 끝점을 선택합니다. 응용 프로그램은 이 끝점을 해당 HTTP 끝점으로 사용해야 합니다. 사용자의 역할에 대해 여러 끝점을 사용하도록 설정할 수 있지만 그중 하나만 선택하여 고정 세션을 지원할 수 있습니다.
-   3. 응용 프로그램을 다시 빌드합니다.
+
+   a. **Enable HTTP session affinity (sticky sessions) for this role**
+
+   b. **사용할 입력 끝점**의 경우 **http (public:80, private:8080)**와 같이 사용할 입력 끝점을 선택합니다. 응용 프로그램은 이 끝점을 해당 HTTP 끝점으로 사용해야 합니다. 사용자의 역할에 대해 여러 끝점을 사용하도록 설정할 수 있지만 그중 하나만 선택하여 고정 세션을 지원할 수 있습니다.
+
+   c. 응용 프로그램을 다시 빌드합니다.
 
 사용하도록 설정하면 역할 인스턴스가 둘 이상 있는 경우 특정 클라이언트에서 발생하는 HTTP 요청이 동일한 역할 인스턴스에 의해 계속 처리됩니다.
 
@@ -38,8 +43,11 @@ Eclipse 도구 키트는 각 역할 인스턴스에 ARR(응용 프로그램 요�
 
 ## <a name="notes-about-session-affinity"></a>세션 선호도 관련 참고 사항
 * 세션 선호도는 계산 에뮬레이터에서 작동하지 않습니다. 빌드 프로세스 또는 계산 에뮬레이터 실행을 방해하지 않고 계산 에뮬레이터에서 설정을 적용할 수 있지만 기능 자체는 계산 에뮬레이터 내에서 작동하지 않습니다.
+
 * 세션 선호도를 사용하도록 설정하면 Azure 클라우드에서 서비스를 시작할 때 추가 소프트웨어가 역할 인스턴스에 다운로드되어 설치되므로 Azure에서 배포에 사용되는 디스크 공간이 증가합니다.
+
 * 각 역할을 초기화하는 시간이 오래 걸립니다.
+
 * 위에서 언급한 트래픽 경로 전환기로 작동하는 내부 끝점이 추가됩니다.
 
 
@@ -65,9 +73,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

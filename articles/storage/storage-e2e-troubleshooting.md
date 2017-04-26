@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: f32f61824de6a0195fc57b8cb0d73a89c7a06067
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: acf807538c8c9efdadb95c4b66db9a9d5d1f7a6d
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -32,10 +32,10 @@ ms.lasthandoff: 03/16/2017
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Azure 저장소 응용 프로그램 문제 해결 도구
 Microsoft Azure 저장소를 사용하는 클라이언트 응용 프로그램 문제를 해결하기 위해 여러 도구 조합을 사용하여 문제가 발생한 시기 및 문제의 가능한 원인을 확인할 수 있습니다. 이러한 도구로는 다음이 있습니다.
 
-* **Azure 저장소 분석**. [Azure 저장소 분석](/rest/api/storageservices/fileservices/Storage-Analytics) 은 Azure 저장소에 대한 로깅 및 메트릭을 제공합니다.
+* **Azure 저장소 분석**. [Azure 저장소 분석](/rest/api/storageservices/Storage-Analytics) 은 Azure 저장소에 대한 로깅 및 메트릭을 제공합니다.
   
-  * **저장소 메트릭** 은 저장소 계정에 대한 트랜잭션 메트릭 및 용량 메트릭을 추적합니다. 메트릭을 사용하여 다양한 여러 측정값에 따른 응용 프로그램의 성능을 확인할 수 있습니다. 저장소 분석에서 추적하는 메트릭 유형에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](/rest/api/storageservices/fileservices/Storage-Analytics-Metrics-Table-Schema) 를 참조하세요.
-  * **저장소 로깅** 은 Azure 저장소 서비스에 대한 각 요청을 서버 쪽 로그에 기록합니다. 로그는 수행된 작업, 작업의 상태 및 대기 시간 정보를 비롯하여 각 요청의 자세한 데이터를 추적합니다. 저장소 분석에서 로그에 기록한 요청 및 응답 데이터에 대한 자세한 내용은 [저장소 분석 로그 형식](/rest/api/storageservices/fileservices/Storage-Analytics-Log-Format) 을 참조하세요.
+  * **저장소 메트릭** 은 저장소 계정에 대한 트랜잭션 메트릭 및 용량 메트릭을 추적합니다. 메트릭을 사용하여 다양한 여러 측정값에 따른 응용 프로그램의 성능을 확인할 수 있습니다. 저장소 분석에서 추적하는 메트릭 유형에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) 를 참조하세요.
+  * **저장소 로깅** 은 Azure 저장소 서비스에 대한 각 요청을 서버 쪽 로그에 기록합니다. 로그는 수행된 작업, 작업의 상태 및 대기 시간 정보를 비롯하여 각 요청의 자세한 데이터를 추적합니다. 저장소 분석에서 로그에 기록한 요청 및 응답 데이터에 대한 자세한 내용은 [저장소 분석 로그 형식](/rest/api/storageservices/Storage-Analytics-Log-Format) 을 참조하세요.
 
 > [!NOTE]
 > 영역 중복 저장소(ZRS)의 복제 유형이 있는 저장소 계정에는 현재 활성화된 메트릭 또는 로깅 기능이 없습니다. 

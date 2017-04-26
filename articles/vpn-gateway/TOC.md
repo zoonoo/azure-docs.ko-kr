@@ -14,6 +14,7 @@
 ## 사이트 간 연결 구성
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure 포털(클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
 ### [클래식 포털(클래식)](vpn-gateway-site-to-site-create.md)
 ## 지점 및 사이트 간 연결 구성
@@ -38,7 +39,6 @@
 ## [항상 사용 가능한 활성-활성 연결 구성](vpn-gateway-activeactive-rm-powershell.md)
 ## [PowerShell을 사용하여 로컬 네트워크 게이트웨이 설정 수정](vpn-gateway-modify-local-network-gateway.md)
 ## [VPN 게이트웨이 연결 확인](vpn-gateway-verify-connection-resource-manager.md)
-## [VNet에 대한 VPN 처리량의 유효성 검사](vpn-gateway-validate-throughput-to-vnet.md)
 ## [VPN 게이트웨이 다시 설정](vpn-gateway-resetgw-classic.md)
 ## VPN Gateway 삭제
 ### [Azure 포털](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -46,12 +46,15 @@
 ### [PowerShell(클래식)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [P2S 연결을 위한 자체 서명된 루트 인증서 만들기](vpn-gateway-certificates-point-to-site.md)
 ## [VPN Gateway(클래식) 구성](vpn-gateway-configure-vpn-gateway-mp.md)
+## 문제 해결
+### [VNet에 대한 VPN 처리량의 유효성 검사](vpn-gateway-validate-throughput-to-vnet.md)
 
 # 참조
 ## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.6.0/azurerm.network)
 ## [PowerShell(클래식)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
 ## [REST (영문)](https://msdn.microsoft.com/library/mt163859)
 ## [REST(클래식)](https://msdn.microsoft.com/library/jj154113)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
 
 # 관련 항목
 ## [가상 네트워크](/azure/virtual-network/)
