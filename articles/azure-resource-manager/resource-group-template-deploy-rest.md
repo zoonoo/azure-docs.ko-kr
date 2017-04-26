@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d2d9cff50d6ba5dc990140059536786fb7281827
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: f0e94699291b4ef54c4125dc9d9345598a54c02a
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/31/2017
           "detailLevel": "requestContent, responseContent"
         }
    
-      공유 액세스 서명(SAS) 토큰을 사용하여 저장소 계정을 설정할 수 있습니다. 자세한 내용은 [공유 액세스 서명을 사용하여 액세스 위임](https://docs.microsoft.com/rest/api/storageservices/fileservices/delegating-access-with-a-shared-access-signature)을 참조하세요.
+      공유 액세스 서명(SAS) 토큰을 사용하여 저장소 계정을 설정할 수 있습니다. 자세한 내용은 [공유 액세스 서명을 사용하여 액세스 위임](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature)을 참조하세요.
 5. 템플릿 배포의 상태를 가져옵니다. 자세한 내용은 [템플릿 배포에 대한 정보 가져오기](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get)를 참조하세요.
    
           GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01

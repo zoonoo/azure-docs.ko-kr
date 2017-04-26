@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 262acf8150b5065c3b7b79494856b2bdadd4e4ba
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -57,7 +57,7 @@ ms.lasthandoff: 03/31/2017
 
 템플릿에서 배포된 각 리소스는 몇 가지 기본 설정으로 구성됩니다. 다음 방법 중 하나를 통해 이러한 설정을 볼 수 있습니다.
 
-- **GitHub에서 템플릿 보기:** 템플릿에 친숙한 경우 [템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) 내에서 설정을 볼 수 있습니다. 
+- **GitHub에서 템플릿 보기:** 템플릿에 친숙한 경우 [템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) 내에서 설정을 볼 수 있습니다.
 - **배포 후 설정 보기:** 템플릿에 익숙하지 않은 경우 다음 섹션 중 하나의 단계를 사용하여 템플릿을 배포하고 배포 후에 설정을 볼 수 있습니다.
 
 Azure Portal, PowerShell 또는 Azure CLI(명령줄 인터페이스)를 사용하여 템플릿을 배포할 수 있습니다. 모든 방법은 동일한 결과를 생성합니다. 템플릿을 배포하려면 다음 섹션 중 하나의 단계를 완료합니다.
@@ -77,10 +77,10 @@ Azure Portal을 사용하여 템플릿을 배포하려면 다음 단계를 완�
 
 PowerShell을 사용하여 템플릿을 배포하려면 다음 단계를 완료합니다.
 
-1. [PowerShell을 사용하여 템플릿 배포](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy) 문서의 단계를 완료하여 템플릿을 배포합니다. 이 문서에서는 템플릿 배포를 위한 여러 옵션을 설명합니다. `-TemplateUri parameter`를 사용하여 배포하도록 선택한 경우 이 템플릿의 URI는 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*입니다. `-TemplateFile` 매개 변수를 사용하여 배포하도록 선택한 경우 GitHub의 [템플릿 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) 내용을 컴퓨터의 새 파일에 복사합니다. 필요한 경우 템플릿 내용을 수정합니다. 템플릿은 이 문서의 [리소스](#resources) 섹션에 나열된 리소스 및 설정을 배포합니다. 템플릿에 대한 자세한 내용 및 작성 방법에 대해서는 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md) 문서를 참조하세요.
+1. [PowerShell을 사용하여 템플릿 배포](../azure-resource-manager/resource-group-template-deploy-cli.md) 문서의 단계를 완료하여 템플릿을 배포합니다. 이 문서에서는 템플릿 배포를 위한 여러 옵션을 설명합니다. `-TemplateUri parameter`를 사용하여 배포하도록 선택한 경우 이 템플릿의 URI는 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*입니다. `-TemplateFile` 매개 변수를 사용하여 배포하도록 선택한 경우 GitHub의 [템플릿 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) 내용을 컴퓨터의 새 파일에 복사합니다. 필요한 경우 템플릿 내용을 수정합니다. 템플릿은 이 문서의 [리소스](#resources) 섹션에 나열된 리소스 및 설정을 배포합니다. 템플릿에 대한 자세한 내용 및 작성 방법에 대해서는 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md) 문서를 참조하세요.
 
     템플릿 배포를 위해 선택한 옵션에 관계 없이, 이 문서의 [매개 변수](#parameters) 섹션에 나열된 매개 변수 값을 제공해야 합니다. 매개 변수 파일을 사용하여 매개 변수를 제공하도록 선택한 경우 GitHub의 [매개 변수 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)을 컴퓨터의 새 파일에 복사합니다. 파일의 값을 수정합니다. 만든 파일을 `-TemplateParameterFile` 매개 변수의 값으로 사용합니다.
-    
+
     OSVersion, ImagePublisher 및 imageOffer 매개 변수의 유효한 값을 확인하려면 [Windows VM 이미지 탐색 및 선택](../virtual-machines/windows/cli-ps-findimage.md) 문서의 단계를 완료합니다.
 
     >[!TIP]
@@ -92,10 +92,10 @@ PowerShell을 사용하여 템플릿을 배포하려면 다음 단계를 완료�
 
 Azure CLI 1.0을 사용하여 템플릿을 배포하려면 다음 단계를 완료합니다.
 
-1. [Azure CLI를 사용하여 템플릿 배포](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy) 문서의 단계를 완료하여 템플릿을 배포합니다. 이 문서에서는 템플릿 배포를 위한 여러 옵션을 설명합니다. `--template-uri`(-f)를 사용하여 배포하도록 선택한 경우 이 템플릿의 URI는 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*입니다. `--template-file`(-f) 매개 변수를 사용하여 배포하도록 선택한 경우 GitHub의 [템플릿 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) 내용을 컴퓨터의 새 파일에 복사합니다. 필요한 경우 템플릿 내용을 수정합니다. 템플릿은 이 문서의 [리소스](#resources) 섹션에 나열된 리소스 및 설정을 배포합니다. 템플릿에 대한 자세한 내용 및 작성 방법에 대해서는 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md) 문서를 참조하세요.
+1. [Azure CLI를 사용하여 템플릿 배포](../azure-resource-manager/resource-group-template-deploy-cli.md) 문서의 단계를 완료하여 템플릿을 배포합니다. 이 문서에서는 템플릿 배포를 위한 여러 옵션을 설명합니다. `--template-uri`(-f)를 사용하여 배포하도록 선택한 경우 이 템플릿의 URI는 *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*입니다. `--template-file`(-f) 매개 변수를 사용하여 배포하도록 선택한 경우 GitHub의 [템플릿 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) 내용을 컴퓨터의 새 파일에 복사합니다. 필요한 경우 템플릿 내용을 수정합니다. 템플릿은 이 문서의 [리소스](#resources) 섹션에 나열된 리소스 및 설정을 배포합니다. 템플릿에 대한 자세한 내용 및 작성 방법에 대해서는 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md) 문서를 참조하세요.
 
     템플릿 배포를 위해 선택한 옵션에 관계 없이, 이 문서의 [매개 변수](#parameters) 섹션에 나열된 매개 변수 값을 제공해야 합니다. 매개 변수 파일을 사용하여 매개 변수를 제공하도록 선택한 경우 GitHub의 [매개 변수 파일](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json)을 컴퓨터의 새 파일에 복사합니다. 파일의 값을 수정합니다. 만든 파일을 `--parameters-file`(-e) 매개 변수의 값으로 사용합니다.
-    
+
     OSVersion, ImagePublisher 및 imageOffer 매개 변수의 유효한 값을 확인하려면 [Windows VM 이미지 탐색 및 선택](../virtual-machines/windows/cli-ps-findimage.md) 문서의 단계를 완료합니다.
 
 2. VM이 배포된 후에 이 문서의 [VM 운영 체제에 IP 주소 추가](#os-config) 섹션에 나오는 단계를 완료하여 VM에 연결하고 배포된 운영 체제에 개인 IP 주소를 추가합니다. 운영 체제에 공용 IP 주소를 추가하지 마세요.

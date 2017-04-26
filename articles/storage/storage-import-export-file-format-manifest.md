@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: d56754c9c205ddc4933b29e8f4891a56f42496e9
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -123,7 +123,7 @@ block-list ::=
 |`PageRange/@Offset`|특성, 정수|지정된 페이지 범위가 시작되는 전송 파일 및 Blob의 오프셋을 지정합니다. 이 값은 512의 배수여야 합니다.|  
 |`PageRange/@Length`|특성, 정수|페이지 범위의 길이를 지정합니다. 이 값은 512의 배수이고 4MB 이하여야 합니다.|  
 |`PageRange/@Hash`|특성, 문자열|페이지 범위의 Base16 인코딩 MD5 해시 값을 지정합니다.|  
-|`BlockList`|중첩 XML 요소|블록의 이름을 지정한 블록 Blob에 필요합니다.<br /><br /> 가져오기 작업의 경우 블록 목록은 Azure Storage로 가져올 블록 집합을 지정합니다. 내보내기 작업의 경우 블록 목록은 각 블록이 내보내기 디스크의 파일에 저장된 위치를 지정합니다. 각 블록은 파일 및 블록 길이에 있는 오프셋을 기준으로 설명되고 추가로 블록 ID 특성 별로 이름이 지정되며 블록에 대한 MD5 해시를 포함합니다. Blob을 설명하는 데 최대 50,000개의 블록을 사용할 수 있습니다.  모든 블록은 오프셋을 기준으로 정렬되고 파일의 전체 범위를 포함해야 합니다. *즉*, 블록 사이에 간격이 없어야 합니다. Blob이 64MB 이하인 경우 각 블록의 블록 ID는 모두 지워지거나 모두 표시되어야 합니다. 블록 ID는 Base64 인코딩 문자열이어야 합니다. 블록 ID에 대한 추가 요구 사항은 [블록 배치](/rest/api/storageservices/fileservices/put-block)를 참조하세요.|  
+|`BlockList`|중첩 XML 요소|블록의 이름을 지정한 블록 Blob에 필요합니다.<br /><br /> 가져오기 작업의 경우 블록 목록은 Azure Storage로 가져올 블록 집합을 지정합니다. 내보내기 작업의 경우 블록 목록은 각 블록이 내보내기 디스크의 파일에 저장된 위치를 지정합니다. 각 블록은 파일 및 블록 길이에 있는 오프셋을 기준으로 설명되고 추가로 블록 ID 특성 별로 이름이 지정되며 블록에 대한 MD5 해시를 포함합니다. Blob을 설명하는 데 최대 50,000개의 블록을 사용할 수 있습니다.  모든 블록은 오프셋을 기준으로 정렬되고 파일의 전체 범위를 포함해야 합니다. *즉*, 블록 사이에 간격이 없어야 합니다. Blob이 64MB 이하인 경우 각 블록의 블록 ID는 모두 지워지거나 모두 표시되어야 합니다. 블록 ID는 Base64 인코딩 문자열이어야 합니다. 블록 ID에 대한 추가 요구 사항은 [블록 배치](/rest/api/storageservices/put-block)를 참조하세요.|  
 |`Block`|XML 요소|블록을 나타냅니다.|  
 |`Block/@Offset`|특성, 정수|지정된 블록이 시작하는 오프셋을 지정합니다.|  
 |`Block/@Length`|특성, 정수|블록에서 바이트 수를 지정합니다. 이 값은 4MB 이하여야 합니다.|  

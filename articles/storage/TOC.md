@@ -67,7 +67,7 @@
 ### [테이블 디자인 가이드](storage-table-design-guide.md)
 ### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## 파일 사용
-### [개요](/rest/api/storageservices/fileservices/File-Service-Concepts)
+### [개요](/rest/api/storageservices/File-Service-Concepts)
 ### [Azure 파일 문제 해결](storage-troubleshoot-file-connection-problems.md)
 ### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## 디스크 사용
@@ -180,7 +180,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST (영문)
-### [Blob, 큐, 테이블 및 파일](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+### [Blob, 큐, 테이블 및 파일](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 ### [리소스 공급자](/rest/api/storagerp)
 ### [가져오기/내보내기](/rest/api/storageimportexport)
 

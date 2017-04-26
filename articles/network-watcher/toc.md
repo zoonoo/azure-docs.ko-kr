@@ -7,6 +7,7 @@
 ## [보안 그룹 보기](network-watcher-security-group-view-overview.md)
 ## [다음 홉](network-watcher-next-hop-overview.md)
 ## [VPN 연결 문제 해결](network-watcher-troubleshoot-overview.md)
+## [서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # 시작
 ## [Network Watcher 구성](network-watcher-create.md)
 ## 패킷 캡처 관리

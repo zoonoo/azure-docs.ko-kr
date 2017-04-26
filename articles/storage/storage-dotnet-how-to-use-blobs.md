@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 29d8693dd1d6d1ef26ccb21e3a5b29cf1adbfcc5
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e9cfcdd9d6e36c1154b91904da60483825ff8b94
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>.NET을 사용하여 Azure Blob 저장소 시작
@@ -365,7 +365,7 @@ for (int i = 0; i < numBlocks; i++)
 Console.WriteLine(appendBlob.DownloadText());
 ```
 
-세 가지 Blob 유형의 차이점에 대한 자세한 내용은 [블록 Blob, 페이지 Blob 및 추가 Blob 이해](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) 를 참조하세요.
+세 가지 Blob 유형의 차이점에 대한 자세한 내용은 [블록 Blob, 페이지 Blob 및 추가 Blob 이해](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) 를 참조하세요.
 
 ## <a name="managing-security-for-blobs"></a>Blob 보안 관리
 기본적으로 Azure 저장소는 데이터 액세스를 계정 액세스 키를 보유한 계정 소유자로 제한하여 데이터를 보호합니다. 저장소 계정의 Blob 데이터를 공유해야 할 경우 계정 액세스 키의 보안을 손상시키지 않고 공유하는 것이 중요합니다. 또한 Blob 데이터를 암호화하여 유선 및 Azure 저장소에서 데이터가 안전하게 이동하게 할 수 있습니다.
@@ -395,7 +395,7 @@ Azure 저장소는 클라이언트와 서버 모두에서 Blob 데이터를 암�
 
 ### <a name="blob-storage-reference"></a>Blob 저장소 참조
 * [Storage Client Library for .NET 참조](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-* [REST API 참조](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
+* [REST API 참조](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 
 ### <a name="conceptual-guides"></a>개념적 지침
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)

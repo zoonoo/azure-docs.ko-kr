@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 6c8c04e0237e2168df60ecc597754c38af167e14
-ms.openlocfilehash: 0aed3d224199b17bac748b14416a738eac342103
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 8809f35e992d528224fc14e0de01a61d396c082b
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -41,7 +41,7 @@ CDN을 사용하여 웹 사이트 자산을 캐시할 경우의 이점은 다음
 1. 사용자(Alice)가 특수 도메인 이름(예: `<endpointname>.azureedge.net`)으로 URL을 사용하여 파일(자산이라고도 함)을 요청합니다.  DNS는 최고 성능의 POP(상호 접속 위치) 위치로 요청을 라우팅합니다.  일반적으로 이것은 지리적으로 사용자에게 가장 가까운 POP입니다.
 2. POP의 에지 서버의 캐시에 파일이 없으면, 에지 서버는 원본에서 파일을 요청합니다.  원본은 Azure 웹앱, Azure 클라우드 서비스, Azure 저장소 계정 또는 공개적으로 액세스할 수 있는 웹 서버입니다.
 3. 원본은 파일의 TTL(Time-to-Live)을 설명하는 선택적인 HTTP 헤더를 포함하여, 파일을 에지 서버에 반환합니다.
-4. 에지 서버는 파일을 캐싱하고 원래 요청자(Alice)에게 파일을 반환합니다.  파일은 TTL이 만료될 때가지 에지 서버에 캐싱된 상태로 남습니다.  원본이 TTL을 지정하지 않은 경우, 기본 TTL은&7;일입니다.
+4. 에지 서버는 파일을 캐싱하고 원래 요청자(Alice)에게 파일을 반환합니다.  파일은 TTL이 만료될 때가지 에지 서버에 캐싱된 상태로 남습니다.  원본이 TTL을 지정하지 않은 경우, 기본 TTL은 7일입니다.
 5. 추가 사용자는 같은 URL을 사용하여 같은 파일을 요청할 수 있고, 같은 POP으로 전달될 수 있습니다.
 6. 파일의 TTL이 만료되지 않았으면, 에지 서버는 캐시로부터 파일을 반환합니다.  이렇게 하면 보다 신속하고 응답성이 뛰어난 사용자 환경이 가능합니다.
 
@@ -63,7 +63,7 @@ Azure CDN 제품은 **Akamai의 Azure CDN Standard**, **Verizon의 Azure CDN Sta
 | [빠른 삭제](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [자산 미리 로드](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [핵심 분석](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
-| [HTTP/2 지원](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** | | |
+| [HTTP/2 지원](https://msdn.microsoft.com/library/mt762901.aspx) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [고급 HTTP 보고서](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [실시간 통계](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [실시간 경고](cdn-real-time-alerts.md) | | |**&#x2713;** |

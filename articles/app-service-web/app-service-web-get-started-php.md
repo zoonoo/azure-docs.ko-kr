@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/31/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: e6a486ebb442b8e2404fd53081fcad6561b7fb41
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: d5126f3b9fa92ff95eaa8bc06554c49f9836bab9
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -290,7 +290,7 @@ Azure Portal로 이동하여 방금 만든 웹앱을 살펴봅니다.
 
 이 작업을 수행하려면 [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
 
-왼쪽 메뉴에서 **App Service**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
 
 ![Azure 웹앱에 대한 포털 탐색](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
