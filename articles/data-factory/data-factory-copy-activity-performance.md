@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 04/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: c3d96d11894f0009db004b1089c05559cafd2d43
-ms.openlocfilehash: ee79612cc30f1dfefcf7dcd8af7aed7836dd528c
-ms.lasthandoff: 01/06/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: bf864e0d9922e8e842945db9964899d602fd7eed
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -33,7 +33,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 이 문서에서는 다음을 설명합니다.
 
 * [성능 참조 번호](#performance-reference)와 프로젝트를 계획하는 데 도움이 되는 싱크 데이터 저장소.
-* [병렬 복사](#parallel-copy), [클라우드 데이터 이동 단위](#cloud-data-movement-units) 및 [준비된 복사](#staged-copy)를 포함한 다양한 시나리오로 복사 처리량을 높일 수 있는 기능.
+* [클라우드 데이터 이동 단위](#cloud-data-movement-units), [병렬 복사](#parallel-copy), [준비된 복사](#staged-copy)를 포함한 다양한 시나리오에서 복사 처리량을 높일 수 있는 기능.
 * [성능 조정 지침](#performance-tuning-steps) .
 
 > [!NOTE]
@@ -45,7 +45,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 ![성능 매트릭스](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
 > [!NOTE]
-> 기본 최대 DMU(데이터 이동 단위)보다 많은 DMU를 활용하여 더 많은 처리량을 획득할 수 있으며, 클라우드 간 복사 작업 실행의 경우 8입니다. 예를 들어 100개 DMU를 사용하면 **1.0GBps** 속도로 Azure Blob에서 Azure Data Lake Store로 데이터 복사를 수행할 수 있습니다. 이 기능과 지원되는 시나리오에 대한 자세한 내용은 [클라우드 데이터 이동 단위](#cloud-data-movement-units) 섹션을 참조하세요. DMU를 더 많이 요청하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
+> 기본 최대 DMU(데이터 이동 단위)보다 많은 DMU를 활용하여 더 많은 처리량을 획득할 수 있으며, 클라우드 간 복사 작업 실행의 경우 32입니다. 예를 들어 100개 DMU를 사용하면 **1.0GBps** 속도로 Azure Blob에서 Azure Data Lake Store로 데이터 복사를 수행할 수 있습니다. 이 기능과 지원되는 시나리오에 대한 자세한 내용은 [클라우드 데이터 이동 단위](#cloud-data-movement-units) 섹션을 참조하세요. DMU를 더 많이 요청하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
 >
 >
 
@@ -84,6 +84,38 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 방식으로 계속됩니다.
 
 이 예제의 **concurrency** 값이 2로 설정되면 **작업 실행 1** 및 **작업 실행 2**에서 두 작업 기간의 데이터를 **동시에** 복사하여 데이터 이동 성능을 향상시킬 수 있습니다. 하지만, 작업 실행 1에 관련된 파일이 여러 개이면, 데이터 이동 서비스는 원본에서 대상으로 한 번에 하나의 파일을 복사합니다.
+
+### <a name="cloud-data-movement-units"></a>클라우드 데이터 이동 단위
+**클라우드 데이터 이동 단위(DMU)** 는 Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 자원 할당의 조합)을 나타내는 척도입니다. 클라우드-클라우드 복사 작업에 DMU를 사용할 수 있으며 하이브리드 복사에는 사용할 수 없습니다.
+
+기본적으로, Data Factory는 단일 클라우드 DMU를 사용하여 단일 복사 작업 실행을 수행합니다. 기본값을 재정의하려면 **cloudDataMovementUnits** 속성에 대한 값을 지정합니다. 특정 복사 원본 및 싱크에 대해 더 많은 단위를 구성할 때 얻을 수 있는 성능상 이점 수준에 대한 자세한 내용은 [성능 참조](#performance-reference)를 참조하세요.
+
+```json
+"activities":[  
+    {
+        "name": "Sample copy activity",
+        "description": "",
+        "type": "Copy",
+        "inputs": [{ "name": "InputDataset" }],
+        "outputs": [{ "name": "OutputDataset" }],
+        "typeProperties": {
+            "source": {
+                "type": "BlobSource",
+            },
+            "sink": {
+                "type": "AzureDataLakeStoreSink"
+            },
+            "cloudDataMovementUnits": 32
+        }
+    }
+]
+```
+**cloudDataMovementUnits** 속성에 **허용되는 값**은 1(기본값), 2, 4, 8, 16, 32입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다.
+
+> [!NOTE]
+> 더 높은 처리량을 위해 더 많은 클라우드 DMU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 8 이상의 설정은 현재 **Blob storage/Data Lake Store/Amazon S3/cloud FTP에서 Blob storage/Data Lake Store/Azure SQL Database로 여러 파일을 복사**하는 경우에만 작동합니다.
+>
+>
 
 ### <a name="parallelcopies"></a>parallelCopies
 **parallelCopies** 속성을 사용하여 복사 작업에 사용할 병렬 처리를 나타낼 수 있습니다. 이 속성을 병렬로 원본에서 읽어오거나 싱크 데이터 저장소에 쓰는 복사 작업 내 최대 스레드 수라고 생각할 수 있습니다.
@@ -129,42 +161,10 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 >
 >
 
-### <a name="cloud-data-movement-units"></a>클라우드 데이터 이동 단위
-**클라우드 데이터 이동 단위(DMU)** 는 Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 자원 할당의 조합)을 나타내는 척도입니다. 클라우드-클라우드 복사 작업에 DMU를 사용할 수 있으며 하이브리드 복사에는 사용할 수 없습니다.
-
-기본적으로, Data Factory는 단일 클라우드 DMU를 사용하여 단일 복사 작업 실행을 수행합니다. 기본값을 재정의하려면 **cloudDataMovementUnits** 속성에 대한 값을 지정합니다. 특정 복사 원본 및 싱크에 대해 더 많은 단위를 구성할 때 얻을 수 있는 성능상 이점 수준에 대한 자세한 내용은 [성능 참조](#performance-reference)를 참조하세요.
-
-```json
-"activities":[  
-    {
-        "name": "Sample copy activity",
-        "description": "",
-        "type": "Copy",
-        "inputs": [{ "name": "InputDataset" }],
-        "outputs": [{ "name": "OutputDataset" }],
-        "typeProperties": {
-            "source": {
-                "type": "BlobSource",
-            },
-            "sink": {
-                "type": "AzureDataLakeStoreSink"
-            },
-            "cloudDataMovementUnits": 4
-        }
-    }
-]
-```
-**cloudDataMovementUnits** 속성에 **허용되는 값**은 1(기본값), 2, 4, 8입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다.
-
-> [!NOTE]
-> 더 높은 처리량을 위해 더 많은 클라우드 DMU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 현재는 **Blob storage/Data Lake Store/Amazon S3/cloud FTP에서 Blob storage/Data Lake Store/Azure SQL Database로 여러 파일을 복사**하는 경우에만 8 이상의 설정이 작동하며, 파일 크기는 개별적으로 16MB 이상입니다.
->
->
-
-이러한&2;가지 속성을 개선하고 데이터 이동 처리량을 향상시키려면 [샘플 사용 사례](#case-study-use-parallel-copy)를 참조하세요. 기본 동작을 활용하기 위해 **parallelCopies** 를 구성할 필요가 없습니다. 구성을 수행하고 **parallelCopies**가 너무 작은 경우 여러 클라우드 DMU가 완전히 활용되지 않을 수 있습니다.  
+이러한 2가지 속성을 개선하고 데이터 이동 처리량을 향상시키려면 [샘플 사용 사례](#case-study-use-parallel-copy)를 참조하세요. 기본 동작을 활용하기 위해 **parallelCopies** 를 구성할 필요가 없습니다. 구성을 수행하고 **parallelCopies**가 너무 작은 경우 여러 클라우드 DMU가 완전히 활용되지 않을 수 있습니다.  
 
 ### <a name="billing-impact"></a>청구 영향
-복사 작업의 총 시간을 기준으로 요금이 청구된다는 점을 기억하는 것이 **중요**합니다. 클라우드 단위 1개로 1시간이 걸렸던 복사 작업이 이제 클라우드 단위 4개로 15분이 걸리는 경우 전체 청구 금액은 거의 동일한 상태로 유지됩니다. 예를 들어&4;개의 클라우드 단위를 사용합니다. 첫 번째 클라우드 단위 10분, 두 번째 10분, 세 번째 5분, 네 번째 5분으로 모두 하나의 복사 작업 실행으로 수행됩니다. 총 복사(데이터 이동) 시간(10 + 10 + 5 + 5 = 30분)에 대한 요금이 청구됩니다. **parallelCopies**의 사용은 청구에 영향을 주지 않습니다.
+복사 작업의 총 시간을 기준으로 요금이 청구된다는 점을 기억하는 것이 **중요**합니다. 클라우드 단위 1개로 1시간이 걸렸던 복사 작업이 이제 클라우드 단위 4개로 15분이 걸리는 경우 전체 청구 금액은 거의 동일한 상태로 유지됩니다. 예를 들어 4개의 클라우드 단위를 사용합니다. 첫 번째 클라우드 단위 10분, 두 번째 10분, 세 번째 5분, 네 번째 5분으로 모두 하나의 복사 작업 실행으로 수행됩니다. 총 복사(데이터 이동) 시간(10 + 10 + 5 + 5 = 30분)에 대한 요금이 청구됩니다. **parallelCopies**의 사용은 청구에 영향을 주지 않습니다.
 
 ## <a name="staged-copy"></a>준비된 복사
 원본 데이터 저장소에서 싱크 데이터 저장소에 데이터를 복사할 경우 중간 준비 저장소로 Blob 저장소를 사용하도록 선택할 수 있습니다. 준비는 다음과 같은 경우에 특히 유용합니다.
@@ -174,7 +174,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 3. **기업 IT 정책 때문에 포트 80 및 포트 443 이외의 포트를 열지 않으려고 합니다**. 예를 들어 온-프레미스 데이터 저장소에서 Azure SQL Database 싱크 또는 Azure SQL Data Warehouse 싱크에 데이터를 복사할 경우 Windows 방화벽 및 회사 방화벽 모두에 대한 포트 1433에서 아웃바운드 TCP 통신을 활성화해야 합니다. 이 시나리오에서는 게이트웨이를 활용하여 포트 443에서 HTTP 또는 HTTPS를 통해 데이터를 Blob 저장소 준비 인스턴스로 처음 복사합니다. 그런 다음 Blob 저장소 준비에서 데이터를 SQL Database 또는 SQL Data Warehouse로 로드합니다. 이 흐름에서는 포트 1433을 사용하도록 설정하지 않아도 됩니다.
 
 ### <a name="how-staged-copy-works"></a>준비 복사의 작동 방법
-준비 기능을 활성화하면 먼저 데이터가 원본 데이터 저장소에서 준비 데이터 저장소(직접 준비)로 복사됩니다. 그 다음, 데이터가 준비 데이터 저장소에서 싱크 데이터 저장소로 복사됩니다. Data Factory는 사용자에 대한&2;단계 흐름을 자동으로 관리합니다. 또한 Data Factory는 데이터 이동이 완료된 후에 준비 저장소에서 임시 데이터도 정리합니다.
+준비 기능을 활성화하면 먼저 데이터가 원본 데이터 저장소에서 준비 데이터 저장소(직접 준비)로 복사됩니다. 그 다음, 데이터가 준비 데이터 저장소에서 싱크 데이터 저장소로 복사됩니다. Data Factory는 사용자에 대한 2단계 흐름을 자동으로 관리합니다. 또한 Data Factory는 데이터 이동이 완료된 후에 준비 저장소에서 임시 데이터도 정리합니다.
 
 클라우드 복사 시나리오에서(원본 및 싱크 데이터 저장소는 모두 클라우드에 있음) 게이트웨이는 사용되지 않습니다. Data Factory 서비스는 복사 작업을 수행합니다.
 
@@ -289,7 +289,7 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 ### <a name="file-based-data-stores"></a>파일 기반 데이터 저장소
 *(Blob 저장소, Data Lake Store, Amazon S3, 온-프레미스 파일 시스템, 온-프레미스 HDFS 포함)*
 
-* **복사 동작**: 서로 다른 파일 기반 저장소에서 데이터를 복사하는 경우 복사 작업에는 **copyBehavior** 속성을 통해&3;가지 옵션이 제공됩니다. 계층 구조를 유지하고 평면화하며 파일을 병합합니다. 계층 구조를 유지 또는 평면화하는 작업은 성능 오버 헤드가 거의 또는 전혀 발생하지 않는 반면 파일을 병합하는 작업은 성능 오버 헤드가 증가합니다.
+* **복사 동작**: 서로 다른 파일 기반 저장소에서 데이터를 복사하는 경우 복사 작업에는 **copyBehavior** 속성을 통해 3가지 옵션이 제공됩니다. 계층 구조를 유지하고 평면화하며 파일을 병합합니다. 계층 구조를 유지 또는 평면화하는 작업은 성능 오버 헤드가 거의 또는 전혀 발생하지 않는 반면 파일을 병합하는 작업은 성능 오버 헤드가 증가합니다.
 * **파일 형식 및 압축**: 성능을 개선하는 다양한 방법은 [직렬화/역직렬화에 대한 고려 사항](#considerations-for-serialization-and-deserialization) 및 [압축에 대한 고려 사항](#considerations-for-compression) 섹션을 참조하세요.
 * **Blob 저장소**: 현재 Blob 저장소는 최적화된 데이터 전송 및 처리량에 대해서만 블록 Blob를 지원합니다.
 * **데이터 관리 게이트웨이**를 사용해야 하는 **온-프레미스 파일 시스템** 시나리오는 [데이터 관리 게이트웨이에 대한 고려 사항](#considerations-for-data-management-gateway) 섹션을 참조하세요.

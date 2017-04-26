@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: a423975e8a091183154217678706817694f3e346
-ms.openlocfilehash: d5256250d6d3a6d7df3a90ae4a0801af131b830e
-ms.lasthandoff: 12/21/2016
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 2b8638ffc3287346a71f591370367655c450e376
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -29,25 +29,25 @@ ms.lasthandoff: 12/21/2016
 비 대화형.NET 응용 프로그램에서 다음 항목이 필요합니다.
 
 * Azure 구독 테넌트 ID(즉, 디렉터리 ID) [테넌트 ID 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id)를 참조하세요.
-* Azure Directory 응용 프로그램 클라이언트 ID [Active Directory 응용 프로그램 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-active-directory-application)와 [응용 프로그램 ID 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
-* Azure Directory 응용 프로그램 비밀 키 [응용 프로그램 인증 키 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
+* Azure Active Directory 응용 프로그램 클라이언트 ID. [Azure Active Directory 응용 프로그램 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)와 [응용 프로그램 ID 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
+* Azure Active Directory 응용 프로그램 비밀 키. [응용 프로그램 인증 키 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * HDInsight 클러스터. [시작 자습서](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요.
 
 
 
-## <a name="assign-ad-application-to-role"></a>역할에 AD 응용 프로그램 할당
+## <a name="assign-azure-ad-application-to-role"></a>역할에 Azure AD 응용 프로그램 할당
 작업 수행 권한을 부여하려면 응용 프로그램을 [역할](../active-directory/role-based-access-built-in-roles.md)에 할당해야 합니다. 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 응용 프로그램에 리소스 그룹에 대한 읽기 권한자 역할을 추가하면 응용 프로그램이 리소스 그룹과 그 안에 포함된 모든 리소스를 읽을 수 있습니다. 이 자습서에서는 리소스 그룹 수준에서 범위를 설정합니다. 자세한 정보는 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-**AD 응용 프로그램에 소유자 역할을 추가하려면**
+**Azure AD 응용 프로그램에 소유자 역할을 추가하려면**
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 창에서 **리소스 그룹** 을 클릭합니다.
 3. 이 자습서의 뒷부분에서 Hive 쿼리를 실행할 HDInsight 클러스터가 포함된 리소스 그룹을 클릭합니다. 너무 많은 리소스 그룹이 있는 경우 필터를 사용할 수 있습니다.
 4. 리소스 그룹 메뉴에서 **액세스 제어(IAM)**를 클릭합니다.
 5. **사용자** 블레이드에서 **추가**를 클릭합니다.
-6. 지침에 따라 마지막 절차에서 만든 AD 응용 프로그램에 **소유자** 를 추가합니다. 성공적으로 완료하면 소유자 역할이 있는 사용자가 블레이드에 나열된 응용 프로그램이 표시됩니다.
+6. 지침에 따라 마지막 절차에서 만든 Azure AD 응용 프로그램에 **소유자**를 추가합니다. 성공적으로 완료하면 소유자 역할이 있는 사용자가 블레이드에 나열된 응용 프로그램이 표시됩니다.
 
 ## <a name="develop-hdinsight-client-application"></a>HDInsight 클라이언트 응용 프로그램 개발
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 12/21/2016
         }
 
 ## <a name="next-steps"></a>다음 단계
-* [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+* [포털을 사용하여 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [Azure Resource Manager를 사용하여 서비스 주체 인증](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
 

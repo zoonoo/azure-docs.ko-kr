@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/28/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7e6053c8a737674f0e8d9816d3ee228c118a722e
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 97ed0ae7cf9f741155c57053bc8b34a0246d0586
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -40,7 +40,7 @@ Azure 진단에서는 클라우드 서비스 VM(가상 컴퓨터)에서 메트�
 * 연결 문제를 해결하는 방법  
 
 ## <a name="prerequisites"></a>필수 조건
-Azure 진단에서 데이터를 수신하는 이벤트 허브는 Azure SDK 2.9 및 해당 Visual Studio용 Azure 도구에서 시작하는 Cloud Services, VM, 가상 컴퓨터 크기 집합 및 Service Fabric에서 지원됩니다.
+Azure 진단에서 데이터를 수신하는 이벤트 허브는 Azure SDK 2.9 및 해당 Visual Studio용 Azure 도구에서 시작하는 Cloud Services, VM, 가상 컴퓨터 확장 집합 및 Service Fabric에서 지원됩니다.
 
 * Azure 진단 확장 1.6(기본적으로[Azure SDK for .NET 2.9 이상](https://azure.microsoft.com/downloads/) 대상)
 * [Visual Studio 2013 이상](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
@@ -62,7 +62,7 @@ Azure 진단에서 데이터를 수신하는 이벤트 허브는 Azure SDK 2.9 �
 
 이 예제에서 이벤트 허브 URL은 이벤트 허브의 정규화된 네임스페이스(Event Hubs 네임스페이스 + “/” + 이벤트 허브 이름)로 설정됩니다.  
 
-이벤트 허브 URL은 이벤트 허브 대시보드의 [Azure 포털](http://go.microsoft.com/fwlink/?LinkID=213885) 에 표시됩니다.  
+이벤트 허브 URL은 이벤트 허브 대시보드의 [Azure Portal](http://go.microsoft.com/fwlink/?LinkID=213885)에 표시됩니다.  
 
 **싱크** 이름의 경우 같은 값이 구성 파일 전체에서 일관되게 사용되고 있다면 유효한 문자열로 설정할 수 있습니다.
 
@@ -218,7 +218,7 @@ namespace EventHubListener
         static void Main(string[] args)
         {
             string eventHubConnectionString = "Endpoint= <your connection string>”
-            string eventHubName = "<Event Hub name>";
+            string eventHubName = "<Event hub name>";
             string storageAccountName = "<Storage account name>";
             string storageAccountKey = "<Storage account key>”;
             string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);

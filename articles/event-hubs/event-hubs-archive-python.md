@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: darosa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 25dd25d8f8f0388ed7ef11bb26344ad7199fde2e
-ms.openlocfilehash: 3f0487fba592426c835d81a46a752697ecf34d8b
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 5e37870f932ce775293b913504f2530d1d8935e1
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="event-hubs-archive-walkthrough-python"></a>Event Hubs 보관 연습: Python
-Event Hubs 보관은 Event Hubs의 스트리밍 데이터를 선택한 Azure Blob Storage 계정에 자동으로 전달할 수 있도록 하는 이벤트 허브의 새로운 기능입니다. 이렇게 하면 손쉽게 실시간 스트리밍 데이터에서 일괄 처리를 수행할 수 있습니다. 이 문서에서는 Python과 함께 Event Hubs 보관을 사용하는 방법을 설명합니다. Event Hubs 보관에 대한 자세한 내용은 [개요 문서](event-hubs-archive-overview.md)를 참조하세요.
+Event Hubs 보관은 이벤트 허브의 스트리밍 데이터를 사용자가 선택하는 Azure Blob Storage 계정으로 자동 제공할 수 있는 Event Hubs의 새 기능입니다. 이렇게 하면 손쉽게 실시간 스트리밍 데이터에서 일괄 처리를 수행할 수 있습니다. 이 문서에서는 Python과 함께 Event Hubs 보관을 사용하는 방법을 설명합니다. Event Hubs 보관에 대한 자세한 내용은 [개요 문서](event-hubs-archive-overview.md)를 참조하세요.
 
-이 샘플에서는 [Azure Python SDK](https://azure.microsoft.com/develop/python/)를 사용하여 보관 기능을 보여 줍니다. sender.py 프로그램이 JSON 형식으로 Event Hubs에 시뮬레이트된 환경 원격 분석을 보냅니다. 이벤트 허브는 보관 기능을 사용하여 Blob Storage에 일괄 작업으로 이 데이터를 작성하도록 구성됩니다. 그런 다음 archivereader.py 앱이 이러한 Blob을 읽고 장치당 추가 파일을 만들어 .csv 파일에 데이터를 작성합니다.
+이 샘플에서는 [Azure Python SDK](https://azure.microsoft.com/develop/python/)를 사용하여 보관 기능을 보여 줍니다. sender.py 프로그램이 JSON 형식으로 Event Hubs에 시뮬레이트된 환경 원격 분석을 보냅니다. 이벤트 허브는 보관 기능을 사용하여 이 데이터를 Blob Storage에 일괄적으로 쓰도록 구성되어 있습니다. 그런 다음 archivereader.py 앱이 이러한 Blob을 읽고 장치당 추가 파일을 만들어 .csv 파일에 데이터를 작성합니다.
 
 수행될 작업
 
 1. Azure Portal을 사용하여 Azure Blob Storage 계정 및 Blob 컨테이너 만들기
 2. Azure Portal을 사용하여 이벤트 허브 네임스페이스 만들기
 3. Azure Portal을 사용하여 보관 기능이 활성화된 이벤트 허브 만들기
-4. Python 스크립트로 이벤트 허브에 데이터 보내기
+4. Python 스크립트를 사용하여 이벤트 허브에 데이터 보내기
 5. 다른 Python 스크립트로 아카이브에서 파일 읽기 및 처리
 
 필수 조건
@@ -75,7 +75,7 @@ Event Hubs 보관은 Event Hubs의 스트리밍 데이터를 선택한 Azure Blo
            sbs.send_event('INSERT YOUR EVENT HUB NAME', s)
        print y
    ```
-4. Event Hubs 네임스페이스를 만들 때 얻은 네임스페이스 이름, 키 값 및 Event Hub 이름을 사용하도록 앞의 코드를 업데이트합니다.
+4. Event Hubs 네임스페이스를 만들 때 얻은 네임스페이스 이름, 키 값 및 이벤트 허브 이름을 사용하도록 앞의 코드를 업데이트합니다.
 
 ## <a name="create-a-python-script-to-read-your-archive-files"></a>보관 파일을 읽는 Python 스크립트 만들기
 1. 블레이드를 채우고 **만들기**를 클릭합니다.
