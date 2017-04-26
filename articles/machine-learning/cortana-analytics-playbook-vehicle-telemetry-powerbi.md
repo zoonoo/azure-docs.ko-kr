@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
-ms.openlocfilehash: 24d440049b5e889c6d4417cc16787edd42bc5848
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: b7332aa2b2518bd926ee2221fd0129adcc25415b
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/24/2017
 차량 원격 분석 솔루션에서는 자동차 대리점, 자동차 제조업체 및 보험 회사가 Cortana Intelligence의 기능을 이용하여 고객 경험, 연구 개발 및 마케팅 캠페인 분야의 개선을 추진하기 위해 차량 상태 및 운전 습관에 대한 실시간 및 예측 통찰력을 얻을 수 있습니다. 이 문서는 솔루션을 구독에 배포한 후 Power BI 보고서 및 대시보드를 구성할 수 있는 방법에 관한 단계별 지침을 포함하고 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-1. [https://gallery.cortanaanalytics.com/SolutionTemplate/Vehicle-Telemetry-Analytics-3](https://gallery.cortanaanalytics.com/SolutionTemplate/Vehicle-Telemetry-Analytics-3)  
+1. [https://gallery.cortanaintelligence.com/Solution/Vehicle-Telemetry-Analytics-9](https://gallery.cortanaintelligence.com/Solution/Vehicle-Telemetry-Analytics-9)으로 이동하여 차량 원격 분석 솔루션 배포  
 2. [Microsoft Power BI 데스크톱 설치](http://www.microsoft.com/download/details.aspx?id=45331)
 3. [Azure 구독](https://azure.microsoft.com/pricing/free-trial/). Azure 구독이 없으면 Azure 무료 구독 시작
 4. Microsoft Power BI 계정
@@ -38,8 +38,8 @@ ms.lasthandoff: 01/24/2017
 차량 원격 분석 솔루션 템플릿의 일부로 다음 Cortana Intelligence 서비스가 구독에 배포됩니다.
 
 * **이벤트 허브** - 수백만 개의 차량 원격 분석 이벤트를 Azure에 수집합니다.
-* **스트림 분석**- 차량 상태에 대한 실시간 통찰력을 얻고 다양한 일괄 처리 분석을 위해 해당 데이터를 장기간용 저장소에 보관합니다.
-* **기계 학습** - 실시간으로 이상을 탐지하고 일괄 처리하여 예측 가능한 통찰력을 얻습니다.
+* **스트림 분석** - 차량 상태에 대한 실시간 통찰력을 얻고 다양한 일괄 처리 분석을 위해 해당 데이터를 장기간용 저장소에 보관합니다.
+* **기계 학습** - 실시간으로 변칙 검색을 수행하고 일괄 처리하여 예측 가능한 통찰력을 얻습니다.
 * **HDInsight** - 대규모로 데이터를 변환하는 데 이용됩니다.
 * **Data Factory** - 일괄 처리 파이프라인의 오케스트레이션, 예약, 리소스 관리 및 모니터링을 처리합니다.
 
@@ -52,40 +52,21 @@ ms.lasthandoff: 01/24/2017
 차량 카탈로그는 모델 매핑에 대한 VIN이 포함된 참조 데이터 집합입니다.
 
 ## <a name="power-bi-dashboard-preparation"></a>Power BI 대시보드 준비
-### <a name="deployment"></a>배포
-배포가 완료되면 모든 구성 요소가 녹색으로 표시된 다음 다이어그램을 볼 수 있습니다. 
-
-* 이러한 모든 구성 요소가 성공적으로 배포되었는지 여부를 확인하는 해당 서비스로 이동하려면 녹색 노드의 오른쪽 위에 있는 화살표를 클릭합니다.
-* 데이터 시뮬레이터 패키지를 다운로드하려면 **차량 텔레매틱스 시뮬레이터** 노드의 오른쪽 위에 있는 화살표를 클릭합니다. 파일을 저장하고 컴퓨터에 로컬로 추출합니다. 
-
-![배포된 구성 요소](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/1-deployed-components.png)
-
-이제 차량 상태 및 운전 습관에 대한 실시간 및 예측 통찰력을 얻기 위해 시각화 효과가 풍부한 Power BI 대시보드를 구성할 준비가 되었습니다. 모든 보고서를 만들고 대시보드를 구성하는 데 약 45분에서 한 시간쯤 걸립니다. 
-
 ### <a name="setup-power-bi-real-time-dashboard"></a>Power BI에 대한 실시간 대시보드 설정
-**시뮬레이션된 데이터 생성**
 
-1. 로컬 컴퓨터에서 차량 텔레매틱스 시뮬레이터 패키지를 추출한 폴더로 이동합니다.
-  ![시뮬레이터 폴더](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/2-vehicle-telematics-simulator-folder.png)
-2. 응용 프로그램 ***CarEventGenerator.exe***를 실행합니다.
-3. 이 기능은 지정된 시기에 차량 상태 및 운전 패턴에 해당하는 신호를 내보냅니다. 이는 배포의 일부로 구성된 Azure 이벤트 허브 인스턴스에 배포됩니다.
+**실시간 대시보드 응용 프로그램 시작** 배포가 완료되면 수동 작업 지침을 따라야 합니다
 
-![진단](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/3-vehicle-telematics-diagnostics.png)
+* 실시간 대시보드 응용 프로그램 RealtimeDashboardApp.zip을 다운로드한 다음 압축을 풉니다.
+*  압축을 푼 폴더에서 앱 구성 파일 'RealtimeDashboardApp.exe.config'를 열고 Eventhub, Blob Storage, ML 서비스 연결의 appSettings를 수동 작업 지침의 값으로 바꾸고 변경 사항을 저장합니다.
+* RealtimeDashboardApp.exe 응용 프로그램을 실행합니다. 로그인 창이 표시되면 유효한 PowerBI 자격 증명을 입력하고 **동의** 버튼을 클릭합니다. 그러면 앱이 실행되기 시작합니다.
 
-**실시간 대시보드 응용 프로그램 시작**
-
-솔루션은 Power BI에서 실시간 대시보드를 생성하는 응용 프로그램을 포함합니다. 이 응용 프로그램은 Stream Analytics가 이벤트를 지속적으로 게시하는 이벤트 허브 인스턴스를 수신 대기합니다. 이 응용 프로그램이 수신하는 모든 이벤트에 대해 기계 학습 요청-응답 점수 매기기 끝점을 사용하여 데이터를 처리합니다. 결과 데이터 집합은 시각화를 위해 Power BI 푸시 API에 게시됩니다. 
-
-응용 프로그램을 다운로드하려면:
-
-1. 다이어그램 보기에서 Power BI 노드를 클릭하고 속성 창에서 **실시간 대시보드 응용 프로그램 다운로드** 링크를 클릭합니다.![대시보드](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard-new1.png)
-2. 압축을 풀고 응용 프로그램을 로컬로 저장합니다. ![대시보드 응용 프로그램](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/4-real-time-dashboard-application.png)
-3. 응용 프로그램 **RealtimeDashboardApp.exe**
-4. 유효한 Power BI 자격 증명을 제공하고 로그인한 후 **동의**
-   
    ![Power BI에 로그인](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/5-sign-into-powerbi.png)
    
    ![Power BI 대시보드 권한](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/6-powerbi-dashboard-permissions.png)
+
+* PowerBI 웹사이트에 로그인하고 실시간 대시보드를 만듭니다.
+
+이제 차량 상태 및 운전 습관에 대한 실시간 및 예측 통찰력을 얻기 위해 시각화 효과가 풍부한 Power BI 대시보드를 구성할 준비가 되었습니다. 모든 보고서를 만들고 대시보드를 구성하는 데 약 45분에서 한 시간쯤 걸립니다. 
 
 ### <a name="configure-power-bi-reports"></a>Power BI 보고서 구성
 실시간 보고서 및 대시보드를 완료하려면 약 30~45분이 걸립니다. [http://powerbi.com](http://powerbi.com) 로 이동하여 로그인합니다.
@@ -319,13 +300,13 @@ ms.lasthandoff: 01/24/2017
 
 **Power BI Designer 파일 다운로드**
 
-* 미리 구성된 Power BI Designer 파일 배포의 일부로 포함됩니다.
-* 다이어그램 보기에서 Power BI 노드를 클릭하고 속성 창에서 **Power BI Designer 파일 다운로드** 링크를 클릭합니다. ![Power BI Designer 다운로드](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+* 미리 구성된 Power BI Designer 파일이 배포 수동 작업 지침의 일부로 포함되어 있습니다
+* 2를 찾습니다. PowerBI 배치 프로세싱 대시보드 설정 여기에서 배치 처리 대시보드의 PowerBI 템플릿 **ConnectedCarsPbiReport.pbix**를 다운로드할 수 있습니다.
 * • 로컬로 저장
 
 **Power BI 보고서 구성**
 
-* Power BI 데스크톱을 사용하여 Designer 파일 ‘VehicleTelemetryAnalytics - 데스크톱 Report.pbix’를 엽니다. 아직 없는 경우 [Power BI Desktop 설치](http://www.microsoft.com/download/details.aspx?id=45331)에서 Power BI 데스크톱을 설치합니다. 
+* Power BI Desktop을 사용하여 디자이너 파일 ‘**ConnectedCarsPbiReport.pbix**’를 엽니다. 아직 없는 경우 [Power BI Desktop 설치](http://www.microsoft.com/download/details.aspx?id=45331)에서 Power BI 데스크톱을 설치합니다. 
 * **쿼리 편집**을 클릭합니다.
 
 ![Power BI 쿼리 편집](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/10-edit-powerbi-query.png)
@@ -334,9 +315,14 @@ ms.lasthandoff: 01/24/2017
 
 ![Power BI 원본 설정](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/11-set-powerbi-source.png)
 
-* 배포의 일부로 프로비전된 Azure SQL Server를 통해 서버 연결 문자열을 업데이트합니다. 다이어그램에서 Azure SQL 노드를 클릭하고 속성 창의 서버 이름을 확인합니다.
+* 배포의 일부로 프로비전된 Azure SQL Server를 통해 서버 연결 문자열을 업데이트합니다.  수동 작업 지침에서 찾습니다 
 
-![서버 이름 보기](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/11.5-view-server-name.png)
+    4. Azure SQL 데이터베이스
+    
+    * 서버: somethingsrv.database.windows.net
+    * 데이터베이스: connectedcar
+    * 사용자 이름: username
+    * 암호: Azure Portal에서 SQL Server 암호를 관리할 수 있습니다
 
 * **데이터베이스** 를 *connectedcar*로 둡니다.
 
@@ -364,16 +350,16 @@ ms.lasthandoff: 01/24/2017
 2. **데이터 가져오기**  
 3. Power BI 데스크톱 파일을 업로드합니다.  
 4. 업로드하려면 **데이터 가져오기 -> 파일 가져오기 -> 로컬 파일**을 클릭합니다.  
-5. **“VehicleTelemetryAnalytics – Desktop Report.pbix”**  
+5. **“**ConnectedCarsPbiReport.pbix**”**로 이동합니다  
 6. 파일이 업로드된 후 Power BI 작업 공간으로 다시 이동합니다.  
 
 데이터 집합, 보고서 및 빈 대시보드가 생성됩니다.  
 
-**Power BI**의 **기존 대시보드인 차량 원격 분석 분석 대시보드**에 차트를 고정합니다. 위에서 만든 빈 대시보드를 클릭한 다음 **보고서** 섹션으로 이동하여 새로 업로드한 보고서를 클릭합니다.  
+**Power BI**에서 새 대시보드인 **차량 원격 분석 대시보드**에 차트를 고정합니다. 위에서 만든 빈 대시보드를 클릭한 다음 **보고서** 섹션으로 이동하여 새로 업로드한 보고서를 클릭합니다.  
 
 ![차량 원격 분석 Power BI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard1.png) 
 
-**참고로 보고서에는&6;페이지가 있음:**  
+**참고로 보고서에는 6페이지가 있음:**  
 1페이지: 차량 밀도  
 2페이지: 실시간 차량 상태  
 3페이지: 적극적으로 운전한 차량   
@@ -420,5 +406,4 @@ ms.lasthandoff: 01/24/2017
 ![차량 원격 분석 - 대시보드 2 구성](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
 
 축하합니다. 차량 상태 및 운전 습관을 실시간으로 예측 가능하며 배치 통찰력을 얻을 수 있는 보고서 및 대시보드를 성공적으로 만들었습니다.  
-
 

@@ -14,12 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/14/2017
 ms.author: bprakash
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: c753eac8caed139250a0db85b639fca57c1e9ea6
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 990ac507c0d0f26483dc0db7ec4bce793100cb60
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -43,9 +43,9 @@ Azure HDInsight는 빅 데이터 클라우드 제품을 **Standard** 및 **Premi
 ### <a name="cluster-types-supported-for-hdinsight-premium"></a>HDInsight Premium용으로 지원되는 클러스터 유형
 다음 표에는 HDInsight 클러스터 유형 및 Premium 지원 행렬이 나와 있습니다.
 
-| 클러스터 유형 | Standard | Premium |
+| 클러스터 유형 | Standard | Premium(미리 보기) |
 | --- | --- | --- |
-| Hadoop은 |예 |예(HDInsight 3.5에만 해당) |
+| Hadoop은 |예 |예(HDInsight 3.5 및 3.6에만 해당) |
 | Spark |예 |아니요 |
 | HBase |예 |아니요 |
 | Storm |예 |아니요 |
@@ -73,23 +73,28 @@ Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버
 >
 
 
-| 구성 요소 | HDInsight 버전 3.5(기본값) | HDInsight 버전 3.4 | HDInsight 버전 3.3 | HDInsight 버전 3.2 | HDInsight 버전 3.1 | HDInsight 버전 3.0 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Hortonworks Data Platform |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
-| Apache Hadoop & YARN |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
-| Apache Tez |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
-| Apache Pig |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
-| Apache Hive & HCatalog |1.2.1.2.5 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
-| Apache HBase |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
-| Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
-| Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
-| Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
-| Apache Storm |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
-| Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
-| Apache Phoenix |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |1.6.2 + 2.0(Linux만 해당) |1.6.0(Linux만 해당) |1.5.2(Linux만 해당/ 실험적 빌드) |1.3.1(Windows만 해당) |-|-|
-| Apache Kafka | 0.10.0 | 0.9.0 |-|-|-|-|
-| Mono |4.2.1 |3.2.8 |-|-|-|-|
+| 구성 요소 | HDInsight 버전 3.6 | HDInsight 버전 3.5(기본값) | HDInsight 버전 3.4 | HDInsight 버전 3.3 | HDInsight 버전 3.2 | HDInsight 버전 3.1 | HDInsight 버전 3.0 |
+| --- | --- | --- | --- | --- | --- | --- |--- |
+| Hortonworks Data Platform |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
+| Apache Hadoop & YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
+| Apache Tez |0.7.0 |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
+| Apache Pig |0.16.0 |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
+| Apache Hive & HCatalog |1.2.1 |1.2.1 |1.2.1 |1.2.1 |0.14.0 |0.13.1 |0.12.0 |
+| Apache Hive2 | 2.1.0 |-|-|-|-|-|-|
+| Apache Tez-Hive2 | 0.8.4 |-|-|-|-|-|-|
+| Apache Ranger | 0.7.0 |0.6.0 |-|-|-|-|-|
+| Apache HBase |1.1.2 |1.1.2 |1.1.2 |1.1.1 |0.98.4 |0.98.0 |-|
+| Apache Sqoop |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
+| Apache Oozie |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
+| Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
+| Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
+| Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
+| Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
+| Apache Spark |2.1.0(Linux만 해당) |1.6.2 + 2.0(Linux만 해당) |1.6.0(Linux만 해당) |1.5.2(Linux만 해당/ 실험적 빌드) |1.3.1(Windows만 해당) |-|-|
+| Apache Kafka | 0.10.0 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Ambari | 2.5.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
+| Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
+| Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 
 **현재 구성 요소 버전 정보 가져오기**
 
@@ -107,21 +112,18 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 
 
 | HDInsight 버전 | HDP 버전 | VM OS | 고가용성 | 릴리스 날짜 | Azure 포털에서 사용 가능 여부 | 지원 만료 날짜 | 사용 중단 날짜 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDI 3.6 미리 보기 |HDP 2.6 |Ubuntu 16 |예 |02/28/2017 |예 | | |
-| HDI 3.5 |HDP 2.5 |Ubuntu 16 |예 |9/30/2016 |예 | | |
+| HDI 3.6 |HDP 2.6 |Ubuntu 16 |예 |04/06/2017 |예 | | |
+| HDI 3.5 |HDP 2.5 |Ubuntu 16 |예 |9/30/2016 |예 |07/05/2017 |05/31/2018 |
 | HDI 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |예 |2016/03/29 |예 |12/29/2016 |1/9/2018 |
 | HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS 또는 Windows Server 2012R2 |예 |12/02/2015 |예 |06/27/2016 |07/31/2017 |
-| HDI 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 또는 Windows Server 2012R2 |예 |2/18/2015 |예 |3/1/2016 |04/01/2017 |
+| HDI 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 또는 Windows Server 2012R2 |예 |2/18/2015 |아니요 |3/1/2016 |04/01/2017 |
 | HDI 3.1 |HDP 2.1 |Windows Server 2012R2 |예 |6/24/2014 |아니요 |05/18/2015 |06/30/2016 |
 | HDI 3.0 |HDP 2.0 |Windows Server 2012R2 |예 |2014/02/11 |아니요 |2014/09/17 |2015/06/30 |
 | HDI 2.1 |HDP 1.3 |Windows Server 2012R2 |예 |2013/10/28 |아니요 |2014/05/12 |2015/05/31 |
 | HDI 1.6 |HDP 1.1 | |아니요 |2013/10/28 |아니요 |2014/04/26 |2015/05/31 |
 
-##<a name="hdi-36-preview-with-apache-spark-21"></a>Apache Spark 2.1을 사용한 HDI 3.6 미리 보기
-미리 보기용 HDI 3.6은 2017년 2월 28일에 릴리스됩니다. Apache Spark 2.1용 미리 보기에서 제공됩니다. 자세한 내용은 [Apache Spark 2.1을 사용한 HDI 3.6 미리 보기](https://azure.microsoft.com/en-us/blog/announcing-preview-of-azure-hdinsight-3-6-with-apache-spark-2-1/)를 참조하세요.
-
-##<a name="hdi-version-32-and-33-nearing-deprecation-date"></a>HDI 버전 3.2 및 3.3(곧 사용 중단됨)
-HDI 3.2 클러스터에 대한 지원은 2016년 3월 1일 만료되었으며 2017년 4월 1일부터는 사용되지 않습니다. HDI 3.3 클러스터에 대한 지원은 2016년 6월 27일 만료되었으며 2017년 7월 31일부터는 사용되지 않습니다. HDI 3.2 또는 HDI 3.3 클러스터가 있는 경우에는 최신 버전인 HDI 3.5로 클러스터를 업그레이드하세요.
+##<a name="hdi-version-33-nearing-deprecation-date"></a>HDI 버전 3.3(곧 사용 중단됨)
+HDI 3.3 클러스터에 대한 지원은 2016년 6월 27일 만료되었으며 2017년 7월 31일부터는 사용되지 않습니다. HDI 3.3 클러스터가 있는 경우에는 최신 버전인 HDI 3.5 또는 HDI 3.6으로 빨리 클러스터를 업그레이드하세요. HDI 3.3 Windows의 사용 중단 기한은 지역별로 다를 수 있습니다. 지역별 사용 중단 예정일이 이 알림에 표기된 날짜와 다를 경우 고객에게 별도의 알림이 전송됩니다.
 
 ### <a name="the-service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 클러스터 버전의 서비스 수준 계약
 SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고객 지원에서 HDInsight 클러스터 버전을 지원하는 기간을 나타냅니다. HDInsight 클러스터는 해당 버전의 **지원 만료 날짜** 가 현재 날짜를 지난 경우 지원 기간을 넘긴 것입니다. 지원되는 HDInsight 클러스터 버전 목록은 위의 표에서 찾아볼 수 있습니다. 새로운 X+1 버전이 사용 가능해질 경우 지정된 HDInsight 버전의 지원 만료 날짜는 다음 수식 중 후자로 계산됩니다.  
@@ -129,7 +131,7 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 * 수식 1: HDInsight 클러스터 버전 X가 릴리스된 날짜에 180일을 추가합니다.
 * 수식 2: HDInsight 클러스터 버전 X+1(X 이후의 후속 버전)을 포털에서 사용할 수 있는 날짜에 90일을 추가합니다.
 
-**사용 중단 날짜** 는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다. 2017년 7월 31일부터 사용 중단 날짜 이후에는 클러스터 크기를 조정할 수 없습니다.
+**사용 중단 날짜** 는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다. 2017년 7월 31일부터 사용 중단 날짜 이후에는 클러스터 크기를 조정할 수 없습니다. 
 
 > [!NOTE]
 > Windows 기반 HDInsight 클러스터(버전 2.1, 3.0, 3.1, 3.2 및 3.3 포함)는 Azure Guest OS Family 4에서 실행되고 64 비트 버전의 Windows Server 2012 R2를 사용하고 .NET Framework 4.0, 4.5, 4.5.1 및 4.5.2를 지원합니다.

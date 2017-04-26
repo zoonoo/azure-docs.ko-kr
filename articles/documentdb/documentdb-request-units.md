@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/17/2017
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b098e3087cb08528c5fbdc2d0d768ce40e7ffe0d
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 6185c703e9148c71d9995b92540b8ea72fba5cc0
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -132,37 +132,37 @@ DocumentDB 컬렉션에 대해 예약할 요청 단위 수를 예상할 때 다�
             <td valign="top"><p>1KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *1) + (100* 5) = 1,000RU/s</p></td>
+            <td valign="top"><p>(500 * 1) + (100 * 5) = 1,000RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>1KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *5) + (100* 5) = 3,000RU/s</p></td>
+            <td valign="top"><p>(500 * 1) + (500 * 5) = 3,000RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *1.3) + (100* 7) = 1,350RU/s</p></td>
+            <td valign="top"><p>(500 * 1.3) + (100 * 7) = 1,350RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>4KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *1.3) + (500* 7) = 4,150RU/s</p></td>
+            <td valign="top"><p>(500 * 1.3) + (500 * 7) = 4,150RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 *10) + (100* 48) = 9,800RU/s</p></td>
+            <td valign="top"><p>(500 * 10) + (100 * 48) = 9,800RU/s</p></td>
         </tr>
         <tr>
             <td valign="top"><p>64KB</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 *10) + (500* 48) = 29,000RU/s</p></td>
+            <td valign="top"><p>(500 * 10) + (500 * 48) = 29,000RU/s</p></td>
         </tr>
     </tbody>
 </table>
@@ -336,7 +336,7 @@ MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추�
 | 문서 읽기 |100 |100 |
 | 제조업체로 음식 선택 |25 |175 |
 | 음식 그룹으로 선택 |10 |700 |
-| 상위 10개 선택 |15 |총&150; |
+| 상위 10개 선택 |15 |총 150 |
 
 이 예에서는 필요한 평균 처리량이 1,275 RU/s로 예상됩니다.  가장 가까운 100자리 숫자로 반올림하면 이 응용 프로그램의 컬렉션에 1,300 RU/s를 프로비전하면 됩니다.
 

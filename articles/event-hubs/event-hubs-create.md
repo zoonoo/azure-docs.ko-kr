@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/25/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: ca5c8b489345dcd0523897895de346509db08a28
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 23df3a3a11d8f065d6ce2a4f14ba175d6c781ee9
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -44,20 +45,20 @@ ms.openlocfilehash: ca5c8b489345dcd0523897895de346509db08a28
 1. 블레이드의 위쪽에서 **Event Hub 추가**를 클릭합니다.
    
     ![](./media/event-hubs-create/create-event-hub4.png)
-1. Event Hub의 이름을 입력한 다음 **만들기**를 클릭합니다.
+1. 이벤트 허브의 이름을 입력한 다음 **만들기**를 클릭합니다.
    
     ![](./media/event-hubs-create/create-event-hub5.png)
-1. Event Hubs의 목록에서 새로 만든 Event Hub 이름을 클릭합니다. 
+1. 이벤트 허브 목록에서 새로 만든 이벤트 허브의 이름을 클릭합니다. 
     
-     ![](./media/event-hubs-create/create-event-hub6.png)
-1. 네임스페이스 블레이드(특정 Event Hub 블레이드가 아님)로 돌아와서 **공유 액세스 정책**을 클릭한 다음 **RootManageSharedAccessKey**를 클릭합니다.
+    ![](./media/event-hubs-create/create-event-hub6.png)
+1. 네임스페이스 블레이드(특정 이벤트 허브 블레이드가 아님)로 돌아와서 **공유 액세스 정책**을 클릭한 다음 **RootManageSharedAccessKey**를 클릭합니다.
     
-     ![](./media/event-hubs-create/create-event-hub7.png)
+    ![](./media/event-hubs-create/create-event-hub7.png)
 1. 복사 단추를 클릭하여 클립보드에 대한 **RootManageSharedAccessKey** 연결 문자열을 복사합니다. 이 자습서 뒷부분에서 사용할 연결 문자열을 저장합니다.
     
-     ![](./media/event-hubs-create/create-event-hub8.png)
+    ![](./media/event-hubs-create/create-event-hub8.png)
 
-이제 이벤트 허브가 만들어졌고 이벤트를 보내고 받기 위한 연결 문자열이 있습니다.
+이제 이벤트 허브가 생성되었고 이벤트를 보내고 받는 데 필요한 연결 문자열이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
@@ -66,8 +67,3 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
 * [이벤트 허브 API 개요](event-hubs-api-overview.md)
 
 [Azure portal]: https://portal.azure.com/
-
-
-<!--HONumber=Feb17_HO1-->
-
-
