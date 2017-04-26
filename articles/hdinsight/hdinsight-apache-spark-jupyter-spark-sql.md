@@ -126,7 +126,7 @@ HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터�
         # Create a data frame
         hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
 
-        # Register the data fram as a table to run queries against
+        # Register the data frame as a table to run queries against
         hvacdf.registerTempTable("hvac")
 
     HDInsight의 Spark 클러스터는 **\HdiSamples\HdiSamples\SensorSampleData\hvac** 아래에서 샘플 데이터 파일 **hvac.csv**와 함께 제공됩니다.
