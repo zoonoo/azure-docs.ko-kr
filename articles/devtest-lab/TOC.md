@@ -1,7 +1,6 @@
 # 개요
-## [DevTest Lab이란?](devtest-lab-overview.md)
-## [DevTest Lab을 선택해야 하는 이유](devtest-lab-why.md)
-## [DevTest Lab 개념](devtest-lab-concepts.md)
+## [Azure DevTest Labs 정보](devtest-lab-overview.md)
+## [개념](devtest-lab-concepts.md)
 
 # 시작
 ## [랩 만들기](devtest-lab-create-lab.md)

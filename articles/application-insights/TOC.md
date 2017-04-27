@@ -18,6 +18,7 @@
 ### [웹앱-런타임](app-insights-java-live.md)
 ### [Docker 앱](app-insights-docker.md)
 
+
 ## 웹 페이지 모니터링
 ### [JavaScript](app-insights-javascript.md)
 
@@ -75,6 +76,7 @@
 #### [대시보드](app-insights-dashboards.md)
 #### [이를 통해 검색](app-insights-diagnostic-search.md)
 #### [metrics](app-insights-metrics-explorer.md)
+#### [라이브 스트림](app-insights-live-stream.md)
 
 #### [응용 프로그램 맵](app-insights-app-map.md)
 #### [HockeyApp 데이터](app-insights-hockeyapp-bridge-app.md)
@@ -132,6 +134,14 @@
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [REST (영문)](https://dev.applicationinsights.io/)
+## [데이터 모델](application-insights-data-model.md)
+### [요청](application-insights-data-model-request-telemetry.md)
+### [종속성](application-insights-data-model-dependency-telemetry.md)
+### [예외](application-insights-data-model-exception-telemetry.md)
+### [추적](application-insights-data-model-trace-telemetry.md)
+### [Event](application-insights-data-model-event-telemetry.md)
+### [메트릭](application-insights-data-model-metric-telemetry.md)
+## [원격 분석 상관 관계](application-insights-correlation.md)
 
 # 리소스
 

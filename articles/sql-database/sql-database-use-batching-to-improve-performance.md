@@ -16,18 +16,14 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 28c847137bda93886a2ae80151e3834f149a4858
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: b62097f945bc5c595c0893d16bb2c1d9bbfd7a07
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>SQL 데이터베이스 응용 프로그램 성능을 개선하기 위해 일괄 처리를 사용하는 방법
 Azure SQL 데이터베이스에 대한 일괄 처리 작업은 응용 프로그램의 성능 및 확장성을 상당히 향상시킵니다. 장점을 이해할 수 있도록, 이 문서의 첫 번째 부분에서는 SQL 데이터베이스에 대한 순차적인 요청과 일괄 처리된 요청을 비교하는 샘플 테스트 결과를 설명합니다. 문서의 나머지 부분은 Azure 응용 프로그램에서 일괄 처리를 성공적으로 사용하는데 도움이 되는 기법, 시나리오, 고려 사항을 보여줍니다.
-
-**저자**: Jason Roth, Silvano Coriani, Trent Swanson(Full Scale 180 Inc)
-
-**검토자**: Conor Cunningham, Michael Thomassy
 
 ## <a name="why-is-batching-important-for-sql-database"></a>SQL 데이터베이스에 일괄 처리가 중요한 이유는 무엇인가요?
 원격 서비스에 대한 호출 일괄 처리는 성능 및 확장성 향상을 위해 잘 알려진 전략입니다. 직렬화, 네트워크 전송, 역직렬화 같은 원격 서비스와의 모든 트랜잭션에는 고정 처리 비용이 있습니다. 다수의 분리된 트랜잭션을 하나의 배치로 패키징하면 이러한 비용이 최소화됩니다.
@@ -45,7 +41,7 @@ SQL 데이터베이스를 사용하는 장점 중 하나는 데이터베이스�
 ## <a name="batching-strategies"></a>일괄 처리 전략
 ### <a name="note-about-timing-results-in-this-topic"></a>이 문서의 타이밍 결과에 대한 정보
 > [!NOTE]
-> 결과가 기준은 아니며 **상대적인 성능**을 표시하기 위한 것입니다. 타이밍은 평균적으로 최소 10회의 테스트 실행을 기반으로 합니다. 작업은 빈 테이블로의 삽입니다. 테스트는 V12 이전 버전에서 측정되었으며, 새로운 [서비스 계층](sql-database-service-tiers.md)을 사용하는 V12 데이터베이스에서 경험하는 처리량과 일치하지 않을 수 있습니다. 일괄 처리 기법의 상대적인 장점은 유사합니다.
+> 결과가 기준은 아니며 **상대적인 성능**을 표시하기 위한 것입니다. 타이밍은 평균적으로 최소 10회의 테스트 실행을 기반으로 합니다. 작업은 빈 테이블로의 삽입니다. 테스트는 얼마 전에 측정된 것이므로 지금 발생하는 처리량과 반드시 일치하지 않을 수도 있습니다. 일괄 처리 기법의 상대적인 장점은 유사합니다.
 > 
 > 
 
@@ -329,7 +325,7 @@ Entity Framework는 현재 일괄 처리를 지원하지 않습니다. 커뮤니
 ### <a name="parallel-processing"></a>병렬 처리
 배치의 규모는 줄이면서 다수의 스레드를 사용하여 작업을 실행하는 방법을 취하면 어떨까요? 앞서 언급했지만, 테스트에 따르면 여러 개의 소형 다중 스레드 배치는 일반적으로 하나의 대형 배치보다 성능이 낮았습니다. 다음 테스트는 1000개의 행을 하나 이상의 병렬 배치에 삽입하려고 합니다. 이 테스트는 동시에 실행되는 배치가 많아질수록 실제로 성능이 어떻게 감소되는가를 보여줍니다.
 
-| 배치 크기[반복 횟수] | 스레드&2;개(밀리초) | 스레드&4;개(밀리초) | 스레드&6;개(밀리초) |
+| 배치 크기[반복 횟수] | 스레드 2개(밀리초) | 스레드 4개(밀리초) | 스레드 6개(밀리초) |
 | --- | --- | --- | --- |
 | 1000 [1] |277 |315 |266 |
 | 500 [2] |548 |278 |256 |
@@ -452,7 +448,7 @@ NavHistoryDataMonitor 클래스는 사용자 탐색 데이터를 데이터베이
 이 버퍼링 클래스를 사용하기 위해서 응용 프로그램은 정적 NavHistoryDataMonitor 개체를 생성합니다. 사용자가 페이지에 액세스할 때마다 응용 프로그램은 NavHistoryDataMonitor.RecordUserNavigationEntry 메서드를 호출합니다. 버퍼링 논리는 이러한 항목의 데이터베이스에 대한 일괄 전송을 처리하도록 진행됩니다.
 
 ### <a name="master-detail"></a>마스터-세부 정보
-테이블 반환 매개 변수는 간단한 INSERT 시나리오에 유용합니다. 하지만 두 개 이상의 테이블이 연관되는 일괄 처리 삽입은 더 어려울 수 있습니다. “마스터/세부 정보” 시나리오가 좋은 예입니다. 마스터 테이블은 기본 엔터티를 식별합니다. 하나 이상의 세부 정보 테이블은 엔터티에 대한 데이터를 더 많이 저장합니다. 이 시나리오에서 외래 키 관계는 고유 마스터 엔터티에 세부 정보의 관계를 적용합니다. PurchaseOrder 테이블의 간소화된 버전 및 그와 연결된 OrderDetail 테이블을 생각해 보겠습니다. 다음 Transact-SQL은&4;개의 열 즉 OrderID, OrderDate, CustomerID, Status를 포함하는 PurchaseOrder 테이블을 생성합니다.
+테이블 반환 매개 변수는 간단한 INSERT 시나리오에 유용합니다. 하지만 두 개 이상의 테이블이 연관되는 일괄 처리 삽입은 더 어려울 수 있습니다. “마스터/세부 정보” 시나리오가 좋은 예입니다. 마스터 테이블은 기본 엔터티를 식별합니다. 하나 이상의 세부 정보 테이블은 엔터티에 대한 데이터를 더 많이 저장합니다. 이 시나리오에서 외래 키 관계는 고유 마스터 엔터티에 세부 정보의 관계를 적용합니다. PurchaseOrder 테이블의 간소화된 버전 및 그와 연결된 OrderDetail 테이블을 생각해 보겠습니다. 다음 Transact-SQL은 4개의 열 즉 OrderID, OrderDate, CustomerID, Status를 포함하는 PurchaseOrder 테이블을 생성합니다.
 
     CREATE TABLE [dbo].[PurchaseOrder](
     [OrderID] [int] IDENTITY(1,1) NOT NULL,
@@ -462,7 +458,7 @@ NavHistoryDataMonitor 클래스는 사용자 탐색 데이터를 데이터베이
      CONSTRAINT [PrimaryKey_PurchaseOrder] 
     PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
 
-각각의 주문은 하나 이상의 제품 구매를 포함합니다. 이 정보는 PurchaseOrderDetail 테이블에 캡처됩니다. 다음 Transact-SQL은&5;개의 열 즉, OrderID, OrderDetailID, ProductID, UnitPrice, OrderQty를 포함하는 PurchaseOrderDetail 테이블을 생성합니다.
+각각의 주문은 하나 이상의 제품 구매를 포함합니다. 이 정보는 PurchaseOrderDetail 테이블에 캡처됩니다. 다음 Transact-SQL은 5개의 열 즉, OrderID, OrderDetailID, ProductID, UnitPrice, OrderQty를 포함하는 PurchaseOrderDetail 테이블을 생성합니다.
 
     CREATE TABLE [dbo].[PurchaseOrderDetail](
     [OrderID] [int] NOT NULL,
@@ -586,7 +582,7 @@ PurchaseOrderDetail 테이블의 OrderID 열은 PurchaseOrder 테이블에서 �
       SocialSecurityNumber NVARCHAR(50) );
     GO
 
-다음으로, 업데이트 및 삽입을 수행하기 위해 MERGE 문을 사용하는 코드를 작성하거나 저장 프로시저를 만듭니다. 다음 예제는 EmployeeTableType 형식의 @employees, 테이블 반환 매개 변수에 MERGE 문을 사용합니다. @employees 테이블의 내용은 여기에 표시되어 있습니다.
+다음으로, 업데이트 및 삽입을 수행하기 위해 MERGE 문을 사용하는 코드를 작성하거나 저장 프로시저를 만듭니다. 다음 예제는 EmployeeTableType 형식의 @employees 테이블 반환 매개 변수에 MERGE 문을 사용합니다. @employees 테이블의 내용은 여기에 표시되어 있습니다.
 
     MERGE Employee AS target
     USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
@@ -623,6 +619,6 @@ PurchaseOrderDetail 테이블의 OrderID 열은 PurchaseOrder 테이블에서 �
 * 보다 많은 시나리오에 일괄 처리를 구현하는 방법으로 크기 및 시간에 따른 버퍼링을 고려합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서는 일괄 처리와 관련된 데이터베이스 디자인과 코딩 기법이 응용 프로그램 성능과 확장성을 향상시킬 수 있는 방법에 중점을 두고 있습니다. 하지만 이것은 사용자의 전반적인 전략 중 한 가지 요소에 불과합니다. 성능과 확장성을 개선하는 방법을 더 보려면 [단일 데이터베이스의 Azure SQL Database 성능 지침](sql-database-performance-guidance.md) 및 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
+이 문서는 일괄 처리와 관련된 데이터베이스 디자인과 코딩 기법이 응용 프로그램 성능과 확장성을 향상시킬 수 있는 방법에 중점을 두고 있습니다. 하지만 이것은 사용자의 전반적인 전략 중 한 가지 요소에 불과합니다. 성능과 확장성을 개선하는 방법을 더 보려면 [단일 데이터베이스의 Azure SQL Database 성능 지침](sql-database-performance-guidance.md) 및 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool.md)을 참조하세요.
 
 

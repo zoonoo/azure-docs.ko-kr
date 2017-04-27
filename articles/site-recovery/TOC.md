@@ -9,16 +9,17 @@
 
 # 시작
 ## [VMware VM을 Azure에 복제](site-recovery-vmware-to-azure.md)
-## [다중 테넌트 배포(CSP)에서 VMware VM을 Azure에 복제](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [물리적 서버를 Azure에 복제](site-recovery-physical-servers-to-azure.md) 
 ## [Hyper-V VM을 Azure에 복제(VMM 있음)](site-recovery-vmm-to-azure.md)
 ## [Hyper-V VM을 Azure에 복제](site-recovery-hyper-v-site-to-azure.md)
-## [VMware VM 및 물리적 서버를 보조 사이트에 복제](site-recovery-vmware-to-vmware.md)
 ## [Hyper-V VM을 보조 사이트에 복제(VMM 있음)](site-recovery-vmm-to-vmm.md)
+## [VMware VM 및 물리적 서버를 보조 사이트에 복제](site-recovery-vmware-to-vmware.md)
+## [다중 테넌트 배포(CSP)에서 VMware VM을 Azure에 복제](site-recovery-multi-tenant-support-vmware-using-csp.md)
 
 # 방법
 ## 계획
 ### [배포 필수 조건](site-recovery-prereq.md)
-### [네트워크 인프라 고려 사항](site-recovery-network-design.md)
+### [네트워크 인프라 계획](site-recovery-network-design.md)
 ### [용량을 계획하고 VMware 복제를 Azure에 확장](site-recovery-plan-capacity-vmware.md)
 ### [Azure로 VMware 복제를 위한 Deployment Planner](site-recovery-deployment-planner.md)
 ### [Hyper-V 복제를 위한 Capacity Planner](site-recovery-capacity-planner.md)
@@ -31,7 +32,7 @@
 #### [System Center Configuration Manager를 사용하여 모바일 서비스 배포](site-recovery-install-mobility-service-using-sccm.md)
 #### [Azure Automation DSC를 사용하여 모바일 서비스 배포](site-recovery-automate-mobility-service-install.md)
 ### [복제 활성화](site-recovery-replicate-vmware-to-azure.md)
-## 장애 조치 및 장애 복구
+## 장애 조치(Failover) 및 장애 복구
 ### [보호된 컴퓨터 장애 조치](site-recovery-failover.md)
 ### [복구 계획 설정](site-recovery-create-recovery-plans.md)
 #### [Azure Runbook을 복구 계획에 추가](site-recovery-runbook-automation.md)

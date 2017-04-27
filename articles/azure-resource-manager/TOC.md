@@ -10,6 +10,12 @@
 ## [첫 번째 템플릿 만들기](resource-manager-create-first-template.md)
 ## [Resource Manager와 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# 샘플
+## PowerShell
+### [템플릿 배포](resource-manager-samples-powershell-deploy.md)
+## Azure CLI
+### [템플릿 배포](resource-manager-samples-cli-deploy.md)
+
 # 방법
 ## 템플릿 만들기
 ### [템플릿 모범 사례](resource-manager-template-best-practices.md)
@@ -26,8 +32,12 @@
 ### [연결된 템플릿 간 상태 공유](best-practices-resource-manager-state.md)
 ### [템플릿 설계 패턴](best-practices-resource-manager-design-templates.md)
 ## 배포
-### [PowerShell](resource-group-template-deploy.md)
-### [Azure CLI](resource-group-template-deploy-cli.md)
+### PowerShell
+#### [템플릿 배포](resource-group-template-deploy.md)
+#### [SAS 토큰으로 개인 템플릿 배포](resource-manager-powershell-sas-token.md)
+### Azure CLI
+#### [템플릿 배포](resource-group-template-deploy-cli.md)
+#### [SAS 토큰으로 개인 템플릿 배포](resource-manager-cli-sas-token.md)
 ### [포털](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Visual Studio Team Services와의 지속적인 통합](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

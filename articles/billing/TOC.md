@@ -1,15 +1,19 @@
 # 시작
 ## [예기치 않은 비용 방지](billing-getting-started.md)
+## [요금 청구에 대한 액세스 권한 부여](billing-manage-access.md)
 ## [Office 365 계정을 사용하여 등록](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Azure 계정으로 Office 365 등록](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [한도 및 할당량](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
+
 # 방법
 ## 사용량 및 비용 모니터링
 ### [청구서 및 사용량 가져오기](billing-download-azure-invoice-daily-usage-date.md)
 ### [요금 청구 방식](billing-understand-your-bill.md)
 ### [외부 서비스 요금 이해](billing-understand-your-azure-marketplace-charges.md)
+### [지출 한도 이해](billing-spending-limit.md)
 ### [청구 경고 설정](billing-set-up-alerts.md)
 ### [미지불액 해결](billing-azure-subscription-past-due-balance.md)
+
 ## 구독 관리
 ### [관리자 역할 관리](billing-add-change-azure-subscription-administrator.md)
 ### [구독 소유권 이전](billing-subscription-transfer.md)
@@ -21,6 +25,7 @@
 ### [프로필 편집](billing-how-to-change-azure-account-profile.md)
 ### [결제 정보 업데이트](billing-how-to-change-credit-card.md)
 ### [Office 365 테넌트 연결](billing-add-office-365-tenant-to-azure-subscription.md)
+### [청구서에 따른 구독에 대한 요금 지불](billing-how-to-pay-by-invoice.md)
 ## 문제 해결
 ### [등록 문제](billing-troubleshoot-azure-sign-up-issues.md)
 ### [거부된 카드](billing-credit-card-fails-during-azure-sign-up.md)
@@ -28,7 +33,8 @@
 
 # 참조
 ## [API 개요](billing-usage-rate-card-overview.md)
-## [REST API 참조](https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
+## [청구서 REST](/rest/api/billing)
+## [사용 현황 및 RateCard REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [파트너 솔루션: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
 ## [파트너 솔루션: Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)
 

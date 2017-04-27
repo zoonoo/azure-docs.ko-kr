@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/18/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: c208f44045ba414be2034f577435ae02ea4456cf
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 37a22be9fba7b245b2c1ea3ca6e495601d63b611
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -42,7 +42,7 @@ Azure 표준 저장소를 시작하려면 [무료로 시작 하기](https://azur
 Managed Disks로 VM을 만드는 방법에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
 
 * [Resource Manager 및 PowerShell을 사용하여 VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md)
-* [Azure CLI 2.0을 사용하여 Linux VM 만들기](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Azure CLI 2.0을 사용하여 Linux VM 만들기](../virtual-machines/linux/quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>표준 저장소 기능 
 
@@ -52,7 +52,7 @@ Managed Disks로 VM을 만드는 방법에 대한 자세한 내용은 다음 문
 
 **표준 저장소 디스크:** 표준 저장소 디스크는 Premium Storage에 사용되는 시리즈-사이즈(예: DSv2 및 GS 시리즈) VM을 비롯한 모든 Azure VM에 연결될 수 있습니다. 표준 저장소 디스크는 하나의 VM에만 연결될 수 있습니다. 하지만 VM에는 이러한 디스크를 한 개 이상, 해당 VM 크기에 정의된 최대 디스크 개수만큼 연결할 수 있습니다. 사양에 대한 자세한 내용은 표준 저장소 확장성 및 성능 목표에 관한 다음 섹션에서 설명하겠습니다. 
 
-**표준 페이지 Blob**: 표준 페이지 Blob은 VM의 영구적인 디스크를 보존하는 데 사용되며 다른 유형의 Azure Blob처럼 REST를 통해 직접 액세스할 수도 있습니다. [페이지 Blob](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)은 임의 읽기 및 쓰기 작업용으로 최적화된 512바이트 페이지 컬렉션입니다. 
+**표준 페이지 Blob**: 표준 페이지 Blob은 VM의 영구적인 디스크를 보존하는 데 사용되며 다른 유형의 Azure Blob처럼 REST를 통해 직접 액세스할 수도 있습니다. [페이지 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)은 임의 읽기 및 쓰기 작업용으로 최적화된 512바이트 페이지 컬렉션입니다. 
 
 **저장소 복제:** 대부분의 지역에서 표준 저장소 계정의 데이터는 로컬에 복제되거나 여러 데이터 센터에 지리적으로 복제될 수 있습니다. 사용 가능한 네 가지의 복제 유형은 LRS(로컬 중복 저장소), ZRS(영역 중복 저장소), GRS(지역 중복 저장소) 및 RA-GRS(읽기 액세스 지역 중복 저장소)입니다. 표준 저장소의 Managed Disks는 현재 LRS(로컬 중복 저장소)만 지원합니다. 자세한 내용은 [저장소 복제](storage-redundancy.md)를 참조하세요.
 
@@ -99,11 +99,11 @@ Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의
 
 관리되지 않는 표준 디스크에 대한 [증분 스냅숏](storage-incremental-snapshots.md)은 표준 저장소에서 스냅숏을 사용하는 것과 같은 방식으로 만들 수 있습니다. 원본 디스크가 로컬 중복 저장소에 있는 경우 스냅숏을 만든 후 이 스냅숏을 지역 중복 표준 저장소 계정에 복사하는 것이 좋습니다. 자세한 내용은 [Azure 저장소 중복 옵션](storage-redundancy.md)을 참조하세요.
 
-디스크가 VM에 연결되어 있으면 특정 API 작업이 디스크에 허용되지 않습니다. 예를 들어 디스크가 VM에 연결되어 있는 한 해당 Blob에 대해 [Blob 복사](/rest/api/storageservices/fileservices/Copy-Blob) 작업을 수행할 수 없습니다. 대신, 먼저 [Blob 스냅숏 생성](/rest/api/storageservices/fileservices/Snapshot-Blob) REST API 메서드를 사용하여 해당 Blob의 스냅숏을 만든 후 스냅숏의 [Blob 복사](/rest/api/storageservices/fileservices/Copy-Blob)를 수행하여 연결된 디스크를 복사합니다. 또는 디스크를 분리한 후 필요한 작업을 수행할 수 있습니다.
+디스크가 VM에 연결되어 있으면 특정 API 작업이 디스크에 허용되지 않습니다. 예를 들어 디스크가 VM에 연결되어 있는 한 해당 Blob에 대해 [Blob 복사](/rest/api/storageservices/Copy-Blob) 작업을 수행할 수 없습니다. 대신, 먼저 [Blob 스냅숏 생성](/rest/api/storageservices/Snapshot-Blob) REST API 메서드를 사용하여 해당 Blob의 스냅숏을 만든 후 스냅숏의 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 수행하여 연결된 디스크를 복사합니다. 또는 디스크를 분리한 후 필요한 작업을 수행할 수 있습니다.
 
-스냅숏의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 지역 중복 저장소 계정에서 지역 중복 표준 저장소 계정으로 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md) 및 [Blob 복사](/rest/api/storageservices/fileservices/Copy-Blob)를 참조하세요.
+스냅숏의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 지역 중복 저장소 계정에서 지역 중복 표준 저장소 계정으로 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md) 및 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 참조하세요.
 
-표준 저장소 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Storage 서비스 REST API](/rest/api/storageservices/fileservices/Azure-Storage-Services-REST-API-Reference)를 참조하세요.
+표준 저장소 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Storage 서비스 REST API](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)를 참조하세요.
 
 ### <a name="managed-disks"></a>Managed Disks
 
@@ -125,7 +125,7 @@ Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의
 
 **Managed Disks:** Managed Disks는 프로비전된 크기에 따라 요금이 청구됩니다. 디스크가 10GB 디스크로 프로비전된 경우 5GB만 사용하더라도 프로비전된 크기 즉, 10GB에 대해 요금이 청구됩니다.
 
-**스냅숏**: 표준 디스크의 스냅숏은 스냅숏에 사용된 추가 용량에 대해 요금이 청구됩니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](/rest/api/storageservices/fileservices/Creating-a-Snapshot-of-a-Blob)를 참조하세요.
+**스냅숏**: 표준 디스크의 스냅숏은 스냅숏에 사용된 추가 용량에 대해 요금이 청구됩니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)를 참조하세요.
 
 **아웃바운드 데이터 전송**: [아웃바운드 데이터 전송](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure 데이터 센터에서 데이터 전송) 시 대역폭 사용에 대해 청구가 발생합니다.
 
@@ -153,4 +153,4 @@ Azure Backup 서비스를 Managed Disks와 함께 사용하면 시간 기반 백
 
 * [Resource Manager 및 PowerShell을 사용하여 VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Azure CLI 2.0을 사용하여 Linux VM 만들기](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Azure CLI 2.0을 사용하여 Linux VM 만들기](../virtual-machines/linux/quick-create-cli.md)

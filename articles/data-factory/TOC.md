@@ -1,10 +1,9 @@
 # 개요
 ## [Azure Data Factory 소개](data-factory-introduction.md)
 ## 개념
-### [데이터 집합](data-factory-create-datasets.md)
 ### [파이프라인 및 활동](data-factory-create-pipelines.md)
+### [데이터 집합](data-factory-create-datasets.md)
 ### [예약 및 실행](data-factory-scheduling-and-execution.md)
-### [연결된 서비스 계산](data-factory-compute-linked-services.md)
 
 # 시작
 ## [자습서: 데이터를 복사하기 위해 파이프라인 생성](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -21,6 +20,7 @@
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Azure Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
 ### [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [자습서: 온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)
 ## [FAQ](data-factory-faq.md)
 
 # 방법
@@ -60,7 +60,7 @@
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [웹 테이블](data-factory-web-table-connector.md)
 ### [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)
-### [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)
+
 
 ## [데이터 변환](data-factory-data-transformation-activities.md)
 ### [HDInsight Hive 작업](data-factory-hive-activity.md)
@@ -75,6 +75,7 @@
 ### [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 ### [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 ### [Azure Analysis Services에서 모델 다시 처리](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample)
+### [연결된 서비스 계산](data-factory-compute-linked-services.md)
 
 ## 개발
 ### [Azure Resource Manager 템플릿](data-factory-how-to-use-resource-manager-templates.md)
