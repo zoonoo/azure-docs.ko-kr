@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: e279ca5f86ec2870955f0fd204e852252a34a42e
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: f744a29e12fb693dd422f359d0faacaae004351b
+ms.lasthandoff: 02/14/2017
 
 
 ---
 # <a name="set-password-expiration-policies-in-azure-active-directory"></a>Azure Active Directory에서 암호 만료 정책 설정
 > [!IMPORTANT]
-> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-my-password).
+> **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
 >
 >
 
@@ -45,8 +45,8 @@ Windows PowerShell cmdlet을 사용하려면 먼저 이를 설치해야 합니�
 1. 회사 관리자 자격 증명을 사용하여 Windows PowerShell에 연결합니다.
 2. 다음 중 하나를 수행합니다.
 
-   * 사용자의 암호가 만료되지 않도록 설정되어 있는지 확인하려면 해당 사용자의 사용자 계정 이름(UPN)(예: aprilr@contoso.onmicrosoft.com) 또는 사용자 ID를 사용하여 `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires` cmdlet을 실행합니다.
-   * 모든 사용자에 대한 "암호 만료되지 않음" 설정을 보려면 `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires` cmdlet을 실행합니다.
+   * 사용자의 암호가 만료되지 않도록 설정되어 있는지 확인하려면 해당 사용자의 사용자 계정 이름(UPN)(예: aprilr@contoso.onmicrosoft.com)) 또는 사용자 ID를 사용하여 `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires` cmdlet을 실행합니다.
+   * 모든 사용자에 대한 "암호 만료되지 않음" 설정을 보려면 `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
 ## <a name="set-a-password-to-expire"></a>암호가 만료되도록 설정
 1. 회사 관리자 자격 증명을 사용하여 Windows PowerShell에 연결합니다.
@@ -63,5 +63,5 @@ Windows PowerShell cmdlet을 사용하려면 먼저 이를 설치해야 합니�
    * 조직의 모든 사용자 암호가 만료되지 않도록 설정하려면 `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
 ## <a name="next-steps"></a>다음 단계
-* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md#reset-my-password).
+* **로그인하는 데 문제가 있나요?** 그렇다면 [암호를 변경하고 재설정하는 방법은 다음과 같습니다](active-directory-passwords-update-your-own-password.md).
 

@@ -171,7 +171,7 @@ Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM 
 ```
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
- "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+ "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
 (클래식이 아닌) 저장소 계정의 경우 metricTrigger는 다음을 포함합니다.
@@ -179,7 +179,7 @@ Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM 
 ```
 "metricName": "ApproximateMessageCount",
 "metricNamespace": "",
-"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.Storage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
 ```
 
 ## <a name="commonly-used-service-bus-metrics"></a>자주 사용되는 서비스 버스 메트릭
@@ -190,7 +190,7 @@ VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하�
 ```
 "metricName": "MessageCount",
  "metricNamespace": "",
-"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue"
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ServiceBus/namespaces/SB_NAMESPACE/queues/QUEUE_NAME"
 ```
 
 > [!NOTE]

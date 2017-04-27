@@ -74,6 +74,8 @@ Docker Swarm은 Docker에 대한 네이티브 클러스터링을 제공합니다
 
 ![Swarm을 사용하도록 구성된 Azure Container Service.](media/acs-intro/acs-swarm2.png)
 
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
+
 Swarm 클러스터의 컨테이너를 관리하기 위해 지원된 도구를 포함하지만 다음으로 제한되지 않습니다.
 
 * Dokku
