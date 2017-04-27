@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/14/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1ed23fc5a69cea70636de8b18911c1b11119d3a3
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 591749e2a91f8dcc080b5fa697c1f9bf953d836f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -1046,7 +1046,7 @@ list 작업을 지원하는 모든 리소스 형식에 대한 값을 반환합�
 | resourceName 또는 resourceIdentifier |예 |String |리소스에 대한 고유 식별자. |
 | apiVersion |예 |문자열 |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
 
-**list** 로 시작하는 작업은 템플릿에서 함수로 사용됩니다. 사용 가능한 작업은 **listKeys**뿐만 아니라 **list**, **listAdminKeys** 및 **listStatus**와 같은 작업도 포함합니다. list 작업이 있는 리소스 종류를 확인하려면 리소스 공급자에 대한 [REST API 작업](/rest/api/)을 참조하세요.
+**list**로 시작하는 작업은 템플릿에서 함수로 사용됩니다. 사용 가능한 작업은 **listKeys**뿐만 아니라 **list**, **listAdminKeys** 및 **listStatus**와 같은 작업도 포함합니다. list 작업이 있는 리소스 종류를 확인하려면 리소스 공급자에 대한 [REST API 작업](/rest/api/)을 참조하세요.
 
 리소스 공급자에 대한 list 작업을 찾으려면 다음 PowerShell cmdlet을 사용합니다.
 

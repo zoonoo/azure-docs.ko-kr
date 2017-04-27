@@ -12,12 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2017
+ms.date: 04/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 05fc8ff05f8e2f20215f6683a125c1a506b4ccdc
-ms.openlocfilehash: 23ed2e066cc6751ebabb57c8077f95b0cb074850
-ms.lasthandoff: 02/18/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: c74c8fb892103a00b0bdfcfeaa2ecd6c3188251e
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -38,7 +38,7 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 * CSV([CSV BLOB 인덱싱](search-howto-index-csv-blobs.md) 미리 보기 기능 참조)
 
 > [!IMPORTANT]
-> CSV 및 JSON 파일에 대한 지원은 현재 미리 보기 상태입니다. 이러한 형식은 REST API의 **2015-02-28-Preview** 또는 .NET SDK의 버전 2.x-preview에서만 사용할 수 있습니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
+> CSV 및 JSON 배열에 대한 지원은 현재 미리 보기 상태입니다. 이러한 형식은 REST API의 **2015-02-28-Preview** 또는 .NET SDK의 버전 2.x-preview에서만 사용할 수 있습니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 >
 >
 
@@ -130,7 +130,7 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
       "schedule" : { "interval" : "PT2H" }
     }
 
-이 인덱서는&2;시간 간격으로 실행됩니다(일정 간격이 "PT2H"로 설정됨). 인덱서를 30분 간격으로 실행하려면 간격을 "PT30M"으로 설정합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.   
+이 인덱서는 2시간 간격으로 실행됩니다(일정 간격이 "PT2H"로 설정됨). 인덱서를 30분 간격으로 실행하려면 간격을 "PT30M"으로 설정합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.   
 
 인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 확인하세요.
 
@@ -139,11 +139,15 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 [인덱서 구성](#PartsOfBlobToIndex)에 따라, Blob 인덱서는 저장소 메타데이터만 인덱싱하거나(메타데이터만 필요하고 Blob 콘텐츠를 인덱싱할 필요가 없는 경우에 유용함), 저장소 및 콘텐츠 메타데이터를 인덱싱하거나, 메타데이터와 텍스트 콘텐츠 모두를 인덱싱할 수 있습니다. 기본적으로 인덱서는 메타데이터와 콘텐츠를 둘 다 추출합니다.
 
 > [!NOTE]
-> 기본적으로 JSON, CSV 또는 XML과 같이 구조화된 콘텐츠를 포함하는 Blob은 단일 텍스트 청크로 인덱싱됩니다. 구조화된 방식으로 JSON 및 CSV Blob을 인덱싱하려면 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 및 [CSV BLOB 인덱싱](search-howto-index-csv-blobs.md) 미리 보기 기능을 참조하세요. 현재는 XML 콘텐츠 구문 분석이 지원되지 않습니다. 이 기능이 필요하면 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에 제안해주세요.
->
+> 기본적으로 JSON 또는 CSV와 같이 구조화된 콘텐츠를 포함하는 Blob은 단일 텍스트 청크로 인덱싱됩니다. 구조화된 방식으로 JSON 및 CSV Blob을 인덱싱하려면 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 및 [CSV BLOB 인덱싱](search-howto-index-csv-blobs.md) 미리 보기 기능을 참조하세요.
+> 
 > 복합 또는 포함된 문서(예: ZIP 보관 파일 또는 첨부 파일이 있는 Outlook 메일이 포함된 Word 문서)도 단일 문서로 인덱싱됩니다.
 
-* 문서의 전체 텍스트 내용이 `content`라는 문자열 필드로 추출됩니다.
+* 문서의 텍스트 콘텐츠가 `content`라는 문자열 필드로 추출됩니다.
+
+> [!NOTE]
+> Azure Search는 가격 책정 계층에 따라 추출하는 텍스트의 양을 제한합니다. 무료 계층은 32,000 문자, 기본 계층은 64,000 문자, 그리고 표준, 표준 S2 및 표준 S3 계층은 4,000,000 문자입니다. 잘린 문서의 인덱서 상태 응답에는 경고가 포함되어 있습니다.  
+
 * BLOB에 있는 사용자 지정 메타데이터 속성은 그대로 추출됩니다(있는 경우).
 * 표준 BLOB 메타데이터 속성이 다음 필드로 추출됩니다.
 
@@ -300,7 +304,7 @@ Azure Search 문서 추출 논리는 완벽하지 않으며 .DOCX 또는 .PDF와
 
 예를 들어 다음 정책은 `true` 값의 메타데이터 속성 `IsDeleted`가 있는 경우 Blob을 삭제해야 하는 것으로 간주합니다.
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 

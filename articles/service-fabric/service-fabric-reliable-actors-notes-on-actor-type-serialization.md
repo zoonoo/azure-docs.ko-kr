@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: f08fc1df10506dead5d049fb2c6cdc29c8f89d90
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: c0eda3f6648c085a7328c6271ed36eafde5ff142
+ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>서비스 패브릭 신뢰할 수 있는 행위자 형식 직렬화에 대한 참고 사항
-모든 메서드의 인수인 행위자 인터페이스의 각 메서드에 의해 반환되는 태스크의 결과 형식 및 행위자의 상태 관리자에 저장된 개체는 [데이터 계약 직렬화가 가능](https://msdn.microsoft.com/library/ms731923.aspx)해야 합니다... 또한 [행위자 이벤트 인터페이스](service-fabric-reliable-actors-events.md)에 정의된 메서드의 인수에도 적용됩니다. (행위자 이벤트 인터페이스 메서드는 항상 void를 반환합니다.)
+모든 메서드의 인수인 행위자 인터페이스의 각 메서드에 의해 반환되는 태스크의 결과 형식 및 행위자의 상태 관리자에 저장된 개체는 [데이터 계약 직렬화가 가능](https://msdn.microsoft.com/library/ms731923.aspx)해야 합니다. 또한 [행위자 이벤트 인터페이스](service-fabric-reliable-actors-events.md)에 정의된 메서드의 인수에도 적용됩니다. (행위자 이벤트 인터페이스 메서드는 항상 void를 반환합니다.)
 
 ## <a name="custom-data-types"></a>사용자 지정 데이터 형식
 이 예제에서 다음과 같은 행위자 인터페이스는 `VoicemailBox`이라는 사용자 지정 데이터 형식을 반환하는 메서드를 정의합니다.

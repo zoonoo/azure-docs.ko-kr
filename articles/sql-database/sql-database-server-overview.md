@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: servers
+ms.custom: DBs and servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 79a9e72d29b5522dc3960b79bae7876f21acb4c5
-ms.openlocfilehash: 07181e5d35703cddf8a896badd45e7485c9e07a2
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 430af168e1bd19c15170996247bc7c7a62fe52d4
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -40,9 +41,9 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 - 데이터베이스 액세스에 대한 연결 끝점을 제공합니다(<serverName>.database.windows.net).
 - 마스터 데이터베이스에 연결하여 DMV를 통해 포함된 리소스 관련 메타데이터에 대한 액세스를 제공합니다. 
 - 로그인, 방화벽, 감사, 위협 요소 탐지 등 해당 데이터베이스에 적용되는 관리 정책에 대한 범위를 제공합니다. 
-- 상위 구독 내의 할당량으로 제한됩니다(구독 당&6;대의 서버 [여기에서 구독 제한 참조](../azure-subscription-service-limits.md)).
-- 포함한 리소스에 대한 데이터베이스 할당량 및 DTU 할당량의 범위를 제공합니다(예: V12에서 45000DTU).
-- 포함된 리소스에서 사용하도록 설정된 기능에 대한 버전 관리 범위입니다(최신 버전 V12).
+- 상위 구독 내의 할당량으로 제한됩니다(구독 당 6대의 서버 [여기에서 구독 제한 참조](../azure-subscription-service-limits.md)).
+- 포함한 리소스에 대한 데이터베이스 할당량 및 DTU 할당량의 범위를 제공합니다(예: 45000DTU).
+- 포함된 리소스에서 사용하도록 설정된 기능에 대한 버전 관리 범위입니다. 
 - 서버 수준 주체 로그인은 서버에 있는 모든 데이터베이스를 관리할 수 있습니다.
 - 서버에서 하나 이상의 데이터베이스에 대한 액세스를 부여하는 SQL Server 온-프레미스 인스턴스에서 해당 항목과 비슷한 로그인을 포함하고 제한된 관리 권한이 부여될 수 있습니다. 자세한 내용은 [로그인](sql-database-manage-logins.md)을 참조하세요.
 
@@ -55,7 +56,7 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 
 ## <a name="what-collations-are-supported"></a>어떤 데이터 정렬이 지원되나요?
 
-마스터 데이터베이스를 비롯한 Microsoft Azure SQL Database에서 사용하는 기본 데이터베이스 데이터 정렬은 **SQL_LATIN1_GENERAL_CP1_CI_AS**이며 여기서 **LATIN1_GENERAL**은 영어(미국), **CP1**은 코드 페이지 1252, **CI**는 대/소문자 구분, **AS**는 악센트를 구분합니다. V12 데이터베이스를 만든 후에는 데이터 정렬을 변경하지 않는 것이 좋습니다. 데이터 정렬에 대한 자세한 내용은 [정렬(Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx)을 참조하세요.
+마스터 데이터베이스를 비롯한 Microsoft Azure SQL Database에서 사용하는 기본 데이터베이스 데이터 정렬은 **SQL_LATIN1_GENERAL_CP1_CI_AS**이며 여기서 **LATIN1_GENERAL**은 영어(미국), **CP1**은 코드 페이지 1252, **CI**는 대/소문자 구분, **AS**는 악센트를 구분합니다. 데이터베이스를 만든 후에는 데이터 정렬을 변경하지 않는 것이 좋습니다. 데이터 정렬에 대한 자세한 내용은 [정렬(Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx)을 참조하세요.
 
 ## <a name="what-are-the-naming-requirements-for-database-objects"></a>데이터베이스 개체에 대한 명명 요구 사항은 무엇인가요?
 
@@ -68,8 +69,8 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 ## <a name="how-do-i-manage-a-logical-server"></a>논리 서버를 관리하려면 어떻게 해야 하나요?
 
 몇 가지 메서드를 사용하여 Azure SQL Database 논리 서버를 관리할 수 있습니다.
-- [Azure 포털](sql-database-manage-portal.md)
-- [PowerShell](sql-database-manage-powershell.md)
+- [Azure 포털](sql-database-manage-overview.md)
+- [PowerShell](sql-database-manage-overview.md)
 - [REST (영문)](/rest/api/sql/)
 
 ## <a name="next-steps"></a>다음 단계
@@ -81,10 +82,5 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 - **서비스 계층**에 따른 특정 리소스 할당량 및 제한 사항에 대한 정보입니다. 서비스 계층에 대한 개요는 [SQL 데이터베이스 서비스 계층](sql-database-service-tiers.md)을 참조하세요.
 - 보안 개요에 대해서는 [Azure SQL Database 보안 개요](sql-database-security-overview.md)를 참조하세요.
 - 드라이버 가용성 및 SQL 데이터베이스 지원에 대한 내용은 [SQL 데이터베이스 및 SQL Server의 연결 라이브러리](sql-database-libraries.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

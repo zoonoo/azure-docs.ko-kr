@@ -16,9 +16,9 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 164f3affdf0622653a0a7dcc2a5e886ab855ced1
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: dab476db32b2274049140144847fba24b55856b0
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -63,16 +63,11 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 다음 가이드 중 하나를 사용하여 지역에서 복제된 보조 데이터베이스를 장애 조치합니다.
 
 * [Azure 포털을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](sql-database-geo-replication-portal.md)
-* [PowerShell을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](sql-database-geo-replication-powershell.md)
+* [PowerShell을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 * [T-SQL을 사용하여 지역에서 복제된 보조 데이터베이스에 장애 조치](sql-database-geo-replication-transact-sql.md)
 
 ## <a name="recover-using-geo-restore"></a>지역 복원을 사용한 복구
-응용 프로그램의 가동 중지 시간으로 인해 비즈니스 책임이 발생하지 않은 경우 응용 프로그램 데이터베이스를 복구하는 방법으로 지역 복원을 사용할 수 있습니다. 최신 지역 중복 백업에서 데이터베이스의 복사본을 만듭니다.
-
-다음 가이드 중 하나를 사용하여 새 영역에는 데이터베이스를 지역 복원합니다.
-
-* [Azure 포털을 사용하여 새 지역에 대한 데이터베이스 지역 복원](sql-database-geo-restore-portal.md)
-* [PowerShell을 사용하여 새 지역에 대한 데이터베이스 지역 복원](sql-database-geo-restore-powershell.md)
+응용 프로그램의 가동 중지 시간으로 인해 비즈니스 책임이 발생하지 않은 경우 응용 프로그램 데이터베이스를 복구하는 방법으로 [지역 복원](sql-database-recovery-using-backups.md)을 사용할 수 있습니다. 최신 지역 중복 백업에서 데이터베이스의 복사본을 만듭니다.
 
 ## <a name="configure-your-database-after-recovery"></a>복구 후 데이터베이스 구성
 지역에서 복제 장애 조치(failover) 또는 지리적 복원을 사용하여 가동 중단에서 복구하는 경우 일반적인 응용 프로그램 함수를 다시 시작할 수 있도록 새 데이터베이스에 대한 연결이 제대로 구성되었는지 확인해야 합니다. 복구된 데이터베이스 프로덕션을 준비하는 작업의 검사 목록입니다.

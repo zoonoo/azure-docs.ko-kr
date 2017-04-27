@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
-ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 338fa476377e9ff04c9a1f4e585f790b92a59f87
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
 이 문서는 Azure SQL 데이터베이스에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.
 
 > [!TIP]
-> 서버 만들기, 서버 기반 방화벽 만들기, 서버 속성 보기, SQL Server Management Studio로 연결, master 데이터베이스 쿼리, 샘플 데이터베이스 및 빈 데이터베이스 만들기, 데이터베이스 속성 쿼리, SQL Server Management Studio로 샘플 데이터베이스 연결 및 쿼리를 수행하는 방법을 보여 주는 자습서에 대해서는 [시작 자습서](sql-database-get-started.md)를 참조하세요.
+> 서버 만들기, 서버 기반 방화벽 만들기, 서버 속성 보기, SQL Server Management Studio로 연결, master 데이터베이스 쿼리, 샘플 데이터베이스 및 빈 데이터베이스 만들기, 데이터베이스 속성 쿼리, SQL Server Management Studio로 샘플 데이터베이스 연결 및 쿼리를 수행하는 방법을 보여 주는 자습서에 대해서는 [시작 자습서](sql-database-get-started-portal.md)를 참조하세요.
 >
 
 ## <a name="language-and-platform"></a>언어 및 플랫폼
@@ -64,8 +65,8 @@ SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하�
 
 ## <a name="network-considerations"></a>네트워크 고려 사항
 * 클라이언트 프로그램을 호스팅하는 컴퓨터에서 방화벽이 포트 1433에서 발신 TCP 통신을 허용하는지 확인합니다.  추가 정보: [Azure SQL 데이터베이스 방화벽 구성](sql-database-configure-firewall-settings.md)
-* Azure VM(가상 컴퓨터)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL 데이터베이스 V12에 연결하는 경우에는, VM의 특정 포트 범위를 열어야 합니다. 추가 정보: [ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)
-* Azure SQL 데이터베이스 V12에 대한 클라이언트 연결이 프록시를 무시하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다. 추가 정보: [ADO.NET 4.5 및 SQL Database V12에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Azure VM(가상 컴퓨터)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL Database에 연결하는 경우에는, VM의 특정 포트 범위를 열어야 합니다. 추가 정보: [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Azure SQL Database에 대한 클라이언트 연결이 프록시를 바이패스하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다. 추가 정보: [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 ## <a name="data-sharding-with-elastic-scale"></a>탄력적인 확장을 사용한 데이터 분할
 탄력적 확장은 확장(및 축소) 프로세스를 간소화합니다. 
@@ -76,9 +77,4 @@ SQL 데이터베이스에 연결하는 동안 일시적인 오류가 발생하�
 
 ## <a name="next-steps"></a>다음 단계
 모든 [SQL 데이터베이스의 기능](sql-database-technical-overview.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

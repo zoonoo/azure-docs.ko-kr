@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 6ec77968a0f264b8bf1fa56a23e4cc7faef614da
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 53bd62688aa0d1a06d2d012c8da664d2de4b0b45
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/17/2017
 Azure Managed Disks는 VM 디스크와 연결된 [저장소 계정](storage-introduction.md)을 관리하여 Azure IaaS VM의 디스크 관리를 간소화합니다. 필요한 디스크의 유형([프리미엄](storage-premium-storage.md) 또는 [표준](storage-standard-storage.md))과 크기만 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다.
 
 >[!NOTE]
->Managed Disks가 있는 VM은 설치된 [VM 확장](../virtual-machines/virtual-machines-windows-extensions-features.md) 상태를 Azure 플랫폼에 보고하기 위해 포트 8443에서 아웃바운드 트래픽이 필요합니다. 이 포트의 가용성 없이 확장을 사용하여 VM을 프로비전하면 실패합니다. 또한 실행 중인 VM에 설치된 경우 확장의 배포 상태는 알 수 없습니다. 포트 8443 차단을 해제할 수 없는 경우 관리되지 않는 디스크를 사용해야 합니다. 이 문제를 해결하기 위한 작업이 활발히 진행되고 있습니다. 자세한 내용은 [IaaS VM 디스크에 대한 FAQ](storage-faq-for-disks.md#managed-disks-and-port-8443)를 참조하세요. 
+>Managed Disks가 있는 VM은 설치된 [VM 확장](../virtual-machines/windows/extensions-features.md) 상태를 Azure 플랫폼에 보고하기 위해 포트 8443에서 아웃바운드 트래픽이 필요합니다. 이 포트의 가용성 없이 확장을 사용하여 VM을 프로비전하면 실패합니다. 또한 실행 중인 VM에 설치된 경우 확장의 배포 상태는 알 수 없습니다. 포트 8443 차단을 해제할 수 없는 경우 관리되지 않는 디스크를 사용해야 합니다. 이 문제를 해결하기 위한 작업이 활발히 진행되고 있습니다. 자세한 내용은 [IaaS VM 디스크에 대한 FAQ](storage-faq-for-disks.md#managed-disks-and-port-8443)를 참조하세요. 
 >
 >
 
@@ -95,8 +95,8 @@ Managed Disks를 사용하는 경우 다음과 같은 청구 고려 사항이 �
 
 Managed Disks를 사용하여 스냅숏을 만드는 방법에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
 
-* [Windows에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
-* [Linux에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+* [Windows에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Linux에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 Managed Disks 가격 책정에 대한 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks)을 참조하세요.
@@ -106,8 +106,8 @@ Managed Disks 가격 책정에 대한 자세한 내용은 [Managed Disks 가격 
 Managed Disks는 관리되는 사용자 지정 이미지 만들기도 지원합니다. 저장소 계정의 사용자 지정 VHD에서 이미지를 만들거나 일반화된(시스템에서 준비된) VM에서 직접 만들 수 있습니다. OS와 데이터 디스크를 모두 포함하여 VM과 연결된 모든 Managed Disks를 하나의 이미지에 캡처합니다. 이렇게 하면 저장소 계정을 복사하거나 관리할 필요 없이 사용자 지정 이미지를 사용하여 수백 개의 VM을 만들 수 있습니다.
 
 이미지 만들기에 대한 내용은 다음 문서를 참조하세요.
-* [Azure에서 일반화된 VM의 관리 이미지를 캡처하는 방법](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
-* [Azure CLI 2.0을 사용하여 Linux 가상 컴퓨터를 일반화하고 캡처하는 방법](../virtual-machines/virtual-machines-linux-capture-image.md)
+* [Azure에서 일반화된 VM의 관리 이미지를 캡처하는 방법](../virtual-machines/windows/capture-image-resource.md)
+* [Azure CLI 2.0을 사용하여 Linux 가상 컴퓨터를 일반화하고 캡처하는 방법](../virtual-machines/linux/capture-image.md)
 
 ## <a name="images-versus-snapshots"></a>이미지 및 스냅숏
 
@@ -141,11 +141,11 @@ Managed Disks에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Resource Manager 및 PowerShell을 사용하여 VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Azure CLI 2.0을 사용하여 Linux VM 만들기](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Azure CLI 2.0을 사용하여 Linux VM 만들기](../virtual-machines/linux/quick-create-cli.md)
 
-* [PowerShell을 사용하여 관리 데이터 디스크를 Windows VM에 연결](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+* [PowerShell을 사용하여 관리 데이터 디스크를 Windows VM에 연결](../virtual-machines/windows/attach-disk-ps.md)
 
-* [관리 디스크를 Linux VM에 추가](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [관리 디스크를 Linux VM에 추가](../virtual-machines/linux/add-disk.md)
 
 ### <a name="compare-managed-disks-storage-options"></a>Managed Disks 저장소 옵션 비교 
 
@@ -155,7 +155,7 @@ Managed Disks에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 ### <a name="operational-guidance"></a>운영 가이드
 
-* [AWS 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+* [AWS 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션](../virtual-machines/windows/on-prem-to-azure.md)
 
-* [Azure VM을 Azure의 관리 디스크로 변환](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+* [Azure VM을 Azure의 관리 디스크로 변환](../virtual-machines/windows/migrate-to-managed-disks.md)
 

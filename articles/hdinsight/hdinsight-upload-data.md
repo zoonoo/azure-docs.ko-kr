@@ -295,7 +295,7 @@ Ambari 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDIns
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 

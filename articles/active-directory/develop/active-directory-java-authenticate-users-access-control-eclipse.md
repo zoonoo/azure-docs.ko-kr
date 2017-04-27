@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: 3e0f8d92495c976040113f8edc0d4c789920c549
 ms.openlocfilehash: e22dca7b666720edfcbfd1b871d98b9468441fbd
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -236,7 +237,7 @@ Azure에 배포하려면 ACS 네임스페이스의 신뢰 당사자 영역 및 �
 
 ACS Hello World 응용 프로그램 사용을 완료했으면 배포를 삭제해야 합니다( [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) (영문) 항목에서 배포 삭제 방법을 알아볼 수 있음).
 
-## <a name="a-namenextstepsanext-steps"></a><a name="next_steps"></a>다음 단계
+## <a name="next_steps"></a>다음 단계
 ACS에서 응용 프로그램에 반환하는 SAML(Security Assertion Markup Language)을 검토하려면 [Azure Access Control Service에서 반환하는 SAML을 보는 방법][How to view SAML returned by the Azure Access Control Service]을 참조하세요. ACS 기능을 자세히 살펴 보고 보다 정교한 시나리오를 실험하려면 [Access Control Service 2.0][Access Control Service 2.0]을 참조하세요.
 
 또한 이 예제에서는 **Embed the certificate in the WAR file** 옵션을 사용했습니다. 이 옵션을 사용하면 인증서를 더 간단하게 배포할 수 있습니다. 대신 서명 인증서를 WAR 파일과 별도로 유지하려면 다음 방법을 사용하면 됩니다.
@@ -296,10 +297,5 @@ ACS에서 응용 프로그램에 반환하는 SAML(Security Assertion Markup Lan
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

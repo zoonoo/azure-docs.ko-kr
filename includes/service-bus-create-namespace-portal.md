@@ -33,7 +33,3 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 네임스페�
 [connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 [Azure portal]: https://portal.azure.com
-
-<!--HONumber=Feb17_HO2-->
-
-

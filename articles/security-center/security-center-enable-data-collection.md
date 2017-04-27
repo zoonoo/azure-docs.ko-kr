@@ -1,6 +1,6 @@
 ---
 title: "Azure Security Center에서 데이터 수집 활성화 | Microsoft Docs"
-description: " Azure Security Center에서 데이터 수집을 활성화하는 방법 알아보기. "
+description: " Azure 보안 센터에서 데이터 수집을 활성화하는 방법을 알아봅니다. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 04/12/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 57c0228c398ba4ba3fd18a1088472749bed3ac69
-ms.openlocfilehash: 9ebbed56bdbc8385bb651c7aa1e77f369da1d727
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: b942f934ecb25083d779096dc628e342870edc26
+ms.lasthandoff: 04/13/2017
 
 
 ---
 # <a name="enable-data-collection-in-azure-security-center"></a>Azure 보안 센터에서 데이터 수집 활성화
-위협을 방지, 감지 및 대응하는 고객을 위해 Azure 보안 센터에서는 구성 정보, 메타데이터, 이벤트 로그 등을 포함한 Azure 가상 컴퓨터에 대한 데이터를 수집하고 처리합니다. 보안 센터에 처음 액세스할 경우 구독의 모든 가상 컴퓨터에서 데이터 수집을 활성화합니다. 데이터 수집를 사용하는 것이 좋지만 Security Center 정책에서 데이터 수집을 해제하여 옵트아웃할 수 있습니다([데이터 수집 비활성화](#disabling-data-collection)를 참조). 데이터 수집을 해제하면 Security Center는 해당 구독에 대한 보안 정책에서 데이터 수집을 켜도록 권장합니다.
+위협을 방지, 감지 및 대응하는 고객을 위해 Azure Security Center에서는 구성 정보, 메타데이터 및 이벤트 로그를 포함한 Azure 가상 컴퓨터에 대한 데이터를 수집하고 처리합니다. 보안 센터에 처음 액세스할 경우 구독의 모든 가상 컴퓨터에서 데이터 수집을 활성화합니다. 데이터 수집를 사용하는 것이 좋지만 Security Center 정책에서 데이터 수집을 해제하여 옵트아웃할 수 있습니다([데이터 수집 비활성화](#disabling-data-collection)를 참조). 데이터 수집을 해제하면 Security Center는 해당 구독에 대한 보안 정책에서 데이터 수집을 켜도록 권장합니다.
 
 > [!NOTE]
 > 이 문서에서는 배포 예제를 사용하여 서비스를 소개합니다. 단계별 가이드는 아닙니다.

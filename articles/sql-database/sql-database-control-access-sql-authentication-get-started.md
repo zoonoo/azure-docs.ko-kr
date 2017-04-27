@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 67797b09-f5c3-4ec2-8494-fe18883edf7f
 ms.service: sql-database
-ms.custom: authentication and authorization
+ms.custom: security-access
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: a5084b62a309dba433e2b363322b9a9c362bcdc3
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 1bd474cc547ca2f6aa32944c1a1e5a92f917444a
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -58,11 +58,6 @@ ms.lasthandoff: 03/10/2017
 1. 선택한 브라우저를 열고 [Azure Portal](https://portal.azure.com/)에 연결합니다.
 2. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 3. **로그인** 페이지에서 구독에 대한 자격 증명을 제공합니다.
-   
-   ![로그인](./media/sql-database-get-started-portal/login.png)
-
-
-<a name="create-logical-server-bk"></a>
 
 ## <a name="view-logical-server-security-information-in-the-azure-portal"></a>Azure Portal에서 논리 서버 보안 정보 보기
 
@@ -268,17 +263,17 @@ ms.lasthandoff: 03/10/2017
 
 2. **서버에 연결** 창에서 SQL Server 인증을 사용하여 **user1** 계정에 연결할 서버 이름과 인증 정보를 입력합니다. 
     
-   ![방화벽 규칙&1;을 사용하지 않고 user1로 연결](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
+   ![방화벽 규칙 1을 사용하지 않고 user1로 연결](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule1.png)
 
-3. **옵션**을 클릭하여 연결하려는 데이터베이스를 지정한 다음 **연결 속성** 탭의 **데이터베이스에 연결** 드롭다운 상자에서 **sqldbtutorialdb**를 입력합니다.
+3. **서버에 연결** 대화 상자에서 **옵션**을 클릭하여 연결하려는 데이터베이스를 지정한 다음 **연결 속성** 탭의 **데이터베이스에 연결** 드롭다운 상자에서 **sqldbtutorialdb**를 입력합니다.
    
-   ![방화벽 규칙&2;를 사용하지 않고 user1로 연결](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
+   ![방화벽 규칙 2를 사용하지 않고 user1로 연결](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule2.png)
 
 4. **Connect**를 클릭합니다. 
 
    SQL Database에 연결하려는 컴퓨터에 데이터베이스 액세스를 허용하는 방화벽 규칙이 없음을 알리는 대화 상자가 표시됩니다. 
 
-   ![방화벽 규칙&4;를 사용하지 않고 user1로 연결](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule4.png)
+   ![방화벽 규칙 4를 사용하지 않고 user1로 연결](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_no_rule4.png)
 
 
 5. 이 대화 상자에서 8단계에 사용할 클라이언트 IP 주소를 복사합니다.
@@ -301,7 +296,7 @@ ms.lasthandoff: 03/10/2017
 
 10. 성공적으로 연결되면 개체 탐색기에서 **데이터베이스**를 확장합니다. **user1**은 **sqldbtutorialdb** 데이터베이스만 볼 수 있습니다.
 
-   ![방화벽 규칙&1;을 사용하여 user1로 연결](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_rule1.png)
+   ![방화벽 규칙 1을 사용하여 user1로 연결](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_rule1.png)
 
 11. **sqldbtutorialdb**를 확장하고 **테이블**을 확장합니다. user1은 **SalesLT.ProductCategory** 테이블만 볼 수 있는 권한을 가지고 있습니다. 
 

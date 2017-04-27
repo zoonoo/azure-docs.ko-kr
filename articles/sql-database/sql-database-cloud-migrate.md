@@ -17,9 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 272b5eade0a80b1f46af4e4df1c7801d86fee175
-ms.lasthandoff: 04/10/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 9fb1d12f5895e27929b2698edbf8c207aa2ee377
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/10/2017
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>방법 1: 마이그레이션하는 동안 가동 중지 시간을 사용한 마이그레이션
 
- 약간의 가동 중지 시간이 허용되거나 나중에 마이그레이션할 수 있도록 프로덕션 데이터베이스의 테스트 마이그레이션을 수행하려면 이 방법을 사용하세요.
+ 약간의 가동 중지 시간이 허용되거나 나중에 마이그레이션할 수 있도록 프로덕션 데이터베이스의 테스트 마이그레이션을 수행하려면 이 방법을 사용하세요. 자습서를 보려면 [SQL Server 데이터베이스 마이그레이션](sql-database-migrate-your-sql-server-database.md)을 참조하세요.
 
 다음 목록에는 이 방법을 사용한 SQL Server 데이터베이스 마이그레이션의 일반적인 워크플로에 포함되어 있습니다.
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 04/10/2017
 3. 마이그레이션 중인 원본 데이터베이스를 트랜잭션 방식으로 일관되게 복사하고 원본 데이터베이스를 더 이상 변경하지 않도록 합니다(또는 마이그레이션이 완료된 후에 이러한 변경 내용을 수동으로 적용할 수 있음). 클라이언트 연결을 비활성화하는 방법부터 [데이터베이스 스냅숏](https://msdn.microsoft.com/library/ms175876.aspx)을 만드는 방법까지 다양한 방법으로 데이터베이스를 정지할 수 있습니다.
 4. Transact-SQL 스크립트를 배포하여 데이터베이스 복사본에는 수정 내용을 적용합니다.
 5. 데이터베이스 복사본을 로컬 드라이브의 BACPAC 파일로 [내보냅니다](sql-database-export.md).
-6. 최상의 성능을 위해 권장되는 도구인 SQLPackage.exe와 여러 BACPAC를 사용하여 새로운 Azure SQL Database로서 .BACPAC 파일을 [가져옵니다](sql-database-import-sqlpackage.md).
+6. 최상의 성능을 위해 권장되는 도구인 SQLPackage.exe와 여러 BACPAC를 사용하여 새로운 Azure SQL Database로서 .BACPAC 파일을 [가져옵니다](sql-database-import.md).
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>마이그레이션하는 동안 데이터 전송 성능 최적화 
 

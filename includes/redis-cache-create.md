@@ -34,8 +34,3 @@
 
 ![캐시 만듬](media/redis-cache-create/redis-cache-cache-created.png)
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: ffcf0f0aa80f0a6b65cbef65e361e4830fcca3ff
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 7ab1d760d26aac7fc185b0e9f5e4a7a47cc2eee5
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/10/2017
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 ## <a name="create-an-elastic-pool"></a>탄력적 풀 만들기
-[New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) cmdlet을 사용하여 탄력적 풀을 만듭니다. 풀, 최소 및 최대 DTU당 eDTU 값은 서비스 계층 값(기본, 표준 또는 프리미엄)에 의해 제한됩니다. [탄력적 풀 및 풀링된 데이터베이스에 대한 eDTU 및 저장소 제한](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools)을 참조하세요.
+[New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) cmdlet을 사용하여 탄력적 풀을 만듭니다. 풀, 최소 및 최대 DTU당 eDTU 값은 서비스 계층 값(Basic, Standard, Premium 또는 Premium RS)에 의해 제한됩니다. [탄력적 풀 및 풀링된 데이터베이스에 대한 eDTU 및 저장소 제한](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools)을 참조하세요.
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 03/10/2017
     $metrics = (Get-AzureRmMetric -ResourceId /subscriptions/<subscriptionId>/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015")  
 
 ## <a name="get-resource-usage-data-for-a-database-in-an-elastic-pool"></a>탄력적 풀에서 데이터베이스의 리소스 사용량 데이터 가져오기
-이러한 API는 단일 데이터베이스의 리소스 사용률을 모니터링하는 데 사용되는 현재(V12) API와 동일합니다. 단, 의미 체계 측면에서, 검색된 메트릭이 해당 풀에 대해 설정된 데이터베이스당 최대 eDTU 백분율(또는 CPU나 IO와 같은 기본 메트릭에 대해 동급의 용량)로 표시된다는 차이가 있습니다. 예를 들어, 이 메트릭에서 50% 사용률은 특정 리소스 사용률이 상위 풀의 리소스에 대한 데이터베이스당 최대값 한도의 50%임을 나타냅니다.
+이러한 API는 단일 데이터베이스의 리소스 사용률을 모니터링하는 데 사용되는 API와 동일합니다. 단, 의미 체계 측면에서, 검색된 메트릭이 해당 풀에 대해 설정된 데이터베이스당 최대 eDTU 백분율(또는 CPU나 IO와 같은 기본 메트릭에 대해 동급의 용량)로 표시된다는 차이가 있습니다. 예를 들어, 이 메트릭에서 50% 사용률은 특정 리소스 사용률이 상위 풀의 리소스에 대한 데이터베이스당 최대값 한도의 50%임을 나타냅니다.
 
 메트릭을 검색하려면:
 

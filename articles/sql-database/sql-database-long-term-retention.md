@@ -17,9 +17,9 @@ ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 768a630e1652a48fa4478ec2c25173d536ea6c09
-ms.lasthandoff: 03/23/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 043a1779ac694b0b3cbb5f1fd00117f716583669
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -33,7 +33,10 @@ ms.lasthandoff: 03/23/2017
 > [!NOTE]
 > 24시간 동안 자격 증명 모음 당 최대 200개의 데이터베이스를 사용할 수 있습니다. 따라서 이 제한의 영향을 최소화하려면 각 서버에 별도 자격 증명 모음을 사용하는 것이 좋습니다. 
 > 
-> 
+
+
+
+ 
 ## <a name="how-does-sql-database-long-term-backup-retention-work"></a>SQL Database 장기 백업 보존은 어떻게 작동하나요?
 
 백업의 장기 백업 보존을 사용하면 Azure Recovery Services 자격 증명 모음과 Azure SQL Database 서버를 연결할 수 있습니다. 
@@ -43,7 +46,7 @@ ms.lasthandoff: 03/23/2017
 * 그러면 이러한 백업에서 구독의 모든 서버에 있는 새 데이터베이스로 복원할 수 있습니다. 복사는 기존 백업의 Azure Storage에서 수행되고 기존 데이터베이스의 성능에 영향을 주지 않습니다.
 
 > [!TIP]
-> 자습서는 [Azure Portal을 사용하여 데이터 보호 및 복구를 위한 백업 및 복원 시작](sql-database-get-started-backup-recovery-portal.md) 또는 [PowerShell을 사용하여 데이터 보호 및 복구를 위한 백업 및 복원 시작](sql-database-get-started-backup-recovery-powershell.md)을 참조하세요.
+> 사용 방법 가이드는 [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md)(Azure SQL Database 장기 백업 보존 관리에서 구성 및 복원)을 참조하세요.
 
 ## <a name="how-do-i-enable-long-term-backup-retention"></a>장기 백업 보존을 사용하려면 어떻게 해야 하나요?
 
@@ -54,7 +57,13 @@ ms.lasthandoff: 03/23/2017
 3. Azure Recovery Services 보호 정책 만들기
 4. 장기 백업 보존해야 하는 데이터베이스에 보호 정책 적용
 
-Azure Portal을 사용하여 Azure Recovery Services 자격 증명 모음에서 자동화된 백업을 장기 백업 보존에서 구성, 관리 및 복원하려면 [Azure Portal을 사용하여 장기 백업 보존 관리](sql-database-manage-long-term-backup-retention-portal.md)를 참조하세요. PowerShell을 사용하여 Azure Recovery Services에서 자동화된 백업을 장기 백업 보존에서 구성, 관리 및 복원하려면 [PowerShell을 사용하여 장기 백업 보존 관리](sql-database-manage-long-term-backup-retention-powershell.md)를 참조하세요.
+### <a name="azure-portal"></a>Azure 포털
+
+Azure Portal을 사용하여 Azure Recovery Services 자격 증명 모음에서 자동화된 백업의 장기 백업 보존에서 구성, 관리 및 복원하려면 **장기 백업 보존**을 클릭하고 데이터베이스를 선택한 다음 **구성**을 클릭합니다. 
+
+   ![장기 백업 보존을 위한 데이터베이스 선택](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
+
+PowerShell을 사용하여 Azure Recovery Services 자격 증명 모음에서 자동화된 백업의 장기 백업 보존에서 구성, 관리 및 복원하려면 [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md)(Azure SQL Database 장기 백업 보존 관리에서 구성 및 복원)를 참조하세요.
 
 ## <a name="how-do-i-restore-a-database-stored-with-the-long-term-backup-retention-feature"></a>장기 보존 기능과 함께 저장된 데이터베이스를 복원하려면 어떻게 해야 하나요?
 
@@ -66,7 +75,7 @@ Azure Portal을 사용하여 Azure Recovery Services 자격 증명 모음에서 
 4. 복원할 수 있는 복구 지점 나열
 5. 복구 지점에서 구독 내의 대상 서버로 복원
 
-Azure Portal을 사용하여 Azure Recovery Services 자격 증명 모음에서 자동화된 백업을 장기 백업 보존에서 구성, 관리 및 복원하려면 [Azure Portal을 사용하여 장기 백업 보존 관리](sql-database-manage-long-term-backup-retention-portal.md)를 참조하세요. PowerShell을 사용하여 Azure Recovery Services에서 자동화된 백업을 장기 백업 보존에서 구성, 관리 및 복원하려면 [PowerShell을 사용하여 장기 백업 보존 관리](sql-database-manage-long-term-backup-retention-powershell.md)를 참조하세요.
+Azure Portal을 사용하여 Azure Recovery Services 자격 증명 모음에서 자동화된 백업을 장기 백업 보존에서 구성, 관리 및 복원하려면 [Azure Portal을 사용하여 장기 백업 보존 관리](sql-database-long-term-backup-retention-configure.md)를 참조하세요. PowerShell을 사용하여 Azure Recovery Services에서 자동화된 백업을 장기 백업 보존에서 구성, 관리 및 복원하려면 [PowerShell을 사용하여 장기 백업 보존 관리](sql-database-long-term-backup-retention-configure.md)를 참조하세요.
 
 ## <a name="how-much-does-long-term-backup-retention-cost"></a>장기 백업 보존 비용은 얼마인가요?
 
@@ -76,7 +85,7 @@ Azure SQL Database 서버를 자격 증명 모음에 등록한 후에 자격 증
 
 ## <a name="view-available-backups-stored-in-long-term-backup-retention"></a>장기 백업 보존에 저장된 사용 가능한 백업 보기
 
-Azure Portal을 사용하여 Azure Recovery Services 자격 증명 모음에서 자동화된 백업을 장기 백업 보존에서 구성, 관리 및 복원하려면 [Azure Portal을 사용하여 장기 백업 보존 관리](sql-database-manage-long-term-backup-retention-portal.md)를 참조하세요. PowerShell을 사용하여 Azure Recovery Services에서 자동화된 백업을 장기 백업 보존에서 구성, 관리 및 복원하려면 [PowerShell을 사용하여 장기 백업 보존 관리](sql-database-manage-long-term-backup-retention-powershell.md)를 참조하세요.
+Azure Portal을 사용하여 Azure Recovery Services 자격 증명 모음에서 자동화된 백업의 장기 백업 보존에서 구성, 관리 및 복원하려면 [Azure Portal을 사용하여 장기 백업 보존 관리](sql-database-long-term-backup-retention-configure.md)를 참조하세요. PowerShell을 사용하여 Azure Recovery Services 자격 증명 모음에서 자동화된 백업의 장기 백업 보존에서 구성, 관리 및 복원하려면 [PowerShell을 사용하여 장기 백업 보존 관리](sql-database-long-term-backup-retention-configure.md)를 참조하세요.
 
 ## <a name="disabling-long-term-retention"></a>장기 보존 비활성화
 
@@ -91,16 +100,15 @@ Recovery Service는 제공된 보존 정책에 따라 백업 정리를 자동으
 > [!NOTE]
 > 자격 증명 모음에 이미 있는 백업은 영향을 받지 않습니다. 해당 보존 기간이 만료되면 Recovery Service에 의해 자동으로 삭제됩니다.
 
-
 ## <a name="removing-long-term-backup-retention-backups-from-the-azure-recovery-services-vault"></a>Azure Recovery Services 자격 증명 모음에서 장기 백업 보존 백업 제거
 
-자격 증명 모음에서 장기 백업 보존 백업을 제거하려면 [장기 백업 보존 백업 삭제](sql-database-manage-long-term-backup-retention-powershell.md)를 참조하세요.
+자격 증명 모음에서 장기 백업 보존 백업을 제거하려면 [장기 백업 보존 백업 삭제](sql-database-long-term-backup-retention-configure.md)를 참조하세요.
 
 ## <a name="long-term-backup-retention-faq"></a>장기 백업 보존 FAQ:
 
 1. Q: 자격 증명 모음에서 특정 백업을 수동으로 삭제할 수 있나요?
 
-    A: 이 시점에서는 안됩니다. 보존 기간이 만료되면 자격 증명 모음은 자동으로 백업을 정리합니다.
+    A: 현재는 아닙니다. 보존 기간이 만료되면 자격 증명 모음은 자동으로 백업을 정리합니다.
 2. Q: 내 서버를 등록하여 둘 이상의 자격 증명 모음에 백업을 저장할 수 있나요?
 
     A: 아니요, 현재로서는 한 개의 자격 증명 모음에만 백업을 저장할 수 있습니다.
@@ -136,11 +144,11 @@ Recovery Service는 제공된 보존 정책에 따라 백업 정리를 자동으
     A: 아니요, 현재는 아닙니다.
 13. Q: SQL 보존 정책 내에서 여러 일정(매일, 매주, 매월, 매년)이 있을 수 있나요?
 
-    A: 아니요, 현재로는 Virtal Machine 백업에서만 사용할 수 있습니다.
+    A: 아니요, 현재 가상 컴퓨터 백업에서만 사용할 수 있습니다.
 14. Q. 활성 지역 복제 보조 데이터베이스에 장기 백업 보존을 설정하면 어떻게 되나요?
 
     A: 현재 복제본에 대한 백업은 지원되지 않으므로 보조 데이터베이스에 대한 장기 백업 보존 옵션은 없습니다. 하지만 활성 지역 복제 보조 데이터베이스에 장기 백업 보존을 설정하는 것이 중요한 이유는 다음과 같습니다.
-    - 장애 조치가 발생하여 데이터베이스가 주가 되면 전체 백업을 수행하고 이 전체 백업이 자격 증명 모음에 업로드됩니다.
+    - 장애 조치(failover)가 발생하여 데이터베이스가 주가 되면 전체 백업을 수행하고 이 전체 백업이 자격 증명 모음에 업로드됩니다.
     - 보조 데이터베이스에 장기 백업 보존을 설정할 경우에 추가 비용은 없습니다.
 
 

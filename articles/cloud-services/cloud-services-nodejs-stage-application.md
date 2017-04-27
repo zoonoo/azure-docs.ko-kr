@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: a015c4a2f5dccb8cae49b739e5d8c342daec54cf
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -73,9 +74,4 @@ ms.openlocfilehash: a015c4a2f5dccb8cae49b739e5d8c342daec54cf
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

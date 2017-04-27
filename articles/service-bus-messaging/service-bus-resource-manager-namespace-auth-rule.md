@@ -1,5 +1,5 @@
 ---
-title: "템플릿을 사용하여 Azure Service Bus 권한 부여 규칙 만들기 | Microsoft Docs"
+title: "Azure Resource Manager 템플릿을 사용하여 Service Bus 권한 부여 규칙 만들기 | Microsoft Docs"
 description: "Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 서비스 버스 권한 부여 규칙 만들기"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,20 +12,22 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 04/18/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 65693a99ee3458deb15d0e41187ef3babd76e5c1
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: e62ff884e5e48f8cc542cd85a750fc857302c6b4
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 서비스 버스 권한 부여 규칙 만들기
+
 이 문서에서는 Service Bus 네임스페이스 및 큐에 대한 [권한 부여 규칙](service-bus-authentication-and-authorization.md#shared-access-signature-authentication)을 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]을 참조하세요.
 
-전체 템플릿은 GitHub에서 [Service Bus 인증 규칙 템플릿][Service Bus auth rule template]을 참조하세요.
+전체 템플릿은 GitHub에서 [Service Bus 권한 부여 규칙 템플릿][Service Bus auth rule template]을 참조하세요.
 
 > [!NOTE]
 > 다음 Azure Resource Manager 템플릿은 다운로드하여 배포할 수 있습니다.
@@ -42,13 +44,14 @@ ms.openlocfilehash: 65693a99ee3458deb15d0e41187ef3babd76e5c1
 ## <a name="what-will-you-deploy"></a>배포할 항목
 이 템플릿을 사용하여 네임스페이스 및 메시징 엔터티(이 경우에는 큐)에 대한 서비스 버스 권한 부여 규칙을 배포합니다.
 
-이 템플릿은 인증에 [SAS(공유 액세스 서명)](service-bus-sas-overview.md)를 사용합니다. SAS를 사용하면 응용 프로그램을 네임스페이스 또는 특정 권한이 연관된 메시징 엔터티(큐 또는 토픽)에서 구성된 액세스 키를 사용하여 서비스 버스에 인증할 수 있습니다. 그런 다음 이 키를 사용하여 클라이언트가 서비스 버스를 인증하는 데 차례로 사용할 수 있는 SAS 토큰을 생성할 수 있습니다.
+이 템플릿은 인증에 [SAS(공유 액세스 서명)](service-bus-sas.md)를 사용합니다. SAS를 사용하면 응용 프로그램을 네임스페이스 또는 특정 권한이 연관된 메시징 엔터티(큐 또는 토픽)에서 구성된 액세스 키를 사용하여 서비스 버스에 인증할 수 있습니다. 그런 다음 이 키를 사용하여 클라이언트가 서비스 버스를 인증하는 데 차례로 사용할 수 있는 SAS 토큰을 생성할 수 있습니다.
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
 [![Azure에 배포](./media/service-bus-resource-manager-namespace-auth-rule/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F301-servicebus-create-authrule-namespace-and-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>매개 변수
+
 Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters` 라는 섹션을 포함합니다. 배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
 
 템플릿은 다음 매개 변수를 정의합니다.
@@ -170,9 +173,4 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Service Bus auth rule template]: https://github.com/Azure/azure-quickstart-templates/blob/master/301-servicebus-create-authrule-namespace-and-queue/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/12/2017
 ms.author: oanapl
 translationtype: Human Translation
-ms.sourcegitcommit: d20b8d5848d1a11326c60d998099571a4ab8056e
-ms.openlocfilehash: 0306b8c38a7dd86dff56f6cc7bb9eab7e0428762
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 93a4e5fc2ec3c4e847f3fe8e76df9f83253eea9b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -57,7 +57,7 @@ Azure 서비스 패브릭 구성 요소가 클러스터 내의 모든 엔터티�
 * **다음 단계**: 환경이 손실된 이유를 조사합니다.(예를 들어 클러스터 노드 간 통신을 확인합니다)
 
 ## <a name="node-system-health-reports"></a>노드 시스템 상태 보고서
-장애 조치(Failover) 관리자 서비스를 나타내는 **System.FM**은 클러스터 노드에 대한 정보를 관리하는 기관입니다. 모든 노드는 상태를 보여주는 System.FM로부터 하나의 보고서를 가져야 합니다. 노드 상태가 제거되면 노드 엔터티도 제거됩니다( [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)참조).
+장애 조치(Failover) 관리자 서비스를 나타내는 **System.FM**은 클러스터 노드에 대한 정보를 관리하는 기관입니다. 모든 노드는 상태를 보여주는 System.FM로부터 하나의 보고서를 가져야 합니다. 노드 상태가 제거되면 노드 엔터티도 제거됩니다( [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)참조).
 
 ### <a name="node-updown"></a>노드 위/아래
 System.FM은 노드가 링에 조인하는 경우 확인으로 보고합니다.(실행 중) 노드가 링에서 분리하는 경우 오류를 보고합니다.(업그레이드이든 단순히 실패한 것이든 중단되었습니다) Health 스토어에서 작성한 상태 계층이 System.FM 노드 보고서와의 상관관계에 따라, 배포된 엔터티에 대해 조치를 취합니다. 배포된 모든 엔터티의 가상 부모를 노드로 간주합니다. 엔터티와 연결된 인스턴스와 동일한 인스턴스와 함께 노드가 가동 중인 것으로 System.FM에 의해 보고되면 해당 노드에 배포된 엔터티가 쿼리를 통해 노출됩니다. System.FM에서 노드가 다운되었거나 다시 시작한 것을 보고하면(새로운 인스턴스) Health 스토어가 다운 노드 또는 이전 노드 인스턴스에서만 존재할 수 있는 배포된 엔터티를 자동으로 정리합니다.
@@ -486,7 +486,7 @@ Visual Studio 2015 진단 이벤트: **fabric:/HelloWorldStatefulApplication**�
 * **Property**: 복제본의 역할에 따라 **PrimaryReplicationQueueStatus** 또는 **SecondaryReplicationQueueStatus**입니다.
 
 ### <a name="slow-naming-operations"></a>느린 이름 지정 작업
-**System.NamingService**는 이름 지정 작업이 허용 가능한 시간보다 오래 걸리는 경우 주 복제본에 해당 상태를 보고합니다. 이름 지정 작업의 예는 [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) 또는 [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx)입니다. FabricClient에서 더 많은 메서드를 찾을 수 있습니다. 예를 들어 [서비스 관리 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) 또는 [속성 관리 메서드](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx)에서입니다.
+**System.NamingService**는 이름 지정 작업이 허용 가능한 시간보다 오래 걸리는 경우 주 복제본에 해당 상태를 보고합니다. 이름 지정 작업의 예는 [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) 또는 [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync)입니다. FabricClient에서 더 많은 메서드를 찾을 수 있습니다. 예를 들어 [서비스 관리 메서드](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) 또는 [속성 관리 메서드](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient)에서입니다.
 
 > [!NOTE]
 > 이름 지정 서비스는 클러스터의 위치에 서비스 이름을 확인하고 사용자가 서비스 이름 및 속성을 관리할 수 있도록 합니다. 서비스 패브릭 분할된 지속형 서비스입니다. 파티션 중 하나는 모든 Service Fabric 이름 및 서비스에 대한 메타데이터를 포함하는 기관 소유자를 나타냅니다. 서비스 패브릭 이름은 이름 소유자 파티션이라는 다른 파티션에 매핑되므로 서비스는 확장 가능합니다. [이름 지정 서비스](service-fabric-architecture.md)에 대해 자세히 알아봅니다.

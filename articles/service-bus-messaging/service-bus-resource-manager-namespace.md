@@ -1,5 +1,5 @@
 ---
-title: "Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기 | Microsoft Docs"
+title: "Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 만들기 | Microsoft Docs"
 description: "Azure Resource Manager 템플릿을 사용하여 서비스 버스 네임스페이스 만들기"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,12 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 04/12/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
-ms.openlocfilehash: bb37faa10000c0352fcad3d7b2cefadc604716e5
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: efd0ec90a1c0775661069faa323e56914dd4e032
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -139,18 +140,13 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 ## <a name="next-steps"></a>다음 단계
 이제 Azure Resource Manager를 사용하여 리소스를 만들고 배포했으므로 다음 문서를 참조하여 이러한 리소스를 관리하는 방법에 대해 알아봅니다.
 
-* [PowerShell을 사용하여 서비스 버스 관리](service-bus-powershell-how-to-provision.md)
+* [PowerShell을 사용하여 서비스 버스 관리](service-bus-manage-with-ps.md)
 * [서비스 버스 탐색기로 서비스 버스 리소스 관리](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Service Bus pricing and billing]: https://azure.microsoft.com/documentation/articles/service-bus-pricing-billing/
+[Service Bus pricing and billing]: service-bus-pricing-billing.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

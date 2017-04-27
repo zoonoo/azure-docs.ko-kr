@@ -56,7 +56,7 @@ HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하�
 ## <a name="next-steps"></a>다음 단계
 [HDInsight에서 Hive를 사용하여 센서 데이터 분석](hdinsight-hive-analyze-sensor-data.md)샘플을 사용해 봅니다.
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png

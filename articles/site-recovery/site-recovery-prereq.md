@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: b20d1a20119e8bffa3ece7105c38b3ee51c942d5
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 5ff598af73b6be727753ecac5b99f28bae19a417
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -37,7 +37,7 @@ Azure Site Recovery 서비스는 온-프레미스 물리적 서버와 가상 컴
 --- | ---
 **Azure 계정** | [Microsoft Azure](http://azure.microsoft.com/) 계정.<br/><br/> [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다.
 **Site Recovery 서비스** | Site Recovery 가격 책정에 대한 자세한 내용은 [Site Recovery 가격](https://azure.microsoft.com/pricing/details/site-recovery/)을 참조하세요. |
-**Azure 저장소** | 복제된 데이터를 저장할 Azure Storage 계정이 필요하고 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 생성됩니다.<br/><br/> 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [Azure Resource Manager 모델](../storage/storage-create-storage-account.md) 또는 [클래식 모델](../storage/storage-create-storage-account-classic-portal.md)에서 계정을 설정할 수 있습니다.<br/><br/>[지역 중복 저장소](../storage/storage-redundancy.md#geo-redundant-storage) 또는 로컬 중복 저장소를 사용할 수 있습니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 지역 중복 저장소를 사용하는 것이 좋습니다.<br/><br/> Azure Portal에서 VMware VM 또는 물리적 서버를 복제하는 경우 Premium Storage가 지원됩니다. [프리미엄 저장소](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage)는 IO를 많이 사용하는 워크로드를 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 가상 컴퓨터에 일반적으로 사용됩니다. 복제된 데이터에 Premium Storage를 사용하는 경우 온-프레미스 데이터에 대한 지속적인 변화를 캡처하는 복제 로그를 저장할 표준 저장소 계정도 있어야 합니다.<br/><br/>
+**Azure 저장소** | 복제된 데이터를 저장할 Azure Storage 계정이 필요하고 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 생성됩니다.<br/><br/> 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [Azure Resource Manager 모델](../storage/storage-create-storage-account.md) 또는 [클래식 모델](../storage/storage-create-storage-account-classic-portal.md)에서 계정을 설정할 수 있습니다.<br/><br/>[지역 중복 저장소](../storage/storage-redundancy.md#geo-redundant-storage) 또는 로컬 중복 저장소를 사용할 수 있습니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 지역 중복 저장소를 사용하는 것이 좋습니다.<br/><br/> Standard 또는 Premium Storage를 사용할 수 있습니다. [프리미엄 저장소](https://docs.microsoft.com/azure/storage/storage-premium-storage)는 IO를 많이 사용하는 워크로드를 호스트하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 가상 컴퓨터에 일반적으로 사용됩니다. 복제된 데이터에 Premium Storage를 사용하는 경우 온-프레미스 데이터에 대한 지속적인 변화를 캡처하는 복제 로그를 저장할 표준 저장소 계정도 있어야 합니다.<br/><br/>
 **저장소 제한** | Site Recovery에서 사용하는 저장소 계정은 리소스 그룹 간이나 동일한 구독 내 또는 구독 간에 이동할 수 없습니다.<br/><br/> 인도 중부 및 인도 남부의 Premium Storage 계정에 대한 복제는 현재 지원되지 않습니다.
 **Azure 네트워크** | 장애 조치 후 Azure VM을 연결할 Azure 네트워크가 있어야 하며 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.<br/><br/> Azure Portal에서, [Resource Manager 모델](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 또는 [클래식 모델](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 네트워크를 만들 수 있습니다.<br/><br/> System Center Virtual Machine Manager에서 Azure로 복제하는 경우 Virtual Machine Manager VM 네트워크와 Azure 네트워크 간 네트워크 매핑을 설정하면 장애 조치 후 Azure VM을 해당 네트워크로 연결할 수 있습니다.
 **네트워크 제한 사항** | Site Recovery에서 사용하는 네트워크 계정은 리소스 그룹 간이나 동일한 구독 내 또는 구독 간에 이동할 수 없습니다.
@@ -58,7 +58,7 @@ Azure Site Recovery 서비스는 온-프레미스 물리적 서버와 가상 컴
 | **구성 요소** | **요구 사항** |
 | --- | --- |
 | **vSphere** | 하나 이상의 VMware vSphere 하이퍼바이저.<br/><br/>하이퍼바이저는 최신 업데이트를 설치한 vSphere 버전 6.0, 5.5 또는 5.1을 실행해야 합니다.<br/><br/>vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 전용 프로세스 서버를 설정한 경우가 아니라면 구성 서버가 위치한 네트워크입니다. |
-| **vCenter** | vSphere 호스트를 관리하는 VMware vCenter Server를 배포하는 것이 좋습니다. 최신 업데이트를 설치한 vCenter 버전 6.0 또는 5.5를 실행해야 합니다.<br/><br/>**제한 사항**: Site Recovery에서는 교차 vCenter vMotion, 가상 볼륨 및 저장소 DRS와 같은 새로운 vCenter 및 vSphere 6.0 기능을 지원하지 않습니다. 사이트 복구 지원은 버전 5.5에서도 사용할 수 있는 기능에 제한됩니다.||
+| **vCenter** | vSphere 호스트를 관리하는 VMware vCenter Server를 배포하는 것이 좋습니다. 최신 업데이트를 설치한 vCenter 버전 6.0 또는 5.5를 실행해야 합니다.<br/><br/>**제한**: Site Recovery는 크로스 vCenter vMotion을 지원하지 않습니다. 저장소 DRS 및 저장소 vMotion은 마스터 대상 가상 컴퓨터에서 재보호 작업을 게시하는 경우에도 지원되지 않습니다.||
 
 1. **복제된 컴퓨터 필수 조건**
 
@@ -67,7 +67,7 @@ Azure Site Recovery 서비스는 온-프레미스 물리적 서버와 가상 컴
 | --- | --- |
 | **온-프레미스**(VMware VM) | 복제된 VM에 VMware 도구가 설치되어 있고 실행 중이어야 합니다.<br/><br/> VM은 Azure VM을 만드는 [Azure 필수 조건](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)에 부합해야 합니다.<br/><br/>보호되는 컴퓨터의 개별 디스크 용량이 1,023GB 이하여야 합니다. <br/><br/>구성 요소 설치를 위해 설치 드라이브에는 최소 2GB의 사용 가능한 공간이 있어야 합니다.<br/><br/>다중 VM 일관성을 사용하려면 VM의 로컬 방화벽에서 포트 20004가 열려 있어야 합니다.<br/><br/>컴퓨터 이름은 1-63자(문자, 숫자 및 하이픈)를 포함해야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터에 대한 복제를 활성화한 후 Azure 이름을 수정할 수 있습니다.<br/><br/> |
 | **Windows 컴퓨터**(물리적 또는 VMware) | 컴퓨터에서 지원되는 64비트 운영 체제(Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2 SP1 이상)를 실행해야 합니다.<br/><br/> C 드라이브에 운영 체제를 설치해야 합니다. OS 디스크는 동적이 아닌 Windows 기본 디스크여야 합니다. 데이터 디스크는 동적일 수 있습니다.<br/><br/>|
-| **Linux 컴퓨터**(물리적 또는 VMware) | Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3), SUSE Linux Enterprise Server 11 SP3을 실행하는 Red Hat Enterprise Linux 6.7, 6.8, 7.1 또는 7.2, Centos 6.5, 6.6, 6.7, 6.8, 7.0, 7.1 또는 7.2, Oracle Enterprise Linux 6.4 또는 6.5 등의 지원되는 64비트 운영 체제가 필요합니다.<br/><br/>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 네트워크 어댑터와 연관된 IP 주소에 매핑하는 항목을 포함해야 합니다.<br/><br/>장애 조치(Failover) 후에 보안 셸 클라이언트(ssh)를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려는 경우 보호된 컴퓨터의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되었는지, 그리고 방화벽 규칙에서 ssh 연결을 허용하는지 확인합니다.<br/><br/>호스트 이름, 마운트 지점, 장치 이름 및 Linux 시스템 경로와 파일 이름(예: /etc/, /usr)에는 영어만 사용해야 합니다.<br/><br/>
+| **Linux 컴퓨터**(물리적 또는 VMware) | Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3), SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4를 실행하는 Red Hat Enterprise Linux 6.7, 6.8, 7.1 또는 7.2, Centos 6.5, 6.6, 6.7, 6.8, 7.0, 7.1 또는 7.2, Oracle Enterprise Linux 64 또는 6.5 등의 지원되는 64비트 운영 체제가 필요합니다.<br/><br/>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 네트워크 어댑터와 연관된 IP 주소에 매핑하는 항목을 포함해야 합니다.<br/><br/>장애 조치(Failover) 후에 보안 셸 클라이언트(ssh)를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려는 경우 보호된 컴퓨터의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되었는지, 그리고 방화벽 규칙에서 ssh 연결을 허용하는지 확인합니다.<br/><br/>호스트 이름, 마운트 지점, 장치 이름 및 Linux 시스템 경로와 파일 이름(예: /etc/, /usr)에는 영어만 사용해야 합니다.<br/><br/>/(root), /boot, /usr, /usr/local, /var, /etc 디렉터리(별도의 파티션/파일 시스템으로 설정된 경우)는 모두 원본 서버의 동일한 디스크(OS 디스크)에 있어야 합니다.<br/><br/>메타데이터 체크섬과 같은 XFS v5 기능은 현재 XFS 파일 시스템의 ASR에서 지원하지 않습니다. XFS 파일 시스템이 v5 기능을 사용하고 있지 않은지 확인합니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인할 수 있습니다. ftype이 1로 설정되면 XFSv5 기능이 사용됩니다.<br/><br/>Red Hat Enterprise Linux 7 및 CentOS 7 서버에서는 lsof 유틸리티를 설치하여 사용할 수 있어야 합니다.<br/><br/>
 
 
 ## <a name="disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager"></a>Azure에 대한 Hyper-V 가상 컴퓨터의 재해 복구(Virtual Machine Manager 없음)
@@ -76,7 +76,7 @@ Azure Site Recovery 서비스는 온-프레미스 물리적 서버와 가상 컴
 
 | **필수 요소** | **세부 정보** |
 | --- | --- |
-| **Hyper-V 호스트** |최신 업데이트가 설치되고 Hyper-V 역할이 설정된 Windows Server 2012 R2 또는 Microsoft Hyper-V Server 2012 R2를 실행하는 하나 이상의 온-프레미스 서버.<br/><br/>Hyper-V 서버에 가상 컴퓨터가 하나 이상 포함되어야 합니다.<br/><br/>Hyper-V 서버가 직접 또는 프록시를 통해 인터넷에 연결되어야 합니다.<br/><br/>Hyper-V 서버에는 [KB2961977](https://support.microsoft.com/en-us/kb/2961977) 에 언급된 수정이 적용되어 있어야 합니다.
+| **Hyper-V 호스트** |최신 업데이트가 설치되고 Hyper-V 역할이 설정된 Windows Server 2012 R2 또는 Microsoft Hyper-V Server 2012 R2를 실행하는 하나 이상의 온-프레미스 서버.<br/><br/>Hyper-V 서버에 가상 컴퓨터가 하나 이상 포함되어야 합니다.<br/><br/>Hyper-V 서버가 직접 또는 프록시를 통해 인터넷에 연결되어야 합니다.<br/><br/>Hyper-V 서버에는 [KB2961977](https://support.microsoft.com/kb/2961977) 에 언급된 수정이 적용되어 있어야 합니다.
 |**공급자 및 에이전트**| Azure Site Recovery 배포 중에 Azure Site Recovery 공급자를 설치합니다. 공급자 설치는 보호하려는 가상 컴퓨터를 실행하고 있는 각 Hyper-V 서버에도 Azure Recovery Services 에이전트를 설치합니다. <br/><br/>사이트 복구 자격 증명 모음에 있는 모든 Hyper-V 서버는 반드시 동일한 버전의 공급자 및 에이전트를 가지고 있어야 합니다.<br/><br/>공급자는 인터넷을 통해 Azure Site Recovery에 연결해야 합니다. 트래픽은 직접 또는 프록시를 통해 보낼 수 있습니다. HTTPS 기반 프록시는 지원되지 않습니다. 프록시 서버는 다음에 대한 액세스를 허용해야 합니다.<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/>서버에 IP 주소 기반 방화벽 규칙이 있는 경우 해당 규칙이 Azure와의 통신을 허용하는지 확인합니다.<br/><br/> [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 포트를 허용합니다.<br/><br/> 구독하는 Azure 지역과 미국 서부에 해당하는 IP 주소 범위를 허용합니다(액세스 제어 및 ID 관리에 사용됨).
 
 

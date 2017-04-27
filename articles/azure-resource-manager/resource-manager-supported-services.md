@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7dc5143086e3a73e0536408a41468b8cdd40bd12
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a740813b013e75a098836290ad8e9ebe76d33b37
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -37,7 +37,7 @@ Azure 포털 및 클래식 포털에서 어떤 서비스가 지원되는지 알�
 | Container Registry |예 |[컨테이너 레지스트리 REST](/rest/api/containerregistry) |[컨테이너 레지스트리 리소스](/azure/templates/microsoft.containerregistry/registries) |
 | 컨테이너 서비스 |예 |[컨테이너 서비스 REST](/rest/api/compute/containerservices) |[컨테이너 서비스 리소스](/azure/templates/microsoft.containerservice/containerservices) |
 | Dynamics Lifecycle Services |예 | | |
-| 크기 집합 |예 |[크기 집합 REST](/rest/api/compute/virtualmachinescalesets) |[크기 집합 리소스](/azure/templates/microsoft.compute/virtualmachinescalesets) |
+| 크기 집합 |예 |[크기 집합 REST](/rest/api/virtualmachinescalesets/) |[크기 집합 리소스](/azure/templates/microsoft.compute/virtualmachinescalesets) |
 | Service Fabric |예 |[서비스 패브릭 Rest](/rest/api/servicefabric) | [Service Fabric 리소스](/azure/templates/microsoft.servicefabric/clusters) |
 | 가상 컴퓨터 |예 |[VM REST](/rest/api/compute/virtualmachines) |[VM 리소스](/azure/templates/microsoft.compute/virtualmachines) |
 | 가상 컴퓨터(클래식) |제한적 |- |- |
@@ -132,7 +132,7 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 | --- | --- | --- | --- |
 | 모니터 |예 |[Monitor REST](/rest/api/monitor) |[Insights 리소스](/azure/templates/microsoft.insights/alertrules) |
 | Bing 지도 |예 | | |
-| DevTest Labs |예 | [DevTest REST](/rest/api/dtl) |[DevTest Lab 리소스](/azure/templates/microsoft.devtestlab/labs) |
+| DevTest Labs |예 | [DevTest Labs REST](/rest/api/dtl) |[DevTest Labs 리소스](/azure/templates/microsoft.devtestlab/labs) |
 | Visual Studio 계정 |예 | |[Visual Studio 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
 ## <a name="management-and-security"></a>관리 및 보안
@@ -157,7 +157,7 @@ Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므�
 ## <a name="resource-providers-and-types"></a>리소스 공급자 및 형식
 리소스를 배포할 때는 리소스 공급자 및 형식에 대한 정보를 자주 검색하게 됩니다. REST API, Azure PowerShell 또는 Azure CLI를 통해 이 정보를 검색할 수 있습니다.
 
-리소스 공급자로 작업하려면 해당 리소스 공급자를 계정에 등록해야 합니다. 기본적으로 리소스 공급자는 대부분 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 합니다. 아래 예제에서는 리소스 공급자의 등록 상태를 가져오고 필요한 경우 리소스 공급자를 등록하는 방법을 보여 줍니다.
+리소스 공급자로 작업하려면 해당 리소스 공급자를 계정에 등록해야 합니다. 기본적으로 리소스 공급자는 대부분 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 합니다. 이 섹션의 예제에서는 리소스 공급자의 등록 상태를 가져오고 리소스 공급자를 등록하는 방법을 보여 줍니다.
 
 ### <a name="portal"></a>포털
 구독 블레이드에서 **리소스 공급자**를 선택하면 지원되는 리소스 공급자 목록을 쉽게 볼 수 있습니다. 구독에 리소스 공급자를 등록하려면 **등록** 링크를 선택합니다.
@@ -255,7 +255,7 @@ az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=
 아래 예제에서는 특정 리소스 형식에 사용할 수 있는 API 버전을 가져오는 방법을 보여 줍니다.
 
 ```powershell
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 다음과 유사하게 출력됩니다.

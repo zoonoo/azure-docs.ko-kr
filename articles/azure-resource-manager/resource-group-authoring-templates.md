@@ -1,5 +1,5 @@
 ---
-title: "Azure Resource Manger 템플릿 구조 및 구문 | Microsoft Docs"
+title: "Azure Resource Manager 템플릿 구조 및 구문 | Microsoft Docs"
 description: "선언적 JSON 구문을 사용하여 Azure Resource Manager 템플릿의 구조 및 속성을 설명합니다."
 services: azure-resource-manager
 documentationcenter: na
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: e5e793eeab46b31c728e7dbb493c6396d6daad08
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: de6016130666774577fb4ef598a44f6191ba9a76
+ms.lasthandoff: 04/14/2017
 
 
 ---

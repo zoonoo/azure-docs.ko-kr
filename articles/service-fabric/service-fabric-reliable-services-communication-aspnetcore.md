@@ -119,7 +119,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
                         services => services
                             .AddSingleton<StatelessServiceContext>(serviceContext))
                     .UseContentRoot(Directory.GetCurrentDirectory())
-                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
                     .UseStartup<Startup>()
                     .UseUrls(url)
                     .Build()))
@@ -355,3 +355,4 @@ WebListener는 Windows에서 외부 인터넷 연결 HTTP 끝점을 노출하는
 [2]:./media/service-fabric-reliable-services-communication-aspnetcore/integration.png
 [3]:./media/service-fabric-reliable-services-communication-aspnetcore/httpsys.png
 [4]:./media/service-fabric-reliable-services-communication-aspnetcore/kestrel.png
+
