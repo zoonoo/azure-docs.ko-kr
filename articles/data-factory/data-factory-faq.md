@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 02d810db5433370802b866424c24464d64171ef0
-ms.openlocfilehash: 6921965c3286209e024ba59637da0c485b4a0c71
-ms.lasthandoff: 02/01/2017
+ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
+ms.openlocfilehash: c212df3646dce24eb11542884c6ee5084325cb7d
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -45,7 +45,7 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 **Azure 구독 및 서비스 제한, 할당량 및 제약 조건** 문서의 [Azure Data Factory 제한](../azure-subscription-service-limits.md#data-factory-limits) 섹션을 참조하세요.
 
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Azure Data Factory 서비스를 사용한 제작/개발자 환경이란 무엇인가요?
-다음 중 하나를 사용하여 데이터 팩터리를 작성/생성할 수 있습니다.
+다음 도구/SDK 중 하나를 사용하여 데이터 팩터리를 작성/생성할 수 있습니다.
 
 * **Azure 포털**
    Azure 포털의 Data Factory 블레이드는 데이터 팩터리 AD 연결된 서비스를 만들기 위한 풍부한 사용자 인터페이스를 제공합니다. 포털에 포함된 **데이터 팩터리 편집기**에서 이러한 아티팩트에 대한 JSON 정의를 지정하여 연결된 서비스, 테이블, 데이터 집합 및 파이프라인을 쉽게 만들 수 있습니다. 포털/편집기를 사용하여 데이터 팩터리를 만들고 배포하는 예제는 [Build your first data pipeline using Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)(Azure 포털을 사용하여 첫 번째 데이터 파이프라인 빌드)을 참조하세요.
@@ -64,7 +64,7 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 아니요. 다른 Azure 리소스와 마찬가지로 Azure 데이터 팩터리의 이름을 변경할 수 없습니다.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>데이터 팩터리를 Azure 구독 간에 이동할 수 있나요?
-예. 데이터 팩터리 블레이드의 **이동** 단추를 다음 다이어그램에 나오듯이 사용합니다.
+예. 다음 다이어그램과 같이 데이터 팩터리 블레이드의 **이동** 단추를 사용합니다.
 
 ![데이터 팩터리 이동](media/data-factory-faq/move-data-factory.png)
 
@@ -79,6 +79,9 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 | [Azure 데이터 레이크 분석](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[저장 프로시저](data-factory-stored-proc-activity.md) |
 
+### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Azure Data Factory를 SSIS(SQL Server Integration Services)와 비교하면 어떻게 다른가요? 
+MVP(Most Valued Professionals) 중 한 명인 Reza Rad가 제공한 [Azure Data Factory 및 SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) 프레젠테이션을 참조하세요. 데이터 팩터리의 최근 변경 내용 중 일부는 슬라이드 모음에 표시되지 않을 수 있습니다. 지속적으로 Azure Data Factory에 기능을 추가할 예정입니다. 지속적으로 Azure Data Factory에 기능을 추가할 예정입니다. 이러한 업데이트는 올해 후반기에 Microsoft의 데이터 통합 기술 비교 자료에 포함될 예정입니다.   
+
 ## <a name="activities---faq"></a>작업 - FAQ
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Data Factory 파이프라인에서 사용할 수 있는 다른 형식의 작업은 무엇인가요?
 * [데이터 이동 작업](data-factory-data-movement-activities.md) 
@@ -88,11 +91,16 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 출력 데이터 테이블의 **가용성** 구성 설정에 따라 작업 실행 시기가 결정됩니다. 입력 데이터 집합이 지정된 경우 작업은 실행을 시작하기 전에 모든 입력 데이터 종속성이 충족되었는지 (즉, **Ready** 상태) 검사합니다.
 
 ## <a name="copy-activity---faq"></a>복사 작업 - FAQ
-### <a name="is-it-better-to-have-a-pipeline-with-multiple-activities-or-a-separate-pipeline-for-each-activity"></a>여러 작업이 포함된 파이프라인&1;개보다 각 작업에 개별 파이프라인을 사용하는 것이 더 효율적인가요?
+### <a name="is-it-better-to-have-a-pipeline-with-multiple-activities-or-a-separate-pipeline-for-each-activity"></a>여러 작업이 포함된 파이프라인 1개보다 각 작업에 개별 파이프라인을 사용하는 것이 더 효율적인가요?
 파이프라인은 관련 작업의 번들로 간주됩니다. 작업을 연결하는 데이터 집합이 파이프라인 외의 다른 작업에서 사용되지 않는 경우 파이프라인 하나에 작업을 유지할 수 있습니다. 이 경우 서로 정렬되도록 파이프라인 활성 기간을 연결할 필요가 없습니다. 또한 파이프라인을 업데이트할 때 파이프라인 내부 테이블의 데이터 무결성이 보다 완벽하게 유지됩니다. 파이프라인 업데이트는 기본적으로 파이프라인 내의 모든 작업을 중지하고 제거한 후 다시 만듭니다. 제작 관점에서는 파이프라인에 대한 하나의 JSON 파일에서 관련 작업 내의 데이터 흐름을 확인하는 것이 더 쉬울 수도 있습니다.
 
 ### <a name="what-are-the-supported-data-stores"></a>지원되는 데이터 저장소는 무엇입니까?
+데이터 팩터리의 복사 활동은 원본 데이터 저장소의 데이터를 싱크 데이터 저장소로 복사합니다. Data Factory는 다음과 같은 데이터 저장소를 지원합니다. 모든 소스의 데이터를 모든 싱크에 쓸 수 있습니다. 데이터 저장소를 클릭하면 해당 저장소에서/저장소로 데이터를 복사하는 방법을 확인할 수 있습니다.
+
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+> [!NOTE]
+> *가 있는 데이터 저장소는 온-프레미스 또는 Azure IaaS에 있을 수 있으며 온-프레미스/Azure IaaS 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 를 설치해야 합니다.
 
 ### <a name="what-are-the-supported-file-formats"></a>지원되는 파일 형식은 무엇입니까?
 [!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
@@ -158,7 +166,7 @@ dataset4(데이터 팩터리 1의 파이프라인 2에 의해 생성)를 사용�
     "offset": "06:00:00"
 }
 ```
-기본값인 자정 대신 **오전&6;시**에 시작하는 일별 조각입니다.     
+기본값인 자정 대신 **오전 6시**에 시작하는 일별 조각입니다.     
 
 ### <a name="how-can-i-rerun-a-slice"></a>어떻게 조각을 다시 실행할 수 있나요?
 다음 방법 중 하나로 조각을 다시 실행할 수 있습니다.

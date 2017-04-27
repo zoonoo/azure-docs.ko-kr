@@ -15,22 +15,13 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 236d38fcda90643992f66c9b2f4d92180e4463f5
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
+ms.openlocfilehash: 1caea59e71126e934e2e52a1ad7f533ffa7d4b03
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Lab 개념
-> [!NOTE]
-> 이 문서는 세 파트로 구성된 시리즈의 파트 3입니다.
->
-> 1. [DevTest Lab이란?](devtest-lab-overview.md)
-> 2. [DevTest Lab을 선택해야 하는 이유](devtest-lab-why.md)
-> 3. **[DevTest Lab 개념](devtest-lab-concepts.md)**
->
->
-
 ## <a name="overview"></a>개요
 다음은 DevTest Lab 개념 및 정의 목록입니다.
 
@@ -91,10 +82,10 @@ DevTest Lab에서 사용자 지정 역할을 만드는 방법을 보려면 [특�
 
 범위는 계층적이므로 사용자가 특정 범위에서 사용 권한을 가진 경우 포함된 모든 하위 수준 범위에서 해당 사용 권한이 자동으로 부여됩니다. 예를 들어 사용자가 구독 소유자의 역할에 할당되면 모든 가상 컴퓨터, 모든 가상 네트워크 및 모든 랩을 포함하는 구독의 모든 리소스에 대한 액세스를 가집니다. 따라서 구독 소유자는 자동으로 랩 소유자의 역할을 상속합니다. 그러나 반대의 경우는 적용되지 않습니다. 랩 소유자는 구독 수준보다 낮은 범위인 랩에 대한 액세스를 가집니다. 따라서 랩 소유자는 랩 외부에 있는 가상 컴퓨터 또는 가상 네트워크 또는 리소스를 볼 수 없습니다.
 
-## <a name="arm-templates"></a>ARM 템플릿
-이 문서에서 설명한 모든 개념은 ARM(Azure Resource Manager) 템플릿을 사용해서 구성할 수 있습니다. ARM 템플릿을 사용하여 Azure 솔루션의 인프라/구성을 정의하고 솔루션을 일관된 상태로 반복적으로 배포할 수 있습니다.
+## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
+이 문서에 설명된 모든 개념은 Azure Resource Manager 템플릿을 사용하여 구성할 수 있습니다. 이러한 템플릿에서는 Azure 솔루션의 인프라/구성을 정의하고 반복적으로 일관된 상태로 배포할 수 있습니다.
 
-[ARM 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format)에서는 Azure Resource Manager 템플릿의 구조 및 템플릿의 여러 섹션에서 사용 가능한 속성을 설명합니다.
+[Azure Resource Manager 템플릿의 구조 및 구문 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format)에서는 Azure Resource Manager 템플릿의 구조 및 템플릿의 여러 섹션에서 사용 가능한 속성을 설명합니다.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
