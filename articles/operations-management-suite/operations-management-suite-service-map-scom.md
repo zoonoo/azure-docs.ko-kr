@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 389c01234acff068dc90f3cdfdc4916a9d76d244
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 1937462eef4647b273dfa029c8f18c80d3443ae8
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -50,7 +50,7 @@ SCOM과 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceMap 관리 팩 
 
     ![SCOM 구성 마법사](media/oms-service-map/scom-configuration.png)
 
-3. 마법사의 첫 번째 단계는 Azure 서비스 주체에 대한 정보를 입력하는 연결 구성입니다. 서비스 주체의 테넌트 이름 또는 ID, 응용 프로그램 ID(또는 사용자 이름 또는 클라이언트 ID) 및 암호를 입력하세요.  [서비스 주체 만들기에 대한 자세한 내용](#creating-a-service-principal)을 참조하세요.
+3. 마법사의 첫 번째 단계는 Azure 서비스 주체에 대한 정보를 입력하는 연결 구성입니다. 서비스 주체의 테넌트 이름 또는 ID, 응용 프로그램 ID(사용자 이름 또는 클라이언트 ID라고도 함) 및 암호를 입력하세요.  [서비스 주체 만들기에 대한 자세한 내용](#creating-a-service-principal)을 참조하세요.
 
     ![SCOM SPN 구성](media/oms-service-map/scom-config-spn.png)
 
@@ -66,7 +66,7 @@ SCOM과 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceMap 관리 팩 
 
     ![SCOM 리소스 풀 구성](media/oms-service-map/scom-config-pool.png)
 
-7. OMS 작업 영역을 구성하고 등록하려면&1;분 정도 걸립니다. 구성이 완료되면 SCOM이 OMS에서 첫 번째 서비스 맵 동기화를 시작합니다.
+7. OMS 작업 영역을 구성하고 등록하려면 1분 정도 걸립니다. 구성이 완료되면 SCOM이 OMS에서 첫 번째 서비스 맵 동기화를 시작합니다.
 
     ![SCOM 리소스 풀 구성](media/oms-service-map/scom-config-success.png)
 
@@ -76,9 +76,9 @@ SCOM과 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceMap 관리 팩 
 OMS 작업 영역이 연결되면 SCOM 콘솔의 모니터링 창에 Service Map이라는 새 폴더가 표시됩니다.
 ![SCOM 모니터링](media/oms-service-map/scom-monitoring.png)
 
-서비스 맵 폴더에는&3;개의 노드가 있습니다.
-### <a name="all-alerts"></a>All Alerts:
-OMS에서 SCOM 및 서비스 맵 솔루션 간의 통신에 대한 모든 경고를 표시합니다.
+서비스 맵 폴더에는 3개의 노드가 있습니다.
+### <a name="active-alerts"></a>활성 경고:
+OMS에서 SCOM 및 서비스 맵 솔루션 간의 통신에 대한 모든 활성 경고를 표시합니다.
 
 **참고:** SCOM에 표시되는 OMS 경고가 아닙니다.
 ### <a name="servers"></a>Servers:
@@ -108,7 +108,7 @@ OMS에서 SCOM 및 서비스 맵 솔루션 간의 통신에 대한 모든 경고
 
 ## <a name="known-issueslimitations"></a>알려진 문제/제한 사항:
 현재 디자인:
-1. 사용자는 작성 창을 통해 수동으로 "서비스 맵 서버 그룹"에 서버를 추가할 수 있지만 이러한 서버에 대한 맵은 다음 동기화 주기 동안에만 서비스 맵에서 동기화됩니다(기본적으로&60;분. 사용자가 동기화 시간을 재정의할 수 있습니다.). 
+1. 사용자는 작성 창을 통해 수동으로 "서비스 맵 서버 그룹"에 서버를 추가할 수 있지만 이러한 서버에 대한 맵은 다음 동기화 주기 동안에만 서비스 맵에서 동기화됩니다(기본적으로 60분. 사용자가 동기화 시간을 재정의할 수 있습니다.). 
 2. 사용자는 단일 OMS 작업 영역에 연결할 수 있습니다.
 
 ## <a name="creating-a-service-principal"></a>서비스 주체 만들기

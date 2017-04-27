@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 04/16/2017
 ms.author: juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 5b8d989d950c17d867f30a6fa8a464a8750e2303
-ms.openlocfilehash: 98922addf7aa8bfc77033be29bf137b362378661
-ms.lasthandoff: 02/02/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 2600c5cec36a8a44a85a62d6672d6ae57343f20c
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/02/2017
 ## <a name="face-redaction-modes"></a>얼굴 편집 모드
 얼굴 편집은 동일한 개인이 다른 각도에서도 흐리게 표시될 수 있도록 동영상의 모든 프레임에서 얼굴을 감지하고 앞뒤 시간의 얼굴 개체를 추적합니다. 자동 편집 프로세스는 매우 복잡하여 항상 원하는 결과가 100% 생성되지는 않습니다. 따라서 Media Analytics는 최종 결과를 수정하기 위한 몇 가지 방법을 제공합니다.
 
-완전 자동 모드 외에, ID 목록을 통해 검색한 얼굴을 선택/선택 취소할 수 있는&2;단계 워크플로가 있습니다. 또한 MP는 프레임별 임의 조정을 위해 JSON 형식의 메타데이터 파일을 사용합니다. 이 워크플로는 **분석** 및 **편집** 모드로 분할됩니다. 두 모드를 하나의 작업에서 두 작업을 실행하는 단일 단계로 결합할 수 있습니다. 이러한 모드를 **결합된** 모드라고 합니다.
+완전 자동 모드 외에, ID 목록을 통해 검색한 얼굴을 선택/선택 취소할 수 있는 2단계 워크플로가 있습니다. 또한 MP는 프레임별 임의 조정을 위해 JSON 형식의 메타데이터 파일을 사용합니다. 이 워크플로는 **분석** 및 **편집** 모드로 분할됩니다. 두 모드를 하나의 작업에서 두 작업을 실행하는 단일 단계로 결합할 수 있습니다. 이러한 모드를 **결합된** 모드라고 합니다.
 
 ### <a name="combined-mode"></a>결합된 모드
 이 모드는 수동 입력 없이 자동으로 편집된 mp4를 생성합니다.
@@ -92,7 +92,7 @@ ms.lasthandoff: 02/02/2017
           ]
         },
 
-... 잘림
+    … truncated
 
 ### <a name="redact-mode"></a>편집 모드
 워크플로의 두 번째 단계에서는 하나의 자산으로 결합해야 하는 여러 입력을 사용합니다.
@@ -114,6 +114,12 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 
 [이 동영상을 보세요.](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
+예제 foo_IDList.txt
+ 
+     1
+     2
+     3
+ 
 ## <a name="attribute-descriptions"></a>특성 설명
 편집 MP는 한 동영상 프레임 내에서 최대 64명의 얼굴을 검색할 수 있는 고정밀도 얼굴 위치 검색 및 추적을 제공합니다. 정면이 최상의 결과를 제공하며 측면 또는 작은 얼굴(24x24 픽셀보다 작거나 같음)의 경우에는 어려울 수 있습니다.
 

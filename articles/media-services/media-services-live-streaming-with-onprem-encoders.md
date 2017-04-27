@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/12/2017
 ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 7d980e14776cade574fc9ef4e63aea5c91fb8fdf
-ms.openlocfilehash: a5867566afc80fe7ae57b5027b5578e3144f7f07
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d6e3ea06106463367eb03498ef8d9bc47d83c694
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -35,11 +35,11 @@ Azure Media Services에서 *채널*은 라이브 스트리밍 콘텐츠를 처�
 
 채널을 만들 때 Media Services 2.10 릴리스부터 채널에서 입력 스트림을 수신하는 방법을 지정할 수 있습니다. 채널이 스트림의 라이브 인코딩을 수행할지 여부를 지정할 수 있습니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
-* **없음**: 다중 비트 전송률 스트림(통과 스트림)을 출력할 온-프레미스 라이브 인코더를 사용할 계획인 경우 이 값을 지정합니다. 이 경우 들어오는 스트림이 인코딩 없이 출력으로 전달됩니다. 이것이 2.10 릴리스 이전의 채널 동작입니다. 이 항목에서는 이 형식의 채널을 사용하는 방법에 대한 세부 정보를 제공합니다.
-* **표준**: Media Services를 사용하여 단일 비트 전송률 라이브 스트림을 다중 비트 전송률 스트림으로 인코딩할 계획인 경우 이 값을 선택합니다. 라이브 인코딩 채널을 **실행** 상태로 놔두면 청구 요금이 발생한다는 점에 유의하세요. 시간당 추가 요금 청구를 방지하려면 라이브 스트리밍 이벤트가 완료된 직후 실행 중인 채널을 중지하는 것이 좋습니다. Media Services는 요청한 고객에게 스트림을 배달합니다.
+* **경로 통과**: 다중 비트 전송률 스트림(통과 스트림)을 출력할 온-프레미스 라이브 인코더를 사용할 계획인 경우 이 값을 지정합니다. 이 경우 들어오는 스트림이 인코딩 없이 출력으로 전달됩니다. 이것이 2.10 릴리스 이전의 채널 동작입니다. 이 항목에서는 이 형식의 채널을 사용하는 방법에 대한 세부 정보를 제공합니다.
+* **라이브 인코딩**: Media Services를 사용하여 단일 비트 전송률 라이브 스트림을 다중 비트 전송률 스트림으로 인코딩할 계획인 경우 이 값을 선택합니다. 라이브 인코딩 채널을 **실행** 상태로 놔두면 청구 요금이 발생한다는 점에 유의하세요. 시간당 추가 요금 청구를 방지하려면 라이브 스트리밍 이벤트가 완료된 직후 실행 중인 채널을 중지하는 것이 좋습니다. Media Services는 요청한 고객에게 스트림을 배달합니다.
 
 > [!NOTE]
-> 이 항목에서는 라이브 인코딩을 수행할 수 있는 채널의 특성에 대해 설명합니다(**없음** 인코딩 형식). 라이브 인코딩을 수행할 수 있는 채널 작업에 대한 자세한 내용은 [Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+> 이 항목에서는 라이브 인코딩을 수행할 수 있는 채널의 특성에 대해 설명합니다. 라이브 인코딩을 수행할 수 있는 채널 작업에 대한 자세한 내용은 [Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 >
 >
 
@@ -47,7 +47,7 @@ Azure Media Services에서 *채널*은 라이브 스트리밍 콘텐츠를 처�
 
 ![라이브 워크플로][live-overview]
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>일반적인 라이브 스트리밍 시나리오
+## <a id="scenario"></a>일반적인 라이브 스트리밍 시나리오
 다음 단계에서는 일반적인 라이브 스트리밍 응용 프로그램을 만드는 데 포함되는 작업을 설명합니다.
 
 1. 비디오 카메라를 컴퓨터에 연결합니다. 다중 비트 전송률 RTMP 또는 조각화된 MP4(부드러운 스트리밍) 스트림을 출력하는 온-프레미스 라이브 인코더를 실행 및 구성합니다. 자세한 내용은 [Azure 미디어 서비스 RTMP 지원 및 라이브 인코더](http://go.microsoft.com/fwlink/?LinkId=532824)를 참조하세요.
@@ -79,10 +79,10 @@ Azure Media Services에서 *채널*은 라이브 스트리밍 콘텐츠를 처�
 
 10. 프로그램을 삭제하고 필요에 따라 자산을 삭제합니다.     
 
-## <a name="a-idchanneladescription-of-a-channel-and-its-related-components"></a><a id="channel"></a>채널 및 관련 구성 요소에 대한 설명
-### <a name="a-idchannelinputachannel-input-ingest-configurations"></a><a id="channel_input"></a>채널 입력(수집) 구성
-#### <a name="a-idingestprotocolsaingest-streaming-protocol"></a><a id="ingest_protocols"></a>수집 스트리밍 프로토콜
-Media Services는 다중 비트 전송률 조각화된 MP4 및 다중 비트 전송률 RTMP를 스트리밍 프로토콜로 사용하여 라이브 피드를 수집하도록 지원합니다. RTMP 수집 스트리밍 프로토콜이 선택되면&2;개의 수집(입력) 끝점이 해당 채널에 만들어집니다.
+## <a id="channel"></a>채널 및 관련 구성 요소에 대한 설명
+### <a id="channel_input"></a>채널 입력(수집) 구성
+#### <a id="ingest_protocols"></a>수집 스트리밍 프로토콜
+Media Services는 다중 비트 전송률 조각화된 MP4 및 다중 비트 전송률 RTMP를 스트리밍 프로토콜로 사용하여 라이브 피드를 수집하도록 지원합니다. RTMP 수집 스트리밍 프로토콜이 선택되면 2개의 수집(입력) 끝점이 해당 채널에 만들어집니다.
 
 * **기본 URL**: 채널의 기본 RTMP 수집 끝점의 정규화된 URL을 지정합니다.
 * **보조 URL** (선택 사항): 채널의 보조 RTMP 수집 끝점의 정규화된 URL을 지정합니다.
@@ -110,7 +110,7 @@ RTMP 라이브 인코더에 대한 자세한 내용은 [Azure 미디어 서비�
 
 SSL 연결을 통한 조각화된 MP4(부드러운 스트리밍) 라이브 스트림을 수집하는 옵션이 있습니다. SSL을 통해 수집하려면 수집 URL을 HTTPS로 업데이트해야 합니다. 현재 SSL을 통해 RTMP를 수집할 수 없습니다.
 
-#### <a name="a-idkeyframeintervalakeyframe-interval"></a><a id="keyframe_interval"></a>키 프레임 간격
+#### <a id="keyframe_interval"></a>키 프레임 간격
 다중 비트 전송률 스트림을 생성하는 데 온-프레미스 라이브 인코더를 사용하는 경우 키 프레임 간격은 GOP(Group of Pictures) 기간(외부 인코더에서 사용됨)을 지정합니다. 채널이 들어오는 스트림을 수신한 후에 HTTP(DASH) 및 HLS(HTTP 라이브 스트리밍)에 부드러운 스트리밍, 동적 적응 스트리밍의 형식으로 클라이언트 재생 응용 프로그램에 라이브 스트림을 제공할 수 있습니다. 라이브 스트리밍을 수행할 경우 HLS는 항상 동적으로 패키지됩니다. Media Services는 기본적으로 라이브 인코더에서 수신되는 키 프레임 간격에 따라 자동으로 HLS 세그먼트 패키징 비율(세그먼트당 조각 수)을 계산합니다.
 
 다음 테이블에서는 세그먼트 기간이 계산되는 방법을 보여 줍니다.
@@ -169,7 +169,7 @@ KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 �
 
 프로그램을 중단 및 삭제한 다음에도 자산을 삭제할 때까지 사용자는 주문형 비디오로 보관된 콘텐츠를 스트림할 수 있어야 합니다. 보관된 콘텐츠를 보관하려는데 스트리밍에 사용할 수 있는 콘텐츠가 없는 경우 스트리밍 로케이터를 삭제합니다.
 
-## <a name="a-idstatesachannel-states-and-billing"></a><a id="states"></a>채널 상태 및 청구
+## <a id="states"></a>채널 상태 및 청구
 채널의 현재 상태에 대해 가능한 값은 다음과 같습니다.
 
 * **중지됨**: 만들어진 후 채널의 초기 상태입니다. 이 상태에서 채널 속성을 업데이트할 수 있지만 스트리밍은 허용되지 않습니다.
@@ -187,7 +187,7 @@ KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 �
 | **중지 중** |**중지 중** |없음(일시적인 상태) |
 | **중지** |**중지** |아니요 |
 
-## <a name="a-idccandadsaclosed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>선택 자막 및 광고 삽입
+## <a id="cc_and_ads"></a>선택 자막 및 광고 삽입
 다음 테이블에서는 선택 자막 및 광고 삽입의 지원되는 표준을 설명합니다.
 
 | 표준 | 참고 사항 |
@@ -196,7 +196,7 @@ KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 �
 | TTML inside ismt(부드러운 스트리밍 텍스트 트랙) |Media Services 동적 패키징을 사용하면 클라이언트가 DASH, HLS 또는 부드러운 스트리밍 형식 중 하나로 콘텐츠를 스트림할 수 있습니다. 하지만 자막 inside .ismt(부드러운 스트리밍 텍스트 트랙)가 포함된 조각화된 MP4(부드러운 스트리밍)를 수집하는 경우 부드러운 스트리밍 클라이언트로만 스트림을 제공할 수 있습니다. |
 | SCTE-35 |SCTE-35는 큐 광고 삽입에 사용되는 디지털 신호 시스템입니다. 다운스트림 수신기는 할당된 시간 동안 스트림에 광고를 연결하기 위해 신호를 사용합니다. SCTE-35는 입력 스트림에서 스파스 트랙으로 전송되어야 합니다.<p><p>현재로서는 광고 신호를 수반하는 지원되는 입력 스트림 형식만이 조각화된 MP4(부드러운 스트리밍)입니다. 또한 지원되는 출력 포맷만 부드러운 스트리밍입니다. |
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="considerations"></a>고려 사항
+## <a id="considerations"></a>고려 사항
 다중 비트 전송률 스트림을 채널로 보내기 위해 온-프레미스 라이브 인코드를 사용할 때 다음 제약 조건을 적용합니다.
 
 * 수집 포인트로 데이터를 보내기에 충분한 여유 인터넷 연결이 있어야 합니다.
