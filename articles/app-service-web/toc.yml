@@ -21,18 +21,22 @@
     href: app-service-web-get-started-python.md
   - name: "정적 HTML 사이트 만들기"
     href: app-service-web-get-started-html.md
+- name: "자습서"
+  items:
+  - name: "1 - SQL DB를 사용한 TDE"
+    href: app-service-web-tutorial-dotnet-sqldatabase.md
+  - name: "1 - MongoDB를 사용하는 Node.js"
+    href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: "2 - 사용자 지정 도메인 매핑"
+    href: app-service-web-tutorial-custom-domain.md
+  - name: "3 - SSL 인증서 바인딩"
+    href: app-service-web-tutorial-custom-ssl.md
 - name: "샘플"
   items:
   - name: "Azure CLI"
     href: app-service-cli-samples.md
   - name: "PowerShell"
     href: app-service-powershell-samples.md
-- name: "자습서"
-  items:
-  - name: "SQL Database를 사용하는 .NET"
-    href: app-service-web-tutorial-dotnet-sqldatabase.md
-  - name: "MongoDB를 사용하는 Node.js"
-    href: app-service-web-tutorial-nodejs-mongodb-app.md
 - name: "개념"
   items:
   - name: "App Service 작동 방법"
@@ -174,8 +178,6 @@
         href: web-sites-dotnet-entity-framework-row-level-security.md
     - name: "사용자 지정 SSL 할당"
       items:
-      - name: "SSL 인증서 구입"
-        href: web-sites-purchase-ssl-web-site.md
       - name: "타사 SSL 인증서 구성"
         href: web-sites-configure-ssl-certificate.md
     - name: "HTTPS 적용"

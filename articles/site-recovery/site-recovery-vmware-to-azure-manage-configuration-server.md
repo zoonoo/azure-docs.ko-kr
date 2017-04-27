@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/14/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3a02171d52b6d963a93a654d2506269e29f1be8e
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
+ms.openlocfilehash: 3b03b59fd338fa31c3248b0798463ee659e7e5ff
+ms.lasthandoff: 04/12/2017
 
 ---
 
@@ -108,7 +108,7 @@ ProxyPassword="Password"
 
 ## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>동일한 Recovery Services 자격 증명 모음을 사용하여 구성 서버 등록
   1. 구성 서버에 로그인합니다.
-  2. 바로 가기를 사용하여 cspsconfigtool.exe를 시작합니다.
+  2. 데스크톱에서 바로 가기를 사용하여 cspsconfigtool.exe를 시작합니다.
   3. **자격 증명 모음 등록** 탭을 클릭합니다.
   4. 포털에서 새 등록 파일을 다운로드하고 도구에 대한 입력으로 제공합니다.
         ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)

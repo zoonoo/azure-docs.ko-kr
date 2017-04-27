@@ -8,7 +8,7 @@ manager: jhubbard
 editor: giladm
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
-ms.custom: secure and protect
+ms.custom: security-protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 7/3/2017
 ms.author: giladm
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: fdb80e3379adfa9d65d6e5891cb701cee86eb1b9
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 20b46682471addfdaf563c55e989bb5d2271979f
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -161,7 +161,7 @@ Blob 감사 로그를 보는 여러 가지 방법이 있습니다.
 
        여러 파일(또는 위에서 설명한 대로 하루 전체)을 다운로드한 후에는 다음과 같이 여러 파일을 로컬에 병합할 수 있습니다.
 
-       **SSMS 열기 -> 파일 -> 열기 -> 확장 이벤트 병합 -> 병합할 모든 파일 선택**
+        **SSMS 열기 -> 파일 -> 열기 -> 확장 이벤트 병합 -> 병합할 모든 파일 선택**
    * 프로그래밍 방식:
 
      * 확장 이벤트 판독기 **C# 라이브러리**([자세한 정보는 여기](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/))
@@ -238,6 +238,9 @@ Blob 감사 로그를 보는 여러 가지 방법이 있습니다.
    * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
    * [Set-AzureRMSqlServerAuditingPolicy][106]
    * [Use-AzureRMSqlServerAuditingPolicy][107]
+
+   스크립트 예제는 [PowerShell을 사용하여 감사 및 위협 감지 구성](scripts/sql-database-auditing-and-threat-detection-powershell.md)을 참조하세요.
+
 2. **REST API - Blob 감사**
 
    * [데이터베이스 Blob 감사 정책 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt695939.aspx)

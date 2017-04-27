@@ -2,7 +2,7 @@
 ## [Azure Functions란?](functions-overview.md)
 # 시작
 ## [첫 번째 함수 만들기](functions-create-first-azure-function.md)
-## [webhook 함수 만들기](functions-create-a-web-hook-or-api-function.md)
+## [웹후크 트리거 함수 만들기](functions-create-github-webhook-triggered-function.md)
 ## [Azure 연결 함수 만들기](functions-create-an-azure-connected-function.md)
 ## [이벤트 처리 함수 만들기](functions-create-an-event-processing-function.md)
 # 방법

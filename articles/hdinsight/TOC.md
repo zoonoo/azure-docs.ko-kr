@@ -105,6 +105,7 @@
 ### [Hive 정책 구성](hdinsight-domain-joined-run-hive.md)
 ## Kafka 사용(미리 보기)
 ### [Kafka 데이터 복제](hdinsight-apache-kafka-mirroring.md)
+### [가상 네트워크와 함께 사용](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Spark와 함께 사용](hdinsight-apache-spark-with-kafka.md)
 ### [Storm과 함께 사용](hdinsight-apache-storm-with-kafka.md)
 ## 개발

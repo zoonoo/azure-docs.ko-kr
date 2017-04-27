@@ -12,11 +12,12 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9c5c0b40d796130d93111545c93bedf86c374fd9
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -102,10 +103,5 @@ ms.openlocfilehash: 9c5c0b40d796130d93111545c93bedf86c374fd9
 * 표시된 **사용자 지정 도메인 및 SSL** 블레이드가 다른 Azure 구독에서 생성된 앱에 속해 있을 수 있습니다. 다른 구독의 다른 앱으로 전환하고 해당 **사용자 지정 도메인 및 SSL** 블레이드를 확인합니다.  
     포털 내에서는 해당 앱과 다른 Azure 구독에서 만든 사용자 지정 도메인을 보거나 관리할 수 없습니다. 그러나 도메인의 **도메인 관리** 블레이드에서 **고급 관리**를 클릭하면 해당 도메인 공급자의 웹 사이트로 리디렉션되며, 여기에서 다른 Azure 구독에서 만든 앱에 대해   [외부 사용자 지정 도메인과 같은 사용자 지정 도메인을 수동으로 구성](web-sites-custom-domain-name.md) 
   할 수 있습니다. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

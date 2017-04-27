@@ -1,6 +1,8 @@
 # 개요
 ## [Azure DNS란?](dns-overview.md)
 ## [DNS 영역 및 레코드](dns-zones-records.md)
+## [Azure DNS로 DNS 위임](dns-domain-delegation.md)
+## [DNS FAQ](dns-faq.md)
 
 # 시작
 
@@ -10,7 +12,7 @@
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI 2.0](dns-getstarted-cli.md)
 
-## [Azure DNS에 도메인 위임](dns-domain-delegation.md)
+## [Azure DNS에 도메인 위임](dns-delegate-domain-azure-dns.md)
 ## [웹앱에 대한 사용자 지정 DNS 레코드 만들기](dns-web-sites-custom-domain.md)
 
 # 방법

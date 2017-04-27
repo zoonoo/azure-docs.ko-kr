@@ -15,26 +15,28 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: ef7df25d8080cae41235dffb287906508d4a652d
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 3e9b95e6e9e84f8c2b615f43783d9fec5a2c09b6
+ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="connect-to-on-premises-data-from-logic-apps"></a>논리 앱에서 온-프레미스 데이터에 연결
 
-온-프레미스 데이터에 액세스하려면 지원되는 Azure Logic Apps 커넥터의 온-프레미스 데이터 게이트웨이에 대한 연결을 설정할 수 있습니다. 다음 단계에서는 논리 앱에서 작동하도록 온-프레미스 데이터 게이트웨이를 설치 및 설정하는 방법을 설명합니다.
-온-프레미스 데이터 게이트웨이는 다음과 같은 데이터 원본 연결을 지원합니다.
+온-프레미스 데이터에 액세스하려면 지원되는 Azure Logic Apps 커넥터의 온-프레미스 데이터 게이트웨이에 대한 연결을 설정할 수 있습니다. 다음 단계에서는 논리 앱에서 작동하도록 온-프레미스 데이터 게이트웨이를 설치 및 설정하는 방법을 설명합니다. 온-프레미스 데이터 게이트웨이는 다음 연결을 지원합니다.
 
 *   BizTalk Server
-*    DB2  
+*   DB2  
 *   파일 시스템
 *   Informix
 *   MQ
-*    Oracle 데이터베이스 
+*   MySQL
+*   Oracle 데이터베이스 
 *   SAP 응용 프로그램 서버 
 *   SAP 메시지 서버
-*    SQL Server
+*   HTTPS가 아닌 HTTP에만 해당되는 SharePoint
+*   SQL Server
+*   Teradata
 
 이러한 연결에 대한 자세한 내용은 [Azure Logic Apps에 대한 커넥터](https://docs.microsoft.com/azure/connectors/apis-list)를 참조하세요.
 
@@ -42,7 +44,7 @@ ms.lasthandoff: 03/30/2017
 
 * Azure에서 온-프레미스 데이터 게이트웨이를 계정(Azure Active Directory 기반 계정)으로 연결할 회사 또는 학교 전자 메일 주소가 있어야 합니다.
 
-* Microsoft 계정(예: @outlook.com)을 사용하는 경우 Azure 계정을 사용하여 [회사 또는 학교 전자 메일 주소를 만들](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) 수 있습니다.
+* Microsoft 계정(예: @outlook.com)을 사용하는 경우 Azure 계정을 사용하여 [회사 또는 학교 전자 메일 주소를 만들](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) 수 있습니다.
 
 * [온-프레미스 데이터 게이트웨이가 로컬 컴퓨터에 설치](logic-apps-gateway-install.md)되어 있어야 합니다.
 
@@ -59,7 +61,7 @@ ms.lasthandoff: 03/30/2017
 게이트웨이를 설치한 후에 Azure 구독을 게이트웨이에 연결해야 합니다.
 
 > [!IMPORTANT] 
-> 게이트웨이 리소스가 논리 앱과 동일한 Azure 지역에 만들어졌는지 확인합니다. 동일한 지역에 배포하지 않은 경우 논리 앱에서 액세스할 수 없습니다. 
+> 게이트웨이 리소스가 논리 앱과 동일한 Azure 지역에 만들어졌는지 확인합니다. 게이트웨이 리소스를 동일한 지역에 배포하지 않으면 논리 앱은 게이트웨이에 액세스할 수 없습니다. 
 > 
 
 1. 게이트웨이 설치 중에 사용된 동일한 회사 또는 학교 전자 메일 주소를 사용하여 Azure에 로그인합니다.
@@ -85,10 +87,13 @@ Azure 구독이 온-프레미스 데이터 게이트웨이 인스턴스와 연�
 
 이제 논리 앱에 사용할 연결을 구성합니다.
 
-## <a name="data-gateway-connection-modifications"></a>데이터 게이트웨이 연결 수정
-논리 앱에 데이터 게이트웨이 연결을 추가하면 해당 연결에 고유한 설정을 조정하도록 수정해야 합니다. 두 위치 중 한 곳에서 연결을 찾을 수 있습니다.
-* 논리 앱에 대한 주요 블레이드에 개발 도구 섹션의 API 연결에 대한 패널이 표시됩니다. 이를 선택하면 논리 앱과 연결된 모든 API 연결이 표시됩니다. 이 중 하나는 데이터 게이트웨이 연결이 됩니다. 이를 선택하면 연결과 관련된 설정을 보고 수정할 수 있습니다.
-* API 연결을 선택하면 주 블레이드는 구독에 모든 API 연결을 표시합니다. 여기에서 목록은 데이터 게이트웨이 연결이 됩니다. 이를 선택하면 연결과 관련된 설정을 보고 수정할 수 있습니다.
+## <a name="edit-your-data-gateway-connection-settings"></a>데이터 게이트웨이 연결 설정을 편집합니다.
+
+논리 앱에 데이터 게이트웨이 연결을 추가한 후에 해당 연결에 고유한 설정을 조정하도록 변경해야 할 수 있습니다. 두 위치 중 한 곳에서 연결을 찾을 수 있습니다.
+
+* 논리 앱 블레이드의 **개발 도구** 아래에서 **API 연결**을 선택합니다. 이 목록은 데이터 게이트웨이 연결을 포함하여 논리 앱과 관련된 모든 API 연결을 보여줍니다. 해당 연결의 설정을 보고 수정하려면 해당 연결을 선택합니다.
+
+* API 연결 기본 블레이드에서 데이터 게이트웨이 연결을 포함하여 Azure 구독과 관련된 모든 API 연결을 찾을 수 있습니다. 연결 설정을 보고 수정하려면 해당 연결을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: c83a5aacca6669c4259365fba9f444ecb1b2a6c9
-ms.openlocfilehash: 1e7393537f6c9e4d6af522dd05f149403a85559e
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9e038bfeee023b26aa80046fe877db007baa1816
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -364,12 +364,12 @@ namespace SqlElasticPoolConsoleApp
     newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
 ## <a name="latency-of-elastic-pool-operations"></a>탄력적 풀 작업의 대기 시간
-* 데이터베이스당 최소 eDTU 또는 데이터베이스당 최대 eDTU를 변경하는 작업은 일반적으로&5;분 이내에 완료됩니다.
+* 데이터베이스당 최소 eDTU 또는 데이터베이스당 최대 eDTU를 변경하는 작업은 일반적으로 5분 이내에 완료됩니다.
 * 풀 크기를 변경하는 시간(eDTU)은 풀에 있는 모든 데이터베이스의 총 크기에 따라 달라집니다. 변경 시간은 100GB당 평균 90분 이하입니다. 예를 들어 풀에 있는 모든 데이터베이스의 총 공간이 200GB일 경우, 풀당 풀 eDTU를 변경하는 예상 대기 시간은 3시간 이하입니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 *  SQL Database 클라이언트 응용 프로그램, 데이터베이스 연결 오류 및 기타 문제에 대한 SQL 오류 코드는 [오류 메시지](sql-database-develop-error-messages.md)를 참조하세요.
 * [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-* 탄력적 풀 지침에 대해서는 [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool-guidance.md)를 참조하세요.
+* 탄력적 풀 지침에 대해서는 [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool.md)를 참조하세요.
 
 

@@ -22,7 +22,7 @@
 
 ## 웹앱 만들기
 ### [.NET](../app-service-web/app-service-web-get-started-dotnet.md)
-### [PHP](../app-service-web/app-service-web-get-started-php.md)    
+### [PHP](../app-service-web/app-service-web-get-started-php.md)
 ### [Node.JS](../app-service-web/app-service-web-get-started-nodejs.md)
 ### [Java](../app-service-web/app-service-web-get-started-java.md)
 ### [Python](../app-service-web/app-service-web-get-started-python.md)
@@ -68,7 +68,7 @@
 #### [푸시 알림 추가](app-service-mobile-windows-store-dotnet-get-started-push.md)
 #### [클라이언트 SDK와 함께 작동](app-service-mobile-dotnet-how-to-use-client-library.md)
 
-### Xamarin.Android 
+### Xamarin.Android
 #### [오프라인 동기화 사용](app-service-mobile-xamarin-android-get-started-offline-data.md)
 #### [인증 추가](app-service-mobile-xamarin-android-get-started-users.md)
 #### [푸시 알림 추가](app-service-mobile-xamarin-android-get-started-push.md)
@@ -78,7 +78,6 @@
 #### [오프라인 동기화 사용](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 #### [인증 추가](app-service-mobile-xamarin-forms-get-started-users.md)
 #### [푸시 알림 추가](app-service-mobile-xamarin-forms-get-started-push.md)
-#### [Xamarin.Forms 앱에서 Azure Storage에 연결](app-service-mobile-xamarin-forms-blob-storage.md)
 #### [클라이언트 SDK와 함께 작동](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 ### Xamarin.iOS
@@ -194,7 +193,6 @@
 ### [Azure Automation을 사용하여 앱 관리](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## 통합
-### [Xamarin.Forms 앱에서 Azure Storage에 연결](app-service-mobile-xamarin-forms-blob-storage.md)
 ### [하이브리드 연결을 사용하여 온-프레미스 리소스 액세스](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure에서 SendGrid를 사용하여 전자 메일을 보내는 방법](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -219,10 +217,10 @@
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
-## [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## [가격 책정](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## 샘플
 ### [현장 엔지니어](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
 ### [구조화된 데이터 동기화](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)

@@ -8,6 +8,7 @@
 ## [미리 구성된 솔루션 시작](iot-suite-getstarted-preconfigured-solutions.md)
 ## [azureiotsuite.com의 사용 권한](iot-suite-permissions.md)
 ## [예측 유지 관리 솔루션 개요](iot-suite-predictive-overview.md)
+## [연결된 공장 솔루션 개요](iot-suite-connected-factory-overview.md)
 ## [원격 모니터링 솔루션 연습](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [예측 유지 관리 솔루션 연습](iot-suite-predictive-walkthrough.md)
 
@@ -21,6 +22,7 @@
 ## [원격 모니터링 솔루션과 함께 동적 원격 분석 사용](iot-suite-dynamic-telemetry.md)
 ## [원격 모니터링 솔루션에서 사용자 지정 규칙 만들기](iot-suite-custom-rule.md)
 ## [원격 모니터링 솔루션의 장치 정보](iot-suite-remote-monitoring-device-info.md)
+## [연결된 공장에 대한 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
 
 # 참조
 ## [보안 아키텍처](iot-security-architecture.md)
@@ -39,10 +41,5 @@
 ## [IoT Suite 학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

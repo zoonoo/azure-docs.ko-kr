@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
-ms.openlocfilehash: 4e25ec1ece6017dc58c24ce593802293b7fc12b8
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: f15654f621bafb2617bdb456bbda0233db656be5
+ms.lasthandoff: 04/22/2017
 
 ---
 
@@ -68,7 +68,7 @@ CNAME 레코드 집합은 동일한 이름의 다른 레코드 집합과 함께 
 
 NS 레코드는 각 영역의 루트(name = '@')에서 자동으로 생성되며 영역이 삭제될 경우 자동으로 삭제됩니다(별도로 삭제할 수 없음).  이 레코드 집합의 TTL을 수정할 수 있지만 영역에 할당된 Azure DNS 이름 서버를 참조하도록 사전 구성된 레코드는 수정할 수 없습니다.
 
-영역 루트를 제외한 영역 내 다른 NS 레코드를 만들고 삭제할 수 있습니다.  이 경우 하위 영역을 구성할 수 있습니다([Azure DNS에 하위 도메인 위임](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns) 참조).
+영역 루트를 제외한 영역 내 다른 NS 레코드를 만들고 삭제할 수 있습니다.  이 경우 하위 영역을 구성할 수 있습니다([Azure DNS에 하위 도메인 위임](dns-domain-delegation.md) 참조).
 
 ### <a name="soa-records"></a>SOA 레코드
 
@@ -78,11 +78,7 @@ SOA 레코드에서 'host' 속성(Azure DNS에서 제공한 기본 이름 서버
 
 ### <a name="spf-records"></a>SPF 레코드
 
-SPF(Sender Policy Framework) 레코드는 지정된 도메인 이름 대신 전자 메일을 전송하도록 허용된 전자 메일 서버를 지정하는 데 사용합니다.  SPF 레코드를 올바르게 구성하는 것은 수신자가 전자 메일을 '정크'로 지정하지 않도록 하는 데 중요합니다.
-
-DNS RFC는 원래 이 시나리오를 지원하기 위한 새로운 'SPF' 레코드 유형으로 소개되었습니다. 기존 이름 서버를 지원하기 위해 TXT 레코드 유형을 사용하여 SPF 레코드를 지정할 수도 있습니다.  이러한 모호성으로 인한 혼란은 [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1)로 해결되었습니다.  즉, SPF 레코드는 TXT 레코드 종류만 사용하여 만들어야 하며 SPF 레코드 종류는 사용되지 않습니다.
-
-**SPF 레코드는 Azure DNS에서 지원되며 TXT 레코드 유형을 사용하여 만들어야 합니다.** 사용하지 않는 SPF 레코드 유형은 지원되지 않습니다. [DNS 영역 파일을 가져올 경우](dns-import-export.md) SPF 레코드 유형을 사용하는 SPF 레코드는 TXT 레코드 유형으로 전환됩니다.
+[!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
 
 ### <a name="srv-records"></a>SRV 레코드
 
@@ -99,7 +95,7 @@ DNS 표준은 여러 문자열을 포함하는 하나의 TXT 레코드를 허용
 
 Azure DNS REST API를 호출할 때 각 TXT 문자열을 별도로 지정해야 합니다.  Azure Portal, PowerShell 또는 CLI 인터페이스를 사용할 때는 레코드당 하나의 문자열을 지정해야 하며 필요한 경우 자동으로 254자 세그먼트로 나뉩니다.
 
-DNS 레코드의 여러 문자열을 TXT 레코드 집합의 여러 TXT 레코드와 혼동해서는 안 됩니다.  TXT 레코드 집합은 여러 레코드를 포함할 수 있으며 *각각의 레코드*는 여러 문자열을 포함할 수 있습니다.  Azure DNS는 모든 레코드가 결합된 각 TXT 레코드 집합에서 총 문자열 길이를 최대 1024자까지 지원합니다. 
+DNS 레코드의 여러 문자열을 TXT 레코드 집합의 여러 TXT 레코드와 혼동해서는 안 됩니다.  TXT 레코드 집합은 여러 레코드를 포함할 수 있으며 *각각의 레코드*는 여러 문자열을 포함할 수 있습니다.  Azure DNS는 모든 레코드가 결합된 각 TXT 레코드 집합에서 총 문자열 길이를 최대 1024자까지 지원합니다.
 
 ## <a name="tags-and-metadata"></a>태그 및 메타데이터
 
@@ -141,5 +137,4 @@ Azure DNS를 사용할 경우 다음과 같은 기본 제한이 적용됩니다.
 
 * Azure DNS 사용을 시작하려면 [DNS 영역 만들기](dns-getstarted-create-dnszone-portal.md) 및 [DNS 레코드 만들기](dns-getstarted-create-recordset-portal.md) 방법에 대해 알아보세요.
 * 기존 DNS 영역을 마이그레이션하려면 [DNS 영역 파일 가져오기 및 내보내기](dns-import-export.md) 방법에 대해 알아보세요.
-
 

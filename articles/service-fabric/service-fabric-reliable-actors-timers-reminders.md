@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 56b2e13c3bf053175e357a627d45a91d9a9a4ba9
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 9d22438c6ca14ddb8843f4b72cae40e3b622e849
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -24,9 +25,9 @@ ms.openlocfilehash: 56b2e13c3bf053175e357a627d45a91d9a9a4ba9
 행위자는 타이머 또는 미리 알림을 등록하여 정기적인 작업을 예약할 수 있습니다. 이 문서에서는 타이머와 미리 알림을 사용하는 방법을 보여 주고 둘 간의 차이점을 설명합니다.
 
 ## <a name="actor-timers"></a>행위자 타이머
-행위자 타이머는 콜백 메서드가 행위자 런타임에서 제공하는 턴 기반 동시성 보증을 준수하는 .NET 타이머에 대한 간단한 래퍼를 제공합니다.
+행위자 타이머는 콜백 메서드가 행위자 런타임에서 제공하는 턴 기반 동시성 보증을 준수하는 .NET 또는 Java 타이머에 대한 간단한 래퍼를 제공합니다.
 
-행위자는 기본 클래스에서 `RegisterTimer` 및 `UnregisterTimer` 메서드를 사용하여 해당 타이머를 등록 및 등록 취소할 수 있습니다. 아래 예제에서는 타이머 API의 사용 방법을 보여줍니다. API는 .NET 타이머와 매우 유사합니다. 이 예제의 경우 타이머가 만료되면 행위자 런타임에서는 `MoveObject` 메서드를 호출합니다. 메서드는 턴 기반 동시성을 준수해야 합니다. 즉, 다른 행위자 메서드나 타이머/미리 알림 콜백은 이 콜백의 실행이 완료될 때까지 진행되어야 합니다.
+행위자는 기본 클래스에서 `RegisterTimer`(C#) 또는 `registerTimer`(Java) 및 `UnregisterTimer`(C#) 또는 `unregisterTimer`(Java) 메서드를 사용하여 해당 타이머를 등록 및 등록 취소할 수 있습니다. 아래 예제에서는 타이머 API의 사용 방법을 보여줍니다. API는 .NET 타이머 또는 Java 타이머와 매우 유사합니다. 이 예제의 경우 타이머가 만료되면 행위자 런타임에서는 `MoveObject`(C#) 또는 `moveObject`(Java) 메서드를 호출합니다. 메서드는 턴 기반 동시성을 준수해야 합니다. 즉, 다른 행위자 메서드나 타이머/미리 알림 콜백은 이 콜백의 실행이 완료될 때까지 진행되어야 합니다.
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -68,10 +69,67 @@ class VisualObjectActor : Actor, IVisualObject
     }
 }
 ```
+```Java
+public class VisualObjectActorImpl extends FabricActor implements VisualObjectActor
+{
+    private ActorTimer updateTimer;
+
+    public VisualObjectActorImpl(FabricActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
+
+    @Override
+    protected CompletableFuture onActivateAsync()
+    {
+        ...
+
+        return this.stateManager()
+                .getOrAddStateAsync(
+                        stateName,
+                        VisualObject.createRandom(
+                                this.getId().toString(),
+                                new Random(this.getId().toString().hashCode())))
+                .thenApply((r) -> {
+                    this.registerTimer(
+                            (o) -> this.moveObject(o),                        // Callback method
+                            "moveObject",
+                            null,                                             // Parameter to pass to the callback method
+                            Duration.ofMillis(10),                            // Amount of time to delay before the callback is invoked
+                            Duration.ofMillis(timerIntervalInMilliSeconds));  // Time interval between invocations of the callback method
+                    return null;
+                });
+    }
+
+    @Override
+    protected CompletableFuture onDeactivateAsync()
+    {
+        if (updateTimer != null)
+        {
+            unregisterTimer(updateTimer);
+        }
+
+        return super.onDeactivateAsync();
+    }
+
+    private CompletableFuture moveObject(Object state)
+    {
+        ...
+        return this.stateManager().getStateAsync(this.stateName).thenCompose(v -> {
+            VisualObject v1 = (VisualObject)v;
+            v1.move();
+            return (CompletableFuture<?>)this.stateManager().setStateAsync(stateName, v1).
+                    thenApply(r -> {
+                      ...
+                      return null;});
+        });
+    }
+}
+```
 
 다음 타이머 시간 간격은 콜백 실행이 완료된 후 시작됩니다. 이는 타이머 콜백이 실행되는 동안 타이머는 중지되고 콜백이 완료되면 시작된다는 것을 의미합니다.
 
-행위자 런타임은 콜백이 완료되면 행위자의 상태 관리자에 대한 변경 내용을 저장합니다. 상태를 저장하는 중에 오류가 발생하는 경우 해당 행위자 개체는 비활성화되고 새 인스턴스가 활성화됩니다. 
+행위자 런타임은 콜백이 완료되면 행위자의 상태 관리자에 대한 변경 내용을 저장합니다. 상태를 저장하는 중에 오류가 발생하는 경우 해당 행위자 개체는 비활성화되고 새 인스턴스가 활성화됩니다.
 
 행위자가 가비지 수집의 일환으로 비활성화되면 모든 타이머가 중지됩니다. 그다음 타이머 콜백이 호출되지 않습니다. 또한 행위자 런타임은 비활성화 전에 실행 중이었던 타이머에 대한 정보를 유지하지 않습니다. 나중에 다시 활성화될 때 필요한 모든 타이머를 등록하는 것은 행위자의 일입니다. 자세한 내용은 [행위자 가비지 수집](service-fabric-reliable-actors-lifecycle.md)섹션을 참조하세요.
 
@@ -94,7 +152,22 @@ protected override async Task OnActivateAsync()
 }
 ```
 
-이 예제에서 `"Pay cell phone bill"` 은 미리 알림 이름입니다. 행위자가 미리 알림을 고유하게 식별하는 데 사용하는 문자열입니다. `BitConverter.GetBytes(amountInDollars)` 는 해당 미리 알림에 연결되는 컨텍스트입니다. 또한 이 값은 미리 알림 콜백의 인수( `IRemindable.ReceiveReminderAsync`)로 행위자에게 다시 전달됩니다.
+```Java
+@Override
+protected CompletableFuture onActivateAsync()
+{
+    String reminderName = "Pay cell phone bill";
+    int amountInDollars = 100;
+
+    ActorReminder reminderRegistration = this.registerReminderAsync(
+            reminderName,
+            state,
+            dueTime,    //The amount of time to delay before firing the reminder
+            period);    //The time interval between firing of reminders
+}
+```
+
+이 예제에서 `"Pay cell phone bill"` 은 미리 알림 이름입니다. 행위자가 미리 알림을 고유하게 식별하는 데 사용하는 문자열입니다. `BitConverter.GetBytes(amountInDollars)`(C#)는 해당 미리 알림에 연결되는 컨텍스트입니다. 또한 이 값은 미리 알림 콜백의 인수(`IRemindable.ReceiveReminderAsync`(C#) 또는 `Remindable.receiveReminderAsync`(Java))로 행위자에게 다시 전달됩니다.
 
 미리 알림을 사용하는 행위자는 아래 예제에 나온 대로 `IRemindable` 인터페이스를 구현해야 합니다.
 
@@ -117,30 +190,48 @@ public class ToDoListActor : Actor, IToDoListActor, IRemindable
     }
 }
 ```
+```Java
+public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Remindable
+{
+    public ToDoListActor(FabricActorService actorService, ActorId actorId)
+    {
+        super(actorService, actorId);
+    }
 
-미리 알림이 트리거되면 Reliable Actors 런타임에서 행위자에 대해 `ReceiveReminderAsync` 메서드를 호출합니다. 행위자는 미리 알림을 여러 개 등록할 수 있으며 `ReceiveReminderAsync` 메서드는 이러한 미리 알림 중 하나가 트리거되면 언제든지 호출됩니다. 행위자는 `ReceiveReminderAsync` 메서드로 전달되는 미리 알림 이름을 사용하여 미리 알림이 트리거되었는지 알아낼 수 있습니다.
+    public CompletableFuture receiveReminderAsync(String reminderName, byte[] context, Duration dueTime, Duration period)
+    {
+        if (reminderName.equals("Pay cell phone bill"))
+        {
+            int amountToPay = ByteBuffer.wrap(context).getInt();
+            System.out.println("Please pay your cell phone bill of " + amountToPay);
+        }
+        return CompletableFuture.completedFuture(true);
+    }
 
-행위자 런타임은 `ReceiveReminderAsync` 호출이 완료되면 행위자의 상태를 저장합니다. 상태를 저장하는 중에 오류가 발생하는 경우 해당 행위자 개체는 비활성화되고 새 인스턴스가 활성화됩니다. 
+```
 
-미리 알림을 등록 취소하려면 행위자가 아래 예제에 나온 대로 `UnregisterReminderAsync` 메서드를 호출합니다.
+미리 알림이 트리거되면 Reliable Actors 런타임에서 행위자에 대해 `ReceiveReminderAsync`(C#) 또는 `receiveReminderAsync`(Java) 메서드를 호출합니다. 행위자는 미리 알림을 여러 개 등록할 수 있으며 `ReceiveReminderAsync`(C#) 또는 `receiveReminderAsync`(Java) 메서드는 이러한 미리 알림 중 하나가 트리거되면 언제든지 호출됩니다. 행위자는 `ReceiveReminderAsync`(C#) 또는 `receiveReminderAsync`(Java) 메서드로 전달되는 미리 알림 이름을 사용하여 미리 알림이 트리거되었는지 알아낼 수 있습니다.
+
+행위자 런타임은 `ReceiveReminderAsync`(C#) 또는 `receiveReminderAsync`(Java) 호출이 완료되면 행위자의 상태를 저장합니다. 상태를 저장하는 중에 오류가 발생하는 경우 해당 행위자 개체는 비활성화되고 새 인스턴스가 활성화됩니다.
+
+미리 알림을 등록 취소하려면 행위자가 아래 예제에 나온 대로 `UnregisterReminderAsync`(C#) 또는 `unregisterReminderAsync`(Java) 메서드를 호출합니다.
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
 Task reminderUnregistration = UnregisterReminderAsync(reminder);
 ```
+```Java
+ActorReminder reminder = getReminder("Pay cell phone bill");
+CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
+```
 
-위에 나온 것처럼 `UnregisterReminderAsync` 메서드는 `IActorReminder` 인터페이스를 허용합니다. 행위자 기본 클래스는 미리 알림 이름에 전달하여 `IActorReminder` 인터페이스를 검색하는 데 사용할 수 있는 `GetReminder` 메서드를 지원합니다. 이 방법은 행위자가 `RegisterReminder` 메서드에서 반환된 `IActorReminder` 인터페이스를 유지할 필요가 없기 때문에 편리합니다.
+위의 그림과 같이 `UnregisterReminderAsync`(C#) 또는 `unregisterReminderAsync`(Java) 메서드는 `IActorReminder`(C#) 또는 `ActorReminder`(Java) 인터페이스를 수락합니다. 행위자 기본 클래스는 미리 알림 이름에 전달하여 `IActorReminder`(C#) 또는 `ActorReminder`(Java) 인터페이스를 검색하는 데 사용할 수 있는 `GetReminder`(C#) 또는 `getReminder`(Java) 메서드를 지원합니다. 이 방법은 행위자가 `RegisterReminder`(C#) 또는 `registerReminder`(Java) 메서드 호출에서 반환된 `IActorReminder`(C#) 또는 `ActorReminder`(Java) 인터페이스를 유지할 필요가 없기 때문에 편리합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [행위자 이벤트](service-fabric-reliable-actors-events.md)
 * [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
 * [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [샘플 코드](https://github.com/Azure/servicefabric-samples)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+* [C# 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java 샘플 코드](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 

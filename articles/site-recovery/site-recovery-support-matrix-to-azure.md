@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: da63e54b3f4e27ed3c4a1fd909c6c28295c6730d
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 711fb0715b7f12e12a742136f75af8069cbc83d8
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -33,11 +33,11 @@ ms.lasthandoff: 03/09/2017
 
 ## <a name="support-for-deployment-options"></a>배포 옵션에 대한 지원
 
-**배포웹사이트를** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
---- | --- | --- | ---
-**Azure Portal** | Azure Resource Manager 또는 클래식 저장소 및 네트워크를 사용하여 Azure Storage에 온-프레미스 VMware VM을 복제합니다.<br/><br/> Resource Manager 기반 또는 클래식 VM에 장애 조치합니다. | Resource Manager 또는 클래식 저장소 및 네트워크를 사용하여 Azure Storage에 Virtual Machine Manager 클라우드 외의 온-프레미스 Hyper-V VM을 복제합니다.<br/><br/> Resource Manager 기반 또는 클래식 VM에 장애 조치합니다. | Resource Manager 또는 클래식 저장소 및 네트워크를 사용하여 Azure Storage에 온-프레미스 Hyper-V(Virtual Machine Manager 클라우드의 VM)를 복제합니다.<br/><br/> Resource Manager 기반 또는 클래식 VM에 장애 조치합니다.
-**클래식 포털** | 유지 관리 모드에만 해당됩니다. 새 자격 증명 모음은 만들 수 없습니다. | 유지 관리 모드에만 해당됩니다. | 유지 관리 모드에만 해당됩니다.
-**PowerShell** | 현재 지원되지 않습니다. | 지원됨 | 지원됨
+**배포웹사이트를** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)** |
+--- | --- | ---
+**Azure 포털** | Azure Resource Manager 또는 클래식 저장소 및 네트워크를 사용하여 Azure Storage에 온-프레미스 VMware VM을 복제합니다.<br/><br/> Resource Manager 기반 또는 클래식 VM에 장애 조치합니다. | Resource Manager 또는 클래식 저장소 및 네트워크를 사용하여 Azure Storage에 온-프레미스 Hyper-V VM을 복제합니다.<br/><br/> Resource Manager 기반 또는 클래식 VM에 장애 조치합니다.
+**클래식 포털** | 유지 관리 모드에만 해당됩니다. 새 자격 증명 모음은 만들 수 없습니다. | 유지 관리 모드에만 해당됩니다.
+**PowerShell** | 현재 지원되지 않습니다. | 지원됨
 
 
 ## <a name="support-for-datacenter-management-servers"></a>데이터 센터 관리 서버에 대한 지원
@@ -50,15 +50,15 @@ ms.lasthandoff: 03/09/2017
 **Hyper-V(Virtual Machine Manager 있음)** | System Center Virtual Machine Manager 2016 및 System Center Virtual Machine Manager 2012 R2
 
   >[!Note]
-  > Windows Server 2016 및 2012 R2 호스트가 혼합된 System Center Virtual Machine Manager 2016 클라우드는 현재 지원되지 않습니다. 
+  > Windows Server 2016 및 2012 R2 호스트가 혼합된 System Center Virtual Machine Manager 2016 클라우드는 현재 지원되지 않습니다.
 
 ### <a name="host-servers"></a>호스트 서버
 
 **배포웹사이트를** | **지원**
 --- | ---
 **VMware VM/물리적 서버** | vCenter 5.5 또는 6.0(5.5 기능만 지원) 
-**Hyper-V(Virtual Machine Manager 없음)** | Windows Server 2016, 최신 업데이트가 포함된 Windows Server 2012 R2
-**Hyper-V(Virtual Machine Manager 있음)** | Windows Server 2016, 최신 업데이트가 포함된 Windows Server 2012 R2<br/><br/> Windows Server 2016 호스트는 System Center Virtual Machine Manager 2016에서 관리되어야 합니다.
+**Hyper-V(Virtual Machine Manager 있음/없음)** | Windows Server 2016, 최신 업데이트가 포함된 Windows Server 2012 R2<br></br>SCVMM을 사용하는 경우 Windows Server 2016 호스트는 SCVMM 2016을 통해 관리되어야 합니다.
+
 
   >[!Note]
   >Windows Server 2016 및 2012 R2를 실행하는 호스트가 혼합된 Hyper-V 사이트는 현재 지원되지 않습니다. Windows Server 2016 호스트에서 VM에 대한 대체 위치로 복구하는 방식은 현재 지원되지 않습니다.
@@ -68,50 +68,67 @@ ms.lasthandoff: 03/09/2017
 Azure에 복제하는 경우 보호되는 가상 컴퓨터가 [Azure 요구 사항](#failed-over-azure-vm-requirements)을 충족해야 합니다.
 다음은 Azure Site Recovery를 사용하는 경우 다양한 배포 시나리오에서 지원되는 복제된 운영 체제를 요약한 테이블입니다. 이 지원은 언급된 OS에서 실행되는 모든 워크로드에 적용됩니다.
 
- **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
---- | --- | ---
-64비트 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5 <br/><br/> SUSE Linux Enterprise Server 11 SP3 | [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868.aspx) 모든 게스트 OS | [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868.aspx) 모든 게스트 OS
+ **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)** |
+--- | --- |
+64비트 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5 <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>복제 컴퓨터를 SLES 11 SP3에서 SLES 11 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터가 SLES 11SP3에서 SLES 11 SP4로 업그레이드된 경우 복제를 비활성화하고 업그레이드 후 컴퓨터를 다시 보호해야 합니다. | [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868.aspx) 모든 게스트 OS
 
+
+>[!IMPORTANT]
+>(Azure에 복제하는 VMware/물리적 서버에 적용 가능)
+>
+> Red Hat Enterprise Linux Server 7+ 및 CentOS 7+ 서버에서 커널 버전 3.10.0-514는 Azure Site Recovery 모바일 서비스 9.8 버전부터 지원됩니다.<br/><br/>
+> 버전 9.8보다 낮은 모바일 서비스 버전을 사용하는 3.10.0-514 커널의 고객은 복제를 비활성화하고 모바일 서비스 버전을 버전 9.8로 업데이트한 다음 복제를 다시 활성화해야 합니다.  
+
+## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Linux(VMware/물리적 서버)에서 지원되는 파일 시스템 및 게스트 저장소 구성
+
+다음 파일 시스템 및 저장소 구성 소프트웨어는 VMware 또는 물리적 서버에서 실행되는 Linux 서버에서 지원됩니다.
+* 파일 시스템: ext3, ext4, ReiserFS(Suse Linux Enterprise Server만), XFS(v4까지만)
+* 볼륨 관리자: LVM2
+* 다중 경로 소프트웨어: 장치 매퍼
+
+HP CCISS 저장소 컨트롤러가 있는 물리적 서버는 지원되지 않습니다.
 
 >[!Note]
->Linux 버전 파일 시스템(EXT3, ETX4, ReiserFS, XFS), 다중 경로 소프트웨어 장치 매퍼, 볼륨 관리자(LVM2) 및 HP CCISS 컨트롤러 저장소가 있는 물리적 서버에 대한 저장소는 지원되지 *않습니다*.
->ReiserFS 파일 시스템은 SUSE Linux Enterprise Server 11 SP3에서만 지원됩니다.
+> Linux 서버에서 /(root), /boot, /usr, /usr/local, /var, /etc 디렉터리(별도의 파티션/파일 시스템으로 설정된 경우)는 모두 원본 서버의 동일한 디스크(OS 디스크)에 있어야 합니다.<br/><br/>
+> 메타데이터 체크섬과 같은 XFS v5 기능은 현재 XFS 파일 시스템의 ASR에서 지원하지 않습니다. XFS 파일 시스템이 v5 기능을 사용하고 있지 않은지 확인합니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인할 수 있습니다. ftype이 1로 설정되면 XFSv5 기능이 사용됩니다. 
+>
+
 
 ## <a name="support-for-network-configuration"></a>네트워크 구성 지원
 다음은 Azure Site Recovery를 사용하여 Azure에 복제하는 다양한 배포 시나리오에서 지원되는 네트워크 구성을 요약한 테이블입니다.
 
 ### <a name="host-network-configuration"></a>호스트 네트워크 구성
 
-**구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
---- | --- | --- | ---
-NIC 팀 | 예<br/><br/>물리적 컴퓨터에서 지원되지 않음| 예 | 예
-VLAN | 예 | 예 | 예
-IPv4 | 예 | 예 | 예
-IPv6 | 아니요 | 아니요 | 아니요
+**구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
+--- | --- | ---
+NIC 팀 | 예<br/><br/>물리적 컴퓨터에서 지원되지 않음| 예
+VLAN | 예 | 예
+IPv4 | 예 | 예
+IPv6 | 아니요 | 아니요
 
 ### <a name="guest-vm-network-configuration"></a>게스트 VM 네트워크 구성
 
-**구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
---- | --- | --- | ---
-NIC 팀 | 아니요 | 아니요 | 아니요
-IPv4 | 예 | 예 | 예
-IPv6 | 아니요 | 아니요 | 아니요
-고정 IP(Windows) | 예 | 예 | 예
-고정 IP(Linux) | 아니요 | 아니요 | 아니요
-다중 NIC | 예 | 예 | 예
+**구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
+--- | --- | ---
+NIC 팀 | 아니요 | 아니요
+IPv4 | 예 | 예
+IPv6 | 아니요 | 아니요
+고정 IP(Windows) | 예 | 예
+고정 IP(Linux) | 아니요 | 아니요
+다중 NIC | 예 | 예
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>장애 조치(Failover)된 Azure VM 네트워크 구성
 
-**Azure 네트워킹** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
---- | --- | --- | ---
-Express 경로 | 예 | 예 | 예
-ILB | 예 | 예 | 예
-ELB | 예 | 예 | 예
-트래픽 관리자 | 예 | 예 | 예
-다중 NIC | 예 | 예 | 예
-예약된 IP | 예 | 예 | 예
-IPv4 | 예 | 예 | 예
-원본 IP 유지 | 예 | 예 | 예
+**Azure 네트워킹** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
+--- | --- | ---
+Express 경로 | 예 | 예
+ILB | 예 | 예
+ELB | 예 | 예
+트래픽 관리자 | 예 | 예
+다중 NIC | 예 | 예
+예약된 IP | 예 | 예
+IPv4 | 예 | 예
+원본 IP 유지 | 예 | 예
 
 
 ## <a name="support-for-storage"></a>저장소에 대한 지원
@@ -119,50 +136,51 @@ IPv4 | 예 | 예 | 예
 
 ### <a name="host-storage-configuration"></a>호스트 저장소 구성
 
-**구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
+**구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
 --- | --- | --- | ---
-NFS | VMware의 경우 예<br/><br/> 물리적 서버의 경우 아니요 | 해당 없음 | 해당 없음
-SMB 3.0 | 해당 없음 | 예 | 예
-SAN(ISCSI) | 예 | 예 | 예
-다중 경로(MPIO)<br></br>테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | 예 | 예 | 예
+NFS | VMware의 경우 예<br/><br/> 물리적 서버의 경우 아니요 | 해당 없음
+SMB 3.0 | 해당 없음 | 예
+SAN(ISCSI) | 예 | 예
+다중 경로(MPIO)<br></br>테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | 예 | 예
 
 ### <a name="guest-or-physical-server-storage-configuration"></a>게스트 또는 물리적 서버 저장소 구성
 
-**구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
---- | --- | --- | ---
-VMDK | 예 | 해당 없음 | 해당 없음
-VHD/VHDX | 해당 없음 | 예 | 예
-2세대 VM | 해당 없음 | 예 | 예
-EFI/UEFI| 아니요 | 예 | 예
-공유 클러스터 디스크 | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음 | 아니요 | 아니요
-암호화된 디스크 | 아니요 | 아니요 | 아니요
-NFS | 아니요 | 해당 없음 | 해당 없음
-SMB 3.0 | 아니요 | 아니요 | 아니요
-RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음 | 해당 없음
-디스크 > 1TB | 아니요 | 아니요 | 아니요
-스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM 논리 볼륨 관리 | 예 | 예 | 예
-저장소 공간 | 아니요 | 예 | 예
-디스크 핫 추가/제거 | 아니요 | 아니요 | 아니요
-디스크 제외 | 예 | 예 | 예
-다중 경로(MPIO) | 해당 없음 | 예 | 예
+**구성** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
+--- | --- | ---
+VMDK | 예 | 해당 없음
+VHD/VHDX | 해당 없음 | 예
+2세대 VM | 해당 없음 | 예
+EFI/UEFI| 아니요 | 예
+공유 클러스터 디스크 | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음 | 아니요
+암호화된 디스크 | 아니요 | 아니요
+NFS | 아니요 | 해당 없음
+SMB 3.0 | 아니요 | 아니요
+RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음 | 해당 없음
+디스크 > 1TB | 아니요 | 아니요
+스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM 논리 볼륨 관리 | 예 | 예
+저장소 공간 | 아니요 | 예
+디스크 핫 추가/제거 | 아니요 | 아니요
+디스크 제외 | 예 | 예
+다중 경로(MPIO) | 해당 없음 | 예
 
-**Azure 저장소** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
---- | --- | --- | ---
-LRS | 예 | 예 | 예
-GRS | 예 | 예 | 예
-쿨 저장소 | 아니요 | 아니요 | 아니요
-핫 저장소| 아니요 | 아니요 | 아니요
-휴지 상태의 암호화(SSE)| 예 | 예 | 예
-Premium Storage | 예 | 아니요 | 아니요
-Import/Export 서비스 | 아니요 | 아니요 | 아니요
+**Azure 저장소** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
+--- | --- | ---
+LRS | 예 | 예
+GRS | 예 | 예
+RA-GRS | 예 | 예
+쿨 저장소 | 아니요 | 아니요
+핫 저장소| 아니요 | 아니요
+휴지 상태의 암호화(SSE)| 예 | 예
+Premium Storage | 예 | 예
+Import/Export 서비스 | 아니요 | 아니요
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Azure 계산 구성에 대한 지원
 
-**Compute 기능** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 없음)** | **Hyper-V(Virtual Machine Manager 있음)**
+**Compute 기능** | **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)**
 --- | --- | --- | ---
-가용성 집합 | 아니요 | 아니요 | 아니요
-HUB | 예 | 예 | 예
+가용성 집합 | 예 | 예
+HUB | 예 | 예  
 
 ## <a name="failed-over-azure-vm-requirements"></a>장애 조치(Failover)된 Azure VM 요구 사항
 

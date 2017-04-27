@@ -12,17 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/15/2017
+ms.date: 04/17/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: fd2338b73bd82121ed36e286446b07ccd4a8a219
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a0a974982f80bc2137e73a84681a9401e8a02e39
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage로 데이터 전송
-
 Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob 저장소로 전송할 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob 저장소에서 하드 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 이 서비스는 몇 TB(테라바이트)의 데이터를 Azure로 또는 Azure에서 전송하고자 할 때 적합하지만, 제한된 대역폭 또는 높은 네트워크 비용으로 인해 네트워크를 통한 업로드 및 다운로드는 적합하지 않습니다.
 
 이 서비스를 사용하려면 데이터 보안을 위해 하드 디스크 드라이브를 BitLocker 암호화해야 합니다. 이 서비스는 공용 Azure의 모든 지역에 있는 클래식 및 Azure Resource Manager 저장소 계정(표준 및 쿨 계층)을 모두 지원합니다. 이 문서의 뒷부분에 지정된 지원되는 위치 중 한 곳에 하드 디스크 드라이브를 발송해야 합니다.
@@ -104,9 +103,11 @@ Azure 가져오기/내보내기 서비스는 모든 공용 Azure 저장소 계�
 * 미국 동부
 * 미국 서부
 * 미국 동부 2
+* 미국 서부 2
 * 미국 중부
 * 미국 중북부
 * 미국 중남부
+* 미국 중서부
 * 북유럽
 * 서유럽
 * 동아시아
@@ -116,9 +117,17 @@ Azure 가져오기/내보내기 서비스는 모든 공용 Azure 저장소 계�
 * 일본 서부
 * 일본 동부
 * 인도 중부
-* 캐나다
-* 미국 정부
-* 중국
+* 인도 남부
+* 캐나다 중부
+* 캐나다 동부
+* 브라질 남부
+* 한국 중부
+* 미국 정부 버지니아
+* 미국 정부 아이오와
+* 미국 국방부 동부
+* 미국 국방부 중부
+* 중국 동부
+* 중국 북부
 
 ### <a name="shipping"></a>발송
 **데이터 센터에 드라이브 배송:**

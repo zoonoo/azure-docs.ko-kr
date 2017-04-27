@@ -37,7 +37,7 @@ ms.lasthandoff: 04/18/2017
 ## <a name="video-walkthrough"></a>연습 동영상
 다음 동영상은 이 자습서의 단계를 설명합니다.
 
-> [!비디오 https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 

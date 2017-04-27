@@ -15,25 +15,28 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 23b806556667539156ee399e90c7bd4af808804f
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: b9971117d5f61669a5161a28c96b11b2fd600b61
+ms.lasthandoff: 04/14/2017
 
 
 ---
 # <a name="install-an-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
-온-프레미스 데이터 게이트웨이는 다음과 같은 데이터 원본 연결을 지원합니다.
+온-프레미스 데이터 게이트웨이는 다음 연결을 지원합니다.
 
 *   BizTalk Server
-*    DB2  
+*   DB2  
 *   파일 시스템
 *   Informix
 *   MQ
-*    Oracle 데이터베이스 
+*   MySQL
+*   Oracle 데이터베이스 
 *   SAP 응용 프로그램 서버 
 *   SAP 메시지 서버
-*    SQL Server
+*   HTTPS가 아닌 HTTP에만 해당되는 SharePoint
+*   SQL Server
+*   Teradata
 
 이러한 연결에 대한 자세한 내용은 [Azure Logic Apps에 대한 커넥터](https://docs.microsoft.com/azure/connectors/apis-list)를 참조하세요.
 
@@ -61,7 +64,7 @@ ms.lasthandoff: 03/10/2017
 
 * Azure에서 회사 또는 학교 전자 메일 주소를 사용할 수 있으므로 Azure Active Directory 기반 계정으로 온-프레미스 데이터 게이트웨이를 연결할 수 있습니다.
 
-    Microsoft 계정(예: @outlook.com)을 사용하는 경우 Azure 계정을 사용하여   [회사 또는 학교 전자 메일 주소를 만들](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) 수 있습니다.
+    Microsoft 계정(예: @outlook.com)을 사용하는 경우 Azure 계정을 사용하여   [회사 또는 학교 전자 메일 주소를 만들](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) 수 있습니다.
 
 ### <a name="install-the-gateway"></a>게이트웨이 설치
 
@@ -75,7 +78,7 @@ ms.lasthandoff: 03/10/2017
 
     게이트웨이 구성하려면 게이트웨이 및 복구 키의 이름을 입력한 다음 **구성**을 선택합니다.
   
-    최소&8;자를 포함하는 복구 키를 지정하고 키를 안전한 장소에 보관합니다. 게이트웨이를 마이그레이션, 복원 또는 인계받으려는 경우 이 키가 필요합니다.
+    최소 8자를 포함하는 복구 키를 지정하고 키를 안전한 장소에 보관합니다. 게이트웨이를 마이그레이션, 복원 또는 인계받으려는 경우 이 키가 필요합니다.
 
     기존 게이트웨이를 마이그레이션, 복원 또는 인계받으려면 게이트웨이를 만들 때 지정한 복구 키를 제공합니다.
 

@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 36cc060273ec4e402a4eecc877ed41889d9ce8ce
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: cd60055833eec98c4bef4680fec9910c347d9d0c
+ms.lasthandoff: 04/21/2017
 
 
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
-가상 컴퓨터에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 가상 컴퓨터에서 디스크가 제거되지만, 저장소에서는 제거되지 않습니다. 
+가상 컴퓨터에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 가상 컴퓨터에서 디스크가 제거되지만, 저장소에서는 제거되지 않습니다.
 
 > [!WARNING]
-> 디스크를 분리해도 자동으로 삭제되지 않습니다. 프리미엄 저장소를 구독하는 경우 디스크에 대한 저장소 요금이 계속 부과됩니다. 자세한 내용은 [프리미엄 저장소 사용 시 가격 책정 및 청구](../../storage/storage-premium-storage.md#pricing-and-billing)를 참조하세요. 
-> 
-> 
+> 디스크를 분리해도 자동으로 삭제되지 않습니다. 프리미엄 저장소를 구독하는 경우 디스크에 대한 저장소 요금이 계속 부과됩니다. 자세한 내용은 [프리미엄 저장소 사용 시 가격 책정 및 청구](../../storage/storage-premium-storage.md#pricing-and-billing)를 참조하세요.
+>
+>
 
-디스크에 있는 기존 데이터를 다시 사용하려는 경우 동일한 또는 다른 가상 컴퓨터에 다시 연결할 수 있습니다.  
+디스크에 있는 기존 데이터를 다시 사용하려는 경우 동일한 또는 다른 가상 컴퓨터에 다시 연결할 수 있습니다.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>포털을 사용하여 데이터 디스크 분리
 1. 포털 허브에서 **가상 컴퓨터**를 선택합니다.
@@ -46,19 +46,19 @@ ms.lasthandoff: 03/31/2017
 디스크가 저장소에 유지되지만 더 이상 가상 컴퓨터에 연결되어 있지 않습니다.
 
 ## <a name="detach-a-data-disk-using-powershell"></a>PowerShell을 사용하여 데이터 디스크 분리
-이 예제에서 첫 번째 명령은 Get-AzureRmVM cmdlet을 사용하여 **RG11** 리소스 그룹에 가상 컴퓨터 **MyVM07**을 가져옵니다. 이 명령은 가상 컴퓨터를 **$VirtualMachine** 변수에 저장합니다. 
+이 예제에서 첫 번째 명령은 Get-AzureRmVM cmdlet을 사용하여 **RG11** 리소스 그룹에 가상 컴퓨터 **MyVM07**을 가져옵니다. 이 명령은 가상 컴퓨터를 **$VirtualMachine** 변수에 저장합니다.
 
-두 번째 명령은 가상 컴퓨터에서 DataDisk3이라는 데이터 디스크를 제거합니다. 
+두 번째 명령은 가상 컴퓨터에서 DataDisk3이라는 데이터 디스크를 제거합니다.
 
 마지막 명령은 가상 컴퓨터의 상태를 업데이트하여 데이터 디스크 제거 프로세스를 완료합니다.
 
 ```powershell
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" 
+$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
 Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
 Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 ```
 
-자세한 내용은 [Remove-AzureRmVMDataDisk](/powershell/remove-azurermvmdatadisk)를 참조하세요.
+자세한 내용은 [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

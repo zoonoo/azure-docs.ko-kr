@@ -10,11 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 04/24/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: c8c6c105c2142dac1b3df6c26838ba8626161092
 ms.openlocfilehash: d818cd3a243fb78228706b21a002f295782189be
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -218,10 +219,5 @@ Intune과 같은 MDM(모바일 장치 관리)을 활용하거나 장치의 EAS �
 
 1. 위의 요구 사항을 충족하는 EAS 프로필을 응용 프로그램에서 구성합니다.  
 2. 응용 프로그램을 열고 메일이 동기화되는지 확인합니다. 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

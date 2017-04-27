@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7f23ae904461e754b3871b33ca40c2ff4fcb99f0
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 64c5869f3e66c249fefa9af228fe1b33974cf293
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -57,7 +57,7 @@ Azure Portal을 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-S
 데이터 레이크 분석 계정을 만든 후 데이터 레이크 저장소 계정 및 Azure 저장소 계정을 더 추가할 수 있습니다. 자세한 내용은 [데이터 레이크 분석 계정 데이터 소스 관리](data-lake-analytics-manage-use-portal.md#manage-account-data-sources)를 참조하세요.
 
 ## <a name="prepare-source-data"></a>원본 데이터 준비
-이 자습서에서는 검색 로그를 처리합니다.  검색 로그는 Data Lake Storage 또는 Azure Blob Storage에 저장할 수 있습니다.
+이 자습서에서는 검색 로그를 처리합니다.  검색 로그는 데이터 레이크 저장소 또는 Azure Blob 저장소에 저장할 수 있습니다.
 
 Azure Portal은 검색 로그 파일을 포함하는 기본 Data Lake Store 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다.
 

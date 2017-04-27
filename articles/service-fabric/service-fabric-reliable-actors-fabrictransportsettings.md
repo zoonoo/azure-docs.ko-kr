@@ -15,41 +15,48 @@ ms.workload: NA
 ms.date: 11/22/2016
 ms.author: suchia
 translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 6041541903d4d90710817149be50e05e31fd88f1
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 4cbca6e496135a312bf4704dd0989f45dcccfc00
+ms.lasthandoff: 04/14/2017
 
 
 ---
-# <a name="configuring-fabrictransport-settings-for-reliable-actors"></a>Reliable Actors에 대한 FabricTransport 설정 구성
+# <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Reliable Actors에 대한 FabricTransport 설정 구성
 
-사용자가 [FabrictTansportSettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.fabrictransport.common.fabrictransportsettings)를 구성할 수 있는 설정 목록은 다음과 같습니다.
+구성할 수 있는 설정은 다음과 같습니다.
+
+- C#: [FabricTansportSettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.fabrictransport.common.fabrictransportsettings)
+- Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 다음과 같은 방식으로 기본 FabricTransport 구성을 수정할 수 있습니다.
 
-1.  어셈블리 특성 - [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) 사용.
+## <a name="assembly-attribute"></a>어셈블리 특성
 
-  이 특성은 행위자 클라이언트 및 행위자 서비스 어셈블리에 적용해야 합니다.
-  다음 예에서는 FabricTransport OperationTimeout 설정의 기본 값을 변경하는 방법을 보여 줍니다.
+[FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) 특성은 행위자 클라이언트 및 행위자 서비스 어셈블리에 적용해야 합니다.
+
+다음 예제에서는 FabricTransport OperationTimeout 설정의 기본값을 변경하는 방법을 보여 줍니다.
 
   ```csharp
-     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
+    using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
    ```
 
-   두 번째 예에서는 FabricTransport MaxMessageSize 및 OperationTimeoutInSeconds의 기본 값을 변경합니다.
+다음 예제에서는 FabricTransport MaxMessageSize 및 OperationTimeoutInSeconds의 기본값을 변경하는 방법을 보여 줍니다.
 
-    ```csharp
+  ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600,MaxMessageSize = 134217728)]
-    ```
+   ```
 
-2. [구성 패키지](service-fabric-application-model.md) 사용:
+## <a name="config-package"></a>구성 패키지
 
-  * 행위자 서비스에 대한 FabricTransport 설정 구성
+[구성 패키지](service-fabric-application-model.md)를 사용하여 기본 구성을 수정할 수 있습니다.
 
-    settings.xml 파일에 TransportSettings 섹션을 추가합니다.
+### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>행위자 서비스에 대한 FabricTransport 설정 구성
 
-    * SectionName: 기본적으로 행위자 코드는 "&lt;ActorName&gt;TransportSettings"로 SectionName을 찾습니다. 찾을 수 없는 경우 "TransportSettings"로 sectionName을 확인합니다.
+settings.xml 파일에 TransportSettings 섹션을 추가합니다.
+
+기본적으로 행위자 코드는 "&lt;ActorName&gt;TransportSettings"로 SectionName을 찾습니다. 찾을 수 없는 경우 "TransportSettings"로 sectionName을 확인합니다.
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -65,9 +72,9 @@ ms.openlocfilehash: 6041541903d4d90710817149be50e05e31fd88f1
    </Section>
   ```
 
-  * 행위자 클라이언트 어셈블리에 대한 FabricTransport 설정 구성
+### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>행위자 클라이언트 어셈블리에 대한 FabricTransport 설정 구성
 
-    클라이언트를 서비스의 일부로 실행하지 않는 경우에는 client exe와 같은 위치에 "&lt;Client Exe Name&gt;.settings.xml" xml 파일을 만들 수 있습니다. 그런 다음 해당 파일에서 TransportSettings 섹션을 추가합니다. SectionName은 "TransportSettings"여야 합니다.
+클라이언트를 서비스의 일부로 실행하지 않는 경우에는 client exe 파일과 같은 위치에 "&lt;Client Exe Name&gt;.settings.xml" 파일을 만들 수 있습니다. 그런 다음 해당 파일에서 TransportSettings 섹션을 추가합니다. SectionName은 "TransportSettings"여야 합니다.
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -85,9 +92,4 @@ ms.openlocfilehash: 6041541903d4d90710817149be50e05e31fd88f1
     </Section>
   </Settings>
    ```
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

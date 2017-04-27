@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 3a240ff317e1b3ea450703965629c08053668856
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 3f050e2722091aa8b58591cc0c894a6ecb82c3fa
+ms.lasthandoff: 04/14/2017
 
 ---
 
@@ -425,13 +425,13 @@ HTTP 작업은 지정된 끝점을 호출하고 응답을 확인하여 워크플
   
 |요소 이름|필수|형식|설명|  
 |----------------|------------|--------|---------------|  
-|메서드|예|문자열|다음 HTTP 메서드 중 하나일 수 있습니다. **GET**, **POST**, **PUT**, **DELETE**, **PATCH** 또는 **HEAD**|  
+|메서드|예|String|다음 HTTP 메서드 중 하나일 수 있습니다. **GET**, **POST**, **PUT**, **DELETE**, **PATCH** 또는 **HEAD**|  
 |uri|예|String|호출된 http 또는 https 끝점입니다. 최대 길이는 2킬로바이트입니다.|  
 |쿼리|아니요|Object|URL에 추가할 쿼리 매개 변수를 나타냅니다. 예를 들어 `"queries" : { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다.|  
 |headers|아니요|Object|요청에 전송된 각 헤더를 나타냅니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. `"headers" : { "Accept-Language": "en-us",  "Content-Type": "application/json" }`|  
 |body|아니요|Object|끝점에 전송된 페이로드를 나타냅니다.|  
 |retryPolicy|아니요|Object|4xx 또는 5xx 오류에 대한 재시도 동작을 사용자 지정할 수 있습니다.|  
-|operationsOptions|아니요|String|재정의할 특정 동작 집합을 정의합니다.|  
+|operationsOptions|아니요|string|재정의할 특정 동작 집합을 정의합니다.|  
 |authentication|아니요|Object|요청을 인증해야 하는 메서드를 나타냅니다. 이 개체에 대한 자세한 내용은 [스케줄러 아웃바운드 인증](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication)을 참조하세요. 스케줄러 이외에도 지원되는 속성이 하나 더 있습니다. `authority` 기본적으로 지정되지 않은 경우 `https://login.windows.net`이지만 `https://login.windows\-ppe.net`과 같이 다른 대상 그룹을 사용할 수 있습니다.|  
   
 HTTP 작업 \(및 API 연결\) 작업은 다시 시도 정책을 지원합니다. 다시 시도 정책은 모든 연결 예외 외에도 HTTP 상태 코드 408, 429 및 5xx로 지정되는 일시적인 오류에 적용됩니다. 이 정책은 여기에 표시된 대로 정의된 *retryPolicy* 개체를 사용하여 설명합니다.
@@ -453,7 +453,7 @@ HTTP 작업 \(및 API 연결\) 작업은 다시 시도 정책을 지원합니다
     "type": "http",
     "inputs": {
         "method": "GET",
-        "uri": "uri": "https://mynews.example.com/latest",
+        "uri": "https://mynews.example.com/latest",
         "retryPolicy" : {
             "type": "fixed",
             "interval": "PT30S",
@@ -658,6 +658,28 @@ API 연결은 Microsoft 관리 커넥터를 참조하는 작업입니다.
 |from|예|배열|원본 배열입니다.|
 |여기서,|예|String|원본 배열의 각 요소에 적용할 조건입니다.|
 
+## <a name="select-action"></a>작업 선택
+
+`select` 작업은 배열의 각 요소를 새 값으로 프로젝션하도록 합니다.
+예를 들어 숫자 배열을 개체 배열로 변환하려면 다음을 사용할 수 있습니다.
+
+```json
+"SelectNumbers" : {
+    "type": "select",
+    "inputs": {
+        "from": [ 1, 3, 0, 5, 4, 2 ],
+        "select": { "number": "@item()" }
+    }
+}
+```
+
+`select` 작업의 출력은 `select` 속성으로 정의되어 변환된 입력 배열과 동일한 카디널리티를 가진 배열입니다. 입력이 빈 배열인 경우 출력도 빈 배열입니다.
+
+|이름|필수|형식|설명|
+|--------|------------|--------|---------------|
+|from|예|배열|원본 배열입니다.|
+|선택|예|모두|원본 배열의 각 요소에 적용할 프로젝션입니다.|
+
 ## <a name="terminate-action"></a>종료 작업
 
 종료 작업은 진행 중인 작업을 중단하고 나머지 작업을 건너뛰어 워크플로 실행을 중단합니다. 예를 들어 **실패** 상태의 실행을 종료하려면 다음 코드 조각을 사용할 수 있습니다.
@@ -703,6 +725,71 @@ API 연결은 Microsoft 관리 커넥터를 참조하는 작업입니다.
 
 > [!NOTE]
 > **작성** 작업은 개체, 배열 및 논리 앱에서 기본적으로 지원하는 기타 형식(XML 및 이진)을 포함한 출력을 생성하는 데 사용할 수 있습니다.
+
+## <a name="table-action"></a>테이블 작업
+
+`table`은 항목의 배열을 **CVS** 또는 **HTML** 테이블로 변환할 수 있도록 합니다.
+
+@triggerBody()을 다음으로 가정합니다
+
+```json
+[{
+  "id": 0,
+  "name": "apples"
+},{
+  "id": 1, 
+  "name": "oranges"
+}]
+```
+
+작업이 다음으로 정의되게 합니다
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html"
+    }
+}
+```
+
+위의 내용은 다음을 생성합니다
+
+<table><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>0</td><td>사과</td></tr><tr><td>1</td><td>오렌지</td></tr></tbody></table>"
+
+테이블을 사용자 지정하려면 열을 명시적으로 지정할 수 있습니다. 예:
+
+```json
+"ConvertToTable" : {
+    "type": "table",
+    "inputs": {
+        "from": "@triggerBody()",
+        "format": "html",
+        "columns": [{
+          "header": "produce id",
+          "value": "@item().id"
+        },{
+          "header": "description",
+          "value": "@concat('fresh ', item().name)"
+        }]
+    }
+}
+```
+
+위의 내용은 다음을 생성합니다
+
+<table><thead><tr><th>ID를 생성합니다</th><th>설명</th></tr></thead><tbody><tr><td>0</td><td>신선한 사과</td></tr><tr><td>1</td><td>신선한 오렌지</td></tr></tbody></table>"
+
+`from` 속성 값이 빈 배열인 경우 출력도 빈 테이블입니다.
+
+|이름|필수|형식|설명|
+|--------|------------|--------|---------------|
+|from|예|배열|원본 배열입니다.|
+|format|예|string|형식은 **CVS** 또는 **HTML**입니다.|
+|열|아니요|배열|열입니다. 테이블의 기본 셰이프를 재정의할 수 있습니다.|
+|열 머리글|아니요|string|열의 머리글입니다.|
+|열 값|예|String|열의 값입니다.|
 
 ## <a name="workflow-action"></a>워크플로 작업   
 
@@ -897,3 +984,4 @@ API 연결은 Microsoft 관리 커넥터를 참조하는 작업입니다.
 ## <a name="next-steps"></a>다음 단계
 
 [워크플로 서비스 REST API](https://docs.microsoft.com/rest/api/logic/workflows)
+

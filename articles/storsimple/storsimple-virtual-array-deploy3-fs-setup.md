@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 405e236288a32afa572da8c665ea2557a9c8cb03
-ms.openlocfilehash: 8d09eb65d6d165093f9de5810a6affbe95b7a053
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: a6b04a5c3146131b27a4a6d77874e07d33c45eb8
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple 가상 배열 배포 - Azure Portal을 통해 파일 서버로 설정
@@ -134,7 +134,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
     
     3. 암호화를 위한 사용자 정의 키에 256비트 AES 키가 사용됩니다. 32개의 문자 키를 지정하고 확인을 위해 키를 다시 입력합니다. 나중에 참조할 수 있도록 키 관리 앱에서 키를 기록합니다.
     
-    4. **필수 설정 구성**을 클릭하여 장치와 함께 사용할 저장소 계정 자격 증명을 지정합니다. 구성된 저장소 계정 자격 증명이 없는 경우 **새로 추가**를 클릭합니다.
+    4. **필수 설정 구성**을 클릭하여 장치와 함께 사용할 저장소 계정 자격 증명을 지정합니다. 구성된 저장소 계정 자격 증명이 없는 경우 **새로 추가**를 클릭합니다. **사용하는 저장소 계정이 블록 Blob을 지원하는지 확인합니다. 페이지 Blob은 지원되지 않습니다.** [블록 Blob 및 페이지 Blob에 대한](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) 자세한 내용입니다.
    
     ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. **저장소 계정 자격 증명 추가** 블레이드에서 다음을 수행합니다. 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/27/2017
+ms.date: 04/11/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: fb9d9d06eb746e720a17d87d7ab45c29c6543e8f
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 031fa71b8f5aac558569eea7001e16df4cae917c
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -47,7 +47,7 @@ Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache**
     * [액세스 키](#access-keys)
     * [고급 설정](#advanced-settings)
     * [Redis 캐시 관리자](#redis-cache-advisor)
-    * [가격 책정 계층](#pricing-tier)
+    * [규모](#scale)
     * [Redis 클러스터 크기](#cluster-size)
     * [Redis 데이터 지속성](#redis-data-persistence)
     * [업데이트 예약](#schedule-updates)
@@ -100,7 +100,7 @@ Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache**
 * [액세스 키](#access-keys)
 * [고급 설정](#advanced-settings)
 * [Redis 캐시 관리자](#redis-cache-advisor)
-* [가격 책정 계층](#pricing-tier)
+* [규모](#scale)
 * [Redis 클러스터 크기](#cluster-size)
 * [Redis 데이터 지속성](#redis-data-persistence)
 * [업데이트 예약](#schedule-updates)
@@ -190,11 +190,11 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 | 서버 부하 |[사용 현황 차트 - Redis 서버 부하](cache-how-to-monitor.md#usage-charts) |
 | 메모리 사용량 |[캐시 성능 - 크기](cache-faq.md#cache-performance) |
 
-캐시를 업그레이드하려면 **지금 업그레이드** 를 클릭하여 [가격 책정 계층](#pricing-tier) 을 변경하고 캐시 크기를 조정하세요. 가격 책정 계층 선택에 대한 자세한 내용은 [어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)를 참조하세요.
+캐시를 업그레이드하려면 **지금 업그레이드**를 클릭하여 [가격 책정 계층](#scale)을 변경하고 캐시 크기를 조정하세요. 가격 책정 계층 선택에 대한 자세한 내용은 [어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)를 참조하세요.
 
 
-### <a name="pricing-tier"></a>가격 책정 계층 
-**가격 책정 계층** 을 클릭하여 캐시에 대한 가격 책정 계층을 보거나 변경합니다. 크기 조정에 대한 자세한 내용은 [Azure Redis Cache 크기를 조정하는 방법](cache-how-to-scale.md)을 참조하세요.
+### <a name="scale"></a>확장
+**확장**을 클릭하여 캐시에 대한 가격 책정 계층을 보거나 변경합니다. 크기 조정에 대한 자세한 내용은 [Azure Redis Cache 크기를 조정하는 방법](cache-how-to-scale.md)을 참조하세요.
 
 ![Redis Cache 가격 책정 계층](./media/cache-configure/pricing-tier.png)
 
@@ -452,6 +452,13 @@ Import/Export는 Azure Redis Cache 데이터 관리 작업으로 프리미엄 �
   * P2(13GB - 130GB) - 최대 15,000개 연결
   * P3(26GB - 260GB) - 최대 30,000개 연결
   * P4(53GB - 530GB) - 최대 40,000개 연결
+
+> [!NOTE]
+> 각 캐시 크기는 특정 횟수의 연결*까지* 허용하지만 Redis에 대한 각 연결에는 오버헤드가 연결되어 있습니다. 이러한 오버헤드의 예로 TLS/SSL 암호화의 결과인 CPU 및 메모리 사용량이 있습니다. 특정 캐시 크기에 대한 최대 연결 제한은 부하가 적은 캐시를 가정합니다. 연결 오버헤드의 부하 *그리고* 클라이언트 작업의 부하가 시스템의 용량을 초과하면 현재 캐시 크기에 대한 연결 제한을 초과하지 않은 경우에도 캐시에 용량 문제가 발생할 수 있습니다.
+> 
+> 
+
+
 
 ## <a name="redis-commands-not-supported-in-azure-redis-cache"></a>Azure Redis Cache에서 지원되지 않는 Redis 명령
 > [!IMPORTANT]

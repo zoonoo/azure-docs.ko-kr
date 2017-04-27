@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 3/24/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 45bf19b4c8406cfc09624bef2b9c0f1c443d8fd6
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: bc87185c56b2dc45f041136474b9fb1bf6afebc3
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -64,7 +64,7 @@ Visual Studio 2015를 사용하여 응용 프로그램을 만드는 경우 패�
 
 ![Visual Studio를 통해 응용 프로그램 패키징][vs-package-command]
 
-패키징이 완료되면 **출력** 창에서 패키지의 위치를 찾습니다. Visual Studio에서 응용 프로그램을 배포 또는 디버깅할 때 패키징 단계가 자동으로 발생합니다.
+패키징이 완료되면 **출력** 창에서 패키지의 위치를 찾을 수 있습니다. Visual Studio에서 응용 프로그램을 배포 또는 디버깅할 때 패키징 단계가 자동으로 발생합니다.
 
 ### <a name="build-a-package-by-command-line"></a>명령줄로 패키지 빌드
 `msbuild.exe`를 사용하여 응용 프로그램을 프로그래밍 방식으로 패키징할 수도 있습니다. 내부적으로 보면 Visual Studio가 실행하고 있으므로 출력은 동일합니다.
@@ -169,8 +169,9 @@ PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApp
 ```
 
 내부적으로 Service Fabric은 유효성 검사를 위해 응용 프로그램 패키지에 대한 체크섬을 계산합니다. 압축을 사용할 때 체크섬은 각 패키지의 압축된 버전에서 계산됩니다.
-압축되지 않은 버전의 응용 프로그램 패키지를 복사했고 동일한 패키지에 대해 압축을 사용하려는 경우 체크섬 불일치가 발생하지 않도록 응용 프로그램 매니페스트 버전을 변경해야 합니다.
-마찬가지로 압축된 버전의 패키지를 업로드한 경우 압축되지 않은 패키지를 사용하도록 응용 프로그램 매니페스트 버전을 업데이트해야 합니다.
+압축되지 않은 버전의 응용 프로그램 패키지를 복사했고 동일한 패키지에 대해 압축을 사용하려는 경우 체크섬 불일치가 발생하지 않도록 `code`, `config` 및 `data` 패키지 버전을 변경해야 합니다. 패키지가 변경되지 않은 경우 버전을 변경하는 대신 [diff 프로비저닝](service-fabric-application-upgrade-advanced.md)을 사용할 수 있습니다. 이 옵션을 사용하는 경우 변경되지 않은 패키지를 포함하지 말고 서비스 매니페스트에서 참조합니다.
+
+마찬가지로 압축된 버전의 패키지를 업로드했고 압축되지 않은 패키지를 사용하려는 경우 체크섬이 일치하지 않도록 버전을 업데이트해야 합니다.
 
 이제 패키지를 올바르게 패키지하고, 유효성을 검사하고, 압축하여(필요한 경우) 하나 이상의 Service Fabric 클러스터에 [배포](service-fabric-deploy-remove-applications.md)할 준비가 되었습니다.
 

@@ -17,9 +17,9 @@ ms.date: 03/14/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0c62fc01947e0f2e4b0e45d176d5af04c6250fa8
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: ec64215bfa3b812cddbed290d343c2d99fb70257
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -408,7 +408,7 @@ UDF 등록 취소는 단순히 기존 UDF 리소스에 대해 HTTP DELETE를 실
 위 조각에서는 [DocumentDB JavaScript SDK](https://github.com/Azure/azure-documentdb-js)를 통한 등록(POST), 등록 취소(PUT), 읽기/나열(GET) 및 실행(POST)을 보여 주었지만 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 다른 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 사용할 수도 있습니다. 
 
 ## <a name="documents"></a>문서
-컬렉션의 임의 JSON 문서를 삽입하고, 바꾸고, 삭제하고, 읽고, 열거하고, 쿼리할 수 있습니다. DocumentDB는 스키마를 위임하지 않으며 컬렉션 내 문서 쿼리를 지원하기 위해 보조 인덱스가 필요하지 않습니다. 기본적으로 문서에 대한 최대 크기는 2MB입니다.   
+컬렉션의 임의 JSON 문서를 삽입하고, 바꾸고, 삭제하고, 읽고, 열거하고, 쿼리할 수 있습니다. DocumentDB는 스키마를 위임하지 않으며 컬렉션 내 문서 쿼리를 지원하기 위해 보조 인덱스가 필요하지 않습니다. 문서의 최대 크기는 2MB입니다.   
 
 진정한 개방형 데이터베이스 서비스인 DocumentDB는 직렬화된 데이터 형식(예: 날짜/시간) 또는 JSON 문서에 대한 특정 인코딩을 고안하지 않습니다. DocumentDB는 다양한 문서 간의 관계를 분류하기 위한 특별한 JSON 규칙이 필요 없습니다. DocumentDB의 SQL 구문에서 특별한 주석 없이 문서를 쿼리 및 프로젝션하는 강력한 계층적 관계형 쿼리 연산자를 제공하거나 고유 속성을 사용하여 문서 간의 관계를 분류해야 합니다.  
 

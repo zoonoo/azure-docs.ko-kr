@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 620572f66367f61c6ee61d3c044083a0f71aca6f
-ms.lasthandoff: 01/12/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: f827b76b8164e4eae286c9a1247e64d4f5ee9ea8
+ms.lasthandoff: 04/15/2017
 
 ---
 
@@ -28,7 +28,7 @@ Azure SQL Database의 메모리 내 기술을 사용하여 트랜잭션(OLTP(온
 
 메모리 내 OLTP가 성능을 크게 향상시키는 방법의 두 가지 예는 다음과 같습니다.
 
-- 메모리 내 OLTP를 사용하여 [Quorum Business Solutions은 DTU(즉, 리소스 소비)를 70%까지 개선하면서 워크로드를 두 배로 늘릴 수 있습니다](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+- 메모리 내 OLTP를 사용하여 [Quorum Business Solutions은 DTU(즉, 리소스 소비)를 70%까지 개선하면서 워크로드를 두 배로 늘릴 수 있습니다](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
 - 다음 [Azure SQL Database의 메모리 내 OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) 비디오는 샘플 워크로드에서 리소스 소비가 크게 향상되었음을 보여 줍니다.
 
 메모리 내 기술은 프리미엄 탄력적 풀의 데이터베이스를 비롯한 프리미엄 계층의 모든 데이터베이스에서 사용할 수 있습니다.
@@ -140,7 +140,7 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 ## <a name="1-install-the-in-memory-oltp-sample"></a>1. 메모리 내 OLTP 샘플 설치
 
-[Azure Portal](https://portal.azure.com/)에서 몇 번만 클릭하면 AdventureWorksLT [V12] 샘플 데이터베이스를 만들 수 있습니다. 그런 다음 이 섹션의 단계에서는 메모리 내 OLTP 개체를 사용하여 AdventureWorksLT 데이터베이스를 보강할 수 있는 방법 및 성능 이점을 설명합니다.
+[Azure Portal](https://portal.azure.com/)에서 몇 번만 클릭하면 AdventureWorksLT 샘플 데이터베이스를 만들 수 있습니다. 그런 다음 이 섹션의 단계에서는 메모리 내 OLTP 개체를 사용하여 AdventureWorksLT 데이터베이스를 보강할 수 있는 방법 및 성능 이점을 설명합니다.
 
 메모리 내 OLTP의 경우 더 간단하지만 시각적으로 뛰어난 성능 데모는 다음을 참조하세요.
 
@@ -149,7 +149,7 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 #### <a name="installation-steps"></a>설치 단계
 
-1. [Azure 포털](https://portal.azure.com/)에서 V12 서버의 Premium 데이터베이스를 만듭니다. AdventureWorksLT [V12] 샘플 데이터베이스에 **소스** 를 설정합니다. 자세한 지침은 [첫 번째 Azure SQL Database 만들기](sql-database-get-started.md)를 참조하세요.
+1. [Azure Portal](https://portal.azure.com/)에서 서버에 Premium 데이터베이스를 만듭니다. AdventureWorksLT 샘플 데이터베이스에 **소스**를 설정합니다. 자세한 지침은 [첫 번째 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요.
 
 2. SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 데이터베이스에 연결합니다.
 
@@ -479,7 +479,7 @@ SET STATISTICS TIME OFF
 GO
 ```
 
-P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 인덱스를 사용하면 기존 인덱스와 비교하여 이 쿼리에 대해 약&9;배의 성능 향상을 기대할 수 있습니다. P15에서는 columnstore 인덱스를 사용하여 약 57배의 성능 향상을 기대할 수 있습니다.
+P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 인덱스를 사용하면 기존 인덱스와 비교하여 이 쿼리에 대해 약 9배의 성능 향상을 기대할 수 있습니다. P15에서는 columnstore 인덱스를 사용하여 약 57배의 성능 향상을 기대할 수 있습니다.
 
 
 
@@ -496,7 +496,7 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 #### <a name="deeper-information"></a>자세한 정보
 
-- [쿼럼이 SQL Database의 메모리 내 OLTP을 사용하여 DTU를 70% 줄이는 동시에 키 데이터베이스의 워크로드를 두 배로 증가시키는 방법에 대해 알아보기](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [쿼럼이 SQL Database의 메모리 내 OLTP을 사용하여 DTU를 70% 줄이는 동시에 키 데이터베이스의 워크로드를 두 배로 증가시키는 방법에 대해 알아보기](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [메모리 내 OLTP에 대해 알아보기](http://msdn.microsoft.com/library/dn133186.aspx)
 

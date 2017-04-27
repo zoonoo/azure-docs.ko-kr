@@ -46,7 +46,7 @@
 
 [Managed Disks](../articles/storage/storage-managed-disks-overview.md)는 단일 실패 지점을 피할 만큼 가용성 집합의 VM 디스크를 서로 충분히 격리시켜서 가용성 집합에 대해 향상된 안정성을 제공합니다. 이 기능은 디스크를 다른 저장소 배율 단위(스탬프)에 자동으로 배치하여 구현됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 
 
-[관리되지 않는 디스크](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks)에서 VM을 사용하려는 경우 VM의 VHD(가상 하드 디스크)를 [페이지 Blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)로 저장하는 저장소 계정에 대한 아래의 유용한 모범 사례를 따릅니다. 
+[관리되지 않는 디스크](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks)에서 VM을 사용하려는 경우 VM의 VHD(가상 하드 디스크)를 [페이지 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)로 저장하는 저장소 계정에 대한 아래의 유용한 모범 사례를 따릅니다. 
 
 1. **동일한 저장소 계정에서 VM과 모든 디스크(OS 및 데이터) 연결 유지**
 2. 저장소 계정에 더 많은 VHD를 추가하기 전에 **저장소 계정에서 관리되지 않는 디스크의 수에 대한 [제한](../articles/storage/storage-scalability-targets.md) 검토**

@@ -17,9 +17,9 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 06a67e4d2134baf54e88708d64981b897ecb74a0
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 7490fe7261c760f2945d67a7f819091fd69b04f8
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -55,13 +55,13 @@ SQL Database에서 리소스 수요를 처리하는 데이터베이스의 기능
 ## <a name="which-databases-go-in-a-pool"></a>어떤 데이터베이스를 풀로 이동해야 합니까?
 ![탄력적 풀에서 eDTU를 공유하는 SQL 데이터베이스][1]
 
-탄력적 풀을 사용하기에 좋은 데이터베이스에는 일반적으로 활동하는 시기와 활동이 없는 시기가 있습니다. 위의 예에서 단일 데이터베이스, 4개의 데이터베이스, 마지막으로 20개의 데이터베이스가 포함된 탄력적 풀의 활동을 볼 수 있습니다. 시간에 따라 활동 수준이 달라지는 데이터베이스는 동시에 모두 활성화되지 않아 eDTU를 공유할 수 있으므로 탄력적 풀에 잘 어울립니다. 일부 데이터베이스는 이러한 패턴에 맞지 않습니다. 더 지속적으로 리소스를 요구하는 데이터베이스는 리소스가 개별적으로 할당되는 기본, 표준, 프리미엄 서비스 계층에 더 적합합니다.
+탄력적 풀을 사용하기에 좋은 데이터베이스에는 일반적으로 활동하는 시기와 활동이 없는 시기가 있습니다. 위의 예에서 단일 데이터베이스, 4개의 데이터베이스, 마지막으로 20개의 데이터베이스가 포함된 탄력적 풀의 활동을 볼 수 있습니다. 시간에 따라 활동 수준이 달라지는 데이터베이스는 동시에 모두 활성화되지 않아 eDTU를 공유할 수 있으므로 탄력적 풀에 잘 어울립니다. 일부 데이터베이스는 이러한 패턴에 맞지 않습니다. 더 지속적으로 리소스를 요구하는 데이터베이스는 리소스가 개별적으로 할당되는 Basic, Standard, Premium 및 Premium RS 서비스 계층에 더 적합합니다.
 
 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)
 
 ## <a name="edtu-and-storage-limits-for-elastic-pools"></a>탄력적 풀에 대한 eDTU 및 저장소 제한
 
-다음 표에서는 Basic, Standard 및 Premium 탄력적 풀의 특징을 설명합니다.
+다음 표에서는 Basic, Standard, Premium 및 Premium RS 탄력적 풀의 특징을 설명합니다.
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -74,7 +74,7 @@ SQL Database에서 리소스 수요를 처리하는 데이터베이스의 기능
 ### <a name="limits-for-elastic-pools"></a>탄력적 풀에 대한 제한
 | 속성 | 설명 |
 |:--- |:--- |
-| 서비스 계층 |Basic, Standard 또는 Premium. 서비스 계층에 따라 구성 가능한 성능 및 저장소 제한 범위와 비즈니스 연속성 선택 항목이 결정됩니다. 풀 내의 모든 데이터베이스는 풀과 동일한 서비스 계층을 가집니다. "서비스 계층"을 "에디션"이라고도 합니다. |
+| 서비스 계층 |Basic, Standard, Premium, Premium RS가 있습니다. 서비스 계층에 따라 구성 가능한 성능 및 저장소 제한 범위와 비즈니스 연속성 선택 항목이 결정됩니다. 풀 내의 모든 데이터베이스는 풀과 동일한 서비스 계층을 가집니다. "서비스 계층"을 "에디션"이라고도 합니다. |
 | 풀당 eDTU |풀의 데이터베이스에서 공유할 수 있는 최대 eDTU 수입니다. 풀의 데이터베이스에서 사용하는 총 eDTU는 동일한 시점에 이 한도를 초과할 수 없습니다. |
 | 풀당 최대 저장소(GB) |풀의 데이터베이스에서 공유할 수 있는 최대 저장소 공간(GB)입니다. 풀의 모든 데이터베이스에서 사용하는 총 저장소는 이 한도를 초과할 수 없습니다. 이 한도는 풀당 eDTU에 따라 결정됩니다. 이 한도를 초과하면 모든 데이터베이스가 읽기 전용이 됩니다. 풀에 있는 데이터 파일의 최대 저장소를 의미하는 풀당 최대 저장소는 로그 파일에서 사용하는 공간을 포함하지 않습니다. |
 | 풀당 최대 데이터베이스 수 |풀당 허용되는 최대 데이터베이스 수입니다. |
@@ -106,7 +106,7 @@ SQL Database에서 리소스 수요를 처리하는 데이터베이스의 기능
 지역 복원은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. [Azure SQL 데이터베이스 복원 또는 보조 데이터베이스에 대한 장애 조치](sql-database-disaster-recovery.md)
 
 ### <a name="active-geo-replication"></a>활성 지역 복제
-지역 복원에서 제공할 수 있는 것보다 까다로운 복구 요구 사항이 있는 응용 프로그램에 대해서는 [Azure Portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) 또는 [Transact-SQL](sql-database-geo-replication-transact-sql.md)을 사용하여 활성 지역 복제를 구성합니다.
+지역 복원에서 제공하는 것보다 더 까다로운 복구 요구 사항이 있는 응용 프로그램의 경우 [활성 지역 복제](sql-database-geo-replication-overview.md)를 구성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

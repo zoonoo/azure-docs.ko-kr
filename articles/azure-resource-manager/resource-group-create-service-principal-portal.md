@@ -1,6 +1,6 @@
 ---
 title: "포털에서 Azure 앱에 대한 ID 만들기 | Microsoft Docs"
-description: "Azure 리소스 관리자에서 리소스에 대한 액세스를 관리하기 위해 역할 기반 액세스 제어와 함께 사용할 수 있는 새 Active Directory 응용 프로그램 및 서비스 주체를 만드는 방법을 설명합니다."
+description: "Azure Resource Manager에서 리소스에 대한 액세스를 관리하기 위해 역할 기반 액세스 제어와 함께 사용할 수 있는 새 Azure Active Directory 응용 프로그램 및 서비스 주체를 만드는 방법을 설명합니다."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -15,12 +15,13 @@ ms.workload: na
 ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 0b1d7bb2cbbeed2b41c22f19c1db49e81dadd4d7
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="use-portal-to-create-active-directory-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기
+# <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기
 > [!div class="op_single_selector"]
 > * [PowerShell](resource-group-authenticate-service-principal.md)
 > * [Azure CLI](resource-group-authenticate-service-principal-cli.md)
@@ -28,7 +29,7 @@ ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
 >
 >
 
-리소스를 액세스하거나 수정해야 하는 응용 프로그램이 있는 경우 AD(Active Directory) 응용 프로그램을 설정하고 필수 사용 권한을 할당해야 합니다. 이 방법은 다음의 이유로 사용자 고유의 자격 증명을 사용하여 앱을 실행하는 데 좋습니다.
+리소스를 액세스하거나 수정해야 하는 응용 프로그램이 있는 경우 Azure AD(Active Directory) 응용 프로그램을 설정하고 필수 사용 권한을 할당해야 합니다. 이 방법은 다음의 이유로 사용자 고유의 자격 증명을 사용하여 앱을 실행하는 데 좋습니다.
 
 * 자체 사용 권한과 다른 앱 ID에 대한 사용 권한을 할당할 수 있습니다. 일반적으로 이러한 권한은 정확히 앱 실행에 필요한 것으로 제한됩니다.
 * 책임이 변경되면 앱의 자격 증명을 변경할 필요가 없습니다. 
@@ -37,20 +38,20 @@ ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
 이 토픽에서는 포털을 통해 이러한 단계를 수행하는 방법을 보여 줍니다. 여기서는 응용 프로그램을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 응용 프로그램을 중점적으로 다룹니다. 일반적으로 단일 조직 내에서 실행되는 LOB(기간 업무) 응용 프로그램에 대해 단일 테넌트 응용 프로그램을 사용하게 됩니다.
  
 ## <a name="required-permissions"></a>필요한 사용 권한
-이 토픽을 완료하려면 Active Directory에 응용 프로그램을 등록하고 Azure 구독의 역할에 응용 프로그램을 할당하기 위한 충분한 권한이 있어야 합니다. 이러한 단계를 수행하기 위한 올바른 권한이 있는지 확인해보겠습니다.
+이 토픽을 완료하려면 Azure AD 테넌트에 응용 프로그램을 등록하고 Azure 구독의 역할에 응용 프로그램을 할당하기 위한 충분한 권한이 있어야 합니다. 이러한 단계를 수행하기 위한 올바른 권한이 있는지 확인해보겠습니다.
 
-### <a name="check-active-directory-permissions"></a>Active Directory 권한 확인
+### <a name="check-azure-active-directory-permissions"></a>Azure Active Directory 권한 확인
 1. [Azure Portal](https://portal.azure.com)을 통해 Azure 계정에 로그인합니다.
 2. **Azure Active Directory**를 선택합니다.
 
      ![Azure Active Directory 선택](./media/resource-group-create-service-principal-portal/select-active-directory.png)
-3. Active Directory에서 **사용자 설정**을 선택합니다.
+3. Azure Active Directory에서 **사용자 설정**을 선택합니다.
 
      ![사용자 설정 선택](./media/resource-group-create-service-principal-portal/select-user-settings.png)
-4. **앱 등록** 설정을 확인합니다. **예**로 설정된 경우 관리자가 아닌 사용자가 AD 앱을 등록할 수 있습니다. 이 설정에서는 Active Directory의 모든 사용자가 앱을 등록할 수 있습니다. [Azure 구독 권한 확인](#check-azure-subscription-permissions)을 계속 진행할 수 있습니다.
+4. **앱 등록** 설정을 확인합니다. **예**로 설정된 경우 관리자가 아닌 사용자가 AD 앱을 등록할 수 있습니다. 이 설정에서는 Azure AD 테넌트의 모든 사용자가 앱을 등록할 수 있습니다. [Azure 구독 권한 확인](#check-azure-subscription-permissions)을 계속 진행할 수 있습니다.
 
      ![앱 등록 보기](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
-5. 앱 등록 설정이 **아니요**로 설정되어 있으면 관리자만 앱을 등록할 수 있습니다. 사용자 계정이 Active Directory에 대한 관리자인지 확인해야 합니다. 빠른 작업에서 **개요** 및 **사용자 찾기**를 선택합니다.
+5. 앱 등록 설정이 **아니요**로 설정되어 있으면 관리자만 앱을 등록할 수 있습니다. 사용자 계정이 Azure AD 테넌트에 대한 관리자인지 확인해야 합니다. 빠른 작업에서 **개요** 및 **사용자 찾기**를 선택합니다.
 
      ![사용자 찾기](./media/resource-group-create-service-principal-portal/find-user.png)
 6. 사용자 계정을 검색하고, 찾으면 선택합니다.
@@ -59,7 +60,7 @@ ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
 7. 사용자 계정에 대해 **디렉터리 역할**을 선택합니다. 
 
      ![디렉터리 역할](./media/resource-group-create-service-principal-portal/select-directory-role.png)
-8. Active Directory에 대해 할당된 역할을 확인합니다. 계정이 사용자 역할에 할당되어 있으나 앱 등록 설정(이전 단계)이 관리자로 제한되어 있으면 관리자에게 사용자를 관리자 역할로 할당하거나 사용자가 앱을 등록할 수 있게 설정하도록 요청합니다.
+8. Azure AD에서 할당된 디렉터리 역할을 봅니다. 계정이 사용자 역할에 할당되어 있으나 앱 등록 설정(이전 단계)이 관리자로 제한되어 있으면 관리자에게 사용자를 관리자 역할로 할당하거나 사용자가 앱을 등록할 수 있게 설정하도록 요청합니다.
 
      ![역할 보기](./media/resource-group-create-service-principal-portal/view-role.png)
 
@@ -68,9 +69,9 @@ Azure 구독에서 사용자 계정에 AD 앱을 역할에 할당할 수 있는 
 
 Azure 구독 권한을 확인하려면
 
-1. 이전 단계에서 Active Directory 계정을 아직 확인하지 않은 경우 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
+1. 이전 단계에서 Azure AD 계정을 아직 확인하지 않은 경우 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
 
-2. Azure Active Directory 계정을 찾습니다. 빠른 작업에서 **개요** 및 **사용자 찾기**를 선택합니다.
+2. Azure AD 계정을 찾습니다. 빠른 작업에서 **개요** 및 **사용자 찾기**를 선택합니다.
 
      ![사용자 찾기](./media/resource-group-create-service-principal-portal/find-user.png)
 2. 사용자 계정을 검색하고, 찾으면 선택합니다.
@@ -80,11 +81,11 @@ Azure 구독 권한을 확인하려면
 3. **Azure 리소스**를 선택합니다.
 
      ![리소스 선택](./media/resource-group-create-service-principal-portal/select-azure-resources.png) 
-3. 할당된 사용자 역할을 확인하고 AD 앱을 역할에 할당하기 위한 적절한 권한이 있는지 확인합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 그림에서 사용자에게는&2;개의 구독에 대한 소유자 역할이 할당됩니다. 즉, 사용자에게는 적절한 권한이 있습니다. 
+3. 할당된 사용자 역할을 확인하고 AD 앱을 역할에 할당하기 위한 적절한 권한이 있는지 확인합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 그림에서 사용자에게는 2개의 구독에 대한 소유자 역할이 할당됩니다. 즉, 사용자에게는 적절한 권한이 있습니다. 
 
      ![권한 표시](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
-## <a name="create-an-active-directory-application"></a>Active Directory 응용 프로그램 만들기
+## <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 응용 프로그램 만들기
 1. [Azure Portal](https://portal.azure.com)을 통해 Azure 계정에 로그인합니다.
 2. **Azure Active Directory**를 선택합니다.
 
@@ -106,7 +107,7 @@ Azure 구독 권한을 확인하려면
 ## <a name="get-application-id-and-authentication-key"></a>응용 프로그램 ID 및 인증 키 가져오기
 프로그래밍 방식으로 로그인하는 경우 응용 프로그램에 대한 ID 및 인증 키가 필요합니다. 이러한 값을 가져오려면 다음 단계를 사용합니다.
 
-1. Active Directory의 **앱 등록**에서 응용 프로그램을 선택합니다.
+1. Azure Active Directory의 **앱 등록**에서 응용 프로그램을 선택합니다.
 
      ![응용 프로그램 선택](./media/resource-group-create-service-principal-portal/select-app.png)
 2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. [샘플 응용 프로그램](#sample-applications) 섹션의 응용 프로그램은 이 값을 클라이언트 ID로 참조합니다.
@@ -126,9 +127,9 @@ Azure 구독 권한을 확인하려면
 ## <a name="get-tenant-id"></a>테넌트 ID 가져오기
 프로그래밍 방식으로 로그인하는 경우 인증 요청과 함께 테넌트 ID를 전달해야 합니다. 
 
-1. 테넌트 ID를 가져오려면 Active Directory에 대한 **속성**을 선택합니다. 
+1. 테넌트 ID를 가져오려면 Azure AD 테넌트에 대한 **속성**을 선택합니다. 
 
-     ![Active Directory 속성 선택](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
+     ![Azure AD 속성 선택](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
 2. **디렉터리 ID**를 복사합니다. 이 값은 테넌트 ID입니다.
 
@@ -165,7 +166,7 @@ Azure 구독 권한을 확인하려면
 
 ## <a name="log-in-as-the-application"></a>응용 프로그램으로 로그인
 
-응용 프로그램은 이제 Active Directory에 설정되어 있습니다. 응용 프로그램으로 로그인하는 데 사용할 ID와 키가 있습니다. 응용 프로그램은 수행할 수 있는 특정 작업을 제공하는 역할에 할당됩니다. 
+응용 프로그램은 이제 Azure Active Directory에 설정되어 있습니다. 응용 프로그램으로 로그인하는 데 사용할 ID와 키가 있습니다. 응용 프로그램은 수행할 수 있는 특정 작업을 제공하는 역할에 할당됩니다. 
 
 PowerShell을 통해 로그인하려면 [PowerShell을 통해 자격 증명 제공](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)을 참조하세요.
 
@@ -206,10 +207,5 @@ REST 작업에 대한 액세스 토큰을 얻으려면 [요청 만들기](/rest/
 ## <a name="next-steps"></a>다음 단계
 * 다중 테넌트 응용 프로그램을 설정하려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
 * 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

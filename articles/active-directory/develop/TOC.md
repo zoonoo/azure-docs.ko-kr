@@ -1,10 +1,11 @@
 # 개요
+## [Azure AD와의 통합](active-directory-how-to-integrate.md)
 ## [개발자 가이드](active-directory-developers-guide.md)
 ## [앱 및 Azure Active Directory](active-directory-how-applications-are-added.md)
 ## [개발자 용어집](active-directory-dev-glossary.md)
-## [AAD Graph API](active-directory-graph-api.md)
+## [Azure AD Graph API](active-directory-graph-api.md)
 # 빠른 시작
-## [AAD 테넌트를 가져오는 방법](active-directory-howto-tenant.md)
+## [Azure AD 테넌트를 가져오는 방법](active-directory-howto-tenant.md)
 ## [AAD와 앱 통합](active-directory-integrating-applications.md)
 ## 모바일 및 PC 앱
 ### [iOS](active-directory-devquickstarts-ios.md)
@@ -23,9 +24,9 @@
 ## Web API
 ### [Web API 및 .NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## [AAD Graph API](active-directory-graph-api-quickstart.md)
+## [Azure AD Graph API](active-directory-graph-api-quickstart.md)
 # 가이드
-## [인증 패턴](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad.md)
+## [인증 패턴](active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 ### [네이티브 앱](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [웹앱](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [앱 API](active-directory-authentication-scenarios.md#web-application-to-web-api)
@@ -45,7 +46,7 @@
 ### [Single Sign-On SAML 프로토콜](active-directory-single-sign-on-protocol-reference.md)
 ### [Single Sign-Out SAML 프로토콜](active-directory-single-sign-out-protocol-reference.md)
 ## Visual Studio 사용
-### [Azure Active Directory 및 Visual Studio 연결 서비스 시작(MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
+### [Visual Studio 연결 서비스 시작(MVC Projects.md)](vs-active-directory-dotnet-getting-started.md)
 ### [인증 검색 중 오류 발생](vs-active-directory-error.md)
 ### [WebApi 시작](vs-active-directory-webapi-getting-started.md)
 ### [내 Web API 프로젝트의 변경된 내용](vs-active-directory-webapi-what-happened.md)
