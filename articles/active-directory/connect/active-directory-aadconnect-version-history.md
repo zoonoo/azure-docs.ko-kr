@@ -15,9 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: d89135c8f3d5011d7549158a29050e3569defbcc
-ms.lasthandoff: 03/23/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: fe01be4f57766a556ff3a27a0cbba0293675cac7
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -34,6 +34,61 @@ Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure A
 Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](active-directory-aadconnect-upgrade-previous-version.md) 하는 다른 방법입니다.
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](./active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 다운로드| [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="114860"></a>1.1.486.0
+릴리스 날짜: 2017년 4월
+
+**수정된 문제:**
+* Azure AD Connect가 지역화된 버전의 Windows Server에 제대로 설치되지 않는 문제를 해결했습니다.
+
+## <a name="114840"></a>1.1.484.0
+릴리스 날짜: 2017년 4월
+
+**알려진 문제:**
+
+* 다음 조건에 모두 해당하면 이 버전의 Azure AD Connect가 제대로 설치되지 않습니다.
+   1. DirSync 전체 업그레이드 또는 Azure AD Connect 새로 설치를 수행하고 있습니다.
+   2. 서버에서 기본 제공 관리자 그룹의 이름이 “Administrators”가 아닌 지역화된 버전의 Windows Server를 사용하고 있습니다.
+   3. 자체적인 전체 SQL을 제공하는 대신 Azure AD Connect와 함께 설치된 기본 SQL Server 2012 Express LocalDB를 사용하고 있습니다. 
+
+**수정된 문제:**
+
+Azure AD Connect 동기화
+* 하나 이상의 커넥터에 해당 동기화 단계에 대한 실행 프로필이 없는 경우 동기화 스케줄러가 전체 동기화 단계를 건너뛰는 문제를 해결했습니다. 예를 들어 델타 가져오기 실행 프로필을 만들지 않고 Synchronization Service Manager를 사용하여 커넥터를 수동으로 추가했습니다. 이 수정을 통해 동기화 스케줄러는 다른 커넥터에 대한 델타 가져오기를 계속 실행할 수 있습니다.
+* 실행 단계 중 하나에 문제가 발생할 때 동기화 서비스가 실행 프로필 처리를 즉시 중지하는 문제를 해결했습니다. 이 수정을 통해 동기화 서비스는 해당 실행 단계를 건너뛰고 나머지 단계를 계속 처리합니다. 예를 들어 여러 실행 단계가 포함된 AD Connector에 대한 델타 가져오기 실행 프로필이 있습니다(각 온-프레미스 AD 도메인에 하나씩). 동기화 서비스는 다른 AD 도메인 중 하나에 네트워크 연결 문제가 있는 경우에도 해당 AD 도메인에서 델타 가져오기를 실행합니다.
+* 자동 업그레이드 중에 Azure AD Connector 업데이트를 건너뛰는 문제를 해결했습니다.
+* 설치 중에 서버가 도메인 컨트롤러인지 여부를 Azure AD Connect가 잘못 확인하여 이로 인해 DirSync 업그레이드가 실패하는 문제를 해결했습니다.
+* DirSync 전체 업그레이드에서 Azure AD Connector에 대한 실행 프로필을 만들지 않는 문제를 해결했습니다.
+* 일반 LDAP 커넥터를 구성할 때 Synchronization Service Manager 사용자 인터페이스가 응답하지 않는 문제를 해결했습니다.
+
+AD FS 관리
+* AD FS 주 노드가 다른 서버로 이동된 경우 Azure AD Connect 마법사가 실패하는 문제를 해결했습니다.
+
+데스크톱 SSO
+* 새로 설치하는 동안 로그인 옵션으로 암호 동기화를 선택한 경우 [로그인] 화면에서 데스크톱 SSO를 사용하도록 설정할 수 없는 Azure AD Connect 마법사의 문제를 해결했습니다.
+
+**새 기능/향상된 기능:**
+
+Azure AD Connect 동기화
+* 이제 Azure AD Connect 동기화에서 가상 서비스 계정, 관리 서비스 계정 및 그룹 관리 서비스 계정을 서비스 계정으로 사용할 수 있습니다. 이 내용은 Azure AD Connect만 새로 설치하는 경우에만 적용됩니다. Azure AD Connect를 설치할 경우:
+    * 기본적으로 Azure AD Connect 마법사는 가상 서비스 계정을 만들고 이를 서비스 계정으로 사용합니다.
+    * 도메인 컨트롤러에서 설치할 경우 Azure AD Connect는 도메인 사용자 계정을 만들고 이를 서비스 계정으로 대신 사용하는 이전 동작으로 대체됩니다.
+    * 다음 중 하나를 제공하여 기본 동작을 재정의할 수 있습니다.
+      * 그룹 관리 서비스 계정
+      * 관리 서비스 계정
+      * 도메인 사용자 계정
+      * 로컬 사용자 계정
+* 이전에는 커넥터 업데이트 또는 동기화 규칙 변경 내용이 포함된 Azure AD Connect의 새 빌드로 업그레이드할 경우 Azure AD Connect는 전체 동기화 주기를 트리거합니다. 이제 Azure AD Connect는 선택적으로 업데이트가 있는 커넥터에 대해서만 전체 가져오기 단계를 트리거하고 동기화 규칙 변경 내용이 있는 커넥터에 대해서만 전체 동기화 단계를 트리거합니다.
+* 이전에는 내보내기 삭제 임계값은 동기화 스케줄러를 통해 트리거된 내보내기에만 적용됩니다. 이제 이 기능은 Synchronization Service Manager를 사용하여 고객이 수동으로 트리거한 내보내기를 포함하도록 확장됩니다.
+* Azure AD 테넌트에는 테넌트에 대해 암호 동기화 기능을 사용할지 여부를 나타내는 서비스 구성이 있습니다. 이전에는 활성화된 스테이징 서비스가 있을 경우 Azure AD Connect에서 서비스 구성을 잘못 구성하기 쉽습니다. 이제 Azure AD Connect는 서비스 구성을 오직 활성 Azure AD Connect 서버와 일치하게 유지하려고 합니다.
+* Azure AD Connect 마법사는 이제 온-프레미스 AD에서 AD 휴지통이 사용되지 않는 경우 경고를 감지하고 반환합니다.
+* 이전에는 일괄 처리의 전체 개체 크기가 특정 임계값을 초과할 경우 Azure AD로 내보내기의 시간이 초과되고 내보내기에 실패합니다. 이제 동기화 서비스는 문제가 발생한 경우 별도의 더 작은 일괄 처리로 개체를 다시 보내려고 재시도합니다.
+* 동기화 서비스 키 관리 응용 프로그램이 Windows [시작] 메뉴에서 제거되었습니다. 암호화 키 관리는 miiskmu.exe를 사용하는 명령줄 인터페이스를 통해 계속 지원됩니다. 암호화 키 관리에 대한 자세한 내용은 [Abandoning the Azure AD Connect Sync encryption key](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key)(Azure AD Connect 동기화 암호화 키 중단) 문서를 참조하세요.
+* 이전에는 Azure AD Connect 동기화 서비스 계정 암호를 변경하면 암호화 키를 제거하고 Azure AD Connect 동기화 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스를 제대로 시작할 수 없습니다. 이제 이 내용은 더 이상 필요하지 않습니다.
+
+데스크톱 SSO
+
+* Azure AD Connect 마법사는 패스스루 인증 및 데스크톱 SSO를 구성할 때 더 이상 네트워크에서 포트 9090을 열 필요가 없습니다. 포트 443만 필요합니다. 
 
 ## <a name="114430"></a>1.1.443.0
 릴리스 날짜: 2017년 3월
@@ -268,7 +323,14 @@ AD FS 관리
   * 동기화에 포함할 새 OU를 선택하는 데에는 전체 암호 동기화가 필요하지 않습니다.
   * 비활성화된 사용자가 설정된 경우 암호가 동기화되지 않습니다.
   * 암호 재시도 큐에는 제한이 없으며, 사용 중지될 개체 5, 000개에 대한 이전의 제한이 제거되었습니다.
-  * [개선된 문제 해결](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization).
+<<<<<<< HEAD <<<<<<< HEAD
+  * [개선된 문제 해결](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
+=======
+  * [개선된 문제 해결](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+>>>>>>> <a name="487b660b6d3bb5ce9e64b6fdbde2ae621cb91922"></a>487b660b6d3bb5ce9e64b6fdbde2ae621cb91922
+=======
+  * [개선된 문제 해결](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+>>>>>>> 4b2e846c2cd4615f4e4be7195899de11e3957c83
 * Windows Server 2016 포리스트 기능 수준으로 Active Directory에 연결할 수 없습니다.
 * 초기 설치 후 그룹 필터링에 사용된 그룹을 변경할 수 없습니다.
 * 비밀번호 쓰기 저장을 활성화하고 암호 변경을 수행하는 모든 사용자에 대해 더 이상 Azure AD Connect 서버에 새로운 사용자 프로필을 만들지 않습니다.

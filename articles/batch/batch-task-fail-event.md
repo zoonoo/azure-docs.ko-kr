@@ -1,0 +1,97 @@
+---
+title: "태스크 실패 이벤트 - Azure | Microsoft Docs"
+ms.custom: 
+ms.date: 2017-02-01
+ms.prod: azure
+ms.reviewer: 
+ms.service: batch
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
+ms.assetid: 8c16a533-1ac7-4b65-a84e-8eafb937b3d7
+caps.latest.revision: 3
+author: tamram
+ms.author: tamram
+manager: timlt
+translationtype: Human Translation
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 880fe1cfb0496311d7c386f25762c5d02a6c91f4
+ms.lasthandoff: 04/13/2017
+
+---
+# <a name="task-fail-event"></a>태스크 실패 이벤트
+태스크 실패 이벤트 로그 본문
+
+## <a name="remarks"></a>설명
+ 이 이벤트는 태스크가 오류와 함께 완료되면 내보내집니다. 현재 0이 아닌 종료 코드는 모두 오류로 간주됩니다. 이 이벤트는 태스크 완료 이벤트와 *별도로* 내보내지고, 태스크가 실패한 시기를 감지하는 데 사용될 수 있습니다.
+
+
+ 다음 예에서는 태스크 실패 이벤트의 본문을 보여 줍니다.
+
+```
+{
+    "jobId": "job-0000000001",
+    "id": "task-5",
+    "taskType": "User",
+    "systemTaskVersion": 0,
+    "nodeInfo": {
+        "poolId": "pool-001",
+        "nodeId": "tvm-257509324_1-20160908t162728z"
+    },
+    "multiInstanceSettings": {
+        "numberOfInstances": 1
+    },
+    "constraints": {
+        "maxTaskRetryCount": 2
+    },
+    "executionInfo": {
+        "startTime": "2016-09-08T16:32:23.799Z",
+        "endTime": "2016-09-08T16:34:00.666Z",
+        "exitCode": 1,
+        "retryCount": 2,
+        "requeueCount": 0
+    }
+}
+```
+
+|요소 이름|형식|참고 사항|
+|------------------|----------|-----------|
+|jobId|string|태스크가 포함된 작업의 ID입니다.|
+|id|String|태스크의 ID입니다.|
+|taskType|string|태스크의 유형입니다. 이는 작업 관리자 태스크를 나타내는 'JobManager' 또는 작업 관리자 태스크가 아님을 나타내는 'User'가 될 수 있습니다. 작업 준비 태스크, 작업 릴리스 태스크 또는 시작 태스크의 경우 이 이벤트가 내보내지지 않습니다.|
+|systemTaskVersion|Int32|태스크에 대한 내부 재시도 카운터입니다. 내부적으로 Batch 서비스는 일시적인 문제를 해결하기 위해 태스크를 다시 시도할 수 있습니다. 이러한 문제에는 내부 일정 오류 또는 불량 상태의 계산 노드 복구를 위한 시도가 포함될 수 있습니다.|
+|[nodeInfo](#nodeInfo)|복합 형식|태스크가 실행된 계산 노드에 대한 정보를 포함합니다.|
+|[multiInstanceSettings](#multiInstanceSettings)|복합 형식|여러 계산 노드가 필요한 다중 인스턴스 태스크임을 지정합니다.  자세한 내용은 [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task)를 참조하세요.|
+|[constraints](#constraints)|복합 형식|이 태스크에 적용되는 실행 제약 조건입니다.|
+|[executionInfo](#executionInfo)|복합 형식|태스크 실행에 대한 정보를 포함합니다.|
+
+###  <a name="nodeInfo"></a> nodeInfo
+
+|요소 이름|형식|참고 사항|
+|------------------|----------|-----------|
+|poolId|String|태스크가 실행된 풀의 ID입니다.|
+|nodeId|string|태스크가 실행된 노드의 ID입니다.|
+
+###  <a name="multiInstanceSettings"></a> multiInstanceSettings
+
+|요소 이름|형식|참고 사항|
+|------------------|----------|-----------|
+|numberOfInstances|Int32|태스크에 필요한 계산 노드 수입니다.|
+
+###  <a name="constraints"></a> constraints
+
+|요소 이름|형식|참고 사항|
+|------------------|----------|-----------|
+|maxTaskRetryCount|Int32|태스크를 다시 시도할 수 있는 최대 횟수입니다. 종료 코드가 0이 아니면 Batch 서비스가 태스크를 다시 시도합니다.<br /><br /> 이 값은 구체적으로 재시도 횟수를 제어합니다. Batch 서비스는 태스크를 한 번 시도한 후 이 한도까지 다시 시도할 수 있습니다. 예를 들어 최대 재시도 횟수가 3일 경우 Batch는 최대 4회까지 태스크를 시도합니다(초기 시도 1회와 재시도 3회).<br /><br /> 최대 재시도 횟수가 0일 경우 Batch 서비스는 태스크를 다시 시도하지 않습니다.<br /><br /> 최대 재시도 횟수가 -1일 경우 Batch 서비스는 태스크를 무제한으로 다시 시도합니다.<br /><br /> 기본값은 0(재시도 안 함)입니다.|
+
+
+###  <a name="executionInfo"></a> executionInfo
+
+|요소 이름|형식|참고 사항|
+|------------------|----------|-----------|
+|startTime|DateTime|태스크가 실행되기 시작한 시간입니다. 'Running'은 **실행 중** 상태에 해당하므로 태스크가 리소스 파일 또는 응용 프로그램 패키지를 지정할 경우 시작 시간에는 태스크가 이를 다운로드 또는 배포하기 시작한 시간이 반영됩니다.  태스크가 다시 시작되거나 다시 시도된 경우 이는 태스크가 실행을 시작한 가장 최근의 시간을 나타냅니다.|
+|endTime|DateTime|태스크가 완료된 시간입니다.|
+|exitCode|Int32|태스크의 종료 코드입니다.|
+|retryCount|Int32|Batch 서비스에서 태스크를 다시 시도한 횟수입니다. 태스크가 0이 아닌 종료 코드와 함께 종료될 경우 지정된 MaxTaskRetryCount까지 다시 시도됩니다.|
+|requeueCount|Int32|사용자 요청으로 인해 Batch 서비스에서 태스크를 대기열에 다시 추가한 횟수입니다.<br /><br /> 사용자가 풀 크기 조정 또는 축소를 통해 풀에서 노드를 제거하거나 작업이 비활성화될 경우 사용자는 노드에서 실행 중인 태스크를 실행 대기열에 다시 추가하도록 지정할 수 있습니다. 이 개수는 태스크가 이러한 이유로 대기열에 다시 추가된 횟수를 추적합니다.|
+

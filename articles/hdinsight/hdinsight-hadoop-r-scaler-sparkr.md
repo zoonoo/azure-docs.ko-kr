@@ -1,5 +1,5 @@
 ---
-title: "Azure HDInsight에서 ScaleR 및 SparkR 혼합 | Microsoft Docs"
+title: "Azure HDInsight에서 ScaleR 및 SparkR 사용 | Microsoft Docs"
 description: "R Server와 HDInsight에서 ScaleR 및 SparkR을 사용합니다."
 services: hdinsight
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 04/04/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 5e8fb7642dca815c64b9aed8184672259d3facf8
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: bab5268c4aab2210e8ace2c3a1db23b34887c2ed
+ms.lasthandoff: 04/04/2017
 
 
 ---
 
-# <a name="mixing-use-of-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR의 혼합 사용
+# <a name="combining-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 조합
 
-Spark에서 데이터를 조작하기 위한 SparkR을 Microsoft R Server와 혼합하여 분석하는 방법에 대해 알아봅니다. 두 패키지는 모두 Hadoop의 Spark 실행 엔진에서 실행되어 최신의 분산 처리 기능을 활용하지만, 자체의 Spark 세션을 요구하여 메모리 내 데이터 공유를 차단합니다. R Server의 향후 버전에서 이 문제를 해결할 때까지는 겹치지 않는 Spark 세션을 유지하고 중간 파일을 통해 데이터를 교환해야 합니다. 보시다시피 이 두 가지 요구 사항은 모두 매우 간단하게 수행할 수 있습니다.
+Spark에서 데이터를 조작하기 위한 ScaleR의 기능을 분석을 위해 Microsoft R Server와 조합하는 방법을 알아봅니다. 두 패키지는 모두 Hadoop의 Spark 실행 엔진에서 실행되어 최신의 분산 처리 기능을 활용하지만, 자체의 Spark 세션을 요구하여 메모리 내 데이터 공유를 차단합니다. R Server의 향후 버전에서 이 문제를 해결할 때까지는 겹치지 않는 Spark 세션을 유지하고 중간 파일을 통해 데이터를 교환해야 합니다. 보시다시피 이 두 가지 요구 사항은 모두 매우 간단하게 수행할 수 있습니다.
 
 Marin Inchiosa와 Roni Burd가 Stratata 2016에서 처음으로 발표했고 [R로 확장 가능한 데이터 과학 플랫폼 구축](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio)(영문) 웹 세미나를 통해 제공되는 예제를 사용하여 설명하겠습니다. 여기서는 SparkR을 사용하여 출발 및 도착 공항의 날씨 데이터와 잘 알려진 항공사의 도착 지연 데이터 집합을 결합하여 항공편 도착 지연을 예측하기 위한 ScaleR 로지스틱 회귀 모델의 입력으로 사용합니다.
 

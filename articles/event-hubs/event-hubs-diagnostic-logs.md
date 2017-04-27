@@ -1,6 +1,6 @@
 ---
 title: "Azure Event Hubs 진단 로그 | Microsoft Docs"
-description: "Azure에서 Event Hubs에 대한 진단 로그를 설정하는 방법을 알아봅니다."
+description: "Azure에서 이벤트 허브의 진단 로그를 설정하는 방법을 배웁니다."
 keywords: 
 documentationcenter: 
 services: event-hubs
@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/27/2017
 ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 8b0484b2d4f6474be728531fbda65896f30eccc4
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: bb8679b733e9ebd8d6a95a618d4ab8deab18ece4
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -59,7 +59,7 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 Event Hubs는 다음 두 가지 범주에 대한 진단 로그를 캡처합니다.
 
 * **ArchivalLogs:** 이벤트 허브 보관, 특히 보관 오류와 관련된 로그입니다.
-* **OperationalLogs:** 이벤트 허브 작업 중에 발생하는 정보, 특히 이벤트 허브 만들기, 사용된 리소스 및 작업 상태와 같은 작업 유형입니다.
+* **OperationalLogs:** Event Hubs 작업 중 발생하는 사항, 특히 이벤트 허브 만들기, 사용된 리소스, 작업 상태와 같은 작업 유형에 대한 정보입니다.
 
 ## <a name="diagnostic-logs-schema"></a>진단 로그 스키마
 모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 예제에 설명된 형식을 사용하는 문자열 필드가 있습니다.

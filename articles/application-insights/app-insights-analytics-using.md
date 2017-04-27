@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: d7f6f9582a3d15563c19d69845836a92a35ee95e
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 8485fd9350672dd0f41e2d5dada57a1940c43f16
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -134,7 +134,7 @@ IntelliSense에 사용할 수 있는 연산자 및 식 요소를 지정하라는
 테이블에 열이 네 개 이하인 경우 대시보드에 고정할 수 있습니다. 상위 7개의 행만 표시됩니다.
 
 ### <a name="dashboard-refresh"></a>대시보드 새로 고침
-약 2시간마다 쿼리를 다시 실행하면 대시보드에 고정된 차트가 자동으로 새로 고침됩니다.
+대시보드에 고정된 차트는 약 1시간마다 쿼리를 다시 실행하여 자동으로 새로 고쳐집니다. 새로 고침 단추를 클릭할 수도 있습니다.
 
 ### <a name="automatic-simplifications"></a>자동 단순화
 

@@ -1,6 +1,6 @@
 ---
 title: "HDInsight의 Hadoop 및 MapReduce | Microsoft Docs"
-description: "HDInsight 클러스터의 Hadoop에서 MapReduce 작업을 실행하는 방법을 알아봅니다. Java MapReduce 작업으로 구현된 기본 단어 개수 계산 작업을 실행합니다."
+description: "HDInsight 클러스터의 Hadoop에서 MapReduce 작업을 실행하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,24 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/12/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 8be0f2f30f815277c4953c223d91c2571c2521a5
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 764b54dd7fa6ac8d7b3fadb0745f06cbd3bff689
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>HDInsight에서 Hadoop과 MapReduce 사용
 
-[!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
+HDInsight 클러스터에서 MapReduce 작업을 실행하는 방법에 대해 알아보세요. 다음 표를 사용하여 HDInsight에서 MapReduce를 사용하는 다양한 방법을 확인할 수 있습니다.
 
-이 문서에서 HDInsight 클러스터의 Hadoop에서 MapReduce작업을 실행하는 방법에 대해 배웁니다. Java MapReduce 작업으로 구현된 기본 단어 계산 작업을 실행합니다.
+| **사용 기능**... | **...다음을 수행합니다** | ... **클러스터 운영 체제** | ... **클라이언트 운영 체제** |
+|:--- |:--- |:--- |:--- |
+| [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) |**SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
+| [REST (영문)](hdinsight-hadoop-use-mapreduce-curl.md) |**REST**를 사용하여 작업 원격 제출(예제 용도 cURL) |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
+| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |**Windows PowerShell** |Linux 또는or Windows |Windows |
+| [원격 데스크톱](hdinsight-hadoop-use-mapreduce-remote-desktop.md)(HDInsight 3.2 및 3.3) |**원격 데스크톱** |Windows |Windows |
 
-## <a id="whatis"></a>MapReduce는 무엇입니까?
+> [!IMPORTANT]
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.2 및 3.3 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
-Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 작성하기 위한 소프트웨어 프레임워크입니다. 입력된 데이터는 사용자 클러스터의 노드에 걸쳐 동시에 처리되는 독립적인 청크로 분할됩니다. MapReduce 작업은 두 함수로 구성됩니다:
+## <a id="whatis"></a>MapReduce란
+
+Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 작성하기 위한 소프트웨어 프레임워크입니다. 입력된 데이터는 사용자 클러스터의 노드에 걸쳐 동시에 처리되는 독립적인 청크로 분할됩니다. MapReduce 작업은 두 함수로 구성됩니다.
 
 * **매퍼**: 입력된 데이터를 소비하고 분석하며(일반적으로 필터 및 정렬 작업) 튜플을 내보냅니다.(키-값 쌍)
 
@@ -48,42 +56,31 @@ Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 작성�
 
 MapReduce는 다양한 언어로 구현할 수 있습니다. Java는 가장 일반적인 구현으로 해당 문서의 데모 용도로 사용됩니다.
 
-### <a name="hadoop-streaming"></a>Hadoop 스트리밍
+## <a name="development-languages"></a>개발 언어
 
-Java 및 Java 가상 컴퓨터(예를 들어, Scalding 또는 Cascading)를 기반으로 하는 언어 또는 프레임 워크는 Java 응용 프로그램과 비슷한 MapReduce 작업으로 직접 실행할 수 있습니다. C# 또는 Python 같은 기타 또는 독립 실행형 실행 파일은 Hadoop 스트리밍을 사용해야 합니다.
+Java 및 Java 가상 컴퓨터를 기반으로 하는 언어 또는 프레임워크는 MapReduce 작업으로 직접 실행할 수 있습니다. 이 문서에서 사용된 예는 Java MapReduce 응용 프로그램입니다. C#, Python, 독립 실행형 실행 파일 등의 비-Java 언어는 Hadoop 스트리밍을 사용해야 합니다.
 
-Hadoop 스트리밍은 STDIN 및 STDOUT를 통해 매퍼 및 리듀서와 통신합니다. - 매퍼 및 리듀서는 STDIN에서 데이터 한 줄을 한번에 읽고 STDOUT에 출력을 작성합니다. 매퍼 및 리듀서가 읽거나 내보낸 각 줄은 탭 문자로 구분된 키/값 쌍의 형식이어야 합니다.
+Hadoop 스트리밍은 STDIN 및 STDOUT을 통해 매퍼 및 리듀서와 통신합니다. 매퍼와 리듀서는 STDIN에서 한 번에 한 줄씩 데이터를 읽고 STDOUT에 출력을 씁니다. 매퍼 및 리듀서가 읽거나 내보낸 각 줄은 탭 문자로 구분된 키/값 쌍의 형식이어야 합니다.
 
     [key]/t[value]
 
 자세한 내용은 [Hadoop 스트리밍](http://hadoop.apache.org/docs/r1.2.1/streaming.html)을 참조하세요.
 
-HDInsight에서 Hadoop 스트리밍을 사용하는 예는 다음을 참조하세요:
+HDInsight에서 Hadoop 스트리밍을 사용하는 예를 보려면 다음 문서를 참조하세요.
+
+* [C# MapReduce 작업 개발](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
 * [Python MapReduce 작업 개발](hdinsight-hadoop-streaming-python.md)
 
-## <a id="data"></a>샘플 데이터 정보
+## <a id="data"></a>예제 데이터
 
-이 예에서는 샘플 데이터로 HDInsight 클러스터에서 텍스트 문서로 제공되는 Leonardo Da Vinci의 노트북을 사용합니다.
+HDInsight는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되는 다양한 예제 데이터 집합을 제공합니다. 이러한 디렉터리는 클러스터의 기본 저장소에 있습니다. 이 문서에서는 `/example/data/gutenberg/davinci.txt` 파일을 사용합니다. 이 파일에는 레오나르도 다빈치의 메모장이 포함되어 있습니다.
 
-샘플 데이터는 HDInsight가 Hadoop 클러스터의 기본 파일 시스템으로 사용하는 Azure Blob 저장소에 저장됩니다. HDInsight에서는 **wasb** 접두사를 사용하여 Blob 저장소에 저장된 파일에 액세스할 수 있습니다. 예를 들어 sample.log 파일에 액세스하려는 경우 다음 구문을 사용합니다.
+## <a id="job"></a>예제 MapReduce
 
-    wasbs:///example/data/gutenberg/davinci.txt
+MapReduce 단어 수 세기 응용 프로그램 예가 HDInsight 클러스터에 포함되어 있습니다. 이 예제는 클러스터의 기본 저장소인 `/example/jars/hadoop-mapreduce-examples.jar`에 있습니다.
 
-Azure Blob 저장소가 HDInsight의 기본 저장소이므로 **/example/data/gutenberg/davinci.txt**를 사용하여 파일에 액세스할 수도 있습니다.
-
-> [!NOTE]
-> 이전 구문에서 **wasbs:///**는 HDInsight 클러스터의 기본 저장소 컨테이너에 저장된 파일에 액세스하는 데 사용됩니다. 클러스터를 프로비전할 때 추가 저장소 계정을 지정한 경우 이러한 계정에 저장된 파일에 액세스하려면 컨테이너 이름과 저장소 계정 주소를 지정하여 데이터에 액세스하면 됩니다. 예를 들어 **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**입니다.
-
-
-## <a id="job"></a>예제 MapReduce 정보
-
-이 예제에서 사용되는 MapReduce 작업은 **wasbs://example/jars/hadoop-mapreduce-examples.jar**에위치하며 HDInsight 클러스터와 제공됩니다. 여기에는 사용자가 **davinci.txt**를 대상으로 실행하는 단어 계산 예가 포함되어 있습니다.
-
-> [!NOTE]
-> HDInsight 2.1 클러스터에서 파일 위치는 **wasbs:///example/jars/hadoop-examples.jar**합니다.
-
-다음은 참조용 단어 계산 MapReduce 작업의 Java 코드입니다:
+다음 Java 코드는 `hadoop-mapreduce-examples.jar` 파일에 포함된 MapReduce 응용 프로그램의 원본입니다.
 
 ```java
 package org.apache.hadoop.examples;
@@ -157,7 +154,11 @@ public class WordCount {
 }
 ```
 
-고유한 MapReduce 작업을 작성하는 방법에 대한 지침은 [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce-linux.md)을 참조하세요.
+고유한 MapReduce 응용 프로그램을 쓰는 지침은 다음 문서를 참조하세요.
+
+* [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce-linux.md)
+
+* [HDInsight용 Python MapReduce 프로그램 개발](hdinsight-hadoop-streaming-python.md)
 
 ## <a id="run"></a>MapReduce 실행
 
@@ -168,19 +169,23 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 | [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) |**SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
 | [Curl](hdinsight-hadoop-use-mapreduce-curl.md) |**REST** |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
 | [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |**Windows PowerShell** |Linux 또는or Windows |Windows |
-| [원격 데스크톱](hdinsight-hadoop-use-mapreduce-remote-desktop.md) |**원격 데스크톱** |Windows |Windows |
+| [원격 데스크톱](hdinsight-hadoop-use-mapreduce-remote-desktop.md)(HDInsight 3.2 및 3.3) |**원격 데스크톱** |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.2 및 3.3 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a id="nextsteps"></a>다음 단계
 
-MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 수 있습니다. HDInsight에서 데이터로 작업하는 편리한 방법을 제공하는 Pig 및 Hive와 같은 기술 뿐만 아니라 MapReduce 응용 프로그램을 쉽게 정의할 수 있는 Java 기반 프레임 워크도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+HDInsight에서 데이터를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce-linux.md)
+
 * [HDInsight용 Python 스트리밍 MapReduce 프로그램 개발](hdinsight-hadoop-streaming-python.md)
+
 * [HDInsight에서 Apache Hadoop을 사용하여 Scalding MapReduce 작업 개발](hdinsight-hadoop-mapreduce-scalding.md)
+
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]
+
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
 
 

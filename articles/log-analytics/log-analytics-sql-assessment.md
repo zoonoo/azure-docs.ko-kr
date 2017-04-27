@@ -16,9 +16,9 @@ ms.date: 04/12/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: a78c3877ac64b9376104d853d6b66b90fbb476d8
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: c07e7fd218f2ec696e280f0cc6f199a090f424e6
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -127,7 +127,7 @@ PowerShell 창을 열고 사용자 정보로 업데이트 한 후 다음 스크�
 작성된 모든 권장 구성은 권장 사항의 상대적 중요도를 식별하는 가중치 값을 제공합니다. 10개의 가장 중요한 권장 사항만 표시됩니다.
 
 ### <a name="how-weights-are-calculated"></a>가중치 계산 방법
-가중치는&3;개의 주요 요인을 기반으로 하는 집계 값입니다.
+가중치는 3개의 주요 요인을 기반으로 하는 집계 값입니다.
 
 * 식별된 문제로 인해 문제가 발생될 수 있는 *확률* 입니다. 확률이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
 * 문제가 발생된 경우 조직에 대한 문제의 *영향* 입니다. 영향이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
@@ -203,7 +203,7 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 
 * 지금은 없습니다.
 
-*SQL 평가 솔루션을 추가한 후 다른 서버가 발견되면, 이 서버를 평가하나요?*
+*SQL 평가 솔루션을 추가한 후 다른 서버가 발견되면 이 서버를 평가하나요?*
 
 * 예, 발견되면 그 시간부터 7일마다 평가됩니다.
 

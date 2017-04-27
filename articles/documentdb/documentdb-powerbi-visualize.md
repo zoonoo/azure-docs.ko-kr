@@ -18,6 +18,7 @@ ms.author: mimig
 translationtype: Human Translation
 ms.sourcegitcommit: 089b250e36eb3e091ad63d716acaf6259a958898
 ms.openlocfilehash: 3f2103a1d3838b73f10d567721693a9b813d0edb
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -76,7 +77,7 @@ DocumentDB 계정에서 화산 데이터를 검색하고 아래와 같은 대화
 2. Power BI 데스크톱이 시작되면 *시작* 화면이 표시됩니다.
    
     ![Power BI 데스크톱 시작 화면 - Power BI 커넥터](./media/documentdb-powerbi-visualize/power_bi_connector_welcome.png)
-3. *시작* 화면에서 직접 **데이터를 가져오고**, **최근 원본을 보거나**, **다른 보고서를 직접 열 수 **있습니다.  화면을 닫으려면 오른쪽 상단 모서리의 X를 클릭합니다. Power BI 데스크톱의 **보고서** 뷰가 표시됩니다.
+3. **시작** 화면에서 직접 데이터를 **가져오고** , 최근 **원본을 보거나** , 다른 보고서를 직접 *열 수* 있습니다.  화면을 닫으려면 오른쪽 상단 모서리의 X를 클릭합니다. Power BI 데스크톱의 **보고서** 뷰가 표시됩니다.
    
     ![Power BI 데스크톱 보고서 보기 - Power BI 커넥터](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview.png)
 4. **홈** 리본 메뉴를 선택한 다음 **데이터 가져오기**를 클릭합니다.  **데이터 가져오기** 창이 나타납니다.
@@ -212,10 +213,5 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 ## <a name="next-steps"></a>다음 단계
 * Power BI에 대한 자세한 내용은 [Power BI 시작](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)을 참조하세요.
 * DocumentDB에 대한 자세한 내용은 [DocumentDB 설명서 방문 페이지](https://azure.microsoft.com/documentation/services/documentdb/)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

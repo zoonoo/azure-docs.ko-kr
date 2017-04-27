@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: darosa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 95a927d8c2fbfbcb6aa663985d078d5146c489aa
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: f86336de4e1d5bda1eba12f0f95079b950963bde
+ms.lasthandoff: 04/18/2017
 
 
 ---
 # <a name="azure-event-hubs-archive"></a>Azure Event Hubs 보관
-Azure Event Hubs 보관을 사용하면 시간 또는 크기 간격을 선택 지정하여 더 유연하게 Event Hubs의 스트리밍 데이터를 선택한 Blob Storage 계정에 자동으로 전달할 수 있습니다. 보관은 빨리 설정할 수 있고 실행하는 데 관리 비용이 없으며 Event Hubs [처리량 단위](event-hubs-what-is-event-hubs.md#capacity)의 크기를 자동으로 조정합니다. Event Hubs 보관은 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다는 데이터 처리에 집중할 수 있습니다.
+Azure Event Hubs 보관을 사용하면 시간 또는 크기 간격을 유연하게 지정하여 Event Hubs의 스트리밍 데이터를 사용자가 선택한 Blob Storage 계정으로 전달할 수 있습니다. 보관은 빠르게 설정할 수 있으며 실행 관리 비용이 없고 Event Hubs [처리량 단위](event-hubs-what-is-event-hubs.md#capacity)에 따라 크기가 자동으로 조정됩니다. Event Hubs 보관은 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다는 데이터 처리에 집중할 수 있습니다.
 
 Event Hubs 보관을 사용하면 동일한 스트림에서 실시간 및 일괄 처리 기반 파이프라인을 처리할 수 있습니다. 이렇게 하면 시간이 지나면서 요구 사항이 늘어날 수 있는 솔루션을 빌드할 수 있습니다. 향후 실시간 처리를 염두에 두고 현재 일괄 처리 기반 시스템을 구축하거나 기존 실시간 솔루션에 효율적인 콜드 경로를 추가하면 Event Hubs 보관을 통해 스트리밍 데이터 작업이 더 쉬워집니다.
 
 ## <a name="how-event-hubs-archive-works"></a>Event Hubs 보관의 작동 방식
-Event Hubs는 원격 분석 수신에 대한 시간 보존 지속형 버퍼이며 분산된 로그와 비슷합니다. Event Hubs의 크기를 조정하는 키는 [분할된 소비자 모델](event-hubs-what-is-event-hubs.md#partitions)입니다. 각 파티션은 데이터의 독립적인 세그먼트이며 독립적으로 사용됩니다. 시간이 지나면서 이 데이터는 구성 가능한 보존 기간에 따라 에이징됩니다. 결과적으로 지정된 이벤트 허브는 "꽉 참" 상태가 되지 않습니다.
+Event Hubs는 원격 분석 수신에 대한 시간 보존 지속형 버퍼이며 분산된 로그와 비슷합니다. Event Hubs 크기 조정의 핵심은 [분할된 소비자 모델](event-hubs-what-is-event-hubs.md#partitions)입니다. 각 파티션은 데이터의 독립적인 세그먼트이며 독립적으로 사용됩니다. 시간이 지나면서 이 데이터는 구성 가능한 보존 기간에 따라 에이징됩니다. 결과적으로 지정된 이벤트 허브는 "꽉 참" 상태가 되지 않습니다.
 
 Event Hubs 보관을 사용하면 보관된 데이터를 저장하는 데 사용될 고유한 Azure Blob Storage 계정 및 Container를 지정할 수 있습니다. 이 계정은 이벤트 허브와 동일한 영역 또는 다른 영역에 있을 수 있으므로 Event Hubs 보관 기능이 보다 유연해집니다.
 
@@ -46,14 +46,14 @@ Event Hubs 트래픽은 [처리량 단위](event-hubs-what-is-event-hubs.md#capa
 Event Hubs 보관이 구성되면 첫 번째 이벤트를 전송하는 즉시 자동으로 실행됩니다. 계속해서 항상 실행됩니다. 다운스트림 프로세스가 제대로 작동하는지 쉽게 알 수 있도록 Event Hubs는 데이터가 없을 때 빈 파일을 작성합니다. Event Hubs는 일괄 처리 프로세서를 제공할 수 있는 표식 및 예측 가능한 주기를 제공합니다.
 
 ## <a name="setting-up-event-hubs-archive"></a>Event Hubs 보관 설정
-Event Hub를 만들 때 포털 또는 Azure Resource Manager를 통해 보관을 구성할 수 있습니다. **켜기** 단추를 클릭하여 간단히 보관을 사용하도록 설정합니다. 블레이드의 **컨테이너** 섹션을 클릭하여 저장소 계정 및 컨테이너를 구성합니다. Event Hubs 보관은 저장소에서 서비스 간 인증을 사용하므로 저장소 연결 문자열을 지정할 필요가 없습니다. 리소스 선택기가 저장소 계정에 대한 리소스 URI를 자동으로 선택합니다. Azure Resource Manager를 사용하는 경우 이 URI를 문자열로 명백히 제공해야 합니다.
+이벤트 허브를 만들 때 포털 또는 Azure Resource Manager를 통해 보관을 구성할 수 있습니다. **켜기** 단추를 클릭하여 간단히 보관을 사용하도록 설정합니다. 블레이드의 **컨테이너** 섹션을 클릭하여 저장소 계정 및 컨테이너를 구성합니다. Event Hubs 보관은 저장소에서 서비스 간 인증을 사용하므로 저장소 연결 문자열을 지정할 필요가 없습니다. 리소스 선택기가 저장소 계정에 대한 리소스 URI를 자동으로 선택합니다. Azure Resource Manager를 사용하는 경우 이 URI를 문자열로 명백히 제공해야 합니다.
 
 기본 시간은 5분입니다. 최소값은 1, 최대값은 15입니다. **크기** 의 범위는 10-500MB입니다.
 
 ![][1]
 
 ## <a name="adding-archive-to-an-existing-event-hub"></a>기존 이벤트 허브에 보관 추가
-보관은 Event Hubs 네임스페이스에 있는 기존 Event Hubs에 구성할 수 있습니다. 이 기능은 이전 **메시징** 또는 **혼합** 형식 네임스페이스에서 사용할 수 없습니다. 기존 이벤트 허브에서 보관을 사용하거나 보관 설정을 변경하려면 **필수** 블레이드를 로드할 네임스페이스를 클릭한 다음 보관 설정을 사용하거나 변경할 이벤트 허브를 클릭합니다. 마지막으로 다음 그림과 같이 열린 블레이드의 **속성** 섹션을 클릭합니다.
+보관은 Event Hubs 네임스페이스에 있는 기존 이벤트 허브에 구성할 수 있습니다. 이 기능은 이전 **메시징** 또는 **혼합** 형식 네임스페이스에서 사용할 수 없습니다. 기존 이벤트 허브에서 보관을 사용하거나 보관 설정을 변경하려면 **필수** 블레이드를 로드할 네임스페이스를 클릭한 다음 보관 설정을 사용하거나 변경할 이벤트 허브를 클릭합니다. 마지막으로 다음 그림과 같이 열린 블레이드의 **속성** 섹션을 클릭합니다.
 
 ![][2]
 

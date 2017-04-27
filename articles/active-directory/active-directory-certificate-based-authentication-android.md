@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2017
+ms.date: 04/12/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c4d95068b5e6472dbb809e675a47cb9eada7ca66
-ms.openlocfilehash: 112f28517196b3b656611a03ed12a40f2e049174
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: d85c99b43aa82e67bacbfe564c0bf61d967e9de2
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -44,6 +44,8 @@ CBA(인증서 기반 인증)를 사용하면 Exchange Online 계정을 다음에
 | Outlook |![확인][1] |
 | Yammer |![확인][1] |
 | 비즈니스용 Skype |![확인][1] |
+| Azure Information Protection 앱 |![확인][1] |
+
 
 ### <a name="implementation-requirements"></a>구현 요구 사항
 

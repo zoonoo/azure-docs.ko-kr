@@ -17,9 +17,9 @@ ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9fe18ba70c98baacae99e4f26506510921dcf894
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 05d5ae485f5a345ade59326ab77cb38127f06580
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -53,7 +53,7 @@ Azure의 기본 인프라는 여러 하드웨어 클러스터로 분할됩니다
 
 각 응용 프로그램 계층 앞에서 부하 분산 장치를 사용하여 가용성 집합과 함께 작동되도록 하고, 항상 트래픽이 실행 중인 인스턴스로 라우팅되도록 할 수 있습니다. 부하 분산 장치가 없어도 VM이 계획되거나 계획되지 않은 유지 관리 이벤트에서 계속 실행될 수 있지만 주 VM을 사용할 수 없는 경우 최종 사용자가 이러한 이벤트를 해결하지 못할 수 있습니다.
 
-관리되지 않는 디스크를 사용하는 경우 저장소 계층에서 고가용성을 위해 응용 프로그램을 디자인합니다. 모범 사례는 가용성 집합의 각 VM마다 별도의 저장소 계정을 사용하는 것입니다. 동일한 저장소 계정에서 VM과 모든 디스크(OS 및 데이터) 연결을 유지합니다. 저장소 계정에 더 많은 VHD를 추가하는 경우 저장소 계정 [제한](../../storage/storage-scalability-targets.md)을 고려하십시오. [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 경우 기본 디스크가 자동으로 배포됩니다.
+저장소 계층에서 고가용성을 위해 응용 프로그램을 디자인합니다. 가장 좋은 방법은 [가용성 집합의 VM에 Managed Disks를 사용](../linux/manage-availability.md#use-managed-disks-for-vms-in-availability-set)하는 것입니다. 현재 관리되지 않는 디스크를 사용하는 경우 [가용성 집합에서 VM을 변환하여 Managed Disks를 사용](../linux/convert-unmanaged-to-managed-disks.md#convert-vm-in-an-availability-set-to-managed-disks)하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]

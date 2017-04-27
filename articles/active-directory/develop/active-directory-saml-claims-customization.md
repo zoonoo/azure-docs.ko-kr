@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: asmalser
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: e9ab491639485950b17de4be190b6797c1660530
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: d3952e65aaf3ca89f83e99409e196840dd692a01
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Azure Active Directory의 사전 통합된 앱에 대한 SAML 토큰에서 발급된 클레임 사용자 지정
 현재 Azure Active Directory에서는 SAML 2.0 프로토콜을 사용하여 Single Sign-On을 지원하는 150개 이상의 응용 프로그램을 포함하여 Azure AD 응용 프로그램 갤러리에서 사전 통합된 수천 개의 응용 프로그램을 지원합니다. 사용자가 SAML을 사용하는 Azure AD를 통해 응용 프로그램을 인증하는 경우 Azure AD가 토큰을 응용 프로그램에 보내면(HTTP 302 리디렉션을 통해) 응용 프로그램이 이 토큰을 유효성 검사하고 사용자 이름 및 암호 입력에 대한 메시지를 표시하는 대신 사용자를 로그인하는 데 사용합니다. 이러한 SAML 토큰에는 "클레임"이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
 
-ID에서 "클레임"은 해당 사용자에 대해 발급하는 토큰 내에서 ID 공급자가 사용자에 대해 나타내는 정보입니다. [SAML 토큰](http://en.wikipedia.org/wiki/SAML_2.0)에서 이 데이터는 일반적으로 SAML Attribute Statement에 포함되고 사용자의 고유 ID는 일반적으로 SAML Subject에 표시됩니다.
+ID에서 “클레임”은 해당 사용자에 대해 발급하는 토큰 내에서 ID 공급자가 사용자에 대해 나타내는 정보입니다. [SAML 토큰](http://en.wikipedia.org/wiki/SAML_2.0)에서 이 데이터는 일반적으로 SAML Attribute Statement에 포함되고 사용자의 고유 ID는 일반적으로 SAML Subject에 표시됩니다.
 
 기본적으로 Azure AD는 Azure AD에 있는 사용자의 사용자 이름 값(이 값이 사용자를 고유하게 식별)과 함께 NameIdentifier 클레임이 포함된 SAML 토큰을 응용 프로그램에 발급합니다. 또한 SAML 토큰에는 사용자의 메일 주소, 이름 및 성을 포함하는 추가 클레임이 포함됩니다.
 
@@ -42,7 +43,7 @@ SAML 토큰 특성 테이블의 행 중 하나에 마우스를 가져갈 때마�
 
 **특성 값** 메뉴에서 **user.mail**을 선택하여 NameIdentifier 클레임이 디렉터리의 사용자 메일 주소가 되도록 설정하거나 **user.onpremisessamaccountname**을 선택하여 온-프레미스 Azure AD에서 동기화된 사용자의 SAM 계정 이름으로 설정합니다. 
 
-또한 특수 ExtractMailPrefix() 함수를 사용하여 메일 주소 또는 사용자 계정 이름에서 도메인 접미사를 제거함으로써 사용자 이름의 첫 부분만 전달되도록 할 수 있습니다(예: joesmith@contoso.com) 대신 "joesmith").
+또한 특수 ExtractMailPrefix() 함수를 사용하여 메일 주소 또는 사용자 계정 이름에서 도메인 접미사를 제거함으로써 사용자 이름의 첫 부분만 전달되도록 할 수 있습니다(예: joesmith@contoso.com 대신 “joesmith”).
 
 ![][3]
 
@@ -63,13 +64,7 @@ SAML 토큰 특성 테이블의 행 중 하나에 마우스를 가져갈 때마�
 * [SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
-[2]: ./media/active-directory-saml-claims-customization/claimscustomization2.png
-[3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
-[4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+[1]: ../media/active-directory-saml-claims-customization/claimscustomization1.png
+[2]: ../media/active-directory-saml-claims-customization/claimscustomization2.png
+[3]: ../media/active-directory-saml-claims-customization/claimscustomization3.png
+[4]: ../media/active-directory-saml-claims-customization/claimscustomization4.png

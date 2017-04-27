@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 2f046ff687985a5c4f83ca7236ce832b4c81ea6e
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: d55892027a01bc9a1be2455d5d9bfee05b6fb982
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -28,6 +28,7 @@ ms.lasthandoff: 03/18/2017
   * 앱 코드에서 [Application Insights SDK](app-insights-asp-net.md)를 설치합니다.
   * IIS 웹 서버: [Application Insights 에이전트](app-insights-monitor-performance-live-website-now.md)를 실행합니다.
   * Azure 웹앱: [Application Insights 확장](app-insights-azure-web-apps.md)을 추가합니다.
+  * Java 웹앱: [Java 에이전트](app-insights-java-agent.md) 설치
 * 웹 페이지에 [JavaScript 조각](app-insights-javascript.md)을 설치하여 브라우저 예외를 catch합니다.
 * 일부 응용 프로그램 프레임워크 또는 일부 설정에서는 더 많은 예외를 catch하기 위해 몇 가지 추가 단계를 수행해야 합니다.
   * [웹 양식](#web-forms)

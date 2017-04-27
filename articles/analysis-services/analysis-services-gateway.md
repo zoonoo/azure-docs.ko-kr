@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 90584f60864589744888817ea71d0eb0d4d170ff
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: c7127f4bd89bf00a4ef72e54dc7694a1766e5762
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -129,6 +129,25 @@ TCP 대신 HTTPS를 사용하여 Azure Service Bus와 통신하도록 게이트�
 게이트웨이를 설치하고 구성하는 데 문제가 있는 경우 [Power BI 게이트웨이 문제 해결](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem-tshoot/)을 참조하세요. 방화벽에 문제가 발생하는 경우 방화벽 또는 프록시 섹션을 참조하세요.
 
 게이트웨이 프록시에 문제가 발생하는 경우 [Power BI 게이트웨이에 대한 프록시 설정 구성](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy.md)을 참조하세요.
+
+### <a name="telemetry"></a>원격 분석
+원격 분석은 모니터링 및 문제 해결에 사용할 수 있습니다. 
+
+**원격 분석을 켜려면**
+
+1.    컴퓨터에서 온-프레미스 데이터 게이트웨이 클라이언트 디렉터리를 확인합니다. 일반적으로 %systemdrive%\Program Files\On-premises data gateway입니다. 또는 서비스 콘솔을 열고 실행 파일 경로 즉, 온-프레미스 데이터 게이트웨이 서비스의 속성을 확인합니다.
+2.    클라이언트 디렉터리의 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 파일에서 SendTelemetry 설정을 true로 변경합니다.
+        
+    ```
+        <setting name="SendTelemetry" serializeAs="String">
+                    <value>true</value>
+        </setting>
+    ```
+
+3.    변경 내용을 저장하고 Windows 서비스 온-프레미스 데이터 게이트웨이 서비스를 다시 시작합니다.
+
+
+
 
 ## <a name="next-steps"></a>다음 단계
 * [Analysis Services 관리](analysis-services-manage.md)

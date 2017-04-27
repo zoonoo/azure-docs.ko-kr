@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: bc047ba2aacbbea6d47d3870ee70d9d9a068f83a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 1b7772fbf719013d82e5baed1bbbf229d6f2946c
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -41,7 +41,7 @@ Hadoop 클러스터는 클러스터에 있는 작업의 분산 처리에 사용�
 | [Storm](hdinsight-storm-overview.md) |실시간 이벤트 처리 |
 | [Spark](hdinsight-apache-spark-overview.md) |메모리 내 처리, 대화형 쿼리, 마이크로 배치 스트림 처리 |
 | [대화형 Hive(미리 보기)](hdinsight-hadoop-use-interactive-hive.md) |대화형 및 더 빠른 Hive 쿼리에 대한 메모리 내 캐싱 |
-| [Spark의 R 서버(미리 보기)](hdinsight-hadoop-r-server-overview.md) |다양한 빅 데이터 통계, 예측 모델링 및 기계 학습 기능 |
+| [Spark의 R Server](hdinsight-hadoop-r-server-overview.md) |다양한 빅 데이터 통계, 예측 모델링 및 기계 학습 기능 |
 | [Kafka (미리 보기)](hdinsight-apache-kafka-introduction.md) | 실시간 스트리밍 데이터 파이프라인과 응용 프로그램을 만드는 데 사용할 수 있는 분산형 스트리밍 플랫폼 |
 
 각 클러스터 유형에는 클러스터 내 자체 노드 수, 클러스터 내 노드 용어 및 각 노드 유형에 대한 기본 VM 크기가 포함됩니다. 다음 표에서는 각 노드 유형에 대한 노드 수는 괄호로 묶어서 표시됩니다.
@@ -237,7 +237,7 @@ HDInsight 클러스터와 해당 기본 저장소 계정은 같은 Azure 위치�
 | Standard_D13_v2 |8 |56GB |8 |임시(SSD) = 400GB |16 |16x500 |
 | Standard_D14_v2 |16 |112GB |8 |임시(SSD) = 800GB |32 |32x500 |
 
-이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 다양한 크기의 가격 책정에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight)을 참조하세요.   
+이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항은 [가상 컴퓨터 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 다양한 크기의 가격 책정에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight)을 참조하세요.   
 
 > [!IMPORTANT]
 > 클러스터를 생성할 때 또는 클러스터를 만든 후 확장할 때 32개 이상의 작업자 노드를 사용하려는 경우 최소한 8개의 코어와 14GB RAM으로 헤드 노드의 크기를 선택해야 합니다.
@@ -252,6 +252,9 @@ HDInsight 클러스터와 해당 기본 저장소 계정은 같은 Azure 위치�
 HDInsight 클러스터를 만들 때 또는 클러스터를 만든 후에 저장소 계정을 추가할 수 있습니다.  [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 보조 Azure Storage에 대한 자세한 내용은 [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 보조 Data Lake Storage에 대한 자세한 내용은 [Azure Portal을 사용하는 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+
+> [!WARNING]
+> HDInsight 클러스터와 다른 위치에서는 추가 저장소 계정을 사용할 수 없습니다.
 
 ## <a name="use-hiveoozie-metastore"></a>Hive/Oozie Metastore 사용
 HDInsight 클러스터를 삭제한 후 Hive 테이블을 유지하려는 경우 사용자 지정 metastore를 사용하는 것이 좋습니다. 해당 metastore를 다른 HDInsight 클러스터에 연결할 수 있습니다.

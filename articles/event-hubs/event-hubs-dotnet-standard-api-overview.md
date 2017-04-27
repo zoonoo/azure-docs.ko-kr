@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: f77755bed5463c0c87f698ded5c80d824efbd8b0
-ms.openlocfilehash: 101727b54aa198411efaa5bfa7c0859bcfeb5417
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 4e05b1cc41038b2239f9314c17b93d20eed33844
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.openlocfilehash: 101727b54aa198411efaa5bfa7c0859bcfeb5417
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
   *  이 라이브러리는 모든 기본 런타임 작업을 제공합니다.
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
-  * 이 라이브러리는 처리된 이벤트를 추적할 수 있도록 하는 추가 기능을 제공하며 이벤트 허브에서 읽을 수는 가장 쉬운 방법입니다.
+  * 이 라이브러리는 처리된 이벤트를 추적하는 추가 기능을 추가하며 이벤트 허브에서 읽는 가장 쉬운 방법입니다.
 
 ## <a name="event-hub-client"></a>이벤트 허브 클라이언트
 [**EventHubClient**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)는 이벤트를 전송하고, 수신기를 만들고, 런타임 정보를 얻는 데 사용하는 기본 개체입니다. 이 클라이언트는 특정 이벤트 허브에 연결되며 Event Hubs 끝점에 대한 새 연결을 만듭니다.
@@ -48,7 +49,7 @@ var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hub c
 var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
 ```
 
-### <a name="send-events"></a>이벤트 전송
+### <a name="send-events"></a>이벤트 보내기
 이벤트 허브에 이벤트를 전송하려면 [**EventData**](/dotnet/api/microsoft.azure.eventhubs.eventdata) 클래스를 사용합니다. 본문은 `byte` 배열 또는 `byte` 배열 세그먼트여야 합니다.
 
 ```csharp
@@ -82,7 +83,7 @@ foreach (var partitionId in runTimeInformation.PartitionIds)
 }
 ```
 
-이벤트 허브에서 이벤트는 절대 제거되지 않으므로(만료되기만 함) 적절한 시작 지점을 지정해야 합니다. 다음 예제에서는 가능한 조합을 보여 줍니다.
+이벤트는 이벤트 허브에서 절대 제거되지 않으므로(만료되기만 함) 적절한 시작 지점을 지정해야 합니다. 다음 예제에서는 가능한 조합을 보여 줍니다.
 
 ```csharp
 // partitionId is assumed to come from GetRuntimeInformationAsync()
@@ -113,7 +114,7 @@ if (ehEvents != null)
         var customType = ehEvent.Properties["Type"];
         // Implement processing logic here
     }
-}       
+}        
 ```
 
 ## <a name="event-processor-host-apis"></a>이벤트 프로세서 호스트 API
@@ -188,8 +189,3 @@ public class SimpleEventProcessor : IEventProcessor
 
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

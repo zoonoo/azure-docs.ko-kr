@@ -13,19 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/19/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9cf87aa75b2ef65719a38e446a81086d265e7f4d
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: d04c670daac243119b47cece2df18335c7af972c
+ms.lasthandoff: 04/18/2017
 
 
 ---
 
 # <a name="documentdb-nosql-database-security"></a>DocumentDB NoSQL 데이터베이스 보안
 
- 이 문서에서는 NoSQL 데이터베이스 보안 모범 사례 및 데이터베이스 침해를 차단, 검색 및 대응하기 위해 Azure DocumentDB에서 제공하는 주요 기능에 대해 설명합니다.
+이 문서에서는 NoSQL 데이터베이스 보안 모범 사례 및 데이터베이스 침해를 차단, 검색 및 대응하기 위해 Azure DocumentDB에서 제공하는 주요 기능에 대해 설명합니다.
+ 
+## <a name="whats-new-in-documentdb-security"></a>DocumentDB 보안의 새로운 기능은 무엇입니까?
+
+이제 정부 영역, 중국 Azure, 독일 Azure를 제외한 모든 Azure 영역에서 DocumentDB에 저장된 미사용 문서를 암호화할 수 있습니다. 남은 영역은 백업에 대한 미사용 암호화와 함께 다음 주 활성화됩니다. 이러한 영역의 신규 및 기존 고객에 대해 미사용 데이터의 암호화가 자동으로 적용됩니다. 아무 것도 구성할 필요가 없으며 이전과 동일한 대기 시간, 처리량, 가용성, 기능과 함께 미사용 데이터를 암호화해 안전하게 보호하는 이점을 얻을 수 있습니다.
 
 ## <a name="how-do-i-secure-my-nosql-database"></a>내 NoSQL 데이터베이스를 보호하려면 어떻게 해야 하나요? 
 
@@ -72,7 +76,7 @@ NoSQL 데이터베이스 시스템을 비교하는 데는 다음 요구 사항 �
 |로컬 복제|단일 데이터 센터 내에서도 DocumentDB는 원하는 [일관성 수준](documentdb-consistency-levels.md)을 부여하는 고가용성을 위해 데이터를 자동으로 복제합니다. 이렇게 하면  [99.99% 가동 시간 가용성 SLA](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/)가 보장되고 다른 NoSQL 데이터베이스 서비스가 제공할 수 없는 재정적 보장이 함께 제공됩니다.|
 |자동 온라인 백업|DocumentDB 데이터베이스는 정기적으로 백업되며 georedundant 저장소에 저장됩니다. <br><br>[DocumentDB로 자동 온라인 백업 및 복원](documentdb-online-backup-and-restore.md)에 대한 자세한 정보|
 |삭제된 데이터 복원|자동 온라인 백업을 사용하여 실수로 삭제한 데이터를 이벤트 후 최대 30일 이내에 복구할 수 있습니다. <br><br>[DocumentDB로 자동 온라인 백업 및 복원](documentdb-online-backup-and-restore.md)에 대한 자세한 정보|
-|중요한 데이터 보호 및 격리|PII 및 기타 기밀 데이터를 특정 컬렉션 및 읽기-쓰기로 격리할 수 있으며 읽기 전용 액세스를 특정 사용자로 제한할 수 있습니다.|
+|중요한 데이터 보호 및 격리|이제 [새로운 기능](#whats-new)에 나열된 지역의 모든 데이터가 미사용 상태에서 암호화됩니다.<br><br>PII 및 기타 기밀 데이터를 특정 컬렉션 및 읽기-쓰기로 격리할 수 있으며 읽기 전용 액세스를 특정 사용자로 제한할 수 있습니다.|
 |공격 모니터|감사 로깅 및 활동 로그를 사용하여 계정에서 정상 및 비정상적인 활동을 모니터링할 수 있습니다. 리소스에 대해 어떤 작업이 누구에 의해 수행되었는지, 작업 상태 등을 확인할 수 있습니다.<br><br>![Azure DocumentDB에 대한 활동 로그](./media/documentdb-nosql-database-security/nosql-database-security-application-logging.png)|
 |공격에 대응|잠재적인 공격을 보고하기 위해 Azure 지원에 연락한 경우 5단계 인시던트 대응 프로세스가 시작됩니다. 5단계 프로세스의 목표는 문제가 검색되어 조사가 시작된 후 정상적인 서비스 보안 및 작업을 가능한 신속히 복원하는 것입니다.<br><br>[클라우드에서 Microsoft Azure의 보안 대응](https://aka.ms/securityresponsepaper)에 대한 자세한 정보|
 |지오-펜싱|DocumentDB는 독립적인 지역(예: 독일, 중국, US Gov)에 대해 데이터 거버넌스 및 준수를 보장합니다.|
@@ -87,3 +91,4 @@ NoSQL 데이터베이스 시스템을 비교하는 데는 다음 요구 사항 �
 마스터 키 및 리소스 토큰에 대한 자세한 내용은 [DocumentDB 데이터에 대한 액세스 보호](documentdb-secure-access-to-data.md)를 참조하세요.
 
 Microsoft 인증서에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/en-us/support/trust-center/)를 참조하세요.
+

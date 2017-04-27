@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: f06bf515accd8507189ecd5f1759f14f4f06fd33
-ms.openlocfilehash: faac9909993895b3e8a27b2cbaa7b62b3e508933
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 765a30f360cf8d3f8bde08aa94b20eba0d4537c9
+ms.lasthandoff: 04/18/2017
 
 ---
 
@@ -32,6 +32,9 @@ Azure DNS는 Azure CLI(명령줄 인터페이스I)를 사용하여 영역 파일
 
 Azure CLI는 Azure 서비스를 관리하는 데 사용하는 플랫폼 간 명령줄 도구입니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 다운로드하여 Windows, Mac 및 Linux 플랫폼에 사용할 수 있습니다. 가장 일반적인 이름 서버 소프트웨어인 [BIND](https://www.isc.org/downloads/bind/)는 일반적으로 Linux에서 실행하기 때문에 플랫폼 간 지원은 영역 파일 가져오기 및 내보내기에 특히 중요합니다.
 
+> [!NOTE]
+> 현재 두 가지 버전의 Azure CLI가 있습니다. CLI1.0은 Node.js를 기반으로 하며 "azure"로 시작하는 명령이 있습니다.
+> CLI2.0은 Python을 기반으로 하며 "az"로 시작하는 명령이 있습니다. 두 버전에서 영역 파일 가져오기가 지원되지만 이 페이지에서 설명하는 대로 CLI1.0 명령을 사용하는 것이 좋습니다.
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>기존 DNS 영역 파일 가져오기
 
@@ -41,9 +44,13 @@ Azure DNS에 DNS 영역 파일을 가져오기 전에 영역 파일의 복사본
 * 사용자의 DNS 영역이 Windows DNS에서 호스팅되는 경우 영역 파일의 기본 폴더는 **%systemroot%\system32\dns**입니다. 또한 각 영역 파일의 전체 경로는 DNS 서비스 관리 콘솔의 **일반** 탭에 표시됩니다.
 * DNS 영역이 BIND를 사용하여 호스팅되는 경우 각 영역에 대한 영역 파일의 위치는 바인딩 구성 파일 **'named.conf'**에 지정됩니다.
 
-**GoDaddy에서 영역 파일 작업**
-
-GoDaddy에서 다운로드한 영역 파일은 약간 비표준 형식을 가지고 있습니다. 이러한 영역 파일을 Azure DNS로 가져오기 전에 이 오류를 수정해야 합니다. 각 DBS 레코드의 RData에서 DNS 이름은 정규화된 이름으로 지정되지만 끝에 “.”가 없습니다. 즉, 이 이름은 다른 DNS 시스템에서 상대 이름으로 해석됩니다. Azure DNS로 가져오기 전에 영역 파일을 편집하여 이러한 이름에 종료하는 “.”를 추가해야 합니다.
+> [!NOTE]
+> GoDaddy에서 다운로드한 영역 파일은 약간 비표준 형식을 가지고 있습니다. 이러한 영역 파일을 Azure DNS로 가져오기 전에 이 오류를 수정해야 합니다.
+>
+> 각 DNS 레코드의 RDATA에서 DNS 이름은 정규화된 이름으로 지정되지만 끝에 “.”가 없습니다. 즉, 이 이름은 다른 DNS 시스템에서 상대 이름으로 해석됩니다. Azure DNS로 가져오기 전에 영역 파일을 편집하여 이러한 이름에 종료하는 “.”를 추가해야 합니다.
+>
+> 예를 들어 CNAME 레코드 "www 3600 IN CNAME contoso.com"을 "www 3600 IN CNAME contoso.com"으로 변경해야 합니다.
+> (끝에 "."가 있어야 함).
 
 ## <a name="import-a-dns-zone-file-into-azure-dns"></a>Azure DNS에 DNS 영역 파일 가져오기
 

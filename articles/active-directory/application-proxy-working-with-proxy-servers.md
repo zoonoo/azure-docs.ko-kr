@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 07adf751001a49e0365dde7cb8d7d2317a6b8134
-ms.openlocfilehash: d79c8418769656ecfd35a71a450176bd27427f68
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 64d06a67ee5480e6bdbac2f6745ea32faa2cf003
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/27/2017
 * 온-프레미스 아웃바운드 프록시를 바이패스하도록 커넥터를 구성합니다.
 * 아웃바운드 프록시를 사용하여 Azure AD 응용 프로그램 프록시에 액세스하도록 커넥터를 구성합니다.
 
-커넥터가 작동하는 방법에 대한 자세한 내용은 [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)을 참조하세요.
+커넥터가 작동하는 방법에 대한 자세한 내용은 [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)을 참조하세요.
 
 ## <a name="configure-your-connectors"></a>커넥터 구성
 
@@ -73,7 +73,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
   </appSettings>
 </configuration>
 ```
-커넥터 업데이터 서비스도 프록시를 바이패스하도록 하려면 C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config에 위치한 ApplicationProxyConnectorUpdaterService.exe.config 파일을 유사하게 변경합니다.
+커넥터 업데이터 서비스도 프록시를 바이패스하도록 하려면 C:\Program Files\Microsoft AAD App Proxy Connector Updater에 위치한 ApplicationProxyConnectorUpdaterService.exe.config 파일을 유사하게 변경합니다.
 
 기본 .config 파일로 되돌려야 할 경우를 대비해 원본 파일을 복사해야 합니다.
 
@@ -122,7 +122,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 
 ### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>2단계: 커넥터 및 관련 서비스에서 트래픽이 통과하여 흐를 수 있도록 프록시 구성
 
-아웃바운드 프록시에서는 다음&4;가지 측면을 고려해야 합니다.
+아웃바운드 프록시에서는 다음 4가지 측면을 고려해야 합니다.
 * 프록시 아웃바운드 규칙
 * 프록시 인증
 * 프록시 포트
@@ -172,7 +172,7 @@ Service Bus 트래픽이 아웃바운드 프록시 서버를 통해 전송되도
 
 커넥터 연결 문제를 식별하고 해결하는 좋은 방법은 커넥터 서비스를 시작하는 동안 커넥터 서비스에서 네트워크 캡처를 사용하는 것입니다. 이는 어려운 작업일 수 있으므로 네트워크 추적을 캡처 및 필터링하는 빠른 팁을 살펴 보겠습니다.
 
-원하는 모니터링 도구를 사용할 수 있습니다. 이 문서에서는 Microsoft 네트워크 모니터 3.4를 사용했습니다. [Microsoft에서 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=4865)할 수 있습니다.
+원하는 모니터링 도구를 사용할 수 있습니다. 이 문서에서는 Microsoft 네트워크 모니터 3.4를 사용했습니다. [Microsoft에서 다운로드](https://www.microsoft.com/download/details.aspx?id=4865)할 수 있습니다.
 
 다음 섹션에서 사용하는 예제와 필터는 네트워크 모니터에 국한되지만 원리는 모든 분석 도구에 적용할 수 있습니다.
 
@@ -240,7 +240,7 @@ SYN 패킷은 TCP 연결을 설정하기 위해 전송된 첫 번째 패킷입�
 
 커넥터 연결 문제가 계속 발생하는 경우 지원 팀을 사용하여 티켓을 만드세요. 팀은 추가 문제 해결을 지원할 수 있습니다.
 
-응용 프로그램 프록시 커넥터와 관련된 오류를 해결하는 방법에 대한 자세한 내용은 [응용 프로그램 프록시 문제 해결](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot)을 참조하세요.
+응용 프로그램 프록시 커넥터와 관련된 오류를 해결하는 방법에 대한 자세한 내용은 [응용 프로그램 프록시 문제 해결](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-troubleshoot)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

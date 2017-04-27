@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: f691f3886fce217ea784237f03a4f02ed58e12ee
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: e2d70bbb2af4231a9ba7e4d9a843593ff5d9f7d3
+ms.lasthandoff: 04/14/2017
 
 
 ---
@@ -34,7 +34,7 @@ NIC(네트워크 인터페이스) 및 네트워크 인터페이스를 사용하�
 - [네트워크 인터페이스](#nics): NIC는 VNet(Azure Virtual Network) 내의 한 서브넷에 연결됩니다. 그림에서 **VM1**에는 서브넷에 NIC 2개가 연결되어 있고, **VM2**에는 NIC 1개가 연결되어 있습니다. 각 NIC는 동일한 VNet에 있는 서로 다른 서브넷에 연결됩니다. 이 섹션에서는 기존 NIC를 나열하고, NIC를 생성, 변경 및 삭제하는 단계를 제공합니다.
 - [IP 구성](#ip-configs): 하나 이상의 IP 구성이 각 NIC에 연결됩니다. 각 IP 구성마다 개인 IP 주소가 하나씩 할당되며, 연결되는 하나의 공용 IP 주소가 있을 수 있습니다. 그림에서 **NIC1** 및 **NIC3**에는 각각 IP 구성이 하나씩 있고, **NIC2**에는 IP 구성이 두 개 있습니다. NIC1 및 NIC3에 할당된 IP 구성에는 할당된 공용 IP 주소가 있지만, NIC2에 할당된 IP 구성에는 할당된 공용 IP 주소가 없습니다. 이 섹션에서는 고정 및 동적 할당 방법을 통해 할당된 개인 IP 주소로 IP 구성을 생성, 변경 및 삭제하는 단계를 제공합니다. 또한 공용 IP 주소를 IP 구성과 연결하거나 분리하는 단계도 제공합니다.
 - [네트워크 보안 그룹](#nsgs): NSG(네트워크 보안 그룹)는 하나 이상의 인바운드 또는 아웃바운드 보안 규칙을 포함합니다. 이 규칙은 네트워크 인터페이스, 서브넷 또는 둘 다에 들어오고 나가는 네트워크 트래픽 유형을 제어합니다. 그림에서 **NIC1** 및 **NIC3**에는 연결된 NSG가 있지만, **NIC2**에는 연결된 NSG가 없습니다. 이 섹션에서는 NIC에 적용된 NSG를 보고, NIC에 NSG를 추가하고, NIC에서 NSG를 제거하는 단계를 제공합니다.
-- [가상 컴퓨터](#vms): VM에는 하나 이상의 NIC가 연결되지만, VM 크기에 따라 여러 개의 NIC가 연결될 수 있습니다. 각 VM 크기에서 지원하는 NIC 수를 확인하려면 [Windows](../virtual-machines/virtual-machines-windows-sizes.md) 또는 [Linux](../virtual-machines/virtual-machines-linux-sizes.md) VM 크기 문서를 참조하세요. 이 섹션에서는 단일 및 다중 NIC VM을 만들고 기존 VM과 NIC를 연결하거나 분리하는 단계를 제공합니다.
+- [가상 컴퓨터](#vms): VM에는 하나 이상의 NIC가 연결되지만, VM 크기에 따라 여러 개의 NIC가 연결될 수 있습니다. 각 VM 크기에서 지원하는 NIC 수를 확인하려면 [Windows](../virtual-machines/windows/sizes.md) 또는 [Linux](../virtual-machines/linux/sizes.md) VM 크기 문서를 참조하세요. 이 섹션에서는 단일 및 다중 NIC VM을 만들고 기존 VM과 NIC를 연결하거나 분리하는 단계를 제공합니다.
 
 Azure에서 NIC와 VM을 처음 사용하는 경우 이 문서를 참조하기 전에 [Azure 가상 네트워크 만들기](virtual-network-get-started-vnet-subnet.md)의 연습을 수행하는 것이 좋습니다. 이 연습을 수행하면 VNet과 VM에 익숙해질 수 있습니다.
 
@@ -219,6 +219,9 @@ NIC에 여러 IP 주소를 할당하면 다음과 같은 시나리오에서 유�
 >[!NOTE]
 >기본 NIC에 여러 IP 구성이 있고 기본 IP 구성의 개인 IP 주소를 변경한 경우, Windows 내에서 모든 보조 IP 주소를 NIC에 수동으로 다시 할당해야 합니다(Linux에서는 필요 없음). 운영 체제 내에서 IP 주소를 NIC에 수동으로 할당하려면 [가상 컴퓨터에 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-portal.md#os-config) 문서를 참조하세요. VM 운영 체제에 공용 IP 주소를 추가하지 마세요.
 
+>[!WARNING]
+>보조 NIC와 연결된 보조 IP 구성의 전용 IP 주소를 변경하려면 VM이 중지되고 할당 해제된 후에 위의 단계를 완료해야 합니다.
+
 |**도구**|**명령**|
 |---|---|
 |**CLI**|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
@@ -269,10 +272,11 @@ VM을 만들 때 기존 NIC를 해당 VM에 연결하거나 기존 NIC를 기존
 
 PowerShell 또는 CLI를 사용하여 포털을 사용할 수 없는 모든 이전 특성을 통해 NIC 또는 VM을 만들 수 있습니다. 다음 섹션의 작업을 수행하기 전에 다음 제약 조건과 동작을 고려하세요.
 
-- VM 크기마다 다른 NIC 수를 지원합니다. 각 VM 크기에서 지원하는 NIC 수에 대한 자세한 내용은 [Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM 크기 문서를 참조하세요. 
+- VM 크기마다 다른 NIC 수를 지원합니다. 각 VM 크기에서 지원하는 NIC 수에 대한 자세한 내용은 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM 크기 문서를 참조하세요. 
+- 이전에는 여러 NIC를 지원하고 두 개 이상의 NIC를 사용하여 생성된 VM에만 NIC를 추가할 수 있었습니다. VM 크기가 여러 NIC를 지원하는 경우에도 하나의 NIC를 사용하여 생성된 VM에는 NIC를 추가할 수 없었습니다. 반대로 두 개 이상의 NIC를 사용하여 생성된 VM에는 두 개 이상의 NIC가 연결되어야 하므로 세 개 이상의 NIC가 연결된 VM에서만 NIC를 제거할 수 있었습니다. 이러한 제약 조건은 더 이상 적용되지 않습니다. 이제 제한 없이(VM 크기에서 지원되는 개수까지) NIC를 사용하여 VM을 만들고 VM에 하나 이상의 연결된 NIC가 있는 경우 NIC를 제한 없이 추가하거나 제거할 수 있습니다. 
 - 기본적으로 VM에 연결된 첫 번째 NIC가 *기본* NIC로 정의됩니다. VM에 연결되는 다른 모든 NIC는 *보조* NIC입니다.
 - 기본적으로 VM의 모든 아웃바운드 트래픽은 기본 NIC의 기본 IP 구성에 할당된 IP 주소로 보내집니다. 물론, VM 운영 체제 내에서 아웃바운드 트래픽에 사용되는 IP 주소를 제어할 수 있습니다.
-- 과거에는 동일한 가용성 집합 내의 모든 VM에 단일 또는 다중 NIC가 있어야 했습니다. NIC가 여러 개 있는 VM은 이제 동일한 가용성 집합에 있을 수 있습니다. VM을 만들 때만 해당 VM을 가용성 집합에 추가할 수 있습니다. 가용성 집합에 대한 자세한 내용은 [Azure에서 Windows 가상 컴퓨터의 가용성 관리](../virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) 문서를 참조하세요.
+- 과거에는 동일한 가용성 집합 내의 모든 VM에 단일 또는 다중 NIC가 있어야 했습니다. NIC가 여러 개 있는 VM은 이제 동일한 가용성 집합에 있을 수 있습니다. VM을 만들 때만 해당 VM을 가용성 집합에 추가할 수 있습니다. 가용성 집합에 대한 자세한 내용은 [Azure에서 Windows 가상 컴퓨터의 가용성 관리](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) 문서를 참조하세요.
 - 동일한 VM에 연결된 NIC는 VNet 내의 다른 서브넷에 연결할 수 있지만, 해당 NIC는 모두 동일한 VNet에 연결되어야 합니다.
 - 기본 또는 보조 NIC의 IP 구성에 대한 IP 주소를 Azure Load Balancer 백 엔드 풀에 추가할 수 있습니다. 이전에 기본 NIC의 기본 IP 주소만 백 엔드 풀에 추가할 수 있었습니다.
 - VM을 삭제해도 연결된 NIC는 삭제되지 않습니다. VM이 삭제되면 VM에서 NIC가 분리됩니다. NIC를 다른 VM에 연결하거나 삭제할 수 있습니다.

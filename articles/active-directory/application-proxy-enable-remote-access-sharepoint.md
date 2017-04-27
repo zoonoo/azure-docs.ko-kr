@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 03/22/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 12e8ff02c72d90513868d43bc34c564f1da1ae43
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 93b36891c960582563a4ff9c622cd5ac3198dfeb
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -43,7 +43,7 @@ Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스�
 
 고객은 백 엔드 응용 프로그램(이 경우 SharePoint 서버)에 대한 최상의 SSO 환경을 원합니다. 일반적인 Azure AD 시나리오에서, 다시 인증하라는 메시지가 표시되지 않으므로 사용자는 한 번만 인증됩니다.
 
-Windows 인증을 사용하거나 필요로 하는 온-프레미스 응용 프로그램에 대해 Kerberos 인증 프로토콜 및 KCD(Kerberos 제한 위임)라는 기능을 사용하여 SSO를 획득할 수 있습니다. KCD(구성된 경우)를 통해 응용 프로그램 프록시 커넥터는 사용자가 Windows에 직접 로그인하지 않더라도 사용자에 대한 windows 티켓/토큰을 얻을 수 있습니다. KCD에 대한 자세한 내용은 [Kerberos 제한 위임 개요](https://technet.microsoft.com/en-us/library/jj553400.aspx)를 참조하세요.
+Windows 인증을 사용하거나 필요로 하는 온-프레미스 응용 프로그램에 대해 Kerberos 인증 프로토콜 및 KCD(Kerberos 제한 위임)라는 기능을 사용하여 SSO를 획득할 수 있습니다. KCD(구성된 경우)를 통해 응용 프로그램 프록시 커넥터는 사용자가 Windows에 직접 로그인하지 않더라도 사용자에 대한 windows 티켓/토큰을 얻을 수 있습니다. KCD에 대한 자세한 내용은 [Kerberos 제한 위임 개요](https://technet.microsoft.com/library/jj553400.aspx)를 참조하세요.
 
 SharePoint 서버에 대해 KCD를 설정하려면 다음 후속 섹션의 절차를 사용합니다.
 
@@ -63,7 +63,7 @@ SharePoint 서버에 대해 KCD를 설정하려면 다음 후속 섹션의 절�
 5. **새 관리되는 계정을 등록하세요.**를 선택합니다. 계정이 생성되면 계정을 사용하기 전에 **웹 응용 프로그램 풀**을 설정해야 합니다.
 
 > [!NOTE]
-서비스에 대해 이전에 생성된 Azure AD 계정이 있어야 합니다. 자동 암호 변경을 허용하는 것이 좋습니다. 전체 단계 집합 및 문제 해결에 대한 자세한 내용은 [SharePoint 2013에서 자동 암호 변경 구성](https://technet.microsoft.com/EN-US/library/ff724280.aspx)을 참조하세요.
+서비스에 대해 이전에 생성된 Azure AD 계정이 있어야 합니다. 자동 암호 변경을 허용하는 것이 좋습니다. 전체 단계 집합 및 문제 해결에 대한 자세한 내용은 [SharePoint 2013에서 자동 암호 변경 구성](https://technet.microsoft.com/library/ff724280.aspx)을 참조하세요.
 
 ### <a name="configure-sharepoint-for-kerberos"></a>Kerberos용 SharePoint 구성
 
@@ -87,7 +87,7 @@ Kerberos 인증을 위한 SharePoint 사이트를 구성하려면
 
 ### <a name="set-a-service-principal-name-for-the-sharepoint-service-account"></a>SharePoint 서비스 계정에 대한 서비스 주체 이름 설정
 
-KCD를 구성하기 전에 구성한 서비스 계정으로 실행 중인 SharePoint 서비스를 식별해야 합니다. SPN을 설정하여 이 작업을 수행합니다. 자세한 내용은 [서비스 주체 이름](https://technet.microsoft.com/en-us/library/cc961723.aspx)을 참조하세요.
+KCD를 구성하기 전에 구성한 서비스 계정으로 실행 중인 SharePoint 서비스를 식별해야 합니다. SPN을 설정하여 이 작업을 수행합니다. 자세한 내용은 [서비스 주체 이름](https://technet.microsoft.com/library/cc961723.aspx)을 참조하세요.
 
 SPN 형식은 다음과 같습니다.
 
@@ -115,7 +115,7 @@ SPN은 다음과 같습니다.
 HTTP/ sharepoint.demo.o365identity.us demo
 ```
 
-또한 서버에서 특정 사이트에 대한 SPN을 설정해야 할 수 있습니다. 자세한 내용은 [Kerberos 인증 구성(Office SharePoint Server)](https://technet.microsoft.com/en-us/library/cc263449(v=office.12).aspx)을 참조하세요. "Kerberos 인증을 사용하여 웹 응용 프로그램에 대한 서비스 주체 이름 만들기" 섹션을 특히 주의하여 보세요.
+또한 서버에서 특정 사이트에 대한 SPN을 설정해야 할 수 있습니다. 자세한 내용은 [Kerberos 인증 구성(Office SharePoint Server)](https://technet.microsoft.com/library/cc263449(v=office.12).aspx)을 참조하세요. "Kerberos 인증을 사용하여 웹 응용 프로그램에 대한 서비스 주체 이름 만들기" 섹션을 특히 주의하여 보세요.
 
 SPN을 설정하는 가장 쉬운 방법은 사이트에 이미 있는 SPN 형식을 따르는 것입니다. 서비스 계정에 대해 등록할 SPN을 복사합니다. 다음을 수행합니다.
 
@@ -140,7 +140,7 @@ Klist
 
  _http/sharepoint.demo.o365identity.us_를 서버에 대한 SPN으로, _demo\sp_svc_를 사용자 환경의 서비스 계정으로 바꿉니다. Setspn 명령으로 추가하기 전에 SPN을 검색합니다. 이 경우 **중복된 SPN 값** 오류가 표시될 수 있습니다. 이 오류가 표시되면 값이 해당 서비스 계정과 연결되어 있는지 확인합니다.
 
--l 옵션과 함께 Setspn 명령을 실행하여 SPN이 추가되었는지 확인할 수 있습니다. 이 명령에 대해 자세히 알아보려면 [Setspn](https://technet.microsoft.com/en-us/library/cc731241.aspx)을 참조하세요.
+-l 옵션과 함께 Setspn 명령을 실행하여 SPN이 추가되었는지 확인할 수 있습니다. 이 명령에 대해 자세히 알아보려면 [Setspn](https://technet.microsoft.com/library/cc731241.aspx)을 참조하세요.
 
 ### <a name="ensure-that-the-connector-is-set-as-a-trusted-delegate-to-sharepoint"></a>커넥터가 SharePoint에 대한 신뢰할 수 있는 대리자로 설정되는지 확인
 
@@ -220,7 +220,7 @@ KCD를 구성하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반복
 
 ## <a name="next-steps"></a>다음 단계
 
-[온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](active-directory-application-proxy-get-started.md)<br>
-[Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)<br>
-[Azure AD 응용 프로그램 프록시를 통해 SharePoint 2016 및 Office Online Server 게시](https://blogs.technet.microsoft.com/dawiese/2016/06/09/publishing-sharepoint-2016-and-office-online-server-with-azure-ad-application-proxy/)
+- [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](active-directory-application-proxy-get-started.md)
+- [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)
+- [Azure AD 응용 프로그램 프록시를 통해 SharePoint 2016 및 Office Online Server 게시](https://blogs.technet.microsoft.com/dawiese/2016/06/09/publishing-sharepoint-2016-and-office-online-server-with-azure-ad-application-proxy/)
 

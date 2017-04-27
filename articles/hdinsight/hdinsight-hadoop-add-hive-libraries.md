@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/27/2017
+ms.date: 04/14/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: bf15644cbf3a640bb706292c17cddbefa0574605
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: dd5df541c0362b8fe8265fd26dc73908215076ad
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight 클러스터를 만들 때 사용자 지정 Hive 라이브러리에 추가
@@ -34,8 +34,8 @@ HDInsight에서 Hive와 함께 자주 사용하는 라이브러리가 있는 경
 > [!NOTE]
 > 이 문서의 스크립트 작업을 사용하여 다음과 같은 시나리오에서 라이브러리를 사용할 수 있도록 합니다.
 >
-> * **Linux 기반 HDInsight** - **Hive 명령줄**, **WebHCat** 및 **HiveServer2**를 사용하는 경우.
-> * **Windows 기반 HDInsight** - **Hive 명령줄** 및 **WebHCat**을 사용하는 경우.
+> * **Linux 기반 HDInsight** - Hive 클라이언트, **WebHCat** 및 **HiveServer2**를 사용하는 경우.
+> * **Windows 기반 HDInsight** - Hive 클라이언트 및 **WebHCat**을 사용하는 경우.
 
 ## <a name="the-script"></a>스크립트
 
