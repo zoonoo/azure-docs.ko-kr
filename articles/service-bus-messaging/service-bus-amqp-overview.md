@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/27/2017
 ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
 ms.openlocfilehash: 91b138ee9590a66c63e2055eaeace82b4e719ae5
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -101,9 +102,4 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 [AMQP를 사용하여 PHP에서 Service Bus 사용]: service-bus-amqp-php.md
 [Azure Linux VM에 Apache Qpid Proton-C 설치]: service-bus-amqp-apache.md
 [Windows Server용 Service Bus의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
