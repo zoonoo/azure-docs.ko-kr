@@ -34,7 +34,7 @@ Azure Active Directory B2C는 ID 공급자에 응용 프로그램의 제품군�
 시작하기 전에 [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)를 완료해야 합니다.  응용 프로그램을 만들고, 그 암호를 가져오고, Azure AD B2C 테넌트의 보고서에 대한 액세스 권한을 부여합니다. *Bash 스크립트* 및 *Python 스크립트* 예제도 여기에 제공됩니다.
 
 ## <a name="powershell-script"></a>PowerShell 스크립트
-이 스크립트에서는 **TimeStamp** 매개 변수 및 **-ApplicationId** 필터를 사용하여&4;개의 사용량 보고서를 보여 줍니다.
+이 스크립트에서는 **TimeStamp** 매개 변수 및 **-ApplicationId** 필터를 사용하여 4개의 사용량 보고서를 보여 줍니다.
 
 ```
 # This script will require the Web Application and permissions setup in Azure Active Directory
