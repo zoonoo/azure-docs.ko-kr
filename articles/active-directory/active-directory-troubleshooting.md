@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: bryanla
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9c52e9257272c5b0c55c488d2c7ca6fef500260b
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -51,10 +52,5 @@ Azure Active Directory 기능 및 서비스 사용에 대한 지침은 대부분
 그러나 페이지가 로드되는 동안에는 항목이 흐리게 표시되며 **사용할 수 없음**으로 표시됩니다. 이는 임시 상태입니다. 몇 초간 기다리면 항목을 사용할 수 있습니다. 지연이 길어질 경우 웹 페이지를 새로 고치면 문제가 해결되는 경우가 많습니다.
 
 ![스크린샷: Active Directory를 사용할 수 없음](./media/active-directory-troubleshooting/not-available.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

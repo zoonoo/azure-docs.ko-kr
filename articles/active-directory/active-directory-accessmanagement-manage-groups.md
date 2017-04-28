@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/10/2017
+ms.date: 04/26/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
 ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -100,9 +101,4 @@ Azure AD에서는 간단한 규칙을 매우 쉽게 설정하여 그룹의 멤�
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
 * [Azure Active Directory란?](active-directory-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
