@@ -10,7 +10,3 @@
   소비 호스팅 요금제, 올바른 요금제 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 요금제에 대해 설명합니다. 
 * [Azure 앱 서비스 정의](../articles/app-service/app-service-value-prop-what-is.md)  
   Azure Functions는 배포, 환경 변수 및 진단과 같은 코어 기능을 위해 Azure App Service 플랫폼을 사용합니다. 
-
-<!--HONumber=Feb17_HO1-->
-
-

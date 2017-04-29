@@ -1,11 +1,11 @@
-## <a name="a-namecreate-clientacreate-a-client-connection"></a><a name="create-client"></a>클라이언트 연결 만들기
+## <a name="create-client"></a>클라이언트 연결 만들기
 `WindowsAzure.MobileServiceClient` 개체를 만들어 클라이언트 연결을 만듭니다.  `appUrl` 을 모바일 앱에 대한 URL로 바꿉니다.
 
 ```
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-## <a name="a-nametable-referenceawork-with-tables"></a><a name="table-reference"></a>테이블 작업
+## <a name="table-reference"></a>테이블 작업
 데이터에 액세스하거나 데이터를 업데이트하려면 백 엔드 테이블에 대한 참조를 만듭니다. `tableName` 을 테이블의 이름으로 바꿉니다.
 
 ```
@@ -22,7 +22,7 @@ var table = client.getTable(tableName);
 * [데이터 수정](#modifying)
 * [데이터 삭제](#deleting)
 
-### <a name="a-namequeryingahow-to-query-a-table-reference"></a><a name="querying"></a>방법: 테이블 참조 쿼리
+### <a name="querying"></a>방법: 테이블 참조 쿼리
 테이블 참조가 있는 경우 이를 사용하여 서버에서 데이터를 쿼리할 수 있습니다.  쿼리는 "LINQ와 유사한" 언어로 만들어집니다.
 테이블에서 모든 데이터를 반환하려면 다음 코드를 사용합니다.
 
@@ -56,7 +56,7 @@ table
 
 쿼리 구문에 대한 자세한 내용은 [쿼리 개체 설명서]를 참조하세요.
 
-#### <a name="a-nametable-filterafiltering-data-on-the-server"></a><a name="table-filter"></a>서버에서 데이터 필터링
+#### <a name="table-filter"></a>서버에서 데이터 필터링
 테이블 참조에서 `where` 절을 사용할 수 있습니다.
 
 ```
@@ -79,7 +79,7 @@ table
     .then(success, failure);
 ```
 
-#### <a name="a-nametable-pagingapaging-through-data"></a><a name="table-paging"></a>데이터를 통한 페이징
+#### <a name="table-paging"></a>데이터를 통한 페이징
 `take()` 및 `skip()` 메서드를 활용합니다.  예를 들어 테이블을 100개 행 레코드로 분할하려는 경우 다음과 같습니다.
 
 ```
@@ -107,7 +107,7 @@ function loadPage(pageNum) {
 
 다음으로 페이지 변수 및 몇 가지 UI 단추를 사용하여 페이지 목록을 제공할 수 있습니다. 각 페이지에 대해 새 레코드를 로드하는 데 `loadPage()`를 사용합니다.  이미 로드된 레코드에 대한 액세스 속도를 높이려면 캐싱을 구현합니다.
 
-#### <a name="a-namesorting-dataahow-to-return-sorted-data"></a><a name="sorting-data"></a>방법: 정렬된 데이터 반환
+#### <a name="sorting-data"></a>방법: 정렬된 데이터 반환
 `.orderBy()` 또는 `.orderByDescending()` 쿼리 메서드 사용:
 
 ```
@@ -119,7 +119,7 @@ table
 
 쿼리 개체에 대한 자세한 내용은 [쿼리 개체 설명서]를 참조하세요.
 
-### <a name="a-nameinsertingahow-to-insert-data"></a><a name="inserting"></a>방법: 데이터 삽입
+### <a name="inserting"></a>방법: 데이터 삽입
 적절한 날짜로 JavaScript 개체를 만들고 `table.insert()`를 비동기적으로 호출합니다.
 
 ```javascript
@@ -139,7 +139,7 @@ table
 
 Azure Mobile Apps Node.js 서버 SDK는 개발 목적으로 동적 스키마를 지원합니다.  동적 스키마를 통해 삽입 또는 업데이트 작업에 열을 지정하여 테이블에 열을 추가할 수 있습니다.  응용 프로그램을 프로덕션으로 전환하기 전에 동적 스키마를 해제하는 것이 좋습니다.
 
-### <a name="a-namemodifyingahow-to-modify-data"></a><a name="modifying"></a>방법: 데이터 수정
+### <a name="modifying"></a>방법: 데이터 수정
 `.insert()` 메서드와 마찬가지로 업데이트 개체를 만든 후 `.update()`를 호출해야 합니다.  업데이트 개체는 업데이트할 레코드의 ID를 포함해야 하며 레코드를 읽거나 `.insert()`를 호출할 때 ID를 얻을 수 있습니다.
 
 ```javascript
@@ -155,7 +155,7 @@ table
     }, failure);
 ```
 
-### <a name="a-namedeletingahow-to-delete-data"></a><a name="deleting"></a>방법: 데이터 삭제
+### <a name="deleting"></a>방법: 데이터 삭제
 레코드를 삭제하려면 `.del()` 메서드를 호출합니다.  개체 참조에 ID를 전달합니다.
 
 ```
@@ -165,8 +165,3 @@ table
         // Record is now deleted - update your cache
     }, failure);
 ```
-
-
-<!--HONumber=Feb17_HO1-->
-
-

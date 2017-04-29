@@ -6,8 +6,3 @@
 | [.NET Web App에서 Web API 호출](../articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet.md) | [Javascript SPA(NodeJS)에 등록 및 로그인 추가](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)| |
 | [ASP.NET Core 앱에 등록 및 로그인 추가](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) | | |
 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
