@@ -14,8 +14,3 @@ Office 365 비디오 계정에 연결하도록 논리 앱에 권한을 부여하
 4. 연결이 만들어졌으므로 이제 논리 앱의 다른 단계를 진행할 수 있습니다.  
    ![Office 365 비디오 연결 만들기 단계](./media/connectors-create-api-office365video/office365video-4.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

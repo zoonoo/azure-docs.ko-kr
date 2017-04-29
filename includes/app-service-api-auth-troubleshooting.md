@@ -19,8 +19,3 @@
 * .NET API 앱에서 [원격 디버깅 세션](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)을 시작하고 ADAL을 사용하여 전달자 토큰을 획득하는 코드 또는 예상되는 서비스 주체 ID에 대한 클레임을 검사하는 코드에 전달되는 변수 값을 검사합니다. 코드가 많은 다양한 원본에서 구성 값을 선택할 수 있으므로 이러한 방식으로 재미를 찾을 수 있습니다. 예를 들어 `ida:ClientId`를 `ida:ClientID`로 잘못 입력한 경우 Azure App Service Environment 설정을 구성할 때 코드가 Azure App Service 설정을 무시하고 Web.config 파일에서 찾는 `ida:ClientId` 값을 가져올 수 있습니다. 
 * 일반 Internet Explorer 창에서 작동하지 않으면 기존 로그인이 방해가 될 수 있으니 InPrivate을 시도하고 Chrome 또는 Firefox를 시도해 보세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

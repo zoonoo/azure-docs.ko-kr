@@ -64,8 +64,3 @@ Azure 부하 분산과 마찬가지로 내부 부하 분산 집합을 구성함�
 
 자세한 내용은 [내부 부하 분산](../articles/load-balancer/load-balancer-internal-overview.md)을 참조하세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

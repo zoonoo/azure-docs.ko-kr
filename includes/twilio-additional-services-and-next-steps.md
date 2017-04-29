@@ -1,7 +1,7 @@
-## <a name="a-nameadditionalservicesahow-to-use-additional-twilio-services"></a><a name="AdditionalServices"></a>방법: 추가 Twilio 서비스 사용
+## <a name="AdditionalServices"></a>방법: 추가 Twilio 서비스 사용
 여기에서 보여 준 예뿐만 아니라 Twilio는 Azure 응용 프로그램에서 Twilio 기능을 활용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [Twilio API 설명서][twilio_api_documentation](영문)를 참조하세요.
 
-## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>다음 단계
+## <a name="NextSteps"></a>다음 단계
 Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가십시오.
 
 * [Twilio 보안 지침][twilio_security_guidelines](영문)
@@ -16,10 +16,5 @@ Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내�
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

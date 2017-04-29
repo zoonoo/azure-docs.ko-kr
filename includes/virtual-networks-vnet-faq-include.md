@@ -114,7 +114,7 @@ Azure에서 제공하는 DNS는 Microsoft에서 제공하는 다중 테넌트 DN
 > 
 > 
 
-### <a name="can-i-override-my-dns-settings-on-a-per-vm-service-basis"></a>VM 당/서비스 단위로 DNS 설정을 재정의할 수 있습니까?
+### <a name="can-i-override-my-dns-settings-on-a-per-vm--service-basis"></a>VM 당/서비스 단위로 DNS 설정을 재정의할 수 있습니까?
 예. 클라우드 서비스 별로 DNS 서버를 설정하여 기본 네트워크 설정을 재정의할 수 있습니다. 그러나 가능한 한 네트워크 차원 DNS를 사용하는 것이 좋습니다.
 
 ### <a name="can-i-bring-my-own-dns-suffix"></a>고유한 DNS 접미사를 가져올 수 있습니까?
@@ -202,9 +202,4 @@ VNet은 다른 VNet 및 Azure 인프라에서 호스팅되는 다른 서비스�
 
 ### <a name="is-there-tooling-support-for-vnets"></a>VNet에 대한 도구 지원이 있습니까?
 예. 다양한 플랫폼에 대해 PowerShell 및 명령줄 도구를 사용할 수 있습니다. 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?LinkId=317721)를 참조하세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

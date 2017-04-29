@@ -17,8 +17,3 @@
        ![대역폭 템플릿 2를 사용하여 볼륨 컨테이너 수정](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
    3. 확인 아이콘 ![확인 아이콘](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) 을 클릭하여 업데이트된 설정을 저장합니다. **볼륨 컨테이너** 페이지가 변경 내용을 반영하도록 업데이트됩니다.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

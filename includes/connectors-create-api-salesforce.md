@@ -16,8 +16,3 @@ Salesforce 계정에 연결하도록 논리 앱에 권한을 부여하는 단계
 5. 연결이 만들어졌으므로 이제 논리 앱의 다른 단계를 진행할 수 있습니다.  
    ![Salesforce 연결 이미지 5](./media/connectors-create-api-salesforce/salesforce-5.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

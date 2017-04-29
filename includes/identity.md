@@ -11,7 +11,7 @@
 * [Azure Active Directory 사용](#ad)
 * [Azure Active Directory 액세스 제어 사용](#ac)
 
-## <a name="a-nameadinvmarunning-windows-server-active-directory-in-virtual-machines"></a><a name="adinvm"></a>가상 컴퓨터에서 Windows Server Active Directory 실행
+## <a name="adinvm"></a>가상 컴퓨터에서 Windows Server Active Directory 실행
 Azure 가상 컴퓨터에서 Windows Server AD를 실행하는 것은 온-프레미스에서 실행하는 것과 비슷합니다. [그림 1](#fig1) 은 일반적인 실행 예시를 보여 줍니다.
 
 ![가상 컴퓨터 내의 Azure Active Directory](./media/identity/identity_01_ADinVM.png)
@@ -36,7 +36,7 @@ Azure 가상 컴퓨터에서 Windows Server AD를 실행하는 것은 온-프레
 
 다른 경우도 있습니다. 예를 들어 클라우드에 있는 Windows Server AD를 온-프레미스 데이터 센터에 연결할 필요가 없습니다. 예를 들어 모든 사용자가 클라우드 기반 ID를 가지고 로그인하는 특정 사용자 그룹을 지원하는 SharePoint 팜을 실행하는 경우 Azure에서 독립형 포리스트를 만들 수 있습니다. 원하는 바에 따라 다양하게 기술을 활용할 수 있습니다. Azure에서 Windows Server AD를 사용하는 방법에 대한 자세한 지침을 보려면 [여기를 참조하세요](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
-## <a name="a-nameadausing-azure-active-directory"></a><a name="ad"></a>Azure Active Directory 사용
+## <a name="ad"></a>Azure Active Directory 사용
 SaaS 응용 프로그램이 점차 일반화되면서 당연한 질문이 제기되고 있습니다. 이러한 클라우드 기반 응용 프로그램에는 어떤 종류의 디렉터리 서비스를 사용해야 하나요? 이 질문에 대한 Microsoft의 대답은 Azure Active Directory입니다.
 
 클라우드에서 이 디렉터리 서비스를 사용하는 데는 두 가지 기본 옵션이 있습니다.
@@ -73,7 +73,7 @@ Azure AD를 사용하려면 본인의 온-프레미스 Active Directory 도메�
 
 오늘날 Azure AD가 온-프레미스 Windows Server AD의 완전한 대안은 아닙니다. 이미 언급한 것과 같이 클라우드 디렉터리는 무척 단순한 스키마를 가지고 있고 그룹 정책, 컴퓨터에 관한 정보 저장 기능, LDAP 지원 등을 제공하지 않습니다. (사실상 Windows 컴퓨터는 사용자가 Azure AD만으로 로그인하도록 구성할 수 없으므로 이는 지원되지 않는 시나리오입니다.) Azure AD의 초기 목표는 엔터프라이즈 사용자가 클라우드에 있는 응용 프로그램에 별도 로그인을 관리하지 않고도 액세스할 수 있도록 하여 온-프레미스 디렉터리 관리자가 직접 온-프레미스 디렉터리를 조직 사용자가 사용하는 모든 SaaS 응용 프로그램에 동기화하는 작업에 매여있지 않도록 하는 데 있었습니다. 시간이 흐르면서 이 클라우드 디렉터리 서비스에 기대되는 시나리오 영역이 더욱 넓어진 것입니다.
 
-## <a name="a-nameacausing-azure-active-directory-access-control"></a><a name="ac"></a>Azure Active Directory 액세스 제어 사용
+## <a name="ac"></a>Azure Active Directory 액세스 제어 사용
 클라우드를 기반으로 하는 ID 기술은 다양한 문제를 해결하는 데에 사용될 수 있습니다. 예를 들어 Azure Active Directory를 사용하면 조직의 사용자가 여러 SaaS 응용 프로그램에 Single Sign-On할 수 있습니다. 그러나 클라우드에 있는 ID 기술은 다른 방법으로도 사용될 수 있습니다.
 
 예를 들어 응용 프로그램에서 사용자가 여러 *IdP(ID 공급자)*가 발행한 토큰을 사용하여 로그인하는 경우를 가정합니다. 현재 Facebook, Google, Microsoft 등 다양한 ID 공급자가 있으며, 대개 응용 프로그램에서는 사용자가 이러한 ID 중 하나를 사용하여 로그인할 수 있도록 해 줍니다. 왜 응용 프로그램에서 기존 ID를 사용하지 않고 자체적으로 사용자와 암호 목록을 관리해야 할까요? 기존의 ID를 사용하면 사용자는 사용자 이름과 암호를 하나 더 적게 기억해도 되고 응용 프로그램 제공자는 자체 사용자 이름과 암호 목록을 더 이상 유지 관리하지 않아도 되므로 편리한 면이 있습니다.
@@ -101,9 +101,4 @@ ID 관련 작업은 대부분의 응용 프로그램에서 중요한 부분을 �
 
 ## <a name="about-the-author"></a>저자 정보
 David Chappell은 미국 캘리포니아주 샌프란시스코에 있는 Chappell & Associates([www.davidchappell.com](http://www.davidchappell.com))의 대표이다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -4,8 +4,3 @@ Azure PowerShell은 현재 두 가지 릴리스, 즉, 1.0 및 0.9.8로 사용할
 
 새로운 기능은 1.0 릴리스에만 추가됩니다. 릴리스 설치 및 제거 방법을 포함하여 1.0 릴리스에 대한 자세한 내용은 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)를 참조하세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

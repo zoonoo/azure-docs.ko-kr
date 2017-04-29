@@ -80,8 +80,3 @@
 ## <a name="additional-resources"></a>추가 리소스
 자세한 내용은 [트래픽 관리자에 대한 REST API 설명서](https://msdn.microsoft.com/library/azure/mt163664.aspx) 를 참조하세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

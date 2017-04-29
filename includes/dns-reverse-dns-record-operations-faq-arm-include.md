@@ -7,7 +7,7 @@
 
 ### <a name="will-the-reverse-dns-records-for-my-azure-assigned-public-ip-address-resolve-from-the-internet"></a>인터넷에서 내 Azure 할당 공용 IP 주소에 대한 역방향 DNS가 확인되나요?
 
- 예. 공용 IP 주소에 대해 역방향 DNS 속성을 설정하면 역방향 DNS 레코드를 모든 인터넷 사용자에 대해 확인하는 데 필요한 DNS 영역 및 DNS 위임을 Azure에서 모두 관리합니다.
+예. 공용 IP 주소에 대해 역방향 DNS 속성을 설정하면 역방향 DNS 레코드를 모든 인터넷 사용자에 대해 확인하는 데 필요한 DNS 영역 및 DNS 위임을 Azure에서 모두 관리합니다.
 
 ### <a name="will-a-default-reverse-dns-record-be-created-for-my-public-ip-addresses"></a>내 공용 IP 주소에 대해 기본 역방향 DNS 레코드가 만들어지나요?
 
@@ -40,8 +40,3 @@ FQDN은 정방향 순서로 지정되고 점으로 끝나야 합니다(예: "app
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Azure 계산 서비스에서 외부 도메인으로 전자 메일을 보낼 수 있나요?
 
 아니요. [Azure Compute Services는 외부 도메인으로의 전자 메일 전송을 지원하지 않습니다](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

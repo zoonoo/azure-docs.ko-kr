@@ -32,8 +32,3 @@ FQDN은 정방향 순서로 지정되고 점으로 끝나야 합니다(예: "app
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Azure 계산 서비스에서 외부 도메인으로 전자 메일을 보낼 수 있나요?
 
 아니요. [Azure Compute Services는 외부 도메인으로의 전자 메일 전송을 지원하지 않습니다](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

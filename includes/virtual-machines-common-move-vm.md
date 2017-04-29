@@ -27,8 +27,3 @@
    
     ![리소스 이동 블레이드의 스크린샷](./media/virtual-machines-common-move-vm/move-rg-list.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

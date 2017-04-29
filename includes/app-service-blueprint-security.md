@@ -16,8 +16,3 @@
   * [ASE의 인바운드 네트워크 트래픽에 대한 액세스 제어 구성](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
   * [ASE에서 백 엔드 리소스에 안전하게 연결](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

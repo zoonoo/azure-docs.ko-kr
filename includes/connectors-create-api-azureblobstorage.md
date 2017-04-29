@@ -26,8 +26,3 @@
    
     ![Azure Blob 저장소 연결 만들기 단계](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

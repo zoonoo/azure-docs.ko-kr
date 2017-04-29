@@ -7,8 +7,3 @@
 
 볼륨 컨테이너에 연결된 볼륨이 있으면 먼저 [볼륨을 오프라인으로 전환](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline)의 단계를 따라 해당 볼륨을 오프라인으로 전환해야 합니다. 볼륨이 오프라인이 되면 삭제할 수 있습니다. 볼륨 컨테이너에 연결된 볼륨이 없으면 위에서 설명한 대로 볼륨 컨테이너를 삭제합니다.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

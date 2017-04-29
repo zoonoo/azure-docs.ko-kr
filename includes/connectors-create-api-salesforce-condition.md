@@ -16,8 +16,3 @@
    ![Salesforce 조건 이미지 7](./media/connectors-create-api-salesforce/condition-7.png)  
 8. 논리 앱을 저장합니다.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

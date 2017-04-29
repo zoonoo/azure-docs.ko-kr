@@ -115,8 +115,3 @@ Ahmet에 대한 세부 정보를 추가하되 적절한 **역할** 값을 선택
     data:    Tags:
     data:
     info:    group create command OK
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -15,8 +15,3 @@
    
     ![VM 실행 중](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

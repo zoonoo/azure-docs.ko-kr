@@ -23,8 +23,3 @@ CNAME 레코드는 **mail.contoso.com** 또는 **www.contoso.com**과 같은 *�
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

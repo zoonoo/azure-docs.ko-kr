@@ -5,8 +5,8 @@
 
 | 속성 | 설명 | 샘플 값 |
 | --- | --- | --- |
-| **routes** |경로 테이블의 사용자 정의 경로 컬렉션 | [사용자 정의 경로](#User-defined-routes) |
-| **서브넷** |경로 테이블이 적용되는 서브넷의 컬렉션 | [서브넷](#Subnets) |
+| **routes** |경로 테이블의 사용자 정의 경로 컬렉션 |[사용자 정의 경로](#User-defined-routes) |
+| **서브넷** |경로 테이블이 적용되는 서브넷의 컬렉션 |[서브넷](#Subnets) |
 
 ### <a name="user-defined-routes"></a>사용자 정의 경로
 UDR을 만들어 대상 주소에 따라 트래픽을 보낼 위치를 지정할 수 있습니다. 경로를 네트워크 패킷의 대상 주소에 기반한 기본 게이트웨이 정의로 간주해도 됩니다.
@@ -54,9 +54,4 @@ JSON 형식의 샘플 경로 테이블:
 * [UDR](../articles/virtual-network/virtual-networks-udr-overview.md)에 대해 자세히 알아보세요.
 * 경로 테이블에 대한 [REST API 참조 설명서](https://msdn.microsoft.com/library/azure/mt502549.aspx) 를 읽어보세요.
 * UDR(사용자 정의 경로)에 대한 [REST API 참조 설명서](https://msdn.microsoft.com/library/azure/mt502539.aspx) 를 읽어보세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
