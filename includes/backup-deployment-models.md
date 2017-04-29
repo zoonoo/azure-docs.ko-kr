@@ -10,8 +10,3 @@ Azure Backup 서비스에는 Backup 자격 증명 모음과 Recovery Services �
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -5,8 +5,3 @@ Azure 파일 저장소는 표준 [SMB(서버 메시지 블록) 프로토콜](htt
 
 [Azure 포털](https://portal.azure.com), Azure 저장소 PowerShell cmdlet, Azure 저장소 클라이언트 라이브러리 또는 Azure 저장소 REST API를 사용하여 Azure 파일 공유를 만들 수 있습니다. 또한 이러한 파일 공유가 SMB 공유이므로 익숙한 표준 파일 시스템 API를 통해 파일 공유에 액세스할 수 있습니다.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

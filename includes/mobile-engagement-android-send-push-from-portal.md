@@ -14,7 +14,7 @@
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>앱에 알림 보내기
+## <a id="send"></a>앱에 알림 보내기
 이제 앱에 푸시 알림을 보내는 간단한 푸시 알림 캠페인을 만들겠습니다.
 
 1. Mobile Engagement 포털에서 **도달률** 탭으로 이동합니다.
@@ -41,9 +41,4 @@
 6. 마지막 단계: **활성화** 를 클릭하여 푸시 알림을 보내기 위해 캠페인을 활성화합니다.
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

@@ -28,8 +28,3 @@
 
 StorSimple 백업을 수행하는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/)를 클릭하세요.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

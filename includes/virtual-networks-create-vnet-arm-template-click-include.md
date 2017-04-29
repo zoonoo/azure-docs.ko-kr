@@ -22,8 +22,3 @@ Microsoft에서 유지 관리하는 github 리포지토리에 대한 미리 정�
     
      ![Preview 포털에서 VNet 만들기](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

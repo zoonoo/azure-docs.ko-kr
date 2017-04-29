@@ -26,8 +26,3 @@ Azure Portal에 연결하려면 구독이 있어야 합니다.
    
    ![로그인](./media/azure-getting-started-portal-login/login.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

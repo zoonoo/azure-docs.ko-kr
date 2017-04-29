@@ -7,8 +7,3 @@
 
 <!-- URLs. -->
 [Azure 포털]: https://portal.azure.com/
-
-
-<!--HONumber=Nov16_HO2-->
-
-

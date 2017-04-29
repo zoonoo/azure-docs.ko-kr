@@ -1,6 +1,6 @@
 저장소 계정에는 다음과 같은 두 종류가 있습니다.
 
-### <a name="generalpurpose-storage-accounts"></a>범용 저장소 계정
+### <a name="general-purpose-storage-accounts"></a>범용 저장소 계정
 범용 저장소 계정에서는 단일 계정의 테이블, 큐, 파일, Blob, Azure 가상 컴퓨터 디스크 등, Azure 저장소 서비스에 액세스할 수 있습니다. 이 저장소 계정이 유형에는 다음과 같이 두 가지 성능 계층이 있습니다.
 
 * 테이블, 큐, 파일, Blob 및 Azure 가상 컴퓨터 디스크를 저장할 수 있는 표준 저장소 성능 계층
@@ -26,9 +26,4 @@ Blob 저장소 계정에 대한 자세한 내용은 [Azure Blob 저장소: 쿨 �
 저장소 계정을 만들려면 먼저 다양한 Azure 서비스에 대한 액세스 권한을 제공하는 계획인 Azure 구독이 있어야 합니다. [무료 계정](https://azure.microsoft.com/pricing/free-trial/)으로 Azure를 시작할 수 있습니다. 구독 계획을 구매하기로 결정하는 경우 다양한 [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/)중에서 선택할 수 있습니다. [MSDN 구독자](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)는 Azure 저장소를 포함한 Azure 서비스에 사용할 수 있는 무료 월별 크레딧을 받습니다. 볼륨 가격에 대한 자세한 내용은 [Azure 저장소 가격 책정 ](https://azure.microsoft.com/pricing/details/storage/) 을 참조하세요.
 
 저장소 계정을 만드는 방법을 알아보려면 [저장소 계정 만들기](../articles/storage/storage-create-storage-account.md#create-a-storage-account) 를 참조하세요. 단일 구독으로 고유하게 명명된 저장소 계정을 100개까지 만들 수 있습니다. 저장소 계정 제한에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](../articles/storage/storage-scalability-targets.md) 를 참조하세요.
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

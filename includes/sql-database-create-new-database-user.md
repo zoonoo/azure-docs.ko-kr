@@ -18,8 +18,3 @@ SSMS를 사용하여 기존 데이터베이스에서 새 데이터베이스 사�
    
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

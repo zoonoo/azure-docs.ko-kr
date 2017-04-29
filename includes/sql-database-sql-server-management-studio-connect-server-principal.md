@@ -34,8 +34,3 @@
 
 연결 문제에 대한 자세한 내용은 [SQL 연결 오류와 일시적 SQL Database 오류의 문제 해결, 진단 및 예방](../articles/sql-database/sql-database-connectivity-issues.md)을 참조하세요.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

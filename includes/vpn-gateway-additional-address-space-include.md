@@ -13,8 +13,3 @@
    
     ![서브넷 설정](./media/vpn-gateway-additional-address-space-include/ok.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

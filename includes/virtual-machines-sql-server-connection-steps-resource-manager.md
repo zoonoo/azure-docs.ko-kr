@@ -27,8 +27,3 @@ DNS 레이블을 만들려면 먼저 포털에서 **가상 컴퓨터** 를 선�
    
     ![ssms 연결](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
