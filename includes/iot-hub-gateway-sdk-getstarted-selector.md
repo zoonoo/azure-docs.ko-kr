@@ -71,7 +71,3 @@ Hello World 샘플은 이전 섹션에서 설명한 개념을 보여줍니다. H
 <!-- Links -->
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
-
-<!--HONumber=Dec16_HO1-->
-
-

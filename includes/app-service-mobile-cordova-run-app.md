@@ -15,8 +15,3 @@
 다른 플랫폼에 대해 3-5단계를 반복할 수 있습니다.
 
 [Azure Portal]: https://portal.azure.com/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

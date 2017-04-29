@@ -6,8 +6,3 @@ Express 경로 가상 네트워크 게이트웨이는 다음 SKU를 사용할 �
 * HighPerformance
 * UltraPerformance
 
-
-
-<!--HONumber=Dec16_HO1-->
-
-

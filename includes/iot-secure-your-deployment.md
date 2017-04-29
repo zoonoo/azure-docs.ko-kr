@@ -107,8 +107,3 @@ Azure IoT Hub를 통해 수집된 데이터는 Azure Stream Analytics, Azure Blo
 [lnk-appservices]: https://azure.microsoft.com/services/app-service/
 [lnk-logicapps]: https://azure.microsoft.com/services/app-service/logic/
 [lnk-blob]: https://azure.microsoft.com/services/storage/
-
-
-<!--HONumber=Feb17_HO3-->
-
-

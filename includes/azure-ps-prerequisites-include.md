@@ -4,8 +4,3 @@
 
 > [!NOTE]
 > Azure 계정이 없는 경우 계정이 필요합니다. [여기서 무료 평가판](../articles/active-directory/sign-up-organization.md)에 등록합니다.
-
-
-<!--HONumber=Dec16_HO1-->
-
-
