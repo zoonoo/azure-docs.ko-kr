@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/18/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: f5727f6c761715dfff70025bb275ac8db4947a2c
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 297c01ec31b584b354fbd751a9c3c86a379ac63e
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -152,7 +152,7 @@ GitHub에서 [201-servicebus-create-queue](https://github.com/Azure/azure-quicks
 }
 ```
 
-자세한 내용은 [매개 변수](../azure-resource-manager/resource-group-template-deploy.md#parameters) 항목을 참조하세요.
+자세한 내용은 [매개 변수](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) 항목을 참조하세요.
 
 ### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Azure에 로그인하고 Azure 구독 설정
 

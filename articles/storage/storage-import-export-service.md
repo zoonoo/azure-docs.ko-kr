@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: a0a974982f80bc2137e73a84681a9401e8a02e39
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: b83d44399960137c07494e8fe97ec96fa74df3fb
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -72,6 +72,7 @@ WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다
 
 >[!NOTE]
 >**이전 버전:** 도구의 [WAImportExpot V1 버전을 다운로드](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)하고 [WAImportExpot V1 사용 가이드](storage-import-export-tool-how-to-v1.md)을 참조할 수 있습니다. 도구의 WAImportExpot V1 버전은 **이미 디스크에 데이터가 미리 기록되어 있을 때 디스크를 준비**하도록 지원합니다. 또한 사용할 수 있는 유일한 키가 SAS 키인 경우에는 WAImportExpot V1 도구를 사용해야 합니다.
+
 >
 
 ### <a name="hard-disk-drives"></a>하드 디스크 드라이브
@@ -128,6 +129,7 @@ Azure 가져오기/내보내기 서비스는 모든 공용 Azure 저장소 계�
 * 미국 국방부 중부
 * 중국 동부
 * 중국 북부
+* 영국 남부
 
 ### <a name="shipping"></a>발송
 **데이터 센터에 드라이브 배송:**

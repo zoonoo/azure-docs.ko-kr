@@ -17,9 +17,9 @@ ms.workload: NA
 ms.date: 04/13/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: b30c1b3f14f573172fcd38fb14d640ea0f668ee9
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: d233bea6d0314f0bda0ebfe6fb310f1c6b1579d1
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -56,7 +56,7 @@ DTU는 다른 성능 수준 및 서비스 계층에서 Azure SQL Database 간의
 기존 온-프레미스 또는 SQL Server 가상 컴퓨터 워크로드를 Azure SQL Database에 마이그레이션하려는 경우 [DTU 계산기](http://dtucalculator.azurewebsites.net/) 를 사용하여 필요한 DTU의 수를 대략적으로 계산할 수 있습니다. 기존 Azure SQL Database 워크로드의 경우 워크로드를 최적화하는 방법에 대해 깊이 이해하기 위해 [SQL Database Query Performance Insight](sql-database-query-performance.md) 를 사용하여 데이터베이스 리소스 사용(DTU)을 이해할 수 있습니다. [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV를 사용하여 지난 1시간 동안 리소스 소비 정보를 얻을 수 있습니다. 또는 카탈로그 뷰 [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx)는 충실도가 평균 5분으로 더 낮지만 지난 14일 동안 동일한 데이터를 가져오도록 쿼리할 수 있습니다.
 
 ## <a name="how-do-i-know-if-i-could-benefit-from-an-elastic-pool-of-resources"></a>리소스의 탄력적 풀의 이점이 있다면 어떻게 알 수 있나요?
-풀은 특정 사용 패턴을 가진 많은 데이터베이스에 적합합니다. 주어진 데이터 베이스에 대해, 이 패턴은 상대적으로 사용률 급증이 드물고 평균 사용률이 낮음으로 규정됩니다. SQL 데이터베이스는 기존 SQL 데이터베이스 서버에서 데이터베이스의 기록 리소스 사용률을 자동으로 평가하고 Azure 포털의 적절한 풀 구성을 권장합니다. 자세한 내용은 [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool-guidance.md)를 참조하세요.
+풀은 특정 사용 패턴을 가진 많은 데이터베이스에 적합합니다. 주어진 데이터 베이스에 대해, 이 패턴은 상대적으로 사용률 급증이 드물고 평균 사용률이 낮음으로 규정됩니다. SQL 데이터베이스는 기존 SQL 데이터베이스 서버에서 데이터베이스의 기록 리소스 사용률을 자동으로 평가하고 Azure 포털의 적절한 풀 구성을 권장합니다. 자세한 내용은 [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool.md)를 참조하세요.
 
 ## <a name="what-happens-when-i-hit-my-maximum-dtus"></a>내 최대 DTU에 도달한 경우 어떻게 되나요?
 선택한 서비스 계층/성능 수준에 허용되는 최대 한도까지 데이터베이스 워크로드를 실행하는 데 필요한 리소스를 제공하도록 성능 수준이 보정 및 제어됩니다. 워크로드가 CPU/데이터 IO/로그 IO 한도 중 하나에서 한도에 도달할 경우 최대 허용 수준에서 계속 리소스를 수신하지만 쿼리의 대기 시간이 증가할 가능성이 큽니다. 속도 저하가 너무 심해서 쿼리 시간 초과가 시작되지 않으면 이러한 한도에 오류가 발생하지는 않지만 워크로드에서 작업 속도가 느려집니다. 허용되는 최대 동시 사용자 세션/요청(작업자 스레드) 제한에 도달하면 명시적 오류가 표시됩니다. 메모리, 데이터 I/O 및 트랜잭션 로그 I/O가 아닌 CPU 리소스의 제한 사항에 대한 자세한 내용은 [Azure SQL Database 리소스 제한](sql-database-resource-limits.md) 을 참조하세요.
