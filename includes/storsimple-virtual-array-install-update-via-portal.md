@@ -53,7 +53,3 @@
 9. 업데이트가 성공적으로 설치된 후에 장치 업데이트 블레이드에서 이 효과에 대한 메시지가 표시됩니다. 소프트웨어 버전도 **10.0.10288.0**으로 변경됩니다. 
 
     ![장치 업데이트](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)
-
-<!--HONumber=Nov16_HO4-->
-
-

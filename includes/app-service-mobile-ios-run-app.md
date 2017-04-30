@@ -6,8 +6,3 @@
    ![iOS에서 실행 중인 빠른 시작 앱](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
 [Azure 포털]: https://portal.azure.com/
-
-
-<!--HONumber=Nov16_HO3-->
-
-

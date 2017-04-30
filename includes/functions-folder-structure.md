@@ -19,8 +19,3 @@ wwwroot
 
 각 함수에는 하나 이상의 코드 파일, function.json 구성 및 기타 종속성을 포함하는 폴더가 있습니다.
 
-
-
-<!--HONumber=Nov16_HO4-->
-
-

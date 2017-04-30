@@ -38,8 +38,3 @@
 
 위에 표시된 것처럼 SAS을 사용하는 경우, 응용 프로그램에서 계정 키가 노출되지 않습니다. [공유 액세스 서명: SAS 모델 이해](../articles/storage/storage-dotnet-shared-access-signature-part-1.md)를 확인하여 SAS 및 SAS 사용 모범 사례에 대해 자세히 알아볼 수 있습니다.
 
-
-
-<!--HONumber=Nov16_HO4-->
-
-
