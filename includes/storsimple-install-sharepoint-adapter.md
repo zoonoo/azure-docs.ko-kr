@@ -18,8 +18,3 @@
 7. SharePoint 중앙 관리 페이지를 엽니다. SharePoint 링크에 대한 StorSimple 어댑터를 포함하는 StorSimple 구성 그룹이 표시 되어야 합니다.
 8. 다음 단계, [RBS 구성](#configure-rbs)으로 이동합니다.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

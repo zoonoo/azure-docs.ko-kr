@@ -4,8 +4,3 @@
 | 템플릿 |생성 템플에 대한 코드 문제 |[문제 보관](https://github.com/Azure/azure-webjobs-sdk-templates/issues) |
 | 포털 |사용자 인터페이스 또는 환경 문제 |[문제 보관](https://github.com/ProjectKudu/AzureFunctionsPortal/issues) |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -36,7 +36,3 @@ Azure Active Directory는 Azure 리소스 관리자를 사용하여 리소스에
     ```
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-
-<!--HONumber=Nov16_HO3-->
-
-

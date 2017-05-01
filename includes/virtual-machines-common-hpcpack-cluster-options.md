@@ -2,8 +2,3 @@
 
 Azure에서 대규모 병렬, 배치 및 HPC 워크로드를 실행하기 위한 다른 옵션을 보려면 [배치 및 고성능 컴퓨팅에 대한 기술 리소스](../articles/batch/big-compute-resources.md)를 참조하세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

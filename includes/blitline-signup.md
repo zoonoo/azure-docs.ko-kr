@@ -34,8 +34,3 @@ Blitline을 사용하려면 응용 프로그램 ID가 있어야 합니다.
 [blitline-connection-info-button]: ./media/blitline-signup/blitline_connection_info_button.png
 [blitline-connection-info]: ./media/blitline-signup/blitline_connection_info_screen.jpg
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

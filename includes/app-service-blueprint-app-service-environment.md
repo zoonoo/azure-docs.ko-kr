@@ -9,8 +9,3 @@
 * [앱 서비스 환경에 대한 사용자 지정 구성 설정(PCI 규정 준수 설정 포함)](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
 * [앱 서비스 환경에서 고밀도 앱 호스팅](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

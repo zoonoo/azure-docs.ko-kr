@@ -16,8 +16,3 @@ Logic Apps에서 Dynamics 계정을 사용하기 전에 CRM Online 계정에 연
 4. 연결이 만들어졌는지 확인합니다. 이제 논리 앱의 다른 단계를 진행합니다.  
    ![](./media/connectors-create-api-crmonline/dynamics-properties.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -24,8 +24,3 @@
 * [WebJobs 크기 조정](http://channel9.msdn.com/Shows/Azure-Friday/Azure-WebJobs-105-Scaling-out-Web-Jobs)
 * [Magnus Mårtensson의 Azure WebJobs 비디오](https://www.youtube.com/playlist?list=PLqp1ZOYYUSd81yEzMYLTw8cz91wx_LU9r)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

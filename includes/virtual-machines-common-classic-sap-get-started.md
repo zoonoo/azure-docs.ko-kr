@@ -35,8 +35,3 @@
 
 [지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkID=521971)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

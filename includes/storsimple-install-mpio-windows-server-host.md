@@ -23,8 +23,3 @@
      
        ![역할 및 기능 추가 마법사 9](./media/storsimple-install-mpio-windows-server/IC741002.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

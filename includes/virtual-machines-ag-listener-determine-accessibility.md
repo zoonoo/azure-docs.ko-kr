@@ -12,8 +12,3 @@ Azure에서 가용성 그룹 수신기를 구성하려면 두 가지 방법을 �
 
 ILB는 지역 범위의 가상 네트워크에만 구성할 수 있습니다. 선호도 그룹에 대해 구성된 기존 가상 네트워크는 ILB를 사용할 수 없습니다. 자세한 내용은 [내부 부하 분산 장치](../articles/load-balancer/load-balancer-internal-overview.md)를 참조하세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-
