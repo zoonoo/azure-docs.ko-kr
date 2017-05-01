@@ -5,8 +5,3 @@
     ![포털에서 WNS 키 설정](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
 
 이제 백 엔드가 WNS를 사용하여 푸시 알림을 보내도록 구성되었습니다.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

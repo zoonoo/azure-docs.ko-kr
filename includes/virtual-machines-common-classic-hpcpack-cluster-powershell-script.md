@@ -55,8 +55,3 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 ## <a name="configuration-file"></a>구성 파일
 배포 스크립트의 구성 파일은 XML 파일입니다. 스키마 파일 HPCIaaSClusterConfig.xsd는 HPC 팩 IaaS 배포 스크립트 폴더에 있습니다. **IaaSClusterConfig** 는 배포 스크립트 폴더의 Manual.rtf 파일에 자세히 설명된 하위 요소가 포함된 구성 파일의 루트 요소입니다.
 
-
-
-<!--HONumber=Jan17_HO2-->
-
-

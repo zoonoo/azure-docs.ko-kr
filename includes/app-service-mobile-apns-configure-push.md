@@ -6,8 +6,3 @@
 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
 
 [1]: ./media/app-service-mobile-apns-configure-push/mobile-push-notification-hub.png
-
-
-<!--HONumber=Dec16_HO2-->
-
-

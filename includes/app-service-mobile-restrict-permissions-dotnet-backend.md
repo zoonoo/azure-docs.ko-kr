@@ -18,8 +18,3 @@
         table.access = 'authenticated';
 
     자세한 내용은 [방법: 테이블에 대한 액세스 인증 요구](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth)를 참조하세요. 사이트에서 빠른 시작 코드 프로젝트를 다운로드하는 방법을 알아보려면 [방법: Git를 사용하여 Node.js 백 엔드 빠른 시작 코드 프로젝트 다운로드](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)를 참조하세요.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

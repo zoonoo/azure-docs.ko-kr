@@ -9,8 +9,3 @@ Azure App Service의 Mobile Apps 기능은 [Azure Notification Hubs]를 사용�
 
 [Azure Portal]: https://portal.azure.com/
 [Azure Notification Hubs]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
-
-
-<!--HONumber=Dec16_HO2-->
-
-
