@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
-ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 5a604f3538a0749f7f951926f451cc91504255d6
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -85,14 +85,14 @@ ms.lasthandoff: 02/10/2017
     {
       "version":"1.0",
       "options":{
-          "TrackingMode": "Faster"
+          "TrackingMode": "Fast"
       }
     }
 
 #### <a name="attribute-descriptions"></a>특성 설명
 | 특성 이름 | 설명 |
 | --- | --- |
-| Mode |빠르게: 처리 속도는 더 빠르지만 정확도가 떨어집니다(기본값). <br/>품질: 추적 정확도는 더 높지만 시간이 더 오래 걸립니다. |
+| Mode |빠르게: 처리 속도는 빠르지만 정확도가 떨어집니다(기본값).|
 
 
 ### <a name="json-output"></a>JSON 출력

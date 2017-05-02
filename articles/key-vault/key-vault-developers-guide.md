@@ -1,6 +1,6 @@
 ---
 title: "Key Vault 개발자 가이드 | Microsoft Docs"
-description: "개발자는 Microsoft Azure 환경 내에서 Azure 키 자격 증명 모음을 사용하여 암호화 키를 관리할 수 있습니다. "
+description: "개발자는 Microsoft Azure 환경 내에서 Azure 키 자격 증명 모음을 사용하여 암호화 키를 관리할 수 있습니다."
 services: key-vault
 documentationcenter: 
 author: BrucePerlerMS
@@ -12,25 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/17/2017
+ms.date: 04/18/2017
 ms.author: bruceper
 translationtype: Human Translation
-ms.sourcegitcommit: 74de2165ea3a66cd0babc9f6d6d451522988bbe6
-ms.openlocfilehash: b3fc845812e8a4a2729f026baa82b58319d5c5f3
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c6ae0909faf0711b1ad25df48f626630644c5df7
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 키 자격 증명 모음 개발자 가이드
+
 Key Vault를 사용하면 다음과 같은 응용 프로그램 내에서 중요한 정보를 안전하게 액세스할 수 있습니다.
 
 * 키와 암호는 코드 작성 없이 보호되며 응용 프로그램에서 쉽게 사용할 수 있습니다.
 * 고객들에게 고유한 키를 부여하여 관리하게 하므로 핵심 소프트웨어 기능을 제공하는 데 집중할 수 있습니다 이러한 이유로 응용 프로그램에는 고객의 테넌트 키와 암호에 대한 책임 또는 잠재적인 법적 책임이 없습니다.
-* 응용 프로그램은 서명 및 암호화를 위해 키를 사용할 수 있지만, 지리적으로 분산되는 응용 프로그램에 적합한 솔루션과 같은 응용 프로그램의 경우 외부에서 키 관리를 유지할 수 있습니다.
+* 응용 프로그램은 서명 및 암호화를 위해 키를 사용할 수 있지만, 응용 프로그램 외부에서 키 관리를 유지할 수 있으므로 지리적으로 분산된 앱에 적합한 솔루션을 구현할 수 있습니다.
 * Key Vault의 2016년 9월 릴리스를 통해 응용 프로그램에서 Key Vault 인증서를 사용할 수 있게 되었습니다. 자세한 내용은 [REST 참조](https://msdn.microsoft.com/library/azure/dn903623.aspx)의 **키, 암호 및 인증서 정보**를 참조하세요.
 
 Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증명 모음이란?](key-vault-whatis.md)을 참조하세요.
 
 ## <a name="videos"></a>비디오
+
 이 비디오에서는 사용자 고유의 키 자격 증명 모음을 만드는 방법과 'Hello Key Vault' 샘플 응용 프로그램에서 이를 사용하는 방법을 보여 줍니다.
 
 
@@ -45,6 +48,7 @@ Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증�
 자세한 내용을 보려면 [Key Vault 증명 모음 블로그](http://aka.ms/kvblog)를 따라 [Key Vault 포럼](http://aka.ms/kvforum)에 참가하세요.
 
 ## <a name="creating-and-managing-key-vaults"></a>주요 자격 증명 모음 만들기 및 관리
+
 코드에서 Azure 주요 자격 증명 모음을 사용하여 작업하기 전에 다음 문서에 설명된 대로 REST, 리소스 관리자 템플릿, PowerShell 또는 CLI를 통해 자격 증명 모음을 만들고 관리할 수 있습니다.
 
 * [REST를 사용하여 주요 자격 증명 모음 만들기 및 관리](https://msdn.microsoft.com/library/azure/mt620024.aspx)
@@ -54,13 +58,12 @@ Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증�
 
 > [!NOTE]
 > 주요 자격 증명 모음에 대한 작업은 AAD를 통해 인증되고 자격 증명 모음당 정의되는 주요 자격 증명 모음의 액세스 정책을 통해 권한이 부여됩니다.
->
->
 
 ## <a name="coding-with-key-vault"></a>주요 자격 증명 모음을 사용한 코딩
+
 프로그래머를 위한 키 자격 증명 모음 관리 시스템은 REST를 기반으로 [키 자격 증명 모음 REST API 참조](https://msdn.microsoft.com/library/azure/dn903609.aspx)등 여러 인터페이스로 구성됩니다.
 
-권한 부여의 성공에 따라 다음을 수행할 수 있습니다.
+권한 부여의 성공에 따라 다음 작업을 수행할 수 있습니다.
 
 * [만들기](https://msdn.microsoft.com/library/azure/dn903634.aspx), [가져오기](https://msdn.microsoft.com/library/azure/dn903626.aspx), [업데이트](https://msdn.microsoft.com/library/azure/dn903616.aspx), [삭제](https://msdn.microsoft.com/library/azure/dn903611.aspx) 및 기타 작업을 사용하여 암호화 키 관리
 * [가져오기](https://msdn.microsoft.com/library/azure/dn903633.aspx), [업데이트](https://msdn.microsoft.com/library/azure/dn986818.aspx), [삭제](https://msdn.microsoft.com/library/azure/dn903613.aspx) 및 기타 작업을 사용하여 암호 관리
@@ -76,12 +79,14 @@ Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증�
 .NET SDK의 2.x 버전에 대한 자세한 내용은 [릴리스 정보](key-vault-dotnet2api-release-notes.md)를 참조하세요.
 
 ## <a name="example-code"></a>예제 코드
+
 응용 프로그램에서 Key Vault를 사용하는 전체 예제는 다음을 참조하세요.
 
 * .NET 샘플 응용 프로그램 *HelloKeyVault* 및 Azure 웹 서비스 예제입니다. [Azure 키 자격 증명 모음 코드 샘플](http://www.microsoft.com/download/details.aspx?id=45343)
 * 자습서에서는 Azure의 웹 응용 프로그램에서 Azure 주요 자격 증명 모음을 사용하는 방법을 알아볼 수 있습니다. [웹 응용 프로그램에서 Azure 주요 자격 증명 모음 사용](key-vault-use-from-web-application.md)
 
 ## <a name="how-tos"></a>방법
+
 다음 문서 및 시나리오에서는 Azure Key Vault 사용에 대한 작업별 지침을 제공합니다.
 
 * [구독 이동 후 Key Vault 테넌트 변경](key-vault-subscription-move-fix.md) - Azure 구독을 테넌트 A에서 테넌트 B로 이동할 때 기존 주요 자격 증명 모음에는 테넌트 B의 주체(사용자 및 응용 프로그램)가 액세스할 수 없게 됩니다. 이 가이드를 통해 이 문제를 해결합니다.
@@ -97,6 +102,7 @@ Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증�
 Azure에서 Key Vault를 통합 및 사용하는 방법에 대한 작업별 지침은 [Key Vault에 대한 Ryan Jones Azure Resource Manager 템플릿 예제](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)를 참조하세요.
 
 ## <a name="integrated-with-key-vault"></a>주요 자격 증명 모음과 통합됨
+
 다음 문서에서는 사용하거나 Key Vault와 통합하는 다른 시나리오 및 서비스에 대한 정보를 다룹니다.
 
 * [Azure Disk Encryption](../security/azure-security-disk-encryption.md)은 업계 표준인 Windows의 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 활용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 이 솔루션은 Azure 주요 자격 증명 모음과 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 컴퓨터 디스크의 모든 휴지 상태 데이터가 Azure 저장소에서 암호화되도록 보장합니다.
@@ -105,15 +111,12 @@ Azure에서 Key Vault를 통합 및 사용하는 방법에 대한 작업별 지�
 
 
 ## <a name="supporting-libraries"></a>라이브러리 지원
-* [Microsoft Azure Key Vault 핵심 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core)는 식별자의 키를 찾고 키로 작업을 수행하기 위한 `IKey` 및 `IKeyResolver` 인터페이스를 제공합니다.
+
+* [Microsoft Azure Key Vault 핵심 라이브러리](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core)는 식별자의 키를 찾고 키로 작업을 수행하기 위한 **IKey** 및 **IKeyResolver** 인터페이스를 제공합니다.
 * [Microsoft Azure Key Vault 확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions)은 Azure 키 자격 증명 모음에 확장된 기능을 제공합니다.
 
 ## <a name="other-key-vault-resources"></a>다른 키 자격 증명 모음 리소스
+
 * [키 자격 증명 모음 블로그](http://aka.ms/kvblog)
 * [키 자격 증명 모음 포럼](http://aka.ms/kvforum)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1d1eec1457917baef1acab27f7c60bdb048837a9
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: f3bb01da7764e467963a47d3d5485679411c9167
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-azure-web-apps"></a>Azure Web Apps를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
-![센서, IoT 장치, IoT Hub 및 Azure 웹앱 간 연결](media/iot-hub-live-data-visualization-in-web-apps/1_sensor-iot-device-azure-iot-hub-web-app-connection.png)
+![종단 간 다이어그램](media/iot-hub-get-started-e2e-diagram/5.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/12/2017
 
 ## <a name="what-you-need"></a>필요한 항목
 
-- 다음 요구 사항을 다루는 [Azure IoT Hub에 ESP8266 연결](iot-hub-arduino-huzzah-esp8266-get-started.md) 자습서
+- 다음 요구 사항을 다루는 자습서 [장치 설정](iot-hub-raspberry-pi-kit-node-get-started.md) 완료:
   - 활성 Azure 구독.
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 응용 프로그램
@@ -57,16 +57,7 @@ ms.lasthandoff: 04/12/2017
 
    ![Azure 웹앱 만들기](media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>IoT Hub에 소비자 그룹 추가
-
-소비자 그룹은 응용 프로그램에서 Azure IoT Hub의 데이터를 끌어오는 데 사용됩니다. 이 단원에서는 웹앱에서 IoT Hub의 데이터를 읽는 데 사용할 소비자 그룹을 만듭니다.
-
-IoT Hub에 소비자 그룹을 추가하려면 다음 단계를 수행합니다.
-
-1. [Azure Portal](https://ms.portal.azure.com/)에서 IoT Hub를 엽니다.
-1. 왼쪽 창에서 **끝점**을 클릭하고, 가운데 창에서 **이벤트**를 선택하고, 오른쪽 창의 **소비자 그룹** 아래에서 이름을 입력한 다음, **저장**을 클릭합니다.
-
-   ![Azure IoT Hub에서 소비자 그룹 만들기](media/iot-hub-live-data-visualization-in-web-apps/3_add-consumer-group-iot-hub-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="configure-the-web-app-to-read-data-from-your-iot-hub"></a>IoT Hub에서 데이터를 읽도록 웹앱 구성
 
@@ -75,8 +66,8 @@ IoT Hub에 소비자 그룹을 추가하려면 다음 단계를 수행합니다.
 
    | 키                                   | 값                                                        |
    |---------------------------------------|--------------------------------------------------------------|
-   | Azure.IoT.IoTHub.ConnectionString     | IoT Hub 탐색기에서 얻음                               |
-   | Azure.IoT.IoTHub.DeviceId             | IoT Hub 탐색기에서 얻음                               |
+   | Azure.IoT.IoTHub.ConnectionString     | iothub-explorer에서 얻음                                |
+   | Azure.IoT.IoTHub.DeviceId             | iothub-explorer에서 얻음                                |
    | Azure.IoT.IoTHub.ConsumerGroup        | IoT Hub에 추가하는 소비자 그룹의 이름  |
 
    ![Azure 웹앱에 키/값 쌍이 있는 설정 추가](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)

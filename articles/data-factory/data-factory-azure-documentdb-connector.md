@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 04/19/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e0cd1eb986e137e1e8877286b2efe9a6924da931
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: d5e13e6a96828e7c303e4d870ee170b90a0c4308
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/27/2017
 > 온-프레미스/Azure IaaS 데이터 저장소의 데이터를 Azure DocumentDB에 복사하는 것과 그 반대 과정은 데이터 관리 게이트웨이 버전 2.1 이상에서 지원됩니다.
 
 ## <a name="supported-versions"></a>지원되는 버전
-이 DocumentDB 커넥터는 DocumentDB 단일 파티션 컬렉션과 분할된 컬렉션 간 데이터 복사를 지원합니다. [MongoDB에 대한 DocDB](../documentdb/documentdb-protocol-mongodb.md)는 지원되지 않습니다.
+이 DocumentDB 커넥터는 DocumentDB 단일 파티션 컬렉션과 분할된 컬렉션 간 데이터 복사를 지원합니다. [MongoDB에 대한 DocDB](../documentdb/documentdb-protocol-mongodb.md)는 지원되지 않습니다. JSON 파일 또는 다른 DocumentDB 컬렉션으로/에서 있는 그대로 데이터를 복사하려면 [JSON 문서 Import/Export](#importexport-json-documents)를 참조하세요.
 
 ## <a name="getting-started"></a>시작
 다른 도구/API를 사용하여 Azure DocumentDB 간에 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
@@ -115,6 +115,17 @@ DocumentDB와 같은 스키마 없는 데이터 저장소의 경우 Data Factory
 | nestingSeparator |중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>위의 예에서 출력 테이블의 `Name.First`은(는) DocumentDB 문서에서 다음 JSON 구조를 생성합니다.<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |중첩 수준을 구분하는데 사용되는 문자입니다.<br/><br/>기본값은 `.`.(점)입니다. |중첩 수준을 구분하는데 사용되는 문자입니다. <br/><br/>기본값은 `.`.(점)입니다. |
 | writeBatchSize |문서를 작성하는 DocumentDB 서비스에 대한 병렬 요청 수입니다.<br/><br/>이 속성을 사용하여 DocumentDB 간 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. DocumentDB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 오류 메시지: “요청 빈도가 높습니다."를 발생 시킬 수 있는 제한을 방지해야 합니다.<br/><br/>제한은 문서의 크기, 문서에서 용어의 수, 대상 컬렉션의 인덱싱 정책 등 여러 가지 요인으로 결정됩니다. 복사 작업의 경우 더 나은 컬렉션(예: S3)을 사용하여 사용할 수 있는 처리량(2,500개의 요청 단위/초)을 보유할 수 있습니다. |Integer |아니요(기본값: 5) |
 | writeBatchTimeout |시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예: “00:30:00”(30분). |아니요 |
+
+## <a name="importexport-json-documents"></a>JSON 문서 가져오기/내보내기
+이 DocumentDB 커넥터를 사용하여 다음을 쉽게 수행할 수 있습니다.
+
+* Azure Blob, Azure Data Lake, 온-프레미스 파일 시스템 또는 기타 Azure Data Factory에서 지원하는 파일 기반 저장소 등 다양한 원본에서 DocumentDB로 JSON 문서를 가져오기
+* DocumentDB 컬렉션에서 다양한 파일 기반 저장소로 JSON 문서 내보내기
+* 두 DocumentDB 컬렉션 간에 데이터를 있는 그대로 마이그레이션
+
+이러한 스키마 독립적 복사를 수행하려면 
+* 복사 마법사를 사용할 경우 **"JSON 파일 또는 DocumentDB 컬렉션으로 있는 그대로 내보내기"** 옵션을 선택합니다.
+* JSON 편집을 사용할 때 복사 작업에서 DocumentDB 데이터 집합에서 "structure" 섹션을 지정하지 않고 DocumentDB 원본/싱크에 대한 "nestingSeparator" 속성도 지정하지 않아야 합니다. JSON 파일에서 가져오거나 이 파일로 내보내려면 파일 저장소 데이터 집합에서 형식을 "JsonFormat"으로, 구성을 "filePattern"으로 지정한 후 나머지 형식 설정을 건너뜁니다. 자세한 내용은 [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format) 섹션을 참조하세요.
 
 ## <a name="json-examples"></a>JSON 예
 다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure DocumentDB 및 Azure Blob Storage 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 임의의 원본에서 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
@@ -450,15 +461,6 @@ DocumentDB에서 출력 JSON은 다음과 같습니다.
 }
 ```
 DocumentDB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 **nestingSeparator** 즉, 이 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다.
-
-## <a name="importexport-json-documents"></a>JSON 문서 가져오기/내보내기
-이 DocumentDB 커넥터를 사용하여 다음을 쉽게 수행할 수 있습니다.
-
-* Azure Blob, Azure Data Lake, 온-프레미스 파일 시스템 또는 기타 Azure Data Factory에서 지원하는 파일 기반 저장소 등 다양한 원본에서 DocumentDB로 JSON 문서를 가져오기
-* DocumentDB 컬렉션에서 다양한 파일 기반 저장소로 JSON 문서 내보내기
-* 두 DocumentDB 컬렉션 간에 데이터를 있는 그대로 마이그레이션
-
-이러한 스키마에 구애받지 않는 복사를 실현하려면 복사 작업에서 DocumentDB 원본/싱크의 "nestingSeparator" 속성 또는 입력 데이터 집합에 "structure" 섹션을 지정하지 마세요. JSON 형식 구성에 대한 자세한 내용은 해당하는 파일 기반 커넥터 항목에서 "형식 지정" 섹션을 참조하세요.
 
 ## <a name="appendix"></a>부록
 1. **질문:**

@@ -12,127 +12,125 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
-ms.author: rachelap
+ms.date: 04/23/2017
+ms.author: rachelap, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: b7334f68e4526b716210b28388afcd0ee6e48940
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e6f5798b260c4923452dcc96c18d4839f5c34bfc
+ms.lasthandoff: 04/25/2017
 
 
 ---
-# <a name="how-to-configure-azure-function-app-settings"></a>Azure 함수 앱 설정을 구성하는 방법
-## <a name="settings-overview"></a>설정 개요
-포털의 왼쪽 아래 모서리에 있는 **함수 앱 설정** 링크를 클릭하여 Azure 함수 앱 설정을 관리할 수 있습니다. Azure 함수 앱 설정은 앱의 모든 함수에 적용됩니다.
+# <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure Portal에서 함수 앱을 관리하는 방법 
 
-1. [Azure Portal](http://portal.azure.com) 로 이동하여 Azure 계정으로 로그인합니다.
-2. 포털의 왼쪽 아래 모서리에 있는 **함수 앱 설정**을 클릭합니다. 그러면 선택할 수 있는 몇 가지 구성 옵션이 나타납니다. 
+Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트를 제공합니다. 함수 앱 동작은 지정된 함수 앱에서 호스트하는 모든 함수에 적용됩니다. 이 항목에서는 Azure Portal에서 함수 앱을 구성 및 관리하는 방법을 설명합니다.
 
-![Azure 함수 앱 설정](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+시작하려면 [Azure Portal](http://portal.azure.com)로 이동한 후 Azure 계정으로 로그인합니다. 포털 맨 위에 있는 검색 표시줄에 함수 앱의 이름을 입력하고 목록에서 선택합니다. 함수 앱을 선택하면 다음 페이지가 표시됩니다.
 
-## <a name="develop"></a>개발
-### <a name="app-service-editor"></a>앱 서비스 편집기
-App Service 편집기는 Json 구성 파일과 코드 파일을 둘 다 수정하는 데 사용할 수 있는 포털 내 고급 편집기입니다. 이 옵션을 선택하면 기본 편집기와 함께 별도의 브라우저 탭이 실행됩니다. 이를 통해 GitHub와 통합하고 코드를 실행 및 디버깅하며 함수 앱 설정을 수정할 수 있습니다.
+![Azure Portal의 함수 앱 개요](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-![앱 서비스 편집기](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
+## <a name="manage-app-service-settings"></a>함수 앱 설정 탭
 
-### <a name="application-settings"></a>응용 프로그램 설정
-환경 변수, 프레임 워크 버전, 원격 디버깅, 앱 설정, 연결 문자열, 기본 문서 등을 관리합니다. 이러한 설정은 함수 앱에 적용됩니다. 
+![Azure Portal의 함수 앱 개요](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-앱 설정을 구성하려면 **앱 설정 구성** 링크를 클릭합니다. 
+**설정** 탭에서는 함수 앱에서 사용되는 함수 런타임 버전을 업데이트할 수 있습니다. 또한 이 탭에서 함수 앱에서 호스트하는 모든 함수에 대한 HTTP 액세스를 제한하는 데 사용되는 호스트 키를 관리합니다.
 
-![앱 설정 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
+Functions는 소비 호스팅 및 App Service 호스팅 계획을 모두 지원합니다. 자세한 내용은 [Azure Functions에 대한 올바른 서비스 계획 선택](functions-scale.md)을 참조하세요. 소비 계획에서 더 나은 예측 가능성을 얻기 위해 Functions는 일일 사용 할당량(기가바이트 초)을 설정하여 플랫폼 사용을 제한할 수 있도록 합니다. 일일 사용 할당량에 도달하면 함수 앱이 중지됩니다. 사용 할당량에 도달하여 중지한 함수 앱은 일일 사용 할당량을 설정할 때와 같은 컨텍스트에서 다시 활성화할 수 있습니다. 대금 청구에 대한 자세한 내용은 [Azure Functions 가격 책정 페이지](http://azure.microsoft.com/pricing/details/functions/)를 참조하세요.   
 
-### <a name="dev-console"></a>Dev 콘솔
-Azure Functions 포털 내 콘솔로 DOS 스타일 명령을 실행할 수 있습니다. 일반적인 명령에는 배치 파일 및 스크립트 실행과 함께 디렉터리 및 파일의 생성 및 탐색이 포함됩니다. 
+## <a name="platform-features-tab"></a>플랫폼 기능 탭
+
+![함수 응용 프로그램 플랫폼 기능 탭](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
+
+함수 앱은 Azure App Service 플랫폼에서 실행되고 유지 관리됩니다. 따라서 함수 앱은 Azure의 핵심 웹 호스팅 플랫폼 기능 대부분에 액세스할 수 있습니다. **플랫폼 기능** 탭에서는 함수 앱에서 사용할 수 있는 App Service 플랫폼의 많은 기능에 액세스할 수 있습니다. 
 
 > [!NOTE]
-> 스크립트를 업로드할 수 있습니다. 단, Azure 함수의 **고급 설정**에서 FTP 클라이언트를 먼저 구성해야 합니다.
-> 
-> 
+> 함수 앱이 소비 호스팅 계획에서 실행될 때 모든 App Service 기능을 사용할 수 있는 것은 아닙니다.
 
-포털 내 콘솔을 열려면 **개발자 콘솔 열기**를 클릭합니다.
+이 항목의 나머지 부분에서는 함수에 유용한 Azure Portal의 다음과 같은 App Service 기능을 중점적으로 설명합니다.
 
-![함수 앱 메모리 크기 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
++ [App Service 편집기](#editor)
++ [응용 프로그램 설정](#settings) 
++ [Console](#console)
++ [고급 도구(Kudu)](#kudu)
++ [배포 옵션](#deployment)
++ [CORS](#cors)
++ [인증](#auth)
++ [API 정의](#swagger)
 
-> [!NOTE]
-> ASCII 기술을 사용하는 콘솔에서 작업하면 근사할 것입니다.
-> 
-> 
+App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure App Service 설정 구성](../app-service-web/web-sites-configure.md)을 참조하세요.
 
-## <a name="deploy"></a>배포
-### <a name="continuous-integration"></a>연속 통합
-함수 앱을 GitHub, Visual Studio Team Services 등과 통합할 수 있습니다.
+### <a name="editor"></a>App Service 편집기
 
-1. **연속 통합 구성** 링크를 클릭합니다. 그러면 **배포** 창이 옵션과 함께 열립니다.
-2. **배포** 창에서 **설치**를 클릭하면 하나의 옵션과 함께 **배포 소스** 창이 나타납니다. **소스 선택**을 클릭하여 사용 가능한 소스를 표시합니다. 
-3. 사용할 수 있는 배포 소스인 Visual Studio Team Services, OneDrive, 로컬 Git 리포지토리, GitHub, Bitbucket, DropBox 또는 외부 리포지토리 중 하나를 클릭하여 선택합니다. 
-   
-    ![함수 앱 CI 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-ci.png)
-4. 다양한 배포 소스에서 메시지를 표시하는 대로 자격 증명 및 정보를 입력합니다. 필요한 자격 증명 및 정보는 선택한 소스에 따라 약간 달라질 수 있습니다. 
+| | |
+|-|-|
+| ![함수 앱 App Service 편집기](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | App Service 편집기는 JSON 구성 파일과 코드 파일을 둘 다 수정하는 데 사용할 수 있는 포털 내 고급 편집기입니다. 이 옵션을 선택하면 기본 편집기와 함께 별도의 브라우저 탭이 실행됩니다. 이를 통해 Git 리포지토리와 통합하고 코드를 실행 및 디버깅하며 함수 앱 설정을 수정할 수 있습니다. 이 편집기는 기본 함수 앱 블레이드와 비교할 때 함수에 대해 고급 개발 환경을 제공합니다.    |
 
-CI를 설치하면 구성된 소스로 푸시한 연결된 코드가 자동으로 이 함수 앱에 배포됩니다.
+![App Service 편집기](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="kudu"></a>Kudu
-Kudu를 사용하면 함수 앱의 고급 관리 기능에 액세스할 수 있습니다.
+### <a name="settings"></a>응용 프로그램 설정
 
-Kudu를 열려면 **Kudu로 이동**을 클릭합니다. 그러면 Kudu 웹 관리자의 완전히 새로운 브라우저 창이 열립니다.
+| | |
+|-|-|
+| ![함수 앱 응용 프로그램 설정](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service **응용 프로그램 설정** 블레이드에서 프레임워크 버전, 원격 디버깅, 앱 설정 및 연결 문자열을 구성 및 관리합니다. 다른 Azure 및 타사 서비스에 함수 앱을 통합할 경우 이 블레이드에서 해당 설정을 수정할 수 있습니다. |
 
-> [!NOTE]
-> 또는 다음과 같이 함수의 URL에 "scm"을 삽입하여 **Kudu**를 열 수 있습니다. ```https://<YourFunctionName>.scm.azurewebsites.net/```
-> 
-> 
+![응용 프로그램 설정 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
-Kudu 웹 페이지에서 시스템 정보, 앱 설정, 환경 변수, HTTP 헤더, 서버 변수 등을 확인하고 관리할 수 있습니다.
+### <a name="console"></a>콘솔
+
+| | |
+|-|-|
+| ![Azure Portal의 함수 앱 콘솔](./media/functions-how-to-use-azure-function-app-settings/function-app-console.png) | 포털 내 콘솔은 명령줄에서 함수 앱과 상호 작용하려는 경우에 이상적인 개발자 도구입니다. 일반적인 명령에는 배치 파일 및 스크립트 실행과 함께 디렉터리 및 파일의 생성 및 탐색이 포함됩니다. |
+
+![함수 앱 콘솔](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
+
+### <a name="kudu"></a>고급 도구(Kudu)
+
+| | |
+|-|-|
+| ![Azure Portal의 함수 앱 Kudu](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | App Service용 고급 도구(Kudu라고도 함)를 사용하면 함수 앱의 고급 관리 기능에 액세스할 수 있습니다. Kudu에서 시스템 정보, 앱 설정, 환경 변수, 사이트 확장, HTTP 헤더 및 서버 변수를 관리할 수 있습니다. `https://<myfunctionapp>.scm.azurewebsites.net/`과 같은 함수 앱에 대한 SCM 끝점으로 이동하여 **Kudu**를 시작할 수도 있습니다. |
 
 ![Kudu 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
-## <a name="manage-app-service-settings"></a>관리: 앱 서비스 설정
-함수 앱을 다른 앱 서비스 인스턴스처럼 관리하세요. 이 옵션으로 앞에서 설명한 모든 설정과 더불어 몇 가지 추가 항목에 액세스할 수 있습니다.  
 
-고급 설정을 열려면 **고급 설정** 링크를 클릭합니다. 
+### <a name="a-namedeploymentdeployment-options"></a><a name="deployment">배포 옵션
 
-![앱 서비스 설정 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-settings.png)
+| | |
+|-|-|
+| ![Azure Portal의 함수 앱 배포 옵션](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions를 사용하면 로컬 컴퓨터에서 함수 코드를 개발할 수 있습니다. 그런 다음 Azure에 로컬 함수 앱 프로젝트를 업로드할 수 있습니다. 기존 FTP 업로드 외에도 Functions를 사용하면 GitHub, VSTS, Dropbox, Bitbucket 등과 같은 인기 있는 연속 통합 솔루션을 사용하여 함수 앱을 배포할 수 있습니다. 자세한 내용은 [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)를 참조하세요. FTP 또는 로컬 Git을 사용하여 수동으로 업로드하려면 [배포 자격 증명을 구성](functions-continuous-deployment.md#credentials)해야 합니다. |
 
-각 앱 서비스 설정을 구성하는 방법에 대한 자세한 내용은 [Azure App Service 설정 구성](../app-service-web/web-sites-configure.md)을 참조하세요.
 
-## <a name="manage-cors"></a>관리: CORS
-일반적으로 보안상의 이유로 브라우저에서 Ajax 호출 등의 외부 소스에서 호스트(도메인)에 대한 호출은 허용되지 않습니다. 그렇지 않으면 악성 코드가 백 엔드로 전송되어 실행될 수 있습니다. 따라서 가장 안전한 경로는 사용자의 고유한 신뢰할 수 있는 몇 가지를 제외한 모든 코드 소스를 블랙리스트에 올리는 것입니다. CORS(원본 간 리소스 공유)를 구성하여 Azure Functions에서 호출을 수락하는 소스를 구성할 수 있습니다. CORS를 사용하면 Azure 함수 앱에서 함수를 호출할 수 있는 JavaScript의 소스인 도메인 목록을 만들 수 있습니다. 
+### <a name="cors"></a>CORS
 
-1. CORS를 구성하려면 **CORS 구성** 링크를 클릭합니다. 
-2. 허용 목록에 원하는 도메인을 입력합니다.
+| | |
+|-|-|
+| ![Azure Portal의 함수 앱 CORS](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | 서비스의 악의적인 코드 실행을 방지하기 위해 App Service는 외부 원본의 함수 앱에 대한 호출을 차단합니다. Functions는 CORS(원본 간 리소스 공유)를 지원하여 함수가 원격 요청을 수락할 수 있는 허용 원본을 나타내는 “허용 목록"을 정의할 수 있도록 합니다.  |
 
 ![함수 앱 CORS 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
-## <a name="manage-authenticationauthorization"></a>관리: 인증/권한 부여
-HTTP 트리거를 사용하는 함수의 경우 호출을 인증해야 할 수 있습니다.
+### <a name="auth"></a>인증
 
-1. 인증을 구성하려면 **인증 구성** 링크를 클릭합니다.
-2. **앱 서비스 인증** 단추를 **켜기**로 설정/해제합니다.
+| | |
+|-|-|
+| ![Azure Portal의 함수 앱 인증](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | 함수가 HTTP 트리거를 사용하는 경우 먼저 호출이 인증되도록 요구할 수 있습니다. App Service는 Facebook, Microsoft 및 Twitter 같은 소셜 공급자를 사용하는 Azure Active Directory 인증 및 로그인을 지원합니다. 특정 인증 공급자를 구성하는 방법에 대한 자세한 내용은 [Azure App Service 인증 개요](../app-service/app-service-authentication-overview.md)를 참조하세요. |
 
-![함수 앱 CI 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
+![함수 앱에 대한 인증 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
-대부분의 인증 공급자는 요청 API 키/클라이언트 ID 및 비밀을 요구합니다. 단, Microsoft 계정 및 Facebook 옵션 모두 범위(특정 권한 부여 자격 증명)를 정할 수 있습니다. Active Directory에는 다양한 기본 또는 고급 구성 설정을 설정할 수 있습니다.
 
-특정 인증 공급자를 구성하는 방법에 대한 자세한 내용은 [Azure App Service 인증 개요](../app-service/app-service-authentication-overview.md)를 참조하세요.
+### <a name="swagger"></a>API 정의
 
-## <a name="manage-api-definition"></a>관리: API 정의
-클라이언트가 HTTP에서 트리거한 함수를 더 쉽게 사용할 수 있습니다.
-
-1. API를 설정하려면 **API 메타데이터 구성**을 클릭합니다. 
-2. Swagger json 파일을 가리키는 URL을 입력합니다.
+| | |
+|-|-|
+| ![Azure Portal의 함수 앱 API swagger 정의](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions는 클라이언트가 HTTP에서 트리거한 함수를 더 쉽게 사용할 수 있도록 하는 Swagger를 지원합니다. Swagger를 사용하는 API 정의를 만드는 방법에 대한 자세한 내용은 [Azure에서 API 앱, ASP.NET 및 Swagger 시작](../app-service-api/app-service-api-dotnet-get-started.md)을 방문하세요. 또한 함수 프록시를 사용하여 여러 함수에 대해 단일 API 화면을 정의할 수도 있습니다. 자세한 내용은 [Azure 함수 프록시 사용](functions-proxies.md)을 참조하세요. |
 
 ![함수 앱 API 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
-Swagger를 사용하는 API 정의를 만드는 방법에 대한 자세한 내용은 [Azure에서 API 앱, ASP.NET 및 Swagger 시작](../app-service-api/app-service-api-dotnet-get-started.md)을 방문하세요.
 
-## <a name="daily-usage-quota"></a>일일 사용 할당량
-
-Azure Functions를 사용하면 일일 사용 할당량을 설정하여 플랫폼 사용량을 예측 가능하게 제한할 수 있습니다. 일일 사용 할당량에 도달하면 함수 앱이 중지합니다. 사용 할당량에 도달하여 중지한 함수 앱은 일일 사용 할당량을 설정할 때와 같은 컨텍스트에서 다시 활성화할 수 있습니다. 사용 할당량 단위는 청구 단위: GB-s(기가바이트-초)입니다.청구 모델에 대한 자세한 내용은 [Azure Functions 가격 책정 페이지](http://azure.microsoft.com/pricing/details/functions/)를 참조하세요. 
-
-![함수 앱 메모리 크기 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-quota.png)
 
 ## <a name="next-steps"></a>다음 단계
+
++ [Azure App Service 설정 구성](../app-service-web/web-sites-configure.md)
++ [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)
+
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 

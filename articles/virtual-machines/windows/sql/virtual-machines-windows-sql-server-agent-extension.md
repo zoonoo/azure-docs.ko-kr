@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/09/2017
+ms.date: 04/24/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8ac408675404fe16042ec4338a8bce37f6e00643
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 27064b6b5c65e5ecd0ef6931bd8f333469419839
+ms.lasthandoff: 04/26/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(Resource Manager)
@@ -66,18 +66,16 @@ VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사�
 ## <a name="installation"></a>설치
 SQL Server IaaS 에이전트 확장은 SQL Server 가상 컴퓨터 갤러리 이미지 중 하나를 프로비전할 때 자동으로 설치됩니다.
 
-OS 전용 Windows Server 가상 컴퓨터를 만드는 경우 **Set-AzureVMSqlServerExtension** PowerShell cmdlet을 사용하여 확장을 수동으로 설치할 수 있습니다. 예를 들어 다음 명령은 OS 전용 Windows Server VM에 확장을 설치한 후 "SQLIaaSExtension"이라고 이름을 지정합니다.
+OS 전용 Windows Server 가상 컴퓨터에 SQL Server IaaS 에이전트 확장을 설치할 수도 있습니다. 이러한 방식은 해당 컴퓨터에서 SQL Server를 수동으로 설치한 경우에만 지원됩니다. 그런 후 **Set-AzureVMSqlServerExtension** PowerShell cmdlet을 사용하여 확장을 수동으로 설치합니다. 예를 들어 다음 명령은 OS 전용 Windows Server VM에 확장을 설치한 후 "SQLIaaSExtension"이라고 이름을 지정합니다.
 
     Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
 
+> [!NOTE]
+> SQL Server IaaS 에이전트 확장을 수동으로 설치하는 경우 Azure Portal을 통해 SQL Server 구성 설정을 관리할 수 없습니다. 이 시나리오에서는 모든 변경 작업을 PowerShell로 수행해야 합니다.
+
 SQL IaaS 에이전트 확장의 최신 버전으로 업데이트하는 경우 확장을 업데이트한 후 가상 컴퓨터를 다시 시작해야 합니다.
 
-> [!NOTE]
-> Windows Server VM에서 SQL Server IaaS 에이전트 확장을 수동으로 설치하는 경우 PowerShell 명령을 사용하여 해당 기능을 사용 및 관리해야 합니다. 포털 인터페이스는 SQL Server 갤러리 이미지에만 사용할 수 있습니다.
-> 
-> 
-
-## <a name="status"></a>상태
+## <a name="status"></a>가동 상태
 확장이 설치되어 있는지 확인하는 한 가지 방법은 Azure 포털에서 에이전트 상태를 확인하는 것입니다. 가상 컴퓨터 블레이드에서 **모든 설정**을 선택하고 **확장**을 클릭합니다. **SQLIaaSExtension** 확장이 나열되어야 합니다.
 
 ![Azure 포털의 SQL Server IaaS 에이전트 확장](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)

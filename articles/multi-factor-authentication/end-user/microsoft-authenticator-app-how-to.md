@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2017
+ms.date: 04/25/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017, end-user
 translationtype: Human Translation
-ms.sourcegitcommit: 6872b216ab2bfd5823b65b1bb70d503c7628ee13
-ms.openlocfilehash: 26d9f04f9d3019ab5fcad48ef1e9821a4dd6a724
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 6bcf667849a8cb52126f832eed0b99a893182150
+ms.lasthandoff: 04/26/2017
 
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 시작
@@ -43,7 +43,7 @@ Microsoft Authenticator 앱에 추가하려는 각 계정에 대해 다음 절�
 
 ### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>QR 코드 스캐너를 사용하여 앱에 회사 또는 학교 계정 추가
 1. 보안 확인 설정 화면으로 이동합니다.  이 화면으로 이동하는 방법은 [보안 설정 변경](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)을 참조하세요.
-2. **Azure Authenticator 앱** 옆에 있는 확인란을 선택한 후 **구성**을 선택합니다.
+2. **Authenticator 앱** 옆에 있는 확인란을 선택한 후 **구성**을 선택합니다.
 
     ![보안 확인 설정 화면의 구성 단추](./media/authenticator-app-how-to/azureauthe.png)
 
@@ -55,7 +55,7 @@ Microsoft Authenticator 앱에 추가하려는 각 계정에 대해 다음 절�
 
     카메라가 올바르게 작동하지 않으면 [QR 코드 및 URL을 수동](#add-an-account-to-the-app-manually)으로 입력할 수 있습니다.
 
-5. 앱에 그 아래&6;자리 코드가 있는 계정 이름이 표시되면 완료된 것입니다. 
+5. 앱에 그 아래 6자리 코드가 있는 계정 이름이 표시되면 완료된 것입니다. 
 
     ![계정 화면](./media/authenticator-app-how-to/accounts.png)
 
@@ -77,7 +77,7 @@ Microsoft Authenticator 앱에 추가하려는 각 계정에 대해 다음 절�
 
     ![코드와 URL을 입력하기 위한 화면](./media/authenticator-app-how-to/manual.png)
 
-6. 앱에 그 아래&6;자리 코드가 있는 계정 이름이 표시되면 완료된 것입니다.
+6. 앱에 그 아래 6자리 코드가 있는 계정 이름이 표시되면 완료된 것입니다.
 
     ![계정 화면](./media/authenticator-app-how-to/accounts.png)
 

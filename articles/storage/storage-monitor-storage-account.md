@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8dc33077a955052a99b415b1299004cf8a4f217e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: b49e06da0019a50cc8e50c4da47e42c03b44bcc6
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/15/2017
 [Azure 저장소 분석](storage-analytics.md)은 모든 저장소 서비스에 대한 메트릭과 Blob, 큐 및 테이블에 대한 로그를 제공합니다. [Azure Portal](https://portal.azure.com)을 사용하여 계정에 기록되는 메트릭 및 로그를 구성하고, 메트릭 데이터를 시각적으로 표현하는 차트를 구성할 수 있습니다.
 
 > [!NOTE]
-> Azure Portal에서 모니터링 데이터를 검사하는 데 관련된 비용이 있습니다. 자세한 내용은 [저장소 분석 및 청구](/rest/api/storageservices/fileservices/Storage-Analytics-and-Billing)를 참조하세요.
+> Azure Portal에서 모니터링 데이터를 검사하는 데 관련된 비용이 있습니다. 자세한 내용은 [저장소 분석 및 청구](/rest/api/storageservices/Storage-Analytics-and-Billing)를 참조하세요.
 >
 > Azure 파일 저장소는 현재 저장소 분석 메트릭을 지원하지만 아직 로깅을 지원하지 않습니다.
 >
@@ -64,7 +64,7 @@ ms.lasthandoff: 03/15/2017
 **상태**를 **해제**로 설정하여 메트릭 수집 및 로깅을 사용하지 않도록 설정할 수 있습니다.
 
 > [!NOTE]
-> Azure Storage는 [테이블 저장소](storage-introduction.md#table-storage)를 사용하여 저장소 계정에 대한 메트릭을 저장하고, 계정의 테이블에 메트릭을 저장합니다. 자세한 내용은  [메트릭 저장 방법](storage-analytics.md#how-metrics-are-stored)을 참조하세요.
+> Azure Storage는 [테이블 저장소](storage-introduction.md#table-storage)를 사용하여 저장소 계정에 대한 메트릭을 저장하고, 계정의 테이블에 메트릭을 저장합니다. 자세한 내용은 다음을 참조하세요. [메트릭 저장 방법](storage-analytics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>메트릭 차트 사용자 지정
@@ -153,7 +153,7 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
 
 진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. [Microsoft 저장소 탐색기](http://storageexplorer.com)와 같은 저장소 탐색기를 사용하거나 저장소 클라이언트 라이브러리 또는 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
 
-$logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 로깅 사용 및 로그 데이터 액세스](/rest/api/storageservices/fileservices/enabling-storage-logging-and-accessing-log-data)를 참조하세요.
+$logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 로깅 사용 및 로그 데이터 액세스](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

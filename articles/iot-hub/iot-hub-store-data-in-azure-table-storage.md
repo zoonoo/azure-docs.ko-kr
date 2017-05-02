@@ -16,13 +16,15 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ef5d4af5d5dad2b548ab01be5ba9c4769b21416a
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: bed8e0c2b5d4d42fb0510f6b55cfab7404c01b11
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="save-iot-hub-messages-that-contain-information-like-sensor-data-to-azure-table-storage"></a>Azure 테이블 저장소에 센서 데이터와 같은 정보를 포함한 IoT Hub 메시지 저장
+
+![종단 간 다이어그램](media/iot-hub-get-started-e2e-diagram/3.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -38,7 +40,7 @@ Azure 저장소 계정 및 Azure 함수 앱을 만들어 Azure 테이블 저장�
 
 ## <a name="what-you-will-need"></a>필요한 사항
 
-- 다음 요구 사항을 다루는 [Azure IoT Hub에 ESP8266 연결](iot-hub-arduino-huzzah-esp8266-get-started.md) 자습서
+- 다음 요구 사항을 다루는 자습서 [장치 설정](iot-hub-raspberry-pi-kit-node-get-started.md) 완료:
   - 활성 Azure 구독.
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 실행 중인 응용 프로그램

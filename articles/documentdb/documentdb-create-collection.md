@@ -12,19 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 04/18/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: 8ee846e659d0a47a5fb39d6baa3235f59e19d653
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 97b634b10f75dd10c9cf4b61a5b9674f7ee73e00
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="how-to-create-a-documentdb-collection-and-database-using-the-azure-portal"></a>Azure Portal을 사용하여 DocumentDB 컬렉션 및 데이터베이스를 만드는 방법
 Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-create-account.md), 데이터베이스, 컬렉션 및 문서가 있어야 합니다. 이 토픽에서는 Azure 포털에서 DocumentDB 컬렉션을 만드는 방법을 설명합니다.
 
-컬렉션이 무엇인지 모르시겠습니까? [DocumentDB 컬렉션이란 무엇인가요?](#what-is-a-documentdb-collection)
+컬렉션이 무엇인지 모르시겠습니까? [DocumentDB 컬렉션이란 무엇인가요?](#what-is-a-documentdb-collection)를 참조하세요.
+
+컬렉션 추가 단추를 사용하거나 [데이터 탐색기(미리 보기)](#data-explorer)를 사용하여 포털에서 컬렉션을 만들 수 있습니다.
+
+## <a name="create-a-colletion-using-add-collection-button"></a>컬렉션 추가 단추를 사용하여 컬렉션 만들기
 
 1. [Azure Portal](https://portal.azure.com/)의 이동 표시줄에서 **DocumentDB(NoSQL)**를 클릭한 다음 **DocumentDB(NoSQL)** 블레이드에서 컬렉션을 추가할 계정을 선택합니다. 나열된 계정이 없는 경우 [DocumentDB 계정을 만들](documentdb-create-account.md)어야 합니다.
 
@@ -54,6 +58,14 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 10. **선택 사항:** 포털에서 컬렉션의 처리량을 수정하려면 리소스 메뉴에서 **크기 조정**을 클릭합니다 .
 
     ![크기 조정이 선택된 리소스 메뉴의 스크린샷](./media/documentdb-create-collection/docdb-collection-creation-scale.png)
+
+<a id="data-explorer"></a>
+## <a name="create-a-collection-by-using-data-explorer-preview"></a>데이터 탐색기(미리 보기)를 사용하여 컬렉션 만들기
+
+포털에서 컬렉션을 만드는 또 다른 방법은 데이터 탐색기를 사용하는 것입니다. 데이터 탐색기를 열려면 다음 그림과 같이 포털의 탐색 모음에서 **데이터 탐색기(미리 보기)**를 클릭하고 **새 컬렉션** 단추를 클릭합니다.
+
+ ![포털의 새 컬렉션 단추를 보여 주는 스크린샷](./media/documentdb-create-collection/azure-documentdb-data-explorer.png)
+
 
 ## <a name="what-is-a-documentdb-collection"></a>DocumentDB 컬렉션이란 무엇인가요?
 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다. 컬렉션은 컬렉션의 프로비전된 처리량에 따라 [비용](documentdb-performance-levels.md) 이 결정되는 청구 가능 엔터티입니다. 컬렉션은 하나 이상의 파티션/서버에 걸쳐 있을 수 있으며 크기가 거의 무제한인 저장소 또는 처리량을 처리하도록 확장할 수 있습니다.

@@ -16,9 +16,9 @@ ms.date: 02/09/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 4af4d30a3378e1aea66309a1d757be1c1da2ea0d
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e23c5849cb89d0d72052e3ebaace14a55f9c6f71
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -28,7 +28,7 @@ Azure DocumentDB는 일관성, 가용성, 성능을 적절히 보증하면서 �
 Azure DocumentDB는 명시적 장애 조치와 정책 기반 장애 조치를 모두 지원하므로 장애 발생시 종단 간 시스템 동작을 제어할 수 있습니다. 이 문서에서 다음을 살펴봅니다.
 
 * 수동 장애 조치가 DocumentDB에서 작동하는 방법
-* 자동 장애 조치가 DocumentDB에서 작동하는 방법
+* DocumentDB에서 자동 장애 조치(failover)가 작동하는 방식 및 데이터 센터가 다운될 때 발생하는 결과
 * 응용 프로그램 아키텍처에서 수동 장애 조치를 사용하는 방법
 
 Scott Hanselman과 수석 엔지니어링 관리자 Karthik Raman이 진행하는 이 Azure Friday 비디오를 통해 지역 장애 조치에 대해서도 자세히 알아 볼 수 있습니다.
@@ -65,14 +65,14 @@ Scott Hanselman과 수석 엔지니어링 관리자 Karthik Raman이 진행하�
 
 또한 응용 프로그램이 기본 지역의 순서를 바꿔 북유럽 지역에도 배포됩니다. 즉 북유럽 지역이 짧은 대기 시간 읽기에 대해 첫 번째로 지정됩니다. 그런 다음 미국 서부 지역이 지역 장애 시 고가용성을 위해 두 번째 기본 지역으로 지정됩니다.
 
-다음 아키텍처 다이어그램에서는 DocumentDB 및 응용 프로그램이&4;개의 Azure 지리적 하위 지역에서 사용할 수 있도록 구성된 다중 지역 응용 프로그램 배포를 보여 줍니다.  
+다음 아키텍처 다이어그램에서는 DocumentDB 및 응용 프로그램이 4개의 Azure 지리적 하위 지역에서 사용할 수 있도록 구성된 다중 지역 응용 프로그램 배포를 보여 줍니다.  
 
 ![Azure DocumentDB를 통해 전 세계에 분산된 응용 프로그램 배포](./media/documentdb-regional-failovers/app-deployment.png)
 
 이제 DocumentDB 서비스에서 자동 장애 조치를 통해 지역 장애를 처리하는 방법을 살펴보겠습니다. 
 
 ## <a id="AutomaticFailovers"></a>자동 장애 조치
-드물게 발생하는 Azure 지역 가동 중단의 경우 DocumentDB는 영향을 받은 지역에 있는 모든 DocumentDB 계정의 장애 조치가 자동으로 트리거합니다. 
+드물게 발생하는 Azure 지역 가동 중단 또는 데이터 센터 가동 중단의 경우 DocumentDB는 영향을 받은 지역에 있는 모든 DocumentDB 계정의 장애 조치가 자동으로 트리거합니다. 
 
 **읽기 지역에 가동 중단이 발생하면 어떻게 됩니까?**
 
@@ -112,7 +112,7 @@ Scott Hanselman과 수석 엔지니어링 관리자 Karthik Raman이 진행하�
 
 **서비스 업데이트** - 전 세계에 분산된 응용 프로그램 배포에는 예정된 서비스 업데이트 중에 트래픽 관리자를 통해 다른 지역으로 트래픽을 다시 라우팅하는 작업이 포함될 수 있습니다. 이러한 응용 프로그램 배포는 이제 수동 장애 조치를 사용하여 서비스 업데이트 기간 동안 활성 트래픽이 될 지역에 대한 쓰기 상태를 유지할 수 있습니다.
 
-**BCDR(비즈니스 연속성 및 재해 복구) 절차** - 대부분의 엔터프라이즈 응용 프로그램에는 개발 및 릴리스 프로세스의 일부로 비즈니스 연속성 테스트가 포함됩니다. BCDR 테스트는 종종 지역 가동 중단 위반의 경우 규정 준수 인증 및 서비스 가용성 보장의 중요한 단계입니다. DocumentDB 계정의 수동 장애 조치를 트리거하거나 지역을 동적으로 추가 및 제거하여 저장소에 DocumentDB를 사용하는 응용 프로그램의 BCDR 준비 상태를 테스트할 수 있습니다.
+**BCDR(비즈니스 연속성 및 재해 복구) 및 HADR(고가용성 및 재해 복구) 절차** - 대부분의 엔터프라이즈 응용 프로그램에는 개발 및 릴리스 프로세스의 일부로 비즈니스 연속성 테스트가 포함됩니다. BCDR 및 HADR 테스트는 종종 지역 가동 중단 위반의 경우 규정 준수 인증 및 서비스 가용성 보장의 중요한 단계입니다. DocumentDB 계정의 수동 장애 조치를 트리거하거나 지역을 동적으로 추가 및 제거하여 저장소에 DocumentDB를 사용하는 응용 프로그램의 BCDR 준비 상태를 테스트할 수 있습니다.
 
 이 문서에서는 Azure DocumentDB에서 수동 및 자동 장애 조치가 작동하는 방법 및 전 세계적으로 사용할 수 있도록 DocumentDB 계정과 응용 프로그램을 구성하는 방법을 살펴보았습니다. Azure DocumentDB의 글로벌 복제 지원을 사용하면 종단 간 대기 시간을 향상시키고 지역 장애 발생 시에도 가용성을 높일 수 있습니다. 
 

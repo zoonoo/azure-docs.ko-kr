@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4e890582e790ad9187287e1323159098e19d7325
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: c2d14be5f27a775a14039bd63c5ccb5cd7b10f9a
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -36,11 +36,11 @@ OM 에이전트 확장은 다음 Linux 배포판에 대해 실행할 수 있습�
 
 | 배포 | 버전 |
 |---|---|
-| CentOS Linux | 5,6 및 7 |
-| Oracle Linux | 5,6 및 7 |
-| Red Hat Enterprise Linux Server | 5,6 및 7 |
+| CentOS Linux | 5, 6 및 7 |
+| Oracle Linux | 5, 6 및 7 |
+| Red Hat Enterprise Linux Server | 5, 6 및 7 |
 | Debian GNU/Linux | 6, 7 및 8 |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04 |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 및 12 |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
@@ -49,7 +49,7 @@ Linux용 OMS 에이전트 확장은 대상 가상 컴퓨터가 인터넷에 연�
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 OMS 에이전트 확장에 대한 스키마를 보여줍니다. 이 확장은 대상 OMS 작업 영역에서 작업 영역 ID와 작업 영역 키가 필요하며, OMS 포털에서 확인할 수 있습니다. 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다. **workspaceId** 및 **workspaceKey**는 대/소문자를 구분합니다.
+다음 JSON은 OMS 에이전트 확장에 대한 스키마를 보여줍니다. 이 확장은 대상 OMS 작업 영역에서 작업 영역 ID와 작업 영역 키가 필요하며, 이러한 값은 OMS 포털에서 확인할 수 있습니다. 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다. **workspaceId** 및 **workspaceKey**는 대/소문자를 구분합니다.
 
 ```json
 {
@@ -63,7 +63,7 @@ Linux용 OMS 에이전트 확장은 대상 가상 컴퓨터가 인터넷에 연�
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -81,7 +81,7 @@ Linux용 OMS 에이전트 확장은 대상 가상 컴퓨터가 인터넷에 연�
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.0 |
+| typeHandlerVersion | 1.3 |
 | workspaceId(예) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey(예) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -106,7 +106,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -131,7 +131,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.3",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -148,7 +148,7 @@ Azure CLI를 사용하여 OMS 에이전트 VM 확장을 기존 가상 컴퓨터�
 
 ```azurecli
 azure vm extension set myResourceGroup myVM \
-  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.0 \
+  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.3 \
   --public-config-path public.json  \
   --private-config-path protected.json
 ```
@@ -168,6 +168,30 @@ azure vm extension get myResourceGroup myVM
 ```
 /opt/microsoft/omsagent/bin/stdout
 ```
+
+### <a name="error-codes-and-their-meanings"></a>오류 코드 및 해당 의미
+
+| 오류 코드 | 의미 | 가능한 작업 |
+| :---: | --- | --- |
+| 2 | 셸 번들에 잘못된 옵션이 제공됨 | |
+| 3 | 셸 번들에 옵션이 제공되지 않음 | |
+| 4 | 잘못된 패키지 형식 | |
+| 5 | 셸 번들을 루트로 실행해야 함 | |
+| 6 | 잘못된 패키지 아키텍처 | |
+| 10 | VM이 OMS 작업 영역에 이미 연결됨 | VM을 확장 스키마에 지정된 작업 영역에 연결하려면 공용 설정에서 stopOnMultipleConnections를 false로 설정하거나 이 속성을 제거합니다. 이 VM은 연결된 각 작업 영역에 대해 한 번만 비용이 청구됩니다. |
+| 11 | 확장에 잘못된 구성이 제공됨 | 이전 예제에 따라 배포에 필요한 모든 속성 값을 설정합니다. |
+| 20 | SCX/OMI 설치 실패 | |
+| 21 | SCX/공급자 키트 설치 실패 | |
+| 22 | 번들 패키지 설치 실패 | |
+| 23 | SCX 또는 OMI 패키지가 이미 설치됨 | |
+| 30 | 내부 번들 오류 | |
+| 51 | 이 확장이 VM의 운영 체제에서 지원되지 않음 | |
+| 60 | 지원되지 않는 OpenSSL 버전 | [패키지 요구 사항](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#package-requirements)을 충족하는 OpenSSL 버전을 설치하세요. |
+| 61 | Python ctypes 라이브러리 누락 | Python ctypes 라이브러리 또는 패키지(python-ctypes)를 설치합니다. |
+| 62 | tar 프로그램 누락 | tar를 설치합니다. |
+| 63 | sed 프로그램 누락 | sed를 설치합니다. |
+
+추가 문제 해결 정보는 [MS-Agent-for-Linux 문제 해결 가이드](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#)에서 확인할 수 있습니다.
 
 ### <a name="support"></a>지원
 
