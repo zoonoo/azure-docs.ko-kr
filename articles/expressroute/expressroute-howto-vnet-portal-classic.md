@@ -18,6 +18,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 1206d7444f32216597a6f546c71131b2de0ec3f8
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -25,6 +26,8 @@ ms.openlocfilehash: 1206d7444f32216597a6f546c71131b2de0ec3f8
 이 문서의 단계에서는 클래식 배포 모델 및 클래식 포털을 사용하여 ExpressRoute와 함께 사용할 가상 네트워크 및 가상 네트워크 게이트웨이를 구성하는 과정을 안내합니다.
 
 Resource Manager 배포 모델에 대한 지침을 보려는 경우 [PowerShell을 사용하여 가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-arm-ps.md) 및 [ExpressRoute용 Resource Manager VNet에 VPN Gateway 추가](expressroute-howto-add-gateway-resource-manager.md) 문서를 참조할 수 있습니다.
+
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **Azure 배포 모델 정보**
 
@@ -57,13 +60,13 @@ Resource Manager 배포 모델에 대한 지침을 보려는 경우 [PowerShell�
    * **게이트웨이 서브넷 추가** - 게이트웨이 서브넷을 추가하려면 클릭합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이에 대해서만 사용되며 이 구성에 필요합니다.<BR>ExpressRoute에 대한 게이트웨이 서브넷 CIDR(주소 수)은 /28 이상(/27, /26 등)이어야 합니다. 이렇게 하면 해당 서브넷에서 충분한 IP 주소를 허용하여 작동하도록 구성할 수 있습니다. 클래식 포털에서 ExpressRoute를 사용하는 확인란을 선택힌 경우 포털은 /28인 게이트웨이 서브넷을 지정합니다.  클래식 포털에서 CIDR 주소 수를 조정할 수 없습니다. 만든 게이트웨이 서브넷의 실제 이름이 **GatewaySubnet**이 아니더라도 게이트웨이 서브넷은 클래식 포털에서 **게이트웨이**로 표시됩니다. Azure 포털 또는 PowerShell을 사용하여 이 이름을 볼 수 있습니다.
 7. 페이지 아래에 있는 확인 표시를 클릭하면 가상 네트워크 만들기가 시작됩니다. 완료되면 클래식 포털의 **네트워크** 페이지에 있는 **상태**에 **만들어짐**이 표시됩니다.
 
-## <a name="a-namegwacreate-the-gateway"></a><a name="gw"></a>게이트웨이 만들기
+## <a name="gw"></a>게이트웨이 만들기
 1. **네트워크** 페이지에서 방금 만든 가상 네트워크를 클릭한 다음 페이지 위쪽의 **대시보드**를 클릭합니다.
 2. **대시보드** 페이지 아래쪽에서 **게이트웨이 만들기**를 클릭하고 **동적 라우팅**을 선택합니다. **예** 를 클릭하여 게이트웨이를 만들려 한다고 확인합니다.
 3. 게이트웨이 만들기가 시작되면 게이트웨이가 시작되었음을 알려주는 메시지가 표시됩니다. 게이트웨이를 만드는 데에는 최대 45분이 걸릴 수 있습니다.
 4. 네트워크를 회로에 연결합니다. [VNet을 Express 경로 회로에 연결하는 방법](expressroute-howto-linkvnet-classic.md)문서의 지침을 따르세요.
 
-## <a name="a-nameconfigaconfigure-an-existing-classic-vnet-for-expressroute"></a><a name="config"></a>Express 경로에 대한 기존 클래식 VNet 구성
+## <a name="config"></a>Express 경로에 대한 기존 클래식 VNet 구성
 이미 클래식 VNet이 있는 경우 클래식 포털에서 Express 경로에 연결하도록 구성할 수 있습니다. 설정은 위의 섹션과 동일하므로 필요한 설정에 익숙해지기 위해 해당 섹션을 읽습니다. Express 경로/사이트 간 공존 연결을 만드는 경우 과정은 [이 문서](expressroute-howto-coexist-classic.md) 를 참조하세요. 이 문서의 단계와 다릅니다.
 
 1. VNet 설정의 나머지 부분을 업데이트하기 전에 로컬 네트워크를 만들어야 합니다. 클래식 포털을 통해 ExpressRoute를 구성할 때 필요한 새 로컬 네트워크를 만들려면 **새로 만들기** **>** **Network Services** **>** **Virtual Network** **>** **로컬 네트워크 추가**를 차례로 클릭합니다. 마법사 단계를 따라서 로컬 네트워크를 만듭니다.
@@ -73,10 +76,5 @@ Resource Manager 배포 모델에 대한 지침을 보려는 경우 [PowerShell�
 ## <a name="next-steps"></a>다음 단계
 * 가상 컴퓨터를 가상 네트워크에 추가하려면 [가상 컴퓨터 학습 경로](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)를 참조하세요.
 * Express 경로에 대한 자세한 내용은 [Express 경로 개요](expressroute-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
