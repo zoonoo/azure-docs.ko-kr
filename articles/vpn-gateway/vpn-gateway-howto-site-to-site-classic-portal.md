@@ -13,51 +13,46 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 81eca4b41b6a0726e5fcf851074bfb7dfca16fb8
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: fd7c834e8e061ba51b116ade88769dde05abcf9a
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기
 
-S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통한 연결입니다. 이 연결 유형은 할당된 공용 IP 주소를 가지고 NAT 다음에 위치하지 않는 온-프레미스에 있는 VPN 장치를 필요로 합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
-
-![사이트 간 VPN 게이트웨이 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
-
-이 문서에서는 클래식 배포 모델 및 Azure Portal을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN Gateway 연결을 만드는 과정을 안내합니다. 클래식 배포 모델의 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
+이 문서에서는 Azure Portal을 사용하여 온-프레미스 네트워크에서 VNet으로 사이트 간 VPN Gateway 연결을 만드는 방법을 보여줍니다. 이 문서의 단계는 클래식 배포 모델에 적용됩니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Resource Manager - CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [클래식 - Azure Portal](vpn-gateway-howto-site-to-site-classic-portal.md)
 > * [클래식 - 클래식 포털](vpn-gateway-site-to-site-create.md)
->
+> 
 >
 
-#### <a name="additional-configurations"></a>추가 구성
-VNet을 서로 연결하되 온-프레미스 위치에는 연결하지 않으려는 경우 [VNet간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요. 이미 연결되어 있는 VNet에 사이트 간 연결을 추가하려는 경우 [기존 VPN 게이트웨이와 연결된 VNet에 S2S 연결 추가](vpn-gateway-multi-site.md)를 참조하세요.
+![사이트 간 VPN 게이트웨이 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
+
+
+사이트 간 VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통해 온-프레미스 네트워크를 Azure 가상 네트워크에 연결하는 데 사용됩니다. 이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 장치를 필요로 합니다. VPN Gateway 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
-구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
-
-* 호환되는 VPN 장치 및 구성할 수 있는 사람. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 장치를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
+* 클래식 배포 모델을 사용할 것인지 확인합니다. [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)] 
+* 호환되는 VPN 장치 및 구성할 수 있는 사람. 호환되는 VPN 장치 및 장치 구성에 대한 자세한 내용은 [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
 * VPN 장치에 대한 외부 연결 공용 IPv4 IP 주소. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
-* Azure 구독. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)을 활성화하거나 [무료 계정](http://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
+* 온-프레미스 네트워크에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다. 이 구성을 만들 때 Azure가 온-프레미스 위치에 라우팅할 IP 주소 범위 접두사를 지정해야 합니다. 온-프레미스 네트워크의 어떤 서브넷도 사용자가 연결하려는 가상 네트워크 서브넷과 중첩될 수 없습니다.
 * 현재 공유 키를 지정하고 VPN Gateway 연결을 만드는 데 PowerShell이 필요합니다. 최신 버전의 Azure SM(서비스 관리) PowerShell cmdlet을 설치합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. 이 구성에 PowerShell을 사용할 때 관리자 권한으로 실행되고 있는지 확인합니다. 
 
-> [!NOTE]
-> 사이트 간 연결을 구성할 때 VPN 장치에 공용 IPv4 IP 주소가 필요합니다.
->
-
 ### <a name="values"></a>이 연습에 대한 샘플 구성 값
-연습으로 이러한 단계를 사용하는 경우 샘플 구성 값을 사용할 수 있습니다.
+
+이 문서의 예제에서는 다음 값을 사용합니다. 이러한 값을 사용하여 테스트 환경을 만들거나 이 값을 참조하여 이 문서의 예제를 보다 정확하게 이해할 수 있습니다.
 
 * **VNet 이름:** TestVNet1
 * **주소 공간:** 
@@ -151,7 +146,7 @@ VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨
 3. **게이트웨이 구성** 블레이드에서 **서브넷 - 필수 설정 구성**을 클릭하여 **서브넷 추가** 블레이드를 엽니다.
 
     ![게이트웨이 구성 - 게이트웨이 서브넷](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "게이트웨이 구성 - 게이트웨이 서브넷")
-4. **서브넷 추가** 블레이드에서 게이트웨이 서브넷을 추가합니다. 게이트웨이 서브넷을 추가할 때 가능하면 /28 또는/27의 CIDR 블록을 사용하여 게이트웨이 서브넷을 만드는 것이 좋습니다. 이렇게 하면 앞으로 추가 구성 요구 사항에 맞는 충분한 IP 주소를 갖게 됩니다.  **확인** 을 클릭하여 설정을 저장합니다.
+4. **서브넷 추가** 블레이드에서 게이트웨이 서브넷을 추가합니다. 지정하는 게이트웨이 서브넷의 크기는 만들려는 VPN Gateway 구성에 따라 달라집니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 /27 또는 /28을 선택하여 더 많은 주소를 포함하는 큰 서브넷을 만드는 것이 좋습니다. 더 큰 게이트웨이 서브넷을 사용하면 향후 구성을 수용할 수 있을 만큼 충분한 IP 주소를 확보할 수 있습니다.
 
     ![게이트웨이 서브넷 추가](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "게이트웨이 서브넷 추가")
 
@@ -165,24 +160,13 @@ VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨
 
 ## <a name="vpndevice"></a>7. VPN 장치 구성
 
-온-프레미스 네트워크에 대한 사이트 간 연결에는 VPN 장치가 필요합니다. 모든 VPN 장치에 대해 구성 단계를 제공하지는 않지만 다음 링크의 정보가 유용할 수 있습니다.
-
-- 호환되는 VPN 장치에 대한 내용은 [VPN 장치](vpn-gateway-about-vpn-devices.md)를 참조하세요. 
-- 장치 구성 설정에 대한 링크는 [확인된 VPN 장치](vpn-gateway-about-vpn-devices.md#devicetable)를 참조하세요. 해당 링크가 가장 효율적으로 제공됩니다. 최신 구성 정보에 대해서는 항상 장치 제조업체에 문의하는 것이 가장 좋습니다.
-- 장치 구성 샘플을 편집하는 방법에 대한 정보는 [샘플 편집](vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
-- IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipsec)를 참조하세요.
-- VPN 장치를 구성하기 전에 사용하려는 VPN 장치에 대한 [알려진 장치 호환성 문제](vpn-gateway-about-vpn-devices.md#known)를 확인합니다.
-
-VPN 장치를 구성하려면 다음 항목이 필요합니다.
-
-- 가상 네트워크 게이트웨이의 공용 IP 주소 가상 네트워크의 **개요**로 이동하여 IP 주소를 찾을 수 있습니다.
-- 공유 키 - 사이트 간 VPN 연결을 만들 때 지정하는 것과 동일한 공유 키입니다. 이 예제에서는 매우 기본적인 공유 키를 사용합니다. 사용할 복잡한 키를 생성해야 합니다.
+[!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 ## <a name="CreateConnection"></a>8. 연결 만들기
 이 단계에서는 공유 키를 설정하고 연결을 만듭니다. 설정한 키는 VPN 장치 구성에 사용된 동일한 키여야 합니다.
 
 > [!NOTE]
-> 현재 이 단계는 Azure Portal에서 지원되지 않습니다. Azure PowerShell cmdlet의 SM(서비스 관리) 버전을 사용해야 합니다.                                        >
+> 현재 이 단계는 Azure Portal에서 지원되지 않습니다. Azure PowerShell cmdlet의 SM(서비스 관리) 버전을 사용해야 합니다.
 >
 
 ### <a name="step-1-connect-to-your-azure-account"></a>1단계. Azure 계정에 연결

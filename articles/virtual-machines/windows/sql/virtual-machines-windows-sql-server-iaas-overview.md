@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: 1bd099ee9154e920fef5b99e27d2a9711c1d75d1
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 10840ee4ff070436e2c21d51846ea6363825abac
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -67,10 +67,13 @@ Azure VM에서 실행하는 SQL Server는 관계형 데이터를 Azure에 저장
 ## <a name="create-a-new-sql-vm"></a>새 SQL VM 만들기
 다음 섹션에서는 SQL Server 가상 컴퓨터 갤러리 이미지에 Azure Portal에 대한 직접 링크를 제공합니다. 선택한 이미지에 따라 SQL Server 라이선스 비용을 분당 기준으로 지불하거나 사용자 라이선스가 필요할 수 있습니다(BYOL).
 
-이 프로세스에 대한 단계별 지침은 자습서의 [Azure Portal에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)에 있습니다. 또한 프로비전 중 사용 가능한 적절한 컴퓨터 크기 및 다른 기능을 선택하는 방법을 설명하는 [SQL Server VM에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 검토합니다.
+새 SQL VM을 만드는 단계별 지침은 자습서의 [Azure Portal에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)에 있습니다. 또한 프로비전 중 사용 가능한 적절한 컴퓨터 크기 및 다른 기능을 선택하는 방법을 설명하는 [SQL Server VM에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 검토합니다.
 
 ## <a name="option-1-create-a-sql-vm-with-per-minute-licensing"></a>옵션 1: 분당 라이선스를 사용한 SQL VM 만들기
 다음 표에서는 가상 컴퓨터 갤러리의 최신 SQL Server 이미지 매트릭스를 제공합니다. 모든 링크를 클릭하여 지정된 버전, 버전 및 운영 체제로 새 SQL VM 만들기를 시작합니다. 
+
+> [!TIP]
+> 이러한 이미지의 VM 및 SQL 가격은 [SQL Server Azure VM에 대한 요금제 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
 
 | 버전 | 운영 체제 | 버전 |
 | --- | --- | --- |
@@ -84,6 +87,9 @@ Azure VM에서 실행하는 SQL Server는 관계형 데이터를 Azure에 저장
 ## <a id="BYOL"></a> 옵션 2: 기존 라이선스를 사용한 SQL VM 만들기
 사용자 라이선스가 필요할 수도 있습니다(BYOL). 이 시나리오에서는 SQL Server 라이선스에 대한 추가 비용 없이 VM에 대해서만 지불합니다. 사용자 고유 라이선스를 사용하려면 아래의 SQL Server 버전, 버전 및 운영 체제의 매트릭스를 사용합니다. 포털에서 이러한 이미지 이름에는 접두사 **{BYOL}**이 붙습니다.
 
+> [!TIP]
+> 사용자 고유의 라이선스를 가져오면 시간에 따른 지속되는 프로덕션 워크로드의 비용을 절약할 수 있습니다. 자세한 내용은 [SQL Server Azure VM에 대한 요금제 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
+
 | 버전 | 운영 체제 | 버전 |
 | --- | --- | --- |
 | **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016) |
@@ -93,8 +99,7 @@ Azure VM에서 실행하는 SQL Server는 관계형 데이터를 Azure에 저장
 이 목록 외에도 SQL Server 버전과 운영 체제의 다른 조합을 사용할 수 있습니다. Azure Portal에서 마켓플레이스 검색을 통해 다른 이미지를 찾아보세요("{BYOL} SQL Server" 검색).
 
 > [!IMPORTANT]
-> BYOL VM 이미지를 사용하려면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)으로 기업 계약을 체결해야 합니다. 또한 사용하려는 SQL Server의 버전/버전에 대한 유효한 라이선스가 필요합니다. VM 프로비전의 [10](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) 일 내에 **필요한 BYOL 정보를 Microsoft에 제공** 해야 합니다.
-> 
+> BYOL VM 이미지를 사용하려면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)으로 기업 계약을 체결해야 합니다. 또한 사용하려는 SQL Server의 버전/버전에 대한 유효한 라이선스가 필요합니다. VM 프로비전의 [10](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) 일 내에 **필요한 BYOL 정보를 Microsoft에 제공** 해야 합니다. 
 
 > [!NOTE]
 > 사용자 고유의 라이선스를 사용하기 위해 분 단위로 요금이 부과되는 SQL Server VM의 라이선스 모델을 변경할 수 없습니다. 이 경우에 새 BYOL VM을 만들고 새 VM에 데이터베이스를 마이그레이션해야 합니다. 
@@ -127,7 +132,7 @@ CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되�
 ## <a name="next-steps"></a>다음 단계
 [학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) 합니다.
 
-가격 책정에 대한 질문은 [가격](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)을 참조하세요. **OS/소프트웨어** 목록에서 SQL Server의 대상 버전을 선택합니다. 그런 다음 다양한 크기의 가상 컴퓨터에 대한 가격을 확인합니다. 
+가격에 대한 문의 사항은 [SQL Server Azure VM에 대한 요금제 지침](virtual-machines-windows-sql-server-pricing-guidance.md) 및 [Azure 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하세요. **OS/소프트웨어** 목록에서 SQL Server의 대상 버전을 선택합니다. 그런 다음 다양한 크기의 가상 컴퓨터에 대한 가격을 확인합니다.
 
 추가 질문이 있나요? 먼저 [Azure 가상 컴퓨터의 SQL Server FAQ](virtual-machines-windows-sql-server-iaas-faq.md)를 참조하세요. 또한 SQL VM 항목의 맨 아래에 질문 또는 의견을 추가하여 Microsoft 및 커뮤니티와 상호 의견을 교환하세요.
 

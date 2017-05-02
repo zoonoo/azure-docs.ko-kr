@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 29c4c2a2818468a2fa8360eebd4b653bdcbbde19
-ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 75188a8f74b08d28b92259348626d5734ed4ce6c
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -40,9 +41,11 @@ ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
    2. **구독** 을 선택하여 랩과 연결합니다.
    3. 랩을 저장할 **위치** 를 선택합니다.
    4. **자동 종료** 를 선택하여 사용하려는지를 지정하고 랩의 VM을 모두 자동 종료하는 매개 변수를 정의할 수 있습니다. 
-   5. **만들기**를 선택합니다.
-      
-      ![랩 블레이드 만들기](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+   5. 랩 바로 가기를 포털 대시보드에 표시하려면 **대시보드에 고정**을 선택합니다.
+   6. 구성 자동화를 위한 Azure Resource Manager 템플릿을 가져오려면 **자동화 옵션**을 선택합니다. 
+   7. **만들기**를 선택합니다.
+    
+    ![랩 블레이드 만들기](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -54,10 +57,5 @@ ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
 * [랩 템플릿 만들기](devtest-lab-create-template.md).
 * [VM에 대한 사용자 지정 아티팩트  만들기](devtest-lab-artifact-author.md).
 * [아티팩트가 지정된 VM을 랩에 추가](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

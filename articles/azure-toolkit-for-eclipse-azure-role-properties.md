@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: cd734c64ba6d1394cb261bace92dee9dd579dd08
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -36,7 +37,7 @@ Azure 역할 속성을 구성하려면 작업자 역할에 대한 속성 대화 
 * [캐싱 속성](#caching_properties)
 * [인증서 속성](#certificates_properties)
 * [구성 요소 속성](#components_properties)
-* [디버깅 속성](#debugging_properties)
+<!-- * [Debugging properties](#debugging_properties) -->
 * [끝점 속성](#endpoints_properties)
 * [환경 변수 속성](#environment_variables_properties)
 * [부하 분산/세션 선호도(또는 "고정 세션") 속성](#session_affinity_properties)
@@ -174,14 +175,14 @@ Eclipse의 프로젝트 탐색기에서 역할에 대한 상황에 맞는 메뉴
 > 
 > 
 
-<a name="debugging_properties"></a> 
+<!-- <a name="debugging_properties"></a> -->
 
-### <a name="debugging-properties"></a>디버깅 속성
-Eclipse의 프로젝트 탐색기에서 역할에 대한 상황에 맞는 메뉴를 열고 **Azure**를 클릭한 다음 **디버깅**을 클릭합니다. 이 대화 상자에서 원격 디버깅을 사용하거나 사용하지 않도록 설정할 뿐만 아니라 다음 그림에서 보여준 것처럼 디버그 구성을 만드는 기능이 있습니다.
+<!-- ### Debugging properties -->
+<!-- Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Debugging**. Within this dialog, you have the ability to enable or disable remote debugging, as well as create debug configurations, as shown in the following image. -->
 
-![][ic719504]
+<!-- ![][ic719504] -->
 
-디버깅에 관련된 내용은 [Eclipse에서 Azure 응용 프로그램 디버깅][Debugging Azure Applications in Eclipse]을 참조하세요.
+<!-- For related information about debugging, see [Debugging Azure Applications in Eclipse][Debugging Azure Applications in Eclipse]. -->
 
 <a name="endpoints_properties"></a> 
 
@@ -206,13 +207,13 @@ Eclipse의 프로젝트 탐색기에서 역할에 대한 상황에 맞는 메뉴
 
 자동으로 설정된 포트의 경우 런타임 중에 실제로 사용되는 포트를 결정해야 하면 응용 프로그램이 Azure 서비스 런타임 API를 사용할 수 있으며 이는 [com.microsoft.windowsazure.serviceruntime 패키지 요약][com.microsoft.windowsazure.serviceruntime package summary]에서 설명합니다.
 
-다중 인스턴스 배포를 디버깅하는 데 도움이 되도록 인스턴스 입력 끝점을 사용할 수 있는 방법을 보려면 [다중 인스턴스 배포의 특정 역할 인스턴스 디버깅][Debugging a specific role instance in a multi-instance deployment]을 참조하세요.
+<!-- To see how instance input endpoints can be used to help with debugging a multi-instance deployment, see [Debugging a specific role instance in a multi-instance deployment][Debugging a specific role instance in a multi-instance deployment]. -->
 
 끝점을 수정하려면 끝점을 선택하고 **끝점** 속성 페이지에서 **편집** 단추를 클릭합니다. 끝점 이름, 형식 및 공용과 개인 포트를 수정할 수 있는 대화 상자가 열립니다. **확인** 을 눌러 수정된 끝점 값을 저장합니다.
 
 끝점을 삭제하려면 끝점을 선택하고 **끝점** 속성 페이지에서 **제거** 단추를 클릭한 다음 **예**를 클릭하여 삭제를 확인합니다.
 
-역할에서 사용자가 활성화한 일부 기능(예: 캐싱, 원격 디버깅, 세션 선호도 또는 SSL 오프로딩)을 제대로 구성하기 위해 도구 키트는 사용자 정의 끝점과 함께 나열될 특수한 끝점을 자동으로 구성할 수 있습니다. 도구 키트는 관련된 기능이 사용되는 한 사용자가 이렇게 자동으로 생성된 끝점을 편집하거나 삭제하지 못하도록 방지합니다.
+역할에서 사용자가 활성화한 일부 기능(예: 캐싱, 세션 선호도 또는 SSL 오프로딩)을 제대로 구성하기 위해 도구 키트는 사용자 정의 끝점과 함께 나열될 특수한 끝점을 자동으로 구성할 수 있습니다. 도구 키트는 관련된 기능이 사용되는 한 사용자가 이렇게 자동으로 생성된 끝점을 편집하거나 삭제하지 못하도록 방지합니다.
 
 <a name="environment_variables_properties"></a> 
 
@@ -457,9 +458,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

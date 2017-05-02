@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f5793f771553df78c1c335ad57e0d64078d98148
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: e16792bb762287bc16c280386981a4d442448674
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -42,11 +42,10 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
 
 ## <a name="select-a-sql-vm-image-from-the-gallery"></a>갤러리에서 SQL VM 이미지 선택
 1. 사용자 계정을 사용하여 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
-   
+
    > [!NOTE]
    > Azure 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
-   > 
-   > 
+
 2. Azure 포털에서 **새로 만들기**를 클릭합니다. 포털에 **새** 블레이드가 열립니다. SQL Server VM 리소스는 Marketplace의 **계산** 그룹에 있습니다.
 3. **새로 만들기** 블레이드에서 **계산**을 클릭한 다음 **모두 표시**를 클릭합니다.
 4. **필터** 텍스트 상자에서 SQL Server를 입력하고 ENTER 키를 누릅니다.
@@ -58,13 +57,13 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
 
    > [!TIP]
    > Developer 버전은 개발 테스트 목적으로 무료로 제공되는 SQL Server의 모든 기능을 갖춘 버전이므로 이 자습서에서 사용됩니다. VM 실행 비용에 대해서만 비용을 지불합니다.
-   
+
    > [!NOTE]
-   > SQL VM 이미지는 만든 VM의 분당 가격에 SQL Server에 대한 라이선스 비용을 포함합니다(Developer 및 Express 버전 제외). SQL Server Developer는 개발/테스트(비 프로덕션)에 대해 무료이며 SQL Express는 간단한 작업(1GB 미만의 메모리, 10GB 미만의 저장소)에 대해 무료입니다. BYOL(Bring Your Own License) 및 VM에 대해서만 지불에 대한 또 다른 옵션이 있습니다. 이러한 이미지 이름에는 접두사 {BYOL}이 붙습니다. 이 옵션에 대한 자세한 내용은 [Azure Virtual Machines에서 SQL Server 시작](virtual-machines-windows-sql-server-iaas-overview.md)을 참조하세요.
-   > 
-   > 
+   > SQL VM 이미지는 만든 VM의 분당 가격에 SQL Server에 대한 라이선스 비용을 포함합니다(Developer 및 Express 버전 제외). SQL Server Developer는 개발/테스트(비 프로덕션)에 대해 무료이며 SQL Express는 간단한 작업(1GB 미만의 메모리, 10GB 미만의 저장소)에 대해 무료입니다.
+   > BYOL(Bring Your Own License) 및 VM에 대해서만 지불에 대한 또 다른 옵션이 있습니다. 이러한 이미지 이름에는 접두사 {BYOL}이 붙습니다. 이러한 옵션에 대한 자세한 내용은 [SQL Server Azure VM에 대한 요금제 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
+
 7. **배포 모델 선택**에서 **리소스 관리자**가 선택되어 있는지 확인합니다. 리소스 관리자는 새로운 가상 컴퓨터에 권장되는 배포 모델입니다. **만들기**를 클릭합니다.
-   
+
     ![리소스 관리자로 SQL VM 만들기](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## <a name="configure-the-vm"></a>VM 구성
@@ -100,7 +99,7 @@ SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있�
 **크기** 단계의 **크기 선택** 블레이드에서 가상 컴퓨터 크기를 선택합니다. 블레이드는 선택한 이미지를 기반으로 권장되는 컴퓨터 크기를 처음에 표시합니다.
 
 > [!IMPORTANT]
-> **크기 선택** 블레이드에 표시된 월별 예상 비용에는 SQL Server 라이선스 비용이 포함되지 않습니다. 이것은 VM만의 비용입니다. SQL Server의 Express 및 Developer 버전의 경우, 이것은 총 예상 비용입니다. 다른 버전의 경우 [Windows 가상 컴퓨터 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하여 SQL Server의 대상 버전을 선택하세요. 
+> **크기 선택** 블레이드에 표시된 월별 예상 비용에는 SQL Server 라이선스 비용이 포함되지 않습니다. 이것은 VM만의 비용입니다. SQL Server의 Express 및 Developer 버전의 경우, 이것은 총 예상 비용입니다. 다른 버전의 경우 [Windows 가상 컴퓨터 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하여 SQL Server의 대상 버전을 선택하세요. 또한 [SQL Server Azure VM에 대한 요금제 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
 
 ![SQL VM 크기 옵션](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -108,8 +107,6 @@ SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있�
 
 > [!NOTE]
 > 가상 컴퓨터 크기에 대한 자세한 내용은 [가상 컴퓨터 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. SQL Server VM 크기에 대한 고려 사항은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.
-> 
-> 
 
 컴퓨터 크기를 선택한 다음 **선택**을 클릭합니다.
 

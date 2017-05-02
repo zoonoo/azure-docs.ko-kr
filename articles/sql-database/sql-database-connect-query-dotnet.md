@@ -16,9 +16,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 368ffc65382c75b0fe5f4c20ce1c6a487a764ed3
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,8 @@ ms.lasthandoff: 04/18/2017
 - [DB 만들기 - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-net"></a>.NET 설치
+
+이 섹션의 단계에서는 여러분이 .NET을 사용한 개발에 익숙하고 Azure SQL Database 작업에 익숙하지 않은 것으로 가정합니다. .NET을 사용하여 개발하는 것이 처음인 경우 [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/en-us/sql-server/developer-get-started/)로 이동하여 **.NET**을 선택한 다음 운영 체제를 선택합니다.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework 및 .NET Core**
 
@@ -66,7 +68,7 @@ sudo apt-get install dotnet-dev-1.0.1
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
-Azure Portal에서 연결 문자열을 가져옵니다. 연결 문자열을 사용하여 Azure SQL Database에 연결합니다.
+Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
@@ -96,7 +98,8 @@ Azure Portal에서 연결 문자열을 가져옵니다. 연결 문자열을 사�
 1. 개발 환경에서 빈 코드 파일을 엽니다.
 2. ```using System.Data.SqlClient```를 코드 파일([System.Data.SqlClient 네임스페이스](https://msdn.microsoft.com/library/system.data.sqlclient.aspx))에 추가합니다. 
 
-3. [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 문과 [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx)를 사용하여 Azure SQL Database에서 데이터를 쿼리합니다. 서버에 대한 적절한 값을 추가합니다.
+3. [SqlCommand.ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) 명령과 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 문을 사용하여 범주별 상위 20개 제품을 쿼리하려면 다음 코드를 사용합니다. 서버, 데이터베이스, 사용자 및 암호로 적절한 값을 추가합니다.
+
 ```csharp
 using System;
 using System.Data;
@@ -152,7 +155,7 @@ namespace ConsoleApplication1
 
 ## <a name="insert-data"></a>데이터 삽입
 
-[INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 문과 [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx)를 사용하여 Azure SQL Database에 데이터를 삽입합니다.
+[SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) 및 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 문을 사용하여 SalesLT.Product 테이블에 새 제품을 삽입하려면 다음 코드를 사용합니다. 서버, 데이터베이스, 사용자 및 암호로 적절한 값을 추가합니다.
 
 ```csharp
 using System;
@@ -207,7 +210,7 @@ namespace ConsoleApplication1
 
 ## <a name="update-data"></a>데이터 업데이트
 
-[UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 문과 [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx)를 사용하여 Azure SQL Database에서 데이터를 업데이트합니다.
+[SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) 및 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 문을 사용하여 이전에 추가한 새 제품을 업데이트하려면 다음 코드를 사용합니다. 서버, 데이터베이스, 사용자 및 암호로 적절한 값을 추가합니다.
 
 ```csharp
 using System;
@@ -257,7 +260,7 @@ namespace ConsoleApplication1
 
 ## <a name="delete-data"></a>데이터 삭제
 
-[DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 문과 [SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx)를 사용하여 Azure SQL Database에서 데이터를 삭제합니다.
+[SqlCommand.ExecuteNonQuery](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executenonquery.aspx) 및 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 문을 사용하여 이전에 추가한 새 제품을 삭제하려면 다음 코드를 사용합니다. 서버, 데이터베이스, 사용자 및 암호로 적절한 값을 추가합니다.
 
 ```csharp
 using System;

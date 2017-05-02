@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 04/25/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: caecd0d6e546d4ddef71ebeee6fad3a5c7ba6451
-ms.openlocfilehash: 5447dff1ff9aea1b90f7e18499f795e7c173e2b9
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: e0e658fc392bf6a53f777f22a2e0b6e7bd742f97
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.openlocfilehash: 5447dff1ff9aea1b90f7e18499f795e7c173e2b9
 ## <a name="the-scenario"></a>시나리오
 Fabrikam은 경쟁력 있는 가격으로 우수한 고객 경험을 제공하는 데 중점을 두고 있는 지역 항공사입니다. 항공기 지연의 이유 중 하나는 정비 문제이며 항공 엔진 정비는 특히 어려운 부분입니다. 비행 중 엔진 고장은 어떻게 해서든 막아야 하기 때문에 Fabrikam은 엔진을 정기적으로 조사하고 예정된 정비 프로그램을 충실하게 지키고 있습니다. 하지만 항공기 엔진이 항상 동일하게 마모되는 것은 아닙니다. 엔진에 대해 필요 이상의 정비를 수행하는 경우도 있습니다. 무엇보다, 정비가 수행될 때까지 항공기를 이륙할 수 없는 문제가 발생합니다. 이런 문제는 비용이 큰 지연을 유발하며, 적당한 기술자나 예비 부품이 없는 곳에 항공기가 있는 경우에는 특히 그렇습니다.
 
-Fabrikam 항공기의 엔진에는 비행 중에 엔진 상태를 모니터링하는 센서가 달려 있습니다. Fabrikam은 비행 중 수집된 센서 데이터를 수집하는 예측 정비 사전 구성 솔루션을 사용합니다. Fabrikam의 데이터 과학자들은 엔진 작동 및 고장 데이터를 다년간 축적한 후에 항공기 엔진의 잔여 수명(Remaining Useful Life, RUL)을 예측하는 방식을 모델링했습니다. 이들이 확인한 것은&4;개 엔진 센서의 데이터와 우발적인 고장으로 이어지는 엔진 마모 사이의 상관 관계입니다. Fabrikam은 안전을 보장하기 위하여 정기적인 정밀 검사를 계속 수행하는 한편, 이 모델을 통해 비행이 끝날 때마다 각 엔진에 대한 RUL을 계산할 수 있게 되었습니다. 모델은 비행 중 엔진에서 수집한 원격 분석 데이터를 사용합니다. Fabrikam은 이제 향후 고장 시점을 예측하고 정비 및 수리를 사전에 계획할 수 있습니다.
+Fabrikam 항공기의 엔진에는 비행 중에 엔진 상태를 모니터링하는 센서가 달려 있습니다. Fabrikam은 비행 중 수집된 센서 데이터를 수집하는 예측 정비 사전 구성 솔루션을 사용합니다. Fabrikam의 데이터 과학자들은 엔진 작동 및 고장 데이터를 다년간 축적한 후에 항공기 엔진의 잔여 수명(Remaining Useful Life, RUL)을 예측하는 방식을 모델링했습니다. 이들이 확인한 것은 4개 엔진 센서의 데이터와 우발적인 고장으로 이어지는 엔진 마모 사이의 상관 관계입니다. Fabrikam은 안전을 보장하기 위하여 정기적인 정밀 검사를 계속 수행하는 한편, 이 모델을 통해 비행이 끝날 때마다 각 엔진에 대한 RUL을 계산할 수 있게 되었습니다. 모델은 비행 중 엔진에서 수집한 원격 분석 데이터를 사용합니다. Fabrikam은 이제 향후 고장 시점을 예측하고 정비 및 수리를 사전에 계획할 수 있습니다.
 
 > [!NOTE]
 > 솔루션 모델은 실제 엔진 마모 데이터를 사용합니다.
@@ -95,11 +96,11 @@ Azure 포털에서 선택한 솔루션 이름을 가진 리소스 그룹으로 �
 
 ![][img-resource-group]
 
-미리 구성된 솔루션을 프로비전할 때 기계 학습 작업 영역에 대한 링크가 포함된 전자 메일을 수신합니다. 또한 **준비** 상태일 때 프로비전된 솔루션에 대한 [azureiotsuite.com][lnk-azureiotsuite] 페이지의 타일에서 Machine Learning 작업 영역으로 이동할 수 있습니다.
+미리 구성된 솔루션을 프로비전할 때 기계 학습 작업 영역에 대한 링크가 포함된 전자 메일을 수신합니다. 또한 솔루션이 **준비** 상태일 때 프로비전된 솔루션에 대한 [azureiotsuite.com][lnk-azureiotsuite] 페이지의 타일에서 Machine Learning 작업 영역으로 이동할 수 있습니다.
 
 ![][img-machine-learning]
 
-솔루션 포털에서 항공기 당&2;개의 엔진, 엔진 당&4;개의 센서가 있는&2;대의 항공기를 나타내는 네 가지의 시뮬레이션된 장치를 사용하여 샘플이 프로비전된 것을 볼 수 있습니다. 솔루션 포털로 먼저 이동할 때 시뮬레이션이 중지됩니다.
+솔루션 포털에서 항공기 당 2개의 엔진, 엔진 당 4개의 센서가 있는 2대의 항공기를 나타내는 네 가지의 시뮬레이션된 장치를 사용하여 샘플이 프로비전된 것을 볼 수 있습니다. 솔루션 포털로 먼저 이동할 때 시뮬레이션이 중지됩니다.
 
 ![][img-simulation-stopped]
 
@@ -150,8 +151,3 @@ Azure IoT가 예측 정비 시나리오를 가능하게 하는 방식에 대해 
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
-
-
-<!--HONumber=Feb17_HO1-->
-
-

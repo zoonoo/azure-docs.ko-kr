@@ -16,9 +16,9 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c7090940192d9bd07fce96ad475b2239f5e9f2e8
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -73,11 +73,12 @@ Azure 배치 서비스의 핵심 구성 요소 개요에서는 배치 개발자�
 
 [Azure Portal](batch-account-create-portal.md) 또는 프로그래밍 방식(예: [배치 관리 .NET 라이브러리](batch-management-dotnet.md))을 통해 Azure 배치 계정을 만들 수 있습니다. 계정을 만들 때 Azure 저장소 계정을 연결할 수 있습니다.
 
-배치는 *풀 할당 모드* 속성을 기반으로 하는 두 가지 계정 구성을 지원합니다. 두 구성은 배치 서비스로 인증하고 배치 [풀](#pool)을 프로비전하고 관리하기 위한 다양한 옵션을 제공합니다(이 문서의 뒷부분 참조). 
+배치는 *풀 할당 모드* 속성을 기반으로 하는 두 가지 계정 구성을 지원합니다. 두 구성을 통해 배치 [풀](#pool)과 관련된 여러 기능에 액세스할 수 있습니다(이 문서의 뒷부분 참조). 
 
 
-* **배치 서비스**(기본값): 공유 키 인증 또는 [Azure Active Directory 인증](batch-aad-auth.md)을 사용하여 배치 API에 액세스할 수 있습니다. 배치 리소스는 백그라운드 상태로 Azure에서 관리되는 계정에 할당됩니다.   
-* **사용자 구독**: [Azure Active Directory 인증](batch-aad-auth.md)만 사용하여 배치 API에 액세스할 수 있습니다. 배치 계산 리소스는 Azure 구독에 직접 할당됩니다. 이 모드는 계산 노드를 구성하고 다른 서비스와 통합할 수 있는 유연성을 제공합니다. 이 모드에서는 배치 계정에 Azure 키 자격 증명 모음을 추가로 설정해야 합니다.
+* **배치 서비스**: 배치 풀 VM이 백그라운드에서 Azure로 관리되는 구독에 할당되는 기본 옵션입니다. Cloud Services 풀이 필요한 경우에는 이 계정 구성을 사용해야 하지만, 사용자 지정 VM 이미지로 생성되었거나 가상 네트워크를 사용하는 Virtual Machine 가상 컴퓨터 풀이 필요한 경우에는 사용할 수 없습니다. 공유 키 인증 또는 [Azure Active Directory 인증](batch-aad-auth.md)을 사용하여 배치 API에 액세스할 수 있습니다. 
+
+* **사용자 구독**: 사용자 지정 VM 이미지로 생성되었거나 가상 네트워크를 사용하는 Virtual Machine 가상 컴퓨터 풀이 필요한 경우 이 계정 구성을 사용해야 합니다. [Azure Active Directory 인증](batch-aad-auth.md)만 사용하여 배치 API에 액세스할 수 있으며, Cloud Services 풀은 지원되지 않습니다. 배치 계산 VM은 Azure 구독에 직접 할당됩니다. 이 모드에서는 배치 계정에 Azure Key Vault를 설정해야 합니다.
  
 
 ## <a name="compute-node"></a>계산 노드

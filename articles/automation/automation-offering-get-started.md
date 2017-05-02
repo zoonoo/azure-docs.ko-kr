@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1876b78186da3aa6c0ae9dc7de3b7ab7e46888bb
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -157,7 +157,7 @@ Automation을 등록하려면 Marketplace에서 Automation 및 컨트롤 제품�
 >[!NOTE]
 >Automation 계정을 만들려면 서비스 관리자 역할의 구성원이거나 구독에 대한 액세스 권한을 부여하는 구독의 공동 관리자여야 합니다. 또한 해당 구독의 기본 Active Directory 인스턴스에 사용자로 추가되어야 합니다. 이 계정은 권한 있는 역할에 할당할 필요가 없습니다.
 >
->구독의 공동 관리자 역할에 추가되기 전에 구독 Active Directory 인스턴스의 구성원이 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 인스턴스에서는 **Automation 계정 추가** 블레이드에서 "만들 수 있는 사용 권한이 없습니다…" 경고를 받습니다.
+>구독의 공동 관리자 역할에 추가되기 전에 구독 Active Directory 인스턴스의 구성원이 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 인스턴스에서는 “만들 수 있는 사용 권한이 없습니다…”라는 메시지를 받습니다. **Automation 계정 추가** 블레이드의 경고.
 >
 >공동 관리자 역할에 처음 추가된 사용자는 구독 Active Directory 인스턴스에서 제거한 다음 다시 추가하여 Active Directory의 완전한 사용자로 만들 수 있습니다. Azure Portal의 **Azure Active Directory** 창에서 이 상황을 확인하려면 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.
 
@@ -211,7 +211,7 @@ Automation을 등록하려면 Marketplace에서 Automation 및 컨트롤 제품�
 | AzureClassicAutomationTutorial Runbook | 클래식 실행 계정(인증서)을 사용하여 구독의 모든 클래식 배포 모델을 사용하여 만든 VM을 가져온 다음 VM 이름 및 상태를 작성하는 예제 그래픽 Runbook입니다. |
 | AzureClassicAutomationTutorial Script Runbook | 클래식 실행 계정(인증서)을 사용하여 구독의 모든 클래식 VM을 가져온 다음 VM 이름 및 상태를 작성하는 예제 PowerShell Runbook입니다. |
 | AzureClassicRunAsCertificate | Runbook에서 Azure 클래식 리소스를 관리할 수 있도록 Azure에 인증하는 데 사용되는 자동으로 생성된 인증서 자산입니다. 인증서의 수명은 1년입니다. |
-| AzureClassicRunAsConnection | Runbook에서 Azure 클래식 리소스를 관리할 수 있도록 Azure에 인증하는 데 사용되는 자동으로 생성된 연결 자산입니다. |Runbook에서 Azure 클래식 리소스를 관리할 수 있도록 Azure로 인증합니다. |
+| AzureClassicRunAsConnection | Runbook에서 Azure 클래식 리소스를 관리할 수 있도록 Azure에 인증하는 데 사용되는 자동으로 생성된 연결 자산입니다.|
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Automation 실행 계정 인증 테스트](automation-verify-runas-authentication.md)를 검토하여 새 Automation 계정이 Azure 리소스에 대해 인증할 수 있는지 확인할 수 있습니다.

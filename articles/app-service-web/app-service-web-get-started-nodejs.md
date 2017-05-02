@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 03/28/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 22966659db3951316dca11fd555e07a183114062
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: c32cb52e4bb7bacde20e21820f277b4e86877e74
+ms.lasthandoff: 04/25/2017
 
 ---
 # <a name="create-a-nodejs-application-on-web-app"></a>Web App에서 Node.js 응용 프로그램 만들기
@@ -148,7 +148,7 @@ App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정�
 
 이제 App Service 계획을 만들었으므로 `quickStartPlan` App Service 계획 내에서 Web App을 만듭니다. 웹앱은 코드를 배포할 호스팅 공간을 제공할 뿐만 아니라 배포된 응용 프로그램을 확인하도록 URL도 제공합니다. [az appservice web create](/cli/azure/appservice/web#create) 명령을 사용하여 Web App을 만듭니다.
 
-아래 명령에서 <app_name> 자리 표시자를 확인한 고유한 앱 이름을 대체하세요. <app_name>은 웹앱에 대한 기본 DNS 사이트로 사용되므로 이름이 Azure에 있는 모든 앱과 달리 고유해야 합니다. 나중에 사용자에게 노출하기 전에 웹앱에 사용자 지정 DNS 항목을 매핑할 수 있습니다.
+아래 명령에서 `<app_name>` 자리 표시자를 고유한 앱 이름으로 바꿉니다. `<app_name>`은 웹앱의 기본 DNS 사이트로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. 나중에 사용자에게 노출하기 전에 웹앱에 사용자 지정 DNS 항목을 매핑할 수 있습니다.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -296,7 +296,7 @@ Azure Portal로 이동하여 방금 만든 웹앱을 살펴봅니다.
 
 이 작업을 수행하려면 [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
 
-왼쪽 메뉴에서 **App Service**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
 
 ![Azure 웹앱에 대한 포털 탐색](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
@@ -321,3 +321,4 @@ Azure Portal로 이동하여 방금 만든 웹앱을 살펴봅니다.
 ## <a name="next-steps"></a>다음 단계
 
 미리 만든 [Web Apps CLI 스크립트](app-service-cli-samples.md)를 탐색합니다.
+

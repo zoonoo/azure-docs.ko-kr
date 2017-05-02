@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 981275da75adb11e8fff16f77e31d4ff86affe1f
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 5cb387c4d1a2a2ae5ee8822241b11e79f53f0d6a
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -34,8 +34,15 @@ ms.lasthandoff: 03/11/2017
 
 DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 레코드가 생성됩니다. 마지막으로 DNS 영역을 인터넷에 게시하려면 도메인에 대한 이름 서버를 구성해야 합니다. 아래에서는 이러한 각 단계에 대해 설명합니다.
 
-이 지침에서는 이미 Azure CLI 1.0을 설치했고, 로그인했다고 가정합니다. 도움말은 [Azure CLI 2.0을 사용하여 DNS 영역을 관리하는 방법](dns-operations-dnszones-cli.md)을 참조하세요.
+이 지침에서는 이미 Azure CLI 2.0을 설치했고, 로그인했다고 가정합니다. 도움말은 [Azure CLI 2.0을 사용하여 DNS 영역을 관리하는 방법](dns-operations-dnszones-cli.md)을 참조하세요.
 
+## <a name="create-the-resource-group"></a>리소스 그룹 만들기
+
+DNS 영역을 만들기 전에 DNS 영역을 포함할 리소스 그룹이 생성됩니다. 다음은 명령을 표시합니다.
+
+```azurecli
+az group create --name MyResourceGroup --location "West US"
+```
 
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
@@ -100,6 +107,13 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 
 이러한 이름 서버는 사용자가 도메인 이름을 구입한 도메인 이름 등록 기관에서 구성해야 합니다. 등록 기관에서 도메인에 대한 이름 서버를 설정하는 옵션을 제공합니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.
 
+## <a name="delete-all-resources"></a>모든 리소스 삭제
+ 
+이 문서에서 만든 모든 리소스를 삭제하려면 다음 단계를 수행합니다.
+
+```azurecli
+az group delete --name MyResourceGroup
+```
 
 ## <a name="next-steps"></a>다음 단계
 

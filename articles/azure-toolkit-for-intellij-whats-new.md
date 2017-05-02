@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm;asirveda;martinsawicki
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: a2006dbcf0d63ef38651a0859dc654d531fd875a
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 23714856f0f778be04cf321e0726b53ade430f57
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -28,6 +29,15 @@ ms.openlocfilehash: a2006dbcf0d63ef38651a0859dc654d531fd875a
 > Azure Toolkit for Eclipse IDE이기도합니다. 자세한 내용은 [Eclipse용 Azure 도구 키트 설치]를 참조하세요.
 > 
 > 
+
+### <a name="april-14-2017"></a>2017년 4월 14일
+IntelliJ용 Azure 도구 키트 - 2017년 4월 릴리스에는 다음과 같은 향상 기능이 포함되어 있습니다.
+
+* **향상된 Azure 로그인 환경**: IntelliJ용 Azure 도구 키트에서는 이제 Azure 계정에 로그인하는 두 가지 방법인 *대화형* 및 *자동*을 지원합니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트에 대한 Azure 로그인 지침]을 참조하세요.
+* **Docker 컨테이너를 사용한 게시**: 이제 IntelliJ용 Azure 도구 키트를 사용하여 웹 응용 프로그램을 Docker 컨테이너로 게시할 수 있습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트를 사용하여 웹앱을 Docker 컨테이너로 게시하는 방법]을 참조하세요.
+* **저장소 계정 관리**: IntelliJ용 Azure 도구 키트에서는 이제 Azure 탐색기 보기에서 저장소 계정을 관리하도록 지원합니다. 자세한 내용은 [IntelliJ용 Azure 탐색기를 사용하여 저장소 계정 관리]를 참조하세요.
+*  **관리**: IntelliJ용 Azure 도구 키트에서는 이제 Azure 탐색기 보기에서 가상 컴퓨터를 관리하도록 지원합니다. 자세한 내용은 [IntelliJ용 Azure 탐색기를 사용하여 Virtual Machines 관리]를 참조하세요.
+* **원격 디버깅 지원 제거**. Azure App Service의 Java 웹앱에 대한 원격 디버깅 기능이 IntelliJ용 Azure 도구 키트에서 제거되었습니다. 도구 키트 사용 시 발생하는 몇 가지 문제를 해결하기 위해 제거가 필요했습니다.
 
 ### <a name="august-26-2016"></a>2016년 8월 26일
 IntelliJ용 Azure 도구 키트 - 2016년 8월 릴리스에는 다음과 같은 향상된 기능이 포함되어 있습니다.
@@ -61,13 +71,15 @@ IntelliJ용 Azure 도구 키트 - 2016년 4월 릴리스에는 다음과 같은 
 Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 * [Eclipse용 Azure 도구 키트 설치]
+  * [Eclipse용 Azure 도구 키트의 새로운 기능]
   * [Eclipse용 Azure 도구 키트 설치]
   * [Eclipse에서 Azure용 Hello World 웹앱 만들기]
-  * [Eclipse용 Azure 도구 키트의 새로운 기능]
+  * [Eclipse용 Azure 도구 키트에 대한 로그인 지침]
 * [IntelliJ용 Azure 도구 키트]
-  * [IntelliJ용 Azure 도구 키트 설치]
-  * [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
   * *IntelliJ용 Azure 도구 키트의 새로운 기능(이 문서)*
+  * [IntelliJ용 Azure 도구 키트 설치]
+  * [IntelliJ용 Azure 도구 키트에 대한 로그인 지침]
+  * [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
 
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
@@ -79,15 +91,17 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Eclipse용 Azure 도구 키트 설치]: ./azure-toolkit-for-eclipse-installation.md
 [IntelliJ용 Azure 도구 키트 설치]: ./azure-toolkit-for-intellij-installation.md
+[Eclipse용 Azure 도구 키트에 대한 로그인 지침]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[IntelliJ용 Azure 도구 키트에 대한 로그인 지침]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Eclipse용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-eclipse-whats-new.md
 [What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+
+[IntelliJ용 Azure 도구 키트에 대한 Azure 로그인 지침]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[IntelliJ용 Azure 도구 키트를 사용하여 웹앱을 Docker 컨테이너로 게시하는 방법]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
+[IntelliJ용 Azure 탐색기를 사용하여 저장소 계정 관리]: ./azure-toolkit-for-intellij-managing-storage-accounts-using-azure-explorer.md
+[IntelliJ용 Azure 탐색기를 사용하여 Virtual Machines 관리]: ./azure-toolkit-for-intellij-managing-virtual-machines-using-azure-explorer.md
 
 [Azure Java 개발자 센터]: http://go.microsoft.com/fwlink/?LinkID=699547
 
 [IntelliJ용 HDInsight 도구 플러그 인]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

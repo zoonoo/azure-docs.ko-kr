@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 03/15/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a08fe566f4962684bc4aad220687e9cd36fc4abf
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 9ffad92e668b76c9a4e2941b20d075bf52132d16
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -37,7 +37,7 @@ SSMS([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
-Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름을 가져옵니다. 정규화된 서버 이름을 사용하여 SQL Server Management Studio를 사용하는 서버에 연결합니다.
+Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
@@ -78,7 +78,7 @@ SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결
 
 ## <a name="query-data"></a>쿼리 데이터
 
-[SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 문을 사용하여 Azure SQL Database에서 데이터를 쿼리합니다.
+다음 코드를 사용하여 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 문을 통해 범주별 상위 20개 제품을 쿼리합니다.
 
 1. 개체 탐색기에서 **mySampleDatabase**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다. 데이터베이스에 연결된 비어 있는 쿼리 창이 열립니다.
 2. 쿼리 창에서 다음 쿼리를 입력합니다.
@@ -96,7 +96,7 @@ SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결
 
 ## <a name="insert-data"></a>데이터 삽입
 
-[INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 문을 사용하여 Azure SQL Database에서 데이터를 삽입합니다.
+[INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 문을 사용하여 SalesLT.Product 테이블에 새 제품을 삽입하려면 다음 코드를 사용합니다.
 
 1. 쿼리 창에서 이전 쿼리를 다음 쿼리로 바꿉니다.
 
@@ -126,7 +126,7 @@ SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결
 
 ## <a name="update-data"></a>데이터 업데이트
 
-[UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 문을 사용하여 Azure SQL Database에서 데이터를 업데이트합니다.
+이전에 추가한 새 제품을 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 문을 사용하여 업데이트하려면 다음 코드를 사용합니다.
 
 1. 쿼리 창에서 이전 쿼리를 다음 쿼리로 바꿉니다.
 
@@ -142,7 +142,7 @@ SQL Server Management Studio를 사용하여 Azure SQL Database 서버에 연결
 
 ## <a name="delete-data"></a>데이터 삭제
 
-[DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 문을 사용하여 Azure SQL Database에서 데이터를 삭제합니다.
+이전에 추가한 새 제품을 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 문을 사용하여 삭제하려면 다음 코드를 사용합니다.
 
 1. 쿼리 창에서 이전 쿼리를 다음 쿼리로 바꿉니다.
 

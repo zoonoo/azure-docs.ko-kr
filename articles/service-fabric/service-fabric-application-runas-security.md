@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 469f37362fa0ebe39367a66df8a27e71e762a9d5
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: ce1291261cd8f65d44873217345ae6efaa515534
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -26,7 +26,7 @@ Azure Service Fabric을 사용하여 다른 사용자 계정으로 클러스터�
 
 기본적으로 서비스 패브릭 응용 프로그램은 Fabric.exe 프로세스가 실행하는 계정을 통해 실행됩니다. 또한 Service Fabric은 응용 프로그램의 매니페스트 내에 지정된 로컬 사용자 계정 또는 로컬 시스템 계정을 통해 응용 프로그램을 실행하는 기능을 제공합니다. 지원되는 로컬 시스템 계정 유형은 **LocalUser**, **NetworkService**, **LocalService** 및 **LocalSystem**입니다.
 
- 독립 실행형 설치 관리자를 사용하여 데이터 센터의 Windows Server에서 Service Fabric을 실행하는 경우 Active Directory 도메인 계정을 사용할 수 있습니다.
+ 독립 실행형 설치 관리자를 사용하여 데이터 센터의 Windows Server에서 Service Fabric을 실행하는 경우 그룹 관리 서비스 계정을 포함하여 Active Directory 도메인 계정을 사용할 수 있습니다.
 
 사용자 그룹을 정의하고 만들었으므로 각 그룹에 사용자를 한 명 이상 추가하여 한꺼번에 관리할 수 있습니다. 이 기능은 여러 서비스 진입점에 대한 사용자가 여러 명 있고 그 사용자들에게 그룹 수준에서 특정 공통 권한을 부여해야 하는 경우 유용합니다.
 
@@ -290,7 +290,44 @@ Echo "Test console redirection which writes to the application log folder on the
 </Policies>
 <Certificates>
 ```
+### <a name="use-a-group-managed-service-account"></a>그룹 관리 서비스 계정을 사용합니다.
+독립 실행형 설치 관리자를 사용하여 Windows Server에 설치된 Service Fabric 인스턴스의 경우 그룹 관리 서비스 계정(gMSA)으로 서비스를 실행할 수 있습니다. 도메인 내의 Active Directory 온-프레미스이며 Azure Active Directory(Azure AD)를 사용하지 않습니다. gMSA를 사용하면 `Application Manifest`에 저장된 암호 또는 암호화된 암호가 없습니다.
 
+다음 예에서는 *svc-Test$*라는 gMSA 계정을 작성하는 방법, 해당 관리 서비스 계정을 클러스터 노드에 배포하는 방법 및 사용자 주체를 구성하는 방법을 보여줍니다.
+
+##### <a name="prerequisites"></a>필수 조건.
+- 도메인에 KDS 루트 키가 필요합니다.
+- Windows Server 2012 이상 기능 수준에 도메인이 있어야 합니다.
+
+##### <a name="example"></a>예제
+1. Active Directory 도메인 관리자가 `New-ADServiceAccount` commandlet을 사용하여 그룹 관리 서비스 계정을 만들고 `PrincipalsAllowedToRetrieveManagedPassword`에 Serivce Fabric 클러스터 노드가 모두 포함되도록 합니다. `AccountName`, `DnsHostName` 및 `ServicePrincipalName`이 고유해야 합니다.
+```
+New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
+```
+2. 각 Serivce Fabric 클러스터 노드(예: `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`)에서 gMSA를 설치하고 테스트합니다.
+```
+Add-WindowsFeature RSAT-AD-PowerShell
+Install-AdServiceAccount svc-Test$
+Test-AdServiceAccount svc-Test$
+```
+3. 사용자 보안 주체를 구성하고 사용자를 참조하도록 RunAsPolicy를 구성합니다.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
+      <ConfigOverrides />
+      <Policies>
+         <RunAsPolicy CodePackageRef="Code" UserRef="DomaingMSA"/>
+      </Policies>
+   </ServiceManifestImport>
+  <Principals>
+    <Users>
+      <User Name="DomaingMSA" AccountType="ManagedServiceAccount" AccountName="domain\svc-Test$"/>
+    </Users>
+  </Principals>
+</ApplicationManifest>
+```
 
 ## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>HTTP 및 HTTPS 끝점에 보안 액세스 정책 할당
 서비스에 RunAs 정책을 적용하고 서비스 매니페스트에서 HTTP 프로토콜을 사용하여 끝점 리소스를 선언할 경우 이러한 끝점에 할당된 포트가 서비스가 실행되는 RunAs 사용자 계정에 대해 올바르게 액세스 제어 나열되도록 **SecurityAccessPolicy**를 지정해야 합니다. 그러지 않으면 **http.sys** 가 해당 서비스에 액세스할 수 없고 클라이언트의 호출과 함께 오류가 발생합니다. 다음은 **ServiceEndpointName**이라는 끝점에 Customer3이라는 계정을 적용하여 전체 액세스 권한을 부여하는 예제입니다.

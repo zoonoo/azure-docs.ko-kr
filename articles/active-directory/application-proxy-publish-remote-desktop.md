@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 응용 프로그램 프록시로 원격 데스크톱 게시 | Microsoft Docs"
+title: "Azure AD 앱 프록시를 사용하여 원격 데스크톱 게시 | Microsoft 문서"
 description: "Azure AD 응용 프로그램 프록시 커넥터에 대한 기본 사항을 제공합니다."
 services: active-directory
 documentationcenter: 
@@ -11,76 +11,95 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 04/11/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fd0ecc62fd3cfc860423acd02108648e99f44753
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: e45d704e68c17d36fd5b195179730b80d0f53e0c
+ms.lasthandoff: 04/20/2017
 
 
 ---
 
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 원격 데스크톱 게시
 
-이 문서에서는 원격 사용자용으로 액세스할 수 있는 Windows 원격 데스크톱을 배포하는 방법을 설명합니다. 원격 데스크톱 배포는 온-프레미스 또는 IaaS 배포와 같은 개인 네트워크에 상주할 수 있습니다.
+이 문서에서는 원격 사용자가 생산성을 높일 수 있도록 응용 프로그램 프록시를 사용하여 RDS(원격 데스크톱 서비스)를 배포하는 방법을 설명합니다. 
 
-> [!NOTE]
-> 응용 프로그램 프록시 기능은 Premium 또는 Basic 버전의 Azure Active Directory(Azure AD)로 업그레이드하는 경우에만 사용할 수 있습니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+이 문서의 대상은 다음과 같습니다.
+- 원격 데스크톱 서비스를 통해 온-프레미스 응용 프로그램을 게시하여 최종 사용자에게 더 많은 응용 프로그램을 제공하려고 하는 현재 Azure AD 응용 프로그램 프록시 고객. 
+- Azure AD 응용 프로그램 프록시를 사용하여 배포의 공격에 대한 취약성을 줄이려고 하는 현재 원격 데스크톱 서비스 고객. 이 시나리오에서는 RDS에 대한 제한된 2단계 확인 및 조건부 액세스 제어 집합을 제공합니다.
 
-Azure AD 응용 프로그램 프록시를 통해 RDP(원격 데스크톱 프로토콜) 트래픽을 통과 프록시 응용 프로그램으로 게시할 수 있습니다. 이 솔루션은 연결 문제를 해결하며 네트워크 버퍼링, 강화된 인터넷 프런트 엔드 및 DDoS(배포된 서비스 거부) 보호와 같은 기본적인 보호 기능을 제공합니다.
+## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>응용 프로그램 프록시를 표준 RDS 배포에 맞추는 방법
 
-## <a name="remote-desktop-deployment"></a>원격 데스크톱 배포
+표준 RDS 배포에는 Windows Server에서 실행되는 다양한 원격 데스크톱 역할 서비스가 포함됩니다. [Remote Desktop Services architecture](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture)(원격 데스크톱 서비스 아키텍처)에는 다양한 배포 옵션이 있습니다. [RDS deployment with Azure AD Application Proxy](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture)(Azure AD 응용 프로그램 프록시를 사용한 RDS 배포)와 기타 배포 옵션 간의 가장 눈에 띄는 차이점은 응용 프로그램 프록시 시나리오에는 커넥터 서비스를 실행하는 서버에서 영구 아웃바운드 연결이 있다는 것입니다. 기타 배포에서는 부하 분산 장치를 통해 열린 인바운드 연결을 유지합니다. 
 
-원격 데스크톱 게이트웨이는 원격 데스크톱 배포 내에서 게시되어 HTTPS 트래픽을 통한 RPC(원격 프로시저 호출)을 UDP(사용자 데이터그램 프로토콜) 트래픽을 통한 RDP로 변환할 수 있습니다.
+![응용 프로그램 프록시는 RDS VM과 공용 인터넷 간에 놓입니다.](./media/application-proxy-publish-remote-desktop/rds-with-app-proxy.png)
 
-Azure AD 응용 프로그램 프록시에 액세스하는 데 원격 데스크톱 클라이언트(예: MSTSC.exe)를 사용하도록 클라이언트를 구성할 수 있습니다. 이러한 방식으로 해당 커넥터를 사용하여 원격 데스크톱 게이트웨이에 대해 새 HTTPS 연결을 만들 수 있습니다. 결과적으로 게이트웨이가 인터넷에 직접 노출되지 않으며 모든 HTTPS 요청이 먼저 클라우드에서 종료됩니다.
+RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결 컴퓨터에서 실행됩니다. 이러한 끝점은 다음 이유로 표시됩니다.
+- RD 웹에서는 사용자에게 액세스할 수 있는 다양한 온-프레미스 응용 프로그램 및 데스크톱에 로그인하고 이를 볼 수 있는 공용 끝점을 제공합니다. 리소스 선택 시 OS에서 네이티브 앱을 사용하여 RDP 연결이 생성됩니다.
+- 사용자가 RDP 연결을 시작하면 RD 게이트웨이가 중요해집니다. RD 게이트웨이는 인터넷을 통해 나오는 암호화된 RDP 트래픽을 처리하고 사용자가 연결되어 있는 온-프레미스 서버로 전환합니다. 이 시나리오에서 RD 게이트웨이가 수신하는 트래픽은 Azure AD 응용 프로그램 프록시에서 나옵니다.
 
-토폴로지는 다음 다이어그램에 나와 있습니다.
+>[!TIP]
+>이전에 RDS를 배포하지 않았거나 시작하기 전에 추가 정보가 필요한 경우 [seamlessly deploy RDS with Azure Resource Manager and Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)(Azure Resource Manager 및 Azure Marketplace를 사용하여 원활하게 RDS 배포)를 수행하는 방법을 알아보세요.
 
- ![Azure AD 서비스 로컬 다이어그램](./media/application-proxy-publish-remote-desktop/remote-desktop-topology.png)
+## <a name="requirements"></a>요구 사항
 
-## <a name="configure-the-remote-desktop-gateway-url"></a>원격 데스크톱 게이트웨이 URL 구성
+RD 웹 및 RD 게이트웨이 끝점은 둘 다 같은 컴퓨터에 있고 공통 루트를 사용해야 합니다. RD 웹 및 RD 게이트웨이는 단일 응용 프로그램으로 게시되므로 두 응용 프로그램 간에 Single Sign-On 환경이 있을 수 있습니다. 
 
-사용자가 원격 데스크톱 게이트웨이 URL을 구성하고 일반적인 방식으로 RDP 트래픽을 트리거하는 경우 파일 및 기타 메서드에 액세스할 수 있게 됩니다.
+이미 [RDS를 배포](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)하고 [응용 프로그램 프록시를 사용하도록 설정](active-directory-application-proxy-enable.md)했어야 합니다. 
 
-응용 프로그램 프록시에서 제공한 도메인 이름(msappproxy.net)을 사용하거나 Azure AD에서 구성된 사용자 지정 도메인 이름(예: rdg.contoso.com)을 사용하여 게시할 수 있습니다.
+최종 사용자는 RD 웹 페이지를 통해 연결되는 Windows 7 및 Windows 10 데스크톱을 통해 이 시나리오에 액세스해야 합니다. Microsoft 원격 데스크톱 응용 프로그램이 설치되어 있더라도 다른 운영 체제에서는 이 시나리오가 지원되지 않습니다.
 
-원격 데스크톱 게이트웨이 URL로 클라이언트 장치 및 RDP 파일이 이미 구성된 경우 동일한 도메인 이름을 사용하도록 선택하여 변경을 회피할 수 있습니다. 이 경우에 이 도메인에 적용되는 인증서는 응용 프로그램 프록시에 제공되고 해당 CRL(인증서 해지 목록)은 인터넷을 통해 액세스될 수 있어야 합니다.
+최종 사용자는 Internet Explorer를 사용하고 리소스에 연결할 때 RDS ActiveX 추가 기능을 사용하도록 설정해야 합니다. 
 
-원격 데스크톱 게이트웨이 URL을 구성하지 않은 경우 사용자 또는 관리자가 여기에서와 같이 원격 데스크톱 연결 대화 상자를 사용하여 MSTSC(원격 데스크톱 클라이언트)에 지정할 수 있습니다.
+## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>공동 RDS 및 응용 프로그램 프록시 시나리오 배포
 
- ![원격 데스크톱 연결 대화 상자](./media/application-proxy-publish-remote-desktop/remote-desktop-connection-advanced.png)
+환경에 대해 RDS 및 Azure AD 응용 프로그램 프록시를 설정한 후 두 가지 솔루션을 결합하는 단계를 따릅니다. 이러한 단계에서는 두 개의 웹 연결 RDS 끝점(RD 웹 및 RD 게이트웨이)을 응용 프로그램으로 게시하고 나서 응용 프로그램 프록시를 통과하도록 RDS의 트래픽을 전달하는 작업을 안내합니다.
 
-**고급** 탭에서 **설정**을 클릭하면 **연결 설정** 대화 상자가 나타납니다.
+### <a name="publish-the-rd-host-endpoint"></a>RD 호스트 끝점 게시
 
- ![원격 데스크톱 연결 대화 상자의 연결 설정 창](./media/application-proxy-publish-remote-desktop/remote-desktop-connection-settings.png)
+1. 다음 값을 사용하여 [새 응용 프로그램 프록시 응용 프로그램을 게시](application-proxy-publish-azure-portal.md)합니다.
+   - 내부 URL: https://<rdhost>.com/, 여기서 <rdhost>는 RD 웹 및 RD 게이트웨이가 공유하는 공통 루트입니다. 
+   - 외부 URL: 이 필드는 응용 프로그램 이름에 따라 자동으로 채워지지만 수정할 수 있습니다. 사용자는 RDS에 액세스하면 이 URL로 이동합니다. 
+   - 사전 인증 방법: Azure Active Directory
+   - URL 헤더 변환: 아니요
+2. 게시된 RD 응용 프로그램에 사용자를 할당합니다. 모든 사용자가 RDS에도 액세스할 수 있는지 확인합니다.
+3. 응용 프로그램에 대한 Single Sign-On 방법을 **Azure AD Single Sign-On 사용 안 함**으로 유지합니다. 사용자에게는 Azure AD 및 RD 웹에 대해 한 번씩 인증하도록 요청되지만 RD 게이트웨이에 대한 Single Sign-On이 제공됩니다. 
+4. **Azure Active Directory** > **앱 등록** > *응용 프로그램* > **설정**으로 이동합니다. 
+5. **속성**을 선택하고 **홈페이지 URL** 필드를 업데이트하여 RD 웹 끝점(예: https://<rdhost>.com/RDWeb)을 가리킵니다.
 
-## <a name="remote-desktop-web-access"></a>원격 데스크톱 웹 액세스
+### <a name="direct-rds-traffic-to-application-proxy"></a>응용 프로그램 프록시에 대한 직접 RDS 트래픽
 
-조직에서 RDWA(원격 데스크톱 웹 액세스) 포털을 사용하는 경우 Azure AD 응용 프로그램 프록시를 사용하여 게시할 수도 있습니다. 사전 인증 및 SSO(Single Sign-On)를 사용하여 이 포털에 게시할 수 있습니다.
+관리자로 RDS 배포에 연결하고 배포에 대한 RD 게이트웨이 서버 이름을 변경합니다. 이렇게 하면 연결이 Azure AD 응용 프로그램 프록시를 통과합니다.
 
-RDWA 시나리오의 토폴로지는 다음 다이어그램에 나와 있습니다.
+1. RD 연결 브로커 역할을 실행하는 RDS 서버에 연결합니다.
+2. **서버 관리자**를 시작합니다.
+3. 왼쪽 창에서 **원격 데스크톱 서비스**를 선택합니다.
+4. **개요**를 선택합니다.
+5. 배포 개요 섹션에서 드롭다운 메뉴를 선택하고 **배포 속성 편집**을 선택합니다.
+6. [RD 게이트웨이] 탭에서 **서버 이름** 필드를 응용 프로그램 프록시에서 RD 호스트 끝점에 대해 설정한 외부 URL로 변경합니다. 
+7. **로그온 방법** 필드를 **암호 인증**으로 변경합니다.
 
- ![RDWA 시나리오의 다이어그램](./media/application-proxy-publish-remote-desktop/remote-desktop-web-access-portal1.png)
+  ![RDS의 배포 속성 화면](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-위의 경우에 사용자는 RDWA에 액세스하기 전에 Azure AD에서 인증됩니다. Azur AD에서 이미 인증된 경우(예: Office 365를 사용하는 경우) RDWA에 대해 다시 인증할 필요가 없습니다.
+8. 각 컬렉션에 대해 다음 명령을 실행합니다. *<yourcollectionname>* 및 *<proxyfrontendurl>*을 사용자 정보로 바꿉니다. 이 명령은 RD 웹과 RD 게이트웨이 간에 Single Sign-On을 사용하도록 설정하고 성능을 최적화합니다.
 
-사용자가 RDP 세션을 시작하면, RDP 채널을 통해 다시 인증해야 합니다. RDWA에서 원격 데스크톱 게이트웨이로의 SSO가 ActiveX를 사용하여 클라이언트에서 사용자 자격 증명을 저장하는 것을 기반으로 하기 때문입니다. 이 프로세스는 RDWA 양식 기반 인증에서 트리거됩니다. RDWA 인증에서 Kerbros를 사용하는 경우 양식 기반 인증이 제시되지 않으므로 RDWA에서 RDP로 SSO는 작동하지 않습니다.
+   ```
+   Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s: <proxyfrontendurl> `n require pre-authentication:i:1"
+   ```
 
-RDWA에서 RDP 트래픽에 대해 SSO가 필요하거나 RDWA 양식 기반 인증이 과도하게 사용자 지정된 경우 사전 인증 없이 RDWA를 게시할 수 있습니다.
+이제 원격 데스크톱을 구성했으므로 Azure AD 응용 프로그램 프록시가 RDS의 인터넷 연결 구성 요소로 대체되었습니다. RD 웹 및 RD 게이트웨이 끝점에서 다른 공용 인터넷 연결 끝점을 제거할 수 있습니다. 
 
-이 시나리오의 토폴로지는 다음 다이어그램에 나와 있습니다.
+## <a name="test-the-scenario"></a>시나리오 테스트
 
- ![RDWA 시나리오의 다이어그램](./media/application-proxy-publish-remote-desktop/remote-desktop-web-access-portal2.png)
+Windows 7 또는 10 컴퓨터에서 Internet Explorer를 사용하여 시나리오를 테스트합니다.
 
-앞의 경우에 사용자는 양식 기반 인증을 사용하여 RDWA에 대해 인증해야 하지만 RDP를 통해서는 인증하지 않아도 됩니다.
-
->[!NOTE]
->앞의 두 경우 모두 RDP 트래픽에서 사전 인증이 필요하지 않습니다. 따라서 사용자는 RDWA를 먼저 완료하지 않고 액세스할 수 있습니다.
+1. 설정한 외부 URL로 이동하거나 [MyApps](https://myapps.microsoft.com) 패널에서 응용 프로그램을 찾습니다.
+2. Azure Active Directory에 대해 인증할지 묻는 메시지가 표시됩니다. 응용 프로그램에 할당한 계정을 사용합니다.
+3. RD 웹에 대해 인증할지 묻는 메시지가 표시됩니다. 
+4. RDS 인증이 성공하면 원하는 데스크톱 또는 응용 프로그램을 선택하고 작동을 시작할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 [Azure AD 응용 프로그램 프록시를 사용하여 SharePoint에 원격 액세스 사용하도록 설정](application-proxy-enable-remote-access-sharepoint.md)  
-[Azure Portal에서 응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)
-
+[Azure AD 응용 프로그램 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항](application-proxy-security-considerations.md)

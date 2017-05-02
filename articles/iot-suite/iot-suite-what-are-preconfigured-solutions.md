@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 04/24/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a3657f8bb60cd1181740b0700f503b5bd1bd559f
-ms.openlocfilehash: a3847f83af1f28e40572af95ff31f44d2f3d6dc4
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: fba7f5f33d1a0d39219a6790e1d5c6b4515b794c
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -43,6 +43,7 @@ Azure에서 솔루션을 배포 및 실행하는 것 외에도 완전한 소스 
 | --- | --- | --- | --- | --- | --- | --- |
 | [원격 모니터링][lnk-getstarted-preconfigured] |예 |예 |예 |예 |예 |- |
 | [예측 유지 관리][lnk-predictive-maintenance] |예 |예 |- |예 |예 |예 |
+| [연결된 공장][lnk-getstarted-factory] |예 |예 |예 |예 |예 |- |
 
 * *데이터 수집*: 클라우드에 대한 대규모 데이터의 수신입니다.
 * *장치 ID*: 고유한 장치 ID를 관리하고 솔루션에 대한 장치 액세스를 제어합니다.
@@ -59,7 +60,7 @@ Azure에서 솔루션을 배포 및 실행하는 것 외에도 완전한 소스 
 ![미리 구성된 원격 모니터링 솔루션 아키텍처][img-remote-monitoring-arch]
 
 ## <a name="devices"></a>장치
-원격 모니터링 미리 구성 된 솔루션을 배포하는 경우,&4;개의 시뮬레이션된 장치가 냉각 장치를 시뮬레이션하는 솔루션에 미리 프로비전됩니다. 이러한 시뮬레이션된 장치에는 원격 분석을 내보내는 기본 제공 온도 및 습도 모델이 있습니다. 이러한 시뮬레이션된 장치에 다음이 포함되어 있습니다.
+원격 모니터링 미리 구성 된 솔루션을 배포하는 경우, 4개의 시뮬레이션된 장치가 냉각 장치를 시뮬레이션하는 솔루션에 미리 프로비전됩니다. 이러한 시뮬레이션된 장치에는 원격 분석을 내보내는 기본 제공 온도 및 습도 모델이 있습니다. 이러한 시뮬레이션된 장치에 다음이 포함되어 있습니다.
 - 솔루션을 통해 데이터의 종단 간 흐름을 보여 줍니다.
 - 원격 분석의 편리한 원본을 제공합니다.
 - 사용자 지정 구현을 위해 시작 지점으로 솔루션을 사용하는 백 엔드 개발자인 경우 메서드 또는 명령에 대한 대상을 제공합니다.
@@ -166,4 +167,4 @@ IoT 솔루션 아키텍처에 대한 자세한 내용은 [Microsoft Azure IoT �
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-
+[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md

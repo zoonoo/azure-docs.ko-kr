@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 04/19/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
-ms.lasthandoff: 12/02/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -40,7 +40,7 @@ OMS 보안 및 감사 솔루션은 주의가 필요한 주요 문제에 대한 �
 OMS에서 모니터링하는 장치가 없는 상태에서 이 대시보드를 처음으로 액세스하는 경우 타일이 에이전트에서 얻은 데이터로 채워지지 않습니다. 에이전트를 설치하면 채워지는 데 약간의 시간이 소요되므로 처음에는 클라우드로 업로드되는 동안 일부 데이터가 누락될 수 있습니다.  이 경우 일부 타일에 유형의 정보가 없는 것은 정상입니다. Windows 시스템에 OMS 에이전트를 설치하는 방법은 [OMS에 Windows 컴퓨터 직접 연결](https://technet.microsoft.com/library/mt484108.aspx)을 참조하고 Linux 시스템에서 이 작업을 수행하는 방법은 [OMS에 Linux 컴퓨터 연결](https://technet.microsoft.com/library/mt622052.aspx)을 참조하세요.
 
 > [!NOTE]
-> 에이전트는 컴퓨터 이름, IP 주소와 사용자 이름과 같이 설정되어 있는 현재 이벤트를 기반으로 정보를 수집합니다. 그러나 문서/파일, 데이터베이스 이름 또는 개인 데이터가 수집되지 않습니다.   
+> 에이전트는 컴퓨터 이름, IP 주소, 사용자 이름 등 설정된 현재 이벤트를 기반으로 정보를 수집합니다. 그러나 문서/파일, 데이터베이스 이름 또는 개인 데이터가 수집되지 않습니다.   
 > 
 > 
 
@@ -92,19 +92,19 @@ OMS 대시보드에서 사용 가능한 다른 라이브 타일과 마찬가지�
 ![검색 결과](./media/oms-security-getting-started/oms-getting-started-fig5.png)
 
 > [!NOTE]
-> *순위* 는 보호 상태(사용, 해제, 업데이트됨 등)와 검색된 위협을 반영하여 지정되는 등급입니다. 순위를 숫자로 표시할 경우 집계를 할 수 있습니다.
+> *순위*는 보호 상태(켬, 끔, 업데이트됨 등)와 검색된 위협을 반영하여 지정되는 등급입니다. 순위를 숫자로 표시할 경우 집계를 할 수 있습니다.
 > 
 > 
 
 컴퓨터의 이름을 클릭하면 이 컴퓨터의 보호 상태가 시간 순서로 표시됩니다. 이 보기는 맬웨어 방지 프로그램이 설치된 적이 있지만 나중에 제거되었는지 여부를 확인하는 시나리오에 매우 유용합니다.   
 
 ### <a name="update-assessment"></a>업데이트 평가
-이 옵션에서는 잠재적 보안 문제에 대한 전반적 노출을 확인하고 이러한 업데이트가 환경에 중요한지 여부 또는 얼마나 중요한가를 빠르게 판단할 수 있습니다. OMS 보안 및 감사 솔루션은 이러한 업데이트를 시각적으로만 제공하며 실제 데이터의 소스는 OMS 내 다른 모듈인 [시스템 업데이트 솔루션](https://technet.microsoft.com/library/mt484096.aspx)입니다. 다음은 업데이트의 예제입니다.
+이 옵션에서는 잠재적 보안 문제에 대한 전반적 노출을 확인하고 이러한 업데이트가 환경에 중요한지 여부 또는 얼마나 중요한가를 빠르게 판단할 수 있습니다. OMS 보안 및 감사 솔루션은 이러한 업데이트의 시각화만 제공하며, 실제 데이터 소스는 OMS 내의 다른 모듈인 [업데이트 관리 솔루션](oms-solution-update-management.md)입니다. 다음은 업데이트의 예제입니다.
 
-![시스템 업데이트](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![시스템 업데이트](./media/oms-security-getting-started/oms-getting-started-fig6-new.png)
 
 > [!NOTE]
-> 업데이트 솔루션에 대한 자세한 내용은 [시스템 업데이트로 서버 업데이트 솔루션](https://technet.microsoft.com/library/mt484096.aspx)을 참조하세요.
+> 업데이트 관리 솔루션에 대한 자세한 내용은 [OMS의 업데이트 관리 솔루션](oms-solution-update-management.md)을 참조하세요.
 > 
 > 
 
@@ -135,6 +135,14 @@ ID 활동을 모니터링함으로써 문제가 발생하기 전에 사전 대�
 
 각 컴퓨터를 클릭하여 조사를 계속하고 플래그가 지정된 보안 이벤트를 검토할 수 있습니다.
 
+### <a name="threat-intelligence"></a>위협 인텔리전스
+
+IT 관리자는 OMS 보안 및 감사에 제공되는 위협 인텔리전스 옵션을 사용하여 환경에 대한 보안 위협을 식별할 수 있습니다. 예를 들어 특정 컴퓨터가 봇넷의 일부인이 여부를 식별할 수 있습니다. 공격자가 컴퓨터를 명령 및 컨트롤에 몰래 연결하는 맬웨어를 불법으로 설치할 경우 해당 컴퓨터가 봇넷의 노드가 되었다고 합니다. darknet 같은 지하 통신 채널에서 오는 잠재적 위협도 식별할 수 있습니다. [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](oms-security-responding-alerts.md) 문서를 읽고 위협 인텔리전스에 대해 자세히 알아보세요.
+
+### <a name="baseline-assessment"></a>기준 평가
+
+전 세계 산업 및 정부 조직과 함께 Microsoft에서는 보안 수준이 높은 서버 배포를 나타내는 Windows 구성을 정의합니다. 이 구성은 일련의 레지스트리 키, 감사 정책 설정 및 이러한 설정에 대한 Microsoft의 권장된 값과 함께 보안 정책 설정을 설명합니다. 이러한 규칙 집합을 보안 기준이라고 합니다. 이 옵션에 대한 자세한 내용은 [Operations Management Suite 보안 및 감사 솔루션의 기준 평가](oms-security-baseline.md)를 참조하세요.
+
 ### <a name="azure-security-center"></a>Azure 보안 센터
 이 타일은 기본적으로 Azure 보안 센터 대시보드에 액세스하는 바로 가기입니다. 이 솔루션에 대한 자세한 내용은 [Azure 보안 센터 시작](../security-center/security-center-get-started.md) 을 참조하세요.
 
@@ -153,7 +161,7 @@ ID 활동을 모니터링함으로써 문제가 발생하기 전에 사전 대�
 이 옵션은 [인시던트 대응을 조사](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/)하는 과정에 사용되어 평가를 수행하고 공격에 대한 자세한 정보를 가져올 수 있습니다.
 
 > [!NOTE]
-> 인시던트 대응에 OMS를 사용하는 방법에 대한 자세한 내용은 [인시던트 대응에 대한 Azure Security Center 및 Microsoft Operations Management Suite를 활용하는 방법](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703)을 시청하세요.
+> 인시던트 대응에 OMS를 사용하는 방법에 대한 자세한 내용은 [인시던트 대응에 대한 Azure Security Center 및 Microsoft Operations Management Suite를 활용하는 방법](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) 비디오를 시청하세요.
 > 
 > 
 

@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/14/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 349252e6629c0eda4d603399345206903d530578
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: bf11a8580500f78c4a96a02953f221501eeffe6c
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -80,13 +81,15 @@ IntelliJ용 Azure 도구 키트는 설정 대화 상자와 시작 화면의 구�
 Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 * [Eclipse용 Azure 도구 키트]
-  * [Eclipse용 Azure 도구 키트 설치]
-  * [Eclipse에서 Azure용 Hello World 웹앱 만들기]
   * [Eclipse용 Azure 도구 키트의 새로운 기능]
+  * [Eclipse용 Azure 도구 키트 설치]
+  * [Eclipse용 Azure 도구 키트에 대한 로그인 지침]
+  * [Eclipse에서 Azure용 Hello World 웹앱 만들기]
 * [IntelliJ용 Azure 도구 키트]
-  * *IntelliJ용 Azure 도구 키트 설치(이 문서)*
-  * [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
   * [IntelliJ용 Azure 도구 키트의 새로운 기능]
+  * *IntelliJ용 Azure 도구 키트 설치(이 문서)*
+  * [IntelliJ용 Azure 도구 키트에 대한 로그인 지침]
+  * [IntelliJ에서 Azure용 Hello World 웹앱 만들기]
 
 Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터]를 참조하세요.
 
@@ -98,6 +101,8 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [IntelliJ에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Eclipse용 Azure 도구 키트 설치]: ./azure-toolkit-for-eclipse-installation.md
 [Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Eclipse용 Azure 도구 키트에 대한 로그인 지침]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[IntelliJ용 Azure 도구 키트에 대한 로그인 지침]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [Eclipse용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-eclipse-whats-new.md
 [IntelliJ용 Azure 도구 키트의 새로운 기능]: ./azure-toolkit-for-intellij-whats-new.md
 
@@ -114,9 +119,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [05]: ./media/azure-toolkit-for-intellij-installation/05-restart-intellij.png
 [06]: ./media/azure-toolkit-for-intellij-installation/06-intellij-settings-dialog.png
 [07]: ./media/azure-toolkit-for-intellij-installation/07-restart-intellij.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

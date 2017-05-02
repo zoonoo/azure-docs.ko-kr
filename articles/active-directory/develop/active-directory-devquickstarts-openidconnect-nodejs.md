@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 27f9c5a18b85c0cc2f918ccefeb063f58cc967c6
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 8d91d551cbb508485ca27d77b23eb319293e4237
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -144,8 +144,7 @@ Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 �
 
     > [!IMPORTANT]
     > The previous code takes any user that happens to authenticate to our server. This is known as auto-registration. We recommend that you don't let anyone authenticate to a production server without first having them register via a process that you decide on. This is usually the pattern you see in consumer apps, which allow you to register with Facebook but then ask you to provide additional information. If this weren't a sample application, we could have extracted the user's email address from the token object that is returned and then asked the user to fill out additional information. Because this is a test server, we add them to the in-memory database.
->
->
+
 
 4. 다음에는 Passport에서 요구하는 대로 로그인한 사용자를 추적할 수 있는 메서드를 추가하겠습니다. 이러한 메서드에는 사용자 정보의 직렬화 및 역직렬화가 포함됩니다.
 
@@ -180,9 +179,9 @@ Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 �
             }
             return fn(null, null);
             };
-            ```
+    ```
 
-5.  Next, let's add the code to load the Express engine. Here we use the default /views and /routes pattern that Express provides.
+5.  다음에는 Express 엔진을 로드하는 코드를 추가하겠습니다. 여기서 Express가 제공하는 기본 /views 및 /routes 패턴이 사용되는 것을 확인할 수 있습니다.
 
     ```JavaScript
 
@@ -205,9 +204,9 @@ Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 �
           app.use(express.static(__dirname + '/../../public'));
         });
 
-        ```
+    ```
 
-6. Finally, let's add the routes that hand off the actual sign-in requests to the `passport-azure-ad` engine:
+6. 마지막으로 실제 로그인 요청을 `passport-azure-ad` 엔진에 전달하는 경로를 추가합니다.
 
        
        ```JavaScript
@@ -250,13 +249,13 @@ Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 �
                 log.info('We received a return from AzureAD.');
                 res.redirect('/');
               });
-          ```
+       ```
 
 
-## Step 4: Use Passport to issue sign-in and sign-out requests to Azure AD
-Your app is now properly configured to communicate with the endpoint by using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions. All that remains is giving your users a way to sign in and sign out, and gathering additional information about the signed-in users.
+## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>4단계: Passport를 사용하여 Azure AD에 로그인 및 로그아웃 요청 실행
+이제 앱이 OpenID Connect 인증 프로토콜을 사용하여 끝점과 통신하도록 올바르게 구성되었습니다.  `passport-azure-ad`가 인증 메시지를 작성하고, Azure AD에서 토큰의 유효성을 검사하고, 사용자 세션을 유지 관리하는 모든 세부 과정을 처리했습니다. 이제 사용자에게 로그인 및 로그아웃하는 방법을 알려주고 로그인한 사용자에 대한 추가 정보를 수집하기만 하면 됩니다.
 
-1. First, let's add the default, sign-in, account, and sign-out methods to our `app.js` file:
+1. 우선 기본값, 로그인, 계정 및 로그아웃 메서드를 `app.js` 파일에 추가해 보겠습니다.
 
     ```JavaScript
 
@@ -329,9 +328,9 @@ Your app is now properly configured to communicate with the endpoint by using th
                 exports.index = function(req, res){
                   res.render('index', { title: 'Express' });
                 };
-                ```
+    ```
 
-2. Create the `/routes/user.js` route under the root directory.
+2. 루트 디렉터리 아래에 `/routes/user.js` 경로를 만듭니다.
 
                 ```JavaScript
                 /*
@@ -341,11 +340,11 @@ Your app is now properly configured to communicate with the endpoint by using th
                 exports.list = function(req, res){
                   res.send("respond with a resource");
                 };
-        ```
+                ```
 
- These pass along the request to our views, including the user if present.
+ 이를 통해 사용자(있는 경우)를 포함하여 요청을 뷰에 전달합니다.
 
-3. Create the `/views/index.ejs` view under the root directory. This is a simple page that calls our login and logout methods and enables us to grab account information. Notice that we can use the conditional `if (!user)` as the user being passed through in the request is evidence we have a signed-in user.
+3. 루트 디렉터리 아래에 `/views/index.ejs` 뷰를 만듭니다. 이는 login 및 logout 메서드를 호출하고 계정 정보를 얻을 수 있게 해주는 간단한 페이지입니다. 요청에 전달되는 사용자가 로그인한 사용자가 있음을 입증하므로 조건부 `if (!user)`를 사용할 수 있습니다.
 
     ```JavaScript
     <% if (!user) { %>

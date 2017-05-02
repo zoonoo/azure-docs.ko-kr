@@ -1,6 +1,6 @@
 ---
 title: "Service Fabric 및 Linux에서 컨테이너 배포 | Microsoft Docs"
-description: "Service Fabric 및 마이크로 서비스 응용 프로그램 배포를 위한 Docker 컨테이너 사용. 이 문서는 Service Fabric이 컨테이너에 대해 제공하는 기능과 클러스터에 Docker 컨테이너 이미지를 배포하는 방법을 설명합니다."
+description: "Service Fabric 및 마이크로 서비스 응용 프로그램 배포를 위한 Linux 컨테이너 사용. 이 문서는 Service Fabric이 컨테이너에 대해 제공하는 기능과 클러스터에 Linux 컨테이너 이미지를 배포하는 방법을 설명합니다."
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 3/24/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 01c0d7e8430df758749f7a524dd3b7771b24fac1
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: fb73507ed596a65607d60f59d6834cc8bf5734f7
+ms.lasthandoff: 04/26/2017
 
 
 ---
-# <a name="deploy-a-docker-container-to-service-fabric"></a>Docker 컨테이너를 Service Fabric에 배포
+# <a name="deploy-a-linux-container-to-service-fabric"></a>Linux 컨테이너를 Service Fabric에 배포
 > [!div class="op_single_selector"]
 > * [Windows 컨테이너 배포](service-fabric-deploy-container.md)
-> * [Docker 컨테이너 배포](service-fabric-deploy-container-linux.md)
+> * [Linux 컨테이너 배포](service-fabric-deploy-container-linux.md)
 >
 >
 

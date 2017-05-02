@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ba85ab354d051990d0a9bae089e45c8df7ade4ea
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 626b152b8511995413af39a41161c29c88429605
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/12/2017
 ## <a name="checklist-before-moving-resources"></a>리소스를 이동하기 전의 검사 목록
 리소스를 이동하기 전에 몇 가지 중요한 단계가 있습니다. 이러한 조건을 확인하면 오류를 방지할 수 있습니다.
 
-1. 원본 및 대상 구독은 동일한 [Active Directory 테넌트](../active-directory/active-directory-howto-tenant.md) 내에 있어야 합니다. 두 구독이 모두 동일한 테넌트 ID를 갖는지 확인하려면 Azure PowerShell 또는 Azure CLI를 사용합니다.
+1. 원본 및 대상 구독은 동일한 [Azure Active Directory 테넌트](../active-directory/active-directory-howto-tenant.md) 내에 있어야 합니다. 두 구독이 모두 동일한 테넌트 ID를 갖는지 확인하려면 Azure PowerShell 또는 Azure CLI를 사용합니다.
 
   Azure PowerShell의 경우 다음을 사용합니다.
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 04/12/2017
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  원본 및 대상 구독에 대한 테넌트 ID가 동일하지 않으면 구독에 대한 디렉터리를 변경할 수 있습니다. 그러나 이 옵션은 Microsoft 계정(조직 계정 아님)으로 로그인한 서비스 관리자만 사용할 수 있습니다. 디렉터리를 변경하려면 [클래식 포털](https://manage.windowsazure.com/)에 로그인한 후 **설정**을 선택하고 구독을 선택합니다. **디렉터리 편집** 아이콘을 사용할 수 있는 경우 이 아이콘을 선택하여 연결된 Active Directory를 변경합니다. 
+  원본 및 대상 구독에 대한 테넌트 ID가 동일하지 않으면 구독에 대한 디렉터리를 변경할 수 있습니다. 그러나 이 옵션은 Microsoft 계정(조직 계정 아님)으로 로그인한 서비스 관리자만 사용할 수 있습니다. 디렉터리를 변경하려면 [클래식 포털](https://manage.windowsazure.com/)에 로그인한 후 **설정**을 선택하고 구독을 선택합니다. **디렉터리 편집** 아이콘을 사용할 수 있는 경우 이 아이콘을 선택하여 연결된 Azure Active Directory를 변경합니다. 
 
   ![디렉터리 편집](./media/resource-group-move-resources/edit-directory.png) 
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 04/12/2017
 
 다음을 수행해야 할 때 지원을 호출합니다.
 
-* 리소스를 새 Azure 계정(및 Active Directory 테넌트)으로 이동합니다.
+* 리소스를 새 Azure 계정(및 Azure Active Directory 테넌트)으로 이동합니다.
 * 클래식 리소스를 이동하지만 제한 사항으로 문제가 발생합니다.
 
 ## <a name="services-that-enable-move"></a>이동을 사용하는 서비스

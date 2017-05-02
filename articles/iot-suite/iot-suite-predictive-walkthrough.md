@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2017
+ms.date: 04/25/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 719f9810abb12cbe8645651d35cbff936cecd158
-ms.openlocfilehash: 57531b609b095359c8bf0ea3685af40124f46311
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -41,11 +42,11 @@ ms.openlocfilehash: 57531b609b095359c8bf0ea3685af40124f46311
 
 ## <a name="simulated-devices"></a>시뮬레이션된 장치
 
-미리 구성된 솔루션에서 시뮬레이션된 장치는 항공기 엔진을 나타냅니다. 솔루션은 단일 비행기에 매핑하는&2;개의 엔진으로 프로비전됩니다. 각 엔진은 다음과 같은 4가지 형식의 원격 분석을 내보냅니다. 센서9, 센서11, 센서14 및 센서15는 Machine Learning 모델이 엔진의 RUL을 계산하는 데 필요한 데이터를 제공합니다. 시뮬레이션된 각 장치는 IoT Hub에 다음과 같은 원격 분석 메시지를 보냅니다.
+미리 구성된 솔루션에서 시뮬레이션된 장치는 항공기 엔진을 나타냅니다. 솔루션은 단일 비행기에 매핑하는 2개의 엔진으로 프로비전됩니다. 각 엔진은 다음과 같은 4가지 형식의 원격 분석을 내보냅니다. 센서9, 센서11, 센서14 및 센서15는 Machine Learning 모델이 엔진의 RUL을 계산하는 데 필요한 데이터를 제공합니다. 시뮬레이션된 각 장치는 IoT Hub에 다음과 같은 원격 분석 메시지를 보냅니다.
 
-*계수 주기*. 주기는&2;시간에서&10;시간 사이의 기간으로 완료된 비행을 나타냅니다. 비행 동안 원격 분석 데이터는&30;분마다 캡처됩니다.
+*계수 주기*. 주기는 2시간에서 10시간 사이의 기간으로 완료된 비행을 나타냅니다. 비행 동안 원격 분석 데이터는 30분마다 캡처됩니다.
 
-*원격 분석*. 엔진 특성을 나타내는&4;가지 센서가 있습니다. 센서9, 센서11, 센서14 및 센서15는 일반적으로 레이블이 지정됩니다. 이러한 네 가지 센서는 RUL 모델에서 유용한 결과를 얻을 수 있는 데 충분한 원격 분석을 나타냅니다. 미리 구성된 솔루션에서 사용되는 모델은 실제 엔진 센서 데이터를 포함하는 공용 데이터 집합에서 만들어집니다. 원래 데이터 집합에서 모델을 만드는 방법에 대한 자세한 내용은 [Cortana Intelligence 갤러리 예측 유지 관리 템플릿][lnk-cortana-analytics]을 참조하세요.
+*원격 분석*. 엔진 특성을 나타내는 4가지 센서가 있습니다. 센서9, 센서11, 센서14 및 센서15는 일반적으로 레이블이 지정됩니다. 이러한 네 가지 센서는 RUL 모델에서 유용한 결과를 얻을 수 있는 데 충분한 원격 분석을 나타냅니다. 미리 구성된 솔루션에서 사용되는 모델은 실제 엔진 센서 데이터를 포함하는 공용 데이터 집합에서 만들어집니다. 원래 데이터 집합에서 모델을 만드는 방법에 대한 자세한 내용은 [Cortana Intelligence 갤러리 예측 유지 관리 템플릿][lnk-cortana-analytics]을 참조하세요.
 
 또한 시뮬레이션된 장치는 솔루션의 IoT Hub에서 보낸 다음 명령을 처리할 수 있습니다.
 
@@ -57,13 +58,13 @@ ms.openlocfilehash: 57531b609b095359c8bf0ea3685af40124f46311
 IoT Hub는 장치 명령 승인을 제공합니다.
 
 ## <a name="azure-stream-analytics-job"></a>Azure 스트림 분석 작업
-**작업: 원격 분석** 은 두 가지 문을 사용하여 들어오는 장치 원격 분석 스트림에서 작동합니다. 첫 번째 문은 장치에서 모든 원격 분석을 선택하고 웹앱의 시각화되는 위치에서 Blob 저장소에 이 데이터를 보냅니다. 두 번째 문은&2;분 슬라이딩 창을 통해 평균 센서 값을 계산하고 이벤트 허브를 통해 **이벤트 프로세서**로 이 데이터를 보냅니다.
+**작업: 원격 분석** 은 두 가지 문을 사용하여 들어오는 장치 원격 분석 스트림에서 작동합니다. 첫 번째 문은 장치에서 모든 원격 분석을 선택하고 웹앱의 시각화되는 위치에서 Blob 저장소에 이 데이터를 보냅니다. 두 번째 문은 2분 슬라이딩 창을 통해 평균 센서 값을 계산하고 이벤트 허브를 통해 **이벤트 프로세서**로 이 데이터를 보냅니다.
 
 ## <a name="event-processor"></a>이벤트 프로세서
 **이벤트 프로세서 호스트**는 Azure Web Job에서 실행됩니다. **이벤트 프로세서** 는 완료된 주기의 평균 센서 값을 사용합니다. 학습된 모델을 노출하는 API에 해당 값을 전달하여 엔진에 대한 RUL를 계산합니다. API는 솔루션의 일부로 프로비전되는 Machine Learning 작업 영역에 의해 노출됩니다.
 
 ## <a name="machine-learning"></a>기계 학습
-Machine Learning 구성 요소는 실제 항공기 엔진에서 수집된 데이터에서 파생된 모델을 사용합니다. **준비** 상태일 때 프로비전된 솔루션에 대한 [azureiotsuite.com][lnk-azureiotsuite] 페이지의 타일에서 Machine Learning 작업 영역으로 이동할 수 있습니다.
+Machine Learning 구성 요소는 실제 항공기 엔진에서 수집된 데이터에서 파생된 모델을 사용합니다. 솔루션이 **준비** 상태일 때 프로비전된 솔루션에 대한 [azureiotsuite.com][lnk-azureiotsuite] 페이지의 타일에서 Machine Learning 작업 영역으로 이동할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -83,8 +84,3 @@ Machine Learning 구성 요소는 실제 항공기 엔진에서 수집된 데이
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
-
-
-<!--HONumber=Feb17_HO1-->
-
-

@@ -2,11 +2,9 @@
  ``time.nist.gov`` 및 ``time.windows.com`` - 시스템 시간과 글로벌 시간 간의 시간 동기화를 확인하는 데 사용됨
 <br/><br/>
 
-Azure Government 클라우드의 URL:<br/>
+Azure Government 클라우드의 URL:
 
-<ul>
-<li>*.ugv.hypervrecoverymanager.windowsazure.us</li>
-<li>*.ugv.backup.windowsazure.us</li>
-<li>*.ugi.hypervrecoverymanager.windowsazure.us</li>
-<li>*.ugi.backup.windowsazure.us</li>
-</ul>
+- \*\.ugv.hypervrecoverymanager.windowsazure.us
+- \*\.ugv.backup.windowsazure.us
+- \*\.ugi.hypervrecoverymanager.windowsazure.us
+- \*\.ugi.backup.windowsazure.us
