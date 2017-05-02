@@ -111,8 +111,8 @@ Azure Portal은 검색 로그 파일을 포함하는 기본 Data Lake Store 계�
 CLI 2.0를 사용하여 파일을 업로드하려면 다음 명령을 사용합니다.
 
 ```azurecli
-az dls file upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
-az dls file list --account "<Data Lake Store Account Name>" --path "<Path>"
+az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
+az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 ```
 
 데이터 레이크 분석은 Azure Blob 저장소에 액세스할 수도 있습니다.  Azure Blob 저장소에 데이터를 업로드하려면 [Azure 저장소와 Azure CLI 사용](../storage/storage-azure-cli.md)을 참조하세요.
