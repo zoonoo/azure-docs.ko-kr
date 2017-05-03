@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/02/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 445dd0dcd05aa25cc531e2d10cc32ad8f32a6e8c
 ms.openlocfilehash: def038842dc3c1037d5dd11ffef6a9e2de3cf09f
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -88,9 +89,4 @@ Azure Data Factory 복사 마법사는 일반적으로 종단 간 데이터 통�
 
 ## <a name="next-steps"></a>다음 단계
 Data Factory 복사 마법사를 사용하여 복사 작업이 있는 파이프라인을 만드는 방법은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
