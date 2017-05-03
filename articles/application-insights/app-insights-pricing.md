@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3f0c890056c2ee00151ebc4cc74106368a56ba2f
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 229dd21f3ab1ae716cd49611e720450ae5939eb8
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -123,9 +123,16 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 * [ApplicationInsights.config를 편집](app-insights-configuration-with-applicationinsights-config.md)하여 필요하지 않은 컬렉션 모듈을 끕니다. 예를 들어 성능 카운터 또는 종속성 데이터가 필요하지 않다고 결정할 수 있습니다.
 * 원격 분석을 분할하여 계측 키를 구분합니다. 
 * 메트릭을 미리 집계합니다. 앱에 TrackMetric에 대한 호출을 추가한 경우 측정 일괄 처리의 평균 및 표준 편차 계산을 허용하는 오버로드를 사용하여 트래픽을 줄일 수 있습니다. 또는 [사전 집계 패키지](https://www.myget.org/gallery/applicationinsights-sdk-labs)를 사용할 수 있습니다.
-* 마지막으로 수집된 데이터를 제한하도록 일별 볼륨 한도를 줄일 수 있으나 이 경우 나머지 기간에 대한 데이터가 손실됩니다. 변경하려면 **Features+pricing**(기능+가격 책정), **데이터 관리**를 엽니다.
 
-    ![일별 원격 분석 볼륨 한도 조정](./media/app-insights-pricing/daily-cap.png) 
+## <a name="managing-the-maximum-daily-data-volume"></a>최대 일일 데이터 볼륨 관리
+
+일별 볼륨 한도를 사용하여 수집되는 데이터를 제한할 수 있지만 해당 한도가 충족될 경우 해당 일의 나머지 시간 동안 응용 프로그램에서 보낸 모든 원격 통신이 손실됩니다. 일별 한도에 도달한 후에는 응용 프로그램의 상태와 성능을 추적할 수 없으므로 응용 프로그램이 일별 한도에 도달하도록 하는 것은 **권장되지 않습니다**. 
+
+대신 [샘플링](app-insights-sampling.md)을 사용하여 원한느 수준으로 데이터 볼륨을 조정하고 응용 프로그램이 예기치 않게 훨씬 더 높은 볼륨의 원격 통신을 전송하기 시작할 때만 "최후의 수단"으로 일별 한도를 사용합니다. 
+
+일별 한도를 변경하려면 **기능 + 가격 책정**, **데이터 관리**를 차례로 엽니다.
+
+![일별 원격 분석 볼륨 한도 조정](./media/app-insights-pricing/daily-cap.png) 
 
 ## <a name="sampling"></a>샘플링
 [샘플링](app-insights-sampling.md) 은 진단 검색 중에 관련 이벤트를 찾는 기능은 계속 유지하고 올바른 이벤트 개수를 유지하면서 앱에 원격 분석이 전송되는 속도를 줄이는 방법입니다. 

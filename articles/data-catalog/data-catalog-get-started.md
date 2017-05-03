@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/19/2017
+ms.date: 05/03/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
 ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -362,10 +363,5 @@ Azure Data Catalog에서 개별 자산을 삭제하거나 여러 자산을 삭�
 * [데이터 자산을 문서화하는 방법](data-catalog-how-to-documentation.md)
 * [데이터 자산에 연결하는 방법](data-catalog-how-to-connect.md)
 * [데이터 자산을 관리하는 방법](data-catalog-how-to-manage.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -27,12 +27,12 @@ Azure AD에 대한 AppSource 인증을 받으려면 응용 프로그램에서 Op
 Azure AD 로그인 또는 다중 테넌트 응용 프로그램 개발에 대해 잘 알지 못하는 경우 다음을 수행합니다.
 
 1. 먼저 [Azure AD 인증 시나리오의 웹앱 시나리오에 대한 브라우저][AAD-Auth-Scenarios-Browser-To-WebApp]에 대해 알아봅니다.  
-2. 다음으로 로그인을 구현하는 방법을 보여 주는 Azure AD [웹 응용 프로그램 빠른 시작 가이드][AAD-QuickStart-Web-Apps]를 확인하고 도우미 코드 샘플을 포함합니다. 
-   
+2. 다음으로 로그인을 구현하는 방법을 보여 주는 Azure AD [웹 응용 프로그램 빠른 시작 가이드][AAD-QuickStart-Web-Apps]를 확인하고 도우미 코드 샘플을 포함합니다.
+
    > [!TIP]
    > 몇 분 안에 Azure Active Directory를 실행할 수 있는 새로운 [개발자 포털](https://identity.microsoft.com/Docs/Web) 의 미리 보기를 사용해 보세요.  개발자 포털은 앱을 등록하고 코드에 Azure AD를 통합하는 과정을 안내합니다.  이 과정을 완료하면 테넌트에서 사용자를 인증할 수 있는 간단한 응용 프로그램 및 토큰을 수락하고 유효성 검사를 수행할 수 있는 백 엔드가 생성됩니다.
-   > 
-   > 
+   >
+   >
 3. Azure AD로 다중 테넌트 로그인 패턴을 구현하는 방법을 알아보려면 [다중 테넌트 응용 프로그램 패턴을 사용하여 모든 Azure AD(Active Directory) 사용자를 로그인하는 방법][AAD-Howto-Multitenant-Overview]을 확인합니다.
 
 ## <a name="related-content"></a>관련 콘텐츠
@@ -45,18 +45,8 @@ Azure AD 로그인을 지원하는 응용 프로그램 빌드에 대한 자세�
 [AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
-[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#web-application-quick-start-guides
+[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#guides
 
 
 <!--Image references-->
-
-
-
-
-
-
-
-
-
-
 

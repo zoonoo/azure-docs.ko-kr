@@ -42,8 +42,7 @@ ms.lasthandoff: 04/13/2017
 3. 테넌시에 로그인
 
     ```
-    $cred = Get-Credential
-    Connect-MsolService -Credential $cred
+    Connect-AzureAd -tenantId <tenantId>
     ```
 
 4. PowerShell cmdlet 실행
