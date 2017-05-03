@@ -12,26 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 02/27/2017
+ms.date: 04/03/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 9dbfa813ea64666779f1f85b3ccda2b4fa1a755b
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 0563f6c3aa4508ef2acac6b17dc85ecbf11bb154
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 계산 노드의 크기를 조정하는 자동 크기 조정 수식 만들기
 
-자동 크기 조정으로 Azure 배치 서비스에서는 정의한 매개 변수에 따라 풀에서 계산 노드를 동적으로 추가하거나 제거할 수 있습니다. 응용 프로그램에서 사용되는 계산 능력의 양을 자동으로 조정하여 시간과 비용을 잠재적으로 절약하고 작업의 작업 수요가 증가하면 노드를 추가하고 감소될 때 제거합니다.
+자동 크기 조정으로 Azure 배치 서비스에서는 정의한 매개 변수에 따라 풀에서 계산 노드를 동적으로 추가하거나 제거할 수 있습니다. 응용 프로그램에서 사용하는 계산 노드 수를 자동으로 조정하여 시간과 비용을 모두 절약할 수 있습니다. 자동 크기 조정을 사용하면 작업의 태스크 요구가 증가할 때 노드를 추가하고, 감소할 땐 제거할 수 있습니다.
 
-[Batch .NET](batch-dotnet-get-started.md) 라이브러리의 [PoolOperations.EnableAutoScale][net_enableautoscale] 메서드와 같이 정의한 *자동 크기 조정 수식*을 연결하여 계산 노드의 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. 그러면 배치 서비스는 이 수식을 사용하여 워크로드를 실행하는 데 필요한 계산 노드의 수를 결정합니다. 배치는 주기적으로 수집되는 서비스 메트릭 데이터 샘플에 응답하고 풀의 계산 노드 수를 수식에 따라 구성 가능한 간격으로 조정합니다.
+사용자가 정의한 *자동 크기 조정 수식*에 연결하면 계산 노드 풀에서 자동으로 크기를 조정할 수 있습니다. 예를 들어 Batch .NET에서 [PoolOperations.EnableAutoScale][net_enableautoscale] 메서드를 사용할 수 있습니다. Batch 서비스는 자동 크기 조정 수식을 사용하여 워크로드를 실행하는 데 필요한 계산 노드의 수를 결정합니다. Batch는 주기적으로 수집되는 서비스 메트릭 데이터에 응답합니다. Batch는 이 메트릭 데이터를 사용하여 구성 가능한 간격으로 수식에 따라 풀의 계산 노드 수를 조정합니다.
 
-풀이 만들어질 때 또는 기존 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. "자동 크기 조정"이 활성화된 풀의 기존 수식을 변경할 수도 있습니다. 배치는 자동 크기 조정 실행의 상태를 모니터링할 뿐만 아니라 수식을 풀에 할당하기 전에 평가하는 기능을 제공합니다.
+풀이 만들어질 때 또는 기존 풀에서 자동 크기 조정을 사용하도록 설정할 수 있습니다. "자동 크기 조정"이 활성화된 풀의 기존 수식을 변경할 수도 있습니다. Batch를 사용하면 풀에 할당하기 전에 수식을 평가하고, 자동 크기 조정 실행 상태를 모니터링할 수 있습니다.
+
+이 문서에서는 변수, 연산자, 작업 및 함수를 포함하여 자동 크기 조정 수식을 구성하는 다양한 엔터티를 설명합니다. 배치 내의 다양한 계산 리소스 및 작업 메트릭을 가져오는 방법을 알아봅니다. 이러한 메트릭을 사용하여 리소스 사용량 및 작업 상태에 따라 풀의 노드 수를 적절하게 조정할 수 있습니다. 그런 다음 배치 REST 및 .NET API를 모두 사용하여 수식을 구성하고 풀에서 자동 크기 조정을 사용하는 방법을 알아봅니다. 몇 가지 예제 수식으로 마무리하겠습니다.
+
+> [!IMPORTANT]
+> 각 Azure Batch 계정은 처리에 사용할 수 있는 최대 코어 수(및 따라서 계산 노드)로 제한됩니다. Batch 서비스는 해당 코어 제한까지만 새 노드를 만듭니다. Batch 서비스는 자동 크기 조정 수식에서 지정된 대상 계산 노드 수에 도달하지 않을 수 있습니다. 계정 할당량을 보고 늘리는 방법에 대한 내용은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
+> 
+> 
 
 ## <a name="automatic-scaling-formulas"></a>자동 크기 조정 수식
-자동 크기 조정 수식은 하나 이상의 문을 포함하고 풀의 [autoScaleFormula][rest_autoscaleformula] 요소(Batch REST) 또는 [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] 속성(Batch .NET)에 할당된 것으로 정의된 문자열 값입니다. 풀에 할당할 경우 배치 서비스는 처리할 다음 간격을 위해 풀에 계산 노드의 대상 수를 결정하는 수식을 사용합니다(간격은 나중에 자세히 설명함). 이 수식 문자열의 크기는 8KB를 초과할 수 없으며, 세미콜론으로 구분된 구문을 100개까지 포함할 수 있으며 줄 바꿈과 주석을 포함할 수 있습니다.
+자동 크기 조정 수식은 하나 이상의 문을 포함하는 사용자가 정의한 문자열 값입니다. 자동 크기 조정 수식은 풀의 [autoScaleFormula][rest_autoscaleformula] 요소(Batch REST) 또는 [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] 속성(Batch .NET)에 할당됩니다. Batch 서비스는 처리할 다음 간격을 위해 풀의 대상 계산 노드 수를 결정하는 수식을 사용합니다. 이 수식 문자열의 크기는 8KB를 초과할 수 없으며, 세미콜론으로 구분된 구문을 100개까지 포함할 수 있으며 줄 바꿈과 주석을 포함할 수 있습니다.
 
 배치 크기 자동 조정 "언어"를 사용할 때 자동 크기 조정 수식을 고려할 수 있습니다. 수식 문은 자유 형식이고 서비스가 정의한 변수(배치 서비스에 의해 정의된 변수) 및 사용자가 정의한 변수(사용자가 정의한 변수)를 포함할 수 있습니다. 기본 제공 형식, 연산자 및 함수를 사용하여 이러한 값에 다양한 작업을 수행할 수 있습니다. 예를 들어 문은 다음과 같은 형태일 수 있습니다.
 
@@ -46,24 +53,29 @@ $variable1 = function1($ServiceDefinedVariable);
 $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
-수식에서 이러한 문을 사용하는 목표는 풀 크기를 조정하는 계산 노드 수, 즉 **노드 전용**의 **대상** 수에 도달하는 것입니다. 이 수는 현재 풀의 노드 수 보다 높거나, 낮거나 또는 동일할 수 있습니다. 배치는 특정 간격으로 풀의 자동 크기 조정 수식을 평가합니다([간격 자동 크기 조정](#automatic-scaling-interval) 은 아래에서 설명함). 그런 다음 평가 시 자동 크기 조정 수식이 지정하는 수로 풀의 노드 대상 수를 조정합니다.
+풀 크기를 조정하는 계산 노드 수, 즉 **대상** **전용 노드** 수에 도달하기 위해 자동 크기 조정 수식에 이러한 문을 포함합니다. 이 수는 현재 풀의 노드 수 보다 높거나, 낮거나 또는 동일할 수 있습니다. 배치는 특정 간격으로 풀의 자동 크기 조정 수식을 평가합니다([간격 자동 크기 조정](#automatic-scaling-interval) 은 아래에서 설명함). Batch는 평가할 때 자동 크기 조정 수식에서 지정하는 수로 풀의 대상 노드 수를 조정합니다.
 
-간단한 예로 이 두 줄 자동 크기 조정 수식은 숫자 노드가 활성 작업 수에 따라 최대 10개의 계산 노드로 조정되어야 한다고 지정합니다.
+### <a name="sample-autoscale-formula"></a>샘플 자동 크기 조정 수식
+
+다음은 대부분의 시나리오에 맞게 조정할 수 있는 자동 크기 조정 수식의 예제입니다. 예제 수식에서 변수 `startingNumberOfVMs` 및 `maxNumberofVMs`는 필요에 따라 조정할 수 있습니다.
 
 ```
-$averageActiveTaskCount = avg($ActiveTasks.GetSample(TimeInterval_Minute * 15));
-$TargetDedicated = min(10, $averageActiveTaskCount);
+startingNumberOfVMs = 1;
+maxNumberofVMs = 25;
+pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
+$TargetDedicated=min(maxNumberofVMs, pendingTaskSamples);
 ```
 
-문서의 다음 섹션은 변수, 연산자, 작업 및 함수를 포함하여 자동 크기 조정 수식을 구성하는 다양한 엔터티를 설명합니다. 배치 내의 다양한 계산 리소스 및 작업 메트릭을 가져오는 방법을 알아봅니다. 이러한 메트릭을 사용하여 리소스 사용량 및 작업 상태에 따라 풀의 노드 수를 적절하게 조정할 수 있습니다. 그런 다음 배치 REST 및 .NET API를 모두 사용하여 수식을 구성하고 풀에서 자동 크기 조정을 사용하는 방법을 알아봅니다. 몇 가지 예제 수식으로 마무리하겠습니다.
+이 자동 크기 조정 수식을 사용하면 풀은 단일 VM으로 처음에 생성됩니다. $PendingTasks 메트릭은 실행되거나 큐에 대기 중인 작업의 수를 정의합니다. 수식은 지난 180초 동안의 평균 보류 작업 수를 찾아 TargetDedicated를 적절하게 설정합니다. 수식은 TargetDedicated가 25개 VM을 초과하지 않도록 합니다. 새 작업이 제출되면 풀은 자동으로 증가합니다. 작업이 완료되면 VM은 하나씩 비워지고 자동 크기 조정 수식은 풀을 축소합니다.
 
-> [!IMPORTANT]
-> 각 Azure Batch 계정은 처리에 사용할 수 있는 최대 코어 수(및 따라서 계산 노드)로 제한됩니다. 배치 서비스는 해당 코어 제한까지만 노드를 만듭니다. 따라서 수식에 지정된 대상 계산 노드 수에 도달하지 않을 수 있습니다. 계정 할당량을 보고 늘리는 방법에 대한 내용은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md) 을 참조하세요.
-> 
-> 
+## <a name="variables"></a>variables
+자동 크기 조정 수식에는 **서비스 정의** 및 **사용자 정의** 변수를 모두 사용할 수 있습니다. 서비스 정의 변수는 배치 서비스에 기본 제공되고 일부는 읽기-쓰기이며 일부는 읽기 전용입니다. 사용자 정의 변수는 *사용자* 가 정의한 변수입니다. 이전 섹션에 나온 예제 수식에서 `$TargetDedicated` 및 `$PendingTasks`는 서비스 정의 변수입니다. 변수 `startingNumberOfVMs` 및 `maxNumberofVMs`는 사용자 정의 변수입니다.
 
-## <a name="variables"></a>변수
-자동 크기 조정 수식에는 **서비스 정의** 및 **사용자 정의** 변수를 모두 사용할 수 있습니다. 서비스 정의 변수는 배치 서비스에 기본 제공되고 일부는 읽기-쓰기이며 일부는 읽기 전용입니다. 사용자 정의 변수는 *사용자* 가 정의한 변수입니다. 위의 두 줄 예제 수식에서 `$averageActiveTaskCount`이(가) 사용자 정의 변수인 반면 `$TargetDedicated`은(는) 서비스 정의 변수입니다.
+> [!NOTE]
+> 서비스 정의 변수는 항상 달러 기호($)가 앞에 옵니다. 사용자 정의 변수의 경우 달러 기호는 선택 사항입니다.
+>
+>
 
 아래 테이블은 배치 서비스에서 정의된 읽고 쓰기 및 읽기 전용 변수를 모두 보여 줍니다.
 
@@ -71,7 +83,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 | 읽기-쓰기 서비스 정의 변수 | 설명 |
 | --- | --- |
-| $TargetDedicated |해당 풀의 **계산 노드 전용** **대상** 수입니다. 풀의 크기를 조정해야 하는 계산 노드 수입니다. 풀이 대상 노드 수에 도달하지 않을 수 있기 때문에 "대상" 숫자입니다. 풀이 최초 목표에 도달하기 전에 대상 노드 수가 후속 자동 크기 조정 평가에 의해 다시 수정될 때 발생할 수 있습니다. 대상 노드 수에 도달하기 전에 도달한 배치 계정 노드나 코어 할당량으로 인해 발생할 수도 있습니다. |
+| $TargetDedicated |풀에 대한 **대상** **전용 계산 노드** 수는 풀 크기를 조정하는 계산 노드 수입니다. 풀이 대상 노드 수에 도달하지 않을 수 있기 때문에 "대상" 숫자입니다. 예를 들어 풀이 최초 목표에 도달하기 전에 대상 노드 수가 후속 자동 크기 조정 평가에 의해 다시 수정되는 경우 풀은 대상 노드 수에 도달하지 않을 수도 있습니다. 대상 노드 수에 도달하기 전에 도달한 배치 계정 노드나 코어 할당량으로 인해 발생할 수도 있습니다. |
 | $NodeDeallocationOption |풀에서 계산 노드가 제거되는 경우 발생하는 작업입니다. 가능한 값은 다음과 같습니다.<ul><li>**requeue** - 태스크를 즉시 종료하고 일정을 재조정하도록 작업 큐에 다시 배치합니다.<li>**terminate** - 태스크를 즉시 종료하고 작업 큐에서 제거합니다.<li>**taskcompletion** - 현재 실행 중인 태스크가 완료되기를 기다린 다음 풀에서 해당 노드를 제거합니다.<li>**retaineddata** - 노드의 모든 로컬 태스크 보유 데이터가 정리되기를 기다린 다음 풀에서 해당 노드를 제거합니다.</ul> |
 
 이러한 서비스 정의 변수의 값을 **가져와서** 배치 서비스에서 메트릭을 기반으로 조정할 수 있습니다.
@@ -97,7 +109,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 | $CurrentDedicated |현재 전용 계산 노드 수. |
 
 > [!TIP]
-> 위에 표시된 읽기 전용, 서비스 정의 변수는 각각에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 *개체* 입니다. 자세한 내용은 아래에서 [샘플 데이터 가져오기](#getsampledata) 를 참조하세요.
+> 위에 표시된 읽기 전용, 서비스 정의 변수는 각각에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 *개체* 입니다. 자세한 내용은 아래에서 [샘플 데이터 가져오기](#getsampledata)를 참조하세요.
 > 
 > 
 
@@ -162,11 +174,11 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 | avg(doubleVecList) |double |doubleVecList에 있는 모든 값의 평균 값을 반환합니다. |
 | len(doubleVecList) |double |doubleVecList에서 만든 벡터의 길이를 반환합니다. |
 | lg(double) |double |double의 로그 밑 2를 반환합니다. |
-| lg(doubleVecList) |doubleVec |doubleVecList의 구성 요소 로그 밑 2를 반환합니다. vec(double)은 단일 이중 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double lg(double) 버전으로 간주됩니다. |
+| lg(doubleVecList) |doubleVec |doubleVecList의 구성 요소 로그 밑 2를 반환합니다. vec(double)은 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double lg(double) 버전으로 간주됩니다. |
 | ln(double) |double |double의 자연 로그를 반환합니다. |
-| ln(doubleVecList) |doubleVec |doubleVecList의 구성 요소 로그 밑 2를 반환합니다. vec(double)은 단일 이중 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double lg(double) 버전으로 간주됩니다. |
+| ln(doubleVecList) |doubleVec |doubleVecList의 구성 요소 로그 밑 2를 반환합니다. vec(double)은 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double lg(double) 버전으로 간주됩니다. |
 | log(double) |double |double의 로그 밑 10을 반환합니다. |
-| log(doubleVecList) |doubleVec |doubleVecList의 구성 요소 로그 밑 10을 반환합니다. vec(double)은 단일 double 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double log(double) 버전으로 간주됩니다. |
+| log(doubleVecList) |doubleVec |doubleVecList의 구성 요소 로그 밑 10을 반환합니다. vec(double)은 단일 이중 매개 변수에 대해 명시적으로 전달되어야 합니다. 그렇지 않으면 double log(double) 버전으로 간주됩니다. |
 | max(doubleVecList) |double |doubleVecList의 최대값을 반환합니다. |
 | min(doubleVecList) |double |doubleVecList의 최소값을 반환합니다. |
 | norm(doubleVecList) |double |doubleVecList에서 만든 벡터의 두 기준을 반환합니다. |
@@ -183,7 +195,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-*doubleVecList* 값은 평가 전 단일 *doubleVec*로 변환됩니다. 예를 들어 `v = [1,2,3]`의 경우 `avg(v)` 호출은 `avg(1,2,3)` 호출과 동일합니다. `avg(v, 7)` 호출은 `avg(1,2,3,7)` 호출과 동일합니다.
+*doubleVecList* 값은 평가 전 단일 *doubleVec*으로 변환됩니다. 예를 들어 `v = [1,2,3]`의 경우 `avg(v)` 호출은 `avg(1,2,3)` 호출과 동일합니다. `avg(v, 7)` 호출은 `avg(1,2,3,7)` 호출과 동일합니다.
 
 ## <a name="getsampledata"></a>샘플 데이터 가져오기
 자동 크기 조정 수식은 배치 서비스에서 제공한 메트릭 데이터(샘플)에서 작동합니다. 수식은 서비스에서 가져온 값에 따라 풀 크기를 늘리거나 줄입니다. 위에 설명한 서비스에 정의 변수는 해당 개체에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 개체입니다. 예를 들어, 다음 식은 최근 5분 동안의 CPU 사용률을 얻기 위한 요청을 보여 줍니다.
@@ -205,7 +217,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 **샘플**
 
-배치 서비스는 정기적으로 작업 및 리소스 메트릭의 *샘플* 을 사용하고 자동 크기 조정 수식에 사용할 수 있도록 합니다. 이러한 샘플은 배치 서비스에서 30초 마다 기록됩니다. 하지만 일반적으로 해당 샘플이 기록될 때와 자동 크기 조정 수식에 사용할 수 있을 때(읽을 수 있을 때) 사이에 지연이 발생하는 약간의 대기 시간이 존재합니다. 또한 네트워크 또는 다른 인프라 문제와 같은 다양한 원인으로 인해 샘플은 특정 기간에 기록되지 않았을 수 있습니다. 이는 "누락된" 샘플로 발생합니다.
+배치 서비스는 정기적으로 작업 및 리소스 메트릭의 *샘플*을 사용하고 자동 크기 조정 수식에 사용할 수 있도록 합니다. 이러한 샘플은 배치 서비스에서 30초 마다 기록됩니다. 하지만 일반적으로 해당 샘플이 기록될 때와 자동 크기 조정 수식에 사용할 수 있을 때(읽을 수 있을 때) 사이에 지연이 발생하는 약간의 대기 시간이 존재합니다. 또한 네트워크 또는 다른 인프라 문제와 같은 다양한 원인으로 인해 샘플은 특정 기간에 기록되지 않았을 수 있습니다. 이는 "누락된" 샘플로 발생합니다.
 
 **샘플 비율**
 
@@ -215,15 +227,15 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 **GetSample() 및 샘플 범위**
 
-자동 크기 조정 수식은 노드를 추가하거나 제거하여 풀을 증가시키고 축소시킵니다. 노드에 비용이 들기 때문에 수식은 충분한 데이터를 기반으로 지능형 분석 메서드를 사용해야 합니다. 따라서 수식에서 추세 형식 분석을 사용하는 것이 좋습니다. 이 형식은 수집된 샘플의 *범위* 에 따라 풀을 확장하고 축소시킵니다.
+자동 크기 조정 수식은 노드를 추가하거나 제거하여 풀을 증가시키고 축소시킵니다. 노드에 비용이 들기 때문에 수식은 충분한 데이터를 기반으로 지능형 분석 메서드를 사용해야 합니다. 따라서 수식에서 추세 형식 분석을 사용하는 것이 좋습니다. 이 형식은 수집된 샘플의 *범위*에 따라 풀을 확장하고 축소시킵니다.
 
-이를 위해 `GetSample(interval look-back start, interval look-back end)` 을 사용하여 샘플의 **벡터** 를 반환합니다.
+이를 위해 `GetSample(interval look-back start, interval look-back end)`을 사용하여 샘플의 **벡터**를 반환합니다.
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-위의 줄이 배치에 의해 확인된 경우 다양한 샘플을 값의 벡터로 반환합니다. 예:
+위의 줄이 Batch에 의해 확인된 경우 다양한 샘플을 값의 벡터로 반환합니다. 예:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -231,16 +243,16 @@ $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
 
 샘플의 벡터를 수집했으면 `min()`, `max()` 및 `avg()`과 같은 함수를 사용하여 수집된 범위에서 의미 있는 값을 파생할 수 있습니다.
 
-보안을 강화하려면 특정 기간 동안 샘플의 특정 비율 보다 작은 경우 *실패* 에 대한 수식 평가를 강제할 수 있습니다. 수식 평가가 실패하도록 강제하면 지정된 샘플의 비율을 사용할 수 없는 경우 배치가 수식의 추가 평가를 중단하도록 지시하여 풀 크기가 변경되지 않습니다. 평가가 성공하기 위해 샘플의 필요한 백분율을 지정하려면 `GetSample()`에 대한 세 번째 매개 변수로 지정합니다. 여기에서는 샘플의 75% 요구 사항이 지정됩니다.
+보안을 강화하려면 특정 기간 동안 샘플의 특정 비율 보다 작은 경우 *실패*에 대한 수식 평가를 강제할 수 있습니다. 수식 평가가 실패하도록 강제하면 지정된 샘플 비율을 사용할 수 없는 경우 Batch에 수식의 추가 평가를 중단하도록 지시합니다. 이 경우 풀 크기가 변경되지 않습니다. 평가가 성공하기 위해 샘플의 필요한 백분율을 지정하려면 `GetSample()`에 대한 세 번째 매개 변수로 지정합니다. 여기에서는 샘플의 75% 요구 사항이 지정됩니다.
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
 ```
 
-또한 샘플 가용성에서 이전에 언급한 지연 시간으로 인해 1분 이상인 돌아보기 시작 시간으로 시간 범위를 지정하는 것이 중요합니다. 이 샘플이 시스템을 통해 전파되는 데 1분 정도가 걸리기 때문에 `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` 범위에 있는 샘플은 사용할 수 없는 경우가 많습니다. 다시 `GetSample()` 라는 백분율 매개 변수를 사용하여 특정 샘플 비율 요구 사항을 강제할 수 있습니다.
+또한 샘플 가용성에 지연 시간이 있을 수 있으므로 시간 범위를 1분 이상인 돌아보기 시작 시간으로 지정하는 것이 중요합니다. 샘플이 시스템을 통해 전파되는 데 약 1분 정도가 걸리므로 `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` 범위에 있는 샘플은 사용하지 못할 수도 있습니다. 다시 `GetSample()`라는 백분율 매개 변수를 사용하여 특정 샘플 비율 요구 사항을 강제할 수 있습니다.
 
 > [!IMPORTANT]
-> **자동** 크기 조정 수식에서 `GetSample(1)`에**만 의존하지*않는* 것이 아주 좋습니다**. 즉, `GetSample(1)` 가 기본적으로 배치 서비스에 "경과한 시간에 관계 없이 마지막 샘플을 제공하도록" 요구하기 때문입니다. 이 샘플은 단일 샘플이고 오래된 샘플이기 때문에 최근 작업 또는 리소스 상태의 큰 그림을 나타내지 않을 수 있습니다. `GetSample(1)`을 사용하는 경우 큰 문의 일부이며 수식이 사용하는 유일한 데이터 지점이 아니도록 주의합니다.
+> **자동 크기 조정 수식의 `GetSample(1)`*만* 신뢰하지 않는** 것이 **좋습니다**. `GetSample(1)`은 기본적으로 Batch 서비스에 “경과한 시간에 관계 없이 마지막 샘플을 제공하도록” 요구하기 때문입니다. 이 샘플은 단일 샘플이고 오래된 샘플이기 때문에 최근 작업 또는 리소스 상태의 큰 그림을 나타내지 않을 수 있습니다. `GetSample(1)`을 사용하는 경우 큰 문의 일부이며 수식이 사용하는 유일한 데이터 지점이 아니도록 주의합니다.
 > 
 > 
 

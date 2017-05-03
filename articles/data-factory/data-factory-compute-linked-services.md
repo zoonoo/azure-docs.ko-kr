@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 5e113af94c1ac27d759a75ff35bb9eb29fa08bf6
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: f9f29cd20020ec5e6538bf1dd31e89c2f7adcc92
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,6 +33,64 @@ ms.lasthandoff: 03/24/2017
 | [Azure 기계 학습](#azure-machine-learning-linked-service) |[Machine Learning 작업: 배치 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure 데이터 레이크 분석](#azure-data-lake-analytics-linked-service) |[데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) |[저장 프로시저](data-factory-stored-proc-activity.md) |
+
+## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>Azure Data Factory에서 지원되는 HDInsight 버전
+Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. 각 버전을 선택하면 특정 버전의 HDP(Hortonworks Data Platform) 배포 및 배포에 포함된 구성 요소 집합이 만들어집니다. Microsoft는 지원되는 HDInsight 버전 목록을 계속 업데이트하여 최신 Hadoop 에코시스템 구성 요소 및 수정 프로그램을 제공합니다. HDInsight 3.2는 2011년 4월 1일부터 더 이상 사용되지 않으므로 자세한 내용은 [지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)을 참조하세요.
+
+이로 인해 HDInsight 3.2 클러스터에 대해 실행되는 활동이 있는 기존 Azure Data Factory에 영향을 미칩니다. 영향을 받는 Data Factory를 업데이트하려면 아래 지침을 따르는 것이 좋습니다.
+
+### <a name="for-linked-services-pointing-to-your-own-hdinsight-clusters"></a>사용자 고유의 HDInsight 클러스터를 가리키는 연결된 서비스의 경우
+* **사용자 고유의 HDInsight 3.2 이하 클러스터를 가리키는 HDInsight 연결된 서비스:**
+
+  Azure Data Factory는 HDI 3.1에서 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)까지 사용자 고유의 HDInsight 클러스터에 제출하는 작업을 지원합니다. 그러나 [지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)에서 설명하는 사용 중단 정책에 따라 2011년 4월 1일 이후로는 더 이상 HDInsight 3.2 클러스터를 만들 수 없습니다.  
+
+  **권장 사항:** 
+  * 이 연결된 서비스를 참조하는 활동과 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)의 호환성을 보장하기 위해 [각 HDInsight 버전에서 제공되는 Hadoop 구성 요소](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) 및 [HDInsight 버전과 관련된 Hortonworks 릴리스 정보](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions)에서 설명하는 정보와 함께 테스트를 수행합니다.
+  * HDInsight 3.2 클러스터를 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)으로 업그레이드하여 최신 Hadoop 에코시스템 구성 요소 및 수정 프로그램을 얻습니다. 
+
+* **사용자 고유의 HDInsight 3.3 이상의 클러스터를 가리키는 HDInsight 연결된 서비스:**
+
+  Azure Data Factory는 HDI 3.1에서 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)까지 사용자 고유의 HDInsight 클러스터에 제출하는 작업을 지원합니다. 
+  
+  **권장 사항:** 
+  * Data Factory 관점에서 보면 아무런 작업도 필요하지 않습니다. 그러나 하위 버전의 HDInsight를 사용하는 경우에도 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)으로 업그레이드하여 최신 Hadoop 생태계 구성 요소 및 수정 프로그램을 얻는 것이 좋습니다.
+
+### <a name="for-hdinsight-on-demand-linked-services"></a>주문형 HDInsight 연결된 서비스의 경우
+* **주문형 HDInsight 연결된 서비스 JSON 정의에 지정되어 있는 버전 3.2 이하:**
+  
+  Azure Data Factory는 **2017년 5월 5일**부터 주문형 HDInsight 3.3 이상 클러스터를 만들 수 있도록 지원합니다. 기존의 주문형 HDInsight 3.2 연결된 서비스에 대한 지원 종료는 **2017년 7월 5일**까지로 연장됩니다.  
+
+  **권장 사항:** 
+  * 이 연결된 서비스를 참조하는 활동과 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)의 호환성을 보장하기 위해 [각 HDInsight 버전에서 제공되는 Hadoop 구성 요소](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) 및 [HDInsight 버전과 관련된 Hortonworks 릴리스 정보](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions)에서 설명하는 정보와 함께 테스트를 수행합니다.
+  * **2017년 7월 5일** 이전까지 주문형 HDI 연결된 서비스 JSON 정의의 Version 속성을 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)으로 업데이트하여 최신 Hadoop 생태계 구성 요소 및 수정 프로그램을 얻습니다. JSON 정의에 대한 자세한 내용은 [주문형 Azure HDInsight 연결된 서비스 샘플](#azure-hdinsight-on-demand-linked-service)을 참조하세요. 
+
+* **주문형 HDInsight 연결된 서비스에 지정되지 않은 버전:**
+  
+  Azure Data Factory는 **2017년 5월 5일**부터 주문형 HDInsight 3.3 이상 클러스터를 만들 수 있도록 지원합니다. 기존의 주문형 HDInsight 3.2 연결된 서비스에 대한 지원 종료는 **2017년 7월 5일**까지로 연장됩니다. 
+
+  **2017년 5월 5일** 이전까지 version 및 osType 속성의 값을 비워 두는 경우 해당 속성의 기본값은 다음과 같습니다. 
+
+  | 속성 | 기본값 | 필수 |
+  | --- | --- | --- |
+  버전    | Windows 클러스터용 HDI 3.1 및 Linux 클러스터용 HDI 3.2| 아니요
+  osType | 기본값: Windows | 아니요
+
+  **2017년 5월 5일** 이후에 version 및 osType 속성의 값을 비워 두는 경우 해당 속성의 기본값은 다음과 같습니다.
+
+  | 속성 | 기본값 | 필수 |
+  | --- | --- | --- |
+  버전    | Windows 클러스터용 HDI 3.3 및 Linux 클러스터용 3.5.    | 아니요
+  osType | 기본값: Linux    | 아니요
+
+  **권장 사항:** 
+  * **2017년 5월 5일** 이전까지 연결된 서비스를 업데이트하여 주문형 HDInsight 연결된 서비스 JSON 정의에 필요한 Version 및 osType 조합을 명시적으로 정의합니다. Version을 3.2로 설정하여 이전 버전과의 호환성을 보장할 수 있습니다. 
+  * 이 연결된 서비스를 참조하는 활동과 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)의 호환성을 보장하기 위해 **2017년 5월 5일**과 **2017년 7월 5일** 사이에 [각 HDInsight 버전에서 제공되는 Hadoop 구성 요소](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) 및 [HDInsight 버전과 관련된 Hortonworks 릴리스 정보](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions)에서 설명하는 정보와 함께 테스트를 수행합니다.  
+  * **2017년 7월 5일** 이전까지 주문형 HDInsight 연결된 서비스 JSON 정의의 Version 속성을 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)으로 설정하거나, 기본값인 HDInsight 3.5를 활용하여 최신 Hadoop 생태계 구성 요소 및 수정 프로그램을 얻습니다. JSON 정의에 대한 자세한 내용은 [주문형 Azure HDInsight 연결된 서비스 샘플](#azure-hdinsight-on-demand-linked-service)을 참조하세요.
+
+>[!Note]
+>현재 Azure Data Factory는 Azure Data Lake Store를 기본 저장소로 사용하는 HDInsight 클러스터를 지원하지 않습니다. 따라서 Azure Storage를 HDInsight 클러스터의 기본 저장소로 사용해야 합니다. 
+>  
+>  
 
 ## <a name="on-demand-compute-environment"></a>주문형 계산 환경
 이 구성의 형식에서는 컴퓨팅 환경은 Azure 데이터 팩터리 서비스에 의해 완벽하게 관리됩니다. 데이터를 처리하기 위한 작업을 제출하기 전에 데이터 팩터리 서비스에서 자동으로 컴퓨팅 환경을 만들고 작업이 완료되면 제거합니다. 사용자는 주문형 계산 환경에 대한 연결된 서비스를 만들고 구성하며 작업 실행, 클러스터 관리, 부트스트래핑 작업에 대한 세부적인 설정을 제어할 수 있습니다.
@@ -165,7 +223,7 @@ Windows 기반 HDInsight 클러스터를 사용하려면 **osType**을 **windows
 | zookeeperNodeSize |Zookeeper 노드의 크기를 지정합니다. 기본값은 Standard_D3입니다. |아니요 |
 
 #### <a name="specifying-node-sizes"></a>노드 크기 지정
-위의 속성에 대해 지정해야 하는 문자열 값은 [가상 컴퓨터 크기](../virtual-machines/virtual-machines-linux-sizes.md) 문서를 참조하세요. 값은 이 문서에서 참조된 **Cmdlet 및 API**를 준수해야 합니다. 이 문서에서 볼 수 있는 것처럼 크게(기본값) 크기의 데이터 노드는 메모리가 7GB이므로 시나리오에 맞지 않을 수 있습니다. 
+위의 속성에 대해 지정해야 하는 문자열 값은 [가상 컴퓨터 크기](../virtual-machines/linux/sizes.md) 문서를 참조하세요. 값은 이 문서에서 참조된 **Cmdlet 및 API**를 준수해야 합니다. 이 문서에서 볼 수 있는 것처럼 크게(기본값) 크기의 데이터 노드는 메모리가 7GB이므로 시나리오에 맞지 않을 수 있습니다. 
 
 D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 headNodeSize 및 dataNodeSize 속성에 대한 값으로 **Standard_D4**를 지정해야 합니다. 
 
