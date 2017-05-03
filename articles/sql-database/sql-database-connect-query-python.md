@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: meetb;carlrab;sstein
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: e75058c8b387bc090bf924b9099a64e5d154afa4
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: f055f1eb2c6f1c0fa9f032f033929299e224de2e
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,8 @@ ms.lasthandoff: 04/18/2017
 - [DB 만들기 - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-the-python-and-database-communication-libraries"></a>Python 및 데이터베이스 통신 라이브러리 설치
+
+이 섹션의 단계에서는 Python을 사용하여 개발하는 것에 익숙하고 Azure SQL Database 작업에 익숙하지 않다고 가정합니다. Python을 사용하여 개발하는 것이 처음인 경우 [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/en-us/sql-server/developer-get-started/)로 이동하고 **Python**을 선택한 다음 운영 체제를 선택합니다.
 
 ### <a name="mac-os"></a>**Mac OS**
 터미널을 열고 Python 스크립트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **brew**, **Mac용 Microsoft ODBC Driver** 및 **pyodbc**를 설치합니다. pyodbc는 Linux의 Microsoft ODBC 드라이버를 사용하여 SQL Database에 연결합니다.
@@ -71,11 +73,11 @@ pip 사용을 활성화하는 방법은 [여기](http://stackoverflow.com/questi
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
-필요한 경우 다음 단계의 정보를 사용하여 Azure SQL Database 서버 및 데이터베이스에 대한 연결 정보를 가져옵니다. Python을 사용하여 Azure SQL Database에 연결하고 쿼리하는 데 이 정보가 필요합니다. 
+Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
-3. 데이터베이스의 **개요** 페이지에서 아래 그림과 같이 정규화된 서버 이름을 검토합니다. 서버 이름 위로 마우스를 가져가면 **복사하려면 클릭** 옵션이 표시됩니다. 
+3. 데이터베이스의 **개요** 페이지에서 아래 이미지와 같이 정규화된 서버 이름을 검토합니다. 서버 이름 위로 마우스를 가져가면 **복사하려면 클릭** 옵션이 표시됩니다. 
 
    ![서버 이름](./media/sql-database-connect-query-dotnet/server-name.png) 
 
@@ -83,7 +85,7 @@ pip 사용을 활성화하는 방법은 [여기](http://stackoverflow.com/questi
    
 ## <a name="select-data"></a>데이터 선택
 
-[pyodbc.connect]((https://github.com/mkleehammer/pyodbc/wiki)) 함수와 [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL 문을 사용하여 Azure SQL Database를 쿼리하려면 다음 코드를 사용합니다. [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 함수를 사용하여 SQL Database에 대한 쿼리에서 결과 집합을 검색할 수 있습니다. 이 함수는 쿼리를 허용하며, [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html)을 사용하여 반복될 수 있는 결과 집합을 반환합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
+[pyodbc.connect]((https://github.com/mkleehammer/pyodbc/wiki)) 함수와 [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL 문을 사용하여 범주별 상위 20개 제품을 쿼리하려면 다음 코드를 사용합니다. [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 함수를 사용하여 SQL Database에 대한 쿼리에서 결과 집합을 검색할 수 있습니다. 이 함수는 쿼리를 허용하며, [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html)을 사용하여 반복될 수 있는 결과 집합을 반환합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
 
 ```Python
 import pyodbc
@@ -102,7 +104,7 @@ while row:
 ```
 
 ## <a name="insert-data"></a>데이터 삽입
-[cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 함수와 [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL 문을 사용하여 지정한 데이터베이스의 SalesLT.Product 테이블에 새 제품을 삽입하려면 다음 코드를 사용합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
+[cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 함수와 [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL 문을 사용하여 SalesLT.Product 테이블에 새 제품을 삽입하려면 다음 코드를 사용합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
 
 ```Python
 import pyodbc
@@ -119,7 +121,7 @@ cnxn.commit()
 ```
 
 ## <a name="update-data"></a>데이터 업데이트
-[cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 함수와 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 문을 사용하여 Azure SQL Database에서 데이터를 업데이트하려면 다음 코드를 사용합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
+[cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 함수와 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 문을 사용하여 이전에 추가한 새 제품을 업데이트하려면 다음 코드를 사용합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
 
 ```Python
 import pyodbc
@@ -138,7 +140,7 @@ cnxn.commit()
 ```
 
 ## <a name="delete-data"></a>데이터 삭제
-[cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 함수와 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 문을 사용하여 Azure SQL Database에서 데이터를 삭제하려면 다음 코드를 사용합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
+[cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 함수와 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 문을 사용하여 이전에 추가한 새 제품을 삭제하려면 다음 코드를 사용합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
 
 ```Python
 import pyodbc

@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 4/12/2017
 ms.author: anuragm;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 0f4ca1924531df890433ec092790e6bec7c41df0
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 4529037cb610e31028a35cf4643a2a99e90b2b8f
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -39,13 +39,13 @@ ms.lasthandoff: 04/13/2017
 
 1. 루트 사용자로 백업되도록 Linux VM에 로그인합니다.
 
-2. [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)에서 VMSnapshotPluginConfig.json을 다운로드하고 백업될 모든 VM의 /etc/azure 폴더에 복사합니다. 존재하지 않는 경우 /etc/azure 디렉터리를 만듭니다.
+2. [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)에서 VMSnapshotScriptPluginConfig.json을 다운로드하고 백업될 모든 VM의 /etc/azure 폴더에 복사합니다. 존재하지 않는 경우 /etc/azure 디렉터리를 만듭니다.
 
-3. 백업될 모든 VM의 응용 프로그램에 대한 사전 스크립트 및 사후 스크립트를 복사합니다. VM의 모든 위치에서 스크립트를 복사할 수 있습니다. VMSnapshotPluginConfig.json 파일에 있는 스크립트 파일의 전체 경로를 업데이트해야 합니다.
+3. 백업될 모든 VM의 응용 프로그램에 대한 사전 스크립트 및 사후 스크립트를 복사합니다. VM의 모든 위치에서 스크립트를 복사할 수 있습니다. VMSnapshotScriptPluginConfig.json 파일에 있는 스크립트 파일의 전체 경로를 업데이트해야 합니다.
 
 4. 파일에 대한 다음 권한을 확인합니다.
 
-   - VMSnapshotPluginConfig.json - 권한 "600", 즉 "루트" 사용자만 이 파일에 대한 "읽기" 및 "쓰기" 권한을 가져야 하며 사용자는 "실행" 권한을 가져서는 안됩니다.
+   - VMSnapshotScriptPluginConfig.json - 권한 "600", 즉 "루트" 사용자만 이 파일에 대한 "읽기" 및 "쓰기" 권한을 가져야 하며 사용자는 "실행" 권한을 가져서는 안 됩니다.
    - 사전 스크립트 파일 - 권한 "700", 즉 "루트" 사용자만 이 파일에 대한 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다.
    - 사후 스크립트 - 권한 "700", 즉 "루트" 사용자만 이 파일에 대한 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다.
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 04/13/2017
    > 위의 요구 사항이 충족되지 않는 경우 스크립트는 실행되지 않으며 파일 시스템/충돌 일관성 백업이 발생합니다.
    >
 
-5. 아래 세부 내용별 VMSnapshotPluginConfig.json 구성
+5. 아래 세부 내용별 VMSnapshotScriptPluginConfig.json 구성
     - **pluginName** - 이 필드를 있는 그대로 둡니다. 그렇지 않은 경우 스크립트는 예상대로 작동하지 않을 수 있습니다.
     - **preScriptLocation** - 백업될 VM에서 사전 스크립트의 전체 경로를 제공합니다.
     - **postScriptLocation** - 백업될 VM에서 사후 스크립트의 전체 경로를 제공합니다.
@@ -76,14 +76,14 @@ ms.lasthandoff: 04/13/2017
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |사전 스크립트가 오류를 반환하여 백업이 응용 프로그램에 일관되지 않을 수 있습니다.    | 이 문제를 해결하려면 스크립트에 대한 오류 로그를 확인하세요.|  
 |    Post-ScriptExecutionFailed |    사후 스크립트가 응용 프로그램 상태에 영향을 줄 수 있는 오류를 반환했습니다. |    이 문제를 해결하려면 스크립트에 대한 오류 로그를 확인하고 응용 프로그램 상태를 확인하세요. |
-| Pre-ScriptNotFound |    VMSnapshotPluginConfig.json 구성 파일에 지정된 위치에서 사전 스크립트를 찾지 못했습니다. |    응용 프로그램 일관성 백업을 위해 사전 스크립트가 구성 파일에 지정된 경로에 있는지 확인하세요.|
-| Post-ScriptNotFound |    VMSnapshotPluginConfig.json 구성 파일에 지정된 위치에서 사후 스크립트를 찾지 못했습니다. |    응용 프로그램 일관성 백업을 위해 사후 스크립트가 구성 파일에 지정된 경로에 있는지 확인하세요.|
+| Pre-ScriptNotFound |    VMSnapshotScriptPluginConfig.json 구성 파일에 지정된 위치에서 사전 스크립트를 찾지 못했습니다. |    응용 프로그램 일관성 백업을 위해 사전 스크립트가 구성 파일에 지정된 경로에 있는지 확인하세요.|
+| Post-ScriptNotFound |    VMSnapshotScriptPluginConfig.json 구성 파일에 지정된 위치에서 사후 스크립트를 찾지 못했습니다. |    응용 프로그램 일관성 백업을 위해 사후 스크립트가 구성 파일에 지정된 경로에 있는지 확인하세요.|
 | IncorrectPluginhostFile |    VmSnapshotLinux 확장과 함께 제공되는 Pluginhost 파일이 손상되어서 사전 스크립트 및 사후 스크립트를 실행할 수 없으며 백업이 응용 프로그램에 일관되지 않습니다.    | VmSnapshotLinux 확장을 제거하세요. 문제를 해결하기 위해 다음 백업과 함께 자동으로 다시 설치됩니다. |
-| IncorrectJSONConfigFile | VMSnapshotPluginConfig.json 파일이 잘못되어서 사전 스크립트 및 사후 스크립트를 실행할 수 없으며 백업이 응용 프로그램에 일관되지 않습니다. | [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)에서 복사본을 다운로드하고 다시 구성하세요. |
+| IncorrectJSONConfigFile | VMSnapshotScriptPluginConfig.json 파일이 잘못되어서 사전 스크립트 및 사후 스크립트를 실행할 수 없으며 백업이 응용 프로그램에 일관되지 않습니다. | [github](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)에서 복사본을 다운로드하고 다시 구성하세요. |
 | InsufficientPermissionforPre-Script | 스크립트 실행을 위해 루트 사용자는 파일의 소유자여야 하며 파일은 "700" 권한을 가져야 합니다. 즉, 소유자만이 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다. | "루트" 사용자가 스크립트 파일의 "소유자"이고 소유자만이 "읽기", "쓰기" 및 "실행" 권한을 갖는지 확인합니다. |
 | InsufficientPermissionforPost-Script | 스크립트 실행을 위해 루트 사용자는 파일의 소유자여야 하며 파일은 "700" 권한을 가져야 합니다. 즉, 소유자만이 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다. | "루트" 사용자가 스크립트 파일의 "소유자"이고 소유자만이 "읽기", "쓰기" 및 "실행" 권한을 갖는지 확인합니다. |
-| Pre-ScriptTimeout | 응용 프로그램 일치 백업 사전 스크립트의 실행이 시간 초과되었습니다. | 스크립트를 확인하고 /etc/azure에 있는 VMSnapshotPluginConfig.json 파일에서 시간 제한을 늘립니다. |
-| Post-ScriptTimeout | 응용 프로그램 일치 백업 사후 스크립트의 실행이 시간 초과되었습니다. | 스크립트를 확인하고 /etc/azure에 있는 VMSnapshotPluginConfig.json 파일에서 시간 제한을 늘립니다. |
+| Pre-ScriptTimeout | 응용 프로그램 일치 백업 사전 스크립트의 실행이 시간 초과되었습니다. | 스크립트를 확인하고 /etc/azure에 있는 VMSnapshotScriptPluginConfig.json 파일에서 시간 제한을 늘립니다. |
+| Post-ScriptTimeout | 응용 프로그램 일치 백업 사후 스크립트의 실행이 시간 초과되었습니다. | 스크립트를 확인하고 /etc/azure에 있는 VMSnapshotScriptPluginConfig.json 파일에서 시간 제한을 늘립니다. |
 
 ## <a name="next-steps"></a>다음 단계
 [Recovery Services 자격 증명 모음에 VM 백업 구성](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

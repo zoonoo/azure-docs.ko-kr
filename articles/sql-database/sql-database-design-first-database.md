@@ -17,9 +17,9 @@ ms.workload:
 ms.date: 03/30/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 933b262f3c587229a194c3259fc5c13b75ecd050
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 0d02954829ebac9275c014f7dac7e1ec423b0fc1
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -30,11 +30,11 @@ ms.lasthandoff: 04/13/2017
 
 이 자습서를 완료하려면 최신 버전의 SSMS([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx))를 설치했는지 확인합니다. 
 
-## <a name="step-1-log-in-to-the-azure-portal"></a>1단계: Azure Portal에 로그인
+## <a name="log-in-to-the-azure-portal"></a>Azure 포털에 로그인
 
 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-## <a name="step-2-create-a-blank-sql-database-in-azure"></a>2단계: Azure에서 빈 SQL Database 만들기
+## <a name="create-a-blank-sql-database-in-azure"></a>Azure에서 빈 SQL Database 만들기
 
 Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-database-service-tiers.md)를 사용하여 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL Database 논리 서버](sql-database-features.md)에서 만들어집니다. 
 
@@ -70,7 +70,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
     ![알림](./media/sql-database-get-started-portal/notification.png)
 
 
-## <a name="step-3-create-a-server-level-firewall-rule"></a>3단계: 서버 수준 방화벽 규칙 만들기
+## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
 Azure SQL Database는 방화벽으로 보호됩니다. 기본적으로 서버 및 서버 내의 데이터베이스에 대한 모든 연결은 거부됩니다. 클라이언트의 IP 주소에서 연결을 허용하도록 서버에 대한 [SQL Database 서버 수준 방화벽 규칙](sql-database-firewall-configure.md)을 만들려면 다음 단계를 수행합니다. 
 
@@ -92,7 +92,7 @@ Azure SQL Database는 방화벽으로 보호됩니다. 기본적으로 서버 �
 > SQL Database는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다
 >
 
-## <a name="step-4---get-connection-information"></a>4단계: 연결 정보 가져오기
+## <a name="get-connection-information"></a>연결 정보 가져오기
 
 Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름을 가져옵니다. 정규화된 서버 이름을 사용하여 SQL Server Management Studio를 사용하는 서버에 연결합니다.
 
@@ -102,7 +102,7 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
 
     ![연결 정보](./media/sql-database-connect-query-ssms/connection-information.png) 
 
-## <a name="step-5---connect-to-your-database-using-sql-server-management-studio"></a>5단계 - SQL Server Management Studio를 사용하여 데이터베이스에 연결
+## <a name="connect-to-your-database-using-sql-server-management-studio"></a>SQL Server Management Studio를 사용하여 데이터베이스에 연결
 
 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)를 사용하여 Azure SQL Database 서버에 연결합니다.
 
@@ -128,7 +128,7 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
 
    ![데이터베이스 개체](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="step-6---create-tables-in-the-database"></a>6단계 - 데이터베이스에서 테이블 만들기 
+## <a name="create-tables-in-the-database"></a>데이터베이스에서 테이블 만들기 
 
 [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)을 사용하여 대학의 학생 관리 시스템을 모델링하는 네 개의 테이블이 있는 데이터베이스 스키마 만들기
 
@@ -199,7 +199,7 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
 
    ![ssms 테이블 생성](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## <a name="step-7---load-data-into-the-tables"></a>7단계 - 테이블에 데이터 로드
+## <a name="load-data-into-the-tables"></a>테이블에 데이터 로드
 
 1. 다운로드 폴더에 **SampleTableData**라는 폴더를 만들어 데이터베이스의 샘플 데이터를 저장합니다. 
 
@@ -223,7 +223,7 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
 
 이제 앞에서 만든 테이블에 샘플 데이터가 로드되었습니다.
 
-## <a name="step-8---query-the-tables"></a>8단계 - 테이블 쿼리
+## <a name="query-the-tables"></a>테이블 쿼리
 
 다음 쿼리를 실행하여 데이터베이스 테이블에서 정보를 검색합니다. SQL 쿼리 작성에 대한 자세한 내용은 [SQL 쿼리 작성](https://technet.microsoft.com/library/bb264565.aspx)을 참조하세요. 첫 번째 쿼리는 4개의 테이블을 모두 조인하여 'Dominick Pope' 선생님의 학생 중에 성적이 75%보다 높은 모든 학생을 찾습니다. 두 번째 쿼리는 4개의 테이블을 모두 조인하여 'Noe Coleman'이 등록한 적 있는 모든 과정을 찾습니다.
 
@@ -260,7 +260,7 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
         AND person.LastName = 'Coleman'
    ```
 
-## <a name="step-9---restore-a-database-to-a-previous-point-in-time"></a>9단계 - 이전 시점으로 데이터베이스 복원 
+## <a name="restore-a-database-to-a-previous-point-in-time"></a>이전 시점으로 데이터베이스 복원 
 
 실수로 테이블을 삭제한 경우를 가정해 보겠습니다. 이런 경우는 쉽게 복구할 수 없는 경우입니다. Azure SQL Database를 사용하면 최근 35일 내 특정 시점으로 돌아가서 이 특정 시점을 새 데이터베이스에 복원할 수 있습니다. 이 데이터베이스를 사용하여 삭제된 데이터를 복구할 수 있습니다. 다음 단계를 수행하면 샘플 데이터베이스가 테이블이 추가되기 이전 시점으로 복원됩니다.
 

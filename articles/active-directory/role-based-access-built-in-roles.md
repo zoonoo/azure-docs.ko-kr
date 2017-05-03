@@ -16,9 +16,9 @@ ms.date: 02/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
-ms.openlocfilehash: 404c4c4012eb5b6f8e7acdd7f985009b9f13b9f3
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 73c38182f4caa92f5aa561b10a30c60efc8cfdae
+ms.lasthandoff: 04/26/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 기본 제공 역할
@@ -40,6 +40,7 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 | [백업 참여자](#backup-contributor) | Recovery Services 자격 증명 모음에서 백업을 관리할 수 있습니다. |
 | [백업 운영자](#backup-operator) | Recovery Services 자격 증명 모음에서 백업 제거를 제외한 백업 관리를 수행할 수 있습니다. |
 | [백업 읽기 권한자](#backup-reader) | 모든 백업 관리 서비스를 볼 수 있습니다.  |
+| [청구 읽기 권한자](#billing-reader) | 대금 청구 정보를 볼 수 있음  |
 | [BizTalk 참여자](#biztalk-contributor) |BizTalk 서비스를 관리할 수 있음 |
 | [ClearDB MySQL DB 참여자](#cleardb-mysql-db-contributor) |ClearDB MySQL 데이터베이스를 관리할 수 있음 |
 | [참여자](#contributor) |액세스를 제외한 모든 것을 관리할 수 있음 |
@@ -48,6 +49,8 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 | [DNS 영역 참여자](#dns-zone-contributor) |DNS 영역 및 레코드를 관리할 수 있음 |
 | [DocumentDB 계정 참여자](#documentdb-account-contributor) |DocumentDB 계정을 관리할 수 있음 |
 | [지능형 시스템 계정 참여자](#intelligent-systems-account-contributor) |지능형 시스템 계정을 관리할 수 있음 |
+| [Monitoring Reader](#monitoring-reader) |모든 모니터링 데이터를 읽을 수 있음 |
+| [Monitoring Contributor](#monitoring-contributor) |모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 |
 | [네트워크 참여자](#network-contributor) |모든 네트워크 리소스를 관리할 수 있음 |
 | [NewRelic APM 계정 참여자](#new-relic-apm-account-contributor) |New Relic 응용 프로그램 성능 관리 계정 및 응용 프로그램을 관리할 수 있음 |
 | [소유자](#owner) |액세스를 제외한 모든 것을 관리할 수 있음 |
@@ -214,6 +217,15 @@ Recovery Services 자격 증명 모음의 백업 관리를 모니터링할 수 �
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | 자격 증명 모음의 등록된 항목 읽기 |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Recovery Services 자격 증명 모음의 사용 현황 읽기 |
 
+## <a name="billing-reader"></a>청구 읽기 권한자
+대금 청구 정보를 볼 수 있음
+
+| **actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |역할 및 역할 할당 읽기 |
+| Microsoft.Billing/*/read |대금 청구 정보 읽기 |
+| Microsoft.Support/* |지원 티켓 만들기 및 관리 |
+
 ### <a name="biztalk-contributor"></a>BizTalk 참여자
 BizTalk 서비스를 관리할 수 있음
 
@@ -336,6 +348,36 @@ DocumentDB 계정을 관리할 수 있음
 | Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
 | Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
 | Microsoft.Support/* |지원 티켓 만들기 및 관리 |
+
+### <a name="monitoring-reader"></a>Monitoring Reader
+모든 모니터링 데이터를 읽을 수 있음(메트릭, 로그 등) [Azure Monitor에서의 역할, 권한 및 보안 시작](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요.
+
+| **actions** |  |
+| --- | --- |
+| */read |암호를 제외한 모든 유형의 리소스를 읽습니다. |
+| Microsoft.OperationalInsights/workspaces/search/action |Log Analytics 데이터 검색 |
+| Microsoft.Support/* |지원 티켓 만들기 및 관리 |
+
+### <a name="monitoring-contributor"></a>Monitoring Contributor
+모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 [Azure Monitor에서의 역할, 권한 및 보안 시작](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요.
+
+| **actions** |  |
+| --- | --- |
+| */read |암호를 제외한 모든 유형의 리소스를 읽습니다. |
+| Microsoft.Insights/AlertRules/* |경고 규칙 읽기/쓰기/삭제 |
+| Microsoft.Insights/components/* |Application Insights 구성 요소 읽기/쓰기/삭제 |
+| Microsoft.Insights/DiagnosticSettings/* |진단 설정 읽기/쓰기/삭제 |
+| Microsoft.Insights/eventtypes/* |구독에서 활동 로그 이벤트(관리 이벤트)를 나열합니다. 이 권한은 활동 로그에 대한 프로그래밍 방식 및 포털 액세스 모두에 적용 가능합니다. |
+| Microsoft.Insights/LogDefinitions/* |이 권한은 사용자 포털을 통해 활동 로그에 액세스해야 하는 사용자에게 필요합니다. 활동 로그의 로그 범주를 나열합니다. |
+| Microsoft.Insights/MetricDefinitions/* |메트릭 정의(리소스에 사용 가능한 메트릭 형식 목록)를 읽습니다. |
+| Microsoft.Insights/Metrics/* |리소스에 대한 메트릭을 읽습니다. |
+| Microsoft.Insights/Register/Action |Microsoft Insights 공급자 등록 |
+| Microsoft.Insights/webtests/* |Application Insights 웹 테스트 읽기/쓰기/삭제 |
+| Microsoft.OperationalInsights/workspaces/intelligencepacks/* |Log Analytics 솔루션 팩 읽기/쓰기/삭제 |
+| Microsoft.OperationalInsights/workspaces/savedSearches/* |Log Analytics의 저장된 검색 읽기/쓰기/삭제 |
+| Microsoft.OperationalInsights/workspaces/search/action |Log Analytics 작업 영역 검색 |
+| Microsoft.OperationalInsights/workspaces/sharedKeys/action |Log Analytics 작업 영역에 대한 키 나열 |
+| Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* |Log Analytics 저장소 정보 구성 읽기/쓰기/삭제 |
 
 ### <a name="network-contributor"></a>네트워크 참여자
 모든 네트워크 리소스를 관리할 수 있음

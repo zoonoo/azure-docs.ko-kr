@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 4aef51551857fb21ea86397f36b0e92894db2eaf
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: c7517f61944b9fdb02a3589d7c9cd83355dae6d8
+ms.lasthandoff: 04/20/2017
 
 ---
 # <a name="use-mirrormaker-to-create-a-replica-of-a-kafka-on-hdinsight-cluster-preview"></a>MirrorMaker를 사용하여 HDInsight 클러스터에서 Kafka 복제본 만들기(미리 보기)
@@ -262,5 +262,5 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 * [HDInsight에서 Apache Kafka 시작](hdinsight-apache-kafka-get-started.md)
 * [HDInsight의 Kafka에서 Apache Spark 사용](hdinsight-apache-spark-with-kafka.md)
 * [HDInsight의 Kafka에서 Apache Storm 사용](hdinsight-apache-storm-with-kafka.md)
-
+* [Azure Virtual Network를 통해 Kafka에 연결](hdinsight-apache-kafka-connect-vpn-gateway.md)
 

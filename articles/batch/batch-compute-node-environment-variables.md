@@ -1,24 +1,24 @@
 ---
 title: "Azure Batch 계산 노드 환경 변수 | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: article
-ms.assetid: 3990f0c8-b627-432f-9551-5ce10f9bb0ca
-caps.latest.revision: 14
+description: "Azure Batch 분석에 대한 계산 노드 환경 변수 참조입니다."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: e31f2a5e5186ea27d7da7d0d5d5837a2cda41a11
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 9a31288f4cf67e551db016aa3b56058f607ef13a
+ms.lasthandoff: 04/22/2017
 
 ---
+
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch 계산 노드 환경 변수
 [Azure Batch 서비스](https://azure.microsoft.com/services/batch/)는 계산 노드에 다음과 같은 환경 변수를 설정합니다. 태스크 명령줄과 명령줄로 실행되는 프로그램 및 스크립트에서 이러한 환경 변수를 참조할 수 있습니다.
 

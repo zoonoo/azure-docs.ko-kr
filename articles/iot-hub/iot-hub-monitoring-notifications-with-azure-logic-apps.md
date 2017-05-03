@@ -16,13 +16,15 @@ ms.workload: na
 ms.date: 04/12/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 00f45f2bc1a7e15d93980779c23c8aa287cd25bb
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 2cdfbadfc4cc28afe34b4d558f40bba6451f7388
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Azure Logic Apps으로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림
+
+![종단 간 다이어그램](media/iot-hub-get-started-e2e-diagram/7.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -40,7 +42,7 @@ IoT Hub와 사서함을 연결하여 온도를 모니터링하고 알림을 보�
 
 ## <a name="what-you-need"></a>필요한 항목
 
-* 다음 요구 사항을 다루는 [Azure IoT Hub에 ESP8266 연결](iot-hub-arduino-huzzah-esp8266-get-started.md) 자습서
+* 다음 요구 사항을 다루는 자습서 [장치 설정](iot-hub-raspberry-pi-kit-node-get-started.md) 완료:
   * 활성 Azure 구독.
   * 구독 중인 Azure IoT Hub
   * 메시지를 Azure IoT Hub로 보내는 클라이언트 응용 프로그램

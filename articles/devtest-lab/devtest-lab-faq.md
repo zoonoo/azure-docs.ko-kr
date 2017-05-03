@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5c427ddbe408fc42403eb6738d1983c220e899a7
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 519f035b411f254e8412ba9a8868b226c63cccb6
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -228,7 +228,7 @@ Azure Portal에 있는 내 랩에서 VM을 삭제하는 것 외에도 PowerShell
 구독당 만들 수 있는 랩의 수에는 특정 제한이 없지만 사용하는 리소스는 구독당 제한됩니다. [Azure 구독에 부과된 한도 및 할당량](../azure-subscription-service-limits.md) 및 [이러한 한도를 늘리는 방법](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests)에 대해 알아볼 수 있습니다.
 
 ### <a name="how-many-vms-can-i-create-per-lab"></a>랩당 얼마나 많은 VM을 만들 수 있습니까?
-랩당 만들 수 있는 VM의 수에는 특정 제한이 없지만 현재 랩은 표준 저장소에서 동시에 실행되는 약 40개의 VM 및 프리미엄 저장소에서 동시에 실행되는 25개의 VM을 지원합니다. 현재 이러한 제한을 늘리도록 작업 중입니다.
+랩당 만들 수 있는 VM의 수에는 특정 제한이 없지만 하지만 사용하는 리소스는 구독당 제한됩니다(예: VM 코어, 공용 IP 등). [Azure 구독에 부과된 한도 및 할당량](../azure-subscription-service-limits.md) 및 [이러한 한도를 늘리는 방법](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests)에 대해 알아볼 수 있습니다.
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>랩에 대한 직접 링크를 공유하려면 어떻게 합니까?
 랩 사용자에게 직접 링크를 공유하려면 다음 절차를 수행하세요.
@@ -258,7 +258,7 @@ Microsoft 계정이란 Microsoft 장치 및 서비스를 가지고 하는 거의
 ### <a name="why-do-i-get-a-parent-resource-not-found-error-when-provisioning-a-vm-from-powershell"></a>PowerShell에서 VM을 프로비전할 때 "부모 리소스를 찾을 수 없음" 오류가 표시되는 이유는 무엇인가요?
 한 리소스가 다른 리소스의 부모이면 부모 리소스는 자식 리소스를 만들기 전에 존재해야 합니다. 부모 리소스가 없는 경우 **ParentResourceNotFound** 오류가 표시됩니다. 부모 리소스에 대한 종속성을 지정하지 않으면 자식 리소스는 부모보다 먼저 배포될 수 있습니다.
 
-리소스 그룹의 랩에서 VM은 자식 리소스입니다. PowerShell을 통해 배포하는 데 Azure Resource 템플릿을 사용할 경우 PowerShell 스크립트에 제공된 리소스 그룹 이름은 랩의 리소스 그룹 이름이어야 합니다. 자세한 내용은 [일반적인 Azure 배포 오류 문제 해결](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound)을 참조하세요.
+리소스 그룹의 랩에서 VM은 자식 리소스입니다. PowerShell을 통해 배포하는 데 Azure Resource Manager 템플릿을 사용할 경우 PowerShell 스크립트에 제공된 리소스 그룹 이름은 랩의 리소스 그룹 이름이어야 합니다. 자세한 내용은 [일반적인 Azure 배포 문제 해결 ](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound)를 참조하세요.
 
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>VM 배포에 실패하면 오류 정보를 어디에서 더 찾을 수 있나요?
 VM 배포 오류는 활동 로그에 캡처됩니다. 랩 VM 활동 로그는 랩의 VM 블레이드(블레이드는 **내 가상 컴퓨터** 목록에서 VM을 선택한 후에 표시됨)에 있는 리소스 메뉴에서 **감사 로그** 또는 **가상 컴퓨터 진단**을 통해 찾을 수 있습니다.

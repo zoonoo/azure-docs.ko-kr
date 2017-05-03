@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 3f050e2722091aa8b58591cc0c894a6ecb82c3fa
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: ff86340f18a2d3d13d55b7e0bcd4122d9b85ccd9
+ms.lasthandoff: 04/20/2017
 
 ---
 
@@ -406,6 +406,8 @@ HTTPWebhook 트리거는 수동 트리거처럼 끝점을 열지만 지정된 UR
 -   **Wait** \- 정해진 시간 동안 기다리거나 특정 시간까지 대기하는 단순한 작업입니다.  
   
 -   **Workflow** \- 중첩된 워크플로를 나타냅니다.  
+
+-   **Function** \- 이 작업은 Azure Function을 나타냅니다.
 
 ### <a name="collection-actions"></a>컬렉션 작업
 
@@ -828,6 +830,47 @@ API 연결은 Microsoft 관리 커넥터를 참조하는 작업입니다.
 워크플로\(보다 구체적으로 트리거\)에 대해 액세스 검사가 이루어지므로 워크플로에 액세스해야 합니다.  
   
 `workflow` 작업의 출력은 하위 워크플로에서 `response` 작업에 정의된 내용을 기반으로 합니다. 어떤 `response` 작업도 정의되지 않은 경우 출력은 비어 있습니다.  
+
+## <a name="function-action"></a>Function 작업   
+
+|이름|필수|형식|설명|  
+|--------|------------|--------|---------------|  
+|function id|예|string|호출하려는 함수의 리소스 ID입니다.|  
+|메서드|아니요|string|함수를 호출하는 데 사용되는 HTTP 메서드입니다. 기본적으로 지정되지 않은 경우 `POST`입니다.|  
+|쿼리|아니요|Object|URL에 추가할 쿼리 매개 변수를 나타냅니다. 예를 들어 `"queries" : { "api-version": "2015-02-01" }`은 URL에 `?api-version=2015-02-01`을 추가합니다.|  
+|headers|아니요|Object|요청에 전송된 각 헤더를 나타냅니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. `"headers" : { "Accept-Language": "en-us" }`|  
+|body|아니요|Object|끝점에 전송된 페이로드를 나타냅니다.|  
+
+```json
+"myfunc" : {
+    "type" : "Function",
+    "inputs" : {
+        "function" : {
+            "id" : "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Web/sites/myfuncapp/functions/myfunc"
+        },
+        "queries" : {
+            "extrafield" : "specialValue"
+        },  
+        "headers" : {
+            "x-ms-date" : "@utcnow()"
+        },
+        "method" : "POST",
+    "body" : {
+            "contentFieldOne" : "value100",
+            "anotherField" : 10.001
+        }
+    },
+    "runAfter": {}
+}
+```
+
+논리 앱을 저장하는 경우 참조된 함수에 대한 몇 가지 검사를 수행합니다.
+-   함수에 액세스할 수 있어야 합니다.
+-   표준 HTTP 트리거 또는 일반 JSON 웹후크 트리거만 허용됩니다.
+-   경로를 정의하지 않아야 합니다.
+-   "함수" 및 "익명" 권한 부여 수준만 허용됩니다.
+
+트리거 URL은 런타임에 검색, 캐시 및 사용됩니다. 따라서 어떤 작업으로 캐시된 URL이 무효화되면 런타임에 작업이 실패합니다. 이 문제를 해결하려면 논리 앱을 다시 저장합니다. 그러면 논리 앱이 트리거 URL을 다시 검색하고 캐시합니다.
 
 ## <a name="collection-actions-scopes-and-loops"></a>컬렉션 작업(범위 및 루프)
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 8ded51e2e34aa1583b249af11a260eaa4304f79f
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: fb660384f2f9f569bcfbe7fa7d5c1f7ce772cacd
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -83,6 +83,9 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet을 사용합니다.
 
 ## <a name="restore"></a>복원
+복원할 때 백업 파일은 서버용으로 구성한 저장소 계정에 있어야 합니다. 온-프레미스 위치에서 저장소 계정으로 백업 파일을 이동해야 하는 경우 [Microsoft Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) 또는 [AzCopy](../storage/storage-use-azcopy.md) 명령줄 유틸리티를 사용합니다. 
+
+온-프레미스 SQL Server Analysis Services 서버에서 테이블 형식의 1200 model 데이터베이스를 복원하는 경우 먼저 모델 역할에서 모든 도메인 사용자를 제거하고 Azure Active Directory 사용자로 역할에 다시 추가해야 합니다. 역할은 동일합니다.
 
 ### <a name="to-restore-by-using-ssms"></a>SSMS를 사용하여 복원하려면
 
@@ -103,5 +106,8 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 
 ## <a name="related-information"></a>관련 정보
-[Azure Storage 계정](../storage/storage-create-storage-account.md)   
+
+[Azure Storage 계정](../storage/storage-create-storage-account.md)  
+[높은 가용성](analysis-services-bcdr.md)     
 [Azure Analysis Services 관리](analysis-services-manage.md)
+

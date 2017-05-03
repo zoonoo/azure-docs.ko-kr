@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 566a8d7fc595975e065c5a8a42c7f7c94997821b
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: d7006a50d35412021f7e475df526661854b23dc8
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/18/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="step-1---download-the-sample"></a>1단계 - 샘플 다운로드
+## <a name="download-the-sample"></a>샘플 다운로드
 이 단계에서는 샘플 ASP.NET 응용 프로그램을 다운로드합니다.
 
 ### <a name="get-the-sample-project"></a>샘플 프로젝트 가져오기
@@ -65,7 +65,7 @@ ms.lasthandoff: 04/18/2017
 
 데이터베이스 컨텍스트는 `MyDbConnection`이라는 연결 문자열을 사용합니다. 이 연결 문자열은 `Web.config`에 정의되고 `Models\MyDatabaseContext.cs`에서 참조됩니다. 나중에 Azure 웹앱을 Azure SQL Database에 연결할 때는 연결 문자열 이름만 있으면 됩니다. 
 
-## <a name="step-2---publish-to-azure-with-sql-database"></a>2단계 - SQL Database를 사용하여 Azure에 게시
+## <a name="publish-to-azure-with-sql-database"></a>SQL Database를 사용하여 Azure에 게시
 
 **솔루션 탐색기**에서 **DotNetAppSqlDb** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
@@ -168,7 +168,7 @@ Azure 웹앱에도 _App Service 계획_이 필요합니다.
 
 축하합니다. 데이터 기반 ASP.NET 응용 프로그램이 Azure App Service에서 라이브로 실행되고 있습니다.
 
-## <a name="step-3---access-the-sql-database-locally"></a>3단계-로컬에서 SQL Database에 액세스
+## <a name="access-the-sql-database-locally"></a>로컬에서 SQL Database에 액세스
 
 Visual Studio를 사용하면 **SQL Server 개체 탐색기**에서 새 SQL Database를 쉽게 탐색하고 관리할 수 있습니다.
 
@@ -204,7 +204,7 @@ Visual Studio에서 SQL Server 인스턴스에 대한 방화벽 설정 만들기
 
 ![SQL Database 개체 탐색](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
-## <a name="step-4---update-app-with-code-first-migrations"></a>4단계 - Code First 마이그레이션으로 앱 업데이트
+## <a name="update-app-with-code-first-migrations"></a>Code First 마이그레이션으로 앱 업데이트
 
 이 단계에서는 Entity Framework에서 Code First 마이그레이션을 사용하여 데이터베이스 스키마를 변경하고 Azure에 게시합니다.
 
@@ -329,7 +329,7 @@ Azure 웹앱에서 Code First 마이그레이션을 사용하도록 설정했으
 >
 >
 
-## <a name="step-6---stream-application-logs"></a>6단계 - 응용 프로그램 로그 스트림
+## <a name="stream-application-logs"></a>응용 프로그램 로그 스트림
 
 Azure 웹앱에서 직접 Visual Studio로 추적 메시지를 스트림할 수 있습니다.
 
@@ -389,7 +389,7 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 ![로그 스트리밍 중지](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## <a name="step-7---manage-your-azure-web-app"></a>7단계 - Azure 웹앱 관리
+## <a name="manage-your-azure-web-app"></a>Azure Web App 관리
 
 만든 웹앱을 보려면 Azure Portal로 이동합니다. 
 

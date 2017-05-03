@@ -1,28 +1,26 @@
 ---
-title: "풀 크기 조정 시작 이벤트 - Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 8bd33e8b-6390-4a34-95dc-2e63d8bce941
-caps.latest.revision: 6
+title: "Azure Batch 풀 크기 조정 시작 이벤트 | Microsoft Docs"
+description: "Batch 풀 크기 조정 시작 이벤트에 대한 참조입니다."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 5064d86063251aeed22688d8fac133c4be1a88f8
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 826cd984d26b923ba38562e05a2e75c399be9121
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="pool-resize-start-event"></a>풀 크기 조정 시작 이벤트
-풀 크기 조정 시작 이벤트 로그 본문
 
-## <a name="remarks"></a>설명
+# <a name="pool-resize-start-event"></a>풀 크기 조정 시작 이벤트
+
  이 이벤트는 풀 크기 조정이 시작되면 내보내집니다. 풀 크기 조정은 비동기 이벤트이므로 풀 크기 조정 완료 이벤트는 크기 조정 작업이 완료되면 내보진다고 예상할 수 있습니다.
 
  다음 예에서는 수동 크기 조정을 통해 풀의 크기를 0개 노드에서 2개 노드로 조정하기 위한 풀 크기 조정 시작 이벤트의 본문을 보여 줍니다.

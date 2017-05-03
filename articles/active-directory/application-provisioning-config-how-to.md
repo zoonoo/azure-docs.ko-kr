@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c0283282c0f19c3a0e0f4304de2b5ab4768d3290
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: d24031955f57794d6796ea37d8d1b0984f066286
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -38,6 +38,8 @@ Azure Portal에서 엔터프라이즈 앱에 대한 왼쪽 탐색 창의 **프�
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>자동 프로비전에 대한 응용 프로그램 구성
 
 *자동*이란 Azure AD 프로비전 커넥터가 이 응용 프로그램에 대해 개발되었음을 의미합니다. Azure AD 프로비전 서비스 및 작동 방식에 대한 자세한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비전 및 프로비전 해제](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)를 참조하세요.
+
+특정 사용자 및 그룹을 응용 프로그램에 프로비저닝하는 방법에 대한 자세한 내용은 [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning)를 참조하세요.
 
 자동 프로비전을 사용하도록 설정하고 구성하는 데 필요한 실제 단계는 응용 프로그램에 따라 달라집니다.
 

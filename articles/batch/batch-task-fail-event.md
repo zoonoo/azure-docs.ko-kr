@@ -1,28 +1,26 @@
 ---
-title: "태스크 실패 이벤트 - Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 8c16a533-1ac7-4b65-a84e-8eafb937b3d7
-caps.latest.revision: 3
+title: "Azure Batch 태스크 실패 이벤트 | Microsoft Docs"
+description: "Batch 태스크 실패 이벤트에 대한 참조입니다."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 880fe1cfb0496311d7c386f25762c5d02a6c91f4
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 08feb4ec34bb1635f8ea744b54a10b677b94ab3e
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="task-fail-event"></a>태스크 실패 이벤트
-태스크 실패 이벤트 로그 본문
 
-## <a name="remarks"></a>설명
+# <a name="task-fail-event"></a>태스크 실패 이벤트
+
  이 이벤트는 태스크가 오류와 함께 완료되면 내보내집니다. 현재 0이 아닌 종료 코드는 모두 오류로 간주됩니다. 이 이벤트는 태스크 완료 이벤트와 *별도로* 내보내지고, 태스크가 실패한 시기를 감지하는 데 사용될 수 있습니다.
 
 

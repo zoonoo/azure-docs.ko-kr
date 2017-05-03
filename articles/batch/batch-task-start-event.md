@@ -1,28 +1,26 @@
 ---
-title: "태스크 시작 이벤트 - Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
-ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 95f7762a-a715-4c83-907b-8aed004e69b1
-caps.latest.revision: 3
+title: "Azure Batch 태스크 시작 이벤트 | Microsoft Docs"
+description: "Batch 태스크 시작 이벤트에 대한 참조입니다."
+services: batch
 author: tamram
-ms.author: tamram
 manager: timlt
+ms.assetid: 
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 81e27c1db2687c819aee15646c2c72e8765293c8
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: c47ab36c99dddd46a14c15018a2a46bf7f873ffa
+ms.lasthandoff: 04/22/2017
 
 ---
-# <a name="task-start-event"></a>태스크 시작 이벤트
-태스크 시작 이벤트 로그 본문
 
-## <a name="remarks"></a>설명
+# <a name="task-start-event"></a>태스크 시작 이벤트
+
  이 이벤트는 Scheduler가 계산 노드에서 태스크를 시작하도록 예약하면 내보내집니다. 태스크가 다시 시도되거나 대기열에 다시 추가될 경우 동일한 태스크에 이 이벤트가 다시 내보내지지만 재시도 횟수와 시스템 태스크 버전이 적절히 업데이트됩니다.
 
 
@@ -65,7 +63,7 @@ ms.lasthandoff: 04/13/2017
 
 |요소 이름|형식|참고 사항|
 |------------------|----------|-----------|
-|poolId|string|태스크가 실행된 풀의 ID입니다.|
+|poolId|String|태스크가 실행된 풀의 ID입니다.|
 |nodeId|string|태스크가 실행된 노드의 ID입니다.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings

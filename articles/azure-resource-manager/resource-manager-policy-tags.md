@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 04/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 72d398c529fc7dd5eef450da0e134dcdab534ac5
-ms.openlocfilehash: 375a8df763eb6b4b8f7349e0061ab39c076ebfc6
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 04338b62d942774368149b27e8b35713b77f8d7c
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -30,83 +31,53 @@ ms.openlocfilehash: 375a8df763eb6b4b8f7349e0061ab39c076ebfc6
 
 일반적으로 리소스 그룹의 모든 리소스에 특정 태그 및 값이 있어야 합니다. 이 요구 사항은 부서별로 비용을 추적하는 데 종종 필요합니다. 다음 조건이 충족되어야 합니다.
 
-* 필수 태그 및 값은 모든 기존 태그가 없는 신규 및 업데이트된 리소스에 추가됩니다.
-* 필수 태그 및 값은 필수 태그 및 값이 아닌 다른 태그가 없는 신규 및 업데이트된 리소스에 추가됩니다.
+* 필수 태그 및 값은 태그가 없는 신규 및 업데이트된 리소스에 추가됩니다.
 * 기존 리소스에서 필수 태그 및 값을 제거할 수 없습니다.
 
-다음 세 가지 정책을 리소스 그룹에 적용하여 이 요구 사항을 달성할 수 있습니다.
+두 가지 기본 제공 정책을 리소스 그룹에 적용하여 이 요구 사항을 달성합니다.
 
-* [태그 추가](#append-tag) 
-* [다른 태그를 사용하여 태그 추가](#append-tag-with-other-tags)
-* [태그 및 값 요구](#require-tag-and-value)
+| ID | 설명 |
+| ---- | ---- |
+| 2a0e14a6-b0a6-4fab-991a-187a4f81c498 | 사용자가 지정하지 않으면 필수 태그와 해당 기본값을 적용합니다. |
+| 1e30110a-5ceb-460c-a204-c1c3969c6d62 | 필수 태그와 해당 값을 적용합니다. |
 
-### <a name="append-tag"></a>태그 추가
+### <a name="powershell"></a>PowerShell
 
-태그가 없는 경우 다음 정책 규칙은 미리 정의된 값을 포함한 costCenter 태그를 추가합니다.
+다음 PowerShell 스크립트는 리소스 그룹에 두 가지 기본 제공 정책 정의를 할당합니다. 스크립트를 실행하기 전에 리소스 그룹에 모든 필수 태그를 할당합니다. 리소스 그룹의 각 태그는 그룹에 있는 리소스에 필요합니다. 사용자 구독의 모든 리소스 그룹에 할당하려면 리소스 그룹을 가져올 때 `-Name` 매개 변수를 제공하지 마세요.
 
-```json
+```powershell
+$appendpolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '2a0e14a6-b0a6-4fab-991a-187a4f81c498'}
+$denypolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '1e30110a-5ceb-460c-a204-c1c3969c6d62'}
+
+$rgs = Get-AzureRMResourceGroup -Name ExampleGroup
+
+foreach($rg in $rgs)
 {
-  "if": {
-    "field": "tags",
-    "exists": "false"
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags",
-        "value": {"costCenter":"myDepartment" }
-      }
-    ]
-  }
-}
-```
-
-### <a name="append-tag-with-other-tags"></a>다른 태그를 사용하여 태그 추가
-
-다음 정책 규칙은 costCenter 태그를 정의하지 않지만 태그가 있는 경우 미리 정의된 값을 포함한 costCenter 태그를 추가합니다.
-
-```json
-{
-  "if": {
-    "allOf": [
-      {
-        "field": "tags",
-        "exists": "true"
-      },
-      {
-        "field": "tags.costCenter",
-        "exists": "false"
-      }
-    ]
-  },
-  "then": {
-    "effect": "append",
-    "details": [
-      {
-        "field": "tags.costCenter",
-        "value": "myDepartment"
-      }
-    ]
-  }
-}
-```
-
-### <a name="require-tag-and-value"></a>태그 및 값 요구
-
-다음 정책 규칙은 미리 정의된 값에 costCenter 태그를 할당하지 않은 리소스의 업데이트 및 생성을 거부합니다.
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "tags.costCenter",
-      "equals": "myDepartment"
+    $tags = $rg.Tags
+    foreach($key in $tags.Keys){
+        $key 
+        $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("append"+$key+"tag") -PolicyDefinition $appendpolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
+        New-AzureRmPolicyAssignment -Name ("denywithout"+$key+"tag") -PolicyDefinition $denypolicy -Scope $rg.ResourceId -tagName $key -tagValue  $tags[$key]
     }
-  },
-  "then": {
-    "effect": "deny"
-  }
+}
+```
+
+정책을 할당한 후에는 모든 기존 리소스에 업데이트를 트리거하여 추가한 태그 정책을 적용합니다. 다음 스크립트는 리소스에 존재하는 다른 태그를 유지합니다.
+
+```powershell
+$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
+
+$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
+
+foreach($r in $resources)
+{
+    try{
+        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+    }
+    catch{
+        Write-Host  $r.ResourceId + "can't be updated"
+    }
 }
 ```
 
@@ -152,34 +123,9 @@ ms.openlocfilehash: 375a8df763eb6b4b8f7349e0061ab39c076ebfc6
 }
 ```
 
-## <a name="trigger-updates-to-existing-resources"></a>기존 리소스에 대한 업데이트 트리거
-
-다음 PowerShell 스크립트는 기존 리소스에 대한 업데이트를 트리거하여 추가한 태그 정책을 적용합니다.
-
-```powershell
-$group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
-
-$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName 
-
-foreach($r in $resources)
-{
-    try{
-        $r | Set-AzureRmResource -Tags ($a=if($_.Tags -eq $NULL) { @{}} else {$_.Tags}) -Force -UsePatchSemantics
-    }
-    catch{
-        Write-Host  $r.ResourceId + "can't be updated"
-    }
-}
-```
-
 ## <a name="next-steps"></a>다음 단계
-* 앞의 예제와 표시된 바와 같이 정책 규칙을 정의한 후에는 정책 정의를 만들고 범위에 할당해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. 정책을 만들고 할당하는 예제는 [정책 할당 및 관리](resource-manager-policy-create-assign.md)를 참조하세요. 
+* 앞의 예제와 표시된 바와 같이 정책 규칙을 정의한 후에는 정책 정의를 만들고 범위에 할당해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. 포털을 통해 정책을 할당하려면 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](resource-manager-policy-portal.md)를 참조하세요. REST API, PowerShell 또는 Azure CLI를 통해 정책을 할당하려면 [스크립트를 통해 정책 할당 및 관리](resource-manager-policy-create-assign.md)를 참조하세요.
 * 리소스 정책에 대한 소개는 [리소스 정책 개요](resource-manager-policy.md)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

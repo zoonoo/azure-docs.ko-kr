@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: ef3fc25ed06eb498600df4fc8fcad37f0f0dc676
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 8dcb006a8cf167cdbfb67de5a11dabf0edbbe41c
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/18/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="step-1---test-local-mongodb-database"></a>1 단계 - 로컬 MongoDB 데이터베이스 테스트
+## <a name="test-local-mongodb-database"></a>로컬 MongoDB 데이터베이스 테스트
 이 단계에서는 로컬 MongoDB 데이터베이스가 실행 중인지 확인합니다.
 
 터미널 창을 열고 `CD`를 사용하여 MongoDB 설치 위치의 `bin` 디렉터리로 이동합니다. 
@@ -54,7 +54,7 @@ MongoDB 데이터베이스를 테스트하고 나면 터미널에 `Ctrl`+`C`를 
 
 <a name="step2"></a>
 
-## <a name="step-2---create-local-nodejs-application"></a>2 단계 - 로컬 Node.js 응용 프로그램 만들기
+## <a name="create-local-nodejs-application"></a>로컬 Node.js 응용 프로그램 만들기
 이 단계에서는 로컬 Node.js 프로젝트를 설정합니다.
 
 ### <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
@@ -103,7 +103,7 @@ MEAN.js 샘플 응용 프로그램은 데이터베이스에 사용자 데이터�
 
 언제든지 Node.js를 중지하려면 터미널에 `Ctrl`+`C`를 입력합니다. 
 
-## <a name="step-3---create-a-production-mongodb-database"></a>3 단계 - 프로덕션 MongoDB 데이터베이스 만들기
+## <a name="create-a-production-mongodb-database"></a>프로덕션 MongoDB 데이터베이스 만들기
 
 이 단계에서는 Azure에 MongoDB 데이터베이스를 만듭니다. 응용 프로그램이 Azure에 배포되어 있으면 프로덕션 워크로드에 이 데이터베이스를 사용합니다.
 
@@ -163,7 +163,7 @@ DB/databaseAccounts/<documentdb_name>",
 } 
 ```
 
-## <a name="step-4---connect-your-nodejs-application-to-the-database"></a>4단계 - 데이터베이스에 Node.js 응용 프로그램 연결
+## <a name="connect-your-nodejs-application-to-the-database"></a>데이터베이스에 Node.js 응용 프로그램 연결
 
 이 단계에서는 MongoDB 연결 문자열을 사용하여 MEAN.js 샘플 응용 프로그램을 방금 만든 DocumentDB 데이터베이스에 연결합니다. 
 
@@ -242,7 +242,7 @@ MEAN.JS version: 0.5.0
 
 브라우저에서 `http://localhost:8443`으로 이동합니다. 맨 위 메뉴에서 **등록**을 클릭하고 전과 같이 더미 사용자를 만들어 봅니다. 성공하면 응용 프로그램에서 데이터를 Azure의 DocumentDB 데이터베이스에 씁니다. 
 
-## <a name="step-5---deploy-the-nodejs-application-to-azure"></a>5단계 - Azure에 Node.js 응용 프로그램 배포
+## <a name="deploy-the-nodejs-application-to-azure"></a>Azure에 Node.js 응용 프로그램 배포
 이 단계에서는 MongoDB에 연결된 Node.js 응용 프로그램을 Azure App Service에 배포합니다.
 
 ### <a name="create-an-app-service-plan"></a>앱 서비스 계획 만들기
@@ -435,7 +435,7 @@ http://<app_name>.azurewebsites.net
 
 **축하합니다.** Azure App Service에서 데이터 기반 Node.js 응용 프로그램을 실행합니다.
 
-## <a name="step-6---update-data-model-and-redeploy"></a>6단계 - 데이터 모델 업데이트 및 다시 배포
+## <a name="update-data-model-and-redeploy"></a>데이터 모델 업데이트 및 다시 배포
 
 이 단계에서는 `article` 데이터 모델을 약간 변경하고 변경 내용을 Azure에 게시합니다.
 
@@ -569,7 +569,7 @@ git push azure master
 >
 >
 
-## <a name="step-7---stream-diagnostic-logs"></a>7단계 - 진단 로그 스트림 
+## <a name="stream-diagnostic-logs"></a>진단 로그 스트림 
 
 Node.js 응용 프로그램을 Azure App Service에서 실행하는 동안 콘솔 로그를 바로 터미널에 보낼 수 있습니다. 이 방법으로 응용 프로그램 오류를 디버깅하는 데 도움이 되는 진단 메시지를 동일하게 받을 수 있습니다.
 
@@ -583,7 +583,7 @@ az appservice web log tail --name <app_name> --resource-group myResourceGroup
 
 언제든지 로그 스트리밍을 중지하려면 `Ctrl`+`C`를 입력합니다. 
 
-## <a name="step-8---manage-your-azure-web-app"></a>8단계 - Azure 웹앱 관리
+## <a name="manage-your-azure-web-app"></a>Azure Web App 관리
 
 만든 웹앱을 보려면 Azure Portal로 이동합니다.
 

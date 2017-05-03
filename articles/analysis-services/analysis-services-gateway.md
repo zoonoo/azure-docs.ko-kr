@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 04/18/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: c7127f4bd89bf00a4ef72e54dc7694a1766e5762
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: e47fa44d87ad29054b833ee4bf201ac4d72e1e6e
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -49,7 +49,7 @@ ms.lasthandoff: 04/18/2017
 * 경우에 따라 SQL Server Native Client(SQLNCLI11)와 같은 네이티브 공급자를 사용하여 데이터 원본에 연결하는 테이블 형식 모델은 오류를 반환할 수 있습니다. 자세한 내용은 참조 [데이터 원본 연결](analysis-services-datasource.md)을 참조하세요.
 
 ## <a name="supported-on-premises-data-sources"></a>지원되는 온-프레미스 데이터 원본
-미리 보기의 경우 게이트웨이는 Azure Analysis Services 서버와 다음 온-프레미스 데이터 원본 간의 연결을 지원합니다.
+게이트웨이는 Azure Analysis Services 서버와 다음 온-프레미스 데이터 원본 간의 연결을 지원합니다.
 
 * SQL Server
 * SQL 데이터 웨어하우스

@@ -1,6 +1,6 @@
 ---
-title: "Azure 청구 및 비용 관리 지침 | Microsoft Docs"
-description: "청구 최적화를 위한 모범 사례 및 처음 수행할 작업에 대해 알아보기"
+title: "예기치 않은 비용 방지, 청구 관리 - Azure | Microsoft Docs"
+description: "Azure 청구서에 예기치 않은 요금이 부과되지 않도록 하는 방법을 알아봅니다. Microsoft Azure 구독에 대한 비용 추적 및 관리 기능을 사용합니다."
 services: 
 documentationcenter: 
 author: jlian
@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: jlian
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: af53cea83d2e348b2c73e56cf4b6ce5a875bce18
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -44,7 +44,7 @@ EA(기업 계약), CSP(클라우드 솔루션 공급자) 또는 Azure 스폰서�
 
 ### <a name="check-your-subscription-and-access"></a>구독 및 액세스 권한 확인
 
-비용을 보려면 [구독 수준 액세스](../active-directory/role-based-access-control-configure.md) 권한이 필요하지만 계정 관리자만 [계정 센터](https://account.windowsazure.com/Home/Index)에 액세스하고, 청구 정보를 변경하고, 구독을 관리할 수 있습니다. 계정 관리자는 등록 프로세스를 거친 사용자입니다. 자세한 내용은 [Azure 관리자 역할을 추가 또는 변경하는 방법](billing-add-change-azure-subscription-administrator.md)을 참조하세요.
+비용을 보려면 [대금 청구 정보에 대한 구독 수준 액세스](billing-manage-access.md) 권한이 필요하지만 계정 관리자만 [계정 센터](https://account.windowsazure.com/Home/Index)에 액세스하고, 청구 정보를 변경하고, 구독을 관리할 수 있습니다. 계정 관리자는 등록 프로세스를 거친 사용자입니다. 자세한 내용은 [구독 또는 서비스를 관리하는 Azure 관리자 역할 추가 또는 변경](billing-add-change-azure-subscription-administrator.md)을 참조하세요.
 
 계정 관리자인 경우 [Azure Portal의 구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동한 후 액세스 권한이 있는 구독 목록을 찾습니다. **내 역할** 아래에서 확인합니다. *계정 관리자*가 표시되면 문제가 없는 것입니다. *소유자* 등이 표시되면 모든 권한이 있는 것은 아닙니다.
 

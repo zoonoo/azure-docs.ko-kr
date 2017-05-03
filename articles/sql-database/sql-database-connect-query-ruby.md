@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: andrela;sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 04fc29fe21b77a34094bb89ecb8496f78856f56b
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: c8700b16f91f014205acb93d6b57f9b972546268
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -33,6 +33,8 @@ ms.lasthandoff: 04/18/2017
 - [DB 만들기 - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-ruby-and-database-communication-libraries"></a>Ruby 및 데이터베이스 통신 라이브러리 설치
+
+이 섹션의 단계에서는 Ruby를 사용하여 개발하는 것에 익숙하고 Azure SQL Database 작업에 익숙하지 않다고 가정합니다. Ruby를 사용하여 개발하는 것이 처음인 경우 [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/en-us/sql-server/developer-get-started/)로 이동하고 **Ruby**를 선택한 다음 운영 체제를 선택합니다.
 
 ### <a name="mac-os"></a>**Mac OS**
 터미널을 열고 Ruby 스크립트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **brew**, **FreeTDS** 및 **TinyTDS**를 설치합니다.
@@ -60,11 +62,11 @@ gem install tiny_tds
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
-Azure Portal에서 연결 문자열을 가져옵니다. 연결 문자열을 사용하여 Azure SQL Database에 연결합니다.
+Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
-3. 데이터베이스의 **개요** 페이지에서 아래 그림과 같이 정규화된 서버 이름을 검토합니다. 서버 이름 위로 마우스를 가져가면 **복사하려면 클릭** 옵션이 표시됩니다. 
+3. 데이터베이스의 **개요** 페이지에서 아래 이미지와 같이 정규화된 서버 이름을 검토합니다. 서버 이름 위로 마우스를 가져가면 **복사하려면 클릭** 옵션이 표시됩니다. 
 
    ![서버 이름](./media/sql-database-connect-query-dotnet/server-name.png) 
 
@@ -72,7 +74,7 @@ Azure Portal에서 연결 문자열을 가져옵니다. 연결 문자열을 사�
     
 
 ## <a name="select-data"></a>데이터를 선택합니다.
-[TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) 함수와 [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL 문을 사용하여 Azure SQL Database를 쿼리하려면 다음 코드를 사용합니다. TinyTDS::Client 함수는 쿼리를 허용하고 결과 집합을 반환합니다. 이 결과 집합은 [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds)를 사용하여 반복됩니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
+[TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) 함수와 [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL 문을 사용하여 범주별 상위 20개 제품을 쿼리하려면 다음 코드를 사용합니다. TinyTDS::Client 함수는 쿼리를 허용하고 결과 집합을 반환합니다. 이 결과 집합은 [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds)를 사용하여 반복됩니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
 
 ```ruby
 require 'tiny_tds'
@@ -95,7 +97,7 @@ end
 ```
 
 ## <a name="insert-data"></a>데이터 삽입
-[TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) 함수와 [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL 문을 사용하여 지정한 데이터베이스의 SalesLT.Product 테이블에 새 제품을 삽입하려면 다음 코드를 사용합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
+[TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) 함수와 [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL 문을 사용하여 SalesLT.Product 테이블에 새 제품을 삽입하려면 다음 코드를 사용합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
 
 이 예제에서는 INSERT 문을 안전하게 실행하고, [SQL 삽입](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 취약성으로부터 응용 프로그램을 보호하는 매개 변수를 전달하며, 자동으로 생성된 [기본 키](https://docs.microsoft.com/sql/relational-databases/tables/primary-and-foreign-key-constraints) 값을 검색하는 방법을 보여 줍니다.    
   
@@ -133,7 +135,7 @@ insert('BrandNewProduct', '200989', 'Blue', 75, 80, '7/1/2016')
 ```
 
 ## <a name="update-data"></a>데이터 업데이트
-[TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) 함수와 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 문을 사용하여 Azure SQL Database에서 데이터를 업데이트하려면 다음 코드를 사용합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
+[TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) 함수와 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 문을 사용하여 이전에 추가한 새 제품을 업데이트하려면 다음 코드를 사용합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
 
 ```ruby
 require 'tiny_tds'
@@ -154,7 +156,7 @@ update('BrandNewProduct', 500, client)
 ```
 
 ## <a name="delete-data"></a>데이터 삭제
-[TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) 함수와 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 문을 사용하여 Azure SQL Database에서 데이터를 삭제하려면 다음 코드를 사용합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
+[TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) 함수와 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 문을 사용하여 이전에 추가한 새 제품을 삭제하려면 다음 코드를 사용합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다.
 
 ```ruby
 require 'tiny_tds'
@@ -196,3 +198,4 @@ delete('BrandNewProduct', client)
 - Node.js를 사용하여 연결 및 쿼리하려면 [Node.js를 사용하여 연결 및 쿼리](sql-database-connect-query-nodejs.md)를 참조하세요.
 - Java를 사용하여 연결 및 쿼리하려면 [Java를 사용하여 연결 및 쿼리](sql-database-connect-query-java.md)를 참조하세요.
 - Python을 사용하여 연결 및 쿼리하려면 [Python을 사용하여 연결 및 쿼리](sql-database-connect-query-python.md)를 참조하세요.
+

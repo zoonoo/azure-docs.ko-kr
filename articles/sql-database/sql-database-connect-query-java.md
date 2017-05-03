@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: andrela;carlrab;sstein
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 17202bfc03e9b60d12f1a071eff427520a0dce83
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 6ba2880b1ce9eed0f5c3b8e3ed4255c7e4ec7f29
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,8 @@ ms.lasthandoff: 04/18/2017
 - [DB 만들기 - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-java-software"></a>Java 소프트웨어 설치
+
+이 섹션의 단계에서는 Java를 사용하여 개발하는 것에 익숙하고 Azure SQL Database 작업에 익숙하지 않다고 가정합니다. Java로 개발하는 것이 처음인 경우 [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/en-us/sql-server/developer-get-started/)로 이동하고 **Java**를 선택한 다음 운영 체제를 선택합니다.
 
 ### <a name="mac-os"></a>**Mac OS**
 터미널을 열고 Java 프로젝트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **brew** 및 **Maven**을 설치합니다. 
@@ -50,15 +52,15 @@ sudo apt-get install maven
 ```
 
 ### <a name="windows"></a>**Windows**
-공식 설치 관리자를 사용하여 [Maven](https://maven.apache.org/download.cgi)을 설치합니다.  
+공식 설치 관리자를 사용하여 [Maven](https://maven.apache.org/download.cgi)을 설치합니다. Maven은 종속성을 관리하고 Java 프로젝트 빌드, 테스트 및 실행하는 데 사용할 수 있습니다. 
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
-Azure Portal에서 연결 문자열을 가져옵니다. 연결 문자열을 사용하여 Azure SQL Database에 연결합니다.
+Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
-3. 데이터베이스의 **개요** 페이지에서 아래 그림과 같이 정규화된 서버 이름을 검토합니다. 서버 이름 위로 마우스를 가져가면 **복사하려면 클릭** 옵션이 표시됩니다. 
+3. 데이터베이스의 **개요** 페이지에서 아래 이미지와 같이 정규화된 서버 이름을 검토합니다. 서버 이름 위로 마우스를 가져가면 **복사하려면 클릭** 옵션이 표시됩니다. 
 
    ![서버 이름](./media/sql-database-connect-query-dotnet/server-name.png) 
 
@@ -67,7 +69,7 @@ Azure Portal에서 연결 문자열을 가져옵니다. 연결 문자열을 사�
 
 6. 전체 **JDBC** 연결 문자열을 검토합니다.
 
-    ![JDBC 연결 문자열](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)
+    ![JDBC 연결 문자열](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)    
 
 ### <a name="create-maven-project"></a>**Maven 프로젝트 만들기**
 터미널에서 새 Maven 프로젝트를 만듭니다. 
@@ -87,7 +89,7 @@ mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "
 
 ## <a name="select-data"></a>데이터를 선택합니다.
 
-[connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) 클래스와 [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL 문을 사용하여 Azure SQL Database를 쿼리하려면 다음 코드를 사용합니다. hostName, dbName, user 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
+[connection](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection) 클래스와 [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL 문을 사용하여 범주별 상위 20개 제품을 쿼리하려면 다음 코드를 사용합니다. hostName, dbName, user 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
 
 ```java
 package com.sqldbsamples;
@@ -144,7 +146,7 @@ public class App {
 
 ## <a name="insert-data"></a>데이터 삽입
 
-[Prepared Statement](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 클래스와 [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL 문을 사용하여 지정한 데이터베이스의 SalesLT.Product 테이블에 새 제품을 삽입하려면 다음 코드를 사용합니다. hostName, dbName, user 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
+[Prepared Statement](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 클래스와 [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL 문을 사용하여 SalesLT.Product 테이블에 새 제품을 삽입하려면 다음 코드를 사용합니다. hostName, dbName, user 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
 
 ```java
 package com.sqldbsamples;
@@ -174,7 +176,7 @@ public class App {
                 System.out.println("=========================================");
 
                 // Prepared statement to insert data
-                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
+                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, " 
                     + " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
                 java.util.Date date = new java.util.Date();
@@ -200,7 +202,7 @@ public class App {
 ```
 ## <a name="update-data"></a>데이터 업데이트
 
-[Prepared Statement](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 클래스와 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 문을 사용하여 Azure SQL Database의 데이터를 업데이트하려면 다음 코드를 사용합니다. hostName, dbName, user 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
+[Prepared Statement](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 클래스와 Azure SQL Database의 데이터를 업데이트하는 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 문을 사용하여 이전에 추가한 새 제품을 업데이트하려면 다음 코드를 사용합니다. hostName, dbName, user 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
 
 ```java
 package com.sqldbsamples;
@@ -251,7 +253,7 @@ public class App {
 
 ## <a name="delete-data"></a>데이터 삭제
 
-[Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql)와 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 문을 사용하여 Azure SQL Database에서 데이터를 삭제하려면 다음 코드를 사용합니다. hostName, dbName, user 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
+[Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql)와 [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL 문을 사용하여 이전에 추가한 새 제품을 삭제하려면 다음 코드를 사용합니다. hostName, dbName, user 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
 
 ```java
 package com.sqldbsamples;

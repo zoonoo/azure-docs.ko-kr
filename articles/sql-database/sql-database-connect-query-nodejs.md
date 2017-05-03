@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: lbosq
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 7365945818c56279bd5945fee8d0048ef425bfc7
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4de9eb8f55bfda8b223417f5c1ed4e71b0f063c6
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -32,6 +32,8 @@ ms.lasthandoff: 04/18/2017
 - [DB 만들기 - CLI](sql-database-get-started-cli.md)
 
 ## <a name="install-nodejs"></a>Node.js 설치 
+
+이 섹션의 단계에서는 Node.js를 사용하여 개발하는 것에 익숙하고 Azure SQL Database 작업에 익숙하지 않다고 가정합니다. Node.js를 사용하여 개발하는 것이 처음인 경우 [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/en-us/sql-server/developer-get-started/)로 이동하고 **Node.js**를 선택한 다음 운영 체제를 선택합니다.
 
 ### <a name="mac-os"></a>**Mac OS**
 **Node.js** 및 사용하기 쉬운 Mac OS X용 패키지 관리자인 **brew**를 설치하려면 다음 명령을 입력합니다.
@@ -63,11 +65,11 @@ npm install tedious
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
-Azure Portal에서 연결 문자열을 가져옵니다. 연결 문자열을 사용하여 Azure SQL Database에 연결합니다.
+Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
-3. 데이터베이스의 **개요** 페이지에서 아래 그림과 같이 정규화된 서버 이름을 검토합니다. 서버 이름 위로 마우스를 가져가면 **복사하려면 클릭** 옵션이 표시됩니다. 
+3. 데이터베이스의 **개요** 페이지에서 아래 이미지와 같이 정규화된 서버 이름을 검토합니다. 서버 이름 위로 마우스를 가져가면 **복사하려면 클릭** 옵션이 표시됩니다. 
 
    ![서버 이름](./media/sql-database-connect-query-dotnet/server-name.png) 
 
@@ -75,7 +77,7 @@ Azure Portal에서 연결 문자열을 가져옵니다. 연결 문자열을 사�
     
 ## <a name="select-data"></a>데이터를 선택합니다.
 
-Azure SQL Database를 쿼리하려면 다음 코드를 사용합니다. 먼저 tedious 드라이버 라이브러리에서 드라이버 Connect 및 Request 클래스를 가져옵니다. 그런 다음 구성 개체를 만들고 **username**, **password**, **server** 및 **database** 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 지정한 `config` 개체를 사용하여 `Connection` 개체를 만듭니다. 그런 다음 `connection` 개체의 `connect` 이벤트에 대한 콜백을 정의하여 `queryDatabase()` 함수를 실행합니다.
+범주별 상위 20개 제품에 대해 Azure SQL Database를 쿼리하려면 다음 코드를 사용합니다. 먼저 tedious 드라이버 라이브러리에서 드라이버 Connect 및 Request 클래스를 가져옵니다. 그런 다음 구성 개체를 만들고 **username**, **password**, **server** 및 **database** 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 지정한 `config` 개체를 사용하여 `Connection` 개체를 만듭니다. 그런 다음 `connection` 개체의 `connect` 이벤트에 대한 콜백을 정의하여 `queryDatabase()` 함수를 실행합니다.
 
 ```js
 var Connection = require('tedious').Connection;
@@ -125,7 +127,7 @@ function queryDatabase(){
 ```
 
 ## <a name="insert-data-into-the-database"></a>데이터베이스에 데이터 삽입
-SalesLT.Product 테이블에 새 제품을 삽입하려면 다음 코드를 사용합니다. **username**, **password**, **server** 및 **database** 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 이번에는 `insertIntoDatabase()` 함수에 **INSERT 문**을 사용합니다.
+`insertIntoDatabase()` 함수와 [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) Transact-SQL 문을 사용하여 SalesLT.Product 테이블에 새 제품을 삽입하려면 다음 코드를 사용합니다. **username**, **password**, **server** 및 **database** 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
 
 ```js
 var Connection = require('tedious').Connection;
@@ -167,7 +169,7 @@ function insertIntoDatabase(){
 ```
 
 ## <a name="update-data-in-the-database"></a>데이터베이스에서 데이터 업데이트
-데이터베이스에서 데이터를 업데이트하려면 다음 코드를 사용합니다. **username**, **password**, **server** 및 **database** 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 이번에는 `updateInDatabase()` 함수에 **UPDATE 문**을 사용합니다. 이 샘플에서는 이전 예제에서 삽입한 제품 이름을 사용합니다.
+`updateInDatabase()` 함수와 [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL 문을 사용하여 이전에 추가한 새 제품을 삭제하려면 다음 코드를 사용합니다. **username**, **password**, **server** 및 **database** 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 이 샘플에서는 이전 예제에서 삽입한 제품 이름을 사용합니다.
 
 ```js
 var Connection = require('tedious').Connection;
