@@ -3,8 +3,3 @@ Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처
 
 ![](./media/expressroute-intro-include/expressroute-basic.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

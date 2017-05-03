@@ -19,8 +19,3 @@
    
       ![Azure 포털 - 알림 허브 연결 문자열](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

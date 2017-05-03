@@ -41,8 +41,3 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-
