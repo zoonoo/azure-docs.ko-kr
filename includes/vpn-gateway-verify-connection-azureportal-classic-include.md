@@ -11,7 +11,3 @@ Azure Portal에서 연결로 이동하여 클래식 VNet VPN Gateway의 연결 �
 5. 연결에 대한 추가 정보를 보려면 연결 이름을 클릭하여 **사이트 간 VPN 연결** 블레이드를 엽니다.
 
     ![연결 상태 추가 정보](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "연결 상태 추가 정보")
-
-<!--HONumber=Jan17_HO5-->
-
-
