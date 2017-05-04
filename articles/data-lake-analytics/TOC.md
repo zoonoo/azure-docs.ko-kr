@@ -19,6 +19,7 @@
 ### [U-SQL 창 함수](data-lake-analytics-use-window-functions.md)
 ### [U-SQL 사용자 정의 연산자](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python 확장](data-lake-analytics-u-sql-python-extensions.md)
+### [U-SQL R 확장](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL 인식 기능](data-lake-analytics-u-sql-cognitive.md)
 
 ## 솔루션 만들기
@@ -40,7 +41,7 @@
 ### [Vertex 실행 보기 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics)
+## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)

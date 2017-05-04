@@ -30,6 +30,7 @@
 
 ## 솔루션 사용
 ### [관리 솔루션](operations-management-suite-solutions.md)
+### [대상 솔루션](operations-management-suite-solution-targeting.md)
 ### 통찰 및 분석
 #### [AD 평가](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD 복제 상태](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -58,6 +59,7 @@
 ### [Automation 리소스](operations-management-suite-solutions-resources-automation.md)
 ### [로그 검색 및 경고](operations-management-suite-solutions-resources-searches-alerts.md)
 ### [뷰](operations-management-suite-solutions-resources-views.md)
+### [모범 사례](operations-management-suite-solutions-best-practices.md)
 
 ## [OMS와 통합](operations-management-suite-integration.md)
 

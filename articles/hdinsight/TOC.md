@@ -132,8 +132,9 @@
 ## 클러스터 확장
 ### [부트스트랩을 사용하여 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [스크립트 작업을 사용하여 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
-### [Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md)
 ### [스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)
+### [Mono 설치 또는 업데이트](hdinsight-hadoop-install-mono.md)
+### [Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md)
 ### [Giraph 사용](hdinsight-hadoop-giraph-install-linux.md)
 ### [Hue 사용](hdinsight-hadoop-hue-linux.md)
 ### [R 사용](hdinsight-hadoop-r-scripts-linux.md)
@@ -190,7 +191,7 @@
 #### [Hive 쿼리 성능](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET(Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET(HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET(Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)

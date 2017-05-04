@@ -7,11 +7,14 @@
 ## [배치 계정 만들기](batch-account-create-portal.md)
 ## [배치 .NET 자습서](batch-dotnet-get-started.md)
 ## [배치 Python 자습서](batch-python-tutorial.md)
+## [배치 Node.js 자습서](batch-nodejs-get-started.md)
 # 방법
 ## 개발
 ### [응용 프로그램 패키지](batch-application-packages.md)
 ### [자동 크기 조정 컴퓨터 노드](batch-automatic-scaling.md)
-### [Azure AD 인증](batch-aad-auth.md)
+### Azure AD 인증
+#### [Batch 서비스 포함 Azure AD](batch-aad-auth.md)
+#### [배치 관리 포함 Azure AD](batch-aad-auth-management.md)
 ### [동시 노드 작업](batch-parallel-node-tasks.md)
 ### [효율적인 목록 쿼리](batch-efficient-list-queries.md)
 ### [작업 준비 및 완료 작업](batch-job-prep-release.md)
@@ -27,7 +30,7 @@
 ### [Azure CLI](batch-cli-get-started.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.5.0/azurerm.batch)
+## [PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)

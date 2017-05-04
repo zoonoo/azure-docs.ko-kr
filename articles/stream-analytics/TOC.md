@@ -32,23 +32,33 @@
 
 ## 관리
 ### [작업 안정성](stream-analytics-job-reliability.md)
-### [작업 모니터링](stream-analytics-monitoring.md)
-### [진단 로그](stream-analytics-job-diagnostic-logs.md)
 ### [프로그래밍 방식으로 작업 모니터링](stream-analytics-monitor-jobs.md)
 ### [PowerShell을 사용하여 작업 모니터링](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [크기를 조정하여 처리량 늘리기](stream-analytics-scale-jobs.md)
 ### [Machine Learning 함수에 대한 크기 조정](stream-analytics-scale-with-machine-learning-functions.md)
 ### [입/출력 자격 증명 회전](stream-analytics-login-credentials-inputs-outputs.md)
 
+## 문제 해결
+### [문제 해결 가이드](stream-analytics-troubleshooting-guide.md)
+### [작업 모니터링](stream-analytics-monitoring.md)
+### [리소스 상태 블레이드](stream-analytics-resource-health.md)
+### [작업 다이어그램 및 메트릭](stream-analytics-job-diagram-with-metrics.md)
+### [쿼리 테스트](stream-analytics-test-query.md)
+### [샘플 입력 데이터](stream-analytics-sample-data-input.md)
+### [SELECT INTO 디버깅](stream-analytics-select-into.md)
+### [이벤트 순서 처리](stream-analytics-out-of-order-and-late-events.md)
+### [이벤트 허브 리더 제한](stream-analytics-event-hub-consumer-groups.md)
+### [스트리밍 단위 최적화](stream-analytics-streaming-unit-consumption.md)
+### [진단 로그](stream-analytics-job-diagnostic-logs.md)
+
 ## 자동화
 ### [원 클릭 PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.streamanalytics/v2.3.0/azurerm.streamanalytics)
+## [PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [쿼리 언어](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST (영문)](/rest/api/streamanalytics)
-
 
 # 리소스
 ## [릴리스 정보](stream-analytics-release-notes.md)

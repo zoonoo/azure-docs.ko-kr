@@ -12,7 +12,6 @@
 ## [필수 구성 요소](expressroute-prerequisites.md)
 ## [워크플로](expressroute-workflows.md)
 ## [라우팅 요구 사항](expressroute-routing.md)
-## [NAT 요구 사항](expressroute-nat.md)
 ## [QoS 요구 사항](expressroute-qos.md)
 ## [클래식에서 Resource Manager로의 회로 이동 정보](expressroute-move.md)
 
@@ -38,8 +37,9 @@
 
 ## 모범 사례
 ### [네트워크 보안 및 클라우드 서비스에 대한 모범 사례](../best-practices-network-security.md)
-## [라우팅 최적화](expressroute-optimize-routing.md)
+### [라우팅 최적화](expressroute-optimize-routing.md)
 ### [비대칭 라우팅](expressroute-asymmetric-routing.md)
+### [ExpressRoute용 NAT](expressroute-routing-nat.md)
 
 ## 문제 해결
 ### [ExpressRoute 연결 확인](expressroute-troubleshooting-expressroute-overview.md)
@@ -47,7 +47,7 @@
 ### [ARP 테이블(클래식) 받기](expressroute-troubleshooting-arp-classic.md)
 
 # 참조
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network)
 ## [REST (영문)](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST(클래식)](https://msdn.microsoft.com/library/azure/dn606310)
 

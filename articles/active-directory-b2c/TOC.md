@@ -9,14 +9,14 @@
 ## 빠른 시작 가이드
 ### [iOS 앱 빌드](active-directory-b2c-devquickstarts-ios.md)
 ### [Android 앱 빌드](active-directory-b2c-devquickstarts-android.md)
-### [Node.js Web API 빌드](active-directory-b2c-devquickstarts-api-node.md)
-### [.NET 웹앱 빌드](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [ASP.NET 웹앱에 가입 및 로그인](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+### .NET 웹앱 빌드
+#### [.NET 웹앱에 가입 및 로그인](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+#### [.NET 웹앱에서 Web API 호출](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 ### [.NET Web API 빌드](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Windows 데스크톱 앱 빌드](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [.NET 웹앱에서 Web API 호출](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Node.js 웹앱 빌드](active-directory-b2c-devquickstarts-web-node.md)
+### [Node.js Web API 빌드](active-directory-b2c-devquickstarts-api-node.md)
+### [.NET 데스크톱 앱 빌드](active-directory-b2c-devquickstarts-native-dotnet.md)
 ### [Azure AD Graph API 사용](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Node.js 웹앱에 로그인 추가](active-directory-b2c-devquickstarts-web-node.md)
 ## [질문과 대답](active-directory-b2c-faqs.md)
 
 # 방법
@@ -52,8 +52,8 @@
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Azure 피드백 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Azure AD B2C 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [지원](active-directory-b2c-support.md)

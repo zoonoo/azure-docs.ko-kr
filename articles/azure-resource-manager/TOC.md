@@ -29,15 +29,19 @@
 ### [위치 설정](resource-manager-template-location.md)
 ### [태그 할당](resource-manager-template-tags.md)
 ### [리소스 이름 및 유형을 자식 설정](resource-manager-template-child-resource.md)
+### [리소스 업데이트](resource-manager-update.md)
+### [매개 변수에 대한 개체 사용](resource-manager-objects-as-parameters.md)
 ### [연결된 템플릿 간 상태 공유](best-practices-resource-manager-state.md)
 ### [템플릿 설계 패턴](best-practices-resource-manager-design-templates.md)
 ## 배포
 ### PowerShell
 #### [템플릿 배포](resource-group-template-deploy.md)
 #### [SAS 토큰으로 개인 템플릿 배포](resource-manager-powershell-sas-token.md)
+#### [템플릿 내보내기 및 재배포](resource-manager-export-template-powershell.md)
 ### Azure CLI
 #### [템플릿 배포](resource-group-template-deploy-cli.md)
 #### [SAS 토큰으로 개인 템플릿 배포](resource-manager-cli-sas-token.md)
+#### [템플릿 내보내기 및 재배포](resource-manager-export-template-cli.md)
 ### [포털](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Visual Studio Team Services와의 지속적인 통합](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -72,7 +76,13 @@
 
 # 참조
 ## [템플릿 함수](resource-group-template-functions.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+### [배열 및 개체 함수](resource-group-template-functions-array.md)
+### [비교 함수](resource-group-template-functions-comparison.md)
+### [배포 함수](resource-group-template-functions-deployment.md)
+### [숫자 함수](resource-group-template-functions-numeric.md)
+### [리소스 함수](resource-group-template-functions-resource.md)
+### [문자열 함수](resource-group-template-functions-string.md)
+## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)

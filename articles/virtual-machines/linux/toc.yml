@@ -31,6 +31,8 @@
     href: tutorial-load-balancer.md
   - name: "8 - 네트워킹 관리"
     href: tutorial-virtual-network.md
+  - name: "9 - VM 보안 관리"
+    href: tutorial-azure-security.md
 - name: "샘플"
   items:
   - name: "Azure CLI"

@@ -38,7 +38,9 @@
   - name: "1 - 새 SQL DB 만들기/디자인"
     href: sql-database-design-first-database.md
   - name: "2 - 기존 SQL Server 마이그레이션"
-    href: sql-database-migrate-your-sql-server-database.md 
+    href: sql-database-migrate-your-sql-server-database.md
+  - name: "3 - SQL DB 보안"
+    href: sql-database-security-tutorial.md 
 - name: "샘플"
   items:
   - name: "Azure CLI"

@@ -22,9 +22,11 @@
 ## [Traffic Manager 성능 테스트](traffic-manager-performance-considerations.md)
 ## [PowerShell을 사용하여 Traffic Manager 관리](traffic-manager-powershell-arm.md)
 ## [인터넷 도메인이 Traffic Manager를 가리키도록 설정](traffic-manager-point-internet-domain.md)
+## 문제 해결
+### [Azure Traffic Manager의 성능 저하된 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
+## [PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
