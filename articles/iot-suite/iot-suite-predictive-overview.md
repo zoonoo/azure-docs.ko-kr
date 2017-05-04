@@ -88,7 +88,7 @@ Azure IoT 예측 정비 사전 구성 솔루션은 이 템플릿에서 만든 �
 ### <a name="predictive-maintenance-dashboard"></a>대시보드에서 예측 유지 관리
 웹 응용 프로그램의 이 페이지는 PowerBI JavaScript 제어를 사용하여([PowerBI 시각 효과 리포지토리][lnk-powerbi]를 참조) 다음을 시각화합니다.
 
-* Blob 저장소의 스트림 분석 작업에서 출력 데이터.
+* Blob Storage의 Stream Analytics 작업에서 출력 데이터.
 * 항공기 엔진 당 RUL 및 주기 수.
 
 ### <a name="observing-the-behavior-of-the-cloud-solution"></a>클라우드 솔루션의 동작 관찰

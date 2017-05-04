@@ -1,6 +1,6 @@
 ---
 title: "Service Bus 프리미엄 및 표준 메시징 가격 책정 계층 개요 | Microsoft Docs"
-description: "Service Bus 프리미엄 및 표준 메시지 계층"
+description: "Service Bus 프리미엄 및 표준 메시징 계층"
 services: service-bus-messaging
 documentationcenter: .net
 author: djrosanova
@@ -21,7 +21,7 @@ ms.lasthandoff: 04/20/2017
 
 
 ---
-# <a name="service-bus-premium-and-standard-messaging-tiers"></a>서비스 버스 프리미엄 및 표준 메시징 계층
+# <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 
 큐 및 토픽과 같은 엔터티를 포함하는 Service Bus 메시징은 클라우드 규모로 엔터프라이즈 메시징 기능을 풍부한 게시-구독 의미 체계와 결합합니다. Service Bus 메시징은 정교한 여러 클라우드 솔루션의 통신 백본으로 사용됩니다.
 
@@ -37,7 +37,7 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로
 | 작업을 확장 및 축소하는 기능 |해당 없음 |
 | 최대 1MB의 메시지 크기 |최대 256KB의 메시지 크기 |
 
-**Service Bus 프리미엄 메시지**는 각 고객의 워크로드가 따로 실행되도록 CPU 및 메모리 수준에서 리소스 격리를 제공합니다. 이 리소스 컨테이너를 *메시징 단위*라고 합니다. 각 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 할당됩니다. 각 서비스 버스 프리미엄 네임스페이스에 대해 1, 2 또는 4 메시징 단위를 구입할 수 있습니다. 요금은 24시간 단위 또는 일별 요금으로 부과되더라도 단일 워크로드 또는 엔터티가 여러 메시징 단위에 걸쳐 있을 수 있고 메시징 단위 수를 변경할 수도 있습니다. 그 결과, 서비스 버스 기반 솔루션에 대해 예측 가능하고 반복 가능한 성능이 구현됩니다.
+**Service Bus 프리미엄 메시지**는 각 고객의 워크로드가 따로 실행되도록 CPU 및 메모리 수준에서 리소스 격리를 제공합니다. 이 리소스 컨테이너를 *메시징 단위*라고 합니다. 각 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 할당됩니다. 각 Service Bus 프리미엄 네임스페이스에 대해 1, 2 또는 4 메시징 단위를 구입할 수 있습니다. 요금은 24시간 단위 또는 일별 요금으로 부과되더라도 단일 워크로드 또는 엔터티가 여러 메시징 단위에 걸쳐 있을 수 있고 메시징 단위 수를 변경할 수도 있습니다. 그 결과, Service Bus 기반 솔루션에 대해 예측 가능하고 반복 가능한 성능이 구현됩니다.
 
 이로 인해 예측 가능성 및 가용성도 높아질 뿐 아니라 속도도 더 빨라집니다. Service Bus 프리미엄 메시징은 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)에 도입된 저장소 엔진에 빌드됩니다. 프리미엄 메시징을 사용할 경우 표준 계층을 사용하는 것보다 최고 성능이 훨씬 더 빠릅니다.
 
@@ -69,7 +69,7 @@ Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참�
 * [Azure Service Bus 프리미엄 메시징 소개(블로그 게시물)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Azure Service Bus 프리미엄 메시징 소개(Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Service Bus 메시징 개요](service-bus-messaging-overview.md)
-* [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
+* [Service Bus 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
 
 <!--Image references-->
 

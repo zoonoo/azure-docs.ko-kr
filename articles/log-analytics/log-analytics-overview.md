@@ -45,7 +45,7 @@ Log Analytics는 리포지토리의 데이터를 신속하게 검색하고 통�
 
 ![대시보드](media/log-analytics-overview/dashboard.png)
 
-Log Analytics 외부 데이터를 분석하기 위해 OMS 리포지토리에서 [Power BI](log-analytics-powerbi.md) 또는 Excel과 같은 도구로 데이터를 내보낼 수 있습니다.  또한 [로그 검색 API](log-analytics-log-search-api.md) 를 통해 Log Analytics 데이터를 활용하는 사용자 지정 솔루션을 빌드하거나 다른 시스템에 통합할 수 있습니다.
+Log Analytics 외부 데이터를 분석하기 위해 OMS 리포지토리에서 [Power BI](log-analytics-powerbi.md) 또는 Excel과 같은 도구로 데이터를 내보낼 수 있습니다.  또한 [Log Search API](log-analytics-log-search-api.md)를 통해 Log Analytics 데이터를 활용하는 사용자 지정 솔루션을 빌드하거나 다른 시스템에 통합할 수 있습니다.
 
 ## <a name="add-functionality-with-management-solutions"></a>관리 솔루션에서 기능 추가
 [관리 솔루션](log-analytics-add-solutions.md)은 OMS에 기능을 추가하여 Log Analytics에 추가 데이터 및 분석 도구를 제공합니다.  또한 대시보드의 솔루션에서 제공하는 로그 검색으로 분석할 수 있거나 추가 사용자 인터페이스에서 분석할 수 있는 수집할 새 레코드 유형을 정의할 수 있습니다.  아래 예제 이미지에서는 [변경 내용 추적 솔루션](log-analytics-change-tracking.md)을 보여 줍니다.

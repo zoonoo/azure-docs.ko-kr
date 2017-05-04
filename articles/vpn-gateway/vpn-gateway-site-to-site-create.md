@@ -1,6 +1,6 @@
 ---
 title: "온-프레미스 네트워크를 Azure Virtual Network에 연결: 사이트 간 VPN: Classic Portal | Microsoft Docs"
-description: "공용 인터넷을 통해 온-프레미스 네트워크에서 Azure Virtual Network에 IPsec을 만드는 단계입니다. 이 단계는 클래식 포털과 클래식 배포 모델을 사용하여 크로스-프레미스 사이트 간 VPN 게이트웨이 연결을 만드는 데 도움이 됩니다."
+description: "공용 인터넷을 통해 온-프레미스 네트워크에서 Azure Virtual Network에 IPsec을 만드는 단계입니다. 이 단계는 클래식 포털과 클래식 배포 모델을 사용하여 크로스-프레미스 사이트 간 VPN Gateway 연결을 만드는 데 도움이 됩니다."
 services: vpn-gateway
 documentationcenter: 
 author: cherylmc
@@ -35,14 +35,14 @@ ms.lasthandoff: 04/25/2017
 > 
 >
 
-![사이트 간 VPN 게이트웨이 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
+![사이트 간 VPN Gateway 크로스-프레미스 연결 다이어그램](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
 
 
-사이트 간 VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통해 온-프레미스 네트워크를 Azure 가상 네트워크에 연결하는 데 사용됩니다. 이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 장치를 필요로 합니다. VPN Gateway 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
+사이트 간 VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통해 온-프레미스 네트워크를 Azure Virtual Network에 연결하는 데 사용됩니다. 이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 장치를 필요로 합니다. VPN Gateway에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 
 #### <a name="additional-configurations"></a>추가 구성
 
-Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요. 이미 연결되어 있는 VNet에 사이트 간 연결을 추가하려는 경우 [기존 VPN 게이트웨이와 연결된 VNet에 S2S 연결 추가](vpn-gateway-multi-site.md)를 참조하세요.
+Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet간 연결 구성](virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요. 이미 연결되어 있는 VNet에 사이트 간 연결을 추가하려는 경우 [기존 VPN Gateway와 연결된 VNet에 S2S 연결 추가](vpn-gateway-multi-site.md)를 참조하세요.
 ## <a name="before-you-begin"></a>시작하기 전에
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -92,7 +92,7 @@ Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet
 * **서브넷 추가**: 시작 IP 및 주소 수를 포함합니다. 추가 서브넷은 필요하지 않지만 고정 DIPS가 있는 VM에 대해 별도의 서브넷을 만들 수 있습니다. 또는 기타 역할 인스턴스와 별도의 서브넷에 VM을 배치할 수 있습니다.
 * **게이트웨이 서브넷 추가**: 게이트웨이 서브넷을 추가하려면 클릭합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이에 대해서만 사용되며 이 구성에 필요합니다.
 
-페이지 맨 아래에 있는 확인 표시를 클릭하면 가상 네트워크가 생성됩니다. 생성이 완료되면 Azure 클래식 포털에서 **네트워크** 페이지의 **상태**가 **생성됨**으로 표시됩니다. VNet를 만든 후에 가상 네트워크 게이트웨이를 구성할 수 있습니다.
+페이지 맨 아래에 있는 확인 표시를 클릭하면 가상 네트워크가 생성됩니다. 생성이 완료되면 Azure 클래식 포털에서 **Networks** 페이지의 **상태**가 **생성됨**으로 표시됩니다. VNet를 만든 후에 가상 네트워크 게이트웨이를 구성할 수 있습니다.
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 

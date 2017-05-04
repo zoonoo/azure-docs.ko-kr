@@ -85,7 +85,7 @@ Jupyter notebook에서 실행 중인 응용 프로그램의 경우 `%%configure`
 다음 코드 조각에서는 Jupyter에서 실행 중인 응용 프로그램에 대한 구성을 변경하는 방법을 보여 줍니다.
 
     %%configure
-    {"executorMemory": "3072M", "executorCores": 4, “numExecutors”:10}
+    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 
 구성 매개 변수는 JSON 문자열로 전달되어야 하며, 아래 예제 열과 같이 매직 뒤의 다음 줄에 있어야 합니다.
 

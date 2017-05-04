@@ -77,7 +77,7 @@ ms.lasthandoff: 04/26/2017
 ## <a name="export-and-data-analysis"></a>내보내기 및 데이터 분석
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
-* [스트림 분석](app-insights-export-power-bi.md)
+* [Stream Analytics](app-insights-export-power-bi.md)
 
 ## <a name="projects"></a> 사용자 고유의 SDK를 빌드합니다
 아직 사용자 언어나 플랫폼에 대한 SDK가 없다면 빌드하고자 합니까? [GitHub에서 Application Insights SDK 프로젝트](https://github.com/Microsoft/AppInsights-Home)에 나열된 기존 SDK의 코드를 살펴보십시오.

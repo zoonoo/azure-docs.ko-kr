@@ -104,11 +104,11 @@ IoT Hub의 장치 관리 기능을 통해 다음과 같은 작업을 수행하�
 - 장치 상태 변경
 - 펌웨어 업데이트
 
-## <a name="azure-stream-analytics"></a>Azure 스트림 분석
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 미리 구성된 솔루션은 세 가지 [Azure Stream Analytics][lnk-asa](ASA) 작업을 사용하여 장치에서 원격 분석 스트림을 필터링합니다.
 
 * *DeviceInfo 작업* - 솔루션 장치 레지스트리(DocumentDB 데이터베이스)에 장치 등록 특정 메시지를 라우팅하는 이벤트 허브에 데이터를 출력합니다. 장치를 처음으로 연결하거나 **장치 상태 변경** 명령에 대한 응답으로 이 메시지가 전송됩니다.
-* *원격 분석 작업* - 콜드 저장소용 Azure Blob 저장소에 모든 원시 원격 분석을 보내고 솔루션 대시보드에 표시하는 원격 분석 집계를 계산합니다.
+* *원격 분석 작업* - 콜드 저장소용 Azure Blob Storage에 모든 원시 원격 분석을 보내고 솔루션 대시보드에 표시하는 원격 분석 집계를 계산합니다.
 * *규칙 작업* - 규칙 임계값을 초과하는 값에 대해 원격 분석 스트림을 필터링하고 이벤트 허브에 대한 데이터를 출력합니다. 규칙이 실행되면 솔루션 포털 대시보드 뷰는 경보 기록 테이블에 새 행으로 이 이벤트를 표시합니다. 이러한 규칙은 솔루션 포털의 **규칙** 및 **작업** 뷰에서 정의된 설정에 따라 작업을 트리거할 수도 있습니다.
 
 미리 구성된 솔루션에서 ASA 작업은 일반적인 [IoT 솔루션 아키텍처][lnk-what-is-azure-iot]에서 **IoT 솔루션 백 엔드**의 일부를 형성합니다.
@@ -116,7 +116,7 @@ IoT Hub의 장치 관리 기능을 통해 다음과 같은 작업을 수행하�
 ## <a name="event-processor"></a>이벤트 프로세서
 미리 구성된 솔루션에서 이벤트 프로세서는 일반적인 [IoT 솔루션 아키텍처][lnk-what-is-azure-iot]에서 **IoT 솔루션 백 엔드**의 일부를 형성합니다.
 
-**DeviceInfo** 및 **규칙** ASA 작업은 다른 백 엔드 서비스에 배달하기 위해 이벤트 허브에 해당 출력을 보냅니다. 솔루션은 [WebJob][lnk-web-job]에서 실행 중인 [EventProcessorHost][lnk-event-processor] 인스턴스를 사용하여 이러한 Event hubs에서 메시지를 읽습니다. **EventProcessorHost**는 다음을 사용합니다.
+**DeviceInfo** 및 **규칙** ASA 작업은 다른 백 엔드 서비스에 배달하기 위해 Event Hubs에 해당 출력을 보냅니다. 솔루션은 [WebJob][lnk-web-job]에서 실행 중인 [EventProcessorHost][lnk-event-processor] 인스턴스를 사용하여 이러한 Event hubs에서 메시지를 읽습니다. **EventProcessorHost**는 다음을 사용합니다.
 - DocumentDB 데이터베이스에서 장치 데이터를 업데이트하는 **DeviceInfo** 데이터.
 - 솔루션 포털에서 논리 앱을 호출하고 경고 표시를 업데이트하는 **규칙** 데이터.
 
@@ -131,7 +131,7 @@ IoT Hub의 장치 관리 기능을 통해 다음과 같은 작업을 수행하�
 
 이 솔루션은 장치 쌍을 사용하여 장치 메타데이터를 관리합니다. 또한 솔루션은 DocumentDB 데이터베이스를 사용하여 각 장치 및 명령 기록에서 지원하는 명령과 같은 추가 솔루션 특정 장치 데이터를 저장합니다.
 
-또한 솔루션은 DocumentDB 데이터베이스의 컨텐츠로 동기화된 장치 ID 레지스트리에 정보를 보관해야 합니다. **EventProcessorHost**는 **DeviceInfo** 스트림 분석 작업의 데이터를 사용하여 동기화를 관리합니다.
+또한 솔루션은 DocumentDB 데이터베이스의 컨텐츠로 동기화된 장치 ID 레지스트리에 정보를 보관해야 합니다. **EventProcessorHost**는 **DeviceInfo** Stream Analytics 작업의 데이터를 사용하여 동기화를 관리합니다.
 
 ## <a name="solution-portal"></a>솔루션 포털
 ![솔루션 포털][img-dashboard]

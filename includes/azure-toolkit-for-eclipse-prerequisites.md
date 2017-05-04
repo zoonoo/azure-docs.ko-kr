@@ -12,7 +12,7 @@ Eclipse용 Azure 도구 키트에는 다음 소프트웨어 구성 요소가 필
   * [Mac OS X](http://www.apple.com/osx) 버전 "Yosemite" 이상
   * [Ubuntu Linux](http://www.ubuntu.com) 버전 14, 15 및 16
 
-자세한 내용은 Eclipse 마켓플레이스의 [Eclipse용 Azure 도구 키트](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) 페이지에서 찾을 수 있습니다.
+자세한 내용은 Eclipse Marketplace의 [Eclipse용 Azure 도구 키트](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) 페이지에서 찾을 수 있습니다.
 
 <!--
 > [!IMPORTANT]

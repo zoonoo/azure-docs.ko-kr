@@ -84,7 +84,7 @@ Visual Studio에서 `Ctrl`+`Shift`+`N`를 사용하여 새 프로젝트를 만�
 
 리소스 그룹의 이름을 **myResourceGroup**으로 지정하고 **확인**을 클릭합니다.
 
-## <a name="create-an-app-service-plan"></a>앱 서비스 계획 만들기
+## <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
 Azure 웹앱에도 _App Service 계획_이 필요합니다. 
 

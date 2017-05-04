@@ -89,7 +89,7 @@ System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된
 ## <a name="configuration"></a>구성
 다음 단계를 수행하여 업데이트 관리 솔루션을 OMS 작업 영역에 추가하고 에이전트가 보고하는지 확인합니다. Windows 에이전트는 추가 구성 없이 자동으로 추가됩니다. 
 
-다음 세 가지 방법으로 이 솔루션을 추가할 수 있습니다. Azure Portal의 Azure Marketplace에서 자동화 및 제어 제품을 선택하거나, 업데이트 관리 솔루션을 선택하거나, OMS 작업 영역의 OMS 솔루션 갤러리에서 추가할 수 있습니다.  같은 리소스 그룹 및 지역에서 Automation 계정과 OMS 작업 영역이 이미 연결된 경우 자동화 및 제어를 선택하면 현재 구성을 확인한 후 이 솔루션만 설치되고 두 서비스에서 구성됩니다.  Azure Marketplace에서 업데이트 관리 솔루션을 선택해도 동일한 동작이 제공됩니다.  구독에 두 서비스 중 어떤 것도 배포하지 않은 경우 **새 솔루션 만들기** 블레이드의 단계에 따라 다른 미리 선택된 권장 솔루션을 설치할 것을 확인합니다.  필요에 따라 솔루션 갤러리에서 [OMS 솔루션 추가](../log-analytics/log-analytics-add-solutions.md)에 설명된 단계에 따라 OMS 작업 영역에 업데이트 관리 솔루션을 추가할 수 있습니다.  
+다음 세 가지 방법으로 이 솔루션을 추가할 수 있습니다. Azure Portal의 Azure Marketplace에서 Automation 및 제어 제품을 선택하거나, 업데이트 관리 솔루션을 선택하거나, OMS 작업 영역의 OMS 솔루션 갤러리에서 추가할 수 있습니다.  같은 리소스 그룹 및 지역에서 Automation 계정과 OMS 작업 영역이 이미 연결된 경우 Automation 및 제어를 선택하면 현재 구성을 확인한 후 이 솔루션만 설치되고 두 서비스에서 구성됩니다.  Azure Marketplace에서 업데이트 관리 솔루션을 선택해도 동일한 동작이 제공됩니다.  구독에 두 서비스 중 어떤 것도 배포하지 않은 경우 **새 솔루션 만들기** 블레이드의 단계에 따라 다른 미리 선택된 권장 솔루션을 설치할 것을 확인합니다.  필요에 따라 솔루션 갤러리에서 [OMS 솔루션 추가](../log-analytics/log-analytics-add-solutions.md)에 설명된 단계에 따라 OMS 작업 영역에 업데이트 관리 솔루션을 추가할 수 있습니다.  
 
 ### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>OMS 에이전트 및 Operations Manager 관리 그룹이 OMS에 연결되었는지 확인
 
@@ -119,7 +119,7 @@ Operations Manager 관리 그룹이 OMS와 통신하는지 확인하려면 [OMS�
 | Windows 에이전트 |예 |솔루션은 Windows 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 필수 업데이트를 설치하기 시작합니다. |
 | Linux 에이전트 |예 |이 솔루션은 Linux 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필수 업데이트 설치를 시작합니다. |
 | Operations Manager 관리 그룹 |예 |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br>Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 OMS 리포지토리로 전달됩니다. |
-| Azure 저장소 계정 |아니요 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
+| Azure Storage 계정 |아니요 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
 
 ### <a name="collection-frequency"></a>수집 빈도
 관리되는 Windows 컴퓨터 각각의 경우 검색은 하루에 두 번 수행됩니다. 15분마다 Windows API가 호출되어 마지막 업데이트 시간을 쿼리하여 상태가 변경되었는지, 상태가 변경되었다면 준수 검사가 시작되었는지 확인합니다.  관리되는 Linux 컴퓨터 각각의 경우 검색은 세 시간마다 수행됩니다. 

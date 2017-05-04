@@ -42,7 +42,7 @@ ms.lasthandoff: 04/20/2017
 
 * [Apache Maven](http://maven.apache.org/) 
 
-### <a name="access-control-requirements"></a>액세스 제어 요구 사항
+### <a name="access-control-requirements"></a>Access Control 요구 사항
 
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 04/20/2017
 
 4. 클러스터 유형을 선택한 후 __선택__ 단추를 사용하여 클러스터 유형을 설정합니다. 그 다음, __다음__ 단추를 사용하여 기본 구성을 완료합니다.
 
-5. **저장소** 블레이드에서 저장소 계정을 선택하거나 만듭니다. 이 문서의 단계에서는 이 블레이드의 다른 필드를 기본값으로 둡니다. __다음__ 단추를 사용하여 저장소 구성을 저장합니다.
+5. **Storage** 블레이드에서 저장소 계정을 선택하거나 만듭니다. 이 문서의 단계에서는 이 블레이드의 다른 필드를 기본값으로 둡니다. __다음__ 단추를 사용하여 저장소 구성을 저장합니다.
 
     ![HDInsight에 대한 저장소 계정 설정 지정](./media/hdinsight-apache-kafka-get-started/set-hdinsight-storage-account.png)
 

@@ -1,8 +1,8 @@
 ---
 title: "SSMS: Azure SQL Database에서 데이터 연결 및 쿼리 | Microsoft Docs"
-description: "SQL Server Management Studio(SSMS)를 사용하여 SQL 데이터베이스에 연결하는 방법을 알아봅니다. 그런 다음 Transact-SQL(T-SQL) 문을 실행하여 데이터를 쿼리하고 편집합니다."
+description: "SQL Server Management Studio(SSMS)를 사용하여 SQL Database에 연결하는 방법을 알아봅니다. 그런 다음 Transact-SQL(T-SQL) 문을 실행하여 데이터를 쿼리하고 편집합니다."
 metacanonical: 
-keywords: "SQL 데이터베이스에 연결, SQL Server Management Studio"
+keywords: "SQL Database에 연결, SQL Server Management Studio"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -37,7 +37,7 @@ SSMS([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
-Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
+Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
