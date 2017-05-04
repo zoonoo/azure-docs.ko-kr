@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 114e97bcd38fc69d62960c3305dc7f75ce13b66b
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7316782a1884f4affe5041bf767aa0e32946fbe0
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="prerequisites"></a>필수 조건
 * 이미 [일반화된 VM](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 갖고 있어야 합니다. VM을 일반화하면 여러 정보 중에서 모든 개인 계정 정보가 제거되고 이미지로 사용할 컴퓨터가 준비됩니다. `sudo waagent -deprovision+user`을 사용하여 Linux VM을 일반화한 다음 PowerShell을 사용하여 VM을 캡처할 수 있습니다. VM을 캡처하는 데 CLI를 사용하는 방법에 대한 정보는 [Azure CLI를 사용하여 Linux 가상 컴퓨터 일반화하고 캡처하는 방법](../linux/capture-image.md)을 참조하세요.
-* Azure PowerShell 버전 1.0.x 이상을 설치해야 합니다. PowerShell을 아직 설치하지 않은 경우 설치 단계에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
+* Azure PowerShell 버전 1.0.x 이상을 설치해야 합니다. PowerShell을 아직 설치하지 않은 경우 설치 단계에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요.
 
 ## <a name="log-in-to-azure-powershell"></a>Azure PowerShell에 로그인합니다.
 1. Azure PowerShell을 열고 Azure 계정에 로그인합니다.

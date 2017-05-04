@@ -17,9 +17,9 @@ ms.date: 04/24/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 27064b6b5c65e5ecd0ef6931bd8f333469419839
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 328b7cff01b485a908be65f52425ff4e81a96b53
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(Resource Manager)
@@ -61,7 +61,7 @@ VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사�
 
 **Azure PowerShell**:
 
-* [최신 Azure PowerShell 명령 다운로드 및 구성](/powershell/azureps-cmdlets-docs)
+* [최신 Azure PowerShell 명령 다운로드 및 구성](/powershell/azure/overview)
 
 ## <a name="installation"></a>설치
 SQL Server IaaS 에이전트 확장은 SQL Server 가상 컴퓨터 갤러리 이미지 중 하나를 프로비전할 때 자동으로 설치됩니다.

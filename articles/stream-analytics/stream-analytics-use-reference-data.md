@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: eec8c82857ef9e2806c953ae996f9e7970e64392
-ms.openlocfilehash: 4d6bfebd9faa4e37de148539e7248f88e711bf43
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 74d33505b777925a19830d1eda2eca9776ecaf61
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -99,7 +99,7 @@ Stream Analytics에서 참조 데이터 정의를 업데이트하는 데 필요�
 3. 드물지만 작업의 시간을 되돌려야 할 경우가 있으므로 참조 데이터 BLOB을 변경 또는 삭제해서는 안 됩니다.
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>다음 단계
 사물 인터넷에서 발생한 데이터에 대한 스트리밍 분석용 관리 서비스, 스트림 분석에 대해 소개하였습니다. 이 서비스에 대해 자세히 알아보려면 다음을 참조하세요.

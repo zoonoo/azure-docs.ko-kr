@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 3b946c9c482015483c929127ff3b42b6059f5e52
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b86f13f49c6390a90609bba9141564d2ac69246d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +31,7 @@ Azure 가상 컴퓨터를 사용하면, 대화형 작업, 배치 작업, 독립 
 
 ## <a name="prerequisites"></a>필수 조건
 * **클라이언트 컴퓨터** - 배포 후 Azure 및 MATLAB 분산 컴퓨팅 서버 클러스터와 통신하기 위한 Windows 기반 클라이언트 컴퓨터가 필요합니다.
-* **Azure PowerShell** - 클라이언트 컴퓨터에 설치하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
+* **Azure PowerShell** - 클라이언트 컴퓨터에 설치하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요.
 * **Azure 구독** - 구독이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/free/) 을 만들 수 있습니다. 대규모 클러스터의 경우, 종량제 구독이나 다른 구매 옵션을 고려하세요.
 * **코어 할당량** - 대형 클러스터 또는 MATLAB 분산 컴퓨팅 서버 클러스터를 하나 이상 배포하려면 코어 할당량을 늘리는 것이 필요할 수 있습니다. 할당량을 늘리려면 무료로 [온라인 고객 지원 요청을 개설](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) 합니다.
 * **MATLAB, 병렬 컴퓨팅 도구 상자 및 MATLAB 분산 컴퓨팅 서버 정보 라이선스** - 스크립트는 모든 라이선스에 대해 [MathWorks 호스티드 라이선스 관리자](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) 가 사용되었다고 가정합니다.  

@@ -17,9 +17,9 @@ ms.workload: identity
 ms.date: 04/02/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9078689d9b2cc66c9674cb5728b7e2f7d669bc43
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 36ea3356648a1a6333c2a1e2c042d27ae2f829b4
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/12/2017
 > cmdlet 실행을 시작하기 전에 `Connect-MsolService` cmdlet을 실행하여 테넌트에 먼저 연결해야 합니다.
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>그룹에 할당된 제품 라이선스 보기
-[Get-MsolGroup](https://docs.microsoft.com/powershell/msonline/v1/get-msolgroup) cmdlet은 그룹 개체를 검색하고 *라이선스* 속성을 확인하는 데 사용됩니다. 그룹에 현재 할당된 모든 제품 라이선스를 나열합니다.
+[Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet은 그룹 개체를 검색하고 *라이선스* 속성을 확인하는 데 사용됩니다. 그룹에 현재 할당된 모든 제품 라이선스를 나열합니다.
 ```
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber

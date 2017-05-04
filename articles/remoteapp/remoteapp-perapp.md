@@ -15,9 +15,9 @@ ms.workload: compute
 ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 20f9e9b31498f20c2a27f0d82d434abad73d2454
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7970fb624fcf76d9cba6e60c9766e39b63f175ba
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/31/2017
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Azure RemoteApp PowerShell cmdlet을 가져오는 방법
 새 미리 보기 기능을 실행하려면 Azure PowerShell cmdlet을 사용해야 합니다. 현재 Azure 관리 포털을 사용하여 새 응용 프로그램 게시 모드를 사용하도록 설정할 수 없습니다.
 
-우선 [Azure PowerShell 모듈](/powershell/azureps-cmdlets-docs) 을 설치했는지 확인합니다.
+우선 [Azure PowerShell 모듈](/powershell/azure/overview) 을 설치했는지 확인합니다.
 
 그런 다음 관리자 모드에서 PowerShell 콘솔을 시작하고 다음 cmdlet을 실행합니다.
 

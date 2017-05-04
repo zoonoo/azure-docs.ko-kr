@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 17b4dc2223d30ef13877efc650b56268b707c4bd
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6a62f7f70982a07646248188da8293c88fbe1b52
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,14 +28,14 @@ ms.lasthandoff: 04/15/2017
 > Azure 자동화의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 자동화 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure 자동화에 저장됩니다. 이 키는 마스터 인증서로 암호화되어 Azure 자동화에 저장됩니다. 자동화 계정에 대한 키는 보안 자산을 저장하기 전에 마스터 인증서를 사용하여 암호가 해독된 후 자산을 암호화하는 데 사용됩니다.  
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell cmdlet
-다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 자격 증명 자산을 만들고 관리하는 데 사용됩니다.  자동화 runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](/powershell/azureps-cmdlets-docs) 의 일부로 전송됩니다.
+다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 자격 증명 자산을 만들고 관리하는 데 사용됩니다.  자동화 runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](/powershell/azure/overview) 의 일부로 전송됩니다.
 
 | Cmdlet | 설명 |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](http://msdn.microsoft.com/library/dn913781.aspx) |자격 증명 자산에 대한 정보를 검색합니다. **Get-AutomationPSCredential** 활동에서는 자격 증명 자체만 검색할 수 있습니다. |
-| [New-AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx) |새 자동화 자격 증명을 만듭니다. |
-| [Remove- AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx) |자동화 자격 증명을 제거합니다. |
-| [Set- AzureAutomationCredential](http://msdn.microsoft.com/library/azure/jj554330.aspx) |기존 자동화 자격 증명에 대한 속성을 설정합니다. |
+| [Get-AzureAutomationCredential](/powershell/module/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |자격 증명 자산에 대한 정보를 검색합니다. **Get-AutomationPSCredential** 활동에서는 자격 증명 자체만 검색할 수 있습니다. |
+| [New-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |새 자동화 자격 증명을 만듭니다. |
+| [Remove- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |자동화 자격 증명을 제거합니다. |
+| [Set- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |기존 자동화 자격 증명에 대한 속성을 설정합니다. |
 
 ## <a name="runbook-activities"></a>Runbook 활동
 다음 표의 활동은 runbook과 DSC 구성의 자격 증명에 액세스하는데 사용됩니다.

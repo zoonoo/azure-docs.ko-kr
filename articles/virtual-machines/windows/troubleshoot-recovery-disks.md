@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 12/13/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 50e9982fbf33a39b69effed193a4bd137c07a14d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 36de0375cef661dddb384f9f7651e3faf8df793c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -35,7 +35,7 @@ Azure에서 Windows VM(가상 컴퓨터)에 부팅 또는 디스크 오류가 �
 4. 문제 해결 VM에서 가상 하드 디스크를 탑재 해제하고 분리합니다.
 5. 원래 가상 하드 디스크를 사용하여 VM을 만듭니다.
 
-먼저 [최신 Azure PowerShell](/powershell/azureps-cmdlets-docs)을 설치하고 구독에 로그인했는지 확인합니다.
+먼저 [최신 Azure PowerShell](/powershell/azure/overview)을 설치하고 구독에 로그인했는지 확인합니다.
 
 ```powershell
 Login-AzureRMAccount
@@ -208,3 +208,4 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 VM에 연결하는 데 문제가 있는 경우 [Azure VM에 RDP 연결 문제 해결](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. VM에서 실행 중인 응용 프로그램에 액세스하는 데 문제가 있는 경우 [Windows VM에서 응용 프로그램 연결 문제 해결](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 Resource Manager를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+

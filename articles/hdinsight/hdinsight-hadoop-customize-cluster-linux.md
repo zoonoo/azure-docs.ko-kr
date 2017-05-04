@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 02a978402c8067105900ac50a2796000f8eef67f
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9f1997175a8a0cf2adbcae1123de55894d3931ac
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -171,7 +171,7 @@ HDInsight를 구성하는 동안 스크립트가 실행됩니다. 이 단계에�
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>클러스터를 만드는 동안 Azure 포털에서 스크립트 작업 사용
 
-1. [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md)에서 설명한 대로 클러스터를 만들기 시작합니다.
+1. [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)에서 설명한 대로 클러스터를 만들기 시작합니다.
 2. **선택적 구성**의 **스크립트 동작** 블레이드에 대해 **스크립트 동작 추가**를 클릭하여 아래와 같이 스크립트 동작에 대한 세부 정보를 제공합니다.
 
     ![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
@@ -195,7 +195,7 @@ HDInsight를 구성하는 동안 스크립트가 실행됩니다. 이 단계에�
 
 #### <a name="before-you-begin"></a>시작하기 전에
 
-* HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.
+* HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
 * 템플릿을 만드는 방법에 대한 지침은 [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
 * 이전에 리소스 관리자에서 Azure PowerShell을 사용하지 않은 경우 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)을 참조하세요.
 
@@ -405,7 +405,7 @@ HDInsight를 구성하는 동안 스크립트가 실행됩니다. 이 단계에�
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>클러스터를 만드는 동안 Azure PowerShell에서 스크립트 작업 사용
 
-이 섹션에서는 스크립트 작업을 통해 스크립트를 호출하여 클러스터를 사용자 지정하는 [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.
+이 섹션에서는 스크립트 작업을 통해 스크립트를 호출하여 클러스터를 사용자 지정하는 [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
 
 다음 단계를 수행합니다.
 
@@ -513,7 +513,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Azure PowerShell에서 실행 중인 클러스터에 스크립트 작업 적용
 
-계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.
+계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
 
 1. Azure PowerShell 콘솔을 열고 다음 정보를 사용하여 Azure 구독에 로그인하고 일부 PowerShell 변수를 선언합니다.
 

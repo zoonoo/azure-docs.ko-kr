@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 79c6ef627d20be52b6067d1f6dfea2a53505c590
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 554931e96e073ec2f2f68df2297e1ee21f5eda87
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -66,7 +66,7 @@ ms.lasthandoff: 03/18/2017
 사용자를 사용하도록 설정하면 전자 메일을 통해 알려야 합니다. 다음에 로그인하려는 경우 2단계 확인에 대한 해당 계정을 등록하라는 메시지가 표시됩니다. 2단계 확인을 사용하기 시작하면 비 브라우저 앱이 잠기지 않도록 방지하려면 앱 암호를 설정해야 합니다.
 
 ## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>PowerShell을 사용하여 2단계 확인 자동 켜기
-[Azure AD PowerShell](/powershell/azureps-cmdlets-docs)을 사용하여 [상태](multi-factor-authentication-whats-next.md)를 변경하려면 다음을 사용할 수 있습니다.  `$st.State` 를 다음 중 하나로 변경할 수 있습니다.
+[Azure AD PowerShell](/powershell/azure/overview)을 사용하여 [상태](multi-factor-authentication-whats-next.md)를 변경하려면 다음을 사용할 수 있습니다.  `$st.State` 를 다음 중 하나로 변경할 수 있습니다.
 
 * 사용
 * 적용

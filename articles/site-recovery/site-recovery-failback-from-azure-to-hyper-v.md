@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 3/31/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 845a950f02ba95a100ffedbb07e4d1491b22a2da
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ecfe9d512b0ffc891120d899f0541d3d3c9f6498
+ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="failback-in-site-recovery"></a>Site Recovery에서 장애 복구
+
+# <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Site Recovery에서 Hyper-V 가상 컴퓨터에 대한 장애 복구
+
 > [!div class="op_single_selector"]
-> * [Azure의 VMware/물리적 컴퓨터](site-recovery-failback-azure-to-vmware.md)
+> * [Azure의 VMware/물리적 컴퓨터](site-recovery-how-to-failback-azure-to-vmware.md)
 > * [Azure의 Hyper-V VM](site-recovery-failback-from-azure-to-hyper-v.md)
 
 이 문서에서는 Site Recovery에서 보호하는 가상 컴퓨터를 장애 복구하는 방법에 대해 설명합니다. 
@@ -44,7 +46,7 @@ Azure는 항상 사용 가능한 환경이며 가상 컴퓨터를 항상 사용�
 기본 위치에서 보조 위치로 장애 조치한 후에는 Site Recovery에서 복제된 가상 컴퓨터를 보호하지 않으며 보조 위치가 현재 활성 위치로 작동합니다. 이들 절차를 따라 원래 기본 사이트로 장애 복구합니다. 이 절차는 복구 계획에 대해 계획된 장애 조치를 실행하는 방법을 설명합니다. 또는 **가상 컴퓨터** 탭에서 단일 가상 컴퓨터에 대한 장애 조치를 실행할 수 있습니다.
 
 1. **복구 계획** > *recoveryplan_name*을 선택합니다. **장애 조치(Failover)** > **Planned 장애 조치(Failover)**에서 의견이나 질문을 게시합니다.
-2. **계획된 장애 조치 확인**페이지에서 원본 및 대상 위치를 선택합니다. 장애 조치 방향을 유의하십시오. 기본으로부터 장애 조치가 예상대로 작동하고 모든 가상 컴퓨터가 보조 위치에 있다면 이것은 정보 제공용입니다.
+2. **계획된 장애 조치 확인** 페이지에서 원본 및 대상 위치를 선택합니다. 장애 조치 방향을 유의하십시오. 기본으로부터 장애 조치가 예상대로 작동하고 모든 가상 컴퓨터가 보조 위치에 있다면 이것은 정보 제공용입니다.
 3. Azure로부터 장애 복구하는 경우 **데이터 동기화**:에서 설정을 선택합니다.
 
    * **장애 조치(failover) 전 데이터 동기화(델타 변경 내용만 동기화)** - 가상 컴퓨터를 종료하지 않고 동기화할 때 가상 컴퓨터의 가동 중지 시간을 최소화하는 옵션입니다. 이 에이전트는 다음을 수행합니다.

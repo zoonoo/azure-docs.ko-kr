@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5311274867de6e0d863ac532a5b3a31cf964351e
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2d44a2d9a247ffce8bcf35152170562ac0b86710
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -177,7 +177,7 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
    자세한 내용은 [Azure Cmdlets 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)을 참조하세요.
 
-   PowerShell 설치 및 구성에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+   PowerShell 설치 및 구성에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 ## <a name="step-4-upload-the-vhd-file"></a>4단계: .vhd 파일 업로드
 .vhd 파일을 업로드할 때 Blob 저장소 내 임의의 위치에 .vhd 파일을 배치할 수 있습니다. 다음은 파일을 업로드할 때 사용되는 몇 가지 용어입니다.

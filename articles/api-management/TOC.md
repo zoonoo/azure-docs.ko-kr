@@ -47,7 +47,7 @@
 ### [Azure Monitor를 사용한 모니터링](api-management-howto-use-azure-monitor.md)
 ### [역할 기반 액세스 제어 사용](api-management-role-based-access-control.md)
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [REST (영문)](/rest/api/apimanagement/)
 ## [REST(원본)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [정책](api-management-policies.md)

@@ -9,7 +9,7 @@
 # 시작
 ## [포털을 사용하여 VM 만들기](tutorial.md)
 ## [VM에 로그온](connect-logon.md)
-## [Azure PowerShell 설치](/powershell/azureps-cmdlets-docs)
+## [Azure PowerShell 설치](/powershell/azure/overview)
 ## [Azure CLI 설치](../../../cli-install-nodejs.md)
 
 # 방법
@@ -88,7 +88,7 @@
 ## [RDP 암호 재설정](reset-rdp.md)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

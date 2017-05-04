@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: fa5467f38944435cc21d4d3ebd5a645c4f268b9b
-ms.lasthandoff: 04/05/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c4948d83b5eff5280f6a0d16535f3eb29d680f04
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
 이 자습서는 각 단계를 상세히 설명하지 않고 위에서 설명한 솔루션을 설정하는 데 필요한 단계를 보여주기 위한 것입니다. 따라서 GUI 구성 단계를 제공하는 대신 PowerShell 스크립팅을 사용하여 각 단계를 신속히 진행합니다. 이 자습서에서는 다음을 가정합니다.
 
 * 가상 컴퓨터 구독이 포함된 Azure 계정이 이미 있습니다.
-* [Azure PowerShell cmdlet](/powershell/azureps-cmdlets-docs)이 설치되어 있습니다.
+* [Azure PowerShell cmdlet](/powershell/azure/overview)이 설치되어 있습니다.
 * 온-프레미스 솔루션에 대한 Always On 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [Always On 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
 ## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Azure 구독에 연결하고 가상 네트워크 만들기

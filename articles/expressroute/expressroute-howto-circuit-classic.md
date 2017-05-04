@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: efdec32e565bf1d11b562d283e56bd8ed5d292b9
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a0ce5cf6a48d3dfd68e1696d93aac7c55a442900
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/24/2017
 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토했는지 확인합니다.  
 
 ### <a name="step-2-install-the-latest-versions-of-the-azure-service-management-sm-powershell-modules"></a>2단계. 최신 버전의 Azure SM(서비스 관리) PowerShell 모듈 설치
-Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell cmdlet 시작](/powershell/azureps-cmdlets-docs)에 나온 지침을 따르세요.
+Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell cmdlet 시작](/powershell/azure/overview)에 나온 지침을 따르세요.
 
 ### <a name="step-3-log-in-to-your-azure-account-and-select-a-subscription"></a>3단계. Azure 계정에 로그인 및 구독 선택
 1. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.

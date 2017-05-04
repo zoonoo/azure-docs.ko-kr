@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: cc8942dacee60d6243e91a3b4360c0c07956fa66
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 65c9d6c2b7a7c994a262d463d6a32b41c7e5c33a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,14 +26,14 @@ ms.lasthandoff: 02/28/2017
 
 Azure 배치 PowerShell cmdlet을 사용하여 배치 API, Azure 포털, Azure CLI(명령줄 인터페이스)에서 실행한 많은 동일한 작업을 수행하고 스크립트를 작성할 수 있습니다. 배치 계정을 관리하고 풀, 작업, 태스크 등의 배치 리소스 작업에 사용할 수 있는 cmdlet에 대해 간략히 소개합니다.
 
-배치 cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)에서 확인하세요.
+배치 cmdlet의 전체 목록과 상세 cmdlet 구문은 [Azure 배치 cmdlet 참조](/powershell/module/azurerm.batch/#batch)에서 확인하세요.
 
 이 문서는 Azure PowerShell 버전 3.0.0의 cmdlet를 기반으로 합니다. 서비스 업데이트 및 향상을 최대한 활용하기 위해서 Azure PowerShell을 자주 업데이트하는 것이 좋습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 배치 리소스를 관리하도록 Azure PowerShell을 사용하여 다음 작업을 수행합니다.
 
-* [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell 설치 및 구성](/powershell/azure/overview)
 * **Login-AzureRmAccount** cmdlet을 실행하여 구독에 연결(Azure Batch cmdlet은 Azure Resource Manager 모듈에 탑재됨):
   
     `Login-AzureRmAccount`
@@ -43,7 +43,7 @@ Azure 배치 PowerShell cmdlet을 사용하여 배치 API, Azure 포털, Azure C
 
 ## <a name="manage-batch-accounts-and-keys"></a>배치 계정 및 키 관리
 ### <a name="create-a-batch-account"></a>배치 계정 만들기
-**New-AzureRmBatchAccount**는 지정된 리소스 그룹에서 배치 계정을 만듭니다. 아직 리소스 그룹이 없는 경우 [새 AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt603739.aspx) cmdlet을 실행하 여 만듭니다. **위치** 매개 변수에서 "미국 중부"와 같이 Azure 지역 중 하나를 지정합니다. 예:
+**New-AzureRmBatchAccount**는 지정된 리소스 그룹에서 배치 계정을 만듭니다. 아직 리소스 그룹이 없는 경우 [새 AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet을 실행하 여 만듭니다. **위치** 매개 변수에서 "미국 중부"와 같이 Azure 지역 중 하나를 지정합니다. 예:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
@@ -237,7 +237,7 @@ OData 필터의 대안은 **ID** 매개 변수를 사용하는 것입니다. ID�
 > 
 
 ## <a name="next-steps"></a>다음 단계
-* 자세한 cmdlet 구문 및 예제는 [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)를 참조하세요.
+* 자세한 cmdlet 구문 및 예제는 [Azure 배치 cmdlet 참조](/powershell/module/azurerm.batch/#batch)를 참조하세요.
 * 배치의 응용 프로그램과 응용 프로그램 패키지에 대한 자세한 내용은 [Azure Batch 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 
 

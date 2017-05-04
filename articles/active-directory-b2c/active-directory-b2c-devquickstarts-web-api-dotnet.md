@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 02ec1b7a58aff6ae0788e341e8987b9d32cb5a7b
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 7610ae44d8c9b828fb46333b143d7b1f6dc915eb
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -46,10 +46,10 @@ Azure AD B2C를 사용하여 강력한 ID 관리 기능을 웹앱 및 웹 API에
 
 ## <a name="download-the-code"></a>코드 다운로드
 
-이 자습서에 대한 코드는 [GitHub](https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi)에서 유지 관리됩니다. 다음을 실행하여 샘플을 복제할 수 있습니다.
+이 자습서에 대한 코드는 [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi)에서 유지 관리됩니다. 다음을 실행하여 샘플을 복제할 수 있습니다.
 
 ```console
-git clone https://github.com/Azure-Samples/b2c-dotnet-webapp-and-webapi.git
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
 샘플 코드를 다운로드한 후 Visual Studio .sln 파일을 열어 시작합니다. 이제 솔루션에는 `TaskWebApp`과 `TaskService`, 2개의 프로젝트가 있습니다. `TaskWebApp`은 사용자와 상호 작용하는 MVC 웹 응용 프로그램입니다. `TaskService` 는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 Web API입니다. 이 문서에서는 `TaskWebApp` 웹앱 또는 `TaskService` 웹 API를 구축하는 방법을 다루지 않습니다. Azure AD B2C를 사용하여 .NET 웹앱을 구축하는 방법을 알아보려면 [.NET 웹앱 자습서](active-directory-b2c-devquickstarts-web-dotnet-susi.md)를 참조하세요. Azure AD B2C를 사용하여 보안된 .NET 웹 API를 구축하는 방법을 알아보려면 [.NET 웹 API 자습서](active-directory-b2c-devquickstarts-api-dotnet.md)를 참조하세요.

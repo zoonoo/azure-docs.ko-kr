@@ -1,24 +1,11 @@
 ---
-title: "(사용되지 않음) 클러스터 모델 - Azure | Microsoft Docs"
-description: "(사용되지 않음) 클러스터 모델"
-services: machine-learning
-documentationcenter: 
-author: FrancescaLazzeri
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 51b8d012-ed44-4312-920c-9c808dfd4ff6
-ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: deprecated
-ms.date: 01/06/2017
-ms.author: lazzeri
+
 ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: https://gallery.cortanaintelligence.com/
 translationtype: Human Translation
-ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
-ms.openlocfilehash: 84c94b83878f851c2ac281fe33afe53e02f8456c
-ms.lasthandoff: 01/11/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 2a38334c417de12d0284587fef238f6ef96a9a6f
+ms.lasthandoff: 05/03/2017
 
 
 ---

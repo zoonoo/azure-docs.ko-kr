@@ -17,9 +17,9 @@ ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: edc3cf6906bb535aec6e5203a5b306e33cd51599
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7f86fb57d9082e19b506c42737aaa020d474d599
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -45,7 +45,7 @@ Windows MPI 트래픽 Azure RDMA 네트워크에 액세스하려면 RDMA 지원 
 * **MPI** - Microsoft MPI(MS-MPI) 2012 R2 이상, Intel MPI Library 5.x
 
   지원되는 MPI 구현은 Microsoft Network Direct 인터페이스를 사용하여 인스턴스 간에 통신합니다. 
-* **HpcVmDrivers VM 확장** - RDMA 지원 VM에서는 RDMA 연결에 필요한 Windows 네트워크 장치 드라이버를 설치하는 HpcVmDrivers 확장을 추가해야 합니다. (특정 A8 및 A9 인스턴스 배포에서는 HpcVmDrivers 확장이 자동으로 추가됩니다.) VM에 VM 확장을 추가해야 하는 경우 [Azure PowerShell](/powershell/azureps-cmdlets-docs) cmdlet을 사용할 수 있습니다. 
+* **HpcVmDrivers VM 확장** - RDMA 지원 VM에서는 RDMA 연결에 필요한 Windows 네트워크 장치 드라이버를 설치하는 HpcVmDrivers 확장을 추가해야 합니다. (특정 A8 및 A9 인스턴스 배포에서는 HpcVmDrivers 확장이 자동으로 추가됩니다.) VM에 VM 확장을 추가해야 하는 경우 [Azure PowerShell](/powershell/azure/overview) cmdlet을 사용할 수 있습니다. 
 
   
   예를 들어, Resource Manager 배포 모델에서 myVM이라는 기존 RDMA 호환 VM에 최신 버전 1.1 HpcVMDrivers 확장을 설치하려면:

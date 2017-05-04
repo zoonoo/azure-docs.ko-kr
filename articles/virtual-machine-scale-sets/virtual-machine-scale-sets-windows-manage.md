@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 96560927bd9dd93c9313be7392e0cea427a50980
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 88541f6054df1476866d68fdc1c9690a73ada83c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 96560927bd9dd93c9313be7392e0cea427a50980
 
 크기 집합의 가상 컴퓨터 관리와 관련된 대부분의 작업을 수행할 경우에는 관리하려는 컴퓨터의 인스턴스 ID를 알아야 합니다. [Azure 리소스 탐색기](https://resources.azure.com) 를 사용하여 크기 집합에 있는 가상 컴퓨터의 인스턴스 ID를 찾을 수 있습니다. 리소스 탐색기를 사용하여 마친 작업의 상태를 확인할 수도 있습니다.
 
-최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 ## <a name="display-information-about-a-scale-set"></a>크기 집합에 대한 정보 표시
 크기 집합에 대한 일반 정보를 가져올 수 있습니다(인스턴스 보기라고도 함). 또는 크기 집합의 리소스에 대한 정보와 같이 더 구체적인 정보를 가져올 수 있습니다.
@@ -212,10 +213,5 @@ ms.openlocfilehash: 96560927bd9dd93c9313be7392e0cea427a50980
     Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
 크기 집합에서 가상 컴퓨터를 제거하는 경우 가장 높은 ID를 가진 가상 컴퓨터가 먼저 제거됩니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

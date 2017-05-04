@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/06/2017
+ms.date: 04/26/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0182d0d600af691daf8c2ac7a5cb93d7755f61da
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 2b25b4f4925962b1e4de681d268e78909a93eccd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ Azure VM 에이전트는 Azure Virtual Machine과 Azure 패브릭 컨트롤러 �
 Azure Virtual Machine와 함께 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 Azure CLI와 함께 다음 명령을 실행하고 해당 예제 위치를 선택한 위치로 바꿉니다.
 
 ```azurecli
-azure vm extension-image list westus
+az vm extension image list --location westus -o table
 ```
 
 ## <a name="run-vm-extensions"></a>VM 확장 실행
@@ -67,12 +67,15 @@ Azure 가상 컴퓨터 확장은 기존 가상 컴퓨터에서 실행할 수 있
 
 ### <a name="azure-cli"></a>Azure CLI
 
-`azure vm extension set` 명령을 사용하여 기존 가상 컴퓨터에 대해 Azure Virtual Machine 확장을 실행할 수 있습니다. 이 예제에서는 가상 컴퓨터에 대한 사용자 지정 스크립트 확장을 실행합니다.
+`az vm extension set` 명령을 사용하여 기존 가상 컴퓨터에 대해 Azure Virtual Machine 확장을 실행할 수 있습니다. 이 예제에서는 가상 컴퓨터에 대한 사용자 지정 스크립트 확장을 실행합니다.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version \
-  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+az vm extension set `
+  --resource-group exttest `
+  --vm-name exttest `
+  --name customScript `
+  --publisher Microsoft.Azure.Extensions `
+  --settings '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
 이 스크립트는 다음 텍스트와 유사한 출력을 생성합니다.
@@ -205,18 +208,15 @@ VM 확장을 실행하는 경우 자격 증명, 저장소 계정 이름 및 저�
 가상 컴퓨터에 대해 가상 컴퓨터 확장을 실행한 후에 다음 Azure CLI 명령을 사용하여 확장 상태를 반환합니다. 매개 변수 이름을 고유한 값으로 바꿉니다.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
 출력은 다음 텍스트와 비슷합니다.
 
 ```azurecli
-info:    Executing command vm extension get
-+ Looking up the VM "myVM"
-data:    Publisher                   Name             Version  State
-data:    --------------------------  ---------------  -------  ---------
-data:    Microsoft.Azure.Extensions  DockerExtension  1.0      Succeeded
-info:    vm extension get command OK         :
+AutoUpgradeMinorVersion    Location    Name          ProvisioningState    Publisher                   ResourceGroup      TypeHandlerVersion  VirtualMachineExtensionType
+-------------------------  ----------  ------------  -------------------  --------------------------  ---------------  --------------------  -----------------------------
+True                       westus      customScript  Succeeded            Microsoft.Azure.Extensions  exttest                             2  customScript
 ```
 
 Azure Portal에서 확장 실행 상태를 찾을 수도 있습니다. 확장의 상태를 확인하려면 가상 컴퓨터를 선택하고 **확장**을 선택한 후 원하는 확장을 선택합니다.
@@ -226,7 +226,7 @@ Azure Portal에서 확장 실행 상태를 찾을 수도 있습니다. 확장의
 가상 컴퓨터 확장을 다시 실행해야 하는 경우가 있을 수 있습니다. 확장을 다시 실행하려면 확장을 제거한 다음 원하는 실행 방법으로 확장을 다시 실행하면 됩니다. 확장을 제거하려면 Azure CLI를 사용하여 다음 명령을 실행합니다. 매개 변수 이름을 고유한 값으로 바꿉니다.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
+az vm extension delete --name customScript --resource-group myResourceGroup --vm-name myVM
 ```
 
 Azure Portal에서 다음 단계에 사용하여 확장을 제거할 수 있습니다.

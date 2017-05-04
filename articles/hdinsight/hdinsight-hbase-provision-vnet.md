@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 6dd149808a89ccf7da2989751788e074d5340d5c
-ms.lasthandoff: 12/22/2016
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: fbd5c31a4ca1fa26d14001ba5765adfc91142a10
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -248,7 +248,7 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 * [HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md)
 * [HDInsight에서 HBase 복제 구성](hdinsight-hbase-replication.md)
-* [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md)
+* [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
 * [HDInsight의 Hadoop에서 HBase 사용 시작](hdinsight-hbase-tutorial-get-started.md)
 * [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석](hdinsight-hbase-analyze-twitter-sentiment.md)
 * [Virtual Network 개요][vnet-overview]
@@ -282,7 +282,7 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 
 
 [hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage-powershell]: ../hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: fdc53ee24c623218e218cdda1c24dffbbec50bc5
-ms.openlocfilehash: e7c7e9504985fa98185286ee9a28cec80fb87df6
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9fc3b38b22c3a092dc2d932d2d7471872f5ba66d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/05/2017
 
 다음 단계에서는 빈 칸 채우기 접근 방식에 따라 Azure PowerShell 명령 집합을 만듭니다. 이 접근 방식은 PowerShell을 처음 접하거나 성공적인 구성을 위해 지정할 값을 알기를 원하는 경우에 유용할 수 있습니다. 고급 PowerShell 사용자는 명령을 가져와 고유한 변수 값("$"로 시작하는 줄)을 대체할 수 있습니다.
 
-[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Windows PowerShell 명령 프롬프트를 엽니다.
+[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Windows PowerShell 명령 프롬프트를 엽니다.
 
 ## <a name="step-1-add-your-account"></a>1단계: 사용자 계정 추가
 1. PowerShell 프롬프트에서 **Add-AzureAccount**를 입력하고 **Enter**.

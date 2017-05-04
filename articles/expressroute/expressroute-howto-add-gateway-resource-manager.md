@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 50af8a024c71cbe931cc944d052493bbb0fa9ad1
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0fb6b5efc8ad4d40e1b0f41aad678eca6da9798d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/18/2017
 
 
 ## <a name="before-beginning"></a>시작하기 전에
-최신 Azure PowerShell cmdlet를 설치했는지 확인합니다. cmdlet을 설치하지 않은 경우 구성 단계를 시작하기 전에 설치해야 합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.
+최신 Azure PowerShell cmdlet를 설치했는지 확인합니다. cmdlet을 설치하지 않은 경우 구성 단계를 시작하기 전에 설치해야 합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
 
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 

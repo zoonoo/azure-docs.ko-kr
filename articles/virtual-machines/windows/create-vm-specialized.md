@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e9c9f440aa6554e30dc0974d1ab777a9bca50762
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 78f993ce9bab6266479cdd121eeea4965724d9bd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ PowerShell을 사용하는 경우 AzureRM.Compute PowerShell 모듈이 최신 �
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-자세한 내용은 [Azure PowerShell 버전 관리](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning)를 참조하세요.
+자세한 내용은 [Azure PowerShell 버전 관리](/powershell/azure/overview)를 참조하세요.
 
 
 ## <a name="create-the-subnet-and-vnet"></a>서브넷 및 VNet 만들기

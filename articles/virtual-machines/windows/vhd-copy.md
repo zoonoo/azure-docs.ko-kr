@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1e897d98f561b24eafb95dfb620c3b5c7622ba0a
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1b2b013fb29c66817aab2ea5e63917b59726b4e8
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,8 +31,8 @@ ms.lasthandoff: 03/31/2017
 ## <a name="before-you-begin"></a>시작하기 전에
 다음 사항을 확인합니다.
 
-* **원본 및 대상 저장소 계정**에 대한 정보가 있습니다. 원본 VM의 경우 저장소 계정 및 컨테이너 이름이 필요합니다. 일반적으로 컨테이너 이름은 **vhds**가 됩니다. 또한 대상 저장소 계정도 있어야 합니다. 아직 없는 경우 포털(**더 많은 서비스** > 저장소 계정 > 추가) 또는 [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet을 사용하여 만들 수 있습니다. 
-* Azure [PowerShell 1.0](/powershell/azureps-cmdlets-docs)(또는 이상)이 설치되어 있습니다.
+* **원본 및 대상 저장소 계정**에 대한 정보가 있습니다. 원본 VM의 경우 저장소 계정 및 컨테이너 이름이 필요합니다. 일반적으로 컨테이너 이름은 **vhds**가 됩니다. 또한 대상 저장소 계정도 있어야 합니다. 아직 없는 경우 포털(**더 많은 서비스** > 저장소 계정 > 추가) 또는 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet을 사용하여 만들 수 있습니다. 
+* Azure [PowerShell 1.0](/powershell/azure/overview)(또는 이상)이 설치되어 있습니다.
 * [AzCopy 도구](../../storage/storage-use-azcopy.md)를 다운로드 및 설치했습니다. 
 
 ## <a name="deallocate-the-vm"></a>VM 할당을 취소합니다.

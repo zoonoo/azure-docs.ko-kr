@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b0f97779c2cf8bf3e7535afa8a2ab1ee45958ad1
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: fd7b14d16a0654dc1368ddb00ea047aa7dd36a4c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/31/2017
 ## <a name="environment-setup"></a>환경 설정
 [무료 계정](https://azure.microsoft.com/free/)
 
-[Azure PowerShell 설치](/powershell/azureps-cmdlets-docs)
+[Azure PowerShell 설치](/powershell/azure/overview)
 
 [Azure CLI 설치](../cli-install-nodejs.md)
 
@@ -152,7 +152,7 @@ ms.lasthandoff: 03/31/2017
 
 [서비스 관리 .NET API](https://msdn.microsoft.com/library/azure/mt420161.aspx)
 
-[Azure 서비스 관리 PowerShell cmdlet 참조 문서](https://msdn.microsoft.com/library/azure/dn708504.aspx)
+[Azure 서비스 관리 PowerShell cmdlet 참조 문서](/powershell/azure/overview?view=azuresmps-3.7.0)
 
 ## <a name="troubleshooting"></a>문제 해결
 [Windows를 실행하는 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

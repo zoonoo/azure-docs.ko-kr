@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 408dfd655db7a4a5fa33920e0c8bc8b7a065e886
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: d47a28b31569d26a7752fc830989e8050153be46
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/21/2017
 [Microsoft Azure Portal](https://portal.azure.com)은 Azure 리소스를 프로비전 및 관리할 수 있는 중앙 위치입니다. _블레이드_를 사용하여 해당 콘텐츠를 구성합니다. 일부 IoT Hub 자습서에서는 [Azure 클래식 포털](https://manage.windowsazure.com)을 사용할지 묻는 메시지가 표시될 수 있습니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs)은 Windows PowerShell로 Azure를 관리하는 데 사용할 수 있는 cmdlet 컬렉션입니다. cmdlet을 사용하여 Azure 플랫폼을 통해 제공되는 솔루션과 서비스를 만들고 테스트, 배포 및 관리할 수 있습니다.
+[Azure PowerShell](/powershell/azure/overview)은 Windows PowerShell로 Azure를 관리하는 데 사용할 수 있는 cmdlet 컬렉션입니다. cmdlet을 사용하여 Azure 플랫폼을 통해 제공되는 솔루션과 서비스를 만들고 테스트, 배포 및 관리할 수 있습니다.
 
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
@@ -257,3 +257,4 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 
 ## <a name="x509-client-certificate"></a>X.509 클라이언트 인증서
 장치는 X.509 인증서를 사용하여 [IoT Hub](#iot-hub)와 인증을 수행할 수 있습니다. [SAS 토큰](#shared-access-signature)을 사용하는 대신 X.509 인증서를 사용합니다.
+

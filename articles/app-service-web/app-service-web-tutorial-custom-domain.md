@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/21/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: e12718590cd678e553fcbbb4572d5b94ad079ab5
-ms.lasthandoff: 04/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 08a83bf8dca71846dd06edb9aa253f69c24d253c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -318,7 +318,7 @@ DNS 레코드 페이지가 다음 스크린샷과 같이 표시됩니다.
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 
-[Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azureps-cmdlets-docs/)을 사용하여 스크립트를 통해 사용자 지정 도메인의 관리를 자동화할 수 있습니다. 
+[Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/overview)을 사용하여 스크립트를 통해 사용자 지정 도메인의 관리를 자동화할 수 있습니다. 
 
 ### <a name="azure-cli"></a>Azure CLI 
 

@@ -66,7 +66,7 @@
 ### [VM 다시 시작 또는 크기 조정](restart-resize-error-troubleshooting.md)
 
 # 참조
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Resource Manager 템플릿 작성](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

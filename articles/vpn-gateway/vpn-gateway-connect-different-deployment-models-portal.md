@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 3c49af42332dc62db80889f1625b243473559cd1
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9e0dbb028c668aad182e2c1c54fb397ffe99a0a0
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -40,7 +40,7 @@ VNet이 동일한 지역에 있는 경우 VNet 피어링을 사용하여 연결�
 
 * 이 단계에서는 두 VNet이 이미 만들어졌다고 가정합니다. 이 문서를 사용하여 연습을 하는 경우 VNet이 없으면 단계 내에 VNet 만들기를 도와주는 링크가 있습니다.
 * VNet에 대한 주소 범위가 서로 겹치거나 게이트웨이가 연결되어 있는 다른 연결의 범위와 겹치지 않는지 확인합니다.
-* Resource Manager와 Service Management(클래식)에 대해 최신 PowerShell cmdlet을 설치합니다. 이 문서에서는 Azure Portal 및 PowerShell을 모두 사용합니다. PowerShell은 클래식 VNet에서 Resource Manager VNet에 연결을 만드는 데 필요합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. 
+* Resource Manager와 Service Management(클래식)에 대해 최신 PowerShell cmdlet을 설치합니다. 이 문서에서는 Azure Portal 및 PowerShell을 모두 사용합니다. PowerShell은 클래식 VNet에서 Resource Manager VNet에 연결을 만드는 데 필요합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 
 
 ### <a name="values"></a>예제 설정
 
@@ -262,3 +262,4 @@ Azure Portal 또는 PowerShell을 사용하여 연결을 확인할 수 있습니
 ## <a name="faq"></a>VNet 간 FAQ
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+

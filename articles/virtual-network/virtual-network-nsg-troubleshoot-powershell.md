@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 13ffe90e03dbe99366fb4f6e2788ba7a3c968a30
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b067278389a364514067bcef7045542486e113c9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,7 +45,7 @@ VM *VM1*은 *WestUS-VNet1*이라는 VNet 내에 있는 *Subnet1* 서브넷의 �
 ## <a name="detailed-troubleshooting-steps"></a>자세한 문제 해결 단계
 VM에 대한 NSG 문제를 해결하려면 다음 단계를 완료합니다.
 
-1. Azure PowerShell 세션을 시작하고 Azure에 로그인합니다. Azure PowerShell을 사용하는 데 친숙하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 문서를 읽어보세요.
+1. Azure PowerShell 세션을 시작하고 Azure에 로그인합니다. Azure PowerShell을 사용하는 데 친숙하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 문서를 읽어보세요.
 2. 다음 명령을 입력하여 리소스 그룹 *RG1*의 NIC *VM1-NIC1*에 적용되는 모든 NSG 규칙을 반환합니다.
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -181,7 +182,7 @@ VM에 대한 NSG 문제를 해결하려면 다음 단계를 완료합니다.
    > 하나의 VM에 여러 NIC가 연결되어 있을 수 있습니다. 각각이 다른 서브넷에 연결될 수 있습니다. 이전 단계의 명령은 NIC에 대해 실행되므로 연결 오류가 발생하는 NIC를 지정하는 것이 중요합니다. 확실하지 않은 경우 항상 VM에 연결된 각 NIC에 대해 명령을 실행할 수 있습니다.
    > 
    > 
-5. VM1에 대한 RDP의 경우 **Subnet1-NSG** NSG에서 *RDP 거부(3389)* 규칙을 *RDP 허용(3389)*으로 변경합니다. VM에 대한 RDP 연결을 열거나 PsPing 도구를 사용하여 TCP 포트 3389가 열려 있는지 확인합니다.  [PsPing 다운로드 페이지](https://technet.microsoft.com/sysinternals/psping.aspx)
+5. VM1에 대한 RDP의 경우 **Subnet1-NSG** NSG에서 *RDP 거부(3389)* 규칙을 *RDP 허용(3389)*으로 변경합니다. VM에 대한 RDP 연결을 열거나 PsPing 도구를 사용하여 TCP 포트 3389가 열려 있는지 확인합니다. [PsPing 다운로드 페이지](https://technet.microsoft.com/sysinternals/psping.aspx)
    
     다음 명령의 출력에 포함된 정보를 사용하여 NSG에서 규칙을 제거할 수 있습니다.
    
@@ -197,10 +198,5 @@ VM에 대한 NSG 문제를 해결하려면 다음 단계를 완료합니다.
 * VNet을 피어링한 경우 기본적으로, VIRTUAL_NETWORK 태그는 피러링된 VNet에 대한 접두사를 포함하도록 자동으로 확장됩니다. VNet 피어링 연결과 관련된 문제를 해결하기 위해 **ExpandedAddressPrefix** 목록에서 이러한 접두사를 볼 수 있습니다. 
 * 유효 보안 규칙은 VM의 NIC 및/또는 서브넷에 연결된 NSG가 있을 때만 표시됩니다. 
 * NIC 또는 서브넷과 연결된 NSG가 없고 VM에 할당된 공용 IP 주소가 있는 경우 모든 포트가 인바운드 및 아웃바운드 액세스를 위해 열립니다. VM에 공용 IP 주소가 있을 때는 NIC 또는 서브넷에 NSG를 적용하는 것이 강력하게 권장됩니다.  
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6a76c399e626ea85581d5f8fb863da878bdbf50b
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8fcd609da46e88f7db90692c7e67011df64c9b4e
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/09/2017
 ## <a name="prerequisites"></a>필수 조건
 * Visual Studio 2012, 2013 또는 2015
 * [Azure .NET SDK](http://azure.microsoft.com/downloads/)를 다운로드하여 설치합니다.
-* Azure Active Directory에 네이티브 클라이언트 응용 프로그램을 추가합니다. 응용 프로그램을 추가하는 단계는 [Azure Active Directory와 응용 프로그램 통합](../active-directory/active-directory-integrating-applications.md) 을 참조하세요. **구성** 페이지에 **클라이언트 ID** 및 **URI 리디렉션**을 적어둡니다.
+* Azure Active Directory에 네이티브 클라이언트 응용 프로그램을 추가합니다. 응용 프로그램을 추가하는 단계는 [Azure Active Directory와 응용 프로그램 통합](../active-directory/active-directory-integrating-applications.md) 을 참조하세요. **구성** 페이지에 **클라이언트 ID** 및 **URI 리디렉션**을 적어둡니다. 자세한 단계는 [.NET API를 사용하는 복사 작업 자습서](data-factory-copy-activity-tutorial-using-dotnet-api.md) 문서를 참조하세요. 
 * Azure **구독 ID** 및 **테넌트 ID**를 가져옵니다. 자세한 내용은 [Azure 구독 및 테넌트 ID 얻기](#get-azure-subscription-and-tenant-ids) 를 참조하세요.
 * Azure Data Factory용 NuGet 패키지 다운로드 및 설치. 지침은 연습에 있습니다.
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 03/09/2017
     ```
 
    > [!NOTE]
-   > **resourcegroupname** 을 Azure 리소스 그룹의 이름으로 바꿉니다. [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) cmdlet을 사용하여 리소스 그룹을 만들 수 있습니다.
+   > **resourcegroupname** 을 Azure 리소스 그룹의 이름으로 바꿉니다. [New-AzureResourceGroup](/powershell/module/azure/new-azureresourcegroup?view=azuresmps-3.7.0) cmdlet을 사용하여 리소스 그룹을 만들 수 있습니다.
 7. **데이터 팩터리**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
     ```csharp
@@ -364,7 +364,7 @@ ms.lasthandoff: 03/09/2017
     Console.WriteLine("\nPress any key to exit.");
     Console.ReadKey();
     ```
-14. 솔루션 탐색기에서 프로젝트(**DataFactoryAPITestApp**)를 확장하고 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가**를 클릭합니다. `System.Configuration` 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
+14. 솔루션 탐색기에서 프로젝트 **DataFactoryAPITestApp**을 확장하고 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가**를 클릭합니다. `System.Configuration` 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
 15. 콘솔 응용 프로그램을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
 16. Azure Blob 저장소의 adftutorial 컨테이너에 하나 이상의 파일이 있는지 확인합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 Emp.txt 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
@@ -445,7 +445,7 @@ TokenCloudCredentials aadTokenCredentials =
 응용 프로그램 ID 및 암호(클라이언트 암호)을 기록해 두고 연습에 사용합니다.
 
 ## <a name="get-azure-subscription-and-tenant-ids"></a>Azure 구독 및 테넌트 ID 얻기
-컴퓨터에 Azure PowerShell의 최신 버전이 설치되어 있지 않다면, 설치하기 위해 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 문서의 지침을 따릅니다.
+컴퓨터에 Azure PowerShell의 최신 버전이 설치되어 있지 않다면, 설치하기 위해 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 문서의 지침을 따릅니다.
 
 1. Azure PowerShell을 시작하고 다음 명령을 실행합니다.
 2. 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.

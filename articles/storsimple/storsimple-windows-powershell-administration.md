@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: alkohli@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 562e20d274079d221360d45302ff288190c1cd6e
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f9e97bb2352231b46bdf66b1165bf22ec639fddf
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 장치를 관리�
 
 > [!NOTE]
 > * StorSimple용 Windows PowerShell cmdlet을 사용하면 직렬 콘솔에서 또는 Windows PowerShell 원격을 통해 원격으로 StorSimple 장치를 관리할 수 있습니다. 이 인터페이스에서 사용할 수 있는 개별 cmdlet에 대한 자세한 내용은 [StorSimple용 Windows PowerShell에 대한 cmdlet 참조](https://technet.microsoft.com/library/dn688168.aspx)를 참조하세요.
-> * Azure PowerShell StorSimple cmdlet은 명령줄에서 StorSimple 서비스 수준 및 마이그레이션 작업을 자동화할 수 있게 해주는 다른 cmdlet 컬렉션입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [Azure StorSimplecmdlet 참조](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple)를 참조하세요.
+> * Azure PowerShell StorSimple cmdlet은 명령줄에서 StorSimple 서비스 수준 및 마이그레이션 작업을 자동화할 수 있게 해주는 다른 cmdlet 컬렉션입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [Azure StorSimplecmdlet 참조](/powershell/module/azure/?view=azuresmps-3.7.0)를 참조하세요.
 > 
 > 
 
@@ -174,10 +175,5 @@ Windows PowerShell 인터페이스에서 도움말을 쉽게 업데이트할 수
 
 ## <a name="next-steps"></a>다음 단계
 위의 워크플로 중 하나를 수행할 때 StorSimple 장치에서 문제가 발생하는 경우 [StorSimple 배포 문제를 해결하는 도구](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

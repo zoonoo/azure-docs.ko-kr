@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: aced1550a7b5b41b0a430c26f82c31c023f4d2d4
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5fd017b6f7645220ee7572e50c02265de41e938c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -35,7 +35,7 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-3.8.0) 최신 버전 설치
+* [Azure PowerShell](/powershell/azure/install-azurerm-ps) 최신 버전 설치
 * Network Watcher의 기존 인스턴스가 있거나 [Network Watcher의 인스턴스 만들기](network-watcher-create.md)
 * [Windows 확장](../virtual-machines/windows/extensions-nwa.md) 또는 [Linux 가상 컴퓨터 확장](../virtual-machines/linux/extensions-nwa.md)이 있고 이전 Network Watcher와 동일한 지역에 기존 가상 컴퓨터가 있음.
 

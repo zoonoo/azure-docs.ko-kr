@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 3fbb35a059b77f5e918f54e0fefe472893d8a974
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 91a4e54b3dd2e1f44a6b52c548a243ae98e3ba3f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/10/2017
 
 **Q: Azure Portal에서 Azure Active Directory에 등록된 모든 장치를 볼 수는 없는 이유는 무엇인가요?** 
 
-**A:** 현재 방법이 Azure Portal에서 등록된 모든 장치를 볼 수 있는 방법은 없습니다. 모든 장치를 찾으려면 Azure PowerShell을 사용할 수 있습니다. 자세한 내용은 [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet을 참조하세요.
+**A:** 현재 방법이 Azure Portal에서 등록된 모든 장치를 볼 수 있는 방법은 없습니다. 모든 장치를 찾으려면 Azure PowerShell을 사용할 수 있습니다. 자세한 내용은 [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet을 참조하세요.
 
 --- 
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 03/10/2017
 
 **Q: Azure Portal에서 사용하지 않도록 설정한 장치에서 여전히 리소스에 액세스할 수 있는 이유는 무엇인가요?**
 
-**A:** 해지가 적용되는 데는 최대&1;시간이 소요될 수 있습니다.
+**A:** 해지가 적용되는 데는 최대 1시간이 소요될 수 있습니다.
 
 >[!Note] 
 >분실한 장치의 경우에는 장치를 초기화하여 사용자가 장치에 액세스하지 못하게 하는 것이 좋습니다. 자세한 내용은 [Intune에서 관리를 위해 장치 등록](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)을 참조하세요. 

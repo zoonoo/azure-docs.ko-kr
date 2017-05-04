@@ -16,9 +16,9 @@ ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: ca5b67043843185ac40d02030f26fab8639a1f9f
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple 가상 배열 배포 - Azure Portal을 통해 파일 서버로 설정
@@ -102,7 +102,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
     4. **적용**을 클릭합니다. 구성된 시간 설정의 유효성을 검사하고 적용합니다.
 11. 장치에 대한 클라우드 설정을 구성합니다. 이 단계에서는 로컬 장치 구성을 완료한 다음 StorSimple 장치 관리자 서비스에 장치를 등록합니다.
     
-    1. StorSimple 가상 배열의 **2단계: 서비스 등록 키 받기** 에서 확보한 [서비스 등록 키](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) 를 입력합니다.
+    1. StorSimple 가상 배열의 **2단계: 서비스 등록 키 받기** 에서 확보한 [서비스 등록 키](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) 를 입력합니다.
     2. 서비스에 장치를 처음으로 등록하는 경우 **서비스 데이터 암호화 키**가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다. 이 키는 StorSimple 장치 관리자 서비스에 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다. 
        
        서비스에 장치를 처음으로 등록하는 경우가 아니라면 서비스 데이터 암호화 키를 제공해야 합니다. 자세한 내용은 로컬 웹 UI의 [서비스 데이터 암호화 키 받기](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) 를 참조하세요.

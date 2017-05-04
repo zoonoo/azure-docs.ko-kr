@@ -28,7 +28,7 @@
 ### [CLI 2.0을 사용하여 생성 및 관리](key-vault-manage-with-cli2.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI 2.0](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)

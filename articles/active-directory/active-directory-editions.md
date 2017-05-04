@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f29c3ed47c772609cfeca0ad2b5078001b6d0737
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 59e12d70d46d45fb7dc4244ac2968838cb29dbec
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -145,7 +145,7 @@ Office 365 구독은 아래의 비교 테이블에 설명된 추가 Azure Active
 
 **자세한 내용:**
 
-* [고유한 암호를 업데이트하는 방법](active-directory-passwords-update-your-own-password.md#reset-my-password)
+* [고유한 암호를 업데이트하는 방법](active-directory-passwords-update-your-own-password.md#reset-or-unlock-my-password-for-a-work-or-school-account)
 
 #### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect(온-프레미스 디렉터리를 Azure Active Directory로 확장하는 동기화 엔진)
 **유형:** 일반 기능

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: ac0d2e6891d916febb3eeee736288454c2b92c2d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Azure 보안 센터에 의해 암호화가 필요하다고 식별된 Azure 가�
 >
 
 ## <a name="install-and-configure-azure-powershell"></a>Azure PowerShell 설치 및 구성
-Azure PowerShell 버전 1.2.1 이상이 컴퓨터에 설치되어야 합니다. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 문서는 Azure PowerShell로 작업할 컴퓨터를 프로비전하는 데 필요한 모든 단계를 포함합니다. 가장 간단한 방법은 해당 문서에 언급된 웹 PI 설치 접근 방식을 사용하는 것입니다. 이미 Azure PowerShell이 설치되었더라도 웹 PI 접근 방식을 사용하여 다시 설치하여 최신 버전의 Azure PowerShell을 사용합니다.
+Azure PowerShell 버전 1.2.1 이상이 컴퓨터에 설치되어야 합니다. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 문서는 Azure PowerShell로 작업할 컴퓨터를 프로비전하는 데 필요한 모든 단계를 포함합니다. 가장 간단한 방법은 해당 문서에 언급된 웹 PI 설치 접근 방식을 사용하는 것입니다. 이미 Azure PowerShell이 설치되었더라도 웹 PI 접근 방식을 사용하여 다시 설치하여 최신 버전의 Azure PowerShell을 사용합니다.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Azure 디스크 암호화 필수 구성 요소 구성 스크립트 가져오기 및 실행
 Azure 디스크 암호화 필수 구성 요소 구성 스크립트는 Azure 가상 컴퓨터를 암호화하는 데 필요한 모든 필수 구성 요소를 설정합니다.

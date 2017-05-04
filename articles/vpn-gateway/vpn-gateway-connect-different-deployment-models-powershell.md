@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: b6319266d2b2cb664f5673b1365600ae8e974342
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0e5ca582714a80da8c0f63e1b06f6c3019efe849
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ VNet이 동일한 지역에 있는 경우 VNet 피어링을 사용하여 연결�
 
 * 두 VNet이 이미 생성되었습니다.
 * VNet에 대한 주소 범위는 서로 겹치거나 게이트웨이가 연결되어 있는 다른 연결의 범위와 겹치지 않습니다.
-* 최신 PowerShell cmdlet을 설치했습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요. SM(서비스 관리)와 RM(Resource Manager) cmdlet을 모두 설치해야 합니다. 
+* 최신 PowerShell cmdlet을 설치했습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요. SM(서비스 관리)와 RM(Resource Manager) cmdlet을 모두 설치해야 합니다. 
 
 ### <a name="exampleref"></a>예제 설정
 

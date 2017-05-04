@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 9c9135e200cd1676b01895af4611bc71d5d27c4a
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 736918ea310f276d961fa396f719b2b7809f0c0f
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 04/21/2017
 
 Azure CLI 2.0 또는 Azure PowerShell을 사용하여 확장 집합을 만드는 경우 먼저 구독에 로그인해야 합니다.
 
-Azure CLI 또는 PowerShell을 사용하여 Azure를 설치, 설정 및 로그인하는 방법에 대한 자세한 내용은 [Azure CLI 2.0 시작](/cli/azure/get-started-with-azure-cli.md) 또는 [Azure PowerShell cmdlet 시작](/powershell/resourcemanager/)을 참조하세요.
+Azure CLI 또는 PowerShell을 사용하여 Azure를 설치, 설정 및 로그인하는 방법에 대한 자세한 내용은 [Azure CLI 2.0 시작](/cli/azure/get-started-with-azure-cli.md) 또는 [Azure PowerShell cmdlet 시작](/powershell/azure/overview)을 참조하세요.
 
 ```azurecli
 az login
@@ -184,3 +184,4 @@ Azure Portal은 크기 집합을 신속하게 만드는 편리한 방법을 제�
 [데이터 디스크](virtual-machine-scale-sets-attached-disks.md)에 대해 자세히 알아봅니다.
 
 [앱을 관리](virtual-machine-scale-sets-deploy-app.md)하는 방법에 대해 알아봅니다.
+

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 5ea7af4744876f1085e14de800d599e001c3f3dd
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 452a50ef4a01ac328c4c2de8767181107eb57cd6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -269,7 +269,7 @@ Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채
 * [ARMClient – 사이트로 GitHub 게시를 설정](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 * [Git 분기-기본 분기 및 병합](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [David Ebbo의 블로그](http://blog.davidebbo.com/)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [Azure 플랫폼간 명령줄 도구](../cli-install-nodejs.md)
 * [Azure AD에서 사용자 만들기 또는 편집](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 * [프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)

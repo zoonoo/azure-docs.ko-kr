@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: e9215bdd02c9d1b595f65997840926080d6d7d01
-ms.lasthandoff: 04/20/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: b60105297fb84ce1240a33d576653f5fa7c950e9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -188,7 +188,7 @@ Azure 포털, Visual Studio 또는 Azure PowerShell에서 Data Factory Editor를
 Azure Data Factory의 데이터 이동(복사 활동) 성능에 영향을 주는 주요 요인에 대해 설명하는 [복사 작업 성능 및 튜닝 가이드](data-factory-copy-activity-performance.md)를 참조하세요. 이 문서에서는 내부 테스트 중에 관찰되는 성능 관련 정보도 제공하며, 복사 활동의 성능을 최적화하는 여러 가지 방법에 대해서도 설명합니다.
 
 ## <a name="scheduling-and-sequential-copy"></a>예약 및 순차 복사
-Data Factory에서 예약 및 실행이 작동하는 방식에 대한 자세한 내용은 [예약 및 실행](data-factory-scheduling-and-execution.md) 을 참조하세요. 순차/순서가 지정된 방식으로 하나씩 여러 복사 작업을 실행하는 것이 가능합니다. [순차적으로 복사](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence) 섹션을 참조하세요.
+Data Factory에서 예약 및 실행이 작동하는 방식에 대한 자세한 내용은 [예약 및 실행](data-factory-scheduling-and-execution.md) 을 참조하세요. 순차/순서가 지정된 방식으로 하나씩 여러 복사 작업을 실행하는 것이 가능합니다. [순차적으로 복사](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) 섹션을 참조하세요.
 
 ## <a name="type-conversions"></a>형식 변환
 다른 데이터 저장소에는 서로 다른 네이티브 형식 시스템이 있습니다. 복사 활동에서는 다음과 같은 2단계 방식을 통해 소스 형식에서 싱크 형식으로의 자동 형식 변환을 수행합니다.

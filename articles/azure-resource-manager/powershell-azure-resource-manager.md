@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 5d32a695c14ebe01d1ad8cf4b789bf2edc8c30ce
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 674404b135d2e512840505ee0927db98824aa8b1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/21/2017
 
 ## <a name="get-started-with-azure-powershell"></a>Azure PowerShell 시작
 
-Azure PowerShell을 설치하지 않은 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+Azure PowerShell을 설치하지 않은 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
 Azure PowerShell을 전에 설치했지만 최근에 업데이트하지 않은 경우에는 최신 버전을 설치하는 것이 좋습니다. 설치하는 방법과 동일한 방법을 통해 버전을 업데이트할 수 있습니다. 예를 들어 웹 플랫폼 설치 관리자를 사용한 경우에는 관리자를 다시 시작하고 업데이트를 찾아봅니다.
 
@@ -53,7 +53,7 @@ Azure 리소스 모듈의 버전을 확인하려면 다음 cmdlet을 사용합�
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ```
 
-이 항목은 버전 3.3.0에 대해 업데이트되었습니다. 이보다 오래된 버전이 설치되어 있는 경우에는 사용자의 환경이 이 항목에 표시되는 단계와 일치하지 않을 수 있습니다. 이 버전의 cmdlet에 대한 설명서는 [AzureRM.Resources Module](/en-us/powershell/resourcemanager/azurerm.resources/v3.3.0/azurerm.resources)을 참조하세요.
+이 항목은 버전 3.3.0에 대해 업데이트되었습니다. 이보다 오래된 버전이 설치되어 있는 경우에는 사용자의 환경이 이 항목에 표시되는 단계와 일치하지 않을 수 있습니다. 이 버전의 cmdlet에 대한 설명서는 [AzureRM.Resources Module](/powershell/module/azurerm.resources)을 참조하세요.
 
 ## <a name="log-in-to-your-azure-account"></a>Azure 계정에 로그인합니다.
 솔루션에서 작업하기 전에 자신의 계정으로 로그인해야 합니다.

@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 04/24/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5a648173e8088b58ac5a38f4a3c9d3df06157c58
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: dcb7b326cbb4ed18769010d8061f80dc9f941c87
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 04/26/2017
 
 **Azure PowerShell**:
 
-- [최신 Azure PowerShell 명령을 설치합니다](/powershell/azureps-cmdlets-docs) .
+- [최신 Azure PowerShell 명령을 설치합니다](/powershell/azure/overview) .
 
 > [!NOTE]
 > 자동화된 백업은 SQL Server IaaS 에이전트 확장에 의존합니다. 현재 SQL 가상 컴퓨터 갤러리 이미지는 기본적으로 이 확장을 추가합니다. 자세한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.

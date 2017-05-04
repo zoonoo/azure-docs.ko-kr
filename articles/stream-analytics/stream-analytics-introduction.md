@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 493a915fb4e3de4cb70324b22beeaae6720a3492
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -42,7 +42,7 @@ Azure 포털에서 몇 번만 클릭하면 스트리밍 데이터의 입력된 �
 * **연결:** 스트림 분석은 스트림 수집을 위해 Azure 이벤트 허브 및 Azure IoT Hub, 기록 데이터를 수집하기 위해 Azure Blob 서비스에 직접 연결됩니다. 결과를 스트림 분석에서 이를 시각화하고 워크플로로 처리하며 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 를 통해 배치 분석에서 사용하거나 일련의 이벤트로 처리되는 Azure Storage Blob 또는 테이블, Azure SQL DB, Azure Data Lake Stores, DocumentDB, 이벤트 허브, Azure 서비스 버스 항목 또는 큐 및 Power BI로 작성할 수 있습니다. 이벤트 허브를 사용하면 계산의 스트리밍 특성을 손실하지 않고도 여러 스트림 분석을 다른 데이터 소스 및 처리 엔진으로 작성할 수 있습니다.  
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>다음 단계
 사물 인터넷에서 발생한 데이터에 대한 스트리밍 분석용 관리 서비스, 스트림 분석에 대해 소개하였습니다. 이 서비스에 대해 자세히 알아보려면 다음을 참조하세요.

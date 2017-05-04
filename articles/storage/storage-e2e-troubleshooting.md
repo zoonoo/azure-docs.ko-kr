@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: acf807538c8c9efdadb95c4b66db9a9d5d1f7a6d
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d1709c2c28505e66a88cfbbcf4dc88c8ccca841f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -103,9 +103,9 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 
 **PowerShell을 통해**
 
-Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
-1. 다음과 같이 [Add-azureaccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) cmdlet을 사용하여 PowerShell 창에 Azure 사용자 계정을 추가합니다.
+1. 다음과 같이 [Add-azureaccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet을 사용하여 PowerShell 창에 Azure 사용자 계정을 추가합니다.
    
     ```powershell
     Add-AzureAccount
@@ -374,3 +374,4 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
 * [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 * [Microsoft Message Analyzer 운영 가이드](http://technet.microsoft.com/library/jj649776.aspx)
+

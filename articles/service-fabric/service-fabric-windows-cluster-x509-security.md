@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 2bca90f45e994752ddc3569635ea053f9ef1adaf
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 51ed17ab8f036f00b285232500dc9f606f2a7e2f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -71,7 +71,7 @@ ms.lasthandoff: 03/17/2017
 }
 ```
 
-이 섹션에서는 독립 실행형 Windows 클러스터를 보호하기 위한 인증서를 설명합니다. 클러스터 인증서를 지정하는 경우 **ClusterCredentialType** 값을 _**X509**_로 설정합니다. 외부 연결에 대한 서버 인증서를 지정하려면 **ServerCredentialType**을 _**X509**_로 설정합니다. 필수는 아니지만 적절히 보안된 클러스터에 대해 이 두 인증서를 모두 사용하는 것이 좋습니다. 이러한 값을 *X509*로 설정하면 해당 인증서를 지정해야 합니다. 그러지 않으면 Service Fabric이 예외를 throw합니다. 일부 시나리오에서는 _ClientCertificateThumbprints_ 또는 _ReverseProxyCertificate_만 지정하려고 할 수 있습니다. 이러한 시나리오에서는 _ClusterCredentialType_ 또는 _ServerCredentialType_을 _X509_로 설정할 필요가 없습니다.
+이 섹션에서는 독립 실행형 Windows 클러스터를 보호하기 위한 인증서를 설명합니다. 클러스터 인증서를 지정하는 경우 **ClusterCredentialType** 값을  _**X509**_로 설정합니다. 외부 연결에 대한 서버 인증서를 지정하려면 **ServerCredentialType**을 _**X509**_로 설정합니다. 필수는 아니지만 적절히 보안된 클러스터에 대해 이 두 인증서를 모두 사용하는 것이 좋습니다. 이러한 값을 *X509*로 설정하면 해당 인증서를 지정해야 합니다. 그러지 않으면 Service Fabric이 예외를 throw합니다. 일부 시나리오에서는 _ClientCertificateThumbprints_ 또는 _ReverseProxyCertificate_만 지정하려고 할 수 있습니다. 이러한 시나리오에서는 _ClusterCredentialType_ 또는 _ServerCredentialType_을 _X509_로 설정할 필요가 없습니다.
 
 
 > [!NOTE]
@@ -271,7 +271,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-그런 다음 다른 PowerShell 명령을 실행하면 이 클러스터에 대해 작업할 수 있습니다. 예를 들어 [Get-ServiceFabricNode](/powershell/servicefabric/vlatest/get-servicefabricnode.md)는 이 보안 클러스터의 노드 목록을 보여 줍니다.
+그런 다음 다른 PowerShell 명령을 실행하면 이 클러스터에 대해 작업할 수 있습니다. 예를 들어 [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode.md?view=azureservicefabricps)는 이 보안 클러스터의 노드 목록을 보여 줍니다.
 
 
 클러스터를 제거하려면 Service Fabric 패키지를 다운로드한 클러스터의 노드에 연결하고 명령줄을 열고 패키지 폴더로 이동합니다. 이제 다음 명령을 실행합니다.

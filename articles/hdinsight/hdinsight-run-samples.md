@@ -17,9 +17,9 @@ ms.date: 02/14/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: d83bfd81768722592565fe924c4d00610b149999
-ms.openlocfilehash: 16801860b78b40cc883393ca4db3ffa208b889fd
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: e4042dfbf28e78d2fca5c3f6a93df751a12153f2
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,7 +50,7 @@ Hadoop 관련 기술(예: Java 기반 MapReduce 프로그래밍 및 스트리밍
 **필수 조건**:
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* **HDInsight 클러스터**. 이러한 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md)를 참조하세요.
+* **HDInsight 클러스터**. 이러한 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 * **Azure PowerShell이 포함된 워크스테이션**.
 
     > [!IMPORTANT]
@@ -122,7 +122,7 @@ Java MapReduce 프로그램을 개발하는 절차는 [HDInsight의 Hadoop용 Ja
     ```
 
     MapReduce 작업에서 *part-r-00000*이라는 파일을 생성하며 단어와 개수를 포함합니다. 스크립트는 **findstr** 명령을 사용하여 *"there"*가 포함된 모든 단어를 나열합니다.
-3. 다음과 같이 처음&3;개의 변수를 설정한 후 스크립트를 실행합니다.
+3. 다음과 같이 처음 3개의 변수를 설정한 후 스크립트를 실행합니다.
 
 ## <a name="hdinsight-sample-csharp-streaming"></a>단어 개수 - C# 스트리밍
 Hadoop은 맵을 작성하고 Java가 아닌 다른 언어의 함수를 줄일 수 있는 스트리밍 API를 MapReduce에 제공합니다.

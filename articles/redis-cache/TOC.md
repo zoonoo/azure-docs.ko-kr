@@ -46,7 +46,7 @@
 ###[Redis 클러스터를 이용한 규모 감축/확장](cache-how-to-premium-clustering.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Azure CLI 2.0 미리 보기](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)

@@ -79,7 +79,7 @@
 ## [Linux VM의 응용 프로그램 일치 백업](backup-azure-linux-app-consistent.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
+## [PowerShell](/powershell/module/azurerm.recoveryservices.backup)
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # 리소스

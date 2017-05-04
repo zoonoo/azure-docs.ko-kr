@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
 translationtype: Human Translation
-ms.sourcegitcommit: c86ec1d328d3cbf62c1a563766574a006299b232
-ms.openlocfilehash: 8bbd077108ba6ca6df67b64ab3fa24c81bf0ab00
-ms.lasthandoff: 01/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bfb479020238bb4c2763f439c744aeddf97c8908
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -32,14 +32,14 @@ ms.lasthandoff: 01/14/2017
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell cmdlet
 
-다음 테이블의 cmdlet은 Windows PowerShell을 사용하여 자동화 연결을 만들고 관리하는 데 사용됩니다. 자동화 runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](/powershell/azureps-cmdlets-docs) 의 일부로 전송됩니다.
+다음 테이블의 cmdlet은 Windows PowerShell을 사용하여 자동화 연결을 만들고 관리하는 데 사용됩니다. 자동화 runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](/powershell/azure/overview) 의 일부로 전송됩니다.
 
 |Cmdlet|설명|
 |:---|:---|
-|[Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/get-azurermautomationconnection)|연결을 검색합니다. 연결의 필드 값이 있는 해시 테이블을 포함합니다.|
-|[New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/new-azurermautomationconnection)|새 연결을 만듭니다.|
-|[Remove-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/remove-azurermautomationconnection)|기존 연결을 제거합니다.|
-|[Set-AzureRmAutomationConnectionFieldValue](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Set-AzureRmAutomationConnectionFieldValue?redirectedfrom=msdn)|기존 연결의 특정 필드 값을 설정합니다.|
+|[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|연결을 검색합니다. 연결의 필드 값이 있는 해시 테이블을 포함합니다.|
+|[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|새 연결을 만듭니다.|
+|[Remove-AzureRmAutomationConnection](/powershell/module/azurerm.automation/remove-azurermautomationconnection)|기존 연결을 제거합니다.|
+|[Set-AzureRmAutomationConnectionFieldValue](/powershell/module/azurerm.automation/set-azurermautomationconnectionfieldvalue)|기존 연결의 특정 필드 값을 설정합니다.|
 
 ## <a name="activities"></a>활동
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 01/14/2017
 
 |활동|설명|
 |---|---|
-|[Get-AutomationConnection](https://docs.microsoft.com/powershell/servicemanagement/azure.automation/v1.6.1/Get-AzureAutomationConnection?redirectedfrom=msdn)|사용할 연결을 가져옵니다. 연결의 속성이 있는 해시 테이블을 반환합니다.|
+|[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|사용할 연결을 가져옵니다. 연결의 속성이 있는 해시 테이블을 반환합니다.|
 
 >[!NOTE] 
 >**Get-AutomationConnection**의 -Name 매개 변수에 변수를 사용하면 안 됩니다. 변수를 사용하는 경우 runbook 또는 DSC 구성과 설계 시의 연결 자산 간의 종속성을 검색하기가 어려워질 수 있기 때문입니다.
@@ -72,7 +72,7 @@ ms.lasthandoff: 01/14/2017
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Windows PowerShell을 사용하여 새 연결을 만들려면
 
-[New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/new-azurermautomationconnection) cmdlet을 사용하여 Windows PowerShell과의 새 연결을 만듭니다. 이 cmdlet에는 연결 형식에 정의된 각 특성의 값을 정의하는 **해시 테이블** 이 필요한 [ConnectionFieldValues](http://technet.microsoft.com/library/hh847780.aspx) 라는 매개 변수가 있습니다.
+[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet을 사용하여 Windows PowerShell과의 새 연결을 만듭니다. 이 cmdlet에는 연결 형식에 정의된 각 특성의 값을 정의하는 **해시 테이블** 이 필요한 [ConnectionFieldValues](http://technet.microsoft.com/library/hh847780.aspx) 라는 매개 변수가 있습니다.
 
 Automation [실행 계정](automation-sec-configure-azure-runas-account.md)에 익숙하여 서비스 주체를 통해 runbook을 인증하는 경우 포털에서 실행 계정을 만드는 대신 제공되는 PowerShell 스크립트에서 다음 샘플 명령을 사용하여 새 연결 자산을 만듭니다.  
 
@@ -108,3 +108,4 @@ Automation 계정을 만들 때 기본적으로 **AzurServicePrincipal** 연결 
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)를 검토하여 runbook의 논리 흐름을 지시하고 제어하는 방법을 이해합니다.  
 
 - Azure Automation에서 PowerShell 모듈을 사용하는 방법 및 Azure Automation 내에서 통합 모듈로 작동하도록 고유한 PowerShell 모듈을 만드는 모범 사례에 대한 자세한 내용은 [통합 모듈](automation-integration-modules.md)을 참조하세요.  
+

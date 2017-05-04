@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: b55ad97235a05bd579177c7ef944bca801a6aaae
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: fed612a354d45f34619f2a66bd40d78740c43ac7
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -32,7 +32,7 @@ Azure Resource Manager 스택에서 암호/인증서는 Key Vault의 리소스 �
 - [Azure CLI 2.0](../windows/key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
 
 ## <a name="use-cli-10-to-set-up-key-vault"></a>CLI 1.0을 사용하여 Key Vault 설정
-CLI(명령줄 인터페이스)를 사용하여 주요 자격 증명 모음을 만들려면 [CLI를 사용하여 주요 자격 증명 모음 관리](../../key-vault/key-vault-manage-with-cli.md#create-a-key-vault)를 참조하세요.
+CLI(명령줄 인터페이스)를 사용하여 주요 자격 증명 모음을 만들려면 [CLI를 사용하여 주요 자격 증명 모음 관리](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault)를 참조하세요.
 
 CLI 1.0의 경우 먼저 Key Vault를 만든 다음 배포 정책을 할당해야 합니다. 다음 명령을 사용하여 정책을 할당할 수 있습니다.
 
@@ -54,5 +54,4 @@ CLI 1.0의 경우 먼저 Key Vault를 만든 다음 배포 정책을 할당해�
     }
 
 템플릿을 사용하여 주요 자격 증명 모음을 만들 때 구성할 수 있는 다른 옵션에 대해서는 [주요 자격 증명 모음 만들기](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)를 참조하세요.
-
 

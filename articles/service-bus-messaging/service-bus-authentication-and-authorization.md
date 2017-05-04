@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/21/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8e113a78519444fd1e0a9da89ec95aa0dccebb2b
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4eaae725c62f66de1b50fd2c7094f3e6e89281be
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -35,8 +35,8 @@ ms.lasthandoff: 03/27/2017
 SAS를 사용하려면 다음을 구성하는 네임스페이스, 큐 또는 토픽에서 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체를 구성할 수 있습니다.
 
 * *KeyName* 입니다.
-* *PrimaryKey*는 SAS 토큰을 서명/확인하는 데 사용되는 암호화 키입니다.
-* *SecondaryKey*는 SAS 토큰을 서명/확인하는 데 사용되는 암호화 키입니다.
+* *PrimaryKey* 는 SAS 토큰을 서명/확인하는 데 사용되는 암호화 키입니다.
+* *SecondaryKey* 는 SAS 토큰을 서명/확인하는 데 사용되는 암호화 키입니다.
 * *권한* 입니다.
 
 네임 스페이스 수준에서 구성된 권한 부여 규칙은 해당 키를 사용하여 서명된 토큰으로 클라이언트에 대한 네임 스페이스의 모든 엔터티에 액세스를 부여할 수 있습니다. 이러한 권한 부여 규칙을 서비스 버스 네임 스페이스, 큐 또는 항목에서 최대 12개까지 구성할 수 있습니다. 기본적으로 모든 권한이 있는 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 은 처음으로 프로비전될 때 모든 네임스페이스에 대해 구성됩니다.
@@ -46,7 +46,7 @@ SAS를 사용하려면 다음을 구성하는 네임스페이스, 큐 또는 토
 서비스 버스에 대한 SAS 인증 지원은 Azure.NET SDK 버전 2.0 이후에 포함됩니다. SAS는 [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)에 대한 지원을 포함합니다. 연결 문자열을 매개 변수로 허용하는 모든 API는 SAS 연결 문자열에 대한 지원을 포함합니다.
 
 ## <a name="acs-authentication"></a>ACS 인증
-ACS를 통한 서비스 버스 인증은 동반 "-sb" ACS 네임스페이스를 통해 관리됩니다. Service Bus 네임스페이스에 생성될 동반 ACS 네임 스페이스가 필요하면 Azure 클래식 포털을 사용하여 Service Bus 네임스페이스를 만들 수 없습니다. [New-AzureSBNamespace](/powershell/servicemanagement/azure.compute/v1.6.1/New-AzureSBNamespace) PowerShell cmdlet를 사용하여 네임 스페이스를 만들어야 합니다. 예:
+ACS를 통한 서비스 버스 인증은 동반 "-sb" ACS 네임스페이스를 통해 관리됩니다. Service Bus 네임스페이스에 생성될 동반 ACS 네임 스페이스가 필요하면 Azure 클래식 포털을 사용하여 Service Bus 네임스페이스를 만들 수 없습니다. [New-AzureSBNamespace](/powershell/module/azure/new-azuresbnamespace?view=azuresmps-3.7.0) PowerShell cmdlet를 사용하여 네임 스페이스를 만들어야 합니다. 예:
 
 ```powershell
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 9601ff3152e62baf95794919fdc5a7fc43204d52
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c30f58079c9d8b8077b65881517178fa0ae0e598
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 03/24/2017
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
-1. Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 의 지침을 따르세요.
+1. Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 의 지침을 따르세요.
 2. 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토해야 합니다.
 3. 활성화된 Express 경로 회로가 있어야 합니다.
    * 지침에 따라 [Express 경로 회로를 만들고](expressroute-howto-circuit-classic.md) 연결 공급자가 회로를 사용하도록 설정합니다.

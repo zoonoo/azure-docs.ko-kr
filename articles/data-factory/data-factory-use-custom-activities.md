@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 114a8cb31d2bd24baea12f7393bbc7f95c59e16e
-ms.lasthandoff: 04/22/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 864526efd2bc90bdd4beeb4c81173e85eee6f34b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -732,7 +732,7 @@ Data Factory 시작 관리자에서 사용하는 어셈블리 버전(예: Window
 ```
 
 
-이 예제에는 두 가지 확장 속성, **SliceStart** 및 **DataFactoryName**이 있습니다. SliceStart의 값은 SliceStart 시스템 변수를 기반으로 합니다. 지원되는 시스템 변수 목록은 [시스템 변수](data-factory-scheduling-and-execution.md#data-factory-functions-and-system-variables) 를 참조하세요. DataFactoryName의 값은 CustomActivityFactory로 하드 코드됩니다.
+이 예제에는 두 가지 확장 속성, **SliceStart** 및 **DataFactoryName**이 있습니다. SliceStart의 값은 SliceStart 시스템 변수를 기반으로 합니다. 지원되는 시스템 변수 목록은 [시스템 변수](data-factory-functions-variables.md) 를 참조하세요. DataFactoryName의 값은 CustomActivityFactory로 하드 코드됩니다.
 
 **Execute** 메서드에서 이러한 확장 속성에 액세스하려면 다음 코드와 유사한 코드를 사용합니다.
 

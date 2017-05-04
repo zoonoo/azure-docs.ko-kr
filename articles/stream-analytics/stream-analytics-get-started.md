@@ -16,13 +16,13 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 14c708405ea73bb7bc81863bdcf51a056447a296
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: aeca154d2eb801ca69502adaeabfd5afca1f66e7
+ms.lasthandoff: 05/01/2017
 
 
 ---
-# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure 스트림 분석 사용 시작 : 실시간 부정 행위 감지
+# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics 사용 시작 : 실시간 부정 행위 감지
 Azure 스트림 분석으로 실시간 부정 행위 검색에 대한 종단간 솔루션을 만드는 방법에 대해 알아봅니다. Azure 이벤트 허브로 이벤트를 가져와서 집계 및 경고에 대한 스트림 분석 쿼리를 작성한 다음 출력 싱크로 결과를 보내 실시간 처리로 데이터에 대한 정보를 파악합니다. 통신에 대한 실시간 이상 감지를 다루고 있지만 예제 기술은 신용 카드 또는 ID 도용 시나리오 같은 다른 유형의 부정 행위 감지에도 똑같이 적합합니다.
 
 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. 자세한 내용은 [Azure 스트림 분석 소개](stream-analytics-introduction.md)를 참조하세요.
@@ -218,13 +218,13 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 ![사기 감지: 실시간으로 표시된 사기성 이벤트](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## <a name="get-support"></a>지원 받기
-추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 스트림 분석 소개](stream-analytics-introduction.md)
-* [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md)
+* [Azure Stream Analytics 소개](stream-analytics-introduction.md)
+* [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
 * [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 

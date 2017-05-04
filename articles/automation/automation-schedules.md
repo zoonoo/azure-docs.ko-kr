@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d12b1522e1935e4e9ebefd1a49fdfda8b339286c
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 823d1155bc011466d0f3bd0ccd8650be161fd28b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,26 +30,26 @@ Azure 자동화에서 Runbook이 지정된 시간에 시작되도록 예약하�
 > 
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell cmdlet
-다음 테이블의 cmdlet은 Azure 자동화에서 Windows PowerShell을 사용하여 일정을 만들고 관리하는 데 사용됩니다. 이러한 cmdlet은 [Azure PowerShell 모듈](/powershell/azureps-cmdlets-docs)의 일부로 제공됩니다.
+다음 테이블의 cmdlet은 Azure 자동화에서 Windows PowerShell을 사용하여 일정을 만들고 관리하는 데 사용됩니다. 이러한 cmdlet은 [Azure PowerShell 모듈](/powershell/azure/overview)의 일부로 제공됩니다.
 
 | Cmdlet | 설명 |
 |:--- |:--- |
 | **Azure Resource Manager cmdlet** | |
-| [Get-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603733.aspx) |일정을 검색합니다. |
-| [New-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603577.aspx) |새 일정을 만듭니다. |
-| [Remove-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603691.aspx) |일정을 제거합니다. |
-| [Set-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603566.aspx) |기존 일정에 대한 속성을 설정합니다. |
-| [Get-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt619406.aspx) |예약된 Runbook을 검색합니다. |
-| [Register-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt603575.aspx) |Runbook을 일정에 연결합니다. |
-| [Unregister-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt603844.aspx) |일정에서 Runbook을 분리합니다. |
+| [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |일정을 검색합니다. |
+| [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |새 일정을 만듭니다. |
+| [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |일정을 제거합니다. |
+| [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |기존 일정에 대한 속성을 설정합니다. |
+| [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/set-azurermautomationscheduledrunbook) |예약된 Runbook을 검색합니다. |
+| [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Runbook을 일정에 연결합니다. |
+| [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |일정에서 Runbook을 분리합니다. |
 | **Azure Service Management cmdlet** | |
-| [Get-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690274.aspx) |일정을 검색합니다. |
-| [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690271.aspx) |새 일정을 만듭니다. |
-| [Remove-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690279.aspx) |일정을 제거합니다. |
-| [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690270.aspx) |기존 일정에 대한 속성을 설정합니다. |
-| [Get-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn913778.aspx) |예약된 Runbook을 검색합니다. |
-| [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn690265.aspx) |Runbook을 일정에 연결합니다. |
-| [Unregister-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/dn690273.aspx) |일정에서 Runbook을 분리합니다. |
+| [Get-AzureAutomationSchedule](/powershell/module/azure/get-azureautomationschedule?view=azuresmps-3.7.0) |일정을 검색합니다. |
+| [New-AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) |새 일정을 만듭니다. |
+| [Remove-AzureAutomationSchedule](/powershell/module/azure/remove-azureautomationschedule?view=azuresmps-3.7.0) |일정을 제거합니다. |
+| [Set-AzureAutomationSchedule](/powershell/module/azure/set-azureautomationschedule?view=azuresmps-3.7.0) |기존 일정에 대한 속성을 설정합니다. |
+| [Get-AzureAutomationScheduledRunbook](/powershell/module/azure/get-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |예약된 Runbook을 검색합니다. |
+| [Register-AzureAutomationScheduledRunbook](/powershell/module/azure/register-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Runbook을 일정에 연결합니다. |
+| [Unregister-AzureAutomationScheduledRunbook](/powershell/module/azure/unregister-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |일정에서 Runbook을 분리합니다. |
 
 ## <a name="creating-a-schedule"></a>일정 만들기
 Azure 포털, 클래식 포털에서 또는 Windows PowerShell을 사용하여 runbook에 대한 새 일정을 만들 수 있습니다. Azure 클래식 또는 Azure 포털을 사용하여 Runbook을 일정에 연결할 때 새 일정을 만들 수도 있습니다.
@@ -74,7 +75,7 @@ Azure 포털, 클래식 포털에서 또는 Windows PowerShell을 사용하여 r
 6. **시작 시간** 을 지정하고 선택한 일정 유형에 따라 다른 옵션을 지정합니다.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Windows PowerShell을 사용하여 새 일정을 만들려면
-[New-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690271.aspx) cmdlet을 사용하여 Azure 자동화에서 기존 runbook에 대한 새 일정을 만들거나 [New-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603577.aspx) cmdlet을 Azure 포털에서 Runbook에 사용할 수 있습니다. 일정을 실행해야 할 일정의 시작 시간 및 빈도를 지정해야 합니다.
+[New-AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) cmdlet을 사용하여 Azure 자동화에서 기존 runbook에 대한 새 일정을 만들거나 [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet을 Azure 포털에서 Runbook에 사용할 수 있습니다. 일정을 실행해야 할 일정의 시작 시간 및 빈도를 지정해야 합니다.
 
 다음 샘플 명령에서는 Azure Resource Manager cmdlet을 사용하여 매월 15일 및 30일에 일정을 만드는 방법을 보여 줍니다.
 
@@ -109,7 +110,7 @@ Runbook을 여러 일정에 연결할 수 있으며, 하나의 일정에 여러 
 6. Runbook에 매개 변수가 있는 경우 해당 값에 대한 메시지가 표시됩니다.  
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Windows PowerShell을 사용하여 Runbook에 일정을 연결하려면
-[Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx)을 사용하여 Azure 포털에서 Runbook에 대한 클래식 runbook 또는 [Register-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt603575.aspx) cmdlet에 일정을 연결할 수 있습니다.  Parameters 매개 변수를 사용하여 Runbook의 매개 변수 값을 지정할 수 있습니다. 매개 변수 값 지정에 대한 자세한 내용은 [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md) 을 참조하세요.
+[Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx)을 사용하여 Azure 포털에서 Runbook에 대한 클래식 runbook 또는 [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet에 일정을 연결할 수 있습니다.  Parameters 매개 변수를 사용하여 Runbook의 매개 변수 값을 지정할 수 있습니다. 매개 변수 값 지정에 대한 자세한 내용은 [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md) 을 참조하세요.
 
 다음 샘플 명령에서는 매개 변수를 포함하는 Azure Resource Manager cmdlet을 사용하여 runbook에 일정을 연결하는 방법을 보여 줍니다.
 
@@ -147,7 +148,7 @@ Azure 클래식 포털의 일정에 대한 일정 세부 정보 페이지에서 
 4. **사용**을 **아니오**로 변경합니다.
 
 ### <a name="to-disable-a-schedule-with-windows-powershell"></a>Windows PowerShell을 사용하여 일정을 해제하려면
-[Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) cmdlet을 사용하여 기존 runbook에 대한 기존 일정의 속성을 변경하거나 [Set-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603566.aspx) cmdlet을 Azure 포털에서 runbook에 사용할 수 있습니다. 일정을 해제하려면 **IsEnabled** 매개 변수에 대해 **false**를 지정합니다.
+[Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) cmdlet을 사용하여 기존 runbook에 대한 기존 일정의 속성을 변경하거나 [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) cmdlet을 Azure 포털에서 runbook에 사용할 수 있습니다. 일정을 해제하려면 **IsEnabled** 매개 변수에 대해 **false**를 지정합니다.
 
 다음 샘플 명령에서는 Azure Resource Manager cmdlet을 사용하여 runbook에 일정을 비활성화하는 방법을 보여 줍니다.
 
@@ -165,10 +166,5 @@ Azure 클래식 포털의 일정에 대한 일정 세부 정보 페이지에서 
 
 ## <a name="next-steps"></a>다음 단계
 * Azure 자동화에서 Runbook을 시작하려면 [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md) 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

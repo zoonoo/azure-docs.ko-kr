@@ -15,9 +15,9 @@ ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 34b449b251672619aec6e86b9343343a9404126a
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a0eecbb50b001325c91d1d721bf8de7244f04674
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -48,7 +48,7 @@ Azure Data Lake Store를 새 지역에서 사용할 수 있기에 지역을 활�
 
 * **대역폭 요금** Azure 지역 외부에서 데이터를 전송하기 때문에 [대역폭 요금](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)이 적용됩니다.
 
-* **데이터에 대한 ACL** 파일 및 폴더에 ACL을 적용하여 새 지역에서 데이터를 보호합니다. 자세한 내용은 [Azure Data Lake Store에 저장된 데이터 보안](data-lake-store-secure-data.md)을 참조하세요. 마이그레이션을 사용하여 ACL을 업데이트하고 조정하는 것이 좋습니다. 현재 설정과 유사한 설정을 사용할 수도 있습니다. Azure Portal, [PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/get-azurermdatalakestoreitempermission) 또는 SDK를 사용하여 모든 파일에 적용되는 ACL을 볼 수 있습니다.  
+* **데이터에 대한 ACL** 파일 및 폴더에 ACL을 적용하여 새 지역에서 데이터를 보호합니다. 자세한 내용은 [Azure Data Lake Store에 저장된 데이터 보안](data-lake-store-secure-data.md)을 참조하세요. 마이그레이션을 사용하여 ACL을 업데이트하고 조정하는 것이 좋습니다. 현재 설정과 유사한 설정을 사용할 수도 있습니다. Azure Portal, [PowerShell cmdlet](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission) 또는 SDK를 사용하여 모든 파일에 적용되는 ACL을 볼 수 있습니다.  
 
 * **분석 서비스의 위치** 최상의 성능을 위해 Azure Data Lake Analytics 또는 Azure HDInsight와 같은 분석 서비스가 데이터와 동일한 지역에 있어야 합니다.  
 

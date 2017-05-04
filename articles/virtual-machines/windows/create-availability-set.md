@@ -18,9 +18,9 @@ ms.date: 02/06/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: e1933c5bf65f3e28d952213317413d0f65309c5b
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: caf50732ce19ded5016c6d5368f8b53b6ca3646f
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="increase-vm-availability-by-creating-an-azure-availability-set"></a>Azure 가용성 집합을 만들어 VM 가용성 향상 
@@ -71,7 +71,7 @@ VM을 가용성 집합에 포함하려면 가용성 집합을 먼저 만들거�
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-자세한 내용은 [Azure PowerShell 버전 관리](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning)를 참조하세요.
+자세한 내용은 [Azure PowerShell 버전 관리](/powershell/azure/overview)를 참조하세요.
 
 
 VM에 관리 디스크를 사용하는 경우 다음을 입력합니다.
@@ -88,7 +88,7 @@ VM에 사용자 고유의 저장소 계정을 사용하는 경우 다음을 입�
     -Name "myAvailabilitySet" -Location "West US" 
 ```
 
-자세한 내용은 [New-AzureRmAvailabilitySet](/powershell/resourcemanager/azurerm.compute/v2.8.0/new-azurermavailabilityset)를 참조하세요.
+자세한 내용은 [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 * VM을 만들 때 원하는 가용성 집합이 포털의 드롭다운 목록에 없는 경우 다른 리소스 그룹에 만들었을 수 있습니다. 가용성 집합에 대한 리소스 그룹을 모르는 경우 허브 메뉴로 이동한 후 찾아보기 > 가용성 집합을 클릭하여 가용성 집합 및 해당 집합이 속하는 리소스 그룹 목록을 표시합니다.

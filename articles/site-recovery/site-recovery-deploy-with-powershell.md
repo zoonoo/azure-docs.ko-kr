@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
-ms.openlocfilehash: d5fed9feb2292002a06c426cdd9e4e18f67bd3ec
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 51065a48c2f797b0ab764bf1b57425bd0696e2bd
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,9 +77,9 @@ Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원�
 * 복제된 가상 컴퓨터가 장애 조치(Failover) 후 연결할 수 있는 Azure 네트워크. 이 네트워크는 장애 조치(Failover) 시 선택합니다. 네트워크는 Azure Site Recovery 구독과 동일한 지역에 있어야 합니다.
 
 ### <a name="powershell-prerequisites"></a>PowerShell 필수 구성 요소
-Azure PowerShell을 사용할 준비가 되었는지 확인하세요. 이미 PowerShell을 사용하고 있는 경우 버전 0.8.10 이상으로 업그레이드해야 합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. PowerShell을 설정 및 구성하면 [여기](https://msdn.microsoft.com/library/dn850420.aspx)에서 서비스에 사용 가능한 모든 cmdlet을 볼 수 있습니다.
+Azure PowerShell을 사용할 준비가 되었는지 확인하세요. 이미 PowerShell을 사용하고 있는 경우 버전 0.8.10 이상으로 업그레이드해야 합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. PowerShell을 설정 및 구성하면 [여기](/powershell/azure/overview)에서 서비스에 사용 가능한 모든 cmdlet을 볼 수 있습니다.
 
-Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처리되는 방법 등 cmdlet을 사용하는 데 도움이 되는 팁을 보려면 [Azure Cmdlet 시작하기](https://msdn.microsoft.com/library/azure/jj554332.aspx)를 참조하세요.
+Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처리되는 방법 등 cmdlet을 사용하는 데 도움이 되는 팁을 보려면 [Azure Cmdlet 시작하기](/powershell/azure/get-started-azureps)를 참조하세요.
 
 ## <a name="step-1-set-the-subscription"></a>1단계: 구독 설정
 PowerShell에서 다음 cmdlet을 실행합니다.
@@ -383,7 +383,7 @@ marsagentinstaller.exe /q /nu
         $jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
 
 
-## <a name="a-namemonitora-monitor-activity"></a><a name=monitor></a> 작업 모니터
+## <a name=monitor></a> 작업 모니터
 다음 명령을 사용하여 작업을 모니터합니다. 처리가 완료될 때까지 기다린 후 다음 작업을 시작할 수 있습니다.
 
     Do
@@ -404,5 +404,5 @@ marsagentinstaller.exe /q /nu
 
 
 ## <a name="next-steps"></a>다음 단계
-[자세히 알아보세요](https://msdn.microsoft.com/library/dn850420.aspx) . </a>
+[자세히 알아보세요](/powershell/azure/overview) . </a>
 

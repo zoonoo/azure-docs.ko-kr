@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2961d05d0a81ab30296e084dd40618828b960bd2
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: fc71abada25c6f52859f68bca47396850ed59ed1
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -201,7 +201,7 @@ FROM Input
 
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>다음 단계
 Stream Analytics 작업을 위한 Azure의 데이터 연결 옵션에 대해 알아보았습니다. Stream Analytics에 대한 자세한 내용은 다음 항목을 참조하세요.

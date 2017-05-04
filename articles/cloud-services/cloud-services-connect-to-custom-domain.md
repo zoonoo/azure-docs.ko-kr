@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 39ee9cc1027958d85b2af2781adab0fe06c9a433
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5489762a7a392e4e4098d85cba22d560e9858267
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/05/2017
 
 시작하기 전에 다음 몇 가지를 유의하십시오.
 
-1. 이 자습서에서는 PowerShell을 사용하므로, Azure PowerShell이 설치되어 있고 사용할 수 있는지 확인하세요. Azure PowerShell 설정에 대한 도움을 얻으려면 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+1. 이 자습서에서는 PowerShell을 사용하므로, Azure PowerShell이 설치되어 있고 사용할 수 있는지 확인하세요. Azure PowerShell 설정에 대한 도움을 얻으려면 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 2. 사용자의 AD 도메인 컨트롤러와 웹/작업자 역할 인스턴스는 VNet에 있어야 합니다.
 
 이 단계별 가이드를 따르고 문제가 발생하는 경우 아래에 의견을 남겨 주세요. 담당자가 연락드립니다(물론, 저희는 여러분의 의견을 확인합니다.).

@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 18156086ca3eaf3ee99dfeb61096bc1eee49458b
-ms.openlocfilehash: 3d32518bed64ebe3dd1790bb511949624b5dcac1
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: deb528faa29a1e547286b0560d0f2b8decf3f90a
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -199,7 +199,7 @@ Blob Storage의 컨테이너가 없는 경우 아래 단계에 따라 만듭니�
 3. 세 번째 페이지에서 다음 값을 입력하거나 선택합니다.
 
    * **출력 별칭**: 이 작업 출력의 이름을 입력합니다.
-   * **구독**: 만든 Blob Storage가 Stream Analytics 작업과 동일한 구독에 있으면 **현재 구독에서 Storage 계정 사용**을 선택합니다. Storage가 다른 구독에 있으면 **다른 구독에서 Storage 계정 사용**을 클릭하고 ** 계정**, **Storage 계정 키** 및 **컨테이너**에 대한 정보를 직접 입력합니다.
+   * **구독**: 만든 Blob Storage가 Stream Analytics 작업과 동일한 구독에 있으면 **현재 구독에서 Storage 계정 사용**을 선택합니다. Storage가 다른 구독에 있으면 **다른 구독에서 Storage 계정 사용**을 클릭하고  **계정**, **Storage 계정 키** 및 **컨테이너**에 대한 정보를 직접 입력합니다.
    * **저장소 계정**: 저장소 계정의 이름을 선택합니다.
    * **컨테이너**: 컨테이너의 이름을 선택합니다.
    * **파일 이름 접두사**: Blob 출력을 작성할 때 사용할 파일 접두사를 입력합니다.
@@ -222,12 +222,12 @@ Blob Storage의 컨테이너가 없는 경우 아래 단계에 따라 만듭니�
 ![사기 감지: 실시간으로 표시된 사기성 이벤트](./media/stream-analytics-real-time-fraud-detection/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## <a name="get-support"></a>지원 받기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 

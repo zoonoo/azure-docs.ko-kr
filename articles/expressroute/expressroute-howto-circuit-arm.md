@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 15c08c950bc1dcd620f2943885e427991585d817
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7254217bc6a7b782eb19c8f062c46923dc5e7506
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/13/2017
 이 문서에서는 PowerShell cmdlet 및 Azure Resource Manager 배포 모델을 사용하여 Azure ExpressRoute 회로를 만드는 방법을 설명합니다. 이 문서에는 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 나와 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치합니다. 자세한 내용은 [Azure PowerShell 개요](/powershell/azureps-cmdlets-docs)를 참조하세요.
+* 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치합니다. 자세한 내용은 [Azure PowerShell 개요](/powershell/azure/overview)를 참조하세요.
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
 

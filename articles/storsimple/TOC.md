@@ -197,7 +197,7 @@
 ### [릴리스 - GA](storsimple-july-2014-release-notes.md)
 
 ## 참조
-### [Azure PowerShell](/powershell/servicemanagement)
+### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
 ### [StorSimple용 Windows PowerShell cmdlet](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple 데이터 관리자(비공개 미리 보기)

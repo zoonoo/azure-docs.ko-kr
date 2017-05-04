@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 4/12/2017
 ms.author: dstefan
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 03b7e184d26ceccd12f40b4935d7c451b7eee01e
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b6f26a338450619cef012467bf78b9469622ba08
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -395,7 +395,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 2단계에서 구성한 셀프 서비스 암호 재설정 데이터를 제공합니다. | http://aka.ms/ssprsetup |
 | 브라우저를 닫습니다. |  |
 | 4단계에서 사용한 정보 근로자로 로그인 프로세스를 다시 시작합니다. |  |
-| 암호를 재설정합니다. | [고유 암호 업데이트: 내 암호 재설정](active-directory-passwords-update-your-own-password.md#reset-my-password) |
+| 암호를 재설정합니다. | [고유 암호 업데이트: 내 암호 재설정](active-directory-passwords-update-your-own-password.md) |
 | 새 암호로 Azure AD 및 온-프레미스 리소스에 로그인해 보세요. |  |
 
 ### <a name="considerations"></a>고려 사항

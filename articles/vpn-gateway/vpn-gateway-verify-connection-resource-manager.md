@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 0e9fa1b1397c60985de9d2e60b3f01146036801f
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a67ea630cc8b5a3e9deab7733aa5cd2055949ec0
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/26/2017
 
 ## <a name="verify-using-powershell"></a>PowerShell을 사용하여 확인
 
-PowerShell을 사용하여 확인하려면 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요. Resource Manager cmdlet을 사용하는 방법에 대한 자세한 내용은 [Resource Manager에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+PowerShell을 사용하여 확인하려면 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요. Resource Manager cmdlet을 사용하는 방법에 대한 자세한 내용은 [Resource Manager에서 Windows PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 
 ### <a name="log-in-to-your-azure-account"></a>Azure 계정에 로그인
 1. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다.
@@ -66,7 +66,7 @@ Azure CLI를 사용하여 확인하려면 CLI 명령의 최신 버전(2.0 이상
   ```azurecli
   az login
   ```
-2. Azure 구독이 두 개 이상인 경우 계정에 대한 구독을 나열합니다.
+2. Azure 구독이 두 개 이상인 경우 계정의 구독을 나열합니다.
 
   ```azurecli
   Az account list --all
@@ -87,7 +87,7 @@ Azure CLI를 사용하여 확인하려면 CLI 명령의 최신 버전(2.0 이상
 
 
 ## <a name="verify-using-powershell-classic"></a>PowerShell을 사용하여 확인(클래식)
-PowerShell을 사용하여 확인하려면 최신 버전의 Azure PowerShell cmdlet을 설치합니다. Resource Manage 및 SM(서비스 관리) 버전 둘 다를 다운로드하고 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요. 
+PowerShell을 사용하여 확인하려면 최신 버전의 Azure PowerShell cmdlet을 설치합니다. Resource Manage 및 SM(서비스 관리) 버전 둘 다를 다운로드하고 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요. 
 
 ### <a name="log-in-to-your-azure-account"></a>Azure 계정에 로그인
 1. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다.

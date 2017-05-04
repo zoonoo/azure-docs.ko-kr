@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 04/07/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: d2887e255e59c164bb6d733988053f514a118c7b
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 35a86a91ee60a81b5c743067fcd97da0f2dcc8f1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -359,7 +359,7 @@ PFX 업로드를 완료한 후 다음과 같이 Key Vault의 인증서를 기존
  ```
 
 #### <a name="set-up-the-key-vault-access-policy-for-the-azure-ad-application"></a>Azure AD 응용 프로그램에 대한 Key Vault 액세스 정책 설정
-Azure AD 응용 프로그램에 자격 증명 모음의 키 또는 암호에 액세스할 권한이 필요합니다. _–ServicePrincipalName_ 매개 변수 값으로 클라이언트 ID(응용 프로그램이 등록될 때 생성됨)를 사용하여 [`Set-AzureKeyVaultAccessPolicy`](https://msdn.microsoft.com/library/azure/dn903607.aspx) cmdlet으로 응용 프로그램에 권한을 부여합니다. 자세한 내용은 블로그 게시물 [Azure Key Vault - 단계별](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx)을 참조하세요. 다음은 PowerShell을 통해 이 작업을 수행하는 방법에 대한 예입니다.
+Azure AD 응용 프로그램에 자격 증명 모음의 키 또는 암호에 액세스할 권한이 필요합니다. _–ServicePrincipalName_ 매개 변수 값으로 클라이언트 ID(응용 프로그램이 등록될 때 생성됨)를 사용하여 [`Set-AzureKeyVaultAccessPolicy`](/powershell/module/azure/set-azurekeyvaultaccesspolicy?view=azuresmps-3.7.0) cmdlet으로 응용 프로그램에 권한을 부여합니다. 자세한 내용은 블로그 게시물 [Azure Key Vault - 단계별](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx)을 참조하세요. 다음은 PowerShell을 통해 이 작업을 수행하는 방법에 대한 예입니다.
 
     $keyVaultName = '<yourKeyVaultName>'
     $aadClientID = '<yourAadAppClientID>'
@@ -382,7 +382,7 @@ Azure AD 응용 프로그램에 자격 증명 모음의 키 또는 암호에 액
 | CLI | [Azure 명령줄 인터페이스](../cli-install-nodejs.md)을 참조하세요. |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)는 Linux IaaS VM에서 디스크 암호화를 설정하는 데 사용되는 Linux 기반의 투명한 디스크 암호화 하위 시스템입니다. |
 | KEK | 주요 암호화 키는 비밀을 보호하거나 래핑하는 데 사용할 수 있는 비대칭 키(RSA 2048)입니다. HSM(하드웨어 보안 모듈) 보호 키 또는 소프트웨어 보호 키를 제공할 수 있습니다. 자세한 내용은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 설명서를 참조하세요. |
-| PS cmdlet | [Azure PowerShell cmdlet](/powershell/azureps-cmdlets-docs)을 참조하세요. |
+| PS cmdlet | [Azure PowerShell cmdlet](/powershell/azure/overview)을 참조하세요. |
 
 ### <a name="set-up-and-configure-your-key-vault-for-azure-disk-encryption"></a>Azure Disk Encryption을 위한 Key Vault 설정 및 구성
 Azure Disk Encryption을 통해 Key Vault에서 디스크 암호화 키 및 비밀을 보호합니다. Azure Disk Encryption에 대한 Key Vault를 설명하려면 다음 각 섹션의 단계를 완료합니다.
@@ -391,7 +391,7 @@ Azure Disk Encryption을 통해 Key Vault에서 디스크 암호화 키 및 비�
 Key Vault를 만들려면 다음 옵션 중 하나를 사용합니다.
 
 * ["101-Key-Vault-Create" Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-* [Azure PowerShell Key Vault cmdlet](https://msdn.microsoft.com/library/dn868052.aspx)
+* [Azure PowerShell Key Vault cmdlet](/powershell/module/azurerm.keyvault/#key_vault)
 * Azure 리소스 관리자
 * [Key Vault를 보호](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)하는 방법
 
@@ -401,7 +401,7 @@ Key Vault를 만들려면 다음 옵션 중 하나를 사용합니다.
 ![Azure 키 자격 증명 모음](./media/azure-security-disk-encryption/keyvault-portal-fig1.png)
 
 #### <a name="set-up-a-key-encryption-key-optional"></a>주요 암호화 키 설정(선택 사항)
-BitLocker 암호화 키에 대한 추가 보안 계층으로 KEK를 사용하려는 경우 KEK를 Key Vault에 추가합니다. [`Add-AzureKeyVaultKey`](https://msdn.microsoft.com/library/dn868048.aspx) cmdlet을 사용하여 Key Vault에 주요 암호화 키를 만듭니다. 또한 온-프레미스 키 관리 HSM에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](https://azure.microsoft.com/documentation/services/key-vault/)를 참조하세요.
+BitLocker 암호화 키에 대한 추가 보안 계층으로 KEK를 사용하려는 경우 KEK를 Key Vault에 추가합니다. [`Add-AzureKeyVaultKey`](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) cmdlet을 사용하여 Key Vault에 주요 암호화 키를 만듭니다. 또한 온-프레미스 키 관리 HSM에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](https://azure.microsoft.com/documentation/services/key-vault/)를 참조하세요.
 
     Add-AzureKeyVaultKey [-VaultName] <string> [-Name] <string> -Destination <string> {HSM | Software}
 
@@ -494,7 +494,7 @@ Azure에서 사용할 수 있는 미리 암호화된 이미지를 준비하는 �
 | vmName | IaaS VM의 이름 |
 
 #### <a name="using-powershell-cmdlets"></a>PowerShell cmdlet 사용
-PowerShell cmdlet [`Set-AzureRmVMOSDisk`](https://msdn.microsoft.com/library/azure/mt603746.aspx)를 사용하여 암호화된 VHD에서 디스크 암호화를 사용하도록 설정할 수 있습니다.  
+PowerShell cmdlet [`Set-AzureRmVMOSDisk`](/powershell/module/azurerm.compute/set-azurermvmosdisk)를 사용하여 암호화된 VHD에서 디스크 암호화를 사용하도록 설정할 수 있습니다.  
 
 #### <a name="using-cli-commands"></a>CLI 명령 사용
 CLI 명령을 사용하여 이 시나리오에 대한 디스크 암호화를 사용하도록 설정하려면 다음 단계를 따르세요.
@@ -630,7 +630,7 @@ CLI 명령을 사용하여 Azure에서 기존 또는 실행 중인 IaaS Windows 
  ```
 
 ### <a name="get-the-encryption-status-of-an-encrypted-iaas-vm"></a>암호화된 IaaS VM의 암호화 상태 가져오기
-Azure Resource Manager, [PowerShell cmdlet](https://msdn.microsoft.com/library/azure/mt622700.aspx) 또는 CLI 명령을 사용하여 암호화 상태를 가져올 수 있습니다. 다음 섹션에서는 Azure 클래식 포털 및 CLI 명령을 사용하여 암호화 상태를 가져오는 방법에 대해 설명합니다.
+Azure Resource Manager, [PowerShell cmdlet](/powershell/azure/overview) 또는 CLI 명령을 사용하여 암호화 상태를 가져올 수 있습니다. 다음 섹션에서는 Azure 클래식 포털 및 CLI 명령을 사용하여 암호화 상태를 가져오는 방법에 대해 설명합니다.
 
 #### <a name="get-the-encryption-status-of-an-encrypted-windows-vm-by-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 암호화된 Windows VM의 암호화 상태 가져오기
 다음을 수행하여 Azure Resource Manager에서 IaaS VM의 암호화 상태를 가져올 수 있습니다.
@@ -713,7 +713,7 @@ Linux VM의 경우 [실행 중인 Linux VM에서 암호화 사용 안 함](https
 | sequenceVersion | BitLocker 작업의 시퀀스 버전. 동일한 VM에서 디스크 암호 해독 작업이 수행될 때마다 이 버전 번호가 증가합니다. |
 
 ##### <a name="disable-encryption-on-an-existing-or-running-iaas-vm"></a>기존 또는 실행 중인 IaaS VM에서 암호화 사용 안 함
-PowerShell cmdlet을 사용하여 기존 또는 실행 중인 IaaS VM에서 암호화를 사용하지 않도록 설정하려면 [`Disable-AzureRmVMDiskEncryption`](https://msdn.microsoft.com/library/azure/mt715776.aspx)을 참조하세요. 이 cmdlet에는 Windows 및 Linux VM을 둘 다 지원합니다. 암호화를 사용하지 않도록 설정하려면 가상 컴퓨터에서 확장을 설치합니다. _이름_ 매개 변수를 지정하지 않으면 _Windows VM용 AzureDiskEncryption_ 기본 이름을 포함한 확장이 만들어집니다.
+PowerShell cmdlet을 사용하여 기존 또는 실행 중인 IaaS VM에서 암호화를 사용하지 않도록 설정하려면 [`Disable-AzureRmVMDiskEncryption`](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption)을 참조하세요. 이 cmdlet에는 Windows 및 Linux VM을 둘 다 지원합니다. 암호화를 사용하지 않도록 설정하려면 가상 컴퓨터에서 확장을 설치합니다. _이름_ 매개 변수를 지정하지 않으면 _Windows VM용 AzureDiskEncryption_ 기본 이름을 포함한 확장이 만들어집니다.
 
 Linux VM에서는 AzureDiskEncryptionForLinux 확장이 사용됩니다.
 
@@ -1149,7 +1149,7 @@ BitLocker 암호화 또는 DM-Crypt 암호화를 사용하도록 설정한 후�
 
 
 #### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>KEK로 암호화되지 않은 디스크 암호화 암호
-Key Vault에서 비밀을 설정하려면 [Set-AzureKeyVaultSecret](https://msdn.microsoft.com/library/dn868050.aspx)을 사용합니다. Windows 가상 컴퓨터의 경우 bek 파일이 base64 문자열로 인코딩된 후 `Set-AzureKeyVaultSecret` cmdlet을 사용하여 Key Vault로 업로드됩니다. Linux의 경우 암호는 base64 문자열로 인코딩된 후 Key Vault로 업로드됩니다. 또한 Key Vault에서 비밀을 만들 때 다음 태그가 설정되었는지 확인합니다.
+Key Vault에서 비밀을 설정하려면 [Set-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret)을 사용합니다. Windows 가상 컴퓨터의 경우 bek 파일이 base64 문자열로 인코딩된 후 `Set-AzureKeyVaultSecret` cmdlet을 사용하여 Key Vault로 업로드됩니다. Linux의 경우 암호는 base64 문자열로 인코딩된 후 Key Vault로 업로드됩니다. 또한 Key Vault에서 비밀을 만들 때 다음 태그가 설정되었는지 확인합니다.
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"
@@ -1165,7 +1165,7 @@ Key Vault에서 비밀을 설정하려면 [Set-AzureKeyVaultSecret](https://msdn
 [KEK를 사용하지 않고 OS 디스크를 연결](#without-using-a-kek)하기 위해 다음 단계에서 `$secretUrl`을 사용합니다.
 
 #### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>KEK로 암호화된 디스크 암호화 암호
-비밀을 Key Vault에 업로드하기 전에 주요 암호화 키를 사용하여 선택적으로 암호화할 수 있습니다. 먼저 래핑 [API](https://msdn.microsoft.com/library/azure/dn878066.aspx)를 사용하여 주요 암호화 키로 비밀을 암호화합니다. 이 래핑 작업의 출력은 base64 URL 인코딩 문자열로, [`Set-AzureKeyVaultSecret`](https://msdn.microsoft.com/library/dn868050.aspx) cmdlet을 사용하여 비밀로 업로드할 수 있습니다.
+비밀을 Key Vault에 업로드하기 전에 주요 암호화 키를 사용하여 선택적으로 암호화할 수 있습니다. 먼저 래핑 [API](https://msdn.microsoft.com/library/azure/dn878066.aspx)를 사용하여 주요 암호화 키로 비밀을 암호화합니다. 이 래핑 작업의 출력은 base64 URL 인코딩 문자열로, [`Set-AzureKeyVaultSecret`](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret) cmdlet을 사용하여 비밀로 업로드할 수 있습니다.
 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"

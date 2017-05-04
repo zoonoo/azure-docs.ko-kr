@@ -15,9 +15,9 @@ ms.workload: required
 ms.date: 02/06/2017
 ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: 44b6ff6e588d529fd833a4a7fdd61df7e933ddd8
-ms.openlocfilehash: b4105e98323b5161a22fa65707d376a7155611d6
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c91a1210e84d215449b98aae14bda490aa2cb156
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -91,7 +91,7 @@ Azure 자동화는 Azure PowerShell을 사용하여 구독에 연결하고 해�
 
 ![](media/site-recovery-runbook-automation/11.png)
 
-PowerShell을 통해 구독에 연결하는 방법에 대한 자세한 내용은 [여기](/powershell/azureps-cmdlets-docs)를 참조하세요.
+PowerShell을 통해 구독에 연결하는 방법에 대한 자세한 내용은 [여기](/powershell/azure/overview)를 참조하세요.
 
 다음으로, 장애 조치 후 프런트엔드 가상 컴퓨터에 끝점을 추가할 수 있는 Azure 자동화에서 runbook을 만듭니다.
 

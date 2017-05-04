@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 8560f91ed42855b4bfe935e858a6ff932a6f6274
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ea5546a636bd567853438ae2620ae24ce2d7da23
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -54,7 +54,7 @@ ms.lasthandoff: 04/13/2017
 
 ### <a name="before-you-begin"></a>시작하기 전에
 * Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
-* Azure 리소스 관리자 PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 개요](/powershell/azureps-cmdlets-docs)를 참조하세요.
+* Azure 리소스 관리자 PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 개요](/powershell/azure/overview)를 참조하세요.
 
 ### <a name="step-1---create-and-configure-vnet1"></a>1단계 - VNet1 만들기 및 구성
 #### <a name="1-declare-your-variables"></a>1. 변수 선언

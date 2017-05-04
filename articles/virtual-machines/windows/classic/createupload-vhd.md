@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 8cae78052a4433f0a26d774a7085c110e32911c9
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 62c428215c5bd89789ae65bd420281a2f16f33a1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/27/2017
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
 * **Azure 구독** - 계정이 없는 경우 [무료로 Azure 계정을 개설할 수 있습니다](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
-* **[Microsoft Azure PowerShell](/powershell/azureps-cmdlets-docs)** - Microsoft Azure PowerShell 모듈이 설치되고 구독을 사용하도록 구성되어 있어야 합니다.
+* **[Microsoft Azure PowerShell](/powershell/azure/overview)** - Microsoft Azure PowerShell 모듈이 설치되고 구독을 사용하도록 구성되어 있어야 합니다.
 * **.VHD 파일** - .vhd 파일에 저장되고 가상 컴퓨터에 연결된 지원되는 Windows 운영 체제 VHD에서 실행 중인 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
 
     > [!IMPORTANT]
@@ -88,7 +88,7 @@ Azure에 VHD를 업로드하기 전에 Sysprep 도구를 사용하여 일반화�
     ```
 
 ## <a name="step-3-upload-the-vhd-file"></a>3단계: .vhd 파일 업로드
-[Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) 를 사용하여 VHD를 업로드합니다.
+[Add-AzureVhd](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevhd) 를 사용하여 VHD를 업로드합니다.
 
 이전 단계에서 사용한 Azure PowerShell 창에서 다음 명령을 입력하고 &lsaquo; brackets &rsaquo;의 변수를 자체 정보로 바꿉니다.
 
@@ -97,7 +97,7 @@ Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<C
 ```
 
 ## <a name="step-4-add-the-image-to-your-list-of-custom-images"></a>4단계: 사용자 지정 이미지 목록에 이미지 추가
-[Add-AzureVMImage](https://msdn.microsoft.com/library/mt589167.aspx) cmdlet을 사용하여 사용자 지정 이미지 목록에 이미지를 추가합니다.
+[Add-AzureVMImage](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevmimage) cmdlet을 사용하여 사용자 지정 이미지 목록에 이미지를 추가합니다.
 
 ```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"

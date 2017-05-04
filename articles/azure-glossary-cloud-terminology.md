@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: monicar
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1842d55e2275560581cf2766cdf74e0939e68c98
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1cf6be168c3e87bfd567c216679f608593673340
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -47,8 +47,8 @@ Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델](resource
 Windows, OSX 및 Linux PC의 Azure 서비스를 관리하는 데 사용할 수 있는 [명령줄 인터페이스](cli-install-nodejs.md) 입니다.
 
 ### <a name="powershell"></a>Azure PowerShell
-Windows PC의 명령줄을 통해 Azure 서비스를 관리하는 [명령줄 인터페이스](/powershell/azureps-cmdlets-docs) 입니다. 일부 서비스 또는 서비스 기능은 PowerShell 또는 CLI를 통해서만 관리할 수 있습니다. 리소스가 배포될 수 있는 모델에 대한 각 개별 Azure 리소스 세부 정보의 지침입니다.   
-[Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)
+Windows PC의 명령줄을 통해 Azure 서비스를 관리하는 [명령줄 인터페이스](/powershell/azure/overview) 입니다. 일부 서비스 또는 서비스 기능은 PowerShell 또는 CLI를 통해서만 관리할 수 있습니다. 리소스가 배포될 수 있는 모델에 대한 각 개별 Azure 리소스 세부 정보의 지침입니다.   
+[Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)
 
 ### <a name="arm-model"></a>Azure Resource Manager 배포 모델
 Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델](resource-manager-deployment-model.md) 중 하나입니다(다른 모델은 클래식 배포 모델임). 일부 Azure 리소스는 둘 중 하나의 모델에서 배포할 수 있지만 다른 리소스는 두 모델 모두에서 배포할 수 있습니다. 리소스가 배포될 수 있는 모델에 대한 개별 Azure 리소스 세부 정보를 안내합니다.

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 3a3734fba72c42ee4e6f14069faf2d3396c06dd1
-ms.lasthandoff: 04/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: de39e768697425b98fb615697e57918c8c5d3853
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -65,7 +65,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 ### <a name="before-you-begin"></a>시작하기 전에
 
-이 연습을 시작하기 전에 최신 버전의 Azure SM(Service Management) PowerShell cmdlet을 다운로드하여 설치합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. 대부분의 단계에서 포털을 사용하지만 PowerShell을 사용하여 VNet 간의 연결을 만들어야 합니다. Azure Portal을 사용하여 연결을 만들 수 없습니다.
+이 연습을 시작하기 전에 최신 버전의 Azure SM(Service Management) PowerShell cmdlet을 다운로드하여 설치합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 대부분의 단계에서 포털을 사용하지만 PowerShell을 사용하여 VNet 간의 연결을 만들어야 합니다. Azure Portal을 사용하여 연결을 만들 수 없습니다.
 
 ## <a name="step1"></a>1단계 - IP 주소 범위 계획
 
@@ -202,7 +202,7 @@ Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 P
 
 다음 단계에서는 연결에 필요한 값을 확보하기 위해 Azure 계정에 연결하고 네트워크 구성 파일을 다운로드하여 살펴봅니다.
 
-1. 최신 버전의 Azure SM(서비스 관리) PowerShell cmdlet을 다운로드하여 설치합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+1. 최신 버전의 Azure SM(서비스 관리) PowerShell cmdlet을 다운로드하여 설치합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
 2. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
@@ -278,3 +278,4 @@ Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 P
 
 ## <a name="next-steps"></a>다음 단계
 연결을 확인합니다. [VPN Gateway 연결 확인](vpn-gateway-verify-connection-resource-manager.md)을 참조하세요.
+

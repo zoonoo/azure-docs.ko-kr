@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 04/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: fe53a68e2858df87c4b93348dfc426f9cd346121
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 84cdc5eec5567c9c6905eee285afd2426607ff08
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -65,7 +65,7 @@ VM을 암호화하는 프로세스는 다음과 같습니다.
 * 온-프레미스 키 관리 서비스와의 통합
 
 ## <a name="create-azure-key-vault-and-keys"></a>Azure Key Vault 및 키 만들기
-시작하기 전에 최신 버전의 Azure PowerShell 모듈을 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. 명령 예제 전체에서 모든 예제 매개 변수를 사용자 고유의 이름, 위치, 키 값으로 바꿉니다. 다음 예제는 `myResourceGroup`, `myKeyVault`, `myVM` 등의 규칙을 사용합니다.
+시작하기 전에 최신 버전의 Azure PowerShell 모듈을 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 명령 예제 전체에서 모든 예제 매개 변수를 사용자 고유의 이름, 위치, 키 값으로 바꿉니다. 다음 예제는 `myResourceGroup`, `myKeyVault`, `myVM` 등의 규칙을 사용합니다.
 
 첫 번째 단계는 암호화 키를 저장할 Azure Key Vault를 만드는 것입니다. Azure Key Vault는 응용 프로그램 및 서비스에 안전하게 구현할 수 있는 키와 암호를 저장할 수 있습니다. 가상 디스크 암호화의 경우 Key Vault를 만들어 가상 디스크 암호화 또는 암호 해독에 사용되는 암호화 키를 저장합니다. 
 
@@ -190,3 +190,4 @@ ProgressMessage            : OsVolume: Encrypted, DataVolumes: Encrypted
 ## <a name="next-steps"></a>다음 단계
 * Azure Key Vault 관리 방법에 대한 자세한 내용은 [가상 컴퓨터에 대한 Key Vault 설정](key-vault-setup.md)을 참조하세요.
 * Azure에 업로드할 암호화된 사용자 지정 VM 준비와 같은 디스크 암호화에 대한 자세한 내용은 [Azure Disk Encryption](../../security/azure-security-disk-encryption.md)을 참조하세요.
+

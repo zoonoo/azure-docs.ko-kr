@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: c2fb44817f168eee8303d0c07473f043ae30d350
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a2a6ca04ca8043bc0ed142310ad3e7b55100d228
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -36,7 +36,7 @@ Azure Traffic Manager는 Traffic Manager 프로필을 호출하는 설정 모음
 
 이러한 지침은 Microsoft Azure PowerShell을 사용합니다. 다음 문서는 Azure PowerShell 설치 및 구성하는 방법을 설명합니다.
 
-* [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)
 
 이 문서의 예제에서는 기존 리소스 그룹이 있다고 가정합니다. 다음 명령을 사용하여 리소스 그룹을 만들 수 있습니다.
 

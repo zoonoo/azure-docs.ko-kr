@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/02/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 84b5f28fcd0640fd85b5f8c9d655105790c70d62
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e652218e6579ef430a5dc49f77a26a7d97b8b966
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/20/2017
 
 *Flighting* 은 제한된 수의 실제 고객으로 새로운 기능 또는 변경의 유효성을 검사하는 배포 프로세스이며 프로덕션 시나리오의 주요 테스트입니다. 베타 테스트와 유사하며 때로 "통제된 테스트 비행"이라고도 합니다. 웹 서비스를 제공하는 많은 대기업이 이 방법을 사용하여 [민첩한 개발](https://en.wikipedia.org/wiki/Agile_software_development)이라는 해당 연습에서 앱 업데이트의 초기 유효성 검사를 가져옵니다. Azure 앱 서비스를 사용하면 동일한 DevOps 시나리오를 구현하기 위해 연속 게시 및 Application Insights를 사용하여 프로덕션에서 테스트를 통합할 수 있습니다. 이 방법의 이점은 다음과 같습니다.
 
-* **업데이트가 프로덕션에 릴리스되기전에*실제* 피드백 얻기** - 릴리스하는 즉시 피드백을 얻는 것보다 릴리스하기 전에 피드백을 얻는 것이 좋습니다. 제품 수명 주기에서 원하는 만큼 빠르게 실제 사용자 트래픽 및 동작을 사용하여 업데이트를 테스트할 수 있습니다.
+* **업데이트가 프로덕션에 릴리스되기 *전에* 실제 피드백 얻기** - 릴리스하는 즉시 피드백을 얻는 것보다 릴리스하기 전에 피드백을 얻는 것이 좋습니다. 제품 수명 주기에서 원하는 만큼 빠르게 실제 사용자 트래픽 및 동작을 사용하여 업데이트를 테스트할 수 있습니다.
 * **[연속 테스트 기반 개발(CTDD)](https://en.wikipedia.org/wiki/Continuous_test-driven_development) 향상** - Application Insights를 사용하여 연속 통합 및 계측으로 프로덕션에서 테스트를 통합하여 사용자 유효성 검사가 제품 수명 주기에서 초기에 자동으로 발생합니다. 수동 테스트 실행에 시간 투자를 줄일 수 있습니다.
 * **테스트 워크플로 최적화** -연속 모니터링 계측으로 프로덕션에서 테스트를 자동화하여 단일 프로세스에서 [통합](https://en.wikipedia.org/wiki/Integration_testing), [회귀](https://en.wikipedia.org/wiki/Regression_testing), [유용성](https://en.wikipedia.org/wiki/Usability_testing), 접근성, 지역화, [성능](https://en.wikipedia.org/wiki/Software_performance_testing), [보안](https://en.wikipedia.org/wiki/Security_testing) 및 [수용](https://en.wikipedia.org/wiki/Acceptance_testing)과 같은 다양한 테스트의 목표를 잠재적으로 수행할 수 있습니다.
 
@@ -355,6 +355,6 @@ Azure 앱 서비스는 일반적으로 큰 기업에서 수행한 바와 같이 
 * [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint-JSON 유효성 검사기](http://jsonlint.com/)
 * [Git 분기-기본 분기 및 병합](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 

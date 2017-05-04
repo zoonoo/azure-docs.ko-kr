@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 04/03/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2dcba235353f2b1bd2b42d93066a91071f0ea1a1
-ms.openlocfilehash: 8b9afcd62ad318e181e2d210af58dcb412eefaaf
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 74301d651ae96588e5fd076900aada198c76deb0
+ms.lasthandoff: 04/28/2017
 
 
 ---
-# <a name="copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>데이터 팩터리를 사용하여 Blob 저장소에서 SQL 데이터베이스로 데이터 복사
+# <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>자습서: 데이터 팩터리를 사용하여 Blob Storage에서 SQL Database로 데이터 복사
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
@@ -32,8 +32,6 @@ ms.lasthandoff: 02/22/2017
 > * [Azure Resource Manager 템플릿](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
->
->
 
 이 자습서에서는 파이프라인을 포함한 데이터 팩터리를 만들어서 Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다.
 
@@ -45,7 +43,7 @@ ms.lasthandoff: 02/22/2017
 >
 
 ## <a name="prerequisites-for-the-tutorial"></a>자습서의 필수 조건
-이 자습서를 시작하기 전에 다음이 있어야 합니다.
+이 자습서를 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
 * **Azure 구독**.  구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
 * **Azure 저장소 계정**. 이 자습서에서는 Blob 저장소를 **원본** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요.
@@ -87,13 +85,13 @@ ms.lasthandoff: 02/22/2017
 ## <a name="prepare-blob-storage-and-sql-database"></a>Blob 저장소 및 SQL 데이터베이스 준비
 이제 다음 단계를 수행하여 자습서에서 사용할 Azure Blob 저장소 및 Azure SQL 데이터베이스를 준비합니다.  
 
-1. 메모장을 시작하고 다음 텍스트를 붙여 넣은 다음 **emp.txt**로 하드 드라이브의 **C:\ADFGetStarted** 폴더에 저장합니다.
+1. 메모장을 시작합니다. 다음 텍스트를 복사하여 **emp.txt**로 하드 드라이브의 **C:\ADFGetStarted** 폴더에 저장합니다.
 
     ```
     John, Doe
     Jane, Doe
     ```
-2. [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)와 같은 도구를 사용하여 **adftutorial** 컨테이너를 만들고 **emp.txt** 파일을 이 컨테이너에 업로드합니다.
+2. [Azure Storage Explorer](http://storageexplorer.com/)와 같은 도구를 사용하여 **adftutorial** 컨테이너를 만들고 **emp.txt** 파일을 이 컨테이너에 업로드합니다.
 
     ![Azure 저장소 탐색기. Blob 저장소에서 SQL 데이터베이스로 데이터 복사](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. 다음 SQL 스크립트를 사용하여 **emp** 테이블을 Azure SQL 데이터베이스에 만듭니다.  
@@ -114,6 +112,7 @@ ms.lasthandoff: 02/22/2017
 
     클라이언트가 Azure SQL Server에 액세스할 수 없는 경우 컴퓨터(IP 주소)의 액세스를 허용하도록 Azure SQL Server의 방화벽을 구성해야 합니다. Azure SQL Server의 방화벽을 구성하는 단계는 [이 문서](../sql-database/sql-database-configure-firewall-settings.md)를 참조하세요.
 
+## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 필수 조건을 완료했습니다. 다음 방법 중 하나를 사용하여 데이터 팩터리를 만들 수 있습니다. 위쪽의 드롭다운 목록에 있는 옵션 또는 다음 링크 중 하나를 클릭하여 자습서를 수행합니다.     
 
 * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
@@ -128,3 +127,4 @@ ms.lasthandoff: 02/22/2017
 > 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. 출력 데이터를 생성하기 위해 입력 데이터를 변환하지 않습니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하도록 첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
 > 
 > 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 정보는 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요. 
+

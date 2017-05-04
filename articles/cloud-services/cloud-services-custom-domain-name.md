@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2b020004762125aad201cf7eb454da5cf73288ae
-ms.openlocfilehash: bc8b93d59b53e17eff4b7448f5c6b445894f47e9
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5834ad4e35894f9417d0319f120c8b74b69b3355
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -76,7 +77,7 @@ CNAME 레코드를 만들려면 등록 기관에서 제공한 도구를 사용�
        ![사이트 URL을 표시하는 한눈에 보기 섹션][csurl]
      
        **또는**  
-   * [Azure Powershell](/powershell/azureps-cmdlets-docs)을 설치 및 구성하고 다음 명령을 사용합니다.
+   * [Azure Powershell](/powershell/azure/overview)을 설치 및 구성하고 다음 명령을 사용합니다.
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -111,7 +112,7 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
        ![VIP를 표시하는 한눈에 보기 섹션][vip]
      
        **또는**  
-   * [Azure Powershell](/powershell/azureps-cmdlets-docs)을 설치 및 구성하고 다음 명령을 사용합니다.
+   * [Azure Powershell](/powershell/azure/overview)을 설치 및 구성하고 다음 명령을 사용합니다.
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -156,9 +157,4 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 [Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
 [vip]: ./media/cloud-services-custom-domain-name/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

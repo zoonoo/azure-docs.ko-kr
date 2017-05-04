@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6d11b75fdd33260be3d975d9bc25fdac3cf22b49
-ms.openlocfilehash: 73f42b25d667f07205e7e67556c367f1a0e6e215
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7f04ac92d7a9eff9db49ff493cdaa8693ce188c6
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 73f42b25d667f07205e7e67556c367f1a0e6e215
 클래식 및 Resource Manager 배포 모델 모두에서 사용할 수 있도록 ExpressRoute 회로를 사용하려면 회로를 Resource Manager 배포 모델로 이동해야 합니다. 다음 섹션에서는 PowerShell을 사용하여 회로를 이동하는 단계를 안내합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* Azure PowerShell 모듈의 최신 버전(버전 1.0 이상)이 있는지 확인합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+* Azure PowerShell 모듈의 최신 버전(버전 1.0 이상)이 있는지 확인합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토했는지 확인합니다.
 * [클래식에서 Resource Manager로 ExpressRoute 회로 이동](expressroute-move.md)에서 제공되는 정보를 검토합니다. 제한 및 제한 사항을 완전히 이해해야 합니다.
 * 클래식 배포 모델에서 회로가 완벽하게 작동되는지 확인합니다.
@@ -125,10 +126,5 @@ Resource Manager 환경에 로그인하고 새 리소스 그룹을 만듭니다.
 
 * [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)
 * [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

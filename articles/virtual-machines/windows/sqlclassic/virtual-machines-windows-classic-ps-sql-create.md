@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 02/02/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e2e751886407a1fceffa0c09b6f7fb5664c03b1d
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1e3b1e39eff0676e06985f212e33e2e9754f5523
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/31/2017
 
 ### <a name="install-and-configure-powershell"></a>PowerShell 설치 및 구성:
 1. Azure 계정이 없는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
-2. [최신 Azure PowerShell 명령을 다운로드하여 설치합니다](/powershell/azureps-cmdlets-docs).
+2. [최신 Azure PowerShell 명령을 다운로드하여 설치합니다](/powershell/azure/overview).
 3. Windows PowerShell을 시작하고 **Add-AzureAccount** 명령을 사용하여 Azure 구독에 연결합니다.
    
         Add-AzureAccount

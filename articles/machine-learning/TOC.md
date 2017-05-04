@@ -173,7 +173,7 @@
 
 # 참조
 
-## [PowerShell 모듈(신규)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [PowerShell 모듈(신규)](/powershell/module/azurerm.machinelearning)
 ## [PowerShell 모듈(클래식)](machine-learning-powershell-module.md)
 ## [알고리즘 및 모듈 참조](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST API 참조](/rest/api/machinelearning)

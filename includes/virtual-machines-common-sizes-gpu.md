@@ -15,10 +15,6 @@ NC 인스턴스는 NVIDIA Tesla K80 카드를 통해 구동됩니다. 이제 에
 
 1 GPU = M60 카드 절반.
 
-**지원되는 운영 체제**
-
-* Windows Server 2016, Windows Server 2012 R2 - [Windows용 N-시리즈 드라이버 설치](../articles/virtual-machines/windows/n-series-driver-setup.md) 참조
-
 ## <a name="nc-instances"></a>NC 인스턴스
 
 | 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | GPU |
@@ -32,10 +28,4 @@ NC 인스턴스는 NVIDIA Tesla K80 카드를 통해 구동됩니다. 이제 에
 
 *RDMA 지원
 
-**지원되는 운영 체제**
-
-* Windows Server 2016, Windows Server 2012 R2 - [Windows용 N-시리즈 드라이버 설치](../articles/virtual-machines/windows/n-series-driver-setup.md) 참조
-* Ubuntu 16.04 LTS - [Linux용 N-시리즈 드라이버 설치](../articles/virtual-machines/linux/n-series-driver-setup.md) 참조
-
-<br>
 

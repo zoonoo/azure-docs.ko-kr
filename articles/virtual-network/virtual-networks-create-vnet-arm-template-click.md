@@ -17,9 +17,9 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1a1488215a654a3a07b6cd8be02eaa0cdf8ebf28
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a179f184b7d6a425d0fed4b58551b08bb937ea87
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -112,7 +112,7 @@ GitHub에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 템플릿�
 
 PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 단계를 완료합니다.
 
-1. [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 문서에 나오는 단계를 완료하여 Azure PowerShell을 설치 및 구성합니다.
+1. [Azure PowerShell 설치 및 구성](/powershell/azure/overview) 문서에 나오는 단계를 완료하여 Azure PowerShell을 설치 및 구성합니다.
 2. 다음 명령을 실행하여 새 리소스 그룹을 만듭니다.
 
     ```powershell

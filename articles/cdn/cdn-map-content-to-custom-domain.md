@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 079986e9457a4185bae273818fbc852307974638
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: cd6db44f7776859d1e6a893543cf0666182ca41a
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -68,7 +68,7 @@ azureedge.net의 하위 도메인을 사용하는 대신 캐시된 콘텐츠에 
 5. 도메인 등록 기관의 웹 사이트로 이동한 다음 DNS 레코드를 만들기 위한 섹션을 찾습니다. **도메인 이름**, **DNS** 또는 **이름 서버 관리**와 같은 섹션에서 이를 찾을 수 있습니다.
 6. CNAME을 관리하기 위한 섹션을 찾습니다. 고급 설정 페이지로 이동하여 **CNAME**, **별칭** 또는 **하위 도메인**과 같은 단어를 찾아야 할 수도 있습니다.
 7. 새 CNAME 레코드를 만들고 **cdnverify** 하위 도메인을 포함하는 하위 도메인 별칭을 지정합니다. 예를 들어 지정하는 하위 도메인은 **cdnverify.www** 또는 **cdnverify.cdn** 형식이 됩니다. 그런 다음 **cdnverify.&lt;EndpointName>.azureedge.net** 형식으로 CDN 끝점인 호스트 이름을 제공합니다. DNS 매핑은 다음과 같습니다.`cdnverify.www.consoto.com   CNAME   cdnverify.consoto.azureedge.net`  
-8. **사용자 지정 도메인 추가** 블레이드로 돌아가 하위 도메인을 포함하는 사용자 지정 도메인을 대화 상자에 입력합니다. 예를 들어 `www.contoso.com` 또는 `cdn.contoso.com` 형식으로 도메인 이름을 입력합니다. 이 단계에서는 하위 도메인 앞에 **cdncverify**를 추가할 필요가 없습니다.  
+8. **사용자 지정 도메인 추가** 블레이드로 돌아가 하위 도메인을 포함하는 사용자 지정 도메인을 대화 상자에 입력합니다. 예를 들어 `www.contoso.com` 또는 `cdn.contoso.com` 형식으로 도메인 이름을 입력합니다. 이 단계에서는 하위 도메인 앞에 **cdnverify**를 추가할 필요가 없습니다.  
    
     Azure에서 입력한 cdnverify 도메인 이름에 대한 CNAME 레코드가 있는지 확인합니다.
 9. 이제 사용자 지정 도메인이 Azure에서 확인되었지만 도메인에 대한 트래픽은 아직 CDN 끝점으로 라우팅되지 않습니다. 사용자 지정 도메인 설정이 CDN 에지 노드에 전파되기에 충분한 시간을 기다린 후(**Verizon의 Azure CDN**의 경우 90분, **Akamai의 Azure CDN**의 경우 1-2분), DNS 등록 기관의 웹 사이트로 돌아가서 하위 도메인을 CDN 끝점에 매핑하는 다른 CNAME 레코드를 만듭니다. 예를 들어 하위 도메인을 **www** 또는 **cdn**으로 지정하고 호스트 이름을 **&lt;EndpointName>.azureedge.net**으로 지정합니다. 이 단계에서 사용자 지정 도메인 등록이 완료됩니다.

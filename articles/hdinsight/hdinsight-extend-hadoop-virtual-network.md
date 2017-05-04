@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 04/20/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 52038c02901d49f787226ce629a1ca5942414e4a
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a3052e53c642ef3e6d9bb0489476274987707f91
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -38,7 +38,7 @@ HDInsight에서 Azure Virtual Networks를 사용하여 다음 시나리오를 �
 
 * Azure CLI 2.0: 자세한 내용은 [Azure CLI 2.0 설치 및 구성](https://docs.microsoft.com/cli/azure/install-az-cli2)을 참조하세요.
 
-* Azure PowerShell: 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/overview)을 참조하세요.
+* Azure PowerShell: 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
 
 > [!NOTE]
 > 이 문서의 단계는 최신 버전의 Azure CLI 및 Azure PowerShell로 테스트되었습니다. 이전 버전을 사용하는 경우 명령이 달라질 수 있습니다. 최상의 결과를 위해 이전 링크를 사용하여 최신 버전을 설치합니다.

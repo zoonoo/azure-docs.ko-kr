@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: ff38f1536bf92911c18e0766ee655583c4d913d6
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 53ec54def52a6d0659dc12286148213d88e9ae24
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 04/14/2017
 
 아마도 MyApps 포털을 사용할 때 안타깝게도 문제가 발생했기 때문에 이 페이지에 도달했을 것입니다. 문제를 해결하기 위해 지원 센터 또는 관리자에게 문의해야 하는 경우가 있지만 이 항목에서는 사용자가 먼저 직접 시도해 볼 수 있는 일반적인 질문에 대한 단계를 포함하고 있습니다.
 
-암호 관리와 관련된 도움을 찾는 경우 [이 항목](active-directory-passwords-update-your-own-password.md#reset-my-password)을 시도합니다.
+암호 관리와 관련된 도움을 찾는 경우 [이 항목](active-directory-passwords-update-your-own-password.md)을 시도합니다.
 
 
 ## <a name="what-is-the-myapps-portal"></a>MyApps 포털이란 무엇입니까?
@@ -49,7 +49,7 @@ MyApps는 다음을 수행할 수 있는 웹 포털입니다.
 3.    이전 암호를 입력하고 새 암호를 입력한 다음 확인합니다.
 4.    **제출**을 클릭합니다.
 
-자세한 내용은 [고유한 암호를 업데이트하는 방법](active-directory-passwords-update-your-own-password.md#reset-my-password)을 참조하세요.
+자세한 내용은 [고유한 암호를 업데이트하는 방법](active-directory-passwords-update-your-own-password.md)을 참조하세요.
 
 
 ## <a name="how-do-i-setup-password-reset"></a>암호를 다시 설정하려면 어떻게 해야 합니까?
@@ -58,7 +58,7 @@ MyApps는 다음을 수행할 수 있는 웹 포털입니다.
 2.    **계정 관리**에서 **셀프 서비스 암호 재설정 지정**을 클릭합니다.
 3.    대화 상자의 단계에 따라 제출합니다.
 
-자세한 내용은 [사용자 암호를 다시 설정하는 방법](active-directory-passwords-update-your-own-password.md#reset-my-password)을 참조하세요.
+자세한 내용은 [사용자 암호를 다시 설정하는 방법](active-directory-passwords-update-your-own-password.md)을 참조하세요.
 
 
 ## <a name="how-can-i-add-a-new-app"></a>새 앱을 추가하려면 어떻게 해야 합니까?

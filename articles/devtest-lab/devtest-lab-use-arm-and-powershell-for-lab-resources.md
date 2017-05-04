@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 8f54553bc60d6ba374462d87285dfaf4ca6395c5
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 8ee0301a48265b91f951c96c3339a3c3e3bdb1cb
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,7 +29,7 @@ DevTest Labs는 새 랩을 빠르게 자동 생성하거나 기존 랩을 수정
 이 문서는 이러한 템플릿과 스크립트를 사용하여 랩의 생성, 수정, 배포를 자동화하는 프로세스를 안내합니다. 이 문서는 PowerShell을 사용하여 DevTest Labs에서 몇 가지 일반적인 작업을 수행하는 방법에 대한 자세한 정보를 찾을 수 있는 위치를 안내합니다.
 
 ## <a name="step-1-gather-your-templates-and-scripts"></a>1단계: 템플릿 및 스크립트 수집
-공용 [Github 리포지토리](https://github.com/Azure/azure-devtestlab)에서 미리 만들어진 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) 및 [PowerShell 스크립트](https://github.com/Azure/azure-devtestlab/tree/master/Scripts)를 찾을 수 있습니다. 그대로 사용하거나 요구 사항에 맞게 사용자 지정하고 [개인 Git 리포지토리](devtest-lab-add-repo.md)에 저장합니다. 
+공용 [Github 리포지토리](https://github.com/Azure/azure-devtestlab)에서 미리 만들어진 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) 및 [PowerShell 스크립트](https://github.com/Azure/azure-devtestlab/tree/master/Scripts)를 찾을 수 있습니다. 그대로 사용하거나 요구 사항에 맞게 사용자 지정하고 [개인 Git 리포지토리](devtest-lab-add-artifact-repo.md)에 저장합니다. 
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>2단계: Azure Resource Manager 템플릿 수정
 [Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기](devtest-lab-create-environment-from-arm.md)는 DevTest 랩 안에서 Azure Resource Manager 템플릿을 사용하여 Azure 솔루션의 인프라와 구성을 정의하고 여러 VM을 일관적 상태로 반복 배포하는 방법을 보여줍니다.
@@ -49,6 +49,6 @@ PowerShell을 사용하여 자동화할 수 있는 다양한 일반 작업이 �
 * [PowerShell을 사용하여 랩 사용자 지정 역할 만들기](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
 
 ### <a name="next-steps"></a>다음 단계
-* 사용자 지정한 템플릿 또는 스크립트를 저장할 수 있는 [개인 Git 리포지토리](devtest-lab-add-repo.md)를 만드는 방법에 대해 배웁니다.
+* 사용자 지정한 템플릿 또는 스크립트를 저장할 수 있는 [개인 Git 리포지토리](devtest-lab-add-artifact-repo.md)를 만드는 방법에 대해 배웁니다.
 * [Azure 빠른 시작 템플릿 갤러리의 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates)(영문)을 탐색합니다.
 

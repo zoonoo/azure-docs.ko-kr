@@ -15,16 +15,19 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: c74e63621d422f8fa13bc1dd2730ec2c3325a46a
-ms.lasthandoff: 01/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7ea7008495225b384be3e4728524393bf8c9ba6e
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="integrate-azure-ad-into-an-ios-app"></a>iOS 앱에 Azure AD 통합
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+> [!TIP]
+> 몇 분 안에 Azure Active Directory를 실행할 수 있는 새로운 [개발자 포털](https://identity.microsoft.com/Docs/iOS) 의 미리 보기를 사용해 보세요.  개발자 포털은 앱을 등록하고 코드에 Azure AD를 통합하는 과정을 안내합니다.  이 과정을 완료하면 테넌트에서 사용자를 인증할 수 있는 간단한 응용 프로그램 및 토큰을 수락하고 유효성 검사를 수행할 수 있는 백 엔드가 생성됩니다. 
+> 
+> 
 
 Azure AD는 보호된 리소스에 액세스해야 하는 iOS 클라이언트의 경우 Active Directory 인증 라이브러리 또는 ADAL을 제공합니다.  ADAL의 유일한 용도는 앱이 쉽게 액세스 토큰을 가져오도록 하는 것입니다.  액세스 토큰을 얼마나 쉽게 가져올 수 있는지 보여 주기 위해 다음을 수행하는 Objective C To-Do List 응용 프로그램을 빌드해 보겠습니다.
 
@@ -37,12 +40,7 @@ Azure AD는 보호된 리소스에 액세스해야 하는 iOS 클라이언트의
 2. ADAL을 설치 및 구성합니다.
 3. ADAL을 사용하여 Azure AD에서 토큰을 가져옵니다.
 
-시작하려면 [앱 기본 사항을 다운로드](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip)하세요.  또한 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트도 필요합니다.  테넌트가 아직 없는 경우 [가져오는 방법을 알아봅니다](active-directory-howto-tenant.md).
-
-> [!TIP]
-> 몇 분 안에 Azure Active Directory를 실행할 수 있는 새로운 [개발자 포털](https://identity.microsoft.com/Docs/iOS) 의 미리 보기를 사용해 보세요.  개발자 포털은 앱을 등록하고 코드에 Azure AD를 통합하는 과정을 안내합니다.  이 과정을 완료하면 테넌트에서 사용자를 인증할 수 있는 간단한 응용 프로그램 및 토큰을 수락하고 유효성 검사를 수행할 수 있는 백 엔드가 생성됩니다. 
-> 
-> 
+시작하려면 [앱 기본 사항을 다운로드](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip)하세요.  또한 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트도 필요합니다.  테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](active-directory-howto-tenant.md).
 
 ## <a name="1-determine-what-your-redirect-uri-will-be-for-ios"></a>1. iOS에 대한 리디렉션 URI 결정
 특정 SSO 시나리오에서 응용 프로그램을 안전하게 시작하려면, 특정 형식으로 **리디렉션 URI** 를 만들어야 합니다. 리디렉션 URI는 토큰을 요청하는 올바른 응용 프로그램에 반환하는데 사용됩니다.

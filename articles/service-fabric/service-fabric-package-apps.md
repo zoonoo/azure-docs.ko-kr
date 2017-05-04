@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 3/24/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: bc87185c56b2dc45f041136474b9fb1bf6afebc3
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 15b6f6c85c5a5accbd31225c277de87346a2e16f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,7 +74,7 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 ```
 
 ## <a name="test-the-package"></a>패키지 테스트
-[Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) 명령을 사용하여 PowerShell을 통해 로컬에서 패키지 구조를 확인할 수 있습니다.
+[Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) 명령을 사용하여 PowerShell을 통해 로컬에서 패키지 구조를 확인할 수 있습니다.
 이 명령은 매니페스트 구문 해석 문제를 확인하고 모든 참조의 유효성을 검사합니다. 이 명령은 패키지에 포함된 디렉터리와 파일의 구조적 정확성만 검사합니다.
 필요한 파일이 모두 있는지 확인한 후에 코드 또는 데이터 패키지 내용을 검사하지 않습니다.
 
@@ -111,7 +111,7 @@ True
 PS D:\temp>
 ```
 
-응용 프로그램에 [응용 프로그램 매개 변수](service-fabric-manage-multiple-environment-app-configuration.md)가 정의되어 있으면 적절한 유효성 검사를 위해 [Test-ServiceFabricApplicationPackage](https://docs.microsoft.com/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage)에 이 매개 변수를 전달할 수 있습니다.
+응용 프로그램에 [응용 프로그램 매개 변수](service-fabric-manage-multiple-environment-app-configuration.md)가 정의되어 있으면 적절한 유효성 검사를 위해 [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps)에 이 매개 변수를 전달할 수 있습니다.
 
 응용 프로그램을 배포할 클러스터를 알고 있는 경우 이미지 저장소 연결 문자열에 전달하는 것이 좋습니다. 이 경우 이미 클러스터에서 실행 중인 이전 버전의 응용 프로그램에 대해서도 패키지의 유효성이 검사됩니다. 예를 들어 유효성 검사를 통해 동일한 버전이지만 다른 내용이 포함된 패키지를 이미 배포했는지 여부를 확인할 수 있습니다.  
 
@@ -124,9 +124,9 @@ PS D:\temp>
 배포 메커니즘은 압축된 패키지와 압축되지 않은 패키지에 대해 모두 동일합니다. 압축된 패키지는 클러스터 이미지 저장소에 그대로 저장되며, 먼저 노드에서 압축이 풀린 후에 응용 프로그램이 실행됩니다.
 압축은 유효한 Service Fabric 패키지를 압축된 버전으로 바꿉니다. 폴더에 대한 쓰기 권한을 허용해야 합니다. 이미 압축된 패키지에 압축을 실행하면 아무런 변화가 없습니다. 
 
-`CompressPackage` 스위치와 함께 [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) PowerShell 명령을 실행하여 패키지를 압축할 수 있습니다. `UncompressPackage` 스위치를 사용하면 동일한 명령으로 패키지의 압축을 풀 수 있습니다.
+`CompressPackage` 스위치와 함께 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) PowerShell 명령을 실행하여 패키지를 압축할 수 있습니다. `UncompressPackage` 스위치를 사용하면 동일한 명령으로 패키지의 압축을 풀 수 있습니다.
 
-다음 명령은 패키지를 이미지 저장소에 복사하지 않고 압축합니다. `SkipCopy` 플래그 없이 [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage)를 사용하여 필요에 따라 하나 이상의 Service Fabric 클러스터에 압축된 패키지를 복사할 수 있습니다. 이제 패키지에 `code`, `config` 및 `data` 패키지의 압축 파일이 포함됩니다. 응용 프로그램 매니페스트 및 서비스 매니페스트는 많은 내부 작업(특정 유효성 검사를 위한 패키지 공유, 응용 프로그램 유형 이름 및 버전 추출 등)에 필요하기 때문에 압축되지 않습니다.
+다음 명령은 패키지를 이미지 저장소에 복사하지 않고 압축합니다. `SkipCopy` 플래그 없이 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)를 사용하여 필요에 따라 하나 이상의 Service Fabric 클러스터에 압축된 패키지를 복사할 수 있습니다. 이제 패키지에 `code`, `config` 및 `data` 패키지의 압축 파일이 포함됩니다. 응용 프로그램 매니페스트 및 서비스 매니페스트는 많은 내부 작업(특정 유효성 검사를 위한 패키지 공유, 응용 프로그램 유형 이름 및 버전 추출 등)에 필요하기 때문에 압축되지 않습니다.
 매니페스트를 압축하면 이러한 작업이 비효율적으로 수행됩니다.
 
 ```
@@ -162,7 +162,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ```
 
-또는 [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage)를 사용하여 한번에 패키지를 압축하고 복사할 수 있습니다.
+또는 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)를 사용하여 한번에 패키지를 압축하고 복사할 수 있습니다.
 패키지가 크면 패키지를 압축하고 클러스터에 업로드하는 데 걸리는 시간을 충분히 허용할 만큼 긴 시간 제한을 제공합니다.
 ```
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400

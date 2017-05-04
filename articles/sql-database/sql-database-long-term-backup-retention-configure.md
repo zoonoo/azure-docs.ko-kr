@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 5dee922184f0160d21da58b4aac321011df76ee9
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5fea9dfcd323ecf497742173a66119be4f734909
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -154,7 +154,7 @@ Azure Recovery Services 자격 증명 모음의 백업에서 새 데이터베이
 
 ### <a name="create-a-recovery-services-vault"></a>복구 서비스 자격 증명 모음 만들기
 
-[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault?view=azurermps-3.7.0)를 사용하여 복구 서비스 자격 증명 모음을 만듭니다.
+[New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)를 사용하여 복구 서비스 자격 증명 모음을 만듭니다.
 
 > [!IMPORTANT]
 > 자격 증명 모음은 Azure SQL 논리 서버와 동일한 지역에 있어야 하고 논리 서버와 동일한 리소스 그룹을 사용해야 합니다.
@@ -173,7 +173,7 @@ Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedu
 
 ### <a name="set-your-server-to-use-the-recovery-vault-for-its-long-term-retention-backups"></a>장기 보존 백업을 위해 복구 자격 증명 모음을 사용하도록 서버 설정
 
-[Set-AzureRmSqlServerBackupLongTermRetentionVault](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverbackuplongtermretentionvault) cmdlet을 사용하여 이전에 만든 복구 서비스 자격 증명 모음을 특정 Azure SQL Server와 연결합니다.
+[Set-AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) cmdlet을 사용하여 이전에 만든 복구 서비스 자격 증명 모음을 특정 Azure SQL Server와 연결합니다.
 
 ```PowerShell
 # Set your server to use the vault to for long-term backup retention 
@@ -183,10 +183,10 @@ Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGro
 
 ### <a name="create-a-retention-policy"></a>보존 정책 만들기
 
-보존 정책은 데이터베이스 백업을 보관할 기간을 설정하는 곳입니다. [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet을 사용하여 정책을 만들기 위한 템플릿으로 사용할 기본 보존 정책을 가져옵니다. 이 템플릿에서 보존 기간은 2년으로 설정됩니다. 다음으로 [New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/new-azurermrecoveryservicesbackupprotectionpolicy)를 실행하여 마지막으로 정책을 만듭니다. 
+보존 정책은 데이터베이스 백업을 보관할 기간을 설정하는 곳입니다. [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet을 사용하여 정책을 만들기 위한 템플릿으로 사용할 기본 보존 정책을 가져옵니다. 이 템플릿에서 보존 기간은 2년으로 설정됩니다. 다음으로 [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)를 실행하여 마지막으로 정책을 만듭니다. 
 
 > [!NOTE]
-> 일부 cmdlet은 [Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/set-azurermrecoveryservicesvaultcontext)를 실행하기 전에 자격 증명 모음 컨텍스트를 설정해야 관련된 몇 가지 코드 조각에서 이 cmdlet을 볼 수 있습니다. 정책이 자격 증명 모음의 일부이기 때문에 컨텍스트를 설정해야 합니다. 각 자격 증명 모음에 대해 여러 보존 정책을 만든 다음 원하는 정책을 특정 데이터베이스에 적용할 수 있습니다. 
+> 일부 cmdlet은 [Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)를 실행하기 전에 자격 증명 모음 컨텍스트를 설정해야 관련된 몇 가지 코드 조각에서 이 cmdlet을 볼 수 있습니다. 정책이 자격 증명 모음의 일부이기 때문에 컨텍스트를 설정해야 합니다. 각 자격 증명 모음에 대해 여러 보존 정책을 만든 다음 원하는 정책을 특정 데이터베이스에 적용할 수 있습니다. 
 
 
 ```PowerShell
@@ -208,7 +208,7 @@ $policy
 
 ### <a name="configure-a-database-to-use-the-previously-defined-retention-policy"></a>이전에 정의한 보존 정책을 사용하도록 데이터베이스 구성
 
-[Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqldatabasebackuplongtermretentionpolicy) cmdlet을 사용하여 새 정책을 특정 데이터베이스에 적용합니다.
+[Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabasebackuplongtermretentionpolicy) cmdlet을 사용하여 새 정책을 특정 데이터베이스에 적용합니다.
 
 ```PowerShell
 # Enable long-term retention for a specific SQL database
@@ -225,9 +225,9 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resource
 
 다음 cmdlet을 사용하여 백업 정보를 확인합니다.
 
-- [Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupcontainer)
-- [Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupitem)
-- [Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackuprecoverypoint)
+- [Get-AzureRmRecoveryServicesBackupContainer](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)
+- [Get-AzureRmRecoveryServicesBackupItem](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)
+- [Get-AzureRmRecoveryServicesBackupRecoveryPoint](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)
 
 ```PowerShell
 #$resourceGroupName = "{resource-group-name}"
@@ -252,7 +252,7 @@ $availableBackups
 
 ### <a name="restore-a-database-from-a-backup-in-long-term-backup-retention"></a>장기 백업 보존의 백업에서 데이터베이스 복원
 
-장기 백업 보존에서 복원은 [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/restore-azurermsqldatabase) cmdlet을 사용합니다.
+장기 백업 보존에서 복원은 [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) cmdlet을 사용합니다.
 
 ```PowerShell
 # Restore the most recent backup: $availableBackups[0]

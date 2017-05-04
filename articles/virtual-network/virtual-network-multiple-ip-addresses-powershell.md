@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e37c2d1591fbb4a0fbc198697846e2bce73b085b
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7c93a02f7a290aab3d451da72dabd431f9d40b0c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/27/2017
 
 다음 단계는 시나리오에 설명된 대로 여러 IP 주소를 가진 예시 VM을 만드는 방법을 설명합니다. 변수 값을 구현에 필요한 대로 변경합니다.
 
-1. PowerShell 명령 프롬프트를 열고 단일 PowerShell 세션 내에서 이 섹션의 나머지 단계를 완료합니다. Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서의 단계를 완료합니다.
+1. PowerShell 명령 프롬프트를 열고 단일 PowerShell 세션 내에서 이 섹션의 나머지 단계를 완료합니다. Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 문서의 단계를 완료합니다.
 2. `login-azurermaccount` 명령을 사용하여 계정에 로그인합니다.
 3. *myResourceGroup* 및 *westus*를 선택한 이름과 위치로 바꿉니다. 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
@@ -197,7 +197,7 @@ ms.lasthandoff: 03/27/2017
 
 다음 단계를 완료하여 개인 및 공용 IP 주소를 NIC에 추가할 수 있습니다. 다음 섹션의 예제는 이 문서의 [시나리오](#Scenario)에서 설명한 3개의 IP로 구성된 VM이 이미 있다는 가정 하에 진행하되 필수 사항은 아닙니다.
 
-1. PowerShell 명령 프롬프트를 열고 단일 PowerShell 세션 내에서 이 섹션의 나머지 단계를 완료합니다. Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서의 단계를 완료합니다.
+1. PowerShell 명령 프롬프트를 열고 단일 PowerShell 세션 내에서 이 섹션의 나머지 단계를 완료합니다. Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 문서의 단계를 완료합니다.
 2. 다음 $Variables의 "값"을 IP 주소를 추가하려는 NIC의 이름과 NIC가 있는 리소스 그룹 및 위치로 변경합니다.
 
     ```powershell

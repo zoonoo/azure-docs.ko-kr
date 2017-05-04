@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 98f5a017221f0aaba04e2b90afc674e4c42d1bb3
-ms.openlocfilehash: 282cb0a7705d0650852699ed5fe09f61fda42d0f
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2a6daccdc70ff285a6993da0b2fdcfbe85e635cf
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -216,12 +217,7 @@ Azure 자동화 DSC에 의해 노드를 더 이상 관리하지 않으려는 경
 * [Azure 자동화 DSC 개요](automation-dsc-overview.md)
 * [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)
 * [Windows PowerShell 필요한 상태 구성 개요](https://msdn.microsoft.com/powershell/dsc/overview)
-* [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Azure 자동화 DSC cmdlets](/powershell/module/azurerm.automation/#automation)
 * [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

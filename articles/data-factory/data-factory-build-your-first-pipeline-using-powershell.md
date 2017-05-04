@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 2d1a4cf1ab1f66f51eb29a4b8cee07dca8d88719
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c7062721017176b4caacbd48a513c2610058b835
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -41,8 +41,8 @@ ms.lasthandoff: 02/03/2017
 
 ## <a name="prerequisites"></a>필수 조건
 * [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
-* [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell의 최신 버전을 설치합니다.
-* (선택 사항) 이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) (영문)를 참조하세요.
+* [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell의 최신 버전을 설치합니다.
+* (선택 사항) 이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조](/powershell/module/azurerm.datafactories) (영문)를 참조하세요.
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
 이 단계에서는 Azure PowerShell을 사용하여 **FirstDataFactoryPSH**라는 Azure Data Factory를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 예를 들어 원본에서 대상 데이터 저장소에 데이터를 복사하는 복사 작업 및 입력 데이터를 변환할 Hive 스크립트를 실행하는 HDInsight Hive 작업입니다. 이 단계에서는 데이터 팩터리 만들기를 시작하겠습니다.
@@ -409,7 +409,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
 ## <a name="see-also"></a>참고 항목
 | 항목 | 설명 |
 |:--- |:--- |
-| [데이터 팩터리 cmdlet 참조](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) |데이터 팩터리 cmdlet에서 포괄적인 설명서를 참조하세요. |
+| [데이터 팩터리 cmdlet 참조](/powershell/module/azurerm.datafactories) |데이터 팩터리 cmdlet에서 포괄적인 설명서를 참조하세요. |
 | [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
 | [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다. |
 | [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |

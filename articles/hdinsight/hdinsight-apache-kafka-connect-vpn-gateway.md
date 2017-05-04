@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 04/18/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 5da21de1f7b51a6ca38a3fe443531bab4091dd60
-ms.lasthandoff: 04/20/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9ddf19c008c35525419a357436b1a969a4b19205
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -52,7 +52,7 @@ HDInsight 클러스터는 Azure Virtual Network 내에서 보호되며 들어오
 
 ## <a name="create-using-powershell"></a>만들기: PowerShell 사용
 
-이 섹션의 단계에서는 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)을 사용하여 다음 구성을 만듭니다.
+이 섹션의 단계에서는 [Azure PowerShell](/powershell/azure/overview)을 사용하여 다음 구성을 만듭니다.
 
 * Azure 가상 네트워크
 * 지점 - 사이트 간 VPN Gateway

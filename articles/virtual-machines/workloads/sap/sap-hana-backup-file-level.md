@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f2449ffda80ec7cb7a73a6eac229d09c3a4a96cc
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 047d9191e2c844a591c35279ff7b143906087f56
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -105,7 +105,7 @@ blobxfer 도구의 병렬 처리를 테스트하기 위해 HANA 백업 파일의
 
 ![관련된 모든 VHD는 **start-azurestorageblobcopy** PowerShell 명령으로 복사되었습니다.](media/sap-hana-backup-file-level/image031.png)
 
-로컬 소프트웨어 RAID에 대한 백업을 완료한 후에 **start-azurestorageblobcopy** PowerShell 명령([Start-AzureStorageBlobCopy](/powershell/storage/azure.storage/v2.1.0/start-azurestorageblobcopy) 참조)을 사용하여 관련된 모든 VHD를 복사했습니다. 백업 파일을 유지하기 위한 전용 파일 시스템에만 영향을 미치기 때문에 디스크의 SAP HANA 데이터 또는 로그 파일 일관성에 대한 문제는 없습니다. 이 명령의 이점은 VM이 온라인 상태로 유지되는 동안 작동한다는 것입니다. 어떤 프로세스도 백업 스트라이프 세트에 쓰지 못하도록 하기 위해 Blob 복사하기 전에 분리하고 나중에 다시 탑재합니다. 또는 파일 시스템을 &quot;고정&quot;(freeze)하는 적절한 방법을 사용할 수 있습니다. 예를 들어 XFS 파일 시스템의 경우 xfs\_freeze를 사용합니다.
+로컬 소프트웨어 RAID에 대한 백업을 완료한 후에 **start-azurestorageblobcopy** PowerShell 명령([Start-AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy) 참조)을 사용하여 관련된 모든 VHD를 복사했습니다. 백업 파일을 유지하기 위한 전용 파일 시스템에만 영향을 미치기 때문에 디스크의 SAP HANA 데이터 또는 로그 파일 일관성에 대한 문제는 없습니다. 이 명령의 이점은 VM이 온라인 상태로 유지되는 동안 작동한다는 것입니다. 어떤 프로세스도 백업 스트라이프 세트에 쓰지 못하도록 하기 위해 Blob 복사하기 전에 분리하고 나중에 다시 탑재합니다. 또는 파일 시스템을 &quot;고정&quot;(freeze)하는 적절한 방법을 사용할 수 있습니다. 예를 들어 XFS 파일 시스템의 경우 xfs\_freeze를 사용합니다.
 
 ![Azure Portal의 vhds 컨테이너에 있는 Blob의 목록을 보여 주는 스크린샷](media/sap-hana-backup-file-level/image032.png)
 

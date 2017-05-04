@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 6028116d18207d13729d1816f64ad192d4cdb491
-ms.lasthandoff: 04/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0fb7e8fe778c8d6f7e12b1c8a75c95941da3d4d9
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="how-to-configure-automatic-registration-of-windows-domain-joined-devices-with-azure-active-directory"></a>Windows 도메인 가입 장치의 Azure Active Directory 자동 등록을 구성하는 방법
 
-[Azure Active Directory 장치 기반 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 사용하려면 컴퓨터를 Azure AD(Azure Active Directory)에 등록해야 합니다. [Azure Active Directory PowerShell 모듈](https://docs.microsoft.com/en-us/powershell/msonline/)에서 [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet을 사용하여 조직에 등록된 장치 목록을 가져올 수 있습니다. 
+[Azure Active Directory 장치 기반 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 사용하려면 컴퓨터를 Azure AD(Azure Active Directory)에 등록해야 합니다. [Azure Active Directory PowerShell 모듈](/powershell/azure/install-msonlinev1?view=azureadps-2.0)에서 [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet을 사용하여 조직에 등록된 장치 목록을 가져올 수 있습니다. 
 
 이 문서는 조직에서 Azure AD를 사용하여 Windows 도메인 가입 장치의 자동 등록을 구성하는 단계를 제공합니다.
 
@@ -302,7 +302,7 @@ ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 �
 
 
 확인된 도메인 이름에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-add-domain.md)를 참조하세요.  
-확인된 회사 도메인 목록을 보려면 the [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain) cmdlet을 사용합니다. 
+확인된 회사 도메인 목록을 보려면 the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet을 사용합니다. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
@@ -565,7 +565,7 @@ System Center Configuration Manager 같은 소프트웨어 배포 시스템을 �
 
 ## <a name="step-5-verify-registered-devices"></a>5단계: 등록된 장치 확인
 
-[Azure Active Directory PowerShell 모듈](https://docs.microsoft.com/en-us/powershell/msonline/)에서 [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet을 사용하여 조직에 등록된 장치를 확인할 수 있습니다.
+[Azure Active Directory PowerShell 모듈](/powershell/azure/install-msonlinev1?view=azureadps-2.0)에서 [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet을 사용하여 조직에 등록된 장치를 확인할 수 있습니다.
 
 이 cmdlet의 출력은 Azure AD에 등록된 장치를 보여줍니다. 모든 장치를 가져오려면 **-All** 매개 변수를 사용한 다음 **deviceTrustType** 속성을 사용하여 장치를 필터링합니다. 도메인에 가입된 장치는 **도메인 가입** 값을 갖습니다.
 

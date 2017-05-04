@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: e9ea21be1fabb5846c4f3b7b05f3a93298830e57
-ms.openlocfilehash: 5119d1d6c02b8e080a9e0905ae21a2bddefab03a
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 17e06b1d61d0eeade345a95c9116a89054f59205
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -56,7 +56,7 @@ Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결�
 
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

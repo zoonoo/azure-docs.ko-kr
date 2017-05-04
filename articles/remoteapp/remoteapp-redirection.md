@@ -11,12 +11,12 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: cab03e7765dc7116a7f974833871fae652e8363c
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 368bf16c77feed55c397052b63fde4ef3fb29447
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -49,7 +49,7 @@ RemoteApp을 사용하는 경우 기본적으로 다음과 같은 리디렉션�
 * USB 리디렉션: 원격 세션 내에서 로컬 컴퓨터에 연결된 USB 장치를 사용할 수 있습니다.
 
 ## <a name="change-your-redirection-settings-in-remoteapp"></a>RemoteApp에서 리디렉션 설정 변경
-SDK와 함께 Microsoft Azure PowerShell을 사용하여 컬렉션에 대한 장치 리디렉션 설정을 변경할 수 있습니다. 새 PowerShell과 SDK를 설치한 후 먼저 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)에 설명된 대로 구독을 관리하도록 구성합니다.
+SDK와 함께 Microsoft Azure PowerShell을 사용하여 컬렉션에 대한 장치 리디렉션 설정을 변경할 수 있습니다. 새 PowerShell과 SDK를 설치한 후 먼저 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)에 설명된 대로 구독을 관리하도록 구성합니다.
 
 그런 후에 다음과 비슷한 명령을 사용하여 사용자 지정 RDP 속성을 설정합니다.
 

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 788021a5b5715524a534ce3e9ff9019310450f4a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e8d6f7c41287f5f785a52ae82bb156008d7e2699
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -90,7 +90,7 @@ VMSS에 대한 노드 유형의 관계, 인스턴스 중 하나로 RDP를 수행
 > 
 > 
 
- 클러스터의 안정성을 한 계층에서 다른 계층으로 업데이트하도록 선택할 수 있습니다. 이렇게 하면 클러스터 업그레이드를 트리거하여 시스템 서비스 복제본 세트 수를 변경합니다. 노드를 추가하는 것처럼 클러스터를 다르게 변경하기 전에 진행 중인 업그레이드가 완료될 때까지 기다립니다.  Service Fabric Explorer에서 또는 [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx)를 실행하여 업그레이드 진행률을 모니터링할 수 있습니다.
+ 클러스터의 안정성을 한 계층에서 다른 계층으로 업데이트하도록 선택할 수 있습니다. 이렇게 하면 클러스터 업그레이드를 트리거하여 시스템 서비스 복제본 세트 수를 변경합니다. 노드를 추가하는 것처럼 클러스터를 다르게 변경하기 전에 진행 중인 업그레이드가 완료될 때까지 기다립니다.  Service Fabric Explorer에서 또는 [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)를 실행하여 업그레이드 진행률을 모니터링할 수 있습니다.
 
 
 ## <a name="primary-node-type---capacity-guidance"></a>주 노드 유형 - 용량 지침

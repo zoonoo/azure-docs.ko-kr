@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 519f035b411f254e8412ba9a8868b226c63cccb6
-ms.lasthandoff: 04/21/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: e7dad0f943375f1bf2996564558e313416506506
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -136,7 +136,7 @@ VSTS를 사용하는 경우 Azure DevTest Labs에서 릴리스 파이프라인�
 * [VSTS에서 기존 AzureDevTestLab의 새 VM 배포](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 * [AzureDevTestLabs에 대한 연속 배포에 대해 VSTS 릴리스 관리 사용](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-다른 CI/CD 도구 체인의 경우 VSTS 작업 확장을 통해 얻을 수 있는 앞에서 언급한 모든 시나리오는 [Azure PowerShell cmdlet](../azure-resource-manager/resource-group-template-deploy.md) 및 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/)를 사용한[ Azure Resource Manager 템플릿](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)을 통해 마찬가지로 얻을 수 있습니다. 또한 [DevTest Labs용 REST API](http://aka.ms/dtlrestapis) 를 사용하여 도구 체인과 통합할 수 있습니다.  
+다른 CI/CD 도구 체인의 경우 VSTS 작업 확장을 통해 얻을 수 있는 앞에서 언급한 모든 시나리오는 [Azure PowerShell cmdlet](../azure-resource-manager/resource-group-template-deploy.md) 및 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/)를 사용한[ Azure Resource Manager 템플릿](https://aka.ms/dtlquickstarttemplate)을 통해 마찬가지로 얻을 수 있습니다. 또한 [DevTest Labs용 REST API](http://aka.ms/dtlrestapis) 를 사용하여 도구 체인과 통합할 수 있습니다.  
 
 ### <a name="why-cant-i-see-certain-vms-in-the-azure-virtual-machines-blade-that-i-see-within-azure-devtest-labs"></a>Azure DevTest Labs 내에서 표시되는 Azure 가상 컴퓨터 블레이드의 특정 VM이 표시되지 않는 이유는 무엇인가요?
 Azure DevTest Labs에서 VM이 만들어지면 해당 VM에 액세스하기 위한 권한이 부여됩니다. 랩 블레이드 및 **가상 컴퓨터** 블레이드 둘 다에서 이러한 권한을 볼 수 있습니다. DevTest Lab 역할의 사용자는 랩의 **모든 가상 컴퓨터** 블레이드를 통해 랩에서 만들어진 모든 가상 컴퓨터를 볼 수 있습니다. 그러나 DevTest Lab 역할의 사용자에게는 다른 사용자가 만든 VM 리소스에 대한 읽기 액세스 권한이 자동으로 부여되지 않습니다. 따라서 이러한 VM은 **가상 컴퓨터** 블레이드에 표시되지 않습니다.
@@ -145,7 +145,7 @@ Azure DevTest Labs에서 VM이 만들어지면 해당 VM에 액세스하기 위�
 사용자 지정 이미지는 VHD(가상 하드 디스크)인 반면 수식은 저장하고 재현할 수 있는 추가 설정으로 구성할 수 있는 이미지입니다. 사용자 지정 이미지는 동일한 기본, 변경할 수 없는 이미지로 여러 환경을 신속하게 만들려는 경우 적합할 수 있습니다. 수식은 최신 비트, 가상 네트워크/서브넷 또는 특정 크기로 VM의 구성을 재현하려는 경우 더 나을 수 있습니다. 더 자세한 설명은 [DevTest Lab에서 사용자 지정 이미지와 수식 비교](devtest-lab-comparing-vm-base-image-types.md)문서를 참조하세요.
 
 ### <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>동일한 템플릿에서 여러 VM을 한 번에 어떻게 만듭니까?
-VM을 만드는 동안 [VSTS 작업 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)을 사용하거나 [Azure Resource Manager 템플릿을 생성](devtest-lab-add-vm-with-artifacts.md#save-azure-resource-manager-template)하고 [Windows PowerShell에서 Azure Resource Manager 템플릿을 배포](../azure-resource-manager/resource-group-template-deploy.md)할 수 있습니다.
+VM을 만드는 동안 [VSTS 작업 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)을 사용하거나 [Azure Resource Manager 템플릿을 생성](devtest-lab-add-vm.md#save-azure-resource-manager-template)하고 [Windows PowerShell에서 Azure Resource Manager 템플릿을 배포](../azure-resource-manager/resource-group-template-deploy.md)할 수 있습니다.
 
 ### <a name="how-do-i-move-my-existing-azure-vms-into-my-azure-devtest-labs-lab"></a>기존 Azure VM을 Azure DevTest Labs 랩으로 어떻게 이동하나요?
 VM을 Azure DevTest Labs로 직접 이동하는 솔루션을 설계했지만 현재 기존 VM을 다음과 같이 Azure DevTest Labs에 복사할 수 있습니다.
@@ -219,7 +219,7 @@ Azure Portal에 있는 내 랩에서 VM을 삭제하는 것 외에도 PowerShell
 아티팩트는 VM에 최신 비트 또는 개발 도구를 배포하는 데 사용할 수 있는 사용자 지정 가능한 요소입니다. 몇 가지 간단한 클릭으로 만드는 동안 VM에 연결되고 VM이 프로비전되면 아티팩트는 VM을 배포 및 구성합니다. [공용 GitHub 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)에 다양한 기존 아티팩트가 있지만 손쉽게 [사용자 고유의 아티팩트](devtest-lab-artifact-author.md)를 작성할 수도 있습니다.
 
 ### <a name="how-do-i-create-a-lab-from-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 어떻게 랩을 만듭니까?
-있는 그대로 배포하거나 랩에 대한 사용자 지정 템플릿을 만들기 위해 수정할 수 있는 [랩 Azure Resource Manager 템플릿의 GitHub 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)를 제공합니다. 이러한 각 템플릿에는 Azure 구독에서 랩을 있는 그대로 배포하기 위해 클릭하거나 템플릿을 사용자에 맞게 설정하여 [PowerShell 또는 Azure CLI를 사용하여 배포](../azure-resource-manager/resource-group-template-deploy.md)할 수 있는 링크가 있습니다.
+있는 그대로 배포하거나 랩에 대한 사용자 지정 템플릿을 만들기 위해 수정할 수 있는 [랩 Azure Resource Manager 템플릿의 GitHub 리포지토리](https://aka.ms/dtlquickstarttemplate)를 제공합니다. 이러한 각 템플릿에는 Azure 구독에서 랩을 있는 그대로 배포하기 위해 클릭하거나 템플릿을 사용자에 맞게 설정하여 [PowerShell 또는 Azure CLI를 사용하여 배포](../azure-resource-manager/resource-group-template-deploy.md)할 수 있는 링크가 있습니다.
 
 ### <a name="why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups"></a>서로 다른 리소스 그룹에서 만들어진 VM이 임의의 이름을 갖는 이유는 무엇인가요? 이름을 변경하거나 이러한 리소스 그룹을 수정할 수 있습니까?
 리소스 그룹은 Azure DevTest Labs가 사용자 권한 및 가상 컴퓨터에 대한 액세스를 관리하기 위해 이러한 방식으로 만들어집니다. VM을 다른 리소스 그룹으로 이동하여 원하는 이름을 설정할 수는 있지만, 이렇게 하지 않는 것이 좋습니다. 보다 유동적인 작업이 가능하도록 현재 이 환경을 개선하는 중입니다.   

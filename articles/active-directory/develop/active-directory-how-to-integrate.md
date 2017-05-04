@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: e8a092bc398e314a111973b6978012909aedc16e
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 32c236c7082e48990f41a1a9069cea53d0cab96f
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -77,13 +78,8 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 **Azure AD는 전 세계 데이터 센터에 배포되어 24시간 내내 관리 및 모니터링됩니다.**  Azure AD는 Microsoft Azure 및 Office 365의 ID 관리 시스템이며 전 세계 28곳의 데이터 센터에 배포됩니다.  디렉터리 데이터는 3개 이상의 데이터 센터에 복제되어야 합니다.  전역 부하 분산 장치는 사용자가 자신의 데이터가 들어 있는 Azure AD의 가장 근접한 복사본에 액세스하도록 하며 문제가 감지되면 요청을 다른 데이터 센터로 자동으로 다시 라우팅합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[코드 작성 시작하기](active-directory-developers-guide.md#getting-started).
+[코드 작성 시작하기](active-directory-developers-guide.md#get-started).
 
 [Azure AD를 사용한 사용자 로그인](active-directory-authentication-scenarios.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

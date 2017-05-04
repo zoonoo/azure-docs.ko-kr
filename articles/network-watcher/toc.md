@@ -54,7 +54,7 @@
 ## [오픈 소스 도구를 사용하여 침입 감지 수행](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Azure Log Analytics에서 Application Gateway 로그 분석](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 # 참조
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)
 ## [REST (영문)](/rest/api/networkwatcher/)
 # 관련 항목

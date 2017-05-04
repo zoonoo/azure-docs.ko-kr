@@ -17,9 +17,9 @@ ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 831b7cc21ee34f900f7e35885a36f6e0faf38211
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b01ffb52f75fd23901f4bb245396f649e14c0389
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -100,7 +100,7 @@ Azure CLI(Command Line Interface) 또는 PowerShell을 사용하여 로그 파�
 
 ### <a name="monitoring-function-app-log-files-with-powershell"></a>PowerShell로 함수 앱 로그 파일 모니터링
 
-시작하려면 [Azure PowerShell을 설치 및 구성](/powershell/azureps-cmdlets-docs)합니다.
+시작하려면 [Azure PowerShell을 설치 및 구성](/powershell/azure/overview)합니다.
 
 다음 명령을 실행하여 Azure 계정을 추가합니다.
 

@@ -17,9 +17,9 @@ ms.date: 09/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5edba79e5c65f0e9411a418ac1a121fd938feff2
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 16ea28d13ccbe559d7988032e162581cde363157
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -61,7 +61,7 @@ ms.lasthandoff: 03/31/2017
 이러한 제한 사항이 변경되면 [Azure 가상 네트워킹 업데이트](https://azure.microsoft.com/updates/accelerated-networking-in-preview) 페이지에 공지됩니다.
 
 ## <a name="create-a-windows-vm-with-accelerated-networking"></a>가속 네트워킹을 사용하여 Windows VM 만들기
-1. PowerShell 명령 프롬프트를 열고 단일 PowerShell 세션 내에서 이 섹션의 나머지 단계를 완료합니다. Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 문서의 단계를 완료합니다.
+1. PowerShell 명령 프롬프트를 열고 단일 PowerShell 세션 내에서 이 섹션의 나머지 단계를 완료합니다. Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 문서의 단계를 완료합니다.
 2. 미리 보기를 등록하려면 구독 ID 및 사용 목적을 적은 전자 메일을 [가속 네트워킹 구독](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) 으로 보냅니다. 미리 보기에 적용되었음을 알리는 전자 메일을 받을 때까지 나머지 단계를 완료하지 마세요.
 3. 다음 명령을 입력하여 구독에 해당 기능을 등록합니다.
    

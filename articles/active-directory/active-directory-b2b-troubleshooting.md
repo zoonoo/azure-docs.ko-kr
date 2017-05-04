@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/14/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 66c0084c89b5c7510196142afd27b58953d0dc86
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4ae08f16db8c0b8cd2e918d25aa546f1da615af1
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,9 +27,6 @@ ms.lasthandoff: 03/15/2017
 
 Azure AD(Azure Active Directory) B2B 공동 작업과 관련된 일반적인 문제에 대한 몇 가지 해결책은 다음과 같습니다.
 
-## <a name="i-cant-create-an-external-user-due-to-an-existing-contact"></a>기존 연락처로 인해 외부 사용자를 만들 수 없습니다.
-
-기존 연락처 개체가 초대할 외부 사용자에게 이미 있는 경우 대개 해당 연락처 개체를 제거하여 충돌을 해결할 때까지는 해당 사용자를 초대할 수 없습니다. B2B 공동 작업을 일반적으로 사용할 수 있을 때까지 수동으로 충돌을 해결해야 합니다.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>외부 사용자를 추가했지만 [전체 주소 목록]이나 사용자 선택에서 볼 수 없습니다.
 
@@ -54,7 +51,7 @@ SharePoint Online 사용자 선택에서 기존 게스트 사용자를 검색하
 
 ### <a name="invitees-admin-has-disallowed-emailverified-users-from-being-created-in-their-tenant"></a>초대 대상자의 관리자가 테넌트에 EmailVerified 사용자를 만들지 못하도록 했습니다.
 
-Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나 특정 사용자의 계정이 없는(예: Azure AD contoso.com에 존재하지 않는 사용자) 경우입니다. contoso.com의 관리자가 정책을 사용하여 사용자를 만들지 못하게 할 수 있습니다. 사용자는 외부 사용자가 허용된 경우인지 해당 관리자에게 확인해야 합니다. 외부 사용자의 관리자가 자체 도메인의 전자 메일 확인 사용자를 허용해야 할 수도 있습니다(전자 메일 확인 사용자 허용은 이 [문서](https://docs.microsoft.com/powershell/msonline/v1/set-msolcompanysettings#parameters)를 확인).
+Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나 특정 사용자의 계정이 없는(예: Azure AD contoso.com에 존재하지 않는 사용자) 경우입니다. contoso.com의 관리자가 정책을 사용하여 사용자를 만들지 못하게 할 수 있습니다. 사용자는 외부 사용자가 허용된 경우인지 해당 관리자에게 확인해야 합니다. 외부 사용자의 관리자가 자체 도메인의 전자 메일 확인 사용자를 허용해야 할 수도 있습니다(전자 메일 확인 사용자 허용은 이 [문서](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)를 확인).
 
 ![](media/active-directory-b2b-troubleshooting/allow-email-verified-users.png)
 
@@ -66,7 +63,7 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>일반적으로 잘못된 문자인 ‘\#’은 Azure AD와 어떻게 동기화됩니까?
 
-"\#"은 Azure AD B2B 공동 작업 또는 외부 사용자를 위한 UPN의 예약된 문자이므로(즉 &lt;user@contoso.com&gt;이 초대되면 &lt;user_contoso.com#EXT@fabrikam.onmicrosoft.com&gt;이 되므로) 온-프레미스에서 나온 UPN의 \#은 Azure Portal에 로그인할 수 없습니다.
+"\#"은 Azure AD B2B 공동 작업 또는 외부 사용자를 위한 UPN의 예약된 문자이므로(즉 user@contoso.com이 초대되면 user_contoso.com#EXT@fabrikam.onmicrosoft.com이 되므로) 온-프레미스에서 나온 UPN의 \#은 Azure Portal에 로그인할 수 없습니다.
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>동기화된 그룹에 외부 사용자를 추가할 때 오류가 발생합니다.
 
@@ -74,11 +71,11 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>외부 사용자가 상환할 전자 메일을 받지 못했습니다.
 
-초대 대상자는 ISP 또는 스팸 필터를 확인하여 &lt;Invites@microsoft.com&gt; 주소가 허용되는지 확인해야 합니다.
+초대 대상자는 ISP 또는 스팸 필터를 확인하여 Invites@microsoft.com 주소가 허용되는지 확인해야 합니다.
 
-## <a name="my-recipient-received-multiple-emails-from-me"></a>내 받는 사람이 나에게서 전자 메일을 여러 개 받았습니다.
+## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>사용자 지정 메시지가 초대 메시지에 포함되지 않는다는 것을 확인했습니다.
 
-초대를 받는 사람에게 자신의 계정에 대한 별칭이 여러 개 있는 경우 초대를 두 번 받을 수도 있습니다. 이 경우 처음 상환된 링크는 만들어진 계정이며 두 번째 상환 링크는 유효하지 않습니다.
+개인 정보 보호 법률을 준수하기 위해 초대자가 리소스 조직(초대 테넌시)에 전자 메일을 유지하고 있지 않거나 App Service 사용자가 초대를 전송할 때 API는 전자 메일 초대에 사용자 지정 메시지를 포함하지 않습니다. 이것이 중요한 시나리오인 경우 초대를 전송하는 API를 표시하지 않고 선택한 전자 메일 메커니즘을 통해 전송할 수 있습니다. 조직의 법률 자문에게 문의하여 이러한 방식으로 전송하는 전자 메일이 개인 정보 보호 법률을 준수하는지도 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
