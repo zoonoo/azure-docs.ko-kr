@@ -15,13 +15,14 @@ ms.workload: na
 ms.date: 02/04/2016
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 68be118bc40e3a62aad73cb43119f49415f5b6a9
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7ea4b87e723c2ce194186af39ba8e6f0f593347a
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="set-up-azure-powershell-to-create-an-offer-for-the-azure-marketplace"></a>Azure 마켓플레이스에 대한 제품을 만들기 위한 Azure PowerShell 설정
-Azure에서 PowerShell을 설정하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. 간단한 방법은 인증 방법을 사용하는 것으로, 인증에 필요한 인증서를 다운로드하고 가져옵니다. 필요한 인증서를 가져오려면 **Get-AzurePublishSettingsFile** cmdlet을 사용합니다. 메시지가 나타나면 파일을 저장합니다. 인증서를 PowerShell 세션으로 가져오려면 **Import-AzurePublishSettingsFile** cmdlet을 사용합니다.
+Azure에서 PowerShell을 설정하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 간단한 방법은 인증 방법을 사용하는 것으로, 인증에 필요한 인증서를 다운로드하고 가져옵니다. 필요한 인증서를 가져오려면 **Get-AzurePublishSettingsFile** cmdlet을 사용합니다. 메시지가 나타나면 파일을 저장합니다. 인증서를 PowerShell 세션으로 가져오려면 **Import-AzurePublishSettingsFile** cmdlet을 사용합니다.
 
 PowerShell 세션에 대한 일반적인 Microsoft Azure 구독 설정을 구성하고 저장하려면 **Set-AzureSubscription** 및 **Select-AzureSubscription** cmdlet을 사용합니다.
 
@@ -33,10 +34,5 @@ PowerShell 세션에 대한 일반적인 Microsoft Azure 구독 설정을 구성
 ## <a name="see-also"></a>참고 항목
 * [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 * [마켓플레이스에 대한 가상 컴퓨터 이미지 만들기](marketplace-publishing-vm-image-creation.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

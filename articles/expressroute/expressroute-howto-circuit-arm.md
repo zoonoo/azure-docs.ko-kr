@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.date: 04/12/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 212de47a9cc4f2130b94ac1e622eabe0c0cb781a
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7254217bc6a7b782eb19c8f062c46923dc5e7506
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -30,14 +30,10 @@ ms.lasthandoff: 03/24/2017
 > 
 >
 
-이 문서에서는 Windows PowerShell cmdlet 및 Azure Resource Manager 배포 모델을 사용하여 Azure Express 경로 회로를 만드는 방법을 설명합니다. 이 문서에는 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 나와 있습니다.
-
-**Azure 배포 모델 정보**
-
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+이 문서에서는 PowerShell cmdlet 및 Azure Resource Manager 배포 모델을 사용하여 Azure ExpressRoute 회로를 만드는 방법을 설명합니다. 이 문서에는 회로의 상태 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행하는 방법도 나와 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. 자세한 내용은 [Azure PowerShell cmdlet 시작](/powershell/azureps-cmdlets-docs)을 참조하세요. 
+* 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치합니다. 자세한 내용은 [Azure PowerShell 개요](/powershell/azure/overview)를 참조하세요.
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
 
@@ -45,24 +41,32 @@ ms.lasthandoff: 03/24/2017
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure 계정에 로그인하고 구독을 선택합니다.
 구성을 시작하려면, Azure 계정에 로그인합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
-    Login-AzureRmAccount
+```powershell
+Login-AzureRmAccount
+```
 
 계정에 대한 구독을 확인합니다.
 
-    Get-AzureRmSubscription
+```powershell
+Get-AzureRmSubscription
+```
 
 Express 경로 회로를 만들려는 구독을 선택합니다.
 
-    Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
+```powershell
+Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
+```
 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. 지원되는 공급자, 위치 및 대역폭 목록을 가져옵니다.
 Express 경로 회로를 만들기 전에 지원되는 연결 공급자, 위치 및 대역폭 옵션 목록이 필요합니다.
 
-PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` 은(는) 이후 단계에서 사용할 이 정보를 반환합니다.
+PowerShell cmdlet **Get-AzureRmExpressRouteServiceProvider**는 이후 단계에서 사용할 이 정보를 반환합니다.
 
-    Get-AzureRmExpressRouteServiceProvider
+```powershell
+Get-AzureRmExpressRouteServiceProvider
+```
 
-연결 공급자가 여기에 나열되었는지 확인합니다. 다음 정보는 나중에 회로를 만들 때 필요하므로 적어 둡니다.
+연결 공급자가 여기에 나열되었는지 확인합니다. 다음 정보를 기록해 둡니다. 나중에 회로를 만들 때 필요합니다.
 
 * 이름
 * PeeringLocations
@@ -73,32 +77,40 @@ PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` 은(는) 이후 단�
 ### <a name="3-create-an-expressroute-circuit"></a>3. Express 경로 회로 만들기
 아직 리소스 그룹이 없는 경우 Express 경로 회로를 만들기 전에 먼저 리소스 그룹을 만들어야 합니다. 다음 명령을 실행하여 수행할 수 있습니다.
 
-    New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
+```powershell
+New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
+```
 
 
 아래 예제에서는 Equinix 실리콘밸리를 통해 200Mbps Express 경로 회로를 만드는 방법을 보여 줍니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다. 다음은 새 서비스 키에 대한 예제 요청입니다.
 
-    New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
+```powershell
+New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
+```
 
 올바른 SKU 계층과 SKU 제품군을 지정하는지 확인합니다.
 
 * SKU 계층은 Express 경로 표준 또는 Express 경로 Premium 추가 기능이 사용되는지 여부를 결정합니다. *표준*을 지정하여 표준 SKU를 가져오거나 프리미엄 추가 기능을 위해 *프리미엄*을 지정할 수 있습니다.
-* SKU 제품군은 청구서 유형을 결정합니다. 데이터 요금제의 경우 *Metereddata*를 선택하고 무제한 데이터 요금제의 경우 *Unlimiteddata*를 선택할 수 있습니다. 참고: 청구서 유형을 *Metereddata*에서 *Unlimiteddata*로 변경할 수 있지만, *Unlimiteddata*에서 *Metereddata*로는 변경할 수 없습니다.
+* SKU 제품군은 청구서 유형을 결정합니다. 데이터 요금제의 경우 *Metereddata*를 선택하고 무제한 데이터 요금제의 경우 *Unlimiteddata*를 선택할 수 있습니다. 청구서 유형을 *Metereddata*에서 *Unlimiteddata*로 변경할 수 있지만, *Unlimiteddata*에서 *Metereddata*로는 변경할 수 없습니다.
 
 > [!IMPORTANT]
 > Express 경로 회로는 서비스 키가 발급된 순간부터 비용이 청구됩니다. 연결 공급자가 회로를 프로비전할 준비가 된 후에 이 작업을 수행하도록 하십시오.
 > 
 > 
 
-응답에 서비스 키가 포함됩니다. 다음을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
+응답에 서비스 키가 포함됩니다. 다음 명령을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
-    get-help New-AzureRmExpressRouteCircuit -detailed
+```powershell
+get-help New-AzureRmExpressRouteCircuit -detailed
+```
 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. 모든 Express 경로 회로 나열
-만들어 놓은 모든 Express 경로 회로 목록을 가져오려면 `Get-AzureRmExpressRouteCircuit` 명령을 실행합니다.
+만들어 놓은 모든 ExpressRoute 회로 목록을 가져오려면 **Get-AzureRmExpressRouteCircuit** 명령을 실행합니다.
 
-    Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```
 
 응답은 다음 예제와 유사합니다.
 
@@ -126,7 +138,9 @@ PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` 은(는) 이후 단�
 
 `Get-AzureRmExpressRouteCircuit` cmdlet을 사용하여 이 정보를 언제든지 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다. 서비스 키는 *ServiceKey* 필드에 나열됩니다.
 
-    Get-AzureRmExpressRouteCircuit
+```powershell
+Get-AzureRmExpressRouteCircuit
+```
 
 
 응답은 다음 예제와 유사합니다.
@@ -154,9 +168,11 @@ PowerShell cmdlet `Get-AzureRmExpressRouteServiceProvider` 은(는) 이후 단�
     Peerings                         : []
 
 
-다음을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
+다음 명령을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
-    get-help Get-AzureRmExpressRouteCircuit -detailed
+```powershell
+get-help Get-AzureRmExpressRouteCircuit -detailed
+```
 
 ### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. 프로비전을 위해 연결 공급자에 서비스 키 보내기
 *ServiceProviderProvisioningState* 는 서비스 공급자 측의 현재 프로비전 상태에 대한 정보를 제공합니다. 상태는 Microsoft 측의 상태를 제공합니다. 회로 프로비전 상태에 대한 자세한 내용은 [워크플로](expressroute-workflows.md#expressroute-circuit-provisioning-states) 문서를 참조하세요.
@@ -181,7 +197,9 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 ### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. 회로 키의 상태를 주기적으로 확인
 회로 키의 상태를 확인하면 공급자가 회로를 사용하도록 설정한 시점을 알 수 있습니다. 회로가 구성된 후에는 *ServiceProviderProvisioningState*가 아래 예에서처럼 *Provisioned*로 표시됩니다.
 
-    Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```
 
 
 응답은 다음 예제와 유사합니다.
@@ -220,9 +238,11 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 그 다음 가상 네트워크를 Express 경로 회로에 연결합니다. Resource Manager 배포 모델을 작업하는 경우에는 [Express 경로 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md) 문서를 사용할 수 있습니다.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Express 경로 회로의 상태 가져오기
-`Get-AzureRmExpressRouteCircuit` cmdlet을 사용하여 이 정보를 언제든지 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
+**Get-AzureRmExpressRouteCircuit** cmdlet을 사용하여 언제든지 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
 
-    Get-AzureRmExpressRouteCircuit
+```powershell
+Get-AzureRmExpressRouteCircuit
+```
 
 
 응답은 다음 예와 유사합니다.
@@ -252,7 +272,9 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 리소스 그룹 이름 및 회로 이름을 매개 변수 형태로 호출에 전달하면 특정 Express 경로 회로에 대한 정보를 가져올 수 있습니다.
 
-    Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```
 
 
 응답은 다음 예제와 유사합니다.
@@ -280,10 +302,11 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
     Peerings                         : []
 
 
-다음을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
+다음 명령을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
-    get-help get-azurededicatedcircuit -detailed
-
+```powershell
+get-help get-azurededicatedcircuit -detailed
+```
 
 ## <a name="modify"></a>Express 경로 회로 수정
 연결에 미치는 영향 없이 Express 경로 회로의 특정 속성을 수정할 수 있습니다.
@@ -300,15 +323,16 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 ### <a name="to-enable-the-expressroute-premium-add-on"></a>Express 경로 Premium 추가 기능을 활성화하려면
 다음 PowerShell 코드 조각을 사용하여 기존 회로에 대해 Express 경로 프리미엄 추가 기능을 활성화할 수 있습니다.
 
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-    $ckt.Sku.Tier = "Premium"
-    $ckt.sku.Name = "Premium_MeteredData"
+$ckt.Sku.Tier = "Premium"
+$ckt.sku.Name = "Premium_MeteredData"
 
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
-
-이제 Express 경로 프리미엄 추가 기능을 사용할 수 있게 됩니다. 명령이 성공적으로 실행되는 즉시 프리미엄 추가 기능에 대한 청구가 시작됩니다.
+이제 Express 경로 프리미엄 추가 기능을 사용할 수 있게 됩니다. 명령이 성공적으로 실행되는 즉시 프리미엄 추가 기능에 대한 과금이 시작됩니다.
 
 ### <a name="to-disable-the-expressroute-premium-add-on"></a>Express 경로 Premium 추가 기능을 비활성화하려면
 > [!IMPORTANT]
@@ -324,13 +348,14 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 다음 PowerShell cmdlet을 사용하여 기존 회로에 대해 Express 경로 프리미엄 추가 기능을 사용하지 않도록 설정할 수 있습니다.
 
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-    $ckt.Sku.Tier = "Standard"
-    $ckt.sku.Name = "Standard_MeteredData"
+$ckt.Sku.Tier = "Standard"
+$ckt.sku.Name = "Standard_MeteredData"
 
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 ### <a name="to-update-the-expressroute-circuit-bandwidth"></a>Express 경로 회로 대역폭을 업데이트하려면
 공급자에 대해 지원되는 대역폭 옵션은 [Express 경로 FAQ](expressroute-faqs.md)를 확인하세요. 기존 회로의 크기보다 큰 모든 크기를 선택할 수 있습니다.
@@ -343,11 +368,13 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 필요한 크기를 선택하면, 다음 명령을 사용하여 회로 크기를 조정합니다.
 
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-    $ckt.ServiceProviderProperties.BandwidthInMbps = 1000
+$ckt.ServiceProviderProperties.BandwidthInMbps = 1000
 
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 
 회로의 크기는 Microsoft 쪽에서 조정됩니다. 그런 다음 변경 사항에 맞게 구성을 업데이트하려면 해당 공급자에게 연락해야 합니다. 이 알림을 통보하고 나면, 업데이트된 대역폭 옵션에 대한 요금이 청구되기 시작합니다.
@@ -355,12 +382,14 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 ### <a name="to-move-the-sku-from-metered-to-unlimited"></a>SKU를 요금제에서 무제한으로 이동하려면
 다음 PowerShell 코드 조각을 사용하여 Express 경로 회로의 SKU를 변경할 수 있습니다.
 
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-    $ckt.Sku.Family = "UnlimitedData"
-    $ckt.sku.Name = "Premium_UnlimitedData"
+$ckt.Sku.Family = "UnlimitedData"
+$ckt.sku.Name = "Premium_UnlimitedData"
 
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
 
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>클래식 및 리소스 관리자 환경에 대한 액세스를 제어하려면
 [클래식에서 Resource Manager 배포 모델로 Express 경로 회로 이동](expressroute-howto-move-arm.md)의 지침을 검토합니다.  
@@ -374,9 +403,9 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 다음 명령을 실행하여 Express 경로 회로를 삭제할 수 있습니다.
 
-    Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
-
-
+```powershell
+Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
+```
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -384,5 +413,4 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 
 * [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-arm.md)
 * [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)
-
 

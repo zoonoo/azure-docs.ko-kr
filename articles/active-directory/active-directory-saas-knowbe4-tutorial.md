@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
-ms.openlocfilehash: bc7ce4867180dd9f896b894b56a02bf033ed6bbb
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: deb4916d69ad9a447836b33711864c242e5c5dec
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/17/2017
 KnowBe4를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 * KnowBe4에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-* 사용자가 해당 Azure AD 계정으로 KnowBe4에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
+* 사용자가 해당 Azure AD 계정으로 KnowBe4에 자동으로 SSO(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Active Directory 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
@@ -46,7 +46,7 @@ KnowBe4와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
+* Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.  
@@ -54,7 +54,7 @@ KnowBe4와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 * 갤러리에서 KnowBe4 추가
-* Azure AD Single Sign-on 구성 및 테스트
+* Azure AD SSO 구성 및 테스트
 
 ## <a name="add-knowbe4-from-the-gallery"></a>갤러리에서 KnowBe4 추가
 KnowBe4의 Azure AD 통합을 구성하려면 갤러리의 KnowBe4를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -92,7 +92,7 @@ KnowBe4에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 3. **[KnowBe4 테스트 사용자 만들기](#creating-a-KnowBe4-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 KnowBe4에 만듭니다.
 4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-on 테스트](#testing-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 이 섹션은 Azure 클래식 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 KnowBe4 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위한 것입니다.
@@ -180,7 +180,7 @@ KnowBe4에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 이 섹션의 목적은 Britta Simon에게 KnowBe4에 대한 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 하는 것입니다.
 
-    ![Assign User][200] 
+   ![사용자 할당][200] 
 
 **Britta Simon을 KnowBe4에 할당하려면 다음 단계를 수행합니다.**
 

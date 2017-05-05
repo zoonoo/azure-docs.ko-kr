@@ -16,8 +16,3 @@ NSG를 관리하는 방법을 보다 잘 설명하기 위해 이 문서에서는
 
 위에 설명된 시나리오를 배포하려면 [이 링크](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG)에 따라 **Azure에 배포**를 클릭하고 필요한 경우 기본 매개 변수 값을 대체하고 포털의 지침을 따릅니다. 아래 샘플 지침에서는 리소스 그룹 이름 **RG-NSG**를 배포하는 데 템플릿을 사용했습니다. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

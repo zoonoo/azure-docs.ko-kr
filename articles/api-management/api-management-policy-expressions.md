@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
-ms.openlocfilehash: 75ea0486a1b5abc71df3b7d9e8385717954b89f4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d96dde8c74141d000c1f7c5fd9ef624ff5e46953
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
@@ -186,7 +186,7 @@ ms.lasthandoff: 03/01/2017
 |context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<IUserIdentity\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|  
 |IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
 |IGroup|Id: string<br /><br /> Name: string|  
-|IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> 지정된 형식 중 하나로 요청 또는 응답 메시지 본문을 읽는 데 `context.Request.Body.As<T>` 및 `context.Request.Body.As<T>` 메서드가 사용됩니다. 기본적으로 메시지 본문에 액세스하면 원래 메시지 본문이 손실되며 해당 본문을 읽어오는 식으로 본문을 다시 반환하여 설정해야 합니다. 본문 내용을 보존하려면 메시지에 액세스할 때 `preserveContent` 매개 변수를 `true`로 설정합니다. `preserveContent`의 기본값은 `false`입니다. `preserveContent`가 `true`로 설정되고 식에서 본문이 반환되면 반환된 본문을 사용합니다. 자세한 내용은 [본문 설정](api-management-transformation-policies.md#SetBody) 정책을 참조하세요.|  
+|IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> 지정된 형식 `T`에서 요청 또는 응답 메시지 본문을 읽는 데 `context.Request.Body.As<T>` 또는 `context.Response.Body.As<T>` 메서드가 사용됩니다. 기본적으로 이 메서드는 원래 메시지 본문 스트림을 사용하고 반환된 후에는 사용할 수 없게 렌더링합니다. 이 메서드가 본문 스트림의 복사본에 대해 작동하도록 하여 이러한 문제를 피하려면 `preserveContent` 매개 변수를 `true`로 설정합니다. 예제를 보려면 [여기](api-management-transformation-policies.md#SetBody)로 이동하세요.|  
 |IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> Query: IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|  
 |IUserIdentity|Id: string<br /><br /> Provider: string|  
 |ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|  

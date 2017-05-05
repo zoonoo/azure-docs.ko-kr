@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/02/2017
+ms.date: 04/21/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 79e122beb0f31c46bbb9951a2dee223de4a77e1f
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 89c3eb1c501f455cfa154014665fef25af346873
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -52,7 +52,7 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-**PASSWORD**는 관리 계정의 암호로 바꾸고 **CLUSTERNAME**은 클러스터 이름으로 바꿉니다. 이 명령은 클러스터의 호스트 목록이 포함된 JSON 문서를 반환한 다음 jq에서 클러스터의 각 호스트에 대한 `host_name` 요소 값을 추출합니다.
+**PASSWORD**는 관리 계정의 암호로 바꾸고 **CLUSTERNAME**은 클러스터 이름으로 바꿉니다. 이 명령은 클러스터의 호스트 목록을 포함하는 JSON 문서를 반환합니다. Jq는 각 호스트에 대한 `host_name` 요소 값을 추출하는 데 사용됩니다.
 
 특정 서비스에 대한 노드의 이름을 찾으려면 해당 구성 요소에 대해 Ambari를 쿼리하면 됩니다. 예를 들어 HDFS 이름 노드에 대한 호스트를 찾으려면 다음 명령을 사용합니다.
 
@@ -64,12 +64,12 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 * **Ambari(웹)** - https://&lt;clustername>.azurehdinsight.net
 
-    클러스터 관리자 계정 및 암호를 사용하여 인증하고 Ambari에 로그인합니다. 클러스터 관리자 사용자와 암호를 사용하여 인증해야 합니다.
+    클러스터 관리자 계정 및 암호를 사용하여 인증하고 Ambari에 로그인합니다.
 
     인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
     > [!IMPORTANT]
-    > 인터넷을 통해 직접 액세스할 수 있는 클러스터의 Ambari의 경우, 일부 기능은 클러스터에서 사용하는 내부 도메인 이름으로 노드에 액세스해야 합니다. 내부 도메인 이름에 공개적으로 액세스할 수 없으므로 인터넷을 통해 일부 기능에 액세스하려고 하면 "서버를 찾을 수 없음" 오류가 표시될 수 있습니다.
+    > 일부 웹 UI는 내부 도메인 이름을 사용하여 Ambari 액세스 일부를 통해 사용할 수 있습니다. 내부 도메인 이름은 인터넷을 통해 공개적으로 액세스할 수 없습니다. 인터넷을 통해 일부 기능에 액세스하려고 하면 "서버를 찾을 수 없음" 오류가 표시될 수 있습니다.
     >
     > Ambari 웹 UI의 모든 기능을 사용하려면 프록시 웹 트래픽에 대한 SSH 터널을 클러스터 헤드 노드에 사용합니다. [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
@@ -96,14 +96,14 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있습니다. 이 디렉터리에는 다음과 같은 하위 디렉터리가 포함됩니다.
 
-* **2.2.4.9-1**: 이 디렉터리 이름은 HDInsight에서 사용되는 Hortonworks Data Platform 버전에 따라 지정되므로 사용 중인 클러스터의 번호가 여기서 나열된 번호와 다를 수 있습니다.
-* **current**: **2.2.4.9-1** 디렉터리 아래의 하위 디렉터리에 대한 링크를 포함하고 있습니다. 파일에 액세스할 때마다 변경될 수 있는 버전 번호를 입력하지 않도록 하기 위해 이 디렉터리가 존재합니다.
+* **2.2.4.9-1**: 디렉터리 이름은 HDInsight에서 사용되는 Hortonworks Data Platform의 버전입니다. 클러스터에 있는 숫자는 여기에 나열된 것과 다를 수 있습니다.
+* **current**: **2.2.4.9-1** 디렉터리 아래의 하위 디렉터리에 대한 링크를 포함하고 있습니다. 이 디렉터리가 있으므로 버전 번호를 기억할 필요가 없습니다.
 
 예제 데이터 및 JAR 파일은 `/example` 및 `/HdiSamples`의 HDFS(Hadoop 분산 파일 시스템)에서 찾을 수 있습니다.
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, Azure Storage 및 Data Lake Store
 
-대부분의 Hadoop 배포판에서 HDFS는 클러스터의 컴퓨터에서 로컬 저장소에 의해 되돌아갑니다. 로컬 저장소를 사용하는 것이 효율적이지만, 계산 리소스에 대해 시간당 또는 분당 비용이 부과되는 클라우드 기반 솔루션의 경우 비용이 많이 들 수 있습니다.
+대부분의 Hadoop 배포판에서 HDFS는 클러스터의 컴퓨터에서 로컬 저장소에 의해 되돌아갑니다. 계산 리소스에 대해 시간당 또는 분당 비용이 부과되는 클라우드 기반 솔루션의 경우 로컬 저장소를 사용하면 비용이 많이 들 수 있습니다.
 
 HDInsight는 Azure Storage 또는 Azure Data Lake Store의 Blob을 기본 저장소로 사용합니다. 이러한 서비스는 다음과 같은 이점을 제공합니다.
 
@@ -113,7 +113,7 @@ HDInsight는 Azure Storage 또는 Azure Data Lake Store의 Blob을 기본 저장
 > [!WARNING]
 > HDInsight는 __범용__ Azure Storage 계정만 지원합니다. 현재 __Blob 저장소__ 계정 유형은 지원하지 않습니다.
 
-Azure Storage 계정은 최대 4.75TB까지 저장할 수 있지만 개별 Blob(또는 HDInsight 관점 기준 파일)은 최대 195GB까지만 저장할 수 있습니다. Azure Data Lake Store는 페타바이트 이상의 개별 파일을 수조 개 포함하도록 동적으로 확장할 수 있습니다. 자세한 내용은 [Blob 이해](https://docs.microsoft.com/rest/api/storageservices/fileservices/understanding-block-blobs--append-blobs--and-page-blobs) 및 [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)를 참조하세요.
+Azure Storage 계정은 최대 4.75TB까지 저장할 수 있지만 개별 Blob(또는 HDInsight 관점 기준 파일)은 최대 195GB까지만 저장할 수 있습니다. Azure Data Lake Store는 페타바이트 이상의 개별 파일을 수조 개 포함하도록 동적으로 확장할 수 있습니다. 자세한 내용은 [Blob 이해](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 및 [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)를 참조하세요.
 
 Azure Storage 또는 Data Lake Store를 사용하는 경우 HDInsight에서 데이터에 액세스하기 위해 특별한 작업을 수행할 필요가 없습니다. 예를 들어 Azure Storage 또는 Data Lake Store 중 어느 것에 저장되어 있든지 다음 명령은 `/example/data` 폴더에 있는 파일을 나열합니다.
 
@@ -135,7 +135,7 @@ __Data Lake Store__를 사용하는 경우 다음 URI 체계 중 하나를 사�
 
 * `adl:///`: 클러스터의 기본 Data Lake Store에 액세스합니다.
 
-* `adl://<storage-name>.azuredatalakestore.net/`: 기본이 아닌 Data Lake Store와 통신하거나 HDInsight 클러스터의 루트 디렉터리 외부에 있는 데이터에 액세스할 때 사용됩니다.
+* `adl://<storage-name>.azuredatalakestore.net/`: 기본이 아닌 Data Lake Store와 통신할 때 사용됩니다. HDInsight 클러스터의 루트 디렉터리 외부 데이터에 액세스하는 데도 사용됩니다.
 
 > [!IMPORTANT]
 > HDInsight의 기본 저장소로 Data Lake Store를 사용하는 경우 HDInsight 저장소의 루트로 사용할 저장소 내의 경로를 지정해야 합니다. 기본 경로는 `/clusters/<cluster-name>/`입니다.
@@ -149,9 +149,9 @@ Ambari를 사용하면 클러스터에 대한 기본 저장소 구성을 검색�
 ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
 > [!NOTE]
-> 이렇게 하면 해당 정보가 있는 서버(`service_config_version=1`)에 적용된 첫 번째 구성을 반환합니다. 클러스터를 만든 후 수정된 값을 검색하는 경우 구성 버전을 나열하고 최신 버전을 검색해야 할 수도 있습니다.
+> 이렇게 하면 해당 정보가 있는 서버(`service_config_version=1`)에 적용된 첫 번째 구성을 반환합니다. 최신 버전을 찾기 위해 모든 구성 버전을 나열해야 할 수 있습니다.
 
-이 명령은 다음과 비슷한 값을 반환합니다.
+이 명령은 다음 URI와 유사한 값을 반환합니다.
 
 * `wasbs://<container-name>@<account-name>.blob.core.windows.net` - Azure Storage 계정을 사용하는 경우
 
@@ -206,11 +206,11 @@ __Azure Data Lake Store__를 사용하는 경우 다음 링크를 참조하여 �
 
 ## <a name="scaling"></a>클러스터 크기 조정
 
-클러스터 크기 조정 기능을 사용하면 클러스터를 삭제한 다음 다시 만들 필요 없이 클러스터에서 사용하는 데이터 노드 수를 변경할 수 있습니다. 클러스터에서 다른 작업 또는 프로세스가 실행되는 동안 크기 조정 작업을 수행할 수 있습니다.
+클러스터 크기 조정 기능을 사용하면 클러스터에서 사용하는 데이터 노드 수를 동적으로 변경할 수 있습니다. 클러스터에서 다른 작업 또는 프로세스가 실행되는 동안 크기 조정 작업을 수행할 수 있습니다.
 
 다른 클러스터 종류는 다음과 같이 크기 조정에 영향을 받습니다.
 
-* **Hadoop**: 클러스터의 노드 수를 줄이면 클러스터 서비스 중 일부가 다시 시작됩니다. 그러면 실행 중인 작업과 보류 중인 작업이 크기 조정 작업을 완료하지 못하고 실패합니다. 작업이 완료되면 작업을 다시 제출할 수 있습니다.
+* **Hadoop**: 클러스터의 노드 수를 줄이면 클러스터 서비스 중 일부가 다시 시작됩니다. 크기 조정 작업을 수행하면 작업이 실행 중이거나 보류 중 상태가 되므로 크기 조정 작업이 완료되지 못하고 실패합니다. 작업이 완료되면 작업을 다시 제출할 수 있습니다.
 * **HBase**: 지역 서버는 크기 조정 작업을 완료한 후 몇 분 안에 자동으로 균형을 맞춥니다. 지역 서버를 수동으로 조정하려면 다음 단계를 사용합니다.
 
     1. SSH를 사용하여 HDInsight 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
@@ -223,7 +223,7 @@ __Azure Data Lake Store__를 사용하는 경우 다음 링크를 참조하여 �
 
             balancer
 
-* **Storm**: 크기 조정 작업을 수행한 후 실행 중인 모든 Storm 토폴로지 균형을 다시 맞추어야 합니다. 토폴로지를 새 클러스터의 노드 수에 따라 병렬 처리 설정을 다시 조정할 수 있습니다. 실행 중인 토폴로지의 균형을 다시 조정하려면 다음 옵션 중 하나를 사용합니다.
+* **Storm**: 크기 조정 작업을 수행한 후 실행 중인 모든 Storm 토폴로지 균형을 다시 맞추어야 합니다. 균형을 다시 조정하면 토폴로지를 새 클러스터의 노드 수에 따라 병렬 처리 설정을 다시 조정할 수 있습니다. 실행 중인 토폴로지의 균형을 다시 조정하려면 다음 옵션 중 하나를 사용합니다.
 
     * **SSH**: 서버에 연결하고 다음 명령을 사용하여 토폴로지 균형을 다시 맞춥니다.
 
@@ -248,7 +248,7 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 * Spark 또는 Hue와 같은 서비스 또는 웹 사이트를 설치하고 구성합니다.
 * 클러스터의 여러 노드에 대한 구성을 변경할 필요가 있는 구성 요소를 설치하고 구성합니다. 예를 들어 필수 환경 변수, 로깅 디렉터리 만들기 또는 구성 파일 만들기입니다.
 
-스크립트 동작은 클러스터를 프로비전하는 동안 실행되는 Bash 스크립트이며, 클러스터에 추가 구성 요소를 설치 및 구성하는 데 사용할 수 있습니다. 다음 구성 요소를 설치하기 위한 예제 스크립트가 제공됩니다.
+스크립트 동작은 Bash 스크립트입니다. 스크립트는 클러스터를 프로비전하는 동안 실행되며, 클러스터에 추가 구성 요소를 설치 및 구성하는 데 사용할 수 있습니다. 다음 구성 요소를 설치하기 위한 예제 스크립트가 제공됩니다.
 
 * [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
@@ -269,7 +269,7 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 >
 > 이 명령은 일치하는 jar 파일의 경로를 모두 반환합니다.
 
-클러스터와 함께 제공되는 버전과 다른 버전을 사용하려는 경우 구성 요소의 새 버전을 업로드하여 작업에 사용합니다.
+다른 버전의 구성 요소를 사용하려면 필요한 버전을 업로드한 후 작업에서 사용합니다.
 
 > [!WARNING]
 > HDInsight 클러스터와 함께 제공되는 구성 요소는 완벽하게 지원되며 Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하는 데 도움이 됩니다.

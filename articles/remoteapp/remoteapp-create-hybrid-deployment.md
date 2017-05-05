@@ -12,17 +12,18 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 15430904979108cbebe4a64a8ae07f2f01b82690
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2c4a3ee9ec97dac78485e0f275fbb78412e7cb98
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="how-to-create-a-hybrid-collection-for-azure-remoteapp"></a>Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -51,8 +52,8 @@ ms.openlocfilehash: 15430904979108cbebe4a64a8ae07f2f01b82690
 * [등록](https://azure.microsoft.com/services/remoteapp/) 합니다.
 * Azure RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다.
 * 온-프레미스 네트워크에 대한 정보 수집: IP 주소 정보 및 VPN 장치 세부 정보입니다.
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs) 모듈을 설치합니다.
-* 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 사용자마다 하나의 Azure Active Directory 사용자 계정 이름(예: name@contoso.com))이 필요합니다. Azure AD와 Active Directory 간에 UPN이 일치하는지 확인합니다.
+* [Azure PowerShell](/powershell/azure/overview) 모듈을 설치합니다.
+* 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 사용자마다 하나의 Azure Active Directory 사용자 계정 이름(예: name@contoso.com)이 필요합니다. Azure AD와 Active Directory 간에 UPN이 일치하는지 확인합니다.
 * 템플릿 이미지를 선택합니다. Azure RemoteApp 템플릿 이미지는 사용자를 위해 게시하려는 앱 및 프로그램을 포함합니다. 자세한 내용은 [Azure RemoteApp 이미지 옵션](remoteapp-imageoptions.md) 을 참조하세요.
 * Office 365 ProPlus 이미지를 사용하려고 하나요? [여기](remoteapp-officesubscription.md)서 정보를 확인하세요.
 * [RemoteApp에 대해 Azure Active Directory를 구성합니다](remoteapp-ad.md).
@@ -136,10 +137,5 @@ Azure RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했
 
 ### <a name="help-us-help-you"></a>의견 보내기
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

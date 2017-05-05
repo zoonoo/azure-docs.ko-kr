@@ -56,15 +56,16 @@
 # 참조
 ## [지원 메트릭 목록](monitoring-supported-metrics.md)
 ## [모니터링 데이터의 원본](monitoring-data-sources.md)
-## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
+## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST (영문)](/rest/api/monitor/)
-## [Azure 진단 버전 기록](azure-diagnostics-versioning-history.md)
-## [Azure 진단 스키마](azure-diagnostics-schema.md)
-### [진단 스키마 1.0](azure-diagnostics-schema-1dot0.md)
-### [진단 스키마 1.2](azure-diagnostics-schema-1dot2.md)
-### [진단 스키마 1.3 ~ 1.7](azure-diagnostics-schema-1dot3-and-later.md)
+## [Azure 진단 확장 버전 기록](azure-diagnostics-versioning-history.md)
+## [Azure 진단 확장 스키마](azure-diagnostics-schema.md)
+### [1.0](azure-diagnostics-schema-1dot0.md)
+### [1.2](azure-diagnostics-schema-1dot2.md)
+### [1.3 ~ 1.7](azure-diagnostics-schema-1dot3-and-later.md)
 
 # 리소스
 ## [PowerShell 샘플](insights-powershell-samples.md)
 ## [Azure CLI 1.0 샘플](insights-cli-samples.md)
+## [비디오](https://azure.microsoft.com/resources/videos/index/?services=monitor)

@@ -19,11 +19,14 @@ ms.author: rogardle
 translationtype: Human Translation
 ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
 ms.openlocfilehash: bd20dc4eb3948d08e3c2dd2ad2bb42d18df67796
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="container-management-with-docker-swarm"></a>Docker Swarm을 통한 컨테이너 관리
 Docker Swarm은 풀링된 Docker 호스트 집합에 컨테이너화된 워크로드를 배포하는 환경을 제공합니다. Docker Swarm은 네이티브 Docker API를 사용합니다. Docker Swarm에서 컨테이너를 관리하는 워크플로는 단일 컨테이너 호스트에서 컨테이너를 관리하는 워크플로와 거의 동일합니다. 이 문서는 Docker Swarm의 Azure 컨테이너 서비스 인스턴스에서 컨테이너화된 워크로드를 배포하는 간단한 예제를 제공합니다. Docker Swarm에 대한 보다 심층적인 설명서는 [Docker.com의 Docker Swarm](https://docs.docker.com/swarm/)을 참조하세요.
+
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
 
 이 문서의 연습을 위한 필수 구성 요소
 
@@ -115,10 +118,5 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 ## <a name="next-steps"></a>다음 단계
 [Docker Swarm에 대해 자세히 알아보기](https://docs.docker.com/swarm/)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

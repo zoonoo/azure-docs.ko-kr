@@ -14,19 +14,21 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 04/01/2017
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 6aed248b91d25572c4eae691f4e5392e37c01400
-ms.openlocfilehash: e2d81d140c194a33ea6f1462effb09a9e283d3af
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 1afc4d0c04929fdf55cc9f336e50d90ff7c66172
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Azure Functions Service Bus 바인딩
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-이 문서에서는 Azure Functions에서 Azure Service Bus 바인딩을 구성하고 코딩하는 방법을 설명합니다. Azure Functions는 Notification Hubs 큐 및 토픽에 대한 트리거 및 출력 바인딩을 지원합니다.
+이 문서에서는 Azure Functions에서 Azure Service Bus 바인딩을 구성하고 사용하는 방법을 설명합니다. 
+
+Azure Functions는 Service Bus 큐 및 토픽에 대한 트리거 및 출력 바인딩을 지원합니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -35,7 +37,7 @@ ms.lasthandoff: 02/22/2017
 ## <a name="service-bus-trigger"></a>Service Bus 트리거
 Service Bus 트리거를 사용하여 Service Bus 큐 또는 토픽의 메시지에 응답합니다. 
 
-함수에 대한 Notification Hubs 큐 및 토픽 트리거는 function.json의 `bindings` 배열에서 다음과 같은 JSON 개체를 사용합니다.
+함수에 대한 Service Bus 큐 및 토픽 트리거는 function.json의 `bindings` 배열에 있는 다음과 같은 JSON 개체로 정의됩니다.
 
 * *큐* 트리거:
 
@@ -66,14 +68,14 @@ Service Bus 트리거를 사용하여 Service Bus 큐 또는 토픽의 메시지
 
 다음 사항에 유의하세요.
 
-* `connection`의 경우 Service Hub의 네임스페이스에 대한 연결 문자열을 포함하는 [함수 앱의 앱 설정을 만들고](), 다음으로 트리거의 `connection` 속성에서 앱 설정의 이름을 지정합니다. [관리 자격 증명 얻기](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials)에 나온 단계에 따라 연결 문자열을 얻습니다.
+* `connection`의 경우 Service Bus의 네임스페이스에 대한 연결 문자열을 포함하는 [함수 앱의 앱 설정을 만들고](functions-how-to-use-azure-function-app-settings.md), 다음으로 트리거의 `connection` 속성에서 앱 설정의 이름을 지정합니다. [관리 자격 증명 얻기](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials)에 나온 단계에 따라 연결 문자열을 얻습니다.
   연결 문자열은 서비스 버스 네임스페이스에 대한 것이어야 하며, 특정 큐 또는 항목으로 제한되지 않습니다.
   `connection`을 비워두면 트리거는 기본 Service Bus 연결 문자열이 `AzureWebJobsServiceBus`라는 앱 설정에서 지정한 것으로 가정합니다.
-* `accessRights`의 경우 사용 가능한 값은 `manage` 및 `listen`입니다. 기본값은 `manage`이며, `connection`에 **관리** 권한이 있음을 의미합니다. **관리** 권한이 없는 연결 문자열을 사용하는 경우 `accessRights`을 `listen`으로 설정합니다. 그렇지 않으면 함수 런타임은 관리 권한이 필요한 작업을 시도하고 실패할 수 있습니다.
+* `accessRights`의 경우 사용 가능한 값은 `manage` 및 `listen`입니다. 기본값은 `manage`이며, `connection`에 **관리** 권한이 있음을 의미합니다. **관리** 권한이 없는 연결 문자열을 사용하는 경우 `accessRights`을 `listen`으로 설정합니다. 그렇지 않으면 함수 런타임은 관리 권한이 필요한 작업 시도를 실패할 수 있습니다.
 
 ## <a name="trigger-behavior"></a>트리거 동작
 * **단일 스레딩** - 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, *host.json*에서 `serviceBus.maxConcurrentCalls`를 1로 설정합니다. 
-  *host.json*에 대한 자세한 내용은 [폴더 구조](functions-reference.md#folder-structure) 및 [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json)을 참조하세요.
+  *host.json*에 대한 자세한 내용은 [폴더 구조](functions-reference.md#folder-structure) 및 [host.json](https://git .com/Azure/azure-webjobs-sdk-script/wiki/host.json)을 참조하세요.
 * **포이즌 메시지 처리** - Service Bus는 Azure Functions 구성 또는 코드로 제어되거나 구성될 수 없는 자체 포이즌 메시지 처리를 수행합니다. 
 * **PeekLock 동작** - 함수 런타임은 [`PeekLock` 모드](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode)로 메시지를 받아 함수가 정상적으로 완료된 경우 메시지에서 `Complete`를 호출하고, 함수가 실패한 경우 `Abandon`을 호출합니다. 
   함수가 `PeekLock` 시간 제한보다 오래 실행되는 경우 잠금이 자동으로 갱신됩니다.
@@ -81,17 +83,17 @@ Service Bus 트리거를 사용하여 Service Bus 큐 또는 토픽의 메시지
 <a name="triggerusage"></a>
 
 ## <a name="trigger-usage"></a>트리거 사용
-이 섹션에서는 함수 코드에서 Service Hub 트리거를 사용하는 방법을 보여 줍니다. 
+이 섹션에서는 함수 코드에서 Service Bus 트리거를 사용하는 방법을 보여 줍니다. 
 
 C# 및 F#에서 Service Bus 트리거 메시지를 다음 입력 형식 중 하나로 deserialize할 수 있습니다.
 
 * `string` - 문자열 메시지에 유용
 * `byte[]` - 이진 데이터에 유용
 * 모든 [개체](https://msdn.microsoft.com/library/system.object.aspx) - JSON 직렬화 데이터에 유용합니다.
-  사용자 지정 입력 형식을 선언하는 경우(예: `FooType`), Azure Functions에서 지정된 형식에 JSON 데이터를 deserialize하려고 시도합니다.
+  사용자 지정 입력 형식을 선언하는 경우(예: `CustomType`), Azure Functions에서 지정된 형식에 JSON 데이터를 deserialize하려고 시도합니다.
 * `BrokeredMessage` - [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) 메서드를 사용하는 deserialize된 메시지가 표시됩니다.
 
-Node.js에서 Service Bus 트리거 메시지가 문자열 또는 JSON 메시지의 경우 JavaScript 개체로 함수에 전달됩니다.
+Node.js에서 Service Bus 트리거 메시지가 문자열 또는 JSON 개체로 함수에 전달됩니다.
 
 <a name="triggersample"></a>
 
@@ -153,7 +155,7 @@ module.exports = function(context, myQueueItem) {
 <a name="output"></a>
 
 ## <a name="service-bus-output-binding"></a>Service Bus 출력 바인딩
-함수에 대한 Notification Hubs 큐 및 토픽 출력은 function.json의 `bindings` 배열에서 다음과 같은 JSON 개체를 사용합니다.
+함수에 대한 Service Bus 큐 및 토픽 출력은 function.json의 `bindings` 배열에서 다음과 같은 JSON 개체를 사용합니다.
 
 * *큐* 출력:
 
@@ -162,7 +164,7 @@ module.exports = function(context, myQueueItem) {
         "name" : "<Name of output parameter in function signature>",
         "queueName" : "<Name of the queue>",
         "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBus",
         "direction" : "out"
     }
@@ -183,10 +185,10 @@ module.exports = function(context, myQueueItem) {
 
 다음 사항에 유의하세요.
 
-* `connection`의 경우 Service Hub의 네임스페이스에 대한 연결 문자열을 포함하는 [함수 앱의 앱 설정을 만들고](), 다음으로 출력 바인딩의 `connection` 속성에서 앱 설정의 이름을 지정합니다. [관리 자격 증명 얻기](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials)에 나온 단계에 따라 연결 문자열을 얻습니다.
+* `connection`의 경우 Service Bus의 네임스페이스에 대한 연결 문자열을 포함하는 [함수 앱의 앱 설정을 만들고](functions-how-to-use-azure-function-app-settings.md), 다음으로 출력 바인딩의 `connection` 속성에서 앱 설정의 이름을 지정합니다. [관리 자격 증명 얻기](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials)에 나온 단계에 따라 연결 문자열을 얻습니다.
   연결 문자열은 서비스 버스 네임스페이스에 대한 것이어야 하며, 특정 큐 또는 항목으로 제한되지 않습니다.
   `connection`을 비워두면 출력 바인딩은 기본 Service Bus 연결 문자열이 `AzureWebJobsServiceBus`라는 앱 설정에서 지정한 것으로 가정합니다.
-* `accessRights`의 경우 사용 가능한 값은 `manage` 및 `listen`입니다. 기본값은 `manage`이며, `connection`에 **관리** 권한이 있음을 의미합니다. **관리** 권한이 없는 연결 문자열을 사용하는 경우 `accessRights`을 `listen`으로 설정합니다. 그렇지 않으면 함수 런타임은 관리 권한이 필요한 작업을 시도하고 실패할 수 있습니다.
+* `accessRights`의 경우 사용 가능한 값은 `manage` 및 `listen`입니다. 기본값은 `manage`이며, `connection`에 **관리** 권한이 있음을 의미합니다. **관리** 권한이 없는 연결 문자열을 사용하는 경우 `accessRights`을 `listen`으로 설정합니다. 그렇지 않으면 함수 런타임은 관리 권한이 필요한 작업 시도를 실패할 수 있습니다.
 
 <a name="outputusage"></a>
 

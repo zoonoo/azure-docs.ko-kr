@@ -16,9 +16,9 @@ ms.date: 03/13/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 799bacdac6ff49cb6fa38cd208318673629d4035
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: e8452e272916222679dd5e411b5f8732d3e8059b
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/15/2017
 > 
 > 
 
-Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 비용을 관리하고 랩에서의 낭비를 최소화할 수 있습니다. 이 문서에서는 각 정책을 설정하는 방법에 대한 단계별 설명을 제공합니다.  
+Azure DevTest Labs에서는 각 랩의 정책(설정)을 관리하여 랩에서 비용을 관리하고 낭비를 최소화할 수 있습니다. 이 문서에서는 각 정책을 설정하는 방법에 대해 단계별로 설명합니다.  
 
 ## <a name="set-allowed-virtual-machine-sizes"></a>허용된 가상 컴퓨터 크기를 설정합니다.
 허용 VM 크기를 설정하는 정책은 랩에서 허용되는 VM 크기를 지정함으로써 랩의 낭비가 최소화되도록 돕습니다. 이 정책이 활성화되면 이 목록의 VM 크기만 사용하여 VM을 만들 수 있습니다.
@@ -99,6 +99,9 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 4. **저장**을 선택합니다.
 
     사용하도록 설정해도 이 정책이 현재 랩의 VM에 자동으로 적용되지 않습니다. 이 설정을 특정 VM에 적용하려면 VM의 블레이드를 열고 해당 **자동 시작** 설정을 변경합니다. 
+
+## <a name="set-expiration-date"></a>만료 날짜 설정
+[VM을 만들 때](devtest-lab-add-vm.md) 만료 날짜를 설정할 수 있습니다. **고급 설정**에서 달력 아이콘을 선택하고 VM이 자동으로 삭제될 날짜를 지정합니다.  기본적으로 VM은 만료되지 않습니다.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

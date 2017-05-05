@@ -3,7 +3,7 @@ title: "Azure Active Directory 감사 API 참조 | Microsoft Docs"
 description: "Azure Active Directory 감사 API를 시작하는 방법"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: markusvi
 manager: femila
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2016
+ms.date: 04/05/2017
 ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: b1de516d907826d3e6ede0783649f6101b381852
-ms.openlocfilehash: 261cce0b8424f73df4c7ca86784a14e95a8336f1
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 87c7990834eaf2aa6c4aff0c341150ba9bd9eed4
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -75,6 +76,8 @@ Azure AD 감사 API에서 (OData 페이지 매김을 사용하여) 반환되는 
 원하는 레코드의 종류를 지정하려면 다음 필터 필드 중 하나 또는 조합을 포함할 수 있는 필터 문을 빌드할 수 있습니다.
 
 * [activityDate](#activitydate) - 날짜 또는 날짜 범위를 정의합니다.
+* [범주](#category) - 필터링 기준으로 사용할 범주를 정의합니다.
+* [activityStatus](#activitystatus) - 활동의 상태를 정의합니다.
 * [activityType](#activitytype) - 동작의 종류를 정의합니다.
 * [활동](#activity) - 활동을 문자열로 정의합니다.  
 * [행위자/이름](#actorname) - 행위자 이름의 형태로 행위자를 정의합니다.
@@ -97,6 +100,45 @@ Azure AD 감사 API에서 (OData 페이지 매김을 사용하여) 반환되는 
 datetime는 UTC 형식이어야 합니다.
 
 - - -
+### <a name="category"></a>카테고리
+
+**지원되는 값**:
+
+| Category                         | 값     |
+| :--                              | ---       |
+| 핵심 디렉터리                   | 디렉터리 |
+| 셀프 서비스 암호 관리 | SSPR      |
+| 셀프 서비스 그룹 관리    | SSGM      |
+| 계정 프로비전             | 동기화      |
+| 자동화된 암호 롤오버      | 자동화된 암호 롤오버 |
+| ID 보호              | IdentityProtection |
+| 사용자 초대                    | 사용자 초대 |
+| MIM 서비스                      | MIM 서비스 |
+
+
+
+**지원되는 연산자**: eq
+
+**예제**:
+
+    $filter=category eq 'SSPR'
+- - -
+### <a name="activitystatus"></a>activityStatus
+
+**지원되는 값**:
+
+| 활동 상태 | 값 |
+| :--             | ---   |
+| 성공         | 0     |
+| 실패         | - 1   |
+
+**지원되는 연산자**: eq
+
+**예제**:
+
+    $filter=activityStatus eq -1    
+
+---
 ### <a name="activitytype"></a>activityType
 **지원되는 연산자**: eq
 
@@ -139,6 +181,7 @@ datetime는 UTC 형식이어야 합니다.
 **예제**:
 
     $filter=actor/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba'    
+
 
 - - -
 ### <a name="targetname"></a>대상/이름
@@ -190,10 +233,5 @@ datetime는 UTC 형식이어야 합니다.
 ## <a name="next-steps"></a>다음 단계
 * 필터링된 시스템 활동에 대한 예제를 참조하시겠습니까? [Azure Active Directory 감사 API 샘플](active-directory-reporting-api-audit-samples.md)을 확인하세요.
 * Azure AD Reporting API에 대해 자세히 살펴보시겠습니까? [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

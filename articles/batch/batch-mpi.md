@@ -11,17 +11,16 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: big-compute
-ms.date: 02/27/2017
+ms.workload: 3/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: a23ae729e20dcf79ada73f7545861356e31b957e
-ms.lasthandoff: 03/09/2017
-
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d533dc2c49974f2ce4ef1d1f6dc12e23ec18877f
+ms.lasthandoff: 04/03/2017
 
 ---
+
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>다중 인스턴스 작업을 사용하여 Batch에서 MPI(메시지 전달 인터페이스) 응용 프로그램 실행
 
 다중 인스턴스 작업을 통해 여러 계산 노드에서 동시에 Azure 배치 작업을 실행할 수 있습니다. 이러한 작업을 통해 MPI(메시지 전달 인터페이스) 응용 프로그램과 같은 고성능 컴퓨팅 시나리오를 배치로 수행할 수 있습니다. 이 문서에서 [배치 .NET][api_net] 라이브러리를 사용하여 다중 인스턴스 작업을 실행하는 방법을 알아봅니다.
@@ -50,7 +49,9 @@ ms.lasthandoff: 03/09/2017
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>다중 인스턴스 작업에 대한 요구 사항
-다중 인스턴스 작업은 **노드 간 통신이 활성화**되고 **동시 작업 실행이 비활성화**된 풀이 필요합니다. 노드 간 통신이 비활성화되었거나 *maxTasksPerNode* 값이 1보다 큰 풀에서 다중 인스턴스 작업을 실행하려는 경우 작업은 예약되지 않습니다. 무기한으로 "활성" 상태로 유지됩니다. 이 코드 조각은 배치 .NET 라이브러리를 사용하여 이러한 풀의 생성을 보여 줍니다.
+다중 인스턴스 작업은 **노드 간 통신이 활성화**되고 **동시 작업 실행이 비활성화**된 풀이 필요합니다. 동시 작업 실행을 사용하지 않도록 설정하려면 [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) 속성을 1로 설정합니다.
+
+이 코드 조각에서는 일괄 처리 .NET 라이브러리를 사용하여 다중 인스턴스 작업용 풀을 만드는 방법을 보여 줍니다.
 
 ```csharp
 CloudPool myCloudPool =
@@ -66,7 +67,12 @@ myCloudPool.InterComputeNodeCommunicationEnabled = true;
 myCloudPool.MaxTasksPerComputeNode = 1;
 ```
 
-또한 다중 인스턴스 작업은 **2015년 12월 14일 이후에 만든 풀**의 노드에서*만*실행할 수 있습니다.
+> [!NOTE]
+> 노드 간 통신이 비활성화되었거나 *maxTasksPerNode* 값이 1보다 큰 풀에서 다중 인스턴스 작업을 실행하려는 경우 작업은 예약되지 않습니다. 무기한으로 "활성" 상태로 유지됩니다. 
+>
+> 다중 인스턴스 작업은 2015년 12월 14일 이후에 만든 풀의 노드에서만 실행할 수 있습니다.
+>
+>
 
 ### <a name="use-a-starttask-to-install-mpi"></a>StartTask를 사용하여 MPI 설치
 다중 인스턴스 작업으로 MPI 응용 프로그램을 실행하려면 먼저 풀의 계산 노드에 MPI 구현(예: MS-MPI 또는 Intel MPI)을 설치해야 합니다. 노드가 풀에 연결되거나 다시 시작될 때마다 실행하는 [StartTask][net_starttask]를 사용하는 것이 좋습니다. 이 코드 조각은 MS-MPI 설치 패키지를 [리소스 파일][net_resourcefile]로 지정하는 StartTask를 만듭니다. 리소스 파일이 노드로 다운로드된 후에 시작 태스크의 명령줄이 실행됩니다. 이 경우 명령줄은 MS-MPI의 무인 설치를 수행합니다.
@@ -89,7 +95,7 @@ await myCloudPool.CommitAsync();
 ```
 
 ### <a name="remote-direct-memory-access-rdma"></a>RDMA(원격 직접 메모리 액세스)
-배치 풀에서 계산 노드에 대해 A9 등, [RDMA 지원 크기](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하는 경우 MPI 응용 프로그램은 Azure의 고성능, 지연율이 낮은 RDMA(원격 직접 메모리 액세스) 네트워크를 활용할 수 있습니다.
+배치 풀에서 계산 노드에 대해 A9 등, [RDMA 지원 크기](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하는 경우 MPI 응용 프로그램은 Azure의 고성능, 지연율이 낮은 RDMA(원격 직접 메모리 액세스) 네트워크를 활용할 수 있습니다.
 
 다음 문서에서 "RDMA 지원"으로 지정된 크기를 찾습니다.
 
@@ -98,8 +104,8 @@ await myCloudPool.CommitAsync();
   * [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)(Windows만 해당)
 * **VirtualMachineConfiguration** 풀
 
-  * [Azure에서 가상 컴퓨터 크기](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Linux)
-  * [Azure에서 가상 컴퓨터 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)
+  * [Azure에서 가상 컴퓨터 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Linux)
+  * [Azure에서 가상 컴퓨터 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)
 
 > [!NOTE]
 > [Linux 계산 노드](batch-linux-nodes.md)에서 RDMA를 활용하려면 노드에서 **Intel MPI**를 사용해야 합니다. CloudServiceConfiguration 및 VirtualMachineConfiguration 풀에 대한 자세한 내용은 배치 기능 개요의 [풀](batch-api-basics.md) 섹션을 참조하세요.
@@ -204,7 +210,7 @@ cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIAp
 ## <a name="task-lifetime"></a>작업 수명
 주 작업의 수명은 전체 다중 인스턴스 작업의 수명을 제어합니다. 주 작업이 종료될 때 모든 하위 작업이 종료됩니다. 주 작업의 종료 코드는 작업의 종료 코드이며 따라서 재시도 목적에 대한 작업의 성공 여부를 결정하는 데 사용됩니다.
 
-하위 작업 중 하나라도 실패하는 경우(예:&0;이 아닌 반환 코드와 함께 종료) 전체 다중 인스턴스 작업이 실패합니다. 다중 인스턴스 작업은 종료되고 해당 재시도 한계까지 재시도됩니다.
+하위 작업 중 하나라도 실패하는 경우(예: 0이 아닌 반환 코드와 함께 종료) 전체 다중 인스턴스 작업이 실패합니다. 다중 인스턴스 작업은 종료되고 해당 재시도 한계까지 재시도됩니다.
 
 다중 인스턴스 작업을 삭제하는 경우 주 및 모든 하위 작업도 배치 서비스에서 삭제됩니다. 모든 하위 작업 디렉터리 및 해당 파일은 표준 작업의 경우처럼 계산 노드에서 삭제됩니다.
 

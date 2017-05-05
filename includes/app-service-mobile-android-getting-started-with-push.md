@@ -94,8 +94,3 @@
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
     이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

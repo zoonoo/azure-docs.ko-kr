@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 01/30/2017
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: d9436796373af55a18c0b6fbfc036bd6616bbe4f
-ms.openlocfilehash: 0c9a7792331b4662a93a78fe5dd08ab037b466db
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3fd5224983c723faefb8001888ae20e78acdb8ce
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -31,7 +33,8 @@ ms.openlocfilehash: 0c9a7792331b4662a93a78fe5dd08ab037b466db
 * [병합 문][merge statement]
 * 데이터베이스 간 조인
 * [커서][cursors]
-* [INSERT..EXEC][INSERT..EXEC]
+* <seg>
+  [INSERT..EXEC][INSERT..EXEC]</seg>
 * output 절
 * 인라인 사용자 정의 함수
 * 다중 문 함수
@@ -91,7 +94,7 @@ CTE(공용 테이블 식)는 SQL 데이터 웨어하우스에서 부분적으로
 이러한 문제 중 일부는 해결될 수 있습니다.
 
 ## <a name="rowcount-workaround"></a>@@ROWCOUNT 해결 방법
-@@ROWCOUNT,에 대한 지원 부족 문제를 해결하려면 sys.dm_pdw_request_steps에서 마지막 행 수를 검색한 후 DML 문 다음에 `EXEC LastRowCount`를 실행하는 저장 절차를 만듭니다.
+@@ROWCOUNT에 대한 지원 부족 문제를 해결하려면 sys.dm_pdw_request_steps에서 마지막 행 수를 검색한 후 DML 문 다음에 `EXEC LastRowCount`를 실행하는 저장 절차를 만듭니다.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
@@ -135,9 +138,4 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 <!--MSDN references-->
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -26,7 +26,3 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 
 [IoT Hub를 사용하여 클라우드-장치 메시지 보내기]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
 [IoT Hub 시작]: ../articles/iot-hub/iot-hub-node-node-getstarted.md
-
-<!--HONumber=Feb17_HO3-->
-
-

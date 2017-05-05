@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 04/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 92c552f42f2645281f5039242825cfdaf6b683c9
-ms.openlocfilehash: 1a42c137204c2d2f6fff9a005b2b0e885c2002b2
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8c3cc27f1fa708371d415d00cdff59f77712cd41
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -30,13 +31,13 @@ Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때�
 다음 섹션에서는 이러한 각 대답의 결정에 대한 지침을 제공합니다.
 
 ## <a name="what-am-i-trying-to-secure"></a>보안을 유지하려는 대상은 무엇입니까?
-올바른&2;단계 인증 솔루션을 결정하려면 먼저 두 번째 인증 방법으로 보안을 유지하려는 대상이 무엇인지 답해야 합니다.  Azure에 있는 응용프로그램입니까?  또는 원격 액세스 시스템입니까?  보안을 유지하려는 대상이 무엇인지 결정하여 Multi-Factor Authentication 활성화가 필요한 곳에 대한 질문에 답할 수 있습니다.  
+올바른 2단계 인증 솔루션을 결정하려면 먼저 두 번째 인증 방법으로 보안을 유지하려는 대상이 무엇인지 답해야 합니다.  Azure에 있는 응용프로그램입니까?  또는 원격 액세스 시스템입니까?  보안을 유지하려는 대상이 무엇인지 결정하여 Multi-Factor Authentication 활성화가 필요한 곳에 대한 질문에 답할 수 있습니다.  
 
 | 보안을 유지하려는 대상은 무엇입니까 | 클라우드의 MFA | MFA 서버  |
 | --- |:---:|:---:|
 | 자사 Microsoft 앱 |● |● |
-| 앱 갤러리의 SaaS 앱 |● |● |
-| Azure AD 앱 프록시를 통해 웹 응용프로그램 게시됨 |● |● |
+| 앱 갤러리의 SaaS 앱 |● |  |
+| Azure AD 앱 프록시를 통해 웹 응용프로그램 게시됨 |● |  |
 | Azure AD 응용프로그램 프록시를 통해 IIS 응용프로그램 게시되지 않음 | |● |
 | VPN, RDG와 같은 원격 액세스 | |● |
 
@@ -84,9 +85,4 @@ Azure MFA(Multi-Factor Authentication)에는 여러 가지 버전이 있기 때�
 
 [![클라우드](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![검사](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </center>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

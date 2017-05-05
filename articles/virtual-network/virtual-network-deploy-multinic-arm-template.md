@@ -17,9 +17,9 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 99292dedfd83c0adde6b7352e08e7ae3b0b14513
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e2e10d3531fbbe2ed09dc34a6c3b14ff5df1a937
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -247,7 +247,7 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
 ![백 엔드 리소스 그룹](./media/virtual-network-deploy-multinic-arm-template/Figure2.png)
 
 ## <a name="deploy-the-template-by-using-powershell"></a>PowerShell을 사용하여 템플릿 배포
-PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 [PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 문서에 나오는 단계를 완료한 후 다음 단계를 완료하여 PowerShell을 설치 및 구성합니다.
+PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 [PowerShell 설치 및 구성](/powershell/azure/overview) 문서에 나오는 단계를 완료한 후 다음 단계를 완료하여 PowerShell을 설치 및 구성합니다.
 
 **`New-AzureRmResourceGroup`** cmdlet을 실행하고 템플릿을 사용하여 리소스 그룹을 만듭니다.
 

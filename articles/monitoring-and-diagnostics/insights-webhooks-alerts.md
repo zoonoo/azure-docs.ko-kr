@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/03/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: c0d101266fecf04a84b5717c1b81cefed90cab40
-ms.openlocfilehash: 440bd939f0c7d235d7be210c7fee9f2bc122718c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 7282de704a1053e2052a189990fb2b30b2adad6f
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,10 +34,7 @@ Azure에서는 앞으로 정의될 JSON 형식과 스키마에 포함되는 경�
 [Azure PowerShell Cmdlet](insights-powershell-samples.md#create-alert-rules), [플랫폼 간 CLI](insights-cli-samples.md#work-with-alerts) 또는 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 webhook URI에 게시하도록 경고를 구성할 수 있습니다.
 
 ## <a name="authenticating-the-webhook"></a>웹후크 인증
-웹후크는 다음 방법 중 하나를 사용하여 인증할 수 있습니다.
-
-1. **토큰 기반 인증** - 토큰 ID를 사용하여 webhook URI를 저장합니다. 예를 들면 다음과 같습니다. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **암호 기반 인증** - 사용자 이름과 암호를 사용하여 webhook URI를 저장합니다. 예를 들면 다음과 같습니다. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+웹후크는 토큰 기반 인증을 사용하여 인증할 수 있습니다. 토큰 ID를 사용하여 웹후크 URI를 저장합니다. 예를 들면 다음과 같습니다. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## <a name="payload-schema"></a>페이로드 스키마
 POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON 페이로드와 스키마가 포함됩니다.
@@ -112,9 +110,4 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 * [논리 앱을 사용하여 Azure 경고에서 Twilio 통해 SMS 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
 * [논리 앱을 사용하여 Azure 경고에서 Slack 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
 * [논리 앱을 사용하여 Azure 경고에서 Azure Queue에 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2016
+ms.date: 04/03/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 38728a20527be060e63d2dbdea923263b3d6c7fa
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 59ca9514c4cac97e8dd6dafc7a59406925b7b2df
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -38,6 +38,9 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 ## <a name="add-azure-replica-wizard"></a>Azure Replica Wizard 추가
 이 섹션에서는 **Azure 복제본 추가 마법사** 를 사용하여 Azure 복제본을 포함하도록 Always On 가용성 그룹 솔루션을 확장하는 방법을 보여줍니다.
+
+> [!IMPORTANT]
+> **Azure 복제본 추가 마법사**는 클래식 배포 모델을 사용하여 만든 가상 컴퓨터만 지원합니다. 새 VM 배포는 최신 Resource Manager 모델을 사용해야 합니다. Resource Manager와 함께 VM을 사용 중인 경우 Transact-SQL 명령(여기에 표시되지 않음)을 사용하여 보조 Azure 복제본을 수동으로 추가해야 합니다. 이 마법사는 Resource Manager 시나리오에서는 작동하지 않습니다.
 
 1. SQL Server Management Studio에서 **Always On 고가용성** > **가용성 그룹** > **[가용성 그룹 이름]**을 확장합니다.
 2. 마우스 오른쪽 단추로 **가용성 복제본**을 클릭한 다음 **복제본 추가**를 클릭합니다.

@@ -16,9 +16,9 @@ ms.workload: data-catalog
 ms.date: 03/14/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: b92db8dd81af0c58861644cc02ca9e56b6a6a832
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: d68ed62022834c9417d820a7a64e30b47f71a1bd
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -416,6 +416,24 @@ ms.lasthandoff: 03/17/2017
   
     <tr>
       <td>Azure DocumentDB 컬렉션</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>일반 ODBC 테이블</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td><font size=2></font></td>
+      <td><font size=2></font></td>
+    </tr>
+
+    <tr>
+      <td>일반 ODBC 보기</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -918,6 +936,22 @@ ms.lasthandoff: 03/17/2017
       <td>컬렉션</td>
       <td>
         <font size=2>프로토콜: document-db <br>인증: {azure-access-key} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 컬렉션 </font>
+      </td>
+    </tr>
+    <tr>
+      <td>일반 ODBC</td>
+      <td>컨테이너</td>
+      <td>데이터베이스</td>
+      <td>
+        <font size=2> 프로토콜: odbc <br>인증: {기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 옵션 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 </font>
+      </td>
+    </tr>
+    <tr>
+      <td>일반 ODBC</td>
+      <td>테이블</td>
+      <td>테이블, 뷰</td>
+      <td>
+        <font size=2> 프로토콜: odbc <br>인증: {기본, windows} <br>주소: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 옵션 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터베이스 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 개체 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 스키마 </font>
       </td>
     </tr>
     <tr>

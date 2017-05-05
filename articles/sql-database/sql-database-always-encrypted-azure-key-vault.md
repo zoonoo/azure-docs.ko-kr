@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bc60fde6c299bc98aa4ee3a207cd57b6b050765f
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 15db9db72a80dc95c615e52b889f6470b2e6eed0
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ ms.lasthandoff: 04/15/2017
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 버전 13.0.700.242 이상.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 이상(클라이언트 컴퓨터에서).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs) 버전 1.0 이상. 실행 중인 PowerShell 버전을 보려면 **(Get-Module azure -ListAvailable).Version** 을 입력합니다.
+* [Azure PowerShell](/powershell/azure/overview) 버전 1.0 이상. 실행 중인 PowerShell 버전을 보려면 **(Get-Module azure -ListAvailable).Version** 을 입력합니다.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>클라이언트 응용 프로그램에서 SQL 데이터베이스 서비스에 액세스하도록 설정
 필요한 인증을 설정하고 다음 코드에서 응용 프로그램을 인증하는 데 필요한 *ClientId* 및 *Secret*를 가져와 클라이언트 응용 프로그램에서 SQL Database 서비스에 액세스하도록 설정해야 합니다.

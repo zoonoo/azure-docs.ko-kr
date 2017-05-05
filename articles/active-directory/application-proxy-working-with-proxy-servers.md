@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 07adf751001a49e0365dde7cb8d7d2317a6b8134
-ms.openlocfilehash: d79c8418769656ecfd35a71a450176bd27427f68
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: f31625783aa03dd01a73b5e5b39dd899e109b3b9
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -29,19 +29,13 @@ ms.lasthandoff: 02/27/2017
 * 온-프레미스 아웃바운드 프록시를 바이패스하도록 커넥터를 구성합니다.
 * 아웃바운드 프록시를 사용하여 Azure AD 응용 프로그램 프록시에 액세스하도록 커넥터를 구성합니다.
 
-커넥터가 작동하는 방법에 대한 자세한 내용은 [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)을 참조하세요.
-
-## <a name="configure-your-connectors"></a>커넥터 구성
-
-코어 커넥터 서비스는 Azure Service Bus를 사용하여 Azure AD 응용 프로그램 프록시 서비스에 대한 기본 통신을 처리합니다. Service Bus는 추가 구성 요구 사항을 수반합니다.
-
-Azure AD 연결 문제를 해결하는 방법은 [Azure AD 응용 프로그램 프록시 연결 문제 해결 방법](https://blogs.technet.microsoft.com/applicationproxyblog/2015/03/24/how-to-troubleshoot-azure-ad-application-proxy-connectivity-problems)을 참조하세요.
+커넥터 작동 방법에 대한 자세한 내용은 [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-understand-connectors.md)를 참조하세요.
 
 ## <a name="configure-the-outbound-proxy"></a>아웃바운드 프록시 구성
 
-사용자 환경에 아웃바운드 프록시가 있는 경우 설치를 수행하는 계정이 아웃바운드 프록시를 사용하도록 적절하게 구성되어야 합니다. 설치 관리자가 설치를 수행하는 사용자의 컨텍스트에서 실행되기 때문에 Microsoft Edge 또는 다른 인터넷 브라우저를 사용하여 구성을 확인할 수 있습니다.
+해당 환경에 아웃바운드 프록시가 있는 경우 적절한 사용 권한이 있는 계정을 사용하여 아웃바운드 프록시를 구성합니다. 설치 관리자가 설치를 수행하는 사용자의 컨텍스트에서 실행되기 때문에 Microsoft Edge 또는 다른 인터넷 브라우저를 사용하여 구성을 확인할 수 있습니다.
 
-Microsoft Edge를 사용하여 프록시 설정을 구성하려면:
+Microsoft Edge에서 프록시 설정을 구성하려면:
 
 1. **설정** > **고급 설정 보기** > **프록시 설정 열기** > **수동 프록시 설정**으로 이동합니다.
 2. **프록시 서버 사용**을 **켜기**로 설정하고 **로컬 (인트라넷) 주소에 프록시 서버 사용 안 함** 확인란을 선택한 후 주소 및 포트를 변경하여 로컬 프록시 서버를 반영합니다.
@@ -51,62 +45,58 @@ Microsoft Edge를 사용하여 프록시 설정을 구성하려면:
 
 ## <a name="bypass-outbound-proxies"></a>아웃바운드 프록시 바이패스
 
-기본적으로 아웃바운드 요청을 만들기 위해 커넥터가 사용한 기본 OS 구성 요소는 네트워크에서 프록시 서버를 자동으로 찾게 됩니다. 환경에서 사용하도록 설정된 경우 WPAD(웹 프록시 자동 검색)를 사용합니다.
+커넥터에는 아웃바운드 요청을 하는 기본 OS 구성 요소가 있습니다. 이러한 구성 요소는 자동으로 네트워크에서 프록시 서버를 찾으려고 합니다. 환경에서 사용하도록 설정된 경우 WPAD(웹 프록시 자동 검색)를 사용합니다.
 
 OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프록시 서버를 찾아 봅니다. DNS에서 확인되면 wpad.dat에 대한 IP 주소에 HTTP를 요청합니다. 이 요청은 사용자 환경에서 프록시 구성 스크립트가 됩니다. 커넥터는 이 스크립트를 사용하여 아웃바운드 프록시 서버를 선택합니다. 하지만 커넥터 트래픽은 프록시에서 필요한 추가 구성 설정 때문에 여전히 통과하지 못할 수 있습니다.
 
-다음 섹션에서는 트래픽이 흐를 수 있도록 하기 위해 아웃바운드 프록시에서 필요한 구성 단계를 다룹니다. 하지만 먼저 온-프레미스 프록시를 바이패스하여 Azure 서비스로 직접 연결을 사용하도록 커넥터를 구성하는 방법을 살펴보겠습니다. 이렇게 하면 유지할 구성이 줄어들기 때문에 네트워크 정책에서 허용하기만 한다면 권장되는 방법입니다.
+온-프레미스 프록시를 바이패스하여 Azure 서비스로 직접 연결을 사용하도록 커넥터를 구성할 수 있습니다. 이렇게 하면 유지할 구성이 줄어들기 때문에 네트워크 정책에서 허용하기만 한다면 이 방법을 사용하는 것이 좋습니다.
 
-커넥터에 아웃바운드 프록시 사용을 사용하지 않도록 하려면 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 파일을 편집하여 다음 코드 샘플에 표시된 [system.net] 섹션을 추가합니다.
+커넥터에 아웃바운드 프록시 사용을 사용하지 않도록 설정하려면 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 파일을 편집하여 다음 코드 샘플에 표시된 *system.net* 섹션을 추가합니다.
 
 ```xml
- <?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-<system.net>
-<defaultProxy enabled="false"></defaultProxy>
-</system.net>
- <runtime>
-<gcServer enabled="true"/>
+  <system.net>
+    <defaultProxy enabled="false"></defaultProxy>
+  </system.net>
+  <runtime>
+    <gcServer enabled="true"/>
   </runtime>
   <appSettings>
-<add key="TraceFilename" value="AadAppProxyConnector.log" />
+    <add key="TraceFilename" value="AadAppProxyConnector.log" />
   </appSettings>
 </configuration>
 ```
-커넥터 업데이터 서비스도 프록시를 바이패스하도록 하려면 C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config에 위치한 ApplicationProxyConnectorUpdaterService.exe.config 파일을 유사하게 변경합니다.
+커넥터 업데이터 서비스도 프록시를 바이패스하도록 하려면 C:\Program Files\Microsoft AAD App Proxy Connector Updater에 위치한 ApplicationProxyConnectorUpdaterService.exe.config 파일을 유사하게 변경합니다.
 
 기본 .config 파일로 되돌려야 할 경우를 대비해 원본 파일을 복사해야 합니다.
 
 ## <a name="use-the-outbound-proxy-server"></a>아웃바운드 프록시 서버 사용
 
-앞서 설명했듯이, 일부 고객 환경에는 예외 없이 아웃바운드 프록시를 통과하기 위해 모든 아웃바운드 트래픽이 필요합니다. 따라서 프록시를 바이패스하는 것은 옵션이 아닙니다.
+일부 환경에서는 모든 아웃바운드 트래픽이 예외 없이 아웃바운드 프록시를 통과해야 합니다. 따라서 프록시를 바이패스하는 것은 옵션이 아닙니다.
 
 다음 다이어그램에 표시된 대로 커넥터 트래픽이 아웃바운드 프록시를 통과하도록 구성할 수 있습니다.
 
  ![Azure AD 응용 프로그램 프록시에 대한 아웃바운드 프록시를 통과하도록 커넥터 트래픽 구성](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
 
-아웃바운드 트래픽만 포함하므로 커넥터 간의 부하 분산을 설정하거나 방화벽을 통과하는 인바운드 액세스를 구성할 필요가 없습니다.
-
-이 경우 다음 단계를 수행해야 합니다.
-1. 아웃바운드 프록시를 통과하도록 커넥터 업데이터 서비스를 구성합니다.
-2. Azure AD 응용 프로그램 프록시 서비스에 대한 연결을 허용하도록 프록시 설정을 구성합니다.
+그 결과 아웃바운드 트래픽만 포함되므로 방화벽을 통과하는 인바운드 액세스를 구성할 필요가 없습니다.
 
 ### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>1단계: 아웃바운드 프록시를 통과하도록 커넥터 및 관련 서비스 구성
 
 앞서 설명한 것처럼 환경에 WPAD가 사용되고 적절히 구성된 경우 커넥터는 아웃바운드 프록시 서버를 자동으로 검색하고 사용하려고 합니다. 하지만 트래픽이 아웃바운드 프록시를 통과하도록 명시적으로 커넥터를 구성할 수 있습니다.
 
-이렇게 하려면 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 파일을 편집하여 다음 코드 샘플에 표시된 [system.net] 섹션을 추가합니다.
+이렇게 하려면 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 파일을 편집하여 다음 코드 샘플에 표시된 *system.net* 섹션을 추가합니다. 로컬 프록시 서버 이름 또는 IP 주소와 수신 대기 중인 포트를 반영하도록 *proxyserver:8080*을 변경합니다.
 
 ```xml
- <?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-<system.net>  
+  <system.net>  
     <defaultProxy>   
       <proxy proxyaddress="http://proxyserver:8080" bypassonlocal="True" usesystemdefault="True"/>   
     </defaultProxy>  
-</system.net>
+  </system.net>
   <runtime>
-     <gcServer enabled="true"/>
+    <gcServer enabled="true"/>
   </runtime>
   <appSettings>
     <add key="TraceFilename" value="AadAppProxyConnector.log" />
@@ -114,15 +104,11 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 </configuration>
 ```
 
->[!NOTE]
->로컬 프록시 서버 이름 또는 IP 주소와 수신 대기 중인 포트를 반영하도록 _proxyserver:8080_을 변경합니다.
->
-
 그런 다음 C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config에 위치한 파일을 유사하게 변경하여 프록시를 사용하도록 커넥터 업데이터 서비스를 구성합니다.
 
 ### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>2단계: 커넥터 및 관련 서비스에서 트래픽이 통과하여 흐를 수 있도록 프록시 구성
 
-아웃바운드 프록시에서는 다음&4;가지 측면을 고려해야 합니다.
+아웃바운드 프록시에서는 다음 4가지 측면을 고려해야 합니다.
 * 프록시 아웃바운드 규칙
 * 프록시 인증
 * 프록시 포트
@@ -172,7 +158,7 @@ Service Bus 트래픽이 아웃바운드 프록시 서버를 통해 전송되도
 
 커넥터 연결 문제를 식별하고 해결하는 좋은 방법은 커넥터 서비스를 시작하는 동안 커넥터 서비스에서 네트워크 캡처를 사용하는 것입니다. 이는 어려운 작업일 수 있으므로 네트워크 추적을 캡처 및 필터링하는 빠른 팁을 살펴 보겠습니다.
 
-원하는 모니터링 도구를 사용할 수 있습니다. 이 문서에서는 Microsoft 네트워크 모니터 3.4를 사용했습니다. [Microsoft에서 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=4865)할 수 있습니다.
+원하는 모니터링 도구를 사용할 수 있습니다. 이 문서에서는 Microsoft 네트워크 모니터 3.4를 사용했습니다. [Microsoft에서 다운로드](https://www.microsoft.com/download/details.aspx?id=4865)할 수 있습니다.
 
 다음 섹션에서 사용하는 예제와 필터는 네트워크 모니터에 국한되지만 원리는 모든 분석 도구에 적용할 수 있습니다.
 
@@ -240,7 +226,7 @@ SYN 패킷은 TCP 연결을 설정하기 위해 전송된 첫 번째 패킷입�
 
 커넥터 연결 문제가 계속 발생하는 경우 지원 팀을 사용하여 티켓을 만드세요. 팀은 추가 문제 해결을 지원할 수 있습니다.
 
-응용 프로그램 프록시 커넥터와 관련된 오류를 해결하는 방법에 대한 자세한 내용은 [응용 프로그램 프록시 문제 해결](https://azure.microsoft.com/en-us/documentation/articles/active-directory-application-proxy-troubleshoot)을 참조하세요.
+응용 프로그램 프록시 커넥터와 관련된 오류를 해결하는 방법에 대한 자세한 내용은 [응용 프로그램 프록시 문제 해결](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-troubleshoot)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

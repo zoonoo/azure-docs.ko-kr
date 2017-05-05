@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.custom: connect
+ms.date: 03/30/2017
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c44f417d465aedcbbc731757282e18985b0435c
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ae025ee2e6865b225efc5e225e261ac579a339aa
+ms.lasthandoff: 04/03/2017
 
 
 ---
-# <a name="install-visual-studio-2015-and-ssdt-for-sql-data-warehouse"></a>SQL 데이터 웨어하우스용 Visual Studio 2015 및 SSDT 설치
-SQL 데이터 웨어하우스용 응용 프로그램을 개발하려면 최신 버전의 SSDT(SQL Server 데이터 도구)와 함께 Visual Studio 2015를 사용하는 것이 좋습니다.  이전 버전과의 호환성을 위해 SSDT와 함께 Visual Studio 2013 업데이트 5도 지원됩니다.  
+# <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>SQL Data Warehouse용 Visual Studio 및 SSDT 설치
+SQL 데이터 웨어하우스용 응용 프로그램을 개발하려면 최신 버전의 SSDT(SQL Server 데이터 도구)와 함께 최신 버전의 Visual Studio를 사용하는 것이 좋습니다.  이전 버전과의 호환성을 위해 SSDT와 함께 Visual Studio 2013 업데이트 5도 지원됩니다.  
 
 SSDT로 Visual Studio를 사용하면 시각적 탐색 테이블, 뷰, 저장된 프로시저 및 SQL 데이터 웨어하우스의 더 많은 개체 뿐만 아니라 쿼리 실행에 SQL Server 개체 탐색기를 사용할 수 있습니다.
 
@@ -30,10 +32,10 @@ SSDT로 Visual Studio를 사용하면 시각적 탐색 테이블, 뷰, 저장된
 > 
 > 
 
-## <a name="step-1-install-visual-studio-2015"></a>1단계: Visual Studio 2015 설치
-이 링크를 따라 Visual Studio 2015를 다운로드하고 설치합니다. Visual Studio 2013 또는 2015가 설치되어 있는 경우 2단계로 건너뛰어 SSDT를 설치할 수 있습니다.
+## <a name="step-1-install-visual-studio"></a>1단계: Visual Studio 설치
+이 링크를 따라 Visual Studio를 다운로드하고 설치합니다. Visual Studio 2013 이상이 설치되어 있는 경우 2단계로 건너뛰어 SSDT를 설치할 수 있습니다.
 
-1. [Visual Studio 2015 다운로드][Download Visual Studio 2015]합니다.
+1. [Visual Studio를 다운로드][]합니다.
 2. MSDN의 [Visual Studio 설치][Installing Visual Studio] 지침을 따르고 기본 구성을 선택합니다.
 
 ## <a name="step-2-install-ssdt"></a>2단계: SSDT 설치
@@ -55,12 +57,7 @@ Visual Studio 용 SSDT를 설치하려면 다음 이 단계를 수행하여 Visu
 [connect]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
-[Download Visual Studio 2015]: https://www.visualstudio.com/downloads/
+[Visual Studio를 다운로드]: https://www.visualstudio.com/downloads/합니다.
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

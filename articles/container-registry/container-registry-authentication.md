@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 774c844375df89864274e3376ed07dd565c8ecff
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: ae6af47c82a5c0425f6cd53b8ba1134797505e6c
+ms.lasthandoff: 04/18/2017
 
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>개인 Docker 컨테이너 레지스트리로 인증
@@ -43,9 +43,16 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 >
 
 
-서비스 주체는 [역할 기반 액세스](../active-directory/role-based-access-control-configure.md)를 레지스트리에 허용합니다. 사용 가능한 역할은 읽기 권한자(끌어오기만), 참가자(끌어오기 및 밀어넣기) 및 소유자(끌어오기, 밀어넣기 및 다른 사용자에게 역할 할당)입니다. 여러 서비스 주체를 레지스트리에 할당할 수 있으므로 여러 사용자 또는 응용 프로그램에 대한 액세스를 정의할 수 있습니다. 또한 서비스 주체는 다음과 같은 개발자 또는 DevOps 시나리오에서 레지스트리에 대한 "헤드리스" 연결을 사용하도록 설정할 수 있습니다.
+서비스 주체는 [역할 기반 액세스](../active-directory/role-based-access-control-configure.md)를 레지스트리에 허용합니다. 사용 가능한 역할은 다음과 같습니다.
+  * 독자(풀 전용 액세스).
+  * 참가자(풀 및 푸시).
+  * 소유자(풀, 푸시, 다른 사용자에게 역할 할당).
 
-  * 레지스트리에서 DC/OS, Docker Swarm 및 Kubernetes를 포함한 오케스트레이션 시스템으로 컨테이너 배포 - 컨테이너 레지스트리를 관련 Azure 서비스(예: [Container Service](../container-service/index.md), [App Service](../app-service/index.md), [Batch](../batch/index.md) 및 [Service Fabric](../service-fabric/index.md))로 가져올 수도 있습니다.
+Azure Container Registry에서는 익명 액세스를 사용할 수 없습니다. 공용 이미지에는 [Docker 허브](https://docs.docker.com/docker-hub/)를 사용할 수 있습니다.
+
+여러 서비스 주체를 레지스트리에 할당할 수 있으므로 여러 사용자 또는 응용 프로그램에 대한 액세스를 정의할 수 있습니다. 또한 서비스 주체는 다음 예제와 같은 개발자 또는 DevOps 시나리오에서 레지스트리에 대한 "헤드리스" 연결을 사용하도록 설정할 수 있습니다.
+
+  * 레지스트리에서 DC/OS, Docker Swarm 및 Kubernetes를 포함한 오케스트레이션 시스템으로 컨테이너 배포 - 컨테이너 레지스트리를 관련 Azure 서비스(예: [Container Service](../container-service/index.md), [App Service](../app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) 등)로 가져올 수도 있습니다.
 
   * 컨테이너 이미지를 작성하고 레지스트리로 푸시하는 지속적인 통합 및 배포 솔루션(예: Visual Studio Team Services 또는 Jenkins)
 
@@ -54,10 +61,10 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 
 ## <a name="admin-account"></a>관리자 계정
-만드는 각 레지스트리에는 관리자 계정이 자동으로 만들어집니다. 기본적으로 계정은 사용할 수 없지만 [포털](container-registry-get-started-portal.md#manage-registry-settings) 또는 [Azure CLI 2.0 명령](container-registry-get-started-azure-cli.md#manage-admin-credentials)을 통해 계정을 사용하도록 설정하고 자격 증명을 관리할 수 있습니다. 계정을 사용할 수 있으면 레지스트리에 대한 기본 인증을 위해 사용자 이름과 암호를 `docker login` 명령에 전달할 수 있습니다. 예:
+만드는 각 레지스트리에는 관리자 계정이 자동으로 만들어집니다. 기본적으로 계정은 사용할 수 없지만 [포털](container-registry-get-started-portal.md#manage-registry-settings) 또는 [Azure CLI 2.0 명령](container-registry-get-started-azure-cli.md#manage-admin-credentials)을 통해 계정을 사용하도록 설정하고 자격 증명을 관리할 수 있습니다. 각 관리자 계정은 두 개의 암호가 제공되며, 둘 다 다시 생성할 수 있습니다. 두 개의 암호를 사용하면 다른 암호를 다시 생성하는 동안에 하나의 암호를 사용하여 레지스트리에 대한 연결을 유지할 수 있습니다. 계정을 사용할 수 있으면 레지스트리에 대한 기본 인증을 위해 사용자 이름과 둘 중 한 가지 암호를 `docker login` 명령에 전달할 수 있습니다. 예:
 
 ```
-docker login myregistry.azurecr.io -u myAdminName -p myPassword
+docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 ```
 
 > [!IMPORTANT]

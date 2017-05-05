@@ -15,8 +15,3 @@
 
 그러면 Xcode가 Mobile Engagement를 통합할 데모 앱을 만듭니다.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

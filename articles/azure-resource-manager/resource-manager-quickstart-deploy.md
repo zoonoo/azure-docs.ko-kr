@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/16/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 41d9476d4ce6b7afc2ba9c757e96db7e8e72d5ae
-ms.openlocfilehash: a77354d0719240e5916b5ec945dad75e534802d3
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 3b3162c335be43c9bf2a3d1c14b86cdd9b5d46b9
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,7 +43,7 @@ Resource Manager의 개념에 대한 소개는 [Azure Resource Manager 개요](r
 
 ## <a name="powershell"></a>PowerShell
 
-1. Azure PowerShell을 설치하는 방법은 [Azure PowerShell cmdlet 시작](/powershell/azureps-cmdlets-docs)을 참조하세요.
+1. Azure PowerShell을 설치하는 방법은 [Azure PowerShell cmdlet 시작](/powershell/azure/overview)을 참조하세요.
 
 2. 신속하게 배포를 시작하려면 다음 cmdlet을 사용합니다.
 

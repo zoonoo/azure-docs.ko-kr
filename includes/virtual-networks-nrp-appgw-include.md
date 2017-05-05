@@ -219,8 +219,3 @@
 ### <a name="additional-resources"></a>추가 리소스
 자세한 내용은 [ 응용 프로그램 게이트웨이 REST API](https://msdn.microsoft.com/library/azure/mt299388.aspx) 를 참조하세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

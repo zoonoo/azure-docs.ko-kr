@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: f7a2066f43219e8748b5c5356ff6c81535b7842a
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
+ms.openlocfilehash: 0d909f6272cc9dcfd13bd9c18affa8d1e249efe4
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/17/2017
 
 이 문서에서는 사용자 지정 도메인 이름을 사용하는 웹앱, 모바일 앱 백 엔드 또는 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md) 의 API 앱에 HTTPS를 사용하도록 설정하는 방법을 보여 줍니다. 여기서는 서버 전용 인증을 다룹니다. 상호 인증(클라이언트 인증 포함)이 필요한 경우 [앱 서비스에 대한 TLS 상호 인증을 구성하는 방법](app-service-web-configure-tls-mutual-auth.md)을 참조하세요.
 
-HTTPS를 사용하여 사용자 지정 도메인 이름이 있는 앱의 보안을 유지하려면 해당 도메인 이름에 대한 인증서를 추가합니다. 기본적으로 Azure는 단일 SSL 인증서를 사용하여 **\*.azurewebsites.net** 와일드카드 도메인의 보안을 유지하므로 클라이언트는 이미 **https://*&lt;appname>*.azurewebsites.net**에서 앱에 액세스할 수 있습니다. 그러나**contoso.com**, **www.contoso.com**및**\*.contoso.com**과 같은 사용자 지정 도메인을 사용하려는 경우에는 기본 인증서로 보안을 유지할 수 없습니다. 또한 모든 [와일드카드 인증서](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)와 마찬가지로 기본 인증서는 사용자 지정 도메인과 해당 도메인용 인증서를 사용하는 것보다 안전하지 않습니다.   
+HTTPS를 사용하여 사용자 지정 도메인 이름이 있는 앱의 보안을 유지하려면 해당 도메인 이름에 대한 인증서를 추가합니다. 기본적으로 Azure는 단일 SSL 인증서를 사용하여 **\*.azurewebsites.net** 와일드카드 도메인의 보안을 유지하므로 클라이언트는 이미 **https://*&lt;appname>*.azurewebsites.net**에서 앱에 액세스할 수 있습니다. 그러나 **contoso.com**, **www.contoso.com** 및 **\*.contoso.com**과 같은 사용자 지정 도메인을 사용하려는 경우에는 기본 인증서로 보안을 유지할 수 없습니다. 또한 모든 [와일드카드 인증서](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)와 마찬가지로 기본 인증서는 사용자 지정 도메인과 해당 도메인용 인증서를 사용하는 것보다 안전하지 않습니다.   
 
 > [!NOTE]
 > 언제든지 [Azure 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가의 도움을 받을 수 있습니다. 보다 개별화된 지원을 원하는 경우 [Azure 지원](https://azure.microsoft.com/support/options/) 으로 이동하여 **지원 받기**를 클릭합니다.
@@ -44,7 +44,7 @@ HTTPS를 사용하여 사용자 지정 도메인 이름이 있는 앱의 보안�
 HTTPS를 사용하여 사용자 지정 도메인 이름의 보안을 유지하려면 Azure에서 사용자 지정 SSL 인증서를 해당 사용자 지정 도메인에 바인딩합니다. 사용자 지정 인증서를 바인딩하기 전에 먼저 다음을 수행해야 합니다.
 
 * **사용자 지정 도메인 구성** - 앱 서비스에서는 앱에 이미 구성된 도메인 이름에 대한 인증서만 추가하도록 허용합니다. 지침은 [Azure 앱에 사용자 지정 도메인 이름 매핑](web-sites-custom-domain-name.md)을 참조하세요. 
-* **기본 계층 이상으로 강화** - 낮은 가격 책정 계층의 앱 서비스 계획은 사용자 지정 SSL 인증서를 지원하지 않습니다. 지침은 [Azure에서 앱 강화](web-sites-scale.md)를 참조하세요. 
+* **기본 계층 이상으로 강화** - 낮은 가격 책정 계층의 App Service 계획은 사용자 지정 SSL 인증서를 지원하지 않습니다. 지침은 [Azure에서 앱 강화](web-sites-scale.md)를 참조하세요. 
 * **SSL 인증서 가져오기** - 아직 없는 경우 신뢰할 수 있는 CA( [인증 기관](http://en.wikipedia.org/wiki/Certificate_authority) )에서 받아야 합니다. 인증서는 다음 요구 사항을 모두 충족해야 합니다.
   
   * 개인 CA 서버가 아니라 신뢰할 수 있는 CA가 서명한 것이어야 합니다.

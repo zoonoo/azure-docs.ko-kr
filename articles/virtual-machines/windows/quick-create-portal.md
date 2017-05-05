@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal(http://portal.azure.com)에 로그인합니다.
+Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 

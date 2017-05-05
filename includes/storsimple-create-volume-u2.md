@@ -39,8 +39,3 @@
       ![볼륨 추가](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 4. 확인 아이콘 ![확인 아이콘](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png)을 선택합니다. 지정한 설정으로 볼륨이 만들어집니다.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

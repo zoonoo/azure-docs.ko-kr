@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 531fdbbeab09a67be9636b3a70eabbb4148f7400
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: b817577d835f2f4a912356366ab24d1f812e1e11
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -37,8 +37,8 @@ ms.lasthandoff: 03/21/2017
 1. **탄력적 데이터베이스 도구 응용 프로그램** 을 빌드하고 실행하세요. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)섹션에서 7단계까지 수행합니다. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
 
     ![명령 프롬프트][1]
-2. 명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을&4;번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
-3. [Azure Portal](https://portal.azure.com)에서 사용자의 v12 서버 내에 새로운&3;개의 데이터베이스가 보여야 합니다.
+2. 명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
+3. [Azure Portal](https://portal.azure.com)에서 사용자의 서버 내에 다음과 같은 3개의 새 데이터베이스가 보여야 합니다.
 
    ![Visual Studio 확인][2]
 

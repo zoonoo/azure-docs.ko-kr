@@ -1,5 +1,5 @@
 ---
-title: "빠른 시작: Azure 기계 학습 권장 사항 API(버전&1;) | Microsoft Docs"
+title: "빠른 시작: Azure Machine Learning Recommendations API(버전 1)| Microsoft Docs"
 description: "Azure 기계 학습 권장 사항 - 빠른 시작 가이드"
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/31/2017
 ms.author: luisca
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: machine-learning-datamarket-deprecation
 translationtype: Human Translation
-ms.sourcegitcommit: c5d1812a3bd7e1ad3621ca691339f01729882b08
-ms.openlocfilehash: 67131bbaccff549817bfe5fdf874d609ea22c2bc
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 21cf8b726ffd9b05f771c8ac6480140a6ed3199e
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -50,9 +53,9 @@ Azure 기계 학습 권장 사항을 사용하려면 다음 단계를 수행해�
 ## <a name="limitations"></a>제한 사항
 * 구독당 최대 모델 수는 10개입니다.
 * 카탈로그에 포함할 수 있는 최대 항목 수는 100,000개입니다.
-* 유지되는 사용 포인트의 최대 수는&5;,000,000개입니다. 새 포인트가 업로드되거나 보고되면 가장 오래된 포인트가 삭제됩니다.
+* 유지되는 사용 포인트의 최대 수는 5,000,000개입니다. 새 포인트가 업로드되거나 보고되면 가장 오래된 포인트가 삭제됩니다.
 * POST로 전송할 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 데이터 가져오기)는 200MB입니다.
-* 활성화되지 않은 권장 사항 모델 빌드에 대한 초당 트랜잭션 수는 최대&2;TPS입니다. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
+* 활성화되지 않은 권장 사항 모델 빌드에 대한 초당 트랜잭션 수는 최대 2TPS입니다. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
 
 ## <a name="integration"></a>통합
 ### <a name="authentication"></a>인증
@@ -701,10 +704,5 @@ OData XML
 
 ## <a name="legal"></a>법적 정보
 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다. 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다. © 2014 Microsoft. All rights reserved. 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

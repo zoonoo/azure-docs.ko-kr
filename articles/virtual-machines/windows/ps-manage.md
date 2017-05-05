@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: ca695dd140af0a6f9b13f75e0402e1675b9e79d7
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c8ed83c6c0219995030408f276d4ef7d83703c7c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/31/2017
 
 이 문서에서는 Azure 가상 컴퓨터에서 수행할 수 있는 일반적인 관리 작업을 보여 줍니다.
 
-최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 > [!NOTE]
 > 이 문서에서 기능을 사용하려면 Azure PowerShell을 다시 설치해야 합니다. Managed Disks 기능은 버전 3.5 이상에 있습니다.

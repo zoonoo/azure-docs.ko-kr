@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/03/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: e92c33b81aa1b69da0336bec1260cbda96c7a72e
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: df167435757b2d9d2d25b58b1b548a811b490eb5
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -27,9 +28,9 @@ ms.openlocfilehash: e92c33b81aa1b69da0336bec1260cbda96c7a72e
 > * [Azure 포털](application-gateway-create-url-route-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
 
-URL 경로 기반 라우팅을 사용하여 Http 요청의 URL 경로에 따라 경로를 연결할 수 있습니다. 응용 프로그램 게이트웨이의 URL 목록에 대해 구성된 백 엔드 풀에 대한 경로가 있는지 확인하고 정의된 백 엔드 풀로 네트워크 트래픽을 전송합니다. URL 기반 라우팅의 일반적인 용도는 여러 콘텐츠 형식에 대한 요청의 부하를 여러 백 엔드 서버 풀에 분산하는 것입니다.
+URL 경로 기반 라우팅을 사용하여 Http 요청의 URL 경로에 따라 경로를 연결할 수 있습니다. Application Gateway에 나열된 URL에 대해 구성된 백 엔드 풀에 대한 경로가 있는지 확인하고 정의된 백 엔드 풀로 네트워크 트래픽을 전송합니다. URL 기반 라우팅의 일반적인 용도는 여러 콘텐츠 형식에 대한 요청의 부하를 여러 백 엔드 서버 풀에 분산하는 것입니다.
 
-URL 기반 라우팅에서는 응용 프로그램 게이트웨이에 새로운 규칙 형식을 제공합니다. 응용 프로그램 게이트웨이에는 두 가지 규칙 형식(기본 및 경로 기반 규칙)이 있습니다. 기본 규칙 형식은 백 엔드 풀에 대한 라운드 로빈 서비스를 제공하는 반면 경로 기반 규칙은 백 엔드 풀을 선택하는 동안 라운드 로빈 배포 외에도 계정에 요청 URL의 경로 패턴을 사용합니다.
+URL 기반 라우팅에서는 응용 프로그램 게이트웨이에 새로운 규칙 형식을 제공합니다. 응용 프로그램 게이트웨이에는 두 가지 규칙 형식(기본 및 경로 기반 규칙)이 있습니다. 기본 규칙 형식은 백 엔드 풀에 대한 라운드 로빈 서비스를 제공하는 반면 경로 기반 규칙은 해당 백 엔드 풀을 선택하는 동안 라운드 로빈 배포 외에도 계정에 요청 URL의 경로 패턴을 사용합니다.
 
 ## <a name="scenario"></a>시나리오
 
@@ -38,7 +39,7 @@ URL 기반 라우팅에서는 응용 프로그램 게이트웨이에 새로운 �
 
 ![url 경로][scenario]
 
-## <a name="a-namecreateruleacreate-the-path-based-rule"></a><a name="createrule"></a>경로 기반 규칙 만들기
+## <a name="createrule"></a>경로 기반 규칙 만들기
 
 경로 기반 규칙에는 고유한 수신기가 필요합니다. 규칙을 만들기 전에 사용할 수 있는 수신기가 있는지 반드시 확인해야 합니다.
 
@@ -79,6 +80,8 @@ URL 기반 라우팅에서는 응용 프로그램 게이트웨이에 새로운 �
 
 ![추가 경로 기반 규칙 추가][3]
 
+이렇게 하면 경로 기반 경로가 구성됩니다. 응용 프로그램에 요청이 들어 올 때 요청은 다시 작성되지 않고, 게이트웨이가 요청 및 URL 패턴에 대한 기본 사항을 검사한 후 해당 백 엔드로 요청을 보냅니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure 응용 프로그램 게이트웨이를 사용하여 SSL 오프로드를 구성하는 방법은 [SSL 오프로드 구성](application-gateway-ssl-portal.md)
@@ -87,9 +90,4 @@ Azure 응용 프로그램 게이트웨이를 사용하여 SSL 오프로드를 �
 [2]: ./media/application-gateway-create-url-route-portal/figure2.png
 [3]: ./media/application-gateway-create-url-route-portal/figure3.png
 [scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -13,40 +13,53 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/30/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: cb10c04d76e957f88d67a791e3b4a19797704eea
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e2ccb78da419b12a9845d720efb5b0229d4f455b
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 이 문서에서는 Windows Server가 실행되는 새 VM(가상 컴퓨터) 또는 기존 VM에서 Trend Micro Deep Security as a Service를 설치 및 구성하는 방법을 보여 줍니다. Deep Security as a Service는 맬웨어 방지 보호, 방화벽, 침입 방지 시스템 및 무결성 모니터링을 포함합니다.
 
-이 클라이언트는 VM 에이전트를 통해 보안 확장 프로그램으로 설치됩니다. 새 가상 컴퓨터에서 Deep Security Agent와 함께 VM 에이전트를 설치합니다. VM 에이전트가 없는 기존 가상 컴퓨터에서는 이 에이전트를 먼저 다운로드하여 설치해야 합니다. 이 문서에서는 두 상황을 모두 다룹니다.
+이 클라이언트는 VM 에이전트를 통해 보안 확장 프로그램으로 설치됩니다. VM 에이전트는 Azure Portal에서 자동으로 생성되므로 새 가상 컴퓨터에서 Deep Security Agent를 설치합니다.
 
-온-프레미스 솔루션용 Trend Micro의 기존 구독이 있는 경우 Azure 가상 컴퓨터를 보호하는 데 사용할 수 있습니다. 아직 구독 고객이 아닌 경우에는 평가판 구독에 등록할 수 있습니다. 이 솔루션에 대한 자세한 내용은 Trend Micro 블로그 게시물 [Deep Security에 대한 Microsoft Azure VM 에이전트 확장](http://go.microsoft.com/fwlink/p/?LinkId=403945)을 참조하세요.
+클래식 포털, Azure CLI 또는 PowerShell을 사용하여 만든 기존 VM에는 VM 에이전트가 없을 수 있습니다. VM 에이전트가 없는 기존 가상 컴퓨터에서는 이 에이전트를 먼저 다운로드하여 설치해야 합니다. 이 문서에서는 두 상황을 모두 다룹니다.
+
+온-프레미스 솔루션용 Trend Micro의 현재 구독이 있는 경우 Azure Virtual Machines를 보호하는 데 사용할 수 있습니다. 아직 구독 고객이 아닌 경우에는 평가판 구독에 등록할 수 있습니다. 이 솔루션에 대한 자세한 내용은 Trend Micro 블로그 게시물 [Deep Security에 대한 Microsoft Azure VM 에이전트 확장](http://go.microsoft.com/fwlink/p/?LinkId=403945)을 참조하세요.
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>새 VM에 Deep Security Agent 설치
-[갤러리에서](http://manage.windowsazure.com) 옵션을 사용하여 가상 컴퓨터를 만드는 경우 **Azure 클래식 포털** 을 사용하여 VM 에이전트 및 Trend Micro 보안 확장을 설치할 수 있습니다. 포털을 사용하면 단일 가상 컴퓨터를 만들 때 Trend Micro의 보호 기능을 쉽게 추가할 수 있습니다.
 
-이 **갤러리에서** 옵션은 가상 컴퓨터 설치에 도움이 되는 마법사를 엽니다. 마법사 마지막 페이지에서 VM 에이전트 및 Trend Micro 보안 확장을 설치합니다. 일반적인 지침은 [Azure 클래식 포털에서 Windows Server를 실행하는 가상 컴퓨터 만들기](tutorial.md)를 참조하세요. 마법사 마지막 페이지가 되면 다음 단계를 수행합니다.
+<!-- old portal [Azure classic portal](http://manage.windowsazure.com) -->
 
-1. **VM 에이전트**에서 **VM 에이전트 설치**를 선택합니다.
-2. **보안 확장**에서 **Trend Micro Deep Security Agent**를 선택합니다.
-   
-   ![VM 에이전트 및 Deep Security Agent 설치](./media/install-trend/InstallVMAgentandTrend.png)
-3. 확인 표시를 클릭하여 가상 컴퓨터를 만듭니다.
+**Marketplace**의 이미지를 사용하여 가상 컴퓨터를 만드는 경우 [Azure Portal](http://portal.azure.com)에서 Trend Micro 보안 확장을 설치할 수 있습니다. 포털을 사용하면 단일 가상 컴퓨터를 만들 때 Trend Micro의 보호 기능을 쉽게 추가할 수 있습니다.
+
+**Marketplace**의 항목을 사용하면 가상 컴퓨터 설치에 도움이 되는 마법사가 열립니다. 마법사의 세 번째 패널인 **설정** 블레이드를 사용하여 Trend Micro 보안 확장을 설치합니다.  일반적인 지침은 [Azure Portal에서 Windows를 실행하는 가상 컴퓨터 만들기](tutorial.md)를 참조하세요.
+
+마법사의 **설정** 블레이드로 이동한 후 다음 단계를 수행합니다.
+
+1. **확장**을 클릭한 후 다음 창에서 **확장 추가**를 클릭합니다.
+
+   ![확장 추가 시작][1]
+
+2. **새 리소스** 창에서 **Deep Security Agent**를 선택합니다. Deep Security Agent 창에서 **만들기**를 클릭합니다.
+
+   ![Deep Security Agent 식별][2]
+
+3. 확장에 대한 **테넌트 식별자** 및 **테넌트 활성화 암호**를 입력합니다. 선택적으로 **보안 정책 식별자**를 입력할 수도 있습니다. 그런 후 **확인**을 클릭하여 클라이언트를 추가합니다.
+
+   ![확장 세부 정보 제공][3]
 
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>기존 VM에 Deep Security Agent 설치
-기존 VM에 에이전트를 설치하려면 다음 조건을 충족해야 합니다.
+기존 VM에 에이전트를 설치하려면 다음 항목이 필요합니다.
 
-* Azure PowerShell 모듈 버전 0.8.2 이상이 로컬 컴퓨터에 설치되어 있어야 합니다. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell 버전을 확인할 수 있습니다. 지침 및 최신 버전에 대한 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. `Add-AzureAccount`를 사용하여 Azure 구독에 로그인합니다.
+* Azure PowerShell 모듈 버전 0.8.2 이상이 로컬 컴퓨터에 설치되어 있어야 합니다. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell 버전을 확인할 수 있습니다. 지침 및 최신 버전에 대한 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. `Add-AzureAccount`를 사용하여 Azure 구독에 로그인합니다.
 * VM 에이전트가 대상 가상 컴퓨터에 설치되어 있어야 합니다.
 
 먼저 VM 에이전트가 이미 설치되어 있는지 확인합니다. 클라우드 서비스 이름과 가상 컴퓨터 이름을 입력하고 관리자 수준의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다. < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.
@@ -78,7 +91,12 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 
 [Azure VM 확장 및 기능]
 
-<!--Link references-->
+<!-- Image references -->
+[1]: ./media/install-trend/new_vm_Blade3.png
+[2]: ./media/install-trend/find_SecurityAgent.png
+[3]: ./media/install-trend/SecurityAgentDetails.png
+
+<!-- Link references -->
 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]:connect-logon.md
 [Azure VM 확장 및 기능]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 

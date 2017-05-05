@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf864e0d9922e8e842945db9964899d602fd7eed
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 0637fb4d7c6cb8c3cfd4aab5d06571bd83f59683
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -234,7 +234,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 ## <a name="performance-tuning-steps"></a>성능 튜닝 단계
 다음 단계에 따라 복사 작업으로 Data Factory 서비스의 성능을 조정하는 것이 좋습니다.
 
-1. **기초 설정**. 개발 단계 중 대표적인 샘플 데이터에 대한 복사 작업을 사용하여 파이프라인을 테스트합니다. 데이터 팩터리의 [모델 조각화](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices)를 사용하여 작업하는 데이터의 양을 제한할 수 있습니다.
+1. **기초 설정**. 개발 단계 중 대표적인 샘플 데이터에 대한 복사 작업을 사용하여 파이프라인을 테스트합니다. 데이터 팩터리의 [모델 조각화](data-factory-scheduling-and-execution.md)를 사용하여 작업하는 데이터의 양을 제한할 수 있습니다.
 
    **모니터링 및 관리 앱**을 사용하여 실행 시간 및 성능 특성을 수집합니다. Data Factory 홈페이지에서 **모니터 및 관리**를 선택합니다. 트리 뷰에서 **출력 데이터 집합**을 선택합니다. **작업 기간** 목록에서 복사 작업 실행을 선택합니다. **작업 기간**에는 복사 작업 기간 및 복사되는 데이터 크기가 나열됩니다. 처리량은 **작업 창 탐색기**에 나열됩니다. 앱에 대해 자세히 알아보려면 [모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
 

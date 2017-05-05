@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 05/04/2017
 ms.author: abnarain
 translationtype: Human Translation
 ms.sourcegitcommit: e1d44f85b36d08944351a79d7a4b39cc8de61201
 ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -219,7 +220,7 @@ ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
             }
         }
     }     
-    ```     
+    ```       
    다음 사항에 유의하세요.
 
    * **type**을 **SqlServerTable**로 설정합니다.
@@ -396,9 +397,4 @@ ms.openlocfilehash: 13044cc92a1577185b2aebc3a0ff8be0ec5eca60
 ## <a name="next-steps"></a>다음 단계
 * 데이터 관리 게이트웨이에 대한 모든 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
 * 복사 작업을 사용하여 원본 데이터 저장소에서 싱크 데이터 저장소에 데이터로 이동하는 방법에 대해 자세히 알아보려면 [Azure Blob에서 Azure SQL로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

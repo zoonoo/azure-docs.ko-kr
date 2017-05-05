@@ -12,8 +12,3 @@ MicrosoftTranslator 계정에 연결하도록 논리 앱에 권한을 부여하�
 3. 연결이 만들어졌으므로 이제 논리 앱의 다른 단계를 진행할 수 있습니다.  
    ![MicrosoftTranslator 연결 만들기 단계](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: asmalser
 translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: 1bee9573e23e1c814626d19a3df1eb7ab12486ab
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 39714145f84f5f9229dbf4bbe136103d4d102bed
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -86,23 +87,11 @@ Azure AD는 각 응용 프로그램 공급 업체에서 제공하는 프로비�
 Azure AD와 SaaS 앱 사이에서 특성이 매핑되는 방법에 대한 자세한 내용은 [특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)의 문서를 참조하십시오.
 
 ## <a name="list-of-apps-that-support-automated-user-provisioning"></a>자동 사용자 프로비저닝을 지원하는 앱 목록
-자동 프로비저닝을 구성하는 방법에 대한 자습서를 보려면 해당 앱을 클릭하십시오.
-
-* [Box](http://go.microsoft.com/fwlink/?LinkId=286016)
-* [Citrix GoToMeeting](http://go.microsoft.com/fwlink/?LinkId=309580)
-* [Concur](http://go.microsoft.com/fwlink/?LinkId=309575)
-* [Docusign](http://go.microsoft.com/fwlink/?LinkId=403254)
-* [Dropbox for Business](http://go.microsoft.com/fwlink/?LinkId=309581)
-* [Google Apps](http://go.microsoft.com/fwlink/?LinkId=309577)
-* [Jive](http://go.microsoft.com/fwlink/?LinkId=309591)
-* [Salesforce](http://go.microsoft.com/fwlink/?LinkId=286017)
-* [Salesforce Sandbox](http://go.microsoft.com/fwlink/?LinkId=327869)
-* [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
-* [Workday](http://go.microsoft.com/fwlink/?LinkId=690250) (인바운드 프로비저닝)
+Azure AD 응용 프로그램 갤러리의 모든 "추천" 앱은 자동화된 사용자 프로비저닝을 지원합니다. [추천 앱 목록은 여기에서 볼 수 있습니다.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
 
 응용 프로그램에서 자동 사용자 프로비저닝을 지원하려면, 먼저 외부 프로그램이 사용자를 만들고, 유지 관리하고, 제거하는 데 필요한 끝점을 제공해야 합니다. 따라서 모든 SaaS 앱이 이 기능과 호환되지는 않습니다. 앱이 이를 지원하면 Azure AD 엔지니어링 팀이 이 앱에 대한 프로비저닝 커넥터를 만들 수 있게 되며, 이러한 작업은 현재와 잠재 고객의 필요에 따라 우선 순위가 지정됩니다.
 
-추가 응용 프로그램을 위한 프로비저닝 지원을 요청하기 위해 Azure AD 엔지니어링 팀에 문의하려면 [Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 메시지를 제출하십시오.
+추가 응용 프로그램을 위한 프로비저닝 지원을 요청하기 위해 Azure AD 엔지니어링 팀에 문의하려면 [Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/category/172035-user-provisioning)을 통해 메시지를 제출하십시오.
 
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
@@ -112,10 +101,5 @@ Azure AD와 SaaS 앱 사이에서 특성이 매핑되는 방법에 대한 자세
 * [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](active-directory-scim-provisioning.md)
 * [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

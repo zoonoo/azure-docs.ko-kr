@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 2b5e2c2d5cc572ba951a61fd1eb78613c43ec453
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 305f02bb120a1096c46de94d103a5700dabdc8ba
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -193,7 +193,7 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
 >
 >
 
-1. 보호 그룹의 **컴퓨터** 탭에서 **Virtual Machine를 보호 그룹에 추가하여 보호합니다.**를 클릭합니다.
+1. 보호 그룹의 **컴퓨터** 탭에서 **가상 컴퓨터를 보호 그룹에 추가하여 보호합니다.**를 클릭합니다.
 2. **가상 컴퓨터 보호 사용** 페이지에서 보호할 가상 컴퓨터를 선택합니다.
 
     ![가상 컴퓨터 보호 사용](./media/site-recovery-hyper-v-site-to-azure-classic/add-vm.png)
@@ -208,9 +208,9 @@ Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 �
      * **크기**: 장애 조치된 가상 컴퓨터의 대상 크기입니다.
 
        ![가상 컴퓨터 속성 구성](./media/site-recovery-hyper-v-site-to-azure-classic/vm-properties.png)
-   * 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup_name* > **Virtual Machine*virtual_machine_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
+   * 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup_name* > **Virtual Machines** *virtual_machine_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
 
-     * **네트워크 어댑터**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. [가상 컴퓨터 크기 사양](../virtual-machines/virtual-machines-linux-sizes.md) 에서 가상 컴퓨터 크기에 의해 지원되는 NIC의 수를 확인하세요.
+     * **네트워크 어댑터**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. [가상 컴퓨터 크기 사양](../virtual-machines/linux/sizes.md) 에서 가상 컴퓨터 크기에 의해 지원되는 NIC의 수를 확인하세요.
 
        가상 컴퓨터의 크기를 수정하고 설정을 저장하면 다음에 **구성** 페이지를 열 때 네트워크 어댑터의 수가 변경됩니다. 대상 가상 컴퓨터의 네트워크 어댑터 수는 원본 가상 컴퓨터의 네트워크 어댑터 수 이상이어야 하며 선택한 가상 머신 크기에서 지원하는 네트워크 어댑터 수 이하여야 합니다. 아래 설명을 참조하세요.
 

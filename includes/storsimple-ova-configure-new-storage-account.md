@@ -14,8 +14,3 @@
         ![저장소 계정 추가](./media/storsimple-ova-configure-new-storage-account/addnewstorageaccount-include.png)
 4. 새로 만들어진 저장소 계정이 **저장소 계정**의 **구성** 페이지에 표시됩니다. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

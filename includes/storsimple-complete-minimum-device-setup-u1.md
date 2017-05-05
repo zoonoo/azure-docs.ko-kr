@@ -30,7 +30,3 @@
 
 <!--Link reference-->
 [Test-HcsmConnection]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
-
-<!--HONumber=Nov16_HO2-->
-
-

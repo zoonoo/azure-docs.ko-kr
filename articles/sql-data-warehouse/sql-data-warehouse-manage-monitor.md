@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: performance
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6877a54f77a4c0137e4f6a8b2b2fcff41664a4b5
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3735d656429da1f1fe7569f640b272b099382032
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -71,7 +73,7 @@ WHERE   [label] = 'My Query';
 
 위의 쿼리 결과에서 조사할 쿼리의 **요청 ID를 적어 둡니다** .
 
-**일시 중단됨** 상태의 쿼리는 동시성 제한으로 인해 대기 중인 쿼리입니다. 이러한 쿼리는 sys.dm_pdw_waits 대기 쿼리에도 UserConcurrencyResourceType 형식으로 표시됩니다. 동시성 제한에 대한 자세한 내용은 [동시성 및 워크로드 관리][동시성 및 워크로드 관리]를 참조하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사][리소스를 대기 중인 쿼리 조사]를 참조하세요.
+**일시 중단됨** 상태의 쿼리는 동시성 제한으로 인해 대기 중인 쿼리입니다. 이러한 쿼리는 sys.dm_pdw_waits 대기 쿼리에도 UserConcurrencyResourceType 형식으로 표시됩니다. 동시성 제한에 대한 자세한 내용은 [동시성 및 워크로드 관리][Concurrency and workload management]를 참조하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사][Investigating queries waiting for resources]를 참조하세요.
 
 sys.dm_pdw_exec_requests 테이블에서 쿼리 조회를 간소화하려면 [LABEL][LABEL]을 사용하여 sys.dm_pdw_exec_requests 보기에서 조회할 수 있는 주석을 쿼리에 할당합니다.
 
@@ -95,7 +97,7 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-DSQL 계획의 시간이 생각보다 오래 걸리는 경우 계획이 여러 DSQL 단계를 포함하여 복잡하거나 한 단계에 시간이 오래 걸리는 것일 수 있습니다.  계획에 많은 단계가 포함되어 있으며 여러 이동 작업이 수행되는 경우에는 테이블 분산을 최적화하여 데이터 이동을 줄일 수 있습니다. [테이블 분산][테이블 분산] 문서에서는 쿼리를 확인하기 위해 데이터를 이동해야 하는 이유와, 데이터 이동을 최소화하기 위한 몇 가지 분산 전략에 대해 설명합니다.
+DSQL 계획의 시간이 생각보다 오래 걸리는 경우 계획이 여러 DSQL 단계를 포함하여 복잡하거나 한 단계에 시간이 오래 걸리는 것일 수 있습니다.  계획에 많은 단계가 포함되어 있으며 여러 이동 작업이 수행되는 경우에는 테이블 분산을 최적화하여 데이터 이동을 줄일 수 있습니다. [테이블 분산][Table distribution] 문서에서는 쿼리를 확인하기 위해 데이터를 이동해야 하는 이유와, 데이터 이동을 최소화하기 위한 몇 가지 분산 전략에 대해 설명합니다.
 
 한 단계에서 추가 세부 정보를 조사하려면 오래 실행되는 쿼리 단계의 *operation_type* 열을 확인하고 **단계 인덱스**를 적어 둡니다.
 
@@ -173,18 +175,18 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 쿼리가 적극적으로 다른 쿼리의 리소스를 대기 중인 경우 상태는 **AcquireResources**입니다.  쿼리가 필요한 리소스를 모두 가지고 있으면 상태는 **Granted**입니다.
 
 ## <a name="next-steps"></a>다음 단계
-DMV에 대한 자세한 내용은 [시스템 뷰][시스템 뷰]를 참조하세요.
-모범 사례에 대한 자세한 내용은 [SQL 데이터 웨어하우스 모범 사례][SQL 데이터 웨어하우스 모범 사례]를 참조하세요.
+DMV에 대한 자세한 내용은 [시스템 뷰][System views]를 참조하세요.
+모범 사례에 대한 자세한 내용은 [SQL Data Warehouse 모범 사례][SQL Data Warehouse best practices]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[관리 개요]: ./sql-data-warehouse-overview-manage.md
-[SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
-[시스템 뷰]: ./sql-data-warehouse-reference-tsql-system-views.md
-[테이블 분산]: ./sql-data-warehouse-tables-distribute.md
-[동시성 및 워크로드 관리]: ./sql-data-warehouse-develop-concurrency.md
-[리소스를 대기 중인 쿼리 조사]: ./sql-data-warehouse-manage-monitor.md#waiting
+[Manage overview]: ./sql-data-warehouse-overview-manage.md
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
+[System views]: ./sql-data-warehouse-reference-tsql-system-views.md
+[Table distribution]: ./sql-data-warehouse-tables-distribute.md
+[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->
 [sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/library/mt203878.aspx
@@ -195,9 +197,4 @@ DMV에 대한 자세한 내용은 [시스템 뷰][시스템 뷰]를 참조하세
 [DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 [LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

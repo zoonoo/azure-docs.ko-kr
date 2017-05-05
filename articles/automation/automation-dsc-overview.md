@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 02/02/2017
 ms.author: magoedte;eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: f0d3a5c1929bb6dafef735ae3f4291e329861cc9
-ms.openlocfilehash: b750878703baf143a2e8247bdd01f358e462e598
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 852284ce7e82d782c31bb085d4878de25412411a
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="azure-automation-dsc-overview"></a>Azure 자동화 DSC 개요
 
 ## <a name="what-is-azure-automation-dsc"></a>Azure 자동화 DSC란?
 
-서버 및 응용 프로그램 리소스의 필요한 상태를 배포 및 유지 관리하는 작업은 매우 지루할 수 있고 오류가 발생하기 쉽습니다. Azure 자동화 DSC(원하는 상태 구성)으로 클라우드에서 대규모로 모든 IT 리소스의 원하는 상태를 일관되게 배포하고 안정적으로 모니터링하며 자동으로 업데이트할 수 있습니다.. PowerShell DSC를 작성하여 자동화 DSC는 실제 및 가상 컴퓨터(VM)에서 Windows 또는 Linux를 사용하고 클라우드 또는 온-프레미스에서 컴퓨터 구성을 특정 상태로 정렬할 수 있습니다. 일관된 컨트롤로 지속적인 IT 서비스 배달을 사용하고 다른 유형의 하이브리드 IT 환경에 쉽고 신속하게 변경 사항을 관리할 수 있습니다.
+서버 및 응용 프로그램 리소스의 필요한 상태를 배포 및 유지 관리하는 작업은 매우 지루할 수 있고 오류가 발생하기 쉽습니다. Azure 자동화 DSC(원하는 상태 구성)으로 클라우드에서 대규모로 모든 IT 리소스의 원하는 상태를 일관되게 배포하고 안정적으로 모니터링하며 자동으로 업데이트할 수 있습니다. PowerShell DSC를 작성하여 자동화 DSC는 실제 및 가상 컴퓨터(VM)에서 Windows 또는 Linux를 사용하고 클라우드 또는 온-프레미스에서 컴퓨터 구성을 특정 상태로 정렬할 수 있습니다. 일관된 컨트롤로 지속적인 IT 서비스 배달을 사용하고 다른 유형의 하이브리드 IT 환경에 쉽고 신속하게 변경 사항을 관리할 수 있습니다.
 
 Azure 자동화 DSC는 PowerShell DSC에 도입된 기본 사항을 기반으로 훨씬 간편한 구성 관리 환경을 제공합니다. Azure 자동화 DSC는 현재 Azure 자동화에서 PowerShell 스크립팅을 위해 제공하는 것과 동일한 관리 계층을 [PowerShell 필요한 상태 구성](https://msdn.microsoft.com/powershell/dsc/overview) 에 제공합니다.
 
@@ -108,15 +108,15 @@ Azure 자동화 DSC의 컴파일 작업은 하나 이상의 노드 구성을 만
 * 기존 PowerShell DSC 끌어오기 서버의 경우 **ModuleName_Version.zip”** 형식의 모듈 압축 파일이 있어야 합니다. Azure 자동화에서 **ModuleName.zip**형식의 이름으로 PowerShell 모듈을 가져와야 합니다. Azure 자동화로 모듈을 가져오는 데 필요한 통합 모듈 형식에 대한 자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/) 을 참조하세요.
 * Azure 자동화로 가져온 PowerShell 모듈은 .doc 또는.docx 파일을 포함할 수 없습니다. DSC 리소스를 포함하는 일부 PowerShell 모듈은 도움말을 위해 이러한 파일을 포함하고 있습니다. Azure Automation으로 가져오기 전에 모듈에서 이러한 파일을 제거해야 합니다.
 * Azure Automation 계정에 노드를 처음 등록하거나 다른 노드 구성 서버 쪽에 매핑되도록 노드를 변경한 경우 노드의 상태는 ‘규격’입니다. 노드 상태가 매핑되는 노드 구성으로 규격이 아닌 경우에도 이 작업이 발생합니다. 노드에서 등록 후 또는 노드 구성 맵핑 변경 후 첫 번째 보고서를 보내면 노드 상태를 신뢰할 수 있습니다.
-* 직접 등록 메서드를 사용하여 Azure 자동화 DSC에서 관리를 위해 Azure VM을 온보딩할 경우 VM이 Azure 자동화의 DSC 노드로 나타날 때까지 최대&1;시간 정도가 걸립니다. 이것은 Azure 자동화 DSC의 VM을 온보드하기 위해 필요한 Azure VM DSC 확장에 의한 VM의 Windows 관리 프레임워크 5.0의 설치 때문에 꼭 필요한 일입니다.
-* 등록 후에는&1;년 후 만료되는 인증에 대해 각 노드가 자동으로 고유의 인증서를 협상합니다. 현재 PowerShell DSC 등록 프로토콜이 만료가 임박한 인증서를 자동으로 갱신할 수 없으므로&1;년 기한 후 노드를 다시 등록해야 합니다. 다시 등록하기 전에 각 노드가 Windows Management Framework 5.0 RTM을 실행 중인지 확인합니다. 노드의 인증 인증서가 만료되고 노드가 다시 등록되지 않은 경우, 노드가 Azure Automation과 통신할 수 없으며 '응답 없음'으로 표시됩니다. 재등록은 노드를 처음 등록할 때와 같은 방식으로 수행됩니다. 노드 만료 시점으로부터 90일 안이나, 인증서 만료 이후에 재등록을 수행하면 새 인증서를 생성하여 사용하게 됩니다.
+* 직접 등록 메서드를 사용하여 Azure 자동화 DSC에서 관리를 위해 Azure VM을 온보딩할 경우 VM이 Azure 자동화의 DSC 노드로 나타날 때까지 최대 1시간 정도가 걸립니다. 이것은 Azure 자동화 DSC의 VM을 온보드하기 위해 필요한 Azure VM DSC 확장에 의한 VM의 Windows 관리 프레임워크 5.0의 설치 때문에 꼭 필요한 일입니다.
+* 등록 후에는 1년 후 만료되는 인증에 대해 각 노드가 자동으로 고유의 인증서를 협상합니다. 현재 PowerShell DSC 등록 프로토콜이 만료가 임박한 인증서를 자동으로 갱신할 수 없으므로 1년 기한 후 노드를 다시 등록해야 합니다. 다시 등록하기 전에 각 노드가 Windows Management Framework 5.0 RTM을 실행 중인지 확인합니다. 노드의 인증 인증서가 만료되고 노드가 다시 등록되지 않은 경우, 노드가 Azure Automation과 통신할 수 없으며 '응답 없음'으로 표시됩니다. 재등록은 노드를 처음 등록할 때와 같은 방식으로 수행됩니다. 노드 만료 시점으로부터 90일 안이나, 인증서 만료 이후에 재등록을 수행하면 새 인증서를 생성하여 사용하게 됩니다.
 
 
 ## <a name="related-articles"></a>관련 문서
 
 * [Azure 자동화 DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)
 * [Azure 자동화 DSC에서 구성을 컴파일](automation-dsc-compile.md)
-* [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
+* [Azure 자동화 DSC cmdlets](/powershell/module/azurerm.automation/#automation)
 * [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
 * [Azure 자동화 DSC 및 Chocolatey를 사용하여 IaaS VM에 연속 배포](automation-dsc-cd-chocolatey.md)
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: fe8b4b097f7ff157d624c09b8dbf26f94401395c
-ms.lasthandoff: 01/20/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 158c5dc06f83e16633d3c2fbb4eb27d3e8af030c
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -42,7 +42,7 @@ Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 [웹앱 도�
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>사용자 지정 도메인에 대한 DNS 레코드 추가
 사용자 지정 도메인과 앱 서비스의 웹 앱을 연결하려면 GoDaddy에서 제공하는 도구를 사용하여 DNS 테이블에서 사용자 지정 도메인에 대한 새 항목을 추가해야 합니다. GoDaddy.comy용 DNS 도구를 찾으려면 다음 단계를 따르십시오.
 
-1. 사용 중인 계정으로 GoDaddy.com에 로그인하고 **My Account**를 클릭한 후 **Manage my domains**를 클릭합니다. 마지막으로 Azure 웹 앱에서 사용할 도메인 이름에 대한 드롭다운 메뉴를 선택한 후 **Manage DNS**를 선택합니다.
+1. 사용 중인 계정으로 GoDaddy.com에 로그인하고 **My Account**를 클릭한 후 **Manage my domains**를 클릭합니다. Azure 웹앱에서 사용할 도메인 이름에 대한 드롭다운 메뉴를 선택한 후 **DNS 관리**를 선택합니다.
    
     ![GoDaddy의 사용자 지정 도메인 페이지](./media/web-sites-godaddy-custom-domain-name/godaddy-customdomain.png)
 2. **Domain details** 페이지에서 **DNS Zone File** 탭으로 스크롤합니다. 이는 도메인 이름의 DNS 레코드를 추가 및 수정할 때 사용한 섹션입니다.

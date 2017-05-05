@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
-ms.author: curtand
+ms.date: 04/26/2017
+ms.author: curtand;rodejo
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: f4aeeaf13604443e0902112b4cc998ae1dcce4c2
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 9342ecff33ca60d39c55042238ea563dd1a82da6
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -45,7 +45,7 @@ Azure AD PowerShell 모듈을 설치하려면 다음 명령을 사용합니다.
     ---------- -------    ----                                ----------------
     Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
 
-이제 모듈에서 cmdlet 사용을 시작할 수 있습니다. Azure AD 모듈의 cmdlet에 대한 자세한 내용은 [온라인 참조 문서](https://docs.microsoft.com/en-us/powershell/azuread/)를 참조하세요.
+이제 모듈에서 cmdlet 사용을 시작할 수 있습니다. Azure AD 모듈의 cmdlet에 대한 자세한 내용은 [온라인 참조 문서](/powershell/azure/install-adv2?view=azureadps-2.0)를 참조하세요.
 
 ## <a name="connecting-to-the-directory"></a>디렉터리에 연결
 Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 PowerShell 세션을 관리하려는 디렉터리에 연결해야 합니다. 이렇게 하려면 다음 명령을 실행합니다.
@@ -226,7 +226,7 @@ Azure AD PowerShell cmdlet은 OData 쿼리 표준을 구현합니다. 자세한 
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory Cmdlets](https://docs.microsoft.com/en-us/powershell/azuread/)에서 더 많은 Azure Active Directory PowerShell 설명서를 찾을 수 있습니다.
+[Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0)에서 더 많은 Azure Active Directory PowerShell 설명서를 찾을 수 있습니다.
 
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)

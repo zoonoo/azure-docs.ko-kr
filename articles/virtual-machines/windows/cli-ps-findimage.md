@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b36fb2b94dcee94eb299221bbb5c82080d23bfb1
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 28bb214570fcca94c5ceb6071c4851b81ec00c8d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -41,7 +41,7 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="find-azure-images-with-powershell"></a>PowerShell을 사용하여 Azure 이미지 찾기
 > [!NOTE]
-> [최신 Azure PowerShell](/powershell/azureps-cmdlets-docs)을 설치하고 구성합니다. Azure PowerShell 모듈 1.0 이전을 사용 중인 경우 다음 명령을 사용하지만 먼저 `Switch-AzureMode AzureResourceManager`를 사용해야 합니다. 
+> [최신 Azure PowerShell](/powershell/azure/overview)을 설치하고 구성합니다. Azure PowerShell 모듈 1.0 이전을 사용 중인 경우 다음 명령을 사용하지만 먼저 `Switch-AzureMode AzureResourceManager`를 사용해야 합니다. 
 > 
 > 
 
@@ -134,3 +134,4 @@ Windows-Server-Technical-Preview
 
 ## <a name="next-steps"></a>다음 단계
 이제 사용할 이미지를 정밀하게 선택할 수 있습니다. 방금 찾은 이미지 정보를 사용하여 가상 컴퓨터를 빠르게 만들거나 해당 이미지 정보로 템플릿을 사용하려면 [Resource Manager 및 PowerShell을 사용하여 Windows VM 만들기](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+

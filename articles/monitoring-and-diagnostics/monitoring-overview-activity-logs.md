@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 4ec026a5b95170d0eba244123c37cd3c8fab150a
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: c123b76b0e4c95cfebcc79063fb1c3a27efc8646
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -47,9 +47,9 @@ Azure 포털, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 ![Azure 활동 로그](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
-* [활동 로그 이벤트를 트리거 해제하는 전자 메일 또는 웹후크 경고를 만듭니다.](insights-auditlog-to-webhook-email.md)
+* [활동 로그 이벤트를 트리거 해제하는 경고를 만듭니다.](monitoring-activity-log-alerts.md)
 * [타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 **Event Hub**](monitoring-stream-activity-logs-event-hubs.md)로 스트림합니다.
-* [**PowerBI 콘텐츠 팩**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 PowerBI에서 분석합니다.
+* [**PowerBI 콘텐츠 팩**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 PowerBI에서 분석합니다.
 * [보관 또는 수동 검사를 위해 **저장소 계정**에 저장합니다](monitoring-archive-activity-log.md). **로그 프로필**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 * **Azure 포털**에서 쿼리하고 봅니다.
 * PowerShell Cmdlet, CLI 또는 REST API를 통해 쿼리합니다.
@@ -64,7 +64,7 @@ Azure 포털, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 * 보낼 이벤트 범주(쓰기, 삭제, 작업) *로그 프로필 및 활동 로그 이벤트에서 "범주"의 의미는 다릅니다. 로그 프로필에서 "범주"는 작업 유형(쓰기, 삭제 작업)을 나타냅니다. 활동 로그 이벤트에서 "범주" 속성은 원본 또는 이벤트의 유형(예: 관리, ServiceHealth, 경고 등)을 나타냅니다.*
 * 내보낼 하위 지역(위치)
 * 활동 로그를 저장소 계정에 유지해야 하는 기간
-    - 보존이&0;일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
+    - 보존이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
     - 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예를 들어 Event Hubs 또는 OMS 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
     - 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
 
@@ -80,11 +80,10 @@ Azure 포털, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 
     ![포털에서 내보내기 단추](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. 표시되는 블레이드에서 다음을 선택할 수 있습니다.  
-
-   * 이벤트를 내보내려는 지역
-   * 이벤트를 저장하려는 저장소 계정
-   * 저장소에서 이러한 이벤트를 유지하려는 기간(일). 0일로 설정하면 로그를 계속 유지합니다.
-   * 이러한 이벤트를 스트리밍하기 위해 Event Hub를 만들 Service Bus 네임스페이스입니다.
+  * 이벤트를 내보내려는 지역
+  * 이벤트를 저장하려는 저장소 계정
+  * 저장소에서 이러한 이벤트를 유지하려는 기간(일). 0일로 설정하면 로그를 계속 유지합니다.
+  * 이러한 이벤트를 스트리밍하기 위해 Event Hub를 만들 Service Bus 네임스페이스입니다.
 
      ![활동 로그 내보내기 블레이드](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. **저장** 을 클릭하여 이러한 설정을 저장합니다. 해당 설정이 구독에 즉시 적용됩니다.

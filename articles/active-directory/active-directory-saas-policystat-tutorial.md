@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2017
+ms.date: 02/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 8290d90f22a80d5c585192b17cfa0aeba00aa891
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ecd58d8f1df60aff99d9ac2e0245d06f61e0b6bb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,13 +33,13 @@ ms.lasthandoff: 02/03/2017
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
 1. PolicyStat에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
+2. SSO(Single Sign-On) 구성
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
 ![시나리오](./media/active-directory-saas-policystat-tutorial/IC808662.png "시나리오")
 
-## <a name="enabling-the-application-integration-for-policystat"></a>PolicyStat에 응용 프로그램 통합 사용
+## <a name="enable-the-application-integration-for-policystat"></a>PolicyStat에 응용 프로그램 통합 사용
 이 섹션은 PolicyStat에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
 **PolicyStat에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.**
@@ -64,7 +64,7 @@ ms.lasthandoff: 02/03/2017
    
    ![PolicyStat](./media/active-directory-saas-policystat-tutorial/IC810430.png "PolicyStat")
    
-## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 PolicyStat에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
 
@@ -127,19 +127,18 @@ PolicyStat 응용 프로그램은 특정 서식에서 SAML 어설션을 예상�
    4. **메일** 목록에서 **User.mail**을 선택합니다.
    5. **완료**를 클릭합니다.
 
-##<a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+##<a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
 Azure AD 사용자가 PolicyStat에 로그인할 수 있도록 하려면 PolicyStat로 프로비전되어야 합니다.  
 
-PolicyStat는 사용자 프로비전 시간에만 지원합니다. 즉, PolicyStat에 사용자를 수동으로 추가하지 않아도 됩니다.  
-Single sign on을 통해 첫 번째 로그인 시 사용자가 자동으로 추가됩니다.
+PolicyStat는 사용자 프로비전 시간에만 지원합니다. 즉, PolicyStat에 사용자를 수동으로 추가하지 않아도 됩니다. SSO를 통해 첫 번째 로그인 시 사용자가 자동으로 추가됩니다.
 
-> [!NOTE]
-> 다른 PolicyStat 사용자 계정 생성 도구 또는 PolicyStat가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[!NOTE]
+>다른 PolicyStat 사용자 계정 생성 도구 또는 PolicyStat가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 > 
 > 
 
-## <a name="assigning-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
 **PolicyStat에 사용자를 할당하려면 다음 단계를 수행합니다.**
@@ -152,6 +151,6 @@ Single sign on을 통해 첫 번째 로그인 시 사용자가 자동으로 추�
    
    ![예](./media/active-directory-saas-policystat-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
+SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 

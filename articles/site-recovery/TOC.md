@@ -67,8 +67,8 @@
 ## [모니터링 및 문제 해결](site-recovery-monitoring-and-troubleshooting.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
-## [PowerShell 클래식](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [PowerShell](/powershell/module/azurerm.siterecovery)
+## [PowerShell 클래식](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [REST (영문)](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # 관련 항목

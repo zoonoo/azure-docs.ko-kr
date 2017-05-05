@@ -1,9 +1,9 @@
 # 개요
 ## [Azure Active Directory란?](active-directory-whatis.md)
 ## [버전 선택](active-directory-editions.md)
-## [Azure ID 관리 정보](fundamentals-identity.md)
-## [Azure AD Portal 환경 미리 보기](active-directory-preview-explainer.md)
 
+## [Azure ID 관리 정보](identity-fundamentals.md)
+## [Azure Portal 환경에서 미리 보기](active-directory-preview-explainer.md)
 
 # 시작
 ## [Azure AD 테넌트 가져오기](active-directory-howto-tenant.md)
@@ -58,6 +58,7 @@
 ### [모든 그룹 보기](active-directory-groups-view-azure-portal.md)
 ### [전용 그룹 사용](active-directory-accessmanagement-dedicated-groups.md)
 ### [SaaS 앱에 대한 그룹 액세스 추가](active-directory-accessmanagement-group-saasapps.md)
+### [삭제된 Office 365 그룹 복원](active-directory-groups-restore-azure-portal.md)
 ### 그룹 설정 관리
 #### [Azure 포털](active-directory-groups-settings-azure-portal.md)
 #### [Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
@@ -110,24 +111,27 @@
 ##### [알 수 없는 원본](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [비정상적인 로그인](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [암호 관리](active-directory-manage-passwords.md)
-### [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
-### [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
-### [관리자가 셀프 서비스 암호 재설정을 사용하도록 설정](active-directory-passwords.md)
-### [암호 관리 이해](active-directory-passwords-how-it-works.md)
-### [정책 및 제한 사항 이해](active-directory-passwords-policy.md)
-### 암호 재설정
-#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
-#### [클래식 포털](active-directory-create-users-reset-password.md)
-### [만료 정책 설정](active-directory-passwords-set-expiration-policy.md)
-### 암호 관리 사용
-#### [시작](active-directory-passwords-getting-started.md)
-#### [배포](active-directory-passwords-best-practices.md)
-#### [사용자 지정](active-directory-passwords-customize.md)
-#### [보고서 보기](active-directory-passwords-get-insights.md)
-#### [자세히 알아보기](active-directory-passwords-learn-more.md)
-#### [FAQ](active-directory-passwords-faq.md)
-#### [문제 해결](active-directory-passwords-troubleshoot.md)
+## [암호 관리](active-directory-passwords.md)
+### 사용자 문서
+#### [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
+#### [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
+### [빠른 시작: 셀프 서비스 암호 재설정](active-directory-passwords-getting-started.md)
+### [라이선스 SSPR](active-directory-passwords-licensing.md)
+### [SSPR 배포](active-directory-passwords-best-practices.md)
+### IT 관리자: 암호 재설정
+#### [Azure 포털](active-directory-users-reset-password-azure-portal.md)
+#### [Azure 클래식 포털](active-directory-create-users-reset-password.md)
+### [SSPR 정책 이해](active-directory-passwords-policy.md)
+### [암호 재설정 이해](active-directory-passwords-how-it-works.md)
+### [SSPR 사용자 지정](active-directory-passwords-customize.md)
+### [SSPR에 사용된 데이터](active-directory-passwords-data.md)
+### [SSPR에 대한 보고](active-directory-passwords-reporting.md)
+### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [비밀번호 쓰기 저장](active-directory-passwords-writeback.md)
+### [암호 해시 동기화](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
+### [문제 해결](active-directory-passwords-troubleshoot.md)
+### [FAQ](active-directory-passwords-faq.md)
+
 
 ## 장치 관리
 ### [장치 등록](active-directory-device-registration-overview.md)
@@ -289,6 +293,7 @@
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
 #### [문제 해결](role-based-access-control-troubleshooting.md)
+#### [리소스 공급자 작업](role-based-access-control-resource-provider-operations.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
 
 ## ID 보안
@@ -341,7 +346,7 @@
 
 
 # 참조
-## [PowerShell cmdlet](/powershell/ )
+## [PowerShell cmdlet](/powershell/azure/overview)
 ## [Java API 참조](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [서비스 제한 및 제한 사항](active-directory-service-limits-restrictions.md)

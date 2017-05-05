@@ -202,7 +202,7 @@ Batch .NET에서, 새 풀을 만들 때 또는 기존 풀에 [CloudPool][net_clo
 CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(
         poolId: "myPool",
-        targetDedicated: "1",
+        targetDedicated: 1,
         virtualMachineSize: "small",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 

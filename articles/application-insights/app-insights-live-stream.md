@@ -11,22 +11,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 04/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fc6acf7b24bb017e4a93df1c15ed493a4442d6b5
-ms.openlocfilehash: 917261e32845b53f2f2f3d12f60ca5fa87d441c7
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 11b9f52801e9a62b9c52f0f622fdcae761cc122a
+ms.lasthandoff: 04/18/2017
 
 
 ---
 
 # <a name="live-metrics-stream-instant-metrics-for-close-monitoring"></a>라이브 메트릭 스트림: 면밀한 모니터링을 위한 인스턴트 메트릭
-라이브 메트릭 스트림은 거의 실시간에 가까운&1;초의 대기 시간으로 [Application Insights](app-insights-overview.md) 메트릭을 바로 표시합니다. 이 즉시 모니터링 기능은 새 빌드를 릴리스하고 예상한 대로 작동하는지 확인하려고 할 때 또는 실시간으로 인시던트를 조사할 때 매우 유용합니다.
+라이브 메트릭 스트림은 거의 실시간에 가까운 1초의 대기 시간으로 [Application Insights](app-insights-overview.md) 메트릭을 바로 표시합니다. 이 즉시 모니터링 기능은 새 빌드를 릴리스하고 예상한 대로 작동하는지 확인하려고 할 때 또는 실시간으로 인시던트를 조사할 때 매우 유용합니다.
 
 [메트릭 탐색기](app-insights-metrics-explorer.md)와 달리, 라이브 메트릭 스트림은 고정된 메트릭 집합을 표시합니다. 해당 데이터는 차트에 있는 동안만 지속된 후 삭제됩니다.
 
-라이브 메트릭 스트림 데이터는 무료이므로 청구서에 비용이 추가되지 않습니다.
+라이브 메트릭 스트림 데이터는 무료이므로 청구서에 비용이 추가되지 않습니다. ASP.NET 및 Java 응용 프로그램에 사용할 수는 있습니다.
 
 ![라이브 메트릭 스트림 동영상](./media/app-insights-live-stream/youtube.png) [라이브 메트릭 스트림 동영상](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 02/27/2017
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Application Insights를 사용하여 사용량 모니터링](app-insights-overview-usage.md)
+* [Application Insights를 사용하여 사용량 모니터링](app-insights-web-track-usage.md)
 * [진단 검색 사용](app-insights-diagnostic-search.md)
 
 

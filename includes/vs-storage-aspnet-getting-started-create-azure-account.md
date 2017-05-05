@@ -4,8 +4,3 @@
 [Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/storage-azure-cli.md) 또는 [.NET용 저장소 리소스 공급자 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/mt131037.aspx)를 사용하여 Azure 저장소 계정을 만들 수도 있습니다.
 
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

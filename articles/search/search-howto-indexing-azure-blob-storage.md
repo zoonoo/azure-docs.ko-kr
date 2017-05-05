@@ -15,9 +15,9 @@ ms.tgt_pltfrm: na
 ms.date: 04/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c74c8fb892103a00b0bdfcfeaa2ecd6c3188251e
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: e14da5fa10533d922a6263e8f52a53c0eaa23393
+ms.lasthandoff: 04/25/2017
 
 ---
 
@@ -342,7 +342,7 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 
 문서에는 연결된 메타데이터(예: 문서를 작성한 부서)가 있을 수 있으며, 다음 위치 중 하나에 구조화된 데이터로서 저장되어 있습니다.
 -   SQL Database 또는 DocumentDB와 같은 별도 데이터 저장소.
--   사용자 지정 메타데이터로서 Azure Blob Storage에 있는 각 문서에 직접 연결됩니다. (자세한 내용은 [Blob 리소스의 속성 및 메타데이터를 설정 및 검색](https://docs.microsoft.com/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources)를 참조하세요.)
+-   사용자 지정 메타데이터로서 Azure Blob Storage에 있는 각 문서에 직접 연결됩니다. (자세한 내용은 [Blob 리소스의 속성 및 메타데이터를 설정 및 검색](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources)를 참조하세요.)
 
 각 문서와 해당 메타데이터에 같은 고유 키 값을 할당하고 각 인덱서에 대한 `mergeOrUpload` 작업을 지정하여 해당 메타데이터와 함께 문서를 인덱싱할 수 있습니다. 이 솔루션에 대한 자세한 설명은 이 외부 문서 [Azure Search의 다른 데이터와 문서 결합](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)을 참조하세요.
 

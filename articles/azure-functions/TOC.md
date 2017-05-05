@@ -30,6 +30,7 @@
 #### [알림 허브](functions-bindings-notification-hubs.md)
 #### [모바일 앱](functions-bindings-mobile-apps.md)
 #### [외부 파일](functions-bindings-external-file.md)
+#### [외부 테이블](functions-bindings-external-table.md)
 ### [Functions 프록시 정의](functions-proxies.md)
 ### [Azure Portal에서 함수 앱 만들기](functions-create-function-app-portal.md)
 ### [예약된 정리 작업 수행하기](functions-scenario-database-table-cleanup.md)

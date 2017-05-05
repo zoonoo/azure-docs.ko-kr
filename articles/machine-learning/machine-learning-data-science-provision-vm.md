@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: e1563db23e687f772eaff2e90ce9853c9d8b87de
-ms.openlocfilehash: f87df28a5a44b7ab3c1d9a48d43c8d1354c48830
-ms.lasthandoff: 11/23/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 8df9fbf4b09cb63cafc9d43592edc68068a28f14
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -47,6 +47,9 @@ Microsoft 데이터 과학 가상 컴퓨터는 데이터 분석 및 기계 학�
 Microsoft 데이터 과학 가상 컴퓨터는 분석 프로젝트를 빠르게 시작합니다. R, Python, SQL 및 C# 등의 다양한 언어로 작업을 수행할 수 있습니다. Visual Studio는 사용하기 쉬운 코드를 개발하고 테스트하기 위해 IDE를 제공합니다. VM에 포함된 Azure SDK를 통해 Microsoft의 클라우드 플랫폼에서 다양한 서비스를 사용하여 응용 프로그램을 빌드할 수 있습니다. 
 
 이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. 프로비전하는 가상 컴퓨터의 크기에 따른 Azure 사용 비용만 지불하면 됩니다. 계산 비용에 대한 자세한 내용은 [데이터 과학 가상 컴퓨터](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) 페이지의 가격 책정 세부 정보 섹션에 나와 있습니다. 
+
+## <a name="other-versions-of-the-data-science-virtual-machine"></a>다른 버전의 데이터 과학 가상 컴퓨터
+[CentOS](machine-learning-data-science-linux-dsvm-intro.md) 이미지도 Windows 이미지와 같은 많은 도구와 함께 사용할 수 있습니다. [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) 이미지도 비슷한 많은 도구 및 심층 학습 프레임워크와 함께 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 Microsoft 데이터 과학 가상 컴퓨터를 만들려면 먼저 다음이 있어야 합니다.

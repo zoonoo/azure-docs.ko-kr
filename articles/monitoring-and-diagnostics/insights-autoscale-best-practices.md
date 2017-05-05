@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2016
+ms.date: 04/20/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: cc557c7139561345a201fa0cd45c803af3751acd
-ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 6dad42f94d263d9dacedf145bf4e5d487d0aed77
+ms.lasthandoff: 04/21/2017
 
 
 ---
-# <a name="best-practices-autoscaling-virtual"></a>모범 사례 자동 크기 조정 가상
+# <a name="best-practices-for-autoscale"></a>자동 크기 조정에 대한 모범 사례
 이 문서에서는 Azure에서 자동으로 크기를 조정하기 위한 모범 사례를 설명합니다. 이 내용은 가상 컴퓨터, 가상 컴퓨터 크기 집합 및 클라우드 서비스와 관련이 있습니다.  다른 Azure 서비스에는 다른 크기 조정 방법이 사용됩니다.
 
 ## <a name="autoscale-concepts"></a>자동 크기 조정 개념
@@ -149,9 +150,4 @@ Cloud Services 및 App Services(Web Apps)의 경우 Azure 포털(portal.azure.co
 * 자동 크기 조정 서비스에서 크기 조정 결정을 내리는 데 메트릭을 사용할 수 없는 경우
 * 크기 조정 결정을 내리는 데 메트릭을 다시 사용할 수 있게 된(복구) 경우
   위 조건 외에 성공적인 크기 조정 동작에 대한 알림을 받도록 메일 또는 webhook 알림을 구성할 수 있습니다.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

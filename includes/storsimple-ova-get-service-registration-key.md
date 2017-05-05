@@ -5,8 +5,3 @@
    1. **서비스 등록 키**를 찾습니다.
    2. 복사 아이콘 ![](./media/storsimple-ova-get-service-registration-key/image6-include.png) 을 클릭하여 키를 복사한 다음 나중에 사용할 수 있도록 저장합니다.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

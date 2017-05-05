@@ -13,15 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/30/2017
+ms.date: 04/05/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 253c504fa433c7ca37c0065ebf01d13dafc76231
-ms.openlocfilehash: 303d6768611fbe21ecf5a72a9e071436ad8b9cc9
-
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
+ms.lasthandoff: 04/26/2017
 
 ---
+
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>SQL Server 2016 Azure Virtual Machines의 자동화된 백업 v2(Resource Manager)
+
+> [!div class="op_single_selector"]
+> * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+> * [SQL Server 2016](virtual-machines-windows-sql-automated-backup-v2.md)
 
 자동화된 백업 v2에서는 SQL Server 2016 Standard, Enterprise 또는 Developer 버전을 실행하는 Azure VM의 모든 기존 및 새 데이터베이스에 대해 [Microsoft Azure에 대한 관리되는 백업](https://msdn.microsoft.com/library/dn449496.aspx)을 자동으로 구성합니다. 이를 통해 지속형 Azure Blob 저장소를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다. 자동화된 백업 v2는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
 
@@ -46,10 +51,9 @@ ms.openlocfilehash: 303d6768611fbe21ecf5a72a9e071436ad8b9cc9
 
 **데이터베이스 구성**:
 
-- 대상 데이터베이스는 전체 복구 모델을 사용해야 합니다.
+- 대상 데이터베이스는 전체 복구 모델을 사용해야 합니다. 전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서 백업](https://technet.microsoft.com/library/ms190217.aspx)을 참조하세요.
 - 시스템 데이터베이스는 전체 복구 모델을 사용할 필요가 없습니다. 그러나 Model 또는 MSDB에 대해 로그 백업을 수행해야 할 경우 전체 복구 모델을 사용해야 합니다.
-
-전체 복구 모델이 백업에 미치는 영향에 대한 자세한 내용은 [전체 복구 모델에서 백업](https://technet.microsoft.com/library/ms190217.aspx)을 참조하세요.
+- 대상 데이터베이스는 기본 SQL Server 인스턴스에 있어야 합니다. SQL Server IaaS 확장은 명명된 인스턴스를 지원하지 않습니다.
 
 **Azure 배포 모델**:
 
@@ -67,7 +71,7 @@ ms.openlocfilehash: 303d6768611fbe21ecf5a72a9e071436ad8b9cc9
 | --- | --- | --- |
 | **자동화된 백업** | 사용/사용 안 함(사용 안 함) | SQL Server 2016 Standard 또는 Enterprise를 실행하는 Azure VM에 대해 자동화된 백업을 사용하거나 사용하지 않도록 설정합니다. |
 | **보존 기간** | 1-30일(30일) | 백업 보존 기간(일 수)입니다. |
-| **저장소 계정** | Azure 저장소 계정 | Blob 저장소에 자동화된 백업 파일을 저장하기 위해 사용하여 Azure 저장소 계정입니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 컴퓨터 이름이 포함됩니다. |
+| **저장소 계정** | Azure 저장소 계정 | Blob 저장소에 자동화된 백업 파일을 저장하기 위해 사용하여 Azure 저장소 계정입니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 데이터베이스 GUID가 포함됩니다. |
 | **암호화** |사용/사용 안 함(사용 안 함) | 암호화 사용 여부를 설정합니다. 암호화 기능을 사용하면 백업을 복원하는 데 사용되는 인증서가 동일한 명명 규칙을 사용하여 동일한 **automaticbackup** 컨테이너에 지정한 저장소 계정에 배치됩니다. 암호가 변경되면 해당 암호를 사용하여 새 인증서가 생성되지만 이전 인증서도 이전 백업의 복원을 위해 유지됩니다. |
 | **암호** |암호 텍스트 | 암호화 키의 암호입니다. 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다. |
 
@@ -95,7 +99,7 @@ ms.openlocfilehash: 303d6768611fbe21ecf5a72a9e071436ad8b9cc9
 - 전체 백업 시작 시간: **01:00**
 - 전체 백업 시간 기간: **1시간**
 
-즉, 사용 가능한 다음 백업 기간은 화요일 오전 1시부터 1시간 동안입니다. 해당 시간에 자동화된 백업은 한 번에 하나씩 데이터베이스를 백업하기 시작합니다. 이 시나리오에서는 처음 두 데이터베이스에 대해 전체 백업이 완료될 정도로 데이터베이스가 큽니다. 그러나&1;시간 후에 모든 데이터베이스가 백업되지는 않았습니다.
+즉, 사용 가능한 다음 백업 기간은 화요일 오전 1시부터 1시간 동안입니다. 해당 시간에 자동화된 백업은 한 번에 하나씩 데이터베이스를 백업하기 시작합니다. 이 시나리오에서는 처음 두 데이터베이스에 대해 전체 백업이 완료될 정도로 데이터베이스가 큽니다. 그러나 1시간 후에 모든 데이터베이스가 백업되지는 않았습니다.
 
 이 경우 자동화된 백업은 다음 날인 수요일에 오전 1시부터 1시간 동안 나머지 데이터베이스를 백업하기 시작합니다. 해당 시간에 모든 데이터베이스이 백업되지는 않을 경우 다음 날 같은 시간에 다시 시도됩니다. 이 과정은 모든 데이터베이스가 성공적으로 백업될 때까지 계속됩니다.
 
@@ -121,9 +125,11 @@ ms.openlocfilehash: 303d6768611fbe21ecf5a72a9e071436ad8b9cc9
 > 매일 백업 일정을 계획할 때는 모든 데이터베이스가 이 시간 내에 백업될 수 있도록 넓은 기간을 예약하는 것이 좋습니다. 특히 백업할 데이터양이 클 경우 이러한 점을 고려해야 합니다.
 
 ## <a name="configuration-in-the-portal"></a>포털에서 구성
-Azure Portal을 사용하여 프로비전 중에 또는 기존 SQL Server 2016 VM에 대해 자동화된 백업 v2를 구성할 수 있습니다. 
+
+Azure Portal을 사용하여 프로비전 중에 또는 기존 SQL Server 2016 VM에 대해 자동화된 백업 v2를 구성할 수 있습니다.
 
 ### <a name="new-vms"></a>새 VM
+
 Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server 2016 가상 컴퓨터를 만들 때 자동화된 백업 v2를 구성할 수 있습니다. 
 
 **SQL Server 설정** 블레이드에서 **자동화된 백업**을 선택합니다. 다음 Azure 포털 스크린샷은 **SQL 자동화된 백업** 블레이드를 보여 줍니다.
@@ -136,6 +142,7 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 컨텍스트의 경우 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-windows-portal-sql-server-provision.md)의 전체 항목을 참조하세요.
 
 ### <a name="existing-vms"></a>기존 VM
+
 기존 SQL Server 가상 컴퓨터에 대한 해당 SQL Server 가상 컴퓨터를 선택합니다. 그런 다음 **설정** 블레이드의 **SQL Server 구성** 섹션을 선택합니다.
 
 ![기존 VM에 대한 SQL 자동화된 백업](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
@@ -149,6 +156,7 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 처음으로 자동화된 백업을 사용 설정할 경우 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안에는 구성된 자동화된 백업이 Azure 포털에 표시되지 않을 수 있습니다. 에이전트가 설치 및 구성될 때까지 몇 분 정도 기다리세요. 그 후 Azure 포털에는 새 설정이 반영됩니다.
 
 ## <a name="configuration-with-powershell"></a>PowerShell을 사용하여 구성
+
 PowerShell을 사용하여 자동화된 백업 v2를 구성할 수도 있습니다. 시작하기 전에 다음을 수행해야 합니다.
 
 - [최신 Azure PowerShell을 다운로드하여 설치합니다](http://aka.ms/webpi-azps).
@@ -175,7 +183,7 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -Version "1.2" -Location $region 
 ```
 
-### <a name="a-idverifysettings-verify-current-settings"></a><a id="verifysettings"> 현재 설정 확인
+### <a id="verifysettings"></a> 현재 설정 확인
 프로비전 동안 자동화된 백업을 사용하도록 설정한 경우 PowerShell을 사용하여 현재 구성을 확인할 수 있습니다. **Get-AzureRmVMSqlServerExtension** 명령을 실행하고 **AutoBackupSettings** 속성을 검사합니다.
 
 ```powershell
@@ -322,10 +330,5 @@ Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 
 Azure VM의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-windows-sql-server-iaas-overview.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

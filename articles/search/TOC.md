@@ -14,14 +14,13 @@
 ## [인덱스 검색](search-query-overview.md)
 ### [Azure Portal](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
-### [REST](search-query-rest-api.md)
-## [검색 결과 처리](search-pagination-page-layout.md)
-## 자습서
-### [.NET](search-howto-dotnet-sdk.md)
-### [.NET 동의어 미리 보기](search-synonyms-tutorial-sdk.md)
-### [포털](search-get-started-portal.md)
-### [NodeJS](search-get-started-nodejs.md)
-### [Java](search-get-started-java.md)
+### [REST (영문)](search-query-rest-api.md)
+# 자습서
+## [.NET](search-howto-dotnet-sdk.md)
+## [.NET 동의어 미리 보기](search-synonyms-tutorial-sdk.md)
+## [포털](search-get-started-portal.md)
+## [Node.JS](search-get-started-nodejs.md)
+## [Java](search-get-started-java.md)
 # 방법
 ## 계획 및 디자인
 ### [서비스 한도](search-limits-quotas-capacity.md)
@@ -59,14 +58,16 @@
 ### 사용자 지정 검색
 #### [언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [사용자 지정 분석기](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### [페이징 결과](search-pagination-page-layout.md)
 ### [점수 매기기](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [제안](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [패싯 탐색](search-faceted-navigation.md)
 ### [동의어 미리 보기](search-synonyms.md)
 
 # 참조
-## [.NET](/dotnet/api/microsoft.azure.search)
-## [.NET(관리)](/dotnet/api/microsoft.azure.management.search)
+
+## [.NET](/dotnet/api/?term=microsoft.azure.search)
+## [.NET(관리)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python(관리)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST (영문)](/rest/api/searchservice)
 ## [REST(관리)](/rest/api/searchmanagement)

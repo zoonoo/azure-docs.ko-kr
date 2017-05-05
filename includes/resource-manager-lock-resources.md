@@ -11,8 +11,3 @@
    
       ![잠금 삭제](./media/resource-manager-lock-resources/delete-lock.png) 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

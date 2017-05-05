@@ -30,8 +30,3 @@
 
 StorSimple 볼륨을 만드는 방법을 보여 주는 동영상을 시청하려면 [여기](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/)를 클릭하세요.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

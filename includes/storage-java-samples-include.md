@@ -8,7 +8,3 @@ Azure Storage Java 클라이언트 라이브러리에 대한 모든 샘플 리�
 * [Java에서 Azure Queue Service 시작](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/)
 * [Java에서 Azure Table Service 시작](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/)
 * [Storage Java 클라이언트 라이브러리 샘플](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)
-
-<!--HONumber=Feb17_HO3-->
-
-

@@ -6,8 +6,3 @@
 > * [온-프레미스 SQL 데이터베이스에서](../articles/machine-learning/machine-learning-use-data-from-an-on-premises-sql-server.md)
 >  
 
-
-
-<!--HONumber=Dec16_HO2-->
-
-

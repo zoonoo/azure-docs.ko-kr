@@ -14,12 +14,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
-ms.openlocfilehash: 163bf5b8d2884f678f7fea2207055eeb78b4e8ba
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 9662ff49e38d65fcba307bc3fc7a8ec699b13202
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,7 +36,7 @@ Mahout은 Apache Hadoop용 [Machine Learning][ml] 라이브러리입니다. Maho
 * Linux 기반 HDInsight 클러스터입니다. HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 사용 시작][getstarted]을 참조하세요.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.2 및 3.4 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="mahout-versioning"></a>Mahout 버전 관리
 
@@ -50,9 +50,9 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 
 * **동시 발생**: Joe, Alice 및 Bob은 모두 *스타워즈*, *제국의 역습* 및 *제다이의 귀환*을 좋아합니다. Mahout은 이러한 영화 중 하나를 좋아하면서 다른 두 개도 좋아하는 사용자를 확인합니다.
 
-* **동시 발생**: Bob 및 Alice는 *보이지 않는 위협*, *클론의 습격* 및 *시스의 복수*도 좋아합니다. Mahout은 이전의&3;개 영화를 좋아했던 사용자가 이&3;개 영화도 좋아하는지 확인합니다.
+* **동시 발생**: Bob 및 Alice는 *보이지 않는 위협*, *클론의 습격* 및 *시스의 복수*도 좋아합니다. Mahout은 이전의 3개 영화를 좋아했던 사용자가 이 3개 영화도 좋아하는지 확인합니다.
 
-* **유사성 추천**: Joe가 첫&3;개 영화를 좋아하므로, Mahout은 유사한 선호도를 가진 다른 사람이 좋아하지만 Joe는 본(좋아하거나 평가한) 적이 없는 영화를 검색합니다. 이 경우 Mahout은 *보이지 않는 위협*, *클론의 습격* 및 *시스의 복수*를 추천합니다.
+* **유사성 추천**: Joe가 첫 3개 영화를 좋아하므로, Mahout은 유사한 선호도를 가진 다른 사람이 좋아하지만 Joe는 본(좋아하거나 평가한) 적이 없는 영화를 검색합니다. 이 경우 Mahout은 *보이지 않는 위협*, *클론의 습격* 및 *시스의 복수*를 추천합니다.
 
 ### <a name="understanding-the-data"></a>데이터 이해
 
@@ -82,34 +82,34 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 ## <a name="view-the-output"></a>출력 보기
 
 1. 작업이 완료되면 다음 명령을 사용하여 생성된 결과를 봅니다.
-    
+
     ```bash
     hdfs dfs -text /example/data/mahoutout/part-r-00000
     ```
 
     출력은 다음과 같이 나타납니다.
-   
+
         1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
         2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
         3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
         4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
-   
+
     첫 번째 열은 `userID`입니다. '[' 및 ']'에 포함된 값은 `movieId`:`recommendationScore`입니다.
 
 2. moviedb.txt와 함께 출력을 사용하여 권장 사항에 대한 자세한 내용을 제공할 수 있습니다. 먼저, 다음 명령을 사용하여 파일을 로컬로 복사해야 합니다.
 
-   ```bash
-   hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
-   hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
-   ```
+    ```bash
+    hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
+    hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
+    ```
 
     이 명령은 영화 데이터 파일과 함께 현재 디렉터리에 있는 **recommendations.txt**라는 파일에 출력 데이터를 복사합니다.
 
 3. 다음 명령을 사용하여 권장 사항 출력에서 데이터에 대한 영화 이름을 찾는 Python 스크립트를 만듭니다.
 
-   ```bash
-   nano show_recommendations.py
-   ```
+    ```bash
+    nano show_recommendations.py
+    ```
 
     편집기가 열리면 파일의 내용으로 다음 텍스트를 사용합니다.
 
@@ -164,75 +164,32 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
        print "%s, score=%s" % (movieById[movieId][0], score)
    print "------------------------"
    ```
-   
+
     **Ctrl-X**, **Y**, **Enter** 키를 차례로 눌러 데이터를 저장합니다.
 
 4. 파일이 실행하도록 다음 명령을 사용합니다.
-   
-   ```bash
-   chmod +x show_recommendations.py
-   ```
+
+    ```bash
+    chmod +x show_recommendations.py
+    ```
 
 5. Python 스크립트를 실행합니다. 다음 명령에서는 모든 파일이 다운로드된 디렉터리에 있다고 가정합니다.
-   
-   ```bash
-   ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
-   ```
-    
+
+    ```bash
+    ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
+    ```
+
     이 명령은 사용자 ID 4에 대해 생성된 권장을 조사합니다.
-   
-   * **user-ratings.txt** 파일은 등급이 평가된 영화를 검색하는 데 사용됩니다.
 
-   * **moviedb.txt** 파일은 영화의 이름을 검색하는 데 사용됩니다.
+    * **user-ratings.txt** 파일은 등급이 평가된 영화를 검색하는 데 사용됩니다.
 
-   * **recommendations.txt** 파일은 이 사용자의 영화 권장을 검색하는데 사용됩니다.
-     
+    * **moviedb.txt** 파일은 영화의 이름을 검색하는 데 사용됩니다.
+
+    * **recommendations.txt** 파일은 이 사용자의 영화 권장을 검색하는데 사용됩니다.
+
      이 명령의 출력은 다음 텍스트와 비슷합니다.
-     
-     ```
-       Reading Movies Descriptions
-       Reading Rated Movies
-       Reading Recommendations
-     
-     ##   Rated Movies
-       Mimic (1997), rating=3
-       Ulee's Gold (1997), rating=5
-       Incognito (1997), rating=5
-       One Flew Over the Cuckoo's Nest (1975), rating=4
-       Event Horizon (1997), rating=4
-       Client, The (1994), rating=3
-       Liar Liar (1997), rating=5
-       Scream (1996), rating=4
-       Star Wars (1977), rating=5
-       Wedding Singer, The (1998), rating=5
-       Starship Troopers (1997), rating=4
-       Air Force One (1997), rating=5
-       Conspiracy Theory (1997), rating=3
-       Contact (1997), rating=5
-       Indiana Jones and the Last Crusade (1989), rating=3
-       Desperate Measures (1998), rating=5
-       Seven (Se7en) (1995), rating=4
-       Cop Land (1997), rating=5
-       Lost Highway (1997), rating=5
-       Assignment, The (1997), rating=5
-       Blues Brothers 2000 (1998), rating=5
-       Spawn (1997), rating=2
-       Wonderland (1997), rating=5
-     
-     ##   In & Out (1997), rating=5
-     ##   Recommended Movies
-       Seven Years in Tibet (1997), score=5.0
-       Indiana Jones and the Last Crusade (1989), score=5.0
-       Jaws (1975), score=5.0
-       Sense and Sensibility (1995), score=5.0
-       Independence Day (ID4) (1996), score=5.0
-       My Best Friend's Wedding (1997), score=5.0
-       Jerry Maguire (1996), score=5.0
-       Scream 2 (1997), score=5.0
-       Time to Kill, A (1996), score=5.0
-     
-     ##   Rock, The (1996), score=5.0
-     ```
+
+        Seven Years in Tibet (1997), score=5.0   Indiana Jones and the Last Crusade (1989), score=5.0   Jaws (1975), score=5.0   Sense and Sensibility (1995), score=5.0   Independence Day (ID4) (1996), score=5.0   My Best Friend's Wedding (1997), score=5.0   Jerry Maguire (1996), score=5.0   Scream 2 (1997), score=5.0   Time to Kill, A (1996), score=5.0
 
 ## <a name="delete-temporary-data"></a>임시 데이터 삭제
 
@@ -244,8 +201,8 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 > [!WARNING]
 > 명령을 다시 실행하려는 경우 출력 디렉터리도 삭제해야 합니다. 이 디렉터리를 삭제하려면 다음을 사용합니다.
-> 
-> ```hdfs dfs -rm -f -r /example/data/mahoutout```
+>
+> `hdfs dfs -rm -f -r /example/data/mahoutout`
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -268,5 +225,4 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
-
 

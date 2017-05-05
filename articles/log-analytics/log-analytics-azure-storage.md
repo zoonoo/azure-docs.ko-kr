@@ -16,9 +16,9 @@ ms.date: 04/12/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 04bab3024474ae521090a8693b6c095e1704d4dc
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 350aa79cf1f41084c33e16b6fcf2ada971b22626
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,9 +74,9 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 * 사용 가능한 로그에 대한 자세한 내용은 [진단 로그에 지원되는 서비스 및 스키마](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs)를 참조하세요.
 
 ### <a name="enable-diagnostics-with-powershell"></a>PowerShell에서 진단 사용
-[Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)의 2016년 11월(v2.3.0) 이후 릴리스가 필요합니다.
+[Azure PowerShell](/powershell/azure/overview)의 2016년 11월(v2.3.0) 이후 릴리스가 필요합니다.
 
-다음 PowerShell 예제에서는 [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v2.3.0/set-azurermdiagnosticsetting)을 사용하여 네트워크 보안 그룹에 대해 진단을 사용하도록 설정하는 방법을 보여 줍니다. 지원되는 모든 리소스에 대해 같은 방법을 사용할 수 있습니다. `$resourceId`를 진단을 사용하도록 설정할 리소스의 리소스 ID로 설정하기만 하면 됩니다.
+다음 PowerShell 예제에서는 [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting)을 사용하여 네트워크 보안 그룹에 대해 진단을 사용하도록 설정하는 방법을 보여 줍니다. 지원되는 모든 리소스에 대해 같은 방법을 사용할 수 있습니다. `$resourceId`를 진단을 사용하도록 설정할 리소스의 리소스 ID로 설정하기만 하면 됩니다.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

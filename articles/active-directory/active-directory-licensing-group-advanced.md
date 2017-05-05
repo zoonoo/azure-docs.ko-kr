@@ -161,7 +161,7 @@ Azure AD 릴리스의 미리 보기 기간 동안에는 PowerShell을 사용하�
   function UserHasLicenseAssignedFromGroup
   {
     Param([Microsoft.Online.Administration.User]$user, [string]$skuId)
-     foreach($license in $user.Licenses
+     foreach($license in $user.Licenses)
      {
         #we look for the specific license SKU in all licenses assigned to the user
         if ($license.AccountSkuId -ieq $skuId)

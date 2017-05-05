@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5e91f640ab72fd3a5fffcb0f9d7bac1e9e031249
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5b26aecc7b9797d7bf604ea5e3d8bdece5bea17b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -77,7 +77,7 @@ Azure에서 VM(가상 컴퓨터)을 만들고 각 VM에 여러 NIC(네트워크 
 
 * Azure 구독.
 * 구성된 가상 네트워크입니다. 자세한 내용은 [가상 네트워크 개요(영문)](virtual-networks-overview.md) 를 참조하세요.
-* 최신 버전의 Azure PowerShell이 다운로드되어 설치됩니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+* 최신 버전의 Azure PowerShell이 다운로드되어 설치됩니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 다중 NIC이 있는 VM을 만들려면 단일 PowerShell 세션 내에 각 명령을 입력하여 다음 단계를 완료합니다.
 

@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 4fbd80f7e9775fe3c12a54302be4a162d2102e2f
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 717269a2c0e0b1a3d332e627154eacd2d2c5001e
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -27,6 +27,7 @@ ms.lasthandoff: 03/16/2017
 * 앱이 아직 데이터를 Application Insights로 전송하지 않은 경우, **[시뮬레이션된 데이터에 대한 분석을 테스트](https://analytics.applicationinsights.io/demo)**합니다.
 * **[SQL 사용자 치트 시트](https://aka.ms/sql-analytics)**에서는 가장 일반적인 코드를 변환합니다.
 * **[언어 참조](app-insights-analytics-reference.md)** 분석 쿼리 언어의 모든 강력한 기능을 사용하는 방법을 알아봅니다.
+
 
 ## <a name="queries-in-analytics"></a>분석의 쿼리
 일반적인 쿼리는 *원본* 테이블이며 그 뒤에 `|`로 구분된 일련의 *연산자*가 있습니다. 
@@ -56,6 +57,7 @@ ms.lasthandoff: 03/16/2017
 
 언어에 다음과 같은 많은 유용한 기능이 있습니다.
 
+
 * [필터링](app-insights-analytics-reference.md#where-operator) 합니다.
 * [조인](app-insights-analytics-reference.md#join-operator) - 요청을 페이지 뷰, 종속성 호출, 예외 및 로그 추적과 상호 연결합니다.
 * 강력한 통계 [집계](app-insights-analytics-reference.md#aggregations)기능이 있습니다.
@@ -81,7 +83,20 @@ Application Insights의 앱 [개요 블레이드](app-insights-dashboards.md) �
 
 
 ## <a name="next-steps"></a>다음 단계
-* [언어 둘러보기](app-insights-analytics-tour.md)를 시작하는 것이 좋습니다.
+* [언어 둘러보기](app-insights-analytics-tour.md)를 시작하는 것이 좋습니다. 
+
+### <a name="query-examples"></a>쿼리 예제
+
+* 다음 연습을 수행하여 분석의 유용한 기능을 알아보세요.
+ 1.    [요청 기간의 급증 및 단계별 증가 자동 진단](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Automatic%20diagnostics%20of%20sudden%20spikes%20or%20step%20jumps%20in%20requests%20duration&shared=true)
+ 2.    [시계열 분석으로 성능 저하 분석](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20performance%20degradations%20with%20time%20series%20analysis&shared=true)
+ 3.    [autocluster 및 diffpatterns로 응용 프로그램 오류 분석](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20application%20failures%20with%20autocluster%20and%20diffpatterns&shared=true)
+ 4.    [시계열 분석으로 고급 셰이프 검색](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Advanced%20shape%20detection%20with%20time%20series%20analysis&shared=true)
+ 5.    [슬라이딩 윈도우 작업을 사용하여 응용 프로그램 사용량 분석(롤링 MAU/DAU 등)](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Using%20sliding%20window%20calculations%20to%20analyze%20usage%20metrics:%20rolling%20MAU~2FDAU%20and%20cohorts&shared=true)
+ 6.    [디버그 로그 분석을 기준으로 서비스 중단 검색](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Detection%20of%20service%20disruptions%20based%20on%20regression%20analysis%20of%20trace%20logs&shared=true) 및 관련 블로그 게시물([여기](https://maximshklar.wordpress.com/2017/02/16/finding-trends-in-traces-with-smart-data-analytics))
+ 7.    [간단한 디버그 로그를 사용하여 응용 프로그램 성능 프로파일링](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Profiling%20applications'%20performance%20with%20simple%20debug%20logs&shared=true) 및 관련 블로그 게시물([여기](https://yossiattasblog.wordpress.com/2017/03/13/first-blog-post/))
+ 8.    [간단한 디버그 로그를 사용하여 코드 흐름에서 각 단계의 지속 시간 측정](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Measuring%20the%20duration%20of%20each%20step%20in%20your%20code%20flow%20using%20simple%20debug%20logs&shared=true) 및 관련 블로그 게시물([여기](https://yossiattasblog.wordpress.com/2017/03/14/measuring-the-duration-of-each-step-in-your-code-flow-using-simple-debug-logs/))
+ 9.    [간단한 디버그 로그를 사용하여 동시성 분석](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Analyzing%20concurrency%20with%20simple%20debug%20logs&shared=true) 및 관련 블로그 게시물([여기](https://yossiattasblog.wordpress.com/2017/03/23/analyzing-concurrency-using-simple-debug-logs/))
 
 
 

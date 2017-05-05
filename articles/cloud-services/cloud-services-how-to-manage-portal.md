@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c2a9a14891f197ae442c41668229d4a7610ba248
-ms.openlocfilehash: 75c2c51e6ed55c0f8bb152aa09b11c95b5dd8025
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a8f1bf660c44f7716767d3244a7d6e7f7acf8a83
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -75,17 +76,17 @@ ms.openlocfilehash: 75c2c51e6ed55c0f8bb152aa09b11c95b5dd8025
 
 **배포 교환을 위한 필수 조건**
 
-성공적인 배포 교환을 위한&2;가지 핵심 필수 조건은 다음과 같습니다.
+성공적인 배포 교환을 위한 2가지 핵심 필수 조건은 다음과 같습니다.
 
 - 프로덕션 슬롯에 정적 IP 주소를 사용하려는 경우에는 스테이징 슬롯을 위해서도 하나를 예비해 두어야 합니다. 그러지 않으면 교체가 실패합니다.
 
-- 역할의 모든 인스턴스는 교체를 수행하기 전에 실행해야 합니다. Azure Portal의 개요 블레이드 또는 [Windows PowerShell의 Get-AzureRole 명령](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole)을 사용하여 인스턴스 상태를 확인할 수 있습니다.
+- 역할의 모든 인스턴스는 교체를 수행하기 전에 실행해야 합니다. Azure Portal의 개요 블레이드 또는 [Windows PowerShell의 Get-AzureRole 명령](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0)을 사용하여 인스턴스 상태를 확인할 수 있습니다.
 
 게스트 OS 업데이트 및 서비스 복구 작업으로 인해 배포 교체가 실패할 수도 있습니다. 자세한 내용은 [클라우드 서비스 배포 문제 해결](cloud-services-troubleshoot-deployment-problems.md)을 참조하세요.
 
 **교체 시 응용 프로그램 가동 중지가 발생할 수 있습니까? 어떻게 처리해야 합니까?**
 
-마지막 섹션에서 설명한 대로 배포 교체는 Azure Load Balancer에서의 구성 변경일 뿐이므로, 일반적으로 매우 빠릅니다. 그러나 경우에 따라&10;초 이상 걸리며 일시적인 연결 오류가 발생할 수 있습니다. 고객에게 미치는 영향을 최소화하려면 [고객 재시도 논리](../best-practices-retry-general.md) 구현을 고려해 보세요.
+마지막 섹션에서 설명한 대로 배포 교체는 Azure Load Balancer에서의 구성 변경일 뿐이므로, 일반적으로 매우 빠릅니다. 그러나 경우에 따라 10초 이상 걸리며 일시적인 연결 오류가 발생할 수 있습니다. 고객에게 미치는 영향을 최소화하려면 [고객 재시도 논리](../best-practices-retry-general.md) 구현을 고려해 보세요.
 
 ## <a name="how-to-link-a-resource-to-a-cloud-service"></a>방법: 클라우드 서비스에 리소스 연결
 Azure 포털에서는 현재 Azure 클래식 포털에서와 같이 리소스를 함께 연결하지 않습니다. 대신, 클라우드 서비스에서 사용 중인 동일한 리소스 그룹에 추가 리소스를 배포합니다.
@@ -121,9 +122,4 @@ Azure 포털에서는 현재 Azure 클래식 포털에서와 같이 리소스를
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
 * [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)구성
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -17,8 +17,3 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.m
 * 데이터를 사용할 수 있습니다.
 * 워크로드 쿼리를 다시 시작해야 합니다.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 04/21/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 514319dfcb532ab3708352b2467c095d7775b714
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 30edf20d7fc742da9b42d3ea9baafcce31141259
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -33,8 +33,8 @@ Azure 데이터 레이크 저장소는 데이터에 대한 높은 처리량, 가
 
 Data Lake Store는 HDFS 호환 파일 시스템으로 HDInsight에 나타나므로 Storm-HDFS Bolt를 사용하여 작성할 수 있습니다. HDInsight에서 Azure Data Lake로 작업할 경우 파일 스키마 `adl://`를 사용할 수 있습니다.
 
-* Data Lake Storage가 클러스터의 기본 저장소인 경우 `adl:///`를 사용합니다. 이것은 Azure Data Lake에서 클러스터 저장소의 루트입니다. 이것은 Data Lake Storage 계정에서 /clusters/CLUSTERNAME의 경로로 변환될 수 있습니다.
-* Data Lake Storage가 클러스터의 보조 저장소인 경우 `adl://DATALAKEACCOUNT.azuredatalakestore.net/`을 사용합니다. 이 URI는 데이터가 기록되는 Data Lake Storage 계정을 지정합니다. 데이터는 Data Lake Store의 루트부터 기록되기 시작합니다.
+* Data Lake Store가 클러스터의 기본 저장소인 경우 `adl:///`를 사용합니다. 이것은 Azure Data Lake에서 클러스터 저장소의 루트입니다. 이것은 Data Lake Store 계정에서 /clusters/CLUSTERNAME의 경로로 변환될 수 있습니다.
+* Data Lake Store가 클러스터의 추가 저장소인 경우 `adl://DATALAKEACCOUNT.azuredatalakestore.net/`를 사용합니다. 이 URI는 데이터가 기록되는 Data Lake Store 계정을 지정합니다. 데이터는 Data Lake Store의 루트부터 기록되기 시작합니다.
 
     > [!NOTE]
     > 또한 클러스터용 기본 저장소를 포함하는 Data Lake Store 계정에 데이터를 저장하려는 경우에도 이 URI 형식을 사용할 수 있습니다. 이 경우 HDInsight를 포함하는 디렉터리 경로 외부에 데이터를 저장할 수 있습니다.

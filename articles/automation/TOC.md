@@ -71,8 +71,8 @@
 ### [일반적인 오류 해결](automation-troubleshooting-automation-errors.md)
 ### [Hybrid Runbook Worker 문제 해결](automation-troubleshooting-hybrid-runbook-worker.md)
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
-## [PowerShell(클래식)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [PowerShell](/powershell/module/azurerm.automation)
+## [PowerShell(클래식)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST (영문)](/rest/api/automation)
 ## [REST(클래식)](https://msdn.microsoft.com/library/azure/mt163781)

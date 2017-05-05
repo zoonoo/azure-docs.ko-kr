@@ -13,19 +13,32 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/23/2017
+ms.date: 04/21/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 92479ddca2c69f1b8630374e88cc5eda9ac8c9ef
-ms.openlocfilehash: 59b2205fcddf48cfbfb8d15e174c385482a21ec9
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 260208e7c7a08110eb3c885ef86ec4c18ff42fc9
+ms.openlocfilehash: 87486f94bee474b13680e9a90716f09399a95e16
+ms.lasthandoff: 04/23/2017
 
 
 ---
 # <a name="use-the-azure-documentdb-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure 에뮬레이터 사용
 
-[**에뮬레이터 다운로드**](https://aka.ms/documentdb-emulator)
-
+<table>
+<tr>
+  <td><strong>이진 파일</strong></td>
+  <td>[MSI 다운로드](https://aka.ms/documentdb-emulator)</td>
+</tr>
+<tr>
+  <td><strong>Docker</strong></td>
+  <td>[Docker 허브](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+</tr>
+<tr>
+  <td><strong>Docker 원본</strong></td>
+  <td>[Github](https://github.com/azure/azure-documentdb-emulator-docker)</td>
+</tr>
+</table>
+  
 Azure 에뮬레이터는 개발 목적으로 Azure DocumentDB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. DocumentDB 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 응용 프로그램을 테스트할 수 있습니다. DocumentDB 에뮬레이터에서 응용 프로그램이 작동하는 방식에 만족하는 경우 Azure DocumentDB 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
 
 Kirill Gavrylyuk가 DocumentDB 에뮬레이터를 시작하는 방법을 보여 주는 다음 비디오를 시청하는 것으로 시작하는 것이 좋습니다.
@@ -34,7 +47,7 @@ Kirill Gavrylyuk가 DocumentDB 에뮬레이터를 시작하는 방법을 보여 
 > 
 > 
 
-## <a name="documentdb-emulator-system-requirements"></a>DocumentDB 에뮬레이터 시스템 요구 사항
+## <a name="system-requirements"></a>시스템 요구 사항
 DocumentDB 에뮬레이터에는 다음과 같은 하드웨어 및 소프트웨어 요구 사항이 있습니다.
 
 * 소프트웨어 요구 사항
@@ -43,25 +56,64 @@ DocumentDB 에뮬레이터에는 다음과 같은 하드웨어 및 소프트웨�
   *    2GB RAM
   *    10GB의 하드 디스크 여유 공간
 
-## <a name="installing-the-documentdb-emulator"></a>DocumentDB 에뮬레이터 설치
+## <a name="installation"></a>설치
 [Microsoft 다운로드 센터](https://aka.ms/documentdb-emulator)에서 DocumentDB 에뮬레이터를 다운로드하여 설치할 수 있습니다. 
 
 > [!NOTE]
 > DocumentDB 에뮬레이터를 설치, 구성 및 실행하려면 컴퓨터에 대한 관리 권한이 있어야 합니다.
 
-## <a name="checking-for-documentdb-emulator-updates"></a>DocumentDB 에뮬레이터 업데이트 확인
+## <a name="running-on-docker-for-windows"></a>Windows용 Docker에서 실행
+
+DocumentDB 에뮬레이터는 Windows용 Docker에서 실행할 수 있습니다. 이 에뮬레이터는 Oracle Linux용 Docker에서 작동하지 않습니다.
+
+[Windows용 Docker](https://www.docker.com/docker-windows)를 설치한 경우 즐겨 찾는 셸(PowerShell, cmd.exe 등)에서 다음 명령을 실행하여 Docker 허브에서 에뮬레이터 이미지를 끌어올 수 있습니다.
+
+```      
+docker pull microsoft/azure-documentdb-emulator 
+```
+이미지를 시작하려면 다음 명령을 실행합니다.
+
+``` 
+md %LOCALAPPDATA%\DocumentDBEmulatorCert 2>nul
+docker run -v %LOCALAPPDATA%\DocumentDBEmulatorCert:c:\DocumentDBEmulator\DocumentDBEmulatorCert -P -t -i mominag/documentdb_emulator
+```
+
+응답은 다음과 유사합니다.
+
+```
+Starting Emulator
+Emulator Endpoint: https://172.20.229.193:8081/
+Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+Exporting SSL Certificate
+You can import the SSL certificate from an administrator command prompt on the host by running:
+cd /d %LOCALAPPDATA%\DocumentDBEmulatorCert
+powershell .\importcert.ps1
+--------------------------------------------------------------------------------------------------
+Starting interactive shell
+``` 
+
+에뮬레이터가 시작된 후 대화형 셸을 닫으면 에뮬레이터의 컨테이너가 종료됩니다.
+
+클라이언트의 응답에서 끝점 및 마스터 키를 사용하고 SSL 인증서를 호스트로 가져옵니다. SSL 인증서를 가져오려면 관리자 명령 프롬프트에서 다음을 수행합니다.
+
+```
+cd %LOCALAPPDATA%\DocumentDBEmulatorCert
+powershell .\importcert.ps1
+```
+
+## <a name="checking-for-updates"></a>업데이트 확인
 DocumentDB 에뮬레이터에는 DocumentDB 내에 저장된 데이터를 찾아보고, 새 컬렉션을 만들고, 새 업데이트를 다운로드할 수 있을 때 이를 알려 주는 기본 제공 Azure DocumentDB 데이터 탐색기가 포함되어 있습니다. 
 
 > [!NOTE]
 > DocumentDB 에뮬레이터의 특정 버전에서 만든 데이터에 다른 버전에서 액세스하지 못할 수도 있습니다. 데이터를 장기간 보존하려면 DocumentDB 에뮬레이터 대신 Azure DocumentDB 계정에 저장하는 것이 좋습니다. 
 
-## <a name="how-the-documentdb-emulator-works"></a>DocumentDB 에뮬레이터 작동 방식
+## <a name="how-the-emulator-works"></a>에뮬레이터의 작동 원리
 DocumentDB 에뮬레이터는 DocumentDB 서비스의 충실도 높은 에뮬레이션을 제공합니다. JSON 문서 만들기 및 쿼리, 컬렉션 프로비전 및 확장, 저장 프로시저 및 트리거 실행을 비롯하여 Azure DocumentDB으로 동일한 기능을 지원합니다. DocumentDB 에뮬레이터를 사용하여 응용 프로그램을 개발 및 테스트하고 DocumentDB에 대한 연결 끝점에 대한 단일 구성을 변경하여 글로벌 규모로 Azure에 배포할 수 있습니다.
 
 실제 DocumentDB 서비스의 충실도 높은 로컬 에뮬레이션을 만들었지만 DocumentDB 에뮬레이터의 구현은 서비스의 구현과 다릅니다. 예를 들어 DocumentDB 에뮬레이터는 로컬 파일 시스템(지속성) 및 HTTPS 프로토콜 스택(연결성)과 같은 표준 OS 구성 요소를 사용합니다. 따라서 전역 복제, 한 자리 밀리초 읽기/쓰기 대기 시간, 튜닝 가능한 일관성 수준 등 Azure 인프라를 기반으로 하는 일부 기능은 DocumentDB 에뮬레이터를 통해 사용할 수 없습니다.
 
 
-## <a name="authenticating-requests-against-the-documentdb-emulator"></a>DocumentDB 에뮬레이터에 대한 요청 인증
+## <a name="authenticating-requests"></a>요청 인증
 클라우드의 Azure 문서와 마찬가지로 DocumentDB 에뮬레이터에 대한 모든 요청을 인증해야 합니다. DocumentDB 에뮬레이터는 단일 고정 계정과 마스터 키 인증에 대해 알려진 인증 키를 지원합니다. DocumentDB 에뮬레이터에서 사용할 수 있는 자격 증명은 이 계정과 키뿐입니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
     Account name: localhost:<port>
@@ -72,7 +124,7 @@ DocumentDB 에뮬레이터는 DocumentDB 서비스의 충실도 높은 에뮬레
 
 또한 Azure DocumentDB 서비스와 마찬가지로 DocumentDB 에뮬레이터는 SSL을 통한 보안 통신만 지원합니다.
 
-## <a name="start-and-initialize-the-documentdb-emulator"></a>DocumentDB 에뮬레이터 시작 및 초기화
+## <a name="start-and-initialize-the-emulator"></a>에뮬레이터 시작 및 초기화
 
 Azure DocumentDB 에뮬레이터를 시작하려면 시작 단추를 선택하거나 Windows 키를 누릅니다. **DocumentDB 에뮬레이터** 입력을 시작하고 응용 프로그램 목록에서 Azure 저장소 에뮬레이터를 선택합니다. 
 
@@ -84,13 +136,13 @@ Azure DocumentDB 에뮬레이터를 시작하려면 시작 단추를 선택하�
 
 DocumentDB 에뮬레이터는 기본적으로 `C:\Program Files\DocumentDB Emulator` 디렉터리에 설치됩니다. 명령줄에서 에뮬레이터를 시작 및 중지할 수도 있습니다. 자세한 내용은 [명령줄 도구 참조](#command-line)를 참조하세요.
 
-## <a name="start-the-documentdb-emulator-data-explorer"></a>DocumentDB 에뮬레이터 데이터 탐색기 시작
+## <a name="start-data-explorer"></a>데이터 탐색기 시작
 
 DocumentDB 에뮬레이터를 시작하면 브라우저에서 DocumentDB 데이터 탐색기가 자동으로 열립니다. 주소는 [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html)로 표시됩니다. 탐색기를 닫고 나중에 다시 열고 싶은 경우, 브라우저에서 URL을 열거나 아래와 같이 Windows 트레이 아이콘의 DocumentDB 에뮬레이터에서 실행할 수 있습니다.
 
 ![DocumentDB의 로컬 에뮬레이터 데이터 탐색기 시작 관리자](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-data-explorer-launcher.png)
 
-## <a name="developing-with-the-documentdb-emulator"></a>DocumentDB 에뮬레이터를 사용한 개발
+## <a name="developing-with-the-emulator"></a>에뮬레이터를 사용한 개발
 DocumentDB 에뮬레이터를 데스크톱에서 실행하는 경우 지원되는 [DocumentDB SDK](documentdb-sdk-dotnet.md) 또는 [DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 에뮬레이터와 상호 작용할 수 있습니다. DocumentDB 에뮬레이터에는 코드를 작성하지 않고도 컬렉션을 만들고 문서를 확인 및 편집할 수 있는 기본 제공 데이터 탐색기도 포함되어 있습니다. 
 
     // Connect to the DocumentDB Emulator running locally
@@ -106,7 +158,7 @@ DocumentDB 에뮬레이터를 데스크톱에서 실행하는 경우 지원되�
 
 기본적으로 DocumentDB 에뮬레이터를 사용하여 최대 25개의 단일 파티션의 컬렉션 또는 분할된 컬렉션 하나를 만들 수 있습니다. 이 값을 변경하는 방법에 대한 자세한 내용은 [PartitionCount 값 설정](#set-partitioncount)을 참조하세요.
 
-## <a name="export-the-documentdb-emulator-ssl-certificate"></a>DocumentDB 에뮬레이터 SSL 인증서 내보내기
+## <a name="export-the-ssl-certificate"></a>SSL 인증서 내보내기
 
 .NET 언어 및 런타임은 Windows 인증서 저장소를 사용하여 DocumentDB 로컬 에뮬레이터에 안전하게 연결합니다. 다른 언어의 경우 해당 언어만의 인증서 관리 및 사용 방법이 있습니다. Java는 자체의 고유 [인증서 저장소](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html)를 사용하고 Python은 [소켓 래퍼](https://docs.python.org/2/library/ssl.html)를 사용합니다.
 
@@ -118,7 +170,7 @@ Windows 인증서 저장소와 통합되지 않는 런타임 및 언어와 함�
 
 Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비활성화됩니다.
 
-## <a id="command-line"></a>DocumentDB 에뮬레이터 명령줄 도구 참조
+## <a id="command-line"></a>명령줄 도구 참조
 설치 위치에서 명령줄을 사용하여 에뮬레이터를 시작 및 중지하고, 옵션을 구성하고, 다른 작업을 수행할 수 있습니다.
 
 ### <a name="command-line-syntax"></a>명령줄 구문
@@ -240,7 +292,7 @@ DocumentDB 에뮬레이터에서 사용할 수 있는 컬렉션의 수를 변경
 
 1. 시스템 트레이에서 **DocumentDB 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **데이터 다시 설정...**을 클릭하여 모든 로컬 DocumentDB 에뮬레이터 데이터를 삭제합니다.
 2. C:\Users\user_name\AppData\Local\DocumentDBEmulator 폴더에 있는 모든 에뮬레이터 데이터를 삭제합니다.
-3. **DocumentDB 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **마침**을 클릭하여 열려 있는 모든 인스턴스를 종료합니다. 모든 인스턴스를 종료하는 데는&1;분 정도 걸립니다.
+3. **DocumentDB 에뮬레이터** 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **마침**을 클릭하여 열려 있는 모든 인스턴스를 종료합니다. 모든 인스턴스를 종료하는 데는 1분 정도 걸립니다.
 4. 최신 버전의 [DocumentDB 에뮬레이터](https://aka.ms/documentdb-emulator)를 설치합니다.
 5. 250 이하의 값을 설정하여 PartitionCount 플래그로 에뮬레이터를 시작합니다. 예: `C:\Program Files\DocumentDB Emulator>DocumentDB.Emulator.exe /PartitionCount=100`
 
@@ -259,7 +311,7 @@ DocumentDB 에뮬레이터에서 사용할 수 있는 컬렉션의 수를 변경
 디버깅 추적을 수집하려면 관리 명령 프롬프트에서 다음 명령을 실행합니다.
 
 1. `cd /d "%ProgramFiles%\DocumentDB Emulator"`
-2. `DocumentDB.Emulator.exe /shutdown` 프로그램이 종료되었는지 시스템 트레이를 확인합니다. 프로그램 종료에&1;분 정도 걸릴 수 있습니다. DocumentDB 에뮬레이터 사용자 인터페이스에서 **종료**를 클릭해도 됩니다.
+2. `DocumentDB.Emulator.exe /shutdown` 프로그램이 종료되었는지 시스템 트레이를 확인합니다. 프로그램 종료에 1분 정도 걸릴 수 있습니다. DocumentDB 에뮬레이터 사용자 인터페이스에서 **종료**를 클릭해도 됩니다.
 3. `DocumentDB.Emulator.exe /starttraces`
 4. `DocumentDB.Emulator.exe`
 5. 문제를 재현합니다. 데이터 탐색기가 작동하지 않는 경우 브라우저가 몇 초 간 열리고 오류를 catch할 때까지 기다리면 됩니다.

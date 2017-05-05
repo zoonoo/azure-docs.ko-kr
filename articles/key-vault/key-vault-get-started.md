@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: dd53cbc0ec10700ebcd47f9d2f9d6cc358f68569
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -30,10 +31,10 @@ Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니
 
 > [!NOTE]
 > 이 자습서에는 단계 중 하나에 포함되는 Azure 응용 프로그램을 작성하는 방법(즉, 주요 자격 증명 모음의 키나 비밀을 사용하도록 응용 프로그램에 사용 권한을 부여하는 방법)에 대한 지침이 포함되어 있지 않습니다.
-> 
-> 이 자습서에서는 Azure PowerShell을 사용합니다. 플랫폼 간 명령줄 인터페이스 지침은 [이 해당 자습서](key-vault-manage-with-cli.md)를 참조하세요.
-> 
-> 
+>
+> 이 자습서에서는 Azure PowerShell을 사용합니다. 플랫폼 간 명령줄 인터페이스 지침은 [이 해당 자습서](key-vault-manage-with-cli2.md)를 참조하세요.
+>
+>
 
 Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모음이란?](key-vault-whatis.md)
 
@@ -41,7 +42,7 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Microsoft Azure에 대한 구독. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
-* Azure PowerShell, **최소 버전 1.1.0**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다. Azure PowerShell 버전 0.9.1 ~ 0.9.8이 설치된 경우, 일부 약간의 변경이 있지만 이 자습서를 계속 사용할 수 있습니다. 예를 들어, `Switch-AzureMode AzureResourceManager` 명령을 사용해야 하고 Azure 키 자격 증명 모음 명령의 일부가 변경되었습니다. 버전 0.9.1 ~ 0.9.8에 대한 키 자격 증명 모음 목록은 [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx)을 참조하세요. 
+* Azure PowerShell, **최소 버전 1.1.0**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다. Azure PowerShell 버전 0.9.1 ~ 0.9.8이 설치된 경우, 일부 약간의 변경이 있지만 이 자습서를 계속 사용할 수 있습니다. 예를 들어, `Switch-AzureMode AzureResourceManager` 명령을 사용해야 하고 Azure 키 자격 증명 모음 명령의 일부가 변경되었습니다. 버전 0.9.1 ~ 0.9.8에 대한 키 자격 증명 모음 목록은 [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault)을 참조하세요.
 * 이 자습서에서 만드는 키 또는 암호를 사용하여 구성되는 응용 프로그램입니다. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](http://www.microsoft.com/en-us/download/details.aspx?id=45343)에서 사용할 수 있습니다. 자세한 내용은 해당 추가 정보 파일을 참조하세요.
 
 이 자습서는 Azure PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다. 자세한 내용은 [Windows PowerShell 시작](https://technet.microsoft.com/library/hh857337.aspx)을 참조하세요.
@@ -56,13 +57,13 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 
 Azure PowerShell에서 Azure 리소스 관리자와 친숙해지도록 다음 자습서도 확인하세요.
 
-* [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)
 * [리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
 
-## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>구독에 연결
+## <a id="connect"></a>구독에 연결
 Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정에 로그인합니다.  
 
-    Login-AzureRmAccount 
+    Login-AzureRmAccount
 
 예를 들어 Azure Government와 같은 Azure의 특정 인스턴스를 사용 중인 경우 이 명령을 가진 환경 매개 변수를 사용합니다. 예: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
@@ -76,16 +77,16 @@ Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정�
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
-## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>새 리소스 그룹 만들기
+## <a id="resource"></a>새 리소스 그룹 만들기
 Azure 리소스 관리자를 사용하면 관련된 모든 리소스는 리소스 그룹의 내부에 만들어집니다. 이 자습서에서는 **ContosoResourceGroup** 이라는 새 리소스 그룹을 만듭니다.
 
     New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
 
 
-## <a name="a-idvaultacreate-a-key-vault"></a><a id="vault"></a>키 자격 증명 모음 만들기
-[New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.300\).aspx) cmdlet을 사용하여 키 자격 증명 모음을 만듭니다. 이 cmdlet에는 3개의 필수 매개 변수인 **리소스 그룹 이름**, **키 자격 증명 모음 이름** 및 **지리적 위치**가 있습니다.
+## <a id="vault"></a>키 자격 증명 모음 만들기
+[New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) cmdlet을 사용하여 키 자격 증명 모음을 만듭니다. 이 cmdlet에는 3개의 필수 매개 변수인 **리소스 그룹 이름**, **키 자격 증명 모음 이름** 및 **지리적 위치**가 있습니다.
 
 예를 들어, 이름이 **ContosoKeyVault**이고 리소스 그룹 이름이 **ContosoResourceGroup**이며 위치가 **동아시아**인 형식의 자격 증명 모음인 경우, 다음을 입력합니다.
 
@@ -99,12 +100,12 @@ Azure 리소스 관리자를 사용하면 관련된 모든 리소스는 리소�
 Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수행할 권한을 가지게 됩니다. 아직 다른 사람은 권한이 없습니다.
 
 > [!NOTE]
-> 새로운 주요 자격 증명 모음을 만들려고 할 때 **구독 'Microsoft.KeyVault' 네임스페이스를 사용하기 위한 구독이 등록되지 않았습니다**라는 오류가 나타나는 경우 `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"`을(를) 실행한 다음, [New-AzureRmKeyVault] 명령을 다시 실행합니다. 자세한 내용은 [Register-AzureRmResourceProvider](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.300\).aspx)를 참조하세요.
-> 
-> 
+> 새로운 주요 자격 증명 모음을 만들려고 할 때 **구독 'Microsoft.KeyVault' 네임스페이스를 사용하기 위한 구독이 등록되지 않았습니다**라는 오류가 나타나는 경우 `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"`을(를) 실행한 다음, [New-AzureRmKeyVault] 명령을 다시 실행합니다. 자세한 내용은 [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider)를 참조하세요.
+>
+>
 
-## <a name="a-idaddaadd-a-key-or-secret-to-the-key-vault"></a><a id="add"></a>키 또는 비밀을 암호 키 자격 증명 모음에 추가
-Azure Key Vault에서 소프트웨어 보호 키를 만들려면 [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx) cmdlet을 사용하여 다음을 입력합니다.
+## <a id="add"></a>키 또는 비밀을 암호 키 자격 증명 모음에 추가
+Azure Key Vault에서 소프트웨어 보호 키를 만들려면 [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) cmdlet을 사용하여 다음을 입력합니다.
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -144,13 +145,13 @@ Azure Key Vault에서 소프트웨어 보호 키를 만들려면 [Add-AzureKeyVa
 
 이제, 사용자 키 자격 증명 모음 또는 비밀은 응용 프로그램에서 사용할 준비가 되었습니다. 응용 프로그램을 사용하여 권한을 부여해야 합니다.  
 
-## <a name="a-idregisteraregister-an-application-with-azure-active-directory"></a><a id="register"></a>Azure Active Directory에 응용 프로그램 등록
+## <a id="register"></a>Azure Active Directory에 응용 프로그램 등록
 이 단계는 일반적으로 별도의 컴퓨터에서 개발자가 수행할 수 있습니다. Azure 주요 자격 증명 모음에 한정된 것은 아니지만 완전성을 위해 여기에 포함되어 있습니다.
 
 > [!IMPORTANT]
 > 이 단계에서 등록된 자습서, 계정, 해당 자격 증명 모음 및 응용 프로그램을 완료하려면, 모두 동일한 Azure 디렉터리에 있어야 합니다.
-> 
-> 
+>
+>
 
 자격 증명 모음 키를 사용하는 응용 프로그램은 Azure Active Directory에서 토큰을 사용하여 인증해야 합니다. 이렇게 하려면 응용 프로그램의 소유자가 Azure Active Directory에 먼저 응용 프로그램을 등록해야 합니다. 등록 끝에 응용 프로그램 소유자는 다음 값을 가져옵니다.
 
@@ -169,8 +170,8 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 9. **키** 섹션으로 스크롤하고 기간을 선택한 다음 **저장**을 클릭합니다. 페이지가 새로 고쳐지고 이제 키 값을 표시합니다. 이 키 값 및 **클라이언트 ID** 가 있는 응용 프로그램을 구성해야 합니다. (이 구성에 대한 지침은 응용 프로그램에 특정된 것입니다.)
 10. 사용자 자격 증명 모음에 사용 권한을 설정하려면 다음 단계에서 사용하는 이 페이지에서 클라이언트 ID 값을 복사 합니다.
 
-## <a name="a-idauthorizeaauthorize-the-application-to-use-the-key-or-secret"></a><a id="authorize"></a>키 또는 비밀을 사용하여 응용 프로그램 권한 부여
-응용 프로그램이 자격 증명 모음의 키 또는 암호에 대한 액세스를 인증하려면  [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.300\).aspx) cmdlet을 사용합니다.
+## <a id="authorize"></a>키 또는 비밀을 사용하여 응용 프로그램 권한 부여
+응용 프로그램이 자격 증명 모음의 키 또는 암호에 대한 액세스를 인증하려면  [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet을 사용합니다.
 
 예를 들어 자격 증명 모음 이름이 **ContosoKeyVault** 이고 권한을 부여하려는 응용 프로그램의 클라이언트 ID가 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed이며 자격 증명 모음에 있는 키로 서명하고 암호 해독하도록 응용 프로그램에 권한을 부여하려면 다음을 실행합니다.
 
@@ -180,7 +181,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
-## <a name="a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm"></a><a id="HSM"></a>하드웨어 보안 모듈(HSM)을 사용하려는 경우
+## <a id="HSM"></a>하드웨어 보안 모듈(HSM)을 사용하려는 경우
 추가된 보증을 위해, HSM 경계를 절대로 떠나지 않는 하드웨어 보안 모듈(HSMs)에서 키를 가져오거나 생성할 수 있습니다. HSM은 FIPS 140-2 Level 2 유효성 검사가 적용됩니다. 이 요구 사항이 사용자에게 적용되지 않는 경우, 이 섹션을 건너뛰고 [키 자격 증명 모음 및 연결된 키와 암호 삭제](#delete)로 이동합니다.
 
 이러한 HSM 보호 키를 만들려면 [HSM 보호 키를 지원하는 Azure Key Vault 프리미엄 서비스 계층](https://azure.microsoft.com/pricing/free-trial/)을 사용해야 합니다. 또한 이 기능은 Azure 중국에 사용할 수 없습니다.
@@ -206,8 +207,8 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
 이 BYOK 패키지를 생성하는 방법에 대한 자세한 내용은 [Azure 주요 자격 증명 모음용으로 HSM 보호 키를 생성하여 전송하는 방법](key-vault-hsm-protected-keys.md)을 참조하세요.
 
-## <a name="a-iddeleteadelete-the-key-vault-and-associated-keys-and-secrets"></a><a id="delete"></a>키 자격 증명 모음 및 연결된 키와 비밀 삭제
-주요 자격 증명 모음 및 이를 포함하는 키나 암호가 더 이상 필요하지 않은 경우 [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.300\).aspx) cmdlet을 사용하여 주요 자격 증명 모음을 삭제할 수 있습니다.
+## <a id="delete"></a>키 자격 증명 모음 및 연결된 키와 비밀 삭제
+주요 자격 증명 모음 및 이를 포함하는 키나 암호가 더 이상 필요하지 않은 경우 [Remove-AzureRmKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault) cmdlet을 사용하여 주요 자격 증명 모음을 삭제할 수 있습니다.
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -216,7 +217,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
     Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 
 
-## <a name="a-idotheraother-azure-powershell-cmdlets"></a><a id="other"></a>기타 Azure PowerShell Cmdlet
+## <a id="other"></a>기타 Azure PowerShell Cmdlet
 Azure 주요 자격 증명 모음을 관리하는 데 유용한 기타 명령은 다음과 같습니다.
 
 * `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: 이 명령은 모든 키와 선택한 속성을 테이블 형식으로 가져옵니다.
@@ -225,18 +226,12 @@ Azure 주요 자격 증명 모음을 관리하는 데 유용한 기타 명령은
 * `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: 특정 키를 제거하는 방법 예
 * `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: 특정 비밀을 제거하는 방법 예
 
-## <a name="a-idnextanext-steps"></a><a id="next"></a>다음 단계
+## <a id="next"></a>다음 단계
 웹 응용 프로그램에서 Azure 주요 자격 증명 모음을 사용하는 후속 자습서는 [웹 응용 프로그램에서 Azure 주요 자격 증명 모음 사용](key-vault-use-from-web-application.md)을 참조하세요.
 
 주요 자격 증명 모음이 사용되는 방식을 보려면 [Azure 주요 자격 증명 모음 로깅](key-vault-logging.md)을 참조하세요.
 
-Azure Key Vault에 대한 최신 Azure PowerShell cmdlet의 목록은 [Azure Key Vault Cmdlet](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.300\).aspx)을 참조하세요. 
+Azure Key Vault에 대한 최신 Azure PowerShell cmdlet의 목록은 [Azure Key Vault Cmdlet](/powershell/module/azurerm.keyvault/#key_vault)을 참조하세요.
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

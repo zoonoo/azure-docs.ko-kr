@@ -33,6 +33,7 @@
 
 # 참조
 ## [API 개요](billing-usage-rate-card-overview.md)
+## [Enterprise Reporting API 개요](billing-enterprise-api.md)
 ## [청구서 REST](/rest/api/billing)
 ## [사용 현황 및 RateCard REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [파트너 솔루션: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)

@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 51dbf591138434f1639dd6d4e93758927cff6d33
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0a6e034da0445e94178e04cecc3ce09d86d2d29a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ PowerShell을 사용하는 경우 AzureRM.Compute PowerShell 모듈이 최신 �
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-자세한 내용은 [Azure PowerShell 버전 관리](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning)를 참조하세요.
+자세한 내용은 [Azure PowerShell 버전 관리](/powershell/azure/overview)를 참조하세요.
 
 
 ## <a name="create-a-managed-disk-from-a-vhd-in-an-azure-storage-account"></a>Azure 저장소 계정에서 VHD로 관리 디스크 만들기 | Microsoft Docs
@@ -81,3 +81,4 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
     
 ## <a name="next-steps"></a>다음 단계    
 - 이미 VM이 있는 경우 [데이터 디스크를 연결](attach-disk-portal.md)할 수 있습니다.
+

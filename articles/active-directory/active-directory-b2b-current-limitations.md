@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/16/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0e71a840d4f503779131ee4a21fe6063d33185f1
-ms.openlocfilehash: cbefca2d45a332cd57cfea49dfeaa300426d5502
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: cdc951d4e16e7f0df425dba7c33d86255276f526
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -26,18 +26,14 @@ ms.lasthandoff: 02/24/2017
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Azure AD B2B 공동 작업의 제한 사항
 Azure AD(Azure Active Directory) B2B 공동 작업에는 이 문서에 설명된 제한 사항이 적용됩니다.
 
-## <a name="invitation-apis-are-in-preview"></a>초대 API는 미리 보기
-API 노출 영역은 앞으로 예상되는 방향입니다. 그러나 모든 시험판 버전이 그렇듯이, 이 API는 미리 보기 네임스페이스 계약을 따릅니다. 이 API를 GA(일반 공급) 릴리스의 지정된 버전 번호로 이동할 예정입니다.
+## <a name="possible-double-multi-factor-authentication"></a>가능한 이중 다단계 인증
+Azure AD B2B를 통해 리소스 조직(초대하는 조직)에서 다단계 인증을 적용할 수 있습니다. 이 방법을 사용하는 이유는 [B2B 공동 작업 사용자에 대한 조건부 액세스](active-directory-b2b-mfa-instructions.md)에서 설명합니다. 이는 파트너가 이미 다단계 인증을 설정하여 적용 중인 경우 파트너의 사용자는 소속된 조직에서 인증을 한 번 수행한 후 여러분의 조직에서 다시 한 번 인증을 수행해야 할 수도 있음을 의미합니다.
 
-## <a name="possible-double-multi-factor-authentication"></a>가능한 이중 Multi-Factor Authentication
-파트너가 이미 Azure Multi-factor Authentication 정책을 운영하고 있으면 이 중복성이 발생할 수 있습니다. 초대 조직에서 B2B 공동 작업 Multi-Factor Authentication이 수행 및 관리됩니다. 이러한 인증은 모든 ID에 해당되며 B2B 공동 작업의 초대 대상자에 대한 인증 강도를 제어할 수 있으므로 바람직하다고 할 수 있습니다.
+향후 릴리스에서는 파트너의 다단계 인증을 신뢰하도록 선택하면 이중 인증 문제를 방지할 수 있는 정책을 도입할 예정입니다.
 
-그러나 파트너가 이미 Multi-Factor Authentication을 설정하여 적용 중인 경우 파트너의 사용자는 소속된 조직에서 인증을 한 번 수행한 후 여러분의 조직에서 다시 한 번 인증을 수행해야 할 수도 있습니다.
-
-향후 릴리스에서는 파트너의 Multi-Factor Authentication을 신뢰하도록 선택하면 이중 인증 문제를 방지할 수 있는 정책을 도입할 예정입니다.
 
 ## <a name="instant-on"></a>인스턴트 온
-B2B 공동 작업 흐름에서 해당 디렉터리에 사용자를 추가하고 초대 상환, 앱 할당 등에서 사용자를 동적으로 업데이트합니다. 업데이트 및 쓰기는 일반적으로 한 디렉터리 인스턴스에서 발생하며 모든 인스턴스에 걸쳐 복제해야 합니다. 복제를 완료하는 데 투입할 수 있는 시간이 한정되어 있기 때문에 종종 인증 문제가 발생할 수 있다는 사실이 관찰되었습니다. GA 릴리스 전에 이러한 문제를 최소화 또는 해결하기 위해 현재 노력 중입니다. 그 사이에 이러한 문제가 발생할 가능성은 낮지만 문제가 발생할 경우 새로 고침 또는 다시 시도를 통해 문제를 해결할 수 있습니다.
+B2B 공동 작업 흐름에서 해당 디렉터리에 사용자를 추가하고 초대 상환, 앱 할당 등에서 사용자를 동적으로 업데이트합니다. 업데이트 및 쓰기는 일반적으로 한 디렉터리 인스턴스에서 발생하며 모든 인스턴스에 걸쳐 복제해야 합니다. 복제를 완료하는 데는 0이 아닌 시간이 사용될 수 있습니다. 개체가 디렉터리의 한 인스턴스에서 기록 또는 업데이트되고 이 개체를 검색하기 위한 호출이 다른 인스턴스로 부하 분산될 경우에는 이로 인해 권한 부여 문제가 발생했습니다. 이러한 복제 대기 시간을 없애거나 줄이기 위해 많은 작업을 했지만 이러한 문제가 드물지만 여전히 발생할 수 있습니다. 이 문제가 발생할 경우 새로 고치거나 다시 시도하면 도움이 됩니다. API를 사용하여 앱을 작성할 경우 백오프를 사용하여 다시 시도하는 것은 이 문제를 완화하기 위한 좋은 방어 사례입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

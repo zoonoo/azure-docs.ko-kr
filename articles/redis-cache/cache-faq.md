@@ -12,12 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: afdbd737be96acbcf2883c644bfbbb741fe94179
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: cbd764b3c6ce912c825aa2756ac6f35c23d047bf
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -50,7 +50,7 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 * [Azure Redis Cache 성능](#azure-redis-cache-performance)
 * [어떤 영역에 내 캐시를 배치해야 하나요?](#in-what-region-should-i-locate-my-cache)
 * [Azure Redis Cache에 대한 요금은 어떻게 청구되나요?](#how-am-i-billed-for-azure-redis-cache)
-* [Azure 정부 클라우드 또는 Azure 중국 클라우드에서 Azure Redis Cache를 사용할 수 있나요?](#can-i-use-azure-redis-cache-with-azure-government-cloud-or-azure-china-cloud)
+* [Azure Government 클라우드, Azure 중국 클라우드 또는 Microsoft Azure Germany에서 Azure Redis Cache를 사용할 수 있나요?](#can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
 ## <a name="development-faqs"></a>개발 FAQ
 * [StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?](#what-do-the-stackexchangeredis-configuration-options-do)
@@ -70,6 +70,7 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 * [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [ThreadPool 증가에 대한 중요한 세부 정보](#important-details-about-threadpool-growth)
 * [StackExchange.Redis를 사용하는 경우 클라이언트에서 더 많은 처리량을 가져오는 서버 GC를 사용하도록 설정](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+* [성능 고려 사항 및 연결](#performance-considerations-around-connections)
 
 ## <a name="monitoring-and-troubleshooting-faqs"></a>모니터링 및 문제 해결 FAQ
 이 섹션의 FAQ는 일반적인 모니터링 및 문제 해결 질문을 다룹니다. Azure Redis Cache 인스턴스를 모니터링하고 관련 문제를 해결하는 방법에 대한 자세한 내용은 [Azure Redis Cache를 모니터링하는 방법](cache-how-to-monitor.md) 및 [Azure Redis Cache 문제를 해결하는 방법](cache-how-to-troubleshoot.md)을 참조하세요.
@@ -162,15 +163,28 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 ### <a name="how-am-i-billed-for-azure-redis-cache"></a>Azure Redis Cache에 대한 요금은 어떻게 청구되나요?
 Azure Redis Cache 가격 책정에 대해서는 [여기](https://azure.microsoft.com/pricing/details/cache/)를 참조하세요. 가격 책정 페이지에는 시간 단위로 가격이 나와 있습니다. 캐시는 캐시가 만들어지는 시간부터 삭제되는 시간까지 분 단위로 요금이 청구됩니다. 캐시 요금 청구를 중지 또는 일시 중지하는 옵션은 없습니다.
 
-## <a name="can-i-use-azure-redis-cache-with-azure-government-cloud-or-azure-china-cloud"></a>Azure 정부 클라우드 또는 Azure 중국 클라우드에서 Azure Redis Cache를 사용할 수 있나요?
-예, Azure Redis Cache는 Azure 정부 클라우드와 Azure 중국 클라우드에서 사용할 수 있습니다. Azure 공용 클라우드와 비교해 볼 때 Azure Government 클라우드와 Azure 중국 클라우드에서 Azure Redis Cache에 액세스하고 관리하기 위한 URL은 다릅니다. Azure 정부 클라우드와 Azure 중국 클라우드에서 Azure Redis Cache를 사용할 때의 고려 사항에 대한 자세한 내용은 [Azure 정부 데이터베이스 - Azure Redis Cache](../azure-government/documentation-government-services-database.md#azure-redis-cache) 및 [Azure 중국 클라우드 - Azure Redis Cache](https://www.azure.cn/documentation/services/redis-cache/)를 참조하세요.
+### <a name="can-i-use-azure-redis-cache-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Azure Government 클라우드, Azure 중국 클라우드 또는 Microsoft Azure Germany에서 Azure Redis Cache를 사용할 수 있나요?
+예, Azure Government 클라우드, Azure 중국 클라우드 및 Microsoft Azure Germany에서 Azure Redis Cache를 사용할 수 있습니다. Azure 공용 클라우드와 비교해 볼 때 이러한 클라우드에서 Azure Redis Cache에 액세스하고 관리하기 위한 URL은 다릅니다. 
 
-Azure 정부 클라우드와 Azure 중국 클라우드에서 PowerShell을 통해 Azure Redis Cache를 사용하는 방법에 대한 자세한 내용은 [Azure 정부 클라우드 또는 Azure 중국 클라우드에 연결하는 방법](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-azure-government-cloud-or-azure-china-cloud)을 참조하세요.
+| 클라우드   | Redis에 대한 Dns 접미사            |
+|---------|---------------------------------|
+| 공용  | *.redis.cache.windows.net       |
+| 미국 정부  | *.redis.cache.usgovcloudapi.net |
+| 독일 | *.redis.cache.cloudapi.de       |
+| 중국   | *.redis.cache.chinacloudapi.cn  |
+
+다른 클라우드와 함께 Azure Redis Cache를 사용할 때의 고려 사항에 대한 자세한 내용은 다음 링크를 참조하세요.
+
+- [Azure Government 데이터베이스 - Azure Redis Cache](../azure-government/documentation-government-services-database.md#azure-redis-cache)
+- [Azure 중국 클라우드 - Azure Redis Cache](https://www.azure.cn/documentation/services/redis-cache/)
+- [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
+
+Azure Government 클라우드, Azure 중국 클라우드 및 Microsoft Azure Germany에서 PowerShell을 통해 Azure Redis Cache를 사용하는 방법에 대한 자세한 내용은 [다른 클라우드에 연결하는 방법 - Azure Redis Cache PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)을 참조하세요.
 
 <a name="cache-configuration"></a>
 
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?
-StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇 가지 일반적인 설정에 대해 설명합니다. StackExchange.Redis 옵션에 대한 자세한 내용은 [StackExchange.Redis 구성](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md)을 참조하세요.
+StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇 가지 일반적인 설정에 대해 설명합니다. StackExchange.Redis 옵션에 대한 자세한 내용은 [StackExchange.Redis 구성](https://stackexchange.github.io/StackExchange.Redis/Configuration)을 참조하세요.
 
 | ConfigurationOptions | 설명 | 권장 사항 |
 | --- | --- | --- |
@@ -392,6 +406,13 @@ IOCP 또는 작업자 스레드의 증가에 제한이 있는 경우 StackExchan
 * [서버 GC를 사용하도록 설정하려면](https://msdn.microsoft.com/library/ms229357.aspx)
 * [가비지 수집 기본 사항](https://msdn.microsoft.com/library/ee787088.aspx)
 * [가비지 수집 및 성능](https://msdn.microsoft.com/library/ee851764.aspx)
+
+
+### <a name="performance-considerations-around-connections"></a>연결에 대한 성능 고려 사항
+
+가격 책정 계층마다 클라이언트 연결, 메모리 및 대역폭에 대한 제한이 다릅니다. 각 캐시 크기는 특정 횟수의 연결*까지* 허용하지만 Redis에 대한 각 연결에는 오버헤드가 연결되어 있습니다. 이러한 오버헤드의 예로 TLS/SSL 암호화의 결과인 CPU 및 메모리 사용량이 있습니다. 특정 캐시 크기에 대한 최대 연결 제한은 부하가 적은 캐시를 가정합니다. 연결 오버헤드의 부하 *그리고* 클라이언트 작업의 부하가 시스템의 용량을 초과하면 현재 캐시 크기에 대한 연결 제한을 초과하지 않은 경우에도 캐시에 용량 문제가 발생할 수 있습니다.
+
+각 계층에 대한 다양한 연결 제한은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요. 연결 및 기타 기본 구성에 대한 정보는 [기본 Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요.
 
 <a name="cache-monitor"></a>
 

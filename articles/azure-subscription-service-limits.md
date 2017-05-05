@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 04/19/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e26a37fbe783c2ca95679b5bdcc9b0ba0beec76b
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 2450eada5a49763542c95799a381f2029fec7575
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -71,9 +71,10 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [미디어 서비스](#media-services-limits)
 * [모바일 고객 관리](#mobile-engagement-limits)
 * [모바일 서비스](#mobile-services-limits)
-* [모니터링](#monitoring-limits)
+* [모니터](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [네트워킹](#networking-limits)
+* [Network Watcher](#network-watcher-limits)
 * [알림 허브 서비스](#notification-hub-service-limits)
 * [리소스 그룹](#resource-group-limits)
 * [스케줄러](#scheduler-limits)
@@ -123,6 +124,9 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 
 #### <a name="application-gateway-limits"></a>Application Gateway 제한
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
+
+#### <a name="network-watcher-limits"></a>Network Watcher 제한
+[!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
 
 #### <a name="traffic-manager-limits"></a>트래픽 관리자 제한
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
@@ -206,7 +210,7 @@ DocumentDB는 응용 프로그램의 요구에 따라 처리량과 저장소 크
 ### <a name="mobile-services-limits"></a>모바일 서비스 제한
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### <a name="monitoring-limits"></a>모니터링 제한
+### <a name="monitor-limits"></a>모니터 제한
 [!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
 ### <a name="notification-hub-service-limits"></a>알림 허브 서비스 제한

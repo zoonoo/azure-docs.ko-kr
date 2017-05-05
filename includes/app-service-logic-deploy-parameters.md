@@ -11,7 +11,3 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
     "logicAppName": {
         "type": "string"
     }
-
-<!--HONumber=Nov16_HO3-->
-
-

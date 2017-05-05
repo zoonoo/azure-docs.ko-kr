@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
-ms.author: curtand
+ms.date: 04/26/2017
+ms.author: curtand;jeffsta
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d33da5ca6cf1768fc7ca6d9f2035be7edbb8ad36
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -42,9 +43,4 @@ ms.openlocfilehash: d33da5ca6cf1768fc7ca6d9f2035be7edbb8ad36
 * [Azure Active Directory 미리 보기에서 관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)
 * [Azure Active Directory 미리 보기에서 사용자에 대한 프로필 정보 추가 또는 변경](active-directory-users-work-info-azure-portal.md)
 * [Azure Active Directory 미리 보기의 디렉터리에서 사용자 삭제](active-directory-users-profile-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

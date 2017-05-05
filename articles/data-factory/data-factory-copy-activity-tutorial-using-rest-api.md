@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 003a32f2ef67f8aa63ed7be2553fa0f0c3afc08a
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f4d2535e929996101f6e22ffbd0b2105e8fbf2a8
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -49,7 +49,7 @@ ms.lasthandoff: 04/12/2017
   2. **클라이언트 ID** 및 **암호 키**를 가져옵니다. 
   3. **테넌트 ID**를 가져옵니다. 
   4. **ADFCopyTutorialApp** 응용 프로그램을 **데이터 팩터리 참가자** 역할에 할당합니다.  
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)을 설치합니다.  
+* [Azure PowerShell](/powershell/azure/overview)을 설치합니다.  
 * **PowerShell**을 시작하고 다음 단계를 수행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
   
   1. 다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.

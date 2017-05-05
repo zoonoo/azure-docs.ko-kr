@@ -13,12 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2017
+ms.date: 4/25/2017
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2eb88bd81a46dbff9842887976c59d150ae4dad6
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 045dfff9a439674c220a962907d2fe91f2fe0b35
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -83,7 +83,7 @@ VM 스냅숏을 관리하려면, 백업 확장에 Azure 공용 IP 주소에 대�
 | 옵션 | 장점 | 단점 |
 | --- | --- | --- |
 | 허용 목록 IP 범위 |추가 비용 없음<br><br>NSG에서 액세스를 여는 경우 <i>Set-AzureNetworkSecurityRule</i> cmdlet을 사용합니다. |시간이 지남에 따라 영향을 받는 IP 범위가 변경되기 때문에 관리하기가 복잡합니다.<br><br>저장소 뿐만 아니라 Azure 전체에 대한 액세스를 제공합니다. |
-| HTTP 프록시 |허용되는 저장소 URL에 걸친 프록시에서 세부적인 제어<br>VM에 대한 인터넷 액세스의 단일 지점<br>Azure IP 주소 변경이 적용되지 않음 |프록시 소프트웨어를 사용하여 VM을 실행하기 위한 추가 비용입니다. |
+| HTTP 프록시 |허용되는 저장소 URL에 걸친 프록시에서 세부적인 제어 프록시에서 세분화된 제어를 설정하려면 https://\*.blob.core.windows.net/\* URL 패턴을 허용 목록에 추가해야 합니다. VM에서 사용하는 저장소 계정만 허용 목록에 추가하려면 https://\<storageAccount\>.blob.core.windows.net/\* URL 패턴을 허용 목록에 추가해야 합니다. <br>VM에 대한 인터넷 액세스의 단일 지점<br>Azure IP 주소 변경이 적용되지 않음 |프록시 소프트웨어를 사용하여 VM을 실행하기 위한 추가 비용입니다. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Azure 데이터 센터 IP 범위 허용 목록
 Azure 데이터 센터 IP 범위의 허용 목록을 만들려면, [Azure 웹 사이트](http://www.microsoft.com/en-us/download/details.aspx?id=41653)에서 IP 범위에 대한 자세한 내용과 지침을 참조하세요.

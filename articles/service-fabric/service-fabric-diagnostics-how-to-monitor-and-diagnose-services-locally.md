@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 04/24/2017
 ms.author: dekapur
 translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 5421cf66449892bb7bbc46cd8727a0642b7d66f3
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 29dd21511b23e6dffdb1daf8b75ece28989c16e7
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -30,13 +30,13 @@ ms.lasthandoff: 01/24/2017
 
 모니터링, 감지, 진단 및 문제 해결을 통해 사용자 환경에 미치는 영향을 최소화하면서 서비스를 계속할 수 있습니다. 실제 배포된 프로덕션 환경에서 모니터링 및 진단이 매우 중요한데, 실제 사용 설정으로 이전했을 때 정상적으로 작동하도록 서비스 개발 과정에서 얼마나 유사한 모델을 채택하느냐에 따라 그 효율성이 좌우됩니다. 서비스 패브릭을 사용하면 서비스 개발자가 단일 컴퓨터 로컬 개발 설정과 실제 사용 프로덕션 클러스터 설정 양쪽에서 매끄럽게 작동하는 진단 기능을 간편하게 구현할 수 있습니다.
 
-## <a name="the-benefits-of-event-tracing-for-windows"></a>Windows용 이벤트 추적의 이점
-[Windows용 이벤트 추적](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW)은 서비스 패브릭의 추적 메시지용으로 바람직한 기술입니다. 그 이유는 다음과 같습니다.
+## <a name="event-tracing-for-windows"></a>Windows용 이벤트 추적
+[Windows용 이벤트 추적](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW)은 서비스 패브릭의 추적 메시지용으로 바람직한 기술입니다. ETW를 사용하면 다음과 같은 이점이 있습니다.
 
 * **ETW는 속도가 빠릅니다.** 코드 실행 시간에 미치는 영향을 최소화하도록 설계된 추적 기술입니다.
 * **ETW 추적은 로컬 개발 환경 및 실제 사용 클러스터 설정에서도 매끄럽게 작동합니다.** 즉, 실제 클러스터에 코드를 배포할 준비가 되었을 때 추적 코드를 다시 쓸 필요가 없습니다.
 * **서비스 패브릭은 내부 추적에도 ETW를 사용합니다.** 따라서 서비스 패브릭 시스템 추적으로 인터리브된 응용 프로그램 추적을 볼 수 있습니다. 또한 기본 시스템에서 응용 프로그램 코드와 이벤트 간의 시퀀스 및 상호 관계를 보다 쉽게 이해할 수 있습니다.
-* **서비스 패브릭 Visual Studio 도구는 ETW 이벤트 보기를 내부적으로 지원합니다.**
+* **서비스 패브릭 Visual Studio 도구는 ETW 이벤트 보기를 내부적으로 지원합니다.** Service Fabric을 통해 Visual Studio를 올바르게 구성하고 나면 ETW 이벤트가 Visual Studio의 진단 이벤트 보기에 표시됩니다. 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Visual Studio에서 서비스 패브릭 시스템 이벤트 보기
 서비스 패브릭은 ETW 이벤트를 내보내서 응용 프로그램 개발자가 플랫폼에서 일어나는 일을 이해할 수 있도록 도와줍니다. 아직 응용 프로그램을 만들지 않은 경우 [Visual Studio에서 응용 프로그램 처음 만들기](service-fabric-create-your-first-application-in-visual-studio.md)의 단계에 따라 지금 만드세요. 이 정보는 응용 프로그램이 실행되는 동안 진단 이벤트 뷰어에 추적 메시지를 표시하는 데 도움이 될 것입니다.

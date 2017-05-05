@@ -15,9 +15,9 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 6041c627d87f0223b9c718f3883a709ff81c28e1
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d5e9a300dcea137bf0d3db2da2dfb5c2e6a152af
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +31,7 @@ Visual Studio에서 웹 응용 프로그램을 만들 경우 Windows PowerShell 
 
 웹 프로젝트의 스크립트를 생성하기 위해 Azure SDK는 필요하지 않습니다. 이 기능은 클라우드 서비스의 웹 역할이 아닌 웹 프로젝트용입니다.
 
-* Azure PowerShell 0.7.4 이상 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
+* Azure PowerShell 0.7.4 이상 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요.
 * [Windows PowerShell 3.0](http://go.microsoft.com/?linkid=9811175) 이상
 
 ## <a name="additional-tools"></a>추가 도구
@@ -47,7 +47,7 @@ Visual Studio는 2개의 Windows PowerShell 파일이 포함되어 있는 솔루
 게시 스크립트에는 웹 사이트 또는 가상 컴퓨터에 배포하기 위한 구체적 게시 단계가 포함되어 있습니다. Visual Studio는 Windows PowerShell 배포를 위한 구문 색 지정을 제공합니다. 함수의 도움말을 사용할 수 있으며 달라진 요구 사항에 맞게 스크립트의 함수를 자유롭게 편집할 수 있습니다.
 
 ### <a name="windows-powershell-module"></a>Windows PowerShell 모듈
-Visual Studio에서 생성하는 Windows PowerShell 모듈에는 게시 스크립트가 사용하는 함수가 포함되어 있습니다. 이러한 함수는 Azure PowerShell 함수이며 수정할 수 없습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
+Visual Studio에서 생성하는 Windows PowerShell 모듈에는 게시 스크립트가 사용하는 함수가 포함되어 있습니다. 이러한 함수는 Azure PowerShell 함수이며 수정할 수 없습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요.
 
 ### <a name="json-configuration-file"></a>JSON 구성 파일
 JSON 파일은 **Configurations** 폴더에 생성되며 Azure에 배포할 리소스를 정확히 지정하는 구성 데이터가 포함되어 있습니다. 웹 사이트를 만든 경우 Visual Studio가 생성하는 파일의 이름은 project-name-WAWS-dev.json이며 가상 컴퓨터를 만든 경우에는 project name-VM-dev.json입니다. 다음은 웹 사이트를 만들 때 생성된 JSON 구성 파일의 예입니다. 대부분의 값은 따로 설명이 필요하지 않습니다. 웹 사이트 이름은 Azure에서 생성하므로 프로젝트 이름과 일치하지 않을 수 있습니다.
@@ -168,7 +168,7 @@ Azure에 단일 프로덕션 사이트가 아닌 여러 배포 환경(슬롯이�
 
     메시지가 표시되면 사용자 이름과 암호를 입력합니다.
 
-    스크립트를 자동화하면 이 방법으로 Azure 자격 증명을 제공할 수 없습니다. 대신 .publishsettings 파일을 사용하여 자격 증명을 제공해야 합니다. 한 번만 **Get-AzurePublishSettingsFile** 명령을 사용하여 Azure에서 파일을 다운로드한 다음 **Import-AzurePublishSettingsFile**을 사용하여 파일을 가져옵니다. 자세한 지침은 [Azure PoweShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+    스크립트를 자동화하면 이 방법으로 Azure 자격 증명을 제공할 수 없습니다. 대신 .publishsettings 파일을 사용하여 자격 증명을 제공해야 합니다. 한 번만 **Get-AzurePublishSettingsFile** 명령을 사용하여 Azure에서 파일을 다운로드한 다음 **Import-AzurePublishSettingsFile**을 사용하여 파일을 가져옵니다. 자세한 지침은 [Azure PoweShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 4. (선택 사항) 웹 응용 프로그램을 게시하지 않고 가상 컴퓨터, 데이터베이스, 웹 사이트와 같은 Azure 리소스를 만들려면 **-Configuration** 인수를 JSON 구성 파일로 설정하고 **Publish-WebApplication.ps1** 명령을 사용합니다. 이 명령줄은 JSON 구성 파일을 사용하여 만들 리소스를 결정합니다. 여기서 다른 명령줄 인스턴스에 대해 기본 설정을 사용하므로 리소스를 만들지만 웹 응용 프로그램을 게시하지 않습니다. –Verbose 옵션으로 진행 상황에 대한 자세한 정보를 확인할 수 있습니다.
 

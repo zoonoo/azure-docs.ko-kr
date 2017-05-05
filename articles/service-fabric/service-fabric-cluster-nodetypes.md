@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
-ms.openlocfilehash: 6670076d14f1f3f3991dd004d488f69fb1c44cb6
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 32119a6ef586d616407c69e89a0d0f05758438bc
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -83,7 +84,7 @@ Resource Manager 템플릿을 사용하여 클러스터를 설정하는 경우 *
 ![inboundNatPools][InboundNatPools]
 
 ### <a name="after-cluster-deployment"></a>클러스터 배포 후에
-조금 더 복잡하고 VM이 재활용될 수 있습니다. 이제 Azure PowerShell을 사용하여 새 값을 설정해야 합니다. 컴퓨터에 Azure PowerShell 1.0 이상이 설치되어 있는지 확인합니다. 이전에 수행한 적이 없는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)
+조금 더 복잡하고 VM이 재활용될 수 있습니다. 이제 Azure PowerShell을 사용하여 새 값을 설정해야 합니다. 컴퓨터에 Azure PowerShell 1.0 이상이 설치되어 있는지 확인합니다. 이전에 수행한 적이 없는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)
 
 Azure 계정에 로그인합니다. Powershell이 어떤 이유로 인해 실패하면 Azure PowerShell이 올바르게 설치되었는지 확인해야 합니다.
 
@@ -119,9 +120,4 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG nam
 [LBBlade]: ./media/service-fabric-cluster-nodetypes/LBBlade.png
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

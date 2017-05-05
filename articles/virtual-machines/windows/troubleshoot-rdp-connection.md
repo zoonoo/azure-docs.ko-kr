@@ -17,9 +17,9 @@ ms.topic: support-article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 82515c2ee27e4866a167619f193620786b72cedf
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 25e19b14e1cad41a365ee88ed317078bf551c36a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -114,12 +114,12 @@ Resource Manager 배포 모델을 사용하여 만든 VM 문제를 다음 방법
 RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://azure.microsoft.com/support/options/) [좀 더 자세한 RDP 문제 해결 개념 및 단계](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 읽어볼 수 있습니다.
 
 ## <a name="troubleshoot-using-azure-powershell"></a>Azure PowerShell을 사용하여 문제 해결
-아직 작업 전이면 [최신 Azure PowerShell을 설치하고 구성](/powershell/azureps-cmdlets-docs)합니다.
+아직 작업 전이면 [최신 Azure PowerShell을 설치하고 구성](/powershell/azure/overview)합니다.
 
 다음 예제에서는 `myResourceGroup`, `myVM`, `myVMAccessExtension` 등의 변수를 사용합니다. 이러한 변수 이름 및 위치를 사용자 고유의 값으로 바꿉니다.
 
 > [!NOTE]
-> [Set-AzureRmVMAccessExtension](https://msdn.microsoft.com/library/mt619447.aspx) PowerShell cmdlet을 사용하여 사용자 자격 증명 및 RDP 구성을 다시 설정합니다. 다음 예제에서 `myVMAccessExtension`은 프로세스의 일부로 지정하는 이름입니다. VMAccessAgent로 이전에 작업한 경우 `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"`을 사용하여 기존 확장의 이름을 가져와서 VM의 속성을 확인할 수 있습니다. 이름을 보려면 출력의 'Extensions' 섹션에서 이름을 확인합니다.
+> [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet을 사용하여 사용자 자격 증명 및 RDP 구성을 다시 설정합니다. 다음 예제에서 `myVMAccessExtension`은 프로세스의 일부로 지정하는 이름입니다. VMAccessAgent로 이전에 작업한 경우 `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"`을 사용하여 기존 확장의 이름을 가져와서 VM의 속성을 확인할 수 있습니다. 이름을 보려면 출력의 'Extensions' 섹션에서 이름을 확인합니다.
 > 
 > 
 

@@ -49,8 +49,3 @@
 
 Datetime 및 Datetimeoffset의 경우 사용자 지정 Datetime 문자열의 구문 분석을 용이하게 하려면 "culture" 및 "format" 문자열을 지정할 수도 있습니다. 아래의 형식 변환 샘플을 참조하세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -2,7 +2,7 @@
 title: "Azure 리소스 상태 개요 | Microsoft Docs"
 description: "Azure 리소스 상태 개요"
 services: Resource health
-documentationcenter: dev-center-name
+documentationcenter: 
 author: BernardoAMunoz
 manager: 
 editor: 
@@ -15,97 +15,84 @@ ms.workload: Supportability
 ms.date: 06/01/2016
 ms.author: BernardoAMunoz
 translationtype: Human Translation
-ms.sourcegitcommit: d777bc6bd477c5b6645fc8bd7b6d57a5d2f89e22
-ms.openlocfilehash: e465e2c1503add186a4b134e85bd9aab61d5c0ad
-ms.lasthandoff: 01/12/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: d54979995ca97a70ba92c64915b919da09f548ec
+ms.lasthandoff: 04/04/2017
 
 
 ---
-# <a name="azure-resource-health-overview"></a>Azure 리소스 상태 개요
-Azure 리소스 상태는 개별 Azure 리소스의 상태를 노출하고 문제 해결을 위한 실행 가능한 지침을 제공하는 서비스입니다. 서버 또는 인프라 요소에 직접 액세스할 수 없는 클라우드 환경에서 리소스 상태 기능은 고객이 문제 해결에 투입하는 시간을 단축하는 것을 목적으로 합니다. 특히, 문제의 원인이 응용 프로그램 내에 있거나 Azure 플랫폼 내의 이벤트로 야기된 경우에 시간 단축 효과가 뛰어납니다.
+# <a name="azure-resource-health-overview"></a>Azure Resource Health 개요
+ 
+Resource Health는 Azure 문제가 리소스에 영향을 주는 경우 진단 및 지원을 도와줍니다. 리소스의 현재 및 이전 상태에 대해 알려주고 문제를 완화하는 데 도움이 됩니다. Resource Health는 Azure 서비스 문제와 관련된 도움이 필요할 때 기술 지원을 제공합니다.
 
-## <a name="what-is-considered-a-resource-and-how-does-resource-health-decides-if-the-resource-is-healthy-or-not"></a>무엇이 리소스로 간주되고 어떻게 리소스 상태가 리소스가 정상인지를 결정하나요?
-리소스는 예를 들어 가상 컴퓨터, 웹앱 또는 SQL 데이터베이스와 같은 서비스에서 제공하는 리소스를 사용자가 만든 인스턴스입니다. 
+[Azure 상태](https://status.azure.com)는 광범위한 고객 집합에 영향을 주는 서비스 문제를 알려주지만, 리소스 상태는 리소스의 상태에 대한 개인 설정된 대시보드를 제공합니다. 리소스 상태는 Azure 서비스 문제로 인해 과거에 리소스를 사용할 수 없었던 모든 시간을 보여 줍니다. 따라서 SLA를 위반하였는지 파악하기가 쉽습니다. 
 
-리소스 상태는 리소스 및/또는 서비스에서 내보낸 신호에 의존하여 리소스가 정상인지를 확인합니다. 현재 리소스 상태가 한가지 특정 리소스 형식의 상태만을 고려하고 전반적인 상태에 영향을 줄 수 있는 다른 요소를 고려하지 않는다는 점을 기억합니다. 예를 들어, 가상 컴퓨터의 상태를 보고하는 경우 인프라의 계산 부분만을 고려합니다. 즉, 네트워크의 문제는 선언된 서비스 중단이 발생하지 않는 한 리소스 상태에 표시되지 않습니다. 이 경우에 블레이드 맨 위에 있는 배너를 통해 표시됩니다. 서비스 중단에 대한 자세한 내용은 이 문서의 뒷부분에 있습니다. 
+## <a name="what-is-considered-a-resource-and-how-does-resource-health-decides-if-a-resource-is-healthy-or-not"></a>무엇이 리소스로 간주되고 리소스 상태에서는 리소스가 정상인지를 어떻게 결정하나요?
+리소스는 가상 컴퓨터, 웹앱 또는 SQL Database처럼 Azure Resource Manager를 통해 Azure 서비스에서 제공하는 리소스 유형의 인스턴스입니다.
 
-## <a name="how-is-resource-health-different-from-service-health-dashboard"></a>리소스 상태는 서비스 상태 대시보드와 어떻게 다른가요?
-리소스 상태에서 제공하는 정보는 서비스 상태 대시보드에서 제공하는 정보보다 더 세부적입니다. SHD가 지역에서 서비스의 가용성에 영향을 주는 이벤트를 통신하는 반면 리소스 상태는 특정 리소스와 관련 된 정보를 노출합니다. 예를 들어, 가상 컴퓨터, 웹앱 또는 SQL 데이터베이스의 가용성에 영향을 주는 이벤트를 노출합니다. 예를 들어, 노드가 예기치 않게 다시 부팅되는 경우 가상 컴퓨터가 해당 노드에서 실행되는 고객은 잠시 VM를 사용할 수 없는 이유를 알 수 있습니다.   
+리소스 상태는 다양한 Azure 서비스에서 내보낸 신호에 의존하여 리소스가 정상인지를 평가합니다. 리소스가 정상이 아니면 리소스 상태에서 추가 정보를 분석하여 문제 원인을 파악합니다. 또한 Microsoft가 문제를 해결하기 위해 수행하는 작업 또는 문제의 원인을 해결하기 위해 수행할 수 있는 작업도 파악합니다. 
 
-## <a name="how-to-access-resource-health"></a>리소스 상태에 액세스하는 방법
-리소스 상태를 통해 사용할 수 있는 서비스의 경우 리소스 상태에 액세스하는 두 가지 방법이 있습니다.
+상태를 평가하는 방법에 대한 자세한 내용은 [Azure Resource Health](resource-health-checks-resource-types.md)에서 리소스 유형 및 상태 검사에 대한 전체 목록을 확인하세요.
 
-### <a name="azure-portal"></a>Azure 포털
-Azure 포털에서 리소스 상태 블레이드는 리소스의 상태에 대한 자세한 정보 뿐만 아니라 리소스의 현재 상태에 따라 달라지는 권장되는 작업을 제공합니다. 이 블레이드에서는 리소스 상태를 쿼리할 경우 포털 내 다른 리소스에 액세스를 용이하게 하는 등 최상의 환경을 제공합니다. 앞서 언급했듯이 리소스 상태 블레이드에서 권장되는 일련의 작업은 현재 상태에 따라 달라 집니다.
-
-* 정상 리소스: 리소스의 상태에 영향을 줄 수 있는 문제가 발견되지 않았기 때문에 작업은 해결 프로세스를 지원하는 데 초점을 맞춥니다. 예를 들어, 문제 해결 블레이드에 대한 직접 액세스를 제공하며 이는 고객이 직면하는 가장 일반적인 문제를 해결하는 방법에 대한 지침을 제공합니다.
-* 비정상 리소스: Azure에 의해 발생한 문제의 경우 블레이드는 Microsoft가 리소스를 복구하기 위해 수행하는(또는 수행한) 작업을 표시합니다. 사용자 개시 작업으로 발생한 문제의 경우 블레이드는 문제를 해결하고 리소스를 복구하기 위해 고객이 취할 수 있는 작업 목록입니다.  
-
-Azure 포털에 로그인하면 리소스 상태 블레이드에 액세스하는 두 가지 방법이 있습니다. 
-
-### <a name="open-the-resource-blade"></a>리소스 블레이드 열기
-지정된 리소스에 대한 리소스 블레이드를 엽니다. 리소스 블레이드 옆에 열리는 왼쪽 블레이드에서 지원 + 문제 해결 아래에 있는 리소스 상태를 클릭하여 리소스 상태 블레이드를 엽니다. 
-
-![리소스 상태 블레이드](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
-
-### <a name="help-and-support-blade"></a>도움말 및 지원 블레이드
-오른쪽 위 모서리에서 물음표를 클릭하고 도움말 + 지원을 선택하여 도움말 및 지원 블레이드를 엽니다. 
-
-**위쪽 탐색 모음에서**
-
-![도움말 + 지원](./media/resource-health-overview/HelpAndSupport.png)
-
-도움말 + 지원 블레이드 옆에 열리는 왼쪽 블레이드에서 지원 + 문제 해결 아래에 있는 리소스 상태를 클릭합니다. 이를 클릭하면 구독에 있는 모든 리소스를 나열하는 리소스 상태 구독 블레이드가 열립니다. 각 리소스 옆에 해당 상태를 나타내는 아이콘이 있습니다. 각 리소스를 클릭하면 리소스 상태 블레이드가 열립니다.
-
-**리소스 상태 타일**
-
-![리소스 상태 타일](./media/resource-health-overview/resourceHealthTile.png)
-
-## <a name="what-does-my-resource-health-status-mean"></a>내 리소스 상태는 무엇을 의미하나요?
-리소스에서 확인할 수 있는 4개의 다른 상태가 있습니다.
+## <a name="health-status-provided-by-resource-health"></a>리소스 상태에서 제공하는 상태
+리소스 상태는 다음 상태 중 하나입니다.
 
 ### <a name="available"></a>사용 가능
-서비스는 리소스의 가용성에 영향을 미칠 수 있는 플랫폼에서 문제를 탐지하지 못했습니다. 이는 녹색 확인 표시 아이콘으로 표시됩니다. 
+서비스에서 리소스 상태에 영향을 주는 어떠한 이벤트도 감지하지 않았습니다. 리소스가 최근 24시간 동안 계획되지 않은 가동 중지 시간에서 복구된 경우 **최근 복구된** 알림이 표시됩니다.
 
-![리소스를 사용할 수 있음](./media/resource-health-overview/Available.png)
+![리소스 상태가 사용 가능한 가상 컴퓨터](./media/resource-health-overview/Available.png)
 
 ### <a name="unavailable"></a>사용할 수 없음
-이 경우에 서비스는 리소스의 가용성에 영향을 주는 플랫폼에서 진행 중인 문제를 탐지했습니다(예: VM이 실행되는 노드가 예기치 않게 다시 부팅됨). 이는 빨간색 경고 아이콘으로 표시됩니다. 다음을 포함하여 문제에 대한 추가 정보는 블레이드의 중간 섹션에서 제공됩니다. 
+서비스에서 리소스 상태에 영향을 주는 진행 중인 플랫폼 또는 비-플랫폼 이벤트를 감지했습니다.
 
-1. 리소스를 복구하기 위해 Microsoft에서 어떤 작업을 사용하나요 
-2. 예상된 해결 시간 등 문제의 자세한 시간 표시 막대
-3. 사용자에게 권장되는 작업 목록 
+#### <a name="platform-events"></a>플랫폼 이벤트
+이러한 이벤트는 Azure 인프라의 여러 구성 요소에 의해 트리거되며 계획된 유지 관리와 같은 예약된 작업과 계획되지 않은 호스트 재부팅과 같은 예기치 않은 인시던트를 모두 포함합니다.
 
-![리소스를 사용할 수 없음](./media/resource-health-overview/Unavailable.png)
+리소스 상태는 이벤트 및 복구 프로세스에 대한 추가 세부 정보를 제공하며 사용 중인 Microsoft 지원 계약이 없더라도 지원 담당자에게 문의할 수 있습니다.
 
-### <a name="unavailable--customer-initiated"></a>사용할 수 없음 – 고객이 시작
-리소스는 리소스 중지 또는 다시 시작 요청과 같은 고객 요청으로 인해 사용할 수 없습니다. 이는 파란색 정보 아이콘으로 표시됩니다. 
+![플랫폼 이벤트로 인해 리소스 상태가 사용 불가능한 가상 컴퓨터](./media/resource-health-overview/Unavailable.png)
 
-![사용자 시작된 작업으로 인해 리소스를 사용할 수 없업](./media/resource-health-overview/userInitiated.png)
+#### <a name="non-platform-events"></a>비-플랫폼 이벤트
+이러한 이벤트는 사용자가 수행한 작업(예: 가상 컴퓨터 중지 또는 Redis Cache에 대한 최대 연결 수 도달)에 의해 트리거됩니다.
+
+![비-플랫폼 이벤트로 인해 리소스 상태가 사용 불가능한 가상 컴퓨터](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
 ### <a name="unknown"></a>알 수 없음
-서비스가 5분 이상 이 리소스에 대한 정보를 수신하지 못했습니다. 이는 회색 물음표 아이콘으로 표시됩니다. 
+이 상태 정보는 리소스 상태에서 10분 이상 이 리소스에 대한 정보를 수신하지 못했음을 나타냅니다. 이 상태는 리소스 상태에 대한 명확한 표시는 아니지만 문제 해결 프로세스의 중요한 데이터 요소입니다.
+* 리소스가 예상한 대로 실행되면 몇 분 후 리소스 상태가 사용 가능으로 업데이트됩니다.
+* 리소스에 문제가 발생하는 경우 알 수 없음 상태로 플랫폼의 이벤트에 의해 리소스가 영향을 받음을 나타낼 수 있습니다.
 
-리소스 문제가 있다는 선언적 표시가 아니라는 점이 중요합니다. 따라서 고객은 다음과 같은 권장 사항을 따라야 합니다.
+![리소스 상태가 알 수 없음인 가상 컴퓨터](./media/resource-health-overview/Unknown.png)
 
-* 리소스가 예상대로 실행되지만 상태가 리소스 상태에서 알 수 없음으로 설정된 경우 큰 문제는 없으며 몇 분 후에 리소스의 상태가 정상으로 업데이트된다고 볼 수 있습니다.
-* 리소스에 액세스하는 데 문제가 있고 상태가 리소스 상태에서 알 수 없음으로 설정된 경우 문제가 있을 수 있다는 초기 징후일 수 있으며 상태가 정상 또는 비정상으로 업데이트될 때까지 추가 조사가 이루어져야 합니다.
+## <a name="report-an-incorrect-status"></a>잘못된 상태 보고
+어느 시점에서 현재 상태가 잘못되었다고 생각되면 **Report incorrect health status(잘못된 상태 보고)**를 클릭하여 알려주세요. Azure 문제의 영향을 받는 경우 리소스 상태 블레이드에서 지원 담당자에게 문의하는 것이 좋습니다. 
 
-![리소스 상태를 알 수 없음](./media/resource-health-overview/unknown.png)
+![리소스 상태에서 잘못된 상태 보고](./media/resource-health-overview/incorrect-status.png)
 
-## <a name="service-impacting-events"></a>서비스에 영향을 미치는 이벤트
-리소스가 진행 중인 서비스에 영향을 미치는 이벤트에 의해 영향을 받을 수 있는 경우 리소스 상태 블레이드 맨 위에 배너가 표시됩니다. 배너를 클릭하면 감사 이벤트 블레이드가 자동으로 열리고 가동 중단에 대한 추가 정보를 표시합니다.
+## <a name="historical-information"></a>기록 정보
+리소스 상태 블레이드에서 **기록 보기**를 클릭하여 최대 14일 동안의 기록 상태 데이터에 액세스할 수 있습니다. 
 
-![리소스 상태가 SIE의 영향을 받을 수 있음](./media/resource-health-overview/serviceImpactingEvent.png)
+![리소스 상태 보고 기록](./media/resource-health-overview/history-blade.png)
 
-## <a name="what-else-do-i-need-to-know-about-resource-health"></a>리소스 상태에 대해 알아야 할 사항은 무엇인가요?
-### <a name="signal-latency"></a>신호 대기 시간
-리소스 상태를 알려주는 신호는 최대 15분까지 지연될 수 있으며 리소스의 현재 상태와 실제 가용성 간에 불일치를 발생시킬 수 있습니다. 발생할 수 있는 문제를 조사하는 데 불필요하게 소요된 시간을 제거하도록 도움을 준다는 점을 고려해야 합니다. 
+## <a name="getting-started"></a>시작
+하나의 리소스에 대한 리소스 상태를 열려면
+1.    Azure Portal에 로그인합니다.
+2.    리소스로 이동합니다.
+3.    왼쪽에 있는 리소스 메뉴에서 **리소스 상태**를 클릭합니다.
 
-### <a name="special-case-for-sql"></a>SQL에 대한 특별한 경우
-리소스 상태는 SQL server가 아닌 SQL 데이터베이스의 상태를 보고합니다. 이 경로를 통해 보다 현실적인 상태를 파악할 수 있지만 여러 구성 요소 및 서비스를 고려하여 데이터베이스의 상태를 확인해야 합니다. 현재 신호는 데이터베이스에 대한 로그인에 의존합니다. 즉, 일반 로그인 상태를 수신하는 데이터베이스(다른 작업 및 쿼리 실행 요청 수신을 포함)의 경우 상태가 정기적으로 표시됩니다. 10분 이상 기간 동안 데이터베이스에 액세스하지 못하는 경우 알 수 없는 상태로 바뀝니다. 데이터베이스를 사용할 수 없다는 의미가 아니라 로그인하지 못했기 때문에 신호 없음을 내보내는 것입니다. 데이터베이스에 연결하고 쿼리를 실행하면 데이터베이스의 상태를 확인하고 업데이트하는 데 필요한 신호를 내보냅니다.
+![리소스 블레이드에서 리소스 상태 열기](./media/resource-health-overview/from-resource-blade.png)
 
-## <a name="feedback"></a>사용자 의견
-Microsoft는 사용자 의견 및 제안을 항상 환영합니다! [제안 사항](https://feedback.azure.com/forums/266794-support-feedback)을 보내 주시기 바랍니다. [Twitter](https://twitter.com/azuresupport)나 [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure)을 통해 참여하실 수도 있습니다.
+**추가 서비스**를 클릭하고 필터 텍스트 상자에서 **리소스 상태**를 입력하여 **도움말 + 지원** 블레이드를 열어 리소스 상태에 액세스할 수도 있습니다. 마지막으로 [**리소스 상태**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth)를 클릭합니다.
+
+![추가 서비스에서 리소스 상태 열기](./media/resource-health-overview/FromOtherServices.png)
+
+## <a name="next-steps"></a>다음 단계
+
+리소스 상태에 대한 자세한 내용은 다음 리소스를 확인하세요.
+-  [Azure Resource Health에서 리소스 유형 및 상태 검사](resource-health-checks-resource-types.md)
+-  [Azure Resource Health에 대한 질문과 대답](resource-health-faq.md)
+
+
+
 
 

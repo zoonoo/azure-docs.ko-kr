@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: c48e23c1904d824ce2360f83c9df9c8e17d6200a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 506a40f6c05cdeee56184074774b1f6ace8f0426
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/25/2017
 
 **Azure PowerShell**:
 
-* [최신 Azure PowerShell 명령을 설치합니다](/powershell/azureps-cmdlets-docs) .
+* [최신 Azure PowerShell 명령을 설치합니다](/powershell/azure/overview) .
 
 > [!NOTE]
 > 자동화된 패치는 SQL Server IaaS 에이전트 확장에 의존합니다. 현재 SQL 가상 컴퓨터 갤러리 이미지는 기본적으로 이 확장을 추가합니다. 자세한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.

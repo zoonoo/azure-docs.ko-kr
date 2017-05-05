@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 03/06/2017
+ms.date: 04/19/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: a2177926e76b25ceb5ecb4fd9471f961d3fa989f
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 90f2ea599dd97780d7ec43f09ab1b1497d6e87f5
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -52,7 +52,7 @@ CPU, 메모리, 로그 I/O 및 데이터 I/O 이외의 리소스는 제한에 �
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> P11 및 P15 성능 수준을 사용하는 고객은 추가 비용 없이 최대 4TB의 포함된 저장소를 사용할 수 있습니다. 이 4TB 옵션은 미국 동부2, 미국 서부, 유럽 서부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부에서 현재 공개 미리 보기 상태로 제공됩니다.
+> P11 및 P15 성능 수준을 사용하는 고객은 추가 비용 없이 최대 4TB의 포함된 저장소를 사용할 수 있습니다. 이 4TB 옵션은 미국 동부2, 미국 서부, 유럽 서부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부에서 현재 사용할 수 있습니다.
 >
 
 ### <a name="elastic-pools"></a>탄력적 풀

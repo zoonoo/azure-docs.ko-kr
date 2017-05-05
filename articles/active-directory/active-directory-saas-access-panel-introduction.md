@@ -15,9 +15,9 @@ ms.date: 02/27/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: d6330397b6e74b62836a2e864b1c37ab172d0028
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c5a0f3f958d42d514a95477c1e39f02c78307d4d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -60,7 +60,7 @@ ms.lasthandoff: 03/15/2017
 ## <a name="web-browser-requirements"></a>웹 브라우저 요구 사항
 액세스 패널에는 최소한 JavaScript를 지원하고 CSS를 사용하도록 설정된 브라우저가 필요합니다. 사용자가 암호 기반 SSO(Single Sign-On)를 통해 응용 프로그램에 로그인하려면 사용자의 브라우저에 액세스 패널 확장이 설치되어 있어야 합니다. 사용자가 암호 기반 SSO에 구성된 응용 프로그램을 선택할 때 이 확장이 자동으로 다운로드됩니다.
 
-액세스 패널 확장은 현재 Internet Explorer 8 이상, Chrome 및 Firefox 브라우저에서 사용할 수 있습니다.
+액세스 패널 확장은 현재 Internet Explorer 8 이상, Edge, Chrome 및 Firefox 브라우저에서 사용할 수 있습니다.
 
 ## <a name="mobile-app-support"></a>모바일 앱 지원
 Azure Active Directory 팀은 My Apps 모바일 앱을 게시합니다. 사용자가 이 앱을 설치하면 iOS 및 Android 장치의 암호 기반 SSO 응용 프로그램에 로그인할 수 있습니다.

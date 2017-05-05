@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 03/27/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 0051bbeaac458e8df07e5c7aa186fbefb526f50e
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: f02fbbfb0e8704445d9bfdaba634dbf558ceef02
+ms.lasthandoff: 04/07/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/15/2017
 * Windows 서비스 콘솔을 열고 **Microsoft AAD 응용 프로그램 프록시 커넥터** 서비스가 활성화되어 있고 실행 중인지 확인합니다. 또한 다음 그림에 표시된 것처럼 응용 프로그램 프록시 서비스 속성 페이지에서 확인할 수도 있습니다.  
   ![Microsoft AAD 응용 프로그램 프록시 커넥터 속성 창 스크린샷](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 * 이벤트 뷰어를 열고 **응용 프로그램 및 서비스 로그** > **Microsoft** > **AadApplicationProxy** > **커넥터** > **관리**에서 응용 프로그램 프록시 커넥터 이벤트를 찾습니다.
-* 필요한 경우 분석 및 디버깅 로그를 켜고 응용 프로그램 프록시 커넥터 세션 로그를 켜면 더 자세한 로그를 볼 수 있습니다.
+* 필요한 경우 [응용 프로그램 프록시 커넥터 세션 로그를 켜면](application-proxy-understand-connectors.md#under-the-hood) 더 자세한 로그를 볼 수 있습니다.
 
 Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워킹 필수 조건을 검사하는 문제 해결 도구](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites)를 참조하세요.
 

@@ -30,6 +30,7 @@
 ### [Data Lake Store의 데이터 보호](data-lake-store-secure-data.md)
 ### [서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)
 ### [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)
+### [암호화](data-lake-store-encryption.md)
 
 ## 성능
 ### [Azure Data Lake Store에 대한 성능 조정 지침](data-lake-store-performance-tuning-guidance.md)
@@ -58,7 +59,7 @@
 ### [고가용성을 위한 설계](data-lake-store-troubleshooting-guidance.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
+## [PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)

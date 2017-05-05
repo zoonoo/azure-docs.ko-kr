@@ -17,9 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e3c8f61be72309354471451a33664c4b5497eb0e
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6dd2433bf744dd207375e92fd6f24b14cd3f828c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ Azure에는 다음 두 포털이 있습니다.
 일부 리소스 및 기능은 하나의 포털 또는 다른 포털에서만 생성 및 구성할 수 있습니다. 일부 리소스 또는 기능은 두 포털 모두에서는 생성 또는 구성할 수 없으며, PowerShell, CLI 또는 둘 모두로 구성할 수 있습니다. 각 Azure 리소스에 대한 설명서에서 어떤 메서드로 생성할 수 있는지 자세히 설명합니다. 
 
 ## <a name="powershell"></a>PowerShell
-[PowerShell](/powershell/azureps-cmdlets-docs) 에서 명령줄이나 작성 스크립트를 사용하여 Windows 컴퓨터에서 Azure 리소스를 생성 및 구성할 수 있습니다.  개별 Azure 리소스에는 [Resource Manager cmdlet](https://msdn.microsoft.com/library/azure/mt125356.aspx), [서비스 관리 cmdlet](https://msdn.microsoft.com/library/azure/dn708504.aspx) 또는 두 가지 모두가 있을 수 있습니다.  일부 리소스 및 기능은 PowerShell 또는 CLI를 사용해서만 생성 및/또는 구성할 수 있습니다. 리소스에 따라 리소스 관리자 PowerShell cmdlet 사용 시 Azure 리소스의 생성 및 구성에 두 가지 옵션을 가질 수 있습니다.
+[PowerShell](/powershell/azureps-cmdlets-docs) 에서 명령줄이나 작성 스크립트를 사용하여 Windows 컴퓨터에서 Azure 리소스를 생성 및 구성할 수 있습니다.  개별 Azure 리소스에는 [Resource Manager cmdlet](/powershell/azure/overview), [서비스 관리 cmdlet](/powershell/azure/overview?view=azuresmps-3.7.0) 또는 두 가지 모두가 있을 수 있습니다.  일부 리소스 및 기능은 PowerShell 또는 CLI를 사용해서만 생성 및/또는 구성할 수 있습니다. 리소스에 따라 리소스 관리자 PowerShell cmdlet 사용 시 Azure 리소스의 생성 및 구성에 두 가지 옵션을 가질 수 있습니다.
 
 * **PowerShell cmdlet만:** 각 리소스에 대해 cmdlet를 사용하여 각 Azure 리소스를 개별적으로 생성 및 구성할 수 있습니다. 이 작업은 명령줄에서 또는 저장할 수 있는 PowerShell 스크립트 및 버전으로 여러 명령을 포함하여 수행할 수 있습니다.
 * **Azure 리소스 관리자 템플릿을 사용한 PowerShell cmdlet:** PowerShell에서 Azure 리소스 관리자 템플릿을 사용하여 Azure 리소스를 생성할 수 있습니다. 템플릿을 저장하고 버전을 지정할 수 있습니다. [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md) 문서를 참조하여 더 알아볼 수 있습니다. 다운로드하고 수정할 수 있는 일반 솔루션에 대해 몇 가지 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 도 지원됩니다.

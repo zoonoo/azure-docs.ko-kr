@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 762d8deac1f176e51b54295ef571ae529d338d2c
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: c2e78e0191be6ac7d828402859c04c486e8df594
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -27,7 +27,7 @@ Log Analytics는 클라우드 및 온-프레미스 환경을 모니터링하여 
 ## <a name="is-log-analytics-for-you"></a>Log Analytics를 사용하시겠습니까?
 현재 사용자의 Azure 환경에 모니터링을 설정하지 않은 경우 Azure 리소스에 대한 모니터링 데이터를 수집하고 분석하는 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)를 시작해야 합니다.  Log Analytics는 Azure Monitor의 데이터를 수집하여 다른 데이터와 상호 연결하고 추가 분석을 제공할 수 있습니다.
 
-온-프레미스 환경을 모니터링하거나 Azure Monitor 또는 System Center Operations Manager와 같은 서비스를 사용하는 기존 모니터링이 있는 경우 Log Analytics를 유용하게 사용할 수 있습니다.  에이전트 및 이러한 다른 도구에서 단일 리포지토리로 직접 데이터를 수집할 수 있습니다.  로그 검색, 뷰 및 솔루션과 같은 Log Analytics의 분석 도구는 전체 사용자 환경의 중앙 집중식 분석을 제공하는 모든 수집된 데이터에 대해 작동합니다.
+온-프레미스 환경을 모니터링하거나 Azure Monitor 또는 System Center Operations Manager 같은 서비스를 사용하는 기존 모니터링이 있는 경우 Log Analytics를 유용하게 사용할 수 있습니다.  에이전트 및 이러한 다른 도구에서 단일 리포지토리로 직접 데이터를 수집할 수 있습니다.  로그 검색, 뷰 및 솔루션과 같은 Log Analytics의 분석 도구는 전체 사용자 환경의 중앙 집중식 분석을 제공하는 모든 수집된 데이터에 대해 작동합니다.
 
 
 ## <a name="using-log-analytics"></a>Log Analytics 사용
@@ -45,7 +45,7 @@ Log Analytics는 리포지토리의 데이터를 신속하게 검색하고 통�
 
 ![대시보드](media/log-analytics-overview/dashboard.png)
 
-Log Analytics 외부 데이터를 분석하기 위해 OMS 리포지토리에서 [Power BI](log-analytics-powerbi.md) 또는 Excel과 같은 도구로 데이터를 내보낼 수 있습니다.  또한 [로그 검색 API](log-analytics-log-search-api.md) 를 통해 Log Analytics 데이터를 활용하는 사용자 지정 솔루션을 빌드하거나 다른 시스템에 통합할 수 있습니다.
+Log Analytics 외부 데이터를 분석하기 위해 OMS 리포지토리에서 [Power BI](log-analytics-powerbi.md) 또는 Excel과 같은 도구로 데이터를 내보낼 수 있습니다.  또한 [Log Search API](log-analytics-log-search-api.md)를 통해 Log Analytics 데이터를 활용하는 사용자 지정 솔루션을 빌드하거나 다른 시스템에 통합할 수 있습니다.
 
 ## <a name="add-functionality-with-management-solutions"></a>관리 솔루션에서 기능 추가
 [관리 솔루션](log-analytics-add-solutions.md)은 OMS에 기능을 추가하여 Log Analytics에 추가 데이터 및 분석 도구를 제공합니다.  또한 대시보드의 솔루션에서 제공하는 로그 검색으로 분석할 수 있거나 추가 사용자 인터페이스에서 분석할 수 있는 수집할 새 레코드 유형을 정의할 수 있습니다.  아래 예제 이미지에서는 [변경 내용 추적 솔루션](log-analytics-change-tracking.md)을 보여 줍니다.

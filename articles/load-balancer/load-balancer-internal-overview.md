@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 47869775365ea517b94cbd5a2eb83c93f4d2b4df
-ms.openlocfilehash: 17b7337ddcfa2671bb3a035de8462e31bfa0c85f
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
+ms.openlocfilehash: d324aaf8ec2c8766d5cf11452158d14c19cba4d9
+ms.lasthandoff: 04/13/2017
 
 ---
 
@@ -72,6 +72,10 @@ LOB에 대한 다른 시나리오는 ILB 끝점이 구성된 가상 네트워크
 ![사이트 간 VPN을 사용한 내부 부하 분산](./media/load-balancer-internal-overview/IC744150.png)
 
 그림 4 - 온-프레미스 네트워크 트래픽을 ILB 끝점으로 라우팅
+
+## <a name="limitations"></a>제한 사항
+
+내부 부하 분산 장치 구성에서 SNAT가 지원되지 않습니다. 이 문서에 나오는 SNAT는 원본 네트워크 주소 변환을 가장하는 포트를 가리킵니다.  이는 부하 분산 장치 풀의 VM이 각 내부 부하 분산 장치의 프런트 엔드 IP 주소에 도달해야 하는 시나리오에 적용됩니다. 이 시나리오는 내부 부하 분산 장치에는 지원되지 않습니다. 흐름이 처음 시작된 VM으로 부하 분산되면 연결 오류가 발생합니다. 이러한 시나리오에는 프록시 스타일의 부하 분산 장치를 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

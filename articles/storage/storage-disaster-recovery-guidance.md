@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 64650bf7baf46b0f5473deb1a9b4ec329979d153
-ms.openlocfilehash: 0fc78521abb0fce2a38b14d1411dad42b3580df2
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 83ab487f382eb84aa64b927bdf5560eec5cbbd6d
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -48,7 +49,7 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>저장소 장애 조치(failover)가 발생할 경우 예상 결과
 [GRS(지역 중복 저장소)](storage-redundancy.md#geo-redundant-storage) 또는 [RA-GRS(읽기 액세스 지역 중복 저장소)](storage-redundancy.md#read-access-geo-redundant-storage)(권장)를 선택한 경우 Azure Storage가 두 지역(기본 및 보조)에 데이터를 지속적으로 유지합니다. Azure 저장소는 두 지역에 여러 데이터 복제본을 계속 유지합니다.
 
-지역 재해가 기본 지역에 영향을 미칠 경우 먼저 해당 지역에서 서비스 복원을 시도합니다. 재해 및 그 영향에 따라 드물지만 기본 지역을 복원하지 못할 수 있습니다. 이때 지역 장애 조치(failover)를 수행합니다. 지역 간 데이터 복제는 지연될 수 있는 비동기 프로세스이므로 보조 지역으로 미처 복제되지 않은 변경 내용은 손실될 수 있습니다. 복제 상태에 대한 세부 내용을 가져오기 위해 [사용자 저장소 계정의 "마지막 동기화 시간"](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) 을 쿼리할 수 있습니다.
+지역 재해가 기본 지역에 영향을 미칠 경우 먼저 해당 지역에서 서비스 복원을 시도합니다. 재해 및 그 영향에 따라 드물지만 기본 지역을 복원하지 못할 수 있습니다. 이때 지역 장애 조치(failover)를 수행합니다. 지역 간 데이터 복제는 지연될 수 있는 비동기 프로세스이므로 보조 지역으로 미처 복제되지 않은 변경 내용은 손실될 수 있습니다. 복제 상태에 대한 세부 내용을 가져오기 위해 [사용자 저장소 계정의 “마지막 동기화 시간”](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)을 쿼리할 수 있습니다.
 
 저장소 지역 장애 조치(failover) 환경에 대한 참고 사항:
 
@@ -57,7 +58,7 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 * 지역 장애 조치(failover) 전과 수행하는 동안에는 재해 영향으로 인해 저장소 계정에 대한 쓰기 권한이 없지만 저장소 계정이 RA-GRS로 구성된 경우에는 보조에서 여전히 읽을 수 있습니다.
 * 지역 장애 조치(failover)가 완료되고 DNS 변경 사항이 전파되면 저장소 계정에 대한 읽기 및 쓰기 권한을 다시 갖게 되고, 보조 끝점이었던 부분을 가리키게 됩니다. 
 * 저장소 계정에 대해 GRS 또는 RA-GRS가 구성되어 있으면 쓰기 권한을 갖게 됩니다. 
-* [저장소 계정의 "마지막 지역 장애 조치(failover) 시간"](https://msdn.microsoft.com/library/azure/ee460802.aspx) 을 쿼리하여 세부 정보를 가져올 수 있습니다.
+* [저장소 계정의 “마지막 지역 장애 조치(failover) 시간”](https://msdn.microsoft.com/library/azure/ee460802.aspx)을 쿼리하여 세부 정보를 가져올 수 있습니다.
 * 장애 조치(failover) 후 저장소 계정이 완벽하게 작동하게 되지만 실제로 지역에서 복제할 수 없는 독립 실행형 지역에 호스트되므로 “저하됨” 상태가 됩니다. 이러한 위험을 완화하기 위해 원래 기본 지역을 복원한 다음 원래의 상태를 복원하기 위해 지역 장애 복구(failback)를 수행합니다. 원래 기본 지역을 복구할 수 없는 경우 다른 보조 지역을 할당합니다.
   Azure 저장소 지역 복제의 인프라에 대한 자세한 내용은 저장소 팀 블로그에서 [중복 옵션 및 RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)에 대한 문서를 참조하세요.
 
@@ -70,10 +71,5 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 * 파일 – [AzCopy](storage-use-azcopy.md) 또는 [Azure PowerShell](storage-powershell-guide-full.md)을 사용하여 다른 지역에 있는 다른 저장소 계정에 파일을 복사합니다.
 
 RA-GRS 기능을 충분히 활용하는 응용 프로그램 생성에 대한 자세한 내용은 [RA-GRS 저장소를 사용하여 항상 사용 가능한 응용 프로그램 설계](storage-designing-ha-apps-with-ragrs.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -9,7 +9,7 @@
 ### <a name="download-the-vault-credential-file"></a>자격 증명 모음 자격 증명 파일 다운로드
 자격 증명 모음 자격 증명 파일은 Azure 포털에서 보안 채널을 통해 다운로드됩니다. Azure 백업 서비스는 인증서의 개인 키를 인식하지 않으며 개인 키는 포털 또는 서비스에 보관되지 않습니다. 로컬 컴퓨터에 자격 증명 모음 자격 증명 파일을 다운로드하려면 다음 단계를 따르십시오.
 
-1.  [관리 포털](https://manage.windowsazure.com/)
+1. [관리 포털](https://manage.windowsazure.com/)
 2. 왼쪽 탐색 창에서 **복구 서비스** 를 클릭하고 생성된 백업 자격 증명 모음을 선택합니다. 클라우드 아이콘을 클릭하여 백업 자격 증명 모음의 빠른 시작 보기로 이동합니다.
    
    ![빠른 보기](./media/backup-download-credentials/quickview.png)
@@ -23,9 +23,4 @@
 * 자격 증명 모음 자격 증명 파일은 등록 워크플로 중에만 사용됩니다.
 * 자격 증명 모음 자격 증명 파일은 48시간 후에 만료되고, 만료된 후에는 포털에서 다운로드할 수 있습니다.
 * 워크플로에 대한 질문이 있으면 Azure 백업 [FAQ](../articles/backup/backup-azure-backup-faq.md) 를 참조하세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: a78fc57d264e9f8074c94b334b24bbf1b7871d08
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ee3a2e0fe4c8a554d763befc466d7fc0638964ce
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,10 +32,10 @@ ms.lasthandoff: 03/25/2017
 
 원격 데스크톱을 사용하면 Azure에서 실행 중인 역할의 데스크톱에 액세스할 수 있습니다. 원격 데스크톱 연결을 사용하여 응용 프로그램 실행 중에 응용 프로그램 문제를 진단하고 해결할 수 있습니다.
 
-이 문서에서는 PowerShell을 사용하여 클라우드 서비스 역할에 대해 원격 데스크톱을 사용하는 방법을 설명합니다. 이 문서에 필요한 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요. PowerShell에서는 응용 프로그램이 배포된 후 원격 데스크톱을 사용 가능하게 설정할 수 있도록 원격 데스크톱 확장을 사용합니다.
+이 문서에서는 PowerShell을 사용하여 클라우드 서비스 역할에 대해 원격 데스크톱을 사용하는 방법을 설명합니다. 이 문서에 필요한 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요. PowerShell에서는 응용 프로그램이 배포된 후 원격 데스크톱을 사용 가능하게 설정할 수 있도록 원격 데스크톱 확장을 사용합니다.
 
 ## <a name="configure-remote-desktop-from-powershell"></a>PowerShell에서 원격 데스크톱 구성
-[Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) cmdlet을 사용하면 지정된 역할 또는 클라우드 서비스 배포의 모든 역할에 대해 원격 데스크톱을 사용할 수 있습니다. cmdlet을 사용하면 PSCredential 개체를 수용하는 *Credential* 매개 변수를 통해 원격 데스크톱 사용자의 사용자 이름 및 암호를 지정할 수 있습니다.
+[Set-AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet을 사용하면 지정된 역할 또는 클라우드 서비스 배포의 모든 역할에 대해 원격 데스크톱을 사용할 수 있습니다. cmdlet을 사용하면 PSCredential 개체를 수용하는 *Credential* 매개 변수를 통해 원격 데스크톱 사용자의 사용자 이름 및 암호를 지정할 수 있습니다.
 
 대화형으로 PowerShell을 사용하는 경우, [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet을 호출하여 PSCredential 개체를 쉽게 설정할 수 있습니다.
 
@@ -60,7 +60,7 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 
 보안 암호 파일에서 자격 증명 개체를 만들려면 파일 내용을 읽고 [Convertto-securestring](https://technet.microsoft.com/library/hh849818.aspx)을 사용하여 이를 다시 보안 문자열로 변환해야 합니다.
 
-[Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) cmdlet은 사용자 계정이 만료되는 *DateTime* 을 지정하는 **Expiration** 매개 변수를 수락하기도 합니다. 예를 들어 현재 날짜 및 시간부터 며칠 후에 만료되도록 계정을 설정할 수 있습니다.
+[Set-AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet은 사용자 계정이 만료되는 *DateTime* 을 지정하는 **Expiration** 매개 변수를 수락하기도 합니다. 예를 들어 현재 날짜 및 시간부터 며칠 후에 만료되도록 계정을 설정할 수 있습니다.
 
 이 PowerShell 예는 클라우드 서비스에서 원격 데스크톱 확장을 설정하는 방법을 보여줍니다.
 
@@ -77,7 +77,7 @@ Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $cr
 원격 데스크톱 확장은 배포와 연결됩니다. 서비스에 대한 새 배포를 만드는 경우 해당 배포에 대해 원격 데스크톱을 사용하도록 설정해야 합니다. 원격 데스크톱을 항상 사용하려는 경우 PowerShell 스크립트를 배포 워크플로에 통합하는 것이 좋습니다.
 
 ## <a name="remote-desktop-into-a-role-instance"></a>원격 데스크톱을 역할 인스턴스로 가져오기
-[Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet은 원격 데스크톱을 클라우드 서비스의 특정 역할 인스턴스에 가져오는 데 사용됩니다. *LocalPath* 매개 변수를 사용하여 RDP 파일을 로컬로 다운로드할 수 있습니다. 또는 *Launch* 매개 변수를 사용하여 클라우드 서비스 역할 인스턴스에 액세스하기 위해 원격 데스크톱 연결 대화 상자를 바로 시작할 수 있습니다.
+[Get-AzureRemoteDesktopFile](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet은 원격 데스크톱을 클라우드 서비스의 특정 역할 인스턴스에 가져오는 데 사용됩니다. *LocalPath* 매개 변수를 사용하여 RDP 파일을 로컬로 다운로드할 수 있습니다. 또는 *Launch* 매개 변수를 사용하여 클라우드 서비스 역할 인스턴스에 액세스하기 위해 원격 데스크톱 연결 대화 상자를 바로 시작할 수 있습니다.
 
 ```
 Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
@@ -85,7 +85,7 @@ Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -L
 
 
 ## <a name="check-if-remote-desktop-extension-is-enabled-on-a-service"></a>서비스에서 원격 데스크톱 확장을 사용할 수 있는지 확인합니다.
-[Get-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet은 원격 데스크톱이 서비스 배포에 사용되는지 여부를 표시합니다. 이 cmdlet은 원격 데스크톱 확장을 사용할 수 있는 원격 데스크톱 사용자 및 역할에 대한 사용자 이름을 반환합니다. 기본적으로 이는 배포 슬롯에서 발생하며, 대신 스테이징 슬롯을 사용하도록 선택할 수 있습니다.
+[Get-AzureServiceRemoteDesktopExtension](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet은 원격 데스크톱이 서비스 배포에 사용되는지 여부를 표시합니다. 이 cmdlet은 원격 데스크톱 확장을 사용할 수 있는 원격 데스크톱 사용자 및 역할에 대한 사용자 이름을 반환합니다. 기본적으로 이는 배포 슬롯에서 발생하며, 대신 스테이징 슬롯을 사용하도록 선택할 수 있습니다.
 
 ```
 Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
@@ -94,7 +94,7 @@ Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ## <a name="remove-remote-desktop-extension-from-a-service"></a>서비스에서 원격 데스크톱 확장 제거
 배포에 대해 원격 데스크톱 확장을 이미 확장하고 원격 데스크톱 설정을 업데이트해야 하는 경우, 먼저 확장을 제거한 다음 새 설정으로 다시 사용하도록 설정해야 합니다. 예를 들어 원격 사용자 계정에 대한 새 암호를 설정하려는 경우 또는 계정이 만료된 경우가 여기에 해당합니다. 이는 원격 데스크톱 확장을 사용하도록 설정된 기존 배포에 필요합니다. 새 배포의 경우 확장을 바로 적용할 수 있습니다.
 
-배포에서 원격 데스크톱 확장을 제거하려면 [Remove-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495280.aspx) cmdlet을 사용하면 됩니다. 또한 원격 데스크톱을 제거하려는  배포 슬롯와 역할을 선택적으로 지정할 수도 있습니다.
+배포에서 원격 데스크톱 확장을 제거하려면 [Remove-AzureServiceRemoteDesktopExtension](/powershell/module/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet을 사용하면 됩니다. 또한 원격 데스크톱을 제거하려는  배포 슬롯와 역할을 선택적으로 지정할 수도 있습니다.
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration

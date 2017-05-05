@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 9c1756d2c2c4dd73c60a71b24bfb4606cab289ed
-ms.openlocfilehash: 8e718e74443e3d51dc54edaf667e34875bc67c5d
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: fa0d49498db74ec81c98f3df9317d42cdd31ab46
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -55,7 +55,7 @@ Event Hubs Dedicated를 사용하는 경우 다음과 같은 이점이 제공됩
 * 유지 관리 시간 없음: 부하 분산, 운영 체제 업데이트, 보안 패치 및 분할을 Microsoft에서 관리
 * 고정 월 요금
 
-또한 Event Hubs Dedicated는 Standard 제품의 처리량 제한 중 일부를 제거합니다. Basic 및 Standard 계층의 처리량 단위는 초당 1000개 이벤트 또는 TU당 1MBps를 수신하고 그 두 배를 송신할 수 있습니다. Dedicated 제품은 수신 및 송신 이벤트 수에 제한이 없습니다. 이러한 제한은 구매한 Event Hubs의 처리 용량에 의해서만 제어됩니다.
+또한 Event Hubs Dedicated는 Standard 제품의 처리량 제한 중 일부를 제거합니다. Basic 및 Standard 계층의 처리량 단위는 초당 1000개 이벤트 또는 TU당 1MBps를 수신하고 그 두 배를 송신할 수 있습니다. Dedicated 제품은 수신 및 송신 이벤트 수에 제한이 없습니다. 이러한 제한은 구입한 이벤트 허브의 처리 용량에 따라서만 적용됩니다.
 
 이 서비스는 가장 규모가 큰 원격 분석 사용자를 대상으로 하며 기업계약을 맺은 고객에게 제공됩니다.
 

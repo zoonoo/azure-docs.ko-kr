@@ -7,6 +7,13 @@
 ## [이벤트 원본 만들기](time-series-insights-add-event-source.md)
 ## [이벤트 보내기](time-series-insights-send-events.md)
 
+# 방법
+## [Event Hub 이벤트 원본 만들기](time-series-insights-how-to-add-an-event-source-eventhub.md)
+## [IoT Hub 이벤트 원본 만들기](time-series-insights-how-to-add-an-event-source-iothub.md)
+## [환경 규모 조정](time-series-insights-how-to-scale-your-environment.md)
+## [문제 진단 및 해결](time-series-insights-diagnose-and-solve-problems.md)
+## [C#을 사용하여 데이터 쿼리](time-series-insights-query-data-csharp.md)
+
 # 참조
 ## [쿼리 API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
 ## [쿼리 구문](/rest/api/time-series-insights/time-series-insights-reference-query-syntax)

@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: 2149bcf588b019a0c0f3c64a4e39fec9b9bc5925
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 7fc832ff23f5ad652df3cb9c689180c92952ba8e
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -187,7 +187,7 @@ PS D:\temp>
 ### <a name="service-fabric-is-not-following-the-specified-health-policies"></a>서비스 패브릭이 지정된 상태 정책을 따르지 않습니다.
 가능한 원인 1:
 
-서비스 패브릭은 상태 평가에 대한 모든 백분율을 엔터티(예: 복제본, 파티션 및 서비스)의 실제 숫자로 변환하고, 항상 정수 엔터티 값으로 반올림합니다. 예를 들어 최대 *MaxPercentUnhealthyReplicasPerPartition*이 21%이고 5개의 복제본이 있는 경우, Service Fabric은 최대 2개의 비정상 복제본(즉, `Math.Ceiling (5\*0.21))을 허용합니다. 따라서 상태 정책도 그에 따라 설정해야 합니다.
+서비스 패브릭은 상태 평가에 대한 모든 백분율을 엔터티(예: 복제본, 파티션 및 서비스)의 실제 숫자로 변환하고, 항상 정수 엔터티 값으로 반올림합니다. 예를 들어, 최대 *MaxPercentUnhealthyReplicasPerPartition*이 21%이고 5개의 복제본이 있는 경우 Serivce Fabric은 최대 2개의 비정상 복제본(즉, `Math.Ceiling (5*0.21)`)을 허용합니다. 따라서 상태 정책도 그에 따라 설정해야 합니다.
 
 가능한 원인 2:
 
@@ -222,7 +222,4 @@ PS D:\temp>
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)사용 방법을 익혀 응용 프로그램 업그레이드와 호환되도록 만듭니다.
 
 [고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
-
-[응용 프로그램 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
-
 

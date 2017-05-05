@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: c041802cd86f9e8b07771413f867691d76b01abf
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: b94b8b84ae2cf26a1680f816460cc86c4d79e885
+ms.lasthandoff: 04/20/2017
 
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Linux 데이터 과학 가상 컴퓨터 프로비전
-Linux 데이터 과학 가상 컴퓨터는 다양한 도구가 미리 설치되어 있는 Azure 가상 컴퓨터입니다. 이러한 도구는 보통 데이터 분석 및 기계 학습을 수행하는 데 사용됩니다. 포함된 주요 소프트웨어 구성 요소는 다음과 같습니다.
+Linux 데이터 과학 가상 컴퓨터는 다양한 도구가 미리 설치되어 있는 CentOS 기반 Azure Virtual Machine입니다. 이러한 도구는 보통 데이터 분석 및 기계 학습을 수행하는 데 사용됩니다. 포함된 주요 소프트웨어 구성 요소는 다음과 같습니다.
 
 * Microsoft R Server Developer Edition
 * 널리 사용되는 데이터 분석 라이브러리를 포함한 Anaconda Python 배포(버전 2.7 및 3.5)
@@ -53,6 +53,9 @@ Linux 데이터 과학 가상 컴퓨터는 다양한 도구가 미리 설치되�
 Linux 데이터 과학 가상 컴퓨터를 사용하면 이러한 부담을 상당히 줄일 수 있습니다. Linux 데이터 과학 가상 컴퓨터를 사용하여 분석 프로젝트를 바로 시작합니다. R, Python, SQL, Java 및 C++ 등의 다양한 언어로 작업을 수행할 수 있습니다. Eclipse는 사용하기 쉬운 코드를 개발하고 테스트하기 위해 IDE를 제공합니다. VM에 포함된 Azure SDK를 통해 Linux의 다양한 서비스를 사용하여 Microsoft 클라우드 플랫폼용으로 응용 프로그램을 빌드할 수 있습니다. 또한 Ruby, Perl, PHP 및 node.js와 같이 미리 설치된 다른 언어에 액세스해야 합니다.
 
 이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. VM 이미지로 프로비전하는 가상 컴퓨터의 크기를 기반으로 평가되는 Azure 하드웨어 사용 요금만 지불합니다. 계산 요금에 대한 자세한 내용은 [Azure Marketplace의 VM 목록 페이지](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/)를 참조하세요.
+
+## <a name="other-versions-of-the-data-science-virtual-machine"></a>다른 버전의 데이터 과학 가상 컴퓨터
+[Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) 이미지도 CentOS 이미지와 같은 많은 도구 및 심층 학습 프레임워크와 함께 사용할 수 있습니다. [Windows](machine-learning-data-science-provision-vm.md) 이미지도 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 Linux 데이터 과학 가상 컴퓨터를 만들려면 먼저 다음이 있어야 합니다.

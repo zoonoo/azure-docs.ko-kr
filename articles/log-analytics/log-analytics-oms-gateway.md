@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 04/20/2017
 ms.author: magoedte;banders
 translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 93d653c4e70dd058cf0408d821724a175256c918
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: ce2f9311775389366c66323070254f721f0896ab
+ms.lasthandoff: 04/22/2017
 
 ---
 
@@ -27,9 +27,10 @@ ms.lasthandoff: 03/28/2017
 
 OMS 게이트웨이는 다음을 지원합니다.
 
-1. Azure 자동화 Hybrid Runbook Worker  
-2. OMS 작업 영역에 직접 연결된 Microsoft 모니터링 에이전트가 있는 Windows 컴퓨터
-3. OMS와 통합되는 System Center Operations Manager 2012 SP1(UR7 포함), Operations Manager 2012 R2(UR3 포함) 또는 Operations Manager 2016 관리 그룹  
+* Azure 자동화 Hybrid Runbook Worker  
+* OMS 작업 영역에 직접 연결된 Microsoft 모니터링 에이전트가 있는 Windows 컴퓨터
+* OMS 작업 영역에 직접 연결된 Linux용 OMS 에이전트가 있는 Linux 컴퓨터  
+* OMS와 통합되는 System Center Operations Manager 2012 SP1(UR7 포함), Operations Manager 2012 R2(UR3 포함) 또는 Operations Manager 2016 관리 그룹  
 
 IT 보안 정책에 따라 POS(Point of Sale) 장치 또는 IT 서비스를 지원하는 서버와 같이 네트워크의 컴퓨터에서 인터넷에 연결할 수 없지만 이 장치들을 관리하고 모니터링하기 위해 OMS에 연결해야 하는 경우, OMS 게이트웨이와 직접 통신하여 구성을 수신하고 이 장치들을 대신하여 데이터를 전달하도록 구성할 수 있습니다.  이러한 컴퓨터가 OMS 에이전트와 함께 구성되어 OMS 작업 영역에 직접 연결하면 모든 컴퓨터에서 OMS 에이전트를 통해 OMS 게이트웨이와 대신 통신합니다.  게이트웨이는 데이터를 에이전트에서 OMS로 직접 전송하며, 전송되는 어떠한 데이터도 분석하지 않습니다.
 
@@ -53,7 +54,8 @@ OMS 게이트웨이 소프트웨어를 실행하는 컴퓨터에 OMS 에이전�
 
 OMS 게이트웨이를 실행하는 컴퓨터를 지정할 때 이 컴퓨터에는 다음 항목이 있어야 합니다.
 
-* Windows 10, Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 또는 Windows Server 2008 운영 체제
+* Windows 10, Windows 8.1, Windows 7
+* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 * .Net Framework 4.5
 * 최소 4코어 프로세서 및 8GB 메모리 
 
@@ -230,18 +232,18 @@ cmdlet은 OMS 게이트웨이 구성 설정을 업데이트하는 데 필요한 
 
 3단계에서 오류가 발생하면 모듈을 가져오기가 완료되지 못한 것입니다. PowerShell이 모듈을 찾을 수 없는 경우 오류가 발생할 수 있습니다. *C:\Program Files\Microsoft OMS Gateway\PowerShell* 게이트웨이 설치 경로에서 해당 모듈을 찾을 수 있습니다.
 
-| **Cmdlet** | **매개 변수** | **설명** | **예** |
-| --- | --- | --- | --- |
-| `Set-OMSGatewayConfig` |키(필수) <br> 값 |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |
-| `Get-OMSGatewayConfig` |키 |서비스 구성 가져오기 |`Get-OMSGatewayConfig` <br> <br> `Get-OMSGatewayConfig -Name ListenPort` |
-| `Set-OMSGatewayRelayProxy` |주소 <br> 사용자 이름 <br> 암호 |릴레이(업스트림) 프록시 주소(및 자격 증명) 설정 |1. 릴레이 프록시 및 자격 증명 설정: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080 -Username user1 -Password 123` <br> <br> 2. 인증이 필요 없는 릴레이 프록시 설정: `Set-OMSGatewayRelayProxy -Address http://www.myproxy.com:8080` <br> <br> 3. 릴레이 프록시 설정 지우기 즉, 릴레이 프록시 필요 없음: `Set-OMSGatewayRelayProxy -Address ""` |
-| `Get-OMSGatewayRelayProxy` | |릴레이(업스트림) 프록시 주소 가져오기 |`Get-OMSGatewayRelayProxy` |
-| `Add-OMSGatewayAllowedHost` |호스트(필수) |호스트를 허용 목록에 추가 |`Add-OMSGatewayAllowedHost -Host www.test.com` |
-| `Remove-OMSGatewayAllowedHost` |호스트(필수) |호스트를 허용 목록에서 제거 |`Remove-OMSGatewayAllowedHost -Host www.test.com` |
-| `Get-OMSGatewayAllowedHost` | |현재 허용된 호스트 가져오기(로컬로 구성되어 허용된 호스트만, 자동으로 다운로드되어 허용된 호스트는 포함되지 않음) |`Get-OMSGatewayAllowedHost` |
-| `Add-OMSGatewayAllowedClientCertificate` |주체(필수) |클라이언트 인증서 주체를 허용 목록에 추가 |`Add-OMSGatewayAllowedClientCertificate -Subject mycert` |
-| `Remove-OMSGatewayAllowedClientCertificate` |주체(필수) |클라이언트 인증서 주체를 허용 목록에서 제거 |`Remove- OMSGatewayAllowedClientCertificate -Subject mycert` |
-| `Get-OMSGatewayAllowedClientCertificate` | |현재 허용된 클라이언트 인증서 주체 가져오기(로컬로 구성되어 허용된 주체만, 자동으로 다운로드되어 허용된 주체는 포함되지 않음) |`Get-OMSGatewayAllowedClientCertificate` |
+| **Cmdlet** | **매개 변수** | **설명** | **예제** |
+| --- | --- | --- | --- |  
+| `Get-OMSGatewayConfig` |키 |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
+| `Set-OMSGatewayConfig` |키(필수) <br> 값 |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Get-OMSGatewayRelayProxy` | |릴레이(업스트림) 프록시 주소 가져오기 |`Get-OMSGatewayRelayProxy` |  
+| `Set-OMSGatewayRelayProxy` |주소<br> 사용자 이름<br> 암호 |릴레이(업스트림) 프록시 주소(및 자격 증명) 설정 |1. 릴레이 프록시 및 자격 증명 설정:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. 인증이 필요 없는 릴레이 프록시 설정: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. 릴레이 프록시 설정 지우기:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Get-OMSGatewayAllowedHost` | |현재 허용된 호스트 가져오기(로컬로 구성되어 허용된 호스트만, 자동으로 다운로드되어 허용된 호스트는 포함되지 않음) |`Get-OMSGatewayAllowedHost` | 
+| `Add-OMSGatewayAllowedHost` |호스트(필수) |호스트를 허용 목록에 추가 |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
+| `Remove-OMSGatewayAllowedHost` |호스트(필수) |호스트를 허용 목록에서 제거 |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
+| `Add-OMSGatewayAllowedClientCertificate` |주체(필수) |클라이언트 인증서 주체를 허용 목록에 추가 |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
+| `Remove-OMSGatewayAllowedClientCertificate` |주체(필수) |클라이언트 인증서 주체를 허용 목록에서 제거 |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
+| `Get-OMSGatewayAllowedClientCertificate` | |현재 허용된 클라이언트 인증서 주체 가져오기(로컬로 구성되어 허용된 주체만, 자동으로 다운로드되어 허용된 주체는 포함되지 않음) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## <a name="troubleshooting"></a>문제 해결
 게이트웨이에서 기록한 이벤트를 수집하려면 OMS 에이전트도 설치해야 합니다.<br><br> ![이벤트 뷰어 – OMS 게이트웨이 로그](./media/log-analytics-oms-gateway/event-viewer.png)

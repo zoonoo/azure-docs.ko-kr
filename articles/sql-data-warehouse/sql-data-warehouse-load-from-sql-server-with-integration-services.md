@@ -3,7 +3,7 @@ title: "SQL Server에서 Azure SQL Data Warehouse로 데이터 로드(SSIS) | Mi
 description: "SSIS(SQL Server Integration Services) 패키지를 만들어 다양한 데이터 원본에서 SQL 데이터 웨어하우스로 데이터를 이동하는 방법을 보여줍니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: douglaslms
 manager: jhubbard
 editor: 
 ms.assetid: e2c252e9-0828-47c2-a808-e3bea46c134a
@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess
 ms.custom: loading
+ms.date: 03/30/2017
+ms.author: douglasl;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a8c557ea07cbccb913bc47c510f6759dd832c861
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d208f783e5b4e7786350706d8025e6e13f45f0d2
+ms.lasthandoff: 04/03/2017
+
 
 
 ---
@@ -55,14 +56,14 @@ SSIS(SQL Server Integration Services)는 SQL 데이터 웨어하우스에 연결
 이 자습서를 단계별로 실행하려면 다음을 수행해야 합니다.
 
 1. **SSIS(SQL Server Integration Services)**. SSIS는 SQL Server의 구성 요소이며 평가판 버전 또는 라이선스 버전의 SQL Server가 필요합니다. 평가판 버전의 SQL Server 2016 Preview를 다운로드하려면 [SQL Server 평가][SQL Server Evaluations]를 참조하세요.
-2. **Visual Studio**. 무료 Visual Studio 2015 Community Edition을 다운로드하려면 [Visual Studio Community][Visual Studio Community]를 참조하세요.
-3. **Visual Studio용 SSDT(SQL Server Data Tools)**. Visual Studio 2015용 SQL Server Data Tools를 다운로드하려면 [SSDT(SQL Server Data Tools) 다운로드][Download SQL Server Data Tools (SSDT)]를 참조하세요.
+2. **Visual Studio**. 무료 Visual Studio Community Edition을 다운로드하려면 [Visual Studio Community][Visual Studio Community]를 참조하세요.
+3. **Visual Studio용 SSDT(SQL Server Data Tools)**. Visual Studio용 SQL Server Data Tools를 다운로드하려면 [SSDT(SQL Server Data Tools) 다운로드][Download SQL Server Data Tools (SSDT)]를 참조하세요.
 4. **예제 데이터**. 이 자습서는 SQL 데이터 웨어하우스에 로드할 원본 데이터로 AdventureWorks 예제 데이터베이스의 SQL Server에 저장된 예제 데이터를 사용합니다. AdventureWorks 예제 데이터베이스를 다운로드하려면 [AdventureWorks 2014 예제 데이터베이스][AdventureWorks 2014 Sample Databases]를 참조하세요.
 5. **SQL 데이터 웨어하우스 데이터베이스 및 사용 권한**. 이 자습서는 SQL 데이터 웨어하우스 인스턴스로 연결한 다음 여기로 데이터를 로드합니다. 테이블을 만들고 데이터를 로드할 수 있는 권한이 있어야 합니다.
 6. **방화벽 규칙**. SQL 데이터 웨어하우스로 데이터를 로드하기 전에 로컬 컴퓨터의 IP 주소를 사용하여 SQL 데이터 웨어하우스에 방화벽 규칙을 만들어야 합니다.
 
 ## <a name="step-1-create-a-new-integration-services-project"></a>1단계: 새 Integration Services 프로젝트 만들기
-1. Visual Studio 2015를 실행합니다.
+1. Visual Studio를 시작합니다.
 2. **파일** 메뉴에서 **새로 만들기 | 프로젝트**를 선택합니다.
 3. **설치됨 | 템플릿 | 비즈니스 인텔리전스 | Integration Services** 프로젝트 형식으로 이동합니다.
 4. **Integration Services 프로젝트**를 선택합니다. **이름** 및 **위치** 값을 입력한 다음 **확인**을 선택합니다.

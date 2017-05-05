@@ -30,8 +30,3 @@
 
 매개 변수에 대해 중요한 값(예: 암호)을 제공해야 할 경우 해당 값을 주요 자격 증명 모음에 추가합니다. 앞의 예제에 표시된 대로 배포하는 동안 주요 자격 증명 모음을 검색합니다. 자세한 내용은 [배포 중 보안 값 전달](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md)을 참조하세요. 
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
+ms.date: 4/20/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 7a3b8c4d373a97db1a1fae4af6d6ee4d8c35d4c4
-ms.openlocfilehash: ae3d9963045749f5487b4baac77e5eacc16ac9fc
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: b2eb107d3d4279b5e2ac0612561f613fdb7ba006
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -90,8 +91,8 @@ ScienceLogic은 어디서든지 모든 기술을 관리하는 차세대 IT 서�
 
 [자세히 알아봅니다][sciencelogic-doc].
 
-## <a name="splunk-add-on-for-microsoft-cloud-services"></a>Microsoft 클라우드 서비스를 위한 Splunk 추가 기능
-Microsoft 클라우드 서비스를 위한 Splunk 추가 기능은 [여기 Splunkbase](https://splunkbase.splunk.com/app/3110/)에서 사용할 수 있습니다.
+## <a name="azure-monitor-add-on-for-splunk"></a>Splunk용 Azure Monitor 추가 기능
+Splunk용 Azure Monitor 추가 기능은 [Splunkbase에서 사용 가능](https://splunkbase.splunk.com/app/3534/)합니다.
 
 [설명서로 이동합니다.][splunk-doc]
 
@@ -119,7 +120,7 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
 [sciencelogic-anchor]: #sciencelogic "ScienceLogic"
-[splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
+[splunk-anchor]: #azure-monitor-add-on-for-splunk "Splunk"
 [sumologic-anchor]: #sumo-logic "Sumo Logic"
 
 <!--Icon references-->
@@ -151,11 +152,6 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie 설명서."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty 설명서."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic 설명서."
-[splunk-doc]: http://docs.splunk.com/Documentation/AddOns/released/MSCloudServices/About "Splunk 설명서."
+[splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk 설명서."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic 설명서."
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

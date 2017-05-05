@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 04/03/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 9d76e82b1658c3ea4dd6631bae232d17f375ab33
-ms.openlocfilehash: 61c0fd56aad1cc589138aa02ea43ef315edf9baf
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 715f76377947baaf1a72871cfe291f17e1cc0baf
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -65,7 +66,7 @@ Azure 리소스 관리자에서 Windows PowerShell을 사용하려면 다음이 
 
     Get-Help New-AzureRmRedisCache -Detailed
 
-### <a name="how-to-connect-to-azure-government-cloud-or-azure-china-cloud"></a>Azure Government 클라우드 또는 Azure 중국 클라우드에 연결하는 방법
+### <a name="how-to-connect-to-other-clouds"></a>다른 클라우드에 연결하는 방법
 기본적으로 Azure 환경은 글로벌 Azure 클라우드 인스턴스를 나타내는 `AzureCloud`입니다. 다른 인스턴스에 연결하려면 원하는 환경 또는 환경 이름을 사용하여 `-Environment` 또는 -`EnvironmentName` 명령줄 스위치와 함께 `Add-AzureRmAccount` 명령을 사용합니다.
 
 사용 가능한 환경 목록을 보려면 `Get-AzureRmEnvironment` cmdlet을 실행합니다.
@@ -102,6 +103,23 @@ Azure 중국 클라우드에서 캐시를 만들려면 다음 위치 중 하나�
 
 Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 운영하는 Azure용 AzureChinaCloud](http://www.windowsazure.cn/)를 참조하세요.
 
+### <a name="to-connect-to-microsoft-azure-germany"></a>Microsoft Azure Germany에 연결하려면
+Microsoft Azure Germany에 연결하려면 다음 명령 중 하나를 사용합니다.
+
+    Add-AzureRMAccount -EnvironmentName AzureGermanCloud
+
+
+또는
+
+    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
+
+Microsoft Azure Germany에서 캐시를 만들려면 다음 위치 중 하나를 사용합니다.
+
+* 독일 중부
+* 독일 북동부
+
+Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)를 참조하세요.
+
 ### <a name="properties-used-for-azure-redis-cache-powershell"></a>Azure Redis Cache PowerShell에 사용되는 속성
 다음 표에서는 Azure PowerShell을 사용하여 Azure Redis Cache 인스턴스를 만들고 관리할 때 자주 사용되는 매개 변수에 대한 속성 및 설명을 포함합니다.
 
@@ -125,11 +143,11 @@ Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 �
 | 속성 | 설명 | 가격 책정 계층 |
 | --- | --- | --- |
 | rdb-backup-enabled |[Redis 데이터 지속성](cache-how-to-premium-persistence.md) 사용 여부 |프리미엄 전용 |
-| rdb-storage-connection-string | [Redis 데이터 지속성](cache-how-to-premium-persistence.md) |프리미엄 전용 |
-| rdb-backup-frequency | [Redis 데이터 지속성](cache-how-to-premium-persistence.md) |프리미엄 전용 |
+| rdb-storage-connection-string |[Redis 데이터 지속성](cache-how-to-premium-persistence.md) |프리미엄 전용 |
+| rdb-backup-frequency |[Redis 데이터 지속성](cache-how-to-premium-persistence.md) |프리미엄 전용 |
 | maxmemory-reserved |비 캐시 프로세스를 위해 [예약되는 메모리](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) 를 구성합니다 |표준 및 프리미엄 |
 | maxmemory-policy |캐시에 대한 [제거 정책](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) 을 구성합니다 |모든 가격 책정 계층 |
-| notify-keyspace-events | [Keyspace 알림](cache-configure.md#keyspace-notifications-advanced-settings) |표준 및 프리미엄 |
+| notify-keyspace-events |[Keyspace 알림](cache-configure.md#keyspace-notifications-advanced-settings) |표준 및 프리미엄 |
 | hash-max-ziplist-entries |작은 집계 데이터 형식에 대한 [메모리 최적화](http://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
 | hash-max-ziplist-value |작은 집계 데이터 형식에 대한 [메모리 최적화](http://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
 | set-max-intset-entries |작은 집계 데이터 형식에 대한 [메모리 최적화](http://redis.io/topics/memory-optimization) 구성 |표준 및 프리미엄 |
@@ -763,15 +781,10 @@ Redis Cache를 삭제하려면 [Remove-AzureRmRedisCache](https://msdn.microsoft
 Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
 * [MSDN에 있는 Azure Redis Cache cmdlet 설명서](https://msdn.microsoft.com/library/azure/mt634513.aspx)
-* [Azure 리소스 관리자 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765): AzureResourceManager 모듈에서 cmdlet을 사용하는 방법에 대해 알아봅니다.
+* [Azure Resource Manager Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765): Azure Resource Manager 모듈에서 cmdlet을 사용하는 방법을 알아봅니다.
 * [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-template-deploy-portal.md): Azure 포털에서 리소스 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 * [Azure 블로그](http://blogs.msdn.com/windowsazure): Azure의 새로운 기능에 대해 알아봅니다.
 * [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 * ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
-
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

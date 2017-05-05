@@ -26,8 +26,3 @@
       
       ![StorSimple 가상 장치 만들기 단계](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

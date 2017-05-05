@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 04/11/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 5e32f1e534057b5e8e0ed6d5c0a4631f9fefbca5
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a96150a6a7f83d1c220e0450f7704634a1f6ed1b
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -50,12 +50,12 @@ Service Fabric은 독립 실행형 Service Fabric 클러스터를 만드는 설�
 Service Fabric 런타임 패키지는 클러스터 생성 시 자동으로 다운로드되어 설치됩니다.
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
-3개 노드 개발 클러스터가 현재 실행 중입니다. ServiceFabric PowerShell 모듈은 런타임에 설치됩니다.  Service Fabric 런타임에 클러스터가 같은 컴퓨터에서 실행되는지, 원격 컴퓨터에서 실행되는지 확인할 수 있습니다.  [Connect-ServiceFabricCluster](/powershell/module/ServiceFabric/Connect-ServiceFabricCluster) cmdlet은 클러스터에 대한 연결을 설정합니다.   
+3개 노드 개발 클러스터가 현재 실행 중입니다. ServiceFabric PowerShell 모듈은 런타임에 설치됩니다.  Service Fabric 런타임에 클러스터가 같은 컴퓨터에서 실행되는지, 원격 컴퓨터에서 실행되는지 확인할 수 있습니다.  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet은 클러스터에 대한 연결을 설정합니다.   
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
 ```
-클러스터에 연결하는 다른 예제는 [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)을 참조하세요. 클러스터에 연결한 후에는 [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) cmdlet을 사용하여 클러스터의 노드 목록과 각 노드에 대한 상태 정보를 표시합니다. **HealthState**는 노드마다 *OK* 상태여야 합니다.
+클러스터에 연결하는 다른 예제는 [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)을 참조하세요. 클러스터에 연결한 후에는 [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet을 사용하여 클러스터의 노드 목록과 각 노드에 대한 상태 정보를 표시합니다. **HealthState**는 노드마다 *OK* 상태여야 합니다.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table
@@ -95,3 +95,4 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion ConfigVersio
 * [PowerShell을 사용하여 앱 배포](service-fabric-deploy-remove-applications.md)
 
 [service-fabric-explorer]: ./media/service-fabric-get-started-standalone-cluster/sfx.png
+

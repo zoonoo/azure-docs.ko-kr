@@ -12,11 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 04/10/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: de7af5419aa423734ad06b236e0edf61fbb0cad1
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: c4a9e57cda4ba5b4db742c1a37686a802f58212f
+ms.lasthandoff: 04/11/2017
 
 ---
 
@@ -44,26 +45,47 @@ ms.openlocfilehash: de7af5419aa423734ad06b236e0edf61fbb0cad1
         { "id" : "3", "text" : "example 3" }
     ]
 
-각각 "id" 및 "text" 필드가 있는 별도의 3개 문서로 Azure 검색 인덱스를 채울 수 있습니다.
+각각 "id" 및 "text" 필드가 있는 별도의 3개 문서로 Azure Search 인덱스를 채울 수 있습니다.
 
 > [!IMPORTANT]
-> 이 기능은 현재 미리 보기 상태입니다. **2015-02-28-Preview**버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
+> JSON 배열 구문 분석 기능은 현재 미리 보기 상태입니다. **2015-02-28-Preview**버전을 사용하여 REST API로만 제공됩니다. 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않는다는 점을 유념하세요.
 >
 >
 
 ## <a name="setting-up-json-indexing"></a>JSON 인덱싱 설정
-JSON blob을 인덱싱하려면 `parsingMode` 구성 매개 변수를 `json`(각 blob을 단일 문서로 인덱싱) 또는 `jsonArray`(blob에 JSON 배열이 포함된 경우)(으)로 설정합니다.
+JSON blob 인덱싱은 일반 문서 추출과 비슷합니다. 먼저 평소대로 정확하게 데이터 원본을 만듭니다. 
+
+    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+        "name" : "my-blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
+        "container" : { "name" : "my-container", "query" : "optional, my-folder" }
+    }   
+
+그런 다음 대상 검색 인덱스가 아직 없는 경우 새로 만듭니다. 
+
+마지막으로 인덱서를 만들고 `parsingMode` 매개 변수를 `json`(각 blob을 단일 문서로 인덱싱) 또는 `jsonArray`(blob에 JSON 배열이 포함되어 있고 각 배열 요소를 별도 문서로 처리해야 하는 경우)로 설정합니다.
+
+    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
 
     {
       "name" : "my-json-indexer",
-      ... other indexer properties
-      "parameters" : { "configuration" : { "parsingMode" : "json" | "jsonArray" } }
+      "dataSourceName" : "my-blob-datasource",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
 
-필요한 경우 **필드 매핑** 을 사용하여 대상 검색 인덱스를 채우는 데 사용되는 원본 JSON 문서의 속성을 선택합니다.  아래에서 자세히 설명합니다.
+필요한 경우 다음 섹션에 표시된 것처럼 **필드 매핑**을 사용하여 대상 검색 인덱스를 채우는 데 사용되는 원본 JSON 문서의 속성을 선택합니다.
 
 > [!IMPORTANT]
-> `json` 또는 `jsonArray` 구문 분석 모드를 사용하는 경우 Azure Search는 데이터 원본의 모든 BLOB을 JSON으로 가정합니다. 동일한 데이터 원본에서 JSON 및 비 JSON BLOB을 지원해야 하는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 알려주세요.
+> `json` 또는 `jsonArray` 구문 분석 모드를 사용하는 경우 Azure Search는 데이터 원본의 모든 blob이 JSON을 포함한다고 가정합니다. 동일한 데이터 원본에서 JSON 및 비 JSON BLOB을 지원해야 하는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 알려주세요.
 >
 >
 
@@ -80,7 +102,7 @@ JSON blob을 인덱싱하려면 `parsingMode` 구성 매개 변수를 `json`(각
         }
     }
 
-Edm.String 형식의 `text`, Edm.DateTimeOffset 형식의 `date` 및 Collection(Edm.String) 형식의 `tags` 필드가 있는 검색 인덱스가 있다고 가정해 보겠습니다. JSON을 원하는 모양으로 매핑하려면 다음 필드 매핑을 사용합니다.
+`Edm.String` 형식의 `text`, `Edm.DateTimeOffset` 형식의 `date` 및 `Collection(Edm.String)` 형식의 `tags` 필드를 포함하는 검색 인덱스가 있다고 가정해 봅니다. JSON을 원하는 모양으로 매핑하려면 다음 필드 매핑을 사용합니다.
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -88,7 +110,7 @@ Edm.String 형식의 `text`, Edm.DateTimeOffset 형식의 `date` 및 Collection(
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
       ]
 
-매핑의 원본 필드 이름은 [JSON 포인터](http://tools.ietf.org/html/rfc6901) 표기법을 사용하여 지정됩니다. JSON 문서의 루트를 참조하도록 슬래시로 시작한 다음 슬래시로 구분된 경로를 사용하여 (임의의 중첩 수준에서) 원하는 속성을 상세히 검색합니다.
+매핑의 원본 필드 이름은 [JSON 포인터](http://tools.ietf.org/html/rfc6901) 표기법을 사용하여 지정됩니다. JSON 문서의 루트를 참조하도록 슬래시로 시작한 다음 슬래시로 구분된 경로를 사용하여 (임의의 중첩 수준에서) 원하는 속성을 선택합니다.
 
 또한 0부터 시작하는 인덱스를 사용하여 개별 배열 요소를 참조할 수 있습니다. 예를 들어 위의 예제에서 "tags" 배열의 첫 번째 요소를 선택하려면 다음과 같은 필드 매핑을 사용합니다.
 
@@ -107,47 +129,9 @@ JSON 문서에 단순한 최상위 속성만 포함되는 경우 필드 매핑�
        "tags" : [ "search", "storage", "howto" ]    
      }
 
-## <a name="indexing-nested-json-arrays"></a>중첩된 JSON 배열 인덱싱
-JSON 개체의 배열을 인덱싱하려고 하지만 해당 배열이 문서 내에 중첩되어 있으면 어떻게 할까요? `documentRoot` 구성 속성을 사용하여 배열을 포함하는 속성을 선택할 수 있습니다. 예를 들어 blob은 다음과 같습니다.
+다음은 필드 매핑이 있는 전체 인덱서 페이로드입니다.
 
-    {
-        "level1" : {
-            "level2" : [
-                { "id" : "1", "text" : "Use the documentRoot property" },
-                { "id" : "2", "text" : "to pluck the array you want to index" },
-                { "id" : "3", "text" : "even if it's nested inside the document" }  
-            ]
-        }
-    }
-
-다음 구성을 사용하여 "level2" 속성에 포함된 배열을 인덱싱합니다.
-
-    {
-        "name" : "my-json-array-indexer",
-        ... other indexer properties
-        "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
-    }
-
-
-## <a name="request-examples"></a>요청 예제
-다음은 이를 모두 포함한 전체 페이로드 예제입니다.
-
-데이터 원본:
-
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-        "name" : "my-blob-datasource",
-        "type" : "azureblob",
-        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
-        "container" : { "name" : "my-container", "query" : "optional, my-folder" }
-    }   
-
-인덱서:
-
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -164,11 +148,27 @@ JSON 개체의 배열을 인덱싱하려고 하지만 해당 배열이 문서 �
         ]
     }
 
+## <a name="indexing-nested-json-arrays"></a>중첩된 JSON 배열 인덱싱
+JSON 개체의 배열을 인덱싱하려고 하지만 해당 배열이 문서 내에 중첩되어 있으면 어떻게 할까요? `documentRoot` 구성 속성을 사용하여 배열을 포함하는 속성을 선택할 수 있습니다. 예를 들어 blob은 다음과 같습니다.
+
+    {
+        "level1" : {
+            "level2" : [
+                { "id" : "1", "text" : "Use the documentRoot property" },
+                { "id" : "2", "text" : "to pluck the array you want to index" },
+                { "id" : "3", "text" : "even if it's nested inside the document" }  
+            ]
+        }
+    }
+
+다음 구성을 사용하여 `level2` 속성에 포함된 배열을 인덱싱합니다.
+
+    {
+        "name" : "my-json-array-indexer",
+        ... other indexer properties
+        "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
+    }
+
 ## <a name="help-us-make-azure-search-better"></a>Azure 검색 개선 지원
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

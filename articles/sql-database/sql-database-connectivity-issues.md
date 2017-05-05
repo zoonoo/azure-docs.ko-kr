@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: a6489fd5ff5e60bc3a1c06485d330556250c21cd
-ms.openlocfilehash: eddbdda847d7d0cc12f3e1c6128ce76d15f6f39f
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 608cbc0fd1cc1d73d28056909ed06618457bd9c0
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -167,7 +167,7 @@ SQL 데이터베이스 서버가 사용자의 클라이언트 프로그램을 �
 
 IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 오류 메시지로 필요한 IP 주소를 표시합니다.
 
-[!INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
+[!INCLUDE [sql-database-include-ip-address-22-portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 자세한 내용은 [방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)
 
@@ -186,7 +186,7 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 6. &gt; 작업
 7. &gt; 새 규칙
 
-클라이언트 프로그램이 Azure VM(가상 컴퓨터)에 호스팅된 경우 <br/>[ADO이 throw되어 일시적 오류가 발생했다는 메시지가 표시됩니다.NET 4이 throw되어 일시적 오류가 발생했다는 메시지가 표시됩니다.5 및 SQL 데이터베이스 V12용 1433 이상의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)이 throw되어 일시적 오류가 발생했다는 메시지가 표시됩니다.
+클라이언트 프로그램이 Azure VM(가상 컴퓨터)에 호스팅된 경우 <br/>[ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 포트 및 IP 주소 구성에 대한 배경 정보는 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)
 
@@ -335,7 +335,7 @@ Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견�
 ### <a name="entlib60-classes-for-transient-errors-and-retry"></a>일시적 오류 및 재시도용 EntLib60 클래스
 다음 EntLib60 클래스는 특히 재시도 논리에 유용합니다. 이러한 클래스는 모두 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 네임스페이스에 있으며, 여기에 추가 클래스가 있을 수 있습니다.
 
- *Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**네임스페이스에 있으며, 여기에 추가 클래스가 있을 수 있습니다.*
+***Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 네임스페이스:*
 
 * **RetryPolicy** 클래스
   

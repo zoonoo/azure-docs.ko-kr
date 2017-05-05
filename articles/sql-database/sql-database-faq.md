@@ -16,9 +16,9 @@ ms.workload: data-management
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 610fd07388839ee3673e963f2289cbe0639ad650
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 0b53eb34293078ad2ce334583fee88a8c5ac5ccf
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -83,7 +83,7 @@ eDTU 및 서비스 계층을 이해하려면 [SQL 데이터베이스 옵션 및 
 몇 가지 도구를 사용할 수 있습니다. 
 
 * 온-프레미스 데이터베이스의 경우 필요한 DTU 및 데이터베이스를 추천하는 [DTU 크기 조정 관리자](http://dtucalculator.azurewebsites.net/)를 사용하고 탄력적 풀에 대해 여러 데이터베이스를 평가합니다.
-* 풀에 포함될 경우 유리한 단일 데이터베이스의 경우 Azure의 지능형 엔진이 사용 패턴 기록이 타당하다고 판단되는 경우 탄력적 풀을 권장합니다. [Azure Portal을 사용하여 탄력적 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)를 참조하세요. 직접 계산을 수행하는 방법에 대한 자세한 내용은 [탄력적 풀에 대한 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
+* 풀에 포함될 경우 유리한 단일 데이터베이스의 경우 Azure의 지능형 엔진이 사용 패턴 기록이 타당하다고 판단되는 경우 탄력적 풀을 권장합니다. [Azure Portal을 사용하여 탄력적 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)를 참조하세요. 직접 계산을 수행하는 방법에 대한 자세한 내용은 [탄력적 풀에 대한 가격 및 성능 고려 사항](sql-database-elastic-pool.md)을 참조하세요.
 * 단일 데이터베이스를 확장 또는 축소해야 할지 여부를 확인하려면 [단일 데이터베이스의 성능 지침](sql-database-performance-guidance.md)을 참조하세요.
 
 ## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database"></a>단일 데이터베이스의 서비스 계층 또는 성능 수준은 얼마나 자주 변경할 수 있나요?
@@ -96,7 +96,7 @@ eDTU 및 서비스 계층을 이해하려면 [SQL 데이터베이스 옵션 및 
 데이터베이스의 서비스 계층을 변경하고 풀 내부 및 외부로 이동하려면 플랫폼에서 백그라운드 작업으로 데이터베이스를 복사해야 합니다. 서비스 계층을 변경하는 데는 데이터베이스 크기에 따라 몇 분에서 몇 시간까지 소요될 수 있습니다. 두 경우 모두 데이터베이스는 온라인 상태이고 이동 중에도 사용할 수 있습니다. 단일 데이터베이스 변경에 대한 자세한 내용은 [데이터베이스의 서비스 계층 변경](sql-database-service-tiers.md)을 참조하세요. 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>탄력적 데이터베이스와 단일 데이터베이스는 언제 사용해야 하나요?
-일반적으로 탄력적 풀은 고객 또는 테넌트당 하나의 데이터베이스가 있는 전형적인 [SaaS(Software-as-a-Service) 응용 프로그램 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 위해 설계되었습니다. 개별 데이터베이스를 만들고 각 데이터베이스의 가변적인 최대 수요를 충족하기 위해 과도하게 프로비저닝하는 것은 대체로 비용 효율적이지 않습니다. 풀을 사용하여 사용자는 풀의 집단 성능을 관리하고 데이터베이스는 자동으로 확장 및 축소됩니다. Azure의 지능형 엔진이 사용 패턴이 타당하다고 판단되는 경우 데이터베이스에 대한 풀을 추천합니다. 자세한 내용은 [탄력적 풀 지침](sql-database-elastic-pool-guidance.md)을 참조하세요.
+일반적으로 탄력적 풀은 고객 또는 테넌트당 하나의 데이터베이스가 있는 전형적인 [SaaS(Software-as-a-Service) 응용 프로그램 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 위해 설계되었습니다. 개별 데이터베이스를 만들고 각 데이터베이스의 가변적인 최대 수요를 충족하기 위해 과도하게 프로비저닝하는 것은 대체로 비용 효율적이지 않습니다. 풀을 사용하여 사용자는 풀의 집단 성능을 관리하고 데이터베이스는 자동으로 확장 및 축소됩니다. Azure의 지능형 엔진이 사용 패턴이 타당하다고 판단되는 경우 데이터베이스에 대한 풀을 추천합니다. 자세한 내용은 [탄력적 풀 지침](sql-database-elastic-pool.md)을 참조하세요.
 
 ## <a name="what-does-it-mean-to-have-up-to-200-of-your-maximum-provisioned-database-storage-for-backup-storage"></a>최대 프로비전된 데이터베이스 저장소의 최대 200%가 백업 저장소로 제공된다는 것은 어떤 의미인가요?
 백업 저장소는 [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore) 및 [지역 복원](sql-database-recovery-using-backups.md#geo-restore)에 사용되는 자동 데이터베이스 백업과 관련된 저장소입니다. Microsoft Azure SQL 데이터베이스에서는 추가 비용 없이 최대 프로비전된 데이터베이스 저장소의 최대 200%까지 백업 저장소가 제공됩니다. 예를 들어, 프로비전된 DB의 크기가 250GB인 Standard DB 인스턴스가 있으면 추가 비용 없이 500GB의 백업 저장소가 제공됩니다. 데이터베이스가 제공된 백업 저장소를 초과하는 경우 Azure 지원에 문의하여 보존 기간을 줄이도록 선택하거나 표준 RA-GRS(읽기 액세스 지리 중복 저장소) 요금으로 청구되는 추가 백업 저장소에 대해 비용을 지불할 수 있습니다. RA-GRS 청구에 대한 자세한 내용은 저장소 가격 세부 정보를 참조하세요.

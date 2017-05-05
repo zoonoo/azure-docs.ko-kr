@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
 translationtype: Human Translation
-ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
-ms.openlocfilehash: 6766242bef4e6f976a621547941e8e34a4915c6c
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 8c94c8789696507d89e08a637067ca040d45246a
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/07/2017
 
 이 항목은 Azure SQL Database의 확장 이벤트 구현과 Mirosoft SQL Server의 확장 이벤트 구현의 작은 차이점에 대해 설명합니다.
 
-- SQL Database V12는 2015년 후반기 확장 이벤트 기능을 추가했습니다.
+- SQL Database는 2015년 후반기 확장 이벤트 기능을 추가했습니다.
 - SQL Server는 2008년 이후 확장 이벤트를 추가해 왔습니다.
 - SQL Database의 확장 이벤트 기능 집합은 SQL Server 기능의 견고한 하위 집합입니다.
 

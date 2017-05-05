@@ -11,17 +11,18 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 3cd588751346517f9359f760561839339b0f9edb
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 2e1915f017db8286b8a381aacf62205f3d34bcc9
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="securing-access-to-azure-remoteapp-and-beyond"></a>Azure RemoteApp 등에 대한 액세스 보호
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -34,7 +35,7 @@ ms.openlocfilehash: 3cd588751346517f9359f760561839339b0f9edb
 이러한 질문에 대한 정보 및 답변을 계속 읽습니다.
 
 ## <a name="who-can-access-the-collection"></a>컬렉션에 액세스할 수 있는 사용자는 누구인가요?
-관리자는 컬렉션의 원격 응용 프로그램에 액세스할 수 있는 사용자를 선택합니다. Azure AD(Azure Active Directory) 회사 또는 학교 계정(이전 명칭, "조직 계정") 또는 Microsoft 계정을 사용할 수 있습니다.(예: @outlook.com). Azure AD 계정을 사용하는 대부분의 엔터프라이즈 시나리오는 뒷부분에서 설명할 조건부 액세스 기능을 사용하며 도메인에 가입된 컬렉션에 대한 유일한 선택입니다. 문서의 나머지 부분에서는 Azure AD 계정을 Azure RemoteApp과 함께 사용한다고 가정합니다.
+관리자는 컬렉션의 원격 응용 프로그램에 액세스할 수 있는 사용자를 선택합니다. Azure AD(Azure Active Directory) 회사 또는 학교 계정(이전 명칭, “조직 계정”) 또는 Microsoft 계정을 사용할 수 있습니다.(예: @outlook.com) Azure AD 계정을 사용하는 대부분의 엔터프라이즈 시나리오는 뒷부분에서 설명할 조건부 액세스 기능을 사용하며 도메인에 가입된 컬렉션에 대한 유일한 선택입니다. 문서의 나머지 부분에서는 Azure AD 계정을 Azure RemoteApp과 함께 사용한다고 가정합니다.
 
 **수행한 내용:**
 
@@ -115,10 +116,5 @@ Azure RemoteApp으로 VNet을 구성해야 하고 컬렉션의 만들기 과정�
 아래 다이어그램에서는 최종 사용자로부터 Azure RemoteApp(ARA)을 통해 백 엔드 리소스에 보안 액세스 채널을 작성한 완전한 솔루션을 보여줍니다.
 ![Azure RemoteApp 보안](./media/remoteapp-secureaccess/ra-secureoverview.png) 1단계에서 사용자를 선택하고 ARA에 액세스할 수 있는 방법을 제어하는 액세스 규칙을 만들었습니다. 아래 예제에서는 회사 네트워크에서 작업하는 사용자에 대해 액세스할 수 있습니다. 비규격 사용자는 ARA 환경에 전혀 액세스할 수 없습니다.
 "2단계"에서 제어하는 VNet/VPN 구성을 통해서만 백 엔드 리소스를 노출했습니다. Azure RemoteApp은 동일한 VNet에 있습니다. 최종 결과는 ARA 환경을 통해 액세스할 수 있는 리소스입니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

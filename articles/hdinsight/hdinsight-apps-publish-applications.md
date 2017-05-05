@@ -9,15 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 35a6c06bc4850f3fcfc6221d62998465f3b38251
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 1a7dabcbfdc1977e747fd30cfc0383d6c5f7f5a0
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -58,14 +60,10 @@ Azure 마켓플레이스에 응용 프로그램을 게시하기 위해 두 가�
 | tiers |응용 프로그램과 호환되는 클러스터 계층입니다. |Standard, Premium(또는 둘 다) |
 | versions |응용 프로그램과 호환되는 HDInsight 클러스터 종류입니다. |3.4 |
 
-## <a name="package-application"></a>패키지 응용 프로그램
-HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포함하는 zip 파일을 만듭니다. [응용 프로그램 게시](#publish-application)에 zip 파일이 필요합니다.
-
-* [createUiDefinition.json](#define-application).
-* mainTemplate.json. [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)의 샘플을 참조하세요.
-  
+## <a name="application-install-script"></a>응용 프로그램 설치 스크립트
+응용 프로그램이 클러스터(기존 클러스터 또는 새 클러스터)에서 설치될 때마다 Edge 노드가 생성되고 응용 프로그램 설치 스크립트가 실행됩니다.
   > [!IMPORTANT]
-  > 아래 형식을 사용하는 응용 프로그램 설치 스크립트의 이름은 특정 클러스터에 대해 고유해야 합니다. 또한 스크립트 작업을 설치 및 제거하는 것은 idempotent이여야 합니다. 즉, 동일한 결과를 생성하는 동안 스크립트를 반복하여 호출할 수 있습니다.
+  > 아래 형식을 사용하는 응용 프로그램 설치 스크립트의 이름은 특정 클러스터에 대해 고유해야 합니다.
   > 
   > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
@@ -77,12 +75,22 @@ HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포
   > 
   > 한 가지 예로서, 위 스크립트는 지속형 스크립트 작업 목록의 hue-install-v0-4wkahss55hlas가 됩니다. 샘플 JSON 페이로드는 [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json)를 참조하세요.
   > 
-  > 
+설치 스크립트는 다음 특성을 가져야 합니다.
+1. 스크립트가 idempotent여야 합니다. 스크립트를 여러 번 호출하면 같은 결과가 생성되어야 합니다.
+2. 스크립트 버전이 적절히 관리되어야 합니다. 응용 프로그램을 설치하려는 고객이 영향을 받지 않도록 업그레이드하거나 변경 내용을 테스트하는 경우 스크립트에 대해 다른 위치를 사용합니다. 
+3. 스크립트의 각 지점에 적절한 로깅을 추가합니다. 일반적으로 스크립트 로그는 응용 프로그램 설치 문제를 디버그하는 유일한 방법입니다.
+4. 일시적인 네트워크 문제로 인해 설치가 영향을 받지 않도록 외부 서비스 또는 리소스에 대한 호출이 적절히 다시 시도됩니다.
+5. 스크립트가 노드에서 서비스를 시작하는 경우 서비스를 모니터링하고 노드 재부팅 시 자동으로 시작되도록 구성합니다.
+
+## <a name="package-application"></a>패키지 응용 프로그램
+HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포함하는 zip 파일을 만듭니다. [응용 프로그램 게시](#publish-application)에 zip 파일이 필요합니다.
+
+* [createUiDefinition.json](#define-application).
+* mainTemplate.json. [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)의 샘플을 참조하세요.
 * 모든 필수 스크립트입니다.
 
 > [!NOTE]
 > 응용 프로그램 파일(있는 경우 웹 응용 프로그램 파일 포함)은 공개적으로 액세스할 수 있는 끝점에 위치할 수 있습니다.
-> 
 > 
 
 ## <a name="publish-application"></a>응용 프로그램 게시
@@ -104,10 +112,5 @@ HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포
 * [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 응용 프로그램을 설치하는 방법을 알아봅니다.
 * [Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Azure Resource Manager 템플릿을 호출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 * [HDInsight에서 비어 있는 에지 노드 사용](hdinsight-apps-use-edge-node.md): HDInsight 클러스터에 액세스, HDInsight 응용 프로그램 테스트 및 HDInsight 응용 프로그램 호스팅하는 데 비어 있는 에지 노드를 사용하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

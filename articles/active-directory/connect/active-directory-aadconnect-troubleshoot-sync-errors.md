@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6a466937358932a28604cddf7f32cdfd02a5b88d
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: a1190f0ab4caf749cce0b5c9ba45e55f7e6ca8ec
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -180,9 +180,9 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 #### <a name="related-articles"></a>관련 문서
 * [Office 365 디렉터리 동기화를 통한 사용자 프로비전 준비](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
-### <a name="datavalidationfailed"></a>DataValidationFailed
+### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>설명
-사용자의 UserPrincipalName 접미사가 한 페더레이션된 도메인에서 다른 페더레이션된 도메인으로 변경되었을 때 **"DataValidationFailed"** 동기화 오류를 초래하는 특정한 경우입니다.
+사용자의 UserPrincipalName 접미사가 한 페더레이션된 도메인에서 다른 페더레이션된 도메인으로 변경되었을 때 **“FederatedDomainChangeError”** 동기화 오류를 초래하는 특정한 경우입니다.
 
 #### <a name="scenarios"></a>시나리오
 동기화된 사용자의 경우 UserPrincipalName 접미사가 하나의 페더레이션된 도메인에서 온-프레미스의 다른 페더레이션된 도메인으로 변경되었습니다. 예를 들어, *UserPrincipalName = bob@contoso.com*가 *UserPrincipalName = bob@fabrikam.com*으로 변경되었습니다.
@@ -191,7 +191,7 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 1. Contoso.com 계정인 Bob Smith가 Active Directory에서 UserPrincipalName bob@contoso.com으로 새 사용자로 추가되었습니다.
 2. Bob이 Contoso.com에서 Fabrikam.com이라는 다른 부서로 옮겨졌고 UserPrincipalName이 bob@fabrikam.com으로 변경되었습니다.
 3. Contoso.com과 fabrikam.com 도메인은 모두 Azure Active Directory와 페더레이션된 도메인입니다.
-4. Bob의 userPrincipalName이 업데이트되지 않아 "DataValidationFailed" 동기화 오류가 발생합니다.
+4. Bob의 userPrincipalName이 업데이트되지 않아 “FederatedDomainChangeError” 동기화 오류가 발생합니다.
 
 #### <a name="how-to-fix"></a>해결 방법
 사용자의 UserPrincipalName 접미사가 bob@**contoso.com**에서 bob@**fabrikam.com**으로 업데이트되었고 **contoso.com**과 **fabrikam.com**이 모두 **페더레이션된 도메인**이면 이러한 단계에 따라 동기화 오류를 수정합니다.
@@ -215,7 +215,7 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 1. Bob의 userCertificate 특성이 Bob에게 할당된 너무 많은 인증서를 저장하고 있습니다. 여기에는 오래되어 만료된 인증서가 포함될 수 있습니다. 하드 한도는 15개의 인증서입니다.
 2. Bob의 userSMIMECertificate 특성이 Bob에게 할당된 너무 많은 인증서를 저장하고 있습니다. 여기에는 오래되어 만료된 인증서가 포함될 수 있습니다. 하드 한도는 15개의 인증서입니다.
 3. Active Directory에서 설정한 Bob의 thmubnailPhoto가 너무 커 Azure AD에서 동기화할 수 없습니다.
-4. Active Directory의 ProxyAddresses 특성 자동 입력 중에 개체에&500;개가 넘는 ProxyAddresses가 할당되었습니다.
+4. Active Directory의 ProxyAddresses 특성 자동 입력 중에 개체에 500개가 넘는 ProxyAddresses가 할당되었습니다.
 
 ### <a name="how-to-fix"></a>해결 방법
 1. 오류를 초래하는 특성이 허용 범위 안에 있는지 확인합니다.

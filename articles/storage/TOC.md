@@ -4,7 +4,6 @@
 
 # 시작
 
-## [빠른 시작 가이드](storage-getting-started-guide.md)
 ## [저장소 계정을 만드는](storage-create-storage-account.md)
 
 ## Blob 저장소
@@ -166,7 +165,7 @@
 #### [드라이브 매니페스트 백업](storage-import-export-backing-up-drive-manifests.md)
 #### [Import/Export 작업에 대한 진단 및 오류 복구](storage-import-export-diagnostics-and-error-recovery.md)
 # 참조
-## [PowerShell](/powershell/storage)
+## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [리소스 관리자](/dotnet/api/microsoft.azure.management.storage)
@@ -180,7 +179,7 @@
 ## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST (영문)
-### [Blob, 큐, 테이블 및 파일](/rest/api/storageservices/azure-storage-services-rest-api-reference)
+### [Blob, 큐, 테이블 및 파일](/rest/api/storageservices)
 ### [리소스 공급자](/rest/api/storagerp)
 ### [가져오기/내보내기](/rest/api/storageimportexport)
 

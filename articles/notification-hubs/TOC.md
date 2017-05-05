@@ -59,7 +59,7 @@
 ### [진단 지침](notification-hubs-push-notification-fixer.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.notificationhubs/v2.3.0/azurerm.notificationhubs)
+## [PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST (영문)](/rest/api/notificationhubs)
 

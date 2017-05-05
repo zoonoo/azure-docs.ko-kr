@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/19/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9e61eeb9ec7895b4f436534a1fd8b2cb608cf613
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: d0aea6ffc04792e7e70a15accf92de05c553ff46
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -177,9 +177,7 @@ ms.lasthandoff: 11/17/2016
 
     ![복사 마법사 - 테이블 매핑 페이지](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-4. 열 매핑의 기본 설정을 수락하고 **다음**을 클릭합니다.
-
-    ![복사 마법사 - 스키마 매핑 페이지](media/data-factory-load-sql-data-warehouse/schema-mapping.png)
+4. 스키마 매핑 페이지에서 "열 매핑 적용" 옵션을 선택 취소하고 **다음**을 클릭합니다.
 
 ## <a name="step-4-performance-settings"></a>4단계: 성능 설정
 

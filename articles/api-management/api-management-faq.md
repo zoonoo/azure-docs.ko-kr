@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: ea6b80e289f039a5924fcc2ccf9d71dbbb432982
-ms.openlocfilehash: 2f2676d85a513a152832cfd336c3b643577341b9
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
+ms.openlocfilehash: 7d58748c4b0195246fffafe2e5544678b83dfd60
+ms.lasthandoff: 04/14/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management FAQ
@@ -44,6 +44,8 @@ Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 
 * [백 엔드에 대해 자체 서명된 SSL 인증서를 사용할 수 있습니까?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
 * [GIT 리포지토리를 복제하려고 할 때 인증 실패가 발생하는 이유는 무엇입니까?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [API Management는 Azure ExpressRoute와 함께 작동합니까?](#does-api-management-work-with-azure-expressroute)
+* [API Management가 배포될 때 리소스 관리자 스타일 VNET에 전용 서브넷이 필요한 이유는 무엇인가요?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
+* [VNET에 API Management를 배포할 때 필요한 최소 서브넷 크기는 어떻게 되나요?](#what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet)
 * [구독 간에 API Management 서비스를 이동할 수 있습니까?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [내 API를 가져오는 데 제한 사항 또는 알려진 문제가 있나요?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
@@ -114,8 +116,8 @@ API Management에서 API 버전 관리를 사용하는 몇 가지 옵션이 있�
 표준 계층 및 프리미엄 계층에서 API Management 테넌트의 공용 IP 주소(VIP)는 일부 예외를 제외하고 테넌트의 수명 동안 정적입니다. IP 주소는 다음 상황에서 변경됩니다.
 
 * 서비스가 삭제된 다음 다시 생성되었습니다.
-* 서비스 구독이 일시 중단된 다음(예: 미지불) 복원되었습니다.
-* Azure Virtual Network를 추가하거나 제거합니다(프리미엄 계층에서만 Virtual Network를 사용할 수 있음).
+* 서비스 구독이 [일시 중단](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)되거나 [경고](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)된 다음(예: 미지불) 복원되었습니다.
+* Azure Virtual Network를 추가하거나 제거합니다(개발자 계층 및 프리미엄 계층에서만 Virtual Network를 사용할 수 있음).
 
 다중 지역 배포의 경우 지역이 비워진 다음 복원되는 경우 지역 주소가 변경됩니다(프리미엄 계층에서만 다중 지역 배포를 사용할 수 있음).
 
@@ -144,6 +146,13 @@ Git 자격 증명 관리자를 사용하는 경우 또는 Visual Studio를 사�
 
 ### <a name="does-api-management-work-with-azure-expressroute"></a>API Management는 Azure ExpressRoute와 함께 작동합니까?
 예. API Management는 Azure ExpressRoute와 함께 작동합니다.
+
+### <a name="why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them"></a>API Management가 배포될 때 리소스 관리자 스타일 VNET에 전용 서브넷이 필요한 이유는 무엇인가요?
+API Management의 전용 서브넷 요구 사항은 클래식(PAAS V1 계층) 배포 모델을 기반으로 한다는 사실에서 비롯됩니다. 리소스 관리자 VNET(V2 계층)에 배포할 수 있으며 그 결과가 있습니다. Azure에서 클래식 배포 모델은 리소스 관리자 모델과 긴밀하게 결합되지 않으므로 V2 계층에서 리소스를 생성하는 경우 V1 계층에서 알 수 없습니다. 따라서 API Management에서 NIC(V2에 구축됨)에 이미 할당된 IP를 사용하려고 하는 경우와 같이 문제가 발생할 수 있습니다.
+Azure에서 클래식 및 리소스 관리자 모델의 차이에 대한 자세한 내용은 [배포 모델의 차이점](../azure-resource-manager/resource-manager-deployment-model.md)을 참조하세요.
+
+### <a name="what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet"></a>VNET에 API Management를 배포할 때 필요한 최소 서브넷 크기는 어떻게 되나요?
+API Management를 배포하는 데 필요한 최소 서브넷 크기는 [/29](../virtual-network/virtual-networks-faq.md#configuration)이며, Azure에서 지원하는 최소 서브넷 크기입니다.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>구독 간에 API Management 서비스를 이동할 수 있습니까?
 예. 방법을 알아보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요.

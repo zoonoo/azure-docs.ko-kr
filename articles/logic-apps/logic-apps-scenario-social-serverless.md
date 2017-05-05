@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 4676e0da4309b1460e471f94946161fa22d46226
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
+ms.lasthandoff: 04/04/2017
 
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps 및 Azure Functions를 사용하여 실시간 Customer Insights 대시보드 만들기
@@ -35,17 +35,17 @@ Logic Apps는 클라우드에서 서버를 사용하지 않는 워크플로 엔�
 
 전체 솔루션은 [Visual Studio에서 작성](logic-apps-deploy-from-vs.md) 및 [리소스 템플릿의 일부분으로 배포](logic-apps-create-deploy-template.md)될 수 있습니다.  [Channel 9에](http://aka.ms/logicappsdemo) 시나리오의 연습 동영상이 있습니다.
 
-## <a name="building-the-logic-app-to-trigger-on-customer-data"></a>고객 데이터를 트리거하는 논리 앱 빌드
+## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>고객 데이터를 트리거하는 논리 앱 빌드
 
 Visual Studio 또는 Azure Portal에서 [논리 앱을 만든](logic-apps-create-a-logic-app.md) 후:
 
 1. Twitter에서 **새 트윗**에 대한 트리거 추가
-1. 키워드 또는 해시 태그에 대한 트윗을 수신하도록 트리거를 구성합니다.
+2. 키워드 또는 해시 태그에 대한 트윗을 수신하도록 트리거를 구성합니다.
 
-> [!NOTE]
-> 트리거에 대한 되풀이 속성이 논리 앱이 폴링 기반 트리거에 대한 새 항목을 확인하는 주기를 결정합니다.
+   > [!NOTE]
+   > 트리거에 대한 되풀이 속성이 논리 앱이 폴링 기반 트리거에 대한 새 항목을 확인하는 주기를 결정합니다.
 
-![Twitter 트리거의 예][1]
+   ![Twitter 트리거의 예][1]
 
 이 앱은 이제 모든 새 트윗에서 실행됩니다.  그런 다음 해당 트윗 데이터를 가져오고 더 자세한 데이터 표현을 이해할 수 있습니다.  이를 위해 [Azure 인식 서비스](https://azure.microsoft.com/services/cognitive-services/)를 사용하여 텍스트의 데이터를 검색할 수 있습니다.
 
@@ -99,7 +99,7 @@ Azure Portal의 개요 블레이드 또는 Visual Studio 클라우드 탐색기�
 
 Azure Functions는 모든 종속성과 함께 전체 솔루션을 단일 템플릿으로 관리할 수 있도록 배포 템플릿에 통합될 수도 있습니다.  함수 배포 템플릿의 예는 [Azure 빠른 시작 템플릿 리포지토리](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic)에서 찾을 수 있습니다.
 
-## <a name="whats-next"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 * [Azure Logic Apps 다른 예제 및 시나리오 참조](logic-apps-examples-and-scenarios.md)
 * [종단 간 이 솔루션을 만드는 연습 동영상 시청](http://aka.ms/logicappsdemo)

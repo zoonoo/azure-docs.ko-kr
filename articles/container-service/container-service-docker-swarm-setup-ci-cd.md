@@ -17,6 +17,7 @@ ms.author: jucoriol
 translationtype: Human Translation
 ms.sourcegitcommit: c5e05a8693bd000010013922ed6f2a127e998efe
 ms.openlocfilehash: db58703f573c09ba45abed87547c5e80ef58638b
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -53,6 +54,8 @@ Visual Studio Team Services를 사용하여 Docker Swarm 클러스터에서 이 
 - [Azure 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-portal.md)
 - [Visual Studio Team Services 계정 및 팀 프로젝트 만들기](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
 - [GitHub 계정에 GitHub 리포지토리 포크](https://github.com/jcorioland/MyShop/)
+
+[!INCLUDE [container-service-swarm-mode-note](../../includes/container-service-swarm-mode-note.md)]
 
 또한 Docker를 설치한 Ubuntu 14.04 또는 16.04 컴퓨터가 필요합니다. 이 컴퓨터는 빌드 및 릴리스 프로세스 동안 Visual Studio Team Services에서 사용합니다. 이 컴퓨터를 만드는 방법은 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/)에서 사용할 수 있는 이미지를 사용하는 것입니다. 
 
@@ -227,8 +230,3 @@ Visual Studio Team Services를 사용하면 [환경에서 릴리스를 관리](h
 ## <a name="next-steps"></a>다음 단계
 
 * Visual Studio Team Services를 사용하는 CI/CD에 대한 자세한 내용은 [VSTS 빌드 개요](https://www.visualstudio.com/docs/build/overview)를 참조하세요.
-
-
-<!--HONumber=Dec16_HO2-->
-
-

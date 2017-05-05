@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 02/21/2017
 ms.author: sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 8ada071c9ef7c534f6e048e4804aa1b4b2b787e0
-ms.openlocfilehash: f9b28b177e83e49bd83328919efbd5887b46c7d4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 934ac698c09f2d7c130fe787994dc6fa12abbd2f
+ms.lasthandoff: 04/18/2017
 
 ---
 
 # <a name="availability-and-consistency-in-event-hubs"></a>Event Hubs의 가용성 및 일관성
 
 ## <a name="overview"></a>개요
-Azure Event Hubs는 [파티션 모델](event-hubs-what-is-event-hubs.md#partitions)을 사용하여 단일 이벤트 허브 내에서 가용성 및 병렬 처리 기능을 개선합니다. 예를 들어, Event Hub에&4;개의 파티션이 있고 해당 파티션 중 하나가 부하 분산 작업 중 한 서버에서 다른 서버로 이동되는 경우 다른&3;개의 파티션을 여전히 보내고 받을 수 있습니다. 또한 더 많은 파티션을 사용하면 더 많은 동시 읽기 권한자가 데이터를 처리할 수 있으므로 집계 처리량이 개선됩니다. 분산된 시스템에서 분할 및 순서 지정이 가진 의미를 이해하는 것은 솔루션 디자인의 중요한 측면입니다.
+Azure Event Hubs는 [파티셔닝 모델](event-hubs-what-is-event-hubs.md#partitions)을 사용하여 단일 이벤트 허브 내 가용성과 병렬 처리를 개선합니다. 예를 들어 이벤트 허브에 4개의 파티션이 있고 해당 파티션 중 하나가 부하 분산 작업 중 한 서버에서 다른 서버로 이동된 경우 여전히 나머지 3개의 파티션을 보내고 받을 수 있습니다. 또한 더 많은 파티션을 사용하면 더 많은 동시 읽기 권한자가 데이터를 처리할 수 있으므로 집계 처리량이 개선됩니다. 분산된 시스템에서 분할 및 순서 지정이 가진 의미를 이해하는 것은 솔루션 디자인의 중요한 측면입니다.
 
 순서 지정과 가용성 간의 균형을 잘 이해하려면 Brewer의 정리라고도 하는 [CAP 정리](https://en.wikipedia.org/wiki/CAP_theorem)를 참조하세요. 정리에 따르면 일관성, 가용성 및 파티션 허용 오차 중에서 하나를 선택해야 합니다.
 
@@ -37,7 +37,7 @@ Brewer의 정리는 일관성 및 가용성을 다음과 같이 정의합니다.
 Event Hubs는 분할된 데이터 모델을 기반으로 빌드됩니다. 설치하는 동안 이벤트 허브의 파티션 수를 구성할 수 있지만 나중에 이 값을 변경할 수 없습니다. Event Hubs에서 파티션을 사용해야 하므로 응용 프로그램에 대한 가용성 및 일관성에 관한 결정을 내리기만 하면 됩니다.
 
 ## <a name="availability"></a>Availability
-Event Hubs를 시작하는 가장 간단한 방법은 기본 동작을 사용하는 것입니다. 새 `EventHubClient`를 만들고 `Send` 메서드를 사용하는 경우 사용자의 이벤트는 이벤트 허브에서 파티션 간에 자동으로 분산됩니다. 이 동작을 사용하면 가동 시간을 최대화할 수 있습니다.
+Event Hubs를 시작하는 가장 간단한 방법은 기본 동작을 사용하는 것입니다. 새 `EventHubClient` 개체를 만들고 `Send` 메서드를 사용하는 경우 사용자의 이벤트는 이벤트 허브의 파티션 사이에 자동으로 분산됩니다. 이 동작을 사용하면 가동 시간을 최대화할 수 있습니다.
 
 최대 가동 시간을 필요로 하는 사용 사례의 경우 이 모델을 사용하는 것이 좋습니다.
 

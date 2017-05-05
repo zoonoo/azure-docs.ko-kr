@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 02/09/2017
 ms.author: sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: da7f8e3e61705cf07ff65c9dd1d8f292f4fb9f62
-ms.openlocfilehash: 9061829e42ed5563d64860774aa7d80f2ab011bd
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 2c9b6676c1a4cfe008235da6746d403555e1bf08
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -68,40 +68,15 @@ Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 
 아니요, 서비스 버스는 저장소에 대한 요금을 청구하지 않습니다. 하지만 큐/항목 당 지속될 수 있는 데이터의 최대 크기를 제한하는 할당량이 있습니다. 다음 FAQ를 참조하세요.
 
 ## <a name="quotas"></a>할당량
-Service Bus 제한 및 할당량 목록은 [할당량 개요][Quotas overview]를 참조하세요.
+
+Service Bus 제한 및 할당량 목록은 [Service Bus 할당량 개요][Quotas overview]를 참조하세요.
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>서비스 버스는 사용 할당량이 있나요?
 기본적으로 모든 클라우드 서비스의 경우 Microsoft는 모든 고객의 구독에 대해 계산되는 월별 사용 할당량을 집계합니다. 이러한 제한 보다 사용자의 필요가 많을 수도 있다는 것을 이해하기 때문에 사용자의 요구를 이해하고 이러한 제한을 적절하게 조정할 수 있도록 언제든지 서비스에 문의하세요. Service Bus의 경우 집계 사용 할당량은 매월 5십억 개의 메시지입니다.
 
 지정된 달에 사용 할당량을 초과하는 고객의 계정을 사용하지 않도록 설정하는 권한을 보유하지만 메일 알림을 제공하며 조치를 취하기 전에 고객에게 연락을 여러 번 시도합니다. 이러한 할당량을 초과하는 고객은 할당량을 초과하는 요금을 지불해야 합니다.
 
-Azure에서 다른 서비스와 마찬가지로 서비스 버스는 리소스의 공정한 사용을 보장하기 위해 특정한 할당량 집합을 적용합니다. 다음은 서비스에서 적용하는 사용 할당량입니다.
-
-#### <a name="queuetopic-size"></a>큐/토픽 크기
-큐 또는 토픽이 생성될 때 최대 큐 또는 토픽의 크기를 지정합니다. 이 할당량 값은 1, 2, 3, 4 또는 5GB일 수 있습니다. 최대 크기에 도달하면, 추가로 수신되는 메시지가 거부되며 호출 코드에서 예외를 수신합니다.
-
-#### <a name="naming-restrictions"></a>명명 제한
-Service Bus 네임스페이스 이름의 길이는 6-50자여야 합니다. 각 큐, 토픽 또는 구독에 대한 문자 수는 1-50자 사이로 제한됩니다.
-
-#### <a name="number-of-concurrent-connections"></a>동시 연결 수
-큐/토픽/구독 - 큐/토픽/구독에 동시 TCP 연결 수가 100개로 제한됩니다. 이 할당량에 도달하면 후속 추가 연결 요청이 거부되며 호출 코드에서 예외를 수신합니다. 모든 메시징 팩터리의 경우 해당 메시징 팩터리에서 만든 클라이언트가 활성 작업을 보류하거나 60초 이내에 작업을 완료한 경우 서비스 버스는 하나의 TCP 연결을 유지합니다. REST 작업은 동시 TCP 연결 계산에 포함되지 않습니다.
-
-#### <a name="number-of-topicsqueues-per-service-namespace"></a>서비스 네임스페이스당 토픽/큐 수
-토픽/큐(영구 저장소 지원 엔터티)는 서비스 네임스페이스에 최대 10,000개로 제한합니다. 이 할당량에 도달하면 서비스 네임스페이스에 새 토픽/큐를 만들기 위한 후속 요청이 거부됩니다. 이 경우에 만들기 시도가 포털을 통해 또는 클라이언트 코드에서 수행되었는지 여부에 따라 Azure 클래식 포털이 오류 메시지를 표시하거나 호출 클라이언트 코드에서 예외가 발생합니다.
-
-### <a name="message-size-quotas"></a>메시지 크기 할당량
-#### <a name="queuetopicsubscription"></a>큐/토픽/구독
-**메시지 크기** -각 메시지는 메시지 헤더를 포함하여 총 크기를 256KB로 제한합니다.
-
-**메시지 헤더 크기** – 각 메시지 헤더는 64KB로 제한합니다.
-
-해당 크기 할당량을 초과하는 메시지가 거부되며 호출 코드에서 예외를 수신합니다.
-
-**항목당 구독 수** – 항목당 최대 구독 수를 2,000개로 제한합니다. 이 할당량에 도달하면 항목에 추가 구독을 만들기 위한 후속 요청이 거부됩니다. 이 경우에 만들기 시도가 포털을 통해 또는 클라이언트 코드에서 수행되었는지 여부에 따라 Azure 클래식 포털이 오류 메시지를 표시하거나 호출 클라이언트 코드에서 예외가 발생합니다.
-
-**항목당 SQL 필터 수** – 항목당 SQL 필터의 최대 수를 2,000개로 제한합니다. 이 할당량에 도달하면 후속 항목에서 추가 필터의 생성이 거부되며 호출 코드에서 예외를 수신합니다.
-
-**항목당 상관관계 필터 수** – 항목당 상관관계 필터의 최대 수는 100,000개로 제한됩니다. 이 할당량에 도달하면 후속 항목에서 추가 필터의 생성이 거부되며 호출 코드에서 예외를 수신합니다.
+Azure에서 다른 서비스와 마찬가지로 서비스 버스는 리소스의 공정한 사용을 보장하기 위해 특정한 할당량 집합을 적용합니다. [Service Bus 할당량 개요][Quotas overview]에서 이러한 할당량에 대한 자세한 정보를 확인할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Azure Service Bus API 및 해당 제안된 작업에 의해 생성된 일부 예외는 무엇인가요?
@@ -141,5 +116,5 @@ Service Bus에 대한 자세한 내용은 다음 항목을 참조하세요.
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Quotas overview]: service-bus-quotas.md
 [Exceptions overview]: service-bus-messaging-exceptions.md
-[Shared Access Signatures]: service-bus-sas-overview.md
+[Shared Access Signatures]: service-bus-sas.md
 

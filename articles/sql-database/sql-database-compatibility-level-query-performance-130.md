@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: alainl
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 5649895d1ae39d9a7fa863407b5341f1cdf567ee
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: a5e84ded4e7b574a24583be507902f9537328153
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -29,10 +29,10 @@ Azure SQL 데이터베이스는 다양한 호환성 수준에서 수십만 개�
 
 지난 기록을 확인하자면, 기본 호환성 수준 대비 SQL 버전 내역은 다음과 같습니다.
 
-* 100: SQL Server 2008 및 Azure SQL 데이터베이스 V11.
-* 110: SQL Server 2012 및 Azure SQL 데이터베이스 V11.
-* 120: SQL Server 2014 및 Azure SQL 데이터베이스 V12.
-* 130: SQL Server 2016 및 Azure SQL 데이터베이스 V12.
+* 100: SQL Server 2008 및 Azure SQL Database
+* 110: SQL Server 2012 및 Azure SQL Database
+* 120: SQL Server 2014 및 Azure SQL Database
+* 130: SQL Server 2016 및 Azure SQL Database
 
 > [!IMPORTANT]
 > 기본 호환성 수준은 **새로 만든** 데이터베이스의 경우 130입니다.
@@ -151,7 +151,7 @@ SET STATISTICS XML OFF;
 ![그림 1](./media/sql-database-compatibility-level-query-performance-130/figure-1.jpg)
 
 ## <a name="serial-batch-mode"></a>직렬 배치 모드
-마찬가지로, 데이터 행을 처리할 때 호환성 수준 130으로 이동하면 배치 모드 처리가 가능합니다. 첫째, 배치 모드 작업은 열 저장소 인덱스가 있어야만 가능합니다. 둘째, 하나의 배치는 일반적으로&900;행을 나타내고, 멀티 코어 CPU, 높은 메모리 처리량에 최적화된 코드 논리를 사용하며, 가능하면 열 저장소의 압축 데이터를 직접 활용합니다. 이러한 조건 하에서, SQL Server 2016은 한 번에 최대 900개의 행을 처리할 수 있고(한 번에 1개의 행이 아닌), 그 결과, 작업의 전반적인 오버헤드 비용이 전체 배치에 의해 공유되기 때문에, 행별 전체 비용이 감소됩니다. 이렇게 공유되는 작업 수가 열 저장소 압축과 결합되면 SELECT 배치 모드 작업에 관련된 대기 시간이 근본적으로 감소됩니다. 열 저장소 및 배치 모드에 대한 자세한 내용은 [Columnstore 인덱스 가이드](https://msdn.microsoft.com/library/gg492088.aspx)를 참조하세요.
+마찬가지로, 데이터 행을 처리할 때 호환성 수준 130으로 이동하면 배치 모드 처리가 가능합니다. 첫째, 배치 모드 작업은 열 저장소 인덱스가 있어야만 가능합니다. 둘째, 하나의 배치는 일반적으로 900행을 나타내고, 멀티 코어 CPU, 높은 메모리 처리량에 최적화된 코드 논리를 사용하며, 가능하면 열 저장소의 압축 데이터를 직접 활용합니다. 이러한 조건 하에서, SQL Server 2016은 한 번에 최대 900개의 행을 처리할 수 있고(한 번에 1개의 행이 아닌), 그 결과, 작업의 전반적인 오버헤드 비용이 전체 배치에 의해 공유되기 때문에, 행별 전체 비용이 감소됩니다. 이렇게 공유되는 작업 수가 열 저장소 압축과 결합되면 SELECT 배치 모드 작업에 관련된 대기 시간이 근본적으로 감소됩니다. 열 저장소 및 배치 모드에 대한 자세한 내용은 [Columnstore 인덱스 가이드](https://msdn.microsoft.com/library/gg492088.aspx)를 참조하세요.
 
 ```
 -- Serial batch mode execution
@@ -405,7 +405,7 @@ SET STATISTICS XML OFF;
 
 실제로, 결과 집합은 200,704행입니다.(하지만 모든 것은 이전 샘플의 쿼리를 얼마나 자주 실행했는가에 달려 있고, 그 보다 더 중요한 것은, T-SQL이 RAND() 문을 사용하기 때문에, 실제 반환되는 값이 실행할 때마다 다를 수 있다는 점입니다.) 따라서, 이 예제에서는 202,877이 194,284보다 200,704에 훨씬 더 가깝기 때문에, 새 카디널리티 예측이 행의 개수를 더 잘 측정했습니다. 마지막으로 WHERE 절 조건자를 같음(예를 들면 “>” 대신)으로 변경하면, 일치하는 수가 얼마나 되느냐에 따라서, 이전 카디널리티 함수와 새로운 카디널리티 함수의 예측이 한층 더 달라질 수 있습니다.
 
-물론, 이 경우, 실제 카운트에서 최대&6000;개의 행이 해제되면 상황에 따라서 많은 데이터를 나타내지 않습니다. 이제, 이것을 더 복잡한 쿼리와 여러 개의 테이블에 걸친 수백만 개의 행으로 이동하면, 때때로 예측이 수백만 개의 행에 의해 해제될 수 있으며, 따라서, 잘못된 실행 계획을 선택하거나 부족한 메모리를 요청할 위험으로 인해 TempDB 유출이 발생하고, I/O가 훨씬 더 많아질 수 있습니다.
+물론, 이 경우, 실제 카운트에서 최대 6000개의 행이 해제되면 상황에 따라서 많은 데이터를 나타내지 않습니다. 이제, 이것을 더 복잡한 쿼리와 여러 개의 테이블에 걸친 수백만 개의 행으로 이동하면, 때때로 예측이 수백만 개의 행에 의해 해제될 수 있으며, 따라서, 잘못된 실행 계획을 선택하거나 부족한 메모리를 요청할 위험으로 인해 TempDB 유출이 발생하고, I/O가 훨씬 더 많아질 수 있습니다.
 
 기회가 된다면, 가장 일반적인 쿼리와 데이터 집합을 사용하여 이러한 비교를 연습하고, 이전 예측과 새로운 예측에 얼마나 영향을 미치는지 직접 확인하세요. 경우에 따라 실제보다 더 밑돌 수도 있고, 결과 집합에 반환되는 실제 행 카운트에 더 가까울 수도 있습니다. 이 모든 것은 쿼리의 모양, Azure SQL Database의 특성, 데이터 집합의 본질 및 크기, 그리고 이들 항목에 대해 사용할 수 있는 통계에 달려 있습니다. Azure SQL Database 인스턴스를 만들었다면, 쿼리 최적화 프로그램은 이전 쿼리 실행에서 생성된 통계를 다시 사용하는 대신 정보를 처음부터 다시 구축해야 합니다. 따라서, 예측은 모든 서버 및 응용 프로그램 각각의 상황에 따라 매우 달라집니다. 이런 중요한 측면을 염두에 두어야 합니다.
 
@@ -414,7 +414,7 @@ SET STATISTICS XML OFF;
 
 1. 호환성 수준 130이로 이동하고, 성능 추이를 살펴봅니다. 성능이 떨어지는 경우에는, 호환성 수준을 이전 수준으로 되돌리거나, 130을 유지하고 카디널리티 예측만 레거시 모드로 되돌립니다.(앞서 설명했듯이, 이것만으로 문제를 해결할 수 있습니다.)
 2. 비슷한 프로덕션 부하에서 기존 응용 프로그램을 철저히 테스트하여, 미세 조정하고, 프로덕션에 적용하기 전에 성능의 유효성을 검사합니다. 문제가 발생하는 경우, 위와 마찬가지로, 언제나 이전 호환성 수준으로 되돌릴 수 있고 아니면 카디널리티 예측만 레거시 모드로 되돌릴 수 있습니다.
-3. 마지막 옵션이면서, 이러한 질문을 해결하는 최신의 방법은 쿼리 저장소를 활용하는 것입니다. 이것이 현재 권장되는 옵션입니다. 호환성 수준 130대비 120 이하의 쿼리 분석을 지원하기 위해, 쿼리 저장소를 사용하는 것은 매우 바람직합니다. 쿼리 저장소는 Azure SQL 데이터베이스 V12 최신 버전에 제공되며, 쿼리 성능 문제 해결을 지원하도록 디자인되었습니다. 쿼리 저장소는 모든 쿼리에 대한 자세한 기록 정보를 수집하고 제공하는 데이터베이스에 대한 블랙박스라고 생각할 수 있습니다. 이것은 문제를 진단하고 해결하는 시간을 줄여서 성능에 대한 기술적 조사를 크게 간소화합니다. 자세한 내용은 [Query Store: A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/)(쿼리 저장소: 데이터베이스에 대한 블랙박스)를 참조하세요.
+3. 마지막 옵션이면서, 이러한 질문을 해결하는 최신의 방법은 쿼리 저장소를 활용하는 것입니다. 이것이 현재 권장되는 옵션입니다. 호환성 수준 130대비 120 이하의 쿼리 분석을 지원하기 위해, 쿼리 저장소를 사용하는 것은 매우 바람직합니다. 쿼리 저장소는 최신 버전의 Azure SQL Database에 제공되며, 쿼리 성능 문제 해결을 지원하도록 디자인되었습니다. 쿼리 저장소는 모든 쿼리에 대한 자세한 기록 정보를 수집하고 제공하는 데이터베이스에 대한 블랙박스라고 생각할 수 있습니다. 이것은 문제를 진단하고 해결하는 시간을 줄여서 성능에 대한 기술적 조사를 크게 간소화합니다. 자세한 내용은 [Query Store: A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/)(쿼리 저장소: 데이터베이스에 대한 블랙박스)를 참조하세요.
 
 대략적으로, 호환성 수준 120 이하에서 실행 중인 데이터베이스 집합이 있고 그 중 일부를 130으로 이동할 계획이거나, 워크로드가 새 데이터베이스를 자동으로 프로비전하기 때문에 곧 130으로 기본 설정될 예정인 경우에는, 다음 사항을 고려하십시오.
 
@@ -432,7 +432,7 @@ Azure SQL 데이터베이스를 사용하여 SQL Server 2016의 모든 개선 �
 * [블로그: 쿼리 저장소: 데이터베이스에 대한 블랙박스, 작성자: Borko Novakovic, 2016년 6월 8일](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/)
 * [ALTER DATABASE 호환성 수준(Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx)
 * [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx)
-* [Azure SQL 데이터베이스 V12에 대한 호환성 수준 130](https://azure.microsoft.com/updates/compatibility-level-130-for-azure-sql-database-v12/)
+* [Azure SQL Database에 대한 호환성 수준 130](https://azure.microsoft.com/updates/compatibility-level-130-for-azure-sql-database-v12/)
 * [SQL Server 2014 카디널리티 평가기를 사용하여 쿼리 계획 최적화](https://msdn.microsoft.com/library/dn673537.aspx)
 * [Columnstore 인덱스 가이드](https://msdn.microsoft.com/library/gg492088.aspx)
 * [블로그: Azure SQL 데이터베이스의 호환성 수준 130을 통해 개선된 쿼리 성능, 작성자: Alain Lissoir, 2016년 5월 6일](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/05/06/improved-query-performance-with-compatibility-level-130-in-azure-sql-database/)

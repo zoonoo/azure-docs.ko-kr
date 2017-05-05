@@ -12,23 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: barbkess;jrj
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fe62d672ebd4c6d9f5e161e337dbace0c80f67a5
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 914d85267e82ce6a2e60f3841889935046f17c87
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 테이블 개요
 > [!div class="op_single_selector"]
-> * [개요][개요]
-> * [데이터 형식][데이터 형식]
-> * [배포][배포]
-> * [Index][Index]
-> * [파티션][파티션]
-> * [통계][통계]
-> * [임시][임시]
+> * [개요][Overview]
+> * [데이터 형식][Data Types]
+> * [배포][Distribute]
+> * [인덱스][Index]
+> * [파티션][Partition]
+> * [통계][Statistics]
+> * [임시][Temporary]
 > 
 > 
 
@@ -47,35 +49,35 @@ RENAME OBJECT Customer TO CustomerOrig;
  ```
 
 ## <a name="distributed-tables"></a>분산 테이블
-SQL 데이터 웨어하우스와 같은 분산 시스템에 의해 도입된 새로운 기본 특성은 **배포 열**입니다.  배포 열은 표현 그대로입니다.  백그라운드에서 데이터를 분산 또는 분할하는 방법을 결정하는 열입니다.  배포 열을 지정하지 않고 테이블을 만들면 테이블이 **라운드 로빈**을 사용하여 자동으로 분산됩니다.  일부 시나리오에서는 라운드 로빈 테이블로 충분할 수 있지만 배포 열을 정의하면 쿼리 중에 데이터 이동을 크게 줄일 수 있으므로 성능이 최적화됩니다.  배포 열을 선택하는 방법에 대한 자세한 내용을 [테이블 배포][배포] 를 참조하세요.
+SQL 데이터 웨어하우스와 같은 분산 시스템에 의해 도입된 새로운 기본 특성은 **배포 열**입니다.  배포 열은 표현 그대로입니다.  백그라운드에서 데이터를 분산 또는 분할하는 방법을 결정하는 열입니다.  배포 열을 지정하지 않고 테이블을 만들면 테이블이 **라운드 로빈**을 사용하여 자동으로 분산됩니다.  일부 시나리오에서는 라운드 로빈 테이블로 충분할 수 있지만 배포 열을 정의하면 쿼리 중에 데이터 이동을 크게 줄일 수 있으므로 성능이 최적화됩니다.  배포 열을 선택하는 방법에 대한 자세한 내용을 [테이블 배포][Distribute] 를 참조하세요.
 
 ## <a name="indexing-and-partitioning-tables"></a>테이블 인덱싱 및 분할
-더욱 수준 높은 방식으로 SQL 데이터 웨어하우스를 사용하고 성능을 최적화하기 위해 테이블 디자인에 대해 알아보려고 할 수 있습니다.  자세한 내용은 [테이블 데이터 형식][데이터 형식], [테이블 배포][배포], [테이블 인덱싱][Index] 및 [테이블 분할][파티션]에 대한 문서를 참조하세요.
+더욱 수준 높은 방식으로 SQL 데이터 웨어하우스를 사용하고 성능을 최적화하기 위해 테이블 디자인에 대해 알아보려고 할 수 있습니다.  자세히 알아보려면 [테이블 데이터 형식][Data Types], [테이블 배포][Distribute], [테이블 인덱싱][Index], [테이블 분할][Partition]에 대한 문서를 참조하세요.
 
 ## <a name="table-statistics"></a>테이블 통계
-통계는 SQL 데이터 웨어하우스의 성능을 극대화하는 데 매우 중요합니다.  Azure SQL Database에서 예상할 수 있는 것처럼 SQL Data Warehouse는 통계를 아직 자동으로 만들고 업데이트하지 않으므로 쿼리의 성능을 극대화하기 위해 [통계][통계]에 대한 문서를 반드시 읽어야 합니다.
+통계는 SQL 데이터 웨어하우스의 성능을 극대화하는 데 매우 중요합니다.  Azure SQL Database에서 예상할 수 있는 것처럼 SQL Data Warehouse는 통계를 아직 자동으로 만들고 업데이트하지 않으므로 쿼리의 성능을 극대화하기 위해 [통계][Statistics]에 대한 문서를 반드시 읽어야 합니다.
 
 ## <a name="temporary-tables"></a>임시 테이블
-임시 테이블은 로그온 중에만 존재하고 다른 사용자는 볼 수 없는 테이블입니다.  임시 테이블은 다른 사람들이 일시적인 결과를 보지 못하도록 하여 정리할 필요를 없애주는 유용한 방법일 수 있습니다.  임시 테이블은 로컬 저장소를 활용하므로 일부 작업에 대해 더 빠른 성능을 제공할 수 있습니다.  임시 테이블에 대한 자세한 내용은 [임시 테이블][임시] 문서를 참조하세요.
+임시 테이블은 로그온 중에만 존재하고 다른 사용자는 볼 수 없는 테이블입니다.  임시 테이블은 다른 사람들이 일시적인 결과를 보지 못하도록 하여 정리할 필요를 없애주는 유용한 방법일 수 있습니다.  임시 테이블은 로컬 저장소를 활용하므로 일부 작업에 대해 더 빠른 성능을 제공할 수 있습니다.  임시 테이블에 대한 자세한 내용은 [임시 테이블][Temporary] 문서를 참조하세요.
 
 ## <a name="external-tables"></a>외부 테이블
-Polybase 테이블이라고도 하는 외부 테이블은 SQL 데이터 웨어하우스에서 쿼리될 수 있지만 SQL 데이터 웨어하우스 외부의 데이터를 가리킬 수 있는 테이블입니다.  예를 들어 Azure Blob 저장소의 파일을 가리키는 외부 테이블을 만들 수 있습니다.  외부 테이블을 만들고 쿼리하는 방법에 대한 자세한 내용은 [Polybase 사용하여 데이터 로드][Polybase 사용하여 데이터 로드]를 참조하세요.  
+Polybase 테이블이라고도 하는 외부 테이블은 SQL 데이터 웨어하우스에서 쿼리될 수 있지만 SQL 데이터 웨어하우스 외부의 데이터를 가리킬 수 있는 테이블입니다.  예를 들어 Azure Blob 저장소의 파일을 가리키는 외부 테이블을 만들 수 있습니다.  외부 테이블을 만들고 쿼리하는 방법에 대한 자세한 내용은 [Polybase 사용하여 데이터 로드][Load data with Polybase]를 참조하세요.  
 
 ## <a name="unsupported-table-features"></a>지원되지 않는 테이블 기능
 SQL 데이터 웨어하우스에는 다른 데이터베이스에서 제공하는 동일한 테이블 기능을 많이 포함하지만 아직 지원되지 않는 기능도 일부 있습니다.  다음은 아직 지원되지 않는 일부 테이블 기능 목록입니다.
 
 | 지원되지 않는 기능 |
 | --- |
-| [ID 속성][ID 속성]([대체 키 해결 방법 할당][대체 키 해결 방법 할당] 참조) |
-| 기본 키, 외래 키, 고유 및 검사 [테이블 제약 조건][테이블 제약 조건] |
-| [고유 인덱스][고유 인덱스] |
-| [계산된 열][계산된 열] |
-| [스파스 열][스파스 열] |
-| [사용자 정의 형식][사용자 정의 형식] |
-| [시퀀스][시퀀스] |
-| [트리거][트리거] |
-| [인덱싱된 뷰][인덱싱된 뷰] |
-| [동의어][동의어] |
+| [ID 속성][Identity Property]([대체 키 해결 방법 할당][Assigning Surrogate Key Workaround] 참조) |
+| 기본 키, 외래 키, 고유 및 검사 [테이블 제약 조건][Table Constraints] |
+| [고유 인덱스][Unique Indexes] |
+| [계산된 열][Computed Columns] |
+| [스파스 열][Sparse Columns] |
+| [사용자 정의 형식][User-Defined Types] |
+| [시퀀스][Sequence] |
+| [트리거][Triggers] |
+| [인덱싱된 뷰][Indexed Views] |
+| [동의어][Synonyms] |
 
 ## <a name="table-size-queries"></a>테이블 크기 쿼리
 60개의 각 배포에서 한 테이블에 사용되는 공간 및 행을 식별하는 한 가지 간단한 방법은 [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED]를 사용하는 것입니다.
@@ -273,41 +275,36 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>다음 단계
-자세히 알아보려면 [테이블 데이터 형식][데이터 형식], [테이블 배포][배포], [테이블 인덱싱][Index], [테이블 분할][파티션], [테이블 통계 유지 관리][통계] 및 [임시 테이블][임시]에 대한 문서를 참조하세요.  모범 사례에 대해 자세히 알아보려면 [SQL 데이터 웨어하우스 모범 사례][SQL 데이터 웨어하우스 모범 사례]를 참조하세요.
+자세히 알아보려면 [테이블 데이터 형식][Data Types], [테이블 배포][Distribute], [테이블 인덱싱][Index],  [테이블 분할][Partition], [테이블 통계 유지 관리][Statistics] 및 [임시 테이블][Temporary]에 대한 문서를 참조하세요.  모범 사례에 대한 자세한 내용은 [SQL Data Warehouse 모범 사례][SQL Data Warehouse Best Practices]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[개요]: ./sql-data-warehouse-tables-overview.md
-[데이터 형식]: ./sql-data-warehouse-tables-data-types.md
-[배포]: ./sql-data-warehouse-tables-distribute.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
-[파티션]: ./sql-data-warehouse-tables-partition.md
-[통계]: ./sql-data-warehouse-tables-statistics.md
-[임시]: ./sql-data-warehouse-tables-temporary.md
-[SQL 데이터 웨어하우스 모범 사례]: ./sql-data-warehouse-best-practices.md
-[Polybase 사용하여 데이터 로드]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Load data with Polybase]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 
 <!--MSDN references-->
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 [DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[ID 속성]: https://msdn.microsoft.com/library/ms186775.aspx
-[대체 키 해결 방법 할당]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
-[테이블 제약 조건]: https://msdn.microsoft.com/library/ms188066.aspx
-[계산된 열]: https://msdn.microsoft.com/library/ms186241.aspx
-[스파스 열]: https://msdn.microsoft.com/library/cc280604.aspx
-[사용자 정의 형식]: https://msdn.microsoft.com/library/ms131694.aspx
-[시퀀스]: https://msdn.microsoft.com/library/ff878091.aspx
-[트리거]: https://msdn.microsoft.com/library/ms189799.aspx
-[인덱싱된 뷰]: https://msdn.microsoft.com/library/ms191432.aspx
-[동의어]: https://msdn.microsoft.com/library/ms177544.aspx
-[고유 인덱스]: https://msdn.microsoft.com/library/ms188783.aspx
+[Identity Property]: https://msdn.microsoft.com/library/ms186775.aspx
+[Assigning Surrogate Key Workaround]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
+[Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
+[Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
+[Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx
+[User-Defined Types]: https://msdn.microsoft.com/library/ms131694.aspx
+[Sequence]: https://msdn.microsoft.com/library/ff878091.aspx
+[Triggers]: https://msdn.microsoft.com/library/ms189799.aspx
+[Indexed Views]: https://msdn.microsoft.com/library/ms191432.aspx
+[Synonyms]: https://msdn.microsoft.com/library/ms177544.aspx
+[Unique Indexes]: https://msdn.microsoft.com/library/ms188783.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

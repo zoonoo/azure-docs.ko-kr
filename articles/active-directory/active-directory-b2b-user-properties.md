@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/18/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: eb0482d0dec3121710cc2ee56ab538cd66cb03c9
-ms.openlocfilehash: eaf7fabc243b3dfa37d974f4315a378bec9356b7
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 3d7801d8a53ac048333e43ee64724c11c25bf6a8
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,7 +31,7 @@ Azure AD(Azure Active Directory) B2B 공동 작업 사용자는 UserType이 Gues
 
 - 상태 1: Azure AD의 외부 인스턴스에 속하며 호스트 조직의 게스트 사용자로 표시됩니다. 이 경우 B2B 사용자는 자신의 테넌트에 속한 Azure AD 계정을 사용하여 로그인합니다. 사용자의 외부 조직이 초대 시 Azure AD를 사용하지 않으면 Azure AD에서 사용자의 전자 메일 주소를 확인한 후 사용자가 초대를 상환할 때 Azure AD의 게스트 사용자가 만들어집니다. 이를 JIT(Just In Time) 테넌트 또는 바이럴 테넌트라고 합니다.
 
-- 상태 2: Microsoft 계정에 속하고 호스트 조직의 게스트 사용자로 표시됩니다. 이 경우 게스트 사용자는 Microsoft 계정으로 로그인합니다. Azure AD 공개 미리 보기 새로 고침에서 제안 상환 중에 초대된 사용자의 비 Microsoft 소셜 ID(google.com 또는 유사한 ID)가 Microsoft 계정으로 만들어집니다.
+- 상태 2: Microsoft 계정에 속하고 호스트 조직의 게스트 사용자로 표시됩니다. 이 경우 게스트 사용자는 Microsoft 계정으로 로그인합니다. 제안 상환 중에 초대된 사용자의 비 Microsoft 소셜 ID(google.com 또는 유사한 ID)가 Microsoft 계정으로 만들어집니다.
 
 - 상태 3: 호스트 조직의 온-프레미스 Active Directory에 속하며 호스트 조직의 Azure AD와 동기화와 동기화됩니다. 이 릴리스에서는 PowerShell을 사용하여 수동으로 클라우드에 있는 이러한 사용자의 UserType을 변경해야 합니다.
 

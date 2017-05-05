@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 7018320e601c1e8762e1c8fc409813a113a35044
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 20f60ccd9108a7473705c2368f28d3152d0dd614
+ms.lasthandoff: 04/07/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/06/2017
 
 ## <a name="scenario"></a>시나리오
 
-이 문서에서는 탄력적인 스택을 사용하여 네트워크 보안 그룹 흐름 로그를 시각화할 수 있는 솔루션을 설정합니다.  Logstash 입력 플러그는 흐름 로그를 포함하기 위해 구성된 Blob Storage에서 직접 흐름 로그를 가져옵니다. 그런 다음 탄력적인 스택을 사용하여 흐름 로그가 인덱싱되고, 흐름 로그로 Kibana 대시보드를 만들어 정보를 시각화합니다.
+이 문서에서는 탄력적인 스택을 사용하여 네트워크 보안 그룹 흐름 로그를 시각화할 수 있는 솔루션을 설정합니다.  Logstash 입력 플러그 인은 흐름 로그를 포함하기 위해 구성된 Blob Storage에서 직접 흐름 로그를 가져옵니다. 그런 다음 탄력적인 스택을 사용하여 흐름 로그가 인덱싱되고, 흐름 로그로 Kibana 대시보드를 만들어 정보를 시각화합니다.
 
 ![시나리오][scenario]
 
@@ -88,7 +88,7 @@ NSG 흐름 로그를 탄력적 스택과 연결하여 로그에서 정보를 검
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. 다음으로 eve.json 파일의 출력에서 읽어오도록 Logstash를 구성해야 합니다. 다음을 사용하여 logstash.conf 파일을 만듭니다.
+1. 다음에는 흐름 로그를 액세스하고 구문 분석하도록 Logstash를 구성해야 합니다. 다음을 사용하여 logstash.conf 파일을 만듭니다.
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 9134b5893413abbc49e2332651fb4a8b549ce559
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8bea98274f94853cb52fe8b51fdaa4f224c649e4
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,11 +33,11 @@ ms.lasthandoff: 03/31/2017
 - - -
 먼저 RemoteApp cmdlet이 포함되어 있는 Azure Powershell cmdlet을 [여기](http://go.microsoft.com/?linkid=9811175)서 다운로드합니다. 
 
-[Azure RemoteApp cmdlet 도움말](https://msdn.microsoft.com/library/mt428031.aspx)을 확인하세요.
+[Azure RemoteApp cmdlet 도움말](/powershell/module/azure?view=azuresmps-3.7.0)을 확인하세요.
 
 ## <a name="configure-azure-cmdlets-to-use-your-subscription"></a>구독을 사용하도록 Azure cmdlet 구성
 - - -
-Azure 구독에 대해 cmdlet을 사용할 수 있도록 [이 가이드](/powershell/azureps-cmdlets-docs) 를 따릅니다.
+Azure 구독에 대해 cmdlet을 사용할 수 있도록 [이 가이드](/powershell/azure/overview) 를 따릅니다.
 
 다음 단계를 사용하여 빠르게 시작할 수 있습니다.
 

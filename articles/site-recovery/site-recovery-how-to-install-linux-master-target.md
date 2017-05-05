@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: ef4324ebf3c24cdf2ebed58e4938f401b66b9c95
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 22a86001fe93dcb11e180dbdd75045b49b85b58f
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -37,6 +37,14 @@ ms.lasthandoff: 03/22/2017
 * 마스터 대상은 프로세스 서버 및 구성 서버와 통신할 수 있는 네트워크에 있어야 합니다.
 * 마스터 대상의 버전이 프로세스 서버 및 구성 서버의 버전과 같거나 그보다 이전 버전이어야 합니다. 예를 들어 구성 서버의 버전이 9.4인 경우 마스터 대상의 버전이 9.4 또는 9.3인 것은 괜찮지만 9.5는 안 됩니다.
 * 마스터 대상은 VMware 가상 컴퓨터만 될 수 있고 물리적 서버는 안 됩니다.
+
+## <a name="master-target-sizing-guideline"></a>마스터 대상 크기 조정 지침
+
+다음 크기 조정 지침을 따라 마스터 대상을 만들어야 합니다.
+    * RAM - 6GB 이상
+    * OS 디스크 크기 - 100GB 이상(CentOS6.6 설치에 필요)
+    * 보존 드라이브에 대한 추가 디스크 크기 - 1TB
+    * CPU 코어 - 코어 4개 이상
 
 
 ## <a name="steps-to-deploy-the-master-target-server"></a>마스터 대상 서버를 배포하는 단계
@@ -401,5 +409,6 @@ VMware 도구가 데이터 저장소를 찾을 수 있도록 마스터 대상에
 
 * 마스터 대상 같은 관리 구성 요소에서 Storage vMotion을 설정하지 않아야 합니다. 마스터 대상이 다시 보호 후에 이동되면 VMDK(가상 컴퓨터 디스크)를 분리할 수 없고 따라서 장애 복구도 실패합니다.
 * 마스터 대상에는 가상 컴퓨터에 대한 스냅숏이 없어야 합니다. 스냅숏이 있으면 장애 복구가 실패합니다.
-* 일부 고객의 일부 사용자 지정 NIC 구성 때문에 부팅 시에 네트워크 인터페이스가 비활성화되고 마스터 대상 에이전트를 초기화할 수 없습니다. 다음 속성이 올바르게 설정되어 있는지 확인합니다. 이더넷 카드 파일의 /etc/sysconfig/network-scripts/ifcfg-eth*에서 다음 속성을 확인합니다.       * BOOTPROTO=dhcp * ONBOOT=yes
+* 일부 고객의 일부 사용자 지정 NIC 구성 때문에 부팅 시에 네트워크 인터페이스가 비활성화되고 마스터 대상 에이전트를 초기화할 수 없습니다. 다음 속성이 올바르게 설정되어 있는지 확인합니다. 이더넷 카드 파일의 /etc/sysconfig/network-scripts/ifcfg-eth*에서 다음 속성을 확인합니다.
+        * BOOTPROTO=dhcp * ONBOOT=yes
 

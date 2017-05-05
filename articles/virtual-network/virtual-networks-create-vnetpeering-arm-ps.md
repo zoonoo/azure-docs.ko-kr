@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan; annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 3fcd6583b415cea6b2151651297c55c93e59c796
-ms.openlocfilehash: b0375a99f5ea3d6af2d3ead382f9a43f1fd285f0
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 57991a59feb784fd2e5277e893110de2a776a060
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/22/2017
 
 PowerShell을 사용하여 VNet 피어링을 만들려면 다음 단계를 수행하세요.
 
-1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
+1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 
     > [!NOTE]
     > VNet 피어링을 관리하기 위한 PowerShell cmdlet은 [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0)

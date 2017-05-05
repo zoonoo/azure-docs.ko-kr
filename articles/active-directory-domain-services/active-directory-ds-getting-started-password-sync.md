@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 51e4665b6372859021237144a0bf7f6763a2638b
-ms.lasthandoff: 04/14/2017
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: b7b5f92c0093faa96a367fc95d459b1babd99789
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/14/2017
 암호를 변경하고 나서 몇 분 후에 Azure Active Directory Domain Services에서 새 암호를 사용할 수 있습니다. 몇 분(일반적으로 약 20분) 후에 새로 변경한 암호를 사용하여 관리되는 도메인에 가입된 컴퓨터에 로그인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [고유한 암호를 업데이트하는 방법](../active-directory/active-directory-passwords-update-your-own-password.md#reset-my-password)
+* [고유한 암호를 업데이트하는 방법](../active-directory/active-directory-passwords-update-your-own-password.md)
 * [Azure AD에서 암호 관리 시작](../active-directory/active-directory-passwords-getting-started.md)
 * [동기화된 Azure AD 테넌트의 Azure Active Directory Domain Services에 대한 암호 동기화 활성화](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 * [Azure Active Directory Domain Services 관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)

@@ -6,6 +6,7 @@
 ## [글로벌 분포](documentdb-distribute-data-globally.md)
 ## [지역별 장애 조치](documentdb-regional-failovers.md)
 ## [보안](documentdb-nosql-database-security.md)
+## [휴지 상태의 암호화](documentdb-nosql-database-encryption-at-rest.md)
 ## [NoSQL TCO 분석](https://aka.ms/documentdb-tco-paper)
 ## 시나리오
 ### [일반 사용 예](documentdb-use-cases.md)

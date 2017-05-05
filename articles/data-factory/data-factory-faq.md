@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: c212df3646dce24eb11542884c6ee5084325cb7d
-ms.lasthandoff: 04/20/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6af34cf24a8fb7d2dd8f4c44392e0e6c3ed46b1a
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -156,7 +156,7 @@ dataset4(데이터 팩터리 1의 파이프라인 2에 의해 생성)를 사용�
 외부 속성이 제대로 설정된 경우 입력 데이터가 입력 데이터 집합 정의에 지정된 위치에 있는지 여부를 확인합니다.
 
 ### <a name="how-to-run-a-slice-at-another-time-than-midnight-when-the-slice-is-being-produced-daily"></a>조각이 매일 생성될 때 자정 이외의 다른 시간에 조각을 실행하는 방법은 무엇인가요?
-**offset** 속성을 사용하여 조각을 생성할 시간을 지정합니다. 이 속성에 대한 자세한 내용은 [데이터 집합 가용성](data-factory-create-datasets.md#Availability) 섹션을 참조하세요. 간단한 예제는 다음과 같습니다.
+**offset** 속성을 사용하여 조각을 생성할 시간을 지정합니다. 이 속성에 대한 자세한 내용은 [데이터 집합 가용성](data-factory-create-datasets.md#dataset-availability) 섹션을 참조하세요. 간단한 예제는 다음과 같습니다.
 
 ```json
 "availability":
@@ -193,7 +193,7 @@ Azure 포털에서 다음을 수행할 수도 있습니다.
 6. **기간** 필드와 값이 표시됩니다. 이 값은 조각을 처리하는 데 소요된 시간입니다.   
 
 ### <a name="how-to-stop-a-running-slice"></a>실행 중인 조각을 중지하려면 어떻게 해야 하나요?
-파이프라인 실행을 중지해야 하는 경우 [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx) cmdlet을 사용할 수 있습니다. 현재, 파이프라인을 일시 중단해도 진행 중인 조각 실행은 중지되지 않습니다. 진행 중인 실행이 완료되면 추가 조각이 선택되지 않습니다.
+파이프라인 실행을 중지해야 하는 경우 [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) cmdlet을 사용할 수 있습니다. 현재, 파이프라인을 일시 중단해도 진행 중인 조각 실행은 중지되지 않습니다. 진행 중인 실행이 완료되면 추가 조각이 선택되지 않습니다.
 
 모든 실행을 즉시 중지하려면 파이프라인을 삭제하고 다시 만들어야 합니다. 파이프라인을 삭제하도록 선택하는 경우 파이프라인에서 사용되는 테이블 및 연결된 서비스를 삭제할 필요는 없습니다.
 

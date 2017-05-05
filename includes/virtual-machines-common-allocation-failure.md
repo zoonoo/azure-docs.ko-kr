@@ -99,7 +99,7 @@ GeneralError*
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>할당 시나리오: 스테이징/프로덕션 배포(Platform as a Service 전용)
 **오류**
 
-New_General* 또는 New_VMSizeNotSupported*
+New_General *또는 New_VMSizeNotSupported*
 
 **클러스터 고정의 원인**
 
@@ -112,7 +112,7 @@ New_General* 또는 New_VMSizeNotSupported*
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>할당 시나리오: 선호도 그룹(VM/서비스 근접성)
 **오류**
 
-New_General* 또는 New_VMSizeNotSupported*
+New_General *또는 New_VMSizeNotSupported*
 
 **클러스터 고정의 원인**
 
@@ -125,7 +125,7 @@ New_General* 또는 New_VMSizeNotSupported*
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>할당 시나리오: 선호도-그룹-기반 가상 네트워크
 **오류**
 
-New_General* 또는 New_VMSizeNotSupported*
+New_General *또는 New_VMSizeNotSupported*
 
 **클러스터 고정의 원인**
 
@@ -151,7 +151,7 @@ New_General* 또는 New_VMSizeNotSupported*
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>할당 시나리오: VM 크기 조정 또는 기존 가용성 집합에 VM 추가 
 **오류**
 
-Upgrade_VMSizeNotSupported* 또는 GeneralError*
+Upgrade_VMSizeNotSupported *또는 GeneralError*
 
 **클러스터 고정의 원인**
 
@@ -205,9 +205,4 @@ GeneralError*
 **GeneralError***
 
 “서버에 내부 오류가 발생했습니다. 요청을 다시 시도하세요.” 그렇지 않으면 "서비스에 대한 할당 생성이 실패합니다."
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

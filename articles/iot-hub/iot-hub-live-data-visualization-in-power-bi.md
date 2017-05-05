@@ -16,16 +16,18 @@ ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: bf685e4c59117497e27ff7e2ef7b3b39caac6d4a
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: ba25cdee46ce4ceb5acd5ff9da683a057f2bd733
+ms.lasthandoff: 04/25/2017
 
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
-> [!NOTE]
-> 이 자습서를 시작하기 전에 [Azure IoT Hub에 ESP8266 연결](/iot-hub-arduino-huzzah-esp8266-get-started.md)을 완료했는지 확인합니다. [Azure IoT Hub에 ESP8266 연결](/iot-hub-arduino-huzzah-esp8266-get-started.md)에서 IoT 장치와 IoT Hub를 설정하고 장치에서 실행할 샘플 응용 프로그램을 배포합니다. 응용 프로그램에서 수집된 센서 데이터를 IoT Hub로 보냅니다.
+![종단 간 다이어그램](media/iot-hub-get-started-e2e-diagram/4.png)
+
+
+[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-learn"></a>학습 내용
 
@@ -39,22 +41,13 @@ Azure IoT Hub에서 Power BI를 통해 받는 실시간 센서 데이터를 시�
 
 ## <a name="what-you-need"></a>필요한 항목
 
-- 다음 요구 사항을 다루는 [Azure IoT Hub에 ESP8266 연결](iot-hub-arduino-huzzah-esp8266-get-started.md) 자습서
+- 다음 요구 사항을 다루는 자습서 [장치 설정](iot-hub-raspberry-pi-kit-node-get-started.md) 완료:
   - 활성 Azure 구독.
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 응용 프로그램
-- Power BI 계정 ([Power BI 평가판 사용](https://powerbi.microsoft.com/))
+- Power BI 계정 ([Power BI를 무료로 사용해 보기](https://powerbi.microsoft.com/))
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>IoT Hub에 소비자 그룹 추가
-
-소비자 그룹은 응용 프로그램에서 Azure IoT Hub의 데이터를 끌어오는 데 사용됩니다. 이 단원에서는 Stream Analytics 작업에서 IoT Hub의 데이터를 읽는 데 사용할 소비자 그룹을 만듭니다.
-
-IoT Hub에 소비자 그룹을 추가하려면 다음 단계를 수행합니다.
-
-1. [Azure Portal](https://ms.portal.azure.com/)에서 IoT Hub를 엽니다.
-1. 왼쪽 창에서 **끝점**을 클릭하고, 가운데 창에서 **이벤트**를 선택하고, 오른쪽 창의 **소비자 그룹** 아래에서 이름을 입력한 다음, **저장**을 클릭합니다.
-
-   ![Azure IoT Hub에서 소비자 그룹 만들기](media/iot-hub-live-data-visualization-in-power-bi/1_iot-hub-create-consumer-group-azure.png)
+[!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="create-configure-and-run-a-stream-analytics-job"></a>Stream Analytics 작업 만들기, 구성 및 실행
 
@@ -170,8 +163,4 @@ Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차
 Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터를 시각화했습니다.
 Azure IoT Hub에서 데이터를 시각화하는 또 다른 방법이 있습니다. [Azure Web Apps를 사용하여 Azure IoT Hub의 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)를 참조하세요.
 
-계속해서 IoT Hub을 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
-
-- [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
-- [IoT Hub 메시지를 Azure 데이터 저장소에 저장](iot-hub-store-data-in-azure-table-storage.md)
-
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

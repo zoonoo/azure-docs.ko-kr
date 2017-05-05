@@ -1,6 +1,6 @@
 ---
-title: "Windows 기반 HDInsight에서 Linux 기반 HDInsight로 마이그레이션 -Azure | Microsoft Docs"
-description: "Windows 기반 HDInsight 클러스터에서 Linux 기반 HDInsight 클러스터로 마이그레이션하는 방법에 대해 알아봅니다."
+title: "HDInsight 클러스터를 최신 버전으로 업그레이드 -Azure | Microsoft Docs"
+description: "HDInsight 클러스터를 최신 버전으로 업그레이드하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: bhanupr
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/11/2017
+ms.date: 04/04/2017
 ms.author: bhanupr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: e249d2859f135bf1a49b152ce206dc66ddebb75f
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
+ms.openlocfilehash: 909ac8bff4c3fdb78fc7ed6fdcac4743fda6c6a9
+ms.lasthandoff: 04/05/2017
 
 
 ---

@@ -25,8 +25,3 @@
 4. Info.plist를 두 번 클릭하여 연 다음 **Background Modes**에서 **RemoteNotifications**를 사용하도록 설정합니다.
 
 [Xamarin 장치 프로비저닝]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
-
-
-<!--HONumber=Dec16_HO2-->
-
-

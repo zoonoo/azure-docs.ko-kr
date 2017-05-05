@@ -18,8 +18,3 @@
 4. 확인 아이콘 ![확인 아이콘](./media/storsimple-add-backup-policy-u2/HCS_CheckIcon-include.png) 을 클릭하여 마칩니다.
 5. **백업 정책** 페이지로 돌아갑니다. 백업 정책의 테이블 형식 목록이 사용자 지정 정책을 표시하도록 업데이트됩니다.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

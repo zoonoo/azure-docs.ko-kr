@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: aebd94edbad210f15bce5b39ebf73269ec67a209
-ms.openlocfilehash: 3bcba1123d3ec00c760d022d200609bf28c22362
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 63f2cf1617bf9c265273c6a8e91703542b9eb8d4
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -67,7 +67,7 @@ Site Recovery를 사용하여 지원되는 VM 또는 물리적 서버에서 실�
 Windows 및 Linux를 실행하는 물리적 서버를 Azure 또는 보조 사이트로 복제할 수 있습니다. [알아봅니다](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) .  물리적 서버에서 Azure로 복사하든 아니면 보조 사이트로 복사하든 관계없이 동일한 요구 사항이 적용됩니다.
 
 
-온-프레미스 서버가 중지되면 물리적 서버가 Azure에서 VM으로 실행됩니다. 온-프레미스 물리적 서버로의 장애 복구는 현재 지원되지 않지만 Hyper-V 또는 VMware에서 실행되는 가상 컴퓨터로의 장애 복구는 가능합니다.
+온-프레미스 서버가 중지되면 물리적 서버가 Azure에서 VM으로 실행됩니다. 온-프레미스 물리적 서버로의 장애 복구(failback)는 현재 지원되지 않습니다. 물리적으로 보호되는 컴퓨터의 경우 VMware 가상 컴퓨터로만 장애 복구(failback)할 수 있습니다.
 
 ### <a name="what-vmware-vms-can-i-protect"></a>어떤 VMware VM을 보호할 수 있습니까?
 
@@ -135,7 +135,7 @@ Azure로 복제하려는 가상 컴퓨터가 [Azure 요구 사항](site-recovery
 * **Hyper-V:** Hyper-V VM은 30초(프리미엄 저장소 제외), 5분 또는 15분마다 복제할 수 있습니다. SAN 복제를 설정하면 복제가 동기화됩니다.
 * **VMware 및 물리적 서버:** 복제 빈도는 이와 관련이 없습니다. 복제가 계속 됩니다.
 
-### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>기존 복구 사이트에서&3;차 사이트로 복제를 확장할 수 있습니까?
+### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>기존 복구 사이트에서 3차 사이트로 복제를 확장할 수 있습니까?
 확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-do-an-offline-replication-the-first-time-i-replicate-to-azure"></a>Azure에 처음으로 복제할 때 오프라인으로 복제할 수 있습니까?
@@ -156,16 +156,13 @@ Azure로 복제하려는 가상 컴퓨터가 [Azure 요구 사항](site-recovery
 예. 배포 문서에서 대역폭 제한에 대해 더 자세히 검토할 수 있습니다.
 
 * [VMware VM 및 물리적 서버를 복제하기 위한 용량 계획](site-recovery-plan-capacity-vmware.md)
-* [을 복제하기 위한 용량 계획](site-recovery-vmm-to-azure.md#step-5-capacity-planning)
-* [VMM 없이 Hyper-V VM을 복제하기 위한 용량 계획](site-recovery-hyper-v-site-to-azure.md#step-5-capacity-planning)
+* [을 복제하기 위한 용량 계획](site-recovery-vmm-to-azure.md#capacity-planning)
+* [VMM 없이 Hyper-V VM을 복제하기 위한 용량 계획](site-recovery-hyper-v-site-to-azure.md#capacity-planning)
 
 ## <a name="failover"></a>장애 조치(Failover)
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Azure로 장애 조치(Failover)하는 경우 장애 조치(Failover) 후에 어떻게 Azure 가상 컴퓨터에 액세스할 수 있습니까?
-보안 인터넷 연결 또는 사이트 간 VPN 또는 Azure Express 경로로 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. 자세히 알아보기:
+보안 인터넷 연결 또는 사이트 간 VPN 또는 Azure Express 경로로 Azure VM에 액세스할 수 있습니다. 연결하려면 여러 가지 사항을 준비해야 합니다. [자세히 알아보기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
-* [VMware VM 또는 물리적 서버의 장애 조치 후 Azure VM에 연결](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
-* [VMM 클라우드에서 Hyper-V VM의 장애 조치 후 Azure VM에 연결](site-recovery-vmm-to-azure.md#step-7-test-your-deployment)
-* [VMM 없이 Hyper-V VM의 장애 조치 후 Azure VM에 연결](site-recovery-hyper-v-site-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Azure로 장애 조치(Failover)하는 경우 Azure는 어떻게 데이터 복원을 보장합니까?
 Azure는 복원을 위해 디자인되었습니다. Site Recovery는 이미 Azure SLA를 따라 보조 Azure 데이터 센터에 대한 장애 조치(Failover)를 위해 엔지니어링되었습니다. 이 상황이 발생하면 사용자가 자격 증명 모음에 대해 선택한 지리적으로 동일한 지역에 메타데이터 및 자격 증명 모음이 남아 있습니다.  
@@ -174,13 +171,19 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 이미 Azur
 보조 사이트에서 계획되지 않은 장애 조치(Failover)를 트리거할 수 있습니다. Site Recovery는 기본 사이트가 연결되지 않아도 장애 조치(Failover)를 수행할 수 있습니다.
 
 ### <a name="is-failover-automatic"></a>장애 조치(Failover)는 자동입니까?
-자동이 아닙니다. 포털에서 클릭 한 번으로 장애 조치(Failover)를 시작하거나 [Site Recovery PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery) 을 사용하여 장애 조치(Failover)를 트리거할 수 있습니다. 장애 복구(failback) 작업은 Site Recovery 포털에서 간단하게 수행할 수 있습니다.
+자동이 아닙니다. 포털에서 클릭 한 번으로 장애 조치(Failover)를 시작하거나 [Site Recovery PowerShell](/powershell/module/azurerm.siterecovery) 을 사용하여 장애 조치(Failover)를 트리거할 수 있습니다. 장애 복구(failback) 작업은 Site Recovery 포털에서 간단하게 수행할 수 있습니다.
 
 온-프레미스 Orchestrator 또는 Operations Manager를 사용하여 가상 컴퓨터 오류를 감지하면 SDK를 사용하여 장애 조치(Failover)를 트리거하도록 자동화할 수 있습니다.
 
 * [자세한](site-recovery-create-recovery-plans.md) 복구 계획을 알아봅니다.
 * [자세히 알아보기](site-recovery-failover.md) .
 * [자세히 알아보기](site-recovery-failback-azure-to-vmware.md) 
+
+### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>내 온-프레미스 호스트가 응답하지 않거나 손상된 경우 다른 호스트로 장애 조치(failover)할 수 있나요?
+예, 대체 위치 복구를 사용하여 Azure에서 다른 호스트로 장애 복구(failback)를 수행할 수 있습니다. VMware 및 Hyper-V 가상 컴퓨터에 대한 옵션을 자세히 알아보려면 아래 링크를 참조하세요.
+
+* [VMware 가상 컴퓨터](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
+* [Hyper-V 가상 컴퓨터](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
 
 ## <a name="service-providers"></a>서비스 공급자
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>서비스 공급자입니다. Site Recovery는 전용 및 공유 인프라 모델에 대해 작동합니까?

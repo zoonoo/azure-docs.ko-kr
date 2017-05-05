@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: aee8458ef8d6e564685cbf4d56f91af7766d1e2a
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: fcf3332a6674524ea5354b96826586c79a4ba3e1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -23,14 +24,14 @@ ms.openlocfilehash: aee8458ef8d6e564685cbf4d56f91af7766d1e2a
 이 자습서는 Azure 및 Projectplace의 통합을 보여 주기 위한 것입니다. 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 * 유효한 Azure 구독
-* Projectplace Single Sign-On이 설정된 구독
+* Projectplace SSO(Single Sign-On)가 설정된 구독
 
 이 자습서를 완료한 후 Projectplace에 할당한 Azure AD 사용자가 Projectplace 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On할 수 있습니다.
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
 1. Projectplace에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
+2. SSO(Single Sign-On) 구성
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
@@ -60,7 +61,7 @@ ms.openlocfilehash: aee8458ef8d6e564685cbf4d56f91af7766d1e2a
    
    ![ProjectPlace](./media/active-directory-saas-projectplace-tutorial/IC790219.png "ProjectPlace")
    
-## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Projectplace에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
 
@@ -80,15 +81,15 @@ ms.openlocfilehash: aee8458ef8d6e564685cbf4d56f91af7766d1e2a
    ![Single Sign-On 구성](./media/active-directory-saas-projectplace-tutorial/IC790223.png "Single Sign-On 구성")
 5. 메타데이터를 Projectplace 지원팀에 보냅니다.
    
-   > [!NOTE]
-   > Single Sign-On 구성을 Projectplace 지원팀에서 수행할 수 있습니다. 구성이 완료되는 즉시 알림을 받아볼 수 있습니다.
+   >[!NOTE]
+   >Single Sign-On 구성을 Projectplace 지원팀에서 수행할 수 있습니다. 구성이 완료되는 즉시 알림을 받아볼 수 있습니다.
    > 
    > 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-projectplace-tutorial/IC790227.png "Single Sign-On 구성")
    
-## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
 Azure AD 사용자가 Projectplace에 로그인할 수 있도록 하려면 Projectplace로 프로비전되어야 합니다. Projectplace의 경우 프로비전은 수동 작업입니다.
 
@@ -108,15 +109,15 @@ Azure AD 사용자가 Projectplace에 로그인할 수 있도록 하려면 Proje
    1. **새 멤버** 텍스트 상자에서 프로비전할 유효한 AAD 계정의 이메일 주소를 관련 텍스트 상자에 입력합니다.
    2. **보내기**를 클릭합니다.
 
- 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일이 Azure Active Directory 계정 보유자에게 전송됩니다.
+활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일이 Azure Active Directory 계정 보유자에게 전송됩니다.
 
 
-> [!NOTE]
-> 다른 Projectplace 사용자 계정 생성 도구 또는 Projectplace가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[!NOTE]
+>다른 Projectplace 사용자 계정 생성 도구 또는 Projectplace가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 > 
 > 
 
-## <a name="assigning-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
 **Projectplace에 사용자를 할당하려면 다음 단계를 수행합니다.**
@@ -129,11 +130,6 @@ Azure AD 사용자가 Projectplace에 로그인할 수 있도록 하려면 Proje
    
    ![예](./media/active-directory-saas-projectplace-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
+SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 

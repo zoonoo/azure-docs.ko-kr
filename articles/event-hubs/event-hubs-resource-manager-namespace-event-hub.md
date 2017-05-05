@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 03/07/2017
 ms.author: sethm;shvija
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 271eca35ad18725306410d1e8b81bdf06712db1f
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
+ms.openlocfilehash: 4a9a315f5b03e0fb5424713a3ff3757d928ba150
+ms.lasthandoff: 04/18/2017
 
 
 ---
-# <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스 만들기
-이 문서에서는 하나의 이벤트 허브 및 하나의 소비자 그룹이 있는 Event Hubs 형식 네임스페이스를 만드는 Azure Resource Manager 템플릿을 사용하는 방법을 보여 줍니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
+# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 Event Hubs 네임스페이스 만들기
+이 문서에서는 Azure Resource Manager 템플릿을 사용하여 하나의 이벤트 허브 및 하나의 소비자 그룹이 있는 Event Hubs 형식의 네임스페이스를 만드는 방법을 보여 줍니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
 
 템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]을 참조하세요.
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/08/2017
 > 
 
 ## <a name="what-will-you-deploy"></a>배포할 항목
-이 템플릿으로 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스를 배포합니다.
+이 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 이벤트 허브 네임스페이스를 배포합니다.
 
 [이벤트 허브](event-hubs-what-is-event-hubs.md) 는 짧은 대기 시간 및 높은 안정성으로 이벤트 및 원격 분석을 엄청난 규모의 Azure에 제공하는 데 사용되는 이벤트 ingestor 서비스입니다.
 
@@ -57,7 +57,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 ```
 
 ### <a name="eventhubname"></a>eventHubName
-이벤트 허브 네임스페이스에서 만든 이벤트 허브의 이름입니다.
+Event Hubs 네임스페이스에서 만든 이벤트 허브의 이름입니다.
 
 ```json
 "eventHubName": {
@@ -84,7 +84,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 ```
 
 ## <a name="resources-to-deploy"></a>배포할 리소스
-이벤트 허브 및 소비자 그룹이 있는 **EventHubs**유형의 네임스페이스를 만듭니다.
+이벤트 허브 및 소비자 그룹이 있는 **EventHubs** 형식의 네임스페이스를 만듭니다.
 
 ```json
 "resources":[  
@@ -153,5 +153,5 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-[Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
+[Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 

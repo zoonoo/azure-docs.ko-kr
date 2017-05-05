@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 03/19/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1a462b8d557ad23bda912ddf9431195a8cfe909e
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 284b239860481cf76f647d78f6a7b5e2b7cf9a3b
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -33,7 +33,7 @@ Managed Disks는 저장소 계정 관리를 처리하여 Azure IaaS VM을 위한
 
 **크기가 80GB인 기존 VHD에서 표준 관리 디스크를 만들 경우 비용은 얼마나 드나요?**
 
-80GB VHD로 만든 표준 관리 디스크는 그 다음 프리미엄 디스크 크기인 S10으로 취급됩니다. S10 디스크 가격 책정에 따라 대금이 청구됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage)를 확인하세요.
+80GB VHD로 만든 표준 관리 디스크는 그 다음 표준 디스크 크기인 S10으로 취급됩니다. S10 디스크 가격 책정에 따라 대금이 청구됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage)를 확인하세요.
 
 **표준 관리 디스크에 대한 트랜잭션 비용이 있나요?**
 
@@ -121,6 +121,11 @@ Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 
 Azure Managed Disks에서는 현재 로컬 중복 저장소(LRS)만 지원됩니다.
 
+**Managed Disks를 축소하거나 크기를 줄일 수 있나요?**
+아니요. 이 기능은 현재 지원되지 않습니다. 
+
+**serialize된(sysprep 또는 일반화되지 않은) OS 디스크를 사용하여 VM을 프로비전할 때 컴퓨터 이름 속성을 변경할 수 있나요?** 아니요. 컴퓨터 이름 속성은 업데이트할 수 없습니다. 새 VM은 OS 디스크를 만들 때 사용한 부모 VM에서 이 속성을 상속합니다. 
+
 ## <a name="managed-disks-and-port-8443"></a>Managed Disks 및 포트 8443
 
 **고객이 Azure Managed Disks를 사용하는 VM의 포트 8443에서 아웃바운드 트래픽의 차단을 해제해야 하는 이유는 무엇인가요?**
@@ -189,8 +194,13 @@ DS 시리즈의 캐시 및 로컬 SSD에 대한 결합 제한은 코어당 4000 
 
 로컬 SSD는 Managed Disks VM에 포함되어 있는 임시 저장소입니다. 이 임시 저장소에 대한 추가 비용은 없습니다. 이 로컬 SSD는 Azure Blob Storage에 보존되지 않으므로 응용 프로그램 데이터를 저장하는 용도로 사용하지 않는 것이 좋습니다.
 
+**프리미엄 디스크에 대해 TRIM을 사용할 경우 부작용이 있나요?**
+
+프리미엄 또는 표준 디스크에 대해 Azure 디스크의 TRIM을 사용해도 문제는 없습니다.
+
 ## <a name="what-if-my-question-isnt-answered-here"></a>여기서 내 질문에 대답하지 않으면 어떻게 하나요?
 
 질문하려는 내용이 아래 목록에 나와 있지 않으면 알려 주세요. 대답을 확인하는 방법을 알려 드리겠습니다. 이 문서의 끝에서 주석이나 MSDN [Azure Storage 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)에 질문을 게시하여 Azure Storage 팀 및 다른 커뮤니티 회원과 이 문서에 대해 논의할 수 있습니다.
 
 기능을 요청하려면 요청 내용과 아이디어를 [Azure Storage 피드백 포럼](https://feedback.azure.com/forums/217298-storage)으로 제출해 주세요.
+

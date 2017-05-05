@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/29/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: cc177695f73805940f6a0229c94e391bf3899f09
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4e2fe22953ff74214c0c20fdf2fabceeda63be35
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -36,7 +36,8 @@ Azure AD(Azure Active Directory) 미리 보기에서 Office 365 그룹을 삭제
 
 
 ## <a name="how-to-view-deleted-office-365-groups-that-are-available-to-restore"></a>복원할 수 있는 삭제된 Office 365 그룹을 보는 방법
-다음 cmdlet을 사용하여 관심 있는 그룹이 영구적으로 제거되었는지 확인하기 위해 삭제된 그룹을 볼 수 있습니다. 해당 cmdlet은 [Azure Active Directory PowerShell V2 미리 보기 모듈](https://www.powershellgallery.com/packages/AzureADPreview)(다운로드 링크)의 일부입니다. 이 모듈에 대한 자세한 정보는 [Azure Active Directory PowerShell 버전 2](https://docs.microsoft.com/powershell/azuread/) 문서에서 찾을 수 있습니다.
+다음 cmdlet을 사용하여 관심 있는 그룹이 영구적으로 제거되었는지 확인하기 위해 삭제된 그룹을 볼 수 있습니다. 해당 cmdlet은 [Azure Active Directory PowerShell V2 미리 보기 모듈](https://www.powershellgallery.com/packages/AzureADPreview)의 일부입니다. 이 모듈에 대한 자세한 정보는 [Azure Active Directory PowerShell 버전 2](/powershell/azure/install-adv2?view=azureadps-2.0) 문서에서 찾을 수 있습니다.
+일시 삭제 및 복구를 관리하기 위한 cmdlet은 공개 미리 보기 상태이며 미리 보기 cmdlet에 대한 최신 변경 내용이 있는지 자주 확인해야 합니다. 이러한 이유로 프로덕션 환경에서 이러한 cmdlet을 사용하는 것은 권장되지 않습니다.
 
 1.    다음 cmdlet을 실행하여 여전히 복원할 수 있는 테넌트의 모든 삭제된 Office 365 그룹을 표시합니다.
   ```
@@ -80,3 +81,4 @@ Office 365 그룹을 성공적으로 복원했는지 확인하려면 `Get-AzureA
 * [그룹의 멤버 관리](active-directory-groups-members-azure-portal.md)
 * [그룹의 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
 * [그룹의 사용자에 대한 동적 규칙 관리](active-directory-groups-dynamic-membership-azure-portal.md)
+

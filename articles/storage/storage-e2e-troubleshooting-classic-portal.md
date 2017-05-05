@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3d85823b5f5a2476745564d0663ea4560b75489a
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bd76adbc250658f6d8e7dc13413b9554a9ee8236
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -104,9 +104,9 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 
 **PowerShell을 통해**
 
-Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
-1. 다음과 같이 [Add-azureaccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) cmdlet을 사용하여 PowerShell 창에 Azure 사용자 계정을 추가합니다.
+1. 다음과 같이 [Add-azureaccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet을 사용하여 PowerShell 창에 Azure 사용자 계정을 추가합니다.
 
     ```powershell
      Add-AzureAccount

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 04/04/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
-ms.openlocfilehash: e5f643d444fb2bf00aa91083f5d09962372e0dbb
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 4ef0118435020edc3a922c88a5a55400992cbc09
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -106,14 +107,68 @@ Express 설정을 사용하는 경우 계정은 동기화에 사용되는 Active
 
 ![AD 계정](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
-### <a name="azure-ad-connect-sync-service-accounts"></a>Azure AD Connect 동기화 서비스 계정
+사용자 지정 설정을 사용하는 경우에는 설치를 시작하기 전에 계정을 만들 책임이 있습니다.
+
+### <a name="azure-ad-connect-sync-service-account"></a>Azure AD Connect 동기화 서비스 계정
+동기화 서비스는 다양한 계정으로 실행할 수 있습니다. **가상 서비스 계정**(VSA), **그룹 관리 서비스 계정**(gMSA/sMSA) 또는 일반 사용자 계정으로 실행할 수 있습니다. 지원되는 옵션은 새로 설치 시 Connect의 2017년 4월 릴리스에서 변경되었습니다. Azure AD Connect의 이전 버전을 업그레이드하는 경우 이러한 추가 옵션을 사용할 수 없습니다.
+
+| 계정 유형 | 설치 옵션 | 설명 |
+| --- | --- | --- |
+| [가상 서비스 계정](#virtual-service-account) | 빠른 및 사용자 지정, 2017년 4월 이후 | 도메인 컨트롤러에서 설치를 제외한 모든 빠른 설치에 사용되는 옵션입니다. 다른 옵션이 사용되지 않는 한 사용자 지정 설치에 대해 기본 옵션입니다. |
+| [그룹 관리 서비스 계정](#group-managed-service-account) | 사용자 지정, 2017년 4월 이후 | 원격 SQL Server를 사용하는 경우에는 그룹 관리 서비스 계정을 사용하는 것이 좋습니다. |
+| [사용자 계정](#user-account) | 빠른 및 사용자 지정, 2017년 4월 이후 | AAD_가 접두사로 추가되는 사용자 계정은 Windows Server 2008에 설치되는 경우 및 도메인 컨트롤러에 설치되는 경우 설치 중에만 만들어집니다. |
+| [사용자 계정](#user-account) | 빠른 및 사용자 지정, 2017 3월 이전 | AAD_가 접두사로 추가되는 사용자 계정은 설치 중에 만들어집니다. 사용자 지정 설치를 사용하는 경우 다른 계정을 지정할 수 있습니다. |
+
+Connect의 2017년 3월 이전 빌드를 사용하는 경우에는 서비스 계정의 암호를 재설정하지 말아야 합니다. 보안상의 이유로 Windows에서 암호화 키를 제거하기 때문입니다. Azure AD Connect를 다시 설치하지 않고는 계정을 다른 계정으로 변경할 수 없습니다. 2017년 4월 이후의 빌드를 업그레이드하는 경우에는 서비스 계정의 암호를 변경하는 것이 지원되지만 사용된 계정은 변경할 수 없습니다.
+
+> [!Important]
+> 서비스 계정은 처음 설치할 때만 설정할 수 있습니다. 설치가 완료된 후에는 서비스 계정을 변경하는 것이 지원되지 않습니다.
+
+다음은 동기화 서비스 계정에 대한 기본, 권장 및 지원 옵션 테이블입니다.
+
+범례:
+
+- **굵은 글꼴**은 기본 옵션 및 대부분의 경우 권장 옵션을 나타냅니다.
+- *기울임꼴*은 기본 옵션이 아닌 경우 권장 옵션을 나타냅니다.
+- 2008 - Windows Server 2008에 설치하는 경우 기본 옵션
+- 굵지 않은 글꼴 - 지원되는 옵션
+- 로컬 계정 - 서버의 로컬 사용자 계정
+- 도메인 계정 - 도메인 사용자 계정
+- sMSA - [독립 실행형 관리 서비스 계정](https://technet.microsoft.com/library/dd548356.aspx)
+- gMSA - [그룹 관리 서비스 계정](https://technet.microsoft.com/library/hh831782.aspx)
+
+| | LocalDB</br>Express | LocalDB/LocalSQL</br>사용자 지정 | 원격 SQL</br>사용자 지정 |
+| --- | --- | --- | --- |
+| **독립 실행형/작업 그룹 컴퓨터** | 지원되지 않음 | **VSA**</br>로컬 계정(2008)</br>로컬 계정 |  지원되지 않음 |
+| **도메인에 가입된 컴퓨터** | **VSA**</br>로컬 계정(2008) | **VSA**</br>로컬 계정(2008)</br>로컬 계정</br>도메인 계정</br>sMSA,gMSA | **gMSA**</br>도메인 계정 |
+| **도메인 컨트롤러** | **도메인 계정** | *gMSA*</br>**도메인 계정**</br>sMSA| *gMSA*</br>**도메인 계정**|
+
+#### <a name="virtual-service-account"></a>가상 서비스 계정
+가상 서비스 계정은 암호가 없고 Windows에 의해 관리되는 특수한 유형의 계정입니다.
+
+![VSA](./media/active-directory-aadconnect-accounts-permissions/aadsyncvsa.png)
+
+VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 사용됩니다. 원격 SQL을 사용하는 경우에는 [그룹 관리 서비스 계정](#managed-service-account)을 대신 사용하는 것이 좋습니다.
+
+이 기능을 사용하려면 Windows Server 2008 R2 이상이 필요합니다. Windows Server 2008에 Azure AD Connect를 설치하는 경우에는 설치가 [사용자 계정](#user-account)을 대신 사용하도록 대체됩니다.
+
+#### <a name="group-managed-service-account"></a>그룹 관리 서비스 계정
+원격 SQL Server를 사용하는 경우에는 **그룹 관리 서비스 계정**을 사용하는 것이 좋습니다. 그룹 관리 서비스 계정에 대해 Active Directory를 준비하는 방법에 대한 자세한 내용은 [그룹 관리 서비스 계정 개요](https://technet.microsoft.com/library/hh831782.aspx)를 참조하세요.
+
+이 옵션을 사용하려면 [필수 구성 요소 설치](active-directory-aadconnect-get-started-custom.md#install-required-components) 페이지에서 **기존 서비스 계정 사용**을 선택하고 **관리 서비스 계정**을 선택합니다.  
+![VSA](./media/active-directory-aadconnect-accounts-permissions/serviceaccount.png)  
+[독립 실행형 관리 서비스 계정](https://technet.microsoft.com/library/dd548356.aspx)을 사용하는 것도 지원됩니다. 하지만 이 계정은 로컬 컴퓨터에서만 사용할 수 있기 때문에 기본 가상 서비스 계정 대신 이 계정을 사용할만한 실질적인 장점이 없습니다.
+
+이 기능을 사용하려면 Windows Server 2012 이상이 필요합니다. 이전 운영 체제를 사용해야 하고 원격 SQL을 사용하는 경우에는 [사용자 계정](#user-account)을 사용해야 합니다.
+
+#### <a name="user-account"></a>사용자 계정
 로컬 서비스 계정은 설치 마법사에서 만듭니다.(사용자 지정 설정에 사용할 계정을 지정하지 않으면) 계정은 **AAD_**를 접두사로 하며 실행할 실제 동기화 서비스에 사용됩니다. 도메인 컨트롤러에 Azure AD Connect를 설치하는 경우 계정은 도메인에 만들어집니다. SQL Server를 실행하는 원격 서버를 사용하거나 인증이 필요한 프록시를 사용하는 경우 **AAD_** 서비스 계정이 도메인에 있어야 합니다.
 
 ![서비스 계정 동기화](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
 계정은 만료되지 않은 길고 복잡한 암호를 사용하여 만들어집니다.
 
-이 계정은 다른 계정의 암호를 안전하게 저장하는 데 사용됩니다. 이러한 다른 계정 암호는 데이터베이스에 암호화된 상태로 저장됩니다. 암호화 키의 개인 키는 Windows DPAPI(데이터 보호 API)를 사용하여 암호화 서비스 비밀 키 암호화로 보호됩니다. 보안상의 이유로 Windows에서 암호화 키를 삭제할 수 있으므로 서비스 계정에서 암호를 다시 설정하면 안 됩니다.
+이 계정은 다른 계정의 암호를 안전하게 저장하는 데 사용됩니다. 이러한 다른 계정 암호는 데이터베이스에 암호화된 상태로 저장됩니다. 암호화 키의 개인 키는 Windows DPAPI(데이터 보호 API)를 사용하여 암호화 서비스 비밀 키 암호화로 보호됩니다.
 
 전체 SQL Server를 사용하는 경우 서비스 계정은 동기화 엔진에 대해 만든 데이터베이스의 DBO입니다. 서비스는 다른 사용 권한이 의도한 대로 작동하지 않습니다. SQL 로그인도 생성됩니다.
 
@@ -132,10 +187,4 @@ Azure AD의 계정은 동기화 서비스의 사용에 생성됩니다. 이 계�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

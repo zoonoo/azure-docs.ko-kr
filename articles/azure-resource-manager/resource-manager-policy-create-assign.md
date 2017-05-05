@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 5560b22f3f92a8e0a7cb8b973ef2e4c66bc32c06
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3a2166fefc8d0b1602562b753e0413be458fae98
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/16/2017
 
 Azure에서는 몇 가지 미리 정의된 정책을 제공하여 정의해야 하는 정책의 수를 줄일 수 있습니다. 미리 정의된 정책이 시나리오에서 작동하는 경우 처음 두 단계를 건너뛰고 미리 정의된 정책을 범위에 할당합니다.
 
-이 항목에서는 정책 정의를 만들고 범위에 해당 정의를 할당하는 단계에 중점을 둡니다. 정책 정의를 만드는 구문에 집중하지 않습니다. 정책 구문에 대한 정보는 [리소스 정책 개요](resource-manager-policy.md)를 참조하세요.
+이 문서에서는 REST API, PowerShell 또는 Azure CLI를 통해 정책 정의를 만들고 범위에 해당 정의를 할당하는 단계에 중점을 둡니다. 포털을 사용해서 정책을 할당하려면 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](resource-manager-policy-portal.md)를 참조하세요. 이 문서에서 정책 정의를 만드는 구문은 집중적으로 설명하지 않습니다. 정책 구문에 대한 정보는 [리소스 정책 개요](resource-manager-policy.md)를 참조하세요.
 
 ## <a name="rest-api"></a>REST API
 
@@ -141,6 +141,8 @@ GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015
 ```
 
 ## <a name="powershell"></a>PowerShell
+
+PowerShell 예제를 진행하기 전에 [최신 버전의 Azure PowerShell을 설치](/powershell/azure/install-azurerm-ps)했는지 확인합니다. 정책 매개 변수가 버전 3.6.0에 추가되었습니다. 이전 버전이 있는 경우 예제에서는 매개 변수를 찾을 수 없음을 나타내는 오류를 반환합니다.
 
 ### <a name="create-policy-definition"></a>정책 정의 만들기
 `New-AzureRmPolicyDefinition` cmdlet을 사용하여 정책 정의를 만들 수 있습니다. 아래 예제에서는 유럽 북부와 유럽 서부에서만 리소스를 허용하는 정책 정의를 만듭니다.

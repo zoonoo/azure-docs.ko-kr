@@ -15,8 +15,9 @@ ms.workload: TBD
 ms.date: 10/05/2016
 ms.author: v-sharos@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: 3575e4f22e17608de7f3b66e9dd577a1d4a4c148
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 27231cef19e7f624c2c09b0aae2ea3d503fb8e3d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -64,7 +65,7 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 * **StorSimple 가상 장치** – StorSimple 가상 어플라이언스라고도 하며, 물리적 하이브리드 저장 장치의 아키텍처와 대부분의 기능을 복제하는 StorSimple 장치의 소프트웨어 버전입니다. StorSimple 가상 장치는 Azure 가상 컴퓨터의 단일 노드에서 실행됩니다. Azure 프리미엄 저장소를 활용하는 프리미엄 가상 장치는 업데이트 2 이상에서 사용할 수 있습니다.
 * **StorSimple 관리자 서비스** – 단일 웹 인터페이스에서 StorSimple 장치 또는 StorSimple 가상 장치를 관리할 수 있는 Azure 클래식 포털의 확장입니다. StorSimple Manager 서비스를 사용하여 서비스를 만들고 관리하고, 장치를 보고 관리하고, 경고를 보고, 볼륨을 관리하고 백업 정책 및 백업 카탈로그를 보고 관리할 수 있습니다.
 * **StorSimple용 Windows PowerShell** – StorSimple 장치를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다. StorSimple용 Windows PowerShell에는 StorSimple 장치를 등록하고, 장치에서 네트워크 인터페이스를 구성하고 특정 형식의 업데이트를 설치하고, 지원 세션에 액세스하여 장치 문제를 해결하고 장치 상태를 변경할 수 있는 기능이 있습니다. 직렬 콘솔에 연결하거나 Windows PowerShell 원격 기능을 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
-* **Azure PowerShell StorSimple cmdlet** – 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](https://msdn.microsoft.com/library/dn920427.aspx)를 참조하세요.
+* **Azure PowerShell StorSimple cmdlet** – 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](/powershell/module/azure/?view=azuresmps-3.7.0#azure)를 참조하세요.
 * **StorSimple 스냅숏 관리자** – 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 응용 프로그램에 일관된 백업을 생성하는 MMC 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅숏 관리자를 사용할 수 있습니다. 
 * **SharePoint용 StorSimple 어댑터** – SharePoint 중앙 관리 포털에서 StorSimple 저장소를 볼 수 있고 관리할 수 있도록 하면서 SharePoint 서버 팜으로 Microsoft Azure StorSimple 저장소 및 데이터 보호를 투명하게 확장하는 도구입니다.
 
@@ -80,7 +81,7 @@ Microsoft Azure StorSimple 장치는 기본 저장소 및 그 곳에 저장된 �
 StorSimple 장치에 클러스터링 및 자동 장애 조치에 대한 지원 및 SSD 및 하드 디스크 드라이브 HDD가 포함됩니다. 공유 프로세서, 공유 저장소 및 미러링된 컨트롤러 두 개를 포함합니다. 각 컨트롤러는 다음을 제공합니다.
 
 * 호스트 컴퓨터에 연결
-* 로컬 영역 네트워크(LAN)에 연결하는데 최대&6;개의 네트워크 포트
+* 로컬 영역 네트워크(LAN)에 연결하는데 최대 6개의 네트워크 포트
 * 하드웨어 모니터링
 * 전원이 중단되는 경우 정보를 유지하는 비휘발성 임의 액세스 메모리(NVRAM)
 * 클러스터 인식 업데이트는 서비스 가용성에 영향을 주지 않거나 최소한의 영향을 주도록 장애 조치 클러스터의 서버의 소프트웨어 업데이트를 관리합니다.
@@ -133,7 +134,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 서비스 만들�
 자세한 내용은 [StorSimple용 Windows PowerShell을 사용하여 장치 관리](storsimple-windows-powershell-administration.md)로 이동합니다.
 
 ## <a name="azure-powershell-storsimple-cmdlets"></a>Azure PowerShell StorSimple cmdlet
-Azure PowerShell StorSimple cmdlet은 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple)를 참조하세요.
+Azure PowerShell StorSimple cmdlet은 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](/powershell/module/azure/?view=azuresmps-3.7.0)를 참조하세요.
 
 ## <a name="storsimple-snapshot-manager"></a>StorSimple 스냅숏 관리자
 StorSimple 스냅숏 관리자는 로컬 및 클라우드 데이터의 일관된 지정 시간 백업 복사본을 만드는 데 사용할 수 있는 Microsoft Management Console(MMC) 스냅인입니다. 스냅인은 Windows Server 기반 호스트에서 실행됩니다. StorSimple 스냅숏 관리자를 사용하여 다음을 수행할 수 있습니다.
@@ -306,10 +307,5 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple 보안](storsimple-security.md)에 대해 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

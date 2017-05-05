@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: b7332aa2b2518bd926ee2221fd0129adcc25415b
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: f880aceb1657ffdfe909b73f175b9673d9ab02cd
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/13/2017
 차량 원격 분석 솔루션에서는 자동차 대리점, 자동차 제조업체 및 보험 회사가 Cortana Intelligence의 기능을 이용하여 고객 경험, 연구 개발 및 마케팅 캠페인 분야의 개선을 추진하기 위해 차량 상태 및 운전 습관에 대한 실시간 및 예측 통찰력을 얻을 수 있습니다. 이 문서는 솔루션을 구독에 배포한 후 Power BI 보고서 및 대시보드를 구성할 수 있는 방법에 관한 단계별 지침을 포함하고 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-1. [https://gallery.cortanaintelligence.com/Solution/Vehicle-Telemetry-Analytics-9](https://gallery.cortanaintelligence.com/Solution/Vehicle-Telemetry-Analytics-9)으로 이동하여 차량 원격 분석 솔루션 배포  
+1. [원격 분석](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) 솔루션 배포  
 2. [Microsoft Power BI 데스크톱 설치](http://www.microsoft.com/download/details.aspx?id=45331)
 3. [Azure 구독](https://azure.microsoft.com/pricing/free-trial/). Azure 구독이 없으면 Azure 무료 구독 시작
 4. Microsoft Power BI 계정

@@ -11,17 +11,18 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 8744c5a133738fc60b86e7abd4b0d4b1cb28314c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 532382c7e15ad9b67915e05e7c980a4123036a0f
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="how-to-use-azure-remoteapp-with-office-365-user-accounts"></a>Office 365 사용자 계정으로 Azure RemoteApp을 사용하는 방법
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -44,16 +45,11 @@ Azure 구독의 현지 디렉터리를 1단계에서 작업한 Office 365 디렉
 [Azure RemoteApp에서 Azure Active Directory 테넌트 변경](remoteapp-changetenant.md)에 설명된 지침을 다릅니다. 다음 단계에 특히 주의합니다.
 
 * 1단계: 이 구독에서 ARA(Azure RemoteApp)를 배포한 경우 계속 진행하기 전에 먼저 ARA 컬렉션에서 모든 Azure AD 사용자 계정을 제거해야 합니다. 또는 기존 컬렉션을 삭제할 수도 있습니다.
-* 2단계: 이 단계가 매우 중요합니다. 구독에서 Microsoft 계정(예: @outlook.com)을 서비스 관리자로 사용해야 합니다. 구독에 연결된 기존 Azure AD에서는 사용자 계정을 사용할 수 없기 때문입니다. 이 계정을 사용하는 경우 다른 Azure AD로 이동할 수 없습니다.
+* 2단계: 이 단계가 매우 중요합니다. 구독에서 Microsoft 계정(예: @outlook.com을 서비스 관리자로 사용해야 합니다. 구독에 연결된 기존 Azure AD에서는 사용자 계정을 사용할 수 없기 때문입니다. 이 계정을 사용하는 경우 다른 Azure AD로 이동할 수 없습니다.
 * 4단계: 기존 디렉터리를 추가할 때 해당 디렉터리에 대한 관리자 계정으로 로그인하라는 메시지가 표시됩니다. 단계 1의 관리자 계정을 사용해야 합니다.
 * 5단계: 구독의 부모 디렉터리를 Office 365 디렉터리로 변경합니다. 그러면 설정 -> 구독 아래에 Office 365 디렉터리가 나열됩니다. 
   ![구독의 부모 디렉터리 변경](./media/remoteapp-o365user/settings.png)
 
 이제 Azure RemoteApp 구독이 Office 365 Azure AD와 연결되었습니다. Azure RemoteApp에서 기존 Office 365 사용자 계정을 사용할 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

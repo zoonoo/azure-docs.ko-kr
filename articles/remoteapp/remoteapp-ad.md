@@ -11,17 +11,18 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 816305fb3ace5bfc7cf50bac5e42fde83e9697d3
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 232901ab919c63ea70e52afb845240b41a517c51
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="azure-ad--active-directory-requirements-for-azure-remoteapp"></a>Azure AD + Azure RemoteApp에 대한 Active Directory 요구 사항
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -32,12 +33,12 @@ Azure AD 테넌트와 온-프레미스 Active Directory 환경을 연결하려�
 
 참고 - 하이브리드 컬렉션에는 디렉터리 동기화가 필요합니다.
 
-### <a name="make-sure-your-domaincom-match"></a>"@domain.com"이 일치하는지 확인
+### <a name="make-sure-your-domaincom-match"></a>“@domain.com”이 일치하는지 확인
 시작하기 전에 온-프레미스 포리스트에 대한 UPN이 Azure AD 도메인의 접미사와 일치하는지 확인합니다. 
 
-Azure AD에서 UPN 도메인 접미사를 설정한 후에는 Azure RemoteApp에 로그인하는 모든 사용자가 "user@<the suffix you set up>”로 로그인하게 됩니다. 또한 사용자가 동일한 user@suffix 를 사용하여 온-프레미스 도메인에 로그인할 수 있는지 확인합니다. 특정한 경우에는 온-프레미스 사용자를 위해 다른 도메인 접미사를 지정하는 동안 Azure AD에 하나의 도메인 이름을 설정할 수 있습니다. 이런 경우 사용자는 Azure RemoteApp을 통해 도메인에 가입된 컴퓨터나 리소스에 연결할 수 없습니다.
+Azure AD에서 UPN 도메인 접미사를 설정한 후에는 Azure RemoteApp에 로그인하는 모든 사용자가 “user@<the suffix you set up>”로 로그인하게 됩니다. 또한 사용자가 동일한 user@suffix 를 사용하여 온-프레미스 도메인에 로그인할 수 있는지 확인합니다. 특정한 경우에는 온-프레미스 사용자를 위해 다른 도메인 접미사를 지정하는 동안 Azure AD에 하나의 도메인 이름을 설정할 수 있습니다. 이런 경우 사용자는 Azure RemoteApp을 통해 도메인에 가입된 컴퓨터나 리소스에 연결할 수 없습니다.
 
-예를 들어 AAD에서 UPN 도메인 접미사를 contoso.com으로 설정했지만 일부 온-프레미스/AD 사용자를 @contoso.uk,로 로그인하도록 구성한 경우 해당 사용자는 ARA 컬렉션에 제대로 로그인할 수 없습니다. 로그인을 가능하게 하려면 AAD와 AD의 사용자 UPN이 동일해야 합니다.
+예를 들어 AAD에서 UPN 도메인 접미사를 contoso.com으로 설정했지만 일부 온-프레미스/AD 사용자를 @contoso.uk로 로그인하도록 구성한 경우 해당 사용자는 ARA 컬렉션에 제대로 로그인할 수 없습니다. 로그인을 가능하게 하려면 AAD와 AD의 사용자 UPN이 동일해야 합니다.
 
 ### <a name="create-objects-for-azure-remoteapp"></a>Azure RemoteApp에 대한 개체 만들기
 다음과 같은 온-프레미스 Active Directory 개체도 만들어야 합니다.
@@ -46,10 +47,5 @@ Azure AD에서 UPN 도메인 접미사를 설정한 후에는 Azure RemoteApp에
 * RemoteApp 컴퓨터 개체를 포함할 OU(조직 구성 단위). 필수는 아니지만 OU를 통해 RemoteApp에 사용할 계정과 정책을 격리시키는 것이 좋습니다.
 
 RemoteApp 컬렉션을 만들 때 이러한 두 개체가 필요하므로 이 단계를 먼저 수행해야 합니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

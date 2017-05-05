@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/14/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 8e1fccf953579beb138d47d1897bf702461fc39a
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 746fefab12aae11774a7d582e39ac2bc7eb9c88b
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -58,7 +58,7 @@ DocumentDB는 정책 기반의 지역 펜스 기능을 제공하도록 설계되
 DocumentDB를 사용하여 언제든지 데이터베이스 계정에 지역을 추가(연결)하거나 제거(분리)할 수 있습니다([이전 그림](#UnlimitedRegionsPerAccount) 참조). 파티션 간에 병렬로 데이터를 복제하므로 DocumentDB는 새 지역이 온라인 상태가 되면 전 세계 어디서나 30분 이내에 DocumentDB를 최대 100TB까지 사용할 수 있도록 보장합니다. 
 
 ### <a id="FailoverPriorities"></a>장애 조치(Failover) 우선 순위
-여러 지역이 가동 중단될 때 정확한 지역 장애 조치(Failover) 순서를 제어할 수 있도록 DocumentDB는 데이터베이스 계정에 연결된 여러 지역에 우선 순위를 연결할 수 있습니다. DocumentDB는 사용자가 지정한 우선 순위에 따라 자동으로 장애 조치(Failover)를 수행합니다.
+여러 지역이 가동 중단될 때 정확한 지역 장애 조치(Failover) 순서를 제어할 수 있도록 DocumentDB는 데이터베이스 계정에 연결된 여러 지역에 우선 순위를 연결할 수 있습니다. DocumentDB는 사용자가 지정한 우선 순위에 따라 자동으로 장애 조치(Failover)를 수행합니다. 지역별 장애 조치에 대한 자세한 내용은 [비즈니스 연속성을 위한 DocumentDB의 자동 지역별 장애 조치](documentdb-regional-failovers.md)를 참조하세요.
 
 **DocumentDB의 테넌트는 데이터베이스 계정에 연결된 영역의 장애 조치(Failover) 우선 순위(오른쪽 창)를 구성할 수 있습니다.**
 
@@ -219,7 +219,7 @@ DocumentDB 컬렉션은 두 차원을 사용하여, 즉 지역 내에서 그런 
 
 응답성이 뛰어난 파티션 관리, 부하 분산 및 엄격한 리소스 관리를 통해 DocumentDB는 DocumentDB 컬렉션의 여러 Azure 지역에서 처리량을 탄력적으로 확장할 수 있습니다. 컬렉션에서 처리량을 변경하는 것은 DocumentDB의 런타임 작업입니다. 다른 데이터베이스 작업과 마찬가지로 DocumentDB는 처리량 변경 요청에 대한 대기 시간에 절대 상한값을 보장합니다. 예를 들어 다음 그림은 수요에 따라 처리량이 탄력적으로 프로비전된(두 지역에 걸쳐 초당 1M-10M개 요청/초)와 고객의 컬렉션을 보여줍니다.
  
-**처리량이 탄력적으로 프로비전된(초당&1;M-10M개 요청) 고객의 컬렉션**
+**처리량이 탄력적으로 프로비전된(초당 1M-10M개 요청) 고객의 컬렉션**
 
 ![Azure DocumentDB가 처리량을 탄력적으로 프로비전](./media/documentdb-distribute-data-globally/documentdb-elastic-throughput.png)
 
@@ -259,5 +259,5 @@ DocumentDB는 처리량, 대기 시간, 일관성 및 가용성 메트릭을 투
 6. Peter Bailis et al. [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 7. Naor and Wool. [Load, Capacity and Availability in Quorum Systems](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)
 8. Herlihy and Wing. [Lineralizability: A correctness condition for concurrent objects](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)
-9. Azure DocumentDB SLA(마지막 업데이트: 2016년 12월)
+9. [Azure DocumentDB SLA](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/)
 

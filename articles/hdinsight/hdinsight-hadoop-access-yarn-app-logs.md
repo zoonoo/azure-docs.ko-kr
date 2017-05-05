@@ -17,9 +17,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 059fd9c1578cb987aec09a2f72099a0472c9b119
-ms.lasthandoff: 04/11/2017
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 736801cd7afce0fced9943e26c98e73ef471e7d4
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/11/2017
 
 
 ### <a name="prerequisites"></a>필수 조건
-* Windows 기반 HDInsight 클러스터입니다.  [HDInsight에서 Windows 기반 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md)를 참조하세요.
+* Windows 기반 HDInsight 클러스터입니다.  [HDInsight에서 Windows 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server
 <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> (영문)는 두 가지 다른 인터페이스를 통해 완료된 응용 프로그램에 대한 제네릭 정보 및 프레임워크별 응용 프로그램 정보를 제공합니다. 구체적으로 살펴보면 다음과 같습니다.

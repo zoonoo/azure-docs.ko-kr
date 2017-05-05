@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/10/2016
+ms.date: 04/18/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 2ac78606f851068fa0fb7dcab3bac1c629b9cdb3
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: e38c9187be42946df1e8059ba44f10f76d32d984
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -37,34 +37,27 @@ DocumentDB에 대한 자세한 내용은 [DocumentDB 소개](../documentdb/docum
 ## <a name="documentdb-input-binding"></a>DocumentDB 입력 바인딩
 DocumentDB 입력 바인딩은 DocumentDB 문서를 검색하고 함수의 명명된 입력 매개 변수를 전달합니다. 함수를 호출한 트리거에 따라 문서 ID를 결정할 수 있습니다. 
 
-함수에 대한 DocumentDB 입력은 function.json의 `bindings` 배열에서 다음과 같은 JSON 개체를 사용합니다.
+DocumentDB 입력 바인딩은 *function.json*에 다음 속성이 있습니다.
 
-```json
-{
-  "name": "<Name of input parameter in function signature>",
-  "type": "documentDB",
-  "databaseName": "<Name of the DocumentDB database>",
-  "collectionName": "<Name of the DocumentDB collection>",
-  "id": "<Id of the DocumentDB document - see below>",
-  "connection": "<Name of app setting with connection string - see below>",
-  "direction": "in"
-},
-```
+- `name` : 문서에 대한 함수 코드에 사용되는 식별자 이름입니다.
+- `type` : “documentdb”로 설정해야 합니다.
+- `databaseName` : 문서를 포함하는 데이터베이스입니다.
+- `collectionName` : 문서를 포함하는 컬렉션입니다.
+- `id` : 검색할 문서의 ID입니다. 이 속성은 바인딩 매개 변수를 지원합니다. [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md) 문서에서 [바인딩 식에서 사용자 지정 입력 속성에 바인딩](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression)을 참조하세요.
+- `sqlQuery`: 여러 문서를 검색하는 데 사용되는 DocumentDB SQL 쿼리입니다. 쿼리는 런타임 바인딩을 지원합니다. 예: `SELECT * FROM c where c.departmentId = {departmentId}`
+- `connection`: DocumentDB 연결 문자열을 포함하는 앱 설정의 이름입니다.
+- `direction` : `"in"`으로 설정해야 합니다.
 
-다음 사항에 유의하세요.
+속성 `id` 및 `sqlQuery`를 둘 다 지정할 수는 없습니다. `id` 및 `sqlQuery`를 둘 다 설정하지 않으면 전체 컬렉션이 검색됩니다.
 
-* `id`는 `{queueTrigger}`와 유사한 바인딩을 지원하며 이는 큐 메시지의 문자열 값을 문서 ID로 사용합니다.
-* `connection`은 반드시 DocumentDB 계정에 대한 끝점을 가리키는(값 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`를 갖는) 앱 설정의 이름이어야 합니다. 함수 포털 UI를 통해 DocumentDB 계정을 만들 경우 계정 만들기 프로세스에서 사용자를 위한 앱 설정이 만들어집니다. 기존 DocumentDB 계정을 사용하려면 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md)해야 합니다. 
-* 지정된 문서가 없는 경우 함수에 대해 명명된 입력 매개 변수가 `null`로 설정됩니다. 
+## <a name="using-a-documentdb-input-binding"></a>DocumentDB 입력 바인딩 사용
 
-## <a name="input-usage"></a>입력 사용
-이 섹션에서는 함수 코드에서 DocumentDB 입력 바인딩을 사용하는 방법을 보여 줍니다.
-
-C# 및 F# 함수에서 함수가 성공적으로 종료되면 입력 문서에 변경한 내용(명명된 입력 매개 변수)을 자동으로 다시 컬렉션에 전송합니다. Node.js 함수에서는 입력 바인딩에 업데이트된 문서를 컬렉션에 다시 전송하지 않습니다. 하지만 `context.bindings.<documentName>In` 및 `context.bindings.<documentName>Out`을 사용하여 입력 문서를 업데이트할 수 있습니다. [Node.js 샘플](#innodejs)에서 어떻게 수행되는지 확인하세요.
+* C# 및 F# 함수에서 함수가 성공적으로 종료되면 명명된 입력 매개 변수를 통해 입력 문서가 자동으로 변경됩니다. 
+* JavaScript 함수에서는 함수 종료 시 자동으로 업데이트되지 않습니다. 대신 `context.bindings.<documentName>In` 및 `context.bindings.<documentName>Out`을 사용하여 업데이트합니다. [JavaScript 샘플](#injavascript)을 참조하세요.
 
 <a name="inputsample"></a>
 
-## <a name="input-sample"></a>입력 샘플
+## <a name="input-sample-for-single-document"></a>단일 문서에 대한 입력 샘플
 function.json의 `bindings` 배열에 다음과 같은 DocumentDB 입력 바인딩이 있다고 가정합니다.
 
 ```json
@@ -83,12 +76,13 @@ function.json의 `bindings` 배열에 다음과 같은 DocumentDB 입력 바인�
 
 * [C#](#incsharp)
 * [F#](#infsharp)
-* [Node.JS](#innodejs)
+* [JavaScript](#injavascript)
 
 <a name="incsharp"></a>
 ### <a name="input-sample-in-c"></a>C의 입력 샘플# #
 
 ```cs
+// Change input document contents using DocumentDB input binding 
 public static void Run(string myQueueItem, dynamic inputDocument)
 {   
   inputDocument.text = "This has changed.";
@@ -99,12 +93,13 @@ public static void Run(string myQueueItem, dynamic inputDocument)
 ### <a name="input-sample-in-f"></a>F의 입력 샘플# #
 
 ```fsharp
+(* Change input document contents using DocumentDB input binding *)
 open FSharp.Interop.Dynamic
 let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
 ```
 
-`FSharp.Interop.Dynamic` 및 `Dynamitey` NuGet 종속성을 지정하는 `project.json` 파일을 추가해야 합니다.
+이 샘플에는 `FSharp.Interop.Dynamic` 및 `Dynamitey` NuGet 종속성을 지정하는 `project.json` 파일이 필요합니다.
 
 ```json
 {
@@ -121,11 +116,12 @@ let Run(myQueueItem: string, inputDocument: obj) =
 
 `project.json` 파일을 추가하려면 [F# 패키지 관리](functions-reference-fsharp.md#package)를 참조하세요.
 
-<a name="innodejs"></a>
+<a name="injavascript"></a>
 
-### <a name="input-sample-in-nodejs"></a>Node.js에서 입력 샘플
+### <a name="input-sample-in-javascript"></a>JavaScript의 입력 샘플
 
 ```javascript
+// Change input document contents using DocumentDB input binding, using context.bindings.inputDocumentOut
 module.exports = function (context) {   
   context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
   context.bindings.inputDocumentOut.text = "This was updated!";
@@ -133,29 +129,66 @@ module.exports = function (context) {
 };
 ```
 
-## <a id="docdboutput"></a>DocumentDB 출력 바인딩
-DocumentDB 출력 바인딩을 사용하면 Azure DocumentDB 데이터베이스에 새 문서를 작성할 수 있습니다. 
+## <a name="input-sample-with-multiple-documents"></a>여러 문서가 있는 입력 샘플
 
-출력 바인딩은 function.json의 `bindings` 배열에서 다음과 같은 JSON 개체를 사용합니다. 
+SQL 쿼리로 지정된 여러 문서를 검색하려고 하며 큐 트리거를 사용하여 쿼리 매개 변수를 사용자 지정한다고 가정합니다. 
 
-```json
+이 예제에서 큐 트리거는 매개 변수 `departmentId`를 제공합니다. 큐 메시지 `{ "departmentId" : "Finance" }`는 재무 부서에 대한 모든 레코드를 반환합니다. *function.json*에서 다음을 사용합니다.
+
+```
 {
-  "name": "<Name of output parameter in function signature>",
-  "type": "documentDB",
-  "databaseName": "<Name of the DocumentDB database>",
-  "collectionName": "<Name of the DocumentDB collection>",
-  "createIfNotExists": <true or false - see below>,
-  "connection": "<Value of AccountEndpoint in Application Setting - see below>",
-  "direction": "out"
+    "name": "documents",
+    "type": "documentdb",
+    "direction": "in",
+    "databaseName": "MyDb",
+    "collectionName": "MyCollection",
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "connection": "DocumentDBConnection"
 }
 ```
 
-다음 사항에 유의하세요.
+### <a name="input-sample-with-multiple-documents-in-c"></a>C로 작성된 여러 문서가 있는 입력 샘플#
 
-* 데이터베이스 및 컬렉션이 없는 경우 `createIfNotExists`를 `true`로 설정하여 만듭니다. 기본값은 `false`입니다. 새 컬렉션이 예약된 처리량을 사용하여 만들어지면 가격 책정 면에서 의미하는 바가 있습니다. 자세한 내용은 [DocumentDB 가격](https://azure.microsoft.com/pricing/details/documentdb/)을 참조하세요.
-* `connection`은 반드시 DocumentDB 계정에 대한 끝점을 가리키는(값 `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>`를 갖는) 앱 설정의 이름이어야 합니다. 함수 포털 UI를 통해 DocumentDB 계정을 만들 경우 계정 만들기 프로세스에서 사용자를 위한 새로운 앱 설정이 만들어집니다. 기존 DocumentDB 계정을 사용하려면 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md)해야 합니다. 
+```csharp
+public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
+{   
+    foreach (var doc in documents)
+    {
+        // operate on each document
+    }    
+}
 
-## <a name="output-usage"></a>출력 사용
+public class QueuePayload
+{
+    public string departmentId { get; set; }
+}
+```
+
+### <a name="input-sample-with-multiple-documents-in-javascript"></a>JavaScript로 작성된 여러 문서가 있는 입력 샘플
+
+```javascript
+module.exports = function (context, input) {    
+    var documents = context.bindings.documents;
+    for (var i = 0; i < documents.length; i++) {
+        var document = documents[i];
+        // operate on each document
+    }        
+    context.done();
+};
+```
+
+## <a id="docdboutput"></a>DocumentDB 출력 바인딩
+DocumentDB 출력 바인딩을 사용하면 Azure DocumentDB 데이터베이스에 새 문서를 작성할 수 있습니다. *function.json*에 다음 속성이 있습니다.
+
+- `name` : 새 문서에 대한 함수 코드에 사용되는 식별자입니다.
+- `type` : `"documentdb"`로 설정해야 합니다.
+- `databaseName` : 새 문서를 만들 컬렉션을 포함하는 데이터베이스입니다.
+- `collectionName` : 새 문서를 만들 컬렉션입니다.
+- `createIfNotExists` : 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 기본값은 *false*입니다. 새 컬렉션이 예약된 처리량을 사용하여 만들어지면 가격 책정 면에서 의미하는 바가 있기 때문입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
+- `connection`: DocumentDB 연결 문자열을 포함하는 앱 설정의 이름입니다.
+- `direction` : `"out"`으로 설정해야 합니다.
+
+## <a name="using-a-documentdb-output-binding"></a>DocumentDB 출력 바인딩 사용
 이 섹션에서는 함수 코드에서 DocumentDB 출력 바인딩을 사용하는 방법을 보여 줍니다.
 
 함수에서 출력 매개 변수를 작성하는 경우 기본적으로 새 문서는 사용자의 데이터베이스에 생성되며, 자동으로 생성된 GUID를 문서 ID로 사용합니다. 출력 매개 변수의 `id` JSON 속성을 지정하여 출력 문서의 문서 ID를 지정할 수 있습니다. 
@@ -163,27 +196,11 @@ DocumentDB 출력 바인딩을 사용하면 Azure DocumentDB 데이터베이스�
 >[!Note]  
 >기존 문서의 ID를 지정하면 새 출력 문서에 의해 덮어쓰여집니다. 
 
-다음 형식 중 하나를 사용하여 출력에 작성할 수 있습니다.
-
-* 모든 [개체](https://msdn.microsoft.com/library/system.object.aspx)는 JSON 직렬화에 유용합니다.
-  사용자 지정 출력 형식을 선언하는 경우(예: `out FooType paramName`), Azure Functions에서 개체를 JSON으로 직렬화하려고 시도합니다. 함수가 종료될 때 출력 매개 변수가 null이면 Functions 런타임은 Blob을 null 개체로 만듭니다.
-* 문자열(`out string paramName`)은 텍스트 Blob 데이터에 유용합니다. Functions 런타임은 함수가 종료될 때 문자열 매개 변수가 null이 아닌 경우에만 Blob을 생성합니다.
-
-C# 함수에서 다음 중 원하는 형식으로 출력할 수 있습니다.
-
-* `TextWriter`
-* `Stream`
-* `CloudBlobStream`
-* `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
-
 여러 문서를 출력하기 위해 `ICollector<T>` 또는 `IAsyncCollector<T>`에 바인딩할 수 있으며, 여기서 `T`는 지원되는 형식 중 하나입니다.
-
 
 <a name="outputsample"></a>
 
-## <a name="output-sample"></a>출력 샘플
+## <a name="documentdb-output-binding-sample"></a>DocumentDB 출력 바인딩 샘플
 function.json의 `bindings` 배열에 다음과 같은 DocumentDB 출력 바인딩이 있다고 가정합니다.
 
 ```json
@@ -223,7 +240,7 @@ function.json의 `bindings` 배열에 다음과 같은 DocumentDB 출력 바인�
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
-* [Node.JS](#outnodejs)
+* [JavaScript](#outjavascript)
 
 <a name="outcsharp"></a>
 
@@ -276,7 +293,7 @@ let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
       address = employee?address }
 ```
 
-`FSharp.Interop.Dynamic` 및 `Dynamitey` NuGet 종속성을 지정하는 `project.json` 파일을 추가해야 합니다.
+이 샘플에는 `FSharp.Interop.Dynamic` 및 `Dynamitey` NuGet 종속성을 지정하는 `project.json` 파일이 필요합니다.
 
 ```json
 {
@@ -293,9 +310,9 @@ let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
 
 `project.json` 파일을 추가하려면 [F# 패키지 관리](functions-reference-fsharp.md#package)를 참조하세요.
 
-<a name="outnodejs"></a>
+<a name="outjavascript"></a>
 
-### <a name="output-sample-in-nodejs"></a>Node.js에서 출력 샘플
+### <a name="output-sample-in-javascript"></a>JavaScript의 출력 샘플
 
 ```javascript
 module.exports = function (context) {

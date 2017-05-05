@@ -1,5 +1,5 @@
 ---
-title: "Azure에서 Hyper-V로 장애 복구하는 방법 | Microsoft Docs"
+title: "Azure에서 VMware로 장애 복구하는 방법 | Microsoft Docs"
 description: "가상 컴퓨터를 Azure로 장애 조치(failover)한 후 장애 복구를 시작하여 가상 컴퓨터를 온-프레미스로 복구할 수 있습니다. 장애 복구 방법에 대해 알아보세요."
 services: site-recovery
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.workload:
 ms.date: 02/13/2017
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 28fd433676046ef474ac602c1c9e9829378bfddb
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: 6629666eaa913321db3855438bb66d349d5c52bf
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -93,6 +93,12 @@ Azure로 장애 조치된 물리적 컴퓨터는 VMware 가상 컴퓨터(P2A2V�
 
 응용 프로그램 일치 복구 지점을 선택하면 단일 가상 컴퓨터 장애 복구가 사용 가능한 최근 응용 프로그램 일치 복구 지점으로 복구됩니다. 복제 그룹이 있는 복구 계획의 경우 각 복제 그룹은 사용 가능한 일반 복구 지점으로 복구됩니다.
 응용 프로그램 일치 복구 지점의 경우 복구가 지연될 수 있고 데이터가 손실될 수 있습니다.
+
+### <a name="what-happens-to-vmware-tools-post-failback"></a>장애 복구 후 VMware 도구는 어떻게 되나요?
+
+Azure로 장애 조치 중에는 VMware 도구를 Azure 가상 컴퓨터에서 실행할 수 없습니다. Windows 가상 컴퓨터의 경우 ASR는 장애 조치 중에 VMware 도구를 비활성화합니다. Linux 가상 컴퓨터의 경우 ASR는 장애 조치 중에 VMware 도구를 제거합니다. 
+
+Windows 가상 컴퓨터의 장애 복구 중에는 장애 복구 시 VMware 도구가 다시 활성화됩니다. 마찬가지로, linux 가상 컴퓨터의 경우 장애 복구 중에 컴퓨터에 VMware 도구가 다시 설치됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

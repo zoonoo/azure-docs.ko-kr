@@ -16,9 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 01/17/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 218d7dcf14ebbb28ac043e50e6f9248ecb942aaa
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a91122759bea12631fb83d631b21728d5a8f7403
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/25/2017
 이 자습서에는 다음이 필요합니다.
 
 * 시작하기 전에 Azure 계정 및 구독. 없는 경우 지금 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하세요.
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs), 최소 버전 1.4.0 이상(이 자습서는 1.5.0 버전을 사용하여 작성)
+* [Azure PowerShell](/powershell/azure/overview), 최소 버전 1.4.0 이상(이 자습서는 1.5.0 버전을 사용하여 작성)
   * 버전을 검색하려면 **Get-Module Azure -ListAvailable**을 입력합니다.
 
 ## <a name="configure-your-subscription"></a>구독 구성
@@ -115,14 +115,14 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
     Get-AzureRmVMImageSku -Location 'East US' -Publisher 'MicrosoftSQLServer' -Offer 'SQL2014SP1-WS2012R2' | Select Skus
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-리소스 관리자 배포 모델을 사용하여 만드는 첫 번째 개체는 리소스 그룹입니다. [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt759837.aspx) cmdlet을 사용하여 이전에 초기화한 변수로 정의된 리소스 그룹 이름 및 위치로 Azure 리소스 그룹 및 해당 리소스를 만듭니다.
+리소스 관리자 배포 모델을 사용하여 만드는 첫 번째 개체는 리소스 그룹입니다. [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet을 사용하여 이전에 초기화한 변수로 정의된 리소스 그룹 이름 및 위치로 Azure 리소스 그룹 및 해당 리소스를 만듭니다.
 
 다음 cmdlet을 실행하여 새 리소스 그룹을 만듭니다.
 
     New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
-가상 컴퓨터에 운영 체제 디스크와 SQL Server 데이터 및 로그 파일에 대한 저장소 리소스가 필요합니다. 간단히 하기 위해 둘 다에 대한 단일 디스크를 만듭니다. SQL Server 데이터와 로그 파일을 전용 디스크에 배치하기 위해 [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx) cmdlet을 사용하여 나중에 추가 디스크를 연결할 수 있습니다. [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet을 사용하여 이전에 초기화한 변수로 정의된 저장소 계정 이름, 저장소 SKU 이름 및 위치로 새 리소스 그룹에서 표준 저장소 계정을 만듭니다.
+가상 컴퓨터에 운영 체제 디스크와 SQL Server 데이터 및 로그 파일에 대한 저장소 리소스가 필요합니다. 간단히 하기 위해 둘 다에 대한 단일 디스크를 만듭니다. SQL Server 데이터와 로그 파일을 전용 디스크에 배치하기 위해 [Add-Azure Disk](/powershell/module/azure/add-azuredisk) cmdlet을 사용하여 나중에 추가 디스크를 연결할 수 있습니다. [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet을 사용하여 이전에 초기화한 변수로 정의된 저장소 계정 이름, 저장소 SKU 이름 및 위치로 새 리소스 그룹에서 표준 저장소 계정을 만듭니다.
 
 다음 cmdlet을 실행하여 새 저장소 계정을 만듭니다.
 
@@ -136,7 +136,7 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
 * 네트워크 인터페이스가 공용 또는 개인 IP 주소 중 하나로 정의되어야 합니다.
 
 ### <a name="create-a-virtual-network-subnet-configuration"></a>가상 네트워크 서브넷 구성 만들기
-가상 네트워크에 대한 서브넷 구성을 만들어 시작합니다. 이 자습서의 경우 [New-AzureRmVirtualNetworkSubnetConfig](https://msdn.microsoft.com/library/mt619412.aspx) cmdlet을 사용하여 기본 서브넷을 만듭니다. 이전에 초기화한 변수를 사용하여 정의된 서브넷 이름 및 주소 접두사로 가상 네트워크 서브넷 구성을 만듭니다.
+가상 네트워크에 대한 서브넷 구성을 만들어 시작합니다. 이 자습서의 경우 [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) cmdlet을 사용하여 기본 서브넷을 만듭니다. 이전에 초기화한 변수를 사용하여 정의된 서브넷 이름 및 주소 접두사로 가상 네트워크 서브넷 구성을 만듭니다.
 
 > [!NOTE]
 > 이 cmdlet을 사용하여 가상 네트워크 서브넷 구성의 추가 속성을 정의할 수 있지만, 이 내용은 이 자습서에서 다루지 않습니다.
@@ -148,14 +148,14 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
     $SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
-다음으로 [New-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx) cmdlet을 사용하여 가상 네트워크를 만듭니다. 이전 단계에서 정의된 서브넷 구성을 사용하고 이전에 초기화한 변수를 사용하여 정의된 이름, 위치 및 주소 접두사로 새 리소스 그룹에서 가상 네트워크를 만듭니다.
+다음으로 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) cmdlet을 사용하여 가상 네트워크를 만듭니다. 이전 단계에서 정의된 서브넷 구성을 사용하고 이전에 초기화한 변수를 사용하여 정의된 이름, 위치 및 주소 접두사로 새 리소스 그룹에서 가상 네트워크를 만듭니다.
 
 다음 cmdlet을 실행하여 가상 네트워크를 만듭니다.
 
     $VNet = New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName -Location $Location -AddressPrefix $VNetAddressPrefix -Subnet $SubnetConfig
 
 ### <a name="create-the-public-ip-address"></a>공용 IP 주소 만들기
-이제 가상 네트워크를 정의했으므로 가상 컴퓨터에 연결하려면 IP 주소를 구성해야 합니다. 이 자습서의 경우 인터넷 연결을 지원하도록 동적 IP 주소 지정을 사용하여 공용 IP 주소를 만듭니다. [New-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt603620.aspx) cmdlet을 사용하여 이전에 초기화한 변수로 정의된 이름, 위치, 할당 방법 및 DNS 도메인 이름 레이블로 이전에 만든 리소스 그룹에서 공용 IP 주소를 만듭니다.
+이제 가상 네트워크를 정의했으므로 가상 컴퓨터에 연결하려면 IP 주소를 구성해야 합니다. 이 자습서의 경우 인터넷 연결을 지원하도록 동적 IP 주소 지정을 사용하여 공용 IP 주소를 만듭니다. [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) cmdlet을 사용하여 이전에 초기화한 변수로 정의된 이름, 위치, 할당 방법 및 DNS 도메인 이름 레이블로 이전에 만든 리소스 그룹에서 공용 IP 주소를 만듭니다.
 
 > [!NOTE]
 > 이 cmdlet을 사용하여 공용 IP 주소의 추가 속성을 정의할 수 있지만, 이 내용은 이 초기 자습서에서 다루지 않습니다. 또한 고정 주소로 개인 주소 또는 주소도 만들 수 있지만, 이 내용도 이 자습서에서 다루지 않습니다.
@@ -167,7 +167,7 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
     $PublicIp = New-AzureRmPublicIpAddress -Name $InterfaceName -ResourceGroupName $ResourceGroupName -Location $Location -AllocationMethod $TCPIPAllocationMethod -DomainNameLabel $DomainName
 
 ### <a name="create-the-network-interface"></a>네트워크 인터페이스 만들기
-이제 가상 컴퓨터에서 사용할 네트워크 인터페이스를 만들 수 있습니다. [New-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx) cmdlet을 사용하여 이전에 정의된 이름, 위치, 서브넷 및 공용 IP 주소로 이전에 만든 리소스 그룹에서 네트워크 인터페이스를 만듭니다.
+이제 가상 컴퓨터에서 사용할 네트워크 인터페이스를 만들 수 있습니다. [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) cmdlet을 사용하여 이전에 정의된 이름, 위치, 서브넷 및 공용 IP 주소로 이전에 만든 리소스 그룹에서 네트워크 인터페이스를 만듭니다.
 
 다음 cmdlet을 실행하여 네트워크 인터페이스를 만듭니다.
 
@@ -177,7 +177,7 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
 이제 저장소 및 네트워크 리소스를 정의했으므로 가상 컴퓨터에 대한 계산 리소스를 정의할 수 있습니다. 이 자습서의 경우, 가상 컴퓨터 크기 및 다양한 운영 체제 속성을 지정하고, 이전에 만든 네트워크 인터페이스를 지정하고, Blob 저장소를 정의한 다음 운영 체제 디스크를 지정합니다.
 
 ### <a name="create-the-vm-object"></a>VM 개체 만들기
-가상 컴퓨터 크기를 지정하여 시작합니다. 이 자습서의 경우 DS13을 지정합니다. [New-AzureRmVMConfig](https://msdn.microsoft.com/library/mt603727.aspx) cmdlet을 사용하여 이전에 초기화한 변수로 정의된 이름 및 크기로 구성 가능한 가상 컴퓨터 개체를 만듭니다.
+가상 컴퓨터 크기를 지정하여 시작합니다. 이 자습서의 경우 DS13을 지정합니다. [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) cmdlet을 사용하여 이전에 초기화한 변수로 정의된 이름 및 크기로 구성 가능한 가상 컴퓨터 개체를 만듭니다.
 
 다음 cmdlet을 실행하여 가상 컴퓨터 개체를 만듭니다.
 
@@ -191,14 +191,14 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
     $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>가상 컴퓨터에 대한 운영 체제 속성 설정
-이제 가상 컴퓨터의 운영 체제 속성을 설정할 수 있습니다. [Set-AzureRmVMOperatingSystem](https://msdn.microsoft.com/library/mt603843.aspx) cmdlet을 사용하여 운영 체제 유형을 Windows로 설정하고, [가상 컴퓨터 에이전트](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 설치하도록 요구하고, cmdlet이 자동 업데이트를 사용하도록 지정하고, 이전에 초기화한 변수로 가상 컴퓨터 이름, 컴퓨터 이름 및 자격 증명을 설정합니다.
+이제 가상 컴퓨터의 운영 체제 속성을 설정할 수 있습니다. [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet을 사용하여 운영 체제 유형을 Windows로 설정하고, [가상 컴퓨터 에이전트](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)를 설치하도록 요구하고, cmdlet이 자동 업데이트를 사용하도록 지정하고, 이전에 초기화한 변수로 가상 컴퓨터 이름, 컴퓨터 이름 및 자격 증명을 설정합니다.
 
 다음 cmdlet을 실행하여 가상 컴퓨터에 대한 운영 체제 속성을 설정합니다.
 
     $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate
 
 ### <a name="add-the-network-interface-to-the-virtual-machine"></a>가상 컴퓨터에 네트워크 인터페이스를 추가합니다.
-다음으로 가상 컴퓨터에 이전에 만든 네트워크 인터페이스를 추가합니다. [Add-AzureRmVMNetworkInterface](https://msdn.microsoft.com/library/mt619351.aspx) cmdlet을 사용하여 이전에 정의한 네트워크 인터페이스 변수를 사용하는 네트워크 인터페이스를 추가합니다.
+다음으로 가상 컴퓨터에 이전에 만든 네트워크 인터페이스를 추가합니다. [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) cmdlet을 사용하여 이전에 정의한 네트워크 인터페이스 변수를 사용하는 네트워크 인터페이스를 추가합니다.
 
 다음 cmdlet을 실행하여 가상 컴퓨터에 대한 네트워크 인터페이스를 설정합니다.
 
@@ -212,21 +212,21 @@ Get-AzureRmVMImageSku 명령을 사용하여 제품에 사용 가능한 Sku를 �
     $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName + ".vhd"
 
 ### <a name="set-the-operating-system-disk-properties-for-the-virtual-machine"></a>가상 컴퓨터에 대한 운영 체제 디스크 속성을 설정합니다.
-다음으로 가상 컴퓨터에 대한 운영 체제 디스크 속성을 설정합니다. [Set-AzureRmVMOSDisk](https://msdn.microsoft.com/library/mt603746.aspx) cmdlet을 사용하여 가상 컴퓨터의 운영 체제를 이미지에서 구성하도록 지정하고 캐싱을 SQL Server가 같은 디스크에 설치되는 중이므로 읽기 전용으로 설정하며 이전에 정의한 변수로 정의된 가상 컴퓨터 이름 및 운영 체제 디스크를 정의합니다.
+다음으로 가상 컴퓨터에 대한 운영 체제 디스크 속성을 설정합니다. [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) cmdlet을 사용하여 가상 컴퓨터의 운영 체제를 이미지에서 구성하도록 지정하고 캐싱을 SQL Server가 같은 디스크에 설치되는 중이므로 읽기 전용으로 설정하며 이전에 정의한 변수로 정의된 가상 컴퓨터 이름 및 운영 체제 디스크를 정의합니다.
 
 다음 cmdlet을 실행하여 가상 컴퓨터에 대한 운영 체제 디스크 속성을 설정합니다.
 
     $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $OSDiskName -VhdUri $OSDiskUri -Caching ReadOnly -CreateOption FromImage
 
 ### <a name="specify-the-platform-image-for-the-virtual-machine"></a>가상 컴퓨터에 대한 플랫폼 이미지 지정
-마지막 구성 단계는 가상 컴퓨터에 대한 플랫폼 이미지를 지정하는 것입니다. 이 자습서의 경우 최신 SQL Server 2016 CTP 이미지를 사용합니다. [Set-AzureRmVMSourceImage](https://msdn.microsoft.com/library/mt619344.aspx) cmdlet을 사용하여 이전에 정의한 변수에서 정의된 대로 이 이미지를 사용합니다.
+마지막 구성 단계는 가상 컴퓨터에 대한 플랫폼 이미지를 지정하는 것입니다. 이 자습서의 경우 최신 SQL Server 2016 CTP 이미지를 사용합니다. [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) cmdlet을 사용하여 이전에 정의한 변수에서 정의된 대로 이 이미지를 사용합니다.
 
 다음 cmdlet을 실행하여 가상 컴퓨터에 대한 플랫폼 이미지를 지정합니다.
 
     $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName $PublisherName -Offer $OfferName -Skus $Sku -Version $Version
 
 ## <a name="create-the-sql-vm"></a>SQL VM 만들기
-이제 구성 단계를 완료했으므로 가상 컴퓨터를 만들 수 있습니다. [New-AzureRmVM](https://msdn.microsoft.com/library/mt603754.aspx) cmdlet을 사용하여 정의한 변수로 가상 컴퓨터를 만듭니다.
+이제 구성 단계를 완료했으므로 가상 컴퓨터를 만들 수 있습니다. [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet을 사용하여 정의한 변수로 가상 컴퓨터를 만듭니다.
 
 다음 cmdlet을 실행하여 가상 컴퓨터를 만듭니다.
 

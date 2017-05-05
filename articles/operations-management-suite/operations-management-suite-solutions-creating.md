@@ -16,9 +16,9 @@ ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: e1e915e07591ed104a30e9194ec6228b04519b8c
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e391dc0f88bd7e065f968a490b3c1ddb1fa75978
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ ms.lasthandoff: 04/12/2017
 ### <a name="alerts"></a>경고
 [Log Analytics의 경고](../log-analytics/log-analytics-alerts.md)는 리포지토리의 데이터에 대한 [로그 검색](#log-searches)을 통해 로그를 통해 문제를 식별합니다.  사용자에게 알리거나 응답에서 작업을 자동으로 실행합니다. 응용 프로그램에 대한 다양한 경고 조건을 식별하고, 해당 경고 규칙을 솔루션 파일에 포함해야 합니다.
 
-잠재적으로 자동화된 프로세스로 문제를 해결할 수 있는 경우 일반적으로 Azure Automation에서 Runbook을 만들어 이 수정 작업을 수행합니다.  대부분의 Azure 서비스는 Runbook에서 이러한 기능을 수행하는 데 활용하는 [cmdlet](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)으로 관리될 수 있습니다.
+잠재적으로 자동화된 프로세스로 문제를 해결할 수 있는 경우 일반적으로 Azure Automation에서 Runbook을 만들어 이 수정 작업을 수행합니다.  대부분의 Azure 서비스는 Runbook에서 이러한 기능을 수행하는 데 활용하는 [cmdlet](/powershell/azure/overview)으로 관리될 수 있습니다.
 
 경고에 대한 응답으로 외부 기능이 솔루션에 필요한 경우 [웹후크 응답](../log-analytics/log-analytics-alerts-actions.md)을 사용할 수 있습니다.  이렇게 하면 경고에서 정보를 보내는 외부 웹 서비스를 호출할 수 있습니다.
 

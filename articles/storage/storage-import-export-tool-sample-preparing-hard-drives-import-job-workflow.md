@@ -12,12 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/07/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2e522fabf9be5af7477e556ee0c2bf66f41c28fe
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 78d7ce3bbd3205fd995ba331af08d830097c8156
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -32,10 +32,10 @@ ms.lasthandoff: 03/30/2017
 
 |위치|설명|데이터 크기|
 |--------------|-----------------|-----|
-|H:\Video|비디오 컬렉션|12TB|
-|H:\Photo|사진 컬렉션|30GB|
+|H:\Video\ |비디오 컬렉션|12TB|
+|H:\Photo\ |사진 컬렉션|30GB|
 |K:\Temp\FavoriteMovie.ISO|Blu-Ray™ 디스크 이미지|25GB|
-|\\\bigshare\john\music|네트워크 공유에서 음악 파일 컬렉션|10 GB|
+|\\\bigshare\john\music\|네트워크 공유에서 음악 파일 컬렉션|10 GB|
 
 ## <a name="storage-account-destinations"></a>저장소 계정 대상
 
@@ -43,10 +43,10 @@ ms.lasthandoff: 03/30/2017
 
 |원본|대상 가상 디렉터리 또는 Blob|
 |------------|-------------------------------------------|
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|
-|K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|
-|\\\bigshare\john\music|https://mystorageaccount.blob.core.windows.net/music|
+|H:\Video\ |video/|
+|H:\Photo\ |photo/|
+|K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
+|\\\bigshare\john\music\ |music|
 
 이 매핑을 사용하여 파일을 `H:\Video\Drama\GreatMovie.mov`Blob으로 가져오게 됩니다`https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
 
@@ -56,27 +56,24 @@ ms.lasthandoff: 03/30/2017
 
 `12TB + 30GB + 25GB + 10GB = 12TB + 65GB`
 
-이 예제에서는 두 개의 8TB 하드 드라이브면 충분합니다. 그러나 원본 디렉터리 `H:\Video`에 12TB의 데이터가 있고 단일 하드 드라이브의 용량이 8TB이기 때문에 **dataset.csv** 파일에서 다음과 같은 방식으로 지정할 수 있습니다.
-
-```
-BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
-H:\Video\,https://mystorageaccount.blob.core.windows.net/video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-H:\Photo\,https://mystorageaccount.blob.core.windows.net/photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
-\\myshare\john\music\,https://mystorageaccount.blob.core.windows.net/music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-```
-
-## <a name="attach-drives-and-configure-the-job"></a>드라이브 연결 및 작업 구성
-
-두 디스크를 컴퓨터에 연결하고 볼륨을 만듭니다. 그러면 작성자 **driveset.csv** 파일은 다음과 같습니다.
+이 예제에서는 두 개의 8TB 하드 드라이브면 충분합니다. 그러나 원본 디렉터리 `H:\Video`에 12TB의 데이터가 있고 단일 하드 드라이브의 용량이 8TB이기 때문에 **driveset.csv** 파일에서 다음과 같은 방식으로 지정할 수 있습니다.
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 X,Format,SilentMode,Encrypt,
 Y,Format,SilentMode,Encrypt,
 ```
-
 이 도구는 최적화된 방식으로 두 하드 드라이브에 데이터를 배포합니다.
+
+## <a name="attach-drives-and-configure-the-job"></a>드라이브 연결 및 작업 구성
+두 디스크를 컴퓨터에 연결하고 볼륨을 만듭니다. 그러면 작성자 **dataset.csv** 파일은 다음과 같습니다.
+```
+BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
+H:\Video\,video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+H:\Photo\,photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
+\\myshare\john\music\,music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+```
 
 또한 모든 파일에 다음 메타데이터를 설정할 수 있습니다.
 

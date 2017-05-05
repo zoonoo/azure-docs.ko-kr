@@ -1,6 +1,6 @@
 ---
-title: "큐 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET 5) | Microsoft Docs"
-description: "Visual Studio의 ASP.NET 5 프로젝트에서 Azure 큐 저장소를 사용하는 방법"
+title: "Queue Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET Core) | Microsoft Docs"
+description: "Visual Studio의 ASP.NET Core 프로젝트에서 Azure Queue Storage를 사용하는 방법"
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -15,22 +15,23 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b166ced70b845dd297a1eb87aaec5456ec3e0b31
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 4622496544ce6e1057ac68a2e9946917573e997e
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-5"></a>큐 저장소 및 Visual Studio 연결 서비스 시작(ASP.NET 5)
+# <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Queue Storage 및 Visual Studio 연결 서비스 시작(ASP.NET Core)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>개요
-이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 ASP.NET 5 프로젝트에서 Azure 저장소 계정을 만들거나 참조한 후 Visual Studio에서 Azure 큐 저장소 사용을 시작하는 방법에 대해 설명합니다. **연결된 서비스 추가** 작업은 프로젝트의 Azure 저장소에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 저장소 계정에 대한 연결 문자열을 추가합니다.
+이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 ASP.NET Core 프로젝트에서 Azure Storage 계정을 만들거나 참조한 후 Visual Studio에서 Azure Queue Storage 사용을 시작하는 방법에 대해 설명합니다. **연결된 서비스 추가** 작업은 프로젝트의 Azure 저장소에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 저장소 계정에 대한 연결 문자열을 추가합니다.
 
 Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다.
 
 시작하려면 먼저 저장소 계정에서 Azure 큐를 만들어야 합니다. 코드에서 큐를 만드는 방법을 살펴보겠습니다. 큐 메시지 추가, 수정, 읽기 및 제거와 같은 기본 큐 작업을 수행하는 방법도 알려드립니다. 샘플은 C\# 코드로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](http://www.asp.net)을 참조하세요.
 
-**참고:** ASP.NET 5에서 Azure 저장소에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx) 을 참조하세요. 아래 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
+**참고:** ASP.NET Core에서 Azure Storage에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx) 을 참조하세요. 아래 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
 
 * 큐를 프로그래밍 방식으로 조작하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure 큐 저장소 시작](storage-dotnet-how-to-use-queues.md) 을 참조하세요.
 * Azure 저장소에 대한 일반적인 내용은 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/) 를 참조하세요.
@@ -38,7 +39,7 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
 * ASP.NET 응용 프로그램을 프로그래밍하는 방법에 대한 자세한 내용은 [ASP.NET](http://www.asp.net) 을 참조하세요.
 
 ## <a name="access-queues-in-code"></a>코드에서 큐 액세스
-ASP.NET 5 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세스하는 C# 소스 파일에 다음 항목을 포함해야 합니다.
+ASP.NET Core 프로젝트의 큐에 액세스하려면 Azure Queue Storage에 액세스하는 C# 소스 파일에 다음 항목을 포함해야 합니다.
 
 1. C# 파일 맨 위의 네임스페이스 선언에 이러한 **using** 문이 포함되어 있는지 확인합니다.
    
@@ -153,10 +154,5 @@ ASP.NET 5 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액�
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

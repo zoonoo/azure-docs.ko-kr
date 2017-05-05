@@ -21,10 +21,19 @@
     href: tutorial-manage-data-disk.md
   - name: "3 – 구성 자동화"
     href: tutorial-automate-vm-deployment.md
-  - name: "4 - VM 부하 분산"
+  - name: "4 - VM 이미지 만들기"
+    href: tutorial-custom-images.md
+  - name: "5 - 고가용성 VM"
+    href: tutorial-availability-sets.md
+  - name: "6 - VM 확장 집합 만들기"
+    href: tutorial-create-vmss.md
+  - name: "7 - VM 부하 분산"
     href: tutorial-load-balancer.md
-  - name: "5 - 네트워킹 관리"
+  - name: "8 - 네트워킹 관리"
     href: tutorial-virtual-network.md
+  - name: "9 - VM 보안 관리"
+    href: tutorial-azure-security.md
+
 - name: "샘플"
   items:
   - name: "PowerShell"

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 75eeca842cc31be6807dd6071de6d9a5c327fad3
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 507fb3200fe62aaa813464e5d6152a79907fdef7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -66,7 +66,7 @@ EDIFACT 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 �
 
 #### <a name="encode-edifact-message-by-agreement-name"></a>규약 이름으로 EDIFACT 메시지 인코딩
 
-규약 이름으로 EDIFACT 메시지를 인코딩하도록 선택한 경우 **X12 규약의 이름** 목록을 열고 EDIFACT 규약 이름을 입력 또는 선택합니다. 인코딩할 XML 메시지를 입력합니다.
+규약 이름으로 EDIFACT 메시지를 인코딩하도록 선택한 경우  **규약의 이름** 목록을 열고 EDIFACT 규약 이름을 입력 또는 선택합니다. 인코딩할 XML 메시지를 입력합니다.
 
 ![인코딩할 EDIFACT 규약 이름 및 XML 메시지를 입력합니다.](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
 

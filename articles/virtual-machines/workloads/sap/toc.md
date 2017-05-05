@@ -8,19 +8,19 @@
 ## [SAP Netweaver와 통합](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [SAP Business ByDesign와의 통합](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 # Azure의 SAP 솔루션
-## SAP HANA
+## SAP HANA 큰 인스턴스
 ### [개요 및 아키텍처](hana-overview-architecture.md)
 ### [인프라 및 연결](hana-overview-infrastructure-connectivity.md)
 ### [SAP HANA 설치](hana-installation.md)
 ### [고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)
 ### [문제 해결 및 모니터링](troubleshooting-monitoring.md)
+## Virtual Machines에서 SAP HANA
 ### [단일 인스턴스 SAP HANA](hana-get-started.md)
 ### [S/4 HANA 또는 BW/4 HANA 배포 가이드](cal-s4h.md)
-### Backup
-#### [개요](sap-hana-backup-guide.md)
-#### [파일 수준 백업](sap-hana-backup-file-level.md)
-#### [저장소 스냅숏](sap-hana-backup-storage-snapshots.md)
-
+### [VM에서 고가용성](sap-hana-high-availability.md)
+### [Backup 개요](sap-hana-backup-guide.md)
+### [파일 수준 백업](sap-hana-backup-file-level.md)
+### [저장소 스냅숏 백업](sap-hana-backup-storage-snapshots.md)
 ## SAP NetWeaver
 ### [개요 및 아키텍처](suse-quickstart.md)
 ### [계획 및 구현](planning-guide.md)

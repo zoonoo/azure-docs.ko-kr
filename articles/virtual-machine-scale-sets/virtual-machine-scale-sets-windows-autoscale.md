@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b2565bef6643decd1b96fc3cc5b01003916e9685
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 30d8a26f337c00390b1da51e85a0c01ea0d816e3
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/31/2017
 Resource Manager 리소스에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
 
 ## <a name="step-1-install-azure-powershell"></a>1단계: Azure PowerShell 설치
-최신 버전의 Azure PowerShell 설치, 구독 선택, Azure 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs) 을 참조하세요.
+최신 버전의 Azure PowerShell 설치, 구독 선택, Azure 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요.
 
 ## <a name="step-2-create-a-resource-group-and-a-storage-account"></a>2단계: 리소스 그룹 및 저장소 계정 만들기
 1. **리소스 그룹 만들기** – 모든 리소스는 리소스 그룹에 배포되어야 합니다. [vmsstestrg1](https://msdn.microsoft.com/library/mt603739.aspx) 이라는 리소스 그룹을 만들려면 **New-AzureRmResourceGroup**을 사용합니다.

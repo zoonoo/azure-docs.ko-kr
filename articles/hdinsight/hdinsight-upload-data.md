@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 74fe2d241dfcd6e572f0f20714f91c6aff970f34
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0caac0c7ad76df7e7fa657227339d1df8b4a3c77
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -100,13 +100,13 @@ Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫�
 >
 
 ### <a id="powershell"></a>Azure PowerShell
-Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 스크립팅 환경입니다. Azure PowerShell을 실행하기 위해 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.
+Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 스크립팅 환경입니다. Azure PowerShell을 실행하기 위해 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 **Azure Blob 저장소에 로컬 파일을 업로드하려면**
 
-1. [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)의 지침에 따라 Azure PowerShell 콘솔을 엽니다.
+1. [Azure PowerShell 설치 및 구성](/powershell/azure/overview)의 지침에 따라 Azure PowerShell 콘솔을 엽니다.
 2. 다음 스크립트에서 처음 5개의 변수 값을 설정합니다.
 
         $resourceGroupName = "<AzureResourceGroupName>"

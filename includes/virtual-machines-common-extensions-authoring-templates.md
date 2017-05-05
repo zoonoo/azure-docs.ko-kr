@@ -32,8 +32,3 @@ Azure Resource Manager 템플릿의 일부로 VM 확장을 배포하려면 템�
 ## <a name="identifying-the-publisher-type-and-typehandlerversion-for-any-extension"></a>모든 확장에 대한 게시자, 유형 및 typeHandlerVersion 식별
 Azure VM 확장은 Microsoft 및 신뢰할 수 있는 타사 게시자가 게시하며 각 확장은 게시자, 유형 및 typeHandlerVersion으로 고유하게 식별됩니다. 다음과 같이 결정될 수 있습니다.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

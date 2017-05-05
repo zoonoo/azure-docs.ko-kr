@@ -35,7 +35,7 @@
 3. 콘솔 창에서 **MSSQLSERVER용 프로토콜**(기본 인스턴스 이름)을 클릭합니다. 세부 정보 창에서 **TCP**를 마우스 오른쪽 단추로 클릭하고 아직 사용으로 설정하지 않은 경우 **사용**을 클릭합니다.
    
     ![TCP 사용](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. 콘솔 창에서 **SQL Server 서비스**를 클릭합니다. 세부 정보 창에서 **SQL Server(*인스턴스 이름*)**(기본 인스턴스는 **SQL Server (MSSQLSERVER)**)를 마우스 오른쪽 단추로 클릭한 후 **다시 시작**을 클릭하여 SQL Server의 인스턴스를 중지했다가 다시 시작합니다.
+4. 콘솔 창에서 **SQL Server 서비스**를 클릭합니다. 세부 정보 창에서 **SQL Server(*인스턴스 이름*)**(기본 인스턴스는** SQL Server (MSSQLSERVER)**)를 마우스 오른쪽 단추로 클릭한 후 **다시 시작**을 클릭하여 SQL Server의 인스턴스를 중지했다가 다시 시작합니다.
    
     ![데이터베이스 엔진 다시 시작](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 5. SQL Server 구성 관리자를 닫습니다.
@@ -93,9 +93,4 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 9. 확인을 클릭합니다.
 
 SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://msdn.microsoft.com/library/aa337562.aspx)를 참조하십시오.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -16,9 +16,9 @@ ms.custom: tables
 ms.date: 07/12/2016
 ms.author: jrj;barbkess;sonyama
 translationtype: Human Translation
-ms.sourcegitcommit: f1a24e4ee10593514f44d83ad5e9a46047dafdee
-ms.openlocfilehash: f132af2966e2ac59e77dc0fa8113eb83089c68dd
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: dff94161c7d6dfedc91cfb36954e847f945985f7
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -53,7 +53,6 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 다음과 같은 일부 시나리오에서는 클러스터형 columnstore를 사용하는 것이 적합하지 않을 수 있습니다.
 
-* Columnstore 테이블이 비클러스터형 보조 인덱스를 지원하지 않습니다.  대신 힙 또는 클러스터형 인덱스 테이블을 고려합니다.
 * Columnstore 테이블이 varchar(max), nvarchar(max) 및 varbinary(max)를 지원하지 않습니다.  대신 힙 또는 클러스터형 인덱스를 고려합니다.
 * Columnstore 테이블이 임시 데이터에 대해 덜 효율적일 수 있습니다.  힙 및 임시 테이블을 고려합니다.
 * 1억개 미만의 행이 있는 작은 테이블.  힙 테이블을 고려합니다.
@@ -168,7 +167,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 | [COMPRESSED_rowgroup_rows_AVG] |평균 행 수가 행 그룹의 최대 행 수보다 훨씬 적은 경우에는 CTAS 또는 ALTER INDEX REBUILD를 사용하여 데이터를 다시 압축하는 옵션을 고려해야 합니다. |
 | [COMPRESSED_rowgroup_count] |columnstore 형식인 행 그룹의 수. 테이블에 비해 이 숫자가 매우 높으면 columnstore 밀도가 낮다는 뜻입니다. |
 | [COMPRESSED_rowgroup_rows_DELETED] |행이 columnstore 형식으로 논리적으로 삭제됩니다. 테이블 크기에 비해 이 숫자가 더 높으면 행이 실제로 제거되도록 파티션을 다시 만들거나 인덱스를 다시 작성하는 옵션을 고려해 보아야 합니다. |
-| [COMPRESSED_rowgroup_rows_MIN] |이 열을 AVG 및 MAX 열과 함께 사용하여 columnstore의 행 그룹에 대한 값 범위를 이해할 수 있습니다. 이 숫자가 로드 임계값(파티션 정렬 분산당&102;,400)보다 낮으면 데이터 로드에서 최적화를 사용할 수 있습니다. |
+| [COMPRESSED_rowgroup_rows_MIN] |이 열을 AVG 및 MAX 열과 함께 사용하여 columnstore의 행 그룹에 대한 값 범위를 이해할 수 있습니다. 이 숫자가 로드 임계값(파티션 정렬 분산당 102,400)보다 낮으면 데이터 로드에서 최적화를 사용할 수 있습니다. |
 | [COMPRESSED_rowgroup_rows_MAX] |위와 동일합니다. |
 | [OPEN_rowgroup_count] |열려 있는 행 그룹은 정상입니다. 테이블 분산당(60) 행 그룹이 하나 열려 있다고 예상하는 것이 합리적일 것입니다. 이 숫자가 과도하게 높으면 여러 파티션에 데이터를 로드한다는 뜻입니다. 이 숫자가 적절하게 유지되도록 분할 전략을 확인하세요. |
 | [OPEN_rowgroup_rows] |각 행 그룹은 최대 1,048,576개 행을 포함할 수 있습니다. 이 값을 사용하여 현재 열려 있는 행 그룹이 얼마나 찼는지 확인할 수 있습니다. |

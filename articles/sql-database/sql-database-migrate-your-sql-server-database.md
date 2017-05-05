@@ -4,7 +4,7 @@ description: "SQL Server 데이터베이스를 Azure SQL Database로 마이그�
 services: sql-database
 documentationcenter: 
 author: janeng
-manager: jstrauss
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 04/04/2017
+ms.date: 04/20/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 842ca29e46aefbd58638ac642f000ef39c1202d1
-ms.lasthandoff: 04/13/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: c6d965351f6f131ee342cea672fc4fa8771f8ede
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 - DMA([Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)).
 - 마이그레이션할 데이터베이스. 이 자습서에서는 SQL Server 2008R2 이상의 인스턴스에서 [SQL Server 2008R2 AdventureWorks OLTP 데이터베이스](https://msftdbprodsamples.codeplex.com/releases/view/59211)를 사용하지만 사용자가 선택한 모든 데이터베이스를 사용할 수 있습니다. 
 
-## <a name="step-1---prepare-for-migration"></a>1단계 - 마이그레이션 준비
+## <a name="prepare-for-migration"></a>마이그레이션 준비
 
 마이그레이션할 준비가 되었습니다. **[Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)**를 사용하여 Azure SQL Database에 마이그레이션하기 위한 데이터베이스의 준비 상태를 평가하려면 다음 단계를 수행합니다.
 
@@ -85,7 +85,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 10. 필요에 따라 JSON 파일로 보고서를 저장하려면 **보고서 내보내기**를 클릭합니다.
 11. Data Migration Assistant를 닫습니다.
 
-## <a name="step-2---export-to-bacpac-file"></a>2단계 - BACPAC 파일로 내보내기 
+## <a name="export-to-bacpac-file"></a>BACPAC 파일로 내보내기 
 
 BACPAC 파일은 메타데이터 및 SQL Server 데이터베이스의 데이터를 포함하는 BACPAC의 확장명을 가진 ZIP 파일입니다. BACPAC 파일은 보관이나 마이그레이션(예: SQL Server에서 Azure SQL Database로)을 위해 Azure Blob Storage 또는 로컬 저장소에 저장할 수 있습니다. 트랜잭션 측면에서 일관되도록 내보내려는 경우 내보내기 중에 쓰기 작업이 발생하지 않아야 합니다.
 
@@ -103,11 +103,11 @@ SQLPackage 명령줄 유틸리티를 사용하여 로컬 저장소로 AdventureW
 
 실행이 완료되면 생성된 BCPAC 파일이 sqlpackage 실행 파일이 있는 디렉터리에 저장됩니다. 이 예제에서는 C:\Program Files (x86)\Microsoft SQL Server\130\DAC\bin에 저장됩니다. 
 
-## <a name="step-3-log-in-to-the-azure-portal"></a>3단계: Azure Portal에 로그인
+## <a name="log-in-to-the-azure-portal"></a>Azure 포털에 로그인
 
 [Azure 포털](https://portal.azure.com/)에 로그인합니다. SQLPackage 명령줄 유틸리티를 실행하고 있는 컴퓨터에서 로그온하면 5단계의 방화벽 규칙 만들기가 용이해집니다.
 
-## <a name="step-4-create-a-sql-database-logical-server"></a>4단계: SQL Database 논리 서버에 연결
+## <a name="create-a-sql-database-logical-server"></a>SQL Database 논리 서버 만들기
 
 [Azure SQL Database 논리 서버](sql-database-features.md)는 여러 데이터베이스에 대한 중앙 관리 지점의 역할을 합니다. 마이그레이션된 Adventure Works OLTP SQL Server 데이터베이스를 포함하도록 SQL Database 논리 서버를 만들려면 다음 단계를 수행합니다. 
 
@@ -133,7 +133,7 @@ SQLPackage 명령줄 유틸리티를 사용하여 로컬 저장소로 AdventureW
 
 5. **만들기**를 클릭하여 논리 서버를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
 
-## <a name="step-5-create-a-server-level-firewall-rule"></a>5단계: 서버 수준 방화벽 규칙 만들기
+## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
 방화벽 규칙을 만들어서 특정 IP 주소에 대한 방화벽을 열지 않으면 SQL Database 서비스는 외부 응용 프로그램 및 도구가 서버 또는 서버의 데이터베이스에 연결되지 않도록 방지하는 [서버 수준에 방화벽](sql-database-firewall-configure.md)을 만듭니다. SQLPackage 명령줄 유틸리티를 실행하는 컴퓨터의 IP 주소에 대한 SQL Database 서버 수준 방화벽 규칙을 만들려면 다음 단계를 수행합니다. 이렇게 하면 SQLPackage를 Azure SQL Database 방화벽을 통해 SQL Database 논리 서버에 연결할 수 있습니다. 
 
@@ -155,7 +155,7 @@ SQLPackage 명령줄 유틸리티를 사용하여 로컬 저장소로 AdventureW
 > SQL Database는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다
 >
 
-## <a name="step-6---import-bacpac-file-to-azure-sql-database"></a>6단계 - Azure SQL Database에 BACPAC 파일 가져오기 
+## <a name="import-bacpac-file-to-azure-sql-database"></a>Azure SQL Database에 BACPAC 파일 가져오기 
 
 최신 버전의 SQLPackage 명령줄 유틸리티를 사용하면 지정한 [서비스 계층 및 성능 수준](sql-database-service-tiers.md)에서 Azure SQL Database를 만들 수 있습니다. 가져오기 작업 동안 최상의 성능을 위해 높은 서비스 계층 및 성능 수준을 선택한 다음 서비스 계층 및 성능 수준이 즉시 필요한 것보다 높은 경우 가져오기 작업 후에 규모를 축소합니다.
 
@@ -173,7 +173,7 @@ SQLPackage 명령줄 유틸리티를 사용하여 Azure SQL Database에 Adventur
 > Azure SQL Database 논리 서버는 포트 1433에서 수신 대기합니다. 회사 방화벽 내에서 Azure SQL Database 논리 서버로 연결을 시도하면 성공적인 연결을 위해 회사 방화벽에서 이 포트가 열려야 합니다.
 >
 
-## <a name="step-7---connect-using-sql-server-management-studio-ssms"></a>7단계 - SSMS(SQL Server Management Studio)를 사용하여 연결
+## <a name="connect-using-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 연결
 
 SQL Server Management Studio를 사용하여 Azure SQL Database 서버 및 새롭게 마이그레이션된 데이터베이스에 연결합니다. SQLPackage를 실행한 다른 컴퓨터에서 SQL Server Management Studio를 실행하는 경우 이전 절차의 단계를 사용하여 이 컴퓨터에 대한 방화벽 규칙을 만듭니다.
 
@@ -192,7 +192,7 @@ SQL Server Management Studio를 사용하여 Azure SQL Database 서버 및 새�
 
 4. 개체 탐색기에서 **데이터베이스**를 확장한 다음 **myMigratedDatabase**를 확장하여 샘플 데이터베이스에 있는 개체를 봅니다.
 
-## <a name="step-8---change-database-properties"></a>8단계 - 데이터베이스 속성 변경
+## <a name="change-database-properties"></a>데이터베이스 속성 변경
 
 SQL Server Management Studio를 사용하여 서비스 계층, 성능 수준 및 호환성 수준을 변경할 수 있습니다.
 

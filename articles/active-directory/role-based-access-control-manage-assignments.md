@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/01/2017
+ms.date: 3/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 55baaf0984e01f3cbca7b2296f0b24661e70e7b5
-ms.lasthandoff: 03/04/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 82f084b220ba321945975c8d1a6d22e419acf5e4
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -33,7 +33,7 @@ Azure Active Directory 미리 보기 상태인 RBAC(역할 기반 액세스 제�
 * **범위:** RBAC 역할 할당은 특정 구독, 리소스 그룹 또는 리소스로 범위가 지정됩니다. 단일 리소스에 대한 액세스 권한을 가진 사용자는 동일한 구독에서 다른 리소스에 액세스할 수 없습니다.
 * **역할:** 할당의 범위 내에서 역할을 할당하면 액세스 권한이 더 좁아집니다. 역할은 소유자와 같이 높은 수준일 수도 있고 가상 컴퓨터 판독기와 같이 특정될 수도 있습니다.
 
-역할은 할당에 대한 범위인 구독, 리소스 그룹 또는 리소스 내에서만 할당될 수 있습니다. 하지만 지정된 사용자나 그룹에 대한 모든 액세스 권한 할당은 단일 위치에서만 볼 수 있습니다.
+역할은 할당에 대한 범위인 구독, 리소스 그룹 또는 리소스 내에서만 할당될 수 있습니다. 하지만 지정된 사용자나 그룹에 대한 모든 액세스 권한 할당은 단일 위치에서만 볼 수 있습니다. 각 구독에서 최대 2000개의 역할 할당을 유지할 수 있습니다. 
 
 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스를 관리](role-based-access-control-configure.md)하는 방법에 대해 자세히 알아봅니다.
 

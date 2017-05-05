@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: gsacavdm
 translationtype: Human Translation
-ms.sourcegitcommit: 0b035ad1505e45c8c0820c825ff609df6e6100f0
-ms.openlocfilehash: 826824d6ecf039dcf458dd2444b029f284103ed9
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: a13bedc2ad31e45f3525a87655b6c46e653cee16
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -39,7 +40,7 @@ OpenID Connect discovery 문서와 페더레이션 메타데이터 문서에는 
 * [.NET OWIN OpenID Connect, WS-Fed 또는 WindowsAzureActiveDirectoryBearerAuthentication 미들웨어를 사용하여 리소스를 보호하는 웹 응용 프로그램/API](#owin)
 * [.NET Core OpenID Connect 또는 JwtBearerAuthentication 미들웨어를 사용하여 리소스를 보호하는 웹 응용 프로그램/API](#owincore)
 * [Node.js passport-azure-ad 모듈을 사용하여 리소스를 보호하는 웹 응용 프로그램/API](#passport)
-* [리소스를 보호하며 Visual Studio 2015를 사용하여 만든 웹 응용 프로그램/API](#vs2015)
+* [리소스를 보호하며 Visual Studio 2015 또는 Visual Studio 2017을 사용하여 만든 웹 응용 프로그램/API](#vs2015)
 * [리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 응용 프로그램](#vs2013)
 * [리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 API](#vs2013_webapi)
 * [리소스를 보호하며 Visual Studio 2012를 사용하여 만든 웹 응용 프로그램](#vs2012)
@@ -51,20 +52,20 @@ OpenID Connect discovery 문서와 페더레이션 메타데이터 문서에는 
 * Azure AD 응용 프로그램 갤러리에서 추가된 응용 프로그램(사용자 지정 포함)에는 서명 키와 관련하여 별도 설명서가 있습니다. [자세한 정보](../active-directory-sso-certs.md)
 * 응용 프로그램 프록시를 통해 게시된 온-프레미스 응용 프로그램은 서명 키에 대해 걱정할 필요가 없습니다.
 
-### <a name="a-namenativeclientanative-client-applications-accessing-resources"></a><a name="nativeclient"></a>리소스에 액세스하는 네이티브 클라이언트 응용 프로그램
+### <a name="nativeclient"></a>리소스에 액세스하는 네이티브 클라이언트 응용 프로그램
 리소스에만 액세스하는 응용 프로그램(즉, Microsoft Graph, KeyVault, Outlook API 및 기타 Microsoft API)은 일반적으로 토큰만 가져와서 리소스 소유자에게 전달합니다. 리소스를 보호하지 못한다면 토큰을 검사하지 않으므로 제대로 서명되었는지 확인할 필요도 없습니다.
 
 데스크톱 또는 모바일의 네티이브 클라이언트 응용 프로그램이 이 범주에 해당하므로 롤오버의 영향을 받지 않습니다.
 
-### <a name="a-namewebclientaweb-applications--apis-accessing-resources"></a><a name="webclient"></a>리소스에 액세스하는 웹 응용 프로그램/API
+### <a name="webclient"></a>리소스에 액세스하는 웹 응용 프로그램/API
 리소스에만 액세스하는 응용 프로그램(즉, Microsoft Graph, KeyVault, Outlook API 및 기타 Microsoft API)은 일반적으로 토큰만 가져와서 리소스 소유자에게 전달합니다. 리소스를 보호하지 못한다면 토큰을 검사하지 않으므로 제대로 서명되었는지 확인할 필요도 없습니다.
 
 앱 전용 흐름을 사용하는 웹 응용 프로그램 및 웹 API(클라이언트 자격 증명/클라이언트 인증서)가 이 범주에 해당하므로 롤오버의 영향을 받지 않습니다.
 
-### <a name="a-nameappservicesaweb-applications--apis-protecting-resources-and-built-using-azure-app-services"></a><a name="appservices"></a>리소스를 보호하고 Azure 앱 서비스를 사용하여 구축된 웹 응용 프로그램/API
+### <a name="appservices"></a>리소스를 보호하고 Azure 앱 서비스를 사용하여 구축된 웹 응용 프로그램/API
 Azure 앱 서비스의 인증/권한 부여(EasyAuth) 기능에는 이미 키 롤오버를 자동으로 처리하는 데 필요한 논리가 있습니다.
 
-### <a name="a-nameowinaweb-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>.NET OWIN OpenID Connect, WS-Fed 또는 WindowsAzureActiveDirectoryBearerAuthentication 미들웨어를 사용하여 리소스를 보호하는 웹 응용 프로그램/API
+### <a name="owin"></a>.NET OWIN OpenID Connect, WS-Fed 또는 WindowsAzureActiveDirectoryBearerAuthentication 미들웨어를 사용하여 리소스를 보호하는 웹 응용 프로그램/API
 응용 프로그램에서 .NET OWIN OpenID Connect, WS-Fed 또는 WindowsAzureActiveDirectoryBearerAuthentication 미들웨어를 사용 하는 경우, 자동으로 키 롤오버를 처리하는 데 필요한 논리가 이미 있는 것입니다.
 
 응용 프로그램의 Startup.cs 또는 Startup.Auth.cs에서 다음 코드 조각을 찾아봄으로써 응용 프로그램에서 이들 미들웨어를 사용하는지 확인할 수 있습니다.
@@ -91,7 +92,7 @@ app.UseWsFederationAuthentication(
      });
 ```
 
-### <a name="a-nameowincoreaweb-applications--apis-protecting-resources-using-net-core-openid-connect-or--jwtbearerauthentication-middleware"></a><a name="owincore"></a>.NET Core OpenID Connect 또는 JwtBearerAuthentication 미들웨어를 사용하여 리소스를 보호하는 웹 응용 프로그램/API
+### <a name="owincore"></a>.NET Core OpenID Connect 또는 JwtBearerAuthentication 미들웨어를 사용하여 리소스를 보호하는 웹 응용 프로그램/API
 응용 프로그램에서 .NET Core OWIN OpenID Connect 또는 JwtBearerAuthentication 미들웨어를 사용 하는 경우, 자동으로 키 롤오버를 처리하는 데 필요한 논리가 이미 있는 것입니다.
 
 응용 프로그램의 Startup.cs 또는 Startup.Auth.cs에서 다음 코드 조각을 찾아봄으로써 응용 프로그램에서 이들 미들웨어를 사용하는지 확인할 수 있습니다.
@@ -111,7 +112,7 @@ app.UseJwtBearerAuthentication(
      });
 ```
 
-### <a name="a-namepassportaweb-applications--apis-protecting-resources-using-nodejs-passport-azure-ad-module"></a><a name="passport"></a>Node.js passport-azure-ad 모듈을 사용하여 리소스를 보호하는 웹 응용 프로그램/API
+### <a name="passport"></a>Node.js passport-azure-ad 모듈을 사용하여 리소스를 보호하는 웹 응용 프로그램/API
 응용 프로그램에서 Node.js passport-ad module을 사용 하는 경우, 자동으로 키 롤오버를 처리하는 데 필요한 논리가 이미 있는 것입니다.
 
 응용 프로그램의 app.js에서 다음 코드 조각을 찾아봄으로써 응용 프로그램 passport ad를 확인할 수 있습니다.
@@ -124,12 +125,12 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="a-namevs2015aweb-applications--apis-protecting-resources-and-created-with-visual-studio-2015"></a><a name="vs2015"></a>리소스를 보호하며 Visual Studio 2015를 사용하여 만든 웹 응용 프로그램/API
-Visual Studio 2015에서 웹 응용 프로그램 템플릿을 사용하여 응용 프로그램을 빌드했고 **인증 변경** 메뉴에서 **회사 및 학교 계정**을 선택한 경우 자동으로 키 롤오버를 처리하는 데 필요한 논리가 이미 있는 것입니다. OWIN OpenID Connect 미들웨어에 포함된 이 논리는 OpenID Connect discovery 문서에서 키를 검색하고 캐시하며 주기적으로 새로 고칩니다.
+### <a name="vs2015"></a>리소스를 보호하며 Visual Studio 2015 또는 Visual Studio 2017을 사용하여 만든 웹 응용 프로그램/API
+Visual Studio 2015 또는 Visual Studio 2017에서 웹 응용 프로그램 템플릿을 사용하여 응용 프로그램을 빌드했고 **인증 변경** 메뉴에서 **회사 및 학교 계정**을 선택한 경우 자동으로 키 롤오버를 처리하는 데 필요한 논리가 이미 있는 것입니다. OWIN OpenID Connect 미들웨어에 포함된 이 논리는 OpenID Connect discovery 문서에서 키를 검색하고 캐시하며 주기적으로 새로 고칩니다.
 
 인증을 솔루션에 수동으로 추가하면 응용 프로그램에 필요한 키 롤오버 논리가 없을 수도 있습니다. 사용자가 직접 작성하거나 [웹 응용 프로그램/다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하는 API](#other)의 단계를 따라야 합니다.
 
-### <a name="a-namevs2013aweb-applications-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 응용 프로그램
+### <a name="vs2013"></a>리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 응용 프로그램
 Visual Studio 2013에서 웹 응용 프로그램 템플릿을 사용하여 응용 프로그램을 빌드했고 **인증 변경** 메뉴에서 **조직 계정**을 선택한 경우 자동으로 키 롤오버를 처리하는 데 필요한 논리가 이미 있는 것입니다. 이 논리는 조직의 고유 ID 및 서명 키 정보를 프로젝트와 연결된 두 데이터베이스 테이블에 저장합니다. 프로젝트의 Web.config 파일에서 데이터베이스에 대한 연결 문자열을 찾을 수 있습니다.
 
 인증을 솔루션에 수동으로 추가하면 응용 프로그램에 필요한 키 롤오버 논리가 없을 수도 있습니다. 사용자가 직접 작성하거나 [웹 응용 프로그램/다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하는 API](#other)의 단계를 따라야 합니다.
@@ -144,7 +145,7 @@ Visual Studio 2013에서 웹 응용 프로그램 템플릿을 사용하여 응�
 6. 응용 프로그램을 빌드 및 실행합니다. 계정에 로그인한 후에 응용 프로그램을 중지할 수 있습니다.
 7. **서버 탐색기**로 돌아가 **IssuingAuthorityKeys** 및 **테넌트** 테이블에서 값을 확인합니다. 페더레이션 메타데이터 문서의 적절한 정보로 자동으로 다시 채워진 것을 알 수 있습니다.
 
-### <a name="a-namevs2013aweb-apis-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 API
+### <a name="vs2013"></a>리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 API
 Visual Studio 2013에서 Web API 템플릿을 사용하여 Web API 응용 프로그램을 만들었고 **인증 변경** 메뉴에서 **조직 계정**을 선택한 경우 응용 프로그램에 필요한 논리가 이미 있는 것입니다.
 
 인증을 수동으로 구성한 경우 아래 지침을 따라 키 정보를 자동으로 업데이트하는 Web API를 구성하는 방법을 알아봅니다.
@@ -239,7 +240,7 @@ namespace JWTValidation
 }
 ```
 
-### <a name="a-namevs2012aweb-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>리소스를 보호하며 Visual Studio 2012를 사용하여 만든 웹 응용 프로그램
+### <a name="vs2012"></a>리소스를 보호하며 Visual Studio 2012를 사용하여 만든 웹 응용 프로그램
 Visual Studio 2012에서 응용 프로그램을 빌드한 경우 응용 프로그램을 구성하는 데 아마도 ID 및 액세스 도구를 사용한 것입니다. 또한 [발급자 이름 레지스트리 유효성 검사(VINR)](https://msdn.microsoft.com/library/dn205067.aspx)를 사용할 가능성이 높습니다. VINR은 발급된 토큰의 유효성을 검사하는 데 사용된 키와 신뢰할 수 있는 ID 공급자(Azure AD)에 대한 정보의 유지 관리를 담당합니다. 또한 VINR을 통해 해당 디렉터리에 연결된 최신 페더레이션 메타데이터 문서를 다운로드하고 구성이 최신 문서와 함께 만료되었는지 확인하며 필요에 따라 새 키를 사용하도록 응용 프로그램을 업데이트하여 Web.config 파일에 저장된 키 정보를 자동으로 간편하게 업데이트할 수 있습니다.
 
 Microsoft에서 제공하는 코드 샘플 또는 연습 문서를 사용하여 응용 프로그램을 만든 경우 키 롤오버 논리가 프로젝트에 이미 포함됩니다. 아래 코드가 프로젝트에 이미 있는 것을 확인할 수 있습니다. 응용 프로그램에 이 논리가 아직 없는 경우 아래 단계에 따라 추가하고 제대로 작동하는지 확인합니다.
@@ -285,7 +286,7 @@ Microsoft에서 제공하는 코드 샘플 또는 연습 문서를 사용하여 
 2. **<add thumbprint=””>** 설정에서 모든 문자를 다른 것으로 바꿔서 지문 값을 변경합니다. **Web.config** 파일을 저장합니다.
 3. 응용 프로그램을 빌드하고 실행합니다. 로그인 프로세스를 완료할 수 있으면 응용 프로그램은 디렉터리의 페더레이션 메타데이터 문서에서 필요한 정보를 다운로드하여 키를 성공적으로 업데이트합니다. 로그인하는 데 문제가 있는 경우 [Azure AD를 사용하여 웹 응용 프로그램에 로그온 추가](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) 항목을 읽거나 [Azure Active Directory에 대한 다중 테넌트 클라우드 응용 프로그램](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) 코드 샘플을 다운로드 및 검사하여 응용 프로그램의 변경 내용이 올바른지 확인합니다.
 
-### <a name="a-namevs2010aweb-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>리소스를 보호하며 Visual Studio 2008 또는 2010 및 .NET 3.5용 WIF(Windows Identity Foundation) v1.0을 사용하여 만든 웹 응용 프로그램
+### <a name="vs2010"></a>리소스를 보호하며 Visual Studio 2008 또는 2010 및 .NET 3.5용 WIF(Windows Identity Foundation) v1.0을 사용하여 만든 웹 응용 프로그램
 WIF v1.0에서 응용 프로그램을 빌드한 경우 새 키를 사용하도록 응용 프로그램의 구성을 자동으로 새로 고치는 데 제공된 메커니즘이 없습니다.
 
 * *가장 쉬운 방법* WIF SDK에 포함된 FedUtil 도구를 사용합니다. 이 도구를 통해 최신 메타데이터 문서를 검색하고 구성을 업데이트할 수 있습니다.
@@ -299,7 +300,7 @@ WIF v1.0에서 응용 프로그램을 빌드한 경우 새 키를 사용하도�
 3. 프롬프트에서 **업데이트** 를 선택하여 페더레이션 메타데이터의 업데이트를 시작합니다. 응용 프로그램이 호스팅되는 서버 환경에 대한 액세스 권한이 있는 경우 필요에 따라 FedUtil의 [자동 메타데이터 업데이트 스케줄러](https://msdn.microsoft.com/library/ee517272.aspx)를 사용할 수 있습니다.
 4. **마침** 을 클릭하고 업데이트 프로세스를 완료합니다.
 
-### <a name="a-nameotheraweb-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하여 리소스를 보호하는 웹 응용 프로그램/API
+### <a name="other"></a>다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하여 리소스를 보호하는 웹 응용 프로그램/API
 다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하는 경우, 키가 OpenID Connect discovery 문서 또는 페더레이션 메타데이터 문서에서 검색되는지 확인하기 위해 라이브러리나 구현을 검토할 필요가 있습니다. 이를 확인하는 하나의 방법은 OpenID discovery 문서 또는 페더레이션 메타데이터 문서에 대한 모든 호출 코드 또는 라이브러리 코드를 검색하는 것입니다.
 
 키가 어딘가에 저장되거나 응용 프로그램에 하드 코딩되는 경우 이 지침 문서의 끝에 있는 지침에 따라 수동 롤오버를 수행하여 수동으로 키를 검색하고 적절하게 업데이트할 수 있습니다. **자동 롤오버를 지원하기 위해 응용 프로그램을 향상하는 것이 아주 좋습니다** .
@@ -309,10 +310,5 @@ WIF v1.0에서 응용 프로그램을 빌드한 경우 새 키를 사용하도�
 
 ## <a name="how-to-perform-a-manual-rollover-if-you-application-does-not-support-automatic-rollover"></a>응용 프로그램이 자동 롤오버를 지원하지 않는 경우 수동 롤오버를 수행하는 방법
 응용 프로그램이 자동 롤오버를 지원하지 **않는** 경우 주기적으로 Azure AD의 서명 키를 모니터링하고 적절하게 수동 롤오버를 수행하는 프로세스를 설정해야 합니다. [이 GitHub 리포지토리](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) 는 이 작업을 수행하는 방법에 대한 스크립트 및 지침을 포함합니다.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

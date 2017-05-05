@@ -26,8 +26,3 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
 
 [Table1]: ./media/storage-table-concepts-include/table1.png
 [OData.org]: http://www.odata.org/
-
-
-<!--HONumber=Nov16_HO2-->
-
-

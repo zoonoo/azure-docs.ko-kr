@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: dd673ba36689c83021a27d593139f0676b0c5e79
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.openlocfilehash: 51c6a8ae17821d4eb00bf26612bc6e1e434ebbd9
+ms.lasthandoff: 04/18/2017
 
 
 ---
@@ -30,6 +30,7 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 * [페더레이션 메타데이터](active-directory-federation-metadata.md) - Azure AD에서 생성되는 메타데이터 문서를 찾고 해석하는 방법을 알아봅니다.
 * [Azure AD의 OAuth 2.0](active-directory-protocols-oauth-code.md) - Azure AD의 OAuth 2.0 구현에 대해 알아봅니다.
 * [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) - 권한 부여 프로토콜 OAuth 2.0을 인증에 사용하는 방법을 알아봅니다.
+* [서비스 간 호출](active-directory-protocols-oauth-service-to-service.md) - 서비스 간 호출을 위해 OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하는 방법을 알아봅니다.
 * [SAML 프로토콜 참조](active-directory-saml-protocol-reference.md) - Azure AD의 Single Sign On 및 Single Sign Out SAML 프로필에 대해 알아봅니다.
 
 ## <a name="see-also"></a>참고 항목

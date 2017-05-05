@@ -42,8 +42,3 @@
 
 ![Azure 포털에서 저장된 새 태그](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

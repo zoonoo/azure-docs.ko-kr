@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
-ms.author: mbaldwin
+ms.date: 04/27/2017
+ms.author: bryanla
 translationtype: Human Translation
 ms.sourcegitcommit: 28712a9898bf2449de53d21fd87f1ce53da71ff8
 ms.openlocfilehash: df60c4737954e79ff860601412dffa58d4dbb471
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -93,10 +94,5 @@ SAML 2.0을 지원하는 앱은 [사용자 지정 응용 프로그램을 추가�
 > 응용 프로그램 연결 로고(PNG 파일, 150x122px, 투명 배경색):
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

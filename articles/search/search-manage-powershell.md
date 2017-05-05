@@ -16,9 +16,9 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 76077d39f17df63abe6c08f91991095c53f5dbb8
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: a635b214fcc9b37ac426df227420b643e2a02cc7
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/31/2017
 이러한 명령은 [Azure 검색 관리 REST API](http://msdn.microsoft.com/library/dn832684.aspx)에서 사용할 수 있는 관리 옵션과 유사합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* Azure PowerShell 1.0 이상이 필요합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.
+* Azure PowerShell 1.0 이상이 필요합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
 * 아래 설명된 대로 PowerShell에서 Azure 구독에 로그인해야 합니다.
 
 먼저 다음 명령을 사용하여 Azure에 로그인해야 합니다.

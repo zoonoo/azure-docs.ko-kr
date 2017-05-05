@@ -13,8 +13,3 @@
    
    ![VM의 ID 확인에 대한 메시지를 보여 주는 스크린샷입니다.](./media/virtual-machines-log-on-win-server/cert-warning.png)
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -17,9 +17,9 @@ ms.date: 01/03/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: d229d6add2c06952eaf662bdacc92a5163b1e945
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e0fb1e3fc87e3a3a93d42f9f2722696e0f9aae57
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ Azure에는 Azure Resource Manager 및 클래식이라는 두 가지 배포 모�
 
 PowerShell 사용하여 가상 네트워크를 만들려면 다음 단계를 완료하세요.
 
-1. [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 문서에 나오는 단계에 따라 Azure PowerShell을 설치 및 구성합니다.
+1. [Azure PowerShell 설치 및 구성](/powershell/azure/overview) 문서에 나오는 단계에 따라 Azure PowerShell을 설치 및 구성합니다.
 
 2. 필요에 따라 아래와 같이 새 리소스 그룹을 만듭니다. 이 시나리오의 경우 이름이 *TestRG*인 리소스 그룹을 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 

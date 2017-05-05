@@ -11,27 +11,27 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 04/19/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: e75099e1ca7e3bbfc427883a8c343d773f3923ae
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 3879eb3d0c6fa9d74fff01b07f5c07d3991dfbbd
+ms.lasthandoff: 04/21/2017
 
 
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Machine Learning 작업에 대한 Azure 배치 서비스
 
-Machine Learning 배치 풀 처리는 Azure Machine Learning 배치 실행 서비스(BES)에 고객 관리 규모를 제공하는 데 [Azure 배치 서비스](../batch/batch-technical-overview.md)를 사용합니다. 클래식 일괄 처리는 제출할 수 있는 동시 작업 수를 제한하는 다중 테넌트 환경에서 수행되며, 작업은 선입 선출 기준으로 큐에 보관됩니다. 이 불확실성은 작업이 실행되는 시기를 예측할 수 없다는 것입니다.
+Machine Learning Batch 풀 처리는 Azure Machine Learning Batch 실행 서비스의 고객 관리 규모를 제공합니다. Machine Learning에 대한 클래식 Batch 처리는 제출할 수 있는 동시 작업 수를 제한하는 다중 테넌트 환경에서 수행되며, 작업은 선입 선출 기준으로 큐에 보관됩니다. 이 불확실성은 작업이 실행되는 시기를 예측할 수 없다는 것입니다.
 
-배치 풀 처리를 사용하면 배치 작업을 제출할 수 있는 Azure 배치 풀을 만들 수 있습니다. 풀의 크기와 작업이 제출되는 풀을 제어합니다. BES 작업은 예측 가능한 처리 성능과 제출한 처리 부하에 해당하는 리소스 풀을 만드는 기능을 제공하는 자체 처리 공간에서 실행됩니다.
+Batch 풀 처리를 사용하면 배치 작업을 제출할 수 있는 풀을 만들 수 있습니다. 풀의 크기와 작업이 제출되는 풀을 제어합니다. BES 작업은 예측 가능한 처리 성능과 제출한 처리 부하에 해당하는 리소스 풀을 만드는 기능을 제공하는 자체 처리 공간에서 실행됩니다.
 
 ## <a name="how-to-use-batch-pool-processing"></a>배치 풀 처리를 사용하는 방법
 
-배치 풀 처리를 사용하려면 다음을 사용해야 합니다.
+Batch 풀 처리의 구성은 현재 Azure Portal을 통해 사용할 수 없습니다. Batch 풀 처리를 사용하려면:
 
--   풀 서비스 URL 및 인증 키가 있는 배치 풀 계정
--   새 Resource Manager 기반 웹 서비스 및 청구 계획
+-   Batch 풀 계정을 만들고 풀 서비스 URL 및 권한 부여 키를 가져오기 위해 CSS 호출
+-   새 Resource Manager 기반 웹 서비스 및 청구 계획 만들기
 
 계정을 만들려면 Microsoft 고객 서비스 및 지원 센터(CSS)에 전화하여 구독 ID를 제공합니다. CSS에서는 사용자와 협의하여 시나리오에 적합한 용량을 결정합니다. 그런 다음 CSS에서 만들 수 있는 최대 풀 수와 각 풀에 배치할 수 있는 VM(가상 컴퓨터)의 최대 수를 사용하여 계정을 구성합니다. 계정이 구성되면 풀 서비스 URL과 인증 키가 제공됩니다.
 

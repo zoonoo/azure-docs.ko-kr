@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 9dcac84fdc33515ef12ab5b8154f700bb8618290
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 627f9dccb48712fced81f2c6dc694043f7162205
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -125,7 +125,7 @@ HDInsight의 Apache Storm을 사용하여 고객은 다중 Storm 작업과 다�
 Stream Analytics은 처리되는 데이터 볼륨 및 스트리밍 단위(작업이 실행되는 시간 당)의 수에 따라 가격이 책정됩니다.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/stream-analytics/">자세한 가격 정보는 여기를 참조하세요.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">자세한 가격 정보는 여기를 참조하세요.</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -133,7 +133,7 @@ Stream Analytics은 처리되는 데이터 볼륨 및 스트리밍 단위(작업
 HDInsight의 Apache Storm의 경우 구매 단위는 클러스터 기반이며 클러스터 실행 되는 시간, 독립적으로 배포 하는 작업을 기준으로 요금이 청구 됩니다.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/en-us/pricing/details/hdinsight/">자세한 가격 정보는 여기를 참조하세요.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">자세한 가격 정보는 여기를 참조하세요.</a>
                 </p>
             </td>
         </tr>

@@ -46,7 +46,7 @@
 ### [Application Gateway의 오류 해결](application-gateway-troubleshooting-502.md)
 ### [진단 로깅 및 메트릭](application-gateway-diagnostics.md)
 # 참조
-## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [PowerShell](/powershell/azure/overview)
 ## [Azure CLI 2.0](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)

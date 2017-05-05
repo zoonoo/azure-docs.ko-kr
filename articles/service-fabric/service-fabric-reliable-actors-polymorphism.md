@@ -15,22 +15,22 @@ ms.workload: NA
 ms.date: 03/28/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2fbce8754a5e3162e3f8c999b34ff25284911021
-ms.openlocfilehash: 731c6542ba6d1385eeffa89a6f62e5bcf57a5c1e
-ms.lasthandoff: 12/14/2016
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 87f99a9e6df2103f70968c10556242ddb268e9e4
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Reliable Actors 프레임워크의 다형성
-Reliable Actors 프레임워크를 사용하면 개체 지향 디자인에 사용하는 동일한 기술을 대부분 사용하여 행위자를 빌드할 수 있습니다. 이러한 다형성 기술 중 하나는 보다 일반화된 부모로부터 형식과 인터페이스를 상속하도록 허용합니다. Reliable Actors 프레임워크의 상속은 일반적으로 몇 가지 추가적인 제약 조건과 함께 .NET 모델을 따릅니다.
+Reliable Actors 프레임워크를 사용하면 개체 지향 디자인에 사용하는 동일한 기술을 대부분 사용하여 행위자를 빌드할 수 있습니다. 이러한 다형성 기술 중 하나는 보다 일반화된 부모로부터 형식과 인터페이스를 상속하도록 허용합니다. Reliable Actors 프레임워크의 상속은 일반적으로 몇 가지 추가적인 제약 조건과 함께 .NET 모델을 따릅니다. Java/Linux의 경우 Java 모델을 따릅니다.
 
 ## <a name="interfaces"></a>인터페이스
-Reliable Actors 프레임워크에서는 행위자 형식으로 구현될 인터페이스를 하나 이상 정의해야 합니다. 이 인터페이스는 클라이언트가 행위자와의 통신에 사용할 수 있는 프록시 클래스를 생성하는 데 사용됩니다. 모든 인터페이스가 행위자 형식에 의해 구현되고, 인터페이스의 모든 부모가 궁극적으로 IActor로부터 파생되기만 한다면 인터페이스는 다른 인터페이스에서 상속할 수 있습니다. IActor는 행위자에 대한 플랫폼 정의 기본 인터페이스입니다. 도형을 사용한 전형적인 다형성의 예는 다음과 유사한 모양입니다.
+Reliable Actors 프레임워크에서는 행위자 형식으로 구현될 인터페이스를 하나 이상 정의해야 합니다. 이 인터페이스는 클라이언트가 행위자와의 통신에 사용할 수 있는 프록시 클래스를 생성하는 데 사용됩니다. 모든 인터페이스가 행위자 형식에 의해 구현되고, 인터페이스의 모든 부모가 궁극적으로 IActor(C#) 또는 Actor(Java)로부터 파생되기만 한다면 인터페이스는 다른 인터페이스에서 상속할 수 있습니다. IActor(C#) 및 Actor(Java)는 .NET 및 Java Framework에서 행위자에 대한 플랫폼 정의 기본 인터페이스입니다. 도형을 사용한 전형적인 다형성의 예는 다음과 유사한 모양입니다.
 
 ![shape 행위자에 대한 인터페이스 계층 구조][shapes-interface-hierarchy]
 
 ## <a name="types"></a>형식
-플랫폼에 제공되는 기본 Actor 클래스에서 파생되는 행위자 형식 계층 구조를 만들 수 있습니다. 도형의 경우 상태 기본 `Shape` 형식일 수 있습니다.
+플랫폼에 제공되는 기본 Actor 클래스에서 파생되는 행위자 형식 계층 구조를 만들 수 있습니다. 도형의 경우 상태 기본 `Shape`(C#) 또는 `ShapeImpl`(Java) 형식일 수 있습니다.
 
 ```csharp
 public abstract class Shape : Actor, IShape
@@ -40,8 +40,16 @@ public abstract class Shape : Actor, IShape
     public abstract Task<double> GetAreaAsync();
 }
 ```
+```Java
+public abstract class ShapeImpl extends FabricActor implements Shape
+{
+    public abstract CompletableFuture<int> getVerticeCount();
 
-`Shape` 의 하위 유형은 기본부터 메서드를 재정의할 수 있습니다.
+    public abstract CompletableFuture<double> getAreaAsync();
+}
+```
+
+`Shape`(C#) 또는 `ShapeImpl`(Java)의 하위 형식은 기본부터 메서드를 재정의할 수 있습니다.
 
 ```csharp
 [ActorService(Name = "Circle")]
@@ -60,6 +68,26 @@ public class Circle : Shape, ICircle
         return Math.PI *
             state.Radius *
             state.Radius;
+    }
+}
+```
+```Java
+@ActorServiceAttribute(name = "Circle")
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+public class Circle extends ShapeImpl implements Circle
+{
+    @Override
+    public CompletableFuture<Integer> getVerticeCount()
+    {
+        return CompletableFuture.completedFuture(0);
+    }
+
+    @Override
+    public CompletableFuture<Double> getAreaAsync()
+    {
+        return (this.stateManager().getStateAsync<CircleState>("circle").thenApply(state->{
+          return Math.PI * state.radius * state.radius;
+        }));
     }
 }
 ```

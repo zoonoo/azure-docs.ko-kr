@@ -116,8 +116,3 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 7. 새 프로비전 프로필이 만들어질 때 다운로드를 클릭하고 Xcode 개발 컴퓨터에 설치합니다. **완료**를 클릭합니다.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
-
-
-<!--HONumber=Dec16_HO1-->
-
-

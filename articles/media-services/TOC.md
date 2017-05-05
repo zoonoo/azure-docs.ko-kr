@@ -211,8 +211,8 @@
 ### [재시도 논리](media-services-retry-logic-in-dotnet-sdk.md)
 
 # 참조
-## [PowerShell(리소스 관리자)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
-## [PowerShell(서비스 관리)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [PowerShell(리소스 관리자)](/powershell/module/azurerm.media)
+## [PowerShell(서비스 관리)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST (영문)](/rest/api/media)
 

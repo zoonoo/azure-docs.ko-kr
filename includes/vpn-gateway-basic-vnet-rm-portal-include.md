@@ -27,8 +27,3 @@ Azure 포털을 사용하여 Resource Manager 배포 모델에서 VNet을 만들
     
     ![가상 네트워크 만들기 타일](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png "Creating virtual network tile")
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

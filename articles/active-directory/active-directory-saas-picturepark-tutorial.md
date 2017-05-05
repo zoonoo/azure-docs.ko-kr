@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/20/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: e24bd626cd950f6e6d9474d1bd5f97c3ea4fb925
-ms.openlocfilehash: 626bdc99702b38c127beba54979add9b1cbd633f
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: a6b6610bb4d4b427f525934146340a9cca6f52cb
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,13 +33,13 @@ ms.lasthandoff: 02/03/2017
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
 1. Picturepark에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
+2. SSO(Single Sign-On) 구성
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
 ![시나리오](./media/active-directory-saas-picturepark-tutorial/IC795055.png "시나리오")
 
-## <a name="enabling-the-application-integration-for-picturepark"></a>Picturepark에 응용 프로그램 통합 사용
+## <a name="enable-the-application-integration-for-picturepark"></a>Picturepark에 응용 프로그램 통합 사용
 이 섹션은 Picturepark에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
 **Picturepark에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.**
@@ -65,11 +65,11 @@ ms.lasthandoff: 02/03/2017
    ![Picturepark](./media/active-directory-saas-picturepark-tutorial/IC795057.png "Picturepark")
 
 
-## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Picturepark에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
 
-Picturepark에 대한 Single Sign-On을 구성하려면 인증서의 지문(thumbprint) 값을 검색해야 합니다.  
+Picturepark에 대한 SSO를 구성하려면 인증서의 지문 값을 검색해야 합니다.  
 
 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
@@ -104,21 +104,23 @@ Picturepark에 대한 Single Sign-On을 구성하려면 인증서의 지문(thum
    4. Azure 클래식 포털의 **Picturepark에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **SAML SSO URL** 값을 복사한 다음 **발급자 URI** 텍스트 상자에 붙여넣습니다.
    5. 내보낸 인증서에서 **지문** 값을 복사한 다음 **신뢰할 수 있는 발급자 지**문 텍스트 상자에 붙여넣습니다.  
       
-      > [!TIP]
-      > 자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)
-      > 
+      >[!TIP]
+      >자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하세요.
+      >
+      >
 
 9. **JoinDefaultUsersGroup**을 클릭합니다.
-10. **클레임** 텍스트 상자에 **Emailaddress** 속성을 설정하려면 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
+10. **클레임** 텍스트 상자에 **Emailaddress** 특성을 설정하려면 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력하고 **저장**을 클릭합니다.
 
-      ![구성](./media/active-directory-saas-picturepark-tutorial/IC795065.png "구성") a. **Save**를 클릭합니다.
+      ![구성](./media/active-directory-saas-picturepark-tutorial/IC795065.png "구성")
 11. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-picturepark-tutorial/IC795066.png "Single Sign-On 구성")
 
-## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 Azure AD 사용자가 Picturepark에 로그인할 수 있도록 하려면 Picturepark로 프로비전되어야 합니다.  
-Picturepark의 경우 프로비전은 수동 작업입니다.
+
+ * Picturepark의 경우 프로비전은 수동 작업입니다.
 
 **사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
 
@@ -137,12 +139,12 @@ Picturepark의 경우 프로비전은 수동 작업입니다.
   2. **언어**를 선택합니다.
   3. **만들기**를 클릭합니다.
 
-> [!NOTE]
-> 다른 Picturepark 사용자 계정 생성 도구 또는 Picturepark가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[!NOTE]
+>다른 Picturepark 사용자 계정 생성 도구 또는 Picturepark가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 > 
 > 
 
-## <a name="assigning-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
 **Picturepark에 사용자를 할당하려면 다음 단계를 수행합니다.**
@@ -155,6 +157,6 @@ Picturepark의 경우 프로비전은 수동 작업입니다.
    
    ![예](./media/active-directory-saas-picturepark-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
+SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 

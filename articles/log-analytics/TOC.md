@@ -48,6 +48,7 @@
 ### [경고 관리 솔루션](log-analytics-solution-alert-management.md)
 ## 솔루션 사용
 ### [솔루션 개요](log-analytics-add-solutions.md)
+### [대상 솔루션](../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Activity Log Analytics](log-analytics-activity.md)(활동 로그 분석)
 ### [AD 평가](log-analytics-ad-assessment.md)
 ### [AD 복제 상태](log-analytics-ad-replication-status.md)
@@ -57,6 +58,8 @@
 ### [변경 내용 추적](log-analytics-change-tracking.md)
 ### [컨테이너](log-analytics-containers.md)
 ### [DNS 분석](log-analytics-dns.md)
+### [OMS에서 IT Service Management Connector](log-analytics-itsmc-overview.md)
+#### [OMS에서 IT Service Management 연결](log-analytics-itsmc-connections.md)
 ### [키 자격 증명 모음](log-analytics-azure-key-vault.md)
 ### Logic Apps B2B 메시지
 #### [Logic Apps B2B 메시지 솔루션](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -84,7 +87,7 @@
 ### [알림 API](log-analytics-api-alerts.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [PowerShell](/powershell/module/azurerm.operationalinsights)
 ## [REST (영문)](/rest/api/loganalytics)
 
 # 리소스

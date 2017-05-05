@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 78117fd3947be922e339931a0f8f31040ebf79fe
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 19fe97eb41be3222a846f86b2a390bf86157884f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -47,7 +47,7 @@ ms.lasthandoff: 02/03/2017
   2. **클라이언트 ID** 및 **암호 키**를 가져옵니다.
   3. **테넌트 ID**를 가져옵니다.
   4. **ADFGetStartedApp** 응용 프로그램을 **데이터 팩터리 참가자** 역할에 할당합니다.
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)을 설치합니다.
+* [Azure PowerShell](/powershell/azure/overview)을 설치합니다.
 * **PowerShell** 을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
   1. **Login-AzureRmAccount** 를 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
   2. **Get-AzureRmSubscription** 을 실행하여 이 계정의 모든 구독을 확인합니다.

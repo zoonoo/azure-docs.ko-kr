@@ -136,7 +136,7 @@ ms.lasthandoff: 03/28/2017
 |"@@"|'@'를 포함하는 1개 문자열이 반환됩니다.|  
 |" @"|' @'를 포함하는 2개 문자열이 반환됩니다.|  
   
-*문자열 보간*을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`
+*문자열 보간*을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
 결과는 항상 문자열이며 이 기능은 `concat` 함수와 유사합니다. `myNumber`를 `42`로, `myString`을 `sampleString`으로 정의했다고 가정해 보겠습니다.  
   

@@ -1,6 +1,6 @@
 ---
 title: "Azure 서비스에 대한 경고 만들기 - 플랫폼 간 CLI | Microsoft Docs"
-description: "지정한 조건이 충족될 경우 전자 메일, 알림, 웹 사이트 URL 호출(웹후크) 또는 자동화를 트리거합니다."
+description: "지정한 조건이 충족될 경우 전자 메일, 알림, 웹 사이트 URL 호출(webhook) 또는 자동화를 트리거합니다."
 author: rboucher
 manager: carmonm
 editor: 
@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 073075d4c789438cc6dd6aa14027cbe50d6efa11
+ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
+ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
+ms.lasthandoff: 03/31/2017
 
 
 ---
-# <a name="create-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Azure 서비스에 대한 Azure Monitor에서 경고 만들기 - 플랫폼 간 CLI
+# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Azure 서비스에 대한 Azure Monitor에서 메트릭 경고 만들기 - 플랫폼 간 CLI
 > [!div class="op_single_selector"]
 > * [포털](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,7 +30,7 @@ ms.openlocfilehash: 073075d4c789438cc6dd6aa14027cbe50d6efa11
 >
 
 ## <a name="overview"></a>개요
-이 문서에서는 플랫폼 간 CLI(명령줄 인터페이스)를 사용하여 Azure 경고를 설정하는 방법을 보여 줍니다.
+이 문서에서는 플랫폼 간 CLI(명령줄 인터페이스)를 사용하여 Azure 메트릭 경고를 설정하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > Azure Monitor는 2016년 9월 25일까지는 "Azure Insights"로 지칭했던 제품의 새로운 이름입니다. 하지만 네임스페이스와 아래 명령에서는 "insights"를 계속 포함합니다.
@@ -39,16 +40,16 @@ ms.openlocfilehash: 073075d4c789438cc6dd6aa14027cbe50d6efa11
 Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다.
 
 * **메트릭 값** - 이 경고는 특정 메트릭의 값이 어느 방향으로든 사용자가 할당한 임계값을 초과했을 때 트리거됩니다. 즉 조건에 처음 부합했을 때와, 조건에 더 이상 부합하지 않게 되었을 때 모두 트리거됩니다.    
-* **활동 로그 이벤트** - *모든* 이벤트에 대해 또는 특정 이벤트 수가 발생했을 때만 경고를 트리거할 수 있습니다
+* **활동 로그 이벤트** - *모든* 이벤트에 대해 또는 특정 이벤트가 발생했을 때만 경고를 트리거할 수 있습니다 활동 로그 경고에 대해 자세히 알아보려면 [여기를 클릭](monitoring-activity-log-alerts.md)하세요.
 
-트리거되면 다음을 수행하도록 경고를 구성할 수 있습니다.
+트리거되면 다음을 수행하도록 메트릭 경고를 구성할 수 있습니다.
 
 * 서비스 관리자 및 공동 관리자에게 이메일 알림을 보냅니다.
 * 사용자가 지정한 추가 이메일 주소로 이메일을 보냅니다.
 * webhook 호출
 * Azure runbook 실행 시작(현재는 Azure 포털에서만 가능)
 
-다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다.
+다음을 통해 메트릭 경고 규칙에 대한 정보를 구성하고 가져올 수 있습니다.
 
 * [Azure 포털](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -72,16 +73,15 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
     ```
 
-1. 리소스 그룹에 대해 기존 규칙을 나열하려면 **azure insights alerts rule list** *[options] &lt;resourceGroup&gt;* 형식을 사용합니다.
+2. 리소스 그룹에 대해 기존 규칙을 나열하려면 **azure insights alerts rule list** *[options] &lt;resourceGroup&gt;* 형식을 사용합니다.
 
    ```console
    azure insights alerts rule list myresourcegroupname
 
    ```
-2. 규칙을 만들려면 먼저 몇 가지 중요한 정보가 필요합니다.
-
-   * 경고를 설정할 리소스의 **리소스 ID**
-   * 리소스에 대해 사용 가능한 **메트릭 정의**
+3. 규칙을 만들려면 먼저 몇 가지 중요한 정보가 필요합니다.
+  * 경고를 설정할 리소스의 **리소스 ID**
+  * 리소스에 대해 사용 가능한 **메트릭 정의**
 
      리소스 ID를 가져오는 한 가지 방법은 Azure 포털을 사용하는 것입니다. 리소스를 이미 만들었다고 가정하고 포털에서 선택합니다. 이 후 다음 블레이드에서 *설정* 섹션의 *속성*을 선택합니다. *리소스 ID* 는 다음 블레이드의 필드입니다. 또 다른 방법은 [Azure Resource Explorer](https://resources.azure.com/)를 사용하는 것입니다.
 
@@ -98,7 +98,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
      ```
 
      *PT1M* 은 사용 가능한 측정의 세분성입니다(1분 간격). 다른 세분성을 사용할 때는 다른 메트릭 옵션이 있습니다.
-3. 메트릭 기반 경고 규칙을 만들려면 다음 형태의 명령을 사용합니다.
+4. 메트릭 기반 경고 규칙을 만들려면 다음 형태의 명령을 사용합니다.
 
     **azure insights alerts rule metric set** *[options] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;windowSize&gt; &lt;operator&gt; &lt;threshold&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
 
@@ -108,7 +108,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
 
     ```
-4. 경고가 발생할 때 Webhook를 만들거나 이메일을 보내려면 먼저 이메일 및/또는 Webhook를 만듭니다. 그런 다음 바로 규칙을 만듭니다. Webhook나 이메일을 CLI를 통해 이미 생성된 규칙과 연결할 수 없습니다.
+5. 메트릭 경고가 발생할 때 Webhook를 만들거나 전자 메일을 보내려면 먼저 이메일 및/또는 웹후크를 만듭니다. 그런 다음 바로 규칙을 만듭니다. Webhook나 이메일을 CLI를 통해 이미 생성된 규칙과 연결할 수 없습니다.
 
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com
@@ -117,19 +117,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
     azure insights alerts rule metric set myrulewithwebhookandemail eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
     ```
-5. 활동 로그의 특정 조건에 대해 발생하는 경고를 만들려면 다음 형태를 사용합니다.
 
-    **insights alerts rule log set** *[options] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;operationName&gt;*
-
-    예를 들면 다음과 같습니다.
-
-    ```console
-    azure insights alerts rule log set myActivityLogRule eastus myresourceGroupName Microsoft.Storage/storageAccounts/listKeys/action
-    ```
-
-    operationName은 활동 로그 항목의 이벤트 형식에 해당합니다. 예에는 *Microsoft.Compute/virtualMachines/delete*와 *microsoft.insights/diagnosticSettings/write*가 포함됩니다.
-
-    PowerShell 명령 [Get-AzureRmProviderOperation](https://msdn.microsoft.com/library/mt603720.aspx) 을 사용하여 가능한 operationName 목록을 가져올 수 있습니다. 또는 Azure 포털을 사용하여 활동 로그를 쿼리하고 경고를 만들 특정 과거 작업을 찾을 수도 있습니다. 그래픽 로그 보기에 친밀한 이름으로 표시된 작업입니다. JSON에서 항목을 찾고 OperationName 값을 추출합니다.   
 6. 개별 규칙을 살펴서 경고가 제대로 만들어졌는지 확인할 수 있습니다.
 
     ```console
@@ -150,12 +138,8 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 ## <a name="next-steps"></a>다음 단계
 * [Azure 모니터링 개요](monitoring-overview.md) 를 확인합니다.
 * [경고에서의 webhook 구성](insights-webhooks-alerts.md)에 대해 자세히 알아봅니다.
+* [활동 로그 이벤트에 대한 경고 구성](monitoring-activity-log-alerts.md)에 대해 자세히 알아봅니다.
 * [Azure Automation Runbook](../automation/automation-starting-a-runbook.md)에 대해 자세히 알아봅니다.
 * 서비스의 상세 고빈도 메트릭을 수집하기 위한 [진단 로그 수집](monitoring-overview-of-diagnostic-logs.md) 의 개요를 살펴봅니다.
 * 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

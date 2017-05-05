@@ -16,9 +16,9 @@ ms.date: 02/23/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
-ms.openlocfilehash: b8c5e53ed5fe86ed099e37644d405080477f8c27
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 0bd6fce848c6d174eb519f8ef8a14f9ead5fa5ce
+ms.lasthandoff: 04/13/2017
 
 ---
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 03/01/2017
 * Oozie, YARN, MapReduce2 및 HDFS 서비스를 중지하고 다시 시작하여 새 저장소 계정 정보를 선택합니다.
 
 > [!WARNING]
-> 저장소 계정이 HDInsight 클러스터와 다른 하위 지역에 있는 경우 성능이 저하될 수 있습니다. 다른 하위 지역의 데이터에 액세스하면 하위 지역 Azure 데이터 센터 외부와 공용 인터넷을 통해 네트워크 트래픽이 전송되어 대기 시간이 발생할 수 있습니다. 또한 하위 지역 데이터 센터 외부로 데이터를 전송하는 경우 데이터가 데이터 센터를 떠날 때 송신 요금이 적용되므로 더 많은 요금이 부과될 수 있습니다.
+> HDInsight 클러스터와 다른 위치에서는 저장소 계정을 사용할 수 없습니다.
 
 ## <a name="the-script"></a>스크립트
 

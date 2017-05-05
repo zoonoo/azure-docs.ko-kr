@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 04/24/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a3657f8bb60cd1181740b0700f503b5bd1bd559f
-ms.openlocfilehash: a3847f83af1f28e40572af95ff31f44d2f3d6dc4
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: fba7f5f33d1a0d39219a6790e1d5c6b4515b794c
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -43,6 +43,7 @@ Azure에서 솔루션을 배포 및 실행하는 것 외에도 완전한 소스 
 | --- | --- | --- | --- | --- | --- | --- |
 | [원격 모니터링][lnk-getstarted-preconfigured] |예 |예 |예 |예 |예 |- |
 | [예측 유지 관리][lnk-predictive-maintenance] |예 |예 |- |예 |예 |예 |
+| [연결된 공장][lnk-getstarted-factory] |예 |예 |예 |예 |예 |- |
 
 * *데이터 수집*: 클라우드에 대한 대규모 데이터의 수신입니다.
 * *장치 ID*: 고유한 장치 ID를 관리하고 솔루션에 대한 장치 액세스를 제어합니다.
@@ -59,7 +60,7 @@ Azure에서 솔루션을 배포 및 실행하는 것 외에도 완전한 소스 
 ![미리 구성된 원격 모니터링 솔루션 아키텍처][img-remote-monitoring-arch]
 
 ## <a name="devices"></a>장치
-원격 모니터링 미리 구성 된 솔루션을 배포하는 경우,&4;개의 시뮬레이션된 장치가 냉각 장치를 시뮬레이션하는 솔루션에 미리 프로비전됩니다. 이러한 시뮬레이션된 장치에는 원격 분석을 내보내는 기본 제공 온도 및 습도 모델이 있습니다. 이러한 시뮬레이션된 장치에 다음이 포함되어 있습니다.
+원격 모니터링 미리 구성 된 솔루션을 배포하는 경우, 4개의 시뮬레이션된 장치가 냉각 장치를 시뮬레이션하는 솔루션에 미리 프로비전됩니다. 이러한 시뮬레이션된 장치에는 원격 분석을 내보내는 기본 제공 온도 및 습도 모델이 있습니다. 이러한 시뮬레이션된 장치에 다음이 포함되어 있습니다.
 - 솔루션을 통해 데이터의 종단 간 흐름을 보여 줍니다.
 - 원격 분석의 편리한 원본을 제공합니다.
 - 사용자 지정 구현을 위해 시작 지점으로 솔루션을 사용하는 백 엔드 개발자인 경우 메서드 또는 명령에 대한 대상을 제공합니다.
@@ -103,11 +104,11 @@ IoT Hub의 장치 관리 기능을 통해 다음과 같은 작업을 수행하�
 - 장치 상태 변경
 - 펌웨어 업데이트
 
-## <a name="azure-stream-analytics"></a>Azure 스트림 분석
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 미리 구성된 솔루션은 세 가지 [Azure Stream Analytics][lnk-asa](ASA) 작업을 사용하여 장치에서 원격 분석 스트림을 필터링합니다.
 
 * *DeviceInfo 작업* - 솔루션 장치 레지스트리(DocumentDB 데이터베이스)에 장치 등록 특정 메시지를 라우팅하는 이벤트 허브에 데이터를 출력합니다. 장치를 처음으로 연결하거나 **장치 상태 변경** 명령에 대한 응답으로 이 메시지가 전송됩니다.
-* *원격 분석 작업* - 콜드 저장소용 Azure Blob 저장소에 모든 원시 원격 분석을 보내고 솔루션 대시보드에 표시하는 원격 분석 집계를 계산합니다.
+* *원격 분석 작업* - 콜드 저장소용 Azure Blob Storage에 모든 원시 원격 분석을 보내고 솔루션 대시보드에 표시하는 원격 분석 집계를 계산합니다.
 * *규칙 작업* - 규칙 임계값을 초과하는 값에 대해 원격 분석 스트림을 필터링하고 이벤트 허브에 대한 데이터를 출력합니다. 규칙이 실행되면 솔루션 포털 대시보드 뷰는 경보 기록 테이블에 새 행으로 이 이벤트를 표시합니다. 이러한 규칙은 솔루션 포털의 **규칙** 및 **작업** 뷰에서 정의된 설정에 따라 작업을 트리거할 수도 있습니다.
 
 미리 구성된 솔루션에서 ASA 작업은 일반적인 [IoT 솔루션 아키텍처][lnk-what-is-azure-iot]에서 **IoT 솔루션 백 엔드**의 일부를 형성합니다.
@@ -115,7 +116,7 @@ IoT Hub의 장치 관리 기능을 통해 다음과 같은 작업을 수행하�
 ## <a name="event-processor"></a>이벤트 프로세서
 미리 구성된 솔루션에서 이벤트 프로세서는 일반적인 [IoT 솔루션 아키텍처][lnk-what-is-azure-iot]에서 **IoT 솔루션 백 엔드**의 일부를 형성합니다.
 
-**DeviceInfo** 및 **규칙** ASA 작업은 다른 백 엔드 서비스에 배달하기 위해 이벤트 허브에 해당 출력을 보냅니다. 솔루션은 [WebJob][lnk-web-job]에서 실행 중인 [EventProcessorHost][lnk-event-processor] 인스턴스를 사용하여 이러한 Event hubs에서 메시지를 읽습니다. **EventProcessorHost**는 다음을 사용합니다.
+**DeviceInfo** 및 **규칙** ASA 작업은 다른 백 엔드 서비스에 배달하기 위해 Event Hubs에 해당 출력을 보냅니다. 솔루션은 [WebJob][lnk-web-job]에서 실행 중인 [EventProcessorHost][lnk-event-processor] 인스턴스를 사용하여 이러한 Event hubs에서 메시지를 읽습니다. **EventProcessorHost**는 다음을 사용합니다.
 - DocumentDB 데이터베이스에서 장치 데이터를 업데이트하는 **DeviceInfo** 데이터.
 - 솔루션 포털에서 논리 앱을 호출하고 경고 표시를 업데이트하는 **규칙** 데이터.
 
@@ -130,7 +131,7 @@ IoT Hub의 장치 관리 기능을 통해 다음과 같은 작업을 수행하�
 
 이 솔루션은 장치 쌍을 사용하여 장치 메타데이터를 관리합니다. 또한 솔루션은 DocumentDB 데이터베이스를 사용하여 각 장치 및 명령 기록에서 지원하는 명령과 같은 추가 솔루션 특정 장치 데이터를 저장합니다.
 
-또한 솔루션은 DocumentDB 데이터베이스의 컨텐츠로 동기화된 장치 ID 레지스트리에 정보를 보관해야 합니다. **EventProcessorHost**는 **DeviceInfo** 스트림 분석 작업의 데이터를 사용하여 동기화를 관리합니다.
+또한 솔루션은 DocumentDB 데이터베이스의 컨텐츠로 동기화된 장치 ID 레지스트리에 정보를 보관해야 합니다. **EventProcessorHost**는 **DeviceInfo** Stream Analytics 작업의 데이터를 사용하여 동기화를 관리합니다.
 
 ## <a name="solution-portal"></a>솔루션 포털
 ![솔루션 포털][img-dashboard]
@@ -166,4 +167,4 @@ IoT 솔루션 아키텍처에 대한 자세한 내용은 [Microsoft Azure IoT �
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-
+[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md

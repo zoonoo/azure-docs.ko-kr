@@ -15,9 +15,9 @@ ms.workload: required
 ms.date: 02/22/2017
 ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: ac56273cf85aff550febecf0d75ec87d5c6dbbca
-ms.openlocfilehash: 26547135548dde96e9da601f2e0ccfe96c626880
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 198caeea693fbc48b6e0eb1c9c8ee559e0553261
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -238,25 +238,15 @@ NSG의 입력을 받아들여 복구 계획의 VM에 적용하는 스크립트�
 다른 복구 계획에 동일한 스크립트를 사용하고, 다른 복구 계획에 해당하는 값을 다른 변수에 저장하여 별도의 매개 변수를 제공할 수 있습니다.
 
 ## <a name="sample-scripts"></a>샘플 스크립트
-Automation 계정으로 직접 가져올 수 있는 스크립트 리포지토리는 [Kristian Nese의 스크립트용 OMS 리포지토리](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/Solutions/asrautomation)(영문)를 참조하세요.
+Azure에 배포 단추를 사용하여 Automation 계정으로 샘플 스크립트를 배포합니다.
 
-여기에 있는 스크립트는 다음의 모든 스크립트를 배포하는 Azure Resource Manager 템플릿입니다.
+[![Azure에 배포](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-* NSG
+2계층 WordPress 응용 프로그램을 Azure로 복구하는 방법에 대한 간단한 비디오를 볼 수도 있습니다.
 
-NSG runbook은 복구 계획 내의 모든 VM에 공용 IP 주소를 할당하고, 해당 가상 네트워크 어댑터를 기본 통신을 허용하는 네트워크 보안 그룹에 연결합니다.
+> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
-* PublicIP
 
-PublicIP runbook은 복구 계획 내의 모든 VM에 공용 IP 주소를 할당합니다. 컴퓨터 및 응용 프로그램에 대한 액세스는 각 게스트 내의 방화벽 설정에 따라 달라집니다.
-
-* CustomScript
-
-CustomScript runbook은 복구 계획 내의 모든 VM에 공용 IP 주소를 할당하고, 템플릿을 배포하는 동안 참조하는 스크립트를 가져올 사용자 지정 스크립트 확장을 설치합니다.
-
-* NSGwithCustomScript
-
-NSGwithCustomScript runbook은 복구 계획 내의 모든 VM에 공용 IP 주소를 할당하고, 확장을 사용하는 사용자 지정 스크립트를 설치하며, 원격 액세스를 위한 기본 인바운드 및 아웃바운드 통신을 허용하는 NSG에 가상 네트워크 어댑터를 연결합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 [Azure Automation 서비스 실행 계정](../automation/automation-sec-configure-azure-runas-account.md)

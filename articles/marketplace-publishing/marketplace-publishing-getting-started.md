@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9d7176b018d25b2a60b2175c289dde7490f8d101
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 49ffe988867ba70df5bd7757a64edc9aa813071d
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -87,7 +87,6 @@ Azure 게시자로 Azure 마켓플레이스를 통해 해당 클라우드 기반
 * [청구 모델을 프로덕션 값으로 되돌리는 방법](marketplace-publishing-vm-image-post-publishing.md#9-how-to-revert-billing-model-to-production-values)
 * [나열된 SKU의 표시 유형 설정을 프로덕션 값으로 복귀하는 방법](marketplace-publishing-vm-image-post-publishing.md#10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value)
 * [클라우드 솔루션 공급자 대리점 인센티브를 변경하는 방법](marketplace-publishing-csp-incentive.md)
-* [판매자 통찰력 보고서 이해](marketplace-publishing-report-seller-insights.md)
 * [지급 보고 이해](marketplace-publishing-report-payout.md)
 * [게시자로 지원 받기](marketplace-publishing-get-publisher-support.md)
 

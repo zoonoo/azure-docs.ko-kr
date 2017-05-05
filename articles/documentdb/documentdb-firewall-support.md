@@ -14,12 +14,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 04/05/2017
 ms.author: ankshah
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 7acbdda2e8179219c21370d20d30a94feb405fce
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 7b4f397e4abb66933f05e5d5ba4afeb8c2c00d5f
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -61,6 +61,16 @@ Azure Portal에서 IP 액세스 제어 정책을 설정하려면 DocumentDB 계�
 ![Azure Portal에서 방화벽 블레이드를 여는 방법을 보여 주는 스크린샷](./media/documentdb-firewall-support/documentdb-azure-portal-firewall.png)
 
 새 창에서 Azure Portal에서 계정에 액세스할 수 있는지 여부를 지정하고 다른 주소 및 범위를 적절히 추가한 후 **저장**을 클릭합니다.  
+
+> [!NOTE]
+> IP 액세스 제어 정책을 사용하도록 설정할 경우 액세스를 유지하기 위해 Azure Portal에 대한 IP 주소를 추가해야 합니다. 포털 IP 주소는 다음과 같습니다.
+> |지역|IP 주소|
+> |------|----------|
+> |아래 지정된 지역을 제외한 모든 지역| 104.42.195.92|
+> |독일|51.4.229.218|
+> |중국|139.217.8.252|
+> |미국 정부 애리조나|52.244.48.71|
+>
 
 ![Azure Portal에서 방화벽 설정을 구성하는 방법을 보여 주는 스크린샷](./media/documentdb-firewall-support/documentdb-azure-portal-firewall-configure.png)
 

@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 04/24/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 45b07f5dd29b7e920ac2abe6765020e0337ecf95
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
+ms.openlocfilehash: f5c5abc988cd363cafe8c07f83eb2686a83ee1a2
+ms.lasthandoff: 04/25/2017
 
 
 ---
@@ -43,6 +43,10 @@ ms.lasthandoff: 03/11/2017
 
 
 [GitHub](https://github.com/Microsoft/OMS-docker)에서 해당 컨테이너 호스트에 지원되는 Docker 및 Linux 운영 체제 버전을 검토할 수 있습니다.
+
+Azure Container Service를 사용하는 Kubernetes 클러스터가 있는 경우 [Microsoft OMS(Operations Management Suite)를 사용하여 Azure Container Service 클러스터 모니터링](../container-service/container-service-kubernetes-oms.md)에서 자세한 내용을 참조하세요.
+
+Azure Container Service DC/OS 클러스터가 있는 경우 [Operations Management Suite를 사용하여 Azure Container Service DC/OS 클러스터 모니터링](../container-service/container-service-monitoring-oms.md)에서 자세한 내용을 참조하세요.
 
 [Windows에서 Docker 엔진](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) 문서에서 Windows를 실행하는 컴퓨터에서 Docker 엔진을 설치하고 구성하는 방법에 대한 추가 정보를 확인합니다.
 

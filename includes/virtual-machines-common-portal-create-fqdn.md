@@ -15,8 +15,3 @@
    
    ![새 DNS 레이블이 설정되었는지 확인합니다.](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: cc61146e0353455c5c763297a002afb86b76887a
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2bf6bd76b653e30f38595631eff576d8eeb8efda
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,7 +44,7 @@ Service Fabric Explorer를 사용하는 방법을 알아보려면 다음 Microso
 ![서비스 패브릭 탐색기 클러스터 대시보드][sfx-cluster-dashboard]
 
 ### <a name="view-the-clusters-layout"></a>클러스터의 레이아웃 보기
-서비스 패브릭 클러스터의 노드는 장애 도메인 및 업그레이드 도메인의&2;차원 그리드에 배치됩니다. 이렇게 배치하면 하드웨어 오류와 응용 프로그램 업그레이드가 있는 상태에서 응용 프로그램을 계속 사용할 수 있습니다. 클러스터 맵을 사용하여 현재 클러스터의 레이아웃 방식을 볼 수 있습니다.
+서비스 패브릭 클러스터의 노드는 장애 도메인 및 업그레이드 도메인의 2차원 그리드에 배치됩니다. 이렇게 배치하면 하드웨어 오류와 응용 프로그램 업그레이드가 있는 상태에서 응용 프로그램을 계속 사용할 수 있습니다. 클러스터 맵을 사용하여 현재 클러스터의 레이아웃 방식을 볼 수 있습니다.
 
 ![서비스 패브릭 탐색기 클러스터 맵][sfx-cluster-map]
 
@@ -88,7 +88,7 @@ Service Fabric Explorer를 사용하는 방법을 알아보려면 다음 Microso
 | 노드 | 비활성화(다시 시작) | 안전하게 노드에서 모든 메모리 내 서비스를 이동하고 영구 서비스를 닫습니다. 호스트 프로세스 또는 컴퓨터를 다시 시작해야 할 때 일반적으로 사용됩니다. | |
 | 노드 | 비활성화(데이터 제거) | 안전하게 충분한 예비 복제본을 작성한 후에 노드에 실행하는 모든 서비스를 닫습니다. 노드(또는 최소한 저장소)가 위원회에서 영구적으로 제거될 때 일반적으로 사용됩니다. | |
 | 노드 | 노드 상태 제거 | 클러스터에서 노드의 복제본에 대한 정보를 제거합니다. 이미 실패한 노드를 복구할 수 없다고 간주하는 경우 일반적으로 사용됩니다. | |
-| 노드 | 다시 시작 | 노드를 다시 시작하여 노드 오류를 시뮬레이션합니다. 자세한 내용은 [여기](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode)를 참조하세요. | |
+| 노드 | 다시 시작 | 노드를 다시 시작하여 노드 오류를 시뮬레이션합니다. 자세한 내용은 [여기](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps)를 참조하세요. | |
 
 많은 작업이 안전하지 않으므로 작업이 완료되기 전에 실행할 것인지 묻는 메시지가 나타납니다.
 

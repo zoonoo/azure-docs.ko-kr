@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 63c901529b81c75f46f1b21219054817c148063a
-ms.openlocfilehash: 1c46c40b09ca1923190d3c7109d25bd7525cb577
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 843a3cafd5a00dd4b4de04a43f18d58e60a48b29
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -58,7 +59,7 @@ ms.openlocfilehash: 1c46c40b09ca1923190d3c7109d25bd7525cb577
 
   * 아직 없습니다. 하지만 다음과 같이 할 수 있습니다.
   * 메트릭 임계값을 초과할 때 알리도록 [경고를 설정](app-insights-alerts.md)할 수 있습니다.
-  * 직접 분석할 수 있는 [데이터베이스](app-insights-code-sample-export-sql-stream-analytics.md), [PowerBI](app-insights-export-power-bi.md) 또는 [다른](app-insights-code-sample-export-telemetry-sql-database.md) 도구에 [원격 분석을 내보냅니다](app-insights-export-telemetry.md).
+  * 직접 분석할 수 있는 [데이터베이스](app-insights-code-sample-export-sql-stream-analytics.md), [PowerBI](app-insights-export-power-bi.md)에 [원격 분석을 내보냅니다](app-insights-export-telemetry.md).
 * *얼마나 자주 분석합니까?*
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다.
@@ -136,9 +137,4 @@ ms.openlocfilehash: 1c46c40b09ca1923190d3c7109d25bd7525cb577
 
 * [수동으로 구성된 메트릭 경고](app-insights-alerts.md)
 * [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

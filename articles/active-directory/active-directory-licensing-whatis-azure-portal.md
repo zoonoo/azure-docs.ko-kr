@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 04/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: b5153d2339f688b22796789d74cb9117985a43d2
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 52c3e88689441045c3bd34ea3ab17a8a1d270f23
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -51,7 +51,7 @@ Office 365, Enterprise Mobility + Security, Dynamics CRM 및 기타 유사한 �
 
 - 어떤 경우에는 사용자에게 라이선스를 할당할 수 없습니다. 예를 들어 테넌트에서 사용할 수 있는 라이선스가 충분하지 않거나 충돌하는 서비스를 동시에 할당했을 수 있습니다. 관리자는 Azure AD가 그룹 라이선스를 완전하게 처리할 수 없는 사용자에 대한 정보에 액세스할 수 있습니다. 그런 다음 해당 정보에 따라 수정 작업을 수행할 수 있습니다.
 
-- 공개 미리 보기 동안 그룹 기반 라이선스 관리를 사용하려면 Azure AD 기본 또는 프리미엄 버전에 대한 유료 또는 평가판 구독이 테넌트에 필요합니다. 또한 그룹에서 라이선스를 상속받는 모든 사용자는 할당된 유료 Azure AD 버전 라이선스를 가지고 있어야 합니다.
+- 공개 미리 보기 동안 그룹 기반 라이선스 관리를 사용하려면 Azure AD Basic 또는 Premium Edition에 대한 유료 또는 평가판 구독이 테넌트에 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

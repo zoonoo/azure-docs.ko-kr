@@ -14,21 +14,22 @@ ms.topic: article
 ms.date: 11/25/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 7dd1289453fe146b446322570fcb1c0df74b4db2
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: cbdef43381deac957c0e48b7043273c43b032935
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 응용 프로그램의 성능 모니터링
 
 
-응용 프로그램이 정상적으로 작동하는지 확인하고 오류가 발생하는지 신속하게 파악합니다. [Application Insights][시작]는 성능 문제 및 예외에 대한 정보와, 이러한 현상에 대한 근본 원인을 확인하고 진단하는 기능을 제공합니다.
+응용 프로그램이 정상적으로 작동하는지 확인하고 오류가 발생하는지 신속하게 파악합니다. [Application Insights][start]는 성능 문제 및 예외에 대한 정보와, 이러한 현상에 대한 근본 원인을 확인하고 진단하는 기능을 제공합니다.
 
 Application Insights에서 Java 및 ASP.NET 웹 응용 프로그램과 서비스, WCF 서비스를 모니터링할 수 있습니다. 온-프레미스, 가상 컴퓨터에서 또는 Microsoft Azure 웹 사이트로 호스팅할 수 있습니다. 
 
 Application Insights는 클라이언트쪽에서 iOS, Android 및 Windows 스토어 앱을 포함하여 다양한 장치 및 웹 페이지에서 원격 분석을 수행할 수 있습니다.
 
-## <a name="a-namesetupaset-up-performance-monitoring"></a><a name="setup"></a>성능 모니터링 설정
+## <a name="setup"></a>성능 모니터링 설정
 Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로젝트에 ApplicationInsights.config가 없음) 다음 방법 중 하나를 선택하여 작업을 시작합니다.
 
 * [ASP.NET 웹 앱](app-insights-asp-net.md)
@@ -37,7 +38,7 @@ Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로
 * [J2EE 웹앱](app-insights-java-get-started.md)
   * [종속성 모니터링 추가](app-insights-java-agent.md)
 
-## <a name="a-nameviewaexploring-performance-metrics"></a><a name="view"></a>성능 메트릭 탐색
+## <a name="view"></a>성능 메트릭 탐색
 [Azure 포털](https://portal.azure.com)에서 응용 프로그램에 대해 설정한 Application Insights 리소스를 찾습니다. 개요 블레이드에 기본 성능 데이터가 표시됩니다.
 
 무엇이든 클릭하면 추가 세부 정보와 장기간에 걸친 결과를 확인할 수 있습니다. 예를 들어 요청 타일을 클릭하고 시간 범위를 선택합니다.
@@ -53,7 +54,7 @@ Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로
 > 
 > 
 
-## <a name="a-namemetricsawhat-does-it-all-mean-performance-tiles-and-reports"></a><a name="metrics"></a>성능 메트릭의 의미 성능 타일 및 보고서
+## <a name="metrics"></a>성능 메트릭의 의미 성능 타일 및 보고서
 다양한 성능 메트릭을 가져올 수 있습니다. 먼저 응용 프로그램 블레이드에 기본적으로 표시되는 메트릭부터 살펴보겠습니다.
 
 ### <a name="requests"></a>요청
@@ -106,14 +107,14 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 *경고 추가 단추가 보이지 않습니다.* -이것은 읽기 전용 액세스 권한이 있는 그룹 계정입니까? 계정 관리자에게 확인하세요.
 
-## <a name="a-namediagnosisadiagnosing-issues"></a><a name="diagnosis"></a>문제 진단
+## <a name="diagnosis"></a>문제 진단
 아래에는 성능 문제를 찾고 진단하기 위한 몇 가지 팁이 나와 있습니다.
 
 * 웹 사이트의 작동이 중단되거나 응답이 잘못되거나 속도가 느려지는 경우 경고를 받도록 [웹 테스트][availability]를 설정합니다. 
 * 요청 수를 다른 메트릭과 비교하여 오류 또는 느린 응답이 부하와 관련되어 있는지 확인합니다.
 * 코드에서 [검사 추적 문을 삽입 및 검색][diagnostic]하여 문제를 파악합니다.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>다음 단계
+## <a name="next"></a>다음 단계
 [웹 테스트][availability] - 전 세계에서 웹 요청이 일정한 간격으로 응용 프로그램에 전송되도록 합니다.
 
 [진단 추적 캡처 및 검색][diagnostic] - 추적 호출을 삽입하고 결과를 확인하여 문제를 파악합니다.
@@ -122,8 +123,6 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 [문제 해결][qna] - 질문과 대답
 
-## <a name="video"></a>비디오
-> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
 
 
 <!--Link references-->
@@ -133,13 +132,8 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 [greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[시작]: app-insights-overview.md
+[start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

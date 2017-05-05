@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1ac4db6d9404567be0d3d12f91a96fa4e31ef3bf
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 0630f43642a0be98c470032d32b74ca14ee144e5
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -24,37 +26,32 @@ ms.openlocfilehash: 1ac4db6d9404567be0d3d12f91a96fa4e31ef3bf
 다음 요약은 SQL Server와 SQL 데이터 웨어하우스 간의 차이점을 이해하여 데이터베이스를 마이그레이션하는 데 도움이 됩니다.
 
 ## <a name="table-migration"></a>테이블 마이그레이션
-테이블을 마이그레이션할 때는 SQL Data Warehouse 테이블의 테이블 기능을 숙지해야 합니다.  먼저 [테이블 개요][테이블 개요]를 살펴보는 것이 좋습니다.  이 문서에서는 테이블 통계, 분산, 분할, 인덱싱 등 테이블을 만들 때 고려해야 하는 가장 중요한 사항을 소개합니다.  또한 몇 가지 [지원되지 않는 테이블 기능][지원되지 않는 테이블 기능] 및 그와 관련된 해결 방법에 대해서도 다룹니다.
+테이블을 마이그레이션할 때는 SQL Data Warehouse 테이블의 테이블 기능을 숙지해야 합니다.  먼저 [테이블 개요][table overview]를 살펴보는 것이 좋습니다.  이 문서에서는 테이블 통계, 분산, 분할, 인덱싱 등 테이블을 만들 때 고려해야 하는 가장 중요한 사항을 소개합니다.  또한 몇 가지 [지원되지 않는 테이블 기능][unsupported table features] 및 그와 관련된 해결 방법에 대해서도 다룹니다.
 
-SQL Data Warehouse는 일반적인 비즈니스 데이터 형식을 지원합니다.  지원되는 데이터 형식 및 [데이터 형식][데이터 형식]의 목록은 [데이터 형식][데이터 형식] 문서를 참조하세요.  또한 [데이터 형식][데이터 형식] 문서는 [데이터 형식][데이터 형식]을 식별하는 쿼리를 포함합니다.  데이터 형식을 변환할 때는 반드시 [데이터 형식 모범 사례][데이터 형식 모범 사례]를 확인하세요.
+SQL Data Warehouse는 일반적인 비즈니스 데이터 형식을 지원합니다.  지원되는 데이터 형식 및 [지원되지 않는 데이터 형식][unsupported data types]의 목록은 [데이터 형식][data types] 문서를 참조하세요.  또한 [데이터 형식][data types] 문서는 [지원되지 않는 데이터 형식][unsupported data types]을 식별하는 쿼리를 포함합니다.  데이터 형식을 변환할 때는 반드시 [데이터 형식 모범 사례][data type best practices]를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 SQL 데이터 웨어하우스로 데이터베이스 스키마를 성공적으로 마이그레이션한 후에 다음 문서 중 하나를 진행할 수 있습니다.
 
-* [데이터 마이그레이션][데이터 마이그레이션]
-* [코드 마이그레이션][코드 마이그레이션]
+* [데이터 마이그레이션][Migrate your data]
+* [코드 마이그레이션][Migrate your code]
 
-SQL Data Warehouse 모범 사례에 대한 자세한 내용은 [모범 사례][모범 사례] 문서를 참조하세요.
+SQL Data Warehouse 모범 사례에 대한 자세한 내용은 [모범 사례][best practices] 문서를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[코드 마이그레이션]: ./sql-data-warehouse-migrate-code.md
-[데이터 마이그레이션]: ./sql-data-warehouse-migrate-data.md
-[모범 사례]: ./sql-data-warehouse-best-practices.md
-[테이블 개요]: ./sql-data-warehouse-tables-overview.md
-[지원되지 않는 테이블 기능]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[데이터 형식]: ./sql-data-warehouse-tables-data-types.md
-[데이터 형식]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
-[데이터 형식 모범 사례]: ./sql-data-warehouse-tables-data-types.md#data-type-best-practices
+[Migrate your code]: ./sql-data-warehouse-migrate-code.md
+[Migrate your data]: ./sql-data-warehouse-migrate-data.md
+[best practices]: ./sql-data-warehouse-best-practices.md
+[table overview]: ./sql-data-warehouse-tables-overview.md
+[unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
+[data types]: ./sql-data-warehouse-tables-data-types.md
+[unsupported data types]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
+[data type best practices]: ./sql-data-warehouse-tables-data-types.md#data-type-best-practices
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

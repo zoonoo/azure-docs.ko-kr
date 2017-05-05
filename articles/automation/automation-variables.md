@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 4c0c4f8c0d6c7cdc98406559f1cd36c87d33bf47
-ms.lasthandoff: 03/11/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 28896becae631eb316775e0904930f750bafa607
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,14 +33,14 @@ ms.lasthandoff: 03/11/2017
 
 runbook 또는 DSC 구성이 실패할지라도 계속 사용 가능할 수 있도록 자동화 변수는 유지됩니다.  값은 또 다른 runbook에 의해 사용되었던 runbook 또는 동일한 runbook에 사용되거나 다음에 실행되는 DSC 구성에 의해 설정됩니다.     
 
-변수를 만들 때 암호화된 상태로 저장되도록 지정할 수 있습니다.  변수를 암호화하면 Azure 자동화에 안전하게 저장되며 Azure PowerShell 모듈의 일부로 제공되는 [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx) cmdlet에서 해당 값을 검색할 수 없습니다.  오직 runbook 또는 DSC 구성의 **Get-AutomationVariable** 에서만 암호화 된 값을 검색할 수 있습니다.
+변수를 만들 때 암호화된 상태로 저장되도록 지정할 수 있습니다.  변수를 암호화하면 Azure 자동화에 안전하게 저장되며 Azure PowerShell 모듈의 일부로 제공되는 [Get-AzureRmAutomationVariable](/powershell/module/azurerm.automation/get-azurermautomationvariable) cmdlet에서 해당 값을 검색할 수 없습니다.  오직 runbook 또는 DSC 구성의 **Get-AutomationVariable** 에서만 암호화 된 값을 검색할 수 있습니다.
 
 > [!NOTE]
 > Azure 자동화의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 자동화 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure 자동화에 저장됩니다. 이 키는 마스터 인증서로 암호화되어 Azure 자동화에 저장됩니다. 자동화 계정에 대한 키는 보안 자산을 저장하기 전에 마스터 인증서를 사용하여 암호가 해독된 후 자산을 암호화하는 데 사용됩니다.
 
 ## <a name="variable-types"></a>변수 형식
 
-Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이터 형식을 지정해야 합니다. 그래야 포털에서 변수 값을 입력할 수 있는 적절한 컨트롤을 표시할 수 있습니다. 변수는 이 데이터 형식으로 제한되지 않으며 다른 형식의 값을 지정하려면 Windows PowerShell을 사용하여 변수를 설정해야 합니다. **정의되지 않음**을 지정하면 변수 값이 **$null**로 설정되므로 [Set-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx) cmdlet 또는 **Set-AutomationVariable** 활동을 사용하여 값을 설정해야 합니다.  포털에서는 복잡한 변수 형식의 값을 만들거나 변경할 수 없지만 Windows PowerShell에서는 모든 형식의 값을 제공할 수 있습니다. 복잡한 형식은 [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx)로 반환됩니다.
+Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이터 형식을 지정해야 합니다. 그래야 포털에서 변수 값을 입력할 수 있는 적절한 컨트롤을 표시할 수 있습니다. 변수는 이 데이터 형식으로 제한되지 않으며 다른 형식의 값을 지정하려면 Windows PowerShell을 사용하여 변수를 설정해야 합니다. **정의되지 않음**을 지정하면 변수 값이 **$null**로 설정되므로 [Set-AzureAutomationVariable](/powershell/module/azurerm.automation/set-azurermautomationvariable) cmdlet 또는 **Set-AutomationVariable** 활동을 사용하여 값을 설정해야 합니다.  포털에서는 복잡한 변수 형식의 값을 만들거나 변경할 수 없지만 Windows PowerShell에서는 모든 형식의 값을 제공할 수 있습니다. 복잡한 형식은 [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx)로 반환됩니다.
 
 배열 또는 해시 테이블을 만들어 변수에 저장하여 여러 값을 단일 변수에 저장할 수 있습니다.
 
@@ -57,14 +57,14 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 ## <a name="cmdlets-and-workflow-activities"></a>Cmdlet 및 워크플로 활동
 
-다음 표에 나와있는 cmdlet은 Windows PowerShell을 사용하여 자동화 변수를 만들고 관리하는 데 사용됩니다. Automation Runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](/powershell/azureps-cmdlets-docs)의 일부로 전송됩니다.
+다음 표에 나와있는 cmdlet은 Windows PowerShell을 사용하여 자동화 변수를 만들고 관리하는 데 사용됩니다. Automation Runbook과 DSC 구성에 사용할 수 있는 [Azure PowerShell 모듈](/powershell/azure/overview)의 일부로 전송됩니다.
 
 |Cmdlet|설명|
 |:---|:---|
-|[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|기존 변수의 값을 검색합니다.|
-|[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|새 변수를 만들고 해당 값을 설정합니다.|
-|[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|기존 변수를 제거합니다.|
-|[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|기존 변수의 값을 설정합니다.|
+|[Get-AzureRmAutomationVariable](/powershell/module/azurerm.automation/get-azurermautomationvariable)|기존 변수의 값을 검색합니다.|
+|[New-AzureRmAutomationVariable](/powershell/module/azurerm.automation/new-azurermautomationvariable)|새 변수를 만들고 해당 값을 설정합니다.|
+|[Remove-AzureRmAutomationVariable](/powershell/module/azurerm.automation/remove-azurermautomationvariable)|기존 변수를 제거합니다.|
+|[Set-AzureRmAutomationVariable](/powershell/module/azurerm.automation/set-azurermautomationvariable)|기존 변수의 값을 설정합니다.|
 
 다음 표의 워크플로 활동은 Runbook에서 자동화 변수에 액세스하는 데 사용됩니다. 오직 runbook 또는 DSC 구성에서만 사용 가능하며, Azure PowerShell 모듈의 일부로 전송되지 않습니다.
 
@@ -88,7 +88,7 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 ### <a name="to-create-a-variable-with-windows-powershell"></a>Windows PowerShell을 사용하여 변수를 만들려면
 
-[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx) cmdlet은 변수를 만들고 해당 초기 값을 설정합니다. [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)을 사용하여 값을 검색할 수 있습니다. 값이 단순한 형식이면 동일한 해당 형식이 반환되고, 복잡한 형식이면 **PSCustomObject**가 반환됩니다.
+[New-AzureRmAutomationVariable](/powershell/module/azurerm.automation/new-azurermautomationvariable) cmdlet은 변수를 만들고 해당 초기 값을 설정합니다. [Get-AzureRmAutomationVariable](/powershell/module/azurerm.automation/get-azurermautomationvariable)을 사용하여 값을 검색할 수 있습니다. 값이 단순한 형식이면 동일한 해당 형식이 반환되고, 복잡한 형식이면 **PSCustomObject**가 반환됩니다.
 
 다음 명령 예제에서는 문자열 형식의 변수를 만들고 해당 값을 반환하는 방법을 보여 줍니다.
 
@@ -111,7 +111,7 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 ## <a name="using-a-variable-in-a-runbook-or-dsc-configuration"></a>runbook 또는 DSC 구성에서 변수 사용
 
-**Set-AutomationVariable** 활동을 사용하여 runbook 및 DSC 구성의 자동화 변수의 값을 설정하고, **Get-AutomationVariable**를 사용하여 검색합니다.  워크플로 활동보다 효율이 떨어지기 때문에 **Set-AzureAutomationVariable** 또는 **Get-AzureAutomationVariable** cmdlet을 runbook 및 DSC 구성에서 사용해서는 안됩니다  또한 **Get-AzureAutomationVariable**을 사용하여 보안 변수의 값을 검색할 수 없습니다.  Runbook 또는 DSC 구성 내에서 변수를 만들 수 있는 유일한 방법은 [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet을 사용하는 것입니다.
+**Set-AutomationVariable** 활동을 사용하여 runbook 및 DSC 구성의 자동화 변수의 값을 설정하고, **Get-AutomationVariable**를 사용하여 검색합니다.  워크플로 활동보다 효율이 떨어지기 때문에 **Set-AzureAutomationVariable** 또는 **Get-AzureAutomationVariable** cmdlet을 runbook 및 DSC 구성에서 사용해서는 안됩니다  또한 **Get-AzureAutomationVariable**을 사용하여 보안 변수의 값을 검색할 수 없습니다.  Runbook 또는 DSC 구성 내에서 변수를 만들 수 있는 유일한 방법은 [New-AzureAutomationVariable](/powershell/module/azure/new-azureautomationvariable?view=azuresmps-3.7.0) cmdlet을 사용하는 것입니다.
 
 
 ### <a name="textual-runbook-samples"></a>텍스트 Runbook 샘플

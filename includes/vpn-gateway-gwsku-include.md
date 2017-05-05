@@ -15,8 +15,3 @@ SKU를 선택할 때 다음을 고려합니다.
 * ExpressRoute-VPN Gateway 공존 구성은 기본 SKU에서 지원되지 않습니다.
 * 활성-활성 S2S VPN Gateway 연결은 HighPerformance SKU에서만 구성할 수 있습니다.
 
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -12,16 +12,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 03/30/2017
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af776804affea5abe599594d7b486bbead982f3e
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: e50c1c70a4378560f8ce3182069cba4832fa4d22
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="release-notes"></a>릴리스 정보
+
+## <a name="424-03302017"></a>4.2.4 (03/30/2017)
+* Android 7의 앱 내 알림 텍스트 색을 이전 Android 버전과 동일하게 수정합니다.
+
 ## <a name="423-08102016"></a>4.2.3 (08/10/2016)
 * 더 이상 WIFI 잠금은 없습니다.
 * Init 이전에 getDeviceId를 호출할 경우 교착 상태를 해결합니다.(4.2.0에 유입된 버그)

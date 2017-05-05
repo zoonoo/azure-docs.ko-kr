@@ -15,8 +15,9 @@ ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 716d2d95b5d68dbb7fdd2ef50d220a8c8c2c9f5e
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: bf8cd0d645d8a5992864c8a3820ac2049a3ff630
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,7 +44,7 @@ API 요청을 인증하려면 다음 형식인 모든 요청에 인증 헤더를
 ### <a name="one-time-setup-using-script"></a>일 회 설정(스크립트 사용)
 설치에 대한 최소 시간이 걸리지만 허용될 수 있는 기본값을 사용하는 PowerShell 스크립트를 사용하여 설치를 수행하려면 아래 일련의 지침을 따라야 합니다. 필요에 따라  Azure 포털에서 이를 직접 수행하기 위해 [수동 설치](mobile-engagement-api-authentication-manual.md) 의 지침에 따르고 세밀하게 구성합니다. 
 
-1. [여기](http://aka.ms/webpi-azps)에서 Azure PowerShell 최신 버전을 받습니다. 다운로드 지침에 대한 자세한 내용은 [링크](/powershell/azureps-cmdlets-docs)에서 확인할 수 있습니다.  
+1. [여기](http://aka.ms/webpi-azps)에서 Azure PowerShell 최신 버전을 받습니다. 다운로드 지침에 대한 자세한 내용은 [링크](/powershell/azure/overview)에서 확인할 수 있습니다.  
 2. Azure PowerShell을 설치하면 다음 명령을 사용하여 **Azure 모듈** 을 설치하도록 합니다.
    
     a. 사용할 수 있는 모듈 목록에서 Azure PowerShell 모듈을 사용할 수 있도록 합니다. 
@@ -150,10 +151,5 @@ API 요청을 인증하려면 다음 형식인 모든 요청에 인증 헤더를
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

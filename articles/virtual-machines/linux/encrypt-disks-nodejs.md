@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 03/06/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5108df1ef407132de4c685d35f1c453d30d1aa96
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: b436f2d43c41000f4385889edb3fa3983d4a8c66
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -114,7 +114,7 @@ Azure CLI는 암호화 프로세스 중에 자세한 오류를 제공하지 않�
 azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
-  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
+  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \
   --disk-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
   --key-encryption-key-url https://myKeyVault.vault.azure.net/keys/myKey/6f5fe9383f4e42d0a41553ebc6a82dd1 \
   --key-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResoureGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
@@ -142,11 +142,11 @@ VM을 암호화하는 프로세스는 다음과 같습니다.
 ## <a name="supporting-services-and-encryption-process"></a>지원 서비스 및 암호화 프로세스
 디스크 암호화는 다음과 같은 추가 구성 요소에 의존합니다.
 
-* **Azure Key Vault** - 디스크 암호화/암호 해독 프로세스를 위한 암호화 키와 암호를 안전하게 보호하는 데 사용됩니다. 
+* **Azure Key Vault** - 디스크 암호화/암호 해독 프로세스를 위한 암호화 키와 암호를 안전하게 보호하는 데 사용됩니다.
   * 이미 존재하는 경우 기존 Azure Key Vault를 사용할 수 있습니다. Key Vault를 디스크 암호화에 전적으로 사용할 필요는 없습니다.
   * 관리 범위 및 키 표시 여부를 분리하기 위해 전용 Key Vault를 만들 수 있습니다.
-* **Azure Active Directory** - 필요한 암호화 키의 안전한 교환과 요청된 작업에 대한 인증을 처리합니다. 
-  * 일반적으로 응용 프로그램 보유를 위해 Azure Active Directory 인스턴스를 사용할 수 있습니다. 
+* **Azure Active Directory** - 필요한 암호화 키의 안전한 교환과 요청된 작업에 대한 인증을 처리합니다.
+  * 일반적으로 응용 프로그램 보유를 위해 Azure Active Directory 인스턴스를 사용할 수 있습니다.
   * 응용 프로그램은 적절한 암호화 키를 요청하고 발급받기 위한 Virtual Machines 서비스 및 Key Vault의 끝점에 더 가깝습니다. Azure Active Directory와 통합되는 실제 응용 프로그램을 개발하지는 않습니다.
 
 ## <a name="requirements-and-limitations"></a>요구 사항 및 제한 사항
@@ -172,7 +172,7 @@ azure config mode arm
 
 명령 예제 전체에서 모든 예제 매개 변수를 사용자 고유의 이름, 위치, 키 값으로 바꿉니다. 다음 예제는 `myResourceGroup`, `myKeyVault`, `myAADApp` 등의 규칙을 사용합니다.
 
-첫 번째 단계는 암호화 키를 저장할 Azure Key Vault를 만드는 것입니다. Azure Key Vault는 응용 프로그램 및 서비스에 안전하게 구현할 수 있는 키와 암호를 저장할 수 있습니다. 가상 디스크 암호화의 경우 Key Vault를 사용하여 가상 디스크 암호화 또는 암호 해독에 사용되는 암호화 키를 저장합니다. 
+첫 번째 단계는 암호화 키를 저장할 Azure Key Vault를 만드는 것입니다. Azure Key Vault는 응용 프로그램 및 서비스에 안전하게 구현할 수 있는 키와 암호를 저장할 수 있습니다. 가상 디스크 암호화의 경우 Key Vault를 사용하여 가상 디스크 암호화 또는 암호 해독에 사용되는 암호화 키를 저장합니다.
 
 Azure 구독 내에서 Azure Key Vault 공급자를 사용하도록 설정한 후 리소스 그룹을 만듭니다. 다음 예제에서는 `WestUS` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
@@ -188,7 +188,7 @@ azure keyvault create --vault-name myKeyVault --resource-group myResourceGroup \
   --location WestUS
 ```
 
-소프트웨어 또는 HSM(하드웨어 보안 모델) 보호를 사용하여 암호화 키를 저장할 수 있습니다. HSM을 사용하려면 프리미엄 Key Vault가 필요합니다. 소프트웨어 보호 키를 저장하는 표준 Key Vault가 아닌 프리미엄 Key Vault를 만들려면 추가 비용이 소요됩니다. 프리미엄 Key Vault를 만들려면 앞의 단계에서 `--sku Premium`을 명령에 추가합니다. 표준 Key Vault를 만들었기 때문에 다음 예제는 소프트웨어 보호 키를 사용합니다. 
+소프트웨어 또는 HSM(하드웨어 보안 모델) 보호를 사용하여 암호화 키를 저장할 수 있습니다. HSM을 사용하려면 프리미엄 Key Vault가 필요합니다. 소프트웨어 보호 키를 저장하는 표준 Key Vault가 아닌 프리미엄 Key Vault를 만들려면 추가 비용이 소요됩니다. 프리미엄 Key Vault를 만들려면 앞의 단계에서 `--sku Premium`을 명령에 추가합니다. 표준 Key Vault를 만들었기 때문에 다음 예제는 소프트웨어 보호 키를 사용합니다.
 
 두 가지 보호 모델 모두, 가상 디스크의 암호를 해독하기 위해 VM이 부팅될 때 암호화 키를 요청하려면 Azure 플랫폼에 액세스 권한이 허용되어야 합니다. Key Vault 내에서 암호화 키를 만든 후 가상 디스크 암호화에 사용할 수 있도록 설정합니다. 다음 예제는 `myKey`라는 키를 만든 후 이것을 디스크 암호화에 사용할 수 있도록 설정합니다.
 
@@ -203,7 +203,7 @@ azure keyvault set-policy --vault-name myKeyVault --resource-group myResourceGro
 ## <a name="create-the-azure-active-directory-application"></a>Azure Active Directory 응용 프로그램 만들기
 가상 디스크가 암호화되거나 암호가 해독될 때 끝점을 사용하여 Key Vault의 암호화 키 교환 및 인증을 처리합니다. 이 끝점 즉, Azure Active Directory 응용 프로그램은 Azure 플랫폼이 VM을 대신하여 적절한 암호화 키를 요청하도록 허용합니다. 기본 Azure Active Directory 인스턴스를 구독 내에서 사용할 수 있지만 많은 조직이 전용 Azure Active Directory 디렉터리를 두고 있습니다.
 
-전체 Azure Active Directory 응용 프로그램을 만드는 것이 아니므로 다음 예제의 `--home-page` 및 `--identifier-uris` 매개 변수에 실제 라우팅이 가능한 주소를 사용할 필요는 없습니다. 다음 예제는 Azure Portal 내에서 키를 생성하기 보다는 암호 기반 암호를 지정합니다. 현재는 Azure CLI에서 키 생성을 수행할 수 없습니다. 
+전체 Azure Active Directory 응용 프로그램을 만드는 것이 아니므로 다음 예제의 `--home-page` 및 `--identifier-uris` 매개 변수에 실제 라우팅이 가능한 주소를 사용할 필요는 없습니다. 다음 예제는 Azure Portal 내에서 키를 생성하기 보다는 암호 기반 암호를 지정합니다. 현재는 Azure CLI에서 키 생성을 수행할 수 없습니다.
 
 Azure Active Directory 응용 프로그램을 만듭니다. 다음 예제는 `myAADApp`이라는 응용 프로그램을 만들고 `myPassword`라는 암호를 사용합니다. 다음과 같이 사용자 고유의 암호를 지정합니다.
 
@@ -214,7 +214,7 @@ azure ad app create --name myAADApp \
   --password myPassword
 ```
 
-앞의 명령에서 출력으로 반환된 `applicationId`를 기록해 둡니다. 이 응용 프로그램 ID는 일부 나머지 단계에서 사용됩니다. 다음으로, 환경 내에서 응용 프로그램에 액세스할 수 있도록 SPN(서비스 사용자 이름)을 만듭니다. 가상 디스크를 암호화하거나 암호를 해독하려면, Key Vault에 저장되어 있는 암호화 키에 대한 권한이 Azure Active Directory 응용 프로그램이 키를 읽는 것을 허용하도록 설정되어야 합니다. 
+앞의 명령에서 출력으로 반환된 `applicationId`를 기록해 둡니다. 이 응용 프로그램 ID는 일부 나머지 단계에서 사용됩니다. 다음으로, 환경 내에서 응용 프로그램에 액세스할 수 있도록 SPN(서비스 사용자 이름)을 만듭니다. 가상 디스크를 암호화하거나 암호를 해독하려면, Key Vault에 저장되어 있는 암호화 키에 대한 권한이 Azure Active Directory 응용 프로그램이 키를 읽는 것을 허용하도록 설정되어야 합니다.
 
 다음과 같이 SPN을 만들고 적절한 권한을 설정합니다.
 
@@ -273,7 +273,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
-  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
+  --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \
   --disk-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
   --key-encryption-key-url https://myKeyVault.vault.azure.net/keys/myKey/6f5fe9383f4e42d0a41553ebc6a82dd1 \
   --key-encryption-key-vault-id /subscriptions/guid/resourceGroups/myResoureGroup/providers/Microsoft.KeyVault/vaults/myKeyVault \
@@ -314,7 +314,6 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 
 
 ## <a name="next-steps"></a>다음 단계
-* 암호화 키 및 Key Vault 삭제를 비롯한 Azure Key Vault 관리에 대한 자세한 내용은 [CLI를 사용하여 Key Vault 관리](../../key-vault/key-vault-manage-with-cli.md)를 참조하세요.
+* 암호화 키 및 Key Vault 삭제를 비롯한 Azure Key Vault 관리에 대한 자세한 내용은 [CLI를 사용하여 Key Vault 관리](../../key-vault/key-vault-manage-with-cli2.md)를 참조하세요.
 * Azure에 업로드할 암호화된 사용자 지정 VM 준비와 같은 디스크 암호화에 대한 자세한 내용은 [Azure Disk Encryption](../../security/azure-security-disk-encryption.md)을 참조하세요.
-
 

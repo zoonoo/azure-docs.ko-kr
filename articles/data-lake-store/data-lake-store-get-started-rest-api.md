@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/03/2017
+ms.date: 04/21/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 650ff05715c8c0d915c82f9de49756530b8f3138
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: de04bf367f9f9f92756202cf6c1571f811a0f1f7
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -55,7 +55,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 
 1. 응용 프로그램을 통해 다음 URL로 사용자를 리디렉션합니다.
    
-        https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
+        https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
    
    > [!NOTE]
    > \<REDIRECT-URI>는 URL에서 사용하도록 인코딩되어야 합니다. 따라서 https://localhost의 경우 `https%3A%2F%2Flocalhost`)를 사용합니다.
@@ -71,7 +71,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
         -F redirect_uri=<REDIRECT-URI> \
         -F grant_type=authorization_code \
         -F resource=https://management.core.windows.net/ \
-        -F client_id=<CLIENT-ID> \
+        -F client_id=<APPLICATION-ID> \
         -F code=<AUTHORIZATION-CODE>
    
    > [!NOTE]
@@ -86,7 +86,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
              -F grant_type=refresh_token \
              -F resource=https://management.core.windows.net/ \
-             -F client_id=<CLIENT-ID> \
+             -F client_id=<APPLICATION-ID> \
              -F refresh_token=<REFRESH-TOKEN>
 
 대화형 사용자 인증에 대한 자세한 내용은 [인증 코드 부여 흐름](https://msdn.microsoft.com/library/azure/dn645542.aspx)을 참조하세요.
@@ -128,7 +128,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 
 다음 cURL 명령을 사용합니다. **\<yourstorename>**을 Data Lake Store 이름으로 바꿉니다.
 
-    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS
+    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS'
 
 위 명령에서 \<`REDACTED`\>을 이전에 검색한 권한 부여 토큰으로 바꿉니다. 이 명령은 Data Lake Store 계정의 루트 폴더에 **mytempdir** 이라는 디렉터리를 만듭니다.
 
@@ -141,7 +141,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 
 다음 cURL 명령을 사용합니다. **\<yourstorename>**을 Data Lake Store 이름으로 바꿉니다.
 
-    curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS
+    curl -i -X GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS'
 
 위 명령에서 \<`REDACTED`\>을 이전에 검색한 권한 부여 토큰으로 바꿉니다.
 
@@ -167,33 +167,24 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 ## <a name="upload-data-into-a-data-lake-store-account"></a>Data Lake 저장소 계정에 데이터 업로드
 이 작업은 [여기](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
-WebHDFS REST API를 사용하여 데이터를 업로드하는 작업은 아래에 설명된 대로 2단계 프로세스입니다.
+다음 cURL 명령을 사용합니다. **\<yourstorename>**을 Data Lake Store 이름으로 바꿉니다.
 
-1. 업로드할 파일 데이터를 보내지 않고 HTTP PUT 요청을 제출합니다. 다음 명령에서 **\<yourstorename>**을 Data Lake Store 이름으로 바꿉니다.
+    curl -i -X PUT -L -T 'C:\temp\list.txt' -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/list.txt?op=CREATE'
+
+위의 구문에서 **-T** 매개 변수는 업로드하는 파일의 위치입니다.
+
+다음과 유사하게 출력됩니다.
    
-        curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=CREATE
-   
-    이 명령의 출력에는 다음과 유사한 임시 리디렉션 URL이 포함됩니다.
-   
-        HTTP/1.1 100 Continue
-   
-        HTTP/1.1 307 Temporary Redirect
-        ...
-        ...
-        Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/somerandomfile.txt?op=CREATE&write=true
-        ...
-        ...
-2. 이제 응답의 **위치** 속성에 나열된 URL에 대해 또 다른 HTTP PUT 요청을 제출해야 합니다. **\<yourstorename>**을 Data Lake Store 이름으로 바꿉니다.
-   
-        curl -i -X PUT -T myinputfile.txt -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=CREATE&write=true
-   
-    다음과 유사하게 출력됩니다.
-   
-        HTTP/1.1 100 Continue
-   
-        HTTP/1.1 201 Created
-        ...
-        ...
+    HTTP/1.1 307 Temporary Redirect
+    ...
+    Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/list.txt?op=CREATE&write=true
+    ...
+    Content-Length: 0
+
+    HTTP/1.1 100 Continue
+
+    HTTP/1.1 201 Created
+    ...
 
 ## <a name="read-data-from-a-data-lake-store-account"></a>Data Lake 저장소 계정에서 데이터 읽기
 이 작업은 [여기](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
@@ -205,7 +196,7 @@ Data Lake 저장소 계정에서 데이터를 읽는 작업은 2단계 프로세
 
 그러나 첫 번째 단계와 두 번째 단계 간에 입력 매개 변수의 차이가 없으므로 `-L` 매개 변수를 사용하여 첫 번째 요청을 제출할 수 있습니다. `-L` 옵션은 기본적으로 두 요청을 하나로 결합하며 cURL이 새 위치에서 요청을 다시 실행하도록 만듭니다. 마지막으로, 모든 요청 호출의 출력이 아래와 유사하게 표시됩니다. **\<yourstorename>**을 Data Lake Store 이름으로 바꿉니다.
 
-    curl -i -L GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN
+    curl -i -L GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN'
 
 다음과 유사한 결과가 표시됩니다.
 
@@ -224,7 +215,7 @@ Data Lake 저장소 계정에서 데이터를 읽는 작업은 2단계 프로세
 
 파일의 이름을 바꾸려면 다음 cURL 명령을 사용합니다. **\<yourstorename>**을 Data Lake Store 이름으로 바꿉니다.
 
-    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt
+    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt'
 
 다음과 유사한 결과가 표시됩니다.
 
@@ -238,7 +229,7 @@ Data Lake 저장소 계정에서 데이터를 읽는 작업은 2단계 프로세
 
 파일을 삭제하려면 다음 cURL 명령을 사용합니다. **\<yourstorename>**을 Data Lake Store 이름으로 바꿉니다.
 
-    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE
+    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE'
 
 다음과 유사한 출력이 표시됩니다.
 

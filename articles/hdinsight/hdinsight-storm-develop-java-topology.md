@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 03/29/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 183425e296f91bba47094c9b35be67fb6299c569
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 7418544c43afee41a1c20058f53cf626aed17147
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="use-maven-to-develop-a-java-based-word-count-topology-for-storm-on-hdinsight"></a>Maven을 사용하여 HDInsight의 Storm에 대한 Java 기반 단어 개수 토폴로지 개발
@@ -83,23 +83,62 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 * **src\test\java\com\microsoft\example\AppTest.java**
 * **src\main\java\com\microsoft\example\App.java**
 
+## <a name="add-repositories"></a>리포지토리 추가
+
+HDInsight는 HDP(Hortonworks Data Platform)을 기준으로 하므로 Hortonworks 리포지토리를 사용하여 HDInsight 프로젝트에 대한 종속성을 다운로드하는 것이 좋습니다. __pom.xml__ 파일에서 `<url>http://maven.apache.org</url>` 줄 뒤에 다음을 추가합니다.
+
+```xml
+<repositories>
+    <repository>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>fail</checksumPolicy>
+        </snapshots>
+        <id>HDPReleases</id>
+        <name>HDP Releases</name>
+        <url>http://repo.hortonworks.com/content/repositories/releases/</url>
+        <layout>default</layout>
+    </repository>
+    <repository>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>fail</checksumPolicy>
+        </snapshots>
+        <id>HDPJetty</id>
+        <name>Hadoop Jetty</name>
+        <url>http://repo.hortonworks.com/content/repositories/jetty-hadoop/</url>
+        <layout>default</layout>
+    </repository>
+</repositories>
+```
+
 ## <a name="add-properties"></a>속성 추가
 
-Maven을 사용하면 속성이라고 하는 프로젝트 수준 값을 정의할 수 있습니다. `<url>http://maven.apache.org</url>` 줄 뒤에 다음 텍스트를 추가합니다.
+Maven을 사용하면 속성이라고 하는 프로젝트 수준 값을 정의할 수 있습니다. __pom.xml__에서 `</repositories>` 줄 뒤에 다음 텍스트를 추가합니다.
 
 ```xml
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--
-    Storm 0.10.0 is for HDInsight 3.3 and 3.4.
-    To find the version information for earlier HDInsight cluster
-    versions, see https://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/
+    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight.
     -->
-    <storm.version>0.10.0</storm.version>
+    <storm.version>1.0.1.2.5.3.0-37</storm.version>
 </properties>
 ```
 
-이제 `pom.xml`의 다른 섹션에서 이러한 값을 사용할 수 있습니다. 예를 들어 Storm 구성 요소의 버전을 지정할 때 값을 하드 코딩하는 대신 `${storm.version}`을 사용할 수 있습니다.
+이제 `pom.xml`의 다른 섹션에서 이 값을 사용할 수 있습니다. 예를 들어 Storm 구성 요소의 버전을 지정할 때 값을 하드 코딩하는 대신 `${storm.version}`을 사용할 수 있습니다.
 
 ## <a name="add-dependencies"></a>종속성 추가
 
@@ -157,6 +196,7 @@ Storm 토폴로지의 경우 [Exec Maven 플러그 인](http://mojo.codehaus.org
     <includePluginDependencies>false</includePluginDependencies>
     <classpathScope>compile</classpathScope>
     <mainClass>${storm.topology}</mainClass>
+    <cleanupDaemonThreads>false</cleanupDaemonThreads> 
     </configuration>
 </plugin>
 ```
@@ -297,7 +337,7 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지는 두 개의 bolt를
 > [!NOTE]
 > Bolt는 계산, 지속성, 외부 구성 요소에 말하기 등 문자 그대로 아무 작업이나 수행할 수 있습니다.
 
-`src\main\java\com\microsoft\example` 디렉터리에서 두 개의 새 파일인 `SplitSentence.java` 및 `WordCount.Java`를 만듭니다. 파일 내용으로 다음 텍스트를 사용합니다.
+`src\main\java\com\microsoft\example` 디렉터리에서 두 개의 새 파일인 `SplitSentence.java` 및 `WordCount.java`를 만듭니다. 파일 내용으로 다음 텍스트를 사용합니다.
 
 **SplitSentence**
 

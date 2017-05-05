@@ -9,7 +9,6 @@ editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,9 +16,9 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 424ee513afce6ab689c8804594754b1b49234754
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
+ms.openlocfilehash: 1fb13d60eebbaf45ca9cb394c073c834bbe59bb9
+ms.lasthandoff: 04/15/2017
 
 
 ---
@@ -45,7 +44,6 @@ Azure 서비스 이름은 전역적으로 고유해야 합니다. 이 자습서�
 | --- | --- |
 | Azure AD VNet |contosoaadvnet |
 | Azure AD VNet 리소스 그룹 |contosoaadrg |
-| Azure AD 가상 컴퓨터(VM) |contosoaadadmin. 이 VM은 조직 단위를 구성하고 DNS 영역을 반전하는 데 사용됩니다. |
 | Azure AD Directory |contosoaaddirectory |
 | Azure AD 도메인 이름 |contoso(contoso.onmicrosoft.com) |
 | HDInsight VNet |contosohdivnet |
@@ -62,12 +60,9 @@ Azure 서비스 이름은 전역적으로 고유해야 합니다. 이 자습서�
 ## <a name="procedures"></a>프로시저
 1. Azure AD에 대한 Azure 클래식 VNet을 만듭니다.  
 2. Azure AD 및 Azure AD DS를 만들고 구성합니다.
-3. 조직 구성 단위를 만들기 위해 클래식 VNet에 VM을 추가합니다. 
-4. Azure AD DS에 대한 조직 구성 단위를 만듭니다.
-5. Azure 리소스 관리 모드에서 HDInsight VNet을 만듭니다.
-6. Azure AD DS에 대한 역방향 DNS 영역을 설정합니다.
-7. 두 VNet을 피어링합니다.
-8. HDInsight 클러스터 만들기
+3. Azure 리소스 관리 모드에서 HDInsight VNet을 만듭니다.
+4. 두 VNet을 피어링합니다.
+5. HDInsight 클러스터 만들기
 
 > [!NOTE]
 > 이 자습서에서는 사용자에게 Azure AD가 없다고 가정합니다. 갖고 있는 경우 2단계로 건너뛸 수 있습니다.
@@ -131,7 +126,7 @@ Azure 서비스 이름은 전역적으로 고유해야 합니다. 이 자습서�
 4. **사용자 이름**을 입력하고 **다음**을 클릭합니다. 
 5. 사용자 프로필을 구성합니다. **역할**에서 **전역 관리자**를 클릭하고 **다음**을 클릭합니다.  조직 구성 단위를 만들려면 전역 관리자 역할이 필요합니다.
 6. **만들기**를 클릭하여 임시 암호를 가져옵니다.
-7. 암호의 복사본을 만들고 **완료**를 클릭합니다. 이 자습서의 뒷부분에서 이 전역 관리 사용자로 관리자 VM에 로그온하여 조직 구성 단위를 만들고 역방향 DNS를 구성할 것입니다.
+7. 암호의 복사본을 만들고 **완료**를 클릭합니다. 이 자습서의 뒷부분에서는 이 전역 관리자를 사용하여 HDInsight 클러스터를 만듭니다.
 
 동일한 절차에 따라 **사용자** 역할 hiveuser1 및 hiveuser2로 사용자 2명을 더 만듭니다. 다음 사용자는 [도메인에 가입된 HDInsight 클러스터에 대한 Hive 정책 구성](hdinsight-domain-joined-run-hive.md)에 사용됩니다.
 
@@ -172,7 +167,7 @@ Azure 서비스 이름은 전역적으로 고유해야 합니다. 이 자습서�
 
 **Azure AD에 대해 LDAPS를 구성하려면**
 
-1. 도메인의 서명 기관에서 서명한 SSL 인증서를 가져옵니다. 자체 서명된 인증서는 사용할 수 없습니다. SSL 인증서를 가져올 수 없는 경우 hdipreview@microsoft.com에 예외에 대해 문의하십시오.
+1. 도메인의 서명 기관에서 서명한 SSL 인증서를 가져옵니다. 자체 서명 인증서를 사용하려는 경우 hdipreview@microsoft.com에 연락하여 예외를 요청하십시오.
 2. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **Active Directory** > **contosoaaddirectory**를 클릭합니다. 
 3. 위쪽 메뉴에서 **구성**을 클릭합니다.
 4. 아래에 있는 **도메인 서비스**로 스크롤합니다.
@@ -186,91 +181,6 @@ Azure 서비스 이름은 전역적으로 고유해야 합니다. 이 자습서�
 > 
 
 자세한 내용은 [Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md)을 참조하세요.
-
-## <a name="configure-an-organizational-unit-and-reverse-dns"></a>조직 구성 단위 및 역방향 DNS 구성
-이 섹션에서는 조직 구성 단위 및 역방향 DNS를 구성할 수 있도록 Azure AD VNet에 가상 컴퓨터를 추가하고 VM에 관리 도구를 설치합니다. 역방향 DNS 조회는 Kerberos 인증에 필요합니다.
-
-**가상 네트워크에 가상 컴퓨터를 만들려면**
-
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **새로 만들기** > **계산** > **가상 컴퓨터** > **갤러리에서**를 클릭합니다.
-2. 이미지를 선택한 후 **다음**을 클릭합니다.  어떤 것을 사용할지 잘 모르겠으면 기본값인 **Windows Server 2012 R2 Datacenter**를 선택합니다.
-3. 다음 값을 입력하거나 선택합니다.
-   
-   * 가상 컴퓨터 이름: **contosoaadadmin**
-   * 계층: **기본**
-   * 새 사용자 이름: (사용자 이름 입력)
-   * 암호: (암호 입력)
-     
-     사용자 이름 및 암호는 로컬 관리자입니다.
-4. **다음**
-5. **지역/가상 네트워크**에서, 마지막 단계에서 만든 새 가상 네트워크(contosoaadvnet)를 선택하고 **다음**을 클릭합니다.
-6. 페이지 맨 아래에 있는 **완료**을 참조하세요.
-
-**RDP로 VM에 연결하려면**
-
-1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **가상 컴퓨터** > **contosoaadadmin**을 클릭합니다.
-2. 위쪽 메뉴에서 **대시보드** 를 클릭합니다.
-3. 페이지 아래쪽에서 **연결**을 클릭합니다.
-4. 지침에 따라 로컬 관리자 이름 및 암호를 사용합니다.
-
-**VM을 Azure AD 도메인에 가입하려면**
-
-1. RDP 세션에서 **시작**을 클릭한 다음 **서버 관리자**를 클릭합니다.
-2. 왼쪽 메뉴에서 **로컬 서버**를 클릭합니다.
-3. 작업 그룹에서 **작업 그룹**을 클릭합니다.
-4. **변경**을 클릭합니다.
-5. **도메인**을 클릭하고, **contoso.onmicrosoft.com**을 입력한 다음 **확인**을 클릭합니다.
-6. 도메인 사용자 자격 증명을 입력한 다음 **확인**을 클릭합니다.
-7. **확인**을 클릭합니다.
-8. **확인**을 클릭하여 컴퓨터 다시 부팅에 동의합니다.
-9. **닫기**를 클릭합니다.
-10. **지금 다시 시작**을 클릭합니다.
-
-자세한 내용은 [Windows Server 가상 컴퓨터를 관리되는 도메인에 가입](../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm.md)을 참조하세요.
-
-**Active Directory 관리 도구 및 DNS 도구를 설치하려면**
-
-1. Azure AD 사용자 계정을 사용하여 RDP로 **contosoaadadmin**에 연결합니다.
-2. **시작**을 클릭한 다음 **서버 관리자**를 클릭합니다.
-3. 왼쪽 메뉴에서 **대시보드**를 클릭합니다.
-4. **관리**를 클릭한 다음 **역할 및 기능 추가**를 클릭합니다.
-5. **다음**을 클릭합니다.
-6. **역할 기반 또는 기능 기반 설치**를 선택하고 **다음**을 클릭합니다.
-7. 서버 풀의 현재 가상 컴퓨터를 선택하고 **다음**을 클릭합니다.
-8. **다음**을 클릭하여 역할을 건너뜁니다.
-9. **원격 서버 관리 도구**를 확장하고, **역할 관리 도구**를 확장하고, **AD DS 및 AD LDS 도구**와 **DNS 서버 도구**를 선택한 후 **다음**을 클릭합니다. 
-10. **다음**
-11. **Install**을 클릭합니다.
-
-자세한 내용은 [가상 컴퓨터에 Active Directory 관리 도구 설치](../active-directory-domain-services/active-directory-ds-admin-guide-administer-domain.md#task-2---install-active-directory-administration-tools-on-the-virtual-machine)를 참조하세요.
-
-**역방향 DNS를 구성 하려면**
-
-1. Azure AD 사용자 계정을 사용하여 RDP로 contosoaadadmin에 연결합니다.
-2. **시작**을 클릭하고, **관리 도구**를 클릭한 다음 **DNS**를 클릭합니다. 
-3. **아니요**를 클릭하여 ContosoAADAdmin 추가를 건너뜁니다.
-4. **다음 컴퓨터**를 선택하고, 앞에서 구성한 첫 번째 DNS 서버의 IP 주소를 입력한 다음 **확인**을 클릭합니다.  왼쪽 창에 DC/DNS가 추가된 것이 보일 것입니다.
-5. DC/DNS 서버를 확장하고, **역방향 조회 영역**을 마우스 오른쪽 단추로 클릭한 다음 **새 영역**을 클릭합니다. 새 영역 마법사가 열립니다.
-6. **다음**을 클릭합니다.
-7. **주 영역**을 클릭하고 **다음**을 클릭합니다.
-8. **이 도메인의 도메인 컨트롤러에서 실행되는 모든 DNS 서버에**를 선택하고 **다음**을 클릭합니다.
-9. **IPv4 역방향 조회 영역**을 선택하고 **다음**을 클릭합니다.
-10. **네트워크 ID**에서 HDInsight VNET 네트워크 범위의 접두사를 입력하고 **다음**을 클릭합니다. 다음 섹션에서는 HDInsight VNet을 만들겠습니다.
-11. **다음**을 클릭합니다.
-12. **Next**를 클릭합니다.
-13. **마침**을 클릭합니다.
-
-다음으로 만들 조직 구성 단위는 HDInsight 클러스터를 만들 때 사용됩니다. Hadoop 시스템 사용자 및 컴퓨터 계정은 이 OU에 배치됩니다.
-
-**Azure AD Domain Services 관리되는 도메인에 OU(조직 구성 단위) 만들기**
-
-1. **AAD DC Administrators** 그룹에 있는 도메인 계정을 사용하여 RDP로 **contosoaadadmin**에 연결합니다.
-2. **시작**을 클릭하고, **관리 도구**를 클릭한 다음 **Active Directory 관리 센터**를 클릭합니다.
-3. 왼쪽 창에서 도메인 이름을 클릭합니다. 예: contoso.
-4. **작업** 창의 도메인 이름 아래에서 **새로 만들기**를 클릭한 다음 **조직 구성 단위**를 클릭합니다.
-5. 이름을 입력(예: **HDInsightOU**)한 다음 **확인**을 클릭합니다. 
-
-자세한 내용은 [Azure AD Domain Services 관리되는 도메인에 OU(조직 구성 단위) 만들기](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md)를 참조하세요.
 
 ## <a name="create-a-resource-manager-vnet-for-hdinsight-cluster"></a>HDInsight 클러스터에 대한 Resource Manager VNet 만들기
 이 섹션에서는 HDInsight 클러스터에 사용할 Azure Resource Manager VNet을 만들겠습니다. Azure VNET을 만드는 다른 방법에 대한 자세한 내용은 [가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요.
@@ -354,11 +264,11 @@ VNet을 만든 후에는 Azure AD VNet과 동일한 DNS 서버를 사용하도�
        * **도메인 설정**: 
          
          * **도메인 이름**: contoso.onmicrosoft.com
-         * **도메인 사용자 이름**: 도메인 사용자 이름을 입력합니다. 이 도메인은 컴퓨터를 도메인에 가입하고 이전에 구성한 조직 구성 단위에 배치하고, 이전에 구성한 조직 구성 단위 내에서 서비스 사용자를 만들고, 역방향 DNS 항목을 만들 수 있는 권한을 갖고 있어야 합니다. 이 도메인 사용자는 이 도메인에 가입된 HDInsight 클러스터의 관리자가 됩니다.
+         * **도메인 사용자 이름**: 도메인 사용자 이름을 입력합니다. 이 도메인은 컴퓨터를 도메인에 가입하고 클러스터 생성 중 지정한 조직 구성 단위에 배치하는 권한, 클러스터 생성 중 지정한 조직 구성 단위 내에서 서비스 주체를 만드는 권한, 역방향 DNS 항목을 만드는 권한이 있어야 합니다. 이 도메인 사용자는 이 도메인에 가입된 HDInsight 클러스터의 관리자가 됩니다.
          * **도메인 암호**: 도메인 사용자 암호를 입력합니다.
-         * **조직 구성 단위**: 이전에 구성한 OU의 고유한 이름을 입력합니다. 예: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
+         * **조직 구성 단위**: HDInsight 클러스터에 사용하려는 OU의 고유한 이름을 입력합니다. 예: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com. 이 OU가 없을 경우 HDInsight 클러스터는 이 OU를 만들려는 시도를 합니다. OU가 이미 존재하거나 도메인 계정에서 새 OU를 만들 권한이 있는지 확인하십시오. AADDC 관리자의 일부인 도메인 계정을 사용할 경우 OU를 만드는 데 필요한 권한이 있습니다.
          * **LDAPS URL**: ldaps://contoso.onmicrosoft.com:636
-         * **사용자 액세스 그룹**: 클러스터에 동기화할 사용자의 보안 그룹을 지정합니다. 예: HiveUsers.
+         * **액세스 사용자 그룹**: 사용자가 클러스터로 동기화하려는 보안 그룹을 지정합니다. 예: HiveUsers.
            
            **선택**을 클릭하여 변경 내용을 저장합니다.
            
@@ -393,7 +303,7 @@ VNet을 만든 후에는 Azure AD VNet과 동일한 DNS 서버를 사용하도�
    * **가상 네트워크 서브넷**: /subscriptions/&lt;SubscriptionID>/resourceGroups/&lt;ResourceGroupName>/providers/Microsoft.Network/virtualNetworks/&lt;VNetName>/subnets/Subnet1
    * **도메인 이름**: contoso.onmicrosoft.com
    * **조직 구성 단위 DN**: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
-   * **클러스터 사용자 그룹 DN**: "\"CN=HiveUsers,OU=AADDC Users,DC=<DomainName>,DC=onmicrosoft,DC=com\""
+   * **클러스터 사용자 그룹 DN**: [\"HiveUsers\"]
    * **LDAPUrl**: ["ldaps://contoso.onmicrosoft.com:636"]
    * **DomainAdminUserName**: (도메인 관리자 이름 입력)
    * **DomainAdminPassword**: (도메인 관리자 암호 입력)
@@ -404,8 +314,7 @@ VNet을 만든 후에는 Azure AD VNet과 동일한 DNS 서버를 사용하도�
 이 자습서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure 저장소에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 클러스터 삭제에 대한 내용은 [Azure Portal을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md#delete-clusters)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* Azure PowerShell을 사용하여 도메인 가입 HDInsight 클러스터를 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 도메인 가입 HDInsight 클러스터 구성](hdinsight-domain-joined-configure-use-powershell.md)을 참조하세요.
 * Hive 정책 및 Hive 쿼리 실행에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터에 대한 Hive 정책 구성](hdinsight-domain-joined-run-hive.md)을 참조하세요.
-* SSH를 사용하여 도메인에 가입된 HDInsight 클러스터에 연결하려면 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
+* SSH를 사용하여 도메인 가입 HDInsight 클러스터에 연결하려면 [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
 
 

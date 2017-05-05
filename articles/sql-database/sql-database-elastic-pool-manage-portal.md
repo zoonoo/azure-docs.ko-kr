@@ -11,15 +11,15 @@ ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 11/17/2016
+ms.date: 04/18/2016
 ms.author: ninarn
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: d5be10b4898002a693f617043b2e2b8a890035ca
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 66f7cc63d311b6b5cd223fe0d8a9bf9f636abef1
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -88,13 +88,12 @@ ms.lasthandoff: 04/15/2017
 
     사용하고 있는 데이터베이스에 충분한 기록 사용량 원격 분석이 있는 경우 **예상되는 eDTU 및 GB 사용량** 그래프 및 **실제 eDTU 사용량** 막대형 차트는 구성을 결정할 수 있도록 업데이트됩니다. 또한 서비스가 적정 크기의 풀을 만들도록 권장 사항 메시지를 제공할 수 있습니다. [동적 권장 사항](#dynamic-recommendations)을 참조하세요.
 
-3. **풀 구성** 페이지에서 제어를 사용하여 설정을 탐색하고 풀을 구성합니다. 각 서비스 계층의 제한에 대한 자세한 내용은 [탄력적 풀 제한](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools)을 참조하고 적정한 탄력적 풀의 크기에 대한 자세한 지침은 [탄력적 풀에 대한 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요. 풀 설정에 대한 자세한 내용은 [탄력적 풀 속성](sql-database-elastic-pool.md#elastic-pool-properties)을 참조하세요.
+3. **풀 구성** 페이지에서 제어를 사용하여 설정을 탐색하고 풀을 구성합니다. 각 서비스 계층의 제한에 대한 자세한 내용은 [탄력적 풀 제한](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools)을 참조하고 적정한 탄력적 풀의 크기에 대한 자세한 지침은 [탄력적 풀에 대한 가격 및 성능 고려 사항](sql-database-elastic-pool.md)을 참조하세요. 풀 설정에 대한 자세한 내용은 [탄력적 풀 속성](sql-database-elastic-pool.md#database-properties-for-pooled-databases)을 참조하세요.
 
     ![탄력적 풀 구성](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
 4. **선택** in the **Configure Pool** 을 클릭합니다.
 5. **확인** 을 클릭하여 풀을 만듭니다.
-
 
 ## <a name="understand-elastic-pool-recommendations"></a>탄력적 풀 권장 사항 이해
 
@@ -109,7 +108,8 @@ SQL 데이터베이스 서비스는 사용 기록을 평가하고 단일 데이�
 - 데이터베이스당 **eDTU 최대** 및 **eDTU 최소**
 - 풀에 대한 권장 데이터베이스 목록
 
-> ![중요] 서비스는 풀을 권장할 때 최근 30일간의 원격 분석을 고려합니다. 데이터베이스가 탄력적 풀의 후보로 간주되려면 7일 이상 존재해야 합니다. 이미 탄력적 풀에 있는 데이터베이스는 탄력적 풀 권장 사항에 대한 후보로 간주되지 않습니다.
+> [!IMPORTANT]
+> 서비스는 풀을 권장할 때 최근 30일간의 원격 분석을 고려합니다. 데이터베이스가 탄력적 풀의 후보로 간주되려면 7일 이상 존재해야 합니다. 이미 탄력적 풀에 있는 데이터베이스는 탄력적 풀 권장 사항에 대한 후보로 간주되지 않습니다.
 >
 
 서비스는 리소스 요구와 각 서비스 계층에 있는 단일 데이터베이스를 동일한 계층의 풀로 이동하는 경우 비용 효율성을 평가합니다. 예를 들어 서버의 모든 Standard 데이터베이스는 표준 탄력적 풀에 적합한지 평가됩니다. 즉, 서비스는 Standard 데이터베이스를 Premium 풀로 이동하는 경우와 같은 계층 간 권장 사항을 제공하지 않습니다.
@@ -260,7 +260,7 @@ Azure Portal을 사용하여 풀에서 탄력적 풀 및 데이터베이스를 �
 
 ## <a name="change-performance-settings-of-an-elastic-pool"></a>탄력적 풀의 성능 설정 변경
 
-탄력적 풀의 리소스 사용률을 모니터링하면서 일부 조정이 필요함을 알 수 있습니다. 어쩌면 풀에서 성능이나 저장소 제한을 변경해야 합니다. 풀에서 데이터베이스 설정을 변경하려고 할 수도 있습니다. 언제든지 풀의 설치 프로그램을 변경하여 적절한 성능 및 비용을 얻을 수 있습니다. 자세한 내용은 [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool-guidance.md)를 참조하세요.
+탄력적 풀의 리소스 사용률을 모니터링하면서 일부 조정이 필요함을 알 수 있습니다. 어쩌면 풀에서 성능이나 저장소 제한을 변경해야 합니다. 풀에서 데이터베이스 설정을 변경하려고 할 수도 있습니다. 언제든지 풀의 설치 프로그램을 변경하여 적절한 성능 및 비용을 얻을 수 있습니다. 자세한 내용은 [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool.md)를 참조하세요.
 
 풀당 eDTU 또는 저장소 제한 및 데이터베이스당 eDTU를 변경하려면:
 
@@ -281,7 +281,7 @@ Azure Portal을 사용하여 풀에서 탄력적 풀 및 데이터베이스를 �
 ## <a name="next-steps"></a>다음 단계
 
 - 탄력적 풀을 이해하려면 [SQL Database 탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
-- 탄력적 풀 사용에 대한 지침을 보려면 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
+- 탄력적 풀 사용에 대한 지침을 보려면 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool.md)을 참조하세요.
 - 탄력적 작업을 사용하여 개수에 관계없이 풀에 있는 데이터베이스에 대해 Transact-SQL 스크립트를 실행하려면 [탄력적 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요.
 - 개수에 관계없이 풀에 있는 데이터베이스를 쿼리하려면 [탄력적 쿼리 개요](sql-database-elastic-query-overview.md)를 참조하세요.
 - 개수에 관계없는 풀의 데이터베이스 트랜잭션의 경우 [탄력적 트랜잭션](sql-database-elastic-transactions-overview.md)을 참조하세요.

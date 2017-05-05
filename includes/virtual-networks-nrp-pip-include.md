@@ -39,8 +39,3 @@ JSON 형식의 샘플 공용 IP 주소:
 * [인스턴스 수준 공용 IP](../articles/virtual-network/virtual-networks-instance-level-public-ip.md)주소에 대해 알아봅니다.
 * 공용 IP 주소에 대한 [REST API 참조 설명서](https://msdn.microsoft.com/library/azure/mt163638.aspx) 를 읽으십시오.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

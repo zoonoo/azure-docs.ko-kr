@@ -4,7 +4,7 @@ description: "Microsoft Azure에서 Azure 검색을 위한 검색 트래픽 분�
 services: search
 documentationcenter: 
 author: bernitorres
-manager: pablocas
+manager: jlembicz
 editor: 
 ms.assetid: b31d79cf-5924-4522-9276-a1bb5d527b13
 ms.service: search
@@ -12,235 +12,188 @@ ms.devlang: multiple
 ms.workload: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/22/2017
+ms.date: 04/05/2017
 ms.author: betorres
 translationtype: Human Translation
-ms.sourcegitcommit: cdcf121e52eaf6a1fc45194b7a4f5a02e9e5c001
-ms.openlocfilehash: f6b354caf37f94906865b5a2f334e2b7a02f9d5b
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
+ms.lasthandoff: 04/07/2017
 
 ---
 
-# <a name="enabling-and-using-search-traffic-analytics"></a>검색 트래픽 분석 설정 및 사용
-검색 트래픽 분석은 검색 서비스에 대한 가시성을 확보하고 사용자와 이들의 동작을 이해할 수 있게 해주는 Azure 검색 기능입니다. 이 기능을 사용하도록 설정하면 검색 서비스 데이터가 선택한 저장소 계정에 복사됩니다. 이 데이터에는 추가 분석을 위해 처리하고 조작할 수 있는 검색 서비스 로그 및 집계된 운영 메트릭이 포함됩니다.
+# <a name="what-is-search-traffic-analytics"></a>검색 트래픽 분석이란
+검색 트래픽 분석은 검색 서비스에 대한 피드백 루프를 구현하기 위한 패턴입니다. 이 패턴은 필요한 데이터 및 여러 플랫폼에서 서비스를 모니터링할 수 있는 업계 선두 제품인 Application Insights를 사용하여 필요한 데이터를 수집하는 방법을 설명합니다.
 
-## <a name="how-to-enable-search-traffic-analytics"></a>검색 트래픽 분석을 사용하도록 설정하는 방법
-검색 서비스와 동일한 하위 지역 및 구독의 저장소 계정이 필요합니다.
+검색 트래픽 분석은 검색 서비스에 대한 고급 정보를 제공하고 사용자와 사용자 동작을 이해할 수 있게 해줍니다. 사용자가 선택하는 항목에 대한 데이터를 확보하면 검색 환경을 더욱 개선하는 의사 결정을 내릴 수 있으며, 결과가 예상과 다를 때 백오프가 가능합니다.
 
-> [!IMPORTANT]
-> 이 저장소 계정에 대해서는 표준 요금이 부과됩니다.
+Azure Search는 Azure Application Insights와 Power BI를 통합하여 심층 모니터링 및 추적이 가능한 원격 분석 솔루션을 제공합니다. Azure Search와의 상호 작용은 API를 통해서만 가능하므로 개발자가 이 페이지의 지침에 따라 검색을 사용하여 원격 분석을 구현해야 합니다.
+
+## <a name="identify-the-relevant-search-data"></a>관련 검색 데이터 식별
+
+유용한 검색 메트릭을 확보하려면 검색 응용 프로그램의 사용자로부터 일부 신호를 기록해야 합니다. 이러한 신호는 사용자가 관심을 보이고 자신의 요구 사항에 관련이 있다고 생각하는 콘텐츠를 나타냅니다.
+
+검색 트래픽 분석에는 다음 두 신호가 필요합니다.
+
+1. 사용자가 생성한 검색 이벤트: 사용자가 시작한 검색 쿼리만 흥미를 끕니다. 패싯, 추가 콘텐츠 또는 내부 정보를 채우는 데 사용되는 검색 요청은 중요하지 않으며 결과를 왜곡하고 편견을 갖게 만듭니다.
+
+2. 사용자가 생성한 클릭 이벤트: 이 문서를 클릭함으로써 우리는 검색 쿼리에서 반환된 특정 검색 결과를 선택하는 사용자를 참조합니다. 클릭은 일반적으로 문서가 특정 검색 쿼리와 관련된 결과라는 의미입니다.
+
+상관 관계 id를 사용하여 검색 이벤트와 클릭 이벤트를 연결하면 응용 프로그램에서 사용자의 동작을 분석할 수 있습니다. 검색 트래픽 로그만으로는 이처럼 검색 관련 고급 정보를 얻을 수 없습니다.
+
+## <a name="how-to-implement-search-traffic-analytics"></a>검색 트래픽 분석을 구현하는 방법
+
+사용자는 검색 응용 프로그램과 상호 작용하므로 검색 응용 프로그램에서 이전 섹션에 언급된 신호를 수집해야 합니다. Application Insights는 확장 가능한 모니터링 솔루션으로, 여러 플랫폼에 사용할 수 있으며 유연한 계측 옵션을 제공합니다. Application Insights를 사용하면 Azure Search에서 작성하는 Power BI 검색 보고서를 활용하여 보다 쉽게 데이터를 분석할 수 있습니다.
+
+Azure Search 서비스의 [포털](https://portal.azure.com) 페이지에 있는 검색 트래픽 분석 블레이드는 이 원격 분석 패턴을 따르는 치트 시트를 포함하고 있습니다. 또한 한 장소에서 Application Insights 리소스를 선택하거나 만들고, 필요한 데이터를 볼 수 있습니다.
+
+![검색 트래픽 분석 지침][1]
+
+### <a name="1-select-an-application-insights-resource"></a>1. Application Insights 리소스 선택
+
+사용할 Application Insights 리소스를 선택하거나 리소스가 없는 경우 직접 만들어야 합니다. 이미 사용 중인 리소스를 사용하여 필요한 사용자 지정 이벤트를 기록할 수 있습니다.
+
+새 Application Insights 리소스를 만들 때 모든 응용 프로그램 유형은 이 시나리오에 유효합니다. 사용 중인 플랫폼에 가장 적합한 것을 선택합니다.
+
+응용 프로그램의 원격 분석 클라이언트를 만들기 위한 계측 키가 필요합니다. Application Insights 포털 대시보드에서 가져올 수도 있고, 검색 트래픽 분석 페이지에서 가져온 후 사용할 인스턴스를 선택해도 됩니다.
+
+### <a name="2-instrument-your-application"></a>2. 응용 프로그램 계측
+
+이 단계에서는 위의 단계에서 만든 Application Insights 리소스를 사용하여 사용자 고유의 검색 응용 프로그램을 계측합니다. 이 프로세스에는 다음과 같은 네 단계가 있습니다.
+
+**I. 원격 분석 클라이언트 만들기** Application Insights 리소스에 이벤트를 전송하는 개체입니다.
+
+*C#*
+
+    private TelemetryClient telemetryClient = new TelemetryClient();
+    telemetryClient.InstrumentationKey = "<YOUR INSTRUMENTATION KEY>";
+
+*JavaScript*
+
+    <script type="text/javascript">var appInsights=window.appInsights||function(config){function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(s);try{t.cookie=u.cookie}catch(h){}for(t.queue=[],i=["Event","Exception","Metric","PageView","Trace","Dependency"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t}
+    ({
+    instrumentationKey: "<YOUR INSTRUMENTATION KEY>"
+    });
+    window.appInsights=appInsights;
+    </script>
+
+다른 언어 및 플랫폼은 전체 [목록](https://docs.microsoft.com/azure/application-insights/app-insights-platforms)을 참조하세요.
+
+**II. 상관 관계에 대한 검색 ID 요청** 검색 요청과 클릭 간에 상관 관계를 지정하려면 이러한 두 이벤트를 관련 짓는 상관 관계 id가 필요합니다. 사용자가 헤더를 사용하여 Search Id를 요청하면 Azure Search가 Search Id를 제공합니다.
+
+*C#*
+
+    // This sample uses the Azure Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
+
+    var client = new SearchIndexClient(<ServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+    var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
+    var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
+    IEnumerable<string> headerValues;
+    string searchId = string.Empty;
+    if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out headerValues)){
+     searchId = headerValues.FirstOrDefault();
+    }
+
+*JavaScript*
+
+    request.setRequestHeader("x-ms-azs-return-searchid", "true");
+    request.setRequestHeader("Access-Control-Expose-Headers", "x-ms-azs-searchid");
+    var searchId = request.getResponseHeader('x-ms-azs-searchid');
+
+**III. 로그 검색 이벤트**
+
+사용자는 검색 요청을 실행할 때마다 Application Insights 사용자 지정 이벤트에서 다음 스키마로 해당 검색 요청을 검색 이벤트로 기록해야 합니다.
+
+**ServiceName**: (문자열) 검색 서비스 이름 **SearchId**: (guid) 검색 쿼리의 고유 식별자(검색 응답에 제공) **IndexName**: (문자열) 쿼리할 검색 서비스 인덱스 **QueryTerms**: (문자열) 사용자가 입력한 검색 용어 **ResultCount**: (정수) 반환된 문서 수(검색 응답에 제공) **ScoringProfile**: (문자열) 사용된 점수 매기기 프로필(있는 경우)의 이름
+
+> [!NOTE]
+> 검색 쿼리에 $count=true를 추가하여 사용자가 생성한 쿼리 수를 요청합니다. 자세한 내용은 [여기](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)를 참조하세요.
 >
+
+> [!NOTE]
+> 사용자가 생성한 검색 쿼리만 기록해야 합니다.
 >
 
-포털에서 또는 PowerShell을 통해 검색 트래픽 분석을 사용할 수 있습니다. 사용하도록 설정되었으면 5-10분 이내 데이터가 저장소 계정의 이 두 개의 Blob 컨테이너로 전달되기 시작합니다.
+*C#*
 
-    insights-logs-operationlogs: search traffic logs
-    insights-metrics-pt1m: aggregated metrics
+    var properties = new Dictionary <string, string> {
+    {"SearchServiceName", <service name>},
+    {"SearchId", <search Id>},
+    {"IndexName", <index name>},
+    {"QueryTerms", <search terms>},
+    {"ResultCount", <results count>},
+    {"ScoringProfile", <scoring profile used>}
+    };
+    telemetryClient.TrackEvent("Search", properties);
 
+*JavaScript*
 
-### <a name="a-using-the-portal"></a>A. 포털 사용
-[Azure 포털](http://portal.azure.com)에서 Azure Search 서비스를 엽니다. 설정에서 검색 트래픽 분석 옵션을 찾습니다.
+    appInsights.trackEvent("Search", {
+    SearchServiceName: <service name>,
+    SearchId: <search id>,
+    IndexName: <index name>,
+    QueryTerms: <search terms>,
+    ResultCount: <results count>,
+    ScoringProfile: <scoring profile used>
+    });
 
-![][1]
+**IV. 클릭 이벤트 기록**
 
-상태를 **On**으로 변경하고 사용할 Azure Storage 계정을 선택하고 복사할 데이터(로그, 메트릭 또는 둘 다)를 선택합니다. 로그 및 메트릭을 복사하는 것이 좋습니다.
-1일 ~ 365일까지 데이터에 대한 보존 정책을 설정할 수 있습니다. 데이터를 무기한으로 보존하려면 보존(일)을 0으로 설정하세요.
+사용자가 문서를 클릭할 때마다 검색 분석을 위해 신호를 기록해야 합니다. Application Insights 사용자 지정 이벤트를 사용하여 다음 스키마로 이러한 이벤트를 기록합니다.
 
-![][2]
+**ServiceName**: (문자열) 검색 서비스 이름 **SearchId**: (guid) 관련 검색 쿼리의 고유 식별자 **DocId**: (문자열) 문서 식별자 **Position**: (정수) 검색 결과 페이지의 문서 순위
 
-### <a name="b-using-powershell"></a>B. PowerShell 사용
-먼저, 최신 [Azure PowerShell cmdlets](https://github.com/Azure/azure-powershell/releases) 를 설치했는지 확인합니다.
-
-그런 다음 검색 서비스 및 저장소 계정에 대한 리소스 ID를 가져옵니다. 설정 -> 속성 -> ResourceId로 이동하여 포털에서 찾을 수 있습니다.
-
-![][3]
-
-```PowerShell
-Login-AzureRmAccount
-$SearchServiceResourceId = "Your Search service resource id"
-$StorageAccountResourceId = "Your Storage account resource id"
-Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccountId $StorageAccountResourceId -Enabled $true
-```
-
-## <a name="understanding-the-data"></a>데이터 이해
-데이터는 JSON 형식으로 Azure 저장소 Blob에 저장됩니다.
-
-시간 및 컨테이너당 하나의 Blob가 있습니다.
-
-경로 예: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
-
-### <a name="logs"></a>로그
-로그 Blob는 검색 서비스 트래픽 로그를 포함합니다.
-각 Blob는 **레코드** 라는 하나의 루트 개체를 포함하며 여기에는 로그 개체의 배열이 포함됩니다.
-각 Blob에는 같은 시간 중에 발생한 모든 작업에 대한 레코드가 포함됩니다.
-
-#### <a name="log-schema"></a>로그 스키마
-| 이름 | 형식 | 예 | 참고 사항 |
-| --- | --- | --- | --- |
-| 실시간 |datetime |"2015-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
-| operationName |string |"Query.Search" |작업 이름 |
-| operationVersion |string |"2016-09-01" |사용된 api-version |
-| 카테고리 |string |"OperationLogs" |constant |
-| resultType |string |"Success" |가능한 값: Success 또는 Failure |
-| resultSignature |int |200 |HTTP 결과 코드 |
-| durationMS |int |50 |밀리초 단위의 작업 기간 |
-| properties |object |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
-
-#### <a name="properties-schema"></a>속성 스키마
-| 이름 | 형식 | 예 | 참고 사항 |
-| --- | --- | --- | --- |
-| 설명 |string |"GET /indexes('content')/docs" |작업의 끝점 |
-| 쿼리 |string |"?search=AzureSearch&$count=true&api-version=2016-09-01" |쿼리 매개 변수 |
-| 문서 |int |42 |처리된 문서 수 |
-| IndexName |string |"testindex" |작업과 연결된 인덱스의 이름 |
-
-### <a name="metrics"></a>메트릭
-메트릭 Blob에는 검색 서비스에 대한 집계 값이 포함됩니다.
-각 파일은 **레코드** 라는 하나의 루트 개체를 포함하며 여기에는 메트릭 개체의 배열이 포함됩니다. 이 루트 개체에 데이터를 사용할 수는&1; 분마다 메트릭이 포함되어 있습니다.
-
-사용 가능한 메트릭:
-
-* SearchLatency: 검색 쿼리를 처리하는 데 필요한 검색 서비스의 시간을&1;분마다 집계합니다.
-* SearchQueriesPerSecond: 초당 수신된 검색 쿼리 수를&1;분마다 집계합니다.
-* ThrottledSearchQueriesPercentage: 제한된 검색 쿼리의 비율을&1;분마다 집계합니다.
-
-> [!IMPORTANT]
-> 제한은 너무 많은 쿼리가 송신되어 서비스의 프로비전된 리소스 용량을 다 써버린 경우에 발생합니다. 서비스에 더 많은 복제본을 추가하는 것이 좋습니다.
->
+> [!NOTE]
+> 위치는 응용 프로그램의 카디널 순서를 참조합니다. 이 숫자가 항상 같다면 이 숫자를 자유롭게 설정하여 비교할 수 있습니다.
 >
 
-#### <a name="metrics-schema"></a>메트릭 스키마
-| 이름 | 형식 | 예 | 참고 사항 |
-| --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |리소스 ID |
-| metricName |string |"Latency" |메트릭 이름 |
-| 실시간 |datetime |"2015-12-07T00:00:43.6872559Z" |작업의 타임스탬프 |
-| average |int |64 |메트릭 시간 간격에 원시 샘플의 평균 값 |
-| minimum |int |37 |메트릭 시간 간격에 원시 샘플의 최소 값 |
-| maximum |int |78 |메트릭 시간 간격에 원시 샘플의 최대 값 |
-| total |int |258 |메트릭 시간 간격에 원시 샘플의 총 값 |
-| count |int |4 |메트릭을 생성하는 데 사용되는 원시 샘플 수 |
-| timegrain |string |"PT1M" |ISO 8601에서 메트릭의 시간 조직 |
+*C#*
 
-모든 메트릭은&1; 분 간격으로 보고됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다.
+    var properties = new Dictionary <string, string> {
+    {"SearchServiceName", <service name>},
+    {"SearchId", <search id>},
+    {"ClickedDocId", <clicked document id>},
+    {"Rank", <clicked document position>}
+    };
+    telemetryClient.TrackEvent("Click", properties);
 
-SearchQueriesPerSecond 메트릭의 경우, 최소값은 해당 분 동안 등록된 초당 검색 쿼리 수에 대한 가장 낮은 값입니다. 최대값도 마찬가지입니다. 평균은 전체 분에 대한 집계입니다.
-1분 동안 이 시나리오에 관한 생각: SearchQueriesPerSecond에 대한 최대값 만큼 부하가 매우 높은 1초가 지난 후 58초 동안 중간 부하 상태가 계속되다가 마지막으로 최소값인 쿼리 한 개만 있는 1초가 이어집니다.
+*JavaScript*
 
-ThrottledSearchQueriesPercentage의 경우, 최소값, 최대값, 평균 및 합계가 모두 같은 값이며, 이 값은&1;분 동안 총 검색 쿼리 수에서 제한된 검색 쿼리의 비율입니다.
+    appInsights.TrackEvent("Click", {
+        SearchServiceName: <service name>,
+        SearchId: <search id>,
+        ClickedDocId: <clicked document id>,
+        Rank: <clicked document position>
+    });
 
-## <a name="analyzing-your-data"></a>데이터 분석
-데이터는 사용자 자신의 저장소 계정에 있고 사례에 가장 적합한 방식으로 이 데이터를 탐색하는 것이 좋습니다.
+### <a name="3-analyze-with-power-bi-desktop"></a>3. Power BI Desktop으로 분석
 
-먼저 [Power BI](https://powerbi.microsoft.com) 를 사용하여 데이터를 탐색하고 시각화하는 것이 좋습니다. Azure 저장소 계정에 쉽게 연결하고 데이터 분석을 신속하게 시작할 수 있습니다.
+앱을 계측하고 응용 프로그램이 Application Insights에 올바르게 연결되었는지 확인했으면 Power BI Desktop용 Azure Search에서 작성한 미리 정의된 템플릿을 사용할 수 있습니다.
+이 템플릿에는 보다 많은 정보를 기반으로 검색 성능 및 관련성을 개선하는 합리적 결정을 내릴 수 있도록 각종 차트와 테이블이 포함되어 있습니다.
 
-#### <a name="power-bi-online"></a>Power BI 온라인
-[Power BI 콘텐츠 팩](https://app.powerbi.com/getdata/services/azure-search): 자동으로 데이터를 표시하고 검색 서비스에 대한 시각적 통찰력을 제공하는 Power BI 대시보드 및 Power BI 보고서 집합을 만듭니다. [콘텐츠 팩 도움말 페이지](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-search/)를 참조하세요.
+Power BI Desktop 템플릿을 인스턴스화하려면 Application Insights에 대한 세 가지 정보가 필요합니다. 이 데이터는 사용할 리소스를 선택할 때 검색 트래픽 분석 페이지에서 찾을 수 있습니다.
 
-![][4]
+![검색 트래픽 분석 블레이드의 Application Insights 데이터][2]
 
-#### <a name="power-bi-desktop"></a>Power BI Desktop
-[Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop): 데이터를 탐색하고 데이터에 대한 고유의 시각화를 만듭니다. 다음 섹션의 시작 쿼리를 참조하세요.
+Power BI Desktop 템플릿에 포함된 메트릭:
 
-1. 새 PowerBI Desktop 보고서를 엽니다.
+*    CTR(클릭률): 특정 문서를 클릭한 사용자와 총 검색 수의 비율.
+*    클릭 없이 검색: 클릭을 등록하지 않는 상위 쿼리를 일컫는 용어
+*    최다 클릭 문서: 최근 24시간, 7일 및 30일 동안 ID별로 클릭 횟수가 가장 많은 문서.
+*    인기 용어-문서 쌍: 같은 문서를 클릭하는 결과로 이어진 용어이며 클릭 수를 기준으로 정렬됩니다.
+*    시간 대비 클릭: 검색 쿼리 이후 시간 별로 버킷 구성된 클릭
 
-2. 데이터 가져오기 -> 자세히...를 선택합니다.
+![Application Insights에서 읽기 위한 Power BI 템플릿][3]
 
-    ![][5]
-
-3. Microsoft Azure Blob Storage 및 연결을 선택합니다.
-
-    ![][6]
-
-4. 저장소 계정의 이름 및 계정 키를 입력합니다.
-
-5. "insight-logs-operationlogs" 및 "insights-metrics-pt1m"을 선택한 다음 편집을 클릭합니다.
-
-6. 쿼리 편집기가 열리면 왼쪽에서 "insight-logs-operationlogs"가 선택되었는지 확인합니다. 이제 보기 -> 고급 편집기를 선택하여 고급 편집기를 엽니다.
-
-    ![][7]
-    
-7. 처음 두 줄은 유지하고 나머지를 다음 쿼리로 바꿉니다.
-
-   ~~~~
-   > # "insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
-   > # "Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
-   > # "Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
-   > # "Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
-   > # "Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
-   > # "Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
-   > # "Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
-   > # "Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"time", "resourceId", "operationName", "operationVersion", "category", "resultType", "resultSignature", "durationMS", "properties"}, {"time", "resourceId", "operationName", "operationVersion", "category", "resultType", "resultSignature", "durationMS", "properties"}),
-   > # "Expanded properties" = Table.ExpandRecordColumn(#"Expanded records1", "properties", {"Description", "Query", "IndexName", "Documents"}, {"Description", "Query", "IndexName", "Documents"}),
-   > # "Renamed Columns" = Table.RenameColumns(#"Expanded properties",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"operationName", "OperationName"}, {"operationVersion", "OperationVersion"}, {"category", "Category"}, {"resultType", "ResultType"}, {"resultSignature", "ResultSignature"}, {"durationMS", "Duration"}}),
-   > # "Added Custom2" = Table.AddColumn(#"Renamed Columns", "QueryParameters", each Uri.Parts("http://tmp" & [Query])),
-   > # "Expanded QueryParameters" = Table.ExpandRecordColumn(#"Added Custom2", "QueryParameters", {"Query"}, {"Query.1"}),
-   > # "Expanded Query.1" = Table.ExpandRecordColumn(#"Expanded QueryParameters", "Query.1", {"search", "$skip", "$top", "$count", "api-version", "searchMode", "$filter"}, {"search", "$skip", "$top", "$count", "api-version", "searchMode", "$filter"}),
-   > # "Removed Columns1" = Table.RemoveColumns(#"Expanded Query.1",{"OperationVersion"}),
-   > # "Changed Type" = Table.TransformColumnTypes(#"Removed Columns1",{{"Datetime", type datetimezone}, {"ResourceId", type text}, {"OperationName", type text}, {"Category", type text}, {"ResultType", type text}, {"ResultSignature", type text}, {"Duration", Int64.Type}, {"Description", type text}, {"Query", type text}, {"IndexName", type text}, {"Documents", Int64.Type}, {"search", type text}, {"$skip", Int64.Type}, {"$top", Int64.Type}, {"$count", type logical}, {"api-version", type text}, {"searchMode", type text}, {"$filter", type text}}),
-   > # "Inserted Date" = Table.AddColumn(#"Changed Type", "Date", each DateTime.Date([Datetime]), type date),
-   > # "Duplicated Column" = Table.DuplicateColumn(#"Inserted Date", "ResourceId", "Copy of ResourceId"),
-   > # "Split Column by Delimiter" = Table.SplitColumn(#"Duplicated Column","Copy of ResourceId",Splitter.SplitTextByEachDelimiter({"/"}, null, true),{"Copy of ResourceId.1", "Copy of ResourceId.2"}),
-   > # "Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Copy of ResourceId.1", type text}, {"Copy of ResourceId.2", type text}}),
-   > # "Removed Columns2" = Table.RemoveColumns(#"Changed Type1",{"Copy of ResourceId.1"}),
-   > # "Renamed Columns1" = Table.RenameColumns(#"Removed Columns2",{{"Copy of ResourceId.2", "ServiceName"}}),
-   > # "Lowercased Text" = Table.TransformColumns(#"Renamed Columns1",{{"ServiceName", Text.Lower}}),
-   > # "Added Custom" = Table.AddColumn(#"Lowercased Text", "DaysFromToday", each Duration.Days(DateTimeZone.UtcNow() - [Datetime])),
-   > # "Changed Type2" = Table.TransformColumnTypes(#"Added Custom",{{"DaysFromToday", Int64.Type}})
-   > in
-   >
-   > # "Changed Type2"
-   >
-   ~~~~
-
-8. 완료를 클릭합니다.
-
-9. 이제 왼쪽 쿼리 목록에서 "insights-metrics-pt1m"을 선택하고 고급 편집기를 다시 엽니다. 처음 두 줄은 유지하고 나머지를 다음 쿼리로 바꿉니다.
-
-   ~~~~
-   > # "insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
-   > # "Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
-   > # "Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
-   > # "Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
-   > # "Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
-   > # "Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
-   > # "Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
-   > # "Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}, {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}),
-   > # "Filtered Rows" = Table.SelectRows(#"Expanded records1", each ([metricName] = "Latency")),
-   > # "Removed Columns1" = Table.RemoveColumns(#"Filtered Rows",{"timeGrain"}),
-   > # "Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"metricName", "MetricName"}, {"average", "Average"}, {"minimum", "Minimum"}, {"maximum", "Maximum"}, {"total", "Total"}, {"count", "Count"}}),
-   > # "Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ResourceId", type text}, {"MetricName", type text}, {"Datetime", type datetimezone}, {"Average", type number}, {"Minimum", Int64.Type}, {"Maximum", Int64.Type}, {"Total", Int64.Type}, {"Count", Int64.Type}}),
-   > Rounding = Table.TransformColumns(#"Changed Type",{{"Average", each Number.Round(_, 2)}}),
-   >
-   > # "Changed Type1" = Table.TransformColumnTypes(Rounding,{{"Average", type number}}),
-   > # "Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([Datetime]), type date)
-   > in
-   >
-   > # "Inserted Date"
-   >
-   ~~~~
-
-10. 완료를 클릭한 다음 홈 탭에서 닫기 및 적용을 선택합니다.
-
-11. 이제 지난 30일 동안의 데이터가 사용할 준비가 되었습니다. 진행하여 몇 가지 [시각화](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/)를 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
-검색 구문 및 쿼리 매개 변수에 대해 알아봅니다. 자세한 내용은 [문서 검색(Azure 검색 REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) 을 참조하세요.
+검색 응용 프로그램을 계측하여 검색 서비스에 대한 강력하고 통찰력 있는 데이터를 가져옵니다.
+
+Application Insights에 대한 추가 정보는 [여기](https://go.microsoft.com/fwlink/?linkid=842905)서 찾을 수 있습니다. Application Insights [가격 책정 페이지](https://azure.microsoft.com/pricing/details/application-insights/)를 방문하여 다양한 서비스 계층에 대해 알아보세요.
 
 놀라운 보고서 만들기에 대해 자세히 알아보세요. 자세한 내용은 [Power BI Desktop 시작](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)을 참조하세요.
 
 <!--Image references-->
-
-[1]: ./media/search-traffic-analytics/SettingsBlade.png
-[2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/ResourceId.png
-[4]: ./media/search-traffic-analytics/Dashboard.png
-[5]: ./media/search-traffic-analytics/GetData.png
-[6]: ./media/search-traffic-analytics/BlobStorage.png
-[7]: ./media/search-traffic-analytics/QueryEditor.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+[1]: ./media/search-traffic-analytics/AzureSearch-TrafficAnalytics.png
+[2]: ./media/search-traffic-analytics/AzureSearch-AppInsightsData.png
+[3]: ./media/search-traffic-analytics/AzureSearch-PBITemplate.png
 

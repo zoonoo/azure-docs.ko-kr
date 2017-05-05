@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: f02e17bb413f250fc4d980c62cfb46bc5359f7fb
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 3d2ba1d63f4bb89ff51275044922fb86b5f70365
+ms.lasthandoff: 04/11/2017
 
 ---
 
@@ -70,4 +70,6 @@ VM에서 Azure Load Balancer의 상태 프로브 요청을 수신할 수 있는�
 ## <a name="limitations"></a>제한 사항
 
 보장되지는 않지만 현재 사용할 수 있는 SNAT 포트의 최대 수는 64,511개입니다(65,535 - 1024개 권한 있는 포트).  이 제한은 연결 수로 직접 변환되지 않습니다. SNAT 포트가 할당된 시기와 방법 및 이러한 소모성 리소스를 관리하는 방법에 대한 자세한 내용은 위에서 설명한 내용을 참조하세요.
+
+[여러(공용) IP 주소가 부하 분산 장치에 연결](load-balancer-multivip-overview.md)되는 경우 이러한 모든 공용 IP 주소는 아웃바운드 흐름의 후보입니다.
 

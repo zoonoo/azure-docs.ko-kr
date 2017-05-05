@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
-ms.openlocfilehash: b6b802092165926cdfeab67849df26167ad96ebf
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 89092e75d10ece044be61ceba0baf16c9e1599be
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -31,7 +31,7 @@ Azure는 응용 프로그램을 실행하기 위한 세 가지 계산 모델인 
 이러한 옵션에 대한 자세한 내용은 [Azure에서 제공하는 계산 호스팅 옵션](cloud-services/cloud-services-choose-me.md)을 참조하세요.
 
 ## <a name="download-the-azure-sdk-for-php"></a>PHP용 Azure SDK 다운로드(영문)
-[PHP용 Azure SDK]는 여러 구성 요소로 구성됩니다. 이 문서에서는 이러한 구성 요소 중 두 가지인 Azure PowerShell 및 Azure 에뮬레이터를 사용합니다. 이러한 두 구성 요소는 Microsoft 웹 플랫폼 설치 관리자를 통해 설치할 수 있습니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+[PHP용 Azure SDK]는 여러 구성 요소로 구성됩니다. 이 문서에서는 이러한 구성 요소 중 두 가지인 Azure PowerShell 및 Azure 에뮬레이터를 사용합니다. 이러한 두 구성 요소는 Microsoft 웹 플랫폼 설치 관리자를 통해 설치할 수 있습니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
 ## <a name="create-a-cloud-services-project"></a>Cloud Services 프로젝트 만들기
 PHP 웹 또는 작업자 역할을 만드는 첫 번째 단계는 Azure 서비스 프로젝트를 만드는 것입니다. Azure 서비스 프로젝트는 웹 및 작업자 역할의 논리 컨테이너 역할을 하며 프로젝트의 [서비스 정의(.csdef)] 및 [서비스 구성(.cscfg)] 파일이 포함되어 있습니다.
@@ -201,7 +201,7 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로
     PS C:\MyProject> Stop-AzureEmulator
 
 ## <a name="publish-your-application"></a>응용 프로그램 게시
-응용 프로그램을 게시하려면 먼저 [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet을 사용하여 게시 설정을 가져와야 합니다. 그런 다음 [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet을 사용하여 응용 프로그램을 게시합니다. 로그인에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+응용 프로그램을 게시하려면 먼저 [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet을 사용하여 게시 설정을 가져와야 합니다. 그런 다음 [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet을 사용하여 응용 프로그램을 게시합니다. 로그인에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.

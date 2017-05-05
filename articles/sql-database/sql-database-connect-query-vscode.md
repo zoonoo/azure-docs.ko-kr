@@ -18,9 +18,9 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 5b623c78f8b8eac846c5ca244f1e0b25ee4f400f
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: 45405c7bb9993d1fd529b25b599c3cd7f459843c
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/18/2017
 
 시작하기 전에 최신 버전의 [Visual Studio Code](https://code.visualstudio.com/Download)를 설치하고 했는지 [mssql 확장](https://aka.ms/mssql-marketplace)을 로드했는지 확인합니다. mssql 확장에 대한 설치 지침은 [VS Code 설치](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) 및 [Visual Studio Code용 mssql](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)을 참조하세요. 
 
-## <a name="configure-vs-code-mac-os-only"></a>VS Code 구성(Mac OS만 해당)
+## <a name="configure-vs-code"></a>VS 코드 구성 
 
 ### <a name="mac-os"></a>**Mac OS**
 macOS의 경우 mssql 확장에서 사용하는 DotNet Core에 대한 필수 구성 요소인 OpenSSL을 설치해야 합니다. 터미널을 열고 다음 명령을 입력하여 **brew** 및 **OpenSSL**을 설치합니다. 
@@ -49,9 +49,17 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
+### <a name="linux-ubuntu"></a>**Linux(Ubuntu)**
+
+특별한 구성이 필요 없습니다.
+
+### <a name="windows"></a>**Windows**
+
+특별한 구성이 필요 없습니다.
+
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
-Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름을 가져옵니다. 정규화된 서버 이름을 사용하여 Visual Studio Code를 사용하는 서버에 연결합니다.
+Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
@@ -108,7 +116,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 ## <a name="query-data"></a>쿼리 데이터
 
-[SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 문을 사용하여 Azure SQL Database에서 데이터를 쿼리합니다.
+다음 코드를 사용하여 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 문을 통해 범주별 상위 20개 제품을 쿼리합니다.
 
 1. **편집기** 창의 빈 쿼리 창에서 다음 쿼리를 입력합니다.
 
@@ -125,7 +133,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 ## <a name="insert-data"></a>데이터 삽입
 
-[INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 문을 사용하여 Azure SQL Database에서 데이터를 삽입합니다.
+[INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 문을 사용하여 SalesLT.Product 테이블에 새 제품을 삽입하려면 다음 코드를 사용합니다.
 
 1. **편집기** 창에서 이전 쿼리를 삭제하고 다음 쿼리를 입력합니다.
 
@@ -153,7 +161,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 ## <a name="update-data"></a>데이터 업데이트
 
-[UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 문을 사용하여 Azure SQL Database에서 데이터를 업데이트합니다.
+이전에 추가한 새 제품을 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 문을 사용하여 업데이트하려면 다음 코드를 사용합니다.
 
 1.  **편집기** 창에서 이전 쿼리를 삭제하고 다음 쿼리를 입력합니다.
 
@@ -167,7 +175,7 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 ## <a name="delete-data"></a>데이터 삭제
 
-[DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 문을 사용하여 Azure SQL Database에서 데이터를 삭제합니다.
+이전에 추가한 새 제품을 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 문을 사용하여 삭제하려면 다음 코드를 사용합니다.
 
 1. **편집기** 창에서 이전 쿼리를 삭제하고 다음 쿼리를 입력합니다.
 

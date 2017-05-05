@@ -11,35 +11,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: b1c18ac614e17cbd25691dc92dbd14a781e4d8ab
-ms.openlocfilehash: ee656180676450834940b996bccf93c26190f9d6
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 84962c04e15bd010357f96da7dbf418cc68adab1
+ms.lasthandoff: 04/03/2017
 
 
 ---
 
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>자습서: Onit과 Azure Active Directory 통합
 이 자습서는 Azure 및 Onit의 통합을 보여주기 위한 것입니다.  
+
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 * 유효한 Azure 구독
-* Onit Single Sign-On이 설정된 구독
+* Onit SSO(Single Sign-On)가 설정된 구독
 
 이 자습서를 완료한 후 Onit에 할당한 Azure AD 사용자가 Onit 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 SSO(Single Sign-On) 할 수 있습니다.
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
 1. Onit에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
+2. SSO(Single Sign-On) 구성
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
 ![시나리오](./media/active-directory-saas-onit-tutorial/IC791166.png "시나리오")
 
-## <a name="enabling-the-application-integration-for-onit"></a>Onit에 응용 프로그램 통합 사용
+## <a name="enable-the-application-integration-for-onit"></a>Onit에 응용 프로그램 통합 사용
 이 섹션은 Onit에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
 **Onit에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.**
@@ -64,11 +65,12 @@ ms.lasthandoff: 02/03/2017
    
    ![Onit](./media/active-directory-saas-onit-tutorial/IC795325.png "Onit")
    
-## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Onit에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
 
-Onit에 대한 Single Sign-On을 구성하려면 인증서의 지문(thumbprint) 값을 검색해야 합니다.  
+Onit에 대한 SSO를 구성하려면 인증서의 지문 값을 검색해야 합니다.
+
 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
 Onit 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, **SAML 토큰 특성** 구성에 사용자 할당 특성 매핑을 추가해야 합니다.  
@@ -77,7 +79,7 @@ Onit 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, 
 
 ![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791168.png "Single Sign-On")
 
-**Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+**SSO를 구성하려면 다음 단계를 수행합니다.**
 
 1. Azure 클래식 포털의 **Onit** 응용 프로그램 통합 페이지에 있는 상단의 메뉴에서 **특성**을 클릭하여 **SAML 토큰 특성** 대화 상자를 엽니다.
    
@@ -89,10 +91,10 @@ Onit 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, 
    |name|User.userprincipalname|
    |email|User.mail|
 
-   1.  위의 테이블의 각 데이터 행에서 **사용자 특성 추가**를 클릭합니다.
-   2.  **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
-   3.  **특성 값** 목록에서 해당 행에 표시된 특성 값을 선택합니다.
-   4.  **완료**를 클릭합니다.
+   1. 위의 테이블의 각 데이터 행에서 **사용자 특성 추가**를 클릭합니다.
+   2. **특성 이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+   3. **특성 값** 목록에서 해당 행에 표시된 특성 값을 선택합니다.
+   4. **완료**를 클릭합니다.
 
 3. **변경 내용 적용**을 클릭합니다.
 4. 브라우저에서 **뒤로**를 클릭하여 **빠른 시작** 대화 상자를 다시 엽니다.
@@ -139,7 +141,7 @@ Onit 응용 프로그램은 특정 서식에서 SAML 어설션을 예상하며, 
     
     ![Single Sign-On 구성](./media/active-directory-saas-onit-tutorial/IC791179.png "Single Sign-On 구성")
     
-## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
 Azure AD 사용자가 Onit에 로그인할 수 있도록 하려면 Onit으로 프로비전되어야 합니다.  
 
@@ -155,20 +157,21 @@ Onit의 경우 프로비전은 수동 작업입니다.
    
    ![사용자 추가](./media/active-directory-saas-onit-tutorial/IC791181.png "사용자 추가")
    
-   1. 관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **이름** 및 **메일 주소**를 입력합니다.
-   2. **만들기**를 클릭합니다.    
+  1. 관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **이름** 및 **메일 주소**를 입력합니다.
+  2. **만들기**를 클릭합니다.    
    
       >[!NOTE]
       >계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일을 받습니다.
-      > 
-       
+      >
+      >
+     
 
 > [!NOTE]
 > 다른 Onit 사용자 계정 생성 도구 또는 Onit이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 > 
 > 
 
-## <a name="assigning-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
@@ -182,6 +185,10 @@ Onit의 경우 프로비전은 수동 작업입니다.
    
    ![예](./media/active-directory-saas-onit-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
+SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
+## <a name="additional-resources"></a>추가 리소스
+
+* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 

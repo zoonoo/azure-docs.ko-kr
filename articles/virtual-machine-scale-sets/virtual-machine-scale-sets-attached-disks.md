@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/6/2017
+ms.date: 4/25/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 91d36d5321f455a2af31093fa460ddf6640942d4
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: d991adb8fa8f71a8785327be244ad9749a837dfd
+ms.lasthandoff: 04/26/2017
 
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Azure VM Scale Sets 및 연결된 데이터 디스크
-이제 Azure [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)은 연결된 데이터 디스크가 있는 가상 컴퓨터를 지원합니다. Azure Managed Disks를 사용하여 만든 크기 집합에 대한 저장소 프로필에서 데이터 디스크를 정의할 수 있습니다. 이전에 크기 집합에서 VM과 함께 사용할 수 있는 직접 연결된 저장소 옵션에는 OS 드라이브 및 임시 드라이브가 있었습니다.
+이제 Azure [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)은 연결된 데이터 디스크가 있는 가상 컴퓨터를 지원합니다. Azure Managed Disks를 사용하여 만든 확장 집합에 대한 저장소 프로필에서 데이터 디스크를 정의할 수 있습니다. 이전에 크기 집합에서 VM과 함께 사용할 수 있는 직접 연결된 저장소 옵션에는 OS 드라이브 및 임시 드라이브가 있었습니다.
 
 > [!NOTE]
 >  정의된 연결된 데이터 디스크를 사용하여 크기 집합을 만드는 경우 독립 실행형 Azure VM의 경우와 마찬가지로 사용할 VM 내에서 디스크를 탑재하고 포맷해야 합니다. 이 작업을 수행하는 편리한 방법은 사용자 지정 스크립트 확장을 사용하여 VM에서 모든 데이터 디스크를 분할하고 포맷하는 표준 스크립트를 호출하는 것입니다.
@@ -58,10 +58,21 @@ az vmss create --help
 다음에 정의된 연결된 디스크를 포함한 크기 집합 템플릿의 예제를 배포하기 위해 완벽하게 준비되었습니다. [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data)
 
 ## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>기존 크기 집합에 데이터 디스크 추가
+> [!NOTE]
+>  [Azure Managed Disks](./virtual-machine-scale-sets-managed-disks.md)를 사용하여 만든 확장 집합에만 데이터 디스크를 연결할 수 있습니다.
+
 Azure CLI _az vmss disk attach_ 명령을 사용하여 VM 크기 집합에 데이터 디스크를 추가할 수 있습니다. 사용될 준비가 되지 않은 lun을 지정해야 합니다. 다음 CLI 예제는 50GB 드라이브를 lun 3에 추가합니다.
 ```bash
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
+
+다음 PowerShell 예제는 50GB 드라이브를 lun 3에 추가합니다.
+```powershell
+$vmss = Get-AzureRmVmss -ResourceGroupName myvmssrg -VMScaleSetName myvmss
+$vmss = Add-AzureRmVmssDataDisk -VirtualMachineScaleSet $vmss -Lun 3 -Caching 'ReadWrite' -CreateOption Empty -DiskSizeGB 50 -StorageAccountType StandardLRS
+Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScaleSet $vmss
+```
+
 > [!NOTE]
 > 다양한 VM 크기에 따라 지원하는 연결된 드라이브의 숫자가 제한됩니다. 새 디스크를 추가하기 전에 [가상 컴퓨터 크기 특성](../virtual-machines/windows/sizes.md)을 확인합니다.
 

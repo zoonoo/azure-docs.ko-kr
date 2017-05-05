@@ -61,8 +61,3 @@ Java 또는 PHP를 사용하려는 경우 [Java/PHP에서 Notification Hubs를 �
 [Mobile Apps에 대한 푸시 알림 추가]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [Java/PHP에서 Notification Hubs를 사용하는 방법]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
 [Microsoft.Azure.Notification Hubs NuGet 패키지]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -126,8 +126,8 @@
 ### [처리량 테스트](virtual-network-bandwidth-testing.md)
 
 # 참조
-## [PowerShell(리소스 관리자)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
-## [PowerShell(클래식)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [PowerShell(리소스 관리자)](/powershell/module/azurerm.network)
+## [PowerShell(클래식)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST(리소스 관리자)](https://msdn.microsoft.com/library/mt163658.aspx)

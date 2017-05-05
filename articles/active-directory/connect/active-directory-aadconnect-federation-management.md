@@ -13,12 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 4/4/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: b4b5e1af6c03e1124de78308cab1dad86d06641e
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 2a64405c0862d09dd487d260a651123eafbcaf99
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -29,6 +29,7 @@ ms.lasthandoff: 03/28/2017
 |:--- |:--- |
 | **AD FS 관리** | |
 | [트러스트 복구](#repairthetrust) |Office 365를 사용하여 페더레이션 트러스트를 복구하는 방법입니다. |
+| [대체 로그인 ID를 사용하여 Azure AD와 페더레이션](#alternateid) | 대체 로그인 ID를 사용하여 페더레이션 구성  |
 | [AD FS 서버 추가](#addadfsserver) |추가 AD FS 서버를 사용하여 AD FS 팜을 확장하는 방법입니다. |
 | [AD FS 웹 응용 프로그램 프록시 서버 추가](#addwapserver) |추가 WAP(웹 응용 프로그램 프록시) 서버를 사용하여 AD FS 팜을 확장하는 방법입니다. |
 | [페더레이션된 도메인을 추가합니다.](#addfeddomain) |페더레이션된 도메인을 추가하는 방법입니다. |
@@ -66,6 +67,22 @@ Azure AD Connect를 사용하여 AD FS와 Azure AD 트러스트의 현재 상태
 
 > [!NOTE]
 > Azure AD Connect는 자체 서명된 인증서에 대해서만 복구 또는 조치를 취할 수 있습니다. Azure AD Connect에서 타사 인증서를 복구할 수 없습니다.
+
+## <a name=alternateid>대체 ID를 사용하여 Azure AD와 페더레이션</a>
+온-프레미스 UPN(사용자 계정 이름) 및 클라우드 사용자 계정 이름을 동일하게 유지하는 것이 좋습니다. 온-프레미스 UPN이 라우팅할 수 없는 도메인(예: Contoso.local)을 사용하거나 로컬 응용 프로그램 종속성으로 인해 변경될 수 없는 경우 대체 로그인 ID를 설정하는 것이 좋습니다. 대체 로그인 ID를 사용하면 사용자가 UPN 이외의 특성(예: 메일)을 사용하여 로그인할 수 있는 로그인 환경을 구성할 수 있습니다. Azure AD Connect에서 선택할 수 있는 기본 사용자 계정 이름은 Active Directory의 userPrincipalName 특성입니다. 사용자 계정 이름에 대해 다른 특성을 선택하고 AD FS를 사용하여 페더레이션할 경우 Azure AD Connect는 대체 로그인 ID에 맞게 AD FS를 구성합니다. 사용자 계정 이름으로 선택할 수 있는 다른 특성은 아래와 같습니다.
+
+![대체 ID 특성 선택 항목](media/active-directory-aadconnect-federation-management/attributeselection.png)
+
+AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성됩니다.
+1. **올바른 발급 클레임 집합 구성**: Azure AD 신뢰 당사자 트러스트의 발급 클레임 규칙이 선택한 UserPrincipalName 특성을 사용자의 대체 ID로 사용하도록 수정됩니다.
+2. **AD FS 구성에서 대체 로그인 ID를 사용하도록 설정**: AD FS가 대체 ID를 사용하여 해당 포리스트에서 사용자를 조회할 수 있도록 AD FS 구성이 업데이트됩니다 이 구성은 Windows Server 2012 R2(KB2919355) 이상의 AD FS에 대해 지원됩니다. AD FS 서버가 2012 R2인 경우 Azure AD Connect는 필요한 KB가 있는지 확인합니다. KB가 검색되지 않으면 구성이 완료된 후에 아래와 같이 경고가 표시됩니다.
+
+    ![2012R2의 KB 누락에 대한 경고](media/active-directory-aadconnect-federation-management/kbwarning.png)
+
+    KB가 누락된 경우 구성 문제를 수정하려면 필요한 [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590)를 설치한 다음 [AAD 및 AD FS 트러스트 복구](#repairthetrust)를 사용하여 트러스트를 복구합니다.
+
+> [!NOTE]
+> alternateID 및 수동 구성 단계에 대한 자세한 내용은 [대체 로그인 ID 구성](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)을 참조하세요.
 
 ## AD FS 서버 추가 <a name=addadfsserver></a>
 

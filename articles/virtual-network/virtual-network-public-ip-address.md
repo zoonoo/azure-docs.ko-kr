@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5274ffe641768e0725623c2acf38d432a97eea9f
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 9e65a61b2b156611e998f266068ab5e1e306143d
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/03/2017
 
 이 문서의 나머지 섹션에서는 모든 공용 IP 주소 관련 작업을 수행하는 단계를 나열합니다. 각 섹션에서는 다음과 같이 나열합니다.
 - Azure Portal에서 작업을 수행하는 단계 - 단계를 수행하려면 [Azure Portal](http://portal.azure.com)에 로그인해야 합니다. 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 등록합니다.
-- 명령에 대한 명령 참조에 연결되는 링크가 있는 Azure PowerShell을 사용하여 작업을 수행하는 명령 - [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서의 단계를 수행하여 PowerShell을 설치하고 구성합니다. 예제와 함께 PowerShell 명령에 대한 도움말을 보려면 `get-help <command> -full`을 입력합니다.
+- 명령에 대한 명령 참조에 연결되는 링크가 있는 Azure PowerShell을 사용하여 작업을 수행하는 명령 - [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 문서의 단계를 수행하여 PowerShell을 설치하고 구성합니다. 예제와 함께 PowerShell 명령에 대한 도움말을 보려면 `get-help <command> -full`을 입력합니다.
 - 명령에 대한 명령 참조에 연결되는 링크가 있는 Azure CLI(명령줄 인터페이스)를 사용하여 작업을 수행하는 명령 - [Azure CLI 2.0 설치 및 구성 방법](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서의 단계를 수행하여 Azure CLI를 설치합니다. CLI 명령에 대한 도움말을 보려면 `az <command> -h`를 입력합니다.
 
 공용 IP 주소에는 명목 요금이 부과됩니다. 가격을 보려면 [IP 주소 가격](https://azure.microsoft.com/pricing/details/ip-addresses) 페이지를 참조하세요. 구독 내에서 사용할 수 있는 공용 IP 주소의 수는 제한됩니다. 제한에 대한 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) 문서를 참조하세요. 
@@ -61,7 +61,7 @@ ms.lasthandoff: 04/03/2017
 |**도구**|**명령**|
 |---|---|
 |**CLI**|[az network public-ip-create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|**PowerShell**|[New-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/new-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="change"></a>공용 IP 주소 설정 변경 또는 삭제
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 04/03/2017
 |**도구**|**명령**|
 |---|---|
 |**CLI**|업데이트: [az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#update), 삭제: [az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|**PowerShell**|업데이트: [Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json), 삭제: [Remove-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/remove-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|**PowerShell**|업데이트: [Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/v3.4.0/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json), 삭제: [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress)|
 
 ## <a name="next-steps"></a>다음 단계
 다음 Azure 리소스를 만들 때 공용 IP 주소를 할당합니다.
@@ -90,3 +90,4 @@ ms.lasthandoff: 04/03/2017
 - [Azure 응용 프로그램 게이트웨이](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure VPN Gateway를 사용하여 사이트 간 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Virtual Machine Scale Set](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+

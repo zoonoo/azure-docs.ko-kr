@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/23/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2e26bd81c59fd53a0e8fc693dde30cb403995896
-ms.openlocfilehash: 38d37e45c34c8c0a3bd2ed94f72944208292f466
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: ce6d8301c9c9fc0b9ac6bc2e31023ebbbba8a67c
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -292,7 +292,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     반환 값은 `/clusters/CLUSTERNAME/`과 비슷합니다. 이 값은 Data Lake Store 계정 내의 경로입니다. 이 경로는 클러스터에 대한 HDFS 호환 파일 시스템의 루트입니다. 
 
 > [!NOTE]
-> [Azure PowerShell](https://docs.microsoft.com/powershell/)에서 제공하는 `Get-AzureRmHDInsightCluster` cmdlet 또한 클러스터에 대한 저장소 정보를 반환합니다.
+> [Azure PowerShell](/powershell/azure/overview)에서 제공하는 `Get-AzureRmHDInsightCluster` cmdlet 또한 클러스터에 대한 저장소 정보를 반환합니다.
 
 
 ## <a name="example-get-configuration"></a>예제: 구성 가져오기

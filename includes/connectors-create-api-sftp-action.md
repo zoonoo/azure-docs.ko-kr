@@ -27,8 +27,3 @@
    ![SFTP 동작 조건 이미지 13](./media/connectors-create-api-sftp/condition-13.png)   
 9. 워크플로에 대한 변경 내용을 저장합니다.  
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -25,8 +25,3 @@
    
    ![기존 클라우드 서비스에 가상 컴퓨터 추가](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

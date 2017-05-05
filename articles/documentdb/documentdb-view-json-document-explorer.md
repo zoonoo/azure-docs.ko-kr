@@ -13,17 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 04/18/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 81c569c5130869e6d8c9dc79feca592aecc44e61
-ms.openlocfilehash: edccbbb72649c5a443fefd7f1d97a8c01a4daff2
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: 4338fc03664175b7c27a48f1ab682179c1035313
+ms.lasthandoff: 04/21/2017
 
 
 ---
-# <a name="view-edit-create-and-upload-json-documents-using-documentdb-document-explorer"></a>DocumentDB 문서 탐색기를 사용하여 JSON 문서 보기, 편집, 만들기 및 업로드
-이 문서에서는 DocumentDB를 사용하여 JSON 문서를 보고, 편집하며, 만들고, 업로드하고, 필터링할 수 있는 Azure 포털 도구인 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 문서 탐색기에 대해 개괄적으로 설명합니다. 
+# <a name="view-edit-create-and-upload-json-documents"></a>JSON 문서 보기, 편집, 만들기 및 업로드 
+
+이 문서에서는 포털에서 문서를 만들고, 편집하고, 쿼리할 수 있는 2가지 방법, 즉 [문서 탐색기](#launch-document-explorer) 및 [데이터 탐색기(미리 보기)](#data-explorer)에 대해 간략히 설명합니다.
 
 > [!NOTE]
 > MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 탐색기를 사용할 수 없습니다. 이 페이지는 이 기능이 설정된 경우에 업데이트됩니다.
@@ -147,6 +148,13 @@ ms.lasthandoff: 02/15/2017
    
     ![문서 탐색기 대량 수집 결과 스크린샷](./media/documentdb-view-JSON-document-explorer/uploaddocument3.png)
 5. 작업이 완료되면 업로드할 다른 문서를 최대 100개까지 선택할 수 있습니다.
+
+<a id="data-explorer"></a>
+## <a name="create-a-document-by-using-data-explorer-preview"></a>데이터 탐색기(미리 보기)를 사용하여 문서 만들기
+
+포털에서 문서를 만들고 편집하고 쿼리하는 또 다른 방법은 데이터 탐색기를 사용하는 것입니다. 데이터 탐색기를 열려면 다음 그림과 같이 포털의 탐색 모음에서 **데이터 탐색기(미리 보기)**를 클릭하고 데이터베이스 이름, 컬렉션 이름을 차례로 확장하고, **문서**를 클릭한 후 **새 문서**를 클릭합니다.
+
+![포털의 새 컬렉션 단추를 보여 주는 스크린샷](./media/documentdb-view-JSON-document-explorer/azure-documentdb-data-explorer.png)
 
 ## <a name="work-with-json-documents-outside-the-portal"></a>포털 외부 JSON 문서 작업
 Azure 포털의 문서 탐색기는 DocumentDB의 문서 작업 방법 중 한 가지입니다. [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) 또는 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 사용하여 문서 작업을 할 수도 있습니다. 예제 코드는 [.NET SDK 문서 예제](documentdb-dotnet-samples.md#document-examples) 및 [Node.js SDK 문서 예제](documentdb-nodejs-samples.md#document-examples)를 참조하세요.

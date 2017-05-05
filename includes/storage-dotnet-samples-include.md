@@ -14,7 +14,3 @@ Azure Storage .NET 클라이언트 라이브러리에 대한 모든 샘플 리�
 * [REST API를 통한 가져오기 내보내기 작업 관리](https://azure.microsoft.com/resources/samples/storage-dotnet-import-export-job-management/)
 * [MyDriving - Azure IoT 및 모바일 샘플 응용 프로그램](https://azure.microsoft.com/resources/samples/mydriving/)
 * [.NET Storage 클라이언트 라이브러리 샘플](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted)
-
-<!--HONumber=Jan17_HO3-->
-
-

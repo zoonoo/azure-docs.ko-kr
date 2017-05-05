@@ -4,19 +4,19 @@ description: "장치 또는 데스크톱 앱, 웹 페이지, 서비스에 코드
 services: application-insights
 documentationcenter: 
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 80400495-c67b-4468-a92e-abf49793a54d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 03/31/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 1330d8be444f596b0d1ed2038eaeb1200e8b9285
-ms.openlocfilehash: 6951a50050c5b0c8edb2deb1eb64aef44e94ff96
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 64632e58330b8212be24b98f861a3a4f358e72df
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,12 +31,12 @@ API는 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 | 메서드 | 용도 |
 | --- | --- |
 | [`TrackPageView`](#page-views) |페이지, 화면, 블레이드 또는 양식. |
-| [`TrackEvent`](#track-event) |사용자 작업 및 기타 이벤트. 사용자 동작을 추적하거나 성능을 모니터링하는 데 사용됩니다. |
-| [`TrackMetric`](#track-metric) |특정 이벤트와 관련이 없는 큐 길이와 같은 성능 측정. |
-| [`TrackException`](#track-exception) |진단 예외를 기록합니다. 다른 이벤트와 관련하여 발생 위치를 추적하고 스택 추적을 검사합니다. |
-| [`TrackRequest`](#track-request) |성능 분석에 대한 서버 요청 빈도 및 기간을 기록합니다. |
-| [`TrackTrace`](#track-trace) |진단 로그 메시지. 타사 로그도 캡처할 수 있습니다. |
-| [`TrackDependency`](#track-dependency) |기간 및 빈도 앱이 종속된 외부 구성 요소에 대한 호출을 기록합니다. |
+| [`TrackEvent`](#trackevent) |사용자 작업 및 기타 이벤트. 사용자 동작을 추적하거나 성능을 모니터링하는 데 사용됩니다. |
+| [`TrackMetric`](#send-metrics) |특정 이벤트와 관련이 없는 큐 길이와 같은 성능 측정. |
+| [`TrackException`](#trackexception) |진단 예외를 기록합니다. 다른 이벤트와 관련하여 발생 위치를 추적하고 스택 추적을 검사합니다. |
+| [`TrackRequest`](#trackrequest) |성능 분석에 대한 서버 요청 빈도 및 기간을 기록합니다. |
+| [`TrackTrace`](#tracktrace) |진단 로그 메시지. 타사 로그도 캡처할 수 있습니다. |
+| [`TrackDependency`](#trackdependency) |기간 및 빈도 앱이 종속된 외부 구성 요소에 대한 호출을 기록합니다. |
 
 이러한 대부분의 원격 분석 호출에 [속성 및 메트릭을 연결](#properties) 할 수 있습니다.
 
@@ -45,9 +45,9 @@ API는 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 
 * 프로젝트에 Application Insights SDK 추가:
 
-  * [ASP.NET 프로젝트][greenbrown]
-  * [Java 프로젝트][java]
-  * [각 웹 페이지의 JavaScript][client]   
+  * [ASP.NET 프로젝트](app-insights-asp-net.md)
+  * [Java 프로젝트](app-insights-java-get-started.md)
+  * [각 웹 페이지의 JavaScript](app-insights-javascript.md) 
 * 장치 또는 웹 서버 코드에 다음을 포함합니다.
 
     *C#:* `using Microsoft.ApplicationInsights;`
@@ -76,7 +76,7 @@ TelemetryClient는 스레드로부터 안전합니다.
 앱의 각 모듈에 대해 TelemetryClient 인스턴스를 사용하는 것이 좋습니다. 예를 들어 웹 서비스에 들어오는 HTTP 요청을 보고하는 TelemetryClient 인스턴스 하나가 있고 미들웨어 클래스에 비즈니스 논리 이벤트를 보고하는 다른 하나가 있을 수 있습니다. `TelemetryClient.Context.User.Id`와 같은 속성을 설정하여 사용자 및 세션을 추적하거나 `TelemetryClient.Context.Device.Id`를 설정하여 컴퓨터를 식별할 수 있습니다. 이 정보는 인스턴스에서 보내는 모든 이벤트에 연결됩니다.
 
 ## <a name="trackevent"></a>TrackEvent
-Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기][metrics]에 집계된 개수로 표시하고 [진단 검색][diagnostic]에 개별 항목으로 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
+Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기](app-insights-metrics-explorer.md)에 집계된 개수로 표시하고 [진단 검색](app-insights-diagnostic-search.md)에 개별 항목으로 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
 
 코드에 TrackEvent 호출을 삽입하여 사용자가 특정 기능을 얼마나 자주 선택하는지, 특정 목표를 얼마나 자주 달성하는지 또는 특정 유형의 실수를 얼마나 자주 하는지 계산할 수 있습니다.
 
@@ -116,45 +116,128 @@ Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기]
 
 ![필터를 열고 이벤트 이름을 확장한 다음 하나 이상의 값을 선택합니다.](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
-## <a name="trackmetric"></a>TrackMetric
-TrackMetric을 사용하여 특정 이벤트에 연결되지 않은 메트릭을 보낼 수 있습니다. 예를 들어 정기적으로 큐 길이를 모니터링할 수 있습니다.
 
-메트릭은 메트릭 탐색기에 통계 차트로 표시됩니다. 하지만 이벤트와는 달리 진단 검색에서 개별 항목에 대해 검색할 수 없습니다.
+## <a name="send-metrics"></a>메트릭 보내기
 
-메트릭 값을 올바르게 표시하려면 0보다 크거나 같아야 합니다.
+Application Insights에서는 특정 이벤트에 연결되지 않은 메트릭을 차트로 작성할 수 있습니다. 예를 들어 정기적으로 큐 길이를 모니터링할 수 있습니다. 메트릭을 사용할 경우 개별 측정값보다 변형 및 추세에 좀 더 관심을 갖게 되며 통계 차트가 유용합니다.
+
+메트릭을 전송하는 방법에는 다음 두 가지가 있습니다.
+
+* **MetricManager**는 대역폭을 줄이면서 메트릭을 전송하는 편리한 방법으로 권장됩니다. 이 방법은 앱의 메트릭을 집계한 후 집게한 통계를 1분 간격으로 포털로 전송합니다. MetricManager는 ASP.NET용 Application Insights SDK 버전 2.4에서 사용할 수 있습니다.
+* **TrackMetric**은 포털에 메트릭 통계를 전송합니다. 단일 메트릭 값을 전송하거나 자체 집계를 수행한 후 TrackMetric을 사용하여 통계를 전송할 수 있습니다.
+
+### <a name="metricmanager"></a>MetricManager
+
+(ASP.NET용 Application Insights v2.4.0+)
+
+MetricManager의 인스턴스를 만들고 메트릭에 대한 팩터리로 사용합니다.
+
+*C#*
+```C#
+    // Initially:
+    var manager = new Microsoft.ApplicationInsights.Extensibility.MetricManager(telemetryClient);
+
+    // For each metric that you want to use:
+    var metric1 = mgr.CreateMetric("m1", dimensions);
+
+    // Each time you want to record a measurement:
+    metric1.Track(value);
+
+```
+
+`dimensions`는 선택적 문자열 사전입니다. 속성 값별로 구분할 수 있도록 [속성](#properties)을 메트릭에 연결하려는 경우에 사용합니다. 
+
+### <a name="trackmetric"></a>TrackMetric
+
+TrackMetric은 집계된 메트릭을 전송하기 위한 기본 메서드입니다. 
+
+단일 메트릭 값을 전송하려면
 
 *JavaScript*
 
-    appInsights.trackMetric("Queue", queue.Length);
+ ```Javascript
+     appInsights.trackMetric("queueLength", 42.0);
+ ```
+
+*C#, Java*
+
+```C#
+    var sample = new MetricTelemetry();
+    sample.Name = "metric name";
+    sample.Value = 42.3;
+    telemetryClient.TrackMetric(sample);
+```
+
+그러나 앱에서 전송하기 전에 메트릭을 집계해서 대역폭을 줄이는 것이 좋습니다.
+최신 버전의 ASP.NET용 SDK를 사용하는 경우 [`MetricManager`](#metricmanager)를 사용하여 이 작업을 수행할 수 있습니다. 다음은 집계 코드 예제입니다.
 
 *C#*
 
-    telemetry.TrackMetric("Queue", queue.Length);
-
-*Visual Basic*
-
-    telemetry.TrackMetric("Queue", queue.Length)
-
-*Java*
-
-    telemetry.trackMetric("Queue", queue.Length);
-
-사실, 이 작업을 백그라운드 스레드에서 수행할 수도 있습니다.
-
-*C#*
-
-    private void Run() {
-     var appInsights = new TelemetryClient();
-     while (true) {
-      Thread.Sleep(60000);
-      appInsights.TrackMetric("Queue", queue.Length);
-     }
+```C#
+    /// Accepts metric values and sends the aggregated values at 1-minute intervals.
+    class MetricAggregator
+    {
+        private List<double> measurements = new List<double>();
+        private string name;
+        private TelemetryClient telemetryClient;
+        private BackgroundWorker thread;
+        private Boolean stop = false;
+        public void TrackMetric (double value)
+        {
+            lock (this)
+            {
+                measurements.Add(value);
+            }
+        }
+        public MetricTelemetry Aggregate()
+        {
+            lock (this)
+            {
+                var sample = new MetricTelemetry();
+                sample.Name = "metric name";
+                sample.Count = measurements.Count;
+                sample.Max = measurements.Max();
+                sample.Min = measurements.Min();
+                sample.Sum = measurements.Sum();
+                var mean = sample.Sum / measurements.Count;
+                sample.StandardDeviation = Math.Sqrt(measurements.Sum(v => { var diff = v - mean; return diff * diff; }) / measurements.Count);
+                sample.Timestamp = DateTime.Now;
+                measurements.Clear();
+                return sample;
+            }
+        }
+        public MetricAggregator(string Name)
+        {
+            name = Name;
+            thread = new BackgroundWorker();
+            thread.DoWork += async (o, e) => {
+                while (!stop)
+                {
+                    await Task.Delay(60000);
+                    telemetryClient.TrackMetric(this.Aggregate());
+                }
+            };
+            thread.RunWorkerAsync();
+        }
     }
+```
+### <a name="custom-metrics-in-metrics-explorer"></a>메트릭 탐색기의 사용자 지정 메트릭
 
+결과를 보려면 메트릭 탐색기를 열고 새 차트를 추가합니다. 차트를 편집하여 메트릭을 표시합니다.
 
-결과를 보려면 메트릭 탐색기를 열고 새 차트를 추가합니다. 메트릭을 표시하도록 설정합니다.
+> [!NOTE]
+> 사용자 지정 메트릭이 사용 가능한 메트릭 목록에 표시되는 데는 몇 분 정도 걸릴 수 있습니다.
+>
 
 ![새 차트를 추가하거나 차트를 선택하고, 사용자 지정 아래에서 메트릭을 선택합니다.](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+
+### <a name="custom-metrics-in-analytics"></a>분석의 사용자 지정 메트릭
+
+customMetrics 테이블에서 원격 분석을 사용할 수 있습니다. 각 행은 앱의 trackMetric() 호출을 나타냅니다. 따라서 MetricManager 또는 자체 집계 코드를 사용한 경우 각 행은 단일 측정값을 나타내지 않습니다. 
+
+* `valueSum` - 측정값의 합계입니다. 평균 값을 가져오려면 `valueCount`로 나눕니다.
+* `valueCount` - 이 trackMetric 호출로 집계된 측정값의 수입니다.
+
 
 
 ## <a name="page-views"></a>페이지 보기
@@ -209,30 +292,16 @@ TrackMetric을 사용하여 특정 이벤트에 연결되지 않은 메트릭을
 
 실행 중인 웹 서비스 모듈이 없는 상황에서 요청을 시뮬레이션하고 싶다면 사용자가 직접 호출할 수도 있습니다.
 
-*C#*
-
-    // At start of processing this request:
-
-    // Operation Id and Name are attached to all telemetry and help you identify
-    // telemetry associated with one request:
-    telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
-    telemetry.Context.Operation.Name = requestName;
-
-    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-
-    // ... process the request ...
-
-    stopwatch.Stop();
-    telemetry.TrackRequest(requestName, DateTime.Now,
-       stopwatch.Elapsed,
-       "200", true);  // Response code, success
-
-
+그러나 요청 원격 분석을 전송하는 권장 방법은 요청이 <a href="#operation-context">작업 컨텍스트</a>로 작동하는 경우입니다.
 
 ## <a name="operation-context"></a>작업 컨텍스트
 원격 분석 항목을 일반 작업 ID에 연결하여 함께 연결할 수 있습니다. 표준 요청 추적 모듈은 예외 및 HTTP 요청이 처리되는 동안 전송되는 다른 이벤트에 대해 이를 수행합니다. [검색](app-insights-diagnostic-search.md) 및 [분석](app-insights-analytics.md)에서 ID를 사용하여 요청과 관련된 모든 이벤트를 쉽게 찾을 수 있습니다.
 
 ID를 설정하는 가장 쉬운 방법은 이 패턴을 사용하여 작업 컨텍스트를 설정하는 것입니다.
+
+*C#*
+
+```C#
 
     // Establish an operation context and associated telemetry item:
     using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
@@ -248,6 +317,7 @@ ID를 설정하는 가장 쉬운 방법은 이 패턴을 사용하여 작업 컨
         telemetry.StopOperation(operation);
 
     } // When operation is disposed, telemetry item is sent.
+```
 
 작업 컨텍스트 설정과 함께 `StartOperation`은 지정하는 유형의 원격 분석 항목을 만듭니다. 작업을 삭제할 때 또는 명시적으로 `StopOperation`을 호출하는 경우 원격 분석 항목을 보냅니다. 원격 분석 형식으로 `RequestTelemetry`를 사용하는 경우 해당 기간은 시작 및 중지 사이의 시간 제한 간격으로 설정됩니다.
 
@@ -260,8 +330,8 @@ ID를 설정하는 가장 쉬운 방법은 이 패턴을 사용하여 작업 컨
 ## <a name="trackexception"></a>TrackException
 Application Insights로 예외를 보냅니다.
 
-* 문제의 빈도 표시로 [계산][metrics]하려면
-* [개별 항목을 검사][diagnostic]하려면
+* 문제의 빈도 표시로 [계산](app-insights-metrics-explorer.md)하려면
+* [개별 항목을 검사](app-insights-diagnostic-search.md)하려면
 
 보고서는 스택 추적을 포함합니다.
 
@@ -301,9 +371,9 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
     ```
 
 ## <a name="tracktrace"></a>TrackTrace
-이 TrackTrace를 사용하여 Application Insights에 '이동 경로 트레일'을 전송하면 문제 진단에 도움이 됩니다. 진단 데이터의 청크를 보내고 [진단 검색][diagnostic]에서 검사합니다.
+이 TrackTrace를 사용하여 Application Insights에 '이동 경로 트레일'을 전송하면 문제 진단에 도움이 됩니다. 진단 데이터의 청크를 보내고 [진단 검색](app-insights-diagnostic-search.md)에서 검사할 수 있습니다.
 
-[로그 어댑터][trace]는 이 API를 사용하여 포털에 타사 로그를 보냅니다.
+[로그 어댑터](app-insights-asp-net-trace-logs.md)는 이 API를 사용하여 포털에 타사 로그를 보냅니다.
 
 *C#*
 
@@ -322,7 +392,7 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
 
-[검색][diagnostic]에서 특정 데이터베이스와 관련된 특정 심각도 수준의 모든 메시지를 쉽게 필터링할 수 있습니다.
+[검색](app-insights-diagnostic-search.md)에서 특정 데이터베이스와 관련된 특정 심각도 수준의 모든 메시지를 쉽게 필터링할 수 있습니다.
 
 ## <a name="trackdependency"></a>TrackDependency
 TrackDependency 호출을 사용하여 응답 시간과 외부 코드 부분에 대한 호출의 성공률을 추적합니다. 포털에서 종속성 차트에 결과가 나타납니다.
@@ -398,7 +468,7 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 [메트릭 탐색기](app-insights-metrics-explorer.md)에서 **사용자, 인증** 및 **사용자 계정**을 계산하는 차트를 만들 수 있습니다.
 
-특정 사용자 이름과 계정으로 클라이언트 데이터 지점을 [검색][diagnostic]할 수도 있습니다.
+특정 사용자 이름과 계정으로 클라이언트 데이터 지점을 [검색](app-insights-diagnostic-search.md)할 수도 있습니다.
 
 ## <a name="properties"></a>속성을 사용하여 데이터를 필터링, 검색 및 세분화
 이벤트에(그리고 메트릭, 페이지 보기, 예외 및 기타 원격 분석 데이터에) 속성 및 측정을 연결할 수 있습니다.
@@ -496,7 +566,7 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 ![검색에 용어를 입력합니다.](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
 
-[검색 식에 대해 자세히 알아보세요][diagnostic].
+[검색 식에 대해 자세히 알아보세요](app-insights-diagnostic-search.md).
 
 ### <a name="alternative-way-to-set-properties-and-metrics"></a>속성 및 메트릭을 설정하는 또 다른 방법
 이벤트 매개 변수를 별도의 개체에 수집하는 방법이 더 편하다면 이 방법을 사용해도 됩니다.
@@ -603,7 +673,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
-*선택한 표준 수집기(예: 성능 카운터, HTTP 요청 또는 종속성)를 사용하지 않도록 설정*하려면 [ApplicationInsights.config][config]에서 관련 줄을 삭제하거나 주석으로 처리합니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
+*선택한 표준 수집기(예: 성능 카운터, HTTP 요청 또는 종속성)를 사용하지 않도록 설정*하려면 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 관련 줄을 삭제하거나 주석으로 처리합니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
 
 ## <a name="debug"></a>개발자 모드
 디버깅하는 동안 결과를 즉시 볼 수 있도록 파이프라인을 통해 원격 분석을 신속하게 처리할 때 유용합니다. 또한 원격 분석과 관련된 모든 문제를 추적하는 데 도움이 되는 추가 메시지가 제공됩니다. 앱이 느려질 수 있으므로 프로덕션 환경에서는 끄는 것이 좋습니다.
@@ -626,7 +696,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 
 ## <a name="dynamic-ikey"></a> 동적 계측 키
-개발, 테스트 및 프로덕션 환경에서 원격 분석이 섞이지 않게 방지하려면 [별도의 Application Insights 리소스를 만들고][create] 환경에 따라 키를 변경하세요.
+개발, 테스트 및 프로덕션 환경에서 원격 분석이 섞이지 않게 방지하려면 [별도의 Application Insights 리소스를 만들고](app-insights-create-new-resource.md) 환경에 따라 키를 변경하세요.
 
 구성 파일에서 계측 키를 가져오는 대신 코드에서 설정할 수 있습니다. ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
 
@@ -666,7 +736,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
     telemetry.Context.Operation.Name = "MyOperationName";
 
-이러한 값을 직접 설정하는 경우 사용자의 값과 표준 값이 혼동되지 않도록 [ApplicationInsights.config][config]에서 관련 줄을 제거해야 합니다.
+이러한 값을 직접 설정하는 경우 사용자의 값과 표준 값이 혼동되지 않도록 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 관련 줄을 제거해야 합니다.
 
 * **Component**: 앱 및 앱 버전입니다.
 * **Device**: 앱이 실행되는 장치에 대한 데이터입니다. (웹앱에서 원격 분석이 전송되는 서버 또는 클라이언트 장치입니다.)
@@ -685,7 +755,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
 데이터 속도 제한에 도달하지 않도록 하려면 [샘플링](app-insights-sampling.md)을 사용합니다.
 
-데이터 유지 기간을 결정하려면 [데이터 보존 및 개인 정보][data]를 참조하세요.
+데이터 유지 기간을 결정하려면 [데이터 보존 및 개인 정보](app-insights-data-retention-privacy.md)를 참조하세요.
 
 ## <a name="reference-docs"></a>참조 문서
 * [ASP.NET 참조](https://msdn.microsoft.com/library/dn817570.aspx)
@@ -711,23 +781,10 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
     예, [데이터 액세스 API](https://dev.applicationinsights.io/)가 있습니다. 데이터를 추출하는 다른 방법에는 [Analytics에서 Power BI로 내보내기](app-insights-export-power-bi.md) 및 [연속 내보내기](app-insights-export-telemetry.md)가 있습니다.
 
 ## <a name="next"></a>다음 단계
-* [검색 이벤트 및 로그][diagnostic]
+* [검색 이벤트 및 로그](app-insights-diagnostic-search.md)
 
-* [샘플 및 연습](app-insights-code-samples.md)
+* [문제 해결](app-insights-troubleshoot-faq.md)
 
-* [문제 해결][qna]
 
-<!--Link references-->
 
-[client]: app-insights-javascript.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
-[create]: app-insights-create-new-resource.md
-[data]: app-insights-data-retention-privacy.md
-[diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-asp-net.md
-[java]: app-insights-java-get-started.md
-[metrics]: app-insights-metrics-explorer.md
-[qna]: app-insights-troubleshoot-faq.md
-[trace]: app-insights-search-diagnostic-logs.md
 

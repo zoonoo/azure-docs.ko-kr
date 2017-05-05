@@ -16,9 +16,9 @@ ms.date: 02/06/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 translationtype: Human Translation
-ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
-ms.openlocfilehash: a90c412d2d66834cd0df3f348fa488b6ce10c898
-ms.lasthandoff: 02/07/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 159e41f3d1b43abc830b79e1ea0bed05e05505a2
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/07/2017
 이 자습서에서는 Twitter 스트리밍 API를 사용해 트윗을 가져온 다음 Azure HDInsight의 Apache Hive를 사용하여 특정 단어가 포함된 트윗을 가장 많이 보낸 Twitter 사용자 목록을 가져옵니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요. Linux 기반 클러스터에 대한 단계는 [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석(Linux)](hdinsight-analyze-twitter-data-linux.md)을 참조하세요.
+> 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요. Linux 기반 클러스터에 대한 단계는 [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석(Linux)](hdinsight-analyze-twitter-data-linux.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
@@ -231,7 +231,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
     Write-Host "Completed!" -ForegroundColor Green
     ```
 
-3. 스크립트에서 첫 번째&5;~8개의 변수를 설정합니다.
+3. 스크립트에서 첫 번째 5~8개의 변수를 설정합니다.
 
     변수|설명
     ---|---
@@ -440,7 +440,7 @@ HiveQL 스크립트는 다음을 수행합니다.
     Write-Host "Completed!" -ForegroundColor Green
     ```
 
-3. 스크립트에서 첫&2;개의 변수를 설정합니다.
+3. 스크립트에서 첫 2개의 변수를 설정합니다.
 
    | 변수 | 설명 |
    | --- | --- |
@@ -461,7 +461,7 @@ HiveQL 스크립트는 다음을 수행합니다.
 다음 Windows PowerShell 스크립트를 사용하여 Hive 스크립트를 실행합니다. 첫 번째 변수를 설정해야 합니다.
 
 > [!NOTE]
-> 마지막 두 섹션에서 업로드한 HiveQL 스크립트 및 트윗을 사용하려면 $hqlScriptFile을 "/tutorials/twitter/twitter.hql"로 설정합니다. 사용자를 위해 공개 blob에 업로드한 것을 사용하려면 $hqlScriptFile을 "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"로 설정합니다.
+> 마지막 두 섹션에서 업로드한 HiveQL 스크립트 및 트윗을 사용하려면 $hqlScriptFile을 "/tutorials/twitter/twitter.hql"로 설정합니다. 사용자를 위해 공개 blob에 업로드한 것을 사용하려면 $hqlScriptFile을 “wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql”로 설정합니다.
 
 ```powershell
 #region variables and constants
@@ -500,7 +500,7 @@ Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $jobID -DefaultCo
 ```
 
 ### <a name="check-the-results"></a>결과 확인
-다음 Windows PowerShell 스크립트를 사용하여 Hive 작업 출력을 확인합니다. 처음&2;개의 변수를 설정해야 합니다.
+다음 Windows PowerShell 스크립트를 사용하여 Hive 작업 출력을 확인합니다. 처음 2개의 변수를 설정해야 합니다.
 
 ```powershell
 #region variables and constants
@@ -563,7 +563,7 @@ Write-Host "==================================" -ForegroundColor Green
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176961.aspx
 
-[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage-powershell]:hdinsight-hadoop-use-blob-storage.md#access-blobs-using-azure-powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md

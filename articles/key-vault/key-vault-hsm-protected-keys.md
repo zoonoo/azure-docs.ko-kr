@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 593fdde402845fa062dbceafa533a1efc1f7af9c
-ms.openlocfilehash: b189106be19b95366ba0e6d248c69b34b219b8a1
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 7b499b46d4edbe4e33c568b7c50e0a44dd75a00f
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -63,7 +64,7 @@ Azure 주요 자격 증명 모음에 대해 BYOK(Bring Your Own Key)를 위한 �
 | 다음 하드웨어 및 소프트웨어:<ol><li>Windows 운영 체제 Windows 7 이상 및 Thales nShield 소프트웨어 버전 11.50 이상이 설치된 오프라인 x64 워크스테이션.<br/><br/>이 워크스테이션에서 Windows 7을 실행하는 경우 [Microsoft.NET Framework 4.5를 설치](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe)해야 합니다.</li><li>인터넷에 연결되어 있으며 Windows 운영 체제 Windows 7 이상이 설치된 워크스테이션</li><li>여유 공간이 16MB 이상인 USB 드라이브 또는 기타 휴대용 저장 장치 </li></ol> |보안상의 이유로 첫 번째 워크스테이션은 네트워크에 연결하지 않는 것이 좋습니다. 그러나 이 권고는 프로그램 방식으로 강제 적용되지는 않습니다.<br/><br/>이후의 지침에서는 이 워크스테이션을 분리된 워크스테이션이라 합니다.</p></blockquote><br/>또한 테넌트 키가 프로덕션 네트워크용인 경우 별도의 두 번째 워크스테이션을 사용하여 도구 집합을 다운로드하고 테넌트 키를 업로드하는 것이 좋습니다. 그러나 테스트 목적인 경우에는 첫 번째와 동일한 워크스테이션을 사용할 수 있습니다.<br/><br/>이후의 지침에서는 이 두 번째 워크스테이션을 인터넷에 연결된 워크스테이션이라 합니다.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>키 생성 및 Azure 주요 자격 증명 모음에 전송
-다음&5;단계에 따라 키를 생성하여 Azure Key Vault HSM으로 보냅니다.
+다음 5단계에 따라 키를 생성하여 Azure Key Vault HSM으로 보냅니다.
 
 * [1단계: 인터넷에 연결된 워크스테이션 준비](#step-1-prepare-your-internet-connected-workstation)
 * [2단계: 연결이 끊어진 워크스테이션 준비](#step-2-prepare-your-disconnected-workstation)
@@ -77,13 +78,13 @@ Azure 주요 자격 증명 모음에 대해 BYOK(Bring Your Own Key)를 위한 �
 ### <a name="step-11-install-azure-powershell"></a>1.1단계: Azure PowerShell 설치
 인터넷에 연결된 워크스테이션에서 Azure 주요 자격 증명 모음을 관리하기 위해 cmdlet이 포함된 Azure PowerShell 모듈을 다운로드하고 설치합니다. 이를 위해 0.8.13 이상 버전이 필요합니다.
 
-설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>1.2단계: Azure 구독 ID 얻기
 Azure PowerShell 세션을 시작하고 다음 명령을 사용하여 Azure 계정에 로그인합니다.
 
         Add-AzureAccount
-팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. 그런 다음 [Get-azuresubscription](https://msdn.microsoft.com/library/azure/dn790366.aspx) 명령을 사용합니다.
+팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. 그런 다음 [Get-azuresubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) 명령을 사용합니다.
 
         Get-AzureSubscription
 출력된 내용에서 Azure 주요 자격 증명 모음에 사용할 구독 ID를 찾습니다. 이 구독 ID는 나중에 필요합니다.
@@ -206,14 +207,14 @@ USB 드라이브 또는 기타 휴대용 저장소에서 BYOK 도구 집합 패�
 3. 지침에 따라 Visual Studio 2013용 Visual C++ 런타임 구성 요소를 설치합니다.
 
 ## <a name="step-3-generate-your-key"></a>3단계: 키 생성
-이&3;단계에서는 연결이 끊어진 워크스테이션에서 다음 절차를 수행합니다.
+이 3단계에서는 연결이 끊어진 워크스테이션에서 다음 절차를 수행합니다.
 
 ### <a name="step-31-create-a-security-world"></a>3.1단계: 보안 영역 만들기
 명령 프롬프트를 시작하고 Thales의 새 영역 프로그램을 실행합니다.
 
     new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 
-이 프로그램은 C:\ProgramData\nCipher\Key Management Data\local 폴더에 해당하는 %NFAST_KMDATA%\local\world에 **Security World** 파일을 만듭니다. 쿼럼에 다른 값을 사용할 수 있지만, 이 예에서는 각각에 대해&3;개의 빈 카드와 핀을 입력하라는 메시지가 표시됩니다. 그러면 임의의 두 카드에서 보안 영역에 대한 모든 권한을 제공합니다. 이러한 카드가 새 보안 영역에 대한 **관리자 카드 집합** 이 됩니다.
+이 프로그램은 C:\ProgramData\nCipher\Key Management Data\local 폴더에 해당하는 %NFAST_KMDATA%\local\world에 **Security World** 파일을 만듭니다. 쿼럼에 다른 값을 사용할 수 있지만, 이 예에서는 각각에 대해 3개의 빈 카드와 핀을 입력하라는 메시지가 표시됩니다. 그러면 임의의 두 카드에서 보안 영역에 대한 모든 권한을 제공합니다. 이러한 카드가 새 보안 영역에 대한 **관리자 카드 집합** 이 됩니다.
 
 그런 다음 아래 작업을 수행합니다.
 
@@ -300,7 +301,7 @@ Thales **generatekey** 프로그램을 사용하여 키를 생성합니다.
 이제 Azure 주요 자격 증명 모음에 키를 전송할 준비가 되었습니다.
 
 ## <a name="step-4-prepare-your-key-for-transfer"></a>4단계: 전송할 키 준비
-이&4;단계에서는 연결이 끊어진 워크스테이션에서 다음 절차를 수행합니다.
+이 4단계에서는 연결이 끊어진 워크스테이션에서 다음 절차를 수행합니다.
 
 ### <a name="step-41-create-a-copy-of-your-key-with-reduced-permissions"></a>4.1단계: 축소된 권한을 가진 키의 복사본을 만듭니다.
 키에 대한 권한을 축소하려면 명령 프롬프트에서 해당 지리적 지역 또는 Azure 인스턴스에 따라 다음 중 하나를 실행합니다.
@@ -399,7 +400,7 @@ Thales **generatekey** 프로그램을 사용하여 키를 생성합니다.
 USB 드라이브 또는 기타 휴대용 저장소를 사용하여 인터넷에 연결된 워크스테이션에 이전 단계의 출력 파일(KeyTransferPackage-ContosoFirstHSMkey.byok)을 복사합니다.
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>5단계: Azure 주요 자격 증명 모음에 키 전송
-이 마지막 단계에서는 인터넷에 연결된 워크스테이션에서 [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx) cmdlet을 사용하여 연결이 끊어진 워크스테이션에서 Azure Key Vault HSM으로 복사한 키 전송 패키지를 업로드합니다.
+이 마지막 단계에서는 인터넷에 연결된 워크스테이션에서 [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) cmdlet을 사용하여 연결이 끊어진 워크스테이션에서 Azure Key Vault HSM으로 복사한 키 전송 패키지를 업로드합니다.
 
     Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
@@ -407,10 +408,5 @@ USB 드라이브 또는 기타 휴대용 저장소를 사용하여 인터넷에 
 
 ## <a name="next-steps"></a>다음 단계
 이제 주요 자격 증명 모음에서 이 HSM 보호된 키를 사용할 수 있습니다. 자세한 내용은 **Azure 주요 자격 증명 모음 시작** 자습서에서 [HSM(하드웨어 보안 모듈)을 사용하려는 경우](key-vault-get-started.md) 를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

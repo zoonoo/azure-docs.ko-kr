@@ -3,7 +3,7 @@ Windows Server 또는 Data Protection Manager(DPM)의 파일과 데이터를 Azu
 
 다음 단계에서는 백업을 저장하는 데 사용된 자격 증명 모음을 만드는 과정을 안내합니다.
 
-1.  [관리 포털](https://manage.windowsazure.com/)
+1. [관리 포털](https://manage.windowsazure.com/)
 2. **새로 만들기** > **Data Services** > **Recovery Services** > **Backup 자격 증명 모음**을 클릭하고 **빨리 만들기**를 선택합니다.
    
     ![자격 증명 모음 만들기](./media/backup-create-vault/createvault1.png)
@@ -35,9 +35,4 @@ LRS(로컬 중복 저장소)는 데이터의 복제본을 3개 유지 관리합�
 3차 백업 저장소 끝점으로 Azure를 사용 중인 경우(예: 온-프레미스에 로컬 백업 복사본을 보관하기 위해 SCDPM을 사용하는 경우 및 장기 보존 요구를 해결하기 위해 Azure를 사용하는 경우), 백업 자격 증명 모음의 **구성** 옵션에서 로컬 중복 저장소를 선택하는 것이 좋습니다. 이렇게 하면 Azure에 데이터를 저장하는 비용을 크게 줄일 수 있지만 3차 복사본에 허용될 수 있는 데이터 영속성 수준이 낮아집니다.
 
 ![LRS](./media/backup-create-vault/lrs.png)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

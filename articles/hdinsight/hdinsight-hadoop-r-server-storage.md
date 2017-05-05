@@ -16,9 +16,9 @@ ms.workload: data-services
 ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2df17cddf629cb72b7fa4d590dfaa69311c96aa4
-ms.openlocfilehash: 3e47a7e0382009a07b885a28c6e8d90f9bff9cfb
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
+ms.openlocfilehash: 18dcb3a319f78639b27f9e70a2177423192e5958
+ms.lasthandoff: 04/13/2017
 
 
 ---
@@ -28,7 +28,10 @@ HDInsight의 Microsoft R Server는 데이터, 코드, 분석의 결과 개체 �
 HDInsight에서 Hadoop 클러스터를 만들 때 Azure Storage 계정 또는 Data Lake 저장소를 지정합니다. 해당 계정의 특정 저장소 컨테이너에는 사용자가 만든 클러스터의 파일 시스템(예: Hadoop 분산 파일 시스템)이 있습니다. 성능을 위해 HDInsight 클러스터는 사용자가 지정한 기본 저장소 계정과 동일한 데이터 센터에 만들어집니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md "HDInsight에서 Azure Blob 저장소 사용")을 참조하세요.   
 
 ## <a name="use-multiple-azure-blob-storage-accounts"></a>여러 Azure Blob 저장소 계정 사용
-필요한 경우 HDI 클러스터가 있는 여러 Azure 저장소 계정 또는 컨테이너에 액세스할 수 있습니다. 이렇게 하려면 클러스터를 만들 때 UI에서 추가 저장소 계정을 지정하고 다음 단계에 따라 R에서 사용해야 합니다.  
+필요한 경우 HDI 클러스터가 있는 여러 Azure 저장소 계정 또는 컨테이너에 액세스할 수 있습니다. 이렇게 하려면 클러스터를 만들 때 UI에서 추가 저장소 계정을 지정하고 다음 단계에 따라 R에서 사용해야 합니다.
+
+> [!WARNING]
+> HDInsight 클러스터와 다른 위치에서는 저장소 계정을 사용할 수 없습니다.
 
 1. 저장소 계정 이름이 **storage1**이고 기본 컨테이너가 **container1**인 HDInsight 클러스터를 만듭니다.
 2. **storage2**라는 추가 저장소 계정을 지정합니다.  
@@ -128,7 +131,7 @@ HDInsight 클러스터와 연결된 Azure AD(Azure Active Directory) 서비스 �
 
 또한 Data Lake 저장소에 대한 Azure Portal 항목을 열고 **데이터 탐색기 > 액세스 > 추가**로 차례로 이동하여 클러스터를 만든 다음 하나이상의 Data Lake 저장소에 클러스터 액세스를 추가할 수도 있습니다. 
 
-Data Lake 저장소에 대한 HDI 클러스터 액세스를 추가하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store) 문서를 참조하세요.
+Data Lake 저장소에 대한 HDI 클러스터 액세스를 추가하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#create-an-hdinsight-cluster-with-access-to-azure-data-lake-store) 문서를 참조하세요.
 
 ## <a name="use-the-data-lake-store-with-r-server"></a>R 서버에서 Data Lake 저장소 사용
 Data Lake 저장소에 액세스 권한을 부여하면 보조 Azure 저장소 계정과 동일한 방식으로 HDInsight의 R 서버에서 저장소를 사용할 수 있습니다. 유일한 차이점은 다음과 같이 **wasb://** 접두사가 **adl://**로 변경된다는 것입니다.

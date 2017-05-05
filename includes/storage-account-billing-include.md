@@ -9,8 +9,3 @@ Azure 저장소 사용 비용은 저장소 계정에 따라 청구됩니다. 저
 
 [Azure 저장소 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 페이지는 계정 유형, 저장소 용량, 복제 및 트랜잭션에 대한 자세한 가격 정보를 제공합니다. [데이터 전송 가격 정보](https://azure.microsoft.com/pricing/details/data-transfers/) 에서는 데이터 송신에 대한 자세한 가격 정보를 제공합니다. [Azure 저장소 가격 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) 를 사용하여 비용을 예측할 수 있습니다.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

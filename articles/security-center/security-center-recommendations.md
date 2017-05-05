@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 04/21/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 51a882d82793e5e284cfaeec9271ff3719385fcc
-ms.openlocfilehash: 4bebc8267040a52fabc12fa96d38f96f0a0eb993
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 68d74cfde8146007930a4c340b7412fca00afc39
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -48,7 +49,7 @@ ms.openlocfilehash: 4bebc8267040a52fabc12fa96d38f96f0a0eb993
 
 각 권장 사항에 대한 세부 정보를 보려면:
 
-1. **Security Center** 블레이드에서 **권장 사항 타일**을 클릭합니다. **권장 사항** 블레이드가 열립니다.
+**Security Center** 블레이드에서 **권장 사항 타일**을 선택합니다. **권장 사항** 블레이드가 열립니다.
 
 권장 사항은 각 줄이 한 가지 특정 권장을 나타내는 표 형식으로 표시됩니다. 이 테이블의 열은 다음과 같습니다.
 
@@ -84,8 +85,8 @@ ms.openlocfilehash: 4bebc8267040a52fabc12fa96d38f96f0a0eb993
 | [Endpoint Protection 상태 경고 해결](security-center-resolve-endpoint-protection-health-alerts.md) |끝점 보호 오류를 해결하는 것이 좋습니다. |
 | [서브넷 또는 가상 컴퓨터에서 네트워크 보안 그룹 활성화](security-center-enable-network-security-groups.md) |서브넷 또는 VM에서 NSG를 활성화하는 것이 좋습니다. |
 | [인터넷 끝점을 통한 액세스 제한](security-center-restrict-access-through-internet-facing-endpoints.md) |NSG에 대한 인바운드 트래픽 규칙을 구성하라는 권장 사항입니다. |
-| [서버 SQL 감사 활성화](security-center-enable-auditing-on-sql-servers.md) |Azure SQL 서버에 대한 감사를 설정하는 것이 좋습니다. (Azure SQL 서비스에만 해당됩니다. 가상 컴퓨터에서 실행 중인 SQL을 포함하지 않습니다.) |
-| [데이터베이스 SQL 감사 활성화](security-center-enable-auditing-on-sql-databases.md) |Azure SQL Database에 대한 감사를 설정하는 것이 좋습니다. (Azure SQL 서비스에만 해당됩니다. 가상 컴퓨터에서 실행 중인 SQL을 포함하지 않습니다.) |
+| [SQL Server에서 감사 및 위협 감지 사용](security-center-enable-auditing-on-sql-servers.md) |Azure SQL 서버에 대한 감사 및 위협 감지를 켜는 것이 좋습니다. (Azure SQL 서비스에만 해당됩니다. 가상 컴퓨터에서 실행 중인 SQL을 포함하지 않습니다.) |
+| [SQL Database에서 감사 및 위협 감지 사용](security-center-enable-auditing-on-sql-databases.md) |Azure SQL Database에 대한 감사 및 위협 감지를 켜는 것이 좋습니다. (Azure SQL 서비스에만 해당됩니다. 가상 컴퓨터에서 실행 중인 SQL을 포함하지 않습니다.) |
 | [SQL 데이터베이스에서 투명한 데이터 암호화 활성화](security-center-enable-transparent-data-encryption.md) |SQL Database에 대해 암호화를 활성화하는 것이 좋습니다. (Azure SQL 서비스에만 해당됩니다.) |
 | [VM 에이전트 사용](security-center-enable-vm-agent.md) |VM 에이전트가 필요한 VM을 확인할 수 있습니다. 패치 검색, 기준 검색 및 맬웨어 방지 프로그램을 프로비전하려면 VM에 VM 에이전트가 설치되어 있어야 합니다. Azure 마켓플레이스에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. [VM 에이전트 및 확장 - 2부](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) 문서에 VM 에이전트 설치 방법이 설명되어 있습니다. |
 | [디스크 암호화 적용](security-center-apply-disk-encryption.md) |Azure 디스크 암호화(Windows 및 Linux VM)를 사용하여 VM 디스크를 암호화하는 것이 좋습니다. VM에서 OS 및 데이터 볼륨에 암호화를 사용하는 것이 좋습니다. |
@@ -97,7 +98,7 @@ ms.openlocfilehash: 4bebc8267040a52fabc12fa96d38f96f0a0eb993
 
 필터링을 수행하고 권장 사항을 해제할 수 있습니다.
 
-1. **권장 사항** 블레이드에서 **필터**를 클릭합니다. **필터** 블레이드가 열리면 확인하려는 심각도 및 상태 값을 선택합니다.
+1. **권장 사항** 블레이드에서 **필터**를 선택합니다. **필터** 블레이드가 열리면 확인하려는 심각도 및 상태 값을 선택합니다.
 
     ![필터 권장 사항][2]
 2. 권장 사항이 적용하기에 적절하지 않다고 생각되면 권장 사항을 해제하고 보기에서 필터링합니다. 권장 사항을 해제하는 두 가지 방법이 있습니다. 한 가지 방법은 항목을 마우스 오른쪽 단추로 클릭한 다음 **해제**를 선택하는 것입니다. 다른 방법은 마우스 포인터로 항목을 가리키고 오른쪽에 나타나는 점 세 개를 클릭한 다음 **해제**를 선택하는 것입니다. **필터**를 클릭하고 **해제됨**을 선택하면 해제된 권장 사항을 볼 수 있습니다.
@@ -123,9 +124,4 @@ ms.openlocfilehash: 4bebc8267040a52fabc12fa96d38f96f0a0eb993
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
 [3]: ./media/security-center-recommendations/dismiss-recommendations.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

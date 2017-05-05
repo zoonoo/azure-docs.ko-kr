@@ -14,7 +14,7 @@
 
 다음 섹션은 이러한 각 단계에 대한 자세한 지침을 제공합니다. 
 
-#### <a name="a-namegetnetaget-the-name-of-the-cluster-network-resource"></a><a name="getnet"></a>클러스터 네트워크 리소스의 이름 가져오기
+#### <a name="getnet"></a>클러스터 네트워크 리소스의 이름 가져오기
 
 1. RDP를 사용하여 주 복제본을 호스트하는 Azure 가상 컴퓨터에 연결합니다. 
 
@@ -26,7 +26,7 @@
 
    ![클러스터 네트워크 이름](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-#### <a name="a-nameaddcapaadd-the-client-access-point"></a><a name="addcap"></a>클라이언트 액세스 지점 추가
+#### <a name="addcap"></a>클라이언트 액세스 지점 추가
 
 클라이언트 액세스 지점은 응용 프로그램이 가용성 그룹의 데이터베이스에 연결하는 데 사용하는 네트워크 이름입니다. 장애 조치(Failover) 클러스터 관리자에서 클라이언트 액세스 지점을 만듭니다. 
 
@@ -42,7 +42,7 @@
    
    수신기 만들기를 완료하려면 **다음**을 두 번 클릭한 다음 **마침**을 클릭합니다. 현재 온라인 상태에서 수신기 또는 리소스를 가져오지 마세요.
    
-#### <a name="a-namecongroupaconfigure-the-ip-resource-for-the-availability-group"></a><a name="congroup"></a>가용성 그룹에 대한 IP 리소스 구성
+#### <a name="congroup"></a>가용성 그룹에 대한 IP 리소스 구성
 
 1. **리소스** 탭을 클릭한 다음 만든 클라이언트 액세스 지점을 확장합니다. 클라이언트 액세스 지점은 오프라인입니다.
 
@@ -58,7 +58,7 @@
 1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
 ------------------------->
 
-#### <a name="a-name--dependencygroupamake-the-sql-server-availability-group-resource-dependent-on-the-client-access-point"></a><a name = "dependencyGroup"></a>SQL Server 가용성 그룹 리소스가 클라이언트 액세스 지점에 종속되게 하기
+#### <a name = "dependencyGroup"></a>SQL Server 가용성 그룹 리소스가 클라이언트 액세스 지점에 종속되게 하기
 
 1. 장애 조치(Failover) 클러스터 관리자에서 **역할**을 클릭하고 가용성 그룹을 클릭합니다.
 
@@ -70,7 +70,7 @@
 
 1. **확인**을 클릭합니다.
 
-#### <a name="a-namelistnameamake-the-client-access-point-resource-dependent-on-the-ip-address"></a><a name="listname"></a>클라이언트 액세스 지점 리소스가 IP 주소에 종속되게 하기
+#### <a name="listname"></a>클라이언트 액세스 지점 리소스가 IP 주소에 종속되게 하기
 
 1. 장애 조치(Failover) 클러스터 관리자에서 **역할**을 클릭하고 가용성 그룹을 클릭합니다. 
 
@@ -84,7 +84,7 @@
 
 1. 수신기 이름을 마우스 오른쪽 단추로 클릭하고 **온라인 상태로 전환**을 클릭합니다. 
 
-#### <a name="a-namesetparamaset-the-cluster-parameters-in-powershell"></a><a name="setparam"></a>PowerShell에서 클러스터 매개 변수 설정
+#### <a name="setparam"></a>PowerShell에서 클러스터 매개 변수 설정
 
 1. 다음 PowerShell 스크립트를 SQL Server 중 하나에 복사합니다. 사용자 환경에 맞게 변수를 업데이트합니다.     
    ```PowerShell
@@ -102,10 +102,5 @@
 
 > [!NOTE]
 > SQL Server가 별도 지역에 있는 경우 PowerShell 스크립트를 두 번 실행해야 합니다. 처음으로 첫 번째 지역에서 `$ILBIP` 및 `$ProbePort`를 사용합니다. 두 번째로 두 번째 지역에서 `$ILBIP` 및 `$ProbePort`를 사용합니다. 클러스터 네트워크 이름 및 클러스터 IP 리소스 이름이 동일합니다. 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/14/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 1c7a95354358d91859ce9d2019cef93b6662811f
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: ceedbd6436e819a090e2033aec024034790dbecf
+ms.lasthandoff: 04/20/2017
 
 ---
 # <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>HDInsight에서 Apache Kafka(미리 보기) 시작
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/25/2017
 
 * [Apache Maven](http://maven.apache.org/) 
 
-### <a name="access-control-requirements"></a>액세스 제어 요구 사항
+### <a name="access-control-requirements"></a>Access Control 요구 사항
 
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 03/25/2017
 
 4. 클러스터 유형을 선택한 후 __선택__ 단추를 사용하여 클러스터 유형을 설정합니다. 그 다음, __다음__ 단추를 사용하여 기본 구성을 완료합니다.
 
-5. **저장소** 블레이드에서 저장소 계정을 선택하거나 만듭니다. 이 문서의 단계에서는 이 블레이드의 다른 필드를 기본값으로 둡니다. __다음__ 단추를 사용하여 저장소 구성을 저장합니다.
+5. **Storage** 블레이드에서 저장소 계정을 선택하거나 만듭니다. 이 문서의 단계에서는 이 블레이드의 다른 필드를 기본값으로 둡니다. __다음__ 단추를 사용하여 저장소 구성을 저장합니다.
 
     ![HDInsight에 대한 저장소 계정 설정 지정](./media/hdinsight-apache-kafka-get-started/set-hdinsight-storage-account.png)
 
@@ -341,5 +341,4 @@ Kafka에 저장된 레코드는 파티션에서 받은 순서대로 저장됩니
 * [MirrorMaker를 사용하여 HDInsight에 Kafka 복제본 만들기](hdinsight-apache-kafka-mirroring.md)
 * [HDInsight의 Kafka에서 Apache Storm 사용](hdinsight-apache-storm-with-kafka.md)
 * [HDInsight의 Kafka에서 Apache Spark 사용](hdinsight-apache-spark-with-kafka.md)
-
-
+* [Azure Virtual Network를 통해 Kafka에 연결](hdinsight-apache-kafka-connect-vpn-gateway.md)

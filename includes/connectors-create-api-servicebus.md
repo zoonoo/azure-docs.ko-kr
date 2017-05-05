@@ -14,8 +14,3 @@
 4. 연결이 만들어졌으므로 이제 논리 앱의 다른 단계를 진행할 수 있습니다.  
     ![서비스 버스 연결 이미지 3](./media/connectors-create-api-servicebus/servicebus-3.png)   
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f5793f771553df78c1c335ad57e0d64078d98148
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: e16792bb762287bc16c280386981a4d442448674
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -41,30 +41,29 @@ Azure 가상 컴퓨터(VM) 갤러리에는 Microsoft SQL Server가 포함된 몇
 * [원격으로 SQL Server 연결](#connect-to-sql-server-remotely)
 
 ## <a name="select-a-sql-vm-image-from-the-gallery"></a>갤러리에서 SQL VM 이미지 선택
-1. 사용자 계정을 사용하여 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
-   
+1. 사용자 계정을 사용하여 [Azure 포털](https://portal.azure.com)에 로그인합니다.
+
    > [!NOTE]
    > Azure 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
-   > 
-   > 
+
 2. Azure 포털에서 **새로 만들기**를 클릭합니다. 포털에 **새** 블레이드가 열립니다. SQL Server VM 리소스는 Marketplace의 **계산** 그룹에 있습니다.
 3. **새로 만들기** 블레이드에서 **계산**을 클릭한 다음 **모두 표시**를 클릭합니다.
 4. **필터** 텍스트 상자에서 SQL Server를 입력하고 ENTER 키를 누릅니다.
 
-   ![Azure 가상 컴퓨터 블레이드](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+   ![Azure Virtual Machines 블레이드](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
 5. 사용 가능한 SQL Server 이미지를 검토합니다. 각 이미지는 SQL Server 버전 및 운영 체제를 식별합니다. 
 6. Windows Server 2016에서 SQL Server 2016 SP1 Developer용 이미지를 선택합니다.
 
    > [!TIP]
    > Developer 버전은 개발 테스트 목적으로 무료로 제공되는 SQL Server의 모든 기능을 갖춘 버전이므로 이 자습서에서 사용됩니다. VM 실행 비용에 대해서만 비용을 지불합니다.
-   
+
    > [!NOTE]
-   > SQL VM 이미지는 만든 VM의 분당 가격에 SQL Server에 대한 라이선스 비용을 포함합니다(Developer 및 Express 버전 제외). SQL Server Developer는 개발/테스트(비 프로덕션)에 대해 무료이며 SQL Express는 간단한 작업(1GB 미만의 메모리, 10GB 미만의 저장소)에 대해 무료입니다. BYOL(Bring Your Own License) 및 VM에 대해서만 지불에 대한 또 다른 옵션이 있습니다. 이러한 이미지 이름에는 접두사 {BYOL}이 붙습니다. 이 옵션에 대한 자세한 내용은 [Azure Virtual Machines에서 SQL Server 시작](virtual-machines-windows-sql-server-iaas-overview.md)을 참조하세요.
-   > 
-   > 
+   > SQL VM 이미지는 만든 VM의 분당 가격에 SQL Server에 대한 라이선스 비용을 포함합니다(Developer 및 Express 버전 제외). SQL Server Developer는 개발/테스트(비 프로덕션)에 대해 무료이며 SQL Express는 간단한 작업(1GB 미만의 메모리, 10GB 미만의 저장소)에 대해 무료입니다.
+   > BYOL(Bring Your Own License) 및 VM에 대해서만 지불에 대한 또 다른 옵션이 있습니다. 이러한 이미지 이름에는 접두사 {BYOL}이 붙습니다. 이러한 옵션에 대한 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
+
 7. **배포 모델 선택**에서 **리소스 관리자**가 선택되어 있는지 확인합니다. 리소스 관리자는 새로운 가상 컴퓨터에 권장되는 배포 모델입니다. **만들기**를 클릭합니다.
-   
+
     ![리소스 관리자로 SQL VM 만들기](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## <a name="configure-the-vm"></a>VM 구성
@@ -100,33 +99,31 @@ SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있�
 **크기** 단계의 **크기 선택** 블레이드에서 가상 컴퓨터 크기를 선택합니다. 블레이드는 선택한 이미지를 기반으로 권장되는 컴퓨터 크기를 처음에 표시합니다.
 
 > [!IMPORTANT]
-> **크기 선택** 블레이드에 표시된 월별 예상 비용에는 SQL Server 라이선스 비용이 포함되지 않습니다. 이것은 VM만의 비용입니다. SQL Server의 Express 및 Developer 버전의 경우, 이것은 총 예상 비용입니다. 다른 버전의 경우 [Windows 가상 컴퓨터 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하여 SQL Server의 대상 버전을 선택하세요. 
+> **크기 선택** 블레이드에 표시된 월별 예상 비용에는 SQL Server 라이선스 비용이 포함되지 않습니다. 이것은 VM만의 비용입니다. SQL Server의 Express 및 Developer 버전의 경우, 이것은 총 예상 비용입니다. 다른 버전의 경우 [Windows Virtual Machines 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하여 SQL Server의 대상 버전을 선택하세요. 또한 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
 
 ![SQL VM 크기 옵션](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
-프로덕션 워크로드에는, [프리미엄 저장소](../../../storage/storage-premium-storage.md)를 지원하는 가상 컴퓨터 크기를 선택하는 것이 좋습니다. 그러한 수준의 성능이 필요하지 않으면, **모두 보기** 단추를 사용하여 모든 컴퓨터 크기 옵션을 표시합니다. 예를 들어, 개발 또는 테스트 환경을 위해 더 작은 컴퓨터 크기를 사용할 수 있습니다.
+프로덕션 워크로드에는, [Premium Storage](../../../storage/storage-premium-storage.md)를 지원하는 가상 컴퓨터 크기를 선택하는 것이 좋습니다. 그러한 수준의 성능이 필요하지 않으면, **모두 보기** 단추를 사용하여 모든 컴퓨터 크기 옵션을 표시합니다. 예를 들어, 개발 또는 테스트 환경을 위해 더 작은 컴퓨터 크기를 사용할 수 있습니다.
 
 > [!NOTE]
-> 가상 컴퓨터 크기에 대한 자세한 내용은 [가상 컴퓨터 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. SQL Server VM 크기에 대한 고려 사항은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.
-> 
-> 
+> 가상 컴퓨터 크기에 대한 자세한 내용은 [가상 컴퓨터 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. SQL Server VM 크기에 대한 고려 사항은 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.
 
 컴퓨터 크기를 선택한 다음 **선택**을 클릭합니다.
 
 ## <a name="3-configure-optional-features"></a>3. 선택적 기능 구성
-**설정** 블레이드에서 가상 컴퓨터용 Azure 저장소, 네트워킹 및 모니터링을 구성합니다.
+**설정** 블레이드에서 가상 컴퓨터용 Azure Storage, 네트워킹 및 모니터링을 구성합니다.
 
-* **저장소**에서 **디스크 유형**으로 표준 또는 프리미엄(SSD)을 지정합니다. 프리미엄 저장소는 프로덕션 워크로드용으로 권장됩니다.
+* **Storage**에서 **디스크 유형**으로 표준 또는 프리미엄(SSD)을 지정합니다. 프리미엄 저장소는 프로덕션 워크로드용으로 권장됩니다.
 
 > [!NOTE]
-> 프리미엄 저장소를 지원하지 않는 컴퓨터 크기에 대해 프리미엄(SSD)을 선택하면, 컴퓨터 크기가 자동으로 변경됩니다.  
+> Premium Storage를 지원하지 않는 컴퓨터 크기에 대해 프리미엄(SSD)을 선택하면, 컴퓨터 크기가 자동으로 변경됩니다.  
 > 
 > 
 
-* **저장소 계정**아래에서 자동으로 프로비전된 저장소 계정 이름을 적용할 수 있습니다. 또한 **저장소 계정** 을 클릭하여 기존 계정을 선택하고 저장소 계정 유형을 구성할 수도 있습니다. 기본적으로 Azure에서는 로컬 중복 저장소로 새 저장소 계정을 만듭니다. 저장소 옵션에 대한 자세한 내용은 [Azure 저장소 복제](../../../storage/storage-redundancy.md)를 참조하세요.
+* **저장소 계정**아래에서 자동으로 프로비전된 저장소 계정 이름을 적용할 수 있습니다. 또한 **저장소 계정** 을 클릭하여 기존 계정을 선택하고 저장소 계정 유형을 구성할 수도 있습니다. 기본적으로 Azure에서는 로컬 중복 저장소로 새 저장소 계정을 만듭니다. 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제](../../../storage/storage-redundancy.md)를 참조하세요.
 * **네트워크**아래에서 자동으로 채워진 값을 사용할 수 있습니다. 각 기능을 클릭하여 **가상 네트워크**, **서브넷**, **공용 IP 주소** 및 **네트워크 보안 그룹**을 수동으로 구성할 수도 있습니다. 이 자습서에서는 기본 값을 유지합니다.
 * Azure에서는 VM에 지정된 것과 동일한 저장소 계정을 통해 **모니터링** 이 기본적으로 사용됩니다. 여기에서 이러한 설정을 변경할 수 있습니다.
-* **가용성 집합**아래에서 가용성 집합을 지정합니다. 이 자습서에서는 **없음**을 선택할 수 있습니다. SQL AlwaysOn 가용성 그룹을 설정하려는 경우 가상 컴퓨터를 다시 만들지 않도록 가용성을 구성합니다.  자세한 내용은 [가상 컴퓨터의 가용성 관리](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+* **가용성 집합**아래에서 가용성 집합을 지정합니다. 이 자습서에서는 **없음**을 선택할 수 있습니다. SQL AlwaysOn 가용성 그룹을 설정하려는 경우 가상 컴퓨터를 다시 만들지 않도록 가용성을 구성합니다.  자세한 내용은 [Virtual Machines의 가용성 관리](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 이러한 설정 구성을 완료한 후 **확인**을 클릭합니다.
 
@@ -140,7 +137,7 @@ SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있�
 | [저장소 구성](#storage-configuration) |
 | [자동화된 패치](#automated-patching) |
 | [자동화된 백업](#automated-backup) |
-| [Azure 주요 자격 증명 모음 통합](#azure-key-vault-integration) |
+| [Azure Key Vault 통합](#azure-key-vault-integration) |
 | [R 서비스](#r-services) |
 
 ### <a name="connectivity"></a>연결
@@ -158,7 +155,7 @@ SQL Server 가상 컴퓨터를 구성하기 위한 5개의 블레이드가 있�
 인터넷을 통해 데이터베이스 엔진에 대한 연결을 사용하도록 설정하지 않으려면 다음 옵션 중 하나를 선택합니다.
 
 * **로컬(VM 내부만)** 을 선택합니다.
-* **사설(Virtual Network 내부)** 을 선택합니다.
+* **사설(Virtual Network 내)**을 선택합니다.
 
 > [!NOTE]
 > SQL Server Express Edition용 가상 컴퓨터 이미지는 자동으로 TCP/IP 프로토콜을 사용하지 않습니다. 공용 및 개인 연결 옵션에 대해서도 마찬가지입니다. Express Edition의 경우 VM을 만든 후에 SQL Server 구성 관리자를 사용하여 [수동으로 TCP/IP 프로토콜을 사용](#configure-sql-server-to-listen-on-the-tcp-protocol) 해야 합니다.
@@ -185,12 +182,12 @@ SQL Server 인증을 사용하도록 설정하는 경우 **로그인 이름** �
 SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리자 계정을 사용하여 SQL Server 인스턴스에 연결할 수 있습니다.
 
 ### <a name="storage-configuration"></a>저장소 구성
-저장소 요구 사항을 지정하려면 **저장소 구성** 을 클릭합니다.
+저장소 요구 사항을 지정하려면 **저장소 구성**을 클릭합니다.
 
 ![SQL 저장소 구성](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png)
 
 > [!NOTE]
-> 표준 저장소를 선택하면, 이 옵션을 사용할 수 없습니다. 자동 저장소 최적화는 프리미엄 저장소에서만 사용할 수 있습니다.
+> 표준 저장소를 선택하면, 이 옵션을 사용할 수 없습니다. 자동 저장소 최적화는 Premium Storage에서만 사용할 수 있습니다.
 > 
 > 
 
@@ -229,14 +226,14 @@ SQL 자동화된 백업을 사용하면 다음을 구성할 수 있습니다.
 
 ![SQL 자동화된 백업](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
 
- 자세한 내용은 [Azure 가상 컴퓨터에서 SQL Server에 대한 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
+ 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 백업](virtual-machines-windows-sql-automated-backup.md)을 참조하세요.
 
-### <a name="azure-key-vault-integration"></a>Azure 주요 자격 증명 모음 통합
+### <a name="azure-key-vault-integration"></a>Azure Key Vault 통합
 Azure에서 암호화를 위한 보안 암호를 저장하려면 **Azure Key Vault 통합**을 클릭하고 **사용**을 클릭합니다.
 
-![SQL Azure 주요 자격 증명 모음 통합](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
+![SQL Azure Key Vault 통합](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
 
-다음 표에서는 Azure 주요 자격 증명 모음 통합을 구성하는 데 필요한 매개 변수를 나열합니다.
+다음 표에서는 Azure Key Vault 통합을 구성하는 데 필요한 매개 변수를 나열합니다.
 
 | 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
@@ -268,7 +265,7 @@ Azure 포털에서 배포를 모니터링할 수 있습니다. 화면 맨 위에
 ## <a name="open-the-vm-with-remote-desktop"></a>원격 데스크톱을 사용하여 VM 열기
 다음 단계를 사용하여 원격 데스크톱으로 가상 컴퓨터에 연결합니다.
 
-1. Azure VM이 작성되면, VM에 대한 아이콘이 Azure 대시보드에 표시됩니다. 기본 가상 컴퓨터를 검색하여 찾을 수도 있습니다. 새 SQL 가상 컴퓨터를 클릭합니다. **가상 컴퓨터** 블레이드에 가상 컴퓨터 세부 정보가 표시됩니다.
+1. Azure VM이 작성되면, VM에 대한 아이콘이 Azure 대시보드에 표시됩니다. 기존 가상 컴퓨터를 검색하여 찾을 수도 있습니다. 새 SQL 가상 컴퓨터를 클릭합니다. **가상 컴퓨터** 블레이드에 가상 컴퓨터 세부 정보가 표시됩니다.
 2. **가상 컴퓨터** 블레이드 위에 있는 **연결**을 클릭합니다.
 3. 브라우저가 VM에 대한 RDP 파일을 다운로드합니다. RDP 파일을 엽니다.
     ![SQL VM에 원격 데스크톱 연결](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-remote-desktop.png)
@@ -301,6 +298,6 @@ Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 
 
 Azure Virtual Machines의 SQL Server에 대한 비디오 개요는 [Azure VM은 SQL Server 2016에 가장 적합한 플랫폼입니다.](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)를 시청하세요.
 
-[학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) 합니다.
+Azure Virtual Machines에서 SQL Server용 [학습 경로를 탐색](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/)합니다.
 
 

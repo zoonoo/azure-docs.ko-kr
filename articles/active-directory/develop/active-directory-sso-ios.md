@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/07/2017
 ms.author: xerners
 translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 7fcc00df80ef61f99f6044cd338cbdd16fde0117
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 5f10f6dc878d92337a37bbc4b16edf3962d53cc6
+ms.lasthandoff: 04/26/2017
 
 
 ---
@@ -83,15 +83,15 @@ Microsoft ID SDK가 응용 프로그램의 공유 저장소와 작업하여 SSO�
 ```
 
 #### <a name="broker-assisted-logins"></a>브로커 지원 로그인
-브로커 지원 로그인은 브로커 응용 프로그램 내에서 발생하고 Microsoft ID 플랫폼을 적용하는 장치의 모든 응용 프로그램에서 자격 증명을 공유하도록 브로커의 저장소와 보안을 사용하는 로그인 환경입니다. 즉, 응용 프로그램은 사용자가 로그인하도록 브로커를 사용합니다. iOS 및 Android에서 해당 브로커는 고객이 독립적으로 설치하거나 사용자에 대한 장치를 관리하는 회사에서 장치에 푸시할 수 있는 다운로드 가능한 응용 프로그램을 통해 제공됩니다. 이 응용 프로그램 유형의 예는 iOS에서 Azure Authenticator 응용 프로그램입니다. Windows에서 이 기능은 기술적으로 웹 인증 브로커로 알려진 운영 체제에 기본적으로 제공된 계정 선택기로 제공됩니다.
+브로커 지원 로그인은 브로커 응용 프로그램 내에서 발생하고 Microsoft ID 플랫폼을 적용하는 장치의 모든 응용 프로그램에서 자격 증명을 공유하도록 브로커의 저장소와 보안을 사용하는 로그인 환경입니다. 즉, 응용 프로그램은 사용자가 로그인하도록 브로커를 사용합니다. iOS 및 Android에서 해당 브로커는 고객이 독립적으로 설치하거나 사용자에 대한 장치를 관리하는 회사에서 장치에 푸시할 수 있는 다운로드 가능한 응용 프로그램을 통해 제공됩니다. 이 응용 프로그램 유형의 예는 iOS에서 Microsoft Authenticator 응용 프로그램입니다. Windows에서 이 기능은 기술적으로 웹 인증 브로커로 알려진 운영 체제에 기본적으로 제공된 계정 선택기로 제공됩니다.
 환경은 플랫폼별로 다르며 올바르게 관리되지 않는 경우 사용자에게 작업 중단이 발생할 수 있습니다. Facebook 응용 프로그램을 설치하고 다른 응용 프로그램에서 Facebook Connect를 사용하는 경우 아마도 이 패턴과 가장 친숙할 것입니다. Microsoft ID 플랫폼은 동일한 패턴을 사용합니다.
 
-iOS의 경우 이는 Azure Authenticator 응용 프로그램이 사용자가 로그인하려는 계정을 선택하도록 포그라운드로 오는 동안 응용 프로그램이 백그라운드로 전송되는 "전환" 애니메이션이 됩니다.  
+iOS의 경우 이는 Microsoft Authenticator 응용 프로그램이 사용자가 로그인하려는 계정을 선택하도록 포그라운드로 오는 동안 응용 프로그램이 백그라운드로 전송되는 "전환" 애니메이션이 됩니다.  
 
 Android 및 Windows의 경우 계정 선택기가 사용자에게 덜 방해가 되는 응용 프로그램 맨 위에 표시됩니다.
 
 #### <a name="how-the-broker-gets-invoked"></a>브로커를 호출하는 방법
-호환되는 브로커가 Azure Authenticator 응용 프로그램과 마찬가지로 장치에 설치된 경우 Microsoft ID SDK는 사용자가 Microsoft ID 플랫폼에서 계정을 사용하여 로그인하려는 것을 나타내는 경우 브로커 호출 작업을 자동으로 수행합니다. 이 계정은 개인 Microsoft 계정, 회사 또는 학교 계정 또는 B2C 및 B2B 제품을 사용하여 Azure에 제공 및 호스트하는 계정일 수 있습니다. 
+호환되는 브로커가 Microsoft Authenticator 응용 프로그램과 마찬가지로 장치에 설치된 경우 Microsoft ID SDK는 사용자가 Microsoft ID 플랫폼에서 계정을 사용하여 로그인하려는 것을 나타내는 경우 브로커 호출 작업을 자동으로 수행합니다. 이 계정은 개인 Microsoft 계정, 회사 또는 학교 계정 또는 B2C 및 B2B 제품을 사용하여 Azure에 제공 및 호스트하는 계정일 수 있습니다. 
 
  #### <a name="how-we-ensure-the-application-is-valid"></a>응용 프로그램이 유효한지 확인하는 방법
  

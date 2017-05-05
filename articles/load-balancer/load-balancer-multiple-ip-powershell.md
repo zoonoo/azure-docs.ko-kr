@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: fb6a74ba476d410f7545a3cfcbaf23190f0bd402
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 70cf84918898a65560ecd40d501b5fdc3775b0f6
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/31/2017
 
 아래 단계에 따라 이 문서에 설명된 시나리오를 수행합니다.
 
-1. Azure PowerShell을 설치합니다. 최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+1. Azure PowerShell을 설치합니다. 최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 2. 다음 설정을 사용하여 리소스 그룹을 만듭니다.
 
     ```powershell

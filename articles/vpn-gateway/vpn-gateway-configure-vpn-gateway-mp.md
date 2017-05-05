@@ -4,7 +4,7 @@ description: "이 문서에서는 가상 네트워크 VPN 게이트웨이 구성
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: fbe59ba8-b11f-4d21-9bb1-225ec6c6d351
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/09/2017
+ms.date: 04/04/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b6f001345daf411497295357ab43d01635ae743e
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 2ea4e6bb86b1ba6f7b501b193d0713d3901457af
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -67,16 +67,20 @@ VPN 게이트웨이가 이미 있는 경우 VPN 라우팅 형식을 변경하려
 ![키 관리](./media/vpn-gateway-configure-vpn-gateway-mp/IC717029.png)
 
 ### <a name="step-2--configure-your-vpn-device"></a>2단계.  VPN 장치 구성
-사이트 간 연결의 경우 이전 단계를 완료한 후 사용자 또는 네트워크 관리자는 연결을 설정하기 위해 VPN 장치를 구성해야 합니다. VPN 장치에 대한 자세한 내용은 [가상 네트워크 연결을 위한 VPN 장치 정보](vpn-gateway-about-vpn-devices.md) 를 참조하세요.
+온-프레미스 네트워크에 대한 사이트 간 연결에는 VPN 장치가 필요합니다. 모든 VPN 장치에 대해 구성 단계를 제공하지는 않지만 다음 링크의 정보가 유용할 수 있습니다.
+
+- 호환되는 VPN 장치에 대한 내용은 [VPN 장치](vpn-gateway-about-vpn-devices.md)를 참조하세요. 
+- 장치 구성 설정에 대한 링크는 [확인된 VPN 장치](vpn-gateway-about-vpn-devices.md#devicetable)를 참조하세요. 해당 링크가 가장 효율적으로 제공됩니다. 최신 구성 정보에 대해서는 항상 장치 제조업체에 문의하는 것이 가장 좋습니다.
+- 장치 구성 샘플을 편집하는 방법에 대한 정보는 [샘플 편집](vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
+- IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipsec)를 참조하세요.
+- VPN 장치를 구성하기 전에 사용하려는 VPN 장치에 대한 [알려진 장치 호환성 문제](vpn-gateway-about-vpn-devices.md#known)를 확인합니다.
+
+VPN 장치를 구성하려면 다음 항목이 필요합니다.
+
+- 가상 네트워크 게이트웨이의 공용 IP 주소 가상 네트워크의 **개요**로 이동하여 IP 주소를 찾을 수 있습니다.
+- 공유 키 - 사이트 간 VPN 연결을 만들 때 지정하는 것과 동일한 공유 키입니다. 이 예제에서는 매우 기본적인 공유 키를 사용합니다. 사용할 복잡한 키를 생성해야 합니다.
 
 VPN 장치를 구성한 후 VNet에 대한 대시보드 페이지에서 업데이트된 연결 정보를 볼 수 있습니다.
-
-또한 다음 명령 중 하나를 실행하여 연결을 테스트할 수 있습니다.
-
-|  | Cisco ASA | Cisco ISR/ASR | Juniper SSG/ISG | Juniper SRX/J |
-| --- | --- | --- | --- | --- |
-| **Check main mode SAs** |show crypto isakmp sa |show crypto isakmp sa |get ike cookie |show security ike security-association |
-| **Check quick mode SAs** |show crypto ipsec sa |show crypto ipsec sa |get sa |show security ipsec security-association |
 
 ### <a name="step-3-verify-your-local-network-ranges-and-vpn-gateway-ip-address"></a>3단계. 로컬 네트워크 범위 및 VPN 게이트웨이 IP 주소 확인
 #### <a name="verify-your-vpn-gateway-ip-address"></a>VPN 게이트웨이 IP 주소 확인

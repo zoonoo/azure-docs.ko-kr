@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 148bc76b7f3e09745cbecfa41710a5e949704948
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: d9410448952438d6b9d437b7ca8823d4f196a2d6
+ms.lasthandoff: 04/22/2017
 
 
 ---
@@ -72,6 +72,14 @@ Linux에 Azure App Service가 출시되면서(현재 미리 보기), 우리는 �
 
 **A:** \home\ 디렉터리에 SMB 공유를 탑재합니다. 포함된 모든 콘텐츠를 재정의합니다.
 
+**Q:** 개인 레지스트리 서버 URL의 형식은 무엇인가요?
+
+**A:** "http://" 또는 "https://"를 포함하여 전체 레지스트리 URL을 입력해야 합니다.
+
+**Q:** 개인 레지스트리 옵션에서 이미지 이름의 형식은 무엇인가요?
+
+**A:** 개인 레지스트리 URL을 포함하여 전체 이미지 이름을 추가해야 합니다(예: myacr.azurecr.io/dotnet:latest).
+
 **Q:** 사용자 지정 컨테이너 이미지에 포트를 두 개 이상 표시하려 합니다. 가능할까요?
 
 **A:** 현재는 지원되지 않습니다.
@@ -87,6 +95,10 @@ Linux에 Azure App Service가 출시되면서(현재 미리 보기), 우리는 �
 **Q:** 내 사용자 지정 컨테이너가 포트 80 이외의 포트를 수신합니다. 해당 포트로 요청을 라우팅하도록 내 앱을 구성하려면 어떻게 합니까?
 
 **A:** **PORT**라는 응용 프로그램 설정을 지정하고 예상되는 포트 번호 값을 지정할 수 있습니다.
+
+**Q:** 사용자 지정 컨테이너에서 HTTPS를 구현해야 하나요?
+
+**A:** 아니요. 플랫폼에서는 공유 프런트 엔드에서 HTTPS 종료를 처리합니다.
 
 ## <a name="pricing-and-sla"></a>가격 및 SLA
 

@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 02/24/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 44f40aebe8418b0cfcf2c2708469d586d1dd4c4c
-ms.lasthandoff: 04/06/2017
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: eec53d5dea1255572d515f1ab2796da681579d19
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -32,7 +32,9 @@ Azure 저장소는 내구성, 가용성, 확장성을 활용하여 고객의 요
 * 중복 및 복제를 통해 Azure 저장소 데이터의 영속성을 유지하는 방법
 * 첫 Azure 저장소 응용 프로그램을 작성하기 위한 다음 단계
 
-Azure 저장소를 빠르게 시작 및 실행하려면 [5분 만에 Azure 저장소 시작](storage-getting-started-guide.md)을 참조하세요.
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!-- To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md). -->
 
 Azure 저장소 작업을 위한 도구, 라이브러리 및 기타 리소스는 아래 [다음 단계](#next-steps) 를 참조하세요.
 
@@ -185,12 +187,12 @@ Azure 저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 �
 * [PHP용 저장소 클라이언트 라이브러리](https://azure.microsoft.com/develop/php/)
 * [Ruby용 저장소 클라이언트 라이브러리](https://azure.microsoft.com/develop/ruby/)
 * [Python용 저장소 클라이언트 라이브러리](https://azure.microsoft.com/develop/python/)
-* [PowerShell 1.0용 저장소 Cmdlet](https://msdn.microsoft.com/library/azure/mt269418.aspx)
+* [PowerShell 1.0용 저장소 Cmdlet](/powershell/module/azurerm.storage/#storage)
 
 ### <a name="azure-storage-management-services"></a>Azure Storage 관리 서비스
 * [저장소 리소스 공급자 REST API 참조](/rest/api/storagerp/)
 * [.NET용 저장소 리소스 공급자 클라이언트 라이브러리](/dotnet/api/microsoft.azure.management.storage)
-* [PowerShell 1.0용 저장소 리소스 공급자 Cmdlet](/powershell/storage/)
+* [PowerShell 1.0용 저장소 리소스 공급자 Cmdlet](/powershell/module/azure.storage)
 * [저장소 서비스 관리 REST API(클래식](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-services"></a>Azure Storage 데이터 이동 서비스
@@ -202,7 +204,7 @@ Azure 저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 �
 * [Azure 저장소 클라이언트 도구](storage-explorers.md)
 * [Azure SDK 및 도구](https://azure.microsoft.com/tools/)
 * [Azure 저장소 에뮬레이터](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Azure PowerShell](/powershell/azure/overview)
 * [AzCopy 명령줄 유틸리티](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>다음 단계
@@ -211,7 +213,11 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 살펴보세�
 ### <a name="documentation"></a>문서화
 * [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 * [저장소 계정을 만드는](storage-create-storage-account.md)
-* [5분 만에 Azure 저장소 시작](storage-getting-started-guide.md)
+
+<!-- after our quick starts are available, replace this link with a link to one of those. 
+Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
+<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
+-->
 
 ### <a name="for-administrators"></a>관리자용
 * [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)

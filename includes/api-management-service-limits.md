@@ -8,8 +8,3 @@
 
 <sup>1</sup>각 가격 책정 계층에 따라 API 관리 제한이 서로 다릅니다. 가격 책정 계층 및 해당 제한과 배율 옵션을 확인하려면 [API 관리 가격 책정](https://azure.microsoft.com/pricing/details/api-management/)을 참조하세요.
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

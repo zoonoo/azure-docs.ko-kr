@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 04/07/2017
 ms.author: erihur;genli
 translationtype: Human Translation
-ms.sourcegitcommit: 29a6290a19186d5bc8a07d87617b47d21529d6b7
-ms.openlocfilehash: 2e99332e2a2b023c00669b3ad5ea07f0c791a805
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: 6db1fedad08ee33f3468fb98f59071a1521921db
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -29,7 +29,7 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
 
 이전 청구 기간이 끝날 때 최대 24시간 동안의 사용량이 현재 청구서에 표시될 수 있습니다. 또한 전 세계 고객용 청구 명세서에 나열된 요금은 예측 용도로만 사용합니다. 은행이 전환율에 대해 서로 다른 비용을 부과하기 때문입니다.
 
-## <a name="a-namepdfa-understand-your-invoice-pdf"></a><a name="pdf"></a> 청구서(.pdf) 이해
+## <a name="pdf"></a> 청구서(.pdf) 이해
 청구서는 청구된 요금에 대한 요약을 제공합니다. [Azure Portal](https://portal.azure.com)에서 Portable Document Format(.pdf)으로 다운로드할 수 있습니다. 자세한 내용은 [Azure 청구서 및 일간 사용 현황 데이터를 받는 방법](billing-download-azure-invoice-daily-usage-date.md)을 참조하세요. 
 
 다음 섹션에서는 청구서에 표시되는 대부분의 용어와 각 용어에 대한 설명을 제공합니다.
@@ -77,10 +77,10 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
 
 | 용어 | 설명 |
 | --- | --- |
-| 구매처 |계정의 프로필 주소로 미리 채워집니다. 이 항목을 변경하려면 [연락처 메일, 주소 및 전화 번호와 같은 Azure 계정의 프로필 정보를 변경하는 방법](billing-how-to-change-azure-account-profile.md)을 참조하세요. |
-| 지불 관련 지침 |지불 방법이 청구서인 경우 수표, 전신 송금 또는 심야 수표를 보낼 위치를 나타냅니다. 자세한 내용은 [Azure 청구 - 청구하는 방법](https://azure.microsoft.com/pricing/invoicing/)을 참조하세요. |
+| 구매처 | 계정에 있는 프로필 주소입니다. 이 주소를 변경하려면 [연락처 메일, 주소 및 전화 번호와 같은 Azure 계정의 프로필 정보를 변경하는 방법](billing-how-to-change-azure-account-profile.md)을 참조하세요. |
+| 지불 관련 지침 | 청구서로 지불하는 경우 다음 지침에 따라 수표, 전신 송금 또는 심야 수표를 보낼 위치를 확인하세요. 자세한 내용은 [Azure 청구 - 청구하는 방법](https://azure.microsoft.com/pricing/invoicing/)을 참조하세요. |
 
-## <a name="a-namecsva-understand-detailed-usage-charges-csv"></a><a name="csv"></a> 세부 사용 요금 이해(.csv)
+## <a name="csv"></a> 세부 사용 요금 이해(.csv)
 사용 현황 파일에는 현재 청구 기간 내에 사용된 각 리소스의 양이 표시됩니다. 스프레드시트 응용 프로그램에서 열 수 있는 쉼표로 구분된 값(.csv) 파일 형식으로 제공됩니다. 사용할 수 있는 두 가지 버전이 표시되면 버전 2를 다운로드합니다. 최신 파일 형식입니다. 자세한 내용은 [Azure 청구서 및 일간 사용 현황 데이터를 받는 방법](billing-download-azure-invoice-daily-usage-date.md)을 참조하세요.
 
 사용 요금은 구독에 대한 총 **월별** 요금에서 크레딧 또는 할인을 뺀 금액입니다. 지난 달의 사용 요금이 청구됩니다.  
@@ -117,7 +117,7 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
 | --- | --- |
 |사용 날짜 |리소스를 사용한 날짜입니다. |
 |측정기 범주 |이 사용 현황이 속한 최상위 서비스를 식별합니다. |
-|측정기 ID |청구된 측정기 식별자입니다. 가격 결제에 사용되는 식별자입니다. |
+|측정기 ID |가격 결제에 사용하는 대금 청구 측정기 식별자입니다. |
 |측정기 하위 범주 |요율에 영향을 줄 수 있는 Azure 서비스 유형을 정의합니다. |
 |측정기 이름 |사용 중인 리소스에 대한 측정 단위를 식별합니다. |
 |측정기 영역|데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다. |
@@ -133,8 +133,6 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
 |서비스 정보 2 |선택적 서비스 특정 메타데이터를 캡처하는 레거시 필드입니다. |
 
 ## <a name="tips-for-cost-management"></a>비용 관리 팁
-다음과 같이 비용은 사전에 제어하는 것이 좋습니다.
-
 - [가격 계산기](https://azure.microsoft.com/pricing/calculator/), [총 소유 비용 계산기](https://aka.ms/azure-tco-calculator)를 사용하여 서비스를 추가할 때 비용 예측
 - [청구 경고 설정](billing-set-up-alerts.md)
 - [Azure Portal에서 정기적으로 사용량 및 비용 검토](billing-getting-started.md#costs)
@@ -142,13 +140,13 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
 자세한 내용은 [Azure 청구 및 비용 관리 시작](billing-getting-started.md)을 참조하세요.
 
 ## <a name="how-do-i-make-a-payment"></a>지불하려면 어떻게 해야 하나요?
-결제 방법으로 신용 카드 또는 직불 카드를 설정한 경우 자동으로 결제됩니다. [지불 방법으로 송장](https://azure.microsoft.com/pricing/invoicing/)을 사용하도록 설정했다면 송장 밑에 나열된 위치로 지불액을 보내세요. 자세한 도움말은 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)합니다.
+결제 방법으로 신용 카드 또는 직불 카드를 설정한 경우 자동으로 결제됩니다. [결제를 청구서로 보내려면](https://azure.microsoft.com/pricing/invoicing/) 청구서 아래쪽에 나열된 위치로 결제 금액을 보냅니다. 자세한 도움말은 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)합니다.
 
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>신용 카드 지불 상태를 어떻게 확인하나요?
 결제 상태를 요청하는 [지원 티켓을 만듭니다](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
 ## <a name="what-about-marketplace-orders-or-external-service-charges"></a>마켓플레이스 주문 또는 외부 서비스 요금은 어떤가요?
-외부 서비스는 마켓플레이스 주문으로 불렸습니다. 외부 서비스는 독립 서비스 공급업체에 의해 제공되지만 Azure 에코시스템 내에서 통합됩니다. 자세한 내용은 [Azure 외부 서비스 요금의 이해](billing-understand-your-azure-marketplace-charges.md)를 참조하세요.
+외부 서비스는 마켓플레이스 주문으로 불렸습니다. 외부 서비스는 독립 서비스 공급업체에 의해 제공되지만 Azure 내에서 통합됩니다. 자세한 내용은 [Azure 외부 서비스 요금의 이해](billing-understand-your-azure-marketplace-charges.md)를 참조하세요.
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요. 
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

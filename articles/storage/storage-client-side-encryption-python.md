@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4eff4ebb948f88a93b403d6375c1342918120ac5
-ms.lasthandoff: 11/17/2016
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 4c32d3cf70b222e2795df2b94e23da67bf38d72b
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -240,5 +240,5 @@ encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 저장소 데이터를 암호화하면 추가 성능 오버헤드가 발생합니다. 콘텐츠 키 및 IV를 생성해야 하고, 콘텐츠 자체를 암호화해야 하고, 추가 메타데이터의 형식을 지정한 후 업로드해야 합니다. 이 오버헤드는 암호화되는 데이터의 양에 따라 달라집니다. 고객은 항상 개발 중에 응용 프로그램 성능을 테스트하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
-*  [Java PyPi 패키지에 대한 Azure 저장소 클라이언트 라이브러리](https://pypi.python.org/pypi/azure-storage)
-*  [Python 소스 코드용 Azure 저장소 클라이언트 라이브러리](https://github.com/Azure/azure-storage-python)
+* [Java PyPi 패키지에 대한 Azure 저장소 클라이언트 라이브러리](https://pypi.python.org/pypi/azure-storage)
+* [Python 소스 코드용 Azure 저장소 클라이언트 라이브러리](https://github.com/Azure/azure-storage-python)

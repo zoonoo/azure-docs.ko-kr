@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: fa62c0883b8230e514f60626b59fa3b3b20a6784
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 5bcdb2cd11ffa633bce4e0faee4f49d9053a662b
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -51,7 +51,7 @@ Azure Machine Learning을 사용하면 예측 분석 솔루션을 빌드, 테스
 
 ![점수 매기기 실험으로 변환](./media/machine-learning-publish-a-machine-learning-web-service/figure-1.png)
 
-이 변환을 수행하는 방법에 대한 자세한 내용은 [Machine Learning 학습 실험을 예측 실험으로 변환](machine-learning-convert-training-experiment-to-scoring-experiment.md)을 참조하세요.
+이 변환을 수행하는 방법에 대한 자세한 내용은 [Azure Machine Learning Studio에서 배포하기 위한 모델을 준비하는 방법](machine-learning-convert-training-experiment-to-scoring-experiment.md)을 참조하세요.
 
 다음 단계에서는 예측 실험을 새 웹 서비스로 배포하는 방법을 설명합니다. 실험을 기존 웹 서비스로 배포할 수도 있습니다.
 

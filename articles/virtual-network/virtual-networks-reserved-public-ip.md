@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 12811b5cbfc6072075395d8542b79d10d2873286
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 120ae95fe12daa8fc213d0062ca446d5c1b10134
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -58,7 +58,7 @@ Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [IP 주소](vir
 
 ## <a name="manage-reserved-vips"></a>예약된 VIP 관리
 
-[PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 문서에 나오는 단계를 완료하여 PowerShell을 설치 및 구성했는지 확인합니다. 
+[PowerShell 설치 및 구성](/powershell/azure/overview) 문서에 나오는 단계를 완료하여 PowerShell을 설치 및 구성했는지 확인합니다. 
 
 예약된 IP를 사용하려면 먼저 구독에 예약된 IP를 추가해야 합니다. *미국 중부* 위치에서 사용할 수 있는 공용 IP 주소 풀에서 예약된 IP를 만들려면 다음 명령을 실행합니다.
 

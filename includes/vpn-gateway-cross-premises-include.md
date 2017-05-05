@@ -11,8 +11,3 @@
 | **기술 문서** |[VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[VPN 게이트웨이 설명서](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Express 경로 설명서](https://azure.microsoft.com/documentation/services/expressroute/) |
 | **FAQ** |[VPN 게이트웨이 FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[VPN 게이트웨이 FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[ExpressRoute FAQ](../articles/expressroute/expressroute-faqs.md) |
 
-
-
-<!--HONumber=Nov16_HO3-->
-
-

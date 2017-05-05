@@ -29,6 +29,7 @@
 ### [데이터 팩터리 복사 마법사](data-factory-azure-copy-wizard.md)
 #### [15분 내에 1TB 로드](data-factory-load-sql-data-warehouse.md)
 ### [성능 및 튜닝 가이드](data-factory-copy-activity-performance.md)
+### [보안 고려 사항](data-factory-data-movement-security-considerations.md)
 ### 커넥터
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
 #### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
@@ -91,7 +92,7 @@
 ### [데이터 관리 게이트웨이를 사용하여 문제 해결](data-factory-troubleshoot-gateway-issues.md)
 
 # 참조
-## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
+## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST (영문)](/rest/api/datafactory/)
 ## [JSON](data-factory-json-scripting-reference.md)

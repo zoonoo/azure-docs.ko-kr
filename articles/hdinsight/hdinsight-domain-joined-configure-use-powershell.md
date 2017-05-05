@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 916722d64f191bc482b50ad4338f6a1da1045b77
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6f4189cb30d528a106dd8889c06acd621aebb699
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -56,7 +56,7 @@ Azure PowerShell을 사용하여 Azure AD(Azure Active Directory) 및 [Apache Ra
 * [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) 및 [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-ds/) 구조를 숙지합니다.
 * 구독이 이 공개 미리 보기에 대한 허용 목록에 추가되었는지 확인합니다. 구독 ID로 hdipreview@microsoft.com에 전자 메일을 전송하여 추가할 수 있습니다.
 * 도메인의 서명 기관에서 서명한 SSL 인증서가 필요합니다. 이 인증서는 보안 LDAP를 구성하는 데 필요합니다. 자체 서명된 인증서는 사용할 수 없습니다.
-* Azure PowerShell.  [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs)을 참조하세요.
+* Azure PowerShell.  [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
 
 ## <a name="create-an-azure-classic-vnet-for-your-azure-ad"></a>Azure AD에 대한 Azure 클래식 VNet을 만듭니다.
 지침에 대해서는 [여기](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet)를 참조하세요.

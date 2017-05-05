@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 0a6b5115a4eebfcce14094d82cdcc9579f80def6
-ms.lasthandoff: 04/15/2017
+ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
+ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -94,13 +94,15 @@ Log Analytics 작업 영역에 대한 액세스를 제어하는 두 가지 사�
 
 레거시 Log Analytics 사용자 역할은 [Log Analytics 포털](https://mms.microsoft.com)에서 수행한 활동에 대한 액세스만 제어합니다.
 
-Log Analytics 포털에서 다음 활동을 수행하려면 Azure 권한도 필요합니다.
+다음 활동에도 Azure 권한이 필요합니다.
 
 | 작업                                                          | 필요한 Azure 권한 | 참고 |
 |-----------------------------------------------------------------|--------------------------|-------|
-| 관리 솔루션 추가 및 제거                        | 리소스 그룹 쓰기 <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| 관리 솔루션 추가 및 제거                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
 | 가격 책정 계층 변경                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | *Backup* 및 *Site Recovery* 솔루션 타일에서 데이터 보기 | 관리자 / 공동 관리자 | 클래식 배포 모델을 사용하여 배포된 리소스 액세스 |
+| Azure Portal에서 작업 영역 만들기                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Azure 권한을 사용하여 Log Analytics에 대한 액세스 관리
 Azure 권한을 사용하여 Log Analytics 작업 영역에 대한 액세스 권한을 부여하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)의 단계를 따릅니다.
@@ -149,10 +151,10 @@ Azure Portal에 대해 주의해야 할 사항:
    * Microsoft 지원을 사용하여 문제 해결을 돕기 위해 Microsoft 지원 엔지니어 또는 다른 Microsoft 직원에게 작업 영역에 대한 임시 액세스 권한을 부여할 수 있습니다.
 
      > [!NOTE]
-     > 최상의 성능을 얻으려면 단일 OMS 계정과 연결된 Active Directory 그룹 수를 세 개(관리자용 그룹 한 개, 참가자용 한 개 및 읽기 전용 사용자용 한 개)로 제한합니다. 더 많은 그룹을 사용하면 Log Analytics 성능에 영향을 줄 수 있습니다.
+     > 최상의 성능을 얻으려면 단일 OMS 계정과 연결된 Active Directory 그룹 수를 세 개(관리자용 그룹 한 개, 참여자용 한 개 및 읽기 전용 사용자용 한 개)로 제한합니다. 더 많은 그룹을 사용하면 Log Analytics 성능에 영향을 줄 수 있습니다.
      >
      >
-4. 추가할 사용자 또는 그룹의 유형: **관리자**, **참가자** 또는 **읽기 전용 사용자**를 선택합니다.  
+4. 추가할 사용자 또는 그룹의 유형: **관리자**, **참여자** 또는 **읽기 전용 사용자**를 선택합니다.  
 5. **추가**를 클릭합니다.
 
    Microsoft 계정을 추가하는 경우 작업 영역에 가입하라는 초대가 제공한 메일로 전송됩니다. 사용자는 OMS에 가입하라는 초대의 지침을 따른 후 작업 영역에 액세스할 수 있습니다.
@@ -162,7 +164,7 @@ Azure Portal에 대해 주의해야 할 사항:
 OMS 계정과 연결된 사용자의 계정 역할을 변경할 수 있습니다. 다음과 같은 역할 옵션이 있습니다.
 
 * *관리자*: 사용자를 관리하고, 모든 경고를 보고 작업하며, 서버를 추가 및 제거할 수 있습니다.
-* *참가자*: 모든 경고를 보고 작업하며 서버를 추가 및 제거할 수 있습니다.
+* *참여자*: 모든 경고를 보고 작업하며 서버를 추가 및 제거할 수 있습니다.
 * *읽기 전용사용자*: 읽기 전용으로 표시된 사용자는 다음을 할 수 없습니다.
 
   1. 솔루션을 추가/제거합니다. 솔루션 갤러리를 숨깁니다.
@@ -187,7 +189,7 @@ OMS 계정과 연결된 사용자의 계정 역할을 변경할 수 있습니다
 ### <a name="add-a-group-to-an-existing-workspace"></a>기존 작업 영역에 그룹 추가
 1. 이전의 "기존 작업 영역에 사용자를 추가하려면" 섹션에서 1~4단계를 수행합니다.
 2. **사용자/그룹 선택**에서 **그룹**을 선택합니다.  
-   ![add a group to an existing workspace](./media/log-analytics-manage-access/add-group.png)
+   ![기존 작업 영역에 그룹 추가](./media/log-analytics-manage-access/add-group.png)
 3. 추가할 그룹의 표시 이름 또는 전자 메일 주소를 입력합니다.
 4. 목록 결과에서 그룹을 선택한 다음 **추가**를 클릭합니다.
 
@@ -210,7 +212,7 @@ OMS 계정과 연결된 사용자의 계정 역할을 변경할 수 있습니다
 4. **OMS 작업 영역**에서 **또는 기존 항목 연결**을 클릭합니다.  
    ![기존 항목 연결](./media/log-analytics-manage-access/manage-access-link-azure02.png)
 5. **필수 설정 구성**을 클릭합니다.  
-   ![configure required settings](./media/log-analytics-manage-access/manage-access-link-azure03.png)
+   ![필수 설정 구성](./media/log-analytics-manage-access/manage-access-link-azure03.png)
 6. 아직 Azure 계정에 연결되지 않은 작업 영역 목록이 표시됩니다. 작업 영역을 선택합니다.  
    ![작업 영역 선택](./media/log-analytics-manage-access/manage-access-link-azure04.png)
 7. 필요한 경우, 다음 항목에 대한 값을 변경할 수 있습니다.
@@ -266,7 +268,7 @@ Azure 구독이 연결된 기업 등록에 대한 Azure 요금 약정이 있는 
     ![업데이트된 요금제](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
 > [!NOTE]
-> 작업 영역이 자동화 계정에 연결된 경우 *독립 실행형(GB당)* 가격 책정 계층을 선택하려면 모든 **자동화 및 제어** 솔루션을 삭제하고 자동화 계정에 대한 연결을 해제해야 합니다. 작업 영역 블레이드의 **일반**에서 **솔루션**을 클릭하여 솔루션을 보고 삭제합니다. 자동화 계정에 대한 연결을 해제하려면 **가격 책정 계층** 블레이드에서 자동화 계정의 이름을 클릭합니다.
+> 작업 영역이 Automation 계정에 연결된 경우 *독립 실행형(GB당)* 가격 책정 계층을 선택하려면 모든 **Automation 및 제어** 솔루션을 삭제하고 Automation 계정에 대한 연결을 해제해야 합니다. 작업 영역 블레이드의 **일반**에서 **솔루션**을 클릭하여 솔루션을 보고 삭제합니다. Automation 계정에 대한 연결을 해제하려면 **가격 책정 계층** 블레이드에서 Automation 계정의 이름을 클릭합니다.
 >
 >
 

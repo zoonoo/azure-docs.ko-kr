@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 1da8051f96107310b821c4f88f4725987b81f732
-ms.lasthandoff: 03/18/2017
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 3f1f19f8d8a4f2e6e892ba3ede67f3749cedb11b
+ms.lasthandoff: 04/22/2017
 
 ---
 
@@ -104,6 +104,10 @@ Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL
 ## <a name="pricing"></a>가격
 
 가격 책정 정보는 [Traffic Manager 가격 책정](https://azure.microsoft.com/pricing/details/traffic-manager/)을 참조하세요.
+
+## <a name="faq"></a>FAQ
+
+Traffic Manager에 대한 자주 묻는 질문과 답변은 [Traffic Manager FAQ](traffic-manager-FAQs.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

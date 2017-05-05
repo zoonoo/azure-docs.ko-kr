@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: amanbha
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 92df9505416c5b4326f007dbf4b920f2c7ec3bd8
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
+ms.openlocfilehash: eef9c1ab69153d3a2e4d8e7363108703819823a7
+ms.lasthandoff: 04/20/2017
 
 
 ---
@@ -34,7 +34,12 @@ public interface IGameEvents : IActorEvents
     void GameScoreUpdated(Guid gameId, string currentScore);
 }
 ```
-
+```Java
+public interface GameEvents implements ActorEvents
+{
+    void gameScoreUpdated(UUID gameId, String currentScore);
+}
+```
 행위자 인터페이스에서 행위자에 의해 게시된 이벤트를 선언합니다.
 
 ```csharp
@@ -45,7 +50,14 @@ public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
     Task<string> GetGameScore();
 }
 ```
+```Java
+public interface GameActor extends Actor, ActorEventPublisherE<GameEvents>
+{
+    CompletableFuture<?> updateGameStatus(GameStatus status);
 
+    CompletableFuture<String> getGameScore();
+}
+```
 클라이언트쪽에서는 이벤트 처리기를 구현합니다.
 
 ```csharp
@@ -54,6 +66,15 @@ class GameEventsHandler : IGameEvents
     public void GameScoreUpdated(Guid gameId, string currentScore)
     {
         Console.WriteLine(@"Updates: Game: {0}, Score: {1}", gameId, currentScore);
+    }
+}
+```
+
+```Java
+class GameEventsHandler implements GameEvents {
+    public void gameScoreUpdated(UUID gameId, String currentScore)
+    {
+        System.out.println("Updates: Game: "+gameId+" ,Score: "+currentScore);
     }
 }
 ```
@@ -67,6 +88,12 @@ var proxy = ActorProxy.Create<IGameActor>(
 await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 
+```Java
+GameActor actorProxy = ActorProxyBase.create<GameActor>(GameActor.class, new ActorId(UUID.fromString(args)));
+
+return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler());
+```
+
 장애 조치 발생 시 행위자는 서로 다른 프로세스 또는 노드로 장애 조치(failover)가 될 수 있습니다. 행위자 프록시는 활성 구독을 관리하고 자동으로 재구독합니다. `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API를 통해 재구독 간격을 제어할 수 있습니다. 구독을 취소하려면 `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API를 사용합니다.
 
 행위자에서 이벤트 발생 시 해당 이벤트를 게시하기만 하면 됩니다. 이벤트에 구독자가 여럿 있는 경우는 행위자 런타임에서 구독자들에게 알림을 보냅니다.
@@ -75,10 +102,17 @@ await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
+```Java
+GameEvents event = getEvent<GameEvents>(GameEvents.class);
+event.gameScoreUpdated(Id.getUUIDId(), score);
+```
+
 
 ## <a name="next-steps"></a>다음 단계
 * [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
 * [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [샘플 코드](https://github.com/Azure/servicefabric-samples)
+* [C# 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [C# .NET Core 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
+* [Java 샘플 코드](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 

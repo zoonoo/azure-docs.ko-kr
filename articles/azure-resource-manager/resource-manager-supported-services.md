@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 03/20/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: a740813b013e75a098836290ad8e9ebe76d33b37
-ms.lasthandoff: 04/18/2017
+ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
+ms.openlocfilehash: bf4e400e30cc93ca8fa0cc727ada0f1b224b05cb
+ms.lasthandoff: 04/21/2017
 
 
 ---
@@ -125,7 +125,7 @@ Cloud Services(클래식)는 다른 클래식 리소스와 함께 사용할 수 
 | Service Bus |예 |[Service Bus REST](/rest/api/servicebus) |[Service Bus 리소스](/azure/templates/microsoft.servicebus/namespaces) |
 
 ## <a name="identity--access-management"></a>ID 및 액세스 관리
-Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므로 역할 기반 액세스 제어가 가능합니다. 역할 기반 액세스 제어 및 Active Directory를 사용하는 방법에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
+Azure Active Directory는 구독에 대해 리소스 관리자로 작동하므로 역할 기반 액세스 제어가 가능합니다. 역할 기반 액세스 제어 및 Azure Active Directory를 사용하는 방법에 대한 자세한 내용은 [Azure 역할 기반 Access Control](../active-directory/role-based-access-control-configure.md)을 참조하세요.
 
 ## <a name="developer-services"></a>개발자 서비스
 | 부여 | 리소스 관리자 사용 | REST API | 템플릿 형식 |

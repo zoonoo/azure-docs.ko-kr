@@ -51,8 +51,3 @@ Azure Active Directory 응용 프로그램 만들기를 비롯하여 여러 반�
 4. 서비스 주체를 **CDN 프로필 참가자** 역할에 할당하는 대신 개별 사용자 또는 그룹을 할당합니다.  이 예제에서는 *CDN 데모 사용자* 를 **CDN 프로필 참가자** 역할에 할당한 것을 알 수 있습니다.  
 
     ![개별 사용자 액세스](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
-
-
-<!--HONumber=Dec16_HO1-->
-
-

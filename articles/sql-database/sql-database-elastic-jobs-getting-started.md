@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
-ms.openlocfilehash: 1765e009438684373c89dc8364efd20dd1b7c84b
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: 12f84f7ee418955f34316686c836a8697be94ea2
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -36,8 +36,8 @@ Azure SQL 데이터베이스에 대한 탄력적 데이터베이스 작업(미�
 
    ![명령 프롬프트](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
-2. 명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter** 키를 누릅니다. 이 작업을&4;번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
-3. [Azure 포털](https://portal.azure.com) 에서 사용자의 v12 서버 내에 새로운&3;개의 데이터베이스가 보여야 합니다.
+2. 명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter** 키를 누릅니다. 이 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
+3. [Azure Portal](https://portal.azure.com)에서 다음 3개의 새 데이터베이스가 보여야 합니다.
 
    ![Visual Studio 확인](./media/sql-database-elastic-query-getting-started/portal.png)
 
@@ -413,7 +413,7 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
    ```
 
 ## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>작업 트리거를 사용하여 작업 실행 일정 만들기
-다음 PowerShell 스크립트를 사용하여 되풀이 일정을 만들 수 있습니다. 이 스크립트는&1;분 간격을 사용하지만 New-AzureSqlJobSchedule은 -DayInterval, -HourInterval, -MonthInterval 및 -WeekInterval 매개 변수도 지원합니다. -OneTime을 전달하여 한 번만 실행되는 일정을 만들 수 있습니다.
+다음 PowerShell 스크립트를 사용하여 되풀이 일정을 만들 수 있습니다. 이 스크립트는 1분 간격을 사용하지만 New-AzureSqlJobSchedule은 -DayInterval, -HourInterval, -MonthInterval 및 -WeekInterval 매개 변수도 지원합니다. -OneTime을 전달하여 한 번만 실행되는 일정을 만들 수 있습니다.
 
 새 일정을 만듭니다.
    ```

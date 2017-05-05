@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ce83fe64c4922b0e420f447e5b9db04c824412a6
-ms.lasthandoff: 04/12/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 6b26945f4bbffc3dad81bdb267d008da259b47df
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -46,7 +46,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 * **SSH 및 SCP 사용 경험** 또는 **Azure PowerShell**. 이 문서에서는 이 예제를 실행할 때 Azure PowerShell 및 SSH/SCP를 둘 다 사용하기 위한 단계를 제공합니다.
 
-    Azure PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)을 참조하세요.
+    Azure PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell 시작](/powershell/azure/overview)을 참조하세요.
 
     자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 

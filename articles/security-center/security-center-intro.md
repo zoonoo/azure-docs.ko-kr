@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 04/05/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: caa4f001871beeb83cc0406bd2f89c5aa026cd97
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 3155990d977d8b0849c9e0be92db11ad6567cd6e
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -49,7 +49,7 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 | 대응 | 현재 공격을 중지하고 미래 공격을 예방하는 데 도움이 되는 방법 제안 |
 
 ## <a name="introductory-walkthrough"></a>기능 소개 연습
- [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에서 Security Center에 액세스합니다. [포털에 로그인](https://portal.azure.com)하여 **찾아보기**를 선택하고 **Security Center** 옵션으로 스크롤하거나 이전에 포털 대시보드에 고정한 **Security Center** 타일을 선택합니다.
+ [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에서 Security Center에 액세스합니다. [포털](https://portal.azure.com)에 로그인합니다. 주 포털 메뉴에서 **Security Center** 옵션으로 스크롤하거나 이전에 포털 대시보드에 고정한 **Security Center** 타일을 선택합니다.
 
 ![Azure 포털의 보안 타일][1]
 
@@ -83,7 +83,7 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 >
 >
 
-**방지 정책**(위 참조)을 선택하여 **방지 정책** 블레이드를 엽니다. **권장 사항 표시** 를 사용하면 구독 내에서 리소스의 보안 요구를 기반으로 모니터링 및 권장할 보안 컨트롤을 선택할 수 있습니다.
+**방지 정책**(위 참조)을 선택하여 **방지 정책** 블레이드를 엽니다. **권장 사항 표시** 를 사용하면 구독 내에서 리소스의 보안 요구를 기반으로 모니터링하려는 보안 컨트롤과 보려는 권장 지침을 선택할 수 있습니다.
 
 그런 다음 정책 세부 정보를 볼 리소스 그룹을 선택합니다.
 
@@ -115,7 +115,7 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 ### <a name="resource-health"></a>리소스 상태
 **리소스 보안 상태** 타일은 환경의 전체 보안 상태를 VM, 웹 응용 프로그램 및 다른 리소스를 비롯한 리소스 종류별로 표시합니다.   
 
-**리소스 보안 상태** 타일에서 리소스 종류를 선택하여 식별된 잠재적 보안 취약성 목록을 비롯한 자세한 정보를 봅니다. (아래 예제에서**가상 컴퓨터** 를 선택합니다.)
+**리소스 보안 상태** 타일에서 리소스 종류를 선택하여 식별된 잠재적 보안 취약성 목록을 비롯한 자세한 정보를 봅니다. (아래 예제에서**계산**을 선택합니다.)
 
 ![리소스 상태 타일][6]
 

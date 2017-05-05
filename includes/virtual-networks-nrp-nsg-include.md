@@ -75,8 +75,3 @@ JSON 형식의 샘플 NSG:
 * [NSG](../articles/virtual-network/virtual-networks-nsg.md)에 대한 자세한 정보를 참조하세요.
 * NSG에 대한 [REST API 참조 설명서](https://msdn.microsoft.com/library/azure/mt163615.aspx) 를 읽어보세요.
 * 보안 규칙에 대한 [REST API 참조 설명서](https://msdn.microsoft.com/library/azure/mt163580.aspx) 를 읽어보세요.
-
-
-<!--HONumber=Nov16_HO3-->
-
-

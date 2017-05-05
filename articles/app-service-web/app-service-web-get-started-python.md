@@ -15,15 +15,15 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: f60e1188d1eb8baf8c6d5e77e2ff91a449351e1e
-ms.lasthandoff: 04/04/2017
+ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
+ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
+ms.lasthandoff: 04/26/2017
 
 
 ---
 # <a name="create-a-python-application-on-web-app"></a>Web App에서 Python 응용 프로그램 만들기
 
-이 빠른 시작 자습서에서는 Python 앱을 개발하고 Azure에 배포하는 방법을 설명합니다. Linux 기반 Azure App Service를 사용하여 앱을 실행하고 Azure CLI를 사용하여 새 Web App을 만들고 구성합니다. 그런 다음 Git를 사용하여 Python 앱을 Azure에 배포합니다.
+이 빠른 시작 자습서에서는 Python 앱을 개발하고 Azure에 배포하는 방법을 설명합니다. Azure App Service를 사용하여 앱을 실행하고, Azure CLI를 사용하여 새 웹앱을 만들고 구성합니다. 그런 다음 Git를 사용하여 Python 앱을 Azure에 배포합니다.
 
 ![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
@@ -34,7 +34,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 이 샘플을 실행하기 전에 다음 필수 조건을 로컬로 설치합니다.
 
 1. [Git 다운로드 및 설치](https://git-scm.com/)
-1. [Python 다운로드 및 설치](https://Python.net)
+1. [Python 다운로드 및 설치](https://www.python.org/downloads/)
 1. [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) 다운로드 및 설치
 
 ## <a name="download-the-sample"></a>샘플 다운로드
@@ -59,13 +59,13 @@ cd Python-docs-hello-world
 Python 웹 서버에서 기본 제공을 시작하려면 이 샘플의 `Python` 명령줄을 사용하는 터미널 창을 열어서 응용 프로그램을 로컬로 실행합니다.
 
 ```bash
-Python -S localhost:8080
+python main.py
 ```
 
 웹 브라우저를 열고 샘플로 이동합니다.
 
 ```bash
-http://localhost:8080
+http://localhost:5000
 ```
 
 이 페이지에 표시된 샘플 앱에서 **Hello World** 메시지를 볼 수 있습니다.
@@ -119,27 +119,34 @@ Linux 기반 App Service 계획을 [az appservice plan create](/cli/azure/appser
 > * SKU(무료, 공유, 기본, 표준, 프리미엄)
 >
 
-다음 예제에서는 **표준** 가격 책정 계층을 사용하는 `quickStartPlan`이라는 Linux 작업자에서 App Service 계획을 만듭니다.
+다음 예제에서는 **무료** 가격 책정 계층을 사용하는 `quickStartPlan`이라는 Linux 작업자에서 App Service 계획을 만듭니다.
 
 ```azurecli
-az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
 ```
 
 App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 
 ```json
 {
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "kind": "linux",
-    "location": "West Europe",
-    "sku": {
-    "capacity": 1,
-    "family": "S",
-    "name": "S1",
-    "tier": "Standard"
-    },
-    "status": "Ready",
-    "type": "Microsoft.Web/serverfarms"
+"appServicePlanName": "quickStartPlan",
+"geoRegion": "North Europe",
+"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
+"kind": "app",
+"location": "North Europe",
+"maximumNumberOfWorkers": 1,
+"name": "quickStartPlan",
+"provisioningState": "Succeeded",
+"resourceGroup": "myResourceGroup",
+"sku": {
+  "capacity": 0,
+  "family": "F",
+  "name": "F1",
+  "size": "F1",
+  "tier": "Free"
+},
+"status": "Ready",
+"type": "Microsoft.Web/serverfarms",
 }
 ```
 
@@ -147,7 +154,7 @@ App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정�
 
 이제 App Service 계획을 만들었으므로 `quickStartPlan` App Service 계획 내에서 Web App을 만듭니다. 웹앱은 코드를 배포할 호스팅 공간을 제공할 뿐만 아니라 배포된 응용 프로그램을 확인하도록 URL도 제공합니다. [az appservice web create](/cli/azure/appservice/web#create) 명령을 사용하여 Web App을 만듭니다.
 
-아래 명령에서 <app_name> 자리 표시자를 확인한 고유한 앱 이름을 대체하세요. <app_name>은 웹앱에 대한 기본 DNS 사이트로 사용되므로 이름이 Azure에 있는 모든 앱과 달리 고유해야 합니다. 나중에 사용자에게 노출하기 전에 웹앱에 사용자 지정 DNS 항목을 매핑할 수 있습니다.
+아래 명령에서 `<app_name>` 자리 표시자를 고유한 앱 이름으로 바꿉니다. `<app_name>`은 웹앱의 기본 DNS 사이트로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. 나중에 사용자에게 노출하기 전에 웹앱에 사용자 지정 DNS 항목을 매핑할 수 있습니다.
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
@@ -157,19 +164,24 @@ Web App을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표�
 
 ```json
 {
-    "clientAffinityEnabled": true,
-    "defaultHostName": "<app_name>.azurewebsites.net",
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
-    "isDefaultContainer": null,
-    "kind": "app",
-    "location": "West Europe",
-    "name": "<app_name>",
-    "repositorySiteName": "<app_name>",
-    "reserved": true,
-    "resourceGroup": "myResourceGroup",
-    "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
-    "state": "Running",
-    "type": "Microsoft.Web/sites",
+  "clientAffinityEnabled": true,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  "enabledHostNames": [
+    "<app_name>.azurewebsites.net",
+    "<app_name>.scm.azurewebsites.net"
+  ],
+  "hostNames": [
+    "<app_name>.azurewebsites.net"
+  ],
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app_name>",
+  "kind": "app",
+  "location": "North Europe",
+  "outboundIpAddresses": "13.69.190.80,13.69.191.239,13.69.186.193,13.69.187.34",
+  "resourceGroup": "myResourceGroup",
+  "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/quickStartPlan",
+  "state": "Running",
+  "type": "Microsoft.Web/sites",
 }
 ```
 
@@ -185,13 +197,13 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="configure-to-use-python"></a>Python을 사용하도록 구성
 
-[az appservice web config update](/cli/azure/app-service/web/config#update) 명령을 사용하여 Python 버전 `7.0.x`을 사용하도록 Web App을 구성합니다.
+[az appservice web config update](/cli/azure/app-service/web/config#update) 명령을 사용하여 Python 버전 `3.4`을 사용하도록 Web App을 구성합니다.
 
 > [!TIP]
 > 사용자가 [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) 명령에 대한 CLI 참조를 의미하는 고유한 컨테이너를 사용하려는 경우 이러한 방식으로 Python 버전을 설정하는 작업은 플랫폼에서 제공하는 기본 컨테이너를 사용합니다.
 
 ```azurecli
-az appservice web config update --name <app_name> --resource-group myResourceGroup
+az appservice web config update --python-version 3.4 --name <app-name> --resource-group myResourceGroup
 ```
 
 ## <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성
@@ -227,28 +239,45 @@ git push azure master
 배포하는 동안 Azure App Service는 Git에서 진행률을 조율합니다.
 
 ```bash
-Counting objects: 2, done.
+Counting objects: 18, done.
 Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
-Total 2 (delta 1), reused 0 (delta 0)
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (18/18), 4.31 KiB | 0 bytes/s, done.
+Total 18 (delta 4), reused 0 (delta 0)
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '25f18051e9'.
+remote: Preparing deployment for commit id '44e74fe7dd'.
 remote: Generating deployment script.
+remote: Generating deployment script for python Web Site
+remote: Generated deployment script files
 remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
+remote: Handling python deployment.
+remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
+remote: Deleting file: 'hostingstart.html'
 remote: Copying file: '.gitignore'
 remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
 remote: Copying file: 'main.py'
-remote: Ignoring: .git
+remote: Copying file: 'README.md'
+remote: Copying file: 'requirements.txt'
+remote: Copying file: 'virtualenv_proxy.py'
+remote: Copying file: 'web.2.7.config'
+remote: Copying file: 'web.3.4.config'
+remote: Detected requirements.txt.  You can skip Python specific steps with a .skipPythonDeployment file.
+remote: Detecting Python runtime from site configuration
+remote: Detected python-3.4
+remote: Creating python-3.4 virtual environment.
+remote: .................................
+remote: Pip install requirements.
+remote: Successfully installed Flask click itsdangerous Jinja2 Werkzeug MarkupSafe
+remote: Cleaning up...
+remote: .
+remote: Overwriting web.config with web.3.4.config
+remote:         1 file(s) copied.
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
-   cc39b1e..25f1805  master -> master
+ * [new branch]      master -> master
 ```
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
@@ -261,14 +290,14 @@ http://<app_name>.azurewebsites.net
 
 이번에는 Azure App Service 웹앱으로 실행되는 Python 코드를 사용하여 Hello World 메시지를 표시하는 페이지가 실행되고 있습니다.
 
-
+![]()
 
 ## <a name="updating-and-deploying-the-code"></a>코드 업데이트 및 배포
 
-로컬 텍스트 편집기를 사용하여 Python 앱 내에서 `main.py` 파일을 열고 `echo` 옆에 있는 문자열 내의 텍스트를 약간 변경합니다.
+로컬 텍스트 편집기를 사용하여 Python 앱 내에서 `main.py` 파일을 열고 `return` 문 옆에 있는 문자열 내의 텍스트를 약간 변경합니다.
 
 ```python
-echo "Hello Azure!";
+return 'Hello, Azure!'
 ```
 
 Git에서 변경 내용을 커밋한 다음 Azure에 코드 변경 내용을 푸시합니다.
@@ -288,7 +317,7 @@ Azure Portal로 이동하여 방금 만든 웹앱을 살펴봅니다.
 
 이 작업을 수행하려면 [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
 
-왼쪽 메뉴에서 **App Service**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
 
 ![Azure 웹앱에 대한 포털 탐색](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
 

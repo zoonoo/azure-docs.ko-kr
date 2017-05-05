@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 44169ba74f6af2b1c27ea4c2a8fd0214892f90d5
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1eacd13562adcff96fdd0dd3fd91c78ef6a26dbf
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -91,7 +91,7 @@ IoT Hub는 임의의 조건으로 장치 쌍 필터링을 검색하도록 허용
         WHERE tags.location.region = 'US'
             AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 
-위 코드는 미국 내에 있는&1;분 이하의 간격으로 원격 분석을 보내도록 구성된 모든 장치 쌍을 검색합니다. 편의를 위해 **IN** 및**NIN**(IN이 아님) 연산자와 함께 배열 상수를 사용할 수도 있습니다. 예를 들어
+위 코드는 미국 내에 있는 1분 이하의 간격으로 원격 분석을 보내도록 구성된 모든 장치 쌍을 검색합니다. 편의를 위해 **IN** 및**NIN**(IN이 아님) 연산자와 함께 배열 상수를 사용할 수도 있습니다. 예를 들어
 
         SELECT * FROM devices
         WHERE property.reported.connectivity IN ['wired', 'wifi']
@@ -171,6 +171,11 @@ IoT Hub는 임의의 조건으로 장치 쌍 필터링을 검색하도록 허용
 쿼리 개체는 장치 쌍이나 작업 개체 또는 프로젝션을 사용할 때 사용되는 일반 JSON과 같은 쿼리에 필요한 역직렬화 옵션에 따라 여러 **next\***를 표시합니다.
 
 ### <a name="limitations"></a>제한 사항
+> [!IMPORTANT]
+> 쿼리 결과는 장치 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID별로 개별 장치 쌍을 쿼리하는 경우 항상 최신 값을 포함하며 더 높은 조정 제한을 가지는 장치 쌍 검색 API를 사용하는 것이 항상 바람직합니다.
+>
+>
+
 현재 비교는 기본 형식(개체 없음) 간에만 지원됩니다. 예를 들어 `... WHERE properties.desired.config = properties.reported.config`는 해당 속성에 기본 값이 있는 경우에만 지원됩니다.
 
 ## <a name="get-started-with-jobs-queries"></a>작업 쿼리 시작
@@ -395,8 +400,8 @@ GROUP BY에 대한 형식 구문:
 | binary_operator | [연산자](#operators) 섹션에서 나열한 모든 이항 연산자입니다. |
 | function_name| [함수](#functions) 섹션에서 나열한 모든 함수입니다. |
 | decimal_literal |소수 표기법으로 표현되는 부동 float입니다. |
-| hexadecimal_literal |뒤에&16;진수 문자열이 붙는 ‘0x’ 문자열로 표현되는 숫자입니다. |
-| string_literal |문자열 리터럴은 연속적인&0;이상의 유니코드 문자 또는 이스케이프 시퀀스로 표현되는 유니코드 문자열입니다. 문자열 리터럴은 작은따옴표(아포스트로피: ') 또는 큰따옴표(따옴표: ")로 묶어야 합니다. 허용되는 이스케이프: `\'`, `\"`, `\\`, 4개의 16진수로 정의되는 유니코드 문자인 경우 `\uXXXX` |
+| hexadecimal_literal |뒤에 16진수 문자열이 붙는 ‘0x’ 문자열로 표현되는 숫자입니다. |
+| string_literal |문자열 리터럴은 연속적인 0이상의 유니코드 문자 또는 이스케이프 시퀀스로 표현되는 유니코드 문자열입니다. 문자열 리터럴은 작은따옴표(아포스트로피: ') 또는 큰따옴표(따옴표: ")로 묶어야 합니다. 허용되는 이스케이프: `\'`, `\"`, `\\`, 4개의 16진수로 정의되는 유니코드 문자인 경우 `\uXXXX` |
 
 ### <a name="operators"></a>연산자
 다음과 같은 연산자가 지원됩니다.
@@ -424,7 +429,7 @@ GROUP BY에 대한 형식 구문:
 | SQUARE(x)    | 지정한 숫자 값의 제곱을 반환합니다. |
 | CEILING(x) | 지정한 숫자 식보다 크거나 같은 가장 작은 정수 값을 반환합니다. |
 | FLOOR(x) | 지정한 숫자 식보다 작거나 같은 가장 큰 정수 값을 반환합니다. |
-| SIGN(x) | 지정한 숫자 식의 양수(+1),&0;(0) 또는 음수(-1) 부호를 반환합니다.|
+| SIGN(x) | 지정한 숫자 식의 양수(+1), 0(0) 또는 음수(-1) 부호를 반환합니다.|
 | SQRT(x) | 지정한 숫자 값의 제곱을 반환합니다. |
 
 경로 조건에서 지원되는 형식 검사 및 캐스팅 함수는 다음과 같습니다.
@@ -449,7 +454,7 @@ GROUP BY에 대한 형식 구문:
 | LENGTH(x) | 지정한 문자열 식의 문자 수를 반환합니다.|
 | LOWER(x) | 대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다. |
 | UPPER(x) | 소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다. |
-| SUBSTRING(string, start [, length]) | 지정한 문자&0; 기준 위치에서 시작하여 지정한 길이 또는 문자열의 끝까지에 이르는 문자열 식의 일부를 반환합니다. |
+| SUBSTRING(string, start [, length]) | 지정한 문자 0 기준 위치에서 시작하여 지정한 길이 또는 문자열의 끝까지에 이르는 문자열 식의 일부를 반환합니다. |
 | INDEX_OF(string, fragment) | 지정된 첫 번째 문자열 식 내의 두 번째 문자열 식에서 첫 번째로 나타나는 시작 위치를 반환하거나 문자열을 찾을 수 없는 경우 -1을 반환합니다.|
 | STARTS_WITH(x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
 | ENDS_WITH(x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다. |

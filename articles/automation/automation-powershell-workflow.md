@@ -4,7 +4,7 @@ description: "이 문서는 PowerShell에 익숙한 작성자가 PowerShell과 P
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
 ms.service: automation
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 04/21/2017
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 480a40bd5ecd58f11b10c27e7e0d2828bcae1f17
-ms.openlocfilehash: 50966ed518b79f2033680790432e29b0c9e7b289
+ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
+ms.openlocfilehash: 4de812c7f863e42a6ed10c2312d61b8377e06431
+ms.lasthandoff: 04/22/2017
 
 
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Automation runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습 
-Azure 자동화의 Runbook은 Windows PowerShell 워크플로로 구현됩니다.  Windows PowerShell 워크플로는 Windows PowerShell 스크립트와 비슷해 보이지만 신규 사용자가 혼동할 수 있는 중요한 차이점이 있습니다.  이 문서는 PowerShell 워크플로를 사용하여 runbook을 작성하는 데 도움을 주기 위해 작성되었으나 검사점이 필요한 경우가 아니면 PowerShell을 사용하여 runbook을 작성하는 것이 좋습니다.  PowerShell 워크플로 runbook을 작성할 경우 많은 구문 차이가 있으며 이러한 차이점으로 인해 효과적인 워크플로를 작성하기 위해 좀 더 많은 작업이 필요합니다.  
+Azure 자동화의 Runbook은 Windows PowerShell 워크플로로 구현됩니다.  Windows PowerShell 워크플로는 Windows PowerShell 스크립트와 비슷해 보이지만 신규 사용자가 혼동할 수 있는 중요한 차이점이 있습니다.  이 문서는 PowerShell 워크플로를 사용하여 runbook을 작성하는 데 도움을 주기 위해 작성되었으나 검사점이 필요한 경우가 아니면 PowerShell을 사용하여 runbook을 작성하는 것이 좋습니다.  PowerShell 워크플로 runbook을 작성할 경우 몇 가지 구문 차이가 있으며 이러한 차이점으로 인해 효과적인 워크플로를 작성하기 위해 좀 더 많은 작업이 필요합니다.  
 
 워크플로는 장기 실행 작업을 수행하거나 여러 장치 또는 관리 노드에서 여러 단계를 조정해야 하는 프로그래밍 방식으로 연결된 일련의 단계입니다. 워크플로는 일반적인 스크립트에 비해 여러 장치에서 작업을 동시에 수행하고 오류로부터 자동으로 복구할 수 있다는 장점이 있습니다. Windows PowerShell 워크플로는 Windows Workflow Foundation을 활용하는 Windows PowerShell 스크립트입니다. 워크플로는 Windows PowerShell 구문으로 작성되고 Windows PowerShell에서 시작되지만 Windows Workflow Foundation에서 처리됩니다.
 
@@ -35,15 +36,15 @@ PowerShell 스크립트를 PowerShell 워크플로로 변환하는 첫 단계는
        <Commands>
     }
 
-워크플로 이름은 자동화 Runbook의 이름과 일치해야 합니다. Runbook을 가져오려면 파일 이름이 워크플로 이름과 일치하고 .ps1로 끝나야 합니다.
+워크플로 이름은 자동화 Runbook의 이름과 일치해야 합니다. Runbook을 가져오려면 파일 이름이 워크플로 이름과 일치하고 *.ps1*으로 끝나야 합니다.
 
 워크플로에 매개 변수를 추가 하려면, 스크립트와 마찬가지로 **Param** 이 키워드 입니다.
 
 ## <a name="code-changes"></a>코드 변경 내용
-PowerShell 워크플로 코드는 몇 가지 중요한 변경 내용을 제외하고는 PowerShell 스크립트 코드와 거의 동일합니다.  다음 섹션에서 설명하는 변경 사항을 사용자가 워크플로에서 실행하려면 PowerShell script를 만들 필요가 있습니다.
+PowerShell 워크플로 코드는 몇 가지 중요한 변경 내용을 제외하고는 PowerShell 스크립트 코드와 거의 동일합니다.  다음 섹션에서 설명하는 변경 사항을 사용자가 워크플로에서 실행하려면 PowerShell 스크립트를 만들 필요가 있습니다.
 
 ### <a name="activities"></a>활동
-활동은 워크플로의 특정 작업입니다. 하나 이상의 명령으로 구성된 스크립트와 마찬가지로 워크플로는 시퀀스로 수행되는 하나 이상의 활동으로 구성됩니다. Windows PowerShell 워크플로는 워크플로를 실행할 때 많은 Windows PowerShell cmdlet을 활동으로 자동으로 변환합니다. Runbook에서 이러한 cmdlet 중 하나를 지정한 경우 해당 활동은 실제로 Windows Workflow Foundation에 의해 실행됩니다. 해당 활동이 없는 cmdlet의 경우 Windows PowerShell 워크플로는 [InlineScript](#inlinescript) 활동 내에서 cmdlet을 자동으로 실행합니다. InlineScript 블록에 명시적으로 포함하지 않으면 워크플로에서 제외되고 사용할 수 없는 cmdlet 집합이 있습니다. 이러한 개념에 자세한 내용은 [스크립트 워크플로에서 활동 사용](http://technet.microsoft.com/library/jj574194.aspx)을 참조하세요.
+활동은 워크플로의 특정 작업입니다. 하나 이상의 명령으로 구성된 스크립트와 마찬가지로 워크플로는 시퀀스로 수행되는 하나 이상의 활동으로 구성됩니다. Windows PowerShell 워크플로는 워크플로를 실행할 때 많은 Windows PowerShell cmdlet을 활동으로 자동으로 변환합니다. Runbook에서 이러한 cmdlet 중 하나를 지정한 경우 해당 활동은 Windows Workflow Foundation에 의해 실행됩니다. 해당 활동이 없는 cmdlet의 경우 Windows PowerShell 워크플로는 [InlineScript](#inlinescript) 활동 내에서 cmdlet을 자동으로 실행합니다. InlineScript 블록에 명시적으로 포함하지 않으면 워크플로에서 제외되고 사용할 수 없는 cmdlet 집합이 있습니다. 이러한 개념에 자세한 내용은 [스크립트 워크플로에서 활동 사용](http://technet.microsoft.com/library/jj574194.aspx)을 참조하세요.
 
 워크플로 활동은 해당 작업을 구성하기 위해 일반 매개 변수 집합을 공유합니다. 워크플로 일반 매개 변수에 대한 자세한 내용은 [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx)를 참조하세요.
 
@@ -54,7 +55,7 @@ PowerShell 워크플로 코드는 몇 가지 중요한 변경 내용을 제외�
 
      Get-Service | Where-Object {$_.Status -eq "Running"}
 
-동일한 코드를 워크플로에서 실행하려고 한다면, 다음과 같은 메시지를 얻게 됩니다.  “지정된 이름 매개 변수를 사용하여 매개 변수 집합을 해결할 수 없습니다.” 이 문제를 해결하려면 다음과 같은 매개 변수 이름을 제공합니다.
+동일한 코드를 워크플로에서 실행하려고 한다면, 다음과 같은 메시지가 표시됩니다.  “지정한 명명된 매개 변수를 사용하여 매개 변수 집합을 확인할 수 없습니다.” 이 문제를 해결하려면 다음과 같은 매개 변수 이름을 제공합니다.
 
     Workflow Get-RunningServices
     {
@@ -67,7 +68,7 @@ PowerShell 워크플로 코드는 몇 가지 중요한 변경 내용을 제외�
     $Service = Get-Service -Name MyService
     $Service.Stop()
 
-워크플로에서 실행하는 경우, 다음과 같은 오류 메시지를 얻게 됩니다. “Windows PowerShell 워크플로에서는 메서드 호출이 지원되지 않습니다.”  
+워크플로에서 실행하는 경우, 다음과 같은 오류 메시지가 표시됩니다. “Windows PowerShell 워크플로에서는 메서드 호출이 지원되지 않습니다.”  
 
 한가지 옵션은 블록 내에서 case $Service가 서비스되는 [InlineScript](#inlinescript) 블록의 코드 두줄을 래핑하는 것입니다.
 
@@ -79,7 +80,7 @@ PowerShell 워크플로 코드는 몇 가지 중요한 변경 내용을 제외�
         }
     }
 
-다른 옵션은 하나의 cmdlet가 사용 가능할 경우, 메서드와 동일한 기능을 수행하는 다른 cmdlet를 사용하는 것입니다.  이 샘플의 경우, Stop 서비스 cmdlet는 Stop 메서드와 같은 기능을 제공하고, 워크플로를 따라서 사용 가능합니다.
+다른 옵션은 하나의 cmdlet가 사용 가능할 경우, 메서드와 동일한 기능을 수행하는 다른 cmdlet를 사용하는 것입니다.  이 샘플에서 Stop-Service cmdlet은 Stop 메서드와 같은 기능을 제공하며 워크플로에 다음을 사용할 수 있습니다.
 
     Workflow Stop-MyService
     {
@@ -130,8 +131,8 @@ InlineScript에는 아래 표시된 구문이 사용됩니다.
 
 InlineScript 활동은 특정 워크플로에서 중요할 수 있지만 워크플로 구문을 지원하지 않으며 다음과 같은 이유로 필요한 경우에만 사용해야 합니다.
 
-* [검사점](#checkpoints)을 InlineScript 블록 내에서.사용할 수 없습니다. 블록 내에서 오류가 발생한 경우 블록의 처음부터 다시 시작해야 합니다.
-* [병렬 실행](#parallel-processing)을 InlineScriptBlock 내부에서 사용할 수 없습니다.
+* InlineScript 블록 내에서는 [검사점](#checkpoints)을 사용할 수 없습니다. 블록 내에서 오류가 발생한 경우 블록의 처음부터 다시 시작해야 합니다.
+* InlineScriptBlock 내부에서는 [병렬 실행](#parallel-processing)을 사용할 수 없습니다.
 * InlineScript는 InlineScript 블록의 전체 길이 동안 Windows PowerShell 세션을 유지하므로 워크플로의 확장성에 영향을 줍니다.
 
 InlineScript 사용에 대한 자세한 내용은 [워크플로에서 Windows PowerShell 명령 실행](http://technet.microsoft.com/library/jj574197.aspx) 및 [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx)를 참조하세요.
@@ -139,7 +140,7 @@ InlineScript 사용에 대한 자세한 내용은 [워크플로에서 Windows Po
 ## <a name="parallel-processing"></a>병렬 처리
 Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립트처럼 명령 집합을 순차적으로 수행하지 않고 병렬로 수행할 수 있다는 점입니다.
 
-**Parallel** 키워드를 사용하여 동시에 실행할 여러 명령이 포함된 스크립트 블록을 만들 수 있습니다. 여기에는 아래 표시된 구문이 사용됩니다. 이 예제에서 Activity1과 Activity2는 동시에 시작됩니다. Activity3은 Activity1과 Activity2가 모두 완료된 후에만 시작됩니다.
+**Parallel** 키워드를 사용하여 동시에 실행할 여러 명령이 포함된 스크립트 블록을 만들 수 있습니다. 여기서는 아래 표시된 구문이 사용됩니다. 이 경우에는 Activity1과 Activity2가 동시에 시작됩니다. Activity3는 Activity1과 Activity2가 모두 완료된 후에만 시작됩니다.
 
     Parallel
     {
@@ -151,26 +152,26 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 네트워크 대상에 여러 파일을 복사하는 다음 PowerShell 명령을 예로 들 수 있습니다.  하나의 파일이 복사가 완전히 끝나야만 다음 복사가 시작되므로 이 명령은 순차적으로 실행됩니다.     
 
-    $Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
-    $Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
-    $Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
+    Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
+    Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
+    Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
 
-다음 워크플로는 복사를 동시에 시작하기 때문에 동일한 명령을 병렬로 실행합니다.  복사가 완전히 끝난 후 완료 메시지가 표시됩니다.
+다음 워크플로는 복사를 동시에 시작하기 때문에 동일한 명령을 병렬로 실행합니다.  복사가 완전히 끝난 후에만 완료 메시지가 표시됩니다.
 
     Workflow Copy-Files
     {
         Parallel
         {
-            $Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
-            $Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
-            $Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
+            Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
+            Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
+            Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
         }
 
         Write-Output "Files copied."
     }
 
 
-**ForEach -Parallel** 구문을 사용하여 컬렉션의 각 항목에 대한 명령을 동시에 처리할 수 있습니다. 이 경우 컬렉션의 항목은 병렬로 처리되지만 스크립트 블록의 명령은 순차적으로 실행됩니다. 여기에는 아래 표시된 구문이 사용됩니다. 이 예제에서 Activity1은 컬렉션의 모든 항목에 대해 동시에 시작됩니다. 각 항목에 대해 Activity2는 Activity1이 완료된 후에 시작됩니다. Activity3은 모든 항목에 대해 Activity1과 Activity2가 모두 완료된 후에만 시작됩니다.
+**ForEach -Parallel** 구문을 사용하여 컬렉션의 각 항목에 대한 명령을 동시에 처리할 수 있습니다. 이 경우 컬렉션의 항목은 병렬로 처리되지만 스크립트 블록의 명령은 순차적으로 실행됩니다. 여기서는 아래 표시된 구문이 사용됩니다. 이 예제에서 Activity1은 컬렉션의 모든 항목에 대해 동시에 시작됩니다. 각 항목에 대해 Activity2는 Activity1이 완료된 후에 시작됩니다. Activity3는 모든 항목에 대해 Activity1과 Activity2가 모두 완료된 후에만 시작됩니다.
 
     ForEach -Parallel ($<item> in $<collection>)
     {
@@ -187,7 +188,7 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
         ForEach -Parallel ($File in $Files)
         {
-            $Copy-Item -Path $File -Destination \\NetworkPath
+            Copy-Item -Path $File -Destination \\NetworkPath
             Write-Output "$File copied."
         }
 
@@ -211,7 +212,7 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 예외가 발생할 수 있으며 워크플로를 다시 시작한 경우 반복되지 않아야 하는 활동 뒤에 R워크플로의 검사점을 설정해야 합니다. 예를 들어 Runbook에서 가상 컴퓨터를 만들 수 있습니다. 가상 컴퓨터를 만드는 명령 앞뒤 모두에 검사점을 설정할 수 있습니다. 만들기에 실패하면, 워크플로가 다시 시작하는 경우 명령을 반복합니다. 생성 후 워크플로가 실패하는 경우, 워크플로를 재시작할 때에도 가상 컴퓨터는 다시 생성되지 않습니다.
 
-다음 예제는 네트워크 위치에 여러 파일들을 복사하고 각 파일에 검사점을 설정합니다.  네트워크 위치가 손실 된 경우 워크플로가 오류로 종료 됩니다.  다시 실행하면, 마지막 검사점에서 재시작되는 데 이것은 이미 복사된 파일들은 생략한다는 것을 의미합니다.
+다음 예제는 네트워크 위치에 여러 파일들을 복사하고 각 파일에 검사점을 설정합니다.  네트워크 위치가 손실된 경우 워크플로가 오류로 종료됩니다.  다시 시작될 경우 마지막 검사점에서 재시작되는 데 이것은 이미 복사된 파일만 생략된다는 것을 의미합니다.
 
     Workflow Copy-Files
     {
@@ -219,7 +220,7 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
         ForEach ($File in $Files)
         {
-            $Copy-Item -Path $File -Destination \\NetworkPath
+            Copy-Item -Path $File -Destination \\NetworkPath
             Write-Output "$File copied."
             Checkpoint-Workflow
         }
@@ -260,9 +261,4 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 ## <a name="next-steps"></a>다음 단계
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

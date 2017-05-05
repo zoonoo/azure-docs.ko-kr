@@ -15,9 +15,9 @@ ms.workload: infrastructure
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 7ca51ce26e009d18b4519a5e7ba16df64ec984ef
-ms.lasthandoff: 03/31/2017
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8682c7707f489aafd55a6673420bafa2ba5f4ade
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,7 +29,7 @@ RDP(원격 데스크톱) 연결 문제 또는 Windows 기반 Azure VM(가상 컴
 
 
 ## <a name="using-azure-powershell"></a>Azure PowerShell 사용
-최신 Azure PowerShell 1.x를 컴퓨터에 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+최신 Azure PowerShell 1.x를 컴퓨터에 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 배포합니다.
 

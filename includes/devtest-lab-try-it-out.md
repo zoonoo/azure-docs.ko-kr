@@ -5,8 +5,3 @@ Azure를 처음 사용하세요? [무료 Azure 계정 만들기](https://azure.m
 
 [![몇 분 이내에 Azure DevTest Labs 시작](./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-
