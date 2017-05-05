@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 308c9f4d59f6c6981af74f4208c9963e3d0102dd
-ms.openlocfilehash: 6644afc1de68230ccca089529b32195c4c8ddfe7
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e190cfdf6d7a9dee86ed7b9072dc51ca8c993d32
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/17/2017
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
 * BambooHR에 응용 프로그램 통합 사용
-* Single Sign-On 구성
+* SSO(Single Sign-On) 구성
 * 사용자 프로비전 구성
 * 사용자 할당
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 02/17/2017
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 BambooHR에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
 
-이 절차의 일부로 base&64;로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+이 절차의 일부로 base 64로 인코딩된 인증서 파일을 만들어야 합니다. 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 **Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/17/2017
       >[!TIP]
       >자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요. 
       > 
-   3. Base&64;로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
+   3. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
    4. **Save**를 클릭합니다.
 8. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
@@ -128,7 +128,7 @@ Azure AD 사용자가 BambooHR에 로그인할 수 있도록 하려면 BambooHR�
 >다른 BambooHR 사용자 계정 생성 도구 또는 BambooHR이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다. 
 > 
 
-## <a name="assig-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
 **BambooHR에 사용자를 할당하려면 다음 단계를 수행합니다.**
@@ -141,6 +141,6 @@ Azure AD 사용자가 BambooHR에 로그인할 수 있도록 하려면 BambooHR�
    
    ![예](./media/active-directory-saas-bamboo-hr-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
+SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 

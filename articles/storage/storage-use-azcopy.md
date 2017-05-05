@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: e1c4342897fe6cf57e323a82e04e10473b3ece30
-ms.openlocfilehash: 777b84d9aa59f773345c1925c3c6467dc64d2d34
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f703da63c4243c73cf68d3df9953f73d2462ac1c
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -360,7 +360,7 @@ AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfold
 AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
 ```
 
-AzCopy는 분할 데이터 파일 이름에서 *볼륨 인덱스* 를 사용해 여러 파일을 구분합니다. 볼륨 인덱스는 *파티션 키 범위 인덱스*와 *분할 파일 인덱스*의 두 부분으로 구성됩니다. 두 인덱스는 모두&0;부터 시작됩니다.
+AzCopy는 분할 데이터 파일 이름에서 *볼륨 인덱스* 를 사용해 여러 파일을 구분합니다. 볼륨 인덱스는 *파티션 키 범위 인덱스*와 *분할 파일 인덱스*의 두 부분으로 구성됩니다. 두 인덱스는 모두 0부터 시작됩니다.
 
 사용자가 `/PKRS`옵션을 지정하지 않으면 파티션 키 범위 인덱스는 0이 됩니다.
 
@@ -798,9 +798,9 @@ AzCopy는 데이터 전송 처리량을 높이기 위해 기본적으로 특정 
 ### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
 테이블 데이터를 병렬로 내보낼 수 있도록 파티션 키 범위를 분할합니다. 그러면 내보내기 작업의 속도가 빨라집니다.
 
-이 옵션을 지정하지 않으면 AzCopy는 단일 스레드를 사용하여 테이블 엔터티를 내보냅니다. 예를 들어 사용자가 /PKRS:"aa#bb"를 지정하면 AzCopy는&3;개 동시 작업을 시작합니다.
+이 옵션을 지정하지 않으면 AzCopy는 단일 스레드를 사용하여 테이블 엔터티를 내보냅니다. 예를 들어 사용자가 /PKRS:"aa#bb"를 지정하면 AzCopy는 3개 동시 작업을 시작합니다.
 
-각 작업에서는 아래에 나와 있는 것처럼&3;개 파티션 키 범위 중 하나를 내보냅니다.
+각 작업에서는 아래에 나와 있는 것처럼 3개 파티션 키 범위 중 하나를 내보냅니다.
 
   [첫 번째 파티션 키, aa)
 

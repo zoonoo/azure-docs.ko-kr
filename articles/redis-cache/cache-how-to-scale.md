@@ -12,24 +12,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 04/11/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 022916bacd93d283a6495a60ca1afa0c27e34e0c
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 91b3580491a1e3504a3891b66606a9bd18c0638f
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Azure Redis Cache 크기를 조정하는 방법
-> [!NOTE]
-> Azure Redis Cache 크기 조정 기능은 현재 미리 보기 상태입니다. 
-> 
-> 
-
-Azure Redis Cache에는 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 캐시를 만든 후 응용 프로그램 요구 사항이 변경되면 **Azure 포털** 의 [가격 책정 계층 변경](https://portal.azure.com)블레이드를 사용하여 캐시 크기를 조정할 수 있습니다.
+Azure Redis Cache에는 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 캐시를 만든 후 응용 프로그램 요구 사항이 변경되면 캐시의 크기 및 가격 책정 계층의 크기를 조정할 수 있습니다. 이 문서에서는 Azure Portal에서, Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
 
 ## <a name="when-to-scale"></a>크기를 조정하는 경우
-Azure Redis Cache의 [모니터링](cache-how-to-monitor.md) 기능을 사용하여 캐시 응용 프로그램의 상태 및 성능을 모니터링하고 캐시 크기를 조정해야 하는지 결정하는데 도움을 줄 수 있습니다. 
+Azure Redis Cache의 [모니터링](cache-how-to-monitor.md) 기능을 사용하여 캐시의 상태 및 성능을 모니터링하고 캐시 크기를 조정해야 하는 경우를 결정하는데 도움을 줄 수 있습니다. 
 
 다음 메트릭을 모니터링하면 크기를 조정해야 하는지 결정하는데 도움이 될 수 있습니다.
 
@@ -38,31 +34,27 @@ Azure Redis Cache의 [모니터링](cache-how-to-monitor.md) 기능을 사용하
 * 네트워크 대역폭
 * CPU 사용량
 
-캐시가 더 이상 응용 프로그램 요구 사항을 충족시키지 못한다고 판단되면 응용 프로그램에 적합하도록 더 크거나 더 작은 캐시 가격 책정 계층으로 변경할 수 있습니다. 사용할 캐시 가격 책정 계층 결정에 대한 자세한 내용은 [어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)를 참조하세요.
+캐시가 더 이상 응용 프로그램 요구 사항을 충족시키지 못한다고 판단되면 응용 프로그램에 적합하도록 더 크거나 더 작은 캐시 가격 책정 계층으로 규모를 변경할 수 있습니다. 사용할 캐시 가격 책정 계층 결정에 대한 자세한 내용은 [어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)를 참조하세요.
 
 ## <a name="scale-a-cache"></a>캐시 크기 조정
-캐시 크기를 조정하려면 [Azure Portal](cache-configure.md#configure-redis-cache-settings)에서 [캐시를 찾은](https://portal.azure.com) 다음 **설정**, **가격 책정 계층**을 클릭합니다.
+캐시 크기를 조정하려면 [Azure Portal](cache-configure.md#configure-redis-cache-settings)에서 [캐시를 찾은](https://portal.azure.com) 다음 **리소스 메뉴**에서 **크기 조정**을 클릭합니다.
 
-**Redis Cache** 블레이드에서 **가격 책정 계층** 부분을 클릭할 수도 있습니다.
+![확장](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
-![가격 책정 계층][redis-cache-pricing-tier-part]
+**가격 책정 계층 선택** 블레이드에서 원하는 가격 책정 계층을 선택하고 **선택**을 클릭합니다.
 
-**가격 책정 계층** 블레이드에서 원하는 가격 책정 계층을 선택하고 **선택**을 클릭합니다.
+![가격 책정 계층 ][redis-cache-pricing-tier-blade]
 
-![가격 책정 계층][redis-cache-pricing-tier-blade]
 
-> [!NOTE]
-> 다른 가격 책정 계층으로 크기를 조정할 수 있지만 다음과 같은 제한 사항이 있습니다.
-> 
-> * 높은 가격 책정 계층에서 낮은 가격 책정 계층으로 크기를 조정할 수 없습니다.
-> * **프리미엄** 캐시에서 **표준** 또는 **기본** 캐시로 축소할 수 없습니다.
-> * **표준** 캐시에서 **기본** 캐시로 축소할 수 없습니다.
-> * **기본** 캐시에서 **표준** 캐시로 크기를 조정할 수 있지만 동시에 크기를 변경할 수는 없습니다. 다른 크기가 필요한 경우 후속 크기 조정 작업을 통해 원하는 크기로 조정할 수 있습니다.
-> * **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 크기 조정 작업을 통해 **기본**에서 **표준**으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준**에서 **프리미엄**으로 확장해야 합니다.
-> * 더 큰 크기에서 **C0(250MB)** 크기로 축소할 수 없습니다.
-> 
-> 
+다른 가격 책정 계층으로 크기를 조정할 수 있지만 다음과 같은 제한 사항이 있습니다.
 
+* 높은 가격 책정 계층에서 낮은 가격 책정 계층으로 크기를 조정할 수 없습니다.
+  * **프리미엄** 캐시에서 **표준** 또는 **기본** 캐시로 축소할 수 없습니다.
+  * **표준** 캐시에서 **기본** 캐시로 축소할 수 없습니다.
+* **기본** 캐시에서 **표준** 캐시로 크기를 조정할 수 있지만 동시에 크기를 변경할 수는 없습니다. 다른 크기가 필요한 경우 후속 크기 조정 작업을 통해 원하는 크기로 조정할 수 있습니다.
+* **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 크기 조정 작업을 통해 **기본**에서 **표준**으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준**에서 **프리미엄**으로 확장해야 합니다.
+* 더 큰 크기에서 **C0(250MB)** 크기로 축소할 수 없습니다.
+ 
 새로운 가격 책정 계층으로 캐시 크기를 조정하는 동안에는 **Scaling(크기 조정 중)** 상태가 **Redis Cache** 블레이드에 표시됩니다.
 
 ![확장][redis-cache-scaling]
@@ -70,7 +62,7 @@ Azure Redis Cache의 [모니터링](cache-how-to-monitor.md) 기능을 사용하
 크기 조정이 완료되면 상태가 **Scaling(크기 조정 중)**에서 **실행 중**으로 변경됩니다.
 
 ## <a name="how-to-automate-a-scaling-operation"></a>크기 조정 작업을 자동화하는 방법
-Azure 포털에서 Azure Redis Cache 인스턴스의 크기를 조정할 뿐만 아니라 Azure Redis Cache PowerShell cmdlet, Azure CLI를 사용하거나 MAML(Microsoft Azure Management Libraries)을 사용하여 크기를 조정할 수 있습니다. 
+Azure Portal에서 캐시 인스턴스의 크기를 조정할 뿐만 아니라 PowerShell cmdlet, Azure CLI를 사용하거나 MAML(Microsoft Azure Management Libraries)을 사용하여 크기를 조정할 수 있습니다. 
 
 * [PowerShell을 사용하여 크기 조정](#scale-using-powershell)
 * [Azure CLI를 사용한 크기 조정](#scale-using-azure-cli)
@@ -123,13 +115,12 @@ Azure CLI을 통한 크기 조정에 대한 자세한 내용은 [기존 Redis Ca
 * [지원되지 않는 작업](#operations-that-are-not-supported)
 * [크기 조정은 시간이 얼마나 걸리나요?](#how-long-does-scaling-take)
 * [크기 조정이 완료되었는지 어떻게 알 수 있나요?](#how-can-i-tell-when-scaling-is-complete)
-* [이 기능이 미리 보기 상태인 이유는 무엇인가요?](#why-is-this-feature-in-preview)
 
 ### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>프리미엄 캐시로 확장하거나, 이 캐시를 축소하거나 이 캐시 내에서 크기를 조정할 수 있나요?
 * **프리미엄** 캐시에서 **기본** 또는 **표준** 가격 책정 계층으로 축소할 수 없습니다.
 * 하나의 **프리미엄** 캐시 가격 책정 계층에서 다른 프리미엄 캐시 가격 책정 계층으로 크기를 조정할 수 있습니다.
 * **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 먼저 크기 조정 작업을 통해 **기본**에서 **표준**으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준**에서 **프리미엄**으로 확장해야 합니다.
-* **프리미엄** 캐시를 만들 때 클러스터링을 사용하도록 설정했으면 [클러스터 크기를 변경](cache-how-to-premium-clustering.md#cluster-size)할 수 있습니다. 현재는 클러스터링 없이 생성된 기존 캐시에 클러스터링을 사용할 수 없습니다.
+* **프리미엄** 캐시를 만들 때 클러스터링을 사용하도록 설정했으면 [클러스터 크기를 변경](cache-how-to-premium-clustering.md#cluster-size)할 수 있습니다. 클러스터를 사용하지 않고 캐시를 만든 경우 나중에 클러스터링를 구성할 수 없습니다.
   
   자세한 내용은 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
 
@@ -166,7 +157,7 @@ Azure CLI을 통한 크기 조정에 대한 자세한 내용은 [기존 Redis Ca
   * **프리미엄** 캐시에서 **표준** 또는 **기본** 캐시로 축소할 수 없습니다.
   * **표준** 캐시에서 **기본** 캐시로 축소할 수 없습니다.
 * **기본** 캐시에서 **표준** 캐시로 크기를 조정할 수 있지만 동시에 크기를 변경할 수는 없습니다. 다른 크기가 필요한 경우 후속 크기 조정 작업을 통해 원하는 크기로 조정할 수 있습니다.
-* **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 크기 조정 작업을 통해 **기본**에서 **표준**으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준**에서 **프리미엄**으로 확장해야 합니다.
+* **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 먼저 크기 조정 작업을 통해 **기본**에서 **표준**으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준**에서 **프리미엄**으로 확장해야 합니다.
 * 더 큰 크기에서 **C0(250MB)** 크기로 축소할 수 없습니다.
 
 크기 조정 작업이 실패하면 서비스는 작업을 되돌리려고 하며 캐시는 원래 크기로 되돌아갑니다.
@@ -177,21 +168,12 @@ Azure CLI을 통한 크기 조정에 대한 자세한 내용은 [기존 Redis Ca
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>크기 조정이 완료되었는지 어떻게 알 수 있나요?
 Azure 포털에서 진행 중인 크기 조정 작업을 볼 수 있습니다. 크기 조정이 완료되면 캐시 상태가 **실행 중**으로 변경됩니다.
 
-### <a name="why-is-this-feature-in-preview"></a>이 기능이 미리 보기 상태인 이유는 무엇인가요?
-이 기능은 사용자 의견을 듣기 위해 출시되었습니다. 사용자 의견을 기반으로 곧 이 기능을 일반 공급으로 출시할 것입니다.
-
 <!-- IMAGES -->
-[redis-cache-pricing-tier-part]: ./media/cache-how-to-scale/redis-cache-pricing-tier-part.png
 
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

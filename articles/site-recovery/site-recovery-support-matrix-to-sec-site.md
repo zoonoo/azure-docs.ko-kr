@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/08/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 2541236d84100ed7889d06f9b0580fcbc55ecfdb
-ms.openlocfilehash: f9443b633601272c79739c92995d53ba1a7d2b4e
+ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
+ms.openlocfilehash: d53d4cfdc7b673d2816fa9372dedbed540380cce
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -30,11 +31,11 @@ ms.openlocfilehash: f9443b633601272c79739c92995d53ba1a7d2b4e
 
 ## <a name="deployment-options"></a>배포 옵션
 
-**배포웹사이트를** | **VMware/물리적 서버** | **Hyper-V(VMM 없음)** | **Hyper-V(VMM 포함)**
+**배포웹사이트를** | **VMware/물리적 서버** | **Hyper-V(SCVMM 포함/제외)
 --- | --- | --- | ---
-**Azure 포털** | 보조 VMware 사이트에 온-프레미스 VMware VM을 복제합니다.<br/><br/> [InMage Scout 사용자 가이드](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)를 다운로드합니다(Azure Portal에서 사용할 수 없음). | 지원되지 않음 | VMM 클라우드의 온-프레미스 Hyper-V VM을 보조 VMM 클라우드에 복제<br/><br/> 표준 Hyper-V 복제만 해당 SAN은 지원되지 않음
-**클래식 포털** | 유지 관리 모드에만 해당됩니다. 새 자격 증명 모음은 만들 수 없습니다. | 지원되지 않음 | 유지 관리 모드에만 해당됩니다.
-**PowerShell** | 지원되지 않음 | 지원되지 않음 | 지원됨
+**Azure 포털** | 보조 VMware 사이트에 온-프레미스 VMware VM을 복제합니다.<br/><br/> [InMage Scout 사용자 가이드](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)를 다운로드합니다(Azure Portal에서 사용할 수 없음). | VMM 클라우드의 온-프레미스 Hyper-V VM을 보조 VMM 클라우드에 복제<br></br> SCVMM이 없으면 지원되지 않음  <br/><br/> 표준 Hyper-V 복제만 해당 SAN은 지원되지 않음
+**클래식 포털** | 유지 관리 모드에만 해당됩니다. 새 자격 증명 모음은 만들 수 없습니다. | 유지 관리 모드에만 해당됩니다.<br></br> SCVMM이 없으면 지원되지 않음
+**PowerShell** | 지원되지 않음 | 지원됨<br></br> SCVMM이 없으면 지원되지 않음
 
 ## <a name="on-premises-servers"></a>온-프레미스 서버
 
@@ -119,7 +120,7 @@ RDM | 예 | 해당 없음
 스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예 | 예
 저장소 공간 | 아니요 | 예
 디스크 핫 추가/제거 | 아니요 | 아니요
-디스크 제외 | 아니요 | 아니요
+디스크 제외 | 아니요 | 예
 다중 경로(MPIO) | 해당 없음 | 예
 
 ## <a name="vaults"></a>자격 증명 모음
@@ -140,9 +141,4 @@ RDM | 예 | 해당 없음
 ## <a name="next-steps"></a>다음 단계
 
 [배포 필수 조건](site-recovery-prereq.md)에 대해 알아봅니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

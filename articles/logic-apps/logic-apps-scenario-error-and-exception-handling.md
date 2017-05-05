@@ -17,9 +17,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: b-hoedid
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: db5f70c88eb0b429a8d5d76f192a742f97fdf131
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: b996ed1889ec39de78dcee9bbcb18a5982fc5f7f
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -105,22 +105,22 @@ Dynamics CRM Online 포털에서 환자 기록의 원본(요청)을 로깅해야
 
 1. 먼저 Dynamics CRM Online에서 새 예약 기록을 가져와야 합니다.
 
-    CRM에서 오는 트리거는 **CRM PatentId**,  **기록 종류**, **신규 또는 업데이트된 기록**(새로운 또는 업데이트된 부울 값) 및 **SalesforceId**를 제공합니다. 업데이트를 위해서만 사용되기 때문에 **SalesforceId** 는 null일 수 있습니다.
-    CRM **PatientID** 및 **기록 종류**를 사용하여 CRM 기록을 얻게 됩니다.
+   CRM에서 오는 트리거는 **CRM PatentId**, **기록 종류**, **신규 또는 업데이트된 기록**(새로운 또는 업데이트된 부울 값) 및 **SalesforceId**를 제공합니다. 업데이트를 위해서만 사용되기 때문에 **SalesforceId** 는 null일 수 있습니다.
+   CRM **PatientID** 및 **기록 종류**를 사용하여 CRM 기록을 얻게 됩니다.
 
-2. 다음으로 DocumentDB API 앱 **InsertLogEntry** 작업을 여기에 나온 것처럼 추가해야 합니다.
+2. 다음으로 논리 앱 디자이너에서 DocumentDB API 앱 **InsertLogEntry** 작업을 여기에 나온 것처럼 추가해야 합니다.
 
-### <a name="insert-log-entry-designer-view"></a>로그 항목 디자이너 보기 삽입
+   **로그 항목 삽입**
 
-![로그 항목 삽입](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![로그 항목 삽입](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
-### <a name="insert-error-entry-designer-view"></a>오류 항목 디자이너 보기 삽입
+   **오류 항목 삽입**
 
-![로그 항목 삽입](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![로그 항목 삽입](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
-### <a name="check-for-create-record-failure"></a>기록 만들기 실패에 대한 확인
+   **기록 만들기 실패에 대한 확인**
 
-![조건](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![조건](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>논리 앱 소스 코드
 

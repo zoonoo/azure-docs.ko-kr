@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: b478251715076a254fe87abee1d709f47e2b3886
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
+ms.openlocfilehash: fc9b84d151144ae9cb49beacdf525fdc356818a6
+ms.lasthandoff: 04/11/2017
 
 
 ---
@@ -67,7 +67,7 @@ Azure Portal에서는 응용 프로그램이 배포된 후에도 원격 데스�
 4. **열기**를 클릭한 후 **연결**을 클릭하여 원격 데스크톱 연결을 시작합니다.
 
 >[!NOTE]
-> 클라우드 서비스가 NSG 뒤에 있는 경우 포트 **20000**을 여는 규칙을 작성해야 할 수 있습니다.
+> 클라우드 서비스가 NSG 뒤에 있는 경우 포트 **3389** 및 **20000**의 트래픽을 허용하는 규칙을 만들어야 할 수 있습니다.  원격 데스크톱은 포트 **3389**를 사용합니다.  클라우드 서비스 인스턴스에서 부하가 분산되므로 연결할 인스턴스를 직접 제어할 수 없습니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트가 RDP 트래픽을 관리하고 클라이언트에서 RDP 쿠키를 전송하고 연결할 개별 인스턴스를 지정할 수 있도록 합니다.  *RemoteForwarder* 및 *RemoteAccess* 에이전트를 사용하려면 포트 **20000***이 열려 있어야 합니다. 이 포트는 NSG가 있으면 차단될 수 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

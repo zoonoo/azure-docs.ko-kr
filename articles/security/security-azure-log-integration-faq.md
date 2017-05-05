@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 2d5201a335e96cc8595de834858750f6aac884a3
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f539fc2945b9c6646660d50713d11dd7d822d06f
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -25,7 +25,11 @@ ms.lasthandoff: 03/17/2017
 이 FAQ는 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합할 수 있게 해주는 서비스인 Azure 로그 통합에 대한 질문에 답변합니다. 이 통합은 응용 프로그램과 관련된 보안 이벤트를 집계하고, 상관 관계를 설정하고, 분석하고, 경고할 수 있도록 온-프레미스 또는 클라우드의 모든 자산에 대한 통합 대시보드를 제공합니다.
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Azure 로그 통합 소프트웨어는 무료입니까?
-예. Azure 로그 통합 소프트웨어는 무료입니다. 
+예. Azure 로그 통합 소프트웨어는 무료입니다.
+
+## <a name="where-is-azure-log-integration-available"></a>Azure 로그 통합은 어디에서 사용할 수 있나요?
+
+현재 Azure 상용 및 Azure Government에서 사용할 수 있으며 중국 또는 독일에서는 사용할 수 없습니다.
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Azure 로그 통합이 Azure VM 로그를 가져오는 저장소 계정을 어떻게 볼 수 있습니까?
 **azlog source list**명령을 실행합니다.
@@ -82,7 +86,7 @@ ms.lasthandoff: 03/17/2017
 [Azure 보안 센터에서 보안 경고 관리 및 대응](../security-center/security-center-managing-and-responding-alerts.md)을 참조하세요.
 
 ## <a name="how-can-i-modify-what-is-collected-with-vm-diagnostics"></a>VM 진단을 통해 수집되는 항목을 어떻게 수정할 수 있나요?
-Windows Azure 진단 [(WAD)](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 구성을 가져오고, 수정하고, 설정하는 방법에 대한 자세한 내용은 *PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정* 을 참조하세요. 다음은 샘플입니다.
+Windows Azure 진단 [(WAD)](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 구성을 가져오고, 수정하고, 설정하는 방법에 대한 자세한 내용은 *PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정* 을 참조하세요. 다음은 샘플입니다.
 
 ### <a name="get-the-wad-config"></a>WAD 구성 가져오기
     -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
@@ -107,7 +111,7 @@ Windows Azure 진단 [(WAD)](../virtual-machines/virtual-machines-windows-ps-ext
 
 구성을 변경한 후에는 저장소 계정을 검사하여 올바른 이벤트가 수집되는지 확인합니다.
 
-설치 및 구성 중에 문제가 발생하면 [지원 요청](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request)을 열고 '로그 통합'을 지원을 요청하는 서비스로 선택합니다.
+설치 및 구성 중에 문제가 발생하면 [지원 요청](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 열고 지원을 요청하는 서비스로 **로그 통합**을 선택합니다.
 
 
 <!--Image references-->

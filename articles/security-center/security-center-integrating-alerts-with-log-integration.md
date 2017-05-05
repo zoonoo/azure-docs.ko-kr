@@ -15,22 +15,22 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: fcd14b6b0afe08db82f2b8050beaf03ece7fd212
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: d13e5b87c446e587091551b22d80fe568d5d8093
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Azure 로그 통합에 Azure Security Center 알림 통합
-많은 보안 작업 및 사고 대응 팀은 보안 경고를 조사하고 심사하기 위한 시작점으로 SIEM(보안 정보 및 이벤트 관리) 솔루션을 활용합니다. Azure 로그 통합을 사용하여 고객은 Azure 진단 및 Azure 감사 로그에 수집된 Azure Security Center 경고와 가상 컴퓨터 보안 이벤트를 거의 실시간으로 로그 분석 또는 SIEM 솔루션과 동기화할 수 있습니다.
+많은 보안 작업 및 사고 대응 팀은 보안 경고를 조사하고 심사하기 위한 시작점으로 SIEM(보안 정보 및 이벤트 관리) 솔루션을 활용합니다. Azure 로그 통합을 사용하여 Azure Security Center 알림을 SIEM 솔루션에 통합할 수 있습니다.
 
-Azure 로그 통합은 HP ArcSight, Splunk, IBM QRadar 등과 함께 작동합니다.
+Azure 로그 통합은 현재 HP ArcSight, Splunk 및 IBM QRadar를 지원합니다.
 
 ## <a name="what-logs-can-i-integrate"></a>어떤 로그와 통합할 수 있나요?
 Azure에서는 모든 서비스에 대해 광범위한 로깅을 생성합니다. 이러한 로그는 다음과 같이 분류됩니다.
 
-* **컨트롤/관리 로그**- Azure Resource Manager CREATE, UPDATE 및 DELETE 작업에 대한 가시성을 제공합니다.
-* **데이터 평면 로그** - Azure 리소스를 사용할 때 발생하는 이벤트에 대한 가시성을 제공합니다. 예는 Windows 이벤트 로그이며 가상 컴퓨터의 보안 및 응용 프로그램 로그입니다.
+* **컨트롤/관리 로그**- Azure Resource Manager CREATE, UPDATE 및 DELETE 작업에 대한 가시성을 제공합니다. 이러한 제어 평면 이벤트는 Azure 활동 로그에 표시됩니다.
+* **데이터 평면 로그** - Azure 리소스를 사용할 때 발생하는 이벤트에 대한 가시성을 제공합니다. 이벤트 뷰어의 보안 채널에서 보안 이벤트 정보를 얻을 수 있는 Windows 이벤트 로그를 예로 들 수 있습니다. 데이터 평면 이벤트(가상 컴퓨터 또는 Azure 서비스에서 생성)는 Azure 진단 로그에 표시됩니다.
 
 현재 Azure 로그 통합에서는 다음에 대한 통합을 지원합니다.
 
@@ -78,15 +78,12 @@ Azure 로그 통합 서비스는 서비스가 설치된 컴퓨터에서 원격 �
 
    * **c:\Users\azlog\ AzureSecurityCenterJson**
    * **c:\Users\azlog\AzureSecurityCenterJsonLD**
-6. 표준 SIEM 파일 전달자 커넥터가 데이터를 SIEM 인스턴스로 파이프하기 위한 적절한 폴더를 가리킵니다. SIEM 구성에서 [SIEM 구성](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm)을 참조하세요.
-
-Azure 로그 통합에 대한 질문이 있으면 [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)으로 전자 메일을 보내주세요.
+6. 적절한 폴더에 대한 SIEM 파일 전달자 커넥터를 구성합니다. 절차는 사용하는 SIEM에 따라 달라집니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure 감사 로그 및 속성 정의에 대해 자세히 알아보려면 다음을 참조하세요.
+Azure 활동 로그 및 속성 정의에 대해 자세히 알아보려면 다음을 참조하세요.
 
 * [리소스 관리자로 작업 감사](../azure-resource-manager/resource-group-audit.md)
-* [구독에서 관리 이벤트 나열](https://msdn.microsoft.com/library/azure/dn931934.aspx) - 감사 로그 이벤트를 검색합니다.
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 

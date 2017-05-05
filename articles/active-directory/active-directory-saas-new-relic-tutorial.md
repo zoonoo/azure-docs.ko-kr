@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 5ae6afea4d55eb03624602f483a2dc9620e33bb7
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 84f9c9745cc0c95fc5134dcc7e659e7ace11b188
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,12 +26,12 @@ ms.lasthandoff: 02/03/2017
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 * 유효한 Azure 구독
-* New Relic Single Sign-On이 설정된 구독
+* New Relic SSO(Single Sign-On)가 설정된 구독
 
-이 자습서를 완료한 후 New Relic에 할당한 Azure Active Directory 사용자가 AAD 액세스 패널에서 Single Sign-On을 수행할 수 있습니다.
+이 자습서를 완료한 후 New Relic에 할당한 Azure Active Directory 사용자가 AAD 액세스 패널에서 SSO를 수행할 수 있습니다.
 
 1. New Relic에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
+2. SSO(Single Sign-On) 구성
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
@@ -62,11 +62,11 @@ ms.lasthandoff: 02/03/2017
    
    ![New Relic](./media/active-directory-saas-new-relic-tutorial/IC797032.png "New Relic")
    
-## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션에서는 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure Active Directory의 계정으로 New Relic에 인증할 수 있게 하는 방법을 간략하게 설명합니다.
 
-**Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+**SSO를 구성하려면 다음 단계를 수행합니다.**
 
 1. Azure 클래식 포털의 **New Relic** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/03/2017
    
    ![Single Sign-On 구성](./media/active-directory-saas-new-relic-tutorial/IC797039.png "Single Sign-On 구성")
    
-## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
 Azure Active Directory 사용자가 New Relic에 로그인할 수 있도록 하려면 New Relic으로 프로비전되어야 합니다. New Relic의 경우 프로비전은 수동 작업입니다.
 
@@ -122,12 +122,12 @@ Azure Active Directory 사용자가 New Relic에 로그인할 수 있도록 하�
    2. **역할**로 **사용자**를 선택합니다.
    3. **이 사용자 추가**를 클릭합니다.
 
-> [!NOTE]
-> 다른 New Relic 사용자 계정 생성 도구 또는 New Relic이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[!NOTE]
+>다른 New Relic 사용자 계정 생성 도구 또는 New Relic이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 > 
 > 
 
-## <a name="assigning-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
 **New Relic에 사용자를 할당하려면 다음 단계를 수행합니다.**
@@ -140,6 +140,9 @@ Azure Active Directory 사용자가 New Relic에 로그인할 수 있도록 하�
    
    ![예](./media/active-directory-saas-new-relic-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
+SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
+## <a name="additional-resources"></a>추가 리소스
 
+* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)

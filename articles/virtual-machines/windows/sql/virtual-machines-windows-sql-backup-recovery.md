@@ -16,18 +16,19 @@ ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 0d2310748c65a25ead71f7c0859919b7241d9f6c
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: f05ef18fb33942883ba164985721ce2d4f79d3fa
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure 가상 컴퓨터에서 SQL Server의 백업 및 복원
 ## <a name="overview"></a>개요
-SQL Server 데이터베이스에 데이터를 백업하는 작업은 응용 프로그램 또는 사용자 오류로 인한 데이터 손실을 방지하기 위한 전략의 중요한 부분입니다. 이는 Azure 가상 컴퓨터(VM)에서 실행되는 SQL Server에 대해서도 마찬가지입니다.
+데이터 손실이나 실제 데이터 손상에 대한 보호를 보장하기 위해 Azure Storage에는 모든 Azure VM 디스크의 복사본을 3개씩 유지 관리합니다. 따라서 온-프레미스와는 달리 이 부분에 대해서는 걱정할 필요가 없습니다. 하지만 응용 프로그램 또는 사용자 오류(예: 잘못된 데이터 포함 또는 테이블 삭제)로부터 보호하고 특정 지점으로 복원 가능하게 만들려면 SQL Server 데이터베이스를 계속 백업해야 합니다.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-Azure VM에서 실행되는 SQL Server의 경우, 백업 파일의 대상으로 연결된 디스크를 사용하는 네이티브 백업 및 복원 기법을 사용할 수 있습니다. 그러나 [가상 컴퓨터의 크기](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 따라 Azure 가상 컴퓨터에 연결할 수 있는 디스크의 수에는 제한이 있습니다. 또한 고려해야 할 디스크 관리에 대한 오버헤드도 있습니다.
+Azure VM에서 실행되는 SQL Server의 경우, 백업 파일의 대상으로 연결된 디스크를 사용하는 네이티브 백업 및 복원 기법을 사용할 수 있습니다. 그러나 [가상 컴퓨터의 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 따라 Azure 가상 컴퓨터에 연결할 수 있는 디스크의 수에는 제한이 있습니다. 또한 고려해야 할 디스크 관리에 대한 오버헤드도 있습니다.
 
 SQL Server 2014부터는 Microsoft Azure Blob 저장소에 백업 및 복원할 수 있습니다. 또한 SQL Server 2016은 이 옵션에 대한 향상된 기능을 제공합니다. 또한 Microsoft Azure Blob 저장소에 저장된 데이터베이스 파일의 경우, SQL Server 2016은 Azure 스냅숏을 사용하여 거의 즉시 백업하고 신속하게 복원하는 옵션을 제공합니다. 이 문서에서는 이러한 옵션에 대한 개요를 제공하며 자세한 내용은 [Microsoft Azure Blob 저장소 서비스로 SQL Server 백업 및 복원](https://msdn.microsoft.com/library/jj919148.aspx)에서 확인할 수 있습니다.
 
@@ -87,10 +88,5 @@ Azure VM에서 SQL Server를 배포할 계획 중인 경우 [Azure Resource Mana
 데이터를 마이그레이션하는 데 백업 및 복원을 사용할 수 있지만 Azure VM의 SQL Server로 데이터를 마이그레이션하는 훨씬 간편한 경로가 있습니다. 마이그레이션 옵션 및 권장 사항에 대한 자세한 내용은 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-windows-migrate-sql.md)을 참조하세요.
 
 그 밖에 [Azure Virtual Machines에서 SQL Server 실행과 관련된 리소스](virtual-machines-windows-sql-server-iaas-overview.md)를 검토하세요.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

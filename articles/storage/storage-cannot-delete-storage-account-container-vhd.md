@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: d3d59e19ff654a953be43706dce926c4450c6179
-ms.openlocfilehash: 6493230295dbfc939df3daf8504a7d8662083f51
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 64f875581dccd2ad1215a82eba1e2659fe01d191
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -95,7 +95,7 @@ VM을 삭제한후 연결된 VHD의 blob를 삭제하려고 하면 다음 메시
     5. **Virtual Machines** > **디스크**로 이동하고 **연결된 항목** 필드가 빈 상태로 될 때까지 기다립니다. 이는 디스크가 VM에서 성공적으로 분리되었음을 나타냅니다.
     6. **Virtual Machines** > **디스크**의 아래쪽에 있는 **삭제**를 선택하여 디스크를 삭제합니다.
 
-  - 디스크가 OS 디스크(**OS&2; 포함** 필드에 Windows와 같은 값이 있음)이고 VM에 연결되어 있는 경우 다음 단계에 따라 VM을 삭제합니다. OS 디스크는 분리할 수 없으므로 VM을 삭제하여 연결 상태를 끊어야 합니다.
+  - 디스크가 OS 디스크(**OS 2 포함** 필드에 Windows와 같은 값이 있음)이고 VM에 연결되어 있는 경우 다음 단계에 따라 VM을 삭제합니다. OS 디스크는 분리할 수 없으므로 VM을 삭제하여 연결 상태를 끊어야 합니다.
 
     1. [데이터 디스크]에 연결된 Virtual Machine의 이름을 확인합니다.  
     2. **Virtual Machines** > **인스턴스**로 이동한 다음 디스크가 연결된 VM을 선택합니다.

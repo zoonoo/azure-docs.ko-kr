@@ -12,11 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 03/30/2017
 ms.author: piyushjo;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2b89a13230439698854656f0bb5367f1ed35ce1c
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 1438b9479b3bbb8b7599d7d05b48e4cd6d981e0c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -52,18 +53,12 @@ ms.openlocfilehash: 2b89a13230439698854656f0bb5367f1ed35ce1c
 [Android 앱에서 고급 Mobile Engagement API 태깅을 사용하는 방법](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>릴리스 정보
-### <a name="423-08102016"></a>4.2.3 (08/10/2016)
-* 더 이상 WIFI 잠금은 없습니다.
-* Init 이전에 getDeviceId를 호출할 경우 교착 상태를 해결합니다.(4.2.0에 유입된 버그)
+### <a name="424-03302017"></a>4.2.4 (03/30/2017)
+* Android 7의 앱 내 알림 텍스트 색을 이전 Android 버전과 동일하게 수정합니다.
 
 모든 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-android-release-notes.md)를 참조하세요.
 
 ## <a name="upgrade-procedures"></a>업그레이드 절차
 이전 버전의 SDK를 응용 프로그램에 이미 통합한 경우에는 [업그레이드 절차](mobile-engagement-android-upgrade-procedure.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

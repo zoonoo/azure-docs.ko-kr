@@ -3,7 +3,7 @@ title: "Azure 클라우드 서비스에 영향을 주는 Azure 서비스 중단 
 description: "Azure 클라우드 서비스에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업에 대해 알아봅니다."
 services: cloud-services
 documentationcenter: 
-author: kmouss
+author: mmccrory
 manager: drewm
 editor: 
 ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
@@ -12,11 +12,12 @@ ms.workload: cloud-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2016
-ms.author: kmouss;aglick
+ms.date: 04/04/2017
+ms.author: mmccrory
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: 5db1864f5fb04b30a7b8ce59932e826fcef792f0
+ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
+ms.openlocfilehash: b20f846caa12866ce8815c7931a2c66346cd4085
+ms.lasthandoff: 04/04/2017
 
 
 ---
@@ -34,25 +35,16 @@ Azure에는 항상 사용 가능한 응용 프로그램을 지원하는 많은 �
 >
 >
 
-이러한 드문 경우를 처리할 수 있도록 Azure 가상 컴퓨터(VM) 응용 프로그램이 배포되는 전체 영역의 서비스가 중단될 경우에 대비해서 Azure 가상 컴퓨터(VM)에 대한 다음 지침을 제공합니다.
 
-## <a name="option-1-wait-for-recovery"></a>옵션 1: 복구 대기
-이 경우에 사용자의 조치가 필요하지 않습니다. Azure 팀은 서비스 가용성을 복원하기 위해 최선을 다하고 있습니다. 서비스의 현재 상태를 [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)에서 확인할 수 있습니다.
+## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>옵션 1: Azure Traffic Manager를 통해 백업 배포 사용
+가장 강력한 재해 복구 솔루션은 여러 다른 하위 지역에 응용 프로그램의 여러 배포를 유지한 다음 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용하여 배포 간에 트래픽을 전송하는 작업과 관련됩니다. Azure Traffic Manager는 여러 [라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)을 제공하므로 기본/백업 모델을 사용하여 배포를 관리할지 또는 두 모델 간에 트래픽을 분할할지를 선택할 수 있습니다.
 
-> [!NOTE]
-> 이 방법은 고객에게 Azure Site Recovery 기능이 없거나 다른 지역에 보조 배포가 있는 경우에 가장 좋은 옵션입니다.
->
->
+![Azure 트래픽 관리자를 사용하여 지역 간에 Azure 클라우드 서비스 분산](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
 
-배포된 클라우드 서비스에 즉시 액세스하려는 고객의 경우 아래 옵션을 사용할 수 있습니다.
+하위 지역의 손실에 가장 빠르게 대처하기 위해서는 Traffic Manager의 [끝점 모니터링](../traffic-manager/traffic-manager-monitoring.md)을 구성하는 것이 중요합니다.
 
-> [!NOTE]
-> 이러한 옵션을 사용하면 일부 데이터가 손실될 수 있습니다.     
->
->
-
-## <a name="option-2-re-deploy-your-cloud-service-configuration-to-a-new-region"></a>옵션 2: 새 지역에 클라우드 서비스 구성 다시 배포
-원래 코드가 있는 경우 응용 프로그램 및 연결된 구성, 그와 관련된 리소스를 새 지역의 새 클라우드 서비스에 간단히 배포할 수 있습니다.  
+## <a name="option-2-deploy-your-application-to-a-new-region"></a>옵션 2: 새 하위 지역에 응용 프로그램 배포
+이전 옵션에 설명된 대로 여러 활성 배포를 유지 관리하면 추가적인 비용이 지속적으로 발생합니다. RTO(복구 시간 목표)가 충분히 유연하고 원래 코드 또는 컴파일된 클라우드 서비스 패키지가 있는 경우에는 다른 하위 지역에 응용 프로그램의 새 인스턴스를 만든 후 새 배포를 가리키도록 DNS 레코드를 업데이트할 수 있습니다.
 
 클라우드 서비스 응용 프로그램을 만들고 배포하는 방법에 대한 자세한 내용은 [클라우드 서비스를 만들고 배포하는 방법](cloud-services-how-to-create-deploy-portal.md)을 참조하세요.
 
@@ -61,20 +53,11 @@ Azure에는 항상 사용 가능한 응용 프로그램을 지원하는 많은 �
 * Azure 저장소 데이터 원본의 대해서는 [Azure 저장소 복제](../storage/storage-redundancy.md#read-access-geo-redundant-storage) 를 참조하여 응용 프로그램에 대해 선택한 복제 모델에 따라 사용할 수 있는 옵션을 확인합니다.
 * SQL 데이터베이스 원본에 대해서는 [개요: SQL 데이터베이스를 사용한 클라우드 비즈니스 연속성 및 데이터베이스 재해 복구](../sql-database/sql-database-business-continuity.md) 를 참조하여 응용 프로그램에 대해 선택한 복제 모델에 따라 사용할 수 있는 옵션을 확인합니다.
 
-## <a name="option-3-use-a-backup-deployment-through-azure-traffic-manager"></a>옵션 3: Azure 트래픽 관리자를 통해 백업 배포 사용
-이 옵션은 이미 지역별 재해 복구를 사용하여 응용 프로그램 솔루션을 디자인했다고 가정합니다. 이 옵션은 다른 지역에서 실행되고 트래픽 관리자 채널을 통해 연결된 보조 클라우드 서비스 응용 프로그램 배포가 이미 있는 경우에 사용할 수 있습니다. 이 경우, 보조 배포의 상태를 확인합니다. 정상이면 Azure 트래픽 관리자를 통해 트래픽을 리디렉션할 수 있습니다. 이 전략을 사용하면 Azure 트래픽 관리자에서 트래픽 라우팅 방법 및 장애 조치(failover) 순서 구성을 활용할 수 있습니다. 자세한 내용은 [란?](../traffic-manager/traffic-manager-overview.md)(영문)을 참조하세요.
 
-![Azure 트래픽 관리자를 사용하여 지역 간에 Azure 클라우드 서비스 분산](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
+## <a name="option-3-wait-for-recovery"></a>옵션 3: 복구 대기
+이 경우 사용자의 조치는 필요하지 않지만 해당 하위 지역이 복원될 때까지 서비스를 사용할 수 없습니다. 서비스의 현재 상태를 [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)에서 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 재해 복구 및 고가용성 전략을 구현하는 방법에 관해 자세히 알아보려면 [Azure 응용 프로그램에 대한 재해 복구 및 고가용성](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)을 참조하세요.
 
 클라우드 플랫폼의 기능에 대한 자세한 기술적 이해를 높이려면 [Azure 복원력 기술 지침](../resiliency/resiliency-technical-guidance.md)을 참조하세요.
-
-지침이 명확하지 않거나 사용자를 대신해 Microsoft가 작업을 수행하도록 하고 싶은 경우 [고객 지원팀](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

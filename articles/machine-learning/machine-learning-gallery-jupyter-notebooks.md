@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 03/31/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 1573ae126f8b76983abe98b37b9ac4072e70d9d0
-ms.lasthandoff: 01/10/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ff7d5c372500c2cd392ed65a921d8a994b090f23
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/10/2017
 ## <a name="download"></a>다운로드
 갤러리에서 Machine Learning Studio 작업 영역으로 노트북 복사본을 다운로드할 수 있습니다.
 
-### <a name="from-the-gallery"></a>갤러리에서
+### <a name="download-from-the-gallery"></a>갤러리에서 다운로드
 갤러리에서 노트북 복사본을 다운로드하려면:
 
 1. 갤러리에서 노트북의 세부 정보 페이지를 엽니다.
@@ -57,7 +57,7 @@ ms.lasthandoff: 01/10/2017
 
 **Studio에서 열기**를 클릭하면, 노트북이 Machine Learning Studio 작업 영역으로 로드되어 열립니다.(Studio에 로그인되어 있지 않다면 작업 영역으로 노트북이 복사되기 전에 Microsoft 계정을 사용하여 로그인하라는 메시지가 표시됩니다.) Studio 홈 페이지 왼쪽에서 **노트북**을 클릭하면 나중에 노트북을 다시 찾을 수 있습니다.
 
-### <a name="in-machine-learning-studio"></a>Machine Learning Studio에서
+### <a name="download-in-machine-learning-studio"></a>Machine Learning Studio에서 다운로드
 Machine Learning Studio에서 작업하는 동안 동일한 갤러리 노트북을 열 수도 있습니다.
 
 1. Machine Learning Studio에서 **+새로 만들기**를 클릭합니다.

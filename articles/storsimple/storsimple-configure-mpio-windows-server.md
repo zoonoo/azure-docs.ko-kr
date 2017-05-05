@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/27/2017
+ms.date: 04/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 7b484c27157bd0a261adbf81d66b73a78e252955
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -132,7 +132,7 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>4단계: 고가용성 및 부하 분산을 위해 MPIO 구성
 다중 경로 기반 고가용성 및 부하 분산의 경우 사용할 수 있는 다른 경로 선언을 위해 다중 세션이 수동으로 추가되어야 합니다. 예를들어 SAN에 연결된 두 인터페이스가 호스트에 있고 SAN에 연결된 두 인터페이스가 장비에 있는 경우, 적합한 경로 순열로 구성된 네 개의 세션만 필요합니다(각각의 데이터 인터페이스 및 호스트 인터페이스가 다른 IP 주소에 있고 라우팅할 수 없는 경우 두 세션만 필요).
 
-**장치 및 응용 프로그램 호스트 간에 최소 4개의 활성 병렬 세션을 유지하는 것이 좋습니다.** 이를 위해 Windows Server 시스템에서 4개의 네트워크 인터페이스를 사용하도록 설정하면 됩니다. Windows Server 호스트의 하드웨어 또는 운영 체제 수준에서 실제 네트워크 인터페이스 또는 네트워크 가상화 기술을 사용합니다. 장치에 2개의 네트워크 인터페이스가 있으면 이 구성에서는 8개 세션 중 4개가 활성 세션(활성 컨트롤러에 연결됨)이고 4개가 수동 세션이 됩니다(수동 컨트롤러에 연결됨). 이 구성은 장치 및 클라우드 처리량을 최적화하는 데 도움이 됩니다.
+**장치 및 응용 프로그램 호스트 간에 최소 8개의 활성 병렬 세션을 유지하는 것이 좋습니다.** 이를 위해 Windows Server 시스템에서 4개의 네트워크 인터페이스를 사용하도록 설정하면 됩니다. Windows Server 호스트의 하드웨어 또는 운영 체제 수준에서 실제 네트워크 인터페이스 또는 네트워크 가상화 기술을 통한 가상 인터페이스를 사용합니다. 장치에 두 개의 네트워크 인터페이스가 있을 경우 이 구성은 8개의 활성 세션을 제공합니다. 이 구성은 장치 및 클라우드 처리량을 최적화하는 데 도움이 됩니다.
 
 > [!IMPORTANT]
 > **1GbE 및 10GbE 네트워크 인터페이스는 혼용하지 않는 것이 좋습니다. 두 네트워크 인터페이스를 사용하는 경우 두 인터페이스 모두 동일한 유형이어야 합니다.**

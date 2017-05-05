@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 06/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 94c4929c84a671eca210a0e6b53eda5019cc0951
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: f8d441a4945ff7b33da73d683749a9a581bc80ca
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -91,7 +91,7 @@ Azure PowerShell을 사용하면 [Azure 환경 만들기 및 배포를 자동화
 ### <a id="wte"></a>Visual Studio용 Microsoft 앱 서비스 도구
 이 제품을 사용하면 Azure 웹 사이트에서 다음 작업을 수행할 수 있습니다.
 
-* [Azure 웹 사이트에 웹 프로젝트 게시](app-service-web/web-sites-dotnet-get-started.md)
+* [Azure App Service에 웹 프로젝트 게시](app-service-web/app-service-web-get-started-dotnet.md)
 * [Azure WebJobs에 콘솔 응용 프로그램 프로젝트 게시](app-service-web/websites-dotnet-deploy-webjobs.md)
 * [새 웹 프로젝트를 만드는 동안 또는 웹 프로젝트를 게시하는 동안 Azure 웹 사이트 및 SQL 데이터베이스 리소스 만들기](app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)
 * [새 웹 사이트를 만드는 동안 PowerShell 배포 스크립트 만들기](http://msdn.microsoft.com/library/dn642480.aspx)

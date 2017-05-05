@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 4448b945be947847293beb710929adc77f19c945
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 2079e7e461800928c2253665d755f3d506b88fcc
+ms.lasthandoff: 04/07/2017
 
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>Azure Active Directory B2C: 고객에게 QQ 계정으로 등록 및 로그인 제공
 
 > [!NOTE]
-> 이 기능은 아직 미리 보기 버전입니다.
+> 이 기능은 미리 보기 상태입니다.
 > 
 
 ## <a name="create-a-qq-application"></a>QQ 응용 프로그램 만들기

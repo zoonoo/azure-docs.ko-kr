@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/17/2017
+ms.date: 4/10/2017
 ms.author: negat
 ms.custom: na
 translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: e207ace4eb5722e08f2020078dfea9129ef1deb8
-ms.lasthandoff: 03/28/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1c7b4c4b7675bfc33e102c9abb4f942a1dd33ad4
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -538,6 +538,28 @@ VM이 2개 미만인 가상 컴퓨터 크기 집합을 만드는 또 다른 경�
 
 
 
+## <a name="patching-and-operations"></a>패치 및 작업
+
+### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>기존 리소스 그룹에서 확장 집합을 만들려면 어떻게 하나요?
+
+기존 리소스 그룹에서 확장 집합을 만드는 것은 아직 Azure Portal에서 할 수는 없지만 Azure Resource Manager 템플릿에서 확장 집합을 배포할 때에는 기존 리소스 그룹을 지정할 수 있습니다. 또한 Azure PowerShell 또는 CLI를 사용하여 확장 집합을 만들 때에도 기존 리소스 그룹을 지정할 수 있습니다.
+
+### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>확장 집합을 다른 리소스 그룹으로 이동할 수 있나요?
+
+예. 확장 집합 리소스를 새 구독 또는 리소스 그룹에 이동할 수 있습니다.
+
+### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>내 가상 컴퓨터 크기 집합을 새 이미지로 업데이트하는 방법은 무엇인가요? 패치는 어떻게 관리해야 하나요?
+
+가상 컴퓨터 크기 집합을 새 이미지로 업데이트하고 패치를 관리하려면 [가상 컴퓨터 크기 집합 업그레이드](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set)를 참조하세요.
+
+### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>이미지로 다시 설치 작업을 사용하여 이미지를 변경하지 않고 VM을 다시 설정할 수 있나요? (즉 VM을 새 이미지가 아닌 출하 시 설정으로 다시 설정하려고 합니다.)
+
+예. 이미지로 다시 설치 작업을 사용하여 이미지를 변경하지 않고 VM을 다시 설정할 수 있습니다. 그러나 가상 컴퓨터 크기 집합이 `version = latest`인 플랫폼 이미지를 참조하면 `reimage`를 호출할 때 VM에서 최신 OS 이미지로 업데이트할 수 있습니다.
+
+자세한 내용은 [가상 컴퓨터 크기 집합의 모든 VM 관리](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set)를 참조하세요.
+
+
+
 ## <a name="troubleshooting"></a>문제 해결
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>부팅 진단을 켜려면 어떻게 하나요?
@@ -561,21 +583,6 @@ VM이 2개 미만인 가상 컴퓨터 크기 집합을 만드는 또 다른 경�
     "serialConsoleLogBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.serialconsole.log"
   }
 ```
-
- 
-
-## <a name="updates"></a>업데이트
-
-### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>내 가상 컴퓨터 크기 집합을 새 이미지로 업데이트하는 방법은 무엇인가요? 패치는 어떻게 관리해야 하나요?
-
-가상 컴퓨터 크기 집합을 새 이미지로 업데이트하고 패치를 관리하려면 [가상 컴퓨터 크기 집합 업그레이드](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set)를 참조하세요.
-
-### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>이미지로 다시 설치 작업을 사용하여 이미지를 변경하지 않고 VM을 다시 설정할 수 있나요? (즉 VM을 새 이미지가 아닌 출하 시 설정으로 다시 설정하려고 합니다.)
-
-예. 이미지로 다시 설치 작업을 사용하여 이미지를 변경하지 않고 VM을 다시 설정할 수 있습니다. 그러나 가상 컴퓨터 크기 집합이 `version = latest`인 플랫폼 이미지를 참조하면 `reimage`를 호출할 때 VM에서 최신 OS 이미지로 업데이트할 수 있습니다.
-
-자세한 내용은 [가상 컴퓨터 크기 집합의 모든 VM 관리](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set)를 참조하세요.
-
 
 
 ## <a name="virtual-machine-properties"></a>가상 컴퓨터 속성

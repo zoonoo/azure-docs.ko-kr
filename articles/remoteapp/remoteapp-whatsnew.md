@@ -11,17 +11,18 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 04/26/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 05487c4bbdce24ea9f31ed451026531c16ead7c4
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 6720bb6471ef36179042562c751e1a501979f02b
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="whats-new-in-azure-remoteapp"></a>Azure RemoteApp의 새로운 기능
 > [!IMPORTANT]
-> Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
+> Azure RemoteApp은 2017년 8월 31일에 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148) 을 읽어보세요.
 > 
 > 
 
@@ -50,7 +51,7 @@ Azure RemoteApp 팀이 RDS 블로그에 매월 업데이트를 게시한다는 �
 * Azure RemoteApp 컬렉션의 [앱 및 데이터 보안](remoteapp-secure.md) 방법을 자세히 설명했습니다.
 
 ## <a name="july-2015"></a>2015년 7월
-7월에는&8;월에 예정된 변경을 준비하므로 현재 다룰 내용은 많지 않고 대부분 문서 업데이트입니다. 다음은 최근 변경 내용입니다.
+7월에는 8월에 예정된 변경을 준비하므로 현재 다룰 내용은 많지 않고 대부분 문서 업데이트입니다. 다음은 최근 변경 내용입니다.
 
 * 포털에 **지원** 탭이 추가되어 포럼과 같은 지원 리소스에 더욱 쉽게 액세스할 수 있습니다.
 * 하이브리드 컬렉션에 대한 문제 해결 정보가 수정되었습니다. VNET 구성을 위한 정확한 포트 식별 방법 등과 같은 문제 해결 팁에 관한 [최신의 가장 강력한](remoteapp-hybridtrouble.md) 기능을 확인하세요.
@@ -71,7 +72,7 @@ Azure RemoteApp 팀이 RDS 블로그에 매월 업데이트를 게시한다는 �
 7월에 더 많은 변경을 롤아웃하므로 곧 다시 다른 업데이트를 예정하고 있습니다.
 
 ## <a name="may-2015"></a>2015년 5월
-이 항목을 처음 만든 이후로 다양한 추가 기능(및 개월)이 생겨났으므로 이 목록은 약간 다를 수 있으며 기간은&3;월 초에서&5;월까지입니다. 이러한 새 기능을 확인해 보십시오.
+이 항목을 처음 만든 이후로 다양한 추가 기능(및 개월)이 생겨났으므로 이 목록은 약간 다를 수 있으며 기간은 3월 초에서 5월까지입니다. 이러한 새 기능을 확인해 보십시오.
 
 * 모든 것이 자동화되어 Azure RemoteApp에 [Azure PowerShell 모듈의 cmdlet](remoteapp-tutorial-arawithpowershell.md)가 있습니다.
 * [Azure 가상 컴퓨터에서 Azure RemoteApp 이미지를 만듭니다](remoteapp-image-on-azurevm.md). 사용자 지정 이미지를 Azure에 훨씬 더 빨리 업로드합니다.
@@ -87,10 +88,5 @@ Azure RemoteApp에 대해 더 알아보고 싶으세요? RemoteApp 팀은 몇 �
 
 ### <a name="help-us-help-you"></a>의견 보내기
 이 기사에 대한 등급을 매기고 아래에 의견을 다는 것은 물론 문서를 직접 변경할 수 있다는 사실을 알고 계셨나요? 누락된 부분이 있나요? 잘못된 부분이 있나요? 혼동을 줄 수 있는 부분이 있나요? 위로 스크롤하여 **GitHub에서 편집**을 클릭하면 변경할 수 있습니다. 당사에서 변경 사항을 검토하고 승인하면 변경 및 개선 사항을 바로 여기서 확인할 수 있습니다.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

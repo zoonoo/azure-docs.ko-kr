@@ -12,23 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: tables
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 4becdace365fce1fb70e9e870dd4c8b81d1c7496
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: fe47cc1e5489d094f08b771cc8ec89de84509972
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="distributing-tables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 테이블 배포
 > [!div class="op_single_selector"]
-> * [개요][개요]
-> * [데이터 형식][데이터 형식]
-> * [배포][배포]
-> * [Index][Index]
-> * [파티션][파티션]
-> * [통계][통계]
-> * [임시][임시]
+> * [개요][Overview]
+> * [데이터 형식][Data Types]
+> * [배포][Distribute]
+> * [인덱스][Index]
+> * [파티션][Partition]
+> * [통계][Statistics]
+> * [임시][Temporary]
 >
 >
 
@@ -180,7 +182,7 @@ null 값은 모두 같은 분산에 할당되므로 null이 많은 열에는 데
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-그러나 SQL 데이터 웨어하우스 DMV(동적 관리 뷰)를 쿼리하는 경우 보다 자세한 분석을 수행할 수 있습니다.  분석을 시작하려면 [테이블 개요][개요] 문서의 SQL을 사용하여 [dbo.vTableSizes][dbo.vTableSizes] 뷰를 만듭니다.  뷰가 생성되면 이 쿼리를 실행하여 데이터 오차가 10%보다 큰 테이블을 식별합니다.
+그러나 SQL 데이터 웨어하우스 DMV(동적 관리 뷰)를 쿼리하는 경우 보다 자세한 분석을 수행할 수 있습니다.  분석을 시작하려면 [테이블 개요][Overview] 문서의 SQL을 사용하여 [dbo.vTableSizes][dbo.vTableSizes] 뷰를 만듭니다.  뷰가 생성되면 이 쿼리를 실행하여 데이터 오차가 10%보다 큰 테이블을 식별합니다.
 
 ```sql
 select *
@@ -198,7 +200,7 @@ order by two_part_name, row_count
 ```
 
 ### <a name="resolving-data-skew"></a>데이터 오차 해결
-모든 오차가 해결을 보장할 만큼 충분한 것은 아닙니다.  경우에 따라 일부 쿼리에서는 테이블 성능이 매우 중요해서 데이터 오차가 발생할 위험도 용인할 수 있습니다.  테이블의 데이터 오차를 해결해야 하는지 결정하려면 워크로드의 데이터 볼륨 및 쿼리를 최대한 이해해야 합니다.   오차의 영향을 확인하는 한 가지 방법은 [쿼리 모니터링][쿼리 모니터링] 문서의 단계를 사용하여 쿼리 성능에 오차가 미치는 영향, 특히 개별 분산에서 쿼리가 완료되는 데 소요되는 시간에 대한 영향을 모니터링하는 것입니다.
+모든 오차가 해결을 보장할 만큼 충분한 것은 아닙니다.  경우에 따라 일부 쿼리에서는 테이블 성능이 매우 중요해서 데이터 오차가 발생할 위험도 용인할 수 있습니다.  테이블의 데이터 오차를 해결해야 하는지 결정하려면 워크로드의 데이터 볼륨 및 쿼리를 최대한 이해해야 합니다.   오차의 영향을 확인하는 한 가지 방법은 [쿼리 모니터링][Query Monitoring] 문서의 단계를 사용하여 쿼리 성능에 오차가 미치는 영향, 특히 개별 분산에서 쿼리가 완료되는 데 소요되는 시간에 대한 영향을 모니터링하는 것입니다.
 
 데이터 분산은 데이터 오차 최소화와 데이터 이동 최소화 간의 적절한 균형을 찾는 문제입니다. 이는 반대되는 목표일 수 있으며, 경우에 따라 데이터 이동을 줄이기 위해 데이터 오차를 유지할 수 있습니다. 예를 들어 분산 열이 종종 조인 및 집계에서 공유 열인 경우 데이터 이동을 최소화하게 됩니다. 데이터 이동을 최소화할 경우의 이점은 데이터 오차의 영향을 능가할 수 있습니다.
 
@@ -283,31 +285,26 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 ```
 
 ## <a name="next-steps"></a>다음 단계
-테이블 디자인에 대한 자세한 내용은 [배포][배포], [Index][Index], [파티션][파티션], [데이터 형식][데이터 형식], [통계][통계] 및 [임시 테이블][임시] 문서를 참조하세요.
+테이블 디자인에 대한 자세한 내용은 [분산][Distribute], [인덱스][Index], [파티션][Partition], [데이터 형식][Data Types], [통계][Statistics] 및 [임시 테이블][Temporary] 문서를 참조하세요.
 
-모범 사례 개요에 대해 알아보려면 [SQL Data Warehouse 모범 사례][SQL Data Warehouse 모범 사례]를 참조하세요.
+모범 사례의 개요는 [SQL Data Warehouse 모범 사례][SQL Data Warehouse Best Practices]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[개요]: ./sql-data-warehouse-tables-overview.md
-[데이터 형식]: ./sql-data-warehouse-tables-data-types.md
-[배포]: ./sql-data-warehouse-tables-distribute.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
 [Index]: ./sql-data-warehouse-tables-index.md
-[파티션]: ./sql-data-warehouse-tables-partition.md
-[통계]: ./sql-data-warehouse-tables-statistics.md
-[임시]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse 모범 사례]: ./sql-data-warehouse-best-practices.md
-[쿼리 모니터링]: ./sql-data-warehouse-manage-monitor.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Query Monitoring]: ./sql-data-warehouse-manage-monitor.md
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 
 <!--MSDN references-->
 [DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

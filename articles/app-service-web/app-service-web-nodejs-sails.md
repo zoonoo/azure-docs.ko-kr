@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: b3c8a2d54ea05462db8a873c852a70e64111bc2f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: ff5deaa15d1f78df249e9e89b1f0ffc82076fee1
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -72,7 +72,7 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
         logDirectory: iisnode
 
     이제 Azure App Service가 Node.js 앱을 실행하는 데 사용하는 [iisnode](https://github.com/tjanczuk/iisnode) 서버에 대한 로깅이 사용하도록 설정되었습니다. 
-    이 작업 방법에 대한 자세한 내용은  [iisnode에서 stdout 및 stderr 로그 가져오기](app-service-web-nodejs-get-started.md#iisnodelog)를 참조하세요.
+    작동 방식에 대한 자세한 내용은  [Azure App Service에서 Node.js 웹앱을 디버그하는 방법](web-sites-nodejs-debug.md)을 참조하세요.
 
 2. 다음으로 Azure 환경 변수를 사용하도록 Sails.js 앱을 구성합니다. 프로덕션 환경을 구성하기 위해 config/env/production.js를 열고 `port` 및 `hookTimeout`을 설정합니다.
 
@@ -161,7 +161,7 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
 
 ## <a name="troubleshoot-your-deployment"></a>배포 문제 해결
 Sails.js 응용 프로그램이 앱 서비스에서 어떤 이유로 실패하면 문제 해결을 위해 stderr 로그를 찾습니다.
-자세한 내용은 [iisnode에서 stdout 및 stderr 로그 가져오기](app-service-web-nodejs-get-started.md#get-stdout-and-stderr-logs-from-iisnode)를 참조하세요.
+자세한 내용은 [Azure App Service에서 Node.js 웹앱을 디버그하는 방법](web-sites-nodejs-debug.md)을 참조하세요.
 앱이 성공적으로 시작된 경우 stdout 로그에 익숙한 메시지가 표시됩니다.
 
                    .-..-.
@@ -273,6 +273,6 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
      API가 다른 새 항목을 반환하는 경우 Azure 웹앱은 DocumentDB(MongoDB) 데이터베이스에 그 사실을 알립니다.
 
 ## <a name="more-resources"></a>추가 리소스
-* [Azure 앱 서비스에서 Node.js 웹앱 시작](app-service-web-nodejs-get-started.md)
+* [Azure 앱 서비스에서 Node.js 웹앱 시작](app-service-web-get-started-nodejs.md)
 * [Azure 응용 프로그램에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)
 

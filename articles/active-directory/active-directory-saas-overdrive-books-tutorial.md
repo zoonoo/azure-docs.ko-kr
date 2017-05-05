@@ -11,34 +11,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/26/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 35c1dfb5aaee4427f40e72a2293c756ae4fcb76c
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 5d6f44f868010d50b36a9171b7db63aeee7e8bc0
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive-books"></a>자습서: Overdrive Books와 Azure Active Directory 통합
 이 자습서는 Azure 및 OverDrive의 통합을 보여주기 위한 것입니다.  
+
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 * 유효한 Azure 구독
-* OverDrive Single Sign-On이 설정된 구독
+* OverDrive SSO(Single Sign-On)가 설정된 구독
 
 이 자습서를 완료한 후 OverDrive에 할당한 Azure AD 사용자가 OverDrive 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 SSO(Single Sign-On)할 수 있습니다.
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
 1. OverDrive에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
+2. SSO(Single Sign-On) 구성
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
 ![시나리오](./media/active-directory-saas-overdrive-books-tutorial/IC784462.png "시나리오")
 
-## <a name="enabling-the-application-integration-for-overdrive"></a>OverDrive에 응용 프로그램 통합 사용
+## <a name="enable-the-application-integration-for-overdrive"></a>OverDrive에 응용 프로그램 통합 사용
 이 섹션은 OverDrive에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
 **OverDrive에 응용 프로그램 통합을 사용하도록 설정하려면 다음을 수행합니다.**
@@ -63,11 +64,11 @@ ms.lasthandoff: 02/03/2017
    
    ![OverDrive](./media/active-directory-saas-overdrive-books-tutorial/IC799950.png "OverDrive")
    
-## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 OverDrive에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
 
-**Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+**SSO를 구성하려면 다음 단계를 수행합니다.**
 
 1. Azure 클래식 포털의 **OverDrive** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
@@ -82,25 +83,26 @@ ms.lasthandoff: 02/03/2017
    
    ![Single Sign-On 구성](./media/active-directory-saas-overdrive-books-tutorial/IC784468.png "Single Sign-On 구성")
    
-   > [!NOTE]
-   > OverDrive 지원팀은 Single Sign-On을 구성하고 구성이 완료되면 알림을 보냅니다.
+   >[!NOTE]
+   >OverDrive 지원팀은 Single Sign-On을 구성하고 구성이 완료되면 알림을 보냅니다.
    > 
    > 
 5. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-overdrive-books-tutorial/IC784469.png "Single Sign-On 구성")
    
-## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
 OverDrive를 프로비전하는 사용자를 구성할 작업 항목이 없습니다.  
+
 할당된 사용자가 OverDrive에 로그인하려고 하면 필요한 경우 OverDrive 계정이 자동으로 생성됩니다.
 
-> [!NOTE]
-> 다른 OverDrive 사용자 계정 생성 도구 또는 OverDrive가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
-> 
+>[!NOTE]
+>다른 OverDrive 사용자 계정 생성 도구 또는 OverDrive가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>
+>
  
-
-## <a name="assigning-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
 **OverDrive에 사용자를 할당하려면 다음 단계를 수행합니다.**
@@ -114,6 +116,10 @@ OverDrive를 프로비전하는 사용자를 구성할 작업 항목이 없습�
    
    ![예](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
+SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
+## <a name="additional-resources"></a>추가 리소스
+
+* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 

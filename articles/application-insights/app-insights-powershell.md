@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 04/02/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 0ca485599d159fd4e7e001b68e4d4b41b6b2043f
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e1ceaf7baef021f97f70a6b1a5203e178db613db
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -173,6 +173,16 @@ ms.lasthandoff: 03/29/2017
 
 다른 매개 변수를 추가할 수 있습니다. 템플릿의 매개 변수 섹션에서 해당 설명을 찾을 수 있습니다.
 
+## <a name="to-get-the-instrumentation-key"></a>계측 키를 가져오려면
+응용 프로그램 리소스를 만든 후 계측 키가 필요할 수 있습니다. 
+
+```PS
+    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>"
+    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $ikey = $details.Properties.InstrumentationKey
+```
+
+
 <a id="price"></a>
 ## <a name="set-the-price-plan"></a>가격 계획 설정
 
@@ -193,17 +203,11 @@ ms.lasthandoff: 03/29/2017
 |2|Enterprise|
 
 * 기본적인 Basic 가격 계획만 사용하려는 경우 템플릿에서 CurrentBillingFeatures 리소스를 생략해도 됩니다.
+* 구성 요소 리소스를 만든 후에 가격 계획을 변경하려는 경우 "microsoft.insights/components" 리소스를 생략하는 템플릿을 사용할 수 있습니다. 또한 청구 리소스에서 `dependsOn` 노드를 생략합니다. 
+
+업데이트된 가격 계획을 확인하려면 브라우저에서 "기능+가격 책정" 블레이드를 확인합니다. **브라우저 보기를 새로 고쳐** 최신 상태를 표시합니다.
 
 
-## <a name="to-get-the-instrumentation-key"></a>계측 키를 가져오려면
-응용 프로그램 리소스를 만든 후 iKey가 필요할 수 있습니다. 
-
-```PS
-
-    $resource = Get-AzureRmResource -ResourceId "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<YOUR RESOURCE GROUP>/providers/Microsoft.Insights/components/<YOUR APP NAME>"
-
-    $resource.Properties.InstrumentationKey
-```
 
 ## <a name="add-a-metric-alert"></a>메트릭 경고 추가
 

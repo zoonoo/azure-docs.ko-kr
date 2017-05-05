@@ -15,14 +15,15 @@ ms.workload: tbd
 ms.date: 10/04/2016
 ms.author: himad
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 143a12ef975aa915ab28a66e20df1b586925daab
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 700761e24565310df0792a209ce6e41699f3d0e8
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="creating-endpoints"></a>끝점 만들기
 > [!NOTE]
-> 이 항목에서는 기존 웹 서비스에 적용되는 기술을 설명합니다.
+>  이 항목에서는 **기존** Machine Learning 웹 서비스에 적용되는 기술을 설명합니다.
 > 
 > 
 
@@ -71,10 +72,5 @@ ms.openlocfilehash: 143a12ef975aa915ab28a66e20df1b586925daab
 
 ## <a name="next-steps"></a>다음 단계
 [게시된 Azure Machine Learning 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "SQL Database에 대한 1433 이외의 포트 | Microsoft Docs"
-description: "ADO.NET에서 Azure SQL 데이터베이스 V12로 클라이언트 연결이 프록시를 무시하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다."
+description: "ADO.NET에서 Azure SQL Database로 클라이언트 연결이 프록시를 무시하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
-ms.openlocfilehash: 961b8b4eeeb8543c2adec60ff958a7f420c785b5
+ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
+ms.openlocfilehash: e47d8f71fbfe95027e1fbfebb0b7e91ffe653c62
+ms.lasthandoff: 04/10/2017
 
 
 ---
@@ -41,7 +42,7 @@ Azure SQL Database에 연결하려면 먼저 Azure 클라우드 경계의 *외�
 2. 그러면 ADO.NET은 미들웨어 없이 직접SQL 데이터베이스로 연결합니다.
 3. 쿼리는 데이터베이스로 직접 전송되며 결과는 클라이언트에 직접 반환됩니다.
 
-Azure 클라이언트 컴퓨터에 있는 11000-11999 및 14000-14999 범위의 포트가 ADO.NET 4.5와 SQL 데이터베이스 V12 간의 클라이언트 상호 작용에 사용 가능한지 확인합니다.
+Azure 클라이언트 컴퓨터에 있는 11000-11999 및 14000-14999 범위의 포트가 ADO.NET 4.5와 SQL Database 간의 클라이언트 상호 작용에 사용 가능한지 확인합니다.
 
 * 특히 해당 범위의 포트는 모든 다른 아웃바운드 차단으로부터 자유로워야 합니다.
 * Azure VM의 **고급 보안이 포함된 Windows 방화벽** 이 포트 설정을 제어합니다.
@@ -64,10 +65,5 @@ Azure 클라이언트 컴퓨터에 있는 11000-11999 및 14000-14999 범위의 
 * [SQL 데이터베이스 개발 개요](sql-database-develop-overview.md)
 * [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)
 * [방법: SQL 데이터베이스에서 방화벽 설정 구성](sql-database-configure-firewall-settings.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

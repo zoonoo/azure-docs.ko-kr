@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 04/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: becb179da6bc6b6df629a07d3ddb5d50edbaa577
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: a3d958e1a37ddf6821d41afe7427faec1b8259b2
+ms.lasthandoff: 04/12/2017
 
 
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적
 
-이 문서를 통해 Log Analytics에서 변경 내용 추적 솔루션을 사용하여 사용자 환경의 변경 내용을 쉽게 식별할 수 있습니다. 이 솔루션은 Windows 및 Linux 소프트웨어, Windows 파일, Windows 서비스 및 Linux 데몬의 변경 내용을 추적합니다. 구성 변경 내용을 식별하면 운영 문제를 쉽게 특정할 수 있습니다.
+이 문서를 통해 Log Analytics에서 변경 내용 추적 솔루션을 사용하여 사용자 환경의 변경 내용을 쉽게 식별할 수 있습니다. 이 솔루션은 Windows 및 Linux 소프트웨어, Windows 파일 및 레지스트리 키, Windows 서비스 및 Linux 데몬의 변경 내용을 추적합니다. 구성 변경 내용을 식별하면 운영 문제를 쉽게 특정할 수 있습니다.
 
 설치된 에이전트의 유형을 업데이트하려면 이 솔루션을 설치합니다. 모니터링되는 서버에서 설치된 소프트웨어, Windows 서비스 및 Linux 데몬에 대한 변경 내용을 읽은 다음, 해당 데이터는 처리를 위해 클라우드의 Log Analytics 서비스로 보내집니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 변경 내용 추적 대시보드의 정보를 사용하여 서버 인프라에서 수행한 변경 내용을 쉽게 확인할 수 있습니다.
 
@@ -43,6 +43,15 @@ ms.lasthandoff: 03/14/2017
 4. **Save**를 클릭합니다.  
    ![Windows 파일 변경 내용 추적](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
 
+### <a name="configure-windows-registry-keys-to-track"></a>추적할 Windows 레지스트리 키 구성
+다음 단계를 사용하여 Windows 컴퓨터에서 추적할 레지스트리 키를 구성합니다.
+
+1. OMS 포털에서 **설정**을 클릭합니다(기어 기호).
+2. **설정** 페이지에서 **데이터**를 클릭한 다음 **Windows 레지스트리 추적**을 클릭합니다.
+3. Windows 레지스트리 변경 내용 추적에서 추적하려는 전체 키를 입력한 다음 **추가** 기호를 클릭합니다.
+4. **Save**를 클릭합니다.  
+   ![Windows 레지스트리 변경 내용 추적](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
+
 ### <a name="limitations"></a>제한 사항
 현재 변경 내용 추적 솔루션은 다음 항목을 지원하지 않습니다.
 
@@ -56,7 +65,7 @@ ms.lasthandoff: 03/14/2017
 
 * **최대 파일 크기** 열과 값은 현재 구현에서 사용되지 않습니다.
 * 30분 수집 주기에서 2500개 이상의 파일을 수집하는 경우 솔루션 성능이 저하될 수 있습니다.
-* 네트워크 트래픽이 많을 경우 변경 레코드를 표시하는 데 최대&6;시간이 걸릴 수 있습니다.
+* 네트워크 트래픽이 많을 경우 변경 레코드를 표시하는 데 최대 6시간이 걸릴 수 있습니다.
 * 컴퓨터를 종료하는 동안 구성을 수정하면 컴퓨터는 이전 구성에 속한 파일 변경 내용을 게시할 수 있습니다.
 
 ## <a name="change-tracking-data-collection-details"></a>변경 내용 추적 데이터 수집 정보
@@ -73,13 +82,52 @@ ms.lasthandoff: 03/14/2017
 
 | **change type** | **frequency** | **에이전트****가** **차이를 발견한 경우 전송하나요?** |
 | --- | --- | --- |
-| Windows 레지스트리 | 50분 | no |
+| Windows 레지스트리 | 50분 | 아니요 |
 | Windows 파일 | 30분 | 예. 24시간 동안 변경 사항이 없는 경우 스냅숏이 전송됩니다. |
 | Linux 파일 | 15분 | 예. 24시간 동안 변경 사항이 없는 경우 스냅숏이 전송됩니다. |
 | Windows 서비스 | 30분 | 예, 변경 내용이 발견되는 경우 30분마다 전송됩니다. 변경에 관계없이 24시간마다 스냅숏이 전송됩니다. 따라서 변경 사항이 없는 경우에도 스냅숏이 전송됩니다. |
 | Linux 데몬 | 5분 | 예. 24시간 동안 변경 사항이 없는 경우 스냅숏이 전송됩니다. |
 | Windows 소프트웨어 | 30분 | 예, 변경 내용이 발견되는 경우 30분마다 전송됩니다. 변경에 관계없이 24시간마다 스냅숏이 전송됩니다. 따라서 변경 사항이 없는 경우에도 스냅숏이 전송됩니다. |
 | Linux 소프트웨어 | 5분 | 예. 24시간 동안 변경 사항이 없는 경우 스냅숏이 전송됩니다. |
+
+### <a name="registry-key-change-tracking"></a>레지스트리 키 변경 내용 추적
+
+Log Analytics는 변경 내용 추적 솔루션을 사용하여 Windows 레지스트리를 모니터링 및 추적을 수행합니다. 레지스트리 키의 변경 내용을 모니터링하는 목적은 타사 코드 및 맬웨어가 활성화될 수 있는 확장성 지점을 정확하게 찾기 위한 것입니다. 다음 목록에서는 솔루션에서 추적되는 기본 레지스트리 키 및 각 키가 추적되는 이유를 보여 줍니다.
+
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup
+    - 시작 시 실행되는 스크립트를 모니터링합니다.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
+    - 종료 시 실행되는 스크립트를 모니터링합니다.
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
+    - 사용자가 64비트 컴퓨터에서 실행되는 32비트 프로그램을 사용하기 위해 Windows 계정에 로그인하기 전에 로드되는 키를 모니터링합니다.
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components
+    - 응용 프로그램 설정의 변경 내용을 모니터링합니다.
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
+    - Windows 탐색기에 직접 연결되고 일반적으로 Explorer.exe를 사용하여 In Process에서 실행되는 일반적인 자동 시작 항목을 모니터링합니다.
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers
+    - Windows 탐색기에 직접 연결되고 일반적으로 Explorer.exe를 사용하여 In Process에서 실행되는 일반적인 자동 시작 항목을 모니터링합니다.
+- HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Background\ShellEx\ContextMenuHandlers
+    - Windows 탐색기에 직접 연결되고 일반적으로 Explorer.exe를 사용하여 In Process에서 실행되는 일반적인 자동 시작 항목을 모니터링합니다.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+    - 아이콘 오버레이 처리기 등록을 모니터링합니다.
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
+    - 64비트 컴퓨터에서 실행되는 32비트 프로그램에 대한 아이콘 오버레이 처리기 등록을 모니터링합니다.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
+    - 현재 페이지의 DOM(문서 개체 모델)에 액세스하고 탐색을 제어하는 데 사용할 수 있는 Internet Explorer에 대한 새 브라우저 도우미 개체 플러그 인을 모니터링합니다.
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
+    - 64비트 컴퓨터에서 실행되는 32비트 프로그램에 대해 현재 페이지의 DOM(문서 개체 모델)에 액세스하고 탐색을 제어하는 데 사용할 수 있는 Internet Explorer에 대한 새 브라우저 도우미 개체 플러그 인을 모니터링합니다.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
+    - 사용자 지정 도구 메뉴 및 사용자 지정 도구 모음 단추와 같은 새로운 Internet Explorer 확장을 모니터링합니다.
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions
+    - 64비트 컴퓨터에서 실행되는 32비트 프로그램에 대해 사용자 지정 도구 메뉴 및 사용자 지정 도구 모음 단추와 같은 새로운 Internet Explorer 확장을 모니터링합니다.
+- HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32
+    - Wavemapper, wave1 및 wave2, msacm.imaadpcm, .msadpcm, .msgsm610 및 vidc와 관련된 32비트 드라이버를 모니터링합니다. SYSTEM.INI 파일의 [drivers] 섹션과 유사합니다.
+- HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32
+    - 64비트 컴퓨터에서 실행되는 32비트 프로그램에 대해 Wavemapper, wave1 및 wave2, msacm.imaadpcm, .msadpcm, .msgsm610 및 vidc와 관련된 32비트 드라이버를 모니터링합니다. SYSTEM.INI 파일의 [drivers] 섹션과 유사합니다.
+- HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls
+    - 알려졌거나 자주 사용되는 시스템 DLL 목록을 모니터링합니다. 트로이 목마 버전의 시스템 DLL을 삭제하여 사용자들이 약한 응용 프로그램 디렉터리 권한을 악용하지 못하게 합니다.
+- HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify
+    - Windows 운영 체제에 대한 대화형 로그온 지원 모델인 Winlogon에서 이벤트 알림을 수신할 수 있는 패키지 목록을 모니터링합니다.
 
 
 ## <a name="use-change-tracking"></a>변경 내용 추적 사용

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/02/2017
+ms.date: 03/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: d87f6068cef7630ca7d9e8929b43449d28d11f78
-ms.openlocfilehash: 9d9074c986c7210e7d7a345ad5d761ac781be3c1
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d47cb9ae48034c73ccb20bd1872a6b50eebb27d7
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -37,7 +37,7 @@ ms.lasthandoff: 02/17/2017
 
 ![시나리오](./media/active-directory-saas-logicmonitor-tutorial/IC790045.png "시나리오")
 
-## <a name="enabling-the-application-integration-for-logicmonitor"></a>LogicMonitor에 응용 프로그램 통합 사용
+## <a name="enable-the-application-integration-for-logicmonitor"></a>LogicMonitor에 응용 프로그램 통합 사용
 이 섹션은 LogicMonitor에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
 **LogicMonitor에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.**
@@ -62,13 +62,13 @@ ms.lasthandoff: 02/17/2017
    
    ![LogicMonitor](./media/active-directory-saas-logicmonitor-tutorial/IC790047.png "LogicMonitor")
    
-## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 LogicMonitor에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
 
 **Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 클래식 포털의 **LogicMonitor** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+1. Azure 클래식 포털의 **LogicMonitor** 응용 프로그램 통합 페이지에서 **Single Sign-On** 구성을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
    ![Single Sign-On 구성](./media/active-directory-saas-logicmonitor-tutorial/IC790048.png "Single Sign-On 구성")
 2. **LogicMonitor에 대한 사용자 로그온 방법을 선택하세요.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
@@ -99,7 +99,7 @@ ms.lasthandoff: 02/17/2017
    
    ![Single Sign-On 구성](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Single Sign-On 구성")
    
-## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
 AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 이름을 사용하여 LogicMonitor 응용 프로그램에 프로비전되어야 합니다.
 
@@ -122,7 +122,7 @@ AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 �
 >LogicMonitor에서 제공하는 다른 LogicMonitor 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전합니다. 
 > 
 
-## <a name="assigning-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
 **LogicMonitor에 사용자를 할당하려면 다음 단계를 수행합니다.**

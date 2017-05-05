@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 103b3ad93c6bb99f1781e9b3c485caa6042ae0a3
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -63,7 +65,7 @@ GO
 EXEC prc_nesting
 ```
 
-SQL Data Warehouse는 현재 @@NESTLEVEL.을 지원하지 않습니다. 사용자가 직접 중첩 수준을 유지해야 합니다. 8개의 중첩 수준 제한에 도달한 것 같지 않지만 도달한 경우 이 제한 내에 적합하도록 사용자 코드를 다시 작업하고 "평면화"해야 합니다.
+SQL Data Warehouse는 현재 @@NESTLEVEL을 지원하지 않습니다. 따라서 중첩 수준을 직접 추적해야 합니다. 8개의 중첩 수준 제한에 도달한 것 같지 않지만 도달한 경우 이 제한 내에 적합하도록 사용자 코드를 다시 작업하고 "평면화"해야 합니다.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 SQL 데이터 웨어하우스는 INSERT 문을 사용하여 저장된 프로시저의 결과 집합을 사용하도록 허용하지 않습니다. 그러나 대체 방법을 사용할 수 있습니다.
@@ -88,21 +90,16 @@ SQL 데이터 웨어하우스에서 구현되지 않은 TRANSACT-SQL 저장된 �
 * return 문
 
 ## <a name="next-steps"></a>다음 단계
-더 많은 개발 팁은 [개발 개요][개발 개요]를 참조하세요.
+더 많은 개발 팁은 [개발 개요][development overview]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
 [임시 테이블]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
-[개발 개요]: ./sql-data-warehouse-overview-develop.md
+[development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[중첩 수준]: https://msdn.microsoft.com/library/ms187371.aspx
+[nest level]: https://msdn.microsoft.com/library/ms187371.aspx
 
 <!--Other Web references-->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

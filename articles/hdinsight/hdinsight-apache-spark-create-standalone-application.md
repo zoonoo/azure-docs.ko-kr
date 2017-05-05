@@ -1,6 +1,6 @@
 ---
-title: "Azure Spark 클러스터에서 실행되는 독립 실행형 Scala 응용 프로그램 만들기 | Microsoft Docs"
-description: "독립 실행형 Spark 응용 프로그램을 만들어 HDInsight Spark 클러스터에서 실행하는 방법에 대해 알아봅니다."
+title: "Azure Spark 클러스터에서 실행되는 Scala Maven 응용 프로그램 만들기 | Microsoft Docs"
+description: "Maven을 통해 독립 실행형 Spark 응용 프로그램을 만들어 HDInsight Spark 클러스터에서 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 153b1ea4ec3d326fb533817cdb74d3489135f7d9
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: c435e8ec21b568afcadaa1af95964753d36d0ccb
+ms.lasthandoff: 04/06/2017
 
 
 ---
-# <a name="create-a-standalone-scala-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 실행할 독립 실행형 Scala 응용 프로그램 만들기
+# <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 실행할 Scala Maven 응용 프로그램 만들기
 
-이 문서에서는 IntelliJ IDEA와 함께 Maven을 사용하여 Scala로 작성된 독립 실행형 Spark 응용 프로그램 개발에 대한 단계별 지침을 제공합니다. 문서는 빌드 시스템으로 Apache Maven을 사용하고 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형으로 시작합니다.  IntelliJ IDEA에서 전반적인 Scala 응용 프로그램 만들기는 다음 단계를 포함합니다.
+IntelliJ IDEA에서 Maven을 사용하여 Scala로 작성한 Spark 응용 프로그램을 만드는 방법을 알아봅니다. 문서는 빌드 시스템으로 Apache Maven을 사용하고 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형으로 시작합니다.  IntelliJ IDEA에서 Scala 응용 프로그램 만들기는 다음 단계를 포함합니다.
 
 * 빌드 시스템으로 Maven을 사용합니다.
 * POM(프로젝트 개체 모델) 파일을 업데이트하여 Spark 모듈 종속성을 해결합니다.
@@ -38,9 +38,9 @@ ms.lasthandoff: 01/24/2017
 > 
 > 
 
-**필수 구성 요소**
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 * Oracle Java Development 키트. [여기](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)에서 설치할 수 있습니다.
 * Java IDE. 이 문서에서는 IntelliJ IDEA 15.0.1을 사용합니다. [여기](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.

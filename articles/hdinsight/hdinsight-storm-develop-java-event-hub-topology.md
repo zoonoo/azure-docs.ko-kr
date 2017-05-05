@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/17/2017
+ms.date: 04/03/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: fcca957dc365d8c38b5a08991939860c5af96813
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: e650731c3186b47adeb0e799a852961c30338550
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -31,22 +31,22 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 ## <a name="prerequisites"></a>필수 조건
 
 * HDInsight 클러스터 버전 3.5의 Apache Storm 자세한 내용은 [HDInsight 클러스터에서 Storm 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)을 참조하세요.
-    
+
     > [!IMPORTANT]
-    > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date)을 참조하세요.
+    > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.3 및 3.4 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 * [Azure 이벤트 허브](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
-* [OpenJDK](http://openjdk.java.net/)와 같은 [Oracle JDK(Java 개발자 키트) 버전 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 또는 그와 동등
+* [OpenJDK](http://openjdk.java.net/)와 같은 [Oracle JDK(Java 개발자 키트) 버전 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 또는 그와 동등
 
 * [Maven](https://maven.apache.org/download.cgi): Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 
 * 텍스트 편집기 또는 통합 개발 환경(IDE)입니다.
-  
-  > [!NOTE]
-  > 편집기 또는 IDE에 이 문서에서 다루지 않은 Maven과 함께 동작하는 특정 기능이 있을 수 있습니다. 편집 환경 기능에 대한 내용은 사용 중인 제품의 설명서를 참조하세요.
-  
-  * SSH 클라이언트. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+
+    > [!NOTE]
+    > 편집기 또는 IDE에 이 문서에서 다루지 않은 Maven과 함께 동작하는 특정 기능이 있을 수 있습니다. 편집 환경 기능에 대한 내용은 사용 중인 제품의 설명서를 참조하세요.
+
+    * SSH 클라이언트. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 * SCP 클라이언트입니다. `scp` 명령은 Windows 10의 Bash를 포함한 모든 Linux, Unix 및 OS X 시스템에서 제공됩니다 `scp` 명령이 포함되지 않은 Windows 시스템의 경우 PSCP를 권장합니다. PSCP는 [PuTTY 다운로드 페이지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 사용할 수 있습니다.
 
@@ -64,7 +64,48 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 
 ### <a name="project-configuration"></a>프로젝트 구성
 
-**POM.xml** 파일은 이 Maven 프로젝트에 대한 구성 정보를 포함합니다. 흥미로운 부분은 다음과 같습니다.
+`POM.xml` 파일은 이 Maven 프로젝트에 대한 구성 정보를 포함합니다. 흥미로운 부분은 다음과 같습니다.
+
+#### <a name="hortonworks-repository"></a>Hortonworks 리포지토리
+
+HDInsight는 Hortonworks Data Platform을 기준으로 합니다. 프로젝트가 HDInsight 3.5에서 사용되는 Storm 및 Hadoop 버전과 호환되는지 확인하기 위해 다음 섹션에서는 Hortonworks의 비트를 사용하여 프로젝트를 구성합니다.
+
+```xml
+<repositories>
+    <repository>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>fail</checksumPolicy>
+        </snapshots>
+        <id>HDPReleases</id>
+        <name>HDP Releases</name>
+        <url>http://repo.hortonworks.com/content/repositories/releases/</url>
+        <layout>default</layout>
+    </repository>
+    <repository>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>fail</checksumPolicy>
+        </snapshots>
+        <id>HDPJetty</id>
+        <name>Hadoop Jetty</name>
+        <url>http://repo.hortonworks.com/content/repositories/jetty-hadoop/</url>
+        <layout>default</layout>
+    </repository>
+</repositories>
+```
 
 #### <a name="the-eventhubs-storm-spout-dependency"></a>EventHubs Storm Spout 종속성
 
@@ -90,33 +131,18 @@ HdfsBolt는 일반적으로 Hadoop 분산 파일 시스템 HDFS에 데이터를 
 <dependency>
     <groupId>org.apache.storm</groupId>
     <artifactId>storm-hdfs</artifactId>
+    <!-- exclude these storm-hdfs dependencies since they are on the server -->
     <exclusions>
-    <exclusion>
-        <groupId>org.apache.hadoop</groupId>
-        <artifactId>hadoop-client</artifactId>
-    </exclusion>
-    <exclusion>
-        <groupId>org.apache.hadoop</groupId>
-        <artifactId>hadoop-hdfs</artifactId>
-    </exclusion>
+        <exclusion>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+        </exclusion>
     </exclusions>
     <version>${storm.version}</version>
-</dependency>
-<!--So HdfsBolt knows how to talk to WASB -->
-<dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-client</artifactId>
-    <version>${hadoop.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-hdfs</artifactId>
-    <version>${hadoop.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.hadoop</groupId>
-    <artifactId>hadoop-azure</artifactId>
-    <version>${hadoop.version}</version>
 </dependency>
 <dependency>
     <groupId>org.apache.hadoop</groupId>
@@ -248,7 +274,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 * **JAVA_HOME** - JRE(Java runtime environment)가 설치된 디렉터리를 가리켜야 합니다. 예를 들어 Unix 또는 Linux 배포에서는 `/usr/lib/jvm/java-7-oracle`과 유사한 값이어야 합니다. Windows에서는 `c:\Program Files (x86)\Java\jre1.7`
 * **PATH** - 다음 경로를 포함해야 합니다.
-  
+
   * **JAVA_HOME** 또는 그와 동등한 경로
   * **JAVA_HOME\bin** 또는 그와 동등한 경로
   * Maven이 설치된 디렉터리
@@ -258,9 +284,9 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 1. [https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar](https://000aarperiscus.blob.core.windows.net/certs/storm-eventhubs-1.0.2-jar-with-dependencies.jar)에서 `storm-eventhubs-1.0.2-jar-with-dependencies.jar`을 다운로드합니다. 이 파일은 Event Hubs의 읽기와 쓰기에 대한 spout 및 bolt 구성 요소를 포함합니다.
 
 2. 다음 명령을 사용하여 로컬 maven 리포지토리에 있는 구성 요소를 등록합니다.
-    
+
         mvn install:install-file -Dfile=storm-eventhubs-1.0.2-jar-with-dependencies.jar -DgroupId=com.microsoft -DartifactId=eventhubs -Dversion=1.0.2 -Dpackaging=jar
-    
+
     `-Dfile=` 매개 변수를 수정하여 다운로드한 파일 위치를 가리키도록 합니다.
 
     이 명령은 로컬 Maven 리포지토리에 파일을 설치하고 여기서 Maven에 의한 컴파일 시점을 찾을 수 있습니다.
@@ -272,27 +298,27 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **새로 만들기** > **Service Bus** > **이벤트 허브** > **사용자 지정 만들기**를 선택합니다.
 
 2. **새 Event Hub 추가** 화면에서 **Event Hub 이름**을 입력합니다. **지역**을 선택하여 허브를 만든 다음 네임스페이스를 만들거나 기존 항목을 선택합니다. 마지막으로 **화살표**를 클릭하여 계속합니다.
-   
+
     ![마법사 페이지 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
-   
+
    > [!NOTE]
    > 대기 시간 및 비용을 줄이려면 HDInsight 서버의 Storm과 동일한 **위치**를 선택합니다.
 
 3. **이벤트 허브 구성** 화면에서 **파티션 개수** 및 **메시지 보존** 값을 입력합니다. 이 예에서는 파티션 개수로 10을, 메시지 보존으로는 1을 사용합니다. 파티션 개수 값은 나중에 필요하므로 기록해 둡니다.
-   
+
     ![마법사 페이지 2](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz2.png)
 
 4. 이벤트 허브를 만든 후 네임스페이스를 선택하고 **이벤트 허브**를 선택한 다음 앞에서 만든 이벤트 허브를 선택합니다.
 5. **구성**을 선택하고 다음 정보를 사용하여 새 액세스 정책 두 개를 만듭니다.
-   
+
     <table>
     <tr><th>이름</th><th>권한</th></tr>
     <tr><td>기록기</td><td>보내기</td></tr>
     <tr><td>읽기 권한자</td><td>수신 대기</td></tr>
     </table>
-   
+
     권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 이러한 공유 액세스 정책은 Event Hub에 대한 읽기 및 쓰기에 사용됩니다.
-   
+
     ![정책](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
 6. 정책을 저장한 후 페이지 아래쪽의 **공유 액세스 키 생성기**를 사용하여 **기록기** 및 **판독기** 정책에 대한 키를 검색합니다. 이러한 키를 저장합니다.
@@ -302,9 +328,9 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 1. GitHub에서 프로젝트 다운로드: [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)입니다. zip 아카이브로 패키지를 다운로드하거나 [git](https://git-scm.com/) 를 사용하여 프로젝트를 로컬로 복제할 수 있습니다.
 
 2. 다음을 사용하여 프로젝트를 빌드하고 패키징합니다.
-   
+
         mvn package
-   
+
     이 명령은 필수 종속성을 다운로드하고 프로젝트를 빌드한 다음 패키징합니다. 출력은 **/target** 디렉터리에 **EventHubExample-1.0-SNAPSHOT.jar**로 저장됩니다.
 
 ## <a name="deploy-the-topologies"></a>토폴로지 배포
@@ -312,62 +338,50 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 이 프로젝트에서 만든 jar는 **com.microsoft.example.EventHubWriter** 및 **com.microsoft.example.EventHubReader**라는 같은 두 개의 토폴로지를 포함합니다. EventHubReader에서 읽은 이벤트 허브에 이벤트를 쓰기 때문에 EventHubWriter 토폴로지를 먼저 시작해야 합니다.
 
 1. SCP를 사용하여 HDInsight 클러스터에 jar 패키지를 복사합니다. 클러스터에 SSH 사용자로 사용자 이름을 바꿉니다. CLUSTERNAME을 HDInsight 클러스터의 이름으로 바꿉니다.
-   
+
         scp ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.
-   
-    SSH 계정에 암호를 사용한 경우 암호를 입력하라는 메시지가 나타납니다. 계정에서 SSH 키를 사용한 경우 `-i` 매개 변수를 사용하여 키 파일에 대한 경로를 지정해야 할 수 있습니다. 예: `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`.
-   
-   > [!NOTE]
-   > 클라이언트가 Windows 워크스테이션이면 설치된 SCP 명령이 없을 수 있습니다. [PuTTY 다운로드 페이지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있는 PSCP를 사용하는 것이 좋습니다.
-   
+
+    SSH 계정에 암호를 사용한 경우 암호를 입력하라는 메시지가 나타납니다. 계정에서 SSH 키를 사용한 경우 `-i` 매개 변수를 사용하여 키 파일에 대한 경로를 지정해야 할 수 있습니다. 예: `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`
+
     이 명령은 클러스터에 있는 SSH 사용자의 홈 디렉터리에 파일을 복사합니다.
 
 2. 파일 업로드가 완료되면 SSH를 사용하여 HDInsight 클러스터에 연결할 수 있습니다. **USERNAME**을 SSH 로그인의 이름으로 바꿉니다. **CLUSTERNAME** 을 HDInsight 클러스터 이름으로 바꿉니다.
-   
+
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-   
-   > [!NOTE]
-   > SSH 계정에 암호를 사용한 경우 암호를 입력하라는 메시지가 나타납니다. 계정에서 SSH 키를 사용한 경우 `-i` 매개 변수를 사용하여 키 파일에 대한 경로를 지정해야 할 수 있습니다. 다음 예제에서는 `~/.ssh/id_rsa`에서 개인 키를 로드합니다.
-   > 
-   > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
-   
-    PuTTY를 사용하는 경우 **호스트 이름(또는 IP 주소)** 필드에 `CLUSTERNAME-ssh.azurehdinsight.net`를 입력한 다음 **열기**를 클릭하여 연결합니다. SSH 계정 이름을 입력하라는 메시지가 표시됩니다.
-   
-   > [!NOTE]
-   > SSH 계정에 암호를 사용한 경우 암호를 입력하라는 메시지가 나타납니다. 계정으로 SSH 키를 사용하는 경우 다음 단계를 사용하여 키를 선택해야 합니다.
-   > 
-   > 1. **Category**에서 **Connection**, **SSH**를 차례로 확장하고 **Auth**를 선택합니다.
-   > 2. **찾아보기** 를 클릭하고 개인 키가 포함된 .ppk 파일을 선택합니다.
-   > 3. **열기** 를 클릭하여 연결합니다.
+
+    > [!NOTE]
+    > SSH 계정에 암호를 사용한 경우 암호를 입력하라는 메시지가 나타납니다. 계정에서 SSH 키를 사용한 경우 `-i` 매개 변수를 사용하여 키 파일에 대한 경로를 지정해야 할 수 있습니다. 다음 예제에서는 `~/.ssh/id_rsa`에서 개인 키를 로드합니다.
+    >
+    > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
 3. 다음 명령을 사용하여 토폴로지를 시작합니다.
-   
+
         storm jar EventHubExample-1.0-SNAPSHOT.jar com.microsoft.example.EventHubWriter writer
         storm jar EventHubExample-1.0-SNAPSHOT.jar com.microsoft.example.EventHubReader reader
-   
+
     이러한 명령은 "읽기 권한자"와 "쓰기 권한자"의 이름을 사용하여 토폴로지를 시작합니다.
 
 4. 데이터를 생성하기 위해 잠시 토폴로지를 기다립니다. 다음 명령을 사용하여 HDInsight 저장소에 데이터가 기록되어 있는지 확인합니다.
-   
-        hadoop fs -ls /devicedata
-   
+
+        hdfs dfs fs -ls /devicedata
+
     이 명령은 다음 텍스트와 유사한 파일 목록을 반환합니다.
-   
+
         -rw-r--r--   1 storm supergroup      10283 2015-08-11 19:35 /devicedata/wasbbolt-14-0-1439321744110.txt
         -rw-r--r--   1 storm supergroup      10277 2015-08-11 19:35 /devicedata/wasbbolt-14-1-1439321748237.txt
         -rw-r--r--   1 storm supergroup      10280 2015-08-11 19:36 /devicedata/wasbbolt-14-10-1439321760398.txt
         -rw-r--r--   1 storm supergroup      10267 2015-08-11 19:36 /devicedata/wasbbolt-14-11-1439321761090.txt
         -rw-r--r--   1 storm supergroup      10259 2015-08-11 19:36 /devicedata/wasbbolt-14-12-1439321762679.txt
-   
+
    > [!NOTE]
    > EventHubReader에서 만들어진 대로 일부 파일의 크기는 0이지만 아직 해당 파일에 데이터가 저장되지 않았습니다.
-   
+
     다음 명령을 사용하여 파일의 내용을 볼 수 있습니다.
-   
-        hadoop fs -text /devicedata/*.txt
-   
+
+        hdfs dfs -text /devicedata/*.txt
+
     여기서는 다음 텍스트와 비슷한 데이터를 반환합니다.
-   
+
         3409e622-c85d-4d64-8622-af45e30bf774,848981614
         c3305f7e-6948-4cce-89b0-d9fbc2330c36,-1638780537
         788b9796-e2ab-49c4-91e3-bc5b6af1f07e,-1662107246
@@ -375,11 +389,11 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
         d7c7f96c-581a-45b1-b66c-e32de6d47fce,543829859
         9a692795-e6aa-4946-98c1-2de381b37593,1857409996
         3c8d199b-0003-4a79-8d03-24e13bde7086,-1271260574
-   
+
     첫 번째 열은 장치 ID 값을 포함하고 두 번째 열은 장치 값입니다.
 
 5. 다음 명령을 사용하여 토폴로지를 중지합니다.
-   
+
         storm kill reader
         storm kill writer
 
@@ -400,5 +414,4 @@ Storm UI 사용에 대한 자세한 내용은 다음 항목을 참조하세요.
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 065e84e8ddee3466834e04fb5d1929652533265a
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: cec1bcceea158a20742c7019a266dcefaac4c9cf
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -76,7 +76,7 @@ ms.lasthandoff: 03/25/2017
 이 작업을 수동으로 수행할 수 있으나 다행히도 실험 캔버스의 맨 아래에 있는 **웹 서비스 설정**을 클릭하여 세 단계를 모두 수행할 수 있습니다(및 **예측 웹 서비스** 옵션 선택).
 
 > [!TIP]
-> 학습 실험을 예측 실험으로 변환할 때 발생하는 결과를 자세히 알아보려면 [Machine Learning 학습 실험에서 예측 실험으로 변환](machine-learning-convert-training-experiment-to-scoring-experiment.md)을 참조하세요.
+> 학습 실험을 예측 실험으로 변환할 때 발생하는 결과를 자세히 알아보려면 [Azure Machine Learning Studio에서 배포 모델을 준비하는 방법](machine-learning-convert-training-experiment-to-scoring-experiment.md)을 참조하세요.
 
 **웹 서비스 설정**을 클릭하면 다음과 같은 결과가 발생합니다.
 

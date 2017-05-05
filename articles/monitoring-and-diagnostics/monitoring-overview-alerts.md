@@ -16,9 +16,9 @@ ms.date: 03/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: c9065c3346c924ea21060c9e7e5b297a3cb26941
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 76c8feb077cca27dc96f43e708cdef4fbb0f824c
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -44,9 +44,9 @@ ms.lasthandoff: 03/09/2017
 다음을 기준으로 경고를 받을 수 있습니다.
 
 * **메트릭 값**: 이 경고는 특정 메트릭의 값이 어느 방향으로든 사용자가 할당한 임계값을 초과했을 때 트리거됩니다. 즉, 조건에 처음 부합했을 때와, 조건에 더 이상 부합하지 않게 되었을 때 모두 트리거됩니다. Azure Monitor에서 지원하는 사용 가능한 메트릭 목록은 [Azure Monitor에서 지원되는 메트릭 목록](monitoring-supported-metrics.md)을 참조하세요.
-* **활동 로그 이벤트**: 모든 이벤트에 대해 또는 특정 이벤트 수가 발생했을 때만 이 경고를 트리거할 수 있습니다.
+* **활동 로그 이벤트**: 이 경고는 리소스에 대한 특정 이벤트가 발생할 때 또는 서비스 알림이 구독에 게시될 때 트리거될 수 있습니다.
 
-## <a name="what-can-alerts-do"></a>경고의 기능은 무엇인가요?
+## <a name="what-can-metric-alerts-do"></a>메트릭 경고로 수행할 수 있는 작업
 다음 작업을 수행하도록 경고를 구성할 수 있습니다.
 
 * 서비스 관리자, 공동 관리자 또는 사용자가 지정한 추가 이메일 주소로 이메일 알림을 보냅니다.
@@ -56,12 +56,27 @@ ms.lasthandoff: 03/09/2017
     - Azure 논리 앱
     - 타사 서비스
 
+## <a name="what-can-activity-log-alerts-do"></a>활동 로그 경고로 수행할 수 있는 작업
+다음 작업을 수행하도록 경고를 구성할 수 있습니다.
+* 특정 이벤트가 구독의 리소스 중 하나를 발생할 때마다 트리거
+* 서비스 알림이 구독에 게시될 때마다 트리거
+* 작업 그룹 멤버에게 경고를 보내는 방법
+    * sms
+    * Email
+    * 웹후크
 
 ## <a name="next-steps"></a>다음 단계
 다음을 사용하여 경고 규칙에 대한 정보를 확인하고 구성할 수 있습니다.
 
-* [Azure 포털](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md)
-* [명령줄 인터페이스(CLI)](insights-alerts-command-line-interface.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [메트릭](monitoring-overview-metrics.md)에 대해 자세히 알아보기
+* [Azure Portal을 통해 메트릭 경고](insights-alerts-portal.md) 구성
+* [메트릭 경고 PowerShell](insights-alerts-powershell.md) 구성
+* [메트릭 경고 CLI(명령줄 인터페이스)](insights-alerts-command-line-interface.md) 구성
+* [메트릭 경고 Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx) 구성
+* [활동 로그](monitoring-overview-activity-logs.md)에 대해 자세히 알아보기
+* [Azure Portal을 통해 활동 로그 경고](monitoring-activity-log-alerts.md) 구성
+* [Resource Manager를 통해 활동 로그 경고](monitoring-create-activity-log-alerts-with-resource-manager-template.md) 구성
+* [활동 로그 경고 웹후크 스키마](monitoring-activity-log-alerts-webhook.md) 검토
+* [서비스 알림](monitoring-service-notifications.md)에 대해 자세히 알아보기
+* [작업 그룹](monitoring-action-groups.md)에 대해 자세히 알아보기
 

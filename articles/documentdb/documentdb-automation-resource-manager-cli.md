@@ -11,14 +11,14 @@ ms.assetid: 6158c27f-6b9a-404e-a234-b5d48c4a5b29
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 04/04/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: b286a93d7cc5f962f969e877b2f487e56cbb1a95
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 150e8f3e186683bce735d0952adb57544505d1e9
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -65,7 +65,6 @@ Arguments
                                     address ranges in CIDR form to be included as the allowed list
                                     of client IPs for a given database account. IP addresses/ranges
                                     must be comma separated and must not contain any spaces.
-                                    To enable portal access, include 104.42.195.92.
     --kind                        : The type of DocumentDB database account to create.  Allowed
                                     values: GlobalDocumentDB, MongoDB, Parse.  Default:
                                     GlobalDocumentDB.
@@ -93,6 +92,7 @@ Arguments
 
 ### <a name="notes"></a>참고 사항
 * 위치는 일반적으로 DocumentDB를 사용할 수 있는 하위 지역이어야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
+* 포털 액세스를 사용하도록 설정하려면 [IP 액세스 제어 정책 구성](documentdb-firewall-support.md#configure-ip-policy)에 지정된 대로 ip-range-filter에 사용자의 하위 지역에 대한 Azure Portal의 IP 주소를 포함합니다.
 
 ## <a id="update-documentdb-account-cli"></a> DocumentDB 데이터베이스 계정 업데이트
 
@@ -180,6 +180,20 @@ Arguments
 예제:
 
     az documentdb list-keys -g rg-test -n docdb-test
+
+## <a id="list-connection-strings-cli"></a> 연결 문자열 나열
+
+MongoDB 계정의 경우 MongoDB 앱을 데이터베이스 계정에 연결하기 위한 연결 문자열은 다음 명령을 사용하여 검색할 수 있습니다.
+
+```
+Arguments
+    --name -n           [Required]: Name of the DocumentDB database account.
+    --resource-group -g [Required]: Name of the resource group.
+```
+
+예제:
+
+    az documentdb list-connection-strings -g rg-test -n docdb-test
 
 ## <a id="regenerate-account-key-cli"></a> 계정 키 다시 생성
 

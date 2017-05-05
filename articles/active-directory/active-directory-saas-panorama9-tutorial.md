@@ -11,34 +11,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 12868706693a076ead3cfc13ce5901bbc56d588b
-ms.openlocfilehash: 961aef8496a7de264c5d57c7a990c69996c1527e
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 66d68ef805a28552c5d161b4761e2aa3052c118c
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>자습서: Panorama9와 Azure Active Directory 통합
 이 자습서는 Azure 및 Panorama9의 통합을 보여주기 위한 것입니다.  
+
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 * 유효한 Azure 구독
-* Panorama9 Single Sign-On이 설정된 구독
+* Panorama9 SSO(Single Sign-On)가 설정된 구독
 
 이 자습서를 완료한 후 Panorama9에 할당한 Azure AD 사용자가 Panorama9 회사 사이트(서비스 공급자가 시작한 로그온)에서 또는 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
 
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
 1. Panorama9에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
+2. SSO(Single Sign-On) 구성
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
 ![시나리오](./media/active-directory-saas-panorama9-tutorial/IC790016.png "시나리오")
 
-## <a name="enabling-the-application-integration-for-panorama9"></a>Panorama9에 응용 프로그램 통합 사용
+## <a name="enable-the-application-integration-for-panorama9"></a>Panorama9에 응용 프로그램 통합 사용
 이 섹션은 Panorama9에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
 **Panorama9에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.**
@@ -63,15 +64,15 @@ ms.lasthandoff: 02/03/2017
    
    ![Panorama9](./media/active-directory-saas-panorama9-tutorial/IC790018.png "Panorama9")
    
-## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Panorama9에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
 
-Panorama9에 대한 Single Sign-On을 구성하려면 인증서의 지문(thumbprint) 값을 검색해야 합니다.  
+Panorama9에 대한 SSO를 구성하려면 인증서의 지문 값을 검색해야 합니다.  
 
 이 절차를 잘 모르는 경우 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
-**Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+**SSO를 구성하려면 다음 단계를 수행합니다.**
 
 1. Azure 클래식 포털의 **Panorama9** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
@@ -108,30 +109,31 @@ Panorama9에 대한 Single Sign-On을 구성하려면 인증서의 지문(thumbp
    
    ![Single Sign-On 구성](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Single Sign-On 구성")
    
-## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
 Azure AD 사용자가 Panorama9에 로그인할 수 있도록 하려면 Panorama9로 프로비전되어야 합니다.  
-Panorama9의 경우 프로비전은 수동 작업입니다.
+
+* Panorama9의 경우 프로비전은 수동 작업입니다.
 
 **사용자 프로비전을 구성하려면 다음 단계를 수행합니다.**
 1. **Panorama9** 회사 사이트에 관리자 권한으로 로그인합니다.
 2. 위쪽 메뉴에서 **관리**를 클릭한 다음 **사용자**를 클릭합니다.
    
-   ![사용자](./media/active-directory-saas-panorama9-tutorial/IC790027.png "사용자")
+  ![사용자](./media/active-directory-saas-panorama9-tutorial/IC790027.png "사용자")
 3. 페이지 맨 아래에 있는 **+**를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
 4. 사용자 데이터 섹션에서 다음 단계를 수행합니다.
    
-   ![사용자](./media/active-directory-saas-panorama9-tutorial/IC790028.png "사용자")
-   
-   1. **이메일** 텍스트 상자에 프로비전하려는 유효한 Azure Active Directory 사용자의 이메일 주소를 입력합니다.
-   2. **Save**를 클릭합니다.
+  ![사용자](./media/active-directory-saas-panorama9-tutorial/IC790028.png "사용자")
 
-> [!NOTE]
-> 다른 Panorama9 사용자 계정 생성 도구 또는 Panorama9가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
-> 
+  1. **이메일** 텍스트 상자에 프로비전하려는 유효한 Azure Active Directory 사용자의 이메일 주소를 입력합니다.
+  2. **Save**를 클릭합니다.
 
+>[!NOTE]
+>다른 Panorama9 사용자 계정 생성 도구 또는 Panorama9가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>
+>
 
-## <a name="assigning-users"></a>사용자 할당
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
 **Panorama9에 사용자를 할당하려면 다음 단계를 수행합니다.**
@@ -144,6 +146,6 @@ Panorama9의 경우 프로비전은 수동 작업입니다.
    
    ![예](./media/active-directory-saas-panorama9-tutorial/IC767830.png "예")
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
+SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 

@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/05/2017
+ms.date: 04/05/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e0de3b12b98bf9bf361607dac4b087e4eacabf1e
-ms.lasthandoff: 03/06/2017
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: ab914153df01c6d8135732bc772b78066e14d1d1
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -26,9 +26,8 @@ ms.lasthandoff: 03/06/2017
 > [!div class="op_single_selector"]
 > * [포털](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](search-get-started-management-api.md)
-> 
-> 
+> * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure Search는 사용자 지정 앱에 풍부한 검색 환경을 구축하기 위해 사용되는 완전히 관리되는 클라우드 기반 검색 서비스입니다. 이 문서에서는 이미 프로비전된 검색 서비스를 위한 *Azure 포털* 에서 수행할 수 있는 [서비스 관리](https://portal.azure.com) 작업에 대해 설명합니다. *서비스 관리* 는 의도적으로 간단하게 작성되었으며 다음 작업으로 제한됩니다.
 
@@ -74,7 +73,7 @@ Azure Search에서는 포털 또는 프로그래밍 방식 인터페이스를 �
 서비스에 대한 일반 정보를 기준으로 다음과 같은 방법으로 정보를 얻을 수 있습니다.
 
 * 포털의 서비스 대시보드에서 알림, 속성 및 상태 메시지를 통해 정보를 얻습니다.
-* [PowerShell](search-manage-powershell.md) 또는 [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx)를 사용하여 [서비스 속성](https://msdn.microsoft.com/library/azure/dn832694.aspx) 또는 인덱스 리소스 사용 현황에 대한 상태를 가져옵니다.
+* [PowerShell](search-manage-powershell.md) 또는 [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/)를 사용하여 [서비스 속성](https://docs.microsoft.com/rest/api/searchmanagement/services) 또는 인덱스 리소스 사용 현황에 대한 상태를 가져옵니다.
 * 이전에 설명한 것처럼 [검색 트래픽 분석](search-traffic-analytics.md)을 통해 정보를 얻습니다.
 
 <a id="manage-keys"></a>
@@ -116,8 +115,8 @@ api-key를 가져오거나 다시 생성하려면 서비스 대시보드를 엽�
 
 검색 서비스 API를 사용하여 문서 및 인덱스 수를 가져올 수 있습니다. 가격 책정 계층에 따라 이러한 개수와 연결된 고정 한도가 있습니다. 자세한 내용은 [검색 서비스 제한](search-limits-quotas-capacity.md)을 참조하세요. 
 
-* [인덱스 통계 가져오기](http://msdn.microsoft.com/library/dn798942.aspx)
-* [문서 수 계산](http://msdn.microsoft.com/library/dn798924.aspx)
+* [인덱스 통계 가져오기](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
+* [문서 수 계산](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 > [!NOTE]
 > 캐싱 동작 때문에 한도가 일시적으로 과장될 수 있습니다. 예를 들어 공유 서비스를 사용하는 경우 문서 수가 문서 10,000개 고정 한도보다 높게 표시될 수도 있습니다. 과장은 일시적이며 다음 한도 적용 확인 시 검색됩니다. 
@@ -170,7 +169,7 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
 
 특정 파티션에 저장되는 인덱스 분할을 알려주는 검색 방법은 없습니다. 각 파티션에서 제공하는 저장소는 대략 25GB이므로 보유한 개수의 파티션에 수용할 수 있는 크기로 저장소를 줄여야 합니다. 파티션 한 개로 되돌리려면 12개 분할이 모두 들어가야 합니다.
 
-미래 계획에 도움이 되도록 저장소를 검사( [인덱스 통계 가져오기](http://msdn.microsoft.com/library/dn798942.aspx)사용)하여 실제로 사용한 크기를 확인하는 것이 좋습니다. 
+미래 계획에 도움이 되도록 저장소를 검사( [인덱스 통계 가져오기](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)사용)하여 실제로 사용한 크기를 확인하는 것이 좋습니다. 
 
 <a id="advanced-deployment"></a>
 
@@ -187,7 +186,6 @@ QPS(초당 쿼리 수)를 높이거나 고가용성을 구현하려면 복제본
 서비스 관리와 관련된 작업 종류를 이해했으면 서비스 관리를 위한 다양한 방법을 고려해야 합니다.
 
 * [PowerShell](search-manage-powershell.md)
-* [관리 REST API](search-get-started-management-api.md)
 
 또한 아직 수행하지 않은 경우 [성능 및 최적화 문서](search-performance-optimization.md)를 확인하고 필요에 따라 이전 섹션에 나와 있는 비디오를 시청하여 권장되는 기법에 대한 자세한 내용과 데모를 확인하세요.
 

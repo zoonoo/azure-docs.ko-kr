@@ -13,19 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 03/15/2017
+ms.date: 04/12/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 867a1c8dda37815663fa3fb095351fa3854a52cc
-ms.lasthandoff: 03/17/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ba782270f3280e52235bc13148d232284b55762a
+ms.lasthandoff: 04/12/2017
 
 
 ---
 
 
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>B2B 공동 작업 사용자 감사 및 보고
-이 미리 보기에서는 게스트 사용자를 사용하여 구성원 사용자와 유사한 감사 기능을 얻을 수 있습니다. 다음은 초대한 Sam Oogle의 초대 및 상환 기록에 대한 예제입니다.
+게스트 사용자를 사용하여 구성원 사용자와 유사한 감사 기능을 얻을 수 있습니다. 다음은 초대한 Sam Oogle의 초대 및 상환 기록에 대한 예제입니다.
 
 ![감사 로그](./media/active-directory-b2b-auditing-and-reporting/audit-log.png)
 

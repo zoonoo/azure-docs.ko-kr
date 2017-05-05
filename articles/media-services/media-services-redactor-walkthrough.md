@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 04/03/2017
 ms.author: rli; juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 8d8575decb177001cefbb7f159841b64c3f84f41
-ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: b34502aa75d94da1abcda880bb1a251a8455f3f8
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -114,6 +115,10 @@ JSON 주석 데이터를 구문 분석하려는 개발자는 Models.MetaData 내
     ![얼굴 편집](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
 5.    아래쪽 텍스트 필드는 얼굴 ID로 업데이트됩니다. 줄 바꿈으로 구분된 이러한 ID 목록으로 "idlist.txt"라는 파일을 만듭니다. 
+
+    >[!NOTE]
+    > idlist.txt는 ANSI로 저장해야 합니다. ANSI로 저장하려면 메모장을 사용할 수 있습니다.
+    
 6.    1단계의 출력 자산에 이 파일을 업로드합니다. 이 자산에도 원본 비디오를 업로드하고 기본 자산으로 설정합니다. 
 7.    "Redact" 모드를 사용하여 이 자산에 대해 교정 작업을 실행하여 교정된 최종 비디오를 얻습니다. 
 
@@ -129,9 +134,5 @@ JSON 주석 데이터를 구문 분석하려는 개발자는 Models.MetaData 내
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+[Azure Media Analytics의 얼굴 편집 발표](https://azure.microsoft.com/blog/azure-media-redactor/)
 

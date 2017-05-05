@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f9d15570aeeb398b34198918b78590948020f256
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: fb764e3d228aa852a4d4e6b0f314daa60d099093
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -46,7 +46,7 @@ Azure 저장소는 여러 개발자가 보안 응용 프로그램을 빌드하�
   이 섹션에서는 저장소 분석 로그에서 요청에 대한 정보를 찾는 방법을 설명합니다. 실제 저장소 분석 로그 데이터에 대해 살펴보고, 성공 여부에 관계없이 저장소 계정 키 사용, 공유 액세스 서명 사용 또는 익명 방식 중 어떤 방식으로 요청이 수행되는지를 확인하는 방법을 알아봅니다.
 * [CORS를 사용하여 브라우저 기반 클라이언트를 사용하도록 설정](#Cross-Origin-Resource-Sharing-CORS)
   
-  이 섹션에서는 CORS(크로스-원본 자원 공유)를 허용하는 방법을 설명합니다. 도메인 간 액세스와 Azure 저장소에 기본 제공된 CORS 기능으로 이러한 액세스 방식을 처리하는 방법을 살펴봅니다.
+  이 섹션에서는 CORS(크로스-원본 자원 공유)를 허용하는 방법을 설명합니다. 도메인 간 액세스와 Azure Storage에 기본 제공된 CORS 기능으로 이러한 액세스 방식을 처리하는 방법을 살펴봅니다.
 
 ## <a name="management-plane-security"></a>관리 평면 보안
 관리 평면은 저장소 계정 자체에 영향을 주는 작업으로 구성되어 있습니다. 예를 들어 저장소 계정을 생성 또는 삭제하거나, 구독에서 저장소 계정 목록을 가져오거나, 저장소 계정 키를 검색하거나, 저장소 계정 키를 다시 생성할 수 있습니다.
@@ -68,7 +68,7 @@ RBAC를 사용하여 Azure 저장소 계정 관리 작업에 액세스하는 작
 * 액세스 권한을 할당할 경우 기본적으로 액세스 권한을 부여하려는 계정에 역할을 할당합니다. 계정의 데이터 개체가 아니라 해당 저장소 계정을 관리하는 데 사용되는 작업에 대한 액세스를 제어할 수 있습니다. 예를 들어 Blob 저장소의 컨테이너 또는 컨테이너 내의 데이터가 아니라 저장소 계정의 속성(예: 중복)을 검색할 수 있는 권한을 부여할 수 있습니다.
 * 누군가에게 저장소 계정의 데이터 개체에 액세스할 수 있는 권한을 부여하려면 저장소 계정 키를 읽을 수 있는 권한을 부여할 수 있으며 해당 사용자는 해당 키를 사용하여 Blob, 큐, 테이블 및 파일에 액세스할 수 있습니다.
 * 특정 사용자 계정, 사용자 그룹 또는 특정 응용 프로그램에 역할을 할당할 수 있습니다.
-* 각 역할에는 작업 목록 및 작업 안 함 목록이 있습니다. 예를 들어 가상 컴퓨터 참여자 역할에는 저장소 계정 키를 읽을 수 있도록 하는 "listKeys" 작업이 있습니다. 참여자 역할에는 Active Directory의 사용자에 대한 액세스를 업데이트하는 것과 같은 작업을 포함하는 "작업 안 함" 목록이 있습니다.
+* 각 역할에는 작업 목록 및 작업 안 함 목록이 있습니다. 예를 들어 가상 컴퓨터 참여자 역할에는 저장소 계정 키를 읽을 수 있도록 하는 “listKeys” 작업이 있습니다. 참여자 역할에는 Active Directory의 사용자에 대한 액세스를 업데이트하는 것과 같은 작업을 포함하는 “작업 안 함” 목록이 있습니다.
 * 저장소에 대한 역할에는 다음이 포함됩니다(이에 국한되지 않음).
   
   * 소유자 - 액세스를 제외한 모든 것을 관리할 수 있습니다.
@@ -109,7 +109,7 @@ RBAC를 사용하여 Azure 저장소 계정 관리 작업에 액세스하는 작
 ### <a name="managing-your-storage-account-keys"></a>저장소 계정 키 관리
 저장소 계정 키는 Azure에서 생성되는 512비트 문자열로, 저장소 계정에 저장된 데이터 개체(예: Blob, 테이블 내 엔터티, 큐 메시지, Azure Files 공유의 파일)에 액세스하기 위해 저장소 계정 이름과 함께 사용될 수 있습니다. 저장소 계정 키에 대한 액세스를 제어하면 해당 저장소 계정의 데이터 평면에 대한 액세스도 제어됩니다.
 
-각 저장소 계정에는 [Azure 포털](http://portal.azure.com/) 및 PowerShell cmdlet에서 "키 1"과 "키 2"로 지칭되는 두 개의 키가 있습니다. 이러한 키는 [Azure 포털](https://portal.azure.com/), PowerShell, Azure CLI를 사용하거나 .NET Storage Client Library 또는 Azure Storage Services REST API를 사용하여 프로그래밍 방식으로 다시 생성할 수도 있습니다.
+각 저장소 계정에는 [Azure Portal](http://portal.azure.com/) 및 PowerShell cmdlet에서 "키 1"과 "키 2"로 지칭되는 두 개의 키가 있습니다. 이러한 키는 [Azure 포털](https://portal.azure.com/), PowerShell, Azure CLI를 사용하거나 .NET Storage Client Library 또는 Azure Storage Services REST API를 사용하여 프로그래밍 방식으로 다시 생성할 수도 있습니다.
 
 저장소 계정 키를 다시 생성하는 이유는 많습니다.
 
@@ -187,7 +187,7 @@ Blob, 컨테이너, 큐 메시지, 파일 및 테이블에 대한 액세스 권�
 #### <a name="definition-of-a-shared-access-signature"></a>공유 액세스 서명의 정의
 공유 액세스 서명은 허용되는 액세스에 대한 정보와 액세스가 허용되는 기간을 제공하는
 
-리소스를 가리키는 URL에 추가된 쿼리 매개 변수 집합입니다. 다음은 예제입니다. 이 URI는&5;분 동안 Blob에 대한 읽기 권한을 제공합니다. SAS 쿼리 매개 변수는 URL로 인코딩되어야 합니다(예: 콜론(:)의 경우 %3A, 공백의 경우 %20).
+리소스를 가리키는 URL에 추가된 쿼리 매개 변수 집합입니다. 다음은 예제입니다. 이 URI는 5분 동안 Blob에 대한 읽기 권한을 제공합니다. SAS 쿼리 매개 변수는 URL로 인코딩되어야 합니다(예: 콜론(:)의 경우 %3A, 공백의 경우 %20).
 
 ```
 http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
@@ -216,7 +216,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
    이 방식은 정말 유연한 방법이지만 매번 비슷한 매개 변수의 논리적 집합을 사용한다면 저장된 액세스 정책을 사용하는 것이 더 좋습니다.
 2. 전체 컨테이너, 파일 공유, 테이블 또는 큐에 대해 저장된 액세스 정책을 만들 수 있습니다. 그런 다음 이 정책을 만드는 SAS URI의 기반으로 사용할 수 있습니다. 저장된 액세스 정책을 기준으로 하는 사용 권한은 쉽게 해지할 수 있습니다. 각 컨테이너, 큐, 테이블 또는 파일 공유에 대해 최대 5개의 정책을 정의할 수 있습니다.
    
-   예를 들어 많은 사람들이 특정 컨테이너의 Blob을 읽을 수 있게 하려면 다른 설정은 항상 동일하게 유지하고 "읽기 액세스 부여"라는 저장된 액세스 정책을 만들 수 있습니다. 그런 다음 해당 저장된 액세스 정책의 설정을 사용하고 만료 날짜/시간을 지정하여 SAS URI를 만들 수 있습니다. 이렇게 하면 매번 모든 쿼리 매개 변수를 지정할 필요가 없습니다.
+   예를 들어 많은 사람들이 특정 컨테이너의 Blob을 읽을 수 있게 하려면 다른 설정은 항상 동일하게 유지하고 “읽기 액세스 부여”라는 저장된 액세스 정책을 만들 수 있습니다. 그런 다음 해당 저장된 액세스 정책의 설정을 사용하고 만료 날짜/시간을 지정하여 SAS URI를 만들 수 있습니다. 이렇게 하면 매번 모든 쿼리 매개 변수를 지정할 필요가 없습니다.
 
 #### <a name="revocation"></a>해지
 SAS가 손상되었거나, 회사 보안 또는 규정 준수 요구 때문에 변경하려는 경우를 가정해 봅니다. 해당 SAS를 사용하여 리소스에 대한 액세스를 해지하려면 어떻게 할까요? SAS URI를 만든 방법에 따라 다릅니다.
@@ -318,7 +318,7 @@ SSE를 사용하면 저장소 서비스가 Azure Storage에 데이터를 쓸 때
 
 클라이언트 쪽 암호화가 Java 및 .NET 저장소 클라이언트 라이브러리에 기본적으로 제공되어 있으며, 여기에서 Azure 키 자격 증명 모음 API가 사용하므로 구현하기가 매우 쉽습니다. 데이터 암호화 및 해독 프로세스는 봉투(envelope) 기법을 사용하고 암호화에 사용되는 메타데이터를 각 저장소 개체에 저장합니다. 예를 들어 Blob의 경우 Blob 메타데이터에 저장하고, 큐의 경우에는 각 큐 메시지에 추가됩니다.
 
-암호화 자체를 위해 자체 암호화 키를 생성하고 관리할 수 있습니다. Azure 저장소 클라이언트 라이브러리에 의해 생성된 키를 사용하거나 Azure 키 자격 증명 모음에서 키를 생성하도록 할 수 있습니다. 온-프레미스 키 저장소에 암호화 키를 저장하거나 Azure 키 자격 증명 모음에 저장할 수 있습니다. Azure 키 자격 증명 모음을 사용하면 Azure Active Directory를 사용하여 특정 사용자에게 Azure 키 자격 증명 모음의 암호에 대한 액세스 권한을 부여할 수 있습니다. 즉, 특정한 사용자만이 Azure 키 자격 증명 모음을 읽고 클라이언트 쪽 암호화에 사용 중인 키를 검색할 수 있습니다.
+암호화 자체를 위해 자체 암호화 키를 생성하고 관리할 수 있습니다. Azure 저장소 클라이언트 라이브러리에 의해 생성된 키를 사용하거나 Azure 키 자격 증명 모음에서 키를 생성하도록 할 수 있습니다. 온-프레미스 키 저장소에 암호화 키를 저장하거나 Azure 키 자격 증명 모음에 저장할 수 있습니다. Azure 키 자격 증명 모음을 사용하면 Azure Active Directory를 사용하여 특정 사용자에게 Azure 키 자격 증명 모음의 암호에 대한 액세스 권한을 부여할 수 있습니다. 즉, 특정한 사용자만이 Azure Key Vault를 읽고 클라이언트 쪽 암호화에 사용 중인 키를 검색할 수 있습니다.
 
 #### <a name="resources"></a>리소스
 * [Microsoft Azure 저장소에서 Azure 키 자격 증명 모음을 사용하여 Blob 암호화 및 해독](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -326,7 +326,7 @@ SSE를 사용하면 저장소 서비스가 Azure Storage에 데이터를 쓸 때
   이 문서에서는 PowerShell을 사용하여 KEK를 만든 후 자격 증명 모음에 저장하는 방법을 비롯하여 Azure 키 자격 증명 모음과 클라이언트 쪽 암호화를 사용하는 방법을 보여 줍니다.
 * [Microsoft Azure 저장소용 클라이언트 쪽 암호화 및 Azure 키 자격 증명 모음](storage-client-side-encryption.md)
   
-  이 문서에서는 클라이언트 쪽 암호화에 대해 설명하고, 저장소 클라이언트 라이브러리를 사용하여&4;개의 저장소 서비스에서 리소스를 암호화하고 해독하는 예를 제공합니다. 또한 Azure 키 자격 증명 모음에 대해서도 설명합니다.
+  이 문서에서는 클라이언트 쪽 암호화에 대해 설명하고, 저장소 클라이언트 라이브러리를 사용하여 4개의 저장소 서비스에서 리소스를 암호화하고 해독하는 예를 제공합니다. 또한 Azure 키 자격 증명 모음에 대해서도 설명합니다.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Azure 디스크 암호화를 사용하여 가상 컴퓨터에 사용되는 디스크 암호화
 Azure Disk Encryption을 새로운 기능입니다. 이 기능을 사용하면 IaaS 가상 컴퓨터에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 기술은 Azure 키 자격 증명 모음과 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다.
@@ -368,7 +368,7 @@ Azure Disk Encryption을 새로운 기능입니다. 이 기능을 사용하면 I
 #### <a name="iaas-vms-and-their-vhd-files"></a>IaaS VM 및 해당 VHD 파일
 IaaS VM에서 사용되는 디스크의 경우 Azure 디스크 암호화를 사용하는 것이 좋습니다. SSE를 켜서 Azure 저장소에 해당 디스크를 백업하는 데 사용되는 VHD 파일을 암호화할 수 있지만 새로 작성된 데이터만 암호화됩니다. 즉, VM을 만든 다음 VHD 파일을 보유하는 저장소 계정에 대해 SSE를 사용하도록 설정하면 원래 VHD 파일이 아닌 변경 내용만 암호화됩니다.
 
-Azure 마켓플레이스에서 이미지를 사용하여 VM을 만드는 경우 Azure는 Azure 저장소의 저장소 계정에 대해 이미지의 [단순 복사](https://en.wikipedia.org/wiki/Object_copying) 를 수행하며, SSE가 사용되도록 설정되어 있더라도 암호화되지 않습니다. VM을 만들고 이미지 업데이트를 시작한 후에는 SSE가 데이터 암호화를 시작합니다. 따라서 완전히 암호화하려는 경우 Azure 마켓플레이스의 이미지에서 만든 VM에 대해 Azure 디스크 암호화를 사용하는 것이 좋습니다.
+Azure 마켓플레이스에서 이미지를 사용하여 VM을 만드는 경우 Azure는 Azure 저장소의 저장소 계정에 대해 이미지의 [단순 복사](https://en.wikipedia.org/wiki/Object_copying) 를 수행하며, SSE가 사용되도록 설정되어 있더라도 암호화되지 않습니다. VM을 만들고 이미지 업데이트를 시작한 후에는 SSE가 데이터 암호화를 시작합니다. 따라서 완전히 암호화하려는 경우 Azure Marketplace의 이미지에서 만든 VM에 대해 Azure Disk Encryption을 사용하는 것이 좋습니다.
 
 온-프레미스에서 Azure로 미리 암호화된 VM을 가져오는 경우 Azure 키 자격 증명 모음에 암호화 키를 업로드할 수 있으며 사용하던 해당 VM에 대한 암호화를 온-프레미스에서 계속 사용할 수 있습니다. 이 시나리오를 위해 Azure 디스크 암호화가 사용되도록 설정됩니다.
 
@@ -424,7 +424,7 @@ Azure 저장소에 대한 모든 요청이 기록됩니다. 다음은 처음 몇
 
 GetBlob에 대한 항목과 인증 방법에 관심이 있으므로 operation-type이 “Get-Blob”인 항목을 찾은 다음 request-status(4번째<sup></sup> 열) 및 authorization-type(8번째<sup></sup> 열)을 확인해야 합니다.
 
-예를 들어 위 목록의 처음 몇 행에서 request-status는 "Success"이고 authorization-type은 "authenticated"입니다. 즉, 저장소 계정 키를 사용하여 요청의 유효성이 검사됩니다.
+예를 들어 위 목록의 처음 몇 행에서 request-status는 “Success”이고 authorization-type은 “authenticated”입니다. 즉, 저장소 계정 키를 사용하여 요청의 유효성이 검사됩니다.
 
 #### <a name="how-are-my-blobs-being-authenticated"></a>Blob은 어떻게 인증되나요?
 우리는 다음 세 가지 경우에 관심이 있습니다.
@@ -462,10 +462,10 @@ Microsoft Message Analyzer를 사용하여 이러한 로그를 보고 및 분석
 ### <a name="cross-domain-access-of-resources"></a>리소스의 도메인 간 액세스
 한 도메인에서 실행되는 웹 브라우저가 다른 도메인의 리소스에 대해 HTTP 요청을 수행하는 경우를 크로스-원본 HTTP 요청이라고 합니다. 예를 들어 contoso.com에서 제공되는 HTML 페이지에서 fabrikam.blob.core.windows.net에서 호스트되는 jpeg를 요청한다고 가정합니다. 보안상의 이유로 브라우저는 JavaScript와 같은 스크립트 내에서 시작된 크로스-원본 HTTP 요청을 제한합니다. 즉, contoso.com의 웹 페이지에 있는 일부 JavaScript 코드가 fabrikam.blob.core.windows.net의 해당 jpeg를 요청하면 브라우저는 해당 요청을 허용하지 않습니다.
 
-이것은 Azure 저장소와 어떤 관계가 있을까요? Fabrikam이라는 저장소 계정을 사용하여 Blob 저장소에 JSON 또는 XML 데이터 파일과 같은 정적 자산을 저장하는 경우 자산에 대한 도메인은 fabrikam.blob.core.windows.net이 되므로 두 도메인이 달라집니다. 따라서 contoso.com 웹 응용 프로그램은 JavaScript를 사용하여 도메인에 액세스할 수 없게 됩니다. 테이블 저장소와 같이, JavaScript 클라이언트에서 처리할 JSON 데이터를 반환하는 Azure 저장소 서비스 중 하나를 호출하려는 경우에도 마찬가지입니다.
+이것은 Azure 저장소와 어떤 관계가 있을까요? Fabrikam이라는 저장소 계정을 사용하여 Blob 저장소에 JSON 또는 XML 데이터 파일과 같은 정적 자산을 저장하는 경우 자산에 대한 도메인은 fabrikam.blob.core.windows.net이 되므로 두 도메인이 달라집니다. 따라서 contoso.com 웹 응용 프로그램은 JavaScript를 사용하여 도메인에 액세스할 수 없게 됩니다. Table Storage와 같이, JavaScript 클라이언트에서 처리할 JSON 데이터를 반환하는 Azure Storage 서비스 중 하나를 호출하려는 경우에도 마찬가지입니다.
 
 #### <a name="possible-solutions"></a>가능한 해결 방법
-이 문제를 해결하는 한 가지 방법은 "storage.contoso.com"과 같은 사용자 지정 도메인을 fabrikam.blob.core.windows.net에 할당하는 것입니다. 문제는 하나의 저장소 계정에 해당 사용자 지정 도메인만 할당할 수 있다는 것입니다. 자산이 여러 저장소 계정에 저장되어 있다면 어떻게 될까요?
+이 문제를 해결하는 한 가지 방법은 “storage.contoso.com”과 같은 사용자 지정 도메인을 fabrikam.blob.core.windows.net에 할당하는 것입니다. 문제는 하나의 저장소 계정에 해당 사용자 지정 도메인만 할당할 수 있다는 것입니다. 자산이 여러 저장소 계정에 저장되어 있다면 어떻게 될까요?
 
 이 문제를 해결하는 또 다른 방법은 웹 응용 프로그램이 저장소 호출에 대한 프록시로 작동하도록 하는 것입니다. 즉, Blob 저장소에 파일을 업로드하는 경우 웹 응용 프로그램은 파일을 로컬로 쓴 다음 Blob 저장소에 복사하거나, 모두 메모리로 읽어온 다음 Blob 저장소에 쓰게 됩니다. 또는 파일을 로컬로 업로드한 후 Blob 저장소에 쓰는 전용 웹 응용 프로그램(예: 웹 API)을 작성할 수 있습니다. 어떤 방법을 사용하든 확장성 요구를 결정할 때는 해당 기능을 고려해야 합니다.
 
@@ -474,7 +474,7 @@ Azure 저장소를 사용하면 CORS(크로스 원본 자원 공유)를 사용�
 
 한 가지 주의할 점은 CORS가 액세스를 허용하지만 저장소 리소스의 모든 비공용 액세스에 필요한 인증은 제공하지 않는다는 것입니다. 즉, 공용이거나 해당 권한을 부여하는 공유 액세스 서명을 포함하는 경우에만 Blob에 액세스할 수 있습니다. 테이블, 큐 및 파일의 경우에는 공용 액세스가 없으므로 SAS가 필요합니다.
 
-기본적으로 CORS는 모든 서비스에서 사용되지 않도록 설정되어 있습니다. REST API 또는 저장소 클라이언트 라이브러리를 사용하여 서비스 정책을 설정하는 방법 중 하나를 호출하도록 CORS를 설정할 수 있습니다. 이렇게 할 때 XML에 있는 CORS 규칙을 포함합니다. 다음은 저장소 계정의 Blob 서비스에 대해 서비스 속성 설정 작업을 사용하여 설정된 CORS 규칙의 예입니다. Azure 저장소에 대해 저장소 클라이언트 라이브러리 또는 REST API를 사용하여 해당 작업을 수행할 수 있습니다.
+기본적으로 CORS는 모든 서비스에서 사용되지 않도록 설정되어 있습니다. REST API 또는 저장소 클라이언트 라이브러리를 사용하여 서비스 정책을 설정하는 방법 중 하나를 호출하도록 CORS를 설정할 수 있습니다. 이렇게 할 때 XML에 있는 CORS 규칙을 포함합니다. 다음은 저장소 계정의 Blob service에 대해 서비스 속성 설정 작업을 사용하여 설정된 CORS 규칙의 예입니다. Azure 저장소에 대해 저장소 클라이언트 라이브러리 또는 REST API를 사용하여 해당 작업을 수행할 수 있습니다.
 
 ```xml
 <Cors>    
@@ -493,7 +493,7 @@ Azure 저장소를 사용하면 CORS(크로스 원본 자원 공유)를 사용�
 * **AllowedOrigins** 저장소 서비스에서 데이터를 요청하고 수신할 수 있는 일치하지 않는 도메인을 나타냅니다. 이것은 contoso.com과 fabrikam.com 둘 다 특정 저장소 계정에 대한 Blob 저장소에서 데이터를 요청할 수 있음을 의미합니다. 이것을 와일드카드(\*)로 설정하여 모든 도메인이 요청에 액세스하도록 허용할 수도 있습니다.
 * **AllowedMethods** 요청을 수행할 때 사용할 수 있는 메서드(HTTP 요청 동사)의 목록입니다. 이 예제에서는 PUT 및 GET만 허용됩니다. 이것을 와일드카드(\*)로 설정하여 모든 메서드가 사용되도록 할 수 있습니다.
 * **AllowedHeaders** 요청을 수행할 때 원본 도메인이 지정할 수 있는 요청 헤더입니다. 이 예제에서는 x-ms-meta-data, x-ms-meta-target 및 x-ms-meta-abc로 시작하는 모든 메타데이터 헤더를 지정할 수 있습니다. 와일드카드 문자(\*)는 지정한 접두사로 시작하는 모든 헤더가 허용됨을 나타냅니다.
-* **ExposedHeaders** 브라우저에서 요청 발급자에게 노출해야 하는 응답 헤더를 나타냅니다. 이 예제에서는 “x-ms-meta-“로 시작하는 모든 헤더가 노출됩니다.
+* **ExposedHeaders** 브라우저에서 요청 발급자에게 노출해야 하는 응답 헤더를 나타냅니다. 이 예제에서는 "x-ms-meta-"로 시작하는 모든 헤더가 노출됩니다.
 * **MaxAgeInSeconds** : 브라우저가 실행 전 OPTIONS 요청을 캐시하는 최대 시간입니다. 실행 전 요청에 대한 자세한 내용은 아래의 첫 번째 문서를 참조하세요.
 
 #### <a name="resources"></a>리소스
@@ -510,7 +510,7 @@ CORS 및 이를 사용하도록 설정하는 방법에 대한 자세한 내용�
   CORS를 소개하고 사용 방법을 보여 주는 초기 블로그 문서로 연결되는 링크입니다.
 
 ## <a name="frequently-asked-questions-about-azure-storage-security"></a>Azure 저장소 보안에 대한 FAQ(질문과 대답)
-1. **HTTPS 프로토콜을 사용할 수 없는 경우 Azure 저장소와 주고받는 Blob의 무결성을 확인하려면 어떻게 하나요?**
+1. **HTTPS 프로토콜을 사용할 수 없는 경우 Azure Storage와 주고받는 Blob의 무결성을 확인하려면 어떻게 하나요?**
    
    어떤 이유로든 HTTPS 대신 HTTP를 사용해야 하며 블록 Blob을 사용하고 있는 경우 MD5 확인을 사용하면 전송되는 Blob의 무결성을 확인하는 데 도움이 될 수 있습니다. 이렇게 하면 네트워크/전송 계층 오류로부터 보호되지만 항상 중간 공격을 막을 수 있는 것은 아닙니다.
    
@@ -525,12 +525,12 @@ CORS 및 이를 사용하도록 설정하는 방법에 대한 자세한 내용�
    
    **리소스**
 
-* ["FIPS 모드"를 더 이상 권장하지 않는 이유(영문)](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx)
+* [“FIPS 모드”를 더 이상 권장하지 않는 이유](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx)
   
   이 블로그 문서에서는 FIPS의 개요를 제공하고 기본적으로 FIPS 모드를 사용하지 않는 이유를 설명합니다.
 * [FIPS 140 유효성 검사(영문)](https://technet.microsoft.com/library/cc750357.aspx)
   
   이 문서에서는 Microsoft 제품 및 암호화 모듈이 미국 연방 정부의 FIPS 표준을 준수하는 방법에 대한 정보를 제공합니다.
-* [Windows XP 이상 버전의 Windows에서 “시스템 암호화: 암호화, 해시, 서명에 FIPS 준수 알고리즘 사용” 보안 설정 효과(영문)](https://support.microsoft.com/kb/811833)
+* [Windows XP 이상 버전의 Windows에서 “시스템 암호화: 암호화, 해시, 서명에 FIPS 준수 알고리즘 사용” 보안 설정 효과](https://support.microsoft.com/kb/811833)
   
   이 문서에서는 이전 Windows 컴퓨터에서 FIPS 모드를 사용하는 경우에 대해 설명합니다.

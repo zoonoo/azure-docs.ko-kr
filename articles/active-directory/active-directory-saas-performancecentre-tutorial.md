@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
-ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 3b1a347322e2307aadbd287cb2235e39e11f1e79
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
 PerformanceCentre를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다. 
 
 * PerformanceCentre에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
-* 사용자가 해당 Azure AD 계정으로 PerformanceCentre에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
+* 사용자가 해당 Azure AD 계정으로 PerformanceCentre에 자동으로 SSO(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Active Directory 클래식 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
@@ -35,27 +36,27 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 PerformanceCentre와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독
-* PerformanceCentre Single Sign-on이 설정된 구독
+* PerformanceCentre SSO(Single Sign-On)가 설정된 구독
 
-> [!NOTE]
-> 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+>[!NOTE]
+>이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
 > 
 > 
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 * 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-* Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다. 
+* Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다. 
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.  
+이 자습서는 테스트 환경에서 Azure AD SSO를 테스트하는 데 도움을 주기 위해 제공되었습니다.  
 
 이 자습서에 설명된 시나리오는 다음 주요 구성 요소로 이루어져 있습니다.
 
 *  갤러리에서 PerformanceCentre 추가 
-*  Azure AD Single Sign-on 구성 및 테스트
+*  Azure AD SSO 구성 및 테스트
 
-## <a name="adding-performancecentre-from-the-gallery"></a>갤러리에서 PerformanceCentre 추가
+## <a name="add-performancecentre-from-the-gallery"></a>갤러리에서 PerformanceCentre 추가
 PerformanceCentre의 Azure AD 통합을 구성하려면 갤러리의 PerformanceCentre를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 PerformanceCentre를 추가하려면 다음 단계를 수행합니다.**
@@ -80,25 +81,25 @@ PerformanceCentre의 Azure AD 통합을 구성하려면 갤러리의 Performance
    
     ![응용 프로그램][500]
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
-이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 PerformanceCentre에서 Azure AD Single Sign-on을 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
+## <a name="configure-and-test-azure-ad-sso"></a>Azure AD SSO 구성 및 테스트
+이 섹션은 "Britta Simon"이라는 테스트 사용자를 기반으로 PerformanceCentre에서 Azure AD SSO를 구성하고 테스트하는 방법을 보여 주기 위해 작성되었습니다.
 
-Single Sign-on이 작동되려면 Azure AD는 Azure AD의 사용자에 해당하는 PerformanceCentre의 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 PerformanceCentre의 관련 사용자 간에 연결이 형성되어야 합니다.  
+SSO가 작동되려면 Azure AD는 Azure AD의 사용자에 해당하는 PerformanceCentre의 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 PerformanceCentre의 관련 사용자 간에 연결이 형성되어야 합니다.  
 
 이 연결 관계는 Azure AD의 **사용자 이름** 값을 PerformanceCentre의 **Username** 값으로 할당하여 설정합니다.
 
 **PerformanceCentre에서 Azure AD Single Sign-on을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.**
 
 1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 3. **[PerformanceCentre 테스트 사용자 만들기](#creating-a-halogen-software-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 PerformanceCentre에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
-이 섹션은 Azure AD 클래식 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 PerformanceCentre 응용 프로그램에서 Single Sign-On을 구성하는 방법을 설명하기 위해 제공되었습니다.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
+이 섹션은 Azure AD 클래식 포털에서 Azure AD SSO를 사용하도록 설정하고 PerformanceCentre 응용 프로그램에서 SSO를 구성하는 방법을 설명하기 위한 것입니다.
 
-**PerformanceCentre에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
+**PerformanceCentre에서 Azure AD SSO를 구성하려면 다음 단계를 수행합니다.**
 
 1. Azure AD 클래식 포털의 **PerformanceCentre** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
@@ -140,7 +141,7 @@ Single Sign-on이 작동되려면 Azure AD는 Azure AD의 사용자에 해당하
     
      ![Azure AD Single Sign-On][16]
 
-### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure 클래식 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.  
 
 ![Azure AD 사용자 만들기][20]
@@ -182,10 +183,10 @@ Single Sign-on이 작동되려면 Azure AD는 Azure AD의 사용자에 해당하
    
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_08.png) 
    
-    1. **새 암호**값을 적어둡니다.
-    2. **완료**를 클릭합니다.   
+   1. **새 암호**값을 적어둡니다.
+   2. **완료**를 클릭합니다.   
 
-### <a name="creating-a-performancecentre-test-user"></a>PerformanceCentre 테스트 사용자 만들기
+### <a name="create-a-performancecentre-test-user"></a>PerformanceCentre 테스트 사용자 만들기
 이 섹션은 PerformanceCentre에서 Britta Simon이라는 사용자를 만들기 위한 것입니다.
 
 **PerformanceCentre에서 Britta Simon이라는 사용자를 만들려면 다음 단계를 수행합니다.**
@@ -199,17 +200,18 @@ Single Sign-on이 작동되려면 Azure AD는 Azure AD의 사용자에 해당하
     ![사용자 만들기][401]
    
    1. Britta Simon에 대한 필수 특성을 관련된 텍스트 상자에 입력합니다.
-   > [!IMPORTANT]
-   > PerformanceCentre에서 Britta의 사용자 이름 특성은 Azure AD에서 사용자 이름과 동일해야 합니다.
-   > 
-   > 
+
+    >[!IMPORTANT]
+    >PerformanceCentre에서 Britta의 사용자 이름 특성은 Azure AD에서 사용자 이름과 동일해야 합니다.
+    > 
+    > 
  
    2. **클라이언트 관리자**로 **역할 선택**을 수행합니다.
    3. **Save**를 클릭합니다.   
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
-이 섹션의 목적은 Britta Simon에게 PerformanceCentre에 대한 액세스 권한을 부여하여 Single Sign-On을 사용할 수 있도록 하는 것입니다.
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+이 섹션은 Britta Simon에게 PerformanceCentre에 대한 액세스 권한을 부여하여 Azure SSO를 사용할 수 있도록 하기 위한 것입니다.
 
 ![사용자 할당][200] 
 
@@ -229,8 +231,8 @@ Single Sign-on이 작동되려면 Azure AD는 Azure AD의 사용자에 해당하
    
     ![사용자 할당][205]
 
-### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
-이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.  
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트
+이 섹션은 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트하기 위한 것입니다.  
 
 액세스 패널에서 PerformanceCentre 타일을 클릭하면 PerformanceCentre 응용 프로그램에 자동으로 로그온됩니다.
 
@@ -275,10 +277,5 @@ Single Sign-on이 작동되려면 Azure AD는 Azure AD의 사용자에 해당하
 [402]: ./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_402.png
 
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

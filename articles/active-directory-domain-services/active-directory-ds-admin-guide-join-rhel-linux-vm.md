@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: d36b4c1391dad88603ad823055e11c0a4a329c3c
-ms.openlocfilehash: 89e97cb903e04efa77cfc6b02484d28a9ccfe6fb
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 69f1850bfed90392e9a4695e2443ffaa6bfc746d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -62,7 +62,7 @@ Azure 포털을 사용하여 RHEL 7 가상 컴퓨터를 프로비전하려면 �
 ## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>새로 프로비전된 Linux 가상 컴퓨터에 원격으로 연결
 RHEL 7.2 가상 컴퓨터가 Azure에서 프로비전되었습니다. 다음 작업은 가상 컴퓨터에 원격으로 연결하는 것입니다.
 
-**RHEL 7.2 가상 컴퓨터에 연결** [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서의 지침을 따르세요.
+**RHEL 7.2 가상 컴퓨터에 연결** [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서의 지침을 따르세요.
 
 나머지 단계에서는 PuTTY SSH 클라이언트를 사용하여 RHEL 가상 컴퓨터에 연결하는 것으로 가정합니다. 자세한 내용은 [PuTTY 다운로드 페이지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)를 참조하세요.
 
@@ -133,7 +133,7 @@ RHEL 7.2 가상 컴퓨터가 Azure에서 프로비전되었습니다. 다음 작
 ## <a name="verify-domain-join"></a>도메인 가입 확인
 컴퓨터가 관리되는 도메인에 성공적으로 가입되었는지 여부를 신속하게 확인할 수 있습니다. SSH 및 도메인 사용자 계정을 사용하여 새로 도메인에 가입된 RHEL VM에 연결한 후 사용자 계정이 올바르게 확인되었는지 확인합니다.
 
-1. PuTTY 터미널에서 다음 명령을 입력하고 SSH를 사용하여 새로 도메인에 가입된 RHEL 가상 컴퓨터에 연결합니다. 관리되는 도메인에 속하는 도메인 계정을 사용합니다(예: 여기서는 'bob@CONTOSO100.COM').
+1. PuTTY 터미널에서 다음 명령을 입력하고 SSH를 사용하여 새로 도메인에 가입된 RHEL 가상 컴퓨터에 연결합니다. 관리되는 도메인에 속하는 도메인 계정을 사용합니다(예: 여기서는 ‘bob@CONTOSO100.COM’).
 
     ssh -l bob@CONTOSO100.COM contoso-rhel.cloudapp.net
 2. PuTTY 터미널에서 다음 명령을 입력하여 홈 디렉터리가 올바르게 초기화되었는지 확인합니다.
@@ -153,7 +153,7 @@ RHEL 7.2 가상 컴퓨터가 Azure에서 프로비전되었습니다. 다음 작
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD 도메인 서비스 - 시작 가이드](active-directory-ds-getting-started.md)
 * [Windows Server 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Kerberos 설치](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7 - Windows 통합 가이드](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
 

@@ -11,17 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/03/2017
+ms.date: 03/23/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9a653ac435198e89a527070a0174a1adaf830dc3
-ms.openlocfilehash: 166524147c050512a84c1c0340de93960d8b7632
-ms.lasthandoff: 01/05/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 18b24a3ceddd667eb41e578cd193d3a0d0d0ac1c
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="tutorial-azure-ad-integration-with-sciforma"></a>자습서: Azure AD와 Sciforma 통합
 이 자습서는 Azure와 Sciforma의 통합을 보여주기 위한 것입니다.  
+
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 * 유효한 Azure 구독
@@ -32,22 +33,21 @@ ms.lasthandoff: 01/05/2017
 이 자습서에 설명된 시나리오는 다음 구성 요소로 이루어져 있습니다.
 
 1. Sciforma에 응용 프로그램 통합 사용
-2. Single Sign-On 구성
+2. SSO(Single Sign-On) 구성
 3. 사용자 프로비전 구성
 4. 사용자 할당
 
 ![시나리오](./media/active-directory-saas-sciforma-tutorial/IC777369.png "시나리오")
 
-## <a name="enabling-the-application-integration-for-sciforma"></a>Sciforma에 응용 프로그램 통합 사용
+## <a name="enable-the-application-integration-for-sciforma"></a>Sciforma에 응용 프로그램 통합 사용
 이 섹션은 Sciforma에 응용 프로그램 통합을 사용하도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
 
-### <a name="to-enable-the-application-integration-for-sciforma-perform-the-following-steps"></a>Sciforma에 응용 프로그램 통합을 사용하도록 설정하려면
+**Sciforma에 응용 프로그램 통합을 사용하도록 설정하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
     ![Active Directory](./media/active-directory-saas-sciforma-tutorial/IC700993.png "Active Directory")
-
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
-
 3. 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램** 을 클릭합니다.
    
     ![응용 프로그램](./media/active-directory-saas-sciforma-tutorial/IC700994.png "응용 프로그램")
@@ -68,11 +68,12 @@ ms.lasthandoff: 01/05/2017
    
     ![Sciforma](./media/active-directory-saas-sciforma-tutorial/IC777371.png "Sciforma")
    
-## <a name="configuring-single-sign-on"></a>Single Sign-On 구성
+## <a name="configure-single-sign-on"></a>Single Sign-On 구성
 
 이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Sciforma에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Single Sign-On을 구성하려면 다음 단계를 수행합니다.
+**Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
+
 1. Azure 클래식 포털의 **Sciforma** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
    
     ![Single Sign-On 구성](./media/active-directory-saas-sciforma-tutorial/IC777372.png "Single Sign-On 구성")
@@ -95,22 +96,21 @@ ms.lasthandoff: 01/05/2017
    
     ![Single Sign-On 구성](./media/active-directory-saas-sciforma-tutorial/IC777376.png "Single Sign-On 구성")
    
-## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
+## <a name="configure-user-provisioning"></a>사용자 프로비전 구성
 
-Sciforma를 프로비전하는 사용자를 구성할 작업 항목이 없습니다.  
-할당된 사용자가 액세스 패널을 사용하여 Sciforma에 로그인하려는 경우 Sciforma는 사용자가 존재하는지를 확인합니다.  
-사용할 수 있는 사용자 계정이 없으면 자동으로 Sciforma에 의해 생성됩니다.
+Sciforma를 프로비전하는 사용자를 구성할 작업 항목이 없습니다. 할당된 사용자가 액세스 패널을 사용하여 Sciforma에 로그인하려는 경우 Sciforma는 사용자가 존재하는지를 확인합니다.  
 
-## <a name="assigning-users"></a>사용자 할당
+* 사용할 수 있는 사용자 계정이 없으면 자동으로 Sciforma에 의해 생성됩니다.
+
+## <a name="assign-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.
 
-### <a name="to-assign-users-to-sciforma-perform-the-following-steps"></a>Sciforma에 사용자를 할당하려면 다음 단계를 수행합니다.
-1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
+**Sciforma에 사용자를 할당하려면 다음 단계를 수행합니다.**
 
-2. **Sciforma** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+1. Azure 클래식 포털에서 테스트 계정을 만듭니다.
+2. **Sciforma **응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
    
     ![사용자 할당](./media/active-directory-saas-sciforma-tutorial/IC777377.png "사용자 할당")
-
 3. 테스트 사용자를 선택하고 **할당**을 클릭한 다음 **예**를 클릭하여 할당을 확인합니다.
    
     ![예](./media/active-directory-saas-sciforma-tutorial/IC767830.png "예")

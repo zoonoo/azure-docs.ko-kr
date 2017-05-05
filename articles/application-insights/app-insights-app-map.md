@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 9fc7a41dcca3d9e51b8c67b86ef61443945b6bad
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 37b85ba4987f8f29e4e825a17f0a892ddabf9599
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -105,7 +105,7 @@ Azure에서 호스팅되는 구성 요소의 경우 옵션은 직접 링크를 �
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## <a name="feedback"></a>사용자 의견
-[포털 사용자 의견 옵션을 통해 피드백을 제공](app-insights-get-dev-support.md)해주세요.
+포털 사용자 의견 옵션을 통해 피드백을 제공해주세요.
 
 ![MapLink-1 이미지](./media/app-insights-app-map/13.png)
 

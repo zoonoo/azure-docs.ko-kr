@@ -12,15 +12,18 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/05/2017
 ms.author: raynew
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: site-recovery-vmware-to-azure
 translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 03178e1b933f5681caf6efbeb5a89d56727ae743
-ms.lasthandoff: 03/25/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 5c597e94f524a7ecbb9e4269adbbbd735a90aa14
+ms.lasthandoff: 04/06/2017
 
 
 ---
+
 # <a name="replicate-vmware-virtual-machines-and-physical-servers-to-azure-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제
 > [!div class="op_single_selector"]
 > * [Azure 포털](site-recovery-vmware-to-azure.md)
@@ -579,7 +582,7 @@ VMware VM을 복제하는 경우 vCenter 서버(또는 ESXi 호스트)를 추가
 3. 다음 설정을 변경할 수 있습니다.
 
    * **Azure VM 이름**: 장애 조치(failover) 후에 Azure에서 컴퓨터에 지정될 이름입니다. 이름은 Azure 요구 사항을 준수해야 합니다.
-   * **Azure VM 크기**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정한 크기에 따라 결정됩니다. 크기와 어댑터에 대한 자세한 내용은 [크기 표](../virtual-machines/virtual-machines-linux-sizes.md)를 참조하세요. 다음 사항에 유의하세요.
+   * **Azure VM 크기**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정한 크기에 따라 결정됩니다. 크기와 어댑터에 대한 자세한 내용은 [크기 표](../virtual-machines/linux/sizes.md)를 참조하세요. 다음 사항에 유의하세요.
 
      * 가상 컴퓨터의 크기를 수정하고 설정을 저장하면 다음에 **구성** 탭을 열 때 네트워크 어댑터의 수가 변경됩니다. 대상 가상 컴퓨터의 최소 네트워크 어댑터 수는 원본 가상 컴퓨터의 최소 네트워크 어댑터 수와 같습니다. 최대 네트워크 어댑터 수는 가상 컴퓨터의 크기에 따라 결정됩니다.
        * 원본 컴퓨터의 네트워크 어댑터 수가 대상 컴퓨터 크기에 허용되는 어댑터 수보다 작거나 같은 경우 대상에는 원본과 동일한 수의 어댑터가 있습니다.

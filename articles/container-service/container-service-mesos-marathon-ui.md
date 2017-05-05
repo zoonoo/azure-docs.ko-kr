@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 04/04/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f26b191d9d98768d766e4c974138c9d191340027
-ms.lasthandoff: 03/15/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 1ec5c2ba9d8662ce37589b87aa16e70d9d27bf16
+ms.lasthandoff: 04/06/2017
 
 
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Marathon 웹 UI를 통해 Azure Container Service DC/OS 클러스터 관리
 DC/OS는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로드를 배포 및 확장하기 위한 환경을 제공합니다. DC/OS의 상단에 계산 워크로드의 예약 및 실행을 관리하는 프레임워크가 있습니다.
 
-프레임워크는 수많은 워크로드에 사용할 수 있지만 이 문서에서는 Marathon으로 컨테이너 배포를 만들고 확장할 수 있는 방법을 설명합니다. 
+프레임워크를 널리 사용되고 있는 많은 워크로드에 사용할 수 있지만 이 문서에서는 Marathon으로 컨테이너를 배포하는 방법을 설명합니다. 
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -35,15 +35,19 @@ DC/OS는 기본 하드웨어를 추상화하는 동안 클러스터형 워크로
 * [Azure 컨테이너 서비스 클러스터 배포](container-service-deployment.md)
 * [Azure 컨테이너 서비스 클러스터에 연결](container-service-connect.md)
 
+> [!NOTE]
+> 이 문서에서는 로컬 포트 80을 통해 DC/OS 클러스터에 터널링한다고 가정합니다.
+>
+
 ## <a name="explore-the-dcos-ui"></a>DC/OS UI 탐색
 SSH(Secure Shell) 터널이 [설정된](container-service-connect.md) 상태에서 http://localhost/로 이동합니다. DC/OS 웹 UI가 로드되면서 클러스터에 대한 정보(예: 사용된 리소스, 활성 에이전트)가 표시되고 실행 중인 서비스를 보여 줍니다.
 
-![DC/OS UI](./media/dcos/dcos2.png)
+![DC/OS UI](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Marathon UI 탐색
 Marathon UI를 보려면 http://localhost/marathon으로 이동합니다. 이 화면에서는 Azure 컨테이너 서비스 DC/OS 클러스터에 새 컨테이너 또는 다른 응용 프로그램을 시작할 수 있습니다. 컨테이너 및 응용 프로그램을 실행하는 방법에 대한 정보를 볼 수 있습니다.  
 
-![Marathon UI](./media/dcos/dcos3.png)
+![Marathon UI](./media/container-service-mesos-marathon-ui/dcos3.png)
 
 ## <a name="deploy-a-docker-formatted-container"></a>Docker로 포맷된 컨테이너 배포
 Marathon을 사용하여 새 컨테이너를 배포하려면, **응용 프로그램 만들기**를 클릭하고 양식 탭에 다음 정보를 입력합니다.
@@ -57,11 +61,11 @@ Marathon을 사용하여 새 컨테이너를 배포하려면, **응용 프로그
 | 호스트 포트 |80 |
 | 프로토콜 |TCP |
 
-![새 응용 프로그램 UI--일반](./media/dcos/dcos4.png)
+![새 응용 프로그램 UI--일반](./media/container-service-mesos-marathon-ui/dcos4.png)
 
-![새 응용 프로그램 UI--Docker 컨테이너](./media/dcos/dcos5.png)
+![새 응용 프로그램 UI--Docker 컨테이너](./media/container-service-mesos-marathon-ui/dcos5.png)
 
-![새 응용 프로그램 UI--포트 및 서비스 검색](./media/dcos/dcos6.png)
+![새 응용 프로그램 UI--포트 및 서비스 검색](./media/container-service-mesos-marathon-ui/dcos6.png)
 
 에이전트의 포트에 컨테이너 포트를 정적으로 매핑하려는 경우 JSON 모드를 사용해야 합니다. 이렇게 하려면 토글을 사용하여 새 응용 프로그램 마법사를 **JSON 모드** 로 전환합니다. 그런 다음 응용 프로그램 정의의 `portMappings` 섹션에 다음 설정을 입력합니다. 이 예제는 컨테이너의 포트 80을 DC/OS 에이전트의 포트80으로 바인딩합니다. 이렇게 변경한 후에 이 마법사를 JSON 모드에서 해제할 수 있습니다.
 
@@ -69,40 +73,39 @@ Marathon을 사용하여 새 컨테이너를 배포하려면, **응용 프로그
 "hostPort": 80,
 ```
 
-![새 응용 프로그램 UI--포트 80 예제](./media/dcos/dcos13.png)
+![새 응용 프로그램 UI--포트 80 예제](./media/container-service-mesos-marathon-ui/dcos13.png)
 
 상태 검사를 설정하려면 **상태 검사** 탭에서 경로를 설정합니다.
 
-![새 응용 프로그램 UI--상태 검사](./media/dcos/dcos_healthcheck.png)
+![새 응용 프로그램 UI--상태 검사](./media/container-service-mesos-marathon-ui/dcos_healthcheck.png)
 
 DC/OS 클러스터는 사설 및 공용 에이전트와 함께 배포됩니다. 클러스터를 인터넷에서 응용 프로그램에 액세스할 수 있으려면 공용 에이전트에 응용 프로그램을 배포해야 합니다. 이를 위해, 새 응용 프로그램 마법사의 **선택 사항** 탭을 선택하고 **수락된 리소스 역할**에 **slave_public**을 입력합니다.
 
 그런 다음 **응용 프로그램 만들기**를 클릭합니다.
 
-![새 응용 프로그램 UI--공용 에이전트 설정](./media/dcos/dcos14.png)
+![새 응용 프로그램 UI--공용 에이전트 설정](./media/container-service-mesos-marathon-ui/dcos14.png)
 
 다시 Marathon 주 페이지에서 컨테이너에 대한 배포 상태를 볼 수 있습니다. 처음에는 **배포 중** 상태가 표시됩니다. 성공적으로 배포된 후에는 상태가 **실행 중**으로 변경됩니다.
 
-![Marathon 기본 페이지 UI--컨테이너 배포 상태](./media/dcos/dcos7.png)
+![Marathon 기본 페이지 UI--컨테이너 배포 상태](./media/container-service-mesos-marathon-ui/dcos7.png)
 
 DC/OS 웹 UI(http://localhost/)로 다시 전환하면 이 경우 Docker로 포맷된 컨테이너인 태스크가 DC/OS 클러스터에서 실행 중임이 표시됩니다.
 
-![DC/OS 웹 UI--클러스터에서 실행 중인 작업](./media/dcos/dcos8.png)
+![DC/OS 웹 UI--클러스터에서 실행 중인 작업](./media/container-service-mesos-marathon-ui/dcos8.png)
 
 또한 태스크가 실행되는 클러스터 노드를 보려면 **노드** 탭을 클릭합니다.
 
-![DC/OS 웹 UI--작업 클러스터 노드](./media/dcos/dcos9.png)
+![DC/OS 웹 UI--작업 클러스터 노드](./media/container-service-mesos-marathon-ui/dcos9.png)
 
-## <a name="scale-your-containers"></a>컨테이너 확장
-컨테이너의 인스턴스 수를 확장하는 데 Marathon UI를 사용할 수 있습니다. 이렇게 하려면 **Marathon** 페이지로 이동하여 확장하려는 컨테이너를 선택하고 **응용 프로그램 확장**을 클릭합니다. **응용 프로그램 확장** 대화 상자에서 원하는 컨테이너 인스턴스 수를 입력하고 **응용 프로그램 확장**을 클릭합니다.
+## <a name="reach-the-container"></a>컨테이너에 연결
 
-![Marathon UI--응용 프로그램 대화 상자 크기 조정](./media/dcos/dcos10.png)
+이 예제에서 응용 프로그램은 공용 에이전트 노드에서 실행되고 있습니다. 클러스터의 에이전트 FQDN으로 이동하여 인터넷에서 응용 프로그램에 연결합니다. `http://[DNSPREFIX]agents.[REGION].cloudapp.azure.com` 여기서 다음이 적용됩니다.
 
-확장 작업이 완료된 후에 DC/OS 에이전트 전역에 분산되어 있는 동일한 태스크의 여러 인스턴스가 표시됩니다.
+* **DNSPREFIX** 는 클러스터를 배포할 때 제공한 DNS 접두사입니다.
+* **REGION** 은 리소스 그룹이 있는 하위 지역입니다.
 
-![DC/OS 웹 UI 대시보드--에이전트에 작업 확산](./media/dcos/dcos11.png)
+    ![인터넷의 Nginx](./media/container-service-mesos-marathon-ui/nginx.png)
 
-![DC/OS 웹 UI--노드](./media/dcos/dcos12.png)
 
 ## <a name="next-steps"></a>다음 단계
 * [DC/OS 및 Marathon API 작업](container-service-mesos-marathon-rest.md)

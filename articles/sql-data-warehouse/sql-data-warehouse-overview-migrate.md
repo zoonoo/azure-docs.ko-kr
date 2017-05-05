@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 79a2cb3739ebb13792a60a9b55761a054bf89e7a
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: e5937f8472492cd1dd77c82ed518a665718623a1
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -28,29 +30,24 @@ SQL 데이터 웨어하우스는 Microsoft Azure를 기반으로 하는 플랫�
 ## <a name="migration-guidance"></a>마이그레이션 지침
 마이그레이션을 시작하기 전에 다음 문서들을 끝까지 읽고 일부 제품의 차이점과 기본 개념을 파악하세요.
 
-* [스키마 마이그레이션][스키마 마이그레이션]
-* [데이터 마이그레이션][데이터 마이그레이션]
-* [코드 마이그레이션][코드 마이그레이션]
+* [스키마 마이그레이션][Migrate your schema]
+* [데이터 마이그레이션][Migrate your data]
+* [코드 마이그레이션][Migrate your code]
 
 ## <a name="next-steps"></a>다음 단계
-CAT(고객 자문 팀)에서 블로그를 통해 게시하는 몇 가지 유용한 SQL Data Warehouse 관련 지침도 확인할 수 있습니다.  [Azure SQL Data Warehouse로의 데이터 마이그레이션 실습][Azure SQL Data Warehouse로의 데이터 마이그레이션 실습] 문서에서 마이그레이션 관련 추가 지침을 확인해 보세요.
+CAT(고객 자문 팀)에서 블로그를 통해 게시하는 몇 가지 유용한 SQL Data Warehouse 관련 지침도 확인할 수 있습니다.  [Azure SQL Data Warehouse로의 데이터 마이그레이션 실습][Migrating data to Azure SQL Data Warehouse in practice] 문서에서 마이그레이션 관련 추가 지침을 확인해 보세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[스키마 마이그레이션]: sql-data-warehouse-migrate-schema.md
-[데이터 마이그레이션]: sql-data-warehouse-migrate-data.md
-[코드 마이그레이션]: sql-data-warehouse-migrate-code.md
+[Migrate your schema]: sql-data-warehouse-migrate-schema.md
+[Migrate your data]: sql-data-warehouse-migrate-data.md
+[Migrate your code]: sql-data-warehouse-migrate-code.md
 
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
-[Azure SQL Data Warehouse로의 데이터 마이그레이션 실습]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 

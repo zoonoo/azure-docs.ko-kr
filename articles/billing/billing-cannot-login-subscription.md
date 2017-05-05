@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 09c18ca6a967c2930ddd2b16d37f0bc606712ea1
-ms.openlocfilehash: fc1c8cb6b7c186e189658cacf218ec7e9261472a
+ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
+ms.openlocfilehash: 05e23ad6bc07293f53e081b905c3a9ce1c91e6f9
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -31,16 +32,22 @@ ms.openlocfilehash: fc1c8cb6b7c186e189658cacf218ec7e9261472a
 * 다른 인터넷 브라우저를 사용합니다.
 * Microsoft Internet Explorer를 사용하는 경우 InPrivate 브라우징 모드를 사용하여 Azure Portal로 이동합니다. 
   
-  A.    **도구** ![도구 단추](./media/billing-cannot-login-subscription/Toolsbutton.png) > **안전** > **InPrivate 브라우징**을 클릭합니다.
+  A. **도구** ![도구 단추](./media/billing-cannot-login-subscription/Toolsbutton.png) > **안전** > **InPrivate 브라우징**을 클릭합니다.
   
-  B.    [Azure Portal](https://portal.azure.com)로 이동한 후 포털에 로그인합니다.
+  B. [Azure Portal](https://portal.azure.com)로 이동한 후 포털에 로그인합니다.
 
 ## <a name="error-message-no-subscriptions-found"></a>"구독을 찾을 수 없음" 오류 메시지
 계정에 충분한 사용 권한이 없으면 **구독을 찾을 수 없습니다**라는 오류 메시지가 표시될 수 있습니다. 올바른 관리자 권한으로 로그인해야 합니다. 계정 관리자만 [계정 센터](https://account.windowsazure.com/Subscriptions)에 액세스할 수 있습니다. SA(서비스 관리자) 및 CA(공동 관리자)는 [Azure Portal](https://portal.azure.com) 또는 Azure 클래식 포털에 대한 액세스 권한이 있습니다.
 
 **시나리오 1: [Azure Portal](https://portal.azure.com)에서 오류 메시지를 받음**
 
-이 문제를 해결하려면 계정에 대해 [공동 관리자 또는 소유자 역할을 추가](billing-add-change-azure-subscription-administrator.md)합니다.
+이 문제를 해결하려면
+
+* 오른쪽 위에 있는 계정을 클릭하여 올바른 Azure 디렉터리를 선택했는지 확인합니다.
+
+![Azure Portal 오른쪽 위에 있는 디렉터리를 선택합니다.](./media/billing-cannot-login-subscription/directory-switch.png)
+
+* 올바른 Azure 디렉터리를 선택했으나 여전히 오류가 발생하면 [계정을 소유자로 추가](billing-add-change-azure-subscription-administrator.md)합니다.
 
 **시나리오 2: [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 오류 메시지를 받음**
 
@@ -62,10 +69,5 @@ ms.openlocfilehash: fc1c8cb6b7c186e189658cacf218ec7e9261472a
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 다른 도움이 필요한 경우 [지원에 문의](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)하여 문제를 신속하게 해결하세요. 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

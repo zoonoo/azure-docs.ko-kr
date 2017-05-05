@@ -16,14 +16,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: neerajkh
 translationtype: Human Translation
-ms.sourcegitcommit: c54b16517b6f08ed8bfddfb6e2c793ec0f292899
-ms.openlocfilehash: 678f747fd1b2e5017d1859fd594c3b4bc465ea41
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 013354515d841003c912ac0338690dd975a79ef7
+ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>끝점을 추가하여 Azure Machine Learning 웹 서비스 확장
 > [!NOTE]
-> 이 토픽에서는 기존 Machine Learning 웹 서비스에 적용되는 기술을 설명합니다. 
+> 이 항목에서는 **기존** Machine Learning 웹 서비스에 적용되는 기술을 설명합니다. 
 > 
 > 
 
@@ -42,9 +43,4 @@ ms.openlocfilehash: 678f747fd1b2e5017d1859fd594c3b4bc465ea41
 <!--Image references-->
 [1]: ./media/machine-learning-scaling-webservice/machlearn-1.png
 [2]: ./media/machine-learning-scaling-webservice/machlearn-2.png
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

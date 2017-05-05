@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 04/11/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4f6f8dd109a1f0d395782ba73fd425c7a6ccf0eb
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 1a808a83a8ed1162d57f7c5a49e34b2e3be50833
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -29,18 +29,13 @@ ms.lasthandoff: 03/27/2017
 * Oracle JDK 가상 컴퓨터 이미지
 
 ## <a name="oracle-database-virtual-machine-images"></a>Oracle Database 가상 컴퓨터 이미지
-### <a name="clustering-rac-is-not-supported"></a>클러스터링(RAC)은 지원되지 않습니다.
-Azure는 Oracle 데이터베이스의 Oracle Real Application Clusters (RAC)를 현재 지원하지 않습니다. 독립 실행형 Oracle의 데이터베이스 인스턴스만 가능합니다. 그 이유는 Azure가 여러 가상 컴퓨터 인스턴스 간의 읽기/쓰기 방식에서 현재 가상 디스크 공유를 지원하지 않기 때문입니다. 멀티캐스트 UDP도 지원되지 않습니다.
 
 ### <a name="no-static-internal-ip"></a>고정 내부 IP 주소 없음
 Azure는 각 가상 컴퓨터에 내부 IP 주소를 할당합니다. 가상 컴퓨터가 가상 네트워크의 일부가 아닌 경우 가상 컴퓨터의 IP 주소는 동적이며 가상 컴퓨터를 다시 시작한 후에 변경될 수 있습니다. Oracle 데이터베이스는 정적 IP 주소가 필요하기 때문에 문제가 발생할 수 있습니다. 이 문제를 방지하려면, Azure 가상 네트워크에 가상 컴퓨터를 추가하는 것이 좋습니다. 자세한 내용은 [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/) 및 [Azure에서 가상 네트워크 만들기](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)를 참조하세요.
 
 ### <a name="attached-disk-configuration-options"></a>연결된 디스크 구성 옵션
-가상 컴퓨터의 운영 체제 디스크 또는 데이터 디스크로 알려진 연결된 디스크에 데이터 파일을 배치할 수 있습니다. 연결된 디스크는 운영 체제 디스크 보다 더 나은 성능과 유연성을 제공할 수 있습니다. 운영 체제 디스크는 10GB 아래에서 데이터베이스를 위해 좋을 수 있습니다.
 
-연결된 디스크는 Azure Blob 저장소 서비스에 의존합니다. 각 디스크는 이론적으로 최대 초당 500 입력/출력 작업(IOPS)을 할 수 있습니다. 연결된 디스크의 성능은 초기에 최적화되지 않을 수 있으며, IOPS 성능은 약 60-90분의 연속적인 “굽기” 기간 후 크게 향상될 수 있습니다. 디스크가 이후에 유휴 상태로 남아 있으면, IOPS 성능은 다른 굽기 연속 작업 때까지 저하될 수 있습니다. 간단히 말해, 더 많은 디스크 활동은, 최적화된 IOPS 성능에 접근할 가능성이 높습니다.
-
-가상 컴퓨터에 단일 디스크를 연결하고 데이터 파일을 해당 디스크에 저장하는 가장 단순한 접근법이지만 이 접근법은 성능에 있어서도 가장 제한을 받습니다. 대신, 여러개의 연결된 디스크를 사용하여 데이터베이스를 분산시킨 후, Oracle 자동 저장소 관리(ASM)를 사용하면 효과적으로 IOPS 성능 향상을 개선할 수 있습니다. 자세한 내용은 [Oracle 자동 저장소 개요](http://www.oracle.com/technetwork/database/index-100339.html) 를 참조하세요. 운영 체제 수준에서 여러 디스크의 스트라이프를 사용할 수도 있지만, 그러한 접근법은 IOPS 성능 향상에 있어 알려진 바가 없기 때문에 권장되지 않습니다.
+연결된 디스크는 Azure Blob 저장소 서비스에 의존합니다. 각 표준 디스크는 이론적으로 최대 초당 500개의 입력/출력 작업(IOPS)을 할 수 있습니다. 프리미엄 디스크는 고성능 데이터베이스 워크로드에 선호되며 디스크당 최대 5000개의 IOPS를 제공할 수 있습니다. 이러한 성능 요구를 충족하는 경우에는 단일 디스크를 사용할 수 있지만, 여러 개의 연결된 디스크를 사용하여 데이터베이스를 분산시킨 후, Oracle 자동 저장소 관리(ASM)를 사용하면 효과적으로 IOPS 성능 향상을 개선할 수 있습니다. 자세한 내용은 [Oracle 자동 저장소 개요](http://www.oracle.com/technetwork/database/index-100339.html) 를 참조하세요. 운영 체제 수준에서 여러 디스크의 스트라이프를 사용할 수 있지만 이러한 경로 중 하나를 사용하면 항상 장단점이 발생합니다. 
 
 읽기 작업의 성능 또는 데이터베이스에 대한 쓰기 작업에 우선 순위를 지정하려는 여부에 따라 여러 디스크를 연결하기 위한 두 가지 방법을 고려해야 합니다.
 
@@ -48,14 +43,16 @@ Azure는 각 가상 컴퓨터에 내부 IP 주소를 할당합니다. 가상 컴
     ![](media/mysql-2008r2/image2.png)
 
 > [!IMPORTANT]
-> 상황별로 쓰기 성능과 읽기 성능간의 트레이드-오프를 평가합니다. 이러한 방식을 사용하는 경우 실제 결과가 달라질 수 있습니다.
+> 상황별로 쓰기 성능과 읽기 성능간의 트레이드-오프를 평가합니다. 실제 결과가 달라질 수 있으므로 적절한 테스트를 수행해야 합니다. ASM은 쓰기 작업을 우선 고려하며, 운영 체제 디스크 스트라이프는 읽기 작업을 우선 고려합니다.
 > 
-> 
+
+### <a name="clustering-rac-is-not-supported"></a>클러스터링(RAC)은 지원되지 않습니다.
+Oracle RAC(실제 응용 프로그램 클러스터)는 온-프레미스 다중 노드 클러스터 구성에서 단일 노드의 오류를 완화하도록 고안되었습니다.  이 기능은 Microsoft Azure와 같은 하이퍼스케일(hyper-scale) 공용 클라우드 환경에서 작동하지 않는 두 가지 온-프레미스 기술인 네트워크 멀티캐스트 및 공유 디스크에 의존합니다. Oracle DB의 지리적 중복 다중 노드 구성을 설계하려는 경우 Oracle DataGuard를 사용해서 데이터 복제를 구현해야 합니다.
 
 ### <a name="high-availability-and-disaster-recovery-considerations"></a>높은 가용성 및 재해 복구 고려 사항
 Azure 가상 컴퓨터에서 Oracle 데이터베이스를 사용할 때, 사용자는 모든 가동 중지 시간을 방지하기 위해  높은 가용성과 재해 복구 솔루션을 구현하는 일을 담당합니다. 또한 사용자 고유의 데이터와 응용 프로그램 백업을 담당해야 합니다.
 
-Azure에서 Oracle Database Enterprise Edition(RAC 제외)에 대한 고가용성 및 재해 복구는 두 가상 컴퓨터에 있는 두 개의 데이터베이스와 함께 [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 또는 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate)를 사용하여 수행할 수 있습니다. 두 가상 컴퓨터는 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 동일한 [클라우드 서비스](../../linux/classic/connect-vms.md) 및 동일한 [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에 있어야 합니다.  또한 Azure가 개별 장애 도메인 및 업그레이드 도메인에 가상 컴퓨터를 배치할 수 있도록 동일한 [가용성 집합](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 VM을 배치하는 것이 좋습니다. 동일한 클라우드 서비스에서 오직 가상 컴퓨터만 동일한 가용성 집합에 참여할 수 있습니다. 각 가상 컴퓨터에는 최소 2GB의 메모리 및 5GB의 디스크 공간이 있어야 합니다.
+Azure에서 Oracle Database Enterprise Edition(RAC 제외)에 대한 고가용성 및 재해 복구는 두 가상 컴퓨터에 있는 두 개의 데이터베이스와 함께 [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 또는 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate)를 사용하여 수행할 수 있습니다. 두 가상 컴퓨터는 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 동일한 [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에 있어야 합니다.  또한 Azure가 개별 장애 도메인 및 업그레이드 도메인에 가상 컴퓨터를 배치할 수 있도록 동일한 [가용성 집합](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 VM을 배치하는 것이 좋습니다. 각 가상 컴퓨터에는 최소 2GB의 메모리 및 5GB의 디스크 공간이 있어야 합니다.
 
 Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 다른 가상 컴퓨터에서 보조(대기) 데이터 베이스에서 고가용성을 얻을 수 있으며, 양 데이터베이스 간에 단방향 복제를 설정할 수 있습니다. 결과는 해당 데이터 베이스의 복사본에 대한 읽기 엑세스입니다. Oracle 골든 게이트로, 두 개의 데이터베이스 간의 양방향 복제를 구성할 수 있습니다. 이러한 도구를 사용하여 데이터베이스에 대한 고가용성 솔루션을 설정하는 방법을 알아보려면 Oracle 웹 사이트에서 [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) 및 [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) 설명서를 참조하세요. 데이터베이스의 복사본에 대한 읽기-쓰기 권한이 필요한 경우 [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)를 사용할 수 있습니다.
 

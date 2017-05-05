@@ -12,21 +12,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f0d7faede5df839c699f562b3aa21b8bb9836a3b
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d1c328ec609cc27a42fb6b30897d7f0b466134e7
+ms.lasthandoff: 04/03/2017
 
 
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL 데이터 웨어하우스와 함께 Azure 스트림 분석 사용
-Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. [Azure 스트림 분석 소개][Azure 스트림 분석 소개]를 읽어 기본 사항을 배울 수 있습니다. [Azure 스트림 분석을 사용하여 시작][Azure 스트림 분석을 사용하여 시작] 자습서에 따라 Stream Analytics로 종단간 솔루션을 만드는 방법에 대해 알 수 있습니다.
+Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. [Azure Stream Analytics 소개][Introduction to Azure Stream Analytics]를 읽어 기본 사항을 배울 수 있습니다. [Azure Stream Analytics를 사용하여 시작][Get started using Azure Stream Analytics] 자습서에 따라 Stream Analytics로 종단간 솔루션을 만드는 방법에 대해 알 수 있습니다.
 
 이 문서에서 스크림 분석 작업에 대한 출력 싱크로 Azure SQL 데이터 웨어하우스 데이터베이스를 사용하는 방법에 대해 배웁니다.
 
 ## <a name="prerequisites"></a>필수 조건
-먼저, [Azure 스트림 분석을 사용하여 시작][Azure 스트림 분석을 사용하여 시작] 자습서에서 다음 단계를 실행합니다.  
+먼저, [Azure Stream Analytics를 사용하여 시작][Get started using Azure Stream Analytics] 자습서에서 다음 단계를 실행합니다.  
 
 1. 이벤트 허브 입력 만들기
 2. 이벤트 생성기 응용 프로그램 구성 및 시작
@@ -70,9 +72,9 @@ SQL 데이터베이스를 선택하고 다음을 클릭합니다.
 데이터베이스에 대한 연결이 성공하면 포털의 맨 아래에 알림이 표시됩니다. 아래의 연결 테스트를 클릭하여 데이터베이스에 대한 연결을 테스트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-통합 개요는 [SQL Data Warehouse 통합 개요][SQL Data Warehouse 통합 개요]를 참조하세요.
+통합 개요는 [SQL Data Warehouse 통합 개요][SQL Data Warehouse integration overview]를 참조하세요.
 
-더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][SQL 데이터 웨어하우스 개발 개요]를 참조하세요.
+더 많은 개발 팁은 [SQL Data Warehouse 개발 개요][SQL Data Warehouse development overview]를 참조하세요.
 
 <!--Image references-->
 
@@ -83,18 +85,13 @@ SQL 데이터베이스를 선택하고 다음을 클릭합니다.
 
 <!--Article references-->
 
-[Azure 스트림 분석 소개]: ../stream-analytics/stream-analytics-introduction.md
-[Azure 스트림 분석을 사용하여 시작]: ../stream-analytics/stream-analytics-get-started.md
-[SQL 데이터 웨어하우스 개발 개요]:  ./sql-data-warehouse-overview-develop.md
-[SQL Data Warehouse 통합 개요]:  ./sql-data-warehouse-overview-integrate.md
+[Introduction to Azure Stream Analytics]: ../stream-analytics/stream-analytics-introduction.md
+[Get started using Azure Stream Analytics]: ../stream-analytics/stream-analytics-get-started.md
+[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop.md
+[SQL Data Warehouse integration overview]:  ./sql-data-warehouse-overview-integrate.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Stream Analytics 설명서]: http://azure.microsoft.com/documentation/services/stream-analytics/
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 

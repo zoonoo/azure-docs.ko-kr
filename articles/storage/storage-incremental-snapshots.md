@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: bfb29928783283336b6116f198d70b0b7117750d
-ms.openlocfilehash: 880b1c2ca069e3e4a5ce9cb2af881b95e84687f4
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: 7b08ce207b2a3cc2dd3d3559765def6af42a844a
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -61,7 +61,7 @@ Blob 스냅숏은 특정 시점에 캡처된 Blob의 읽기 전용 버전입니�
 
 다음과 같은 조건이 충족된 경우
 
-* 2016년&1;월&1;일 또는 그 이후에 Blob을 만든 경우
+* 2016년 1월 1일 또는 그 이후에 Blob을 만든 경우
 * [PutPage](https://msdn.microsoft.com/library/azure/ee691975.aspx) 또는 [Blob 복사](https://msdn.microsoft.com/library/azure/dd894037.aspx)를 사용하여 두 스냅숏 간에 Blob을 덮어쓰지 않은 경우
 
 **참고**: 이 기능은 프리미엄 및 표준 Azure 페이지 Blob에 대해 사용할 수 있습니다.

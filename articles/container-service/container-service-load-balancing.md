@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 27ad7100f6203db3ba3dcc88ffdc191b9b9d45cb
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: f8a001350c9e1ac50641c3ee4430849023233c60
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -93,8 +94,8 @@ dcos package install marathon-lb
 
 ```
 
-* `HAProxy_0_VHOST` 값을 에이전트에 대한 부하 분산 장치의 FQDN으로 설정합니다. `<acsName>agents.<region>.cloudapp.azure.com`양식입니다. 예를 들어 `West US` 지역에 `myacs`이라는 컨테이너 서비스 클러스터를 만든 경우 FQDN은 `myacsagents.westus.cloudapp.azure.com`이 됩니다. 또한 [Azure Portal](https://portal.azure.com)의 컨테이너 서비스에 대해 만든 리소스 그룹에서 리소스를 조사할 때 "에이전트"를 포함한 부하 분산 장치를 검색하여 찾을 수도 있습니다.
-* servicePort를 10,000 이상의 포트로 설정합니다. 이 컨테이너에서 실행 중인 서비스를 식별하고 marathon-lb는 이를 사용하여 균형을 조정할 서비스를 식별합니다.
+* `HAPROXY_0_VHOST` 값을 에이전트에 대한 부하 분산 장치의 FQDN으로 설정합니다. `<acsName>agents.<region>.cloudapp.azure.com`양식입니다. 예를 들어 `West US` 지역에 `myacs`이라는 컨테이너 서비스 클러스터를 만든 경우 FQDN은 `myacsagents.westus.cloudapp.azure.com`이 됩니다. 또한 [Azure Portal](https://portal.azure.com)의 컨테이너 서비스에 대해 만든 리소스 그룹에서 리소스를 조사할 때 "에이전트"를 포함한 부하 분산 장치를 검색하여 찾을 수도 있습니다.
+* `servicePort`를 10,000 이상의 포트로 설정합니다. 이 컨테이너에서 실행 중인 서비스를 식별하고 marathon-lb는 이를 사용하여 균형을 조정할 서비스를 식별합니다.
 * `HAPROXY_GROUP` 레이블을 "외부"로 설정합니다.
 * `hostPort`을 0으로 설정합니다. 이렇게 하면 해당 Marathon에서 사용 가능한 포트를 임의로 할당합니다.
 * `instances`을 만들 인스턴스 수로 설정합니다. 나중에 언제든지 확장하거나 축소할 수 있습니다.
@@ -102,10 +103,10 @@ dcos package install marathon-lb
 Marathon은 기본적으로 개인 클러스터를 배포합니다. 즉, 위의 배포는 부하 분산 장치를 통해서만 액세스할 수 있고 이 동작을 일반적으로 수행하려고 합니다.
 
 ### <a name="deploy-using-the-dcos-web-ui"></a>DC/OS 웹 UI를 사용하여 배포
-1. [SSH 터널](container-service-connect.md)을 설정한 다음 http://localhost/marathon에서 Marathon 페이지에 방문하고 `Create Appliction`을 클릭합니다.
+1. [SSH 터널](container-service-connect.md)을 설정한 다음 http://localhost/marathon에서 Marathon 페이지에 방문하고 `Create Application`을 클릭합니다.
 2. `New Application` 대화 상자의 오른쪽 위 모퉁이에서 `JSON Mode`를 클릭합니다.
 3. 위의 JSON을 편집기에 붙여 넣습니다.
-4. `Create Appliction`을 클릭합니다.
+4. `Create Application`을 클릭합니다.
 
 ### <a name="deploy-using-the-dcos-cli"></a>DC/OS CLI를 사용하여 배포
 DC/OS CLI를 사용하여 이 응용 프로그램을 배포하려면 위의 JSON을 `hello-web.json`이라는 파일에 복사하고 실행합니다.
@@ -115,7 +116,7 @@ dcos marathon app add hello-web.json
 ```
 
 ## <a name="azure-load-balancer"></a>Azure Load Balancer
-Azure Load Balancer는 기본적으로 포트 80, 8080 및 443을 노출합니다. 이러한 세 가지 포트 중 하나를 사용하는 경우(위의 예에서 실행하는 것처럼) 수행할 작업이 없습니다. 에이전트 부하 분산 장치의 FQDN에 도달할 수 있어야 하고 새로 고칠 때마다 라운드 로빈 방식으로&3;개의 웹 서버 중 하나에 도달합니다. 하지만 다른 포트를 사용하는 경우 부하 분산 장치에서 사용한 포트에 대해 라운드 로빈 규칙 및 프로브를 추가해야 합니다. 이는 [Azure CLI](../xplat-cli-azure-resource-manager.md)에서 `azure network lb rule create` 및 `azure network lb probe create` 명령으로 수행할 수 있습니다. Azure 포털을 사용하여 수행할 수도 있습니다.
+Azure Load Balancer는 기본적으로 포트 80, 8080 및 443을 노출합니다. 이러한 세 가지 포트 중 하나를 사용하는 경우(위의 예에서 실행하는 것처럼) 수행할 작업이 없습니다. 에이전트 부하 분산 장치의 FQDN에 도달할 수 있어야 하고 새로 고칠 때마다 라운드 로빈 방식으로 3개의 웹 서버 중 하나에 도달합니다. 하지만 다른 포트를 사용하는 경우 부하 분산 장치에서 사용한 포트에 대해 라운드 로빈 규칙 및 프로브를 추가해야 합니다. 이는 [Azure CLI](../xplat-cli-azure-resource-manager.md)에서 `azure network lb rule create` 및 `azure network lb probe create` 명령으로 수행할 수 있습니다. Azure 포털을 사용하여 수행할 수도 있습니다.
 
 ## <a name="additional-scenarios"></a>추가 시나리오
 다른 서비스를 노출하기 위해 다른 도메인을 사용하는 시나리오를 포함할 수 있습니다. 예:
@@ -132,10 +133,5 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 
 ## <a name="next-steps"></a>다음 단계
 [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/)에 대한 자세한 내용은 DC/OS 설명서를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

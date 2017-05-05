@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: b1db5cd0149374842b0201cd6b820436f3822325
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
 실시간 데이터는 Operations Manager 및 Windows 연결 에이전트를 포함하여 OMS 에이전트 컴퓨터에서 통합된 네트워크 및 성능 데이터입니다. 네트워크 데이터는 데이터를 상호 연결할 수 있도록 로그 데이터와 결합됩니다. IT 인프라에서 컴퓨터에 설치된 OMS 에이전트는 사용된 다양한 프로토콜 및 포트를 포함하여 [OSI 모델](https://en.wikipedia.org/wiki/OSI_model) 에서 네트워크 수준 2-3에 해당하는 컴퓨터와 주고 받는 네트워크 데이터를 모니터링합니다.
 
 > [!NOTE]
-> 실시간 데이터 솔루션은 현재 작업 영역에 추가할 수 없습니다. 이미 실시간 데이터 솔루션이 사용하도록 설정된 고객은 계속해서 실시간 데이터 솔루션을 사용할 수 있습니다.
+> Wire Data 1.0 솔루션은 현재 작업 영역에 추가할 수 없습니다. 이미 Wire Data 1.0 솔루션이 사용하도록 설정된 고객은 계속해서 Wire Data 1.0 솔루션을 사용할 수 있습니다. 그러나 새로운 고객은 대신 [Wire Data 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) 솔루션을 사용해야 합니다.
 >
 >
 
@@ -106,9 +107,4 @@ ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
 ## <a name="next-steps"></a>다음 단계
 * [로그를 검색](log-analytics-log-searches.md) 하여 자세한 실시간 데이터 검색 레코드를 볼 수 있습니다.
 * 데이터 수집 빈도와 Operations Manager 에이전트에 대해 컬렉션 속성을 수정하는 방법에 대한 추가 정보는 Dan의 [Operations Management Suite 로그 검색에서 실시간 데이터 사용 블로그 게시물](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) 을 참조하세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

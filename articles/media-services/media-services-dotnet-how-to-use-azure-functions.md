@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 0cde1f36af2d41697fa956c62cc882e5429707e8
-ms.lasthandoff: 03/29/2017
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: ca7c89dc5f56f1bf4c300874111e65048e88abcf
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -36,11 +36,15 @@ ms.lasthandoff: 03/29/2017
 - [Azure Functions를 사용하는 방법](../azure-functions/functions-overview.md)을 이해합니다. 또한 다음을 검토합니다.
     - [Azure Functions HTTP 및 웹후크 바인딩](../azure-functions/functions-triggers-bindings.md)
     - [Azure 함수 앱 설정을 구성하는 방법](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
+    
+## <a name="considerations"></a>고려 사항
+
+-  소비 계획에서 실행되는 Azure Functions의 시간 초과 제한은 5분입니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
 1. [Azure Portal](http://portal.azure.com) 로 이동하여 Azure 계정으로 로그인합니다.
-2. [여기](../azure-functions/functions-create-first-azure-function-azure-portal.md#create-a-function-app)에 설명한 대로 함수 앱을 만듭니다.
+2. [여기](../azure-functions/functions-create-function-app-portal.md)에 설명한 대로 함수 앱을 만듭니다.
 
 >[!NOTE]
 > **StorageConnection** 환경 변수에 지정(다음 단계 참조)한 저장소 계정은 앱과 동일한 지역에 있어야 합니다.

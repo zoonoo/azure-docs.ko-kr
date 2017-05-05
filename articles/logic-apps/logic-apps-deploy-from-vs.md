@@ -16,9 +16,9 @@ ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5dfff8620d66eca0d54763efbc5702e4b4d122d1
-ms.lasthandoff: 03/14/2017
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: ad18896548449d85e2af8a91ddd90c8192db1ab2
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -34,7 +34,7 @@ Azure Logic Apps용 Visual Studio 도구를 설치하고 구성하려면 다음 
 
 ### <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) 또는 Visual Studio 2015
 * [최신 Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 이상)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 * 포함된 디자이너를 사용하는 경우 웹에 대한 액세스
@@ -50,7 +50,7 @@ Azure Logic Apps용 Visual Studio 도구를 설치하고 구성하려면 다음 
 5. 설치 후 Visual Studio를 다시 시작합니다.
 
 > [!NOTE]
-> [Visual Studio Marketplace](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9)에서 직접 Visual studio용 Azure Logic Apps 도구를 다운로드할 수도 있습니다.
+> Visual Studio Marketplace에서 직접 [Visual Studio 2017용 Azure Logic Apps 도구](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551) 및 [Visual Studio 2015용 Azure Logic Apps 도구](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio)를 다운로드할 수도 있습니다.
 
 설치를 완료한 후에 Logic App Designer에서 Azure 리소스 그룹을 사용할 수 있습니다.
 

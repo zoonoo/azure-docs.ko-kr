@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: e9e1649e4329d10ca8b87c730ad8c6beb3be818f
-ms.lasthandoff: 03/16/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: ac3f4d2220c1902f00049ce237468ddee992209d
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -191,7 +191,7 @@ IoT Hub는 다음 속성을 노출하여 기본 제공 Event Hub와 호환되는
 | --- | --- |
 | EnqueuedTimeUtc |메시지의 결과가 발생하는 경우를 나타내는 타임스탬프입니다. 예를 들어 완료된 장치 또는 만료된 메시지입니다. |
 | OriginalMessageId |**MessageId** 입니다. |
-| StatusCode |필수 정수입니다. IoT Hub에 의해 생성된 피드백 메시지에서 사용됩니다. <br/> 0 = 성공 <br/> 1 = 메시지 만료됨 <br/> 2 = 최대 배달 횟수 초과됨 <br/> 3 = 메시지 거부 |
+| StatusCode |필수 문자열 IoT Hub에 의해 생성된 피드백 메시지에서 사용됩니다. <br/> 'Success' <br/> 'Expired' <br/> 'DeliveryCountExceeded' <br/> 'Rejected' <br/> 'Purged' |
 | 설명 |**StatusCode**에 대한 문자열 값입니다. |
 | deviceId |**DeviceId** 입니다. |
 | DeviceGenerationId |**DeviceGenerationId** 입니다. |
@@ -290,7 +290,8 @@ IoT Hub 메시지는 다음을 구성합니다.
 | --- | --- |
 | MessageId |사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | 시퀀스 번호 |숫자(장치 큐 별로 고유함)는 IoT Hub에서 각 클라우드-장치 메시지에 할당됩니다. |
-| 받는 사람 |[클라우드-장치][lnk-c2d] 메시지에 지정된 대상입니다. |
+| 받는 사람
+ |[클라우드-장치][lnk-c2d] 메시지에 지정된 대상입니다. |
 | ExpiryTimeUtc |메시지 만료 날짜 및 시간입니다. |
 | EnqueuedTime |IoT Hub에서 [클라우드-장치][lnk-c2d] 메시지를 수신한 날짜 및 시간입니다. |
 | CorrelationId |일반적으로 요청-응답 패턴으로 요청의 MessageId가 포함된 응답 메시지의 String 속성입니다. |
@@ -384,7 +385,7 @@ IoT Hub를 통해 메시지를 보내고 받는 방법에 대해 알아봤으니
 [img-lifecycle]: ./media/iot-hub-devguide-messaging/lifecycle.png
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messaging/eventhubcompatible.png
 
-[lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
+[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-gateway-guidance]: iot-hub-devguide-endpoints.md#field-gateways
 [lnk-guidance-scale]: iot-hub-scaling.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md

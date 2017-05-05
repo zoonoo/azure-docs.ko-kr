@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 03/02/2017
 ms.author: amanbha
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 22f906de37ad7ae2a48acf26be26f2af1e3bde7a
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
+ms.openlocfilehash: 0d942fa9f4a3b9094d8122e4745c0450f507ea16
+ms.lasthandoff: 03/31/2017
 
 
 ---
@@ -29,14 +29,14 @@ ms.lasthandoff: 01/24/2017
 
 * 행위자를 호출하는 경우 아직 활성화되지 않았으면 새 행위자를 만듭니다.
 * 행위자의 상태가 로드됩니다(상태가 유지되는 경우).
-* `OnActivateAsync` 메서드(행위자 구현 시 재정의될 수 있음)를 호출합니다.
+* `OnActivateAsync`(C#) 또는 `onActivateAsync`(Java)메서드(행위자 구현 시 재정의될 수 있음)를 호출합니다.
 * 이제 행위자가 활성 상태인 것으로 간주됩니다.
 
 ## <a name="actor-deactivation"></a>행위자 비활성화
 행위자 비활성화되면 다음과 같은 상황이 발생합니다.
 
 * 행위자를 일정 기간 동안 사용하지 않으면 활성 행위자 테이블에서 제거됩니다.
-* `OnDeactivateAsync` 메서드(행위자 구현 시 재정의될 수 있음)를 호출합니다. 그러면 행위자에 대한 모든 타이머가 지워집니다. 상태 변경과 같은 행위자 작업은 이 메서드에서 호출되지 않습니다.
+* `OnDeactivateAsync`(C#) 또는 `onDeactivateAsync`(Java)메서드(행위자 구현 시 재정의될 수 있음)를 호출합니다. 그러면 행위자에 대한 모든 타이머가 지워집니다. 상태 변경과 같은 행위자 작업은 이 메서드에서 호출되지 않습니다.
 
 > [!TIP]
 > 패브릭 행위자 런타임에서는 일부 [행위자 활성화 및 비활성화 관련 이벤트](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters)를 내보냅니다. 진단 및 성능 모니터링에 유용합니다.
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/24/2017
 >
 
 ### <a name="actor-garbage-collection"></a>행위자 가비지 수집
-행위자 비활성화되면 행위자 개체에 대한 참조가 해제되고 가비지가 CLR(공용 언어 런타임) 가비지 수집기에 의해 정상적으로 수집될 수 있습니다. 가비지 수집에서는 행위자 개체를 정리하기만 하고, 행위자의 상태 관리자에 저장된 상태를 제거하지 **않습니다** . 다음에 행위자가 활성화되면 새 행위자 개체가 만들어지고 해당 상태가 복원됩니다.
+행위자 비활성화되면 행위자 개체에 대한 참조가 해제되고 가비지가 CLR(공용 언어 런타임) 또는 JVM(Java 가상 컴퓨터) 가비지 수집기에 의해 정상적으로 수집될 수 있습니다. 가비지 수집에서는 행위자 개체를 정리하기만 하고, 행위자의 상태 관리자에 저장된 상태를 제거하지 **않습니다** . 다음에 행위자가 활성화되면 새 행위자 개체가 만들어지고 해당 상태가 복원됩니다.
 
 비활성화 및 가비지 수집 목적에서 "사용 중"으로 계산되는 항목
 
@@ -82,6 +82,18 @@ public class Program
 }
 ```
 
+```Java
+public class Program
+{
+    public static void main(String[] args)
+    {
+        ActorRuntime.registerActorAsync(
+                MyActor.class,
+                (context, actorTypeInfo) -> new FabricActorService(context, actorTypeInfo),
+                timeout);
+    }
+}
+```
 각 활성 행위자에 대해 행위자 런타임은 유휴 상태였던 시간(사용되지 않은 시간)을 기록합니다. 행위자 런타임은 `ScanIntervalInSeconds`마다 각 행위자를 검사하여 가비지 수집 가능한지 확인하고 `IdleTimeoutInSeconds` 동안 유휴 상태였는지 수집합니다.
 
 행위자를 사용할 때마다 유휴 시간이 0으로 다시 설정됩니다. 이후부터는 `IdleTimeoutInSeconds`동안 다시 유휴 상태인 경우에만 행위자가 가비지 수집됩니다. 행위자 인터페이스 메서드 또는 행위자 미리 알림 콜백이 실행되는 경우, 행위자가 사용된 것으로 간주됩니다. 타이머 콜백이 실행되는 경우 해당 행위자는 사용된 것으로 간주되지 **않습니다** .
@@ -114,6 +126,14 @@ IActorService myActorServiceProxy = ActorServiceProxy.Create(
 
 await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ```
+```Java
+ActorId actorToDelete = new ActorId(id);
+
+ActorService myActorServiceProxy = ActorServiceProxy.create(
+    new Uri("fabric:/MyApp/MyService"), actorToDelete);
+
+myActorServiceProxy.deleteActorAsync(actorToDelete);
+```
 
 행위자를 삭제하면 행위자가 현재 활성 상태인지 여부에 따라 다음과 같은 결과가 발생합니다.
 
@@ -131,7 +151,8 @@ await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 * [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
 * [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [샘플 코드](https://github.com/Azure/servicefabric-samples)
+* [C# 샘플 코드](https://github.com/Azure/servicefabric-samples)
+* [Java 샘플 코드](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

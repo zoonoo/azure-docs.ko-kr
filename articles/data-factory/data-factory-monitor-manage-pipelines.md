@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2c41c2df135caaead328d8fe05407cfa75cbcb91
-ms.openlocfilehash: a486fbe46f9892f6f70dcdcf27edbac63728af6e
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 223edfde090c9b77467e032198c2150fbaa56a5b
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -73,7 +74,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 1. 파이프라인을 마우스 오른쪽 단추로 클릭하고 **파이프라인 열기**를 클릭하면 파이프라인 내부의 모든 활동과 활동에 대한 입력 및 출력 데이터 집합이 표시됩니다. 이 기능은 파이프라인에 둘 이상의 작업이 포함된 경우 단일 파이프라인의 운영 계보를 이해하고자 할 때 유용합니다.
 
     ![파이프라인 열기 메뉴](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
-2. 다음 예에서는 파이프라인 내에 두 개의 활동과 입력 및 출력이 표시됩니다. 샘플 파이프라인에는 HDInsight Hive 작업 유형인 **JoinData** 작업과 복사 작업 유형인 **EgressDataAzure** 작업이 있습니다.
+2. 다음 예제에서는 입력 및 출력이 있는 파이프라인에서 복사 작업을 볼 수 있습니다. 
 
     ![파이프라인 내부의 활동](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
 3. 왼쪽 위 모서리의 이동 경로 탐색에서 **Data factory** 링크를 클릭하면 Data factory 홈 페이지로 되돌아갈 수 있습니다.
@@ -83,11 +84,9 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>파이프라인 내부의 각 작업 상태 보기
 작업에 의해 생성되는 데이터 집합의 상태를 보면 작업의 현재 상태를 볼 수 있습니다.
 
-다음 예에서 **BlobPartitionHiveActivity**가 성공적으로 실행되었고 **PartitionedProductsUsageTable**이라는 데이터 집합이 생성되었으며 그 상태는 **준비**입니다.
+**다이어그램**에서 **OutputBlobTable**을 두 번 클릭하면 파이프라인 내부에서 실행되는 다양한 작업에 의해 생성되는 모든 조각이 표시됩니다. 복사 작업이 지난 8시간 동안 성공적으로 실행되었고 **준비** 상태의 조각을 생성했다는 것을 확인할 수 있습니다.  
 
 ![파이프라인 상태](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
-
-**다이어그램**에서 **PartitionedProductsUsageTable**을 두 번 클릭하면 파이프라인 내부에서 실행되는 다양한 작업에 의해 생성되는 모든 조각이 표시됩니다. **BlobPartitionHiveActivity**가 지난&8;개월 동안 매달 성공적으로 실행되었고 **준비** 상태의 조각을 생성했다는 것을 확인할 수 있습니다.
 
 데이터 팩터리의 데이터 집합 조각의 상태는 다음 중 하나입니다.
 
@@ -663,9 +662,4 @@ Data Factory의 홈 페이지에서 **이동** 명령 모음 단추를 사용하
 데이터 팩터리와 함께 관련된 모든 리소스(예: 데이터 팩터리와 관련된 경고)를 이동할 수도 있습니다.
 
 ![리소스 이동 대화 상자](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

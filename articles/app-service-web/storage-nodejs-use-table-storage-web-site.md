@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 3f0183c2c88819dfc67886676fd8c69b246537b6
-ms.lasthandoff: 03/21/2017
+ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
+ms.openlocfilehash: 73a7c658f06c66de51354b2d06bbddf84951f981
+ms.lasthandoff: 04/06/2017
 
 
 ---
@@ -399,7 +399,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
         block content
 
 ### <a name="create-a-config-file"></a>구성 파일 만들기
-앱을 로컬로 실행하기 위해 Azure 저장소 자격 증명을 구성 파일에 배치합니다. 다음 JSON으로 **config.json**이라는 이름의 파일을 만듭니다.
+앱을 로컬로 실행하기 위해 Azure 저장소 자격 증명을 구성 파일에 배치합니다. 다음 JSON으로 **config.json* *이라는 이름의 파일을 만듭니다.
 
     {
         "STORAGE_NAME": "<storage account name>",
@@ -559,7 +559,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 <!-- URLs -->
 
-[Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
+[Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]: app-service-web-get-started-nodejs.md
 [Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
@@ -577,19 +577,13 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 [Azure Portal]: https://portal.azure.com
 
-[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
+[Create and deploy a Node.js application to an Azure Web Site]: app-service-web-get-started-nodejs.md
 
 <!-- Image References -->
 
 [node-table-finished]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
 [node-table-list-items]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
 [download-publishing-settings]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
-[portal-new]: ./media/storage-nodejs-use-table-storage-web-site/plus-new.png
-[portal-storage-account]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
-[portal-quick-create-storage]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
 [portal-storage-access-keys]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
-[go-to-dashboard]: ./media/storage-nodejs-use-table-storage-web-site/go_to_dashboard.png
-[web-configure]: ./media/storage-nodejs-use-table-storage-web-site/sql-task-configure.png
-[app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 

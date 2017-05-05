@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 71e0d74f0e4787393e3184a3a5b553c4935cf785
+ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
+ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
+ms.lasthandoff: 04/12/2017
 
 
 ---
@@ -235,9 +236,4 @@ Azure 보안 센터 및 배포 가능하도록 활성화하는 방법에 대한 
 Microsoft에서는 데이터 센터 확장이 어떤 형태로 이루어지는지 이해하는 데 도움을 주기 위해 [데이터 센터 확장 참조 아키텍처 다이어그램](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content)과 지원 자료를 만들었습니다. 이 자료에는 클라우드로의 안전한 엔터프라이즈 데이터 센터 확장을 계획 및 설계하는 데 사용할 수 있는 예제 참조 구현이 포함되어 있습니다. 이 문서를 살펴보고 안전한 솔루션의 주요 구성 요소에 대해 알아두는 것이 좋습니다.
 
 데이터 센터를 Azure로 안전하게 확장하는 방법에 대한 자세한 내용은 [데이터 센터를 Microsoft Azure로 확장](https://www.youtube.com/watch?v=Th1oQQCb2KA) 비디오를 참조하세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

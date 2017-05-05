@@ -12,17 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 03/29/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: edef5fbc015f6b6ba01aa2bfc3d908e6f11159cc
-ms.lasthandoff: 03/24/2017
+ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
+ms.openlocfilehash: 06f7b38f5d08f2182f08d38a11dec526042c1828
+ms.lasthandoff: 03/31/2017
 
 
 ---
 
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 파일 및 압축 형식
+*이 항목은 커넥터 [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [파일 시스템](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md) 및 [SFTP](data-factory-sftp-connector.md)에 적용됩니다.*
+
 Azure Data Factory는 다음과 같은 파일 형식을 지원합니다.
 
 * [텍스트 형식](#text-format)
@@ -47,7 +49,7 @@ Azure Data Factory는 다음과 같은 파일 형식을 지원합니다.
 | treatEmptyAsNull |입력 파일에서 데이터를 읽을 때 null 또는 빈 문자열을 null 값으로 처리할지를 지정합니다. |**True(기본값)**<br/>False |아니요 |
 
 ### <a name="textformat-example"></a>TextFormat 예제
-데이터 집합에 대한 다음 JSON 정의에서 선택적 속성 중 일부가 지정됩니다. 
+데이터 집합에 대한 다음 JSON 정의에서 선택적 속성 중 일부가 지정됩니다.
 
 ```json
 "typeProperties":
@@ -80,7 +82,7 @@ Azure Data Factory는 다음과 같은 파일 형식을 지원합니다.
 * 텍스트 파일에서 데이터를 복사할 때 시작 부분에서 데이터도 없고 머리글 정보도 없는 몇 줄을 건너뛰려고 합니다. 건너뛸 줄 수를 나타내는 `skipLineCount`를 지정합니다. 파일의 나머지 부분에 헤더 줄이 있으면 `firstRowAsHeader`도 지정할 수 있습니다. `skipLineCount`와 `firstRowAsHeader`를 둘 다 지정하면 먼저 해당 줄을 먼저 건너뛴 다음 입력 파일에서 헤더 정보를 읽습니다.
 
 ## <a name="json-format"></a>JSON 형식
-**DocumentDB에(서) JSON 파일을 그대로 가져오거나 내보내려면** [Azure DocumentDB의 데이터 이동](data-factory-azure-documentdb-connector.md) 문서의 [JSON 문서 가져오기/내보내기](data-factory-azure-documentdb-connector.md#importexport-json-documents) 섹션을 참조하세요. 
+**DocumentDB에(서) JSON 파일을 그대로 가져오거나 내보내려면** [Azure DocumentDB의 데이터 이동](data-factory-azure-documentdb-connector.md) 문서의 [JSON 문서 가져오기/내보내기](data-factory-azure-documentdb-connector.md#importexport-json-documents) 섹션을 참조하세요.
 
 JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `format` 섹션의 `type` 속성을 **JsonFormat**으로 설정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요.
 
@@ -452,7 +454,7 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 * 복합 데이터 형식(MAP, LIST)은 지원되지 않습니다.
 * Parquet 파일에는 압축 관련 옵션인 NONE, SNAPPY, GZIP 및 LZO가 포함되어 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 ORC 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 Parquet 파일에 쓸 때 Data Factory는 Parquet 서식에 대한 기본값인 SNAPPY를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
 
-## <a name="compression-support"></a>압축 지원 
+## <a name="compression-support"></a>압축 지원
 큰 데이터 집합을 처리하면 I/O 및 네트워크 병목 현상이 발생할 수 있습니다. 따라서 저장소의 압축된 데이터는 네트워크를 통해 데이터 전송의 속도를 높이고 디스크 공간을 절약할 수 없을 뿐만 아니라 빅 데이터 처리에서 상당한 성능 개선을 가져올 수 없습니다. 현재 압축은 Azure Blob 또는 온-프레미스 파일 시스템과 같은 파일 기반 데이터 저장소에 대해 지원됩니다.  
 
 데이터 집합에 대한 압축을 지정하려면 다음 예제와 같이 데이터 집합 JSON의 **압축** 속성을 사용합니다.   
@@ -511,3 +513,4 @@ Azure Data Factory에서 지원하는 파일 기반 데이터 저장소에 대�
 - [HDFS](data-factory-hdfs-connector.md)
 - [파일 시스템](data-factory-onprem-file-system-connector.md)
 - [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
+

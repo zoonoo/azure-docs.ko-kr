@@ -11,12 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 03/24/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9585494ebff68891d374a29e8e3e4b7756914bcc
-ms.openlocfilehash: d8a654340df56002e503f2f61e910facb51696c5
-ms.lasthandoff: 02/06/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: 8abe4b089401c8f086a77be2aa6812b4fa7910ce
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/06/2017
 Cezanne HR Software를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 - Cezanne HR Software에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-- 사용자가 해당 Azure AD 계정으로 Cezanne HR Software에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
+- 사용자가 해당 Azure AD 계정으로 Cezanne HR Software에 자동으로 SSO(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure 관리 포털에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
@@ -37,27 +37,27 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 Cezanne HR Software와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
-- Cezanne HR Software Single Sign-on이 설정된 구독
+- Cezanne HR Software SSO가 설정된 구독
 
-
-> [!NOTE]
-> 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
-
+>[!NOTE]
+>이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
+>
+>
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서&1;개월 평가판을 얻을 수 있습니다.
+- Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Cezanne HR Software 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+2. Azure AD SSO 구성 및 테스트
 
 
-## <a name="adding-cezanne-hr-software-from-the-gallery"></a>갤러리에서 Cezanne HR Software 추가
+## <a name="add-cezanne-hr-software-from-the-gallery"></a>갤러리에서 Cezanne HR Software 추가
 Cezanne HR Software의 Azure AD 통합을 구성하려면 갤러리의 Cezanne HR Software를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 Cezanne HR Software를 추가하려면 다음 단계를 수행합니다.**
@@ -82,27 +82,26 @@ Cezanne HR Software의 Azure AD 통합을 구성하려면 갤러리의 Cezanne H
 
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_0001.png)
 
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Cezanne HR Software에서 Azure AD SSO를 구성하고 테스트합니다.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
-이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Cezanne HR Software에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
-
-Single Sign-on이 작동되려면 Azure AD는 Azure AD의 사용자에 해당하는 Cezanne HR Software의 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 Cezanne HR Software의 관련 사용자 간에 연결이 형성되어야 합니다.
+SSO가 작동되려면 Azure AD는 Azure AD의 사용자에 해당하는 Cezanne HR Software의 사용자가 누군지 알고 있어야 합니다. 즉, Azure AD 사용자와 Cezanne HR Software의 관련 사용자 간에 연결이 형성되어야 합니다.
 
 이 연결 관계는 Azure AD의 **사용자 이름** 값을 Cezanne HR Software의 **Username** 값으로 할당하여 설정합니다.
 
-Cezanne HR Software에서 Azure AD Single Sign-on을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+Cezanne HR Software에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 3. **[Cezanne HR Software 테스트 사용자 만들기](#creating-a-cezanne-hr-software-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Cezanne HR Software에 만듭니다.
 4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Cezanne HR Software 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure 관리 포털에서 Azure AD SSO를 사용하도록 설정하고 Cezanne HR Software 응용 프로그램에서 Single Sign-On을 구성합니다.
 
-**Cezanne HR Software에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
+**Cezanne HR Software에서 Azure AD SSO를 구성하려면 다음 단계를 수행합니다.**
 
 1. Azure 관리 포털의 **Cezanne HR Software** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
@@ -115,21 +114,19 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하고 테스트하�
 3. **Cezanne HR Software 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_02.png)
+  1. **로그온 URL** 텍스트 상자에서 다음 패턴 `https://w3.cezanneondemand.com/cezannehr/-/<tenant id>`을 사용하여 URL을 입력합니다.
+  2. **식별자** 텍스트 상자에 `https://w3.cezanneondemand.com/CezanneOnDemand/`를 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴 `https://w3.cezanneondemand.com/cezannehr/-/<tenant id>`을 사용하여 URL을 입력합니다.
-    
-    b. **식별자** 텍스트 상자에 `https://w3.cezanneondemand.com/CezanneOnDemand/`를 입력합니다.
-
-    > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트해야 합니다. 식별자에는 고유한 URL 값을 사용하는 것이 좋습니다. 이러한 값을 가져오려면 [Cezanne HR Software 지원 팀](mailto:info@cezannehr.com)에 문의합니다.
+     >[!NOTE] 
+     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트해야 합니다. 식별자에는 고유한 URL 값을 사용하는 것이 좋습니다. 이러한 값을 가져오려면 [Cezanne HR Software 지원 팀](mailto:info@cezannehr.com)에 문의합니다.
 
 4. **SAML 서명 인증서** 섹션에서 **새 인증서 만들기**를 클릭합니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_03.png)     
+    ![Single Sign-on 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_03.png)     
 
 5. **새 인증서 만들기** 대화 상자에서 달력 아이콘을 클릭하고 **만료 날짜**를 선택합니다. 그런 후 **저장** 단추를 클릭합니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_300.png)
+    ![Single Sign-on 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_300.png)
 
 6. **SAML 서명 인증서** 섹션에서 **새 인증서 활성화**를 선택한 후 **저장** 단추를 클릭합니다.
 
@@ -166,28 +163,19 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하고 테스트하�
 14. **SAML 2.0 ID 공급자** 섹션에서 다음 단계를 수행합니다.
 
     ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
-
-    a. **표시 이름**으로 ID 공급자의 이름을 입력합니다.
-
-    b. **엔터티 식별자** 텍스트 상자에서 Azure AD 응용 프로그램 구성 창의 **SAML 엔터티 ID** 값을 입력합니다.
-
-    c. **SAML 바인딩** 을 'POST'로 변경합니다.
-
-    d. **Security Token Service 끝점** 텍스트 상자에서 Azure AD 응용 프로그램 구성 창의 **SAML Single Sign-On 서비스 URL** 값을 입력합니다.
-
-    e. **사용자 ID 특성 이름** 텍스트 상자에 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'을 입력합니다.
-
-    f. **업로드** 아이콘을 클릭하여 Azure AD에서 다운로드한 인증서를 업로드합니다.
-
-    g. **확인** 단추를 클릭합니다. 
+ 1. **표시 이름**으로 ID 공급자의 이름을 입력합니다.
+ 2. **엔터티 식별자** 텍스트 상자에서 Azure AD 응용 프로그램 구성 창의 **SAML 엔터티 ID** 값을 입력합니다.
+ 3. **SAML 바인딩** 을 'POST'로 변경합니다.
+ 4. **Security Token Service 끝점** 텍스트 상자에서 Azure AD 응용 프로그램 구성 창의 **SAML Single Sign-On 서비스 URL** 값을 입력합니다.
+ 5. **사용자 ID 특성 이름** 텍스트 상자에 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'을 입력합니다.
+ 6. **업로드** 아이콘을 클릭하여 Azure AD에서 다운로드한 인증서를 업로드합니다.
+ 7. **확인** 단추를 클릭합니다. 
 
 15. **저장** 단추를 클릭합니다.
 
     ![앱 쪽에서 Single Sign-On 구성](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
-
-
-### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure 관리 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
 ![Azure AD 사용자 만들기][100]
@@ -209,22 +197,16 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하고 테스트하�
 4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_04.png) 
+ 1. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
+ 2. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+ 3. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+ 4. **만들기**를 클릭합니다. 
 
-    a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
-
-    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
-
-    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
-
-    d. **만들기**를 클릭합니다. 
-
-
-
-### <a name="creating-a-cezanne-hr-software-test-user"></a>Cezanne HR Software 테스트 사용자 만들기
+### <a name="create-a-cezanne-hr-software-test-user"></a>Cezanne HR Software 테스트 사용자 만들기
 
 Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려면 Cezanne HR Software로 프로비전되어야 합니다. Cezanne HR Software의 경우 프로비저닝은 수동 작업입니다.
 
-####<a name="to-provision-a-user-account-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
+**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
 
 1.  Cezanne HR Software 회사 사이트에 관리자 권한으로 로그인합니다.
 
@@ -235,26 +217,18 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
 3.  **사람 세부 정보** 섹션에서 다음 단계를 수행합니다.
 
     ![새 사용자](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "새 사용자")
-
-    a. **내부 사용자** 를 OFF로 설정합니다.
-
-    b. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
-
-    c. **성** 텍스트 상자에 **Simon**을 입력합니다.
-
-    d. **전자 메일** 텍스트 상자에 Britta Simon 계정의 전자 메일 주소를 입력합니다.
+ 1. **내부 사용자** 를 OFF로 설정합니다.
+ 2. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
+ 3. **성** 텍스트 상자에 **Simon**을 입력합니다.
+ 4. **전자 메일** 텍스트 상자에 Britta Simon 계정의 전자 메일 주소를 입력합니다.
 
 4.  **계정 정보** 섹션에서 다음 단계를 수행합니다.
 
     ![새 사용자](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "새 사용자")
-
-    a. **사용자 이름** 텍스트 상자에 Britta Simon의 전자 메일 주소를 입력합니다.
-
-    b. **암호** 텍스트 상자에 Britta Simon 계정의 암호를 입력합니다.
-
-    c. **보안 역할**로 **HR 전문가**를 선택합니다.
-
-    d. **확인**을 클릭합니다.
+ 1. **사용자 이름** 텍스트 상자에 Britta Simon의 전자 메일 주소를 입력합니다.
+ 2. **암호** 텍스트 상자에 Britta Simon 계정의 암호를 입력합니다.
+ 3. **보안 역할**로 **HR 전문가**를 선택합니다.
+ 4. **확인**을 클릭합니다.
 
 5. **Single Sign-On** 탭으로 이동하고 **SAML 2.0 식별자** 영역에서 **새로 추가**를 선택합니다.
 
@@ -268,11 +242,9 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
 
     ![사용자](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "사용자")
 
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
-
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Cezanne HR Software에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 Azure SSO를 사용할 수 있도록 Britta Simon에게 Cezanne HR Software에 대한 액세스 권한을 부여합니다.
 
 ![사용자 할당][200] 
 
@@ -301,10 +273,9 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
-### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
-
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트합니다.
 
 액세스 패널에서 Cezanne HR Software 타일을 클릭하면 Cezanne HR Software 응용 프로그램에 자동으로 로그온됩니다.
 

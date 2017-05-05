@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
+ms.date: 03/30/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 6d459e37b8b39f5d76c4ec86ebb7351c783b81fb
-ms.openlocfilehash: 64cb4be184e02519a6c496f8639035201ebb60f8
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
+ms.openlocfilehash: d75088bd83b0b70c889388c95331bb56fe9ba15b
+ms.lasthandoff: 04/03/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/15/2017
 * 정책 정의 - 정책이 적용되는 시점 및 수행할 작업을 설명합니다.
 * 정책 할당 - 정책 정의를 범위(구독 또는 리소스 그룹)에 적용합니다.
 
-이 항목은 정책 정의에 중점을 둡니다. 정책 할당에 대한 정보는 [정책 할당 및 관리](resource-manager-policy-create-assign.md)를 참조하세요.
+이 항목은 정책 정의에 중점을 둡니다. 정책 할당에 대한 자세한 내용은 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](resource-manager-policy-portal.md) 또는 [스크립트를 통해 리소스 정책 할당 및 관리](resource-manager-policy-create-assign.md)를 참조하세요.
 
 Azure에서는 일부 기본 제공 정책 정의을 제공하여 정의해야 하는 정책의 수를 줄일 수 있습니다. 기본 제공 정책이 시나리오에서 작동하는 경우 해당 정의를 범위에 할당할 때 사용합니다.
 
@@ -239,7 +239,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 * 태그 정책의 예제는 [태그에 리소스 정책 적용](resource-manager-policy-tags.md)을 참조하세요.
 * 저장소 정책의 예제는 [저장소 계정에 리소스 정책 적용](resource-manager-policy-storage.md)을 참조하세요.
-* 가상 컴퓨터 정책의 예제는 [Linux VM에 리소스 정책 적용](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 및 [Windows VM에 리소스 정책 적용](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)을 참조하세요.
+* 가상 컴퓨터 정책의 예제는 [Linux VM에 리소스 정책 적용](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 및 [Windows VM에 리소스 정책 적용](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)을 참조하세요.
 
 ### <a name="allowed-resource-locations"></a>허용된 리소스 위치
 허용된 위치를 지정하려면 [정책 정의 구조](#policy-definition-structure) 섹션에서 예제를 참조하세요. 이 정책 정의를 할당하려면 리소스 ID `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`로 기본 제공 정책을 사용합니다.
@@ -326,7 +326,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* 정책 규칙을 정의한 후에 범위에 할당합니다. 정책 할당에 대한 정보는 [정책 할당 및 관리](resource-manager-policy-create-assign.md)를 참조하세요.
+* 정책 규칙을 정의한 후에 범위에 할당합니다. 포털을 통해 정책을 할당하려면 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](resource-manager-policy-portal.md)를 참조하세요. REST API, PowerShell 또는 Azure CLI를 통해 정책을 할당하려면 [스크립트를 통해 정책 할당 및 관리](resource-manager-policy-create-assign.md)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
 * 정책 스키마는 [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json)에 게시되어 있습니다. 
 

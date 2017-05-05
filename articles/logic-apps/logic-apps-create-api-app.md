@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 4c6bf3e46d80871c8f6ef1cd0a9959e4766a69f5
+ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
+ms.openlocfilehash: 3fd558835fb36ef70ac97419727b5133d0741d7e
+ms.lasthandoff: 04/07/2017
 
 
 ---
@@ -88,9 +89,7 @@ Webhook 트리거가 삭제되는 경우(논리 앱 전체 또는 webhook 트리
 
 웹후크 트리거의 샘플은 GitHub [여기](https://github.com/jeffhollan/LogicAppTriggersExample/tree/master/LogicAppTriggers)
 
+## <a name="publish-custom-connectors-to-azure"></a>Azure에 사용자 지정 커넥터 게시
 
-
-
-<!--HONumber=Jan17_HO3-->
-
+사용자 지정 API Apps를 Azure에서 공개하고 사용할 수 있게 하려면 [Microsoft Azure 인증 프로그램](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/)에 추천을 제출합니다.
 
