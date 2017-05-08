@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d971823ecd237c90787d4b923b5f9aad08fff4ee
+ms.sourcegitcommit: 69f7b49fd82e4d34b1d54718cfbd2f4dedd2ae47
+ms.openlocfilehash: bfa6413bd939b6082de4a88195b1f35cf8210375
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -84,10 +85,5 @@ IT가 해당 단계에서 각각 스스로 데어타를 보호할 수 있는 기
 
 ## <a name="see-also"></a>참고 항목
 [설계 고려 사항 개요](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

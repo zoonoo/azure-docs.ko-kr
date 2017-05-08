@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: f7b21cc941f17d0815316dfe7013e9f97a95c223
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -54,10 +55,5 @@ Azure Active Directory(Azure AD) B2C 디렉터리에는 지정된 이름, 성, �
 ## <a name="notes"></a>참고 사항
 * 등록 정책과 함께 등록 또는 로그인 정책 및 프로필 편집 정책에서 사용자 지정 특성을 사용할 수도 있습니다.
 * 사용자 지정 특성의 알려진 제한 사항이 있습니다. **사용자 특성**목록에 추가될 때가 아니라 정책에 사용하는 경우 처음으로 만들어집니다.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

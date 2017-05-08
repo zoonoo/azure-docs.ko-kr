@@ -13,8 +13,3 @@
 >
 > 업데이트 된 역할을 배포한 후에 Azure Portal 또는 PowerShell을 통해 확장을 다시 활성화할 수 있습니다.
 >
-
-
-<!--HONumber=Jan17_HO3-->
-
-
