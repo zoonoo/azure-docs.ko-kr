@@ -15,9 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
 ms.author: sasubram
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: 4e620f3d76caa25ac0e5afb134f37ffe263935f0
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/13/2017
 
 
@@ -52,7 +53,7 @@ B2B 게스트 사용자는 호스트 조직과 함께 작업하도록 파트너 
 1. 호스트가 소비자 주소를 사용하는 직원을 초대하는 경우
   1. 이 경우는 라이선싱 정책을 준수하지 않고 현재 권장되지 않습니다.
 
-2.    호스트 조직이 다른 대기업 조직의 사용자를 추가하는 경우
+2. 호스트 조직이 다른 대기업 조직의 사용자를 추가하는 경우
   1. 이 경우 사용자는 B2B API를 사용하여 초대되지만 이는 전통적으로 B2B가 아닙니다. 이상적으로는 이러한 조직이 다른 조직의 사용자를 구성원으로 초대하도록 해야 합니다(API에서 이를 허용함). 이 경우 초대하는 조직의 리소스에 액세스하려면 이러한 구성원에게 라이선스를 할당해야 합니다.
 
   2. 일부 조직에서는 다른 조직의 사용자를 정책에 “게스트”로 추가해야 할 수 있습니다. 다음 두 가지 경우가 있습니다.

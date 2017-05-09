@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/04/2016
+ms.date: 05/08/2016
 ms.author: curtand;jeffsta
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 77d34a6ebce12465a15de158b9160a03db58c48e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -64,10 +66,5 @@ DNS 항목을 추가하고 나면, Azure AD에서 도메인 이름을 확인할 
 * [Azure AD에서 도메인 관리 개념 알아보기](active-directory-add-domain-concepts.md)
 * [사용자 로그인 시 회사의 브랜딩 표시](active-directory-add-company-branding.md)
 * [PowerShell을 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

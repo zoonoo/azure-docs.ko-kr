@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/08/2016
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ccfa8d72b51c43e04d924d2b096e3cbc407af043
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -49,10 +51,5 @@ Azure Active Directory에 사용자 지정 도메인을 추가한 후에 인증�
 * [사용자 지정 도메인 이름을 사용하여 사용자의 로그인 환경 간소화](active-directory-add-domain.md)
 * [사용자 지정 도메인 이름 관리](active-directory-add-manage-domain-names.md)
 * [Azure AD에서 도메인 관리 개념 알아보기](active-directory-add-domain-concepts.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 
