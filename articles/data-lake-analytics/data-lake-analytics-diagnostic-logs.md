@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
 ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/11/2017
 
 
@@ -120,7 +121,7 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
                                     PT1H.json
 
    > [!NOTE]
-   > `##` 항목은 로그가 생성된 연도, 월, 일 및 시간을 포함합니다. Data Lake Analytics는&1;시간마다 하나의 파일을 만들므로 `m=`은(는) 항상 `00`의 값을 포함합니다.
+   > `##` 항목은 로그가 생성된 연도, 월, 일 및 시간을 포함합니다. Data Lake Analytics는 1시간마다 하나의 파일을 만들므로 `m=`은(는) 항상 `00`의 값을 포함합니다.
 
     예를 들어, 감사 로그에 대한 전체 경로는 다음과 같을 수 있습니다.
 
