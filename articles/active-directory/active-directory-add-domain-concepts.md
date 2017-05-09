@@ -3,7 +3,7 @@ title: "Azure Active Directory에서 사용자 지정 도메인 이름의 개념
 description: "Single Sign-On을 위한 페더레이션을 포함하여 Azure Active Directory에서 사용자 지정 도메인 이름 사용에 대한 개념적 프레임워크를 설명합니다."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 12d41a77655c4892a9dc20979ef98b1bd39f94c5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 028c1cab4f0229a06d37d2f325b384ee78a2b8f9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -55,16 +57,11 @@ Exchange Online, SharePoint Online 및 Intune과 같은 또 다른 Microsoft Onl
 Azure 웹앱은 도메인의 소유권을 확인하는 고유의 메커니즘을 사용합니다. Azure AD에 의존하는 구독의 Azure 웹앱에서 사용하기 위해 이전에 확인한 경우에도 Azure AD에서 사용하기 위해 도메인을 확인해야 합니다. Azure 웹앱은 웹앱을 보호하는 디렉터리와 다른 디렉터리에서 확인된 도메인 이름을 사용할 수 있습니다.
 
 ## <a name="managing-domain-names"></a>도메인 이름 관리
-Azure 클래식 포털 및 PowerShell에서 도메인 관리 작업을 완료할 수 있습니다. 공개 미리 보기에서 Azure AD Graph API를 사용하여 다양한 작업을 완료할 수 있습니다.
+Azure 클래식 포털 및 PowerShell에서 도메인 관리 작업을 완료할 수 있습니다. Azure AD Graph API를 사용하여 다양한 작업을 완료할 수 있습니다.
 
 * [사용자 지정 도메인 이름 추가 및 확인](active-directory-add-domain.md)
 * [Azure 클래식 포털에서 도메인 관리](active-directory-add-manage-domain-names.md)
 * [PowerShell을 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Azure AD Graph API를 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

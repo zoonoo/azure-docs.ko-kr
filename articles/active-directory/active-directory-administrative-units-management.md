@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b30ed9727229c082bff65023bfe4900640caa995
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: d05b4a34c5271b636400ed90ead76fabf0d911bd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -30,7 +32,7 @@ ms.openlocfilehash: b30ed9727229c082bff65023bfe4900640caa995
 >
 >
 
-중앙 관리자의 관점에서 관리 단위는 리소스로 생성하고 채울 수 있는 디렉터리 개체입니다. **이 릴리스에서는 사용자만 이 리소스가 될 수 있습니다.**  관리 단위가 생성되고 채워지면, 관리 단위에 포함된 리소스에게만 권한을 부여하도록 제한하는 범위로 사용할 수 있습니다.
+중앙 관리자의 관점에서 관리 단위는 리소스로 생성하고 채울 수 있는 디렉터리 개체입니다. **이 미리 보기 릴리스에서는 사용자만 이 리소스가 될 수 있습니다.** 관리 단위가 생성되고 채워지면, 관리 단위에 포함된 리소스에게만 권한을 부여하도록 제한하는 범위로 사용할 수 있습니다.
 
 ## <a name="managing-administrative-units"></a>관리 단위 관리
 이 미리 보기 릴리스에서 Windows PowerShell cmdlet용 Azure Active Directory 모듈을 사용하는 관리 단위를 만들고 관리할 수 있습니다.
@@ -39,9 +41,4 @@ ms.openlocfilehash: b30ed9727229c082bff65023bfe4900640caa995
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory 버전](active-directory-editions.md)
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 미리 보기에서 로그인 페이지 사용자 지정 | Microsoft Docs"
+title: "Azure Active Directory에서 로그인 페이지 사용자 지정 | Microsoft Docs"
 description: "회사 브랜딩을 Azure 로그인 페이지 에 추가하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: 
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 48f85fd7e50c1cb3ece7f8b75779fe7cde92c7da
-ms.lasthandoff: 02/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 27590c018ea55e9793246c7a4cab10f934ea502b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="add-company-branding-to-your-sign-in-page-in-the-azure-active-directory-preview"></a>Azure Active Directory 미리 보기에서 로그인 페이지에 회사 브랜딩 추가
-혼동을 피하기 위해 대부분의 회사는 관리하는 모든 웹 사이트 및 서비스에 일관된 모양과 느낌을 적용하고자 합니다. Azure Active Directory 미리 보기는 회사 로고 및 사용자 지정 색 구성표를 포함하도록 로그인 페이지의 외관을 사용자 지정하는 방식으로 이 기능을 제공합니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md) 로그인 페이지는 Office 365 또는 Azure AD를 ID 공급자로 사용하는 기타 웹 기반 응용 프로그램에 로그인할 경우에 표시되는 페이지입니다. 자격 증명을 입력하려면 이 페이지와 상호 작용합니다.
+# <a name="add-company-branding-to-your-sign-in-page-in-the-azure-active-directory"></a>Azure Active Directory에서 로그인 페이지에 회사 브랜딩 추가
+혼동을 피하기 위해 대부분의 회사는 관리하는 모든 웹 사이트 및 서비스에 일관된 모양과 느낌을 적용하고자 합니다. Azure Active Directory는 회사 로고 및 사용자 지정 색 구성표를 포함하도록 로그인 페이지의 외관을 사용자 지정하는 방식으로 이 기능을 제공합니다. 로그인 페이지는 Office 365 또는 Azure AD를 ID 공급자로 사용하는 기타 웹 기반 응용 프로그램에 로그인할 경우에 표시되는 페이지입니다. 자격 증명을 입력하려면 이 페이지와 상호 작용합니다.
 
 이 페이지에 회사 브랜드, 색 및 기타 사용자지정 가능한 요소를 표시하려면 다음 이미지를 참조하여 두 환경의 차이를 이해하세요.
 
