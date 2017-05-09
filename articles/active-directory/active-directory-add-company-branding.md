@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory의 로그인 및 액세스 패널 페이지에 회사 브랜딩 추가"
+title: "로그인 및 액세스 패널 페이지에 회사 브랜딩 추가"
 description: "회사 브랜딩을 Azure 로그인 페이지 및 액세스 패널 페이지에 추가하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: 
@@ -8,107 +8,110 @@ manager: femila
 editor: 
 ms.assetid: f74621b4-4ef0-4899-8c0e-0c20347a8c31
 ms.service: active-directory
-ms.workload: identity
+ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/07/2017
+ms.date: 03/03/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 6d4fbfe97288fcb76628b45649b8b678152198a9
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 144132cf0d591e398d5a6ebafb06fd915eec38b8
+ms.openlocfilehash: 1ec1a20dec318153923afd6a0875545d1e102f29
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="add-company-branding-to-sign-in-and-access-panel-pages"></a>로그인 및 액세스 패널 페이지에 회사 브랜딩 추가
-많은 조직에서는 관리하는 웹 사이트와 서비스 전반에 걸쳐 일관된 모양과 느낌을 적용하려고 합니다. IT 전문가가 회사 로고와 이미지를 사용하여 다음 웹 페이지의 모양을 사용자 지정할 수 있도록 Azure Active Directory에서 이 기능을 제공합니다.
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>로그인 및 액세스 패널 페이지에 회사 브랜딩 추가
+혼동을 피하기 위해 대부분의 회사는 관리하는 모든 웹 사이트 및 서비스에 일관된 모양과 느낌을 적용하고자 합니다. Azure Active Directory는 회사 로고 및 사용자 지정 색 구성표를 포함하도록 다음의 웹 페이지의 외관을 사용자 지정하는 방식으로 이 기능을 제공합니다.
 
-* **로그인 페이지** - 직원 및 비즈니스 게스트가 Azure AD를 사용하는 Office 365 또는 다른 응용 프로그램에 로그인할 때 표시되는 페이지입니다.
-* **액세스 패널 페이지** - 액세스 패널은 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. 액세스 패널은 [https://myapps.microsoft.com](https://myapps.microsoft.com)에서 찾을 수 있습니다.
+* **로그인 페이지** - 이 페이지는 Office 365 또는 Azure AD를 ID 공급자로 사용하는 기타 웹 기반 응용 프로그램에 로그인할 경우에 표시됩니다. 홈 영역 검색하는 동안 또는 자격 증명을 입력하는 경우 이 페이지와 상호 작용할 수 있습니다. 홈 영역 검색을 사용하면 시스템에서 해당 온-프레미스 STS(예: AD FS)에 페더레이션된 사용자를 리디렉션할 수 있습니다.
+* **액세스 패널 페이지** - 액세스 패널은 Azure AD 관리자가 사용자에게 액세스 권한을 부여한 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. 액세스 패널에 액세스하려면 다음 URL을 사용합니다. [https://myapps.microsoft.com](https://myapps.microsoft.com)
 
 이 항목에서는 로그인 페이지와 액세스 패널 페이지를 사용자 지정하는 방법을 설명합니다.
 
 > [!NOTE]
-> * 회사 브랜딩은 Azure Active Directory의 프리미엄 버전 또는 기본 버전으로 업그레이드하거나 Office 365 라이선스가 있는 경우에만 사용할 수 있습니다. 자세한 내용은 Azure Active Directory 버전을 참조하세요.
-> 
-> * Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 Azure Active Directory 포럼에 문의하세요.
-
+> * 회사 브랜딩은 Azure Active Directory의 Premium 또는 Basic Edition으로 업그레이드하거나 Office 365 사용자인 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+> * Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
+>
+>
 
 ## <a name="customizing-the-sign-in-page"></a>로그인 페이지 사용자 지정
-조직에서 구독한 클라우드 응용 프로그램과 서비스에 액세스하려는 사용자는 대개 Azure AD 로그인 페이지와 상호 작용합니다.
+일반적으로 조직이 구독하는 클라우드 앱 및 서비스에 대해 브라우저 기반 액세스가 필요한 경우 로그인 페이지를 사용합니다.
 
-로그인 페이지에 브랜딩 변경 내용을 적용한 경우 최종 사용자에게 이 변경 내용을 표시하는 데 최대 1시간이 걸릴 수 있습니다.
+로그인 페이지에 변경 내용을 적용할 경우 변경 내용을 표시하려면 최대&1;시간이 걸릴 수 있습니다.
 
-사용자가 https://outlook.com/contoso.com과 같은 테넌트 관련 URL에 액세스할 때 회사 브랜딩 요소가 Azure AD 로그인 페이지에 표시됩니다.
+https://outlook.com/**contoso**.com 또는 https://mail.**contoso**.com과 같은 테넌트 특정 URL로 서비스를 이용할 경우 브랜드가 지정된 로그인 페이지만이 나타납니다.
 
-사용자가 www.office.com과 같은 일반 URL에서 서비스를 방문하면 시스템에서 사용자가 누구인지 인식할 수 없으므로 로그인 페이지에 회사 브랜딩 정보가 아직 포함되어 있지 않습니다. 그러나 사용자가 사용자 ID를 입력하거나 사용자 타일을 선택한 후에는 회사 브랜딩이 표시됩니다.
+비테넌트 특정 URL(예: https://mail.office365.com )을 사용하여 서비스에 방문하는 경우 브랜드가 지정되지 않은 로그인 페이지가 나타납니다. 이 경우에 사용자 ID를 입력하거나 사용자 타일을 선택하면 브랜딩이 나타납니다.
 
 > [!NOTE]
 > * 도메인 이름은 브랜딩을 구성한 Azure 클래식 포털의 **Active Directory** > **디렉터리** > **도메인** 섹션에 “활성”으로 나타나야 합니다.
-> * 로그인 페이지 브랜딩은 개인 Microsoft 계정의 로그인 페이지에 적용되지 않습니다. 직원 또는 비즈니스 게스트가 개인 Microsoft 계정으로 로그인하는 경우 조직의 브랜딩이 로그인 페이지에 반영되지 않습니다.
+> * 로그인 페이지 브랜딩은 Microsoft의 소비자 로그인 페이지에 적용되지 않습니다. 개인 Microsoft 계정으로 로그인한 사용자는 Azure AD에서 렌더링하는 브랜드가 지정된 사용자 타일 목록을 볼 수 있지만 조직의 브랜딩이 Microsoft 계정 로그인 페이지에 적용되지는 않습니다.
+>
 >
 
-다음 스크린샷은 로그인 페이지를 사용자 지정하는 방법을 설명합니다.
+이 페이지에 회사 브랜드, 색 및 기타 사용자지정 가능한 요소를 표시하려면 다음 이미지를 참조하여 두 환경의 차이를 이해하세요.
 
-### <a name="scenario-1-contoso-employee-goes-to-a-generic-app-url-for-example-wwwofficecom"></a>시나리오 1: Contoso 직원이 일반 앱 URL(예: www.office.com)로 이동
+다음 스크린샷은 사용자 지정을 하기 **전에** 데스크톱 컴퓨터에서 Office 365 로그인 페이지에 대한 예제를 보여 줍니다.
 
-이 예에서 Contoso 사용자는 일반 URL을 사용하여 모바일 응용 프로그램이나 웹 응용 프로그램에 로그인합니다. 왼쪽의 그림은 항상 앱을 나타내며, 오른쪽의 상호 작용 창은 적절할 때 Contoso 브랜드 요소를 표시하도록 업데이트됩니다.
+![사용자 지정하기 전 Office 365 로그인 페이지][1]
 
-![사용자 지정 전후의 Office 365 로그인 페이지][1]
+다음 스크린샷은 사용자 지정 **후** 데스크톱 컴퓨터 Office 365 로그인 페이지의 예제를 보여 줍니다.
 
-### <a name="scenario-2-contoso-employee-goes-to-contoso-app-thats-restricted-to-internal-users"></a>시나리오 2: Contoso 직원이 내부 사용자만 사용할 수 있는 Contoso 앱으로 이동
+![사용자 지정한 후 Office 365 로그인 페이지][2]
 
-이 예에서 Contoso 사용자는 회사 특정 URL을 사용하여 내부 응용 프로그램에 로그인하고 있습니다. 왼쪽 그림은 회사 브랜드(Contoso)를 나타냅니다. 오른쪽의 상호 작용 창은 Contoso에서 잠겨 있으며 로그인을 통해 직원에게 도움을 줍니다.
+다음 스크린샷은 사용자 지정 **전** 모바일 장치 Office 365 로그인 페이지의 예를 보여 줍니다.
 
-![제한된 앱 로그인 페이지][2]
+![사용자 지정하기 전 Office 365 로그인 페이지][3]
 
-### <a name="scenario-3-contoso-employee-goes-to-a-contoso-app-thats-open-to-external-users"></a>시나리오 3: Contoso 직원이 외부 사용자에게 열리는 Contoso 앱으로 이동
+다음 스크린샷은 사용자 지정 **후** 모바일 장치 Office 365 로그인 페이지의 예를 보여 줍니다.
 
-이 예에서 사용자는 Contoso에서 LOB(기간 업무) 응용 프로그램에 서명하지만, 이 사용자가 Contoso 직원일 수도 있고 그렇지 않을 수도 있습니다. 왼쪽 그림은 위 시나리오 \#2와 마찬가지로 리소스 소유자(Contoso)를 나타냅니다. 그러나 이번에는 외부 사용자가 로그인할 수 있음을 전달하기 위해 오른쪽의 상호 작용 창이 Contoso에서 잠겨 있지 않습니다.
+![사용자 지정한 후 Office 365 로그인 페이지][4]
 
-![열려 있는 액세스에 대한 로그인][3]
+브라우저 창의 크기를 조정할 때 앞에 표시된 그림처럼 흔히 큰 그림은 다양한 화면의 가로 세로 비율에 맞게 잘립니다. 따라서 그림에서 주요 시각적 요소가 항상 왼쪽 위 모서리(오른쪽에서 왼쪽으로 쓰는 언어의 경우 오른쪽 위)에 나타나도록 유지해야 합니다. 일반적으로 크기 조정은 오른쪽 아래 모서리에서 발생하여 위쪽/왼쪽으로 이동하거나 아래쪽에서 위쪽으로 이동하기 때문에 중요합니다.
 
-### <a name="scenario-4-fabrikam-business-guest-goes-to-contoso-app-thats-open-to-external-users"></a>시나리오 4: Fabrikam 비즈니스 게스트가 외부 사용자에게 열리는 Contoso 응용 프로그램으로 이동
+다음 그림은 브라우저 크기가 왼쪽에 맞게 조정될 때 그림이 어떻게 잘리는지를 보여 줍니다.
 
-이 예에서 Contoso 사용자는 회사 특정 URL을 사용하여 내부 응용 프로그램에 로그인하고 있습니다. 왼쪽 그림은 회사 브랜드(Contoso)를 나타냅니다. 오른쪽의 상호 작용 창은 Contoso에서 잠겨 있으며 로그인을 통해 직원에게 도움을 줍니다.
+![][6]
 
-![외부 사용자로 로그인][4]
+다음은 브라우저가 위쪽으로 크기 조정된 후에 표시되는 모양입니다.
 
+![][7]
 
 ## <a name="what-elements-on-the-page-can-i-customize"></a>페이지에서 어떤 요소를 사용자 지정할 수 있나요?
-
 로그인 페이지에서는 다음과 같은 요소를 사용자 지정할 수 있습니다.
 
 ![][5]
 
 | 페이지 요소 | 페이지에서의 위치 |
 |:--- | --- |
-| 배너 로고 | 페이지 오른쪽 상단에 표시됩니다. 사용자의 조직이 결정되면 앱 로고를 대체합니다(일반적으로 사용자 이름을 입력한 후). |
-| 배경 그림 | 로그인 페이지 왼쪽에 전체 화상 물림(full-bleed) 이미지로 표시됩니다. 테넌트 로그인 시나리오(사용자 자신의 조직 또는 비즈니스 게스트인 사용자의 조직에서 게시한 응용 프로그램에 액세스할 때)에 대한 앱의 그림을 대체합니다.<br>낮은 대역폭 연결에서는 배경 그림이 배경색으로 대체됩니다. 전화와 같은 좁은 화면에서는 그림이 표시되지 않습니다.<br>사용자가 브라우저의 크기를 조정하면 배경 그림이 잘립니다. 그림을 디자인할 때 주요 시각적 요소가 왼쪽 위 모서리에서 잘리지 않도록 유지합니다. | 
-| "로그인 유지" 확인란 | **암호** 상자 아래에 표시됩니다. |
-| 로그인 페이지 텍스트 | 페이지 바닥글 위에 표시할 상용구 텍스트입니다. 지원 센터 전화 번호 또는 법적 고지 사항과 같은 유용한 정보를 사용자에게 전달하는 데 사용할 수 있습니다. |
+| 배너 로고 |페이지 오른쪽 상단에 표시됩니다. 로그인하는 대상 사이트(예: Office 365 또는 Azure)에 일반적으로 표시되는 로고를 대체합니다. |
+| 큰 그림/배경색 |페이지 왼쪽에 표시됩니다. 로그인하는 대상 사이트에 표시할 이미지를 교체합니다. 낮은 대역폭 연결이나 좁은 화면에서는 배경색이 큰 그림 대신 표시될 수 있습니다. |
+| 로그인 유지 |암호 텍스트 상자 아래에 표시됩니다. |
+| 로그인 페이지 텍스트 |회사 또는 학교 계정으로 로그인하기 전에 유용한 정보를 전달해야 하는 경우 페이지 바닥글 위에 표시됩니다. 예를 들어 지원 센터 전화 번호나 법적 고지 사항을 포함할 수 있습니다. |
 
 > [!NOTE]
-> 모든 요소는 선택 사항입니다. 예를 들어 배너 로고는 지정하고 배경 그림은 지정하지 않으면 로그인 페이지에 대상 사이트에 대한 로고와 그림(예: Office 365 캘리포니아 고속도로 이미지)이 표시됩니다.
+> 모든 요소는 선택 사항입니다. 예를 들어 배너 로고는 지정하고 큰 그림은 지정하지 않으면 로그인 페이지에는 대상 사이트에 대한 로고와 그림(예: Office 365 캘리포니아 고속도로 이미지)이 표시됩니다.
+>
 >
 
-로그인 페이지에서 **로그인 유지** 확인란을 사용하면 사용자가 브라우저를 닫았다가 다시 열었을 때 로그인 상태를 유지할 수 있으며 세션 수명 주기에 영향을 미치지 않습니다.
+로그인 페이지의 **로그인 유지** 확인란은 사용자가 브라우저를 닫았다가 다시 열 때 로그인 상태를 유지할 수 있도록 합니다. 세션 수명에는 영향을 미치지 않습니다. 이 확인란을 Azure Active Directory 로그인 페이지에서 숨길 수 있습니다.
 
-확인란의 표시 여부는 **KMSI 숨기기**의 설정에 따라 달라집니다.
+확인란 표시 여부는 **KMSI 숨기기** 설정에 따라 달라집니다.
 
-![KMSI 설정 숨기기][6]
+![][9]
 
-확인란을 숨기려면 이 설정을 **숨김**으로 설정합니다.
+확인란을 숨기려면 이 설정을 **숨겨짐**으로 설정합니다.
 
 > [!NOTE]
-> SharePoint Online과 Office 2010의 일부 기능은 사용자가 이 확인란을 선택할 수 있는지 여부에 따라 달라집니다. 이 설정을 [숨김]으로 구성하면 사용자에게 예기치 않은 추가 로그인을 요청하는 메시지가 표시될 수 있습니다.
+> SharePoint Online과 Office 2010의 일부 기능은 이 확인란을 선택할 수 있는 사용자에 따라 달라집니다. 이 설정을 숨겨짐으로 구성하면 사용자에게 로그인을 요청하는 예상치 못한 메시지가 추가로 표시될 수 있습니다.
 >
 >
 
 이 페이지의 모든 요소를 지역화할 수도 있습니다. "기본" 사용자 지정 요소 집합을 구성한 후 다른 로캘로 추가 버전을 구성할 수 있습니다. 다양한 요소를 적절히 조합하여 사용할 수도 있습니다. 예를 들어 다음을 수행할 수 있습니다.
 
-* 모든 문화권에 적용되는 "기본" 그림을 만든 다음 영어와 프랑스어에 대한 특정 버전을 만듭니다. 다른 모든 언어에 대해 기본 그림이 표시되는 반면 이 두 언어 중 하나로 브라우저를 설정하면 특정 이미지가 나타납니다.
+* 모든 문화권에 적용되는 "기본" 큰 그림을 만든 다음 영어와 프랑스어에 대한 특정 버전을 만듭니다. 다른 모든 언어에 대해 기본 그림이 표시되는 반면 이 두 언어 중 하나로 브라우저를 설정하면 특정 이미지가 나타납니다.
 * 조직에 따라 다른 로고를 구성합니다(예: 일본어 또는 히브리어 버전).
 
 ## <a name="access-panel-page-customization"></a>액세스 패널 페이지 사용자 지정
@@ -131,6 +134,10 @@ Azure 클래식 포털에서 디렉터리당 하나의 기본 사용자 지정 �
 언어 기본 설정이 독일어인 경우 독일어 텍스트를 제외한 기본 배너 로고를 가져옵니다.
 
 기술적으로 Azure AD에서 지원하는 다양한 각 언어 집합을 구성할 수 있지만 유지 관리 및 성능상의 이유로 변형 수를 낮게 유지하는 것이 좋습니다.
+
+> [!IMPORTANT]
+> Yammer는 사용자가 로그인할 때까지 Azure AD 브랜드 로그인 페이지를 표시되지 않습니다. 사용자에게 일반 Office 365 로그인 페이지가 먼저 표시된 후 브랜드 페이지가 표시됩니다.   
+ 
  
 **디렉터리에 회사 브랜딩을 추가하려면 다음 단계를 수행합니다.**
 
@@ -141,7 +148,7 @@ Azure 클래식 포털에서 디렉터리당 하나의 기본 사용자 지정 �
 5. 사용자 지정할 요소를 수정합니다. 모든 필드는 선택 사항입니다.
 6. **Save**를 클릭합니다.
 
-로그인 페이지 브랜딩의 새로운 변경 내용을 보려면 최대 1시간이 걸릴 수 있습니다.
+로그인 페이지 브랜딩의 새로운 변경 내용을 보려면 최대&1;시간이 걸릴 수 있습니다.
 
 **언어별 회사 브랜딩을 추가하려면 다음 단계를 수행 합니다.**
 
@@ -176,31 +183,48 @@ fs3. 위쪽 도구 모음에서 **구성**을 클릭합니다.
 8. 필요한 경우 **브랜딩 사용자 지정** 을 다시 클릭하여 제거해야 하는 모든 언어별 브랜딩에 대해 이러한 단계를 반복합니다.
     **브랜딩 사용자 지정**을 클릭하고 구성된 기존 설정이 없는 **기본 브랜딩 사용자 지정** 양식이 표시되면 모든 브랜딩 설정이 제거된 것입니다.
 
+## <a name="testing-and-examples"></a>테스트 및 예제
+프로덕션 환경을 변경하기 전에 테스트 테넌트를 시험하는 것이 좋습니다.
+
+**브랜딩이 적용되었는지 확인하려면**
+
+1. InPrivate 또는 Incognito 브라우저 세션을 엽니다.
+2. https://outlook.com/contoso.com로 이동하여 contoso.com을 사용자 지정된 도메인으로 바꿉니다.
+
+또한 contoso.onmicrosoft.com과 같이 표시되는 도메인으로도 작동합니다.
+
+효과적인 사용자 지정 집합을 만드는 데 도움을 주기 위해 다음과 같은 두 가상 로그인 페이지를 사용자 지정했습니다.
+
+* [http://aka.ms/aaddemo001](http://aka.ms/aaddemo001)
+* [http://aka.ms/aaddemo002](http://aka.ms/aaddemo002)
+
+언어별 설정을 테스트하려면 웹 브라우저의 기본 언어 설정을 사용자 지정에서 설정한 언어로 수정해야 합니다. Internet Explorer에서는 **인터넷 옵션** 메뉴에서 구성합니다.
 
 ## <a name="customizable-elements"></a>사용자 지정 가능한 요소
-회사 로고는 로그인 페이지 및 액세스 패널 페이지에 사용되지만, 다른 요소는 로그인 페이지에만 사용됩니다. 다음 표에서는 여러 가지 사용자 지정 가능한 요소에 대한 자세한 정보를 제공합니다.
+Azure AD의 일부 사용자 지정 가능한 요소에는 여러 가지 사용 사례가 있습니다. 디렉터리당 한 번 회사 로고를 구성할 수 있고 로그인 및 액세스 패널 페이지 모두에서 사용될 수 있습니다. 일부 사용자 지정 가능한 요소는 로그인 페이지에만 특정됩니다. 다음 표에서는 여러 가지 사용자 지정 가능한 요소에 대한 자세한 정보를 제공합니다.
 
 | 이름 | 설명 | 제약 조건 | 추천 |
 | --- | --- | --- | --- |
 | 배너 로고 |배너 로고는 로그인 페이지와 액세스 패널에 표시됩니다. |<p>JPG 또는 PNG</p><p>60x280픽셀</p><p>10KB</p> |<p>조직의 전체 로고 사용(픽토그램과 로고 형식 포함)</p><p>모바일 장치에서 스크롤 막대가 표시되지 않도록 높이를 30픽셀 미만으로 유지하세요.</p><p>4KB 미만으로 유지하세요.</p><p>투명 PNG 사용(로그인 페이지가 항상 흰색 배경은 아님)</p> |
-| 타일 로고 | 현재 사용되지 않음 |<p>JPG 또는 PNG</p><p>120x120픽셀</p><p>10KB</p> |<p>이 이미지는 50%로 크기 조정할 수 있으므로 간단하게(작은 텍스트 없음) 유지하세요. |
+| 타일 로고 |(현재 로그인 페이지에서 사용되지 않음) 나중에 이 텍스트는 환경의 여러 위치에서 일반 "회사 또는 학교 계정" 픽토그램을 대체하는 데 사용할 수 있습니다. |<p>JPG 또는 PNG</p><p>120x120픽셀</p><p>10KB</p> |<p>이 이미지는 50%로 크기 조정할 수 있으므로 간단하게(작은 텍스트 없음) 유지하세요. |
 | </p> | | | |
-| 로그인 사용자 이름 레이블 | 현재 사용되지 않음 |<p>유니코드 텍스트, 최대 50자</p><p>일반 텍스트 전용(링크 또는 HTML 태그 없음)</p> |<p>짧고 간단하게 만드세요.</p><p>제공된 회사 또는 학교 계정을 일반적으로 참조하는 방법을 사용자에게 확인하세요.</p> |
-| 로그인 페이지 상용구 텍스트 |이 상용구 텍스트는 로그인 페이지 양식 아래에 표시되며, 추가 지침 또는 도움말과 지원을 받을 수 있는 위치를 전달하는 데 사용할 수 있습니다. |<p>유니코드 텍스트, 최대 256자</p><p>일반 텍스트 전용(링크 또는 HTML 태그 없음)</p> |250자 미만(약 텍스트 3 줄)으로 유지하세요. |
-| 로그인 페이지 배경 그림 | 사용자가 테넌트 특정 URL에 액세스할 때 로그인 페이지 왼쪽(RtL 언어의 경우 오른쪽)에 표시되는 큰 이미지입니다. |<p>JPG 또는 PNG</p><p>1420x1200</p><p>500KB</p> |<p>1420x1200픽셀</p><p>중요: 최대한 작게(200KB 미만이 이상적임) 유지하세요. 이 이미지가 너무 크면 이미지가 캐시되지 않을 경우 로그인 페이지의 성능에 영향을 줍니다.</p><p>이 이미지는 다른 화면 가로 세로 비율에 맞게 거의 항상 잘립니다. 기본 시각적 요소를 왼쪽 위 모서리에 유지합니다.</p> |
-| 로그인 페이지 배경색 | 낮은 대역폭 연결에서는 이 단색이 배경 그림 대신 사용됩니다. | 16진수 형식(예: \#FFFFFF)의 RGB 색이어야 합니다. | 배너 로고의 기본 색을 선택하는 것이 좋습니다. |
+| 로그인 페이지 사용자 이름 레이블 |(현재 로그인 페이지에서 사용되지 않음) 나중에 이 텍스트는 환경의 여러 위치에서 일반 “회사 또는 학교 계정” 문자열을 대체하는 데 사용할 수 있습니다. "Contoso 계정" 또는 "Contoso ID"와 같은 항목으로 설정할 수 있습니다. |<p>유니코드 텍스트, 최대 50자</p><p>일반 텍스트 전용(링크 또는 HTML 태그 없음)</p> |<p>짧고 간단하게 만드세요.</p><p>제공된 회사 또는 학교 계정을 일반적으로 참조하는 방법을 사용자에게 확인하세요.</p> |
+| 로그인 페이지 텍스트 |이 “상용구” 텍스트는 로그인 페이지 양식 아래에 표시되며 추가 지침 또는 도움말 및 지원을 받을 수 있는 위치를 전달하는 데 사용할 수 있습니다. |<p>유니코드 텍스트, 최대 256자</p><p>일반 텍스트 전용(링크 또는 HTML 태그 없음)</p> |250자 미만(약 텍스트 3 줄)으로 유지하세요. |
+| 로그인 페이지 그림 |그림은 로그인 페이지에서 로그인 페이지 양식 왼쪽에 표시되는 큰 이미지입니다. |<p>JPG 또는 PNG</p><p>1420x1200</p><p>500KB</p> |<p>1420x1200픽셀</p><p>중요: 최대한 작게(200KB 미만이 이상적임) 유지하세요. 이 이미지가 너무 크면 이미지가 캐시되지 않을 경우 로그인 페이지의 성능에 영향을 줍니다.</p><p>이 이미지는 다양한 화면 비율에 맞게 잘리는 경우가 많습니다. 크기 조정은 브라우저 창이 축소될 때 아래쪽/오른쪽 모서리에서 위쪽/왼쪽으로 이동하며 발생하므로 기본 시각적 요소를 왼쪽 위 모서리(RTL 언어의 경우 오른쪽 위)에 유지하세요.</p> |
+| 로그인 페이지 배경색 |로그인 페이지 배경색은 로그인 페이지 양식의 왼쪽 영역에서 사용되며, |16진수 형식(예: #FFFFFF)의 RGB 색이어야 합니다. |<p>낮은 대역폭 연결에서는 배경색이 큰 그림 대신 표시될 수 있습니다.</p><p>배너 로고의 기본 색을 선택하는 것이 좋습니다.</p> |
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
 * [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-add-company-branding/signin-page_before-customization.png
-[2]: ./media/active-directory-add-company-branding/signin-page-restricted-app.png
-[3]: ./media/active-directory-add-company-branding/signin-page-open-access.png
-[4]: ./media/active-directory-add-company-branding/signin-page-external-guest.png
-[5]: ./media/active-directory-add-company-branding/which-elements-can-i-customize.png
-[6]: ./media/active-directory-add-company-branding/hide-kmsi.png
+[1]: ./media/active-directory-add-company-branding/SignInPage_beforecustomization.png
+[2]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization.png
+[3]: ./media/active-directory-add-company-branding/SignInPage_mobile_beforecustomization.png
+[4]: ./media/active-directory-add-company-branding/SignInPage_mobile_aftercustomization.png
+[5]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_elements.png
+[6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
+[7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
 

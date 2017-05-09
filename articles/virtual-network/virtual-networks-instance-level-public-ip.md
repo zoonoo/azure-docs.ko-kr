@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 773043f2841ec7539b0d49357dec6bcb9f4f78a1
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
 
 
@@ -44,7 +45,7 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 ## <a name="why-would-i-request-an-ilpip"></a>ILPIP를 요청하는 이유
 클라우드 서비스 VIP:&lt;포트 번호&gt;를 사용하지 않고 직접 할당된 IP 주소로 VM 또는 역할 인스턴스에 연결할 수 있게 하려면 VM 또는 역할 인스턴스에 대한 ILPIP를 요청합니다.
 
-* **활성 FTP** - VM에 ILPIP를 할당하면 어떤 포트에서도 트래픽을 수신할 수 있습니다. 끝점이 없어도 VM에서 트래픽을 수신할 수 있습니다.  FTP 프로토콜에 대한 자세한 내용은 [FTP 프로토콜 개요](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)를 참조하세요.
+* **활성 FTP** - VM에 ILPIP를 할당하면 어떤 포트에서도 트래픽을 수신할 수 있습니다. 끝점이 없어도 VM에서 트래픽을 수신할 수 있습니다.  FTP 프로토콜에 대한 자세한 내용은 (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP Protocol Overview] 를 참조하세요.
 * **아웃바운드 IP** - VM에서 발생하는 아웃바운드 트래픽은 원본으로 ILPIP에 매핑되며 ILPIP는 외부 엔터티에 대한 VM을 고유하게 식별합니다.
 
 > [!NOTE]
