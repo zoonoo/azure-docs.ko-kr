@@ -10,5 +10,5 @@ Azure Redis Cache 제한 및 크기는 각 가격 책정 계층에 따라 다릅
 
 Azure Redis Cache 구성 제한에 대한 정보는 [기본 Redis 서버 구성](../articles/redis-cache/cache-configure.md#default-redis-server-configuration)을 참조하세요.
 
-Azure Redis Cache 인스턴스의 구성 및 관리는 Microsoft에서 수행하므로 Azure Redis Cache에서 모든 Redis 명령이 지원되지는 않습니다. 자세한 내용은 [Azure Redis Cache에서 지원되지 않는 Redis 명령](redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)을 참조하세요.
+Azure Redis Cache 인스턴스의 구성 및 관리는 Microsoft에서 수행하므로 Azure Redis Cache에서 모든 Redis 명령이 지원되지는 않습니다. 자세한 내용은 [Azure Redis Cache에서 지원되지 않는 Redis 명령]((redis-cache/cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)을 참조하세요.
 
