@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: ashwink
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
 
 
@@ -35,7 +36,7 @@ Azure 포털에서 클라우드 서비스 및 서버 팜(웹 앱)에 대해 옵�
 
 * **배율 기준** 메트릭을 선택합니다.
 
-![배율 기준](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
+![배율 기준](./media/insights-autoscale-to-webhook-email/insights-autoscale-notify.png)
 
 ## <a name="virtual-machine-scale-sets"></a>가상 컴퓨터 크기 집합
 Resource Manager(가상 컴퓨터 크기 집합)로 만든 새 가상 컴퓨터의 경우 REST API, Resource Manager 템플릿, PowerShell 및 CLI를 사용하여 구성할 수 있습니다. 포털 인터페이스는 아직 제공되지 않습니다.
@@ -126,5 +127,4 @@ REST API 또는 Resource Manager 템플릿을 사용하는 경우 다음 옵션�
 | oldCapacity |yes |크기 자동 조정에서 크기 조정 작업을 수행한 현재(이전) 인스턴스 수입니다. |
 | newCapacity |yes |크기 자동 조정에서 리소스 크기를 조정한 새 인스턴스 수입니다. |
 | properties |아니요 |선택 사항입니다. <키, 값> 쌍 집합(예: Dictionary <문자열, 문자열>). 속성 필드는 선택 사항입니다. 사용자 지정 사용자 인터페이스 또는 논리 앱 기반 워크플로에서는 페이로드를 사용하여 전달할 수 있는 키와 값을 입력할 수 있습니다. Webhook URI 자체를 쿼리 매개 변수로 사용하여 발신 Webhook 호출로 사용자 지정 속성을 다시 전달할 수도 있습니다. |
-
 

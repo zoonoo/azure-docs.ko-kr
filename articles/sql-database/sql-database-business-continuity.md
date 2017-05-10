@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/13/2016
+ms.date: 04/07/2017
 ms.author: sashan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
 ms.openlocfilehash: 2ddbe1766a978f9849c310a72086f95cbb68cd83
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/14/2017
 
 
@@ -68,8 +69,7 @@ SQL 데이터베이스는 데이터 손실로부터 비즈니스를 보호하기
 
 > [!IMPORTANT]
 > 활성 지역 복제 및 자동 장애 조치(failover) 그룹을 사용하려면 SQL Server에서 구독 소유자이거나 관리 권한을 보유해야 합니다. 구독에 대한 권한을 통해 Azure 포털, PowerShell 또는 REST API를 사용하거나, SQL Server 내의 권한을 통해 Transact-SQL을 사용하여 구성 및 장애 조치(failover)를 수행할 수 있습니다.
->
->
+> 
 
 응용 프로그램이 다음 조건에 맞는 경우 활성 지역 복제를 사용합니다.
 
@@ -131,8 +131,8 @@ Azure 포털 또는 PowerShell을 사용하여 삭제된 데이터베이스를 �
 활성 지역 복제 및 자동 장애 조치(failover) 그룹을 복구 메커니즘으로 사용할 경우 자동 장애 조치(failover) 정책을 구성하거나 [수동 장애 조치(failover)](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database)를 사용할 수 있습니다. 일단 장애 조치(failover)가 시작되면 보조 데이터베이스는 새로운 주 데이터베이스로 승격되며, 새 트랜잭션을 기록하고 쿼리에 응답할 준비를 갖춥니다. 이때 최소한의 데이터 손실이 있을 수 있으나 아직 복제되지 않은 데이터입니다. 장애 조치(failover) 프로세스 디자인에 대한 자세한 내용은 [클라우드 재해 복구를 위해 응용 프로그램 디자인](sql-database-designing-cloud-solutions-for-disaster-recovery.md)을 참조하세요.
 
 > [!NOTE]
-> 데이터 센터가 다시 온라인 상태가 되면 이전 주 데이터베이스는 새 주 데이터베이스에 자동으로 다시 연결되고 보조 데이터베이스가 됩니다. 주 데이터베이스를 다시 원래 지역으로 재배치해야 할 경우 계획된 장애 조치(failover)를 수동으로 시작할 수 있습니다(장애 복구(failback)).
->
+> 데이터 센터가 다시 온라인 상태가 되면 이전 주 데이터베이스는 새 주 데이터베이스에 자동으로 다시 연결되고 보조 데이터베이스가 됩니다. 주 데이터베이스를 다시 원래 지역으로 재배치해야 할 경우 계획된 장애 조치(failover)를 수동으로 시작할 수 있습니다(장애 복구(failback)). 
+> 
 
 ### <a name="perform-a-geo-restore"></a>지역 복원 수행
 복구 메커니즘으로 지역 중복 저장소 복제와 자동화된 백업을 함께 사용하는 경우 [지역 복원을 사용하여 데이터베이스 복구를 시작](sql-database-disaster-recovery.md#recover-using-geo-restore)합니다. 일반적으로 복구는 12시간 이내에 수행됩니다. 이때 마지막으로 수행된 매시간 차등 백업의 실행 및 복제를 기준으로 최대 1시간의 데이터 손실이 있을 수 있습니다. 복구가 완료될 때까지 데이터베이스는 어떤 트랜잭션도 기록할 수 없으며 쿼리에 응답할 수 없습니다.

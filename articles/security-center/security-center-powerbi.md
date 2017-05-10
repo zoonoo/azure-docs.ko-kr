@@ -4,7 +4,7 @@ description: "Azure 보안 센터 Power BI 콘텐츠 팩을 사용하면 보고�
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
 ms.service: security-center
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
@@ -32,7 +32,7 @@ Azure 보안 센터에 대한 [Power BI 대시보드](http://aka.ms/azure-securi
 
 1. **Azure Security Center** 대시보드에서 **Power BI** 단추를 클릭합니다.
 
-    ![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig1-newUI-2017.png)
+    ![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig1-1-newUI-2017.png)
 2. 다음 화면에 표시된 것처럼 **Power BI** 블레이드가 오른쪽에 열립니다.
 
     ![Power BI를 사용하여 Azure 보안 센터에 연결](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)
