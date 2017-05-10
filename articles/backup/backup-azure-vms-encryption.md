@@ -15,10 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 04/24/2017
 ms.author: pajosh;markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: da6c497e10d31dbc98703090a8f7699d0841faa8
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: d76fb43a1b045b98a14ae91ac339d53e9a48f1de
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -83,11 +84,11 @@ ms.lasthandoff: 04/26/2017
 백업 작업을 트리거하려면 [복구 서비스 자격 증명 모음에 Azure VM 백업](backup-azure-arm-vms.md) 문서에서 언급한 단계를 사용합니다.
 
 ### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>암호화를 설정한 상태로 이미 백업한 VM의 백업 계속  
-복구 서비스 자격 증명 모음에서 VM이 이미 백업되었으며 나중에 암호화가 설정된 경우 백업이 계속될 수 있게 백업 서비스에 Key Vault에 액세스할 수 있는 권한을 부여해야 합니다. [PowerShell 설명서](backup-azure-vms-automation.md#backup-azure-vms)의 **백업 사용** 섹션에 설명된 단계를 사용하여 PowerShell에서 이러한 권한을 제공해야 합니다. 
+복구 서비스 자격 증명 모음에서 VM이 이미 백업되었으며 나중에 암호화가 설정된 경우 백업이 계속될 수 있게 백업 서비스에 Key Vault에 액세스할 수 있는 권한을 부여해야 합니다. [PowerShell 설명서](backup-azure-vms-automation.md)의 **백업 사용** 섹션에 설명된 단계를 사용하여 PowerShell에서 이러한 권한을 제공해야 합니다. 
 
 ## <a name="restore-encrypted-vm"></a>암호화된 VM 복원
 암호화된 VM을 복원하려면 먼저 [VM 복원 구성 선택](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration)의 **백업된 디스크 복원** 섹션에 제공된 단계에 따라 디스크를 복원합니다. 그런 후에 다음 옵션 중 하나를 사용할 수 있습니다.
-* [복원된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)에 설명된 PowerShell 단계를 사용하여 복원된 디스크에서 전체 VM을 만듭니다. 
+* [복원된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)에 설명된 PowerShell 단계를 사용하여 복원된 디스크에서 전체 VM을 만듭니다.
 * 또는 [디스크 복원의 일부로 생성된 템플릿을 사용](backup-azure-arm-restore-vms.md#use-templates-to-customize-restore-vm)하여 복원된 디스크에서 VM을 만듭니다. 템플릿은 2017년 4월 26일 이후에 만들어진 복원 지점에 대해서만 사용할 수 있습니다.
 
 ## <a name="troubleshooting-errors"></a>문제 해결 오류

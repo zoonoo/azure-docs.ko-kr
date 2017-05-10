@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: trinadhk;markgal;jpallavi;
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 024b0019150c4d9117151d8faedb08ea3181d8c4
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: f89375510cdcb89d800edc2513f34e601f52efe9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -49,10 +50,10 @@ ms.lasthandoff: 04/26/2017
 | VSS 기록기가 오류 상태이므로 스냅숏 작업이 실패함 |오류 상태인 VSS(볼륨 섀도 복사본 서비스) 기록기를 다시 시작해야 합니다. 이를 위해 관리자 권한 명령 프롬프트에서 _vssadmin list writers_를 실행합니다. 출력에는 모든 VSS 기록기와 해당 상태가 포함됩니다. "[1] 안정" 상태가 아닌 모든 VSS 기록기는 관리자 권한 명령 프롬프트에서 다음 명령을 실행하여 다시 시작합니다.<br> _net stop serviceName_ <br> _net start serviceName_|
 | 구성의 구문 분석 실패로 인해 스냅숏 작업이 실패함 |이 문제는 MachineKeys 디렉터리 _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_에 대한 권한 변경 때문에 발생합니다. <br>아래 명령을 실행하고 MachineKeys 디렉터리에 대한 권한이 기본 권한인지 확인합니다.<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> 기본 권한은 다음과 같습니다.<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>MachineKeys 디렉터리에 대해 기본값과 다른 권한이 표시되면 아래 단계에 따라 권한을 수정하고, 인증서를 삭제한 후 백업을 트리거하세요.<ol><li>MachineKeys 디렉터리에 대한 권한을 수정합니다.<br>디렉터리에 대해 탐색기 보안 속성 및 고급 보안 설정을 사용하여 권한을 기본값으로 다시 설정하고, 디렉터리에서 추가(기본값 이외) 사용자 개체를 제거하고, 'Everyone ' 권한이 다음에 대해 특수한 액세스 권한을 갖는지 확인합니다.<br>-폴더 나열/데이터 읽기 <br>-특성 읽기 <br>-확장된 특성 읽기 <br>-파일 만들기/데이터 쓰기 <br>-폴더 만들기/데이터 추가<br>-특성 쓰기<br>-확장된 특성 쓰기<br>- 읽기 권한<br><br><li>‘Issued To’ = “Windows Azure Service Management for Extensions” 또는 “Windows Azure CRP Certificate Generator”가 지정된 인증서 삭제<ul><li>[인증서(로컬 컴퓨터) 콘솔 열기](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>‘Issued To’ = “Windows Azure Service Management for Extensions” 또는 “Windows Azure CRP Certificate Generator”가 지정된 인증서 삭제(개인 -> 인증서)</ul><li>VM 백업을 트리거합니다. </ol>|
 | 가상 컴퓨터가 BEK만으로 암호화되었기 때문에 유효성 검사에 실패했습니다. BEK와 KEK 모두로 암호화된 가상 컴퓨터에서만 백업을 사용할 수 있습니다. |이 경우 가상 시스템을 BitLocker 암호화 키와 키 암호화 키를 모두 사용하여 암호화해야 합니다. 그런 후에 백업을 사용하도록 설정해야 합니다. |
-| Azure Backup 서비스에는 암호화된 가상 컴퓨터의 백업을 위한 Key Vault에 대해 충분한 권한이 없습니다. |Backup 서비스에는 [PowerShell 설명서](backup-azure-vms-automation.md#backup-azure-vms)의 **백업 사용** 섹션에 설명된 단계를 사용하여 PowerShell에서 이러한 권한을 제공해야 합니다. |
+| Azure Backup 서비스에는 암호화된 가상 컴퓨터의 백업을 위한 Key Vault에 대해 충분한 권한이 없습니다. |Backup 서비스에는 [PowerShell 설명서](backup-azure-vms-automation.md)의 **백업 사용** 섹션에 설명된 단계를 사용하여 PowerShell에서 이러한 권한을 제공해야 합니다. |
 |COM+ 오류로 인해 스냅숏 확장 설치가 실패하면 Microsoft Distributed Transaction Coordinator와 통신할 수 없습니다. | "COM+ 시스템 응용 프로그램" Windows 서비스를 시작하세요(관리자 권한 명령 프롬프트에서 _net start COMSysApp_). <br>시작하는 동안 실패하면 아래 단계를 수행하세요.<ol><li> "Distributed Transaction Coordinator" 서비스의 로그온 계정이 "Network Service"인지 확인합니다. 그렇지 않으면 "Network Service"로 변경하고 이 서비스를 다시 시작한 후 "COM+ 시스템 응용 프로그램" 서비스를 시작합니다.<li>여전히 시작할 수 없으면 아래 단계에 따라 "Distributed Transaction Coordinator" 서비스를 제거한 후 설치합니다.<br> - MSDTC 서비스 중지<br> - 명령 프롬프트 열기(cmd) <br> - “msdtc -uninstall” 명령 실행 <br> - “msdtc -install” 명령 실행 <br> - MSDTC 서비스 시작<li>Windows 서비스 "COM+ 시스템 응용 프로그램"을 시작한 후 포털에서 백업을 트리거합니다.</ol> |
 | 파일-시스템의 일관된 스냅숏을 생성하기 위해 VM의 탑재 지점 하나 이상을 고정하지 못함 | <ol><li>_'tune2fs'_ 명령을 사용하여 탑재된 모든 장치의 파일-시스템 상태를 확인합니다.<br> 예: tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>_'umount'_ 명령을 사용하여 파일 시스템 상태가 정리되지 않은 장치를 탑재 해제합니다. <li> _'fsck'_ 명령을 사용하여 이러한 장치에 대해 FileSystemConsistency Check를 실행합니다. <li> 장치를 다시 탑재하고 백업을 시도합니다.</ol> |
-| 보안 네트워크 통신 채널을 생성하지 못하여 스냅숏 작업이 실패함 | <ol><Li> 관리자 권한 모드에서 regedit.exe를 실행하여 레지스트리 편집기를 엽니다. <li> 시스템에 있는 모든 버전의 .NetFramework를 파악합니다. 이러한 버전은 레지스트리 키 "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" 아래에 있습니다. <li> 레지스트리 키에 있는 각 .NetFramework에 대해 다음 키를 추가합니다. <br> "SchUseStrongCrypto"=dword:00000001 </ol>| 
+| 보안 네트워크 통신 채널을 생성하지 못하여 스냅숏 작업이 실패함 | <ol><Li> 관리자 권한 모드에서 regedit.exe를 실행하여 레지스트리 편집기를 엽니다. <li> 시스템에 있는 모든 버전의 .NetFramework를 파악합니다. 이러한 버전은 레지스트리 키 "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" 아래에 있습니다. <li> 레지스트리 키에 있는 각 .NetFramework에 대해 다음 키를 추가합니다. <br> "SchUseStrongCrypto"=dword:00000001 </ol>|
 | Visual Studio 2012용 Visual C++ 재배포 가능 패키지의 설치 실패로 인해 스냅숏 작업이 실패함 | C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion으로 이동한 후 vcredist2012_x64를 설치합니다. 이 서비스 설치를 허용하는 레지스트리 키 값이 올바른 값으로 설정되어 있는지 확인합니다. 예를 들어 레지스트리 키 _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_의 값은 4가 아닌 3으로 설정되어야 합니다. 설치하는 데 여전히 문제가 발생할 경우 관리자 권한 명령 프롬프트에서 _MSIEXEC /UNREGISTER_를 실행한 후 _MSIEXEC /REGISTER_를 실행하여 설치 서비스를 다시 시작합니다.  |
 
 
@@ -80,7 +81,7 @@ ms.lasthandoff: 04/26/2017
 | 백업 서비스는 구독의 리소스에 액세스할 수 있는 권한이 없습니다. |이 문제를 해결하려면 먼저 [VM 복원 구성 선택](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration)의 **백업된 디스크 복원** 섹션에 제공된 단계에 따라 디스크를 복원합니다. 그 후에는 [복원된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)에 설명된 PowerShell 단계를 사용하여 복원된 디스크에서 전체 VM을 만듭니다. |
 
 ## <a name="backup-or-restore-taking-time"></a>백업 또는 복원에 시간이 걸림
-백업(12시간 초과) 또는 복원(6시간 초과)에 시간이 오래 걸릴 경우 [백업 모범 사례](backup-azure-vms-introduction.md#best-practices)를 따라야 합니다. 또한 응용 프로그램이 백업을 위해 [최적의 방법으로 Azure Storage](backup-azure-vms-introduction.md#total-vm-backup-time)를 사용하고 있는지도 확인하세요. 
+백업(12시간 초과) 또는 복원(6시간 초과)에 시간이 오래 걸릴 경우 [백업 모범 사례](backup-azure-vms-introduction.md#best-practices)를 따라야 합니다. 또한 응용 프로그램이 백업을 위해 [최적의 방법으로 Azure Storage](backup-azure-vms-introduction.md#total-vm-backup-time)를 사용하고 있는지도 확인하세요.
 
 ## <a name="vm-agent"></a>VM 에이전트
 ### <a name="setting-up-the-vm-agent"></a>VM 에이전트 설정

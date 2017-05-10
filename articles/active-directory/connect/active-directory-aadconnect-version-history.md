@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: fe01be4f57766a556ff3a27a0cbba0293675cac7
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 7983ffa4bf7cb63f985d1a8f14d6dd834e679cf5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -49,7 +50,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 * 다음 조건에 모두 해당하면 이 버전의 Azure AD Connect가 제대로 설치되지 않습니다.
    1. DirSync 전체 업그레이드 또는 Azure AD Connect 새로 설치를 수행하고 있습니다.
    2. 서버에서 기본 제공 관리자 그룹의 이름이 “Administrators”가 아닌 지역화된 버전의 Windows Server를 사용하고 있습니다.
-   3. 자체적인 전체 SQL을 제공하는 대신 Azure AD Connect와 함께 설치된 기본 SQL Server 2012 Express LocalDB를 사용하고 있습니다. 
+   3. 자체적인 전체 SQL을 제공하는 대신 Azure AD Connect와 함께 설치된 기본 SQL Server 2012 Express LocalDB를 사용하고 있습니다.
 
 **수정된 문제:**
 
@@ -310,7 +311,7 @@ AD FS 관리
 **새로운 미리 보기 기능:**
 
 * [동기화를 위한 Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
-* [Azure AD 도메인 서비스](../active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) 암호 동기화를 지원합니다.
+* [Azure AD 도메인 서비스](../active-directory-passwords-update-your-own-password.md) 암호 동기화를 지원합니다.
 
 **지원되는 새 시나리오:**
 

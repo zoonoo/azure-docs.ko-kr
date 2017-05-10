@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/24/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 521169d52d37e644ba416e27c9adc8587868ab40
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -126,7 +127,7 @@ Azure AD에는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 �
 - - -
 **Q: 암호 변경을 시도하는 동안 기존 Office 365/Azure AD 암호를 기억할 수 없는 경우 어떻게 해야 하나요?**
 
-**A:** 이러한 상황에는 두 가지 옵션이 있습니다.  SSPR(셀프 서비스 암호 재설정)을 사용할 수 있으면 사용합니다.  SSPR 작동 여부는 구성 방식에 달려 있습니다.  자세한 내용은 [암호 재설정 포털의 작동 원리](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work)를 참조하세요.
+**A:** 이러한 상황에는 두 가지 옵션이 있습니다.  SSPR(셀프 서비스 암호 재설정)을 사용할 수 있으면 사용합니다.  SSPR 작동 여부는 구성 방식에 달려 있습니다.  자세한 내용은 [암호 재설정 포털의 작동 원리](active-directory-passwords-best-practices.md)를 참조하세요.
 
 Office 365 사용자의 경우 [사용자 암호 다시 설정](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)에 설명된 단계를 사용하여 관리자가 암호를 재설정할 수 있습니다.
 
@@ -146,7 +147,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 "Password" 및 "123456"의 변형과 같이 전역에서 일반적인 암호를 말합니다.
 
 **Q: 수상한 소스(봇넷, tor 끝점)의 로그인 요청은 B2C 테넌트에서 차단되나요? 아니면 Basic 또는 Premium Edition 테넌트가 필요한가요?**</br>
-요청을 필터링하고 봇넷으로부터 보호하며, 모든 B2C 테넌트에 적용되는 게이트웨이가 있습니다. 
+요청을 필터링하고 봇넷으로부터 보호하며, 모든 B2C 테넌트에 적용되는 게이트웨이가 있습니다.
 
 ## <a name="application-access"></a>응용 프로그램 액세스
 **Q: Azure AD 및 해당 기능과 미리 통합된 응용 프로그램의 목록을 어디에서 찾을 수 있나요?**
