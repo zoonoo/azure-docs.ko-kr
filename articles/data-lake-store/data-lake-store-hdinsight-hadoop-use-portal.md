@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 05/04/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 2aa5542dc095beaf951bad2b0361a3acc4468f2d
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 37211b961644fdc5567147cde946f86afb9b1aa9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -76,10 +77,9 @@ Data Lake Store에서 HDInsight를 사용하는 몇 가지 중요한 고려 사�
 
 4. 기존 Data Lake Store 계정을 선택하고 클러스터 특정 파일을 저장할 루트 폴더 경로를 입력합니다.
 
-    ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "HDInsight 클러스터에 서비스 주체 추가")
-
-
     위 스크린샷에서 루트 폴더 경로는 /clusters/myhdiadlcluster이며, 여기서 *myhdiadlcluster*는 만들려는 클러스터의 이름입니다. 이 경우 */clusters* 폴더가 Data Lake Store 계정에 존재하는지 확인합니다. 클러스터를 만드는 동안에 *myhdiadlcluster* 폴더가 만들어집니다. 마찬가지로 루트 경로가 */hdinsight/clusters/data/myhdiadlcluster*로 설정된 경우 */hdinsight/clusters/data/*가 Data Lake Store 계정에 존재하는지 확인합니다.
+
+    ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "HDInsight 클러스터에 서비스 주체 추가")
 
 5. **Data Lake Store 액세스**를 클릭하여 Data Lake Store 계정과 HDInsight 클러스터 간의 액세스를 구성합니다. 자세한 내용은 [HDInsight 클러스터와 Data Lake Store 간의 액세스 구성](#configure-access-between-hdinsight-cluster-and-data-lake-store)을 참조하세요.
 
