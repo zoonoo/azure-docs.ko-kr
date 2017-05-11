@@ -29,10 +29,12 @@
 
 # 참조
 ## [PowerShell](/powershell/module/azurerm.keyvault)
-## [Azure CLI 2.0](/cli/azure/keyvault)
+## [Azure CLI 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
-## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## Node.js
+### [자격 증명 모음 관리](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+### [자격 증명 모음 콘텐츠 관리](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
 ## [REST (영문)](/rest/api/keyvault)
 
 # 관련 항목

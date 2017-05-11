@@ -20,6 +20,7 @@
 ## [로컬 클러스터에 앱 배포](service-fabric-get-started-with-a-local-cluster.md)
 ## [Azure에서 첫 번째 클러스터 만들기](service-fabric-get-started-azure-cluster.md)
 ## [첫 번째 독립 실행형 클러스터 만들기](service-fabric-get-started-standalone-cluster.md)
+## [첫 번째 컨테이너 앱 만들기](service-fabric-get-started-containers.md)
 
 # 방법
 ## 응용 프로그램 빌드
@@ -50,14 +51,19 @@
 #### 개념
 ##### [Reliable Services 수명 주기 - C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Reliable Services 수명 주기 - Java](service-fabric-reliable-services-lifecycle-java.md)
+
+#### 신뢰할 수 있는 컬렉션
 ##### [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)
+##### [신뢰할 수 있는 컬렉션 지침 및 권장 사항](service-fabric-reliable-services-reliable-collections-guidelines.md)
+##### [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
+##### [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+##### [신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션 내부](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### 시작
 ##### [Windows에서 C#](service-fabric-reliable-services-quick-start.md)
 ##### [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
 
 #### Reliable Services 수명 주기
-#### [신뢰할 수 있는 컬렉션 사용](service-fabric-work-with-reliable-collections.md)
 #### [구성](service-fabric-reliable-services-configuration.md)
 #### [알림 보내기](service-fabric-reliable-services-notifications.md)
 #### [백업 및 복원](service-fabric-reliable-services-backup-restore.md)

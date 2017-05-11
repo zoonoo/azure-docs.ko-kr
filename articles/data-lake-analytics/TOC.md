@@ -15,12 +15,12 @@
 
 # 방법
 ## 개발
-### [U-SQL](data-lake-analytics-u-sql-get-started.md)
+### [U-SQL 기본 사항](data-lake-analytics-u-sql-get-started.md)
 ### [U-SQL 창 함수](data-lake-analytics-use-window-functions.md)
 ### [U-SQL 사용자 정의 연산자](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python 확장](data-lake-analytics-u-sql-python-extensions.md)
 ### [U-SQL R 확장](data-lake-analytics-u-sql-r-extensions.md)
-### [U-SQL 인식 기능](data-lake-analytics-u-sql-cognitive.md)
+### [U-SQL 인지 확장](data-lake-analytics-u-sql-cognitive.md)
 
 ## 솔루션 만들기
 ### [웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)

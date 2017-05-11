@@ -41,6 +41,8 @@
     href: sql-database-migrate-your-sql-server-database.md
   - name: "3 - SQL DB 보안"
     href: sql-database-security-tutorial.md
+  - name: "4 - SQL DB 성능 향상"
+    href: sql-database-performance-tutorial.md
 - name: "샘플"
   items:
   - name: "Azure CLI"

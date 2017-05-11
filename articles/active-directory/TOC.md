@@ -18,7 +18,9 @@
 
 # 방법
 ## 계획 및 디자인
+### [Azure AD 아키텍처 이해](active-directory-architecture.md)
 ### [하이브리드 ID 솔루션 배포](active-directory-hybrid-identity-design-considerations-overview.md)
+
 #### 요구 사항 결정
 ##### [ID](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [디렉터리 동기화](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -91,6 +93,7 @@
 ###    프로그래밍 방식 액세스
 #### [감사 참조](active-directory-reporting-api-audit-reference.md)
 #### [감사 샘플](active-directory-reporting-api-audit-samples.md)
+#### [데이터 가져오기](active-directory-reporting-api-with-certificates.md)
 #### [필수 구성 요소](active-directory-reporting-api-prerequisites.md)
 #### [로그인 참조](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [로그인 샘플](active-directory-reporting-api-sign-in-activity-samples.md)
@@ -114,6 +117,7 @@
 ## [암호 관리](active-directory-passwords.md)
 ### 사용자 문서
 #### [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
+#### [암호 모범 사례](active-directory-secure-passwords.md)
 #### [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
 ### [빠른 시작: 셀프 서비스 암호 재설정](active-directory-passwords-getting-started.md)
 ### [라이선스 SSPR](active-directory-passwords-licensing.md)
@@ -159,33 +163,37 @@
 #### [레지스트리 설정 업데이트](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [보안 및 개인 정보 이해](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
-### [앱에 대한 원격 액세스 제공](active-directory-application-proxy-get-started.md)
-#### [앱 프록시 사용](active-directory-application-proxy-enable.md)
-#### [커넥터 이해](application-proxy-understand-connectors.md)
-#### [앱 게시](application-proxy-publish-azure-portal.md)
-#### [보안](application-proxy-security-considerations.md)
-#### [네트워크](application-proxy-network-topology-considerations.md)
-#### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
-#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-#### [별도 네트워크에 게시](active-directory-application-proxy-connectors-azure-portal.md)
-#### [프록시 서버](application-proxy-working-with-proxy-servers.md)
-#### [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)
-#### [앱 액세스](active-directory-appssoaccess-whatis.md)
-##### [Azure 포털](application-proxy-sso-azure-portal.md)
-#### [KCD와 SSO](active-directory-application-proxy-sso-using-kcd.md)
-#### [헤더와 SSO](application-proxy-ping-access.md)
-#### [클레임 인식 앱](active-directory-application-proxy-claims-aware-apps.md)
-#### [네이티브 클라이언트 앱](active-directory-application-proxy-native-client.md)
-#### [사용자 지정 홈 페이지](application-proxy-office365-app-launcher.md)
-#### [조건부 액세스](active-directory-application-proxy-conditional-access.md)
-#### [자동 설치](active-directory-application-proxy-silent-installation.md)
-#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
+### [앱 프록시를 사용하여 원격으로 앱에 액세스](active-directory-application-proxy-get-started.md)
+#### 시작
+##### [앱 프록시 사용](active-directory-application-proxy-enable.md)
+##### [앱 게시](application-proxy-publish-azure-portal.md)
+##### [사용자 지정 도메인](active-directory-application-proxy-custom-domains.md)
+#### [SSO 액세스](active-directory-appssoaccess-whatis.md)
+##### [KCD와 SSO](active-directory-application-proxy-sso-using-kcd.md)
+##### [헤더와 SSO](application-proxy-ping-access.md)
+##### [암호 보관을 사용하는 SSO](application-proxy-sso-azure-portal.md)
+#### 모범 사례 이해
+##### [커넥터](application-proxy-understand-connectors.md)
+##### [보안](application-proxy-security-considerations.md)
+##### [네트워크](application-proxy-network-topology-considerations.md)
+#### 
+#### 고급 구성
+##### [별도 네트워크에 게시](active-directory-application-proxy-connectors-azure-portal.md)
+##### [프록시 서버](application-proxy-working-with-proxy-servers.md)
+##### [클레임 인식 앱](active-directory-application-proxy-claims-aware-apps.md)
+##### [네이티브 클라이언트 앱](active-directory-application-proxy-native-client.md)
+##### [자동 설치](active-directory-application-proxy-silent-installation.md)
+##### [사용자 지정 홈 페이지](application-proxy-office365-app-launcher.md)
+#### 게시 연습
+##### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
+##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [문제 해결](active-directory-application-proxy-troubleshoot.md)
 #### 클래식 포털 사용
 ##### [커넥터 다운로드](application-proxy-enable-classic-portal.md)
 ##### [앱 게시](active-directory-application-proxy-publish.md)
 ##### [커넥터 사용](active-directory-application-proxy-connectors.md)
-
+##### [조건부 액세스](active-directory-application-proxy-conditional-access.md)
 
 ### 엔터프라이즈 앱 관리
 #### [사용자 할당](active-directory-coreapps-assign-user-azure-portal.md)
@@ -297,14 +305,18 @@
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
 
 ## ID 보안
-### [조건부 액세스](active-directory-conditional-access.md)
-#### [시작](active-directory-conditional-access-azuread-connected-apps.md)
+### [조건부 액세스](active-directory-conditional-access-azure-portal.md)
+#### [시작](active-directory-conditional-access-azure-portal-get-started.md)
 #### [지원되는 앱](active-directory-conditional-access-supported-apps.md)
 #### [장치 정책 이해](active-directory-conditional-access-device-policies.md)
 #### [연결된 앱에 대한 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
+#### [기술 참조](active-directory-conditional-access-technical-reference.md)
 #### [FAQ](active-directory-conditional-faqs.md)
-#### [문제 해결](active-directory-conditional-access-device-remediation.md)
-#### [참조](active-directory-conditional-access-technical-reference.md)
+#### [재구성](active-directory-conditional-access-device-remediation.md)
+#### [클래식 포털](active-directory-conditional-access.md)
+##### [시작](active-directory-conditional-access-azuread-connected-apps.md)
+
+
 ### Windows Hello
 #### [암호 없이 인증](active-directory-azureadjoin-passport.md)
 #### [비즈니스용 Windows Hello 사용](active-directory-azureadjoin-passport-deployment.md)

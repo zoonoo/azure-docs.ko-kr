@@ -44,6 +44,7 @@
 ## [확장 가능한 정책 프레임워크](active-directory-b2c-reference-policies.md)
 ## [인증 프로토콜](active-directory-b2c-reference-protocols.md)
 ## [토큰](active-directory-b2c-reference-tokens.md)
+## [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)
 
 ## [위협 관리](active-directory-b2c-reference-threat-management.md)
 

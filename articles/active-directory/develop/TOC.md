@@ -67,6 +67,7 @@
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
 ### [서비스-서비스 호출](active-directory-protocols-oauth-service-to-service.md)
+### [On-Behalf-Of 흐름](active-directory-protocols-oauth-on-behalf-of.md)
 ### [지원되는 토큰 및 클레임 유형](active-directory-token-and-claims.md)
 ### [서명 키 롤오버](active-directory-signing-key-rollover.md)
 ### [페더레이션 메타데이터](active-directory-federation-metadata.md)
@@ -104,4 +105,5 @@
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [암시적 흐름](active-directory-v2-protocols-implicit.md)
 #### [OAuth 2.0 클라이언트 자격 증명](active-directory-v2-protocols-oauth-client-creds.md)
+#### [Oauth 2.0 On-Behalf-Of 흐름](active-directory-v2-protocols-oauth-on-behalf-of.md)
 ### [범위](active-directory-v2-scopes.md)

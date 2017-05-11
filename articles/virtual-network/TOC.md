@@ -46,20 +46,22 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [템플릿](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### [네트워크 인터페이스](virtual-network-network-interface.md)
+### 네트워크 인터페이스
+#### [추가, 변경 또는 삭제](virtual-network-network-interface.md)
+#### [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)
 
 ### [공용 IP 주소](virtual-network-public-ip-address.md)
 
 ### 가상 컴퓨터
-
-#### 고정 공용 IP 주소
+#### [네트워크 인터페이스 추가 또는 제거](virtual-network-network-interface-vm.md) 
+#### 정적 공용 IP 주소를 사용하는 VM 만들기
 ##### [포털](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [템플릿](virtual-network-deploy-static-pip-arm-template.md)
 ##### [PowerShell(클래식)](virtual-networks-reserved-public-ip.md)
 
-#### 고정 개인 IP 주소
+#### 고정 개인 IP 주소를 사용하는 VM 만들기
 ##### [포털](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
@@ -67,14 +69,13 @@
 ##### [PowerShell(클래식)](virtual-networks-static-private-ip-classic-ps.md)
 ##### [CLI(클래식)](virtual-networks-static-private-ip-classic-cli.md)
 
-#### 여러 네트워크 인터페이스
-##### [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
-##### [CLI](virtual-network-deploy-multinic-arm-cli.md)
-##### [템플릿](virtual-network-deploy-multinic-arm-template.md)
+#### 여러 네트워크 인터페이스를 사용하는 VM 만들기
+##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell(클래식)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI(클래식)](virtual-network-deploy-multinic-classic-cli.md)
 
-#### 여러 IP 주소
+#### 여러 IP 주소를 사용하여 VM 만들기
 ##### [Azure 포털](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)

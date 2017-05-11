@@ -31,7 +31,11 @@
     href: tutorial-load-balancer.md
   - name: "8 - 네트워킹 관리"
     href: tutorial-virtual-network.md
-  - name: "9 - VM 보안 관리"
+  - name: "9 - 가상 컴퓨터 백업"
+    href: tutorial-backup-vms.md
+  - name: "10 - 가상 컴퓨터 모니터링"
+    href: tutorial-monitoring.md
+  - name: "11 - VM 보안 관리"
     href: tutorial-azure-security.md
 
 - name: "샘플"
@@ -126,7 +130,7 @@
       href: creation-choices.md
     - name: "템플릿으로 VM 만들기"
       href: ps-template.md
-    - name: "C로 VM 만들기#"
+    - name: "C#으로 VM 만들기"
       href: csharp.md
     - name: "C# 및 템플릿으로 VM 만들기"
       href: csharp-template.md
@@ -159,7 +163,7 @@
       href: cli-manage.md
     - name: "CLI를 사용하여 VM 관리"
       href: cli-deploy-templates.md
-    - name: "C를 사용하여 VM 관리#"
+    - name: "C#을 사용하여 VM 관리"
       href: csharp-manage.md
   - name: "RDP로 연결"
     items:

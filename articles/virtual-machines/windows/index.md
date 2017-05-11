@@ -11,10 +11,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 631eb4c8aa3a41e03cf623fcc5610d3e84f18ec4
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: f319bcba8a4eb5f6adfbfb22f99055ea3de13309
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 ---
 <div class="content">
@@ -63,8 +64,15 @@ ms.lasthandoff: 04/22/2017
    <li><a href="/azure/virtual-machines/windows/tutorial-manage-vm">Windows VM 생성 및 관리</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-manage-data-disk">VM 디스크 생성 및 관리</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-automate-vm-deployment">VM 구성 자동화</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-custom-images">사용자 지정 VM 이미지 만들기</a></li> 
+    <li><a href="/azure/virtual-machines/windows/tutorial-availability-sets">항상 사용 가능한 VM 만들기</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-create-vmss">VM 확장 집합 만들기</a></li>
     <li><a href="/azure/virtual-machines/windows/tutorial-load-balancer">VM 부하 분산</a></li>
-    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">VM 네트워킹 관리</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-virtual-network">VM과 가상 네트워크 관리</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-backup-vms">VM 백업</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-monitoring">VM 모니터링</a></li>
+    <li><a href="/azure/virtual-machines/windows/tutorial-azure-security">VM에 대한 보안 관리</a></li>
+    
 </ol>
 
 <h2 style="margin-top: 36px">무료 PluralSight 동영상 교육</h2>
