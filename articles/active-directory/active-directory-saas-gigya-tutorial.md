@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: bf5588885de9c280eb70712dbf800efe509ee912
-ms.openlocfilehash: 96eb66f35a91e769418d179b0997cd32e02cdc97
-ms.lasthandoff: 02/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 21372b8554901594f6770ef1ad18467801ef5fea
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -116,7 +117,7 @@ ms.lasthandoff: 02/14/2017
     > 
     > 
    
-    f. Base&64;로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **X.509 인증서** 텍스트 상자에 붙여 넣습니다.
+    f. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 **X.509 인증서** 텍스트 상자에 붙여 넣습니다.
    
     g. **설정 저장**을 클릭합니다.
 
@@ -126,29 +127,8 @@ ms.lasthandoff: 02/14/2017
    
 ## <a name="configuring-user-provisioning"></a>사용자 프로비전 구성
 
-Azure AD 사용자가 Gigya에 로그인할 수 있도록 하려면 Gigya로 프로비전되어야 합니다.  
-Gigya의 경우 프로비전은 수동 작업입니다.
+Azure AD 사용자는 Gigya에 처음 로그인할 때 자동으로 프로비전됩니다.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
-1. **Gigya** 회사 사이트에 관리자 권한으로 로그인합니다.
-2. **관리자 \> 사용자 관리**로 이동한 다음 **사용자 초대**를 클릭합니다.
-   
-    ![사용자 관리](./media/active-directory-saas-gigya-tutorial/IC789535.png "사용자 관리")
-
-3. 사용자 초대 대화 상자에서 다음 단계를 수행합니다.
-   
-    ![사용자 초대](./media/active-directory-saas-gigya-tutorial/IC789536.png "사용자 초대")
-   
-    a. **전자 메일** 텍스트 상자에서 프로비전하려는 유효한 Azure Active Directory 계정의 전자 메일 별칭을 입력합니다.
-    
-    b. **사용자 초대**를 클릭합니다.
-      
-    > [!NOTE]
-    > Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
-    > 
-    > 
-
- 
 
 ## <a name="assigning-users"></a>사용자 할당
 구성을 테스트하려면 응용 프로그램 사용을 허용하려는 Azure AD 사용자를 할당하여 액세스 권한을 부여해야 합니다.

@@ -3,8 +3,8 @@ title: "Azure Active Directory B2C: Graph API 사용 | Microsoft Docs"
 description: "프로세스를 자동화하기 위해 응용 프로그램 ID를 사용하여 B2C 테넌트에 Graph API를 호출하는 방법입니다."
 services: active-directory-b2c
 documentationcenter: .net
-author: dstrockis
-manager: mbaldwin
+author: gsacavdm
+manager: krassk
 editor: bryanla
 ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
 ms.service: active-directory-b2c
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: a932b617d57184ef714bf18f1e1e23599db52487
-ms.lasthandoff: 01/18/2017
+ms.date: 03/22/2017
+ms.author: gsacavdm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 27a331562d659212dcd1b775ac06e1e1e4686517
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -34,63 +35,56 @@ B2C 테넌트의 경우 Graph API와 통신하는 두 가지 기본 모드가 �
 ## <a name="get-an-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트 가져오기
 응용 프로그램 또는 사용자를 만들거나 Azure AD와 상호 작용하려면 Azure AD B2C 테넌트 및 해당 테넌트의 전역 관리자 계정이 있어야 합니다. 테넌트가 없는 경우 [Azure AD B2C를 시작](active-directory-b2c-get-started.md)합니다.
 
-## <a name="register-a-service-application-in-your-tenant"></a>테넌트에 서비스 응용 프로그램 등록
-B2C 테넌트가 있으므로 Azure AD PowerShell Cmdlet을 사용하여 서비스 응용 프로그램을 만들어야 합니다.
-우선 [Microsoft Online Services 로그인 도우미](http://go.microsoft.com/fwlink/?LinkID=286152)를 다운로드 및 설치합니다. 그런 다음 [Windows PowerShell 용 64비트 Azure Active Directory 모듈](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다.
+## <a name="register-your-application-in-your-tenant"></a>테넌트에서 응용 프로그램 등록
+B2C 테넌트를 설정한 후에 [Azure Portal](https://portal.azure.com)을 통해 응용 프로그램을 등록해야 합니다.
 
 > [!IMPORTANT]
-> B2C 테넌트에서 Graph API를 사용하려면 PowerShell을 사용하여 전용 응용 프로그램을 등록해야 합니다. 이렇게 하려면 이 문서의 지침을 따릅니다. Azure 포털에 등록한 기존 B2C 응용 프로그램을 다시 사용할 수 없습니다.
-> 
-> 
+> B2C 테넌트에서 Graph API를 사용하려면 Azure AD B2C *응용 프로그램* 블레이드가 **아닌** Azure Portal의 제네릭 *앱 등록*을 사용하여 전용 응용 프로그램을 등록해야 합니다. Azure AD B2C의 *응용 프로그램* 블레이드에 등록한 기존 B2C 응용 프로그램을 다시 사용할 수 없습니다.
+
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. 페이지의 오른쪽 위 모서리에서 계정을 선택하여 Azure AD B2C 테넌트를 선택합니다.
+3. 왼쪽 탐색 창에서 **추가 서비스**를 선택하고 **앱 등록**을 클릭한 다음 **추가**를 클릭합니다.
+4. 프롬프트에 따라 새 응용 프로그램을 만듭니다. 
+    1. 응용 프로그램 형식에 **Web App/API**를 입력합니다.    
+    2. 이 예제와 관련이 없지만 **모든 리디렉션 URI**(예: https://B2CGraphAPI)를 제공합니다.  
+5. 이제 응용 프로그램은 응용 프로그램의 목록을 표시합니다. 이를 클릭하여 **응용 프로그램 ID**(클라이언트 ID라고도 함)를 가져옵니다. 이후 섹션에서 필요하므로 복사합니다.
+6. 설정 블레이드에서 **키**를 클릭하고 새 키(클라이언트 암호라고도 함)를 추가합니다. 또한 뒤에 나오는 섹션에서 사용하기 위해 복사합니다.
+
+## <a name="configure-create-read-and-update-permissions-for-your-application"></a>응용 프로그램에 대한 만들기, 읽기 및 업데이트 사용 권한 구성
+이제 사용자를 만들기, 읽기, 업데이트 및 삭제하는 데 필요한 모든 권한을 가져오도록 응용 프로그램을 구성해야 합니다.
+
+1. Azure Portal의 [앱 등록] 블레이드에서 계속 진행하여 응용 프로그램을 선택합니다.
+2. 설정 블레이드에서 **필요한 사용 권한**을 클릭합니다.
+3. 필요한 사용 권한 블레이드에서 **Windows Azure Active Directory**를 클릭합니다.
+4. [액세스 사용] 블레이드에서 **응용 프로그램 사용 권한**의 **디렉터리 데이터 읽기 및 쓰기** 사용 권한을 선택하고 **저장**을 클릭합니다.
+5. 마지막으로 필요한 사용 권한 블레이드로 돌아가서 **사용 권한 부여** 단추를 클릭합니다.
+
+이제 B2C 테넌트에서 사용자를 만들기, 읽기 및 업데이트하는 권한을 가진 응용 프로그램이 있습니다.
+
+## <a name="configure-delete-permissions-for-your-application"></a>응용 프로그램에 대한 삭제 권한 구성
+현재 *디렉터리 데이터 읽기 및 쓰기* 사용 권한에는 사용자를 삭제하는 등 모든 삭제 작업을 수행하는 기능이 포함되지 **않습니다**. 응용 프로그램에 사용자를 삭제하는 기능을 제공하려는 경우 PowerShell을 포함하는 이러한 추가 단계를 수행해야 합니다. 그렇지 않은 경우 다음 섹션으로 건너뛸 수 있습니다.
+
+우선 [Microsoft Online Services 로그인 도우미](http://go.microsoft.com/fwlink/?LinkID=286152)를 다운로드 및 설치합니다. 그런 다음 [Windows PowerShell 용 64비트 Azure Active Directory 모듈](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다.
 
 PowerShell 모듈을 설치한 후에 PowerShell을 열고 B2C 테넌트에 연결합니다. `Get-Credential`을 실행한 후에 사용자 이름 및 암호를 묻는 메시지가 표시되면 B2C 테넌트 관리자 계정의 사용자 이름 및 암호를 입력합니다.
 
-```
-> $msolcred = Get-Credential
-> Connect-MsolService -credential $msolcred
-```
+> [!IMPORTANT]
+> B2C 테넌트에 대해 **로컬**인 B2C 테넌트 관리자 계정을 사용해야 합니다. 이러한 계정은 다음과 같습니다. myusername@myb2ctenant.onmicrosoft.com
 
-응용 프로그램을 만들기 전에 새 **클라이언트 암호**를 생성해야 합니다.  응용 프로그램이 클라이언트 암호를 사용하여 Azure AD에 인증하고 액세스 토큰을 획득합니다. PowerShell에서 유효한 암호를 생성할 수 있습니다.
-
-```
-> $bytes = New-Object Byte[] 32
-> $rand = [System.Security.Cryptography.RandomNumberGenerator]::Create()
-> $rand.GetBytes($bytes)
-> $rand.Dispose()
-> $newClientSecret = [System.Convert]::ToBase64String($bytes)
-> $newClientSecret
+```powershell
+$msolcred = Get-Credential
+Connect-MsolService -credential $msolcred
 ```
 
-마지막 명령은 새 클라이언트 암호를 인쇄해야 합니다. 안전한 곳에 복사합니다. 나중에 필요합니다. 이제 새 클라이언트 암호를 앱에 대한 자격 증명으로 제공하여 응용 프로그램을 만들 수 있습니다.
+이제 아래 스크립트에서 **응용 프로그램 ID**를 사용하여 응용 프로그램에 사용자를 삭제할 수 있는 사용자 계정 관리자 역할을 할당합니다. 이러한 역할은 잘 알려진 식별자로서 아래 스크립트에서 **응용 프로그램 ID**를 입력하기만 하면 됩니다.
 
-```
-> New-MsolServicePrincipal -DisplayName "My New B2C Graph API App" -Type password -Value $newClientSecret
-
-DisplayName           : My New B2C Graph API App
-ServicePrincipalNames : {dd02c40f-1325-46c2-a118-4659db8a55d5}
-ObjectId              : e2bde258-6691-410b-879c-b1f88d9ef664
-AppPrincipalId        : dd02c40f-1325-46c2-a118-4659db8a55d5
-TrustedForDelegation  : False
-AccountEnabled        : True
-Addresses             : {}
-KeyType               : Password
-KeyId                 : a261e39d-953e-4d6a-8d70-1f915e054ef9
-StartDate             : 9/2/2015 1:33:09 AM
-EndDate               : 9/2/2016 1:33:09 AM
-Usage                 : Verify
+```powershell
+$applicationId = "<YOUR_APPLICATION_ID>"
+$sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
+Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-성공적으로 응용 프로그램을 만들면 위와 같은 응용 프로그램의 일부 속성을 인쇄해야 합니다. 해당 값을 복사하려면 `ObjectId` 및 `AppPrincipalId` 둘 다 필요합니다.
-
-B2C 테넌트에 응용 프로그램을 만든 후에 사용자 CRUD 작업을 수행하는 데 필요한 권한을 응용 프로그램에 할당해야 합니다. 응용 프로그램에 디렉터리 판독기(사용자 읽기), 디렉터리 작성자(사용자 만들기 및 업데이트) 및 사용자 계정 관리자(사용자 삭제) 등 세 가지 역할을 할당합니다. 이러한 역할에는 잘 알려진 식별자가 있으므로 `-RoleMemberObjectId` 매개 변수를 위의 `ObjectId`로 대체하여 다음 명령을 실행할 수 있습니다. 모든 디렉터리 역할의 목록을 보려면 `Get-MsolRole`을 실행합니다.
-
-```
-> Add-MsolRoleMember -RoleObjectId 88d8e3e3-8f55-4a1e-953a-9b9898b8876b -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
-> Add-MsolRoleMember -RoleObjectId 9360feb5-f418-4baa-8175-e2a00bac4301 -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
-> Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
-```
-
-이제 B2C 테넌트에서 사용자 만들기, 읽기, 업데이트 및 삭제 권한을 가진 응용 프로그램이 있습니다.
+이제 응용 프로그램에는 B2C 테넌트 사용자를 삭제하는 권한이 있습니다.
 
 ## <a name="download-configure-and-build-the-sample-code"></a>샘플 코드를 다운로드, 구성 및 작성합니다.
 우선 샘플 코드를 다운로드하고 실행합니다. 그런 다음 자세히 살펴봅니다.  [샘플 코드를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip)할 수 있습니다. 사용자가 선택한 디렉터리에 복제할 수 있습니다.
@@ -103,9 +97,9 @@ Visual Studio에서 `B2CGraphClient\B2CGraphClient.sln` Visual Studio 솔루션�
 
 ```
 <appSettings>
-    <add key="b2c:Tenant" value="contosob2c.onmicrosoft.com" />
-    <add key="b2c:ClientId" value="{The AppPrincipalId from above}" />
-    <add key="b2c:ClientSecret" value="{The client secret you generated above}" />
+    <add key="b2c:Tenant" value="{Your Tenant Name}" />
+    <add key="b2c:ClientId" value="{The ApplicationID from above}" />
+    <add key="b2c:ClientSecret" value="{The Key from above}" />
 </appSettings>
 ```
 
@@ -356,7 +350,7 @@ B2C 테넌트에서 사용자 지정 특성을 정의하려면 [B2C 사용자 �
 `B2CGraphClient`를 사용하여 B2C 테넌트 사용자를 프로그래밍 방식으로 관리할 수 있는 서비스 응용 프로그램이 있습니다. `B2CGraphClient` 는 고유한 응용 프로그램 ID를 사용하여 Azure AD Graph API에 인증합니다. 또한 클라이언트 암호를 사용하여 토큰을 획득합니다. 응용 프로그램에 이 기능을 통합할 때 B2C 앱에 대한 몇 가지 주요 사항을 기억해야 합니다.
 
 * 테넌트에서 응용 프로그램에 적절한 권한을 부여해야 합니다.
-* 이제 ADAL v2를 사용하여 액세스 토큰을 가져와야 합니다. (또한 라이브러리를 사용하지 않고 직접 프로토콜 메시지를 보낼 수 있습니다.)
+* 이제 ADAL(MSAL 아님)을 사용하여 액세스 토큰을 가져와야 합니다. (또한 라이브러리를 사용하지 않고 직접 프로토콜 메시지를 보낼 수 있습니다.)
 * Graph API를 호출할 때 `api-version=1.6`을 사용합니다.
 * 소비자 사용자를 만들고 업데이트하는 경우 위에서 설명한 대로 필수적인 몇 가지 속성이 있습니다.
 

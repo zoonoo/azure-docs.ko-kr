@@ -1,5 +1,5 @@
 ---
-title: "Azure AD 응용 프로그램 프록시용 PingAccess | Microsoft Docs"
+title: "Azure AD 응용 프로그램 프록시용 PingAccess를 통한 헤더 기반 인증 | Microsoft Docs"
 description: "PingAccess 및 앱 프록시를 사용하여 응용 프로그램을 게시하여 헤더 기반 인증을 지원합니다."
 services: active-directory
 documentationcenter: 
@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 173607c481d0ba7ceece6310fcd131ff622a0677
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 8db76d1f83cdf1cf53ddd1e9c69c56400d04af2d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/29/2017
 
 ---
 
-# <a name="publish-applications-that-support-header-based-authentication-with-pingaccess-for-azure-ad"></a>Azure AD용 PingAccess와 함께 헤더 기반 인증을 지원하는 응용 프로그램 게시
+# <a name="publish-applications-that-support-header-based-authentication-with-azure-ad-application-proxy-and-pingaccess"></a>Azure AD 응용 프로그램 프록시 및 PingAccess를 사용하여 헤더 기반 인증을 지원하는 응용 프로그램 게시
 
 Azure Active Directory 응용 프로그램 프록시 및 PingAccess는 Azure Active Directory 고객에게 더 많은 응용 프로그램에 대한 액세스를 제공하도록 파트너 관계를 맺고 있습니다. PingAccess는 인증에 헤더를 사용하는 응용 프로그램에 대한 원격 액세스를 포함하도록 [기존 응용 프로그램 프록시 제품](active-directory-application-proxy-get-started.md)을 확장합니다. 
 

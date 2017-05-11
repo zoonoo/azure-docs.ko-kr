@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 3e47c917774245f8b321b5cd94def24b7f523a94
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 84ce4b288c23c7005ac92f18ee26af70479deb8d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -32,9 +33,9 @@ ms.lasthandoff: 04/26/2017
 
 Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 컴퓨터에 연결됩니다. 
 
-**운영 체제 디스크** - 운영 체제 디스크는 최대 1TB까지 가능하며 VM 운영 체제를 호스트합니다. OS 디스크는 기본적으로 `/dev/sda`로 레이블이 지정됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. 이 구성으로 인해 OS 디스크는 응용 프로그램 또는 데이터를 호스트해서는 **안 됩니다**. 응용 프로그램 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 문서의 뒷부분에서 자세히 설명합니다. 
+**운영 체제 디스크** - 운영 체제 디스크는 최대 1TB까지 가능하며 VM 운영 체제를 호스트합니다. OS 디스크는 기본적으로 */dev/sda*로 레이블이 지정됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. 이 구성으로 인해 OS 디스크는 응용 프로그램 또는 데이터를 호스트해서는 **안 됩니다**. 응용 프로그램 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 문서의 뒷부분에서 자세히 설명합니다. 
 
-**임시 디스크** - 임시 디스크는 VM과 같은 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 임시 디스크는 성능이 높고 임시 데이터 처리 등의 작업에 사용할 수 있습니다. 그러나 VM이 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터는 제거됩니다. 임시 디스크의 크기는 VM 크기에 따라 결정됩니다. 임시 디스크는 `/dev/sdb`로 레이블이 지정되고 `/mnt` 탑재 지점이 있습니다.
+**임시 디스크** - 임시 디스크는 VM과 같은 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 임시 디스크는 성능이 높고 임시 데이터 처리 등의 작업에 사용할 수 있습니다. 그러나 VM이 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터는 제거됩니다. 임시 디스크의 크기는 VM 크기에 따라 결정됩니다. 임시 디스크는 */dev/sdb*로 레이블이 지정되고 탑재 지점은 */mnt*입니다.
 
 ### <a name="temporary-disk-sizes"></a>임시 디스크 크기
 
@@ -93,7 +94,7 @@ VM을 만들 때 또는 기존 VM에 데이터 디스크를 만들고 연결할 
 [az group create](https://docs.microsoft.com/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
 ```azurecli
-az group create --name myResourceGroupDisk --location westus
+az group create --name myResourceGroupDisk --location eastus
 ```
 
 [az vm create]( /cli/azure/vm#create) 명령을 사용하여 VM을 만듭니다. `--datadisk-sizes-gb` 인수를 사용하여 가상 컴퓨터에 추가 디스크를 만들고 연결하도록 지정할 수 있습니다. 둘 이상의 디스크를 만들고 연결하려면 공백으로 구분된 디스크 크기 값 목록을 사용합니다. 다음 예제에서는 128GB 데이터 디스크 두 개가 있는 VM을 만듭니다. 디스크 크기가 128GB이므로 이러한 디스크는 모두 디스크당 최대 500 IOPS를 제공하는 P10으로 구성됩니다.
@@ -146,13 +147,13 @@ sudo mkfs -t ext4 /dev/sdc1
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-이제 `datadrive` 탑재 지점을 통해 디스크에 액세스할 수 있으며 `df -h` 명령을 실행하여 확인할 수 있습니다. 
+이제 *datadrive* 탑재 지점을 통해 디스크에 액세스할 수 있으며 `df -h` 명령을 실행하여 확인할 수 있습니다. 
 
 ```bash
 df -h
 ```
 
-출력에 `/datadrive`에 탑재된 새 드라이브가 표시됩니다.
+*/datadrive*에 탑재된 새 드라이브가 출력에 표시됩니다.
 
 ```bash
 Filesystem      Size  Used Avail Use% Mounted on
@@ -161,7 +162,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc1        50G   52M   47G   1% /datadrive
 ```
 
-다시 부팅 후 드라이브가 다시 탑재되도록 하려면 `/stc/fstab` 파일에 추가해야 합니다. 이렇게 하려면 `blkid` 유틸리티를 사용하여 디스크의 UUID를 가져옵니다.
+다시 부팅 후 드라이브가 다시 탑재되도록 하려면 */etc/fstab* 파일에 추가해야 합니다. 이렇게 하려면 `blkid` 유틸리티를 사용하여 디스크의 UUID를 가져옵니다.
 
 ```bash
 sudo -i blkid
@@ -173,7 +174,7 @@ sudo -i blkid
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-다음과 유사한 줄을 `/etc/fstab` 파일에 추가합니다. `barrier=0`을 사용하여 쓰기 장벽을 사용하지 않도록 설정할 수 있으며 이 구성으로 디스크 성능이 향상될 수 있습니다. 
+다음과 유사한 줄을 */etc/fstab* 파일에 추가합니다. *barrier=0*을 사용하여 쓰기 장벽을 사용하지 않도록 설정할 수 있으며 이 구성으로 디스크 성능이 향상될 수 있습니다. 
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail,barrier=0   1  2
@@ -192,7 +193,7 @@ VM을 배포한 후 운영 체제 디스크 또는 모든 연결된 데이터 �
 디스크 크기를 늘리려면 디스크의 ID 또는 이름이 필요합니다. [az disk list](/cli/azure/vm/disk#list) 명령을 사용하여 리소스 그룹의 모든 디스크를 반환합니다. 크기를 조정할 디스크 이름을 기록해 둡니다.
 
 ```azurecli
- az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
 VM 할당도 취소해야 합니다. [az vm deallocate]( /cli/azure/vm#deallocate) 명령을 사용하여 VM을 중지하고 할당을 취소합니다.
@@ -201,7 +202,7 @@ VM 할당도 취소해야 합니다. [az vm deallocate]( /cli/azure/vm#deallocat
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-[az disk update](/cli/azure/vm/disk#update) 명령을 사용하여 디스크의 크기를 조정합니다. 이 예제에서는 `myDataDisk`라는 디스크의 크기를 1TB로 조정합니다.
+[az disk update](/cli/azure/vm/disk#update) 명령을 사용하여 디스크의 크기를 조정합니다. 이 예제에서는 *myDataDisk*라는 디스크의 크기를 1테라바이트로 조정합니다.
 
 ```azurecli
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
@@ -259,7 +260,7 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 모든 데이터 디스크를 가상 컴퓨터에 다시 연결해야 합니다.
 
-먼저 [az disk list](https://docs.microsoft.com/cli/azure/disk#list) 명령을 사용하여 데이터 디스크 이름을 찾습니다. 이 예제에서는 `datadisk`라는 변수에 디스크의 이름을 추가합니다. 이 변수는 다음 단계에서 사용됩니다.
+먼저 [az disk list](https://docs.microsoft.com/cli/azure/disk#list) 명령을 사용하여 데이터 디스크 이름을 찾습니다. 이 예제에서는 *datadisk*라는 변수에 디스크의 이름을 추가합니다. 이 변수는 다음 단계에서 사용됩니다.
 
 ```azurecli
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)

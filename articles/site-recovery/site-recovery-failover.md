@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: pratshar
-translationtype: Human Translation
-ms.sourcegitcommit: b818d5083f1436035185b1b0d7990b5a36716da4
-ms.openlocfilehash: 1fca09ad0c9e1bc72109910cd0dcaf186d6a7c3d
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 960fb84c309b18c7f9741bb60b52cfcc3753a07d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -83,6 +84,26 @@ Site Recovery를 사용하여 보호되는 Hyper-V 가상 컴퓨터는 장애 �
 > **진행 중인 장애 조치 취소 안 함**: 장애 조치를 시작하기 전에 가상 컴퓨터에 대한 복제가 중지됩니다. 진행 중인 작업을 **취소**하면 장애 조치는 중지되지만 가상 컴퓨터는 복제를 시작하지 않습니다. 복제를 다시 시작할 수 없습니다. 
 >
 > 
+
+## <a name="time-taken-for-failover-to-azure"></a>Azure에 대한 장애 조치(failover)에 걸리는 시간
+
+경우에 따라 가상 컴퓨터의 장애 조치(failover)에는 추가적인 중간 단계가 필요하며 일반적으로 완료하는 데 8 ~ 10분 정도가 소요됩니다. 여기에 해당하는 경우는 다음과 같습니다.
+
+* 9.8 이전 버전의 모바일 서비스를 사용하는 VMware 가상 컴퓨터
+* 물리적 서버 
+* VMware Linux 가상 컴퓨터
+* 물리적 서버로 보호되는 Hyper-V 가상 컴퓨터
+* 다음 드라이버가 부팅 드라이버로 제공되지 않는 VMware 가상 컴퓨터 
+    * storvsc 
+    * vmbus 
+    * storflt 
+    * intelide 
+    * atapi
+* DHCP 또는 고정 IP 주소 사용 여부와 관계없이 DHCP 서비스를 사용할 수 없는 VMware 가상 컴퓨터
+
+다른 모든 경우에는 이러한 중간 단계가 필요하지 않으며 장애 조치(failover)에 소요되는 시간이 훨씬 짧습니다. 
+
+
 
 
 

@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 7ed296a6773763f7aaae55e9a1667efca7d9e590
-ms.openlocfilehash: d84eaf5abc80270325e34ec6b5d1ee3edfac637a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: d37f37f77a32f388fac4271af2a5ebda21c014eb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -29,7 +31,7 @@ ms.openlocfilehash: d84eaf5abc80270325e34ec6b5d1ee3edfac637a
 
 커넥터 그룹은 다음을 비롯한 다양한 시나리오에 유용합니다.
 
-* 여러 데이터 센터가 연결되어 있는 사이트. 이 경우 데이터 센터 간 링크가 일반적으로 비용이 높고 느리기 때문에 가능한 한 데이터 센터 내에서 많은 트래픽을 유지하려고 합니다. 각 데이터 센터에서 커넥터를 배포하여 데이터 센터 내에 있는 응용 프로그램만 제공할 수 있습니다. 이 방법은 데이터 센터 간 링크를 최소화하고 사용자에게 완전히 투명한 경험을 제공합니다.
+* 여러 데이터 센터가 연결되어 있는 사이트. 이 경우 데이터 센터 간 링크가 비용이 높고 느리기 때문에 가능한 한 데이터 센터 내에서 많은 트래픽을 유지하려고 합니다. 각 데이터 센터에서 커넥터를 배포하여 데이터 센터 내에 있는 응용 프로그램만 제공할 수 있습니다. 이 방법은 데이터 센터 간 링크를 최소화하고 사용자에게 완전히 투명한 경험을 제공합니다.
 * 기본 회사 네트워크에 속하지 않은 격리된 네트워크에 설치된 응용 프로그램을 관리하는 경우. 커넥터 그룹을 사용하여 격리된 네트워크의 전용 커넥터를 설치하고 해당 네트워크에 응용 프로그램도 격리할 수 있습니다.
 * 클라우드 액세스를 위해 IaaS에 설치된 응용 프로그램의 경우 커넥터 그룹은 모든 앱에 대한 액세스를 보호하는 일반적인 서비스를 제공합니다. 커넥터 그룹은 회사 네트워크에 추가 종속성을 만들거나 앱 경험을 조각화하지 않습니다. 커넥터는 각 클라우드 데이터 센터에 설치될 수 있으며 이 네트워크에 있는 응용 프로그램만 처리할 수 있습니다. 고가용성을 얻기 위해 커넥터를 여러 개 설치할 수 있습니다.
 * 특정 커넥터가 포리스트별로 배포되고 특정 응용 프로그램을 처리하도록 설정될 수 있는 다중 포리스트 환경에 대한 지원.
@@ -37,14 +39,14 @@ ms.openlocfilehash: d84eaf5abc80270325e34ec6b5d1ee3edfac637a
 * 커넥터 그룹은 단일 테넌트에서 여러 회사를 처리하는 데도 사용할 수 있습니다.
 
 ## <a name="prerequisite-create-your-connectors"></a>필수 조건: 커넥터 만들기
-커넥터를 그룹화하려면 [여러 커넥터를 설치](active-directory-application-proxy-enable.md)하고 이름을 지정한 다음 그룹화해야 합니다. 마지막으로 특정 앱에 커넥터를 할당해야 합니다.
+커넥터를 그룹화하려면 [여러 커넥터를 설치](active-directory-application-proxy-enable.md)한 후 이름을 지정하고 그룹화합니다. 마지막으로 특정 앱에 커넥터를 할당해야 합니다.
 
 ## <a name="step-1-create-connector-groups"></a>1단계: 커넥터 그룹 만들기
 원하는 수 만큼 커넥터 그룹을 만들 수 있습니다. 커넥터 그룹은 Azure 클래식 포털에서 만들 수 있습니다.
 
 1. 디렉터리를 선택하고 **구성**을 클릭합니다.  
     ![응용 프로그램 프록시 구성 스크린샷 - 커넥터 그룹 관리 클릭](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png)
-2. 응용 프로그램 프록시에서 **커넥터 그룹 관리** 를 클릭하고 그룹에 이름을 지정하여 새 커넥터 그룹을 만듭니다.  
+2. 응용 프로그램 프록시에서 **커넥터 그룹 관리**를 클릭하고 그룹에 이름을 지정하여 커넥터 그룹을 만듭니다.  
     ![응용 프로그램 프록시 커넥터 그룹 스크린샷 - 새 그룹 이름 지정](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
 
 ## <a name="step-2-assign-connectors-to-your-groups"></a>2단계: 그룹에 커넥터 할당
@@ -68,9 +70,4 @@ ms.openlocfilehash: d84eaf5abc80270325e34ec6b5d1ee3edfac637a
 * [응용 프로그램 프록시에서 발생한 문제 해결](active-directory-application-proxy-troubleshoot.md)
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

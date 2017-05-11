@@ -1,5 +1,5 @@
 ---
-title: "컨테이너 및 Blob에 대한 익명의 읽기 액세스 권한 관리 | Microsoft Docs"
+title: "컨테이너 및 Azure Blob Storage의 Blob에 대한 공용 읽기 권한을 사용하도록 설정 | Microsoft Docs"
 description: "컨테이너와 Blob에서 익명 액세스를 사용하도록 설정하는 방법 및 프로그래밍 방식으로 액세스하는 방법을 알아봅니다."
 services: storage
 documentationcenter: 
@@ -12,47 +12,50 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 04/26/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 4fe41c3aabf5e6d9ae899cea0b9f9b6c9c305cf0
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c7b83667b58649c156a62fa68cebd854c13e2cba
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 ---
-# <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>컨테이너 및 Blob에 대한 익명 읽기 권한 관리
-## <a name="overview"></a>개요
-기본적으로는 저장소 계정 소유자만 해당 계정 내의 저장소 리소스에 액세스할 수 있습니다. Blob 저장소에만 컨테이너의 권한을 설정하여 익명 읽기 권한을 컨테이너 및 해당 Blob에 허용할 수 있으므로 계정 키를 공유하지 않고도 해당 리소스에 액세스를 허용할 수 있습니다.
 
-익명 액세스는 특정 Blob을 익명 읽기 권한에 사용하기를 원하는 경우에 가장 적합합니다. 더 세밀하게 제어하려면 공유 액세스 서명을 만들어 다른 권한 및 지정된 시간 간격을 통해 제한된 액세스를 위임할 수 있습니다. 공유 액세스 서명 만들기에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+# <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>컨테이너 및 Blob에 대한 익명 읽기 권한 관리
+컨테이너 및 Azure Blob Storage의 해당 Blob에 대한 익명의 공용 읽기 권한을 사용하도록 설정할 수 있습니다. 이렇게 하면 계정 키를 공유하지 않고 공유 액세스 서명(SAS)을 요구하지 않고도 이러한 리소스에 대해 읽기 전용 권한을 부여할 수 있습니다.
+
+공용 읽기 권한은 특정 Blob을 항상 익명 읽기 권한에 사용할 수 있게 하려는 경우에 가장 적합합니다. 보다 세부적인 제어를 위해 공유 액세스 서명을 만들 수 있습니다. 공유 액세스 서명을 사용하면 특정 기간 동안 다양한 권한을 사용하여 제한된 액세스를 제공할 수 있습니다. 공유 액세스 서명 만들기에 대한 자세한 내용은 [Azure Storage에서 SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>컨테이너 및 Blob에 익명의 사용자 권한 부여
 기본적으로는 저장소 계정 소유자만 컨테이너 및 해당 컨테이너 내의 모든 Blob에 액세스할 수 있습니다. 익명 사용자에게 컨테이너와 해당 Blob에 대한 읽기 권한을 제공하려면 공용 액세스를 허용하도록 컨테이너 권한을 설정할 수 있습니다. 그러면 익명 사용자가 요청을 인증하지 않고도 공개적으로 액세스 가능한 컨테이너 내의 Blob을 읽을 수 있습니다.
 
-컨테이너는 컨테이너 액세스를 관리하기 위한 다음 옵션을 제공합니다.
+다음 권한으로 컨테이너를 구성할 수 있습니다.
 
-* **전체 공개 읽기 액세스:** 익명 요청을 통해 컨테이너와 Blob 데이터를 읽을 수 있습니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 저장소 계정 내에서 컨테이너를 열거할 수는 없습니다.
-* **Blob에 대해서만 공개 읽기 액세스:** 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있으나 컨테이너 데이터는 읽을 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
-* **공개 읽기 액세스 권한 없음:** 계정 소유자만 컨테이너 및 Blob 데이터를 읽을 수 있습니다.
+* **공용 읽기 액세스 권한 없음:** 저장소 계정 소유자만 컨테이너 및 해당 Blob에 액세스할 수 있습니다. 이것이 새로운 모든 컨테이너에 대한 기본 설정입니다.
+* **Blob 전용 공용 읽기 권한:** 이 컨테이너 내의 Blob은 익명 요청을 통해 읽을 수 있지만 컨테이너 데이터는 읽을 수 없습니다. 익명 클라이언트는 컨테이너 내의 Blob을 열거할 수 없습니다.
+* **전체 공용 읽기 권한:** 익명 요청을 통해 모든 컨테이너와 Blob 데이터를 읽을 수 있습니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 저장소 계정 내에서 컨테이너를 열거할 수는 없습니다.
 
-다음과 같은 방법으로 컨테이너 권한을 설정할 수 있습니다.
+다음을 사용하여 컨테이너 권한을 설정할 수 있습니다.
 
 * [Azure 포털](https://portal.azure.com)
-* 프로그래밍 방식으로 저장소 클라이언트 라이브러리 또는 REST API 사용
-* PowerShell 사용 Azure PowerShell에서 컨테이너 권한을 설정하는 방법에 관해 알아보려면 [Azure Storage와 Azure PowerShell 사용](storage-powershell-guide-full.md#how-to-manage-azure-blobs)을 참조하세요.
+* [Azure PowerShell](storage-powershell-guide-full.md#how-to-manage-azure-blobs)
+* [Azure CLI 2.0](storage-azure-cli.md#create-and-manage-blobs)
+* 프로그래밍 방식으로, 저장소 클라이언트 라이브러리 중 하나 또는 REST API 사용
 
-### <a name="setting-container-permissions-from-the-azure-portal"></a>Azure 포털에서 컨테이너 권한 설정
-[Azure 포털](https://portal.azure.com)에서 컨테이너 권한을 설정하려면 다음 단계를 수행하세요.
+### <a name="set-container-permissions-in-the-azure-portal"></a>Azure Portal에서 컨테이너 사용 권한 설정
+[Azure Portal](https://portal.azure.com)에서 컨테이너 권한을 설정하려면 다음 단계를 수행합니다.
 
-1. 저장소 계정에 대한 대시보드로 이동합니다.
-2. 목록에서 컨테이너 이름을 선택합니다. 이름을 클릭하면 선택한 컨테이너의 blob가 표시됩니다.
-3. 도구 모음에서 **액세스 정책** 을 선택합니다.
-4. 아래 스크린샷과 같이 **액세스 유형** 필드에서 원하는 권한 수준을 선택합니다.
+1. 포털에서 **저장소 계정** 블레이드를 엽니다. 주 포털 메뉴 블레이드에서 **저장소 계정**을 선택하여 저장소 계정을 찾을 수 있습니다.
+1. 메뉴 블레이드의 **Blob service**에서 **컨테이너**를 선택합니다.
+1. 컨테이너 행을 마우스 오른쪽 단추로 클릭하거나 줄임표를 선택하여 컨테이너의 **상황에 맞는 메뉴**를 엽니다.
+1. 상황에 맞는 메뉴에서 **액세스 정책**을 선택합니다.
+1. 드롭다운 메뉴에서 **액세스 형식**을 선택합니다.
 
     ![컨테이너 메타데이터 편집 대화 상자](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
-### <a name="setting-container-permissions-programmatically-using-net"></a>.NET을 사용하여 프로그래밍 방식으로 컨테이너 권한 설정
-.NET 클라이언트 라이브러리를 사용하여 컨테이너에 대한 권한을 설정하려면 먼저 컨테이너의 기존 권한을 **GetPermissions** 메서드를 호출하여 검색합니다. 그런 다음 **GetPermissions** 메서드에 의해 반환된 **BlobContainerPermissions** 개체에 대해 **PublicAccess** 속성을 설정합니다. 마지막으로 업데이트된 권한으로 **SetPermissions** 메서드를 호출합니다.
+### <a name="set-container-permissions-with-net"></a>.NET으로 컨테이너 사용 권한 설정
+C# 및 .NET용 저장소 클라이언트 라이브러리를 사용하여 컨테이너에 대한 권한을 설정하려면 먼저 **GetPermissions** 메서드를 호출하여 컨테이너의 기존 권한을 검색합니다. 그런 다음 **GetPermissions** 메서드에 의해 반환된 **BlobContainerPermissions** 개체에 대해 **PublicAccess** 속성을 설정합니다. 마지막으로 업데이트된 권한으로 **SetPermissions** 메서드를 호출합니다.
 
 다음 예제에서는 컨테이너의 권한을 전체 공용 읽기 권한으로 설정합니다. 권한을 Blob에 대해서만 공용 읽기 권한으로 설정하려면 **PublicAccess** 속성을 **BlobContainerPublicAccessType.Blob**으로 설정합니다. 익명 사용자에 대한 모든 권한을 제거하려면 속성을 **BlobContainerPublicAccessType.Off**로 설정합니다.
 
@@ -104,7 +107,6 @@ public static void ListBlobsAnonymously()
 }
 ```
 
-
 ### <a name="reference-a-blob-anonymously"></a>Blob을 익명으로 참조
 익명 액세스에 사용할 수 있는 Blob에 대한 URL이 있는 경우 해당 URL을 사용하여 Blob을 직접 참조할 수 있습니다.
 
@@ -148,14 +150,9 @@ public static void DownloadBlobAnonymously()
 | 페이지 범위 가져오기 |모두 |모두 |
 | Blob 추가 |소유자만 |소유자만 |
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
+
 * [Azure 저장소 서비스에 대한 인증](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)
 * [공유 액세스 서명을 사용하여 액세스 위임](https://msdn.microsoft.com/library/azure/ee395415.aspx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

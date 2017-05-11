@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: ad82c1a552d9d77259c44b938975eebc44933b86
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 9fd5b63259c7771d8b1e346ba3a6c10a4399532a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -120,5 +121,5 @@ ms.lasthandoff: 04/26/2017
 * [Azure Functions 개발자 참조](functions-reference.md)  
   * 함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
 * [Azure Functions GitHub 리포지토리](https://github.com/Azure/Azure-Functions/)
-  * API 정의 지원 미리 보기에 대한 의견을 보내려면 Functions Github을 확인하세요! 업데이트 정보를 확인하려는 항목에 대해 github 문제를 만드세요.
+  * API 정의 지원 미리 보기에 대한 의견을 보내려면 Functions GitHub를 확인하세요! 업데이트 정보를 확인하려는 항목에 대해 GitHub 문제를 만드세요.
 

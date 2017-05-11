@@ -4,24 +4,25 @@ description: "메트릭 원격 분석을 위한 Azure Application Insights 데�
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: e27301a4815d16396518ddfc7487b064892e7631
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1bedede1934141927a770c97b61aeb5218652b3e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>메트릭 원격 분석: Application Insights 데이터 모델
 
-Application Insights에서 지원되는 메트릭 원격 분석에는 2가지 유형, 즉 단일 측정 및 미리 집계된 메트릭이 있습니다. 단일 측정은 이름 및 값만 포함합니다. 미리 집계된 메트릭은 집계 간격에서 메트릭의 최소값 및 최대값과 해당 표준 편차를 지정합니다.
+[Application Insights](app-insights-overview.md)에서 지원하는 메트릭 원격 분석에는 두 가지 유형, 즉 단일 측정 및 미리 집계된 메트릭이 있습니다. 단일 측정은 이름 및 값만 포함합니다. 미리 집계된 메트릭은 집계 간격에서 메트릭의 최소값 및 최대값과 해당 표준 편차를 지정합니다.
 
 미리 집계된 메트릭 원격 분석은 집계 기간을 1분으로 가정합니다.
 
@@ -71,7 +72,7 @@ Application Insights 포털 및 UI에서 참조하려는 메트릭의 이름입�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](/application-insights-data-model.md)을 참조하세요.
-- [사용자 지정 이벤트 및 메트릭용 Application Insights API](/app-insights-asp-net-dependencies.md) 사용 방법을 알아봅니다.
-- Application Insights에서 지원되는 [플랫폼](/app-insights-platforms.md)을 확인합니다.
+- [사용자 지정 이벤트 및 메트릭용 Application Insights API](app-insights-api-custom-events-metrics.md#send-metrics) 사용 방법을 알아봅니다.
+- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
+- Application Insights에서 지원되는 [플랫폼](app-insights-platforms.md)을 확인합니다.
 

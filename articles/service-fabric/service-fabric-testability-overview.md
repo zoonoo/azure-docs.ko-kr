@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/01/2017
 ms.author: anmola
-translationtype: Human Translation
-ms.sourcegitcommit: e3dda1f6a0d513668aca252aa1855a93f3720247
-ms.openlocfilehash: 3bff3fb99f27985c24b5a2e677738595314242c4
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c05081685532aecbe29e9bf380f0278e775ad6b7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.lasthandoff: 03/02/2017
 * 장애 조치 시나리오
 
 ## <a name="testing-as-a-service"></a>Testing as a service
-오류 분석 서비스는 서비스 패브릭 클러스터로 자동 시작되는 서비스 패브릭 시스템 서비스입니다. 오류 주입, 테스트 시나리오 실행 및 상태 분석을 위한 호스트 역할을 수행하는 서비스입니다. 
+오류 분석 서비스는 서비스 패브릭 클러스터로 자동 시작되는 서비스 패브릭 시스템 서비스입니다. 이 서비스는 오류 주입, 테스트 시나리오 실행 및 상태 분석을 위한 호스트 역할을 수행합니다. 
 
 ![오류 분석 서비스  ][0]
 

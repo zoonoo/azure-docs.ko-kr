@@ -4,7 +4,7 @@ description: "종속성 원격 분석을 위한 Azure Application Insights 데�
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
@@ -12,16 +12,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: b86b1e1ff7c0370918b2509f98ad65265eb4186e
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: e71730ffe7e42ce5658189baca92ced3a54d269d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>종속성 원격 분석: Application Insights 데이터 모델
 
-종속성 원격 분석은 SQL 또는 HTTP 끝점과 같은 원격 구성 요소와 모니터링 대상 구성 요소의 상호 작용을 나타냅니다.
+[Application Insights](app-insights-overview.md)에서 종속성 원격 분석은 모니터링되는 구성 요소와 원격 구성 요소(예: SQL 또는 HTTP 끝점)의 상호 작용을 나타냅니다.
 
 ## <a name="name"></a>이름
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="id"></a>ID
 
-종속성 호출 인스턴스의 식별자입니다. 이 종속성 호출에 해당하는 요청 원격 분석 항목과의 상관 관계에 사용됩니다. 자세한 내용은 [상관 관계](/correlation.md) 페이지를 참조하세요.
+종속성 호출 인스턴스의 식별자입니다. 이 종속성 호출에 해당하는 요청 원격 분석 항목과의 상관 관계에 사용됩니다. 자세한 내용은 [상관 관계](application-insights-correlation.md) 페이지를 참조하세요.
 
 ## <a name="data"></a>Data
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="target"></a>대상
 
-종속성 호출의 대상 사이트입니다. 예로 서버 이름, 호스트 주소를 들 수 있습니다. 자세한 내용은 [상관 관계](/correlation.md) 페이지를 참조하세요.
+종속성 호출의 대상 사이트입니다. 예로 서버 이름, 호스트 주소를 들 수 있습니다. 자세한 내용은 [상관 관계](application-insights-correlation.md) 페이지를 참조하세요.
 
 ## <a name="duration"></a>기간
 
@@ -66,8 +67,9 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](/application-insights-data-model.md)을 참조하세요.
-- [.NET](/app-insights-asp-net-dependencies.md)에 대한 종속성 추적을 설정합니다.
-- [Java](/app-insights-java-agent.md)에 대한 종속성 추적을 설정합니다.
-- Application Insights에서 지원되는 [플랫폼](/app-insights-platforms.md)을 확인합니다.
+- [.NET](app-insights-asp-net-dependencies.md)에 대한 종속성 추적을 설정합니다.
+- [Java](app-insights-java-agent.md)에 대한 종속성 추적을 설정합니다.
+- [사용자 지정 종속성 원격 분석을 작성합니다](app-insights-api-custom-events-metrics.md#trackdependency).
+- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
+- Application Insights에서 지원되는 [플랫폼](app-insights-platforms.md)을 확인합니다.
 

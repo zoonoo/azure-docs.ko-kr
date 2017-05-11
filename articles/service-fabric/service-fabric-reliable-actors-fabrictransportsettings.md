@@ -12,20 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/22/2016
-ms.author: suchia
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 4cbca6e496135a312bf4704dd0989f45dcccfc00
-ms.lasthandoff: 04/14/2017
+ms.date: 04/20/2017
+ms.author: suchiagicha
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 75bdd4644f4ccc583271b9169c50a375e2cd6629
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/29/2017
 
 
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Reliable Actors에 대한 FabricTransport 설정 구성
 
 구성할 수 있는 설정은 다음과 같습니다.
-
-- C#: [FabricTansportSettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.fabrictransport.common.fabrictransportsettings)
+- C#: [FabricTransportRemotingSettings](
+https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 다음과 같은 방식으로 기본 FabricTransport 구성을 수정할 수 있습니다.
@@ -41,7 +42,7 @@ ms.lasthandoff: 04/14/2017
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
    ```
 
-다음 예제에서는 FabricTransport MaxMessageSize 및 OperationTimeoutInSeconds의 기본값을 변경하는 방법을 보여 줍니다.
+   두 번째 예에서는 FabricTransport MaxMessageSize 및 OperationTimeoutInSeconds의 기본 값을 변경합니다.
 
   ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
@@ -65,6 +66,7 @@ settings.xml 파일에 TransportSettings 섹션을 추가합니다.
        <Parameter Name="SecurityCredentialsType" Value="X509" />
        <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
        <Parameter Name="CertificateFindValue" Value="4FEF3950642138446CC364A396E1E881DB76B48C" />
+       <Parameter Name="CertificateRemoteThumbprints" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662" />
        <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
        <Parameter Name="CertificateStoreName" Value="My" />
        <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
@@ -81,10 +83,11 @@ settings.xml 파일에 TransportSettings 섹션을 추가합니다.
   <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
     <Section Name="TransportSettings">
       <Parameter Name="SecurityCredentialsType" Value="X509" />
-       <Parameter Name="OperationTimeoutInSeconds" Value="300" />
+      <Parameter Name="OperationTimeoutInSeconds" Value="300" />
       <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
-      <Parameter Name="CertificateFindValue" Value="78 12 20 5a 39 d2 23 76 da a0 37 f0 5a ed e3 60 1a 7e 64 bf" />
-       <Parameter Name="OperationTimeoutInSeconds" Value="300" />
+      <Parameter Name="CertificateFindValue" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662" />
+      <Parameter Name="CertificateRemoteThumbprints" Value="4FEF3950642138446CC364A396E1E881DB76B48C" />
+      <Parameter Name="OperationTimeoutInSeconds" Value="300" />
       <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
       <Parameter Name="CertificateStoreName" Value="My" />
       <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
@@ -92,4 +95,64 @@ settings.xml 파일에 TransportSettings 섹션을 추가합니다.
     </Section>
   </Settings>
    ```
+
+  * 보조 인증서로 보안 행위자 서비스/클라이언트에 대한 FabricTransport 설정 구성.
+  CertificateFindValuebySecondary 매개 변수를 추가하여 보조 인증서 정보를 추가할 수 있습니다.
+  다음은 수신기 TransportSettings에 대한 예제입니다.
+
+    ```xml
+    <Section Name="TransportSettings">
+    <Parameter Name="SecurityCredentialsType" Value="X509" />
+    <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
+    <Parameter Name="CertificateFindValue" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662" />
+    <Parameter Name="CertificateFindValuebySecondary" Value="h9449b018d0f6839a2c5d62b5b6c6ac822b6f690" />
+    <Parameter Name="CertificateRemoteThumbprints" Value="4FEF3950642138446CC364A396E1E881DB76B48C,a9449b018d0f6839a2c5d62b5b6c6ac822b6f667" />
+    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+    <Parameter Name="CertificateStoreName" Value="My" />
+    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+    </Section>
+     ```
+     다음은 클라이언트 TransportSettings에 대한 예제입니다.
+
+    ```xml
+   <Section Name="TransportSettings">
+    <Parameter Name="SecurityCredentialsType" Value="X509" />
+    <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
+    <Parameter Name="CertificateFindValue" Value="4FEF3950642138446CC364A396E1E881DB76B48C" />
+    <Parameter Name="CertificateFindValuebySecondary" Value="a9449b018d0f6839a2c5d62b5b6c6ac822b6f667" />
+    <Parameter Name="CertificateRemoteThumbprints" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662,h9449b018d0f6839a2c5d62b5b6c6ac822b6f690" />
+    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+    <Parameter Name="CertificateStoreName" Value="My" />
+    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+    </Section>
+     ```
+    * 주체 이름을 사용한 행위자 서비스/클라이언트 보안을 위한 FabricTransport 설정 구성.
+    사용자는 FindBySubjectName,add CertificateIssuerThumbprints 및 CertificateRemoteCommonNames 값으로 findType을 제공해야 합니다.
+  다음은 수신기 TransportSettings에 대한 예제입니다.
+
+     ```xml
+    <Section Name="TransportSettings">
+    <Parameter Name="SecurityCredentialsType" Value="X509" />
+    <Parameter Name="CertificateFindType" Value="FindBySubjectName" />
+    <Parameter Name="CertificateFindValue" Value="CN = WinFabric-Test-SAN1-Alice" />
+    <Parameter Name="CertificateIssuerThumbprints" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662" />
+    <Parameter Name="CertificateRemoteCommonNames" Value="WinFabric-Test-SAN1-Bob" />
+    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+    <Parameter Name="CertificateStoreName" Value="My" />
+    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+    </Section>
+    ```
+  다음은 클라이언트 TransportSettings에 대한 예제입니다.
+
+    ```xml
+     <Section Name="TransportSettings">
+    <Parameter Name="SecurityCredentialsType" Value="X509" />
+    <Parameter Name="CertificateFindType" Value="FindBySubjectName" />
+    <Parameter Name="CertificateFindValue" Value="CN = WinFabric-Test-SAN1-Bob" />
+    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+    <Parameter Name="CertificateStoreName" Value="My" />
+    <Parameter Name="CertificateRemoteCommonNames" Value="WinFabric-Test-SAN1-Alice" />
+    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+    </Section>
+     ```
 

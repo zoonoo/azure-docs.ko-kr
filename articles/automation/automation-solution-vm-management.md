@@ -12,12 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 04/26/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 5ae60cb8ba3d391d3babd1ab575b4f32e139a185
-ms.openlocfilehash: f2c9a5ef2a8f517b9b2072be57f4d8c51b7694c6
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 2d6ef39ad4678d331eadd2c0bfd6ff93c99da501
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 02/15/2017
 
 - Runbook이 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)으로 작동됩니다.  실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호하는 인증 방법입니다.  
 
-- 이 솔루션은 Automation 계정이 상주하는 리소스 그룹 및 구독과 같은 곳에 있는 VM만 관리할 수 있습니다.  
+- 이 솔루션은 Automation 계정이 상주하는 위치와 동일한 구독에 있는 VM만 관리할 수 있습니다.  
 
 - 이 솔루션은 오스트레일리아 남동부, 미국 동부, 동남 아시아 및 유럽 서부의 Azure 지역에만 배포됩니다.  VM 일정을 관리하는 Runbook은 모든 지역의 VM을 대상으로 할 수 있습니다.  
 
@@ -123,7 +124,7 @@ O365Credential | 전자 메일을 보낼 유효한 Office 365 사용자 계정�
 
 ## <a name="collection-frequency"></a>수집 빈도
 
-Automation 작업 로그 및 작업 스트림 데이터가&5;분마다 OMS 리포지토리로 수집됩니다.  
+Automation 작업 로그 및 작업 스트림 데이터가 5분마다 OMS 리포지토리로 수집됩니다.  
 
 ## <a name="using-the-solution"></a>솔루션 사용
 

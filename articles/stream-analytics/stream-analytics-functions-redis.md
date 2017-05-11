@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: ryancraw
-translationtype: Human Translation
-ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
-ms.openlocfilehash: 3753846e955308a7607d92ed25648d75b9cc3a35
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 3a915f782eddaa91bcfcc3f2b2c32eee752c319c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -51,7 +52,7 @@ Service Bus 큐를 만들려면 [Service Bus 큐 시작][servicebus-getstarted]�
    * **인코딩**: UTF8
    * **형식**: 줄로 구분
 4. **만들기** 단추를 클릭하여 이 소스를 추가하고 Stream Analytic이 저장소 계정에 성공적으로 연결될 수 있는지 확인합니다.
-5. **쿼리** 탭에서 현재 쿼리를 다음으로 바꿉니다. *[YOUR SERVICE BUS NAME] * 을 3단계에서 만들 출력 이름으로 바꿉니다. 
+5. **쿼리** 탭에서 현재 쿼리를 다음으로 바꿉니다. *[YOUR SERVICE BUS NAME] *을 3단계에서 만든 출력 이름으로 바꿉니다. 
    
     ```    
    
@@ -167,7 +168,7 @@ Service Bus 큐를 만들려면 [Service Bus 큐 시작][servicebus-getstarted]�
 
 ## <a name="start-the-stream-analytics-job"></a>Stream Analytic 작업 시작
 1. telcodatagen.exe 응용 프로그램을 시작합니다. 사용법은 다음과 같습니다. ````telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]````
-2. 포털의 Stream Analytic 작업 블레이드에서 페이지 위쪽의 **시작** 을 클릭합니다.
+2. 포털의 Stream Analytic 작업 블레이드에서 페이지 위쪽의 **시작**을 클릭합니다.
    
     ![작업 시작 스크린샷](./media/stream-analytics-functions-redis/starting-job.png)
 3. 나타나는 **작업 시작** 블레이드에서 **지금**을 클릭하고 화면 아래쪽에서 **시작** 단추를 클릭합니다. 작업 상태가 시작 중으로 변경되고, 잠시 후에는 실행 중으로 변경됩니다.
@@ -188,7 +189,7 @@ Azure Functions 및 Stream Analytic으로 수행할 수 있는 새로운 작업�
 
 Microsoft Azure를 처음 사용하는 경우 [무료 Azure 평가판 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록하여 사용해볼 수 있습니다. Stream Analytic을 처음 사용하는 경우 [첫 번째 Stream Analytic 작업을 만들어](stream-analytics-create-a-job.md)볼 수 있습니다.
 
-도움말이 필요하거나 질문이 있는 경우 [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) 또는 [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics) 포럼에 게시하세요. 
+도움말이 필요하거나 질문이 있는 경우 [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) 또는 [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics) 포럼에 게시하세요. 
 
 다음 리소스를 참조할 수도 있습니다.
 
@@ -199,7 +200,7 @@ Microsoft Azure를 처음 사용하는 경우 [무료 Azure 평가판 계정](ht
 * [Azure Functions 트리거 및 바인딩](../azure-functions/functions-triggers-bindings.md)
 * [Azure Redis Cache를 모니터링하는 방법](../redis-cache/cache-how-to-monitor.md)
 
-최신 소식과 기능에 대한 최신 동향을 파악하려면 Twitter의 [@AzureStreaming](https://twitter.com/AzureStreaming) 을 팔로우하세요.
+최신 소식과 기능에 대한 최신 동향을 파악하려면 Twitter의 [@AzureStreaming](https://twitter.com/AzureStreaming)을 팔로우하세요.
 
 [fraud-detection]: stream-analytics-real-time-fraud-detection.md
 [servicebus-getstarted]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md

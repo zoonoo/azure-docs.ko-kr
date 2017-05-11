@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
-ms.openlocfilehash: 34f84de82cbd6c15bd62abedd05e0eff6ce2dc2f
-ms.lasthandoff: 01/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 8005be7ded6ea005af086aeaf594963a5f2d4ac2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ ms.lasthandoff: 01/28/2017
 * **회사 자격 증명/암호 사용:** Azure AD 테넌트의 사용자 암호가 Azure AD Domain Services에서 작동합니다. 사용자는 도메인 가입 컴퓨터에 대해 회사 자격 증명을 사용할 수 있고 대화형으로 또는 원격 데스크톱을 통해 로그인할 수 있으며 관리되는 도메인에 대해 인증할 수 있습니다.
 * **LDAP 바인딩 및 LDAP 읽기 지원:** Azure AD Domain Services에서 처리하는 도메인에서 사용자를 인증하기 위해 LDAP 바인딩에 의존하는 응용 프로그램을 사용할 수 있습니다. 또한 LDAP 읽기 작업을 사용하여 디렉터리에서 사용자/컴퓨터 특성을 쿼리하는 응용 프로그램도 Azure AD 도메인 서비스에서 작동할 수 있습니다.
 * **보안 LDAP (LDAPS):** 보안 LDAP (LDAPS)를 통해 디렉터리에 대한 액세스를 사용하도록 설정할 수 있습니다. 보안 LDAP 액세스는 기본적으로 가상 네트워크 내에서 사용할 수 있습니다. 하지만 인터넷을 통한 보안 LDAP 액세스 또한 필요에 따라 사용할 수 있습니다.
-* **그룹 정책:** 사용자 계정과 도메인 가입 컴퓨터에 대해 필수 보안 정책을 준수하도록 하기 위해 사용자 및 컴퓨터 컨테이너마다 기본 제공 단일 GPO를 사용할 수 있습니다. 그룹 정책을 관리하기 위해 자체 사용자 지정 GPO를 만든 후 사용자 지정 조직 구성 단위에 할당할 수도 있습니다.
+* **그룹 정책:** 사용자 계정과 도메인 가입 컴퓨터에 대해 필수 보안 정책을 준수하도록 하기 위해 사용자 및 컴퓨터 컨테이너마다 기본 제공 단일 GPO를 사용할 수 있습니다. [그룹 정책을 관리](active-directory-ds-admin-guide-administer-group-policy.md)하기 위해 자체 사용자 지정 GPO를 만든 후 사용자 지정 조직 구성 단위에 할당할 수도 있습니다.
 * **DNS 관리:** 'AAD DC 관리자' 그룹 구성원은 DNS 관리 MMC 스냅인과 같은 친숙한 DNS 관리 도구를 사용하여 관리되는 도메인에 대한 DNS를 관리할 수 있습니다.
 * **사용자 지정 조직 구성 단위(OU) 만들기:** 'AAD DC 관리자' 그룹의 구성원은 관리되는 도메인에서 사용자 지정 OU를 만들 수 있습니다. 이러한 사용자에게 사용자 지정 OU를 통해 모든 관리 권한이 부여되므로, 이러한 사용자 지정 OU 내에서 서비스 계정, 컴퓨터, 그룹 등을 추가/제거할 수 있습니다.
 * **여러 Azure 지역에서 사용 가능:** Azure AD Domain Services를 사용할 수 있는 Azure 지역의 목록을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/) 페이지를 참조하세요.

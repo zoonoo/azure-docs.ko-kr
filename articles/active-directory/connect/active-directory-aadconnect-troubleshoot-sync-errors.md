@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: a1190f0ab4caf749cce0b5c9ba45e55f7e6ca8ec
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: d270d7cc3ceeef29aaaf1c9f984e69984049f815
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -212,10 +213,10 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>가능한 시나리오
-1. Bob의 userCertificate 특성이 Bob에게 할당된 너무 많은 인증서를 저장하고 있습니다. 여기에는 오래되어 만료된 인증서가 포함될 수 있습니다. 하드 한도는 15개의 인증서입니다.
+1. Bob의 userCertificate 특성이 Bob에게 할당된 너무 많은 인증서를 저장하고 있습니다. 여기에는 오래되어 만료된 인증서가 포함될 수 있습니다. 하드 한도는 15개의 인증서입니다. userCertificate 특성에서 LargeObject 오류를 처리하는 방법에 대한 자세한 내용은 [userCertificate 특성으로 인한 LargeObject 오류 처리](active-directory-aadconnectsync-largeobjecterror-usercertificate.md) 문서를 참조하세요.
 2. Bob의 userSMIMECertificate 특성이 Bob에게 할당된 너무 많은 인증서를 저장하고 있습니다. 여기에는 오래되어 만료된 인증서가 포함될 수 있습니다. 하드 한도는 15개의 인증서입니다.
 3. Active Directory에서 설정한 Bob의 thmubnailPhoto가 너무 커 Azure AD에서 동기화할 수 없습니다.
-4. Active Directory의 ProxyAddresses 특성 자동 입력 중에 개체에 500개가 넘는 ProxyAddresses가 할당되었습니다.
+4. Active Directory의 ProxyAddresses 특성 자동 입력 중에 개체에 너무 많은 ProxyAddresses가 할당되었습니다.
 
 ### <a name="how-to-fix"></a>해결 방법
 1. 오류를 초래하는 특성이 허용 범위 안에 있는지 확인합니다.

@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ed685f0a4ed26fb8d1c766f87210a99d2b5270ac
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 13a2883c59092c964cf3c353e767839c5f9ef788
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -43,6 +44,8 @@ ms.lasthandoff: 04/12/2017
 프로파일러를 중지하거나 다시 시작해야 할 경우 **웹 작업**의 **App Service 리소스**에서 찾을 수 있습니다. 삭제하려면 **확장** 아래에서 확인합니다.
 
 WebDeploy를 사용하여 웹 응용 프로그램에 변경 내용을 배포하는 경우 배포하는 동안 **App_Data** 폴더가 삭제되는 것을 제외하도록 확인합니다. 그렇지 않으면 다음에 Azure에 웹 응용 프로그램을 배포할 때 프로파일러 확장의 파일이 삭제됩니다.
+
+**[업데이트]** Application Insights 사이트 확장은 2.3 릴리스의 프로파일러 에이전트를 통합했습니다. 원래 Application Insights 프로파일러 사이트 확장을 대체합니다. **구성** 마법사를 통해 최신 버전으로 마이그레이션할 수 있습니다.
 
 ## <a name="viewing-profiler-data"></a>프로파일러 데이터 보기
 
@@ -172,7 +175,7 @@ Application Insights Profiler를 활성화하면 Azure Service Profiler 에이�
 2. ".NET Framework 버전"을 v4.6으로 설정합니다.
 3. "무중단"을 사용으로 설정합니다.
 4. 앱 설정 "__APPINSIGHTS_INSTRUMENTATIONKEY__"를 추가하고 값을 SDK에서 사용한 동일한 계측 키로 설정합니다.
-5. **확장**에서 "Application Insights Profiler"를 추가합니다. 설치하는 데 2-3분 정도 걸립니다.
+5. **확장**에서 "Application Insights"를 추가합니다. 설치하는 데 몇 분 정도 걸립니다.
 
 ## <a id="aspnetcore"></a>ASP.NET Core 지원
 

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 9ed502efadbc27ca507fa5be455f32c3bd1b9eee
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 94aaca68827ea847be02d879088a85d96dd24663
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -32,17 +33,18 @@ Linux의 Azure App Service는 현재 공개 미리 보기가 제공되며 Linux�
 Linux의 App Service는 현재 다음과 같은 응용 프로그램 스택을 지원합니다.
 
 * Node.js
-    * 4.5.0
-    * 4.4.7
-    * 6.2.2
-    * 6.6.0
-    * 6.9.3
+    * 4.4.
+    * 4.5.
+    * 6.2
+    * 6.6
+    * 6.9
 * PHP
-    * 5.6.23
-    * 7.0.6
+    * 5.6
+    * 7.0
 * .NET Core
     * 1.0
-* Ruby
+    * 1.1
+* 루비
     * 2.3
 
 고객은 다음을 사용하여 해당 응용 프로그램을 배포할 수 있습니다.

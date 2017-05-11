@@ -4,24 +4,25 @@ description: "추적 원격 분석을 위한 Azure Application Insights 데이�
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: e7825b26c47a80debf92be1ad166e5a18bae4a61
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 178b1ec0edce5a3fb20dc5c591e12cfe6e721cf2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>추적 원격 분석: Application Insights 데이터 모델
 
-추적 원격 분석은 텍스트가 검색되는 `printf` 스타일 추적 문을 나타냅니다. `Log4Net`, `NLog` 및 기타 텍스트 기반 로그 파일 항목이 이 형식의 인스턴스로 변환됩니다. 추적에는 확장 기능으로 사용할 측정이 없습니다.
+[Application Insights](app-insights-overview.md)에서 추적 원격 분석은 텍스트를 검색하는 `printf` 스타일 추적 문을 나타냅니다. `Log4Net`, `NLog` 및 기타 텍스트 기반 로그 파일 항목이 이 형식의 인스턴스로 변환됩니다. 추적에는 확장 기능으로 사용할 측정이 없습니다.
 
 ## <a name="message"></a>Message
 
@@ -39,8 +40,9 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](/application-insights-data-model.md)을 참조하세요.
-- [Application Insights에서 .NET 추적 로그 탐색](/app-insights-asp-net-trace-logs.md).
-- [Application Insights에서 Java 추적 로그 탐색](/app-insights-java-trace-logs.md).
-- Application Insights에서 지원되는 [플랫폼](/app-insights-platforms.md)을 확인합니다.
+- [Application Insights에서 .NET 추적 로그 탐색](app-insights-asp-net-trace-logs.md).
+- [Application Insights에서 Java 추적 로그 탐색](app-insights-java-trace-logs.md).
+- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
+- [사용자 지정 추적 원격 분석을 작성합니다](app-insights-api-custom-events-metrics.md#tracktrace).
+- Application Insights에서 지원되는 [플랫폼](app-insights-platforms.md)을 확인합니다.
 

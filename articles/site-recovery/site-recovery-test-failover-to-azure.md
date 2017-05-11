@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/15/2017
 ms.author: pratshar
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 2aed07ff82c33111ef1abc9c9cc6b0ba2a9d3718
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 0df4b3535449c88f11fa7a58811f68c82549558f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -71,6 +72,24 @@ ms.lasthandoff: 03/25/2017
 1. 필수 조건 확인: 장애 조치에 필요한 모든 조건이 충족되는지 확인합니다.
 1. 장애 조치: 데이터를 처리하고 Azure 가상 컴퓨터를 만들 수 있도록 준비합니다. **최신** 복구 지점을 선택한 경우 이 단계는 서비스로 보낸 데이터에서 복구 지점을 만듭니다.
 1. 시작: 이전 단계에서 처리한 데이터를 사용하여 Azure 가상 컴퓨터를 만듭니다.
+
+## <a name="time-taken-for-failover"></a>장애 조치(Failover)에 걸리는 시간
+
+경우에 따라 가상 컴퓨터의 장애 조치(failover)에는 추가적인 중간 단계가 필요하며 일반적으로 완료하는 데 8 ~ 10분 정도가 소요됩니다. 여기에 해당하는 경우는 다음과 같습니다.
+
+* 9.8 이전 버전의 모바일 서비스를 사용하는 VMware 가상 컴퓨터
+* 물리적 서버 
+* VMware Linux 가상 컴퓨터
+* 물리적 서버로 보호되는 Hyper-V 가상 컴퓨터
+* 다음 드라이버가 부팅 드라이버로 제공되지 않는 VMware 가상 컴퓨터 
+    * storvsc 
+    * vmbus 
+    * storflt 
+    * intelide 
+    * atapi
+* DHCP 또는 고정 IP 주소 사용 여부와 관계없이 DHCP 서비스를 사용할 수 없는 VMware 가상 컴퓨터
+
+다른 모든 경우에는 이러한 중간 단계가 필요하지 않으며 장애 조치(failover)에 소요되는 시간이 훨씬 짧습니다. 
 
 
 ## <a name="creating-a-network-for-test-failover"></a>테스트 장애 조치(Failover)를 위한 네트워크 만들기

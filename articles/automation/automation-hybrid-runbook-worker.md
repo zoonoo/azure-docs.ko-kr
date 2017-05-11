@@ -4,7 +4,7 @@ description: "이 문서에서는 로컬 데이터 센터의 컴퓨터에서 Run
 services: automation
 documentationcenter: 
 author: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 06227cda-f3d1-47fe-b3f8-436d2b9d81ee
 ms.service: automation
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/31/2017
+ms.date: 05/02/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 3a958b790b4501153aad86310c3783d49733dd90
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 66e749106ba1031eef19b12f06d5bd16ffa9d09e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -69,6 +70,7 @@ Hybrid Worker에 대한 다음 권장 사항을 고려하십시오.
 | --- | --- |
 | 미국 중남부 |scus-jobruntimedata-prod-su1.azure-automation.net |
 | 미국 동부 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
+| 미국 중서부 | wcus-jobruntimedata-prod-su1.azure-automation.net |
 | 서유럽 |we-jobruntimedata-prod-su1.azure-automation.net |
 | 북유럽 |ne-jobruntimedata-prod-su1.azure-automation.net |
 | 캐나다 중부 |cc-jobruntimedata-prod-su1.azure-automation.net |
@@ -76,6 +78,14 @@ Hybrid Worker에 대한 다음 권장 사항을 고려하십시오.
 | 인도 중부 |cid-jobruntimedata-prod-su1.azure-automation.net |
 | 일본 동부 |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | 오스트레일리아 동남부 |ase-jobruntimedata-prod-su1.azure-automation.net |
+| 영국 남부 | uks-jobruntimedata-prod-su1.azure-automation.net |
+| 미국 정부 버지니아 | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+이름 대신 IP 주소 목록을 보려면 Microsoft 다운로드 센터에서 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653) xml 파일을 다운로드하여 검토하세요. 
+
+> [!NOTE]
+> 이 파일에는 Microsoft Azure 데이터 센터에서 사용되는 IP 주소 범위(Compute, SQL 및 Storage 범위 포함)가 포함되어 있습니다. 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영하는 업데이트 파일이 매주 게시됩니다. 파일에 표시되는 새 범위는 적어도 1주일 동안 데이터 센터에서 사용되지 않습니다. Azure에서 실행되는 서비스를 정확하게 식별할 수 있도록 매주 새로운 xml 파일을 다운로드하고 사이트에서 필요한 변경 작업을 수행하세요. ExpressRoute 사용자는 매월 첫 번째 주에 Azure 공간의 BGP 광고를 업데이트하는 데 이 파일이 사용되고 있음을 알 수 있습니다. 
+> 
 
 ## <a name="installing-hybrid-runbook-worker"></a>Hybrid Runbook Worker 설치
 

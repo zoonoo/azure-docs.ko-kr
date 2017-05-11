@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: bcb075b320bab942c6421be72ea1445d5fa3f603
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7a6f255c64a584e29801aacb40c79462751fe535
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/26/2017
 
 [az group create](https://docs.microsoft.com/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 컴퓨터보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 `westus` 하위 지역에 `myResourceGroupVM`이라는 리소스 그룹이 만들어집니다. 
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 컴퓨터보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *westus* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 
 
 ```azurecli
 az group create --name myResourceGroupVM --location westus
@@ -44,7 +45,7 @@ az group create --name myResourceGroupVM --location westus
 
 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 명령을 사용하여 가상 컴퓨터를 만듭니다. 
 
-가상 컴퓨터를 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 이 예제에서는 Ubuntu Server를 실행하는 `myVM`이라는 가상 컴퓨터가 만들어집니다. 
+가상 컴퓨터를 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 이 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 가상 컴퓨터를 만듭니다. 
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
@@ -81,7 +82,7 @@ exit
 
 ## <a name="understand-vm-images"></a>VM 이미지 이해
 
-Azure Marketplace에는 새 VM을 만드는 데 사용할 수 있는 여러 VM 이미지가 포함되어 있습니다. 이전 단계에서는 Ubuntu 이미지를 사용하여 가상 컴퓨터를 만들었습니다. 이 단계에서는 Azure CLI를 사용하여 Marketplace에서 CentOS 이미지를 검색한 후 두 번째 가상 컴퓨터를 배포합니다.  
+Azure Marketplace에는 VM을 만드는 데 사용할 수 있는 여러 VM 이미지가 포함되어 있습니다. 이전 단계에서는 Ubuntu 이미지를 사용하여 가상 컴퓨터를 만들었습니다. 이 단계에서는 Azure CLI를 사용하여 Marketplace에서 CentOS 이미지를 검색한 후 두 번째 가상 컴퓨터를 배포합니다.  
 
 가장 일반적으로 사용되는 이미지 목록을 보려면 [az vm image list](/cli/azure/vm/image#list) 명령을 사용하세요.
 
@@ -107,7 +108,7 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-전체 목록은 `--all` 인수를 추가하여 확인할 수 있습니다. 이미지 목록은 `--publisher` 또는 `–offer`로 필터링할 수도 있습니다. 이 예제에서는 `CentOS`와 일치하는 제품이 있는 모든 이미지에 대해 목록을 필터링합니다. 
+전체 목록은 `--all` 인수를 추가하여 확인할 수 있습니다. 이미지 목록은 `--publisher` 또는 `–-offer`로 필터링할 수도 있습니다. 이 예제에서는 *CentOS*와 일치하는 제품이 있는 모든 이미지에 대해 목록을 필터링합니다. 
 
 ```azurecli
 az vm image list --offer CentOS --all --output table
@@ -126,7 +127,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-특정 이미지를 사용하여 VM을 배포하려면 `Urn` 열에서 값을 기록해 둡니다. 이미지를 지정하면 이미지 버전 번호는 최신 버전의 배포를 선택하도록 “최신”으로 대체될 수 있습니다. 이 예제에서는 CentOS 6.5 이미지의 최신 버전을 지정하기 위해 `--image` 인수를 사용합니다.  
+특정 이미지를 사용하여 VM을 배포하려면 *Urn* 열에서 값을 기록해 둡니다. 이미지를 지정하면 이미지 버전 번호는 최신 버전의 배포를 선택하도록 “최신”으로 대체될 수 있습니다. 이 예제에서는 CentOS 6.5 이미지의 최신 버전을 지정하기 위해 `--image` 인수를 사용합니다.  
 
 ```azurecli
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -186,7 +187,12 @@ az vm list-sizes --location westus --output table
 이전 VM 만들기 예제에서는 크기가 제공되지 않았으므로 기본 크기가 사용되었습니다. [az vm create](/cli/azure/vm#create) 및 `--size` 인수를 사용하여 만들 때 VM 크기를 선택할 수 있습니다. 
 
 ```azurecli
-az vm create --resource-group myResourceGroupVM --name myVM3 --image UbuntuLTS --size Standard_F4s --generate-ssh-keys
+az vm create \
+    --resource-group myResourceGroupVM \
+    --name myVM3 \
+    --image UbuntuLTS \
+    --size Standard_F4s \
+    --generate-ssh-keys
 ```
 
 ### <a name="resize-a-vm"></a>VM 크기 조정
@@ -243,7 +249,10 @@ Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 이 �
 특정 VM의 상태를 검색하려면 [az vm get instance-view](/cli/azure/vm#get-instance-view) 명령을 사용합니다. 가상 컴퓨터 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다. 
 
 ```azurecli
-az vm get-instance-view --name myVM --resource-group myResourceGroupVM --query instanceView.statuses[1] --output table
+az vm get-instance-view \
+    --name myVM \
+    --resource-group myResourceGroupVM \
+    --query instanceView.statuses[1] --output table
 ```
 
 출력:
