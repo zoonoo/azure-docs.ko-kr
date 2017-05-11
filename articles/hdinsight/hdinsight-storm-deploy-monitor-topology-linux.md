@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/22/2017
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 53092b0cfcf2bf9a09b36f6425724669f770e7fb
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/12/2017
 
 
@@ -85,7 +86,7 @@ HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지
 
 2. 다음 명령을 사용하여 예제 토폴로지를 시작합니다.
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
     이 명령은 클러스터에서 예제 WordCount 토폴로지를 시작합니다. 이 토폴로지는 임의로 문장을 생성하고 문장에서 각 단어의 발생 횟수를 계산합니다.
 
