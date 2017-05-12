@@ -1,7 +1,7 @@
 # 개요
 ## [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)
 ## [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)
-## [구독 및 서비스 한도](../azure-subscription-service-limits.md)
+## [구독 및 서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # 시작
 ## [VPN Gateway 계획 및 설계](vpn-gateway-plan-design.md)

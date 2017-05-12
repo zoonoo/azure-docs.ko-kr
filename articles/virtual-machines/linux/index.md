@@ -12,10 +12,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 57ed1bac9af92f56e418d9ddca7a5d7f4752d7ac
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 2dd642627033d297bfa53b00aac0de418212ecb3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 <div class="content">
@@ -164,8 +164,8 @@ ms.lasthandoff: 05/09/2017
                         <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
                         <p><a href="/java/api">Java</a></p>
-                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.JS</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.JS</a></p>
+                        <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
                     </div>
                 </div>
             </div>
