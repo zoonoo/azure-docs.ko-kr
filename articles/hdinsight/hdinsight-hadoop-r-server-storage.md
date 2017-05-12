@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
 ms.openlocfilehash: 18dcb3a319f78639b27f9e70a2177423192e5958
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/13/2017
 
 
@@ -123,9 +124,9 @@ HDInsight 계정과 함께 Data Lake 저장소를 사용하려면 사용하려�
 HDInsight 클러스터와 연결된 Azure AD(Azure Active Directory) 서비스 주체를 사용하여 Azure Data Lake 저장소에 액세스합니다.
 
 ### <a name="to-add-a-service-principal"></a>서비스 주체를 추가하려면
-1. HDInsight 클러스터를 만들 때 **데이터 원본** 탭에서 **클러스터 AAD ID**를 선택합니다.
+1.HDInsight 클러스터를 만들 때 **데이터 원본** 탭에서 **클러스터 AAD ID**를 선택합니다.
 
-2. **클러스터 AAD ID** 대화 상자의 **AD 서비스 주체 선택**에서 **새로 만들기**를 선택합니다.
+2.**클러스터 AAD ID** 대화 상자의 **AD 서비스 주체 선택**에서 **새로 만들기**를 선택합니다.
 
 서비스 주체에 이름을 지정하고 암호를 만든 후에 **ADLS 액세스 관리**를 클릭하여 Data Lake 저장소와 서비스 주체를 연결합니다.
 
