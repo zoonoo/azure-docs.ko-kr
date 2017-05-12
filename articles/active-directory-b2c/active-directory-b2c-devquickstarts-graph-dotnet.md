@@ -72,8 +72,7 @@ PowerShell 모듈을 설치한 후에 PowerShell을 열고 B2C 테넌트에 연�
 > B2C 테넌트에 대해 **로컬**인 B2C 테넌트 관리자 계정을 사용해야 합니다. 이러한 계정은 다음과 같습니다. myusername@myb2ctenant.onmicrosoft.com
 
 ```powershell
-$msolcred = Get-Credential
-Connect-MsolService -credential $msolcred
+Connect-MsolService
 ```
 
 이제 아래 스크립트에서 **응용 프로그램 ID**를 사용하여 응용 프로그램에 사용자를 삭제할 수 있는 사용자 계정 관리자 역할을 할당합니다. 이러한 역할은 잘 알려진 식별자로서 아래 스크립트에서 **응용 프로그램 ID**를 입력하기만 하면 됩니다.

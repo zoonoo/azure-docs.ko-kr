@@ -3,8 +3,8 @@ title: "저장소 모니터링, 진단 및 문제 해결 | Microsoft Docs"
 description: "저장소 분석, 클라이언트 쪽 로깅 등의 기능과 Azure 저장소 관련 문제를 파악, 진단 및 해결하는 기타 타사 도구를 사용하는 방법에 대해 알아봅니다."
 services: storage
 documentationcenter: 
-author: jasonnewyork
-manager: tadb
+author: fhryo-msft
+manager: jahogg
 editor: tysonn
 ms.assetid: da57e844-705d-449d-8ed5-5607d2a6170b
 ms.service: storage
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: jahogg
-translationtype: Human Translation
+ms.author: fhryo-msft
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: 84ecd480b57a8ef12440f5e5cd98a78c4bf09059
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/06/2017
 
 

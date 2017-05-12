@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 376b61037de8b1af657095b8b32ee16568af8894
 ms.openlocfilehash: 0df8932668a954cc60a1db9b745019decb98d1e9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -72,7 +74,7 @@ AAD 보안 그룹을 만드는 방법 및 사용자를 그룹에 추가하는 �
 
 7. 이제 사용자/보안 그룹은 Azure 데이터 레이크 저장소 계정에 대한 액세스를 가집니다. 특정 사용자에게 액세스를 제공하려는 경우 보안 그룹에 추가할 수 있습니다. 마찬가지로 사용자에 대한 액세스를 취소하려는 경우 보안 그룹에서 제거할 수 있습니다. 또한 여러 보안 그룹을 계정에 할당할 수 있습니다. 
 
-## <a name="a-namefilepermissionsaassign-users-or-security-group-as-acls-to-the-azure-data-lake-store-file-system"></a><a name="filepermissions"></a>ACL로 사용자 또는 보안 그룹을 Azure 데이터 레이크 저장소 파일 시스템에 할당
+## <a name="filepermissions"></a>ACL로 사용자 또는 보안 그룹을 Azure 데이터 레이크 저장소 파일 시스템에 할당
 사용자/보안 그룹을 Azure 데이터 레이크 파일 시스템에 할당하여 Azure 데이터 레이크 저장소에 저장된 데이터에 대한 액세스 제어를 설정합니다.
 
 1. 데이터 레이크 저장소 계정 블레이드에서 **데이터 탐색기**를 클릭합니다.
@@ -146,10 +148,5 @@ Azure Data Lake Store 파일 시스템에서 보안 그룹 ACL을 제거하면 D
 * [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)
 * [.NET SDK를 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
 * [Data Lake Store에 대한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -3,20 +3,21 @@ title: "Microsoft Azure Storage용 Java를 사용하는 클라이언트 쪽 암�
 description: "Java용 Azure 저장소 클라이언트 라이브러리는 Azure 저장소 응용 프로그램의 보안을 최대화하기 위해 클라이언트 쪽 암호화 및 Azure 키 자격 증명 모음과의 통합을 지원합니다."
 services: storage
 documentationcenter: java
-author: seguler
+author: lakasa
 manager: jahogg
 editor: tysonn
 ms.assetid: 3df49907-554c-404a-9b0c-b3e3269ad04f
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
-translationtype: Human Translation
+ms.date: 05/11/2017
+ms.author: lakasa
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: 7601449c7f84a4367f9d684d9bbb0cf61fda29b0
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/06/2017
 
 

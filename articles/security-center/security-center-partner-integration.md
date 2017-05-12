@@ -4,7 +4,7 @@ description: "이 문서에서는 Azure Security Center를 파트너와 통합�
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
@@ -12,12 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 8dddfc8929ab1a0c44522ed2a2596e2c82e3987d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/01/2017
 
 
 ---
@@ -37,10 +38,10 @@ Security Center에서 파트너 통합을 활용하는 네 가지 주요 원인�
 ## <a name="what-partners-are-integrated-with-security-center"></a>어떤 파트너가 Security Center와 통합됩니까?
 Security Center는 현재 다음 파트너와 통합합니다.
 
-- Endpoint Protection(Trend Micro), 
-- 웹 응용 프로그램 방화벽(Barracuda, F5, Imperva 및 Microsoft WAF 및 Fortinet 예정), 
-- 차세대 방화벽(Check Point, Barracuda 및 Fortinet 및 Cisco 예정) 솔루션. 
-- 취약점 평가(Qualys - 미리 보기) 솔루션. 
+- Endpoint Protection([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)) 
+- 웹 응용 프로그램 방화벽([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), [App Gateway WAF](https://azure.microsoft.com/en-us/blog/azure-web-application-firewall-waf-generally-available/)) 
+- 차세대 방화벽([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) 및 [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html)) 
+- 취약점 평가([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) - 미리 보기)  
 
 시간이 지남에 따라 Security Center는 기존 범주 내에서 파트너의 수를 확장하고 새 항목을 추가합니다. 
 
@@ -57,7 +58,7 @@ Security Center는 현재 다음 파트너와 통합합니다.
 
 파트너 솔루션을 배포하면 솔루션의 상태에 대한 정보를 볼 수 있으며 Security Center 메인 대시보드에서 파트너 솔루션 타일의 기본 관리 태스크를 수행할 수 있습니다. Security Center에서 파트너 솔루션을 관리하는 방법에 대한 자세한 내용은 [Azure Security Center로 파트너 솔루션 모니터링](security-center-partner-solutions.md)을 참조하세요.
 
-![파트너 통합](./media/security-center-partner-integration/security-center-partner-integration-fig1-new.png)
+![파트너 통합](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
 
 
 ## <a name="see-also"></a>참고 항목

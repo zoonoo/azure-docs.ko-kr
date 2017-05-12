@@ -3,20 +3,21 @@ title: "Xamarin에서 Blob 저장소를 사용하는 방법 | Microsoft Docs"
 description: "Xamarin용 Azure Storage 클라이언트 라이브러리를 사용하면 개발자들이 기본 사용자 인터페이스를 가진 iOS, Android 및 Windows Store 앱을 만들 수 있습니다. 이 자습서에서는 Xamarin을 사용하여 Azure Blob 저장소를 사용하는 응용 프로그램을 만드는 방법을 설명합니다."
 services: storage
 documentationcenter: xamarin
-author: seguler
-manager: jahogg
+author: michaelhauss
+manager: vamshik
 editor: tysonn
 ms.assetid: 44cb845d-cf78-4942-95b8-952da4f9a2c2
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: seguler
-translationtype: Human Translation
+ms.date: 05/11/2017
+ms.author: michaelhauss
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 2ef27dc58e12d1b9e8eed54239332a53860ddd52
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/27/2017
 
 

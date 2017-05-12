@@ -18,10 +18,11 @@ ms.author: magoedte
 ROBOTS: NOINDEX
 redirect_url: /azure/automation/automation-offering-get-started
 redirect_document_id: TRUE
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: fbca3d195290551d37606e231b997a40a602351f
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 90570886b3a1ae0c48683691cb438b5a61195d76
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -66,7 +67,7 @@ Automation 계정을 만들기 전에 다음 항목을 이해하고 고려하는
 >[!NOTE]
 >Automation 계정을 만들려면 서비스 관리자 역할의 구성원이거나 구독에 대한 액세스 권한을 부여하는 구독의 공동 관리자여야 합니다. 또한 해당 구독의 기본 Active Directory 인스턴스에 사용자로 추가되어야 합니다. 이 계정은 권한 있는 역할에 할당할 필요가 없습니다.
 >
->구독의 공동 관리자 역할에 추가되기 전에 구독 Active Directory 인스턴스의 구성원이 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 인스턴스에서는 **Automation 계정 추가** 블레이드에 대해 "만들 수 있는 사용 권한이 없습니다…" 경고를 받습니다.
+>구독의 공동 관리자 역할에 추가되기 전에 구독 Active Directory 인스턴스의 구성원이 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 인스턴스에서는 “만들 수 있는 사용 권한이 없습니다…”라는 메시지를 받습니다. **Automation 계정 추가** 블레이드의 경고.
 >
 >공동 관리자 역할에 처음 추가된 사용자는 구독 Active Directory 인스턴스에서 제거한 다음 다시 추가하여 Active Directory의 완전한 사용자로 만들 수 있습니다. Azure Portal의 **Azure Active Directory** 창에서 이 상황을 확인하려면 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.
 >
@@ -245,7 +246,7 @@ Automation 계정 만료되기 전인 어떤 시점에서 인증서를 갱신해
 스크립트에는 다음과 같은 필수 구성 요소가 필요합니다.
 
 * 스크립트는 Azure Resource Manager 모듈 2.01 이상이 설치되어 있는 Windows 10 및Windows Server 2016에서만 실행될 수 있습니다. 이전 버전의 Windows에서는 지원되지 않습니다.
-* Azure PowerShell 1.0 이상 PowerShell 1.0 릴리스에 대한 정보는 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+* Azure PowerShell 1.0 이상 PowerShell 1.0 릴리스에 대한 정보는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 * Automation 계정은 다음 PowerShell 스크립트에서 *–AutomationAccountName* 및 *-ApplicationDisplayName* 매개 변수의 값으로 참조됩니다.
 
 스크립트의 필수 매개 변수인 *SubscriptionID*, *ResourceGroup* 및 *AutomationAccountName*의 값을 가져오려면 다음을 수행합니다.
@@ -515,7 +516,7 @@ Runbook으로 Resource Manager 리소스를 관리하는 실행 계정을 사용
          }
     }
 
-여러 구독 간에 쉽게 작업할 수 있도록 스크립트에는 구독 컨텍스트를 참조하기 위해 지원되는 두 개의 코드 줄이 추가로 포함됩니다. *SubscriptionId*라는 변수 자산에는 구독의 ID가 포함됩니다. `Add-AzureRmAccount` cmdlet 문 다음에 [`Set-AzureRmContext`](https://msdn.microsoft.com/library/mt619263.aspx) cmdlet은 매개 변수 집합 *-SubscriptionId*로 시작됩니다. 변수 이름이 너무 일반적인 경우 식별하기 쉽도록 수정하여 접두사를 포함하거나 다른 명명 규칙을 사용할 수 있습니다. 또한 해당하는 변수 자산이 있는 *-SubscriptionId* 대신 *-SubscriptionName* 매개 변수 집합을 사용할 수 있습니다.
+여러 구독 간에 쉽게 작업할 수 있도록 스크립트에는 구독 컨텍스트를 참조하기 위해 지원되는 두 개의 코드 줄이 추가로 포함됩니다. *SubscriptionId*라는 변수 자산에는 구독의 ID가 포함됩니다. `Add-AzureRmAccount` cmdlet 문 다음에 [`Set-AzureRmContext`](/powershell/module/azurerm.profile/set-azurermcontext) cmdlet은 매개 변수 집합 *-SubscriptionId*로 시작됩니다. 변수 이름이 너무 일반적인 경우 식별하기 쉽도록 수정하여 접두사를 포함하거나 다른 명명 규칙을 사용할 수 있습니다. 또한 해당하는 변수 자산이 있는 *-SubscriptionId* 대신 *-SubscriptionName* 매개 변수 집합을 사용할 수 있습니다.
 
 Runbook `Add-AzureRmAccount`에서 인증에 사용되는 cmdlet은 *ServicePrincipalCertificate* 매개 변수 집합을 사용합니다. 사용자 자격 증명이 아니라 서비스 주체 인증서를 사용하여 인증합니다.
 

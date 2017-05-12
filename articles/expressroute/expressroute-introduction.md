@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 2fc966e7c93e44007f15c3129fbe709beddb21af
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 43f18fb3ce873eef5c2d96a89ab41fc6efc443d8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -97,6 +98,10 @@ Microsoft는 특별한 지리학적 지역 및 고객 세그먼트에 격리된 
   * Azure 공용 및 Azure 개인 피어링에 대한 경로 제한은 4,000개의 경로에서 10,000개의 경로로 증가됩니다.
   * 서비스에 대한 전역 연결입니다. 모든 지역에서 만든 Express 경로 회로(국가별 클라우드 제외)는 전세계의 다른 지역에 걸쳐 리소스에 액세스합니다. 예를 들어 서유럽에서 만든 가상 네트워크는 실리콘밸리에 프로비전된 Express 경로 회로를 통해 액세스될 수 있습니다.
   * Express 경로 회로 당 VNet 링크의 횟수는 회로의 대역폭에 따라 10에서 큰 제한으로 증가합니다.
+
+## <a name="faq"></a>FAQ
+
+ExpressRoute에 대해 자주 묻는 질문은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

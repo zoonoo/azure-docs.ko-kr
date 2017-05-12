@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
 ms.openlocfilehash: b589742e23ba9cca919a845e4d262ccfea4c9aca
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -82,9 +84,4 @@ ms.openlocfilehash: b589742e23ba9cca919a845e4d262ccfea4c9aca
 * [데이터 카탈로그에서 데이터 원본에 주석 추가](../data-catalog/data-catalog-how-to-annotate.md)
 * [데이터 카탈로그에서 데이터 원본 문서화](../data-catalog/data-catalog-how-to-documentation.md)
 * [Data Lake 저장소를 다른 Azure 서비스와 통합](data-lake-store-integrate-with-other-services.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
