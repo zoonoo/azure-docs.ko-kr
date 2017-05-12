@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: e1f7b85308d7482e0066809737749e73029cd758
-ms.openlocfilehash: eed133ba2f0a5e1665afd39b2122d3aacd3cc40a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 58ee6e9cc14b01f10e20dfc3f289bfc6cc386e2a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -29,9 +31,9 @@ Azure VNet(Virtual Network)은 클라우드의 사용자 네트워크를 나타�
 
 VNet을 다음에 사용합니다.
 
-* 사설 클라우드만 사용하는 전용 VNet 만들기경우에 따라 솔루션에 대한 크로스-프레미스 구성을 필요로 하지 않습니다. VNet을 만들 때 VNet 내의 서비스 및 VM은 클라우드 내에서 안전하게 직접 서로 통신할 수 있습니다. 이는 VNet 내에서 안전하게 트래픽을 유지하면서도 솔루션의 일부로 인터넷 통신을 필요로 하는 VM 및 서비스에 대한 끝점 연결을 구성할 수 있습니다.
-* 데이터 센터를 안전하게 확장VNet을 사용하여 기존의 사이트 간(S2S) VPN을 빌드하여 데이터 센터 용량을 안전하게 확장할 수 있습니다. S2S VPN은 IPSEC를 사용하여 회사 VPN 게이트웨이와 Azure 간의 보안 연결을 제공합니다.
-* 하이브리드 클라우드 시나리오 활성화VNet은 유연성을 제공하여 다양한 하이브리드 클라우드 시나리오를 지원합니다. 메인프레임 및 Unix 시스템과 같은 모든 형식의 온-프레미스 시스템에 클라우드 기반 응용프로그램을 안전하게 연결할 수 있습니다.
+* 전용 사설 클라우드 전용 VNet을 만듭니다. 경우에 따라 솔루션에 대해 프레미스간 구성이 필요하지 않을 수 있습니다. VNet을 만들 때 VNet 내의 서비스 및 VM은 클라우드 내에서 안전하게 직접 서로 통신할 수 있습니다. 이는 VNet 내에서 안전하게 트래픽을 유지하면서도 솔루션의 일부로 인터넷 통신을 필요로 하는 VM 및 서비스에 대한 끝점 연결을 구성할 수 있습니다.
+* 데이터 센터를 안전하게 확장합니다. VNet을 사용하여 기존의 사이트 간(S2S) VPN을 빌드하여 데이터 센터 용량을 안전하게 확장할 수 있습니다. S2S VPN은 IPSEC를 사용하여 회사 VPN 게이트웨이와 Azure 간의 보안 연결을 제공합니다.
+* 하이브리드 클라우드 시나리오가 가능하도록 합니다. VNet은 다양한 하이브리드 클라우드 시나리오를 지원할 수 있는 유연성을 제공합니다. 메인프레임 및 Unix 시스템과 같은 모든 형식의 온-프레미스 시스템에 클라우드 기반 응용프로그램을 안전하게 연결할 수 있습니다.
 
 ### <a name="how-do-i-know-if-i-need-a-vnet"></a>VNet이 필요한 경우를 어떻게 알 수 있을까요?
 [가상 네트워크 개요](virtual-networks-overview.md) 문서는 최상의 네트워크 디자인 옵션을 결정하는 데 도움이 되는 의사 결정 테이블을 제공합니다.
@@ -72,7 +74,7 @@ VNet을 다음에 사용합니다.
 지원되는 가장 작은 서브넷은 /29이며 가장 큰 서브넷은 /8(CIDR 서브넷 정의 사용)입니다.
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>VNet을 사용하여 내 VLAN을 Azure에 가져올 수 있습니까?
-아니요. VNet은 계층&3; 오버레이입니다. Azure는 모든 계층&2; 의미 체계를 지원하지 않습니다.
+아니요. VNet은 계층 3 오버레이입니다. Azure는 모든 계층 2 의미 체계를 지원하지 않습니다.
 
 ### <a name="can-i-specify-custom-routing-policies-on-my-vnets-and-subnets"></a>VNet 및 서브넷에 사용자 지정 라우팅 정책을 지정할 수 있습니까?
 예. UDR(사용자 정의 라우팅)을 사용할 수 있습니다. UDR에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)을 참조하세요.
@@ -213,11 +215,6 @@ VNet은 다른 VNet 및 Azure 인프라에서 호스팅되는 다른 서비스�
 ### <a name="is-there-tooling-support-for-vnets"></a>VNet에 대한 도구 지원이 있습니까?
 예. 사용에 대한 자세한 정보:
 - [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) 및 [클래식](virtual-networks-create-vnet-classic-pportal.md) 배포 모델을 통해 VNet을 배포하는 Azure Portal.
-- [리소스 관리자](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) 및 [클래식](/powershell/servicemanagement/azure.networking/v3.1.0/azure.networking) 배포 모델을 통해 배포된 VNet을 관리하는 PowerShell.
+- [리소스 관리자](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) 및 [클래식](/powershell/module/azure/?view=azuresmps-3.7.0) 배포 모델을 통해 배포된 VNet을 관리하는 PowerShell.
 - 두 배포 모델을 통해 배포된 VNet을 관리하는 [Azure CLI(명령줄 인터페이스)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources).  
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

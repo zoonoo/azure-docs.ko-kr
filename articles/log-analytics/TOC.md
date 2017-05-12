@@ -5,7 +5,6 @@
 # 시작
 ## [Log Analytics에 등록](log-analytics-get-started.md)
 ## [액세스 관리](log-analytics-manage-access.md)
-## [프록시 및 방화벽](log-analytics-proxy-firewall.md)
 ## [사용 데이터](log-analytics-usage.md)
 ## [Log Analytics FAQ](log-analytics-faq.md)
 ## [서비스 공급자](log-analytics-service-providers.md)
@@ -14,7 +13,7 @@
 ## 데이터 수집
 ### 연결된 소스
 #### [Windows 에이전트](log-analytics-windows-agents.md)
-#### [Linux 에이전트](log-analytics-linux-agents.md)
+#### [Linux 에이전트](log-analytics-agent-linux.md)
 #### [Azure 가상 컴퓨터](log-analytics-azure-vm-extension.md)
 #### [Azure 리소스](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
@@ -23,8 +22,12 @@
 ### 데이터 원본
 #### [데이터 원본 개요](log-analytics-data-sources.md)
 #### [Windows 이벤트](log-analytics-data-sources-windows-events.md)
+#### [사용자 지정 JSON 데이터](log-analytics-data-sources-json.md)
+#### [수집된 성능 데이터](log-analytics-data-sources-collectd.md)
+#### [Nagios 및 Zabbix 경고](log-analytics-data-sources-alerts-nagios-zabbix.md)
 #### [Syslog](log-analytics-data-sources-syslog.md)
 #### [성능 카운터](log-analytics-data-sources-performance-counters.md)
+#### [Linux 응용 프로그램 성능](log-analytics-data-sources-linux-applications.md)
 #### [IIS 로그](log-analytics-data-sources-iis-logs.md)
 #### [사용자 지정 로그](log-analytics-data-sources-custom-logs.md)
 #### [사용자 지정 필드](log-analytics-custom-fields.md)
@@ -32,6 +35,7 @@
 ### [로그 검색 개요](log-analytics-log-searches.md)
 ### [Search 참조](log-analytics-search-reference.md)
 #### [정규식](log-analytics-log-searches-regex.md)
+### [검색 결과에서 작업 수행](log-analytics-log-search-takeaction.md)
 ### [컴퓨터 그룹](log-analytics-computer-groups.md)
 ## 데이터 분석
 ### [대시보드](log-analytics-dashboards.md)

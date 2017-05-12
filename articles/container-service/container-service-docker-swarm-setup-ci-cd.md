@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/08/2016
 ms.author: jucoriol
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c5e05a8693bd000010013922ed6f2a127e998efe
 ms.openlocfilehash: db58703f573c09ba45abed87547c5e80ef58638b
+ms.contentlocale: ko-kr
 ms.lasthandoff: 12/14/2016
 
 
@@ -136,7 +137,7 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 컨테이너 레지스트�
     ![Visual Studio Team Services - 빌드 트리거 구성](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-trigger-conf.png)
 
 ### <a name="define-the-build-workflow"></a>빌드 워크플로 정의
-다음 단계에서는 빌드 워크플로를 정의합니다. *MyShop* 응용 프로그램에 대해 빌드되는&5;개의 컨테이너 이미지가 있습니다. 각 이미지는 프로젝트 폴더에 있는 Dockerfile을 사용하여 빌드됩니다.
+다음 단계에서는 빌드 워크플로를 정의합니다. *MyShop* 응용 프로그램에 대해 빌드되는 5개의 컨테이너 이미지가 있습니다. 각 이미지는 프로젝트 폴더에 있는 Dockerfile을 사용하여 빌드됩니다.
 
 * ProductsApi
 * Proxy

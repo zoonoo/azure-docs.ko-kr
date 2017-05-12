@@ -1,4 +1,4 @@
-# [개요](security-get-started-overview.md)
+# [개요](azure-security.md)
 ## [네트워크 보안](security-network-overview.md)
 ## [저장소 보안](security-storage-overview.md)
 ## [보안 계산](security-virtual-machines-overview.md)
@@ -6,6 +6,10 @@
 ## [ID 관리](security-identity-management-overview.md)
 ## [IoT 보안](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [보안 아키텍처](azure-security-architecture-overview.md)
+### [운영 보안](azure-operational-security.md)
+### [고급 위협 감지](azure-threat-detection.md)
+### [로깅 및 감사](azure-log-audit.md)
+### [공용 클라우드에서 격리](azure-isolation.md)
 
 # 시작
 ## [Azure 보안 시작하기](azure-security-getting-started.md)

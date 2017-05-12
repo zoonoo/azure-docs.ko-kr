@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d517f434fe81617061d37a5b60f4e49806948005
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 63818878e01dd52a988e10a6e4f624638ea1cfae
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -91,7 +93,7 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 
 관리되는 디렉터리의 관리자는 도메인을 추가하며 이 도메인은 연결된 관리되지 않는 디렉터리를 가지게 됩니다.
 
-예를 들어 IT 관리자이며 조직에 등록된 도메인 이름인 Contoso.com의 관리되는 디렉터리를 가지고 있다고 가정해 보겠습니다. 조직이 소유한 다른 도메인 이름인 user@contoso.co.uk,라는 메일 도메인 이름을 사용하여 셀프 서비스 제공 사항에 등록한 조직 사용자를 발견합니다. 이 사용자는 현재 contoso.co.uk의 관리되지 않는 디렉터리에 계정이 있습니다.
+예를 들어 IT 관리자이며 조직에 등록된 도메인 이름인 Contoso.com의 관리되는 디렉터리를 가지고 있다고 가정해 보겠습니다. 조직의 사용자가 조직이 소유하는 또 다른 도메인 이름인 전자 메일 도메인 이름 user@contoso.co.uk를 사용하여 제품에 대한 셀프 서비스 등록을 수행한 것을 발견합니다. 이 사용자는 현재 contoso.co.uk의 관리되지 않는 디렉터리에 계정이 있습니다.
 
 두 개의 디렉터리를 별도로 관리하고 싶지 않으므로 contoso.co.uk의 관리되지 않는 디렉터리를 contoso.com의 IT 관리되는 기존 디렉터리에 병합합니다.
 
@@ -193,19 +195,14 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 
 ![][1]
 
-매개 변수 사용 방법에 대한 자세한 내용 및 예는 [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)를 참조하세요.
+매개 변수 사용 방법에 대한 자세한 내용 및 예는 [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-* [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)
-* [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-* [Azure Cmdlet 참조](https://msdn.microsoft.com/library/azure/jj554330.aspx)
-* [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx)
+* [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/overview)
+* [Azure Cmdlet 참조](/powershell/azure/get-started-azureps)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

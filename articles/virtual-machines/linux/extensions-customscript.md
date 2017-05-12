@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 04/26/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f06ec73f2b03dcdf5ac4069f28ee8653537f72f8
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 16d04d0f470dde3917f5a12f527ecceb493b2a57
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -63,33 +64,35 @@ ms.lasthandoff: 04/03/2017
 Azure CLI를 사용하여 사용자 지정 스크립트 확장을 실행할 때 최소한 파일 URI 및 스크립트 실행 명령을 포함하는 구성 파일을 만듭니다.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path /script-config.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-필요에 따라 이 명령을 `--public-config` 및 `--private-config` 옵션을 사용하여 실행할 수 있습니다. 이 옵션을 사용하면 실행 중에 별도 구성 파일 없이 구성을 지정할 수 있습니다.
+필요에 따라 설정을 JSON 형식 문자열로 명령에 지정할 수 있습니다. 이렇게 하면 실행 중에 별도 구성 파일 없이 구성을 지정할 수 있습니다.
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version \
-  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+az vm extension set '
+  --resource-group exttest `
+  --vm-name exttest `
+  --name customScript `
+  --publisher Microsoft.Azure.Extensions `
+  --settings '{"fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],"commandToExecute": "./test.sh"}'
 ```
 
 ### <a name="azure-cli-examples"></a>Azure CLI 예제
+
 **예제 1** - 스크립트 파일이 있는 공용 구성.
 
 ```json
 {
-  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],
-  "commandToExecute": "./hello.sh"
+  "fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],
+  "commandToExecute": "./test.sh"
 }
 ```
 
 Azure CLI 명령:
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path /public.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
 **예제 2** - 스크립트 파일이 없는 공용 구성.
@@ -103,8 +106,7 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
 Azure CLI 명령:
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path /public.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
 **예제 3** - 공용 구성 파일은 스크립트 파일 URI를 지정하는 데 사용되고, 보호된 구성 파일은 실행할 명령을 지정하는 데 사용됩니다.
@@ -128,8 +130,7 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
 Azure CLI 명령:
 
 ```azurecli
-azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-  --auto-upgrade-minor-version --public-config-path ./public.json --private-config-path ./protected.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings
 ```
 
 ## <a name="resource-manager-template"></a>Resource Manager 템플릿
@@ -214,7 +215,7 @@ Azure 스크립트 확장은 여기에서 찾을 수 있는 로그를 생성합�
 사용자 지정 스크립트 확장의 실행 상태를 Azure CLI를 사용하여 검색할 수도 있습니다.
 
 ```azurecli
-azure vm extension get myResourceGroup myVM
+az vm extension list -g myResourceGroup --vm-name myVM
 ```
 
 출력은 다음 텍스트와 비슷합니다.

@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2017
+ms.date: 05/02/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f09aa6cffbbaa2a3df7f84edee2d3e03aa23a719
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 483e77f598beaeb924197e3eb301a26da33a3f1f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -70,6 +71,25 @@ Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니�
 * 로그인을 차단하거나 Multi-Factor Authentication 과제를 요구하여 위험한 로그인을 완화하는 정책입니다.
 * 위험한 사용자 계정 차단 및 보호 정책
 * Multi-Factor Authentication에 사용자 등록 요구 정책
+
+
+
+## <a name="identity-protection-roles"></a>ID 보호 역할
+
+ID 보호 구현에 관련된 관리 작업의 부하를 분산하기 위해 몇 가지 역할을 할당할 수 있습니다. Azure AD ID 보호는 3가지 디렉터리 역할을 지원합니다.
+
+| 역할                         | 가능한 작업                          | 불가능한 작업
+| :--                          | ---                                |  ---   |
+| 전역 관리자         | ID 보호에 대한 완전한 액세스, ID 보호 등록| |
+| 보안 관리자       | ID 보호에 대한 완전한 액세스 | ID 보호 등록, 사용자의 암호 재설정 |
+| 보안 판독기              | ID 보호에 대한 읽기 전용 액세스 | ID 보호 등록, 사용자 수정, 정책 구성, 암호 재설정 |
+
+
+
+
+자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)을 참조하세요.
+
+
 
 ## <a name="detection"></a>감지
 

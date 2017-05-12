@@ -1,9 +1,10 @@
 ---
+
 title: "앱과 Azure AD 통합 시작 | Microsoft Docs"
 description: "이 문서는 온-프레미스 응용 프로그램 및 클라우드 응용 프로그램과 Azure Active Directory(AD)를 통합하는 시작 가이드입니다."
 services: active-directory
 documentationcenter: 
-author: ihenkel
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
@@ -12,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
-ms.author: inhenk
-translationtype: Human Translation
+ms.date: 05/04/2017
+ms.author: markvi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 54e6bf0953135855d4dda2bc83c8dc06212c6eb5
 ms.openlocfilehash: 6b3f6889c747e72ee1c592b1b0dfb1d03d700ad3
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/03/2017
 
 

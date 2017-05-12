@@ -166,6 +166,7 @@
 #### [Ambari REST API 사용](hdinsight-hadoop-manage-ambari-rest-api.md)
 ### [저장소 계정 추가](hdinsight-hadoop-add-storage.md)
 ### [Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)
+### [Data Lake Store가 있는 다중 HDInsight 클러스터](hdinsight-multiple-clusters-data-lake-store.md)
 ### [Sqoop으로 데이터 가져오기 및 내보내기](hdinsight-use-sqoop.md)
 #### [SSH를 사용하여 연결](hdinsight-use-sqoop-mac-linux.md)
 #### [cURL을 사용하여 실행](hdinsight-hadoop-use-sqoop-curl.md)

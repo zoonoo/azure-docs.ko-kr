@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 04/26/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 1fcec43ad50b9c78443ada116b9ca444605c4730
-ms.openlocfilehash: fa2a2f8ee61b6edf92db8d1f92ab9aca8bc673c5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: b0454ad51a2d0edecb6f7e7748ec3b74eeefa1da
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 ---
 
@@ -25,7 +27,7 @@ ms.openlocfilehash: fa2a2f8ee61b6edf92db8d1f92ab9aca8bc673c5
 
 Azure Active Directory 응용 프로그램 프록시는 원격 직원들이 안전하게 액세스할 수 있도록 온-프레미스 응용 프로그램을 게시하여 생산성을 개선하는 데 도움을 줍니다. Azure Portal에서는 이러한 앱에 대한 SSO(Single Sign-On)을 설정할 수도 있습니다. 이제 사용자는 Azure AD로 인증해야 하며 다시 로그인할 필요 없이 Enterprise 응용 프로그램에 액세스할 수 있습니다.
 
-이 문서에서는 암호 기반 앱의 예를 사용하여 암호 보관이 단순한 SSO 경험을 제공하는 방식을 보여줍니다. 
+이 문서에서는 암호 기반 앱의 예제를 사용하여 암호 보관이 단순한 SSO 환경을 제공하는 방법을 보여 줍니다. 
 
 이미 응용 프로그램 프록시를 사용하여 앱을 게시하고 테스트했을 것입니다. 그렇지 않은 경우 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시 - 공개 미리 보기](application-proxy-publish-azure-portal.md)의 단계를 따른 다음, 이곳으로 다시 오세요. 
 
@@ -35,7 +37,7 @@ Azure Active Directory 응용 프로그램 프록시는 원격 직원들이 안�
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **Enterprise 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
-3. 목록에서 SSO로 설정할 앱을 선택합니다. 많은 앱이 있는 경우에는 검색 상자를 사용하여 적합한 것을 필터링할 수 있습니다.  
+3. 목록에서 SSO로 설정할 앱을 선택합니다. 많은 앱이 있는 경우 검색 상자를 사용하여 적합한 앱을 필터링할 수 있습니다.  
 4. 관리 섹션에서 **Single sign-on**을 클릭합니다.
 
    ![Single Sign-On 선택](./media/application-proxy-sso-azure-portal/select-sso.png)
@@ -58,9 +60,4 @@ Azure Active Directory 응용 프로그램 프록시는 원격 직원들이 안�
 ## <a name="next-steps"></a>다음 단계
 
 [응용 프로그램 프록시를 사용하는 Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)을 구현하는 다른 방법에 대해 읽기
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

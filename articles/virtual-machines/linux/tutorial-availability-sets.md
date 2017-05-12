@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 65a7872e0880cc74a00ca1c05baae2b34b407a61
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d082b37a2e070136178259c54ada8dc141f81e13
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.lasthandoff: 04/26/2017
 
 ## <a name="create-an-availability-set"></a>가용성 집합 만들기
 
-[az vm availability-set create](/cli/azure/availability-set#create)를 사용하여 가용성 집합을 만들 수 있습니다. 이 예제에서는 **myResourceGroupAvailability** 리소스 그룹의 **myAvailabilitySet**라는 가용성 집합에 대해 업데이트 수와 장애 도메인 수를 모두 **2**로 설정합니다.
+[az vm availability-set create](/cli/azure/availability-set#create)를 사용하여 가용성 집합을 만들 수 있습니다. 이 예제에서는 *myResourceGroupAvailability* 리소스 그룹의 *myAvailabilitySet*라는 가용성 집합에 대해 업데이트 수와 장애 도메인 수를 모두 *2*로 설정합니다.
 
 ```azurecli
 az vm availability-set create \
@@ -73,7 +74,7 @@ done
 
 ## <a name="check-for-available-vm-sizes"></a>사용 가능한 VM 크기 확인 
 
-나중에 더 많은 VM을 가용성 집합에 추가할 수 있지만 하드웨어에서 사용 가능한 VM 크기를 알아야 합니다. `az vm availability-set list-sizes`를 사용하여 하드웨어 클러스터에서 사용 가능한 모든 가용성 집합 크기를 나열합니다.
+나중에 더 많은 VM을 가용성 집합에 추가할 수 있지만 하드웨어에서 사용 가능한 VM 크기를 알아야 합니다. [az vm availability-set list-sizes](/cli/azure/availability-set#list-sizes)를 사용하여 하드웨어 클러스터에서 가용성 집합에 대한 사용 가능한 모든 크기를 나열합니다.
 
 ```azurecli
 az vm availability-set list-sizes \

@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 05/1/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: a6241afa7398684d9315ab401ecdb5b2abd824c5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 1370fa64c2ddc25d3121c567ceea4828b1e50921
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -98,7 +99,7 @@ Nexonia에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Nexonia 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 >[!Note]
->통합에 문제가 있는 경우 문제 해결 가이드에 대한 이 [링크](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?WT.mc_id=UI_AAD_Enterprise_Apps_SupportOrTroubleshooting)를 참조하세요. 해결 방법을 찾지 못하면 Azure Portal에서 지원 요청을 문의하세요.
+>통합에 문제가 있는 경우 문제 해결 가이드에 대한 이 [링크](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?WT.mc_id=UI_AAD_Enterprise_Apps_SupportOrTroubleshooting)를 참조하세요. 그래도 해결 방법을 찾지 못하면 Azure Portal에서 지원 요청을 제기하세요.
 
 **Nexonia에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
@@ -117,12 +118,12 @@ Nexonia에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
     > [!NOTE] 
-    > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 이 값을 업데이트하세요. 이 값을 가져오려면 [Nexonia 지원 팀](http://www.nexonia.com/contact-us/)에 문의합니다. 
+    > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 이 값을 업데이트하세요. 이 값을 가져오려면 [Nexonia 지원 팀](https://nexonia.zendesk.com/hc/requests/new)에 문의합니다. 
 
 
 4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_certificate.png) 
+    ![Single Sign-on 구성](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_certificate.png) 
 
 5. **저장** 단추를 클릭합니다.
 
@@ -132,7 +133,7 @@ Nexonia에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Single Sign-On 구성](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_configure.png) 
 
-7. 응용 프로그램에 SSO를 구성하려면 [Nexonia 지원 팀](http://www.nexonia.com/contact-us/)에 문의하고 다음을 제공합니다.
+7. 응용 프로그램에 SSO를 구성하려면 [Nexonia 지원 팀](https://nexonia.zendesk.com/hc/requests/new)에 문의하고 다음을 제공합니다.
 
     • 다운로드한 **인증서**
 
@@ -180,7 +181,7 @@ Nexonia에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
  
 ### <a name="creating-a-nexonia-test-user"></a>Nexonia 테스트 사용자 만들기
 
-이 섹션에서는 Nexonia에서 Britta Simon이라는 사용자를 만듭니다. [Nexonia 지원 팀](http://www.nexonia.com/contact-us/)에 문의하여 Nexonia 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Nexonia에서 Britta Simon이라는 사용자를 만듭니다. [Nexonia 지원 팀](https://nexonia.zendesk.com/hc/requests/new)에 문의하여 Nexonia 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당

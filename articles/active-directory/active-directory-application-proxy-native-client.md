@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 164e3b0af47cd98f2d20fce7344230608e9fbe8c
-ms.openlocfilehash: 6762a5c88b7a3bbc0424729865ae312d74f9059f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 24396f7c82bcc0fb076c4fceca0ec4b0963d36e8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용하는 방법
-Azure Active Directory 응용 프로그램 프록시는 비즈니스 응용 프로그램의 SharePoint, Outlook Web Access 및 사용자 지정 선과 같은 브라우저 응용 프로그램을 게시하는 데 널리 사용됩니다. 장치에 설치되기 때문에 웹앱과 다른 네이티브 클라이언트 앱을 게시하는 데도 사용할 수 있습니다. 표준 권한 부여 HTTP 헤더에서 전송된 Azure AD가 발급한 토큰을 지원하여 이루어집니다.
+Azure Active Directory 응용 프로그램 프록시는 비즈니스 응용 프로그램의 SharePoint, Outlook Web Access 및 사용자 지정 기간 업무 응용 프로그램과 같은 브라우저 응용 프로그램을 게시하는 데 널리 사용됩니다. 장치에 설치되기 때문에 웹앱과 다른 네이티브 클라이언트 앱을 게시하는 데도 사용할 수 있습니다. 표준 권한 부여 HTTP 헤더에서 전송된 Azure AD가 발급한 토큰을 지원하여 이루어집니다.
 
 ![최종 사용자, Azure Active Directory 및 게시된 응용 프로그램 간의 관계](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
@@ -35,7 +37,7 @@ Azure Active Directory 응용 프로그램 프록시는 비즈니스 응용 프�
 
 1. Azure 클래식 포털에 로그인합니다.
 2. 왼쪽 메뉴에 있는 Active Directory 아이콘을 선택한 다음 디렉터리를 선택합니다.
-3. 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. 디렉터리에 추가한 앱이 없는 경우,이 페이지는 **앱 추가** 링크만 표시합니다. 이 링크를 클릭하거나 명령 모음에서 **추가** 단추를 클릭할 수 있습니다.
+3. 최상위 메뉴에서 **응용 프로그램**을 클릭합니다. 디렉터리에 추가한 앱이 없는 경우 이 페이지에는 **앱 추가** 링크만 표시됩니다. 링크를 클릭하거나 명령 모음에서 **추가** 단추를 클릭할 수 있습니다.
 4. **무엇을 하고 싶나요** 페이지에서 **조직에서 개발 중인 응용 프로그램 추가** 링크를 클릭합니다.
 5. **응용 프로그램 정보 제공** 페이지에서, 응용 프로그램 이름을 지정하고 **네이티브 클라이언트 응용 프로그램**을 선택합니다. 화살표 아이콘을 클릭하여 계속합니다.
 6. **응용 프로그램 정보** 페이지에서 네이티브 클라이언트 응용 프로그램에 **리디렉션 URI**를 제공한 다음 확인 표시를 클릭하여 완료합니다.
@@ -46,12 +48,12 @@ Azure Active Directory 응용 프로그램 프록시는 비즈니스 응용 프�
 디렉터리에서 다른 응용 프로그램에 노출될 네이티브 응용 프로그램을 사용하도록 설정합니다.
 
 1. 최상위 메뉴에서 **응용 프로그램**을 클릭하고 새 네이티브 응용 프로그램을 선택한 다음 **구성**을 클릭합니다.
-2. 아래에 있는 **다른 응용 프로그램에 대한 권한** 섹션으로 스크롤합니다. **응용 프로그램을 추가** 단추를 클릭하고 네이티브 응용 프로그램이 액세스 권한을 부여하려는 프록시 응용 프로그램을 선택한 다음 오른쪽 아래 모서리에 있는 확인 표시를 클릭합니다. **위임된 권한** 드롭다운 메뉴에서 새 사용 권한을 선택합니다.
+2. 아래에 있는 **다른 응용 프로그램에 대한 권한** 섹션으로 스크롤합니다. **응용 프로그램 추가** 단추를 클릭하고 네이티브 응용 프로그램이 액세스 권한을 부여하려는 프록시 응용 프로그램을 선택한 다음 오른쪽 아래 모서리에 있는 확인 표시를 클릭합니다. **위임된 권한** 드롭다운 메뉴에서 새 사용 권한을 선택합니다.
 
 ![다른 응용 프로그램 스크린샷에 대한 권한 - 응용 프로그램 추가](./media/active-directory-application-proxy-native-client/delegate_native_app.png)
 
 ## <a name="step-4-edit-the-active-directory-authentication-library"></a>4단계: Active Directory 인증 라이브러리 편집
-Active Directory 인증 라이브러리(ADAL)의 인증 컨텍스트에서 네이티브 응용 프로그램 코드를 편집하여 다음을 포함합니다.
+Active Directory 인증 라이브러리(ADAL)의 인증 컨텍스트에서 네이티브 응용 프로그램 코드를 편집하여 다음 텍스트를 포함합니다.
 
         // Acquire Access Token from AAD for Proxy Application
         AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<TenantId>");
@@ -83,9 +85,4 @@ Active Directory 인증 라이브러리(ADAL)의 인증 컨텍스트에서 네�
 * [Single Sign-On 사용](active-directory-application-proxy-sso-using-kcd.md)
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

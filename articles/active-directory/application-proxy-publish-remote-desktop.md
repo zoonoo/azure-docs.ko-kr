@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 04/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: e45d704e68c17d36fd5b195179730b80d0f53e0c
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 9724ad2e460837157c7677d2c91493cebc8f7012
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -59,14 +60,14 @@ RD 웹 및 RD 게이트웨이 끝점은 둘 다 같은 컴퓨터에 있고 공�
 ### <a name="publish-the-rd-host-endpoint"></a>RD 호스트 끝점 게시
 
 1. 다음 값을 사용하여 [새 응용 프로그램 프록시 응용 프로그램을 게시](application-proxy-publish-azure-portal.md)합니다.
-   - 내부 URL: https://<rdhost>.com/, 여기서 <rdhost>는 RD 웹 및 RD 게이트웨이가 공유하는 공통 루트입니다. 
+   - 내부 URL: https://\<rdhost\>.com/, 여기서 \<rdhost\>는 RD 웹 및 RD 게이트웨이에서 공유하는 공통 루트입니다. 
    - 외부 URL: 이 필드는 응용 프로그램 이름에 따라 자동으로 채워지지만 수정할 수 있습니다. 사용자는 RDS에 액세스하면 이 URL로 이동합니다. 
    - 사전 인증 방법: Azure Active Directory
    - URL 헤더 변환: 아니요
 2. 게시된 RD 응용 프로그램에 사용자를 할당합니다. 모든 사용자가 RDS에도 액세스할 수 있는지 확인합니다.
 3. 응용 프로그램에 대한 Single Sign-On 방법을 **Azure AD Single Sign-On 사용 안 함**으로 유지합니다. 사용자에게는 Azure AD 및 RD 웹에 대해 한 번씩 인증하도록 요청되지만 RD 게이트웨이에 대한 Single Sign-On이 제공됩니다. 
 4. **Azure Active Directory** > **앱 등록** > *응용 프로그램* > **설정**으로 이동합니다. 
-5. **속성**을 선택하고 **홈페이지 URL** 필드를 업데이트하여 RD 웹 끝점(예: https://<rdhost>.com/RDWeb)을 가리킵니다.
+5. **속성**을 선택하고 **홈페이지 URL** 필드를 업데이트하여 RD 웹 끝점(예: https://\<rdhost\>.com/RDWeb)을 가리킵니다.
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>응용 프로그램 프록시에 대한 직접 RDS 트래픽
 
@@ -82,7 +83,7 @@ RD 웹 및 RD 게이트웨이 끝점은 둘 다 같은 컴퓨터에 있고 공�
 
   ![RDS의 배포 속성 화면](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-8. 각 컬렉션에 대해 다음 명령을 실행합니다. *<yourcollectionname>* 및 *<proxyfrontendurl>*을 사용자 정보로 바꿉니다. 이 명령은 RD 웹과 RD 게이트웨이 간에 Single Sign-On을 사용하도록 설정하고 성능을 최적화합니다.
+8. 각 컬렉션에 대해 다음 명령을 실행합니다. *\<yourcollectionname\>* 및 *\<proxyfrontendurl\>*을 사용자 고유의 정보로 바꿉니다. 이 명령은 RD 웹과 RD 게이트웨이 간에 Single Sign-On을 사용하도록 설정하고 성능을 최적화합니다.
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s: <proxyfrontendurl> `n require pre-authentication:i:1"
@@ -103,3 +104,4 @@ Windows 7 또는 10 컴퓨터에서 Internet Explorer를 사용하여 시나리�
 
 [Azure AD 응용 프로그램 프록시를 사용하여 SharePoint에 원격 액세스 사용하도록 설정](application-proxy-enable-remote-access-sharepoint.md)  
 [Azure AD 응용 프로그램 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항](application-proxy-security-considerations.md)
+

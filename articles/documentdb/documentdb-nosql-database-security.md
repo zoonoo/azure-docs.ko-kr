@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d04c670daac243119b47cece2df18335c7af972c
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 71668ceedca16647f814866ea9cf068f73e5daf6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -82,6 +83,7 @@ NoSQL 데이터베이스 시스템을 비교하는 데는 다음 요구 사항 �
 |지오-펜싱|DocumentDB는 독립적인 지역(예: 독일, 중국, US Gov)에 대해 데이터 거버넌스 및 준수를 보장합니다.|
 |보호된 기능|DocumentDB의 데이터는 Azure의 보호된 데이터 센터에서 SSD에 저장됩니다.<br><br>[Microsoft 글로벌 데이터 센터](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)에 대한 자세한 정보|
 |HTTPS/SSL/TLS 암호화|모든 클라이언트-서비스 DocumentDB 상호 작용에는 SSL/TLS 1.2가 적용됩니다. 또한 모든 데이터 센터 내부 및 데이터 센터 간 복제에는 SSL/TLS 1.2가 적용됩니다.|
+|휴지 상태의 암호화|DocumentDB에 저장된 모든 데이터는 미사용 암호화됩니다. [DocumentDB 미사용 암호화](.\documentdb-nosql-database-encryption-at-rest.md)에 대해 자세히 알아보세요.|
 |패치된 서버|관리되는 NoSQL 데이터베이스처럼 DocumentDB는 서버를 관리 및 패치 적용할 필요가 없이 자동으로 처리해 줍니다.|
 |강력한 암호를 사용하는 관리 계정|이 요구 사항은 당연하게 여겨질 수 있지만, 일부 경쟁 업체와 달리 DocumentDB에서는 관리 계정에 반드시 암호가 있어야 합니다.<br><br> SSL 및 HMAC 비밀 기반 인증을 통한 보안이 기본적으로 반영됩니다.|
 |보안 및 데이터 보호 인증서|DocumentDB에는 [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [EUMC(European Model Clauses)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) 및 [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) 인증서가 있습니다. 기타 인증서는 현재 작업 중입니다.|

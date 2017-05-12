@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2016
+ms.date: 04/20/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: d7fe552e0c8856a8d7799ae8a7732e57a350fee3
-ms.openlocfilehash: 2a42605c75fe183d57030e4a3ff3f3218a7dbc2b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 4f7860b906ab988c918de31d53f4a958e4dea83b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -30,8 +32,8 @@ Azure AD 응용 프로그램 프록시를 통해 온-프레미스 응용 프로�
 
 > [!NOTE]
 > 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
-> 
-> 
+
+응용 프로그램 프록시 공개 미리 보기를 사용하려는 경우 [Azure Portal에서 응용 프로그램을 게시](application-proxy-publish-azure-portal.md)할 수 있습니다.
 
 ## <a name="publish-an-app-using-the-wizard"></a>마법사를 사용하여 앱 게시
 1. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 관리자로 로그인합니다.
@@ -102,10 +104,5 @@ Azure Active Directory 응용 프로그램 프록시를 사용하여 응용 프�
 * [클레임 인식 응용 프로그램으로 작업](active-directory-application-proxy-claims-aware-apps.md)
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

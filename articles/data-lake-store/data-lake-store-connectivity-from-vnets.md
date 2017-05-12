@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/10/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9bd7a76ef644df3db72ce95a3ef89a04bec1381f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -54,10 +56,5 @@ ExpressRoute 회로가 구성되면 온-프레미스 서버는 공용 피어링�
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Store 개요](data-lake-store-overview.md)
 * [Azure Data Lake Store에 저장된 데이터 보호](data-lake-store-security-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

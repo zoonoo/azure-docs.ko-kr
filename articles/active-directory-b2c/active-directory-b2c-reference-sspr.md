@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: 0508868e3b00c5771cc26038a3dd71fde6625a84
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -45,10 +46,5 @@ ms.openlocfilehash: 0508868e3b00c5771cc26038a3dd71fde6625a84
 > 셀프 서비스 암호 재설정 페이지는 [회사 브랜딩 기능](../active-directory/active-directory-add-company-branding.md)을 사용하여 사용자 지정할 수 있습니다.
 > 
 > 
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

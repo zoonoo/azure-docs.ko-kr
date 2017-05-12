@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: a1ae582d637e7f5589ad1eb0dc41343eda8d71ca
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 6504ef16922ed376249851a74a4e6908c6123f6a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -27,14 +28,20 @@ ms.lasthandoff: 03/31/2017
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
+## <a name="supported-operating-systems"></a>지원되는 운영 체제
+
+지원되는 운영 체제 및 드라이버 요구 사항은 [Windows용 N-시리즈 드라이버 설치](n-series-driver-setup.md)를 참조하세요.
+
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+[!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
 ## <a name="other-sizes"></a>기타 크기
 - [범용](sizes-general.md)
 - [Compute에 최적화](sizes-compute.md)
 - [고성능 계산](sizes-hpc.md)
-- [메모리에 최적화](../virtual-machines-windows-sizes-memory.md)
-- [Storage에 최적화](../virtual-machines-windows-sizes-storage.md)
+- [메모리에 최적화](sizes-memory.md)
+- [Storage에 최적화](sizes-storage.md)
 
 ## <a name="next-steps"></a>다음 단계
 [ACU(Azure Compute 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.

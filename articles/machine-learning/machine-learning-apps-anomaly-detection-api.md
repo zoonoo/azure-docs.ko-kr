@@ -138,9 +138,9 @@ API는 시계열 데이터에서 모든 감지기를 실행하고 각 시점에 
 | Tspike |TSpike 감지기의 급증 감지 여부를 나타내는 이진 표시기 |
 | ZSpike |ZSpike 감지기의 급증 감지 여부를 나타내는 이진 표시기 |
 | rpscore |양방향 수준 변화에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
-| rpalert |입력 민감도를 기반으로 양방향 수준 변화 이상이 있는지를 나타내는&1;/0 값 |
+| rpalert |입력 민감도를 기반으로 양방향 수준 변화 이상이 있는지를 나타내는 1/0 값 |
 | tscore |긍정적인 추세에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
-| talert |입력 민감도를 기반으로 긍정적인 추세 이상이 있는지를 나타내는&1;/0 값 |
+| talert |입력 민감도를 기반으로 긍정적인 추세 이상이 있는지를 나타내는 1/0 값 |
 
 ## <a name="scorewithseasonality-api"></a>ScoreWithSeasonality API
 ScoreWithSeasonality API는 계절성 패턴이 있는 시계열에 대한 이상 감지를 실행하는 데 사용됩니다. 이 API는 계절성 패턴의 편차를 감지하는 데 유용합니다.  
@@ -182,11 +182,11 @@ API는 시계열 데이터에서 모든 감지기를 실행하고 각 시점에 
 | Tspike |TSpike 감지기의 급증 감지 여부를 나타내는 이진 표시기 |
 | ZSpike |ZSpike 감지기의 급증 감지 여부를 나타내는 이진 표시기 |
 | BiLevelChangeScore |수준 변화에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
-| BiLevelChangeAlert |입력 민감도에 기반하여 수준 변화 이상이 있는지 나타내는&1;/0 값 |
+| BiLevelChangeAlert |입력 민감도에 기반하여 수준 변화 이상이 있는지 나타내는 1/0 값 |
 | PosTrendScore |긍정적인 추세에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
-| PosTrendAlert |입력 민감도를 기반으로 긍정적인 추세 이상이 있는지를 나타내는&1;/0 값 |
+| PosTrendAlert |입력 민감도를 기반으로 긍정적인 추세 이상이 있는지를 나타내는 1/0 값 |
 | NegTrendScore |부정적인 추세에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
-| NegTrendAlert |입력 민감도에 기반하여 부정적인 추세 이상이 있는지 나타내는&1;/0 값 |
+| NegTrendAlert |입력 민감도에 기반하여 부정적인 추세 이상이 있는지 나타내는 1/0 값 |
 
 [1]: ./media/machine-learning-apps-anomaly-detection-api/anomaly-detection-score.png
 [2]: ./media/machine-learning-apps-anomaly-detection-api/anomaly-detection-seasonal.png

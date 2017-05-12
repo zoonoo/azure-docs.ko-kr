@@ -12,16 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/06/2017
+ms.date: 05/03/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2fe28e7b52af579038ec145c028a6d2796d6cc6e
-ms.openlocfilehash: f47b719f7b1a78264e054ee15edacc32ca35aaf7
-ms.lasthandoff: 02/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 05c5476cbfd616ce47d6d93627c6e7dd4d8a0d6f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="stream-analytics-release-notes"></a>Stream Analytics 릴리스 정보
+
+## <a name="notes-for-05032017-update-of-stream-analytics"></a>Stream Analytics의 2017/05/03 업데이트에 대한 정보
+이 업데이트는 문제 해결 설명서 릴리스용입니다.
+
+[문제 해결 가이드](stream-analytics-troubleshooting-guide.md) 및 다른 문서가 릴리스되었습니다. 검토해 보시고 의견을 보내 주세요.
+
 ## <a name="notes-for-02012017-release-of-stream-analytics"></a>Stream Analytics 2017/02/01 릴리스 정보
 이 릴리스에는 다음 업데이트가 포함됩니다.
 
@@ -103,7 +110,7 @@ ms.lasthandoff: 02/01/2017
 
 | 제목 | 설명 |
 | --- | --- |
-| Azure ID에서 분리된 Power BI 조직 ID |이 기능을 통해 모든 Azure 계정 형식의 ASA 작업에 대한 [Power BI 출력](stream-analytics-power-bi-dashboard.md) 을 사용할 수 있습니다(Live ID 또는 조직 ID). 또한 Azure 계정에 대한 하나의 조직 ID를 포함하고 Power BI 출력 권한 부여를 위한 다른 하나를 사용할 수 있습니다. |
+| Azure ID에서 분리된 Power BI 조직 ID |이 기능을 통해 모든 Azure 계정 형식의 ASA 작업에 대한 [Power BI 출력](stream-analytics-power-bi-dashboard.md)을 사용할 수 있습니다(Live ID 또는 조직 ID). 또한 Azure 계정에 대한 하나의 조직 ID를 포함하고 Power BI 출력 권한 부여를 위한 다른 하나를 사용할 수 있습니다. |
 | 서비스 버스 큐 출력에 대한 지원 |이제 Stream Analytics 작업에서 [Service Bus 큐](stream-analytics-define-outputs.md#service-bus-queues) 출력을 사용할 수 있습니다. |
 | 서비스 버스 토픽 출력에 대한 지원 |이제 Stream Analytics 작업에서 [Service Bus 토픽](stream-analytics-define-outputs.md#service-bus-topics) 출력을 사용할 수 있습니다. |
 
@@ -136,7 +143,7 @@ ms.lasthandoff: 02/01/2017
 | PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다. |PowerBI는 지정된 데이터 집합에서 둘 이상의 테이블을 지원하지 않습니다. |
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

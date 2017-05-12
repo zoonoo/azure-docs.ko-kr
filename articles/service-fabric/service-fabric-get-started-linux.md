@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/23/2017
+ms.date: 05/04/2017
 ms.author: subramar
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 516b8e517a16dd0d87e02189260166696225fbab
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: d01e141ec8ee8da18d38a216f3b13c88f3632801
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -74,6 +75,13 @@ apt-get을 통해 SDK 및 관련된 런타임 패키지를 설치하려면 먼�
     ```bash
     sudo apt-get install servicefabricsdkcommon
     ```
+    설치를 자동화하려면 서비스 패브릭 패키지에 대한 debconf 선택 항목을 설정하여 라이선스 규약 프롬프트를 건너뛰면 됩니다. 다음 두 명령을 실행할 수 있습니다.
+    
+    ```bash
+    echo "servicefabric servicefabric/accepted-eula-v1 select true" | debconf-set-selections
+    echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | debconf-set-selections
+    ```
+
 2. SDK 설치 스크립트를 실행합니다.
 
     ```bash
@@ -203,6 +211,11 @@ Service Fabric Eclipse 플러그 인이 이미 설치된 경우 최신 버전인
    sudo apt-get update
    sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp servicefabricsdkjava
    ```
+   
+> [!NOTE]
+> 위의 패키지를 업데이트하면 로컬 개발 클러스터가 중지될 수 있습니다. 업그레이드 후 이 페이지의 지침에 따라 로컬 클러스터를 다시 시작하세요.
+>
+>
 
 CLI를 업데이트하는 경우 CLI를 복제한 디렉터리로 이동하고 업데이트할 `git pull`을 실행합니다.  업데이트를 위한 추가 단계가 필요한 경우 릴리스 정보는 해당 단계를 지정합니다. 
 

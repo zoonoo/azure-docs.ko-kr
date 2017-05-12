@@ -17,7 +17,7 @@
 ## Virtual Machines에서 SAP HANA
 ### [단일 인스턴스 SAP HANA](hana-get-started.md)
 ### [S/4 HANA 또는 BW/4 HANA 배포 가이드](cal-s4h.md)
-### [VM에서 고가용성](sap-hana-high-availability.md)
+### [VM의 고가용성](sap-hana-high-availability.md)
 ### [Backup 개요](sap-hana-backup-guide.md)
 ### [파일 수준 백업](sap-hana-backup-file-level.md)
 ### [저장소 스냅숏 백업](sap-hana-backup-storage-snapshots.md)

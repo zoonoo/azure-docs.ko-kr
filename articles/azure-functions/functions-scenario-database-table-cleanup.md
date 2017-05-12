@@ -15,9 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: glenga
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b873a7d0ef9efa79c9a173a8bfd3522b12522322
 ms.openlocfilehash: c0b4a963275dae5bbf203388cb61086393803b15
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/29/2016
 
 
 ---
@@ -96,11 +98,6 @@ Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
 * [Azure Functions 크기 조정 방법](functions-scale.md)  
   Azure Functions와 함께 제공되는 서비스 계획(소비 계획 포함) 및 올바른 계획 선택 방법에 대해 설명합니다.  
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-
-
-
-<!--HONumber=Nov16_HO5-->
 
 

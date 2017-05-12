@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/24/2017
 ms.author: spelluru
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
 ms.openlocfilehash: 5a50f583831b398ae22416e7ade23c33846de55c
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/03/2017
 
 
@@ -82,7 +83,7 @@ Azure Data Factory **복사 마법사**를 사용하면 데이터 수집/이동 
    
    1. **태스크 이름**에 **CopyFromBlobToAzureSql**을 입력합니다.
    2. **설명** 을 입력합니다(선택 사항).
-   3. 종료 날짜가 오늘로 설정되고 시작 날짜가 현재 날짜&5;일전으로 설정되도록 **시작 날짜 시간** 및 **종료 날짜 시간**을 변경합니다.  
+   3. 종료 날짜가 오늘로 설정되고 시작 날짜가 현재 날짜 5일전으로 설정되도록 **시작 날짜 시간** 및 **종료 날짜 시간**을 변경합니다.  
    4. **다음**을 클릭합니다.  
       
       ![복사 도구 - 속성 페이지](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 

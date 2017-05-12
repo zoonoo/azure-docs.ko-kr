@@ -10,18 +10,19 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f22b6dbdcc02b1182163f140d9ff13d2876dc0d8
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 5036ce23e602c7723f5fafef60ab45d533c1fe7d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>요청 원격 분석: Application Insights 데이터 모델
 
-요청 원격 분석은 외부적으로 트리거된 코드 실행 및 논리 코드 실행 캡슐화를 나타냅니다. 모든 요청 실행은 모든 실행 매개 변수를 포함하는 고유한 `ID` 및 `url`로 식별됩니다. 논리적 `name`으로 요청을 그룹화하고 이 요청의 `source`를 정의할 수 있습니다. 코드를 실행하면 `success` 또는 실패로 나타나고 특정 `duration`이 지정됩니다. 둘 다 - 성공 및 실패 실행은 `resultCode`별로 그룹화할 수 있습니다. 봉투 (envelope) 수준에 정의된 요청 원격 분석의 시작 시간입니다.
+[Application Insights](app-insights-overview.md)에서 요청 원격 분석 항목은 응용 프로그램에 대한 외부 요청으로 트리거되는 실행의 논리적 순서를 나타냅니다. 모든 요청 실행은 모든 실행 매개 변수를 포함하는 고유한 `ID` 및 `url`로 식별됩니다. 논리적 `name`으로 요청을 그룹화하고 이 요청의 `source`를 정의할 수 있습니다. 코드 실행으로 `success` 또는 `fail`이 발생할 수 있으며 특정 `duration` 동안 지속됩니다. success(성공) 및 failure(실패) 실행은 모두 `resultCode`별로 그룹화할 수 있습니다. 봉투 (envelope) 수준에 정의된 요청 원격 분석의 시작 시간입니다.
 
 요청 원격 분석은 사용자 지정 `properties` 및 `measurements`를 사용하여 표준 확장성 모델을 지원합니다.
 
@@ -35,7 +36,7 @@ Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않�
 
 ## <a name="id"></a>ID
 
-요청 호출 인스턴스의 식별자입니다. 요청 및 기타 원격 분석 항목 간 상관 관계에 사용됩니다. ID는 전역적으로 고유해야 합니다. 자세한 내용은 [상관 관계](/correlation) 페이지를 참조하세요.
+요청 호출 인스턴스의 식별자입니다. 요청 및 기타 원격 분석 항목 간 상관 관계에 사용됩니다. ID는 전역적으로 고유해야 합니다. 자세한 내용은 [상관 관계](application-insights-correlation.md) 페이지를 참조하세요.
 
 최대 길이: 128자
 
@@ -47,7 +48,7 @@ Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않�
 
 ## <a name="source"></a>원본
 
-요청의 원본입니다. 호출자의 계측 키 또는 호출자의 IP 주소를 예로 들 수 있습니다. 자세한 내용은 [상관 관계](/correlation.md) 페이지를 참조하세요.
+요청의 원본입니다. 호출자의 계측 키 또는 호출자의 IP 주소를 예로 들 수 있습니다. 자세한 내용은 [상관 관계](application-insights-correlation.md) 페이지를 참조하세요.
 
 최대 길이: 1024자
 
@@ -81,7 +82,8 @@ Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](/application-insights-data-model.md)을 참조하세요.
-- 자세한 방법 Application Insights를 사용하여 [ASP.NET Core 응용 프로그램을 구성](/app-insights-asp-net-core.md)하는 방법을 알아봅니다.
-- Application Insights에서 지원되는 [플랫폼](/app-insights-platforms.md)을 확인합니다.
+- [사용자 지정 요청 원격 분석을 작성합니다](app-insights-api-custom-events-metrics.md#trackrequest).
+- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
+- 자세한 방법 Application Insights를 사용하여 [ASP.NET Core 응용 프로그램을 구성](app-insights-asp-net.md)하는 방법을 알아봅니다.
+- Application Insights에서 지원되는 [플랫폼](app-insights-platforms.md)을 확인합니다.
 

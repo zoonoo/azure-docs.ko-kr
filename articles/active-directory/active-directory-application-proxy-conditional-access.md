@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 164e3b0af47cd98f2d20fce7344230608e9fbe8c
-ms.openlocfilehash: 72b823998ebd570acc34e6a7ca034f64881db0c4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: c16e07925389cc17ff156cae767366223fefa18f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -34,7 +36,7 @@ ms.openlocfilehash: 72b823998ebd570acc34e6a7ca034f64881db0c4
 ## <a name="conditional-access-prerequisites"></a>조건부 액세스 필수 조건
 * Azure Active Directory Premium 구독
 * 페더레이션 또는 관리되는 Azure Active Directory 테넌트
-* 페더레이션된 테넌트가 해당 MFA(Multi-Factor Authentication)의 사용 요구   
+* 페더레이션된 테넌트가 MFA(Multi-Factor Authentication) 요구  
     ![액세스 규칙 구성 - 다단계 인증 필요](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
 
 ## <a name="configure-per-application-multi-factor-authentication"></a>응용 프로그램당 Multi-Factor Authentication 구성
@@ -44,8 +46,8 @@ ms.openlocfilehash: 72b823998ebd570acc34e6a7ca034f64881db0c4
 4. **액세스 규칙 사용**을 **켜기**로 설정하여 규칙을 사용합니다.
 5. 규칙을 적용할 사용자 및 그룹을 지정합니다. **그룹 추가** 단추를 사용하여 액세스 규칙이 적용되는 하나 이상의 그룹을 선택합니다. 이 대화 상자는 선택한 그룹을 제거하는 데 사용할 수도 있습니다.  그룹에 적용할 규칙이 선택되면 액세스 규칙이 지정된 보안 그룹 중 하나에 속한 사용자에 대해서만 적용됩니다.  
 
-   * 규칙에서 보안 그룹을 명시적으로 제외하려면 **제외**를 선택하고 하나 이상의 그룹을 지정합니다. 제외 목록에 있는 그룹 회원인 사용자는 Multi-Factor Authentication을 수행하지 않아도 됩니다.  
-   * 사용자별 다단계 인증 기능을 사용하여 사용자가 구성된 경우 이 설정이 응용 프로그램 다단계 인증 규칙보다 우선적으로 적용됩니다. 즉, 사용자별 Multi-Factor Authentication을 위해 구성된 사용자는 응용 프로그램의 Multi-Factor Authentication 규칙에서 제외되더라도 Multi-Factor Authentication을 수행해야 함을 의미합니다. [Multi-Factor Authentication 및 사용자별 설정](../multi-factor-authentication/multi-factor-authentication.md)에 대해 자세히 알아보세요.
+   * 규칙에서 보안 그룹을 명시적으로 제외하려면 **제외** 를 선택하고 하나 이상의 그룹을 지정합니다. 제외 목록에 있는 그룹 회원인 사용자는 Multi-Factor Authentication을 수행하지 않아도 됩니다.  
+   * 사용자별 Multi-Factor Authentication을 사용하여 사용자가 구성된 경우 이 설정이 응용 프로그램 Multi-Factor Authentication 규칙보다 우선적으로 적용됩니다. 사용자별 Multi-Factor Authentication을 위해 구성된 사용자는 응용 프로그램의 Multi-Factor Authentication 규칙에서 제외되더라도 Multi-Factor Authentication을 수행해야 함을 의미합니다. [Multi-Factor Authentication 및 사용자별 설정](../multi-factor-authentication/multi-factor-authentication.md)에 대해 자세히 알아보세요.
 6. 설정하려는 액세스 규칙을 선택합니다.
 
    * **Multi-Factor Authentication 필요**: 액세스 규칙이 적용되는 사용자는 규칙이 적용되는 응용 프로그램에 액세스하기 전에 Multi-Factor Authentication을 완료해야 합니다.
@@ -53,7 +55,7 @@ ms.openlocfilehash: 72b823998ebd570acc34e6a7ca034f64881db0c4
    * **직장이 아닐 때 액세스 차단**: 회사 네트워크 외부에서 응용 프로그램에 액세스하고자 하는 사용자는 응용 프로그램에 액세스할 수 없습니다.
 
 ## <a name="configuring-mfa-for-federation-services"></a>페더레이션 서비스에 대한 MFA 구성
-페더레이션된 테넌트의 경우 MFA(다단계 인증)를 Azure Active Directory 또는 온-프레미스 AD FS 서버에서 수행할 수 있습니다. 기본적으로 MFA는 Azure Active Directory에서 호스팅되는 모든 페이지에 발생합니다. MFA 온-프레미스를 구성하려면 Windows PowerShell을 실행하고 Azure AD 모듈을 설정하려면 – SupportsMFA 속성을 사용합니다.
+페더레이션된 테넌트의 경우 MFA(다단계 인증)를 Azure Active Directory 또는 온-프레미스 AD FS 서버에서 수행할 수 있습니다. 기본적으로 MFA는 Azure Active Directory에서 호스팅되는 모든 페이지에 발생합니다. MFA 온-프레미스를 구성하려면 Windows PowerShell을 실행하고 Azure AD 모듈을 설정하려면 SupportsMFA 속성을 사용합니다.
 
 다음 예제는 contoso.com 테넌트에서 [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx)을 사용하여 온-프레미스 MFA를 사용하도록 설정하는 방법을 보여 줍니다. `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true `
 
@@ -66,9 +68,4 @@ ms.openlocfilehash: 72b823998ebd570acc34e6a7ca034f64881db0c4
 * [고유한 도메인 이름을 사용하여 응용 프로그램 게시](active-directory-application-proxy-custom-domains.md)
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

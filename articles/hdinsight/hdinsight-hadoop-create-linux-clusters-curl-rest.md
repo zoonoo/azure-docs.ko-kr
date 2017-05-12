@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/17/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: c3440ac34a195bfc831ee2fa2ff916b16e92a2ac
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 05f2ce6d6f170e16985c3ed3523d4e41173e21e0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -52,10 +53,6 @@ Azure REST API를 사용하면 HDInsight 클러스터 등과 같은 새 리소�
   > `Remove-item alias:curl`
   >
   > 별칭을 제거한 후에는 시스템에 설치한 cURL 버전을 사용할 수 있어야 합니다.
-
-### <a name="access-control-requirements"></a>액세스 제어 요구 사항
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-a-template"></a>템플릿 만들기
 
@@ -393,6 +390,10 @@ curl -X "GET" "https://management.azure.com/subscriptions/SubscriptionID/resourc
 ```
 
 이 명령은 배포 작업 관련 정보가 담긴 JSON 문서를 반환합니다. `"provisioningState"` 요소는 배포의 상태를 포함합니다. `"Succeeded"` 값을 포함하면 배포가 성공적으로 완료됩니다.
+
+## <a name="troubleshoot"></a>문제 해결
+
+HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -59,7 +59,7 @@ git clone https://github.com/kgabis/parson.git
 ## <a name="prepare-your-project"></a>프로젝트 준비
 Ubuntu 컴퓨터에서 **remote\_monitoring**이라는 폴더를 만듭니다. **remote\_monitoring** 폴더에서:
 
-- **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h**, **CMakeLists.txt**의&4;개 파일을 만듭니다.
+- **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h**, **CMakeLists.txt**의 4개 파일을 만듭니다.
 - **parson**이라는 폴더를 만듭니다.
 
 Parson 리포지토리의 로컬 복사본에서 파일 **parson.c** 및 **parson.h**를 **remote\_monitoring/parson** 폴더로 복사합니다.

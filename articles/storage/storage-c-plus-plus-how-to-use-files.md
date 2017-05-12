@@ -3,8 +3,8 @@ title: "C++에서 File Storage를 사용하는 방법 | Microsoft Docs"
 description: "Azure File Storage를 사용하여 클라우드에 파일 데이터를 저장합니다."
 services: storage
 documentationcenter: .net
-author: seguler
-manager: jahogg
+author: renashahmsft
+manager: aungoo
 editor: tysonn
 ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
-ms.author: seguler
-translationtype: Human Translation
+ms.date: 05/11/2017
+ms.author: renashahmsft
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: f8ecb68fddf4293592e546c0c10d0c86664bd090
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/06/2017
 
 

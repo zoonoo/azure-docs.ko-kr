@@ -1,8 +1,8 @@
 ---
-title: "Azure AD: 셀프 서비스 암호 재설정 등록 | Microsoft Docs"
-description: "셀프 서비스 암호 재설정을 위한 인증 데이터를 등록합니다."
+title: "Azure AD: SSPR 등록 | Microsoft Docs"
+description: "Azure AD 셀프 서비스 암호 재설정을 위한 인증 데이터를 등록합니다."
 services: active-directory
-keywords: "Active Directory 암호 관리, 암호 관리, Azure AD 셀프 서비스 암호 재설정, SSPR"
+keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
@@ -11,30 +11,31 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/16/2017
+ms.topic: article
+ms.date: 04/26/2017
 ms.author: joflore
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: c6d3d9d8f399816928e794e8956bc35825462fb9
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: bd0175558a94a146a365e8c1a32522f1e54c184e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="register-for-self-service-password-reset"></a>셀프 서비스 암호 재설정 등록
 
-최종 사용자로서 관리자가 활성화한 경우 SSPR(셀프 서비스 암호 재설정)을 사용하는 사람에게 문의하지 않고도 암호를 다시 설정하거나 계정 잠금을 해제할 수 있습니다. 이 기능을 사용하려면 먼저 인증 방법을 등록하거나 관리자가 입력한 미리 정의된 인증 방법을 확인해야 합니다.
+최종 사용자로서 SSPR(셀프 서비스 암호 재설정)을 사용하는 사람에게 문의하지 않고도 암호를 재설정하거나 계정 잠금을 해제할 수 있습니다. 이 기능을 사용하려면 먼저 인증 방법을 등록하거나 관리자가 입력한 미리 정의된 인증 방법을 확인해야 합니다.
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>SSPR을 사용하여 인증 데이터 등록 또는 확인
 
 1. 장치에서 웹 브라우저를 열고 [암호 재설정 등록 페이지](http://aka.ms/ssprsetup)로 이동합니다.
 2. 관리자가 제공한 사용자 이름과 암호를 입력합니다.
-3. 관리자가 승인한 옵션에 따라 암호를 다시 설정해야 하는 경우 사용하도록 구성하거나 확인할 수 있는 다음 항목 중 하나 이상이 표시됩니다
-    * 사무실 전화 - 이 옵션은 관리자만 설정할 수 있습니다.
-    * 인증 전화 - 이 옵션은 문자 메시지 또는 전화를 받을 수 있는 휴대폰과 같이 액세스할 수 있는 다른 전화 번호로 설정해야 합니다. 해당 정보를 사용할 수 있는 권한이 이미 있는 경우 관리자가 휴대폰 번호를 사용하여 이 정보를 채웁니다.
-    * 인증 전자 메일 - 이 옵션은 다시 설정해야 하는 암호 없이 액세스할 수 있는 인증 전자 메일 주소로 설정해야 합니다
-    * 보안 질문 - 이 옵션은 사용자가 응답하도록 관리자가 승인한 질문 목록을 제공합니다. 둘 이상의 질문에 대해 동일한 대답을 사용할 수 없습니다.
+3. IT 직원이 작업을 구성한 방식에 따라 구성하고 확인하는 데 다음 옵션 중 하나 이상을 사용할 수 있습니다. 관리자가 정보를 사용할 사용 권한을 가진 경우 사용자를 대신하여 일부 항목을 입력할 수 있습니다.
+    * 사무실 전화는 관리자만 설정할 수 있습니다.
+    * 인증 전화는 문자 또는 전화를 받을 수 있는 휴대폰과 같이 액세스하려는 다른 전화 번호를 설정해야 합니다.
+    * 인증 전자 메일은 재설정해야 하는 암호 없이 액세스할 수 있는 인증 전자 메일 주소로 설정해야 합니다
+    * 보안 질문은 사용자가 응답하도록 관리자가 승인한 질문 목록을 제공합니다. 두 번 이상 동일한 질문 또는 대답을 사용할 수 없습니다.
 4. 관리자가 요구하는 정보를 제공하고 확인합니다. 둘 이상의 옵션을 사용할 수 있는 경우 다른 방법을 사용할 수 없을 때 유연하게 처리할 수 있도록 여러 가지 방법을 등록하는 것이 좋습니다(예: 여행 및 사무실 전화에 액세스할 수 없음)
 
     ![인증 방법 등록 후 마침 클릭][Register]
@@ -53,4 +54,5 @@ ms.lasthandoff: 04/26/2017
 * [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "등록된 방법을 보여 주는 암호 재설정 등록 페이지 및 마침 단추"
+
 

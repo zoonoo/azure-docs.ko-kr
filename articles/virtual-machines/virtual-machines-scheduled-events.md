@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 18c7a013c01fee26c5455535af6d9fba2b98fac7
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 7f0613285bc548e1329be3c33c30939f5998f379
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -50,7 +51,12 @@ Scheduled Events는 클라우드 서비스의 모든 Virtual Machines 또는 가
 Virtual Machine을 VNet(Virtual Network) 내에서 만든 경우 메타데이터 서비스는 169.254.169.254라는 라우팅할 수 없는 IP에서 사용할 수 있습니다. 아니면 클라우드 서비스 및 클래식 VM에 대한 기본 사례에서 사용할 끝점을 검색하는 데 추가 논리가 필요합니다. 이 샘플을 참조하여 [호스트 끝점을 검색]하는 방법을 알아봅니다(https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="versioning"></a>버전 관리 
-Metadata Service는 http://{ip}/metadata/{version}/scheduledevents 형식의 버전이 있는 API를 사용합니다. 서비스에서 http://{ip}/metadata/latest/scheduledevents에 있는 최신 버전을 사용하는 것이 좋습니다.
+인스턴스 메타데이터 서비스에는 버전이 있습니다. 버전은 필수이며 최신 버전은 2017-03-01입니다.
+
+> [!NOTE] 
+> 예약된 이벤트의 이전 미리 보기 릴리스는 api-version으로 {최신 버전}을 지원했습니다. 이 형식은 더 이상 지원되지 않으며 향후 사용되지 않을 예정입니다.
+>
+
 
 ### <a name="using-headers"></a>헤더 사용
 Metadata Service를 쿼리할 때 *Metadata: true* 헤더를 제공해야 합니다. 
@@ -67,7 +73,8 @@ Metadata Service를 쿼리할 때 *Metadata: true* 헤더를 제공해야 합니
 ### <a name="query-for-events"></a>이벤트 쿼리
 다음과 같이 호출하여 Scheduled Events를 쿼리할 수 있습니다.
 
-    curl -H Metadata:true http://169.254.169.254/metadata/latest/scheduledevents
+    curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+
 
 응답에는 예약된 이벤트의 배열이 포함됩니다. 빈 배열은 현재 예약된 이벤트가 없음을 의미합니다.
 예약된 이벤트가 있는 경우 응답에 다음과 같은 이벤트의 배열이 포함됩니다. 
@@ -136,7 +143,7 @@ function HandleScheduledEvents($scheduledEvents)
 
 # Set up the scheduled events uri for VNET enabled VM
 $localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/latest/scheduledevents' -f $localHostIP 
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
 
 
 # Get the document
@@ -170,7 +177,7 @@ foreach($event in $scheduledEvents.Events)
 
         public ScheduledEventsClient()
         {
-            scheduledEventsEndpoint = string.Format("http://{0}/metadata/latest/scheduledevents", defaultIpAddress);
+            scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
         }
         /// Retrieve Scheduled Events 
         public string GetDocument()
@@ -293,7 +300,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url="http://169.254.169.254/metadata/latest/scheduledevents"
+metadata_url="http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
 headers="{Metadata:true}"
 this_host=socket.gethostname()
 
@@ -329,4 +336,5 @@ if __name__ == '__main__':
 ```
 ## <a name="next-steps"></a>다음 단계 
 [Azure에서 가상 컴퓨터에 대한 계획된 유지 관리](linux/planned-maintenance.md)
+[인스턴스 메타데이터 서비스](virtual-machines-instancemetadataservice-overview.md)
 

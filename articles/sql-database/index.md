@@ -9,12 +9,13 @@ ms.service: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 05/03/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: bc2036c18615e855234885cc0937c16d43eb80dc
-ms.lasthandoff: 04/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5dedddd62634551b5d20fd69c633477180e7623f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 ---
 <div class="content">
@@ -62,6 +63,9 @@ ms.lasthandoff: 04/28/2017
 <ol>
     <li><a href="/azure/sql-database/sql-database-design-first-database">새 SQL Database에 대한 스키마 만들기 및 디자인</a></li>
     <li><a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">기존 SQL Server 데이터베이스를 Azure SQL Database를 사용하도록 마이그레이션</a></li>
+    <li><a href="/azure/sql-database/sql-database-security-tutorial">SQL Database 보안 설정</a></li> 
+    <li><a href="/azure/sql-database/sql-database-performance-tutorial">SQL Database 성능 향상</a></li> 
+    <li><a href="/azure/sql-database/sql-database-multi-tenant-application">SQL DB를 사용하여 다중 테넌트 SaaS 응용 프로그램 구현</a></li> 
 </ol>
 
 <h2 style="margin-top: 36px">무료 PluralSight 동영상 교육</h2>

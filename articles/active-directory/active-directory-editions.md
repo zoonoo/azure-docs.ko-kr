@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 59e12d70d46d45fb7dc4244ac2968838cb29dbec
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9d10ebf9d7bd07bd126302a6ecf442d809e00196
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -367,20 +368,9 @@ Microsoft Identity Manager 서버 소프트웨어 권한은 Windows Server 라�
 
 * [엔터프라이즈 상태 로밍](active-directory-windows-enterprise-state-roaming-overview.md)
 
-## <a name="azure-ad-preview-features"></a>Azure AD 미리 보기 기능
-Azure AD는 Free, Basic 및 Premium(P1 및 P2) 버전의 일반 기능 외에도 미리 보기 기능 컬렉션을 제공합니다. 미리 보기 기능을 사용하여 조만간 추가될 새 기능을 미리 경험해 보고 이러한 기능이 환경 개선에 도움이 될지 알아볼 수 있습니다.
-
-**제공되는 미리 보기 기능:**
-
-* [B2B 공동 작업](active-directory-b2b-collaboration-overview.md)
-* [관리 장치](active-directory-administrative-units-management.md)
-* [HR 응용 프로그램 통합](active-directory-saas-workday-inbound-tutorial.md)
-* [iOS에 대한 인증서 기반 인증](active-directory-certificate-based-authentication-ios.md)
-* [Android에 대한 인증서 기반 인증](active-directory-certificate-based-authentication-android.md)
-
 ## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
-* [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
+* [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](active-directory-add-company-branding.md)
 * [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->

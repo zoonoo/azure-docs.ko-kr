@@ -4,24 +4,25 @@ description: "예외 원격 분석을 위한 Azure Application Insights 데이�
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 17a39660fce598610ff9a95e886282e6b3faffe4
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 49d2429c01fe3fde2e51e4344904f55e43eea1cd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>예외 원격 분석: Application Insights 데이터 모델
 
-예외 인스턴스는 모니터링된 응용 프로그램을 실행하는 동안 발생한 처리된 예외 또는 처리되지 않은 예외를 나타냅니다.
+[Application Insights](app-insights-overview.md)에서 예외 인스턴스는 모니터링되는 응용 프로그램을 실행하는 동안 발생하여 처리되거나 처리되지 않은 예외를 나타냅니다.
 
 ## <a name="problem-id"></a>문제 ID
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="exception-details"></a>예외 세부 정보
 
-이 섹션은 진행 중인 작업입니다...
+(확장 예정임)
 
 ## <a name="custom-properties"></a>사용자 지정 속성
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](/application-insights-data-model.md)을 참조하세요.
-- [Application Insights를 사용하여 웹앱에서 예외를 진단](/app-insights-asp-net-exceptions.md)하는 방법을 알아봅니다.
-- Application Insights에서 지원되는 [플랫폼](/app-insights-platforms.md)을 확인합니다.
+- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
+- [Application Insights를 사용하여 웹앱에서 예외를 진단](app-insights-asp-net-exceptions.md)하는 방법을 알아봅니다.
+- Application Insights에서 지원되는 [플랫폼](app-insights-platforms.md)을 확인합니다.
 

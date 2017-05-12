@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: mandia
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 5733592fc1633d8722905c33dd267b4cbe1fe184
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/10/2017
 
 
@@ -49,7 +50,7 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
     ![추가 서비스, "통합"에 대해 필터링하고 "통합 계정"을 선택합니다.](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
 
 3. 열린 **통합 계정** 블레이드에서 규약을 만들려는 통합 계정을 선택합니다.
-통합 계정이 표시되지 않으면 (../logic-apps/logic-apps-enterprise-integration-accounts.md "통합 계정에 대한 모든 정보")를 [먼저 만듭니다].  
+통합 계정이 표시되지 않으면 [먼저 만듭니다](../logic-apps/logic-apps-enterprise-integration-accounts.md "통합 계정에 대한 모든 정보") 를.  
 
     ![규약을 만들 통합 계정 선택](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 

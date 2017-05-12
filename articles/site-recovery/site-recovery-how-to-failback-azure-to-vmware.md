@@ -14,23 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 02/13/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 6629666eaa913321db3855438bb66d349d5c52bf
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 1c56a7f16361ac4fae97be6c9f21c959723b396c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 장애 복구
+
+> [!div class="op_single_selector"]
+> * [Azure의 VMware/물리적 컴퓨터](site-recovery-failback-azure-to-vmware.md)
+> * [Azure의 Hyper-V VM](site-recovery-failback-from-azure-to-hyper-v.md)
+
+
 이 문서에서는 가상 컴퓨터를 Azure Virtual Machines에서 온-프레미스 사이트로 장애 복구하는 방법에 대해 설명합니다. [Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-vmware-to-azure-classic.md) 자습서를 사용하여 온-프레미스 사이트에서 Azure로 장애 조치한 후 이 문서의 지침에 따라 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 장애 복구하세요.
 
+> [!WARNING]
+> 가상 컴퓨터를 또 다른 리소스 그룹으로 이동했거나 Azure 가상 컴퓨터를 삭제하여 [마이그레이션을 완료](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)한 후에는 장애 복구(failback)를 수행할 수 없습니다.
+
+> [!NOTE]
+> VMware 가상 컴퓨터에서 장애가 발생하면 Hyper-V 호스트로 장애 복구(failback)를 수행할 수 없습니다.
+
 ## <a name="overview-of-failback"></a>장애 복구 개요
-장애 복구의 작동 방식은 다음과 같습니다. Azure로 장애 조치한 후 다음 몇 가지 단계에서 온-프레미스 사이트로 장애 복구합니다.
+장애 복구(failback)의 작동 방식은 다음과 같습니다. Azure로 장애 조치한 후 다음 몇 가지 단계를 거쳐 온-프레미스 사이트로 장애 복구를 수행합니다.
 
 1. 온-프레미스 사이트의 VMware 가상 컴퓨터로 복제를 시작하도록 Azure의 가상 컴퓨터를 [다시 보호](site-recovery-how-to-reprotect.md)합니다. 이 프로세스의 일부로 다음 작업을 수행해야 합니다.
     1. 온-프레미스 마스터 대상 설정: Windows 가상 컴퓨터에 대한 Windows 마스터 대상 및 Linux 가상 컴퓨터에 대한 [Linux 마스터 대상](site-recovery-how-to-install-linux-master-target.md).
     2. [프로세스 서버](site-recovery-vmware-setup-azure-ps-resource-manager.md) 설정.
-    3. [다시 보호](site-recovery-how-to-reprotect.md) 시작.
+    3. [다시 보호](site-recovery-how-to-reprotect.md) 시작. 이렇게 하면 온-프레미스 가상 컴퓨터가 꺼지고 Azure 가상 컴퓨터의 데이터가 온-프레미스 디스크와 동기화됩니다.
 5. Azure의 가상 컴퓨터를 온-프레미스 사이트로 복제한 후 Azure에서 온-프레미스로 장애 조치를 시작합니다.
 
 데이터를 장애 복구한 후에 Azure로 복제를 시작하도록 장애 복구한 온-프레미스 가상 컴퓨터를 다시 보호합니다.
@@ -41,6 +54,9 @@ ms.lasthandoff: 04/25/2017
 ### <a name="fail-back-to-the-original-or-alternate-location"></a>원래 위치 또는 대체 위치로 장애 복구
 
 VMware 가상 컴퓨터를 장애 조치했는데 원본 온-프레미스 가상 컴퓨터가 여전히 남아 있는 경우 동일한 원본 온-프레미스 가상 컴퓨터로 장애 복구할 수 있습니다. 이 시나리오에서는 변경 내용만 다시 복제됩니다. 이 시나리오를 원본 위치 복구라고 합니다. 온-프레미스 가상 컴퓨터가 없는 경우에는 대체 위치 복구 시나리오라고 합니다.
+
+> [!NOTE]
+> 원래 vCenter 및 구성 서버로만 장애 복구를 수행할 수 있습니다. 새 구성 서버를 배포하고 이것을 사용하여 장애 복구를 수행할 수 없습니다. 새 vCenter를 기존 구성 서버에 추가하고 새 vCenter로 장애 복구를 수행할 수도 없습니다.
 
 #### <a name="original-location-recovery"></a>원래 위치 복구
 
@@ -74,7 +90,7 @@ Azure로 장애 조치된 물리적 컴퓨터는 VMware 가상 컴퓨터(P2A2V�
 ## <a name="steps-to-fail-back"></a>장애 복구 단계
 
 > [!IMPORTANT]
-장애 복구를 시작하기 전에 가상 컴퓨터의 다시 보호를 완료했는지 확인합니다. 가상 컴퓨터는 **양호**한 상태로 보호되어야 합니다. 가상 컴퓨터를 다시 보호하려면 [다시 보호하는 방법](site-recovery-how-to-reprotect.md)을 참조하세요.
+> 장애 복구를 시작하기 전에 가상 컴퓨터의 다시 보호를 완료했는지 확인합니다. 가상 컴퓨터는 **양호**한 상태로 보호되어야 합니다. 가상 컴퓨터를 다시 보호하려면 [다시 보호하는 방법](site-recovery-how-to-reprotect.md)을 참조하세요.
 
 1. 복제된 항목 페이지에서 가상 컴퓨터를 선택하고 마우스 오른쪽 단추를 클릭하여 **계획되지 않은 장애 조치**를 선택합니다.
 2. **장애 조치(failover) 확인** 에서 장애 조치(failover) 방향(Azure에서)을 확인하고 장애 조치(failover)에 사용할 복구 지점(최신 또는 최근 응용 프로그램 일치)을 선택합니다. 앱 일치 시점이 최신 시점보다 늦어지고 이로 인해 데이터 손실이 발생합니다.

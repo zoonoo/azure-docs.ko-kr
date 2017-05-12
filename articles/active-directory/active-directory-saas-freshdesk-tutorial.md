@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: f35da063fc637f315b52ea38b63d2c8222cecd21
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0a8f2de60ab60b980b29c4dbc78045bd20693b9d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -197,29 +198,29 @@ FreshDesk의 경우 프로비전은 수동 작업입니다.
 1. **Freshdesk** 테넌트에 로그인합니다.
 2. 위쪽의 메뉴에서 **관리자**를 클릭합니다.
    
-       ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "Admin")
+   ![관리자](./media/active-directory-saas-freshdesk-tutorial/IC776772.png "관리자")
 
 3. **일반 설정** 탭에서 **에이전트**를 클릭합니다.
    
-       ![Agents](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "Agents")
+   ![에이전트](./media/active-directory-saas-freshdesk-tutorial/IC776773.png "에이전트")
 
 4. **새 에이전트**를 클릭합니다.
    
-       ![New Agent](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "New Agent")
+    ![새 에이전트](./media/active-directory-saas-freshdesk-tutorial/IC776774.png "새 에이전트")
 
 5. 에이전트 정보 대화 상자에서 다음 단계를 수행합니다.
    
-       ![Agent Information](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "Agent Information")
+   ![에이전트 정보](./media/active-directory-saas-freshdesk-tutorial/IC776775.png "에이전트 정보")
    
-       a. In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
+   a. **전체 이름** 텍스트 상자에 프로비전하려는 Azure AD 계정의 이름을 입력합니다.
 
-       b. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
+   b. **전자 메일** 텍스트 상자에 프로비전하려는 Azure AD 계정의 Azure AD 전자 메일 주소를 입력합니다.
 
-       c. In the **Title** textbox, type the title of the Azure AD account you want to provision.
+   c. **제목** 텍스트 상자에 프로비전하려는 Azure AD 계정의 제목을 입력합니다.
 
-       d. Select **Agents role**, and then click **Assign**.
+   d. **에이전트 역할**을 선택한 다음 **할당**을 클릭합니다.
        
-       e. Click **Save**.     
+   e. **Save**를 클릭합니다.     
    
     >[!NOTE]
     >Azure AD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다. 

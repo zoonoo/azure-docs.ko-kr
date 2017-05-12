@@ -80,6 +80,16 @@
 ### [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [사용량 계량](logic-apps-pricing.md)
 
+# 서버를 사용하지 않음
+## 개요
+### [Azure에서 서버를 사용하지 않음](logic-apps-serverless-overview.md)
+## 시작
+### [Visual Studio에서 서버를 사용하지 않는 앱 만들기](logic-apps-serverless-get-started-vs.md)
+## 시나리오 및 연습
+### [고객 피드백 수집](logic-apps-scenario-social-serverless.md)
+### [자동화된 전자 메일 보내기](https://channel9.msdn.com/Blogs/Microsoft-Integration/Build-and-Deploy-Serverless-Part-1)
+### [B2B/EDI 주문 처리](logic-apps-enterprise-integration-overview.md)
+
 # 참조
 ## [워크플로 정의 언어](logic-apps-workflow-definition-language.md)
 ## [워크플로 작업 및 트리거](logic-apps-workflow-actions-triggers.md)

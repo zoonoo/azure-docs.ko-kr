@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 04/27/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 636d58cc3bda38c0fb49412b6bd4cbb96d235858
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 3c1021ec8c8dc4488f86ba89f6ae31d6ed75e9f5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -47,10 +48,31 @@ ms.lasthandoff: 04/18/2017
 
        HDInsight 클러스터가 표시되지 않으면 목록 아래쪽에서 **더 많은 서비스**를 클릭한 다음 **인텔리전스 + 분석** 섹션에서 **HDInsight 클러스터**를 클릭합니다.
 
+
 ## <a name="create-clusters"></a>클러스터 만들기
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 지원되는 구성 요소 목록은 [Azure HDInsight에 포함된 Hadoop 버전](hdinsight-component-versioning.md)(영문)을 참조하세요. 클러스터 만들기에 대한 일반적인 정보는 [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+
+### <a name="access-control-requirements"></a>액세스 제어 요구 사항
+
+HDInsight 클러스터를 만들 때 Azure 구독을 지정해야 합니다. 새 Azure 리소스 그룹 또는 기존 리소스 그룹에서 이 클러스터를 만들 수 있습니다. 다음 단계를 사용하여 HDInsight 클러스터를 만들기 위한 권한을 확인할 수 있습니다.
+
+- 기존 리소스 그룹을 사용하려면
+
+    1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+    2. 왼쪽 메뉴에서 **리소스 그룹**을 클릭하여 리소스 그룹을 나열합니다.
+    3. HDInsight 클러스터를 만드는 데 사용할 리소스 그룹을 클릭합니다.
+    4. **액세스 제어(IAM)**를 클릭하고 사용자(또는 사용자가 속하는 그룹)에 리소스 그룹에 대한 참여자 액세스 권한 이상이 있는지 확인합니다.
+
+- 새 리소스 그룹을 만들려면
+
+    1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+    2. 왼쪽 메뉴에서 **구독**을 클릭합니다. 노란색 키 아이콘이 있습니다. 구독의 목록이 표시됩니다.
+    3. 클러스터를 만드는 데 사용할 구독을 클릭합니다. 
+    4. **내 사용 권한**을 클릭합니다.  구독에 [역할](../active-directory/role-based-access-control-what-is.md#built-in-roles)이 표시됩니다. HDInsight 클러스터를 만들기 위해서는 참여자 액세스 권한 이상이 필요합니다.
+
+NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류가 발생하면 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)을 참조하세요.
 
 ## <a name="list-and-show-clusters"></a>클러스터 나열 및 표시
 1. [https://portal.azure.com](https://portal.azure.com)에 로그인합니다.
@@ -154,7 +176,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 
     Storm 웹 UI는 HDInsight 클러스터에서 제공됩니다.
 
-    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     다음은 CLI 명령을 사용하여 Storm 토폴로지 균형을 다시 조정하는 방법의 예입니다.
 
@@ -171,7 +193,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 3. **클러스터 크기 조정**을 클릭합니다.
 4. **작업자 노드 수**를 입력합니다. 클러스터 노드 수에 대한 제한은 Azure 구독에 따라 다릅니다. 제한을 늘리려면 청구 지원 팀에 문의할 수 있습니다.  비용 정보는 노드 수에 대한 변경 내용을 반영합니다.
 
-    ![HDinsight Hadoop Hbase Storm Spark 크기 조정](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.png)
+    ![HDinsight Hadoop Hbase Storm Spark 크기 조정](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 ## <a name="pauseshut-down-clusters"></a>클러스터 일시 중지/종료
 
@@ -307,7 +329,7 @@ HDInsight 클러스터 블레이드의 **사용량** 섹션에는 HDInsight에�
 
 * [Azure PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)
 * [Azure CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
-* [HDInsight 클러스터 만들기](hdinsight-provision-clusters.md)
+* [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
 * [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 Sqoop 사용](hdinsight-use-sqoop.md)

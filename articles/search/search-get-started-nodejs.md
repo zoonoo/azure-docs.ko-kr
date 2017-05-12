@@ -1,6 +1,6 @@
 ---
-title: "NodeJS에서 Azure 검색 시작 | Microsoft Docs"
-description: "NodeJS를 프로그래밍 언어로 사용하여 사용자 지정 Azure에서 호스트된 클라우드 검색 서비스의 검색 응용 프로그램을 빌드하는 과정을 안내합니다."
+title: "Node.js에서 Azure Search 시작 | Microsoft Docs"
+description: "Node.js를 프로그래밍 언어로 사용하여 사용자 지정 Azure에서 호스트된 클라우드 검색 서비스의 검색 응용 프로그램을 빌드하는 과정을 안내합니다."
 services: search
 documentationcenter: 
 author: EvanBoyle
@@ -12,26 +12,28 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 07/14/2016
+ms.date: 04/26/2017
 ms.author: evboyle
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8a66c8f6079671b16c1c60467e6d458ed54be5af
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="get-started-with-azure-search-in-nodejs"></a>NodeJS에서 Azure 검색 시작
+# <a name="get-started-with-azure-search-in-nodejs"></a>Node.js에서 Azure Search 시작
 > [!div class="op_single_selector"]
 > * [포털](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
 > 
 > 
 
-검색 환경에 Azure 검색을 사용하는 사용자 지정 NodeJS 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 [Azure 검색 서비스 REST API](https://msdn.microsoft.com/library/dn798935.aspx) 를 사용하여 이 연습에서 사용되는 개체 및 작업을 생성합니다.
+검색 환경에 Azure Search를 사용하는 사용자 지정 Node.js 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 [Azure 검색 서비스 REST API](https://msdn.microsoft.com/library/dn798935.aspx) 를 사용하여 이 연습에서 사용되는 개체 및 작업을 생성합니다.
 
-이 코드를 개발하고 테스트하는 데에는 [NodeJS](https://nodejs.org) 및 NPM, [Sublime Text 3](http://www.sublimetext.com/3) 및 Windows 8.1의 Windows PowerShell이 사용되었습니다.
+이 코드를 개발하고 테스트하는 데에는 [Node.js](https://Nodejs.org) 및 NPM, [Sublime Text 3](http://www.sublimetext.com/3) 및 Windows 8.1의 Windows PowerShell이 사용되었습니다.
 
-이 샘플을 실행하려면 [Azure 포털](https://portal.azure.com)에서 등록할 수 있는 Azure 검색 서비스가 있어야 합니다. 단계별 지침은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md) 를 참조하세요.
+이 샘플을 실행하려면 [Azure Portal](https://portal.azure.com)에서 등록할 수 있는 Azure Search 서비스가 있어야 합니다. 단계별 지침은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md) 를 참조하세요.
 
 ## <a name="about-the-data"></a>데이터 정보
 이 샘플 응용 프로그램에서는 데이터 집합 크기를 줄이기 위해 Rhode Island 주에 대해 필터링된 [USGS(United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm)의 데이터를 사용합니다. 이 데이터를 사용하여 병원 및 학교와 같은 랜드마크 빌딩뿐만 아니라 강, 호수, 산 등의 지질학적 특징을 반환하는 검색 응용 프로그램을 빌드합니다.
@@ -45,26 +47,24 @@ ms.openlocfilehash: 8a66c8f6079671b16c1c60467e6d458ed54be5af
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>Azure 검색 서비스의 서비스 이름 및 api-key 찾기
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Azure 검색 서비스의 서비스 이름 및 api-key 찾기
 서비스를 만든 후 포털로 돌아가서 URL 또는 `api-key`를 가져옵니다. 검색 서비스에 연결하려면 URL과 호출을 인증할 `api-key` 가 둘 다 있어야 합니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 점프 모음에서 **검색 서비스** 를 클릭하여 구독에 프로비전된 Azure 검색 서비스를 모두 나열합니다.
+2. 점프 모음에서 **검색 서비스**를 클릭하여 구독에 프로비전된 모든 Azure Search 서비스를 나열합니다.
 3. 사용하려는 서비스를 선택합니다.
-4. 서비스 대시보드에 기본 정보에 대한 타일 및 관리 키에 액세스할 수 있는 키 아이콘이 표시됩니다.
-   
-      ![][3]
+4. 서비스 대시보드에는 관리 키에 액세스할 수 있는 키 아이콘과 같은 필수 정보에 대한 타일이 표시됩니다.
 5. 서비스 URL, 관리 키 및 쿼리 키를 복사합니다. 세 항목 모두 나중에 config.js 파일에 추가할 때 필요합니다.
 
 ## <a name="download-the-sample-files"></a>샘플 파일 다운로드
 다음 방법 중 하나를 사용하여 샘플을 다운로드합니다.
 
-1. [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)로 이동합니다.
+1. [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo)로 이동합니다.
 2. **Download ZIP**을 클릭하고 .zip 파일을 저장한 다음 포함된 모든 파일을 추출합니다.
 
 이후의 모든 파일 수정 및 실행 문은 이 폴더의 파일에 대해 수행됩니다.
 
-## <a name="update-the-configjs-with-your-search-service-url-and-apikey"></a>검색 서비스 URL 및 api-key로  config.js를 업데이트합니다.
+## <a name="update-the-configjs-with-your-search-service-url-and-api-key"></a>검색 서비스 URL 및 api-key로 config.js를 업데이트합니다.
 앞에서 복사한 URL 및 api-key를 사용하여 구성 파일에서 URL, admin-key 및 query-key를 지정합니다.
 
 관리 키는 인덱스 만들기 또는 삭제 및 문서 로드를 포함하여 서비스 작업에 대한 모든 권한을 부여합니다. 반면, 쿼리 키는 읽기 전용 작업용이며, 일반적으로 Azure 검색에 연결하는 클라이언트 응용 프로그램에서 사용됩니다.
@@ -91,7 +91,7 @@ PowerShell 창에서 다음 명령을 실행합니다.
 4. 브라우저에서 `http://localhost:8080/index.html`
 
 ## <a name="search-on-usgs-data"></a>USGS 데이터 검색
-USGS 데이터 집합에는 Rhode Island 주와 관련된 레코드가 포함되어 있습니다. 빈 검색 상자에서 **검색** 을 클릭하면 기본적으로 상위 50개 항목을 가져옵니다.
+USGS 데이터 집합에는 Rhode Island 주와 관련된 레코드가 포함되어 있습니다. 빈 검색 상자에서 **검색**을 클릭하면 기본적으로 상위 50개 항목을 가져옵니다.
 
 검색 용어를 입력하면 검색 엔진이 실행됩니다. 지역 이름을 입력해 봅니다. “Roger Williams”는 Rhode Island의 최초 주지사였습니다. 유명한 공원, 빌딩 및 학교가 그의 이름을 따라 이름을 지었습니다.
 
@@ -104,21 +104,16 @@ USGS 데이터 집합에는 Rhode Island 주와 관련된 레코드가 포함되
 * goose +cape
 
 ## <a name="next-steps"></a>다음 단계
-이것은 NodeJS 및 USGS 데이터 집합을 기반으로 하는 첫 번째 Azure 검색 자습서입니다. 앞으로 이 자습서를 확장하여 사용자 지정 솔루션에서 사용할 수 있는 추가 검색 기능을 보여 드릴 예정입니다.
+이것은 Node.js 및 USGS 데이터 집합을 기반으로 하는 첫 번째 Azure Search 자습서입니다. 앞으로 이 자습서를 확장하여 사용자 지정 솔루션에서 사용할 수 있는 추가 검색 기능을 보여 드릴 예정입니다.
 
 Azure 검색에 대한 약간의 배경 지식이 이미 있는 경우 이 샘플을 기반으로 suggesters(사전 입력 또는 자동 완성 쿼리), 필터 및 패싯 탐색을 시작할 수 있습니다. 또한 사용자가 결과 페이지를 차례로 탐색할 수 있도록 개수를 추가하고 문서를 일괄 처리하여 검색 결과 페이지를 개선할 수 있습니다.
 
 Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 있는 항목에 대한 이해를 높여 보세요. 더 많은 리소스를 보려면 [설명서 페이지](https://azure.microsoft.com/documentation/services/search/) 를 방문하세요. [비디오 및 자습서](search-video-demo-tutorial-list.md) 의 링크를 통해 추가 정보를 확인할 수도 있습니다.
 
 <!--Image references-->
-[1]: ./media/search-get-started-nodejs/create-search-portal-1.PNG
-[2]: ./media/search-get-started-nodejs/create-search-portal-2.PNG
-[3]: ./media/search-get-started-nodejs/create-search-portal-3.PNG
-[5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
-[9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
+[1]: ./media/search-get-started-Nodejs/create-search-portal-1.PNG
+[2]: ./media/search-get-started-Nodejs/create-search-portal-2.PNG
+[3]: ./media/search-get-started-Nodejs/create-search-portal-3.PNG
+[5]: ./media/search-get-started-Nodejs/AzSearch-Nodejs-configjs.png
+[9]: ./media/search-get-started-Nodejs/rogerwilliamsschool.png
 

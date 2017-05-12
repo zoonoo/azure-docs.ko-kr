@@ -19,6 +19,7 @@
 ### [효율적인 목록 쿼리](batch-efficient-list-queries.md)
 ### [작업 준비 및 완료 작업](batch-job-prep-release.md)
 ### [Linux 계산 노드](batch-linux-nodes.md)
+### [우선 순위가 낮은 VM](batch-low-pri-vms.md)
 ### [배치 관리 .NET을 사용하여 배치 계정 관리](batch-management-dotnet.md)
 ### [작업 유지 및 태스크 출력](batch-task-output.md)
 ### [MPI 작업 일괄 실행](batch-mpi.md)

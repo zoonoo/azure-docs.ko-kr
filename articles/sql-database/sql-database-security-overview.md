@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: thmullan;jackr
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3efb68c12cd05fc0c4ac68497f8c20d1c671df82
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 957644b81d373ce8d60a8c57c1ba6431bbdf83cb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -71,7 +72,7 @@ SQL Database는 감사 및 위협 검색 기능을 제공하여 데이터를 보
 SQL Database 감사는 데이터베이스 활동을 추적하고 데이터베이스 이벤트를 Azure Storage 계정의 감사 로그에 기록하여 규정 준수를 유지하는 데 도움을 줍니다. 감사를 통해 진행 중인 데이터베이스 활동을 파악하고 이전 활동을 분석 및 조사하여 잠재적인 위협이나 의심스러운 악용 및 보안 위반을 식별할 수 있습니다. 자세한 내용은 [SQL Database 감사 시작](sql-database-auditing.md)을 참조하세요.  
 
 ### <a name="threat-detection"></a>위협 감지
-위협 검색은 Azure SQL Database 서비스에 구축되는 추가적 보안 인텔리전스 계층을 제공하여 감사 기능을 보완합니다. 이 기능은 비정상적인 데이터베이스 활동을 파악하고, 수집하고, 검색하기 위해 24시간 내내 작동합니다. 의심스러운 활동, 잠재적 취약성, SQL 삽입 공격 및 비정상적인 데이터베이스 액세스 패턴에 대해 경고합니다. 제공되는 유익하고 실행 가능한 지침에 따라 경고에 대응할 수 있습니다. 자세한 내용은 [SQL 데이터베이스 위협 감지 시작](sql-database-threat-detection.md)을 참조하세요.  
+위협 감지는 데이터베이스를 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 감지하는 Azure SQL Database 서비스에 내장된 추가적인 보안 인텔리전스 계층을 제공하여 감사 기능을 보완합니다. 의심스러운 활동, 잠재적 취약성 및 SQL 삽입 공격은 물론 비정상적인 데이터베이스 액세스 패턴에 대해 경고합니다. 위협 감지 경고는 [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/)에서 볼 수 있으며 의심스러운 활동에 대한 세부 정보를 제공하고 위협을 조사하고 완화하는 방법에 대한 조치를 권장합니다. 위협 감지 비용은 $15/서버/월입니다. 최초 60일간은 체험이 가능합니다. 자세한 내용은 [SQL Database 위협 감지 시작](sql-database-threat-detection.md)을 참조하세요.
  
 ### <a name="data-masking"></a>데이터 마스킹 
 SQL 데이터베이스 동적 데이터 마스킹에서는 권한이 없는 사용자에 대해 중요한 데이터를 마스킹해 표시함으로써 데이터 노출을 제한합니다. 동적 데이터 마스킹은 Azure SQL Database에서 잠재적으로 중요한 데이터를 자동으로 검색하고 응용 프로그램 계층에 미치는 영향을 최소화하면서 이러한 필드를 마스킹할 수 있는 실행 가능한 권장 사항을 제공합니다. 이 기능은 지정된 데이터베이스 필드를 통해 쿼리의 결과 집합에 있는 중요한 데이터를 혼란스럽게 만들면서 작동하지만 데이터베이스의 데이터를 변경하지는 않습니다. 자세한 내용은 [Azure SQL Database 동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md) 시작을 참조하세요.

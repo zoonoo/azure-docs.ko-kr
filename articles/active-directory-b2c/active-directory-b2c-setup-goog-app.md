@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
 ms.openlocfilehash: dbc544ad4dbb651aeb24faf2f89074c7aa59cf2a
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -58,10 +59,5 @@ Azure AD(Azure Active Directory) B2C에서 Google+를 ID 공급자로 사용하�
 5. **ID 공급자 형식**을 클릭하고 **Google**을 선택한 다음 **확인**을 클릭합니다.
 6. **이 ID 공급자 설정**을 클릭하고 이전에 만든 Google+ 응용 프로그램의 클라이언트 ID 및 클라이언트 암호를 입력합니다.
 7. **확인**을 클릭한 다음 **만들기**를 클릭하여 Google+ 구성을 저장합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

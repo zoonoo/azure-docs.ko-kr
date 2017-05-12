@@ -18,8 +18,10 @@
 ### [Linux에서 Java](service-fabric-create-your-first-linux-application-with-java.md)
 ### [Linux에서 C#](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [로컬 클러스터에 앱 배포](service-fabric-get-started-with-a-local-cluster.md)
+## [컨테이너에서 .NET 앱 배포](service-fabric-host-app-in-a-container.md)
 ## [Azure에서 첫 번째 클러스터 만들기](service-fabric-get-started-azure-cluster.md)
 ## [첫 번째 독립 실행형 클러스터 만들기](service-fabric-get-started-standalone-cluster.md)
+## [첫 번째 컨테이너 앱 만들기](service-fabric-get-started-containers.md)
 
 # 방법
 ## 응용 프로그램 빌드
@@ -27,6 +29,7 @@
 ### 개념
 #### [지원되는 프로그래밍 모델](service-fabric-choose-framework.md)
 #### [응용 프로그램 모델](service-fabric-application-model.md)
+#### [호스팅 모델](service-fabric-hosting-model.md)
 #### [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md)
 #### [서비스 상태](service-fabric-concepts-state.md)
 #### [서비스 분할](service-fabric-concepts-partitioning.md)
@@ -44,20 +47,29 @@
 #### [개요](service-fabric-containers-overview.md)
 #### [Windows 컨테이너 배포](service-fabric-deploy-container.md)
 #### [Linux 컨테이너 배포](service-fabric-deploy-container-linux.md)
+#### [Docker Compose(미리 보기)](service-fabric-docker-compose.md)
+#### [컨테이너 및 서비스에 대한 리소스 관리](service-fabric-resource-governance.md)
 
 ### Reliable Service 서비스 빌드
 #### [개요](service-fabric-reliable-services-introduction.md)
 #### 개념
 ##### [Reliable Services 수명 주기 - C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Reliable Services 수명 주기 - Java](service-fabric-reliable-services-lifecycle-java.md)
+
+#### 신뢰할 수 있는 컬렉션
 ##### [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)
+##### [신뢰할 수 있는 컬렉션 지침 및 권장 사항](service-fabric-reliable-services-reliable-collections-guidelines.md)
+##### [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
+##### [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+##### [신뢰할 수 있는 동시 큐](service-fabric-reliable-services-reliable-concurrent-queue.md)
+##### [신뢰할 수 있는 컬렉션 serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
+##### [신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션 내부](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### 시작
 ##### [Windows에서 C#](service-fabric-reliable-services-quick-start.md)
 ##### [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
 
 #### Reliable Services 수명 주기
-#### [신뢰할 수 있는 컬렉션 사용](service-fabric-work-with-reliable-collections.md)
 #### [구성](service-fabric-reliable-services-configuration.md)
 #### [알림 보내기](service-fabric-reliable-services-notifications.md)
 #### [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
@@ -94,6 +106,7 @@
 
 ### 서비스와 통신
 #### [서비스 통신](service-fabric-connect-and-communicate-with-services.md)
+#### [DNS 서비스](service-fabric-dnsservice.md)
 #### [역방향 프록시](service-fabric-reverseproxy.md)
 
 ### [웹 프런트 엔드 추가](service-fabric-add-a-web-frontend.md)

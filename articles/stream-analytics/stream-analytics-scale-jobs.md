@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c0a0959a5484111ee5426204e15434300cb6a438
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
+ms.openlocfilehash: 66f4e43670ffe9c62e026eb1b56eea035a199d05
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/01/2017
 
 
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase-stream-data-processing-throughput"></a>Azure Stream Analytics 작업 크기를 조정하여 스트림 데이터 처리량 증가
-분석 작업을 조정하고 Stream Analytics의 *스트리밍 단위* 를 계산하는 방법 및 입력 파티션을 구성하고 분석 쿼리 정의를 조정하고 작업 스트리밍 단위를 설정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다. 
+분석 작업을 조정하고 Stream Analytics의 *스트리밍 단위*를 계산하는 방법 및 입력 파티션을 구성하고 분석 쿼리 정의를 조정하고 작업 스트리밍 단위를 설정하여 Stream Analytics 작업의 크기를 조정하는 방법을 알아봅니다. 
 
 ## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Stream Analytics 작업은 무엇으로 구성되나요?
 Stream Analytics 작업 정의에는 입력, 쿼리 및 출력이 포함됩니다. 입력은 작업이 데이터 스트림을 읽는 위치이고, 쿼리는 데이터 입력 스트림을 변환하는 데 사용되며, 출력은 작업이 작업 결과를 전송하는 위치입니다.  
@@ -44,8 +45,8 @@ SU(스트리밍 단위)는 Azure Stream Analytics 작업을 실행하는 데 필
 ## <a name="embarrassingly-parallel-job"></a>병렬 처리가 적합한 작업
 병렬 처리가 적합한 작업은 Azure Stream Analytics에서 가장 확장성이 뛰어난 시나리오입니다. 하나의 쿼리 인스턴스에 대한 하나의 입력 파티션을 하나의 출력 파티션에 연결합니다. 이 병렬 처리를 위해서는 몇 가지가 필요합니다.
 
-1. 쿼리 논리가 동일한 쿼리 인스턴스에서 처리되는 동일한 키에 따라 다른 경우 이벤트가 동일한 입력 파티션으로 이동하는지 확인해야 합니다. 이벤트 허브의 경우 이는 이벤트 데이터에서 **PartitionKey** 를 설정해야 하고 그렇지 않으면 분할된 발신자를 사용할 수 있다는 것입니다. Blob의 경우 이는 이벤트가 같은 파티션 폴더에 전송된다는 것입니다. 쿼리 논리가 동일한 쿼리 인스턴스에서 동일한 키를 처리할 필요가 없는 경우 이 요구 사항을 무시할 수 있습니다. 이에 대한 예로 간단한 선택/프로젝트/필터 쿼리를 참조하세요.  
-2. 데이터가 입력 측에 있어야 할 때처럼 배치되면 쿼리가 분할되었는지 확인해야 합니다. 그러려면 모든 단계에서 **Partition By** 를 사용해야 합니다. 여러 단계가 허용되지만 모두 동일한 키로 분할되어야 합니다. 또 한 가지 유의할 점은 현재 분할 키가 완전한 병렬 작업이 되도록 **PartitionId** 로 설정되어야 한다는 것입니다.  
+1. 쿼리 논리가 동일한 쿼리 인스턴스에서 처리되는 동일한 키에 따라 다른 경우 이벤트가 동일한 입력 파티션으로 이동하는지 확인해야 합니다. 이벤트 허브의 경우 이는 이벤트 데이터에서 **PartitionKey**를 설정해야 하고 그렇지 않으면 분할된 발신자를 사용할 수 있다는 것입니다. Blob의 경우 이는 이벤트가 같은 파티션 폴더에 전송된다는 것입니다. 쿼리 논리가 동일한 쿼리 인스턴스에서 동일한 키를 처리할 필요가 없는 경우 이 요구 사항을 무시할 수 있습니다. 이에 대한 예로 간단한 선택/프로젝트/필터 쿼리를 참조하세요.  
+2. 데이터가 입력 측에 있어야 할 때처럼 배치되면 쿼리가 분할되었는지 확인해야 합니다. 그러려면 모든 단계에서 **Partition By**를 사용해야 합니다. 여러 단계가 허용되지만 모두 동일한 키로 분할되어야 합니다. 또 한 가지 유의할 점은 현재 분할 키가 완전한 병렬 작업이 되도록 **PartitionId**로 설정되어야 한다는 것입니다.  
 3. 현재는 이벤트 허브 및 Blob만 분할된 출력을 지원합니다. 이벤트 허브 출력의 경우 **PartitionKey** 필드가 **PartitionId**가 되도록 구성해야 합니다. Blob의 경우 필요한 작업이 없습니다.  
 4. 입력 파티션 수가 출력 파티션 수와 같아야 한다는 점도 유의해야 합니다. Blob 출력은 현재 파티션을 지원하지 않지만 업스트림 쿼리의 파티션 구성표를 상속하기 때문에 문제가 없습니다.    완전한 병렬 작업을 허용하는 파티션 값의 예입니다.  
    1. 8개의 이벤트 허브 입력 파티션 및 8개의 이벤트 허브 출력 파티션
@@ -92,7 +93,7 @@ SU(스트리밍 단위)는 Azure Stream Analytics 작업을 실행하는 데 필
     FROM Step1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-이 쿼리는 그룹화 키가 있으므로 동일한 키가 동일한 쿼리 인스턴스에서 처리되어야 합니다. 이전 쿼리와 동일한 전략을 사용할 수 있습니다. 이 쿼리에는 여러 단계가 있습니다. 각 단계에 **PartitionId**의 **Partition By**가 있나요? 예, 그러면 좋습니다. 출력의 경우 위에서 설명한 것처럼 **PartitionKey**를 **PartitionId**로 설정해야 하고 입력과 동일한 수의 파티션이 있는 것을 확인할 수도 있습니다. 이 토폴로지는 병렬 처리가 적합합니다.
+이 쿼리는 그룹화 키가 있으므로 동일한 키가 동일한 쿼리 인스턴스에서 처리되어야 합니다. 이전 쿼리와 동일한 전략을 사용할 수 있습니다. 이 쿼리에는 여러 단계가 있습니다. 각 단계에 ** PartitionId**의 **파티션 기준**이 있나요? 예, 그러면 좋습니다. 출력의 경우 위에서 설명한 것처럼 **PartitionKey**를 **PartitionId**로 설정해야 하고 입력과 동일한 수의 파티션이 있는 것을 확인할 수도 있습니다. 이 토폴로지는 병렬 처리가 적합합니다.
 
 ## <a name="example-scenarios-that-are-not-embarrassingly-parallel"></a>병렬 처리가 적합하지 않은 예제 시나리오
 ### <a name="mismatched-partition-count"></a>일치하지 않는 파티션 수
@@ -239,9 +240,9 @@ Stream Analytics 작업에 사용될 수 있는 스트리밍 단위의 총 수�
 **작업에 대한 스트리밍 단위를 조정하려면**
 
 1. [관리 포털](https://manage.windowsazure.com)에 로그인합니다.
-2. 왼쪽 창에서 **Stream Analytics** 을 클릭합니다.
+2. 왼쪽 창에서 **Stream Analytics**을 클릭합니다.
 3. 크기를 조정할 Stream Analytics 작업을 클릭합니다.
-4. 페이지 위쪽에서 **규모 지정** 을 클릭합니다.
+4. 페이지 위쪽에서 **규모 지정**을 클릭합니다.
 
 ![Azure Stream Analytics 스트림 단위 규모 지정][img.stream.analytics.streaming.units.scale]
 
@@ -320,7 +321,7 @@ Azure 포털의 설정에서 크기 조정을 설정할 수 있습니다.
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>도움말 보기
-추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

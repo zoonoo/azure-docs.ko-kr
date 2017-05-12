@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 2/2/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: bb24e1c79f6a77ec157fa05a8a212109ce8ae7ad
-ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: cceda131fc9eaa74f6328c8dd68a8e3885877061
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 ---
 
@@ -28,7 +30,7 @@ ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
 장애 복구 동안 Azure Virtual Network와 온-프레미스 네트워크 간에 대기 시간이 긴 경우 Azure에서 프로세스 서버를 배포하는 것이 좋습니다. 이 문서에서는 Azure에서 실행 중인 프로세스 서버를 설정, 구성 및 관리하는 방법을 설명합니다.
 
 > [!NOTE]
-> 이 문서는 장애 조치 중에 가상 컴퓨터에 대한 배포 모델로 **Resource Manager**를 사용한 경우에 사용할 수 있습니다. 배포 모델로 **클래식**을 사용한 경우 [장애 복구 프로세스 서버를 설정 및 구성하는 방법(Resource Manager)](./site-recovery-vmware-setup-azure-ps-resource-manager.md)의 단계를 따르세요.
+> 이 문서는 장애 조치 중에 가상 컴퓨터에 대한 배포 모델로 클래식을 사용한 경우에 사용할 수 있습니다. 배포 모델로 Resource Manager를 사용한 경우 [장애 복구 프로세스 서버를 설정 및 구성하는 방법(Resource Manager)](./site-recovery-vmware-setup-azure-ps-resource-manager.md)의 단계를 따르세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -60,9 +62,4 @@ ms.openlocfilehash: cc2d4d92f7d900f8dc231e11b65acf4b742ed893
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>프로세스 서버(Azure에서 실행)를 구성 서버(온-프레미스에서 실행)에 등록 취소
 
 [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

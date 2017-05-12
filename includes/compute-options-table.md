@@ -6,5 +6,5 @@
 | [Virtual Machines][lnk_vm] |OS의 완벽한 제어와 더불어 사용자 지정된 Windows 및 Linux VM |
 
 [lnk_app]: ../articles/app-service-web/app-service-web-overview.md
-[lnk_vm]:../articles/virtual-machines/windows/about.md
+[lnk_vm]:../articles/virtual-machines/windows/overview.md
 [lnk_cloud]: ../articles/cloud-services/cloud-services-choose-me.md

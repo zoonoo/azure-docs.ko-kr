@@ -1,9 +1,8 @@
-게이트웨이 IP 주소를 수정하려면 'New-AzureRmVirtualNetworkGatewayConnection' cmdlet을 사용합니다. 현재 'Set' cmdlet은 게이트웨이 IP 주소 수정을 지원하지 않습니다.
+### <a name="gwipnoconnection"></a> 로컬 네트워크 게이트웨이 'GatewayIpAddress'를 수정하려면 - 게이트웨이 연결 없음
 
-### <a name="gwipnoconnection"></a>게이트웨이 IP 주소 수정 - 게이트웨이 연결 없음
-아직 연결되지 않은 로컬 네트워크 게이트웨이의 게이트웨이 IP 주소를 수정하려면 아래 예제를 사용합니다. 이와 동시에 주소 접두사를 수정할 수도 있습니다. 로컬 네트워크 게이트웨이의 기존 이름으로 현재 설정을 덮어써야 합니다. 이렇게 하지 않으면 기존 게이트웨이를 덮어쓰지 않고 새 로컬 네트워크 게이트웨이를 만들게 됩니다.
+연결하려는 VPN 장치의 공용 IP 주소가 변경된 경우 해당 변경 내용을 반영하도록 로컬 네트워크 게이트웨이를 수정해야 합니다. 예제를 사용하여 게이트웨이 연결이 없는 로컬 네트워크 게이트웨이를 수정합니다.
 
-다음 예제를 사용하여 값을 사용자의 값으로 바꿉니다.
+이 값을 수정할 때 주소 접두사를 함께 수정할 수도 있습니다. 현재 설정을 덮어쓰려면 로컬 네트워크 게이트웨이의 기존 이름을 사용해야 합니다. 다른 이름을 사용하면 기존 게이트웨이를 덮어쓰지 않고 새 로컬 네트워크 게이트웨이를 만들게 됩니다.
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
@@ -11,13 +10,10 @@ New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
 -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 ```
 
-### <a name="gwipwithconnection"></a>게이트웨이 IP 주소 수정 - 기존 게이트웨이 연결
-게이트웨이 연결이 이미 있는 경우 먼저 연결을 제거해야 합니다. 연결을 제거한 후 게이트웨이 IP 주소를 수정하고 새 연결을 다시 만들 수 있습니다. 이와 동시에 주소 접두사를 수정할 수도 있습니다. 이로 인해 VPN 연결에 약간의 가동 중지 시간이 발생합니다.
+### <a name="gwipwithconnection"></a>로컬 네트워크 게이트웨이 'GatewayIpAddress'를 수정하려면 - 기존 게이트웨이 연결
 
-> [!IMPORTANT]
-> VPN 게이트웨이는 삭제하지 않습니다. 삭제할 경우 뒤로 돌아가서 단계를 다시 반복해야 합니다. 뿐만 아니라 새 VPN Gateway IP 주소로 온-프레미스 VPN 장치를 업데이트해야 합니다.
-> 
-> 
+연결하려는 VPN 장치의 공용 IP 주소가 변경된 경우 해당 변경 내용을 반영하도록 로컬 네트워크 게이트웨이를 수정해야 합니다. 게이트웨이 연결이 이미 있는 경우 먼저 연결을 제거해야 합니다. 연결을 제거한 후 게이트웨이 IP 주소를 수정하고 새 연결을 다시 만들 수 있습니다. 이와 동시에 주소 접두사를 수정할 수도 있습니다. 이로 인해 VPN 연결에 약간의 가동 중지 시간이 발생합니다. 게이트웨이 IP 주소를 수정할 때 VPN Gateway를 삭제할 필요가 없습니다. 연결만 제거하면 됩니다.
+ 
 
 1. 연결을 제거합니다. 'Get-AzureRmVirtualNetworkGatewayConnection' cmdlet을 사용하여 연결 이름을 찾을 수 있습니다.
 

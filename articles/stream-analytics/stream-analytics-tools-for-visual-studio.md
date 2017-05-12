@@ -4,27 +4,26 @@ description: "Visual Studio용 Azure Stream Analytics 도구 시작 자습서"
 keywords: Visual Studio
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
+author: 
+manager: 
+editor: 
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: sujie
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: d0125dda4df69279e49a9fad4dc28dcbf6368322
-ms.lasthandoff: 03/29/2017
+ms.date: 
+ms.author: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: cbde312e1f58cb69a7c5edbd22543732a0781fdb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="use-azure-stream-analytics-tool-for-visual-studio"></a>Visual Studio용 Azure Stream Analytics 도구 사용
-Visual Studio용 Azure Stream Analytics 도구는 현재 일반 공급 상태입니다. Stream Analytics 사용자는 이러한 도구를 통해 풍부한 경험을 얻고 문제를 해결할 수 있을 뿐만 아니라 복잡한 쿼리를 작성하고 로컬에서도 쿼리를 작성할 수 있습니다. 또한 Stream Analytics 작업을 Visual Studio 프로젝트로 내보낼 수도 있습니다.
-
 ## <a name="introduction"></a>소개
 이 자습서에서는 Visual Studio용 Azure Stream Analytics 도구를 사용하여 Azure Stream Analytics 작업을 만들고 작성하며 로컬에서 테스트하고 관리 및 디버깅하는 방법을 알아봅니다. 
 
@@ -65,33 +64,33 @@ Visual Studio에서 **파일 메뉴**를 클릭하고 **새 프로젝트**를 �
 6.    Event hub 이름은 **entry**로 설정해야 합니다.
 7.    Event hub 정책 이름은 **RootManageSharedAccessKey**(기본값)입니다.
 8.    **이벤트 직렬화 형식**에 대해 **JSON**을, **인코딩**에 대해 **UTF8**을 선택합니다.
-   
-   설정이 다음과 같이 표시됩니다.
-   
-   ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-01.png)
-   
+
+    설정이 다음과 같이 표시됩니다.
+
+    ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-01.png)
+ 
 9.    마법사를 완료하려면 페이지 맨 아래에서 **저장**을 클릭합니다. 이제 다른 입력 원본을 추가하여 진출 스트림을 만들 수 있습니다. 입력 노드를 마우스 오른쪽 단추로 클릭하고 **새 항목**을 클릭합니다.
-   
-   ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-02.png)
-   
+
+    ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-02.png)
+ 
 10.    팝업 창에서 **Azure Stream Analytics 입력**을 선택하고 이름을 **ExitStream.json**으로 변경합니다. **추가**를 클릭합니다.
-   
-   ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
-   
-11.    프로젝트에서 **ExitStream.json**을 두 번 클릭하고 진입 스트림과 같은 단계로 입력합니다. 다음 스크린샷과 같이 Event Hub 이름 값을 입력해야 합니다.
-   
-   ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
-   
-   이제 두 입력 스트림을 정의했습니다.
-   
-   ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-05.png)
-   
-   다음은 차량 등록 데이터가 있는 blob 파일에 대해 참조 데이터 입력을 추가합니다.
-   
+
+    ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-03.png)
+ 
+11.    프로젝트에서 **ExitStream.json**을 두 번 클릭하고 진입 스트림과 같은 단계에 따라 입력합니다. 다음 스크린샷과 같이 Event Hub 이름 값을 입력해야 합니다.
+
+    ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-04.png)
+
+    이제 두 입력 스트림을 정의했습니다.
+
+    ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-05.png)
+ 
+    다음은 차량 등록 데이터가 있는 blob 파일에 대해 참조 데이터 입력을 추가합니다.
+
 12.    프로젝트에서 **입력** 노드를 마우스 오른쪽 단추로 클릭한 다음 스트림 입력에 대한 동일한 프로세스를 수행하지만 데이터 스트림 대신 **참조 데이터**를 선택하고 입력 별칭은 **등록**입니다.
-   
-   ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
-   
+
+    ![입력 원본 정의](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
+
 13.    **tolldata**가 포함된 저장소 계정을 선택합니다. 컨테이너 이름이 **tolldata**여야 하고 **경로 패턴**은 **registration.json**이어야 합니다. 이 파일 이름은 대/소문자를 구분하므로 소문자여야 합니다.
 14.    **저장**을 클릭하여 마법사를 마칩니다.
 
@@ -119,7 +118,7 @@ Visual Studio에서 **파일 메뉴**를 클릭하고 **새 프로젝트**를 �
         FROM EntryStream TIMESTAMP BY EntryTime 
         GROUP BY TUMBLINGWINDOW(minute, 3), TollId 
 
-아시다시피 Azure Stream Analytics는 SQL과 유사한 쿼리어를 사용하고 몇 가지 확장을 추가하여 쿼리의 시간 관련 측면을 지정합니다.
+아시다시피 Azure Stream Analytics는 SQL과 유사한 쿼리를 사용하고 몇 가지 확장을 추가하여 쿼리의 시간 관련 측면을 지정합니다.
 
 자세한 내용을 보려면 MSDN의 쿼리에 사용된 [시간 관리](https://msdn.microsoft.com/library/azure/mt582045.aspx) 및 [창 작업](https://msdn.microsoft.com/library/azure/dn835019.aspx) 구문을 참조하세요.
 
@@ -131,40 +130,43 @@ Visual Studio에서 **파일 메뉴**를 클릭하고 **새 프로젝트**를 �
 이 폴더에는 다음 파일이 포함되어 있습니다. •    Entry.json •    Exit.json •    Registration
 
 ## <a name="question-number-of-vehicles-entering-a-toll-booth"></a>질문: 요금 창구에 들어가는 차량 수
-프로젝트에서 Script.asaql을 두 번 클릭하여 편집기에서 스크립트를 열고 이전 섹션의 스크립트를 편집기에 붙여 넣습니다. 쿼리 편집기에서는 IntelliSense, 구문 색 지정 및 오류 마커를 지원합니다.
+프로젝트에서 Script.asaql을 두 번 클릭하여 편집기에서 스크립트를 열고 이전 섹션의 스크립트를 편집기에 붙여넣습니다. 쿼리 편집기는 IntelliSense, 구문 색 지정 및 오류 마커를 지원합니다.
 
 ![쿼리 편집](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-query-01.png)
  
 ### <a name="testing-azure-stream-analytics-queries-locally"></a>로컬에서 Azure Stream Analytics 쿼리 테스트
 
-1. 먼저 쿼리를 컴파일하여 구문 오류가 있는지 확인할 수 있습니다. [TBD]
-2. 샘플 데이터에 대해 이 쿼리의 유효성을 검사하려면 입력을 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **로컬 입력 추가**를 선택하여 로컬 샘플 데이터를 사용할 수 있습니다.
-   
-   ![로컬 입력 추가](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
-   
-   팝업 창에서 로컬 경로의 샘플 데이터를 선택합니다. **Save**를 클릭합니다.
-   
-   ![로컬 입력 추가](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
-   
-   **local_EntryStream.json** 파일이 입력 폴더에 자동으로 추가됩니다.
-   
-   ![로컬 입력 추가](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-03.png)
-   
-3. 쿼리 편집기에서 로컬로 실행을 클릭합니다. 또는 F5 키를 눌러도 됩니다.
-   
-   ![로컬 실행](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-01.png)
-   
-   콘솔에서 출력 경로를 찾아 아무 키나 누르면 결과 폴더가 열립니다.
-   
-   ![로컬 실행](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-02.png)
-   
-4. 로컬 폴더에서 결과를 확인합니다.
-   
-   ![로컬 실행](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-03.png)
-   
-   
+1.    먼저 프로젝트를 마우스 오른쪽 단추로 클릭하고 **빌드**를 선택하여 구문 오류가 있는지 확인하도록 쿼리를 컴파일할 수 있습니다. 
+
+2.    샘플 데이터에 대해 이 쿼리의 유효성을 검사하려면 입력을 마우스 오른쪽 단추로 클릭하여 로컬 샘플 데이터를 사용하고 상황에 맞는 메뉴에서 **로컬 입력 추가**를 선택할 수 있습니다.
+
+    ![로컬 입력 추가](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-01.png)
+ 
+    팝업 창에서 로컬 경로의 샘플 데이터를 선택합니다. **Save**를 클릭합니다.
+
+    ![로컬 입력 추가](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-02.png)
+ 
+    **local_EntryStream.json** 파일이 입력 폴더에 자동으로 추가됩니다.
+
+    ![로컬 입력 추가](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-add-local-input-03.png)
+ 
+3.    쿼리 편집기에서 로컬로 실행을 클릭합니다. 또는 F5 키를 눌러도 됩니다.
+
+    ![로컬 실행](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-01.png)
+
+    ![로컬 실행](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-local-run-02.png)
+
+    아무 키나 누르면 Visual Studio의 ASA 로컬 실행 결과 창에서 출력을 확인할 수 있습니다. 
+
+    ![로컬 실행](./media/stream-analytics-tools-for-vs/local-testing-output.png)
+
+4.  결과 폴더를 열어 출력 파일을 CSV 및 JSON 형식 모두로 확인할 수 있습니다.
+
+    ![로컬 실행](./media/stream-analytics-tools-for-vs/local-testing-files.png)
+ 
+
 ### <a name="sample-input"></a>샘플 입력
-입력 원본에서 로컬 파일로 입력 데이터를 샘플링할 수도 있습니다. 입력 구성 파일을 마우스 오른쪽 단추로 클릭하고 **데이터 샘플링**을 선택합니다. 
+입력 원본에서 로컬 파일로 입력 데이터를 샘플링할 수도 있습니다. 입력 구성 파일을 마우스 오른쪽 단추로 클릭하고 **샘플 데이터**를 선택합니다. 
 
 ![샘플 데이터](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-sample-data-01.png)
 
@@ -201,10 +203,10 @@ Create a New Azure Stream Analytics Job(새 Azure Stream Analytics 작업 만들
 
 ## <a name="check-results-in-visual-studio"></a>Visual Studio에서 결과 확인
 1. Visual Studio 서버 탐색기를 열고 **TollDataRefJoin** 테이블을 마우스 오른쪽 단추로 클릭합니다.
-2. **테이블 데이터 표시** 를 선택하면 작업의 출력을 볼 수 있습니다.
+2. **테이블 데이터 표시**를 선택하면 작업의 출력을 볼 수 있습니다.
    
-   ![서버 탐색기의 "테이블 데이터 표시" 선택 항목](media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-check-results.jpg)
-   
+    ![서버 탐색기의 "테이블 데이터 표시" 선택 항목](media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-check-results.jpg)
+
 
 ### <a name="view-job-metrics"></a>작업 메트릭 보기
 몇 가지 기본 작업 통계는 **Job Metrics(작업 메트릭)**에서 확인할 수 있습니다. 
@@ -214,7 +216,6 @@ Create a New Azure Stream Analytics Job(새 Azure Stream Analytics 작업 만들
  
 ## <a name="list-job-in-server-explorer"></a>서버 탐색기에 작업 나열
 **서버 탐색기**에서 **Stream Analytics 작업**을 클릭하고 **새로 고침**을 클릭합니다. **Stream Analytics 작업** 아래에 작업이 나타나는 것을 확인할 수 있습니다.
-
 ![작업 나열](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-list-jobs-01.png)
 
 
@@ -226,26 +227,22 @@ Create a New Azure Stream Analytics Job(새 Azure Stream Analytics 작업 만들
 
 ## <a name="export-an-existing-job-to-a-project"></a>기존 작업을 프로젝트로 내보내기
 두 가지 방법으로 기존 작업을 프로젝트로 내보낼 수 있습니다.
-1. **서버 탐색기**의 **Stream Analytics 작업** 아래에서 작업 노드를 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **Export to New Stream Analytics Project(새 Stream Analytics 프로젝트로 내보내기)**를 클릭합니다.
-   
-   ![작업 내보내기](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
-   
-   **솔루션 탐색기**에서 생성된 프로젝트를 볼 수 있습니다.
-   
-   ![작업 내보내기](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-02.png)
-   
+1. **서버 탐색기**의 **Stream Analytics 작업** 노드 아래에서 작업 노드를 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **Export to New Stream Analytics Project(새 Stream Analytics 프로젝트로 내보내기)**를 클릭합니다.
+
+    ![작업 내보내기](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-01.png)
+
+    **솔루션 탐색기**에서 생성된 프로젝트를 볼 수 있습니다.
+
+    ![작업 내보내기](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-02.png)
+ 
 2. 작업 보기에서 **Generate Project(프로젝트 생성)**를 클릭합니다.
-   
-   ![작업 내보내기](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-03.png)
-   
+
+    ![작업 내보내기](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-export-job-03.png)
+
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
  
-1. 쿼리에 지리 공간 함수가 포함된 경우 로컬 테스트가 작동하지 않습니다. 
+1. Power BI 출력 및 ADLS 출력은 지원되지 않습니다.
 2. 편집기에서는 JavaScript UDF 추가 또는 변경이 지원되지 않습니다.
-3. 로컬 테스트에서 JSON 형식으로 출력 저장은 지원되지 않습니다. 
-4. Power BI 출력 및 ADLS 출력은 지원되지 않습니다.
-
-
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
@@ -253,6 +250,4 @@ Create a New Azure Stream Analytics Job(새 Azure Stream Analytics 작업 만들
 * [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
 

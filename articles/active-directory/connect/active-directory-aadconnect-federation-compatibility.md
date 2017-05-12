@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/01/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 5c7c6c8568115093f3a7568b6d318f985705691c
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 6f91f732b7579c9f14458dab9be49c027debfac1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -58,8 +59,8 @@ Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 O
 * [Sailpoint IdentityNow](#sailpoint-identitynow)
 * [SecureAuth IdP 7.2.0](#secureauth-idp-720) 
 * [Sign&go 5.3](#signgo-53) 
-* [SoftBank](#softbank)
-* [VMware Identity Manager](#vmware-identity-manager)
+* [SoftBank Technology Online Service Gate](#softbank)
+* [VMware Workspace One](#vmware-workspace-one)
 * [VMware Workspace Portal 버전 2.1](#vmware--workspace-portal-version-21) 
 
 
@@ -340,7 +341,7 @@ SecureAuth에 대한 자세한 내용은 [SecureAuth IdP](http://go.microsoft.co
 
 Sign&go 5.3은 Kerberos 계약 구성을 통해 Kerberos 인증을 지원합니다.  이 구성에 지원이 필요한 경우 Ilex에 문의하거나 [여기](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
 
-## <a name="softbank"></a>SoftBank
+## <a name="softbank-technology-online-service-gate"></a>SoftBank Technology Online Service Gate
 
 다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 
@@ -350,9 +351,9 @@ Sign&go 5.3은 Kerberos 계약 구성을 통해 Kerberos 인증을 지원합니�
 | Lync, Office Subscription, CRM과 같은 리치 클라이언트 응용 프로그램 |지원됨 |Windows 통합 인증은 지원되지 않음 |
 | Outlook 및 ActiveSync와 같은 메일 리치 클라이언트 |지원됨 |없음 |
 
-BitGlass에 대한 자세한 내용은 [여기](https://www.softbanktech.jp/service/list/osg-pro-ent/)를 참조하세요.
+SoftBank Technology Online Service Gate에 대한 자세한 내용은 [여기](https://www.softbanktech.jp/service/list/osg-pro-ent/)를 참조하세요.
 
-## <a name="vmware-identity-manager"></a>VMware Identity Manager
+## <a name="vmware-workspace-one"></a>VMware Workspace One
 
 다음은 이 Single Sign-On 환경에 대한 시나리오 지원 매트릭스입니다.
 

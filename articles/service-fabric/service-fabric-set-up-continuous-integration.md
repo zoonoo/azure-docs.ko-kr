@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2016
 ms.author: mthalman;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 437e343425da5c8cfe71d4ae67c423fcc2b794c2
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -104,7 +106,7 @@ Team Services 릴리스 정의는 순차적으로 실행되는 작업 집합으�
     1. **새 서비스 끝점**을 선택한 다음 메뉴에서 **Azure Service Fabric**을 선택합니다.
     2. 이 끝점에서 대상으로 지정한 클러스터가 사용 중인 인증 유형을 선택합니다.
     3. **연결 이름** 필드에서 연결의 이름을 정의합니다.  일반적으로 클러스터의 이름을 사용합니다.
-    4. **클러스터 끝점** 필드에서 클라이언트 연결 끝점 URL을 정의합니다.  예: https://contoso.westus.cloudapp.azure.com:19000.
+    4. **클러스터 끝점** 필드에서 클라이언트 연결 끝점 URL을 정의합니다.  예: tcp://contoso.westus.cloudapp.azure.com:19000.
     5. Azure Active Directory 자격 증명의 경우 **사용자 이름** 및 **암호** 필드에서 클러스터에 연결하는 데 사용할 자격 증명을 정의합니다.
     6. 인증서 기반 인증의 경우 **클라이언트 인증서** 필드에서 클라이언트 인증서 파일의 Base64 인코딩을 정의합니다.  이 값을 가져오는 방법에 대한 자세한 내용은 해당 필드에 대한 도움말 팝업을 참조하세요.  인증서가 암호로 보호된 경우 **암호** 필드에서 암호를 정의합니다.
     7. **확인**을 클릭하여 변경을 확인합니다. 릴리스 정의를 다시 탐색한 후 **클러스터 연결** 필드의 새로 고침 아이콘을 클릭하여 방금 추가한 끝점을 확인합니다.
@@ -130,10 +132,5 @@ Team Services 릴리스 정의는 순차적으로 실행되는 작업 집합으�
 * [Team Services 문서 홈](https://www.visualstudio.com/docs/overview)
 * [Team Services에서 빌드 관리](https://www.visualstudio.com/docs/build/overview)
 * [Team Services에서 릴리스 관리](https://www.visualstudio.com/docs/release/overview)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

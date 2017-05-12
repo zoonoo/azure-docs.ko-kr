@@ -1,4 +1,4 @@
-## <a name="a-nameos-configaadd-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>VM 운영 체제에 IP 주소 추가
+## <a name="os-config"></a>VM 운영 체제에 IP 주소 추가
 
 여러 개인 IP 주소를 사용하여 만든 VM에 연결하고 로그인합니다. VM에 추가한 모든 개인 IP 주소(기본 포함)를 수동으로 추가해야 합니다. VM 운영 체제에 대한 다음 단계를 완료합니다.
 
@@ -176,8 +176,3 @@ ip route add default via 10.0.0.1 dev eth2 table custom
     - **10.0.0.5**를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
     - **10.0.0.1**을 기본 게이트웨이로 대체해야 합니다.
     - **eth2**를 보조 NIC의 이름으로 대체해야 합니다.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

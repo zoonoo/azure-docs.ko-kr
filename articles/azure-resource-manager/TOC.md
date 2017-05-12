@@ -53,6 +53,7 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [태그를 사용하여 리소스 구성](resource-group-using-tags.md)
 ### [새 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)
+### [UI 정의 만들기](managed-application-createuidefinition-overview.md)
 ## 액세스 제어
 ### [PowerShell에서 서비스 주체 만들기](resource-group-authenticate-service-principal.md)
 ### [Azure CLI 2.0에서 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -82,6 +83,7 @@
 ### [숫자 함수](resource-group-template-functions-numeric.md)
 ### [리소스 함수](resource-group-template-functions-resource.md)
 ### [문자열 함수](resource-group-template-functions-string.md)
+## [UI 정의 함수](managed-application-createuidefinition-functions.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

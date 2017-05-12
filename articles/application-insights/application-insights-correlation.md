@@ -4,45 +4,46 @@ description: "Application Insights 원격 분석 상관 관계"
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
-manager: azakonov-ms
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 04/25/2017
 ms.author: sergkanz
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 279b673930a2011fef4d36e83a771b9ab654c663
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: c48dc5cb5dd6dfa09ff9718e78f8d560886851be
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
-마이크로 서비스의 세상에서 모든 논리 작업에는 다양한 서비스 구성 요소로 이루어지는 작업이 필요합니다. UI 구성 요소는 인증 공급자 구성 요소와 통신하여 시각화할 데이터를 가져오기 위해 사용자 자격 증명 및 API 구성 요소의 유효성을 검사합니다. 이에 따라 API 구성 요소는 다른 서비스의 데이터를 쿼리하고, 캐시 공급자 구성 요소를 사용하고, 결제 구성 요소에 이 호출에 대해 알릴 수 있습니다. Application Insights는 분산 원격 분석 상관 관계를 지원합니다. 이를 사용하여 어떤 구성 요소가 UI 실패 또는 성능 저하를 처리하는지 검색할 수 있습니다.
+마이크로 서비스의 세상에서 모든 논리 작업에는 다양한 서비스 구성 요소로 이루어지는 작업이 필요합니다. 이러한 각 구성 요소는 [Application Insights](app-insights-overview.md)에서 개별적으로 모니터링할 수 있습니다. 웹앱 구성 요소는 인증 공급자 구성 요소와 통신하여 사용자 자격 증명의 유효성을 검사하고, API 구성 요소를 사용하여 시각화할 데이터를 가져옵니다. 이에 따라 API 구성 요소는 다른 서비스의 데이터를 쿼리하고, 캐시 공급자 구성 요소를 사용하고, 이 호출에 대해 청구 구성 요소에 알릴 수 있습니다. Application Insights는 분산 원격 분석 상관 관계를 지원합니다. 이를 통해 실패하거나 성능 저하된 구성 요소를 검색할 수 있습니다.
 
-이 문서에서는 Application Insights에서 사용하는 데이터 모델을 설명합니다. 컨텍스트 전파 기술 및 프로토콜을 다룹니다. 다양한 언어와 플랫폼에 대한 상관 관계 개념 구현도 다룹니다.
+이 문서에서는 여러 구성 요소에서 보낸 원격 분석의 상관 관계를 지정하기 위해 Application Insights에서 사용되는 데이터 모델에 대해 설명합니다. 컨텍스트 전파 기술 및 프로토콜을 다룹니다. 다양한 언어와 플랫폼에 대한 상관 관계 개념 구현도 다룹니다.
 
 ## <a name="telemetry-correlation-data-model"></a>원격 분석 상관 관계 데이터 모델
 
-Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 모델](/application-insights-data-model.md)을 정의합니다. 원격 분석을 논리 작업과 연결하도록 모든 원격 분석 항목에는 `operation_Id`라는 컨텍스트 필드가 있습니다. 이 식별자는 분산 추적의 모든 원격 분석 항목에서 공유됩니다. 단일 계층에서 원격 분석이 손실되더라도 다른 구성 요소에서 보고된 원격 분석을 연결할 수 있습니다.
+Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 모델](application-insights-data-model.md)을 정의합니다. 원격 분석을 논리 작업과 연결하기 위해 모든 원격 분석 항목에 `operation_Id`라는 컨텍스트 필드가 있습니다. 이 식별자는 분산 추적의 모든 원격 분석 항목에서 공유됩니다. 따라서 단일 계층에서 원격 분석이 손실되더라도 다른 구성 요소에서 보고한 원격 분석을 연결할 수 있습니다.
 
-일반적으로 분산 논리 작업은 구성 요소 중 하나에서 처리되는 요청인 더 작은 작업의 집합으로 구성됩니다. 해당 작업은 [요청 원격 분석](/application-insights-data-model-request-telemetry.md)을 통해 정의됩니다. 모든 요청 원격 분석에는 전체적으로 고유하게 식별되는 자체 `id`가 있습니다. 또한 이 요청과 연결된 모든 원격 분석(추적, 예외 등)은 `operation_parentId`를 요청 `id`의 값으로 설정해야 합니다.
+일반적으로 분산 논리 작업은 구성 요소 중 하나에서 처리되는 요청인 더 작은 작업의 집합으로 구성됩니다. 이러한 작업은 [요청 원격 분석](application-insights-data-model-request-telemetry.md)을 통해 정의됩니다. 모든 요청 원격 분석에는 전체적으로 고유하게 식별되는 자체 `id`가 있습니다. 또한 이 요청과 연결된 모든 원격 분석(추적, 예외 등)은 `operation_parentId`를 요청 `id`의 값으로 설정해야 합니다.
 
-다른 구성 요소에 대한 HTTP 호출 같은 모든 나가는 작업은 [종속성 원격 분석](/application-insights-data-model-dependency-telemetry.md)을 통해 표시됩니다. 종속성 원격 분석은 전체적으로 고유한 자체 `id`도 정의합니다. 이 종속성 호출을 통해 시작된 요청 원격 분석은 이를 `operation_parentId`로 사용합니다.
+다른 구성 요소에 대한 HTTP 호출 같은 모든 나가는 작업은 [종속성 원격 분석](application-insights-data-model-dependency-telemetry.md)을 통해 표시됩니다. 종속성 원격 분석은 전체적으로 고유한 자체 `id`도 정의합니다. 이 종속성 호출을 통해 시작된 요청 원격 분석은 이를 `operation_parentId`로 사용합니다.
 
 `operation_Id`, `operation_parentId` 및 `request.id`를 `dependency.id`와 함께 사용하여 분산 논리 작업의 보기를 빌드할 수 있습니다. 해당 필드는 원격 분석 호출의 인과 관계 순서를 정의합니다.
 
 마이크로 서비스 환경에서 구성 요소의 추적은 다른 저장소로 이동할 수 있습니다. 모든 구성 요소는 Application Insights에 자체 계측 키가 있을 수 있습니다. 논리 작업에 대한 원격 분석을 가져오려면 모든 저장소에서 데이터를 쿼리해야 합니다. 저장소 수가 너무 큰 경우에는 다음 찾을 위치에 대한 힌트를 포함해야 합니다.
 
-Application Insights 데이터 모델은 이 문제를 해결하기 위해 `request.source` 및 `dependency.target` 필드를 정의합니다. 첫 번째 필드는 요청을 시작한 구성 요소를 정의하고 두 번째 필드는 종속성 호출의 응답을 반환한 구성 요소를 정의합니다.
+Application Insights 데이터 모델에서는 이 문제를 해결하기 위해 두 가지 필드, 즉 `request.source` 및 `dependency.target` 필드를 정의합니다. 첫 번째 필드는 종속성 요청을 시작한 구성 요소를 식별하고, 두 번째 필드는 종속성 호출의 응답을 반환한 구성 요소를 식별합니다.
 
 
 ## <a name="example"></a>예제
 
-STOCKS API라는 외부 API를 사용하여 주식의 현재 시가를 보여 주는 응용 프로그램 STOCK PRICES의 예제를 살펴보겠습니다. STOCK PRICES 응용 프로그램에는 이 AJAX 호출 `GET /Home/Stock`을 처리하는 서버에 대해 이 Ajax 호출을 실행하는 `Stock page` 페이지가 있습니다. 결과를 반환하기 위해 응용 프로그램은 HTTP 호출 `GET /api/stock/value`를 사용하여 STOCK API를 쿼리합니다.
+STOCKS API라는 외부 API를 사용하여 주식의 현재 시가를 보여 주는 응용 프로그램 STOCK PRICES의 예제를 살펴보겠습니다. STOCK PRICES 응용 프로그램에는 `GET /Home/Stock`를 사용하여 클라이언트 웹 브라우저에서 연 `Stock page` 페이지가 있습니다. 응용 프로그램에서 `GET /api/stock/value` HTTP 호출을 사용하여 STOCK API를 조회합니다.
 
 쿼리를 실행하여 결과 원격 분석을 분석할 수 있습니다.
 
@@ -84,7 +85,7 @@ Application Insights에서는 상관 관계 HTTP 프로토콜에 대한 [extensi
 - `operation_Id`가 **TraceId**로 매핑됩니다.
 - `operation_ParentId`가 `ChileOf` 형식의 **Reference**로 매핑됩니다.
 
-Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](/application-insights-data-model.md)을 참조하세요.
+Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
 
 Open Tracing 개념의 정의는 [specification](https://github.com/opentracing/specification/blob/master/specification.md)(사양) 및 [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)를 참조하세요.
 
@@ -107,7 +108,8 @@ Application Insights SDK 시작 버전 `2.4.0-beta1`에서는 DiagnosticsSource 
 
 ## <a name="next-steps"></a>다음 단계
 
-- Application Insights에서 마이크로 서비스의 모든 구성 요소를 등록합니다. [지원되는 플랫폼](/app-insights-platforms.md)을 확인합니다.
-- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](/application-insights-data-model.md)을 참조하세요.
-- [원격 분석을 확장 및 필터링](/app-insights-api-filtering-sampling.md)하는 방법을 알아봅니다.
+- [사용자 지정 원격 분석을 작성합니다](app-insights-api-custom-events-metrics.md).
+- Application Insights에서 마이크로 서비스의 모든 구성 요소를 등록합니다. [지원되는 플랫폼](app-insights-platforms.md)을 확인합니다.
+- Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
+- [원격 분석을 확장 및 필터링](app-insights-api-filtering-sampling.md)하는 방법을 알아봅니다.
 

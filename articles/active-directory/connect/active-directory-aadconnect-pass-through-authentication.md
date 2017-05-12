@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 04/24/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 0f54fb7d2d8cf010baf79409bc6a528d34982500
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: d3c3f6ba0da73a8297f437a56f190f90274957ab
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 ---
 
@@ -34,6 +35,7 @@ Azure AD 통과 인증은 이러한 조직을 위한 간단한 해결 방법을 
 - 용이성
   - 복잡한 온-프레미스 배포 또는 네트워크 구성이 없어도 암호 유효성 검사가 수행됩니다.
   - 암호 유효성 검사 요청을 수신하고 이에 응답하는 간단한 온-프레미스 커넥터만 이용합니다.
+  - 온-프레미스 커넥터에는 자동 업데이트 기능이 있으므로 자동으로 기능 개선 및 버그 수정을 받을 수 있습니다.
   - [Azure AD Connect](active-directory-aadconnect.md)와 함께 구성할 수 있습니다. 간단한 온-프레미스 커넥터가 Azure AD Connect와 같은 서버에 설치됩니다.
 - 보안
   - 온-프레미스 암호가 어떤 형태로든 클라우드에 저장되지 않습니다.
@@ -63,7 +65,7 @@ Azure AD 통과 인증은 이러한 조직을 위한 간단한 해결 방법을 
 - Windows 10 장치에 대한 Azure AD 조인.
 
 >[!IMPORTANT]
->현재 통과 인증이 지원되지 않는 시나리오(레거시 Office 클라이언트 응용 프로그램, Windows 10 장치의 Exchange ActiveSync 및 Azure AD 조인)에 대한 해결 방법으로 통과 인증을 사용하도록 설정하면 기본적으로 암호 동기화도 사용하도록 설정됩니다. 암호 동기화는 이러한 특정 시나리오에서만 대체 방법으로 사용됩니다. 이 기능이 필요하지 않으면 Azure AD Connect의 [선택적 기능](active-directory-aadconnect-get-started-custom.md#optional-features) 페이지에서 암호 동기화를 끌 수 있습니다.
+>현재 통과 인증 기능이 지원되지 않는 시나리오(레거시 Office 클라이언트 응용 프로그램, Windows 10 장치의 Exchange ActiveSync 및 Azure AD 조인)에 대한 해결 방법으로 통과 인증을 사용하도록 설정하면 기본적으로 암호 동기화도 사용하도록 설정됩니다. 암호 동기화는 이러한 특정 시나리오에서만 대체 방법으로 사용됩니다. 이 기능이 필요하지 않으면 Azure AD Connect 마법사의 [선택적 기능](active-directory-aadconnect-get-started-custom.md#optional-features) 페이지에서 암호 동기화를 끌 수 있습니다.
 
 ## <a name="how-to-enable-azure-ad-pass-through-authentication"></a>Azure AD 통과 인증을 사용하도록 설정하는 방법
 
@@ -76,23 +78,25 @@ Azure AD 통과 인증을 사용하도록 설정하기 전에 다음 필수 구�
 >[!NOTE]
 >온-프레미스 서비스가 실패하거나 사용할 수 없는 경우 테넌트의 구성을 관리할 수 있도록 전역 관리자는 클라우드 전용 계정인 것이 좋습니다. [여기](../active-directory-users-create-azure-portal.md)에 표시된 것처럼 클라우드 전용 전역 관리자 계정을 추가할 수 있습니다.
 
-- Azure AD Connect 버전 1.1.484.0 이상. [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)(Azure AD Connect 최신 버전)를 사용하는 것이 좋습니다.
+- Azure AD Connect 버전 1.1.486.0 이상. [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)(Azure AD Connect 최신 버전)를 사용하는 것이 좋습니다.
 - Azure AD Connect를 실행할 Windows Server 2012 R2 이상을 실행하는 서버.
   - 이 서버는 암호의 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트의 멤버여야 합니다.
-  - 커넥터는 Azure AD Connect와 같은 서버에 설치됩니다.
+  - 통과 인증 커넥터는 Azure AD Connect와 같은 서버에 설치됩니다. 커넥터 버전이 1.5.58.0 이상인지 확인합니다.
 
 >[!NOTE]
 >AD 포리스트 간에 포리스트 트러스트가 있고 이름 접미사 라우팅이 제대로 구성된 경우 다중 포리스트 환경이 지원됩니다.
 
-- 고가용성이 필요한 경우 독립 실행형 커넥터를 설치하려면 Windows Server 2012 R2 이상을 실행하는 추가 서버가 필요합니다.
+- 고가용성이 필요한 경우 독립 실행형 커넥터를 설치하려면 Windows Server 2012 R2 이상을 실행하는 추가 서버가 필요합니다(버전은 1.5.58.0 이상이어야 함).
 - 커넥터와 Azure AD 사이에 방화벽이 있는 경우 다음을 확인합니다.
     - URL 필터링이 사용되는 경우 커넥터가 다음 URL과 통신할 수 있는지 확인합니다.
         -  \*.msappproxy.net
         -  \*.servicebus.windows.net
     - 커넥터가 [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653)(Azure 데이터 센터 IP 범위)에 대한 직접적인 IP 연결을 생성합니다.
     - 커넥터가 클라이언트 인증서를 사용하여 Azure AD와 통신할 때 방화벽이 SSL 검사를 수행하지 않는지 확인합니다.
-    - 커넥터가 포트 80 및 443을 통해 Azure AD에 대해 HTTPS(TCP) 요청을 수행할 수 있는지 확인합니다.
+    - 커넥터가 포트 80 및 443을 통해 Azure AD에 대해 아웃바운드 요청을 수행할 수 있는지 확인합니다.
       - 방화벽이 원래 사용자에 따라 규칙을 적용하는 경우 네트워크 서비스로 실행되는 Windows 서비스에서 오는 트래픽에 대해 이러한 포트를 엽니다.
+      - 커넥터는 포트 80을 통해 HTTP 요청을 만들어 SSL 인증서 해지 목록을 다운로드합니다. 이는 자동 업데이트 기능이 제대로 작동하는 데도 필요합니다.
+      - 커넥터는 기능 활성화 및 비활성화, 커넥터 등록, 커넥터 업데이트 다운로드 및 모든 사용자 로그인 요청 처리와 같은 기타 모든 작업을 위해 포트 443을 통해 HTTPS 요청을 만듭니다.
 
 >[!NOTE]
 >최근에 서비스와 통신하기 위해 커넥터에 필요한 포트 수를 줄여 이 기능을 개선했습니다. 이전 버전의 Azure AD Connect 및/또는 독립 실행형 커넥터를 실행 중인 경우 해당 추가 포트(5671, 8080, 9090, 9091, 9350, 9352, 10100-10120)를 계속 열어 두어야 합니다.
@@ -122,7 +126,7 @@ Azure AD Connect가 [빠른 설치](active-directory-aadconnect-get-started-expr
 
 이 단계에서 서버에 커넥터 소프트웨어를 다운로드하고 설치합니다.
 
-1.    최신 커넥터를 [다운로드](https://go.microsoft.com/fwlink/?linkid=837580)합니다.
+1.    최신 커넥터를 [다운로드](https://go.microsoft.com/fwlink/?linkid=837580)합니다. 커넥터 버전이 1.5.58.0 이상인지 확인합니다.
 2.    관리자 권한으로 명령 프롬프트를 엽니다.
 3.    다음 명령을 실행합니다. 여기서 /q는 자동 설치를 의미하며 설치 시 최종 사용자 사용권 계약에 동의할지 묻는 메시지가 표시되지 않습니다.
 
@@ -173,7 +177,7 @@ AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
 #### <a name="an-unexpected-error-occured"></a>예기치 않은 오류가 발생함
 
-서버에서 [커넥터 로그를 수집](#how-to-collect-pass-through-authentication-connector-logs?)하고 문제와 관련하여 Microsoft 지원에 문의하세요.
+서버에서 [커넥터 로그를 수집](#collecting-pass-through-authentication-connector-logs)하고 문제와 관련하여 Microsoft 지원에 문의하세요.
 
 ### <a name="issues-during-registration-of-connectors"></a>커넥터 등록 중에 발생하는 문제
 
@@ -181,9 +185,13 @@ AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
 커넥터가 설치된 서버가 [여기](#pre-requisites)에 나열된 서비스 URL 및 포트와 통신할 수 있는지 확인합니다.
 
+#### <a name="registration-of-the-connector-failed-due-to-token-or-account-authorization-errors"></a>토큰 또는 계정 권한 부여 오류로 인해 커넥터 등록에 실패했습니다.
+
+모든 Azure AD Connect 또는 독립 실행형 커넥터 설치 및 등록 작업에 대해 클라우드 전용 전역 관리자 계정을 사용해야 합니다. MFA 사용 전역 관리자 계정에 알려진 문제점이 있습니다. 해결 방법으로 MFA를 일시적으로 해제하세요(작업 완료를 위해서만).
+
 #### <a name="an-unexpected-error-occurred"></a>예기치 않은 오류가 발생함
 
-서버에서 [커넥터 로그를 수집](#how-to-collect-pass-through-authentication-connector-logs?)하고 문제와 관련하여 Microsoft 지원에 문의하세요.
+서버에서 [커넥터 로그를 수집](#collecting-pass-through-authentication-connector-logs)하고 문제와 관련하여 Microsoft 지원에 문의하세요.
 
 ### <a name="issues-during-un-installation-of-connectors"></a>커넥터 제거 중에 발생하는 문제
 
@@ -197,11 +205,15 @@ AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
 #### <a name="the-enabling-of-the-feature-failed-because-there-were-no-connectors-available"></a>사용 가능한 커넥터가 없어서 기능을 사용하도록 설정하지 못함
 
-테넌트에서 통과 인증을 사용하도록 설정하려면 하나 이상의 활성 커넥터 서버가 있어야 합니다. Azure AD Connect 또는 독립 실행형 커넥터를 설치하여 커넥터를 설치할 수 있습니다.
+테넌트에서 통과 인증을 사용하도록 설정하려면 하나 이상의 활성 커넥터가 있어야 합니다. Azure AD Connect 또는 독립 실행형 커넥터를 설치하여 커넥터를 설치할 수 있습니다.
 
 #### <a name="the-enabling-of-the-feature-failed-due-to-blocked-ports"></a>차단된 포트로 인해 기능을 사용하도록 설정하지 못함
 
 Azure AD Connect가 설치된 서버가 [여기](#pre-requisites)에 나열된 서비스 URL 및 포트와 통신할 수 있는지 확인합니다.
+
+#### <a name="the-enabling-of-the-feature-failed-due-to-token-or-account-authorization-errors"></a>토큰 또는 계정 권한 부여 오류로 인해 기능 활성화에 실패했습니다.
+
+기능을 활성화할 때는 클라우드 전용 전역 관리자 계정을 사용해야 합니다. MFA(Multi-Factor Authentication) 사용 전역 관리자 계정에 알려진 문제점이 있습니다. 해결 방법으로 MFA를 일시적으로 해제하세요(작업 완료를 위해서만).
 
 ### <a name="issues-while-operating-the-pass-through-authentication-feature"></a>통과 인증 기능 작동과 관련된 문제
 
@@ -217,7 +229,7 @@ Azure AD Connect가 설치된 서버가 [여기](#pre-requisites)에 나열된 �
 |AADSTS80005|유효성 검사 중 예측할 수 없는 WebException 발생|일시적인 오류일 수 있습니다. 요청을 다시 시도하십시오. 계속 실패할 경우 Microsoft 지원에 문의하세요.
 |AADSTS80007|Active Directory와 통신 중 오류 발생|커넥터 로그에서 자세한 내용을 확인하고 Active Directory가 예상대로 작동하는지 확인합니다.
 
-### <a name="how-to-collect-pass-through-authentication-connector-logs"></a>통과 인증 커넥터 로그를 수집하는 방법
+### <a name="collecting-pass-through-authentication-connector-logs"></a>통과 인증 커넥터 로그 수집
 
 발생하는 문제 유형에 따라 다른 위치에서 통과 인증 커넥터 로그를 검색해야 합니다.
 

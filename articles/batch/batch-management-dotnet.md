@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/15/2017
+ms.date: 04/24/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f635bbd8652b97c1067473e56565bf7c6520a2ba
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: eafde9258222a2ab09ade2e366f9cc595a303dec
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -173,7 +174,7 @@ Batch Management .NET 라이브러리는 Azure 리소스 공급자 클라이언�
 
 새로 만든 배치 계정 및 리소스 그룹을 삭제하기 전에 [Azure Portal][azure_portal]에서 볼 수 있습니다.
 
-샘플 응용 프로그램을 실행하려면 먼저 Azure Portal의 Azure AD 테넌트에 응용 프로그램을 등록하고 Azure Resource Manager API에 권한을 부여해야 합니다. [Azure AD를 사용하여 Batch 관리 응용 프로그램 인증](batch-aad-auth.md#use-azure-ad-with-batch-service-solutions)에 제공된 단계를 따르세요.
+샘플 응용 프로그램을 실행하려면 먼저 Azure Portal의 Azure AD 테넌트에 응용 프로그램을 등록하고 Azure Resource Manager API에 권한을 부여해야 합니다. [Active Directory를 사용하여 Batch Management 솔루션 인증](batch-aad-auth-management.md)에 제공된 단계를 수행합니다.
 
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Azure Active Directory란?"
