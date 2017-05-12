@@ -43,6 +43,24 @@
     href: sql-database-security-tutorial.md
   - name: "4 - SQL DB 성능 향상"
     href: sql-database-performance-tutorial.md
+  - name: "5 - 다중 테넌트 앱 구현"
+    href: sql-database-multi-tenant-application.md
+  - name: "6 - 다중 테넌트 앱 배포"
+    href: sql-database-saas-tutorial.md
+  - name: "7 - 새 테넌트 프로비전/카탈로그"
+    href: sql-database-saas-tutorial-provision-and-catalog.md
+  - name: "8 - 성능 모니터링"
+    href: sql-database-saas-tutorial-performance-monitoring.md
+  - name: "9 - 단일 테넌트 복원"
+    href: sql-database-saas-tutorial-restore-single-tenant.md
+  - name: "10 - 테넌트 스키마 관리"
+    href: sql-database-saas-tutorial-schema-management.md
+  - name: "11 - 임시 분석 실행"
+    href: sql-database-saas-tutorial-adhoc-analytics.md
+  - name: "12 - Log Analytics를 사용하여 모니터링"
+    href: sql-database-saas-tutorial-log-analytics.md
+  - name: "13 - 테넌트 분석 관리"
+
 - name: "샘플"
   items:
   - name: "Azure CLI"
@@ -144,7 +162,7 @@
       href: sql-database-long-term-retention.md
     - name: "데이터베이스 복구"
       href: sql-database-recovery-using-backups.md
-    - name: "지역에서 복제"
+    - name: "자동 장애 조치(failover) 및 지역에서 복제"
       href: sql-database-geo-replication-overview.md
     - name: "로그인"
       href: sql-database-geo-replication-security-config.md

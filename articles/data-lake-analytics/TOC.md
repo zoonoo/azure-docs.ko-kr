@@ -16,6 +16,8 @@
 # 방법
 ## 개발
 ### [U-SQL 기본 사항](data-lake-analytics-u-sql-get-started.md)
+### [U-SQL 카탈로그](data-lake-analytics-u-sql-catalog.md)
+### [U-SQL 매개 변수](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [U-SQL 창 함수](data-lake-analytics-use-window-functions.md)
 ### [U-SQL 사용자 정의 연산자](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python 확장](data-lake-analytics-u-sql-python-extensions.md)

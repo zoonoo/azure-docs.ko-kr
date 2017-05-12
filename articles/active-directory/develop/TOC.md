@@ -78,32 +78,27 @@
 ## [서비스 제한](../active-directory-service-limits-restrictions.md)
 # v2.0 끝점
 ## [개요](active-directory-appmodel-v2-overview.md)
-### [차이점](active-directory-v2-compare.md)
 ### [앱 형식](active-directory-v2-flows.md)
 ### [제한 사항](active-directory-v2-limitations.md)
-## 빠른 시작
-### Mobile Apps
-#### [iOS](active-directory-v2-devquickstarts-ios.md)
-#### [Windows Phone](active-directory-v2-devquickstarts-wpf.md)
-#### [Android](active-directory-v2-devquickstarts-android.md)
-### 웹앱 및 API
-#### [Node JS로 AngularJS](active-directory-v2-devquickstarts-angular-node.md)
-#### [.NET으로 Angular JS](active-directory-v2-devquickstarts-angular-dotnet.md)
-#### [.NET 웹앱](active-directory-v2-devquickstarts-dotnet-web.md)
-#### [.NET Web API](active-directory-v2-devquickstarts-dotnet-api.md)
-#### [NodeJS API](active-directory-v2-devquickstarts-node-api.md)
+### [v1-v2 비교](active-directory-v2-compare.md)
+## 시작
+### 모바일 및 데스크톱 앱
+#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [Android](guidedsetups/active-directory-android.md)
+#### [Windows 데스크톱 .NET](guidedsetups/active-directory-windesktop.md)
+### 웹 앱
+#### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [ASP.NET 웹 서버](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS 웹앱](active-directory-v2-devquickstarts-node-web.md)
-#### [.NET 웹앱에서 Web API](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 ## 가이드
 ### [앱 등록](active-directory-v2-app-registration.md)
 ## 참조
-### [앱 등록 참조](active-directory-v2-registration-portal.md)
 ### [인증 라이브러리](active-directory-v2-libraries.md)
 ### [v2.0 인증 프로토콜](active-directory-v2-protocols.md)
-#### [토큰 참조](active-directory-v2-tokens.md)
-#### [OAuth 2.0 인증 코드 흐름](active-directory-v2-protocols-oauth-code.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
-#### [암시적 흐름](active-directory-v2-protocols-implicit.md)
-#### [OAuth 2.0 클라이언트 자격 증명](active-directory-v2-protocols-oauth-client-creds.md)
+#### [OAuth 2.0 인증 코드 부여](active-directory-v2-protocols-oauth-code.md)
+#### [OAuth 2.0 암시적 허용](active-directory-v2-protocols-implicit.md)
+#### [Oauth 2.0 클라이언트 자격 증명 부여](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Oauth 2.0 On-Behalf-Of 흐름](active-directory-v2-protocols-oauth-on-behalf-of.md)
+#### [토큰 참조](active-directory-v2-tokens.md)
 ### [범위](active-directory-v2-scopes.md)

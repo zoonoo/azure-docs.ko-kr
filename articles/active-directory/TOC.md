@@ -3,7 +3,6 @@
 ## [버전 선택](active-directory-editions.md)
 
 ## [Azure ID 관리 정보](identity-fundamentals.md)
-## [Azure Portal 환경에서 미리 보기](active-directory-preview-explainer.md)
 
 # 시작
 ## [Azure AD 테넌트 가져오기](active-directory-howto-tenant.md)
@@ -82,7 +81,7 @@
 ### [위험에 노출된 사용자](active-directory-reporting-security-user-at-risk.md)
 ### [위험한 로그인](active-directory-reporting-security-risky-sign-ins.md)
 ### [위험 이벤트](active-directory-reporting-risk-events.md)
-### [명명된 네트워크](active-directory-known-networks-azure-portal.md)
+### [명명된 위치](active-directory-named-locations.md)
 ### [보고서 마이그레이션](active-directory-reporting-migration.md)
 ### [보존](active-directory-reporting-retention.md)
 ### [대기 시간](active-directory-reporting-latencies-azure-portal.md)

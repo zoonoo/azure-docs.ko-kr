@@ -18,12 +18,13 @@
 ### [웹앱-런타임](app-insights-java-live.md)
 ### [Docker 앱](app-insights-docker.md)
 
+## Node.js 앱 모니터링
+### [Node.JS](app-insights-nodejs.md)
 
 ## 웹 페이지 모니터링
 ### [JavaScript](app-insights-javascript.md)
-
+ 
 ## 기타 플랫폼 모니터링
-### [Node.js 앱](app-insights-nodejs.md)
 ### [SharePoint 사이트](app-insights-sharepoint.md)
 ### [기타 플랫폼](app-insights-platforms.md)
 
@@ -32,7 +33,6 @@
 ## 계획 및 디자인
 ### [웹앱 및 서비스 심층 진단](app-insights-devops.md)
 ### [웹 응용 프로그램의 성능 모니터링](app-insights-web-monitor-performance.md)
-### [Application Insights를 사용하여 사용량 분석](app-insights-web-track-usage.md)
 ### [Application Insights 리소스 구분](app-insights-separate-resources.md)
 ### [Application Insights에서 다음을 수행하는 방법](app-insights-how-do-i.md)
 
@@ -50,7 +50,7 @@
 #### [종속성](app-insights-asp-net-dependencies.md)
 #### [릴리스 주석](app-insights-annotations.md)
 #### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-
+#### [스냅숏 디버거](app-insights-snapshot-debugger.md)
 
 ### J2EE
 #### [로그 추적](app-insights-java-trace-logs.md)
@@ -86,6 +86,11 @@
 #### [F5 통찰력](app-insights-visual-studio.md)
 #### [추세](app-insights-visual-studio-trends.md)
 #### [CodeLens](app-insights-visual-studio-codelens.md)
+
+### 사용
+#### [개요](app-insights-usage-overview.md)
+#### [보존](app-insights-usage-retention.md)
+#### [사용자, 세션, 이벤트](app-insights-usage-segmentation.md)
 
 ### 분석
 
@@ -152,14 +157,14 @@
 ## 뉴스
 
 ### [블로그](https://azure.microsoft.com/blog/tag/application-insights/)
-### [서비스 업데이트](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
+### [서비스 업데이트](https://azure.microsoft.com/updates/?product=application-insights) 
 ### [SDK 릴리스 정보](app-insights-release-notes.md)
 ### [개발자 분석 도구에 대한 릴리스 정보](app-insights-release-notes-vsix.md)
 
 ## [FAQ](app-insights-troubleshoot-faq.md)
 
 ## 도움말
-### [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+### [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights)  
 ### [스택 오버플로](http://stackoverflow.com/questions/tagged/az-application-insights)
 ### [사용자 음성](https://visualstudio.uservoice.com/forums/357324-application-insights)
 ### [지원](https://azure.microsoft.com/support/)

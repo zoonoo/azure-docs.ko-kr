@@ -27,10 +27,22 @@
     href: app-service-web-tutorial-dotnet-sqldatabase.md
   - name: "1 - MongoDB를 사용하는 Node.js"
     href: app-service-web-tutorial-nodejs-mongodb-app.md
+  - name: "1 - MySQL을 사용하는 PHP"
+    href: app-service-web-tutorial-php-mysql.md 
+  - name: "1 - MySQL을 사용하는 WordPress"
+    href: app-service-web-create-web-app-from-marketplace.md
+#  - name: 1 - Java with MySQL
+#    href: app-service-web-tutorial-java-mysql.md
+  - name: "1 - PostgreSQL을 사용하는 Python"
+    href: app-service-web-tutorial-docker-python-postgresql-app.md
   - name: "2 - 사용자 지정 도메인 매핑"
     href: app-service-web-tutorial-custom-domain.md
   - name: "3 - SSL 인증서 바인딩"
     href: app-service-web-tutorial-custom-ssl.md
+  - name: "4 - Content Delivery Network 추가"
+    href: app-service-web-tutorial-content-delivery-network.md
+#  - name: 5 - Monitor your app
+#    href: app-service-web-tutorial-monitoring.md
 - name: "샘플"
   items:
   - name: "Azure CLI"
@@ -99,16 +111,34 @@
       items:
       - name: "Windows의 PHP"
         href: web-sites-php-configure.md
-      - name: "Java"
+      - name: "자바"
         href: web-sites-java-add-app.md
-      - name: "Linux의 Node.js"
-        href: app-service-linux-using-nodejs-pm2.md
       - name: "Python"
         href: web-sites-python-configure.md
     - name: "응용 프로그램 구성"
       items:
       - name: "앱 설정 사용"
         href: web-sites-configure.md
+    - name: "Linux에서 Web App"
+      items:
+      - name: "개요"
+        href: app-service-linux-intro.md
+      - name: "Linux에서 Web App 만들기"
+        href: app-service-linux-how-to-create-web-app.md
+      - name: "Linux에서 Ruby Web App"
+        href: app-service-linux-ruby-get-started.md
+      - name: "Linux에서 Node.js Web App"
+        href: app-service-linux-using-nodejs-pm2.md
+      - name: "Linux에서 .NET Core Web App"
+        href: app-service-linux-using-dotnetcore.md
+      - name: "Linux에서 사용자 지정 Docker Web App"
+        href: app-service-linux-using-custom-docker-image.md
+      - name: "SSH를 통해 연결"
+        href: app-service-linux-ssh-support.md
+      - name: "연속 배포"
+        href: app-service-linux-ci-cd.md
+      - name: "Linux FAQ에서 Web App"
+        href: app-service-linux-faq.md
   - name: "Deploy to Azure"
     href: web-sites-deploy.md
     items:

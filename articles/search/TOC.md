@@ -43,7 +43,7 @@
 ### [Azure Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md)
 ### [Azure Table Storage 인덱서](search-howto-indexing-azure-tables.md)
 ### [Azure SQL 인덱서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Azure DocumentDB 인덱서](search-howto-index-documentdb.md)
+### [Azure Cosmos DB 인덱서](search-howto-index-documentdb.md)
 ### [인덱스 CSV blob](search-howto-index-csv-blobs.md)
 ### [인덱스 JSON blob](search-howto-index-json-blobs.md)
 ### [Azure VM에서 SQL Server에 대한 인덱서 연결 구성](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)

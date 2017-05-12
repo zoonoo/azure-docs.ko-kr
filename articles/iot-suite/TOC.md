@@ -20,6 +20,9 @@
 #### [시뮬레이션된 데이터](iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
 #### [실제 센서 사용](iot-suite-raspberry-pi-kit-node-get-started-basic.md)
 #### [펌웨어 업데이트 구현](iot-suite-raspberry-pi-kit-node-get-started-advanced.md)
+## Intel NUC 게이트웨이 연결
+### [시뮬레이션된 데이터](iot-suite-gateway-kit-get-started-simulator.md)
+### [실제 센서 사용](iot-suite-gateway-kit-get-started-sensortag.md)
 
 # 방법
 ## 시뮬레이션된 장치 연결
@@ -33,6 +36,7 @@
 ## [원격 모니터링 솔루션에서 사용자 지정 규칙 만들기](iot-suite-custom-rule.md)
 ## [원격 모니터링 솔루션의 장치 정보](iot-suite-remote-monitoring-device-info.md)
 ## [연결된 공장에 대한 게이트웨이 배포](iot-suite-connected-factory-gateway-deployment.md)
+## [연결된 공장 사용자 지정](iot-suite-connected-factory-customize.md)
 
 # 참조
 ## [보안 아키텍처](iot-security-architecture.md)

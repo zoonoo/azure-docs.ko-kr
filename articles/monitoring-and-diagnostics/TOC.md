@@ -1,5 +1,6 @@
 # 개요
-## [Azure Monitor 개요](monitoring-overview.md)
+## [Azure 간 모니터링 도구](monitoring-overview.md)
+## [Azure Monitor](monitoring-overview-azure-monitor.md)
 ## [metrics](monitoring-overview-metrics.md)
 ## [경고](monitoring-overview-alerts.md)
 ## [Autoscale](monitoring-overview-autoscale.md)
@@ -7,12 +8,14 @@
 ## [작업 그룹](monitoring-action-groups.md)
 ## [진단 로그](monitoring-overview-of-diagnostic-logs.md)
 ## [파트너 통합](monitoring-partners.md)
-## [Azure 진단](azure-diagnostics.md)
+## [Azure 진단 확장](azure-diagnostics.md)
 
 
 # 시작
 ## [Azure Monitor 시작](monitoring-get-started.md)
+## [Autoscale 시작](monitoring-autoscale-get-started.md)
 ## [역할 권한 및 보안](monitoring-roles-permissions-security.md)
+
 
 # 방법
 ## 경고 사용
@@ -24,6 +27,8 @@
 ## 자동 크기 조정 사용
 ### [자동 크기 조정에 대한 모범 사례](insights-autoscale-best-practices.md)
 ### [자동 크기 조정에 대한 공통 메트릭](insights-autoscale-common-metrics.md)
+### [일반적인 자동 크기 조정 패턴](monitoring-autoscale-common-scale-patterns.md)
+### [사용자 지정 메트릭을 사용하여 자동 크기 조정](monitoring-autoscale-scale-by-custom-metric.md)
 ### [Resource Manager 템플릿을 사용하여 VM Scale Sets 자동 크기 조정](insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [가상 컴퓨터 크기 집합에서 자동으로 컴퓨터 크기 조정](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [자동 크기 조정의 웹후크 및 메일 알림 구성](insights-autoscale-to-webhook-email.md)
@@ -48,7 +53,7 @@
 ### [Resource Manager 템플릿을 사용하여 진단 설정 사용](monitoring-enable-diagnostic-logs-using-template.md)
 ## REST API 사용
 ### [REST API를 사용하여 연습](monitoring-rest-api-walkthrough.md)
-## Azure 진단 사용
+## Azure 진단 확장 사용
 ### [Application Insights로 보내기](azure-diagnostics-configure-application-insights.md)
 ### [Event Hubs로 보내기](azure-diagnostics-streaming-event-hubs.md)
 ### [문제 해결](azure-diagnostics-troubleshooting.md)
