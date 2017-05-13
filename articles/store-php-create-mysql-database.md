@@ -15,10 +15,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm;cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: e3d44bc4ff6ce7ebfcd510ef8b40fd0c614bc31e
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 66f4b7a5f8eb3f6f125c9420b40caffca3d43dd6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -120,7 +121,6 @@ Azure 포털에서 MySQL 데이터베이스를 만들려면 다음을 수행합�
         azure site appsetting add DB_USERNAME=<USERNAME_from_properties_blade>
         azure site appsetting add DB_PASSWORD=<PASSWORD_from_properties_blade>
 
-    [Azure 웹앱 구성](app-service-web/app-service-web-get-started-php.md#configure-to-use-php)에서 이 명령이 어떻게 작동하는지 알아보세요.
 6. 다음으로, `php artisan make:auth`를 실행하는 동안 이전에 발생한 로컬 변경 내용을 Azure에 커밋 및 푸시합니다.
 
         git add .

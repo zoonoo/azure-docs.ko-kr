@@ -16,10 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/22/2016
 ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 043a1779ac694b0b3cbb5f1fd00117f716583669
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: e47c10c2c979622fba254757d3f7b9f19d3240f8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -99,10 +100,6 @@ Recovery Service는 제공된 보존 정책에 따라 백업 정리를 자동으
 
 > [!NOTE]
 > 자격 증명 모음에 이미 있는 백업은 영향을 받지 않습니다. 해당 보존 기간이 만료되면 Recovery Service에 의해 자동으로 삭제됩니다.
-
-## <a name="removing-long-term-backup-retention-backups-from-the-azure-recovery-services-vault"></a>Azure Recovery Services 자격 증명 모음에서 장기 백업 보존 백업 제거
-
-자격 증명 모음에서 장기 백업 보존 백업을 제거하려면 [장기 백업 보존 백업 삭제](sql-database-long-term-backup-retention-configure.md)를 참조하세요.
 
 ## <a name="long-term-backup-retention-faq"></a>장기 백업 보존 FAQ:
 

@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 2d146d3a3bd2497a6c1d9b2b924d2e2cd00710de
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d8a586834034460932516e352560b570141d9cda
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -53,7 +54,7 @@ Azure의 기본 인프라는 여러 하드웨어 클러스터로 분할됩니다
 
 각 응용 프로그램 계층 앞에서 부하 분산 장치를 사용하여 가용성 집합과 함께 작동되도록 하고, 항상 트래픽이 실행 중인 인스턴스로 라우팅되도록 할 수 있습니다. 부하 분산 장치가 없어도 VM이 계획되거나 계획되지 않은 유지 관리 이벤트에서 계속 실행될 수 있지만 주 VM을 사용할 수 없는 경우 최종 사용자가 이러한 이벤트를 해결하지 못할 수 있습니다.
 
-저장소 계층에서 고가용성을 위해 응용 프로그램을 디자인합니다. 가장 좋은 방법은 [가용성 집합의 VM에 Managed Disks를 사용](../windows/manage-availability.md#use-managed-disks-for-vms-in-availability-set)하는 것입니다. 현재 관리되지 않는 디스크를 사용하는 경우 [가용성 집합에서 VM을 변환하여 Managed Disks를 사용](../windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set)하는 것이 좋습니다.
+저장소 계층에서 고가용성을 위해 응용 프로그램을 디자인합니다. 가장 좋은 방법은 [가용성 집합의 VM에 Managed Disks를 사용](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)하는 것입니다. 현재 관리되지 않는 디스크를 사용하는 경우 [가용성 집합에서 VM을 변환하여 Managed Disks를 사용](convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set)하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]

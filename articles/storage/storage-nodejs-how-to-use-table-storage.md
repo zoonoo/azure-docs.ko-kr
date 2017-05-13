@@ -14,17 +14,17 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 70830309c33d4a94fc1eb5abb85cba26c8623f88
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f004408910aecc380e20f7da54dbd155d179aaa5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Node.js에서 Azure 테이블 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>개요
 이 항목에서는 Node.js 응용 프로그램의 Azure 테이블 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다.
@@ -68,7 +68,7 @@ var azure = require('azure-storage');
 ## <a name="set-up-an-azure-storage-connection"></a>Azure 저장소 연결 설정
 Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 웹 사이트의 [Azure Portal](https://portal.azure.com)에서 환경 변수를 설정하는 방법에 대한 예제는 [Azure Table Service를 사용하는 Node.js 웹앱]을 참조하세요.
+Azure 웹 사이트의 [Azure Portal](https://portal.azure.com)에서 환경 변수를 설정하는 방법에 대한 예제는 [Azure Table Service를 사용하는 Node.js 웹앱](../app-service-web/storage-nodejs-use-table-storage-web-site.md)을 참조하세요.
 
 ## <a name="create-a-table"></a>테이블 만들기
 다음 코드는 **TableService** 개체를 만든 다음 이 개체를 사용하여 새 테이블을 만듭니다. **server.js**의 위쪽에 다음을 추가합니다.
@@ -451,15 +451,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure Storage 팀 블로그][Azure Storage Team Blog]
-* GitHub의 [Azure Storage SDK for Node][Azure Storage SDK for Node] 리포지토리
+* [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
+* [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) 리포지토리
 * [Node.js 개발자 센터](/develop/nodejs/)
-
-[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-[OData.org]: http://www.odata.org/
-[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Azure Table Service를 사용하는 Node.js 웹앱]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
-[Create and deploy a Node.js application to an Azure website]: ../app-service-web/app-service-web-get-started-nodejs.md
-
+* [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포](../app-service-web/app-service-web-get-started-nodejs.md)
