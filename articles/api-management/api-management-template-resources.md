@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: 3c633d54e6b81576a2fbd1adfc69775ca1bdd09d
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -156,7 +157,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |TablePlaceholderNothingToDisplay|선택한 기간과 범위에 대한 데이터가 없습니다.|  
 |ButtonLabelClose|닫습니다|  
   
-###  <a name="Documentation">문서화</a>  
+###  <a name="Documentation"></a>문서화  
   
 |이름|텍스트|  
 |----------|----------|  

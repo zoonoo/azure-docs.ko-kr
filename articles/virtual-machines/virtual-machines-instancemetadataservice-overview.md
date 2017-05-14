@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2017
 ms.author: harijay
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: b5c0268e1a0ebfcb33781678a367090cad865907
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/11/2017
 
 ---
@@ -348,5 +349,5 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
     
 ## <a name="next-steps"></a>다음 단계
 
-[scheduledevents]에 대한 자세한 정보(virtual-machines-scheduled-events.md)
+에 대한 자세한 정보 [scheduledevents](virtual-machines-scheduled-events.md)
 

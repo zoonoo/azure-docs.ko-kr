@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 1d7574110d616643c67b19e9a4bf21ee9187503d
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/31/2017
 
 

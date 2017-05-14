@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: andbuc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: 962092622e6bbfcfc2376d0885e6806be9cb5abf
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/31/2017
 
 
 ---
 # <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-physical-device-linux"></a>Azure IoT Gateway SDK를 사용하여 물리적 장치(Linux)에서 장치-클라우드 메시지 보내기
 
-[Bluetooth 저에너지 샘플][ lnk-ble-samplecode]의 이 연습에서는 [Azure IoT 게이트웨이 SDK][lnk-sdk]를 사용하여 다음을 수행하는 방법을 보여 줍니다.
+[Bluetooth 저에너지 샘플][lnk-ble-samplecode] 의 이 연습에서는 [Azure IoT 게이트웨이 SDK][lnk-sdk] 를 사용하여 다음을 수행하는 방법을 보여 줍니다.
 
 * 물리적 장치에서 IoT Hub로 장치-클라우드 원격 분석을 전달합니다.
 * IoT Hub에서 물리적 장치로 명령을 라우팅합니다.
