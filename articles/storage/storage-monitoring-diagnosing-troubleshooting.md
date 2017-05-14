@@ -3,8 +3,8 @@ title: "Azure Storage 모니터링, 진단 및 문제 해결 | Microsoft Docs"
 description: "저장소 분석, 클라이언트 쪽 로깅 기타 타사 도구 등의 기능을 사용하여 Azure Storage 관련 문제를 파악, 진단 및 해결합니다."
 services: storage
 documentationcenter: 
-author: jasonnewyork
-manager: tadb
+author: fhryo-msft
+manager: jahogg
 editor: tysonn
 ms.assetid: d1e87d98-c763-4caa-ba20-2cf85f853303
 ms.service: storage
@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
-ms.author: jahogg
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 8d2aa0c8ff9e39faf47c6c3339cd8da2610d2324
-ms.lasthandoff: 04/06/2017
+ms.date: 05/11/2017
+ms.author: fhryo-msft
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 8598e18aeb0552455a6e5344f10eb48382e8c2f4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -328,19 +329,19 @@ catch (StorageException storageException)
 * [클라이언트에 HTTP 409(충돌) 메시지가 표시됨]
 
 ---
-[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
+[메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음]
 
 ---
 [용량 메트릭에 예기치 않은 저장소 용량 사용 증가가 표시됨]
 
 ---
-[You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
+[많은 수의 VHD가 연결된 가상 컴퓨터가 예기치 않게 다시 부팅됨]
 
 ---
 [개발 또는 테스트용으로 저장소 에뮬레이터 사용 시 문제가 발생함]
 
 ---
-[You are encountering problems installing the Azure SDK for .NET]
+[Azure SDK for .NET 설치 시 문제가 발생함]
 
 ---
 [저장소 서비스에서 다른 문제가 발생함]

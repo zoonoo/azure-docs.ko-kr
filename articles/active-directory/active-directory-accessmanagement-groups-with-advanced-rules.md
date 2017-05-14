@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 24f56b68a9313ed1bce859b9343a14de83d9b600
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: d00375d9bc696b41a074eebe6d205e6907a54c4b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -28,7 +28,7 @@ Azure 클래식 포털은 고급 규칙을 설정할 수 있는 기능을 제공
 사용자의 특성이 변경될 때 사용자의 특성 변경 내용이 그룹 추가 또는 제거를 트리거할지를 확인하기 위해 시스템은 디렉터리에서 모든 동적 그룹 규칙을 평가합니다. 사용자가 그룹에 대한 규칙을 만족하면 해당 그룹에 대한 구성원으로 추가됩니다. 구성원인 그룹의 규칙을 더 이상 만족하지 않는 경우 해당 그룹의 구성원에서 제거됩니다.
 
 > [!NOTE]
-> 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다. 중첩 그룹 구성원은 현재 응용 프로그램에 대한 그룹 기반 할당에서 지원되지 않습니다.
+> 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다. 
 >
 > 그룹의 동적 멤버 자격에는 할당될 Azure AD Premium 라이선스가 필요합니다.
 >

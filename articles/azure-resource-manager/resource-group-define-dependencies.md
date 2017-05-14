@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 006d8e10acd6b4b756c0b78988176f71c3802080
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 5617f6453cb5dbb1c86ec41d7b9649356a3d9c78
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -63,7 +64,7 @@ Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서
 dependsOn을 사용하여 리소스 간의 관계를 매핑하도록 선택할 수 있지만 왜 그렇게 하는지에 대한 이유를 이해하는 것이 중요합니다. 예를 들어, 리소스가 상호 연결되는 방식을 문서화하려면, dependsOn은 올바른 접근 방법이 아닙니다. 배포 후 dependsOn 요소에 어떤 리소스가 정의되었는지 쿼리할 수 없습니다. dependsOn을 사용하면 Resource Manager는 종속성이 있는 두 리소스를 병렬로 배포하지 않으므로 배포 시간에 잠재적으로 영향을 줍니다. 리소스 간의 관계를 문서화하려면 [리소스 연결](/rest/api/resources/resourcelinks)을 대신 사용합니다.
 
 ## <a name="child-resources"></a>자식 리소스
-resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리소스를 지정할 수 있습니다. 자식 리소스는&5;개 수준 깊이까지만 정의할 있습니다. 자식 리소스 및 부모 리소스 간에 암시적 종속성은 생성되지 않습니다. 부모 리소스 다음에 자식 리소스를 배포해야 하는 경우 dependsOn 속성을 사용하여 해당 종속성을 확실하게 명시해야 합니다. 
+resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리소스를 지정할 수 있습니다. 자식 리소스는 5개 수준 깊이까지만 정의할 있습니다. 자식 리소스 및 부모 리소스 간에 암시적 종속성은 생성되지 않습니다. 부모 리소스 다음에 자식 리소스를 배포해야 하는 경우 dependsOn 속성을 사용하여 해당 종속성을 확실하게 명시해야 합니다. 
 
 각 부모 리소스는 특정 리소스 종류만 자식 리소스로 허용합니다. 허용되는 리소스 종류는 부모 리소스의 [템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas)에서 지정됩니다. 자식 리소스 종류의 이름에는 부모 리소스 종류의 이름이 포함됩니다. 예를 들어 **Microsoft.Web/sites/config**와 **Microsoft.Web/sites/extensions**는 둘 다 **Microsoft.Web/sites**의 자식 리소스입니다.
 
@@ -108,7 +109,7 @@ resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리�
 ```
 
 ## <a name="reference-function"></a>reference 함수
-[reference 함수](resource-group-template-functions.md#reference) 를 사용하면 식을 다른 JSON 이름 및 값 쌍 또는 런타임 리소스에서 해당 값을 파생시키는 식을 작성할 수 있습니다. 참조 식은 한 리소스가 다른 리소스에 종속되어 있음을 암시적으로 선언합니다. 일반적인 형식:
+[reference 함수](resource-group-template-functions-resource.md#reference) 를 사용하면 식을 다른 JSON 이름 및 값 쌍 또는 런타임 리소스에서 해당 값을 파생시키는 식을 작성할 수 있습니다. 참조 식은 한 리소스가 다른 리소스에 종속되어 있음을 암시적으로 선언합니다. 일반적인 형식:
 
 ```json
 reference('resourceName').propertyPath
@@ -133,7 +134,7 @@ reference('resourceName').propertyPath
 
 이 요소 또는 dependsOn 요소를 사용하여 종속성을 지정할 수 있지만 같은 종속 리소스에 대해 두 가지를 모두 사용할 필요는 없습니다. 가능하면 불필요한 종속성을 추가하지 않도록 암시적 참조를 사용합니다.
 
-자세한 내용은 [reference 함수](resource-group-template-functions.md#reference)를 참조하세요.
+자세한 내용은 [reference 함수](resource-group-template-functions-resource.md#reference)를 참조하세요.
 
 ## <a name="recommendations-for-setting-dependencies"></a>종속성 설정 권장 사항
 

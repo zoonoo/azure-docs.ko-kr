@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: a6c3e0150a60777d9f824cb1e0768bd44a8c981e
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 78b8902927977c3b7dca3bd6e24633858ef8e6e9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -133,7 +134,7 @@ Resource Manager는 연결된 각 템플릿을 별도 배포로 처리합니다.
 }
 ```
 
-또한 [deployment()](resource-group-template-functions.md#deployment) 를 사용하여 현재 템플릿에 대한 기본 URL을 가져올 수 있으며 동일한 위치에 있는 다른 템플릿에 대한 URL를 가져올 수 있습니다. 이 방법은 템플릿 위치가 변경되거나(아마도 버전 관리로 인해) 템플릿 파일에서 URL 하드 코딩을 방지하려는 경우 유용합니다. 
+또한 [deployment()](resource-group-template-functions-deployment.md#deployment) 를 사용하여 현재 템플릿에 대한 기본 URL을 가져올 수 있으며 동일한 위치에 있는 다른 템플릿에 대한 URL를 가져올 수 있습니다. 이 방법은 템플릿 위치가 변경되거나(아마도 버전 관리로 인해) 템플릿 파일에서 URL 하드 코딩을 방지하려는 경우 유용합니다. 
 
 ```json
 "variables": {

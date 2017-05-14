@@ -11,15 +11,16 @@ keywords: "배포 오류 Azure 배포, Azure에 배포"
 ms.assetid: c002a9be-4de5-4963-bd14-b54aa3d8fa59
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: bfbb3356454b9ef8b1834d03e7b76de9860a12c9
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 7dfd3f7f0bebd0dbe20ffc9952d83cb8b4fcfe3e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -285,7 +286,7 @@ Message=Cannot find ServerFarm with name exampleplan.
 
 종속성 오류 문제 해결을 위한 제안 사항은 [배포 시퀀스 확인](#check-deployment-sequence)을 참조하세요.
 
-또한 배포되는 그룹이 아닌 다른 리소스 그룹에 리소스가 있는 경우에도 이러한 오류 메시지가 표시됩니다. 이 경우 리소스의 정규화 된 이름을 가져오는 [resourceId 함수](resource-group-template-functions.md#resourceid)를 사용합니다.
+또한 배포되는 그룹이 아닌 다른 리소스 그룹에 리소스가 있는 경우에도 이러한 오류 메시지가 표시됩니다. 이 경우 리소스의 정규화 된 이름을 가져오는 [resourceId 함수](resource-group-template-functions-resource.md#resourceid)를 사용합니다.
 
 ```json
 "properties": {
@@ -294,7 +295,7 @@ Message=Cannot find ServerFarm with name exampleplan.
 }
 ```
 
-해석할 수 없는 리소스에 [reference](resource-group-template-functions.md#reference) 또는 [listKeys](resource-group-template-functions.md#listkeys) 함수를 사용하려는 경우에는 다음과 같은 오류 메시지가 표시됩니다.
+해석할 수 없는 리소스에 [reference](resource-group-template-functions-resource.md#reference) 또는 [listKeys](resource-group-template-functions-resource.md#listkeys) 함수를 사용하려는 경우에는 다음과 같은 오류 메시지가 표시됩니다.
 
 ```
 Code=ResourceNotFound;
@@ -339,7 +340,7 @@ Code=StorageAccountAlreadyTaken
 Message=The storage account named mystorage is already taken.
 ```
 
-명명 규칙과 [uniqueString](resource-group-template-functions.md#uniquestring) 함수 결과를 연결하여 고유한 이름을 만들 수 있습니다.
+명명 규칙과 [uniqueString](resource-group-template-functions-string.md#uniquestring) 함수 결과를 연결하여 고유한 이름을 만들 수 있습니다.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
@@ -349,7 +350,7 @@ Message=The storage account named mystorage is already taken.
 구독에서 기존 저장소 계정과 동일한 이름의 저장소 계정을 배포하지만 다른 위치를 제공하는 경우 해당 저장소 계정이 이미 다른 위치에 이미 있다고 나타내는 오류 메시지가 표시됩니다. 이 경우 기존 저장소 계정을 삭제하거나 기존 저장소 계정과 동일한 위치를 제공합니다.
 
 ### <a name="accountnameinvalid"></a>AccountNameInvalid
-저장소 계정에 사용이 금지된 문자를 포함하는 이름을 제공하려는 경우 **AccountNameInvalid** 오류 메시지가 표시됩니다. 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다. [uniqueString](resource-group-template-functions.md#uniquestring) 함수는 13자를 반환합니다. **uniqueString** 결과에 접두어를 연결하는 경우 11자 미만의 접두어를 제공합니다.
+저장소 계정에 사용이 금지된 문자를 포함하는 이름을 제공하려는 경우 **AccountNameInvalid** 오류 메시지가 표시됩니다. 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다. [uniqueString](resource-group-template-functions-string.md#uniquestring) 함수는 13자를 반환합니다. **uniqueString** 결과에 접두어를 연결하는 경우 11자 미만의 접두어를 제공합니다.
 
 ### <a name="badrequest"></a>BadRequest
 
@@ -626,7 +627,7 @@ az policy definition show --name regionPolicyAssignment
 
 대부분의 배포 오류는 예상치 않은 시퀀스로 리소스가 배포될 때 발생합니다. 이러한 오류는 종속성이 올바르게 설정되지 않은 경우 발생합니다. 필요한 종속성이 없는 경우에는 한 리소스가 다른 리소스에 대한 값을 사용하려고 하는데 다른 리소스가 아직 존재하지 않습니다. 리소스를 찾을 수 없다는 오류가 표시됩니다. 각 리소스에 대한 배포 시간이 다를 수 있기 때문에 이러한 유형의 오류가 일시적으로 발생할 수 있습니다. 예를 들어 리소스를 배포하려는 첫 번째 시도는 필요한 리소스가 시간 내에 임의로 완료되면 성공할 수 있습니다. 그러나 두 번째 시도는 필요한 리소스가 시간 내에 완료되지 않으면 실패하게 됩니다. 
 
-하지만 필요하지 않은 종속성은 설정하지 않는 것이 좋습니다. 불필요한 종속성이 있으면 서로 종속되지 않은 리소스가 동시에 배포되는 것을 막기 때문에 배포 시간이 길어집니다. 또한 배포를 방해하는 순환 종속성을 만들 수 있습니다. [reference](resource-group-template-functions.md#reference) 함수는 리소스가 동일한 템플릿에 배포되는 경우 함수에 매개 변수로 지정하는 리소스에 암시적 종속성을 만듭니다. 따라서 **dependsOn** 속성에 지정된 종속성보다 많은 종속성을 가질 수 있습니다. [resourceId](resource-group-template-functions.md#resourceid) 함수는 암시적 종속성을 만들지 않거나 리소스가 존재하는지를 확인합니다.
+하지만 필요하지 않은 종속성은 설정하지 않는 것이 좋습니다. 불필요한 종속성이 있으면 서로 종속되지 않은 리소스가 동시에 배포되는 것을 막기 때문에 배포 시간이 길어집니다. 또한 배포를 방해하는 순환 종속성을 만들 수 있습니다. [reference](resource-group-template-functions-resource.md#reference) 함수는 리소스가 동일한 템플릿에 배포되는 경우 함수에 매개 변수로 지정하는 리소스에 암시적 종속성을 만듭니다. 따라서 **dependsOn** 속성에 지정된 종속성보다 많은 종속성을 가질 수 있습니다. [resourceId](resource-group-template-functions-resource.md#resourceid) 함수는 암시적 종속성을 만들지 않거나 리소스가 존재하는지를 확인합니다.
 
 종속성 문제가 발생하는 경우 리소스 배포 순서를 간파할 필요가 있습니다. 배포 작업의 순서를 보려면 다음을 수행합니다.
 
