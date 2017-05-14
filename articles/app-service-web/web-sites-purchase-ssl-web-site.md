@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo;aelnably
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: c4e7ee86ad9dc7a51fff9e948757faaf5ca9b9c4
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/22/2017
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="step-1---log-in-to-azure"></a>1단계 - Azure에 로그인
 
-Azure Portal(http://portal.azure.com)에 로그인합니다.
+Azure Portal http://portal.azure.com 에 로그인합니다.
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>2단계 - SSL 인증서 주문하기
 
