@@ -12,19 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 04/23/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 3dba9ebc8eb23be00f9b52907ba4bc565eeb5688
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 58b289530e16c2a2e9bbe59b372c858ff22ad5ac
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/29/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합 - 공개 미리 보기
 
 Azure MFA의 NPS(네트워크 정책 서버) 확장은 기존 서버를 사용하여 인증 인프라에 클라우드 기반 MFA 기능을 추가합니다. NPS 확장을 사용하면 새 서버를 설치, 구성 및 유지할 필요 없이 전화 통화, SMS 또는 휴대폰 앱 인증을 기존 인증 흐름에 추가할 수 있습니다. 
- 
+
+이 확장은 Azure MFA 서버를 배포하지 않고 VPN 연결을 보호하려는 조직을 위해 작성되었습니다. NPS 확장은 RADIUS 및 클라우드 기반 Azure MFA 간에 어댑터로 작동하여 페더레이션 사용자 또는 동기화된 사용자를 위한 또 다른 인증을 제공합니다. 
+
 Azure MFA용 NPS 확장을 사용하면 인증 흐름에 다음 구성 요소가 포함됩니다. 
 
 1. **NAS/VPN 서버** - VPN 클라이언트로부터 요청을 받고, 이 요청을 NPS 서버에 대한 RADIUS 요청으로 변환합니다. 
@@ -108,6 +111,8 @@ NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 
 2. Https://portal.azure.com과 같은 Azure AD 인증을 시작하는 웹 사이트로 이동합니다.
 3. [2단계 인증에 등록합니다](./end-user/multi-factor-authentication-end-user-first-time.md).
 
+사용자는 NPS 확장을 통해 인증을 받으려면 먼저 다음 단계에 따라 등록을 수행해야 합니다.
+
 ## <a name="install-the-nps-extension"></a>NPS 확장 설치
 
 > [!IMPORTANT]
@@ -144,6 +149,8 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 5. 관리자 권한으로 Azure AD에 로그인합니다.
 6. PowerShell은 스크립트가 완료되면 성공 메시지를 표시합니다.  
 
+부하 분산을 위해 설정하려는 추가 NPS 서버에서 이러한 단계를 반복합니다. 
+
 ## <a name="configure-your-nps-extension"></a>NPS 확장 구성
 
 이 섹션에는 성공적인 NPS 확장 배포를 위한 디자인 고려 사항 및 제안 사항이 포함되어 있습니다.
@@ -167,7 +174,7 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 
 이 설정은 사용자가 MFA에 등록되지 않은 경우 수행할 작업을 결정하기 위한 것입니다. 키가 없거나, 설정되지 않았거나, TRUE로 설정되고 사용자가 등록되지 않은 경우 확장은 MFA 요청에 실패합니다. 키가 FALSE로 설정되고 사용자가 등록되지 않은 경우 MFA를 수행하지 않은 채 인증이 진행됩니다.
 
-이 키를 만들고 사용자 온보딩 중에 FALSE로 설정하도록 선택할 수 있습니다. 키를 설정하면 MFA에 등록되지 않은 사용자가 로그인할 수 있으므로 프로덕션 환경으로 이동하기 전에 이 키를 제거해야 합니다.
+사용자가 등록 중이지만 Azure MFA에 아직 등록되지 않은 상태에서 이 키를 만들고 FALSE로 설정하도록 선택할 수 있습니다. 그렇지만 키를 설정하면 MFA에 등록되지 않은 사용자가 로그인할 수 있으므로 프로덕션 환경으로 이동하기 전에 이 키를 제거해야 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

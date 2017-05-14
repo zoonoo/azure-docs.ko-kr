@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 2aa32d692da81dc34fafbc9cb6ea72a806f31e5c
-ms.openlocfilehash: a4068c70a01f80086ff3fb55f8e101c7dce95dea
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 4d68fde29e85fcf9aa623b4d798262bcd486a8bb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -63,7 +64,7 @@ B2B 통신에서는 실행되는 두 비즈니스 프로세스 또는 응용 프
 1. 메시지를 처리한 후에 업데이트된 메시지 수가 표시됩니다.   
 ![업데이트된 메시지](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
-2. 홈 페이지에서 **Logic Apps B2B 메시지**를 선택하여 AS2 및 X12 메시지 상태를 봅니다.  데이터는&1;일을 기반으로 합니다.
+2. 홈 페이지에서 **Logic Apps B2B 메시지**를 선택하여 AS2 및 X12 메시지 상태를 봅니다.  데이터는 1일을 기반으로 합니다.
 ![논리 앱 B2B 메시지 선택](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
 3. 상태별로 AS2 또는 X12를 선택하여 메시지 목록으로 이동합니다. 다음 스크린 샷에서는 AS2 메시지 상태를 보여 줍니다. AS2 및 X12 메시지 상태 속성 설명이 나중에 "메시지 목록 속성 설명"에 표시됩니다.  
@@ -80,7 +81,7 @@ B2B 통신에서는 실행되는 두 비즈니스 프로세스 또는 응용 프
 | 보낸 사람 | 수신 설정에 구성된 게스트 파트너 또는 AS2 규약의 송신 설정에 구성된 호스트 파트너입니다. |
 | 받는 사람 | 수신 설정에 구성된 호스트 파트너 또는 AS2 규약의 송신 설정에 구성된 게스트 파트너입니다. |
 | 논리 앱 | AS2 작업이 구성된 Logic App. |
-| 가동 상태 | AS2 메시지 상태 <br>성공 = 양호한 AS2 메시지를 받거나 보내고, MDN을 구성하지 않았습니다. <br>성공 = 양호한 AS2 메시지를 받거나 보내고, MDN을 구성하고, MDN을 받거나 보냈습니다. <br>실패 = 잘못된 AS2 메시지를 받고 MDN을 구성하지 않았습니다. <br>보류 중 = 양호한 AS2 메시지를 받거나 보내고, MDN을 구성하고 기능 Ack를 기다리고 있습니다. |
+| 가동 상태 | AS2 메시지 상태 <br>성공 = 양호한 AS2 메시지를 받거나 보내고, MDN을 구성하지 않았습니다. <br>성공 = 양호한 AS2 메시지를 받거나 보내고, MDN을 구성하고, MDN을 받거나 보냈습니다. <br>실패 = 잘못된 AS2 메시지를 받고 MDN을 구성하지 않았습니다. <br>보류 중 = 양호한 AS2 메시지를 받거나 보내고, MDN을 구성하고 MDN을 기다리고 있습니다. |
 | Ack | MDN 메시지 상태 <br>수락됨 = 양의 MDN을 받거나 보냈습니다. <br>보류 중 = MDN을 받거나 보낼 때까지 대기 중입니다. <br>거부됨 = 음의 MDN을 받거나 보냈습니다. <br>필요하지 않음 = 규약에 MDN이 구성되지 않습니다. |
 | 방향 | AS2 메시지 방향. |
 | 상관관계 ID | Logic App 내의 모든 트리거와 작업을 상호 연결하는 ID. |

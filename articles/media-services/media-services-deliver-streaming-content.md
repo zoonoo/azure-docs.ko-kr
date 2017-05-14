@@ -1,5 +1,5 @@
 ---
-title: ".NET을 사용하여 Azure Media Services 콘텐츠 게시"
+title: ".NET을 사용하여 Azure Media Services 콘텐츠 게시 | Microsoft Docs"
 description: "스트리밍 URL을 작성하는 데 사용되는 로케이터를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다."
 author: juliako
 manager: erikre
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 5598a16511713a76193c13c4521e4884d8f5b75d
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 37f6cd3a25c36fe27c9c711a430a2fc11e50906e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -53,7 +54,7 @@ ms.lasthandoff: 03/14/2017
 
 
 >[!NOTE]
->다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 동일한 날짜/액세스 권한을 사용하는 경우 동일한 정책 ID를 사용합니다. 장기간 위치에 유지하려는 로케이터의 정책(비 업로드 정책)을 예로 들 수 있습니다. 자세한 내용은 [이 항목](media-services-dotnet-manage-entities.md#limit-access-policies) 을 참조하세요.
 
 ### <a name="use-media-services-net-sdk"></a>Media Services .NET SDK 사용
 스트리밍 URL 작성 
@@ -95,7 +96,7 @@ ms.lasthandoff: 03/14/2017
         Console.WriteLine();
     }
 
-코드 출력:
+출력:
 
     URL to manifest for client streaming using Smooth Streaming protocol:
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
@@ -106,7 +107,7 @@ ms.lasthandoff: 03/14/2017
 
 
 > [!NOTE]
-> SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다. 현재 AMS는 사용자 지정 도메인을 사용하는 SSL을 지원하지 않습니다.  
+> SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이 방법을 수행하려면 스트리밍 URL이 HTTPS로 시작해야 합니다. 현재 AMS는 사용자 지정 도메인을 사용하는 SSL을 지원하지 않습니다.
 > 
 > 
 
@@ -140,7 +141,7 @@ ms.lasthandoff: 03/14/2017
             Console.WriteLine(originLocator.Path + pd.Name);
     }
 
-코드 출력:
+출력:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4
@@ -175,8 +176,8 @@ ms.lasthandoff: 03/14/2017
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
-[자산 다운로드](media-services-deliver-asset-download.md)
-[자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)
+## <a name="next-steps"></a>다음 단계
+* [자산 다운로드](media-services-deliver-asset-download.md)
+* [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)
 
 

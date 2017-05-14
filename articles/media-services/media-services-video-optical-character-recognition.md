@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
-ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
-ms.lasthandoff: 02/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 4327a3e3f67369a61eb945791ca1011fab6fb01d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -44,10 +45,11 @@ ms.lasthandoff: 02/02/2017
 ### <a name="attribute-descriptions"></a>특성 설명
 | 특성 이름 | 설명 |
 | --- | --- |
-| 언어 |(선택 사항) 검색할 텍스트의 언어에 대해 설명합니다. AutoDetect(기본값), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish 중 하나일 수 있습니다. |
+|AdvancedOutput| AdvancedOutput을 true로 설정하면 JSON 출력에는 모든 단일 단어(구 및 지역 외에)에 대해 위치 데이터가 포함됩니다. 이러한 세부 정보를 표시하지 않으려면 flag를 false로 설정합니다. 기본값은 False입니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/)를 참조하세요.|
+| language |(선택 사항) 검색할 텍스트의 언어에 대해 설명합니다. AutoDetect(기본값), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish 중 하나일 수 있습니다. |
 | TextOrientation |(선택 사항) 검색할 텍스트의 방향에 대해 설명합니다.  "Left"는 모든 문자의 위쪽이 왼쪽을 향함을 나타냅니다.  기본 텍스트(예: 책에서 사용되는 텍스트)를 "위쪽" 방향으로 호출할 수 있습니다.  AutoDetect(기본값), Up, Right, Down, Left 중 하나일 수 있습니다. |
 | TimeInterval |(선택 사항) 샘플링 속도를 설명합니다.  기본값은 1/2초 간격입니다.<br/>JSON 형식 – HH:mm:ss.SSS(기본값 00:00:00.500)<br/>XML 형식 – W3C XSD 기간 기본 형식(기본 PT0.5) |
-| DetectRegions |(선택 사항) 텍스트를 검색할 비디오 프레임 내의 영역을 지정하는 DetectRegion 개체의 배열입니다.<br/>DetectRegion 개체는 다음&4;개 정수 값으로 구성됩니다.<br/>Left - 왼쪽 여백에서 픽셀<br/>Top - 위쪽 여백에서 픽셀<br/>Width – 영역 너비(픽셀)<br/>Height – 영역 높이(픽셀) |
+| DetectRegions |(선택 사항) 텍스트를 검색할 비디오 프레임 내의 영역을 지정하는 DetectRegion 개체의 배열입니다.<br/>DetectRegion 개체는 다음 4개 정수 값으로 구성됩니다.<br/>Left - 왼쪽 여백에서 픽셀<br/>Top - 위쪽 여백에서 픽셀<br/>Width – 영역 너비(픽셀)<br/>Height – 영역 높이(픽셀) |
 
 #### <a name="json-preset-example"></a>JSON 사전 설정 예제
 
@@ -55,6 +57,7 @@ ms.lasthandoff: 02/02/2017
         "Version":1.0, 
         "Options": 
         {
+            "AdvancedOutput":"true"
             "Language":"English", 
             "TimeInterval":"00:00:01.5",
             "TextOrientation":"Up",
@@ -74,6 +77,7 @@ ms.lasthandoff: 02/02/2017
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
+         <AdvancedOutput>true</AdvancedOutput>
          <Language>English</Language>
          <TimeInterval>PT1.5S</TimeInterval>
          <DetectRegions>

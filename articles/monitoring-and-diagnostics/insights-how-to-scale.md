@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2015
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1e680679086d54a2c6b10be7635e997ac61bacd5
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 8f1c94ae5389739e03a7b1a70421e538516c873f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -34,10 +36,8 @@ ms.openlocfilehash: 1e680679086d54a2c6b10be7635e997ac61bacd5
 
 ## <a name="scaling-manually"></a>수동으로 크기 조정
 1. [Azure Portal](https://portal.azure.com/)에서 **찾아보기**를 클릭한 다음 크기를 조정할 리소스(예: **App Service 계획**)로 이동합니다.
-2. **작업**의 **크기 조정** 타일에 크기 조정 상태가 표시됩니다. 수동으로 크기 조정하는 경우 **Off**이고, 한 개 이상의 성능 메트릭을 기준으로 크기를 조정하는 경우 **On**입니다.
-   
-    ![크기 조정 타일](./media/insights-how-to-scale/Insights_UsageLens.png)
-3. 타일을 클릭하면 **크기 조정** 블레이드로 이동합니다. 크기 조정 블레이드의 맨 위에서 서비스의 자동 크기 조정 작업 기록을 볼 수 있습니다.
+2. **설정 > 규모 확장(App Service 계획)**을 클릭합니다.
+3. **크기 조정** 블레이드의 맨 위에서 서비스의 자동 크기 조정 작업 기록을 볼 수 있습니다.
    
     ![크기 조정 블레이드](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -129,10 +129,5 @@ ms.openlocfilehash: 1e680679086d54a2c6b10be7635e997ac61bacd5
 * [응용 프로그램 성능을 모니터링](../application-insights/app-insights-azure-web-apps.md) 합니다.
 * [이벤트 및 활동 로그를 보고](insights-debugging-with-events.md) 서비스에서 발생한 모든 사항을 알아봅니다.
 * [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md) 합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

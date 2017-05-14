@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: f0b0c3bc9daf1e44dfebecedf628b09c97394f94
-ms.openlocfilehash: eb22b8e8c2d2b4a619e50b94321d4f819764bdaa
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: cfd4822820270dbaf44a25f3e0fe749492765df8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메
 
 서비스 버스에서 AMQP 1.0이 지원되므로 효율적인 이진 프로토콜을 사용하여 다양한 플랫폼에서 큐 및 게시/구독 조정된 메시징 기능을 이용할 수 있습니다. 뿐만 아니라 여러 언어, 프레임워크 및 운영 체제가 혼합되어 사용된 구성 요소로 이루어진 응용 프로그램을 만들 수 있습니다.
 
-이 문서에서는 널리 사용되는 JMS(Java Message Service) API 표준을 통해 Java 응용 프로그램에서 Service Bus 메시징 기능(큐 및 게시/구독 토픽)을 사용하는 방법을 설명합니다. Service Bus .NET API를 사용하여 동일한 작업을 수행하는 방법을 설명하는 [동반 문서](service-bus-dotnet-advanced-message-queuing.md)가 있습니다. AMQP 1.0을 사용한 플랫폼 간 메시징에 대해 알아보려면 이 두 가지 가이드를 함께 사용할 수 있습니다.
+이 문서에서는 널리 사용되는 JMS(Java Message Service) API 표준을 통해 Java 응용 프로그램에서 Service Bus 메시징 기능(큐 및 게시/구독 토픽)을 사용하는 방법을 설명합니다. Service Bus .NET API를 사용하여 동일한 작업을 수행하는 방법을 설명하는 [동반 문서](service-bus-amqp-dotnet.md)가 있습니다. AMQP 1.0을 사용한 플랫폼 간 메시징에 대해 알아보려면 이 두 가지 가이드를 함께 사용할 수 있습니다.
 
 ## <a name="get-started-with-service-bus"></a>서비스 버스 시작
 이 가이드에서는 사용자가 **queue1**이라는 큐가 포함된 Service Bus 네임스페이스를 이미 가지고 있다고 가정합니다. 가지고 있지 않은 사용자는 [Azure Portal](https://portal.azure.com)을 사용하여 [네임스페이스와 큐를 만들](service-bus-create-namespace-portal.md) 수 있습니다. Service Bus 네임스페이스와 큐를 만드는 방법에 대한 자세한 내용은 [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
@@ -110,7 +111,7 @@ topic.[jndi_name] = [physical_name]
 * **[physical_name]**: 응용 프로그램이 메시지를 보내거나 받는 Service Bus 엔터티의 이름입니다.
 
 > [!NOTE]
-> 서비스 버스 토픽 구독에서 받는 경우 JNDI에 지정된 물리적 이름은 토픽 이름이어야 합니다. 구독 이름은 JMS 응용 프로그램 코드에서 지속형 구독을 만들 때 제공됩니다. [Service Bus AMQP 1.0 개발자 가이드](service-bus-amqp-dotnet.md)에서는 JMS의 Service Bus 토픽 구독 작업에 대한 세부 정보를 제공합니다.
+> 서비스 버스 토픽 구독에서 받는 경우 JNDI에 지정된 물리적 이름은 토픽 이름이어야 합니다. 구독 이름은 JMS 응용 프로그램 코드에서 지속형 구독을 만들 때 제공됩니다. [Service Bus AMQP 1.0 개발자 가이드](service-bus-amqp-dotnet.md)에서는 JMS의 Service Bus 토픽 작업에 대한 자세한 내용을 제공합니다.
 > 
 > 
 
@@ -248,9 +249,7 @@ exit
 ## <a name="cross-platform-messaging-between-jms-and-net"></a>JMS와 .NET 간의 크로스 플랫폼 메시징
 이 가이드에서는 JMS를 사용하여 서비스 버스로 메시지를 보내고 받는 방법을 보여 줍니다. 그러나 AMQP 1.0의 주요 이점 중 하나는 다른 언어로 작성된 구성 요소로 응용 프로그램을 빌드하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있다는 것입니다.
 
-위에서 설명한 샘플 JMS 응용 프로그램 및 동반 가이드([.NET Service Bus .NET API와 함께 AMQP 1.0을 사용하는 방법](service-bus-dotnet-advanced-message-queuing.md))에서 제공하는 유사한 .NET 응용 프로그램을 사용하여 .NET과 Java 간에 메시지를 교환할 수 있습니다. 
-
-Service Bus 및 AMQP 1.0을 사용하는 크로스 플랫폼 메시징에 대한 자세한 내용은 [Service Bus AMQP 1.0 개발자 가이드](service-bus-amqp-dotnet.md)를 참조하세요.
+위에서 설명한 샘플 JMS 응용 프로그램 및 동반 문서([AMQP 1.0을 사용하여 .NET에서 Service Bus 사용](service-bus-amqp-dotnet.md))에서 제공하는 유사한 .NET 응용 프로그램을 사용하여 .NET과 Java 간에 메시지를 교환할 수 있습니다. Service Bus 및 AMQP 1.0을 사용하는 크로스 플랫폼 메시징에 대한 자세한 내용은 이 문서를 참조하세요.
 
 ### <a name="jms-to-net"></a>JMS에서 .NET으로
 JMS에서 .NET으로의 메시징을 시연하려면:
@@ -320,7 +319,7 @@ exit
 ## <a name="summary"></a>요약
 이 방법 가이드에서는 널리 사용되는 JMS API 및 AMQP 1.0을 통해 Java에서 Service Bus 조정된 메시징 기능(큐 및 게시/구독 토픽)에 액세스하는 방법을 설명했습니다.
 
-.NET, C, Python, PHP 등의 다른 언어에서도 Service Bus AMQP 1.0을 사용할 수 있습니다. 이러한 언어로 빌드한 구성 요소는 서비스 버스의 AMQP 1.0 지원을 사용하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있습니다. 자세한 내용은 [Service Bus AMQP 1.0 개발자 가이드](service-bus-amqp-dotnet.md)를 참조하세요.
+.NET, C, Python, PHP 등의 다른 언어에서도 Service Bus AMQP 1.0을 사용할 수 있습니다. 이러한 언어로 빌드한 구성 요소는 서비스 버스의 AMQP 1.0 지원을 사용하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Service Bus의 AMQP 1.0 지원](service-bus-amqp-overview.md)

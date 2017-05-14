@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 1a074e54204ff8098bea09eb4aa2066ccee47608
-ms.openlocfilehash: ab9e952027dcaa5b43cdad8faf8005b063c01dce
-ms.lasthandoff: 01/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: f813dc5f126386f9ad474e113183e7b5d4c8a71a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단�
 * 자산을 여러 저장소 계정에서 부하 분산합니다.
 * 대량의 콘텐츠 처리를 위한 미디어 서비스 크기 조정(현재 단일 저장소 계정의 최대 제한은 500TB). 
 
-이 항목에서는 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/media/mediaservice) 및 [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media)을 사용하여 여러 저장소 계정을 Media Services 계정에 연결하는 방법을 보여 줍니다. 또한 미디어 서비스 SDK를 사용하여 자산을 만들 때 다른 저장소 계정을 지정하는 방법을 보여줍니다. 
+이 항목에서는 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/media/mediaservice) 및 [Powershell](/powershell/module/azurerm.media)을 사용하여 여러 저장소 계정을 Media Services 계정에 연결하는 방법을 보여 줍니다. 또한 미디어 서비스 SDK를 사용하여 자산을 만들 때 다른 저장소 계정을 지정하는 방법을 보여줍니다. 
 
 ## <a name="considerations"></a>고려 사항
 여러 저장소 계정을 미디어 서비스 계정에 연결할 때는 다음과 같은 고려 사항이 있습니다.
@@ -39,11 +40,11 @@ Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단�
 
 기타 고려 사항:
 
-Media Services는 스트리밍 콘텐츠(예: http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)를 위해 URL을 작성할 때 **IAssetFile.Name** 속성 값을 사용합니다. 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. Name 속성 값에는 !*'();:@&=+$,/?%#[]" 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 ‘.’ 하나만 사용할 수 있습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
+Media Services는 스트리밍 콘텐츠(예: http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)를 위해 URL을 작성할 때 **IAssetFile.Name** 속성 값을 사용합니다. 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. Name 속성 값에는 !*'();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 ‘.’ 하나만 사용할 수 있습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 
 ## <a name="to-attach-storage-accounts"></a>저장소 계정을 연결하려면  
 
-저장소 계정을 AMS 계정에 연결하려면 다음 예제와 같이 [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) 및 [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media)을 사용합니다.
+저장소 계정을 AMS 계정에 연결하려면 다음 예제와 같이 [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) 및 [Powershell](/powershell/module/azurerm.media)을 사용합니다.
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "

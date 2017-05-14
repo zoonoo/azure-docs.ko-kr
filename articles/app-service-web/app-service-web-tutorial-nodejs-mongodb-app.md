@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 8dcb006a8cf167cdbfb67de5a11dabf0edbbe41c
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 6db07ed122d8dbd9edaa3b4d25680863778a6adf
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -32,6 +33,7 @@ ms.lasthandoff: 04/22/2017
 
 1. [Git 다운로드 및 설치](https://git-scm.com/)
 1. [Node.js 및 NPM 다운로드 및 설치](https://nodejs.org/)
+1. [Gulp.js 설치](http://gulpjs.com/)
 1. [MongoDB Community Edition 다운로드, 설치 및 실행](https://docs.mongodb.com/manual/administration/install-community/). 
 1. [Azure CLI 2.0 다운로드 및 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
@@ -40,7 +42,7 @@ ms.lasthandoff: 04/22/2017
 ## <a name="test-local-mongodb-database"></a>로컬 MongoDB 데이터베이스 테스트
 이 단계에서는 로컬 MongoDB 데이터베이스가 실행 중인지 확인합니다.
 
-터미널 창을 열고 `CD`를 사용하여 MongoDB 설치 위치의 `bin` 디렉터리로 이동합니다. 
+터미널 창을 열고 `cd`를 사용하여 MongoDB 설치 위치의 `bin` 디렉터리로 이동합니다. 
 
 터미널에서 `mongo`를 실행하여 로컬 MongoDB 서버에 연결합니다.
 
@@ -59,7 +61,7 @@ MongoDB 데이터베이스를 테스트하고 나면 터미널에 `Ctrl`+`C`를 
 
 ### <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-터미널 창을 열고 `CD`를 사용하여 작업 디렉터리로 이동합니다.  
+터미널 창을 열고 `cd`를 사용하여 작업 디렉터리로 이동합니다.  
 
 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 
 
@@ -107,7 +109,7 @@ MEAN.js 샘플 응용 프로그램은 데이터베이스에 사용자 데이터�
 
 이 단계에서는 Azure에 MongoDB 데이터베이스를 만듭니다. 응용 프로그램이 Azure에 배포되어 있으면 프로덕션 워크로드에 이 데이터베이스를 사용합니다.
 
-MongoDB의 경우 이 자습서에서는 MongoDB 클라이언트 연결을 지원할 수 있는 [Azure DocumentDB](/azure/documentdb/)를 사용합니다. 즉, Node.js 응용 프로그램에서는 MongoDB 데이터베이스에 연결한다는 것만 압니다. 연결을 DocumentDB 데이터베이스에서 지원한다는 사실은 응용 프로그램에 투명합니다.
+MongoDB의 경우 이 자습서에서는 [Azure DocumentDB](/azure/documentdb/)를 사용합니다. Azure DocumentDB는 MongoDB 클라이언트 연결을 지원합니다. 즉, Node.js 응용 프로그램은 MongoDB 데이터베이스에 연결하고 있다는 사실만 압니다. 연결을 DocumentDB 데이터베이스에서 지원한다는 사실은 응용 프로그램에 투명합니다.
 
 ### <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -193,11 +195,11 @@ Azure CLI는 다음 예와 유사한 정보를 출력합니다.
 
 MEAN.js 리포지토리에서 `config/env/production.js`를 엽니다.
 
-`db` 개체에서 다음 예에 표시된 것과 같이 `uri` 값을 바꿉니다. `<documentdb_name>` 자리 표시자 두 개를 DocumentDB 데이터베이스 이름으로 바꾸고 `<primary_maste_key>` 자리 표시자를 이전 단계에서 복사한 키로 바꿔야 합니다.
+`db` 개체에서 다음 예에 표시된 것과 같이 `uri` 값을 바꿉니다. `<documentdb_name>` 자리 표시자 두 개를 DocumentDB 데이터베이스 이름으로 바꾸고 `<primary_master_key>` 자리 표시자를 이전 단계에서 복사한 키로 바꿔야 합니다.
 
 ```javascript
 db: {
-  uri: 'mongodb://<documentdb_name>:<primary_maste_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
+  uri: 'mongodb://<documentdb_name>:<primary_master_key>@<documentdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
   ...
 },
 ```
@@ -211,7 +213,7 @@ db: {
 
 ### <a name="test-the-application-in-production-mode"></a>프로덕션 모드에서 응용 프로그램 테스트 
 
-다른 몇몇 Node.js 응용 프로그램과 마찬가지로 MEAN.js에서도 `gulp prod`를 사용하여 프로덕션 환경의 스크립트를 최소화하고 번들로 만듭니다. 그러면 프로덕션 환경에 필요한 파일이 생성됩니다. 
+다른 몇몇 Node.js 웹 프레임워크와 마찬가지로 MEAN.js에서도 `gulp prod`를 사용하여 프로덕션 환경의 스크립트를 최소화하고 번들로 만듭니다. 그러면 프로덕션 환경에 필요한 파일이 생성됩니다. 
 
 이제 `gulp prod`를 실행합니다.
 
@@ -241,6 +243,8 @@ MEAN.JS version: 0.5.0
 ```
 
 브라우저에서 `http://localhost:8443`으로 이동합니다. 맨 위 메뉴에서 **등록**을 클릭하고 전과 같이 더미 사용자를 만들어 봅니다. 성공하면 응용 프로그램에서 데이터를 Azure의 DocumentDB 데이터베이스에 씁니다. 
+
+터미널에서 `Ctrl`+`C`를 입력하여 Node.js를 중지합니다. 
 
 ## <a name="deploy-the-nodejs-application-to-azure"></a>Azure에 Node.js 응용 프로그램 배포
 이 단계에서는 MongoDB에 연결된 Node.js 응용 프로그램을 Azure App Service에 배포합니다.
@@ -353,7 +357,7 @@ FTP, 로컬 Git, GitHub, Visual Studio Team Services 및 BitBucket과 같은 다
 > App Service에 FTP 및 로컬 Git 배포를 하려면 배포 사용자가 필요합니다. 이 배포 사용자는 계정 수준입니다. 따라서 Azure 구독 계정과 다릅니다. 이 배포 사용자는 한 번만 구성하면 됩니다.
 
 ```azurecli
-az appservice web deployment user set --user-name <specify-a-username> --password <mininum-8-char-captital-lowercase-number>
+az appservice web deployment user set --user-name <specify-a-username> --password <minimum-8-char-capital-lowercase-number>
 ```
 
 [az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) 명령을 사용하여 Azure 웹앱에 대한 로컬 Git 액세스 권한을 구성합니다. 
@@ -441,7 +445,7 @@ http://<app_name>.azurewebsites.net
 
 ### <a name="update-the-data-model"></a>데이터 모델 업데이트
 
-`modules/articles/server/models/articles.server.controller.js`을(를) 엽니다.
+`modules/articles/server/models/article.server.model.js`을(를) 엽니다.
 
 `ArticleSchema`에서 `comment`라는 `String` 형식을 추가합니다. 완료된 후의 스키마 코드는 다음과 유사합니다.
 
@@ -484,7 +488,7 @@ exports.update = function (req, res) {
 };
 ```
 
-다음으로 `modules/client/views/view-article.client.view.js`를 엽니다.
+다음으로 `modules/articles/client/views/view-article.client.view.html`를 엽니다.
 
 닫는 `</section>` 태그 바로 위에 다음 줄을 추가하여 `comment`를 나머지 문서 데이터와 함께 표시합니다.
 
@@ -492,7 +496,7 @@ exports.update = function (req, res) {
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
-다음으로 `modules/client/views/list-articles.client.view.js`를 엽니다.
+다음으로 `modules/articles/client/views/list-articles.client.view.html`를 엽니다.
 
 닫는 `</a>` 태그 바로 위에 다음 줄을 추가하여 `comment`를 나머지 문서 데이터와 함께 표시합니다.
 
@@ -500,7 +504,7 @@ exports.update = function (req, res) {
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
-다음으로 `modules/client/views/admin/list-articles.client.view.js`를 엽니다.
+다음으로 `modules/articles/client/views/admin/list-articles.client.view.html`를 엽니다.
 
 `<div class="list-group">` 태그 안과 닫는 `</a>` 태그 바로 위에 다음 줄을 추가하여 `comment`를 나머지 문서 데이터와 함께 표시합니다.
 
@@ -508,7 +512,7 @@ exports.update = function (req, res) {
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
-마지막으로 `modules/client/views/admin/list-articles.client.view.js`를 엽니다.
+마지막으로 `modules/articles/client/views/admin/form-article.client.view.html`를 엽니다.
 
 전송 단추가 포함된, 다음과 비슷한 `<div class="form-group">` 태그를 찾습니다.
 
@@ -551,6 +555,8 @@ NODE_ENV=production node server.js
 
 ![문서에 추가된 주석 필드](./media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field.png)
 
+터미널에서 `Ctrl`+`C`를 입력하여 Node.js를 중지합니다. 
+
 ### <a name="publish-changes-to-azure"></a>변경 내용을 Azure에 게시
 
 Git에서 변경 내용을 커밋한 다음 Azure에 코드 변경 내용을 푸시합니다.
@@ -581,7 +587,7 @@ az appservice web log tail --name <app_name> --resource-group myResourceGroup
 
 로그 스트리밍이 시작되고 나면 브라우저에서 Azure 웹앱을 새로 고쳐 웹 트래픽을 만듭니다. 이제 콘솔 로그가 터미널에 표시됩니다.
 
-언제든지 로그 스트리밍을 중지하려면 `Ctrl`+`C`를 입력합니다. 
+언제든지 `Ctrl`+`C`를 입력하여 로그 스트리밍을 중지합니다. 
 
 ## <a name="manage-your-azure-web-app"></a>Azure Web App 관리
 

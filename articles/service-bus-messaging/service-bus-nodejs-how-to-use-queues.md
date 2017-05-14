@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: f0b0c3bc9daf1e44dfebecedf628b09c97394f94
-ms.openlocfilehash: d993ba4bdff690ee6f0867cdbf0a8059fb5847ee
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: a28be325d17bfbe2c5e22bf43e6143e520d6e39f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -67,7 +68,7 @@ Azure 모듈은 AZURE\_SERVICEBUS\_NAMESPACE 및 AZURE\_SERVICEBUS\_ACCESS\_KEY 
 
 Azure 클라우드 서비스의 구성 파일에서 환경 변수를 설정하는 방법에 대한 예제는 [저장소를 포함한 Node.js 클라우드 서비스][Node.js Cloud Service with Storage]를 참조하세요.
 
-Azure 웹 사이트의 [Azure 클래식 포털][Azure classic portal]에서 환경 변수를 설정하는 방법에 대한 예제는 [저장소를 포함한 Node.js 웹 응용 프로그램][Node.js Web Application with Storage]을 참조하세요.
+Azure 웹 사이트의 [Azure Portal][Azure portal]에서 환경 변수를 설정하는 방법에 대한 예제는 [저장소를 포함한 Node.js 웹 응용 프로그램][Node.js Web Application with Storage]을 참조하세요.
 
 ## <a name="create-a-queue"></a>큐 만들기
 **ServiceBusService** 개체를 사용하면 Service Bus 큐로 작업할 수 있습니다. 다음 코드는 **ServiceBusService** 개체를 만듭니다. 이 코드를 **server.js** 파일의 위쪽, Azure 모듈을 가져오기 위한 문 뒤에 추가합니다.
@@ -175,7 +176,7 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 
 큐 내에서 잠긴 메시지와 연결된 시간 제한도 있으며, 응용 프로그램에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 크래시되는 경우) 서비스 버스가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 
-응용 프로그램이 메시지를 처리한 후 **deleteMessage** 메서드가 호출되기 전에 크래시되는 경우, 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 **최소 한 번 이상 처리**라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 **MessageId** 속성을 사용합니다.
+응용 프로그램이 메시지를 처리한 후 **deleteMessage** 메서드가 호출되기 전에 크래시되는 경우, 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 **MessageId** 속성을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 큐에 대한 자세한 내용은 다음 리소스를 참조하세요.
@@ -185,7 +186,7 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 * [Node.js 개발자 센터](https://azure.microsoft.com/develop/nodejs/)
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-[Azure classic portal]: http://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

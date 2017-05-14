@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 04/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 73c38182f4caa92f5aa561b10a30c60efc8cfdae
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: b600b7d67de24eab5395f085a2a424159b14ff28
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 기본 제공 역할
@@ -27,14 +28,21 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 ## <a name="roles-in-azure"></a>Azure의 역할
 다음 테이블은 기본 제공 역할을 간략하게 설명합니다. 역할 이름을 클릭하면 역할에 대한 **작업** 및 **작업 안 함** 목록을 자세히 볼 수 있습니다. **작업** 속성은 Azure 리소스에 허용되는 작업을 지정합니다. 작업 문자열에는 와일드카드 문자를 사용할 수 있습니다. **작업 안 함** 속성은 허용된 작업에서 제외되는 작업을 지정합니다.
 
+이 동작은 지정된 리소스 형식에 대해 수행할 수 있는 작업의 유형을 정의합니다. 예:
+- **쓰기**를 사용하여 PUT, POST, PATCH 및 DELETE 작업을 수행할 수 있습니다.
+- **읽기**를 사용하여 GET 작업을 수행할 수 있습니다. 
+
+이 문서에서는 현재 존재하는 다양한 역할만 소개합니다. 그렇지만 사용자에게 역할을 할당할 때 범위를 정의하여 허용되는 동작을 추가로 제한할 수 있습니다. 이러한 기능은 누군가를 단일 리소스 그룹에 대해서만 웹 사이트 참가자로 지정하려는 경우에 유용합니다. 
+
 > [!NOTE]
-> Azure 역할 정의는 끊임없이 진화하고 있습니다. 이 문서는 가능한 최신 상태로 유지되지만 Azure PowerShell에서 항상 최신 역할 정의를 확인할 수 있습니다. 가능한 cmdlets `(get-azurermroledefinition "<role name>").actions` 또는 `(get-azurermroledefinition "<role name>").notactions`을(를) 사요ㅛㅇ합니다.
->
->
+> Azure 역할 정의는 끊임없이 진화하고 있습니다. 이 문서는 가능한 최신 상태로 유지되지만 Azure PowerShell에서 항상 최신 역할 정의를 확인할 수 있습니다. 현재의 모든 역할을 나열하려면 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet을 사용합니다. `(get-azurermroledefinition "<role name>").actions` 또는 `(get-azurermroledefinition "<role name>").notactions`를 적절히 사용하여 특정 역할을 자세히 알아볼 수 있습니다. 특정 Azure 리소스 공급자의 작업을 나열하려면 [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation)을 사용합니다. 
+
 
 | 역할 이름 | 설명 |
 | --- | --- |
-| [API 관리 서비스 참여자](#api-management-service-contributor) |API 관리 서비스를 관리할 수 있음 |
+| [API 관리 서비스 참여자](#api-management-service-contributor) |API Management 서비스 및 API를 관리할 수 있음 |
+| [API Management 서비스 운영자 역할](#api-management-service-operator-role) | API 자체가 아닌 API Management 서비스를 관리할 수 있음 |
+| [Azure API Management 읽기 권한자 역할](#api-management-service-reader-role) | API Management 서비스 및 API에 대한 읽기 전용 액세스 |
 | [Application Insights 구성 요소 참여자](#application-insights-component-contributor) |Application Insights 구성 요소를 관리할 수 있음 |
 | [자동화 운영자](#automation-operator) |작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있음 |
 | [백업 참여자](#backup-contributor) | Recovery Services 자격 증명 모음에서 백업을 관리할 수 있습니다. |
@@ -79,7 +87,41 @@ API 관리 서비스를 관리할 수 있음
 
 | **actions** |  |
 | --- | --- |
-| Microsoft.ApiManagement/Service/* |API 관리 서비스 만들기 및 관리 |
+| Microsoft.ApiManagement/Service/* |API Management 서비스 만들기 및 관리 |
+| Microsoft.Authorization/*/read |읽기 권한 부여 |
+| Microsoft.Insights/alertRules/* |경고 규칙 만들기 및 관리 |
+| Microsoft.ResourceHealth/availabilityStatuses/read |리소스 상태 읽기 |
+| Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read |역할 및 역할 할당 읽기 |
+| Microsoft.Support/* |지원 티켓 만들기 및 관리 |
+
+### <a name="api-management-service-operator-role"></a>API Management 서비스 운영자 역할
+API 관리 서비스를 관리할 수 있음
+
+| **actions** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | API Management 서비스 인스턴스 읽기 |
+| Microsoft.ApiManagement/Service/backup/action | 사용자가 제공한 저장소 계정의 지정된 컨테이너로 API Management 서비스 백업 |
+| Microsoft.ApiManagement/Service/delete | API Management 서비스 인스턴스 삭제 |
+| Microsoft.ApiManagement/Service/managedeployments/action | SKU/단위 변경, API Management 서비스의 지역별 배포를 추가 또는 제거 |
+| Microsoft.ApiManagement/Service/read | API Management 서비스 인스턴스에 대한 메타데이터 읽기 |
+| Microsoft.ApiManagement/Service/restore/action | 사용자가 제공한 저장소 계정의 지정된 컨테이너에서 API Management 서비스 복원 |
+| Microsoft.ApiManagement/Service/updatehostname/action | API Management 서비스에 대한 사용자 지정 도메인 이름 설정, 업데이트 또는 제거 |
+| Microsoft.ApiManagement/Service/write | API Management 서비스의 새 인스턴스 만들기 |
+| Microsoft.Authorization/*/read |읽기 권한 부여 |
+| Microsoft.Insights/alertRules/* |경고 규칙 만들기 및 관리 |
+| Microsoft.ResourceHealth/availabilityStatuses/read |리소스 상태 읽기 |
+| Microsoft.Resources/deployments/* |리소스 그룹 배포 만들기 및 관리 |
+| Microsoft.Resources/subscriptions/resourceGroups/read |역할 및 역할 할당 읽기 |
+| Microsoft.Support/* |지원 티켓 만들기 및 관리 |
+
+### <a name="api-management-service-reader-role"></a>Azure API Management 읽기 권한자 역할
+API 관리 서비스를 관리할 수 있음
+
+| **actions** |  |
+| --- | --- |
+| Microsoft.ApiManagement/Service/*/read | API Management 서비스 인스턴스 읽기 |
+| Microsoft.ApiManagement/Service/read | API Management 서비스 인스턴스에 대한 메타데이터 읽기 |
 | Microsoft.Authorization/*/read |읽기 권한 부여 |
 | Microsoft.Insights/alertRules/* |경고 규칙 만들기 및 관리 |
 | Microsoft.ResourceHealth/availabilityStatuses/read |리소스 상태 읽기 |

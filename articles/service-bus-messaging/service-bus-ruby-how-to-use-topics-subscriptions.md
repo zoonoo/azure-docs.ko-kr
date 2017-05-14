@@ -12,19 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 43197f7402795c37fa7ed43658bc3b8858a41080
-ms.openlocfilehash: c083d8ac0d16de40de4a2a9908cdcf2e02ed3d6a
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: a71b3f455c2e84cd6aa4401621a24d5585e0da3c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="how-to-use-service-bus-topicssubscriptions"></a>Service Bus 토픽/구독을 사용하는 방법
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-이 문서에서는 Ruby 응용 프로그램에서 Service Bus 토픽과 구독을 사용하는 방법을 설명합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 **메시지 보내기, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
+이 문서에서는 Ruby 응용 프로그램에서 Service Bus 토픽과 구독을 사용하는 방법을 설명합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에** 메시지 보내기, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
@@ -34,7 +35,7 @@ ms.lasthandoff: 01/13/2017
 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)를 참조하세요.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>서비스 버스를 사용하도록 응용 프로그램 구성
-서비스 버스를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용합니다.
+Service Bus를 사용하려면 저장소 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Azure Ruby 패키지를 다운로드하여 사용합니다.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>RubyGems를 사용하여 패키지 가져오기
 1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix)와 같은 명령줄 인터페이스를 사용합니다.
@@ -94,7 +95,7 @@ subscription = azure_service_bus_service.create_subscription("test-topic", "all-
 ### <a name="create-subscriptions-with-filters"></a>필터를 사용하여 구독 만들기
 토픽으로 전송된 메시지 중 특정 구독 내에 표시되어야 하는 메시지의 범위를 지정하는 필터를 정의할 수도 있습니다.
 
-구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **Azure::ServiceBus::SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx) 구문을 참조하세요.
+구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **Azure::ServiceBus::SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter](service-bus-messaging-sql-filter.md) 구문을 참조하세요.
 
 **Azure::ServiceBusService** 개체의 **create\_rule()** 메서드를 사용하여 구독에 필터를 추가할 수 있습니다. 이 메서드를 사용하면 기존 구독에 새 필터를 추가할 수 있습니다.
 
@@ -133,7 +134,7 @@ rule = azure_service_bus_service.create_rule(rule)
 ## <a name="send-messages-to-a-topic"></a>토픽에 메시지 보내기
 Service Bus 토픽에 메시지를 보내려면 응용 프로그램에서 **Azure::ServiceBusService** 개체의 **send\_topic\_message()** 메서드를 사용해야 합니다. Service Bus 토픽으로 전송되는 메시지는 **Azure::ServiceBus::BrokeredMessage** 개체의 인스턴스입니다. **Azure::ServiceBus::BrokeredMessage** 개체에는 표준 속성 집합(예: **label** 및 **time\_to\_live**), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 문자열 데이터의 본문이 있습니다. 응용 프로그램은 문자열 값을 **send\_topic\_message()**에 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성이 기본값으로 채워집니다.
 
-다음 예제에서는 "test-topic"에&5;개의 테스트 메시지를 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 **message_number** 사용자 지정 속성 값이 달라지는 것을 알 수 있습니다(메시지를 수신하는 구독 결정).
+다음 예제에서는 "test-topic"에 5개의 테스트 메시지를 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 **message_number** 사용자 지정 속성 값이 달라지는 것을 알 수 있습니다(메시지를 수신하는 구독 결정).
 
 ```ruby
 5.times do |i|
@@ -148,7 +149,7 @@ Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 25
 ## <a name="receive-messages-from-a-subscription"></a>구독에서 메시지 받기
 **Azure::ServiceBusService** 개체의 **receive\_subscription\_message()** 메서드를 사용하여 구독에서 메시지를 받습니다. 기본적으로 메시지는 구독에서 삭제하지 않고 읽고(피크) 잠급니다. **peek\_lock** 옵션을 **false**로 설정하여 메시지를 구독에서 읽고 삭제할 수 있습니다.
 
-기본 동작은 읽기 및 삭제가&2;단계 작업으로 수행되도록 하므로 메시지 누락이 허용되지 않는 응용 프로그램도 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후, **delete\_subscription\_message()** 메서드를 호출하고 삭제될 메시지를 매개 변수로 제공하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete\_subscription\_message()** 메서드는 메시지를 이용되는 것으로 표시하고 구독에서 제거합니다.
+기본 동작은 읽기 및 삭제가 2단계 작업으로 수행되도록 하므로 메시지 누락이 허용되지 않는 응용 프로그램도 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후, **delete\_subscription\_message()** 메서드를 호출하고 삭제될 메시지를 매개 변수로 제공하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete\_subscription\_message()** 메서드는 메시지를 이용되는 것으로 표시하고 구독에서 제거합니다.
 
 **:peek\_lock** 매개 변수를 **false**로 설정하면 메시지 읽기 및 삭제가 가장 간단한 모델이 되며, 오류 발생 시 메시지를 처리하지 않는 것을 허용하는 응용 프로그램의 시나리오에 가장 적합합니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. 서비스 버스는 메시지를 이용되는 것으로 표시하기 때문에 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
 
@@ -167,7 +168,7 @@ azure_service_bus_service.delete_subscription_message(message)
 
 구독 내에서 잠긴 메시지와 연결된 제한 시간도 있으며, 응용 프로그램에서 잠금 제한 시간이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 크래시되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 
-응용 프로그램이 메시지를 처리한 후 **delete\_subscription\_message()** 메서드가 호출되기 전에 크래시되는 경우, 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 **최소 한 번 이상 처리**라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 **message\_id** 속성을 사용합니다.
+응용 프로그램이 메시지를 처리한 후 **delete\_subscription\_message()** 메서드가 호출되기 전에 크래시되는 경우, 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 **message\_id** 속성을 사용합니다.
 
 ## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
 토픽과 구독은 영구적이므로, [Azure Portal][Azure portal] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 아래 예제에서는 "test-topic"이라는 토픽을 삭제하는 방법을 보여 줍니다.
@@ -186,7 +187,7 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
 
 * [큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)을 참조하세요.
-* [SqlFilter](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx)에 대한 API 참조.
+* [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter)에 대한 API 참조.
 * GitHub에서 [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) 리포지토리를 방문하세요.
 
 [Azure portal]: https://portal.azure.com

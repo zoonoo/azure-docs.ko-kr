@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 4b54ad027a7de02cba7821f2a9b7fd06ef3a825b
-ms.openlocfilehash: ca2767340cb232722def8f06277cc84d5c76c1bf
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7562fbee15e4450542c2c17d8ae2a763a556a44f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -49,8 +51,10 @@ ms.openlocfilehash: ca2767340cb232722def8f06277cc84d5c76c1bf
 
 예제에 사용된 가격은 미리 보기 기간에만 적용되며 하이브리드 연결의 일반 공급 시 변경될 수 있습니다.
 
-### <a name="how-are-wcf-relay-hours-calculated"></a>WCF 릴레이 시간은 어떻게 계산되나요?
-릴레이 시간은 각 Service Bus Relay가 "열려 있는" 동안의 누적 시간 양에 대해 청구됩니다. 릴레이는 릴레이를 사용 가능한 WCF 서비스 또는 "릴레이 수신"이 먼저 해당 주소에 연결될 때 암시적으로 인스턴스화되고 지정된 Service Bus 주소(서비스 네임스페이스 URL)에서 열립니다. 마지막 리스너가 해당 주소에서의 연결을 해제하는 경우에만 닫힙니다. 따라서 요금 청구의 경우 릴레이는 첫 번째 릴레이 수신기가 연결한 시간에서 해당 릴레이의 Service Bus 주소에서 마지막 릴레이 수신기의 연결이 끊어진 시간까지 "열린" 것으로 간주됩니다.
+### <a name="how-are-relay-hours-calculated"></a>릴레이 시간은 어떻게 계산되나요?
+WCF 릴레이 및 하이브리드 연결 시간은 각 Service Bus Relay가 "열려 있는" 동안의 누적 시간 양에 대해 청구됩니다. 릴레이는 릴레이를 사용 가능한 서비스 또는 "릴레이 수신"이 먼저 해당 주소에 연결될 때 암시적으로 인스턴스화되고 지정된 Service Bus 주소(서비스 네임스페이스 URL)에서 열립니다. 마지막 리스너가 해당 주소에서의 연결을 해제하는 경우에만 닫힙니다. 따라서 요금 청구의 경우 릴레이는 첫 번째 릴레이 수신기가 연결한 시간에서 해당 릴레이의 Service Bus 주소에서 마지막 릴레이 수신기의 연결이 끊어진 시간까지 "열린" 것으로 간주됩니다.
+
+WCF 릴레이는 표준 계층 네임 스페이스 에서만 사용할 수 있습니다. 그렇지 않은 경우 릴레이당 가격 및 [연결 견적](../service-bus-messaging/service-bus-quotas.md)은 변경되지 않습니다. 즉 릴레이는 메시지 수(작업 아님)와 릴레이 시간을 근거로 지속적으로 청구됩니다. 자세한 내용은 가격 책정 세부 정보 페이지의 [하이브리드 연결 및 WCF 릴레이](https://azure.microsoft.com/pricing/details/service-bus/) 표를 참조하세요.
 
 ### <a name="what-if-i-have-more-than-one-listener-connected-to-a-given-relay"></a>지정된 릴레이에 둘 이상의 수신기가 연결된 경우 어떻게 하나요?
 경우에 따라 단일 릴레이에 연결된 수신기가 여러 개 있을 수 있습니다. 하나 이상의 릴레이 수신기가 연결된 경우 릴레이는 "열린" 것으로 간주됩니다. 열린 릴레이에 수신기를 추가하면 릴레이 시간이 추가됩니다. 또한 릴레이에 연결된 릴레이 발신자(메시지를 릴레이에 호출하거나 전송하는 클라이언트)의 수는 릴레이 시간을 계산하는 데 영향을 주지 않습니다.
@@ -60,7 +64,7 @@ ms.openlocfilehash: ca2767340cb232722def8f06277cc84d5c76c1bf
 
 일반적으로 조정된 엔터티(큐, 항목 및 구독)에 대해 위에서 설명한 동일한 메서드를 사용하여 릴레이에 대한 청구 가능한 메시지를 계산합니다. 하지만 몇 가지 주목할 차이점이 있습니다.
 
-Service Bus Relay로 메시지를 보내면 릴레이 수신기로 전달하는 데 이어진 Service Bus Relay에 전달하지 않고 메시지를 받는 릴레이 수신기에 "전체 스루" 보내기로 처리됩니다. 따라서 릴레이 수신기에 대한 요청-응답 형식 서비스 호출(최대 64KB)은 두 청구 가능 메시지를 발생시킵니다. 하나는 요청에 대한 청구 가능 메시지이며 다른 하나는 응답에 대한 청구 가능 메시지입니다(응답이 \<= 64KB이라고 가정). 하나는 요청을 위한 청구 가능 메시지이고 다른 하나는 응답을 위한 청구 가능 메시지입니다.(또한 응답이 <=&64;KB임을 가정) 큐를 사용하여 달라져서 클라이언트와 서비스 간을 조정합니다. 후자의 경우 동일한 요청-회신 패턴은 요청을 큐로 보내야 하며 큐에서 서비스로 큐 제거/전달한 다음, 응답을 다른 큐로 보낸 다음, 큐에서 클라이언트로 큐 제거/전달합니다. 동일한(\<=64KB) 크기의 가정을 사용하여 조정된 큐 패턴은 네 개의 청구 가능한 메시지를 발생시키며 이는 릴레이를 사용하여 동일한 패턴을 구현하는 요금 청구의 두 배입니다. 물론 지속성 및 부하 평준화 등 패턴을 달성하기 위해 큐를 사용할 수 있다는 이점이 있습니다. 이러한 이점은 추가 비용을 정당화할 수 있습니다.
+Service Bus Relay로 메시지를 보내면 릴레이 수신기로 전달하는 데 이어진 Service Bus Relay에 전달하지 않고 메시지를 받는 릴레이 수신기에 "전체 스루" 보내기로 처리됩니다. 따라서 릴레이 수신기에 대한 요청-응답 형식 서비스 호출(최대 64KB)은 두 청구 가능 메시지를 발생시킵니다. 하나는 요청에 대한 청구 가능 메시지이며 다른 하나는 응답에 대한 청구 가능 메시지입니다(응답이 \<= 64KB이라고 가정). 하나는 요청을 위한 청구 가능 메시지이고 다른 하나는 응답을 위한 청구 가능 메시지입니다.(또한 응답이 <= 64KB임을 가정) 큐를 사용하여 달라져서 클라이언트와 서비스 간을 조정합니다. 후자의 경우 동일한 요청-회신 패턴은 요청을 큐로 보내야 하며 큐에서 서비스로 큐 제거/전달한 다음, 응답을 다른 큐로 보낸 다음, 큐에서 클라이언트로 큐 제거/전달합니다. 동일한(\<=64KB) 크기의 가정을 사용하여 조정된 큐 패턴은 네 개의 청구 가능한 메시지를 발생시키며 이는 릴레이를 사용하여 동일한 패턴을 구현하는 요금 청구의 두 배입니다. 물론 지속성 및 부하 평준화 등 패턴을 달성하기 위해 큐를 사용할 수 있다는 이점이 있습니다. 이러한 이점은 추가 비용을 정당화할 수 있습니다.
 
 netTCPRelay WCF 바인딩을 사용하여 열린 릴레이는 개별 메시지가 아니라 시스템을 통과하는 데이터의 스트림으로서 메시지를 처리합니다. 즉, 발신자와 리스너만이 이 바인딩을 사용하여 보내거나 받은 개별 메시지의 프레임에 대한 가시성이 있습니다. 따라서 netTCPRelay 바인딩을 사용하는 릴레이의 경우 청구 가능한 메시지를 계산하기 위해 모든 데이터를 스트림으로 처리합니다. 이 경우에 Service Bus는 5분 단위로 각 개별 릴레이를 통해 전송 또는 수신되는 총 데이터 양을 계산하고 해당 기간 동안 릴레이에 대한 청구 가능한 메시지 수를 결정하기 위해 해당 합계를 64KB로 나눕니다.
 
@@ -68,8 +72,8 @@ netTCPRelay WCF 바인딩을 사용하여 열린 릴레이는 개별 메시지�
 | 할당량 이름 | 범위 | 유형 | 초과 시 동작 | 값 |
 | --- | --- | --- | --- | --- |
 | 릴레이의 동시 수신기 |엔터티 |정적 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |25 |
-| 동시 릴레이 수신기 |시스템 수준 |정적 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |2,&000; |
-| 서비스 네임스페이스의 모든 릴레이 끝점당 동시 릴레이 연결 |시스템 수준 |정적 |- |5,&000; |
+| 동시 릴레이 수신기 |시스템 수준 |정적 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |2, 000 |
+| 서비스 네임스페이스의 모든 릴레이 끝점당 동시 릴레이 연결 |시스템 수준 |정적 |- |5, 000 |
 | 서비스 네임스페이스당 릴레이 끝점 |시스템 수준 |정적 |- |10000 |
 | [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) and [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) 릴레이의 메시지 크기 |시스템 수준 |정적 |이러한 할당량을 초과하는 들어오는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |64KB |
 | [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) 및 [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) 릴레이의 메시지 크기 |시스템 수준 |정적 |- |무제한 |
@@ -107,9 +111,4 @@ PowerShell 명령([여기](../service-bus-messaging/service-bus-powershell-how-t
 * [네임스페이스 만들기](relay-create-namespace-portal.md)
 * [.NET 시작](relay-hybrid-connections-dotnet-get-started.md)
 * [노드 시작](relay-hybrid-connections-node-get-started.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

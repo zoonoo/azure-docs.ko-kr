@@ -4,17 +4,18 @@ description:
 keywords: 
 author: jeffgilb
 manager: femila
-ms.date: 3/28/2017
+ms.date: 5/1/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.reviewer: jsnow
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 222259e1f7c5a8796fd9f652cf5e050e75d4ce49
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: bc67058d026219d676430a55fe8cfdd3f09cf295
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -53,7 +54,8 @@ Microsoft ID 및 액세스 관리 솔루션은 IT가 [Multi-Factor Authenticatio
 
 Azure AD Premium의 조건부 액세스 시스템은 기업 관리자에게 Azure AD에 연결된 응용 프로그램(SaaS 앱, 클라우드 또는 온-프레미스 웹 응용 프로그램에서 실행 중인 사용자 지정 앱)에 대한 정책 기반 액세스 규칙을 작성하는 기능을 제공합니다. Azure AD는 이러한 정책을 실시간으로 평가하고 사용자가 응용 프로그램 액세스를 시도할 때마다 정책을 적용합니다. Azure ID 보호 정책을 사용하면 위험이 높은 사용자 액세스를 차단하고 Multi-Factor Authentication을 적용하며, 자격 증명이 손상된 것처럼 보이는 경우 암호를 재설정하는 등의 의심스러운 활동이 발견되면 자동으로 조치를 취할 수 있습니다.
 
-## <a name="azure-active-directory-privileged-identify-management"></a>Azure Active Directory Privileged Identify Management
+
+## <a name="azure-active-directory-privileged-identity-management"></a>Azure Active Directory Privileged Identity Management
 
 Azure Active Directory Premium P2 제품에 포함된 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started)를 사용하면 Azure Active Directory 및 기타 Microsoft 온라인 서비스에서 관리 계정과 리소스에 대한 액세스를 검색, 제한 및 모니터링할 수 있습니다. 또한 필요한 정확한 기간 동안 주문형 관리 액세스를 관리할 수도 있습니다.
 

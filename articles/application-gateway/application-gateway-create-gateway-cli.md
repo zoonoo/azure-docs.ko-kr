@@ -13,12 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
+ms.date: 05/03/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 1481fcb070f383d158c5a6ae32504e498de4a66b
-ms.openlocfilehash: 68d3e3ee9b35f2d6d88cde68365cef91d9683462
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 14dab2197ff7c1eaff012066e321ef1b99f05bb3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -76,7 +77,8 @@ Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니
 az login -u "username"
 ```
 
->[참고] aka.ms/devicelogin에서 코드를 입력해야 하는 장치 로그인에 대한 스위치 없이 `az login`을 사용할 수도 있습니다.
+> [!NOTE]
+> aka.ms/devicelogin에서 코드를 입력해야 하는 장치 로그인에 대한 스위치 없이 `az login`을 사용할 수도 있습니다.
 
 앞의 예제를 입력하면 코드가 제공됩니다. 브라우저에서 https://aka.ms/devicelogin으로 이동하여 로그인 프로세스를 계속합니다.
 
@@ -129,8 +131,7 @@ az network application-gateway create \
 --cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
 --cert-password P@ssw0rd \
 --capacity 2 \
---sku-tier Standard \
---sku-name Standard_Small \
+--sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
 --frontend-port 443 \
@@ -145,6 +146,14 @@ az network application-gateway create \
 이 예제에서는 수신기, 백 엔드 풀, 백 엔드 http 설정 및 규칙에 대한 기본 설정으로 기본 Application Gateway를 만듭니다. 또한 SSL 오프로드를 구성합니다. 프로비전에 성공하면 배포에 맞게 이러한 설정을 수정할 수 있습니다.
 이전 단계에서 백 엔드 풀로 정의된 웹 응용 프로그램이 이미 있는 경우 만들어지면 부하 분산이 시작됩니다.
 
+## <a name="delete-all-resources"></a>모든 리소스 삭제
+
+이 문서에서 만든 모든 리소스를 삭제하려면 다음 단계를 완료합니다.
+
+```azurecli
+az group delete --name AdatumAppGatewayRG
+```
+ 
 ## <a name="next-steps"></a>다음 단계
 
 [사용자 지정 상태 프로브 만들기](application-gateway-create-probe-portal.md)

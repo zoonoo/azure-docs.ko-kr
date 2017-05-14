@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 626b152b8511995413af39a41161c29c88429605
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: cc2a24b26b152671173770adfd4aefcfcb2512d4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -75,6 +76,7 @@ ms.lasthandoff: 04/21/2017
 
 * API 관리
 * 앱 서비스 앱(웹앱) - [앱 서비스 제한](#app-service-limitations)
+* Application Insights
 * 자동화
 * 배치
 * Bing 지도
@@ -124,7 +126,6 @@ ms.lasthandoff: 04/21/2017
 
 * AD 하이브리드 상태 관리 서비스
 * 응용 프로그램 게이트웨이
-* Application Insights
 * BizTalk 서비스
 * 컨테이너 서비스
 * Express 경로
@@ -147,12 +148,12 @@ ms.lasthandoff: 04/21/2017
 * 앱 서비스 계획과 해당 리소스 그룹에 있는 모든 기타 앱 서비스 리소스를 이미 앱 서비스 리소스가 없는 새 리소스 그룹으로 이동합니다. 이 요구 사항은 App Service 계획에 연결되지 않은 App Service 리소스도 이동해야 함을 의미합니다. 
 * 앱을 다른 리소스 그룹으로 이동하지만 모든 앱 서비스는 원래 리소스 그룹에 유지합니다.
 
-원래 리소스 그룹에 Application Insights 리소스도 포함하는 경우 Application Insights가 현재 이동 작업을 사용하지 않으므로 해당 리소스를 이동할 수 없습니다. App Service 앱을 이동할 때 Application Insights 리소스를 포함 하는 경우 전체 이동 작업이 실패 합니다. 하지만, Application Insights와 앱 서비스 계획은 제대로 기능하기 위해 해당 앱에 대해 앱과 같은 리소스 그룹에 상주하지 않아도 됩니다.
+App Service 계획은 제대로 기능하기 위해 해당 앱에 대해 앱과 같은 리소스 그룹에 상주하지 않아도 됩니다.
 
 예를 들어 리소스 그룹에 다음 사항이 포함된 경우:
 
-* **plan-a** 및 **app-insights-a**와 연결된 **web-a**
-* **plan-b** 및 **app-insights-b**와 연결된 **web-b**
+* **plan-a**와 연결된 **web-a**
+* **plan-b**와 연결된 **web-b**
 
 옵션은 다음과 같습니다.
 
@@ -161,7 +162,7 @@ ms.lasthandoff: 04/21/2017
 * **web-a**
 * **web-b**
 
-다른 모든 조합에는 이동할 수 없는 리소스 형식(Application Insights)을 이동하거나 앱 서비스 계획 이동 시 그대로 남겨 둘 수 없는 리소스 형식(앱 서비스 리소스 형식)을 남겨두는 것이 있습니다.
+다른 모든 조합에는 App Service 계획 이동 시 그대로 남겨 둘 수 없는 리소스 형식(App Service 리소스 형식)을 남겨두는 것이 있습니다.
 
 웹앱이 해당 앱 서비스 계획과는 다른 리소스 그룹에 상주하지만 이 두 가지를 새로운 리소스 그룹으로 이동하려는 경우에는 두 단계로 이동을 수행해야 합니다. 예:
 

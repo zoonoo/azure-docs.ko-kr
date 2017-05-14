@@ -11,12 +11,13 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 25ba53a1047863d01ba1fc2647af51fdd582feb1
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 11254a9bd82885701b457ba3b4ec0ef0aad710e6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -186,7 +187,7 @@ MyCloudIT 플랫폼을 사용하면 배포 시간을 95% 단축하며, Azure 비
 >   
 > Loughton, Essex IG10 3TQ
 >   
-> **전화 번호: +44 (0) 20 8502 2155
+> 전화 번호: +44 (0) 20 8502 2155
 > 
 > **싱가포르**:
 >   
@@ -194,7 +195,7 @@ MyCloudIT 플랫폼을 사용하면 배포 시간을 95% 단축하며, Azure 비
 >   
 > The Globe, Singapore 069532
 > 
-> **전화 번호: +65 6709 4933
+> 전화 번호: +65 6709 4933
 >   
 > **북아메리카**
 >   
@@ -202,7 +203,7 @@ MyCloudIT 플랫폼을 사용하면 배포 시간을 95% 단축하며, Azure 비
 >   
 > Suite 200, Houston, TX 77098
 >   
-> **전화 번호: +1 713 691 0800
+> 전화 번호: +1 713 691 0800
 
 #### <a name="saasplaza"></a>**SaaSplaza**
 [SaaSplaza](http://www.saasplaza.com/)는 모든 Microsoft Dynamics 포트폴리오(NAV, AX, GP, SL, CRM) 개인 및 공용 클라우드(Azure)를 제공 합니다.
@@ -239,7 +240,7 @@ MyCloudIT 플랫폼을 사용하면 배포 시간을 95% 단축하며, Azure 비
 > 
 > 전화 번호: +1 858 385 8900 
 > 
-> **APAC**
+> **APAC**:
 > 
 > 105 Cecil Street
 >    

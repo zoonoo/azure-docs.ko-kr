@@ -4,7 +4,7 @@ description: "Azure에서 실행 중인 Windows 및 Linux 가상 컴퓨터의 �
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
-manager: jochan
+manager: ewinner
 editor: 
 ms.assetid: ca39e586-a6af-42fe-862e-80978a58d9b1
 ms.service: log-analytics
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 04/27/2017
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 87e888bf3d7355b36c42e8787abe9bf1cb191fcd
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: 1cab9d2f814e0c36dadcdd7bbc3cdc736de0af49
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -36,7 +37,7 @@ Linux 가상 컴퓨터에 대해 *OMS Agent For Linux* 가상 컴퓨터 확장�
 로그 데이터에 대해 에이전트 기반 컬렉션을 사용하는 경우 수집할 로그 및 메트릭을 지정하도록 [Log Analytics의 데이터 원본](log-analytics-data-sources.md) 을 구성해야 합니다.
 
 > [!IMPORTANT]
-> [Azure Diagnostics](log-analytics-azure-storage.md)를 사용하여 로그 데이터를 인덱싱하도록 Log Analytics를 구성했으며 동일한 로그를 수집하도록 에이전트를 구성하면 해당 로그가 두 번 수집됩니다. 두 데이터 원본 모두에 대해 청구됩니다. 에이전트를 설치한 경우 에이전트만을 사용하여 로그 데이터를 수집해야 합니다. Azure Diagnostics로부터 로그 데이터를 수집하도록 Log Analytics를 구성하지 않습니다.
+> [Azure Diagnostics](log-analytics-azure-storage.md)를 사용하여 로그 데이터를 인덱싱하도록 Log Analytics를 구성했으며 동일한 로그를 수집하도록 에이전트를 구성하면 해당 로그가 두 번 수집됩니다. 두 데이터 원본 모두에 대해 청구됩니다. 에이전트를 설치한 경우 에이전트만 사용하여 로그 데이터를 수집합니다. Azure Diagnostics로부터 로그 데이터를 수집하도록 Log Analytics를 구성하지 않습니다.
 >
 >
 
@@ -74,7 +75,7 @@ Azure 클래식 가상 컴퓨터와 Resource Manager 가상 컴퓨터에 대한 
 
 클래식 가상 컴퓨터의 경우 다음 PowerShell 예제를 사용합니다.
 
-```
+```PowerShell
 Add-AzureAccount
 
 $workspaceId = "enter workspace ID here"
@@ -90,9 +91,14 @@ $vm = Get-AzureVM –ServiceName $hostedService
 # Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'OmsAgentForLinux' -Version '1.*' -PublicConfiguration "{'workspaceId': '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
 ```
 
+Resource Manager Linux VM의 경우 다음 CLI 사용
+```azurecli
+az vm extension set --resource-group myRGMonitor --vm-name myMonitorVM --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --version 1.3 --protected-settings ‘{"workspaceKey": "<workspace-key>"}’ --settings ‘{"workspaceId": "<workspace-id>"}’ 
+```
+
 Resource Manager 가상 컴퓨터의 경우 다음 PowerShell 예제를 사용합니다.
 
-```
+```PowerShell
 Login-AzureRMAccount
 Select-AzureSubscription -SubscriptionId "**"
 
@@ -122,8 +128,9 @@ $location = $vm.Location
 
 ```
 
+
 ## <a name="deploy-the-vm-extension-using-a-template"></a>템플릿을 사용하여 VM 확장 배포
-Azure Resource Manager로 응용 프로그램의 배포 및 구성을 정의하는 간단한 템플릿을(JSON 형식으로) 만들 수 있습니다. 이 템플릿은 리소스 관리자 템플릿이며 배포를 정의하는 선언적 방법을 제공합니다. 템플릿을 사용하여 수명 주기 내내 응용 프로그램을 반복적으로 배포하며 안심하고 일관된 상태로 리소스를 배포할 수 있습니다.
+Azure Resource Manager로 응용 프로그램의 배포 및 구성을 정의하는 템플릿을(JSON 형식으로) 만들 수 있습니다. 이 템플릿은 리소스 관리자 템플릿이며 배포를 정의하는 선언적 방법을 제공합니다. 템플릿을 사용하여 수명 주기 내내 응용 프로그램을 반복적으로 배포하며 안심하고 일관된 상태로 리소스를 배포할 수 있습니다.
 
 Resource Manager 템플릿의 일부로 Log Analytics 에이전트를 포함하면 각 가상 컴퓨터를 사전 구성하여 Log Analytics 작업 영역에 보고하게 할 수 있습니다.
 
@@ -135,7 +142,7 @@ Resource Manager 템플릿의 일부로 Log Analytics 에이전트를 포함하�
 * Microsoft.EnterpriseCloud.Monitoring 리소스 확장 섹션
 * workspaceId 및 workspaceSharedKey를 조회하기 위한 출력
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -362,7 +369,7 @@ Resource Manager 템플릿의 일부로 Log Analytics 에이전트를 포함하�
 
 다음 PowerShell 명령을 사용하여 템플릿을 배포할 수 있습니다.
 
-```
+```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
 
@@ -394,7 +401,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 3. `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`에서 Microsoft Monitoring Agent VM 확장 로그 파일을 검토합니다.
 4. 가상 컴퓨터가 PowerShell 스크립트를 실행할 수 있는지 확인합니다.
 5. C:\Windows\temp 권한이 변경되지 않았는지 확인합니다.
-6. 가상 컴퓨터 `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`에 나타나는 PowerShell 창에서 다음을 입력하여Microsoft Monitoring Agent의 상태를 봅니다. 
+6. 가상 컴퓨터 `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`에 나타나는 PowerShell 창에서 다음 명령을 입력하여 Microsoft Monitoring Agent의 상태를 봅니다.
 7. `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`에서 Microsoft Monitoring Agent 설정 로그 파일을 검토합니다.
 
 자세한 내용은 [Windows 확장 문제 해결](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
