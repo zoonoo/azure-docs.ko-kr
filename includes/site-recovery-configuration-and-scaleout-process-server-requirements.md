@@ -8,7 +8,7 @@
 | **소프트웨어** | |
 | 운영 체제 버전 | Windows Server 2012 R2 |
 | 운영 체제 로케일 | 미국 영어(en-us)|
-| VMware vSphere PowerCLI 버전 | [PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0 "PowerCLI 6.0")|
+| VMware vSphere PowerCLI 버전 | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Windows Server 역할 | 다음 역할은 사용하지 마세요. <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V |
 | **네트워크** | |
 | 네트워크 인터페이스 카드 유형 | VMXNET3 |

@@ -106,6 +106,7 @@
 ### 파일 업로드 구성
 #### [포털 사용](iot-hub-configure-file-upload.md)
 #### [PowerShell 사용](iot-hub-configure-file-upload-powershell.md)
+#### [CLI 2.0 사용](iot-hub-configure-file-upload-cli.md)
 ### [IoT 장치 대량 관리](iot-hub-bulk-identity-mgmt.md)
 ### [사용 현황 메트릭](iot-hub-metrics.md)
 ### [작업 모니터링](iot-hub-operations-monitoring.md)

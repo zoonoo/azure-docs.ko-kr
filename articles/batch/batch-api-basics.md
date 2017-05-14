@@ -16,10 +16,10 @@ ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c3ed30ec43128c4e2b0e3d7e4b5dd61670e6bb52
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/03/2017
 
 Azure Batch 서비스의 핵심 구성 요소 개요에서는 Batch 개발자가 대규모 병렬 계산 솔루션을 구축하는 데 사용할 수 있는 기본 서비스 기능 및 리소스를 설명합니다.
 
-분산된 컴퓨팅 응용 프로그램 또는 [REST API][batch_rest_api] 호출을 직접 실행하는 서비스를 개발하거나 [Batch SDK](batch-apis-tools.md#batch-development-apis) 중 하나를 사용하는 경우 이 문서에서 설명할 다양한 리소스 및 기능을 사용하게 됩니다.
+분산된 컴퓨팅 응용 프로그램 또는 [REST API][batch_rest_api] 호출을 직접 실행하는 서비스를 개발하거나 [Batch SDK](batch-apis-tools.md#azure-accounts-for-batch-development) 중 하나를 사용하는 경우 이 문서에서 설명할 다양한 리소스 및 기능을 사용하게 됩니다.
 
 > [!TIP]
 > Batch 서비스에 대한 고급 소개는 [Azure Batch의 기본 사항](batch-technical-overview.md)을 참조하세요.
@@ -74,13 +74,13 @@ Batch 계정은 Batch 서비스 내에서 고유 하게 식별되는 엔터티�
 
 [Azure Portal](batch-account-create-portal.md) 또는 프로그래밍 방식(예: [Batch 관리 .NET 라이브러리](batch-management-dotnet.md))를 통해 Azure Batch 계정을 만들 수 있습니다. 계정을 만들 때 Azure Storage 계정을 연결할 수 있습니다.
 
-Batch는 *풀 할당 모드* 속성을 기반으로 하는 두 가지 계정 구성을 지원합니다. 두 구성을 통해 Batch [풀](#pool)과 관련된 여러 기능에 액세스할 수 있습니다(이 문서의 뒷부분 참조). 
+Batch는 *풀 할당 모드* 속성을 기반으로 하는 두 가지 계정 구성을 지원합니다. 두 구성을 통해 Batch [풀](#pool)과 관련된 여러 기능에 액세스할 수 있습니다(이 문서의 뒷부분 참조).
 
 
-* **Batch 서비스**: Batch 풀 VM이 백그라운드에서 Azure로 관리되는 구독에 할당되는 기본 옵션입니다. Cloud Services 풀이 필요한 경우에는 이 계정 구성을 사용해야 하지만, 사용자 지정 VM 이미지로 생성되었거나 가상 네트워크를 사용하는 Virtual Machine 가상 컴퓨터 풀이 필요한 경우에는 사용할 수 없습니다. 공유 키 인증 또는 [Azure Active Directory 인증](batch-aad-auth.md)을 사용하여 Batch API에 액세스할 수 있습니다. 
+* **Batch 서비스**: Batch 풀 VM이 백그라운드에서 Azure로 관리되는 구독에 할당되는 기본 옵션입니다. Cloud Services 풀이 필요한 경우에는 이 계정 구성을 사용해야 하지만, 사용자 지정 VM 이미지로 생성되었거나 가상 네트워크를 사용하는 Virtual Machine 가상 컴퓨터 풀이 필요한 경우에는 사용할 수 없습니다. 공유 키 인증 또는 [Azure Active Directory 인증](batch-aad-auth.md)을 사용하여 Batch API에 액세스할 수 있습니다.
 
 * **사용자 구독**: 사용자 지정 VM 이미지로 생성되었거나 가상 네트워크를 사용하는 Virtual Machine 가상 컴퓨터 풀이 필요한 경우 이 계정 구성을 사용해야 합니다. [Azure Active Directory 인증](batch-aad-auth.md)만 사용하여 Batch API에 액세스할 수 있으며, Cloud Services 풀은 지원되지 않습니다. Batch 계산 VM은 Azure 구독에 직접 할당됩니다. 이 모드에서는 Batch 계정에 Azure Key Vault를 설정해야 합니다.
- 
+
 
 ## <a name="compute-node"></a>계산 노드
 계산 노드는 응용 프로그램의 워크로드 중 일부를 처리하도록 전담하는 Azure VM(가상 컴퓨터)입니다. 노드의 크기에 따라 노드에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. Azure Cloud Services 또는 Virtual Machines Marketplace 이미지를 사용하여 Windows 또는 Linux 노드의 풀을 만들 수 있습니다. 이러한 옵션에 대한 자세한 내용은 다음 [풀](#pool) 을 참조하세요.
@@ -336,7 +336,7 @@ Azure Batch에서 계산 노드의 풀을 만드는 경우 API를 사용하여 �
 
 * VNet에는 풀의 `targetDedicated` 속성에 맞도록 사용 가능한 **IP 주소**가 충분히 있어야 합니다. 서브넷에 사용 가능한 IP 주소가 충분하지 않으면 Batch 서비스는 풀에서 계산 노드를 부분적으로 할당하고 크기 조정 오류를 반환합니다.
 
-* 지정된 서브넷은 Batch 서비스의 통신이 계산 노드에서 작업을 예약할 수 있도록 허용해야 합니다. 계산 노드에 대한 통신이 VNet과 연결된 **NSG(네트워크 보안 그룹)**에서 거부되는 경우 Batch 서비스는 계산 노드의 상태를 **사용할 수 없음**으로 설정합니다. 
+* 지정된 서브넷은 Batch 서비스의 통신이 계산 노드에서 작업을 예약할 수 있도록 허용해야 합니다. 계산 노드에 대한 통신이 VNet과 연결된 **NSG(네트워크 보안 그룹)**에서 거부되는 경우 Batch 서비스는 계산 노드의 상태를 **사용할 수 없음**으로 설정합니다.
 
 * 지정된 VNet에 연결된 NSG가 있으면 인바운드 통신이 활성화되어야 합니다. Linux 및 Windows 풀 모두의 경우 포트 29876 및 29877이 활성화되어야 합니다. 필요에 따라 Linux 풀의 SSH 또는 Windows 풀의 RDP에서 포트 22 또는 3389를 설정(하거나 선택적으로 필터링)할 수 있습니다.
 
@@ -345,7 +345,7 @@ VNet에 대한 추가 설정은 Batch 계정의 풀 할당 모드에 따라 다�
 ### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Batch 서비스에서 프로비전된 풀에 대한 VNet
 
 Batch 서비스 할당 모드에서는 **Cloud Services 구성** 풀만 VNet을 할당할 수 있습니다. 또한 지정된 VNet은 **클래식** VNet이어야 합니다. Azure Resource Manager 배포 모델을 사용하여 만든 VNet은 지원되지 않습니다.
-   
+
 
 
 * *MicrosoftAzureBatch* 서비스 주체에는 지정된 VNet에 대한 [클래식 가상 컴퓨터 참여자](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) RBAC(역할 기반 Access Control) 역할이 있어야 합니다. Azure Portal에서 다음을 수행합니다.
@@ -368,7 +368,7 @@ Batch 서비스 할당 모드에서는 **Cloud Services 구성** 풀만 VNet을 
 
 [자동 크기 조정 수식](batch-automatic-scaling.md#automatic-scaling-formulas) 을 작성하고 해당 수식의 풀과 연결하여 자동 크기 조정을 사용하도록 설정합니다. Batch 서비스는 이 수식을 사용하여 다음 크기 조정 간격(구성할 수 있는 간격)에 대한 풀의 노드 대상 수를 확인합니다. 풀을 만들 때 자동 크기 조정 설정을 지정하거나 나중에 풀에 자동 크기 조정을 사용하도록 설정할 수 있습니다. 크기 조정을 사용하는 풀에 크기 조정 설정을 업데이트할 수도 있습니다.
 
-예를 들어 작업에서는 실행될 많은 태스크를 제출해야 합니다. 현재 큐에 대기된 태스크 수 및 작업에서 이러한 태스크의 완료율에 따라 풀의 노드 수를 조정하는 크기 조정 수식을 풀에 할당할 수 있습니다. Batch 서비스는 수식을 정기적으로 계산하고 워크로드 및 다른 수식 설정에 따라 풀 크기를 조정합니다. 서비스는 큐에 대기 중인 태스크 수가 많은 경우 필요에 따라 노드를 추가하고, 큐에 대기 중이거나 실행 중인 태스크가 없는 경우 노드를 제거합니다. 
+예를 들어 작업에서는 실행될 많은 태스크를 제출해야 합니다. 현재 큐에 대기된 태스크 수 및 작업에서 이러한 태스크의 완료율에 따라 풀의 노드 수를 조정하는 크기 조정 수식을 풀에 할당할 수 있습니다. Batch 서비스는 수식을 정기적으로 계산하고 워크로드 및 다른 수식 설정에 따라 풀 크기를 조정합니다. 서비스는 큐에 대기 중인 태스크 수가 많은 경우 필요에 따라 노드를 추가하고, 큐에 대기 중이거나 실행 중인 태스크가 없는 경우 노드를 제거합니다.
 
 크기 조정 수식은 다음 메트릭을 기반으로 할 수 있습니다.
 

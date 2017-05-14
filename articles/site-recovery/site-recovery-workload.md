@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 05/08/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4149c5e06f1a23864ca0f92f1b7b73f4f66949df
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 1e48b0848c9f286f3bb0b3758403135a4f280bc0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -89,7 +90,7 @@ Azure Site Recovery를 사용하면 다음과 같이 SharePoint 배포를 보호
 * 테스트 및 디버깅에 프로덕션 환경과 유사한 복사본 주문형 복사본 환경을 만들어 SharePoint 응용 프로그램 개발 및 테스트를 용이하게 합니다.
 * 사이트 복구를 사용하여 SharePoint 배포를 Azure에 마이그레이션하여 전환을 클라우드로 단순화합니다.
 
-[자세히 알아봅니다](https://gallery.technet.microsoft.com/SharePoint-DR-Solution-f6b4aeae) .
+[자세히 알아봅니다](site-recovery-sharepoint.md) .
 
 ## <a name="protect-dynamics-ax"></a>Dynamics AX 보호
 Azure Site Recovery를 사용하면 다음과 같이 Dynamics AX ERP 솔루션을 보호하도록 합니다.
@@ -98,7 +99,7 @@ Azure Site Recovery를 사용하면 다음과 같이 Dynamics AX ERP 솔루션�
 * Dynamics AX 배포의 클라우드(Azure)로 마이그레이션을 간소화합니다.
 * 테스트 및 디버깅에 프로덕션 환경과 유사한 복사본 주문형을 만들어 Dynamics AX 응용 프로그램 개발 및 테스트를 용이하게 합니다.
 
-[자세히 알아봅니다](https://gallery.technet.microsoft.com/Dynamics-AX-DR-Solution-b2a76281) .
+[자세히 알아봅니다](site-recovery-dynamicsax.md) .
 
 ## <a name="protect-rds"></a>RDS 보호
 원격 데스크톱 서비스(RDS)는 사용자가 원하는 위치에서 사용할 수 있도록 가상 데스크톱 인프라(VDI), 세션 기반의 데스크톱 및 응용 프로그램을 활성화합니다. Azure Site Recovery를 통해 다음을 수행할 수 있습니다.
