@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2017
 ms.author: ccompy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: fef9e7b280387934cb093f51b4c8aa134a3b87e7
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/25/2017
 
 
@@ -132,7 +133,7 @@ HCM UI가 시작되면 표시되는 첫 번째 항목은 HCM의 이 인스턴스
 HCM에 하나 이상의 하이브리드 연결을 추가하려면:
 
 1. HCM UI를 시작합니다.
-1. [Configure another hybrid connection](다른 하이브리드 연결 구성)을 클릭합니다. ![][8]
+1. 다른 하이브리드 연결 구성 을 클릭합니다. ![][8]
 
 1. Azure 계정으로 로그인합니다.
 1. 구독을 선택합니다.
