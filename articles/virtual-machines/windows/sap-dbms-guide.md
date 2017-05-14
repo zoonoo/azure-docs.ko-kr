@@ -17,9 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: cc7c85382d8f8183ef3eb3cc7496b012808148e5
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/29/2017
 
 
@@ -726,7 +727,7 @@ Microsoft Azure 저장소 BLOB을 더 최신 버전의 백업 대상으로 사�
 [comment]: <> (#### Azure VM Backup)
 [comment]: <> (SAP 시스템 내의 VM은 Azure Virtual Machine 백업 기능을 사용하여 백업할 수 있습니다. Azure 가상 컴퓨터 백업은 2015년 초반에 도입된 이후 Azure에서 전체 VM을 백업하는 표준 방법이 되었습니다. Azure Backup은 Azure에 백업을 저장하고 VM을 다시 복원할 수 있도록 합니다.)
 [comment]: <> (DBMS 시스템에서 Windows VSS(Volume Shadow Copy Service)<https://msdn.microsoft.com/library/windows/desktop/bb968832.aspx>를 지원하는 경우 데이터베이스를 실행하는 VM을 SQL Server 등을 통해 일관된 방법으로 백업할 수 있습니다. 따라서 Azure VM 백업을 사용하여 SAP 데이터베이스의 복원 가능한 백업을 가져올 수 있습니다. 그러나 데이터베이스의 Azure VM 백업 기반의 지정 시간 복원은 가능하지 않습니다. 따라서 Azure VM 백업을 사용하지 않고 DBMS 기능을 사용하여 데이터베이스 백업을 수행하는 것이 좋습니다.)
-[comment]: <> (Azure Virtual Machine 백업에 익숙해지려면 <https://azure.microsoft.com/documentation/services/backup/>)에서 시작하세요.
+[comment]: <> (Azure Virtual Machine 백업에 익숙해지려면 <https://azure.microsoft.com/documentation/services/backup/> 에서 시작하세요.)
 
 ### <a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Microsoft Azure 마켓플레이스에서 SQL Server 이미지 사용
 Microsoft는 Azure 마켓플레이스에서 이미 SQL Server를 포함하는 버전의 VM을 제공합니다. SQL Server 및 Windows 라이선스가 필요한 SAP 고객의 경우, 이미 SQL Server가 설치된 VM을 스핀업하여 라이선스에 대한 요구 사항을 충족시킬 수 있습니다. SAP에 대한 이러한 이미지를 사용하려면 다음 사항을 고려해야 합니다.
