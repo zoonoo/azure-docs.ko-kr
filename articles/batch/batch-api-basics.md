@@ -15,10 +15,11 @@ ms.workload: big-compute
 ms.date: 03/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 23dfe112411ebc6f47e6a3f09baaf1aa746e6987
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: d05739a4d9f0712c2b4b47432bff97594a11b121
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -337,7 +338,7 @@ Azure Batch에서 계산 노드의 풀을 만드는 경우 API를 사용하여 �
 
 * 지정된 서브넷은 Batch 서비스의 통신이 계산 노드에서 작업을 예약할 수 있도록 허용해야 합니다. 계산 노드에 대한 통신이 VNet과 연결된 **NSG(네트워크 보안 그룹)**에서 거부되는 경우 Batch 서비스는 계산 노드의 상태를 **사용할 수 없음**으로 설정합니다. 
 
-* 지정된 VNet에 연결된 NSG가 있으면 인바운드 통신이 활성화되어야 합니다. Linux 풀의 경우 29876, 29877 및 22 포트를, Windows 풀의 경우 포트 3389 포트를 사용할 수 있어야 합니다.
+* 지정된 VNet에 연결된 NSG가 있으면 인바운드 통신이 활성화되어야 합니다. Linux 및 Windows 풀 모두의 경우 포트 29876 및 29877이 활성화되어야 합니다. 필요에 따라 Linux 풀의 SSH 또는 Windows 풀의 RDP에서 포트 22 또는 3389를 설정(하거나 선택적으로 필터링)할 수 있습니다.
 
 VNet에 대한 추가 설정은 Batch 계정의 풀 할당 모드에 따라 다릅니다.
 

@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 0f80ac93e3ff1ee95477e4fa5dbe21d61ddf8ead
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 8a04fda8eaf6e14a278941e7bb55b23012f67850
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -98,8 +99,6 @@ Azure Portal에서 Automation 계정을 만들 경우 두 개의 인증 엔터�
 
 Azure Resource Manager에서 역할 기반 액세스 제어를 사용하여 Azure AD 사용자 계정 및 실행 계정에 허용된 작업을 수락하고 서비스 주체를 인증할 수 있습니다.  Automation 사용 권한 관리 모델을 개발하는 방법에 대한 자세한 내용은 [Azure Automation에서 역할 기반 액세스 제어 문서](automation-role-based-access-control.md)를 참조하세요.  
 
-
-
 #### <a name="authentication-methods"></a>인증 방법
 다음 표에는 Azure Automation에서 지원하는 각 환경에 대한 다양한 인증 방법이 요약되어 있습니다.
 
@@ -136,6 +135,13 @@ Hybrid Runbook Worker를 사용하여 Microsoft Operations Management Suite(OMS)
 | 오스트레일리아 동남부 |ase-jobruntimedata-prod-su1.azure-automation.net |
 | 영국 남부 | uks-jobruntimedata-prod-su1.azure-automation.net |
 | 미국 정부 버지니아 | usge-jobruntimedata-prod-su1.azure-automation.us |
+
+이름 대신 IP 주소 목록을 보려면 Microsoft 다운로드 센터에서 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653) xml 파일을 다운로드하여 검토하세요. 
+
+> [!NOTE]
+> 이 파일에는 Microsoft Azure 데이터 센터에서 사용되는 IP 주소 범위(Compute, SQL 및 Storage 범위 포함)가 포함되어 있습니다. 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영하는 업데이트 파일이 매주 게시됩니다. 파일에 표시되는 새 범위는 적어도 1주일은 데이터 센터에서 사용되지 않습니다. Azure에서 실행되는 서비스를 제대로 식별할 수 있도록 매주 새 xml 파일을 다운로드하여 사이트에 필요한 변경 작업을 수행하세요. ExpressRoute 사용자는 각 달의 첫 번째 주에 Azure 공간의 BGP 광고를 업데이트하는 데 이 파일이 사용되는 것을 보게 될 수도 있습니다. 
+> 
+
 
 ## <a name="implementation"></a>구현
 
@@ -191,27 +197,6 @@ Automation을 등록하려면 Marketplace에서 Automation 및 컨트롤 제품�
 8. **만들기**를 클릭하여 Automation 및 OMS 작업 영역 등록을 진행합니다. 모든 설정에 대한 유효성을 검사하면 구독 내에 제품을 배포하려고 합니다.  이 프로세스를 완료하려면 몇 초 정도가 소요되며 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 
 
 제품이 등록되면 runbook을 만들고 사용하도록 설정한 관리 솔루션 작업을 사용하기 시작하거나 [Log Analytics](https://docs.microsoft.com/azure/log-analytics) 작업을 시작하여 클라우드 또는 온-프레미스 환경에서 리소스에 의해 생성된 데이터를 수집할 수 있습니다.   
-
-### <a name="resources-included"></a>포함된 리소스
-자동화 계정이 성공적으로 만들어지면 몇 가지 리소스가 자동으로 만들어집니다. 리소스는 다음과 같은 두 개의 테이블에 요약되어 있습니다.<br>
-
-#### <a name="run-as-account-resources"></a>실행 계정 리소스
-
-| 리소스 | 설명 |
-| --- | --- |
-| AzureAutomationTutorial Runbook | 실행 계정을 사용하여 인증하고 Resource Manager 리소스를 모두 가져오는 방법을 보여주는 예제 그래픽 Runbook입니다. |
-| AzureAutomationTutorialScript Runbook | 실행 계정을 사용하여 인증하고 Resource Manager 리소스를 모두 가져오는 방법을 보여주는 예제 PowerShell Runbook입니다. |
-| AzureRunAsCertificate | Automation 계정을 만들거나 기존 계정에 대해 다음 PowerShell 스크립트를 사용하는 경우 자동으로 만들어지는 인증서 자산입니다. 인증서를 사용하면 Runbook에서 Azure Resource Manager 리소스를 관리할 수 있도록 Azure로 인증할 수 있습니다. 인증서의 수명은 1년입니다. |
-| AzureRunAsConnection | Automation 계정을 만들거나 기존 계정에 대해 PowerShell 스크립트를 사용하는 경우 자동으로 만들어지는 연결 자산입니다. |
-
-#### <a name="classic-run-as-account-resources"></a>클래식 실행 계정 리소스
-
-| 리소스 | 설명 |
-| --- | --- |
-| AzureClassicAutomationTutorial Runbook | 클래식 실행 계정(인증서)을 사용하여 구독의 모든 클래식 배포 모델을 사용하여 만든 VM을 가져온 다음 VM 이름 및 상태를 작성하는 예제 그래픽 Runbook입니다. |
-| AzureClassicAutomationTutorial Script Runbook | 클래식 실행 계정(인증서)을 사용하여 구독의 모든 클래식 VM을 가져온 다음 VM 이름 및 상태를 작성하는 예제 PowerShell Runbook입니다. |
-| AzureClassicRunAsCertificate | Runbook에서 Azure 클래식 리소스를 관리할 수 있도록 Azure에 인증하는 데 사용되는 자동으로 생성된 인증서 자산입니다. 인증서의 수명은 1년입니다. |
-| AzureClassicRunAsConnection | Runbook에서 Azure 클래식 리소스를 관리할 수 있도록 Azure에 인증하는 데 사용되는 자동으로 생성된 연결 자산입니다.|
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Automation 실행 계정 인증 테스트](automation-verify-runas-authentication.md)를 검토하여 새 Automation 계정이 Azure 리소스에 대해 인증할 수 있는지 확인할 수 있습니다.

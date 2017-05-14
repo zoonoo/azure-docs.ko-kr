@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/13/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 8a86cf64dcd65e74285a1073f7494eba0708ddcd
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: df6f1b86b706d58a5c07a4f3de43a1872da61511
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 ---
 
@@ -36,7 +37,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 2. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
 
-3. **새로 만들기** 블레이드에서 **Compute**를 선택하고 **Compute** 블레이드에서 **Windows Server 2016 Datacenter**를 선택한 후 **만들기** 단추를 클릭합니다.
+3. **새로 만들기** 블레이드에서 **Compute**를 선택하고 **Compute** 블레이드에서 *Windows Server 2016 Datacenter*를 선택한 후 **만들기** 단추를 클릭합니다.
 
 4. 가상 컴퓨터 **기본 사항** 양식을 채웁니다. 여기에서 입력한 이사용자 이름과 암호는 가상 컴퓨터에 로그인하는 데 사용됩니다 **리소스 그룹**에 대해 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 만들어지고 전체적으로 관리되는 논리적 컨테이너입니다. 완료되면 **확인**을 클릭합니다.
 
@@ -46,21 +47,21 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
     ![VM 크기를 보여 주는 스크린샷](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-6. 설정 블레이드의 **Managed Disks 사용**에서 **예**를 선택하고 나머지 설정에 대해 기본값을 그대로 적용한 후 **확인**을 클릭합니다.
+6. 설정 블레이드의 **Managed Disks 사용**에서 *예*를 선택하고 나머지 설정에 대해 기본값을 그대로 적용한 후 **확인**을 클릭합니다.
 
 7. 요약 페이지에서 **확인**을 클릭하여 가상 컴퓨터 배포를 시작합니다.
 
-8. 배포 상태를 모니터링하려면 가상 컴퓨터를 클릭합니다. Azure Portal 대시보드에서 또는 왼쪽 메뉴에 있는 **가상 컴퓨터**를 선택하여 VM을 찾을 수 있습니다. VM을 만들면 상태가 **배포 중**에서 **실행 중**으로 변경됩니다.
+8. 배포 상태를 모니터링하려면 가상 컴퓨터를 클릭합니다. Azure Portal 대시보드에서 또는 왼쪽 메뉴에 있는 **가상 컴퓨터**를 선택하여 VM을 찾을 수 있습니다. VM을 만들면 상태가 *배포 중*에서 *실행 중*으로 변경됩니다.
 
 ## <a name="open-port-80-for-web-traffic"></a>웹 트래픽에 대해 포트 80 열기 
 
 IIS에 트래픽을 허용하려면 웹 트래픽에 포트 80을 열어야 합니다. 이 단계에서는 포트 80에서 인바운드 연결을 허용하도록 NSG(네트워크 보안 그룹) 규칙을 만드는 과정을 설명합니다.
 
 1. 가상 컴퓨터의 블레이드에 있는 **Essentials** 섹션에서 **리소스 그룹**의 이름을 클릭합니다.
-2. 리소스 그룹의 블레이드에 있는 리소스 목록에서 **네트워크 보안 그룹**을 클릭합니다. NSG 이름은 끝에 -nsg가 추가된 VM 이름이어야 합니다.
+2. 리소스 그룹의 블레이드에 있는 리소스 목록에서 **네트워크 보안 그룹**을 클릭합니다. NSG 이름은 끝에 *-nsg*가 추가된 VM 이름이어야 합니다.
 3. **인바운드 보안 규칙** 머리글을 클릭하여 인바운드 규칙의 목록을 엽니다. 이미 목록에서 RDP의 규칙이 표시됩니다.
 4. **+ 추가**를 클릭하여 **인바운드 보안 규칙 추가** 블레이드를 엽니다.
-5. **이름**에서 **IIS**를 입력합니다. **포트 범위**를 80으로 설정하고 **작업**을 **허용**으로 설정해야 합니다. **확인**을 클릭합니다.
+5. **이름**에서 *IIS*를 입력합니다. **포트 범위**를 *80*으로 설정하고 **작업**을 *허용*으로 설정해야 합니다. **확인**을 클릭합니다.
 
 
 ## <a name="connect-to-virtual-machine"></a>가상 컴퓨터에 연결
@@ -88,7 +89,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>IIS 시작 페이지 보기
 
-IIS를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 사용자가 선택한 웹 브라우저를 사용하여 기본 IIS 시작 페이지를 볼 수 있습니다. VM의 블레이드에서 **공용 IP 주소**를 가져오고 이를 사용하여 기본 웹 페이지를 방문합니다. 
+IIS를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 사용자가 선택한 웹 브라우저를 사용하여 기본 IIS 시작 페이지를 볼 수 있습니다. VM의 블레이드에서 *공용 IP 주소*를 가져오고 이를 사용하여 기본 웹 페이지를 방문합니다. 
 
 ![IIS 기본 사이트](./media/quick-create-powershell/default-iis-website.png) 
 

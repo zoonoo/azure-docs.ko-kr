@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/02/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: b0624bde9ab53231768beb0c832a4a49b21a8975
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 03a6c1f20632691c08f5de4afe74eacc6f79608e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -87,9 +88,14 @@ System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된
 하지만 솔루션과 Hybrid Runbook Worker 그룹 멤버 자격에 동일한 계정을 사용하는 한 Automation Runbook을 지원하기 위해 Automation 계정의 Hybrid Runbook Worker 그룹에 Windows 컴퓨터를 추가할 수 있습니다.  이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.  
 
 ## <a name="configuration"></a>구성
-다음 단계를 수행하여 업데이트 관리 솔루션을 OMS 작업 영역에 추가하고 에이전트가 보고하는지 확인합니다. Windows 에이전트는 추가 구성 없이 자동으로 추가됩니다. 
+다음 단계를 수행하여 업데이트 관리 솔루션을 OMS 작업 영역에 추가하고 에이전트가 보고하는지 확인합니다. 작업 영역에 이미 연결된 Windows 에이전트는 추가 구성 없이 자동으로 추가됩니다. 
 
-다음 세 가지 방법으로 이 솔루션을 추가할 수 있습니다. Azure Portal의 Azure Marketplace에서 Automation 및 제어 제품을 선택하거나, 업데이트 관리 솔루션을 선택하거나, OMS 작업 영역의 OMS 솔루션 갤러리에서 추가할 수 있습니다.  같은 리소스 그룹 및 지역에서 Automation 계정과 OMS 작업 영역이 이미 연결된 경우 Automation 및 제어를 선택하면 현재 구성을 확인한 후 이 솔루션만 설치되고 두 서비스에서 구성됩니다.  Azure Marketplace에서 업데이트 관리 솔루션을 선택해도 동일한 동작이 제공됩니다.  구독에 두 서비스 중 어떤 것도 배포하지 않은 경우 **새 솔루션 만들기** 블레이드의 단계에 따라 다른 미리 선택된 권장 솔루션을 설치할 것을 확인합니다.  필요에 따라 솔루션 갤러리에서 [OMS 솔루션 추가](../log-analytics/log-analytics-add-solutions.md)에 설명된 단계에 따라 OMS 작업 영역에 업데이트 관리 솔루션을 추가할 수 있습니다.  
+다음 메서드를 사용하여 솔루션을 배포할 수 있습니다.
+
+* Automation 및 제어 기능 또는 업데이트 관리 솔루션을 선택하는 Azure Portal의 Azure Marketplace의 경우
+* OMS 작업 영역의 OMS 솔루션 갤러리의 경우
+
+같은 리소스 그룹 및 지역에서 Automation 계정과 OMS 작업 영역이 이미 연결된 경우 Automation 및 제어를 선택하면 현재 구성을 확인한 후 이 솔루션만 설치되고 두 서비스에서 구성됩니다.  Azure Marketplace에서 업데이트 관리 솔루션을 선택해도 동일한 동작이 제공됩니다.  구독에 두 서비스 중 어떤 것도 배포하지 않은 경우 **새 솔루션 만들기** 블레이드의 단계에 따라 다른 미리 선택된 권장 솔루션을 설치할 것을 확인합니다.  필요에 따라 솔루션 갤러리에서 [OMS 솔루션 추가](../log-analytics/log-analytics-add-solutions.md)에 설명된 단계에 따라 OMS 작업 영역에 업데이트 관리 솔루션을 추가할 수 있습니다.  
 
 ### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>OMS 에이전트 및 Operations Manager 관리 그룹이 OMS에 연결되었는지 확인
 
@@ -144,7 +150,7 @@ Operations Manager 관리 그룹이 OMS와 통신하는지 확인하려면 [OMS�
 > [!NOTE]
 > Azure Marketplace에서 배포된 VM은 기본적으로 Windows 업데이트 서비스에서 자동으로 업데이트를 받도록 설정됩니다.  이 동작은 작업 영역에 이 솔루션 또는 Windows VM을 추가한 후에도 변경되지 않습니다.  이 솔루션에서 업데이트를 능동적으로 관리하지 않는 경우 이 동작(업데이트 자동 적용)이 적용됩니다.  
 
-Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise Linux) 이미지에서 만든 가상 컴퓨터는 Azure에 배포된 [RHUI(Red Hat Update Infrastructure)](../virtual-machines/linux/update-infrastructure-redhat.md)에 액세스하도록 등록됩니다.  다른 모든 Linux 배포판은 지원되는 방법에 따라 배포판 온라인 파일 리포지토리에서 업데이트되어야 합니다.  
+Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise Linux) 이미지에서 만든 가상 컴퓨터는 Azure에 배포된 [RHUI(Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md)에 액세스하도록 등록됩니다.  다른 모든 Linux 배포판은 지원되는 방법에 따라 배포판 온라인 파일 리포지토리에서 업데이트되어야 합니다.  
 
 ### <a name="viewing-update-deployments"></a>업데이트 배포 보기
 **업데이트 배포** 타일을 클릭하여 기존 업데이트 배포의 목록을 볼 수 있습니다.  **예약됨**, **실행 중** 및 **완료됨**와 같은 상태별로 그룹화합니다.<br><br> ![업데이트 배포 일정 페이지](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  

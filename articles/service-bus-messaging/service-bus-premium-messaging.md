@@ -1,5 +1,5 @@
 ---
-title: "Service Bus 프리미엄 및 표준 메시징 가격 책정 계층 개요 | Microsoft Docs"
+title: "Azure Service Bus 프리미엄 및 표준 메시지 가격 책정 계층 개요 | Microsoft Docs"
 description: "Service Bus 프리미엄 및 표준 메시징 계층"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/19/2017
+ms.date: 04/28/2017
 ms.author: darosa;sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: 606838dbeec5e9762f67159ece1bbc8a78769420
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
+ms.openlocfilehash: 72e4c59e1282d97cfc5aa5f55861c6f70d419ce8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -47,7 +48,7 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로
 
 ### <a name="partitioned-queues-and-topics"></a>분할 큐 및 항목
 
-분할 큐 및 토픽은 프리미엄 메시징에서 지원되지만 Service Bus 메시징의 표준 및 기본 계층의 경우와 동일하게 작동하지 않습니다. 프리미엄 메시징은 SQL을 데이터 저장소로 사용하지 않으며 공유 플랫폼과 관련된 리소스 경합이 더 이상 가능하지 않습니다. 따라서 성능에 대한 분할이 필요하지 않습니다. 또한 파티션 수가 표준 메시징의 16개 파티션에서 프리미엄 메시징의 2개 파티션으로 변경되었습니다. 2개의 파티션은 가용성을 보장하며, 프리미엄 런타임 환경에 좀 더 적합합니다. 분할에 대한 자세한 내용은 [분할 큐 및 항목](service-bus-partitioning.md)을 참조하세요.
+분할된 큐 및 항목은 프리미엄 메시지에서 지원됩니다. 사실 이러한 엔터티는 항상 분할됩니다(또한 비활성화될 수 없습니다). 그러나 프리미엄 분할된 큐 및 토픽은 Service Bus 메시지의 표준 및 기본 계층의 경우와 동일하게 작동하지 않습니다. 프리미엄 메시징은 SQL을 데이터 저장소로 사용하지 않으며 공유 플랫폼과 관련된 리소스 경합이 더 이상 가능하지 않습니다. 따라서 성능을 개선하기 위해 분할이 필요하지 않습니다. 또한 파티션 수가 표준 메시징의 16개 파티션에서 프리미엄 메시징의 2개 파티션으로 변경되었습니다. 2개의 파티션은 가용성을 보장하며, 프리미엄 런타임 환경에 좀 더 적합합니다. 분할에 대한 자세한 내용은 [분할 큐 및 항목](service-bus-partitioning.md)을 참조하세요.
 
 ### <a name="express-entities"></a>Express 엔터티
 

@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/13/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f43a08a7096476fea79884163f89441e7e0c34cf
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: e2a9802e76579a523897d8904add6b317652ff05
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -30,7 +31,7 @@ HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터�
    ![HDInsight에서 Apache Spark 사용 시작](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "HDInsight에서 Apache Spark 사용 시작 자습서입니다. 설명된 단계: 저장소 계정 만들기, 클러스터 만들기, Spark SQL 문 실행")
 
 ## <a name="prerequisites"></a>필수 조건
-* **Azure 구독**. 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free)를 참조하세요.
+* **Azure 구독** - 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free)를 참조하세요.
 
 ## <a name="create-a-spark-cluster"></a>Spark 클러스터 만들기
 이 섹션에서는 [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/)을 사용하여 HDInsight에서 Spark 클러스터를 만듭니다. 클러스터를 만드는 다른 방법은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
@@ -153,7 +154,7 @@ HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터�
 HDInsight 클러스터로 작업하는 동안 발생할 수 있는 몇 가지 일반적인 문제는 다음과 같습니다.
 
 ### <a name="access-control-requirements"></a>액세스 제어 요구 사항
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]

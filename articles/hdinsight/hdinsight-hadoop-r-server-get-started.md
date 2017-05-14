@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/13/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: bf245d8885e6d6628f182e36e0a9c99a4854873a
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: bf5b1c0a6e76f712e0be1f16ed1a6b2ac78d68de
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -36,13 +37,9 @@ HDInsight에는 HDInsight 클러스터에 통합되는 R Server 옵션이 포함
 > 이 문서의 단계에서는 암호를 사용하는 것으로 가정합니다.
 
 
-### <a name="access-control-requirements"></a>액세스 제어 요구 사항
-
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
-
 ## <a name="automated-cluster-creation"></a>자동화된 클러스터 생성
 
-ARM 템플릿, SDK 및 PowerShell을 사용하여 HDInsight R 서버 생성을 자동화할 수 있습니다.
+Azure Resource Manager 템플릿, SDK 및 PowerShell을 사용하여 HDInsight R 서버 생성을 자동화할 수 있습니다.
 
 * Azure 리소스 관리 템플릿을 사용하여 R 서버를 만들려면 [R 서버 HDInsight 클러스터 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/)를 참조하세요.
 * .NET SDK를 사용하여 R 서버를 만들려면 [.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)를 참조하세요.
@@ -530,16 +527,16 @@ ssh를 사용한 후 디렉터리를 다음 디렉터리로 변경하고 아래�
 
 One-box 구성으로 Microsoft R Server 조작화를 구성하려면 다음을 수행합니다.
 
-* "1.  R Server 조작화 구성"을 선택합니다.
-* "A.  One-box(웹 + 계산 노드)"를 선택합니다.
+* “1. R Server 조작화 구성”을 선택합니다.
+* “A. One-box(웹 + 계산 노드)”를 선택합니다.
 * **admin**(관리자) 사용자의 암호를 입력합니다.
 
 ![one-box 조작화](./media/hdinsight-hadoop-r-server-get-started/admin-util-one-box-.png)
 
 선택적 단계로 아래와 같이 진단 테스트를 실행하여 진단 검사를 수행할 수 있습니다.
 
-* "6.  진단 테스트 실행"을 선택합니다.
-* "A.  구성 테스트"를 선택합니다.
+* “6. 진단 테스트 실행”을 선택합니다.
+* “A. 구성 테스트”를 선택합니다.
 * 위의 구성 단계에서 사용자 이름("admin")과 암호를 입력합니다.
 * Confirm Overall Health(전체 상태 확인)이 pass(합격)인지 확인합니다.
 * 관리 유틸리티를 종료합니다.
@@ -616,8 +613,8 @@ Microsoft R Server는 현재 Yarn을 통해 관리되지 않습니다. 작업자
 
 * ssh를 서비스 해제된 각 작업자 노드로 실행합니다.
 * `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll`을 사용하여 관리 유틸리티를 실행합니다.
-* "1"을 입력하여 "1.  운영을 위해 R 서버 구성" 옵션을 선택합니다.
-* "c"를 입력하여 "C.  계산 노드" 옵션을 선택합니다. 그러면 작업자 노드에 계산 노드가 구성됩니다.
+* "1"을 입력하여 "1. R Server 조작화 구성" 옵션을 선택합니다.
+* "c"를 입력하여 "C. 계산 노드" 옵션을 선택합니다. 그러면 작업자 노드에 계산 노드가 구성됩니다.
 * 관리 유틸리티를 종료합니다.
 
 ### <a name="add-compute-nodes-details-on-web-node"></a>웹 노드에 계산 노드 세부 정보 추가
@@ -629,6 +626,10 @@ Microsoft R Server는 현재 Yarn을 통해 관리되지 않습니다. 작업자
 * "URI" 섹션을 살펴보고 작업자 노드의 IP 및 포트 세부 정보를 추가합니다.
 
 ![작업자 노드 서비스 해제 명령줄](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
+
+## <a name="troubleshoot"></a>문제 해결
+
+HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
