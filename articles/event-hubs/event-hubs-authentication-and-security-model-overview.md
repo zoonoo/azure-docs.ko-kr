@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: sethm;clemensv
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: 31bf24034558582eb138251207580e8f7fd7ddaf
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/18/2017
 
 
@@ -110,7 +111,7 @@ Event Hubs는 이 이벤트 허브 클라이언트에서 생성된 데이터를 
 * [Event Hubs를 사용하는 샘플 응용 프로그램]
 
 [이벤트 허브 개요]: event-hubs-what-is-event-hubs.md
-[Event Hubs를 사용하는 샘플 응용 프로그램]: https://github.com/Azure/azure-event-hubs/tree/master/samples(Event Hubs를 사용하는 샘플 응용 프로그램)
+[Event Hubs를 사용하는 샘플 응용 프로그램]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [공유 액세스 서명 개요]: ../service-bus-messaging/service-bus-sas.md
 
 
