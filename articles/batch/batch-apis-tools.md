@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9d523044f5107eea9dfbba17564cc15ec05076c5
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
+ms.openlocfilehash: 1c0f8f3fede88b6e0bace35372a2d54bb53e5182
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/04/2017
 
 ---
 
@@ -33,14 +34,15 @@ Azure 배치를 통한 병렬 워크로드 처리는 일반적으로 [배치 API
 > 
 > 
 
-## <a name="azure-accounts-youll-need"></a>필요한 Azure 계정
+## <a name="azure-accounts-for-batch-development"></a>Batch 개발을 위한 Azure 계정
 배치 솔루션을 개발할 경우 Microsoft Azure에서는 다음 계정을 사용합니다.
 
 * **Azure 계정 및 구독** - Azure 구독이 없는 경우 [MSDN 구독자 혜택][msdn_benefits]을 활성화하거나 [무료 Azure 계정][free_account]을 등록할 수 있습니다. 계정을 만들면 기본 구독이 생성됩니다.
 * **배치 계정** - 풀, 계산 노드, 작업 및 태스크를 포함하여 Azure 배치 리소스는 Azure 배치 계정과 연결됩니다. 응용 프로그램에서 배치 서비스를 요청할 때는 Azure 배치 계정 이름, 계정의 URL 및 액세스 키를 사용하여 요청을 인증합니다. Azure 포털에서 [Azure 배치 계정을 만들](batch-account-create-portal.md) 수 있습니다.
 * **저장소 계정** - 배치는 [Azure Storage][azure_storage]에 있는 파일에 대한 작업을 기본적으로 지원합니다. 거의 모든 배치 시나리오에서는 Azure Blob 저장소를 사용하여 태스크에서 실행하는 프로그램 및 프로그램에서 처리하는 데이터를 준비하고, 생성되는 출력 데이터를 저장합니다. 저장소 계정을 만들려면 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)를 참조하세요.
 
-## <a name="batch-development-apis"></a>배치 개발 API
+## <a name="batch-service-apis"></a>Batch 서비스 API
+
 응용 프로그램과 서비스는 직접 REST API 호출을 실행하거나 다음 클라이언트 라이브러리 중 하나 이상을 사용하여 Azure 배치 워크로드를 실행하고 관리할 수 있습니다.
 
 | API | API 참조 | 다운로드 | 자습서 | 코드 샘플 | 자세한 정보 |
@@ -51,14 +53,7 @@ Azure 배치를 통한 병렬 워크로드 처리는 일반적으로 [배치 API
 | **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |- |- | [추가 정보](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[github.io][api_java] |[Maven][api_java_jar] |- |[추가 정보][api_sample_java] | [추가 정보](https://github.com/Azure/azure-batch-sdk-for-java)|
 
-## <a name="batch-command-line-tools"></a>Batch 명령줄 도구
-
-개발 API에서 제공하는 기능은 다음과 같은 명령줄 도구도 사용할 수 있습니다. 
-
-* [배치 PowerShell cmdlets][batch_ps]: [Azure PowerShell](/powershell/azure/overview) 모듈의 Azure 배치 cmdlet을 사용하여 PowerShell로 배치 리소스를 관리할 수 있습니다.
-* [Azure CLI](/cli/azure/overview): Azure CLI(Azure 명령줄 인터페이스)는 배치를 포함하여 여러 Azure 서비스와 상호 작용하기 위한 셸 명령을 제공하는 크로스 플랫폼 도구 집합입니다.
-
-## <a name="batch-resource-management"></a>배치 리소스 관리
+## <a name="batch-management-apis"></a>Batch 관리 API
 
 배치용 Azure Resource Manager API는 배치 계정에 대한 프로그래밍 방식 액세스를 제공합니다. 이러한 API를 사용하면 배치 계정, 할당량 및 응용 프로그램 패키지를 프로그래밍 방식으로 관리할 수 있습니다.  
 
@@ -67,13 +62,25 @@ Azure 배치를 통한 병렬 워크로드 처리는 일반적으로 [배치 API
 | **배치 Resource Manager REST** |[docs.microsoft.com][api_rest_mgmt] |해당 없음 |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **배치 Resource Manager .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet ][api_net_mgmt_nuget] | [자습서](batch-management-dotnet.md) |[GitHub][api_sample_net] |
 
+## <a name="batch-command-line-tools"></a>Batch 명령줄 도구
 
-## <a name="batch-tools"></a>배치 도구
-배치를 사용하여 솔루션을 구축해야 하는 것은 아니지만 배치 응용 프로그램 및 서비스를 구축 및 디버깅하는 동안 사용할 가치 있는 도구는 다음과 같습니다.
+이러한 명령줄 도구는 Batch 서비스 및 Batch 관리 API와 동일한 기능을 제공합니다. 
 
-* [Azure Portal][portal]: Azure Portal의 배치 블레이드에서 배치 풀, 작업 및 태스크를 만들고 모니터링하며 삭제합니다. 작업을 실행하는 동안 해당하는 리소스 풀 및 다른 리소스 풀에 대한 상태 정보를 보고 풀에 있는 계산 노드에서 파일을 다운로드할 수 있습니다(예: 문제를 해결하는 동안 실패한 작업의 `stderr.txt` 를 다운로드함). 또한 계산 노드에 로그인하는 데 사용할 수 있는 RDP(원격 데스크톱) 파일을 다운로드할 수 있습니다.
+* [배치 PowerShell cmdlets][batch_ps]: [Azure PowerShell](/powershell/azure/overview) 모듈의 Azure 배치 cmdlet을 사용하여 PowerShell로 배치 리소스를 관리할 수 있습니다.
+* [Azure CLI](/cli/azure/overview): Azure CLI(Azure 명령줄 인터페이스)는 Batch 서비스 및 Batch 관리 서비스를 포함하여 여러 Azure 서비스와 상호 작용하기 위한 셸 명령을 제공하는 크로스 플랫폼 도구 집합입니다. Batch에서 Azure CLI를 사용하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Batch 리소스 관리](batch-cli-get-started.md)를 참조하세요.
+
+## <a name="other-tools-for-application-development"></a>응용 프로그램 개발을 위한 기타 도구
+
+Batch 응용 프로그램 및 서비스를 빌드 및 디버깅하는 데 도움이 될 수 있는 추가 도구는 다음과 같습니다.
+
+* [Azure Portal][portal]: Azure Portal의 배치 블레이드에서 배치 풀, 작업 및 태스크를 만들고 모니터링하며 삭제합니다. 작업을 실행하는 동안 해당하는 리소스 풀 및 다른 리소스 풀에 대한 상태 정보를 보고 풀에 있는 계산 노드에서 파일을 다운로드할 수 있습니다. 예를 들어 문제를 해결하는 동안 실패한 작업의 `stderr.txt`를 다운로드할 수 있습니다. 또한 계산 노드에 로그인하는 데 사용할 수 있는 RDP(원격 데스크톱) 파일을 다운로드할 수 있습니다.
 * [Azure 배치 탐색기][batch_explorer]: 배치 탐색기는 독립 실행형 WPF(Windows Presentation Foundation) 클라이언트 응용 프로그램에서 Azure Portal과 유사한 배치 리소스 관리 기능을 제공합니다. [GitHub][github_samples]에서 사용할 수 있는 배치 .NET 샘플 응용 프로그램 중 하나를 Visual Studio 2015 이상을 사용하여 빌드하고 배치 솔루션을 개발하고 디버깅하는 배치 계정에서 리소스를 검색하고 관리하는 데 사용할 수 있습니다. 작업, 풀 및 태스크 세부 정보를 보고 계산 노드에서 파일을 다운로드하며 배치 탐색기로 다운로드할 수 있는 RDP(원격 데스크톱) 파일을 사용하여 원격으로 노드에 연결합니다.
 * [Microsoft Azure Storage 탐색기][storage_explorer]: 엄격히 말해 Azure 배치 도구는 아니지만 저장소 탐색기는 배치 솔루션을 개발 및 디버깅하는 동안 유용할 수 있는 또 다른 도구입니다.
+
+## <a name="additional-resources"></a>추가 리소스
+
+- Batch 응용 프로그램에서 이벤트 로깅에 대해 알아보려면 [Batch 솔루션의 진단 평가 및 모니터링에 대한 로그 이벤트](batch-diagnostics.md)를 참조하세요. Batch 서비스로 인해 발생한 이벤트에 대한 참조는 [Batch 분석](batch-analytics.md)을 참조하세요.
+- 계산 노드의 환경 변수에 대한 정보는 [Azure Batch 계산 노드 환경 변수](batch-compute-node-environment-variables.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

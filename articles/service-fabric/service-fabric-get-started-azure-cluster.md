@@ -12,25 +12,28 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/17/2017
+ms.date: 05/05/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: cf652f1ba6b7d3aa0717a2e3a54000a4aebccc78
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ad473a2c9006e2593a84364f03e3954a569adcab
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Azure에서 첫 번째 Service Fabric 클러스터 만들기
-[Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 이 빠른 시작을 사용하여 몇 분만에 [Azure Portal](http://portal.azure.com)을 통해 Windows 또는 Linux에서 실행하는 다섯 개의 노드 클러스터를 만들 수 있습니다.  
+[Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 이 빠른 시작을 사용하여 몇 분만에 [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) 또는 [Azure Portal](http://portal.azure.com)을 통해 Windows 또는 Linux에서 실행하는 다섯 개의 노드 클러스터를 만들 수 있습니다.  
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+
+## <a name="use-the-azure-portal"></a>Azure 포털 사용
+
 Azure Portal[http://portal.azure.com](http://portal.azure.com)에 로그인합니다.
 
-## <a name="create-the-cluster"></a>클러스터 만들기
+### <a name="create-the-cluster"></a>클러스터 만들기
 
 1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
 2. **새로 만들기** 블레이드에서 **계산**을 선택한 다음 **계산** 블레이드에서 **Service Fabric 클러스터**를 선택합니다.
@@ -66,19 +69,19 @@ Azure Portal[http://portal.azure.com](http://portal.azure.com)에 로그인합�
 
     알림에서 만들기 진행률을 볼 수 있습니다. (화면 오른쪽 위의 상태 표시줄 근처에 있는 "종" 모양 아이콘을 클릭합니다.) 클러스터를 만드는 동안 **시작 보드에 고정**을 클릭하면 **Service Fabric 클러스터 배포 중**이 **시작** 보드에 고정됩니다.
 
-## <a name="view-cluster-status"></a>클러스터 상태 보기
+### <a name="view-cluster-status"></a>클러스터 상태 보기
 클러스터를 만들면 포털의 **개요** 블레이드에서 클러스터를 검사할 수 있습니다. 이제 대시보드에서 클러스터의 공용 끝점 및 Service Fabric Explorer에 대한 링크를 포함한 클러스터 세부 정보를 볼 수 있습니다.
 
 ![클러스터 상태][cluster-status]
 
-## <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer를 사용하여 클러스터 시각화
+### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer를 사용하여 클러스터 시각화
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 클러스터를 시각화하고 응용 프로그램을 관리할 수 있는 좋은 도구입니다.  Service Fabric Explorer는 클러스터에서 실행되는 서비스입니다.  포털의 클러스터 **개요** 페이지의 **Service Fabric Explorer** 링크를 클릭하여 웹 브라우저를 사용하는 서비스에 액세스합니다.  브라우저에 직접 주소를 입력할 수도 있습니다. [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
 
 클러스터 대시보드는 응용 프로그램 및 노드 상태에 대한 요약을 포함하여 클러스터에 대한 개요를 제공합니다. 노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 응용 프로그램을 검사할 수 있습니다.
 
 ![Service Fabric Explorer][service-fabric-explorer]
 
-## <a name="connect-to-the-cluster-using-powershell"></a>PowerShell을 사용하여 클러스터에 연결
+### <a name="connect-to-the-cluster-using-powershell"></a>PowerShell을 사용하여 클러스터에 연결
 PowerShell을 사용하도록 연결하여 클러스터가 실행되고 있는지 확인합니다.  ServiceFabric PowerShell 모듈은 [Service Fabric SDK](service-fabric-get-started.md)에서 설치됩니다.  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet은 클러스터에 대한 연결을 설정합니다.   
 
 ```powershell
@@ -98,8 +101,8 @@ NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVe
                      _nodetype1_3 10.0.0.7        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
 ```
 
-## <a name="remove-the-cluster"></a>클러스터 제거
-Service Fabric 클러스터는 클러스터 리소스 외에도 다른 Azure 리소스로 이루어져 있습니다. 따라서 서비스 패브릭 클러스터를 완벽하게 삭제하려면 구성되어 있는 모든 리소스를 삭제해야 합니다. 클러스터 및 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다. 클러스터를 삭제하거나 리소스 그룹에서 리소스 일부(전부가 아님)를 삭제하는 다른 방법은 [클러스터 삭제](service-fabric-cluster-delete.md)를 참조하세요.
+### <a name="remove-the-cluster"></a>클러스터 제거
+Service Fabric 클러스터는 클러스터 리소스 외에도 다른 Azure 리소스로 이루어져 있습니다. 따라서 서비스 패브릭 클러스터를 완벽하게 삭제하려면 구성되어 있는 모든 리소스를 삭제해야 합니다. 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다. 클러스터를 삭제하거나 리소스 그룹에서 리소스 일부(전부가 아님)를 삭제하는 다른 방법은 [클러스터 삭제](service-fabric-cluster-delete.md)를 참조하세요.
 
 Azure Portal에서 리소스 그룹을 삭제합니다.
 1. 삭제하려는 서비스 패브릭 클러스터로 이동합니다.
@@ -107,8 +110,122 @@ Azure Portal에서 리소스 그룹을 삭제합니다.
 3. **리소스 그룹 Essentials** 페이지에서 **삭제**를 클릭하고 해당 페이지의 지침에 따라 리소스 그룹 삭제를 완료합니다.
     ![리소스 그룹 삭제][cluster-delete]
 
+
+## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Azure PowerShell을 사용하여 보안 클러스터 배포
+
+
+1) [Azure PowerShell 모듈 버전 4.0 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 컴퓨터에 다운로드합니다.
+
+2) Windows PowerShell 창을 열고 다음 명령을 실행합니다. 
+    
+```powershell
+
+Get-Command -Module AzureRM.ServiceFabric 
+```
+
+다음과 유사한 결과가 표시됩니다.
+
+![ps-list][ps-list]
+
+3) Azure에 로그인하고 클러스터를 만들려는 구독을 선택합니다.
+
+```powershell
+
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+
+```
+
+4) 이제 다음 명령을 실행하여 보안 클러스터를 만듭니다. 매개 변수를 사용자 지정해야 합니다. 
+
+
+````powershell
+
+$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+$RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+$RDPuser="vmadmin"
+$RGname="mycluster" # this is also the name of your cluster
+$clusterloc="SouthCentralUS"
+$subname="$RGname.$clusterloc.cloudapp.azure.com"
+$certfolder="c:\mycertificates\"
+$clustersize=1 # can take values 1, 3-99
+
+New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+
+````
+
+명령을 완료하는 데 10~30분이 걸릴 수 있습니다. 작업이 끝나면 다음과 유사한 출력이 표시되어야 합니다. 출력에는 인증서, KeyVault 업로드 위치 및 인증서가 복사되는 위치에 대한 정보가 포함됩니다. 
+
+![ps-out][ps-out]
+
+5) 참조하는 데 필요하기 때문에 전체 출력을 복사하고 텍스트 파일에 저장합니다. 출력에서 다음 정보를 기록해 둡니다.
+ 
+
+- **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
+- **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
+- **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
+- **ClientConnectionEndpointPort** : 19000
+
+### <a name="install-the-certificate-on-your-local-machine"></a>로컬 컴퓨터에 인증서 설치
+  
+클러스터에 연결하려면 현재 사용자의 개인 (내) 저장소에 인증서를 설치해야 합니다. 
+
+다음 PowerShell 실행
+
+```powershell
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+        -FilePath C:\mycertificates\the name of the cert.pfx `
+        -Password (ConvertTo-SecureString -String certpwd -AsPlainText -Force)
+```
+
+이제 보안 클러스터에 연결할 준비가 되었습니다.
+
+### <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결 
+
+다음 PowerShell 명령을 실행하여 보안 클러스터에 연결합니다. 인증서 세부 정보는 클러스터를 설정하는 데 사용된 인증서와 일치해야 합니다. 
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+          -KeepAliveIntervalInSec 10 `
+          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
+          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
+          -StoreLocation CurrentUser -StoreName My
+```
+
+
+다음 예제에서는 완료된 매개 변수를 보여줍니다. 
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.southcentralus.cloudapp.azure.com:19000 `
+          -KeepAliveIntervalInSec 10 `
+          -X509Credential -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10 `
+          -FindType FindByThumbprint -FindValue C4C1E541AD512B8065280292A8BA6079C3F26F10 `
+          -StoreLocation CurrentUser -StoreName My
+```
+
+다음 명령을 실행하여 사용자가 연결되어 있고 클러스터 상태가 정상인지를 확인합니다.
+
+```powershell
+
+Get-ServiceFabricClusterHealth
+
+```
+### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>Visual Studio에서 클러스터에 앱 게시
+
+이제 Azure 클러스터를 설정했으므로 [클러스터에 게시](service-fabric-publish-app-remote-cluster.md) 문서를 수행하여 Visual Studio에서 Azure 클러스터에 이 응용 프로그램을 게시할 수 있습니다. 
+
+### <a name="remove-the-cluster"></a>클러스터 제거
+클러스터는 클러스터 리소스 외에도 다른 Azure 리소스로 이루어져 있습니다. 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다. 
+
+```powershell
+
+Remove-AzureRmResourceGroup -Name $RGname -Force
+
+```
+
 ## <a name="next-steps"></a>다음 단계
-이제 독립 실행형 개발 클러스터를 설정했으며 다음을 시도하세요.
+이제 개발 클러스터를 설정했으며 다음을 시도하세요.
 * [포털에서 보안 클러스터 만들기](service-fabric-cluster-creation-via-portal.md)
 * [템플릿에서 클러스터 만들기](service-fabric-cluster-creation-via-arm.md) 
 * [PowerShell을 사용하여 앱 배포](service-fabric-deploy-remove-applications.md)
@@ -119,4 +236,6 @@ Azure Portal에서 리소스 그룹을 삭제합니다.
 [cluster-status]: ./media/service-fabric-get-started-azure-cluster/clusterstatus.png
 [service-fabric-explorer]: ./media/service-fabric-get-started-azure-cluster/sfx.png
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
+[ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
+[ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG
 

@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 24e9f1d7bdf4401d009ba04fb62351b6abda6079
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/21/2017
 
 ![Azure App Service의 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서는 Visual Studio 2017을 사용하여 ASP.NET 웹앱을 빌드하고 Azure에 배포하는 방법을 보여 줍니다. Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설정하는 동안 **Azure 개발**을 사용할 수 있는지 확인합니다.
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 04/21/2017
 
 ## <a name="create-an-aspnet-web-app"></a>ASP.NET 웹앱 만들기
 
-Visual Studio에서 `Ctrl`+`Shift`+`N`를 사용하여 새 프로젝트를 만듭니다.
+Visual Studio에서 `Ctrl`+`Shift`+`N`를 사용하여 프로젝트를 만듭니다.
 
 **새 프로젝트** 대화 상자에서 **Visual C# > 웹 > ASP.NET 웹 응용 프로그램(.NET Framework)**을 클릭합니다.
 
@@ -110,7 +111,7 @@ Azure 웹앱에도 _App Service 계획_이 필요합니다.
 
 **확인**을 클릭합니다.
 
-![새 App Service 계획 만들기](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![앱 서비스 계획 만들기](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 ## <a name="create-and-publish-the-web-app"></a>웹앱 만들기 및 게시
 
@@ -165,11 +166,11 @@ Azure Portal로 이동하여 방금 만든 웹앱을 살펴봅니다.
 
 웹앱의 _블레이드_(가로로 열리는 포털 페이지)로 이동했습니다. 
 
-기본적으로 웹앱의 블레이드는 **개요** 페이지를 표시합니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 블레이드의 왼쪽에 있는 탭에서는 열 수 있는 다른 구성 페이지를 보여 줍니다. 
+기본적으로 웹앱의 블레이드는 **개요** 페이지를 표시합니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.  
 
 ![Azure Portal의 App Service 블레이드](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-블레이드의 이러한 탭은 웹앱에 추가할 수 있는 유용한 많은 기능을 보여 줍니다. 다음은 몇 가지 가능성을 제공합니다.
+블레이드의 왼쪽에 있는 탭에서는 열 수 있는 다른 구성 페이지를 보여 줍니다. 다음은 몇 가지 가능성을 제공합니다.
 
 - 사용자 지정 DNS 이름 매핑
 - 사용자 지정 SSL 인증서 바인딩
@@ -193,5 +194,9 @@ Azure Portal로 이동하여 방금 만든 웹앱을 살펴봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-미리 만든 [웹앱 PowerShell 스크립트](app-service-powershell-samples.md)를 탐색합니다.
+> [!div class="nextstepaction"]
+> [Azure에서 SQL Database를 사용하여 ASP.NET 앱을 빌드하는 방법에 대한 자세한 정보](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [샘플 Web Apps PowerShell 스크립트 탐색](app-service-powershell-samples.md)
 

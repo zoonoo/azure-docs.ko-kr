@@ -14,10 +14,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 2673a9c0d91510756a97b2dba3801d2925905c9a
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -44,11 +45,9 @@ Azure에 Java 웹앱을 게시하는 과정을 간소화하기 위해 이 자습
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Eclipse에서 동적 웹 프로젝트 만들기
 
-Eclipse IDE에서 **파일**, **새로 만들기**, **동적 웹 프로젝트**를 차례로 클릭합니다.
+Eclipse에서 **파일** 메뉴, **새로 만들기** 및 **동적 웹 프로젝트**를 선택합니다.
 
-![새 동적 웹 프로젝트](./media/app-service-web-get-started-java/file-new-dynamic-web-project-menu.png)
-
-동적 웹 프로젝트 대화 상자가 나타나면 응용 프로그램 이름을 **MyFirstJavaOnAzureWebApp**으로 지정한 다음 **마침**을 클릭합니다.
+**새 동적 웹 프로젝트** 대화 상자에서 프로젝트의 이름을 **MyFirstJavaOnAzureWebApp**으로 지정하고 **마침**을 선택합니다.
    
 ![동적 웹 프로젝트 대화 상자](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -73,13 +72,11 @@ Eclipse에서 새 페이지가 열리면 기존의 `<body></body>` 섹션을 다
 
 ```jsp
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 ```
 
 페이지 변경 내용을 저장합니다.
-
-![JSP 코드 편집](./media/app-service-web-get-started-java/creating-index-jsp-page.png)
 
 ## <a name="publish-your-web-app-to-azure"></a>웹앱을 Azure에 게시
 
@@ -183,14 +180,12 @@ Azure에 웹앱을 게시했으니, 웹앱을 업데이트하는 과정이 훨�
 <title><% out.println(date.format(new Date())); %></title>
 </head>
 <body>
-<h1><% out.println("Java on Azure!"); %></h1>
+<h1><% out.println("Hello Azure!"); %></h1>
 </body>
 </html>
 ```
 
-![JSP 코드 업데이트](./media/app-service-web-get-started-java/updating-index-jsp-page.png)
-
-페이지 변경 내용을 저장한 후 Eclipse **프로젝트 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, **Azure**를 클릭한 다음 **Azure 웹앱으로 게시**를 클릭합니다.
+변경 내용을 저장한 후에 Eclipse **프로젝트 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고, **Azure**를 클릭한 다음 **Azure Web App으로 게시**를 클릭합니다.
 
 ![업데이트된 웹앱 게시](./media/app-service-web-get-started-java/publish-updated-web-app-context-menu.png)
 
@@ -207,7 +202,7 @@ Azure에 웹앱을 게시했으니, 웹앱을 업데이트하는 과정이 훨�
 
 ![웹앱으로 이동](./media/app-service-web-get-started-java/browse-web-app-2.png)
 
-## <a name="deleting-your-web-app"></a>웹앱 삭제
+## <a name="clean-up-resources"></a>리소스 정리
 
 웹앱을 삭제하려면 Azure 도구 키트에 포함된 **Azure 탐색기**를 사용합니다. **Azure 탐색기** 보기가 Eclipse에 표시되지 않으면 다음 단계에 따라 표시할 수 있습니다.
 

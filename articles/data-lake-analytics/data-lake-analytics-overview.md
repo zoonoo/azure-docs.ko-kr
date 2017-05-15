@@ -3,8 +3,8 @@ title: "Microsoft Azure Data Lake Analytics 개요 | Microsoft Docs"
 description: "Data Lake Analytics은 Azure Big Data 서비스로, 이를 통해 크기나 위치에 관계없이 클라우드의 데이터에서 얻은 통찰력을 통해 데이터를 비즈니스 운영에 사용할 수 있습니다."
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/28/2017
+ms.date: 05/06/2017
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 12d6fe834ed2b31a756123351288eec7ba2a72f7
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: cb2da3515cfe5fd460e16b019d3738f4a9a050bb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -37,7 +38,7 @@ Azure Data Lake Analytics는 빅 데이터 분석을 간소화하는 주문형 �
     Data Lake Analytics은 SQL의 친숙하고 간단한 선언적 특성을 C#의 표현 능력으로 확장한 쿼리 언어인 U-SQL을 포함합니다. U-SQL 언어는 Microsoft 내의 빅 데이터 시스템을 지원하는 동일한 분산 런타임에 구축됩니다. 이제 수백만 명의 SQL 및 .NET 개발자가 이미 보유하고 있는 기술을 사용하여 데이터를 처리하고 분석할 수 있습니다.
 * **기존 IT 투자에 원활하게 통합**
   
-    Data Lake Analytics은 ID, 관리, 보안 및 데이터 웨어하우징에 대한 기존 IT 투자를 사용할 수 있습니다. 이를 통해 데이터 거버넌스가 간소화되며 현재 데이터 응용 프로그램을 쉽게 확장할 수 있습니다. Data Lake Analytics은 사용자 관리 및 권한에 대해 Active Directory와 통합되고 기본 제공 모니터링 및 감사와 함께 제공됩니다.
+    Data Lake Analytics은 ID, 관리, 보안 및 데이터 웨어하우징에 대한 기존 IT 투자를 사용할 수 있습니다. 이러한 방법으로 데이터 거버넌스가 간소화되며 현재 데이터 응용 프로그램을 쉽게 확장할 수 있습니다. Data Lake Analytics은 사용자 관리 및 권한에 대해 Active Directory와 통합되고 기본 제공 모니터링 및 감사와 함께 제공됩니다.
 * **저렴하고 경제적**
   
     Data Lake Analytics은 빅 데이터 작업을 실행하기 위한 경제적인 솔루션입니다. 데이터가 처리될 때 작업 단위로 비용을 지불합니다. 하드웨어, 라이선스 또는 서비스별 지원 계약이 필요하지 않습니다. 시스템은 작업이 시작하고 완료됨에 따라 자동으로 확장되고 축소되므로 필요 이상으로 비용을 지불하지 않아도 됩니다.
@@ -52,25 +53,17 @@ Azure Data Lake Analytics는 빅 데이터 분석을 간소화하는 주문형 �
   * [Azure PowerShell을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-powershell.md)
   * [Azure .NET SDK를 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-net-sdk.md)
   * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
-  * [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
-* U-SQL 및 개발
-  
-  * [Azure Data Lake Analytics 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)
-  * [Data Lake Analytics 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+  * [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
+
 * 관리
   
   * [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
   * [Azure PowerShell을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-powershell.md)
   * [Azure 포털을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-  * [Azure Data Lake Analytics에 대한 진단 로그에 액세스](data-lake-analytics-diagnostic-logs.md)
-* 종단간 자습서
-  
-  * [Azure Data Lake Analytics 대화형 자습서 사용](data-lake-analytics-use-interactive-tutorials.md)
-  * [Azure Data Lake Analytics을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
+
 * 의견 제시
   
-  <!-- Fixing broken links for Azure content migration from ACOM to DOCS. I can't find a suitable substitute for what appears to be a link that is no longer available. I am commenting out for now. The author can investigate in the future. Hyperlink text: Comment on our documentation backlog. Referenced file: data-lake-analytics-documentation-backlog.md -->
   * [기능 요청 제출](http://aka.ms/adlafeedback)
-  * [포럼에서 도움말 보기](http://aka.ms/adlaforums)
+  * [MSDN 포럼에서 도움말 보기](http://aka.ms/adlaforums)
 
 

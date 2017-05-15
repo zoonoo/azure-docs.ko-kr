@@ -1,7 +1,7 @@
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Azure Resource Manager 요청 인증 준비
 Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]를 사용하여 리소스에서 수행하는 모든 작업을 인증해야 합니다. 가장 쉽게 구성할 수 있는 방법은 PowerShell 또는 Azure CLI를 사용하는 것입니다.
 
-계속하기 전에 [Azure PowerShell 1.0][lnk-powershell-install] 이상을 설치해야 합니다.
+계속하기 전에 [Azure PowerShell cmdlet][lnk-powershell-install]을 설치합니다.
 
 다음 단계는 PowerShell을 사용하여 AD 응용 프로그램에 대해 암호 인증을 설정하는 방법을 보여 줍니다. 표준 PowerShell 세션에서 이러한 명령을 실행할 수 있습니다.
 
@@ -21,7 +21,7 @@ Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]�
      ```
      New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
      ```
-4. 만든 응용 프로그램의 **ApplicationId** 를 적어 둡니다. 이 ID는 나중에 필요합니다.
+4. 만든 응용 프로그램의 **ApplicationId** 를 적어 둡니다. 나중에 필요합니다.
 5. 다음 명령을 사용하여 새 서비스 주체를 만듭니다. 이전 단계에서 **{MyApplicationId}**를 **ApplicationId**로 바꿉니다.
    
     ```
@@ -41,4 +41,4 @@ Azure AD(Active Directory)에서 [Azure Resource Manager][lnk-authenticate-arm]�
 * 암호
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps

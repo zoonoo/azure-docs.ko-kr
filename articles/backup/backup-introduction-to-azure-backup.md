@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/13/2017
+ms.date: 5/3/2017
 ms.author: markgal;trinadhk; anuragm
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 2e981f0f45bc5b338937839b74114e12db960927
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 245a89f2576dc1bfed2f9078f1d8761f91caf561
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -112,10 +113,10 @@ Premium Storage VM은 Premium Storage 또는 일반 저장소 중 하나로 복�
 Azure Backup은 Managed Disks VM을 보호합니다. Managed Disks를 사용하면 가상 컴퓨터의 저장소 계정을 관리하지 않아도 되며 VM 프로비전이 매우 간소화됩니다.
 
 ### <a name="back-up-managed-disk-vms"></a>Managed Disks VM 백업
-VM을 Managed Disks에 백업하는 것은 Resource Manager VM을 백업하는 것과 다르지 않습니다. Azure Portal의 경우 Virtual Machine 보기 또는 Recovery Services 자격 증명 보기에서 백업 작업을 바로 구성할 수 있습니다. Managed Disks에 VM 백업은 Managed Disks를 기반으로 구축된 RestorePoint 컬렉션을 통해 지원됩니다. Azure Backup은 현재 Azure Disk Encryption(ADE)을 사용하여 암호화된 Managed Disks VM을 백업하도록 지원하지 않습니다.
+VM을 Managed Disks에 백업하는 것은 Resource Manager VM을 백업하는 것과 다르지 않습니다. Azure Portal의 경우 Virtual Machine 보기 또는 Recovery Services 자격 증명 보기에서 백업 작업을 바로 구성할 수 있습니다. Managed Disks에 VM 백업은 Managed Disks를 기반으로 구축된 RestorePoint 컬렉션을 통해 지원됩니다. Azure Backup도 Azure Disk Encryption(ADE)을 사용하여 암호화된 Managed Disks VM을 백업하도록 지원합니다.
 
 ### <a name="restore-managed-disk-vms"></a>Managed Disks VM 복원
-Azure Backup을 사용하면 Managed Disks를 사용하여 전체 VM을 복원하거나 Resource Manager 저장소 계정에 Managed Disks를 복원할 수 있습니다. Azure는 복원 프로세스 중에 Managed Disks를 관리합니다. 사용자(고객)은 복원 프로세스의 일부로 생성된 저장소 계정을 관리합니다.
+Azure Backup을 사용하면 Managed Disks를 사용하여 전체 VM을 복원하거나 Resource Manager 저장소 계정에 Managed Disks를 복원할 수 있습니다. Azure는 복원 프로세스 중에 Managed Disks를 관리합니다. 사용자(고객)은 복원 프로세스의 일부로 생성된 저장소 계정을 관리합니다. 암호화되고 관리되는 VM을 복원하는 경우 VM의 키 및 비밀은 복원하기 전에 Key Vault에 이미 존재해야 합니다.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>각 백업 구성 요소의 기능은 무엇입니까?
 다음 표에서는 각 Azure Backup 구성 요소의 다양한 기능에 대한 가용성 또는 지원을 요약하고 있습니다. 추가 지원 및 자세한 내용에 대해서는 각 표에 포함된 정보를 참조하세요.

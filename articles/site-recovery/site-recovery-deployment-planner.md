@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 07c6836c9279ed2f28730a49d131c064891de1b1
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
-이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery 사용자 가이드입니다.
+이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
 
 ## <a name="overview"></a>개요
 
@@ -36,7 +37,7 @@ Site Recovery Deployment Planner 공개 미리 보기는 현재 VMware에서 Azu
 
 **호환성 평가**
 
-* 디스크 수, 디스크 크기, IOPS 및 변동에 따른 VM 적합성 평가
+* 디스크 수, 디스크 크기, IOPS, 변동 및 부팅 형식(EFI/BIOS)에 따른 VM 적합성 평가
 * 델타 복제에 필요한 예상 네트워크 대역폭
 
 **네트워크 대역폭 요구 사항 및 RPO 평가**
@@ -205,6 +206,10 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_Pro
 | -StartDate | (선택 사항) MM-DD-YYYY:HH:MM 단위의 시작 날짜 및 시간(24시간 형식)입니다. *StartDate*는 *EndDate*와 함께 지정해야 합니다. StartDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서를 생성합니다. |
 | -EndDate | (선택 사항) MM-DD-YYYY:HH:MM 형식(24시간 형식)의 종료 날짜 및 시간입니다. *EndDate*는 *StartDate*와 함께 지정해야 합니다. EndDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서가 생성됩니다. |
 | -GrowthFactor | (선택 사항) 백분율로 표시된 증가율입니다. 기본값은 30%입니다. |
+| -UseManagedDisks | (선택 사항)UseManagedDisks - 예/아니요. 기본값은 [예]입니다. 가상 컴퓨터의 수는 단일 저장소에 배치되고 계정은 Managed Disk가 장애 조치/테스트 장애 조치에 대해 선택되어 있는지에 따라 계산됩니다. |
+
+단일 저장소 계정 위치는 가상 컴퓨터의 장애 조치/테스트 장애 조치가 관리되지 않는 디스크가 아닌 Managed Disk에서 수행되었음을 고려하여 계산됩니다. |
+
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>예제 1: 프로파일링된 데이터가 로컬 드라이브에 있는 경우 기본값으로 보고서 생성
 ```
@@ -483,7 +488,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **NIC 수**: VM의 NIC 수입니다.
 
-**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다. 현재 Azure Site Recovery는 BIOS 부팅 유형만 지원합니다. EFI 부팅 유형의 모든 가상 컴퓨터는 호환되지 않는 VM 워크시트에 나열됩니다. 
+**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다. 현재 Azure Site Recovery는 BIOS 부팅 유형만 지원합니다. EFI 부팅 유형의 모든 가상 컴퓨터는 호환되지 않는 VM 워크시트에 나열됩니다.
 
 **OS 종류**: VM의 OS 종류입니다. Windows, Linux 또는 기타일 수 있습니다.
 
@@ -520,7 +525,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **NIC 수**: VM의 NIC 수입니다.
 
-**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다. 현재 Azure Site Recovery는 BIOS 부팅 유형만 지원합니다. EFI 부팅 유형의 모든 가상 컴퓨터는 호환되지 않는 VM 워크시트에 나열됩니다. 
+**부팅 유형**: VM의 부팅 유형입니다. BIOS 또는 EFI일 수 있습니다. 현재 Azure Site Recovery는 BIOS 부팅 유형만 지원합니다. EFI 부팅 유형의 모든 가상 컴퓨터는 호환되지 않는 VM 워크시트에 나열됩니다.
 
 **OS 종류**: VM의 OS 종류입니다. Windows, Linux 또는 기타일 수 있습니다.
 
@@ -561,6 +566,15 @@ Deployment Planner를 업데이트하려면 다음을 수행합니다.
 
 
 ## <a name="version-history"></a>버전 기록
+
+### <a name="13"></a>1.3
+업데이트: 2017년 5월 9일
+
+다음과 같은 새로운 기능이 추가됩니다.
+
+* 보고서 생성에서 Managed Disk 지원이 추가되었습니다. 가상 컴퓨터의 수는 단일 저장소에 배치되고 계정은 Managed Disk가 장애 조치/테스트 장애 조치에 대해 선택되어 있는지에 따라 계산됩니다.        
+
+
 ### <a name="12"></a>1.2
 업데이트: 2017년 4월 7일
 
