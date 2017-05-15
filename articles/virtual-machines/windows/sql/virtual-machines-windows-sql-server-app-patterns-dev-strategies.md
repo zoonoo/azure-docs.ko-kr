@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 ms.author: lvargas
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1bbcc8517b0e7bf3836e79a3861f83e181eb67e7
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c5d0b7b466c65fb218acd010c13bde061a3abfbf
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -171,7 +172,7 @@ Azure에서 프러덕션 코드를 실행하는 대부분의 고객은 Azure에 
 고가용성 및 재해 복구 기술에 대한 종합 정보 및 자습서는 [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
 
 ## <a name="2-tier-and-3-tier-using-azure-vms-and-cloud-services"></a>Azure VM 및 클라우드 서비스를 사용하는 2계층 및 3계층 
-이 응용 프로그램 패턴에서는 [Azure Cloud Services](../../../cloud-services/cloud-services-choose-me.md#tellmecs)(웹 및 작업자 역할 - PaaS, 서비스 형태의 플랫폼)와 [Azure Virtual Machines](../about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(IaaS, 인프라 형태의 플랫폼)을 모두 사용하여 Azure에 2계층 또는 3계층 응용 프로그램을 배포합니다. 프레젠테이션 계층/비즈니스 계층에 [Azure Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/)를, 데이터 계층에 [Azure Virtual Machines](../about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 SQL Server를 사용하면 Azure에서 실행되는 대부분의 응용 프로그램에 유용합니다. 클라우드 서비스에서 실행되는 컴퓨팅 인스턴스가 있으면 관리, 배포, 모니터링 및 확장이 용이하기 때문입니다.
+이 응용 프로그램 패턴에서는 [Azure Cloud Services](../../../cloud-services/cloud-services-choose-me.md#tellmecs)(웹 및 작업자 역할 - PaaS, 서비스 형태의 플랫폼)와 [Azure Virtual Machines](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(IaaS, 인프라 형태의 플랫폼)을 모두 사용하여 Azure에 2계층 또는 3계층 응용 프로그램을 배포합니다. 프레젠테이션 계층/비즈니스 계층에 [Azure Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/)를, 데이터 계층에 [Azure Virtual Machines](../overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 SQL Server를 사용하면 Azure에서 실행되는 대부분의 응용 프로그램에 유용합니다. 클라우드 서비스에서 실행되는 컴퓨팅 인스턴스가 있으면 관리, 배포, 모니터링 및 확장이 용이하기 때문입니다.
 
 클라우드 서비스에서는 Azure가 인프라를 자동으로 유지 관리합니다. 즉, 정기 유지 관리를 수행하고 운영 체제를 패치하고 서비스 및 하드웨어 오류의 복구를 시도합니다. 응용 프로그램 확장이 필요할 경우 응용 프로그램에서 사용하는 가상 컴퓨터나 인스턴스의 수를 늘이거나 줄여 클라우드 서비스 프로젝트에 대해 자동 및 수동 확장 옵션을 사용할 수 있습니다. 또한 온-프레미스 Visual Studio를 사용하여 Azure의 클라우드 서비스 프로젝트에 응용 프로그램을 배포할 수 있습니다.
 

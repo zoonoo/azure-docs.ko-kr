@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: fd7b14d16a0654dc1368ddb00ea047aa7dd36a4c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 11ffd3df669c805297eee5085145f4ce27a09e15
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/27/2017
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 ## <a name="overview"></a>개요
-[가상 컴퓨터 정보](windows/about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[가상 컴퓨터 정보](windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대한 질문과 대답](windows/classic/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
