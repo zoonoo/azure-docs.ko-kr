@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2017
 ms.author: juanpere
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
 ms.openlocfilehash: 30a707ec15d592c8a10905e13a75ea2f6e52cccc
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/06/2017
 
 
@@ -60,7 +61,7 @@ IoT hub 허브를 만들고 IoT Hub 연결 문자열을 확보하려면 [장치 
 2. **triggerfwupdateondevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-hub** 및 **azure-iot-device-mqtt** 장치 SDK 패키지를 설치합니다.
    
     ```
-    npm install azure-iot-hub --save
+    npm install azure-iothub --save
     ```
 3. 텍스트 편집기를 사용하여 **triggerfwupdateondevice** 폴더에 **dmpatterns_getstarted_service.js** 파일을 만듭니다.
 4. 다음 'require' 문을 **dmpatterns_getstarted_service.js** 파일의 시작 부분에 추가합니다.
