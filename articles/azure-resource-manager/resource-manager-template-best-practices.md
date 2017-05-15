@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fe52ced5e4dc829b5d1421bf0edcd58cffcaad19
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 24c2b27948e9373bc3957f706ed802cc36c04148
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -48,7 +49,7 @@ ms.lasthandoff: 04/03/2017
 
 <sup>1</sup> 저장소 계정 이름은 24자 이내의 소문자여야 하며 하이픈은 포함할 수 없습니다.
 
-리소스 이름에 매개 변수를 제공하는 경우 리소스 배포 시 고유한 이름을 제공해야 합니다. 필요할 경우 [uniqueString()](resource-group-template-functions.md#uniquestring) 함수를 사용하여 이름을 생성하는 변수를 만들 수 있습니다. 
+리소스 이름에 매개 변수를 제공하는 경우 리소스 배포 시 고유한 이름을 제공해야 합니다. 필요할 경우 [uniqueString()](resource-group-template-functions-string.md#uniquestring) 함수를 사용하여 이름을 생성하는 변수를 만들 수 있습니다. 
 
 또한 **uniqueString** 결과에 접두사 또는 접미사를 추가할 수도 있습니다. 고유한 이름을 수정하면 이름으로 리소스 유형을 보다 쉽게 식별할 수 있습니다. 예를 들어 다음 변수를 사용하여 저장소 계정에 대한 고유 이름을 생성할 수 있습니다.
 
@@ -174,7 +175,7 @@ ms.lasthandoff: 04/03/2017
 다음 정보는 변수로 작업하는 경우 도움이 될 수 있습니다.
 
 * 두 번 이상 사용해야 하는 값의 경우 템플릿에서 변수를 사용합니다. 값을 한 번만 사용할 경우에는 하드 코드된 값을 사용해야 템플릿을 더 쉽게 읽을 수 있습니다.
-* 템플릿의 **변수** 섹션에는 [reference](resource-group-template-functions.md#reference) 함수를 사용할 수 없습니다. **reference** 함수는 리소스의 런타임 상태에서 해당 값을 파생합니다. 하지만 템플릿의 초기 구문 분석 중에 변수가 확인됩니다. 템플릿의 **resources** 또는 **outputs** 섹션에서 직접 **reference** 함수에 필요한 값을 생성합니다.
+* 템플릿의 **변수** 섹션에는 [reference](resource-group-template-functions-resource.md#reference) 함수를 사용할 수 없습니다. **reference** 함수는 리소스의 런타임 상태에서 해당 값을 파생합니다. 하지만 템플릿의 초기 구문 분석 중에 변수가 확인됩니다. 템플릿의 **resources** 또는 **outputs** 섹션에서 직접 **reference** 함수에 필요한 값을 생성합니다.
 * [리소스 이름](#resource-names)에 설명된 대로 고유해야 하는 리소스 이름에 대한 변수를 포함합니다.
 * 변수를 복잡한 개체로 그룹화할 수 있습니다. **variable.subentry** 형식을 사용하여 복잡한 개체의 값을 참조합니다. 변수 그룹화는 관련 변수를 추적하는 데 도움이 됩니다. 또한 템플릿의 가독성도 향상시킵니다. 예를 들면 다음과 같습니다.
    

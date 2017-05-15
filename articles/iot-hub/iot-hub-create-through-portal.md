@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 05/02/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: d88c6e8d4c0c5aecbdbcf6262da8d919ad3b325d
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: ddf69b7256ae9665363ee0f491a6475c69d6d555
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -132,7 +133,7 @@ IoT Hub 블레이드에서 IoT Hub를 만든 후에 기존 IoT Hub의 설정을 
 
 ![][14]
 
-**경로** 블레이드에서 맨 위의 **추가** *를 클릭하여 필요한 정보를 입력하고* *확인* *을 클릭하여 IoT Hub에 경로를 추가할 수 있습니다. 그러면 기본* *경로** 블레이드에 경로가 나열됩니다. 경로 목록에서 경로를 클릭하면 편집할 수 있습니다. 경로를 사용하려면 경로 목록에서 경로를 클릭하고 **사용** 토글을 **해제**로 설정합니다. 블레이드의 맨 아래에서 **확인**을 클릭하여 변경 내용을 저장합니다.
+**경로** * 블레이드에서 맨 위의 **추가**를 클릭하여 필요한 정보를 입력하고 **확인** 을 클릭하여 IoT Hub에 경로를 추가할 수 있습니다. 그러면 기본 **경로** 블레이드에 경로가 나열됩니다. 경로 목록에서 경로를 클릭하면 편집할 수 있습니다. 경로를 사용하려면 경로 목록에서 경로를 클릭하고 **사용** 토글을 **해제**로 설정합니다. 블레이드의 맨 아래에서 **확인**을 클릭하여 변경 내용을 저장합니다.
 
 ![][15]
 

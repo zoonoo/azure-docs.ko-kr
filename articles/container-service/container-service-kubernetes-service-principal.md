@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 71c6c5ffacf49b907e3e9f488789f31928b25823
-ms.openlocfilehash: e01a9ef7d223e7a5a06475cf419b73959baa803f
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: b76020e3e5855a63c416851d9b9adefdbdc5874a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 02/22/2017
 
 
 
-Azure Container Service에서 Kubernetes는 Azure API와 상호 작용하는 서비스 계정으로 [Azure Active Directory 서비스 주체](../active-directory/active-directory-application-objects.md)를 요구합니다. 서비스 주체는 사용자 정의 경로 및 계층 4 Azure Load Balancer와 같은 리소스를 동적으로 관리하는 데 필요합니다.
+Azure Container Service에서 Kubernetes는 Azure API와 상호 작용하는 서비스 계정으로 [Azure Active Directory 서비스 주체](../active-directory/active-directory-application-objects.md)를 요구합니다. 서비스 주체는 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md) 및 [계층 4 Azure Load Balancer](../load-balancer/load-balancer-overview.md)와 같은 리소스를 동적으로 관리하는 데 필요합니다.
 
 이 문서에서는 Kubernetes 클러스터의 서비스 주체를 지정하는 다양한 옵션을 보여 줍니다. 예를 들어 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)을 설치하고 설정한 경우 [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) 명령을 실행하여 Kubernetes 클러스터와 서비스 주체를 동시에 만들 수 있습니다 .
 

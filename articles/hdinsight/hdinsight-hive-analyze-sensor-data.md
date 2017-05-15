@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 3f6824ea9c306adf7279a473d5e3b0c886d29b60
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 6588d2865928a64f6e172d0779fd43d35e7d9a6a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -42,7 +43,7 @@ HDInsight(Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이터를 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight(Hadoop) 클러스터: 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md) 을 참조하세요.
+* HDInsight(Hadoop) 클러스터: 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 * Microsoft Excel 2013
 
   > [!NOTE]

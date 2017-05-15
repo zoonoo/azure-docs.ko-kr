@@ -47,8 +47,8 @@
 ## 워크로드
 ### [Active Directory 및 DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
-### [SharePoint](site-recovery-workload.md#protect-sharepoint)
-### [Azure IoT Hub](site-recovery-workload.md#protect-dynamics-ax)
+### [SharePoint](site-recovery-sharepoint.md)
+### [Azure IoT Hub](site-recovery-dynamicsax.md)
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)

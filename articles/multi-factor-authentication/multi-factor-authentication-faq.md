@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2017
+ms.date: 04/26/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 12b67d92fb955d9d20b0e86a38baa47a3717a333
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: d9fffa2058120f067c631a900eb8db4738f73778
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
@@ -71,9 +72,9 @@ Azure Multi-Factor Authentication에 대한 구독을 구입하면(사용자당 
 
 일부 경우에 그렇습니다. 
 
-Azure 관리자를 위한 Multi-Factor Authentication에서는 비용 없이 Azure 및 Office 365 관리자 포털 등의 Microsoft 온라인 서비스에 액세스할 수 있는 Azure MFA 기능의 하위 집합을 제공합니다. 이 제품은 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 가지고 있지 않은 Azure Active Directory 인스턴스의 Azure 관리자에게 적용됩니다. 관리자가 평가판 버전을 사용하고 Multi-Factor Authentication 공급자를 만들면 Multi-Factor Authentication을 사용하도록 구성된 디렉터리의 모든 관리자 및 사용자는 Azure Multi-Factor Authentication의 정식 버전을 받게 됩니다.
+Azure 관리자를 위한 Multi-Factor Authentication에서는 비용 없이 Azure 및 Office 365 관리자 포털 등의 Microsoft 온라인 서비스에 액세스할 수 있는 Azure MFA 기능의 하위 집합을 제공합니다. 이 제품은 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 가지고 있지 않은 Azure Active Directory 인스턴스의 전역 관리자에게 적용됩니다. 관리자가 평가판 버전을 사용하고 Multi-Factor Authentication 공급자를 만들면 Multi-Factor Authentication을 사용하도록 구성된 디렉터리의 모든 관리자 및 사용자는 Azure Multi-Factor Authentication의 정식 버전을 받게 됩니다.
 
-Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Exchange Online, SharePoint Online 및 기타 Office 365 등의 Microsoft 온라인 서비스에 액세스할 수 있는 Azure MFA 기능의 하위 집합을 제공합니다. 이 제품은 Azure Active Directory의 해당 인스턴스가 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 보유하지 않은 경우 Office 365 라이선스가 할당된 사용자에게 적용됩니다. 
+Office 365 사용자용 Multi-Factor Authentication에서는 비용 없이 Exchange Online, SharePoint Online 등의 Office 365 서비스에 액세스할 수 있는 Azure MFA 기능의 하위 집합을 제공합니다. 이 제품은 Azure Active Directory의 해당 인스턴스가 MFA 라이선스, 번들 또는 독립 실행형 사용량 기반 공급자를 통해 Azure MFA의 정식 버전을 보유하지 않은 경우 Office 365 라이선스가 할당된 사용자에게 적용됩니다. 
 
 **Q: 조직에서 사용자당 청구 모델과 인증당 청구 모델 간을 전환할 수 있습니까?**
 

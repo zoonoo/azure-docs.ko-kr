@@ -12,31 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2017
+ms.date: 04/27/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 7fe9111061fed4af6aa720d0b158e5b4f2becd90
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: e74f3f7ed4ab0a7a37047b1277e76b6695f3884f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
 Microsoft Azure에는 사용자의 응용 프로그램과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
 
-이 문서의 목표는 Microsoft Azure가 네트워크 보안 영역에서 제공해야 하는 사항을 사용자가 훨씬 쉽게 이해할 수 있게 하는 것입니다. 여기서 핵심 네트워크 보안 개념 및 요구 사항에 대한 기본적인 설명을 제공할 뿐만 아니라 이러한 각 영역에서 Azure가 제공해야 하는 것에 대한 정보도 제공합니다. 관심 있는 영역에 대해 더 심층적으로 이해할 수 있도록 다른 콘텐츠에 대한 수많은 링크가 있습니다.
+이 문서의 목표는 Microsoft Azure가 네트워크 보안 영역에서 제공해야 하는 사항을 사용자가 훨씬 쉽게 이해할 수 있게 하는 것입니다. 여기서 핵심 네트워크 보안 개념 및 요구 사항에 대한 기본적인 설명을 제공할 뿐만 아니라 또한 관심 영역을 보다 깊이 있게 이해하도록 도와주는 링크 뿐만 아니라 이러한 각 영역에서 Azure가 제공해야 하는 기능에 대한 정보도 제공합니다.
 
-이 Azure 네트워크 보안 개요 문서는 다음 사항에 대해 자세히 다룹니다.
+이 Azure 네트워크 보안 개요 문서는 다음 영역을 자세히 다룹니다.
 
 * Azure 네트워킹
-* Azure Network Watcher
 * 네트워크 액세스 제어
 * 안전한 원격 액세스 및 크로스-프레미스 연결
 * Availability
-* 로깅
 * 이름 확인
 * DMZ 아키텍처
-* Azure 보안 센터
+* 감사 및 위협 검색
+
 
 ## <a name="azure-networking"></a>Azure 네트워킹
 가상 컴퓨터는 네트워크 연결이 필요합니다. 이 요구 사항을 지원하기 위해 Azure에서는 가상 컴퓨터를 Azure 가상 네트워크에 연결해야 합니다. Azure 가상 네트워크는 물리적 Azure 네트워크 패브릭 위에 구축되는 논리적 구조체입니다. 각 논리적 Azure 가상 네트워크는 다른 모든 Azure 가상 네트워크와 격리됩니다. 이 기능을 통해 사용자 배포의 네트워크 트래픽이 다른 Microsoft Azure 고객에게 액세스되지 않게 해줍니다.
@@ -45,29 +45,18 @@ Microsoft Azure에는 사용자의 응용 프로그램과 서비스 연결 요�
 
 * [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)
 
-## <a name="azure-network-watcher"></a>Azure Network Watcher
-Azure Network Watcher에는 보안 문제 식별에 도움이 되는 새로운 도구 집합을 제공할 뿐만 아니라 문제 해결에 도움이 되는 수 많은 네트워크 모니터링 기능이 포함되어 있습니다.
-
-[보안 그룹 보기](/network-watcher/network-watcher-security-group-view-overview.md)는 Virtual Machines의 감사 및 보안 준수를 돕고, 조직에서 정의한 기준 정책을 각 사용자 VM을 위한 실질적 규칙과 비교하는 프로그래밍 방식 감사를 수행하는 데 사용될 수 있습니다. 그러면 모든 구성 드리프트를 식별하는 데 도움이 됩니다.
-
-[패킷 캡처](/network-watcher/network-watcher-packet-capture-overview.md)를 사용하면 가상 컴퓨터에서 네트워크 트래픽을 캡처할 수 있습니다. 패킷 캡처는 네트워크 통계를 수집하고 응용 프로그램 문제를 해결할 수 있도록 돕는 것 외에도 네트워크 침입에 대한 조사에도 매우 유용할 수 있습니다. 또한 이 기능을 Azure Functions와 함께 사용하면 특정 Azure 경고에 대한 응답으로 네트워크 캡처를 시작할 수 있습니다.
-
-Azure Network Watcher 및 사용자 실험실에서 몇 가지 기능 테스트를 시작하는 방법에 대한 자세한 내용은 [Azure Network Watcher 모니터링 개요](/network-watcher/network-watcher-monitoring-overview.md)를 참조하세요.
-
->[!NOTE]
-Azure Network Watcher는 아직 공개 미리 보기 상태이므로 일반 공급 릴리스에 있는 서비스와 동일한 수준의 가용성 및 안정성을 제공하지 않을 수 있습니다. 특정 기능은 지원되지 않을 수 있고, 기능이 제한될 수 있으며 일부 Azure 위치에서 사용하지 못할 수도 있습니다. 이 서비스의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure 업데이트 페이지](https://azure.microsoft.com/updates/?product=network-watcher)를 참조하세요.
 
 ## <a name="network-access-control"></a>네트워크 액세스 제어
-네트워크 액세스 제어는 Azure 가상 네트워크 내의 특정 장치 또는 서브넷 간 연결을 제한하는 행위입니다. 네트워크 액세스 제어의 목표는 가상 컴퓨터 및 서비스가 사용자가 액세스하길 원하는 사용자 및 장치에만 액세스 가능하도록 하는 것입니다. 액세스 제어는 가상 컴퓨터 또는 서비스 간 연결에 대한 허용 또는 거부 결정에 기반합니다.
+네트워크 액세스 제어는 Azure 가상 네트워크 내의 특정 장치 또는 서브넷 간 연결을 제한하는 행위입니다. 네트워크 액세스 제어의 목표는 가상 컴퓨터 및 서비스에 대한 액세스를 승인 된 사용자 및 장치로 제한하는 것입니다. 액세스 제어는 가상 컴퓨터 또는 서비스 간 연결에 대한 허용 또는 거부 결정에 기반합니다.
 
-Azure는 다양한 유형의 네트워크 액세스 제어를 지원합니다. 내용은 다음과 같습니다.
+Azure는 다음과 같은 다양한 유형의 네트워크 액세스 제어를 지원합니다.
 
 * 네트워크 계층 제어
 * 경로 제어 및 터널링 적용
 * 가상 네트워크 보안 어플라이언스
 
 ### <a name="network-layer-control"></a>네트워크 계층 제어
-모든 보안 배포에는 몇 가지 네트워크 액세스 제어가 필요합니다. 네트워크 액세스 제어의 목표는 사용자의 가상 컴퓨터와 이러한 가상 컴퓨터에서 실행되는 네트워크 서비스가 통신해야 하는 다른 네트워킹 장치와만 통신하고 모든 다른 연결 시도는 차단되도록 하는 것입니다.
+모든 보안 배포에는 몇 가지 네트워크 액세스 제어가 필요합니다. 네트워크 액세스 제어의 목표는 가상 컴퓨터 통신을 필요한 시스템으로 제한하고 다른 통신 시도를 차단하는 것입니다.
 
 기본적인 네트워크 수준 액세스 제어(IP 주소 및 TCP 또는 UDP 프로토콜 기반)가 필요하다면 네트워크 보안 그룹을 사용할 수 있습니다. NSG(네트워크 보안 그룹)은 기본적인 상태 저장 패킷 필터링 방화벽으로서, [5개 튜플](https://www.techopedia.com/definition/28190/5-tuple)에 기반하여 액세스를 제어할 수 있습니다. NSG는 응용 프로그램 계층 검사 또는 인증된 액세스 제어를 제공하지 않습니다.
 
@@ -76,9 +65,9 @@ Azure는 다양한 유형의 네트워크 액세스 제어를 지원합니다. �
 * [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)
 
 ### <a name="route-control-and-forced-tunneling"></a>경로 제어 및 터널링 적용
-Azure 가상 네트워크에 라우팅 동작을 제어하는 기능은 중요한 네트워크 보안 및 액세스 제어 기능입니다. 라우팅이 잘못 구성된 경우 가상 컴퓨터에서 호스팅하는 응용 프로그램 및 서비스가 잠재적 공격자가 소유 및 작동하는 장치를 포함해 사용자가 연결하길 원하지 않는 장치에 연결할 수 있습니다.
+Azure 가상 네트워크에 라우팅 동작을 제어하는 기능은 중요한 네트워크 보안 및 액세스 제어 기능입니다. 라우팅이 잘못 구성된 경우 가상 컴퓨터에서 호스트하는 응용 프로그램 및 서비스가 잠재적 공격자가 소유 및 작동하는 시스템을 비롯하여 허가되지 않은 장치에 연결될 수 있습니다.
 
-Azure 네트워킹은 Azure 가상 네트워크의 네트워크 트래픽에 대한 라우팅 동작을 사용자 지정할 수 있는 기능을 지원하여 사용자는 Azure 가상 네트워크에서 기본 라우팅 테이블 항목을 변경할 수 있습니다. 라우팅 동작을 제어하면 특정 장치 또는 장치 그룹의 모든 트래픽이 특정 위치를 통해 Azure 가상 네트워크에 진입하거나 떠납니다.
+Azure 네트워킹은 Azure 가상 네트워크의 네트워크 트래픽에 대한 라우팅 동작을 사용자 지정할 수 있는 기능을 지원하여 사용자는 Azure 가상 네트워크에서 기본 라우팅 테이블 항목을 변경할 수 있습니다. 라우팅 동작을 제어하면 특정 장치 또는 장치 그룹의 모든 트래픽이 특정 위치를 통해 가상 네트워크에 진입하거나 떠납니다.
 
 예를 들어, Azure 가상 네트워크에 가상 네트워크 보안 어플라이언스가 있을 수 있습니다. Azure 가상 네트워크에 들어 오고 나가는 모든 트래픽이 가상 보안 어플라이언스를 거치게 할 수 있습니다. Azure에서 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md)를 구성하면 이 작업을 수행할 수 있습니다.
 
@@ -106,7 +95,7 @@ Azure 네트워킹은 Azure 가상 네트워크의 네트워크 트래픽에 대
 * 응용 프로그램 액세스 제어
 * 추가적인 DDoS 보호(Azure 패브릭 자체에서 제공하는 DDoS 보호 이외)
 
-Azure 파트너 솔루션을 사용하여 이러한 향상된 네트워크 보안 기능에 액세스할 수 있습니다. [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/) 에 방문하여 “보안" 및 “네트워크 보안"을 검색하여 가장 최신의 Azure 파트너 네트워크 보안 솔루션을 찾을 수 있습니다.
+Azure 파트너 솔루션을 사용하여 이러한 향상된 네트워크 보안 기능에 액세스할 수 있습니다. [Azure Marketplace](https://azure.microsoft.com/marketplace/)에 방문하여 “보안" 및 “네트워크 보안"을 검색하여 가장 최신의 Azure 파트너 네트워크 보안 솔루션을 찾을 수 있습니다.
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>안전한 원격 액세스 및 크로스-프레미스 연결
 Azure 리소스의 설정, 구성 및 관리는 원격으로 수행해야 합니다. 또한, 온-프레미스와 Azure 공용 클라우드에 구성 요소가 있는 [하이브리드 IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) 솔루션을 배포할 수 있습니다. 이러한 시나리오에는 보안 원격 액세스가 필요합니다.
@@ -141,7 +130,7 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 지점 및 사이트 간과 사이트 간 VPN 연결은 크로스-프레미스 연결에 효과적입니다. 그러나 일부 조직에서는 다음과 같은 장애가 있는지 고려합니다.
 
 * VPN 연결은 인터넷을 통해 데이터를 이동합니다. 따라서 이러한 연결은 공용 네트워크를 통한 데이터 이동과 관련된 잠재적인 보안 문제에 노출됩니다. 또한, 인터넷 연결의 안정성 및 가용성을 보장할 수 없습니다.
-* Azure 가상 네트워크에 VPN 연결 시 일부 응용 프로그램 및 목적에 대해 제약된 대역폭(최대 약 200Mbps)을 고려해야 합니다.
+* Azure Virtual Network에 VPN 연결 시 일부 응용 프로그램 및 목적에 대해 제약된 대역폭(최대 약 200Mbps)을 고려해야 합니다.
 
 크로스-프레미스 연결에 대해 가장 높은 수준의 보안 및 가용성이 필요한 조직은 일반적으로 원격 사이트에 연결하기 위해 전용 WAN 링크를 사용합니다. Azure에서는 Azure 가상 네트워크에 온-프레미스 네트워크를 연결하기 위해 사용할 수 있는 전용 WAN 링크를 사용할 수 있습니다. 이 작업은 Azure Express 경로를 통해 활성화됩니다.
 
@@ -156,7 +145,7 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 
 더 나은 옵션은 Azure 가상 네트워크-Azure 가상 네트워크의 사이트 간 VPN을 만드는 것입니다. 이 Azure 가상 네트워크-Azure 가상 네트워크의 사이트 간 VPN에서는 위에 언급한 크로스-프레미스 사이트 간 VPN 연결과 같은 [IPsec 터널 모드](https://technet.microsoft.com/library/cc786385.aspx) 프로토콜을 사용합니다.
 
-Azure 가상 네트워크-Azure 가상 네트워크의 사이트 간 VPN을 사용하는 이점은 VPN 연결이 Azure 네트워크 패브릭을 통해 설정되며 인터넷을 통해 연결하지 않는다는 것입니다. 따라서 인터넷을 통해 연결하는 사이트 간 VPN에 비해 추가적인 보안 계층을 제공합니다.
+Azure Virtual Network-Azure Virtual Network의 사이트 간 VPN을 사용하는 이점은 VPN 연결이 인터넷을 통해 연결되지 않고 Azure 네트워크 패브릭을 통해 설정된다는 것입니다. 따라서 인터넷을 통해 연결하는 사이트 간 VPN에 비해 추가적인 보안 계층을 제공합니다.
 
 자세한 정보:
 
@@ -214,19 +203,6 @@ Azure Load Balancer를 사용하여 Azure에서 네트워크 수준 부하 분�
 
 * [트래픽 관리자란?](../traffic-manager/traffic-manager-overview.md)
 
-## <a name="logging"></a>로깅
-네트워크 수준에서 로깅은 네트워크 보안 시나리오의 핵심 기능입니다. Azure에서는 네트워크 보안 그룹에 대해 획득한 정보를 로깅하여 네트워크 수준 로깅 정보를 얻을 수 있습니다. NSG 로깅을 사용하여 다음에서 정보를 얻습니다.
-
-* [활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) – Azure 구독에 제출된 모든 작업을 확인하는 데 사용됩니다. 이러한 로그는 기본적으로 사용 설정되며 Azure 포털 내에서 사용할 수 있습니다. 이전에는 이러한 로그를 "감사 로그" 또는 "작업 로그"라고도 했습니다.
-* 이벤트 로그 – 어떤 NSG 규칙이 적용 되었는지에 대한 정보를 제공합니다.
-* 카운터 로그 – 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용된 횟수를 알 수 있습니다.
-
-또한 강력한 시각화 도구인 [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/)를 사용하여 이러한 로그를 보고 분석할 수도 있습니다.
-
-자세한 정보:
-
-* [NSG(네트워크 보안 그룹)에 대한 Log Analytics](../virtual-network/virtual-network-nsg-manage-log.md)
-
 
 ## <a name="name-resolution"></a>이름 확인
 이름 확인은 Azure에서 호스팅하는 모든 서비스에 대해 중요한 기능입니다. 보안 관점에서 이름 확인 기능이 손상되면 공격자가 사용자의 사이트에서 공격자의 사이트로 요청을 리디렉션할 수 있습니다. 보안 이름 확인은 사용자의 모든 클라우드 호스팅 서비스의 요구 사항입니다.
@@ -270,8 +246,25 @@ Azure는 Azure DNS의 형태로 가용성과 성능이 뛰어난 외부 DNS 솔�
 
 * [Microsoft 클라우드 서비스 및 네트워크 보안](../best-practices-network-security.md)
 
-## <a name="azure-security-center"></a>Azure 보안 센터
-보안 센터는 위협을 예방, 감지 및 대응하는 데 도움이 되며 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 제공합니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
+
+## <a name="monitoring-and-threat-detection"></a>감사 및 위협 검색
+
+Azure에서는 초기 검색, 모니터링 및 네트워크 트래픽을 수집 및 검토하는 기능으로 이러한 영역에서 사용자를 지원합니다.
+
+### <a name="azure-network-watcher"></a>Azure Network Watcher
+Azure Network Watcher에는 보안 문제 식별에 도움이 되는 새로운 도구 집합을 제공할 뿐만 아니라 문제 해결에 도움이 되는 수 많은 기능이 포함되어 있습니다.
+
+[보안 그룹 보기](/network-watcher/network-watcher-security-group-view-overview.md)는 Virtual Machines의 감사 및 보안 준수를 돕고, 조직에서 정의한 기준 정책을 각 사용자 VM을 위한 실질적 규칙과 비교하는 프로그래밍 방식 감사를 수행하는 데 사용될 수 있습니다. 그러면 모든 구성 드리프트를 식별하는 데 도움이 됩니다.
+
+[패킷 캡처](/network-watcher/network-watcher-packet-capture-overview.md)를 사용하면 가상 컴퓨터에서 네트워크 트래픽을 캡처할 수 있습니다. 패킷 캡처는 네트워크 통계를 수집하고 응용 프로그램 문제를 해결할 수 있도록 돕는 것 외에도 네트워크 침입에 대한 조사에도 매우 유용할 수 있습니다. 또한 이 기능을 Azure Functions와 함께 사용하면 특정 Azure 경고에 대한 응답으로 네트워크 캡처를 시작할 수 있습니다.
+
+Azure Network Watcher 및 사용자 실험실에서 몇 가지 기능 테스트를 시작하는 방법에 대한 자세한 내용은 [Azure Network Watcher 모니터링 개요](/network-watcher/network-watcher-monitoring-overview.md)를 참조하세요.
+
+>[!NOTE]
+Azure Network Watcher는 아직 공개 미리 보기 상태이므로 일반 공급 릴리스에 있는 서비스와 동일한 수준의 가용성 및 안정성을 제공하지 않을 수 있습니다. 특정 기능은 지원되지 않을 수 있고, 기능이 제한될 수 있으며 일부 Azure 위치에서 사용하지 못할 수도 있습니다. 이 서비스의 가용성 및 상태에 대한 최신 알림을 보려면 [Azure 업데이트 페이지](https://azure.microsoft.com/updates/?product=network-watcher)를 참조하세요.
+
+### <a name="azure-security-center"></a>Azure 보안 센터
+보안 센터는 위협을 예방, 감지 및 대응하는 데 도움이 되며 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 제공합니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 다양한 보안 솔루션 집합에서 작동합니다.
 
 Azure 보안 센터는 다음과 같은 방법을 통해 네트워크 보안을 최적화하고 모니터링하는 데 도움을 줍니다.
 
@@ -282,4 +275,18 @@ Azure 보안 센터는 다음과 같은 방법을 통해 네트워크 보안을 
 자세한 정보:
 
 * [Azure 보안 센터 소개](../security-center/security-center-intro.md)
+
+
+### <a name="logging"></a>로깅
+네트워크 수준에서 로깅은 네트워크 보안 시나리오의 핵심 기능입니다. Azure에서는 네트워크 보안 그룹에 대해 획득한 정보를 로깅하여 네트워크 수준 로깅 정보를 얻을 수 있습니다. NSG 로깅을 사용하여 다음에서 정보를 얻습니다.
+
+* [활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) – Azure 구독에 제출된 모든 작업을 확인하는 데 사용됩니다. 이러한 로그는 기본적으로 사용 설정되며 Azure 포털 내에서 사용할 수 있습니다. 이전에는 이러한 로그를 "감사 로그" 또는 "작업 로그"라고도 했습니다.
+* 이벤트 로그 – 어떤 NSG 규칙이 적용 되었는지에 대한 정보를 제공합니다.
+* 카운터 로그 – 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용된 횟수를 알 수 있습니다.
+
+또한 강력한 시각화 도구인 [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/)를 사용하여 이러한 로그를 보고 분석할 수도 있습니다.
+
+자세한 정보:
+
+* [NSG(네트워크 보안 그룹)에 대한 Log Analytics](../virtual-network/virtual-network-nsg-manage-log.md)
 

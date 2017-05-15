@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: bed8e0c2b5d4d42fb0510f6b55cfab7404c01b11
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4918648906212ea9708b6c6f0e89d1f4bb7bdcc5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -129,29 +130,15 @@ IoT Hub에서 기본 제공 Event Hub 호환 끝점을 노출하여 응용 프�
       ![Azure Portal에서 함수 앱에 테이블 저장소 추가](media\iot-hub-store-data-in-azure-table-storage\4_azure-portal-function-app-add-output-table-storage.png)
    1. 필요한 정보를 입력합니다.
 
+      **테이블 매개 변수 이름**: Azure Functions 코드에 사용될 이름으로 `outputTable`을 사용합니다.
+      
       **테이블 이름**: 이름으로 `deviceData`를 사용합니다.
 
-      **저장소 계정 연결**: **새로 만들기**를 클릭하고 저장소 계정을 선택합니다.
+      **저장소 계정 연결**: **새로 만들기**를 클릭하고 저장소 계정을 선택하거나 입력합니다.
    1. **Save**를 클릭합니다.
 1. **트리거** 아래에서 **Azure Event Hub(myEventHubTrigger)**를 클릭합니다.
 1. **Event Hub 소비자 그룹** 아래에서 만든 소비자 그룹의 이름을 입력한 다음 **저장**을 클릭합니다.
 1. **개발**을 클릭한 다음 **파일 보기**를 클릭합니다.
-1. **추가**를 클릭하여 `package.json`이라는 새 파일을 추가하고, 다음 정보를 붙여넣고, **저장**을 클릭합니다.
-
-   ```json
-   {
-      "name": "iothub_save_message_to_table",
-      "version": "0.0.1",
-      "private": true,
-      "main": "index.js",
-      "author": "Microsoft Corp.",
-      "dependencies": {
-         "azure-iothub": "1.0.9",
-         "azure-iot-common": "1.0.7",
-         "moment": "2.14.1"
-      }
-   }
-   ```
 1. `index.js`의 코드를 다음으로 바꾼 다음 **저장**을 클릭합니다.
 
    ```javascript
@@ -159,34 +146,20 @@ IoT Hub에서 기본 제공 Event Hub 호환 끝점을 노출하여 응용 프�
 
    // This function is triggered each time a message is revieved in the IoTHub.
    // The message payload is persisted in an Azure Storage Table
-   var moment = require('moment');
-
+ 
    module.exports = function (context, iotHubMessage) {
-      context.log('Message received: ' + JSON.stringify(iotHubMessage));
-      context.bindings.outputTable = {
-      "partitionKey": moment.utc().format('YYYYMMDD'),
-         "rowKey": moment.utc().format('hhmmss') + process.hrtime()[1] + '',
-         "message": JSON.stringify(iotHubMessage)
-      };
-      context.done();
+    context.log('Message received: ' + JSON.stringify(iotHubMessage));
+    var date = Date.now();
+    var partitionKey = Math.floor(date / (24 * 60 * 60 * 1000)) + '';
+    var rowKey = date + '';
+    context.bindings.outputTable = {
+     "partitionKey": partitionKey,
+     "rowKey": rowKey,
+     "message": JSON.stringify(iotHubMessage)
+    };
+    context.done();
    };
    ```
-1. **함수 앱 설정** > **개발자 콘솔 열기**를 차례로 클릭합니다.
-
-   함수 앱의 `wwwroot` 폴더에 있어야 합니다.
-1. 다음 명령을 실행하여 함수 폴더로 이동합니다.
-
-   ```bash
-   cd <your function name>
-   ```
-1. 다음 명령을 실행하여 npm 패키지를 설치합니다.
-
-   ```bash
-   npm install
-   ```
-
-   > [!Note]
-   > 설치를 완료하는 데 약간의 시간이 걸릴 수 있습니다.
 
 지금까지 함수 앱을 만들었습니다. IoT Hub에서 받는 메시지를 Azure 테이블 저장소에 저장합니다.
 
@@ -207,3 +180,4 @@ IoT Hub에서 기본 제공 Event Hub 호환 끝점을 노출하여 응용 프�
 Azure 저장소 계정과 Azure 함수 앱을 만들어 IoT Hub에서 받는 메시지를 Azure 테이블 저장소에 저장했습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

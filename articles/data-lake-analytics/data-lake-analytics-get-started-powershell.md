@@ -3,8 +3,8 @@ title: "Azure PowerShell을 사용하여 Azure Data Lake Analytics 시작 | Micr
 description: "Azure PowerShell을 사용하여 Data Lake Analytics 계정을 만들고, U-SQL을 사용하여 Data Lake Analytics 작업을 만들고, 작업을 제출하는 방법에 대해 알아봅니다. "
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.service: data-lake-analytics
@@ -12,199 +12,142 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
+ms.date: 05/04/2017
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2bc3e4573ff4f202c3c8492e8110dc35c7e8ff2a
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 6985dff332928d704f30e167c3bddb62bcc6cac1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Azure PowerShell을 사용하여 Azure Data Lake 분석 계정을 만들고, [U-SQL](data-lake-analytics-u-sql-get-started.md)로 Data Lake 분석 작업을 정의하고, 작업을 Data Lake 분석 계정에 제출하는 방법에 대해 알아봅니다. Data Lake Analytics에 대한 자세한 내용은 [Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)를 참조하세요.
-
-이 자습서에서는 TSV(탭 분리 값) 파일을 읽고 CSV(쉼표로 구분된 값) 파일로 변환하는 작업을 개발합니다. 지원되는 다른 도구를 사용하여 같은 자습서를 진행하려면 이 섹션의 맨 위에 있는 탭을 클릭하세요.
+Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정을 만든 다음 U-SQL 작업을 제출하고 실행하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서를 시작하기 전에 다음이 있어야 합니다.
+이 자습서를 시작하기 전에 다음 정보가 있어야 합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
-## <a name="create-data-lake-analytics-account"></a>데이터 레이크 분석 계정 만들기
-모든 작업을 실행하기 전에 Data Lake Analytics 계정이 있어야 합니다. 데이터 레이크 분석 계정을 만들려면 다음을 지정해야 합니다.
+## <a name="preparing-for-the-tutorial"></a>자습서 준비
+Data Lake Analytics 계정을 만들려면 다음을 지정해야 합니다.
 
-* **Azure 리소스 그룹**: Azure 리소스 그룹 내에서 데이터 레이크 분석 계정을 만들어야 합니다. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
-
-    구독에서 리소스 그룹을 나열하려면:
-
-        Get-AzureRmResourceGroup
-
-    새 리소스 그룹을 만들려면 다음을 수행합니다.
-
-        New-AzureRmResourceGroup `
-            -Name "<Your resource group name>" `
-            -Location "<Azure Data Center>" # For example, "East US 2"
-* **데이터 레이크 분석 계정 이름**
+* **Azure 리소스 그룹**: Azure 리소스 그룹 내에서 Data Lake Analytics 계정을 만들어야 합니다.
+* **Data Lake Analytics 계정 이름**: Data Lake 계정 이름은 소문자와 숫자만을 포함해야 합니다.
 * **위치**: 데이터 레이크 분석을 지원하는 Azure 데이터 센터 중 하나입니다.
-* **기본 데이터 레이크 계정**: 각 데이터 레이크 분석 계정에는 기본 데이터 레이크 계정이 있습니다.
+* **기본 Data Lake Store 계정**: 각 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다. 이러한 계정은 동일한 위치에 있어야 합니다.
 
-    새 데이터 레이크 계정을 만들려면:
+이 자습서의 PowerShell 코드 조각은 이러한 변수를 사용하여 이 정보를 저장합니다.
 
-        New-AzureRmDataLakeStoreAccount `
-            -ResourceGroupName "<Your Azure resource group name>" `
-            -Name "<Your Data Lake account name>" `
-            -Location "<Azure Data Center>"  # For example, "East US 2"
+```
+$rg = "<ResourceGroupName>"
+$adls = "<DataLakeAccountName>"
+$adla = "<DataLakeAnalyticsAccountName>"
+$location = "East US 2"
+```
 
-  > [!NOTE]
-  > 데이터 레이크 계정 이름은 소문자와 숫자만 포함해야 합니다.
-  >
-  >
+## <a name="create-a-data-lake-analytics-account"></a>Data Lake 분석 계정 만들기
 
-**데이터 레이크 분석 계정을 만들려면**
+사용할 리소스 그룹이 아직 없는 경우 만듭니다. 
 
-1. Windows 워크스테이션에서 PowerShell ISE를 엽니다.
-2. 다음 스크립트를 실행합니다.
+```
+New-AzureRmResourceGroup -Name  $rg -Location $location
+```
 
-        $resourceGroupName = "<ResourceGroupName>"
-        $dataLakeStoreName = "<DataLakeAccountName>"
-        $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-        $location = "East US 2"
+모든 Data Lake Analytics 계정에는 로그를 저장하는 데 사용할 기본 Data Lake Store 계정이 필요합니다. 기존 계정을 다시 사용하거나 새 계정을 만들 수 있습니다. 
 
-        Write-Host "Create a resource group ..." -ForegroundColor Green
-        New-AzureRmResourceGroup `
-            -Name  $resourceGroupName `
-            -Location $location
+```
+New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
+```
 
-        Write-Host "Create a Data Lake account ..."  -ForegroundColor Green
-        New-AzureRmDataLakeStoreAccount `
-            -ResourceGroupName $resourceGroupName `
-            -Name $dataLakeStoreName `
-            -Location $location
+리소스 그룹 및 Data Lake Store 계정을 사용할 수 있게 되면 Data Lake Analytics 계정을 만듭니다.
 
-        Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
-        New-AzureRmDataLakeAnalyticsAccount `
-            -Name $dataLakeAnalyticsName `
-            -ResourceGroupName $resourceGroupName `
-            -Location $location `
-            -DefaultDataLake $dataLakeStoreName
+```
+New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
+```
 
-        Write-Host "The newly created Data Lake Analytics account ..."  -ForegroundColor Green
-        Get-AzureRmDataLakeAnalyticsAccount `
-            -ResourceGroupName $resourceGroupName `
-            -Name $dataLakeAnalyticsName  
+## <a name="get-information-about-a-data-lake-analytics-account"></a>Data Lake Analytics 계정에 대한 정보 가져오기
 
-## <a name="upload-data-to-data-lake"></a>데이터 레이크에 데이터 업로드
-이 자습서에서는 몇 가지 검색 로그를 처리합니다.  검색 로그는 데이터 레이크 저장소 또는 Azure Blob 저장소에 저장할 수 있습니다.
+```
+Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla  
+```
 
-샘플 검색 로그 파일이 공용 Azure Blob 컨테이너에 복사되었습니다. 다음 PowerShell 스크립트를 사용하여 파일을 사용자의 워크스테이션에 다운로드한 다음 데이터 레이크 분석 계정의 기본 데이터 레이크 저장소 계정에 업로드합니다.
+## <a name="submit-a-u-sql-job"></a>U-SQL 작업 제출
 
-    $dataLakeStoreName = "<The default Data Lake Store account name>"
+다음 U-SQL 스크립트가 포함된 텍스트 파일을 만듭니다.
 
-    $localFolder = "C:\Tutorials\Downloads\" # A temp location for the file.
-    $storageAccount = "adltutorials"  # Don't modify this value.
-    $container = "adls-sample-data"  #Don't modify this value.
+```
+@a  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso", 1500.0),
+            ("Woodgrove", 2700.0)
+        ) AS 
+              D( customer, amount );
+OUTPUT @a
+    TO "/data.csv"
+    USING Outputters.Csv();
+```
 
-    # Create the temp location    
-    New-Item -Path $localFolder -ItemType Directory -Force
+스크립트를 제출합니다.
 
-    # Download the sample file from Azure Blob storage
-    $context = New-AzureStorageContext -StorageAccountName $storageAccount -Anonymous
-    $$blobs = Get-AzureStorageBlob -Container $container -Context $context
-    $blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
+```
+Submit-AdlJob -AccountName $adla –ScriptPath "d:\test.usql"Submit
+```
 
-    # Upload the file to the default Data Lake Store account    
-    Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $localFolder"SearchLog.tsv" -Destination "/Samples/Data/SearchLog.tsv"
+## <a name="monitor-u-sql-jobs"></a>U-SQL 작업 모니터링
 
-다음 PowerShell 스크립트에서는 데이터 레이크 분석 계정에 대한 기본 데이터 레이크 저장소 이름을 가져오는 방법을 보여 줍니다.
+계정에서 모든 작업을 나열합니다. 출력은 현재 실행 중인 작업 및 최근에 완료된 해당 작업을 포함합니다.
 
-    $resourceGroupName = "<ResourceGroupName>"
-    $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeStoreAccount
-    echo $dataLakeStoreName
+```
+Get-AdlJob -Account $adla
+```
 
-> [!NOTE]
-> Azure 포털은 기본 데이터 레이크 저장소 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다. 자세한 내용은 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md#prepare-source-data)을 참조하세요.
->
->
+특정 작업의 상태를 가져옵니다.
 
-데이터 레이크 분석은 Azure Blob 저장소에 액세스할 수도 있습니다.  Azure Blob 저장소에 데이터를 업로드하려면 [Azure 저장소와 Azure PowerShell 사용](../storage/storage-powershell-guide-full.md)을 참조하세요.
+```
+Get-AdlJob -AccountName $adla -JobId $job.JobId
+```
 
-## <a name="submit-data-lake-analytics-jobs"></a>데이터 레이크 분석 작업 제출
-데이터 레이크 분석 작업은 U-SQL 언어로 작성됩니다. U-SQL에 대한 자세한 내용은 [U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
+작업이 완료될 때까지 Get-AdlAnalyticsJob을 호출하지 않고 Wait-AdlJob cmdlet을 사용할 수 있습니다.
 
-**데이터 레이크 분석 작업 스크립트를 만들려면**
+```
+Wait-AdlJob -Account $adla -JobId $job.JobId
+```
 
-* 다음 U-SQL 스크립트를 사용하여 텍스트 파일을 만들고 사용자의 워크스테이션에 텍스트 파일을 저장합니다.
+작업이 완료되면 폴더의 파일을 나열하여 출력 파일이 있는지 확인합니다.
 
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
+```
+Get-AdlStoreChildItem -Account $adls -Path "/"
+```
 
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
+파일의 존재 여부를 확인합니다.
 
-    이 U-SQL 스크립트는 **Extractors.Tsv()**를 사용하여 원본 데이터 파일을 읽은 다음 **Outputters.Csv()**를 사용하여 csv 파일을 만듭니다.
+```
+Test-AdlStoreItem -Account $adls -Path "/data.csv"
+```
 
-    원본 파일을 다른 위치에 복사하지 않는 한 두 경로를 수정하지 마세요.  출력 폴더가 없는 경우 데이터 레이크 분석에서 해당 폴더를 만듭니다.
+## <a name="uploading-and-downloading-files"></a>파일 업로드 및 다운로드
 
-    기본 데이터 레이크 계정에 저장된 파일의 상대 경로를 사용하는 것이 더 쉽습니다. 절대 경로를 사용할 수도 있습니다.  예를 들면 다음과 같습니다.
+U-SQL 스크립트의 출력을 다운로드합니다.
 
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+```
+Export-AdlStoreItem -AccountName $adls -Path "/data.csv"  -Destination "D:\data.csv"
+```
 
-    연결된 저장소 계정의 파일에 액세스하려면 절대 경로를 사용해야 합니다.  연결된 Azure 저장소 계정에 저장된 파일에 대한 구문은 다음과 같습니다.
 
-        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+사용할 파일을 U-SQL 스크립트에 대한 입력으로 업로드합니다.
 
-  > [!NOTE]
-  > 공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob 컨테이너는 현재 지원되지 않습니다.    
-  >
-  >
-
-**작업을 제출하려면**
-
-1. Windows 워크스테이션에서 PowerShell ISE를 엽니다.
-2. 다음 스크립트를 실행합니다.
-
-        $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-        $usqlScript = "c:\tutorials\data-lake-analytics\copyFile.usql"
-
-        $job = Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript
-
-        Wait-AdlJob -Account $dataLakeAnalyticsName -JobId $job.JobId
-
-        Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
-
-    스크립트에서 U-SQL 스크립트 파일은 c:\tutorials\data-lake-analytics\copyFile.usql에 저장됩니다. 이에 따라 파일 경로를 업데이트합니다.
-
-작업이 완료된 후 다음 cmdlet을 사용하여 파일을 나열하고 다운로드할 수 있습니다.
-
-    $resourceGroupName = "<Resource Group Name>"
-    $dataLakeAnalyticName = "<Data Lake Analytic Account Name>"
-    $destFile = "C:\tutorials\data-lake-analytics\SearchLog-from-Data-Lake.csv"
-
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
-
-    Get-AzureRmDataLakeStoreChildItem -AccountName $dataLakeStoreName -path "/Output"
-
-    Export-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "/Output/SearchLog-from-Data-Lake.csv" -Destination $destFile
+```
+Import-AdlStoreItem -AccountName $adls -Path "D:\data.tsv" -Destination "/data_copy.csv" 
+```
 
 ## <a name="see-also"></a>참고 항목
 * 다른 도구를 사용하여 같은 자습서를 보려면 페이지 맨 위의 탭 선택기를 클릭합니다.
-* 더 복잡한 쿼리를 보려면 [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
-* U-SQL 응용 프로그램 개발을 시작하려면 [Visual Studio용 Data Lake 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 * U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
-* 관리 작업을 보려면 [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
-* 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
+* 관리 작업을 보려면 [Azure Portal을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 

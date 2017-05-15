@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 01850cbf8967fd5f79db64103fb18c6ec01babea
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 637473db37985a4a89ddb19e02eebc377902c942
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.lasthandoff: 03/06/2017
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-* 최신 버전의 [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* 최신 버전의 [Azure PowerShell](/powershell/azure/overview)
 * Visual Studio 2017, 2015 또는 무료 [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)
 * 컴퓨터에 대한 관리자 권한
@@ -138,7 +139,7 @@ GitHub에 있는 TollApp 폴더의 Setup.ps1 스크립트를 사용하여 필요
 
 [TollApp](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) 폴더 및 파일 지원을 다운로드하고 저장합니다.
 
-**Microsoft Azure PowerShell** 창을 *관리자 권한으로*엽니다. Azure PowerShell이 아직 없는 경우 [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 지침에 따라 설치합니다.
+**Microsoft Azure PowerShell** 창을 *관리자 권한으로*엽니다. Azure PowerShell이 아직 없는 경우 [Azure PowerShell 설치 및 구성](/powershell/azure/overview) 지침에 따라 설치합니다.
 
 Windows는 .ps1, .dll 및 .exe 파일을 자동으로 차단하기 때문에 스크립트를 실행하기 전에 실행 정책을 설정해야 합니다. Azure PowerShell 창이 *관리자 권한*으로 실행되고 있는지 확인합니다. **Set-ExecutionPolicy unrestricted**를 실행합니다. 메시지가 표시되면 **Y**를 입력합니다.
 
@@ -208,12 +209,12 @@ Visual Studio를 사용하여 출력 데이터베이스의 쿼리 결과에 액�
 Visual Studio에서 SQL Database(대상)에 연결합니다.
 
 1. Visual Studio를 열고 **도구** > **데이터베이스에 연결**을 클릭합니다.
-2. 표시되는 메시지에 따라 **Microsoft SQL Server** 를 데이터 원본으로 클릭합니다.
+2. 표시되는 메시지에 따라 **Microsoft SQL Server**를 데이터 원본으로 클릭합니다.
    
     ![데이터 원본 변경 대화 상자](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)
 3. **서버 이름** 필드에 Azure Portal에서 이전 섹션에 복사한 이름(예: *servername*.database.windows.net)을 붙여 넣습니다.
 4. **SQL Server 인증 사용**을 클릭합니다.
-5. **사용자 이름** 필드에 **tolladmin**을, **암호** 필드에 in the **123toll!** 을 입력합니다.
+5. **사용자 이름** 필드에 **tolladmin**을, **암호** 필드에 in the **123toll!**을 입력합니다.
 6. **데이터베이스 이름 선택 또는 입력**을 클릭하고 데이터베이스로 **TollDataDB**를 선택합니다.
    
     ![연결 추가 대화 상자](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)
@@ -255,7 +256,7 @@ PowerShell 스크립트는 TollApp 응용 프로그램 예제를 사용하여 �
 6. 원본은 **Event hub**입니다.
 7. **Service Bus 네임스페이스**는 드롭다운에서 TollData 항목이어야 합니다.
 8. **Event hub 이름**은 **항목**으로 설정해야 합니다.
-9. **Event hub 정책 이름*은**RootManageSharedAccessKey**(기본값)입니다.
+9. **이벤트 허브 정책 이름*은 **RootManageSharedAccessKey**(기본값)입니다.
 10. **이벤트 직렬화 형식**에 대해 **JSON**을, **인코딩**에 대해 **UTF8**을 선택합니다.
    
     설정이 다음과 같이 표시됩니다.
@@ -313,7 +314,7 @@ PowerShell 스크립트는 TollApp 응용 프로그램 예제를 사용하여 �
     FROM EntryStream TIMESTAMP BY EntryTime
     GROUP BY TUMBLINGWINDOW(minute, 3), TollId
 
-아시다시피 Azure Stream Analytics는 SQL과 유사한 쿼리어를 사용하고 몇 가지 확장을 추가하여 쿼리의 시간 관련 측면을 지정합니다.
+아시다시피 Azure Stream Analytics는 SQL과 유사한 쿼리를 사용하고 몇 가지 확장을 추가하여 쿼리의 시간 관련 측면을 지정합니다.
 
 자세한 내용을 보려면 MSDN의 쿼리에 사용된 [시간 관리](https://msdn.microsoft.com/library/azure/mt582045.aspx) 및 [창 작업](https://msdn.microsoft.com/library/azure/dn835019.aspx) 구문을 참조하세요.
 
@@ -396,7 +397,7 @@ WHERE Registration.Expired = '1'
 
 ## <a name="check-results-in-visual-studio"></a>Visual Studio에서 결과 확인
 1. Visual Studio 서버 탐색기를 열고 **TollDataRefJoin** 테이블을 마우스 오른쪽 단추로 클릭합니다.
-2. **테이블 데이터 표시** 를 선택하면 작업의 출력을 볼 수 있습니다.
+2. **테이블 데이터 표시**를 선택하면 작업의 출력을 볼 수 있습니다.
    
     ![서버 탐색기의 "테이블 데이터 표시" 선택 항목](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)
 
@@ -429,7 +430,7 @@ Azure Stream Analytics는 탄력적으로 크기를 조정하여 많은 양의 �
 이 자습서에서는 Azure Stream Analytics 서비스에 대해 소개했습니다. Stream Analytics 작업에 대해 입력 및 출력을 구성하는 방법을 보여 줍니다. 이 자습서에서는 지금까지 요금 데이터 시나리오를 통해 동작 중인 데이터 공간에서 발생하는 일반적인 문제 유형과 Azure Stream Analytics에서 간단한 SQL 유사 쿼리를 사용하여 이러한 문제를 해결하는 방법을 설명했습니다. 또한 임시 데이터 작업을 위한 SQL 확장 구성을 설명했습니다. 데이터 스트림을 조인하는 방법 및 정적 참조 데이터를 사용하여 데이터 스트림을 보강하는 방법과 처리량을 높일 수 있도록 쿼리를 확장하는 방법을 설명했습니다.
 
 이 자습서가 개요에 해당하는 내용을 잘 소개하고는 있지만 완전하지는 않습니다. [일반적인 Stream Analytics 사용 패턴에 대한 쿼리 예제](stream-analytics-stream-analytics-query-patterns.md)에서 SQL 언어를 사용하는 추가 쿼리 패턴을 찾을 수 있습니다.
-Azure Stream Analytics에 대한 자세한 내용을 알아보려면 [온라인 설명서](https://azure.microsoft.com/documentation/services/stream-analytics/) 를 참조하세요.
+Azure Stream Analytics에 대한 자세한 내용을 알아보려면 [온라인 설명서](https://azure.microsoft.com/documentation/services/stream-analytics/)를 참조하세요.
 
 ## <a name="clean-up-your-azure-account"></a>Azure 계정 정리
 1. Azure Portal에서 Stream Analytics 작업을 중지합니다.

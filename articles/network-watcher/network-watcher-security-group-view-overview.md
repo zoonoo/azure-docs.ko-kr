@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 04/26/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: de48da2c77c65f3e806474ae37ffd00772622b02
-ms.lasthandoff: 03/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 2c581a2d152a6d3f16de8f249e27a426aa9f844f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 ---
 
 # <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Azure Network Watcher에서 네트워크 보안 그룹 보기 소개
 
-네트워크 보안 그룹은 서브넷 수준 또는 NIC 수준에서 연결할 수 있습니다. 서브넷 수준에서 연결되는 경우 서브넷의 모든 VM 인스턴스에 적용됩니다. 네트워크 보안 그룹 보기는 NIC 및 서브넷 수준에서 연결된 모든 구성된 NSG 및 규칙을 반환합니다. 또한 VM의 각 NIC에 대해 유효 보안 규칙이 반환됩니다. 네트워크 보안 그룹 보기를 사용하여 열린 포트와 같은 네트워크 취약점에 대해 VM을 평가할 수 있습니다. 또한 네트워크 보안 그룹이 구성된 보안 규칙 및 유효 보안 규칙 간의 비교에 따라 예상대로 작동하는지 검증할 수도 있습니다.
+네트워크 보안 그룹은 서브넷 수준 또는 NIC 수준에서 연결됩니다. 서브넷 수준에서 연결되는 경우 서브넷의 모든 VM 인스턴스에 적용됩니다. 네트워크 보안 그룹 보기는 가상 컴퓨터에 대한 NIC 및 서브넷 수준에서 연결된 모든 구성된 NSG 및 규칙을 반환하여 구성을 이해하기 쉽게 합니다. 또한 VM의 각 NIC에 대해 유효 보안 규칙이 반환됩니다. 네트워크 보안 그룹 보기를 사용하여 열린 포트와 같은 네트워크 취약점에 대해 VM을 평가할 수 있습니다. 또한 네트워크 보안 그룹이 [구성된 보안 규칙 및 유효 보안 규칙 간의 비교](network-watcher-nsg-auditing-powershell.md)에 따라 예상대로 작동하는지 검증할 수도 있습니다.
 
 더 확장된 사용 사례는 보안 규정 준수 및 감사에 있습니다. 조직의 보안 관리를 위해 규범적인 보안 규칙의 집합을 모델로 정의할 수 있습니다. 정기적 규정 준수 감사는 네트워크의 각 VM에 대해 규범적인 규칙을 유효 규칙과 비교하여 프로그래밍 방식으로 구현할 수 있습니다.
 

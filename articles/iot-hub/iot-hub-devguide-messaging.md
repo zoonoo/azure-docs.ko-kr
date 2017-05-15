@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: ac3f4d2220c1902f00049ce237468ddee992209d
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
 
 
@@ -290,8 +291,7 @@ IoT Hub 메시지는 다음을 구성합니다.
 | --- | --- |
 | MessageId |사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | 시퀀스 번호 |숫자(장치 큐 별로 고유함)는 IoT Hub에서 각 클라우드-장치 메시지에 할당됩니다. |
-| 받는 사람
- |[클라우드-장치][lnk-c2d] 메시지에 지정된 대상입니다. |
+| 받는 사람 |[클라우드-장치][lnk-c2d] 메시지에 지정된 대상입니다. |
 | ExpiryTimeUtc |메시지 만료 날짜 및 시간입니다. |
 | EnqueuedTime |IoT Hub에서 [클라우드-장치][lnk-c2d] 메시지를 수신한 날짜 및 시간입니다. |
 | CorrelationId |일반적으로 요청-응답 패턴으로 요청의 MessageId가 포함된 응답 메시지의 String 속성입니다. |

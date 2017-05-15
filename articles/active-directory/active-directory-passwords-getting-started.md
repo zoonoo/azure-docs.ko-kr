@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d138f4135d008c746bd5501680392b80a51786fa
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: b4d2819f51506651ebeb5b7b7c2d016c0cfc154d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -61,15 +61,15 @@ IT 관리자는 SSPR(셀프 서비스 암호 재설정)을 사용하여 사용�
 **현재는 Azure AD 테넌트에 SSPR을 구성했습니다**. 여기서 그만 해도 되고 계속해서 온-프레미스 AD 도메인에 암호 동기화를 구성해도 됩니다.
 
 > [!NOTE]
-> 관리자가 아닌 사용자로 SSPR을 테스트합니다. Microsoft가 Azure 관리자 유형 계정에 강력한 인증 요구 사항을 적용하기 때문입니다. 관리자 암호 정책에 대한 자세한 내용은 [심층 분석 문서](active-directory-passwords-how-it-works.md)를 참조하세요.
+> 관리자가 아닌 사용자로 SSPR을 테스트합니다. Microsoft가 Azure 관리자 유형 계정에 강력한 인증 요구 사항을 적용하기 때문입니다. 관리자 암호 정책에 대한 자세한 내용은 [암호 정책 문서](active-directory-passwords-policy.md#administrator-password-policy-differences)를 참조하세요.
 
 ## <a name="configure-synchronization-to-existing-identity-source"></a>기존 ID 소스에 동기화 구성
 
-Azure AD에 온-프레미스 ID 동기화를 사용하려면 조직의 서버에 [Azure AD Connect](/connect/active-directory-aadconnect.md)를 설치하고 구성해야 합니다. 이 응용 프로그램은 기존 ID 소스에서 Azure AD 도메인으로의 사용자 및 그룹 동기화를 처리합니다.
+Azure AD에 온-프레미스 ID 동기화를 사용하려면 조직의 서버에 [Azure AD Connect](./connect/active-directory-aadconnect.md)를 설치하고 구성해야 합니다. 이 응용 프로그램은 기존 ID 소스에서 Azure AD 도메인으로의 사용자 및 그룹 동기화를 처리합니다.
 
-[기본 설정을 사용하여 Azure AD Connect 시작](/connect/active-directory-aadconnect-get-started-express.md)
+[기본 설정을 사용하여 Azure AD Connect 시작](./connect/active-directory-aadconnect-get-started-express.md)
 
-[DirSync 또는 Azure AD Sync에서 Azure AD Connect로 업그레이드](/connect/active-directory-aadconnect-dirsync-deprecated.md)
+[DirSync 또는 Azure AD Sync에서 Azure AD Connect로 업그레이드](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 
 ## <a name="disabling-self-service-password-reset"></a>셀프 서비스 암호 재설정 해제
 

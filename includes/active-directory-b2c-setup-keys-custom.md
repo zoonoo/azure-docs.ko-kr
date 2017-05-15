@@ -1,71 +1,36 @@
-> [!NOTE]
-> 이러한 경험을 개선하고 다음 단계를 사용하지 않을 계획입니다.
 
-### <a name="create-an-administrator-credential-in-the-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트에서 관리자 자격 증명을 만듭니다.
+### <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>사용자 지정 정책에서 사용하기 위해 B2C 테넌트에 서명 및 암호화 키 추가
 
-다음 섹션을 수행하려면 Azure AD B2C 테넌트의 도메인을 사용하는 자격 증명을 사용해야 합니다. 이렇게 하려면 이러한 자격 증명으로 관리자 계정을 만들어야 합니다. 이렇게 하려면 다음을 수행합니다.
+1. Azure AD B2C 테넌트 설정에서 ID 경험 프레임워크 블레이드로 이동합니다.
+1. `Policy Keys`을 선택하여 테넌트에 사용 가능한 키를 봅니다. `B2C_1A_TokenSigningKeyContainer`이 있으면 이 키를 건너뜁니다.
+1. `TokenSigningKeyContainer`을 만듭니다.  
+ * `+Add`
+ * 을 클릭합니다.옵션 > `Generate`
+ * 이름 > `TokenSigningKeyContainer`B2C_1A_ 접두사를 자동으로 추가할 수 있습니다.
+ * 키 유형 > `RSA`
+ * 날짜 - 기본값 사용
+ * 키 사용 > `Signature`
+1. `Create`을 클릭합니다.
+1. `B2C_1A_TokenEncryptionKeyContainer`이라는 키가 있으면 이 키를 건너뜁니다.
+1. `TokenEncryptionKeyContainer`를 만듭니다.
+ * 옵션 > `Generate`
+ * 이름 > `TokenSigningKeyContainer`B2C_1A_ 접두사를 자동으로 추가할 수 있습니다.
+ * 키 유형 > `RSA`
+ * 날짜 - 기본값 사용
+ * 키 사용 > `Encryption`
+1. `Create`을 클릭합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 Azure AD B2C 테넌트의 컨텍스트로 전환하고 Azure AD B2C 블레이드를 엽니다. [방법 표시.](..\articles\active-directory-b2c\active-directory-b2c-navigate-to-b2c-context.md)
-1. **사용자 및 그룹**을 선택합니다.
-1. **모든 사용자**를 선택합니다.
-1. **+ 새 사용자**를 클릭합니다.
-    * **이름** = `Admin`을 설정합니다.
-    * **사용자 이름** = `admin@{tenantName}.onmicrosoft.com`을 설정합니다. 여기서 `{tenantName}`은 Azure AD B2C 테넌트의 이름입니다.
-1. **디렉터리 역할**에서 **전역 관리자**를 선택하고 **확인**을 누릅니다.
-1. **만들기**를 클릭하여 관리 사용자를 만듭니다.
-1. **암호 표시**를 선택하고 암호를 복사합니다.
 
-### <a name="set-up-the-key-container"></a>키 컨테이너 설정
+[!TIP]
+최종 사용자에게 소셜 ID 공급자 또는 페더레이션된 ID 공급자를 제공하려는 경우 다음 단계는 선택 사항입니다.  Facebook은 사용자 지정 정책을 사용하여 Azure AD B2C에서 외부 ID 공급자에 대해 자세히 알아보기 위한 좋은 출발점입니다.
 
-키 컨테이너는 키를 저장하는 데 사용됩니다. 키 컨테이너를 설정하려면:
+1. `FacebookSecret`를 만듭니다.  선택적이지만 외부에서 페더레이션하는 기능을 테스트하기 위해 이 단계가 권장됩니다.  이렇게 하면 다른 ID 공급자와 함께 정책을 한층 더 발전시키는 든든한 시작점을 만들게 됩니다.
+ * `+Add`을 클릭합니다.
+ * 옵션 > `Manual`
+ * 이름 > `FacebookSecret`B2C_1A_ 접두사를 자동으로 추가할 수 있습니다.
+ * 암호 > developers.facebook.com에서 FacebookSecret을 입력합니다.  *Facebook 앱 ID가 아닙니다.*
+ * 키 사용 > 서명
+1. `Create`을 클릭하고 생성되었는지 확인하고 이름을 적어둡니다.
 
-1. 새 powershell 명령 프롬프트를 엽니다.  여는 방법 중 하나는 **Windows 로고 키 + R** 키를 누르고, `powershell`을 입력하고, Enter 키를 누르는 것입니다.
-1. powershell ExploreAdmin 도구를 다운로드하려면 이 재현을 다운로드합니다.
-
-    ```powershell
-    git clone https://github.com/Azure-Samples/active-directory-b2c-advanced-policies
-    ```
-
-1. ExploreAdmin 도구를 사용하여 폴더로 전환합니다.
-
-    ```powershell
-    cd active-directory-b2c-advanced-policies\ExploreAdmin
-    ```
-
-1. powershell로 ExploreAdmin 도구를 가져옵니다.
-
-    ```powershell
-    Import-Module .\ExploreAdmin.dll
-    ```
-
-1. `b2c_1a_TokenSigningKeyContainer`가 아직 없는지 확인합니다.  `{tenantName}`을 테넌트 이름으로 바꿉니다.
-
-    ```powershell
-    Get-CpimKeyContainer -TenantId {tenantName}.onmicrosoft.com -StorageReferenceId b2c_1a_TokenSigningKeyContainer -ForceAuthenticationPrompt
-    ```
-
-    a. 로그인 프롬프트가 나타나면 이전 섹션에서 만든 관리자 계정을 사용합니다.
-
-    b. 메시지가 표시되면 전화 번호를 입력하여 Multi-Factor Authentication을 설정해야 합니다.
-
-    c. 메시지가 표시되면 암호를 변경합니다.
-
-    d. **오류가 예상됩니다!**  `b2c_1a_TokenSigningKeyContainer`를 찾을 수 없다는 오류가 표시될 것입니다.  오류가 발생하지 않으면 이미 이 단계를 완료한 것이므로 이 섹션의 나머지 단계를 건너뜁니다.
-
-1. `b2c_1a_TokenSigningKeyContainer`를 만듭니다.  `{tenantName}`을 테넌트 이름으로 바꿉니다.
-
-    ```powershell
-    New-CpimKeyContainer {tenantName}.onmicrosoft.com  b2c_1a_TokenSigningKeyContainer  b2c_1a_TokenSigningKeyContainer rsa 2048 0 0
-    ```
-
-1. `b2c_1a_TokenEncryptionKeyContainer`를 만듭니다.  `{tenantName}`을 테넌트 이름으로 바꿉니다.
-
-    ```powershell
-    New-CpimKeyContainer {tenantName}.onmicrosoft.com b2c_1a_TokenEncryptionKeyContainer b2c_1a_TokenEncryptionKeyContainer rsa 2048 0 0
-    ```
-
-1. `b2c_1a_FacebookSecret`를 만듭니다.  `{tenantName}`을 테넌트 이름으로 바꿉니다.
-
-    ```powershell
-    New-CpimKeyContainer {tenantName}.onmicrosoft.com  b2c_1a_FacebookSecret  b2c_1a_FacebookSecret rsa 2048 0 0
-    ```
+[!NOTE]
+Azure AD B2C 기본 제공 정책을 사용하는 경우 기본 제공 및 사용자 지정 정책에 대해 일반적으로 동일한 암호를 사용합니다. 

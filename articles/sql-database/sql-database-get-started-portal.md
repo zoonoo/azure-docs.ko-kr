@@ -14,12 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/03/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 90761317944b935b76df65d25a2035bfabe71c09
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: dbed7fe1f6ffdb40d445a66890b63baaf7a57f54
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -143,11 +144,8 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 컬렉션의 다른 빠른 시작은 이 빠른 시작을 기반으로 합니다. 
+다른 빠른 시작/자습서에서 이러한 리소스가 필요하지 않으면([다음 단계](#next-steps) 참조) 다음을 수행하여 삭제할 수 있습니다.
 
-> [!TIP]
-> 다음 빠른 시작을 사용하여 계속하려는 경우 이 빠른 시작에서 만든 리소스를 정리하지 않습니다. 계속하지 않으려는 경우 다음 단계에 따라 Azure Portal에서 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
->
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**과 **myResourceGroup**을 차례로 클릭합니다. 
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에 **myResourceGroup**을 입력한 후 **삭제**를 클릭합니다.

@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: fc6e4eaa34694e2b20cb53b3e457803c59bf76b9
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: 47fb74c608315b256e88dd774af7cb5260529607
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/29/2017
 
 
 ---
@@ -620,7 +621,7 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | me
 | left  | 왼쪽 쿼리의 모든 레코드와 오른쪽 쿼리에서 일치하는 레코드를 반환합니다. |
 
 
-- 조인은 현재 **IN** 키워드 또는 **Measure** 명령을 포함하는 쿼리를 지원하지 않습니다.
+- 조인 기능은 오른쪽 쿼리의 필드가 대상인 경우 **IN** 키워드, **Measure** 명령 또는 **Extend** 명령을 포함하는 쿼리를 현재 지원하지 않습니다.
 - 현재는 조인에 단일 필드만 포함할 수 있습니다.
 - 단일 검색에서 둘 이상의 조인이 포함되지 않을 수 있습니다.
 

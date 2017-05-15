@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 04/14/2017
+wms.date: 04/26/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 884cd19bdfb1bf53d75cb27e840c448eff8bc991
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
+ms.openlocfilehash: 0ab804ee1dc25f1e44be856564ac8ffa87c54dea
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -55,7 +56,7 @@ ms.lasthandoff: 04/21/2017
 ||||||
 
 > [!IMPORTANT]
-> P11 및 P15 성능 수준을 사용하는 고객에게는 추가 비용 없이 최대 4TB의 개별 데이터베이스가 공개 미리 보기로 제공됩니다. 저장소 용량 750GB 이상의 프리미엄 풀도 현재 제공됩니다. 이러한 추가 저장소 옵션은 현재 미국 동부2, 미국 서부, 유럽 서부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부에서 사용할 수 있습니다. [현재 4TB 제한 사항](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)을 참조하세요.
+> 이러한 추가 저장소 옵션은 현재 미국 동부2, 미국 서부, 유럽 서부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부에서 사용할 수 있습니다. [현재 4TB 제한 사항](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)을 참조하세요.
 >
 
 최소 서비스 계층을 결정하면 데이터베이스에 대한 성능 수준을 결정할 준비가 되었습니다(DTU의 수). 표준 S2 및 S3 성능 수준이 좋은 시작점인 경우가 많습니다. 높은 CPU 또는 IO 요구 사항의 데이터베이스의 경우 프리미엄 성능 수준이 적합한 시작점입니다. 프리미엄은 더 많은 CPU를 제공하고 높은 표준 성능 수준에 비해 10배 이상의 IO에서 시작합니다.

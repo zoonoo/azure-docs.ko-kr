@@ -1,6 +1,7 @@
 ---
-title: "Azure Active Directory 포털 – 미리 보기의 위험에 노출된 사용자 보안 보고서 | Microsoft Docs"
-description: "Azure Active Directory 포털 – 미리 보기의 위험에 노출된 사용자 보안 보고서에 대해 알아보기"
+
+title: "Azure Active Directory 포털의 위험에 노출된 사용자 보안 보고서 | Microsoft Docs"
+description: "Azure Active Directory 포털의 위험에 노출된 사용자 보안 보고서에 대해 알아보기"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,18 +11,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 349109e0c12a1394f96529a94ab884eeb451d242
-ms.openlocfilehash: 48c504a9ed5bc4ef9f0bff889df031962c5bf6e8
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal---preview"></a>Azure Active Directory 포털 – 미리 보기의 위험에 노출된 사용자 보안 보고서
+# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 위험에 노출된 사용자 보안 보고서
 
-Azure Active Directory [미리 보기](active-directory-preview-explainer.md)의 보안 보고를 사용하여 사용자 환경에서 손상된 사용자 계정의 확률에 대한 정보를 얻을 수 있습니다. 
+Azure Active Directory(Azure AD)에서 보안 보고를 통해 사용자 환경에서 손상된 사용자 계정의 확률에 대한 정보를 얻을 수 있습니다. 
 
 Azure Active Directory는 사용자 계정에 관련된 의심스러운 작업을 감지합니다. 작업이 감지된 경우 *위험 이벤트*라는 레코드가 만들어집니다. 자세한 내용은 [Azure Active Directory 위험 이벤트](active-directory-identity-protection-risk-events.md)를 참조하세요. 
 

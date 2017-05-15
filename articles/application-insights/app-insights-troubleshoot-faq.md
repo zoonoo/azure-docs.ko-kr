@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: awills
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
 ms.openlocfilehash: 191d9e1197c3526d2f72b972b7fada76dee84447
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/13/2017
 
 
@@ -249,7 +250,7 @@ SDK를 사용하고 SDK API(app-insights-api-custom-events-metrics.md)를 사용
 
 ### <a name="firewall-door"></a>방화벽 문
 
-원격 분석에서 끝점 https://dc.services.visualstudio.com:443 및 https://rt.services.visualstudio.com:443으로 원격 분석으로 보내도록 허용합니다. 
+원격 분석에서 끝점 https://dc.services.visualstudio.com:443 및 https://rt.services.visualstudio.com:443 으로 원격 분석으로 보내도록 허용합니다. 
 
 ### <a name="proxy"></a>Proxy
 

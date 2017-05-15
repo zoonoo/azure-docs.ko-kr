@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 05/08/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bd2291129a1a61f69e83cb76748d00b9ede6eb6f
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: ec658f4c74d54a11684460c0e634303793480152
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -66,7 +67,7 @@ ms.lasthandoff: 04/18/2017
    >
 9. **보안 정책** 블레이드에서 **켜기**를 클릭하고 이 구독에 사용할 보안 권장 사항을 활성화합니다. **방지 정책** 을 클릭하면 다음 스크린샷과 같은 옵션이 표시됩니다.
 
-    ![보안 정책 선택](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
+    ![보안 정책 선택](./media/security-center-policies/security-center-policies-fig4-newUI.png)
 
 다음 테이블을 참조로 사용하여 각 옵션을 이해합니다.
 
@@ -82,6 +83,7 @@ ms.lasthandoff: 04/18/2017
 | SQL 감사 및 위협 감지 |조사를 위해 규정 준수 및 고급 위협 감지에 대해 Azure 데이터베이스에 대한 액세스 감사를 활성화하는 것이 좋습니다. |
 | SQL 투명한 데이터 암호화 |Azure SQL Database, 연결된 백업 및 트랜잭션 로그 파일에 대해 휴지 상태의 암호화를 활성화하는 것이 좋습니다. 데이터 위반이 있더라도 데이터를 읽을 수 없습니다. |
 | 취약점 평가 |VM에 취약점 평가 솔루션을 설치하는 것이 좋습니다. |
+| 저장소 암호화 |현재 이 기능은 Azure Blob 및 Files에서 사용할 수 있습니다. 저장소 서비스 암호화를 사용하도록 설정하더라도 이후 새 데이터만이 암호화되고 이 저장소 계정의 기존 파일은 암호화되지 않은 상태로 유지됩니다. |
 
 옵션을 모두 구성하면 권장 사항이 있는 **보안 정책** 블레이드에서 **확인**을 클릭하고 초기 설정이 있는 **보안 정책** 블레이드에서 **저장**을 클릭합니다.
 

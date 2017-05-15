@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/06/2017
 ms.author: negat
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: f300537943b76e53b0e7c271e65293e585a2cd32
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 8e9caf7eebc17682b3204004e3a74331efbd04fb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -28,7 +29,7 @@ ms.lasthandoff: 03/24/2017
 
 ## <a name="change-the-template-definition"></a>템플릿 정의 변경
 
-실행 가능한 최소 크기 집합 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)에 있으며, 기존 가상 네트워크에 크기 집합을 배포하기 위한 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json)에 있습니다. 이 템플릿(`git diff master minimum-viable-scale-set`)을 하나씩 만드는 데 사용되는 diff에 대해 살펴보겠습니다.
+실행 가능한 최소 크기 집합 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)에 있으며, 기존 가상 네트워크에 크기 집합을 배포하기 위한 템플릿은 [여기](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json)에 있습니다. 이 템플릿(`git diff minimum-viable-scale-set existing-vnet`)을 하나씩 만드는 데 사용되는 diff에 대해 살펴보겠습니다.
 
 먼저 `subnetId` 매개 변수를 추가합니다. 이 문자열은 크기 집합 구성에 전달되어 크기 집합에서 미리 만든 서브넷을 식별하여 가상 컴퓨터를 배포할 수 있게 합니다. 이 문자열의 형식은 `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`이어야 합니다. 예를 들어 `myvnet` 이름, `mysubnet` 서브넷, `myrg` 리소스 그룹 및 `00000000-0000-0000-0000-000000000000` 구독을 사용하여 기존 가상 네트워크에 크기 집합을 배포하려면 subnetId가 `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`이 됩니다.
 

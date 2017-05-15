@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 11ecfc993f17c89d4ac4431e9a835000d30afe76
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -105,9 +106,9 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 위 예제에서는 **appgw-RG**라는 리소스 그룹과 **미국 서부**라는 위치를 만들었습니다.
 
 > [!NOTE]
-> 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브를 구성해야 하는 경우 [PowerShell을 사용하여 사용자 지정 프로브로 응용 프로그램 게이트웨이 만들기](application-gateway-create-probe-ps.md)를 참조하세요. 자세한 내용은 [사용자 지정 프로브 및 상태 모니터링](application-gateway-probe-overview.md)을 확인합니다.
+> 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브를 구성해야 하는 경우 [PowerShell을 사용하여 사용자 지정 프로브로 응용 프로그램 게이트웨이 만들기](application-gateway-create-probe-ps.md)를 참조하세요. 자세한 내용은 [사용자 지정 프로브 및 상태 모니터링](application-gateway-probe-overview.md) 을 확인합니다.
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>응용 프로그램 게이트웨이에 대한 가상 네트워크 및 서브넷 만들기
+## <a name="create-a-virtual-network-and-a-subnet"></a>가상 네트워크 및 서브넷 만들기
 
 다음 예제에서는 리소스 관리자를 사용하여 가상 네트워크를 만드는 방법을 보여 줍니다. 이 예제에서는 Application Gateway에 대한 VNET을 만듭니다. Application Gateway에는 자체의 서브넷이 필요하며, 이러한 이유로 Application Gateway에 대해 만들어진 서브넷은 VNET 주소 공간보다 작습니다. 더 작은 서브넷을 사용하면 동일한 VNET에서 구성할 웹 서버를 포함하지만 이에 제한되지 않는 다른 리소스를 사용할 수 있습니다.
 
@@ -135,7 +136,7 @@ $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -L
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>프런트 엔드 구성에 대한 공용 IP 주소 만들기
+## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
 미국 서부 지역에 리소스 그룹 **appgw-rg**에서 공용 IP 리소스 **publicIP01**을 만듭니다. Application Gateway는 공용 IP 주소, 내부 IP 주소 또는 둘 다를 사용하여 부하 분산 요청을 받을 수 있습니다.  이 예제에서는 공용 IP 주소만 사용합니다. 다음 예제에는 공용 IP 주소를 만들도록 구성된 DNS 이름이 없습니다.  Application Gateway는 공용 IP 주소에서 사용자 지정 DNS 이름을 지원하지 않습니다.  공용 끝점에 사용자 지정 이름이 필요한 경우 공용 IP 주소에 대해 자동으로 생성된 DNS 이름을 가리키도록 CNAME 레코드를 만들어야 합니다.
 
@@ -219,7 +220,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > [!NOTE]
 > **InstanceCount** 의 기본값은 2이고, 최대값은 10입니다. **GatewaySize** 의 기본값은 보통입니다. **Standard_Small**, **Standard_Medium** 및 **Standard_Large** 간에 선택할 수 있습니다.
 
-## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>New-AzureRmApplicationGateway를 사용하여 응용 프로그램 게이트웨이 만들기
+## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
 이전 단계의 모든 구성 항목으로 응용 프로그램 게이트웨이를 만듭니다. 이 예제에서는 응용 프로그램 게이트웨이를 **appgwtest**라고 합니다.
 
@@ -233,7 +234,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
 ```
 
-## <a name="delete-an-application-gateway"></a>응용 프로그램 게이트웨이 삭제
+## <a name="delete-the-application-gateway"></a>응용 프로그램 게이트웨이 삭제
 
 응용 프로그램 게이트웨이를 삭제하려면 다음 단계를 따릅니다.
 
@@ -296,6 +297,14 @@ IpConfiguration          : {
 DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
+```
+
+## <a name="delete-all-resources"></a>모든 리소스 삭제
+
+이 문서에서 만든 모든 리소스를 삭제하려면 다음 단계를 완료합니다.
+
+```powershell
+Remove-AzureRmResourceGroup -Name appgw-RG
 ```
 
 ## <a name="next-steps"></a>다음 단계

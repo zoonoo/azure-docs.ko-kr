@@ -1,7 +1,7 @@
 ---
 title: "Azure HDInsight에서 HBase 시작 | Microsoft Docs"
 description: "HDInsight에서 Hadoop을 통해 Apache HBase 사용을 시작하려면 이 HBase 자습서를 따르세요. HBase 셸에서 테이블을 만들고 Hive를 사용하여 쿼리합니다."
-keywords: "apache hbase, hbase, hbase 셸, hbase 자습서"
+keywords: "apache hbase, hbase, hbase 셸, hbase 자습서, beeline"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/22/2017
+ms.date: 05/08/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 21d8dff230e045607b70013f4eabf1bfe8ec3993
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: a935fe574bffaad109abd13151c4da1027210014
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -30,14 +31,11 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="prerequisites"></a>필수 조건
-이 HBase 자습서를 시작하기 전에 다음이 있어야 합니다.
+이 HBase 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * [SSH(Secure Shell)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [curl](http://curl.haxx.se/download.html).
-
-### <a name="access-control-requirements"></a>액세스 제어 요구 사항
-[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-hbase-cluster"></a>HBase 클러스터 만들기
 다음 절차에서는 Azure Resource Manager 템플릿을 사용하여 버전 3.4 HBase Linux 기반 클러스터 및 종속된 기본 Azure Storage 계정을 만듭니다. 절차에 사용되는 매개 변수와 다른 클러스터 생성 메서드를 이해하려면 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
@@ -45,12 +43,12 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 공용 Blob 컨테이너에 있습니다. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. **사용자 지정 배포** 블레이드에서 다음을 입력합니다.
+2. **사용자 지정 배포** 블레이드에서 다음 값을 입력합니다.
    
    * **구독**: 클러스터를 만드는 데 사용할 Azure 구독을 선택합니다.
-   * **리소스 그룹** - 새 Azure 리소스 관리 그룹을 만들거나 기존 그룹을 사용합니다.
+   * **리소스 그룹**: Azure 리소스 관리 그룹을 만들거나 기존 그룹을 사용합니다.
    * **위치**: 리소스 그룹의 위치를 지정합니다. 
-   * **ClusterName**: 만들려는 HBase 클러스터의 이름을 입력합니다.
+   * **클러스터 이름**: HBase 클러스터의 이름을 입력합니다.
    * **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 **admin**입니다.
    * **SSH 사용자 이름 및 암호**: 기본 사용자 이름은 **sshuser**입니다.  이름은 변경할 수 있습니다.
      
@@ -75,7 +73,6 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
 
 ![HDInsight HBase BigTable 데이터][img-hbase-sample-data-bigtable]
 
-다음 절차를 완료한 후가 더 적절합니다.  
 
 **HBase 셸을 사용하려면**
 
@@ -123,7 +120,7 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-텍스트 파일을 만들고 원하는 경우 고유한 저장소 계정에 파일을 업로드할 수 있습니다. 지침에 대해서는 [HDInsight에서 Hadoop 작업용 데이터 업로드][hdinsight-upload-data]를 참조하세요.
+필요에 따라 텍스트 파일을 만들고 고유한 저장소 계정에 파일을 업로드할 수 있습니다. 지침에 대해서는 [HDInsight에서 Hadoop 작업용 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
 > [!NOTE]
 > 이 절차는 마지막 절차에서 만든 연락처 HBase 테이블을 사용합니다.
@@ -139,19 +136,14 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 3. HBase 셸을 열고 스캔 명령을 사용하여 테이블 내용을 나열할 수 있습니다.
 
 ## <a name="use-hive-to-query-hbase"></a>Hive를 사용하여 HBase 쿼리
+
 Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다. 이 섹션에서는 HBase 테이블에 매핑되는 Hive 테이블을 만들고 이를 사용하여 HBase 테이블의 데이터를 쿼리합니다.
 
-> [!NOTE]
-> Hive 및 HBase가 동일한 VNet에서 서로 다른 클러스터에 있는 경우 Hive 셸을 호출하는 동안 zookeeper 쿼럼을 전달해야 합니다.
->
->       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
->
->
-
 1. **PuTTY**를 열고 클러스터에 연결합니다.  이전 절차의 지침을 참조하세요.
-2. Hive 셸을 엽니다.
-   
-       hive
+2. SSH 세션에서 다음 명령을 사용하여 Beeline을 시작합니다.
+
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    Beeline에 대한 자세한 내용은 [Beeline을 사용하여 HDInsight에서 Hadoop과 Hive 사용](hdinsight-hadoop-use-hive-beeline.md)을 참조하세요.
        
 3. 다음 HiveQL 스크립트를 실행하여 HBase 테이블에 매핑되는 Hive 테이블을 만듭니다. 이 문을 실행하기 전에 HBase 셸을 사용하여 이 자습서의 앞에서 참조한 샘플 테이블을 만들었는지 확인합니다.
    
@@ -161,31 +153,12 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 4. HBase 테이블에서 데이터를 쿼리하려면 다음 HiveQL 스크립트를 실행합니다.
    
-         SELECT count(*) FROM hbasecontacts;
+         SELECT * FROM hbasecontacts;
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Curl을 사용하여 HBase REST API 사용
-> [!NOTE]
-> WebHCat에서 Curl 또는 다른 모든 REST 통신을 사용하는 경우 HDInsight 클러스터 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다. 또한 클러스터 이름을 서버로 요청을 보내는 데 사용되는 URI(Uniform Resource Identifier)의 일부로 사용해야 합니다.
-> 
-> 이 섹션의 명령에서 **USERNAME**은 클러스터에 대해 인증할 사용자로 바꾸고 **PASSWORD**는 사용자 계정의 암호로 바꿉니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다.
-> 
-> REST API는 [기본 인증](http://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
-> 
-> 
 
-1. 명령줄에서 다음 명령을 사용하여 HDInsight 클러스터에 연결할 수 있는지 확인합니다.
-   
-        curl -u <UserName>:<Password> \
-        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
-   
-    그러면 다음과 같은 응답이 표시됩니다.
-   
-        {"status":"ok","version":"v1"}
-   
-    이 명령에서 사용된 매개 변수는 다음과 같습니다.
-   
-   * **-u** - 요청을 인증하는 데 사용되는 사용자 이름 및 암호입니다.
-   * **-G** - GET 요청임을 나타냅니다.
+REST API는 [기본 인증](http://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
+
 2. 다음 명령을 사용하여 기존의 HBase 테이블을 나열합니다.
    
         curl -u <UserName>:<Password> \
@@ -225,10 +198,20 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 
 HBase Rest에 대한 자세한 내용은 [Apache HBase 참조 가이드](https://hbase.apache.org/book.html#_rest)를 참조하세요.
 
->
 > [!NOTE]
 > Thrift는 HDInsight의 HBase에서 지원되지 않습니다.
 >
+> WebHCat에서 Curl 또는 다른 모든 REST 통신을 사용하는 경우 HDInsight 클러스터 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다. 또한 클러스터 이름을 서버로 요청을 보내는 데 사용되는 URI(Uniform Resource Identifier)의 일부로 사용해야 합니다.
+> 
+>   
+>        curl -u <UserName>:<Password> \
+>        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+>   
+>    그러면 다음과 유사한 응답이 표시됩니다.
+>   
+>        {"status":"ok","version":"v1"}
+   
+
 
 ## <a name="check-cluster-status"></a>클러스터 상태 확인
 HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 제공됩니다. 웹 UI를 사용하여 지역에 대한 정보 또는 통계를 요청할 수 있습니다.
@@ -253,6 +236,10 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
 불일치를 방지하기 위해 클러스터를 삭제하기 전에 HBase 테이블을 사용하지 않도록 설정하는 것이 좋습니다.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## <a name="troubleshoot"></a>문제 해결
+
+HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 만드는 방법 및 테이블을 만들고 HBase 셸에서 가져온 데이터를 이 테이블에서 보는 방법을 알아보았습니다. 또한 HBase 테이블에서 데이터에 대해 Hive 쿼리를 사용하는 방법 및 HBase C# REST API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법도 알아보았습니다.

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: ibiza
 ms.topic: get-started-article
 ms.workload: tbd
-ms.date: 03/14/2017
+ms.date: 05/05/2017
 ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 5ea258a8c790dd94e019243e77f2ff694c2515d7
-ms.lasthandoff: 03/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: bfae0fcf992c38d7afef6140fdd79d87ab0ecb4f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -239,6 +240,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 * [Application Insights에 Azure 진단을 보내도록 구성](app-insights-azure-diagnostics.md)
 * [Application Insights 리소스 만들기 자동화](app-insights-powershell.md)
 * [Azure 진단 자동화](app-insights-powershell-azure-diagnostics.md)
+* [Azure 기능](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/04/2017
 ms.author: kgremban
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 4f7860b906ab988c918de31d53f4a958e4dea83b
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -31,9 +31,7 @@ ms.lasthandoff: 04/28/2017
 Azure AD 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램을 인터넷에 액세스되도록 게시하여 원격 작업자를 지원할 수 있습니다. 이제 [Azure 클래식 포털에서 응용 프로그램 프록시를 사용하도록 설정](active-directory-application-proxy-enable.md)했어야 합니다. 이 문서에서는 로컬 네트워크에 실행 중인 응용 프로그램을 게시하는 단계를 안내하고 네트워크 외부에서 안전한 원격 액세스를 제공합니다. 이 문서를 완료하면 응용 프로그램에 개인 설정된 정보 또는 보안 요구 사항을 구성할 준비가 됩니다.
 
 > [!NOTE]
-> 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
-
-응용 프로그램 프록시 공개 미리 보기를 사용하려는 경우 [Azure Portal에서 응용 프로그램을 게시](application-proxy-publish-azure-portal.md)할 수 있습니다.
+> 응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요. 응용 프로그램 프록시를 사용하려는 경우 [Azure Portal에서 응용 프로그램을 게시](application-proxy-publish-azure-portal.md)할 수 있습니다.
 
 ## <a name="publish-an-app-using-the-wizard"></a>마법사를 사용하여 앱 게시
 1. [Azure 클래식 포털](https://manage.windowsazure.com/)에서 관리자로 로그인합니다.

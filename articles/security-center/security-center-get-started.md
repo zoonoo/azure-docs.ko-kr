@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: fcc43e5d98f75b34f2d65c9e1ce8eeba7762caaf
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 0ca7382ed64fd548f8a086893ea2e3187dd26929
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -80,8 +81,8 @@ Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성할 수 있�
    ![Azure Security Center의 권장 사항][5]
 2. **권장 사항을** 블레이드에서 권장 사항을 선택하여 자세한 정보를 표시하거나 문제를 해결하기 위한 조치를 선택합니다.
 
-### <a name="view-the-health-and-security-state-of-your-resources"></a>리소스의 상태 및 보안 상태 보기
-1. **Security Center** 블레이드로 돌아갑니다. **리소스 보안 상태** 타일에는 가상 컴퓨터, 네트워킹, 데이터 및 응용 프로그램의 보안 상태에 대한 지표가 포함되어 있습니다.
+### <a name="view-the-security-state-of-your-resources"></a>리소스의 보안 상태 보기
+1. **Security Center** 블레이드로 돌아갑니다. 대시보드의 **방지** 섹션에는 가상 컴퓨터, 네트워킹, 데이터 및 응용 프로그램의 보안 상태에 대한 지표가 포함되어 있습니다.
 2. **Compute**를 선택하여 자세한 정보를 봅니다. 세 개의 탭을 보여 주는 **Compute** 블레이드가 열립니다.
 
   - **개요**: 모니터링 및 가상 컴퓨터 권장 사항을 포함합니다.

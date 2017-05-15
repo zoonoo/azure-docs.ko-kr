@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 04/24/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 1222223f8c45249402bfdd04c8754074f877e132
-ms.openlocfilehash: 1236489212b2a9c421972599a12511d5bc42efdf
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 97845748ef44469d1ec6a91ff8184288dc6350d9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="deploy-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털 배포
-사용자 포털을 사용하여 관리자는 Azure Multi-Factor Authentication 사용자 포털을 설치하고 구성할 수 있습니다. 사용자 포털은 사용자가 Azure Multi-Factor Authentication을 등록하고 계정을 관리할 수 있는 IIS 웹 사이트입니다. 사용자는 다음 로그온 시에 전화 번호를 변경하거나, PIN을 변경하거나, 2단계 검증을 바이패스할 수 있습니다.
+사용자 포털은 사용자가 Azure Multi-Factor Authentication을 등록하고 계정을 관리할 수 있는 IIS 웹 사이트입니다. 사용자는 다음 로그온 시에 전화 번호를 변경하거나, PIN을 변경하거나, 2단계 검증을 바이패스할 수 있습니다.
 
 사용자는 일반 사용자 이름과 암호를 사용하여 사용자 포털에 로그인한 다음 2단계 검증 통화를 완료하거나 보안 질문에 답변하여 인증을 완료합니다. 사용자 등록이 허용되면 사용자 포털에 처음 로그인할 때 전화 번호와 PIN을 구성합니다.
 
@@ -29,14 +31,19 @@ ms.openlocfilehash: 1236489212b2a9c421972599a12511d5bc42efdf
 
 <center>![설정](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
+>[!NOTE] 
+>Multi-Factor Authentication 서버에서만 사용자 포털을 사용할 수 있습니다. 클라우드에서 Multi-Factor Authentication을 사용하는 경우 사용자는 [2단계 인증을 위한 계정 설정](./end-user/multi-factor-authentication-end-user-first-time.md) 또는 [2단계 인증을 위한 설정 관리](./end-user/multi-factor-authentication-end-user-manage-settings.md)를 참조합니다.
+
+
 ## <a name="deploy-the-user-portal-on-the-same-server-as-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버와 동일한 서버의 사용자 포털 배포
 Azure Multi-Factor Authentication 서버와 동일한 서버에 사용자 포털을 설치하려면 다음 필수 요건이 충족되어야 합니다.
 
 * asp.net 및 IIS 6 메타베이스 호환성(IIS 7 이상)을 포함하는 IIS
-* 해당되는 경우 로그인한 사용자는 컴퓨터 및 도메인에 대해 관리자 권한이 있어야 합니다.  계정에 Active Directory 보안 그룹을 만들 수 있는 권한이 필요하기 때문입니다.
+* 해당되는 경우 컴퓨터 및 도메인에 대해 관리자 권한이 있는 계정 계정에는 Active Directory 보안 그룹을 만들 수 있는 사용 권한이 필요합니다.
 
-### <a name="to-deploy-the-user-portal"></a>사용자 포털을 배포하려면
-1. Azure Multi-Factor Authentication 서버 내에서 왼쪽 메뉴에 있는 **사용자 포털** 아이콘을 클릭한 다음 **사용자 포털 설치**를 클릭합니다.
+사용자 포털을 배포하려면 다음 단계를 따르세요.
+
+1. Azure Multi-Factor Authentication 서버에서 왼쪽 메뉴에 있는 **사용자 포털** 아이콘을 클릭한 다음 **사용자 포털 설치**를 클릭합니다.
 2. **다음**을 클릭합니다.
 3. **다음**을 클릭합니다.
 4. 컴퓨터가 도메인에 조인되어 있고 Active Directory가 사용자 포털과 Azure Multi-Factor Authentication 서비스 간의 통신 보안을 유지하도록 구성되지 않은 경우 Active Directory 단계가 표시됩니다. 이 구성을 자동으로 완료하려면 **다음** 단추를 클릭합니다.
@@ -47,22 +54,23 @@ Azure Multi-Factor Authentication 서버와 동일한 서버에 사용자 포털
 
 <center>![설정](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
-## <a name="deploy-the-azure-multi-factor-authentication-server-user-portal-on-a-separate-server"></a>별도 서버에 Azure Multi-Factor Authentication 서버 사용자 포털 배포
-Microsoft Authenticator 앱이 사용자 포털과 통신하도록 허용하려면 다음 요구 사항을 완료합니다. 
+## <a name="deploy-the-user-portal-on-a-separate-server"></a>별도 서버에 사용자 포털 배포
+Azure Multi-Factor Authentication 서버가 실행되고 있는 서버가 인터넷에 연결되지 않은 경우 별도의 인터넷 연결 서버에 사용자 포털을 설치해야 합니다. 
 
-* v6.0 이상의 Azure Multi-Factor Authentication 서버를 사용해야 합니다.
-* Microsoft® IIS(인터넷 정보 서비스) 6.x, IIS 7.x 이상이 실행되는 인터넷 연결 웹 서버에 사용자 포털을 설치해야 합니다.
+조직이 확인 방법 중 하나로 Microsoft Authenticator 앱을 사용하여 자체 서버에 사용자 포털을 배포하려는 경우 다음 요구 사항을 완료합니다. 
+
+* v6.0 이상의 Azure Multi-Factor Authentication 서버를 사용합니다.
+* Microsoft IIS(인터넷 정보 서비스) 6.x 이상이 실행되는 인터넷 연결 웹 서버에 사용자 포털을 설치합니다.
 * IIS 6.x를 사용하는 경우 ASP.NET v2.0.50727이 설치되고, 등록되고, **허용**으로 설정되어야 합니다.
-* IIS 7.x 이상을 사용할 때 필요한 역할 서비스에는 ASP.NET 및 IIS 6 메타베이스 호환성이 포함됩니다.
-* 사용자 포털은 SSL 인증서로 보호되어야 합니다.
-* Azure Multi-Factor Authentication 서버가 설치된 서버의 IIS 6.x, IIS 7.x 이상에 Azure Multi-Factor Authentication 웹 서비스 SDK가 설치되어야 합니다.
-* Azure Multi-Factor Authentication 웹 서비스 SDK는 SSL 인증서로 보호되어야 합니다.
-* 사용자 포털은 SSL을 통해 Azure Multi-Factor Authentication 웹 서비스 SDK에 연결될 수 있어야 합니다.
-* 사용자 포털은 "PhoneFactor Admins" 보안 그룹에서 서비스 계정의 자격 증명을 사용하여 Azure Multi-Factor Authentication 웹 서비스 SDK에 인증해야 합니다. 이 서비스 계정 및 그룹은 Azure Multi-Factor Authentication 서버가 도메인 연결된 서버에서 실행 중인 경우 Active Directory에 존재합니다. 도메인에 연결되지 않은 경우에는 이 서비스 계정 및 그룹이 Azure Multi-Factor Authentication 서버에 로컬로 존재합니다.
+* IIS 7.x 이상을 사용할 때 ASP.NET 및 IIS 6 메타베이스 호환성 역할 서비스가 필요합니다.
+* SSL 인증서를 사용하여 사용자 포털을 보호합니다.
+* SSL 인증서를 사용하여 Azure Multi-Factor Authentication 웹 서비스 SDK를 보호합니다.
+* 사용자 포털이 SSL을 통해 Azure Multi-Factor Authentication 웹 서비스 SDK에 연결될 수 있어야 합니다.
+* 사용자 포털이 "PhoneFactor Admins" 보안 그룹에서 서비스 계정의 자격 증명을 사용하여 Azure Multi-Factor Authentication 웹 서비스 SDK에 인증해야 합니다. 이 서비스 계정 및 그룹은 Azure Multi-Factor Authentication 서버가 도메인 연결된 서버에서 실행 중인 경우 Active Directory에 존재합니다. 도메인에 연결되지 않은 경우에는 이 서비스 계정 및 그룹이 Azure Multi-Factor Authentication 서버에 로컬로 존재합니다.
 
 Azure Multi-Factor Authentication 서버 이외의 서버에 사용자 포털을 설치하려면 다음 세 단계가 필요합니다.
 
-1. 웹 서비스 SDK 설치
+1. Azure Multi-Factor Authentication 서버와 동일한 서버에 웹 서비스 SDK 설치
 2. 사용자 포털 설치
 3. Azure Multi-Factor Authentication 서버에서 사용자 포털 설정 구성
 
@@ -82,12 +90,14 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
     `<add key="SSL_REQUIRED" value="false"/>`
 
 #### <a name="to-install-the-user-portal"></a>사용자 포털을 설치하려면
-1. Azure Multi-Factor Authentication 서버에서 Windows 탐색기를 열고 Azure Multi-Factor Authentication 서버가 설치된 폴더로 이동합니다(예: C:\Program Files\Multi-Factor Authentication Server). 사용자 포털이 설치될 서버에 적절하게 32비트 또는 64비트 버전의 MultiFactorAuthenticationUserPortalSetup 설치 파일을 선택합니다. 인터넷 연결 서버에 설치 파일을 복사합니다.
-2. 인터넷 연결 웹 서버에서 관리자 권한으로 설치 파일을 실행해야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 관리자 권한으로 명령 프롬프트를 열고 설치 파일이 복사된 위치로 이동하는 것입니다.
+1. Azure MFA 서버를 사용하여 서버에서 Windows 탐색기를 열고 Azure Multi-Factor Authentication 서버가 설치된 폴더로 이동합니다(예: C:\Program Files\Multi-Factor Authentication Server). 32비트 또는 64비트 버전의 MultiFactorAuthenticationUserPortalSetup 설치 파일을 인터넷 연결 서버에 복사합니다.
+2. 인터넷 연결 웹 서버에서 관리자 권한으로 파일을 실행합니다. 이 작업을 수행하는 가장 쉬운 방법은 관리자 권한으로 명령 프롬프트를 열고 설치 파일이 복사된 위치로 이동하는 것입니다.
 3. MultiFactorAuthenticationUserPortalSetup64 설치 파일을 실행하고 필요한 경우 사이트 및 가상 디렉터리 이름을 변경합니다.
 4. 사용자 포털의 설치가 끝나면 C:\inetpub\wwwroot\MultiFactorAuth(또는 가상 디렉터리 이름에 따른 적절한 디렉터리)로 이동한 후 web.config 파일을 편집합니다.
-5. USE_WEB_SERVICE_SDK 키를 찾아 값을 false에서 true로 변경합니다. WEB_SERVICE_SDK_AUTHENTICATION_USERNAME 및 WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD 키를 찾아 해당 값을 PhoneFactor Admins 보안 그룹에서 서비스 계정의 사용자 이름 및 암호로 설정합니다(요구 사항 섹션 참조). 줄 끝에 인용 부호를 제외한 사용자 이름 및 암호를 입력합니다(value=””/>). 정규화된 사용자 이름(예: 도메인\사용자 이름 또는 컴퓨터\사용자 이름)을 사용해야 합니다.
-6. pfup_pfwssdk_PfWsSdk 설정을 찾아 해당 값을 "http://localhost:4898/PfWsSdk.asmx"에서 Azure Multi-Factor Authentication 서버에서 실행되는 웹 서비스 SDK의 URL(예: https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx)로 변경합니다. 이 연결에 SSL을 사용하고 SSL 인증서가 서버 이름별로 발급되었기 때문에 웹 서비스 SDK를 IP 주소가 아닌 서버 이름별로 참조합니다. 서버 이름이 인터넷 연결 서버의 IP 주소로 확인되지 않으면 Azure Multi-Factor Authentication 서버의 이름을 해당 IP 주소로 매핑하기 위해 해당 서버의 hosts 파일에 항목을 추가합니다. 변경된 web.config 파일을 저장합니다.
+5. USE_WEB_SERVICE_SDK 키를 찾아 값을 **false**에서 **true**로 변경합니다. 
+6. WEB_SERVICE_SDK_AUTHENTICATION_USERNAME 키를 찾아서 값을 PhoneFactor 관리 보안 그룹에 있는 서비스 계정의 사용자 이름으로 설정합니다. 도메인\사용자 이름 또는 컴퓨터\사용자 이름과 같은 정규화된 사용자 이름을 사용합니다. 
+7. WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD 키를 찾아서 값을 PhoneFactor 관리 보안 그룹에 있는 서비스 계정의 암호로 설정합니다.
+8. pfup_pfwssdk_PfWsSdk 설정을 찾아 해당 값을 "http://localhost:4898/PfWsSdk.asmx"에서 Azure Multi-Factor Authentication 서버에서 실행되는 웹 서비스 SDK의 URL(예: https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx)로 변경합니다. 이 연결에 SSL을 사용하고 SSL 인증서가 서버 이름별로 발급되었기 때문에 웹 서비스 SDK를 IP 주소가 아닌 서버 이름별로 참조합니다. 서버 이름이 인터넷 연결 서버의 IP 주소로 확인되지 않으면 Azure Multi-Factor Authentication 서버의 이름을 해당 IP 주소로 매핑하기 위해 해당 서버의 hosts 파일에 항목을 추가합니다. 변경된 web.config 파일을 저장합니다.
 
     구성 파일을 편집하는 방법에 대한 자세한 내용은 [AD FS와 Azure Multi-factor Authentication 서버를 사용하여 리소스 보안 유지](multi-factor-authentication-get-started-adfs-w2k12.md#edit-the-multifactorauthenticationadfsadapterconfig-file)로 이동하세요.
 
@@ -120,29 +130,29 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 
 ### <a name="to-configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 사용자 포털 설정을 구성하려면
 1. Azure Multi-Factor Authentication 서버에서 **사용자 포털** 아이콘을 클릭합니다. 설정 탭에서 사용자 포털 URL 텍스트 상자에 **사용자 포털 URL**을 입력합니다. 이 URL은 메일 기능이 사용되도록 설정된 경우 Azure Multi-Factor Authentication 서버로 가져올 때 사용자에게 전송되는 메일에 포함됩니다.
-2. 사용자 포털에서 사용하려는 설정을 선택합니다. 예를 들어 사용자가 자신의 인증 방법을 제어할 수 있도록 허용되면, 사용자가 선택할 수 있는 방법과 함께 **사용자가 방법을 선택할 수 있도록 허용** 옵션이 선택되어 있는지 확인합니다.
+2. 사용자 포털에서 사용하려는 설정을 선택합니다. 예를 들어 사용자가 자신의 인증 방법을 선택할 수 있도록 허용되면, 사용자가 선택할 수 있는 방법과 함께 **사용자가 방법을 선택할 수 있도록 허용** 옵션이 선택되어 있는지 확인합니다.
 3. 표시되는 설정을 이해하기 위한 정보를 보려면 오른쪽 위 구석에 있는 **도움말** 링크를 클릭합니다.
 
 <center>![설정](./media/multi-factor-authentication-get-started-portal/config.png)</center>
 
 
 ## <a name="administrators-tab"></a>Administrators(관리자) 탭
-이 탭에서 관리자 권한을 부여할 사용자를 추가할 수 있습니다.  관리자를 추가할 때 관리자에게 부여되는 권한을 세부적으로 조정할 수 있습니다. **추가** 단추를 클릭하고 사용자와 해당 권한을 선택한 다음 **추가**를 클릭하면 됩니다.
+**관리자** 탭을 사용하여 관리자 권한을 부여할 사용자를 추가합니다.  관리자를 추가할 때 관리자에게 부여되는 권한을 세부적으로 조정할 수 있습니다. **추가** 단추를 클릭하고 사용자와 해당 권한을 선택한 다음 **추가**를 클릭하면 됩니다.
 
 ![사용자 포털 관리자](./media/multi-factor-authentication-get-started-portal/admin.png)
 
 ## <a name="security-questions"></a>Security Questions(보안 질문)
-이 탭에서 **대체 방법으로 보안 질문 사용** 옵션을 선택한 경우 답변을 제공해야 하는 보안 질문을 지정할 수 있습니다.  Azure Multi-Factor Authentication 서버에는 사용할 수 있는 기본 질문이 함께 제공됩니다. 순서를 변경하거나 사용자가 직접 질문을 추가할 수 있습니다.  질문을 추가할 때 질문에 사용되는 언어를 지정할 수도 있습니다.
+**보안 질문** 탭을 사용하여 **대체 방법으로 보안 질문 사용** 옵션을 선택한 경우 사용자가 답변을 제공해야 하는 보안 질문을 지정할 수 있습니다.  Azure Multi-Factor Authentication 서버에는 사용할 수 있는 기본 질문이 함께 제공됩니다. 순서를 변경하거나 사용자가 직접 질문을 추가할 수 있습니다.  질문을 추가할 때 질문에 사용되는 언어를 지정할 수도 있습니다.
 
 ![사용자 포털 보안 질문](./media/multi-factor-authentication-get-started-portal/secquestion.png)
 
 ## <a name="saml"></a>SAML
-이 탭을 사용하여 SAML을 사용하는 ID 공급자의 클레임을 받을 수 있는 사용자 포털을 구성합니다.  시간 제한 세션, 확인 인증서 및 로그아웃 리디렉션 URL을 지정할 수 있습니다.
+**SAML** 탭을 사용하여 SAML을 사용하는 ID 공급자의 클레임을 받을 수 있는 사용자 포털을 구성합니다.  시간 제한 세션, 확인 인증서 및 로그아웃 리디렉션 URL을 지정할 수 있습니다.
 
 ![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
 ## <a name="trusted-ips"></a>신뢰할 수 있는 IP
-이 탭을 통해 추가할 수 있는 IP 주소 범위 또는 단일 IP 주소를 지정할 수 있으므로 사용자가 이러한 주소 중 하나에서 로그인하는 경우 2단계 검증을 완료하지 않아도 됩니다.
+**신뢰할 수 있는 IP** 탭을 사용하여 추가할 수 있는 IP 주소 범위 또는 단일 IP 주소를 지정할 수 있으므로 사용자가 이러한 주소 중 하나에서 로그인하는 경우 2단계 검증을 완료하지 않아도 됩니다.
 
 ![사용자 포털 신뢰할 수 있는 IP](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
@@ -175,10 +185,5 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 ![사용자 포털 보안 질문](./media/multi-factor-authentication-get-started-portal/secq.png)  
 
 이제 사용자 자체 등록이 완료되어 사용자가 사용자 포털에 로그인됩니다.  사용자는 관리자가 허용하는 경우 이후에 언제든지 사용자 포털에 다시 로그인하여 전화 번호, PIN, 인증 방법 및 보안 질문을 변경할 수 있습니다.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

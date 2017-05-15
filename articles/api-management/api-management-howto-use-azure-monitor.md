@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: 0f64947755c79739bb6f15325929bd074cfd7210
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/31/2017
 
 ---
@@ -26,7 +27,7 @@ Azure Monitor는 모든 Azure 리소스 모니터링을 위한 단일 소스를 
 다음 비디오는 Azure Monitor를 사용하여 API Management를 모니터링하는 방법을 보여 줍니다. Azure Monitor에 대한 자세한 내용은 [Azure Monitor 시작]을 참조하세요. 
 
 
-> [!비디오 https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 >
 >
  

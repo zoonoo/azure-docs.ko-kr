@@ -1,1 +1,4 @@
-Azure는 현재 두 가지 배포 모델, Resource Manager와 클래식 모델에서 작동합니다. 구성을 시작하기 전에 작업하려는 배포 모델에 대한 지침을 사용 중인지 확인합니다. 자세한 내용은 [배포 모델 이해](../articles/resource-manager-deployment-model.md)를 참조하세요.
+> [!NOTE]
+> Azure는 현재 두 가지 배포 모델, Resource Manager와 클래식 모델에서 작동합니다. 두 가지 모델은 서로 완전히 호환되지 않습니다. 시작하기 전에 어떤 모델을 사용할 것인지 알아야 합니다. 배포 모델에 대한 자세한 내용은 [배포 모델 이해](../articles/resource-manager-deployment-model.md)를 참조하세요. Azure을 처음 접하는 경우 Resource Manager 배포 모델을 사용하는 것이 좋습니다.
+>
+>

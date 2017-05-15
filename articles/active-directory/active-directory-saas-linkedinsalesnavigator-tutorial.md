@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 69143ccdbfbf50701d44e0342e8eb4ebe68b22da
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ddf4affe72c6413501ffa00747c110f8761ed70e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -141,11 +142,11 @@ LinkedIn Sales Navigator에서 Azure AD Single Sign-On을 구성하고 테스트
     | --- | --- |    
     | department| user.department |
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
+   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
 
     a. **특성 추가**를 클릭하여 [특성] 대화 상자를 엽니다.
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
+   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
    
     b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     

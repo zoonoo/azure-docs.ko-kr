@@ -29,6 +29,7 @@
 ### [리소스 모니터링](cdn-resource-health.md)
 ### [규칙을 사용하여 동작 재정의](cdn-rules-engine.md)
 ### [실시간 경고 받기](cdn-real-time-alerts.md)
+### [HTTP/2 지원](cdn-http2.md)
 
 ## 분석
 ### [사용 패턴 분석](cdn-analyze-usage-patterns.md)

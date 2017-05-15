@@ -16,10 +16,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f141d4f58727696c5f493c9e8eb19feb518e8968
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: d5854a623f656f08c428cd2f6792f25582362990
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -53,6 +54,8 @@ Hive 및 Pig 모두 외부 응용 프로그램으로 데이터를 전달해 처�
 * [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 응용 프로그램을 실행하는 __Linux 기반 HDInsight__ 클러스터. Mono 버전 4.2.1은 HDInsight 버전 3.5에 포함되어 있습니다.
 
     .NET 프레임워크 버전과 Mono의 호환성에 대한 자세한 내용은 [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/)을 참조하세요.
+
+    특정 버전의 Mono를 사용하려면 [Mono 설치 또는 업데이트](hdinsight-hadoop-install-mono.md) 문서를 참조하세요.
 
 * __Windows 기반 HDInsight__ 클러스터는 Microsoft .NET CLR을 사용하여 .NET 응용 프로그램을 실행합니다.
 

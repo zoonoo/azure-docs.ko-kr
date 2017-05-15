@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/02/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 8e625a346c9495d436a99fcf9eadf8ffeffcfdff
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 910ca62c331df0825e1403c19fe2f53672a7359d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -73,7 +74,8 @@ Azure AD에서 사용자 암호를 해킹하려는 잠재적인 사이버 범죄
 
 Azure Active Directory에서 암호 관리에 대한 정보는 [암호 관리 작동 방법](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-passwords-how-it-works)을 참조하세요.
 
-  >![참고] Azure AD 관리자인 경우 [Windows Hello](https://www.microsoft.com/en-us/windows/windows-hello)를 사용하여 사용자가 기존 암호를 모두 만들지 않도록 할 수 있습니다.
+  >[!NOTE]
+  >Azure AD 관리자인 경우 [Windows Hello](https://www.microsoft.com/en-us/windows/windows-hello)를 사용하여 사용자가 기존 암호를 모두 만들지 않도록 할 수 있습니다.
   >
 
 ## <a name="next-steps"></a>다음 단계

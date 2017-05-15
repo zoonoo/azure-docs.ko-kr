@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9bd8db6c765f8f702a6e4ea5b17507269d3310d1
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2916ee6ba4753efdb8823f93c951a4f678b08ae4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/26/2017
 
 Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 됩니다. 다음 단계를 모두 완료하려면 약 5분이 소요됩니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 조건
 
 이 샘플을 실행하기 전에 다음 필수 조건을 로컬로 설치합니다.
 
@@ -87,7 +88,7 @@ az login
 FTP 및 로컬 Git의 경우 배포에 인증하기 위해 배포 사용자를 서버에 구성할 필요가 있습니다. 배포 사용자를 만드는 작업은 한 번만 구성하면 됩니다. 아래 단계에서 사용할 수 있도록 사용자 이름 및 암호를 적어 둡니다.
 
 > [!NOTE]
-> 배포 사용자는 Web App에 대한 FTP 및 로컬 Git 배포가 필요합니다.
+> 배포 사용자는 웹앱에 대한 FTP 및 로컬 Git 배포가 필요합니다.
 > `username` 및 `password`는 계정 수준입니다. 따라서 Azure 구독 자격 증명과 다릅니다. **이러한 자격 증명은 한 번에 만들어야만 합니다**.
 >
 
@@ -107,7 +108,7 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-an-azure-app-service"></a>Azure App Service 만들기
 
-Linux 기반 App Service 계획을 [az appservice plan create](/cli/azure/appservice/plan#create) 명령으로 만듭니다.
+[az appservice plan create](/cli/azure/appservice/plan#create) 명령으로 App Service 계획을 만듭니다.
 
 > [!NOTE]
 > App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스의 컬렉션을 나타냅니다. App Service 계획에 할당된 모든 응용 프로그램은 정의된 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다.
@@ -119,7 +120,7 @@ Linux 기반 App Service 계획을 [az appservice plan create](/cli/azure/appser
 > * SKU(무료, 공유, 기본, 표준, 프리미엄)
 >
 
-다음 예제에서는 **무료** 가격 책정 계층을 사용하는 `quickStartPlan`이라는 Linux 작업자에서 App Service 계획을 만듭니다.
+다음 예에서는 **체험** 가격 책정 계층을 사용하여 `quickStartPlan`이라는 App Service 계획을 만듭니다.
 
 ```azurecli
 az appservice plan create --name quickStartPlan --resource-group myResourceGroup --sku FREE
@@ -152,7 +153,7 @@ App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정�
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-이제 App Service 계획을 만들었으므로 `quickStartPlan` App Service 계획 내에서 Web App을 만듭니다. 웹앱은 코드를 배포할 호스팅 공간을 제공할 뿐만 아니라 배포된 응용 프로그램을 확인하도록 URL도 제공합니다. [az appservice web create](/cli/azure/appservice/web#create) 명령을 사용하여 Web App을 만듭니다.
+이제 App Service 계획을 만들었으므로 `quickStartPlan` App Service 계획 내에서 웹앱을 만듭니다. 웹앱은 코드를 배포할 호스팅 공간을 제공할 뿐만 아니라 배포된 응용 프로그램을 확인하도록 URL도 제공합니다. [az appservice web create](/cli/azure/appservice/web#create) 명령을 사용하여 웹앱을 만듭니다.
 
 아래 명령에서 `<app_name>` 자리 표시자를 고유한 앱 이름으로 바꿉니다. `<app_name>`은 웹앱의 기본 DNS 사이트로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. 나중에 사용자에게 노출하기 전에 웹앱에 사용자 지정 DNS 항목을 매핑할 수 있습니다.
 
@@ -160,7 +161,7 @@ App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정�
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan quickStartPlan
 ```
 
-Web App을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
+웹앱을 만들었으면 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.
 
 ```json
 {
@@ -185,7 +186,7 @@ Web App을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표�
 }
 ```
 
-사이트로 이동하여 새로 만든 Web App을 봅니다.
+사이트로 이동하여 새로 만든 웹앱을 봅니다.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -193,11 +194,11 @@ http://<app_name>.azurewebsites.net
 
 ![app-service-web-service-created](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
-이제 Azure에서 비어 있는 새 Web App을 만들었습니다. 이제 Python을 사용하고 여기에 앱을 배포하도록 Web App을 구성하겠습니다.
+이제 Azure에서 비어 있는 새 웹앱을 만들었습니다. 이제 Python을 사용하고 여기에 앱을 배포하도록 웹앱을 구성하겠습니다.
 
 ## <a name="configure-to-use-python"></a>Python을 사용하도록 구성
 
-[az appservice web config update](/cli/azure/app-service/web/config#update) 명령을 사용하여 Python 버전 `3.4`을 사용하도록 Web App을 구성합니다.
+[az appservice web config update](/cli/azure/app-service/web/config#update) 명령을 사용하여 Python 버전 `3.4`를 사용하도록 웹앱을 구성합니다.
 
 > [!TIP]
 > 사용자가 [az appservice web config container update](https://docs.microsoft.com/cli/azure/appservice/web/config/container#update) 명령에 대한 CLI 참조를 의미하는 고유한 컨테이너를 사용하려는 경우 이러한 방식으로 Python 버전을 설정하는 작업은 플랫폼에서 제공하는 기본 컨테이너를 사용합니다.
@@ -208,9 +209,9 @@ az appservice web config update --python-version 3.4 --name <app-name> --resourc
 
 ## <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성
 
-FTP, 로컬 Git뿐만 아니라 GitHub, Visual Studio Team Services 및 Bitbucket을 비롯한 다양한 방법으로 Web App에 배포할 수 있습니다.
+FTP, 로컬 Git뿐만 아니라 GitHub, Visual Studio Team Services 및 Bitbucket을 비롯한 다양한 방법으로 웹앱에 배포할 수 있습니다.
 
-[az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) 명령을 사용하여 Web App에 대한 로컬 Git 액세스 권한을 구성합니다.
+[az appservice web source-control config-local-git](/cli/azure/appservice/web/source-control#config-local-git) 명령을 사용하여 웹앱에 대한 로컬 Git 액세스 권한을 구성합니다.
 
 ```azurecli
 az appservice web source-control config-local-git --name <app_name> --resource-group myResourceGroup --query url --output tsv
@@ -290,7 +291,7 @@ http://<app_name>.azurewebsites.net
 
 이번에는 Azure App Service 웹앱으로 실행되는 Python 코드를 사용하여 Hello World 메시지를 표시하는 페이지가 실행되고 있습니다.
 
-![]()
+![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 ## <a name="updating-and-deploying-the-code"></a>코드 업데이트 및 배포
 
@@ -309,7 +310,7 @@ git push azure master
 
 배포가 완료되면 앱 단계에 대한 찾아보기에서 열린 브라우저 창으로 다시 전환하고 새로 고침을 누릅니다.
 
-![hello-world-in-browser](media/app-service-web-get-started-python/hello-world-in-browser.png)
+![hello-azure-in-browser](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
 ## <a name="manage-your-new-azure-web-app"></a>새로운 Azure 웹앱 관리
 
@@ -319,13 +320,13 @@ Azure Portal로 이동하여 방금 만든 웹앱을 살펴봅니다.
 
 왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/app-service-web-get-started-python/Python-docs-hello-world-app-service-list.png)
+![Azure 웹앱에 대한 포털 탐색](./media/app-service-web-get-started-python/app-service-list.png)
 
 웹앱의 _블레이드_(가로로 열리는 포털 페이지)로 이동했습니다.
 
 기본적으로 웹앱의 블레이드는 **개요** 페이지를 표시합니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 블레이드의 왼쪽에 있는 탭에서는 열 수 있는 다른 구성 페이지를 보여 줍니다.
 
-![Azure Portal의 App Service 블레이드](media/app-service-web-get-started-python/Python-docs-hello-world-app-service-detail.png)
+![Azure Portal의 App Service 블레이드](media/app-service-web-get-started-python/app-service-detail.png)
 
 블레이드의 이러한 탭은 웹앱에 추가할 수 있는 유용한 많은 기능을 보여 줍니다. 다음은 몇 가지 가능성을 제공합니다.
 
@@ -341,4 +342,6 @@ Azure Portal로 이동하여 방금 만든 웹앱을 살펴봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-미리 만든 [Web Apps CLI 스크립트](app-service-cli-samples.md)를 탐색합니다.
+> [!div class="nextstepaction"]
+> [샘플 Web Apps CLI 스크립트 탐색](app-service-cli-samples.md)
+

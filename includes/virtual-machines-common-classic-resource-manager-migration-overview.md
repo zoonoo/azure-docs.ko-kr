@@ -76,7 +76,9 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 | Compute |연결되지 않은 가상 컴퓨터 디스크 | 이들 디스크 뒤에 있는 VHD Blob은 저장소 계정을 마이그레이션할 때 마이그레이션됩니다. |
 | Compute |가상 컴퓨터 이미지 | 이들 디스크 뒤에 있는 VHD Blob은 저장소 계정을 마이그레이션할 때 마이그레이션됩니다. |
 | 네트워크 |끝점 ACL. | 끝점 ACL을 제거하고 마이그레이션을 다시 시도합니다. |
-| 네트워크 |권한 부여 링크가 있는 ExpressRoute(FAQ 참조), Application Gateway | 마이그레이션을 시작하기 전에 게이트웨이 제거한 후 마이그레이션이 완료되면 다시 만듭니다. |
+| 네트워크 |ExpressRoute 게이트웨이와 VPN Gateway가 모두 있는 가상 네트워크  | 마이그레이션을 시작하기 전에 VPN Gateway를 제거한 후 마이그레이션이 완료되면 VPN Gateway를 다시 만듭니다. [ExpressRoute 마이그레이션](../articles/expressroute/expressroute-migration-classic-resource-manager.md)에 대해 자세히 알아봅니다.|
+| 네트워크 |권한 부여 링크를 사용하는 ExpressRoute  | 마이그레이션을 시작하기 전에 가상 네트워크 연결에 대한 ExpressRoute 회로를 제거한 다음 마이그레이션이 완료되면 연결을 다시 만듭니다. [ExpressRoute 마이그레이션](../articles/expressroute/expressroute-migration-classic-resource-manager.md)에 대해 자세히 알아봅니다. |
+| 네트워크 |응용 프로그램 게이트웨이 | 마이그레이션을 시작하기 전에 Application Gateway를 제거한 후 마이그레이션이 완료되면 Application Gateway를 다시 만듭니다. |
 | 네트워크 |VNet 피어링을 사용하는 가상 네트워크 | Virtual Network를 리소스 관리자로 마이그레이션한 다음 피어를 마이그레이션합니다. [VNet 피어링](../articles/virtual-network/virtual-network-peering-overview.md)에 대해 자세히 알아보세요. | 
 
 ### <a name="unsupported-configurations"></a>지원되지 않는 구성

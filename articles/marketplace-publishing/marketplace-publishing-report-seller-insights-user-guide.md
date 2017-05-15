@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2017
 ms.author: v-dabosl
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 63153ca5c0f5e3c68db09d0e59fa26ee8cb1e465
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: e168e9610cbe493618121c688e349064c877fc8a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -26,6 +27,8 @@ ms.lasthandoff: 04/04/2017
 
 >[!NOTE]
 >관리자만 해당
+
+이 섹션에서는 Seller Insights 포털에 처음 액세스하는 방법을 보여 줍니다.
 
 ###<a name="overview-of-roles"></a>역할 개요
 
@@ -44,7 +47,7 @@ Seller Insights 포털 사용자는 조직에서 사용할 수 있는 모든 데
 서비스를 활성화하려면 관리자는 초대 전자 메일(https://reports.azure.com)에 나열된 URL로 이동해야 합니다.
 
 >[!NOTE]
->참고: 관리자 전자 메일이 Microsoft 계정으로 표시되고 사용자가 초대를 받은 전자 메일 주소와 연결되는 Microsoft 계정을 만들지 않은 경우 https://signup.live.command로 이동하여 로그온하기 전에 Microsoft 계정을 만들 때 이 전자 메일 주소를 활용해야 합니다.
+>관리자 전자 메일이 Microsoft 계정으로 표시되고 사용자가 초대를 받은 전자 메일 주소와 연결되는 Microsoft 계정을 만들지 않은 경우 https://signup.live.command로 이동하여 로그온하기 전에 Microsoft 계정을 만들 때 이 전자 메일 주소를 활용해야 합니다.
 
 ###<a name="sign-in-to-the-portal"></a>포털에 로그인
 
@@ -61,7 +64,13 @@ Seller Insights 포털 사용자는 조직에서 사용할 수 있는 모든 데
 관리자는 계정이 만들어진 메일을 통해 판매자에게 조언하고 Seller Insights 포털의 URL을 판매자와 공유해야 합니다(https://reports.azure.com).
 
 >[!NOTE]
->관리자는 실제로 Azure Marketplace에 솔루션을 게시하는 계정의 소유자입니다.  이 계정의 소유자는 다른 사용자에게 액세스 권한을 제공할 수 있습니다.  
+>관리자는 실제로 Azure Marketplace에 솔루션을 게시하는 계정의 소유자입니다.  이 계정의 소유자는 다른 사용자에게 액세스 권한을 제공할 수 있습니다.  게시 포털에 공동 관리자 권한으로 액세스하는 경우 다음 단계를 수행하여 관리자 주소를 찾을 수 있습니다.
+>1. 게시 포털에 로그인
+>2. 게시자 탭 클릭
+>3. 문제 게시자(일반적으로 하나만) 열기
+>4. 왼쪽 아래에서 "Administrators" 클릭
+>5. 찾으려는 관리자 전자 메일 주소는 레이블이 "소유자"로 지정되어 있습니다.
+
 
 판매자는 관리자가 프로필을 설정할 때 어떤 계정을 사용했는지에 따라 개인 Microsoft 계정 또는 회사 계정을 사용하여 Seller Insights 포털에 로그인할 수 있습니다.  관리자는 어떤 계정을 사용할지 판매자에게 조언해야 합니다.
 
@@ -153,7 +162,7 @@ D. *패널 D*의 경우 개별 구독과 관련된 데이터를 제공합니다.
 
   ![패널 맵 D][13]
 
-  1. '주문 세부 정보' 패널에는 자세한 주문 데이터가 표시됩니다.
+  1. 주문 세부 정보 패널에는 자세한 주문 데이터가 표시됩니다.
   2. 각 열의 맨 위에 있는 필터를 사용하여 다양한 명령과 값으로 데이터를 필터링합니다.
 
   ![패널 D 월별 주문 보기 - 필터][20]
@@ -195,7 +204,7 @@ D. *패널 D*의 경우 개별 구독과 관련된 데이터를 제공합니다.
 
   ![패널 맵 C][12]
 
-  1. '추세 보기'를 선택합니다.
+  1. 추세 보기를 선택합니다.
   2. '주제 영역' 드롭다운에서 보려는 항목을 선택하고 '적용'을 클릭합니다.  기본값은 '모두 선택'입니다.
 
   ![패널 C 월별 사용 현황 보기 - 주제 영역 드롭다운][17]
@@ -212,19 +221,19 @@ D. *패널 D*의 경우 개별 구독과 관련된 데이터를 제공합니다.
 
   ![패널 맵 D][13]
 
-  1. '사용 현황 세부 정보' 패널에는 자세한 주문 데이터가 표시됩니다.
+  1. 사용 현황 세부 정보 패널에는 자세한 주문 데이터가 표시됩니다.
   2. 각 열의 맨 위에 있는 필터를 사용하여 다양한 명령과 값으로 데이터를 필터링합니다.
 
   ![패널 D 월별 사용 현황 보기 - 필터][20]
   3. 보려는 페이지당 항목 수(10, 20 또는 50)를 선택합니다.
   4. 오프라인 분석을 위해 데이터를 Excel 또는 CSV 형식으로 다운로드합니다.
 
-![패널 D1 월별 사용 현황 보기][24]
-![패널 D2 월별 사용 현황 보기][25]
+![패널 d 월별 사용 현황 보기][24]
+![패널 d 월별 사용 현황 보기 - 다운로드 결과][25]
 
 ###<a name="accessing-detailed-customer-data"></a>자세한 고객 데이터 액세스
 
-  1. '주문 세부 정보' 패널의 '주문' 또는 '사용 현황' 아래에서 관심 있는 Azure 구독 ID를 클릭합니다.  비BYOL Marketplace 라이선스 유형만 클릭할 수 있고 BYOL 구독 ID는 보안상의 이유로 해시됩니다.
+  1. 주문 세부 정보 패널의 ‘주문’ 또는 ‘사용 현황’ 아래에서 관심 있는 Azure 구독 ID를 클릭합니다.  비BYOL Marketplace 라이선스 유형만 클릭할 수 있고 BYOL 구독 ID는 보안상의 이유로 해시됩니다.
 
   ![주문 및 사용 현황의 고객 세부 정보 패널 - 세부 정보][26]
   2. '고객' 탭으로 리디렉션되며, 구독 ID가 연결된 고객에 대한 자세한 데이터가 검색됩니다.
@@ -249,6 +258,8 @@ D. *패널 D*의 경우 개별 구독과 관련된 데이터를 제공합니다.
 
 >[!NOTE]
 >관리자만 해당
+
+이 섹션에서는 Seller Insights 포털에서 새 사용자를 추가하거나 해당 권한을 변경하는 방법을 보여 줍니다.
 
 ###<a name="add-user"></a>사용자 추가
 
@@ -340,7 +351,7 @@ D. *패널 D*의 경우 개별 구독과 관련된 데이터를 제공합니다.
 
 
 
-[1]: ./media/marketplace-publishing-report-seller-insights-user-guide/type-of-account.png
+[1]: ./media/marketplace-publishing-report-seller-insights-user-guide/type-of-account-v2.png
 [2]: ./media/marketplace-publishing-report-seller-insights-user-guide/default-sign-in-page.png
 [3]: ./media/marketplace-publishing-report-seller-insights-user-guide/password-reset-microsoft-account.png
 [4]: ./media/marketplace-publishing-report-seller-insights-user-guide/password-reset-work-or-school-account.png

@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 09/19/2016
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: cbff931e7acc88b29ed6f51a16156b44c1596d3f
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 4a860f5aaa03ccfa73f1508548ca8b1344679c38
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -41,7 +42,7 @@ IoT Hub 솔루션의 크기를 조정하는 가장 적절한 방법은 장치별
 | 계층 | 지속적인 처리량 | 지속적인 전송 속도 |
 | --- | --- | --- |
 | S1 |장치당 최대 1111KB/분<br/>(1.5GB/일/장치) |장치당 평균 278메시지/분<br/>(400,000메시지/일/장치당) |
-| S2 |장치당 최대 16MB/분<br/>(22.8GB/일/장치) |장치당 평균 4167메시지/분<br/>(6백만 개의 메시지/일/장치당) |
+| S2 |장치당 최대 16MB/분<br/>(22.8GB/일/장치) |장치당 평균 4,167개 메시지/분<br/>(6백만 개의 메시지/일/장치당) |
 | S3 |장치당 최대 814MB/분<br/>(1144.4GB/일/장치) |장치당 평균 208,333 메시지/분<br/>(3억 개의 메시지/일/장치당) |
 
 ## <a name="identity-registry-operation-throughput"></a>ID 레지스트리 작업 처리량

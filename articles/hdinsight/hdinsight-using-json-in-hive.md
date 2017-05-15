@@ -3,8 +3,8 @@ title: "HDInsight의 하이브를 사용하여 JSON 문서 분석 및 처리 | M
 description: "JSON 문서를 사용하고 HDInsight의 하이브를 사용하여 이 문서를 분석하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
-author: rashimg
-manager: mwinkle
+author: mumian
+manager: jhubbard
 editor: cgronlun
 ms.assetid: e17794e8-faae-4264-9434-67f61ea78f13
 ms.service: hdinsight
@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/22/2015
-ms.author: rashimg
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: c292772cb21c90bf4373803bfcaa47787c3980b5
-ms.lasthandoff: 03/06/2017
+ms.date: 04/26/2017
+ms.author: jgao
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
+ms.openlocfilehash: 1f59558d69993907bc2c37eaba03ad23e5ef8543
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
 # <a name="process-and-analyze-json-documents-using-hive-in-hdinsight"></a>HDInsight의 Hive를 사용한 JSON 문서 처리 및 분석
+
 HDInsight에서 Hive를 사용하여 JSON 파일을 분석하고 처리하는 방법에 알아봅니다. 이 자습서에서는 다음 JSON 문서를 사용합니다.
 
     {
@@ -60,7 +62,7 @@ HDInsight에서 Hive를 사용하여 JSON 파일을 분석하고 처리하는 �
         ]
     }
 
-이 파일은 wasbs://processjson@hditutorialdata.blob.core.windows.net/에 있습니다. HDInsight에서의 Azure Blob 저장소 사용에 대한 자세한 내용은 [HDInsight에서 Hadoop으로 HDFS 호환 가능한 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 원하는 경우 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
+이 파일은 wasbs://processjson@hditutorialdata.blob.core.windows.net/에 있습니다. HDInsight에서의 Azure Blob 저장소 사용에 대한 자세한 내용은 [HDInsight에서 Hadoop으로 HDFS 호환 가능한 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
 
 이 자습서에서는 Hive 콘솔을 사용합니다.  Hive 콘솔을 여는 방법은 [원격 데스크톱을 사용하여 HDInsight에서 Hadoop과 Hive 사용](hdinsight-hadoop-use-hive-remote-desktop.md)을 참조하세요.
 
@@ -105,7 +107,7 @@ SELECT 문의 출력은 다음과 같습니다.
 * Python 또는 기타 언어를 사용하여 자체 UDF를 작성합니다. Hive에서 Python 실행에 대한 자세한 내용은 [이 문서][hdinsight-python]를 참조하세요.
 
 ### <a name="use-the-getjsonobject-udf"></a>GET\_JSON_OBJECT UDF 사용
-Hive는 런타임에 JSON 쿼리를 수행할 수 있는 [get json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) 라는 기본 제공 UDF를 제공합니다. 이 메서드에는 두 개의 인수, 즉 평면화된 JSON 문서와 구문 분석해야 하는 JSON 필드가 있는 테이블 이름 및 메서드 이름이 사용됩니다. 이 UDF의 작동 방식에 대한 예를 살펴보겠습니다.
+Hive는 런타임에 JSON 쿼리를 수행할 수 있는 [get json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)라는 기본 제공 UDF를 제공합니다. 이 메서드에는 두 개의 인수, 즉 평면화된 JSON 문서와 구문 분석해야 하는 JSON 필드가 있는 테이블 이름 및 메서드 이름이 사용됩니다. 이 UDF의 작동 방식에 대한 예를 살펴보겠습니다.
 
 학생의 이름 및 성 가져오기
 
@@ -121,7 +123,7 @@ Hive는 런타임에 JSON 쿼리를 수행할 수 있는 [get json object](https
 get-json_object UDF에는 몇 가지 제한 사항이 있습니다.
 
 * 쿼리의 각 필드에서는 쿼리를 다시 구문 분석해야 하므로 성능에 영향을 미칩니다.
-* GET\_JSON_OBJECT()는 배열의 문자열 표현을 반환합니다. 이를 Hive 배열로 변환하려면 정규식을 사용하여 대괄호 ‘[‘ 및  ‘]’을 바꾼 다음 분할 호출하여 배열을 가져와야 합니다.
+* GET\_JSON_OBJECT()는 배열의 문자열 표현을 반환합니다. 이 배열을 Hive 배열로 변환하려면 정규식을 사용하여 대괄호 ‘[‘ 및 ‘]’을 바꾼 다음 분할 호출하여 배열을 가져와야 합니다.
 
 그렇기 때문에 Hive Wiki에서는 json_tuple을 사용하는 것을 권장합니다.  
 
@@ -140,7 +142,7 @@ Hive 콘솔에 표시되는 이 스크립트의 출력은 다음과 같습니다
 JSON\_TUPLE은 Hive에서 [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용합니다. 이 구문을 사용하면 json\_tuple이 원래 테이블의 각 행에 UDT 함수를 적용하여 가상 테이블을 만들 수 있습니다.  LATERAL VIEW를 반복 사용하면 복잡한 JSON이 다루기 어렵게 됩니다. 또한 JSON_TUPLE은 중첩된 JSON을 처리할 수 없습니다.
 
 ### <a name="use-custom-serde"></a>사용자 지정 SerDe 사용
-SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스키마를 정의하고 이 스키마를 사용하여 문서를 구문 분석할 수 있습니다. 이 자습서에서는 [rcongiu](https://github.com/rcongiu)에서 개발한 가장 일반적인 SerDe 중 하나를 사용하게 됩니다.
+SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스키마를 정의하고 이 스키마를 사용하여 문서를 구문 분석할 수 있습니다. 이 자습서에서는 [Roberto Congiu](https://github.com/rcongiu)가 개발한 가장 일반적인 SerDe 중 하나를 사용하게 됩니다.
 
 **사용자 지정 SerDe를 사용하려면**
 
@@ -160,10 +162,10 @@ SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스
       ![JDK에 대한 올바른 구성 값 설정][image-hdi-hivejson-jdk]
 2. [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
    
-    제어판-->사용자 계정의 환경 변수에 대한 시스템 변수 편집으로 이동하여 bin 폴더를 경로에 추가합니다. 아래의 스크린샷은 이 작업을 수행하는 방법을 보여 줍니다.
+    제어판-->사용자 계정의 환경 변수에 대한 시스템 변수 편집으로 이동하여 bin 폴더를 경로에 추가합니다. 다음 스크린샷은 이 작업을 수행하는 방법을 보여 줍니다.
    
     ![Maven 설치][image-hdi-hivejson-maven]
-3. [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) github 사이트에서 프로젝트를 복제합니다. 아래 스크린샷에 표시된 것처럼 "Zip 다운로드" 단추를 클릭하면 됩니다.
+3. [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) github 사이트에서 프로젝트를 복제합니다. 다음 스크린샷에 표시된 것처럼 "Zip 다운로드" 단추를 클릭하면 됩니다.
    
     ![프로젝트 복제][image-hdi-hivejson-serde]
 
@@ -171,7 +173,7 @@ SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스
 
 5: 패키지를 다운로드한 루트 폴더 아래의 대상 폴더로 이동합니다. 클러스터의 헤드 노드에 json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar 파일을 업로드합니다. 일반적으로 C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin과 유사한 하이브 이진 파일 폴더에 둡니다.
 
-6: Hive 프롬프트에서 “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”을 입력합니다. 이 예제에서는 jar이 C:\apps\dist\hive-0.13.x\bin 폴더에 있으므로 아래 표시된 이름으로 jar을 직접 추가할 수 있습니다.
+6: Hive 프롬프트에서 “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”을 입력합니다. 이 예제에서는 jar이 C:\apps\dist\hive-0.13.x\bin 폴더에 있으므로 표시된 이름으로 jar을 직접 추가할 수 있습니다.
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
@@ -216,20 +218,24 @@ JSON 문서의 성적 합계를 계산하려면
     FROM json_table jt
       lateral view explode(jt.StudentClassCollection.Score) collection as scores;
 
-위 쿼리에서는 성적의 합계를 구할 수 있도록 [lateral view explode](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) UDF를 사용하여 성적 배열을 확장합니다.
+이전 쿼리에서는 성적의 합계를 구할 수 있도록 [lateral view explode](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) UDF를 사용하여 성적 배열을 확장합니다.
 
 하이브 콘솔의 출력은 다음과 같습니다.
 
 ![SerDe 쿼리 2][image-hdi-hivejson-serde_query2]
 
-To find which subjects a given student has scored more than 80 points SELECT  
-      jt.StudentClassCollection.ClassId FROM json_table jt lateral view explode(jt.StudentClassCollection.Score) collection as score  where score > 80;
+지정된 학생이 80점 넘게 받은 과목을 찾으려면
 
-위 쿼리는 문자열을 반환하는 get\_json\_object와 달리 하이브 배열을 반환합니다.
+    SELECT  
+      jt.StudentClassCollection.ClassId
+    FROM json_table jt
+      lateral view explode(jt.StudentClassCollection.Score) collection as score  where score > 80;
+
+이전 쿼리는 문자열을 반환하는 get\_json\_object와 달리 하이브 배열을 반환합니다.
 
 ![SerDe 쿼리 3][image-hdi-hivejson-serde_query3]
 
-잘못된 형식의 JSON을 중지하려면 이 SerDe의 [Wiki 페이지](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) 에 설명된 대로 아래 코드를 입력하면 됩니다.  
+잘못된 형식의 JSON을 중지하려면 이 SerDe의 [Wiki 페이지](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) 에 설명된 대로 다음 코드를 입력하면 됩니다.  
 
     ALTER TABLE json_table SET SERDEPROPERTIES ( "ignore.malformed.json" = "true");
 
@@ -238,6 +244,8 @@ To find which subjects a given student has scored more than 80 points SELECT
 
 ## <a name="summary"></a>요약
 결론적으로 선택하는 하이브의 JSON 연산자 유형은 시나리오에 따라 달라집니다. JSON 문서가 간단하고 조회할 필드가 하나뿐인 경우에는 하이브 UDF get\_json\_object를 사용할 수 있습니다. 조회가 키가 두 개 이상인 경우에는 json_tuple을 사용할 수 있습니다. 중첩된 문서가 있는 경우에는 JSON SerDe를 사용해야 합니다.
+
+## <a name="next-steps"></a>다음 단계
 
 다른 관련된 문서는 다음을 참조하세요.
 

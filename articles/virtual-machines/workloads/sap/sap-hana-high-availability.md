@@ -13,9 +13,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: 6304f01fd5f97dd528054f8c4909593dd062e16b
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/26/2017
 
 
@@ -419,7 +420,7 @@ STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대�
    속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID**입니다.
 1. 앱 등록 클릭
 1. 추가를 클릭합니다.
-1. 이름을 입력하고 응용 프로그램 유형 "Web app/API"를 선택한 다음 로그온 URL(예: http://localhost)을 입력하고 만들기를 클릭
+1. 이름을 입력하고 응용 프로그램 유형 "Web app/API"를 선택한 다음 로그온 URL(예: http://localhost )을 입력하고 만들기를 클릭
 1. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 새 앱을 선택하고 설정 탭에서 키 클릭
 1. 새 키의 설명을 입력하고 “만료되지 않음”을 선택한 다음 저장을 클릭

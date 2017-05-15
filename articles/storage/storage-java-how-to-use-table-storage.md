@@ -14,16 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: bb72ac092496b5962c98006aca61b8c085cb1694
-ms.openlocfilehash: 2c73585e9d1f265c011cf94d1923ecec5f6a3435
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a4d6f144cc6940ffe2b2c6f27553cd7aa3bcb381
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="how-to-use-table-storage-from-java"></a>Java에서 테이블 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-
-[!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
+[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>개요
 이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][Azure Storage SDK for Java](영문)를 사용합니다. 여기에서 다루는 시나리오에는 **creating**, **listing**, **deleting** 테이블과 테이블의 **inserting**, **querying**, **modifying**, **deleting** 엔터티가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계](#Next-Steps) 섹션을 참조하십시오.
@@ -189,7 +190,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-insert-a-batch-of-entities"></a>방법: 엔터티 일괄 삽입
-하나의 쓰기 작업으로 테이블 서비스에 엔터티를 일괄 삽입할 수 있습니다. 다음 코드는 **TableBatchOperation** 개체를 만든 다음, 이 개체에&3;개의 삽입 작업을 추가합니다. 각 삽입 작업을 추가하기 위해 새 엔터티 개체를 만들고 값을 설정한 후 **insert** 메서드를 **TableBatchOperation** 개체에 대해 호출하여 해당 엔터티를 새로운 삽입 작업과 연결합니다. 그런 다음, 이 코드는 **CloudTable** 개체에 대해 **execute**를 호출하여 'people' 테이블 및 **TableBatchOperation** 개체를 지정한 후, 테이블 일괄 작업을 단일 요청으로 저장소 서비스로 보냅니다.
+하나의 쓰기 작업으로 테이블 서비스에 엔터티를 일괄 삽입할 수 있습니다. 다음 코드는 **TableBatchOperation** 개체를 만든 다음, 이 개체에 3개의 삽입 작업을 추가합니다. 각 삽입 작업을 추가하기 위해 새 엔터티 개체를 만들고 값을 설정한 후 **insert** 메서드를 **TableBatchOperation** 개체에 대해 호출하여 해당 엔터티를 새로운 삽입 작업과 연결합니다. 그런 다음, 이 코드는 **CloudTable** 개체에 대해 **execute**를 호출하여 'people' 테이블 및 **TableBatchOperation** 개체를 지정한 후, 테이블 일괄 작업을 단일 요청으로 저장소 서비스로 보냅니다.
 
 ```java
 try
@@ -348,7 +349,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-retrieve-a-single-entity"></a>방법: 단일 엔터티 검색
-단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드는 **TableQuery**를 만들고 필터를 사용하는 대신, **TableOperation.retrieve**를 파티션 키 및 행 키 매개 변수와 함께 호출하여 고객 'Jeff Smith'를 지정합니다. 코드가 실행되면 검색 작업은 컬렉션 대신 엔터티&1;개만 반환합니다. **getResultAsType** 메서드는 결과를 할당 대상, 즉 **CustomerEntity** 개체의 형식으로 캐스트합니다. 이 형식이 쿼리에 지정된 형식과 호환되지 않으면 예외가 발생합니다. 파티션과 행 키가 정확하게 일치하는 엔터티가 없는 경우 null 값이 반환됩니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 테이블 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
+단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드는 **TableQuery**를 만들고 필터를 사용하는 대신, **TableOperation.retrieve**를 파티션 키 및 행 키 매개 변수와 함께 호출하여 고객 'Jeff Smith'를 지정합니다. 코드가 실행되면 검색 작업은 컬렉션 대신 엔터티 1개만 반환합니다. **getResultAsType** 메서드는 결과를 할당 대상, 즉 **CustomerEntity** 개체의 형식으로 캐스트합니다. 이 형식이 쿼리에 지정된 형식과 호환되지 않으면 예외가 발생합니다. 파티션과 행 키가 정확하게 일치하는 엔터티가 없는 경우 null 값이 반환됩니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 테이블 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
 
 ```java
 try
@@ -540,7 +541,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-delete-a-table"></a>방법: 테이블 삭제
-마지막으로, 다음 코드는 저장소 계정에서 테이블을 삭제합니다. 삭제된 테이블은 삭제 후 일정 기간(일반적으로&40;초 미만) 동안 다시 만들 수 없습니다.
+마지막으로, 다음 코드는 저장소 계정에서 테이블을 삭제합니다. 삭제된 테이블은 삭제 후 일정 기간(일반적으로 40초 미만) 동안 다시 만들 수 없습니다.
 
 ```java
 try
@@ -562,10 +563,11 @@ catch (Exception e)
     e.printStackTrace();
 }
 ```
+[!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="next-steps"></a>다음 단계
-이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
+* [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * [Java용 Azure Storage SDK][Azure Storage SDK for Java]
 * [CloudStorageAccount][CloudStorageAccount]
 * [Azure Storage REST API][Azure Storage REST API]
@@ -580,9 +582,4 @@ catch (Exception e)
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

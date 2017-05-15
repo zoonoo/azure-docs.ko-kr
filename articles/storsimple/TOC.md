@@ -1,4 +1,5 @@
 # StorSimple 가상 배열
+
 ## 개요
 ### [솔루션이란?](storsimple-ova-overview.md)
 
@@ -8,7 +9,7 @@
 #### [제한 이해](storsimple-ova-limits.md)
 #### [모범 사례 검토](storsimple-ova-best-practices.md)
 
-### 배포(Azure Portal)
+### 배포
 #### [배포 준비](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [StorSimple Manager 서비스 배포](storsimple-virtual-array-manage-service.md)
 #### [Hyper-V에서 프로비전](storsimple-virtual-array-deploy2-provision-hyperv.md)
@@ -16,17 +17,10 @@
 #### [파일 서버로 설정](storsimple-virtual-array-deploy3-fs-setup.md)
 #### [iSCSI 서버로 설정](storsimple-virtual-array-deploy3-iscsi-setup.md)
 
-### 배포(클래식 포털)
-#### [배포 준비](storsimple-ova-deploy1-portal-prep.md)
-##### [StorSimple Manager 서비스 배포](storsimple-ova-manage-service.md)
-#### [Hyper-V에서 프로비전](storsimple-ova-deploy2-provision-hyperv.md)
-#### [VMware에서 프로비전](storsimple-ova-deploy2-provision-vmware.md)
-#### [파일 서버로 설정](storsimple-ova-deploy3-fs-setup.md)
-#### [iSCSI 서버로 설정](storsimple-ova-deploy3-iscsi-setup.md)
-
 ## 방법
 ### [Azure 포털을 통해 관리](storsimple-virtual-array-manager-service-administration.md)
-#### [최신 업데이트 설치](storsimple-virtual-array-install-update-04.md)
+#### [최신 업데이트 설치](storsimple-virtual-array-install-update-05.md)
+##### [업데이트 0.4 설치](storsimple-virtual-array-install-update-04.md)
 ##### [업데이트 0.3 설치](storsimple-virtual-array-install-update.md)
 #### [백업 만들기 및 관리](storsimple-virtual-array-backup.md)
 #### [백업에서 복제](storsimple-virtual-array-clone.md)
@@ -44,22 +38,11 @@
 #### [진단 및 문제 해결](storsimple-virtual-array-diagnose-problems.md)
 #### [로그 지원 요청](storsimple-virtual-array-log-support-ticket.md)
 
-### [Azure 클래식 포털을 통해 관리](storsimple-ova-manager-service-administration.md)
-#### [최신 업데이트 설치](storsimple-ova-install-update-01.md)
-#### [백업 만들기 및 관리](storsimple-ova-backup.md)
-#### [백업에서 복원](storsimple-ova-restore.md)
-#### [장애 조치(failover) 및 DR](storsimple-ova-failover-dr.md)
-#### [비활성화 및 삭제](storsimple-ova-deactivate-and-delete-device.md)
-#### [서비스 대시보드 모니터](storsimple-ova-service-dashboard.md)
-#### [장치 암호 변경](storsimple-ova-change-device-admin-password.md)
-#### [ACR 관리](storsimple-ova-manage-acrs.md)
-#### [저장소 계정 관리](storsimple-ova-manage-storage-accounts.md)
-#### [작업 관리](storsimple-ova-manage-jobs.md)
-#### [Windows Server 호스트에 MPIO 구성](storsimple-ova-configure-mpio-windows-server.md)
 ### [로컬 웹 UI를 통해 구성](storsimple-ova-web-ui-admin.md)
 
 ## 릴리스 정보
-### [업데이트 0.4 - 현재](storsimple-virtual-array-update-04-release-notes.md)
+### [업데이트 0.5 - 현재](storsimple-virtual-array-update-05-release-notes.md)
+### [업데이트 0.4](storsimple-virtual-array-update-04-release-notes.md)
 ### [업데이트 0.3](storsimple-ova-update-03-release-notes.md)
 ### [업데이트 0.2 및 0.1](storsimple-ova-update-01-release-notes.md)
 
@@ -71,6 +54,7 @@
 ### [보안 고려 사항](storsimple-security.md)
 
 ## 시작
+
 ### 계획
 #### [요구 사항 검토](storsimple-system-requirements.md)
 #### [기술 사양 검토](storsimple-technical-specifications-and-compliance.md)
@@ -80,7 +64,6 @@
 ### Install
 #### [안전 검토](storsimple-safety.md)
 #### [8100 압축 풀기, 랙, 케이블](storsimple-8100-hardware-installation.md)
-
 #### [8600 압축 풀기, 랙, 케이블](storsimple-8600-hardware-installation.md)
 #### [10GbE 네트워크 인터페이스에 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -96,6 +79,7 @@
 #### [SharePoint용 StorSimple 어댑터](storsimple-adapter-for-sharepoint.md)
 
 ## 방법
+
 ### 관리
 #### [StorSimple Manager 서비스 사용](storsimple-manager-service-administration.md)
 ##### [백업에서 복구](storsimple-restore-from-backup-set-u2.md)
@@ -214,6 +198,7 @@
 ### [기본 Blob 경로 변경](storsimple-data-manager-change-default-blob-path.md)
 
 # 파트너용 StorSimple
+
 ## 개요
 ### [솔루션이란?](storsimple-partner-csp-overview.md)
 

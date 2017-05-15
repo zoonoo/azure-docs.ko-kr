@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: f09c231baecf2452a6e3abd196748629f13885ff
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
+ms.openlocfilehash: 2a270ba8ae17077c55c6b1473d4955dfb5f79ca1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
@@ -83,6 +84,9 @@ Azure Logic Apps에 대한 현재 한도 및 구성 정보는 다음과 같습�
 |Name|제한|참고 사항|
 |----|----|----|
 |5분당 작업 실행 |100,000|필요에 따라 여러 앱에 워크로드를 배포할 수 있음|
+|런타임 끝점은 5분마다 호출을 읽음 |60,000|필요에 따라 여러 앱에 워크로드를 배포할 수 있음|
+|런타임 끝점은 5분마다 호출을 수행함 |45,000|필요에 따라 여러 앱에 워크로드를 배포할 수 있음|
+|런타임 끝점이 동시 호출을 차단함 |~1,000|필요에 따라 동시 요청 수를 줄이거나 기간을 단축|
 
 정상적인 처리에서 이 한도를 초과하길 기대하거나 일정 기간 동안 이 한도를 초과할 수 있는 부하 테스트를 실행하려는 경우 요구 사항에 도움을 줄 수 있도록 [문의](mailto://logicappsemail@microsoft.com)해 주세요.
 
@@ -111,6 +115,9 @@ Azure Logic Apps에 대한 현재 한도 및 구성 정보는 다음과 같습�
 |----|----|----|
 |스키마|8MB|[blob URI](logic-apps-enterprise-integration-schemas.md)를 사용하여 2MB보다 큰 파일을 업로드할 수 있음 |
 |맵(XSLT 파일)|2MB| |
+|런타임 끝점은 5분마다 호출을 읽음 |60,000|필요에 따라 여러 계정에 워크로드를 배포할 수 있음|
+|런타임 끝점은 5분마다 호출을 수행함 |90,000|필요에 따라 여러 계정에 워크로드를 배포할 수 있음|
+|런타임 끝점이 동시 호출을 차단함 |~1,000|필요에 따라 동시 요청 수를 줄이거나 기간을 단축|
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>B2B 프로토콜(AS2, X12, EDIFACT) 메시지 크기
 

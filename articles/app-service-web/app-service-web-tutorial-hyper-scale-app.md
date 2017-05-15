@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 48ce80d2a25c6ad55e0520ea4cbdbc82db23f919
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
+ms.openlocfilehash: eac9c5b0d8d0f7802d88e6f4f27d9d23c406e025
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/28/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/04/2017
 
 이 자습서에서는 사용자 요청을 최대화하기 위해 Azure에서 ASP.NET 웹앱의 규모를 확장하는 방법을 보여 줍니다.
 
-이 자습서를 시작하기 전에 컴퓨터에 [Azure CLI가 설치되었는지](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) 확인합니다. 또한, 샘플 응용 프로그램을 실행하는 로컬 컴퓨터에 [Visual Studio](https://www.visualstudio.com/vs/)가 있어야 합니다.
+이 자습서를 시작하기 전에 컴퓨터에 [Azure CLI가 설치되었는지](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) 확인합니다. 또한 샘플 응용 프로그램을 실행하려면 로컬 컴퓨터에 [Visual Studio](https://www.visualstudio.com/vs/)가 있어야 합니다.
 
 ## <a name="step-1---get-sample-application"></a>1단계 - 샘플 응용 프로그램 가져오기
 이 단계에서 로컬 ASP.NET 프로젝트를 설정합니다.

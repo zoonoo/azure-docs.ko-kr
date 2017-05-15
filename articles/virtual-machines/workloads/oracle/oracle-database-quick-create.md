@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/17/2017
+ms.date: 04/26/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 3cf6625407afe5b4fb53a945f4a505338122aaec
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
+ms.openlocfilehash: ba55e2e4449737c4b759211cf0c429d42b961a38
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/29/2017
 
 ---
 
@@ -55,10 +56,14 @@ az group create --name myResourceGroup --location westus
 다음 예제에서는 `myVM`이라는 VM을 만들고 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myVM --image Oracle:Oracle-Database-Ee:12.1.0.2:latest --data-disk-sizes-gb 20 --size Standard_DS2_v2  --generate-ssh-keys
+az vm create --resource-group myResourceGroup \
+    --name myVM \
+    --image Oracle:Oracle-Database-Ee:12.1.0.2:latest \
+    --size Standard_DS2_v2 \
+    --generate-ssh-keys
 ```
 
-VM을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다. `publicIpAddress`을 기록해 둡니다. 이 주소는 VM에 액세스하는 데 사용됩니다.
+VM을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다. `publicIpAddress`를 적어둡니다. 이 주소는 VM에 액세스하는 데 사용됩니다.
 
 ```azurecli
 {
@@ -86,8 +91,7 @@ ssh <publicIpAddress>
 Oracle 소프트웨어는 Marketplace 이미지에 이미 설치되어 있으므로 다음 단계에서 데이터베이스를 설치합니다. 첫 번째 단계는 'oracle' superuser로 실행하고 다음을 로깅하기 위해 수신기를 초기화합니다.
 
 ```bash
-su oracle
-Password: <enter initial oracle password: xxxxxxxx >
+sudo su - oracle
 [oracle@myVM /]$ lsnrctl start
 Copyright (c) 1991, 2014, Oracle.  All rights reserved.
 
@@ -117,9 +121,12 @@ The command completed successfully
 다음 단계에서는 데이터베이스를 만듭니다.
 
 ```bash
-[oracle@myVM /]$ dbca -silent -createDatabase \
+[oracle@myVM /]$ dbca -silent \
+   -createDatabase \
    -templateName General_Purpose.dbc \
-   -gdbname cdb1 -sid cdb1 -responseFile NO_VALUE \
+   -gdbname cdb1 \
+   -sid cdb1 \
+   -responseFile NO_VALUE \
    -characterSet AL32UTF8 \
    -sysPassword OraPasswd1 \
    -systemPassword OraPasswd1 \
@@ -161,10 +168,8 @@ Creating Pluggable Databases
 Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
 ```
 
-## <a name="set-up-connectivity"></a>연결 설정 
-로컬 연결에 대한 테스트
-
-데이터베이스를 만든 후 ORACLE_HOME 및 ORACLE_SID 환경 변수를 설정해야 합니다.
+## <a name="preparing-for-connectivity"></a>연결 준비 
+데이터베이스가 올바르게 초기화되었는지 확인하기 위해 로컬 연결을 테스트하려고 합니다. 이 작업을 수행하는 가장 쉬운 방법은 `sqlplus`에 연결하는 것입니다.  연결하기 전에 먼저 일부 환경 변수를 설정해야 합니다. 특히 *ORACLE_HOME* 및 *ORACLE_SID* 환경 변수를 설정해야 합니다.
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -172,9 +177,24 @@ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-이제 sqlplus를 사용하여 연결할 수 있습니다.
+필요에 따라 .bashrc 파일에 ORACLE_HOME 및 ORACLE_SID를 추가하여 후속 로그인을 위해 이러한 설정을 저장할 수 있습니다.
+
+```
+# add oracle home
+export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+
+# add oracle sid
+export ORACLE_SID=cdb1
+
+```
+
+## <a name="setup-connectivity-to-oracle-em-express"></a>Oracle EM Express에 대한 설정 연결
+
+Oracle EM Express에서 데이터베이스를 탐색하는 GUI 관리 도구를 사용할 수 있게 됩니다.  Oracle EM Express에 연결하려면 먼저 Oracle에서 포트를 구성해야 합니다.
 
 ```bash
+$ sudo su - oracle
+
 sqlplus / as sysdba
 
 SQL*Plus: Release 12.1.0.2.0 Production on Fri Apr 7 13:16:30 2017
@@ -186,11 +206,98 @@ Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
 With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
-```
+SQL> select con_id, name, open_mode from v$pdbs;
 
-마지막으로 외부 끝점을 구성합니다. VM을 보호하도록 Azure 네트워크 보안 그룹을 구성해야 하므로 VM에서 SSH 세션을 종료해야 합니다. Azure CLI을 사용하여 실행합니다.
+    CON_ID NAME                           OPEN_MODE
+---------- ------------------------------ ----------
+         2 PDB$SEED                       READ ONLY
+         3 PDB1                           MOUNT
+
+SQL> alter session set container=pdb1;
+
+Session altered.
+
+SQL> alter database open;
+
+database opened.
+
+SQL> alter session set container=pdb1;
+
+Session altered.
+
+SQL> exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
+
+PL/SQL procedure successfully completed.
+```
+## <a name="automating-database-startup-and-shutdown"></a>데이터베이스 시작 및 종료 자동화
+
+Oracle 인스턴스가 만들어진 후에는 컴퓨터 부팅 시 자동으로 시작되도록 설정되지 않습니다.  이러한 작업을 수행하려면 루트 권한으로 로그인한 후 일부 시스템 파일을 생성/업데이트해야 합니다.
 
 ```bash
+# sudo su -
+```
+
+기본값 'N'에서 'Y'로 "/etc/oratab" 파일 업데이트
+
+```
+cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
+```
+
+그런 후 "/etc/init.d/dbora" 파일 만들기
+
+```bash
+#!/bin/sh
+# chkconfig: 345 99 10
+# description: Oracle auto start-stop script.
+#
+# Set ORA_HOME to be equivalent to the $ORACLE_HOME
+ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
+ORA_OWNER=oracle
+
+case "$1" in
+'start')
+    # Start the Oracle databases:
+    # The following command assumes that the oracle login
+    # will not prompt the user for any values
+    # Remove "&" if you don't want startup as a background process.
+    su - $ORA_OWNER -c "$ORA_HOME/bin/dbstart $ORA_HOME" &
+    touch /var/lock/subsys/dbora
+    ;;
+
+'stop')
+    # Stop the Oracle databases:
+    # The following command assumes that the oracle login
+    # will not prompt the user for any values
+    su - $ORA_OWNER -c "$ORA_HOME/bin/dbshut $ORA_HOME" &
+    rm -f /var/lock/subsys/dbora
+    ;;
+esac
+```
+
+사용 권한 변경
+
+```bash
+# chgrp dba /etc/init.d/dbora
+# chmod 750 /etc/init.d/dbora
+```
+시작 및 종료에 대한 기호 링크 만들기
+
+```bash
+# ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
+# ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
+# ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
+```
+
+테스트할 VM 다시 시작
+```bash
+# reboot
+```
+
+## <a name="opening-the-ports-for-connectivity"></a>연결을 위한 포트 열기
+
+마지막 작업은 외부 끝점을 구성하는 것입니다. VM을 보호하는 Azure 네트워크 보안 그룹을 구성하기 위해 VM에서 SSH 세션을 종료합니다. Oracle DB에 원격으로 액세스하기 위한 끝점을 열려면 다음 명령을 실행합니다. 
+
+```azurecli
 az network nsg rule create --resource-group myResourceGroup\
     --nsg-name myVmNSG --name allow-oracle\
     --protocol tcp --direction inbound --priority 999 \
@@ -219,22 +326,42 @@ az network nsg rule create --resource-group myResourceGroup\
 }
 ```
 
-외부 연결을 테스트하려면 원격 PC에서 sqlplus를 실행합니다. 연결하기 전에 해당 PC에서 'tnsnames.ora' 파일을 만듭니다.
+Oracle EM Express에 원격으로 액세스하기 위한 끝점을 열려면 다음 명령을 실행합니다.
 
+```azurecli
+az network nsg rule create --resource-group myResourceGroup\
+    --nsg-name myVmNSG --name allow-oracle-EM\
+    --protocol tcp --direction inbound --priority 1001 \
+    --source-address-prefix '*' --source-port-range '*' \
+    --destination-address-prefix '*' --destination-port-range 5502 --access allow
 ```
-azure_pdb1=
-  (DESCRIPTION=
-    (ADDRESS=
-      (PROTOCOL=TCP)
-      (HOST=<vm-name>.cloudapp.net)
-      (PORT=1521)
-    )
-    (CONNECT_DATA=
-      (SERVER=dedicated)
-      (SERVICE_NAME=pdb1)
-    )
-  )
+
+결과가 다음 응답과 유사하게 나타납니다.
+
+```azurecli
+{
+  "access": "Allow",
+  "description": null,
+  "destinationAddressPrefix": "*",
+  "destinationPortRange": "5502",
+  "direction": "Inbound",
+  "etag": "W/\"06c68b5e-1b3f-4ae0-bcf6-59b3b981d685\"",
+  "id": "/subscriptions/2dad32d6-b188-49e6-9437-ca1d51cec4dd/resourceGroups/kennyRG/providers/Microsoft.Network/networkSecurityGroups/kennyVM1NSG/securityRules/allow-oracle-EM",
+  "name": "allow-oracle-EM",
+  "priority": 1001,
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "sourceAddressPrefix": "*",
+  "sourcePortRange": "*"
+}
 ```
+
+브라우저에서 EM Express 연결
+```
+https://<VM hostname>:5502/em
+```
+설치 중 지정한 암호로 SYS 계정을 사용하여 로그인 할 수 있습니다.
 
 
 ## <a name="delete-virtual-machine"></a>가상 컴퓨터 삭제

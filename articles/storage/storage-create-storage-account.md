@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
-ms.openlocfilehash: eb9e9ca5082559ee0e30ea67bf53229d38f81589
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="about-azure-storage-accounts"></a>Azure 저장소 계정 정보
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
-[!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>개요
 Azure 저장소 계정은 Azure 저장소 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. 저장소 계정의 모든 개체는 그룹으로 합산 청구됩니다. 기본적으로 계정에 대한 데이터는 사용자 계정 소유자에만 사용할 수 있습니다.
@@ -153,15 +155,11 @@ Azure 가상 컴퓨터와 연결된 저장소 계정을 삭제하려면 먼저 �
 자세한 내용은 [Azure 가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+* [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * [Azure Blob 저장소: 쿨 및 핫 계층](storage-blob-storage-tiers.md)
 * [Azure 저장소 복제](storage-redundancy.md)
 * [Azure 저장소 연결 문자열 구성](storage-configure-connection-string.md)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 * [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

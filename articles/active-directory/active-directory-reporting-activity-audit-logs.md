@@ -1,6 +1,7 @@
 ---
-title: "Azure Active Directory 포털 – 미리 보기의 감사 활동 보고서 | Microsoft Docs"
-description: "Azure Active Directory 포털 미리 보기의 감사 활동 보고서 소개"
+
+title: "Azure Active Directory 포털의 감사 작업 보고서 | Microsoft Docs"
+description: "Azure Active Directory 포털의 감사 작업 보고서 소개"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,20 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d88f8bed0cbd14ee49986d6749396731a810034b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 4065682658bdd99066266b8b4e5e4c4605ff3db9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="audit-activity-reports-in-the-azure-active-directory-portal---preview"></a>Azure Active Directory 포털 – 미리 보기의 감사 활동 보고서
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
-Azure Active Directory [미리 보기](active-directory-preview-explainer.md)에서 보고를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
+Azure Active Directory(Azure AD)에서 보고를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
 
-Azure Active Directory의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
+Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 
 - **활동** 
     - **로그인 활동** – 관리되는 응용 프로그램 및 사용자 로그인 활동의 사용량에 대한 정보

@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 05/02/2017
 ms.author: sethm;jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 2c9b6676c1a4cfe008235da6746d403555e1bf08
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
+ms.openlocfilehash: 7f3ddc2d7036b9951d4796cf4664f870a0c5f4b6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/03/2017
 
 
 ---
 # <a name="service-bus-faq"></a>서비스 버스 FAQ
-이 문서는 Microsoft Azure 서비스 버스에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 를 방문할 수 있습니다.
+이 문서는 Microsoft Azure Service Bus에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 를 방문할 수 있습니다.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Azure Service Bus에 대한 일반적인 질문
 ### <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
@@ -56,7 +57,11 @@ ms.lasthandoff: 04/26/2017
 * Express 엔터티
 
 ## <a name="pricing"></a>가격
-이 섹션은 서비스 버스 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다. 또한 일반적인 Microsoft Azure 가격 책정 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 를 방문할 수 있습니다. 서비스 버스 가격 책정에 대한 전체 내용은 [서비스 버스 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
+이 섹션은 서비스 버스 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다.
+
+[Service Bus 가격 책정 및 청구](service-bus-pricing-billing.md) 문서에서는 Service Bus의 청구 미터에 대해 설명합니다. Service Bus 가격 책정 옵션에 대한 자세한 내용은 [Service Bus 가격 책정 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.
+
+또한 일반적인 Azure 가격 책정 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)를 방문할 수 있습니다. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>서비스 버스 요금을 어떻게 청구하나요?
 Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][Pricing overview]를 참조하세요. 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.

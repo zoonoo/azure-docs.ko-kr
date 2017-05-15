@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/07/2017
+ms.date: 05/05/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 296f02dd7deb22fd4ca15478b7f90a7688b4304a
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: dea338477ca82eead9e272ed9a1709cb2643f743
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -116,7 +117,18 @@ ms.lasthandoff: 04/18/2017
    
     ![장애 조치 후 진단 이벤트 뷰어][diagnostic-events-viewer-detail-post-failover]
 
-## <a name="switch-cluster-mode"></a>클러스터 모드 전환
+## <a name="cleaning-up-the-local-cluster-optional"></a>로컬 클러스터 정리(선택 사항)
+마무리하기 전에, 로컬 클러스터가 존재한다는 것을 기억하는 것이 중요합니다. 디버거를 중지하면 응용 프로그램 인스턴스를 제거하고 응용 프로그램 형식의 등록을 취소합니다. 하지만 클러스터는 백그라운드에서 계속 실행됩니다. 클러스터를 관리하는 몇 가지 옵션이 있습니다.
+
+1. 클러스터는 끄되 응용 프로그램 데이터와 추적은 유지하려면 시스템 트레이 앱에서 **로컬 클러스터 중지**를 클릭합니다.
+2. 클러스터를 완전히 제거하려면 시스템 트레이 앱에서 **로컬 클러스터 제거**를 클릭합니다. 다음에 Visual Studio에서 F5 키를 누르면 이 옵션이 다른 느린 배포를 발생시킵니다. 일정 시간 동안 로컬 클러스터를 사용하지 않거나 또는 리소스를 확보해야 할 경우에만 클러스터를 삭제합니다.
+
+## <a name="deploy-your-application-to-an-azure-cluster"></a>Azure 클러스터에 응용 프로그램 배포
+이제 응용 프로그램을 로컬로 배포했으므로 Azure에 동일한 응용 프로그램을 배포할 수 있습니다. [Azure에서 첫 번째 Service Fabric 클러스터 만들기](service-fabric-get-started-azure-cluster.md) 문서에서는 Azure PowerShell 또는 포털을 사용하여 단계를 설명합니다.
+
+Azure 클러스터를 설정하면 [Azure 클러스터 게시](service-fabric-publish-app-remote-cluster.md) 문서를 수행하여 Visual Studio에서 Azure로 이 응용 프로그램을 게시할 수 있습니다.  
+
+## <a name="switch-cluster-mode-of-your-local-development-cluster"></a>로컬 개발 클러스터의 클러스터 모드 전환
 기본적으로 로컬 개발 클러스터는 5개 노드 클러스터로 실행되도록 구성되며, 이렇게 하면 여러 노드에 배포된 서비스를 디버깅하는 데 유용합니다. 그러나 응용 프로그램을 5개 노드 개발 클러스터로 배포하는 데에는 시간이 걸릴 수 있습니다. 5개의 노드에서 앱을 실행하지 않고도 코드 변경 내용을 신속하게 반복하려는 경우 개발 클러스터를 1개의 노드 모드로 전환할 수 있습니다. 하나의 노드가 있는 클러스터에서 코드를 실행하려면 시스템 트레이에서 로컬 클러스터 관리자를 마우스 오른쪽 단추로 클릭하고 **클러스터 모드 전환 -> 1개의 노드**를 선택합니다.  
 
 ![클러스터 모드 전환][switch-cluster-mode]
@@ -136,11 +148,7 @@ ms.lasthandoff: 04/18/2017
    
     ![클러스터 설정 출력][cluster-setup-success-1-node]
 
-## <a name="cleaning-up"></a>정리
-마무리하기 전에, 로컬 클러스터가 존재한다는 것을 기억하는 것이 중요합니다. 디버거를 중지하면 응용 프로그램 인스턴스를 제거하고 응용 프로그램 형식의 등록을 취소합니다. 하지만 클러스터는 백그라운드에서 계속 실행됩니다. 클러스터를 관리하는 몇 가지 옵션이 있습니다.
 
-1. 클러스터는 끄되 응용 프로그램 데이터와 추적은 유지하려면 시스템 트레이 앱에서 **로컬 클러스터 중지**를 클릭합니다.
-2. 클러스터를 완전히 제거하려면 시스템 트레이 앱에서 **로컬 클러스터 제거**를 클릭합니다. 다음에 Visual Studio에서 F5 키를 누르면 이 옵션이 다른 느린 배포를 발생시킵니다. 일정 시간 동안 로컬 클러스터를 사용하지 않거나 또는 리소스를 확보해야 할 경우에만 클러스터를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure에서 클러스터](service-fabric-cluster-creation-via-portal.md)를 만들거나 [Windows에서 독립 실행형 클러스터](service-fabric-cluster-creation-for-windows-server.md)를 만드는 방법을 알아봅니다.

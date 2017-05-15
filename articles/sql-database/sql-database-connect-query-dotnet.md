@@ -13,12 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;sstein;carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 119ffa3ac31e0ea6e76f8232f13b4dd8667f78aa
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0dff167c370fcd2df40aa2ac302d0f09990e1d41
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -33,13 +34,13 @@ ms.lasthandoff: 04/21/2017
 
 ## <a name="install-net"></a>.NET 설치
 
-이 섹션의 단계에서는 여러분이 .NET을 사용한 개발에 익숙하고 Azure SQL Database 작업에 익숙하지 않은 것으로 가정합니다. .NET을 사용하여 개발하는 것이 처음인 경우 [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/en-us/sql-server/developer-get-started/)로 이동하여 **.NET**을 선택한 다음 운영 체제를 선택합니다.
+이 섹션의 단계에서는 사용자가 .NET을 사용하여 개발하는 데 익숙하고 Azure SQL Database 작업에 익숙하지 않다고 가정합니다. .NET을 사용하여 개발하는 것이 처음인 경우 [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/en-us/sql-server/developer-get-started/)로 이동하여 **.NET**을 선택한 다음 운영 체제를 선택합니다.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework 및 .NET Core**
 
 Visual Studio 2017 Community는 Android, iOS, Windows뿐만 아니라 웹 및 데이터베이스 응용 프로그램, 클라우드 서비스를 위한 최신 응용 프로그램을 만들기 위해 완전한 기능을 갖춘 확장 가능한 평가판 IDE입니다. 전체 .NET Framework 또는 .NET Core만 설치할 수 있습니다. 이 빠른 시작의 코드 조각은 둘 중 하나에서 작동합니다. 컴퓨터에 이미 Visual Studio가 설치된 경우 다음 몇 단계를 건너뜁니다.
 
-1. [설치 프로그램](https://go.microsoft.com/fwlink/?LinkId=691978)을 다운로드합니다. 
+1. [Visual Studio 2017 설치 관리자](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)를 다운로드합니다. 
 2. 설치 관리자를 실행하고 설치 메시지에 따라 설치를 완료합니다.
 
 ### <a name="mac-os"></a>**Mac OS**
@@ -68,15 +69,15 @@ sudo apt-get install dotnet-dev-1.0.1
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
-Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
+Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
 3. 데이터베이스의 **개요** 페이지에서 아래 이미지와 같이 정규화된 서버 이름을 검토합니다. 서버 이름 위로 마우스를 가져가면 **복사하려면 클릭** 옵션이 표시됩니다. 
 
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+   ![서버 이름](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Azure SQL Database 서버의 로그인 정보를 잊어버린 경우 SQL Database 서버 페이지로 이동하여 서버 관리자 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
+4. Azure SQL Database 서버 로그인 정보를 잊어버린 경우 SQL Database 서버 페이지로 이동하여 서버 관리자 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
 
 5. **연결 문자열 표시**를 클릭합니다.
 
@@ -308,13 +309,9 @@ namespace ConsoleApplication1
 ```
 
 ## <a name="next-steps"></a>다음 단계
+- [첫 번째 Azure SQL Database 디자인](sql-database-design-first-database.md)
+- [.NET 설명서](https://docs.microsoft.com/dotnet/)
+- [SSMS를 사용하여 연결 및 쿼리](sql-database-connect-query-ssms.md)
+- [Visual Studio Code를 사용하여 연결 및 쿼리](sql-database-connect-query-vscode.md).
 
-- .NET 설명서는 [.NET 설명서](https://docs.microsoft.com/dotnet/)를 참조하세요.
-- SQL Server Management Studio를 사용하여 연결 및 쿼리하려면 [SSMS를 사용하여 연결 및 쿼리](sql-database-connect-query-ssms.md)를 참조하세요.
-- Visual Studio를 사용하여 연결 및 쿼리하려면 [Visual Studio 코드를 사용하여 연결 및 쿼리](sql-database-connect-query-vscode.md)를 참조하세요.
-- PHP를 사용하여 연결 및 쿼리하려면 [PHP를 사용하여 연결 및 쿼리](sql-database-connect-query-php.md)를 참조하세요.
-- Node.js를 사용하여 연결 및 쿼리하려면 [Node.js를 사용하여 연결 및 쿼리](sql-database-connect-query-nodejs.md)를 참조하세요.
-- Java를 사용하여 연결 및 쿼리하려면 [Java를 사용하여 연결 및 쿼리](sql-database-connect-query-java.md)를 참조하세요.
-- Python을 사용하여 연결 및 쿼리하려면 [Python을 사용하여 연결 및 쿼리](sql-database-connect-query-python.md)를 참조하세요.
-- Ruby를 사용하여 연결 및 쿼리하려면 [Ruby를 사용하여 연결 및 쿼리](sql-database-connect-query-ruby.md)를 참조하세요.
 

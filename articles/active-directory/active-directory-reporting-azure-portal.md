@@ -1,6 +1,7 @@
 ---
-title: "Azure Active Directory Reporting - 미리 보기 | Microsoft Docs"
-description: "Azure Active Directory Reporting 미리 보기에 사용할 수 있는 다양한 보고서를 나열합니다."
+
+title: "Azure Active Directory 보고 | Microsoft Docs"
+description: "Azure Active Directory 보고에 사용할 수 있는 다양한 보고서 나열"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,19 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
-ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="azure-active-directory-reporting---preview"></a>Azure Active Directory Reporting - 미리 보기
+# <a name="azure-active-directory-reporting"></a>Azure Active Directory 보고
 
 
 *이 설명서는 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)의 일부입니다.*
 
-Azure Active Directory 미리 보기에서 리포팅으로 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md)
+Azure Active Directory(Azure AD)에서 보고를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
 
 보고의 두 가지 주요 영역이 있습니다.
 

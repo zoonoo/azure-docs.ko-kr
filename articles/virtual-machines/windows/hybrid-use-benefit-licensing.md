@@ -3,7 +3,7 @@ title: "Window Server 및 Windows 클라이언트에 대한 Azure 하이브리�
 description: "Azure에 온-프레미스 라이선스를 가져오기 위해 Windows Software Assurance 혜택을 최대화하는 방법에 대해 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
-author: george-moore
+author: kmouss
 manager: timlt
 editor: 
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 4/10/2017
-ms.author: georgem
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 04f5fab5a27a28a0881d59b93451f4c3615692b4
-ms.lasthandoff: 04/13/2017
+ms.date: 5/1/2017
+ms.author: kmouss
+ms.translationtype: Human Translation
+ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
+ms.openlocfilehash: 0854ceddc473a362221140f32b24138221a6f175
+ms.contentlocale: ko-kr
+ms.lasthandoff: 04/27/2017
 
 
 ---
@@ -44,13 +45,13 @@ Windows Server:
 ```powershell
 Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
-2016-Datacenter 버전 2016.127.20170406 이상
+- 2016-Datacenter 버전 2016.127.20170406 이상
 
-2012-R2-Datacenter 버전 4.127.20170406 이상
+- 2012-R2-Datacenter 버전 4.127.20170406 이상
 
-2012-Datacenter 버전 3.127.20170406 이상
+- 2012-Datacenter 버전 3.127.20170406 이상
 
-2008-R2-SP1 버전 2.127.20170406 이상
+- 2008-R2-SP1 버전 2.127.20170406 이상
 
 Windows 클라이언트:
 ```powershell
@@ -61,7 +62,7 @@ Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
 ## <a name="upload-a-windows-vhd"></a>Windows VHD 업로드
 Azure에서 Windows VM을 배포하려면 먼저 기본 Windows 빌드를 포함하는 VHD를 만들어야 합니다. 이 VHD는 Azure에 업로드하기 전에 Sysprep을 통해 적절하게 준비되어야 합니다. 자세한 내용은 [VHD 요구 사항 및 Sysprep 프로세스](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 및 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요. Sysprep를 실행하기 전에 VM을 백업합니다. 
 
-먼저 [최신 Azure PowerShell을 설치 및 구성](/powershell/azureps-cmdlets-docs)했는지 확인합니다. VHD를 준비했으면 다음과 같이 `Add-AzureRmVhd` cmdlet을 사용하여 Azure 저장소 계정에 VHD를 업로드합니다.
+먼저 [최신 Azure PowerShell을 설치 및 구성](/powershell/azure/overview)했는지 확인합니다. VHD를 준비했으면 다음과 같이 `Add-AzureRmVhd` cmdlet을 사용하여 Azure 저장소 계정에 VHD를 업로드합니다.
 
 ```powershell
 Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -216,6 +217,35 @@ Windows 클라이언트:
 ```powershell
 New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm -LicenseType "Windows_Client"
 ```
+
+## <a name="deploy-a-virtual-machine-scale-set-via-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 가상 컴퓨터 크기 집합 배포
+VMSS Resource Manager 템플릿 내에서 `licenseType` 에 대한 추가 매개 변수를 지정해야 합니다. [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)에 대해 자세히 알아볼 수 있습니다. 크기 집합 virtualMachineProfile의 일부로 licenseType 속성을 포함하고 일반적인 방법으로 템플릿을 배포하도록 Resource Manager 템플릿을 편집합니다. 2016 Windows Server 이미지를 사용하는 아래 예제를 참조하세요.
+
+
+```json
+"virtualMachineProfile": {
+    "storageProfile": {
+        "osDisk": {
+            "createOption": "FromImage"
+        },
+        "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2016-Datacenter",
+            "version": "latest"
+        }
+    },
+    "licenseType": "Windows_Server",
+    "osProfile": {
+            "computerNamePrefix": "[parameters('vmssName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+    }
+```
+
+> [!NOTE]
+> PowerShell 및 다른 SDK 도구를 통해 AHUB 기능을 활용하여 가상 컴퓨터 크기 집합을 배포하는 방식은 곧 지원될 예정입니다.
+>
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Azure 하이브리드 사용 혜택 라이선싱](https://azure.microsoft.com/pricing/hybrid-use-benefit/)을 참조하세요.
