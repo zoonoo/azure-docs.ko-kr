@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 412063692e87fe71890f62bcc18b99b317a80986
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -50,9 +52,4 @@ Azure 데이터 카탈로그 포털에 로그온할 수 있는 상황이 발생�
  ![Active Directory 전역 인증 정책](./media/data-catalog-prerequisites/global-auth-policy.png)
 
 자세한 내용은 [인증 정책 구성](https://technet.microsoft.com/library/dn486781.aspx)을 참조하세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

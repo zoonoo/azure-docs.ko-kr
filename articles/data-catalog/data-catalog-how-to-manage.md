@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cd3184059a0970bb7c9b59803cf37125abbbd879
 ms.openlocfilehash: 45a7b2df88a2edf2bccdfc9d2aaea932f2096f24
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -73,9 +75,4 @@ ms.openlocfilehash: 45a7b2df88a2edf2bccdfc9d2aaea932f2096f24
 
 ## <a name="summary"></a>요약
 메타데이터 및 데이터 자산 검색에 대한 데이터 카탈로그의 크라우드소싱 모델을 사용하면 모든 카탈로그 사용자가 기여하고 검색할 수 있습니다. 데이터 카탈로그의 표준 버전은 특정 데이터 자산의 표시 및 사용을 제한하는 소유권 및 관리를 위한 기능을 제공합니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
