@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 975084c19909b0829b6f93cab05373fb71b10cf3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -65,9 +67,4 @@ Azure 데이터 카탈로그를 사용하여, 사용자는 이러한 중복 노�
 때로는 이러한 데이터 전문가들은  이메일을 통해서 또는 팀 SharePoint 사이트에 Word 문서에 공유하여 지식을 문서화하려고 노력 합니다. 이렇게 하는 것이 중요하지만, 사람들이 어떤 문서가 존재하고 어떻게 찾아야 하는지에 대한 새로운 검색 문제가 생깁니다.
 
 Azure 데이터 카탈로그는 이러한 조직의 지식을 공유하고 쉽게 검색할 수 있는 위치를 제공합니다. 데이터 전문가는 데이터 자산에 직접 주석을 달 수 있고 기존 설명서에 대한 링크를 포함할 수도 있습니다. 이렇게 하면 지식 자체를 캡처 할 수 있을 뿐만 아니라 데이터 소스 검색에 사용되는 동일한 경험 지식을 넣을 수 있습니다. 누군가 데이터 소스를 검색하는 데 카탈로그를 사용하면 소스 자체를 찾을 수 있을 뿐만 아니라 이전에 전문가의 마음에만 존재하는 전문가의 지식을 찾을 수 있습니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

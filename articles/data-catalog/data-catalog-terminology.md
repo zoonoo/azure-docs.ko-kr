@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: e9e1009bc20679a907e4bd2387865a6000b4a898
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -82,9 +84,4 @@ Azure 데이터 카탈로그에서 모든 사용자가 등록된 데이터 자�
 ## <a name="see-also"></a>참고 항목
 * [Azure 데이터 카탈로그란?](data-catalog-what-is-data-catalog.md)  - 이 문서에서는 Azure 데이터 카탈로그 서비스, 제공하는 값, 지원하는 시나리오에 대한 개요를 제공합니다.
 * [Azure 데이터 카탈로그 시작](data-catalog-get-started.md) - 이 문서에서는 데이터 원본 검색을 위해 Azure 데이터 카탈로그를 사용하는 방법을 보여주는 포괄적인 자습서를 제공합니다.  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
