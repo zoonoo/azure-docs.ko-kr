@@ -13,12 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: meetb;carlrab;sstein
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: d4d21297618d34aa301e4e1cc814afb15045d7f7
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 2c0dc1bef0bf2b7b78e8858943ad6e0ede214681
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -84,7 +85,7 @@ Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니�
 
    ![서버 이름](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Azure SQL Database 서버의 로그인 정보를 잊어버린 경우 SQL Database 서버 페이지로 이동하여 서버 관리자 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.     
+4. 서버 로그인 정보를 잊어버린 경우 SQL Database 서버 페이지로 이동하여 서버 관리자 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.     
     
 ## <a name="select-data"></a>데이터를 선택합니다.
 [sqlsrv_query()](https://docs.microsoft.com/sql/connect/php/sqlsrv-query) 함수와 [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql) Transact-SQL 문을 사용하여 범주별 상위 20개 제품을 쿼리하려면 다음 코드를 사용합니다. sqlsrv_query 함수를 사용하여 SQL Database에 대한 쿼리에서 결과 집합을 검색합니다. 이 함수는 쿼리를 허용하며, [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php)를 사용하여 반복될 수 있는 결과 집합을 반환합니다. server, database, username 및 password 매개 변수를 AdventureWorksLT 샘플 데이터를 사용하여 데이터베이스를 만들 때 지정한 값으로 바꿉니다. 
@@ -193,14 +194,8 @@ else{
 ```
 
 ## <a name="next-steps"></a>다음 단계
+- [첫 번째 Azure SQL Database 디자인](sql-database-design-first-database.md)
+- [SQL Server용 Microsoft PHP 드라이버](https://github.com/Microsoft/msphpsql/)
+- [문제/질문 보고](https://github.com/Microsoft/msphpsql/issues)
 
-- [SQL Server용 Microsoft PHP 드라이버](https://github.com/Microsoft/msphpsql/)에 대한 추가 정보를 확인합니다.
-- [문제/질문을 보관](https://github.com/Microsoft/msphpsql/issues)합니다.
-- SQL Server Management Studio를 사용하여 연결 및 쿼리하려면 [SSMS를 사용하여 연결 및 쿼리](sql-database-connect-query-ssms.md)를 참조하세요.
-- Visual Studio를 사용하여 연결 및 쿼리하려면 [Visual Studio 코드를 사용하여 연결 및 쿼리](sql-database-connect-query-vscode.md)를 참조하세요.
-- .NET을 사용하여 연결 및 쿼리하려면 [.NET을 사용하여 연결 및 쿼리](sql-database-connect-query-dotnet.md)를 참조하세요.
-- Node.js를 사용하여 연결 및 쿼리하려면 [Node.js를 사용하여 연결 및 쿼리](sql-database-connect-query-nodejs.md)를 참조하세요.
-- Java를 사용하여 연결 및 쿼리하려면 [Java를 사용하여 연결 및 쿼리](sql-database-connect-query-java.md)를 참조하세요.
-- Python을 사용하여 연결 및 쿼리하려면 [Python을 사용하여 연결 및 쿼리](sql-database-connect-query-python.md)를 참조하세요.
-- Ruby를 사용하여 연결 및 쿼리하려면 [Ruby를 사용하여 연결 및 쿼리](sql-database-connect-query-ruby.md)를 참조하세요.
 

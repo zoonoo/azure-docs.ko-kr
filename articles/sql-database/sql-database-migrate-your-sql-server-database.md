@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 04/20/2017
+ms.date: 05/07/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: c6d965351f6f131ee342cea672fc4fa8771f8ede
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: cf128e84cfa69a259ff529caebb910840dcbaede
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션
 
-이 자습서에서는 Microsoft Data Migration Assistant를 사용하여 기존 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션하고, 실제 데이터 마이그레이션을 수행하고 마이그레이션 완료 후 마이그레이션된 데이터베이스에 연결하기 위해 마이그레이션 준비에 필요한 단계를 살펴봅니다. 
+SQL Server 데이터베이스를 Azure SQL Database로 옮기는 과정은 데이터베이스를 준비하고 내보내고 가져오는 세 부분의 프로세스로 구성됩니다. 이 자습서에서는 다음에 대해 알아봅니다.
 
-> [!IMPORTANT]
-> 호환성 문제를 해결하려면 [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)를 사용합니다. 
->
+> [!div class="checklist"]
+> * DMA([Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595))를 사용하여 Azure SQL Database로의 마이그레이션을 위해 SQL Server에서 데이터베이스 준비
+> * 데이터베이스를 BACPAC 파일로 내보내기
+> * BACPAC 파일을 Azure SQL Database로 가져오기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-
-이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
+시작하기 전에 다음을 갖추고 있는지 확인합니다.
 
 - 최신 버전의 SSMS([SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms))를 설치합니다. SSMS를 설치하면 다양한 데이터베이스 개발 작업을 자동화하는 데 사용할 수 있는 명령줄 유틸리티인 SQLPackage의 최신 버전도 설치됩니다. 
 - DMA([Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595)).
-- 마이그레이션할 데이터베이스. 이 자습서에서는 SQL Server 2008R2 이상의 인스턴스에서 [SQL Server 2008R2 AdventureWorks OLTP 데이터베이스](https://msftdbprodsamples.codeplex.com/releases/view/59211)를 사용하지만 사용자가 선택한 모든 데이터베이스를 사용할 수 있습니다. 
+- 마이그레이션할 데이터베이스. 이 자습서에서는 SQL Server 2008R2 이상의 인스턴스에서 [SQL Server 2008R2 AdventureWorks OLTP 데이터베이스](https://msftdbprodsamples.codeplex.com/releases/view/59211)를 사용하지만 사용자가 선택한 모든 데이터베이스를 사용할 수 있습니다. 호환성 문제를 해결하려면 [Visual Studio Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)를 사용합니다.
 
 ## <a name="prepare-for-migration"></a>마이그레이션 준비
 
@@ -79,7 +79,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 9. **호환성 문제**를 클릭합니다. 특히 마이그레이션 차단, 동작 변경 내용 및 각 호환성 수준에 대해 사용되지 않는 기능에 대한 정보를 검토합니다. AdventureWorks2008R2 데이터베이스의 경우 SQL Server 2008 이후 전체 텍스트 검색의 변경 내용 및 SQL Server 2000 이후 SERVERPROPERTY('LCID')의 변경 내용을 검토합니다. 이러한 변경 사항의 자세한 내용에 대한 링크가 제공됩니다. 변경된 다양한 검색 옵션 및 전체 텍스트 검색에 대한 설정 
 
    > [!IMPORTANT] 
-   > Azure SQL Database에 데이터베이스를 마이그레이션한 후에 데이터베이스의 현재 호환성 수준(AdventureWorks2008R2 데이터베이스의 경우 100 수준) 또는 더 높은 수준에서 작동하도록 선택할 수 있습니다. 특정 호환성 수준에서 데이터베이스를 운영하기 위한 옵션 및 영향에 대한 자세한 내용은 [ALTER DATABASE 호환성 수준](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level)을 참조하세요. 또한 호환성 수준과 관련된 추가 데이터베이스 수준 설정에 대한 자세한 내용은 [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)을 참조하세요.
+   > Azure SQL Database에 데이터베이스를 마이그레이션한 후에 데이터베이스의 현재 호환성 수준(AdventureWorks2008R2 데이터베이스의 경우 100 수준) 또는 더 높은 수준에서 작동하도록 선택할 수 있습니다. 특정 호환성 수준에서 데이터베이스를 운영하기 위한 옵션 및 그 영향에 대한 자세한 내용은 [ALTER DATABASE 호환성 수준](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level)을 참조하세요. 또한 호환성 수준과 관련된 추가 데이터베이스 수준 설정에 대한 자세한 내용은 [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)을 참조하세요.
    >
 
 10. 필요에 따라 JSON 파일로 보고서를 저장하려면 **보고서 내보내기**를 클릭합니다.
@@ -222,15 +222,17 @@ SQL Server Management Studio를 사용하여 서비스 계층, 성능 수준 및
    ![호환성 수준 변경](./media/sql-database-migrate-your-sql-server-database/compat-level.png)
 
 ## <a name="next-steps"></a>다음 단계 
+이 자습서에서는 데이터베이스를 준비하고 내보내며 가져왔습니다. 다음에 대해 알아보았습니다.
 
-- 마이그레이션 개요는 [데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
-- T-SQL 차이점에 대한 자세한 내용은 [SQL Database로의 마이그레이션 중 Transact-SQL 차이점 해결](sql-database-transact-sql-information.md)을 참조하세요.
-- Visual Studio 코드를 사용하여 연결 및 쿼리하려면 [Visual Studio 코드를 사용하여 연결 및 쿼리](sql-database-connect-query-vscode.md)를 참조하세요.
-- .NET을 사용하여 연결 및 쿼리하려면 [.NET을 사용하여 연결 및 쿼리](sql-database-connect-query-dotnet.md)를 참조하세요.
-- PHP를 사용하여 연결 및 쿼리하려면 [PHP를 사용하여 연결 및 쿼리](sql-database-connect-query-php.md)를 참조하세요.
-- Node.js를 사용하여 연결 및 쿼리하려면 [Node.js를 사용하여 연결 및 쿼리](sql-database-connect-query-nodejs.md)를 참조하세요.
-- Java를 사용하여 연결 및 쿼리하려면 [Java를 사용하여 연결 및 쿼리](sql-database-connect-query-java.md)를 참조하세요.
-- Python을 사용하여 연결 및 쿼리하려면 [Python을 사용하여 연결 및 쿼리](sql-database-connect-query-python.md)를 참조하세요.
-- Ruby를 사용하여 연결 및 쿼리하려면 [Ruby를 사용하여 연결 및 쿼리](sql-database-connect-query-ruby.md)를 참조하세요.
+> [!div class="checklist"]
+> * Azure SQL Database로의 마이그레이션을 위해 SQL Server에서 데이터베이스 준비
+> * 데이터베이스를 BACPAC 파일로 내보내기
+> * BACPAC 파일을 Azure SQL Database로 가져오기
+
+데이터의 보안을 설정하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+
+> [!div class="nextstepaction"]
+> [Azure SQL Database 보안](sql-database-security-tutorial.md)
+
 
 

@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/04/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 08a83bf8dca71846dd06edb9aa253f69c24d253c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 000440fb2c38eadc0ffdcab84a3c23bb034e834f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -27,20 +28,22 @@ ms.lasthandoff: 04/27/2017
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-이 자습서에서는 두 개의 DNS 이름을 App Service의 앱에 매핑하는 세 가지 일반적인 시나리오를 보여 줍니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
-- `www.contoso.com` - `contoso.com`의 하위 도메인입니다. CNAME 레코드를 사용하여 앱에 매핑합니다.
-- `contoso.com` - 루트 도메인입니다. A 레코드를 사용하여 앱에 매핑합니다.
-- `*.contoso.com` - 와일드 카드 도메인 CNAME 레코드를 사용하여 앱에 매핑합니다.
+> [!div class="checklist"]
+> * CNAME 레코드를 사용하여 하위 도메인(예: `www.contoso.com`) 매핑
+> * A 레코드를 사용하여 루트 도메인(예: `contoso.com`) 매핑
+> * CNAME 레코드를 사용하여 와일드카드 도메인(예: `*.contoso.com`) 매핑
+> * 스크립트로 도메인 매핑 자동화
 
 **CNAME 레코드** 또는 **A 레코드**를 사용하여 사용자 지정 DNS 이름을 App Service에 매핑할 수 있습니다.
 
 > [!NOTE]
-> 루트 도메인(예: contoso.com)을 제외한 모든 사용자 지정 DNS 이름에 대해 CNAME을 사용하는 것이 좋습니다. 
+> 루트 도메인(예: `contoso.com`)을 제외한 모든 사용자 지정 DNS 이름에 대해 CNAME을 사용하는 것이 좋습니다. 
 > 
 > 
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 도메인 공급자(예: GoDaddy)의 DNS 레지스트리에 액세스하고 도메인 구성을 편집할 수 있는 권한이 필요합니다. 
 
@@ -195,6 +198,8 @@ DNS 레코드를 관리하기 위한 페이지를 찾습니다. 각 도메인 �
 >
 >
 
+<a name="create-a"></a>
+
 ### <a name="create-the-a-record"></a>A 레코드 만들기
 
 앱에 A 레코드를 매핑하려면 App Service는 실제로 **두** DNS 레코드가 필요합니다.
@@ -325,8 +330,10 @@ DNS 레코드 페이지가 다음 스크린샷과 같이 표시됩니다.
 다음 명령은 구성된 사용자 지정 DNS 이름을 App Service 앱에 추가합니다. 
 
 ```bash 
-az appservice web config hostname add --webapp <app_name> --resource-group <resourece_group_name> \ 
---name <fully_qualified_domain_name> 
+az appservice web config hostname add \
+    --webapp <app_name> \
+    --resource-group <resourece_group_name> \ 
+    --name <fully_qualified_domain_name> 
 ``` 
 
 자세한 내용은 [Web App에 사용자 지정 도메인 매핑](scripts/app-service-cli-configure-custom-domain.md)을 참조하세요. 
@@ -336,13 +343,26 @@ az appservice web config hostname add --webapp <app_name> --resource-group <reso
 다음 명령은 구성된 사용자 지정 DNS 이름을 App Service 앱에 추가합니다. 
 
 ```PowerShell  
-Set-AzureRmWebApp -Name <app_name> -ResourceGroupName <resourece_group_name> ` 
--HostNames @(<fully_qualified_domain_name>,"<app_name>.azurewebsites.net") 
+Set-AzureRmWebApp `
+    -Name <app_name> `
+    -ResourceGroupName <resourece_group_name> ` 
+    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
 자세한 내용은 [Web App에 사용자 지정 도메인 할당](scripts/app-service-powershell-configure-custom-domain.md)을 참조하세요.
 
-## <a name="more-resources"></a>추가 리소스
+## <a name="next-steps"></a>다음 단계
 
-[Azure App Service에서 App Service 도메인 구성](custom-dns-web-site-buydomains-web-app.md)
+이 자습서에서 학습한 방법은 다음과 같습니다.
+
+> [!div class="checklist"]
+> * CNAME 레코드를 사용하여 하위 도메인 매핑
+> * A 레코드를 사용하여 루트 도메인 매핑
+> * CNAME 레코드를 사용하여 와일드카드 도메인 매핑
+> * 스크립트로 도메인 매핑 자동화
+
+사용자 지정 SSL 인증서를 바인딩하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+
+> [!div class="nextstepaction"]
+> [Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)
 
