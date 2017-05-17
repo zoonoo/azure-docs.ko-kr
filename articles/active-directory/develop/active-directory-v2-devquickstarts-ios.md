@@ -3,7 +3,7 @@ title: "Azure AD v 2.0 끝점을 사용하여 iOS 응용 프로그램에 로그�
 description: "타사 라이브러리를 사용하여 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 iOS 앱을 빌드하는 방법입니다."
 services: active-directory
 documentationcenter: 
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: 
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: xerners
-translationtype: Human Translation
+ms.author: brandwe
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
 ms.openlocfilehash: 36c83ad9424c7c1e0bc096696148dda801bc4257
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/24/2017
 
 

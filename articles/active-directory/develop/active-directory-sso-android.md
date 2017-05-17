@@ -3,7 +3,7 @@ title: "ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정
 description: "ADAL SDK의 기능을 사용하여 응용 프로그램에서 Single Sign On을 활성화하는 방법입니다. "
 services: active-directory
 documentationcenter: 
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: 
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: xerners
-translationtype: Human Translation
+ms.author: brandwe
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: 510a1827f432c4db2190deff016a886dd79eebc9
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/26/2017
 
 

@@ -4,7 +4,7 @@ description: "Azure Active Directory에서 확인하고 다운로드할 수 있�
 services: active-directory
 documentationcenter: 
 author: dhanyahk
-manager: mbaldwin
+manager: femila
 editor: 
 ms.assetid: 307eedf7-05bc-448d-a84d-bead5a4c5770
 ms.service: active-directory
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2016
+ms.date: 05/16/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6950072b8970dfc1b80674efe0be6cb7496fd5ce
 ms.openlocfilehash: 2dda60160bbcaa729bc8e5cec4f47efc10d120cf
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -325,10 +327,5 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다. 보고�
 | PasswordValidityPeriodDays |암호를 변경해야 하기 전에 유효한 일 수입니다. |
 
 감사 레코드는 많은 규정 준수 규칙의 필수 컨트롤입니다. Azure Active Directory 감사 보고서를 사용하여 규정 준수 규칙을 충족하려는 고객은 보고서 세부 정보를 설명하는 데 도움이 되도록 내보낸 고객 감사 보고서의 복사본과 함께 이 도움말 항목의 복사본을 제출하는 것이 좋습니다. Azure에서 현재 충족하는 규정 준수 규칙을 알려고 하는 감사자는 직접 Microsoft Azure 보안 센터의 [규정 준수 페이지](https://azure.microsoft.com/support/trust-center/compliance/) 로 안내하세요.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
