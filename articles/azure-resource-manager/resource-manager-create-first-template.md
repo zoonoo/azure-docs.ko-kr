@@ -14,10 +14,11 @@ ms.devlang: na
 ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 3c5520f30b75c0e0a2b1aee890f79d01d325d543
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -184,7 +185,7 @@ ms.lasthandoff: 04/20/2017
 
 ![함수 표시](./media/resource-manager-create-first-template/show-functions.png)
 
-함수는 대괄호로 묶여 있습니다. [resourceGroup](resource-group-template-functions.md#resourcegroup) 함수는 `location`이라는 속성으로 개체를 반환합니다. 리소스 그룹은 솔루션에 관련된 모든 리소스를 보유합니다. “미국 중부"와 같은 값으로 location 속성을 하드 코딩할 수 있지만 다른 위치에 다시 배포하려면 템플릿을 수동으로 변경해야 합니다. `resourceGroup` 함수를 사용하면 이 템플릿을 다른 위치에 있는 다른 리소스 그룹에 손쉽게 다시 배포할 수 있습니다.
+함수는 대괄호로 묶여 있습니다. [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) 함수는 `location`이라는 속성으로 개체를 반환합니다. 리소스 그룹은 솔루션에 관련된 모든 리소스를 보유합니다. “미국 중부"와 같은 값으로 location 속성을 하드 코딩할 수 있지만 다른 위치에 다시 배포하려면 템플릿을 수동으로 변경해야 합니다. `resourceGroup` 함수를 사용하면 이 템플릿을 다른 위치에 있는 다른 리소스 그룹에 손쉽게 다시 배포할 수 있습니다.
 
 템플릿은 이제 다음과 같이 표시됩니다.
 
@@ -216,7 +217,7 @@ ms.lasthandoff: 04/20/2017
 ## <a name="add-parameters-and-variables"></a>매개 변수 및 변수 추가
 템플릿에서 설정할 두 개의 값 **이름** 및 **sku.name**만이 남아 있습니다. 이러한 속성의 경우 배포하는 동안 이러한 값을 사용자 지정할 수 있도록 하는 매개 변수를 추가합니다. 
 
-저장소 계정 이름에는 설정을 어렵게 하는 몇 가지 제한 사항이 있습니다. 이름은 길이가 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용하고 고유해야 합니다. 제한 사항과 일치하는 고유 값을 추측하기 보다는 [uniqueString](resource-group-template-functions.md#uniquestring) 함수를 사용하여 해시 값을 생성합니다. 이 해시 값에 더 많은 의미를 부여하려면 배포 후 저장소 계정으로 식별하는 데 도움이 되는 접두사를 추가합니다. 
+저장소 계정 이름에는 설정을 어렵게 하는 몇 가지 제한 사항이 있습니다. 이름은 길이가 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용하고 고유해야 합니다. 제한 사항과 일치하는 고유 값을 추측하기 보다는 [uniqueString](resource-group-template-functions-string.md#uniquestring) 함수를 사용하여 해시 값을 생성합니다. 이 해시 값에 더 많은 의미를 부여하려면 배포 후 저장소 계정으로 식별하는 데 도움이 되는 접두사를 추가합니다. 
 
 1. 명명 규칙과 일치하는 이름에 대한 접두사를 전달하려면 템플릿의 **매개 변수** 섹션으로 이동합니다. 저장소 계정 이름에 대한 접두사를 허용하는 템플릿에 매개 변수를 추가합니다.
 
