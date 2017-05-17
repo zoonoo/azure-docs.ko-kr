@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 02/13/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 22a86001fe93dcb11e180dbdd75045b49b85b58f
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 60102ebb43efc8710f102450df5b98edcb1d4b39
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -410,5 +411,6 @@ VMware 도구가 데이터 저장소를 찾을 수 있도록 마스터 대상에
 * 마스터 대상 같은 관리 구성 요소에서 Storage vMotion을 설정하지 않아야 합니다. 마스터 대상이 다시 보호 후에 이동되면 VMDK(가상 컴퓨터 디스크)를 분리할 수 없고 따라서 장애 복구도 실패합니다.
 * 마스터 대상에는 가상 컴퓨터에 대한 스냅숏이 없어야 합니다. 스냅숏이 있으면 장애 복구가 실패합니다.
 * 일부 고객의 일부 사용자 지정 NIC 구성 때문에 부팅 시에 네트워크 인터페이스가 비활성화되고 마스터 대상 에이전트를 초기화할 수 없습니다. 다음 속성이 올바르게 설정되어 있는지 확인합니다. 이더넷 카드 파일의 /etc/sysconfig/network-scripts/ifcfg-eth*에서 다음 속성을 확인합니다.
-        * BOOTPROTO=dhcp * ONBOOT=yes
+    * BOOTPROTO=dhcp
+    * ONBOOT=yes
 
