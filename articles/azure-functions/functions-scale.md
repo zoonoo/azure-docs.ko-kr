@@ -7,7 +7,7 @@ author: dariagrigoriu
 manager: erikre
 editor: 
 tags: 
-keywords: "Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
+keywords: "Azure 함수, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
 ms.devlang: multiple
@@ -17,14 +17,15 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: dariagrigoriu, glenga
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: cea92fe434288012a398f6821bc9cd7ab85b7d3e
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0feeca446a756a076461f381123f63079e0a13db
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="choose-the-correct-service-plan-for-azure-functions"></a>Azure Functions에 대한 올바른 서비스 계획 선택
+# <a name="choose-the-correct-hosting-plan-for-azure-functions"></a>Azure Functions에 대한 올바른 호스팅 계획 선택
 
 ## <a name="introduction"></a>소개
 

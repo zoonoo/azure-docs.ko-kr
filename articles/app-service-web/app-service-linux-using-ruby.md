@@ -1,6 +1,6 @@
 ---
-title: "Linux의 Azure App Service Web Apps에서 Ruby 사용 | Microsoft Docs"
-description: "Linux의 Azure App Service Web Apps에서 Ruby 사용"
+title: "Linux의 Azure App Service Web App에서 Ruby 사용 | Microsoft Docs"
+description: "Linux의 Azure App Service Web App에서 Ruby 사용"
 keywords: "azure app service, 웹앱, faq, linux, oss, ruby"
 services: app-service
 documentationCenter: 
@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
-ms.openlocfilehash: 8427034e5229000faf134bcd5b7174b0f7046321
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5aeef6f31dacb1b27c605d39a35a81bd0211e06a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="using-ruby-in-web-apps-on-linux"></a>Linux의 Web Apps에서 Ruby 사용 #
+# <a name="using-ruby-in-web-app-on-linux"></a>Linux의 웹앱에서 Ruby 사용 #
 
 백 엔드 최신 업데이트에서는 Ruby v.2.3에 대한 지원이 추가되었습니다. Linux 웹앱의 구성을 설정하여 응용 프로그램 스택을 변경할 수 있습니다.
 
@@ -45,10 +46,10 @@ ms.lasthandoff: 02/17/2017
 Ruby 웹앱이 만들어지면 Git 또는 FTP를 사용하여 배포할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Linux의 App Service란?](app-service-linux-intro.md)
-* [Linux의 App Service에서 웹앱 만들기](app-service-linux-how-to-create-a-web-app.md)
+* [Linux의 웹앱이란?](app-service-linux-intro.md)
+* [Linux의 웹앱에서 웹앱 만들기](app-service-linux-how-to-create-web-app.md)
 * [Azure App Service에 대한 로컬 Git 배포](app-service-deploy-local-git.md)
-* [Linux의 Azure App Service Web Apps에 대한 FAQ](app-service-linux-faq.md)
+* [Linux의 Azure App Service Web App에 대한 FAQ](app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-ruby/New-Linux.png

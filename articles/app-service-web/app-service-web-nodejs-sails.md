@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: ff5deaa15d1f78df249e9e89b1f0ffc82076fee1
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 197e4c1873ecdc80c7eed3427449e2ea0d1605ba
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -183,11 +184,11 @@ Sails.js 응용 프로그램이 앱 서비스에서 어떤 이유로 실패하�
 [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging) 파일에서 stdout 로그의 세분화 수준을 제어할 수 있습니다.
 
 ## <a name="connect-to-a-database-in-azure"></a>Azure의 데이터베이스에 연결
-Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, MongoDB, Azure (Redis) Cache 등 원하는 데이터베이스를 만들고 해당하는 [데이터 저장소 어댑터](https://github.com/balderdashy/sails#compatibility) 를 사용하여 이 데이터베이스에 연결합니다. 이 섹션의 단계에서는 MongoDB 클라이언트 연결을 지원할 수 있는 [Azure DocumentDB](../documentdb/documentdb-protocol-mongodb.md) 데이터베이스를 사용하여 MongoDB에 연결하는 방법을 보여 줍니다.
+Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, MongoDB, Azure (Redis) Cache 등 원하는 데이터베이스를 만들고 해당하는 [데이터 저장소 어댑터](https://github.com/balderdashy/sails#compatibility) 를 사용하여 이 데이터베이스에 연결합니다. 이 섹션의 단계에서는 MongoDB 클라이언트 연결을 지원할 수 있는 [Azure Cosmos DB](../documentdb/documentdb-protocol-mongodb.md) 데이터베이스를 사용하여 MongoDB에 연결하는 방법을 보여 줍니다.
 
-1. [MongoDB 프로토콜 지원을 사용하는 DocumentDB 계정을 만듭니다](../documentdb/documentdb-create-mongodb-account.md).
-2. [DocumentDB 컬렉션 및 데이터베이스를 만듭니다](../documentdb/documentdb-create-collection.md). 컬렉션의 이름은 중요하지 않지만 Sails.js에서 연결할 때 데이터베이스의 이름이 필요합니다.
-3. [DocumentDB 데이터베이스에 대한 연결 정보를 찾습니다](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
+1. [MongoDB 프로토콜 지원을 사용하는 Cosmos DB 계정을 만듭니다](../documentdb/documentdb-create-mongodb-account.md).
+2. [Cosmos DB 컬렉션 및 데이터베이스를 만듭니다](../documentdb/documentdb-create-collection.md). 컬렉션의 이름은 중요하지 않지만 Sails.js에서 연결할 때 데이터베이스의 이름이 필요합니다.
+3. [Cosmos DB 데이터베이스에 대한 연결 정보를 찾습니다](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
 2. 명령줄 터미널에서 MongoDB 어댑터를 설치합니다.
 
         npm install sails-mongo --save
@@ -205,11 +206,11 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
         },
 
     > [!NOTE] 
-    > `ssl: true` 옵션은 [Azure DocumentDB에서 필요](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements)하기 때문에 중요합니다. 
+    > `ssl: true` 옵션은 [Cosmos DB에서 필요](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements)하기 때문에 중요합니다. 
     >
     >
 
-4. 각 환경 변수(`process.env.*`)의 경우 App Service에서 설정해야 합니다. 이렇게 하려면 터미널에서 다음 명령을 실행합니다. DocumentDB 데이터베이스에 대한 연결 정보를 사용합니다.
+4. 각 환경 변수(`process.env.*`)의 경우 App Service에서 설정해야 합니다. 이렇게 하려면 터미널에서 다음 명령을 실행합니다. Cosmos DB에 대한 연결 정보를 사용합니다.
 
         az appservice web config appsettings update --settings dbuser="<database user>" --name <app_name> --resource-group my-sailsjs-app-group
         az appservice web config appsettings update --settings dbpassword="<database password>" --name <app_name> --resource-group my-sailsjs-app-group
@@ -230,7 +231,7 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
             },
         },
 
-    이 구성은 config/connections.js 파일에서 로컬 환경에 대한 설정을 재정의합니다. 이 파일은 프로젝트에서 기본 .gitignore에 의해 제외되므로 Git에 저장되지 않습니다. 이제 Azure 웹앱 및 로컬 개발 환경 둘 다에서 DocumentDB(MongoDB) 데이터베이스에 연결할 수 있습니다.
+    이 구성은 config/connections.js 파일에서 로컬 환경에 대한 설정을 재정의합니다. 이 파일은 프로젝트에서 기본 .gitignore에 의해 제외되므로 Git에 저장되지 않습니다. 이제 Azure Web App 및 로컬 개발 환경 둘 다에서 Cosmos DB(MongoDB) 데이터베이스에 연결할 수 있습니다.
 6. config/env/production.js를 열어 프로덕션 환경을 구성하고 다음 `models` 개체를 추가합니다.
 
         models: {
@@ -270,7 +271,7 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
 
          http://<appname>.azurewebsites.net/mywidget/create
 
-     API가 다른 새 항목을 반환하는 경우 Azure 웹앱은 DocumentDB(MongoDB) 데이터베이스에 그 사실을 알립니다.
+     API가 다른 새 항목을 반환하는 경우 Azure Web App은 Cosmos DB(MongoDB) 데이터베이스에 그 사실을 알립니다.
 
 ## <a name="more-resources"></a>추가 리소스
 * [Azure 앱 서비스에서 Node.js 웹앱 시작](app-service-web-get-started-nodejs.md)

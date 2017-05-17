@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/14/2017
 ms.author: donnam
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: ed0ade96cc1cf6afc82787133d3fbcf874c43e0f
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f7d0ed4f43c68c73c967a401509f1a5ccac7da0b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -382,12 +383,12 @@ module.exports = function (context, info) {
 
 - [HTTP 및 webhook](functions-bindings-http-webhook.md)
 - [타이머](functions-bindings-timer.md)
-- [Queue Storage](functions-bindings-storage-queue.md)
+- [큐 저장소](functions-bindings-storage-queue.md)
 - [Blob 저장소](functions-bindings-storage-blob.md)
 - [Table Storage](functions-bindings-storage-table.md)
 - [이벤트 허브](functions-bindings-event-hubs.md)
 - [서비스 버스](functions-bindings-service-bus.md)
-- [DocumentDB](functions-bindings-documentdb.md)
+- [Cosmos DB](functions-bindings-documentdb.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)
 - [알림 허브](functions-bindings-notification-hubs.md)

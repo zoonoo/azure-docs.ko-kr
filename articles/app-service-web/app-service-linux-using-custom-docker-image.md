@@ -1,6 +1,6 @@
 ---
-title: "Linux에서 Azure App Service에 대한 사용자 지정 Docker 이미지를 사용하는 방법 | Microsoft Docs"
-description: "Linux에서 App Service에 대한 사용자 지정 Docker 이미지를 사용하는 방법"
+title: "Linux에서 Azure Web App에 대한 사용자 지정 Docker 이미지를 사용하는 방법 | Microsoft Docs"
+description: "Linux에서 Azure Web App에 대한 사용자 지정 Docker 이미지를 사용하는 방법"
 keywords: "azure app service, 웹앱, linux, docker, 컨테이너"
 services: app-service
 documentationcenter: 
@@ -15,15 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: bb4c7ea7adfe1326ae8259782b5de2762c8c2bf5
-ms.openlocfilehash: 7e4aab65feac187b48ccca65b35bb94185323506
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9962766b0a1fdfe313b70ea65e08785ec8a97996
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="using-a-custom-docker-image-for-app-service-on-linux"></a>Linux에서 App Service에 대한 사용자 지정 Docker 이미지 사용 #
+# <a name="using-a-custom-docker-image-for-azure-web-app-on-linux"></a>Linux에서 Azure Web App에 대한 사용자 지정 Docker 이미지 사용 #
+
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
 
 App Service는 PHP 7.0 및 Node.js 4.5와 같은 특정 버전에 대한 지원을 통해 Linux에 미리 정의된 응용 프로그램 스택을 제공합니다. Linux의 App Service는 Docker 컨테이너를 사용하여 이러한 미리 작성된 응용 프로그램 스택을 호스트합니다. 또한 사용자 지정 Docker 이미지를 사용하여 Azure에 아직 정의되지 않은 응용 프로그램 스택에 웹앱을 배포할 수도 있습니다. 사용자 지정 Docker 이미지는 공용 또는 개인 Docker 리포지토리에 호스트할 수 있습니다.
 
@@ -98,12 +102,12 @@ Docker 허브에서 사용자 지정 Docker 이미지를 사용하려면
 
 ## <a name="next-steps"></a>다음 단계 ##
 
-Linux에서 App Service를 시작하려면 다음 링크를 따르세요.   
+Linux에서 웹앱을 시작하려면 다음 링크를 따르세요.   
 
-* [Linux의 App Service 소개](./app-service-linux-intro.md)
-* [Linux의 App Service에서 웹앱 만들기](./app-service-linux-how-to-create-a-web-app.md)
-* [Linux의 웹앱에 있는 Node.js용 PM2 구성 사용](./app-service-linux-using-nodejs-pm2.md)
-* [Linux의 Azure App Service Web Apps에 대한 FAQ](app-service-linux-faq.md)
+* [Linux의 Azure Web App 소개](./app-service-linux-intro.md)
+* [Linux의 Azure Web App에서 웹앱 만들기](./app-service-linux-how-to-create-web-app.md)
+* [Linux의 Azure Web App에서 Node.js용 PM2 구성 사용](./app-service-linux-using-nodejs-pm2.md)
+* [Linux의 Azure App Service Web App에 대한 FAQ](app-service-linux-faq.md)
 
 [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시하세요.
 
