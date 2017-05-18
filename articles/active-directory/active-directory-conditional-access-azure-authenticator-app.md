@@ -12,12 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: 5dd6701f25c69f5e870d3add79c312f9aeec6bf4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -118,10 +120,5 @@ Azure Authenticator 앱을 설치한 후 Android 계정 관리자에서 회사 �
 
 ## <a name="troubleshooting"></a>문제 해결
 **키 저장소 오류**가 표시되는 경우 잠금 화면이 PIN으로 설정되지 않았기 때문일 수 있습니다. 이 문제를 해결하려면 Azure Authenticator 앱을 제거하고 잠금 화면에 대한 PIN을 구성한 다음 앱을 다시 설치합니다.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

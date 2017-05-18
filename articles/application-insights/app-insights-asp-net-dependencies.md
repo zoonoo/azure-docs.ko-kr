@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 35817adde713995ec82eead033f058ee109bf900
-ms.lasthandoff: 03/16/2017
+ms.date: 05/04/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c31abf49a05f7911d4ec82db59efa2724ab7b49b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 03/16/2017
   * SQL 데이터베이스
   * ASP.NET 웹 및 HTTP 기반 바인딩을 사용하는 WCF 서비스
   * 로컬 또는 원격 HTTP 호출
-  * Azure DocumentDb, 테이블, Blob 저장소 및 큐
+  * Azure Cosmos DB, 테이블, Blob Storage 및 큐
 * 웹 페이지
   * AJAX 호출
 
@@ -119,9 +120,9 @@ ms.lasthandoff: 03/16/2017
 
 첫 번째 종속성 호출 후 큰 간격이 있어 보이므로 코드를 보고 그 이유를 확인해야 합니다.
 
-### <a name="profiling-your-live-site"></a>라이브 사이트 프로파일링
+### <a name="profile-your-live-site"></a>라이브 사이트 프로파일링
 
-시간에 따른 위치를 알 수 없나요? Application Insights 프로파일러는 라이브 사이트에 대한 HTTP 호출을 추적하고 가장 오래 걸린 코드의 함수를 표시합니다. 프로파일러는 현재 제한된 미리 보기로 제공됩니다. [평가판에 등록](https://aka.ms/AIProfilerPreview)할 수 있습니다.
+시간에 따른 위치를 알 수 없나요? [Application Insights 프로파일러](app-insights-profiler.md)는 라이브 사이트에 대한 HTTP 호출을 추적하고 가장 오래 걸린 코드의 함수를 표시합니다.
 
 ## <a name="failed-requests"></a>실패한 요청
 실패한 요청은 종속성에 대한 실패한 호출과 연관이 있을 수도 있습니다. 문제를 클릭하여 추적할 수 있습니다.

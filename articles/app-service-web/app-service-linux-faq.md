@@ -1,6 +1,6 @@
 ---
-title: "Linux의 Azure App Service Web Apps에 대한 FAQ | Microsoft Docs"
-description: "Linux의 Azure App Service Web Apps에 대한 FAQ"
+title: "Linux의 Azure App Service Web App에 대한 FAQ | Microsoft Docs"
+description: "Linux의 Azure App Service Web App에 대한 FAQ"
 keywords: "Azure App Service, 웹앱, faq, linux, oss"
 services: app-service
 documentationCenter: 
@@ -13,19 +13,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
-ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: d9410448952438d6b9d437b7ca8823d4f196a2d6
-ms.lasthandoff: 04/22/2017
+ms.date: 05/04/2017
+ms.author: aelnably;wesmc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: dcce8d855f8c37d40fe8f09ef0a97e46b342e3cf
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="azure-app-service-web-apps-on-linux-faq"></a>Linux의 Azure App Service Web Apps에 대한 FAQ
+# <a name="azure-app-service-web-app-on-linux-faq"></a>Linux의 Azure App Service Web App에 대한 FAQ
 
-Linux에 Azure App Service가 출시되면서(현재 미리 보기), 우리는 현재 플랫폼에 기능을 추가하고 플랫폼을 더욱 개선하기 위한 작업을 진행하고 있습니다. 다음은 최근 몇 달 동안 고객이 가장 자주 물어본 몇 가지 질문입니다.
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
+
+
+Linux에 웹앱을 릴리스하면서 현재 플랫폼에 기능을 추가하고 플랫폼을 더욱 개선하기 위한 작업을 진행하고 있습니다. 다음은 최근 몇 달 동안 고객이 가장 자주 물어본 몇 가지 질문입니다.
 질문이 있으면 문서에 남겨주세요. 최대한 신속하게 답변을 드리겠습니다.
 
 ## <a name="built-in-images"></a>기본 제공 이미지
@@ -40,27 +44,29 @@ Linux에 Azure App Service가 출시되면서(현재 미리 보기), 우리는 �
 
 ## <a name="management"></a>관리
 
-**Q:** Azure Portal에서 다시 시작 단추를 눌렀는데 웹앱이 다시 시작하지 않습니다. 왜 그런가요?
+**Q:** Azure Portal에서 다시 시작 단추를 누르면 어떻게 되나요?
 
-**A:** 머지 않아 다시 시작 단추를 활성하하기 위해 노력하고 있습니다. 지금은 다음 두 가지 옵션이 있습니다.
-- 더미 응용 프로그램 설정을 추가 또는 변경합니다. 이렇게 하면 웹앱이 강제로 다시 시작합니다.
-- 웹앱을 중지했다가 시작합니다.
+**A:** Docker를 다시 시작하는 것과 같습니다.
 
 **Q:** 앱 컨테이너 가상 컴퓨터(VM)에 연결하기 위해 Secure Shell(SSH)을 사용할 수 있나요?
 
-**A:** 아니요. 향후 릴리스에서 앱 컨테이너에 연결하기 위해 SSH를 사용하는 방법을 제공할 예정입니다.
+**A:** 예, SCM 사이트를 통해 이 작업을 수행할 수 있습니다. 자세한 내용은 [Linux의 웹앱에 대한 SSH 지원](./app-service-linux-ssh-support.md) 문서를 참조하세요.
 
 ## <a name="continuous-integrationdeployment"></a>연속 통합/배포
 
 **Q:** Docker Hub에서 이미지를 업데이트한 후에도 웹앱에서 여전히 기존 Docker 컨테이너 이미지를 사용합니다. 사용자 지정 컨테이너의 지속적인 통합/배포를 지원하나요?
 
-**A:** 중지한 다음 웹앱을 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 응용 프로그램을 변경 또는 추가할 수 있습니다. 향후 릴리스에서 사용자 지정 컨테이너에 연속 통합/배포 기능을 추가할 계획입니다.
+**A:** DockerHub 이미지에 대한 연속 통합/배포를 설정하려면 [Linux에서 웹앱을 사용하여 Docker 허브 연속 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 개인 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 응용 프로그램을 변경 또는 추가할 수 있습니다.
+
+**Q:** 스테이징 환경이 지원되나요?
+
+**A:** 예.
 
 ## <a name="language-support"></a>언어 지원
 
 **Q:** 컴파일되지 않은 .NET Core 앱을 지원하나요?
 
-**A:** 아니요. 모든 종속성이 있는 컴파일된 .NET Core 앱을 배포해야 합니다. 향후 릴리스에서 전체 배포 및 빌드 환경을 계획하고 있습니다.
+**A:** 예.
 
 **Q:** 작성기를 PHP 앱의 종속성 관리자로 지원하나요?
 
@@ -68,13 +74,13 @@ Linux에 Azure App Service가 출시되면서(현재 미리 보기), 우리는 �
 
 ## <a name="custom-containers"></a>사용자 지정 컨테이너
 
-**Q:** 나만의 사용자 지정 컨테이너를 사용하고 있습니다. 앱이 \home\ 디렉터리에 상주하는데 [SCM 사이트](https://github.com/projectkudu/kudu) 또는 FTP 클라이언트를 사용하여 콘텐츠를 찾아볼 때 파일을 찾을 수 없습니다. 내 파일은 어디에 있나요?
+**Q:** 나만의 사용자 지정 컨테이너를 사용하고 있습니다. 앱이 `\home\` 디렉터리에 상주하는데 [SCM 사이트](https://github.com/projectkudu/kudu) 또는 FTP 클라이언트를 사용하여 콘텐츠를 찾아볼 때 파일을 찾을 수 없습니다. 내 파일은 어디에 있나요?
 
-**A:** \home\ 디렉터리에 SMB 공유를 탑재합니다. 포함된 모든 콘텐츠를 재정의합니다.
+**A:** `\home\` 디렉터리에 SMB 공유를 탑재합니다. 포함된 모든 콘텐츠를 재정의합니다.
 
 **Q:** 개인 레지스트리 서버 URL의 형식은 무엇인가요?
 
-**A:** "http://" 또는 "https://"를 포함하여 전체 레지스트리 URL을 입력해야 합니다.
+**A:** `http://` 또는 `https://`를 포함하여 전체 레지스트리 URL을 입력해야 합니다.
 
 **Q:** 개인 레지스트리 옵션에서 이미지 이름의 형식은 무엇인가요?
 
@@ -94,7 +100,7 @@ Linux에 Azure App Service가 출시되면서(현재 미리 보기), 우리는 �
 
 **Q:** 내 사용자 지정 컨테이너가 포트 80 이외의 포트를 수신합니다. 해당 포트로 요청을 라우팅하도록 내 앱을 구성하려면 어떻게 합니까?
 
-**A:** **PORT**라는 응용 프로그램 설정을 지정하고 예상되는 포트 번호 값을 지정할 수 있습니다.
+**A:** 자동 포트 검색 기능이 있으며 **PORT**라는 응용 프로그램 설정을 지정하고 예상되는 포트 번호 값을 지정할 수 있습니다.
 
 **Q:** 사용자 지정 컨테이너에서 HTTPS를 구현해야 하나요?
 
@@ -117,6 +123,9 @@ Linux에 Azure App Service가 출시되면서(현재 미리 보기), 우리는 �
 **A:** [Web Apps 사용자 의견 포럼](https://aka.ms/webapps-uservoice)에서 사용자의 아이디어를 제출할 수 있습니다. 아이디어 제목에 "[Linux]"를 붙여 주세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Linux의 App Service란?](app-service-linux-intro.md)
-* [Linux의 App Service에서 웹앱 만들기](app-service-linux-how-to-create-a-web-app.md)
+* [Linux에서 Azure Web App이란?](app-service-linux-intro.md)
+* [Linux의 Azure Web App에서 웹앱 만들기](app-service-linux-how-to-create-web-app.md)
+* [Linux의 Azure Web App에 대한 SSH 지원](./app-service-linux-ssh-support.md)
+* [Azure App Service에서 스테이징 환경 설정](./web-sites-staged-publishing.md)
+* [Linux에서 Azure Web App을 사용한 Docker 허브 연속 배포](./app-service-linux-ci-cd.md)
 

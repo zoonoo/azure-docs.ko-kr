@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: ac2730935d206ddf9079395384d46a43fdd740cb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: bc0b0b652312f6bcc27a981da766e19cded7bd6c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -32,7 +34,7 @@ Microsoft Azure AD B2C는 Microsoft Office 365와 함께 사용할 수 없습니
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Azure AD B2C에서 로컬 계정은 무엇인가요? Azure AD의 회사 또는 학교 계정과 어떻게 다른가요?
 Azure AD 테넌트에서 테넌트의 모든 사용자(기존 Microsoft 계정을 가진 사용자 제외)는 형식 `<xyz>@<tenant domain>`의 메일 주소를 사용하여 로그인합니다. 여기서 `<tenant domain>`는 테넌트 또는 초기 `<...>.onmicrosoft.com` 도메인에서 확인된 도메인 중 하나입니다. 이 계정 유형은 회사 또는 학교 계정입니다.
 
-Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 메일 주소(예: joe@comcast.net,, bob@gmail.com,, sarah@contoso.com, 또는 jim@live.com))를 사용하여 로그인하도록 합니다. 이 계정 유형은 로컬 계정입니다. 또한 현재 임의의 사용자 이름(일반 문자열)을 로컬 계정(예: joe, bob, sarah 또는 jim)으로 지원합니다. Azure AD B2C 서비스에서 이러한 두 로컬 계정 형식 중 하나를 선택할 수 있습니다.
+Azure AD B2C 테넌트에서 대부분의 앱은 사용자가 임의의 이메일 주소(예: joe@comcast.net, bob@gmail.com, sarah@contoso.com 또는 jim@live.com)를 사용하여 로그인하도록 합니다. 이 계정 유형은 로컬 계정입니다. 또한 현재 임의의 사용자 이름(일반 문자열)을 로컬 계정(예: joe, bob, sarah 또는 jim)으로 지원합니다. Azure AD B2C 서비스에서 이러한 두 로컬 계정 형식 중 하나를 선택할 수 있습니다.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>지금 어떤 소셜 ID 공급자를 지원하나요? 나중에 어떤 공급자를 지원하려는 계획입니까?
 현재 Facebook, Google+, LinkedIn 및 Amazon을 지원합니다. 고객의 요구에 따라 다른 인기 있는 소셜 ID 공급자에 대한 지원을 추가합니다.
@@ -80,7 +82,7 @@ Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 �
 아니요, Azure AD Connect는 Azure AD B2C와 함께 작동하지 않습니다. 나중에 다양한 마이그레이션 옵션 및 창의적인 도구를 제공합니다.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>앱의 Azure AD B2C 페이지가 iFrame 내에서 열릴 수 있나요?
-아니요. 보안상의 이유로, `login.microsftonline.com` 도메인에서 제공되는 Azure AD B2C 페이지는 iFrame 내에서 열릴 수 없습니다. 모든 소비자 환경의 경우 항상 Azure AD B2C로 리디렉션되어야 합니다.
+아니요. 보안상의 이유로, Azure AD B2C 페이지는 iFrame 내에서 열릴 수 없습니다.  브라우저와 통신하는 서비스에서 이를 금지합니다.  일반적인 보안 커뮤니티와 OAUTH2 사양에서는 클릭재킹(clickjacking) 위험으로 인해 ID 환경에 iframes를 사용하지 않도록 합니다.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C는 Microsoft Dynamics와 같은 CRM 시스템과 함께 작동합니까?
 현재는 아닙니다. 이러한 시스템을 통합하는 것이 로드맵입니다.
@@ -92,7 +94,10 @@ Azure AD Graph API를 사용하여 마이그레이션 도구를 작성할 수 �
 외부 ID 시나리오에 적절한 기능을 적용하는 방법에 대한 자세한 내용은 이 문서에서 [외부 ID](../active-directory/active-directory-b2b-compare-external-identities.md) 를 참조하세요.
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Azure AD B2C가 제공하는 보고 및 감사 기능은 무엇인가요? Azure AD Premium과 동일한가요?
-아니요, Azure AD B2C는 Azure AD Premium과 동일한 보고서 집합을 지원하지 않습니다. Azure AD B2C는 기본 보고 및 감사 API를 곧 출시합니다.
+아니요, Azure AD B2C는 Azure AD Premium과 동일한 보고서 집합을 지원하지 않습니다. 하지만 많은 공통점이 있습니다.  
+* 로그인 보고서는 축약된 정보와 함께 각 로그인 레코드를 제공합니다.  
+* 감사 보고서는 Azure Portal의 Azure Active Directory> 작업-감사 로그>Choose B2C and apply filters as desired(필요에 따라 B2C 선택 및 필터 적용)에 제공됩니다. 관리 작업 및 응용 프로그램 작업을 모두 다룹니다. 
+* 사용자 수, 로그인 수 및 MFA 볼륨을 다루는 사용 보고는 [사용 보고 API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)에서 제공됩니다.
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Azure AD B2C에서 제공하는 페이지의 UI를 지역화할 수 있습니까? 어떤 언어가 지원되나요?
 현재 Azure AD B2C는 영어에 최적화되었습니다. 지역화 기능을 최대한 빨리 롤아웃할 계획입니다.
@@ -123,10 +128,5 @@ Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 
 ## <a name="more-information"></a>자세한 정보
 또한 현재 [서비스 제한, 제한 사항 및 제약 조건](active-directory-b2c-limitations.md)을 검토하려 합니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

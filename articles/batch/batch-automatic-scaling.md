@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 04/03/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f1156572dece1dd59d5a258b670c8fb4f3e3d0e6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 85a2fac77cf5beae6debad044df169301d43f4ca
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -108,6 +108,7 @@ $TargetDedicated=min(maxNumberofVMs, pendingTaskSamples);
 | $SucceededTasks |성공적으로 완료된 태스크 수. |
 | $FailedTasks |실패한 태스크 수. |
 | $CurrentDedicated |현재 전용 계산 노드 수. |
+| $PreemptedNodeCount | 선점 상태에 있는 풀의 노드 수입니다. |
 
 > [!TIP]
 > 위에 표시된 읽기 전용, 서비스 정의 변수는 각각에 연결된 데이터에 액세스하는 다양한 메서드를 제공하는 *개체* 입니다. 자세한 내용은 아래에서 [샘플 데이터 가져오기](#getsampledata)를 참조하세요.

@@ -13,11 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 70610ec2c5a056d63ed854b33d84e29951940c2f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -46,10 +48,5 @@ Windows 7 또는 Windows 8을 이미 사용 중이고 컴퓨터 또는 장치를
 * [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 * [Microsoft Passport를 통해 암호 없이 ID 인증](active-directory-azureadjoin-passport.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

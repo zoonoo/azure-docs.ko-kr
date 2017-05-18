@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: awills
+ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 191d9e1197c3526d2f72b972b7fada76dee84447
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 65c199064273930f66db580b6c01dabb4b906e7a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/13/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -104,7 +104,7 @@ ms.lasthandoff: 04/13/2017
 서버 웹앱:
 
 * HTTP 요청
-* [종속성](app-insights-asp-net-dependencies.md). 호출: SQL Database, 외부 서비스(Azure DocumentDB, 테이블, Blob Storage 및 큐)에 대한 HTTP 호출. 
+* [종속성](app-insights-asp-net-dependencies.md). 호출: SQL Database, 외부 서비스(Azure Cosmos DB, 테이블, Blob Storage 및 큐)에 대한 HTTP 호출. 
 * [예외](app-insights-asp-net-exceptions.md) 및 스택 추적.
 * [성능 카운터](app-insights-performance-counters.md) - [상태 모니터](app-insights-monitor-performance-live-website-now.md)를 사용하는 경우 Azure 모니터링(app-insights-azure-web-apps.md) 또는 [Application Insights collectd 기록기](app-insights-java-collectd.md).
 * 코딩하는 [사용자 지정 이벤트 및 메트릭](app-insights-api-custom-events-metrics.md).

@@ -12,12 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 05/04/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5bbdd1db655c080b4372f6728bb47207757209e4
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: a0e245121f2a9ff4109b281cd7286ed601bf64ac
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -27,12 +28,20 @@ ms.lasthandoff: 04/27/2017
 
 ![사용자 지정 SSL 인증서가 포함된 웹앱](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
+이 자습서에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * 앱의 가격 책정 계층 업그레이드
+> * App Service에 사용자 지정 SSL 인증서 바인딩
+> * 앱에 대해 HTTPS 적용
+> * 스크립트로 SSL 인증서 바인딩 자동화
+
 > [!TIP]
 > 사용자 지정 SSL 인증서가 필요한 경우 Azure Portal에서 직접 SSL 인증서를 구매하고 웹앱에 바인딩할 수 있습니다. [App Service 인증서 자습서](web-sites-purchase-ssl-web-site.md)를 따르세요. 
 >
 > 
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 조건
 이 자습서를 따르기 전에 다음을 완료했는지 확인합니다.
 
 - [App Service 앱 만들기](/azure/app-service/)
@@ -109,7 +118,7 @@ OpenSSL을 사용하여 인증서 요청을 생성한 경우 개인 키를 만�
 openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 ```
 
-요청을 생성하는 데 IIS 또는 `Certreq.exe`를 사용한 경우에는 먼저 인증서를 로컬 컴퓨터에 설치하고 나서 [개인 키와 함께 인증서 내보내기](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx)의 단계에 따라 인증서를 PFX로 내보냅니다.
+요청을 생성하는 데 IIS 또는 _Certreq.exe_를 사용한 경우에는 먼저 인증서를 로컬 컴퓨터에 설치하고 나서 [개인 키와 함께 인증서 내보내기](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx)의 단계에 따라 인증서를 PFX로 내보냅니다.
 
 ### <a name="upload-your-ssl-certificate"></a>SSL 인증서 업로드
 
@@ -156,7 +165,7 @@ App Service에서 인증서 업로드가 완료되면 **SSL 바인딩** 섹션�
 
 A 레코드를 웹앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메인 레지스트리를 업데이트합니다.
 
-웹앱의 **사용자 지정 도메인** 페이지가 새로운 전용 IP 주소로 업데이트됩니다. [이 IP 주소를 복사](app-service-web-tutorial-custom-domain.md#info)하고 이 새로운 IP 주소에 [A 레코드를 다시 매핑](app-service-web-tutorial-custom-domain.md#create-the-a-record)합니다.
+웹앱의 **사용자 지정 도메인** 페이지가 새로운 전용 IP 주소로 업데이트됩니다. [이 IP 주소를 복사](app-service-web-tutorial-custom-domain.md#info)하고 이 새로운 IP 주소에 [A 레코드를 다시 매핑](app-service-web-tutorial-custom-domain.md#create-a)합니다.
 
 <a name="test"></a>
 
@@ -177,10 +186,10 @@ A 레코드를 웹앱에 매핑한 경우 이 새로운 전용 IP 주소로 도�
 ## <a name="enforce-https"></a>HTTPS 적용
 웹앱에 대한 HTTP 액세스를 계속 허용하려면 이 단계를 건너뜁니다. 
 
-App Service에서는 HTTPS를 적용하지 *않으므로* 방문자는 HTTP를 사용하여 웹앱에 계속 액세스할 수 있습니다. 웹앱에 HTTPS를 적용하려면 웹앱의 `web.config`에서 다시 쓰기 규칙을 정의하면 됩니다. 웹앱의 언어 프레임워크에 관계없이 App Service에서는 이 파일을 사용합니다.
+App Service에서는 HTTPS를 적용하지 *않으므로* 방문자는 HTTP를 사용하여 웹앱에 계속 액세스할 수 있습니다. 웹앱에 HTTPS를 적용하려면 웹앱의 _web.config_ 파일에서 다시 쓰기 규칙을 정의하면 됩니다. 웹앱의 언어 프레임워크에 관계없이 App Service에서는 이 파일을 사용합니다.
 
 > [!NOTE]
-> 언어별 요청 리디렉션이 있습니다. ASP.NET MVC는 `web.config`의 다시 쓰기 규칙 대신 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 사용할 수 있습니다([웹앱에 보안 ASP.NET MVC 5 앱 배포](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) 참조).
+> 언어별 요청 리디렉션이 있습니다. ASP.NET MVC는 _web.config_의 다시 쓰기 규칙 대신 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 사용할 수 있습니다([웹앱에 보안 ASP.NET MVC 5 앱 배포](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) 참조).
 > 
 > 
 
@@ -190,7 +199,7 @@ App Service에서는 HTTPS를 적용하지 *않으므로* 방문자는 HTTP를 �
 
 [FTP/S를 사용하여 앱에 Azure App Service에 배포](app-service-deploy-ftp.md)의 지침에 따라 웹앱의 FTP 끝점에 연결합니다. 
 
-이 파일은 `/home/site/wwwroot`에 있어야 합니다. 이 파일이 없으면 다음 XML을 사용하여 이 폴더에서 `web.config`를 만듭니다.
+이 파일은 _/home/site/wwwroot_에 있어야 합니다. 이 파일이 없으면 다음 XML을 사용하여 이 폴더에서 _web.config_를 만듭니다.
 
 ```xml   
 <?xml version="1.0" encoding="UTF-8"?>
@@ -213,7 +222,7 @@ App Service에서는 HTTPS를 적용하지 *않으므로* 방문자는 HTTP를 �
 </configuration>
 ```
 
-기존 `web.config`의 경우 전체 `<rule>` 태그를 `web.config`의 `configuration/system.webServer/rewrite/rules` 요소로 복사해야 합니다. `web.config`에 다른 `<rule>` 태그가 있는 경우 복사한 `<rule>` 태그를 다른 `<rule>` 태그 앞에 배치합니다.
+기존 _web.config_의 경우 전체 `<rule>` 태그를 _web.config_의 `configuration/system.webServer/rewrite/rules` 요소에 복사하기만 하면 됩니다. _web.config_에 다른 `<rule>` 태그가 있는 경우 복사한 `<rule>` 태그를 다른 `<rule>` 태그 앞에 배치합니다.
 
 이 규칙에서는 사용자가 웹앱에 대해 HTTP 요청을 수행할 때마다 HTTPS 프로토콜에 HTTP 301(영구 리디렉션)을 반환합니다. 예를 들어 `http://contoso.com`에서 `https://contoso.com`으로 리디렉션됩니다.
 
@@ -228,16 +237,23 @@ IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](h
 다음 명령은 내보낸 PFX 파일을 업로드하고 지문을 가져옵니다. 
 
 ```bash
-thumprint=$(az appservice web config ssl upload --certificate-file <path_to_PFX_file> \
---certificate-password <PFX_password> --name <app_name> --resource-group <resource_group_name> \
---query thumbprint --output tsv)
+thumprint=$(az appservice web config ssl upload \
+    --name <app_name> \
+    --resource-group <resource_group_name> \
+    --certificate-file <path_to_PFX_file> \
+    --certificate-password <PFX_password> \
+    --query thumbprint \
+    --output tsv)
 ```
 
 다음 명령은 이전 명령의 지문을 사용하여 SNI 기반 SSL 바인딩을 추가합니다.
 
 ```bash
-az appservice web config ssl bind --certificate-thumbprint $thumbprint --ssl-type SNI \
---name <app_name> --resource-group <resource_group_name>
+az appservice web config ssl bind \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --certificate-thumbprint $thumbprint \
+    --ssl-type SNI \
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
@@ -245,12 +261,21 @@ az appservice web config ssl bind --certificate-thumbprint $thumbprint --ssl-typ
 다음 명령은 내보낸 PFX 파일을 업로드하고 SNI 기반 SSL 바인딩을 추가합니다.
 
 ```PowerShell
-New-AzureRmWebAppSSLBinding -WebAppName <app_name> -ResourceGroupName <resource_group_name> -Name <dns_name> `
--CertificateFilePath <path_to_PFX_file> -CertificatePassword <PFX_password> -SslState SniEnabled
+New-AzureRmWebAppSSLBinding `
+    -WebAppName <app_name> `
+    -ResourceGroupName <resource_group_name> `
+    -Name <dns_name> `
+    -CertificateFilePath <path_to_PFX_file> `
+    -CertificatePassword <PFX_password> `
+    -SslState SniEnabled
 ```
-## <a name="more-resources"></a>추가 리소스
-* [Microsoft Azure 보안 센터](/support/trust-center/security/)
-* [Azure 웹 사이트에서 잠금 해제된 구성 옵션](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-* [진단 로깅 사용](web-sites-enable-diagnostic-log.md)
-* [Azure 앱 서비스에서 웹앱 구성](web-sites-configure.md)
+## <a name="what-you-have-learned"></a>학습한 내용
+
+이 자습서에서 학습한 방법은 다음과 같습니다.
+
+> [!div class="checklist"]
+> * 앱의 가격 책정 계층 업그레이드
+> * App Service에 사용자 지정 SSL 인증서 바인딩
+> * 앱에 대해 HTTPS 적용
+> * 스크립트로 SSL 인증서 바인딩 자동화
 

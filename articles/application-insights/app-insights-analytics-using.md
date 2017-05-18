@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 8485fd9350672dd0f41e2d5dada57a1940c43f16
-ms.lasthandoff: 04/13/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6c8df6b9804d082c8044cdb2420cc5ea42b9774f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -123,6 +124,16 @@ IntelliSense에 사용할 수 있는 연산자 및 식 요소를 지정하라는
 적합한 유형의 열이 여러 개인 경우 x축과 y축 및 결과 정렬 기준으로 사용할 크기의 열을 선택할 수 있습니다.
 
 기본적으로 결과는 처음에는 테이블로 표시되며 다이어그램은 수동으로 선택합니다. 하지만 쿼리 끝에 [render 지시문](app-insights-analytics-reference.md#render-directive) 을 사용하여 다이어그램을 선택할 수 있습니다.
+
+### <a name="analytics-diagnostics"></a>분석 진단
+
+
+시간 차트에서 데이터에 갑작스러운 스파이크 또는 단계가 나타날 경우 선에서 강조 표시된 점을 볼 수 있습니다. 이것은 분석 진단이 급격한 변화를 필터링하는 속성 조합을 확인했다는 것을 나타냅니다. 해당 점을 클릭하여 필터에 대한 자세한 내용을 확인하고 필터링된 버전을 확인합니다. 이렇게 하면 변화의 원인을 파악할 수 있습니다. 
+
+[진단 분석에 대해 자세히 알아보기](app-insights-analytics-diagnostics.md)
+
+
+![분석 진단](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>대시보드에 고정
 다이어그램 또는 테이블을 [대시보드 공유](app-insights-dashboards.md) 중 하나에 고정할 수 있습니다. 핀을 클릭하면 됩니다. (이 기능을 설정하려면 [앱의 가격 패키지를 업그레이드](app-insights-pricing.md)해야 할 수 있습니다.) 

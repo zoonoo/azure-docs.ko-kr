@@ -4,7 +4,7 @@ description: "첫 번째 Azure SQL Database를 디자인하는 방법을 알아�
 services: sql-database
 documentationcenter: 
 author: janeng
-manager: jstrauss
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
@@ -14,19 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 03/30/2017
+ms.date: 05/07/2017
 ms.author: janeng
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 0d02954829ebac9275c014f7dac7e1ec423b0fc1
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: a78284276b600172ad9fd6de2f30702a6f05e79b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
 # <a name="design-your-first-azure-sql-database"></a>첫 번째 Azure SQL Database 디자인
 
-이 자습서에서는 대학에 대한 데이터베이스를 빌드하여 학년 및 수강 신청을 추적합니다. 이 자습서는 [Azure Portal](https://portal.azure.com/) 및 SSMS([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx))를 사용하여 Azure SQL Database 논리 서버에 Azure SQL Database를 만들고 데이터베이스에 테이블을 추가하고 테이블에 데이터를 로드하고 데이터베이스를 쿼리하는 방법에 대해 설명합니다. 또한 SQL Database [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore) 기능을 사용하여 데이터베이스를 이전의 특정 시점으로 복원하는 방법에 대해서도 설명합니다.
+Azure SQL Database는 Microsoft SQL Server 엔진을 사용하는 관계형 DaaS(Database-as-a-Service)입니다. 이 자습서에서는 데이터베이스 및 테이블 만들기, 데이터 로드 및 쿼리, 데이터베이스를 이전 시점으로 복원과 같은 기본적인 데이터베이스 작업에 대해 설명합니다. 다음 방법에 대해 알아봅니다. 
+
+> [!div class="checklist"]
+> * 데이터베이스 만들기
+> * 방화벽 규칙 설정
+> * SQL Server Management Studio[(SSMS)](https://msdn.microsoft.com/library/ms174173.aspx)를 사용하여 데이터베이스에 연결
+> * 테이블 만들기
+> * 데이터 대량 로드
+> * 해당 데이터 쿼리
+> * SQL Database [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore) 기능을 사용하여 데이터베이스를 이전의 시점으로 복원
 
 이 자습서를 완료하려면 최신 버전의 SSMS([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx))를 설치했는지 확인합니다. 
 
@@ -280,7 +290,19 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
 
 3. **확인**을 클릭하여 데이터베이스를 테이블이 추가되기 이전 [시점으로 복원](sql-database-recovery-using-backups.md#point-in-time-restore)합니다. 다른 시점으로 데이터베이스를 복원하면 지정한 시점([서비스 계층](sql-database-service-tiers.md)에 대한 보존 기간 이내에서 제공)에서 원본 데이터베이스가 있는 같은 서버에 중복 데이터베이스가 생성됩니다.
 
-## <a name="next-steps"></a>다음 단계 
 
-일반적인 작업을 위한 PowerShell 샘플을 보려면 [SQL Database PowerShell 샘플](sql-database-powershell-samples.md)을 참조하세요.
+
+## <a name="next-steps"></a>다음 단계 
+이 자습서에서는 데이터베이스 및 테이블 만들기, 데이터 로드 및 쿼리, 데이터베이스를 이전 시점으로 복원과 같은 기본적인 데이터베이스 작업에 대해 배웁니다. 다음 방법에 대해 알아보았습니다.
+> [!div class="checklist"]
+> * 데이터베이스 만들기
+> * 방화벽 규칙 설정
+> * SQL Server Management Studio[(SSMS)](https://msdn.microsoft.com/library/ms174173.aspx)를 사용하여 데이터베이스에 연결
+> * 테이블 만들기
+> * 데이터 대량 로드
+> * 해당 데이터 쿼리
+> * SQL Database [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore) 기능을 사용하여 데이터베이스를 이전의 시점으로 복원. 데이터를 마이그레이션하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+
+> [!div class="nextstepaction"]
+>[SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션](sql-database-migrate-your-sql-server-database.md)
 

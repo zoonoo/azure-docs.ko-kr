@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/16/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 613e2447c1e47fcd80f2e9ded9ad2669f8283c3d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -46,10 +48,5 @@ Windows를 포함하여 다른 플랫폼의 사용자에게도 조건부 액세�
 Q: Office 365 서비스에 대한 조건부 액세스 정책이 언제 브라우저 기반 앱(예: OWA, 브라우저 기반 SharePoint)으로 확장되나요?
 
 A: 현재 Office365 서비스에 대한 조건부 액세스는 장치의 풍부한 응용 프로그램으로 제한됩니다. 브라우저에서 서비스에 액세스하는 사용자에게도 조건부 액세스 정책을 확장할 계획입니다.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

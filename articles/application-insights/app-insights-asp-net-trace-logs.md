@@ -4,19 +4,20 @@ description: "추적, NLog 또는 Log4Net을 사용하여 생성된 로그를 �
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f803b44172b068b7ba65047c769421e39445ce10
-ms.lasthandoff: 03/15/2017
+ms.date: 05/3/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1b0c902adff1d60a04fb3cddef5862256d54f813
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -48,7 +49,6 @@ System.Diagnostics.Trace를 사용하는 경우 web.config에 항목을 추가�
      </system.diagnostics>
    </configuration>
 ```
-
 ## <a name="configure-application-insights-to-collect-logs"></a>로그를 수집하도록 Application Insights 구성
 **[프로젝트에 Application Insights를 추가](app-insights-asp-net.md)**하지 않은 경우 지금 추가합니다. 로그 수집기를 포함하는 옵션이 나타납니다.
 
@@ -62,11 +62,11 @@ System.Diagnostics.Trace를 사용하는 경우 web.config에 항목을 추가�
 1. Log4Net 또는 NLog를 사용하려는 경우 프로젝트에 설치합니다.
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 3. "Application Insights" 검색
-
-    ![적절한 어댑터의 시험판 버전 가져오기](./media/app-insights-asp-net-trace-logs/appinsights-36nuget.png)
 4. 다음 패키지 중에서 적절한 패키지를 하나 선택합니다.
 
    * Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
+   * Microsoft.ApplicationInsights.EventSourceListener (to capture EventSource events)
+   * Microsoft.ApplicationInsights.EtwListener (to capture ETW events)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 
@@ -81,6 +81,41 @@ Log4net 또는 NLog를 원할 경우
 
     logger.Warn("Slow response - database01");
 
+## <a name="using-eventsource-events"></a>EventSource 이벤트 사용
+Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 패키지를 설치합니다. 그런 후 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
+      <Sources>
+        <Add Name="MyCompany" Level="Verbose" />
+      </Sources>
+    </Add>
+```
+
+각 원본에 대해 다음 매개 변수를 설정할 수 있습니다.
+ * `Name`은 수집할 EventSource의 이름을 지정합니다.
+ * `Level`은 수집할 로깅 수준을 지정합니다. `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning` 중 하나일 수 있습니다.
+ * `Keywords`(선택 사항)는 사용할 키워드 정수 값 조합을 지정합니다.
+
+## <a name="using-etw-events"></a>ETW 이벤트 사용
+추적으로 Application Insights에 전송될 ETW 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EtwCollector` NuGet 패키지를 설치합니다. 그런 후 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
+
+> [!NOTE] 
+> ETW 이벤트는 SDK를 호스트하는 프로세스가 "성능 로그 사용자" 또는 관리자의 구성원인 ID에서 실행되는 경우에만 수집할 수 있습니다.
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule, Microsoft.ApplicationInsights.EtwCollector">
+      <Sources>
+        <Add ProviderName="MyCompanyEventSourceName" Level="Verbose" />
+      </Sources>
+    </Add>
+```
+
+각 원본에 대해 다음 매개 변수를 설정할 수 있습니다.
+ * `ProviderName`은 수집할 ETW 공급자의 이름입니다.
+ * `ProviderGuid`는 `ProviderName` 대신 사용할 수 있는 수집할 ETW 공급자의 GUID를 지정합니다.
+ * `Level`은 수집할 로깅 수준을 설정합니다. `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning` 중 하나일 수 있습니다.
+ * `Keywords`(선택 사항)는 사용할 키워드 정수 값 조합을 설정합니다.
 
 ## <a name="using-the-trace-api-directly"></a>직접 추적 API 사용
 Application Insights 추적 API를 직접 호출할 수 있습니다. 로깅 어댑터는 이 API를 사용합니다.

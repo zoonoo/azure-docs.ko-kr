@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 74b077f6f09d53c9232e5b209a5dd811364ee3f5
-ms.openlocfilehash: c995e0de46c67c5c5d243739b2d36266267bdade
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 8e71a7462a0cbdbd177b088e6757c70eeef31fc7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -335,6 +337,9 @@ UI 옵션이 제한되거나 API를 통해서만 사용할 수 있는 다른 서
 
 ```
 
+## <a name="localizing-your-html-content"></a>HTML 콘텐츠 지역화
+['언어 사용자 지정'](active-directory-b2c-reference-language-customization.md)을 설정하여 HTML 콘텐츠를 지역화할 수 있습니다.  이렇게 하면 Azure AD B2C가 OIDC 매개 변수 `ui-locales`를 끝점으로 전달할 수 있습니다.  이를 통해 언어별 사용자 지정 UI 페이지를 제공할 수 있습니다.  
+
 ## <a name="things-to-remember-when-building-your-own-content"></a>고유의 콘텐츠를 작성할 때 유의할 점
 페이지 UI 사용자 지정 기능을 사용하려는 경우 다음 모범 사례를 검토합니다.
 
@@ -346,9 +351,4 @@ UI 옵션이 제한되거나 API를 통해서만 사용할 수 있는 다른 서
   * Internet Explorer 9, 8에 대한 지원 제한
   * Google Chrome 42.0 이상
   * Mozilla Firefox 38.0 이상
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

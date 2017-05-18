@@ -3,7 +3,7 @@ title: "Azure Active Directory v2.0 Android 앱 | Microsoft Docs"
 description: "개인 Microsoft 계정과 회사 또는 학교 계정이 있는 사용자로 로그인하고 타사 라이브러리를 사용하여 Graph API를 호출하는 Android 앱을 빌드하는 방법입니다."
 services: active-directory
 documentationcenter: 
-author: xerners
+author: brandwe
 manager: mbaldwin
 editor: 
 ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: xerners
-translationtype: Human Translation
+ms.date: 05/07/2017
+ms.author: brandwe
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
 ms.openlocfilehash: 2dfe58c032888ca34e905f4e549fcc4d6e36d324
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/18/2017
 
 

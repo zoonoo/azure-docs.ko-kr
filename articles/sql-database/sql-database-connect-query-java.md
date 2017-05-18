@@ -13,12 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/07/2017
 ms.author: andrela;carlrab;sstein
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 6ba2880b1ce9eed0f5c3b8e3ed4255c7e4ec7f29
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: defb32835971fe423e77a11817fce057fa7c929d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -45,14 +46,14 @@ brew install maven
 ```
 
 ### <a name="linux-ubuntu"></a>**Linux(Ubuntu)**
-터미널을 열고 Java 프로젝트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **Maven**을 설치합니다. 
+터미널을 열고 Java 프로젝트를 만들려는 디렉터리로 이동합니다. 다음 명령을 입력하여 **Maven**을 설치합니다.
 
 ```bash
 sudo apt-get install maven
 ```
 
 ### <a name="windows"></a>**Windows**
-공식 설치 관리자를 사용하여 [Maven](https://maven.apache.org/download.cgi)을 설치합니다. Maven은 종속성을 관리하고 Java 프로젝트 빌드, 테스트 및 실행하는 데 사용할 수 있습니다. 
+공식 설치 관리자를 사용하여 [Maven](https://maven.apache.org/download.cgi)을 설치합니다. Maven을 사용하여 종속성을 관리하고 Java 프로젝트를 빌드, 테스트 및 실행합니다. 
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
@@ -64,7 +65,7 @@ Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니�
 
    ![서버 이름](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Azure SQL Database 서버의 로그인 정보를 잊어버린 경우 SQL Database 서버 페이지로 이동하여 서버 관리자 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
+4. 서버 로그인 정보를 잊어버린 경우 SQL Database 서버 페이지로 이동하여 서버 관리자 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
 5. **연결 문자열 표시**를 클릭합니다.
 
 6. 전체 **JDBC** 연결 문자열을 검토합니다.
@@ -300,15 +301,8 @@ public class App {
 ```
 
 ## <a name="next-steps"></a>다음 단계
-
-- [SQL Server용 Microsoft JDBC Driver](https://github.com/microsoft/mssql-jdbc)의 Github 리포지토리
-- [문제/질문을 보관](https://github.com/microsoft/mssql-jdbc/issues)합니다.
-- SQL Server Management Studio를 사용하여 연결 및 쿼리하려면 [SSMS를 사용하여 연결 및 쿼리](sql-database-connect-query-ssms.md)를 참조하세요.
-- Visual Studio를 사용하여 연결 및 쿼리하려면 [Visual Studio 코드를 사용하여 연결 및 쿼리](sql-database-connect-query-vscode.md)를 참조하세요.
-- .NET을 사용하여 연결 및 쿼리하려면 [.NET을 사용하여 연결 및 쿼리](sql-database-connect-query-dotnet.md)를 참조하세요.
-- PHP를 사용하여 연결 및 쿼리하려면 [PHP를 사용하여 연결 및 쿼리](sql-database-connect-query-php.md)를 참조하세요.
-- Node.js를 사용하여 연결 및 쿼리하려면 [Node.js를 사용하여 연결 및 쿼리](sql-database-connect-query-nodejs.md)를 참조하세요.
-- Python을 사용하여 연결 및 쿼리하려면 [Python을 사용하여 연결 및 쿼리](sql-database-connect-query-python.md)를 참조하세요.
-- Ruby를 사용하여 연결 및 쿼리하려면 [Ruby를 사용하여 연결 및 쿼리](sql-database-connect-query-ruby.md)를 참조하세요.
+- [첫 번째 Azure SQL Database 디자인](sql-database-design-first-database.md)
+- [SQL Server용 Microsoft JDBC Driver](https://github.com/microsoft/mssql-jdbc)
+- [문제/질문 보고](https://github.com/microsoft/mssql-jdbc/issues)
 
 
