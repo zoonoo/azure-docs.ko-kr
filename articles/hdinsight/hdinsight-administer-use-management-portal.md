@@ -188,7 +188,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
 
     Storm 웹 UI는 HDInsight 클러스터에서 제공됩니다.
 
-    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
     다음은 CLI 명령을 사용하여 Storm 토폴로지 균형을 다시 조정하는 방법의 예입니다.
 
