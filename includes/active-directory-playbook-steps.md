@@ -25,7 +25,7 @@
      * [셀프 서비스 암호 재설정](../articles/active-directory/active-directory-playbook-implementation.md#self-service-password-reset)
      * [응용 프로그램에 대한 셀프 서비스 액세스](../articles/active-directory/active-directory-playbook-implementation.md#self-service-access-to-applications)
 4. [구성 요소](../articles/active-directory/active-directory-playbook-building-blocks.md)
-   * [행위자의 카탈로그](../articles/active-directory/active-directory-playbook-building-blocks.md#catalog-of-actors)
+   * [행위자의 카탈로그](../articles/active-directory/active-directory-playbook-building-blocks.md)
    * [모든 구성 요소에 대한 일반적 필수 구성 요소](../articles/active-directory/active-directory-playbook-building-blocks.md#common-prerequisites-for-all-building-blocks)
    * [디렉터리 동기화 - PHS(암호 해시 동기화) - 새 설치](../articles/active-directory/active-directory-playbook-building-blocks.md#directory-synchronization---password-hash-sync-phs---new-installation)
    * [브랜딩](../articles/active-directory/active-directory-playbook-building-blocks.md#branding)
