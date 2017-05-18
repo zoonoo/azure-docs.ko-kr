@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 스크립트-Azure Cosmos DB에 대한 방화벽 만들기 | Microsoft Docs"
-description: "Azure CLI 스크립트 샘플 - Azure Cosmos DB에 대한 방화벽 만들기"
+title: "Azure CLI 스크립트 - MongoDB 앱에 대한 Azure Cosmos DB 연결 문자열 가져오기 | Microsoft Docs"
+description: "Azure CLI 스크립트 샘플 - MongoDB 앱에 대한 Azure Cosmos DB 연결 문자열 가져오기"
 services: cosmosdb
 documentationcenter: cosmosdb
 author: mimig1
@@ -18,21 +18,21 @@ ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 710413f8bf0cd50abc5df9e117103fec5fc43e7c
+ms.openlocfilehash: 27c790db456c3e650a624b46df77d4cdce202fa7
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/15/2017
 
 ---
 
-# <a name="azure-cosmos-db-create-a-firewall-using-the-azure-cli"></a>Azure Cosmos DB: Azure CLI를 사용하여 방화벽 만들기
+# <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-the-azure-cli"></a>Azure CLI를 사용하여 MongoDB 앱에 대한 Azure Cosmos DB 연결 문자열 가져오기
 
-이 샘플 CLI 스크립트는 종류에 관계없이 Azure Cosmos DB 계정에 대해 방화벽 정책을 만듭니다. 
+이 샘플은 Azure CLI를 사용하여 MongoDB 앱에 대한 Azure Cosmos DB 연결 문자열을 가져옵니다. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-create-firewall/secure-cosmosdb-create-firewall.sh?highlight=38-42 "Azure Cosmos DB 방화벽 만들기")]
+[!code-azurecli-interactive[기본](../../../cli_scripts/cosmosdb/secure-cosmosdb-get-mongodb-connection-string/secure-cosmosdb-get-mongodb-connection-string.sh?highlight=36-39 "MongoDB 앱에 대한 Azure Cosmos DB 연결 문자열 가져오기")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -49,8 +49,8 @@ az group delete --name myResourceGroup
 | 명령 | 참고 사항 |
 |---|---|
 | [az group create](/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az cosmosdb create](/cli/azure/cosmosdb/name#create) | Azure Cosmos DB 계정을 만듭니다. |
-| [az cosmosdb update](/cli/azure/sql/server#create) | 방화벽 설정을 포함하도록 Azure CosmosDB 계정을 업데이트합니다. |
+| [az cosmosdb update](/cli/azure/cosmosdb/name#update) | Azure Cosmos DB 계정을 업그레이드합니다. |
+| [az cosmosdb list-connection-strings](/cli/azure/cosmosdb/list-connection-strings) | 계정에 대한 연결 문자열을 가져옵니다.|
 | [az group delete](/cli/azure/resource#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 08063960d3956ca65dd32d9fe726c366799a2087
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: aac362f5123038cc39e0d2b32c10f7747a702cfe
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -34,10 +35,10 @@ ms.lasthandoff: 04/18/2017
 
 ## <a name="enable"></a>OpenAPI 정의 사용 지원
 * 함수 앱 설정의 `API Definition (preview)` 페이지에서 모든 OpenAPI 설정을 구성할 수 있습니다.
-* 호스팅된 OpenAPI 정의와 빠른 시작 정의 생성을 사용하도록 설정하려면 `API defintion source`를 `Function`으로 설정합니다.
+* 호스팅된 OpenAPI 정의와 빠른 시작 정의 생성을 사용하도록 설정하려면 `API definition source`를 `Function`으로 설정합니다.
   * `External URL`을 사용하면 함수가 다른 곳에 호스팅된 OpenAPI 정의를 사용할 수 있습니다.
 
-## <a name="generate-defintion"></a>함수 메타데이터에서 Swagger Skeleton 생성
+## <a name="generate-definition"></a>함수 메타데이터에서 Swagger Skeleton 생성
 템플릿은 첫 번째 OpenAPI 정의를 작성하는 데 적절한 방법입니다. 정의 템플릿 기능은 각 HTTP 트리거 기능에 대한 function.json의 모든 메타데이터를 사용하여 스파스 OpenAPI 정의를 만듭니다. **[OpenAPI 사양](http://swagger.io/specification/)(예: 요청 및 응답 템플릿)에서 API에 대한 추가 정보를 입력해야 합니다.**
 
 [이 초보자를 위한 자습서에서 단계별 지침을 확인하십시오](./functions-api-definition-getting-started.md)

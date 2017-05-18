@@ -11,16 +11,16 @@ ms.assetid:
 ms.service: cosmosdb
 ms.custom: sample
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 87c9bfc3d23ed2c21d989e06058c017e41009453
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: bad18882dd362ded4dac53beecbd65ff6df4c725
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Azure Cosmos DB DocumentDB API 계정, 데이터베이스 및 컬렉션 만들기")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Azure Cosmos DB DocumentDB API 계정, 데이터베이스 및 컬렉션 만들기")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -57,3 +57,4 @@ az group delete --name myResourceGroup
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
 추가 Azure Cosmos DB CLI 스크립트 샘플은 [Azure Cosmos DB CLI 설명서](../cli-samples.md)에서 확인할 수 있습니다.
+

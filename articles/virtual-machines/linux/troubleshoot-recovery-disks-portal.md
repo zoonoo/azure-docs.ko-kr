@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d631813e8d821a8efe135f0b138dec544b455390
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: c96ff625c3e83f6fc9057f1163c877e8e0aed5e3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/13/2017
 
 
 ---
@@ -160,7 +161,7 @@ VM을 복구하는 첫 번째 단계는 자체 VM 리소스를 삭제하는 것�
     계속하기 전에 VM이 데이터 디스크를 성공적으로 분리할 때까지 기다립니다.
 
 ## <a name="create-vm-from-original-hard-disk"></a>원래 하드 디스크에서 VM 만들기
-원래 가상 하드 디스크에서 VM을 만들려면 [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-specialized-vm-in-existing-vnet)을 사용합니다. 템플릿은 이전 명령의 VHD URL을 사용하여 VM을 기존 가상 네트워크에 배포합니다. 다음과 같이 **Azure에 배포** 단추를 클릭합니다.
+원래 가상 하드 디스크에서 VM을 만들려면 [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet)을 사용합니다. 템플릿은 이전 명령의 VHD URL을 사용하여 VM을 기존 가상 네트워크에 배포합니다. 다음과 같이 **Azure에 배포** 단추를 클릭합니다.
 
 ![GitHub의 템플릿에서 VM 배포](./media/troubleshoot-recovery-disks-portal/deploy-template-from-github.png)
 
