@@ -3,7 +3,7 @@ title: "Application Insights를 사용하여 SharePoint 사이트 모니터링"
 description: "새 계측 키를 사용하여 새 응용 프로그램 모니터링 시작"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights

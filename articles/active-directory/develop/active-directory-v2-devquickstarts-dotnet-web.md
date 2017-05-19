@@ -14,9 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 43b77cabdb2d8832bda8fd0b726ba27edb0a0602
 ms.openlocfilehash: 2992b074986a7b7f3244ce996f2b41269bff8bbd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -95,7 +97,7 @@ v2.0 끝점을 사용하면 개인 Microsoft 계정과 회사 또는 학교 계�
                                              // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
         
                                              ClientId = clientId,
-                                             Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0 "),
+                                             Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
                                              RedirectUri = redirectUri,
                                              Scope = "openid email profile",
                                              ResponseType = "id_token",
@@ -216,9 +218,4 @@ OpenID Connect로 사용자를 인증할 때 v2.0 끝점은 클레임 또는 사
 
 ## <a name="get-security-updates-for-our-products"></a>당사 제품에 대한 보안 업데이트 가져오기
 [이 페이지](https://technet.microsoft.com/security/dd252948) 를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

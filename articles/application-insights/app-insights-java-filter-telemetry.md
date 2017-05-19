@@ -3,7 +3,7 @@ title: "Java 웹앱에서 Azure Application Insights 원격 분석 필터링 | M
 description: "모니터링하지 않아도 되는 이벤트를 필터링하여 원격 분석 트래픽을 줄입니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

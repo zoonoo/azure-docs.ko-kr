@@ -3,7 +3,7 @@ title: "Azure Application Insights를 최대한 활용하기 | Microsoft Docs"
 description: "Application Insights를 시작한 경우 다음 기능을 사용할 수 있습니다."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 7ec10a2d-c669-448d-8d45-b486ee32c8db
 ms.service: application-insights

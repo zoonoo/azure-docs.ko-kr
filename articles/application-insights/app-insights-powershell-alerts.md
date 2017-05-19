@@ -3,7 +3,7 @@ title: "PowerShell을 사용하여 Application Insights에서 경고 설정 | Mi
 description: "Application Insights의 구성을 자동화하여 메트릭 변경 사항에 대한 전자 메일을 받습니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights

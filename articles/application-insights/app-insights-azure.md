@@ -3,7 +3,7 @@ title: "Microsoft Azure 앱용 Application Insights | Microsoft Docs"
 description: "Application Insights를 사용하여 Azure 앱의 사용 현황 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 4bb5dac9-fb01-416e-813c-6e5ae7d6a847
 ms.service: application-insights

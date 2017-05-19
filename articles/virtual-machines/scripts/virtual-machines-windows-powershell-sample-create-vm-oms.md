@@ -27,7 +27,7 @@ ms.lasthandoff: 04/27/2017
 
 이 스크립트는 Azure Virtual Machine을 만들고 OMS(Operations Management Suite) 에이전트를 설치하고 OMS 작업 영역을 사용하여 시스템을 등록합니다. 스크립트를 실행하면 가상 컴퓨터가 OMS 콘솔에 표시됩니다. 또한 OMS 작업 영역 ID와 작업 영역 키를 업데이트해야 합니다.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

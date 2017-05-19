@@ -3,7 +3,7 @@ title: "Azure Application Insights에서 HockeyApp 데이터 탐색 | Microsoft 
 description: "Application Insights를 사용하여 Azure 앱의 사용 현황 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
 ms.service: application-insights

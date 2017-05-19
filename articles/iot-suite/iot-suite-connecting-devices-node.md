@@ -144,7 +144,7 @@ Node.js 버전 0.11.5 이상이 개발 컴퓨터에 설치되었는지 확인합
         // Complete the response
         response.send(200, "Rebooting device", function(err) {
             if(!!err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }
@@ -161,7 +161,7 @@ Node.js 버전 0.11.5 이상이 개발 컴퓨터에 설치되었는지 확인합
         // Complete the response
         response.send(200, "Firmware update initiated", function(err) {
             if(!!err) {
-                console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }

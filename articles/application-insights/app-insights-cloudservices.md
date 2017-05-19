@@ -3,7 +3,7 @@ title: "Azure Cloud Services용 Application Insights | Microsoft Docs"
 description: "Application Insights를 사용하여 웹 및 작업자 역할을 효과적으로 모니터링"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88

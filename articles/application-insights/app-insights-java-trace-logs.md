@@ -3,7 +3,7 @@ title: "Azure Application Insights에서 Java 추적 로그 탐색 | Microsoft D
 description: "Application Insights에서 검색 Log4J 또는 Logback 추적 검색"
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: fc0a9e2f-3beb-4f47-a9fe-3f86cd29d97a
 ms.service: application-insights

@@ -3,7 +3,7 @@ title: "JavaScript 웹앱용 Azure Application Insights | Microsoft Docs"
 description: "페이지 보기 및 세션 수와 웹 클라이언트 데이터를 가져오고 사용 패턴을 추적합니다. JavaScript 웹 페이지의 예외 및 성능 문제를 감지합니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
 ms.service: application-insights

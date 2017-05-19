@@ -3,7 +3,7 @@ title: "Azure Application Insights에서 메트릭 탐색 | Microsoft Docs"
 description: "메트릭 탐색기에 차트를 해석하는 방법 및 메트릭 탐색기 블레이드를 사용자 지정하는 방법입니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
