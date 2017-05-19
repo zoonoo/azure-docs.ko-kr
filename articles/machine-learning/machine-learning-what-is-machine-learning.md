@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
-translationtype: Human Translation
-ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
-ms.openlocfilehash: 50963d47d030d43d1c98dfb9a5878af7b9e99d47
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 247c26b3988664bcf93fb5face6514a3dc74cebc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -50,7 +52,7 @@ Azure Machine Learning에는 대규모 알고리즘 라이브러리부터 모델
 * [Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md)에서 다른 사용자가 작성한 분석 솔루션을 사용해보거나 직접 해볼 수 있습니다. 커뮤니티에 실험에 대한 질문 또는 의견을 게시하거나 LinkedIn 및 Twitter와 같은 소셜 네트워크를 통해 실험 링크를 공유합니다.
 
   ![Azure Cortana Intelligence 갤러리에서 예측 실험을 시도하거나 고유 솔루션 적용](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
-* 기계 학습 스튜디오의 대규모 [기계 학습 알고리즘 및 모듈](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) 라이브러리를 사용하여 예측 모델을 빠르게 시작할 수 있습니다. 샘플 실험, R 및 Python 패키지 그리고 Xbox 및 Bing와 같은 Microsoft 비즈니스의 최상급 알고리즘 중에서 선택합니다. 사용자 고유의 사용자 지정 [R](machine-learning-r-quickstart.md) 및 [Python](machine-learning-execute-python-scripts.md) 스크립트를 사용하여 Studio 모듈을 확장합니다.
+* 기계 학습 스튜디오의 대규모 [기계 학습 알고리즘 및 모듈](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) 라이브러리를 사용하여 예측 모델을 빠르게 시작할 수 있습니다. 샘플 실험, R 및 Python 패키지 그리고 Xbox 및 Bing와 같은 Microsoft 비즈니스의 최상급 알고리즘 중에서 선택합니다. 사용자 고유의 사용자 지정 [R](machine-learning-extend-your-experiment-with-r.md) 및 [Python](machine-learning-execute-python-scripts.md) 스크립트를 사용하여 Studio 모듈을 확장합니다.
 
   ![예측 분석이란?: Azure 기계 학습 스튜디오의 예측 분석 실험 예제](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
@@ -112,9 +114,4 @@ Azure Machine Learning에는 대규모 알고리즘 라이브러리부터 모델
 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

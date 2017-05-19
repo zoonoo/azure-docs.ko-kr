@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 6926b0a594b29cb3b3fff7a76a258d11bd82ded8
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: b11a729d935936c3abf34649c34a27b2ce7a7c45
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -281,7 +281,7 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 
 이 샘플에서 Pipeline1은 Dataset1을 입력으로 받고 Dataset2를 출력으로 생성하는 하나의 활동만 포함합니다. Pipeline2는 Dataset2를 입력으로 받고 Dataset3를 출력으로 생성하는 하나의 활동만 포함합니다. 
 
-자세한 내용은 [예약 및 실행](#chaining-activities)을 참조하세요. 
+자세한 내용은 [예약 및 실행](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요. 
 
 ## <a name="create-and-monitor-pipelines"></a>파이프라인 만들기 및 모니터링
 다음 도구 또는 SDK 중 하나를 사용하여 파이프라인을 만들 수 있습니다. 

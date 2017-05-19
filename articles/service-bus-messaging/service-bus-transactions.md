@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 05/17/2017
 ms.author: clemensv;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: c39abad6c5e2a9e2ae7add9ecda48783f61bc736
-ms.openlocfilehash: 8d0f3818831a22550fb0eea9bcbc1f62b133003a
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: a88f2d81ab43e38c9363a67aaefc178b47bfb259
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>서비스 버스 트랜잭션 처리의 개요
-이 문서에서는 Azure 서비스 버스의 트랜잭션 기능을 설명합니다. 논의의 대부분은 [Service Bus와의 원자적 트랜잭선 샘플](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)에서 다루고 있습니다. 이 문서는 트래잭션 처리에 대한 개요와 Service Bus의 *send via* 기능으로 제한되며 원자적 트랜잭선 샘플의 범위는 훨씬 광범위하고 더 복잡합니다.
+이 문서에서는 Azure 서비스 버스의 트랜잭션 기능을 설명합니다. 논의의 대부분은 [Service Bus와의 원자적 트랜잭선 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)에서 다루고 있습니다. 이 문서는 트래잭션 처리에 대한 개요와 Service Bus의 *send via* 기능으로 제한되며 원자적 트랜잭선 샘플의 범위는 훨씬 광범위하고 더 복잡합니다.
 
 ## <a name="transactions-in-service-bus"></a>서비스 버스의 트랜잭션
-[트랜잭션](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions#what-are-transactions)은 두 개 이상의 작업을 *실행 범위*로 그룹화합니다. 기본적으로 이러한 트랜잭션은 지정된 작업 그룹에 속한 모든 작업이 성공 또는 실패해야 합니다. 이러한 점에서 트랜잭션은 하나의 단위(또는 *원자성*이라고 함)로 작용합니다. 
+[트랜잭션](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions#what-are-transactions)은 두 개 이상의 작업을 *실행 범위*로 그룹화합니다. 기본적으로 이러한 트랜잭션은 지정된 작업 그룹에 속한 모든 작업이 성공 또는 실패해야 합니다. 이러한 점에서 트랜잭션은 하나의 단위(또는 *원자성*이라고 함)로 작용합니다. 
 
 서비스 버스는 트랜잭션 메시지 broker이며 메시지 저장소에 대한 모든 내부 작업의 트랜잭션 무결성을 보장합니다. 엔터티 간 메시지의 [원자성 전달](service-bus-auto-forwarding.md) 또는 [배달 못한 편지 큐](service-bus-dead-letter-queues.md)로 메시지 이동과 같이 서비스 버스 내 메시지의 모든 전송은 트랜잭션입니다. 따라서 서비스 버스에서 메시지를 수락할 경우 이미 저장되어 시퀀스 번호가 레이블로 지정되었습니다. 이후로 서비스 버스 내 메시지 전송은 엔터티 전반에서 조정된 작업으로 손실(원본 성공 및 대상 실패) 또는 메시지의 중복(원본 실패 및 대상 성공)이 발생하지 않습니다.
 
@@ -77,8 +78,8 @@ using (scope = new TransactionScope())
 서비스 버스 큐에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [자동 전달을 사용한 Service Bus 엔터티 연결](service-bus-auto-forwarding.md)
-* [자동 전달 샘플](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AutoForward)
-* [Service Bus 샘플과 함께 원자성 트랜잭션](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)
+* [자동 전달 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
+* [Service Bus 샘플과 함께 원자성 트랜잭션](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
 * [Azure 큐와 Service Bus 큐 비교](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
 

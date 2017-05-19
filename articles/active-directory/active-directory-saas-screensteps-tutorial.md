@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 7fbb8874367bda9be618332947ffa2c9942fe4ec
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/12/2017
 
 
@@ -69,7 +70,7 @@ ms.lasthandoff: 04/12/2017
 
 **Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 클래식 포털의 **ScreenSteps** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여** Single Sign-On 구성** 대화 상자를 엽니다.
+1. Azure 클래식 포털의 **ScreenSteps** 응용 프로그램 통합 페이지에서**Single Sign-On 구성**을 클릭하여**Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-screensteps-tutorial/IC778519.png "Single Sign-On 구성")
 2. **ScreenSteps에 대한 사용자 로그온 방법** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.

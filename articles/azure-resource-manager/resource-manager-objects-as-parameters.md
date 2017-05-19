@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: mspnp
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 0ab00cc3455d4bff7bfe1dfb62bafa550d65dea8
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 617c24ea999aef78696ff08add4b9616e3dac589
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -175,136 +175,6 @@ Azure Resource Manager 템플릿은 리소스 배포를 사용자 지정하기 �
         }
     ]
 }
-```
-
-## <a name="use-with-sequential-copy"></a>순차 복사에서 사용
-
-이 패턴은 [순차 복사 패턴](resource-manager-sequential-loop.md)과 함께 사용할 때, 특히 자식 리소스를 배포하 때 훨씬 더 유용합니다. 다음 예제 템플릿은 2개의 보안 규칙을 사용하여 NSG(네트워크 보안 그룹)를 배포합니다. `NSG1`라는 첫 번째 리소스는 NSG를 배포합니다. `loop-0`이라는 두 번째 리소스 그룹은 2개의 함수를 수행합니다. 첫째, NSG에 `dependsOn`하므로 `NSG1`이 완료될 때까지 배포가 시작되지 않으며 순차 루프의 첫 번째 반복입니다. 세 번째 리소스는 마지막 예제와 같이 매개 변수 값으로 개체를 사용해서 보안 규칙을 배포하는 중첩된 템플릿입니다.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "networkSecurityGroupsSettings": {"type":"object"}
-  },
-  "variables": {},
-  "resources": [
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "NSG1",
-      "location":"[resourceGroup().location]",
-      "properties": {
-          "securityRules":[]
-      }
-    },
-    {
-        "apiVersion": "2015-01-01",
-        "type": "Microsoft.Resources/deployments",
-        "name": "loop-0",
-        "dependsOn": [
-            "NSG1"
-        ],
-        "properties": {
-            "mode":"Incremental",
-            "parameters":{},
-            "template": {
-                "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                "contentVersion": "1.0.0.0",
-                "parameters": {},
-                "variables": {},
-                "resources": [],
-                "outputs": {}
-            }
-        }       
-    },
-    {
-        "apiVersion": "2015-01-01",
-        "type": "Microsoft.Resources/deployments",
-        "name": "[concat('loop-', copyIndex(1))]",
-        "dependsOn": [
-          "[concat('loop-', copyIndex())]"
-        ],
-        "copy": {
-          "name": "iterator",
-          "count": "[length(parameters('networkSecurityGroupsSettings').securityRules)]"
-        },
-        "properties": {
-          "mode": "Incremental",
-          "template": {
-            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-           "parameters": {},
-            "variables": {},
-            "resources": [
-                {
-                    "name": "[concat('NSG1/' , parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].name)]",
-                    "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-                    "apiVersion": "2016-09-01",
-                    "location":"[resourceGroup().location]",
-                    "properties":{
-                        "description": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].description]",
-                        "priority":"[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].priority]",
-                        "protocol":"[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].protocol]",
-                        "sourcePortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourcePortRange]",
-                        "destinationPortRange": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationPortRange]",
-                        "sourceAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].sourceAddressPrefix]",
-                        "destinationAddressPrefix": "[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].destinationAddressPrefix]",
-                        "access":"[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].access]",
-                        "direction":"[parameters('networkSecurityGroupsSettings').securityRules[copyIndex()].direction]"
-                        }
-                  }
-            ],
-            "outputs": {}
-          }
-        }
-    }
-  ],          
-  "outputs": {}
-}
-
-```
-
-해당 매개 변수 파일은 다음과 같습니다.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters":{ 
-      "networkSecurityGroupsSettings": {
-      "value": {
-          "securityRules": [
-            {
-              "name": "RDPAllow",
-              "description": "allow RDP connections",
-              "direction": "Inbound",
-              "priority": 100,
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "10.0.0.0/24",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "access": "Allow",
-              "protocol": "Tcp"
-            },
-            {
-              "name": "HTTPAllow",
-              "description": "allow HTTP connections",
-              "direction": "Inbound",
-              "priority": 200,
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "10.0.1.0/24",
-              "sourcePortRange": "*",
-              "destinationPortRange": "80",
-              "access": "Allow",
-              "protocol": "Tcp"
-            }
-          ]
-        }
-      }
-    }
-  }
 ```
 
 ## <a name="try-the-template"></a>템플릿 시도
