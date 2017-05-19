@@ -14,11 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/25/2017
+ms.date: 5/18/2017
 ms.author: negat
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 01983ac7b60f7fdb237fba27f22cb31fcb3c1b7b
 ms.openlocfilehash: cd1e67ce89a856f325b66087f003b1a9a1ac6f6a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -148,10 +150,5 @@ ms.openlocfilehash: cd1e67ce89a856f325b66087f003b1a9a1ac6f6a
 크기 집합을 사용하는 예제 리소스 관리자 템플릿은 [Azure 빠른 시작 템플릿 github 리포지토리](https://github.com/Azure/azure-quickstart-templates)에서 "vmss"를 검색하세요.
 
 일반적인 정보는 [크기 집합에 대한 주 방문 페이지](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 확인하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -14,11 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 02/09/2017
+ms.date: 05/18/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 25e19b14e1cad41a365ee88ed317078bf551c36a
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/27/2017
 
 
@@ -45,8 +46,7 @@ Windows 기반 Azure VM(가상 컴퓨터)에 RDP(원격 데스크톱 프로토�
 
 > [!TIP]
 > 포털에서 VM의 **연결** 단추가 회색으로 표시되고 [Express 경로](../../expressroute/expressroute-introduction.md) 또는 [사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 연결을 통해 Azure에 연결되지 않는 경우 RDP를 사용하려면 먼저 공용 IP 주소를 만들고 VM에 할당해야 합니다. 자세한 내용은 [Azure의 공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)에서 확인할 수 있습니다.
-> 
-> 
+
 
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>RDP 문제를 해결하는 방법
 Resource Manager 배포 모델을 사용하여 만든 VM 문제를 다음 방법 중 하나로 해결할 수 있습니다.
@@ -120,8 +120,6 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
 
 > [!NOTE]
 > [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet을 사용하여 사용자 자격 증명 및 RDP 구성을 다시 설정합니다. 다음 예제에서 `myVMAccessExtension`은 프로세스의 일부로 지정하는 이름입니다. VMAccessAgent로 이전에 작업한 경우 `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"`을 사용하여 기존 확장의 이름을 가져와서 VM의 속성을 확인할 수 있습니다. 이름을 보려면 출력의 'Extensions' 섹션에서 이름을 확인합니다.
-> 
-> 
 
 각 문제 해결 단계 후 VM에 다시 연결을 시도합니다. 그래도 연결할 수 없으면 다음 단계를 시도합니다.
 
