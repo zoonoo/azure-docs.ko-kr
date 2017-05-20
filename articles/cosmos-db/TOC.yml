@@ -1,312 +1,314 @@
-- name: "Cosmos DB 설명서"
+- name: Cosmos DB 설명서
   href: index.yml
-- name: "개요"
+- name: 개요
   items:
-  - name: "Azure Cosmos DB 정보"
+  - name: Azure Cosmos DB 정보
     href: introduction.md
-- name: "빠른 시작"
+  - name: DocumentDB 고객 시작
+    href: welcome-documentdb-customers.md
+- name: 빠른 시작
   expanded: true
   items:
-  - name: "DocumentDB"
+  - name: DocumentDB
     items:
-    - name: ".NET"
+    - name: .NET
       href: create-documentdb-dotnet.md
-    - name: ".NET Core"
+    - name: .NET Core
       href: create-documentdb-dotnet-core.md
-    - name: "Java"
+    - name: Java
       href: create-documentdb-java.md
-    - name: "Node.js"
+    - name: Node.js
       href: create-documentdb-nodejs.md
-    - name: "Python"
+    - name: Python
       href: create-documentdb-python.md
-    - name: "Xamarin"
+    - name: Xamarin
       href: create-documentdb-xamarin-dotnet.md
-  - name: "MongoDB"
+  - name: MongoDB
     items:
-    - name: "Node.js"
+    - name: Node.js
       href: create-mongodb-nodejs.md
-    - name: ".NET"
+    - name: .NET
       href: create-mongodb-dotnet.md
-    - name: "자바"
+    - name: 자바
       href: create-mongodb-java.md
-  - name: "그래프"
+  - name: 그래프
     items:
-    - name: ".NET"
+    - name: .NET
       href: create-graph-dotnet.md
-    - name: "Gremlin 콘솔"
+    - name: Gremlin 콘솔
       href: create-graph-gremlin-console.md
-    - name: "자바"
+    - name: 자바
       href: create-graph-java.md
-    - name: "Node.js"
+    - name: Node.js
       href: create-graph-nodejs.md
-  - name: "테이블"
+  - name: 테이블
     items:
-    - name: ".NET"
+    - name: .NET
       href: create-table-dotnet.md
-- name: "자습서"
+- name: 자습서
   items:
-  - name: "1 - 만들기"
+  - name: 1 - 만들기
     items:
-    - name: "DocumentDB"
+    - name: DocumentDB
       href: tutorial-develop-documentdb-dotnet.md
-    - name: "MongoDB"
+    - name: MongoDB
       href: tutorial-develop-mongodb.md
-    - name: "테이블"
+    - name: 테이블
       href: tutorial-develop-table-dotnet.md
-    - name: "그래프"
+    - name: 그래프
       href: tutorial-develop-graph-dotnet.md
-  - name: "2 - 가져오기"
+  - name: 2 - 가져오기
     items:
-    - name: "DocumentDB"
+    - name: DocumentDB
       href: ../documentdb/documentdb-import-data.md
-    - name: "MongoDB"
+    - name: MongoDB
       href: ../documentdb/documentdb-mongodb-migrate.md
-  - name: "3 - 쿼리"
+  - name: 3 - 쿼리
     items:
-    - name: "DocumentDB"
+    - name: DocumentDB
       href: tutorial-query-documentdb.md
-    - name: "MongoDB"
+    - name: MongoDB
       href: tutorial-query-mongodb.md
-    - name: "테이블"
+    - name: 테이블
       href: tutorial-query-table.md
-    - name: "그래프"
+    - name: 그래프
       href: tutorial-query-graph.md
-  - name: "4 - 전역으로 분산"
+  - name: 4 - 전역으로 분산
     items:
-    - name: "DocumentDB"
+    - name: DocumentDB
       href: tutorial-global-distribution-documentdb.md
-    - name: "MongoDB"
+    - name: MongoDB
       href: tutorial-global-distribution-mongodb.md
-    - name: "테이블"
+    - name: 테이블
       href: tutorial-global-distribution-table.md
-    - name: "그래프"
+    - name: 그래프
       href: tutorial-global-distribution-graph.md
-  - name: "5 - 로컬에서 개발"
+  - name: 5 - 로컬에서 개발
     items:
-    - name: "에뮬레이터 사용"
+    - name: 에뮬레이터 사용
       href: ../documentdb/documentdb-nosql-local-emulator.md
-    - name: "인증서 내보내기"
+    - name: 인증서 내보내기
       href: ../documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md
-- name: "샘플"
+- name: 샘플
   items:
-  - name: "Azure CLI 2.0"
+  - name: Azure CLI 2.0
     href: cli-samples.md
-  - name: "Azure PowerShell"
+  - name: Azure PowerShell
     href: powershell-samples.md
-- name: "개념"
+- name: 개념
   items:
-  - name: "글로벌 분포"
+  - name: 글로벌 분포
     href: ../documentdb/documentdb-distribute-data-globally.md
-  - name: "분할"
+  - name: 분할
     href: partition-data.md
-  - name: "일관성"
+  - name: 일관성
     href: ../documentdb/documentdb-consistency-levels.md
-  - name: "처리량"
+  - name: 처리량
     href: ../documentdb/documentdb-request-units.md
     items:
-    - name: "분당 요청 단위"
+    - name: 분당 요청 단위
       href: request-units-per-minute.md
-  - name: "다중 모델 API"
+  - name: 다중 모델 API
     items:
-    - name: "DocumentDB"
+    - name: DocumentDB
       href: ../documentdb/documentdb-introduction.md
-    - name: "MongoDB"
+    - name: MongoDB
       href: ../documentdb/documentdb-protocol-mongodb.md
-    - name: "테이블"
+    - name: 테이블
       href: table-introduction.md
-    - name: "그래프"
+    - name: 그래프
       href: graph-introduction.md
-  - name: "보안"
+  - name: 보안
     href: ../documentdb/documentdb-nosql-database-security.md
-  - name: "TCO"
+  - name: TCO
     href: https://aka.ms/documentdb-tco-paper
-  - name: "사용 사례"
+  - name: 사용 사례
     href: ../documentdb/documentdb-use-cases.md
-- name: "방법 가이드"
+- name: 방법 가이드
   items:
-  - name: "개발"
+  - name: 개발
     items:
-    - name: "DocumentDB API"
+    - name: DocumentDB API
       items:
-      - name: "리소스"
+      - name: 리소스
         href: ../documentdb/documentdb-resources.md
-      - name: "SQL 쿼리"
+      - name: SQL 쿼리
         href: ../documentdb/documentdb-sql-query.md
-      - name: "SQL 실습"
+      - name: SQL 실습
         href: https://www.documentdb.com/sql/demo
-      - name: "분할"
+      - name: 분할
         href: ../documentdb/documentdb-partition-data.md
-      - name: "저장 프로시저, 트리거 및 UDF"
+      - name: '저장 프로시저, 트리거 및 UDF'
         href: ../documentdb/documentdb-programming.md
-      - name: "성능 테스트"
+      - name: 성능 테스트
         href: ../documentdb/documentdb-performance-testing.md
-      - name: "성능 팁"
+      - name: 성능 팁
         href: ../documentdb/documentdb-performance-tips.md
-      - name: "다중 마스터 설치"
+      - name: 다중 마스터 설치
         href: ../documentdb/documentdb-multi-region-writers.md
-      - name: "DateTimes"
+      - name: DateTimes
         href: ../documentdb/documentdb-working-with-dates.md
-      - name: "자습서"
+      - name: 자습서
         items:
-        - name: "첫 번째 앱 작성"
+        - name: 첫 번째 앱 작성
           items:
-          - name: ".NET"
+          - name: .NET
             href: ../documentdb/documentdb-get-started.md
-          - name: ".NET Core"
+          - name: .NET Core
             href: ../documentdb/documentdb-dotnetcore-get-started.md
-          - name: "Java"
+          - name: Java
             href: ../documentdb/documentdb-java-get-started.md
-          - name: "Node.js"
+          - name: Node.js
             href: ../documentdb/documentdb-nodejs-get-started.md
-          - name: "C++"
+          - name: C++
             href: ../documentdb/documentdb-cpp-get-started.md
-        - name: "웹앱 만들기"
+        - name: 웹앱 만들기
           items:
-          - name: ".NET"
+          - name: .NET
             href: ../documentdb/documentdb-dotnet-application.md
-          - name: "Xamarin"
+          - name: Xamarin
             href: ../documentdb/documentdb-mobile-apps-with-xamarin.md
-          - name: "Node.js"
+          - name: Node.js
             href: ../documentdb/documentdb-nodejs-application.md
-          - name: "자바"
+          - name: 자바
             href: ../documentdb/documentdb-java-application.md
-          - name: "Python Flask"
+          - name: Python Flask
             href: ../documentdb/documentdb-python-application.md
-      - name: "샘플"
+      - name: 샘플
         items:
-        - name: ".NET 샘플"
+        - name: .NET 샘플
           href: ../documentdb/documentdb-dotnet-samples.md
-        - name: "Node.js 샘플"
+        - name: Node.js 샘플
           href: ../documentdb/documentdb-nodejs-samples.md
-        - name: "Python 샘플"
+        - name: Python 샘플
           href: ../documentdb/documentdb-python-samples.md
-        - name: "SQL 구문"
+        - name: SQL 구문
           href: https://msdn.microsoft.com/library/azure/dn782250.aspx
-        - name: "SQL 문법 치트 시트"
+        - name: SQL 문법 치트 시트
           href: ../documentdb/documentdb-sql-query-cheat-sheet.md
-      - name: "리소스"
+      - name: 리소스
         items:
-        - name: "스택 오버플로"
+        - name: 스택 오버플로
           href: http://stackoverflow.com/questions/tagged/azure-documentdb
-        - name: "비디오"
+        - name: 비디오
           href: https://azure.microsoft.com/documentation/videos/index/?services=documentdb
-        - name: "서비스 업데이트"
+        - name: 서비스 업데이트
           href: https://azure.microsoft.com/updates/?product=documentdb
-        - name: "커뮤니티 포털"
+        - name: 커뮤니티 포털
           href: ../documentdb/documentdb-community.md
-        - name: "스키마와 관계 없는 인덱싱 문서"
+        - name: 스키마와 관계 없는 인덱싱 문서
           href: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
-        - name: "S1, S2, S3 사용 중지"
+        - name: 'S1, S2, S3 사용 중지'
           href: ../documentdb/documentdb-performance-levels.md
-    - name: "MongoDB API"
+    - name: MongoDB API
       items:
-      - name: "MongoDB 계정에 연결"
+      - name: MongoDB 계정에 연결
         href: ../documentdb/documentdb-connect-mongodb-account.md
-      - name: "MongoChef 사용"
+      - name: MongoChef 사용
         href: ../documentdb/documentdb-mongodb-mongochef.md
-      - name: "Robomongo 사용"
+      - name: Robomongo 사용
         href: ../documentdb/documentdb-mongodb-robomongo.md
-      - name: "자습서"
+      - name: 자습서
         items:
-        - name: "Node.js 콘솔 앱"
+        - name: Node.js 콘솔 앱
           href: ../documentdb/documentdb-mongodb-samples.md
-    - name: "그래프 API"
+    - name: 그래프 API
       items:
-      - name: "Gremlin 지원"
+      - name: Gremlin 지원
         href: gremlin-support.md
-    - name: "테이블 API"
+    - name: 테이블 API
       items:
-      - name: "테이블 저장소"
+      - name: 테이블 저장소
         href: https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
-    - name: "변경 피드"
+    - name: 변경 피드
       href: ../documentdb/documentdb-change-feed.md
-    - name: "지리 공간적"
+    - name: 지리 공간적
       href: ../documentdb/documentdb-geospatial.md
-    - name: "인덱싱"
+    - name: 인덱싱
       href: ../documentdb/documentdb-indexing-policies.md
-  - name: "관리"
+  - name: 관리
     items:
-    - name: "비용 효율적인 읽기 및 쓰기"
+    - name: 비용 효율적인 읽기 및 쓰기
       href: ../documentdb/documentdb-key-value-store-cost.md
-    - name: "자동으로 데이터 만료"
+    - name: 자동으로 데이터 만료
       href: ../documentdb/documentdb-time-to-live.md
-    - name: "백업 및 복원"
+    - name: 백업 및 복원
       href: ../documentdb/documentdb-online-backup-and-restore.md
-    - name: "지역별 장애 조치"
+    - name: 지역별 장애 조치
       href: ../documentdb/documentdb-regional-failovers.md
-    - name: "자동화"
+    - name: 자동화
       items:
-      - name: "Azure CLI 1.0 - 계정 만들기"
+      - name: Azure CLI 1.0 - 계정 만들기
         href: ../documentdb/documentdb-automation-resource-manager-cli-nodejs.md
-      - name: "Azure CLI 1.0 - 지역 추가 또는 제거"
+      - name: Azure CLI 1.0 - 지역 추가 또는 제거
         href: ../documentdb/documentdb-automation-region-management.md
-      - name: "Azure PowerShell"
+      - name: Azure PowerShell
         href: ../documentdb/documentdb-manage-account-with-powershell.md
-    - name: "보안"
+    - name: 보안
       items:
-      - name: "휴지 상태의 암호화"
+      - name: 휴지 상태의 암호화
         href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
-      - name: "방화벽 지원"
+      - name: 방화벽 지원
         href: ../documentdb/documentdb-firewall-support.md
-  - name: "통합"
+  - name: 통합
     items:
-    - name: "Spark에 연결"
+    - name: Spark에 연결
       href: ../documentdb/documentdb-spark-connector.md
-    - name: "Azure App Service로 웹 사이트 배포"
+    - name: Azure App Service로 웹 사이트 배포
       href: ../documentdb/documentdb-create-documentdb-website.md
-    - name: "Logic Apps를 통한 응용 프로그램 로깅"
+    - name: Logic Apps를 통한 응용 프로그램 로깅
       href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
-    - name: "Azure Functions에 바인딩"
+    - name: Azure Functions에 바인딩
       href: ../azure-functions/functions-bindings-documentdb.md
-    - name: "Hadoop으로 데이터 분석"
+    - name: Hadoop으로 데이터 분석
       href: ../documentdb/documentdb-run-hadoop-with-hdinsight.md
-    - name: "Azure Search와의 통합"
+    - name: Azure Search와의 통합
       href: ../search/search-howto-index-documentdb.md
-    - name: "Azure Data Factory를 사용하여 데이터 이동"
+    - name: Azure Data Factory를 사용하여 데이터 이동
       href: ../data-factory/data-factory-azure-documentdb-connector.md
-    - name: "Azure Stream Analytics로 실시간 데이터 분석"
+    - name: Azure Stream Analytics로 실시간 데이터 분석
       href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
-    - name: "Logic Apps를 사용하여 변경된 HL7 FHIR 레코드 가져오기"
+    - name: Logic Apps를 사용하여 변경된 HL7 FHIR 레코드 가져오기
       href: ../documentdb/documentdb-change-feed-hl7-fhir-logic-apps.md
-    - name: "실시간 프로세스 센서 데이터"
+    - name: 실시간 프로세스 센서 데이터
       href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
-    - name: "Power BI를 사용하여 데이터 시각화"
+    - name: Power BI를 사용하여 데이터 시각화
       href: ../documentdb/documentdb-powerbi-visualize.md
-    - name: "데이터 시각화에 ODBC 드라이버 활용"
+    - name: 데이터 시각화에 ODBC 드라이버 활용
       href: ../documentdb/documentdb-nosql-odbc-driver.md
-- name: "참조"
+- name: 참조
   items:
-  - name: "DocumentDB API"
+  - name: DocumentDB API
     items:
-    - name: "자바"
+    - name: 자바
       href: ../documentdb/documentdb-sdk-java.md
-    - name: ".NET"
+    - name: .NET
       href: ../documentdb/documentdb-sdk-dotnet.md
-    - name: ".NET Core"
+    - name: .NET Core
       href: ../documentdb/documentdb-sdk-dotnet-core.md
-    - name: "Node.js"
+    - name: Node.js
       href: ../documentdb/documentdb-sdk-node.md
-    - name: "Python"
+    - name: Python
       href: ../documentdb/documentdb-sdk-python.md
-    - name: "REST (영문)"
+    - name: REST (영문)
       href: /rest/api/documentdb/
-    - name: "REST 리소스 공급자"
+    - name: REST 리소스 공급자
       href: /rest/api/documentdbresourceprovider/
-  - name: "테이블 API"
+  - name: 테이블 API
     items:
-    - name: ".NET"
+    - name: .NET
       href: table-sdk-dotnet.md
-  - name: "Graph API"
+  - name: Graph API
     items:
-    - name: ".NET"
+    - name: .NET
       href: graph-sdk-dotnet.md
-- name: "리소스"
+- name: 리소스
   items:
-  - name: "가격"
+  - name: 가격
     href: https://azure.microsoft.com/pricing/details/documentdb/
-  - name: "FAQ"
+  - name: FAQ
     href: ../documentdb/documentdb-faq.md
-  - name: "스택 오버플로"
+  - name: 스택 오버플로
     href: http://stackoverflow.com/questions/tagged/azure-cosmos-db
-  - name: "야구를 통해 설명하는 데이터 일관성"
+  - name: 야구를 통해 설명하는 데이터 일관성
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913

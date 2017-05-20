@@ -71,9 +71,11 @@
 ### [Azure Backup에서 파일 및 폴더의 느린 백업](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
 # 개념
+## [Recovery Services 자격 증명 모음 개요](backup-azure-recovery-services-vault-overview.md)
+## [Recovery Services 자격 증명 모음으로 백업 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md)
+## [Azure Backup 자격 증명 모음 삭제](backup-azure-delete-vault.md)
 ## [역할 기반 액세스 제어](backup-rbac-rs-vault.md)
 ## [하이브리드 백업 보안](backup-azure-security-feature.md)
-## [Azure Backup 자격 증명 모음 삭제](backup-azure-delete-vault.md)
 ## [오프라인 백업 구성](backup-azure-backup-import-export.md)
 ## [테이프 라이브러리 교체](backup-azure-backup-cloud-as-tape.md)
 ## [Linux VM의 응용 프로그램 일치 백업](backup-azure-linux-app-consistent.md)

@@ -29,6 +29,7 @@
 ### [DC/OS의 앱/사용자별 Orchestrator](container-service-application-specific-marathon.md)
 ### [파일 공유 추가](container-service-dcos-fileshare.md)
 ### [Azure Container Registry 사용](container-service-dcos-acr.md)
+### [Vamp로 카나리아 릴리스](container-service-dcos-vamp-canary-release.md)
 ### DC/OS 모니터링
 #### [ELK로 모니터링](container-service-monitoring-elk.md)
 #### [OMS로 모니터링](container-service-monitoring-oms.md)

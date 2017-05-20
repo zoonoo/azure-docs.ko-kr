@@ -1,11 +1,10 @@
 # 개요
-
 ## [Azure Analysis Services란?](analysis-services-overview.md)
 
-# 시작
-## [서버 만들기](analysis-services-create-server.md)
-## [서버에 배포](analysis-services-deploy.md)
-## [연결](analysis-services-connect.md)
+# 빠른 시작
+## [서버 만들기 - 포털](analysis-services-create-server.md)
+## [모델 배포 - SSDT](analysis-services-deploy.md)
+
 
 # 자습서
 ## 모델 만들기 및 배포
@@ -31,6 +30,7 @@
 ## [서버 관리](analysis-services-manage.md)
 ## [사용자 관리](analysis-services-manage-users.md)
 ## [온-프레미스 데이터 게이트웨이 통합](analysis-services-gateway.md)
+## [서버에 연결](analysis-services-connect.md)
 ## [Excel과 연결](analysis-services-connect-excel.md)
 ## [Power BI와 연결](analysis-services-connect-pbi.md)
 ## [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)

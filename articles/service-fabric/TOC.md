@@ -70,9 +70,9 @@
 ##### [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
 
 #### Reliable Services 수명 주기
-#### [구성](service-fabric-reliable-services-configuration.md)
-#### [알림 보내기](service-fabric-reliable-services-notifications.md)
-#### [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
+##### [구성](service-fabric-reliable-services-configuration.md)
+##### [알림 보내기](service-fabric-reliable-services-notifications.md)
+##### [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
 
 #### 서비스와 통신
 ##### [Reliable Services와 통신](service-fabric-reliable-services-communication.md)
@@ -215,6 +215,7 @@
 ### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
 
 ### [Azure CLI를 사용하여 클러스터 관리](service-fabric-azure-cli.md)
+### [클러스터 노드 패치](service-fabric-patch-orchestration-application.md)
 
 ### 클러스터 리소스 관리 및 오케스트레이션
 #### [클러스터 Resource Manager 개요](service-fabric-cluster-resource-manager-introduction.md)
@@ -249,11 +250,13 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [서비스 프로세스에서 로그 수집](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+### [Windows Server 컨테이너 모니터링](service-fabric-diagnostics-containers-windowsserver.md)
 ### [상태 저장 Reliable Services의 진단](service-fabric-reliable-services-diagnostics.md)
 ### [Reliable Actors의 진단](service-fabric-reliable-actors-diagnostics.md)
 ### [로컬 클러스터 문제 해결](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # 참조
+## [PowerShell(Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [Java API](/java/api/)
 ## [.NET](/dotnet/api/)
