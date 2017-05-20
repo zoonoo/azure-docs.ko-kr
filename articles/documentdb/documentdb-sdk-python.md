@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/30/2016
+ms.date: 05/01/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 84a04f71ffde07e9caa439c03b55920d0bb0ef16
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: af45d745bccb02ce9fd45320e83284a8b33d99bd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
@@ -51,6 +52,14 @@ ms.lasthandoff: 04/20/2017
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다.
+* DocumentDB 에뮬레이터에 대해 실행하는 경우 SSL 유효성 검사를 비활성화하기 위한 옵션을 추가했습니다.
+* 종속 요청 모듈이 정확히 2.10.0이어야 하는 제한을 제거했습니다.
+* 분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
+* 저장된 프로시저가 실행되는 동안 스크립트 로깅을 사용할 수 있도록 지원이 추가되었습니다.
+* 이 릴리스에서 REST API 버전이 '2017-01-19'로 증가되었습니다.
+
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
 * 문서 주석에 대한 편집이 변경되었습니다.
 
@@ -114,6 +123,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |2017년 5월 1일 |--- |
 | [2.0.1](#2.0.1) |2016년 10월 30일 |--- |
 | [2.0.0](#2.0.0) |2016년 9월 29일 |--- |
 | [1.9.0](#1.9.0) |2016년 7월 7일 |--- |
