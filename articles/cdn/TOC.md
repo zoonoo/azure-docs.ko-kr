@@ -36,6 +36,7 @@
 ### [고급 HTTP 보고서 생성](cdn-advanced-http-reports.md)
 ### [실시간 통계 보기](cdn-real-time-stats.md)
 ### [에지 노드 성능 분석](cdn-edge-performance.md)
+### [진단 로그로 메트릭 내보내기](cdn-log-analysis.md)
 
 ## 개발
 ### [.NET](cdn-app-dev-net.md)

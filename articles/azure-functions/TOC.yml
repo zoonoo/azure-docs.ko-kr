@@ -1,128 +1,128 @@
-- name: "함수 설명서"
+- name: 함수 설명서
   href: index.yml
-- name: "개요"
+- name: 개요
   items:
-  - name: "함수 정보"
+  - name: 함수 정보
     href: functions-overview.md
-  - name: "함수 런타임"
+  - name: 함수 런타임
     href: functions-runtime-overview.md
-  - name: "Flow, Logic Apps, Functions 및 WebJobs 중에서 선택"
+  - name: 'Flow, Logic Apps, Functions 및 WebJobs 중에서 선택'
     href: functions-compare-logic-apps-ms-flow-webjobs.md
-- name: "빠른 시작"
+- name: 빠른 시작
   expanded: true
   items:
-  - name: "함수 만들기 - 포털"
+  - name: 함수 만들기 - 포털
     href: functions-create-first-azure-function.md
-  - name: "함수 만들기 - Azure CLI"
+  - name: 함수 만들기 - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
 #  - name: Create function - Visual Studio
 #    href: functions-create-your-first-function-visual-studio.md
-  - name: "트리거"
+  - name: 트리거
     items:
-    - name: "타이머"
+    - name: 타이머
       href: functions-create-scheduled-function.md
-    - name: "GitHub 웹후크"
+    - name: GitHub 웹후크
       href: functions-create-github-webhook-triggered-function.md
-    - name: "Blob 저장소"
+    - name: Blob 저장소
       href: functions-create-storage-blob-triggered-function.md
-    - name: "큐 저장소"
+    - name: 큐 저장소
       href: functions-create-storage-queue-triggered-function.md
-  - name: "통합"
+  - name: 통합
     items:
-    - name: "저장소"
+    - name: 저장소
       href: functions-integrate-storage-queue-output-binding.md
-#    - name: Cosmos DB
-#      href: functions-integrate-store-unstructured-data-cosmosdb.md
-- name: "샘플"
+    - name: Cosmos DB
+      href: functions-integrate-store-unstructured-data-cosmosdb.md
+- name: 샘플
   items:
-  - name: "Azure CLI"
+  - name: Azure CLI
     href: functions-cli-samples.md
-- name: "자습서"
+- name: 자습서
   items:
-  - name: "1 - Logic Apps를 사용하는 함수"
+  - name: 1 - Logic Apps를 사용하는 함수
     href: functions-twitter-email.md
-  - name: "2 - 서버를 사용하지 않는 API 만들기"
+  - name: 2 - 서버를 사용하지 않는 API 만들기
     href: functions-create-serverless-api.md
-- name: "개념"
+- name: 개념
   items:
-  - name: "호스팅 계획"
+  - name: 호스팅 계획
     href: functions-scale.md
-  - name: "트리거 및 바인딩"
+  - name: 트리거 및 바인딩
     href: functions-triggers-bindings.md
-- name: "방법 가이드"
+- name: 방법 가이드
   items:
-  - name: "Azure Functions 테스트"
+  - name: Azure Functions 테스트
     href: functions-test-a-function.md
-  - name: "로컬에서 개발 및 디버깅"
+  - name: 로컬에서 개발 및 디버깅
     href: functions-run-local.md
-  - name: "함수 앱에 대한 설정 구성"
+  - name: 함수 앱에 대한 설정 구성
     href: functions-how-to-use-azure-function-app-settings.md
-  - name: "Azure Functions에 대한 연속 배포"
+  - name: Azure Functions에 대한 연속 배포
     href: functions-continuous-deployment.md
-  - name: "인프라를 코드로 사용하여 함수 배포"
+  - name: 인프라를 코드로 사용하여 함수 배포
     href: functions-infrastructure-as-code.md
-  - name: "Azure Functions 모니터링"
+  - name: Azure Functions 모니터링
     href: functions-monitoring.md
-  - name: "함수 런타임 설치"
+  - name: 함수 런타임 설치
     href: functions-runtime-install.md
-- name: "참조"
+- name: 참조
   items:
-  - name: "함수 앱 개발"
+  - name: 함수 앱 개발
     href: functions-reference.md
     items:
-    - name: "API 2.0 열기"
+    - name: API 2.0 열기
       href: functions-api-definition.md
-  - name: "Azure Functions에 대한 모범 사례"
+  - name: Azure Functions에 대한 모범 사례
     href: functions-best-practices.md
-  - name: "바인딩"
+  - name: 바인딩
     items:
-    - name: "DocumentDB 바인딩"
+    - name: Cosmos DB 바인딩
       href: functions-bindings-documentdb.md
-    - name: "이벤트 허브 바인딩"
+    - name: 이벤트 허브 바인딩
       href: functions-bindings-event-hubs.md
-    - name: "HTTP 및 webhook 바인딩"
+    - name: HTTP 및 webhook 바인딩
       href: functions-bindings-http-webhook.md
-    - name: "Mobile Apps 바인딩"
+    - name: Mobile Apps 바인딩
       href: functions-bindings-mobile-apps.md
-    - name: "알림 허브 출력 바인딩"
+    - name: 알림 허브 출력 바인딩
       href: functions-bindings-notification-hubs.md
-    - name: "큐 및 항목에 대한 Service Bus 트리거 및 바인딩"
+    - name: 큐 및 항목에 대한 Service Bus 트리거 및 바인딩
       href: functions-bindings-service-bus.md
-    - name: "Sendgrid 바인딩"
+    - name: Sendgrid 바인딩
       href: functions-bindings-sendgrid.md
-    - name: "저장소 바인딩"
+    - name: 저장소 바인딩
       items:
-      - name: "Blob 바인딩"
+      - name: Blob 바인딩
         href: functions-bindings-storage-blob.md
-      - name: "큐 바인딩"
+      - name: 큐 바인딩
         href: functions-bindings-storage-queue.md
-      - name: "테이블 바인딩"
+      - name: 테이블 바인딩
         href: functions-bindings-storage-table.md
-      - name: "외부 파일 바인딩"
+      - name: 외부 파일 바인딩
         href: functions-bindings-external-file.md
-    - name: "SendGrid 바인딩"
+    - name: SendGrid 바인딩
       href: functions-bindings-sendgrid.md
-    - name: "타이머 트리거"
+    - name: 타이머 트리거
       href: functions-bindings-timer.md
-    - name: "Twilio 출력 바인딩"
+    - name: Twilio 출력 바인딩
       href: functions-bindings-twilio.md
-  - name: "프레임워크"
+  - name: 프레임워크
     items:
-    - name: "C#"
+    - name: 'C#'
       href: functions-reference-csharp.md
-    - name: "F#"
+    - name: 'F#'
       href: functions-reference-fsharp.md
-    - name: "JavaScript"
+    - name: JavaScript
       href: functions-reference-node.md
-- name: "리소스"
+- name: 리소스
   items:
-  - name: "가격"
+  - name: 가격
     href: https://azure.microsoft.com/pricing/details/functions/
-  - name: "MSDN 포럼"
+  - name: MSDN 포럼
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
-  - name: "스택 오버플로"
+  - name: 스택 오버플로
     href: http://stackoverflow.com/questions/tagged/azure-functions
-  - name: "Azure Functions GitHub 리포지토리"
+  - name: Azure Functions GitHub 리포지토리
     href: https://github.com/Azure/Azure-Functions/
-  - name: "서비스 업데이트"
+  - name: 서비스 업데이트
     href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=

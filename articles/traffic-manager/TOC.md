@@ -2,6 +2,7 @@
 ## [트래픽 관리자란?](traffic-manager-overview.md)
 ## [라우팅 메서드](traffic-manager-routing-methods.md)
 ### [Traffic Manager에서 사용한 국가/지역 계층 구조](traffic-manager-geographic-regions.md)
+## [중첩 Traffic Manager 프로필](traffic-manager-nested-profiles.md)
 ## [끝점 유형](traffic-manager-endpoint-types.md)
 ## [끝점 모니터링](traffic-manager-monitoring.md)
 ## [FAQ](traffic-manager-FAQs.md)

@@ -11,6 +11,7 @@
 ## [연결된 공장 솔루션 개요](iot-suite-connected-factory-overview.md)
 ## [원격 모니터링 솔루션 연습](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [예측 유지 관리 솔루션 연습](iot-suite-predictive-walkthrough.md)
+## [연결된 공장 솔루션 연습](iot-suite-connected-factory-sample-walkthrough.md)
 ## [Raspberry Pi에 연결](iot-suite-raspberry-pi-kit-get-started.md)
 ### C 사용
 #### [시뮬레이션된 데이터](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)

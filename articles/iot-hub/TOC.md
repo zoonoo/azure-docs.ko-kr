@@ -116,7 +116,7 @@
 ### [보안 모범 사례](iot-hub-security-best-practices.md)
 ### [보안 아키텍처](iot-hub-security-architecture.md)
 ### [IoT 배포 보안 유지](iot-hub-security-deployment.md)
-## Gateway SDK
+## IoT Edge
 ### 장치 시뮬레이션
 #### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
 #### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
@@ -129,7 +129,7 @@
 ## [.NET(서비스)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java(장치)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
-## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
+## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST(리소스 공급자)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST(장치 ID)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
 ## [REST(장치 쌍)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
