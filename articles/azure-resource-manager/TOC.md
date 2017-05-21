@@ -24,7 +24,6 @@
 ### [다른 템플릿에 대한 연결](resource-group-linked-templates.md)
 ### [리소스 간 종속성 정의](resource-group-define-dependencies.md)
 ### [여러 인스턴스 만들기](resource-group-create-multiple.md)
-### [순차 루프](resource-manager-sequential-loop.md)
 ### [위치 설정](resource-manager-template-location.md)
 ### [태그 할당](resource-manager-template-tags.md)
 ### [리소스 이름 및 유형을 자식 설정](resource-manager-template-child-resource.md)
@@ -44,7 +43,7 @@
 #### [템플릿 내보내기 및 재배포](resource-manager-export-template-cli.md)
 ### [포털](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [여러 리소스 그룹 배포](resource-manager-cross-resource-group-deployment.md)
+### [크로스 리소스 그룹 배포](resource-manager-cross-resource-group-deployment.md)
 ### [Visual Studio Team Services와의 지속적인 통합](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [배포 중 보안 값 전달](resource-manager-keyvault-parameter.md)
 
