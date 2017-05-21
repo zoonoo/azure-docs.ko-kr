@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b010891a177f27eef99bd65e0d940c83375aa5ec
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 7375d2d3c237c3b1c2dcdab44b2fcb0000ff961c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -202,16 +203,12 @@ Azure AD 보고서 및 이벤트 API를 직접 사용하는 것 외에도 디렉
 4. **활동 로그** 섹션을 잠급니다.
 5. **암호 재설정 활동** 보고서 또는 **암호 재설정 등록 활동** 보고서 중 하나를 선택합니다.
 
-   ![][001]
-
 ## <a name="view-password-reset-registration-activity-in-the-classic-portal"></a>클래식 포털에서 암호 다시 설정 등록 활동 보기
 암호 재설정 등록 활동 보고서는 조직 내에서 발생한 모든 암호 재설정 등록을 보여줍니다.  암호 재설정 등록은 암호 재설정 등록 포털([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup))에서 인증 정보를 성공적으로 등록한 사용자에 대한 이 보고서에 표시됩니다.
 
 * **최대 시간 범위**: 30일
 * **최대 행 수**: 75,000개
 * **다운로드 가능**: 예, CSV 파일을 통해
-
-    ![][002]
 
 ### <a name="description-of-report-columns"></a>보고서 열 설명
 다음 목록에서는 각 보고서의 열에 대해 자세히 설명합니다.
@@ -234,8 +231,6 @@ Azure AD 보고서 및 이벤트 API를 직접 사용하는 것 외에도 디렉
 * **최대 시간 범위**: 30일
 * **최대 행 수**: 75,000개
 * **다운로드 가능**: 예, CSV 파일을 통해
-
-    ![][003]
 
 ### <a name="description-of-report-columns"></a>보고서 열 설명
 다음 목록에서는 각 보고서의 열에 대해 자세히 설명합니다.
@@ -308,8 +303,4 @@ Azure AD 보고서 및 이벤트 API를 직접 사용하는 것 외에도 디렉
 * [**FAQ**](active-directory-passwords-faq.md) -자주 묻는 질문에 답변합니다.
 * [**문제해결**](active-directory-passwords-troubleshoot.md) -신속하게 서비스와의 문제를 해결하는 방법에 대해 알아봅니다.
 * [**자세히 알아보기**](active-directory-passwords-learn-more.md) -서비스의 작동 원리 방식의 기술적 측면을 자세히 알아봅니다.
-
-[001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
-[002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
-[003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 

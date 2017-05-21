@@ -16,10 +16,11 @@ ms.date: 04/05/2017
 ms.author: raynew
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: site-recovery-vmware-to-azure
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 5c597e94f524a7ecbb9e4269adbbbd735a90aa14
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 88c0e4d02f13d3dcc8824ed1cba8fecd3c5cfa77
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -228,7 +229,7 @@ Azure 네트워크에 대한 자세한 내용은 [가상 네트워크 개요](..
 ## <a name="step-3-install-the-vmware-components"></a>3단계: VMware 구성 요소 설치
 VMware 가상 컴퓨터를 복제하려면 관리 서버에서 다음 단계를 수행합니다.
 
-1. [다운로드](https://developercenter.vmware.com/tool/vsphere_powercli/6.0) 하여 설치합니다.
+1. [다운로드](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) 하여 설치합니다.
 2. 서버를 다시 시작합니다.
 
 ## <a name="step-4-download-a-vault-registration-key"></a>4단계: 자격 증명 모음 등록 키 다운로드
