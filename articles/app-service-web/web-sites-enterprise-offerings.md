@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: anwestg
-translationtype: Human Translation
-ms.sourcegitcommit: 4d3b3096e42736fddd3bb5b9f39376271d193c58
-ms.openlocfilehash: 980eb9ff0990d532a77614be571e3f6d24a1dfee
-ms.lasthandoff: 12/07/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4d46654f42a3fd5c9b491f1b565c2acfa0dc52c4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -112,7 +113,7 @@ Azure App Service Environment [http://aka.ms/aseintro](http://aka.ms/aseintro)�
 
 마이그레이션 프로세스의 다음 단계에서는 Azure 서비스 웹 앱과 Azure SQL 데이터베이스를 만듭니다. CPU 코어 수와 RAM 양이 다른 여러 크기의 웹 앱 인스턴스가 있으며, 웹 응용 프로그램 요구 사항에 따라 이들 중 선택할 수 있습니다. 자세한 정보 및 가격은 [https://azure.microsoft.com/pricing/details/app-service/](https://azure.microsoft.com/pricing/details/app-service/)를 참조하세요. 마찬가지로 Microsoft Azure SQL 데이터베이스는 요구 사항에 맞는 다양한 서비스 계층 및 성능 수준을 통해 모든 비즈니스 요구 사항을 충족합니다. 자세한 정보는 [https://azure.microsoft.com/pricing/details/sql-database/](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요. 만든 후에는 응용 프로그램을 FTP 또는 WebDeploy를 통해 앱 서비스 웹 앱에 업로드한 다음 데이터베이스로 이동합니다.
 
-이 마이그레이션의 솔루션은 Azure SQL 데이터베이스를 사용하지만 다른 데이터베이스도 Azure에서 지원됩니다. 회사는 [Azure Store](/marketplace/partner-program/)에서 구입할 수 있는 추가 기능을 통해 MySQL, MongoDB, Azure DocumentDB 등도 사용할 수 있습니다.
+이 마이그레이션의 솔루션은 Azure SQL 데이터베이스를 사용하지만 다른 데이터베이스도 Azure에서 지원됩니다. 또한 회사에서 [Azure Store](/marketplace/partner-program/)에서 구입할 수 있는 추가 기능을 통해 MySQL, MongoDB, Azure Cosmos DB 등을 사용할 수 있습니다.
 
 Azure SQL 데이터베이스를 만들 때 기존 데이터베이스의 스크립트를 생성하거나 [데이터 계층 응용 프로그램 내보내기 및 가져오기](http://aka.ms/dacpac)를 사용하는 등과 같은 여러 옵션을 사용하여 온-프레미스 서버에서 기존 데이터베이스를 가져올 수 있습니다.
 

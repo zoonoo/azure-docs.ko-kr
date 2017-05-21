@@ -1,6 +1,6 @@
 ---
-title: "Azure Functions DocumentDB 바인딩 | Microsoft Docs"
-description: "Azure Functions에서 Azure DocumentDB 바인딩을 사용하는 방법을 파악합니다."
+title: "Azure Functions Cosmos DB 바인딩 | Microsoft Docs"
+description: "Azure Functions에서 Azure Cosmos DB 바인딩을 사용하는 방법을 파악합니다."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,49 +16,50 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/18/2016
 ms.author: chrande; glenga
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: e38c9187be42946df1e8059ba44f10f76d32d984
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2c0cb8ee1690f9b36b76c87247e3c7223876b269
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="azure-functions-documentdb-bindings"></a>Azure Functions DocumentDB 바인딩
+# <a name="azure-functions-cosmos-db-bindings"></a>Azure Functions Cosmos DB 바인딩
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-이 문서에서는 Azure Functions에서 Azure DocumentDB 바인딩을 구성하고 코딩하는 방법을 설명합니다. Azure Functions는 DocumentDB에 대한 입력 및 출력 바인딩을 지원합니다.
+이 문서에서는 Azure Functions에서 Azure Cosmos DB 바인딩을 구성하고 코딩하는 방법을 설명합니다. Azure Functions는 Cosmos DB에 대한 입력 및 출력 바인딩을 지원합니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-DocumentDB에 대한 자세한 내용은 [DocumentDB 소개](../documentdb/documentdb-introduction.md) 및 [DocumentDB 콘솔 응용 프로그램 빌드](../documentdb/documentdb-get-started.md)를 참조하세요.
+Cosmos DB에 대한 자세한 내용은 [Cosmos DB 소개](../documentdb/documentdb-introduction.md) 및 [Cosmos DB 콘솔 응용 프로그램 빌드](../documentdb/documentdb-get-started.md)를 참조하세요.
 
 <a id="docdbinput"></a>
 
-## <a name="documentdb-input-binding"></a>DocumentDB 입력 바인딩
-DocumentDB 입력 바인딩은 DocumentDB 문서를 검색하고 함수의 명명된 입력 매개 변수를 전달합니다. 함수를 호출한 트리거에 따라 문서 ID를 결정할 수 있습니다. 
+## <a name="documentdb-api-input-binding"></a>DocumentDB API 입력 바인딩
+DocumentDB API 입력 바인딩은 Cosmos DB 문서를 검색하고 함수의 명명된 입력 매개 변수를 전달합니다. 함수를 호출한 트리거에 따라 문서 ID를 결정할 수 있습니다. 
 
-DocumentDB 입력 바인딩은 *function.json*에 다음 속성이 있습니다.
+DocumentDB API 입력 바인딩은 *function.json*에 다음 속성이 있습니다.
 
 - `name` : 문서에 대한 함수 코드에 사용되는 식별자 이름입니다.
 - `type` : “documentdb”로 설정해야 합니다.
 - `databaseName` : 문서를 포함하는 데이터베이스입니다.
 - `collectionName` : 문서를 포함하는 컬렉션입니다.
 - `id` : 검색할 문서의 ID입니다. 이 속성은 바인딩 매개 변수를 지원합니다. [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md) 문서에서 [바인딩 식에서 사용자 지정 입력 속성에 바인딩](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression)을 참조하세요.
-- `sqlQuery`: 여러 문서를 검색하는 데 사용되는 DocumentDB SQL 쿼리입니다. 쿼리는 런타임 바인딩을 지원합니다. 예: `SELECT * FROM c where c.departmentId = {departmentId}`
-- `connection`: DocumentDB 연결 문자열을 포함하는 앱 설정의 이름입니다.
+- `sqlQuery`: 여러 문서를 검색하는 데 사용되는 Cosmos DB SQL 쿼리입니다. 쿼리는 런타임 바인딩을 지원합니다. 예: `SELECT * FROM c where c.departmentId = {departmentId}`
+- `connection`: Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.
 - `direction` : `"in"`으로 설정해야 합니다.
 
 속성 `id` 및 `sqlQuery`를 둘 다 지정할 수는 없습니다. `id` 및 `sqlQuery`를 둘 다 설정하지 않으면 전체 컬렉션이 검색됩니다.
 
-## <a name="using-a-documentdb-input-binding"></a>DocumentDB 입력 바인딩 사용
+## <a name="using-a-documentdb-api-input-binding"></a>DocumentDB API 입력 바인딩 사용
 
-* C# 및 F# 함수에서 함수가 성공적으로 종료되면 명명된 입력 매개 변수를 통해 입력 문서가 자동으로 변경됩니다. 
+* C# 및 F# 함수에서 함수가 성공적으로 종료되면 명명된 입력 매개 변수를 통해 입력 문서에 변경한 내용이 자동으로 유지됩니다. 
 * JavaScript 함수에서는 함수 종료 시 자동으로 업데이트되지 않습니다. 대신 `context.bindings.<documentName>In` 및 `context.bindings.<documentName>Out`을 사용하여 업데이트합니다. [JavaScript 샘플](#injavascript)을 참조하세요.
 
 <a name="inputsample"></a>
 
 ## <a name="input-sample-for-single-document"></a>단일 문서에 대한 입력 샘플
-function.json의 `bindings` 배열에 다음과 같은 DocumentDB 입력 바인딩이 있다고 가정합니다.
+function.json의 `bindings` 배열에 다음과 같은 DocumentDB API 입력 바인딩이 있다고 가정합니다.
 
 ```json
 {
@@ -67,7 +68,7 @@ function.json의 `bindings` 배열에 다음과 같은 DocumentDB 입력 바인�
   "databaseName": "MyDatabase",
   "collectionName": "MyCollection",
   "id" : "{queueTrigger}",
-  "connection": "MyAccount_DOCUMENTDB",     
+  "connection": "MyAccount_COSMOSDB",     
   "direction": "in"
 }
 ```
@@ -79,10 +80,10 @@ function.json의 `bindings` 배열에 다음과 같은 DocumentDB 입력 바인�
 * [JavaScript](#injavascript)
 
 <a name="incsharp"></a>
-### <a name="input-sample-in-c"></a>C의 입력 샘플# #
+### <a name="input-sample-in-c"></a>C#의 입력 샘플 #
 
 ```cs
-// Change input document contents using DocumentDB input binding 
+// Change input document contents using DocumentDB API input binding 
 public static void Run(string myQueueItem, dynamic inputDocument)
 {   
   inputDocument.text = "This has changed.";
@@ -90,10 +91,10 @@ public static void Run(string myQueueItem, dynamic inputDocument)
 ```
 <a name="infsharp"></a>
 
-### <a name="input-sample-in-f"></a>F의 입력 샘플# #
+### <a name="input-sample-in-f"></a>F#의 입력 샘플 #
 
 ```fsharp
-(* Change input document contents using DocumentDB input binding *)
+(* Change input document contents using DocumentDB API input binding *)
 open FSharp.Interop.Dynamic
 let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
@@ -121,7 +122,7 @@ let Run(myQueueItem: string, inputDocument: obj) =
 ### <a name="input-sample-in-javascript"></a>JavaScript의 입력 샘플
 
 ```javascript
-// Change input document contents using DocumentDB input binding, using context.bindings.inputDocumentOut
+// Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
 module.exports = function (context) {   
   context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
   context.bindings.inputDocumentOut.text = "This was updated!";
@@ -143,11 +144,11 @@ SQL 쿼리로 지정된 여러 문서를 검색하려고 하며 큐 트리거를
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
     "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
-    "connection": "DocumentDBConnection"
+    "connection": "CosmosDBConnection"
 }
 ```
 
-### <a name="input-sample-with-multiple-documents-in-c"></a>C로 작성된 여러 문서가 있는 입력 샘플#
+### <a name="input-sample-with-multiple-documents-in-c"></a>C#으로 작성된 여러 문서가 있는 입력 샘플
 
 ```csharp
 public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
@@ -177,19 +178,19 @@ module.exports = function (context, input) {
 };
 ```
 
-## <a id="docdboutput"></a>DocumentDB 출력 바인딩
-DocumentDB 출력 바인딩을 사용하면 Azure DocumentDB 데이터베이스에 새 문서를 작성할 수 있습니다. *function.json*에 다음 속성이 있습니다.
+## <a id="docdboutput"></a>DocumentDB API 출력 바인딩
+DocumentDB API 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이스에 새 문서를 작성할 수 있습니다. *function.json*에 다음 속성이 있습니다.
 
 - `name` : 새 문서에 대한 함수 코드에 사용되는 식별자입니다.
 - `type` : `"documentdb"`로 설정해야 합니다.
 - `databaseName` : 새 문서를 만들 컬렉션을 포함하는 데이터베이스입니다.
 - `collectionName` : 새 문서를 만들 컬렉션입니다.
 - `createIfNotExists` : 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 기본값은 *false*입니다. 새 컬렉션이 예약된 처리량을 사용하여 만들어지면 가격 책정 면에서 의미하는 바가 있기 때문입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
-- `connection`: DocumentDB 연결 문자열을 포함하는 앱 설정의 이름입니다.
+- `connection`: Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.
 - `direction` : `"out"`으로 설정해야 합니다.
 
-## <a name="using-a-documentdb-output-binding"></a>DocumentDB 출력 바인딩 사용
-이 섹션에서는 함수 코드에서 DocumentDB 출력 바인딩을 사용하는 방법을 보여 줍니다.
+## <a name="using-a-documentdb-api-output-binding"></a>DocumentDB API 출력 바인딩 사용
+이 섹션에서는 함수 코드에서 DocumentDB API 출력 바인딩을 사용하는 방법을 보여 줍니다.
 
 함수에서 출력 매개 변수를 작성하는 경우 기본적으로 새 문서는 사용자의 데이터베이스에 생성되며, 자동으로 생성된 GUID를 문서 ID로 사용합니다. 출력 매개 변수의 `id` JSON 속성을 지정하여 출력 문서의 문서 ID를 지정할 수 있습니다. 
 
@@ -200,8 +201,8 @@ DocumentDB 출력 바인딩을 사용하면 Azure DocumentDB 데이터베이스�
 
 <a name="outputsample"></a>
 
-## <a name="documentdb-output-binding-sample"></a>DocumentDB 출력 바인딩 샘플
-function.json의 `bindings` 배열에 다음과 같은 DocumentDB 출력 바인딩이 있다고 가정합니다.
+## <a name="documentdb-api-output-binding-sample"></a>DocumentDB API 출력 바인딩 샘플
+function.json의 `bindings` 배열에 다음과 같은 DocumentDB API 출력 바인딩이 있다고 가정합니다.
 
 ```json
 {
@@ -210,7 +211,7 @@ function.json의 `bindings` 배열에 다음과 같은 DocumentDB 출력 바인�
   "databaseName": "MyDatabase",
   "collectionName": "MyCollection",
   "createIfNotExists": true,
-  "connection": "MyAccount_DOCUMENTDB",     
+  "connection": "MyAccount_COSMOSDB",     
   "direction": "out"
 }
 ```
@@ -225,7 +226,7 @@ function.json의 `bindings` 배열에 다음과 같은 DocumentDB 출력 바인�
 }
 ```
 
-그리고 각 레코드에 대해 다음과 같은 형식의 DocumentDB 문서를 만들려고 합니다.
+그리고 각 레코드에 대해 다음과 같은 형식의 Cosmos DB 문서를 만들려고 합니다.
 
 ```json
 {
@@ -244,7 +245,7 @@ function.json의 `bindings` 배열에 다음과 같은 DocumentDB 출력 바인�
 
 <a name="outcsharp"></a>
 
-### <a name="output-sample-in-c"></a>C에서 출력 샘플# #
+### <a name="output-sample-in-c"></a>C#에서 출력 샘플 #
 
 ```cs
 #r "Newtonsoft.Json"
@@ -270,7 +271,7 @@ public static void Run(string myQueueItem, out object employeeDocument, TraceWri
 
 <a name="outfsharp"></a>
 
-### <a name="output-sample-in-f"></a>F에서 출력 샘플# #
+### <a name="output-sample-in-f"></a>F#에서 출력 샘플 #
 
 ```fsharp
 open FSharp.Interop.Dynamic

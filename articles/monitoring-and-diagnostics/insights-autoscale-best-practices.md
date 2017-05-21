@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 6dad42f94d263d9dacedf145bf4e5d487d0aed77
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f1e4a60cd98d40794c63dc334f242415445e0d6d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="best-practices-for-autoscale"></a>자동 크기 조정에 대한 모범 사례
-이 문서에서는 Azure에서 자동으로 크기를 조정하기 위한 모범 사례를 설명합니다. 이 내용은 가상 컴퓨터, 가상 컴퓨터 크기 집합 및 클라우드 서비스와 관련이 있습니다.  다른 Azure 서비스에는 다른 크기 조정 방법이 사용됩니다.
+이 문서에서는 Azure에서 자동으로 크기를 조정하기 위한 모범 사례를 설명합니다. Azure Monitor 자동 크기 조정은 [가상 컴퓨터 크기 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 및 [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/)에만 적용됩니다. 다른 Azure 서비스에는 다른 크기 조정 방법이 사용됩니다.
 
 ## <a name="autoscale-concepts"></a>자동 크기 조정 개념
 * 하나의 리소스에는 *하나의* 자동 크기 조정 설정만 있을 수 있습니다.
@@ -118,7 +119,7 @@ Cloud Services 및 App Services(Web Apps)의 경우 Azure 포털(portal.azure.co
 
 마찬가지로, 자동 크기 조정이 다시 기본 프로필로 전환하는 경우에는 먼저 최소값 및 최대값 조건이 충족되는지 확인합니다. 이때 인스턴스 수가 12인 경우 기본 프로필에 허용되는 최대값인 10으로 규모를 감축합니다.
 
-![자동 크기 조정 설정](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
+![자동 크기 조정 설정](./media/insights-autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>하나의 프로필에 여러 규칙이 구성된 경우 크기 조정에 대한 고려 사항
 하나의 프로필에 여러 규칙을 설정해야 할 수 있는 경우가 있습니다. 여러 규칙이 설정된 경우 다음과 같은 자동 크기 조정 규칙 집합이 서비스에서 사용됩니다.

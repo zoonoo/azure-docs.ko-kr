@@ -1,6 +1,6 @@
 ---
-title: "Azure Monitor 개요 | Microsoft Docs"
-description: "Azure Monitor는 경고, webhook, 자동 크기 조정 및 자동화를 사용하기 위해 통계를 수집합니다. 또한 문서에서는 다른 Microsoft 모니터링 옵션을 나열합니다."
+title: "Microsoft Azure 모니터링 | Microsoft Docs"
+description: "Microsoft Azure에서 모니터링하려는 경우에 선택합니다. Azure Monitor, Application Insights Log Analytics"
 author: rboucher
 manager: carmonm
 editor: 
@@ -12,136 +12,92 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 05/12/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 8e2b1a31b9875b8403e6c97c097ba65985f5f3b5
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: d4a94a92585420cf92018084437422fd0c66fa2d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 
-# <a name="overview-of-azure-monitor"></a>Azure Monitor 개요
-이 문서에서는 Azure 리소스 모니터링의 개념적 개요를 제공합니다. 특정 유형의 리소스 정보에 대한 포인터를 제공합니다.  비 Azure 관점에서의 응용 프로그램 모니터링에 대한 개략적인 정보는 [모니터링 및 진단 지침](../best-practices-monitoring.md)을 참조하세요.
+# <a name="overview-of-monitoring-in-microsoft-azure"></a>Microsoft Azure 모니터링 개요
+이 문서에서는 Microsoft Azure 모니터링에 사용할 수 있는 도구에 대해 간략히 설명합니다. 적용 대상은 다음과 같습니다. 
+- Microsoft Azure에서 실행 중인 응용 프로그램 모니터링 
+- Azure 외부에서 실행되어 Azure의 개체를 모니터링할 수 있는 도구/서비스 
 
-Azure Monitor의 동영상 연습도 제공됩니다.  
-[Azure Monitor 시작](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor) Azure Monitor를 사용할 수 있는 시나리오를 설명하는 추가 비디오는 [Microsoft Azure 모니터링 및 진단 탐색](https://channel9.msdn.com/events/Ignite/2016/BRK2234)에 있습니다.  
+사용할 수 있는 다양한 제품과 서비스 및 작동하는 방법에 대해 설명합니다. 어떤 도구가 어떤 경우에 가장 적합한지 판단하는 데 도움이 될 수 있습니다.  
 
-클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 통해 응용 프로그램 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
+## <a name="why-use-monitoring-and-diagnostics"></a>모니터링 및 진단을 사용하는 이유는?
 
-다음 다이어그램에서는 수집할 수 있는 유형의 로그 및 해당 데이터로 수행할 수 있는 작업 Azure 모니터링의 개념 보기를 보여 줍니다.   
+클라우드 앱의 성능 문제는 비즈니스에 영향을 미칠 수 있습니다. 상호 연결된 여러 구성 요소와 자주 제공되는 릴리스를 사용하면 언제든지 성능 저하가 발생할 수 있습니다. 앱을 개발하는 경우 사용자는 일반적으로 테스트에서 찾지 못한 문제를 발견합니다. 이러한 문제에 대해 즉시 알고 있어야 하며 문제를 진단하고 수정하는 도구가 있어야 합니다. Microsoft Azure에는 이러한 문제를 식별할 수 있는 다양한 도구가 있습니다.
 
-![비 계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview/Monitoring_Azure_Resources-compute_v4.png)
+## <a name="how-do-i-monitor-my-azure-cloud-apps"></a>Azure 클라우드 앱을 모니터링하는 방법은?
 
-<br/>
+Azure 응용 프로그램과 서비스를 모니터링하기 위한 다양한 도구가 있습니다. 일부 기능은 겹칩니다. 이는 부분적으로 역사적인 이유 또는 응용 프로그램의 개발과 운영 사이의 모호함 때문입니다. 
 
-![계산 리소스의 모니터링 및 진단을 위한 모델](./media/monitoring-overview/Monitoring_Azure_Resources-non-compute_v4.png)
+다음은 주요 도구입니다.
+
+-    **Azure Monitor** - Azure에서 실행되는 서비스를 모니터링하는 기본 도구입니다. 또한 서비스의 처리량과 주변 환경에 대한 인프라 수준 데이터를 제공합니다. Azure에서 모든 앱을 관리하고 리소스를 확장 또는 축소할지 여부를 결정하면, Azure Monitor에서 시작하는 데 사용할 데이터를 제공합니다.
+
+-    **Application Insights** - 개발을 위해 사용하거나 프로덕션 모니터링 솔루션으로 사용할 수 있습니다. 앱에 패키지를 설치하여 작동하므로 진행 상황에 대한 자세한 내부 보기를 제공합니다. 이 데이터에는 종속성, 예외 추적, 디버깅 스냅숏, 실행 프로필의 응답 시간이 포함됩니다. 이 원격 분석 데이터를 모두 분석하여 앱을 디버그하고 사용자가 무엇을 하고 있는지 이해할 수 있도록 도움을 주는 강력한 스마트 도구를 제공합니다. 응답 시간의 급증이 어떤 앱 요소 또는 어떤 외부 리소스 문제로 인한 것인지 여부를 알 수 있습니다. Visual Studio를 사용하고 응용 프로그램에 문제가 있는 경우 문제를 해결할 수 있도록 문제의 코드 줄로 바로 이동할 수 있습니다.  
+
+-    **Log Analytics** - 성능을 튜닝하고 프로덕션 환경에서 실행되는 응용 프로그램의 유지 관리를 계획해야 하는 사용자를 위한 것입니다. 이는 Azure에 기반을 두고 있습니다. 10-15분 간의 지연에도 불구하고 많은 소스의 데이터를 수집하고 집계합니다. Azure, 온-프레미스 및 타사 클라우드 기반 인프라(예: Amazon Web Services)에 대한 전체적인 IT 관리 솔루션을 제공합니다. 더 많은 소스에서 데이터를 분석할 수 있는 다양한 도구를 제공하고, 모든 로그에서 복잡한 쿼리를 허용하며, 지정된 조건에 대해 사전에 경고할 수 있습니다.  사용자 지정 데이터를 해당되는 중앙의 리포지토리에 수집하여 쿼리하고 시각화할 수도 있습니다. 
+
+-    **SCOM(System Center Operations Manager)** - 대규모 클라우드 설치를 관리하고 모니터링하기 위한 것입니다. 온-프레미스 Windows Sever 및 Hyper-V 기반 클라우드를 위한 관리 도구로 이미 친숙해 있을 수 있지만, Azure 앱과 통합하여 이러한 앱을 관리할 수도 있습니다. 무엇보다도 기존의 라이브 앱에 Application Insights를 설치할 수 있습니다.  앱 작동이 중단되면 수 초 안에 알려줍니다. Log Analytics는 SCOM을 대체하지 않습니다. 오히려 함께 결합하여 잘 작동합니다.  
 
 
-## <a name="monitoring-sources"></a>모니터링 소스
-### <a name="activity-logs"></a>활동 로그
-Azure 인프라에 표시되는 대로 리소스에 대한 자세한 내용은 활동 로그(이전에 작업 또는 감사 로그라고도 함)를 검색할 수 있습니다. 이러한 로그는 리소스가 생성되거나 소멸된 시간과 같은 정보를 포함합니다.  
+## <a name="accessing-monitoring-in-the-azure-portal"></a>Azure Portal에서 모니터링 액세스
+모든 Azure 모니터링 서비스는 이제 하나의 UI 창에서 사용할 수 있습니다. 이 영역에 액세스하는 방법에 대한 자세한 내용은 [Azure Monitor 시작](monitoring-get-started.md)을 참조하세요. 
 
-### <a name="host-vm"></a>호스트 VM
-**계산만**
+또한 특정 리소스를 강조 표시하고 모니터링 옵션을 드릴다운하여 해당 리소스에 대한 모니터링 기능에 액세스할 수 있습니다. 
 
-Cloud Services, Virtual Machines 및 Service Fabric과 같은 일부 계산 리소스에는 상호 작용하는 전용 호스트 VM이 있습니다. 호스트 VM은 Hyper-V 하이퍼바이저 모델의 루트 VM과 같습니다. 이 경우 게스트 OS 외에도 호스트 VM에서 메트릭을 수집할 수 있습니다.  
+## <a name="examples-of-when-to-use-which-tool"></a>어떤 도구를 사용하는 경우의 예 
 
-다른 Azure 서비스의 경우 리소스와 특정 호스트 VM이 반드시 일대일로 매핑되는 것은 아니므로 호스트 VM 메트릭은 사용할 수 없습니다.
+다음 섹션에서는 몇 가지 기본 시나리오와 함께 사용해야 하는 도구를 보여 줍니다. 
 
-### <a name="resource---metrics-and-diagnostics-logs"></a>리소스 - 메트릭 및 진단 로그
-수집 가능한 메트릭은 리소스 종류에 따라 다릅니다. 예를 들어 Virtual Machines는 디스크 IO 및 % CPU에 대한 통계를 제공합니다. 하지만 이러한 통계는 큐 크기와 메시지 처리량과 같은 메트릭을 대신 제공하는 Service Bus 큐에 대해 존재하지 않습니다.
+### <a name="scenario-1--fix-errors-in-an-azure-application-under-development"></a>시나리오 1 - 개발 중인 Azure 응용 프로그램의 오류 수정   
 
-계산 리소스의 경우 게스트 OS에 대한 메트릭과 Azure Diagnostics과 같은 진단 모듈에 대한 메트릭을 가져올 수 있습니다. Azure Diagnostics은 진단 데이터를 수집하고 다른 위치(예: Azure Storage)로의 라우팅할 수 있게 합니다.
+**가장 좋은 방법은 Application Insights, Azure Monitor 및 Visual Studio를 함께 사용하는 것입니다.**
 
-현재 수집 가능한 메트릭의 목록은 [지원되는 메트릭](monitoring-supported-metrics.md)에서 제공됩니다.
+이제 Azure는 클라우드에서 Visual Studio 디버거의 모든 기능을 제공합니다. Application Insights에 원격 분석을 보내도록 Azure Monitor를 구성합니다. 응용 프로그램에서 Application Insights SDK를 포함하도록 Visual Studio를 사용하도록 설정합니다. Application Insights에서 Application Map을 사용하여 실행 중인 응용 프로그램의 어느 요소가 비정상인지 여부를 시각적으로 검색할 수 있습니다. 정상이 아닌 요소의 경우 이미 오류 및 예외가 탐색에 사용될 수 있습니다. Application Insights에서 다양한 분석을 사용하여 더 깊이 진행할 수 있습니다. 오류에 대해 확실하지 않은 경우 Visual Studio 디버거를 사용하여 코드를 추적함으로써 문제를 정확히 파악할 수 있습니다. 
 
-### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>응용 프로그램 - 진단 로그, 응용 프로그램 로그 및 메트릭
-**계산만**
+자세한 내용은 [Web Apps 모니터링](../application-insights/app-insights-azure-web-apps.md)을 참조하고, 왼쪽의 목차를 통해 다양한 종류의 응용 프로그램과 언어에 대한 지침을 참조하세요.  
 
-응용 프로그램은 계산 모델의 게스트 OS에서 실행될 수 있으며, 고유한 로그 및 메트릭 집합을 제공합니다.
+### <a name="scenario-2--debug-an-azure-net-web-application-for-errors-that-only-show-in-production"></a>시나리오 2 - 프로덕션 환경에서만 표시되는 오류에 대해 Azure .NET 웹 응용 프로그램 디버깅 
 
-메트릭 유형은 다음과 같습니다.
+> [!NOTE]
+> 이러한 기능은 미리 보기에 있습니다. 
 
-* 성능 카운터
-* 응용 프로그램 로그
-* Windows 이벤트 로그
-* .NET 이벤트 원본
-* IIS 로그
-* 매니페스트 기반 ETW
-* 크래시 덤프
-* 고객 오류 로그
+**가장 좋은 방법은 Application Insights 및 완벽한 디버깅 환경을 위해 가능한 경우 Visual Studio를 사용하는 것입니다.**
 
-## <a name="uses-for-monitoring-data"></a>모니터링 데이터 사용
-### <a name="visualize"></a>시각화
-모니터링 데이터를 그래프 및 차트로 시각화하면 데이터 자체를 살펴보는 것보다 훨씬 빠르게 추세를 파악할 수 있습니다.  
+Application Insights 스냅숏 디버거를 사용하여 앱을 디버그합니다. 특정 오류 임계값이 프로덕션 구성 요소에서 발생하면 시스템에서 "스냅숏"이라고 하는 시간 창의 원격 분석을 자동으로 캡처합니다. 캡처된 양은 성능에 영향을 미치지 않을 만큼 작지만 추적을 허용할 만큼 충분히 크기 때문에 프로덕션 클라우드에서는 안전합니다.  시스템에서 여러 개의 스냅숏을 캡처할 수 있습니다. Azure Portal에서 특정 시점을 확인하거나 완벽한 환경을 위해 Visual Studio를 사용할 수 있습니다. Visual Studio를 사용하면 개발자는 실시간으로 디버그하는 것처럼 스냅숏을 단계별로 진행할 수 있습니다. 로컬 변수, 매개 변수, 메모리 및 프레임을 모두 사용할 수 있습니다. 개발자는 RBAC 역할을 통해 이 프로덕션 데이터에 대한 액세스 권한을 부여받아야 합니다.  
 
-몇 가지 시각화 방법은 다음과 같습니다.
+자세한 내용은 [스냅숏 디버깅](../application-insights/app-insights-snapshot-debugger.md)을 참조하세요. 
 
-* Azure 포털 사용
-* Azure Application Insights로 데이터 라우팅
-* Microsoft PowerBI로 데이터 라우팅
-* 라이브 스트리밍 또는 Azure 저장소의 보관 파일에서 데이터를 읽는 도구를 사용하여 타사 시각화 도구로 데이터 라우팅
+### <a name="scenario-3--debug-an-azure-application-that-uses-containers-or-microservices"></a>시나리오 3 - 컨테이너 또는 마이크로 서비스를 사용하는 Azure 응용 프로그램 디버깅 
 
-### <a name="archive"></a>보관
-모니터링 데이터는 일반적으로 Azure Storage에 기록되며 사용자가 삭제할 때까지 유지됩니다.
+**시나리오 1과 동일합니다. Application Insights, Azure Monitor 및 Visual Studio를 함께 사용합니다.** Application Insights는 컨테이너 내 및 마이크로 서비스(Kubernetes, Docker, Azure Service Fabric)에서 실행되는 프로세스로부터 원격 분석을 수집하는 것도 지원합니다. 자세한 내용은 [여기에 있는 컨테이너 및 마이크로 서비스 디버깅에 대한 비디오를 참조하세요](https://go.microsoft.com/fwlink/?linkid=848184). 
 
-이 데이터를 사용하는 몇 가지 방법은 다음과 같습니다.
 
-* 기록된 경우 Azure 내부 또는 외부의 다른 도구를 사용하여 데이터를 읽고 처리할 수 있습니다.
-* 로컬 보관을 위해 데이터를 로컬로 다운로드하거나, 연장된 기간 동안 데이터를 유지하기 위해 클라우드의 보존 정책을 변경할 수 있습니다.  
-* <a name="you-leave-the-data-in-azure-storage-indefinitely-though-you-have-to-pay-for-azure-storage-based-on-the-amount-of-data-you-keep"></a>보관하는 데이터 양에 따라 Azure 저장소 요금을 지불해야 하지만, Azure 저장소에 데이터를 무기한으로 보관합니다.
-  -
+### <a name="scenario-4--fix-performance-issues-in-your-azure-application"></a>시나리오 4 - Azure 응용 프로그램의 성능 문제 해결
 
-### <a name="query"></a>쿼리
-Azure Monitor REST API, 플랫폼 간 CLI(명령줄 인터페이스), PowerShell cmdlet 또는 .NET SDK를 사용하여 시스템 또는 Azure 저장소의 데이터에 액세스할 수 있습니다.
+[Application Insights 프로파일러](../application-insights/app-insights-profiler.md)는 이러한 유형의 문제를 해결하는 데 도움을 주도록 설계되었습니다. App Services(Web Apps, Logic Apps, Mobile Apps, API Apps) 및 다른 계산 리소스(예: Virtual Machines, VMSS(Virtual Machine Scale Sets), Cloud Services 및 Service Fabric)에서 실행되는 응용 프로그램의 성능 문제를 식별하고 해결할 수 있습니다. 
 
-이러한 예로 다음이 포함됩니다.
+> [!NOTE]
+> Virtual Machines, VMSS, Cloud Services 및 Services Fabric 프로파일링 기능은 미리 보기에 있습니다.   
 
-* 작성한 사용자 지정 모니터링 응용 프로그램에 대한 데이터 가져오기
-* 사용자 지정 쿼리를 만들고 이 데이터를 타사 응용 프로그램으로 보내기
+또한 스마트 검색 도구를 사용하여 느린 페이지 로드 속도와 같은 특정 유형의 오류에 대해 전자 메일을 통해 사전에 알려줍니다.  이 도구에서 구성을 수행할 필요는 없습니다. 자세한 내용은 [스마트 검색 - 성능 이상](../application-insights/app-insights-proactive-performance-diagnostics.md) 및 [스마트 검색 - 성능 이상](https://azure.microsoft.com/blog/Enhancments-ApplicationInsights-SmartDetection/preview)을 참조하세요.
 
-### <a name="route"></a>라우팅
-모니터링 데이터를 다른 위치에 실시간으로 스트리밍할 수 있습니다.
 
-예를 들면 다음과 같습니다.
-
-* 시각화 도구를 사용할 수 있도록 Application Insights로 보내기
-* 타사 도구로 라우팅하여 실시간 분석을 수행할 수 있도록 Event Hubs로 보내기
-
-### <a name="automate"></a>자동화
-모니터링 데이터를 사용하여 경고를 트리거하거나 전체 프로세스를 트리거할 수 있습니다.
-예를 들면 다음과 같습니다.
-
-* 데이터를 사용하여 응용 프로그램 부하에 따라 계산 인스턴스 크기를 자동으로 조정
-* 메트릭이 미리 결정된 임계값을 초과하는 경우 전자 메일 보내기
-* 웹 URL(웹후크)을 호출하여 Azure 외부 시스템에서 동작 실행
-* Azure 자동화에서 runbook을 시작하여 다양한 태스크 수행
-
-## <a name="methods-of-use"></a>사용 방법
-일반적으로 다음 방법 중 하나를 사용하여 데이터 추적, 라우팅 및 검색을 조작할 수 있습니다. 일부 방법은 일부 동작 및 데이터 형식에 사용할 수 없습니다.
-
-* [Azure 포털](https://portal.azure.com)
-* [PowerShell](insights-powershell-samples.md)  
-* [CLI(플랫폼 간 명령줄 인터페이스)](insights-cli-samples.md)
-* [REST API](https://msdn.microsoft.com/library/dn931943.aspx)
-* [.NET SDK](https://msdn.microsoft.com/library/dn802153.aspx)
-
-## <a name="azures-monitoring-offerings"></a>Azure의 모니터링 제품
-Azure에는 운영 체제 미설치 인프라부터 응용 프로그램 원격 분석까지 서비스를 모니터링하는 데 사용할 수 있는 제품이 있습니다. 최상의 모니터링 전략은 세 가지 모두를 사용하여 서비스 상태에 대한 포괄적이고 세부적인 통찰력을 얻는 것입니다.
-
-* [Azure Monitor](http://aka.ms/azmondocs) – Azure 인프라(작업 로그)와 개별 Azure 리소스(진단 로그)의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다. 이 문서는 Azure Monitor 설명서의 일부입니다. Azure Monitor 이름은 Ignite 2016에서 9월 25일 릴리스되었습니다.  이전 이름은 "Azure Insights"입니다.  
-* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) – Azure 모니터링의 데이터에 원활히 통합된 사용자 서비스의 응용 프로그램 계층에서 발생하는 문제에 대한 다양한 검색 및 진단을 제공합니다. App Service Web Apps에 대한 기본 진단 플랫폼입니다.  다른 서비스에서 데이터를 라우팅할 수 있습니다.  
-* [Operations Management Suite](https://www.microsoft.com/oms/)의 [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 부분 – Azure 리소스의 온-프레미스 및 타사 클라우드 기반 인프라(예: AWS)에 대한 전체적인 IT 관리 솔루션을 제공합니다.  Azure Monitor의 데이터를 Log Analytics로 직접 라우팅할 수 있으므로 전체 환경에 대한 메트릭 및 로그를 한 곳에서 볼 수 있습니다.     
 
 ## <a name="next-steps"></a>다음 단계
 자세한 정보
 
 * [Ignite 2016의 비디오에서 Azure Monitor](https://myignite.microsoft.com/videos/4977)
 * [Azure Monitor 시작](monitoring-get-started.md)
-* [Azure 진단](../azure-diagnostics.md) - Cloud Service, Virtual Machine 또는 Service Fabric 응용 프로그램에서 문제를 진단하려는 경우
+* [Azure 진단](../azure-diagnostics.md) - 클라우드 서비스, 가상 컴퓨터, 가상 컴퓨터 확장 집합 또는 Service Fabric 응용 프로그램에서 문제를 진단하려는 경우
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) - 앱 서비스 웹앱에서 문제를 진단하려는 경우
-* [Azure Storage 문제 해결](../storage/storage-e2e-troubleshooting.md) - 저장소 Blob, 테이블 및 큐를 사용하는 경우
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 및 [Operations Management Suite](https://www.microsoft.com/oms/)
-
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 및 [Operations Management Suite](https://www.microsoft.com/oms/) 프로덕션 모니터링 솔루션

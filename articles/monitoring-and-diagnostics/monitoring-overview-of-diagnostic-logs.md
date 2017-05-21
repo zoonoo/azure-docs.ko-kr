@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 05/09/2017
 ms.author: johnkem; magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: be27a3541caa1620af432dcff438f70cb9b1074b
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1978ecda9c635ace713b43f620300a06f4c609ba
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -181,20 +182,25 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 
 | 부여 | 스키마 및 문서 |
 | --- | --- |
-| 부하 분산 장치 |[Azure Load Balancer에 대한 Log analytics](../load-balancer/load-balancer-monitor-log.md) |
-| 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../virtual-network/virtual-network-nsg-manage-log.md) |
+| API 관리 | 스키마를 사용할 수 없음 |
 | 응용 프로그램 게이트웨이 |[응용 프로그램 게이트웨이에 대한 진단 로깅](../application-gateway/application-gateway-diagnostics.md) |
-| 키 자격 증명 모음 |[Azure 키 자격 증명 모음 로깅](../key-vault/key-vault-logging.md) |
-| Azure 검색 |[검색 트래픽 분석 설정 및 사용](../search/search-traffic-analytics.md) |
-| 데이터 레이크 저장소 |[Azure Data Lake Store에 대한 진단 로그에 액세스](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| 데이터 레이크 분석 |[Azure Data Lake Analytics에 대한 진단 로그에 액세스](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Logic Apps |[Logic Apps B2B 사용자 지정 추적 스키마](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
-| Azure 배치 |[Azure 배치 진단 로깅](../batch/batch-diagnostics.md) |
 | Azure 자동화 |[Azure Automation에 대한 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
+| Azure 배치 |[Azure 배치 진단 로깅](../batch/batch-diagnostics.md) |
+| Customer Insights | 스키마를 사용할 수 없음 |
+| 콘텐츠 배달 네트워크 | 스키마를 사용할 수 없음 |
+| 데이터 레이크 분석 |[Azure Data Lake Analytics에 대한 진단 로그에 액세스](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| 데이터 레이크 저장소 |[Azure Data Lake Store에 대한 진단 로그에 액세스](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Express 경로 | 스키마를 사용할 수 없음 |
 | 이벤트 허브(영문) |[Azure Event Hubs 진단 로그](../event-hubs/event-hubs-diagnostic-logs.md) |
-| Stream Analytics |[작업 진단 로그](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Service Bus |[Azure Service Bus 진단 로그](../service-bus-messaging/service-bus-diagnostic-logs.md) |
-
+| 키 자격 증명 모음 |[Azure 키 자격 증명 모음 로깅](../key-vault/key-vault-logging.md) |
+| 부하 분산 장치 |[Azure Load Balancer에 대한 Log analytics](../load-balancer/load-balancer-monitor-log.md) |
+| Logic Apps |[Logic Apps B2B 사용자 지정 추적 스키마](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../virtual-network/virtual-network-nsg-manage-log.md) |
+| 복구 서비스 | 스키마를 사용할 수 없음|
+| 검색 |[검색 트래픽 분석 설정 및 사용](../search/search-traffic-analytics.md) |
+| 서버 관리 | 스키마를 사용할 수 없음 |
+| 서비스 버스 |[Azure Service Bus 진단 로그](../service-bus-messaging/service-bus-diagnostic-logs.md) |
+| 스트림 분석 |[작업 진단 로그](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 
 ## <a name="supported-log-categories-per-resource-type"></a>각 리소스 유형별 지원되는 로그 범주
 |리소스 종류|Category|범주 표시 이름|
@@ -204,6 +210,8 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 |Microsoft.Automation/automationAccounts|JobStreams|작업 스트림|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|디스크 노드 상태|
 |Microsoft.Batch/batchAccounts|ServiceLog|서비스 로그|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|끝점의 메트릭(예: 대역폭, 송신 등)을 가져옵니다.|
+|Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataLakeAnalytics/accounts|감사|감사 로그|
 |Microsoft.DataLakeAnalytics/accounts|요청|요청 로그|
 |Microsoft.DataLakeStore/accounts|감사|감사 로그|
@@ -216,13 +224,16 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|통합 계정 이벤트 추적|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|네트워크 보안 그룹 이벤트|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|네트워크 보안 그룹 규칙 카운터|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|네트워크 보안 그룹 규칙 흐름 이벤트|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|부하 분산 장치 경고 이벤트|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|부하 분산 장치 프로브 상태|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway 액세스 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway 성능 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway 방화벽 로그|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 카운터 테이블|
+|Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup 보고 데이터|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery 작업|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery 이벤트|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery 복제된 항목|
 |Microsoft.Search/searchServices|OperationLogs|작업 로그|
 |Microsoft.ServerManagement/nodes|RequestLogs|요청 로그|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|작업 로그|

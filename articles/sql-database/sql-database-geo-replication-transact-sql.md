@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/13/2016
+ms.date: 04/14/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1005f776ae85a7fc878315225c45f2270887771f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 02/16/2017
 Transact-SQL을 사용하여 장애 조치(Failover)를 시작하려면 [Transact-SQL로 Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치(Failover) 시작](sql-database-geo-replication-failover-transact-sql.md)을 참조하세요.
 
 > [!NOTE]
-> 현재 활성 지역 복제(읽기 가능한 보조)는 모든 서비스 계층에 있는 모든 데이터베이스에 대해 사용 가능합니다. 2017년 4월, 읽을 수 없는 보조 유형은 사용 중지되며 기존의 읽을 수 없는 데이터베이스는 읽을 수 있는 보조로 자동으로 업그레이드됩니다.
+> 재해 복구를 위해 활성 지역 복제(읽을 수 있는 보조)를 사용하는 경우 자동 및 투명한 장애 조치를 수행할 수 있도록 응용 프로그램 내의 모든 데이터베이스에 대해 장애 조치 그룹을 구성해야 합니다. 이 기능은 미리 보기로 제공됩니다. 자세한 내용은 [자동 장애 조치 그룹 및 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
 > 
 > 
 
@@ -53,23 +54,6 @@ Transact-SQL을 사용하여 활성 지역 복제를 구성하려면 다음이 �
 > [!NOTE]
 > 데이터베이스가 주 데이터베이스와 같은 이름으로 지정된 파트너 서버에 있는 경우 명령이 실패합니다.
 > 
-> 
-
-### <a name="add-non-readable-secondary-single-database"></a>읽을 수 없는 보조(단일 데이터베이스) 추가
-단일 데이터베이스로 읽을 수 없는 보조를 만들려면 다음 단계를 사용합니다.
-
-1. SQL Server Management Studio 13.0.600.65 이상의 버전을 사용합니다.다.
-   
-   > [!IMPORTANT]
-   > [최신](https://msdn.microsoft.com/library/mt238290.aspx) 버전의 SQL Server Management Studio를 다운로드합니다. Azure 포털에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다.
-   > 
-   > 
-2. 데이터베이스 폴더를 열고 **시스템 데이터베이스** 폴더를 확장한 후 **master**를 마우스 오른쪽 단추로 클릭한 다음 **새 쿼리**를 클릭합니다.
-3. 다음 **ALTER DATABASE** 문을 사용하여 지역에서 복제 주 데이터베이스에 로컬 데이터베이스를 만듭니다. MySecondaryServer1의 읽을 수 없는 보조 데이터베이스를 사용하며 MySecondaryServer1은 서버의 식별 이름입니다.
-   
-        ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
-4. **실행** 을 클릭하여 쿼리를 실행합니다.
 
 ### <a name="add-readable-secondary-single-database"></a>읽을 수 있는 보조(단일 데이터베이스) 추가
 단일 데이터베이스로 읽을 수 있는 보조를 만들려면 다음 단계를 사용합니다.
@@ -80,18 +64,6 @@ Transact-SQL을 사용하여 활성 지역 복제를 구성하려면 다음이 �
    
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
-4. **실행** 을 클릭하여 쿼리를 실행합니다.
-
-### <a name="add-non-readable-secondary-elastic-pool"></a>읽을 수 없는 보조(탄력적 풀) 추가
-탄력적 풀에서 읽을 수 없는 보조를 만들려면 다음 단계를 사용합니다.
-
-1. Management Studio에서 Azure SQL 데이터베이스 논리 서버에 연결합니다.
-2. 데이터베이스 폴더를 열고 **시스템 데이터베이스** 폴더를 확장한 후 **master**를 마우스 오른쪽 단추로 클릭한 다음 **새 쿼리**를 클릭합니다.
-3. 다음 **ALTER DATABASE** 문을 사용하여 로컬 데이터베이스를 지역에서 복제 주 데이터베이스(탄력적 풀에 포함된 보조 서버의 읽을 수 없는 보조 데이터베이스와 함께)로 만듭니다.
-   
-        ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
-           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 4. **실행** 을 클릭하여 쿼리를 실행합니다.
 
 ### <a name="add-readable-secondary-elastic-pool"></a>읽을 수 있는 보조(탄력적 풀) 추가
@@ -141,22 +113,6 @@ Transact-SQL을 사용하여 활성 지역 복제를 구성하려면 다음이 �
         SELECT * FROM sys.dm_operation_status where major_resource_id = 'MyDB'
         ORDER BY start_time DESC
 9. **실행** 을 클릭하여 쿼리를 실행합니다.
-
-## <a name="upgrade-a-non-readable-secondary-to-readable"></a>읽을 수 없는 보조를 읽을 수 있는 데이터베이스로 업그레이드
-2017년 4월부로 읽을 수 없는 보조 유형은 사용 중지되며 기존의 읽을 수 없는 데이터베이스는 읽을 수 있는 보조 데이터베이스로 자동으로 업그레이드됩니다. 지금 읽을 수 없는 보조 데이터베이스를 사용 중이고 읽을 수 있는 보조로 업그레이드 하려는 경우, 각 보조에 대해 다음 간단한 단계를 사용할 수 있습니다.
-
-> [!IMPORTANT]
-> 읽을 수 없는 보조 데이터베이스를 읽을 수 있는 것으로 바로 업그레이드하는 셀프 서비스 메서드는 없습니다. 전용 보조를 삭제하면 주 데이터베이스는 새 보조 데이터베이스가 완전히 동기화될 때까지 보호되지 않은 상태로 유지됩니다. 프로그램의 SLA에서 주 데이터베이스가 항상 보호되어야 한다면 위의 업그레이드 단계를 적용하기 전에 다른 서버에 병렬 보조 데이터베이스를 만들어야 합니다. 주 데이터베이스는 각기 보조 데이터베이스를 4개까지 가질 수 있습니다.
-> 
-> 
-
-1. 먼저 *보조* 서버에 연결하고 읽을 수 없는 보조 데이터베이스를 삭제합니다.  
-   
-        DROP DATABASE <MyNonReadableSecondaryDB>;
-2. 이제 *주* 서버에 연결하고 읽을 수 있는 새 보조 데이터베이스를 추가합니다.
-   
-        ALTER DATABASE <MyDB>
-            ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
 
 ## <a name="next-steps"></a>다음 단계
 * 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.

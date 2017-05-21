@@ -16,14 +16,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7b4ae9281bca20949c37b2c797e4a1a677665929
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b9cb2e6c15cbe217c57ddfe2910e8017bd61a67a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="azure-functions-storage-blob-bindings"></a>Azure Functions Storage Blob 바인딩
+# <a name="azure-functions-blob-storage-bindings"></a>Azure Functions Blob Storage 바인딩
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 이 문서에서는 Azure Functions에서 Azure Storage Blob 바인딩을 구성하고 코딩하는 방법을 설명합니다. Azure Functions는 Azure Storage Blob에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
@@ -179,7 +180,7 @@ Storage Blob 트리거를 정의하는 다음과 같은 function.json이 있다�
 
 <a name="triggercsharp"></a>
 
-### <a name="trigger-usage-in-c"></a>C에서 트리거 사용# #
+### <a name="trigger-usage-in-c"></a>C#에서 트리거 사용 #
 
 ```cs
 public static void Run(string myBlob, TraceWriter log)
@@ -290,7 +291,7 @@ C# 함수에서 다음 형식 중 하나에 바인딩할 수도 있으며, Funct
 
 <a name="incsharp"></a>
 
-### <a name="input-usage-in-c"></a>C에서 입력 사용# #
+### <a name="input-usage-in-c"></a>C#에서 입력 사용 #
 
 ```cs
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)

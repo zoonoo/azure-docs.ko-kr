@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5fea9dfcd323ecf497742173a66119be4f734909
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: a293c06f2e9bca8790832ecb851c89b04e76bb24
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -33,10 +34,6 @@ Azure Recovery Services 자격 증명 모음을 구성하여 Azure SQL Database 
 ### <a name="configure-the-vault-register-the-server-and-select-databases"></a>자격 증명 모음 구성, 서버 등록 및 데이터베이스 선택
 
 서비스 계층에 대한 보존 기간보다 긴 기간 동안 [자동화된 백업을 보존하는 Azure Recovery Services 자격 증명 모음을 구성](sql-database-long-term-retention.md)합니다. 
-
-> [!TIP]
-> 장기 백업 보존의 백업을 삭제하려면 [장기 백업 보존 구성 및 사용](sql-database-long-term-backup-retention-configure.md)을 참조하세요.
->
 
 1. 서버에 대한 **SQL Server** 페이지를 엽니다.
 
@@ -216,9 +213,6 @@ $policyState = "enabled"
 Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
 ```
 
-> [!IMPORTANT]
-> 구성되면 백업은 다음 7일 동안 자격 증명 모음에 표시됩니다. 백업이 자격 증명 모음에 표시된 후에 이 자습서를 계속합니다.
-
 ### <a name="view-backup-info-and-backups-in-long-term-retention"></a>백업 정보 및 장기 보존 백업 보기
 
 [장기 백업 보존](sql-database-long-term-retention.md)에서 데이터베이스 백업에 대한 정보 보기. 
@@ -269,7 +263,7 @@ $restoredDb
 
 
 > [!NOTE]
-> 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하여 [복원된 데이터베이스에서 일부 데이터를 추출하여 기존 데이터베이스로 복사 또는 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경](sql-database-recovery-using-backups.md#point-in-time-restore)하기와 같은 필요한 작업을 수행할 수 있습니다.
+> 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하고, 이 데이터베이스에서 약간의 데이터를 추출하여 기존 데이터베이스에 복사하거나 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경하는 등 필요한 작업을 수행할 수 있습니다. [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

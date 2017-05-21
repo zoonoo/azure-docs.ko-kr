@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: mcollier
-translationtype: Human Translation
-ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
-ms.openlocfilehash: 6d66a8fa6eac5bc0ecdddc12b67697045556bf46
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: fcf9cc661da0d8e65b385bfddeded0a3e5d0d3e2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
 이 문서에서는 [Microsoft Azure Monitor REST API 참조](https://msdn.microsoft.com/library/azure/dn931943.aspx)를 사용할 수 있도록 인증을 수행하는 방법을 살펴봅니다.         
 
-Azure Monitor API를 통해 사용 가능한 기본 메트릭 정의(CPU 시간, 요청 등과 같은 메트릭 형식), 세분성 및 메트릭 값을 프로그래밍 방식으로 검색할 수 있습니다. 검색 후에는 Azure SQL Database, DocumentDB 또는 Azure Data Lake 등과 같은 별도의 데이터 저장소에 데이터를 저장할 수 있습니다. 여기에서 필요에 따라 추가적인 분석을 수행할 수 있습니다.
+Azure Monitor API를 통해 사용 가능한 기본 메트릭 정의(CPU 시간, 요청 등과 같은 메트릭 형식), 세분성 및 메트릭 값을 프로그래밍 방식으로 검색할 수 있습니다. 검색 후에는 Azure SQL Database, Azure Cosmos DB 또는 Azure Data Lake 등과 같은 별도의 데이터 저장소에 데이터를 저장할 수 있습니다. 여기에서 필요에 따라 추가적인 분석을 수행할 수 있습니다.
 
 다양한 메트릭 데이터 포인트 작업 외에도 이 문서에서 설명한 것처럼 모니터 API를 사용하여 경고 규칙을 나열하고, 활동 로그를 확인하는 등, 다양한 작업을 수행할 수 있습니다. 사용 가능한 작업의 전체 목록은 [Microsoft Azure Monitor REST API 참조](https://msdn.microsoft.com/library/azure/dn931943.aspx)에서 확인하세요.
 
@@ -216,9 +218,4 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
 * [Azure Monitor에서 지원되는 메트릭](monitoring-supported-metrics.md)을 확인합니다.
 * [Microsoft Azure Monitor REST API 참조](https://msdn.microsoft.com/library/azure/dn931943.aspx)를 검토합니다.
 * [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx)를 검토합니다.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

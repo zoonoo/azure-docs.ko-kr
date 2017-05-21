@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 62bafc9bc58811cd9bd314639e3c2a609f4935d3
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ed9bfe928699d040aa4283da5a8690318932738c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -43,8 +44,11 @@ Azure Monitor 자동 크기 조정은 [가상 컴퓨터 크기 집합](https://a
 다음 설명은 이전 다이어그램의 부분에 적용됩니다.   
 
 ## <a name="resource-metrics"></a>리소스 메트릭
-리소스는 메트릭을 내보내며 나중에 규칙에 의해 처리됩니다. 메트릭은 다른 메서드를 통해 제공됩니다.
+리소스에서 메트릭을 내보내며, 이러한 메트릭은 나중에 규칙에 따라 처리됩니다. 메트릭은 다른 메서드를 통해 제공됩니다.
 Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 직접 제공되는 반면 가상 컴퓨터 크기 집합에서는 Azure 진단 에이전트의 원격 분석 데이터를 사용합니다. 일부 자주 사용되는 통계는 CPU 사용량, 메모리 사용량, 스레드 수, 큐 길이 및 디스크 사용량을 포함합니다. 사용할 수 있는 원격 분석 데이터 목록은 [자동 크기 조정 공통 메트릭](insights-autoscale-common-metrics.md)을 참조하세요.
+
+## <a name="custom-metrics"></a>사용자 지정 메트릭
+응용 프로그램에서 내보낼 수 있는 사용자 지정 메트릭을 활용할 수도 있습니다. Application Insights에 메트릭을 보내도록 응용 프로그램을 구성한 경우 이러한 메트릭을 활용하여 크기 조정 여부를 결정할 수 있습니다. 
 
 ## <a name="time"></a>Time
 일정 기반 규칙은 UTC 기준으로 합니다. 규칙을 설정할 때 표준 시간대를 올바르게 설정해야 합니다.  

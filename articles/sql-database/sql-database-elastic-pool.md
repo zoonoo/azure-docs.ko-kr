@@ -11,15 +11,16 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 04/19/2017
+ms.date: 05/15/2017
 ms.author: ddove
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: cc81b842833942019d5afec9b9dc33813ac48964
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 448bdbd2ae12d325781587846c812995cae33774
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -128,7 +129,7 @@ SQL 데이터베이스는 기존 SQL 데이터베이스 서버에서 데이터�
 
 ## <a name="edtu-and-storage-limits-for-elastic-pools"></a>탄력적 풀에 대한 eDTU 및 저장소 제한
 
-다음 표에서는 Basic, Standard, Premium 및 Premium RS 탄력적 풀의 특징을 설명합니다.
+다음 표에서는 탄력적 풀의 리소스 제한에 대해 설명합니다.  탄력적 풀의 개별 데이터베이스에 대한 리소스 제한은 일반적으로 DTU 및 서비스 계층을 기반으로 하는 풀 외부의 단일 데이터베이스의 경우와 동일합니다.  예를 들어 S2 데이터베이스의 최대 동시 작업자 수는 120명입니다.  따라서 풀의 데이터베이스당 최대 DTU가 50DTU(S2와 동일)인 경우 표준 풀의 데이터베이스에 대한 최대 동시 작업자 수도 120명입니다.
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
@@ -167,3 +168,4 @@ SQL 데이터베이스는 기존 SQL 데이터베이스 서버에서 데이터�
 * [Azure Portal](sql-database-elastic-pool-manage-portal.md), [PowerShell](sql-database-elastic-pool-manage-powershell.md), [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), [C#](sql-database-elastic-pool-manage-csharp.md) 및 REST API를 사용하여 탄력적 풀을 만들고 관리할 수도 있습니다.
 * 비디오는 [Azure SQL Database 탄력적 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)을 참조하세요.
 * 탄력적 풀을 사용한 SaaS 응용 프로그램의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
+

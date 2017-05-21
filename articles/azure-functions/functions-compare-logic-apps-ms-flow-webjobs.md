@@ -15,9 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/08/2016
 ms.author: chrande; glenga
-translationtype: Human Translation
-ms.sourcegitcommit: ee94e074c574bc2e6e1a52dbfd6bd0ae102cb342
-ms.openlocfilehash: 0d007bf2a0f5a40fcb7ac6dfe5beff05a4310701
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0f35d79870301bcba9f009f7dbc00696ce426458
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -66,7 +68,7 @@ Azure Functions와 Azure App Service WebJobs는 둘 다 *코드 중심* 통합 �
 Functions는 WebJobs의 장점을 모아 개선한다는 점에서 WebJobs의 자연스러운 진화입니다. 향상된 기능은 다음과 같습니다. 
 
 * 간소화된 개발, 테스트 및 브라우저에서 직접 코드를 실행합니다.
-* 더 많은 Azure 서비스 및 타사 서비스( [GitHub WebHooks](https://developer.github.com/webhooks/creating/)등)와 통합을 기본 제공합니다.
+* 더 많은 Azure 서비스 및 타사 서비스([GitHub WebHooks](https://developer.github.com/webhooks/creating/)등)와 통합을 기본 제공합니다.
 * 사용량 과금이므로 [앱 서비스 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)에 대한 요금을 지불할 필요가 없습니다.
 * 자동으로 [동적 크기 조정](functions-scale.md)을 수행합니다.
 * App Service의 기존 고객인 경우 앱 서비스 계획 실행이 계속 가능합니다(사용량이 적은 리소스 활용).
@@ -79,7 +81,7 @@ Functions는 WebJobs의 장점을 모아 개선한다는 점에서 WebJobs의 �
 | 확장 |구성이 없는 크기 조정 |앱 서비스 계획 크기 조정 |
 | 가격 |사용량 과금 또는 앱 서비스 계획의 일부 |앱 서비스 계획의 일부 |
 | 실행 형식 |트리거됨, 예약됨(타이머 트리거 사용) |트리거됨, 연속, 예약됨 |
-| 트리거 이벤트 |[timer](functions-bindings-timer.md), [Azure DocumentDB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage.md) |[Azure Storage](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
+| 트리거 이벤트 |[timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage.md) |[Azure Storage](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Azure Service Bus](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
 | 브라우저 내부 개발 |x | |
 | Window 스크립팅 |실험적 |x |
 | PowerShell |실험적 |x |
@@ -118,10 +120,5 @@ Functions 또는 WebJobs를 사용할지는 궁극적으로 App Service로 이�
 * [Logic Apps Live Webcast](http://aka.ms/logicappslive)
 * [Microsoft Flow Frequently asked questions](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 * [Azure WebJobs 설명서 리소스](../app-service-web/websites-webjobs-resources.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 
