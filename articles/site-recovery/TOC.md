@@ -9,7 +9,7 @@
 
 # 시작
 ## [VMware VM을 Azure에 복제](site-recovery-vmware-to-azure.md)
-## [물리적 서버를 Azure에 복제](site-recovery-physical-servers-to-azure.md) 
+## [물리적 서버를 Azure에 복제](site-recovery-physical-servers-to-azure.md)
 ## [Hyper-V VM을 Azure에 복제(VMM 있음)](site-recovery-vmm-to-azure.md)
 ## [Hyper-V VM을 Azure에 복제](site-recovery-hyper-v-site-to-azure.md)
 ## [Hyper-V VM을 보조 사이트에 복제(VMM 있음)](site-recovery-vmm-to-vmm.md)
@@ -23,6 +23,7 @@
 ### [용량을 계획하고 VMware 복제를 Azure에 확장](site-recovery-plan-capacity-vmware.md)
 ### [Azure로 VMware 복제를 위한 Deployment Planner](site-recovery-deployment-planner.md)
 ### [Hyper-V 복제를 위한 Capacity Planner](site-recovery-capacity-planner.md)
+### [역할 기반 액세스 제어](site-recovery-role-based-linked-access-control.md)
 
 ## 구성
 ### [원본 환경 설정](site-recovery-set-up-vmware-to-azure.md)
