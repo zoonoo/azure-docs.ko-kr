@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 5874c0648c599a797d971a82e1b125f4a028c506
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 32cce7a919537d3a557ce40133c6c454ccd93c63
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/06/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli[기본](../../../cli_scripts/virtual-machine/create-vm-nsg/create-vm-nsg.sh "NSG를 사용하여 VM 만들기")]
+[!code-azurecli-interactive[기본](../../../cli_scripts/virtual-machine/create-vm-nsg/create-vm-nsg.sh "NSG를 사용하여 VM 만들기")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 

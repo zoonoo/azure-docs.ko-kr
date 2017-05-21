@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 85fa6ab8f7f5ad31347901a0be932d2474594802
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: fec7a2738c3b8e74ac335f62189f3d9b1dd346ab
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -59,19 +59,19 @@ az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Mic
 이 스크립트는 리소스 그룹을 만든 다음 다시 시작할 세 개의 VM을 만듭니다.
 그 중 두 개의 VM에 태그가 지정됩니다.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "VM 프로비전")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/provision.sh "VM 프로비전")]
 
 ### <a name="wait"></a>Wait
 
 이 스크립트는 세 개의 VM이 모두 프로비전될 때까지 또는 그 중 하나가 프로비전되지 못할 때까지 20초마다 프로비저닝 상태를 확인합니다.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "VM이 프로비전될 때까지 대기")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/wait.sh "VM이 프로비전될 때까지 대기")]
 
 ### <a name="restart-the-vms"></a>VM 다시 시작
 
 이 스크립트는 리소스 그룹의 모든 VM을 다시 시작한 다음, 태그가 지정된 VM만 다시 시작합니다.
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "태그로 VM 다시 시작")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/restart-by-tag/restart.sh "태그로 VM 다시 시작")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 

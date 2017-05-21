@@ -3,8 +3,8 @@ title: "Azure Application Insights의 ASP.NET용 로그 및 진단 | Microsoft D
 description: "추적, NLog 또는 Log4Net로 생성된 요청, 예외 및 로그를 검색하여 ASP.NET 웹 앱에서 문제를 진단합니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
-manager: douge
+author: CFreemanwa
+manager: carmonm
 ms.assetid: 99860c53-0324-4a3a-9aa9-83f5dffba835
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/08/2016
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: 874e9abb7ae7e06808645ae2ab7cd5b3c0d36e04
-ms.lasthandoff: 01/25/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 2f84cc336a27697819fe7bd6720e4ca5765f9283
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -259,7 +260,7 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 솔루션 탐색기에서 `ApplicationInsights.config` 를 마우스 오른쪽 단추로 클릭하고 **Application Insights 업데이트**를 선택합니다. Azure에 로그인하고 Application Insights 리소스를 만들거나 기존 리소스를 다시 사용하도록 초대하는 대화 상자가 표시됩니다. 이 경우 문제가 해결된 것입니다.
 
 ### <a name="limits"></a>얼마나 많은 데이터가 보존되나요?
-각 응용 프로그램에서 초당 최대 500개의 이벤트가 보존됩니다. 이벤트는&7;일 동안 보존됩니다.
+각 응용 프로그램에서 초당 최대 500개의 이벤트가 보존됩니다. 이벤트는 7일 동안 보존됩니다.
 
 ### <a name="some-of-my-events-or-traces-dont-appear"></a>내 이벤트 또는 추적의 일부가 표시 되지 않습니다.
 응용 프로그램이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 적응 샘플링 기능이 작동하여 원격 분석의 백분율만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
