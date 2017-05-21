@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: jingwang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: dc501a1c7c0d6a1d70ce368f86a967f889394dc7
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/12/2017
 
 
@@ -425,7 +426,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
               REALM.COM = .
              }
 
-        구성 후 KDC 서비스를 **다시 시작**합니다.
+        **다시 시작** 구성 후에 KDC 서비스입니다.
 
 2.    다음 명령을 사용하여 KDC 서버의 **krbtgt/REALM.COM@AD.COM**이라는 주체를 준비합니다.
 
