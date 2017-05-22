@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: cfowler;mahender;glenga
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 045ec40811468eeffb25ed28ec5bfc84f074c19d
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7fcf35b99cc410655f2a3b9b6961f5e3bef3aeb5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -57,10 +58,10 @@ Functions는 다음을 포함한 주요 시나리오로 시작할 수 있는 템
 
 Azure Functions는 코드 실행을 시작하는 방법인 *트리거*와 입력 및 출력 데이터의 코딩을 간소화하는 방법인 *바인딩*을 지원합니다. Azure Functions가 제공하는 트리거 및 바인딩에 대한 자세한 설명은 [Azure Functions 트리거 및 바인딩 개발자 참조](functions-triggers-bindings.md)를 참조하세요.
 
-## <a name="a-nameintegrationsaintegrations"></a><a name="integrations"></a>통합
+## <a name="integrations"></a>통합
 Azure Functions는 다양한 Azure 및 타사 서비스와 통합됩니다. 이러한 서비스는 함수 및 시작 실행을 트리거하거나 코드에 대한 입력 및 출력으로 사용할 수 있습니다. Azure Functions에서 지원하는 서비스 통합은 다음과 같습니다. 
 
-* Azure DocumentDB
+* Azure Cosmos DB
 * Azure 이벤트 허브 
 * Azure 모바일 앱(테이블)
 * Azure 알림 허브
@@ -70,7 +71,7 @@ Azure Functions는 다양한 Azure 및 타사 서비스와 통합됩니다. 이�
 * 온-프레미스(서비스 버스 사용)
 * Twilio(SMS 메시지)
 
-## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Functions 사용 비용
+## <a name="pricing"></a>Functions 사용 비용
 Azure Functions에는 두 가지 가격 책정 계획이 있으므로 요구 사항에 가장 적합한 계획을 선택할 수 있습니다. 
 
 * **소비 요금제** - 함수가 실행되면 Azure에서 필요한 모든 계산적 리소스를 제공합니다. 리소스 관리에 대해 염려하지 않아도 되며 코드가 실행된 시간에 대해서만 비용을 지불합니다. 

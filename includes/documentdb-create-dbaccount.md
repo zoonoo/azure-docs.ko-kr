@@ -1,27 +1,30 @@
 1. 새 창에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 표시줄에서 **새로 만들기**를 클릭하고 **데이터베이스**를 클릭한 다음 **NoSQL(DocumentDB)**를 클릭합니다.
+2. 왼쪽 메뉴에서 **새로 만들기**를 클릭하고 **데이터베이스**를 클릭한 후 **Azure Cosmos DB**를 클릭합니다.
    
-   ![더 많은 서비스와 DocumentDB(NoSQL)를 강조 표시한 Azure 포털의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
-3. **새 계정** 블레이드에서 DocumentDB 계정에 대해 원하는 구성을 지정합니다.
-   
-    ![새 DocumentDB 블레이드의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
-   
-   * **ID** 상자에 DocumentDB 계정을 식별하기 위한 이름을 입력합니다.  **ID**의 유효성이 검사되면 **ID** 상자에 녹색 확인 표시가 나타납니다. **ID** 값은 URI 내의 호스트 이름이 됩니다. **ID** 는 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. 선택한 끝점 이름에 *documents.azure.com* 이 추가되고, 그 결과가 DocumentDB 계정 끝점이 됩니다.
-   * **NoSQL API** 상자에서 **DocumentDB**를 선택합니다.  
-   * **구독**에서 DocumentDB 계정에 사용할 Azure 구독을 선택합니다. 계정에 구독이 하나뿐인 경우 해당 계정이 기본적으로 선택됩니다.
-   * **리소스 그룹**에서 DocumentDB 계정에 대한 리소스 그룹을 선택하거나 만듭니다.  기본적으로 새 리소스 그룹이 생성됩니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 리소스 관리](../articles/azure-portal/resource-group-portal.md)를 참조하세요.
-   * **위치** 를 사용하여 DocumentDB 계정을 호스트하는 지리적 위치를 지정합니다. 
-4. 새 DocumentDB 계정 옵션을 구성했으면 **만들기**를 클릭합니다. 배포의 상태를 확인하려면 알림 허브를 선택합니다.  
-   
-   ![신속하게 데이터베이스 만들기 - DocumentDB 계정을 만들고 있음을 보여 주는 알림 허브의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
-   
-   ![DocumentDB 계정을 만들어 리소스 그룹에 배포했음을 보여주는 알림 허브의 스크린샷 - 온라인 데이터베이스 작성자 알림](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
-5. DocumentDB 계정이 생성되면 기본 설정으로 사용할 수 있습니다. 기본 설정을 검토하려면 표시줄에서 **NoSQL(DocumentDB)** 아이콘을 클릭하고, 새 계정을 클릭한 다음 리소스 메뉴에서 **기본 일관성**을 클릭합니다.
+   ![더 많은 서비스와 Azure Cosmos DB를 강조 표시한 Azure Portal의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
-   ![Azure Portal에서 Azure DocumentDB 데이터베이스 계정을 여는 방법을 보여주는 스크린샷](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
+3. **새 계정** 블레이드에서 Azure Cosmos DB 계정에 대해 원하는 구성을 지정합니다. 
 
-   DocumentDB 계정의 기본 일관성은 **세션**으로 설정됩니다.  사용 가능한 다른 일관성 옵션 중 하나를 선택하여 기본 일관성을 조정할 수 있습니다. DocumentDB에서 제공되는 일관성 수준에 대한 자세한 내용은 [DocumentDB의 일관성 수준](../articles/documentdb/documentdb-consistency-levels.md)을 참조하세요.
+    Azure Cosmos DB를 사용하면 Gremlin(그래프), MongoDB, SQL(DocumentDB) 및 테이블(키-값)의 4가지 프로그래밍 모델 중 하나를 선택할 수 있습니다. 
+    
+    이 빠른 시작에서는 DocumentDB API에 대한 프로그래밍을 수행하므로 양식을 작성할 때 **SQL(DocumentDB)**을 선택합니다. 하지만 소셜 미디어 앱에 대한 그래프 데이터, 키/값(테이블) 데이터 또는 MongoDB 앱에서 마이그레이션한 데이터가 있는 경우, Azure Cosmos DB는 모든 중요 업무용 응용 프로그램에 대해 전 세계에 분산된 고가용성 데이터베이스 서비스 플랫폼을 제공할 수 있습니다.
 
-[How to: Create a DocumentDB account]: #Howto
-[Next steps]: #NextSteps
-[documentdb-manage]:../articles/documentdb/documentdb-manage.md
+    스크린샷의 정보를 가이드로 사용하여 새 계정 블레이드를 채웁니다. 계정을 설정하면서 고유한 값을 선택하게 되므로 사용자의 값이 스크린샷과 정확하게 일치하지는 않습니다. 
+ 
+    ![새 Azure Cosmos DB 블레이드의 스크린샷](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+
+    설정|제안 값|설명
+    ---|---|---
+    ID|*고유 값*|Azure Cosmos DB 계정을 식별하기 위해 선택하는 고유한 이름입니다. *documents.azure.com*은 URI를 만들기 위해 제공하는 ID에 추가됩니다. 따라서 고유하지만 식별 가능한 ID를 사용합니다. ID는 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다.
+    API|SQL(DocumentDB)|[DocumentDB API](../articles/documentdb/documentdb-introduction.md)에 대한 프로그래밍은 이 문서의 뒷부분에 나옵니다.|
+    구독|*사용자의 구독*|Azure Cosmos DB 계정에 사용할 Azure 구독입니다. 
+    리소스 그룹|*ID와 동일한 값*|계정의 새 리소스 그룹 이름입니다. 간단히 하기 위해 ID와 동일한 이름을 사용할 수 있습니다. 
+    위치|*사용자와 가장 가까운 지역*|Azure Cosmos DB 계정을 호스트할 지리적 위치입니다. 데이터에 빠르게 액세스할 수 있도록 사용자와 가장 가까운 위치를 선택합니다.
+4. **만들기** 를 클릭하여 계정을 만듭니다.
+5. 맨 위 도구 모음에서 **알림**을 클릭하여 배포 프로세스를 모니터링합니다.
+
+    ![배포가 시작됨 알림](./media/documentdb-create-dbaccount/azure-documentdb-nosql-notification.png)
+
+6.  배포가 완료되면 모든 리소스 타일에서 새 계정을 엽니다. 
+
+    ![모든 리소스 타일의 DocumentDB 계정](./media/documentdb-create-dbaccount/azure-documentdb-all-resources.png)

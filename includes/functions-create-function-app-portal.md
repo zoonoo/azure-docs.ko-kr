@@ -1,14 +1,15 @@
-
 1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
 
-2. **Compute** > **함수 앱**을 클릭하고 , **구독**을 선택하고 함수 앱을 식별하는 고유한 **앱 이름**을 입력한 후 다음 설정을 지정합니다.
-   
-   * **[리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md)**: **새로 만들기**를 선택하고 새 리소스 그룹에 대한 이름을 입력합니다. 
-   * **[호스팅 계획](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)**은 이러한 계획 중 하나일 수 있습니다. 
-     * **소비 계획**: Azure Functions의 기본 계획 유형입니다. 소비 계획을 선택하는 경우 **위치**도 선택해야 합니다.  
-     * **App Service 계획**: App Service 계획을 사용하려면 **App Service 계획/위치**를 만들거나 기존 계획이나 위치를 선택해야 합니다. 이러한 설정은 [위치, 기능, 비용을 결정하고 앱과 연결된 리소스를 계산](https://azure.microsoft.com/pricing/details/app-service/)합니다.  
-   * **저장소 계정**: 각 함수 앱에 저장소 계정이 필요합니다. 기존 저장소 계정을 선택하거나 [저장소 계정을 만들](../articles/storage/storage-create-storage-account.md#create-a-storage-account) 수 있습니다. 
-     
+1. **계산** > **함수 앱**을 클릭하고 **구독**을 선택합니다. 그런 다음 표에 지정된 것처럼 함수 앱 설정을 사용합니다.
+
     ![Azure Portal에서 함수 앱 만들기](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
-3. **만들기** 를 클릭하여 새 함수 앱을 프로비전하고 배포합니다.  
+    | 설정      | 제안 값  | 설명                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **앱 이름** | 전역적으로 고유한 이름 | 새 함수 앱을 식별하는 이름입니다. | 
+    | **[리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. | 
+    | **[호스팅 계획](../articles/azure-functions/functions-scale.md)** |   소비 계획 | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. 기본 **소비 계획**에서 함수의 필요에 따라 리소스가 동적으로 추가됩니다. 함수가 실행되는 시간 만큼만 요금을 지불하면 됩니다.   |
+    | **위치**: | 서유럽 | 사용자 근처 또는 함수가 액세스할 기타 서비스에 가까운 위치를 선택합니다. |
+    | **[저장소 계정](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** |  전역적으로 고유한 이름 |  함수 앱에 사용된 새 저장소 계정의 이름. 기존 계정을 사용할 수도 있습니다. |
+
+1. **만들기** 를 클릭하여 새 함수 앱을 프로비전하고 배포합니다.
