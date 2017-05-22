@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d53fb9003ed3b6805c3ee5cfda966e556844e0ff
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f9dc195040d0fa1321dff9ec97d9ca1e4770d325
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="password-writeback-overview"></a>암호 쓰기 저장 개요
 
-비밀번호 쓰기 저장을 사용하면 암호를 온-프레미스 Active Directory에 쓸 수 있도록 Azure AD를 구성할 수 있습니다. 복잡한 온-프레미스 셀프 서비스 암호 재설정 솔루션을 설정 및 관리할 필요가 없게 되며 사용자가 어디에 있든 상관 없이 온-프레미스 암호를 재설정할 수 있는 편리한 클라우드 기반 방법을 제공합니다. 비밀번호 쓰기 저장은 [Azure Active Directory 버전](active-directory-editions.md)의 현재 구독자가 설정하여 사용할 수 있는 [Azure Active Directory Connect](connect/active-directory-aadconnect.md) 구성 요소입니다.
+비밀번호 쓰기 저장을 사용하면 암호를 온-프레미스 Active Directory에 쓸 수 있도록 Azure AD를 구성할 수 있습니다. 복잡한 온-프레미스 셀프 서비스 암호 재설정 솔루션을 설정 및 관리할 필요가 없게 되며 사용자가 어디에 있든 상관 없이 온-프레미스 암호를 재설정할 수 있는 편리한 클라우드 기반 방법을 제공합니다. 비밀번호 쓰기 저장은 [Azure Active Directory 버전](active-directory-editions.md)의 현재 구독자가 설정하여 사용할 수 있는 [Azure Active Directory Connect](./connect/active-directory-aadconnect.md) 구성 요소입니다.
 
 비밀번호 쓰기 저장에서 제공하는 기능은 다음과 같습니다.
 
 * **지연 피드백 없음** - 비밀번호 쓰기 저장은 동기식 작업입니다. 사용자의 암호가 정책에 맞지 않거나 어떤 이유로든 재설정 또는 변경할 수 없는 경우 즉시 사용자에게 알려줍니다.
 * **AD FS 또는 다른 페더레이션 기술을 사용하는 사용자에게 암호 재설정 지원** - 페더레이션된 사용자 계정이 Azure AD 테넌트로 동기화되는 동안 비밀번호 쓰기 저장을 사용하여 온-프레미스 AD 암호를 클라우드에서 관리할 수 있습니다.
-* **[암호 해시 동기화](/connect/active-directory-aadconnectsync-implement-password-synchronization.md)를 사용하는 사용자에게 암호 재설정 지원** - 암호 재설정 서비스에서 동기화된 사용자 계정을 암호 해시 동기화에 사용할 수 있음을 감지하면 이 계정의 온-프레미스 및 클라우드 암호를 동시에 재설정합니다.
+* **[암호 해시 동기화](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)를 사용하는 사용자에게 암호 재설정 지원** - 암호 재설정 서비스에서 동기화된 사용자 계정을 암호 해시 동기화에 사용할 수 있음을 감지하면 이 계정의 온-프레미스 및 클라우드 암호를 동시에 재설정합니다.
 * **액세스 패널 및 Office 365에서 암호 변경 지원** - 페더레이션 또는 암호가 동기화된 사용자가 만료되었거나 만료되지 않은 암호를 변경하면 해당 암호를 로컬 AD 환경에 다시 씁니다.
 * **Azure Portal에서 관리자가 암호를 재설정할 때 비밀번호 쓰기 저장 지원** - 사용자가 페더레이션 또는 암호가 동기화된 경우 관리자가 [Azure Portal](https://portal.azure.com)에서 해당 사용자의 암호를 재설정할 때마다 로컬 AD에서 관리자가 선택하는 암호도 설정합니다. 이 기능은 현재 Office 관리자 포털에서 지원되지 않습니다.
 * **온-프레미스 AD 암호 정책 적용** - 사용자가 자신의 암호를 재설정하는 경우 해당 디렉터리에 커밋하기 전에 온-프레미스 AD 정책에 맞는지 확인합니다. 여기에는 기록, 복잡성, 나이, 암호 필터 및 로컬 AD에서 사용자가 정의한 기타 암호 제한 사항이 포함됩니다.
@@ -76,7 +76,7 @@ ms.lasthandoff: 05/03/2017
 
 ## <a name="scenarios-supported-for-password-writeback"></a>암호 쓰기 저장에 지원되는 시나리오
 
-비밀번호 쓰기 저장을 사용하려는 경우 [Azure AD Connect](/connect/active-directory-aadconnect-get-started-express.md)의 자동 업데이트 기능을 사용하는 것이 좋습니다.
+비밀번호 쓰기 저장을 사용하려는 경우 [Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md)의 자동 업데이트 기능을 사용하는 것이 좋습니다.
 
 [DirSync 및 Azure AD Sync 지원 수명 주기](connect/active-directory-aadconnect-dirsync-deprecated.md)에 대한 자세한 내용
 

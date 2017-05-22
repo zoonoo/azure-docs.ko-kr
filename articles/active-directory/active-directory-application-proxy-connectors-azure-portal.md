@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/04/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: e1c65060c2862736c76b36676f95a88d8dbab4c6
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 39049c7a1e2a4d61ef62bd06cda9ef1bb2c50c0b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/05/2017
 
 ---
 
-# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups---public-preview"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시 - 공개 미리 보기
+# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시
 > [!div class="op_single_selector"]
 > * [Azure 포털](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-application-proxy-connectors.md)
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/02/2017
 
 ## <a name="azure-ad-application-proxy-and-connector-groups"></a>Azure AD 응용 프로그램 프록시 및 커넥터 그룹
 
-고객은 점점 더 많은 시나리오와 응용 프로그램을 위해 Azure AD의 응용 프로그램 프록시를 활용합니다. 따라서 더 많은 토폴로지를 사용하여 응용 프로그램 프록시를 더욱 유연하게 만들었습니다. 응용 프로그램 프록시 커넥터 그룹을 만들 수 있습니다.이 그룹은 특정 응용 프로그램을 제공하는 특정 커넥터를 할당하는 새로운 기능입니다. 이 기능을 사용하면 이전에는 불가능했던 응용 프로그램 프록시에 대한 많은 사용 사례가 생성됩니다. 비공개 미리 보기 단계에서 실제 응용 프로그램 프록시 배포를 향상시키기 위해 커넥터 그룹을 사용하는 대규모 고객을 경험했습니다. 
+고객은 점점 더 많은 시나리오와 응용 프로그램을 위해 Azure AD의 응용 프로그램 프록시를 활용합니다. 따라서 더 많은 토폴로지를 사용하여 응용 프로그램 프록시를 더욱 유연하게 만들었습니다. 응용 프로그램 프록시 커넥터 그룹을 만들 수 있습니다.이 그룹은 특정 응용 프로그램을 제공하는 특정 커넥터를 할당하는 새로운 기능입니다. 이 기능을 사용하면 이전에는 불가능했던 응용 프로그램 프록시에 대한 많은 사용 사례가 생성됩니다. 
 
 기본 개념은 각 응용 프로그램 프록시 커넥터가 커넥터 그룹에 할당된다는 것입니다. 동일한 커넥터 그룹에 속한 모든 커넥터는 고가용성 및 부하 분산을 위해 별도의 그룹으로 작동합니다. 기본적으로 모든 커넥터는 기본 그룹에 속합니다. 관리자는 Azure Portal에서 새 그룹을 만들고 이러한 할당을 변경할 수 있습니다. 
 

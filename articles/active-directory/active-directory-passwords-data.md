@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 6638d9f6c38fe25a99ae6d82eaae958edc3370f2
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f7ecb22ee46d83867453e035f8a639bc7f7f2d81
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>최종 사용자를 등록할 필요 없이 암호 재설정 배포
 
-SSPR(셀프 서비스 암호 재설정)을 배포하려면 인증 데이터가 존재해야 합니다. 일부 조직에서는 해당 사용자가 해당 인증 데이터를 입력하도록 하지만 대부분의 조직에서는 Active Directory에서 기존 데이터와 동기화하는 것을 선호합니다. 온-프레미스 디렉터리에 적절한 형식의 데이터가 있고 [빠른 설정을 사용하여 Azure AD Connect](/connect/active-directory-aadconnect-get-started-express.md)를 구성하는 경우 사용자 조작 없이 Azure AD 및 SSPR에 해당 데이터를 사용할 수 있게 됩니다.
+SSPR(셀프 서비스 암호 재설정)을 배포하려면 인증 데이터가 존재해야 합니다. 일부 조직에서는 해당 사용자가 해당 인증 데이터를 입력하도록 하지만 대부분의 조직에서는 Active Directory에서 기존 데이터와 동기화하는 것을 선호합니다. 온-프레미스 디렉터리에 적절한 형식의 데이터가 있고 [빠른 설정을 사용하여 Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md)를 구성하는 경우 사용자 조작 없이 Azure AD 및 SSPR에 해당 데이터를 사용할 수 있게 됩니다.
 
 전화 번호가 제대로 작동하려면 +국가 코드 전화 번호 형식이어야 합니다(예: +1 4255551234).
 

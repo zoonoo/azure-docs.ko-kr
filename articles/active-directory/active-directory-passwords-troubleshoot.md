@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 90846b3bd83b65a3fdfef2a1c8183b7143b5b247
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 4dae8b87904fff2f2f8665d235bf790fb1e073d0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/03/2017
 | --- | --- |
 | Azure Portal의 Azure AD 섹션에서 **암호 재설정**이 표시되지 않습니다. | 작업을 수행하는 관리자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않은 경우에 발생할 수 있습니다. <br> [라이선스 할당, 확인 및 문제 해결](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) 문서를 사용하여 문제가 발생한 관리자 계정에 대한 라이선스를 할당하여 이 문제를 해결할 수 있습니다. |
 | 특정 구성 옵션이 보이지 않습니다. | 필요할 때까지 UI의 요소는 대부분 숨겨져 있습니다. 참조하려는 모든 옵션을 사용하도록 설정하세요. |
-| **온-프레미스 통합** 탭이 표시되지 않습니다. | Azure AD 연결을 다운로드하고 비밀번호 쓰기 저장을 구성하는 경우 이 옵션이 표시됩니다. 이 항목에 대한 자세한 내용은 [기본 설정을 사용하여 Azure AD Connect 시작](/connect/active-directory-aadconnect-get-started-express.md) 문서를 참조하세요. |
+| **온-프레미스 통합** 탭이 표시되지 않습니다. | Azure AD 연결을 다운로드하고 비밀번호 쓰기 저장을 구성하는 경우 이 옵션이 표시됩니다. 이 항목에 대한 자세한 내용은 [기본 설정을 사용하여 Azure AD Connect 시작](./connect/active-directory-aadconnect-get-started-express.md) 문서를 참조하세요. |
 
 ## <a name="troubleshoot-password-reset-reporting"></a>암호 재설정 보고 문제 해결
 
