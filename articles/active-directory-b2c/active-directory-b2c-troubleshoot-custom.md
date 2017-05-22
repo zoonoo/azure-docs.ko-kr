@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory B2C: 사용자 지정 정책 문제 해결 | Microsoft Docs"
-description: "Azure Active Directory B2C 사용자 지정 정책을 사용하여 문제를 해결하는 방법에 대한 항목"
+title: "Azure Active Directory B2C: 사용자 지정 정책의 문제를 해결하기 위한 Application Insights | Microsoft Docs"
+description: "Application Insights를 설정하여 사용자 지정 정책의 실행을 추적하는 방법"
 services: active-directory-b2c
 documentationcenter: 
 author: saeeda
@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 2fa67038f2a214c1569fc65fd9f1beba394cb790
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 07eddeb35c2b88b2de08270d9ff5de317cc09ec7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
@@ -46,11 +46,12 @@ Azure AD B2C는 Application Insights로 데이터를 보내는 기능을 지원�
 1. 다음 속성을 `<TrustFrameworkPolicy>` 요소에 추가합니다.
 
   ```XML
+  DeploymentMode="Development"
   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   ```
 
-1. 이미 존재하지 않는 경우 자식 노드 `<UserJourneyBehaviors>`을 `<RelyingParty>` 노드에 추가합니다.
-2. 다음 노드를 `<UserJourneyBehaviors>` 요소의 자식으로 추가합니다. `{Your Application Insights Key}`을 이전 섹션에서 가져온 **계측 키**로 바꿔야 합니다.
+1. 이미 존재하지 않는 경우 자식 노드 `<UserJourneyBehaviors>`을 `<RelyingParty>` 노드에 추가합니다. `<DefaultUserJourney ReferenceId="YourPolicyName" />`의 바로 다음에 위치해야 합니다.
+2. 다음 노드를 `<UserJourneyBehaviors>` 요소의 자식으로 추가합니다. `{Your Application Insights Key}`를 이전 섹션의 Application Insights에서 가져온 **계측 키**로 바꿔야 합니다.
 
   ```XML
   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
@@ -66,10 +67,12 @@ Azure AD B2C는 Application Insights로 데이터를 보내는 기능을 지원�
     ...
     TenantId="fabrikamb2c.onmicrosoft.com"
     PolicyId="SignUpOrSignInWithAAD"
+    DeploymentMode="Development"
     UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
   >
     ...
     <RelyingParty>
+      <DefaultUserJourney ReferenceId="YourPolicyName" />
       <UserJourneyBehaviors>
         <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
@@ -79,7 +82,7 @@ Azure AD B2C는 Application Insights로 데이터를 보내는 기능을 지원�
 
 3. 정책을 업로드합니다.
 
-### <a name="see-the-logs"></a>로그 참조
+### <a name="see-the-logs-in-application-insights"></a>Application Insights에서 로그를 참조하세요.
 
 >[!NOTE]
 > Application Insights에서 새 로그가 표시되기까지 짧은 지연 시간이 발생합니다(5분 미만).
@@ -94,7 +97,14 @@ Azure AD B2C는 Application Insights로 데이터를 보내는 기능을 지원�
 traces | Azure AD B2C에서 생성된 모든 로그를 참조하세요. |
 traces \| where timestamp > ago(1d) | 마지막 날에 Azure AD B2C에서 생성된 모든 로그를 참조하세요.
 
+항목이 길어질 수 있습니다.  자세히 보기 위해 CSV로 내보냅니다.
+
 분석 도구에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)에서 알아볼 수 있습니다.
+
+^[!NOTE]
+^커뮤니티는 ID 개발자에게 도움을 주는 사용자 경험 뷰어를 개발했습니다.  Microsoft에서 지원되지 않고 엄격하게 그대로 사용할 수 없습니다.  Application Insights 인스턴스에서 읽고 사용자 경험 이벤트의 올바른 구조 보기를 제공합니다.  소스 코드를 가져오고 고유한 솔루션에 배포합니다.
+
+[지원되지 않는 사용자 지정 정책 샘플 및 관련된 도구에 대한 GitHub 리포지토리](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
 
 

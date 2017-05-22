@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/26/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: e8f78602b293863b2e58160a5eb2cf8a5855576b
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 46e3852dc84265de41bb358f482dec06608e7efa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -51,7 +51,7 @@ ASP.NET Core는 OS X, Linux 및 Windows에서 실행되는 최신 클라우드 �
 > 
 
 ## <a name="create-the-web-app"></a>웹앱 만들기
-이 섹션에서는 donet CLI 도구를 사용하여 새 앱 ASP.NET 웹앱을 스캐폴드하는 방법을 보여 줍니다. 
+이 섹션에서는 .NET CLI 도구를 사용하여 새 앱 ASP.NET 웹앱을 스캐폴드하는 방법을 보여 줍니다. 
 
 1. 프로젝트 폴더를 만들고 앱을 스캐폴딩하려면 명령 프롬프트에 다음을 입력합니다.
    
@@ -62,7 +62,7 @@ dotnet new mvc
 ```
 ![dotnet CLI - ASP.NET Core 생성기](./media/web-sites-create-web-app-using-vscode/dotnetcore-mvc-01.png)
 
-2. 다음 명령을 실행하는 데 필요한 NuGet 패키지를 설치하려면 다음을 수행하십시오.
+2. 필요한 NuGet 패키지를 복원하려면 다음 명령을 실행합니다.
    
     ```terminal
     dotnet restore

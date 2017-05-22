@@ -3,7 +3,7 @@ title: "Azure Application Insights의 가격 책정 및 데이터 볼륨 관리 
 description: "Application Insights에서 원격 분석을 관리하고 비용을 모니터링합니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
-ms.author: awills
+ms.date: 05/10/2017
+ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 6f84365acb9a1cc1fc31fa5f3c04cd112f68087b
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 0a66567d7381f38787f9aa7652c944e4bb3aef82
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -148,10 +148,7 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 ![할당량 및 가격 책정 블레이드에서 샘플 타일을 클릭하고 샘플링 비율을 선택합니다.](./media/app-insights-pricing/04.png)
 
 > [!WARNING]
-> 보존되는 샘플 타일에 표시되는 값은 수집 샘플링에 대해 설정한 값만을 나타냅니다. 앱의 SDK에서 작동되는 샘플링 속도를 표시하지 않습니다. 
-> 
-> 들어오는 원격 분석이 SDK에서 이미 샘플링된 경우 수집 샘플링은 적용되지 않습니다.
-> 
+> 데이터 샘플링 블레이드에서는 수집 샘플링의 값을 제어합니다. 앱에 있는 Application Insights SDK에서 적용하는 샘플링 속도를 반영하지 않습니다. 들어오는 원격 분석이 SDK에서 이미 샘플링된 경우 수집 샘플링은 적용되지 않습니다.
 > 
 
 적용된 위치에 관계 없이 실제 샘플링 주기를 검색하려면 다음과 같은 [분석 쿼리](app-insights-analytics.md) 를 사용합니다.
