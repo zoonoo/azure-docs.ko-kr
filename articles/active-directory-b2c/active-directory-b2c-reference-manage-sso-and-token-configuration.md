@@ -56,6 +56,7 @@ ms.lasthandoff: 05/04/2017
 ```XML
 <Item Key="allow_infinite_rolling_refresh_token">True</Item>
 ```
+
 **발급자(iss) 클레임** 발급자(iss) 클레임을 변경하려면 `<Item>` 안의 값을 Key="IssuanceClaimPattern"으로 수정합니다.  적용 가능한 값은 `AuthorityAndTenantGuid` 및 `AuthorityWithTfp`입니다.
 
 **정책 ID를 나타내는 클레임 설정** 이 값을 설정하기 위한 옵션은 TFP(보안 프레임워크 정책) 및 ACR(인증 컨텍스트 참조)입니다.  
@@ -88,5 +89,8 @@ ACR의 경우 Key="AuthenticationContextReferenceClaimPattern"인 `<Item>`을 �
 </UserJourneyBehaviors>
 ```
 **SSO(Single Sign-On) 구성** SSO(Single Sign-On) 구성을 변경하려면 `<SingleSignOn>` 값을 수정해야 합니다.  적용 가능한 값은 `Tenant`, `Application`, `Policy` 및 `Disabled`입니다. 
+
 **웹앱 세션 수명(분)** 웹앱 세션 수명을 변경하려면 `<SessionExpiryInSeconds>` 요소의 값을 수정해야 합니다.  기본 제공 정책의 기본값은 86400초(1440분)입니다.
+
 **웹앱 세션 시간 제한** 웹앱 세션 시간 제한을 변경하려면 `<SessionExpiryType>` 값을 수정해야 합니다.  적용 가능한 값은 `Absolute` 및 `Rolling`입니다.
+
