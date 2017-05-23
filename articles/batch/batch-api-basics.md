@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 03/27/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: c3ed30ec43128c4e2b0e3d7e4b5dd61670e6bb52
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -77,13 +77,12 @@ Batch 계정은 Batch 서비스 내에서 고유 하게 식별되는 엔터티�
 Batch는 *풀 할당 모드* 속성을 기반으로 하는 두 가지 계정 구성을 지원합니다. 두 구성을 통해 Batch [풀](#pool)과 관련된 여러 기능에 액세스할 수 있습니다(이 문서의 뒷부분 참조).
 
 
-* **Batch 서비스**: Batch 풀 VM이 백그라운드에서 Azure로 관리되는 구독에 할당되는 기본 옵션입니다. Cloud Services 풀이 필요한 경우에는 이 계정 구성을 사용해야 하지만, 사용자 지정 VM 이미지로 생성되었거나 가상 네트워크를 사용하는 Virtual Machine 가상 컴퓨터 풀이 필요한 경우에는 사용할 수 없습니다. 공유 키 인증 또는 [Azure Active Directory 인증](batch-aad-auth.md)을 사용하여 Batch API에 액세스할 수 있습니다.
+* **Batch 서비스**: Batch 풀 VM이 백그라운드에서 Azure로 관리되는 구독에 할당되는 기본 옵션입니다. Cloud Services 풀이 필요한 경우에는 이 계정 구성을 사용해야 하지만, 사용자 지정 VM 이미지로 생성되었거나 가상 네트워크를 사용하는 Virtual Machine 가상 컴퓨터 풀이 필요한 경우에는 사용할 수 없습니다. 공유 키 인증 또는 [Azure Active Directory 인증](batch-aad-auth.md)을 사용하여 Batch API에 액세스할 수 있습니다. Batch 서비스 계정 구성에 있는 풀의 전용 또는 우선 순위가 낮은 계산 노드 중 하나를 사용할 수 있습니다.
 
-* **사용자 구독**: 사용자 지정 VM 이미지로 생성되었거나 가상 네트워크를 사용하는 Virtual Machine 가상 컴퓨터 풀이 필요한 경우 이 계정 구성을 사용해야 합니다. [Azure Active Directory 인증](batch-aad-auth.md)만 사용하여 Batch API에 액세스할 수 있으며, Cloud Services 풀은 지원되지 않습니다. Batch 계산 VM은 Azure 구독에 직접 할당됩니다. 이 모드에서는 Batch 계정에 Azure Key Vault를 설정해야 합니다.
-
+* **사용자 구독**: 사용자 지정 VM 이미지로 생성되었거나 가상 네트워크를 사용하는 Virtual Machine 가상 컴퓨터 풀이 필요한 경우 이 계정 구성을 사용해야 합니다. [Azure Active Directory 인증](batch-aad-auth.md)만 사용하여 Batch API에 액세스할 수 있으며, Cloud Services 풀은 지원되지 않습니다. Batch 계산 VM은 Azure 구독에 직접 할당됩니다. 이 모드에서는 Batch 계정에 Azure Key Vault를 설정해야 합니다. 사용자 구독 계정 구성에 있는 풀의 전용 계산 노드만 사용할 수 있습니다. 
 
 ## <a name="compute-node"></a>계산 노드
-계산 노드는 응용 프로그램의 워크로드 중 일부를 처리하도록 전담하는 Azure VM(가상 컴퓨터)입니다. 노드의 크기에 따라 노드에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. Azure Cloud Services 또는 Virtual Machines Marketplace 이미지를 사용하여 Windows 또는 Linux 노드의 풀을 만들 수 있습니다. 이러한 옵션에 대한 자세한 내용은 다음 [풀](#pool) 을 참조하세요.
+계산 노드는 응용 프로그램의 워크로드 중 일부를 처리하도록 전담하는 Azure VM(가상 컴퓨터) 또는 클라우드 서비스 VM입니다. 노드의 크기에 따라 노드에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. Azure Cloud Services 또는 Virtual Machines Marketplace 이미지를 사용하여 Windows 또는 Linux 노드의 풀을 만들 수 있습니다. 이러한 옵션에 대한 자세한 내용은 다음 [풀](#pool) 을 참조하세요.
 
 노드는 노드의 운영 체제 환경에서 지원하는 실행 파일이나 스크립트를 실행할 수 있습니다. 여기에 Windows용 \*.exe, \*.cmd, \*.bat 및 PowerShell 스크립트, Linux용 이진 파일, 셸 및 Python 스크립트를 포함합니다.
 
@@ -117,6 +116,25 @@ Azure Batch 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. Batc
   * *OS 제품군* 은 OS와 함께 설치되는 .NET 버전도 결정합니다.
   * Cloud Services 내의 작업자 역할과 마찬가지로 *OS 버전*을 지정할 수 있습니다(작업자 역할에 대한 자세한 내용은 [Cloud Services 개요](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services)의 [Cloud Services 정보](../cloud-services/cloud-services-choose-me.md) 섹션 참조).
   * 작업자 역할과 마찬가지로, *OS 버전*에 대해 `*`를 지정하는 것이 좋습니다. 그러면 노드가 자동으로 업그레이드되며 새로 릴리스된 버전을 사용하는 데 필요한 조정 작업이 없습니다. 특정 OS 버전을 선택하는 기본 사용 사례는 버전을 업데이트하기 전에 이전 버전과의 호환성 테스트를 수행할 수 있게 하여 응용 프로그램 호환성을 유지하는 것입니다. 유효성이 검사되면 풀의 *OS 버전*을 업데이트하고 새 OS 이미지를 설치할 수 있습니다. 실행 중인 태스크는 모두 중단되고 다시 큐에 대기됩니다.
+
+* **계산 노드 유형** 및 **대상 노드 수**
+
+    풀을 만들 때 각각에 대해 원하는 계산 노드 유형 및 대상 수를 지정할 수 있습니다. 계산 노드의 두 가지 유형은 다음과 같습니다.
+
+    - **우선 순위가 낮은 계산 노드.** 우선 순위가 낮은 노드는 Azure의 나머지 용량을 활용하여 Batch 워크로드를 실행합니다. 우선 순위가 낮은 노드는 전용 노드보다 비용 효율성이 뛰어나며 계산 능력이 크게 필요한 워크로드를 사용할 수 있도록 설정합니다. 자세한 내용은 [Batch에서 우선 순위가 낮은 VM 사용](batch-low-pri-vms.md)을 참조하세요.
+
+        Azure에 여유 용량이 부족하면 우선 순위가 낮은 계산 노드는 선취될 수 있습니다. 작업을 실행하는 중에 노드가 선취되면 해당 작업은 다시 대기 상태가 되고 계산 노드를 다시 사용할 수 있게 되면 다시 실행됩니다. 우선 순위가 낮은 노드는 작업 완료 시간이 유연하고 작업은 여러 노드에 분산되어 있는 워크로드에 적합한 옵션입니다.
+
+        우선 순위가 낮은 계산 노드는 풀 할당 모드를 **Batch 서비스**로 설정하여 만든 Batch 계정에서만 사용할 수 있습니다.
+
+    - **전용 계산 노드.** 전용 계산 노드는 사용자 워크로드용으로 예약되어 있습니다. 우선 순위가 낮은 노드보다 비용은 많이 들지만 절대로 선취되지 않습니다.    
+
+    우선 순위가 낮은 계산 노드와 전용 계산 노드를 모두 동일한 풀에서 사용할 수 있습니다. &mdash;우선 순위가 낮은 노드 및 전용 노드&mdash;의 각 유형에는 고유한 대상 설정이 있으므로 원하는 노드 수를 지정할 수 있습니다. 
+        
+    계산 노드 수는 상황에 따라 풀이 원하는 노드 수에 도달하지 않을 수 있기 때문에 *대상* 이라고 합니다. 예를 들어, Batch 계정의 [코어 할당량](batch-quota-limit.md)에 먼저 도달하는 경우 풀은 대상에 도달하지 못할 수 있습니다. 또는 최대 노드 수를 제한하는 풀에 자동 확장 수식을 적용한 경우, 풀이 대상에 도달하지 못할 수 있습니다.
+
+    우선 순위가 낮은 계산 노드 및 전용 계산 노드에 대한 가격 정보는 [Batch 가격 책정](https://azure.microsoft.com/pricing/details/batch/)을 참조하세요.
+
 * **노드 크기**
 
     **Cloud Services 구성** 계산 노드 크기는 [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열됩니다. Batch는 `ExtraSmall`, `STANDARD_A1_V2` 및 `STANDARD_A2_V2`를 제외한 모든 Cloud Services 크기를 지원합니다.
@@ -126,12 +144,11 @@ Azure Batch 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. Batc
     계산 노드 크기를 선택할 때는 노드에서 실행할 응용 프로그램의 특징과 요구 사항을 고려합니다. 응용 프로그램이 다중 스레드되었는지 여부 및 응용 프로그램에서 소비하는 메모리 양과 같은 측면은 가장 적절하고 비용 효과적인 노드 크기를 결정하는 데 도움을 줄 수 있습니다. 하나의 태스크가 한 번에 하나의 노드에서 실행되는 것으로 가정하여 노드 크기를 선택하는 것이 일반적입니다. 하지만 작업 실행 중에 계산 노드에 [병렬로 실행되는](batch-parallel-node-tasks.md) 다수의 태스크(따라서 다수의 응용 프로그램 인스턴스)가 있을 수도 있습니다. 이런 경우, 병렬 작업 실행에 대해 증가되는 수요를 충족하기 위해 더 큰 노드 크기를 선택하는 것이 일반적입니다. 자세한 내용은 [태스크 일정 정책](#task-scheduling-policy)을 참조하세요.
 
     풀에 포함된 모든 노드의 크기가 같습니다. 상이한 시스템 요구 사항 및/또는 부하 수준으로 응용 프로그램을 실행하려면 별도의 풀을 사용하는 것이 좋습니다.
-* **노드의 대상 수**
 
-    풀에서 배포하려는 계산 노드 수입니다. 상황에 따라 풀이 원하는 노드 수에 도달하지 않을 수 있기 때문에 *대상* 이라고 합니다. Batch 계정의 [코어 할당량](batch-quota-limit.md)에 도달하였거나 또는 최대 노드 수를 제한하는 풀에 적용한 자동 크기 조정 수식이 있는 경우 풀이 원하는 노드 수에 도달하지 않을 수 있습니다(다음 "정책 크기 조정" 섹션 참조).
 * **크기 조정 정책**
 
     동적 워크로드의 경우 풀에 [자동 크기 조정 수식](#scaling-compute-resources)을 작성하고 적용할 수 있습니다. Batch 서비스는 수식을 주기적으로 평가하여 사용자가 지정할 수 있는 여러 풀, 작업 및 태스크에 따라 풀 내의 노드 수를 조정합니다.
+
 * **태스크 일정 정책**
 
     [노드당 최대 태스크](batch-parallel-node-tasks.md) 구성은 풀 내의 각 계산 노드에서 병렬로 실행할 수 있는 최대 태스크 수를 결정합니다.
