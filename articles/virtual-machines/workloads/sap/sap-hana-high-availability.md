@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 6304f01fd5f97dd528054f8c4909593dd062e16b
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 258ccee349e07448ebebaebe64cd6fb6888d7ed4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 05/20/2017
 
 
 ---
@@ -207,30 +207,39 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # <a name="write-down-the-id-of-devvghanadatahanadata-devvghanaloghanalog-and-devvghanasharedhanashared"></a>/dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log 및 /dev/vg_hana_shared/hana_shared의 ID 기록
-    sudo blkid  </code></pre>
-        * 세 개의 논리 볼륨에 대한 fstab 항목 만들기  <pre><code>
-    sudo vi /etc/fstab  </code></pre>
-    이 줄을 /etc/fstab에 삽입  <pre><code>
-    /dev/disk/by-uuid/<b>&lt;/dev/vg_hana_data/hana_data의 UUID&gt;</b> /hana/data xfs  defaults,nofail  0  2 /dev/disk/by-uuid/<b>&lt;/dev/vg_hana_log/hana_log의 UUID&gt;</b> /hana/log xfs  defaults,nofail  0  2 /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2  </code></pre>
-        * 새 볼륨 탑재  <pre><code>
-    sudo mount -a  </code></pre>
+    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    sudo blkid
+    </code></pre>
+        * 세 개의 논리 볼륨에 대한 fstab 항목 만들기
+    <pre><code>
+    sudo vi /etc/fstab
+    </code></pre>
+    이 줄을 /etc/fstab에 삽입
+    <pre><code>
+    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b> /hana/data xfs  defaults,nofail  0  2
+    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b> /hana/log xfs  defaults,nofail  0  2
+    /dev/disk/by-uuid/<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b> /hana/shared xfs  defaults,nofail  0  2
+    </code></pre>
+        * 새 볼륨 탑재
+    <pre><code>
+    sudo mount -a
+    </code></pre>
     1. 일반 디스크  
        소규모 또는 데모 시스템용으로 한 디스크에 HANA 데이터와 로그 파일을 둘 수 있습니다. 다음 명령은 /dev/sdc에 패턴을 만들고 xfs로 서식을 지정합니다.
     ```bash
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    # write down the id of /dev/sdc1
-    sudo /sbin/blkid
-    sudo vi /etc/fstab
+    # <a name="write-down-the-id-of-devsdc1"></a>/dev/sdc1의 ID 기록
+    sudo /sbin/blkid  sudo vi /etc/fstab
     ```
 
-    이 줄을 /etc/fstab에 삽입  <pre><code>
+    Insert this line to /etc/fstab
+    <pre><code>
     /dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
     </code></pre>
 
-    대상 디렉터리를 만들고 디스크를 탑재합니다.
+    Create the target directory and mount the disk.
 
     ```bash
     sudo mkdir /hana
@@ -367,11 +376,13 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
     </code></pre>
 
-1. [A] 루트로 키 저장소 항목 만들기  <pre><code>
+1. [A] 루트로 키 저장소 항목 만들기
+    <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
     </code></pre>
-1. [1] 루트로 데이터베이스 백업  <pre><code>
+1. [1] 루트로 데이터베이스 백업
+    <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
     hdbsql -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
     </code></pre>
