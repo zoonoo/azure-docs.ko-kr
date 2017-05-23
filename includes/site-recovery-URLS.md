@@ -4,7 +4,7 @@
 
 Azure Government 클라우드의 URL:
 
-- \*\.ugv.hypervrecoverymanager.windowsazure.us
-- \*\.ugv.backup.windowsazure.us
-- \*\.ugi.hypervrecoverymanager.windowsazure.us
-- \*\.ugi.backup.windowsazure.us
+- .ugv.hypervrecoverymanager.windowsazure.us
+- .ugv.backup.windowsazure.us
+- .ugi.hypervrecoverymanager.windowsazure.us
+- .ugi.backup.windowsazure.us

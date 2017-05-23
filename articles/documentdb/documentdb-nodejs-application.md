@@ -1,28 +1,29 @@
 ---
-title: "Node.js 알아보기 - DocumentDB Node.js 자습서 | Microsoft Docs"
-description: "Node.js에 대해 알아봅니다. 자습서에서는 Microsoft Azure DocumentDB를 사용하여 Azure 웹 사이트에 호스트된 Node.js Express 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 설명합니다."
+title: "Node.js 알아보기 - Azure Cosmos DB Node.js 자습서 | Microsoft Docs"
+description: "Node.js에 대해 알아봅니다. 자습서에서는 Microsoft Azure Cosmos DB를 사용하여 Azure Websites에 호스트된 Node.js Express 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 설명합니다."
 keywords: "응용 프로그램 개발, 데이터베이스 자습서, node.js 알아보기, node.js 자습서, documentdb, azure, Microsoft azure"
-services: documentdb
+services: cosmosdb
 documentationcenter: nodejs
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 12/16/2016
 ms.author: syamk
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 6c84c21a0a61ab3e4d043e85d48780fc23f23a08
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 20b04f07581354144ef3dd3fc98da10cbff78e63
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="_Toc395783175"></a>DocumentDB를 사용하여 Node.js 응용 프로그램 빌드
+# <a name="_Toc395783175"></a>Azure Cosmos DB를 사용하여 Node.js 웹 응용 프로그램 빌드
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [MongoDB용 .NET](documentdb-mongodb-application.md)
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-이 Node.js 자습서에서는 Azure DocumentDB를 사용하여 Azure Websites에 호스팅된 Node.js Express 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 작업을 만들고 검색하고 완료할 수 있는 간단한 웹 기반 작업 관리 응용 프로그램인 ToDo 응용 프로그램을 빌드합니다. 작업은 Azure DocumentDB에 JSON 문서로 저장됩니다. 이 자습서는 앱을 만들고 배포하는 과정을 안내하고 각 코드 조각에서 발생하는 상황에 대해 설명합니다.
+이 Node.js 자습서에서는 Azure Cosmos DB를 사용하여 Azure Websites에 호스팅된 Node.js Express 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 작업을 만들고 검색하고 완료할 수 있는 간단한 웹 기반 작업 관리 응용 프로그램인 ToDo 응용 프로그램을 빌드합니다. 작업은 Azure Cosmos DB에 JSON 문서로 저장됩니다. 이 자습서는 앱을 만들고 배포하는 과정을 안내하고 각 코드 조각에서 발생하는 상황에 대해 설명합니다.
 
 ![이 Node.js 자습서에서 만든 My Todo List 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image1.png)
 
@@ -46,17 +47,17 @@ ms.lasthandoff: 04/18/2017
 
 이 문서의 지침을 따르기 전에 다음이 있는지 확인해야 합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
    또는
 
-   [Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md) 로컬 설치를 참조하세요.
+   [Azure Cosmos DB 에뮬레이터](documentdb-nosql-local-emulator.md)의 로컬 설치
 * [Node.js][Node.js] 버전 v0.10.29 이상
 * [Express 생성기](http://www.expressjs.com/starter/generator.html)(`npm install express-generator -g`를 통해 설치 가능)
 * [Git][Git].
 
-## <a name="_Toc395637761"></a>1단계: DocumentDB 데이터베이스 계정 만들기
-먼저 DocumentDB 계정을 만듭니다. 계정이 있거나 이 자습서에 DocumentDB 에뮬레이터를 사용하고 있는 경우 [2단계: 새 Node.js 응용 프로그램 만들기](#_Toc395783178)로 건너뛸 수 있습니다.
+## <a name="_Toc395637761"></a>1단계: Azure Cosmos DB 데이터베이스 계정 만들기
+Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거나 이 자습서에 Azure Cosmos DB 에뮬레이터를 사용하고 있는 경우 [2단계: 새 Node.js 응용 프로그램 만들기](#_Toc395783178)로 건너뛸 수 있습니다.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -116,8 +117,8 @@ ms.lasthandoff: 04/18/2017
    
     이 파일은 해당 응용 프로그램이 이러한 추가 모듈에 종속된다는 것을 노드(및 나중에 Azure)에 알려줍니다.
 
-## <a name="_Toc395783180"></a>4단계: 노드 응용 프로그램에서 DocumentDB 서비스 사용
-초기 설정 및 구성이 모두 완료되었으므로 이제 Azure DocumentDB를 사용하여 일부 코드를 작성하겠습니다.
+## <a name="_Toc395783180"></a>4단계: 노드 응용 프로그램에서 Azure Cosmos DB 서비스 사용
+초기 설정 및 구성이 모두 완료되었으므로 이제 Azure Cosmos DB를 사용하여 일부 코드를 작성하겠습니다.
 
 ### <a name="create-the-model"></a>모델 만들기
 1. 프로젝트 디렉터리에서 package.json 파일과 동일한 디렉터리에 **models**라는 새 디렉터리를 만듭니다.
@@ -194,7 +195,7 @@ ms.lasthandoff: 04/18/2017
    > [!TIP]
    > createCollection은 컬렉션의 제공 유형을 지정하는 데 사용할 수 있는 선택적 requestOptions 매개 변수를 사용합니다. requestOptions.offerType 값을 제공하지 않으면 기본 제공 유형을 사용하여 컬렉션이 생성됩니다.
    > 
-   > DocumentDB 제공 유형에 대한 자세한 내용은 [DocumentDB 성능 수준](documentdb-performance-levels.md) 
+   > Azure Cosmos DB 제공 유형에 대한 자세한 내용은 [Azure Cosmos DB의 성능 수준](documentdb-performance-levels.md)을 참조하세요. 
    > 
    > 
 5. **docdbUtils.js** 파일을 저장하고 닫습니다.
@@ -214,7 +215,7 @@ ms.lasthandoff: 04/18/2017
         }
    
         module.exports = TaskDao;
-8. 이제 다음 코드를 추가하여 Task 개체에서 추가 메서드를 정의합니다. 이러한 메서드를 통해 DocumentDB에 저장된 데이터를 조작할 수 있습니다.
+8. 이제 다음 코드를 추가하여 Task 개체에서 추가 메서드를 정의합니다. 이러한 메서드를 통해 Azure Cosmos DB에 저장된 데이터를 조작할 수 있습니다.
    
         TaskDao.prototype = {
             init: function (callback) {
@@ -397,7 +398,7 @@ ms.lasthandoff: 04/18/2017
         config.collectionId = "Items";
    
         module.exports = config;
-3. **config.js** 파일에서 [Microsoft Azure Portal](https://portal.azure.com)에 있는 DocumentDB 계정의 [키] 블레이드에 있는 값을 사용하여 HOST 및 AUTH_KEY 값을 업데이트합니다.
+3. **config.js** 파일에서 [Microsoft Azure Portal](https://portal.azure.com)에 있는 Azure Cosmos DB 계정의 [키] 블레이드에 있는 값을 사용하여 HOST 및 AUTH_KEY 값을 업데이트합니다.
 4. **config.js** 파일을 저장하고 닫습니다.
 
 ### <a name="modify-appjs"></a>app.js 수정
@@ -427,7 +428,7 @@ ms.lasthandoff: 04/18/2017
         app.post('/addtask', taskList.addTask.bind(taskList));
         app.post('/completetask', taskList.completeTask.bind(taskList));
         app.set('view engine', 'jade');
-5. 이러한 줄은 DocumentDB에 대한 새로운 연결을 사용해서 **TaskDao** 개체의 새 인스턴스를 정의하고(**config.js**에서 읽은 값 사용), 작업 개체를 초기화한 후 폼 작업을 **TaskList** 컨트롤러의 메서드에 바인딩합니다. 
+5. 이러한 줄은 Azure Cosmos DB에 대한 새로운 연결을 사용해서 **TaskDao** 개체의 새 인스턴스를 정의하고(**config.js**에서 읽은 값 사용), 작업 개체를 초기화한 후 폼 작업을 **TaskList** 컨트롤러의 메서드에 바인딩합니다. 
 6. 끝으로, **app.js** 파일을 저장하고 닫으면 작업이 거의 완료됩니다.
 
 ## <a name="_Toc395783181"></a>5단계: 사용자 인터페이스 작성
@@ -529,7 +530,7 @@ ms.lasthandoff: 04/18/2017
     > [!TIP]
     > layout.jade 파일이나 index.jade 파일에서 들여쓰기에 대한 오류가 발생하면 두 파일의 처음 두 줄을 공백 없이 왼쪽에 맞춥니다. 처음 두 줄 앞에 공백이 있으면 제거하고 두 파일을 모두 저장한 다음 브라우저 창을 새로 고칩니다. 
 
-2. [항목], [항목 이름] 및 [범주] 필드를 사용하여 새 작업을 입력한 다음 **항목 추가**를 클릭합니다. 그러면 이러한 속성을 포함한 문서를 DocumentDB에 만듭니다. 
+2. [항목], [항목 이름] 및 [범주] 필드를 사용하여 새 작업을 입력한 다음 **항목 추가**를 클릭합니다. 그러면 이러한 속성을 포함한 문서를 Azure Cosmos DB에 만듭니다. 
 3. 페이지가 업데이트되어 새로 만든 항목을 ToDo 목록에 표시합니다.
    
     ![할 일 모음에 새 항목이 포함된 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image19.png)
@@ -547,16 +548,16 @@ ms.lasthandoff: 04/18/2017
         git push azure master
 4. 몇 초 후에 웹 응용 프로그램 게시가 완료되고 git가 웹 응용 프로그램 게시를 완료하고, Azure에서 실행 중인 작업을 볼 수 있는 브라우저가 실행됩니다.
 
-    축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 Node.js Express 웹 응용 프로그램을 작성하고 Azure 웹 사이트에 게시했습니다.
+    축하합니다. 지금까지 Azure Cosmos DB를 사용하여 첫 Node.js Express 웹 응용 프로그램을 작성하고 Azure Websites에 게시했습니다.
 
     이 자습서의 참조 응용 프로그램 전체를 다운로드하거나 참조하려면 [GitHub][GitHub]에서 다운로드할 수 있습니다.
 
 ## <a name="_Toc395637775"></a>다음 단계
 
-* DocumentDB를 사용하여 규모 및 성능 테스트를 수행하려고 합니다. [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)
-* [DocumentDB 계정 모니터링](documentdb-monitor-accounts.md)방법에 대해 자세히 알아봅니다.
+* Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행하고 싶으신가요? [Azure Cosmos DB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)를 참조하세요.
+* [Azure Cosmos DB 계정 모니터링](documentdb-monitor-accounts.md) 방법에 대해 알아보세요.
 * [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
-* [DocumentDB 설명서](https://docs.microsoft.com/en-us/azure/documentdb/)를 살펴봅니다.
+* [Azure Cosmos DB 설명서](https://docs.microsoft.com/azure/documentdb/)를 살펴봅니다.
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

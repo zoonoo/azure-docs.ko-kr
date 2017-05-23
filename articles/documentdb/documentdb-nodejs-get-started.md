@@ -1,28 +1,29 @@
 ---
-title: "DocumentDB용 NoSQL Node.js 자습서 | Microsoft Docs"
-description: "DocumentDB Node.js SDK를 사용하여 NoSQL 데이터베이스 및 콘솔 응용 프로그램을 만드는 NoSQL Node.js 자습서입니다. DocumentDB는 JSON에 대한 NoSQL 데이터베이스입니다."
+title: "Azure Cosmos DB용 DocumentDB API에 대한 Node.js 자습서 | Microsoft Docs"
+description: "DocumentDB API를 사용하여 Cosmos DB를 만드는 Node.js 자습서입니다."
 keywords: "node.js 자습서, 노드 데이터베이스"
-services: documentdb
+services: cosmosdb
 documentationcenter: node.js
 author: AndrewHoh
 manager: jhubbard
 editor: monicar
 ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 2b8ac838e9387b04467f03d0608da05b3edfdd26
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 8e34fe6461683801ad6c0423567308b7b38d7a00
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="nosql-nodejs-tutorial-documentdb-nodejs-console-application"></a>NoSQL Node.js 자습서: DocumentDB Node.js 콘솔 응용 프로그램
+# <a name="nodejs-tutorial-documentdb-nodejs-console-application"></a>Node.js 자습서: DocumentDB Node.js 콘솔 응용 프로그램
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -33,11 +34,11 @@ ms.lasthandoff: 03/29/2017
 >  
 > 
 
-Azure DocumentDB Node.js SDK용 Node.js 자습서를 시작합니다. 이 자습서를 따라 하면 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
+Azure Cosmos DB Node.js SDK용 Node.js 자습서를 시작합니다. 이 자습서를 따라 하면 Azure Cosmos DB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
 
 다음에 대해 설명합니다.
 
-* DocumentDB 계정 만들기 및 연결
+* Azure Cosmos DB 계정 만들기 및 연결
 * 응용 프로그램 설정
 * 노드 데이터베이스 만들기
 * 컬렉션 만들기
@@ -57,11 +58,11 @@ Node.js 자습서를 완료한 후에 이 페이지 위쪽 및 아래쪽에 있�
 다음 항목이 있는지 확인합니다.
 
 * 활성 Azure 계정. 아직 구독하지 않은 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
-    * 또는 이 자습서에 [Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md)를 사용할 수 있습니다.
+    * 또는 이 자습서에 [Azure Cosmos DB 에뮬레이터](documentdb-nosql-local-emulator.md)를 사용할 수 있습니다.
 * [Node.js](https://nodejs.org/) 버전 v0.10.29 이상
 
-## <a name="step-1-create-a-documentdb-account"></a>1단계: DocumentDB 계정 만들기
-DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [Node.js 응용 프로그램 설치](#SetupNode)로 건너뛸 수 있습니다. DocumentDB 에뮬레이터를 사용할 경우 [Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md)의 단계에 따라 에뮬레이터를 설정하고 [Node.js 설정](#SetupNode)으로 건너뜁니다.
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>1단계: Azure Cosmos DB 계정 만들기
+Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [Node.js 응용 프로그램 설치](#SetupNode)로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](documentdb-nosql-local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Node.js 응용 프로그램 설치](#SetupNode)로 건너뜁니다.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -85,7 +86,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 
 그런 다음 아래 코드 조각을 복사하고 붙여넣은 다음 속성 ```config.endpoint``` 및 ```config.primaryKey```를 DocumentDB 끝점 URI 및 기본 키로 설정합니다. 이러한 구성은 모두 [Azure 포털](https://portal.azure.com)에서 찾을 수 있습니다.
 
-![Node.js 자습서 - 활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure 포털의 스크린샷 - 노드 데이터베이스][keys]
+![Node.js 자습서 - 액티브 허브, Azure Cosmos DB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조 키 값이 강조 표시된 Azure Cosmos DB 계정을 보여 주는 Azure Portal의 스크린샷 - 노드 데이터베이스][keys]
 
     // ADD THIS PART TO YOUR CODE
     var config = {}
@@ -93,7 +94,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
     config.endpoint = "~your DocumentDB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
 
-```database id```, ```collection id``` 및 ```JSON documents```을 ```config.endpoint``` 및 ```config.authKey``` 속성을 설정한 아래의 ```config``` 개체로 설정합니다. 데이터베이스에 저장하려는 데이터가 이미 있다면 문서 정의를 추가하는 대신 DocumentDB의 [데이터 마이그레이션 도구](documentdb-import-data.md) 를 사용할 수 있습니다.
+```database id```, ```collection id``` 및 ```JSON documents```을 ```config.endpoint``` 및 ```config.authKey``` 속성을 설정한 아래의 ```config``` 개체로 설정합니다. 데이터베이스에 저장하려는 데이터가 이미 있다면 문서 정의를 추가하는 대신 Azure Cosmos DB의 [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용할 수 있습니다.
 
     config.endpoint = "~your DocumentDB endpoint uri here~";
     config.primaryKey = "~your primary key here~";
@@ -177,7 +178,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
     // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
-## <a id="Connect"></a>4단계: DocumentDB 계정에 연결
+## <a id="Connect"></a>4단계: Azure Cosmos DB 계정에 연결
 텍스트 편집기에서 빈 ```app.js``` 파일을 엽니다. 다음 코드를 복사하고 붙여넣어서 ```documentdb``` 모듈 및 새로 만든 ```config``` 모듈을 가져옵니다.
 
     // ADD THIS PART TO YOUR CODE
@@ -259,7 +260,7 @@ documentdb 계정을 시작하는 코드가 있다면 DocumentDB 리소스와 �
 
 터미널에서 ```app.js``` 파일을 찾고 다음 명령을 실행합니다. ```node app.js```
 
-축하합니다. DocumentDB 데이터베이스가 성공적으로 생성되었습니다.
+축하합니다. Azure Cosmos DB 데이터베이스를 성공적으로 만들었습니다.
 
 ## <a id="CreateColl"></a>6단계: 컬렉션 만들기
 > [!WARNING]
@@ -369,8 +370,8 @@ documentdb 계정을 시작하는 코드가 있다면 DocumentDB 리소스와 �
 
 ![Node.js 자습서 - 계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램 - 노드 데이터베이스](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-## <a id="Query"></a>8단계: DocumentDB 리소스 쿼리
-DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리](documentdb-sql-query.md) 를 지원합니다. 다음 샘플 코드에서는 컬렉션에는 문서에 대해 실행할 수 있는 쿼리를 보여줍니다.
+## <a id="Query"></a>8단계: Azure Cosmos DB 리소스 쿼리
+Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리](documentdb-sql-query.md)를 지원합니다. 다음 샘플 코드에서는 컬렉션에는 문서에 대해 실행할 수 있는 쿼리를 보여줍니다.
 
 **queryCollection** 함수를 복사하여 app.js 파일의 **getFamilyDocument** 함수 아래에 붙여넣습니다. DocumentDB는 아래와 같이 SQL과 비슷한 쿼리를 지원합니다. 복잡한 쿼리 작성에 대한 자세한 내용은 [쿼리 실습](https://www.documentdb.com/sql/demo) 및 [쿼리 설명서](documentdb-sql-query.md)를 확인합니다.
 
@@ -424,10 +425,10 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 
 터미널에서 ```app.js``` 파일을 찾고 다음 명령을 실행합니다. ```node app.js```
 
-축하합니다. 쿼리된 DocumentDB 문서가 성공적으로 생성되었습니다.
+축하합니다. 쿼리된 Azure Cosmos DB 문서를 성공적으로 만들었습니다.
 
 ## <a id="ReplaceDocument"></a>9단계: 문서 바꾸기
-DocumentDB는 JSON 문서 바꾸기를 지원합니다.
+Azure Cosmos DB는 JSON 문서 바꾸기를 지원합니다.
 
 **replaceFamilyDocument** 함수를 복사하여 app.js 파일의 **queryCollection** 함수 아래에 붙여넣습니다.
 
@@ -471,10 +472,10 @@ DocumentDB는 JSON 문서 바꾸기를 지원합니다.
 
 터미널에서 ```app.js``` 파일을 찾고 다음 명령을 실행합니다. ```node app.js```
 
-축하합니다. DocumentDB 문서가 성공적으로 대체되었습니다.
+축하합니다. Azure Cosmos DB 문서를 성공적으로 대체했습니다.
 
 ## <a id="DeleteDocument"></a>10단계: 문서 삭제
-DocumentDB는 JSON 문서 삭제를 지원합니다.
+Azure Cosmos DB는 JSON 문서 삭제를 지원합니다.
 
 **deleteFamilyDocument** 함수를 복사하여 **replaceFamilyDocument** 함수 아래에 붙여넣습니다.
 
@@ -515,7 +516,7 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
 
 터미널에서 ```app.js``` 파일을 찾고 다음 명령을 실행합니다. ```node app.js```
 
-축하합니다. DocumentDB 문서가 성공적으로 삭제되었습니다.
+축하합니다. Azure Cosmos DB 문서를 성공적으로 삭제했습니다.
 
 ## <a id="DeleteDatabase"></a>11단계: 노드 데이터베이스 삭제
 만든 데이터베이스를 삭제하면 데이터베이스와 모든 자식 리소스(컬렉션, 문서 등)가 제거됩니다.
@@ -601,14 +602,14 @@ DocumentDB는 JSON 문서 삭제를 지원합니다.
     Completed successfully
     Press any key to exit
 
-축하합니다. Node.js 자습서를 만들고 완료했으며 첫 번째 DocumentDB 콘솔 응용 프로그램이 있습니다.
+축하합니다. Node.js 자습서를 만들고 완료했으며 첫 번째 Azure Cosmos DB 콘솔 응용 프로그램이 있습니다.
 
 ## <a id="GetSolution"></a>전체 Node.js 자습서 솔루션 다운로드
 이 자습서의 단계를 완료할 시간이 없거나 코드를 다운로드하려는 경우 [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started)에서 가져올 수 있습니다.
 
 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 실행하려면 다음이 필요합니다.
 
-* [DocumentDB 계정][documentdb-create-account].
+* [Azure Cosmos DB 계정][documentdb-create-account].
 * GitHub에서 제공하는 [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) 솔루션
 
 npm을 통해 **documentdb** 모듈을 설치합니다. 다음 명령을 사용합니다.
@@ -622,10 +623,10 @@ npm을 통해 **documentdb** 모듈을 설치합니다. 다음 명령을 사용�
 정말 간단하죠? 빌드하고 원하는 대로 진행하세요! 
 
 ## <a name="next-steps"></a>다음 단계
-* 더 복잡한 Node.js 샘플을 찾으십니까? [DocumentDB를 사용하여 Node.js 응용 프로그램 빌드](documentdb-nodejs-application.md)를 참조하세요.
-* [DocumentDB 계정 모니터링](documentdb-monitor-accounts.md)방법에 대해 자세히 알아봅니다.
+* 더 복잡한 Node.js 샘플을 찾으십니까? [Azure Cosmos DB를 사용하여 Node.js 웹 응용 프로그램 빌드](documentdb-nodejs-application.md)를 참조하세요.
+* [Azure Cosmos DB 계정 모니터링](documentdb-monitor-accounts.md) 방법에 대해 알아보세요.
 * [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
-* [DocumentDB 설명서](https://azure.microsoft.com/documentation/services/documentdb/)페이지의 개발 섹션에서 프로그래밍 모델에 대해 자세히 알아봅니다.
+* [Azure Cosmos DB 설명서](https://azure.microsoft.com/documentation/services/documentdb/) 페이지의 개발 섹션에서 프로그래밍 모델에 대해 자세히 알아봅니다.
 
 [documentdb-create-account]: documentdb-create-account.md
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png

@@ -41,7 +41,7 @@
 
 부하 분산 장치가 트래픽을 여러 가상 컴퓨터에 분산시키도록 구성되지 않은 경우에는 계획된 유지 관리 이벤트가 트래픽 처리 가상 컴퓨터에만 영향을 줌으로써 응용 프로그램 계층에 중단을 일으킬 수 있습니다. 같은 계층의 여러 가상 컴퓨터를 같은 부하 분산 장치와 가용성 집합 아래에 배치하면 언제든지 적어도 하나의 인스턴스에서는 트래픽을 계속 처리할 수 있습니다.
 
-## <a name="use-managed-disks-for-vms-in-availability-set"></a>가용성 집합에서 VM에 Managed Disks 사용
+## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>가용성 집합에서 VM에 Managed Disks 사용
 현재 관리되지 않는 디스크에서 VM을 사용하는 경우 [가용성 집합에서 VM을 변환하여 Managed Disks를 사용](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set)하는 것이 좋습니다.
 
 [Managed Disks](../articles/storage/storage-managed-disks-overview.md)는 단일 실패 지점을 피할 만큼 가용성 집합의 VM 디스크를 서로 충분히 격리시켜서 가용성 집합에 대해 향상된 안정성을 제공합니다. 이 기능은 디스크를 다른 저장소 배율 단위(스탬프)에 자동으로 배치하여 구현됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 
@@ -57,5 +57,5 @@
 [각 응용 프로그램 계층을 별도의 가용성 집합으로 구성]: #configure-each-application-tier-into-separate-availability-sets
 [가용성 집합과 부하 분산 장치 결합]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[가용성 집합에서 VM에 Managed Disks 사용]: #use-managed-disks-for-vms-in-availability-set
+[Use Managed Disks for VMs in Availability Set]: #use-managed-disks-for-vms-in-availability-set
 

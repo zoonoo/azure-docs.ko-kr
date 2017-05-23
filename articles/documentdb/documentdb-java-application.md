@@ -1,28 +1,29 @@
 ---
-title: "DocumentDB를 사용한 Java 응용 프로그램 개발 자습서 | Microsoft Docs"
-description: "이 Java 웹 응용 프로그램 자습서에서는 Azure DocumentDB 서비스를 사용하여 Azure 웹 사이트에 호스트된 Java 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다."
+title: "Azure Cosmos DB를 사용한 Java 응용 프로그램 개발 자습서 | Microsoft Docs"
+description: "이 Java 웹 응용 프로그램 자습서에서는 Azure Cosmos DB 서비스를 사용하여 Azure Websites에 호스트된 Java 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다."
 keywords: "응용 프로그램 개발, 데이터베이스 자습서, java 응용 프로그램, java 웹 응용 프로그램 자습서, documentdb, azure, Microsoft azure"
-services: documentdb
+services: cosmosdb
 documentationcenter: java
 author: dennyglee
 manager: jhubbard
 editor: mimig
 ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: denlee
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 6e315ea33fe4a493f1ab349482f9af3a732b3127
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a9ba49cb52fee446b7bffaa1579995f2cd095ead
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="build-a-java-web-application-using-documentdb"></a>DocumentDB를 사용하여 Java 웹 응용 프로그램 빌드
+# <a name="build-a-java-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Java 웹 응용 프로그램 빌드
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [MongoDB용 .NET](documentdb-mongodb-application.md)
@@ -32,12 +33,12 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-이 Java 웹 응용 프로그램 자습서는 [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) 서비스를 사용하여 Azure 웹 사이트에 호스팅된 Java 응용 프로그램에서 데이터를 저장 및 액세스하는 방법을 보여줍니다. 이 항목에서는 다음 내용을 배웁니다.
+이 Java 웹 응용 프로그램 자습서에서는 [Microsoft Azure Cosmos DB](https://portal.azure.com/#gallery/Microsoft.Azure Cosmos DB) 서비스를 사용하여 Azure Websites에 호스트된 Java 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 항목에서는 다음 내용을 배웁니다.
 
 * Eclipse에서 기본 JSP 응용 프로그램을 빌드하는 방법.
-* [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java)를 사용하여 Azure DocumentDB 서비스 작업을 수행하는 방법.
+* [Azure Cosmos DB Java SDK](https://github.com/Azure/azure-documentdb-java)를 사용하여 Azure Cosmos DB 서비스로 작업하는 방법입니다.
 
-이 Java 응용 프로그램 자습서에서는 다음 이미지에 표시된 것처럼 작업을 생성 및 검색하고 완료로 표시할 수 있게 해주는 웹 기반 작업 관리 응용 프로그램을 만드는 방법을 보여 줍니다. 할 일 목록에 있는 각 작업은 Azure DocumentDB에서 JSON 문서로 저장됩니다.
+이 Java 응용 프로그램 자습서에서는 다음 이미지에 표시된 것처럼 작업을 생성 및 검색하고 완료로 표시할 수 있게 해주는 웹 기반 작업 관리 응용 프로그램을 만드는 방법을 보여 줍니다. 할 일 목록에 있는 각 작업은 Azure Cosmos DB에서 JSON 문서로 저장됩니다.
 
 ![My ToDo List Java 응용 프로그램](./media/documentdb-java-application/image1.png)
 
@@ -53,15 +54,15 @@ ms.lasthandoff: 04/18/2017
 
     또는
 
-    [Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md) 로컬 설치를 참조하세요.
+    [Azure Cosmos DB 에뮬레이터](documentdb-nosql-local-emulator.md)의 로컬 설치
 * [JDK(Java Development Kit) 7 이상](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Java 런타임 환경(예: Tomcat 또는 Jetty)을 사용하는 Azure 웹 사이트](../app-service-web/web-sites-java-get-started.md)
 
 이러한 도구를 처음 설치하는 경우, coreservlets.com에서 제공되는 단계별 설치 지침을 따르세요. 이 지침은 [자습서: TomCat7 설치 및 Eclipse에서 사용](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) 문서의 빠른 시작 섹션에서 확인할 수 있습니다.
 
-## <a id="CreateDB"></a>1단계: DocumentDB 데이터베이스 계정 만들기
-먼저 DocumentDB 계정을 만듭니다. 계정이 있거나 이 자습서에 DocumentDB 에뮬레이터를 사용하고 있는 경우 [2단계: Java JSP 응용 프로그램 만들기](#CreateJSP)로 건너뛸 수 있습니다.
+## <a id="CreateDB"></a>1단계: Azure Cosmos DB 데이터베이스 계정 만들기
+Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거나 이 자습서에 Azure Cosmos DB 에뮬레이터를 사용하고 있는 경우 [2단계: Java JSP 응용 프로그램 만들기](#CreateJSP)로 건너뛸 수 있습니다.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -116,7 +117,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
 6. **확인** 을 클릭하면 Maven이 DocumentDB Java SDK를 설치합니다.
 7. pom.xml 파일을 저장합니다.
 
-## <a id="UseService"></a>4단계: Java 응용 프로그램에서 DocumentDB 서비스 사용
+## <a id="UseService"></a>4단계: Java 응용 프로그램에서 Azure Cosmos DB 서비스 사용
 1. 먼저 TodoIte 개체를 정의하겠습니다.
    
         @Data
@@ -129,7 +130,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
         }
    
     이 프로젝트에서는 [Project Lombok](http://projectlombok.org/) 을 사용해서 생성자, getter, setter 및 작성기를 생성합니다. 또는 이 코드를 수동으로 작성하거나 IDE에서 생성하도록 할 수도 있습니다.
-2. **DocumentDB**서비스를 호출하려면 새 DocumentClient를 인스턴스화해야 합니다. 일반적으로 각 후속 요청에 대해 새 클라이언트를 생성하는 것보다는 **DocumentClient** 를 다시 사용하는 것이 가장 좋습니다. **DocumentClientFactory**에 클라이언트를 래핑하면 클라이언트를 다시 사용할 수 있습니다. 또한 여기서는 [1단계](#CreateDB)에서 클립보드에 저장한 URI 및 기본 키 값을 붙여넣을 수도 있습니다. [YOUR\_ENDPOINT\_HERE]를 해당 URI로 바꾸고 [YOUR\_KEY\_HERE]를 해당 기본 키로 바꿉니다.
+2. Azure Cosmos DB 서비스를 호출하려면 새 **DocumentClient**를 인스턴스화해야 합니다. 일반적으로 각 후속 요청에 대해 새 클라이언트를 생성하는 것보다는 **DocumentClient** 를 다시 사용하는 것이 가장 좋습니다. **DocumentClientFactory**에 클라이언트를 래핑하면 클라이언트를 다시 사용할 수 있습니다. 또한 여기서는 [1단계](#CreateDB)에서 클립보드에 저장한 URI 및 기본 키 값을 붙여넣을 수도 있습니다. [YOUR\_ENDPOINT\_HERE]를 해당 URI로 바꾸고 [YOUR\_KEY\_HERE]를 해당 기본 키로 바꿉니다.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -140,7 +141,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
         public static DocumentClient getDocumentClient() {
             return documentClient;
         }
-3. 이제 DAO(Data Access Object)를 만들어서 영구적인 ToDo 항목을 DocumentDB로 추상화합니다.
+3. 이제 DAO(Data Access Object)를 만들어서 영구적인 ToDo 항목을 Azure Cosmos DB로 추상화합니다.
    
     ToDo 항목을 컬렉션에 저장하려면 클라이언트는 유지할 데이터베이스 및 컬렉션(셀프 link로 참조)을 알고 있어야 합니다. 일반적으로 데이터베이스로의 추가 왕복을 방지할 수 있을 때 데이터베이스 및 컬렉션을 캐시하는 것이 좋습니다.
    
@@ -153,7 +154,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
             // The name of our collection.
             private static final String COLLECTION_ID = "TodoCollection";
    
-            // The DocumentDB Client
+            // The Azure Cosmos DB Client
             private static DocumentClient documentClient = DocumentClientFactory
                     .getDocumentClient();
    
@@ -257,7 +258,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. DocumentDB 데이터베이스 및 컬렉션과 마찬가지로 문서도 셀프 link로 참조됩니다. 다음 도우미 함수에서는 셀프 link가 아닌 다른 특성(예: "id")으로 문서를 검색해 보겠습니다.
+5. Azure Cosmos DB 데이터베이스 및 컬렉션과 마찬가지로 문서도 셀프 link로 참조됩니다. 다음 도우미 함수에서는 셀프 link가 아닌 다른 특성(예: "id")으로 문서를 검색해 보겠습니다.
    
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -334,7 +335,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
    
         @Override
         public boolean deleteTodoItem(String id) {
-            // DocumentDB refers to documents by self link rather than id.
+            // Azure Cosmos DB refers to documents by self link rather than id.
    
             // Query for the document to retrieve the self link.
             Document todoItemDocument = getDocumentById(id);
@@ -464,7 +465,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
           <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
-          <title>Azure DocumentDB Java Sample</title>
+          <title>Azure Cosmos DB Java Sample</title>
    
           <!-- Bootstrap -->
           <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -748,7 +749,7 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 7. **분기 선택** 화면에서 **마스터**가 선택되었는지 확인하고 **다음**을 클릭합니다.
 8. **로컬 대상** 화면에서 **찾아보기**를 클릭하여 리포지토리를 복사할 수 있는 폴더를 선택한 후 **다음**을 클릭합니다.
 9. **프로젝트 가져오기에 사용할 마법사 선택** 화면에서 **기존 프로젝트 가져오기**가 선택되었는지 확인하고 **다음**을 클릭합니다.
-10. **프로젝트 가져오기** 화면에서 **DocumentDB** 프로젝트를 선택 취소한 후 **마침**을 클릭합니다. DocumentDB 프로젝트에는 종속성으로 추가할 DocumentDB Java SDK가 포함됩니다.
+10. **프로젝트 가져오기** 화면에서 **Azure Cosmos DB** 프로젝트를 선택 취소한 후 **마침**을 클릭합니다. Azure Cosmos DB 프로젝트에는 종속성으로 추가할 Azure Cosmos DB Java SDK가 포함됩니다.
 11. **프로젝트 탐색기**에서 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java로 이동하고 HOST 및 MASTER_KEY 값을 각각 해당 DocumentDB 계정의 URI 및 기본 키로 바꾸고 파일을 저장합니다. 자세한 내용은 [1단계를 참조하세요. DocumentDB 데이터베이스 계정 만들기](#CreateDB)를 참조하세요.
 12. **프로젝트 탐색기**에서 **azure-documentdb-java-sample**을 마우스 오른쪽 단추로 클릭하고 **빌드 경로**를 클릭한 후 **빌드 경로 구성**을 클릭합니다.
 13. **Java 빌드 경로** 화면의 오른쪽 창에서 **라이브러리** 탭을 선택한 후 **외부 JAR 추가**를 클릭합니다. lombok.jar 파일의 위치로 이동하고 **열기**를 클릭한 후 **확인**을 클릭합니다.

@@ -13,10 +13,11 @@ ms.workload: na
 ms.date: 04/22/2017
 ms.author: dkshir
 ms.custom: na
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d020fc6b51f3b20f56fa056e666ba9c7441a3065
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d0ccbcfa5fc8006590951707f7162f7864110f38
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -285,7 +286,7 @@ Azure IoT Hub용 Python SDK의 사용 현황을 자세히 살펴보려면 [이 G
 
 * [장치 연결][lnk-connect-device]
 * [장치 관리 시작][lnk-device-management]
-* [IoT Gateway SDK 시작][lnk-gateway-SDK]
+* [Azure IoT Hub 시작][lnk-gateway-SDK]
 
 IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리하는 방법을 알아보려면 [장치-클라우드 메시지 처리][lnk-process-d2c-tutorial] 자습서를 참조하세요.
 

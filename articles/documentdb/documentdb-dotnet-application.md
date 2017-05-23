@@ -1,28 +1,29 @@
 ---
-title: "DocumentDB용 ASP.NET MVC 자습서: 웹 응용 프로그램 개발 | Microsoft Docs"
-description: "DocumentDB를 사용하여 MVC 웹 응용 프로그램을 만드는 ASP.NET MVC 자습서 JSON을 저장하고 Azure 웹 사이트 - ASP NET MVC 단계별 자습서에서 호스팅하는 todo 앱에서 데이터에 액세스합니다."
+title: "Azure Cosmos DB용 ASP.NET MVC 자습서: 웹 응용 프로그램 개발 | Microsoft Docs"
+description: "Azure Cosmos DB를 사용하여 MVC 웹 응용 프로그램을 만드는 ASP.NET MVC 자습서 JSON을 저장하고 Azure 웹 사이트 - ASP NET MVC 단계별 자습서에서 호스팅하는 todo 앱에서 데이터에 액세스합니다."
 keywords: "ASP.NET MVC 자습서, 웹 응용 프로그램 개발, MVC 웹 응용 프로그램, ASP NET MVC 단계별 자습서"
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: syamk
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 44307f258ea05635addf85bf9c59cd78b2ac0f1e
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 48736ab63a74c78a7d111011faf135f32c0c4f9e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="_Toc395809351"></a>ASP.NET MVC 자습서:  DocumentDB를 통한 웹 응용 프로그램 개발
+# <a name="_Toc395809351"></a>ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 응용 프로그램 개발
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [MongoDB용 .NET](documentdb-mongodb-application.md)
@@ -32,11 +33,11 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure DocumentDB를 사용하여 todo 앱을 빌드하는 방법을 보여 주는 종합적인 연습을 제공합니다. 작업은 Azure DocumentDB에 JSON 문서로 저장됩니다.
+Azure Cosmos DB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure Cosmos DB를 사용하여 todo 앱을 빌드하는 방법을 보여 주는 종합적인 연습을 제공합니다. 작업은 Azure Cosmos DB에 JSON 문서로 저장됩니다.
 
 ![이 자습서에서 만든 할 일 모음 MVC 웹 응용 프로그램의 스크린샷 - ASP NET MVC 단계별 자습서](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
 
-이 연습에서는 Azure에서 제공하는 DocumentDB 서비스를 사용하여 Azure에서 호스트되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. ASP.NET MVC 구성 요소가 아닌 DocumentDB에만 집중하는 자습서를 찾는 경우 [DocumentDB C# 콘솔 응용 프로그램 빌드](documentdb-get-started.md)를 참조하세요.
+이 연습에서는 Azure에서 제공하는 Azure Cosmos DB 서비스를 사용하여 Azure에서 호스트되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. ASP.NET MVC 구성 요소가 아닌 Azure Cosmos DB에만 집중하는 자습서를 찾는 경우 [Azure Cosmos DB C# 콘솔 응용 프로그램 빌드](documentdb-get-started.md)를 참조하세요.
 
 > [!TIP]
 > 이 자습서에서는 이전에 ASP.NET MVC 및 Azure 웹 사이트를 사용해 본 경험이 있다고 가정합니다. ASP.NET 또는 [필수 도구](#_Toc395637760)를 처음 사용하는 경우 [GitHub][GitHub]에서 전체 샘플 프로젝트를 다운로드하고 이 샘플의 지침을 따르는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.
@@ -50,14 +51,14 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
     또는
 
-    [Azure DocumentDB 에뮬레이터](documentdb-nosql-local-emulator.md) 로컬 설치를 참조하세요.
+    [Azure Cosmos DB 에뮬레이터](documentdb-nosql-local-emulator.md)의 로컬 설치
 * [Visual Studio 2015](http://www.visualstudio.com/) 또는 Visual Studio 2013 업데이트 4 이상 Visual Studio 2013을 사용하는 경우 C# 6.0 지원을 추가하기 위해 [Microsoft.Net.Compilers nuget 패키지](https://www.nuget.org/packages/Microsoft.Net.Compilers/)를 설치해야 합니다. 
 * Azure SDK for .NET 버전 2.5.1 이상([Microsoft 웹 플랫폼 설치 관리자][Microsoft Web Platform Installer]를 통해 사용 가능)
 
 이 문서의 모든 스크린샷은 Visual Studio 2013 업데이트 4 및 Azure SDK for .NET 버전 2.5.1을 사용하여 생성되었습니다. 시스템이 다른 버전으로 구성된 경우 화면과 옵션이 일부 달라질 수 있지만 위의 필수 구성 요소를 충족하면 솔루션을 사용할 수 있습니다.
 
-## <a name="_Toc395637761"></a>1단계: DocumentDB 데이터베이스 계정 만들기
-먼저 DocumentDB 계정을 만듭니다. 계정이 있거나 이 자습서에 DocumentDB 에뮬레이터를 사용하고 있는 경우 [새 ASP.NET MVC 응용 프로그램 만들기](#_Toc395637762)로 건너뛸 수 있습니다.
+## <a name="_Toc395637761"></a>1단계: Azure Cosmos DB 데이터베이스 계정 만들기
+Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거나 이 자습서에 Azure Cosmos DB 에뮬레이터를 사용하고 있는 경우 [새 ASP.NET MVC 응용 프로그램 만들기](#_Toc395637762)로 건너뛸 수 있습니다.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -89,26 +90,26 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 8. 클라우드에 호스트를 선택하면 Azure 계정에 로그인하고 새 웹 사이트에 대한 값을 입력하라는 추가 화면이 하나 이상 표시됩니다. 모든 추가 값을 지정하고 계속합니다. 
    
-      여기서 Azure SQL 데이터베이스 서버를 사용하지 않기 때문에 "데이터베이스 서버"를 선택하지 않았고 나중에 Azure 포털에서 새 Azure DocumentDB 계정을 만들 예정입니다.
+      여기서 Azure SQL Database 서버를 사용하지 않기 때문에 "데이터베이스 서버"를 선택하지 않았고 나중에 Azure Portal에서 새 Azure Cosmos DB 계정을 만들 예정입니다.
    
     **App Service 계획** 및 **리소스 그룹** 선택에 대한 자세한 내용은 [Azure App Service 계획의 포괄 개요](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요.
    
       ![Microsoft Azure 웹사이트 구성 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image11_1.png)
 9. Visual Studio에서 상용구 MVC 응용 프로그램을 만들면 로컬에서 실행할 수 있는 빈 ASP.NET 응용 프로그램을 갖게 됩니다.
    
-    모두 ASP.NET "Hello World" 응용 프로그램을 본 적이 있다고 확신하므로 프로젝트 로컬 실행은 건너뛰겠습니다. 바로 이 프로젝트에 DocumentDB를 추가하고 응용 프로그램을 작성하겠습니다.
+    모두 ASP.NET "Hello World" 응용 프로그램을 본 적이 있다고 확신하므로 프로젝트 로컬 실행은 건너뛰겠습니다. 바로 이 프로젝트에 Azure Cosmos DB를 추가하고 응용 프로그램을 작성하겠습니다.
 
-## <a name="_Toc395637767"></a>3단계: MVC 웹 응용 프로그램 프로젝트에 DocumentDB 추가
-이 솔루션에 필요한 대부분의 ASP.NET MVC 배관을 만들었으므로 이제 이 자습서의 실제 목적으로 돌아가 MVC 웹 응용 프로그램에 Azure DocumentDB를 추가해 보겠습니다.
+## <a name="_Toc395637767"></a>3단계: MVC 웹 응용 프로그램 프로젝트에 Azure Cosmos DB 추가
+이 솔루션에 필요한 대부분의 ASP.NET MVC 배관을 만들었으므로 이제 이 자습서의 실제 목적으로 돌아가 MVC 웹 응용 프로그램에 Azure Cosmos DB를 추가해 보겠습니다.
 
 1. DocumentDB .NET SDK는 패키지되어 NuGet 패키지로 배포되며, Visual Studio에서 NuGet 패키지를 다운로드하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭하여 Visual Studio에서 NuGet 패키지 관리자를 사용합니다.
    
       ![NuGet 패키지 관리가 강조 표시된 솔루션 탐색기 내 웹 응용 프로그램 프로젝트에 대한 마우스 오른쪽 클릭 옵션의 스크린샷](./media/documentdb-dotnet-application/image21.png)
    
     **NuGet 패키지 관리** 대화 상자가 나타납니다.
-2. NuGet **찾아보기** 상자에 ***Azure DocumentDB***를 입력합니다.
+2. NuGet **찾아보기** 상자에 ***Azure Cosmos DB***를 입력합니다.
    
-    결과에서 **Microsoft Azure DocumentDB Client Library** 패키지를 설치합니다. 그러면 DocumentDB 패키지 및 모든 종속성(예: Newtonsoft.Json)이 다운로드되어 설치됩니다. **미리 보기** 창에서 **확인**을 클릭하고 **라이선스 승인** 창에서 **동의**를 클릭하여 설치를 완료합니다.
+    결과에서 **Microsoft Azure Cosmos DB Client Library** 패키지를 설치합니다. 그러면 Azure Cosmos DB 패키지 및 모든 종속성(예: Newtonsoft.Json)이 다운로드되어 설치됩니다. **미리 보기** 창에서 **확인**을 클릭하고 **라이선스 승인** 창에서 **동의**를 클릭하여 설치를 완료합니다.
    
       ![Microsoft Azure DocumentDB Client Library가 강조 표시된 NuGet 패키지 관리 창의 스크린샷](./media/documentdb-dotnet-application/nuget.png)
    
@@ -159,7 +160,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
             public bool Completed { get; set; }
         }
    
-    DocumentDB의 모든 데이터가 네트워크를 통해 전달되고 JSON으로 저장됩니다. JSON.NET에서 개체를 직렬화/역직렬화하는 방식을 제어하기 위해 방금 만든 **Item** 클래스에서 본 것처럼 **JsonProperty** 특성을 사용할 수 있습니다. 꼭 **필요한** 과정은 아니지만 저는 제가 만든 속성이 JSON camelCase 명명 규칙을 따르는지 확인하고 싶습니다. 
+    Azure Cosmos DB의 모든 데이터가 네트워크를 통해 전달되고 JSON으로 저장됩니다. JSON.NET에서 개체를 직렬화/역직렬화하는 방식을 제어하기 위해 방금 만든 **Item** 클래스에서 본 것처럼 **JsonProperty** 특성을 사용할 수 있습니다. 꼭 **필요한** 과정은 아니지만 저는 제가 만든 속성이 JSON camelCase 명명 규칙을 따르는지 확인하고 싶습니다. 
    
     JSON의 경우 속성 이름 형식을 제어할 수 있을 뿐만 아니라, **Description** 속성에 대해 했던 것처럼 .NET 속성의 이름을 완전히 다시 지정할 수 있습니다. 
 
@@ -232,8 +233,8 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 이 작업이 완료되면 나중에 이러한 뷰로 돌아올 것이므로 Visual Studio에서 모든 cshtml 문서를 닫습니다.
 
-## <a name="_Toc395637769"></a>5단계: DocumentDB 연결
-표준 MVC를 처리했으므로 이제 DocumentDB에 대한 코드를 추가해 보겠습니다. 
+## <a name="_Toc395637769"></a>5단계: Azure Cosmos DB 연결
+표준 MVC를 처리했으므로 이제 Azure Cosmos DB에 대한 코드를 추가해 보겠습니다. 
 
 이 섹션에서는 다음을 처리하기 위한 코드를 추가합니다.
 
@@ -242,7 +243,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 * [항목 편집](#_Toc395637772).
 
 ### <a name="_Toc395637770"></a>MVC 웹 응용 프로그램에서 완료되지 않은 항목 나열
-먼저 DocumentDB에 연결하고 이를 사용할 모든 논리가 포함된 클래스를 추가합니다. 이 자습서에서는 이 모든 논리를 DocumentDBRepository라는 리포지토리 클래스로 캡슐화합니다. 
+먼저 Azure Cosmos DB에 연결하고 이를 사용할 모든 논리가 포함된 클래스를 추가합니다. 이 자습서에서는 이 모든 논리를 DocumentDBRepository라는 리포지토리 클래스로 캡슐화합니다. 
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 차례로 클릭합니다. 새 클래스의 이름을 **DocumentDBRepository**로 지정하고 **추가**를 클릭합니다.
 2. 새로 만든 **DocumentDBRepository** 클래스에서 *네임스페이스* 선언 위에 다음 *using 문*을 추가합니다.
@@ -318,7 +319,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
         }
    
    > [!TIP]
-   > 새 DocumentCollection을 만들 때 새 컬렉션의 성능 수준을 지정할 수 있는 OfferType의 선택적 RequestOptions 매개 변수를 제공할 수 있습니다. 이 매개 변수를 전달하지 않으면 경우 기본 제공 유형이 사용됩니다. DocumentDB 제공 유형에 대한 자세한 내용은 [DocumentDB 성능 수준](documentdb-performance-levels.md)
+   > 새 DocumentCollection을 만들 때 새 컬렉션의 성능 수준을 지정할 수 있는 OfferType의 선택적 RequestOptions 매개 변수를 제공할 수 있습니다. 이 매개 변수를 전달하지 않으면 경우 기본 제공 유형이 사용됩니다. Azure Cosmos DB 제공 유형에 대한 자세한 내용은 [Azure Cosmos DB 성능 수준](documentdb-performance-levels.md)을 참조하세요.
    > 
    > 
 3. 구성에서 일부 값을 읽어올 것이므로 응용 프로그램의 **Web.config** 파일을 열고 `<AppSettings>` 섹션 아래에 다음 줄을 추가합니다.
@@ -395,7 +396,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 ### <a name="_Toc395637771"></a>항목 추가
 빈 그리드 외에 확인할 항목이 있도록 데이터베이스에 일부 항목을 추가하겠습니다.
 
-DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemController에 일부 코드를 추가하겠습니다.
+Azure Cosmos DB에 레코드를 저장하기 위해 Azure Cosmos DBRepository 및 ItemController에 일부 코드를 추가하겠습니다.
 
 1. 다음 메서드를 **DocumentDBRepository** 클래스에 추가합니다.
    
@@ -468,9 +469,9 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
             }
         }
    
-    이러한 메서드 중 첫 번째 메서드인 **GetItem**은 DocumentDB에서 항목을 가져오며, 이 항목이 다시 **ItemController** 및 **편집** 뷰로 전달됩니다.
+    이러한 메서드 중 첫 번째 메서드인 **GetItem**은 Azure Cosmos DB에서 항목을 가져오며, 이 항목이 다시 **ItemController** 및 **편집** 뷰로 전달됩니다.
    
-    방금 추가한 메서드 중 두 번째 메서드는 DocumentDB의 **문서**를 **ItemController**에서 전달된 **문서** 버전으로 바꿉니다.
+    방금 추가한 메서드 중 두 번째 메서드는 Cosmos DB의 **문서**를 **ItemController**에서 전달된 **문서** 버전으로 바꿉니다.
 2. **ItemController** 클래스에 다음을 추가합니다.
    
         [HttpPost]
@@ -504,11 +505,11 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
             return View(item);
         }
    
-    첫 번째 메서드는 사용자가 **인덱스** 뷰에서 **편집** 링크를 클릭할 때 발생하는 Http Get을 처리합니다. 이 메서드는 DocumentDB에서 [**문서**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)를 가져와 **편집** 뷰에 전달합니다.
+    첫 번째 메서드는 사용자가 **인덱스** 뷰에서 **편집** 링크를 클릭할 때 발생하는 Http Get을 처리합니다. 이 메서드는 Azure Cosmos DB에서 [**문서**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)를 가져와 **편집** 뷰에 전달합니다.
    
     그런 다음 **편집** 뷰는 **IndexController**에 Http Post를 수행합니다. 
    
-    추가한 두 번째 메서드는 데이터베이스에 저장되도록 업데이트된 개체를 DocumentDB에 전달하는 작업을 처리합니다.
+    추가한 두 번째 메서드는 데이터베이스에 저장되도록 업데이트된 개체를 Azure Cosmos DB에 전달하는 작업을 처리합니다.
 
 응용 프로그램을 실행하는 데 필요한 모든 작업(완료되지 않은 **항목** 나열, 새 **항목** 추가 및 **항목** 편집)이 완료되었습니다.
 
@@ -534,7 +535,7 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 5. 앱을 테스트하고 나면 Ctrl+F5를 눌러 앱 디버깅을 중지합니다. 배포할 준비가 되었습니다!
 
 ## <a name="_Toc395637774"></a>7단계: Azure 웹 사이트에 응용 프로그램 배포
-이제 전체 응용 프로그램이 DocumentDB와 올바르게 작동하므로 Azure 웹 사이트에 이 웹앱을 배포하겠습니다. 빈 ASP.NET MVC 프로젝트를 만들 때 **클라우드의 호스트** 를 선택한 경우 Visual Studio에서 대부분의 작업을 수행하므로 쉽게 배포할 수 있습니다. 
+이제 전체 응용 프로그램이 Azure Cosmos DB와 올바르게 작동하므로 Azure Websites에 이 웹앱을 배포하겠습니다. 빈 ASP.NET MVC 프로젝트를 만들 때 **클라우드의 호스트** 를 선택한 경우 Visual Studio에서 대부분의 작업을 수행하므로 쉽게 배포할 수 있습니다. 
 
 1. 이 응용 프로그램을 게시하기 위해 할 일은 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭하는 것뿐입니다.
    
@@ -559,13 +560,13 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
     - 지역: 앱 사용자에게 가장 가까운 지역 선택
     - 데이터베이스 서버: 데이터베이스 없음을 클릭한 다음 **만들기**를 클릭합니다. 
 
-4. "todo-net-app **화면”에서**연결 유효성 검사를 클릭합니다. 연결을 확한 후 **게시***합니다. 
+4. "todo-net-app  **화면”에서** 연결 유효성 검사를 클릭합니다. 연결을 확한 후 **게시***합니다. 
     
     그러면 응용 프로그램이 브라우저에 표시됩니다.
 
 
 ## <a name="_Toc395637775"></a>다음 단계
-축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 ASP.NET MVC 웹 응용 프로그램을 빌드하고 Azure 웹 사이트에 게시했습니다. 이 자습서에 포함되지 않은 세부 정보 및 삭제 기능을 비롯한 전체 응용 프로그램 소스 코드는 [GitHub][GitHub]에서 다운로드하거나 복제할 수 있습니다. 따라서 이 내용을 앱에 추가하려는 경우 코드를 끌어와서 이 앱에 추가하면 됩니다.
+축하합니다. 지금까지 Azure Cosmos DB를 사용하여 첫 ASP.NET MVC 웹 응용 프로그램을 빌드하고 Azure Websites에 게시했습니다. 이 자습서에 포함되지 않은 세부 정보 및 삭제 기능을 비롯한 전체 응용 프로그램 소스 코드는 [GitHub][GitHub]에서 다운로드하거나 복제할 수 있습니다. 따라서 이 내용을 앱에 추가하려는 경우 코드를 끌어와서 이 앱에 추가하면 됩니다.
 
 응용 프로그램에 기능을 더 추가하려면 [DocumentDB .NET 라이브러리](https://msdn.microsoft.com/library/azure/dn948556.aspx)에서 사용 가능한 API를 검토하고 [GitHub][GitHub]의 DocumentDB .NET 라이브러리에 자유롭게 기여하세요. 
 

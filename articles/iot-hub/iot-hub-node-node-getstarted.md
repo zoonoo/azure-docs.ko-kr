@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: e5cfa4c0a6964c3722ecaa6727336f5497565885
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 259477f26686eb43c1a06d8a72544d4ca8a72c71
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -272,7 +273,7 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
 
 * [장치 연결][lnk-connect-device]
 * [장치 관리 시작][lnk-device-management]
-* [IoT Gateway SDK 시작][lnk-gateway-SDK]
+* [Azure IoT Hub 시작][lnk-gateway-SDK]
 
 IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리하는 방법을 알아보려면 [장치-클라우드 메시지 처리][lnk-process-d2c-tutorial] 자습서를 참조하세요.
 

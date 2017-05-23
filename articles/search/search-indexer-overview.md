@@ -1,6 +1,6 @@
 ---
 title: "Azure Search의 인덱서 | Microsoft Docs"
-description: "검색 가능한 데이터를 추출하여 Azure 검색 인덱스에 입력하기 위해 Azure SQL 데이터베이스, DocumentDB 또는 Azure 저장소를 탐색합니다."
+description: "검색 가능한 데이터를 추출하여 Azure Search 인덱스에 입력하기 위해 Azure SQL Database, Azure Cosmos DB 또는 Azure Storage를 탐색합니다."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 05/01/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
-ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
-ms.lasthandoff: 01/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -28,9 +29,9 @@ ms.lasthandoff: 01/19/2017
 > * [개요](search-indexer-overview.md)
 > * [포털](search-import-data-portal.md)
 > * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [DocumentDB](search-howto-index-documentdb.md)
-> * [Blob 저장소(미리 보기)](search-howto-indexing-azure-blob-storage.md)
-> * [테이블 저장소(미리 보기)](search-howto-indexing-azure-tables.md)
+> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+> * [Azure 테이블 저장소](search-howto-indexing-azure-tables.md)
 >
 >
 
@@ -41,7 +42,7 @@ Azure 검색의 **인덱서** 는 외부 데이터 원본에서 검색 가능한
 요청 시 또는 15분 간격으로 반복되는 데이터 새로 고침 예약에 따라 인덱서를 실행할 수 있습니다. 더 자주 업데이트하려면 Azure 검색과 외부 데이터 소스의 데이터를 동시에 업데이트하는 푸시 모델이 필요합니다.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>인덱서를 만들고 관리하는 접근 방식
-Azure SQL 또는 DocumentDB와 같은 일반적으로 사용 가능한 인덱서의 경우 다음과 같은 방법을 사용하여 인덱서를 만들고 관리할 수 있습니다.
+Azure SQL 또는 Azure Cosmos DB와 같은 일반적으로 사용 가능한 인덱서의 경우 다음과 같은 방법을 사용하여 인덱서를 만들고 관리할 수 있습니다.
 
 * [포털 > 데이터 가져오기 마법사](search-get-started-portal.md)
 * [서비스 REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)
@@ -57,7 +58,7 @@ Azure SQL 또는 DocumentDB와 같은 일반적으로 사용 가능한 인덱서
 인덱서는 연결 문자열 등의 정보가 담긴 **데이터 원본** 에서 데이터를 가져옵니다. 현재 지원되는 데이터 소스는 다음과 같습니다.
 
 * [Azure SQL 데이터베이스 또는 Azure 가상 컴퓨터의 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * PDF, Office 문서, HTML 또는 XML에서 텍스트를 추출하는 데 사용된 [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure 테이블 저장소](search-howto-indexing-azure-tables.md)
 
@@ -70,9 +71,9 @@ Azure SQL 또는 DocumentDB와 같은 일반적으로 사용 가능한 인덱서
 이제 기본 개념을 이해했으므로 다음 단계는 각 데이터 원본 유형과 관련된 요구 사항 및 작업을 검토하는 것입니다.
 
 * [Azure SQL 데이터베이스 또는 Azure 가상 컴퓨터의 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-documentdb.md)
 * PDF, Office 문서, HTML 또는 XML에서 텍스트를 추출하는 데 사용된 [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure 테이블 저장소](search-howto-indexing-azure-tables.md)
-* [Azure 검색 Blob 인덱서를 사용하여 CSV Blob 인덱싱(미리 보기)](search-howto-index-csv-blobs.md)
-* [Azure 검색 Blob 인덱서를 사용하여 JSON Blob 인덱싱(미리 보기)](search-howto-index-json-blobs.md)
+* [Azure Search Blob 인덱서를 사용하여 CSV Blob 인덱싱](search-howto-index-csv-blobs.md)
+* [Azure Search Blob 인덱서를 사용하여 JSON Blob 인덱싱](search-howto-index-json-blobs.md)
 

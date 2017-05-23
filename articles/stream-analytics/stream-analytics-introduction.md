@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: a6b1df79f4fc6b09b681755f5adbb7f56faaf225
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 42f77fbea2ac9572940e8c428999c79d6b4b6e23
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -39,7 +40,7 @@ Azure 포털에서 몇 번만 클릭하면 스트리밍 데이터의 입력된 �
 * **저렴한 비용:** 클라우드 서비스로서 스트림 분석 서비스는 저비용으로 실시간 분석 솔루션을 유지 관리할 수 있게 최적화되었습니다. 서비스는 스트리밍 단위 사용법 및 시스템에 의해 처리되는 데이터의 양에 따라 작업을 진행하면서 비용을 지불하도록 만들어졌습니다. 사용량은 처리된 이벤트의 용량과 해당 스트림 분석 작업을 처리하기 위해 클러스터 내에 프로비전된 계산 능력의 양에 따라 결정됩니다.  
 * **참조 데이터:** 스트림 분석은 참조 데이터를 지정하고 사용할 수 있도록 합니다. 이러한 데이터는 기록 데이터일 수도 있고 시간이 지남에 따라 덜 자주 변경되는 단순한 비 스트리밍 데이터일 수도 있습니다. 시스템은 참조 데이터가 다른 이벤트 스트림처럼 실시간으로 수집된 기타 이벤트 스트림에 통합되도록 하여 간편하게 변환합니다.  
 * **사용자 정의 함수:** 스트림 분석은 Azure 기계 학습과 통합되어 스트림 분석 쿼리의 일환으로 기계 학습 서비스에서 함수 호출을 정의합니다. 이렇게 하여 기존 Azure 기계 학습 솔루션을 활용하도록 스트림 분석의 기능을 확장합니다. 자세한 내용은 [기계 학습 통합 자습서](stream-analytics-machine-learning-integration-tutorial.md)를 검토하세요.
-* **연결:** 스트림 분석은 스트림 수집을 위해 Azure 이벤트 허브 및 Azure IoT Hub, 기록 데이터를 수집하기 위해 Azure Blob 서비스에 직접 연결됩니다. 결과를 스트림 분석에서 이를 시각화하고 워크플로로 처리하며 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 를 통해 배치 분석에서 사용하거나 일련의 이벤트로 처리되는 Azure Storage Blob 또는 테이블, Azure SQL DB, Azure Data Lake Stores, DocumentDB, 이벤트 허브, Azure 서비스 버스 항목 또는 큐 및 Power BI로 작성할 수 있습니다. 이벤트 허브를 사용하면 계산의 스트리밍 특성을 손실하지 않고도 여러 스트림 분석을 다른 데이터 소스 및 처리 엔진으로 작성할 수 있습니다.  
+* **연결:** 스트림 분석은 스트림 수집을 위해 Azure 이벤트 허브 및 Azure IoT Hub, 기록 데이터를 수집하기 위해 Azure Blob 서비스에 직접 연결됩니다. 결과를 Stream Analytics에서 시각화하고 워크플로로 처리하며, [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)를 통해 배치 분석에서 사용하거나 일련의 이벤트로 다시 처리되는 Azure Storage Blob 또는 테이블, Azure SQL DB, Azure Data Lake Stores, Azure Cosmos DB, Event Hubs, Azure Service Bus 항목 또는 큐, Power BI로 작성할 수 있습니다. 이벤트 허브를 사용하면 계산의 스트리밍 특성을 손실하지 않고도 여러 스트림 분석을 다른 데이터 소스 및 처리 엔진으로 작성할 수 있습니다.  
 
 ## <a name="get-help"></a>도움말 보기
 추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)

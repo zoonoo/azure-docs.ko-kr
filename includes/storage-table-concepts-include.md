@@ -11,7 +11,7 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
 ## <a name="table-service-concepts"></a>테이블 서비스 개념
 테이블 서비스에는 다음 구성 요소가 포함됩니다.
 
-![Table1][Table1]
+![Table service 구성 요소 다이어그램][Table1]
 
 * **URL 형식**: 코드에서 다음 주소 형식을 사용하여 계정의 테이블 주소를 지정합니다.   
   http://`<storage account>`.table.core.windows.net/`<table>`  
