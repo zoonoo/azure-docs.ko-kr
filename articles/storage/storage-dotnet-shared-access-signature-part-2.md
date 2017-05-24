@@ -121,7 +121,7 @@ Console.WriteLine();
 
 `https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D`
 
-코드를 실행하면 컨테이너에서 만든 공유 액세스 서명은 다음&24;시간동안 유효합니다. 서명은 클라이언트에게 컨테이너에 있는 Blob을 나열하고 컨테이너에 새 Blob을 쓸 수 있는 권한을 부여합니다.
+코드를 실행하면 컨테이너에서 만든 공유 액세스 서명은 다음 24시간동안 유효합니다. 서명은 클라이언트에게 컨테이너에 있는 Blob을 나열하고 컨테이너에 새 Blob을 쓸 수 있는 권한을 부여합니다.
 
 ### <a name="generate-a-shared-access-signature-uri-for-a-blob"></a>Blob에 대한 공유 액세스 서명 URI 생성
 이제 컨테이너 내에서 새 Blob을 만들고 해당 Blob에 대한 공유 액세스 서명을 생성하는 비슷한 코드를 작성합니다. 이 공유 액세스 서명은 저장된 액세스 정책과 연결되지 않으므로, URI에 대한 시작 시간, 만료 시간 및 권한 정보를 포함합니다.
@@ -282,7 +282,7 @@ Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWit
 Console.WriteLine();
 ```
 
-**Main()** 메서드는 전체적으로 다음과 비슷합니다. 이 메서드를 실행하여 콘솔 창에 공유 액세스 서명 URI를 쓴 다음 URI를 복사하여 이 자습서의&2;부에서 사용할 텍스트 파일에 붙여넣습니다.
+**Main()** 메서드는 전체적으로 다음과 비슷합니다. 이 메서드를 실행하여 콘솔 창에 공유 액세스 서명 URI를 쓴 다음 URI를 복사하여 이 자습서의 2부에서 사용할 텍스트 파일에 붙여넣습니다.
 
 ```csharp
 static void Main(string[] args)
@@ -335,7 +335,7 @@ GenerateSharedAccessSignatures 콘솔 응용 프로그램을 실행하면 콘솔
 이전 예제에서 만든 공유 액세스 서명을 테스트하려면 서명을 사용하여 컨테이너 및 Blob에서 작업을 수행하는 두 번째 콘솔 응용 프로그램을 만듭니다.
 
 > [!NOTE]
-> 자습서의 1부를 완료한 후 24시간이 초과된 경우 생성된 서명은 더 이상 유효하지 않습니다. 이 경우, 첫 번째 콘솔 응용 프로그램에서 코드를 실행하여 자습서의&2;부에서 사용할 공유 액세스 서명을 다시 생성해야 합니다.
+> 자습서의 1부를 완료한 후 24시간이 초과된 경우 생성된 서명은 더 이상 유효하지 않습니다. 이 경우, 첫 번째 콘솔 응용 프로그램에서 코드를 실행하여 자습서의 2부에서 사용할 공유 액세스 서명을 다시 생성해야 합니다.
 >
 >
 
