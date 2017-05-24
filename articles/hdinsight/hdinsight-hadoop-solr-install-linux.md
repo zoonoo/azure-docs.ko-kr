@@ -16,9 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: larryfr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 741e67d1419eb54e0ca1913dd0d4fb5e56895bbd
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/18/2017
 
 
