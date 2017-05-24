@@ -1,6 +1,6 @@
 ---
-title: "WTP(Wingtip 티켓 플랫폼) 응용 프로그램 배포 및 탐색(Azure SQL Database를 사용하는 샘플 SaaS 응용 프로그램) | Microsoft Docs"
-description: "Azure SQL Database를 사용하는 샘플 SaaS 응용 프로그램 배포 및 탐색"
+title: "Azure SQL Database를 사용하는 SaaS 응용 프로그램 배포 및 탐색 | Microsoft Docs"
+description: "Azure SQL Database 샘플 Wingtip Tickets(WTP) 앱 배포 및 탐색"
 keywords: "sql 데이터베이스 자습서"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ff4dc19bb6e24ea9ceeed9721cfb3a85b4d10965
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 04859fb8a9f4a8bf04d92e7139d9202885c52503
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -29,6 +29,8 @@ ms.lasthandoff: 05/10/2017
 이 자습서에서는 WTP(Wingtip 티켓 플랫폼) SaaS 응용 프로그램을 배포하고 탐색합니다. 응용 프로그램은 테넌트별 데이터베이스(SaaS 응용 프로그램 패턴)를 사용하여 여러 테넌트에 서비스를 제공합니다. 응용 프로그램은 SaaS 시나리오, SaaS 디자인 및 관리 패턴을 사용할 수 있는 Azure SQL Database의 기능을 보여주기 위해 설계되었습니다.
 
 아래 *Azure에 배포* 단추를 클릭한 후 5분 내에 클라우드에서 가동 및 실행되며 SQL Database를 사용하는 다중 테넌트 SaaS 응용 프로그램을 갖게 됩니다. 이 응용 프로그램은 세 가지 샘플 테넌트를 사용하여 배포되는데, 각각 고유한 데이터베이스가 있으며 모두 SQL 탄력적 풀에 배포됩니다. 앱은 Azure 구독에 배포되므로 개별 응용 프로그램 구성 요소를 검사하고 사용할 수 있는 전체 액세스 권한을 제공합니다.
+
+스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github 리포지토리에서 사용할 수 있습니다.
 
 이 자습서에서는 다음에 대해 알아봅니다.
 

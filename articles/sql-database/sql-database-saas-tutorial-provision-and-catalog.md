@@ -1,6 +1,6 @@
 ---
-title: "새 테넌트 프로비전 및 카탈로그(Azure SQL Database를 사용하는 샘플 SaaS 응용 프로그램) | Microsoft Docs"
-description: "새 테넌트 프로비전/카탈로그"
+title: "Azure SQL Database를 사용하여 다중 테넌트 앱에서 새 테넌트 프로비전 | Microsoft Docs"
+description: "Wingtip Tickets(WTP) 샘플 SQL Database SaaS 앱에서 새 테넌트 프로비전 및 카탈로그"
 keywords: "sql 데이터베이스 자습서"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 4eeada941f8615fa04624bc725efcb44f05d56c7
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: aae5d85a18f93b7821a6ef8fc7161dd9a6ebe533
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

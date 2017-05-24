@@ -1,6 +1,6 @@
 ---
-title: "여러 테넌트에 대한 스키마 관리(Azure SQL Database를 사용하는 샘플 SaaS 응용 프로그램) | Microsoft Docs"
-description: "Azure SQL Database를 사용하는 SaaS 응용 프로그램에서 여러 테넌트에 대한 스키마 관리"
+title: "다중 테넌트 앱에서 Azure SQL Database 스키마 관리 | Microsoft Docs"
+description: "Azure SQL Database를 사용하는 다중 테넌트 응용 프로그램에서 여러 테넌트에 대한 스키마 관리"
 keywords: "sql 데이터베이스 자습서"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 226cda254934fae30410e54148d5cc527e1c7881
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 19d02229781186053a0063af1c7e1a3280179f46
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

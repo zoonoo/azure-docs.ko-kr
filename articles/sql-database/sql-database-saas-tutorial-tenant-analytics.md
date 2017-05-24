@@ -1,6 +1,6 @@
 ---
-title: "여러 테넌트에 대한 분석 쿼리 실행(Azure SQL Database를 사용하는 샘플 SaaS 응용 프로그램) | Microsoft Docs"
-description: "여러 테넌트에 대한 분석 쿼리 실행"
+title: "여러 Azure SQL 데이터베이스에 대해 분석 쿼리 실행 | Microsoft Docs"
+description: "여러 Azure SQL 데이터베이스에서 분산 쿼리 실행"
 keywords: "sql 데이터베이스 자습서"
 services: sql-database
 documentationcenter: 
@@ -17,14 +17,14 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b512e2f7833be1947ef7674d6e0266879789ac5a
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: a0742a004b618dda304618bca21ae715552c16e6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="run-analytics-queries-against-multiple-tenants"></a>여러 테넌트에 대한 분석 쿼리 실행
+# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>여러 Azure SQL 데이터베이스에서 분산 쿼리 실행
 
 이 자습서에서는 카탈로그의 각 테넌트에 대한 분석 쿼리를 실행합니다. 쿼리를 실행하는 탄력적 작업이 생성됩니다. 이 작업은 데이터를 검색한 후 이 데이터를 카탈로그 서버에서 생성된 별도의 분석 데이터베이스에 로드합니다. 이 데이터베이스를 쿼리하면 모든 테넌트의 일상적인 운영 데이터에 묻혀 있는 유용한 정보를 찾아낼 수 있습니다. 작업 결과로, 테이블이 테넌트 분석 데이터베이스 내부의 결과 반환 쿼리에서 만들어집니다.
 

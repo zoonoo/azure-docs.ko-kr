@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 18ceb4967ee891ac24cce1a107b60c8e526fc7d2
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 53f8db832e829ed7111af8f0d0aa789f31843e18
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -30,7 +30,7 @@ PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+이 빠른 시작에서는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 마지막으로 이름이 *id_rsa.pub*인 공용 SSH 키가 Windows 사용자 프로필의 *.ssh* 디렉터리에 저장되어 있어야 합니다. Azure에 대한 SSH 키 만들기에 대한 자세한 내용은 [Azure용 SSH 키 만들기](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 

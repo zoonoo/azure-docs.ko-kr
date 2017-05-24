@@ -1,6 +1,6 @@
 ---
-title: "모든 테넌트에 대한 임시 분석 쿼리 실행(Azure SQL Database를 사용하는 샘플 SaaS 응용 프로그램) | Microsoft Docs"
-description: "모든 테넌트에 대해 임시 분석 쿼리 실행"
+title: "여러 Azure SQL 데이터베이스에 대해 임시 분석 쿼리 실행 | Microsoft Docs"
+description: "다중 테넌트 응용 프로그램에서 여러 데이터베이스에 대해 임시 분석 쿼리 실행"
 keywords: "sql 데이터베이스 자습서"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c00c25116002c46fc94c5ea59acc101a2055b689
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: dd41e7f1f131f6c18e03d2434982c3d681342b8b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

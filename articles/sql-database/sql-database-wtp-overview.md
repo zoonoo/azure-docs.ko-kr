@@ -1,6 +1,6 @@
 ---
-title: "SaaS 알아보기(Azure SQL Database를 사용하는 샘플 SaaS 응용 프로그램) | Microsoft Docs"
-description: "SQL Database를 사용한 SaaS 응용 프로그램 빌드"
+title: "Azure SQL Database 샘플 다중 테넌트 앱 | Microsoft Docs"
+description: "Azure SQL Database 샘플 Wingtip Tickets(WTP) 앱 소개"
 keywords: "sql 데이터베이스 자습서"
 services: sql-database
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bf5745a788cd9ab6bf2ea8d5d97b8c04f083fc5d
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 265eab8104d8af7c510a88dffb9d70a2b3b37631
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---

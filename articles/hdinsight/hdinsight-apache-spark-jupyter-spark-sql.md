@@ -1,6 +1,7 @@
 ---
-title: "Azure HDInsight에서 Apache Spark 클러스터 시작 | Microsoft Docs"
-description: "HDInsight에서 Apache Spark 클러스터를 신속하게 만든 후 Jupyter 노트북에서 Spark SQL을 사용하여 대화형 쿼리를 실행하는 방법에 대한 단계별 지침입니다."
+title: "시작 - Apache Spark & 대화형 Spark SQL 쿼리 - Azure HDInsight | Microsoft Docs"
+description: "HDInsight에서 Apache Spark 클러스터를 만들고 Jupyter 노트북을 사용하여 대화형 쿼리를 실행하는 방법에 대한 HDInsight Spark 빠른 시작입니다."
+keywords: "spark 빠른 시작, 대화형 spark, 대화형 쿼리, hdinsight spark, azure spark"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,32 +10,34 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/13/2017
+ms.date: 05/12/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: e2a9802e76579a523897d8904add6b317652ff05
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 0c59792423bfe2848ab5773746db466890228ddc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="get-started-create-apache-spark-cluster-in-azure-hdinsight-and-run-interactive-queries-using-spark-sql"></a>시작: Azure HDInsight에서 Apache Spark 클러스터 만들기 및 Spark SQL을 사용하여 대화형 쿼리 실행
+# <a name="get-started-create-an-apache-spark-cluster-in-hdinsight-and-run-interactive-spark-sql-queries"></a>시작: HDInsight에서 Apache Spark 클러스터 만들기 및 대화형 Spark SQL 쿼리 실행
 
-HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터를 만든 다음 [Jupyter](https://jupyter.org) 노트북을 사용하여 Spark 클러스터에서 Spark SQL 대화형 쿼리를 실행하는 방법을 알아봅니다.
+HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터를 만들고 [Jupyter](https://jupyter.org) 노트북을 사용하여 대화형 Spark SQL 쿼리를 실행하는 방법을 알아봅니다.
 
-   ![HDInsight에서 Apache Spark 사용 시작](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "HDInsight에서 Apache Spark 사용 시작 자습서입니다. 설명된 단계: 저장소 계정 만들기, 클러스터 만들기, Spark SQL 문 실행")
+   ![Azure HDInsight에서 Apache Spark 클러스터를 만드는 단계를 설명하는 빠른 시작 다이어그램](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "HDInsight에서 Apache Spark를 사용하여 Spark 빠른 시작. 다음을 보여 주는 단계: 클러스터 만들기, Spark 대화형 쿼리 실행")
 
 ## <a name="prerequisites"></a>필수 조건
+
 * **Azure 구독** - 이 자습서를 시작하기 전에 Azure 구독이 있어야 합니다. [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free)를 참조하세요.
 
-## <a name="create-a-spark-cluster"></a>Spark 클러스터 만들기
-이 섹션에서는 [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/)을 사용하여 HDInsight에서 Spark 클러스터를 만듭니다. 클러스터를 만드는 다른 방법은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+## <a name="create-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터 만들기
+
+이 섹션에서는 [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/)을 사용하여 HDInsight Spark 클러스터를 만듭니다. 클러스터를 만드는 다른 방법은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다.         
 
@@ -42,7 +45,7 @@ HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터�
 
 2. 다음 값을 입력합니다.
 
-    ![Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Spark 클러스터 만들기](./media/hdinsight-apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Spark 클러스터 만들기")
+    ![Azure Resource Manager 템플릿을 사용하여 HDInsight Spark 클러스터 만들기](./media/hdinsight-apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Spark 클러스터 만들기")
 
     * **구독**: 이 클러스터에 대해 Azure 구독을 선택합니다.
     * **리소스 그룹**: 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다. 리소스 그룹은 프로젝트에 대한 Azure 리소스를 관리하는 데 사용됩니다.
@@ -61,19 +64,19 @@ HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터�
 >
 >
 
-## <a name="run-a-spark-sql-query"></a>Spark SQL 쿼리 실행
+## <a name="run-an-interactive-spark-sql-query"></a>대화형 Spark SQL 쿼리 실행
 
-이 섹션에서는 Jupyter Notebook을 사용하여 Spark 클러스터에 대해 Spark SQL 쿼리를 실행합니다. HDInsight Spark 클러스터는 Jupyter Notebook에 사용할 수 있는 세 개의 커널을 제공합니다. 다음과 같습니다.
+이 섹션에서는 Jupyter 노트북을 사용하여 이전에 만든 Spark 클러스터에 대해 대화형 Spark SQL 쿼리를 실행합니다. HDInsight Spark 클러스터는 Jupyter Notebook에 사용할 수 있는 세 개의 커널을 제공합니다. 다음과 같습니다.
 
 * **PySpark** (Python에서 작성한 응용 프로그램용)
 * **PySpark3** (Python3에서 작성한 응용 프로그램용)
 * **Spark** (Scala에서 작성한 응용 프로그램용)
 
-이 문서에서는 **PySpark** 커널을 사용합니다. 커널에 대한 자세한 내용은 [HDInsight에서 Apache Spark 클러스터와 함께 Jupyter Notebook 커널 사용](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요. PySpark 커널을 사용할 경우의 주요 이점은 다음과 같습니다.
+이 문서에서는 대화형 Spark SQL 쿼리를 실행하는 노트북에 있는 **PySpark** 커널을 사용합니다. 커널에 대한 자세한 내용은 [HDInsight에서 Apache Spark 클러스터와 함께 Jupyter Notebook 커널 사용](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요. PySpark 커널을 사용할 경우의 주요 이점은 다음과 같습니다.
 
 * Spark 및 Hive에 대한 컨텍스트가 자동으로 설정됩니다.
-* `%%sql`과 같은 셀 매직을 사용하여 이전 코드 조각 없이 직접 SQL 또는 Hive 쿼리를 실행합니다.
-* SQL 또는 Hive 쿼리의 출력은 자동으로 시각화됩니다.
+* `%%sql`과 같은 셀 매직을 사용하여 이전 코드 조각 없이 직접 대화형 SQL 또는 Hive 쿼리를 실행합니다.
+* 대화형 쿼리의 출력은 자동으로 시각화됩니다.
 
 ### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>PySpark 커널을 사용하여 Jupyter Notebook 만들기
 
@@ -85,23 +88,23 @@ HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터�
 
 3. **빠른 링크**에서 **클러스터 대시보드**를 클릭한 다음 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-   ![HDInsight 클러스터 대시보드](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "HDInsight 클러스터 대시보드")
+   ![Jupyter 노트북을 열어 대화형 Spark SQL 쿼리 실행](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter 노트북을 열어 대화형 Spark SQL 쿼리 실행")
 
    > [!NOTE]
-   > 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다.
+   > 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter 노트북에 액세스할 수 있습니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
 3. Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **PySpark**를 클릭합니다.
 
-   ![Jupyter Notebook 만들기](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Jupyter Notebook 만들기")
+   ![Jupyter 노트북을 만들어 대화형 Spark SQL 쿼리 실행](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Jupyter 노트북을 만들어 대화형 Spark SQL 쿼리 실행")
 
    새 노트북이 만들어지고 Untitled(Untitled.pynb) 이름으로 열립니다.
 
 4. 맨 위에서 노트북 이름을 클릭하고 원하는 경우 식별하기 쉬운 이름을 입력합니다.
 
-    ![노트북 이름 제공](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "노트북 이름 제공")
+    ![Jupter 노트북에 대한 이름을 제공하여 대화형 Spark 쿼리 실행](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Jupter 노트북에 대한 이름을 제공하여 대화형 Spark 쿼리 실행")
 
 5. 빈 셀에 다음 코드를 붙여 넣은 다음 **SHIFT + ENTER**를 눌러 코드를 실행합니다. 코드는 이 시나리오에 필요한 형식을 가져옵니다.
 
@@ -109,9 +112,9 @@ HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터�
 
     PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다.
 
-    ![Jupyter 노트북 작업 상태](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Jupyter 노트북 작업 상태")
+    ![대화형 Spark SQL 쿼리 상태](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-interactive-spark-query-status.png "대화형 Spark SQL 쿼리 상태")
 
-    Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 Notebook 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **PySpark** 텍스트 옆에 단색 원이 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
+    Jupyter에서 대화형 쿼리를 실행할 때마다, 웹 브라우저 창 제목에 노트북 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **PySpark** 텍스트 옆에 단색 원이 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
 
 6. 다음 코드를 실행하여 임시 테이블(**hvac**)로 샘플 데이터 집합을 등록합니다.
 
@@ -132,32 +135,29 @@ HDInsight에서 [Apache Spark](hdinsight-apache-spark-overview.md) 클러스터�
 
     HDInsight의 Spark 클러스터는 **\HdiSamples\HdiSamples\SensorSampleData\hvac** 아래에서 샘플 데이터 파일 **hvac.csv**와 함께 제공됩니다.
 
-7. 데이터를 쿼리하려면 다음 코드를 실행합니다.
+7. 데이터에서 대화형 쿼리를 실행하려면 다음 코드를 사용합니다.
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   PySpark 커널을 사용하기 때문에 이제 `%%sql` 매직을 사용하여 만든 임시 테이블 **hvac**에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
+   PySpark 커널을 사용하기 때문에 이제 `%%sql` 매직을 사용하여 만든 임시 테이블 **hvac**에서 대화형 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
 
    다음과 같은 테이블 형식 출력이 기본적으로 표시됩니다.
 
-     ![쿼리 결과 출력 테이블](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "쿼리 결과 출력 테이블")
+     ![대화형 Spark 쿼리 결과의 테이블 출력](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-interactive-spark-query-result.png "대화형 Spark 쿼리 결과의 테이블 출력")
 
     다른 시각화로 결과를 볼 수도 있습니다. 예를 들어 동일한 출력에 대한 영역 그래프는 다음과 같습니다.
 
-    ![쿼리 결과 영역 그래프](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "쿼리 결과 영역 그래프")
+    ![대화형 Spark 쿼리 결과의 영역 그래프](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-interactive-spark-query-result-area-chart.png "대화형 Spark 쿼리 결과의 영역 그래프")
 
 9. 응용 프로그램 실행을 완료한 후 클러스터 리소스를 해제하도록 Notebook을 종료합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다.
 
-## <a name="troubleshoot"></a>문제 해결
-
-HDInsight 클러스터로 작업하는 동안 발생할 수 있는 몇 가지 일반적인 문제는 다음과 같습니다.
-
-### <a name="access-control-requirements"></a>액세스 제어 요구 사항
-HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
-
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+## <a name="troubleshoot-access-control"></a>액세스 제어 문제 해결
+
+HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)

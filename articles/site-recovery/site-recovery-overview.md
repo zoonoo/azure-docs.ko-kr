@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/14/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 89921997f68bd72ee6086d2b635361eeeaba1c28
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -33,7 +34,7 @@ Azure Recovery Services는 BCDR 전략에 기여합니다. [Azure Backup](https:
 
 - **클라우드에서의 재해 복구** - VM 및 물리적 서버에서 실행되는 워크로드를 보조 사이트가 아닌 Azure로 복제할 수 있습니다. 이렇게 하면 보조 데이터 센터를 유지하는 비용과 복잡성을 제거할 수 있습니다.
 - **하이브리드 환경에 대한 유연한 복제** - 지원되는 온-프레미스 Hyper-V VM, VMware VM 및 Windows/Linux 물리적 서버에서 실행되는 모든 워크로드를 복제할 수 있습니다.
-- **마이그레이션** - Site Recovery를 사용하여 온-프레미스 AWS 인스턴스를 Azure VM으로 마이그레이션하거나 Azure 지역 간에 Azure VM을 마이그레이션할 수 있습니다.
+- **마이그레이션** - Site Recovery를 사용하여 AWS 인스턴스를 Azure VM으로 마이그레이션하거나 Azure 지역 간에 Azure VM을 마이그레이션할 수 있습니다.
 - **간소화된 BCDR** - Azure Portal의 단일 위치에서 복제를 배포할 수 있습니다.  단일 및 다중 컴퓨터의 간단한 장애 조치 및 장애 복구를 실행할 수 있습니다.
 - **복원력** - Site Recovery는 응용 프로그램 데이터를 차단하지 않고 복제와 장애 조치를 오케스트레이션합니다.
 복제된 데이터는 제공되는 복원력을 통해 Azure Storage에 저장됩니다. 장애 조치가 발생하는 경우 복제된 데이터를 기반으로 하여 Azure VM을 만듭니다.
