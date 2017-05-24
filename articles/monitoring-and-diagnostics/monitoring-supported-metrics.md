@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 5/10/2017
 ms.author: johnkem
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: c0e7eb271b7ab19131c500e139ea3b1f6b2e7479
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: ff47eaa27351f8d1685090edc54d90e5e91a1de0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -623,6 +623,63 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |AMLCalloutRequests|기능 요청|개수|합계|기능 요청|
 |AMLCalloutFailedRequests|실패한 기능 요청|개수|합계|실패한 기능 요청|
 |AMLCalloutInputEvents|함수 이벤트|개수|합계|함수 이벤트|
+
+## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|CpuPercentage|CPU 비율|백분율|평균|CPU 비율|
+|MemoryPercentage|메모리 비율|백분율|평균|메모리 비율|
+|DiskQueueLength|디스크 큐 길이|개수|합계|디스크 큐 길이|
+|HttpQueueLength|Http 큐 길이|개수|합계|Http 큐 길이|
+|BytesReceived|데이터 입력|바이트|합계|데이터 입력|
+|BytesSent|데이터 출력|바이트|합계|데이터 출력|
+
+## <a name="microsoftwebsites-including-functions"></a>Microsoft.Web/sites(Functions 포함)
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|CpuTime|CPU 시간|초|합계|CPU 시간|
+|요청|요청|개수|합계|요청|
+|BytesReceived|데이터 입력|바이트|합계|데이터 입력|
+|BytesSent|데이터 출력|바이트|합계|데이터 출력|
+|Http101|Http 101|개수|합계|Http 101|
+|Http2xx|Http 2xx|개수|합계|Http 2xx|
+|Http3xx|Http 3xx|개수|합계|Http 3xx|
+|Http401|Http 401|개수|합계|Http 401|
+|Http403|Http 403|개수|합계|Http 403|
+|Http404|Http 404|개수|합계|Http 404|
+|Http406|Http 406|개수|합계|Http 406|
+|Http4xx|Http 4xx|개수|합계|Http 4xx|
+|Http5xx|Http 서버 오류|개수|합계|Http 서버 오류|
+|MemoryWorkingSet|메모리 작업 집합|바이트|평균|메모리 작업 집합|
+|AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|
+|AverageResponseTime|평균 응답 시간|초|평균|평균 응답 시간|
+|FunctionExecutionUnits|함수 실행 단위|개수|평균|함수 실행 단위|
+|FunctionExecutionCount|함수 실행 횟수|개수|평균|함수 실행 횟수|
+
+## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|CpuTime|CPU 시간|초|합계|CPU 시간|
+|요청|요청|개수|합계|요청|
+|BytesReceived|데이터 입력|바이트|합계|데이터 입력|
+|BytesSent|데이터 출력|바이트|합계|데이터 출력|
+|Http101|Http 101|개수|합계|Http 101|
+|Http2xx|Http 2xx|개수|합계|Http 2xx|
+|Http3xx|Http 3xx|개수|합계|Http 3xx|
+|Http401|Http 401|개수|합계|Http 401|
+|Http403|Http 403|개수|합계|Http 403|
+|Http404|Http 404|개수|합계|Http 404|
+|Http406|Http 406|개수|합계|Http 406|
+|Http4xx|Http 4xx|개수|합계|Http 4xx|
+|Http5xx|Http 서버 오류|개수|합계|Http 서버 오류|
+|MemoryWorkingSet|메모리 작업 집합|바이트|평균|메모리 작업 집합|
+|AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|
+|AverageResponseTime|평균 응답 시간|초|평균|평균 응답 시간|
+|FunctionExecutionUnits|함수 실행 단위|개수|평균|함수 실행 단위|
+|FunctionExecutionCount|함수 실행 횟수|개수|평균|함수 실행 횟수|
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Monitor의 메트릭에 대해 읽기](monitoring-overview-metrics.md)

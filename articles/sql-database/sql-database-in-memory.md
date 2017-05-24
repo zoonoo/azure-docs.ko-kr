@@ -13,12 +13,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 05/10/2017
 ms.author: jodebrui
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: f827b76b8164e4eae286c9a1247e64d4f5ee9ea8
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: a7273c50f2619c776268406aa14f6c00dcfbfbbe
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -29,7 +30,7 @@ Azure SQL Database의 메모리 내 기술을 사용하여 트랜잭션(OLTP(온
 메모리 내 OLTP가 성능을 크게 향상시키는 방법의 두 가지 예는 다음과 같습니다.
 
 - 메모리 내 OLTP를 사용하여 [Quorum Business Solutions은 DTU(즉, 리소스 소비)를 70%까지 개선하면서 워크로드를 두 배로 늘릴 수 있습니다](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-- 다음 [Azure SQL Database의 메모리 내 OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) 비디오는 샘플 워크로드에서 리소스 소비가 크게 향상되었음을 보여 줍니다.
+- 다음 [Azure SQL Database의 메모리 내 OLTP 동영상](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)은 샘플 워크로드에서 리소스 소비가 크게 향상되었음을 보여 줍니다. 자세한 내용은 [Azure SQL Database의 메모리 내 OLTP 블로그 게시물](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)을 참조하세요.
 
 메모리 내 기술은 프리미엄 탄력적 풀의 데이터베이스를 비롯한 프리미엄 계층의 모든 데이터베이스에서 사용할 수 있습니다.
 
@@ -497,6 +498,8 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 #### <a name="deeper-information"></a>자세한 정보
 
 - [쿼럼이 SQL Database의 메모리 내 OLTP을 사용하여 DTU를 70% 줄이는 동시에 키 데이터베이스의 워크로드를 두 배로 증가시키는 방법에 대해 알아보기](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+
+- [Azure SQL Database의 메모리 내 OLTP 블로그 게시물](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 - [메모리 내 OLTP에 대해 알아보기](http://msdn.microsoft.com/library/dn133186.aspx)
 
