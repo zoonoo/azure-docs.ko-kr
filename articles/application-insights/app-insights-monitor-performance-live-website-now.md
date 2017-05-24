@@ -3,7 +3,7 @@ title: "Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Mi
 description: "다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -11,12 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 88abdb41a403f9c1dc85e574c655c532ee9b1eb5
-ms.lasthandoff: 04/13/2017
+ms.date: 05/05/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -59,6 +60,20 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
     ![Application Insights를 클릭해 갑니다.](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
 [클라우드 및 VM 앱 모니터링](app-insights-azure.md).
+
+### <a name="enable-client-side-monitoring-in-azure"></a>Azure에서 클라이언트 쪽 모니터링 사용
+
+Azure에서 Application Insights를 사용하도록 설정한 경우 페이지 보기 및 사용자 원격 분석을 추가할 수 있습니다.
+
+1. 설정 > 응용 프로그램 설정 선택
+2.  앱 설정 아래에서 새로운 키 값 쌍을 추가합니다. 
+   
+    키: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
+    
+    값: `true`
+3. 설정을 **저장**하고 앱을 **다시 시작**합니다.
+
+Application Insights JavaScript SDK가 이제 각 웹 페이지에 삽입됩니다.
 
 ## <a name="monitor-a-live-iis-web-app"></a>라이브 IIS 웹앱 모니터링
 

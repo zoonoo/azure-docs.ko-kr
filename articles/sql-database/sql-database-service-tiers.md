@@ -17,10 +17,10 @@ ms.workload: data-management
 wms.date: 04/26/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 0ab804ee1dc25f1e44be856564ac8ffa87c54dea
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 3300c4e79ddc6c8e04c3b4d80b3ee07bd6aeea9d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,8 +50,11 @@ ms.lasthandoff: 04/27/2017
 | **서비스 계층 기능** | **Basic** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
 | 최대 단일 데이터베이스 크기 | 2 GB | 250GB | 4TB*  | 500GB  |
-| 탄력적 풀의 최대 데이터베이스 크기 | 156GB | 2.9TB | 500GB | 500GB |
+| 최대 탄력적 풀 크기 | 156GB | 2.9TB | 4TB* | 750GB |
+| 탄력적 풀의 최대 데이터베이스 크기 | 2 GB | 250GB | 500GB | 500GB |
 | 풀당 최대 데이터베이스 수 | 500  | 500 | 100 | 100 |
+| 최대 단일 데이터베이스 DTU | 5 | 100 | 4000 | 1000 |
+| 탄력적 풀의 데이터베이스당 최대 DTU | 5 | 100 | 4000 | 1000 |
 | 데이터베이스 백업 보존 기간 | 7 일 | 35일 | 35일 | 35일 |
 ||||||
 
@@ -93,11 +96,9 @@ ms.lasthandoff: 04/27/2017
 
 풀을 사용하여 데이터베이스가 풀 내의 각 데이터베이스에 특정 성능 수준을 할당할 필요 없이 eDTU 리소스를 공유하고 사용할 수 있습니다. 예를 들어 표준 풀의 단일 데이터베이스에서 eDTU를 0개 사용하다가 풀을 구성할 때 설정한 최대 데이터베이스 eDTU 사용으로 전환할 수 있습니다. 풀을 사용하여 다양한 워크로드를 가진 복수의 데이터베이스에서 전체 풀에 사용 가능한 eDTU 리소스를 효율적으로 사용할 수 있습니다. 자세한 내용은 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool.md) 을 참조하세요.
 
-다음 표에서는 풀 서비스 계층의 특성을 설명합니다.
+다음 표에서는 탄력적 풀의 리소스 제한에 대해 설명합니다.  탄력적 풀의 개별 데이터베이스에 대한 리소스 제한은 일반적으로 DTU 및 서비스 계층을 기반으로 하는 풀 외부의 단일 데이터베이스의 경우와 동일합니다.  예를 들어 S2 데이터베이스의 최대 동시 작업자 수는 120명입니다.  따라서 풀의 데이터베이스당 최대 DTU가 50DTU(S2와 동일)인 경우 표준 풀의 데이터베이스에 대한 최대 동시 작업자 수도 120명입니다.
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-또한 풀 내의 각 데이터베이스는 해당 계층에 대한 단일 데이터베이스 특성을 준수합니다. 예를 들어 Basic 풀의 최대 세션 수 한계는 풀당 4800 ~ 28800개이지만, Basic 풀 내 개별 데이터베이스의 데이터베이스 세션 한계는 300개입니다.
 
 ## <a name="scaling-up-or-scaling-down-an-elastic-pool"></a>탄력적 풀 확장 및 축소
 

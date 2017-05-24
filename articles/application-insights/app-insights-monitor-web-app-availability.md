@@ -3,7 +3,7 @@ title: "웹 사이트의 가용성 및 응답성 모니터링 | Microsoft Docs"
 description: "Application Insights에서 웹 테스트를 설정합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
@@ -11,30 +11,29 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 5893f8126b0f18ac0d56e434a8e495380bd605d5
-ms.lasthandoff: 04/13/2017
+ms.date: 04/26/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>웹 사이트의 가용성 및 응답성 모니터링
-웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터하도록 웹 테스트를 설정할 수 있습니다. [Azure Application Insights](app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 응용 프로그램에 웹 요청을 보냅니다. 응용 프로그램이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
+웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터링하도록 테스트를 설정할 수 있습니다. [Azure Application Insights](app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 응용 프로그램에 웹 요청을 보냅니다. 응용 프로그램이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
 
-![웹 테스트의 예](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
+공용 인터넷에서 액세스 가능한 모든 HTTP 또는 HTTPS 끝점에 대해 가용성 테스트를 설정할 수 있습니다. 테스트하는 웹 사이트에 아무것도 추가하지 않아도 됩니다. 자신의 사이트가 아니어도 됩니다. 종속되어 있는 REST API 서비스를 테스트할 수 있습니다.
 
-공용 인터넷에서 액세스 가능한 모든 HTTP 또는 HTTPS 끝점에 대해 웹 테스트를 설정할 수 있습니다. 테스트하는 웹 사이트에 아무것도 추가하지 않아도 됩니다. 자신의 사이트가 아니어도 됩니다. 종속되어 있는 REST API 서비스를 테스트할 수 있습니다.
-
-웹 테스트에는 두 가지 유형이 있습니다:
+가용성 테스트는 다음과 같은 두 종류가 있습니다.
 
 * [URL ping 테스트](#create): Azure 포털에서 만들 수 있는 간단한 테스트입니다.
 * [다단계 웹 테스트](#multi-step-web-tests): Visual Studio Enterprise에서 만들고 포털에 업로드합니다.
 
-응용 프로그램 리소스당 최대 10개의 웹 테스트를 만들 수 있습니다.
+응용 프로그램 리소스당 최대 25개의 가용성 테스트를 만들 수 있습니다.
 
-## <a name="create"></a>1. 웹 테스트 보고서에 대한 리소스 열기
+## <a name="create"></a>1. 가용성 테스트 보고서에 대한 리소스 열기
 
 웹앱에 **Application Insights를 이미 구성한 경우** [Azure Portal](https://portal.azure.com)에서 Application Insights 리소스를 엽니다.
 
@@ -45,12 +44,12 @@ ms.lasthandoff: 04/13/2017
 **모든 리소스** 를 클릭하여 새 리소스에 대한 개요 블레이드를 엽니다.
 
 ## <a name="setup"></a>2. URL ping 테스트 만들기
-가용성 블레이드를 열고 웹 테스트를 추가합니다.
+가용성 블레이드를 열고 테스트를 추가합니다.
 
 ![웹 사이트의 최소 URL 채우기](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-* **URL**은 테스트하려는 웹 페이지일 수 있지만 공용 인터넷에서 볼 수 있어야 합니다. URL에는 쿼리 문자열이 포함될 수 있으므로 데이터베이스 사용을 연습해 볼 수 있습니다. URL이 리디렉션으로 확인되면 최대 10개의 리디렉션을 따릅니다.
-* **종속 요청 구문 분석**: 이 옵션을 선택하는 경우 테스트는 테스트 하에서 대상 웹 페이지의 일부인 이미지, 스크립트, 스타일 파일 및 기타 파일을 요청합니다. 기록된 응답 시간에는 이러한 파일을 가져오는 데 걸리는 시간이 포함됩니다. 전체 테스트의 시간 제한 내에서 이러한 모든 리소스를 성공적으로 다운로드할 수 없는 경우 테스트에 실패합니다. 
+* **URL**은 테스트하려는 웹 페이지일 수 있지만 공용 인터넷에서 볼 수 있어야 합니다. URL에 쿼리 문자열을 포함할 수 있습니다. 따라서 데이터베이스 사용 등을 연습해 볼 수 있습니다. URL이 리디렉션으로 확인되면 최대 10개의 리디렉션을 따릅니다.
+* **종속 요청 구문 분석**: 이 옵션을 선택하는 경우 테스트에서 테스트 대상 웹 페이지의 일부인 이미지, 스크립트, 스타일 파일 및 기타 파일을 요청합니다. 기록된 응답 시간에는 이러한 파일을 가져오는 데 걸리는 시간이 포함됩니다. 전체 테스트의 시간 제한 내에서 이러한 모든 리소스를 성공적으로 다운로드할 수 없는 경우 테스트에 실패합니다. 
 
     옵션을 선택하지 않으면 테스트는 지정한 URL에서만 파일을 요청합니다.
 * **다시 시도 사용**: 이 옵션을 선택한 경우 테스트에 실패하면 잠시 후에 다시 시도합니다. 연속 된 세 번의 시도가 실패하는 경우에 실패가 보고됩니다. 후속 테스트는 일반적인 테스트 빈도로 수행됩니다. 다음 성공까지 다시 시도는 일시적으로 중단됩니다. 이 규칙은 각 테스트 위치에서 독립적으로 적용됩니다. 이 옵션을 권장합니다. 평균 실패의 약 80%는 다시 시도에서 사라집니다.
@@ -68,33 +67,41 @@ ms.lasthandoff: 04/13/2017
     경고가 발생하면 호출되는 [웹후크](../monitoring-and-diagnostics/insights-webhooks-alerts.md)를 설정할 수 있습니다. 그러나 현재 쿼리 매개 변수는 속성으로 전달되지 않습니다.
 
 ### <a name="test-more-urls"></a>더 많은 URL 테스트
-테스트를 더 추가 합니다. 예를 들어 홈페이지를 테스트할 수 있을 뿐 아니라 검색을 위한 URL을 테스트하여 데이터베이스가 실행되고 있는지 확인할 수 있습니다.
+테스트를 더 추가 합니다. 예를 들어 홈 페이지를 테스트할 수 있을 뿐 아니라 검색을 위한 URL을 테스트하여 데이터베이스가 실행되고 있는지 확인할 수 있습니다.
 
 
-## <a name="monitor"></a>3. 웹 테스트 결과를 참조하세요.
+## <a name="monitor"></a>3. 가용성 테스트 결과 참조
 
-5분 후에 **새로 고침**을 클릭하여 테스트 결과를 봅니다. 
+5분 후에 **새로 고침**을 클릭하여 테스트 결과를 볼 수 있습니다. 
 
-![홈 블레이드에 대한 요약 결과](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
+![홈 블레이드에 대한 요약 결과](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
 
-기간의 보다 자세한 정보를 보려면 요약 차트에서 아무 막대나 클릭합니다.
+산점도에서는 진단 테스트 단계의 세부 정보가 포함된 테스트 결과 샘플을 보여 줍니다. 테스트 엔진은 실패한 테스트에 대한 진단 정보를 저장합니다. 성공한 테스트의 경우 실행의 하위 집합에 대한 진단 정보가 저장됩니다. 테스트 타임스탬프, 테스트 지속 시간, 위치 및 테스트 이름을 보려면 녹색/빨간색 점 위로 마우스를 이동합니다. 테스트 결과의 세부 정보를 보려면 산점도에서 원하는 점을 클릭합니다.  
+
+특정 테스트, 위치를 선택하거나 기간을 줄여 대상 기간에서 더 많은 결과를 볼 수 있습니다. 검색 탐색기를 사용하여 모든 실행의 결과를 확인하거나 분석 쿼리를 사용하여 이 데이터에 대한 사용자 지정 보고서를 실행합니다.
+
+메트릭 탐색기에는 원시 결과 외에도 두 개의 가용성 메트릭이 있습니다. 
+
+1. 가용성: 모든 테스트 실행에서 성공한 테스트의 비율입니다. 
+2. 테스트 지속 시간: 모든 테스트 실행에서의 평균 테스트 지속 시간입니다.
+
+테스트 이름, 위치에 필터를 적용하여 특정 테스트 및/또는 위치의 추세를 분석할 수 있습니다.
 
 ## <a name="edit"></a>테스트 검사 및 편집
 
 요약 페이지에서 특정 테스트를 선택합니다. 거기에서 해당 특정 결과를 확인하고 편집하거나 일시적으로 사용하지 않도록 설정할 수 있습니다.
 
-![웹 테스트 편집 또는 사용 안 함](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
+![웹 테스트 편집 또는 사용 안 함](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
 
-서비스에 대한 유지 관리를 수행하는 동안 웹 테스트를 사용하지 않도록 설정할 수 있습니다.
-
+서비스에 대한 유지 관리를 수행하는 동안 가용성 테스트 또는 관련된 경고 규칙을 사용하지 않도록 설정할 수 있습니다. 
 
 ## <a name="failures"></a>오류가 표시되는 경우
 빨간 점을 클릭합니다.
 
-![빨간 점을 클릭 합니다.](./media/app-insights-monitor-web-app-availability/open-instance.png)
+![빨간 점을 클릭 합니다.](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
 
 
-웹 테스트 결과를 통해 가능한 작업:
+가용성 테스트 결과에서 다음을 수행할 수 있습니다.
 
 * 서버로부터 수신한 응답을 검사합니다.
 * 실패한 요청 인스턴스를 처리하는 동안 서버 앱에서 보낸 원격 분석을 엽니다.
@@ -104,7 +111,7 @@ ms.lasthandoff: 04/13/2017
 
 *정상으로 보이지만 실패로 보고되었습니까?* 모든 이미지, 스크립트, 스타일 시트 및 페이지에 의해 로드된 다른 파일을 확인합니다. 그 중 하나라도 실패하면, 기본 html 페이지가 확인을 로드하는 경우에도 테스트는 실패로 보고됩니다.
 
-*관련 항목이 없나요?* [샘플링](app-insights-sampling.md)이 진행 중이기 때문일 수 있습니다.
+*관련 항목이 없나요?* 서버 쪽 응용 프로그램에 대해 Application Insights를 설정한 경우, [샘플링](app-insights-sampling.md)이 작동 중이기 때문일 수 있습니다. 
 
 ## <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
 URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 예를 들어 판매 웹 사이트를 모니터링하는 경우 장바구니에 항목을 제대로 추가할 수 있는지 테스트할 수 있습니다.
@@ -149,7 +156,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
     ![Visual Studio에서 .webtest 파일을 열고 실행을 클릭합니다.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 #### <a name="2-upload-the-web-test-to-application-insights"></a>2. Application Insights에 웹 테스트를 업로드
-1. Application Insights 포털에서 새 웹 테스트를 만듭니다.
+1. Application Insights 포털에서 웹 테스트를 만듭니다.
 
     ![웹 테스트 블레이드에서 추가를 선택합니다.](./media/app-insights-monitor-web-app-availability/16-another-test.png)
 2. 다단계 테스트를 선택하고 .webtest 파일을 업로드합니다.
@@ -239,8 +246,8 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
 테스트가 완료되면 응답 시간 및 성공률이 표시됩니다.
 
-## <a name="automation"></a>자동화
-* [PowerShell 스크립트를 사용하여 웹 테스트를 자동으로 설정](app-insights-powershell.md#add-an-availability-test) 합니다.
+## <a name="automation"></a>Automation
+* [PowerShell 스크립트를 사용하여 가용성 테스트를 자동으로 설정](app-insights-powershell.md#add-an-availability-test)합니다.
 * 경고가 발생하면 호출되는 [웹후크](../monitoring-and-diagnostics/insights-webhooks-alerts.md)를 설정합니다.
 
 ## <a name="qna"></a>질문이 있습니까? 문제가 있습니까?
@@ -252,7 +259,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
     TLS 1.1 및 TLS 1.2를 지원합니다.
 * *"웹 테스트" 및 "가용성 테스트" 간의 차이가 있나요?*
 
-    두 용어는 같은 의미로 사용됩니다.
+    두 용어는 같은 의미로 참조할 수 있습니다. 가용성 테스트는 다단계 웹 테스트 외에 단일 URL ping 테스트를 포함한 보다 일반적인 용어입니다.
 * *방화벽 뒤에 실행되는 내부 서버에서 가용성 테스트를 사용하려 합니다.*
 
     가능한 해결 방법으로 다음 두 가지가 있습니다.
@@ -291,4 +298,3 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
