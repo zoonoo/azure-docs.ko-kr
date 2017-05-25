@@ -14,9 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
 ms.openlocfilehash: c6cca8fda4ba6a26d5ee74b43e0bae37639865c5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -198,10 +201,5 @@ catch (MsalException ee)
 
 ## <a name="get-security-updates-for-our-products"></a>당사 제품에 대한 보안 업데이트 가져오기
 [이 페이지](https://technet.microsoft.com/security/dd252948) 를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

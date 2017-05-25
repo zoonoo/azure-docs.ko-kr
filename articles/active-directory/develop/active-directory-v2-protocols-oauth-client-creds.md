@@ -15,9 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 08e2e561b6b939de4d829c816c1948361e16f6c4
 ms.openlocfilehash: 2bbfed6e14a77964a32b84ae3f78f3529f13043c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -207,10 +210,5 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## <a name="code-sample"></a>코드 샘플
 관리 동의 끝점을 사용하여 클라이언트 자격 증명 권한 부여를 구현하는 응용 프로그램의 예를 보려면 [v2.0 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
