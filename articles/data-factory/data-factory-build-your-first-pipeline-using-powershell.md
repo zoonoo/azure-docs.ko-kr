@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c7062721017176b4caacbd48a513c2610058b835
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: bfd2176103601b748bd141cc1cc86e814395c3b3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -142,7 +143,6 @@ ms.lasthandoff: 04/27/2017
       "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-          "version": "3.2",
           "clusterSize": 1,
           "timeToLive": "00:30:00",
           "linkedServiceName": "StorageLinkedService"
@@ -154,7 +154,6 @@ ms.lasthandoff: 04/27/2017
 
    | 속성 | 설명 |
    |:--- |:--- |
-   | 버전 |생성되는 HDInsight 버전을 3.2로 지정합니다. |
    | ClusterSize |HDInsight 클러스터의 크기를 지정합니다. |
    | TimeToLive |HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다. |
    | linkedServiceName |HDInsight에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다. |

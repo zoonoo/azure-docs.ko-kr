@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 0ceba4142fd7b0e6edc1b7a6c14470d21806004a
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 95691b6e59f5e21e7c6cff9f4222bcffade57973
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -101,7 +102,6 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
         "properties": {
         "type": "HDInsightOnDemand",
             "typeProperties": {
-                "version": "3.2",
                 "clusterSize": 1,
                 "timeToLive": "00:30:00",
                 "linkedServiceName": "AzureStorageLinkedService1"
@@ -114,7 +114,6 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
     속성 | 설명
     -------- | ----------- 
-    버전 | 만들어질 HDInsight Hadoop 클러스터의 버전을 지정합니다.
     ClusterSize | HDInsight Hadoop 클러스터의 크기를 지정합니다.
     TimeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다.
     linkedServiceName | HDInsight Hadoop 클러스터에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다. 
