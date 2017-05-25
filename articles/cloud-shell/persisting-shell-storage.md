@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 9093bf30a67fd762b237faa61071137fd83d048f
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 540cd10066e055e2dc132445b9adba5a4112d63a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 ---
 
@@ -35,11 +35,14 @@ Azure Cloud Shell은 처음 시작 시 사용자에게 LRS 저장소 계정과 A
 이 파일 공유는 $Home 디렉터리에서 `clouddrive`로 탑재됩니다. 또한 $Home 디렉터리를 자동으로 업데이트하고 유지하는 5GB 이미지를 저장하는 데 이 파일 공유를 사용합니다. 일회성 작업이며 후속 세션에서 자동으로 탑재됩니다.
 
 ### <a name="cloud-shell-persists-files-with-both-methods-below"></a>Cloud Shell은 아래 방법을 모두 사용하여 파일을 유지합니다.
-1. $Home 내에 파일을 유지하기 위해 $Home 디렉터리의 디스크 이미지를 만듭니다. 이 디스크 이미지는 `fileshare.storage.windows.net/fileshare/.cloudconsole/<User>.img`에서 `<User>.img`로 지정된 파일 공유에 저장됩니다.
+1. $Home 내에 파일을 유지하기 위해 $Home 디렉터리의 디스크 이미지를 만듭니다. 이 디스크 이미지는 `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`에서 `acc_<User>.img`로 지정된 파일 공유에 저장됩니다.
 
 2. 직접 파일 공유의 상호 작용을 위해 $Home 디렉터리에서 지정된 파일 공유를 `clouddrive`로 탑재합니다. 
 `/Home/<User>/clouddrive`은 `fileshare.storage.windows.net/fileshare`에 매핑됩니다.
  
+> [!Note]
+> SSH 키와 같이 $Home 디렉터리의 모든 파일은 탑재된 파일 공유에 저장된 사용자 디스크 이미지에서 유지됩니다. $Home 디렉터리 및 탑재된 파일 공유에서 정보를 유지하는 경우 모범 사례를 적용합니다.
+
 ## <a name="using-clouddrive"></a>clouddrive 사용
 Cloud Shell을 사용하면 사용자가 Cloud Shell에 탑재된 파일 공유를 수동으로 업데이트하는 `clouddrive`라는 명령을 실행할 수 있습니다.
 ![](media/clouddrive-h.png)
@@ -110,26 +113,23 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-## <a name="upload-or-download-local-files"></a>로컬 파일 업로드 또는 다운로드
-Azure Portal을 사용하여 파일 공유 간에 로컬 파일의 전송을 관리합니다.
-Cloud Shell 내의 파일을 업데이트하면 블레이드를 새로 고칠 때 File Storage GUI에서 반영됩니다.
+## <a name="transfer-local-files-to-cloud-shell"></a>Cloud Shell에 로컬 파일 전송
+`clouddrive` 디렉터리가 Azure Portal 저장소 블레이드에 동기화됩니다. 이를 사용하여 파일 공유 간에 로컬 파일을 전송합니다. Cloud Shell 내의 파일을 업데이트하면 블레이드를 새로 고칠 때 File Storage GUI에서 반영됩니다.
 
-1. 탑재된 파일 공유 ![](media/touch-txt-storage.png)로 이동합니다.
+### <a name="download-files"></a>파일 다운로드
+![](media/download.gif)
+1. 탑재된 파일 공유로 이동합니다.
 2. 포털에서 대상 파일을 선택합니다.
-3. "다운로드" ![](media/download-storage.png)를 누릅니다.
+3. "다운로드"를 클릭합니다.
 
-`clouddrive` 외부에 존재하는 파일을 다운로드해야 하는 경우:
-1. 파일을 `/<User>/clouddrive`로 복사합니다. <br>
-2. [이전 단계](#upload-or-download-local-files)에 따릅니다. <br>
+### <a name="upload-files"></a>파일 업로드
+![](media/upload.gif)
+1. 탑재된 파일 공유로 이동합니다.
+2. "업로드"를 선택합니다.
+3. 업로드하려는 파일을 선택합니다.
+4. 업로드를 확인합니다.
 
-## <a name="cloud-shell-tagging"></a>Cloud Shell 태그
-Cloud Shell은 다음과 같은 형식을 사용하는 탑재된 저장소 계정에 "태그"를 추가합니다. <br>
-
-| 키 | 값 |
-|:-------------:|:-------------:|
-|cloud-console-files-for-user@domain.com|fileshareName|
-
-이러한 태그를 사용하여 특정 파일 공유에 매핑되는 사용자 및 특정 $Home 이미지를 찾을 수 있는 위치를 확인합니다.
+이제 Cloud Shell의 clouddrive 디렉터리에서 액세스할 수 있는 파일이 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Cloud Shell 빠른 시작](quickstart.md) 

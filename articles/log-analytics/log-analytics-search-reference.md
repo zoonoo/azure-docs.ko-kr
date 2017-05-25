@@ -792,8 +792,7 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | Ex
 | 컴퓨터 |대부분의 형식 |데이터가 속한 컴퓨터 이름입니다. |
 | DeviceName |ProtectionStatus |데이터가 속한 컴퓨터 이름입니다('Computer'와 동일). |
 | DetectionId |ProtectionStatus | |
-| ThreatStatusRank |ProtectionStatus |위협 상태 순위는 위협 상태의 숫자 표현입니다. HTTP 응답 코드와 유사한 순위는 숫자 간에 간격을 두어(이는 150인 위협이 없고 위협이 100 또는 0이 아닌 이유임) 새 상태를 추가할 공간을 남겨 둡니다.
- 위협 상태 및 보호 상태를 롤업하는 경우 그 의도는 선택된 기간 동안 컴퓨터에 있었던 최악의 상태를 표시하는 것입니다. 숫자를 통해 다양한 상태 순위를 지정하므로 가장 높은 번호의 레코드를 찾을 수 있습니다. |
+| ThreatStatusRank |ProtectionStatus |위협 상태 순위는 위협 상태의 숫자 표현입니다. HTTP 응답 코드와 유사한 순위는 숫자 간에 간격을 두어(이는 150인 위협이 없고 위협이 100 또는 0이 아닌 이유임) 새 상태를 추가할 공간을 남겨 둡니다. 위협 상태 및 보호 상태를 롤업하는 경우 그 의도는 선택된 기간 동안 컴퓨터에 있었던 최악의 상태를 표시하는 것입니다. 숫자를 통해 다양한 상태 순위를 지정하므로 가장 높은 번호의 레코드를 찾을 수 있습니다. |
 | ThreatStatus |ProtectionStatus |ThreatStatus에 대한 설명이며, ThreatStatusRank와 1:1 매핑합니다. |
 | TypeofProtection |ProtectionStatus |컴퓨터에서 검색된 맬웨어 방지 제품은 없음, Microsoft 맬웨어 제거 도구, Forefront 등입니다. |
 | ScanDate |ProtectionStatus | |

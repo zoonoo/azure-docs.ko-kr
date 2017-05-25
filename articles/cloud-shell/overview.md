@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 47627bc6df93db1d92aa29350fe6e48039dc6f1b
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 63f1c468b5f8f4b0bb298cb67adea8c01b065427
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Azure Cloud Shell(미리 보기) 개요
@@ -39,19 +39,22 @@ Cloud Shell은 Azure 관리 작업을 사용하여 빌드된 브라우저 기반
 Cloud Shell은 Azure CLI 2.0을 통해 리소스에 즉시 액세스하도록 각 세션에서 자동으로 안전하게 인증합니다.
 
 ### <a name="connect-your-azure-file-storage"></a>Azure File Storage 연결
-Cloud Shell 컴퓨터는 임시이며 결과적으로 Azure 파일 공유를 탑재하도록 하여 $Home 디렉터리를 유지합니다.
+Cloud Shell 컴퓨터는 임시이며 결과적으로 Azure 파일 공유를 `clouddrive`로 탑재하도록 하여 $Home 디렉터리를 유지합니다.
 Cloud Shell를 첫 번째로 시작할 때 리소스 그룹, 저장소 계정 및 파일 공유를 만들라는 메시지가 자동으로 표시됩니다. 이는 일회성 단계이며 모든 세션에서 자동으로 연결됩니다. 
 
 ![](media/storage-prompt.png)
 
-Azure 파일 공유를 사용하여 기본 5GB 디스크 이미지를 포함하는 LRS 저장소 계정이 자동으로 만들어집니다.
-이 디스크 이미지를 사용하여 $Home 디렉터리를 동기화하고 유지합니다. 일반 저장소 비용이 적용됩니다.
+Azure 파일 공유를 사용하여 기본 5GB 디스크 이미지를 포함하는 LRS 저장소 계정이 자동으로 만들어집니다. 파일 공유는 $Home 디렉터리를 동기화하고 유지하는 데 사용되는 디스크 이미지와의 파일 공유 상호 작용을 위해 `clouddrive`로 탑재합니다. 일반 저장소 비용이 적용됩니다.
+
 세 가지 리소스가 자동으로 만들어집니다.
 1. 리소스 그룹: `cloud-shell-storage-<region>`
 2. 저장소 계정: `cs-uniqueGuid`
 3. 파일 공유: `cs-<user>-<domain>-com-uniqueGuid`
 
-[Cloud Shell에서 파일을 유지하는 방법에 대해 자세히 살펴보기](persisting-shell-storage.md)
+> [!Note]
+> SSH 키와 같이 $Home 디렉터리의 모든 파일은 탑재된 파일 공유에 저장된 사용자 디스크 이미지에서 유지됩니다. $Home 디렉터리 및 탑재된 파일 공유에서 파일을 저장하는 경우 모범 사례를 적용합니다.
+
+[Cloud Shell 저장소, 파일 공유 업데이트 및 파일 업로드/다운로드에 대해 자세히 알아봅니다.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>개념
 * Cloud Shell은 세션 별, 사용자 단위 기준으로 제공된 임시 컴퓨터에서 실행됩니다.

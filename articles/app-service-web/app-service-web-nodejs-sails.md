@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 197e4c1873ecdc80c7eed3427449e2ea0d1605ba
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 62f674945745eb019c92173798b6eef43337c9f3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -47,7 +47,7 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
 * [Node.JS](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Azure CLI 2.0 미리 보기](/cli/azure/install-az-cli2)
+* [Azure CLI 2.0](/cli/azure/install-az-cli2)
 * Microsoft Azure 계정. 계정이 없는 경우 [무료 평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
 
 > [!NOTE]
@@ -118,13 +118,13 @@ Sails.js에 대한 실무 지식이 있어야 합니다. 이 자습서는 일반
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만들고 이름을 지정합니다. 이 PHP 자습서에서는 실제로 무엇인지 알 필요가 없습니다.
+3. [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만들고 이름을 지정합니다. 이 Node.js 자습서에서는 실제로 무엇인지 알 필요가 없습니다.
 
         az group create --location "<location>" --name my-sailsjs-app-group
 
     `<location>`에 사용할 수 있는 가능한 값을 보려면 `az appservice list-locations` CLI 명령을 사용합니다.
 
-3. "무료" [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)을 만들고 이름을 지정합니다. 이 PHP 자습서에서는 이 계획에서 웹앱에 대한 요금이 부과되지 않습니다.
+3. "무료" [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)을 만들고 이름을 지정합니다. 이 Node.js 자습서에서는 이 계획에서 웹앱에 대한 요금이 부과되지 않습니다.
 
         az appservice plan create --name my-sailsjs-appservice-plan --resource-group my-sailsjs-app-group --sku FREE
 

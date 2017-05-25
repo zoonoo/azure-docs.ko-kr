@@ -1,6 +1,6 @@
 ---
-title: "Azure DocumentDB에 연결하는 Azure Function 만들기 | Microsoft Docs"
-description: "Azure CLI 스크립트 샘플 - Azure DocumentDB에 연결하는 Azure Function 만들기"
+title: "Azure Storage에 연결하는 Azure Function 만들기 | Microsoft Docs"
+description: "Azure CLI 스크립트 샘플 - Azure Storage에 연결하는 Azure Function 만들기"
 services: functions
 documentationcenter: functions
 author: rachelappel
@@ -10,30 +10,29 @@ tags: functions
 ms.assetid: 
 ms.service: functions
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
 ms.author: rachelap
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a34793b6b16cce4031e9e871d8e3b143180593ae
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 3925c1a3d2c5a9fc3a82e8823dbdeffabeb38a3a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 ---
-
 # <a name="integrate-function-app-into-azure-storage-account"></a>Azure Storage 계정에 함수 앱 통합
 
-이 샘플 스크립트는 관련된 리소스를 사용하여 함수 앱 및 저장소 계정을 만듭니다. 
+이 샘플 스크립트는 함수 앱 및 저장소 계정을 만듭니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## <a name="sample-script"></a>샘플 스크립트 
+## <a name="sample-script"></a>샘플 스크립트
 
-앱 샘플 만들기
+이 샘플은 Azure 함수 앱을 만들고 앱 설정에 저장소 연결 문자열을 추가합니다.
 
-[!code-azurecli[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Azure Storage 계정에 함수 앱 통합")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Azure Storage 계정에 함수 앱 통합")]
 
 
 ## <a name="clean-up-deployment"></a>배포 정리
@@ -59,3 +58,4 @@ ms.lasthandoff: 05/10/2017
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
 추가 Azure Functions CLI 스크립트 샘플은 [Azure Functions 설명서](../functions-cli-samples.md)에서 확인할 수 있습니다.
+

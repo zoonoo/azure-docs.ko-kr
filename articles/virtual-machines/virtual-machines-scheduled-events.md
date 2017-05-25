@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 7f0613285bc548e1329be3c33c30939f5998f379
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 627aa117ded0aaa519052d4ea1a1995ba2e363ee
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -71,7 +71,7 @@ Metadata Service를 쿼리할 때 *Metadata: true* 헤더를 제공해야 합니
 ## <a name="using-the-api"></a>API 사용
 
 ### <a name="query-for-events"></a>이벤트 쿼리
-다음과 같이 호출하여 Scheduled Events를 쿼리할 수 있습니다.
+다음과 같이 호출하여 예약된 이벤트를 쿼리할 수 있습니다.
 
     curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
 
@@ -92,13 +92,25 @@ Metadata Service를 쿼리할 때 *Metadata: true* 헤더를 제공해야 합니
          }
      ]
     }
+    
+### <a name="event-properties"></a>이벤트 속성
+|속성  |  설명 |
+| - | - |
+| EventId |이벤트의 전역적으로 고유한 식별자. <br><br> 예제: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | 이벤트로 인해 발생하는 결과입니다. <br><br> 값 <br><ul><li> <i>중지</i>: 몇 초 동안 Virtual Machine을 일시 중지하도록 예약합니다. 메모리, 열려 있는 파일 또는 네트워크 연결에는 영향을 미치지 않습니다. <li> <i>다시 부팅</i>: Virtual Machine을 다시 부팅하도록 예약합니다(메모리 초기화됨).<li> <i>다시 배포</i>: Virtual Machine을 다른 노드로 이동하도록 예약합니다(임시 디스크 손실됨). |
+| ResourceType | 이벤트가 영향을 주는 리소스 형식입니다. <br><br> 값 <ul><li>VirtualMachine|
+| 리소스| 이벤트가 영향을 주는 리소스 목록입니다. <br><br> 예제: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| 이벤트 상태 | 이벤트의 상태입니다. <br><br> 값 <ul><li><i>예약됨:</i> <i>NotBefore</i> 속성에 지정된 시간 이후 시작하도록 이벤트를 예약합니다.<li><i>시작됨</i>: 이벤트가 시작되었습니다.</i>
+| NotBefore| 이 시간이 지난 후 이벤트가 시작될 수 있습니다. <br><br> 예제: <br><ul><li> 2016-09-19T18:29:47Z  |
 
-EventType은 다음과 같이 Virtual Machine에 예상되는 영향을 캡처합니다.
-- 중지: 몇 초 동안 Virtual Machine을 일시 중지하도록 예약합니다. 메모리, 열려 있는 파일 또는 네트워크 연결에는 영향을 미치지 않습니다.
-- 다시 부팅: Virtual Machine을 다시 부팅하도록 예약됩니다(메모리 초기화됨).
-- 다시 배포: Virtual Machine을 다른 노드로 이동하도록 예약됩니다(임시 디스크 손실됨). 
+### <a name="event-scheduling"></a>이벤트 예약
+각 이벤트는 이벤트 유형에 따라 향후 최소한의 시간으로 예약됩니다. 이 시간은 이벤트의 <i>NotBefore</i> 속성에 반영됩니다. 
 
-이벤트가 예약되면(Status = Scheduled) Azure에서 이벤트가 시작될 수 있는 시간(NotBefore 필드에서 지정)을 공유합니다.
+|EventType  | 최소 공지 |
+| - | - |
+| 중지| 15분 |
+| Reboot | 15분 |
+| 재배포 | 10분 |
 
 ### <a name="starting-an-event-expedite"></a>이벤트 시작(신속 이동)
 
@@ -120,11 +132,13 @@ function GetScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function ApproveScheduledEvent($eventId, $uri)
+function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
 {    
-    # Create the Scheduled Events Approval Json
+    # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
-    $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
+    $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
+    
+    # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
 
     Write-Host "Approving with the following: `n" $approvalString
@@ -161,7 +175,7 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-    ApproveScheduledEvent $event.EventId $scheduledEventURI 
+    ApproveScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
     }
 }
 ``` 
@@ -207,6 +221,7 @@ Scheduled Events는 다음 데이터 구조를 사용하여 구문 분석될 수
 ```csharp
     public class ScheduledEventsDocument
     {
+        public string DocumentIncarnation;
         public List<CloudControlEvent> Events { get; set; }
     }
 
@@ -217,11 +232,12 @@ Scheduled Events는 다음 데이터 구조를 사용하여 구문 분석될 수
         public string EventType { get; set; }
         public string ResourceType { get; set; }
         public List<string> Resources { get; set; }
-        public DateTime NoteBefore { get; set; }
+        public DateTime? NotBefore { get; set; }
     }
 
     public class ScheduledEventsApproval
     {
+        public string DocumentIncarnation;
         public List<StartRequest> StartRequests = new List<StartRequest>();
     }
 
@@ -259,7 +275,11 @@ public class Program
             Console.ReadLine();
 
             // Approve events
-            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval();
+            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval()
+        {
+            DocumentIncarnation = scheduledEventsDocument.DocumentIncarnation
+        };
+        
             foreach (CloudControlEvent ccevent in scheduledEventsDocument.Events)
             {
                 scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(ccevent.EventId));

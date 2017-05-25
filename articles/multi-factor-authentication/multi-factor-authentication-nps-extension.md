@@ -108,7 +108,7 @@ NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 
 
 테스트를 시작하는 계정을 가져오려면 다음의 단계를 사용합니다.
 1. [MFA에 대한 계정을 사용하도록 설정합니다](multi-factor-authentication-get-started-user-states.md).
-2. Https://portal.azure.com과 같은 Azure AD 인증을 시작하는 웹 사이트로 이동합니다.
+2. https://portal.azure.com과 같은 Azure AD 인증을 시작하는 웹 사이트로 이동합니다.
 3. [2단계 인증에 등록합니다](./end-user/multi-factor-authentication-end-user-first-time.md).
 
 사용자는 NPS 확장을 통해 인증을 받으려면 먼저 다음 단계에 따라 등록을 수행해야 합니다.

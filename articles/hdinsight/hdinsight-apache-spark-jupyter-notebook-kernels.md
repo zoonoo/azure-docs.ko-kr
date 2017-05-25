@@ -1,6 +1,7 @@
 ---
-title: "Azure HDInsight Spark 클러스터에서 Jupyter Notebook에 다른 커널 사용 | Microsoft Docs"
-description: "HDInsight Linux에서 Spark 클러스터와 함께 Jupyter Notebook에 사용할 수 있는 PySpark, PySpark3 및 Spark 커널에 대해 알아봅니다."
+title: "Azure HDInsight에서 Spark 클러스터의 Jupyter 노트북에 대한 커널 | Microsoft Docs"
+description: "Azure HDInsight에서 Spark 클러스터와 함께 Jupyter 노트북에 사용할 수 있는 PySpark, PySpark3 및 Spark 커널에 대해 알아봅니다."
+keywords: "spark의 jupyter 노트북, jupyter spark"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,24 +10,24 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 0719e503-ee6d-41ac-b37e-3d77db8b121b
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/15/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 096fbc1d30e8c9df0c9008525e0fac3fd6e449cf
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: c5813341f0d70a3c04e915d243d2a9717cad1fc9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="jupyter-notebooks-kernels-with-apache-spark-clusters-in-hdinsight"></a>HDInsight의 Apache Spark 클러스터와 Jupyter Notebook 
+# <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 Spark 클러스터의 Jupyter 노트북에 대한 커널 
 
-HDInsight Spark 클러스터는 Spark 응용 프로그램 테스트를 위해 Jupyter Notebook 노트북과 함께 사용할 수 있는 커널을 제공합니다. 커널은 코드를 실행하고 해석하는 프로그램입니다. 두 개의 커널은 다음과 같습니다.
+HDInsight Spark 클러스터는 응용 프로그램 테스트를 위해 Spark에서 Jupyter 노트북과 함께 사용할 수 있는 커널을 제공합니다. 커널은 코드를 실행하고 해석하는 프로그램입니다. 세 개의 커널은 다음과 같습니다.
 
 - **PySpark** - Python2에서 작성한 응용 프로그램용
 - **PySpark3** - Python3에서 작성한 응용 프로그램용
@@ -38,18 +39,18 @@ HDInsight Spark 클러스터는 Spark 응용 프로그램 테스트를 위해 Ju
 
 * HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
-## <a name="create-a-jupyter-notebook"></a>Jupyter Notebook 만들기
+## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Spark HDInsight에서 Jupyter 노트북 만들기
 
 1. [Azure Portal](https://portal.azure.com/)에서 클러스터를 엽니다.  지침에 대해서는 [클러스터 나열 및 표시](hdinsight-administer-use-portal-linux.md#list-and-show-clusters)를 참조하세요. 클러스터는 새 포털 블레이드에서 열립니다.
 
 2. **빠른 링크** 섹션에서 **클러스터 대시보드**를 클릭하여 **클러스터 대시보드** 블레이드를 엽니다.  **빠른 링크**가 표시되지 않으면 블레이드의 왼쪽 메뉴에서 **개요**를 클릭합니다.
 
-    ![클러스터 대시보드](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-azure-portal-cluster-dashboards.png "클러스터 대시보드") 
+    ![Spark의 Jupyter 노트북](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-jupyter-notebook-on-spark.png "Spark의 Jupyter 노트북") 
 
 3. **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
    
    > [!NOTE]
-   > 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다.
+   > 또한 브라우저에서 다음 URL을 열어 Spark 클러스터의 Jupyter 노트북에 접근할 수 있습니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
@@ -57,13 +58,13 @@ HDInsight Spark 클러스터는 Spark 응용 프로그램 테스트를 위해 Ju
 
 3. **새로 만들기**를 클릭하고 **Pyspark**, **PySpark3** 또는 **Spark** 중 하나를 클릭하여 Notebook을 만듭니다. Scala 응용 프로그램에 대해 Spark 커널을, Python2 응용 프로그램에 대해 PySpark 커널을, Python3 응용 프로그램에 대해 PySpark3 커널을 사용합니다.
    
-    ![Jupyter Notebook 만들기](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Jupyter Notebook 만들기") 
+    ![Spark의 Jupyter 노트북에 대한 커널](./media/hdinsight-apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Spark의 Jupyter 노트북에 대한 커널") 
 
 4. 선택한 커널로 Notebook이 열립니다.
 
-## <a name="benefits-of-using-these-kernels"></a>이러한 커널을 사용할 경우의 이점
+## <a name="benefits-of-using-the-kernels"></a>커널을 사용할 경우의 이점
 
-다음은 새 커널 사용 시 얻을 수 있는 몇 가지 이점입니다.
+다음은 Spark HDInsight 클러스터에서 Jupyter 노트북과 함께 새 커널을 사용할 경우의 몇 가지 이점입니다.
 
 - **컨텍스트를 미리 설정합니다**. **PySpark**, **PySpark3** 또는 **Spark** 커널을 사용하면 응용 프로그램으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요가 없습니다. 이러한 컨텍스트는 기본적으로 사용할 수 있습니다. 이러한 컨텍스트는 다음과 같습니다.
    
@@ -149,7 +150,7 @@ Notebook이 저장소 계정에 저장되는 방식은 HDFS와 호환됩니다. 
 
 ## <a name="supported-browser"></a>지원되는 브라우저
 
-HDInsight Spark 클러스터에 대해 실행되는 Jupyter Notebook은 Google Chrome에서만 지원됩니다.
+Spark HDInsight 클러스터의 Jupyter 노트북은 Google Chrome에서만 지원됩니다.
 
 ## <a name="feedback"></a>사용자 의견
 새로운 커널도 현재 개발 중이며 곧 완성될 예정입니다. 이는 API가 이러한 커널의 성숙에 따라 변경될 수 있음을 의미할 수 있습니다. 이러한 새로운 커널을 사용하는 동안 가진 의견을 보내주시면 감사하겠습니다. 이러한 커널의 최종 릴리스 형성에 유용할 것입니다. 이 문서의 맨 아래 **의견** 섹션 아래에 의견/피드백을 남길 수 있습니다.

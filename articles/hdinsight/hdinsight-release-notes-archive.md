@@ -1,6 +1,6 @@
 ---
 title: "Azure HDInsight에서 Hadoop 구성 요소에 대한 보관 릴리스 정보 | Microsoft Docs"
-description: "Azure HDInsight용 Hadoop 구성 요소의 보관 릴리스 정보 및 버전입니다."
+description: "Azure HDInsight용 Hadoop 구성 요소의 이전 버전에 대한 보관 릴리스 정보입니다."
 services: hdinsight
 documentationcenter: 
 editor: cgronlun
@@ -8,7 +8,7 @@ manager: jhubbard
 author: nitinme
 tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 4/06/2017
 ms.author: nitinme
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5e1538ae0d4b1270040bd593cae66c1dd1046201
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 7d8b691905c07b11543505ed1961d908ff4de654
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/13/2017
 
 
 ---
@@ -107,7 +108,7 @@ ms.lasthandoff: 04/27/2017
 | 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Spark, Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
 | --- | --- | --- | --- | --- |
 | [IntelliJ용 HDInsight 도구](hdinsight-apache-spark-intellij-tool-plugin.md) |이제 HDInsight Spark 클러스터용 IntelliJ IDEA 플러그 인은 IntelliJ용 Azure 도구 키트와 통합됩니다. Azure SDK v2.9.1, 최신 Java SDK를 지원하며 IntelliJ용 독립 실행형 HDInsight 플러그 인의 모든 기능이 포함됩니다. |도구 |Spark |해당 없음 |
-| [Eclipse용 HDInsight 도구](hdinsight-apache-spark-eclipse-tool-plugin.md) |Eclipse용 Azure 도구 키트는 이제 HDInsight Spark 클러스터를 지원합니다. 다음과 같은 기능을 제공합니다. <ul><li>IntelliSense에 대한 첫 번째 클래스 작성 지원, 자동 서식, 오류 검사 등을 사용하여 Scala 및 Java로 Spark 응용 프로그램을 쉽게 만들고 쓸 수 있습니다.</li><li>Spark 응용 프로그램을 로컬로 테스트할 수 있습니다.</li><li>HDInsight Spark 클러스터로 작업을 전송하고 결과를 검색할 수 있습니다.</li><li>Azure에 로그인하고 Azure 구독에 연결된 모든 Spark 클러스터에 액세스할 수 있습니다.</li><li>HDInsight Spark 클러스터의 모든 연결된 저장소 리소스를 탐색할 수 있습니다.</li></ul> |도구 |Spark |해당 없음 |
+| [Eclipse용 HDInsight 도구](hdinsight-apache-spark-eclipse-tool-plugin.md) |Eclipse용 Azure 도구 키트는 이제 HDInsight Spark 클러스터를 지원합니다. 다음과 같은 기능을 제공합니다. <ul><li>IntelliSense에 대한 첫 번째 클래스 작성 지원, 자동 서식, 오류 검사 등을 사용하여 Scala 및 Java로 Spark 응용 프로그램을 쉽게 만들고 쓸 수 있습니다.</li><li>Spark 응용 프로그램을 로컬로 테스트할 수 있습니다.</li><li>HDInsight Spark 클러스터로 작업을 전송하고 결과를 검색할 수 있습니다.</li><li>Azure에 로그인하고 Azure 구독에 연결된 모든 Spark 클러스터에 액세스합니다.</li><li>HDInsight Spark 클러스터의 모든 연결된 저장소 리소스를 탐색할 수 있습니다.</li></ul> |도구 |Spark |해당 없음 |
 
 이 릴리스부터 Linux 기반 HDInsight 클러스터에 대한 게스트 OS 패치 정책을 변경했습니다. 새 정책의 목표는 패치로 인해 부팅 횟수를 크게 줄이는 것입니다. 새 정책은 월요일 또는 목요일 오전 12시(UTC)마다 시차를 두고 모든 지정된 클러스터의 노드에 있는 Linux 클러스터에서 계속 VM(가상 컴퓨터)을 패치합니다. 그러나 지정된 VM은 게스트 OS 패치로 인해 최대 30일마다 다시 부팅됩니다. 또한 새로 만든 클러스터는 생성된 날짜로부터 30일보다 이전에 첫 번째로 다시 부팅되지 않습니다.
 
@@ -128,8 +129,8 @@ ms.lasthandoff: 04/27/2017
 
 | 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Spark, Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
 | --- | --- | --- | --- | --- |
-| HDInsight의 Spark가 일반 공급됨 |이 릴리스는 HDInsight의 오픈 소스 Apache Spark에 향상된 가용성, 확장성 및 생산성을 제공합니다. <ul><li>까다로운 엔터프라이즈 워크로드에 적합한 업계 최고의 99.9% 가용성 SLA.</li><li>Azure Data Lake Store를 사용하는 확장 가능한 저장소 계층.</li><li>데이터 탐색 및 개발의 모든 단계를 위한 생산성 도구. 사용자 지정된 Spark 커널이 있는 Jupyter Notebook은 대화형 데이터 탐색을 가능하게 하고, Power BI, Tableau 및 Qlik과 같은 BI 대시보드와 통합되어 빠른 데이터 공유 및 지속적인 보고에 적합하며, IntelliJ 플러그 인은 장기적인 코드 아티팩트 개발 및 디버깅을 위한 신뢰할 수 있는 옵션입니다.</li></ul> |부여 |Spark |해당 없음 |
-| IntelliJ용 HDInsight 도구 |HDInsight Spark 클러스터용 IntelliJ IDEA 플러그 인입니다. 다음과 같은 기능을 제공합니다.<ul><li>IntelliSense에 대한 첫 번째 클래스 작성 지원, 자동 서식, 오류 검사 등을 사용하여 Scala 및 Java로 Spark 응용 프로그램을 쉽게 만들고 쓸 수 있습니다.</li><li>Spark 응용 프로그램을 로컬로 테스트할 수 있습니다.</li><li>HDInsight Spark 클러스터로 작업을 전송하고 결과를 검색할 수 있습니다.</li><li>Azure에 로그인하고 Azure 구독에 연결된 모든 Spark 클러스터에 액세스할 수 있습니다.</li><li>HDInsight Spark 클러스터의 모든 연결된 저장소 리소스를 탐색할 수 있습니다.</li><li>HDInsight Spark 클러스터에 대한 작업 기록 및 작업 정보를 탐색할 수 있습니다.</li><li>데스크톱 컴퓨터에서 Spark 작업을 원격으로 디버그할 수 있습니다.</li></ul> |도구 |Spark |해당 없음 |
+| HDInsight의 Spark가 일반 공급됨 |이 릴리스는 HDInsight의 오픈 소스 Apache Spark에 향상된 가용성, 확장성 및 생산성을 제공합니다. <ul><li>까다로운 엔터프라이즈 워크로드에 적합한 99.9%의 업계 최고 가용성 SLA.</li><li>Azure Data Lake Store를 사용하는 확장 가능한 저장소 계층.</li><li>데이터 탐색 및 개발의 모든 단계를 위한 생산성 도구. 사용자 지정된 Spark 커널이 있는 Jupyter Notebook은 대화형 데이터 탐색을 가능하게 하고, Power BI, Tableau 및 Qlik과 같은 BI 대시보드와 통합되어 빠른 데이터 공유 및 지속적인 보고에 적합하며, IntelliJ 플러그 인은 장기적인 코드 아티팩트 개발 및 디버깅을 위한 신뢰할 수 있는 옵션입니다.</li></ul> |부여 |Spark |해당 없음 |
+| IntelliJ용 HDInsight 도구 |HDInsight Spark 클러스터용 IntelliJ IDEA 플러그 인입니다. 다음과 같은 기능을 제공합니다.<ul><li>IntelliSense에 대한 첫 번째 클래스 작성 지원, 자동 서식, 오류 검사 등을 사용하여 Scala 및 Java로 Spark 응용 프로그램을 쉽게 만들고 쓸 수 있습니다.</li><li>Spark 응용 프로그램을 로컬로 테스트할 수 있습니다.</li><li>HDInsight Spark 클러스터로 작업을 전송하고 결과를 검색할 수 있습니다.</li><li>Azure에 로그인하고 Azure 구독에 연결된 모든 Spark 클러스터에 액세스합니다.</li><li>HDInsight Spark 클러스터의 모든 연결된 저장소 리소스를 탐색할 수 있습니다.</li><li>HDInsight Spark 클러스터에 대한 작업 기록 및 작업 정보를 탐색할 수 있습니다.</li><li>데스크톱 컴퓨터에서 Spark 작업을 원격으로 디버그할 수 있습니다.</li></ul> |도구 |Spark |해당 없음 |
 
 ## <a name="notes-for-05132016-release-of-hdinsight"></a>HDInsight의 2016/05/13 릴리스 정보
 이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
@@ -166,10 +167,10 @@ ms.lasthandoff: 04/27/2017
 
 | 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
 | --- | --- | --- | --- | --- |
-| HDI 3.4에 대한 사용자 지정 Metastore 업그레이드 문제 |다른 HDInsight 클러스터의 더 낮은 버전에서 이전에 사용한 사용자 지정 Metastore를 사용 하는 경우 클러스터 생성이 실패할 수 있습니다. 이렇게 되는 이유는 업그레이드 스크립트 오류 때문이었으며 지금은 해결됨 |클러스터 만들기 |모두 |해당 없음 |
+| HDI 3.4에 대한 사용자 지정 Metastore 업그레이드 문제 |다른 HDInsight 클러스터의 더 낮은 버전에서 이전에 사용한 사용자 지정 Metastore를 사용 하는 경우 클러스터 생성이 실패할 수 있습니다. 이는 업그레이드 스크립트 오류 때문이었으나 현재 해결됨 |클러스터 만들기 |모두 |해당 없음 |
 | Livy Crash 복구 |Livy를 통해 제출된 모든 작업에 대한 작업 상태 복원력 제공 |안정성 |Linux에서의 Spark |해당 없음 |
 | Jupyter 콘텐츠 HA |클러스터와 연결된 저장소 계정에 대해 Jupyter 노트북 콘텐츠를 저장 및 로드하는 기능을 제공합니다. 자세한 내용은 [Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요. |노트북 |Linux에서의 Spark |해당 없음 |
-| Jupter 노트북에서 HiveContext 제거 |`%%hive` 매직 대신 `%%sql` 매직을 사용합니다. SqlContext는 hiveContext와 같습니다. 자세한 내용은 [Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md) |노트북 |Linux에서 Spark 클러스터 |해당 없음 |
+| Jupyter 노트북에서 hiveContext 제거 |`%%hive` 매직 대신 `%%sql` 매직을 사용합니다. SqlContext는 hiveContext와 같습니다. 자세한 내용은 [Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md) |노트북 |Linux에서 Spark 클러스터 |해당 없음 |
 | 이전 Spark 버전의 사용 중단 |5/31에 이전 버전 Spark 1.3.1이 서비스에서 제거됩니다. |부여 |Windows에서 Spark 클러스터 |해당 없음 |
 
 ## <a name="notes-for-03292016-release-of-hdinsight"></a>HDInsight의 2016/03/29 릴리스 정보
@@ -536,7 +537,7 @@ ms.lasthandoff: 04/27/2017
 </tr>
 <tr>
 <td>기본 Yarn 컨테이너 메모리 구성으로 변경</td>
-<td>이 업데이트에서 노드 관리자에서 실행되는 YARN 컨테이너(yarn.nodemanager.resource.memory-mb and yarn.scheduler.maximum-allocation-mb)에 대해 사용 가능한 기본 메모리는 5632MB로 증가합니다. 이전에는 4608MB로 줄었었지만 다양한 작업 실행에 따라 새 값은 대부분의 작업에 더 나은 안정성과 성능을 제공해야 하므로 이 기본값이 더 적절합니다. 보통, 이 메모리 구성에 대한 중요한 종속성이 있는 경우, 클러스터를 만드는 동안 명시적으로 설정합니다.</td>
+<td>이 업데이트에서 노드 관리자에서 실행되는 YARN 컨테이너(yarn.nodemanager.resource.memory-mb and yarn.scheduler.maximum-allocation-mb)에 대해 사용 가능한 기본 메모리는 5632MB로 증가합니다. 이전에는 4608MB로 줄었었지만 다양한 작업 실행에 따라 새 값은 대부분의 작업에 더 나은 안정성과 성능을 제공해야 하므로 이 기본값이 더 적절합니다. 보통 이 메모리 구성에 대한 중요한 종속성이 있는 경우 클러스터를 만드는 동안 명시적으로 설정하세요.</td>
 <td>HDP</td>
 <td>모든 클러스터 형식</td>
 <td>해당 없음</td>
@@ -571,7 +572,7 @@ ms.lasthandoff: 04/27/2017
 </tr>
 <tr>
 <td>SCP.NET 이벤트 허브 지원</td>
-<td>HDInsight Storm에 대한 업데이트된 클러스터 패키지는 SCP.NET에 새로운 기능을 가져옵니다. 이제 EventHubSpout 또는 Java Spouts를 쉽게 사용할 수 있게 하는 토폴로지 작성기의 새 API에 액세스합니다. 계약이 업데이트되면 SCP.NET 클라이언트 SDK를 업데이트하여 새 클러스터와 작업해야 합니다. 새 API, 사용 및 릴리스 정보(버그 수정을 포함)에 대한 자세한 내용은 SCP.NET nuget 패키지에 포함된 추가 정보를 참조 하세요.</td>
+<td>HDInsight Storm에 대한 업데이트된 클러스터 패키지는 SCP.NET에 새로운 기능을 가져옵니다. 이제 EventHubSpout 또는 Java Spouts를 쉽게 사용할 수 있게 하는 토폴로지 작성기의 새 API에 액세스합니다. 계약이 업데이트되면 SCP.NET 클라이언트 SDK를 업데이트하여 새 클러스터와 작업해야 합니다. 새 API, 사용 및 릴리스 정보(버그 수정을 포함)에 대한 자세한 내용은 SCP.NET NuGet 패키지에 포함된 추가 정보를 참조하세요.</td>
 <td>VS 도구</td>
 <td>Storm HDInsight 3.2 클러스터</td>
 <td>해당 없음</td>
@@ -837,7 +838,7 @@ ms.lasthandoff: 04/27/2017
 <td>해당 없음</td>
 </tr>
 <tr>
-<td>Linux의 HDInsight(미리 보기)</td>
+<td>Linux에서의 HDInsight(미리 보기)</td>
 <td>Ubuntu Linux에서 실행되는 클러스터를 배포할 수 있습니다. 자세한 내용은 Linux에서 HDInsight 시작을 참조하세요.</td>
 <td>부여</td>
 <td>Hadoop은</td>
@@ -871,8 +872,8 @@ ms.lasthandoff: 04/27/2017
 <td>Hadoop은</td>
 <td>해당 없음</td>
 </tr>
-<td>DocumentDB용 Hadoop 커넥터</td>
-<td>DocumentDB용 Hadoop 커넥터를 사용하면 여러 DocumentDB 컬렉션 또는 데이터베이스 계정에 걸쳐 저장된 스키마 없는 JSON 문서에 대해 복잡한 집계, 분석 및 조작을 수행할 수 있습니다. 자세한 내용 및 자습서는 DocumentDB 및 HDInsight를 사용하여 Hadoop 작업 실행을 참조하세요.</td>
+<td>Azure Cosmos DB용 Hadoop 커넥터</td>
+<td>Azure Cosmos DB용 Hadoop 커넥터를 사용하면 여러 Azure Cosmos DB 컬렉션 또는 데이터베이스 계정에 걸쳐 저장된 스키마 없는 JSON 문서에 대해 복잡한 집계, 분석 및 조작을 수행할 수 있습니다. 자세한 내용 및 자습서는 Azure Cosmos DB 및 HDInsight를 사용하여 Hadoop 작업 실행을 참조하세요.</td>
 <td>부여</td>
 <td>Hadoop은</td>
 <td>해당 없음</td>
@@ -1101,7 +1102,7 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 * HDInsight 2.1.9.382.1169709(2014/11/14에서 변경 없음)
 * HDInsight 3.0.5.382.1169709(2014/11/14에서 변경 없음)
 * HDInsight 3.1.1.382.1169709(2014/11/14에서 변경 없음)
-* HDINsight SDK 1.4.0
+* HDInsight SDK 1.4.0
 
 이 릴리스에는 다음 구성 요소 업데이트가 포함됩니다.
 
@@ -1249,10 +1250,10 @@ HDInsight에서 사용하는 Hortonworks Data Platform에서 YARN 및 MapReduce�
 Azure PowerShell 및 HDInsight SDK 오류 메시지: "*클러스터가 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다.*"
 
 * 이 오류는 HDInsight SDK 또는 Azure PowerShell 버전과 클러스터의 버전 차이로 인해 발생할 수 있는 알려진 [호환성 문제](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)입니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 HDInsight SDK 또는 Azure PowerShell에서는 이 기능이 올바르게 해석되지 않습니다. 따라서 일부 작업 제출 작업이 실패합니다. HDInsight SDK API 또는 Azure PowerShell cmdlet(**Use-AzureRmHDInsightCluster** 또는 **Invoke-AzureRmHDInsightHiveJob**)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 "*클러스터 <clustername>이 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다.*" 오류 메시지가 표시되거나 작업에 따라 "*클러스터에 연결할 수 없습니다.*" 등의 다른 오류 메시지가 표시될 수 있습니다.
-* HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서, Azure PowerShell 도구는 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)에서 얻을 수 있습니다.
+* HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK에 대한 액세스는 [NugGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서, Azure PowerShell 도구는 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)에서 얻을 수 있습니다.
 
 ## <a name="notes-for-9122014-release-of-hdinsight-31"></a>HDInsight 3.1의 2014/9/12 릴리스 정보
-* 이 릴리스는 HDP(Hortonworks Data Platform) 2.1.5에 기반을 둡니다. 이 릴리스에서 수정된 버그 목록을 보려면 Hortonworks 사이트에서 [이 릴리스에서 수정됨](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html) 을 참조하세요.
+* 이 릴리스는 HDP(Hortonworks Data Platform) 2.1.5에 기반을 둡니다. 이 릴리스에서 수정된 버그 목록을 보려면 Hortonworks 사이트에서 [이 릴리스에서 수정됨](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.5/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.5-fixed.html)을 참조하세요.
 * Pig 라이브러리 폴더의 "avro-mapred-1.7.4.jar" 파일이 "avro-mapred-1.7.4-hadoop2.jar"로 변경되었습니다. 이 파일의 내용에는 사소한 버그 수정(줄 바꿈 하지 않음)이 포함되어 있습니다. 고객은 파일 이름을 바꿀 때 줄 바꿈을 방지할 수 있도록 JAR 파일의 이름에 대한 직접 종속성을 사용하지 않는 것이 좋습니다.
 
 ## <a name="notes-for-8212014-release"></a>2014/8/21 릴리스 정보
@@ -1260,7 +1261,7 @@ Azure PowerShell 및 HDInsight SDK 오류 메시지: "*클러스터가 HTTP 서�
 
      templeton.mapper.memory.mb (=1024)
 
-  * 이 변경은 낮은 메모리 제한으로 인해 특정 Hive 쿼리가 발생하는 "컨테이너가 실제 메모리 제한 이상으로 실행합니다." 오류를 해결합니다.
+  * 이 변경은 낮은 메모리 한도로 인해 특정 Hive 쿼리가 발생하는 “컨테이너가 실제 메모리 한도 이상으로 실행 중입니다.”와 같은 오류를 해결합니다.
   * 이전 기본값으로 되돌리려면 클러스터 생성 시 다음 명령을 사용하여 Azure PowerShell을 통해 이 구성 값을 512로 설정하면 됩니다.
 
       Add-AzureHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
@@ -1300,7 +1301,7 @@ HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성
 HBase에서는, 수백만 개의 끝점에서 들어오는 센서 및 원격 분석 데이터를 저장하는 서비스의 대형 데이터 집합을 사용하는 대화형 웹 사이트에서 HDInsight에 대한 여러 실시간 워크로드를 구성할 수 있습니다. 다음 단계는 Hadoop 작업으로 이러한 워크로드의 데이터를 분석하는 것이며, Azure PowerShell 및 Hive 클러스터 대시보드를 통해 HDInsight에서 수행할 수 있습니다.
 
 ### <a name="apache-mahout-preinstalled-on-hdinsight-31"></a>HDInsight 3.1에 사전 설치되는 Apache Mahout
- [Mahout](http://hortonworks.com/hadoop/mahout/)이 HDInsight 3.1 Hadoop 클러스터에 사전 설치됩니다. 따라서 추가 클러스터 구성 없이도 Mahout 작업을 실행할 수 있습니다. 예를 들어 RDP(원격 데스크톱 프로토콜)를 사용하여 Hadoop 클러스터에 원격으로 연결할 수 있으며, 추가 단계 없이 다음 Hello World Mahout 명령을 실행할 수 있습니다.
+ [Mahout](http://hortonworks.com/hadoop/mahout/)이 HDInsight 3.1 Hadoop 클러스터에 사전 설치됩니다. 따라서 추가 클러스터 구성 없이도 Mahout 작업을 실행할 수 있습니다. 예를 들어 RDP(원격 데스크톱 프로토콜)를 사용하여 Hadoop 클러스터에 원격으로 연결할 수 있으며, 추가 단계 없이 다음 헬로 월드 Mahout 명령을 실행할 수 있습니다.
 
         mahout org.apache.mahout.classifier.df.tools.Describe -p /user/hdp/glass.data -f /user/hdp/glass.info -d I 9 N L
 
@@ -1332,7 +1333,7 @@ HDInsight 3.1 클러스터와 함께 배포한 사용자 지정 Oozie 메타 저
 Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공유할 수 없습니다.
 
 ### <a name="breaking-changes"></a>주요 변경 내용
-**접두사 구문**: HDInsight 3.1 및 3.0 클러스터에서는 "wasbs://" 구문만 지원됩니다. 이전 "asv://" 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.1 또는 3.0 클러스터에서는 지원되지 않습니다. 즉, "asv://" 구문을 명시적으로 사용하며 HDInsight 3.1 또는 3.0 클러스터에 제출된 모든 작업은 실패하게 됩니다. 대신 "wasbs://" 구문을 사용해야 합니다. 또한 "asv://" 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 Metastore로 만들어 HDInsight 3.1 또는 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 “wasbs://” 구문을 사용하여 이러한 Metastore를 다시 만들어야 합니다.
+**접두사 구문**: HDInsight 3.1 및 3.0 클러스터에서는 "wasbs://" 구문만 지원됩니다. 이전 "asv://" 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.1 또는 3.0 클러스터에서는 지원되지 않습니다. 즉, “asv://” 구문을 명시적으로 사용하며 HDInsight 3.1 또는 3.0 클러스터에 제출된 모든 작업은 실패하게 됩니다. 대신 "wasbs://" 구문을 사용해야 합니다. 또한 "asv://" 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 Metastore로 만들어 HDInsight 3.1 또는 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 “wasbs://” 구문을 사용하여 이러한 Metastore를 다시 만들어야 합니다.
 
 **포트**: HDInsight 서비스에 사용되는 포트가 변경되었습니다. 기존에 사용하는 포트 번호는 Windows 운영 체제의 사용 후 삭제되는 포트 범위 내에 있었습니다. 포트는 수명이 짧은 인터넷 프로토콜 기반 통신용으로 미리 정의된 사용 후 삭제되는 범위에서 자동으로 할당됩니다. 허용되는 새로운 HDP(Hortonworks Data Platform) 서비스 포트 집합은 이 범위를 벗어나므로 헤드 노드에서 실행 중인 서비스에 사용되는 포트로 인해 발생할 수 있는 충돌을 방지합니다. 새로운 포트 번호로 인한 특별한 변경은 없습니다. 사용되는 번호는 다음과 같습니다.
 
