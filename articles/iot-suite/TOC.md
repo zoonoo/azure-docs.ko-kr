@@ -30,7 +30,6 @@
 ### [Windows에서 C](iot-suite-connecting-devices.md)
 ### [Linux에서 C](iot-suite-connecting-devices-linux.md)
 ### [Node.JS](iot-suite-connecting-devices-node.md)
-## [mbed 장치 연결](iot-suite-connecting-devices-mbed.md)
 ## [논리 앱을 원격 모니터링 솔루션에 연결](iot-suite-logic-apps-tutorial.md)
 ## [미리 구성된 솔루션 사용자 지정](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [원격 모니터링 솔루션과 함께 동적 원격 분석 사용](iot-suite-dynamic-telemetry.md)

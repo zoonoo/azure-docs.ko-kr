@@ -47,7 +47,7 @@
 ## [UI 사용자 지정](active-directory-b2c-reference-ui-customization.md)
 ### [사용자 지정을 위한 도우미 도구](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)
-## [보고 API 사용](active-directory-b2c-refererence-usage-reporting-api.md)
+## [보고 API 사용](active-directory-b2c-reference-usage-reporting-api.md)
 ## [셀프 서비스 암호 재설정 설정하기](active-directory-b2c-reference-sspr.md)
 
 # ID 경험 프레임워크
@@ -59,8 +59,8 @@
 ### SAML 공급자 구성
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### RESTful API 통합
-#### [추가 클레임 가져오기](active-directory-b2c-rest-api-step-custom.md)
 #### [사용자 입력 유효성 검사](active-directory-b2c-rest-api-validation-custom.md)
+#### [추가 클레임 가져오기](active-directory-b2c-rest-api-step-custom.md)
 ### 로그인 사용자 지정
 #### [사용자 입력 구성](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [UI 사용자 지정](active-directory-b2c-ui-customization-custom.md)
@@ -79,7 +79,6 @@
 ## [지역 가용성 및 데이터 상주](active-directory-b2c-reference-tenant-type.md)
 ## [청구 사용](active-directory-b2c-how-to-enable-billing.md)
 ## [위협 관리](active-directory-b2c-reference-threat-management.md)
-## [한계 및 제한 사항](active-directory-b2c-limitations.md)
 ## [디렉터리를 만들 때의 문제](active-directory-b2c-support-create-directory.md)
 
 # 관련 항목

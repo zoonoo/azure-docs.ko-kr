@@ -76,7 +76,6 @@
 ### 도달률
 #### [사용 및 관리 푸시 시작](mobile-engagement-how-tos.md)
 #### [알림에 이모지 보내기](mobile-engagement-use-emoji-with-push.md)
-#### [개인 설정된 알림 보내기](mobile-engagement-send-personalized-notifications.md)
 
 ### 서비스 API에 액세스
 #### [REST](mobile-engagement-dotnet-rest-service-api.md)
