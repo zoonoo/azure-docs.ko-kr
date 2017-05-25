@@ -3,7 +3,7 @@ title: "Azure Log Analytics 검색 참조 | Microsoft Docs"
 description: "Log Analytics 검색 참조는 검색 언어에 대해 설명하며 데이터를 검색하고 검색 결과를 좁히기 위한 식을 필터링할 때 사용할 수 있는 일반 쿼리 구문 옵션을 제공합니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: 
 ms.assetid: 402615a2-bed0-4831-ba69-53be49059718
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
-ms.author: banders
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
@@ -613,7 +613,7 @@ Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | me
 
 ### <a name="join"></a>Join
 두 쿼리의 결과를 조인하여 단일 결과 집합을 구성합니다.  다음 표에 설명된 여러 개의 조인 유형을 지원합니다.
-  
+
 | 조인 유형 | 설명 |
 |:--|:--|
 | inner | 두 쿼리 모두 일치하는 값을 가진 레코드만 반환합니다. |

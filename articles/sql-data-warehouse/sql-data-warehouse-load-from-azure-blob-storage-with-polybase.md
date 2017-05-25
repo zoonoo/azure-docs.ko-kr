@@ -15,9 +15,10 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
 ms.openlocfilehash: 348605fed8101cf83cbcfb559c71f34407692f7a
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/24/2017
 
 
@@ -230,7 +231,7 @@ GO
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. 데이터를 새 테이블에 로드합니다.
 Azure Blob Storage에서 데이터를 로드하여 데이터베이스 내부의 테이블에 저장하려면 [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 문을 사용합니다. CTAS를 사용하여 로드하면 방금 생성한 강력한 형식의 외부 테이블이 활용됩니다. 새 테이블에 데이터를 로드하려면 테이블당 하나의 [CTAS][CTAS] 문을 사용하세요. 
-
+ 
 CTAS는 새 테이블을 만들고 select 문의 결과와 함께 새 테이블을 정보표시합니다. CTAS는 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 
 이 예제에서는 차원과 해시 분산 테이블로서 팩트 테이블을 만듭니다. 
@@ -262,7 +263,7 @@ SELECT
     s.request_id,
     r.status,
     count(distinct input_name) as nbr_files, 
-    sum(s.bytes_processed)/1024/1024 as gb_processed
+    sum(s.bytes_processed)/1024/1024/1024 as gb_processed
 FROM
     sys.dm_pdw_exec_requests r
     inner join sys.dm_pdw_dms_external_work s

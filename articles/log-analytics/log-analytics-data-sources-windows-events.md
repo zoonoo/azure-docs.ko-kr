@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
 ms.openlocfilehash: b6627ed7e3b08e0a94dec229d735114b3ed1b9df
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -74,10 +76,5 @@ Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 �
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.  
 * [사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 이벤트 레코드를 개별 필드로 구문 분석합니다.
 * Windows 에이전트에서 [성능 카운터 수집](log-analytics-data-sources-performance-counters.md) 을 구성합니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
