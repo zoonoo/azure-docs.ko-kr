@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
-ms.openlocfilehash: ed204c466c5cfb60e5ba250b9dacb2524ca384eb
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: c3c61b96df43f33f815d60f1c91d776526021349
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -66,12 +67,12 @@ Azure IoT Hub에서는 메시지, 파일 전송 및 요청-회신 메서드를 �
 * **광범위한 장치 라이브러리 집합**. [Azure IoT 장치 SDK][lnk-device-sdks]는 사용 가능하며 다양한 언어 및 플랫폼(여러 Linux 배포판, Windows 및 실시간 운영 체제에 대한 C)에 대해 지원됩니다. 또한 Azure IoT 장치 SDK에서는 C#, Java 및 JavaScript와 같은 관리된 언어를 지원합니다.
 * **IoT 프로토콜 및 확장성**. 솔루션이 장치 라이브러리를 사용할 수 없는 경우 IoT Hub는 장치가 기본적으로 MQTT v3.1.1, HTTP 1.1 및 AMQP 1.0 프로토콜을 사용할 수 있도록 허용하는 공용 프로토콜을 노출합니다. 다음을 수행하여 사용자 지정 프로토콜에 대한 지원을 제공하는 IoT Hub를 확장할 수도 있습니다.
   
-  * IoT Hub가 이해하는 세 가지 프로토콜 중 하나에 사용자 지정 프로토콜을 변환하는 [Azure IoT Gateway SDK][lnk-gateway-sdk]로 필드 게이트웨이를 만듭니다. 
+  * IoT Hub에서 이해하는 세 가지 프로토콜 중 하나에 사용자 지정 프로토콜을 변환하는 [Azure IoT Edge][lnk-gateway-sdk]로 필드 게이트웨이를 만듭니다.
   * 클라우드에서 실행되는 오픈 소스 구성 요소인 [Azure IoT 프로토콜 게이트웨이][protocol-gateway]를 사용자 지정합니다.
 * **확장**. Azure IoT Hub는 동시에 연결된 수백만 대의 장치 및 수백만 개의 초당 이벤트로 확장 가능합니다.
 
 ## <a name="gateways"></a>게이트웨이
-loT 솔루션의 게이트웨이는 일반적으로 클라우드에 배포된 [프로토콜 게이트웨이][lnk-gateway] 또는 장치에 로컬로 배포된 [필드 게이트웨이][lnk-field-gateway]입니다. 프로토콜 게이트웨이는 MQTT에서 AMQP와 같은 프로토콜 변환을 수행합니다. 필드 게이트웨이는 에지에 분석을 실행하고 대기 시간을 줄일 수 있는 시간이 중요한 결정을 내리며 장치 관리 서비스를 제공하고 보안 및 개인 정보 제약 조건을 적용하고 프로토콜 변환을 수행할 수도 있습니다. 두 유형의 게이트웨이는 장치와 loT Hub 간의 중개자 역할을 합니다.
+loT 솔루션의 게이트웨이는 일반적으로 클라우드에 배포된 [프로토콜 게이트웨이][lnk-iotedge] 또는 장치에 로컬로 배포된 [필드 게이트웨이][lnk-field-gateway]입니다. 프로토콜 게이트웨이는 MQTT에서 AMQP와 같은 프로토콜 변환을 수행합니다. 필드 게이트웨이는 에지에 분석을 실행하고 대기 시간을 줄일 수 있는 시간이 중요한 결정을 내리며 장치 관리 서비스를 제공하고 보안 및 개인 정보 제약 조건을 적용하고 프로토콜 변환을 수행할 수도 있습니다. 두 유형의 게이트웨이는 장치와 loT Hub 간의 중개자 역할을 합니다.
 
 현장 게이트웨이는 일반적으로 솔루션에서 액세스 및 정보 흐름을 관리하는 실제 역할을 수행하므로 단순한 트래픽 라우팅 장치(예: 네트워크 주소 변환 장치 또는 방화벽)와는 다릅니다.
 
@@ -108,7 +109,7 @@ IoT Hub를 사용하여 표준 기반 장치 관리를 통해 원격으로 장�
 [protocol-gateway]: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "서비스 지원 통신, Clemens vasters의 블로그 게시물"
 [lnk-compare]: iot-hub-compare-event-hubs.md
-[lnk-gateway]: iot-hub-protocol-gateway.md
+[lnk-iotedge]: iot-hub-protocol-gateway.md
 [lnk-field-gateway]: iot-hub-devguide-endpoints.md#field-gateways
 [lnk-devguide-identityregistry]: iot-hub-devguide-identity-registry.md
 [lnk-devguide-security]: iot-hub-devguide-security.md
@@ -117,7 +118,7 @@ IoT Hub를 사용하여 표준 기반 장치 관리를 통해 원격으로 장�
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
 [lnk-send-messages]: iot-hub-devguide-messaging.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 

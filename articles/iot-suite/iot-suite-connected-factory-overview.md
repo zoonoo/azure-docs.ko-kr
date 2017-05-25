@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 7c70129ebf4bacc28400cf68418bf898e4e646d2
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 90ed1d5ca50bfb19a9d1c5d258e9588e05893270
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -43,7 +44,7 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
 1. Azure 계정 자격 증명을 사용하여 azureiotsuite.com에 로그온한 다음 "**+**"를 클릭하여 솔루션을 만듭니다.
 2. **연결된 공장** 타일에서 **선택**을 클릭합니다.
-3. 미리 구성된 원격 모니터링 솔루션에 **솔루션 이름** 을 입력합니다.
+3. 미리 구성된 연결된 팩터리 솔루션에 대한 **솔루션 이름**을 입력합니다.
 4. 솔루션을 프로비전하는 데 사용할 **구독** 및 **지역**을 선택합니다.
 5. **솔루션 만들기** 를 클릭하여 프로비전 프로세스를 시작합니다. 일반적으로 이 프로세스는 실행하는 데 몇 분 정도 걸립니다.
 
@@ -303,7 +304,7 @@ OEE는 핵심 생산 관련 운영 매개 변수를 사용하여 제조 프로�
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

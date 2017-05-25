@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/24/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: 5a50f583831b398ae22416e7ade23c33846de55c
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6a83d5e5939744137e11a441048ade407c63ee86
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/03/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -33,36 +33,35 @@ ms.lasthandoff: 02/03/2017
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-Azure Data Factory **복사 마법사**를 사용하면 데이터 수집/이동 시나리오를 구현하는 파이프라인을 신속하고 간편하게 만들 수 있습니다. 따라서 데이터 이동 시나리오에 대한 샘플 파이프라인을 만드는 첫 번째 단계로 마법사를 사용하는 것이 좋습니다. 이 자습서는 Azure Data Factory를 만들고, 복사 마법사를 실행하고, 데이터 수집/이동 시나리오에 대한 세부 정보를 제공하는 일련의 단계를 수행하는 방법을 보여줍니다. 마법사의 단계를 마치면, Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 복사 작업이 있는 파이프라인이 마법사에서 자동으로 생성됩니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요. 
+이 자습서에서는 **복사 마법사**를 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 방법을 보여 줍니다. 
+
+Azure Data Factory **복사 마법사**를 사용하면 지원되는 원본 데이터 저장소에서 지원되는 대상 데이터 저장소로 데이터를 복사하는 데이터 파이프라인을 빠르게 만들 수 있습니다. 따라서 데이터 이동 시나리오에 대한 샘플 파이프라인을 만드는 첫 번째 단계로 마법사를 사용하는 것이 좋습니다. 원본 및 대상으로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요.  
+
+이 자습서는 Azure Data Factory를 만들고, 복사 마법사를 실행하고, 데이터 수집/이동 시나리오에 대한 세부 정보를 제공하는 일련의 단계를 수행하는 방법을 보여줍니다. 마법사의 단계를 마치면, Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 복사 작업이 있는 파이프라인이 마법사에서 자동으로 생성됩니다. 복사 활동에 대한 자세한 내용은 [데이터 이동 활동](data-factory-data-movement-activities.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-- [자습서 개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 살펴보고 자습서 개요를 가져와서 **필수 구성 요소** 를 완료합니다.
-
+이 자습서를 수행하기 전에 [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서에 나열된 필수 구성 요소를 완료합니다.
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
 이 단계에서는 Azure 포털을 사용하여 **ADFTutorialDataFactory**라는 Azure Data Factory를 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인한 후에 왼쪽 위 모서리에서 **+ 새로 만들기**를 클릭하고 **인텔리전스 + 분석**을 클릭하고 **Data Factory**를 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. 왼쪽 위 모서리에서 **+ 새로 만들기**를 클릭하고, **데이터 + 분석**을 클릭한 다음, **Data Factory**를 클릭합니다. 
    
    ![새로 만들기->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 2. **새 데이터 팩터리** 블레이드에서 다음을 수행합니다.
    
    1. **ADFTutorialDataFactory**를 **이름**으로 입력합니다.
-       Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “ADFTutorialDataFactory”를 사용할 수 없습니다.**오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.  
+       Azure Data Factory 이름은 전역적으로 고유해야 합니다. `Data factory name “ADFTutorialDataFactory” is not available` 오류가 표시되면 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactoryYYYYMMDD) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.  
       
-       ![데이터 팩터리 이름을 사용할 수 없음](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)
-      
-      > [!NOTE]
-      > 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
-      > 
-      > 
+       ![데이터 팩터리 이름을 사용할 수 없음](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
    2. Azure **구독**을 선택합니다.
    3. 리소스 그룹에 대해 다음 단계 중 하나를 수행합니다. 
       
       - **기존 항목 사용**을 선택하고 기존 리소스 그룹을 선택합니다.
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
-         
-          이 자습서의 일부 단계에서는 리소스 그룹에 **ADFTutorialResourceGroup** 이라는 이름을 사용한다고 가정합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+          
+        이 자습서의 일부 단계에서는 리소스 그룹에 **ADFTutorialResourceGroup** 이라는 이름을 사용한다고 가정합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
    4. Data Factory의 **위치**를 선택합니다.
    5. 블레이드 하단에서 **대시보드에 고정** 확인란을 선택합니다.  
    6. **만들기**를 클릭합니다.
@@ -73,21 +72,19 @@ Azure Data Factory **복사 마법사**를 사용하면 데이터 수집/이동 
    ![데이터 팩터리 홈페이지](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
 ## <a name="launch-copy-wizard"></a>복사 마법사 시작
-1. 데이터 팩터리 홈 페이지에서 **데이터 복사** 타일을 클릭하여 **복사 마법사**를 시작합니다. 
+1. Data Factory 블레이드에서 **데이터 복사[미리 보기]** 타일을 클릭하여 **복사 마법사**를 시작합니다. 
    
    > [!NOTE]
-   > 웹 브라우저가 "권한 부여..." 상태로 중지된 것을 확인하면 **타사 쿠키 및 사이트 데이터 차단** 설정을 사용 안 함/선택 취소하고 (또는) 계속 사용하지 않습니다. 그리고 **login.microsoftonline.com**에 대한 예외를 만든 다음 마법사를 다시 시작해봅니다.
-   > 
-   > 
+   > 웹 브라우저가 "권한 부여 중..." 상태에서 갇혀 있음이 확인되면, 브라우저 설정에서 **타사 쿠키 및 사이트 데이터 차단** 설정을 사용 안 함/선택 취소로 지정하거나 계속 사용하도록 유지하고 **login.microsoftonline.com**에 대한 예외를 만든 다음, 마법사를 다시 시작해 봅니다.
 2. **속성** 페이지에서 다음을 수행합니다.
    
    1. **태스크 이름**에 **CopyFromBlobToAzureSql**을 입력합니다.
    2. **설명** 을 입력합니다(선택 사항).
-   3. 종료 날짜가 오늘로 설정되고 시작 날짜가 현재 날짜 5일전으로 설정되도록 **시작 날짜 시간** 및 **종료 날짜 시간**을 변경합니다.  
-   4. **다음**을 클릭합니다.  
+   3. 종료 날짜가 오늘로 설정되고 시작 날짜가 5일 전으로 설정되도록 **시작 날짜 시간** 및 **종료 날짜 시간**을 변경합니다.  
+   4. **다음**을 누릅니다.  
       
       ![복사 도구 - 속성 페이지](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
-3. **원본 데이터 저장소** 페이지에서 **Azure Blob Storage** 타일을 클릭합니다. 이 페이지를 사용하여 복사 작업에 사용할 원본 데이터 저장소를 지정합니다. 기존 데이터 저장소 연결된 서비스를 사용하거나 새 데이터 저장소를 지정할 수 있습니다. 기존의 연결된 서비스를 사용하려면 **기존의 연결된 서비스에서** 를 클릭하고 올바로 연결된 서비스를 선택합니다. 
+3. **원본 데이터 저장소** 페이지에서 **Azure Blob Storage** 타일을 클릭합니다. 이 페이지를 사용하여 복사 작업에 사용할 원본 데이터 저장소를 지정합니다. 
    
     ![복사 도구 - 원본 데이터 저장소 페이지](./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png)
 4. **Azure Blob 저장소 계정 지정** 페이지에서 다음을 수행합니다.
@@ -100,9 +97,8 @@ Azure Data Factory **복사 마법사**를 사용하면 데이터 수집/이동 
       ![복사 도구 - Azure Blob 저장소 계정 지정 페이지](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
 5. **입력 파일 또는 폴더 선택** 페이지에서 다음을 수행합니다.
    
-   1. **adftutorial** 폴더로 이동합니다.
+   1. **adftutorial**(폴더)을 두 번 클릭합니다.
    2. **emp.txt**를 선택하고 **선택**을 클릭합니다.
-   3. **다음**을 클릭합니다. 
       
       ![복사 도구 - 입력 파일 또는 폴더 선택 페이지](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 6. **입력 파일 또는 폴더 선택** 페이지에서 **다음**을 클릭합니다. **이진 복사**를 선택하지 않습니다. 
@@ -141,23 +137,21 @@ Azure Data Factory **복사 마법사**를 사용하면 데이터 수집/이동 
 1. **배포** 페이지에서 `Click here to monitor copy pipeline` 링크를 클릭합니다.
    
    ![복사 도구 - 배포 성공 페이지](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-2. [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 의 지침을 사용하여 방금 만든 파이프라인을 모니터링하는 방법에 대해 자세히 알아봅니다. **활동 창** 목록에서 **새로 고침** 아이콘을 클릭하면 조각이 표시됩니다. 
+2. 모니터링 응용 프로그램이 웹 브라우저의 별도 탭에서 시작됩니다.   
    
-   ![모니터링 앱](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
-   
-   
-   최신 상태를 보려면 하단의 **활동 창**에서 **새로 고침** 단추를 클릭합니다. 새로 고침은 자동으로 실행되지 않습니다. 
+   ![모니터링 앱](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)   
+3. 매시간 조각의 최신 상태를 보려면 아래쪽의 **활동 창** 목록에서 **새로 고침** 단추를 클릭합니다. 파이프라인의 시작 시간과 종료 시간 사이의 5일 동안 5개의 활동 창이 표시됩니다. 목록을 자동으로 새로 고치지 않으므로 [준비] 상태의 모든 활동 창을 표시하려면 [새로 고침] 단추를 몇 번 클릭해야 할 수도 있습니다. 
+4. 목록에서 활동 창을 선택합니다. **활동 창 탐색기**에서 해당 활동 창에 대한 세부 정보를 확인합니다.
 
-> [!NOTE]
-> 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. 출력 데이터를 생성하기 위해 입력 데이터를 변환하지 않습니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하도록 첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
-> 
-> 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 정보는 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요.
+    ![활동 창 세부 정보](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)    
 
-## <a name="see-also"></a>참고 항목
-| 항목 | 설명 |
-|:--- |:--- |
-| [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 종단 간 데이터 기반 워크플로 활용하는 방법을 이해하는 데 도움이 됩니다. |
-| [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다. |
-| [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
+    11, 12, 13, 14 및 15에 해당하는 날짜가 녹색으로 표시되어 있습니다. 즉 이러한 날짜에 대해 이미 출력 조각이 매일 생성되었음을 의미합니다. 또한 다이어그램 보기에서도 파이프라인과 출력 데이터 집합에 대한 이러한 색 구분이 표시됩니다. 이전 단계에서 색 구분을 기반으로 하여 두 조각이 이미 생성되었고, 하나의 조각이 현재 처리 중이며, 다른 두 조각이 처리 대기 중임을 알 수 있습니다. 
 
+    이 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요.
 
+## <a name="next-steps"></a>다음 단계
+이 자습서에서는 Azure Blob 저장소를 원본 데이터 저장소로 사용하고 Azure SQL 데이터베이스를 복사 작업의 대상 데이터 저장소로 사용했습니다. 다음 표에서는 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소의 목록을 제공합니다. 
+
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+데이터 저장소에 대한 복사 마법사에 표시되는 필드/속성에 대한 자세한 내용을 보려면 표에 나와 있는 해당 데이터 저장소에 대한 링크를 클릭합니다. 

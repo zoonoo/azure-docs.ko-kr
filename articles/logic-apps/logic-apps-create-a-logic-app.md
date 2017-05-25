@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/31/2017
-ms.author: jehollan; estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6634f0ee88e68f2fcb09fd7534a88677e8efa029
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan; estfan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 204bf123509729b60b55c306050cef54aa7fecc5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/03/2017
     > [!TIP]
     > 개인 [Microsoft 계정](https://account.microsoft.com/account)이 있는 경우 Outlook.com 계정이 있습니다. 그렇지 않은 경우 Azure 직장 또는 학교 계정이 있으면 **Office 365 Outlook** 계정이 있습니다.
 
-* 웹 사이트의 RSS 피드에 대한 링크입니다. 이 예제는 [MSDN Channel 9 웹 사이트](https://channel9.msdn.com/)에 RSS 피드를 사용합니다.`https://s.ch9.ms/Feeds/RSS`
+* 웹 사이트의 RSS 피드에 대한 링크입니다. 이 예제에서는 [CNN.com 웹 사이트의 주요 기사에 대한 RSS 피드](http://rss.cnn.com/rss/cnn_topstories.rss)(`http://rss.cnn.com/rss/cnn_topstories.rss`)를 사용합니다.
 
 ## <a name="add-a-trigger-that-starts-your-workflow"></a>워크플로를 시작하는 트리거 추가
 
@@ -74,7 +75,7 @@ ms.lasthandoff: 04/03/2017
      **주파수** 및 **간격**을 변경할 수도 있습니다. 
      이러한 설정은 논리 앱이 새 항목을 확인하는 빈도를 결정하고 시간 범위 동안 찾은 모든 항목을 반환합니다.
 
-     이 예제에서는 MSDN Channel 9 웹 사이트에 게시된 새 항목을 매일 확인해 보겠습니다.
+     이 예제에서는 CNN 웹 사이트에 게시된 주요 기사를 매일 확인해 보겠습니다.
 
      ![RSS 피드, 빈도 및 간격을 사용하여 트리거 설정](media/logic-apps-create-a-logic-app/rss-trigger-setup.png)
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 05/15/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: b7cb18fcfda5b829b72b2ded6a1ea9e996e771d7
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: c68f3ea4816eade5972c5936e381f435c24f3215
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Express 경로 파트너 및 피어링 위치
@@ -73,19 +73,21 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **암스테르담** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telefonica+, Telenor, Verizon |
 | **애틀랜타** |Equinix |
 | **부산** |LG CNS |
-| **첸나이** |Global CloudXchange(GCX), SIFY, Tata Communications |
-| **시카고** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Verizon, Zayo Group |
+| **첸나이** | Airtel+, GCX(Global CloudXchange), SIFY, Tata Communications |
+| **시카고** |AT&T NetBond, Comcast, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group |
 | **댈러스** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Verizon, Zayo Group+ |
+| **덴버** |CoreSite+ |
 | **더블린** |Colt, Telecity Group |
 | **홍콩** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **라스베이거스** |Level 3 Communications+, Megaport |
 | **런던** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo Group+ |
 | **로스앤젤레스** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **멜버른** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
-| **뉴욕** |Coresite, Equinix, Megaport, Zayo Group |
-| **뉴포트(웨일스)** |Next Generation Data |
+| **마이애미** |Megaport |
 | **Montreal** |Bell Canada, Cologix |
 | **뭄바이** |Airtel+, Tata Communications |
+| **뉴포트(웨일스)** |Next Generation Data |
+| **뉴욕** |Coresite, Equinix, Megaport, Zayo Group |
 | **오사카** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **파리** |Interxion, Equinix+ |
 | **퀘벡 시티** | Megaport |
@@ -96,7 +98,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **싱가포르** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **시드니** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **도쿄** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
-| **토론토** |Bell Canada, Cologix, Console, Equinix, Megaport, Zayo Group |
+| **토론토** |Bell Canada, Cologix, Console, Equinix, Megaport, Telus, Zayo Group |
 | **워싱턴 DC** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** 는 서비스 예정을 나타냄
@@ -147,21 +149,21 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | --- | --- | --- |
 | **암스테르담** | Equinix, Telecity | Eurofiber , Fastweb S.p.A, Nianet |
 | **시카고** | Equinix | Windstream |
-| **댈러스** | Equinix, Megaport | C3ntro, Data Foundry, Transtelco |
+| **댈러스** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **프랑크푸르트** | Telecity | Nianet, QSC AG |
-| **런던** | Equinix, euNetworks, Telecity | Bezeq International Ltd., Exponential E, HSO, NexGen Networks, Tamares Telecom |
+| **런던** | Equinix, euNetworks, Telecity | Bezeq International Ltd., Epsilon, Exponential E, HSO, NexGen Networks, Tamares Telecom |
 | **로스앤젤레스** | Equinix |Transtelco |
 | **마드리드** | Level3 | Zertia |
-| **Montreal** | Cologix, Equinix | Airgate Technologies. Inc, Cogeco Peer 1 |
+| **Montreal** | Cologix, Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers |
 | **뉴욕** |Equinix | Lightower |
 | **시애틀** |Equinix | Alaska Communications |
-| **실리콘밸리** |Equinix | Windstream |
+| **실리콘밸리** |Equinix | Cox Business, Windstream |
 | **싱가포르** |Equinix |1CLOUDSTAR, Epsilon Telecommunications Limited |
 | **슬라우** | Equinix | HSO|
 | **시드니** | Megaport | Macquarie Telecom Group|
 | **도쿄** | Equinix | ARTERIA Networks Corporation |
-| **토론토** | Equinix | Airgate Technologies. Inc, Cogeco Peer 1 |
-| **워싱턴 DC** |Equinix | Lightower, Masergy, Windstream |
+| **토론토** | Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers, Thinktel|
+| **워싱턴 DC** |Equinix | Epsilon, Lightower, Masergy, Windstream |
 
 ## <a name="expressroute-system-integrators"></a>Express 경로 시스템 통합업체
 사용자 요구에 맞도록 개인 연결을 사용하도록 설정하면 네트워크의 크기에 따라 어려울 수 있습니다. 다음 표에 나열된 시스템 통합 업체와 함께 작업하여 Express 경로에 등록할 수 있습니다.
@@ -169,8 +171,8 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **대륙** | **시스템 통합 업체** |
 | --- | --- |
 | **아시아** |Avanade Inc., OneAs1a |
-| **오스트레일리아** | IT Consultancy, Vigilant.IT |
-| **유럽** |Avanade Inc., Altogee, Bright Skies GmbH, Dotnet Solutions, MSG Services, Nelite, Orange Networks, sol-tec |
+| **오스트레일리아** | Ensyst, IT Consultancy, Vigilant.IT |
+| **유럽** |Avanade Inc., Altogee, Bright Skies GmbH, New Signature, MSG Services, Nelite, Orange Networks, sol-tec |
 | **북아메리카** |Avanade Inc., Equinix Professional Services, Perficient, Presidio, Project Leadership |
 | **남미** |Avanade Inc. |
 ## <a name="next-steps"></a>다음 단계

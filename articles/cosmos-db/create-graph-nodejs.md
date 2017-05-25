@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/13/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 45adf2accd3d9f43bc1d73b9ff93cc34d4d7c90a
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: d8a6a183d1acd7a06683ec2e402bd866cb5195f4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -96,27 +96,25 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     ![Azure Portal에서 선택키 보기 및 복사, 키 블레이드](./media/create-documentdb-dotnet/keys.png)
 
-2. `app.js` 파일에서 *끝점*, *db*, *coll* 및 *authKey* 구성을 입력합니다.
+2. 포털에서 복사 단추를 사용하여 URI 값을 복사하고 이 값을 config.js의 config.endpoint 키 값으로 만듭니다.
 
-    ```nodejs
-    const client = Gremlin.createClient(
-        443, 
-        config.endpoint, 
-        { 
-            "session": false, 
-            "ssl": true, 
-            "user": `/dbs/${config.database}/colls/${config.collection}`,
-            "password": config.primaryKey
-        });
-    ```
+    `config.endpoint = "GRAPHENDPOINT";`
+
+3. URI의 documents.azure.com 부분을 graphs.azure.com으로 바꿉니다.
+
+4. 그런 다음 포털에서 PRIMARY KEY 값을 복사하고 이 값을 config.js의 config.primaryKey 값으로 만듭니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
+
+    `config.primaryKey = "PRIMARYKEY";`
 
 ## <a name="run-the-console-app"></a>콘솔 앱 실행
 
-1. 터미널에서 `npm install`를 실행하여 필요한 npm 모듈을 설치합니다.
+1. 터미널 창을 열고 프로젝트에 포함된 package.json 파일에 대한 설치 디렉터리로 `cd`를 수행합니다.  
 
-2. `node_modules\gremlin` 내용을 [Cosmos DB Gremlin 포크](https://github.com/CosmosDB/gremlin-javascript)의 소스 코드로 바꿉니다. 그러면 Azure Cosmos DB에 필요한 SASL 및 SSL을 지원하지만 현재 드라이버에서는 지원하지 않습니다(드라이버에서 변경 내용을 수용할 때까지 일시적으로).
+2. `npm install gremlin`을 실행하여 필요한 npm 모듈을 설치합니다.
 
-2. 터미널에서 `node app.js`을 실행하여 노드 응용 프로그램을 시작합니다.
+3. Azure Cosmos DB에 필요하지만 드라이버에서 현재 지원하지 않는 SSL 및 SASL을 지원하는 [Cosmos DB Gremlin 포크](https://github.com/CosmosDB/gremlin-javascript)의 소스 코드로 `node_modules\gremlin`의 내용을 바꿉니다.(드라이버에서 변경 내용을 수용할 때까지 일시적으로).
+
+4. 터미널에서 `node app.js`을 실행하여 노드 응용 프로그램을 시작합니다.
 
 이제 데이터 탐색기로 돌아가서 이 새 데이터를 쿼리 및 수정하고 작업에 사용할 수 있습니다. 
 
@@ -145,5 +143,3 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 > [!div class="nextstepaction"]
 > [Gremlin을 사용하여 쿼리](tutorial-query-graph.md)
-
-

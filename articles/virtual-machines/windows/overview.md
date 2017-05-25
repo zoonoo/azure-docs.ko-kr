@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e1e09f4f75da05ca051b78e57979600fd3e36006
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6d87b94df7e03bfe3255a16d30cd82ff6ce08428
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -130,7 +131,7 @@ VM은 스크립팅 지원을 통해 브라우저 기반 포털, 명령줄 도구
 | 방법 | 설명 |
 | --- | --- |
 | Azure 포털 |허브 메뉴에서 **Virtual Machines**를 클릭하고 목록에서 VM을 선택합니다. VM에 대한 블레이드에서 개요 정보, 설정 값 및 모니터링 메트릭에 액세스할 수 있습니다. |
-| Azure PowerShell |PowerShell을 사용한 VM 관리에 대한 내용은 [Resource Manager 및 PowerShell을 사용하여 Azure Virtual Machines 관리](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. |
+| Azure PowerShell |PowerShell을 사용하여 VM을 관리하는 방법에 대한 자세한 내용은 [Azure PowerShell 을 사용하여 Windows VM 만들기 및 관리](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. |
 | REST API |[VM 가져오기 정보](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) 작업을 사용하여 VM에 대한 정보를 가져옵니다. |
 | 클라이언트 SDK |C#를 사용한 VM 관리에 대한 내용은 [Azure Resource Manager 및 C#를 사용하여 Azure Virtual Machines 관리](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. |
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory에 사용자 지정 도메인 이름 추가 및 페더레이션 로그온 설정 | Microsoft Docs"
-description: "Azure Active Directory에 회사의 도메인 이름을 추가하는 방법 및 Azure Active Directory와 온-프레미스 페더레이션 솔루션 간에 페더레이션 로그온을 설정하는 방법입니다."
+title: "Azure Active Directory에 사용자 지정 도메인 이름 추가 및 페더레이션 로그인 설정 | Microsoft Docs"
+description: "Azure Active Directory에 회사의 도메인 이름을 추가하여 Azure Active Directory와 온-프레미스 페더레이션 솔루션 간에 페더레이션 로그인을 설정하는 방법입니다."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2016
+ms.date: 05/16/2017
 ms.author: curtand;jeffsta
 ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 77d34a6ebce12465a15de158b9160a03db58c48e
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 7f257dff6fdd423b89d1c52a84b64951dcf5915f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 05/17/2017
 
 
 ---

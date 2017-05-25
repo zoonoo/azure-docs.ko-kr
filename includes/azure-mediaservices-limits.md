@@ -37,9 +37,11 @@
 >[!NOTE]
 > 항상 동일한 날짜/액세스 권한 등을 사용하는 경우 동일한 정책 ID를 사용해야 합니다. 내용 및 예제는 [이](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) 섹션을 참조하세요.
 
-<sup>7</sup>Azure 서비스에서 미디어 프로세서 중 하나를 사용하여 콘텐츠를 처리할 의도로 Media Service에서 자산에 콘텐츠를 업로드하는 경우(즉, Media Encoder Standard, Media Encoder Premium Workflow 같은 인코더 또는 얼굴 탐지기 같은 분석 엔진)는 다음과 같은 제한이 있음을 알고 있어야 합니다. 
+<sup>7</sup> Azure Media Services의 자산에 콘텐츠를 업로드하여 자신의 서비스에서 미디어 프로세서(즉, Media Encoder Standard 및 Media Encoder Premium 워크플로와 같은 인코더 또는 Face Detector와 같은 분석 엔진) 중 하나를 사용하여 해당 콘텐츠를 처리하려는 경우 최대 크기에 대한 제한을 알고 있어야 합니다. 
 
-| 미디어 예약 단위 유형 | 최대 파일 크기(GB)| 
+2017년 5월 15일 현재 단일 Blob에 대해 지원되는 최대 크기는 195TB입니다. 이 제한보다 큰 파일의 경우 작업이 실패합니다. 이 제한을 해결하기 위해 노력하고 있습니다. 또한 자산의 최대 크기에 대한 제한은 다음과 같습니다.
+
+| 미디어 예약 단위 유형 | 최대 입력 크기(GB)| 
 | --- | --- | 
 |S1    | 325|
 |S2    | 640|

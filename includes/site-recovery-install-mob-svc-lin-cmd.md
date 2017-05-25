@@ -6,25 +6,38 @@
 2. 모바일 서비스를 제거하려면 다음 명령을 실행합니다.
 
   ```
-  sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P MobSvc.passphrase
+  sudo ./install -d <Install Location> -r MS -v VmWare -q
+  ```
+3. 설치가 완료되면 모바일 서비스를 구성 서버에 등록해야 합니다. 다음 명령을 실행하여 모바일 서비스를 구성 서버에 등록합니다.
+
+  ```
+  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
   ```
 
-#### <a name="mobility-service-installer-command-line-arguments"></a>모바일 서비스 설치 관리자 명령줄 인수
+#### <a name="mobility-service-installer-command-line"></a>모바일 서비스 설치 관리자 명령줄
 
-|매개 변수|형식|설명|가능한 값|
+```
+Usage:
+./install -d <Install Location> -r <MS|MT> -v VmWare -q
+```
+
+|매개 변수를 포함해야 합니다.|형식|설명|가능한 값|
 |-|-|-|-|
-|-t |필수|에이전트 유형<br>(향후 릴리스에서 사용되지 않음)|*둘 다*|
-|지정하지 않을 경우 |필수|에이전트 구성<br>(향후 릴리스에서 사용되지 않음) |*host*|
-|-R |옵션|에이전트의 역할|에이전트<br>MasterTarget|
+|-r |필수|MS(모바일 서비스) 설치 여부 또는 MT(마스터 대상) 설치 여부를 지정합니다.|MS </br> MT|
 |일시 중지되고 |옵션|모바일 서비스를 설치하는 위치|/usr/local/ASR|
-|-i |필수|구성 서버의 IP 주소|모든 유효한 IP 주소|
-|-p |필수|구성 서버에서 들어오는 연결을 수신 대기하는 포트|443|
-|-s |필수|성공적인 설치 후 서비스 시작<br>(향후 릴리스에서 사용되지 않음)|*y*|
-|-c |필수|에이전트와 프로세스 서버 간의 통신 모드<br>(향후 릴리스에서 사용되지 않음) |*https*|
-|-P |필수|구성 서버 암호|모든 유효한 UNC 또는 로컬 파일 경로|
+|-v|필수|모바일 서비스가 설치되는 플랫폼을 지정합니다. </br> </br>- **VMware**: *VMware vSphere ESXi 호스트*, *Hyper-V 호스트* 및 *물리적 서버*에서 실행되는 VM에 모바일 서비스를 설치하는 경우 이 값을 사용합니다. </br> - **Azure**: Azure IaaS VM에 에이전트를 설치하는 경우 이 값을 사용합니다.| VMware </br> Azure|
+|-q|옵션|설치 관리자를 자동 모드에서 실행하도록 지정합니다.| 해당 없음|
 
 
-#### <a name="example"></a>예
+#### <a name="mobility-service-configuration-command-line"></a>모바일 서비스 구성 명령줄
+
 ```
-sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i 192.168.2.53 -p 443 -s y -c https -P /tmp/MobSvc.passphrase
+Usage:
+cd /usr/local/ASR/Vx/bin
+UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 ```
+
+|매개 변수를 포함해야 합니다.|형식|설명|가능한 값|
+|-|-|-|-|
+|-i |필수|구성 서버의 IP|모든 유효한 IP 주소|
+|-P |필수|연결 암호가 저장되는 파일의 전체 파일 경로입니다.|모든 유효한 폴더|

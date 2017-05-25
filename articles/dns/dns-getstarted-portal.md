@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3aea60bc21bfb0650a336f6674005bbab47201fe
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -47,7 +48,7 @@ DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 �
    | **설정** | **값** | **세부 정보** |
    |---|---|---|
    |**Name**|contoso.com|DNS 영역의 이름|
-   |**구독**|[구독 이름]|응용 프로그램 게이트웨이를 만들 구독을 선택합니다.|
+   |**구독**|[구독 이름]|DNS 영역을 만들 구독을 선택합니다.|
    |**리소스 그룹**|**새로 만들기:** contosoDNSRG|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. 리소스 그룹에 대해 자세히 알아보려면 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 개요 문서를 참조하세요.|
    |**위치**:|미국 서부||
 
@@ -70,7 +71,7 @@ DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 �
    |**형식**|A| 만들 DNS 레코드 유형, 사용할 수 있는 값은 A, AAAA, CNAME, MX, NS, SRV, TXT 및 PTR입니다.  레코드 유형에 대한 자세한 내용은 [DNS 영역 및 레코드 개요](dns-zones-records.md)를 참조하세요.|
    |**TTL**|1|DNS 요청의 Time-to-Live입니다.|
    |**TTL 단위**|시간|TTL 값에 대한 시간 측정입니다.|
-   |**IP 주소**|{ipAddressValue| 이 값은 DNS 레코드가 확인하는 IP 주소입니다.|
+   |**IP 주소**|ipAddressValue| 이 값은 DNS 레코드가 확인하는 IP 주소입니다.|
 
 ## <a name="view-records"></a>레코드 보기
 

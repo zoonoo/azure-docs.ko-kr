@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 73b9448153ec520d77afd1bdb65b9694e7bf7b9e
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 9bbf188b0080b8b1cf71423023645f54f1f823e5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -70,27 +70,33 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 ## <a name="review-the-code"></a>코드 검토
 
-앱에서 어떤 상황이 발생하고 있는지 빠르게 살펴보겠습니다. DocumentDBRepository.cs 파일을 열어 보면 이들 코드 줄이 Azure Cosmos DB 리소스를 만드는 것을 알 수 있습니다. 
+앱에서 어떤 상황이 발생하고 있는지 빠르게 살펴보겠습니다. Program.cs 파일을 열어 보면 이러한 코드 줄에서 Azure Cosmos DB 리소스를 만드는 것을 알 수 있습니다. 
 
-* DocumentClient가 초기화됩니다.
+* CloudTableClient가 초기화됩니다.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-* 새 데이터베이스가 만들어집니다.
+* 새 테이블이 존재하지 않는 경우 만들어집니다.
 
     ```csharp
-    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
+    CloudTable table = tableClient.GetTableReference("people");
+    table.CreateIfNotExists();
     ```
 
-* 새 그래프 컨테이너가 만들어집니다.
+* 새 테이블 컨테이너가 만들어집니다. 이 코드는 일반적인 Azure Table Storage SDK와 매우 유사합니다. 
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
-        new RequestOptions { OfferThroughput = 1000 });
+    CustomerEntity item = new CustomerEntity()
+                {
+                    PartitionKey = Guid.NewGuid().ToString(),
+                    RowKey = Guid.NewGuid().ToString(),
+                    Email = $"{GetRandomString(6)}@contoso.com",
+                    PhoneNumber = "425-555-0102",
+                    Bio = GetRandomString(1000)
+                };
     ```
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
@@ -106,7 +112,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 3. 포털에서 Azure Cosmos DB 계정 이름을 복사하고 app.config의 PremiumStorageConnection 문자열 값에서 AccountName의 값을 확인합니다. 위의 스크린샷에서에서 계정 이름은 cosmos-db-quickstart입니다. 계정 이름은 포털의 상단에 표시됩니다.
 
     `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMODB.documents.azure.com" />`
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`
 
 4. 그 다음, 포털에서 사용자의 기본 키 값을 복사한 후 PremiumStorageConnectionString에서 AccountKey 값으로 만듭니다. 
 
@@ -114,7 +120,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 5. 마지막으로, 복사 단추를 사용하여 포털의 키 페이지에서 URI 값을 복사하고 PremiumStorageConnectionString의 TableEndpoint 값을 확인합니다.
 
-    `TableEndpoint=https://COSMODB.documents.azure.com`
+    `TableEndpoint=https://COSMOSDB.documents.azure.com`
 
     StandardStorageConnectionString은 그대로 둘 수 있습니다.
 

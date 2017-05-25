@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2016
+ms.date: 05/12/2017
 ms.author: osamam
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: a97662819acbbbd4c4a331acac4fdec193242d80
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5c039a80b24feda61da0793fa64b48cb4783c3f1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -82,7 +82,7 @@ Azure 공용 피어링 경로를 사용하면 해당 공용 IP 주소에 걸쳐 
 
 ### <a name="microsoft-peering"></a>Microsoft 피어링
 
-Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통해 지원하지 않는 Microsoft 클라우드 서비스에 연결할 수 있습니다. 서비스 목록은 Exchange Online, SharePoint Online, 비즈니스용 Skype 및 CRM Online과 같은 Office 365 서비스를 포함합니다. Microsoft는 Microsoft 피어링에 양방향 연결을 지원합니다. Microsoft 클라우드 서비스에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소를 사용해야 합니다.
+Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통해 지원하지 않는 Microsoft 클라우드 서비스에 연결할 수 있습니다. 서비스 목록에는 Exchange Online, SharePoint Online, 비즈니스용 Skype 및 Dynamics 365와 같은 Office 365 서비스가 포함됩니다. Microsoft는 Microsoft 피어링에 양방향 연결을 지원합니다. Microsoft 클라우드 서비스에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소를 사용해야 합니다.
 
 사용자 IP 주소 및 AS 번호가 아래에 나열된 레지스트리 중 하나에 등록되었는지 확인합니다.
 
@@ -193,7 +193,7 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 | **Exchange** |12076:5010 |
 | **SharePoint** |12076:5020 |
 | **비즈니스용 Skype** |12076:5030 |
-| **CRM Online** |12076:5040 |
+| **Dynamics 365** |12076:5040 |
 | **다른 Office 365 서비스** |12076:5100 |
 
 > [!NOTE]

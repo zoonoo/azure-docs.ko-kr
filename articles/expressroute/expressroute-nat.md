@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 05/12/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: d29cf81747390fe153c3c6dc330ef738de0cd83a
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: d3de566ff2825ef0c41d88d4a86157dc23d9f46b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -49,7 +49,7 @@ Azure 공용 피어링 경로를 사용하면 해당 공용 IP 주소에 걸쳐 
 > 
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>Microsoft 피어링에 대한 NAT 요구 사항
-Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통해 지원하지 않는 Microsoft 클라우드 서비스에 연결할 수 있습니다. 서비스 목록은 Exchange Online, SharePoint Online, 비즈니스용 Skype 및 CRM Online과 같은 Office 365 서비스를 포함합니다. Microsoft는 Microsoft 피어링에 양방향 연결을 지원할 예정입니다. Microsoft 클라우드 서비스에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소에 SNAT되어야 합니다. Microsoft 클라우드 서비스에서 네트워크에 보내는 트래픽은 [비대칭 라우팅](expressroute-asymmetric-routing.md)을 방지하기 위해 인터넷 에지에서 SNAT되어야 합니다. 아래 그림은 Microsoft 피어링에 어떻게 NAT을 설치할지에 대한 높은 수준의 그림을 제공합니다.
+Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통해 지원하지 않는 Microsoft 클라우드 서비스에 연결할 수 있습니다. 서비스 목록에는 Exchange Online, SharePoint Online, 비즈니스용 Skype 및 Dynamics 365와 같은 Office 365 서비스가 포함됩니다. Microsoft는 Microsoft 피어링에 양방향 연결을 지원할 예정입니다. Microsoft 클라우드 서비스에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소에 SNAT되어야 합니다. Microsoft 클라우드 서비스에서 네트워크에 보내는 트래픽은 [비대칭 라우팅](expressroute-asymmetric-routing.md)을 방지하기 위해 인터넷 에지에서 SNAT되어야 합니다. 아래 그림은 Microsoft 피어링에 어떻게 NAT을 설치할지에 대한 높은 수준의 그림을 제공합니다.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 

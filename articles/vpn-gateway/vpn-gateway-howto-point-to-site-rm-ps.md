@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 05/15/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 8e6b1dc7e17fe41db1deb03417083cfc891afa86
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 2f0d321885781364de2bdf686264ea5952eafc5c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -35,9 +35,19 @@ ms.lasthandoff: 05/08/2017
 >
 >
 
-지점 및 사이트 간(P2S) 구성을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. P2S는 SSTP를 통한 VPN 연결입니다(보안 소켓 터널링 프로토콜). 지점 및 사이트 간 연결은 집 또는 회의와 같은 원격 위치에서 VNet에 연결하려는 경우 또는 몇 명의 클라이언트만 가상 네트워크에 연결해야 하는 경우 유용합니다. P2S 연결에는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다. 클라이언트 컴퓨터에서 VPN 연결을 설정합니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [지점 및 사이트 간 FAQ](#faq)를 참조하세요.
+지점 및 사이트 간(P2S) 구성을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. 지점 및 사이트 간 연결은 집 또는 회의와 같은 원격 위치에서 VNet에 연결하려는 경우 또는 몇 명의 클라이언트만 가상 네트워크에 연결해야 하는 경우 유용합니다. P2S VPN 연결은 기본 Windows VPN 클라이언트를 사용하여 클라이언트 컴퓨터에서 시작됩니다. 클라이언트 연결은 인증서를 사용하여 인증합니다. 
 
 ![Azure VNet-지점 및 사이트 간 연결 다이어그램에 컴퓨터 연결](./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png)
+
+P2S 연결을 작동하는 데는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다. P2S는 SSTP(Secure Socket Tunneling Protocol)를 통해 VPN 연결을 만듭니다. 서버 쪽에서 SSTP 버전 1.0, 1.1 및 1.2를 지원하며, 클라이언트에서 사용할 버전을 결정합니다. Windows 8.1 이상에서는 기본적으로 SSTP 버전 1.2를 사용합니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [지점 및 사이트 간 FAQ](#faq)를 참조하세요.
+
+P2S 연결에는 다음이 필요합니다.
+
+* RouteBased VPN 게이트웨이입니다.
+* Azure에 업로드된 루트 인증서에 대한 공개 키(.cer 파일) - 신뢰할 수 있는 인증서로 간주되며 인증에 사용됩니다.
+* 루트 인증서에서 생성되고 연결할 각 클라이언트 컴퓨터에 설치된 클라이언트 인증서 - 클라이언트 인증에 사용됩니다.
+* 연결하는 모든 클라이언트 컴퓨터에 VPN 클라이언트 구성 패키지를 생성하여 설치해야 합니다. 클라이언트 구성 패키지는 VNet에 연결하는 데 필요한 정보와 함께 운영 체제에 이미 있는 기본 VPN 클라이언트를 구성합니다.
+
 
 ## <a name="before-beginning"></a>시작하기 전에
 
@@ -76,7 +86,7 @@ ms.lasthandoff: 05/08/2017
   ```
 2. Azure 구독 목록을 가져옵니다.
 
-  ```powershell  
+  ```powershell
   Get-AzureRmSubscription
   ```
 3. 사용할 구독을 지정합니다.
@@ -119,7 +129,7 @@ ms.lasthandoff: 05/08/2017
   $besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
   $gwsub = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName -AddressPrefix $GWSubPrefix
   ```
-3. 가상 네트워크 만들기 <br>DNS 서버는 선택 사항입니다. 이 값을 지정하더라도 새 DNS 서버를 만들지 않습니다. 이후 단계에서 생성하는 클라이언트 구성 패키지는 이 설정에서 지정한 DNS 서버의 IP 주소를 포함합니다. 나중에 DNS 서버 목록을 업데이트해야 하는 경우 새 목록을 반영하는 새 VPN 클라이언트 구성 패키지를 생성하고 설치할 수 있습니다.<br>지정된 DNS 서버는 연결 중인 리소스에 대한 이름을 확인할 수 있는 DNS 서버여야 합니다. 이 예제에서는 공용 IP 주소를 사용했습니다. 고유한 값을 사용해야 합니다.
+3. 가상 네트워크 만들기 <br>DNS 서버는 선택 사항입니다. 이 값을 지정하더라도 새 DNS 서버를 만들지 않습니다. 이후 단계에서 생성하는 클라이언트 구성 패키지는 이 설정에서 지정한 DNS 서버의 IP 주소를 포함합니다. 나중에 DNS 서버 목록을 업데이트해야 하는 경우 새 목록을 반영하는 새 VPN 클라이언트 구성 패키지를 생성하고 설치할 수 있습니다. 지정된 DNS 서버는 연결 중인 리소스에 대한 이름을 확인할 수 있는 DNS 서버여야 합니다. 이 예제에서는 공용 IP 주소를 사용했습니다. 고유한 값을 사용해야 합니다.
 
   ```powershell
   New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer $DNS
@@ -141,7 +151,7 @@ ms.lasthandoff: 05/08/2017
 
 ## <a name="Certificates"></a>3 - 인증서 생성
 
-인증서는 지점 및 사이트 간 VPN에 대한 VPN 클라이언트를 인증하기 위해 Azure에 의해 사용됩니다.
+인증서는 지점 및 사이트 간 VPN에 대한 VPN 클라이언트를 인증하기 위해 Azure에 의해 사용됩니다. Azure에 루트 인증서의 공개 키 정보를 업로드합니다. 그러면 해당 공개 키가 '신뢰할 수 있는 키'로 간주됩니다. 클라이언트 인증서는 신뢰할 수 있는 루트 인증서에서 생성한 다음 각 클라이언트 컴퓨터의 [인증서 - 현재 사용자/개인] 인증서 저장소에 설치해야 합니다. 인증서는 VNet에 대한 연결을 시작할 때 해당 클라이언트를 인증하는 데 사용됩니다. 인증서 생성 및 설치에 대한 자세한 내용은 [지점 및 사이트 간 인증서](vpn-gateway-certificates-point-to-site.md)를 참조하세요.
 
 ### <a name="cer"></a>1단계 - 루트 인증서용 .cer 파일 가져오기
 
@@ -152,9 +162,9 @@ ms.lasthandoff: 05/08/2017
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## <a name="upload"></a>4 - 루트 인증서 .cer 파일 업로드
+## <a name="upload"></a>4 - 업로드할 .cer 루트 인증서 파일 준비
 
-Azure에 신뢰할 수 있는 루트 인증서의 .cer 파일(공개 키 정보 포함)을 업로드합니다. 최대 20개의 루트 인증서에 대한 파일을 업로드할 수 있습니다. 루트 인증서에 대한 개인 키를 Azure에 업로드하지 않습니다. .cer 파일이 업로드되었으면 Azure에서는 이 파일을 사용하여 가상 네트워크에 연결할 클라이언트를 인증합니다. 필요한 경우 추가 루트 인증서 공개 키를 나중에 업로드할 수 있습니다.
+신뢰할 수 있는 루트 인증서의 .cer 파일(공개 키 정보 포함)을 Azure에 업로드할 준비를 합니다. 루트 인증서에 대한 개인 키를 Azure에 업로드하지 않습니다. a.cer 파일이 업로드되면 Azure는 이.cer 파일을 사용하여 신뢰할 수 있는 루트 인증서에서 생성된 클라이언트 인증서를 설치한 클라이언트를 인증합니다. 필요한 경우 나중에 신뢰할 수 있는 루트 인증서 파일을 최대 20개까지 추가로 업로드할 수 있습니다. 이 섹션에서는 다음 섹션에서 VPN 게이트웨이를 만들 때 이 게이트웨이와 연결할 .cer 루트 인증서 파일을 선언합니다.
 
 1. 인증서 이름에 대한 변수를 선언하고 변수를 고유한 값으로 바꿉니다.
 
@@ -170,10 +180,14 @@ Azure에 신뢰할 수 있는 루트 인증서의 .cer 파일(공개 키 정보 
   $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
   ```
 
-
 ## <a name="creategateway"></a>5 - VPN Gateway 만들기
 
-VNet용 가상 네트워크 게이트웨이를 구성하고 만듭니다. *-GatewayType*은 **Vpn**이어야 하고 *-VpnType*은 **RouteBased**이어야 합니다. 이 예제에서는 루트 인증서의 공개 키를 VPN Gateway와 연결합니다. VPN 게이트웨이를 완료하는 데 최대 45분이 걸릴 수 있습니다.
+VNet용 가상 네트워크 게이트웨이를 구성하고 만듭니다.
+
+* *-GatewayType*은 **Vpn**이어야 하고 *-VpnType*은 **RouteBased**이어야 합니다.
+* 이 예제에서 루트 인증서의 공개 키는 이전 섹션에서 지정한 '$p2srootcert' 변수를 사용하여 VPN 게이트웨이와 연결됩니다.
+* 이 예제에서 VPN 클라이언트 주소 풀은 1단계에서 [변수](#declare)로 선언되었습니다. VPN 클라이언트 주소 풀은 연결할 때 VPN 클라이언트에서 IP 주소를 받는 범위입니다. 연결 원본이 되는 온-프레미스 위치 또는 연결 대상이 되는 VNet과 겹치지 않는 개인 IP 주소 범위를 사용합니다.
+* VPN 게이트웨이는 선택한 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md)에 따라 완료하는 데 최대 45분이 걸릴 수 있습니다.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -184,9 +198,9 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 ## <a name="clientconfig"></a>6 - VPN 클라이언트 구성 패키지 다운로드
 
-지점 및 사이트 간 VPN을 사용하여 VNet에 연결하려면 각 클라이언트에서 VPN 클라이언트 구성 패키지를 설치해야 합니다. 패키지는 VPN 클라이언트를 설치하지 않습니다. 버전이 클라이언트의 아키텍처와 일치하는 한 각 클라이언트 컴퓨터에서 동일한 VPN 클라이언트 구성 패키지를 사용할 수 있습니다. 지원되는 클라이언트 운영 체제의 목록은 이 문서 끝의 [지점 및 사이트 간 연결 FAQ](#faq)를 참조하세요.
+지점 및 사이트 간 VPN을 사용하여 VNet에 연결하려면 각 클라이언트에서 기본 Windows VPN 클라이언트를 구성하는 패키지를 설치해야 합니다. 구성 패키지는 가상 네트워크에 연결하는 데 필요한 설정을 사용하여 네이티브 Windows VPN 클라이언트를 구성하고 VNet에 DNS 서버를 지정한 경우 클라이언트가 이름 확인을 위해 사용하는 DNS 서버 IP 주소를 포함합니다. 지정된 DNS 서버를 변경하는 경우에 클라이언트 구성 패키지를 생성한 후에 새 클라이언트 구성 패키지를 생성하여 클라이언트 컴퓨터에 설치하도록 합니다.
 
-구성 패키지는 가상 네트워크에 연결하는 데 필요한 설정을 사용하여 네이티브 Windows VPN 클라이언트를 구성하고 VNet에 DNS 서버를 지정한 경우 클라이언트가 이름 확인을 위해 사용하는 DNS 서버 IP 주소를 포함합니다. 지정된 DNS 서버를 변경하는 경우에 클라이언트 구성 패키지를 생성한 후에 새 클라이언트 구성 패키지를 생성하여 클라이언트 컴퓨터에 설치하도록 합니다.
+버전이 클라이언트의 아키텍처와 일치하는 한 각 클라이언트 컴퓨터에서 동일한 VPN 클라이언트 구성 패키지를 사용할 수 있습니다. 지원되는 클라이언트 운영 체제의 목록은 이 문서 끝의 [지점 및 사이트 간 연결 FAQ](#faq)를 참조하세요.
 
 1. 게이트웨이를 만들었으면 클라이언트 구성 패키지를 생성하고 다운로드할 수 있습니다. 이 예제에서는 64비트 클라이언트용 패키지를 다운로드합니다. 32비트 클라이언트를 다운로드하려는 경우 'Amd64'를h 'x86'으로 바꿉니다. Azure 포털을 사용하여 VPN 클라이언트를 다운로드할 수도 있습니다.
 
@@ -194,7 +208,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
   Get-AzureRmVpnClientPackage -ResourceGroupName $RG `
   -VirtualNetworkGatewayName $GWName -ProcessorArchitecture Amd64
   ```
-2. 패키지를 다운로드하기 위해 링크를 둘러싼 """를 조심스럽게 제거하면서 링크를 복사하고 웹 브라우저에 붙여넣습니다. 
+2. 패키지를 다운로드하기 위해 반환된 링크를 둘러싼 따옴표를 조심스럽게 제거한 채로 복사한 다음 웹 브라우저에 붙여넣습니다. 
 3. 클라이언트 컴퓨터에 패키지를 다운하여 설치합니다. SmartScreen 팝업이 표시되면 **자세한 정보**, **실행**을 차례로 클릭합니다. 다른 클라이언트 컴퓨터에 설치하기 위해 패키지를 저장할 수도 있습니다.
 4. 클라이언트 컴퓨터에서 **네트워크 설정**으로 이동하고 **VPN**을 클릭합니다. VPN 연결에서 연결되는 가상 네트워크의 이름을 표시합니다.
 
@@ -221,17 +235,19 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 1. VPN 연결이 활성인지를 확인하려면, 관리자 권한 명령 프롬프트를 열고 *ipconfig/all*을 실행합니다.
 2. 결과를 확인합니다. 받은 IP 주소가 구성에 지정한 지점 및 사이트 VPN 클라이언트 주소 풀 내의 주소 중 하나인지 확인합니다. 결과는 다음 예제와 비슷합니다.
-   
-        PPP adapter VNet1:
-            Connection-specific DNS Suffix .:
-            Description.....................: VNet1
-            Physical Address................:
-            DHCP Enabled....................: No
-            Autoconfiguration Enabled.......: Yes
-            IPv4 Address....................: 172.16.201.3(Preferred)
-            Subnet Mask.....................: 255.255.255.255
-            Default Gateway.................:
-            NetBIOS over Tcpip..............: Enabled
+
+  ```
+  PPP adapter VNet1:
+      Connection-specific DNS Suffix .:
+      Description.....................: VNet1
+      Physical Address................:
+      DHCP Enabled....................: No
+      Autoconfiguration Enabled.......: Yes
+      IPv4 Address....................: 172.16.201.3(Preferred)
+      Subnet Mask.....................: 255.255.255.255
+      Default Gateway.................:
+      NetBIOS over Tcpip..............: Enabled
+  ```
 
 
 ## <a name="connectVM"></a>가상 컴퓨터에 연결
@@ -357,4 +373,3 @@ Azure에 최대 20개의 루트 인증서 .cer 파일을 추가할 수 있습니
 
 ## <a name="next-steps"></a>다음 단계
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요. 네트워킹 및 가상 컴퓨터에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/linux/azure-vm-network-overview.md)를 참조하세요.
-

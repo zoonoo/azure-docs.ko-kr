@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 109460cecc4e11c729203af97c9bf1c22b90e61a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 25278e621155e7c90b5bb870d08793d285f4edff
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20-preview"></a>자습서: Azure CLI 2.0을 사용하여 Azure Data Lake Analytics 시작(미리 보기)
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>자습서: Azure CLI 2.0을 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Azure CLI 2.0을 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-SQL](data-lake-analytics-u-sql-get-started.md)로 Data Lake Analytics 작업을 정의하고, 작업을 Data Lake Analytics 계정에 제출하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
@@ -32,12 +33,6 @@ Azure CLI 2.0을 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure CLI 2.0**. [Azure CLI 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli)을 참조하세요.
-* **Data Lake Store/Analytics CLI 2.0 미리 보기를 사용하도록 설정**. Data Lake Store 및 Data Lake Analytics CLI 2.0는 여전히 미리 보기 상태입니다. 다음 명령을 실행하여 둘 다 사용하도록 설정합니다.
-
-    ```azurecli
-    az component update --add dls
-    az component update --add dla 
-    ```
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 

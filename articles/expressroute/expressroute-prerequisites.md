@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: a56749a5ac1098db3970140a76b71c77c1f74c07
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 679b6962633cd734a1b1e339e8422da5b9c4ddfd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -27,7 +28,7 @@ ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Azure 계정
-* 유효한 활성 Microsoft Azure 계정 ExpressRoute 회로를 설정하려면 이 계정이 필요합니다. ExpressRoute 회로는 Azure 구독 내의 리소스입니다. Azure 구독은 Office 365 서비스 및 CRM online과 같은 Azure가 아닌 Microsoft 클라우드 서비스에 연결이 제한된 경우더라도 필요합니다.
+* 유효한 활성 Microsoft Azure 계정 ExpressRoute 회로를 설정하려면 이 계정이 필요합니다. ExpressRoute 회로는 Azure 구독 내의 리소스입니다. Azure 구독은 Office 365 서비스 및 Dynamics 365와 같은 Azure 이외의 Microsoft 클라우드 서비스에 대한 연결이 제한되는 경우에도 필요합니다.
 * 활성 Office 365 구독(Office 365 서비스를 사용하는 경우). 자세한 내용은 이 문서의 [Office 365 특정 요구 사항](#office-365-specific-requirements) 섹션을 참조하세요.
 
 ## <a name="connectivity-provider"></a>연결 공급자
@@ -53,10 +54,10 @@ ExpressRoute에서 Office 365를 사용하도록 설정하려는 경우 Office 3
 * [온-프레미스 환경과 Office 365 통합](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Office 365 고급 교육 비디오의 ExpressRoute](https://channel9.msdn.com/series/aer/)
 
-## <a name="crm-online"></a>CRM Online
-ExpressRoute에서 CRM Online을 사용하도록 설정하려는 경우 CRM Online에 대한 자세한 내용은 다음 문서를 검토합니다.
+## <a name="dynamics-365"></a>Dynamics 365
+ExpressRoute에서 Dynamics 365를 사용하도록 설정하려는 경우 Dynamics 365에 대한 자세한 내용은 다음 문서를 검토합니다.
 
-* [CRM Online URLs](https://support.microsoft.com/kb/2655102) 및 [IP 주소 범위](https://support.microsoft.com/kb/2728473)
+* [Dynamics 365 URL](https://support.microsoft.com/kb/2655102) 및 [IP 주소 범위](https://support.microsoft.com/kb/2728473)
 
 ## <a name="next-steps"></a>다음 단계
 * Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
