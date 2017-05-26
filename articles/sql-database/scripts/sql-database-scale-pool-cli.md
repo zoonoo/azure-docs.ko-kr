@@ -30,6 +30,10 @@ ms.lasthandoff: 05/15/2017
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="sample-script"></a>샘플 스크립트
 
 [!code-azurecli-interactive[기본](../../../cli_scripts/sql-database/scale-pool/scale-pool.sh "풀 간에 데이터베이스 이동")]

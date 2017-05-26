@@ -32,6 +32,7 @@ ms.lasthandoff: 05/17/2017
 > * 백업에서 파일 복원
 
 
+
 ## <a name="backup-overview"></a>백업 개요
 
 Azure Backup 서비스에서 백업을 시작하면 백업 확장을 트리거하여 특정 시점 스냅숏을 수행합니다. Azure Backup 서비스는 Linux에서 _VMSnapshotLinux_ 확장을 사용합니다. VM을 실행하는 경우 확장은 첫 번째 VM 백업 중에 설치됩니다. VM이 실행되고 있지 않을 경우 Backup 서비스가 기본 저장소의 스냅숏을 생성합니다(VM이 중지되었을 때는 응용 프로그램 쓰기가 수행되지 않음).
