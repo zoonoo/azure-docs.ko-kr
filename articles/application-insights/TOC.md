@@ -35,7 +35,7 @@
 ### [웹앱 및 서비스 심층 진단](app-insights-devops.md)
 ### [웹 응용 프로그램의 성능 모니터링](app-insights-web-monitor-performance.md)
 ### [개발, 테스트 및 프로덕션 구분](app-insights-separate-resources.md)
-### [여러 역할을 사용하여 앱 모니터링](app-insights-monitor-multi-role-apps.md)
+### [여러 구성 요소를 사용하여 앱 모니터링](app-insights-monitor-multi-role-apps.md)
 ### [Application Insights에서 다음을 수행하는 방법](app-insights-how-do-i.md)
 
 
@@ -139,7 +139,7 @@
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [REST (영문)](https://dev.applicationinsights.io/)
+## [데이터 액세스 API](https://dev.applicationinsights.io/)
 ## [데이터 모델](application-insights-data-model.md)
 ### [요청](application-insights-data-model-request-telemetry.md)
 ### [종속성](application-insights-data-model-dependency-telemetry.md)
@@ -147,6 +147,7 @@
 ### [추적](application-insights-data-model-trace-telemetry.md)
 ### [Event](application-insights-data-model-event-telemetry.md)
 ### [메트릭](application-insights-data-model-metric-telemetry.md)
+### [컨텍스트](application-insights-data-model-context.md)
 ## [원격 분석 상관 관계](application-insights-correlation.md)
 
 # 리소스

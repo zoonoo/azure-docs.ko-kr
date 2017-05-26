@@ -49,6 +49,7 @@
 #### [Linux 컨테이너 배포](service-fabric-deploy-container-linux.md)
 #### [Docker Compose(미리 보기)](service-fabric-docker-compose.md)
 #### [컨테이너 및 서비스에 대한 리소스 관리](service-fabric-resource-governance.md)
+#### [볼륨 및 로깅 드라이버](service-fabric-containers-volume-logging-drivers.md)
 
 ### Reliable Service 서비스 빌드
 #### [개요](service-fabric-reliable-services-introduction.md)
@@ -69,10 +70,9 @@
 ##### [Windows에서 C#](service-fabric-reliable-services-quick-start.md)
 ##### [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
 
-#### Reliable Services 수명 주기
-##### [구성](service-fabric-reliable-services-configuration.md)
-##### [알림 보내기](service-fabric-reliable-services-notifications.md)
-##### [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
+#### [구성](service-fabric-reliable-services-configuration.md)
+#### [알림 보내기](service-fabric-reliable-services-notifications.md)
+#### [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
 
 #### 서비스와 통신
 ##### [Reliable Services와 통신](service-fabric-reliable-services-communication.md)
@@ -87,12 +87,12 @@
 ### Reliable Actor 서비스 빌드
 #### [개요](service-fabric-reliable-actors-introduction.md)
 #### 개념
-#### [아키텍처](service-fabric-reliable-actors-platform.md)
-#### [수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
-#### [상태 관리](service-fabric-reliable-actors-state-management.md)
-#### [다형성](service-fabric-reliable-actors-polymorphism.md)
-#### [다시 표시](service-fabric-reliable-actors-reentrancy.md)
-#### [형식 직렬화](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+##### [아키텍처](service-fabric-reliable-actors-platform.md)
+##### [수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
+##### [상태 관리](service-fabric-reliable-actors-state-management.md)
+##### [다형성](service-fabric-reliable-actors-polymorphism.md)
+##### [다시 표시](service-fabric-reliable-actors-reentrancy.md)
+##### [형식 직렬화](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 #### 시작
 ##### [Windows에서 C#](service-fabric-reliable-actors-get-started.md)
@@ -108,6 +108,7 @@
 #### [서비스 통신](service-fabric-connect-and-communicate-with-services.md)
 #### [DNS 서비스](service-fabric-dnsservice.md)
 #### [역방향 프록시](service-fabric-reverseproxy.md)
+#### [보안 통신에 대한 역방향 프록시 구성](service-fabric-reverseproxy-configure-secure-communication.md)
 
 ### [웹 프런트 엔드 추가](service-fabric-add-a-web-frontend.md)
 

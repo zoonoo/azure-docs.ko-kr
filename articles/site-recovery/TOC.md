@@ -18,12 +18,13 @@
 
 # 방법
 ## 계획
-### [배포 필수 조건](site-recovery-prereq.md)
+### [Azure 복제에 대한 필수 조건](site-recovery-prereq.md)
 ### [네트워크 인프라 계획](site-recovery-network-design.md)
+### [네트워크 매핑 계획](site-recovery-network-mapping.md)
 ### [용량을 계획하고 VMware 복제를 Azure에 확장](site-recovery-plan-capacity-vmware.md)
 ### [Azure로 VMware 복제를 위한 Deployment Planner](site-recovery-deployment-planner.md)
 ### [Hyper-V 복제를 위한 Capacity Planner](site-recovery-capacity-planner.md)
-### [역할 기반 액세스 제어](site-recovery-role-based-linked-access-control.md)
+### [역할 기반 액세스로 VM 복제 제어](site-recovery-role-based-linked-access-control.md)
 
 ## 구성
 ### [원본 환경 설정](site-recovery-set-up-vmware-to-azure.md)
@@ -53,6 +54,8 @@
 ### [RDS](site-recovery-workload.md#protect-rds)
 ### [Exchange](site-recovery-workload.md#protect-exchange)
 ### [SAP](site-recovery-workload.md#protect-sap)
+### [IIS 기반 웹 응용 프로그램](site-recovery-iis.md)
+### [Citrix XenApp 및 XenDesktop](site-recovery-citrix-xenapp-and-xendesktop.md)
 ### [기타 워크로드](site-recovery-workload.md#workload-summary)
 ## 복제 자동화
 ### [Azure에 Hyper-V 복제 자동화(VMM 없음)](site-recovery-deploy-with-powershell-resource-manager.md)

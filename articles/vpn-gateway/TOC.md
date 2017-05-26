@@ -21,9 +21,13 @@
 ### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure 포털(클래식)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### 지점 및 사이트 간 자체 서명된 인증서 생성
+#### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+#### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## VNet 간 연결 구성
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure 포털(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## 배포 모델 간 VNet-VNet 연결 구성
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
@@ -46,9 +50,6 @@
 ### [Azure 포털](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell(클래식)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## 지점 및 사이트 간 자체 서명된 인증서 만들기
-### [PowerShell](vpn-gateway-certificates-point-to-site.md)
-### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [VPN Gateway(클래식) 구성](vpn-gateway-configure-vpn-gateway-mp.md)
 ## 문제 해결
 ### [VNet에 대한 VPN 처리량의 유효성 검사](vpn-gateway-validate-throughput-to-vnet.md)
@@ -56,9 +57,9 @@
 # 참조
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [PowerShell(클래식)](/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST (영문)](https://msdn.microsoft.com/library/mt163859)
+## [REST (영문)](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways)
 ## [REST(클래식)](https://msdn.microsoft.com/library/jj154113)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet-gateway)
 
 # 관련 항목
 ## [가상 네트워크](/azure/virtual-network/)

@@ -39,9 +39,9 @@
       href: concepts-supported-versions.md
   - name: 리소스
     items:
-    - name: 서비스 계층
+    - name: 가격 책정 계층
       href: concepts-service-tiers.md
-    - name: 계산 단위 및 저장 단위
+    - name: 계산 단위
       href: concepts-compute-unit-and-storage.md
     - name: 제한
       href: concepts-limits.md
@@ -85,6 +85,8 @@
       href: howto-connection-string.md
     - name: SSL 구성
       href: howto-configure-ssl.md
+    - name: 웹앱
+      href: howto-connect-webapp.md
 - name: 참조
   items:
   - name: Azure CLI

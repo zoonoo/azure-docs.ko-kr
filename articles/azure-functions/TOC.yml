@@ -45,12 +45,22 @@
     href: functions-create-serverless-api.md
 - name: 개념
   items:
-  - name: 호스팅 계획
+  - name: 소비 및 App Service 계획
     href: functions-scale.md
   - name: 트리거 및 바인딩
     href: functions-triggers-bindings.md
+  - name: 언어
+    items:
+    - name: 'C# 함수 개념'
+      href: functions-reference-csharp.md
+    - name: 'F# 함수 개념'
+      href: functions-reference-fsharp.md
+    - name: JavaScript 함수 개념
+      href: functions-reference-node.md    
 - name: 방법 가이드
   items:
+  - name: 개발자 가이드
+    href: functions-reference.md
   - name: Azure Functions 테스트
     href: functions-test-a-function.md
   - name: 로컬에서 개발 및 디버깅
@@ -65,15 +75,14 @@
     href: functions-monitoring.md
   - name: 함수 런타임 설치
     href: functions-runtime-install.md
+  - name: SQL 데이터베이스에 연결
+    href: functions-scenario-database-table-cleanup.md
+  - name: Open API 2.0 정의 만들기
+    href: functions-api-definition-getting-started.md     
+  - name: Azure Functions에 대한 모범 사례
+    href: functions-best-practices.md     
 - name: 참조
   items:
-  - name: 함수 앱 개발
-    href: functions-reference.md
-    items:
-    - name: API 2.0 열기
-      href: functions-api-definition.md
-  - name: Azure Functions에 대한 모범 사례
-    href: functions-best-practices.md
   - name: 바인딩
     items:
     - name: Cosmos DB 바인딩
@@ -106,14 +115,8 @@
       href: functions-bindings-timer.md
     - name: Twilio 출력 바인딩
       href: functions-bindings-twilio.md
-  - name: 프레임워크
-    items:
-    - name: 'C#'
-      href: functions-reference-csharp.md
-    - name: 'F#'
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
+  - name: OpenAPI 참조
+    href: functions-api-definition.md     
 - name: 리소스
   items:
   - name: 가격

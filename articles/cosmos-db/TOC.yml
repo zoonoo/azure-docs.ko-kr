@@ -5,7 +5,7 @@
   - name: Azure Cosmos DB 정보
     href: introduction.md
   - name: DocumentDB 고객 시작
-    href: welcome-documentdb-customers.md
+    href: https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: 빠른 시작
   expanded: true
   items:
@@ -236,7 +236,13 @@
       href: ../documentdb/documentdb-online-backup-and-restore.md
     - name: 지역별 장애 조치
       href: ../documentdb/documentdb-regional-failovers.md
-    - name: 자동화
+    - name: 처리량 설정
+      href: ../documentdb/documentdb-set-throughput.md
+    - name: 모니터 SLA
+      href: ../documentdb/documentdb-monitor-accounts.md
+    - name: 관리 키 및 일관성
+      href: ../documentdb/documentdb-manage-account.md
+    - name: Automation
       items:
       - name: Azure CLI 1.0 - 계정 만들기
         href: ../documentdb/documentdb-automation-resource-manager-cli-nodejs.md
@@ -250,10 +256,14 @@
         href: ../documentdb/documentdb-nosql-database-encryption-at-rest.md
       - name: 방화벽 지원
         href: ../documentdb/documentdb-firewall-support.md
+      - name: 데이터에 대한 액세스 보안
+        href: ../documentdb/documentdb-secure-access-to-data.md
   - name: 통합
     items:
     - name: Spark에 연결
       href: ../documentdb/documentdb-spark-connector.md
+    - name: Spark GraphX에 연결
+      href: spark-connector-graph.md      
     - name: Azure App Service로 웹 사이트 배포
       href: ../documentdb/documentdb-create-documentdb-website.md
     - name: Logic Apps를 통한 응용 프로그램 로깅

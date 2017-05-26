@@ -12,9 +12,9 @@
 #### [Node.JS](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### 시뮬레이션된 게이트웨이 사용 
-#### [Linux에서 시뮬레이션](iot-hub-linux-gateway-sdk-get-started.md)
-#### [Windows에서 시뮬레이션](iot-hub-windows-gateway-sdk-get-started.md)
+### 시뮬레이션된 게이트웨이 사용
+#### [Linux에서 시뮬레이션](iot-hub-linux-iot-edge-get-started.md)
+#### [Windows에서 시뮬레이션](iot-hub-windows-iot-edge-get-started.md)
 
 ### 실제 장치 사용
 #### [Node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)
@@ -28,9 +28,9 @@
 #### [Arduino IDE를 사용하는 Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 #### IoT Gateway Starter Kit 사용
-##### [Intel NUC를 IoT 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [IoT 게이트웨이를 IoT Hub에 연결](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [데이터 변환에 IoT 게이트웨이 사용](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Intel NUC를 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+##### [게이트웨이를 IoT Hub에 연결](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
+##### [데이터 변환에 게이트웨이 사용](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
 ## [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
 ## [IoT Hub 메시지를 Azure 데이터 저장소에 저장](iot-hub-store-data-in-azure-table-storage.md)
@@ -78,6 +78,7 @@
 ### 쌍 장치 시작
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-getstarted.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-getstarted.md)
+#### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-twin-getstarted.md)
 ### 직접 메서드 사용
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-direct-methods.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-direct-methods.md)
@@ -85,6 +86,7 @@
 ### 장치 관리 시작
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-device-management-get-started.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-device-management-get-started.md)
+#### [Java 백 엔드/Java 장치](iot-hub-java-java-device-management-getstarted.md)
 ### 쌍 속성 사용 방법
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-how-to-configure.md)
@@ -118,9 +120,9 @@
 ### [IoT 배포 보안 유지](iot-hub-security-deployment.md)
 ## IoT Edge
 ### 장치 시뮬레이션
-#### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
-#### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [실제 장치 사용](iot-hub-gateway-sdk-physical-device.md)
+#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
+#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
+### [실제 장치 사용](iot-hub-iot-edge-physical-device.md)
 
 # 참조
 ## [Azure CLI 2.0 미리 보기](/cli/azure/iot)
@@ -154,3 +156,4 @@
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot/)
 ## [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/)
+## [기술 사례 연구](https://microsoft.github.io/techcasestudies/#technology=IoT)

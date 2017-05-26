@@ -1,7 +1,7 @@
 # 개요
 ## [Azure Active Directory란?](active-directory-whatis.md)
 ## [버전 선택](active-directory-editions.md)
-## [Azure ID 관리 정보](fundamentals-identity.md)
+## [Azure ID 관리 정보](identity-fundamentals.md)
 ## [Azure ID 솔루션 이해](understand-azure-identity-solutions.md)
 ## [Azure Portal 환경에서 미리 보기](active-directory-preview-explainer.md)
 
@@ -90,7 +90,7 @@
 ### 문제 해결
 #### [누락된 감사 데이터](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [다운로드에서 누락된 데이터](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    프로그래밍 방식 액세스
+###    [프로그래밍 방식 액세스](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [감사 참조](active-directory-reporting-api-audit-reference.md)
 #### [로그인 참조](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [필수 구성 요소](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -115,7 +115,7 @@
 ##### [알 수 없는 원본](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [비정상적인 로그인](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [암호 관리](active-directory-passwords.md)
+## [암호 관리](active-directory-passwords-overview.md)
 ### 사용자 문서
 #### [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
 #### [암호 모범 사례](active-directory-secure-passwords.md)
@@ -297,7 +297,8 @@
 #### 역할을 관리하는 다양한 방법
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
-##### [REST](role-based-access-control-manage-access-rest.md)
+##### [REST (영문)](role-based-access-control-manage-access-rest.md)
+#### [테넌트 관리자 액세스 권한 상승](role-based-access-control-tenant-admin-access.md)
 #### [문제 해결](role-based-access-control-troubleshooting.md)
 #### [리소스 공급자 작업](role-based-access-control-resource-provider-operations.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)

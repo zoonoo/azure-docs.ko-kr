@@ -10,7 +10,6 @@
 ## [클러스터 배포 - 포털](container-service-deployment.md)
 ## [클러스터 배포 - Azure CLI](container-service-create-acs-cluster-cli.md)
 ## [Kubernetes 및 Jenkins를 사용하는 CI/CD](container-service-kubernetes-jenkins.md)
-## [DC/OS 및 VSTS를 사용하는 CI/CD](container-service-setup-ci-cd.md)
 ## [Docker Swarm 및 VSTS를 사용하는 CI/CD](container-service-docker-swarm-setup-ci-cd.md)
 
 # 개념
@@ -44,6 +43,7 @@
 #### [OMS로 모니터링](container-service-kubernetes-oms.md)
 #### [Datadog로 모니터링](container-service-kubernetes-datadog.md)
 #### [Sysdig로 모니터링](container-service-kubernetes-sysdig.md)
+#### [CoScale로 모니터링](container-service-kubernetes-coscale.md)
 ## Docker Swarm을 사용하여 관리
 ### [Docker 및 Docker Compose](container-service-docker-swarm.md)
 

@@ -13,6 +13,7 @@
 ## 랩에서 VM 사용
 ### [VM 만들기](devtest-lab-add-vm.md)
 ### [클레임할 수 있는 VM 만들기](devtest-lab-add-claimable-vm.md)
+### [Azure CLI로 VM 만들기 및 관리](devtest-lab-vmcli.md)
 
 ## 랩에서 환경 사용
 ### [환경 만들기](devtest-lab-create-environment-from-arm.md)
