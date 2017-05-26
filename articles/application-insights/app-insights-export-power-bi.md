@@ -41,7 +41,7 @@ Power BI에 Application Insights 데이터를 내보내는 세 가지 권장 방
 3. Application Insights 리소스의 세부 정보를 제공합니다.
    
     ![Application Insights 데이터 원본에서 가져오기](./media/app-insights-export-power-bi/azure-subscription-resource-group-name.png)
-4. 데이터를 가져오는 데&1;,&2;분 정도 기다립니다.
+4. 데이터를 가져오는 데1, 2분 정도 기다립니다.
    
     ![Power BI 어댑터](./media/app-insights-export-power-bi/010.png)
 
