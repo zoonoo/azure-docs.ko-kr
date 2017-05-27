@@ -218,6 +218,8 @@ DNS 레코드 페이지가 다음 스크린샷과 같이 표시됩니다.
 
 ![DNS 레코드 페이지](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
+<a name="enable-a"></a>
+
 ### <a name="enable-the-a-record-mapping-in-your-app"></a>앱에서 A 레코드 매핑 사용
 
 이제 구성된 DNS 이름을 앱에 추가할 준비가 되었습니다.

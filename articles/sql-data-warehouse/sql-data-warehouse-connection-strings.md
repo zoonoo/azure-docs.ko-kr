@@ -3,7 +3,7 @@ title: "SQL Data Warehouse용 드라이버 | Microsoft Docs"
 description: "SQL 데이터 웨어하우스용 드라이버 및 연결 문자열"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: antvgski
 manager: jhubbard
 editor: 
 ms.assetid: 5c91f423-b550-4734-8094-c7f2c418ac8d
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: anvang;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: cfdec6b621267d642371104c328f9b5e6fd19c59
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
 
 

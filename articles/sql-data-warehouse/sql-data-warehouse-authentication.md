@@ -3,7 +3,7 @@ title: "Azure SQL Data Warehouse에 대한 인증 | Microsoft Docs"
 description: "Azure SQL 데이터 웨어하우스에 대한 AAD(Azure Active Directory) 및 SQL Server 인증"
 services: sql-data-warehouse
 documentationcenter: 
-author: byham
+author: ronortloff
 manager: jhubbard
 editor: 
 tags: 
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.custom: security
 ms.date: 03/21/2017
-ms.author: rickbyh;barbkess
-translationtype: Human Translation
+ms.author: rortloff;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
 ms.openlocfilehash: 9f38d57029e962d1bbe8adae68232baa8a4c575d
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/22/2017
 
 

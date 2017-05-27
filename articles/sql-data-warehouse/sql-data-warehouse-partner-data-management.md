@@ -3,7 +3,7 @@ title: "SQL Data Warehouse 데이터 관리 파트너 | Microsoft Docs"
 description: "SQL 데이터 웨어하우스를 지원하는 솔루션을 제공하는 타사 데이터 관리 파트너 목록"
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: c3d96b41-f049-49e8-af32-408f4a893477
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: partners
 ms.date: 12/27/2016
-ms.author: jrj;barbkess
-translationtype: Human Translation
+ms.author: kevin;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 70bc2363172199455785e90753560cc2281432b1
 ms.openlocfilehash: eeb858514af80d1e6074b7c86ead5955f0d22ad2
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/17/2017
 
 

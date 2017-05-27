@@ -3,7 +3,7 @@ title: "SQL Server에서 Azure SQL Data Warehouse로 데이터 로드(SSIS) | Mi
 description: "SSIS(SQL Server Integration Services) 패키지를 만들어 다양한 데이터 원본에서 SQL 데이터 웨어하우스로 데이터를 이동하는 방법을 보여줍니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: douglaslms
+author: ckarst
 manager: jhubbard
 editor: 
 ms.assetid: e2c252e9-0828-47c2-a808-e3bea46c134a
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 03/30/2017
-ms.author: douglasl;barbkess
-translationtype: Human Translation
+ms.author: cakarst;douglasl;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: d208f783e5b4e7786350706d8025e6e13f45f0d2
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
 
 

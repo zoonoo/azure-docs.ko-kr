@@ -3,7 +3,7 @@ title: "Azure SQL Data Warehouse에 데이터 로드 | Microsoft Docs"
 description: "SQL 데이터 웨어하우스에 데이터 로드를 위한 일반적인 시나리오에 대해 알아봅니다. 여기에는 PolyBase, Azure Blob 저장소, 플랫 파일 및 디스크 배송 사용이 포함됩니다. 타사 도구를 사용할 수도 있습니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: ckarst
 manager: jhubbard
 editor: 
 ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: cakarst;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9366bae67be7d1abf932d07971d2062c7bd29f3c
 ms.openlocfilehash: 49825cc7455ae082ef750a2a31abbd2d71693c79
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/27/2017
 
 

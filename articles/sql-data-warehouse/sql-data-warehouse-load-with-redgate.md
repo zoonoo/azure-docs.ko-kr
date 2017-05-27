@@ -3,7 +3,7 @@ title: "Redgate를 사용하여 Azure Data Warehouse에 데이터 로드 | Micro
 description: "데이터 웨어하우징 시나리오에 대해 Redgate의 Data Platform Studio를 사용하는 방법을 알아봅니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: twounder
+author: ckarst
 manager: jhubbard
 editor: 
 ms.assetid: 670aef98-31f7-4436-86c0-cc989a39fe7f
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: mausher;barbkess
-translationtype: Human Translation
+ms.author: cakarst;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
 ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/16/2017
 
 
