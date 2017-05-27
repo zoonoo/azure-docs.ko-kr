@@ -1,33 +1,35 @@
 ---
-title: "HDinsight에서 Storm 토폴로지에 Python 구성 요소 사용 | Microsoft Docs"
-description: "Azure HDInsight에서 Apache Storm과 함께 Python 구성 요소를 사용하는 방법에 대해 알아봅니다."
+title: "Python 구성 요소를 사용하는 Apache Storm - Azure HDInsight | Microsoft Docs"
+description: "Python 구성 요소를 사용하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
+keywords: apache storm python
 ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 05/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 39a8eb9ce6a5363f541f02c33cd46d56fdabcae8
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 3fc4f193d72d578711285a5b4c2062be65cf354c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
 
-HDInsight에서 Storm과 함께 Python 구성 요소를 사용하는 방법에 대해 알아봅니다. Apache Storm은 여러 언어를 지원하여 한 토폴로지에 여러 언어의 구성 요소를 결합할 수 있습니다. Flux 프레임워크(Storm 0.10.0에서 소개)를 사용하면 Python 구성 요소를 사용하는 솔루션을 쉽게 만들 수 있습니다.
+Python 구성 요소를 사용하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다. Apache Storm은 여러 언어를 지원하여 한 토폴로지에 여러 언어의 구성 요소를 결합할 수 있습니다. Flux 프레임워크(Storm 0.10.0에서 소개)를 사용하면 Python 구성 요소를 사용하는 솔루션을 쉽게 만들 수 있습니다.
 
 > [!IMPORTANT]
-> 이 문서의 정보는 HDInsight 3.5에서 Storm을 사용하여 테스트했습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 버전 3.3 및 3.4 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+> 이 문서의 정보는 HDInsight 3.5에서 Storm을 사용하여 테스트했습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 사용 중단 날짜](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)를 참조하세요.
 
 이 프로젝트의 코드는 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)에서 사용할 수 있습니다.
 
@@ -43,13 +45,13 @@ HDInsight에서 Storm과 함께 Python 구성 요소를 사용하는 방법에 �
 
 ## <a name="storm-multi-language-support"></a>Storm 다중 언어 지원
 
-Storm은 모든 프로그래밍 언어로 작성된 구성 요소를 사용하도록 설계되었습니다. 구성 요소에서 [Storm에 대한 Thrift 정의](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift)를 사용하는 방법을 이해해야 합니다. Python의 경우 모듈은 Apache Storm 프로젝트의 일부로 제공되므로 Storm과 쉽게 인터페이스할 수 있습니다. 이 모듈을 [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py)에서 찾을 수 있습니다.
+Apache Storm은 모든 프로그래밍 언어로 작성된 구성 요소를 사용하도록 설계되었습니다. 구성 요소에서 [Storm에 대한 Thrift 정의](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift)를 사용하는 방법을 이해해야 합니다. Python의 경우 모듈은 Apache Storm 프로젝트의 일부로 제공되므로 Storm과 쉽게 인터페이스할 수 있습니다. 이 모듈을 [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py)에서 찾을 수 있습니다.
 
-Apache Storm은 JVM(Java Virtual Machine)에서 실행되는 Java 프로세스입니다. 다른 언어로 작성된 구성 요소는 하위 프로세스로 실행됩니다. Storm은 stdin/stdout을 통해 전송되는 JSON 메시지를 사용하여 이러한 하위 프로세스와 통신합니다. 구성 요소 간의 통신에 대한 자세한 내용은 [다중 언어 프로토콜](https://storm.apache.org/documentation/Multilang-protocol.html) (영문) 설명서에서 확인할 수 있습니다.
+Storm은 JVM(Java Virtual Machine)에서 실행되는 Java 프로세스입니다. 다른 언어로 작성된 구성 요소는 하위 프로세스로 실행됩니다. Storm은 stdin/stdout을 통해 전송되는 JSON 메시지를 사용하여 이러한 하위 프로세스와 통신합니다. 구성 요소 간의 통신에 대한 자세한 내용은 [다중 언어 프로토콜](https://storm.apache.org/documentation/Multilang-protocol.html) (영문) 설명서에서 확인할 수 있습니다.
 
-## <a name="python-and-the-flux-framework"></a>Python 및 Flux 프레임워크
+## <a name="python-with-the-flux-framework"></a>Flux 프레임워크를 사용하는 Python
 
-Flux 프레임워크를 사용하면 구성 요소와 별도로 Storm 토폴로지를 정의할 수 있습니다. 이 예제의 구성 요소는 Python을 사용하여 작성되지만, 토폴로지는 YAML을 사용하여 정의됩니다. 다음 텍스트는 YAML 문서에서 Python 구성 요소를 참조하는 방법의 예제입니다.
+Flux 프레임워크를 사용하면 구성 요소와 별도로 Storm 토폴로지를 정의할 수 있습니다. Flux 프레임워크는 YAML을 사용하여 Storm 토폴로지를 정의합니다. 다음 텍스트는 YAML 문서에서 Python 구성 요소를 참조하는 방법의 예제입니다.
 
 ```yaml
 # Spout definitions
@@ -77,7 +79,7 @@ Flux에서는 토폴로지를 포함하는 jar 파일 내의 `/resources` 디렉
 </resource>
 ```
 
-앞에서 언급했듯이 Storm에 대한 Thrift 정의를 구현하는 `storm.py` 파일이 있습니다. Flux 프레임워크는 프로젝트를 빌드할 때 이 파일을 자동으로 포함하므로 파일을 포함하는 것에 대해 걱정할 필요가 없습니다.
+앞에서 언급했듯이 Storm에 대한 Thrift 정의를 구현하는 `storm.py` 파일이 있습니다. Flux 프레임워크는 프로젝트를 빌드할 때 `storm.py`를 자동으로 포함하므로 파일을 포함하는 것에 대해 걱정할 필요가 없습니다.
 
 ## <a name="build-the-project"></a>프로젝트 빌드
 
@@ -102,21 +104,21 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 
 토폴로지가 시작되면 다음 텍스트와 비슷한 정보를 로컬 콘솔로 내보냅니다.
 
-```
-24302 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
-24302 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting the
-24302 [Thread-28] INFO  o.a.s.t.ShellBolt - ShellLog pid:2437, name:counter-bolt Emitting years:160
-24302 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=the, count=599}
-24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=seven, count=302}
-24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=dwarfs, count=143}
-24303 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
-24303 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting cow
-^C24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
-```
 
-Ctrl+C를 사용하여 토폴로지를 중지합니다.
+    24302 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
+    24302 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting the
+    24302 [Thread-28] INFO  o.a.s.t.ShellBolt - ShellLog pid:2437, name:counter-bolt Emitting years:160
+    24302 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=the, count=599}
+    24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=seven, count=302}
+    24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=dwarfs, count=143}
+    24303 [Thread-25-sentence-spout-executor[4 4]] INFO  o.a.s.s.ShellSpout - ShellLog pid:2436, name:sentence-spout Emiting the cow jumped over the moon
+    24303 [Thread-30] INFO  o.a.s.t.ShellBolt - ShellLog pid:2438, name:splitter-bolt Emitting cow
+    24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
 
-## <a name="run-the-topology-on-hdinsight"></a>HDInsight에서 토폴로지 실행
+
+토폴로지를 중지하려면 __Ctrl + C__를 사용합니다.
+
+## <a name="run-the-storm-topology-on-hdinsight"></a>HDInsight에서 Storm 토폴로지 실행
 
 1. 다음 명령을 사용하여 HDInsight 클러스터의 Storm에 `WordCount-1.0-SNAPSHOT.jar` 파일을 복사합니다.
 

@@ -10,12 +10,12 @@ ms.assetid:
 ms.service: postgresql-database
 ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/16/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 23a93060697bc48084658bbbd895d13fd393b07b
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: a946c114824597cc55e435a455cd888816789dbf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-service-tier"></a>PosgreSQL용 Azure 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 항목 이해
@@ -46,15 +46,15 @@ ms.lasthandoff: 05/10/2017
 
 | **서비스 계층 기능** | **Basic** | **Standard** | **프리미엄** * |
 | :------------------------ | :-------- | :----------- | :------------ |
-| 최대 Compute 단위 | 100 | 2000 | 미리 보기에서 사용할 수 없음 |
-| 최대 총 저장소 | 1050GB | 10000GB | 미리 보기에서 사용할 수 없음 |
+| 최대 Compute 단위 | 100 | 2, 000 | 미리 보기에서 사용할 수 없음 |
+| 최대 총 저장소 | 1,050GB | 10,000GB | 미리 보기에서 사용할 수 없음 |
 | 저장소 IOPS 보장 | 해당 없음 | 예 | 미리 보기에서 사용할 수 없음 |
-| 최대 저장소 IOPS | 해당 없음 | 30,000 | 미리 보기에서 사용할 수 없음 |
+| 최대 저장소 IOPS | 해당 없음 | 3,000 | 미리 보기에서 사용할 수 없음 |
 | 데이터베이스 백업 보존 기간 | 7 일 | 35일 | 35일 |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+
 
 > [!NOTE]
-> 미리 보기의 표준 서비스 계층은 현재 최대 800 Compute 단위 및 1000GB 저장소를 지원합니다.
+> 미리 보기의 표준 서비스 계층은 현재 최대 800 계산 단위 및 1,000GB 저장소를 지원합니다.
 
 최소 서비스 계층을 결정한 경우 PostgreSQL 서버에 대한 성능 수준을 결정할 수 있습니다(Compute 단위). 표준 200 및 400 Compute 단위는 웹 또는 분석 작업을 위해 더 높은 사용자 동시성을 요구하는 응용 프로그램에 대한 좋은 시작점입니다. 
 
@@ -64,44 +64,38 @@ ms.lasthandoff: 05/10/2017
 > 미리 보기에서 기본 및 표준 계층은 현재 저장소의 동적 크기 조정을 지원하지 않습니다. 나중에 이 기능을 추가할 계획입니다.
 
 > [!NOTE]
-> 표준 서비스 계층에서 IOPS는 고정된 3:1 비율로 프로비전된 저장소 크기에 비례해서 조정됩니다. 125GB의 포함된 저장소는 최대 IO 크기가 각각 256KB인 375의 프로비전된 IOPS를 보장합니다. 1000GB를 프로비전하는 경우 프로비전된 3,000의 IOPS를 얻게 됩니다. 사용 가능한 프로비전된 IOPS를 완전히 활용하려면 서버 Compute 단위 사용량을 모니터링하고 확장해야 합니다.
+> 표준 서비스 계층에서 IOPS는 고정된 3:1 비율로 프로비전된 저장소 크기에 비례해서 조정됩니다. 125GB의 포함된 저장소는 최대 IO 크기가 각각 256KB인 375의 프로비전된 IOPS를 보장합니다. 1,000GB를 프로비전하는 경우 프로비전된 3,000개 IOPS를 얻게 됩니다. 사용 가능한 프로비전된 IOPS를 완전히 활용하려면 서버 Compute 단위 사용량을 모니터링하고 확장해야 합니다.
 
 ## <a name="service-tiers-and-performance-levels"></a>서비스 계층 및 성능 수준
 
 PostgreSQL용 Azure 데이터베이스는 각 서비스 계층 내에서 여러 성능 수준을 제공합니다. 다음 중 하나를 사용하여 작업 요구에 가장 잘 맞는 수준을 선택할 수 있는 유연성이 있습니다.
 
-- [http://portal.azure.com](http://portal.azure.com)의 [Azure Portal](/azure/azure-portal-overview)
+- [http://portal.azure.com](http://portal.azure.com)의 [Azure Portal](quickstart-create-server-database-portal.md)
 - [Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 각 PostgreSQL 서버 내에 호스트된 데이터베이스 수에 관계 없이, 데이터베이스는 보장된 리소스 집합을 가져오며 서버의 예상되는 성능 특징은 영향을 받지 않습니다.
 
-기본 서비스 계층:
+### <a name="basic-service-tier"></a>기본 서비스 계층:
 
 | **성능 수준** | **50** | **100** |
-| :-------------------- | :----- | :------ |
+| --------------------: | :----- | :------ |
 | 최대 Compute 단위 | 50 | 100 |
 | 포함된 저장소 크기 | 50GB | 50GB |
-| 최대 서버 저장소 크기\* | 1050GB | 1050GB |
-| 최대 동시 로그인 | &nbsp; | &nbsp; |
-| 최대 연결 | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; |
+| 최대 서버 저장소 크기\* | 1,050GB | 1,050GB |
 
-표준 서비스 계층:
+### <a name="standard-service-tier"></a>표준 서비스 계층:
 
 | **성능 수준** | **100** | **200** | **400** | **800** |
-| :-------------------- | :------ | :------ | :------ | :------ |
+| --------------------: | :------ | :------ | :------ | :------ |
 | 최대 Compute 단위 | 100 | 200 | 400 | 800 |
-| 포함된 저장소 크기 및 프로비전된 IOPS | 125GB, 375 IOPS | &nbsp; | &nbsp; | &nbsp; |
-| 최대 서버 저장소 크기\* | 1TB | &nbsp; | &nbsp; | &nbsp; |
-| 프로비전된 최대 서버 IOPS | 3000 IOPS | &nbsp; | &nbsp; | &nbsp; |
-| GB당 프로비전된 최대 서버 IOPS | GB당 고정된 3 IOPS | &nbsp; | &nbsp; | &nbsp; |
-| 최대 동시 로그인 | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 최대 연결 | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 포함된 저장소 크기 및 프로비전된 IOPS | 125GB,<br/> 375 IOPS | 125GB,<br/> 375 IOPS | 125GB,<br/> 375 IOPS | 125GB,<br/> 375 IOPS |
+| 최대 서버 저장소 크기\* | 1TB | 1TB | 1TB | 1TB |
+| 프로비전된 최대 서버 IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS |
+| GB당 프로비전된 최대 서버 IOPS | GB당 고정된 3 IOPS | GB당 고정된 3 IOPS | GB당 고정된 3 IOPS | GB당 고정된 3 IOPS |
 
 \* 최대 서버 저장소 크기는 서버에 대해 프로비전된 최대 저장소 크기를 나타냅니다.
 
-## <a name="scaling-up-or-down-a-single-server"></a>단일 서버 확장 또는 축소
+## <a name="scaling-up-or-down-a-server"></a>서버 확장 또는 축소
 
 처음에 서비스 계층 및 성능 수준을 선택한 후에 작업 요구에 따라 서버를 동적으로 확장 또는 축소할 수 있습니다. 규모를 확장 또는 축소해야 하는 경우는 Azure Portal 또는 Azure CLI를 사용하여 데이터베이스의 계층을 쉽게 변경할 수 있습니다.
 
@@ -109,10 +103,7 @@ PostgreSQL용 Azure 데이터베이스는 각 서비스 계층 내에서 여러 
 
 전체 확장 프로세스 기간은 변경 전후 서버의 크기 및 서비스 계층에 따라 달라집니다. 예를 들어 표준 서비스 계층으로/부터 또는 표준 서비스 계층 내에서 Compute 단위를 변경하는 서버는 몇 분 안에 완료해야 합니다. 서버의 새로운 속성은 변경이 완료될 때까지 적용되지 않습니다.
 
-### <a name="documentation-about-the-steps-for-scaling-up-or-down"></a>확장 또는 축소 단계에 대한 설명서
-
-- [Azure Portal에서 단일 서버 관리](quickstart-create-server-database-portal.md)
-- [Azure CLI를 사용하여 단일 데이터베이스 관리](quickstart-create-server-database-azure-cli.md)
+Azure Portal을 사용하여 강화 및 규모 축소를 수행하거나 Azure CLI를 사용하여 서버를 모니터링하고 확장할 수 있습니다. 참조: [Azure CLI를 사용하여 단일 PostgreSQL 서버 모니터링 및 확장](scripts/sample-scale-server-up-or-down.md)
 
 ### <a name="details-about-scaling-up-or-down"></a>확장 또는 축소에 대한 세부 정보
 

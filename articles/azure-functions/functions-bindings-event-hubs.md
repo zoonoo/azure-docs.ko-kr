@@ -16,9 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/02/2016
 ms.author: wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: c8e9f9709d13295c9414e525f1f60abf0d0accb7
-ms.openlocfilehash: 0bfbfd3828aacdee0b6630ced034f2c1e0451abd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 04a8563a0035992cfa4b7d25a4edc14e1db80e44
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -50,7 +52,7 @@ Azure 이벤트 허브를 처음 접하는 경우 [Azure 이벤트 허브 개요
 }
 ```
 
-`consumerGroup`은 선택적 속성으로, 허브의 이벤트를 구독하는 데 사용되는 [소비자 그룹](../event-hubs/event-hubs-what-is-event-hubs.md#event-consumers)을 설정합니다. 생략한 경우 `$Default` 소비자 그룹이 사용됩니다.  
+`consumerGroup`은 선택적 속성으로, 허브의 이벤트를 구독하는 데 사용되는 [소비자 그룹](../event-hubs/event-hubs-features.md#event-consumers)을 설정합니다. 생략한 경우 `$Default` 소비자 그룹이 사용됩니다.  
 `connection`은 이벤트 허브의 네임스페이스에 대한 연결 문자열을 포함하는 앱 설정의 이름이어야 합니다.
 이벤트 허브 자체가 아닌 *네임스페이스*에 대한 **연결 정보** 단추를 클릭하여 이 연결 문자열을 복사합니다. 트리거를 활성화하려면 이 연결 문자열은 적어도 읽기 권한이 있어야 합니다.
 
@@ -84,7 +86,7 @@ function.json의 `bindings` 배열에 다음과 같은 이벤트 허브 트리�
 
 <a name="triggercsharp"></a>
 
-### <a name="trigger-sample-in-c"></a>C에서 트리거 샘플# #
+### <a name="trigger-sample-in-c"></a>C#에서 트리거 샘플 #
 
 ```cs
 using System;
@@ -97,7 +99,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 
 <a name="triggerfsharp"></a>
 
-### <a name="trigger-sample-in-f"></a>F에서 트리거 샘플# #
+### <a name="trigger-sample-in-f"></a>F#에서 트리거 샘플 #
 
 ```fsharp
 let Run(myEventHubMessage: string, log: TraceWriter) =
@@ -167,7 +169,7 @@ function.json의 `bindings` 배열에 다음과 같은 이벤트 허브 출력 �
 
 <a name="outcsharp"></a>
 
-### <a name="output-sample-in-c"></a>C에서 출력 샘플# #
+### <a name="output-sample-in-c"></a>C#에서 출력 샘플 #
 
 ```cs
 using System;
@@ -194,7 +196,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 <a name="outfsharp"></a>
 
-### <a name="output-sample-in-f"></a>F에서 출력 샘플# #
+### <a name="output-sample-in-f"></a>F#에서 출력 샘플 #
 
 ```fsharp
 let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
@@ -233,9 +235,4 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

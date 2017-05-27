@@ -1,5 +1,5 @@
 ---
-title: "Azure Storage에서 개체에 대한 속성 및 메타데이터를 설정 및 검색 | Microsoft Docs"
+title: "Azure Storage에서 개체 속성 및 메타데이터를 설정 및 검색 | Microsoft Docs"
 description: "Azure 저장소의 개체에 사용자 지정 메타데이터를 저장하고 시스템 속성을 설정 및 검색합니다."
 services: storage
 documentationcenter: 
@@ -12,21 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/15/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 3868d36948342739eb78b013bb4b466df4381b4f
-ms.openlocfilehash: 7c1ca950c3ab1b8ffb754a74597d45b82777838c
-ms.lasthandoff: 02/15/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 6af66607478c58874f00bcf017a35abfc37888df
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 ---
-# <a name="set-and-retrieve-properties-and-metadata"></a>속성 및 메타 데이터 설정 및 검색
-## <a name="overview"></a>개요
-Azure 저장소의 개체는 시스템 속성 및 사용자 정의 메타데이터와 포함된 데이터를 지원합니다.
+# <a name="set-and-retrieve-properties-and-metadata"></a>속성 및 메타데이터 설정 및 검색
 
-* **시스템 속성.** 각 저장소 리소스에 시스템 속성이 있습니다. 그 중 일부를 읽거나 설정할 수 있지만 나머지는 읽기 전용입니다. 일부 시스템 속성은 내부적으로 특정 표준 HTTP 헤더에 해당합니다. Azure 저장소 클라이언트 라이브러리에서 유지 관리합니다.
-* **사용자 정의 메타데이터.** 사용자 정의 메타 데이터는 이름-값 쌍의 형태로 제공된 리소스에서 지정 하는 메타 데이터입니다. 메타데이터를 사용하면 저장소 리소스와 함께 추가 값을 저장할 수 있습니다. 이 값은 고유한 목적으로만 사용되며 리소스의 동작 방식에 영향을 주지 않습니다.
+Azure Storage의 개체는 시스템 속성 및 사용자 정의 메타데이터와 포함된 데이터를 지원합니다. 이 문서에서는 [.NET용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)를 사용하여 관리 시스템 속성 및 사용자 정의 메타데이터를 관리하는 방법을 설명합니다.
+
+* **시스템 속성**: 각 저장소 리소스에 시스템 속성이 있습니다. 그 중 일부를 읽거나 설정할 수 있지만 나머지는 읽기 전용입니다. 일부 시스템 속성은 내부적으로 특정 표준 HTTP 헤더에 해당합니다. Azure 저장소 클라이언트 라이브러리에서 유지 관리합니다.
+
+* **사용자 정의 메타데이터**: 사용자 정의 메타 데이터는 이름-값 쌍의 형태로 제공된 리소스에서 지정 하는 메타 데이터입니다. 메타데이터를 사용하여 저장소 리소스와 함께 추가 값을 저장할 수 있습니다. 이러한 추가 메타데이터 값은 고유한 목적으로만 사용되며 리소스의 동작 방식에 영향을 주지 않습니다.
 
 저장소 리소스에 대한 속성 및 메타데이터 값 검색은 두 단계로 이루어집니다. 이러한 값을 읽으려면 먼저 **FetchAttributes** 메서드를 호출하여 명시적으로 가져와야 합니다.
 
@@ -65,7 +66,7 @@ Console.WriteLine("ETag: {0}", container.Properties.ETag);
 Console.WriteLine();
 ```
 
-## <a name="setting-and-retrieving-metadata"></a>메타 데이터 설정 및 검색
+## <a name="setting-and-retrieving-metadata"></a>메타데이터 설정 및 검색
 Blob 또는 컨테이너 리소스에 하나 이상의 이름-값 쌍으로 메타 데이터를 지정할 수 있습니다. 메타데이터를 설정하려면 이름-값 쌍을 리소스의 **메타데이터** 컬렉션에 추가한 다음, **SetMetadata** 메서드를 호출하여 값을 서비스에 저장합니다.
 
 > [!NOTE]
@@ -105,8 +106,7 @@ public static void ListContainerMetadata(CloudBlobContainer container)
 }
 ```
 
-## <a name="see-also"></a>참고 항목
-* [.NET용 Azure 저장소 클라이언트 라이브러리 참조](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-* [.NET용 Azure 저장소 클라이언트 라이브러리 패키지](https://www.nuget.org/packages/WindowsAzure.Storage/)
-
+## <a name="next-steps"></a>다음 단계
+* [.NET용 Azure Storage 클라이언트 라이브러리 참조](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
+* [.NET용 Azure Storage 클라이언트 라이브러리 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.Storage/)
 

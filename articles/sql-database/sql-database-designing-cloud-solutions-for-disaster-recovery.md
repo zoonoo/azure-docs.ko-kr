@@ -17,16 +17,16 @@ ms.workload: data-management
 ms.date: 04/21/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 364038c11f13bcb72b259618b1d7d433f48a33c1
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: b1b67a83a25159414a80382030903d300aad71f7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Azure SQL Database를 사용하여 항상 사용 가능한 서비스 디자인
 
-Azure SQL Database에서 항상 사용 가능한 서비스를 빌드하고 배포할 때는 [장애 조치 그룹 및 활성 지역 복제](sql-database-geo-replication-overview.md)을 사용해야 합니다. 지역별 장애 및 심각한 가동 중단에 대한 복원을 제공하고 보조 데이터베이스로의 장애 조치를 사용하여 빠르게 복구할 수 있습니다. 이 문서에서는 일반적인 응용 프로그램 패턴에 초점을 맞추고, 응용 프로그램 배포 요구 사항, 대상 서비스 수준 약정, 트래픽 대기 시간 및 비용에 따라 각 옵션의 장단점에 대해 설명합니다. 탄력적 풀의 활성 지역 복제에 대한 자세한 내용은 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
+Azure SQL Database에서 항상 사용 가능한 서비스를 빌드하고 배포하는 경우 [장애 조치 그룹 및 활성 지역 복제](sql-database-geo-replication-overview.md)를 사용하여 지역 오류 및 심각한 서비스 중단에 대한 복원 기능을 제공하고 보조 데이터베이스에 대한 빠른 복구를 사용하도록 설정합니다. 이 문서에서는 일반적인 응용 프로그램 패턴에 초점을 맞추고, 응용 프로그램 배포 요구 사항, 대상 서비스 수준 약정, 트래픽 대기 시간 및 비용에 따라 각 옵션의 장단점에 대해 설명합니다. 탄력적 풀의 활성 지역 복제에 대한 자세한 내용은 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
 
 ## <a name="design-pattern-1-active-passive-deployment-for-cloud-disaster-recovery-with-a-co-located-database"></a>디자인 패턴 1: 함께 배치된 데이터베이스와 클라우드 재해 복구에 대한 활성-수동 배포
 이 옵션은 다음 특성을 가진 응용 프로그램에 가장 적합합니다.
@@ -43,9 +43,9 @@ Azure SQL Database에서 항상 사용 가능한 서비스를 빌드하고 배�
 
 다음 다이어그램은 작동 중단 전의 이 구성을 보여 줍니다.
 
-![SQL 데이터베이스 지역에서 복제 구성 클라우드 재해 복구](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
+![SQL Database 지역에서 복제 구성 클라우드 재해 복구](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-1.png)
 
-주 지역에서 가동 중단된 후 SQL Database 서비스는 주 데이터베이스에 액세스할 수 없음을 검색하여 자동 장애 조치 정책의 매개 변수를 기반으로 하여 보조 데이터베이스로 장애 조치를 트리거합니다. 응용 프로그램 SLA에 따라 가동 중단 감지와 장애 조치 자체 사이의 유예 기간을 구성하도록 결정할 수 있습니다. 유예 기간을 구성하면 가동 중단이 치명적이며 해당 지역의 가용성을 빠르게 복원할 수 없을 때 데이터 손실 위험을 줄입니다. 장애 조치 그룹에서 데이터베이스 장애 조치를 트리거하기 전에 트래픽 관리자에서 끝점 장애 조치를 시작하면 웹 응용 프로그램이 데이터베이스에 다시 연결할 수 없게 됩니다. 데이터베이스 장애 조치가 완료되는 즉시 응용 프로그램에서 다시 연결하려는 시도가 자동으로 성공합니다. 
+주 지역에서 가동 중단된 후 SQL Database 서비스는 주 데이터베이스에 액세스할 수 없음을 검색하여 자동 장애 조치 정책의 매개 변수를 기반으로 하여 보조 데이터베이스로 장애 조치를 트리거합니다. 응용 프로그램 SLA에 따라 가동 중단 감지와 장애 조치 자체 사이의 유예 기간을 구성하도록 결정할 수 있습니다. 유예 기간을 구성하면 가동 중단이 치명적이며 해당 지역의 가용성을 빠르게 복원할 수 없을 때 데이터 손실 위험을 줄입니다. 장애 조치 그룹에서 데이터베이스 장애 조치를 트리거하기 전에 Traffic Manager에서 끝점 장애 조치를 시작하면 웹 응용 프로그램이 데이터베이스에 다시 연결할 수 없게 됩니다. 데이터베이스 장애 조치가 완료되는 즉시 응용 프로그램에서 다시 연결하려는 시도가 자동으로 성공합니다. 
 
 > [!NOTE]
 > 응용 프로그램과 데이터베이스에 대해 완벽하게 조정된 장애 조치를 수행하려면, 자체 모니터링 방법을 직접 고안하고 웹 응용 프로그램 끝점과 데이터베이스에 대한 수동 장애 조치를 사용해야 합니다.
@@ -53,12 +53,12 @@ Azure SQL Database에서 항상 사용 가능한 서비스를 빌드하고 배�
 
 응용 프로그램의 끝점과 데이터베이스의 장애 조치가 완료되면, 응용 프로그램은 지역 B에서 사용자 요청 처리를 다시 시작하고, 주 데이터베이스가 현재 지역 B에 있기 때문에 데이터베이스와 함께 동일한 위치에서 유지됩니다. 이 시나리오는 다음 다이어그램에서 보여 줍니다. 모든 다이어그램에서 실선은 활성 연결을 나타내고, 점선은 일시 중단된 연결을 나타내며, 중지 기호는 작업 트리거를 나타냅니다.
 
-![지역에서 복제: 보조 데이터베이스로 장애 조치(failover) 앱 데이터 백업](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)
+![지역에서 복제: 보조 데이터베이스로 장애 조치 앱 데이터 백업](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern1-2.png)
 
 보조 지역에서 가동 중단이 발생하는 경우 주 데이터베이스와 보조 데이터베이스 간의 복제 링크가 일시 중단되지만, 주 데이터베이스가 영향을 받지 않으므로 장애 조치는 트리거되지 않습니다. 이 경우 응용 프로그램의 가용성은 변경되지 않지만, 두 지역이 연속적으로 실패할 경우 응용 프로그램이 노출된 상태로 작동하므로 위험이 더 높아집니다.
 
 > [!NOTE]
->단일 DR 영역을 사용한 배포 구성이 좋습니다. 대부분의 Azure 지역은 두 지역이 있기 때문입니다. 이러한 구성은 두 영역의 치명적인 오류로부터 응용 프로그램을 보호하지 않습니다. 이러한 발생 가능성이 없는 실패 시 [지리적 복원 작업](sql-database-disaster-recovery.md#recover-using-geo-restore)을 사용하여 세 번째 지역에서 데이터베이스를 복구할 수 있습니다.
+> 단일 DR 영역을 사용한 배포 구성이 좋습니다. 대부분의 Azure 지역은 두 지역이 있기 때문입니다. 이러한 구성은 두 영역의 치명적인 오류로부터 응용 프로그램을 보호하지 않습니다. 이러한 발생 가능성이 없는 실패 시 [지리적 복원 작업](sql-database-disaster-recovery.md#recover-using-geo-restore)을 사용하여 세 번째 지역에서 데이터베이스를 복구할 수 있습니다.
 >
 
 가동 중단이 완화되면 보조 데이터베이스가 주 데이터베이스와 자동으로 다시 동기화됩니다. 동기화하는 동안 주 데이터베이스의 성능은 동기화되어야 하는 데이터의 양에 따라 약간 영향을 받을 수 있습니다. 다음 다이어그램은 보조 지역의 작동 중단을 보여 줍니다.
@@ -90,7 +90,7 @@ Azure SQL Database에서 항상 사용 가능한 서비스를 빌드하고 배�
 
 트래픽 관리자는 사용자의 지리적 위치에 가장 가까운 응용 프로그램 인스턴스에 대한 사용자 직접 연결에 성능 라우팅을 위해 구성되어야 합니다. 다음 다이어그램은 작동 중단 전의 이 구성을 보여 줍니다.
 
-![가동 중단 없음: 가장 가까운 응용 프로그램으로 라우팅하는 성능입니다. 지역에서 복제입니다.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
+![가동 중단 없음: 가장 가까운 응용 프로그램으로 라우팅하는 성능입니다. 지역에서 복제](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-1.png)
 
 지역 A의 데이터베이스 가동 중단이 검색되면 장애 조치 그룹은 지역 A의 주 데이터베이스에서 지역 B의 보조 데이터베이스로의 장애 조치를 자동으로 시작합니다. 또한 읽기-쓰기 수신기 끝점을 지역 B로 자동 업데이트하여 웹 응용 프로그램의 읽기-쓰기 연결에 영향을 주지 않습니다. 트래픽 관리자는 라우팅 테이블에서 오프라인 끝점을 제외하지만 최종 사용자 트래픽은 나머지 온라인 인스턴스로 계속 라우팅됩니다. 읽기 전용 SQL 연결 문자열은 항상 동일한 지역의 데이터베이스를 가리키므로 영향을 받지 않습니다. 
 
@@ -129,7 +129,7 @@ Azure SQL Database에서 항상 사용 가능한 서비스를 빌드하고 배�
 
 주 지역의 가동 중단이 유예 기간 내에 완화되면 트래픽 관리자에서 주 지역의 연결 복원을 검색하고 사용자 트래픽을 지역 A의 응용 프로그램 인스턴스로 다시 전환합니다. 해당 응용 프로그램 인스턴스는 지역 A의 주 데이터베이스를 사용하여 읽기-쓰기 모드에서 다시 시작되어 작동합니다.
 
-지역 B에서 가동 중단이 발생하면 트래픽 관리자에서 지역 B의 응용 프로그램 끝점 장애를 검색하고 장애 조치 그룹에서 읽기 전용 수신기를 지역 A로 전환합니다. 이 가동 중단은 최종 사용자 환경에 영향을 주지 않지만 가동 중단 발생 시 주 데이터베이스가 노출됩니다. 이 내용은 다음 다이어그램에서 설명됩니다.
+지역 B에서 가동 중단이 발생하면 Traffic Manager에서 지역 B의 응용 프로그램 끝점 장애를 검색하고 장애 조치 그룹에서 읽기 전용 수신기를 지역 A로 전환합니다. 이 가동 중단은 최종 사용자 환경에 영향을 주지 않지만 가동 중단 발생 시 주 데이터베이스가 노출됩니다. 이 내용은 다음 다이어그램에서 설명됩니다.
 
 ![중단: 보조 데이터베이스 클라우드 재해 복구](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-3.png)
 
@@ -145,7 +145,7 @@ Azure SQL Database에서 항상 사용 가능한 서비스를 빌드하고 배�
 * 응용 프로그램은 읽기 전용 모드에서 작동할 수 있어야 함
 
 > [!NOTE]
-> 지역에서 영구 서비스 중단이 발생할 경우 수동으로 데이터베이스 장애 조치를 활성화하고 데이터 손실을 허용해야 합니다. 응용 프로그램은 데이터베이스에 대한 읽기-쓰기 액세스로 보조 지역에서 작동됩니다.
+> 지역에서 영구 서비스 중단이 발생할 경우 수동으로 데이터베이스 장애 조치를 활성화하고 데이터 손실을 허용합니다. 응용 프로그램은 데이터베이스에 대한 읽기-쓰기 액세스로 보조 지역에서 작동됩니다.
 >
 
 ## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>무중단 업무 방식 계획: 클라우드 재해 복구에 대한 응용 프로그램 디자인 선택
@@ -163,7 +163,7 @@ Azure SQL Database에서 항상 사용 가능한 서비스를 빌드하고 배�
 * Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)
 * 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)
 * 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)
-* 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)  
+* 빠른 복구 옵션에 대해 알아보려면 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.  
 * 보관을 위해 자동화된 백업을 사용하는 방법을 알아보려면 [데이터베이스 복사](sql-database-copy.md)
 * 탄력적 풀의 활성 지역 복제에 대한 자세한 내용은 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
 

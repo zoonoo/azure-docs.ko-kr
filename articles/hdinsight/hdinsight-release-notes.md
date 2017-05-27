@@ -1,6 +1,6 @@
 ---
 title: "Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보 | Microsoft Docs"
-description: "Azure HDInsight용 Hadoop 구성 요소의 최신 릴리스 정보 및 버전입니다. Hadoop, Apache Storm 및 HBase에 대한 개발 팁 및 세부 정보를 가져옵니다."
+description: "Azure HDInsight용 Hadoop 구성 요소의 최신 릴리스 정보 및 버전입니다. Spark, R 서버, Hive 등에 대한 개발 팁 및 세부 정보를 확인하세요."
 services: hdinsight
 documentationcenter: 
 editor: cgronlun
@@ -9,23 +9,24 @@ author: nitinme
 tags: azure-portal
 ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: e9bcb0cb33eefc743ed220cb2a874f9ae11b5fe7
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 782cab231e1b152c720abebff1fc76ae0559d12a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/13/2017
 
 
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
 
-이 문서에서는 **가장 최근** Azure HDInsight 릴리스 업데이트에 대한 정보를 제공합니다. 그 이전 릴리스에 대한 자세한 내용은 [HDInsight 릴리스 정보 보관](hdinsight-release-notes-archive.md)을 참조하세요.
+이 문서에서는 **가장 최근** Azure HDInsight 릴리스 업데이트에 대한 정보를 제공합니다. 이전 릴리스에 대한 자세한 내용은 [HDInsight 릴리스 정보 보관](hdinsight-release-notes-archive.md)을 참조하세요.
 
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 버전 관리 문서](hdinsight-component-versioning.md)를 참조하세요.
@@ -58,7 +59,7 @@ ms.lasthandoff: 04/10/2017
 
         HADOOP_CLASSPATH=$(hbase mapredcp):/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
 
-    대신 다음 구문을 사용해야 합니다.
+    대신 다음 구문을 사용합니다.
 
         HADOOP_CLASSPATH=/path/to/hbase-protocol.jar:/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
 
@@ -76,7 +77,7 @@ Spark 2.0.1은 Spark 클러스터(HDInsight 버전 3.5)에서 사용할 수 있�
 
 ## <a name="11162016---release-of-r-server-90-on-hdinsight-35-spark-20"></a>2016/11/16 - HDInsight 3.5(Spark 2.0)의 R Server 9.0 릴리스
 *    R Server 클러스터에는 이제 HDI 3.5의 R Server 9.0(Spark 2.0)과 HDI 3.4의 R Server 8.0(Spark 1.6)의 두 버전에 대한 옵션이 포함되어 있습니다.
-*    HDI 3.5(Spark 2.0)의 R Server 9.0은 R 3.3.2 버전을 기반으로 하며, Hive 및 Parquet의 데이터를 Spark DataFrames로 직접 로드하여 ScaleR로 분석할 수 있는 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 원본 함수를 포함하고 있습니다. 자세한 내용은 ?RxHiveData 및 ?RxParquetData 명령을 사용하여 R에서 이러한 함수에 대한 온라인 도움말을 참조하세요.
+*    HDI 3.5(Spark 2.0)의 R Server 9.0은 R 3.3.2 버전을 기반으로 하며, Hive 및 Parquet의 데이터를 Spark DataFrames로 직접 로드하여 ScaleR로 분석할 수 있는 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 원본 함수를 포함하고 있습니다. 자세한 내용은 **?RxHiveData** 및 **?RxParquetData** 명령을 사용하여 R에서 이러한 함수에 대한 인라인 도움말을 참조하세요.
 *    RStudio Server 커뮤니티 버전은 기본적으로 프로비전 흐름의 일부로 클러스터 구성 블레이드(옵트아웃 옵션 사용)에서 설치됩니다.
 
 ## <a name="11092016---release-of-spark-20-on-hdinsight"></a>2016/11/09 - HDInsight의 Spark 2.0 릴리스
@@ -86,7 +87,7 @@ Spark 2.0.1은 Spark 클러스터(HDInsight 버전 3.5)에서 사용할 수 있�
 * 에지 노드 액세스를 위한 URI가 **clustername**-ed-ssh.azurehdinsight.net으로 변경되었습니다.
 * HDInsight의 R 서버 클러스터 프로비전이 간소화되었습니다.
 * 이제 HDInsight의 R 서버를 일반 HDInsight "R 서버" 클러스터 유형으로 사용할 수 있으며 별도의 HDInsight 응용 프로그램으로는 더 이상 설치되지 않습니다. 이제 에지 노드 및 R 서버 이진 파일이 R 서버 클러스터 배포의 일부로 프로비전됩니다. 그러면 프로비전의 속도 및 안정성이 향상됩니다. R 서버에 대한 가격 책정 모델이 이에 따라 업데이트됩니다.
-* R 서버 클러스터 유형 가격은 표준 계층 가격 및 R 서버 추가 요금 가격을 따릅니다. 프리미엄 계층은 다양한 클러스터 유형 간에 사용 가능한 프리미엄 기능용으로 예약되며 R 서버 클러스터 유형에 사용되지 않습니다. 이러한 변경은 R 서버의 실효 가격에 영향을 주지 않으며 청구서에 요금이 표시되는 방식만 변경합니다. 기존의 모든 R 서버 클러스터는 계속 작동하고 ARM 템플릿은 사용 중단 공지가 있을 때까지 계속 작동합니다. **새로운 ARM 템플릿을 사용하도록 스크립트 배포를 업데이트하는 것이 좋습니다.**
+* R 서버 클러스터 유형 가격은 표준 계층 가격 및 R 서버 추가 요금 가격을 따릅니다. 프리미엄 계층은 다양한 클러스터 형식 간에 사용 가능한 프리미엄 기능용으로 예약되며 R 서버 클러스터 형식에 사용되지 않습니다. 이러한 변경은 R 서버의 실효 가격에 영향을 주지 않으며 청구서에 요금이 표시되는 방식만 변경합니다. 기존의 모든 R 서버 클러스터는 계속 작동하고 Resource Manager 템플릿은 사용 중단 공지가 있을 때까지 계속 작동합니다. **새로운 Resource Manager 템플릿을 사용하도록 스크립트 배포를 업데이트하는 것이 좋습니다.**
 
 ## <a name="08302016---release-of-r-server-on-hdinsight"></a>2016/08/30 - HDInsight의 R Server 릴리스
 이 릴리스와 함께 배포된 Linux 기반 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.

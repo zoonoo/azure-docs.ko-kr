@@ -18,10 +18,10 @@ ms.topic: get-started-article
 ms.date: 05/12/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 020cb0193e48b49524318df6e29c7613753a3863
+ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
+ms.openlocfilehash: 4dc9729f036c0c497dfd53342aa92c983126e7d1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 05/20/2017
 
 
 ---
@@ -30,8 +30,6 @@ ms.lasthandoff: 05/15/2017
 이 문서에서는 HDInsight의 Spark를 소개합니다. <a href="http://spark.apache.org/" target="_blank">Apache Spark</a>는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. HDInsight의 Spark 클러스터는 Azure Storage(WASB) 및 Azure Data Lake Store와 호환되므로 Azure에 저장된 기존 데이터를 Spark 클러스터를 통해 쉽게 처리할 수 있습니다.
 
 HDInsight의 Spark 클러스터를 만들면 Spark가 설치되고 구성된 Azure 계산 리소스를 만듭니다. HDInsight에서 Spark 클러스터를 약 10분만에 만들 수 있습니다. 처리되는 데이터는 Azure Storage 또는 Azure Data Lake Store에 저장됩니다. [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
-
-![HDInsight의 Apache Spark란?] (./media/hdinsight-apache-spark-overview/hdinsight-introduction-to-spark.png "HDInsight의 Spark 소개")
 
 **HDInsight의 Spark 클러스터를 만들려면** [빠른 시작: HDInsight에서 Spark 클러스터 만들기 및 Jupyter를 사용하여 대화형 쿼리 실행](hdinsight-apache-spark-jupyter-spark-sql.md)을 참조하세요.
 

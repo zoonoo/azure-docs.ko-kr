@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: erihur;genli
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6db1fedad08ee33f3468fb98f59071a1521921db
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: b5268239fb4c50e6bdea77323267a42e267268db
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -140,7 +141,9 @@ Microsoft Azure 구독 요금은 요금제에 따라 다릅니다. Visual Studio
 자세한 내용은 [Azure 청구 및 비용 관리 시작](billing-getting-started.md)을 참조하세요.
 
 ## <a name="how-do-i-make-a-payment"></a>지불하려면 어떻게 해야 하나요?
-결제 방법으로 신용 카드 또는 직불 카드를 설정한 경우 자동으로 결제됩니다. [결제를 청구서로 보내려면](https://azure.microsoft.com/pricing/invoicing/) 청구서 아래쪽에 나열된 위치로 결제 금액을 보냅니다. 자세한 도움말은 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)합니다.
+결제 방법으로 신용 카드 또는 직불 카드를 설정한 경우 자동으로 결제됩니다. 신용 카드 명세서에서 품목명은 **MSFT Azure**입니다.
+
+[결제를 청구서로 보내려면](https://azure.microsoft.com/pricing/invoicing/) 청구서 아래쪽에 나열된 위치로 결제 금액을 보냅니다. 자세한 도움말은 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)합니다.
 
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>신용 카드 지불 상태를 어떻게 확인하나요?
 결제 상태를 요청하는 [지원 티켓을 만듭니다](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 

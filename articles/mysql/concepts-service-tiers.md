@@ -1,21 +1,19 @@
 ---
-title: "MySQL용 Azure 데이터베이스의 서비스 계층 | Microsoft Docs"
+title: "MySQL용 Azure Database의 서비스 계층 | Microsoft Docs"
 description: "MySQL용 Azure 데이터베이스의 서비스 계층"
 services: mysql
 author: v-chenyh
-ms.author: v-chenyh
 manager: jhubbard
 editor: jasonh
-ms.assetid: 
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/16/2017
+ms.author: v-chenyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: b647db3c3a48ac6c151814ee68b3117a92c1d4d8
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 9ae42c9b151c53a1f57d6856bc29cd7f71a7f9be
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-service-tier"></a>MySQL용 Azure 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 항목 이해
@@ -39,18 +37,17 @@ MySQL용 Azure 데이터베이스는 기본 및 표준 서비스 계층을 제�
 | Basic | IOPS 보장 없이 확장 가능한 Compute 및 저장 단위를 필요로 하는 작은 작업에 가장 적합합니다. 예를 들어 개발 또는 시험, 또는 자주 사용하지 않는 소규모 응용 프로그램에 사용되는 서버가 이에 해당합니다. |
 | Standard | 높은 처리량을 위해 더 높은 Compute 단위 및 저장 단위로 별도로 확장하는 기능을 포함하는 IOPS 보증이 필요한 클라우드 응용 프로그램을 위한 준비된 옵션입니다. 예제에는 웹 또는 분석 응용 프로그램이 포함됩니다. |
 | Premium | 높은 IO 및 작업 처리량과 함께, 트랜잭션 및 IO에 대해 매우 짧은 대기 시간을 요구하는 작업에 가장 적합합니다. 많은 동시 사용자에 대해 최상의 지원을 제공합니다. 업무에 중요한 응용 프로그램을 지원하는 데이터베이스에 적용됩니다.<br />프리미엄 서비스 계층은 미리 보기에서 사용할 수 없습니다. |
-| &nbsp; | &nbsp; |
+
 
 서비스 계층을 결정하려면 먼저 작업에 IOPS 보장이 필요한지를 결정합니다. 그런 후 필요한 최소 기능을 결정합니다.
 
 | **서비스 계층 기능** | **Basic** | **Standard** | **프리미엄** * |
 | :------------------------ | :-------- | :----------- | :------------ |
-| 최대 Compute 단위 | 100 | 2000 | 미리 보기에서 사용할 수 없음 |
-| 최대 총 저장소 | 1050GB | 10000GB | 미리 보기에서 사용할 수 없음 |
+| 최대 Compute 단위 | 100 | 2, 000 | 미리 보기에서 사용할 수 없음 |
+| 최대 총 저장소 | 1,050GB | 10,000GB | 미리 보기에서 사용할 수 없음 |
 | 저장소 IOPS 보장 | 해당 없음 | 예 | 미리 보기에서 사용할 수 없음 |
-| 최대 저장소 IOPS | 해당 없음 | 30,000 | 미리 보기에서 사용할 수 없음 |
+| 최대 저장소 IOPS | 해당 없음 | 3,000 | 미리 보기에서 사용할 수 없음 |
 | 데이터베이스 백업 보존 기간 | 7 일 | 35일 | 35일 |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 
 > [!NOTE]
 > 미리 보기의 표준 서비스 계층은 현재 최대 800 Compute 단위 및 1000GB 저장소를 지원합니다.
@@ -63,40 +60,36 @@ MySQL용 Azure 데이터베이스는 기본 및 표준 서비스 계층을 제�
 > 미리 보기에서 기본 및 표준 계층은 현재 저장소의 동적 크기 조정을 지원하지 않습니다. 나중에 이 기능을 추가할 계획입니다.
 
 > [!NOTE]
-> 표준 서비스 계층에서 IOPS는 고정된 3:1 비율로 프로비전된 저장소 크기에 비례해서 조정됩니다. 125GB의 포함된 저장소는 최대 IO 크기가 각각 256KB인 375의 프로비전된 IOPS를 보장합니다. 1000GB를 프로비전하는 경우 프로비전된 3,000의 IOPS를 얻게 됩니다. 사용 가능한 프로비전된 IOPS를 완전히 활용하려면 서버 Compute 단위 사용량을 모니터링하고 확장해야 합니다.
+> 표준 서비스 계층에서 IOPS는 고정된 3:1 비율로 프로비전된 저장소 크기에 비례해서 조정됩니다. 125GB의 포함된 저장소는 최대 IO 크기가 각각 256KB인 375의 프로비전된 IOPS를 보장합니다. 1,000GB를 프로비전하는 경우 프로비전된 3,000개의 IOPS를 얻게 됩니다. 사용 가능한 프로비전된 IOPS를 완전히 활용하려면 서버 Compute 단위 사용량을 모니터링하고 확장해야 합니다.
 
 ## <a name="service-tiers-and-performance-levels"></a>서비스 계층 및 성능 수준
 
 MySQL용 Azure 데이터베이스는 각 서비스 계층 내에서 여러 성능 수준을 제공합니다. 다음 중 하나를 사용하여 작업 요구에 가장 잘 맞는 수준을 선택할 수 있는 유연성이 있습니다.
-
 - [Azure 포털](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 각 MySQL 서버 내에 호스트된 데이터베이스 수에 관계 없이, 데이터베이스는 보장된 리소스 집합을 가져오며 서버의 예상되는 성능 특징은 영향을 받지 않습니다.
 
-기본 서비스 계층:
+### <a name="basic-service-tier"></a>기본 서비스 계층:
 
 | **성능 수준** | **50** | **100** |
 | :-------------------- | :----- | :------ |
 | 최대 Compute 단위 | 50 | 100 |
 | 포함된 저장소 크기 | 50GB | 50GB |
-| 최대 서버 저장소 크기\* | 1050GB | 1050GB |
-| 최대 동시 로그인 | &nbsp; | &nbsp; |
-| 최대 연결 | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; |
+| 최대 서버 저장소 크기\* | 1,050GB | 1,050GB |
 
-표준 서비스 계층:
+\* 최대 서버 저장소 크기는 서버에 대해 프로비전된 최대 저장소 크기를 나타냅니다.
+
+
+### <a name="standard-service-tier"></a>표준 서비스 계층:
 
 | **성능 수준** | **100** | **200** | **400** | **800** |
 | :-------------------- | :------ | :------ | :------ | :------ |
 | 최대 Compute 단위 | 100 | 200 | 400 | 800 |
-| 포함된 저장소 크기 및 프로비전된 IOPS | 125GB, 375 IOPS | &nbsp; | &nbsp; | &nbsp; |
-| 최대 서버 저장소 크기\* | 1TB | &nbsp; | &nbsp; | &nbsp; |
-| 프로비전된 최대 서버 IOPS | 3000 IOPS | &nbsp; | &nbsp; | &nbsp; |
-| GB당 프로비전된 최대 서버 IOPS | GB당 고정된 3 IOPS | &nbsp; | &nbsp; | &nbsp; |
-| 최대 동시 로그인 | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| 최대 연결 | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
+| 포함된 저장소 크기 및 프로비전된 IOPS | 125GB,<br/> 375 IOPS | 125GB,<br/> 375 IOPS | 125GB,<br/> 375 IOPS | 125GB,<br/> 375 IOPS |
+| 최대 서버 저장소 크기\* | 1TB | 1TB | 1TB | 1TB |
+| 프로비전된 최대 서버 IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS | 3,000 IOPS |
+| GB당 프로비전된 최대 서버 IOPS | GB당 고정된 3 IOPS | GB당 고정된 3 IOPS | GB당 고정된 3 IOPS | GB당 고정된 3 IOPS |
 
 \* 최대 서버 저장소 크기는 서버에 대해 프로비전된 최대 저장소 크기를 나타냅니다.
 
@@ -109,12 +102,15 @@ MySQL용 Azure 데이터베이스는 각 서비스 계층 내에서 여러 성�
 전체 확장 프로세스 기간은 변경 전후 서버의 크기 및 서비스 계층에 따라 달라집니다. 예를 들어 표준 서비스 계층으로/부터 또는 표준 서비스 계층 내에서 Compute 단위를 변경하는 서버는 몇 분 안에 완료해야 합니다. 서버의 새로운 속성은 변경이 완료될 때까지 적용되지 않습니다.
 
 ### <a name="documentation-about-the-steps-for-scaling-up-or-down"></a>확장 또는 축소 단계에 대한 설명서
+[Azure CLI를 사용하여 MySQL용 Azure Database 서버 모니터링 및 확장](scripts/sample-scale-server.md)
 
-- [Azure Portal을 사용하여 단일 서버 관리](quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Azure CLI를 사용하여 단일 서버 관리](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ### <a name="details-about-scaling-up-or-down"></a>확장 또는 축소에 대한 세부 정보
 
 - 서버를 다운그레이드하려면 서버 저장 단위가 대상 서비스 계층의 최대 허용 크기보다 작아야 합니다.
-- 복원 서비스는 여러 서비스 계층에서 서로 다르게 제공됩니다. 다운그레이드하는 경우 지정 시간으로 복원하는 기능을 잃게 되거나 백업 보존 기간이 단축될 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 MySQL용 Azure 데이터베이스를 백업 및 복원하는 방법](./howto-restore-server-portal.md)을 참조하세요.
+- 복원 서비스는 여러 서비스 계층에서 서로 다르게 제공됩니다. 다운그레이드하는 경우 지정 시간으로 복원하는 기능을 잃게 되거나 백업 보존 기간이 단축될 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 MySQL용 Azure 데이터베이스를 백업 및 복원하는 방법](howto-restore-server-portal.md)을 참조하세요.
 - 서버의 새로운 속성은 변경이 완료될 때까지 적용되지 않습니다.
+
+## <a name="next-steps"></a>다음 단계
+[계산 단위 및 저장 단위에 대해 설명](concepts-compute-unit-and-storage.md)
+

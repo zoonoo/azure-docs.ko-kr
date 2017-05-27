@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 04/10/2017
+wms.date: 05/14/2017
 ms.author: srinia
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: b84185d0f224352e7cf5449068bee359914bd4ed
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 907e15da90bcd82358a462f7d8a7d2ba4a34f371
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 05/16/2017
 
 ---
 
@@ -88,7 +87,7 @@ Set-AzureRmSqlElasticPool -ResourceGroupName “resourcegroup1” -ServerName �
 [Set-AzureRmSqlElasticPool](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool) cmdlet을 사용하여 _-StorageMB_ 매개 변수를 설정합니다. 저장소 한도(MB)를 제공합니다(예를 들어 2097152는 2TB의 저장소 한도를 설정). 가능한 값은 [eDTU 및 저장소 제한](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools)을 참조하세요.
 
 > [!IMPORTANT]
-> 1500eDTU 이상인 프리미엄 풀에 대한 풀당 기본 최대 데이터 저장소는 750GB입니다. _풀당 최대 데이터 저장소 크기_를 증가시키려면 이 저장소 한도를 명시적으로 설정해야 합니다. 저장소가 750GB 이상인 프리미엄 풀은 미국 동부 2, 미국 서부, 유럽 서부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부에서 현재 공개 미리 보기 상태로 제공됩니다.
+> 1500eDTU 이상인 프리미엄 풀에 대한 풀당 기본 최대 데이터 저장소는 750GB입니다. _풀당 최대 데이터 저장소 크기_를 증가시키려면 이 저장소 한도를 명시적으로 설정해야 합니다. 750GB 이상의 저장소가 있는 프리미엄 풀은 현재 미국 동부 2, 미국 서부, 미국 버지니아 주 정부, 유럽 서부, 독일 중부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부 지역에서 현재 공개 미리 보기 상태로 제공됩니다.
 
 ```PowerShell
 Set-AzureRmSqlElasticPool -ServerName "server1" -ElasticPoolName “elasticpool1” -StorageMB 2097152

@@ -1,9 +1,9 @@
 ---
-title: "Azure Application Insights에서 개발, 테스트 및 프로덕션 모니터링 | Microsoft Docs"
-description: "개발의 여러 단계에서 응용 프로그램의 성능 및 사용 모니터링"
+title: "Azure Application Insights에서 개발, 테스트 및 릴리스의 원격 분석 구분 | Microsoft Docs"
+description: "개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
@@ -11,59 +11,38 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 05/15/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 43fb1e764c929be14d42c3d214b051aeb5367d77
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 896bf83de9095007e4f189f50a5e13c216e6ebd2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/15/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="separating-application-insights-resources"></a>Application Insights 리소스 구분
-응용 프로그램의 다른 구성 요소 및 버전에서 원격 분석을 여러 Application Insights 리소스에 전송하거나 또는 하나로 결합해야 하나요? 이 문서에서는 모범 사례 및 필요한 기술을 살펴봅니다.
+# <a name="separating-telemetry-from-development-test-and-production"></a>개발, 테스트 및 프로덕션의 원격 분석 구분
 
-먼저, 질문을 살펴보겠습니다. 응용 프로그램에서 받은 데이터는 Microsoft Azure *리소스*의 Application Insights에 의해 저장되고 처리됩니다. 각 리소스는 해당 *계측 키* (iKey)로 식별됩니다. 응용 프로그램에서 올바른 리소스를 수집하는 데이터를 보낼 수 있도록 키 Application Insights SDK를 제공합니다. 코드 또는 ApplicationInsights.config에서 키를 제공 받을 수 있습니다. SDK에 있는 키를 변경하여 데이터를 다른 리소스로 디렉트할 수 있습니다. 
-
-단순한 경우에 Application Insights를 이용하여 응용 프로그램을 등록하는 경우 Application Insights에서 새 리소스를 만들 수 있습니다. 이 작업은 Visual Studio에서 *Application Insights 구성* 또는 *Application Insights 추가* 대화 상자에서 수행할 수 있습니다.
-
-고용량 웹 사이트인 경우 둘 이상의 서버 인스턴스에 배포될 수 있습니다.
-
-더 복잡한 시나리오에는 웹 사이트 및 백 엔드 프로세서와 같은 여러 구성 요소로 이루어진 시스템이 있습니다. 
-
-## <a name="when-to-use-separate-ikeys"></a>별도 iKey를 사용하는 경우
-다음은 몇 가지 일반적인 지침입니다.
-
-* 다른 구성 요소를 독립적으로 강화/축소할 수 있는 일련의 서버 인스턴스에서 실행되는 독립적으로 배포 가능한 응용 프로그램이 있는 경우 일반적으로 단일 리소스에 매핑합니다. 즉, 단일 계측 키(iKey)를 보유하게 됩니다.
-* 반면, 별도 iKey를 사용하는 이유는 다음과 같습니다.
-  * 별도 구성 요소에서 별도 메트릭을 쉽게 읽을 수 있습니다.
-  * 저용량 원격 분석을 고용량과 분리되도록 유지하여 스트림에서 제한, 할당량 및 샘플링이 기타 항목에 영향을 주지 않도록 합니다.
-  * 경고, 내보내기 및 작업 항목 구성 구분합니다.
-  * 원격 분석 할당량, 제한 및 웹 테스트 수와 같은 [제한](app-insights-pricing.md#limits-summary)을 분산합니다.
-  * 개발 및 테스트에 있는 코드는 프로덕션 스탬프와 다른 별도 iKey에 보내야 합니다.  
-
-많은 Application Insights 포털 환경이 이 지침을 염두에 두고 설계되었습니다. 예를 들어 서버 인스턴스의 서버 보기 세그먼트의 경우 논리 구성 요소에 대한 원격 분석을 여러 서버 인스턴스에서 가져올 수 있다고 가정합니다.
-
-## <a name="single-ikey"></a>단일 iKey
-여러 구성 요소에서 단일 iKey에 원격 분석을 보내는 경우:
-
-* 구성 요소 ID에 대한 세그먼트와 필터를 허용하는 모든 원격 분석에 속성을 추가합니다. 서버 역할 인스턴스에서 역할 ID가 원격 분석에 자동으로 추가되지만 다른 경우에 [원격 분석 이니셜라이저](app-insights-api-filtering-sampling.md#add-properties)를 사용하여 속성을 추가할 수 있습니다.
-* 동시에 여러 구성 요소에서 Application Insights SDK를 업데이트합니다. 하나의 iKey에 대한 원격 분석은 동일한 버전의 SDK에서 시작해야 합니다.
-
-## <a name="separate-ikeys"></a>별도 iKey
-다른 응용 프로그램 구성 요소에 iKey가 여러 개 있는 경우:
-
-* 논리 응용 프로그램에서 키 원격 분석의 보기에 [대시보드](app-insights-dashboards.md)를 만들어서 여러 응용 프로그램 구성 요소에서 결합합니다. 단일 논리 시스템 보기를 다른 팀에서 사용할 수 있도록 대시보드를 공유할 수 있습니다.
-* 팀 수준에서 [리소스 그룹](app-insights-resources-roles-access-control.md)을 구성합니다. 액세스 권한은 리소스 그룹에서 할당되고 여기에 경고를 설정하는 권한을 포함합니다. 
-* [Azure Resource Manager 템플릿 및 Powershell](app-insights-powershell.md)을 사용하여 경고 규칙 및 웹 테스트 등 아티팩트를 관리할 수 있습니다.
-
-## <a name="separate-ikeys-for-devtest-and-production"></a>개발/테스트 및 프로덕션을 위한 별도 iKeys
-앱이 릴리스될 경우 자동으로 키를 변경하기 쉽게 하려면 ApplicationInsights.config 대신 코드에서 iKey를 설정합니다.
+웹 응용 프로그램의 다음 버전을 개발할 때 새 버전과 이미 릴리스된 버전의 [Application Insights](app-insights-overview.md) 원격 분석이 혼동되지 않도록 하려고 합니다. 혼동을 방지하기 위해 서로 다른 개발 단계의 원격 분석을 별도의 계측 키(ikeys)와 함께 별도의 Application Insights 리소스에 보냅니다. 버전이 단계별로 이동됨에 따라 계측 키 변경을 보다 쉽게 하기 위해서는 구성 파일 대신 코드에 ikey를 설정하는 것이 더 나을 수 있습니다. 
 
 시스템이 Azure 클라우드 서비스인 경우 [별도의 ikey를 설정하는 다른 방법](app-insights-cloudservices.md)이 있습니다.
 
-### <a name="dynamic-ikey"></a> 동적 계측 키
+## <a name="about-resources-and-instrumentation-keys"></a>리소스 및 계측 키 정보
+
+사용자 웹앱에 대해 Application Insights 모니터링을 설정할 경우 Microsoft Azure에서 Application Insights *리소스*를 만듭니다. 앱에서 수집된 원격 분석을 보고 분석하기 위해서는 Azure Portal에서 이 리소스를 엽니다. 리소스는 해당 *계측 키*(ikey)로 식별됩니다. 앱을 모니터링하기 위해 Application Insights 패키지를 설치하는 경우 원격 분석을 보낼 위치를 파악할 수 있도록 계측 키로 구성합니다.
+
+일반적으로 다양한 시나리오에 별도의 리소스 또는 단일 공유 리소스를 사용하도록 선택합니다.
+
+* 서로 다른 독립적인 응용 프로그램 - 각 앱에 대해 별도의 리소스와 ikey를 사용합니다.
+* 한 비즈니스 응용 프로그램의 여러 구성 요소 또는 역할 - 모든 구성 요소 앱에 대해 [단일 공유 리소스](app-insights-monitor-multi-role-apps.md)를 사용합니다. cloud_RoleName 속성에 따라 원격 분석을 필터링 또는 분할할 수 있습니다.
+* 개발, 테스트 및 릴리스 - '스탬프' 프로덕션 단계에서 시스템 버전에 따라 별도의 리소스 및 ikey를 사용합니다.
+* A | B 테스트 - 단일 리소스를 사용합니다. 변형을 식별하는 원격 분석에 속성을 추가하는 TelemetryInitializer를 만듭니다.
+
+
+## <a name="dynamic-ikey"></a> 동적 계측 키
+
+코드가 프로덕션 단계 간에 이동함에 따라 보다 쉽게 ikey를 변경할 수 있도록 구성 파일 대신 코드에 설정합니다.
+
 ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
 
 *C#*
@@ -94,8 +73,8 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
     }) // ...
 
 
-## <a name="creating-an-additional-application-insights-resource"></a>추가 Application Insights 리소스 만들기
-동일한 구성 요소의 다른 응용 프로그램 구성 요소 또는 다른 스탬프(개발/테스트/프로덕션)에 대한 원격 분석을 분리하기로 결정한 경우 새 Application Insights 리소스를 만들어야 합니다.
+## <a name="create-additional-application-insights-resources"></a>추가 Application Insights 리소스 만들기
+동일한 구성 요소의 다른 응용 프로그램 구성 요소 또는 다른 스탬프(개발/테스트/프로덕션)에 대한 원격 분석을 분리하려면 새 Application Insights 리소스를 만들어야 합니다.
 
 [portal.azure.com](https://portal.azure.com)에서 Application Insights 리소스를 추가합니다.
 
@@ -111,11 +90,57 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
 
 (리소스를 자동으로 만드는 [PowerShell 스크립트](app-insights-powershell-script-create-resource.md) 를 작성할 수 있습니다).
 
-## <a name="getting-the-instrumentation-key"></a>계측 키 가져오기
+### <a name="getting-the-instrumentation-key"></a>계측 키 가져오기
 계측 키는 사용자가 만든 리소스를 식별합니다. 
 
 ![Essentials과 계측 키를 차례로 클릭하고, CTRL + C 누릅니다.](./media/app-insights-separate-resources/02-props.png)
 
 사용자의 앱이 데이터를 보낼 모든 리소스의 계측 키가 필요합니다.
 
+## <a name="filter-on-build-number"></a>빌드 번호 필터링
+앱의 새 버전을 게시하면서 다른 빌드의 원격 분석을 구분하고자 할 수 있습니다.
 
+응용 프로그램 버전 속성을 설정하여 [검색](app-insights-diagnostic-search.md) 및 [메트릭 탐색기](app-insights-metrics-explorer.md) 결과를 필터링할 수 있습니다.
+
+![속성 필터링](./media/app-insights-separate-resources/050-filter.png)
+
+응용 프로그램 버전 속성은 몇 가지 다른 방법으로 설정할 수 있습니다.
+
+* 직접 설정:
+
+    `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
+* [원격 분석 이니셜라이저](app-insights-api-custom-events-metrics.md#defaults) 에서 해당 줄을 래핑하여 모든 TelemetryClient 인스턴스가 일관되게 설정되었는지 확인합니다.
+* [ASP.NET] `BuildInfo.config`에서 버전을 설정합니다. 웹 모듈은 BuildLabel 노드에서 버전을 선택합니다. 프로젝트에 이 파일을 포함하고 솔루션 탐색기에서 항상 복사 속성을 설정합니다.
+
+    ```XML
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
+      <ProjectName>AppVersionExpt</ProjectName>
+      <Build type="MSBuild">
+        <MSBuild>
+          <BuildLabel kind="label">1.0.0.2</BuildLabel>
+        </MSBuild>
+      </Build>
+    </DeploymentEvent>
+
+    ```
+* [ASP.NET] MSBuild에서 BuildInfo.config를 자동으로 생성합니다. 이 작업을 수행하려면 `.csproj` 파일에 몇 줄을 추가합니다.
+
+    ```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup>
+    ```
+
+    그러면 *yourProjectName*.BuildInfo.config 파일이 생성됩니다. 게시 프로세스의 이름이 BuildInfo.config로 바뀝니다.
+
+    Visual Studio를 사용하여 빌드할때 빌드 레이블에는 자리 표시자(AutoGen_...)가 포함됩니다. MSBuild로 빌드할 때는 정확한 버전 번호가 입력됩니다.
+
+    MSBuild가 버전 번호를 생성하게 하려면 AssemblyReference.cs에서 `1.0.*` 같이 버전을 설정합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* [여러 역할에 대한 공유 리소스](app-insights-monitor-multi-role-apps.md)
+* [A|B 변형을 구분하는 원격 분석 이니셜라이저 만들기](app-insights-api-filtering-sampling.md#add-properties)

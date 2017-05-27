@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 70740f0caf31d34f354b1d13558d9f960d7dfc4f
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1e4188313a87d07f396e5f8edc8969dd5da2c436
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -64,7 +64,7 @@ Azure Functions 런타임 미리 보기 설치 관리자는 Azure Functions 런�
     ![Azure Functions 런타임 미리 보기 설치 관리자 완료][5]
 
     > [!NOTE]
-    > **Windows 10**을 설치하려고 하며 **컨테이너** 기능을 이전에 사용하도록 설정하지 않은 경우 **Azure Functions 런타임** 설치 관리자에서 설치를 완료하기 위해 컴퓨터를 다시 부팅하라는 메시지를 표시합됩니다.
+    > **Windows 10**을 설치하려고 하며 **컨테이너** 기능을 이전에 사용하도록 설정하지 않은 경우 **Azure Functions 런타임** 설치 관리자에서 설치를 완료하기 위해 컴퓨터를 다시 부팅하라는 메시지를 표시합니다.
 
 ## <a name="configure-the-azure-functions-runtime"></a>Azure Functions 런타임 구성
 

@@ -1,6 +1,6 @@
 ---
-title: "TRANSACT-SQL로 Azure SQL Database에 대한 지역에서 복제 구성 | Microsoft Docs"
-description: "TRANSACT-SQL을 사용하여 Azure SQL 데이터베이스에 대한 지역에서 복제 구성"
+title: "Transact-SQL로 Azure SQL Database에 대한 지역에서 복제 구성 | Microsoft Docs"
+description: "Transact-SQL을 사용하여 Azure SQL Database에 대한 지역에서 복제 구성"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1005f776ae85a7fc878315225c45f2270887771f
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: dad35a2b3beb2b07d5b12afb8a04ba48f8b8ef7e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -36,11 +36,13 @@ Transact-SQL을 사용하여 장애 조치(Failover)를 시작하려면 [Transac
 
 Transact-SQL을 사용하여 활성 지역 복제를 구성하려면 다음이 필요합니다.
 
-* Azure 구독.
+* Azure 구독
 * 논리 Azure SQL Database 서버 <MyLocalServer> 및 SQL 데이터베이스 <MyDB> - 복제하려는 주 데이터베이스입니다.
-* 하나 이상의 논리 Azure SQL 데이터베이스 서버 <MySecondaryServer(n)> - 보조 데이터베이스를 만드는 파트너 서버가 될 논리 서버입니다.
-* 주 데이터베이스에서 DBManager인 로그인은 지역에서 복제하고 지역에서 복제를 구성하는 파트너 서버의 DBManager가 되는 로컬 데이터베이스의 db_ownership을 가지고 있습니다.
-* SSMS(SQL Server Management Studio)
+* 하나 이상의 논리 Azure SQL Database 서버 <MySecondaryServer(n)> - 보조 데이터베이스를 만드는 파트너 서버가 될 논리 서버입니다.
+* 주 서버에서 DBManager로 로그인
+* 지역에서 복제할 로컬 데이터베이스의 db_ownership 보유
+* 지역에서 복제를 구성하는 파트너 서버의 DBManager
+* 최신 버전의 SSMS(SQL Server Management Studio)를 설치합니다.
 
 > [!IMPORTANT]
 > Microsoft Azure 및 SQL 데이터베이스에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b53bd4d9db9c1ca030a770e56427f35204b90ab3
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: fbc5cc4a332877451867ca434db40d67ee623a0f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -44,15 +45,17 @@ ms.lasthandoff: 03/31/2017
 | [Enterprise 개발/테스트](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Azure 구독 확인
-제품 ID를 모르는 경우 Azure 포털 또는 계정 포털을 통해 확인할 수 있습니다.
+제품 ID를 모르는 경우 다음 두 방법 중 하나로 Azure Portal을 통해 얻을 수 있습니다.  
 
-구독 제품 ID는 Azure 포털 내의 '구독' 블레이드에 표시됩니다.
+- ‘구독’ 블레이드에서
 
-![Azure 포털의 제품 ID 세부 정보](./media/client-images/offer_id_azure_portal.png) 
+  ![Azure 포털의 제품 ID 세부 정보](./media/client-images/offer-id-azure-portal.png) 
+
+- 또는 **청구**를 클릭하고 구독 ID를 클릭합니다. 제품 ID가 청구 블레이드에 표시됩니다.
 
 Azure 계정 포털의 ['구독' 탭](http://account.windowsazure.com/Subscriptions) 에서도 제품 ID를 확인할 수 있습니다.
 
-![Azure 계정 포털의 제품 ID 세부 정보](./media/client-images/offer_id_azure_account_portal.png) 
+![Azure 계정 포털의 제품 ID 세부 정보](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>다음 단계
 이제 [PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), [Resource Manager 템플릿](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 또는 [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 사용하여 VM을 배포할 수 있습니다.

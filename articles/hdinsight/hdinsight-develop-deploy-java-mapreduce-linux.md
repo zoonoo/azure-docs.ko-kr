@@ -1,6 +1,6 @@
 ---
-title: "Linux 기반 HDInsight용 Java MapReduce 프로그램 개발 | Microsoft 문서"
-description: "Linux 기반 HDInsight에서 Java MapReduce 프로그램을 개발하여 Linux 기반 HDInsight로 배포하는 방법에 대해 알아봅니다."
+title: "Hadoop용 Java MapReduce 만들기 - Azure HDInsight | Microsoft Docs"
+description: "Java MapReduce 프로그램을 개발하여 HDInsight의 Hadoop에 배포하는 방법에 대해 알아봅니다."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -14,18 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 05/17/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: a8623991dda4192d700d35ef3970d416e315c5c6
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: ce5661febe502e9da9682166af1b601b1fc0b965
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight-linux"></a>HDInsight Linux의 Hadoop용 Java MapReduce 프로그램 개발
+# <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>HDInsight의 Hadoop용 Java MapReduce 프로그램 개발
 
-Apache Maven을 사용하여 Java 기반 MapReduce 응용 프로그램을 만든 다음 HDInsight 클러스터의 Linux 기반 Hadoop에서 배포하고 실행하는 방법을 알아봅니다.
+Apache Maven을 사용하여 Java 기반 MapReduce 응용 프로그램을 만든 다음 Azure HDInsight의 Hadoop과 함께 실행하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -36,13 +37,8 @@ Apache Maven을 사용하여 Java 기반 MapReduce 응용 프로그램을 만든
 
 * [Apache Maven](http://maven.apache.org/)
 
-* **Azure 구독**
+## <a name="configure-development-environment"></a>개발 환경 구성
 
-* **Azure CLI**
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
-
-## <a name="configure-environment-variables"></a>환경 변수 구성
 Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다. 하지만 변수가 존재하며 시스템에 대한 올바른 값을 포함하는지 확인해야 합니다.
 
 * `JAVA_HOME` - JRE(Java runtime environment)가 설치된 디렉터리를 가리켜야 합니다. 예를 들어 OS X, Unix 또는 Linux 시스템에서는 `/usr/lib/jvm/java-7-oracle`과 유사한 값이어야 합니다. Windows에서는 `c:\Program Files (x86)\Java\jre1.7`
@@ -61,17 +57,17 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 2. Maven과 함께 설치되는 `mvn` 명령을 사용하여 프로젝트에 대한 스캐폴딩을 생성합니다.
 
-   ```
+   ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    이 명령은 이름은 **artifactID** 매개 변수로 지정한 디렉터리를 만듭니다(이 예제에서는 **wordcountjava**). 이 디렉터리에는 다음과 같은 항목이 포함됩니다.
+    이 명령은 `artifactID` 매개 변수(이 예제에서는 **wordcountjava**)로 지정된 이름으로 디렉터리를 만듭니다. 이 디렉터리에는 다음과 같은 항목이 포함됩니다.
 
    * `pom.xml` - [프로젝트 개체 모델(POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)은 프로젝트를 빌드하는 데 사용된 정보 및 구성 세부 정보를 포함합니다.
 
    * `src` - 응용 프로그램을 포함하는 디렉터리입니다.
 
-3. 이 예제에서 사용되지 않으므로 `src/test/java/org/apache/hadoop/examples/apptest.java` 파일을 삭제합니다.
+3. `src/test/java/org/apache/hadoop/examples/apptest.java` 파일을 삭제합니다. 이 예제에서는 사용되지 않습니다.
 
 ## <a name="add-dependencies"></a>종속성 추가
 
@@ -81,19 +77,19 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-mapreduce-examples</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-mapreduce-client-common</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
     <dependency>
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-common</artifactId>
-        <version>2.5.1</version>
+        <version>2.7.3</version>
         <scope>provided</scope>
     </dependency>
    ```
@@ -101,6 +97,9 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
     이 항목은 특정 버전(&lt;version\>에 나열됨)을 사용하는 필수 라이브러리(&lt;artifactId\> 내에 나열됨)를 정의합니다. 컴파일 시 이러한 종속성이 기본 Maven 리포지토리에서 다운로드됩니다. [Maven 리포지토리 검색](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) 을 사용하여 자세한 정보를 볼 수 있습니다.
    
     `<scope>provided</scope>`는 이러한 종속성은 런타임에 HDInsight 클러스터에서 제공되므로 응용 프로그램과 함께 패키징해서는 안 된다는 점을 Maven에 알려 줍니다.
+
+    > [!IMPORTANT]
+    > 사용되는 버전은 클러스터에 있는 Hadoop 버전과 일치해야 합니다. 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md) 문서를 참조하세요.
 
 2. `pom.xml` 파일에 다음을 추가합니다. 이 텍스트는 파일의 `<project>...</project>` 태그 내에 있어야 합니다. 예를 들어 `</dependencies>`와 `</project>` 사이에 있어야 합니다.
 
@@ -129,9 +128,10 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.6.1</version>
             <configuration>
-            <source>1.7</source>
-            <target>1.7</target>
+            <source>1.8</source>
+            <target>1.8</target>
             </configuration>
         </plugin>
         </plugins>
@@ -255,11 +255,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
     Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
 
-이 명령은 로컬 시스템에서 헤드 노드로 파일을 복사합니다.
-
-> [!NOTE]
-> SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다. 예: `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`
-
+이 명령은 로컬 시스템에서 헤드 노드로 파일을 복사합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="run"></a>MapReduce 작업 실행
 
@@ -271,7 +267,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
    ```
    
-    이 명령은 WordCount MapReduce 응용 프로그램을 시작합니다. 입력 파일은 **/example/data/gutenberg/davinci.txt**이고 출력 파일은 **/example/data/wordcountout**에 저장됩니다. 입력 파일과 출력 모두 클러스터의 기본 저장소에 저장됩니다.
+    이 명령은 WordCount MapReduce 응용 프로그램을 시작합니다. 입력된 파일은 `/example/data/gutenberg/davinci.txt`이며 출력 디렉터리는 `/example/data/wordcountout`입니다. 입력 파일과 출력 모두 클러스터의 기본 저장소에 저장됩니다.
 
 3. 작업이 완료되면 다음 명령을 사용하여 결과를 확인합니다.
    

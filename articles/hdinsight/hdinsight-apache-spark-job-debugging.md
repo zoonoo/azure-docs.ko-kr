@@ -1,5 +1,5 @@
 ---
-title: "Azure HDInsight의 Apache Spark 클러스터에서 실행되는 작업 디버그 | Microsoft Docs"
+title: "Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그 | Microsoft Docs"
 description: "YARN UI, Spark UI 및 Spark 기록 서버를 사용하여 Azure HDInsight의 Spark 클러스터에서 실행 중인 작업을 추적하고 디버깅합니다."
 services: hdinsight
 documentationcenter: 
@@ -17,21 +17,21 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: d6d7c0d112778172633fa068a119ba075c0fd900
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: df647b77f5f826b7f852bea981bc92089852b35a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="track-and-debug-jobs-running-on-apache-spark-cluster-in-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그
+# <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그
 
-이 문서에서는 YARN UI, Spark UI 및 Spark 기록 서버를 사용하여 Spark 작업을 추적하고 디버깅하는 방법을 알아봅니다. 이 문서의 경우 Spark 클러스터에서 사용할 수 있는 Notebook을 통해 Spark 작업(**기계 학습: MLLib를 사용하여 음식 검사 데이터에 대한 예측 분석**)을 시작합니다. **spark-submit**등 다른 방법을 사용하여 제출한 응용 프로그램을 추적하기 위해 이 단계를 사용할 수 있습니다.
+이 문서에서는 YARN UI, Spark UI 및 Spark 기록 서버를 사용하여 HDInsight 클러스터에서 실행 중인 Spark 작업을 추적하고 디버깅하는 방법을 알아봅니다. 이 문서의 경우 Spark 클러스터에서 사용할 수 있는 Notebook을 통해 Spark 작업(**기계 학습: MLLib를 사용하여 음식 검사 데이터에 대한 예측 분석**)을 시작합니다. **spark-submit**등 다른 방법을 사용하여 제출한 응용 프로그램을 추적하기 위해 이 단계를 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 다음이 있어야 합니다.
 
-* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 * Notebook, 즉 **[기계 학습: MLLib를 사용하여 음식 검사 데이터에 대한 예측 분석](hdinsight-apache-spark-machine-learning-mllib-ipython.md)**을 실행하기 시작했어야 합니다. 이 Notebook을 실행하는 방법은 링크를 따라갑니다.  
 
@@ -59,7 +59,7 @@ Spark UI에서 이전에 시작한 응용 프로그램에 의해 생성된 Spark
 1. Spark UI를 시작하려면 응용 프로그램 보기에서 위의 화면 캡처에 표시된 것처럼 **추적 URL**에 대한 링크를 클릭합니다. Jupyter Notebook에서 실행 중인 응용 프로그램에 의해 시작되는 모든 Spark 작업을 확인할 수 있습니다.
    
     ![Spark 작업 보기](./media/hdinsight-apache-spark-job-debugging/view-spark-jobs.png)
-2. **실행자** 탬을 클릭하여 각 실행자에 대한 처리 및 저장소 정보를 봅니다. **Thread Dump** 링크를 클릭하여 호출 스택을 검색할 수도 있습니다.
+2. **실행자** 탭을 클릭하여 각 실행자에 대한 처리 및 저장소 정보를 봅니다. **Thread Dump** 링크를 클릭하여 호출 스택을 검색할 수도 있습니다.
    
     ![Spark 실행자 보기](./media/hdinsight-apache-spark-job-debugging/view-spark-executors.png)
 3. **단계** 탭을 클릭하여 응용 프로그램과 관련된 단계를 봅니다.

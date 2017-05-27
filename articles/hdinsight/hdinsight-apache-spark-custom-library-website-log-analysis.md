@@ -1,6 +1,6 @@
 ---
 title: "Azure Spark 클러스터에서 Python 라이브러리를 사용하여 웹 사이트 로그 분석 | Microsoft Docs"
-description: "HDInsight Spark 클러스터와 함께 사용자 지정 라이브러리를 사용하여 웹 사이트 로그 분석"
+description: "HDInsight Spark 클러스터와 함께 사용자 지정 Python 라이브러리를 사용하여 웹 사이트 로그 분석"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3f5b7409c5245ee975b0208f812668a0c35ff1c3
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: d55005ecea7ba6b31c638af3d26c44932e3d12bc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/18/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="analyze-website-logs-using-a-custom-library-with-apache-spark-cluster-on-hdinsight"></a>HDInsight에서 Apache Spark 클러스터와 함께 사용자 지정 라이브러리를 사용하여 웹 사이트 로그 분석
+# <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>HDInsight에서 Spark 클러스터와 함께 사용자 지정 Python 라이브러리를 사용하여 웹 사이트 로그 분석
 
 이 노트북에서는 HDInsight의 Spark와 함께 사용자 지정 라이브러리를 사용하여 로그 데이터를 분석하는 방법을 보여 줍니다. 사용하는 사용자 지정 라이브러리는 **iislogparser.py**라는 Python 라이브입니다.
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/18/2017
 
 다음이 있어야 합니다.
 
-* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
@@ -57,10 +57,10 @@ ms.lasthandoff: 03/18/2017
    >
 3. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **PySpark**를 클릭합니다.
 
-    ![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "새 Jupyter 노트북 만들기")
+    ![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "새 Jupyter 노트북 만들기")
 4. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 맨 위에서 노트북 이름을 클릭하고 식별하기 쉬운 이름을 입력합니다.
 
-    ![노트북 이름 제공](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "노트북 이름 제공")
+    ![노트북 이름 제공](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "노트북 이름 제공")
 5. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **SHIFT + ENTER**를 누릅니다.
 
         from pyspark.sql import Row
@@ -188,7 +188,7 @@ ms.lasthandoff: 03/18/2017
 
    다음과 유사한 출력이 표시됩니다.
 
-   ![SQL 쿼리 출력](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "SQL 쿼리 출력")
+   ![SQL 쿼리 출력](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "SQL 쿼리 출력")
 
    `%%sql` 매직에 대한 자세한 내용은 [%%sql 매직에서 지원되는 매개 변수](hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)를 참조하세요.
 7. 이제 데이터 시각화를 구성하는 데 사용되는 라이브러리인 Matplotlib를 사용하여 플롯을 만들 수 있습니다. 로컬로 유지되는 **averagetime** 데이터 프레임에서 플롯을 만들어야 하므로 코드 조각은 `%%local` magic으로 시작해야 합니다. 그러면 코드가 Jupyter 서버에서 로컬로 실행됩니다.
@@ -203,7 +203,7 @@ ms.lasthandoff: 03/18/2017
 
    다음과 유사한 출력이 표시됩니다.
 
-   ![Matplotlib 출력](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Matplotlib 출력")
+   ![Matplotlib 출력](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib 출력")
 8. 응용 프로그램 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
 
 ## <a name="seealso"></a>참고 항목

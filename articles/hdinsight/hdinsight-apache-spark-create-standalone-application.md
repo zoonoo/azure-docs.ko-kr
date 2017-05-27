@@ -1,5 +1,5 @@
 ---
-title: "Azure Spark 클러스터에서 실행되는 Scala Maven 응용 프로그램 만들기 | Microsoft Docs"
+title: "Azure HDInsight Spark 클러스터에서 실행되는 Scala 응용 프로그램 만들기 | Microsoft Docs"
 description: "Maven을 통해 독립 실행형 Spark 응용 프로그램을 만들어 HDInsight Spark 클러스터에서 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c435e8ec21b568afcadaa1af95964753d36d0ccb
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 3cc921bdd6c9b374bda7bbfc3781f7a1327ae438
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -66,7 +66,7 @@ IntelliJ IDEA 설치가 Scala 플러그 인 활성화를 묻지 않은 경우 In
    * **프로젝트 SDK**를 지정합니다. 새로 만들기를 클릭하여 Java 설치 디렉터리, 일반적으로 `C:\Program Files\Java\jdk1.8.0_66`(으)로 이동합니다.
    * **원형으로부터 만들기** 옵션을 선택합니다.
    * 원형 목록에서 **org.scala-tools.archetypes:scala-archetype-simple**을 선택합니다. 이는 올바른 디렉터리 구조를 만들고 Scala 프로그램 작성에 필요한 기본 종속성을 다운로드합니다.
-2. **GroupId**, **ArtifactId** 및 **버전**에 관련 값을 제공합니다. **Next**를 클릭합니다.
+2. **GroupId**, **ArtifactId** 및 **버전**에 관련 값을 제공합니다. **다음**을 누릅니다.
 3. Maven 홈 디렉터리 및 기타 사용자 설정을 지정하는 다음 대화 상자에서 기본값을 적용하고 **다음**을 클릭합니다.
 4. 마지막 대화 상자에서 프로젝트 이름 및 위치를 지정한 다음 **마침**을 클릭합니다.
 5. **src\test\scala\com\microsoft\spark\example**에서 **MySpec.Scala** 파일을 삭제합니다. 응용 프로그램에 필요하지 않습니다.

@@ -1,1 +1,1 @@
-이 샘플을 실행하려면 최신 [Azure PowerShell](/powershell/azureps-cmdlets-docs)을 설치했는지 확인합니다. 시작하려면 `Login-AzureRmAccount`을 실행하여 Azure와 연결합니다. 
+필요한 경우 [Azure PowerShell 가이드](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzureRmAccount`를 실행하여 Azure에 연결합니다. 

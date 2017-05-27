@@ -1,6 +1,7 @@
 ---
-title: "Azure HDInsight에서 Apache Spark와 함께 BI 도구 사용 | Microsoft Docs"
-description: "Apache Spark에서 Notebook을 사용하여 원시 데이터에 대한 스키마를 만들어 테이블로 저장한 후 데이터 분석을 위해 테이블에서 BI 도구를 사용하는 방법에 대한 단계별 지침입니다."
+title: "Azure HDInsight에서 데이터 시각화 도구를 사용하는 Spark BI | Microsoft Docs"
+description: "HDInsight 클러스터에서 Apache Spark BI를 사용하는 분석에 대해 데이터 시각화 도구 사용"
+keywords: "apache spark bi,spark bi, spark 데이터 시각화, spark 비즈니스 인텔리전스"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -9,43 +10,44 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 36b7aaf99db48efa1b56b84ac0616cf9ee2830ac
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: bc6749f583de752592b0b49548c5a42321cac7b3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="use-bi-tools-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 BI 도구 사용
+# <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Azure HDInsight와 함께 데이터 시각화 도구를 사용하는 Apache Spark BI
 
-Azure HDInsight에서 Apache Spark를 사용하여 원시 샘플 데이터 집합을 분석한 다음 BI 도구를 사용하여 데이터를 시각화하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight Spark 클러스터와 함께 Power BI 및 Tableau와 같은 BI 도구를 사용하는 방법을 보여 줍니다.
+Power BI 및 Tableau와 같은 데이터 시각화 도구를 사용하여 HDInsight 클러스터에서 Apache Spark BI를 사용하여 원시 샘플 데이터 집합을 분석하는 방법을 알아봅니다.
 
 > [!NOTE]
 > 이 문서에 설명된 BI 도구와의 연결은 Azure HDInsight 3.6 Preview의 Spark 2.1에서 지원되지 않습니다. Spark 버전 1.6 및 2.0(각각 HDInsight 3.4, 3.5)만 지원됩니다.
 >
 
-이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter 노트북으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 **HDInsight.ipynb에서 Apache Spark와 함께 BI 도구 사용** Notebook을 실행합니다.
+이 자습서는 HDInsight Spark 클러스터에서 Jupyter 노트북으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **Python** 폴더 아래의 **HDInsight.ipynb에서 Apache Spark와 함께 BI 도구 사용** Notebook을 실행합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 
-## <a name="hivetable"></a>테이블로 원시 데이터 저장
+## <a name="hivetable"></a>Spark 데이터 시각화를 위한 데이터 준비
 
 이 섹션에서는 HDInsight Spark 클러스터에서 [Jupyter](https://jupyter.org) Notebook을 사용하여 원시 샘플 데이터를 처리하고 테이블로 저장하는 작업을 실행합니다. 샘플 데이터는 기본적으로 모든 클러스터에서 사용 가능한 .csv 파일(hvac.csv)입니다.
 
-데이터가 테이블로 저장되면 다음 섹션에서 BI 도구를 사용하여 테이블에 연결하고 시각화를 추가로 수행합니다.
+데이터가 테이블로 저장되면 다음 섹션에서 BI 도구를 사용하여 테이블에 연결하고 데이터 시각화를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터의 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
+
 2. Spark 클러스터 블레이드에서 **클러스터 대시보드**를 클릭하고 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
    > [!NOTE]
@@ -57,11 +59,11 @@ Azure HDInsight에서 Apache Spark를 사용하여 원시 샘플 데이터 집�
 
 3. Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **PySpark**를 클릭합니다.
 
-    ![Jupyter Notebook 만들기](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.createnotebook.png "Jupyter Notebook 만들기")
+    ![Apache Spark BI에 대한 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-use-bi-tools/create-jupyter-notebook-for-spark-bi.png "Apache Spark BI에 대한 Jupyter 노트북 만들기")
 
 4. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 맨 위에서 노트북 이름을 클릭하고 식별하기 쉬운 이름을 입력합니다.
 
-    ![노트북 이름 제공](./media/hdinsight-apache-spark-use-bi-tools/hdispark.note.jupyter.notebook.name.png "노트북 이름 제공")
+    ![Apache Spark BI용 노트북에 대한 이름 제공](./media/hdinsight-apache-spark-use-bi-tools/jupyter-notebook-name-for-spark-bi.png "Apache Spark BI용 노트북에 대한 이름 제공")
 
 5. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 그렇게 하려면 셀에 커서를 놓고 **Shift + Enter**를 누릅니다.
 
@@ -111,7 +113,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 원시 샘플 데이터 집�
 
 9. Notebook을 종료하여 리소스를 해제합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다.
 
-## <a name="powerbi"></a>Power BI 사용
+## <a name="powerbi"></a>Spark 데이터 시각화에 대해 Power BI 사용
 
 데이터를 테이블로 저장하면 Power BI를 사용하여 데이터를 연결하고 시각화하여 보고서, 대시보드 등을 만들 수 있습니다.
 
@@ -123,76 +125,77 @@ Azure HDInsight에서 Apache Spark를 사용하여 원시 샘플 데이터 집�
 
 4. **데이터 가져오기** 페이지의 **데이터 가져오기 또는 연결**에 있는 **데이터베이스**에서 **가져오기**를 클릭합니다.
 
-    ![Power BI로 데이터 가져오기](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.get.data.png "Power BI로 데이터 가져오기")
+    ![Apache Spark BI용 Power BI로 데이터 가져오기](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Apache Spark BI용 Power BI로 데이터 가져오기")
 
 5. 다음 화면에서 **Azure HDInsight의 Spark**를 클릭한 다음 **연결**을 클릭합니다. 메시지가 표시되면 클러스터 URL(`mysparkcluster.azurehdinsight.net`) 및 자격 증명을 입력하여 클러스터에 연결합니다.
 
-    ![Spark에 연결](./media/hdinsight-apache-spark-use-bi-tools/power-bi-connect-to-spark.png "Power BI로 데이터 가져오기")
+    ![Apache Spark BI에 연결](./media/hdinsight-apache-spark-use-bi-tools/connect-to-apache-spark-bi.png "Apache Spark BI에 연결")
 
     연결이 설정되면 Power BI는 HDInsight의 Spark 클러스터에서 데이터 가져오기를 시작합니다.
 
 6. Power BI에서 데이터를 가져와서 **데이터 집합** 제목 아래에 **Spark** 데이터 집합을 추가합니다. 데이터 집합을 클릭하여 새 워크시트를 열고 데이터를 시각화합니다. 워크시트를 보고서로 저장할 수도 있습니다. 워크시트를 저장하려면 **파일** 메뉴에서 **저장**을 클릭합니다.
 
-    ![Power BI 대시보드의 Spark 타일](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.tile.png "Power BI 대시보드의 Spark 타일")
+    ![Power BI 대시보드의 Apache Spark BI 타일](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-tile-dashboard.png "Power BI 대시보드의 Apache Spark BI 타일")
 7. 오른쪽의 **필드** 목록에는 이전에 만든 **hvac** 테이블이 나열됩니다. 이전에 노트북에서 정의한 대로 테이블의 필드를 보려면 테이블을 확장합니다.
 
-      ![Hive 테이블 나열](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.display.tables.png "Hive 테이블 나열")
+      ![Apache Spark BI 대시보드에 테이블 나열](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "Apache Spark BI 대시보드에 테이블 나열")
 
 8. 각 건물에 대한 대상 온도와 실제 온도 간의 차이를 보여주는 시각화를 빌드합니다. 데이터를 시각화하려면 **영역형 차트**(빨간색 상자)를 선택합니다. 축을 정의하려면 **BuildingID** 필드를 **축** 아래에, **ActualTemp**/**TargetTemp** 필드를 **값** 아래에 끌어 놓습니다.
 
-    ![시각화 만들기](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual1.png "시각화 만들기")
+    ![Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기")
 
 9. 기본적으로 시각화에서는 **ActualTemp** 및 **TargetTemp**의 합계를 보여 줍니다. 두 필드 모두에 대해 드롭다운 메뉴에서 **평균** 을 선택하여 두 건물에 대한 실제 및 대상 온도의 평균을 얻습니다.
 
-    ![시각화 만들기](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual2.png)
+    ![Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기")
 
 10. 데이터 시각화는 스크린샷의 데이터 시각화와 비슷해야 합니다. 커서를 시각화 위로 이동하면 관련 데이터와 함께 도구 설명이 나타납니다.
 
-    ![시각화 만들기](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual3.png)
+    ![Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기")
 
 11. 최상위 메뉴에서 **저장** 을 클릭하고 보고서 이름을 제공합니다. 시각화를 고정할 수도 있습니다. 시각화를 고정하면 해당 시각화가 대시보드에 저장되어 최신 값을 한 눈에 추적할 수 있습니다.
 
    동일한 데이터 집합에 대해 시각화를 원하는 만큼 추가하고 대시보드에 고정하여 데이터에 대한 스냅숏을 얻을 수 있습니다. 또한 직접 연결을 통해 HDInsight의 Spark 클러스터는 Power BI에 연결됩니다. 이렇게 하면 Power BI에서 항상 클러스터의 최신 데이터를 유지할 수 있으므로 데이터 집합에 대한 새로 고침을 예약할 필요가 없습니다.
 
-## <a name="tableau"></a>Tableau Desktop을 사용하여 테이블 데이터 분석
+## <a name="tableau"></a>Spark 데이터 시각화에 대해 Tableau Desktop 사용
 
 > [!NOTE]
 > 이 섹션은 Azure HDInsight에서 만든 Spark 1.5.2 클러스터에만 적용할 수 있습니다.
 >
 >
 
-1. 이 자습서를 실행 중인 컴퓨터에 [Tableau Desktop](http://www.tableau.com/products/desktop)을 설치합니다.
+1. 이 Apache Spark BI 자습서를 실행 중인 컴퓨터에 [Tableau Desktop](http://www.tableau.com/products/desktop)을 설치합니다.
 
 2. 또한 Microsoft Spark ODBC 드라이버가 컴퓨터에 설치되어 있는지 확인합니다. [여기](http://go.microsoft.com/fwlink/?LinkId=616229)에서 드라이버를 설치할 수 있습니다.
 
 1. Tableau Desktop을 실행합니다. 왼쪽 창의 연결할 서버 목록에서 **Spark SQL**을 클릭합니다. 왼쪽 창에 Spark SQL이 기본적으로 표시되지 않으면 **추가 서버**를 클릭하여 찾을 수 있습니다.
 2. Spark SQL 연결 대화 상자에서 스크린샷과 같은 값을 제공한 다음 **확인**을 클릭합니다.
 
-    ![Spark 클러스터에 연결](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.connect.png "Spark 클러스터에 연결")
+    ![Apache Spark BI용 클러스터에 연결](./media/hdinsight-apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "Apache Spark BI용 클러스터에 연결")
 
     컴퓨터에 **Microsoft Spark ODBC 드라이버** 를 설치한 경우에만 인증 드롭다운 목록에 [Microsoft Azure HDInsight Service](http://go.microsoft.com/fwlink/?LinkId=616229) 가 옵션으로 표시됩니다.
 3. 다음 화면의 **스키마** 드롭다운에서 **찾기** 아이콘, **기본값**을 차례로 클릭합니다.
 
-    ![스키마 찾기](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.schema.png "스키마 찾기")
+    ![Apache Spark BI용 스키마 찾기](./media/hdinsight-apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "Apache Spark BI용 스키마 찾기")
 4. **테이블** 필드에서 **찾기** 아이콘을 다시 클릭하면 클러스터에 사용 가능한 Hive 테이블이 모두 나열됩니다. 이전에 Notebook을 사용하여 만든 **hvac** 테이블이 표시됩니다.
 
-    ![테이블 찾기](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.find.table.png "테이블 찾기")
+    ![Apache Spark BI용 테이블 찾기](./media/hdinsight-apache-spark-use-bi-tools/tableau-find-table-apache-spark-bi.png "Apache Spark BI용 테이블 찾기")
 5. 테이블을 오른쪽 상단에 있는 상자에 끌어다 놓습니다. Tableau에서 데이터를 가져오고 빨간색 상자로 강조하여 스키마를 표시합니다.
 
-    ![Tableau에 테이블 추가](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.table.png "Tableau에 테이블 추가")
-6. 왼쪽 아래에서 **Sheet1** 탭을 클릭합니다. 날짜별로 모든 건물에 대한 대상 및 실제 온도 평균을 보여 주는 시각화를 만듭니다. **날짜** 및 **건물 ID**를 **열**로, **실제 온도**/**대상 온도**를 **행**으로 끌어갑니다. **표시** 아래에서 **영역**을 선택하여 영역 맵 시각화를 사용합니다.
+    ![Apache Spark BI용 Tableau에 테이블 추가](./media/hdinsight-apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "Apache Spark BI용 Tableau에 테이블 추가")
+6. 왼쪽 아래에서 **Sheet1** 탭을 클릭합니다. 날짜별로 모든 건물에 대한 대상 및 실제 온도 평균을 보여 주는 시각화를 만듭니다. **날짜** 및 **건물 ID**를 **열**로, **실제 온도**/**대상 온도**를 **행**으로 끌어갑니다. **표시** 아래에서 **영역**을 선택하여 Spark 데이터 시각화에 대한 영역 맵을 사용합니다.
 
-     ![시각화를 위한 필드 추가](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.drag.fields.png "시각화를 위한 필드 추가")
+     ![Spark 데이터 시각화를 위한 필드 추가](./media/hdinsight-apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Spark 데이터 시각화를 위한 필드 추가")
 7. 기본적으로 온도 필드가 집계로 표시됩니다. 대신, 평균 온도를 표시하려면 아래 표시된 것과 같이 드롭다운에서 이 작업을 하면 됩니다.
 
-    ![온도 평균 구하기](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.temp.avg.png "온도 평균 구하기")
+    ![Spark 데이터 시각화에 대한 온도 평균 구하기](./media/hdinsight-apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Spark 데이터 시각화에 대한 온도 평균 구하기")
+
 8. 또한 한 온도 맵을 다른 온도 맵 위에 겹쳐 놓아 대상 및 실제 온도 간의 차이를 보다 잘 파악할 수도 있습니다. 마우스를 하단 영역 맵의 모서리로 이동하면 빨간색 원으로 강조 표시된 핸들 모양이 나타납니다. 맵을 위쪽의 다른 맵으로 끌어온 후 빨간색 사각형으로 강조 표시된 모양이 표시되면 마우스를 놓습니다.
 
-    ![맵 병합](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.merge.png "맵 병합")
+    ![Spark 데이터 시각화를 위한 맵 병합](./media/hdinsight-apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "Spark 데이터 시각화를 위한 맵 병합")
 
      스크린샷과 같이 데이터 시각화가 변경되어야 합니다.
 
-    ![시각화](./media/hdinsight-apache-spark-use-bi-tools/hdispark.tableau.final.visual.png "시각화")
+    ![Spark 데이터 시각화에 대한 Tableau 출력](./media/hdinsight-apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Spark 데이터 시각화에 대한 Tableau 출력")
 9. **저장** 을 클릭하여 워크시트를 저장합니다. 대시보드를 만들고 시트를 하나 이상 추가할 수도 있습니다.
 
 ## <a name="seealso"></a>참고 항목

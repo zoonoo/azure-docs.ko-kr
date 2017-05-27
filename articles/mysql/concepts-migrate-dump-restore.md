@@ -11,24 +11,24 @@ ms.service: mysql-database
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 05/17/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c09a6fa947d235189ab0137b074b6d7d9c925827
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c0029e025cf6d0af478d1f21dc6acc7860905a81
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MySQL Database를 MySQL용 Azure 데이터베이스로 마이그레이션
-이 문서에서는 MySQL용 Azure 데이터베이스에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명합니다.
+이 문서에서는 MySQL용 Azure Database에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명합니다.
 - 명령줄에서 백업 및 복원(mysqldump 사용) 
-- PHPMyAdmin를 사용하여 백업 및 복원 
+- PHPMyAdmin을 사용하여 백업 및 복원 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [MySQL용 Azure 데이터베이스 서버 만들기 - Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) 명령줄 유틸리티가 컴퓨터에 설치되어 있어야 합니다.
+- [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) 명령줄 유틸리티가 컴퓨터에 설치되어 있어야 함
 - MySQL Workbench [MySQL Workbench 다운로드](https://dev.mysql.com/downloads/workbench/), Toad, Navicat 또는 타사 MySQL 도구
 
 ## <a name="use-common-tools"></a>일반 도구 사용
@@ -66,18 +66,15 @@ $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sq
 $ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
-## <a name="upload-files"></a>파일 업로드
-WinSCP를 사용하면 내보내기 목적으로 SFTP 프로토콜 또는 FTPS 프로토콜을 통해 기존 MySQL 환경(Azure 또는 비 Azure) 파일을 로컬에 쉽게 업로드하고 이러한 파일의 가져오기 또는 덤프를 관리할 수 있습니다.
-
 ## <a name="create-a-database-on-the-target-azure-mysql-server"></a>대상 Azure MySQL 서버에서 데이터베이스 만들기
-MySQL Workbench, Toad, Navicat 또는 MySQL용 타사 도구를 사용하여 데이터를 마이그레이션하려는 대상 MySQL용 Azure 데이터베이스 서버에서 빈 데이터베이스를 만들어야 합니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 갖을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
+MySQL Workbench, Toad, Navicat 또는 MySQL용 타사 도구를 사용하여 데이터를 마이그레이션하려는 대상 MySQL용 Azure Database 서버에서 빈 데이터베이스를 만들어야 합니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 같을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
 
 ![MySQL용 Azure 데이터베이스 연결 문자열](./media/concepts-migrate-import-export/p5.png)
 
 ![MySQL Workbench 연결 문자열](./media/concepts-migrate-import-export/p4.png)
 
 
-## <a name="restore-your-mysql-database-using-command-line-or-mysql-workbench"></a>명령줄 또는 MySQL Workbench를 사용하여 MySQL Database 복원
+## <a name="restore-your-mysql-database-using-command-line-or-mysql-workbench"></a>명령줄 또는 MySQL Workbench를 사용하여 MySQL 데이터베이스 복원
 대상 데이터베이스를 만든 후에는 mysql 명령 또는 MySQL Workbench를 사용하여 덤프 파일에서 새로 만든 특정 데이터베이스로 데이터를 복원할 수 있습니다.
 ```bash
 mysql -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]

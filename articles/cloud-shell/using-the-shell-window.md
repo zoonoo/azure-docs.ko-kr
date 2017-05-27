@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 4e78dadb7fa036dcb4c5706fe774cbd85d57a746
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 69316d271fc4847565d183293013580b61695731
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
-# <a name="using-the-shell-window"></a>셸 창 사용
+# <a name="using-the-azure-cloud-shell-window"></a>Azure Cloud Shell 창 사용
+
 이 문서에는 Azure Cloud Shell 창을 사용하는 방법에 대해 설명합니다.
 
 ## <a name="concurrent-sessions"></a>동시 세션

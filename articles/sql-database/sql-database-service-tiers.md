@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-wms.date: 04/26/2017
+wms.date: 05/14/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 3300c4e79ddc6c8e04c3b4d80b3ee07bd6aeea9d
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1811c325e240a6688b09f7260b33fbe19d022cea
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 것 이해
 
-[Azure SQL Database](sql-database-technical-overview.md)는 네 가지 서비스 계층, 즉 **Basic**, **Standard**, **Premium** 및 **Premium RS**를 제공합니다. 각 서비스 계층은 여러 워크로드를 다룰 여러 성능 수준을 제공합니다. 더 높은 성능 수준은 더욱 높은 처리량을 제공하도록 설계된 추가 리소스를 제공합니다. 가동 중지 시간 없이 서비스 계층 및 성능 수준을 동적으로 변경할 수 있습니다. 기본, 표준 및 프리미엄 서비스 계층은 모두 가동 시간 SLA가 99.99%이고 유연한 비즈니스 연속성 옵션, 보안 기능 및 시간당 대금 청구 기능을 제공합니다. Premium RS 계층은 SLA는 감소하더라도 Premium 계층과 동일한 수준의 성능, 보안 기능 및 비즈니스 연속성 기능을 제공합니다.
+[Azure SQL Database](sql-database-technical-overview.md)는 네 가지 서비스 계층, 즉 **Basic**, **Standard**, **Premium** 및 **Premium RS**를 제공합니다. 각 서비스 계층은 여러 워크로드를 다룰 여러 성능 수준을 제공합니다. 더 높은 성능 수준은 더욱 높은 처리량을 제공하도록 설계된 추가 리소스를 제공합니다. 가동 중지 시간 없이 서비스 계층 및 성능 수준을 동적으로 변경할 수 있습니다. 기본, 표준 및 프리미엄 서비스 계층은 모두 가동 시간 SLA가 99.99%이고 유연한 비즈니스 연속성 옵션, 보안 기능 및 시간당 대금 청구 기능을 제공합니다. 프리미엄 RS 계층은 SLA는 감소하더라도 프리미엄 계층과 동일한 수준의 성능, 보안 기능 및 비즈니스 연속성 기능을 제공합니다.
 
 > [!IMPORTANT]
 > Premium RS 데이터베이스는 Premium 또는 Standard 데이터베이스보다 낮은 수의 중복 복사본으로 실행됩니다. 따라서 서비스 오류가 발생하면 최대 5분 간격으로 백업에서 데이터베이스를 복구할 수 있어야 합니다.
@@ -59,7 +59,7 @@ ms.lasthandoff: 05/10/2017
 ||||||
 
 > [!IMPORTANT]
-> 이러한 추가 저장소 옵션은 현재 미국 동부2, 미국 서부, 유럽 서부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부에서 사용할 수 있습니다. [현재 4TB 제한 사항](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)을 참조하세요.
+> 이러한 추가 저장소 옵션은 현재 미국 동부2, 미국 서부, 미국 버지니아 주 정부, 유럽 서부, 독일 중부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부에서 사용할 수 있습니다. [현재 4TB 제한 사항](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)을 참조하세요.
 >
 
 최소 서비스 계층을 결정하면 데이터베이스에 대한 성능 수준을 결정할 준비가 되었습니다(DTU의 수). 표준 S2 및 S3 성능 수준이 좋은 시작점인 경우가 많습니다. 높은 CPU 또는 IO 요구 사항의 데이터베이스의 경우 프리미엄 성능 수준이 적합한 시작점입니다. 프리미엄은 더 많은 CPU를 제공하고 높은 표준 성능 수준에 비해 10배 이상의 IO에서 시작합니다.
@@ -87,7 +87,7 @@ ms.lasthandoff: 05/10/2017
 전체 확장 프로세스 기간은 변경 전후 데이터베이스의 크기 및 서비스 계층에 따라 달라집니다. 예를 들어 표준 서비스 계층 내에서 변경되고 있는 250GB 데이터베이스는 6시간 내에 완료되어야 합니다. 프리미엄 서비스 계층 내의 성능 수준을 변경하고 있는 동일한 크기의 데이터베이스의 경우 3시간 이내에 완료되어야 합니다.
 
 * 데이터베이스를 다운그레이드하려면 데이터베이스가 대상 서비스 계층의 최대 허용 크기보다 작아야 합니다. 
-* [지역에서 복제](sql-database-geo-replication-portal.md) 를 사용할 수 있는 데이터베이스를 업그레이드하는 경우에는 주 데이터베이스를 업그레이드하기 전에 먼저 해당 보조 데이터베이스를 원하는 성능 계층으로 업그레이드해야 합니다.
+* [지역에서 복제](sql-database-geo-replication-portal.md)를 사용할 수 있는 데이터베이스를 업그레이드하는 경우 주 데이터베이스를 업그레이드하기 전에 먼저 해당 보조 데이터베이스를 원하는 성능 계층으로 업그레이드해야 합니다.
 * 프리미엄 서비스 계층에서 다운그레이드하는 경우는 먼저 모든 지역에서 복제 관계를 종료해야 합니다. [가동 중단에서 복구](sql-database-disaster-recovery.md) 토픽에 설명된 단계에 따라 주 데이터베이스와 활성 보조 데이터베이스 간의 복제 프로세스를 중지할 수 있습니다.
 * 복원 서비스는 여러 서비스 계층에서 서로 다르게 제공됩니다. 다운그레이드하는 경우 지정 시간으로 복원하는 기능을 잃게 되거나 백업 보존 기간이 단축될 수 있습니다. 자세한 내용은 [Azure SQL 데이터베이스 백업 및 복원](sql-database-business-continuity.md)을 참조하세요.
 * 데이터베이스의 새로운 속성은 변경이 완료될 때까지 적용되지 않습니다.
@@ -133,7 +133,7 @@ ALTER DATABASE <myDatabaseName>
 기존 P11 또는 P15 데이터베이스 업그레이드는 서버 수준 보안 주체 로그인 또는 dbmanager 데이터베이스 역할의 멤버에 의해서만 수행될 수 있습니다. 지원되는 지역에서 실행한 경우 구성이 즉시 업데이트됩니다. [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx)를 사용하거나 Azure Portal의 데이터베이스 크기를 검사하여 확인할 수 있습니다. 업그레이드 프로세스 동안 데이터베이스는 온라인 상태로 유지됩니다. 그러나 실제 데이터베이스 파일이 새 최대 크기로 업그레이드될 때까지 4TB의 전체 저장소를 사용할 수 없습니다. 필요한 시간의 길이는 업그레이드 중인 데이터베이스 크기에 따라 달라집니다.  
 
 ### <a name="error-messages"></a>오류 메시지
-지원되지 않는 지역에서 P11/P15 데이터베이스를 만들거나 업그레이드하는 경우 만들기 또는 업그레이드 작업은 다음 오류 메시지와 함께 실패합니다. **최대 4TB의 저장소가 있는 P11 및 P15 데이터베이스는 미국 동부 2, 미국 서부, 동남 아시아, 유럽 서부, 캐나다 동부, 캐나다 중앙, 일본 동부 및 오스트레일리아 동부에서 사용할 수 있습니다.**
+지원되지 않는 지역에서 P11/P15 데이터베이스를 만들거나 업그레이드하는 경우 만들기 또는 업그레이드 작업은 다음 오류 메시지를 표시하며 실패합니다. **최대 4TB의 저장소가 있는 P11 및 P15 데이터베이스는 미국 동부 2, 미국 서부, 미국 버지니아 주 정부, 유럽 서부, 독일 중부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부에서 사용할 수 있습니다.**
 
 ## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>4TB 최대 크기의 P11 및 P15 데이터베이스의 현재 제한 사항
 

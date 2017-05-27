@@ -11,12 +11,12 @@ ms.service: mysql-database
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/18/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 96856fe2a9ce869eb63b7c857de614202ae43064
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 801806056b745be5663c0a10241795947d1dd036
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -65,11 +65,11 @@ OpenSSL 라이브러리는 [OpenSSL Software Foundation](http://www.openssl.org)
 ```bash
 wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
 ```  
-다운로드한 패키지에서 파일 추출
+다운로드 패키지에서 파일 압축을 풉니다.
 ```bash
 tar -xvzf openssl-1.1.0e.tar.gz
 ```
-파일을 추출한 디렉터리를 입력합니다.  기본적으로 다음과 같아야 합니다.
+파일 압축을 푼 디렉터리를 입력합니다.  기본적으로 다음과 같아야 합니다.
 
 ```bash
 cd openssl-1.1.0e
@@ -123,7 +123,7 @@ OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -out MyServerCACert.pem
 MySQL 명령줄 인터페이스를 사용하여 다음 명령을 실행합니다.
 
 ```dos
-mysql.exe -h yourserver. -uUsername@Servername -pYourPassword --ssl-ca=c:\ssl\MyServerCACert.pem
+mysql.exe -h mysqlserver4demo.mysql.database.azure.com -uUsername@mysqlserver4demo -pYourPassword --ssl-ca=c:\ssl\MyServerCACert.pem
 ```
 mysql **status** 명령을 실행하여 SSL로 MySQL 서버에 연결되어 있는지 확인합니다.
 
@@ -151,9 +151,13 @@ Threads: 4  Questions: 26082  Slow queries: 0  Opens: 112  Flush tables: 1  Open
 --------------
 ```
 
+> [!NOTE]
+> 현재 서비스에 대한 mysql.exe 연결에서 "--ssl-mode=VERIFY_IDENTITY" 옵션을 사용하는 경우 알려진 문제가 있습니다. 연결은 다음 오류를 표시하며 실패합니다. _오류 2026(HY000): SSL 연결 오류: SSL 인증서 유효성 검사 오류_ "--ssl-mode=VERIFY_CA" 이하 [SSL 모드](https://dev.mysql.com/doc/refman/5.7/en/secure-connection-options.html#option_general_ssl-mode)로 다운그레이드하세요. "--ssl-mode=VERIFY_IDENTITY"를 사용해야 하는 경우 서버 이름을 ping하여 westeurope1-a.control.database.windows.net과 같은 지역 서버 이름을 확인하고 이 문제가 해결될 때까지 연결에서 해당 지역 서버 이름을 사용할 수 있습니다. 나중에 이 제한을 제거할 예정입니다. 
+
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>SSL로 MySQL 워크벤치를 사용하는 서버에 연결
 SSL로 안전하게 연결하기 위해 MySQL 워크벤치를 구성하려면 MySQL 워크벤치 새 연결 설정 대화 상자에서 **SSL** 탭으로 이동하고 **SSL CA 파일:** 필드에 있는 **MyServerCACert.pem**의 파일 위치를 입력합니다.
 ![사용자 지정된 타일 저장](./media/concepts-ssl-connection-security/mysql-workbench-ssl.png)
 
 ## <a name="next-steps"></a>다음 단계
 - [MySQL용 Azure Database에 대한 연결 라이브러리](concepts-connection-libraries.md)에 이어지는 다양한 응용 프로그램 연결 옵션 검토
+

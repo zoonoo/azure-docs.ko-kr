@@ -1,25 +1,27 @@
 ---
-title: "HDInsight(Hadoop)의 고가용성 기능 | Microsoft Docs"
-description: "Linux 기반 HDInsight 클러스터에서 추가 헤드 노드를 사용하여 안정성과 가용성을 높이는 방법을 알아봅니다. 이로 인해 Ambari 및 Hive와 같은 Hadoop 서비스에 미치는 영향과 SSH를 사용하여 각 헤드 노드에 개별적으로 연결하는 방법에 대해 알아봅니다."
+title: "Hadoop의 고가용성 - Azure HDInsight | Microsoft Docs"
+description: "HDInsight 클러스터에서 추가 헤드 노드를 사용하여 안정성과 가용성을 높이는 방법을 알아봅니다. 이로 인해 Ambari 및 Hive와 같은 Hadoop 서비스에 미치는 영향과 SSH를 사용하여 각 헤드 노드에 개별적으로 연결하는 방법에 대해 알아봅니다."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: Blackmist
 documentationcenter: 
 tags: azure-portal
+keywords: hadoop high availability
 ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6e001d497dba1e3cc0a987fd0950854fe2564d2c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 8e2c1ccb003adafeaf315b23171f49d5b3f50cdb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -27,12 +29,12 @@ ms.lasthandoff: 04/27/2017
 
 HDInsight 클러스터는 두 개의 헤드 노드를 제공하여 실행 중인 Hadoop 서비스와 작업의 안정성과 가용성을 높입니다.
 
-Hadoop은 클러스터의 여러 노드에서 서비스와 데이터의 복사본을 유지하여 가용성과 안정성을 높입니다. 그러나 Hadoop의 표준 배포에는 일반적으로 단일 헤드 노드만 있습니다. 단일 헤드 노드의 가동 중단으로 인해 클러스터의 작동이 중지될 수 있습니다. 이는 HDInsight의 문제가 아닙니다.
+Hadoop은 클러스터의 여러 노드에서 서비스와 데이터를 복사하여 고가용성과 안정성을 달성합니다. 그러나 Hadoop의 표준 배포에는 일반적으로 단일 헤드 노드만 있습니다. 단일 헤드 노드의 가동 중단으로 인해 클러스터의 작동이 중지될 수 있습니다. HDInsight는 Hadoop의 가용성 및 안정성을 향상시키기 위해 두 헤드 노드를 제공합니다.
 
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
-## <a name="understanding-the-nodes"></a>노드 이해
+## <a name="availability-and-reliability-of-nodes"></a>노드의 가용성 및 안정성
 
 HDInsight 클러스터에 있는 노드는 Azure 가상 컴퓨터를 사용하여 구현됩니다. 노드가 실패하는 경우 오프라인 상태가 되고 새 노드를 만들어 실패한 노드를 대체합니다. 노드가 오프라인 상태인 동안 새 노드가 온라인 상태가 될 때까지 동일한 형식의 다른 노드를 사용합니다.
 
@@ -43,7 +45,7 @@ HDInsight 클러스터에 있는 노드는 Azure 가상 컴퓨터를 사용하�
 
 ### <a name="head-nodes"></a>헤드 노드
 
-두 헤드 노드가 모두 활성화되어 HDInsight 클러스터 내에서 동시에 실행됩니다. 일부 서비스(예: HDFS 또는 YARN)는 항상 헤드 노드 하나에서만 '활성' 상태입니다. 다른 서비스(예: HiveServer2 또는 Hive MetaStore)는 두 헤드 노드에서 동시에 활성화됩니다.
+Hadoop 서비스의 고가용성을 보장하기 위해 HDInsight는 두 개의 헤드 노드를 제공합니다. 두 헤드 노드가 모두 활성화되어 HDInsight 클러스터 내에서 동시에 실행됩니다. 일부 서비스(예: HDFS 또는 YARN)는 항상 헤드 노드 하나에서만 '활성' 상태입니다. 다른 서비스(예: HiveServer2 또는 Hive MetaStore)는 두 헤드 노드에서 동시에 활성화됩니다.
 
 헤드 노드(및 HDInsight의 다른 노드)에는 노드의 호스트 이름의 일부인 숫자 값이 있습니다. 예를 들면 `hn0-CLUSTERNAME` 또는 `hn4-CLUSTERNAME`과 같습니다.
 
@@ -52,11 +54,11 @@ HDInsight 클러스터에 있는 노드는 Azure 가상 컴퓨터를 사용하�
 
 ### <a name="nimbus-nodes"></a>Nimbus 노드
 
-Storm 클러스터의 경우 Nimbus 노드는 작업자 노드에 대한 프로세싱을 배포하고 모니터링하여 Hadoop JobTracker에 유사한 기능을 제공합니다. HDInsight은 Storm 클러스터 유형에 대해 2개의 Nimbus 노드를 제공합니다.
+Nimbus 노드는 Storm 클러스터와 함께 사용할 수 있습니다. Nimbus 노드는 작업자 노드에 대한 프로세싱을 배포하고 모니터링하여 Hadoop JobTracker에 유사한 기능을 제공합니다. HDInsight는 Storm 클러스터에 두 개의 Nimbus 노드를 제공합니다.
 
 ### <a name="zookeeper-nodes"></a>Zookeeper 노드
 
-[ZooKeeper](http://zookeeper.apache.org/) 노드는 헤드 노드에서 마스터 서비스의 리더 선택에 사용되고, 서비스, 데이터(작업자) 노드 및 게이트웨이에서 마스터 서비스가 활성화된 헤드 노드를 인식하도록 합니다. 기본적으로 HDInsight는 3개의 ZooKeeper 노드를 제공합니다.
+[ZooKeeper](http://zookeeper.apache.org/) 노드는 헤드 노드에서 마스터 서비스의 리더 선택에 사용됩니다. 서비스, 데이터(작업자) 노드 및 게이트웨이에서 어떤 헤드 노드의 마스터 서비스가 활성화되어 있는지 파악하도록 하는 데 사용됩니다. 기본적으로 HDInsight는 3개의 ZooKeeper 노드를 제공합니다.
 
 ### <a name="worker-nodes"></a>작업자 노드
 
@@ -64,7 +66,7 @@ Storm 클러스터의 경우 Nimbus 노드는 작업자 노드에 대한 프로�
 
 ### <a name="edge-node"></a>에지 노드
 
-에지 노드는 클러스터 내에서 데이터 분석에 적극적으로 참여하지 않지만 Hadoop로 작업하는 경우 개발자 또는 데이터 과학자가 대신 사용합니다. 에지 노드는 클러스터의 다른 노드와 동일한 Azure 가상 네트워크에 있으며 다른 모든 노드에 직접 액세스할 수 있습니다. 클러스터에 대한 데이터 분석에 포함되지 않기 때문에 중요한 Hadoop 서비스 또는 분석 작업에서 리소스를 정리할 걱정 없이 사용할 수 있습니다.
+에지 노드는 클러스터 내에서 데이터 분석에 적극적으로 참가하지 않습니다. 이는 개발자 또는 데이터 과학자가 Hadoop과 함께 작업하는 경우 사용합니다. 에지 노드는 클러스터의 다른 노드와 동일한 Azure 가상 네트워크에 있으며 다른 모든 노드에 직접 액세스할 수 있습니다. 에지 노드는 중요한 Hadoop 서비스 또는 분석 작업에서 리소스를 가져오지 않으면서 사용할 수 있습니다.
 
 현재 HDInsight의 R 서버는 기본적으로 에지 노드를 제공하는 유일한 클러스터 유형입니다. HDInsight의 R 서버의 경우 에지 노드는 분산된 처리를 위해 클러스터에 제출하기 전에 노드에서 로컬로 R 코드를 테스트하는 데 사용됩니다.
 
@@ -134,15 +136,15 @@ Ambari 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDIns
 
 ### <a name="ambari-rest-api"></a>Ambari REST API
 
-Ambari REST API는 인터넷을 통해 사용할 수 있고 공용 게이트웨이는 REST API를 현재 호스팅하는 헤드 노드에 라우팅 요청을 처리합니다.
+Ambari REST API는 인터넷을 통해 사용할 수 있습니다. HDInsight 공용 게이트웨이는 REST API를 현재 호스팅하는 헤드 노드에 라우팅 요청을 처리합니다.
 
 다음 명령을 사용하여 Ambari REST API를 통해 서비스의 상태를 확인할 수 있습니다.
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
 * **PASSWORD**를 HTTP 사용자(관리자) 계정 암호로 바꿉니다.
-* **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다.
-* **SERVICENAME** 을 상태를 확인할 서비스의 이름으로 바꿉니다.
+* **CLUSTERNAME**은 클러스터 이름으로 바꿉니다.
+* **SERVICENAME**을 상태를 확인할 서비스의 이름으로 바꿉니다.
 
 예를 들어 **password** 암호를 사용하여 **mycluster**라는 클러스터의 **HDFS** 서비스 상태를 확인하려면 다음 명령을 사용합니다.
 
@@ -191,7 +193,7 @@ SSH를 통해 헤드 노드에 연결된 동안에는 **/var/log**에서 로그 
 
 또한 SSH 파일 전송 프로토콜 또는 SFTP(보안 파일 전송 프로토콜)을 사용하여 헤드 노드에 연결하고 로그 파일을 직접 다운로드할 수 있습니다.
 
-클러스터의 SSH 사용자 계정 이름 및 SSH 주소를 제공해야 하는 클러스터에 연결하는 경우 SSH 클라이언트를 사용하는 것과 비슷합니다. 예: `sftp username@mycluster-ssh.azurehdinsight.net` 메시지가 표시되면 계정에 대한 암호를 제공하거나 `-i` 매개 변수를 사용하여 공개 키를 제공해야 합니다.
+클러스터의 SSH 사용자 계정 이름 및 SSH 주소를 제공해야 하는 클러스터에 연결하는 경우 SSH 클라이언트를 사용하는 것과 비슷합니다. 예: `sftp username@mycluster-ssh.azurehdinsight.net`. 메시지가 표시되면 계정에 대한 암호를 제공하거나 `-i` 매개 변수를 사용하여 공개 키를 제공해야 합니다.
 
 연결되면 `sftp>` 프롬프트가 나타납니다. 이 프롬프트에서 디렉터리를 변경하고 파일을 업로드 및 다운로드할 수 있습니다. 예를 들어 다음 명령은 디렉터리를 **/var/log/hadoop/hdfs** 디렉터리고 변경하고 디렉터리에 있는 모든 파일을 다운로드합니다.
 
@@ -201,12 +203,12 @@ SSH를 통해 헤드 노드에 연결된 동안에는 **/var/log**에서 로그 
 사용 가능한 명령 목록의 경우 `sftp>` 프롬프트에 `help`을 입력합니다.
 
 > [!NOTE]
-> 또한 SFTP를 사용하여 연결하는 경우 파일 시스템을 시각화할 수 있는 그래픽 인터페이스가 있습니다. 예를 들어 [MobaXTerm](http://mobaxterm.mobatek.net/) 을 사용하면 Windows 탐색기와 비슷한 인터페이스를 사용하는 파일 시스템을 찾아볼 수 있습니다.
+> 또한 SFTP를 사용하여 연결하는 경우 파일 시스템을 시각화할 수 있는 그래픽 인터페이스가 있습니다. 예를 들어 [MobaXTerm](http://mobaxterm.mobatek.net/)을 사용하면 Windows 탐색기와 비슷한 인터페이스를 사용하는 파일 시스템을 찾아볼 수 있습니다.
 
 ### <a name="ambari"></a>Ambari
 
 > [!NOTE]
-> Ambari를 사용하여 로그 파일에 액세스하려면 SSH 터널을 사용해야 합니다. 개별 서비스의 웹 인터페이스는 인터넷에 공개적으로 노출되지 않습니다. SSH 터널 사용에 대한 내용은 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
+> Ambari를 사용하여 로그 파일에 액세스하려면 SSH 터널을 사용해야 합니다. 개별 서비스의 웹 인터페이스는 인터넷에 공개적으로 노출되지 않습니다. SSH 터널 사용에 대한 내용은 [SSH 터널 사용](hdinsight-linux-ambari-ssh-tunnel.md) 문서를 참조하세요.
 
 Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택합니다. 그런 다음 **빠른 링크**를 사용하여 로그를 볼 헤드 노드를 선택합니다.
 
@@ -214,9 +216,9 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택합니다.
 
 ## <a name="how-to-configure-the-node-size"></a>노드 크기를 구성하는 방법
 
-노드의 크기는 클러스터를 만드는 동안에만 선택할 수 있습니다. [HDInsight 가격 책정 페이지](https://azure.microsoft.com/pricing/details/hdinsight/)에서 HDInsight에 사용할 수 있는 다양한 VM 크기(각각의 코어, 메모리 및 로컬 저장소 포함)의 목록을 찾을 수 있습니다.
+노드의 크기는 클러스터를 만드는 동안에만 선택할 수 있습니다. [HDInsight 가격 책정 페이지](https://azure.microsoft.com/pricing/details/hdinsight/)에서 HDInsight에 사용할 수 있는 다양한 VM 크기의 목록을 찾을 수 있습니다.
 
-새 클러스터를 만들 때 노드 크기를 지정할 수 있습니다. 다음 정보는 [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell] 및 [Azure CLI][azure-cli]를 사용하여 크기를 지정하는 방법에 대한 지침을 제공합니다.
+클러스터를 만들 때 노드 크기를 지정할 수 있습니다. 다음 정보는 [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell] 및 [Azure CLI][azure-cli]를 사용하여 크기를 지정하는 방법에 대한 지침을 제공합니다.
 
 * **Azure Portal**: 클러스터를 만들 때 클러스터에서 사용하는 노드의 크기를 설정할 수 있습니다.
 

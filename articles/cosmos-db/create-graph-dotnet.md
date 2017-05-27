@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 07a13c3e9e2baefe0be7ed417ba105dd23a3708d
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 597b12b98edb07e453fc3cd5a0884c584a5bfd14
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -42,18 +42,6 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 ## <a name="add-a-graph"></a>그래프 추가
 
 [!INCLUDE [cosmosdb-create-graph](../../includes/cosmosdb-create-graph.md)]
-
-## <a name="add-sample-data"></a>샘플 데이터 추가
-
-이제 데이터 탐색기를 사용하여 그래프에 데이터를 추가할 수 있습니다.
-
-1. 데이터 탐색기에서 **sample-database**, **sample-graph**를 확장하고, **그래프**를 클릭한 다음 **새 꼭짓점** 및 **새 에지**를 클릭하여 그래프에 항목을 추가합니다. 데이터 탐색기에서는 처리량을 확장하고 컨테이너에 저장된 프로시저, 사용자 정의 함수 및 트리거를 추가할 수 있습니다.
-
-    ![데이터 탐색기에서 그래프에 꼭짓점 및 에지 추가](./media/create-graph-dotnet/azure-cosmos-db-graph-sample-data.png)
-
-2. 일부 항목을 추가하면 **필터 적용** 단추를 클릭하거나 **그래프**를 마우스 오른쪽 단추로 클릭하고 **새 그래프 쿼리**를 클릭하여 데이터의 시각적 그래프를 볼 수 있습니다. **스타일** 단추를 클릭하고 설정을 변경하여 데이터의 레이블 및 스타일을 지정한 방법을 변경할 수 있습니다. 다음과 같은 데이터 탐색기의 예제 그래프에서는 레이블, 색 및 표시되는 데이터를 모두 수정할 수 있습니다.
-
-    ![Azure Portal의 데이터 탐색기에서 시각적 그래프 탐색기](./media/create-graph-dotnet/azure-cosmos-db-graph-explorer.png)
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
