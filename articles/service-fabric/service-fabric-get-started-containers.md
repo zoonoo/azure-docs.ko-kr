@@ -111,7 +111,7 @@ Dockerfile에서 Docker 이미지를 정의합니다. Dockerfile은 이미지를
     docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
     ```
 
-3. 실행 중인 컨테이너에 연결합니다.  포트 8000에서 반환되는 IP 주소(예: "http://172.31.194.61:8000")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+3. 실행 중인 컨테이너에 연결합니다.  포트 8000에서 반환되는 IP 주소(예: " http://172.31.194.61:8000 ")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 4. 컨테이너를 중지하려면 다음을 실행합니다.
 
