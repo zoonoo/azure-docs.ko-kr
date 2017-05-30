@@ -1,4 +1,4 @@
----
+--- 
 title: "Eclipse용 Azure Service Fabric 플러그 인 | Microsoft Docs"
 description: "Eclipse용 Azure Service Fabric 플러그 인을 시작합니다."
 services: service-fabric
@@ -12,12 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 05/03/2016
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 0407eab7e70649999ba07730425366b7b62e4e7a
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: c50c77b3288bc0a2d9148d04c6fc45aa24882ebb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -34,7 +35,7 @@ Eclipse에서 Service Fabric 플러그 인을 설치할 수 있습니다. 플러
     -   Eclipse Neon에 대한 업데이트를 확인하고 설치하려면 **도움말** > **업데이트 확인**으로 이동합니다.
 
 2.  Service Fabric 플러그 인을 설치하려면 Eclipse Neon에서 **도움말** > **새 소프트웨어 설치**로 이동합니다.
-  1.    **사용** 상자에 **http://dl.windowsazure.com/eclipse/servicefabric**을 입력합니다.
+  1.    **Work with**(사용할 플러그인) 상자에 **http://dl.microsoft.com/eclipse**를 입력합니다.
   2.    **추가**를 클릭합니다.
     ![Eclipse Neon용 Service Fabric 플러그 인][sf-eclipse-plugin-install]
   3.    Service Fabric 플러그 인을 선택한 다음 **다음**을 클릭합니다.
@@ -43,7 +44,7 @@ Eclipse에서 Service Fabric 플러그 인을 설치할 수 있습니다. 플러
 Service Fabric 플러그 인이 이미 설치된 경우 최신 버전인지 확인합니다. 사용 가능한 업데이트를 확인하려면 **도움말** > **설치 세부 정보**로 이동합니다. 설치된 플러그 인 목록에서 Service Fabric을 선택하고 **업데이트**를 클릭합니다. 사용 가능한 업데이트가 설치됩니다.
 
 > [!NOTE]
-> Service Fabric 플러그 인 설치 또는 업데이트가 느려지는 경우 Eclipse 설정 때문일 수 있습니다. Eclipse는 Eclipse 인스턴스에 등록되어 있는 사이트를 업데이트하는 모든 변경 내용에 대한 메타데이터를 수집합니다. Service Fabric 플러그 인 업데이트를 확인하고 설치하는 프로세스 의 속도를 촉진하려면 **사용 가능한 소프트웨어 사이트**로 이동합니다. Service Fabric 플러그 인 위치(http://dl.windowsazure.com/eclipse/servicefabric)를 가리키는 확인란을 제외하고 모든 사이트에 대한 확인란의 선택을 취소합니다.
+> Service Fabric 플러그 인 설치 또는 업데이트가 느려지는 경우 Eclipse 설정 때문일 수 있습니다. Eclipse는 Eclipse 인스턴스에 등록되어 있는 사이트를 업데이트하는 모든 변경 내용에 대한 메타데이터를 수집합니다. Service Fabric 플러그 인 업데이트를 확인하고 설치하는 프로세스 의 속도를 촉진하려면 **사용 가능한 소프트웨어 사이트**로 이동합니다. Service Fabric 플러그 인 위치(http://dl.microsoft.com/eclipse/azure/servicefabric)를 가리키는 확인란을 제외하고 모든 사이트에 대한 확인란의 선택을 취소합니다.
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Eclipse에서 Service Fabric 응용 프로그램 만들기
 
@@ -123,6 +124,12 @@ Service Fabric 서비스를 기존 Service Fabric 응용 프로그램에 추가�
 5.  서비스를 추가하면 전체 프로젝트 구조가 다음 프로젝트와 유사하게 표시됩니다.
 
     ![Service Fabric 서비스 추가 페이지 4][add-service/p4]
+
+## <a name="edit-manifest-versions-of-your-service-fabric-java-application"></a>Service Fabric Java 응용 프로그램의 매니페스트 버전 편집
+
+매니페스트 버전을 편집하려면 프로젝트를 클릭하고 **Service Fabric**으로 이동하여 드롭다운 메뉴에서 **매니페스트 버전 편집...**을 선택합니다. 마법사에서 응용 프로그램 매니페스트, 서비스 매니페스트의 매니페스트 버전 및 **코드**, **구성** 및 **데이터** 패키지의 버전을 업데이트할 수 있습니다.
+
+**응용 프로그램 및 서비스 버전 자동 업데이트** 옵션을 확인한 다음 버전을 업데이트하면 매니페스트 버전이 자동으로 업데이트됩니다. 예를 들어 확인란을 먼저 선택한 다음 **코드** 버전을 0.0.0에서 0.0.1로 업데이트하고 **마침**을 클릭하면 서비스 매니페스트 버전 및 응용 프로그램 매니페스트 버전이 0.0.1로 자동 업데이트됩니다.
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Service Fabric Java 응용 프로그램 업그레이드
 

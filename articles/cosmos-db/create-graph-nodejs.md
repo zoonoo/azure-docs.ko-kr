@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/13/2017
+ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: d8a6a183d1acd7a06683ec2e402bd866cb5195f4
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 5c996068ff5fbadda6730244c34c0d0d1f8fb447
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -27,7 +27,11 @@ ms.lasthandoff: 05/15/2017
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Graph API용 Azure Cosmos DB 계정(미리 보기), 데이터베이스 및 그래프를 만드는 방법을 보여줍니다. 그런 다음 OSS [Gremlin Node.js](https://aka.ms/gremlin-node) 드라이버를 사용하여 콘솔 앱을 빌드 및 실행합니다.  
+이 빠른 시작에서는 Azure Portal을 사용하여 Graph API용 Azure Cosmos DB 계정(미리 보기), 데이터베이스 및 그래프를 만드는 방법을 보여줍니다. 그런 다음 OSS [Gremlin Node.js](https://www.npmjs.com/package/gremlin-secure) 드라이버를 사용하여 콘솔 앱을 빌드 및 실행합니다.  
+
+> [!NOTE]
+> NPM 모듈 `gremlin-secure`는 `gremlin` 모듈의 수정된 버전이며 Azure Cosmos DB와의 연결에 필요한 SSL 및 SASL을 지원합니다. 소스 코드는 [Github](https://github.com/CosmosDB/gremlin-javascript)에서 사용할 수 있습니다.
+>
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -61,21 +65,23 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="review-the-code"></a>코드 검토
 
-앱에서 어떤 상황이 발생하고 있는지 빠르게 살펴보겠습니다. `app.js` 파일을 열고 이러한 코드 줄을 찾습니다.
+앱에서 어떤 상황이 발생하고 있는지 빠르게 살펴보겠습니다. `app.js` 파일을 열고 이러한 코드 줄을 찾습니다. 
 
 * Gremlin 클라이언트가 만들어집니다.
 
     ```nodejs
     const client = Gremlin.createClient(
         443, 
-        "https://<fillme>.graphs.azure.com", 
+        config.endpoint, 
         { 
             "session": false, 
             "ssl": true, 
-            "user": "/dbs/<db>/colls/<coll>",
-            "password": "<authKey>"
+            "user": `/dbs/${config.database}/colls/${config.collection}`,
+            "password": config.primaryKey
         });
     ```
+
+구성은 모두 `config.js`에 있으며 다음 섹션에서 편집할 내용입니다.
 
 * `client.execute` 메서드를 사용하여 일련의 Gremlin 단계를 실행합니다.
 
@@ -96,25 +102,37 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     ![Azure Portal에서 선택키 보기 및 복사, 키 블레이드](./media/create-documentdb-dotnet/keys.png)
 
-2. 포털에서 복사 단추를 사용하여 URI 값을 복사하고 이 값을 config.js의 config.endpoint 키 값으로 만듭니다.
+2. 포털에서 복사 단추를 사용하여 Gremlin URI 값을 복사하고 이 값을 config.js의 `config.endpoint` 키 값으로 만듭니다. Gremlin 끝점은 `mygraphdb.graphs.azure.com`과 같이(`https://mygraphdb.graphs.azure.com` 또는 `mygraphdb.graphs.azure.com:433`과 달리) 프로토콜/포트 번호가 없는 유일한 호스트 이름이어야 합니다.
 
     `config.endpoint = "GRAPHENDPOINT";`
 
-3. URI의 documents.azure.com 부분을 graphs.azure.com으로 바꿉니다.
-
-4. 그런 다음 포털에서 PRIMARY KEY 값을 복사하고 이 값을 config.js의 config.primaryKey 값으로 만듭니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
+3. 그런 다음 포털에서 PRIMARY KEY 값을 복사하고 이 값을 config.js의 config.primaryKey 값으로 만듭니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
     `config.primaryKey = "PRIMARYKEY";`
+
+4. config.database 및 config.collection의 값에 데이터베이스 이름 및 그래프(컨테이너) 이름을 입력합니다. 
+
+완성된 config.js 파일은 다음과 같은 모양입니다.
+
+```nodejs
+var config = {}
+
+// Note that this must not have HTTPS or the port number
+config.endpoint = "mygraphdb.graphs.azure.com";
+config.primaryKey = "OjlhK6tjxfSXyKtrmCiM9O6gQQgu5DmgAoauzD1PdPIq1LZJmILTarHvrolyUYOB0whGQ4j21rdAFwoYep7Kkw==";
+config.database = "graphdb"
+config.collection = "Persons"
+
+module.exports = config;
+```
 
 ## <a name="run-the-console-app"></a>콘솔 앱 실행
 
 1. 터미널 창을 열고 프로젝트에 포함된 package.json 파일에 대한 설치 디렉터리로 `cd`를 수행합니다.  
 
-2. `npm install gremlin`을 실행하여 필요한 npm 모듈을 설치합니다.
+2. `npm install`을 실행하여 필요한 npm 모듈을 설치합니다. `gremlin-secure`가 포함됩니다.
 
-3. Azure Cosmos DB에 필요하지만 드라이버에서 현재 지원하지 않는 SSL 및 SASL을 지원하는 [Cosmos DB Gremlin 포크](https://github.com/CosmosDB/gremlin-javascript)의 소스 코드로 `node_modules\gremlin`의 내용을 바꿉니다.(드라이버에서 변경 내용을 수용할 때까지 일시적으로).
-
-4. 터미널에서 `node app.js`을 실행하여 노드 응용 프로그램을 시작합니다.
+3. 터미널에서 `node app.js`을 실행하여 노드 응용 프로그램을 시작합니다.
 
 이제 데이터 탐색기로 돌아가서 이 새 데이터를 쿼리 및 수정하고 작업에 사용할 수 있습니다. 
 

@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 05/15/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: f72a3650de5b1d43c992a801ffce1384774594f2
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 3c7f97b72f3813abe2357ae3202eaba285583bb8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -26,10 +27,10 @@ ms.lasthandoff: 03/15/2017
 ## <a name="overview"></a>개요
 이 자습서에서는 ASP.NET MVC 프런트 엔드를 사용하여 다중 계층 .NET 응용 프로그램을 만들어 [Azure 클라우드 서비스](cloud-services-choose-me.md)에 배포하는 방법을 보여 줍니다. 이 응용 프로그램은 [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문) 및 [Azure 큐 서비스](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)를 사용합니다. MSDN 코드 갤러리에서 [Visual Studio 프로젝트를 다운로드](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 할 수 있습니다.
 
-이 자습서에서는 응용 프로그램을 구축하고 로컬에서 실행하는 방법, 응용 프로그램을 Azure에 배포하고 클라우드에서 실행하는 방법, 그리고 마지막으로 응용 프로그램을 처음부터 구축하는 방법을 보여 줍니다. 처음부터 구축하는 방법으로 시작한 다음 원하는 경우 나중에 테스트 및 배포 단계를 수행할 수 있습니다.
+이 자습서에서는 응용 프로그램을 구축하고 로컬에서 실행하는 방법, 응용 프로그램을 Azure에 배포하고 클라우드에서 실행하는 방법, 그리고 응용 프로그램을 처음부터 구축하는 방법을 보여 줍니다. 처음부터 구축하는 방법으로 시작한 다음 원하는 경우 나중에 테스트 및 배포 단계를 수행할 수 있습니다.
 
 ## <a name="contoso-ads-application"></a>Contoso Ads 응용 프로그램
-응용 프로그램은 광고 게시판입니다. 사용자는 텍스트를 입력하고 이미지를 업로드하여 광고를 만듭니다. 사용자는 미리 보기 이미지가 있는 광고 목록을 볼 수 있으며 광고를 선택하여 자세한 내용을 확인할 때 전체 크기 이미지를 볼 수 있습니다.
+응용 프로그램은 광고 게시판입니다. 사용자는 텍스트를 입력하고 이미지를 업로드하여 광고를 만듭니다. 사용자는 썸네일 이미지로 광고 목록을 볼 수 있으며 자세한 내용을 확인하기 위해 광고를 선택하면 전체 크기 이미지를 볼 수 있습니다.
 
 ![광고 목록](./media/cloud-services-dotnet-get-started/list.png)
 
@@ -60,7 +61,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 위 제품 중 하나도 없는 경우 Azure SDK를 설치하면 Visual Studio가 자동으로 설치될 수 있습니다.
 
 ## <a name="application-architecture"></a>응용 프로그램 아키텍처
-앱은 Entity Framework Code First를 사용해 SQL 데이터베이스에 광고를 저장하여 테이블을 만들고 데이터에 액세스합니다. 광고별로 데이터베이스는 전체 크기 이미지용과 미리 보기용으로 두 개의 URL을 저장합니다.
+앱은 Entity Framework Code First를 사용해 SQL 데이터베이스에 광고를 저장하여 테이블을 만들고 데이터에 액세스합니다. 광고별로 데이터베이스는 전체 크기 이미지용과 썸네일용으로 두 개의 URL을 저장합니다.
 
 ![광고 테이블](./media/cloud-services-dotnet-get-started/adtable.png)
 
@@ -68,7 +69,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 
 ![Contoso Ads 아키텍처](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
-[!INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
+[!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
 ## <a name="download-and-run-the-completed-solution"></a>완료된 솔루션 다운로드 및 실행
 1. [완료된 솔루션](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4)을 다운로드하고 압축 해제합니다.
@@ -101,7 +102,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 
 클라우드 연결 없이 응용 프로그램을 전적으로 로컬 컴퓨터에서 실행했습니다. 저장소 에뮬레이터는 큐 및 Blob 데이터를 SQL Server Express LocalDB 데이터베이스에 저장하고, 응용 프로그램은 다른 LocalDB 데이터베이스에 광고 데이터를 저장합니다. 웹 앱이 처음으로 액세스하려고 시도했을 때 Entity Framework Code First는 자동으로 광고 데이터베이스를 만들었습니다.
 
-다음 섹션에서는 솔루션이 클라우드에서 실행될 때 큐, Blob 및 응용 프로그램 데이터베이스에 대해 Azure 클라우드 리소스를 사용하도록 솔루션을 구성합니다. 계속 로컬에서 실행하면서도 클라우드 저장소 및 데이터베이스 리소스를 사용하는 것이 가능합니다. 연결 문자열 설정만 조정하면 되며, 이 방법에 대해 알아보겠습니다.
+다음 섹션에서는 솔루션이 클라우드에서 실행될 때 큐, Blob 및 응용 프로그램 데이터베이스에 대해 Azure 클라우드 리소스를 사용하도록 솔루션을 구성합니다. 로컬에서 계속 실행하고 클라우드 저장소 및 데이터베이스 리소스를 사용하려면 그렇게 할 수 있습니다. 어떻게 할지는 연결 문자열을 설정하기에 달려 있습니다.
 
 ## <a name="deploy-the-application-to-azure"></a>Azure에 응용 프로그램 배포
 클라우드에서 응용 프로그램을 실행하려면 다음 단계를 수행합니다.
@@ -116,65 +117,74 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 ### <a name="create-an-azure-cloud-service"></a>Azure 클라우드 서비스 만들기
 Azure 클라우드 서비스는 응용 프로그램이 실행되는 환경입니다.
 
-1. 브라우저에서 [Azure 클래식 포털](http://manage.windowsazure.com)을 엽니다.
-2. **새로 만들기 > 계산 > 클라우드 서비스 > 빠른 생성**을 클릭합니다.
-3. URL 입력 상자에 URL 접두사를 입력합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)을 엽니다.
+2. **새로 만들기 > Compute > Cloud Service**를 클릭합니다.
 
-    이 URL은 고유해야 합니다.  선택한 접두사를 누군가가 이미 사용 중인 경우 오류 메시지가 나타납니다.
-4. 응용 프로그램을 배포할 지역을 선택합니다.
+3. DNS 이름 입력 상자에 클라우드 서비스의 URL 접두사를 입력합니다.
+
+    이 URL은 고유해야 합니다.  선택한 접두사를 이미 사용 중이면 오류 메시지가 나타납니다.
+4. 서비스에 대한 새 리소스 그룹을 지정합니다. **새로 만들기**를 클릭한 다음 리소스 그룹 입력 상자에 이름(예: CS_contososadsRG)을 입력합니다.
+
+5. 응용 프로그램을 배포할 지역을 선택합니다.
 
     이 필드는 클라우드 서비스가 호스팅될 데이터센터를 지정합니다. 프로덕션 응용 프로그램의 경우 고객에게 가장 가까운 지역을 선택합니다. 이 자습서에서는 자신에게 가장 가까운 지역을 선택합니다.
-5. **클라우드 서비스 만들기**를 클릭합니다.
+5. **만들기**를 클릭합니다.
 
-    다음 이미지에서는 contosoads.cloudapp.net이라는 URL을 사용하여 클라우드 서비스가 생성되었습니다.
+    다음 이미지에서는 CSvccontosoads.cloudapp.net이라는 URL로 클라우드 서비스가 생성되었습니다.
 
     ![새 클라우드 서비스](./media/cloud-services-dotnet-get-started/newcs.png)
 
 ### <a name="create-an-azure-sql-database"></a>Azure SQL 데이터베이스 만들기
 앱이 클라우드에서 실행될 때는 클라우드 기반 데이터베이스를 사용합니다.
 
-1. [Azure 클래식 포털](http://manage.windowsazure.com)에서 **새로 만들기 > Data Services > SQL Database > 빠른 생성**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **새로 만들기 > 데이터베이스 > SQL Database**를 클릭합니다.
 2. **데이터베이스 이름** 상자에 *contosoads*를 입력합니다.
-3. **서버** 드롭다운 목록에서 **새 SQL Database 서버**를 선택합니다.
+3. **리소스 그룹**에서 **기존 그룹 사용**을 클릭하고 클라우드 서비스에 사용된 리소스 그룹을 선택합니다.
+4. 다음 이미지에서 **서버 - 필수 설정 구성** 및 **새 서버 만들기**를 클릭합니다.
+
+    ![데이터베이스 서버로 터널링](./media/cloud-services-dotnet-get-started/newdb.png)
 
     또는 이미 구독에 서버가 있는 경우에는 드롭다운 목록에서 해당 서버를 선택할 수 있습니다.
-4. 클라우드 서비스에 대해 선택한 것과 동일한 **지역** 을 선택합니다.
+5. **서버 이름** 상자에 *csvccontosodbserver*를 입력합니다.
+
+6. 관리자 **로그인 이름** 및 **암호**를 입력합니다.
+
+    **새 서버 만들기**를 선택한 경우 여기에 기존 이름 및 암호를 입력하면 안됩니다. 나중에 데이터베이스에 액세스할 때 사용할 새 이름과 암호를 입력해야 합니다. 이전에 만든 서버를 선택한 경우 이미 만든 관리자 계정에 대한 암호를 입력하라는 메시지가 나타납니다.
+7. 클라우드 서비스에 선택한 것과 동일한 **위치**를 선택합니다.
 
     클라우드 서비스와 데이터베이스가 서로 다른 데이터 센터, 즉 서로 다른 지역에 있는 경우 대기 시간이 길어지고 데이터 센터 외부 대역폭에 대한 요금이 발생합니다. 데이터 센터 내부 대역폭은 무료입니다.
-5. 관리자 **로그인 이름** 및 **암호**를 입력합니다.
+8. **Azure 서비스의 서버 액세스 허용**을 선택합니다.
+9. 새 서버에 대해 **선택**을 클릭합니다.
 
-    **새 SQL 데이터베이스 서버** 를 선택한 경우 여기서 기존 이름과 암호를 입력하지 않고 나중에 데이터베이스에 액세스할 때 사용하기 위해 지금 정의하는 새 이름과 암호를 입력합니다. 이전에 만든 서버를 선택한 경우 이미 만든 관리자 계정에 대한 암호를 입력하라는 메시지가 나타납니다.
-6. **SQL 데이터베이스 만들기**를 클릭합니다.
-
-    ![새 SQL 데이터베이스](./media/cloud-services-dotnet-get-started/newdb.png)
-7. Azure에서 데이터베이스 만들기가 완료되면 포털 왼쪽 창에서 **SQL 데이터베이스** 탭을 클릭하고 새 데이터베이스의 이름을 클릭합니다.
-8. **대시보드** 탭을 클릭합니다.
-9. **허용된 IP 주소 관리**를 클릭합니다.
-10. **허용된 서비스**에서 **Azure 서비스**를 **예**로 변경합니다.
-11. **저장**을 클릭합니다.
+    ![새 SQL Database 서버](./media/cloud-services-dotnet-get-started/newdbserver.png)
+10. **만들기**를 클릭합니다.
 
 ### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
 Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기 위한 리소스를 제공합니다.
 
-실제 응용 프로그램에서는 일반적으로 응용 프로그램 데이터와 로깅 데이터를 위한 별도의 계정 및 테스트 데이터와 프로덕션 데이터를 위한 별도의 계정을 만듭니다. 이 자습서에서는 한 계정만 사용합니다.
+실제 응용 프로그램에서는 일반적으로 응용 프로그램 데이터와 로깅 데이터를 위한 별도의 계정 및 테스트 데이터와 프로덕션 데이터를 위한 별도의 계정을 만듭니다. 이 자습서에서는 하나의 계정만 사용합니다.
 
-1. [Azure 클래식 포털](http://manage.windowsazure.com)에서 **새로 만들기 > Data Services > 저장소 > 빠른 생성**을 클릭합니다.
-2. **URL** 상자에 URL 접두사를 입력합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **새로 만들기 > Storage > 저장소 계정 -Blob, 파일, 테이블, 큐**를 클릭합니다.
+2. **이름** 상자에 URL 접두사를 입력합니다.
 
     이 접두사와 상자 아래에 표시되는 텍스트가 저장소 계정의 고유 URL이 됩니다. 입력한 접두사를 이미 다른 사람이 사용하는 경우 다른 접두사를 선택해야 합니다.
-3. **지역** 드롭다운 목록을 클라우드 서비스에 대해 선택한 것과 동일한 지역으로 설정합니다.
+3. **배포 모델**을 *클래식*으로 설정합니다.
+
+4. **복제** 드롭다운 목록을 **로컬 중복 저장소**로 설정합니다.
+
+    저장소 계정에 대해 지역에서 복제를 사용하는 경우 저장된 콘텐츠가 보조 데이터 센터에 복제되어 기본 위치에서 대규모 재해가 발생하면 장애 조치(Failover)가 가능해집니다. 지역에서 복제는 추가 비용을 발생시킬 수 있습니다. 테스트 및 개발 계정의 경우 일반적으로 지역에서 복제 비용을 지불하지 않는 것이 좋습니다. 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](../storage/storage-create-storage-account.md)를 참조하세요
+
+5. **리소스 그룹**에서 **기존 그룹 사용**을 클릭하고 클라우드 서비스에 사용된 리소스 그룹을 선택합니다.
+6. **위치** 드롭다운 목록을 클라우드 서비스에 선택한 것과 동일한 지역으로 설정합니다.
 
     클라우드 서비스와 저장소 계정이 서로 다른 데이터 센터, 즉 서로 다른 지역에 있는 경우 대기 시간이 길어지고 데이터 센터 외부 대역폭에 대한 요금이 발생합니다. 데이터 센터 내부 대역폭은 무료입니다.
 
     Azure 선호도 그룹은 데이터 센터 리소스 사이의 거리를 최소화하는 메커니즘을 제공하며, 이로 인해 대기 시간이 줄어들 수 있습니다. 이 자습서는 선호도 그룹을 사용하지 않습니다. 자세한 내용은 [Azure에서 선호도 그룹을 만드는 방법](http://msdn.microsoft.com/library/jj156209.aspx)을 참조하세요.
-4. **복제** 드롭다운 목록을 **로컬 중복**으로 설정합니다.
-
-    저장소 계정에 대해 지역에서 복제를 사용하는 경우에는 저장된 콘텐츠가 보조 위치에 복제되어 기본 위치에서 주요 재해가 발생하는 경우 보조 데이터 센터로 장애 조치(Failover)할 수 있도록 합니다. 지역에서 복제는 추가 비용을 발생시킬 수 있습니다. 테스트 및 개발 계정의 경우 일반적으로 지역에서 복제 비용을 지불하지 않는 것이 좋습니다. 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](../storage/storage-create-storage-account.md)를 참조하세요
-5. **저장소 계정 만들기**를 클릭합니다.
+7. **만들기**를 클릭합니다.
 
     ![새 저장소 계정](./media/cloud-services-dotnet-get-started/newstorage.png)
 
-    이미지에서 다음 URL을 사용하여 저장소 계정이 생성됩니다. `contosoads.core.windows.net`
+    이미지에서 다음 URL을 사용하여 저장소 계정이 생성됩니다. `csvccontosoads.core.windows.net`
 
 ### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Azure에서 실행될 때 Azure SQL 데이터베이스를 사용하도록 솔루션 구성
 웹 프로젝트 및 작업자 역할 프로젝트는 각각 고유한 데이터베이스 연결 문자열을 가지며 앱이 Azure에서 실행될 때 Azure SQL 데이터베이스를 가리켜야 합니다.
@@ -196,14 +206,14 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
     ```
 
     편집용으로 파일을 열어 둡니다.
-2. [Azure 클래식 포털](http://manage.windowsazure.com)에서 왼쪽 창의 **SQL Database**를 클릭하고 이 자습서에 대해 만든 데이터베이스를 클릭한 후 **대시보드** 탭을 클릭한 다음 **연결 문자열 표시**를 클릭합니다.
+2. [Azure Portal](https://portal.azure.com)에서 왼쪽 창의 **SQL Database**를 클릭하고 이 자습서에 대해 만든 데이터베이스를 클릭한 후 **연결 문자열 표시**를 클릭합니다.
 
     ![연결 문자열 표시](./media/cloud-services-dotnet-get-started/showcs.png)
 
     포털은 암호 자리 표시자가 포함된 연결 문자열을 표시합니다.
 
     ![연결 문자열](./media/cloud-services-dotnet-get-started/connstrings.png)
-3. *Web.Release.config* 변환 파일에서 `{connectionstring}`을 삭제 후 그 자리에 Azure 클래식 포털에서 가져온 ADO.NET 연결 문자열을 붙여 넣습니다.
+3. *Web.Release.config* 변환 파일에서 `{connectionstring}`을 삭제한 후 그 자리에 Azure Portal에서 가져온 ADO.NET 연결 문자열을 붙여 넣습니다.
 4. *Web.Release.config* 변환 파일에 붙여 넣은 연결 문자열에서 `{your_password_here}` 대신 새 SQL 데이터베이스에 대해 만든 암호로 바꿉니다.
 5. 파일을 저장합니다.  
 6. 작업자 역할 프로젝트를 구성하는 다음 단계에서 사용할 수 있도록 연결 문자열을 선택하고 복사합니다(둘러싼 따옴표 미포함).
@@ -218,7 +228,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 11. 변경 내용을 저장합니다.  
 
 ### <a name="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure"></a>Azure에서 실행될 때 Azure 저장소 계정을 사용하도록 솔루션 구성
-웹 역할 프로젝트 및 작업자 역할 프로젝트에 대한 Azure 저장소 계정 연결 문자열은 클라우드 서비스 프로젝트의 환경 설정에 저장됩니다. 각 프로젝트에 대해 응용 프로그램이 로컬에서 실행될 때와 클라우드에서 실행될 때 사용되는 별도의 설정 집합이 있습니다. 웹 역할 및 작업자 역할 프로젝트의 클라우드 환경 설정을 업데이트합니다.
+웹 역할 프로젝트 및 작업자 역할 프로젝트에 대한 Azure 저장소 계정 연결 문자열은 클라우드 서비스 프로젝트의 환경 설정에 저장됩니다. 각 프로젝트에는 응용 프로그램이 로컬에서 실행될 때와 클라우드에서 실행될 때 사용되는 별도의 설정 집합이 있습니다. 웹 역할 및 작업자 역할 프로젝트의 클라우드 환경 설정을 업데이트합니다.
 
 1. **솔루션 탐색기**에서 **ContosoAdsCloudService** 프로젝트의 **역할** 아래에 있는 **ContosoAdsWeb**을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
@@ -297,7 +307,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 7. 이제 응용 프로그램을 로컬에서 실행할 때처럼 일부 광고를 만들고, 보고, 편집하는 방법으로 앱을 테스트할 수 있습니다.
 
 > [!NOTE]
-> 테스트를 완료하면 클라우드 서비스를 삭제하거나 중지하세요. 클라우드 서비스를 사용하지 않더라도 가상 컴퓨터 리소스가 예약되어 있기 때문에 요금이 발생합니다. 또한 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. [Azure 클래식 포털](http://manage.windowsazure.com)에서 클라우드 서비스에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 임시로 다른 사람이 사이트에 액세스하지 못하도록 만들려면 대신 **중지** 를 클릭합니다. 이 경우에는 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
+> 테스트를 완료하면 클라우드 서비스를 삭제하거나 중지하세요. 클라우드 서비스를 사용하지 않더라도 가상 컴퓨터 리소스가 예약되어 있기 때문에 요금이 발생합니다. 또한 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. [Azure Portal](https://portal.azure.com)에서 클라우드 서비스의 **개요** 탭으로 이동한 다음 페이지 맨 위에 있는 **삭제** 단추를 클릭합니다. 임시로 다른 사람이 사이트에 액세스하지 못하도록 만들려면 대신 **중지** 를 클릭합니다. 이 경우에는 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
 >
 >
 
@@ -356,7 +366,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
     이 어셈블리는 백 엔드에서 이미지를 미리 보기로 변환하는 데 사용됩니다.
 
 ### <a name="configure-connection-strings"></a>연결 문자열 구성
-이 섹션에서는 로컬 테스트를 위해 Azure 저장소 및 SQL 연결 문자열을 구성합니다. 자습서 앞부분의 배포 지침에서는 앱이 클라우드에서 실행되는 경우를 위한 연결 문자열을 설정하는 방법을 설명합니다.
+이 섹션에서는 로컬 테스트를 위해 Azure Storage 및 SQL 연결 문자열을 구성합니다. 자습서 앞부분의 배포 지침에서는 앱이 클라우드에서 실행되는 경우를 위한 연결 문자열을 설정하는 방법을 설명합니다.
 
 1. ContosoAdsWeb 프로젝트에서 응용 프로그램 Web.config 파일을 열고 다음 `connectionStrings` 요소를 `configSections` 요소 뒤에 삽입합니다.
 
@@ -374,7 +384,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 4. **ContosAdsWeb [Role]** 속성 창에서 **설정** 탭을 클릭한 다음 **설정 추가**를 클릭합니다.
 
     **서비스 구성**을 **모든 구성**으로 설정해 둡니다.
-5. 이름이 *StorageConnectionString*인 새 설정을 추가합니다. **형식**을 *ConnectionString*으로 설정하고 **값**을 *UseDevelopmentStorage=true*로 설정합니다.
+5. 이름이 *StorageConnectionString*인 설정을 추가합니다. **형식**을 *ConnectionString*으로 설정하고 **값**을 *UseDevelopmentStorage=true*로 설정합니다.
 
     ![새 연결 문자열](./media/cloud-services-dotnet-get-started/scall.png)
 6. 변경 내용을 저장합니다.
@@ -383,7 +393,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
    * 이름: ContosoAdsDbConnectionString
    * 형식: String
-   * 값: 웹 역할 프로젝트에 사용한 것과 동일한 연결 문자열을 붙여 넣습니다. (다음 예제는 Visual Studio 2013입니다. 이 예제를 복사하고 Visual Studio 2015 이상을 사용하는 경우 반드시 데이터 원본을 변경해야 합니다.)
+   * 값: 웹 역할 프로젝트에 사용한 것과 동일한 연결 문자열을 붙여 넣습니다. (다음은 Visual Studio 2013용 예제입니다. 이 예제를 복사하고 Visual Studio 2015 이상을 사용하는 경우 데이터 원본을 반드시 변경해야 합니다.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -473,7 +483,7 @@ public class ContosoAdsContext : DbContext
 }
 ```
 
-이 클래스에는 두 개의 생성자가 있습니다. 첫 번째 생성자는 웹 프로젝트에서 사용되며 Web.config 파일에 저장되는 연결 문자열의 이름을 지정합니다. 두 번째 생성자는 실제 연결 문자열을 전달할 수 있게 합니다. 이 과정은 작업자 역할 프로젝트에서 필요합니다. 여기에는 Web.config 파일이 없기 때문입니다. 앞에서 이 연결 문자열이 저장된 위치를 확인했으며, 이후에 코드가 DbContext 클래스를 인스턴스화할 때 연결 문자열을 검색하는 방법을 확인하게 될 것입니다.
+이 클래스에는 두 개의 생성자가 있습니다. 첫 번째 생성자는 웹 프로젝트에서 사용되며 Web.config 파일에 저장되는 연결 문자열의 이름을 지정합니다. 두 번째 생성자를 사용하면 Web.config 파일이 없으므로 작업자 역할 프로젝트에서 사용된 실제 연결 문자열을 전달할 수 있습니다. 앞에서 이 연결 문자열이 저장된 위치를 확인했으며, 이후에 코드가 DbContext 클래스를 인스턴스화할 때 연결 문자열을 검색하는 방법을 확인하게 될 것입니다.
 
 ### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb - Global.asax.cs
 `Application_Start` 메서드에서 호출되는 코드는 *images* Blob 컨테이너 및 *images* 큐를 만듭니다(아직 없는 경우). 따라서 새 저장소 계정을 사용하기 시작하거나 새 컴퓨터에서 저장소 에뮬레이터를 사용하기 시작할 때마다 필수 Blob 컨테이너와 큐가 자동으로 만들어집니다.
@@ -500,7 +510,7 @@ if (imagesBlobContainer.CreateIfNotExists())
 }
 ```
 
-비슷한 코드가 *images* 큐에 대한 참조를 가져오고 새 큐를 만듭니다. 이 경우에는 권한을 변경할 필요가 없습니다.
+비슷한 코드가 *images* 큐에 대한 참조를 가져오고 새 큐를 만듭니다. 이런 경우 권한을 변경할 필요가 없습니다.
 
 ```csharp
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -524,7 +534,7 @@ imagesQueue.CreateIfNotExists();
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 *AdController.cs* 파일에서 생성자는 `InitializeStorage` 메서드를 호출하여 Blob 및 큐 작업을 위한 API를 제공하는 Azure Storage 클라이언트 라이브러리 개체를 만듭니다.
 
-그런 다음 이 코드는 앞서 *Global.asax.cs*에서 확인한 *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) (영문)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
+그런 다음 이 코드는 앞서 *Global.asax.cs*에서 확인한 *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) (영문)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기에 지정된 재시도 정책은 각 시도 후 3초 동안 최대 3회까지 대기합니다.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();

@@ -1,6 +1,6 @@
 ---
-title: "SQL Database SaaS 앱의 성능 모니터링 | Microsoft Docs"
-description: "Azure SQL Database 샘플 Wingtip Tickets(WTP) 앱의 성능 모니터링 및 관리"
+title: "다중 테넌트 SaaS 앱에서 다수의 Azure SQL 데이터베이스 성능 모니터링 | Microsoft Docs"
+description: "Azure SQL Database 샘플 Wingtip SaaS 앱의 성능 모니터링 및 관리"
 keywords: "sql 데이터베이스 자습서"
 services: sql-database
 documentationcenter: 
@@ -17,18 +17,18 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: af9511978718af10c97bee6af3a2835c9d2c1ff4
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 54f29cc816d356e22b425f3824ef89800c017e61
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
-# <a name="monitor-performance-of-the-wtp-sample-saas-application"></a>WTP 샘플 SaaS 응용 프로그램의 성능 모니터링
+# <a name="monitor-performance-of-the-wingtip-saas-application"></a>Wingtip SaaS 응용 프로그램의 성능 모니터링
 
 이 자습서에서는 SQL Database와 탄력적 풀의 기본 제공 모니터링 및 경고를 보여준 다음 SaaS 응용 프로그램에 사용한 여러 가지 주요 성능 관리 시나리오를 탐색합니다.
 
-Wingtip Tickets 앱은 단일 테넌트 데이터 모델을 사용하며, 각 장소(테넌트)에 자체 데이터베이스가 있습니다. 많은 SaaS 응용 프로그램과 마찬가지로 예상 테넌트 워크로드 패턴은 예측하기 어렵고 간헐적입니다. 예를 들어 티켓 판매는 아무 때나 발생할 수 있습니다. 이러한 일반적인 데이터베이스 사용 패턴을 이용하기 위해 테넌트 데이터베이스가 Elastic Database 풀에 배포됩니다. 탄력적 풀은 많은 데이터베이스에 걸쳐 리소스를 공유하여 솔루션의 비용을 최적화합니다. 이 유형의 패턴에서는 풀 전체에 걸쳐 부하가 합리적으로 균형을 유지하도록 데이터베이스 및 풀 리소스 사용을 모니터링해야 합니다. 또한 개별 데이터베이스에 적합한 리소스가 있고 풀이 [eDTU](sql-database-what-is-a-dtu.md) 한도에 도달하지 않도록 해야 합니다. 이 자습서에서는 데이터베이스와 풀을 모니터링하고 관리하는 방법과 워크로드 변화에 응답하여 정정 작업을 실행하는 방법을 탐색합니다.
+Wingtip SaaS 앱은 단일 테넌트 데이터 모델을 사용하며, 각 장소(테넌트)에 자체 데이터베이스가 있습니다. 많은 SaaS 응용 프로그램과 마찬가지로 예상 테넌트 워크로드 패턴은 예측하기 어렵고 간헐적입니다. 예를 들어 티켓 판매는 아무 때나 발생할 수 있습니다. 이러한 일반적인 데이터베이스 사용 패턴을 이용하기 위해 테넌트 데이터베이스가 Elastic Database 풀에 배포됩니다. 탄력적 풀은 많은 데이터베이스에 걸쳐 리소스를 공유하여 솔루션의 비용을 최적화합니다. 이 유형의 패턴에서는 풀 전체에 걸쳐 부하가 합리적으로 균형을 유지하도록 데이터베이스 및 풀 리소스 사용을 모니터링해야 합니다. 또한 개별 데이터베이스에 적합한 리소스가 있고 풀이 [eDTU](sql-database-what-is-a-dtu.md) 한도에 도달하지 않도록 해야 합니다. 이 자습서에서는 데이터베이스와 풀을 모니터링하고 관리하는 방법과 워크로드 변화에 응답하여 정정 작업을 실행하는 방법을 탐색합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -42,7 +42,7 @@ Wingtip Tickets 앱은 단일 테넌트 데이터 모델을 사용하며, 각 �
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* WTP 앱이 배포되었습니다. 5분 내에 배포하려면 [WTP SaaS 응용 프로그램 배포 및 탐색](sql-database-saas-tutorial.md)을 참조하세요.
+* Wingtip SaaS 앱이 배포되었습니다. 5분 내에 배포하려면 [Wingtip SaaS 응용 프로그램 배포 및 탐색](sql-database-saas-tutorial.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>SaaS 성능 관리 패턴 소개
@@ -66,7 +66,7 @@ Wingtip Tickets 앱은 단일 테넌트 데이터 모델을 사용하며, 각 �
 
 ## <a name="get-the-wingtip-application-scripts"></a>Wingtip 응용 프로그램 스크립트 가져오기
 
-Wingtip Tickets 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github 리포지토리에서 사용할 수 있습니다. 스크립트 파일은 [Learning Modules 폴더](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules)에 있습니다. **Learning Modules** 폴더의 구조를 유지하면서 이 폴더를 로컬 컴퓨터로 다운로드합니다.
+Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github 리포지토리에서 사용할 수 있습니다. [Wingtip SaaS 스크립트를 다운로드하는 단계](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## <a name="provision-additional-tenants"></a>추가 테넌트 프로비전
 
@@ -80,7 +80,7 @@ Wingtip Tickets 스크립트 및 응용 프로그램 소스 코드는 [WingtipSa
 
 이 스크립트는 테넌트 17개를 5분 이내에 배포합니다.
 
-*New-TenantBatch* 스크립트는 테넌트의 배치를 만드는 [Resource Manager](../azure-resource-manager/index.md) 템플릿의 중첩 또는 연결된 집합을 사용하며, 기본적으로 **baseTenantDb** 데이터베이스를 카탈로그 서버에 복사하여 새 테넌트 데이터베이스를 만든 다음 이들을 카탈로그에 등록하며, 끝으로 이들을 테넌트 이름과 장소 유형으로 초기화합니다. 이 방법은 WTP 앱이 새 테넌트를 프로비전하는 방법과 일치합니다. *baseTenantDB*에 대해 실행한 변경은 이후 프로비전하는 새 테넌트에 모두 적용됩니다. *기존* 테넌트 데이터베이스(*golden* 데이터베이스 포함)에 대해 스키마를 변경하는 방법은 [스키마 관리 자습서](sql-database-saas-tutorial-schema-management.md)를 참조하세요.
+*New-TenantBatch* 스크립트는 테넌트의 배치를 만드는 [Resource Manager](../azure-resource-manager/index.md) 템플릿의 중첩 또는 연결된 집합을 사용하며, 기본적으로 **baseTenantDb** 데이터베이스를 카탈로그 서버에 복사하여 새 테넌트 데이터베이스를 만든 다음 이들을 카탈로그에 등록하며, 끝으로 이들을 테넌트 이름과 장소 유형으로 초기화합니다. 이 방법은 앱이 새 테넌트를 프로비전하는 방법과 일치합니다. *baseTenantDB*에 대해 실행한 변경은 이후 프로비전하는 새 테넌트에 모두 적용됩니다. *기존* 테넌트 데이터베이스(*golden* 데이터베이스 포함)에 대해 스키마를 변경하는 방법은 [스키마 관리 자습서](sql-database-saas-tutorial-schema-management.md)를 참조하세요.
 
 ## <a name="simulate-different-usage-patterns-by-generating-different-load-types"></a>서로 다른 부하 형식을 생성하여 다양한 사용 패턴 시뮬레이션
 
@@ -222,7 +222,7 @@ Pool1의 리소스 사용량이 떨어지고 Pool2에 유사한 부하가 걸려
 
 ## <a name="other-performance-management-patterns"></a>다른 성능 관리 패턴
 
-**선제적 크기 조정** 연습 6에서는 찾는 데이터베이스가 어느 것인지 알고 있는 격리된 데이터베이스를 크기 조정하는 방법을 탐색했습니다. Contoso 콘서트 홀의 관리 부서에서 티켓 판매가 임박했음을 WTP에 알린 경우 데이터베이스가 선제적으로 풀에서 밖으로 이동된 것입니다. 그렇지 않으면 풀 또는 데이터베이스에 무슨 일이 일어나고 있는지 파악하라는 경고가 필요했을 가능성이 있습니다. 성능 저하에 대해 불평하는 풀에 있는 다른 테넌트에서 이에 관하여 알아보기를 원하지 않을 수 있습니다. 테넌트가 추가 리소스를 필요로 하는 기간을 예측할 수 있는 경우 Azure Automation Runbook을 설정하여 데이터베이스를 풀에서 밖으로 이동한 다음 정의된 일정에 다시 안으로 이동할 수 있습니다.
+**선제적 크기 조정** 연습 6에서는 찾는 데이터베이스가 어느 것인지 알고 있는 격리된 데이터베이스를 크기 조정하는 방법을 탐색했습니다. Contoso 콘서트 홀의 관리 부서에서 티켓 판매가 임박했음을 Wingtips에 알리면 데이터베이스가 선제적으로 풀에서 밖으로 이동될 수 있습니다. 그렇지 않으면 풀 또는 데이터베이스에 무슨 일이 일어나고 있는지 파악하라는 경고가 필요했을 가능성이 있습니다. 성능 저하에 대해 불평하는 풀에 있는 다른 테넌트에서 이에 관하여 알아보기를 원하지 않을 수 있습니다. 테넌트가 추가 리소스를 필요로 하는 기간을 예측할 수 있는 경우 Azure Automation Runbook을 설정하여 데이터베이스를 풀에서 밖으로 이동한 다음 정의된 일정에 다시 안으로 이동할 수 있습니다.
 
 **테넌트 셀프 서비스 크기 조정** 크기 조정은 관리 API가 통해 쉽게 호출되는 작업이므로 테넌트 데이터베이스를 테넌트가 마주치는 응용 프로그램으로 크기 조정하는 기능을 쉽게 만들어 SaaS 서비스의 기능으로 제공할 수 있습니다. 예를 들어 테넌트가 확장과 축소를 직접 관리하게 할 수 있으며, 이는 아마도 테넌트의 대금 청구에 직접 연결될 것입니다!
 
@@ -247,7 +247,7 @@ Pool1의 리소스 사용량이 떨어지고 Pool2에 유사한 부하가 걸려
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [초기 WTP(Wingtip Tickets Platform) 응용 프로그램 배포를 기반으로 하는 추가 자습서 ](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Wingtip SaaS 응용 프로그램 배포를 기반으로 작성된](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials) 추가 자습서
 * [SQL 탄력적 풀](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md) - Log Analytics 설정 및 사용 자습서

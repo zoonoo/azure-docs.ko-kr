@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database를 사용하여 다중 테넌트 앱에서 새 테넌트 프로비전 | Microsoft Docs"
-description: "Wingtip Tickets(WTP) 샘플 SQL Database SaaS 앱에서 새 테넌트 프로비전 및 카탈로그"
+description: "Wingtip SaaS 앱에 새 테넌트 프로비전 및 카탈로그 작성"
 keywords: "sql 데이터베이스 자습서"
 services: sql-database
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: billgib; sstein
+ms.date: 05/24/2017
+ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: aae5d85a18f93b7821a6ef8fc7161dd9a6ebe533
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: cf2fa0950f9f9df833051979b02355236214c4ea
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록
 
-이 자습서에서는 WTP(Wingtip 티켓 플랫폼) SaaS 응용 프로그램에서 새 테넌트를 프로비전합니다. 테넌트, 테넌트 데이터베이스를 만들고 테넌트를 카탈로그에 등록합니다. *카탈로그*는 SaaS 응용 프로그램 간에 많은 테넌트와 해당 데이터를 유지 관리하는 데이터베이스입니다. 이러한 시나리오를 사용하여 추가된 프로비전과 카탈로그 패턴 및 카탈로그 패턴 및 카탈로그에 새 테넌트 등록을 구현하는 방법을 알아봅니다. 카탈로그는 응용 프로그램 요청을 올바른 데이터베이스에 디렉션하는 중요한 역할을 합니다.
+이 자습서에서는 Wingtip SaaS 응용 프로그램에 새 테넌트를 프로비전합니다. 테넌트, 테넌트 데이터베이스를 만들고 테넌트를 카탈로그에 등록합니다. *카탈로그*는 SaaS 응용 프로그램 간에 많은 테넌트와 해당 데이터를 유지 관리하는 데이터베이스입니다. 이러한 시나리오를 사용하여 추가된 프로비전과 카탈로그 패턴 및 카탈로그 패턴 및 카탈로그에 새 테넌트 등록을 구현하는 방법을 알아봅니다. 카탈로그는 응용 프로그램 요청을 올바른 데이터베이스에 디렉션하는 중요한 역할을 합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -39,16 +39,16 @@ ms.lasthandoff: 05/12/2017
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* WTP 앱이 배포되었습니다. 5분 내에 배포하려면 [WTP SaaS 응용 프로그램 배포 및 탐색](sql-database-saas-tutorial.md)을 참조하세요.
+* Wingtip SaaS 앱이 배포되었습니다. 5분 내에 배포하려면 [Wingtip SaaS 응용 프로그램 배포 및 탐색](sql-database-saas-tutorial.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-the-saas-catalog-pattern"></a>SaaS 카탈로그 패턴 소개
 
-데이터베이스 지원 다중 테넌트 SaaS 응용 프로그램에서 각 테넌트 정보가 저장되어 있는 위치를 알고 있어야 합니다. SaaS 카탈로그 패턴에서 카탈로그 데이터베이스를 사용하여 테넌트 간의 매핑과 해당 데이터가 저장되는 장소를 유지합니다. WTP 앱은 단일 테넌트 데이터베이스 아키텍처를 사용하지만 테넌트 대 데이터베이스 매핑을 카탈로그에 적용하는 기본적인 패턴은 사용하는 데이터베이스가 다중 테넌트인지 단일 테넌트인지 여하와 상관없이 적용됩니다.
+데이터베이스 지원 다중 테넌트 SaaS 응용 프로그램에서 각 테넌트 정보가 저장되어 있는 위치를 아는 것이 중요합니다. SaaS 카탈로그 패턴에서 카탈로그 데이터베이스를 사용하여 테넌트 간의 매핑과 해당 데이터가 저장되는 장소를 유지합니다. Wingtip SaaS 앱은 단일 테넌트 데이터베이스 아키텍처를 사용하지만 테넌트 대 데이터베이스 매핑을 카탈로그에 적용하는 기본적인 패턴은 사용하는 데이터베이스가 다중 테넌트인지 단일 테넌트인지 여하와 상관없이 적용됩니다.
 
-각 테넌트에는 카탈로그에서 해당 데이터를 구분하는 키가 할당됩니다. WTP 응용 프로그램에서 키는 테넌트 이름의 해시에서 형성됩니다. 이 패턴을 통해 응용 프로그램 URL의 테넌트 이름 부분을 사용하여 키를 생성하고 특정 테넌트의 연결을 검색할 수 있습니다. 전체 패턴에 영향을 주지 않고 다른 ID 체계를 사용할 수 있습니다.
+각 테넌트에는 카탈로그에서 해당 데이터를 구분하는 키가 할당됩니다. Wingtip SaaS 응용 프로그램에서 키는 테넌트 이름의 해시에서 형성됩니다. 이 패턴을 통해 응용 프로그램 URL의 테넌트 이름 부분을 사용하여 키를 생성하고 특정 테넌트의 연결을 검색할 수 있습니다. 전체 패턴에 영향을 주지 않고 다른 ID 체계를 사용할 수 있습니다.
 
-WTP 앱의 카탈로그는 [Elastic Database 클라이언트 라이브러리(EDCL)](sql-database-elastic-database-client-library.md)의 분할 관리 기술을 사용하여 구현됩니다. EDCL은 _분할 맵_이 유지되는 데이터베이스 지원 _카탈로그_를 만들고 유지하는 데 사용됩니다. 카탈로그는 키(테넌트)와 해당 데이터베이스(분할) 사이의 매핑을 포함하고 있습니다.
+앱의 카탈로그는 [EDCL(탄력적 데이터베이스 클라이언트 라이브러리)](sql-database-elastic-database-client-library.md)의 분할된 데이터베이스 관리 기술을 사용하여 구현됩니다. EDCL은 _분할 맵_이 유지되는 데이터베이스 지원 _카탈로그_를 만들고 유지하는 데 사용됩니다. 카탈로그는 키(테넌트)와 해당 데이터베이스(분할) 사이의 매핑을 포함하고 있습니다.
 
 > [!IMPORTANT]
 > 매핑 데이터는 카탈로그 데이터베이스에서 액세스할 수 있지만 *편집하지는 마세요*! 매핑 데이터는 Elastic Database 클라이언트 라이브러리 API를 사용해서만 편집하세요. 매핑 데이터의 직접 조작은 카탈로그가 손상될 위험이 있으며 지원되지 않습니다.
@@ -57,16 +57,16 @@ Wingtip SaaS 앱은 *골든* 데이터베이스를 복사하여 새 테넌트를
 
 ## <a name="get-the-wingtip-application-scripts"></a>Wingtip 응용 프로그램 스크립트 가져오기
 
-Wingtip Tickets 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github 리포지토리에서 사용할 수 있습니다. 스크립트 파일은 [Learning Modules 폴더](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules)에 있습니다. **Learning Modules** 폴더의 구조를 유지하면서 이 폴더를 로컬 컴퓨터로 다운로드합니다.
+Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github 리포지토리에서 사용할 수 있습니다. [Wingtip SaaS 스크립트를 다운로드하는 단계](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
 
 ## <a name="provision-a-new-tenant"></a>새 테넌트 프로비전
 
-첫 번째 WTP 자습서에서 테넌트를 이미 만든 경우 다음 섹션 [테넌트 배치 프로비전](#provision-a-batch-of-tenants)으로 건너뛸 수 있습니다.
+[첫 번째 Wingtip SaaS 자습서](sql-database-saas-tutorial.md)에서 테넌트를 이미 만든 경우 다음 섹션 [테넌트 배치 프로비전](#provision-a-batch-of-tenants)으로 건너뛸 수 있습니다.
 
 *Demo-ProvisionAndCatalog* 스크립트를 실행하여 신속하게 테넌트를 만들고 카탈로그에 등록합니다.
 
 1. PowerShell ISE에서 **Demo-ProvisionAndCatalog.ps1**을 열고 다음 값을 설정합니다.
-   * **$TenantName** = 새 장소의 이름(예: *Bushwillow 블루스*). 
+   * **$TenantName** = 새 장소의 이름(예: *Bushwillow 블루스*).
    * **$VenueType** = 미리 정의된 장소 유형 중 하나: 블루스, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구.
    * **$DemoScenario** = 1, **단일 테넌트를 프로비전**하려면 이 값을 _1_로 그대로 둡니다.
 
@@ -79,7 +79,7 @@ Wingtip Tickets 스크립트 및 응용 프로그램 소스 코드는 [WingtipSa
 
 ## <a name="provision-a-batch-of-tenants"></a>테넌트의 배치 프로비전
 
-이 연습에서는 추가 테넌트의 배치를 프로비전합니다. 다른 WTP 자습서를 수행하기 전에 이 연습을 하는 것이 좋습니다.
+이 연습에서는 추가 테넌트의 배치를 프로비전합니다. 다른 Wingtip SaaS 자습서를 완료하기 전에 이 연습을 수행하는 것이 좋습니다.
 
 1. *PowerShell ISE*에서 ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1*을 열고 다음 값을 설정합니다.
    * **$DemoScenario** = **3**, **3**으로 설정하여 **테넌트의 배치를 프로비전**합니다.
@@ -156,9 +156,9 @@ Resource Manager 템플릿은 ...\\Learning Modules\\Common\\ 폴더: *tenantdat
 
 ## <a name="stopping-wingtip-saas-application-related-billing"></a>Wingtip SaaS 응용 프로그램 관련 청구 중지
 
-다른 자습서를 계속하지 않을 계획인 경우 대금 청구를 일시 중단하기 위해 모든 리소스를 삭제하는 것이 좋습니다. WTP 응용 프로그램이 배포된 리소스 그룹을 삭제하면 해당 리소스가 모두 삭제됩니다.
+다른 자습서를 계속하지 않을 계획인 경우 대금 청구를 일시 중단하기 위해 모든 리소스를 삭제하는 것이 좋습니다. Wingtip 응용 프로그램이 배포된 리소스 그룹을 삭제하면 해당 리소스가 모두 삭제됩니다.
 
-* 포털에서 응용 프로그램의 리소스 그룹으로 이동하고 삭제하여 이 WTP 배포와 관련된 모든 청구를 중지합니다.
+* 포털에서 응용 프로그램의 리소스 그룹으로 이동하고 삭제하여 이 Wingtip 배포와 관련된 모든 청구가 중지됩니다.
 
 ## <a name="tips"></a>팁
 
@@ -180,7 +180,7 @@ Resource Manager 템플릿은 ...\\Learning Modules\\Common\\ 폴더: *tenantdat
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [초기 WTP(Wingtip Tickets Platform) 응용 프로그램 배포를 기반으로 하는 추가 자습서 ](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Wingtip SaaS 응용 프로그램을 기반으로 작성된](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials) 추가 자습서
 * [탄력적 데이터베이스 클라이언트 라이브러리](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
 * [Windows PowerShell ISE에서 스크립트를 디버그하는 방법](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
 

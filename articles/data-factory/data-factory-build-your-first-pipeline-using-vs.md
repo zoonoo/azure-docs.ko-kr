@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 95691b6e59f5e21e7c6cff9f4222bcffade57973
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 9d788bf8e41fe225a4c24a4f5b464e8664f3d677
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -37,6 +37,8 @@ ms.lasthandoff: 05/16/2017
 
 > [!NOTE]
 > 이 자습서에서는 Azure Data Factory를 사용하여 데이터를 복사하는 방법을 표시하지 않습니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+> 
+> 파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [Data Factory에서 예약 및 실행](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요.
 
 
 ## <a name="walkthrough-create-and-publish-data-factory-entities"></a>연습: 데이터 팩터리 엔터티 만들기 및 게시
@@ -55,8 +57,8 @@ ms.lasthandoff: 05/16/2017
 5. 파이프라인을 게시한 후에 모니터링하려면 Azure Portal 블레이드 및 모니터링 및 관리 앱을 사용합니다. 
   
 ### <a name="prerequisites"></a>필수 조건
-1. [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다. 문서를 전환하려면 맨 위에 있는 드롭다운 목록에서 **개요 및 필수 구성 요소** 옵션을 선택할 수도 있습니다. 필수 구성 요소를 완료한 후에 드롭 다운 목록에서 **Visual Studio** 옵션을 선택하여 이 문서로 다시 전환합니다.  
-2. **Azure 구독의 관리자** 여야만 Visual Studio에서 Azure Data Factory에 데이터 팩터리 엔터티를 게시할 수 있습니다. 
+1. [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다. 문서를 전환하려면 맨 위에 있는 드롭다운 목록에서 **개요 및 필수 구성 요소** 옵션을 선택할 수도 있습니다. 필수 구성 요소를 완료한 후에 드롭 다운 목록에서 **Visual Studio** 옵션을 선택하여 이 문서로 다시 전환합니다.
+2. 데이터 팩터리 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [데이터 팩터리 참여자](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.  
 3. 다음 항목이 컴퓨터에 설치되어 있어야 합니다.
    * Visual Studio 2013 또는 Visual Studio 2015
    * Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.

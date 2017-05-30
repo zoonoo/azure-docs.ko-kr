@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: portal
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 05/24/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 574299dd64120d75a1a36cb2ded0fdd269292570
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 9f78163e4ff1166a2abd94150d686256ee338286
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 ---
 
@@ -29,7 +29,6 @@ ms.lasthandoff: 05/10/2017
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
-
 [az login](/cli/azure/#login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```azurecli
@@ -87,7 +86,7 @@ az mysql server show --resource-group mycliresource --name mycliserver
 {
   "administratorLogin": "myadmin",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "mycliserver.database.windows.net",
+  "fullyQualifiedDomainName": "mycliserver.mysql.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mycliresource/providers/Microsoft.DBforMySQL/servers/mycliserver",
   "location": "westus",
   "name": "mycliserver",
@@ -114,7 +113,7 @@ az mysql server show --resource-group mycliresource --name mycliserver
 
 1. **mysql** 명령줄 도구를 사용하여 서버에 연결:
 ```dos
- mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+ mysql -h mycliserver.mysql.database.azure.com -u myadmin@mycliserver -p
 ```
 
 2. 서버 상태 보기:
@@ -124,7 +123,7 @@ az mysql server show --resource-group mycliresource --name mycliserver
 모든 작업이 제대로 진행되었다면 명령줄에 다음이 출력될 것입니다.
 
 ```dos
-C:\Users\v-chenyh>mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
+C:\Users\v-chenyh>mysql -h mycliserver.mysql.database.azure.com -u myadmin@mycliserver -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
@@ -149,7 +148,7 @@ SSL:                    Not in use
 Using delimiter:        ;
 Server version:         5.6.26.0 MySQL Community Server (GPL)
 Protocol version:       10
-Connection:             mycliserver.database.windows.net via TCP/IP
+Connection:             mycliserver.mysql.database.azure.com via TCP/IP
 Server characterset:    latin1
 Db     characterset:    latin1
 Client characterset:    gbk
@@ -175,16 +174,15 @@ mysql>
 |----------------|-----------------|
 |    *연결 이름* | 이 연결에 대한 이름 지정(아무 이름이나 가능) |
 | *연결 방법* | 표준(TCP/IP) 선택 |
-| *호스트 이름* | mycliserver.database.windows.net(앞서 기록해둔 서버 이름) |
+| *호스트 이름* | mycliserver.mysql.database.azure.com(앞에서 기록한 서버 이름) |
 | *포트* | 3306 |
-| *사용자 이름* | myadmin@mycliserver (앞서 기록해둔 서버 관리자 이름) |
-| *암호* | 자격 증명 모음에 관리자 계정 암호를 저장할 수 있습니다. |
+| *사용자 이름* | myadmin@mycliserver(앞에서 기록한 서버 관리자 로그인) |
+| *암호* | 관리자 계정 암호를 저장하세요. |
 
-![새 연결 설정](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
+   ![새 연결 설정](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
-3.    **연결 테스트**를 클릭하여 모든 매개 변수가 올바르게 구성되었는지 테스트합니다.
-
-4.    이제 방금 만든 연결을 클릭하여 서버에 연결할 수 있습니다.
+**연결 테스트**를 클릭하여 모든 매개 변수가 올바르게 구성되었는지 테스트합니다.
+이제 방금 만든 연결을 클릭하여 서버에 연결할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -197,5 +195,5 @@ az group delete --name mycliresource
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure CLI로 MySQL 데이터베이스 디자인](./tutorial-design-database-using-cli.md) 
+> [Azure CLI로 MySQL 데이터베이스 디자인](./tutorial-design-database-using-cli.md)
 

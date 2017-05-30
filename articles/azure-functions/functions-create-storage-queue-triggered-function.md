@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/25/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: e6cf8797d08609f847e33f88e78fbcd3f3743a08
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 42fabff59577db5feb98e5c03d7a2b6d3d2461c3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -29,15 +29,11 @@ Azure Storage 큐에 메시지가 제출될 때 트리거되는 함수를 만드
 
 ![로그에서 메시지 보기.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-이 토픽의 모든 단계를 완료하는 데 5분 이상 걸리지 않습니다.
-
 ## <a name="prerequisites"></a>필수 조건
-
-이 샘플을 실행하기 전에 다음을 수행해야 합니다.
 
 - [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)를 다운로드하고 설치합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+- Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 

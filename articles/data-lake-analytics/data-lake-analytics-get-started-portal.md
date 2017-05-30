@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 64c5869f3e66c249fefa9af228fe1b33974cf293
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 278c5d4d6bf3b356b51ccb878285a7e35cc3a810
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -41,20 +42,20 @@ Azure Portal을 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-S
 **Data Lake Analytics 계정 만들기**
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. **새로 만들기**, **인텔리전스 + 분석** 및 **Data Lake Analytics**을 차례로 클릭합니다.
-3. 다음 값을 입력하거나 선택합니다.
+2. **새로 만들기** >  **인텔리전스 + 분석** > **Data Lake Analytics**를 클릭합니다.
+3. 다음 값을 선택합니다.
 
     ![Azure 데이터 레이크 분석 포털 블레이드](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
 
    * **이름**: Data Lake Analytics 계정의 이름을 지정합니다(소문자와 숫자만 허용).
    * **구독**: 분석 계정에 사용할 Azure 구독을 선택합니다.
-   * **리소스 그룹**. 기존 Azure 리소스 그룹을 선택하거나 리소스 그룹을 새로 만듭니다. Azure 리소스 관리자를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
-   * **위치**. 데이터 레이크 분석 계정에 대한 Azure 데이터 센터를 선택합니다.
-   * **Data Lake Store**: *필요한 설정 구성*을 클릭합니다. 지침을 따라 새 데이터 레이크 저장소 계정을 만들거나 기존 계정을 선택합니다. 각 Data Lake Analytics 계정에는 종속 Data Lake Store 계정이 있습니다. 데이터 레이크 분석 계정 및 종속 데이터 레이크 저장소 계정은 동일한 Azure 데이터 센터에 있어야 합니다.
+   * **리소스 그룹**. 기존 Azure 리소스 그룹을 선택하거나 리소스 그룹을 새로 만듭니다.
+   * **위치** - 데이터 레이크 분석 계정에 대한 Azure 데이터 센터를 선택합니다.
+   * **Data Lake Store**: 지침에 따라 새 Data Lake Store 계정을 만들거나 기존 계정을 선택합니다. 
 4. 가격 책정 계층 선택  
 5. **만들기**를 클릭합니다. "Azure Data Lake Analytics 배포"를 표시하여 새 타일이 나타나는 포털 홈 화면으로 돌아갑니다. 배포 프로세스는 Data Lake Analytics 계정을 만드는 데 몇 분 정도 걸립니다. 계정이 만들어지면 포털이 새 블레이드에 해당 계정을 엽니다.
 
-데이터 레이크 분석 계정을 만든 후 데이터 레이크 저장소 계정 및 Azure 저장소 계정을 더 추가할 수 있습니다. 자세한 내용은 [데이터 레이크 분석 계정 데이터 소스 관리](data-lake-analytics-manage-use-portal.md#manage-account-data-sources)를 참조하세요.
+데이터 레이크 분석 계정을 만든 후 데이터 레이크 저장소 계정 및 Azure 저장소 계정을 더 추가할 수 있습니다. 자세한 내용은 [데이터 레이크 분석 계정 데이터 소스 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 
 ## <a name="prepare-source-data"></a>원본 데이터 준비
 이 자습서에서는 검색 로그를 처리합니다.  검색 로그는 데이터 레이크 저장소 또는 Azure Blob 저장소에 저장할 수 있습니다.
@@ -63,7 +64,7 @@ Azure Portal은 검색 로그 파일을 포함하는 기본 Data Lake Store 계�
 
 **샘플 데이터 파일 복사**
 
-1. [Azure Portal](https://portal.azure.com)에서 Data Lake Analytics 계정을 엽니다.  [Data Lake Analytics 계정 관리](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account)를 참조하여 포털에서 계정을 만들고 엽니다.
+1. [Azure Portal](https://portal.azure.com)에서 Data Lake Analytics 계정을 엽니다.  [Data Lake Analytics 계정 관리](data-lake-analytics-get-started-portal.md)를 참조하여 포털에서 계정을 만들고 엽니다.
 2. **Essentials** 창을 확장하고 **샘플 스크립트 탐색**을 클릭합니다. **샘플 스크립트**라는 또 다른 블레이드가 열립니다.
 
     ![Azure Data Lake Analytics 포털 샘플 스크립트](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-sample-scripts.png)
@@ -83,7 +84,7 @@ Azure Portal은 검색 로그 파일을 포함하는 기본 Data Lake Store 계�
 
      이 자습서의 경우 SearchLog.tsv 파일이 표시됩니다.
 
-실제로는, 연결된 저장소 계정에 데이터를 작성하도록 응용 프로그램을 프로그래밍 하거나 데이터를 업로드합니다. 파일 업로드에 대한 내용은 [Data Lake Store에 데이터 업로드](data-lake-analytics-manage-use-portal.md#upload-data-to-adls) 또는 [Blob Storage에 데이터 업로드](data-lake-analytics-manage-use-portal.md#upload-data-to-wasb)를 참조하세요.
+실제로는, 연결된 저장소 계정에 데이터를 작성하도록 응용 프로그램을 프로그래밍 하거나 데이터를 업로드합니다. 파일 업로드에 대한 내용은 [Data Lake Store에 데이터 업로드](data-lake-analytics-manage-use-portal.md) 또는 [Blob Storage에 데이터 업로드](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 
 ## <a name="create-and-submit-data-lake-analytics-jobs"></a>데이터 레이크 분석 작업 만들기 및 제출하기
 원본 데이터를 준비한 후에는 U-SQL 스크립트 개발을 시작할 수 있습니다.  
@@ -94,7 +95,7 @@ Azure Portal은 검색 로그 파일을 포함하는 기본 Data Lake Store 계�
 
     ![Azure 데이터 레이크 분석 새 작업 단추](./media/data-lake-analytics-get-started-portal/data-lake-analytics-new-job-button.png)
 
-    블레이드가 보이지 않으면 [포털에서 데이터 레이크 분석 계정 열기](data-lake-analytics-manage-use-portal.md#access-adla-account)를 참조하세요.
+    블레이드가 보이지 않으면 [포털에서 데이터 레이크 분석 계정 열기](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 2. **작업 이름**을 입력하고 다음 U-SQL 스크립트를 입력합니다.
 
         @searchlog =
@@ -126,18 +127,14 @@ Azure Portal은 검색 로그 파일을 포함하는 기본 Data Lake Store 계�
 
 1. 위쪽에서 **작업 제출** 을 클릭합니다.   
 2. 작업 상태가 **Succeeded**로 바뀔 때까지 기다립니다. 작업을 완료하는 데 1분 정도 걸릴 수 있습니다.
-
-    작업이 실패한 경우 [Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)을 참조하세요.
-3. 블레이드의 아래쪽에서 **출력** 탭을 클릭하고 **SearchLog-from-Data-Lake.csv**를 클릭합니다. 출력 파일에 대한 미리 보기, 다운로드, 이름 변경, 삭제가 가능합니다.
+3. 작업이 실패한 경우 [Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)을 참조하세요.
+4. 블레이드 하단에서 **출력** 탭을 클릭한 다음 `SearchLog-from-Data-Lake.csv`를 클릭합니다. 출력 파일에 대한 미리 보기, 다운로드, 이름 변경, 삭제가 가능합니다.
 
     ![Azure 데이터 레이크 분석 작업 출력 파일 속성](./media/data-lake-analytics-get-started-portal/data-lake-analytics-output-file-properties.png)
 
 ## <a name="see-also"></a>참고 항목
-* 더 복잡한 쿼리를 보려면 [Azure Data Lake Analytics을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
+
 * U-SQL 응용 프로그램 개발을 시작하려면 [Visual Studio용 Data Lake 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 * U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
 * 관리 작업을 보려면 [Azure Portal을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
-* Data Lake Analytics에 대한 개요를 보려면 [Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)를 참조하세요.
-* 다른 도구를 사용하여 같은 자습서를 보려면 페이지 맨 위의 탭 선택기를 클릭합니다.
-* 진단 정보를 기록하려면 [Azure Data Lake Analytics에 대한 진단 로그에 액세스](data-lake-analytics-diagnostic-logs.md)
 

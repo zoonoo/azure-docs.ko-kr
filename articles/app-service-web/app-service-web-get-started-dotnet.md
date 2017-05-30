@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 773d616b2a5815158971d63d005fae605450ac98
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 018a46452c13886b9519ed5d2311bc65649c3c69
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -87,27 +87,15 @@ Visual Studio에서 `Ctrl`+`Shift`+`N`를 사용하여 프로젝트를 만듭니
 
 ## <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
-Azure 웹앱에도 _App Service 계획_이 필요합니다. 
-
-> [!NOTE]
-> App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스의 컬렉션을 나타냅니다. App Service 계획에 할당된 모든 앱은 정의된 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
->
-> App Service 계획은 다음을 정의합니다.
->
-> - 지역(북유럽, 미국 동부, 동남 아시아)
-> - 인스턴스 크기(소, 중, 대)
-> - 확장 개수(1, 2, 3개 인스턴스 등) 
-> - SKU(무료, 공유, 기본, 표준, 프리미엄)
->
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 **App Service 계획** 옆에 있는 **새로 만들기**를 클릭합니다. 
 
 **App Service 계획 구성** 대화 상자에서 다음 설정을 사용하여 새 App Service 계획을 구성합니다.
 
 - **App Service 계획**: **myAppServicePlan**을 입력합니다. 
-- **위치**: **유럽 서부** 또는 원하는 다른 지역을 선택합니다.
-- **크기**: **체험판** 또는 원하는 기타 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/)을 선택합니다.
+- **위치**: **유럽 서부** 또는 가까운 지역을 선택합니다.
+- **크기**: **평가판** 또는 다른 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/)을 선택합니다.
 
 **확인**을 클릭합니다.
 
