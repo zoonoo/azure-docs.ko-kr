@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/17/2017
+ms.date: 5/16/2017
 ms.author: msfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
-ms.openlocfilehash: 97b0cb7a5f04f2c5c547cb4b70d87273aa8f2383
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 17e9f4f81c60d86f804d1d9e6df2014dd4568d75
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="preview-deploy-a-windows-container-to-service-fabric"></a>미리 보기: Windows 컨테이너를 Service Fabric에 배포
+# <a name="deploy-a-windows-container-to-service-fabric"></a>Windows 컨테이너를 Service Fabric에 배포
 > [!div class="op_single_selector"]
 > * [Windows 컨테이너 배포](service-fabric-deploy-container.md)
 > * [Docker 컨테이너 배포](service-fabric-deploy-container-linux.md)
@@ -29,10 +30,6 @@ ms.lasthandoff: 02/21/2017
 > 
 
 이 문서에서는 Windows 컨테이너에서 컨테이너화된 서비스를 빌드하는 과정을 안내합니다.
-
-> [!NOTE]
-> 이 기능은 Windows Server 2016용 미리 보기 상태입니다.
->  
 
 Service Fabric에는 컨테이너화된 마이크로 서비스로 구성된 응용 프로그램을 빌드하는 데 도움을 주는 몇 가지 컨테이너 기능이 있습니다. 
 

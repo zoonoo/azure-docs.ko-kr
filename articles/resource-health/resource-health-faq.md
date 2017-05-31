@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 06/01/2016
 ms.author: BernardoAMunoz
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 570688ae363e223d792bec8e6b13d4ec50412130
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 41522a85cac05304b3ae60c45b48920eefbe8f5c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -61,7 +62,7 @@ Resource Health는 Azure 문제가 리소스에 영향을 주는 경우 진단 �
 3가지 상태가 있습니다.
 1. 사용 가능: Azure 플랫폼에 이 리소스에 영향을 줄 수 있는 알려진 문제가 없습니다.
 2. 사용할 수 없음: 리소스 상태에서 리소스에 영향을 주는 문제를 감지했습니다.
-3. 알 수 없음: 리소스 상태에서 리소스에 대한 정보 수신을 중지했으므로 리소스의 상태를 확인할 수 있습니다. 
+3. 알 수 없음: Resource Health에서 리소스에 대한 정보 수신을 중지했으므로 리소스의 상태를 확인할 수 없습니다. 
 
 ## <a name="what-does-the-unknown-status-mean-is-something-wrong-with-my-resource"></a>알 수 없는 상태는 무엇을 의미하나요? 내 리소스에 문제가 있나요?
 리소스 상태에서 특정 리소스에 대한 정보 수신을 중지하면 상태가 알 수 없음으로 설정됩니다. 이 상태는 리소스 상태의 최종적인 표시는 아니지만 문제가 발생한 경우 Azure 문제가 있음을 나타낼 수 있습니다.

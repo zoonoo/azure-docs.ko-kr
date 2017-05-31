@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 7914b9f1f747d246f58c19b7faf56357bd39a201
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 8271c10cceb7a98879b06704b65a716cd9ac6822
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -42,6 +42,19 @@ PowerShell 명령 프롬프트에서 다음 명령을 입력하여 Azure 구독�
 
 ```powershell
 Login-AzureRmAccount
+```
+
+Azure 구독이 여러 개 있는 경우 Azure에 로그인하면 자격 증명과 연결된 모든 Azure 구독에 액세스할 수 있습니다. 다음 명령을 사용하여 사용할 수 있는 Azure 구독을 나열합니다.
+
+```powershell
+Get-AzureRMSubscription
+```
+
+다음 명령을 사용하여 IoT Hub를 만드는 명령을 실행하는 데 사용할 구독을 선택합니다. 이전 명령의 출력에서 구독 이름 또는 ID를 사용할 수 있습니다.
+
+```powershell
+Select-AzureRMSubscription `
+    -SubscriptionName "{your subscription name}"
 ```
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
@@ -111,7 +124,7 @@ IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 �
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -122,5 +135,5 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

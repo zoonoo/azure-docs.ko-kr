@@ -15,10 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f15654f621bafb2617bdb456bbda0233db656be5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -66,9 +67,11 @@ CNAME 레코드 집합은 동일한 이름의 다른 레코드 집합과 함께 
 
 ### <a name="ns-records"></a>NS 레코드
 
-NS 레코드는 각 영역의 루트(name = '@')에서 자동으로 생성되며 영역이 삭제될 경우 자동으로 삭제됩니다(별도로 삭제할 수 없음).  이 레코드 집합의 TTL을 수정할 수 있지만 영역에 할당된 Azure DNS 이름 서버를 참조하도록 사전 구성된 레코드는 수정할 수 없습니다.
+영역 루트의 NS 레코드 집합(name '@')은 각 DNS 영역과 함께 자동으로 생성되며 영역이 삭제될 경우 자동으로 삭제됩니다(별도로 삭제할 수 없음).
 
-영역 루트를 제외한 영역 내 다른 NS 레코드를 만들고 삭제할 수 있습니다.  이 경우 하위 영역을 구성할 수 있습니다([Azure DNS에 하위 도메인 위임](dns-domain-delegation.md) 참조).
+이 레코드 집합에는 영역에 할당된 Azure DNS 이름 서버의 이름이 포함됩니다. 이 NS 레코드 집합에 추가 이름 서버를 추가하여 DNS 공급자가 2개 이상 있는 공동 호스팅 도메인을 지원할 수 있습니다. 또한 이 레코드 집합의 TTL 및 메타데이터를 수정할 수 있습니다. 그러나 미리 채워진 Azure DNS 이름 서버를 제거 또는 수정할 수 없습니다. 
+
+이는 영역 루트에 있는 NS 레코드 집합에만 적용됩니다. 영역의 다른 NS 레코드 집합은 제약 없이 생성, 수정 및 삭제할 수 있습니다(자식 영역을 위임하는 데 사용되므로).
 
 ### <a name="soa-records"></a>SOA 레코드
 

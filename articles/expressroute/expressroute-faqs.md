@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2017
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 5b7e2d8df2723f77aa8283d9faab22656198ed47
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 3f9fb86a5bf63d24432c1ba9945a4da6cf794f13
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -66,7 +67,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 
 ### <a name="microsoft-peering"></a>Microsoft 피어링
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* 대부분의 Dynamics 365 서비스(이전의 CRM Online)
+* Dynamics 365(이전의 CRM Online)
   * Dynamics 365 for Sales
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
@@ -89,7 +90,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 요구 사항은 [Express 경로 필수 구성 요소 페이지](expressroute-prerequisites.md) 를 참조하세요.
 
 ### <a name="are-connections-to-expressroute-redundant"></a>Express 경로에 대한 연결이 중복되나요?
-예. 각 Express 경로 회로에는 고가용성을 제공하도록 구성된 중복 쌍의 교차연결이 있습니다.
+예. 각 ExpressRoute 회로에는 고가용성을 제공하도록 구성된 중복 쌍의 교차연결이 있습니다.
 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>내 Express 경로 링크 중 하나가 실패하면 연결이 끊어지나요?
 교차 연결 중 하나가 실패할 경우 연결이 손실되지 않습니다. 중복 연결은 네트워크의 로드를 지원하기 위해 사용할 수 있습니다. 오류 복구를 수행할 다른 피어링 위치에 여러 회로를 추가로 만들 수 있습니다.
@@ -193,7 +194,7 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 * 증가된 라우팅 테이블은 개인 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
 * Express 경로 회로에 연결할 수 있는 VNets 수가 증가합니다(기본값은 10). 자세한 내용은 다음 표를 참조하세요.
 * Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 다른 지역의 Express 경로 회로를 지역의 VNet에 연결할 수 있습니다. **예:** 실리콘밸리에서 만든 Express 경로 회로에 서부 유럽에서 만든 VNet을 연결할 수 있습니다. **기타 예제:** 공용 피어링에서 다른 지리적 위치의 접두사는, 예를 들어 실리콘밸리의 회로에서 유럽 서부의 SQL Azure에 연결할 수 있음을 보급합니다.
-* Office 365 서비스 및 CRM Online에 대한 연결
+* Office 365 및 Dynamics 365에 연결합니다.
 
 ### <a name="how-many-vnets-can-i-link-to-an-expressroute-circuit-if-i-enabled-expressroute-premium"></a>Express 경로 프리미엄을 사용하는 경우, 얼마나 많은 VNet를 Express 경로 회로에 연결할 수 있나요?
 아래 표는 Express 경로 한도 및 Express 경로 회로당 VNet의 수를 보여 줍니다.
@@ -215,31 +216,31 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 ### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>표준 Express 경로 요금 외에도 Express 경로 프리미엄에 대한 납부 여부
 예. Express 경로 프리미엄 요금은 Express 경로 회로 요금 및 연결 공급자에서 필요한 요금 위에 적용됩니다.
 
-## <a name="expressroute-and-office-365-services-and-crm-online"></a>Express 경로, Office 365 서비스 및 CRM Online
+## <a name="expressroute-for-office-365-and-dynamics-365"></a>Office 365 및 Dynamics 365에 대한 ExpressRoute
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-crm-online"></a>Office 365 서비스 및 CRM Online에 연결하려면 어떻게 Express 경로 회로를 만드나요?
+### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-dynamics-365"></a>Office 365 서비스 및 Dynamics 365에 연결하려면 어떻게 ExpressRoute 회로를 만드나요?
 1. [ExpressRoute 필수 구성 요소 페이지](expressroute-prerequisites.md)를 검토하여 요구 사항을 충족하는지 확인합니다.
 2. 서비스 공급자 및 위치 목록을 [Express 경로 파트너 및 위치](expressroute-locations.md) 에서 검토하여 사용자 연결 요구 사항이 충족하는지 확인합니다.
 3. [Office 365에 대한 네트워크 계획 및 성능 튜닝](http://aka.ms/tune/)을 검토하여 용량 요구 사항을 계획합니다.
 4. [회로 프로비전 및 회로 상태에 대한 ExpressRoute 워크플로](expressroute-workflows.md)연결 설정 아래의 워크플로에 나열된 단계를 따르세요.
 
 > [!IMPORTANT]
-> Office 365 서비스 및 CRM Online에 대한 연결을 구성하는 경우 Express 경로 프리미엄 추가 기능을 사용하도록 설정했는지 확인합니다.
+> Office 365 서비스 및 Dynamics 365에 대한 연결을 구성하는 경우 ExpressRoute 프리미엄 추가 기능을 사용하도록 설정했는지 확인합니다.
 > 
 > 
 
-### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-crm-online"></a>Office 365 서비스 및 CRM Online에 연결하려면 Azure 공용 피어링을 사용하도록 설정해야 하나요?
+### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-dynamics-365"></a>Office 365 서비스 및 Dynamics 365에 연결하려면 Azure 공용 피어링을 사용하도록 설정해야 하나요?
 아니요, Microsoft 피어링을 사용하도록 설정하기만 하면 됩니다. Azure AD에 대한 인증 트래픽은 Microsoft 피어링을 통해 전송됩니다. 
 
-### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-crm-online"></a>기존 내 Express 경로 회로가 Office 365 서비스 및 CRM Online에 대한 연결을 지원할 수 있나요?
+### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>기존 ExpressRoute 회로가 Office 365 서비스 및 Dynamics 365에 대한 연결을 지원할 수 있나요?
 예. 기존 Express 경로 회로가 Office 365 서비스에 대한 연결을 지원하도록 구성할 수 있나요? Office 365 서비스에 연결하는 데 용량이 충분한지 확인하고 프리미엄 추가 기능을 사용하도록 설정했는지 확인합니다. [Office 365에 대한 네트워크 계획 및 성능 튜닝](http://aka.ms/tune/) 은 연결 요구 사항을 계획하는 데 도움이 됩니다. [Express 경로 회로 만들기 및 수정](expressroute-howto-circuit-classic.md)도 참조하세요.
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>Express 경로 연결을 통해 어느 Office 365 서비스에 액세스할 수 있나요?
 ExpressRoute에서 지원되는 최신 서비스 목록은 [Office 365 URL 및 IP 주소 범위](http://aka.ms/o365endpoints) 페이지를 참조하세요.
 
-### <a name="how-much-does-expressroute-for-office-365-services-and-crm-online-cost"></a>Office 365 서비스 및 CRM Online용 Express 경로 비용은 얼마인가요?
-Office 365 서비스 및 CRM Online에서는 프리미엄 추가 기능을 사용하도록 설정해야 합니다. [가격 세부 정보 페이지](https://azure.microsoft.com/pricing/details/expressroute/) 는 Express 경로에 대한 비용의 세부 정보를 제공합니다.
+### <a name="how-much-does-expressroute-for-office-365-services-and-dynamics-365-cost"></a>Office 365 서비스 및 Dynamics 365용 ExpressRoute 비용은 얼마인가요?
+Office 365 서비스 및 Dynamics 365에서는 프리미엄 추가 기능을 사용하도록 설정해야 합니다. [가격 세부 정보 페이지](https://azure.microsoft.com/pricing/details/expressroute/) 는 Express 경로에 대한 비용의 세부 정보를 제공합니다.
 
 ### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>Office 365용 Express 경로가 지원하는 영역
 Express 경로가 지원되는 파트너 및 위치에 대한 자세한 내용은 [Express 경로 파트너 및 위치](expressroute-locations.md) 를 참조하세요.

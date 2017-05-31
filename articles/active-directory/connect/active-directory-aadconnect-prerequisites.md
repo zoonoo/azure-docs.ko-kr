@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: bb6f3a7710c52a210ea8014430285ba8917cc895
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 0ce1dbf9f2baf9369875370866690010fe8e9e37
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -29,8 +30,8 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 
 ### <a name="azure-ad"></a>Azure AD
 * Azure 구독 또는 [Azure 평가판 구독](https://azure.microsoft.com/pricing/free-trial/)입니다. 이 구독은 Azure AD Connect를 사용하지 않고 Azure Portal에 액세스하기 위해서만 필요합니다. PowerShell 또는 Office 365를 사용하는 경우, Azure AD Connect를 사용하기 위해 Azure 구독을 설치할 필요가 없습니다. 또한 Office 365 라이선스가 있는 경우 Office 365 포털을 사용할 수 있습니다. 또한 유료 Office 365 라이선스를 가지고 Office 365 포털에서 Azure Portal로 가져올 수 있습니다.
-  * [Azure Portal](https://portal.azure.com)에서 Azure AD 미리 보기 기능을 사용할 수도 있습니다. 이 포털에는 Azure 라이선스가 필요하지 않습니다.
-* [도메인을 추가하고 확인합니다](../active-directory-add-domain.md) . 예를 들어, 사용자가 contoso.com을 사용하려는 경우 해당 도메인을 확인하고 contoso.onmicrosoft.com 기본 도메인을 사용하지 않도록 합니다.
+  * [Azure Portal](https://portal.azure.com)을 사용할 수도 있습니다. 이 포털에는 Azure AD 라이선스가 필요하지 않습니다.
+* [도메인을 추가하고 확인합니다](../active-directory-domains-add-azure-portal.md) . 예를 들어, 사용자가 contoso.com을 사용하려는 경우 해당 도메인을 확인하고 contoso.onmicrosoft.com 기본 도메인을 사용하지 않도록 합니다.
 * Azure AD 테넌트는 기본적으로 5만 개의 개체를 허용합니다. 도메인을 확인하는 경우, 제한은 30만 개의 개체로 늘어납니다. Azure AD에서 더 많은 개체가 필요한 경우 제한을 더 증가시키려면 지원 사례를 열어야 합니다. 개체가 50만 개 이상 필요한 경우 Office 365, Azure AD Basic, Azure AD Premium 또는 Enterprise Mobility 및 Security와 같은 라이선스가 필요합니다.
 
 ### <a name="prepare-your-on-premises-data"></a>온-프레미스 데이터 준비
@@ -53,6 +54,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 * **암호 동기화**기능을 사용하려는 경우 Azure AD Connect 서버가 Windows Server 2008 R2 SP1 이상에 있어야 합니다.
 * **그룹 관리 서비스 계정**을 사용하려는 경우 Azure AD Connect 서버가 Windows Server 2012 이상이어야 합니다.
 * Azure AD Connect 서버에는 [.NET Framework 4.5.1](#component-prerequisites) 이상 및 [Microsoft PowerShell 3.0](#component-prerequisites) 이상이 설치되어 있어야 합니다.
+* Azure AD Connect 서버에는 PowerShell 기록 그룹 정책을 사용하도록 설정되면 안됩니다.
 * Active Directory Federation Services를 배포하는 경우 AD FS 또는 웹 응용 프로그램 프록시가 설치될 서버는 Windows Server 2012 R2 이상이어야 합니다. [Windows 원격 관리](#windows-remote-management) 를 사용할 수 있어야 합니다.
 * Active Directory Federation Services를 배포하고 있는 경우 [SSL 인증서](#ssl-certificate-requirements)가 필요합니다.
 * Active Directory Federation Services를 배포하고 있는 경우 [이름 확인](#name-resolution-for-federation-servers)을 구성해야 합니다.
@@ -103,6 +105,8 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
         </defaultProxy>
     </system.net>
 ```
+
+* Azure AD Connect에서 디렉터리 동기화의 일부로 웹 요청을 Azure AD로 보내면 Azure AD에서 응답하는 데 최대 5분이 걸릴 수 있습니다. 프록시 서버에서 연결 유휴 시간 제한 구성을 사용하는 것이 일반적입니다. 구성이 6분 이상으로 설정되었는지 확인해 주세요.
 
 자세한 내용은 [기본 프록시 요소](https://msdn.microsoft.com/library/kd3cf2ex.aspx)에 대한 MSDN을 참조하세요.  
 연결에 문제가 있는 경우 [연결 문제 해결](active-directory-aadconnect-troubleshoot-connectivity.md)을 참조하세요.

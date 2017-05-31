@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/28/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: aeb0b665b8295bba30d8c6c47cc88e446693c91f
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 64b09448149b7e1efd8b76663a27b6c7ec1eb3c7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/01/2017
 Azure IoT Hub 및 Azure IoT 장치 SDK를 사용하여 IoT(사물 인터넷) 솔루션을 구축할 수 있습니다.
 
 * Azure IoT Hub는 IoT 장치를 안전하게 연결하고, 모니터링하고, 관리하는 클라우드의 완전히 관리되는 서비스입니다. Azure IoT 장치 SDK를 사용하여 IoT 장치를 구현합니다.
-* 레거시 장치, 대역폭 비용, 보안 및 개인 정보 보호 정책 또는 Edge 데이터 처리 등의 요소를 고려해야 하는 좀 더 복잡한 IoT 시나리오에서는 IoT 게이트웨이를 사용합니다. 이러한 시나리오에서는 Azure IoT Gateway SDK를 사용하여 장치를 IoT Hub에 연결하는 게이트웨이 장치를 구축합니다.
+* 레거시 장치, 대역폭 비용, 보안 및 개인 정보 보호 정책 또는 Edge 데이터 처리 등의 요소를 고려해야 하는 좀 더 복잡한 IoT 시나리오에서는 IoT 게이트웨이를 사용합니다. 이러한 시나리오에서는 Azure IoT Edge를 사용하여 장치를 IoT Hub에 연결하는 게이트웨이를 구축합니다.
 
-## <a name="what-do-the-tutorials-cover"></a>자습서에 포함된 내용
+## <a name="what-the-tutorials-cover"></a>자습서에 포함된 내용
 
 이러한 자습서는 Azure IoT Hub 및 장치 SDK를 소개합니다. 이 자습서에서는 IoT Hub의 기능을 설명하기 위한 일반적인 IoT 시나리오를 다룹니다. 또한 IoT Hub를 다른 Azure 서비스 및 도구와 결합하여 좀 더 강력한 IoT 솔루션을 구축하는 방법도 보여 줍니다. 이 자습서에서는 시뮬레이트된 IoT 장치 또는 실제 IoT 장치를 사용하도록 선택할 수 있습니다. 또한 게이트웨이를 사용하여 장치를 IoT Hub에 연결하는 방법도 알아볼 수 있습니다.
 
@@ -47,7 +47,7 @@ Azure IoT Hub 및 Azure IoT 장치 SDK를 사용하여 IoT(사물 인터넷) 솔
 | Adafruit Feather M0             | [Arduino][M0_Ard]              |
 | 시뮬레이션된 장치                | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth]              |
 
-또한 게이트웨이를 사용하여 장치를 IoT Hub에 연결할 수 있습니다.
+또한 IoT Edge 게이트웨이를 사용하여 장치를 IoT Hub에 연결할 수 있습니다.
 
 | 게이트웨이 장치               | 프로그래밍 언어 | 플랫폼         |
 |------------------------------|----------------------|------------------|
@@ -84,8 +84,8 @@ Azure IoT Hub 및 Azure IoT 장치 SDK를 사용하여 IoT(사물 인터넷) 솔
 [Sim_Nd]: iot-hub-node-node-getstarted.md
 [Sim_Pyth]: iot-hub-python-getstarted.md
 [NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
-[Sim_Lnx]: iot-hub-linux-gateway-sdk-get-started.md
-[Sim_Win]: iot-hub-windows-gateway-sdk-get-started.md
+[Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
+[Sim_Win]: iot-hub-windows-iot-edge-get-started.md
 [Mg_IoT_Hub_Msg]: iot-hub-explorer-cloud-device-messaging.md
 [Mg_IoT_Dv]: iot-hub-device-management-iothub-explorer.md
 [Sv_IoT_Msg_Stor]: iot-hub-store-data-in-azure-table-storage.md

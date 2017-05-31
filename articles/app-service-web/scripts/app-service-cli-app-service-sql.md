@@ -31,7 +31,7 @@ ms.lasthandoff: 05/15/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli-interactive][기본](../../../cli_scripts/app-service/connect-to-sql/connect-to-sql.sh?highlight=9-10 "SQL Database")
+[!code-azurecli-interactive[기본](../../../cli_scripts/app-service/connect-to-sql/connect-to-sql.sh?highlight=9-10 "SQL Database")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

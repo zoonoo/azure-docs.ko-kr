@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 05/17/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: e89ec01cb47a87a45378f73d138224095bcbebed
-ms.openlocfilehash: 201d98c4f4ff29393ad308824ed0575f1ff602ee
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 9046879158a4617d478bcf1157d5ead3c1054fd8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="load-balance-containers-in-a-kubernetes-cluster-in-azure-container-service"></a>Azure Container Service의 Kubernetes 클러스터에서 컨테이너 부하 분산 
 이 문서에서는 Azure Container Service의 Kubernetes 클러스터에서 부하를 분산하는 과정을 소개합니다. 부하 분산 서비스는 서비스에 대해 외부에서 액세스할 수 있는 IP 주소를 제공하고 에이전트 VM에서 실행되는 Pod 간에 네트워크 트래픽을 분산합니다.
 
-Kubernetes 서비스가 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)를 사용하도록 설정하여 외부 네트워크(TCP 또는 UDP) 트래픽을 관리할 수 있습니다. 추가 구성을 통해 HTTP 또는 HTTPS 트래픽의 부하 분산 및 라우팅이나 좀 더 고급 시나리오도 가능합니다.
+[Azure Load Balancer](../load-balancer/load-balancer-overview.md)를 사용하여 외부 네트워크(TCP) 트래픽을 관리하도록 Kubernetes 서비스를 설정할 수 있습니다. 추가 구성을 통해 HTTP 또는 HTTPS 트래픽의 부하 분산 및 라우팅이나 좀 더 고급 시나리오도 가능합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure Container Service에서 [Kubernetes 클러스터 배포](container-service-kubernetes-walkthrough.md)
@@ -34,7 +35,7 @@ Kubernetes 서비스가 [Azure Load Balancer](../load-balancer/load-balancer-ove
 
 ## <a name="azure-load-balancer"></a>Azure Load Balancer
 
-기본적으로 Azure Container Service에 배포된 Kubernetes 클러스터에는 에이전트 VM에 대한 인터넷 연결 Azure Load Balancer가 포함됩니다. (마스터 VM에 대해서는 별도 부하 분산 장치 리소스가 구성됩니다.) Azure Load Balancer는 계층 4(TCP, UDP) 부하 분산 장치입니다.
+기본적으로 Azure Container Service에 배포된 Kubernetes 클러스터에는 에이전트 VM에 대한 인터넷 연결 Azure Load Balancer가 포함됩니다. (마스터 VM에 대해서는 별도 부하 분산 장치 리소스가 구성됩니다.) Azure Load Balancer는 계층 4 부하 분산 장치입니다. 현재 부하 분산 장치는 Kubernetes의 TCP 트래픽만 지원합니다.
 
 Kubernetes 서비스를 만드는 경우 서비스에 대한 액세스를 허용하도록 Azure Load Balancer를 자동으로 구성할 수 있습니다. 부하 분산 장치를 구성하려면 서비스 `type`을 `LoadBalancer`로 설정합니다. 부하 분산 장치는 들어오는 서비스 트래픽의 공용 IP 주소 및 포트 번호를 에이전트 VM에 있는 Pod의 개인 IP 주소 및 포트 번호로 매핑(응답 트래픽의 경우 반대 방향으로 매핑)하는 규칙을 만듭니다. 
 

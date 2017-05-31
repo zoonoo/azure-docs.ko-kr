@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 78fce5e464e065620e2f2da7f001d34b5cfd7a9f
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 0fc61b9f0f99055ec99383f6ac32f5fff762fa84
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -154,7 +155,7 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
 
 <!-- Images. -->
 
@@ -185,7 +186,7 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-windows-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-windows-iot-edge-simulated-device.md
 
 
 

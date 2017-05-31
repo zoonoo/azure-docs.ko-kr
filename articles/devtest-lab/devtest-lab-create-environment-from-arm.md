@@ -14,23 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 0fbe1af87594aacd2eee4f706429e3674548d3fd
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 0b402602ed80d9eef5313fb29ba2bd05644f11f8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 
 ---
 
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기
 
-[Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)을 사용하면 쉽게 [랩에 VM을 만들고 추가](./devtest-lab-add-vm-with-artifacts.md)할 수 있습니다. 이 포털은 한 번에 하나씩 VM을 만드는 데 적합합니다. 그러나 환경에서 여러 VM을 포함하는 경우 각 VM을 개별적으로 만들어야 합니다. 다중 계층 웹앱 또는 SharePoint 팜과 같은 시나리오의 경우 한 번에 여러 VM을 만들 수 있는 메커니즘이 필요합니다. Azure Resource Manager 템플릿을 사용하면 Azure 솔루션의 인프라와 구성을 정의하고 여러 VM을 일관된 상태로 반복적으로 배포할 수 있습니다. 이 기능은 다음과 같은 이점을 제공합니다.
+[Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)을 사용하면 쉽게 [랩에 VM을 만들고 추가](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm)할 수 있습니다. 이 포털은 한 번에 하나씩 VM을 만드는 데 적합합니다. 그러나 환경에서 여러 VM을 포함하는 경우 각 VM을 개별적으로 만들어야 합니다. 다중 계층 웹앱 또는 SharePoint 팜과 같은 시나리오의 경우 한 번에 여러 VM을 만들 수 있는 메커니즘이 필요합니다. Azure Resource Manager 템플릿을 사용하면 Azure 솔루션의 인프라와 구성을 정의하고 여러 VM을 일관된 상태로 반복적으로 배포할 수 있습니다. 이 기능은 다음과 같은 이점을 제공합니다.
 
 - Azure Resource Manager 템플릿은 소스 제어 리포지토리(GitHub 또는 Team Services Git)에서 직접 로드됩니다.
 - 일단 구성되면 사용자가 Azure Portal에서 다른 유형의 [VM 자료](./devtest-lab-comparing-vm-base-image-types.md)를 처리할 수 있는 것처럼 Azure Resource Manager 템플릿을 선택하여 환경을 만들 수 있습니다.
 - Azure Resource Manager 템플릿과 IaasS VM의 환경에서 Azure PaaS 리소스를 프로비전할 수 있습니다.
 - 다른 유형의 자료로 만든 개별 VM 외에도 랩에서 환경의 비용을 추적할 수 있습니다.
 - 사용자가 단일 랩 VM 환경과 동일한 VM 정책을 제어할 수 있습니다.
+
+> [!NOTE]
+> 이 연습에서는 ARM 템플릿을 통해 Microsoft.DevTestLab/labs(또는 Microsoft.DevTestLab/labs/virtualmachines 같은 중첩된 리소스 유형) 리소스 유형을 배포하는 방법이 지원되지 않습니다. VM을 배포하려면 Microsoft.Compute/virtualmachines을 사용해야 합니다. 더 많은 ARM 템플릿 샘플은 [Azure 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-customdata/azuredeploy.json)에서 찾을 수 있습니다.
+>
+>
 
 ## <a name="configure-azure-resource-manager-template-repositories"></a>Azure Resource Manager 템플릿 리포지토리 구성
 

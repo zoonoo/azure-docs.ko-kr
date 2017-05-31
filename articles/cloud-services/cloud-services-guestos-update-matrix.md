@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/18/2017
+ms.date: 5/17/2017
 ms.author: raiye
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d471f5826cc05fb52ff4c24184628235477c075d
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 16a773e0c406f257925a9af01155ed157ffaf014
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -29,16 +30,21 @@ ms.lasthandoff: 04/18/2017
 > 
 > 
 
-<!-- -->
 
-> [!TIP]
-> [게스트 OS 업데이트 RSS 피드][rss]를 구독하여 모든 게스트 OS 변경 사항에 가장 시기 적절한 알림을 받을 수 있습니다.
+> [!NOTE]
+> RSS 피드는 최근에 사용되지 않습니다. 곧 제공될 새 피드에 대한 업데이트에 대해 설명합니다.
 > 
 > 
-
+ 
 게스트 OS가 무엇인지 또는 게스트 OS 릴리스가 어떻게 작동하는지 잘 모르시나요? [이](#how-it-works) 섹션을 읽어보세요.
 
 ## <a name="news-updates"></a>새 업데이트
+###### <a name="may-17-2017"></a>**2017년 5월 17일**
+보안 버그로 인해 포털에서 [수정 사항]이 없는 2016년 12월 및 2017년 1월 OS 릴리스를 사용하지 않습니다. WA-GUEST-OS-5.4_201612-01,WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
+
+###### <a name="may-12-2017"></a>**2017년 5월 12일**
+게스트 OS 5월 롤아웃은 5월 12일에 시작되며 6월 13일에 출시될 예정입니다.
+
 ###### <a name="april-18-2017"></a>**2017년 4월 18일**
 게스트 OS 4월 롤아웃은 4월 18일에 시작되며 5월 9일에 출시될 예정입니다.
 
@@ -72,9 +78,10 @@ Windows Server은 2016년 11월 1일에 OS 제품군 5로 출시되며 2016.NET 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.6_201704-01 |2017년 5월 9일 |Post 5.8 |TBD | 
 | WA-GUEST-OS-5.5_201703-01 |2017년 4월 10일 |Post 5.7 |TBD | 
-| WA-GUEST-OS-5.4_201612-01 |2017년 1월 10일 |Post 5.6 |TBD | 
-| WA-GUEST-OS-5.3_201611-01 |2016년 12월 14일 |Post 5.5 |TBD |
+|~~WA-GUEST-OS-5.4_201612-01~~ |2017년 1월 10일 |Post 5.6 |TBD | 
+|~~WA-GUEST-OS-5.3_201611-01~~ |2016년 12월 14일 |2017년 5월 9일 |TBD |
 |~~WA-GUEST-OS-5.2_201610-02~~ |2016년 11월 1일 |2017년 4월 10일 |TBD |
 
 ## <a name="family-4-releases"></a>제품군 4 릴리스
@@ -89,9 +96,10 @@ Windows Server은 2016년 11월 1일에 OS 제품군 5로 출시되며 2016.NET 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.41_201704-01 |2017년 5월 9일 |Post 4.43 |TBD |
 | WA-GUEST-OS-4.40_201703-01 |2017년 4월 10일 |Post 4.42 |TBD |
-| WA-GUEST-OS-4.39_201612-01 |2017년 1월 10일 |Post 4.41 |TBD |
-| WA-GUEST-OS-4.38_201611-01 |2016년 12월 14일 |Post 4.40 |TBD |
+|~~WA-GUEST-OS-4.39_201612-01~~ |2017년 1월 10일 |Post 4.41 |TBD |
+|~~WA-GUEST-OS-4.38_201611-01~~ |2016년 12월 14일 |2017년 5월 9일 |TBD |
 |~~WA-GUEST-OS-4.37_201610-02~~ |2016년 11월 16일 |2017년 4월 10일 |TBD |
 |~~WA-GUEST-OS-4.36_201609-01~~ |2016년 10월 13일 |2017년 1월 14일 |TBD |
 |~~WA-GUEST-OS-4.35_201608-01~~ |2016년 9월 13일 |2016년 12월 16일 |TBD |
@@ -115,10 +123,11 @@ Windows Server은 2016년 11월 1일에 OS 제품군 5로 출시되며 2016.NET 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.48_201704-01 |2017년 5월 9일 |Post 3.50 |TBD |
 | WA-GUEST-OS-3.47_201703-01 |2017년 4월 10일 |Post 3.49 |TBD |
-| WA-GUEST-OS-3.46_201612-01 |2017년 1월 10일 |Post 3.48 |TBD |
-| WA-GUEST-OS-3.45_201611-01 |2016년 12월 14일 |Post 3.47 |TBD |
-| WA-GUEST-OS-3.44_201610-02 |2016년 11월 16일 |2017년 5월 1일 |TBD |
+| ~~WA-GUEST-OS-3.46_201612-01~~ |2017년 1월 10일 |Post 3.48 |TBD |
+| ~~WA-GUEST-OS-3.45_201611-01~~ |2016년 12월 14일 |2017년 5월 9일 |TBD |
+| ~~WA-GUEST-OS-3.44_201610-02~~ |2016년 11월 16일 |2017년 5월 1일 |TBD |
 | ~~WA-GUEST-OS-3.43_201609-01~~ |2016년 10월 13일 |2017년 1월 14일 |TBD |
 | ~~WA-GUEST-OS-3.42_201608-01~~ |2016년 9월 13일 |2016년 12월 16일 |TBD |
 | ~~WA-GUEST-OS-3.41_201607-01~~ |2016년 8월 8일 |2016년 11월 13일 |TBD |
@@ -141,9 +150,10 @@ Windows Server은 2016년 11월 1일에 OS 제품군 5로 출시되며 2016.NET 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.61_201704-01 |2017년 5월 9일 |Post 2.63 |TBD |
 | WA-GUEST-OS-2.60_201703-01 |2017년 4월 10일 |Post 2.62 |TBD |
-| WA-GUEST-OS-2.59_201701-01 |2017년 1월 10일 |Post 2.61 |TBD |
-| WA-GUEST-OS-2.58_201612-01 |2017년 1월 10일 |Post 2.60 |TBD |
+|~~WA-GUEST-OS-2.59_201701-01~~ |2017년 1월 10일 |Post 2.61 |TBD |
+|~~WA-GUEST-OS-2.58_201612-01~~ |2017년 1월 10일 |2017년 5월 9일|TBD |
 |~~WA-GUEST-OS-2.57_201611-01~~ |2016년 12월 14일 |2017년 4월 10일 |TBD |
 |~~WA-GUEST-OS-2.56_201610-02~~ |2016년 11월 16일 |2017년 2월 10일 |TBD |
 |~~WA-GUEST-OS-2.55_201609-01~~ |2016년 10월 13일 |2017년 1월 14일 |TBD |
@@ -200,7 +210,7 @@ Windows Server은 2016년 11월 1일에 OS 제품군 5로 출시되며 2016.NET 
 ## <a name="guest-os-system-update-process"></a>게스트 OS 시스템 업데이트 프로세스
 이 페이지에 예정된 게스트 OS 릴리스에 대한 정보가 포함됩니다. "자동" 업데이트로 설정된 경우 해당 클라우드 서비스 역할이 다시 부팅되기때문에 릴리스가 발생하는 시기를 알고 싶어하는지 표시합니다. 게스트 OS 릴리스는 매달 두째 주 화요일에 발생하는 MSRC 업데이트 릴리스 5일 후에 발생합니다. 새 릴리스는 각 게스트 OS 제품군에 대 한 모든 관련 MSRC 패치를 포함합니다. 
 
-Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다. 이러한 업데이트로 게스트 OS가 파이프라인에서 유일합니다. 릴리스는 다양한 요인에 의해 영향을 받을 수 있어 나열할 수 없습니다. 또한 Azure는 수백 대의 컴퓨터에서 실행 됩니다. 역할이 다시 부팅 되는 정확한 날짜와 시간을 제공할 수 있다는 것을 의미합니다. 최신 정보가 있는 [게스트 OS 업데이트 RSS 피드][rss]를 업데이트하지만 대략적인 시기 창 정보를 참조합니다. 고객에 문제가 있어 재부팅 시간을 제한하도록 작업 중인 것으로 알고 있습니다. 
+Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다. 이러한 업데이트로 게스트 OS가 파이프라인에서 유일합니다. 릴리스는 다양한 요인에 의해 영향을 받을 수 있어 나열할 수 없습니다. 또한 Azure는 수백 대의 컴퓨터에서 실행 됩니다. 역할이 다시 부팅 되는 정확한 날짜와 시간을 제공할 수 있다는 것을 의미합니다. 고객에 문제가 있어 재부팅 시간을 제한하도록 작업 중인 것으로 알고 있습니다. 
 
 게스트 OS의 새 릴리스를 게시하는 경우 Azure에 완전히 전파하는데 시간이 걸릴 수 있습니다. 서비스가 새 게스트 OS에 대해 업데이트되므로 업데이트 도메인을 구분하지 않고 다시 부팅됩니다. "자동" 업데이트를 사용하도록 설정된 서비스가 처음 릴리스됩니다. 업데이트 후 Azure 클래식 포털에서 서비스에 대해 나열된 새 게스트 OS 버전을 볼 수 있습니다. 이 기간 동안 다시 릴리스할 수 있습니다. 일부 버전은 오랜 시간을 통해 배포할 수 있으며 공식 릴리스 날짜 이후 수 주 동안 자동 업그레이드 재부팅이 발생하지 않을 수 있습니다. 게스트 OS를 사용할 수 있으면, 구성 파일이나 포털에서 해당 버전을 명시적으로 찾을 수 있습니다. 
 
@@ -213,7 +223,6 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
-[rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
 [ssl3-fixit]: http://go.microsoft.com/?linkid=9863266
@@ -230,5 +239,6 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
+[수정 사항]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
 
 

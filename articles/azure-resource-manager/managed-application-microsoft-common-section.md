@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 7111b02432a774e056b5a5e13f93ae7f11fb6848
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 34c0f2f88e6af5a0f822ec116e7e2334e4e29e8d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/13/2017
 
 
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI 요소
-제목 아래에 하나 이상의 요소를 그룹화하는 컨트롤입니다.
+제목 아래에 하나 이상의 요소를 그룹화하는 컨트롤입니다. [Azure 관리되는 응용 프로그램을 만드는](managed-application-publishing.md) 경우 이 요소를 사용합니다.
 
 ## <a name="ui-sample"></a>UI 샘플
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
@@ -63,6 +63,7 @@ basics('section1').element1
 `Microsoft.Common.Section` 형식의 요소에는 출력 값 자체가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
+* 관리되는 응용 프로그램에 대한 소개는 [Azure Managed Application 개요](managed-application-overview.md)를 참조하세요.
 * UI 정의 만들기에 대한 소개는 [CreateUiDefinition 시작](managed-application-createuidefinition-overview.md)을 참조하세요.
 * UI 요소의 공용 속성에 대한 설명은 [CreateUiDefinition 요소](managed-application-createuidefinition-elements.md)를 참조하세요.
 

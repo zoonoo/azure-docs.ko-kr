@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/5/2017
+ms.date: 05/12/2017
 ms.author: rambala
-translationtype: Human Translation
-ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
-ms.openlocfilehash: 49ed6dd2184e69487cedae81a89665f5ccc3843d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 67f9626faadc539f26110e5aa23b3c0a878923b9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
 연결 공급자가 지원하는 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장하는 ExpressRoute에는 다음과 같이 고유한 세 가지 네트워크 영역이 필요합니다.
 
--   고객 네트워크
--   공급자 네트워크
--   Microsoft 데이터 센터
+-     고객 네트워크
+-      공급자 네트워크
+-      Microsoft 데이터 센터
 
 이 문서는 사용자가 연결 문제가 있는 위치와 해당 영역을 파악하여 문제를 해결할 수 있도록 적절한 팀에 지원을 요청하는 데 도움이 되기 위한 것입니다. 문제를 해결하기 위해 지원이 필요하면 [Microsoft 지원][Support]에서 지원 티켓을 열어주세요.
 
@@ -42,13 +44,13 @@ ms.openlocfilehash: 49ed6dd2184e69487cedae81a89665f5ccc3843d
 
 ExpressRoute 연결 모델(Cloud Exchange Co-location, 지점 간 이더넷 연결 또는 Any-to-Any(IPVPN))에 따라 네트워크 지점 3 및 4는 스위치(계층 2 장치)일 수 있습니다. 위의 다이어그램에서 보여 주는 주요 네트워크 지점은 다음과 같습니다.
 
-1.  고객 계산 장치(예: 서버 또는 PC)
-2.  CE: 고객 에지 라우터 
-3.  PE(CE 연결): 고객 에지 라우터에 연결되는 공급자 에지 라우터/스위치
-4.  PE(MSEE 연결): MSEE에 연결되는 공급자 에지 라우터/스위치
-5.  MSEE: MSEE(Microsoft Enterprise Edge) ExpressRoute 라우터
-6.  VNet(가상 네트워크) 게이트웨이
-7.  Azure VNet의 계산 장치
+1.    고객 계산 장치(예: 서버 또는 PC)
+2.    CE: 고객 에지 라우터 
+3.    PE(CE 연결): 고객 에지 라우터에 연결되는 공급자 에지 라우터/스위치
+4.    PE(MSEE 연결): MSEE에 연결되는 공급자 에지 라우터/스위치
+5.    MSEE: MSEE(Microsoft Enterprise Edge) ExpressRoute 라우터
+6.    VNet(가상 네트워크) 게이트웨이
+7.    Azure VNet의 계산 장치
 
 연결 모델로 Cloud Exchange Co-location 또는 지점 간 이더넷 연결을 사용하는 경우 고객 에지 라우터(2)에서 MSEE(5)와의 BGP 피어링을 설정합니다. 네트워크 지점 3과 4는 여전히 존재하지만 계층 2 장치로 다소 투명하게 됩니다.
 
@@ -113,18 +115,18 @@ ExpressRoute 회로가 작동하려면 *회로 상태*가 *사용*이고, *공�
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
     Sku                              : {
-                                        "Name": "Standard_UnlimitedData",
-                                        "Tier": "Standard",
-                                        "Family": "UnlimitedData"
-                                        }
+                                         "Name": "Standard_UnlimitedData",
+                                         "Tier": "Standard",
+                                         "Family": "UnlimitedData"
+                                           }
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             : 
     ServiceProviderProperties        : {
-                                        "ServiceProviderName": "****",
-                                        "PeeringLocation": "******",
-                                        "BandwidthInMbps": 100
-                                        }
+                                         "ServiceProviderName": "****",
+                                         "PeeringLocation": "******",
+                                         "BandwidthInMbps": 100
+                                           }
     ServiceKey                       : **************************************
     Peerings                         : []
     Authorizations                   : []
@@ -168,7 +170,7 @@ ExpressRoute 회로가 작동하는지 확인하려면 ServiceProviderProvisioni
 >
 
 ##<a name="validate-peering-configuration"></a>피어링 구성 유효성 검사
-서비스 공급자가 ExpressRoute 회로 프로비전을 완료하면 MSEE-PR(4)와 MSEE(5) 사이의 ExpressRoute 회로를 통해 라우팅 구성을 만들 수 있습니다. ExpressRoute 회로마다 하나, 둘 또는 셋의 라우팅 컨텍스트, 즉 Azure 개인 피어링(Azure에서 개인 가상 네트워크로의 트래픽), Azure 공용 피어링(Azure에서 공용 IP 주소로의 트래픽) 및 Microsoft 피어링(Office 365 및 CRM Online으로의 트래픽)을 사용할 수 있습니다. 라우팅 구성을 만들고 수정하는 방법에 대한 자세한 내용은 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering] 문서를 참조하세요.
+서비스 공급자가 ExpressRoute 회로 프로비전을 완료하면 MSEE-PR(4)와 MSEE(5) 사이의 ExpressRoute 회로를 통해 라우팅 구성을 만들 수 있습니다. ExpressRoute 회로마다 하나, 둘 또는 셋의 라우팅 컨텍스트, 즉 Azure 개인 피어링(Azure에서 개인 가상 네트워크로의 트래픽), Azure 공용 피어링(Azure에서 공용 IP 주소로의 트래픽) 및 Microsoft 피어링(Office 365 및 Dynamics 365로의 트래픽)을 사용할 수 있습니다. 라우팅 구성을 만들고 수정하는 방법에 대한 자세한 내용은 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering] 문서를 참조하세요.
 
 ###<a name="verification-via-the-azure-portal"></a>Azure Portal을 통한 확인
 >[!IMPORTANT]
@@ -177,8 +179,8 @@ ExpressRoute 회로가 작동하는지 확인하려면 ServiceProviderProvisioni
 >
 
 <p/>
->[!NOTE] 서비스 공급자가 계층 3을 제공하고 포털에서 피어링이 비어 있는 경우 PowerShell을 사용하여 서비스 공급자가 구성한 설정을 확인할 수 있습니다..
->
+>[!NOTE] 서비스 공급자가 계층 3을 제공하고 포털에서 피어링이 비어 있는 경우 PowerShell을 사용하여 서비스 공급자가 구성한 설정을 확인할 수 있습니다.
+>>
 >
 
 Azure Portal에서 ExpressRoute 회로의 상태는 왼쪽 세로 막대 메뉴에서 ![2][2]를 선택한 다음 ExpressRoute 회로를 선택하여 확인할 수 있습니다. "모든 리소스" 아래에 나열된 ExpressRoute 회로를 선택하면 ExpressRoute 회로 블레이드가 열립니다. 블레이드의 ![3][3] 섹션에는 ExpressRoute Essentials가 다음 스크린샷과 같이 나열됩니다.
@@ -242,8 +244,8 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 >
 
 <p/>
->[!NOTE] 피어링을 사용하지 않는 경우 할당된 기본 및 보조 서브넷이 연결된 MSEE-PR의 구성과 일치하는지 확인합니다. 또한 t*VlandId*, *AzureASN* 및 d *PeerASN*이 MSEE에서 사용되는지와 이러한 값들이 연결된 MSEE-PR에서 사용되는 값들에 매핑되는지를 확인하세요. MD5 해싱이 선택되면 공유 키는 MSEE 및 MSEE-PR 쌍에서 동일해야 합니다. MSEE 라우터의 구성을 변경하려면 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]을 참조하세요..  
->
+>[!NOTE] 피어링을 사용하지 않는 경우 할당된 기본 및 보조 서브넷이 연결된 MSEE-PR의 구성과 일치하는지 확인합니다. 또한 *VlandId*, *AzureASN* 및 *PeerASN*이 MSEE에서 사용되는지와 이러한 값들이 연결된 MSEE-PR에서 사용되는 값들에 매핑되는지를 확인하세요. MD5 해싱이 선택되면 공유 키는 MSEE 및 MSEE-PR 쌍에서 동일해야 합니다. MSEE 라우터의 구성을 변경하려면 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]을 참조하세요.  
+>>
 >
 
 ###<a name="verification-via-powershell-classic"></a>PowerShell(클래식)을 통한 확인
@@ -282,8 +284,8 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 >
 
 <p/>
->[!NOTE] 피어링을 사용하지 않는 경우 할당된 기본 및 보조 피어 서브넷이 연결된 MSEE-PR의 구성과 일치하는지 확인합니다. 또한 t*VlanId*, *AzureAsn* 및 d*PeerAsn*이 MSEE에서 사용되는지와 이러한 값들이 연결된 MSEE-PR에서 사용되는 값들에 매핑되는지를 확인하세요. MSEE 라우터의 구성을 변경하려면 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]을 참조하세요..
->
+>[!NOTE] 피어링을 사용하지 않는 경우 할당된 기본 및 보조 피어 서브넷이 연결된 MSEE-PR의 구성과 일치하는지 확인합니다. 또한 *VlanId*, *AzureAsn* 및 *PeerAsn*이 MSEE에서 사용되는지와 이러한 값들이 연결된 MSEE-PR에서 사용되는 값들에 매핑되는지를 확인하세요. MSEE 라우터의 구성을 변경하려면 [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]을 참조하세요.
+>>
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Microsoft와 서비스 공급자 간의 ARP 유효성 검사
@@ -303,7 +305,7 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
     ARP Info:
 
                  Age           Interface           IpAddress          MacAddress
-                 113             On-Prem       10.0.0.1           e8ed.f335.4ca9
+                 113             On-Prem       10.0.0.1            e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
 마찬가지로 *개인*/*공용*/*Microsoft* 피어링의 *기본*/*보조* 경로에 있는 MSEE에서 ARP 테이블을 확인할 수 있습니다.
@@ -346,8 +348,8 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 >
 
 <p/>
->[!NOTE] 특정 피어링을 통해 특정 대상에 연결할 수 없는 경우 특정 피어링 컨텍스트에 속한 MSEE의 경로 테이블을 확인하세요. 라우팅 테이블에 일치하는 접두사(NATed IP일 수 있음)가 있는 경우 경로에 방화벽/NSG/ACL이 있는지와 트래픽을 허용하는지를 확인하세요..
->
+>[!NOTE] 특정 피어링을 통해 특정 대상에 연결할 수 없는 경우 특정 피어링 컨텍스트에 속한 MSEE의 경로 테이블을 확인하세요. 라우팅 테이블에 일치하는 접두사(NATed IP일 수 있음)가 있는 경우 경로에 방화벽/NSG/ACL이 있는지와 트래픽을 허용하는지를 확인하세요.
+>>
 >
 
 특정 *개인* 라우팅 컨텍스트의 *기본* 경로에 있는 MSEE에서 전체 라우팅 테이블을 가져오려면 다음 명령을 사용합니다.
@@ -413,10 +415,5 @@ Microsoft 피어링 구성 세부 정보를 가져오려면 다음 명령을 사
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

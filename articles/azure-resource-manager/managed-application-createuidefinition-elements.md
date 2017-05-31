@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 84f5d5cb1696a911e8c5ef197f22f16d6341bfc8
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 635e44a7ec6f9244f5fe75eb5ad947cdd8ae59a4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/13/2017
 
 
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition 요소
-이 문서에서는 CreateUiDefinition에 지원되는 모든 요소에 대한 스키마와 속성에 대해 설명합니다. 대부분의 요소에 대한 스키마는 다음과 같습니다.
+이 문서에서는 CreateUiDefinition에 지원되는 모든 요소에 대한 스키마와 속성에 대해 설명합니다. [Azure 관리되는 응용 프로그램을 만드는](managed-application-publishing.md) 경우 이 요소를 사용합니다. 대부분의 요소에 대한 스키마는 다음과 같습니다.
 
 ```json
 {
@@ -66,5 +66,6 @@ ms.lasthandoff: 05/11/2017
 - [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 
 ## <a name="next-steps"></a>다음 단계
+* 관리되는 응용 프로그램에 대한 소개는 [Azure Managed Application 개요](managed-application-overview.md)를 참조하세요.
 * UI 정의 만들기에 대한 소개는 [CreateUiDefinition 시작](managed-application-createuidefinition-overview.md)을 참조하세요.
 

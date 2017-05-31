@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 02/07/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 177c622171c4b0e1813c85d1c22bda87aeafce06
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: f824f80aaba2cd2de7590ecf4560bb5559a66e82
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -59,7 +61,7 @@ SourceAnchor 특성은 대/소문자를 구분합니다. "JohnDoe"의 값은 "jo
 
 포리스트 및 도메인 간에 사용자를 이동하는 경우 변경되지 않거나 이동 중 사용자와 함께 이동할 수 있는 특성을 찾아야 합니다. 가상 특성을 도입하는 것이 좋습니다. GUID처럼 보이는 것을 포함할 수 있는 특성이 적합합니다. 개체가 생성되는 동안 새 GUID는 생성되고 사용자에게 표시됩니다. 동기화 엔진 서버에서 사용자 지정 동기화 규칙을 만들어 **objectGUID** 에 따라 이 값을 만들고 ADDS에서 선택한 특성을 업데이트할 수 있습니다. 개체를 이동할 때, 이 값의 콘텐츠도 복사했는지 확인합니다.
 
-다른 솔루션은 변경되지 않는 것을 알고 있는 기존 특성을 선택하는 것입니다. 일반적으로 사용되는 특성에는 **employeeID**가 있습니다. 문자를 포함하는 특성을 고려하는 경우 특성 값의 대/소문자가 변경될 수 있는 가능성이 없는지 확인합니다. 나쁜 속성은 사용자 이름의 해당 속성을 포함하여 사용할 수 없습니다. 결혼 또는 이혼해서 이름을 바꿔야 하는 경우에도 이 특성에서는 허용되지 않습니다. **userPrincipalName**, **mail** 및 **targetAddress**와 같은 특성을 Azure AD Connect 설치 마법사에서 선택할 수 없는 이유이기도 합니다. 이러한 특성은 sourceAnchor에서 허용하지 않는 "@" 문자도 포함하고 있습니다.
+다른 솔루션은 변경되지 않는 것을 알고 있는 기존 특성을 선택하는 것입니다. 일반적으로 사용되는 특성에는 **employeeID**가 있습니다. 문자를 포함하는 특성을 고려하는 경우 특성 값의 대/소문자가 변경될 수 있는 가능성이 없는지 확인합니다. 나쁜 속성은 사용자 이름의 해당 속성을 포함하여 사용할 수 없습니다. 결혼 또는 이혼해서 이름을 바꿔야 하는 경우에도 이 특성에서는 허용되지 않습니다. **userPrincipalName**, **mail** 및 **targetAddress**와 같은 특성을 Azure AD Connect 설치 마법사에서 선택할 수 없는 이유이기도 합니다. 이러한 특성은 sourceAnchor에서 허용되지 않는 "@" 문자도 포함하고 있습니다.
 
 ### <a name="changing-the-sourceanchor-attribute"></a>SourceAnchor 특성 변경
 sourceAnchor 특성값은 개체가 Azure AD에 생성되고 ID가 동기화된 후에는 값을 변경할 수 없습니다.
@@ -69,6 +71,64 @@ sourceAnchor 특성값은 개체가 Azure AD에 생성되고 ID가 동기화된 
 * SourceAnchor 특성은 오직 초기 설치 동안에만 설정할 수 있습니다. 설치 마법사를 다시 실행하는 경우 이 옵션은 읽기 전용입니다. 이 설정을 변경해야 할 경우 제거하고 다시 설치해야 합니다.
 * 다른 Azure AD Connect 서버를 설치한 경우 이전에 사용했던 동일한 sourceAnchor 특성을 선택해야만 합니다. 이전부터 DirSync를 사용했으며 Azure AD Connect로 이동한 경우 DirSync에서 사용했던 특성이므로 **objectGUID** 를 사용해야 합니다.
 * 개체를 Azure AD로 내보낸 후 sourceAnchor 값이 변경된 경우 Azure AD Connect 동기화는 오류가 발생하고 문제가 해결되거나 sourceAnchor를 소스 디렉터리에 원상 복귀시키기 전까지는 어떠한 변경도 허용하지 않습니다.
+
+## <a name="using-msds-consistencyguid-as-sourceanchor"></a>msDS-ConsistencyGuid를 sourceAnchor로 사용
+기본적으로 Azure AD Connect(버전 1.1.486.0 이상)는 objectGUID를 sourceAnchor 특성으로 사용합니다. ObjectGUID는 시스템에서 생성됩니다. 온-프레미스 AD 개체를 만들 때는 해당 값을 지정할 수 없습니다. [sourceAnchor](#sourceanchor) 섹션에서 설명한 대로 sourceAnchor 값을 지정해야 하는 시나리오가 있습니다. 시나리오를 적용할 수 있는 경우 구성 가능한 AD 특성(예: msDS-ConsistencyGuid)을 sourceAnchor 특성으로 사용해야 합니다.
+
+Azure AD Connect(버전 1.1.524.0 이상)는 이제 msDS-ConsistencyGuid를 sourceAnchor 특성으로 더 쉽게 사용할 수 있게 합니다. 이 기능을 사용하면 Azure AD Connect에서 동기화 규칙을 다음과 같이 자동으로 구성합니다.
+
+1. User 개체에 대한 sourceAnchor 특성으로 msDS-ConsistencyGuid를 사용합니다. ObjectGUID는 다른 개체 형식에 사용됩니다.
+
+2. msDS-ConsistencyGuid 특성이 채워지지 않은 지정된 모든 온-프레미스 AD User 개체의 경우 Azure AD Connect는 해당 objectGUID 값을 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성에 다시 씁니다. msDS-ConsistencyGuid 특성이 채워지면 Azure AD Connect는 개체를 Azure AD로 내보냅니다.
+
+>[!NOTE]
+> 온-프레미스 AD 개체를 Azure AD Connect로 가져오면(즉, AD 커넥터 공간으로 가져와서 메타버스에 투영하면) sourceAnchor 값을 더 이상 변경할 수 없습니다. 지정된 온-프레미스 AD 개체에 대한 sourceAnchor 값을 지정하려면 Azure AD Connect로 가져오기 전에 해당 msDS-ConsistencyGuid 특성을 구성합니다.
+
+### <a name="how-to-enable-the-consistencyguid-feature"></a>ConsistencyGuid 기능을 사용하도록 설정하는 방법
+현재 이 기능은 새 Azure AD Connect를 설치하는 중에만 사용하도록 설정할 수 있습니다.
+
+#### <a name="express-installation"></a>기본 설치
+Azure AD Connect를 기본 모드로 설치하는 경우 Azure AD Connect 마법사에서 다음 논리를 사용하여 sourceAnchor 특성으로 사용할 가장 적절한 AD 특성을 자동으로 결정합니다.
+
+* 먼저 Azure AD Connect 마법사에서 Azure AD 테넌트를 쿼리하여 이전 Azure AD Connect 설치(있는 경우)에서 sourceAnchor 특성으로 사용된 AD 특성을 검색합니다. 이 정보를 사용할 수 있으면 Azure AD Connect는 동일한 AD 특성을 사용합니다. 정보를 사용할 수 없는 경우...
+
+* 마법사에서 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 모든 개체에 구성되어 있지 않으면, 마법사에서 msDS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 응용 프로그램에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정합니다.
+
+* 이 경우 마법사는 objectGUID를 sourceAnchor 특성으로 사용합니다.
+
+* sourceAnchor 특성이 결정되면 마법사는 Azure AD 테넌트에 해당 정보를 저장합니다. 이 정보는 나중에 Azure AD Connect를 설치할 때 사용됩니다.
+
+  >[!NOTE]
+  > 최신 버전의 Azure AD Connect(1.1.524.0 이상)만 사용된 sourceAnchor 특성에 대한 정보를 Azure AD 테넌트에 저장합니다. 이전 버전의 Azure AD Connect는 그렇지 않습니다.
+
+기본 설치가 완료되면 마법사에서 원본 앵커 특성으로 선택된 특성을 사용자에게 알려줍니다.
+
+![sourceAnchor로 선택된 AD 특성을 알려주는 마법사](./media/active-directory-aadconnect-design-concepts/consistencyGuid-01.png)
+
+#### <a name="custom-installation"></a>사용자 지정 설치
+Azure AD Connect를 사용자 지정 모드로 설치하는 경우 Azure AD Connect 마법사에서 sourceAnchor 특성을 구성할 때 다음 두 가지 옵션을 제공합니다.
+
+![사용자 지정 설치 - sourceAnchor 구성](./media/active-directory-aadconnect-design-concepts/consistencyGuid-02.png)
+
+| 설정 | 설명 |
+| --- | --- |
+| Let Azure manage the source anchor for me(Azure에서 원본 앵커를 대신 관리) | Azure AD에서 이 특성을 선택하게 하려면 이 옵션을 선택합니다. 이 옵션을 선택하면 Azure AD Connect 마법사에서 [기본 설치에서 사용된 것과 동일한 sourceAnchor 특성 선택 논리](#express-installation)를 적용합니다. 기본 설치와 마찬가지로 사용자 정의 설치가 완료되면 마법사에서 원본 앵커 특성으로 선택된 특성을 사용자에게 알려줍니다. |
+| 특정 특성 | 기존 AD 특성을 sourceAnchor 특성으로 지정하려면 이 옵션을 선택합니다. |
+
+### <a name="permission-required"></a>필요한 권한
+이 기능을 사용하려면 온-프레미스 Active Directory와 동기화하는 데 사용되는 AD DS 계정에 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성에 대한 쓰기 권한을 부여해야 합니다.
+
+### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>AD FS 또는 타사 페더레이션 구성에 미치는 영향
+Azure AD Connect를 사용하여 온-프레미스 AD FS 배포를 관리하는 경우, Azure AD Connect에서 클레임 규칙을 자동으로 업데이트하여 sourceAnchor와 동일한 AD 특성을 사용합니다. 이렇게 하면 AD FS에서 생성된 ImmutableID 클레임이 Azure AD로 내보낸 sourceAnchor 값과 일치하게 됩니다.
+
+Azure AD Connect 외부에서 AD FS를 관리하거나 타사 페더레이션 서버를 사용하여 인증하는 경우, [AD FS 클레임 규칙 수정](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#modclaims) 문서 섹션에서 설명한 대로 Azure AD로 내보낸 sourceAnchor 값과 일치하도록 ImmutableID 클레임에 대한 클레임 규칙을 수동으로 업데이트해야 합니다. 설치가 완료되면 마법사에서 다음과 같은 경고를 반환합니다.
+
+![타사 페더레이션 구성](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
+
+### <a name="adding-new-directories-to-existing-deployment"></a>기존 배포에 새 디렉터리 추가
+활성화된 ConsistencyGuid 기능으로 Azure AD Connect를 배포한 후에 이제 다른 디렉터리를 배포에 추가하려고 한다고 가정합니다. 디렉터리를 추가하려고 하는 경우 Azure AD Connect 마법사에서 디렉터리의 mSDS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 응용 프로그램에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 기존 응용 프로그램에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
+
+![기존 배포에 새 디렉터리 추가](./media/active-directory-aadconnect-design-concepts/consistencyGuid-04.png)
 
 ## <a name="azure-ad-sign-in"></a>Azure AD 로그인
 Azure AD와 온-프레미스 디렉터리를 통합하는 동안 동기화 설정이 사용자가 인증하는 방식에 어떤 영향을 주는지를 이해해야 합니다. Azure AD는 UPN(userPrincipalName)을 사용하여 사용자를 인증합니다. 그러나 사용자를 동기화할 경우 신중하게 userPrincipalName의 값에 사용할 특성을 선택해야 합니다.
@@ -95,10 +155,5 @@ Azure AD Connect는 라우팅할 수 없는 도메인 환경에서 실행하는�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

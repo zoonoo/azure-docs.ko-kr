@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 4ef0118435020edc3a922c88a5a55400992cbc09
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 366c2c43ec50b0b6c47a25ea9b0e9d7109827429
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -66,7 +67,7 @@ AD DS에 대해 읽고 쓰도록 만들어진 [계정](#active-directory-account
 | 암호 재설정 |비밀번호 쓰기 저장을 사용하기 위한 준비 |
 
 ## <a name="custom-settings-installation"></a>사용자 지정 설정 설치
-사용자 지정 설정을 사용하는 경우 Active Directory에 연결하는 데 사용된 계정은 설치하기 전에 만들어야 합니다. 이 계정에 부여해야 하는 권한은 [AD DS 계정 만들기](#create-the-ad-ds-account)에서 찾을 수 있습니다.
+이전에는 사용자 지정 설정을 사용할 때는 설치하기 전에 Active Directory에 연결하는 데 사용되는 계정을 만들어야 합니다. 이 계정에 부여해야 하는 권한은 [AD DS 계정 만들기](#create-the-ad-ds-account)에서 찾을 수 있습니다. Azure AD Connect 버전 1.1.524.0 이상에는 Azure AD Connect 마법사에서 계정을 만들 수 있는 옵션이 있습니다.
 
 | 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한 | 용도 |
 | --- | --- | --- | --- |
@@ -86,9 +87,11 @@ Azure AD Connect를 설치할 때 **디렉터리 연결** 페이지에 지정한
 
 | 기능 | 권한 |
 | --- | --- |
+| msDS-ConsistencyGuid 기능 |[디자인 개념 - msDS-ConsistencyGuid를 sourceAnchor로 사용](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)에서 설명하는 msDS-ConsistencyGuid 특성에 대한 쓰기 권한 | 
 | 암호 동기화 |<li>디렉터리 변경 내용 복제</li>  <li>모든 디렉터리 변경 내용 복제 |
 | Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
-| 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions)에 설명된 특성에 사용 권한을 작성합니다. |
+| Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 
+| 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../active-directory-passwords.md)에 설명된 특성에 사용 권한을 작성합니다. |
 | 장치 쓰기 저장 |[장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다. |
 | 그룹 쓰기 저장 |배포 그룹을 찾을 수 있어야 하는 OU에서 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다. |
 
@@ -179,11 +182,13 @@ Azure AD의 계정은 동기화 서비스의 사용에 생성됩니다. 이 계�
 
 ![AD 계정](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
 
-계정을 사용하는 서버의 이름은 사용자 이름의 두 번째 부분에서 식별할 수 있습니다. 그림에서 서버 이름은 FABRIKAMCON입니다. 준비 서버가 있는 경우 각 서버는 고유한 계정을 포함합니다. Azure AD에서 동기화 서비스 계정은 10개로 제한됩니다.
+계정을 사용하는 서버의 이름은 사용자 이름의 두 번째 부분에서 식별할 수 있습니다. 그림에서 서버 이름은 FABRIKAMCON입니다. 준비 서버가 있는 경우 각 서버는 고유한 계정을 포함합니다.
 
 서비스 계정은 만료되지 않은 길고 복잡한 암호를 사용하여 만들어집니다. 또한 디렉터리 동기화 작업을 수행할 수 있는 유일한 권한이 있는 특별한 역할인 **디렉터리 동기화 계정** 이 부여됩니다. 이 특별한 기본 제공 역할은 Azure AD Connect 마법사 외부에서 부여할 수 없으며, Azure 포털은 **사용자**역할에서만 이 계정을 표시합니다.
 
-![AD 계정 역할](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)
+Azure AD에서 동기화 서비스 계정은 20개로 제한됩니다. Azure AD에서 기존 Azure AD 서비스 계정의 목록을 가져오려면 다음 Azure AD PowerShell cmdlet을 실행합니다. `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+
+사용하지 않는 Azure AD 서비스 계정을 제거하려면 다음 Azure AD PowerShell cmdlet을 실행합니다. `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](../active-directory-aadconnect.md)에 대해 자세히 알아봅니다.

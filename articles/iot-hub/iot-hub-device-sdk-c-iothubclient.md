@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
-translationtype: Human Translation
-ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
-ms.openlocfilehash: 669ef16c4fe2edd4525db6f693c424f3027793f3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 2f1689a2f59b779c83b6be746edda915fd67a3db
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -123,7 +125,7 @@ while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLI
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 
-기본적으로 백그라운드 스레드로 데이터를 전송 및 수신하는 API 집합이 하나만 있으며 백그라운드 스레드 없이 동일한 작업을 수행하는 API 집합도 있습니다. 많은 개발자들이 비-LL API를 선호하지만, 개발자가 네트워크 전송을 명시적으로 제어하고자 하는 경우에는 하위 수준 API가 유용합니다. 예를 들어, 일부 장치에서 시간에 따라 데이터를 수집하고 지정된 간격(예:&1;시간에 한 번, 하루에 한 번)으로만 이벤트를 수신합니다. 하위 수준 API는 IoT Hub에서 데이터 전송 및 수신 시 명시적으로 제어하는 기능을 제공합니다. 하위 수준 API가 제공하는 단순성만을 선호하는 사람도 있습니다. 일부 작업이 백그라운드로 수행되지 않고 모두 메인 스레드에서 수행됩니다.
+기본적으로 백그라운드 스레드로 데이터를 전송 및 수신하는 API 집합이 하나만 있으며 백그라운드 스레드 없이 동일한 작업을 수행하는 API 집합도 있습니다. 많은 개발자들이 비-LL API를 선호하지만, 개발자가 네트워크 전송을 명시적으로 제어하고자 하는 경우에는 하위 수준 API가 유용합니다. 예를 들어, 일부 장치에서 시간에 따라 데이터를 수집하고 지정된 간격(예: 1시간에 한 번, 하루에 한 번)으로만 이벤트를 수신합니다. 하위 수준 API는 IoT Hub에서 데이터 전송 및 수신 시 명시적으로 제어하는 기능을 제공합니다. 하위 수준 API가 제공하는 단순성만을 선호하는 사람도 있습니다. 일부 작업이 백그라운드로 수행되지 않고 모두 메인 스레드에서 수행됩니다.
 
 어떤 모델을 선택하든 사용하는 API와 일관되어야 합니다. **IoTHubClient\_LL\_CreateFromConnectionString**을 호출하여 시작하는 경우 후속 작업에 해당하는 하위 수준 API만 사용해야 합니다.
 
@@ -271,14 +273,9 @@ IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK][lnk
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [Azure IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

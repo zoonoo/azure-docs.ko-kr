@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 12df0d2afeb4abef4d22f7341c9b25ce504121c0
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: d1f1852d720ebf51df9ec3207b070510b08a6483
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -112,7 +113,7 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subn
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. AS 번호를 사용하여 VPN 게이트웨이 만들기
-TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. TestVNet1용 ASN(AS 번호)을 설정하려면 추가 매개 변수(-Asn)와 함께 BGP에 경로 기반 VPN 게이트웨이가 필요합니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면 30분 이상).
+TestVNet1용 가상 네트워크 게이트웨이를 만듭니다. TestVNet1용 ASN(AS 번호)을 설정하려면 추가 매개 변수(-Asn)와 함께 BGP에 경로 기반 VPN 게이트웨이가 필요합니다. ASN 매개 변수를 설정하지 않으면 ASN 65515가 할당됩니다. 게이트웨이 만들기는 꽤 시간이 걸릴 수 있습니다(완료되려면 30분 이상).
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN

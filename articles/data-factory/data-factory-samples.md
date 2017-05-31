@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 05/16/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 446a7b585ca1204d49d76f71106799cbd2b0aa70
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 3013607e62a3ac532cb0c035130fe35e503a345c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -40,6 +41,7 @@ ms.lasthandoff: 03/29/2017
 | [온-프레미스 Hortonworks Hadoop을 사용한 하이브리드 파이프라인](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) |이 샘플에서는 클라우드의 HDInsight 기반 Hadoop 클러스터와 같은 기타 계산 대상을 추가하는 경우처럼 Data Factory에서 작업을 실행하기 위한 계산 대상으로 온-프레미스 Hadoop 클러스터를 사용합니다. |
 | [JSON 변환 도구](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) |이 도구를 사용하면 Json을 2015-07-01-preview 이전 버전에서 2015-07-01-preview(기본값)로 변환할 수 있습니다. |
 | [U-SQL 샘플 입력 파일](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |U-SQL 작업에서 사용되는 샘플 파일입니다. |
+| [Blob 파일 삭제](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity) | 이 샘플에서는 ADF 사용자 지정 .net 작업의 일부로 사용하여 파일이 복사되면 원본 Azure Blob 위치에서 파일을 삭제할 수 있는 C# 파일을 보여 줍니다.|
 
 ## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿을 찾을 수 있습니다.
@@ -101,7 +103,7 @@ GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿�
    3. 데이터 팩터리를 만들려는 위치에 **Azure 구독** 을 선택합니다.
    4. 데이터 팩터리의 **리소스 그룹** 을 선택합니다.
    5. **지역**에서 **미국 서부**, **미국 동부** 또는 **북유럽**을 선택합니다.
-   6. **다음**을 클릭합니다.
+   6. **다음**을 누릅니다.
 6. **데이터 저장소 구성** 페이지에서 기존 **Azure SQL Database** 및 **Azure Storage 계정**을 지정하거나, 데이터베이스/저장소를 만들고 다음을 클릭합니다.
 7. **계산 구성** 페이지에서 기본값을 선택하고 **다음**을 클릭합니다.
 8. **요약** 페이지에서 모든 설정을 검토하고 **다음**을 클릭합니다.

@@ -1,6 +1,6 @@
 ---
-title: "특성을 사용하여 고급 규칙 만들기| Microsoft Docs"
-description: "지원되는 식 규칙 연산자 및 매개 변수를 포함하는 그룹에 대한 고급 규칙 만들기"
+title: "Azure Active Directory에서 사용자 특성에 따라 동적으로 그룹 채우기 | Microsoft Docs"
+description: "그룹 멤버 자격에 대해 지원되는 식 규칙 연산자 및 매개 변수를 포함한 고급 규칙을 만드는 방법입니다."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 05/14/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: d00375d9bc696b41a074eebe6d205e6907a54c4b
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: b0c8eb46b6c01662f0b53213843f8a7ad295e5aa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="using-attributes-to-create-advanced-rules"></a>특성을 사용하여 고급 규칙 만들기
-Azure 클래식 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azure Active Directory(Azure AD) 그룹에 대해 보다 복잡한 특성 기반 동적 멤버 자격을 사용할 수 있도록 합니다.  
+# <a name="populate-groups-dynamically-based-on-user-attributes"></a>사용자 특성에 따른 동적 그룹 채우기 
+Azure 클래식 포털에서는 Azure AD(Azure Active Directory) 그룹에 대해 더 복잡한 특성 기반의 동적 멤버 자격을 사용하도록 설정할 수 있는 기능을 제공합니다.  
 
 사용자의 특성이 변경될 때 사용자의 특성 변경 내용이 그룹 추가 또는 제거를 트리거할지를 확인하기 위해 시스템은 디렉터리에서 모든 동적 그룹 규칙을 평가합니다. 사용자가 그룹에 대한 규칙을 만족하면 해당 그룹에 대한 구성원으로 추가됩니다. 구성원인 그룹의 규칙을 더 이상 만족하지 않는 경우 해당 그룹의 구성원에서 제거됩니다.
 

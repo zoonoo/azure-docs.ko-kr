@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f9dc195040d0fa1321dff9ec97d9ca1e4770d325
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: fde08bfc3a73c54ee53b5d8efffd3001894416b3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/13/2017
 
 
 ---
@@ -74,11 +74,23 @@ ms.lasthandoff: 05/08/2017
 
     이러한 경우를 위한 특정 메시지가 있어서 문제를 해결하기 위해 어떤 작업을 수행할 수 있는지 사용자에게 알려줍니다.
 
-## <a name="scenarios-supported-for-password-writeback"></a>암호 쓰기 저장에 지원되는 시나리오
+## <a name="configuring-password-writeback"></a>비밀번호 쓰기 저장 구성
 
 비밀번호 쓰기 저장을 사용하려는 경우 [Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md)의 자동 업데이트 기능을 사용하는 것이 좋습니다.
 
-[DirSync 및 Azure AD Sync 지원 수명 주기](connect/active-directory-aadconnect-dirsync-deprecated.md)에 대한 자세한 내용
+DirSync와 Azure AD Sync는 비밀번호 쓰기 저장을 사용하는 방법으로 더 이상 지원되지 않습니다. [DirSync 및 Azure AD Sync에서 업그레이드](connect/active-directory-aadconnect-dirsync-deprecated.md) 문서에는 전환에 도움이 되는 정보가 있습니다.
+
+아래 단계에서는 사용자 환경에서 [기본](./connect/active-directory-aadconnect-get-started-express.md) 또는 [사용자 지정](./connect/active-directory-aadconnect-get-started-custom.md) 설정을 사용하여 Azure AD Connect를 이미 구성했다고 가정합니다.
+
+1. 비밀번호 쓰기 저장을 구성하고 사용하도록 설정하려면 Azure AD Connect 서버에 로그인하고 **Azure AD Connect** 구성 마법사를 시작합니다.
+2. [시작] 화면에서 **구성**을 클릭합니다.
+3. 추가 작업 화면에서 **동기화 옵션 사용자 지정**을 클릭한 후 **다음**을 선택합니다.
+4. [Azure AD에 연결] 화면에서 전역 관리자 자격 증명을 입력하고 **다음**을 선택합니다.
+5. [디렉터리 연결] 및 [도메인 및 OU 필터링] 화면에서 **다음**을 선택하면 됩니다.
+6. 선택적 기능 화면에서 **비밀번호 쓰기 저장** 옆에 있는 상자를 선택하고 **다음**을 클릭합니다.
+   ![Azure AD Connect에서 비밀번호 쓰기 저장 사용][Writeback]
+7. [구성 준비 완료] 화면에서 **구성**을 클릭하고 프로세스가 완료될 때까지 기다립니다.
+8. [구성 완료]가 표시되면 **종료**를 클릭하면 됩니다.
 
 ## <a name="licensing-requirements-for-password-writeback"></a>비밀번호 쓰기 저장에 대한 라이선스 요구 사항
 
@@ -183,4 +195,4 @@ ms.lasthandoff: 05/08/2017
 * [**질문과 대답**](active-directory-passwords-faq.md) - 어떤 방식으로? 그 이유는 무엇을? 어디서? 누가? 언제? - 많은 분들이 항상 묻는 질문에 대한 답변입니다.
 * [**문제 해결**](active-directory-passwords-troubleshoot.md) - SSPR의 일반적인 문제 해결 방법 알아보기
 
-
+[Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Azure AD Connect에서 비밀번호 쓰기 저장 사용"

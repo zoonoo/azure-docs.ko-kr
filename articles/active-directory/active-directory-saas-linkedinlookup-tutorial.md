@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: f343d8dbbd80de1a50b625e949377aa7c48d0cae
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: a4160a89c6a06222a9239d996fcca822e1a50382
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -128,7 +128,7 @@ LinkedIn Lookup에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
 7. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedInlookup_url1.png)
+    ![Single Sign-on 구성](./media/active-directory-saas-LinkedInlookup-tutorial/tutorial_linkedInlookup_url1.png)
 
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://www.linkedIn.com/checkpoint/enterprise/login/<AccountId>?application=lookup`
      
@@ -145,13 +145,13 @@ LinkedIn Lookup에서 Azure AD Single Sign-On을 구성하고 테스트하려면
     | --- | --- |    
     | department| user.department |
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
+   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-LinkedInlookup-tutorial/userattribute.png)
 
-       a. Click **Add attribute** to open the attribute details page add the department attribute as shown below-
+   a. **특성 추가**를 클릭하여 특성 세부 정보 페이지를 열고, 아래와 같이 부서 특성을 추가합니다.
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-LinkedInlookup-tutorial/adduserattribute.png)
+   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-LinkedInlookup-tutorial/adduserattribute.png)
    
-       b. Click **Ok** to save the attribute.
+   b. **확인**을 클릭하여 특성을 저장합니다.
 
 10. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
 

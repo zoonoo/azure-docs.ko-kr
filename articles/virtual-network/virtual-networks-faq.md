@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 58ee6e9cc14b01f10e20dfc3f289bfc6cc386e2a
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: d66489b43e983f313028a846d2b7da1534c86b53
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -148,7 +148,7 @@ Azure에서 제공하는 DNS는 Microsoft에서 제공하는 다중 테넌트 DN
 예. 리소스 관리자 배포 모델을 통해 배포된 VM에 연결된 모든 NIC(네트워크 인터페이스)는 VNet에 연결되어야 합니다. 클래식 배포 모델을 통해 배포된 VM은 VNet에 선택적으로 연결할 수 있습니다.
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>VM에 지정할 수 있는 IP 주소 유형에는 무엇이 있습니까?
-* **개인:** 각 VM 내에서 각 NIC에 할당됩니다. 정적 또는 동적 할당 메서드를 사용하여 주소를 할당합니다. VNet의 서브넷 설정에 지정한 범위에서 개인 IP 주소가 할당됩니다. 클래식 배포 모델을 통해 배포된 리소스는 VNet에 연결되지 않은 경우에도 개인 IP 주소를 수신합니다. 리소스가 할당 취소되거나(VM) 삭제될 때까지(VM 또는 클라우드 서비스 배포 슬롯) 동적 개인 IP 주소는 리소스에 할당된 상태로 유지됩니다. 리소스가 삭제될 때까지 정적 개인 IP 주소는 리소스에 할당된 상태로 유지됩니다.
+* **개인:** 각 VM 내에서 각 NIC에 할당됩니다. 주소는 고정 또는 동적 방법을 사용하여 할당됩니다. VNet의 서브넷 설정에 지정한 범위에서 개인 IP 주소가 할당됩니다. VNet에 연결되지 않은 경우에도 클래식 배포 모델을 통해 배포된 리소스에는 개인 IP 주소가 할당됩니다. 리소스가 삭제될 때까지(VM 또는 클라우드 서비스 배포 슬롯) 동적 방법으로 할당된 개인 IP 주소는 해당 리소스에 할당된 상태로 유지됩니다. VM이 중지됨(할당 취소됨) 상태에서 다시 시작될 때 동적 방법으로 할당된 개인 IP 주소가 변경될 수 있습니다. 리소스가 삭제될 때까지 고정 방법으로 할당된 개인 IP 주소는 해당 리소스에 할당된 상태로 유지됩니다. 리소스가 삭제될 때까지 리소스의 개인 IP 주소가 변경되지 않도록 하려면 개인 IP 주소를 고정 방법으로 할당합니다.
 * **공용:** 필요에 따라 Azure Resource Manager 배포 모델을 통해 배포된 VM에 연결된 NIC에 할당됩니다. 정적 또는 동적 할당 메서드를 사용하여 주소를 할당할 수 있습니다. 클래식 배포 모델을 통해 배포된 모든 VM 및 클라우드 서비스 역할 인스턴스는 클라우드 서비스 내에 존재하며 *동적*, 공용 VIP(가상 IP) 주소가 할당됩니다. [예약된 IP 주소](virtual-networks-reserved-public-ip.md)라고 하는 공용 *정적* IP 주소는 필요에 따라 VIP로 할당될 수 있습니다. 클래식 배포 모델을 통해 배포된 개별 VM 또는 클라우드 서비스 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이러한 주소는 [ILPIP(인스턴스 수준 공용 IP)](virtual-networks-instance-level-public-ip.md) 주소라고 하며 동적으로 할당될 수 있습니다.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>나중에 만들 VM에 대한 개인 IP 주소를 예약할 수 있습니까?

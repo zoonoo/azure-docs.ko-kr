@@ -1,6 +1,6 @@
 ---
-title: "Azure IoT Gateway SDK로 장치 시뮬레이션(Windows) | Microsoft Docs"
-description: "Azure IoT 게이트웨이 SDK를 사용하여 게이트웨이 통해 원격 분석을 IoT hub에 전송하는 시뮬레이션된 장치를 만드는 방법입니다."
+title: "Azure IoT Edge를 사용하여 장치 시뮬레이션(Windows) | Microsoft Docs"
+description: "Windows에서 Azure IoT Edge를 사용하여 Azure IoT Edge 게이트웨이를 통해 원격 분석을 IoT Hub에 전송하는 시뮬레이션된 장치를 만드는 방법입니다."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: andbuc
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 458984f75eed3a7a3102c288798b55664afaa37d
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 0ea8483e19ddec447642a33c24c9ecdd9937ea11
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="use-the-azure-iot-gateway-sdk-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Azure IoT Gateway SDK를 사용하여 시뮬레이션된 장치로 장치-클라우드 메시지 보내기(Windows)
+# <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>Azure IoT Edge를 사용하여 시뮬레이션된 장치(Windows)에서 장치-클라우드 메시지 보내기
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>샘플 빌드 및 실행
@@ -34,18 +35,18 @@ ms.lasthandoff: 03/31/2017
 샘플을 빌드하려면
 
 1. **VS 2015용 개발자 명령 프롬프트** 또는 **VS 2017용 개발자 명령 프롬프트** 명령 프롬프트를 엽니다.
-2. **azure-iot-gateway-sdk** 리포지토리의 로컬 복사본에서 루트 폴더로 이동합니다.
-3. **tools\\build.cmd** 스크립트를 실행합니다. 이 스크립트는 Visual Studio 솔루션 파일을 만들고 솔루션을 빌드합니다. Visual Studio 솔루션은 **azure-iot-gateway-sdk** 리포지토리의 로컬 복사본에 있는 **build** 폴더에서 찾을 수 있습니다. 스크립트에 추가 매개 변수를 제공하여 단위 테스트 및 종단간 테스트를 빌드하여 실행할 수 있습니다. 이러한 매개 변수는 각각 **--run-unittests** 및 **--run-e2e-tests**입니다.
+2. **iot-edge** 리포지토리의 로컬 복사본에 있는 루트 폴더로 이동합니다.
+3. **tools\\build.cmd** 스크립트를 실행합니다. 이 스크립트는 Visual Studio 솔루션 파일을 만들고 솔루션을 빌드합니다. Visual Studio 솔루션은 **iot-edge** 리포지토리의 로컬 복사본에 있는 **build** 폴더에서 찾을 수 있습니다. 스크립트에 추가 매개 변수를 제공하여 단위 테스트 및 종단간 테스트를 빌드하여 실행할 수 있습니다. 이러한 매개 변수는 각각 **--run-unittests** 및 **--run-e2e-tests**입니다.
 
 샘플을 실행하려면
 
-텍스트 편집기에서 **azure-iot-gateway-sdk** 리포지토리의 로컬 복사본에 있는 **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json** 파일을 엽니다. 이 파일은 샘플 게이트웨이의 모듈을 구성합니다.
+텍스트 편집기에서 **iot-edge** 리포지토리의 로컬 복사본에 있는 **samples\\simulated_device_cloud_upload\\src\\simulated_device_cloud_upload_win.json** 파일을 엽니다. 이 파일은 샘플 게이트웨이에서 IoT Edge 모듈을 구성합니다.
 
 * **IoTHub** 모듈이 IoT Hub에 연결됩니다. IoT Hub에 데이터를 보내도록 이를 구성합니다. 특히 **IoTHubName** 값을 IoT Hub의 이름으로 설정하고, **IoTHubSuffix** 값을 **azure-devices.net**으로 설정합니다. "HTTP", "AMQP" 또는 "MQTT" 중 하나에 **Transport** 값을 설정합니다. 현재 "HTTP" 만이 모든 장치 메시지에 대한 하나의 TCP 연결을 공유합니다. 값을 "AMQP" 또는 "MQTT"로 설정하는 경우 게이트웨이는 각 장치에 대해 IoT Hub에 대한 별도의 TCP 연결을 유지합니다.
 * **mapping** 모듈은 시뮬레이션된 장치의 MAC 주소를 IoT Hub 장치 ID에 매핑합니다. **deviceId** 값이 IoT Hub에 추가한 두 장치의 ID와 일치하는지, 그리고 **deviceKey** 값에 두 장치의 키가 포함되어 있는지 확인합니다.
 * **BLE1** 및 **BLE2** 모듈은 시뮬레이션된 장치입니다. 해당 모듈 MAC 주소가 **mapping** 모듈의 주소와 어떻게 일치되는지 확인합니다.
 * **Logger** 모듈은 게이트웨이 활동을 파일에 로깅합니다.
-* 다음 예제에 표시된 **module path** 값은 IoT Gateway SDK 리포지토리를 **C:** 드라이브의 루트에 복제한 것으로 가정합니다. 다른 위치에 다운로드한 경우 해당 위치에 맞게 **module path** 값을 조정해야 합니다.
+* 다음 예제에 표시된 **module path** 값은 IoT Edge 리포지토리를 **C:** 드라이브의 루트에 복제한 것으로 가정합니다. 다른 위치에 다운로드한 경우 해당 위치에 맞게 **module path** 값을 조정해야 합니다.
 * JSON 파일의 맨 아래에 있는 **링크** 배열은 **BLE1** 및 **BLE2** 모듈을 **매핑** 모듈에 연결하고 **매핑** 모듈을 **IoTHub** 모듈에 연결합니다. 또한 **로거** 모듈이 모든 메시지를 기록하는지 확인합니다.
 
 ```
@@ -137,7 +138,7 @@ ms.lasthandoff: 03/31/2017
 
 샘플을 실행하려면
 
-1. 명령 프롬프트에서 **azure-iot-gateway-sdk** 리포지토리의 로컬 복사본 루트 폴더로 이동합니다.
+1. 명령 프롬프트에서 **iot-edge** 리포지토리의 로컬 복사본에 있는 루트 폴더로 이동합니다.
 2. 다음 명령을 실행합니다.
    
     ```
@@ -146,10 +147,10 @@ ms.lasthandoff: 03/31/2017
 3. [장치탐색기][lnk-device-explorer] 또는 [iothub-explorer][lnk-iothub-explorer] 도구를 사용하여 IoT Hub가 게이트웨이에서 수신하는 메시지를 모니터링할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-IoT Gateway SDK와 코드 예제 실험에 대해 더욱 심도 있게 이해하고 싶다면 다음 개발자 자습서 및 리소스를 참고하세요.
+IoT Edge와 코드 예제 실험에 대해 더욱 심도 있게 이해하고 싶다면 다음 개발자 자습서 및 리소스를 참고하세요.
 
-* [IoT Gateway SDK를 사용하여 물리적 장치에서 장치-클라우드 메시지 보내기][lnk-physical-device]
-* [Azure IoT Gateway SDK][lnk-gateway-sdk]
+* [IoT Edge를 사용하여 물리적 장치에서 장치-클라우드 메시지 보내기][lnk-physical-device]
+* [Azure IoT Edge][lnk-gateway-sdk]
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
@@ -157,11 +158,11 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 * [처음부터 IoT 솔루션 보안 유지][lnk-securing]
 
 <!-- Links -->
-[lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
+[lnk-setupdevbox]: https://github.com/Azure/iot-edge/blob/master/doc/devbox_setup.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
 [lnk-iothub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge/
 
 [lnk-physical-device]: iot-hub-gateway-sdk-physical-device.md
 

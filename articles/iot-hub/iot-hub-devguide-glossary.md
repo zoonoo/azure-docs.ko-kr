@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: d47a28b31569d26a7752fc830989e8050153be46
-ms.lasthandoff: 05/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 2fad3e3fb88d447b377ccfce052035640c1360c3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -37,8 +38,8 @@ ms.lasthandoff: 05/02/2017
 ## <a name="azure-iot-device-sdks"></a>Azure IoT 장치 SDK
 여러 언어로 된 _장치 SDK_가 제공되어 이를 통해 IoT Hub와 상호 작용하는 [장치 앱](#device-app)을 만들 수 있습니다. IoT Hub 자습서는 이러한 장치 SDK를 사용하는 방법을 보여 줍니다. 이 GitHub [리포지토리](https://github.com/Azure/azure-iot-sdks)에서 장치 SDK에 대한 소스 코드와 추가 정보를 확인할 수 있습니다.
 
-## <a name="azure-iot-gateway-sdk"></a>Azure IoT Gateway SDK
-이 SDK를 통해 게이트웨이 연결 장치가 [IoT Hub](#iot-hub)와 통신할 수 있도록 해주는 응용 프로그램을 작성할 수 있습니다. IoT Hub 게이트웨이 자습서는 이 SDK를 사용하는 방법을 보여 줍니다. 이 GitHub [리포지토리](https://github.com/Azure/azure-iot-gateway-sdk)에서 Azure IoT Gateway SDK에 대한 소스 코드와 추가 정보를 확인할 수 있습니다.
+## <a name="azure-iot-edge"></a>Azure IoT Edge
+IoT Edge를 통해 게이트웨이 연결 장치가 [IoT Hub](#iot-hub)와 통신할 수 있도록 해주는 응용 프로그램을 작성할 수 있습니다. IoT Edge 자습서는 이 서비스를 사용하는 방법을 보여줍니다. 이 GitHub [리포지토리](https://github.com/Azure/iot-edge)에서 Azure IoT Edge에 대한 소스 코드와 추가 정보를 확인할 수 있습니다.
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT 서비스 SDK
 여러 언어로 된 _장치 SDK_가 제공되어 이를 통해 IoT Hub와 상호 작용하는 [백 엔드 앱](#back-end-app)을 만들 수 있습니다. IoT Hub 자습서는 이러한 서비스 SDK를 사용하는 방법을 보여 줍니다. 이 GitHub [리포지토리](https://github.com/Azure/azure-iot-sdks)에서 서비스 SDK에 대한 소스 코드와 추가 정보를 확인할 수 있습니다.
@@ -79,7 +80,7 @@ IoT Hub에서 연결된 장치로 전송되는 메시지를 참조하세요. 대
 IoT Hub에 사용자 지정 [끝점](iot-hub-devguide-endpoints.md)을 만들어 [라우팅 규칙](#routing-rules)으로 발송된 메시지를 배달할 수 있습니다. 사용자 지정 끝점은 Event Hub, Service Bus 큐 또는 Service Bus 토픽에 직접 연결됩니다.
 
 ## <a name="custom-gateway"></a>사용자 지정 게이트웨이
-게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 장치의 연결이 가능합니다. [Azure IoT Gateway SDK](#azure-iot-gateway-sdk)를 사용하여 메시지 및 사용자 지정 프로토콜 변환을 처리하는 사용자 지정 논리를 구현하는 사용자 지정 게이트웨이를 빌드할 수 있습니다.
+게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 장치의 연결이 가능합니다. [Azure IoT Edge](#azure-iot-gateway-sdk)를 사용하여 메시지, 사용자 지정 프로토콜 변환 및 에지의 다른 프로세스를 처리하도록 사용자 지정 논리를 구현하는 사용자 지정 게이트웨이를 빌드할 수 있습니다.
 
 ## <a name="data-point-message"></a>데이터 요소 메시지
 데이터 요소 메시지는 풍속 또는 온도와 같은 [원격 분석](#telemetry) 데이터를 포함하는 [클라우드-장치](#device-to-cloud) 메시지입니다.
@@ -190,7 +191,7 @@ Azure IoT Suite는 Azure 서비스를 미리 구성된 솔루션과 함께 패�
 [작업 REST API](https://docs.microsoft.com/rest/api/iothub/jobapi)는 IoT Hub에서 실행되는 [작업](#job)을 관리할 수 있게 해줍니다.
 
 ## <a name="module"></a>모듈
-[Azure IoT Gateway SDK](iot-hub-linux-gateway-sdk-get-started.md)에서 [모듈](iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts)은 특정 작업을 수행하는 구성 요소입니다. 작업에는 장치에서 메시지 수집, 메시지 변환 또는 IoT Hub로 메시지 보내기가 포함됩니다. broker는 모듈 간 메시지 전달을 담당합니다. Azure IoT Gateway SDK에는 샘플 모듈 집합이 포함됩니다. 사용자 고유의 사용자 지정 모듈을 만들 수도 있습니다.
+[Azure IoT Edge](iot-hub-linux-gateway-sdk-get-started.md)에서 [모듈](iot-hub-linux-gateway-sdk-get-started.md)은 특정 작업을 수행하는 구성 요소입니다. 작업에는 장치에서 메시지 수집, 메시지 변환 또는 IoT Hub로 메시지 보내기가 포함됩니다. broker는 모듈 간 메시지 전달을 담당합니다. Azure IoT Edge에는 일련의 샘플 모듈이 포함됩니다. 사용자 고유의 사용자 지정 모듈을 만들 수도 있습니다.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/)는 [IoT Hub](#iot-hub)에서 장치와 통신을 위해 지원하는 메시징 프로토콜 중 하나입니다. IoT Hub에서 지원하는 메시징 프로토콜에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.

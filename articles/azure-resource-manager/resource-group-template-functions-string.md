@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 05/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 9b75d0ede3ec1b291936ee0a53778afe10ba91db
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 9932ac04699f49b7a3ea3dabe4d380fdc4d05ec1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -939,21 +939,21 @@ int입니다.
 <a id="replace" />
 
 ## <a name="replace"></a>replace
-`replace(originalString, oldCharacter, newCharacter)`
+`replace(originalString, oldString, newString)`
 
-새 문자열을 다른 문자로 대체한 지정된 문자열에서 한 문자의 인스턴스로 반환합니다.
+다른 문자열로 대체한 어떤 문자열의 인스턴스를 포함한 새 문자열을 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| originalString |예 |string |다른 문자로 대체하는 한 문자의 모든 인스턴스가 있는 값입니다. |
-| oldCharacter |예 |string |원래 문자열에서 제거할 문자입니다. |
-| newCharacter |예 |string |제거된 문자 대신 추가하는 문자입니다. |
+| originalString |예 |string |다른 문자열로 대체한 어떤 문자열의 인스턴스를 포함하는 값입니다. |
+| oldString |예 |string |원래 문자열에서 제거할 문자열입니다. |
+| newString |예 |string |제거된 문자열 대신 추가할 문자열입니다. |
 
 ### <a name="examples"></a>예
 
-다음 예제는 사용자가 제공한 문자열에서 모든 대시를 제거하는 방법을 보여줍니다.
+다음 예제에서는 사용자가 제공한 문자열에서 모든 대시를 제거하는 방법 및 문자열의 일부를 다른 문자열로 대체하는 방법을 보여줍니다.
 
 ```json
 {
@@ -967,9 +967,13 @@ int입니다.
     },
     "resources": [],
     "outputs": {
-        "stringOutput": {
+        "firstOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
+        },
+        "secodeOutput": {
+            "type": "string",
+            "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
     }
 }

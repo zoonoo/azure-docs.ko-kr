@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 864526efd2bc90bdd4beeb4c81173e85eee6f34b
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 44e0d7c920bc32bf3293ca5ab197b6d2332a43f8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -35,7 +36,6 @@ ms.lasthandoff: 04/27/2017
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
-
 Azure Data Factory 파이프라인에서 사용할 수 있는 두 가지 작업 유형이 있습니다.
 
 - [데이터 이동 작업](data-factory-data-movement-activities.md)은 [지원되는 원본 및 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 간에 데이터를 이동하는 작업입니다.
@@ -51,7 +51,7 @@ Virtual Machines의 **Azure Batch** 풀 또는 Windows 기반 **Azure HDInsight*
 > - 사용자 지정 .NET 작업은 Windows 기반 HDInsight 클러스터에서만 실행됩니다. 이 제한 사항에 대한 해결 방법은 MapReduce 작업을 사용하여 Linux 기반 HDInsight 클러스터에서 사용자 지정 Java 코드를 실행하는 것입니다. 또 다른 옵션은 VM의 Azure Batch 풀을 사용하여 HDInsight 클러스터를 사용하는 대신 사용자 지정 작업을 실행하는 것입니다.
 > - 사용자 지정 작업에서 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 원본에 액세스할 수는 없습니다. 현재 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)에서는 Data Factory의 복사 작업 및 저장 프로시저 작업만 지원합니다.   
 
-## <a name="walkthrough"></a>연습
+## <a name="walkthrough-create-a-custom-activity"></a>연습: 사용자 지정 작업 만들기
 ### <a name="prerequisites"></a>필수 조건
 * Visual Studio 2012/2013/2015
 * [Azure .NET SDK][azure-developer-center] 다운로드 및 설치
@@ -63,7 +63,7 @@ Virtual Machines의 **Azure Batch** 풀 또는 Windows 기반 **Azure HDInsight*
 
 1. **Azure 포털** 을 사용하여 [Azure 배치 계정](http://portal.azure.com)을 만듭니다. 지침은 [Azure Batch 계정 만들기 및 관리][batch-create-account] 문서를 참조하세요.
 2. Azure Batch 계정 이름, 계정 키, URI 및 풀 이름을 적어둡니다. Azure Batch 연결된 서비스를 만드는 데 필요합니다.
-    1. Azure Batch 계정의 홈 페이지에서 `https://myaccount.westus.batch.azure.com` 형식의 **URL**이 표시됩니다. 이 예제에서 **myaccount**는 Azure Batch 계정 이름입니다. 연결된 서비스 정의에서 사용하는 URI는 계정 이름이 없는 URL입니다. 예: `https://westus.batch.azure.com`
+    1. Azure Batch 계정의 홈 페이지에서 `https://myaccount.westus.batch.azure.com` 형식의 **URL**이 표시됩니다. 이 예제에서 **myaccount**는 Azure Batch 계정 이름입니다. 연결된 서비스 정의에서 사용하는 URI는 계정 이름이 없는 URL입니다. 예: `https://<region>.batch.azure.com`
     2. 왼쪽 메뉴에서 **키**를 클릭하고 **기본 액세스 키**를 복사합니다.
     3. 기존 풀을 사용하려면 메뉴에서 **풀**을 클릭하고 풀의 **ID**를 메모해둡니다. 기존 풀이 없는 경우 다음 단계로 이동합니다.     
 2. **Azure 배치 풀**을 만듭니다.
@@ -88,7 +88,7 @@ Virtual Machines의 **Azure Batch** 풀 또는 Windows 기반 **Azure HDInsight*
 1. 간단한 데이터 변환/처리 논리가 포함된 사용자 지정 작업을 만듭니다.
 2. 사용자 지정 작업을 사용하는 파이프라인으로 Azure Data Factory를 만듭니다.
 
-## <a name="create-a-custom-activity"></a>사용자 지정 작업 만들기
+### <a name="create-a-custom-activity"></a>사용자 지정 작업 만들기
 .NET 사용자 지정 작업을 만들려면 **IDotNetActivity** 인터페이스를 구현하는 클래스를 사용하는 **.NET 클래스 라이브러리** 프로젝트를 만들어야 합니다. 이 인터페이스는 [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx) 라는 메서드 하나만 포함하며 서명은 다음과 같습니다.
 
 ```csharp
@@ -112,10 +112,10 @@ public IDictionary<string, string> Execute(
 ### <a name="procedure"></a>절차
 1. **.NET 클래스 라이브러리** 프로젝트를 만듭니다.
    <ol type="a">
-     <li><b>Visual Studio 2015</b>, <b>Visual Studio 2013</b> 또는 <b>Visual Studio 2012</b>를 시작합니다.</li>
-     <li><b>File</b>을 클릭하고 <b>New</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li>
+     <li><b>Visual Studio 2017</b> 또는 <b>Visual Studio 2015</b> 또는 <b>Visual Studio 2013</b> 또는 <b>Visual Studio 2012</b>를 시작합니다.</li>
+     <li><b>파일</b>을 클릭하고 <b>새로 만들기</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li>
      <li><b>템플릿</b>을 확장하고 <b>Visual C#</b>를 선택합니다. 이 연습에서는 C#을 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.</li>
-     <li>오른쪽의 프로젝트 형식 목록에서 <b>클래스 라이브러리</b>를 선택합니다.</li>
+     <li>오른쪽의 프로젝트 형식 목록에서 <b>클래스 라이브러리</b>를 선택합니다. VS 2017에서 <b>클래스 라이브러리(.NET Framework)</b> 를 선택합니다.</li>
      <li><b>이름</b>에 <b>MyDotNetActivity</b>를 입력합니다.</li>
      <li><b>위치</b>에 <b>C:\ADFGetStarted</b>를 선택합니다.</li>
      <li><b>확인</b> 을 클릭하여 프로젝트를 만듭니다.</li>
@@ -137,16 +137,27 @@ public IDictionary<string, string> Execute(
 5. 다음 **using** 문을 프로젝트의 원본 파일에 추가합니다.
 
     ```csharp
-    using System.IO;
-    using System.Globalization;
-    using System.Diagnostics;
-    using System.Linq;
 
-    using Microsoft.Azure.Management.DataFactories.Models;
-    using Microsoft.Azure.Management.DataFactories.Runtime;
+// Comment these lines if using VS 2017
+using System.IO;
+using System.Globalization;
+using System.Diagnostics;
+using System.Linq;
+// --------------------
 
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Blob;
+// Comment these lines if using <= VS 2015
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+// ---------------------
+
+using Microsoft.Azure.Management.DataFactories.Models;
+using Microsoft.Azure.Management.DataFactories.Runtime;
+
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
     ```
 6. **namespace**의 이름을 **MyDotNetActivityNS**로 변경합니다.
 
@@ -378,14 +389,13 @@ public IDictionary<string, string> Execute(
     > 사용자 지정 작업에 대한 zip 파일의 모든 파일은 하위 폴더가 없는 **최상위** 여야 합니다.
 
     ![이진 출력 파일](./media/data-factory-use-custom-activities/Binaries.png)
-14. 명명된 Blob 컨테이너 **customactivitycontainer**가 아직 없는 경우 새로 만듭니다.
+14. 명명된 Blob 컨테이너 **customactivitycontainer**가 아직 없는 경우 새로 만듭니다.    
 15. MyDotNetActivity.zip을 AzureStorageLinkedService에서 참조되는 **범용** Azure Blob Storage(보류/쿨 Blob Storage 아님)의 customactivitycontainer에 Blob으로 업로드합니다.  
 
-> [!NOTE]
-> Data Factory 프로젝트를 포함하는 Visual Studio의 솔루션에 이 .NET 작업 프로젝트를 추가하고 Data Factory 응용 프로그램 프로젝트의 .NET 작업 프로젝트에 참조를 추가하는 경우에는 zip 파일을 만들고 범용 Azure Blob Storage에 업로드하는 마지막 두 단계를 수행할 필요가 없습니다. Visual Studio를 사용하여 데이터 팩터리 엔터티를 게시하면 이러한 단계가 게시 프로세스에서 자동으로 수행됩니다. Visual Studio를 사용하여 Data Factory 엔터티를 만들고 게시하는 방법에 대해 자세히 알아보려면 [Visual Studio를 사용하여 첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline-using-vs.md) 및 [Azure Blob에서 Azure SQL로 데이터 복사](data-factory-copy-activity-tutorial-using-visual-studio.md) 문서를 참조하세요.  
+> [!IMPORTANT]
+> Data Factory 프로젝트를 포함하는 Visual Studio의 솔루션에 이 .NET 작업 프로젝트를 추가하고 Data Factory 응용 프로그램 프로젝트의 .NET 작업 프로젝트에 참조를 추가하는 경우에는 zip 파일을 만들고 범용 Azure Blob Storage에 업로드하는 마지막 두 단계를 수행할 필요가 없습니다. Visual Studio를 사용하여 데이터 팩터리 엔터티를 게시하면 이러한 단계가 게시 프로세스에서 자동으로 수행됩니다. 자세한 내용은 [Visual Studio의 데이터 팩터리 프로젝트](#data-factory-project-in-visual-studio) 섹션을 참조하세요.
 
-
-## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다. 
+## <a name="create-a-pipeline-with-custom-activity"></a>사용자 지정 작업을 포함하는 파이프라인 만들기
 사용자 지정 작업을 만들어 이진 파일이 있는 zip 파일을 **범용** Azure Storage 계정의 Blob 컨테이너에 업로드했습니다. 이 섹션에서는 사용자 지정 작업을 사용하는 파이프라인으로 Azure Data Factory를 만듭니다.
 
 사용자 지정 작업에 대한 입력 데이터 집합은 Blob Storage에서 adftutorial 컨테이너의 customactivityinput 폴더에 있는 Blob(파일)을 나타냅니다. 작업에 대한 출력 데이터 집합은 Blob Storage에서 adftutorial 컨테이너의 customactivityoutput 폴더에 있는 출력 Blob을 나타냅니다.
@@ -650,7 +660,21 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 
 데이터 집합 및 파이프라인 모니터링에 대한 자세한 단계는 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 를 참조하세요.      
 
-### <a name="data-factory-and-batch-integration"></a>Data Factory 및 배치 통합
+## <a name="data-factory-project-in-visual-studio"></a>Visual Studio의 데이터 팩터리 프로젝트  
+Azure Portal 대신 Visual Studio를 사용하여 데이터 팩터리 엔터티를 만들고 게시할 수 있습니다. Visual Studio를 사용하여 데이터 팩터리 엔터티를 만들고 게시하는 방법에 대한 자세한 내용은 [Visual Studio를 사용하여 첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline-using-vs.md) 및 [Azure Blob에서 Azure SQL로 데이터 복사](data-factory-copy-activity-tutorial-using-visual-studio.md) 문서를 참조하세요.
+
+Visual Studio에서 데이터 팩터리 프로젝트를 만드는 경우 다음과 같은 추가 단계를 수행합니다.
+ 
+1. 사용자 지정 작업 프로젝트가 포함된 Visual Studio 솔루션에 데이터 팩터리 프로젝트를 추가합니다. 
+2. 데이터 팩터리 프로젝트에서 .NET 작업 프로젝트에 대한 참조를 추가합니다. 데이터 팩터리 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가**를 가리킨 다음 **참조**를 클릭합니다. 
+3. **참조 추가** 대화 상자에서 **MyDotNetActivity** 프로젝트를 선택하고 **확인**을 클릭합니다.
+4. 솔루션을 빌드하여 게시합니다.
+
+    > [!IMPORTANT]
+    > 데이터 팩터리 엔터티를 게시하면 zip 파일이 자동으로 생성되어 Blob 컨테이너 customactivitycontainer에 업로드됩니다. Blob 컨테이너가 없으면 자동으로 생성됩니다.  
+
+
+## <a name="data-factory-and-batch-integration"></a>Data Factory 및 배치 통합
 Data Factory 서비스가 Azure Batch에 **adf-poolname:job-xxx**라는 이름으로 작업을 만듭니다. 왼쪽 메뉴에서 **작업**을 클릭합니다. 
 
 ![Azure Data Factory - 배치 작업](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
@@ -880,7 +904,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 ```
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>.NET SDK를 사용하여 사용자 지정 작업 만들기
-다음 코드는 .NET SDK를 사용하여 이 문서의 연습에서 데이터 팩터리를 만듭니다. [이 문서](data-factory-copy-activity-tutorial-using-dotnet-api.md)에서 SDK를 사용하여 프로그래밍 방식으로 파이프라인을 만드는 방법에 대해 자세히 알아볼 수 있습니다.
+이 문서의 연습에서는 Azure Portal을 사용하여 사용자 지정 작업을 사용하는 파이프라인이 포함된 데이터 팩터리를 만듭니다. 다음 코드는 .NET SDK를 대신 사용하여 데이터 팩터리를 만드는 방법을 보여 줍니다. SDK를 사용하여 프로그래밍 방식으로 파이프라인을 만드는 방법에 대한 자세한 내용은 [.NET API를 사용하여 복사 작업이 포함된 파이프라인 만들기](data-factory-copy-activity-tutorial-using-dotnet-api.md) 문서를 참조하세요. 
 
 ```csharp
 using System;
@@ -1119,8 +1143,11 @@ namespace DataFactoryAPITestApp
 }
 ```
 
+## <a name="debug-custom-activity-in-visual-studio"></a>Visual Studio에서 사용자 지정 작업 디버깅
+GitHub의 [Azure Data Factory - 로컬 환경](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvironment) 샘플은 Visual Studio 내에서 사용자 지정 .NET 작업을 디버깅할 수 있는 도구를 포함하고 있습니다.  
 
-## <a name="examples"></a>예
+
+## <a name="sample-custom-activities-on-github"></a>GitHub의 샘플 사용자 지정 작업
 | 샘플 | 사용자 지정 작업의 기능 |
 | --- | --- |
 | [HTTP 데이터 다운로더](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |Data Factory의 사용자 지정 C# 작업을 사용하여 HTTP 끝점에서 Azure Blob 저장소로 데이터를 다운로드합니다. |
@@ -1128,8 +1155,6 @@ namespace DataFactoryAPITestApp
 | [R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) |R이 이미 설치된 HDInsight 클러스터에서 RScript.exe를 실행하여 R 스크립트를 호출합니다. |
 | [크로스 AppDomain .NET 작업](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Data Factory 시작 관리자가 사용한 것과 다른 버전의 어셈블리를 사용합니다. |
 | [Azure Analysis Services에서 모델 다시 처리](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Azure Analysis Services에서 모델을 다시 처리합니다. |
-| [로컬에서 사용자 지정 작업 디버그](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFCustomActivityRunner) | 사용자 지정 작업 실행기를 사용하면 파이프라인에서 구성된 정보를 사용하여 ADF(Azure Data Factory) 사용자 지정 .NET 작업에 대해 한 단계씩 코드를 실행하고 디버그할 수 있습니다. | 
-
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../batch/batch-account-create-portal.md

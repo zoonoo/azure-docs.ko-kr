@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 0231c3148d03ffef0a518a68bb79398462da2605
-ms.openlocfilehash: 89721efbb9f05871716ca1b16ad0d54eaf1ffd62
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 0b63228e5b09f5d22fc55818986a0a2eb1204278
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -163,7 +164,7 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 클러스터 업그레이드 모드를 설정하는 기능 외에도 라이브 클러스터에서 변경할 수 있는 구성은 다음과 같습니다.
 
 ### <a name="certificates"></a>인증서
-포털을 통해 클러스터 및 클라이언트에 대한 인증서를 쉽게 새로 추가하거나 삭제할 수 있습니다.  [자세한 지침은 이 문서](service-fabric-cluster-security-update-certs-azure.md)
+포털을 통해 클러스터 및 클라이언트에 대한 인증서를 쉽게 새로 추가하거나 삭제할 수 있습니다. [자세한 지침은 이 문서](service-fabric-cluster-security-update-certs-azure.md)
 
 ![Azure 포털의 인증서 지문을 보여 주는 스크린샷][CertificateUpgrade]
 
@@ -206,15 +207,15 @@ Microsoft는 Azure 클러스터에서 실행하는 패브릭 코드 및 구성�
 설정에 대한 내용과 설정을 사용자 지정하는 방법은 [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md) 을 참조하세요.
 
 ### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>클러스터를 구성하는 VM의 OS 패치
-이 기능은 향후 자동화된 기능으로 제공될 예정입니다. 하지만 지금은 사용자가 VM에 패치를 적용해야 합니다. 한 번에 하나의 VM에 이를 수행하여 한 번에 둘 이상의 VM이 작동 중지되지 않도록 해야 합니다.
+[패치 오케스트레이션 응용 프로그램](service-fabric-patch-orchestration-application.md)을 참조하세요. 그러면 오케스트레이션된 방식으로 Windows Update에서 패치를 설치하도록 클러스터에 배포할 수 있으므로 서비스를 항상 사용할 수 있도록 유지합니다. 
 
 ### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>클러스터를 구성하는 VM의 OS 업그레이드
 클러스터의 가상 컴퓨터의 OS 이미지를 업그레이드해야 하는 경우 한 번에 하나의 VM에 이 작업을 수행하고 이 업그레이드에 대한 책임을 져야 합니다. 현재 자동화 기능은 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-*  [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
-*  [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
-*  [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+* [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
+* [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
+* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

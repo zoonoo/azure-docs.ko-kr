@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 05/11/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 942e3b4fbc9a954eae0cc609e800d0fe0b882475
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 1436b39fdb9a66a00903442496cc5203b47c1bcb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/13/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/11/2017
 
 ## <a name="example-template"></a>예제 템플릿
 
-다른 리소스를 대상으로 지정하려면 배포 중에 중첩되거나 연결된 템플릿을 사용해야 합니다. `Microsoft.Resources/deployments` 리소스 종류는 부모 템플릿에서 사용하는 리소스 그룹과 다른 리소스 그룹을 지정할 수 있게 하는 `resourceGroup` 매개 변수를 제공합니다. 모든 리소스 그룹은 배포를 실행하기 전에 존재해야 합니다. 다음 예제에서는 배포 중에 지정한 리소스 그룹 및 `crossResourceGroupDeployment`이라는 리소스 그룹에 각각 하나씩 두 개의 저장소 계정을 배포합니다.
+다른 리소스를 대상으로 지정하려면 배포 중에 중첩되거나 연결된 템플릿을 사용해야 합니다. `Microsoft.Resources/deployments` 리소스 형식은 중첩된 배포에 다른 리소스 그룹을 지정할 수 있는 `resourceGroup` 매개 변수를 제공합니다. 모든 리소스 그룹은 배포를 실행하기 전에 존재해야 합니다. 다음 예제에서는 배포 중에 지정한 리소스 그룹 및 `crossResourceGroupDeployment`이라는 리소스 그룹에 각각 하나씩 두 개의 저장소 계정을 배포합니다.
 
 ```json
 {
@@ -123,3 +123,4 @@ az group deployment create \
 * 템플릿에서 매개 변수를 정의하는 방법을 이해하려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](resource-group-authoring-templates.md)를 참조하세요.
 * 일반적인 배포 오류를 해결하는 방법은 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 * SAS 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 개인 템플릿 배포](resource-manager-powershell-sas-token.md)를 참조하세요.
+

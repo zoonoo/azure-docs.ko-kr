@@ -1,13 +1,13 @@
 ---
-title: "Azure DocumentDB를 사용하는 다중 마스터 데이터베이스 아키텍처 | Microsoft Docs"
-description: "Azure DocumentDB로 여러 지리적 지역에서 로컬 읽기 및 쓰기가 가능한 응용 프로그램 아키텍처를 디자인하는 방법을 알아봅니다."
-services: documentdb
+title: "Azure Cosmos DB를 사용하는 다중 마스터 데이터베이스 아키텍처 | Microsoft Docs"
+description: "Azure Cosmos DB로 여러 지리적 지역에서 로컬 읽기 및 쓰기가 가능한 응용 프로그램 아키텍처를 디자인하는 방법을 알아봅니다."
+services: cosmosdb
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: 
 ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,20 +15,21 @@ ms.workload: na
 ms.date: 01/25/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: d6292567bbf7afd71b21be3b236537c609c63644
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: e0648e80d4bef0a98854a85e36bc48dcc209eb47
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
-# <a name="multi-master-globally-replicated-database-architectures-with-documentdb"></a>DocumentDB를 사용하는 다중 마스터 전역 복제 데이터베이스 아키텍처
-DocumentDB는 턴키 [전역 복제](documentdb-distribute-data-globally.md)를 지원하므로 워크로드 어디서나 여러 지역에 데이터를 분산할 수 있으며 액세스 대기 시간이 짧습니다. 이 모델은 한 지역에 기록기가 있고 다른 (읽기) 지역에 지리적으로 분산된 판독기가 있는 게시자/소비자 워크로드에 주로 사용됩니다. 
+# <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하는 다중 마스터 전역 복제 데이터베이스 아키텍처
+Azure Cosmos DB는 턴키 [전역 복제](documentdb-distribute-data-globally.md)를 지원하므로 워크로드 어디서나 여러 지역에 데이터를 분산할 수 있으며 액세스 대기 시간이 짧습니다. 이 모델은 한 지역에 기록기가 있고 다른 (읽기) 지역에 지리적으로 분산된 판독기가 있는 게시자/소비자 워크로드에 주로 사용됩니다. 
 
-DocumentDB의 글로벌 복제 지원을 사용하여 기록기 및 판독기가 전역에 분산되는 응용 프로그램을 빌드할 할 수도 있습니다. 이 문서에서는 Azure DocumentDB를 사용하여 분산된 작성기에 대한 로컬 쓰기 및 로컬 읽기 액세스를 가능하게 하는 패턴을 개략적으로 설명합니다.
+Azure Cosmos DB의 글로벌 복제 지원을 사용하여 기록기 및 판독기가 전역에 분산되는 응용 프로그램을 빌드할 수도 있습니다. 이 문서에서는 Azure Cosmos DB를 사용하여 분산된 작성기에 대한 로컬 쓰기 및 로컬 읽기 액세스를 가능하게 하는 패턴을 개략적으로 설명합니다.
 
 ## <a id="ExampleScenario"></a>콘텐츠 게시 - 예제 시나리오
-DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 패턴을 사용하는 방법을 설명하는 실제 시나리오를 살펴보겠습니다. DocumentDB를 기반으로 하는 콘텐츠 게시 플랫폼이 있다고 가정합시다. 이 플랫폼이 게시자와 소비자 모두에게 훌륭한 사용자 환경을 제공하기 위해 충족해야 하는 몇 가지 요구 사항이 있습니다.
+Azure Cosmos DB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 패턴을 사용하는 방법을 설명하는 실제 시나리오를 살펴보겠습니다. Azure Cosmos DB를 기반으로 하는 콘텐츠 게시 플랫폼이 있다고 가정합시다. 이 플랫폼이 게시자와 소비자 모두에게 훌륭한 사용자 환경을 제공하기 위해 충족해야 하는 몇 가지 요구 사항이 있습니다.
 
 * 작성자와 구독자 모두 전 세계에 분산되어 있습니다. 
 * 작성자는 로컬(가장 가까운) 지역에 문서를 게시(쓰기)해야 합니다.
@@ -37,9 +38,9 @@ DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 �
 * 구독자는 로컬 지역에서 문서를 읽을 수 있어야 합니다. 또한 이러한 문서에 리뷰를 추가할 수 있어야 합니다. 
 * 문서 작성자를 포함한 모든 사람은 문서에 연결된 모든 리뷰를 로컬 지역에서 볼 수 있어야 합니다. 
 
-수백만 명의 소비자 및 게시자와 수십억 개의 문서가 있다고 가정한다면, 조만간 지역 액세스 보장과 함께 확장 문제에 직면하게 됩니다. 대부분의 확장 문제와 마찬가지로, 해결책은 좋은 분할 전략에 있습니다. 다음으로 문서, 리뷰 및 알림을 문서로 모델링하고, DocumentDB 계정을 구성하고, 데이터 액세스 계층을 구현하는 방법을 살펴보겠습니다. 
+수백만 명의 소비자 및 게시자와 수십억 개의 문서가 있다고 가정한다면, 조만간 지역 액세스 보장과 함께 확장 문제에 직면하게 됩니다. 대부분의 확장 문제와 마찬가지로, 해결책은 좋은 분할 전략에 있습니다. 다음으로 문서, 리뷰 및 알림을 문서로 모델링하고, Azure Cosmos DB 계정을 구성하고, 데이터 액세스 계층을 구현하는 방법을 살펴보겠습니다. 
 
-분할 및 파티션 키에 대한 자세한 내용은 [Azure DocumentDB의 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
+분할 및 파티션 키에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
 
 ## <a id="ModelingNotifications"></a>알림 모델링
 알림은 사용자에게 한정된 데이터 피드입니다. 따라서 알림 문서의 액세스 패턴은 항상 단일 사용자의 컨텍스트와 관련이 있습니다. 예를 들어 "사용자에게 알림을 게시"하거나 "지정된 사용자에 대한 모든 알림을 가져올" 수 있습니다. 따라서 이 유형에 선택할 수 있는 최적의 분할 키는 `UserId`입니다.
@@ -92,11 +93,13 @@ DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 �
     }
 
 ## <a id="ModelingArticles"></a>문서 모델링
-알림을 통해 문서가 식별되면 후속 쿼리는 일반적으로 `ArticleId`를 기반으로 합니다. 따라서 파티션 키로 `ArticleID`를 선택하면 DocumentDB 컬렉션 내에 문서를 저장하기에 가장 적합하게 분산됩니다. 
+알림을 통해 문서가 식별되면 후속 쿼리는 일반적으로 `Article.Id`를 기반으로 합니다. 따라서 파티션 키로 `Article.Id`를 선택하면 Azure Cosmos DB 컬렉션 내에 문서를 저장하기에 가장 적합하게 분산됩니다. 
 
     class Article 
     { 
-        // Unique ID for Article public string Id { get; set; }
+        // Unique ID for Article 
+        public string Id { get; set; }
+        
         public string PartitionKey 
         { 
             get 
@@ -162,8 +165,8 @@ DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 �
         public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
     }
 
-## <a id="Architecture"></a>DocumentDB 계정 구성
-로컬 읽기 및 쓰기를 보장하려면 파티션 키뿐 아니라 지리적 액세스 패턴을 기반으로 데이터를 여러 지역으로 분할해야 합니다. 이 모델은 각 지역에 지리적으로 복제된 Azure DocumentDB 데이터베이스 계정을 사용합니다. 예를 들어 지역이 두 개라면 다중 지역 쓰기에 대한 설정은 다음과 같습니다.
+## <a id="Architecture"></a>Azure Cosmos DB 계정 구성
+로컬 읽기 및 쓰기를 보장하려면 파티션 키뿐 아니라 지리적 액세스 패턴을 기반으로 데이터를 여러 지역으로 분할해야 합니다. 이 모델은 각 지역에 지리적으로 복제된 Azure Cosmos DB 데이터베이스 계정을 사용합니다. 예를 들어 지역이 두 개라면 다중 지역 쓰기에 대한 설정은 다음과 같습니다.
 
 | 계정 이름 | 쓰기 지역 | 읽기 지역 |
 | --- | --- | --- |
@@ -172,7 +175,7 @@ DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 �
 
 다음 다이어그램은 이 설정을 사용하는 일반 응용 프로그램에서 읽기 및 쓰기가 수행되는 방법을 보여줍니다.
 
-![Azure DocumentDB 다중 마스터 아키텍처](./media/documentdb-multi-region-writers/documentdb-multi-master.png)
+![Azure Cosmos DB 다중 마스터 아키텍처](./media/documentdb-multi-region-writers/documentdb-multi-master.png)
 
 다음은 `West US` 지역에서 실행되는 DAL에서 클라이언트를 초기화하는 방법을 보여주는 코드 조각입니다.
     
@@ -309,12 +312,15 @@ DocumentDB로 전역에 분산된 다중 지역/다중 마스터 읽기 쓰기 �
         return reviews;
     }
 
-따라서 적절한 분할 키와 정적 계정 기반 분할을 선택하면 Azure DocumentDB를 사용하여 다중 지역 로컬 쓰기 및 읽기를 구현할 수 있습니다.
+따라서 적절한 분할 키와 정적 계정 기반 분할을 선택하면 Azure Cosmos DB를 사용하여 다중 지역 로컬 쓰기 및 읽기를 구현할 수 있습니다.
 
 ## <a id="NextSteps"></a>다음 단계
-이 문서에서는 콘텐츠 게시를 샘플 시나리오로 사용하여 전 세계에 분산된 다중 지역 읽기 쓰기 패턴을 DocumentDB와 함께 사용하는 방법을 설명했습니다.
+이 문서에서는 콘텐츠 게시를 샘플 시나리오로 사용하여 전 세계에 분산된 다중 지역 읽기 쓰기 패턴을 Azure Cosmos DB와 함께 사용하는 방법을 설명했습니다.
 
-* DocumentDB가 [전역 배포](documentdb-distribute-data-globally.md)를 지원하는 방법 알아보기
-* [Azure DocumentDB의 자동 및 수동 장애 조치(failover)](documentdb-regional-failovers.md) 알아보기
-* [DocumentDB를 통한 전역 일관성](documentdb-consistency-levels.md) 알아보기
-* [Azure DocumentDB SDK](documentdb-developing-with-multiple-regions.md)를 사용하여 여러 지역으로 개발
+* Azure Cosmos DB에서 [전역 배포](documentdb-distribute-data-globally.md)를 지원하는 방법 알아보기
+* [Azure Cosmos DB의 자동 및 수동 장애 조치(failover)](documentdb-regional-failovers.md) 알아보기
+* [Azure Cosmos DB를 통한 전역 일관성](documentdb-consistency-levels.md) 알아보기
+* [Azure Cosmos DB - DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md)를 사용하여 여러 지역으로 개발
+* [Azure Cosmos DB - MongoDB API](../cosmos-db/tutorial-global-distribution-MongoDB.md)를 사용하여 여러 지역으로 개발
+* [Azure Cosmos DB - Table API](../cosmos-db/tutorial-global-distribution-table.md)를 사용하여 여러 지역으로 개발
+
