@@ -1,28 +1,29 @@
 ---
-title: "Azure 마이크로 서비스에서 응용 프로그램 상태 저장 | Microsoft Docs"
+title: "Azure Service Fabric 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개 | Microsoft Docs"
 description: "서비스 패브릭 상태 저장 서비스는가용성 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 응용 프로그램을 작성할 수 있는 믿을 수 렉션을 제공합니다."
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: masnider,vturecek
+editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 3/27/2017
+ms.date: 5/1/2017
 ms.author: mcoskun
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 6ac47fe040793f2ac4ff596880675df0b331143e
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: d0247ba0242af05ca6dcd8049ff9116683538fa5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure 서비스 패브릭 상태 저장 서비스의 신뢰할 수 있는 컬렉션 소개
-신뢰할 수 있는 컬렉션을 사용하면 단일 컴퓨터 응용 프로그램을 작성하는 것처럼 가용성이 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 응용 프로그램을 작성할 수 있습니다. **Microsoft.ServiceFabric.Data.Collections** 네임스페이스의 클래스는 상태를 자동으로 항상 사용할 수 있도록 하는 기본 컬렉션 집합을 제공합니다. 개발자는 신뢰할 수 있는 컬렉션 API로 프로그래밍하고 신뢰할 수 있는 컬렉션이 복제된 로컬 상태를 관리하도록 하기만 하면 됩니다.
+신뢰할 수 있는 컬렉션을 사용하면 단일 컴퓨터 응용 프로그램을 작성하는 것처럼 가용성이 높고, 확장 가능하며, 대기 시간이 낮은 클라우드 응용 프로그램을 작성할 수 있습니다. **Microsoft.ServiceFabric.Data.Collections** 네임스페이스의 클래스는 상태를 자동으로 항상 사용할 수 있도록 하는 컬렉션 집합을 제공합니다. 개발자는 신뢰할 수 있는 컬렉션 API로 프로그래밍하고 신뢰할 수 있는 컬렉션이 복제된 로컬 상태를 관리하도록 하기만 하면 됩니다.
 
 신뢰할 수 있는 컬렉션과 다른 고가용성 기술 (예: Redis, Azure 테이블 서비스 및 Azure 큐 서비스)의 주요 차이점은 상태가 서비스 인스턴스에서 로컬로 유지되지만 가용성도 높다는 점입니다. 이는 다음을 의미합니다.
 
@@ -48,127 +49,24 @@ ms.lasthandoff: 03/28/2017
 * 출력 매개 변수 없음: `ConditionalValue<T>` 를 사용하여 출력 매개 변수 대신 부울 및 값을 반환합니다. `ConditionalValue<T>`는 `Nullable<T>`과 유사하지만 T가 구조체일 필요는 없습니다.
 * 트랜잭션: 트랜잭션 개체를 사용하여 사용자가 트랜잭션의 여러 신뢰할 수 있는 컬렉션에 대한 작업을 그룹화하도록 지원합니다.
 
-오늘날 **Microsoft.ServiceFabric.Data.Collections** 은 다음과 같은 두 컬렉션을 포함합니다.
+오늘날 **Microsoft.ServiceFabric.Data.Collections** 은 다음과 같은 3가지 컬렉션을 포함합니다.
 
 * [신뢰할 수 있는 사전](https://msdn.microsoft.com/library/azure/dn971511.aspx): 키/값 쌍의 복제, 트랜잭션 및 비동기 컬렉션을 나타냅니다. **ConcurrentDictionary**와 유사하게 키와 값은 모든 형식일 수 있습니다.
 * [신뢰할 수 있는 큐](https://msdn.microsoft.com/library/azure/dn971527.aspx): 복제, 트랜잭션 및 비동기의 엄격한 FIFO(선입 선출) 큐를 나타냅니다. **ConcurrentQueue**와 유사하게 값은 어떤 형식일 수 있습니다.
-
-## <a name="isolation-levels"></a>격리 수준
-격리 수준은 트랜잭션은 다른 트랜잭션에 의해 수정되지 않도록 격리해야 하는 정도를 정의합니다.
-신뢰할 수 있는 컬렉션에서 지원되는 두 격리 수준이 있습니다.
-
-* **반복 가능한 읽기**: 문은 수정되었지만 다른 트랜잭션에서 아직 커밋되지 않은 데이터를 읽을 수 없으며 현재 트랜잭션이 완료될 때까지 다른 트랜잭션은 현재 트랜잭션에서 읽은 데이터를 수정할 수 없음을 지정합니다. 자세한 내용은 [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx)를 참조하세요.
-* **스냅숏**: 트랜잭션의 문에서 읽은 데이터가 트랜잭션 시작 부분에 존재하는 데이터의 트랜잭션이 일치되는 버전이 되도록 지정합니다.
-  트랜잭션은 트랜잭션 시작 전에 커밋된 데이터 수정 내용만 인식할 수 있습니다.
-  현재 트랜잭션이 시작된 후 다른 트랜잭션에서 수행한 데이터 수정 내용은 현재 트랜잭션에서 실행 중인 문에 표시되지 않습니다.
-  그 결과 트랜잭션의 문이 트랜잭션 시작 당시 커밋된 데이터의 스냅숏을 가져오는 것처럼 됩니다.
-  스냅숏은 신뢰할 수 있는 컬렉션 간에 일관됩니다.
-  자세한 내용은 [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx)를 참조하세요.
-
-신뢰할 수 있는 컬렉션은 트랜잭션을 만들 당시의 작업 및 복제본의 역할에 따라 자동으로 특정 읽기 작업에 사용할 격리 수준을 선택합니다.
-다음 테이블에는 신뢰할 수 있는 사전 및 큐 작업에 대한 기본 격리 수준이 나와 있습니다.
-
-| 작업 \ 역할 | 보조 | 주 |
-| --- |:--- |:--- |
-| 단일 엔터티 읽기 |반복 가능한 읽기 |스냅숏 |
-| 열거형 \ 개수 |스냅숏 |스냅숏 |
-
-> [!NOTE]
-> 단일 엔터티 작업에 대한 일반적인 예제는 `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`입니다.
-> 
-> 
-
-신뢰할 수 있는 사전 및 신뢰할 수 있는 큐는 모두 읽기 프로그램 작성을 지원합니다.
-즉, 특정 트랜잭션 내 모든 쓰기가 동일한 트랜잭션에 속하는 다음 읽기에 표시됩니다.
-
-## <a name="locking"></a>잠금
-신뢰할 수 있는 컬렉션의 모든 트랜잭션은 2단계로 이루어져 있습니다. 트랜잭션은 중단 또는 커밋으로 인해 종료되어야만 확보한 잠금을 해제합니다.
-
-신뢰할 수 있는 사전은 모든 단일 엔터티 작업에 대해 행 수준 잠금을 사용합니다.
-신뢰할 수 있는 큐와 엄격한 트랜잭션 FIFO 속성의 동시성은 서로 균형을 유지합니다.
-신뢰할 수 있는 큐는 작업 수준 잠금을 사용하여 한 번에 한 트랜잭션에는 `TryPeekAsync` 및/또는 `TryDequeueAsync`를 허용하고, 다른 트랜잭션에는 `EnqueueAsync`를 허용합니다.
-FIFO를 유지하기 위해 `TryPeekAsync` 또는 `TryDequeueAsync`는 신뢰할 수 있는 큐가 비어 있음을 확인하면 `EnqueueAsync`도 잠급니다.
-
-쓰기 작업은 항상 배타적 잠금을 수행합니다.
-읽기 작업의 경우 몇 가지 요인에 따라 잠금이 적용됩니다.
-스냅숏 격리를 사용하여 수행된 모든 읽기 작업은 잠금이 없습니다.
-모든 반복 가능한 읽기 작업은 기본적으로 공유 잠금을 수행합니다.
-그러나 사용자는 반복 가능한 읽기를 지원하는 모든 읽기 작업에 대해 공유 잠금 대신 업데이트 잠금을 요청할 수 있습니다.
-업데이트 잠금에는 이후의 잠재적 업데이트를 위해 여러 트랜잭션이 리소스를 잠글 때 발생하는 일반적인 형태의 교착 상태를 방지하는 데 사용되는 비대칭 잠금입니다.
-
-잠금 호환성 매트릭스는 아래에서 확인할 수 있습니다.
-
-| 요청 \ 부여 | 없음 | 공유됨 | 업데이트 | 단독 |
-| --- |:--- |:--- |:--- |:--- |
-| 공유됨 |충돌 없음 |충돌 없음 |충돌 |충돌 |
-| 업데이트 |충돌 없음 |충돌 없음 |충돌 |충돌 |
-| 단독 |충돌 없음 |충돌 |충돌 |충돌 |
-
-신뢰할 수 있는 컬렉션 API의 시간 제한 인수는 교착 상태 감지를 위해 사용됩니다.
-예를 들어 두 트랜잭션(T1과 T2)은 K1을 읽고 업데이트하려고 합니다.
-둘 다 결국 공유된 잠금을 가지게 되기 때문에 교착 상태가 될 수 있습니다.
-이 경우 하나 또는 두 작업이 시간 초과됩니다.
-
-위의 교착 상태 시나리오는 업데이트 잠금이 교착 상태를 방지하는 방법을 보여주는 좋은 예입니다.
-
-## <a name="persistence-model"></a>지속 모델
-신뢰할 수 있는 상태 관리자와 신뢰할 수 있는 컬렉션은 로그 및 검사점이라고 하는 지속성 모델을 따릅니다.
-이는 각 상태 변경이 디스크에 기록되고 메모리에만 적용되는 모델입니다.
-전체 상태 자체는 가끔씩만 유지됩니다.(즉, 검사점).
-이를 통해 성능 향상을 위해 델타가 디스크에 대한 순차 추가 전용 쓰기로 변환된다는 이점이 제공됩니다.
-
-로그 및 검사점 모델을 보다 잘 이해하기 위해 먼저 무한 디스크 시나리오를 살펴보겠습니다.
-신뢰할 수 있는 상태 관리자는 복제되기 전에 모든 작업을 기록합니다.
-따라서 신뢰할 수 있는 컬렉션이 해당 작업만 메모리에 적용할 수 있습니다.
-로그가 유지되므로 복제본이 실패하고 다시 시작해야 하는 경우에도  신뢰할 수 있는 상태 관리자에게 복제본이 손실한 모든 작업을 재생할 충분한 정보가 로그에 있습니다.
-디스크가 무한이므로 로그 레코드를 제거할 필요가 없고 신뢰할 수 있는 컬렉션만 메모리 내 상태를 관리해야 합니다.
-
-이제 한정된 디스크 시나리오를 살펴보겠습니다.
-로그 레코드가 누적되면 신뢰할 수 있는 상태 관리자에게 디스크 공간이 부족한 경우가 생깁니다.
-이런 일이 발생하기 전에 신뢰할 수 있는 상태 관리자가 로그를 잘라서 최신 레코드를 위한 공간을 확보해야 합니다.
-디스크에 대해 신뢰할 수 있는 컬렉션에 메모리 내 상태의 검사점을 설정하도록 요청합니다.
-상태를 해당 시점까지 유지하는 것은 신뢰할 수 있는 컬렉션의 책임입니다.
-신뢰할 수 있는 컬렉션이 검사점을 완료하면 신뢰할 수 있는 상태 관리자가 로그를 잘라서 디스크 공간을 확보할 수 있습니다.
-따라서 복제본을 다시 시작해야 하는 경우 신뢰할 수 있는 컬렉션이 검사점이 설정된 상태를 복구하고, 신뢰할 수 있는 상태 관리자가 검사점 이후 발생한 모든 상태 변경 내용을 다시 재생합니다.
-
-> [!NOTE]
-> 검사점의 다른 값이 추가되면 일반적인 경우에 복구 성능이 향상됩니다.
-> 검사점이 최신 버전만 포함하기 때문입니다.
-> 
-> 
-
-## <a name="recommendations"></a>추천
-* 읽기 작업(예: `TryPeekAsync` 또는 `TryGetValueAsync`)에 의해 반환되는 사용자 지정 형식의 개체는 수정하지 마세요. 신뢰할 수 있는 컬렉션은 동시 컬렉션처럼 개체에 대한 복사본이 아닌 참조를 반환합니다.
-* 수정하기 전에 사용자 지정 형식의 반환된 개체에 대한 전체 복사를 수행합니다. 구조체 및 기본 제공 형식은 pass-by-value이므로 전체 복사를 수행할 필요가 없습니다.
-* 시간제한에 `TimeSpan.MaxValue` 를 사용하지 마세요. 시간 제한은 교착 상태를 감지하는 데 사용되어야 합니다.
-* 트랜잭션을 커밋, 중단 또는 삭제한 후에는 사용하지 마십시오.
-* 열거형이 만들어진 트랜잭션 범위 외부에서는 해당 열거형을 사용하지 마세요.
-* 다른 트랜잭션의 `using` 문 내에 트랜잭션을 만들지 마세요. 교착 상태가 발생할 수 있습니다.
-* `IComparable<TKey>` 구현이 올바른지 확인하세요. 시스템은 검사점 병합을 위해 이에 대한 종속성을 보유합니다.
-* 특정 유형의 교착 상태를 방지하기 위해 항목을 업데이트하려는 경우에는 항목을 읽을 때 업데이트 잠금을 사용하지 마세요.
-* 항목(예: 신뢰할 수 있는 사전에 대한 TKey + TValue)을 80KB 미만으로 유지하는 것이 좋으며, 작을수록 더 좋습니다. 이렇게 하면 디스크 및 네트워크 IO 요구 사항뿐만 아니라 큰 개체 힙 사용량도 줄어듭니다. 대부분의 경우 값의 작은 부분만 업데이트할 때 중복 데이터 복제도 줄어듭니다. 신뢰할 수 있는 사전에서 이를 달성하는 일반적인 방법은 행을 여러 행으로 나누는 것입니다. 
-* 재해 복구를 위해 백업 및 복원 기능을 사용하는 것이 좋습니다.
-* 격리 수준이 다르기 때문에 동일한 트랜잭션 내에서 단일 엔터티 작업 및 다중 엔터티 작업을 혼합하지 마세요(예: `GetCountAsync`, `CreateEnumerableAsync`).
-* InvalidOperationException을 처리합니다. 여러 가지 이유로 시스템에서 사용자 트랜잭션이 중단될 수 있습니다. 예를 들어 신뢰할 수 있는 상태 관리자가 해당 역할을 기본 역할에서 다른 역할로 변경하거나 장기 실행 트랜잭션이 트랜잭션 로그 잘림을 차단하는 경우가 여기에 해당합니다. 이러한 경우 트랜잭션이 이미 종료되었다는 InvalidOperationException이 표시될 수 있습니다. 트랜잭션의 종료를 사용자가 요청하지 않다고 가정할 경우 이 예외를 처리하는 가장 좋은 방법은 트랜잭션을 삭제하고, 취소 토큰이 신호로 제공되었는지(또는 복제본의 역할이 변경) 확인하고, 그러한 경우에는 새 트랜잭션을 만든 후 다시 시도하는 것입니다.  
-
-이때
-
-* 모든 신뢰할 수 있는 컬렉션 API의 기본 제한 시간은 4초입니다. 대부분의 사용자는 이를 무시해서는 안됩니다.
-* 기본 취소 토큰은 신뢰할 수 있는 모든 컬렉션 API의 `CancellationToken.None` 입니다.
-* 신뢰할 수 있는 사전의 키 형식 매개 변수(*TKey*)는 `GetHashCode()` 및 `Equals()`을 정확히 구현해야 합니다. 키는 변경하지 않아야 합니다.
-* 신뢰할 수 있는 컬렉션의 높은 가용성을 달성하려면 각 서비스에 하나 이상의 대상 및 최소 복제본 세트 크기 3이 있어야 합니다.
-* 보조에서 읽기 작업은 쿼럼 커밋되지 않는 버전을 읽을 수 있습니다.
-  즉, 단일 보조에서 읽은 데이터 버전은 거짓 처리될 수 있습니다.
-  물론, 주에서 읽은 내용은 항상 안정적이며 거짓 처리될 수 없습니다.
+* [신뢰할 수 있는 동시 큐](service-fabric-reliable-services-reliable-concurrent-queue.md): 높은 처리량을 위해 최고의 순서로 대기되는 복제, 트랜잭션 및 비동기 큐. **ConcurrentQueue**와 유사하게 값은 어떤 형식일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
+* [신뢰할 수 있는 컬렉션 지침 및 권장 사항](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)
-* [Reliable Services 알림](service-fabric-reliable-services-notifications.md)
-* [Reliable Services 백업 및 복원(재해 복구)](service-fabric-reliable-services-backup-restore.md)
-* [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)
-* [서비스 패브릭 Web API 서비스 시작](service-fabric-reliable-services-communication-webapi.md)
-* [Reliable Services 프로그래밍 모델 고급 사용법](service-fabric-reliable-services-advanced-usage.md)
-* [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
+* [트랜잭션 및 잠금](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+* [신뢰할 수 있는 상태 관리자 및 컬렉션 내부](service-fabric-reliable-services-reliable-collections-internals.md)
+* 데이터 관리
+  * [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
+  * [Notifications](service-fabric-reliable-services-notifications.md)
+  * [신뢰할 수 있는 컬렉션 serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
+  * [Serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
+  * [신뢰할 수 있는 상태 관리자 구성](service-fabric-reliable-services-configuration.md)
+* 기타
+  * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
+  * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 

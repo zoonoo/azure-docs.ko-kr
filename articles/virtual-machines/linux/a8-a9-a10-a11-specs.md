@@ -16,10 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9a8073baea9a6ff2ecf443b516665adb10de4815
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: a2307f7055966ec7146b5da0b4daf1ad469abe2b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 ---
 # <a name="about-h-series-and-compute-intensive-a-series-vms-for-linux"></a>Linux용 H 시리즈 및 계산 집약적인 A 시리즈 VM 정보
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/03/2017
 ## <a name="access-to-the-rdma-network"></a>RDMA 네트워크에 액세스
 다음의 지원되는 Linux HPC 배포판 및 지원되는 MPI 구현 중 하나를 실행하는 RDMA 지원 Linux VM 클러스터를 만들어 Azure RDMA 네트워크를 활용할 수 있습니다. 배포 옵션 및 샘플 구성 단계는 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)을 참조하세요.
 
-* **배포판** - Azure 마켓플레이스의 RDMA 지원 SLES(SUSE Linux Enterprise Server) 또는 OpenLogic CentOS 기반 HPC 이미지에서 VM을 배포해야 합니다. 다음 Marketplace 이미지는 RDMA 연결을 지원합니다.
+* **배포판** - Azure 마켓플레이스의 RDMA 지원 SLES(SUSE Linux Enterprise Server) 또는 Rogue Wave Software(이전의 OpenLogic) CentOS 기반 HPC 이미지에서 VM을 배포해야 합니다. 다음 Marketplace 이미지는 RDMA 연결을 지원합니다.
   
     * HPC용 SLES 12 SP1, HPC용 SLES 12 SP1(Premium)
     

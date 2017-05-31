@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: jehollan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: e0bf2edebfda479532a2ce71deff4623179910f3
-ms.lasthandoff: 04/03/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 32a5cfdb520c745dbd0fa5c433849bd3783a364e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -275,6 +276,10 @@ HTTP 끝점을 만든 후 `POST` 메서드를 통해 논리 앱을 전체 URL로
 #### <a name="q-what-about-url-security"></a>Q: URL 보안이란 무엇입니까?
 
 A: Azure는 공유 액세스 서명(SAS)을 사용하여 논리 앱 콜백 URL을 안전하게 생성합니다. 이 서명은 쿼리 매개 변수로 전달되고 논리 앱이 시작하기 전에 유효성이 검사되어야 합니다. Azure는 논리 앱, 트리거 이름 및 수행되는 작업 별로 비밀 키의 고유한 조합을 사용하여 서명을 생성합니다. 따라서 사용자가 비밀 논리 앱 키에 액세스하지 않으면 유효한 서명을 생성할 수 없습니다.
+
+   > [!NOTE]
+   > 프로덕션/보안 시스템의 경우 URL에 공유 액세스 키가 포함되어 있고, 도메인이 논리 앱 고객 간에 공유되므로 보안 콘텐츠 정책을 관리할 수 없기 때문에 브라우저에서 직접 논리 앱을 호출하는 것이 강력히 권장됩니다.
+
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>Q: HTTP 끝점을 추가로 구성할 수 있습니까?
 

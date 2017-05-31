@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/11/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: cf3c1a3c669e0da810c32939492cb262e76492c7
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 945da7ce2ab5f2d479d96a6ed2896a0ba7e0747e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -90,20 +91,51 @@ VNet을 사용하는 경우 Azure Redis Cache 인스턴스에 연결하려면 �
 * [VNET에서 캐시를 호스팅하는 경우 모든 캐시 기능이 작동하나요?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
 ## <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Azure Redis Cache 및 VNet의 몇 가지 일반적인 구성 오류 문제는 무엇인가요?
-Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용됩니다. 이러한 포트가 차단되면 캐시가 제대로 작동하지 않을 수 있습니다. 이러한 포트가 하나 이상 차단되는 것은 VNet에서 Azure Redis Cache를 사용하는 경우 가장 일반적인 잘못된 구성 문제입니다.
+Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용됩니다. 
+
+>[!IMPORTANT]
+>다음 표의 포트가 차단되면 캐시가 제대로 작동하지 않을 수 있습니다. 이러한 포트가 하나 이상 차단되는 것은 VNet에서 Azure Redis Cache를 사용하는 경우 가장 일반적인 잘못된 구성 문제입니다.
+> 
+> 
+
+- [아웃바운드 포트 요구 사항](#outbound-port-requirements)
+- [인바운드 포트 요구 사항](#inbound-port-requirements)
+
+### <a name="outbound-port-requirements"></a>아웃바운드 포트 요구 사항
+
+7가지 아웃바운드 포트 요구 사항이 있습니다.
+
+- 원할 경우 인터넷에 대한 모든 아웃바운드 연결이 클라이언트의 온-프레미스 감사 장치를 통해 설정되도록 할 수 있습니다.
+- 포트 중 3개는 Azure Storage 및 Azure DNS에 서비스하는 Azure 끝점으로 트래픽을 전송합니다.
+- 나머지 포트는 다양한 범위에 사용되고 내부 Redis 서브넷 통신에도 사용됩니다. 내부 Redis 서브넷 통신에 필요한 서브넷 NSG 규칙은 없습니다.
 
 | 포트 | 방향 | 전송 프로토콜 | 목적 | 원격 IP |
 | --- | --- | --- | --- | --- |
 | 80, 443 |아웃바운드 |TCP |Azure 저장소/PKI(인터넷)에 대한 Redis 종속성 |* |
 | 53 |아웃바운드 |TCP/UDP |DNS(인터넷/VNet)에 대한 Redis 종속성 |* |
-| 6379, 6380 |인바운드 |TCP |Redis, Azure 부하 분산에 대한 클라이언트 통신 |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 8443 |인바운드/아웃바운드 |TCP |Redis에 대한 구현 세부 정보 |VIRTUAL_NETWORK |
-| 8500 |인바운드 |TCP/UDP |Azure 부하 분산 |AZURE_LOADBALANCER |
-| 10221-10231 |인바운드/아웃바운드 |TCP |Redis에 대한 구현 세부 정보(VIRTUAL_NETWORK에 원격 끝점을 제한할 수 있음) |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 13000-13999 |인바운드 |TCP |Redis 클러스터, Azure 부하 분산에 대한 클라이언트 통신 |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 15000-15999 |인바운드 |TCP |Redis 클러스터, Azure 부하 분산에 대한 클라이언트 통신 |VIRTUAL_NETWORK, AZURE_LOADBALANCER |
-| 16001 |인바운드 |TCP/UDP |Azure 부하 분산 |AZURE_LOADBALANCER |
-| 20226 |인바운드+아웃바운드 |TCP |Redis 클러스터에 대한 구현 세부 정보 |VIRTUAL_NETWORK |
+| 8443 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |
+| 10221-10231 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |
+| 20226 |아웃바운드 |TCP |Redis에 대한 내부 통신 |(Redis 서브넷) |
+| 13000-13999 |아웃바운드 |TCP |Redis에 대한 내부 통신 |(Redis 서브넷) |
+| 15000-15999 |아웃바운드 |TCP |Redis에 대한 내부 통신 |(Redis 서브넷) |
+
+
+### <a name="inbound-port-requirements"></a>인바운드 포트 요구 사항
+
+8개의 인바운드 포트 범위 요구 사항이 있습니다. 이러한 범위의 인바운드 요청은 동일한 VNET에서 호스트되는 다른 서비스로부터 인바운드로 진행되거나 Redis 서브넷 통신 내부로 진행됩니다.
+
+| 포트 | 방향 | 전송 프로토콜 | 목적 | 원격 IP |
+| --- | --- | --- | --- | --- |
+| 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 |가상 네트워크, Azure Load Balancer |
+| 8443 |인바운드 |TCP |Redis에 대한 내부 통신 |(Redis 서브넷) |
+| 8500 |인바운드 |TCP/UDP |Azure 부하 분산 |Azure Load Balancer |
+| 10221-10231 |인바운드 |TCP |Redis에 대한 내부 통신 |(Redis 서브넷), Azure Load Balancer |
+| 13000-13999 |인바운드 |TCP |Redis 클러스터에 대한 클라이언트 통신, Azure 부하 분산 |가상 네트워크, Azure Load Balancer |
+| 15000-15999 |인바운드 |TCP |Redis 클러스터에 대한 클라이언트 통신, Azure 부하 분산 |가상 네트워크, Azure Load Balancer |
+| 16001 |인바운드 |TCP/UDP |Azure 부하 분산 |Azure Load Balancer |
+| 20226 |인바운드 |TCP |Redis에 대한 내부 통신 |(Redis 서브넷) |
+
+### <a name="additional-vnet-network-connectivity-requirements"></a>추가 VNET 네트워크 연결 요구 사항
 
 가상 네트워크에서 처음에 충족되지 않는 Azure Redis Cache에 대한 네트워크 연결 요구 사항이 있습니다. Azure Redis Cache를 가상 네트워크 내에서 사용하는 경우 제대로 작동되려면 다음 항목이 모두 필요합니다.
 

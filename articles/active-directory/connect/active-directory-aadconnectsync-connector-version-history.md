@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2017
+ms.date: 05/11/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 244ca634cfd47ee37e3845380ac05dc68d406621
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 3c91cb00d6535a4bc01a3b95547ef940cbff7fcb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -38,11 +39,35 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
 * [PowerShell 커넥터](active-directory-aadconnectsync-connector-powershell.md) 참조 설명서
 * [Lotus Domino 커넥터](active-directory-aadconnectsync-connector-domino.md) 참조 설명서
 
+## <a name="115220"></a>1.1.522.0
+
+### <a name="enhancements"></a>향상된 기능:
+
+* 일반 SQL:
+  * **시나리오: 다시 구현됨:** "*" 기능
+  * **솔루션 설명:** [다중 값 참조 특성 처리](active-directory-aadconnectsync-connector-genericsql.md) 접근 방식이 변경되었습니다.
+
+
+### <a name="fixed-issues"></a>수정된 문제:
+
+* 일반 웹 서비스:
+  * 웹 서비스 커넥터가 있는 데도 서버 구성을 가져올 수 없습니다.
+  * 웹 서비스 커넥터는 여러 웹 서비스에 작동하지 않습니다.
+
+* 일반 SQL:
+  * 단일 값 참조 특성에 대해 나열되는 개체 형식이 없습니다.
+  * 변경 추적 전략에 대한 델타 가져오기는 다중 값 테이블에서 값이 제거될 때 개체를 삭제합니다.
+  * AS/400의 DB2에서 GSQL 커넥터의 OverflowException
+
+Lotus:
+  * GlobalParameters 페이지를 열기 전에 OU 검색을 설정/해제하는 옵션이 추가되었습니다.
+
 ## <a name="114430"></a>1.1.443.0
 
 출시 날짜: 2017년 3월
 
 ### <a name="enhancements"></a>향상된 기능
+
 * 일반 SQL:</br>
   **시나리오 증상:** 하나의 개체 형식에 대한 참조만 허용하고 멤버와 상호 참조하는 SQL 커넥터의 잘 알려진 제한입니다. </br>
   **솔루션 설명:** "*" 옵션을 선택한 참조를 위한 처리 단계에서 모든 개체 형식 조합은 동기화 엔진으로 다시 반환됩니다.
@@ -73,8 +98,8 @@ FIM(Forefront Identity Manager) 및 MIM(Microsoft Identity Manager)의 커넥터
  * GLDAP 커넥터에서 AD LDS의 모든 특성을 확인할 수 없음
  * LDAP 디렉터리 스키마에서 UPN 특성이 감지되지 않는 경우 마법사 중단
  * "objectclass" 특성이 선택되지 않은 경우 전체 가져오기를 수행하는 동안 검색 오류가 발생하지 않으면 델타 가져오기 실패
- * A "Configure Partitions and Hierarchies” configuration page, doesn’t show any objects which type is equal to the partition for Novel servers in the Generic  
-"파티션 및 계층 구조 구성" 구성 페이지에 일반 LDAP MA의 Novel 서버에 대한 파티션과 형식이 비슷한 개체가 표시되지 않습니다. RootDSE 파티션의 개체만 표시됩니다.
+ * "파티션 및 계층 구조 구성" 구성 페이지에 일반  
+LDAP MA의 Novel 서버에 대한 파티션과 형식이 비슷한 개체가 표시되지 않습니다. RootDSE 파티션의 개체만 표시됩니다.
 
 
 * 일반 SQL:

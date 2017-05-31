@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 05/02/2017
+ms.date: 05/11/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 031fa71b8f5aac558569eea7001e16df4cae917c
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: fefa78f7e0ba4bd40e6c0985080403237d6eb916
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -482,11 +483,7 @@ Redis 명령에 대한 자세한 내용은 [http://redis.io/commands](http://red
 표준 및 프리미엄 캐시에서 사용할 수 있는 **Redis 콘솔**을 사용하면 Azure Redis Cache 인스턴스에 대해 안전하게 명령을 실행할 수 있습니다.
 
 > [!IMPORTANT]
-> Redis 콘솔은 VNET, 클러스터링 및 0 외의 데이터베이스에 작동하지 않습니다. 
-> 
-> * [VNET](cache-how-to-premium-vnet.md) - 캐시가 VNET의 일부인 경우 VNET의 클라이언트만 캐시에 액세스할 수 있습니다. Redis 콘솔은 VNET의 일부가 아닌 VM에서 호스팅되는 redis-cli.exe 클라이언트를 사용하므로 캐시에 연결할 수 없습니다.
-> * [클러스터링](cache-how-to-premium-clustering.md) - Redis 콘솔은 현재 클러스터링을 지원하지 않는 redis-cli.exe 클라이언트를 사용합니다. GitHub에서 Redis 리포지토리의 [불안정한](http://redis.io/download) 분기에 있는 redis-cli 유틸리티는 `-c` 스위치로 시작되는 경우 기본 지원을 구현합니다. 자세한 내용은 [Redis 클러스터 자습서](http://redis.io/topics/cluster-tutorial)([http://redis.io](http://redis.io))의 [클러스터 작업](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)을 참조하세요.
-> * Redis 콘솔은 명령을 제출할 때마다 데이터베이스 0에 대한 새 연결을 만듭니다. 각 명령이 실행될 때마다 데이터베이스가 0으로 재설정되므로 `SELECT` 명령을 사용하여 다른 데이터베이스를 선택할 수는 없습니다. 다른 데이터베이스로 변경하는 것을 포함하여 Redis 명령 실행에 대한 자세한 내용은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)
+> Redis 콘솔이 [VNET](cache-how-to-premium-vnet.md)에서 작동하지 않습니다. 캐시가 VNET의 일부인 경우 VNET의 클라이언트만 캐시에 액세스할 수 있습니다. Redis 콘솔은 VNET 외부에 있는 로컬 브라우저에서 실행되기 때문에 캐시에 연결할 수 없습니다.
 > 
 > 
 

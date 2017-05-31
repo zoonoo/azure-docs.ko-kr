@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 05/10/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: f89375510cdcb89d800edc2513f34e601f52efe9
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 20257c872eaa2e7610e525c4686350c206628974
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -94,8 +94,8 @@ Windows VM의 경우
 
 Linux VM의 경우
 
-* github에서 최신 [Linux 에이전트](https://github.com/Azure/WALinuxAgent) 를 설치합니다.
-* [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) 하여 에이전트가 설치되었다고 표시합니다.
+* 배포 리포지토리에서 최신 버전을 설치합니다. 배포 리포지토리를 사용할 때만 에이전트를 설치할 것을 **강력히 권장**합니다. 패키지 이름에 대한 자세한 내용은 [Linux 에이전트 리포지토리](https://github.com/Azure/WALinuxAgent)를 참조하세요. 
+* 클래식 VM의 경우 [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)하여 에이전트가 설치되었다고 표시합니다.
 
 ### <a name="updating-the-vm-agent"></a>VM 에이전트 업데이트
 Windows VM의 경우

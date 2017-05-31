@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d6215d316cfd4979d63f8bdb81741e1d0291b681
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: b95a8c3067b9bfd0a9995b26608c117a29ed8b4c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -76,7 +77,7 @@ dnsmasq와 같은 다양한 여러 다양한 DNS 캐싱이 제공되며 여기�
   * dnsmasq 서비스를 시작합니다("systemctl start dnsmasq.service"). 
   * "/etc/sysconfig/network/config"를 편집하고 NETCONFIG_DNS_FORWARDER=""를 "dnsmasq"로 변경합니다.
   * 캐시를 로컬 DNS 확인자로 설정하기 위해 resolv.conf("netconfig update")를 업데이트합니다.
-* **OpenLogic(NetworkManager 사용)**:
+* **Rogue Wave Software의 CentOS(이전의 OpenLogic, NetworkManager 사용)**:
   * dnsmasq 패키지를 설치합니다("sudo yum install dnsmasq").
   * dnsmasq 서비스를 사용하도록 설정합니다("systemctl enable dnsmasq.service").
   * dnsmasq 서비스를 시작합니다("systemctl start dnsmasq.service").
@@ -107,7 +108,7 @@ resolv.conf 파일은 자동으로 생성되며 편집할 수 없습니다.  'op
 * **SUSE** (netconf 사용):
   * 'timeout:1 attempts:5'를 '/etc/sysconfig/network/config'의 NETCONFIG_DNS_RESOLVER_OPTIONS="" 매개 변수에 추가합니다. 
   * 'netconfig update'를 실행하여 업데이트합니다.
-* **OpenLogic** (NetworkManager 사용):
+* **Rogue Wave Software의 CentOS(이전의 OpenLogic)**(NetworkManager 사용):
   * 'echo "options timeout:1 attempts:5"'를 '/etc/NetworkManager/dispatcher.d/11-dhclient'에 추가합니다. 
   * 'service network restart'를 실행하여 업데이트합니다.
 

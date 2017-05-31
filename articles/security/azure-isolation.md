@@ -16,21 +16,21 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 0a83f249bbaba0ae3fd6ebf10863abc398859200
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: a167f15b1c885c51c9a85c501a9a9a60992cdf5d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 공용 클라우드에서 격리
-## <a name="10-introduction"></a>1.0 소개
-### <a name="11-overview"></a>1.1 개요
+##  <a name="introduction"></a>소개
+### <a name="overview"></a>개요
 현재 및 미래의 Azure 고객이 Azure 플랫폼에서 사용할 수 있는 다양한 보안 관련 기능을 이해하고 활용할 수 있도록 Microsoft는 일련의 백서, 보안 개요, 모범 사례 및 검사 목록을 개발했습니다.
 주제는 폭과 깊이에 따라 다양하게 다루어지며 정기적으로 업데이트됩니다. 이 문서는 다음의 요약 섹션에서 설명하는 시리즈의 일부입니다.
 
-### <a name="12-azure-platform"></a>1.2 Azure 플랫폼
+### <a name="azure-platform"></a>Azure 플랫폼
 Azure는 매우 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 장치를 지원하는 개방적이고 유연한 클라우드 서비스 플랫폼입니다. 예를 들어 다음을 수행할 수 있습니다.
 - Docker 통합으로 Linux 컨테이너를 실행합니다.
 - JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드합니다.
@@ -42,20 +42,20 @@ IT 자산을 만들거나 공용 클라우드 서비스 공급자로 마이그�
 
 Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위한 시설에서 응용 프로그램에 이르는 인프라를 설계하며 비즈니스의 보안 요구 사항을 충족하는 신뢰할 수 있는 기반을 제공합니다. 또한 Azure는 다양하게 구성 가능한 보안 옵션 및 제어 능력을 제공하므로 배포에 대한 고유한 요구 사항에 맞게 보안을 사용자 지정할 수 있습니다. 이 문서는 이러한 요구 사항을 충족하는 데 도움이 됩니다.
 
-### <a name="13-abstract"></a>1.3 요약
+### <a name="abstract"></a>요약
 
 Microsoft Azure를 사용하면 공유된 실제 인프라에서 응용 프로그램과 가상 컴퓨터(VM)를 실행할 수 있습니다. 클라우드 환경에서 응용 프로그램을 실행하는 데 있어 가장 중요한 경제적 동기 중 하나는 여러 고객에게 공유 리소스에 대한 비용을 분산할 수 있는 능력입니다. 이러한 다중 테넌트 방식은 저렴한 비용으로 서로 다른 고객 간에 리소스를 다중화함으로써 효율성을 향상시킵니다. 아쉽게도 물리적 서버 및 기타 인프라 리소스를 공유하여 임의의 잠재적 악성 사용자에게 속할 수 있는 중요한 응용 프로그램과 VM을 실행할 위험이 있습니다.
 
 이 문서에서는 Microsoft Azure에서 악의적인 사용자와 악의적이지 않은 사용자를 모두 격리하는 방법을 설명하고, 설계자에게 다양한 격리 옵션을 제공하여 클라우드 솔루션을 설계하는 데 유용한 정보를 제공합니다. 이 백서에서는 Azure 플랫폼 및 고객 관련 보안 제어 기술에 중점을 두는 반면, SLA, 가격 책정 모델 및 DevOps 구현 방법에 대한 고려 사항은 다루지 않습니다.
 
-## <a name="20-tenant-level-isolation"></a>2.0 테넌트 수준 격리
+## <a name="tenant-level-isolation"></a>테넌트 수준 격리
 클라우드 컴퓨팅의 주요 이점 중 하나는 수많은 고객들에게 동시에 공유되는 일반적인 인프라 개념에 있으며 규모의 경제를 실현합니다. 이 개념을 다중 테넌트라고 합니다. Microsoft는 Microsoft Cloud Azure의 다중 테넌트 아키텍처에서 보안, 기밀성, 개인 정보 보호, 무결성 및 가용성 표준을 지원할 수 있도록 지속적으로 노력하고 있습니다.
 
 클라우드 기반 작업 공간에서 테넌트는 해당 클라우드 서비스의 특정 인스턴스를 소유하고 관리하는 클라이언트나 조직으로 정의할 수 있습니다. 테넌트는 Microsoft Azure에서 제공하는 ID 플랫폼을 사용하여 조직에서 Microsoft 클라우드 서비스에 등록할 때 받고 소유하는 Azure AD(Azure Active Directory)의 전용 인스턴스일 뿐입니다.
 
 각 Azure AD 디렉터리는 고유하며 다른 Azure AD 디렉터리와 구분됩니다. 회사 사무실 건물이 해당 조직에게만 속하는 안전한 자산인 것처럼 Azure AD 디렉터리도 조직에서만 사용하기 위해 자산을 보호하도록 설계되었습니다. Azure AD 아키텍처는 고객 데이터 및 ID 정보가 함께 혼합되지 않도록 격리합니다. 즉, 한 Azure AD 디렉터리의 사용자 및 관리자가 실수로 또는 악의적으로 다른 디렉터리의 데이터에 액세스할 수 없습니다.
 
-### <a name="21-azure-tenancy"></a>2.1 Azure 테넌트
+### <a name="azure-tenancy"></a>Azure 테넌트
 Azure 테넌트(Azure 구독)는 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)에서 "고객/청구" 관계 및 고유한 [테넌트](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant)를 나타냅니다. Microsoft Azure의 테넌트 수준 격리는 Azure Active Directory 및 이 서비스에서 제공하는 [역할 기반 제어](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)를 사용하여 이루어집니다. 각각의 Azure 구독은 하나의 Azure AD(Active Directory) 디렉터리와 연결됩니다.
 
 사용자, 그룹 및 해당 디렉터리에서 응용 프로그램은 Azure 구독에서 리소스를 관리할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 이러한 액세스 권한을 할당할 수 있습니다. Azure AD 테넌트는 보안 경계를 사용하여 논리적으로 격리되므로 어떤 고객도 악의적으로 또는 실수로 공동 테넌트에 액세스하거나 손상시킬 수 없습니다. Azure AD는 분리된 네트워크 세그먼트에서 격리된 "운영 체제 미설치(bare metal)" 서버에서 실행되며, 여기서 호스트 수준 패킷 필터링과 Windows 방화벽은 원하지 않는 연결과 트래픽을 차단합니다.
@@ -83,7 +83,7 @@ Azure Active Directory는 테넌트에서만 소유하고 관리하는 컨테이
 
 여러 Azure Active Directory 테넌트의 메타데이터가 동일한 물리적 디스크에 저장되어있는 경우에도 디렉터리 서비스에서 정의된 것 이외의 컨테이너 간에는 아무 관계가 없으므로 디렉터리 서비스에서 테넌트를 결정합니다.
 
-### <a name="22-azure-role-based-access-control-rbac"></a>2.2 RBAC(역할 기반 액세스 제어)
+### <a name="azure-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)
 [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)는 Azure에 세분화된 액세스 관리를 제공하여 Azure 구독 내에서 사용할 수 있는 다양한 구성 요소를 공유할 수 있게 합니다. Azure RBAC를 사용하면 조직 내에서 직무를 분리하고, 사용자가 자신의 작업 수행에 필요한 항목에 따라 액세스 권한을 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다.
 
 Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할이 있습니다.
@@ -113,7 +113,7 @@ Azure Active Directory의 몇 가지 다른 기능은 다음과 같습니다.
 
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)는 수억 개의 ID로 확장하는 소비자 지향 응용 프로그램에 항상 사용 가능한 전역적인 ID 관리 서비스를 제공합니다. 이 서비스는 모바일 및 웹 플랫폼에 통합될 수 있습니다. 소비자는 기존 소셜 계정을 사용하거나 자격 증명을 만들어 사용자 지정할 수 있는 환경을 통해 모든 응용 프로그램에 로그인할 수 있습니다.
 
-### <a name="23-isolation-from-microsoft-administrators--data-deletion"></a>2.3 Microsoft 관리자로부터 격리 및 데이터 삭제
+### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Microsoft 관리자로부터 격리 및 데이터 삭제
 권한이 없는 사람이 부적절하게 액세스하거나 사용하지 않도록 데이터를 보호하기 위해 Microsoft에서 강력한 조치를 취합니다. 이러한 운영 프로세스 및 제어는 사용자의 데이터에 대한 액세스를 제어하는 계약상의 약정을 제공하는 [Online Services 약관](http://aka.ms/Online-Services-Terms)으로 지지됩니다.
 
 -    Microsoft 엔지니어는 클라우드에서 데이터에 대한 기본 액세스 권한을 갖지 없습니다. 대신 필요할 때만 관리 감독하에 액세스 권한이 부여됩니다. 이러한 액세스 권한은 신중하게 제어되고 로깅되며, 더 이상 필요하지 않게 되면 해지됩니다.
@@ -126,10 +126,10 @@ ISO/IEC 27001과 같은 감사된 인증을 갖춘 비즈니스 서비스는 합
 
 저장소로 사용되는 디스크 드라이브에 하드웨어 장애가 발생하면 Microsoft에서 교체하거나 복구하기 위해 제조업체에 반환하기 전에 안전하게 [지워지거나 제거됩니다](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data). 어떤 방법으로도 데이터를 복구할 수 없도록 드라이브의 데이터를 덮어씁니다.
 
-## <a name="30-compute-isolation"></a>3.0 계산 격리
+## <a name="compute-isolation"></a>Compute 격리
 Microsoft Azure는 응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하도록 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스를 제공합니다. 이러한 계산 인스턴스와 서비스는 여러 수준에서 격리를 제공하여 고객이 요구하는 구성에서 유연성을 유지하면서 데이터를 보호합니다.
 
-### <a name="31-hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>3.1 루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리
+### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리
 Azure의 계산 플랫폼은 Hyper-V 가상 컴퓨터에서 모든 고객 코드를 실행한다는 것을 의미하는 컴퓨터 가상화를 기반으로 합니다. 각 Azure 노드(또는 네트워크 끝점)에는 하드웨어를 통해 직접 실행되는 하이퍼바이저가 있으며, 노드는 여러 게스트 VM(가상 컴퓨터)으로 나누어집니다.
 
 
@@ -144,10 +144,10 @@ Azure 플랫폼은 가상화된 환경을 사용합니다. 사용자 인스턴�
 
 Azure 하이퍼바이저는 마이크로 커널처럼 작동하고 VMBus라는 공유 메모리 인터페이스를 사용하여 게스트 가상 컴퓨터에서 호스트에 모든 하드웨어 액세스 요청을 처리하도록 전달합니다. 이렇게 하면 사용자가 시스템에 원시 읽기/쓰기/실행 액세스를 가져오는 것을 방지하고 시스템 리소스를 공유할 위험을 완화합니다.
 
-### <a name="32-advanced-vm-placement-algorithm--protection-from-side-channel-attacks"></a>3.2 고급 VM 배치 알고리즘 및 측면 채널 공격으로부터 보호
+### <a name="advanced-vm-placement-algorithm--protection-from-side-channel-attacks"></a>고급 VM 배치 알고리즘 및 측면 채널 공격으로부터 보호
 VM 간 공격에는 두 가지 단계가 포함됩니다. 먼저 교착 상태가 발생한 VM 중 하나와 동일한 호스트에 악의적 사용자가 제어하는 VM을 배치하고, 다음으로 격리 경계를 위반하여 중요한 공격 대상 정보를 훔치거나 탐욕이나 파괴 행위로 성능에 영향을 미치는 것입니다. Microsoft Azure는 고급 VM 배치 알고리즘을 사용하고 시끄러운 이웃 VM을 포함하여 알려진 모든 측면 채널 공격으로부터 보호함으로써 두 단계를 모두 보호합니다.
 
-### <a name="33-the-azure-fabric-controller"></a>3.3 Azure 패브릭 컨트롤러
+### <a name="the-azure-fabric-controller"></a>Azure 패브릭 컨트롤러
 Azure 패브릭 컨트롤러는 테넌트 워크로드에 대한 인프라 리소스를 할당하는 일을 담당하고 호스트에서 가상 컴퓨터에 단방향 통신을 관리합니다. Azure 패브릭 컨트롤러의 VM 배치 알고리즘은 매우 정교하며 물리적 호스트 수준으로 예측하는 것이 거의 불가능합니다.
 
 ![Azure 패브릭 컨트롤러](./media/azure-isolation/azure-isolation-fig5.png)
@@ -171,7 +171,7 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노�
 하이퍼바이저 및 호스트 OS는 네트워크 패킷 필터를 제공하여 신뢰할 수 없는 가상 컴퓨터에서 스푸핑된 트래픽을 생성하거나, 해당 주소로 지정되지 않은 트래픽을 받거나, 보호된 인프라 끝점으로 트래픽을 보내거나, 부적절한 브로드캐스트 트래픽을 보내거나 받을 수 없도록 합니다.
 
 
-### <a name="34-additional-rules-configured-by-fabric-controller-agent-to-isolate-vm"></a>3.4 패브릭 컨트롤러 에이전트에서 VM을 격리하도록 구성되는 추가 규칙
+### <a name="additional-rules-configured-by-fabric-controller-agent-to-isolate-vm"></a>패브릭 컨트롤러 에이전트에서 VM을 격리하도록 구성되는 추가 규칙
 기본적으로 가상 컴퓨터를 만들 때 모든 트래픽을 차단한 다음, 패브릭 컨트롤러 에이전트에서 규칙과 예외를 추가하여 권한이 부여된 트래픽을 허용하도록 패킷 필터를 구성합니다.
 
 프로그래밍되는 규칙에는 다음 두 가지 범주의 규칙이 있습니다.
@@ -180,7 +180,7 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노�
 
 -    **역할 구성 파일**: 테넌트의 서비스 모델에 기반하여 인바운드 ACL(액세스 제어 목록)을 정의합니다.
 
-### <a name="35-vlan-isolation"></a>3.5 VLAN 격리
+### <a name="vlan-isolation"></a>VLAN 격리
 각 클러스터에는 다음과 같이 3개의 VLAN이 있습니다.
 
 ![VLAN 격리](./media/azure-isolation/azure-isolation-fig8.jpg)
@@ -194,12 +194,12 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노�
 
 FC VLAN에서 기본 VLAN으로의 통신은 허용되지만, 기본 VLAN에서 FC VLAN으로 초기화할 수는 없습니다. 또한 기본 VLAN에서 장치 VLAN으로의 통신은 차단됩니다. 이렇게 하면 고객 코드를 실행하는 노드가 손상되더라도 FC VLAN 또는 장치 VLAN의 노드는 공격할 수 없습니다.
 
-## <a name="40-storage-isolation"></a>4.0 저장소 격리
-### <a name="41-logical-isolation-between-compute-and-storage"></a>4.1 계산 및 저장소 간의 논리적 격리
+## <a name="storage-isolation"></a>저장소 격리
+### <a name="logical-isolation-between-compute-and-storage"></a>Compute 및 저장소 간의 논리적 격리
 기본 설계의 일부로 Microsoft Azure는 VM 기반 계산을 저장소로부터 분리합니다. 이러한 분리를 통해 계산 및 저장소를 독립적으로 확장할 수 있으므로 다중 테넌트 및 격리를 더 쉽게 제공할 수 있습니다.
 
 따라서 Azure Storage는 논리적 격리를 제외하고는 Azure Compute에 대한 네트워크 연결이 없는 별도의 하드웨어에서 실행됩니다. [이](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)는 가상 디스크를 만들 때 디스크 공간이 전체 용량으로 할당되지 않음을 의미합니다. 대신 가상 디스크의 주소를 실제 디스크의 영역에 매핑하는 테이블이 만들어지며, 이 테이블은 처음에는 비어 있습니다. **고객이 처음으로 가상 디스크에 데이터를 쓰면 실제 디스크의 공간이 할당되고 해당 공간에 대한 포인터가 테이블에 배치됩니다.**
-### <a name="42-isolation-using-storage-access-control"></a>4.2 저장소 액세스 제어를 사용한 격리
+### <a name="isolation-using-storage-access-control"></a>저장소 액세스 제어를 사용한 격리
 **Azure Storage의 액세스 제어**에는 간단한 액세스 제어 모델이 있습니다. Azure 구독마다 하나 이상의 저장소 계정을 만들 수 있습니다. 각 저장소 계정에는 해당 저장소 계정의 모든 데이터에 대한 액세스를 제어하는 데 사용되는 단일 비밀 키가 있습니다.
 
 ![저장소 액세스 제어를 사용한 격리](./media/azure-isolation/azure-isolation-fig9.png)
@@ -208,18 +208,18 @@ FC VLAN에서 기본 VLAN으로의 통신은 허용되지만, 기본 VLAN에서 
 
 SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 저장소 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 이러한 제한된 권한을 부여할 수 있습니다.
 
-### <a name="43-ip-level-storage-isolation"></a>4.3 IP 수준 저장소 격리
+### <a name="ip-level-storage-isolation"></a>IP 수준 저장소 격리
 방화벽을 설정하고 신뢰할 수 있는 클라이언트에 대한 IP 주소 범위를 정의할 수 있습니다. IP 주소 범위를 사용하면 정의된 범위 내의 IP 주소를 가진 클라이언트만 [Azure Storage](https://docs.microsoft.com/azure/storage/storage-security-guide)에 연결할 수 있습니다.
 
 IP 저장소 데이터는 IP 저장소에 전용 트래픽 또는 전용 트래픽 터널을 할당하는 데 사용되는 네트워킹 메커니즘을 통해 권한이 없는 사용자로부터 보호할 수 있습니다.
 
-### <a name="44-encryption"></a>4.4 암호화
+### <a name="encryption"></a>암호화
 Azure는 다음과 같은 유형의 암호화를 제공하여 데이터를 보호합니다.
 -    전송 중 암호화
 
 -    휴지 상태의 암호화
 
-#### <a name="441-encryption-in-transit"></a>4.4.1 전송 중 암호화
+#### <a name="encryption-in-transit"></a>전송 중 암호화
 전송 중 암호화는 네트워크를 통해 전송되는 경우 데이터 보호의 메커니즘입니다. Azure Storage를 사용하면 다음을 사용하여 데이터를 보호할 수 있습니다.
 
 -    Azure 저장소 안팎으로 데이터를 전송하는 경우 HTTPS와 같은 [전송 수준 암호화](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit)
@@ -228,7 +228,7 @@ Azure는 다음과 같은 유형의 암호화를 제공하여 데이터를 보�
 
 -    저장소로 데이터가 전송되기 전에 암호화하고 저장소 외부로 전송된 후에 암호를 해독할 수 있도록 하는 [클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage)
 
-#### <a name="442-encryption-at-rest"></a>4.4.2 미사용 암호화
+#### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 여러 조직에서 [미사용 데이터 암호화](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) 는 데이터 프라이버시, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. “휴지 상태”의 데이터 암호화를 제공하는 세 가지 Azure 기능이 있습니다.
 
 -    [저장소 서비스 암호화](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) 를 사용하면 저장소 서비스가 Azure 저장소에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.
@@ -237,7 +237,7 @@ Azure는 다음과 같은 유형의 암호화를 제공하여 데이터를 보�
 
 -    [Azure 디스크 암호화](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 를 사용하면 IaaS 가상 컴퓨터에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다.
 
-#### <a name="443-azure-disk-encryption"></a>4.4.3 Azure Disk Encryption
+#### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
 VM(가상 컴퓨터)에 대해 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)를 사용하면 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에서 제어하는 키와 정책으로 VM 디스크(부팅 및 데이터 디스크 포함)를 암호화하여 조직의 보안 및 규정 준수 요구 사항을 처리할 수 있습니다.
 
 Windows용 디스크 암호화 솔루션은 [Microsoft BitLocker 드라이브 암호화](https://technet.microsoft.com/library/cc732774.aspx)를 기반으로 하고, Linux 솔루션은 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 기반으로 합니다.
@@ -277,10 +277,10 @@ Windows용 디스크 암호화 솔루션은 [Microsoft BitLocker 드라이브 �
 
 -    Azure 파일(공유 파일 시스템), NFS(네트워크 파일 시스템), 동적 볼륨, 소프트웨어 기반 RAID 시스템으로 구성된 Windows VM
 
-## <a name="50-sql-azure-database-isolation"></a>5.0 SQL Azure 데이터베이스 격리
+## <a name="sql-azure-database-isolation"></a>SQL Azure Database 격리
 SQL Database는 시장을 선도하는 Microsoft SQL Server 엔진을 기반으로 하고 중요한 업무용 워크로드를 처리할 수 있는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. SQL Database는 계정 수준, 지리/지역 기반 및 네트워킹 기반의 예측 가능한 데이터 격리를 제공하며, 이러한 격리는 모두 거의 관리할 필요가 없습니다.
 
-### <a name="51-sql-azure-application-model"></a>5.1 SQL Azure 응용 프로그램 모델
+### <a name="sql-azure-application-model"></a>SQL Azure 응용 프로그램 모델
 
 [Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) 데이터베이스는 SQL Server 기술로 구축된 클라우드 기반 관계형 데이터베이스 서비스입니다. Microsoft에서 호스팅하는 확장성 있는 고가용성 다중 테넌트 데이터베이스 서비스를 클라우드에 제공합니다.
 
@@ -306,7 +306,7 @@ SQL Azure 서버는 물리적 또는 VM 인스턴스가 아니라 소위 "논리
 
 고객 관점에서 논리 서버는 지리적 그래픽 지역에 만들지만 서버는 실제로 해당 지역의 클러스터 중 하나에서 만들어집니다.
 
-### <a name="52-isolation-through-network-topology"></a>5.2 네트워크 토폴로지를 통한 격리
+### <a name="isolation-through-network-topology"></a>네트워크 토폴로지를 통한 격리
 
 논리 서버가 만들어지고 DNS 이름이 등록되면 DNS 이름은 서버를 배치한 특정 데이터 센터의 소위 "게이트웨이 VIP" 주소를 가리킵니다.
 
@@ -325,10 +325,10 @@ VIP(가상 IP 주소) 뒤에는 상태 비저장 게이트웨이 서비스의 �
 
 일반적으로 백 엔드 시스템은 보안상의 이유로 다른 시스템으로 아웃바운드 통신하지 않습니다. 이는 프런트 엔드(게이트웨이) 계층의 시스템에 예약되어 있습니다. 게이트웨이 계층 컴퓨터는 백 엔드 컴퓨터로 제한된 권한을 가지므로 심층 방어 메커니즘으로 공격 노출 영역을 최소화합니다.
 
-### <a name="53-isolation-by-machine-function-and-access"></a>5.3 시스템 함수 및 액세스 권한으로 격리
+### <a name="isolation-by-machine-function-and-access"></a>시스템 함수 및 액세스 권한으로 격리
 SQL Azure는 다른 시스템 함수에서 실행되는 서비스로 구성됩니다. SQL Azure는 "백 엔드" 클라우드 데이터베이스와 "프런트 엔드"(게이트웨이/관리) 환경으로 구분되며, 여기서는 트래픽의 일반적인 원칙이 백 엔드로만 전달되며 백 엔드로부터 받을 수는 없습니다. 프론트 엔드 환경은 다른 서비스의 외부 세계와 통신할 수 있으며, 일반적으로 백 엔드에서 제한된 권한(호출해야 하는 진입점을 호출하는 데 충분한 권한)만 가집니다.
 
-## <a name="60-networking-isolation"></a>6.0 네트워킹 격리
+## <a name="networking-isolation"></a>네트워킹 격리
 Azure 배포에는 여러 계층의 네트워크 격리가 있습니다. 다음 다이어그램에서는 Azure에서 고객에게 제공하는 다양한 계층의 네트워크 격리를 보여 줍니다. 이러한 계층은 Azure 플랫폼 자체 기능 및 고객 정의 기능에서 모두 고유합니다. Azure DDoS는 인바운드 인터넷을 통해 Azure에 대한 대규모 공격에 대한 격리를 제공합니다. 다음 격리 계층은 클라우드 서비스를 통해 가상 네트워크로 전달할 수 있는 트래픽을 결정하는 데 사용하도록 고객이 정의한 공용 IP 주소(끝점)입니다. 기본 Azure Virtual Network 격리를 통해 모든 타 네트워크를 격리하고 트래픽이 사용자가 구성한 경로 및 방법을 통해서만 전달되도록 할 수 있습니다. 이러한 경로와 방법은 NSG, UDR 및 네트워크 가상 어플라이언스를 사용하여 보호된 네트워크의 응용 프로그램 배포를 보호하기 위해 격리 경계를 만드는 데 사용할 수 있는 다음 계층입니다.
 
 ![네트워킹 격리](./media/azure-isolation/azure-isolation-fig13.png)

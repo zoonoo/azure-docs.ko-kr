@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: b09b66c44ba94df12934211d5d09430adb667003
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 850bf9ef5300c72a9e7903be5bf991301d4b574f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -89,7 +91,7 @@ Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 �
 3. 블레이드의 맨 위에서 **저장** 을 클릭하여 설정을 저장합니다.
 4. 레코드가 제거된 후 **DNS 영역** 블레이드의 레코드 값에 제거 결과가 반영됩니다.
 
-## <a name="a-namedeleteadelete-a-record-set"></a><a name="delete"></a>레코드 집합 삭제
+## <a name="delete"></a>레코드 집합 삭제
 
 1. 레코드 집합에 대한 **레코드 집합 속성** 블레이드에서 **삭제**를 클릭합니다.
 
@@ -105,11 +107,15 @@ Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 �
 
 ### <a name="modify-soa-records"></a>SOA 레코드 수정
 
-영역 루트(이름 = "@"))에 설정된 자동으로 생성된 SOA 레코드 집합에서 레코드를 추가 또는 제거할 수는 없습니다. 그러나 SOA 레코드 내의 매개 변수("Host" 제외) 및 레코드 집합 TTL을 수정할 수 있습니다.
+영역 루트(이름 = "@")에 설정된 자동으로 생성된 SOA 레코드 집합에서 레코드를 추가 또는 제거할 수는 없습니다. 그러나 SOA 레코드 내의 매개 변수("Host" 제외) 및 레코드 집합 TTL을 수정할 수 있습니다.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>영역 루트의 NS 레코드 수정
 
-영역 루트(이름 = "@"))에 자동으로 생성된 NS 레코드 집합에서 레코드를 추가, 제거 또는 수정할 수는 없습니다. 레코드 집합 TTL을 수정하는 변경 작업만 허용됩니다.
+각 DNS 영역에 영역 루트의 NS 레코드 집합이 자동으로 만들어집니다. 여기에는 영역에 할당된 Azure DNS 이름 서버의 이름이 포함됩니다.
+
+이 NS 레코드 집합에 추가 이름 서버를 추가하여 DNS 공급자가 2개 이상 있는 공동 호스팅 도메인을 지원할 수 있습니다. 또한 이 레코드 집합의 TTL 및 메타데이터를 수정할 수 있습니다.또한 이 레코드 집합의 TTL 및 메타데이터를 수정할 수 있습니다. 그러나 미리 채워진 Azure DNS 이름 서버를 제거 또는 수정할 수 없습니다.
+
+이는 영역 루트에 있는 NS 레코드 집합에만 적용됩니다. 영역의 다른 NS 레코드 집합은 제약 없이 수정할 수 있습니다(자식 영역을 위임하는 데 사용되므로).
 
 ### <a name="delete-soa-or-ns-record-sets"></a>SOA 또는 NS 레코드 집합 삭제
 
@@ -120,9 +126,4 @@ Azure 포털을 사용하여 레코드 집합에서 레코드를 제거할 수 �
 * Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 참조하세요.
 * DNS 자동화에 대한 자세한 내용은 [.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기](dns-sdk.md)를 참조하세요.
 * 역방향 DNS 레코드에 대한 자세한 내용은 [PowerShell을 사용하여 서비스에 대한 역방향 DNS 레코드를 관리하는 방법](dns-reverse-dns-record-operations-ps.md)을 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

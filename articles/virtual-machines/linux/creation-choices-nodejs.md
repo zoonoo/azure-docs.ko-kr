@@ -1,5 +1,5 @@
 ---
-title: "Linux VM을 만드는 다양한 방법 | Microsoft Docs"
+title: "Azure CLI 1.0을 사용하여 Linux VM을 만드는 다양한 방법 | Microsoft Docs"
 description: "각 방법에 대한 도구 및 자습서를 비롯하여 Azure에 Linux 가상 컴퓨터를 만드는 다양한 방법을 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/19/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f53904ebd75c7362db238b1a75ea28b989112107
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 756141fda3148726af0030a010465ee14e8ce6b6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -33,39 +34,40 @@ Azure에는 편리한 도구와 워크플로를 사용하여 Linux VM(가상 컴
 
 Azure CLI 1.0은 npm 패키지, 배포판 제공 패키지 또는 Docker 컨테이너를 통해 여러 플랫폼에서 사용할 수 있습니다. [Azure CLI를 설치하고 구성하는 방법](../../cli-install-nodejs.md)에 대해 자세히 알아볼 수 있습니다. 다음 자습서에서는 Azure CLI 1.0을 사용하는 방법에 대한 예제를 제공합니다. 다음과 같이 표시되는 CLI 빠른 시작 명령에 대한 자세한 내용은 각 문서를 참고합니다.
 
-* [개발 및 테스트를 위해 Azure CLI에서 Linux VM 만들기](quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [개발 및 테스트를 위해 Azure CLI에서 Linux VM 만들기](quick-create-cli-nodejs.md)
   
-  * 다음 예제에서는 `azure_id_rsa.pub`라는 공개 키를 사용하여 CoreOS VM을 만듭니다.
+  * 다음 예제에서는 *azure_id_rsa.pub*라는 공개 키를 사용하여 CoreOS VM을 만듭니다.
     
     ```azurecli
     azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
       --image-urn CoreOS
     ```
-* [Azure 템플릿을 사용하여 안전한 Linux VM 만들기](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure 템플릿을 사용하여 안전한 Linux VM 만들기](create-ssh-secured-vm-from-template.md)
   
   * 다음 예제에서는 GitHub에 저장된 템플릿을 사용하여 VM을 만듭니다.
     
     ```azurecli
-    azure group create --name myResourceGroup --location WestUS 
+    azure group create --name myResourceGroup --location eastus 
       --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
     ```
-* [Azure CLI를 사용하여 완전한 Linux 환경 만들기](create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI를 사용하여 완전한 Linux 환경 만들기](create-cli-complete-nodejs.md)
   
   * 가용성 집합에서 부하 분산 장치 및 여러 VM을 만드는 방법이 포함됩니다.
-* [Linux VM에 디스크 추가](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Linux VM에 디스크 추가](add-disk.md)
   
-  * 다음 예제에서는 `TestVM`라는 기존 VM에 5Gb 디스크를 추가합니다.
+  * 다음 예제에서는 *myVM*라는 기존 VM에 *5*GB 디스크를 추가합니다.
     
     ```azurecli
-    azure vm disk attach-new --resource-group myResourceGroup  --vm-name myVM \
-      --size-in-GB 5
+    azure vm disk attach-new \
+        --resource-group myResourceGroup \
+        --vm-name myVM \
+        --size-in-GB 5
     ```
 
 ## <a name="azure-portal"></a>Azure 포털
 [Azure Portal](https://portal.azure.com) 을 사용하면 시스템에 설치할 프로그램이 없으므로 VM을 신속하게 만들 수 있습니다. Azure 포털을 사용하여 다음과 같이 VM을 만듭니다.
 
-* [Azure 포털을 사용하여 Linux VM 만들기](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
-* [Azure 포털을 사용하여 디스크 연결](../windows/attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure 포털을 사용하여 Linux VM 만들기](quick-create-portal.md) 
 
 ## <a name="operating-system-and-image-choices"></a>운영 체제 및 이미지 선택
 VM을 만드는 경우 실행하려는 운영 체제에 따라 이미지를 선택합니다. Azure 및 해당 파트너는 미리 설치된 응용 프로그램 및 도구를 포함하는 여러 이미지를 제공합니다. 또는 사용자 고유의 이미지 중 하나를 업로드합니다( [다음 섹션](#use-your-own-image)을 참조).
@@ -76,28 +78,28 @@ VM을 만드는 경우 실행하려는 운영 체제에 따라 이미지를 선�
 사용 가능한 게시자를 다음과 같이 나열합니다.
 
 ```azurecli
-azure vm image list-publishers --location WestUS
+azure vm image list-publishers --location eastus
 ```
 
 지정된 게시자에 사용 가능한 제품(제품)을 다음과 같이 나열합니다.
 
 ```azurecli
-azure vm image list-offers --location WestUS --publisher Canonical
+azure vm image list-offers --location eastus --publisher Canonical
 ```
 
 지정된 제품 중 사용 가능한 SKU(배포판 릴리스)를 다음과 같이 나열합니다.
 
 ```azurecli
-azure vm image list-skus --location WestUS --publisher Canonical --offer UbuntuServer
+azure vm image list-skus --location eastus --publisher Canonical --offer UbuntuServer
 ```
 
 지정된 릴리스에 사용 가능한 모든 이미지를 다음과 같이 나열합니다.
 
 ```azurecli
-azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
+azure vm image list --location eastus --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
 ```
 
-사용 가능한 이미지 검색 및 사용에 대한 추가 예제는 [Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+사용 가능한 이미지 검색 및 사용에 대한 추가 예제는 [Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](cli-ps-findimage.md#use-azure-cli-10)을 참조하세요.
 
 `azure vm quick-create` 및 `azure vm create` 명령에는 일반적인 배포판 및 해당 최신 릴리스에 신속하게 액세스하는 데 사용할 수 있는 몇 가지 별칭이 있습니다. 별칭을 사용하는 방법이 VM을 만들 때마다 게시자, 제품, SKU 및 버전을 지정하는 것보다 빠릅니다.
 
@@ -114,10 +116,10 @@ azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer
 ### <a name="use-your-own-image"></a>사용자 고유의 이미지 사용
 특정 사용자 지정이 필요한 경우 해당 VM을 *캡처* 하여 기존 Azure VM을 기반으로 하는 이미지를 사용할 수 있습니다. 이미지로 만든 온-프레미스를 업로드할 수도 있습니다. 지원되는 배포판 및 사용자 고유의 이미지를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure 인증 배포](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [보증되지 않는 배포에 대한 정보](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Linux 가상 컴퓨터를 Resource Manager 템플릿으로 캡처하는 방법](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Azure 인증 배포](endorsed-distros.md)
+* [보증되지 않는 배포에 대한 정보](create-upload-generic.md)
+* [사용자 지정 디스크 이미지에서 Linux VM 업로드 및 만들기](upload-vhd.md)
+* [Linux 가상 컴퓨터를 Resource Manager 템플릿으로 캡처하는 방법](capture-image.md).
   
   * 기존 VM을 캡처하는 빠른 시작 예제 명령은 다음과 같습니다.
     
@@ -128,8 +130,8 @@ azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer
     ```
 
 ## <a name="next-steps"></a>다음 단계
-* [CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)로 [포털](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 Linux VM을 만들거나 [Azure Resource Manager 템플릿](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 Linux VM을 만듭니다.
-* Linux VM을 만든 후에 [데이터 디스크를 추가합니다](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* [암호 또는 SSH 키 다시 설정 및 사용자 관리](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [CLI](quick-create-cli.md)로 [포털](quick-create-portal.md)에서 Linux VM을 만들거나 [Azure Resource Manager 템플릿](../windows/cli-deploy-templates.md)을 사용하여 Linux VM을 만듭니다.
+* Linux VM을 만든 후에 [데이터 디스크를 추가합니다](add-disk.md).
+* [암호 또는 SSH 키 다시 설정 및 사용자 관리](using-vmaccess-extension.md)
 
 

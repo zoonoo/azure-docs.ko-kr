@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: aca6cd69647406d0140d8b0d0cba8e4690b04ae1
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: ce71f8cd842746e6e236f4a2034ba3ee3001586c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -53,7 +54,7 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 
 선택한 시간 범위 동안 활성 네트워크 연결을 통해 실행 중인 프로세스를 표시 하도록 맵에서 컴퓨터를 확장할 수 있습니다.  서비스 맵 에이전트가 있는 원격 컴퓨터가 프로세스 세부 정보를 표시하도록 확장되면 중심 컴퓨터와 통신 중인 프로세스만 표시됩니다.  중심 컴퓨터에 연결 중인 에이전트가 없는 프런트 엔드 컴퓨터 수는 연결되는 프로세스 왼쪽에 표시됩니다.  포커스 컴퓨터가 에이전트 없이 백 엔드 시스템에 대한 연결을 설정하는 경우 해당 백 엔드 서버는 동일한 포트 번호에 대한 다른 연결과 함께 서버 포트 그룹에 포함됩니다.
 
-기본적으로 서비스 맵 맵은 최근 10분 간의 종속성 정보를 표시합니다.  왼쪽 상단에 있는 시간 컨트롤을 사용하여 맵에서 과거 시간 범위를 1시간까지 쿼리하여 과거에 종속성이 어땠는지(예: 인시던트 중 또는 변경되기 전) 쿼리할 수 있습니다.    서비스 맵 데이터는 유료 작업 영역에서 30일 동안, 무료 작업 영역에서는 7일 동안 저장됩니다.
+기본적으로 서비스 맵 맵은 최근 30분 간의 종속성 정보를 표시합니다.  왼쪽 상단에 있는 시간 컨트롤을 사용하여 맵에서 과거 시간 범위를 1시간까지 쿼리하여 과거에 종속성이 어땠는지(예: 인시던트 중 또는 변경되기 전) 쿼리할 수 있습니다.    서비스 맵 데이터는 유료 작업 영역에서 30일 동안, 무료 작업 영역에서는 7일 동안 저장됩니다.
 
 ## <a name="status-badges-and-border-coloring"></a>상태 배지 및 경계 색 지정
 맵의 각 서버 하단에는 서버에 대한 상태 정보를 전달하는 상태 배지 목록이 있을 수 있습니다.  이러한 배지가 있으면 OMS 솔루션 통합 중 하나에서 제공된 서버 관련 정보가 있는 것입니다.  배지를 클릭하면 오른쪽 창의 상태 세부 정보로 직접 이동됩니다.  현재 사용 가능한 상태 배지에는 경고, 변경, 보안 및 업데이트가 포함됩니다.
@@ -109,7 +110,7 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 자체 링크 표시를 클릭하면 서버 내에서 프로세스를 시작 및 종료하는 TCP 연결에 해당하는 자체 링크를 포함하는 서버 노드가 다시 그려집니다.  자체 링크가 표시되면 메뉴가 자체 링크 숨기기로 변경되므로 사용자는 자체 링크 그리기를 전환할 수 있습니다.
 
 ## <a name="computer-summary"></a>컴퓨터 요약
-컴퓨터 요약 패널에는 서버 운영 체제 및 종속성 계수의 개요, 성능 메트릭, 변경 추적, 보안, 업데이트 등을 비롯한 다른 OMS 솔루션의 다양한 데이터가 포함됩니다.
+컴퓨터 요약 패널에는 서버 운영 체제 및 종속성 계수의 개요, 성능 메트릭, 변경 추적, 보안, 업데이트 등을 비롯한 다른 OMS 솔루션의 데이터가 포함됩니다.
 
 ![컴퓨터 요약](media/oms-service-map/machine-summary.png)
 
@@ -143,6 +144,17 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 
 ![로그 이벤트](media/oms-service-map/log-events.png)
 
+## <a name="oms-service-desk-integration"></a>OMS 서비스 데스크 통합
+IT 서비스 관리 커넥터와 서비스 맵의 통합은 두 솔루션이 사용하도록 설정되고 OMS 작업 영역에서 구성된 경우 자동입니다.  서비스 맵의 이러한 통합에는 "서비스 데스크" 레이블이 지정됩니다.  [ITSM 커넥터를 사용하도록 설정하고 구성하는 방법에 대해 자세히 알아보기](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview)
+
+서비스 데스크 패널에는 선택한 시간 범위에서 선택한 서버에 대한 모든 IT 서비스 관리 이벤트 목록이 표시됩니다.  현재 항목이 있으면 서버에 아이콘이 표시되고 서비스 데스크 패널에 해당 항목이 표시됩니다.
+![서비스 데스크 패널](media/oms-service-map/service-desk.png)
+
+연결된 ITSM 솔루션에서 항목을 열려면 "작업 항목 보기"를 클릭합니다.
+
+"로그 검색에서 표시"를 클릭하면 로그 검색에 항목 세부 정보가 표시됩니다.
+
+
 ## <a name="oms-change-tracking-integration"></a>OMS 변경 내용 추적 통합
 변경 내용 추적과 서비스 맵 통합은 두 솔루션이 사용하도록 설정되고 OMS 작업 영역에서 구성된 경우 자동입니다.
 
@@ -172,7 +184,7 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 ![컴퓨터 변경 내용 추적 패널](media/oms-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드
-서비스 맵의 컴퓨터 및 프로세스 인벤토리 데이터는 Log Analytics에서 [검색](../log-analytics/log-analytics-log-searches.md)에 사용할 수 있습니다.  이것은 마이그레이션 계획, 용량 분석, 검색 및 임시 성능 문제 해결 등의 시나리오에 적용할 수 있습니다.
+서비스 맵의 컴퓨터 및 프로세스 인벤토리 데이터는 Log Analytics에서 [검색](../log-analytics/log-analytics-log-searches.md)에 사용할 수 있습니다.  이 데이터는 마이그레이션 계획, 용량 분석, 검색 및 요청 시 성능 문제 해결 등의 시나리오에 적용할 수 있습니다.
 
 프로세스 또는 컴퓨터가 시작되거나 서비스 맵에 등록된 경우 생성되는 레코드 외에도 고유한 각 컴퓨터 및 프로세스에 대해 시간당 하나의 레코드가 생성됩니다.  이러한 레코드는 다음 표의 속성을 가집니다.  ServiceMapComputer_CL 이벤트의 필드 및 값은 ServiceMap ARM API의 컴퓨터 리소스 필드에 매핑됩니다.  ServiceMapProcess_CL 이벤트의 필드 및 값은 ServiceMap ARM API의 프로세스 리소스 필드에 매핑됩니다.  ResourceName_s 필드는 해당하는 ARM 리소스의 이름 필드와 일치합니다. 노트 - 서비스 맵 기능이 확장되면 이러한 필드도 변경될 수 있습니다.
 
@@ -199,7 +211,7 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 | DnsNames_s | DNS 이름 배열 |
 | OperatingSystemFamily_s | Windows 또는 Linux |
 | OperatingSystemFullName_s | 운영 체제 전체 이름  |
-| Bitness_s | 컴퓨터 비트 수(32비트) 또는 (64비트) |
+| Bitness_s | 컴퓨터 비트(32비트) 또는 (64비트) |
 | PhysicalMemory_d | 실제 메모리(MB) |
 | Cpus_d | CPU 수 |
 | CPUSpeed_d | CPU 속도(MHz)|

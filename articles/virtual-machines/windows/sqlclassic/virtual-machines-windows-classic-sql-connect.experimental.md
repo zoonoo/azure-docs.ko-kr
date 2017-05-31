@@ -18,7 +18,7 @@ experimental: true
 experimental_id: d51f3cc6-753b-4e
 ms.translationtype: Human Translation
 ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
+ms.openlocfilehash: 67b328cb754e49fe1dea9d57f74dd31793acd93c
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/12/2017
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 05/12/2017
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>동일한 클라우드 서비스의 SQL Server에 연결
-한 클라우드 서비스에 여러 가상 컴퓨터를 만들 수 있습니다. 가상 컴퓨터 시나리오를 이해하려면 [가상 컴퓨터를 가상 네트워크 또는 클라우드 서비스와 연결하는 방법](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service)을 참조하세요. 이 시나리오는 한 가상 컴퓨터의 클라이언트가 동일한 클라우드 서비스의 다른 가상 컴퓨터에서 실행 중인 SQL Server에 연결하려고 하는 경우입니다.
+한 클라우드 서비스에 여러 가상 컴퓨터를 만들 수 있습니다. 가상 컴퓨터 시나리오를 이해하려면 [가상 컴퓨터를 가상 네트워크 또는 클라우드 서비스와 연결하는 방법](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service)을 참조하세요. 이 시나리오에서 한 가상 컴퓨터의 클라이언트는 동일한 클라우드 서비스의 다른 가상 컴퓨터에서 실행 중인 SQL Server에 연결하려고 합니다.
 
 이 시나리오에서는 VM **이름**(포털에 **컴퓨터 이름** 또는 **호스트 이름**으로도 표시됨)을 사용하여 연결할 수 있습니다. 이 이름은 VM을 만들 때 제공된 이름입니다. 예를 들어 SQL VM 이름을 **mysqlvm**으로 지정하면 동일한 클라우드 서비스의 클라이언트 VM은 다음 연결 문자열을 사용하여 연결할 수 있습니다.
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 05/12/2017
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-이를 통해 인터넷을 통한 클라이언트의 연결이 활성화되지만 누구나 SQL Server에 연결할 수 있다는 뜻은 아닙니다. 외부 클라이언트는 정확한 사용자 이름과 암호가 있어야 합니다. 보안을 높이기 위해 잘 알려진 포트 1433은 공용 가상 컴퓨터 끝점으로 사용하지 않는 것이 좋습니다. 또한 가능하다면 끝점에 ACL을 추가하여 트래픽을 허용한 클라이언트로  한정하는 것이 좋습니다. 끝점에서 ACL을 사용하는 방법에 대한 지침은 [끝점에 대한 ACL 관리](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요.
+이 연결 문자열은 인터넷을 통한 클라이언트의 연결이 사용하도록 설정하지만 누구나 SQL Server에 연결할 수 있다는 뜻은 아닙니다. 외부 클라이언트는 정확한 사용자 이름과 암호가 있어야 합니다. 보안을 높이기 위해 잘 알려진 포트 1433은 공용 가상 컴퓨터 끝점으로 사용하지 않는 것이 좋습니다. 또한 가능하다면 끝점에 ACL을 추가하여 트래픽을 허용한 클라이언트로  한정하는 것이 좋습니다. 끝점에서 ACL을 사용하는 방법에 대한 지침은 [끝점에 대한 ACL 관리](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요.
 
 > [!NOTE]
 > 이 방법을 사용하여 SQL Server와 통신하는 경우 Azure 데이터 센터에서 보내는 모든 데이터에는 일반적으로 [아웃바운드 데이터 전송 가격](https://azure.microsoft.com/pricing/details/data-transfers/)이 적용됩니다.
@@ -75,16 +75,16 @@ ms.lasthandoff: 05/12/2017
 ### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>동일한 가상 네트워크의 SQL Server에 연결
 [가상 네트워크](../../../virtual-network/virtual-networks-overview.md) 에서는 추가적인 시나리오가 가능합니다. VM이 다른 클라우드 서비스에 있더라도 동일한 가상 네트워크의 VM에 연결할 수 있습니다. 또한 [사이트 간 VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)을 통해 온-프레미스 네트워크와 컴퓨터에 VM을 연결하는 하이브리드 아키텍처를 만들 수 있습니다.
 
-가상 네트워크를 사용하면 Azure VM을 도메인에 연결할 수 있습니다. 이것이 SQL Server에 Windows 인증을 사용하는 유일한 방법입니다. 다른 연결 시나리오의 경우 사용자 이름과 암호가 있는 SQL 인증이 필요합니다.
+가상 네트워크를 사용하면 Azure VM을 도메인에 연결할 수 있습니다. 도메인에 연결하는 것이 SQL Server에 Windows 인증을 사용하는 유일한 방법입니다. 다른 연결 시나리오의 경우 사용자 이름과 암호가 있는 SQL 인증이 필요합니다.
 
-도메인 환경과 Windows 인증을 구성하려는 경우 이 글의 단계를 사용하여 공용 끝점이나 SQL 인증 및 로그인을 구성할 필요가 없습니다. 이 시나리오에서는 연결 문자열에 SQL Server VM 이름을 지정하여 SQL Server에 연결할 수 있습니다. 다음 예에서는 Windows 인증도 구성되었고 사용자에게 SQL Server 인스턴스에 대한 액세스 권한이 있다고 가정합니다.
+도메인 환경과 Windows 인증을 구성하려는 경우 공용 끝점이나 SQL 인증 및 로그인을 구성할 필요가 없습니다. 이 시나리오에서는 연결 문자열에 SQL Server VM 이름을 지정하여 SQL Server에 연결할 수 있습니다. 다음 예에서는 Windows 인증도 구성되었고 사용자에게 SQL Server 인스턴스에 대한 액세스 권한이 있다고 가정합니다.
 
     "Server=mysqlvm;Integrated Security=true"
 
 ## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Azure VM에서 SQL Server 연결을 구성하기 위한 단계
 다음 단계는 SQL Server Management Studio (SSMS)를 사용하여 인터넷을 통해 SQL Server 인스턴스에 연결하는 방법을 보여줍니다. 그러나 동일한 단계는 온-프레미스 및 Azure에서 실행중인 응용 프로그램에 대해 SQL Server 가상 컴퓨터를 액세스할 수 있게 만들도록 적용합니다.
 
-인터넷 또는 다른 VM에서 SQL Server의 인스턴스에 연결하기 전에 먼저 아래의 섹션에 설명된 대로 다음 작업을 완료해야 합니다.
+인터넷 또는 다른 VM에서 SQL Server의 인스턴스에 연결하기 전에 먼저 다음 작업을 완료해야 합니다.
 
 * [가상 컴퓨터에 대한 TCP 끝점 만들기](#create-a-tcp-endpoint-for-the-virtual-machine)
 * [Windows 방화벽에서 TCP 포트 열기](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
