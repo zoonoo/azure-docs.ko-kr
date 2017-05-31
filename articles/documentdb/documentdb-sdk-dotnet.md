@@ -1,24 +1,25 @@
 ---
 title: "Azure DocumentDB .NET SDK 및 리소스 | Microsoft Docs"
 description: "릴리스 날짜, 사용 중지 날짜 및 DocumentDB .NET SDK의 각 버전 간의 변경 내용을 포함하는 .NET API 및 SDK에 대한 모든 것을 알아봅니다."
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 05/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: b0e43aa89dbed801e5e212279582223b09eb9854
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 772af5812941ff12e64665ec4fb505ef7d41462c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/21/2017
 > * [Node.JS](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST (영문)](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -45,12 +46,26 @@ ms.lasthandoff: 04/21/2017
 
 <tr><td>**시작**</td><td>[DocumentDB .NET SDK 시작](documentdb-get-started.md)</td></tr>
 
-<tr><td>**웹앱 자습서**</td><td>[DocumentDB를 사용한 웹 응용 프로그램 개발](documentdb-dotnet-application.md)</td></tr>
+<tr><td>**웹앱 자습서**</td><td>[Azure Cosmos DB를 사용한 웹 응용 프로그램 개발](documentdb-dotnet-application.md)</td></tr>
 
 <tr><td>**현재 지원되는 프레임워크**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
+*    분당 요청 단위(RU/m) 기능에 대한 지원이 추가되었습니다.
+*    ConsistentPrefix라는 새로운 일관성 수준에 대한 지원이 추가되었습니다.
+*    개별 파티션의 쿼리 메트릭에 대한 지원이 추가되었습니다.
+*    쿼리의 연속 토큰 크기 제한에 대한 지원이 추가되었습니다.
+*    실패한 요청의 자세한 추적에 대한 지원이 추가되었습니다.
+*    SDK의 성능이 약간 향상되었습니다.
+
+### <a name="a-name11341134"></a><a name="1.13.4"/>1.13.4
+* 기능적으로 1.13.4와 동일합니다. 내부적으로 약간 변경되었습니다.
+
+### <a name="a-name11331133"></a><a name="1.13.3"/>1.13.3
+* 기능적으로 1.13.2와 동일합니다. 내부적으로 약간 변경되었습니다.
 
 ### <a name="a-name11321132"></a><a name="1.13.2"/>1.13.2
 * 집계 쿼리에 대한 FeedOptions에 제공된 PartitionKey 값을 무시하던 문제를 해결했습니다.
@@ -192,7 +207,7 @@ ms.lasthandoff: 04/21/2017
   * 이제 DocumentCollection.IndexingPolicy를 변경할 수 있음
 * 공간 인덱싱 및 쿼리 지원 추가됨
   * 점 및 다각형과 같은 공간 형식을 직렬화/역직렬화하기 위한 새로운 Microsoft.Azure.Documents.Spatial 네임스페이스
-  * DocumentDB에 저장된 GeoJSON 데이터를 인덱싱하기 위한 새로운 SpatialIndex 클래스
+  * Cosmos DB에 저장된 GeoJSON 데이터를 인덱싱하기 위한 새로운 SpatialIndex 클래스
 * **[수정됨]** : linq 식에서 잘못된 SQL 쿼리가 생성됨 [#38](https://github.com/Azure/azure-documentdb-net/issues/38)
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
@@ -220,12 +235,15 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다. 
 
-사용 중지된 SDK를 사용한 DocumentDB에 대한 요청은 서비스로부터 거부됩니다.
+사용 중지된 SDK를 사용하는 Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
 
 <br/>
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.14.0](#1.14.0) |2017년 5월 10일 |--- |
+| [1.13.4](#1.13.4) |2017년 5월 09일 |--- |
+| [1.13.3](#1.13.3) |2017년 5월 06일 |--- |
 | [1.13.2](#1.13.2) |2017년 4월 19일 |--- |
 | [1.13.1](#1.13.1) |2017년 3월 29일 |--- |
 | [1.13.0](#1.13.0) |2017년 3월 24일 |--- |
@@ -262,6 +280,6 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## <a name="see-also"></a>참고 항목
-DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요. 
+Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요. 
 
 

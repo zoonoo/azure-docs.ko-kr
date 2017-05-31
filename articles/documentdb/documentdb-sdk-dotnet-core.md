@@ -1,24 +1,25 @@
 ---
 title: "Azure DocumentDB .NET Core API, SDK 및 리소스 | Microsoft Docs"
 description: "릴리스 날짜, 사용 중지 날짜 및 DocumentDB .NET Core SDK의 각 버전 간 변경 내용을 포함하여 .NET Core API 및 SDK에 대한 모든 것을 알아봅니다."
-services: documentdb
+services: cosmosdb
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: f899b314-26ac-4ddb-86b2-bfdf05c2abf2
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 05/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: d5552615bfa663f4604e29839ecf8f5fc25c328f
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: cb53a57be75f89390312473a2c80923514b295c2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/21/2017
 > * [Node.JS](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST (영문)](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
@@ -56,6 +57,15 @@ DocumentDB .NET Core SDK에는 [DocumentDB .NET SDK](documentdb-sdk-dotnet.md)�
 
 > [!NOTE] 
 > DocumentDB .NET Core SDK는 UWP(유니버설 Windows 플랫폼) 앱과 호환되지 않습니다. UWP 앱을 지원하는 .NET Core SDK에 관심이 있는 경우 [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com)(으)로 전자 메일을 보내세요.
+
+### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+
+*    분당 요청 단위(RU/m) 기능에 대한 지원이 추가되었습니다.
+*    ConsistentPrefix라는 새로운 일관성 수준에 대한 지원이 추가되었습니다.
+*    개별 파티션의 쿼리 메트릭에 대한 지원이 추가되었습니다.
+*    쿼리의 연속 토큰 크기 제한에 대한 지원이 추가되었습니다.
+*    실패한 요청의 자세한 추적에 대한 지원이 추가되었습니다.
+*    SDK의 성능이 약간 향상되었습니다.
 
 ### <a name="a-name122122"></a><a name="1.2.2"/>1.2.2
 
@@ -107,6 +117,7 @@ DocumentDB .NET Core Preview SDK에는 [DocumentDB .NET SDK](documentdb-sdk-dotn
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.3.0](#1.3.0) |2017년 5월 10일 |--- |
 | [1.2.2](#1.2.2) |2017년 4월 19일 |--- |
 | [1.2.1](#1.2.1) |2017년 3월 29일 |--- |
 | [1.2.0](#1.2.0) |2017년 3월 25일 |--- |
@@ -117,6 +128,6 @@ DocumentDB .NET Core Preview SDK에는 [DocumentDB .NET SDK](documentdb-sdk-dotn
 | [0.1.0-preview](#0.1.0-preview) |2016년 11월 15일 |2015년 12월 31일 |
 
 ## <a name="see-also"></a>참고 항목
-DocumentDB에 대해 자세히 알아보려면 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요. 
+Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 서비스 페이지를 참조하세요. 
 
 

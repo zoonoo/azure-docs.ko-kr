@@ -1,34 +1,36 @@
 ---
-title: "템플릿을 사용하여 웹앱 배포 - Azure DocumentDB | Microsoft Docs"
-description: "Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 계정, Azure 앱 서비스 웹앱 및 샘플 웹 응용 프로그램을 배포하는 방법을 알아봅니다."
-services: documentdb, app-service\web
-author: h0n
+title: "템플릿을 사용하여 웹앱 배포 - Azure Cosmos DB | Microsoft Docs"
+description: "Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 계정, Azure App Service Web Apps 및 샘플 웹 응용 프로그램을 배포하는 방법을 알아봅니다."
+services: cosmosdb, app-service\web
+author: mimig1
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: hawong
-translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 7bef38eaea90d950c195dee0d741750cf65870df
+ms.author: mimig
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 454c44d74846b1c2c66cd4e35b5d808e238e4c5b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="deploy-documentdb-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 및 Azure 앱 서비스 웹앱 배포
-이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 설명합니다.
+# <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 및 Azure App Service Web Apps 배포
+이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/), [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 설명합니다.
 
-Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 구성을 쉽게 자동화할 수 있습니다.  이 자습서에서는 웹 응용 프로그램을 배포하고 자동으로 DocumentDB 계정 연결 정보를 구성하는 방법을 보여 줍니다.
+Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 구성을 쉽게 자동화할 수 있습니다.  이 자습서에서는 웹 응용 프로그램을 배포하고 자동으로 Azure Cosmos DB 계정 연결 정보를 구성하는 방법을 보여 줍니다.
 
 이 자습서를 완료하고 나면 다음을 알게 됩니다.  
 
-* Azure 리소스 관리자 템플릿을 사용하여 Azure 앱 서비스에서 DocumentDB 계정 및 웹앱을 통합하는 방법
-* Azure 리소스 관리자 템플릿을 사용하여 앱 서비스 웹앱 및 Webdeploy 앱에서 DocumentDB 계정 및 웹앱을 배포 및 통합하는 방법
+* Azure Resource Manager 템플릿을 사용하여 Azure App Service에서 Azure Cosmos DB 계정 및 웹앱을 배포하고 통합하는 방법
+* Azure Resource Manager 템플릿을 사용하여 App Service Web Apps 및 Webdeploy 응용 프로그램에서 Azure Cosmos DB 계정 및 웹앱을 배포 및 통합하는 방법
 
 <a id="Prerequisites"></a>
 
@@ -42,19 +44,19 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 
 * Azure 구독. Azure는 구독 기반 플랫폼입니다.  구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](https://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](https://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-## <a name="a-idcreatedbastep-1-download-the-template-files"></a><a id="CreateDB"></a>1단계: 템플릿 파일 다운로드
+## <a id="CreateDB"></a>1단계: 템플릿 파일 다운로드
 먼저 이 자습서에서 사용할 템플릿 파일을 다운로드합니다.
 
-1. [DocumentDB 계정, 웹앱 만들기 및 데모 응용 프로그램 배포 샘플](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json) 템플릿을 로컬 폴더(예: C:\DocumentDBTemplates)에 다운로드합니다. 이 템플릿은 DocumentDB 계정, 앱 서비스 웹앱 및 웹 응용 프로그램을 배포합니다.  또한 DocumentDB 계정에 연결되도록 웹 응용 프로그램을 자동으로 구성합니다.
-2. [DocumentDB 계정 및 웹앱 만들기 샘플](https://portalcontent.blob.core.windows.net/samples/DocDBWebSite.json) 템플릿을 로컬 폴더(예: C:\DocumentDBTemplates)에 다운로드합니다. 이 템플릿은 DocumentDB 계정 및 앱 서비스 웹앱을 배포하고 쉽게 DocumentDB 연결 정보를 노출하도록 사이트의 응용 프로그램 구성을 수정하지만 웹 응용 프로그램을 포함하지는 않습니다.  
+1. [Azure Cosmos DB 계정, Web Apps 만들기 및 데모 응용 프로그램 배포 샘플](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json) 템플릿을 로컬 폴더(예: C:\Azure Cosmos DBTemplates)에 다운로드합니다. 이 템플릿은 Azure Cosmos DB 계정, App Service 웹앱 및 웹 응용 프로그램을 배포합니다.  또한 Azure Cosmos DB 계정에 연결되도록 웹 응용 프로그램을 자동으로 구성합니다.
+2. [Azure Cosmos DB 계정 및 Web Apps 만들기 샘플](https://portalcontent.blob.core.windows.net/samples/DocDBWebSite.json) 템플릿을 로컬 폴더(예: C:\Azure Cosmos DBTemplates)에 다운로드합니다. 이 템플릿은 Azure Cosmos DB 계정 및 App Service 웹앱을 배포하고 쉽게 Azure Cosmos DB 연결 정보를 노출하도록 사이트의 응용 프로그램 설정을 수정하지만 웹 응용 프로그램을 포함하지는 않습니다.  
 
 <a id="Build"></a>
 
-## <a name="step-2-deploy-the-documentdb-account-app-service-web-app-and-demo-application-sample"></a>2단계: DocumentDB 계정, 앱 서비스 웹앱 및 데모 응용 프로그램 샘플 배포
+## <a name="step-2-deploy-the-azure-cosmos-db-account-app-service-web-app-and-demo-application-sample"></a>2단계: Azure Cosmos DB 계정, App Service 웹앱 및 데모 응용 프로그램 샘플 배포
 이제 첫 번째 템플릿을 배포합니다.
 
 > [!TIP]
-> 템플릿은 아래에 입력된 웹앱 이름과 DocumentDB 계정 이름이 a) 유효한지, b) 사용 가능한지를 확인하지 않습니다.  배포를 제출하기 전에 지정하려는 이름의 가용성을 확인하는 것이 좋습니다.
+> 템플릿은 아래에 입력된 웹앱 이름과 Azure Cosmos DB 계정 이름이 a) 유효한지, b) 사용 가능한지를 확인하지 않습니다.  배포를 제출하기 전에 지정하려는 이름의 가용성을 확인하는 것이 좋습니다.
 > 
 > 
 
@@ -68,8 +70,8 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
    
    1. SITENAME: 앱 서비스 웹앱 이름을 지정하고 웹앱에 액세스하는 데 사용할 URL을 만드는 데 사용됩니다(예: "mydemodocdbwebsite"를 지정할 경우 웹앱에 액세스하는 데 사용되는 URL은 mydemodocdbwebsite.azurewebsites.net이 됨).
    2. HOSTINGPLANNAME: 만들려는 앱 서비스 호스팅 계획의 이름을 지정합니다.
-   3. LOCATION: DocumentDB 및 웹앱 리소스를 만들 Azure 위치를 지정합니다.
-   4. DATABASEACCOUNTNAME: 만들 DocumentDB 계정의 이름을 지정합니다.   
+   3. LOCATION: Azure Cosmos DB 및 웹앱 리소스를 만들 Azure 위치를 지정합니다.
+   4. DATABASEACCOUNTNAME: 만들 Azure Cosmos DB 계정의 이름을 지정합니다.   
       
       ![템플릿 배포 UI의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만들도록 이름을 제공하며 리소스 그룹에 대한 위치를 선택합니다.
@@ -82,20 +84,20 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 8. 응용 프로그램을 사용하려면 웹앱 URL로 이동하기만 하면 됩니다(위의 예제에서 URL은 http://mydemodocdbwebapp.azurewebsites.net이 됨).  다음과 같은 웹 응용 프로그램이 표시됩니다.
    
    ![샘플 Todo 응용 프로그램](./media/documentdb-create-documentdb-website/image2.png)
-9. 계속해서 웹앱에서 몇 가지 작업을 만든 다음 Azure 포털의 리소스 그룹 블레이드로 돌아옵니다. 리소스 목록에서 DocumentDB 계정 리소스를 클릭한 다음 **쿼리 탐색기**를 클릭합니다.
+9. 계속해서 웹앱에서 몇 가지 작업을 만든 다음 Azure 포털의 리소스 그룹 블레이드로 돌아옵니다. 리소스 목록에서 Azure Cosmos DB 계정 리소스를 클릭한 다음 **쿼리 탐색기**를 클릭합니다.
     ![myotherdocumentdbwebapp 웹앱이 강조 표시된 요약 렌즈의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment8.png)  
 10. 기본 쿼리 "SELECT * FROM c"를 실행하고 결과를 검사합니다.  쿼리가 위의 7단계에서 만든 todo 항목의 JSON 표현을 검색했음을 알 수 있습니다.  자유롭게 쿼리를 실험합니다. 예를 들어 SELECT * FROM c WHERE c.isComplete = true를 실행하면 완료로 표시된 모든 todo 항목이 반환됩니다.
     
     ![쿼리 결과를 보여주는 쿼리 탐색기 및 결과 블레이드의 스크린샷](./media/documentdb-create-documentdb-website/image5.png)
-11. 자유롭게 DocumentDB 포털 환경을 탐색하거나 샘플 Todo 응용 프로그램을 수정합니다.  준비가 되면 다른 템플릿을 배포합니다.
+11. 자유롭게 Azure Cosmos DB 포털 환경을 탐색하거나 샘플 Todo 응용 프로그램을 수정합니다.  준비가 되면 다른 템플릿을 배포합니다.
 
 <a id="Build"></a> 
 
 ## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>3단계: 문서 계정 및 웹앱 샘플 배포
-이제 두 번째 템플릿을 배포합니다.  이 템플릿은 계정 끝점 및 마스터 키와 같은 DocumentDB 연결 정보를 응용 프로그램 설정 또는 사용자 지정 연결 문자열로 웹앱에 주입하는 방법을 보여 주는 데 유용합니다. 예를 들어 DocumentDB 계정을 사용하여 배포하는 웹 응용 프로그램이 있어서 배포하는 동안 연결 정보가 자동으로 채워졌을 수도 있습니다.
+이제 두 번째 템플릿을 배포합니다.  이 템플릿은 계정 끝점 및 마스터 키와 같은 Azure Cosmos DB 연결 정보를 응용 프로그램 설정 또는 사용자 지정 연결 문자열로 웹앱에 주입하는 방법을 보여 주는 데 유용합니다. 예를 들어 Azure Cosmos DB 계정을 사용하여 배포하는 웹 응용 프로그램이 있어서 배포하는 동안 연결 정보가 자동으로 채워졌을 수도 있습니다.
 
 > [!TIP]
-> 템플릿은 아래에 입력된 웹앱 이름과 DocumentDB 계정 이름이 a) 유효한지, b) 사용 가능한지를 확인하지 않습니다.  배포를 제출하기 전에 지정하려는 이름의 가용성을 확인하는 것이 좋습니다.
+> 템플릿은 아래에 입력된 웹앱 이름과 Azure Cosmos DB 계정 이름이 a) 유효한지, b) 사용 가능한지를 확인하지 않습니다.  배포를 제출하기 전에 지정하려는 이름의 가용성을 확인하는 것이 좋습니다.
 > 
 > 
 
@@ -109,8 +111,8 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
    
    1. SITENAME: 앱 서비스 웹앱 이름을 지정하고 웹앱에 액세스하는 데 사용할 URL을 만드는 데 사용됩니다(예: "mydemodocdbwebsite"를 지정할 경우 웹앱에 액세스하는 데 사용되는 URL은 mydemodocdbwebsite.azurewebsites.net이 됨).
    2. HOSTINGPLANNAME: 만들려는 앱 서비스 호스팅 계획의 이름을 지정합니다.
-   3. LOCATION: DocumentDB 및 웹앱 리소스를 만들 Azure 위치를 지정합니다.
-   4. DATABASEACCOUNTNAME: 만들 DocumentDB 계정의 이름을 지정합니다.   
+   3. LOCATION: Azure Cosmos DB 및 웹앱 리소스를 만들 Azure 위치를 지정합니다.
+   4. DATABASEACCOUNTNAME: 만들 Azure Cosmos DB 계정의 이름을 지정합니다.   
       
       ![템플릿 배포 UI의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만들도록 이름을 제공하며 리소스 그룹에 대한 위치를 선택합니다.
@@ -122,17 +124,17 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
    ![리소스 그룹 블레이드의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment7.png)  
 8. 리소스 목록에서 웹앱 리소스를 클릭한 다음 **응용 프로그램 설정**
     ![리소스 그룹의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment9.png)을 클릭합니다.  
-9. 응용 프로그램 설정이 DocumentDB 끝점 및 각 DocumentDB 마스터 키에 대해 어떻게 제시되어 있는지 확인합니다.
+9. 응용 프로그램 설정이 Azure Cosmos DB 끝점 및 각 Azure Cosmos DB 마스터 키에 대해 어떻게 제시되어 있는지 확인합니다.
 
     ![응용 프로그램 설정의 스크린샷](./media/documentdb-create-documentdb-website/TemplateDeployment10.png)  
-10. 자유롭게 Azure 포털을 계속 탐색하거나 DocumentDB [샘플](http://go.microsoft.com/fwlink/?LinkID=402386) 중 하나에 따라 고유한 DocumentDB 응용 프로그램을 만듭니다.
+10. 자유롭게 Azure Portal을 계속 탐색하거나 Azure Cosmos DB [샘플](http://go.microsoft.com/fwlink/?LinkID=402386) 중 하나에 따라 고유한 Azure Cosmos DB 응용 프로그램을 만듭니다.
 
 <a name="NextSteps"></a>
 
 ## <a name="next-steps"></a>다음 단계
-축하합니다. Azure 리소스 관리자 템플릿을 사용하여 DocumentDB, 앱 서비스 웹앱 및 샘플 웹 응용 프로그램을 배포했습니다.
+축하합니다. Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB, App Service 웹앱 및 샘플 웹 응용 프로그램을 배포했습니다.
 
-* DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
+* Azure Cosmos DB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
 * Azure 앱 서비스 웹앱에 대해 자세히 알아보려면 [여기](http://go.microsoft.com/fwlink/?LinkId=325362)를 클릭하세요.
 * Azure 리소스 관리자 템플릿에 대해 자세히 알아보려면 [여기](https://msdn.microsoft.com/library/azure/dn790549.aspx)를 클릭하세요.
 
@@ -144,10 +146,5 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

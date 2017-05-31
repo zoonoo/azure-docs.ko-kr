@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: b791be369016dd52d95ec727e46fd8b554c09047
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 89356670737ed7b9adc5df51466ce71eb73b3cd4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -28,7 +28,7 @@ SAP HANA의 설치는 사용자가 진행하며 Azure(큰 인스턴스) 서버�
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>HANA 큰 인스턴스 단위를 받은 후 첫 번째 단계
 
-HANA 큰 인스턴스를 받고 인스턴스에 대한 액세스 및 연결을 설정한 후 **첫 번째 단계**는 사용자의 OS 공급자에 인스턴스의 OS를 등록하는 것입니다. 여기에는 배포해야 하는 SUSE SMT 인스턴스에 SUSE Linux OS를 등록하는 것이 포함됩니다. 또는 연결해야 하는 Red Hat Subscription Manager에 RedHat OS를 등록해야 합니다. 이 [문서](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 설명도 참조하세요. 이 단계는 앞으로 OS를 패치할 수 있도록 하는 데도 필요합니다. 고객에게 책임이 있는 작업입니다. 
+HANA 큰 인스턴스를 받고 인스턴스에 대한 액세스 및 연결을 설정한 후 **첫 번째 단계**는 사용자의 OS 공급자에 인스턴스의 OS를 등록하는 것입니다. 여기에는 HANA 대용량 인스턴스 유닛을 연결할 수 있는 Azure의 VM에서 배포해야 하는 SUSE SMT 인스턴스에 SUSE Linux OS를 등록하는 것이 포함됩니다. 또는 연결해야 하는 Red Hat Subscription Manager에 RedHat OS를 등록해야 합니다. 이 [문서](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 설명도 참조하세요. 이 단계는 앞으로 OS를 패치할 수 있도록 하는 데도 필요합니다. 고객에게 책임이 있는 작업입니다. SUSE의 경우 [여기](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html)서 SMT 설치 및 구성을 위한 설명서를 찾아보세요.
 
 **두 번째 단계**는 특정 OS 릴리스/버전의 새 패치 및 수정을 확인하는 것입니다. HANA 큰 인스턴스의 패치 수준이 최신 상태인지 확인하세요. OS 패치/릴리스의 타이밍과 Microsoft가 배포할 수 있는 이미지의 변경 사항에 따라 최신 패치가 포함되지 않을 수 있습니다. 따라서 이 단계는 HANA 큰 인스턴스 단위를 인수하고 Linux 배포자에 등록된 OS를 설치한 후 보안, 기능, 가용성 및 성능과 관련한 패치가 특정 Linux 공급 업체에 의해 릴리스되었는지, 적용해야 하는지 여부를 확인하기 위해 필수적인 단계입니다.
 

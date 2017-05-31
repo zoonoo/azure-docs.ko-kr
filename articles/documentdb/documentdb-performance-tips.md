@@ -1,29 +1,30 @@
 ---
-title: "성능 팁 - Azure DocumentDB NoSQL | Microsoft Docs"
-description: "Azure DocumentDB 데이터베이스 성능 향상을 위한 클라이언트 구성 옵션에 대해 알아보기"
+title: "성능 팁 - Azure Cosmos DB NoSQL | Microsoft Docs"
+description: "Azure Cosmos DB 데이터베이스 성능 향상을 위한 클라이언트 구성 옵션에 대한 자세한 정보"
 keywords: "데이터베이스 성능 개선 방법"
-services: documentdb
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 3124185a486335d978634281b63d2475981e57f8
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d37401d850e87e516e1fde7c9a4877792ed7858a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="performance-tips-for-documentdb"></a>DocumentDB에 대한 성능 팁
-Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규모가 조정되는 신속하고 유연한 분산 데이터베이스입니다. DocumentDB를 사용하여 데이터베이스의 규모를 조정하기 위해 주요 아키텍처를 변경하거나 복잡한 코드를 작성할 필요는 없습니다. 규모를 확장 및 축소하는 것은 단일 API 호출 또는 [SDK 메서드 호출](documentdb-set-throughput.md#set-throughput-sdk)을 수행하는 것만큼 쉽습니다. 그러나 네트워크 호출을 통해 DocumentDB에 액세스하기 때문에 최대 성능을 얻기 위해 클라이언트 쪽에서 최적화를 지정할 수 있습니다.
+# <a name="performance-tips-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 성능 팁
+Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크기가 조정되는 빠르고 유연한 분산 데이터베이스입니다. Cosmos DB를 사용하여 데이터베이스의 크기를 조정하기 위해 주요 아키텍처를 변경하거나 복잡한 코드를 작성할 필요는 없습니다. 규모를 확장 및 축소하는 것은 단일 API 호출 또는 [SDK 메서드 호출](documentdb-set-throughput.md#set-throughput-sdk)을 수행하는 것만큼 쉽습니다. 그러나 네트워크 호출을 통해 Cosmos DB에 액세스하기 때문에 최대 성능을 얻기 위해 클라이언트 쪽에서 최적화를 지정할 수 있습니다.
 
 "내 데이터베이스 성능을 향상시키는 방법"을 물으면 다음 옵션을 고려합니다.
 
@@ -32,12 +33,12 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 
 1. **연결 정책: 직접 연결 모드 사용**
 
-    클라이언트의 Azure DocumentDB에 연결하는 방법은 성능, 특히 관찰된 클라이언트 쪽 대기 시간 면에서 중요한 영향을 줍니다. 클라이언트 연결 정책 즉, 연결 *모드*와 [연결 *프로토콜*](#connection-protocol)을 구성하는 데 사용할 수 있는 두 가지 주요 구성 설정이 있습니다.  두 가지 사용 가능한 모드는 같습니다.
+    클라이언트가 Cosmos DB에 연결하는 방법은 특히 관찰되는 클라이언트 쪽 대기 시간 측면에서 성능에 중요한 영향을 미칩니다. 클라이언트 연결 정책 즉, 연결 *모드*와 [연결 *프로토콜*](#connection-protocol)을 구성하는 데 사용할 수 있는 두 가지 주요 구성 설정이 있습니다.  두 가지 사용 가능한 모드는 같습니다.
 
    1. 게이트웨이 모드(기본값)
    2. 직접 모드
 
-      게이트웨이 모드는 모든 SDK 플랫폼에서 지원되며 기본 구성입니다.  엄격한 방화벽으로 제한된 회사 네트워크 내에서 응용 프로그램을 실행하는 경우, 표준 HTTPS 포트 및 단일 끝점을 사용하기 때문에 게이트웨이 모드가 최상의 선택입니다. 그러나 게이트웨이 모드의 경우, 성능 유지를 위해 DocumentDB에서 데이터를 읽거나 기록할 때마다 네트워크 홉을 추가합니다. 이 때문에 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다.
+      게이트웨이 모드는 모든 SDK 플랫폼에서 지원되며 기본 구성입니다.  엄격한 방화벽으로 제한된 회사 네트워크 내에서 응용 프로그램을 실행하는 경우, 표준 HTTPS 포트 및 단일 끝점을 사용하기 때문에 게이트웨이 모드가 최상의 선택입니다. 그러나 게이트웨이 모드의 경우, 성능 유지를 위해 Cosmos DB에서 데이터를 읽거나 쓸 때마다 네트워크 홉이 추가됩니다. 이 때문에 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다.
 <a id="use-tcp"></a>
 2. **연결 정책: TCP 프로토콜 사용**
 
@@ -46,9 +47,9 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
    * TCP
    * HTTPS
 
-     DocumentDB는 HTTP를 통해 단순한 개방형 RESTful 프로그래밍 모델을 제공합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. 직접 TCP 및 HTTPS는 모두 초기 인증 및 암호화 트래픽에 SSL을 사용합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
+     Cosmos DB는 HTTPS를 통해 단순한 개방형 RESTful 프로그래밍 모델을 제공합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. 직접 TCP 및 HTTPS는 모두 초기 인증 및 암호화 트래픽에 SSL을 사용합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
 
-     게이트웨이 모드에서 TCP를 사용할 때 TCP 포트 443은 DocumentDB 포트이고 10250은 MongoDB API 포트입니다. 직접 모드에서 TCP를 사용할 때는 DocumentDB에서 동적 TCP 포트를 사용하므로 게이트웨이 포트 외에 10000에서 20000 사이의 포트 범위가 열려 있는지 확인해야 합니다. 이러한 포트가 열려 있지 않은 경우 TCP를 사용하려고 하면 503 서비스를 사용할 수 없음 오류가 발생합니다.
+     게이트웨이 모드에서 TCP를 사용할 때 TCP 포트 443은 Cosmos DB 포트이고 10250은 MongoDB API 포트입니다. 직접 모드에서 TCP를 사용할 때는 Cosmos DB에서 동적 TCP 포트를 사용하므로 게이트웨이 포트 외에 10000에서 20000 사이의 포트 범위가 열려 있는지 확인해야 합니다. 이러한 포트가 열려 있지 않은 경우 TCP를 사용하려고 하면 503 서비스를 사용할 수 없음 오류가 발생합니다.
 
      연결 모드는 ConnectionPolicy 매개 변수로 DocumentClient 인스턴스를 생성하는 도중 구성됩니다. 직접 모드를 사용하는 경우 ConnectionPolicy 매개 변수 내에서 프로토콜을 설정할 수도 있습니다.
 
@@ -65,7 +66,7 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 
     TCP는 직접 모드에서만 지원되기 때문에, 게이트웨이 모드를 사용하는 경우 게이트웨이와 통신하는 데 항상 HTTPS 프로토콜을 사용하고 ConnectionPolicy의 프로토콜 값은 무시됩니다.
 
-    ![DocumentDB 연결 정책 그림](./media/documentdb-performance-tips/azure-documentdb-connection-policy.png)
+    ![Azure Cosmos DB 연결 정책 그림](./media/documentdb-performance-tips/azure-documentdb-connection-policy.png)
 
 3. **첫 번째 요청 시 시작 대기 시간을 피하기 위해 OpenAsync 호출**
 
@@ -75,26 +76,26 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
    <a id="same-region"></a>
 4. **성능을 위해 동일한 Azure 지역에 클라이언트 배치**
 
-    가능한 경우 동일한 지역에서 DocumentDB를 호출하는 모든 응용 프로그램을 DocumentDB 데이터베이스로서 배치합니다. 대략적인 비교를 위해 동일한 지역 내의 DocumentDB 호출이 1-2ms 내에 완료되지만 미국 서부와 동부 해안 사이의 대기 시간이 50ms보다 큽니다. 클라이언트에서 Azure 데이터 센터 경계로 요청이 전달되는 경로에 따라 이러한 요청 간 대기 시간은 달라질 수 있습니다. 프로비전된 DocumentDB 끝점과 동일한 Azure 지역 내에 위치한 응용 프로그램을 호출하도록 하여 대기 시간을 가장 낮출 수 있습니다. 사용 가능한 영역 목록은 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
+    가능한 경우 Cosmos DB를 호출하는 모든 응용 프로그램을 Cosmos DB 데이터베이스와 동일한 지역에 배치합니다. 대략적으로 비교한다면, 동일한 지역 내의 Cosmos DB 호출은 1-2밀리초 내에 완료되지만 미국 서부와 동부 해안 간의 대기 시간은 50밀리초보다 큽니다. 클라이언트에서 Azure 데이터 센터 경계로 요청이 전달되는 경로에 따라 이러한 요청 간 대기 시간은 달라질 수 있습니다. 호출하는 응용 프로그램이 프로비전된 Cosmos DB 끝점과 동일한 Azure 지역 내에 있도록 하면 가능한 최저 대기 시간을 얻을 수 있습니다. 사용 가능한 영역 목록은 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
 
-    ![DocumentDB 연결 정책 그림](./media/documentdb-performance-tips/azure-documentdb-same-region.png)
+    ![Azure Cosmos DB 연결 정책 그림](./media/documentdb-performance-tips/azure-documentdb-same-region.png)
    <a id="increase-threads"></a>
 5. **스레드/작업의 수 늘리기**
 
-    DocumentDB에 대한 호출이 네트워크를 통해 수행되므로 클라이언트 응용 프로그램이 요청 간에 대기하는 시간이 짧도록 요청의 병렬 처리 수준을 다양하게 지정해야 할 수 있습니다. 예를 들어 .NET의 [태스크 병렬 라이브러리](https://msdn.microsoft.com//library/dd460717.aspx)를 사용하는 경우 DocumentDB에 대해 몇 백 개의 읽기 또는 쓰기 태스크를 만듭니다.
+    Azure Cosmos DB 호출은 네트워크를 통해 수행되므로 클라이언트 응용 프로그램이 요청 간에 대기하는 시간이 짧도록 요청의 병렬 처리 수준을 다양하게 지정해야 할 수 있습니다. 예를 들어 .NET의 [작업 병렬 라이브러리](https://msdn.microsoft.com//library/dd460717.aspx)를 사용하는 경우 Cosmos DB를 읽거나 쓰는 작업을 대략 수백 개 만듭니다.
 
 ## <a name="sdk-usage"></a>SDK 사용
 1. **최신 SDK 설치**
 
-    DocumentDB SDK는 최상의 성능을 제공하기 위해 지속적으로 향상되고 됩니다. [DocumentDB SDK](documentdb-sdk-dotnet.md) 페이지를 참조하여 최신 SDK를 결정하고 향상된 기능을 검토하세요.
-2. **응용 프로그램 수명을 위해 단일 분할 DocumentDB 클라이언트 사용**
+    Cosmos DB SDK는 최상의 성능을 제공하기 위해 지속적으로 향상됩니다. [Cosmos DB SDK](documentdb-sdk-dotnet.md) 페이지를 참조하여 최신 SDK를 확인하고 향상된 기능을 검토하세요.
+2. **응용 프로그램 수명 동안 singleton Cosmos DB 클라이언트 사용**
 
     각 DocumentClient 인스턴스는 스레드로부터 안전하고 직접 모드에서 작동하는 경우 효율적인 연결 관리와 주소 캐싱을 수행합니다. DocumentClient에 의해 연결을 효율적으로 관리하고 성능을 개선하려면 응용 프로그램 수명 동안 AppDomain당 DocumentClient의 단일 인스턴스를 사용하는 것이 좋습니다.
 
    <a id="max-connection"></a>
 3. **Gateway 모드를 사용하는 경우 호스트당 System.Net MaxConnections 늘리기**
 
-    DocumentDB 요청이 Gateway 모드를 사용할 때 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 DocumentDB에 대한 여러 동시 연결을 활용할 수 있도록 MaxConnections을 더 높은 값(100-1000)으로 설정해야 합니다. .NET SDK 1.8.0 이상에서 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)의 기본값은 50이며, 이 값을 변경하려면 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)를 더 높은 값으로 설정할 수 있습니다.   
+    게이트웨이 모드를 사용하는 경우 Cosmos DB 요청은 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 Cosmos DB에 대한 여러 동시 연결을 활용할 수 있도록 MaxConnections를 더 높은 값(100-1000)으로 설정해야 할 수도 있습니다. .NET SDK 1.8.0 이상에서 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)의 기본값은 50이며, 이 값을 변경하려면 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)를 더 높은 값으로 설정할 수 있습니다.   
 4. **분할된 컬렉션에 대한 병렬 쿼리 튜닝**
 
      DocumentDB .NET SDK 버전 1.9.0 이상은 동시에 분할된 컬렉션을 쿼리할 수 있는 병렬 쿼리를 지원합니다(자세한 내용은 [SDK 사용](documentdb-partition-data.md#working-with-the-documentdb-sdks) 및 관련된 [코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) 참조). 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다. 병렬 쿼리는 사용자가 사용자 지정 맞춤 요구 사항을 튜닝할 수 있는 다음과 같은 두 개의 매개 변수를 제공합니다. (a) MaxDegreeOfParallelism: 파티션의 최대 수를 제어한 다음 병렬로 쿼리될 수 있습니다. (b) MaxBufferedItemCount: 프리페치된 결과의 수를 제어합니다.
@@ -116,7 +117,7 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
     성능 테스트 중에는 작은 비율의 요청이 제한될 때까지 로드를 늘려야 합니다. 제한될 경우 클라이언트 응용 프로그램은 서버에서 지정한 재시도 간격 제한을 백오프해야 합니다. 백오프를 통해 재시도 간 기간을 최소화할 수 있습니다. 다시 시도 정책 지원은 DocumentDB [.NET](documentdb-sdk-dotnet.md) 및 [Java](documentdb-sdk-java.md)의1.8.0 버전 이상, [Node.js](documentdb-sdk-node.md) 및 [Python](documentdb-sdk-python.md)의 1.9.0 버전 이상과 [.NET Core](documentdb-sdk-dotnet-core.md) SDK의 모든 지원 버전에 포함됩니다. 자세한 내용은 [예약된 처리량 제한 초과](documentdb-request-units.md#RequestRateTooLarge) 및 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx)를 참조하세요.
 7. **클라이언트 워크로드 규모 확장**
 
-    높은 처리량 수준에서 테스트하는 경우(>50,000 RU/s) 컴퓨터의 CPU 또는 네트워크 사용률이 최대화되므로 클라이언트 응용 프로그램은 병목 상태가 될 수 있습니다. 이 시점에 도달하면 여러 서버에 걸쳐 클라이언트 응용 프로그램을 확장하여 DocumentDB 계정을 계속 추가할 수 있습니다.
+    높은 처리량 수준에서 테스트하는 경우(>50,000 RU/s) 컴퓨터의 CPU 또는 네트워크 사용률이 최대화되므로 클라이언트 응용 프로그램은 병목 상태가 될 수 있습니다. 이 시점에 도달하면 여러 서버에 걸쳐 클라이언트 응용 프로그램을 확장하여 Cosmos DB 계정을 계속 추가할 수 있습니다.
 8. **짧은 읽기 대기 시간 동안 문서 URI 캐시**
 
     최상의 문서 읽기 성능이 필요할 때마다 문서 URI를 캐시합니다.
@@ -127,7 +128,7 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 
     모든 적용 가능한 결과를 검색하는 데 필요한 네트워크 왕복 횟수를 줄이려면 x-ms-max-item-count 요청 헤더를 사용하는 페이지 크기를 최대 1000으로 늘릴 수 있습니다. 사용자 인터페이스 또는 응용 프로그램 API가 한 번에 10개의 결과만 반환하는 것처럼 몇 가지 결과만 표시해야 하는 경우, 읽기 및 쿼리에 사용되는 처리량을 줄이기 위해 페이지 크기를 10으로 줄일 수도 있습니다.
 
-    또한 DocumentDB SDK를 사용하여 페이지 크기를 설정할 수도 있습니다.  예:
+    또한 Cosmos DB SDK를 사용하여 페이지 크기를 설정할 수도 있습니다.  예:
 
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
 10. **스레드/작업의 수 늘리기**
@@ -149,14 +150,14 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 ## <a name="indexing-policy"></a>인덱싱 정책
 1. **더 빠른 피크 시간 수집 속도에 대한 지연 인덱싱 사용**
 
-    컬렉션 수준에서 DocumentDB를 통해 컬렉션의 문서를 자동으로 인덱싱할지 여부를 선택할 수 있는 인덱싱 정책을 지정할 수 있습니다.  또한 동기(일관성)와 비동기(지연) 인덱스 업데이트 중에서 선택할 수 있습니다. 기본적으로 컬렉션의 문서를 삽입하거나 바꾸거나 삭제할 때마다 인덱스가 동기적으로 업데이트됩니다. 동기적으로 모드를 사용하면 쿼리가 인덱스가 따라잡을 때까지의 지연 없이 문서 읽기의 [일관성 수준](documentdb-consistency-levels.md) 과 동일한 일관성 수준을 적용할 수 있습니다.
+    컬렉션 수준에서 Cosmos DB를 통해 컬렉션의 문서를 자동으로 인덱싱할지 여부를 선택할 수 있는 인덱싱 정책을 지정할 수 있습니다.  또한 동기(일관성)와 비동기(지연) 인덱스 업데이트 중에서 선택할 수 있습니다. 기본적으로 컬렉션의 문서를 삽입하거나 바꾸거나 삭제할 때마다 인덱스가 동기적으로 업데이트됩니다. 동기적으로 모드를 사용하면 쿼리가 인덱스가 따라잡을 때까지의 지연 없이 문서 읽기의 [일관성 수준](documentdb-consistency-levels.md) 과 동일한 일관성 수준을 적용할 수 있습니다.
 
-    지연 인덱싱은 데이터가 갑자기 작성되는 시나리오에 대해 고려할 수 있으며, 오랜 시간 동안 콘텐츠를 인덱싱하는 데 필요한 작업을 분할하고자 합니다. 또한 지연 인덱스를 사용하면 프로비전된 처리량을 효과적으로 사용하고 최대 사용 시간에 최소 대기 시간으로 쓰기 요청을 처리할 수 있습니다. 반면 지연 인덱싱을 사용할 경우 쿼리 결과는 DocumentDB 계정에 대해 구성된 일관성 수준에 관계없이 일관성을 지니게 됩니다.
+    지연 인덱싱은 데이터가 갑자기 작성되는 시나리오에 대해 고려할 수 있으며, 오랜 시간 동안 콘텐츠를 인덱싱하는 데 필요한 작업을 분할하고자 합니다. 또한 지연 인덱스를 사용하면 프로비전된 처리량을 효과적으로 사용하고 최대 사용 시간에 최소 대기 시간으로 쓰기 요청을 처리할 수 있습니다. 그러나 지연 인덱싱을 사용할 경우 쿼리 결과는 Cosmos DB 계정에 대해 구성된 일관성 수준에 관계없이 궁극적으로 일관성을 갖게 됩니다.
 
     따라서 일관된 인덱싱 모드(IndexingPolicy.IndexingMode가 Consistent로 설정됨)는 한 번 쓰는 데 가장 높은 요청 단위 요금이 부과되고, 지연 인덱싱 모드(IndexingPolicy.IndexingMode는 Lazy로 설정됨)와 인덱싱 없음 모드(IndexingPolicy.Automatic이 False로 설정됨)는 쓰는 시간에 대한 인덱싱 비용이 없습니다.
 2. **더 빠른 쓰기에 대한 인덱싱에서 사용하지 않는 경로 제외**
 
-    DocumentDB의 인덱싱 정책을 통해 인덱싱 경로(IndexingPolicy.IncludedPaths 및 IndexingPolicy.ExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수도 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 저장소를 낮출 수 있습니다.  예를 들어 다음 코드는 "*" 와일드카드를 사용하여 인덱싱에서 문서의 전체 섹션(하위 트리라고도 함)을 제외하는 방법을 보여 줍니다.
+    Cosmos DB의 인덱싱 정책을 통해 인덱싱 경로(IndexingPolicy.IncludedPaths 및 IndexingPolicy.ExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수도 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 저장소를 낮출 수 있습니다.  예를 들어 다음 코드는 "*" 와일드카드를 사용하여 인덱싱에서 문서의 전체 섹션(하위 트리라고도 함)을 제외하는 방법을 보여 줍니다.
 
     ```C#
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
@@ -165,14 +166,14 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
     ```
 
-    자세한 내용은 [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)을 참조하세요.
+    자세한 내용은 [Azure Cosmos DB 인덱싱 정책](documentdb-indexing-policies.md)을 참조하세요.
 
 ## <a name="throughput"></a>처리량
 <a id="measure-rus"></a>
 
 1. **낮은 요청 단위/초 사용량 측정 및 튜닝**
 
-    DocumentDB는 관계형 쿼리와 계층형 쿼리 등 다양한 데이터베이스 작업에 데이터베이스 컬렉션 내부의 문서에서 적용되는 UDF, 저장 프로시저 및 트리거를 제공합니다. 이러한 작업 각각과 관련된 비용은 작업을 완료하는 데 필요한 CPU, IO 및 메모리에 따라 달라집니다. 하드웨어 리소스를 고려하고 관리하는 대신 다양한 데이터베이스 작업을 수행하고 응용 프로그램 요청을 처리하는 데 필요한 리소스의 단일 측정값으로 RU(요청 단위)를 고려할 수 있습니다.
+    Cosmos DB는 관계형 쿼리와 계층형 쿼리 등 다양한 데이터베이스 작업에 데이터베이스 컬렉션 내부의 문서에서 적용되는 UDF, 저장 프로시저 및 트리거를 제공합니다. 이러한 작업 각각과 관련된 비용은 작업을 완료하는 데 필요한 CPU, IO 및 메모리에 따라 달라집니다. 하드웨어 리소스를 고려하고 관리하는 대신 다양한 데이터베이스 작업을 수행하고 응용 프로그램 요청을 처리하는 데 필요한 리소스의 단일 측정값으로 RU(요청 단위)를 고려할 수 있습니다.
 
     [요청 단위](documentdb-request-units.md) 가 프로비전됩니다. 요청 단위 소비는 초당 비율로 평가됩니다. 계정에 프로비전된 요청 단위 비율을 초과하는 응용 프로그램은 비율이 계정에 예약된 수준 아래로 떨어질 때까지 제한됩니다. 응용 프로그램에 더 높은 처리량 수준이 필요한 경우 추가 용량 단위를 구매할 수 있습니다.
 
@@ -213,7 +214,7 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
     주어진 작업의 요청 비용(예: 요청 처리 비용)는 문서 크기와 직접 관련이 있습니다. 큰 문서에서 작업하는 경우 작은 문서 작업에 비해 비용이 많이 듭니다.
 
 ## <a name="next-steps"></a>다음 단계
-몇 개의 클라이언트 컴퓨터에서 고성능 시나리오에 대한 DocumentDB를 평가하는 데 사용된 샘플 응용 프로그램은 [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)를 참조하세요.
+몇 개의 클라이언트 컴퓨터에서 고성능 시나리오에 대한 Cosmos DB를 평가하는 데 사용된 샘플 응용 프로그램은 [Cosmos DB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)를 참조하세요.
 
-또는 확장성 및 고성능을 위한 응용 프로그램 설계에 대한 자세한 내용은 [Azure DocumentDB의 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
+또는 확장성 및 고성능을 위한 응용 프로그램 설계 방법에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
 

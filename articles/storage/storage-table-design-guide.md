@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 02/28/2017
 ms.author: jahogg
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 9da543dbebe8f35178233d91492b0aff21f10986
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5ddb234cc97b3113ec865f97195c871b9f2f40d3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 저장소 테이블 디자인 가이드: 확장성이 뛰어난 디자인 및 성능이 뛰어난 테이블
-## <a name="overview"></a>개요
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 확장형 및 영구 테이블을 디자인하려면 성능, 확장성, 비용 등 여러 가지 요소를 고려해야 합니다. 이전에 관계형 데이터베이스의 스키마를 디자인해 본 적이 있는 경우 이러한 고려 사항에 익숙하겠지만 Azure 테이블 서비스 저장소 모델과 관계형 모델 간에는 일부 유사한 점이 있는 반면 중요한 차이점도 많이 있습니다. 이러한 차이점으로 인해 일반적으로 관계형 데이터베이스에 익숙한 사용자에게는 직관에 반하거나 잘못된 것으로 보일 수 있지만 Azure 테이블 서비스와 같은 NoSQL 키/값 저장소를 디자인하는 경우에는 매우 적절한 완전히 다른 디자인이 도출됩니다. 디자인 차이점의 대부분은 테이블 서비스는 수십억 개의 데이터 엔터티(관계 데이터베이스 용어로는 행)를 포함할 수 있거나 대용량 트랜잭션을 지원해야 하는 데이터 집합에 사용되는 클라우드 규모의 응용 프로그램을 지원하도록 디자인된다는 사실을 반영합니다. 따라서 데이터를 저장하는 방법을 다르게 생각하고 테이블 서비스의 작동 방식을 이해해야 합니다. 잘 디자인된 NoSQL 데이터 저장소는 관계형 데이터베이스를 사용하는 솔루션보다 적은 비용으로 훨씬 뛰어난 확장성을 제공할 수 있습니다. 이 가이드에서는 이러한 항목에 대해 설명합니다.  
 
 ## <a name="about-the-azure-table-service"></a>Azure 테이블 서비스 정보
@@ -261,7 +263,7 @@ Table service는 **PartitionKey**를 기준으로 한 다음 **RowKey**를 기�
 
 * [파티션 간 보조 인덱스 패턴](#intra-partition-secondary-index-pattern) - 서로 다른 RowKey 값을 사용하여 각 엔터티의 여러 복사본을 동일한 파티션에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 RowKey 값을 사용하여 대체 정렬 순서를 허용합니다.  
 * [파티션 간 보조 인덱스 패턴](#inter-partition-secondary-index-pattern) - 서로 다른 RowKey 값을 사용하여 각 엔터티의 여러 복사본을 별도의 파티션과 별도의 표에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 RowKey 값을 사용하여 대체 정렬 순서를 허용합니다.
-* [로그 테일 패턴](#log-tail-pattern) - 날짜 및 시간 역순으로 정렬된 *RowKey* 값을 사용하여 가장 최근에 파티션에 추가된 **n** 엔터티를 검색합니다.  
+* [로그 테일 패턴](#log-tail-pattern) - 날짜 및 시간 역순으로 정렬된 **RowKey** 값을 사용하여 가장 최근에 파티션에 추가된 *n* 엔터티를 검색합니다.  
 
 ## <a name="design-for-data-modification"></a>데이터 수정을 위한 디자인
 이 섹션에서는 삽입, 업데이트 및 삭제를 최적화하기 위한 디자인 고려 사항을 중점적으로 알아봅니다. 관계형 데이터베이스의 디자인과 마찬가지로(관계형 데이터베이스의 경우 디자인 장단점을 관리하는 기술이 다름), 쿼리에 최적화된 디자인과 데이터 수정에 최적화된 디자인 간의 장단점을 평가해야 하는 경우가 있을 수 있습니다. [테이블 디자인 패턴](#table-design-patterns) 섹션은 테이블 서비스에 대한 몇 가지 자세한 디자인 패턴을 알아보고 이러한 패턴의 일부 장단점을 설명합니다. 실제로 엔터티 쿼리에 최적화된 디자인은 대부분 엔터티를 수정하는 데에도 효율적입니다.  
@@ -296,7 +298,7 @@ Table service는 **PartitionKey**를 기준으로 한 다음 **RowKey**를 기�
 [테이블 디자인 패턴](#table-design-patterns) 섹션의 다음 패턴은 효율적인 쿼리를 위한 디자인과 효율적인 데이터 수정을 위한 디자인 간의 장단점을 다룹니다.  
 
 * [복합 키 패턴](#compound-key-pattern) - 복합 **RowKey** 키를 사용하여 클라이언트에서 단일 지점 쿼리로 관련 데이터를 조회하도록 할 수 있습니다.  
-* [로그 테일 패턴](#log-tail-pattern) - 날짜 및 시간 역순으로 정렬된 *RowKey* 값을 사용하여 가장 최근에 파티션에 추가된 **n** 엔터티를 검색합니다.  
+* [로그 테일 패턴](#log-tail-pattern) - 날짜 및 시간 역순으로 정렬된 **RowKey** 값을 사용하여 가장 최근에 파티션에 추가된 *n* 엔터티를 검색합니다.  
 
 ## <a name="encrypting-table-data"></a>테이블 데이터의 암호화
 .NET Azure 저장소 클라이언트 라이브러리는 작업 삽입 및 삭제의 문자열 엔터티 속성 암호화를 지원합니다. 암호화된 문자열은 서비스에 이진 속성으로 저장되고 암호 해독 후에는 다시 문자열로 변환됩니다.    
@@ -718,7 +720,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 * [결과적으로 일관성 있는 트랜잭션 패턴](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>로그 테일 패턴
-날짜 및 시간 역순으로 정렬된 *RowKey* 값을 사용하여 가장 최근에 파티션에 추가된 **n** 개의 엔터티를 검색합니다.  
+날짜 및 시간 역순으로 정렬된 **RowKey** 값을 사용하여 가장 최근에 파티션에 추가된 *n*개의 엔터티를 검색합니다.  
 
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
 일반적인 요구 사항은 가장 최근에 생성된 엔터티(예: 직원이 제출한 가장 최근 비용 청구 10개)를 검색할 수 있는 것입니다. 테이블 쿼리는 집합에서 첫 번째 엔터티를 반환하는 **$top** 쿼리 작업을 지원합니다. 집합에 있는 마지막 *n*개의 엔터티를 반환하는 동등한 쿼리 작업은 없습니다.  

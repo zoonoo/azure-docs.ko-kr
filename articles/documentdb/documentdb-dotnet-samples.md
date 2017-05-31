@@ -1,24 +1,25 @@
 ---
-title: "DocumentDB에 대한 .NET NoSQL 예제 | Microsoft Docs"
-description: "NoSQL 데이터베이스에서 JSON 문서에 대한 CRUD 작업을 비롯한 DocumentDB의 일반적인 작업에 대한 github의 C# .NET NoSQL 예제를 찾습니다."
+title: "Azure Cosmos DB: DocumentDB API에 대한 .NET 예제 | Microsoft Docs"
+description: "CRUD 작업을 비롯한 DocumentDB의 일반적인 작업에 대한 github의 C# .NET NoSQL 예제를 찾습니다."
 keywords: "NoSQL 예제"
-services: documentdb
+services: cosmosdb
 author: rnagpal
 manager: jhubbard
 editor: monicar
 documentationcenter: .net
 ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 1581ee526ba9fa296fbb433672d8e8389d852519
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5198492ff713f3756037dd8634778f53c5a1eb33
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -31,14 +32,14 @@ ms.lasthandoff: 03/22/2017
 > 
 > 
 
-Azure DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) GitHub 리포지토리에 포함됩니다. 이 문서는 다음을 제공합니다.
+Azure Cosmos DB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) GitHub 리포지토리에 포함됩니다. 이 문서는 다음을 제공합니다.
 
 * 각 예제 C# 프로젝트 파일에서 작업에 연결합니다. 
 * 관련된 API 참조 콘텐츠에 대한 링크입니다.
 
 **필수 구성 요소**
 
-1. 이러한 NoSQL 예제를 사용하려면 Azure 계정이 필요합니다.
+1. 이러한 예제를 사용하려면 Azure 계정이 필요합니다.
    * [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
      * [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 2. 또한 [Microsoft.Azure.DocumentDB NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)가 필요합니다. 
@@ -114,7 +115,7 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 | [기존 컬렉션에 지리 공간 인덱싱 사용](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L312-L336) |[DocumentClient.ReplaceDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync.aspx)<br>[DocumentCollection.IndexingPolicy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.indexingpolicy.aspx#P:Microsoft.Azure.Documents.DocumentCollection.IndexingPolicy) |
 | [지점 및 다각형 데이터 유효성 검사](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L223-L265) |[ST_ISVALID](documentdb-sql-query.md#BuiltinFunctions)<br>[ST_ISVALIDDETAILED](documentdb-sql-query.md#BuiltinFunctions)<br>[GeometryOperationExtensions.IsValid](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid.aspx)<br>[GeometryOperationExtensions.IsValidDetailed](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed.aspx) |
 
-지리 공간 데이터로 작업에 대한 자세한 내용은 [Azure DocumentDB에서 지리 공간 데이터로 작업](documentdb-geospatial.md)을 참조하세요.  
+지리 공간 데이터로 작업에 대한 자세한 내용은 [Azure Cosmos DB에서 지리 공간 데이터로 작업](documentdb-geospatial.md)을 참조하세요.  
 
 ## <a name="query-examples"></a>쿼리 예제
 쿼리 문서 파일인 [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)는 SQL 쿼리 문법, 쿼리가 있는 LINQ 공급자, Lambda를 사용하여 다음 작업을 각각 수행하는 방법을 보여 줍니다.
@@ -151,7 +152,7 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 | [사후 트리거 만들기](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L329) |[DocumentClient.CreateTriggerAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createtriggerasync.aspx) |
 | [UDF(사용자 정의 함수) 만들기](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L389) |[DocumentClient.CreateUserDefinedFunctionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createuserdefinedfunctionasync.aspx) |
 
-서버 쪽 프로그래밍에 대한 자세한 내용은 [DocumentDB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF](documentdb-programming.md)를 참조하세요.
+서버 쪽 프로그래밍에 대한 자세한 내용은 [Azure Cosmos DB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF](documentdb-programming.md)를 참조하세요.
 
 ## <a name="user-management-examples"></a>사용자 관리 예제
 사용자 관리 파일인 [azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다.

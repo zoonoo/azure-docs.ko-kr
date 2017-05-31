@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c29e31f59acac56d6ec522e1e7946238a6e22aa5
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: aaf3e9daca2fb810aa32b1b58acdade6ddfc1744
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -299,9 +299,9 @@ R 및 Python에는 데이터베이스에 액세스하는 데 사용할 수 있�
 * **Microsoft Azure 저장소 탐색기**: Microsoft Azure 저장소 탐색기는 Azure 저장소 계정에 저장한 개체를 찾아보고 Azure Blob에서 데이터를 업로드 및 다운로드하는 데 사용되는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. **StorageExplorer**를 입력하면 셸 프롬프트에서 Storage Explorer를 호출할 수 있습니다. 이렇게 하려면 X2Go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
 * **Azure 라이브러리**: 아래에는 미리 설치된 라이브러리 중 몇 가지가 나와 있습니다.
   
-  * **Python**: Python으로 작성된 Azure 관련 라이브러리 **azure**, **azureml**, **pydocumentdb** 및 **pyodbc**가 설치되어 있습니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure DocumentDB(Azure의 NoSQL Database)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
+  * **Python**: Python으로 작성된 Azure 관련 라이브러리 **azure**, **azureml**, **pydocumentdb** 및 **pyodbc**가 설치되어 있습니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
   * **R**: R로 작성된 Azure 관련 라이브러리 **AzureML** 및 **RODBC**가 설치되어 있습니다.
-  * **Java**: VM의 **/dsvm/sdk/AzureSDKJava** 디렉터리에서 Azure Java 라이브러리 목록을 찾을 수 있습니다. 핵심 라이브러리는 Azure 저장소 및 관리 API, DocumentDB 및 SQL Server용 JDBC 드라이버입니다.  
+  * **Java**: VM의 **/dsvm/sdk/AzureSDKJava** 디렉터리에서 Azure Java 라이브러리 목록을 찾을 수 있습니다. 핵심 라이브러리는 Azure Storage 및 관리 API, Azure Cosmos DB, SQL Server용 JDBC 드라이버입니다.  
 
 미리 설치된 Firefox 브라우저에서 [Azure 포털](https://portal.azure.com) 에 액세스할 수 있습니다. Azure 포털에서 Azure 리소스를 작성, 관리 및 모니터링할 수 있습니다.
 

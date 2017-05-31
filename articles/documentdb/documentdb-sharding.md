@@ -1,28 +1,29 @@
 ---
 
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 7023e7e7f5857db345c47c9a3aa00a816e027a96
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2bb9fa3c151b0e36f73ba0c1432529499ee7062b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 
 ---
-# <a name="how-to-partition-data-using-client-side-support-in-documentdb"></a>DocumentDB에서 클라이언트 쪽 지원을 사용하여 데이터를 분할하는 방법
-Azure DocumentDB는 [컬렉션의 자동 분할](documentdb-partition-data.md)을 지원합니다. 그러나 분할 동작을 세밀하게 제어하는 데 도움이 되는 사용 사례가 있습니다. 분할 작업에 필요한 상용구 코드 양을 줄이기 위해 여러 컬렉션에 걸쳐 규모가 확장되는 응용 프로그램을 쉽게 빌드할 수 있게 해주는 기능이 .NET, Node.js 및 Java SDK에 추가되었습니다.
+# <a name="how-to-partition-data-using-client-side-support-in-azure-cosmos-db"></a>Azure Cosmos DB에서 클라이언트 쪽 지원을 사용하여 데이터를 분할하는 방법
+Azure Cosmos DB는 [컬렉션의 자동 분할](documentdb-partition-data.md)을 지원합니다. 그러나 분할 동작을 세밀하게 제어하는 데 도움이 되는 사용 사례가 있습니다. 분할 작업에 필요한 상용구 코드 양을 줄이기 위해 여러 컬렉션에 걸쳐 규모가 확장되는 응용 프로그램을 쉽게 빌드할 수 있게 해주는 기능이 .NET, Node.js 및 Java SDK에 추가되었습니다.
 
 이 문서에서는 .NET SDK의 클래스 및 인터페이스와 분할된 응용 프로그램을 개발하는 데 사용하는 방법을 살펴보겠습니다. Java, Node.js, Python 등 다른 SDK는 클라이언트 쪽 분할에 대해 비슷한 메서드 및 인터페이스를 지원합니다.
 
-## <a name="client-side-partitioning-with-the-documentdb-sdk"></a>DocumentDB SDK를 사용한 클라이언트 쪽 분할
-분할을 자세히 살펴보기 전에 분할과 관련된 몇 가지 기본적인 DocumentDB 개념을 정리해 보겠습니다. 모든 Azure DocumentDB 데이터베이스 계정은 각각 여러 컬렉션을 포함하는 데이터베이스 집합으로 구성되고, 각 컬렉션에는 저장 프로시저, 트리거, UDF, 문서 및 관련 첨부 파일이 포함될 수 있습니다. 컬렉션은 단일 파티션이거나 자체 분할될 수 있으며 다음과 같은 속성을 포함합니다.
+## <a name="client-side-partitioning-with-the-sdk"></a>SDK를 사용한 클라이언트 쪽 분할
+분할을 자세히 살펴보기 전에 분할과 관련된 몇 가지 기본적인 Cosmos DB 개념을 정리해 보겠습니다. 모든 Azure Cosmos DB 데이터베이스 계정은 각각 여러 컬렉션을 포함하는 데이터베이스 집합으로 구성되고, 각 컬렉션에는 저장 프로시저, 트리거, UDF, 문서 및 관련 첨부 파일이 포함될 수 있습니다. 컬렉션은 단일 파티션이거나 자체 분할될 수 있으며 다음과 같은 속성을 포함합니다.
 
 * 컬렉션은 성능 격리를 제공합니다. 따라서 동일한 컬렉션 내에서 유사한 문서를 정렬하는 성능상 이점이 있습니다. 예를 들어 시계열 데이터의 경우 자주 쿼리되는 지난 달에 대한 데이터를 프로비전된 처리량이 높은 컬렉션 내에서 배치하는 반면 이전 데이터는 프로비전된 처리량이 낮은 컬렉션 내에 배치하고자 할 수 있습니다.
 * ACID 트랜잭션, 즉 저장 프로시저 및 트리거는 컬렉션에 걸쳐 있지 않습니다. 트랜잭션 범위는 컬렉션 내 단일 파티션 키 값 안으로 범위가 지정됩니다.
 * 컬렉션은 스키마를 적용하지 않으므로 동일한 형식이나 다른 형식의 JSON 문서에 사용할 수 있습니다.
 
-[Azure DocumentDB SDK 1.5.x](documentdb-sdk-dotnet.md) 버전부터 데이터베이스에 대해 직접 문서 작업을 수행할 수 있습니다. 내부적으로 [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) 는 데이터베이스에 대해 지정된 PartitionResolver를 사용하여 요청을 해당 컬렉션으로 라우팅합니다.
+[Azure Cosmos DB SDK 1.5.x](documentdb-sdk-dotnet.md) 버전부터 데이터베이스에 대해 직접 문서 작업을 수행할 수 있습니다. 내부적으로 [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) 는 데이터베이스에 대해 지정된 PartitionResolver를 사용하여 요청을 해당 컬렉션으로 라우팅합니다.
 
 > [!NOTE]
 > REST API 2015-12-16 및 SDKs 1.6.0+에 도입된 [서버 쪽 분할](documentdb-partition-data.md)에서는 간단한 사용 사례에 대해 클라이언트 쪽 파티션 확인자 방법을 사용하지 않습니다. 그러나 클라이언트 쪽 분할은 보다 유연하므로 파티션 키 간의 성능 격리 및 병렬 처리 수준을 제어하면서 여러 파티션, 사용 범위/공간 분할 방법 및 해시로부터 결과를 읽어옵니다.
@@ -89,7 +90,7 @@ foreach (UserProfile activeUser in query)
 ```
 
 ## <a name="hash-partition-resolver"></a>해시 파티션 확인자
-해시 분할에서는 분할이 해시 함수 값을 기준으로 지정되기 때문에 여러 분할 간에 요청 및 데이터를 고르게 배포할 수 있습니다. 이 방법은 일반적으로 많은 수의 고유 클라이언트에서 생성 또는 소비되는 데이터를 분할하는 데 사용되며, 사용자 프로필, 카탈로그 항목 및 IoT("사물 인터넷") 원격 분석 데이터를 저장하는 데 유용합니다. 해시 분할도 컬렉션 내에서 DocumentDB의 서버 쪽 분할 지원에 사용됩니다.
+해시 분할에서는 분할이 해시 함수 값을 기준으로 지정되기 때문에 여러 분할 간에 요청 및 데이터를 고르게 배포할 수 있습니다. 이 방법은 일반적으로 많은 수의 고유 클라이언트에서 생성 또는 소비되는 데이터를 분할하는 데 사용되며, 사용자 프로필, 카탈로그 항목 및 IoT("사물 인터넷") 원격 분석 데이터를 저장하는 데 유용합니다. 해시 분할도 컬렉션 내에서 Cosmos DB의 서버 쪽 분할 지원에 사용됩니다.
 
 **해시 분할:**
 ![해시 분할을 통해 파티션 간에 요청을 균등하게 분배하는 방법을 보여 주는 다이어그램](media/documentdb-sharding/partition-hash.png)
@@ -122,17 +123,17 @@ foreach (UserProfile activeUser in query)
 * 프로세스 간 및 종료 간에 공유할 수 있도록 PartitionResolver 상태를 JSON으로 직렬화 및 역직렬화하는 방법. 구성 파일 또는 DocumentDB 컬렉션에 이러한 상태를 저장할 수 있습니다.
 * 일관된 해시를 기준으로 분할된 데이터베이스에 파티션을 동적으로 추가 및 제거하기 위한 [DocumentClientHashPartitioningManager](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Util/DocumentClientHashPartitioningManager.cs) 클래스. 이 클래스는 내부적으로 [TransitionHashPartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning/Partitioners/TransitionHashPartitionResolver.cs) 를 사용하여 마이그레이션 동안 4가지 모드, 즉 이전 파티션 구성표에서 읽기(ReadCurrent), 새 파티션 구성표(ReadNext), 둘 다의 결과 병합(ReadBoth) 또는 마이그레이션 중 사용할 수 없음(None) 중 하나로 읽기 및 쓰기를 라우팅합니다.
 
-샘플은 오픈 소스이며, 다른 DocumentDB 개발자에게 도움이 되는 정보와 함께 끌어오기 요청을 제출하는 것이 좋습니다. 참여하는 방법에 대한 지침은 [참여 지침](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) 을 참조하세요.  
+샘플은 오픈 소스이며, 다른 Cosmos DB 개발자에게 도움이 되는 정보와 함께 끌어오기 요청을 제출하는 것이 좋습니다. 참여하는 방법에 대한 지침은 [참여 지침](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) 을 참조하세요.  
 
 > [!NOTE]
-> 컬렉션 만들기는 DocumentDB에 의해 속도가 제한되므로 여기에 표시된 일부 샘플 메서드는 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+> 컬렉션 만들기는 Cosmos DB에 의해 속도가 제한되므로 여기에 표시된 일부 샘플 메서드는 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 > 
 > 
 
 ## <a name="faq"></a>FAQ
-**DocumentDB에서 서버 쪽 분할을 지원하나요?**
+**Cosmos DB에서 서버 쪽 분할을 지원하나요?**
 
-예, DocumentDB에서 [서버 쪽 분할](documentdb-partition-data.md)을 지원합니다. DocumentDB는 또한 보다 고급 사용 사례로 클라이언트 쪽 분할 해결 프로그램을 통해 클라이언트 쪽 분할을 지원합니다.
+예, Cosmos DB는 [서버 쪽 분할](documentdb-partition-data.md)을 지원합니다. Cosmos DB는 또한 보다 고급 사용 사례로 클라이언트 쪽 분할 해결 프로그램을 통해 클라이언트 쪽 분할을 지원합니다.
 
 **서버 쪽 및 클라이언트 쪽 분할을 언제 사용해야 하나요?**
 대부분의 사용 사례에서는 분할 데이터 및 라우팅 요청의 관리 작업을 처리하므로 서버 쪽 분할을 사용하는 것이 좋습니다. 그러나 범위 분할이 필요하거나 파티션 키의 서로 다른 값 간에 성능 격리를 위해 특수화된 사용 사례가 있는 경우 클라이언트 쪽 분할이 최선의 방법일 수 있습니다.
@@ -150,8 +151,8 @@ foreach (UserProfile activeUser in query)
 내부적으로 하나 이상의 기존 확인자를 사용하는 고유한 IPartitionResolver를 구현하여 PartitionResolver를 연결할 수 있습니다. 예제는 샘플 프로젝트의 TransitionHashPartitionResolver를 참조하세요.
 
 ## <a name="references"></a>참조
-* [DocumentDB에서 서버 쪽 분할](documentdb-partition-data.md)
-* [DocumentDB 컬렉션 및 성능 수준](documentdb-performance-levels.md)
+* [Cosmos DB의 서버 쪽 분할](documentdb-partition-data.md)
+* [Azure Cosmos DB 컬렉션 및 성능 수준](documentdb-performance-levels.md)
 * [GitHub의 분할 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 * [MSDN의 DocumentDB .NET SDK 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)

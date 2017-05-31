@@ -1,48 +1,49 @@
 ---
-title: "DocumentDB 요청 및 저장소 모니터링 | Microsoft Docs"
-description: "성능 메트릭(예: 요청 및 서버 오류) 및 사용 현황 메트릭(예: 저장소 사용량)에 대해 DocumentDB 계정을 모니터링하는 방법을 알아봅니다."
-services: documentdb
+title: "Azure Cosmos DB 요청 및 저장소 모니터링 | Microsoft Docs"
+description: "성능 메트릭(예: 요청 및 서버 오류) 및 사용 메트릭(예: 저장소 사용)에 대해 Azure Cosmos DB 계정을 모니터링하는 방법을 알아봅니다."
+services: cosmosdb
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 4c6a2e6f-6e78-48e3-8dc6-f4498b235a9e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: aabca8fd228b1fc7c60d295a9502dece29db1b68
-ms.lasthandoff: 01/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b0158d0f9f0a8f66ae6dda44476efb7b1914c599
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="monitor-documentdb-requests-usage-and-storage"></a>DocumentDB 요청, 사용, 저장소 모니터링
-[Azure 포털](https://portal.azure.com/)에서 Azure DocumentDB 계정을 모니터링할 수 있습니다. 각 DocumentDB 계정에 대해 성능 메트릭(예: 요청 및 서버 오류)과 사용량 메트릭(예: 저장소 사용)을 사용할 수 있습니다.
+# <a name="monitor-azure-cosmos-db-requests-usage-and-storage"></a>Azure Cosmos DB 요청, 사용 및 저장소 모니터링
+[Azure Portal](https://portal.azure.com/)에서 Azure Cosmos DB 계정을 모니터링할 수 있습니다. 각 Azure Cosmos DB 계정에 대해 성능 메트릭(예: 요청 및 서버 오류) 및 사용 메트릭(예: 저장소 사용)을 사용할 수 있습니다.
 
 계정 블레이드, 새 메트릭 블레이드 또는 Azure Monitor에서 메트릭을 검토할 수 있습니다.
 
 ## <a name="view-performance-metrics-on-the-metrics-blade"></a>메트릭 블레이드에서 성능 메트릭 보기
-1. [Azure Portal](https://portal.azure.com/)에서 **서비스 더 보기**를 클릭하고, **데이터베이스**로 스크롤한 다음 **NoSQL (DocumentDB)**를 클릭하고 성능 메트릭을 보려는 DocumentDB 계정의 이름을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **서비스 더 보기**를 클릭하고, **데이터베이스**로 스크롤한 다음 **Azure Cosmos DB**를 클릭하고 성능 메트릭을 보려는 Azure Cosmos DB 계정의 이름을 클릭합니다.
 2. 리소스 메뉴의 **모니터링** 아레에서 **메트릭**을 클릭합니다.
 
-메트릭 블레이드가 열리고 검토할 컬렉션을 선택할 수 있습니다. 가용성, 요청, 처리량 및 저장소 메트릭을 검토하고 DocumentDB SLA와 비교할 수 있습니다.
+메트릭 블레이드가 열리고 검토할 컬렉션을 선택할 수 있습니다. 가용성, 요청, 처리량 및 저장소 메트릭을 검토하고 Azure Cosmos DB SLA와 비교할 수 있습니다.
 
 ## <a name="view-performance-metrics-by-using-azure-monitoring"></a>Azure 모니터링을 사용하여 성능 메트릭 보기
 1. [Azure Portal](https://portal.azure.com/)에서 표시줄에 있는 **모니터**를 클릭합니다.
 2. 리소스 메뉴에서 **메트릭**을 클릭합니다.
-3. **모니터-메트릭** 창의 **리소스 그룹** 드롭 다운 메뉴에서 모니터링하고 싶은 DocumentDB 계정과 연결된 리소스 그룹을 선택합니다. 
+3. **모니터 - 메트릭** 창의 **리소스 그룹** 드롭다운 메뉴에서 모니터링할 Azure Cosmos DB 계정과 연결된 리소스 그룹을 선택합니다. 
 4. **리소스** 드롭 다운 메뉴에서 모니터링할 데이터베이스 계정을 선택합니다.
 5. **사용 가능한 메트릭** 목록에서 표시할 메트릭을 선택합니다. 다중 선택을 하려면 CTRL 단추를 사용합니다. 
 
     **그림** 창에서 메트릭이 표시됩니다. 
 
 ## <a name="view-performance-metrics-on-the-account-blade"></a>계정 블레이드에서 성능 메트릭 보기
-1. [Azure Portal](https://portal.azure.com/)에서 **서비스 더 보기**를 클릭하고, **데이터베이스**로 스크롤한 다음 **NoSQL (DocumentDB)**를 클릭하고 성능 메트릭을 보려는 DocumentDB 계정의 이름을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **서비스 더 보기**를 클릭하고, **데이터베이스**로 스크롤한 다음 **Azure Cosmos DB**를 클릭하고 성능 메트릭을 보려는 Azure Cosmos DB 계정의 이름을 클릭합니다.
 2. **모니터링** 렌즈에는 기본적으로 다음 타일이 표시됩니다.
    
    * 오늘의 총 요청 수
@@ -77,10 +78,10 @@ Azure 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
    ![복제 및 사용자 지정 완료 옵션이 강조 표시된 총 요청 차트의 스크린샷](./media/documentdb-monitor-accounts/madocdb7.png)  
 
 이제 파트에 표시되는 메트릭 및 시간 범위를 사용자 지정하면서 이 파트를 다른 메트릭 파트로 처리할 수 있습니다.  이렇게 하면 두 가지 다른 메트릭 차트를 동시에 병렬로 볼 수 있습니다.  
-    ![총 요청 차트 및 지난&1;시간의 새로운 총 요청 차트의 스크린샷](./media/documentdb-monitor-accounts/madocdb8.png)  
+    ![총 요청 차트 및 지난 1시간의 새로운 총 요청 차트의 스크린샷](./media/documentdb-monitor-accounts/madocdb8.png)  
 
 ## <a name="set-up-alerts-in-the-portal"></a>포털에서 경고 설정
-1. [Azure Portal](https://portal.azure.com/)에서 **서비스 더 보기**, **DocumentDB(NoSQL)**를 차례로 클릭하고 성능 메트릭 경고를 설정할 DocumentDB 계정의 이름을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **서비스 더 보기**, **Azure Cosmos DB**를 차례로 클릭하고 성능 메트릭 경고를 설정할 Azure Cosmos DB 계정의 이름을 클릭합니다.
 2. 리소스 메뉴에서 **경고 규칙** 을 클릭하여 경고 규칙 블레이드를 엽니다.  
    ![경고 규칙 부분이 선택된 스크린샷](./media/documentdb-monitor-accounts/madocdb10.5.png)
 3. **경고 규칙** 블레이드에서 **경고 추가**를 클릭합니다.  
@@ -95,7 +96,7 @@ Azure 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
    * 경고 알림에 대한 추가 메일 주소  
      ![경고 규칙 추가 블레이드의 스크린샷](./media/documentdb-monitor-accounts/madocdb12.png)
 
-## <a name="monitor-documentdb-programatically"></a>프로그램을 사용하여 DocumentDB 모니터링
+## <a name="monitor-azure-cosmos-db-programatically"></a>프로그래밍 방식으로 Azure Cosmos DB 모니터링
 포털에서 제공되는 계정 수준 메트릭(예: 계정 저장소 사용 및 총 요청)은 DocumentDB API를 통해 사용할 수 없습니다. 그러나 DocumentDB API를 사용하여 컬렉션 수준에서 사용 데이터를 조회할 수 있습니다. 컬렉션 수준 데이터를 검색하려면 다음을 수행합니다.
 
 * REST API를 사용하려면 [컬렉션에 대해 GET을 수행](https://msdn.microsoft.com/library/mt489073.aspx)합니다. 컬렉션에 대한 할당량 및 사용량 정보는 응답의 x-ms-resource-quota 및 x-ms-resource-usage 헤더에서 반환됩니다.
@@ -123,6 +124,6 @@ Azure 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
    ![업데이트된 총 요청 지난 시간 타일의 스크린샷](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
 
 ## <a name="next-steps"></a>다음 단계
-DocumentDB 용량 계획에 대한 자세한 내용은 [DocumentDB Capacity Planner 계산기](https://www.documentdb.com/capacityplanner)를 참조하세요.
+Azure Cosmos DB 용량 계획에 대한 자세한 내용은 [Azure Cosmos DB Capacity Planner 계산기](https://www.documentdb.com/capacityplanner)를 참조하세요.
 
 

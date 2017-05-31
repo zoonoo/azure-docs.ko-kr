@@ -1,38 +1,39 @@
 ---
-title: "DocumentDB에 대한 SQL 구문 및 SQL 쿼리 | Microsoft Docs"
-description: "SQL 구문, DocumentDB에 대한 데이터베이스 개념 및 SQL 쿼리, NoSQL 데이터베이스에 대해 알아봅니다. SQL은 DocumentDB에서 JSON 쿼리 언어로 사용될 수 있습니다."
+title: "Azure Cosmos DB에 대한 SQL 구문 및 SQL 쿼리 | Microsoft Docs"
+description: "Azure Cosmos DB에 대한 SQL 구문, 데이터베이스 개념 및 SQL 쿼리를 알아봅니다. SQL은 Azure Cosmos DB에서 JSON 쿼리 언어로 사용될 수 있습니다."
 keywords: "sql 구문, sql 쿼리, 여러 SQL 쿼리, json 쿼리 언어, 데이터베이스 개념 및 sql 쿼리, 집계 함수"
-services: documentdb
+services: cosmosdb
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: monicar
 ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/08/2017
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: c1360cb76c6fe8fd5177f13ea67f2109b5777521
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 11dc9d2e4c6cabfbfe7d68c88e5b210c94a3ec64
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="sql-query-and-sql-syntax-in-documentdb"></a>DocumentDB의 SQL 쿼리 및 SQL 구문
-Microsoft Azure DocumentDB는 JSON 쿼리 언어인 SQL(구조적 쿼리 언어)을 사용한 문서 쿼리를 지원합니다. DocumentDB는 스키마가 없습니다. DocumentDB는 데이터베이스 엔진 내에 직접 JSON 데이터 모델을 커밋하므로 명시적 스키마나 보조 인덱스 생성을 요구하지 않고 JSON 문서의 자동 인덱싱을 제공합니다. 
+# <a name="sql-query-and-sql-syntax-in-azure-cosmos-db"></a>Azure Cosmos DB의 SQL 쿼리 및 SQL 구문
+Microsoft Azure Cosmos DB는 JSON 쿼리 언어인 SQL(구조적 쿼리 언어)을 사용한 문서 쿼리를 지원합니다. Cosmos DB는 스키마가 없습니다. DocumentDB는 데이터베이스 엔진 내에 직접 JSON 데이터 모델을 커밋하므로 명시적 스키마나 보조 인덱스 생성을 요구하지 않고 JSON 문서의 자동 인덱싱을 제공합니다. 
 
-DocumentDB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려했습니다.
+Cosmos DB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려했습니다.
 
-* 새 JSON 쿼리 언어를 고안하는 대신 SQL 언어를 지원하려고 했습니다. SQL은 가장 익숙하고 많이 사용하는 쿼리 언어 중 하나입니다. DocumentDB SQL은 JSON 문서에 대한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공합니다.
-* 데이터베이스 엔진에서 직접 JavaScript를 실행할 수 있는 JSON 문서 데이터베이스로서, JavaScript의 프로그래밍 모델을 쿼리 언어의 기초로 사용하려고 했습니다. DocumentDB SQL은 JavaScript의 형식 시스템, 식 평가 및 함수 호출을 기반으로 합니다. 따라서 관계형 프로젝션, JSON 문서에 대한 계층적 탐색, 자체 조인, 공간 쿼리, JavaScript로만 작성된 UDF(사용자 정의 함수) 호출 등을 위한 일반 프로그래밍 모델을 제공합니다. 
+* 새 JSON 쿼리 언어를 고안하는 대신 SQL 언어를 지원하려고 했습니다. SQL은 가장 익숙하고 많이 사용하는 쿼리 언어 중 하나입니다. Cosmos DB SQL은 JSON 문서에 대한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공합니다.
+* 데이터베이스 엔진에서 직접 JavaScript를 실행할 수 있는 JSON 문서 데이터베이스로서, JavaScript의 프로그래밍 모델을 쿼리 언어의 기초로 사용하려고 했습니다. DocumentDB API SQL은 JavaScript의 형식 시스템, 식 평가 및 함수 호출을 기반으로 합니다. 따라서 관계형 프로젝션, JSON 문서에 대한 계층적 탐색, 자체 조인, 공간 쿼리, JavaScript로만 작성된 UDF(사용자 정의 함수) 호출 등을 위한 일반 프로그래밍 모델을 제공합니다. 
 
 이러한 기능은 응용 프로그램과 데이터베이스 간의 충돌을 줄이는 데 도움이 되며 개발자 생산성에 중요합니다.
 
-먼저 Aravind Ramachandran이 DocumentDB의 쿼리 기능을 보여 주는 다음 동영상을 보고, DocumentDB를 사용해 보고 데이터 집합에 대해 SQL 쿼리를 실행하는 [쿼리 실습](http://www.documentdb.com/sql/demo)을 방문하는 것이 좋습니다.
+먼저 Aravind Ramachandran이 Cosmos DB의 쿼리 기능을 보여 주는 다음 동영상을 보고, Cosmos DB를 사용해 보고 데이터 집합에 대해 SQL 쿼리를 실행하는 [쿼리 실습](http://www.documentdb.com/sql/demo)을 방문하는 것이 좋습니다.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
 > 
@@ -40,8 +41,8 @@ DocumentDB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려�
 
 그런 다음 이 문서로 돌아와 SQL 쿼리 자습서로 몇 가지 간단한 JSON 문서 및 SQL 명령을 연습합니다.
 
-## <a id="GettingStarted"></a>DocumentDB에서 SQL 명령 시작
-DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON 문서로 시작하고 몇 개의 단순한 쿼리를 연습하겠습니다. 두 가족에 대한 다음 두 개의 JSON 문서를 고려해 보세요. DocumentDB를 사용하면 스키마나 보조 인덱스를 명시적으로 만들 필요가 없습니다. DocumentDB 컬렉션에 JSON 문서를 삽입한 후 쿼리하면 됩니다. 다음은 Andersen 가족, 부모, 자녀(및 애완 동물), 주소 및 등록 정보에 대한 간단한 JSON 문서입니다. 이 문서에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다. 
+## <a id="GettingStarted"></a>Cosmos DB의 SQL 명령 시작하기
+Cosmos DB SQL의 작동 방식을 확인하기 위해 몇 개의 간단한 JSON 문서로 시작해서 몇 가지 단순한 쿼리를 연습해 보겠습니다. 두 가족에 대한 다음 두 개의 JSON 문서를 고려해 보세요. Cosmos DB를 사용하면 스키마나 보조 인덱스를 명시적으로 만들 필요가 없습니다. Cosmos DB 컬렉션에 JSON 문서를 삽입한 후 쿼리하면 됩니다. 다음은 Andersen 가족, 부모, 자녀(및 애완 동물), 주소 및 등록 정보에 대한 간단한 JSON 문서입니다. 이 문서에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다. 
 
 **문서**  
 
@@ -100,7 +101,7 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
 }
 ```
 
-이제 DocumentDB SQL의 몇 가지 주요 측면을 이해하기 위해 이 데이터에 대해 몇 개의 쿼리를 시도해 보겠습니다. 예를 들어 다음 쿼리는 ID 필드가 `AndersenFamily`와 일치하는 문서를 반환합니다. 쿼리가 `SELECT *`이므로 쿼리의 출력은 전체 JSON 문서입니다.
+이제 DocumentDB API SQL의 몇 가지 주요 측면을 이해하기 위해 이 데이터에 대해 몇 가지 쿼리를 시도해 보겠습니다. 예를 들어 다음 쿼리는 ID 필드가 `AndersenFamily`와 일치하는 문서를 반환합니다. 쿼리가 `SELECT *`이므로 쿼리의 출력은 전체 JSON 문서입니다.
 
 **쿼리**
 
@@ -165,29 +166,29 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
     ]
 
 
-지금까지 확인한 예제를 통해 DocumentDB 쿼리 언어의 몇 가지 중요한 측면을 살펴보겠습니다.  
+지금까지 확인한 예제를 통해 Cosmos DB 쿼리 언어의 몇 가지 중요한 측면을 살펴보겠습니다.  
 
-* DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.   
+* DocumentDB API SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.   
 * 구조적 쿼리 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.  
-* DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/) 을 참조하세요.  
-* DocumentDB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
+* Cosmos DB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/) 을 참조하세요.  
+* Cosmos DB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
 
-## <a id="Indexing"></a> DocumentDB 인덱싱
-DocumentDB SQL 구문을 시작하기 전에 DocumentDB의 인덱싱 설계를 살펴보는 것이 좋습니다. 
+## <a id="Indexing"></a> Cosmos DB 인덱싱
+DocumentDB API SQL 구문을 시작하기 전에 Cosmos DB API의 인덱싱 설계를 살펴보는 것이 좋습니다. 
 
 데이터베이스 인덱스의 목적은 우수한 처리량과 짧은 대기 시간을 제공하는 동시에 다양한 형태와 모양의 쿼리를 최소 리소스 사용(예: CPU, 입출력)으로 처리하는 것입니다. 데이터베이스 쿼리에 올바른 인덱스를 선택하려면 대체로 많은 계획과 실험이 필요합니다. 이 접근 방법은 데이터가 엄격한 스키마를 준수하지 않고 빠르게 발전하는 스키마 없는 데이터베이스에 문제를 제기합니다. 
 
-따라서 DocumentDB 인덱싱 하위 시스템을 설계할 때 다음 목표를 설정했습니다.
+따라서 Cosmos DB 인덱싱 하위 시스템을 설계할 때 다음 목표를 설정했습니다.
 
 * 스키마가 필요 없는 문서 인덱싱: 인덱싱 하위 시스템에 스키마 정보가 필요 없거나 문서 스키마에 대한 가정을 하지 않습니다. 
-* 효율적이고 풍부한 계층적 관계형 쿼리 지원: 인덱스는 계층적 관계형 프로젝션 지원을 포함하여 DocumentDB 쿼리 언어를 효율적으로 지원합니다.
+* 효율적이고 풍부한 계층적 관계형 쿼리 지원: 인덱스는 계층적 관계형 프로젝션 지원을 포함하여 Cosmos DB 쿼리 언어를 효율적으로 지원합니다.
 * 지속적인 쓰기 볼륨에서도 일관성 있는 쿼리 지원: 일관성 있는 쿼리와 더불어 높은 쓰기 처리량 워크로드를 위해 지속적인 쓰기 볼륨에서도 인덱스가 온라인에서 효율적으로 증분 업데이트됩니다. 일관성 있는 인덱스 업데이트는 사용자가 문서 서비스를 구성한 일관성 수준으로 쿼리를 처리하는 데 중요합니다.
 * 다중 테넌트 지원: 테넌트의 리소스 거버넌스를 위한 예약 기반 모델을 고려하여 복제본당 할당된 시스템 리소스(CPU, 메모리, 초당 입출력 작업 수) 예산 내에서 인덱스 업데이트가 수행됩니다. 
-* 저장소 효율성: 비용 효율성을 위해 인덱스의 디스크에 있는 저장소 오버헤드가 제한되고 예측 가능합니다. 이 목표는 DocumentDB를 사용할 경우 개발자가 비용을 기반으로 인덱스 오버헤드와 쿼리 성능 간을 절충할 수 있기 때문에 중요합니다.  
+* 저장소 효율성: 비용 효율성을 위해 인덱스의 디스크에 있는 저장소 오버헤드가 제한되고 예측 가능합니다. 이 목표는 Cosmos DB를 사용할 경우 개발자가 비용을 기반으로 인덱스 오버헤드와 쿼리 성능 간을 절충할 수 있기 때문에 중요합니다.  
 
-컬렉션에 대한 인덱싱 정책을 구성하는 방법을 보여 주는 샘플은 MSDN에서 [DocumentDB 샘플](https://github.com/Azure/azure-documentdb-net) 을 참조하세요. 이제 DocumentDB SQL 구문의 세부 정보를 살펴보겠습니다.
+컬렉션에 대한 인덱싱 정책을 구성하는 방법을 보여 주는 샘플은 MSDN에서 [Azure Cosmos DB 샘플](https://github.com/Azure/azure-documentdb-net)을 참조하세요. 이제 Azure Cosmos DB SQL 구문의 세부 정보를 살펴보겠습니다.
 
-## <a id="Basics"></a>DocumentDB SQL 쿼리의 기본 사항
+## <a id="Basics"></a>Azure Cosmos DB SQL 쿼리의 기본 사항
 ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음 WHERE 절의 필터를 소스에 적용하여 JSON 문서의 하위 집합을 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다.
 
     SELECT <select_list> 
@@ -281,7 +282,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
     }]
 
 
-앞의 예제는 단순한 같음 쿼리를 보여 주었습니다. DocumentDB SQL은 다양한 스칼라 식도 지원합니다. 가장 일반적으로 사용되는 식은 이항 및 단항 식입니다. 소스 JSON 개체의 속성 참조도 유효한 식입니다. 
+앞의 예제는 단순한 같음 쿼리를 보여 주었습니다. DocumentDB API SQL은 다양한 스칼라 식도 지원합니다. 가장 일반적으로 사용되는 식은 이항 및 단항 식입니다. 소스 JSON 개체의 속성 참조도 유효한 식입니다. 
 
 현재 지원되며 다음 예제와 같이 쿼리에 사용할 수 있는 이항 연산자는 다음과 같습니다.  
 
@@ -339,7 +340,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 이항 및 단항 연산자뿐 아니라 속성 참조도 허용됩니다. 예를 들어 `SELECT * FROM Families f WHERE f.isRegistered`는 `isRegistered` 속성을 포함하고 속성 값이 JSON `true` 값과 같은 JSON 문서를 반환합니다. 다른 값(false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` 등)이면 소스 문서가 결과에서 제외됩니다. 
 
 ### <a name="equality-and-comparison-operators"></a>같음 및 비교 연산자
-다음 표는 DocumentDB SQL에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다.
+다음 표에서는 DocumentDB API SQL에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다.
 
 <table style = "width:300px">
    <tbody>
@@ -534,7 +535,7 @@ ANSI-SQL과 달리, 다음 예제처럼 BETWEEN 절을 FROM 절에서 사용할 
 
 쿼리 실행 시간을 단축하려면 BETWEEN 절에서 필터링되는 모든 숫자 속성/경로에 대해 범위 인덱스 형식을 사용하는 인덱싱 정책을 만들어야 합니다. 
 
-DocumentDB와 ANSI SQL에서 BETWEEN 사용의 주요 차이점은 혼합 형식의 속성에 대해 범위 쿼리를 실행할 수 있다는 점입니다. 예를 들어 일부 문서에서는 "등급"이 숫자(5)이고 다른 문서에서는 문자열("grade4")일 수 있습니다. 이러한 경우 JavaScript에서처럼 다른 두 형식 간 비교는 "undefined"가 되고 문서는 건너뜁니다.
+DocumentDB API와 ANSI SQL에서 BETWEEN을 사용하는 경우의 주요 차이점은 혼합 형식의 속성에 대해 범위 쿼리를 실행할 수 있다는 점입니다. 예를 들어 일부 문서에서는 "등급"이 숫자(5)이고 다른 문서에서는 문자열("grade4")일 수 있습니다. 이러한 경우 JavaScript에서처럼 다른 두 형식 간 비교는 "undefined"가 되고 문서는 건너뜁니다.
 
 ### <a name="logical-and-or-and-not-operators"></a>논리(AND, OR 및 NOT) 연산자
 논리 연산자는 부울 값에 작동합니다. 다음 표에는 이 연산자의 논리적 진위 표가 나와 있습니다.
@@ -751,7 +752,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 
 ### <a name="object-and-array-creation"></a>개체 및 배열 만들기
-DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예제에서는 새 JSON 개체를 만들었습니다. 마찬가지로 아래 예제에 표시된 대로 배열을 생성할 수도 있습니다.
+DocumentDB API SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예제에서는 새 JSON 개체를 만들었습니다. 마찬가지로 아래 예제에 표시된 대로 배열을 생성할 수도 있습니다.
 
 **쿼리**
 
@@ -924,7 +925,7 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
         "$1": 1
     }]
 
-다음 표는 DocumentDB에서 지원되는 집계 함수 목록을 보여 줍니다. `SUM` 및 `AVG`는 숫자 값에 대해 수행되는 반면 `COUNT`, `MIN` 및 `MAX`는 숫자, 문자열, 부울 및 null에 대해 수행될 수 있습니다. 
+다음 표에서는 DocumentDB API에서 지원되는 집계 함수 목록을 보여 줍니다. `SUM` 및 `AVG`는 숫자 값에 대해 수행되는 반면 `COUNT`, `MIN` 및 `MAX`는 숫자, 문자열, 부울 및 null에 대해 수행될 수 있습니다. 
 
 | 사용 현황 | 설명 |
 |-------|-------------|
@@ -990,7 +991,7 @@ ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 
 ## <a id="Advanced"></a>고급 데이터베이스 개념 및 SQL 쿼리
 
 ### <a id="Iteration"></a>반복
-JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 통해 새 구문을 추가했습니다. FROM 소스에서 반복 지원을 제공합니다. 다음 예제로 시작하겠습니다.
+JSON 배열 반복을 지원하기 위해 DocumentDB API SQL의 **IN** 키워드를 통해 새 구문을 추가했습니다. FROM 소스에서 반복 지원을 제공합니다. 다음 예제로 시작하겠습니다.
 
 **쿼리**
 
@@ -1084,7 +1085,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
     ]
 
 ### <a id="Joins"></a>조인
-관계형 데이터베이스에서는 테이블 간 조인 요구가 매우 중요합니다. 이는 정규화된 스키마 설계의 필연적인 논리적 결과입니다. 이와 반대로 DocumentDB는 스키마 없는 문서의 비정규화된 데이터 모델을 처리합니다. 이는 논리적으로 "자체 조인"과 동등합니다.
+관계형 데이터베이스에서는 테이블 간 조인 요구가 매우 중요합니다. 이는 정규화된 스키마 설계의 필연적인 논리적 결과입니다. 이와 반대로 DocumentDB API는 스키마 없는 문서의 비정규화된 데이터 모델을 처리합니다. 이는 논리적으로 "자체 조인"과 동등합니다.
 
 언어가 지원하는 구문은 <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>입니다. 대체로 이 구문은 **N** 튜플(**N**개 값이 포함된 튜플) 집합을 반환합니다. 각 튜플은 해당 집합에 모든 컬렉션 별칭을 반복하여 생성된 값을 포함합니다. 즉, 조인에 참여하는 집합의 전체 교차곱입니다.
 
@@ -1233,17 +1234,17 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
 
 
 ## <a id="JavaScriptIntegration"></a>JavaScript 통합
-DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해 직접 JavaScript 기반 응용 프로그램 논리를 실행하기 위한 프로그래밍 모델을 제공합니다. 이 경우 다음 두 가지 기능을 모두 사용할 수 있습니다.
+Azure Cosmos DB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해 직접 JavaScript 기반 응용 프로그램 논리를 실행하기 위한 프로그래밍 모델을 제공합니다. 이 경우 다음 두 가지 기능을 모두 사용할 수 있습니다.
 
 * 데이터베이스 엔진 내에 직접 JavaScript 런타임이 전체 통합되므로 컬렉션의 문서에 대해 고성능 트랜잭션 CRUD 작업 및 쿼리를 수행할 수 있습니다. 
-* 데이터베이스 트랜잭션을 사용하여 제어 흐름, 변수 범위 지정 및 예외 처리 기본 형식의 할당과 통합을 기본적으로 모델링할 수 있습니다. DocumentDB의 JavaScript 통합 지원에 대한 자세한 내용은 JavaScript 서버 쪽 프로그래밍 기능 설명서를 참조하세요.
+* 데이터베이스 트랜잭션을 사용하여 제어 흐름, 변수 범위 지정 및 예외 처리 기본 형식의 할당과 통합을 기본적으로 모델링할 수 있습니다. Azure Cosmos DB의 JavaScript 통합 지원에 대한 자세한 내용은 JavaScript 서버 쪽 프로그래밍 기능 설명서를 참조하세요.
 
 ### <a id="UserDefinedFunctions"></a>UDF(사용자 정의 함수)
-이 문서에 이미 정의되어 있는 형식과 더불어 DocumentDB SQL 사용자 정의 함수(UDF)를 지원합니다. 특히 개발자가 0개 또는 많은 인수를 전달하고 단일 인수 결과를 반환할 수 있는 스칼라 UDF가 지원됩니다. 이러한 각 인수가 유효한 JSON 값인지 확인됩니다.  
+이 문서에 이미 정의되어 있는 형식과 더불어 DocumentDB API SQL은 UDF(사용자 정의 함수)를 지원합니다. 특히 개발자가 0개 또는 많은 인수를 전달하고 단일 인수 결과를 반환할 수 있는 스칼라 UDF가 지원됩니다. 이러한 각 인수가 유효한 JSON 값인지 확인됩니다.  
 
-이러한 사용자 정의 함수를 사용한 사용자 지정 응용 프로그램 논리를 지원하기 위해 DocumentDB SQL 구문이 확장됩니다. UDF를 DocumentDB에 등록한 다음 SQL 쿼리의 일부로 참조할 수 있습니다. 실제로 UDF는 쿼리에서 호출되도록 설계되었습니다. 이 선택의 필연적인 결과로 UDF는 다른 JavaScript 형식(저장 프로시저 및 트리거)과 달리 컨텍스트 개체에 액세스할 수 없습니다. 쿼리는 읽기 전용으로 실행되므로 주 복제본 또는 보조 복제본에서 실행될 수 있습니다. 따라서 UDF는 다른 JavaScript 형식과 달리 보조 복제본에서 실행되도록 설계되었습니다.
+이러한 사용자 정의 함수를 사용한 사용자 지정 응용 프로그램 논리를 지원하기 위해 DocumentDB API SQL 구문이 확장되었습니다. UDF를 DocumentDB API에 등록한 다음 SQL 쿼리의 일부로 참조할 수 있습니다. 실제로 UDF는 쿼리에서 호출되도록 설계되었습니다. 이 선택의 필연적인 결과로 UDF는 다른 JavaScript 형식(저장 프로시저 및 트리거)과 달리 컨텍스트 개체에 액세스할 수 없습니다. 쿼리는 읽기 전용으로 실행되므로 주 복제본 또는 보조 복제본에서 실행될 수 있습니다. 따라서 UDF는 다른 JavaScript 형식과 달리 보조 복제본에서 실행되도록 설계되었습니다.
 
-다음은 DocumentDB 데이터베이스의 문서 컬렉션 아래에 UDF를 등록할 수 있는 방법의 예입니다.
+다음은 Cosmos DB 데이터베이스의 문서 컬렉션 아래에 UDF를 등록할 수 있는 방법의 예입니다.
 
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
        {
@@ -1262,7 +1263,7 @@ DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해
 이제 이 UDF를 프로젝트의 쿼리에 사용할 수 있습니다. 쿼리 내에서 호출하는 경우 대/소문자를 구분하는 접두사 "udf."를 사용하여 UDF를 한정해야 합니다. 
 
 > [!NOTE]
-> 2015년 3월 17일 이전에는 DocumentDB가 SELECT SQRT(5)와 같이 "udf." 접두사가 없는 UDF 호출을 지원했습니다. 이 호출 패턴은 더 이상 사용되지 않습니다.  
+> 2015년 3월 17일 이전에는 Cosmos DB가 SELECT REGEX_MATCH()와 같이 "udf." 접두사가 없는 UDF 호출을 지원했습니다. 이 호출 패턴은 더 이상 사용되지 않습니다.  
 > 
 > 
 
@@ -1344,21 +1345,21 @@ UDF 기능을 확장하기 위해 조건부 논리가 포함된 다른 예제를
     ]
 
 
-앞의 예제에서 소개한 대로 UDF는 JavaScript 언어 기능과 DocumentDB SQL을 통합하여 내장된 JavaScript 런타임 기능을 통해 복잡한 절차적 조건부 논리를 수행하는 풍부한 프로그래밍 가능 인터페이스를 제공합니다.
+앞의 예제에서 소개한 대로 UDF는 JavaScript 언어 기능과 DocumentDB API SQL을 통합하여 내장된 JavaScript 런타임 기능을 통해 복잡한 절차적 조건부 논리를 수행하는 풍부한 프로그래밍 가능 인터페이스를 제공합니다.
 
-DocumentDB SQL은 현재 UDF 처리 단계(WHERE 절 또는 SELECT 절)에 있는 소스의 각 문서에 대한 UDF에 인수를 제공합니다. 결과는 전체 실행 파이프라인에 매끄럽게 통합됩니다. UDF 매개 변수가 참조하는 속성을 JSON 값에 사용할 수 없는 경우 매개 변수가 undefined로 간주되므로 전체 UDF 호출을 건너뜁니다. 마찬가지로, UDF 결과가 undefined이면 결과에 포함되지 않습니다. 
+DocumentDB API SQL은 현재 UDF 처리 단계(WHERE 절 또는 SELECT 절)에 있는 각 원본 문서에 대한 인수를 UDF에 제공합니다. 결과는 전체 실행 파이프라인에 매끄럽게 통합됩니다. UDF 매개 변수가 참조하는 속성을 JSON 값에 사용할 수 없는 경우 매개 변수가 undefined로 간주되므로 전체 UDF 호출을 건너뜁니다. 마찬가지로, UDF 결과가 undefined이면 결과에 포함되지 않습니다. 
 
 요약하면 UDF는 쿼리의 일부로 복잡한 비즈니스 논리를 수행하는 유용한 도구입니다.
 
 ### <a name="operator-evaluation"></a>연산자 평가
-DocumentDB는 JSON 데이터베이스이므로 JavaScript 연산자 및 평가 의미 체계와 유사합니다. DocumentDB는 JSON 지원 측면에서 JavaScript 의미 체계를 유지하려고 하지만 연산 평가가 다른 경우도 있습니다.
+Cosmos DB는 JSON 데이터베이스이므로 JavaScript 연산자 및 평가 의미 체계와 유사합니다. Cosmos DB는 JSON 지원 측면에서 JavaScript 의미 체계를 유지하려고 하지만 연산 평가가 다른 경우도 있습니다.
 
-DocumentDB SQL에서는 기존 SQL과 달리 실제로 데이터베이스에서 값이 검색될 때까지 값의 형식을 알 수 없는 경우가 많습니다. 쿼리를 효율적으로 실행하기 위해 대부분의 연산자에 강력한 형식 요구 사항이 있습니다. 
+DocumentDB API SQL에서는 기존 SQL과 달리 실제로 데이터베이스에서 값이 검색될 때까지 값의 형식을 알 수 없는 경우가 많습니다. 쿼리를 효율적으로 실행하기 위해 대부분의 연산자에 강력한 형식 요구 사항이 있습니다. 
 
-DocumentDB SQL은 JavaScript와 달리 암시적 변환을 수행하지 않습니다. 예를 들어 `SELECT * FROM Person p WHERE p.Age = 21`과 같은 쿼리는 Age 속성을 포함하고 값이 21인 문서에 일치됩니다. Age 속성이 문자열 "21" 또는 "021", "21.0", "0021", "00021" 등의 다른 무한 변형과 일치하는 다른 문서는 일치되지 않습니다. 이는 문자열 값이 암시적으로 숫자로 캐스팅되는 JavaScript와 대조됩니다(연산자 기준, 예: ==) 이 선택 항목은 DocumentDB SQL의 효율적인 인덱스 매핑에 중요합니다. 
+DocumentDB API SQL은 JavaScript와 달리 암시적 변환을 수행하지 않습니다. 예를 들어 `SELECT * FROM Person p WHERE p.Age = 21`과 같은 쿼리는 Age 속성을 포함하고 값이 21인 문서에 일치됩니다. Age 속성이 문자열 "21" 또는 "021", "21.0", "0021", "00021" 등의 다른 무한 변형과 일치하는 다른 문서는 일치되지 않습니다. 이는 문자열 값이 암시적으로 숫자로 캐스팅되는 JavaScript와 대조됩니다(연산자 기준, 예: ==) 이 선택 항목은 DocumentDB API SQL의 효율적인 인덱스 매핑에 중요합니다. 
 
 ## <a name="parameterized-sql-queries"></a>매개 변수가 있는 SQL 쿼리
-DocumentDB는 익숙한 @ 표기법으로 표현된 매개 변수가 있는 쿼리를 지원합니다. 매개 변수가 있는 SQL은 사용자 입력의 강력한 처리 및 이스케이프를 제공하여 SQL 주입을 통해 데이터가 실수로 노출되는 것을 방지합니다. 
+Cosmos DB는 익숙한 @ 표기법으로 표현된 매개 변수가 있는 쿼리를 지원합니다. 매개 변수가 있는 SQL은 사용자 입력의 강력한 처리 및 이스케이프를 제공하여 SQL 주입을 통해 데이터가 실수로 노출되는 것을 방지합니다. 
 
 예를 들어 성 및 주소 상태를 매개 변수로 사용하는 쿼리를 작성한 다음 사용자 입력에 따라 다양한 성 및 주소 상태 값에 대해 실행할 수 있습니다.
 
@@ -1366,7 +1367,7 @@ DocumentDB는 익숙한 @ 표기법으로 표현된 매개 변수가 있는 쿼�
     FROM Families f
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 
-그런 다음 아래와 같이 이 요청을 매개 변수가 있는 JSON 쿼리로 DocumentDB에 보낼 수 있습니다.
+그런 다음 아래와 같이 이 요청을 매개 변수가 있는 JSON 쿼리로 Cosmos DB에 보낼 수 있습니다.
 
     {      
         "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
@@ -1385,10 +1386,10 @@ DocumentDB는 익숙한 @ 표기법으로 표현된 매개 변수가 있는 쿼�
         ] 
     }
 
-매개 변수 값은 유효한 모든 JSON(문자열, 숫자, 부울, null, 짝수 배열 또는 중첩된 JSON)일 수 있습니다. 또한 DocumentDB는 스키마가 없으므로 모든 형식에 대해 매개 변수의 유효성이 검사되지 않습니다.
+매개 변수 값은 유효한 모든 JSON(문자열, 숫자, 부울, null, 짝수 배열 또는 중첩된 JSON)일 수 있습니다. 또한 Cosmos DB는 스키마가 없으므로 모든 형식에 대해 매개 변수의 유효성이 검사되지 않습니다.
 
 ## <a id="BuiltinFunctions"></a>기본 제공 함수
-DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지원하며, UDF(사용자 정의 함수)처럼 쿼리 내에서 이러한 함수를 사용할 수 있습니다.
+Cosmos DB는 일반적인 작업을 위해 많은 기본 제공 함수도 지원하며, UDF(사용자 정의 함수)처럼 쿼리 내에서 이러한 함수를 사용할 수 있습니다.
 
 | 함수 그룹          | 작업                                                                                                                                          |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1440,7 +1441,7 @@ DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지�
 
     [4]
 
-DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데이터 및 혼합된 스키마 데이터에서 잘 작동하도록 설계되었다는 것입니다. 예를 들어 Size 속성이 없거나 "unknown"과 같은 숫자가 아닌 값을 가진 문서가 있는 경우 오류를 반환하는 대신 문서를 건너뜁니다.
+Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데이터 및 혼합된 스키마 데이터에서 잘 작동하도록 설계되었다는 것입니다. 예를 들어 Size 속성이 없거나 "unknown"과 같은 숫자가 아닌 값을 가진 문서가 있는 경우 오류를 반환하는 대신 문서를 건너뜁니다.
 
 ### <a name="type-checking-functions"></a>형식 검사 함수
 형식 검사 함수를 통해 SQL 쿼리 내에서 식의 형식을 검사할 수 있습니다. 형식 검사 함수를 사용하여 변수이거나 알 수 없는 경우 문서 내의 속성 형식을 즉시 확인할 수 있습니다. 다음은 지원되는 기본 제공 형식 검사 함수 표입니다.
@@ -1608,7 +1609,7 @@ DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데
     }]
 
 ### <a name="spatial-functions"></a>공간 함수
-DocumentDB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. 
+Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. 
 
 <table>
 <tr>
@@ -1651,14 +1652,14 @@ DocumentDB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatia
       "id": "WakefieldFamily"
     }]
 
-DocumentDB의 지리 공간 지원에 대한 자세한 내용은 [Azure DocumentDB에서 지리 공간 데이터 작업](documentdb-geospatial.md)을 참조하세요. 공간 함수 및 DocumentDB에 대한 SQL 구문을 래핑합니다. 이제 지금까지 나타난 LINQ 쿼리 작동 방법 및 구문 조작 방법을 살펴봤습니다.
+Cosmos DB의 지리 공간 지원에 대한 자세한 내용은 [Azure Cosmos DB에서 지리 공간 데이터 작업](documentdb-geospatial.md)을 참조하세요. 공간 함수 및 Cosmos DB에 대한 SQL 구문을 래핑합니다. 이제 지금까지 나타난 LINQ 쿼리 작동 방법 및 구문 조작 방법을 살펴봤습니다.
 
-## <a id="Linq"></a>LINQ to DocumentDB SQL
-LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로그래밍 모델입니다. DocumentDB는 JSON 및 .NET 개체 간의 변환과 LINQ 쿼리 하위 집합에서 DocumentDB 쿼리로의 매핑을 용이하게 하여 LINQ와 인터페이스할 클라이언트 쪽 라이브러리를 제공합니다. 
+## <a id="Linq"></a>LINQ to DocumentDB API SQL
+LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로그래밍 모델입니다. Cosmos DB는 JSON 및 .NET 개체 간의 변환과 LINQ 쿼리 하위 집합에서 Cosmos DB 쿼리로의 매핑을 용이하게 하여 LINQ와 인터페이스할 클라이언트 쪽 라이브러리를 제공합니다. 
 
-아래 그림은 DocumentDB를 사용한 LINQ 쿼리를 지원하는 아키텍처를 보여 줍니다.  개발자는 DocumentDB 클라이언트를 사용하여 쿼리를 DocumentDB 쿼리 공급자로 보내는 **IQueryable** 개체를 만들 수 있습니다. 쿼리 공급자가 LINQ 쿼리를 DocumentDB 쿼리로 변환합니다. 그런 다음 JSON 형식으로 결과 집합을 검색하기 위해 쿼리가 DocumentDB 서버로 전달됩니다. 반환된 결과는 클라이언트 쪽에서 .NET 개체 스트림으로 역직렬화됩니다.
+아래 그림은 Cosmos DB를 사용한 LINQ 쿼리를 지원하는 아키텍처를 보여 줍니다.  개발자는 Cosmos DB 클라이언트를 사용하여 Cosmos DB 쿼리 공급자를 직접 쿼리하는 **IQueryable** 개체를 만들 수 있습니다. 그런 후에 쿼리 공급자가 LINQ 쿼리를 Cosmos DB 쿼리로 변환합니다. 그런 다음 JSON 형식으로 결과 집합을 검색하기 위해 쿼리가 Cosmos DB 서버로 전달됩니다. 반환된 결과는 클라이언트 쪽에서 .NET 개체 스트림으로 역직렬화됩니다.
 
-![DocumentDB를 사용한 LINQ 쿼리를 지원하는 아키텍처 - SQL 구문, JSON 쿼리 언어, 데이터베이스 개념 및 SQL 쿼리][1]
+![DocumentDB API를 사용한 LINQ 쿼리를 지원하는 아키텍처 - SQL 구문, JSON 쿼리 언어, 데이터베이스 개념 및 SQL 쿼리][1]
 
 ### <a name="net-and-json-mapping"></a>.NET 및 JSON 매핑
 .NET 개체와 JSON 문서 간의 매핑은 기본적으로 수행됩니다. 각 데이터 멤버 필드가 JSON 개체에 매핑됩니다. 여기서 필드 이름은 개체의 "키" 부분에 매핑되고 "값" 부분은 개체의 값 부분에 재귀적으로 매핑됩니다. 아래 예제를 고려해 보세요. 만들어진 Family 개체는 아래와 같이 JSON 문서에 매핑됩니다. 반대로 JSON 문서는 다시 .NET 개체에 매핑됩니다.
@@ -1743,7 +1744,7 @@ LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로�
 
 
 ### <a name="linq-to-sql-translation"></a>LINQ to SQL 변환
-DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑하기 위해 최대한 노력합니다. 다음 설명에서는 사용자가 LINQ의 기본 사항을 알고 있다고 가정합니다.
+Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑하기 위해 최대한 노력합니다. 다음 설명에서는 사용자가 LINQ의 기본 사항을 알고 있다고 가정합니다.
 
 먼저 형식 시스템에 대해 모든 JSON 기본 형식(숫자 형식, 부울, 문자열 및 null)을 지원합니다. 이러한 JSON 형식만 지원됩니다. 다음 스칼라 식이 지원됩니다.
 
@@ -1780,7 +1781,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 * **기타**: coalesce 및 조건부 연산자의 변환을 지원합니다. 컨텍스트에 따라 Contains는 문자열 CONTAINS, ARRAY_CONTAINS 또는 SQL IN으로 변환할 수 있습니다.
 
 ### <a name="sql-query-operators"></a>SQL 쿼리 연산자
-다음은 표준 LINQ 쿼리 연산자 중 일부가 DocumentDB 쿼리로 변환되는 방법을 보여 주는 몇 가지 예제입니다.
+다음은 표준 LINQ 쿼리 연산자 중 일부가 Cosmos DB 쿼리로 변환되는 방식을 보여 주는 몇 가지 예제입니다.
 
 #### <a name="select-operator"></a>Select 연산자
 구문은 `input.Select(x => f(x))`입니다. 여기서 `f`는 스칼라 식입니다.
@@ -1869,7 +1870,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 
 ### <a name="composite-sql-queries"></a>복합 SQL 쿼리
-위 연산자를 구성하여 보다 강력한 쿼리를 만들 수 있습니다. DocumentDB는 중첩 컬렉션을 지원하므로 해당 컴퍼지션을 연결하거나 중첩할 수 있습니다.
+위 연산자를 구성하여 보다 강력한 쿼리를 만들 수 있습니다. Cosmos DB는 중첩된 컬렉션을 지원하므로 해당 컴퍼지션을 연결하거나 중첩할 수 있습니다.
 
 #### <a name="concatenation"></a>연결
 구문은 `input(.|.SelectMany())(.Select()|.Where())*`입니다. 연결된 쿼리는 선택적 `SelectMany` 쿼리로 시작하며 그 뒤에 여러 `Select` 또는 `Where` 연산자가 올 수 있습니다.
@@ -1971,16 +1972,16 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 
 ## <a id="ExecutingSqlQueries"></a>SQL 쿼리 실행
-DocumentDB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 REST API를 통해 리소스를 노출합니다. 또한 DocumentDB는 .NET, Node.js, JavaScript, Python 등 많이 사용되는 몇 개의 언어를 위한 프로그래밍 라이브러리를 제공합니다. REST API 및 다양한 라이브러리가 모두 SQL을 통한 쿼리를 지원합니다. .NET SDK는 SQL뿐 아니라 LINQ 쿼리도 지원합니다.
+Cosmos DB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 REST API를 통해 리소스를 노출합니다. 또한 Cosmos DB는 .NET, Node.js, JavaScript, Python 등 많이 사용되는 여러 언어를 위한 프로그래밍 라이브러리를 제공합니다. REST API 및 다양한 라이브러리가 모두 SQL을 통한 쿼리를 지원합니다. .NET SDK는 SQL뿐 아니라 LINQ 쿼리도 지원합니다.
 
-다음 예제에서는 쿼리를 만들고 DocumentDB 데이터베이스 계정에 대해 제출하는 방법을 보여 줍니다.
+다음 예제에서는 쿼리를 만들고 Cosmos DB 데이터베이스 계정에 대해 제출하는 방법을 보여 줍니다.
 
 ### <a id="RestAPI"></a>REST API
-DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공합니다. Azure 구독을 사용하여 데이터베이스 계정을 프로비전할 수 있습니다. DocumentDB 리소스 모델은 단일 데이터베이스 계정 아래에 있고 각각 논리적이고 안정적인 URI를 사용하여 주소 지정할 수 있는 리소스 집합으로 구성됩니다. 이 문서에서는 리소스 집합을 피드라고 합니다. 데이터베이스 계정은 각각 여러 컬렉션을 포함하는 데이터베이스 집합으로 구성되고, 각 컬렉션에는 문서, UDF 및 기타 리소스 유형이 포함됩니다.
+Cosmos DB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공합니다. Azure 구독을 사용하여 데이터베이스 계정을 프로비전할 수 있습니다. Cosmos DB 리소스 모델은 단일 데이터베이스 계정 아래에 있으며 각각 논리적이고 안정적인 URI를 사용하여 주소를 지정할 수 있는 리소스 집합으로 구성됩니다. 이 문서에서는 리소스 집합을 피드라고 합니다. 데이터베이스 계정은 각각 여러 컬렉션을 포함하는 데이터베이스 집합으로 구성되고, 각 컬렉션에는 문서, UDF 및 기타 리소스 유형이 포함됩니다.
 
-이러한 리소스를 사용한 기본 조작 모델은 HTTP 동사인 GET, PUT, POST 및 DELETE와 표준 해석을 활용합니다. POST 동사는 새 리소스를 만들거나 저장 프로시저를 실행하거나 DocumentDB 쿼리를 실행하는 데 사용됩니다. 쿼리는 항상 파생 작업이 없는 읽기 전용 작업입니다.
+이러한 리소스를 사용한 기본 조작 모델은 HTTP 동사인 GET, PUT, POST 및 DELETE와 표준 해석을 활용합니다. POST 동사는 새 리소스를 만들거나 저장 프로시저를 실행하거나 Cosmos DB 쿼리를 실행하는 데 사용됩니다. 쿼리는 항상 파생 작업이 없는 읽기 전용 작업입니다.
 
-다음 예제에서는 지금까지 검토한 두 개의 샘플 문서가 포함된 컬렉션에 대한 DocumentDB 쿼리의 POST를 보여 줍니다. 이 쿼리는 JSON 이름 속성에 단순한 필터가 있습니다. `x-ms-documentdb-isquery` 및 Content-Type: `application/query+json` 헤더를 사용하여 작업이 쿼리임을 나타냅니다.
+다음 예제에서는 지금까지 검토한 두 개의 샘플 문서가 포함된 컬렉션에 대한 DocumentDB API 쿼리의 POST를 보여 줍니다. 이 쿼리는 JSON 이름 속성에 단순한 필터가 있습니다. `x-ms-documentdb-isquery` 및 Content-Type: `application/query+json` 헤더를 사용하여 작업이 쿼리임을 나타냅니다.
 
 **요청**
 
@@ -2104,9 +2105,9 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 쿼리 결과가 단일 결과 페이지에 모두 들어가지 않는 경우 REST API에서 `x-ms-continuation-token` 응답 헤더를 통해 연속 토큰을 반환합니다. 클라이언트는 후속 결과에 헤더를 포함하여 결과에 페이지를 매길 수 있습니다. `x-ms-max-item-count` 숫자 헤더를 통해 페이지당 결과 수를 제어할 수도 있습니다. 지정된 쿼리에 `COUNT`와 같은 집계 함수가 있는 경우 쿼리 페이지는 결과 페이지에 대해 부분적으로 집계된 값을 반환할 수 있습니다. 클라이언트는 최종 결과(예: 총 개수를 반환하는 개별 페이지에서 반환된 개수에 대한 합계)를 생성하는 이러한 결과에 대해 두 번째 수준 집계를 수행해야 합니다.
 
-쿼리에 대한 데이터 일관성 정책을 관리하려면 모든 REST API 요청처럼 `x-ms-consistency-level` 헤더를 사용합니다. 세션 일관성을 사용하려면 쿼리 요청에 최신 `x-ms-session-token` 쿠키 헤더도 에코해야 합니다. 쿼리된 컬렉션의 인덱싱 정책이 쿼리 결과의 일관성에 영향을 줄 수도 있습니다. 컬렉션에 기본 인덱싱 정책 설정을 사용할 경우 인덱스가 항상 문서 콘텐츠로 최신 상태를 유지하며 쿼리 결과가 데이터에 대해 선택한 일관성과 일치합니다. 인덱싱 정책을 지연으로 완화하면 쿼리에서 오래된 결과가 반환될 수 있습니다. 자세한 내용은 [DocumentDB 일관성 수준][consistency-levels]을 참조하세요.
+쿼리에 대한 데이터 일관성 정책을 관리하려면 모든 REST API 요청처럼 `x-ms-consistency-level` 헤더를 사용합니다. 세션 일관성을 사용하려면 쿼리 요청에 최신 `x-ms-session-token` 쿠키 헤더도 에코해야 합니다. 쿼리된 컬렉션의 인덱싱 정책이 쿼리 결과의 일관성에 영향을 줄 수도 있습니다. 컬렉션에 기본 인덱싱 정책 설정을 사용할 경우 인덱스가 항상 문서 콘텐츠로 최신 상태를 유지하며 쿼리 결과가 데이터에 대해 선택한 일관성과 일치합니다. 인덱싱 정책을 지연으로 완화하면 쿼리에서 오래된 결과가 반환될 수 있습니다. 자세한 내용은 [Azure Cosmos DB 일관성 수준][consistency-levels]을 참조하세요.
 
-컬렉션에 구성된 인덱싱 정책이 지정된 쿼리를 지원할 수 없는 경우 DocumentDB 서버에서 400 "잘못된 요청"이 반환됩니다. 해시(같음) 조회에 구성된 경로 및 인덱싱에서 명시적으로 제외된 경로의 범위 쿼리에 대해 반환됩니다. 인덱스를 사용할 수 없는 경우 쿼리에서 스캔을 수행할 수 있도록 `x-ms-documentdb-query-enable-scan` 헤더를 지정할 수 있습니다.
+컬렉션에 구성된 인덱싱 정책이 지정된 쿼리를 지원할 수 없는 경우 Azure Cosmos DB 서버에서 400 "잘못된 요청"이 반환됩니다. 해시(같음) 조회에 구성된 경로 및 인덱싱에서 명시적으로 제외된 경로의 범위 쿼리에 대해 반환됩니다. 인덱스를 사용할 수 없는 경우 쿼리에서 스캔을 수행할 수 있도록 `x-ms-documentdb-query-enable-scan` 헤더를 지정할 수 있습니다.
 
 ### <a id="DotNetSdk"></a>C#(.NET) SDK
 .NET SDK는 LINQ 및 SQL 쿼리를 둘 다 지원합니다. 다음 예제에서는 이 문서의 앞부분에서 소개한 단순한 필터 쿼리를 수행하는 방법을 보여 줍니다.
@@ -2195,16 +2196,16 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 .NET 클라이언트는 위에 표시된 대로 foreach 블록에서 쿼리 결과의 모든 페이지를 자동으로 반복합니다. REST API 섹션에서 소개한 쿼리 옵션은 CreateDocumentQuery 메서드의 `FeedOptions` and `FeedResponse` 클래스를 통해 .NET SDK에서도 사용할 수 있습니다. 페이지 수는 `MaxItemCount` 설정을 사용하여 제어할 수 있습니다. 
 
-또한 `IQueryable` 개체를 사용하여 `IDocumentQueryable`을 만든 다음 ` ResponseContinuationToken` 값을 읽고 `FeedOptions`에서 다시 `RequestContinuationToken`으로 전달하여 페이징을 명시적으로 제어할 수 있습니다. `EnableScanInQuery` 를 설정하여 구성된 인덱싱 정책이 쿼리를 지원할 수 없는 경우 스캔을 사용하도록 할 수 있습니다. 분할된 컬렉션의 경우 `PartitionKey`을 사용하여 단일파티션에 대해 쿼리를 실행할 수 있고(DocumentDB가 쿼리 텍스트에서 이를 자동으로 추출할 수 있지만) `EnableCrossPartitionQuery`을 사용하여 여러 파티션에 대해 실행되어야 하는 쿼리를 실행할 수 있습니다. 
+또한 `IQueryable` 개체를 사용하여 `IDocumentQueryable`을 만든 다음 ` ResponseContinuationToken` 값을 읽고 `FeedOptions`에서 다시 `RequestContinuationToken`으로 전달하여 페이징을 명시적으로 제어할 수 있습니다. `EnableScanInQuery` 를 설정하여 구성된 인덱싱 정책이 쿼리를 지원할 수 없는 경우 스캔을 사용하도록 할 수 있습니다. 분할된 컬렉션의 경우 `PartitionKey`을 사용하여 단일 파티션에 대해 쿼리를 실행할 수 있고(Cosmos DB가 쿼리 텍스트에서 이를 자동으로 추출할 수 있음) `EnableCrossPartitionQuery`를 사용하여 여러 파티션에 대해 실행되어야 하는 쿼리를 실행할 수 있습니다. 
 
-쿼리가 포함된 추가 샘플은 [DocumentDB .NET 샘플](https://github.com/Azure/azure-documentdb-net) 을 참조하세요. 
+쿼리가 포함된 추가 샘플은 [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-documentdb-net)을 참조하세요. 
 
 > [!NOTE]
 > 집계 쿼리를 수행하려면 SDK 1.12.0 이상이 필요합니다. 집계 함수에 대한 LINQ는 지원되지 않지만 .NET SDK 1.13.0에서 사용할 수 있습니다.
 >
 
 ### <a id="JavaScriptServerSideApi"></a>JavaScript 서버 쪽 API
-DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대해 직접 JavaScript 기반 응용 프로그램 논리를 실행하기 위한 프로그래밍 모델을 제공합니다. 그런 다음 컬렉션 수준에서 등록된 JavaScript 논리가 지정된 컬렉션의 문서에 대해 데이터베이스 작업을 실행할 수 있습니다. 해당 작업은 앰비언트 ACID 트랜잭션에 래핑됩니다.
+Cosmos DB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대해 직접 JavaScript 기반 응용 프로그램 논리를 실행하기 위한 프로그래밍 모델을 제공합니다. 그런 다음 컬렉션 수준에서 등록된 JavaScript 논리가 지정된 컬렉션의 문서에 대해 데이터베이스 작업을 실행할 수 있습니다. 해당 작업은 앰비언트 ACID 트랜잭션에 래핑됩니다.
 
 다음 예제에서는 JavaScript 서버 API에서 queryDocuments를 사용하여 저장 프로시저와 트리거 내부에서 쿼리를 수행하는 방법을 보여 줍니다.
 
@@ -2239,10 +2240,10 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
     }
 
 ## <a id="References"></a>참조
-1. [Azure DocumentDB 소개][introduction]
-2. [DocumentDB SQL 사양](http://go.microsoft.com/fwlink/p/?LinkID=510612)
-3. [DocumentDB .NET 샘플(영문)](https://github.com/Azure/azure-documentdb-net)
-4. [DocumentDB 일관성 수준][consistency-levels]
+1. [Azure Cosmos DB 소개][introduction]
+2. [Azure Cosmos DB SQL 사양](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+3. [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-documentdb-net)
+4. [Azure Cosmos DB 일관성 수준][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
 7. Javascript 사양 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 

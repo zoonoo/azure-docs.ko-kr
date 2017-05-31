@@ -1,24 +1,25 @@
 ---
-title: "Azure DocumentDB 포털 도구: 문서 탐색기 | Microsoft Docs"
-description: "NoSQL 문서 데이터베이스인 DocumentDB를 사용하여 JSON을 보고, 편집하고, 만들고, JSON 문서를 업로드하는 Azure 포털 도구인 DocumentDB 문서 탐색기에 대해 알아봅니다."
+title: "Azure Cosmos DB 포털 도구: 문서 탐색기 | Microsoft Docs"
+description: "Azure Cosmos DB 문서 탐색기와 JSON 보기 및 문서 편집, 만들기 및 업로드를 위한 Azure Portal 도구에 대해 알아봅니다."
 keywords: "JSON 보기"
-services: documentdb
+services: cosmosdb
 author: kirillg
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 029d81b3-6382-4799-a1bd-0dcbccd9968d
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: kirillg
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4338fc03664175b7c27a48f1ab682179c1035313
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 77f8512d9fa47eee25596aa3c407fd6889edbe0e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -27,14 +28,14 @@ ms.lasthandoff: 04/21/2017
 이 문서에서는 포털에서 문서를 만들고, 편집하고, 쿼리할 수 있는 2가지 방법, 즉 [문서 탐색기](#launch-document-explorer) 및 [데이터 탐색기(미리 보기)](#data-explorer)에 대해 간략히 설명합니다.
 
 > [!NOTE]
-> MongoDB에 대한 프로토콜이 지원되는 DocumentDB 계정에서 문서 탐색기를 사용할 수 없습니다. 이 페이지는 이 기능이 설정된 경우에 업데이트됩니다.
+> MongoDB에 대한 프로토콜이 지원되는 Azure Cosmos DB 계정에서 문서 탐색기를 사용할 수 없습니다. 이 페이지는 이 기능이 설정된 경우에 업데이트됩니다.
 
 <a id="launch-document-explorer"></a>
 
 ## <a name="launch-document-explorer-in-the-azure-portal"></a>Azure Portal에서 문서 탐색기 시작
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색에서 ![Azure DocumentDB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)**NoSQL(DocumentDB)**을 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 모음에서 ![Azure Cosmos DB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**을 클릭합니다. 
 
-    **NoSQL(DocumentDB)**이 표시되지 않으면 아래쪽에서 **추가 서비스**를 클릭한 다음 ![Azure DocumentDB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)**NoSQL(DocumentDB)**을 클릭합니다.
+    **Azure Cosmos DB**가 표시되지 않으면 맨 아래에서 **추가 서비스**를 클릭한 다음 ![Azure Cosmos DB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**을 클릭합니다.
 2. 계정 이름을 선택합니다. 
 3. 리소스 메뉴에서 **문서 탐색기**를 클릭합니다. 
    
@@ -58,7 +59,7 @@ ms.lasthandoff: 04/21/2017
    > 
    > 
    
-    JSON 파일, MongoDB, SQL Server, CSV 파일, Azure 테이블 저장소 Amazon DynamoDB, HBase 또는 기타 DocumentDB 컬렉션의 데이터가 이미 있는 경우 DocumentDB의 [데이터 마이그레이션 도구](documentdb-import-data.md) 를 사용하여 데이터를 신속하게 가져올 수 있습니다.
+    JSON 파일, MongoDB, SQL Server, CSV 파일, Azure Table Storage, Amazon DynamoDB, HBase 또는 기타 DocumentDB API 컬렉션의 데이터가 이미 있는 경우 DocumentDB API의 [데이터 마이그레이션 도구](documentdb-import-data.md) 를 사용하여 데이터를 신속하게 가져올 수 있습니다.
 
 ## <a name="edit-a-json-document"></a>JSON 문서 편집
 1. [문서 탐색기를 시작합니다](#launch-document-explorer).
@@ -70,7 +71,7 @@ ms.lasthandoff: 04/21/2017
    
     ![문서 탐색기 무시 명령 스크린샷](./media/documentdb-view-JSON-document-explorer/discardedit.png)
 
-## <a name="delete-a-document-from-documentdb"></a>DocumentDB에서 문서 삭제
+## <a name="delete-a-document-from-cosmos-db"></a>Cosmos DB에서 문서를 삭제합니다.
 1. [문서 탐색기를 시작합니다](#launch-document-explorer).
 2. **문서 탐색기**에서 문서를 선택하고 **삭제**를 클릭한 다음 삭제를 확인합니다. 확인하면 문서가 문서 탐색기 목록에서 바로 제거됩니다.
    
@@ -107,7 +108,7 @@ ms.lasthandoff: 04/21/2017
    
    ![문서 탐색기 설정 블레이드 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorerfiltersettings2.png)
    
-   문서 탐색기는 필터 쿼리와 일치하는 문서 결과를 자동으로 새로 고칩니다. [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서에서 DocumentDB SQL 문법에 대해 자세히 알아보거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md)의 복사본을 인쇄합니다.
+   문서 탐색기는 필터 쿼리와 일치하는 문서 결과를 자동으로 새로 고칩니다. [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서에서 DocumentDB API SQL 문법에 대해 자세히 알아보거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md)의 복사본을 인쇄합니다.
    
    **데이터베이스** 및 **컬렉션** 드롭다운 목록 상자를 사용하면 문서 탐색기를 닫았다가 다시 실행할 필요 없이 현재 문서를 보고 있는 컬렉션을 쉽게 변경할 수 있습니다.  
    
@@ -157,18 +158,18 @@ ms.lasthandoff: 04/21/2017
 ![포털의 새 컬렉션 단추를 보여 주는 스크린샷](./media/documentdb-view-JSON-document-explorer/azure-documentdb-data-explorer.png)
 
 ## <a name="work-with-json-documents-outside-the-portal"></a>포털 외부 JSON 문서 작업
-Azure 포털의 문서 탐색기는 DocumentDB의 문서 작업 방법 중 한 가지입니다. [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) 또는 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 사용하여 문서 작업을 할 수도 있습니다. 예제 코드는 [.NET SDK 문서 예제](documentdb-dotnet-samples.md#document-examples) 및 [Node.js SDK 문서 예제](documentdb-nodejs-samples.md#document-examples)를 참조하세요.
+Azure Portal의 문서 탐색기는 Cosmos DB의 문서 작업 방법 중 한 가지입니다. [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) 또는 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 사용하여 문서 작업을 할 수도 있습니다. 예제 코드는 [.NET SDK 문서 예제](documentdb-dotnet-samples.md#document-examples) 및 [Node.js SDK 문서 예제](documentdb-nodejs-samples.md#document-examples)를 참조하세요.
 
-다른 소스(JSON 파일, MongoDB, SQL Server, CSV 파일, Azure 테이블 저장소, Amazon DynamoDB 또는 HBase)에서 파일을 가져오거나 마이그레이션해야 하는 경우 DocumentDB [데이터 마이그레이션 도구](documentdb-import-data.md) 를 사용하여 데이터를 신속하게 DocumentDB로 가져올 수 있습니다.
+다른 소스(JSON 파일, MongoDB, SQL Server, CSV 파일, Azure Table Storage, Amazon DynamoDB 또는 HBase)에서 파일을 가져오거나 마이그레이션해야 하는 경우 Cosmos DB [데이터 마이그레이션 도구](documentdb-import-data.md) 를 사용하여 데이터를 신속하게 Cosmos DB로 가져올 수 있습니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 **증상**: 문서 탐색기에서 **문서를 찾을 수 없습니다.**라는 메시지가 반환됩니다.
 
 **솔루션**: 문서가 삽입된 올바른 구독, 데이터베이스 및 컬렉션을 선택했는지 확인합니다. 또한 처리량 할당량 내에서 작업을 하고 있는지도 확인합니다. 최대 처리량 수준에서 작업 중이어서 제한이 적용되는 경우에는 컬렉션의 최대 처리량 할당량보다 낮은 수준에서 작업할 수 있도록 응용 프로그램 사용량을 줄입니다.
 
-**설명**: 포털도 응용 프로그램이므로 다른 응용 프로그램과 마찬가지로 DocumentDB 데이터베이스와 컬렉션을 호출합니다. 다른 응용 프로그램에서 수행하는 호출로 인해 현재 요청이 제한되고 있다면 포털도 제한될 수 있으므로 리소스가 포털에 표시되지 않습니다. 이 문제를 해결하려면 처리량이 많이 사용되는 원인을 해결한 후에 포털 블레이드를 새로 고칩니다. 처리량 사용을 측정하고 줄이는 방법에 대한 자세한 내용은 [성능 팁](documentdb-performance-tips.md) 문서의 [처리량](documentdb-performance-tips.md#throughput) 섹션에 나와 있습니다.
+**설명**: 포털도 응용 프로그램이므로 다른 응용 프로그램과 마찬가지로 Cosmos DB 데이터베이스와 컬렉션을 호출합니다. 다른 응용 프로그램에서 수행하는 호출로 인해 현재 요청이 제한되고 있다면 포털도 제한될 수 있으므로 리소스가 포털에 표시되지 않습니다. 이 문제를 해결하려면 처리량이 많이 사용되는 원인을 해결한 후에 포털 블레이드를 새로 고칩니다. 처리량 사용을 측정하고 줄이는 방법에 대한 자세한 내용은 [성능 팁](documentdb-performance-tips.md) 문서의 [처리량](documentdb-performance-tips.md#throughput) 섹션에 나와 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-문서 탐색기에서 지원되는 DocumentDB SQL 문법에 대해 자세히 알아보려면 [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서를 참조하거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md)를 인쇄합니다.
+문서 탐색기에서 지원되는 DocumentDB API SQL 문법에 대해 자세히 알아보려면 [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서를 참조하거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md)를 인쇄합니다.
 
 

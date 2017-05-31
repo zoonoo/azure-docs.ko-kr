@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: ecc6f4a1a8cbb07d9f610e8f6fb5ca66b7532513
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 198a325e02aac97d659d74b090414f7d6f074f14
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -256,7 +257,7 @@ IoT Hub 및 장치 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 �
 
 IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하는 방법을 알아보려면 [jobs 예약 및 브로드캐스트][lnk-tutorial-jobs] 자습서를 참조하세요.
 
-IoT Hub 시작을 계속하려면 [IoT Gateway SDK 시작][lnk-gateway-SDK]을 참조하세요.
+계속해서 IoT Hub를 시작하려면 [Azure IoT Edge 시작][lnk-gateway-SDK]을 참조하세요.
 
 <!-- images and links -->
 [img-output]: media/iot-hub-get-started-with-dm/image6.png

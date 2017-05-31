@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: 48c444bfebf46131503dfeefbcd7365b6979215d
-ms.openlocfilehash: 2f59157f47eb211bc7f7d6542f1a7f77ffb90b41
-ms.lasthandoff: 12/16/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7e2b111868b670444f474a8f6952a16eca680488
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -258,7 +259,7 @@ IoT Hub 및 장치 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 �
 
 [자습서: 펌웨어 업데이트를 수행하는 방법][lnk-fwupdate]
 
-IoT Hub 시작을 계속하려면 [IoT Gateway SDK 시작][lnk-gateway-SDK]을 참조하세요.
+계속해서 IoT Hub를 시작하려면 [Azure IoT Edge 시작][lnk-gateway-SDK]을 참조하세요.
 
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md

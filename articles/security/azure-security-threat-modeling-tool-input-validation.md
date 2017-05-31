@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: rodsan
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 19b03b14dc3b04472cd2ae59d38422edce47ef35
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 59f92f94bcd9e01aeaedf7df01ac194c774e5f8d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 03/15/2017
 | 웹 응용 프로그램 | <ul><li>[신뢰할 수 없는 스타일시트를 사용하는 모든 변환에 대해 XSLT 스크립팅을 사용하지 않도록 설정](#disable-xslt)</li><li>[사용자가 제어할 수 있는 콘텐츠를 포함할 수 있는 각 페이지가 자동 MIME 스니핑에서 옵트아웃하는지 확인](#out-sniffing)</li><li>[XML 엔터티 확인 확정 또는 사용 중지](#xml-resolution)</li><li>[http.sys를 활용하는 응용 프로그램에서 URL 정형화 확인 수행](#app-verification)</li><li>[사용자의 파일을 허용할 때 적절한 제어가 수행되는지 확인](#controls-users)</li><li>[웹 응용 프로그램에서 데이터 액세스를 위해 형식이 안전한 매개 변수를 사용하는지 확인](#typesafe)</li><li>[별도의 모델 바인딩 클래스 또는 바인딩 필터 목록을 사용하여 MVC 대량 할당 취약성 방지](#binding-mvc)</li><li>[렌더링하기 전에 신뢰할 수 없는 웹 출력 인코딩](#rendering)</li><li>[모든 문자열 형식 모델 속성에 대한 입력 유효성 검사 및 필터링 수행](#typemodel)</li><li>[모든 문자를 허용하는 양식 필드(예: 서식 있는 텍스트 편집기)에서 삭제 적용](#richtext)</li><li>[기본 제공 인코딩이 없는 싱크에 DOM 요소 할당 금지](#inbuilt-encode)</li><li>[응용 프로그램 내의 모든 리디렉션이 폐쇄되어 있거나 안전하게 수행되는지 확인](#redirect-safe)</li><li>[컨트롤러 메서드에서 허용하는 모든 문자열 형식 매개 변수에 대한 입력 유효성 검사 구현](#string-method)</li><li>[정규식 처리에 대한 시간 제한 상한값을 설정하여 잘못된 정규식으로 인한 DoS 방지](#dos-expression)</li><li>[Razor 보기에서 Html.Raw 사용 방지](#html-razor)</li></ul> | 
 | 데이터베이스 | <ul><li>[저장 프로시저에서 동적 쿼리 사용 금지](#stored-proc)</li></ul> | 
 | Web API | <ul><li>[모델 유효성 검사가 Web API 메서드에서 수행되는지 확인](#validation-api)</li><li>[Web API 메서드에서 허용하는 모든 문자열 형식 매개 변수에 대한 입력 유효성 검사 구현](#string-api)</li><li>[Web API에서 데이터 액세스를 위해 형식이 안전한 매개 변수를 사용하는지 확인](#typesafe-api)</li></ul> | 
-| Azure DocumentDB | <ul><li>[DocumentDB에 매개 변수가 있는 SQL 쿼리 사용](#sql-docdb)</li></ul> | 
+| Azure Document DB | <ul><li>[Azure Cosmos DB에 매개 변수가 있는 SQL 쿼리 사용](#sql-docdb)</li></ul> | 
 | WCF | <ul><li>[WCF - 스키마 바인딩을 통한 입력 유효성 검사](#schema-binding)</li><li>[WCF - 매개 변수 검사기를 통한 입력 유효성 검사](#parameters)</li></ul> | 
 
 ## <a id="disable-xslt"></a>신뢰할 수 없는 스타일시트를 사용하는 모든 변환에 대해 XSLT 스크립팅을 사용하지 않도록 설정
@@ -654,7 +655,7 @@ myCommand.Fill(userDataset);
 ```
 이전의 코드 예제에서 입력 값은 11자를 초과할 수 없습니다. 데이터가 매개 변수에 정의된 형식 또는 길이를 따르지 않으면 SqlParameter 클래스에서 예외가 발생합니다. 
 
-## <a id="sql-docdb"></a>DocumentDB에 매개 변수가 있는 SQL 쿼리 사용
+## <a id="sql-docdb"></a>Cosmos DB에 매개 변수가 있는 SQL 쿼리 사용
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -662,8 +663,8 @@ myCommand.Fill(userDataset);
 | SDL 단계               | 빌드 |  
 | 적용 가능한 기술 | 일반 |
 | 특성              | 해당 없음  |
-| 참조              | [DocumentDB에서 SQL 매개 변수 지정 발표](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/)(영문) |
-| 단계 | DocumentDB는 읽기 전용 쿼리만 지원하지만 사용자 입력과 연결하여 쿼리를 구성하면 여전히 SQL 삽입이 가능합니다. 사용자가 악성 SQL 쿼리를 만들어 동일한 컬렉션 내에서 액세스하면 안되는 데이터에 액세스할 수 있습니다. 사용자 입력을 기반으로 하여 쿼리를 구성한 경우 매개 변수가 있는 SQL를 사용합니다. |
+| 참조              | [Announcing SQL Parameterization in Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/)(Cosmos DB에서 SQL 매개 변수 지정 발표) |
+| 단계 | Cosmos DB는 읽기 전용 쿼리만 지원하지만 사용자 입력과 연결하여 쿼리를 구성하면 여전히 SQL 삽입이 가능합니다. 사용자가 악성 SQL 쿼리를 만들어 동일한 컬렉션 내에서 액세스하면 안되는 데이터에 액세스할 수 있습니다. 사용자 입력을 기반으로 하여 쿼리를 구성한 경우 매개 변수가 있는 SQL를 사용합니다. |
 
 ## <a id="schema-binding"></a>WCF - 스키마 바인딩을 통한 입력 유효성 검사
 

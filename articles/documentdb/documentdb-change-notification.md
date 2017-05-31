@@ -1,14 +1,15 @@
 ---
 redirect_url: https://docs.microsoft.com/azure/documentdb/documentdb-change-feed-hl7-fhir-logic-apps
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 1b5ec3cb1c2aba86570c6f1753d9142c0d0349ce
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 58c0ea0bd8bda994c8314d2866304cb3ab367bfd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="notifications-for-new-or-changed-documentdb-resources-using-logic-apps"></a>논리 앱을 사용하여 새롭거나 변경된 DocumentDB 리소스에 대한 알림
+# <a name="notifications-for-new-or-changed-azure-cosmos-db-resources-using-logic-apps"></a>Logic Apps를 사용하여 새롭거나 변경된 Azure Cosmos DB 리소스에 대한 알림
 이 문서는 Azure DocumentDB 커뮤니티 포럼 중 하나에 게시된 질문에서 가져온 것입니다. 질문은 **DocumentDB가 수정된 리소스에 대해 알림을 지원하는가**?였습니다.
 
 여러 해 동안 BizTalk Server로 작업하면서 [WCF LOB 어댑터](https://msdn.microsoft.com/library/bb798128.aspx)를 사용할 때 매우 일반적인 시나리오입니다. 따라서 DocumentDB에서 새롭거나 수정된 문서에 대해 이 기능을 복제할 수 있는지 알아보기로 했습니다.
@@ -18,7 +19,7 @@ ms.lasthandoff: 03/29/2017
 ## <a name="use-case"></a>사용 사례
 다음 스토리는 이 문서에 대한 사용 사례입니다.
 
-DocumentDB는 HL7(Health Level Seven International) FHIR(Fast Healthcare Interoperability Resources) 문서를 위한 리포지토리입니다. API 및 논리 앱이 결합된 DocumentDB 데이터베이스가 HL7 FHIR Server를 구성한다고 가정해 보겠습니다.  의료 시설에서는 환자 데이터를 DocumentDB "Patients" 데이터베이스에 저장합니다. 환자 데이터베이스 내에는 Clinical, Identification 등의 여러 컬렉션이 있습니다. 환자 정보는 Identification에 포함됩니다.  "Patient"라는 컬렉션이 있습니다.
+Azure Cosmos DB는 HL7(Health Level Seven International) FHIR(Fast Healthcare Interoperability Resources) 문서를 위한 리포지토리입니다. API 및 논리 앱이 결합된 Azure Cosmos DB 데이터베이스가 HL7 FHIR Server를 구성한다고 가정해 보겠습니다.  의료 시설에서는 환자 데이터를 Azure Cosmos DB "Patients" 데이터베이스에 저장합니다. 환자 데이터베이스 내에는 Clinical, Identification 등의 여러 컬렉션이 있습니다. 환자 정보는 Identification에 포함됩니다.  "Patient"라는 컬렉션이 있습니다.
 
 심장병 부서에서 개인 건강 및 운동 데이터를 추적하고 있습니다. 새로운 또는 수정된 환자 레코드를 검색하는 것은 시간이 많이 걸립니다. IT 부서에 새로운 또는 수정된 환자 레코드에 대한 알림을 받을 수 있는 방법이 있는지 문의했습니다.  
 
@@ -1113,7 +1114,4 @@ Azure 저장소 계정으로 이동한 후 다음 그림에 나와 있는 것처
 
 ## <a name="next-steps"></a>다음 단계
 [GitHub](https://github.com/HEDIDIN/DocDbNotifications)에 제공된 논리 앱 코드를 다운로드하여 사용하세요. 이제 응용 프로그램에 빌드하고 리포지토리에 변경 내용을 제출해보세요. 
-
-DocumentDB에 대해 자세히 알아보려면 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 참조하세요.
-
 

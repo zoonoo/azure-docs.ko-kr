@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: rodsan
-translationtype: Human Translation
-ms.sourcegitcommit: 8251f44200c11d3efcec04b7ac99857232b2f9ed
-ms.openlocfilehash: da8c5dc18fda8756bae26c37c12be8cefe99e29a
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9743711805d8502b60ee91bac5c91035a3cda5fe
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 02/15/2017
 | 웹 응용 프로그램 | <ul><li>[브라우저에서 중요한 콘텐츠가 캐시되지 않았는지 확인](#cache-browser)</li><li>[중요한 데이터가 포함된 Web App의 구성 파일의 섹션 암호화](#encrypt-data)</li><li>[중요한 양식 및 입력에서 자동 완성 HTML 특성 명시적으로 사용 중지](#autocomplete-input)</li><li>[사용자 화면에 표시되는 중요한 데이터가 마스킹되었는지 확인](#data-mask)</li></ul> | 
 | 데이터베이스 | <ul><li>[동적 데이터 마스킹을 구현하여 권한 없는 사용자에 대한 중요한 데이터 노출 제한](#dynamic-users)</li><li>[암호가 솔트된 해시 형식으로 저장되었는지 확인](#salted-hash)</li><li>[데이터베이스 열의 중요한 데이터가 암호화되었는지 확인](#db-encrypted)</li><li>[TDE(데이터베이스 수준 암호화)가 활성화되어 있는지 확인](#tde-enabled)</li><li>[데이터베이스 백업이 암호화되었는지 확인](#backup)</li></ul> | 
 | Web API | <ul><li>[Web API와 관련된 중요한 데이터가 브라우저의 저장소에 저장되지 않았는지 확인](#api-browser)</li></ul> | 
-| Azure Document DB | <ul><li>[DocumentDB에 저장된 중요한 데이터 암호화](#encrypt-docdb)</li></ul> | 
+| Azure Document DB | <ul><li>[Azure Cosmos DB에 저장된 중요한 데이터 암호화](#encrypt-docdb)</li></ul> | 
 | Azure IaaS VM 트러스트 경계 | <ul><li>[Azure Disk Encryption을 사용하여 Virtual Machines에 사용되는 디스크 암호화](#disk-vm)</li></ul> | 
 | Service Fabric 트러스트 경계 | <ul><li>[Service Fabric 응용 프로그램에서 암호 암호화](#fabric-apps)</li></ul> | 
 | Dynamics CRM | <ul><li>[보안 모델링 수행 및 필요한 경우 비즈니스 단위/팀 사용](#modeling-teams)</li><li>[액세스를 최소화하여 중요한 엔터티에 대한 기능 공유](#entities)</li><li>[Dynamics CRM 공유 기능 및 적절한 보안 사례와 관련된 위험에 대한 사용자 학습](#good-practices)</li><li>[예외 관리에서 구성 세부 정보를 표시하는 금지된 개발 표준 규칙 포함](#exception-mgmt)</li></ul> | 
@@ -143,7 +144,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | 적용 가능한 기술 | 일반 |
 | 특성              | 해당 없음  |
 | 참조              | [MSDN: 자동 완성 특성](http://msdn.microsoft.com/library/ms533486(VS.85).aspx), [HTML에서 자동 완성 기능 사용](http://msdn.microsoft.com/library/ms533032.aspx), [HTML 삭제 취약점](http://technet.microsoft.com/security/bulletin/MS10-071), [자동 완성., 다시?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
-| 단계 | 자동 완성 특성은 양식이 자동 완성을 사용해야 할지 여부를 지정합니다. 자동 완성이 켜져 있으면 브라우저는 사용자가 이전에 입력한 값을 기반으로 값을 자동으로 완성합니다. 예를 들어, 양식에 새 이름 및 암호를 입력하고 양식을 전송할 때 브라우저는 암호를 저장해야 하는지 묻습니다.이후로 양식이 표시되면 이름 및 암호가 자동으로 채워지거나 이름을 입력하는 대로 완성합니다. 로컬 액세스 권한이 있는 공격자는 브라우저 캐시에서 일반 텍스트 암호를 얻을 수 있습니다. 기본적으로 자동 완성은 활성화되어 있으므로 명시적으로 비활성화되어야 합니다. |
+| 단계 | 자동 완성 특성은 양식이 자동 완성을 사용해야 할지 여부를 지정합니다. 자동 완성이 켜져 있으면 브라우저는 사용자가 이전에 입력한 값을 기반으로 값을 자동으로 완성합니다. 예를 들어 양식에 새 이름 및 암호를 입력하고 양식을 제출하면 브라우저는 암호를 저장해야 하는지 묻습니다. 이후로 양식이 표시되면 이름 및 암호가 자동으로 채워지거나 이름을 입력하는 대로 완성합니다. 로컬 액세스 권한이 있는 공격자는 브라우저 캐시에서 일반 텍스트 암호를 얻을 수 있습니다. 기본적으로 자동 완성은 활성화되어 있으므로 명시적으로 비활성화되어야 합니다. |
 
 ### <a name="example"></a>예제
 ```C#
@@ -162,7 +163,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | 적용 가능한 기술 | 일반 |
 | 특성              | 해당 없음  |
 | 참조              | 해당 없음  |
-| 단계 | 암호, 신용 카드 번호, SSN과 같은 중요한 데이터가 화면에 표시하는 경우 마스킹되도록 해야 합니다. 그러면 권한 없는 사용자가 데이터에 액세스하지 않도록 방지하게 됩니다(예: 어깨 너머로 알게 된 암호, 사용자의 SSN 숫자를 보는 고객 지원 담당자). 이러한 데이터 요소가 일반 텍스트로 표시되지 않고 적절하게 마스킹되도록 합니다. 이러한 항목은 입력으로 허용(예:  입력 형식="암호")하고 화면에 다시 표시(예: 신용 카드 번호의 마지막 4개 숫자만 표시)하는 동안 처리되어야 합니다. |
+| 단계 | 암호, 신용 카드 번호, SSN과 같은 중요한 데이터가 화면에 표시하는 경우 마스킹되도록 해야 합니다. 그러면 권한 없는 사용자가 데이터에 액세스하지 않도록 방지하게 됩니다(예: 어깨 너머로 알게 된 암호, 사용자의 SSN 숫자를 보는 고객 지원 담당자). 이러한 데이터 요소가 일반 텍스트로 표시되지 않고 적절하게 마스킹되도록 합니다. 이러한 항목은 입력으로 허용(예: 입력 형식="암호")하고 화면에 다시 표시(예: 신용 카드 번호의 마지막 4개 숫자만 표시)하는 동안 처리되어야 합니다. |
 
 ## <a id="dynamic-users"></a>동적 데이터 마스킹을 구현하여 권한 없는 사용자에 대한 중요한 데이터 노출 제한
 
@@ -243,7 +244,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 };
 ```
 
-## <a id="encrypt-docdb"></a>DocumentDB에 저장된 중요한 데이터 암호화
+## <a id="encrypt-docdb"></a>Cosmos DB에 저장된 중요한 데이터 암호화
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -401,7 +402,7 @@ Allow screen capture
 | 적용 가능한 기술 | 일반 |
 | 특성              | 해당 없음  |
 | 참조              | [.NET에 대한 암호화 난독 처리기](http://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
-| 단계 | 생성된 이진 파일(apk 내의 어셈블리)을 난독 처리하여 어셈블리의 리버스 엔지니어링을 중지해야 합니다.이 목적을 위해 CryptoObfuscator와 같은 도구를 사용할 수 있습니다. |
+| 단계 | 생성된 이진 파일(apk 내의 어셈블리)을 난독 처리하여 어셈블리의 리버스 엔지니어링을 중지해야 합니다. 이 목적을 위해 CryptoObfuscator와 같은 도구를 사용할 수 있습니다. |
 
 ## <a id="cert"></a>clientCredentialType을 인증서 또는 Windows로 설정
 
@@ -465,3 +466,4 @@ clientCredentialType을 인증서 또는 Windows로 설정
   </bindings> 
 </system.serviceModel> 
 ```
+

@@ -1,32 +1,35 @@
 ---
-title: "DocumentDB 자동화 - 하위 지역 관리 | Microsoft 문서"
-description: "Azure CLI 1.0과 Azure Resource Manager를 사용하여 DocumentDB 데이터베이스 계정의 지역을 관리합니다. DocumentDB는 JSON 데이터에 대한 클라우드 기반 NoSQL 데이터베이스입니다."
-services: documentdb
+title: "Azure Cosmos DB 자동화 - 하위 지역 관리 | Microsoft Docs"
+description: "Azure CLI 1.0과 Azure Resource Manager를 사용하여 Azure Cosmos DB 데이터베이스 계정의 하위 지역을 관리합니다."
+services: cosmosdb
 author: dmakwana
 manager: jhubbard
 editor: 
 tags: azure-resource-manager
 documentationcenter: 
 ms.assetid: 7f765c17-8549-4108-9475-46394fc3a218
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: dimakwan
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 809941992e719ea2eb85cc900063ea218e8fccbb
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 961336e94dca6672dfd6751c4ba27c3997058377
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="automate-documentdb-account-region-management-using-azure-cli-10-and-azure-resource-manager-templates"></a>Azure CLI 1.0과 Azure Resource Manager 템플릿을 사용하여 DocumentDB 계정 지역 관리 자동화
+# <a name="automate-azure-cosmos-db-account-region-management-using-azure-cli-10-and-azure-resource-manager-templates"></a>Azure CLI 1.0과 Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 계정 하위 지역 관리 자동화
 
-이 문서에서는 Azure CLI 1.0 명령과 Azure Resource Manager 템플릿을 사용하여 Azure DocumentDB 계정에서 지역을 추가/제거하는 방법을 보여 줍니다. 또한 하위 지역 관리는 [Azure Portal](documentdb-portal-global-replication.md)을 통해 수행할 수도 있습니다. 다음 자습서의 명령을 사용하면 다양한 하위 지역의 장애 조치 우선 순위를 변경할 수 없습니다. 읽기 하위 지역만 추가하거나 제거할 수 있습니다. 데이터베이스 계정의 쓰기 하위 지역(장애 조치 우선 순위 0)은 추가하거나 제거할 수 없습니다.
+이 문서에서는 Azure CLI 1.0 명령과 Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB DocumentDB API 계정에서 하위 지역을 추가/제거하는 방법을 보여 줍니다. 또한 하위 지역 관리는 [Azure Portal](../cosmos-db/tutorial-global-distribution-documentdb.md)을 통해 수행할 수도 있습니다. 다음 자습서의 명령을 사용하면 다양한 하위 지역의 장애 조치 우선 순위를 변경할 수 없습니다. 읽기 하위 지역만 추가하거나 제거할 수 있습니다. 데이터베이스 계정의 쓰기 하위 지역(장애 조치 우선 순위 0)은 추가하거나 제거할 수 없습니다.
 
-DocumentDB 데이터베이스 계정은 현재 [Azure Resource Manager 템플릿 및 Azure CLI 1.0](documentdb-automation-resource-manager-cli.md)을 사용하여 만들고 수정할 수 있는 유일한 DocumentDB 리소스입니다.
+Azure Cosmos DB 데이터베이스 계정은 현재 [Azure Resource Manager 템플릿 및 Azure CLI 1.0](documentdb-automation-resource-manager-cli.md)을 사용하여 만들고 수정할 수 있는 유일한 Azure Cosmos DB 리소스입니다. 
+
+CLI 2.0을 사용하여 Azure Cosmos DB DocumentDB API, 테이블 API, Graph API 또는 Mongo DB 계정을 만들려면 [Azure CLI를 사용하여 Azure DocumentDB 계정 만들기](documentdb-automation-resource-manager-cli.md)를 참조하세요.
 
 ## <a name="getting-ready"></a>준비
 
@@ -95,7 +98,7 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정 
 
 ### <a name="create-or-retrieve-your-resource-group"></a>리소스 그룹 만들기 또는 검색
 
-DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. 사용할 리소스 그룹의 이름을 이미 알고 있는 경우 [2단계](#create-documentdb-account-cli)로 건너뜁니다. 
+Azure Cosmos DB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. 사용할 리소스 그룹의 이름을 이미 알고 있는 경우 [2단계](#create-documentdb-account-cli)로 건너뜁니다. 
 
 현재 리소스 그룹의 모든 목록을 검토하려면 다음 명령을 실행하고 사용할 리소스 그룹 이름을 메모합니다. 
 
@@ -106,7 +109,7 @@ DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. �
     azure group create <resourcegroupname> <resourcegrouplocation>
 
  - `<resourcegroupname>` 은 영숫자, 마침표, 밑줄, '-' 문자 및 괄호를 사용할 수 있고 마침표로 끝날 수 없습니다. 
- - `<resourcegrouplocation>` 은 DocumentDB를 일반적으로 사용할 수 있는 하위 지역 중 하나여야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
+ - `<resourcegrouplocation>`은 Azure Cosmos DB를 일반적으로 사용할 수 있는 하위 지역 중 하나여야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
 
 예제 입력:
 
@@ -130,22 +133,22 @@ DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. �
 
 ## <a name="understanding-azure-resource-manager-templates-and-resource-groups"></a>Azure Resource Manager 템플릿 및 리소스 그룹 이해
 
-대부분의 응용 프로그램은 다양한 리소스 유형(예: 하나 이상의 DocumentDB 계정, 저장소 계정, 네트워크 또는 콘텐츠 배달 네트워크)의 조합으로 구축되었습니다. 기본 Azure 서비스 관리 API 및 Azure 포털에서는 서비스 단위 접근 방식을 사용하여 이러한 항목을 나타냈습니다. 이 접근 방식에서는 하나의 논리적인 배포 단위가 아니라 개별적으로 각 서비스를 배포하고 관리(또는 이러한 작업을 수행하는 다른 도구를 찾아야 함)해야 합니다.
+대부분의 응용 프로그램은 다양한 리소스 유형(예: 하나 이상의 Azure Cosmos DB 계정, 저장소 계정, 가상 네트워크 또는 콘텐츠 배달 네트워크)의 조합으로 구축되었습니다. 기본 Azure 서비스 관리 API 및 Azure 포털에서는 서비스 단위 접근 방식을 사용하여 이러한 항목을 나타냈습니다. 이 접근 방식에서는 하나의 논리적인 배포 단위가 아니라 개별적으로 각 서비스를 배포하고 관리(또는 이러한 작업을 수행하는 다른 도구를 찾아야 함)해야 합니다.
 
 *Azure 리소스 관리자 템플릿* 을 사용하면 선언적 방식으로 이러한 다양한 리소스를 하나의 논리적 배포 단위로 배포하고 관리할 수 있습니다. 명령을 통해 차례로 배포할 항목을 Azure에 지시하는 대신 JSON 파일에서 전체 배포(모든 리소스와 관련된 구성 및 배포 매개 변수)를 설명하고 이러한 리소스를 하나의 그룹으로 배포하도록 Azure에 지시합니다.
 
 Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)에서 확인할 수 있습니다. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
 
 
-## <a id="add-region-documentdb-account"></a>작업: DocumentDB 계정에 하위 지역 추가
+## <a id="add-region-documentdb-account"></a>작업: Azure Cosmos DB DocumentDB API 계정에 하위 지역 추가
 
-DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#services)에 걸쳐 [전역적으로 데이터를 배포][distribute-globally]할 수 있는 기능이 있습니다. 이 섹션의 지침에서는 Azure CLI 1.0과 Resource Manager 템플릿을 사용하여 기존 DocumentDB 계정에 읽기 지역을 추가하는 방법에 대해 설명합니다. Resource Manager 템플릿 사용 여부에 상관없이 Azure CLI 1.0을 사용하여 이 작업을 수행할 수 있습니다.
+Azure Cosmos DB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#services)에 걸쳐 [전역적으로 데이터를 배포][distribute-globally]할 수 있는 기능이 있습니다. 이 섹션의 지침에서는 Azure CLI 1.0과 Resource Manager 템플릿을 사용하여 기존 Azure Cosmos DB 계정에 읽기 지역을 추가하는 방법에 대해 설명합니다. Resource Manager 템플릿 사용 여부에 상관없이 Azure CLI 1.0을 사용하여 이 작업을 수행할 수 있습니다.
 
-### <a id="add-region-documentdb-account-cli"></a> Resource Manager 템플릿을 사용하지 않고 Azure CLI 1.0을 통해 DocumentDB 계정에 지역 추가
+### <a id="add-region-documentdb-account-cli"></a> Resource Manager 템플릿을 사용하지 않고 Azure CLI 1.0을 통해 Azure Cosmos DB 계정에 하위 지역 추가
 
-명령 프롬프트에서 아래 명령을 입력하여 새 리소스 그룹 또는 기존 리소스 그룹의 DocumentDB 계정에 하위 지역을 추가합니다. "locations" 배열은 추가될 새 하위 지역을 제외하고 DocumentDB 계정 내의 현재 하위 지역 구성을 반영해야 합니다. 아래 예제에서는 두 번째 하위 지역을 계정에 추가하는 명령을 보여 줍니다.
+명령 프롬프트에서 아래 명령을 입력하여 새 리소스 그룹 또는 기존 리소스 그룹의 Azure Cosmos DB 계정에 하위 지역을 추가합니다. "locations" 배열은 추가될 새 하위 지역을 제외하고 Azure Cosmos DB 계정 내의 현재 하위 지역 구성을 반영해야 합니다. 아래 예제에서는 두 번째 하위 지역을 계정에 추가하는 명령을 보여 줍니다.
 
-장애 조치 우선 순위 값은 기존 구성과 일치시킵니다. 하위 지역 중 하나에서 failoverPriority 값이 0이어야 하며, 이는 이 하위 지역이 [DocumentDB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다. 장애 조치 우선 순위 값은 위치 간에 고유해야 하며, 가장 큰 값이 총 하위 지역 수보다 작아야 합니다. 새 하위 지역은 "읽기" 하위 지역이며 0보다 큰 장애 조치 우선 순위 값을 가져야 합니다.
+장애 조치 우선 순위 값은 기존 구성과 일치시킵니다. 하위 지역 중 하나에서 failoverPriority 값이 0이어야 하며, 이는 이 하위 지역이 [Azure Cosmos DB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다. 장애 조치 우선 순위 값은 위치 간에 고유해야 하며, 가장 큰 값이 총 하위 지역 수보다 작아야 합니다. 새 하위 지역은 "읽기" 하위 지역이며 0보다 큰 장애 조치 우선 순위 값을 가져야 합니다.
 
 > [!TIP]
 > Azure PowerShell 또는 Windows PowerShell에서 이 명령을 실행하는 경우 예기치 않은 토큰에 대한 오류가 발생합니다. 그 대신 Windows 명령 프롬프트에서 이 명령을 실행합니다.
@@ -154,13 +157,13 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
 
  - `<resourcegroupname>` 은 영숫자, 마침표, 밑줄, '-' 문자 및 괄호를 사용할 수 있고 마침표로 끝날 수 없습니다.
  - `<resourcegrouplocation>`은 현재 리소스 그룹의 영역입니다.
- - `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [DocumentDB 방화벽 지원](documentdb-firewall-support.md)을 참조하세요.
+ - `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [Azure Cosmos DB 방화벽 지원](documentdb-firewall-support.md)을 참조하세요.
  - `<databaseaccountname>` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다.
- - `<databaseaccountlocation>` 은 DocumentDB를 일반적으로 사용할 수 있는 하위 지역 중 하나여야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
- - `<newdatabaseaccountlocation>`은 추가할 새 하위 지역이며. 일반적으로 DocumentDB를 사용할 수 있는 하위 지역 중 하나여야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
+ - `<databaseaccountlocation>`은 Azure Cosmos DB를 일반적으로 사용할 수 있는 하위 지역 중 하나여야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
+ - `<newdatabaseaccountlocation>`은 추가할 새 하위 지역이며, 일반적으로 Azure Cosmos DB를 사용할 수 있는 하위 지역 중 하나여야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
 
 
-"미국 동부" 하위 지역을 DocumentDB 계정의 읽기 하위 지역으로 추가하기 위한 입력 예제: 
+"미국 동부" 하위 지역을 Azure Cosmos DB 계정의 읽기 하위 지역으로 추가하기 위한 입력 예제: 
 
     azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l westus -p "{\"databaseAccountOfferType\":\"Standard\",\"ipRangeFilter\":\"\",\"locations\":["{\"locationName\":\"westus\",\"failoverPriority\":\"0\"},{\"locationName\":\"eastus\",\"failoverPriority\":\"1\"}"]}"
 
@@ -182,15 +185,15 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
 
 오류가 발생하면 [문제 해결](#troubleshooting)을 참조하세요. 
 
-명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
+명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure Portal](https://portal.azure.com)의 **Azure Cosmos DB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
 
-### <a id="add-region-documentdb-account-cli-arm"></a> Resource Manager 템플릿을 사용하여 Azure CLI 1.0을 통해 DocumentDB 계정에 지역 추가
+### <a id="add-region-documentdb-account-cli-arm"></a> Resource Manager 템플릿을 사용하여 Azure CLI 1.0을 통해 Azure Cosmos DB 계정에 하위 지역 추가
 
-이 섹션의 지침에서는 Azure Resource Manager 템플릿과 선택적 매개 변수 파일(둘 다 JSON 파일임)을 사용하여 기존 DocumentDB 계정에 하위 지역을 추가하는 방법에 대해 설명합니다. 템플릿을 사용하면 원하는 내용을 정확히 기술하고 오류 없이 반복할 수 있습니다.
+이 섹션의 지침에서는 Azure Resource Manager 템플릿과 선택적 매개 변수 파일(둘 다 JSON 파일임)을 사용하여 기존 Azure Cosmos DB 계정에 하위 지역을 추가하는 방법에 대해 설명합니다. 템플릿을 사용하면 원하는 내용을 정확히 기술하고 오류 없이 반복할 수 있습니다.
 
-장애 조치 우선 순위 값은 기존 구성과 일치시킵니다. 하위 지역 중 하나에서 failoverPriority 값이 0이어야 하며, 이는 이 하위 지역이 [DocumentDB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다. 장애 조치 우선 순위 값은 위치 간에 고유해야 하며, 가장 큰 값이 총 하위 지역 수보다 작아야 합니다. 새 하위 지역은 "읽기" 하위 지역이며 0보다 큰 장애 조치 우선 순위 값을 가져야 합니다.
+장애 조치 우선 순위 값은 기존 구성과 일치시킵니다. 하위 지역 중 하나에서 failoverPriority 값이 0이어야 하며, 이는 이 하위 지역이 [Azure Cosmos DB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다. 장애 조치 우선 순위 값은 위치 간에 고유해야 하며, 가장 큰 값이 총 하위 지역 수보다 작아야 합니다. 새 하위 지역은 "읽기" 하위 지역이며 0보다 큰 장애 조치 우선 순위 값을 가져야 합니다.
 
-아래와 같이 현재 DocumentDB 하위 지역 구성과 일치하는 것과 유사한 로컬 템플릿 파일을 만듭니다. "locations" 배열은 추가될 새로운 하위 지역과 함께 데이터베이스 계정의 기존 하위 지역 모두를 포함해야 합니다. 파일 이름을 azuredeploy.json으로 지정합니다.
+아래와 같이 현재 Azure Cosmos DB 하위 지역 구성과 일치하는 것과 유사한 로컬 템플릿 파일을 만듭니다. "locations" 배열은 추가될 새로운 하위 지역과 함께 데이터베이스 계정의 기존 하위 지역 모두를 포함해야 합니다. 파일 이름을 azuredeploy.json으로 지정합니다.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -238,7 +241,7 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
         ]
     }
 
-위의 템플릿 파일은 이미 2개 하위 지역이 있는 DocumentDB 계정에 새 하위 지역을 추가하는 예제를 보여 줍니다.
+위의 템플릿 파일은 이미 2개 하위 지역이 있는 Azure Cosmos DB 계정에 새 하위 지역을 추가하는 예제를 보여 줍니다.
 
 명령줄에 매개 변수 값을 입력하거나 매개 변수 파일을 만들어 값을 지정할 수 있습니다.
 
@@ -263,9 +266,9 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
         }
     }
 
-azuredeploy.parameters.json 파일에서 `"databaseAccountName"`의 value 필드를 사용할 데이터베이스 이름으로 업데이트한 후 파일을 저장합니다. `"databaseAccountName"` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. `"locationName1"` 및 `"locationName2"`의 value 필드를 DocumentDB 계정이 있는 하위 지역으로 업데이트합니다. `"newLocationName"`의 value 필드를 추가할 하위 지역으로 업데이트합니다.
+azuredeploy.parameters.json 파일에서 `"databaseAccountName"`의 value 필드를 사용할 데이터베이스 이름으로 업데이트한 후 파일을 저장합니다. `"databaseAccountName"` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. `"locationName1"` 및 `"locationName2"`의 value 필드를 Azure Cosmos DB 계정이 있는 하위 지역으로 업데이트합니다. `"newLocationName"`의 value 필드를 추가할 하위 지역으로 업데이트합니다.
 
-리소스 그룹에 DocumentDB 계정을 만들려면 다음 명령을 실행하고 템플릿 파일에 대한 경로, 매개 변수 파일 또는 매개 변수 값에 대한 경로, 배포할 리소스 그룹의 이름 및 배포 이름(-n은 선택 사항)을 제공합니다. 
+리소스 그룹에 Azure Cosmos DB 계정을 만들려면 다음 명령을 실행하고 템플릿 파일에 대한 경로, 매개 변수 파일 또는 매개 변수 값에 대한 경로, 배포할 리소스 그룹의 이름 및 배포 이름(-n은 선택 사항)을 제공합니다. 
 
 매개 변수 파일을 사용하려면:
 
@@ -273,7 +276,7 @@ azuredeploy.parameters.json 파일에서 `"databaseAccountName"`의 value 필드
 
  - `<PathToTemplate>` 은 1단계에서 만든 azuredeploy.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
  - `<PathToParameterFile>` 은 1단계에서 만든 azuredeploy.parameters.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
- - `<resourcegroupname>` 은 DocumentDB 데이터베이스 계정을 추가할 기존 리소스 그룹의 이름입니다. 
+ - `<resourcegroupname>`은 Azure Cosmos DB 데이터베이스 계정을 추가할 기존 리소스 그룹의 이름입니다. 
  - `<deploymentname>` 은 배포의 선택적 이름입니다.
 
 예제 입력: 
@@ -300,7 +303,7 @@ azuredeploy.parameters.json 파일에서 `"databaseAccountName"`의 value 필드
     + Waiting for deployment to complete
     + 
     + 
-    info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Running
+    info:    Resource 'new_res_group' of type 'Microsoft.Azure Cosmos DB/databaseAccounts' provisioning status is Running
     + 
     info:    Resource 'new_res_group' of type 'Microsoft.DocumentDb/databaseAccounts' provisioning status is Succeeded
     data:    DeploymentName     : azuredeploy
@@ -320,17 +323,17 @@ azuredeploy.parameters.json 파일에서 `"databaseAccountName"`의 value 필드
 
 오류가 발생하면 [문제 해결](#troubleshooting)을 참조하세요.  
 
-명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
+명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure Portal](https://portal.azure.com)의 **Azure Cosmos DB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
 
-## <a id="remove-region-documentdb-account"></a>작업: DocumentDB 계정에서 하위 지역 제거
+## <a id="remove-region-documentdb-account"></a>작업: Azure Cosmos DB 계정에서 하위 지역 제거
 
-DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#services)에 걸쳐 [전역적으로 데이터를 배포][distribute-globally]할 수 있는 기능이 있습니다. 이 섹션의 지침에서는 Azure CLI 1.0과 Resource Manager 템플릿을 사용하여 기존 DocumentDB 계정에서 지역을 제거하는 방법에 대해 설명합니다. Resource Manager 템플릿 사용 여부에 상관없이 Azure CLI 1.0을 사용하여 이 작업을 수행할 수 있습니다.
+Azure Cosmos DB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#services)에 걸쳐 [전역적으로 데이터를 배포][distribute-globally]할 수 있는 기능이 있습니다. 이 섹션의 지침에서는 Azure CLI 1.0과 Resource Manager 템플릿을 사용하여 기존 Azure Cosmos DB 계정에서 지역을 제거하는 방법에 대해 설명합니다. Resource Manager 템플릿 사용 여부에 상관없이 Azure CLI 1.0을 사용하여 이 작업을 수행할 수 있습니다.
 
-### <a id="remove-region-documentdb-account-cli"></a> Resource Manager 템플릿을 사용하지 않고 Azure CLI 1.0을 통해 DocumentDB 계정에 지역 제거
+### <a id="remove-region-documentdb-account-cli"></a> Resource Manager 템플릿을 사용하지 않고 Azure CLI 1.0을 통해 Azure Cosmos DB 계정에서 하위 지역 제거
 
-기존 DocumentDB 계정에서 지역을 제거하려면 Azure CLI 1.0을 사용하여 아래 명령을 실행합니다. "locations" 배열은 하위 지역을 제거한 후에 남아 있어야 하는 하위 지역만 포함해야 합니다. **생략된 위치는 DocumentDB 계정에서 제거됩니다**. 명령 프롬프트 창에서 다음 명령을 입력합니다.
+기존 Azure Cosmos DB 계정에서 하위 지역을 제거하려면 Azure CLI 1.0을 사용하여 아래 명령을 실행합니다. "locations" 배열은 하위 지역을 제거한 후에 남아 있어야 하는 하위 지역만 포함해야 합니다. **생략된 위치는 Azure Cosmos DB 계정에서 제거됩니다**. 명령 프롬프트 창에서 다음 명령을 입력합니다.
 
-하위 지역 중 하나에서 failoverPriority 값이 0이어야 하며, 이는 이 하위 지역이 [DocumentDB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다. 장애 조치 우선 순위 값은 위치 간에 고유해야 하며, 가장 큰 값이 총 하위 지역 수보다 작아야 합니다. 
+하위 지역 중 하나에서 failoverPriority 값이 0이어야 하며, 이는 이 하위 지역이 [Azure Cosmos DB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다. 장애 조치 우선 순위 값은 위치 간에 고유해야 하며, 가장 큰 값이 총 하위 지역 수보다 작아야 합니다. 
 
 > [!TIP]
 > Azure PowerShell 또는 Windows PowerShell에서 이 명령을 실행하는 경우 예기치 않은 토큰에 대한 오류가 발생합니다. 그 대신 Windows 명령 프롬프트에서 이 명령을 실행합니다.
@@ -339,9 +342,9 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
 
  - `<resourcegroupname>` 은 영숫자, 마침표, 밑줄, '-' 문자 및 괄호를 사용할 수 있고 마침표로 끝날 수 없습니다.
  - `<resourcegrouplocation>`은 현재 리소스 그룹의 영역입니다.
- - `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [DocumentDB 방화벽 지원](documentdb-firewall-support.md)을 참조하세요.
+ - `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [Azure Cosmos DB 방화벽 지원](documentdb-firewall-support.md)을 참조하세요.
  - `<databaseaccountname>` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다.
- - `<databaseaccountlocation>` 은 DocumentDB를 일반적으로 사용할 수 있는 하위 지역 중 하나여야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
+ - `<databaseaccountlocation>`은 Azure Cosmos DB를 일반적으로 사용할 수 있는 하위 지역 중 하나여야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
 
 예제 입력: 
 
@@ -365,15 +368,15 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
 
 오류가 발생하면 [문제 해결](#troubleshooting)을 참조하세요. 
 
-명령이 반환된 후 몇 분 동안 계정이 **업데이트 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
+명령이 반환된 후 몇 분 동안 계정이 **업데이트 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure Portal](https://portal.azure.com)의 **Azure Cosmos DB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
 
-### <a id="remove-region-documentdb-account-cli-arm"></a> Resource Manager 템플릿을 사용하여 Azure CLI 1.0을 통해 DocumentDB 계정에서 지역 제거
+### <a id="remove-region-documentdb-account-cli-arm"></a> Resource Manager 템플릿을 사용하여 Azure CLI 1.0을 통해 Azure Cosmos DB 계정에서 하위 지역 제거
 
-이 섹션의 지침에서는 Azure Resource Manager 템플릿과 선택적 매개 변수 파일(둘 다 JSON 파일임)을 사용하여 기존 DocumentDB 계정에서 하위 지역을 제거하는 방법에 대해 설명합니다. 템플릿을 사용하면 원하는 내용을 정확히 기술하고 오류 없이 반복할 수 있습니다.
+이 섹션의 지침에서는 Azure Resource Manager 템플릿과 선택적 매개 변수 파일(둘 다 JSON 파일임)을 사용하여 기존 Azure Cosmos DB 계정에서 하위 지역을 제거하는 방법에 대해 설명합니다. 템플릿을 사용하면 원하는 내용을 정확히 기술하고 오류 없이 반복할 수 있습니다.
 
-하위 지역 중 하나에서 failoverPriority 값이 0이어야 하며, 이는 이 하위 지역이 [DocumentDB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다. 장애 조치 우선 순위 값은 위치 간에 고유해야 하며, 가장 큰 값이 총 하위 지역 수보다 작아야 합니다. 
+하위 지역 중 하나에서 failoverPriority 값이 0이어야 하며, 이는 이 하위 지역이 [Azure Cosmos DB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다. 장애 조치 우선 순위 값은 위치 간에 고유해야 하며, 가장 큰 값이 총 하위 지역 수보다 작아야 합니다. 
 
-아래와 같이 현재 DocumentDB 하위 지역 구성과 일치하는 것과 유사한 로컬 템플릿 파일을 만듭니다. "locations" 배열은 하위 지역을 제거한 후에 남아 있어야 하는 하위 지역만 포함해야 합니다. **생략된 위치는 DocumentDB 계정에서 제거됩니다**. 파일 이름을 azuredeploy.json으로 지정합니다.
+아래와 같이 현재 Azure Cosmos DB 하위 지역 구성과 일치하는 것과 유사한 로컬 템플릿 파일을 만듭니다. "locations" 배열은 하위 지역을 제거한 후에 남아 있어야 하는 하위 지역만 포함해야 합니다. **생략된 위치는 Azure Cosmos DB 계정에서 제거됩니다**. 파일 이름을 azuredeploy.json으로 지정합니다.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -424,9 +427,9 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
         }
     }
 
-azuredeploy.parameters.json 파일에서 `"databaseAccountName"`의 value 필드를 사용할 데이터베이스 이름으로 업데이트한 후 파일을 저장합니다. `"databaseAccountName"` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. `"locationName1"`의 value 필드는 하위 지역을 제거한 후 DocumentDB 계정에 존재하게 할 하위 지역으로 업데이트합니다.
+azuredeploy.parameters.json 파일에서 `"databaseAccountName"`의 value 필드를 사용할 데이터베이스 이름으로 업데이트한 후 파일을 저장합니다. `"databaseAccountName"` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. `"locationName1"`의 value 필드는 하위 지역을 제거한 후 Azure Cosmos DB 계정에 존재하게 할 하위 지역으로 업데이트합니다.
 
-리소스 그룹에 DocumentDB 계정을 만들려면 다음 명령을 실행하고 템플릿 파일에 대한 경로, 매개 변수 파일 또는 매개 변수 값에 대한 경로, 배포할 리소스 그룹의 이름 및 배포 이름(-n은 선택 사항)을 제공합니다. 
+리소스 그룹에 Azure Cosmos DB 계정을 만들려면 다음 명령을 실행하고 템플릿 파일에 대한 경로, 매개 변수 파일 또는 매개 변수 값에 대한 경로, 배포할 리소스 그룹의 이름 및 배포 이름(-n은 선택 사항)을 제공합니다. 
 
 매개 변수 파일을 사용하려면:
 
@@ -434,7 +437,7 @@ azuredeploy.parameters.json 파일에서 `"databaseAccountName"`의 value 필드
 
  - `<PathToTemplate>` 은 1단계에서 만든 azuredeploy.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
  - `<PathToParameterFile>` 은 1단계에서 만든 azuredeploy.parameters.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
- - `<resourcegroupname>` 은 DocumentDB 데이터베이스 계정을 추가할 기존 리소스 그룹의 이름입니다. 
+ - `<resourcegroupname>`은 Azure Cosmos DB 데이터베이스 계정을 추가할 기존 리소스 그룹의 이름입니다. 
  - `<deploymentname>` 은 배포의 선택적 이름입니다.
 
 예제 입력: 
@@ -479,14 +482,14 @@ azuredeploy.parameters.json 파일에서 `"databaseAccountName"`의 value 필드
 
 오류가 발생하면 [문제 해결](#troubleshooting)을 참조하세요.  
 
-명령이 반환된 후 몇 분 동안 계정이 **업데이트 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
+명령이 반환된 후 몇 분 동안 계정이 **업데이트 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure Portal](https://portal.azure.com)의 **Azure Cosmos DB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
 리소스 그룹 또는 데이터베이스 계정을 만드는 동안 `Deployment provisioning state was not successful` 과 같은 오류가 발생하면 몇 가지 문제 해결 옵션이 있습니다. 
 
 > [!NOTE]
-> 데이터베이스 계정 이름에 잘못된 문자를 제공하거나 DocumentDB를 사용할 수 없는 위치를 제공하면 배포 오류가 발생합니다. 데이터베이스 계정 이름은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. 모든 유효한 데이터베이스 계정 위치는 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 나열됩니다.
+> 데이터베이스 계정 이름에 잘못된 문자를 제공하거나 Azure Cosmos DB를 사용할 수 없는 위치를 제공하면 배포 오류가 발생합니다. 데이터베이스 계정 이름은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. 모든 유효한 데이터베이스 계정 위치는 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 나열됩니다.
 
 - 출력이 다음 `Error information has been recorded to C:\Users\wendy\.azure\azure.err`을 포함하는 경우 azure.err 파일에서 오류 정보를 검토합니다.
 
@@ -504,24 +507,23 @@ azuredeploy.parameters.json 파일에서 `"databaseAccountName"`의 value 필드
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 DocumentDB 계정을 만들었으므로 다음 단계에서는 DocumentDB 데이터베이스를 만들게 됩니다. 다음 중 하나를 사용하여 데이터베이스를 만들 수 있습니다.
+Azure Cosmos DB 계정이 생겼으며 다음 단계는 Azure Cosmos 데이터베이스를 만드는 것입니다. 다음 중 하나를 사용하여 데이터베이스를 만들 수 있습니다.
 
-- [Azure Portal을 사용하여 DocumentDB 컬렉션 및 데이터베이스 만들기](documentdb-create-collection.md)에 설명된 Azure Portal
+- [Azure Portal을 사용하여 Azure Cosmos DB 컬렉션 및 데이터베이스 만들기](documentdb-create-collection.md)에 설명된 Azure Portal
 - GitHub에서 [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) 리포지토리의 [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) 프로젝트에 있는 C# .NET 샘플.
-- [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB에는 .NET, Java, Python, Node.js 및 JavaScript API SDK가 있습니다. 
+- [Azure Cosmos DB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Azure Cosmos DB DocumentDB API에는 .NET, Java, Python, Node.js 및 JavaScript API SDK가 있습니다. 
 
 데이터베이스를 만든 후에 데이터베이스에 [하나 이상의 컬렉션을 추가](documentdb-create-collection.md)한 다음, 이 컬렉션에 [문서를 추가](documentdb-view-json-document-explorer.md)해야 합니다. 
 
-컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#ExecutingSqlQueries)하기 위해 [DocumentDB SQL](documentdb-sql-query.md)을 사용할 수 있습니다.
+컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#ExecutingSqlQueries)하기 위해 [SQL](documentdb-sql-query.md)을 사용할 수 있습니다.
 
-DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
+Azure Cosmos DB에 대한 자세한 내용은 다음 리소스를 살펴보세요.
 
--    [DocumentDB 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
--    [DocumentDB 리소스 모델 및 개념](documentdb-resources.md)
+-    [Azure Cosmos DB 소개](../cosmos-db/introduction.md)
 
 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[distribute-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally
-[scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
+[distribute-globally]: https://azure.microsoft.com/documentation/articles/documentdb-distribute-data-globally
+[scaling-globally]: https://azure.microsoft.com/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
 

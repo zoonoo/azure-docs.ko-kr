@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/28/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: ee4c87be43354696c63533d8cbf618b26a2708d3
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: de9453e6764279c481e569542433d095772f304d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,13 +50,34 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 Azure Data Factory는 **Microsoft에서 관리하는 인증서**를 사용하여 **암호화**하여 데이터 저장소 자격 증명을 보호합니다. 이 인증서는 **2년마다** 갱신됩니다(인증서 갱신 및 자격 증명 마이그레이션 포함). 이러한 암호화된 자격 증명은 **Azure Data Factory 관리 서비스에서 관리하는 Azure Storage**에 안전하게 저장됩니다. Azure Storage 보안에 대한 자세한 내용은 [Azure Storage 보안 개요](../security/security-storage-overview.md)를 참조하세요.
 
 ### <a name="data-encryption-in-transit"></a>전송 중 암호화
-Data Factory의 데이터 이동 서비스와 클라우드 데이터 저장소 간의 모든 데이터 전송은 클라우드 데이터 저장소가 HTTPS 또는 TLS를 지원하는 경우 보안 채널 HTTPS 또는 TLS를 통해 이루어집니다.
+클라우드 데이터 저장소가 HTTPS 또는 TLS를 지원하는 경우 Data Factory의 데이터 이동 서비스와 클라우드 데이터 저장소 간의 모든 데이터 전송은 보안 채널 HTTPS 또는 TLS를 통해 이루어집니다.
 
 > [!NOTE]
 > **Azure SQL Database**와 **Azure SQL Data Warehouse**에 대한 모든 연결은 항상 데이터를 데이터베이스로/에서 전송하는 중에 암호화(SSL/TLS)가 필요합니다. JSON 편집기를 사용하여 파이프라인을 작성하는 동안 **encryption** 속성을 추가하고 **연결 문자열**에서 **true**로 설정합니다. [복사 마법사](data-factory-azure-copy-wizard.md)를 사용하면 마법사가 기본적으로 이 속성을 설정합니다. **Azure Storage**의 경우 연결 문자열에 **HTTPS**를 사용할 수 있습니다.
 
 ### <a name="data-encryption-at-rest"></a>휴지 상태의 암호화
-많은 데이터 저장소가 데이터 암호화를 지원합니다. 이러한 데이터 저장소에 데이터 암호화 메커니즘을 사용하는 것이 좋습니다. 예를 들어, Azure SQL Database 및 Azure SQL Data Warehouse에 대해 TDE(Transparent Data Encryption)를 사용하도록 설정합니다. 
+일부 데이터 저장소가 미사용 데이터 암호화를 지원합니다. 이러한 데이터 저장소에 데이터 암호화 메커니즘을 사용하는 것이 좋습니다. 
+
+#### <a name="azure-sql-data-warehouse"></a>Azure SQL 데이터 웨어하우스
+Azure SQL Data Warehouse의 TDE(투명한 데이터 암호화)는 미사용 데이터에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 데 도움을 줍니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Data Warehouse에서 데이터베이스 보호](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)를 참조하세요.
+
+#### <a name="azure-sql-database"></a>Azure SQL 데이터베이스
+Azure SQL Database는 응용 프로그램을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [Azure SQL Database를 사용한 투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)를 참조하세요. 
+
+#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+또한 Azure Data Lake Store는 계정에 저장된 데이터에 대한 암호화를 제공합니다. 사용할 경우 Data Lake Store는 자동으로 데이터를 영구 저장하기 전에 데이터를 암호화하고, 검색하기 전에 데이터를 해독하므로 데이터에 액세스하는 클라이언트는 투명합니다. 자세한 내용은 [Azure Data Lake Store의 데이터 보안](../data-lake-store/data-lake-store-security-overview.md)을 참조하세요. 
+
+#### <a name="azure-blob-storage-and-azure-table-storage"></a>Azure Blob Storage 및 Azure Table Storage
+Azure Blob Storage 및 Azure Table Storage는 자동으로 스토리지에 영구히 저장하기 전에 데이터를 암호화하고 검색하기 전에 데이터를 해독하는 SSE(저장소 서비스 암호화)를 지원합니다. 자세한 내용은 [미사용 데이터에 대한 Azure 저장소 서비스 암호화](../storage/storage-service-encryption.md)를 참조하세요.
+
+#### <a name="amazon-s3"></a>Amazon S3
+Amazon S3는 미사용 데이터의 클라이언트 및 서버 암호화를 모두 지원합니다. 자세한 내용은 [암호화를 사용하여 데이터 보호](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html)를 참조하세요. 현재, 데이터 팩터리는 VPC(가상 사설 클라우드) 내에서 Amazon S3를 지원하지 않습니다.
+
+#### <a name="amazon-redshift"></a>Amazon Redshift
+Amazon Redshift는 미사용 데이터에 대한 클러스터 암호화를 지원합니다. 자세한 내용은 [Amazon Redshift 데이터베이스 암호화](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)를 참조하세요. 현재, 데이터 팩터리는 VPC 내에서 Amazon Redshift를 지원하지 않습니다. 
+
+#### <a name="salesforce"></a>Salesforce
+Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화를 허용하는 Shield Platform Encryption을 지원합니다. 자세한 내용은 [웹 서버 OAuth 인증 흐름 이해](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm)를 참조하세요.  
 
 ## <a name="hybrid-scenarios-using-data-management-gateway"></a>하이브리드 시나리오(데이터 관리 게이트웨이 사용)
 하이브리드 시나리오에서는 데이터 관리 게이트웨이를 온-프레미스 네트워크 또는 가상 네트워크(Azure) 또는 가상 사설 클라우드(Amazon) 내부에 설치해야 합니다. 게이트웨이는 로컬 데이터 저장소에 액세스할 수 있어야 합니다. 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요. 
@@ -135,7 +156,7 @@ Data Factory의 데이터 이동 서비스와 클라우드 데이터 저장소 �
 | `*.azuredatalakestore.net` | 443 | (선택 사항) 목적지가 Azure Data Lake 매장인 경우 필요 | 
 
 > [!NOTE] 
-> 각 데이터 원본에서 요구하는대로 회사 방화벽 수준에서 포트/허용 도메인을 관리해야 할 수 있습니다. 위의 표는 Azure SQL Database, Azure SQL Data Warehouse, Azure Data Lake Store만을 예제로 사용합니다.   
+> 각 데이터 원본에서 요구하는대로 회사 방화벽 수준에서 포트/허용 도메인을 관리해야 할 수 있습니다. 이 표는 Azure SQL Database, Azure SQL Data Warehouse, Azure Data Lake Store만을 예제로 사용합니다.   
 
 다음 표에서는 **Windows 방화벽**에 대한 **인바운드 포트** 요구 사항을 제공합니다.
 
@@ -153,7 +174,7 @@ Data Factory의 데이터 이동 서비스와 클라우드 데이터 저장소 �
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal)
 - [Azure 데이터 레이크 저장소](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Document DB](../documentdb/documentdb-firewall-support.md)
+- [Azure Cosmos DB](../documentdb/documentdb-firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답

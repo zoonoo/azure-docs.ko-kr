@@ -1,14 +1,14 @@
 ---
-title: "Azure DocumentDB에 대한 서버 쪽 JavaScript 프로그래밍 | Microsoft Docs"
-description: "DocumentDB를 사용하여 JavaScript에서 저장 프로시저, 데이터베이스 트리거 및 UDF(사용자 정의 함수)를 작성하는 방법을 알아봅니다. 데이터베이스 프로그래밍 팁 등을 가져옵니다."
+title: "Azure Cosmos DB에 대한 서버 쪽 JavaScript 프로그래밍 | Microsoft Docs"
+description: "Azure Cosmos DB를 사용하여 JavaScript에서 저장 프로시저, 데이터베이스 트리거 및 UDF(사용자 정의 함수)를 작성하는 방법을 알아봅니다. 데이터베이스 프로그래밍 팁 등을 가져옵니다."
 keywords: "데이터베이스 트리거, 저장된 프로시저, 저장된 프로시저, 데이터베이스 프로그램, sproc, documentdb, azure, Microsoft azure"
-services: documentdb
+services: cosmosdb
 documentationcenter: 
 author: aliuy
 manager: jhubbard
 editor: mimig
 ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 11/11/2016
 ms.author: andrl
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3e15914ab5bd549f3583f5261a88eb74b95f56af
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1c128d182da8245dd9a2aa8f0ce8fcca94aea0fa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="documentdb-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>DocumentDB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
-Azure DocumentDB의 언어 통합 트랜잭션 실행인 JavaScript를 사용해서 개발자가 기본적으로 JavaScript로 **저장 프로시저**, **트리거** 및 **UDF(사용자 정의 함수)**를 작성하는 방법을 알아봅니다. 이 경우 사용자가 데이터베이스 저장소 파티션에 직접 전달되고 실행될 수 있는 데이터베이스 프로그램 응용 프로그램 논리를 작성할 수 있습니다. 
+# <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
+Azure Cosmos DB가 언어 통합 트랜잭션 방식으로 JavaScript를 실행하므로 개발자가 기본적으로 JavaScript로 **저장 프로시저**, **트리거** 및 **UDF(사용자 정의 함수)**를 작성할 수 있는 방법을 알아봅니다. 이 경우 사용자가 데이터베이스 저장소 파티션에 직접 전달되고 실행될 수 있는 데이터베이스 프로그램 응용 프로그램 논리를 작성할 수 있습니다. 
 
-먼저 Andrew Liu가 DocumentDB의 서버 쪽 데이터베이스 프로그래밍 모델을 간략하게 설명하는 다음 동영상을 보는 것이 좋습니다. 
+먼저 Andrew Liu가 Cosmos DB의 서버 쪽 데이터베이스 프로그래밍 모델을 간략하게 설명하는 다음 동영상을 보는 것이 좋습니다. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
 > 
@@ -35,27 +35,27 @@ Azure DocumentDB의 언어 통합 트랜잭션 실행인 JavaScript를 사용해
 그런 다음 이 문서로 돌아와서 다음 내용을 살펴보세요.  
 
 * JavaScript를 사용해서 저장 프로시저, 트리거 또는 UDF를 작성하는 방법은 무엇인가?
-* DocumentDB에서 ACID를 보증하는 방법은 무엇인가?
-* DocumentDB에서 트랜잭션이 어떻게 작동하는가?
+* Cosmos DB는 ACID를 어떻게 보장하나요?
+* Cosmos DB에서 트랜잭션이 어떻게 작동하나요?
 * 사전 트리거 및 사후 트리거는 무엇이고 어떻게 작성하는가?
 * HTTP를 사용해서 RESTful 방식으로 저장 프로시저, 트리거 또는 UDF를 등록하고 실행하는 방법은 무엇인가?
-* 저장 프로시저, 트리거 및 UDF를 생성 및 실행하기 위해 사용할 수 있는 DocumentDB SDK는 무엇인가?
+* 저장 프로시저, 트리거 및 UDF를 생성 및 실행하기 위해 사용할 수 있는 Cosmos DB SDK는 무엇인가요?
 
 ## <a name="introduction-to-stored-procedure-and-udf-programming"></a>저장 프로시저 및 UDF 프로그래밍 소개
 이 *"최신 T-SQL로서의 JavaScript"* 접근 방법을 통해 응용 프로그램 개발자는 형식 시스템 불일치 및 개체-관계형 매핑 기술의 복잡성을 벗어날 수 있습니다. 또한 풍부한 응용 프로그램을 작성하기 위해 활용할 수 있는 내재된 많은 장점이 있습니다.  
 
 * **절차적 논리:** 고급 프로그래밍 언어인 JavaScript는 비즈니스 논리를 노출하는 풍부하고 익숙한 인터페이스를 제공합니다. 데이터에 더 가까운 복잡한 작업 시퀀스를 수행할 수 있습니다.
-* **원자성 트랜잭션:** DocumentDB는 단일 저장 프로시저 또는 트리거 내에서 수행되는 데이터베이스 작업의 원자성을 보장합니다. 따라서 응용 프로그램이 관련 작업을 단일 배치로 결합하여 모두 성공하거나 모두 실패하도록 할 수 있습니다. 
-* **성능:** JSON은 본질적으로 Javascript 언어 형식 시스템에 매핑되고 DocumentDB의 기본 저장소 단위이기도 하므로 버퍼 풀에서 JSON 문서의 지연 구체화와 같은 많은 최적화를 수행할 수 있으며 요청 시 실행 코드에서 JSON 문서를 사용할 수 있습니다. 데이터베이스에 비즈니스 논리를 전달할 경우 다음과 같은 추가 성능 이점이 있습니다.
+* **원자성 트랜잭션:** Cosmos DB는 단일 저장 프로시저 또는 트리거 내에서 수행되는 데이터베이스 작업의 원자성을 보장합니다. 따라서 응용 프로그램이 관련 작업을 단일 배치로 결합하여 모두 성공하거나 모두 실패하도록 할 수 있습니다. 
+* **성능:** JSON은 본질적으로 Javascript 언어 형식 시스템에 매핑되고 Cosmos DB의 기본 저장소 단위이기도 하므로 버퍼 풀에서 JSON 문서의 지연 구체화와 같은 많은 최적화를 수행할 수 있으며 요청 시 실행 코드에서 JSON 문서를 사용할 수 있습니다. 데이터베이스에 비즈니스 논리를 전달할 경우 다음과 같은 추가 성능 이점이 있습니다.
   
   * 일괄 처리 – 개발자가 삽입 등의 작업을 그룹화하여 대량 제출할 수 있습니다. 개별 트랜잭션을 만들기 위한 네트워크 트래픽 지연 비용 및 저장소 오버헤드가 크게 줄어듭니다. 
-  * 사전 컴파일 – DocumentDB는 각 호출의 JavaScript 컴파일 비용을 방지하기 위해 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)를 사전 컴파일합니다. 절차적 논리의 바이트 코드 작성 오버헤드가 최소값으로 줄어듭니다.
+  * 사전 컴파일 – Cosmos DB는 각 호출의 JavaScript 컴파일 비용을 방지하기 위해 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)를 사전 컴파일합니다. 절차적 논리의 바이트 코드 작성 오버헤드가 최소값으로 줄어듭니다.
   * 시퀀싱 – 보조 저장소 작업을 하나 또는 많이 수행하는 파생 작업("트리거")이 필요한 작업이 많습니다. 원자성뿐 아니라 이 특성도 서버로 이동할 경우 성능이 향상됩니다. 
 * **캡슐화:** 저장 프로시저를 사용하여 비즈니스 논리를 단일 장소에 그룹화할 수 있습니다. 다음 두 가지 장점이 있습니다.
   * 원시 데이터 위에 추상 계층이 추가되므로 데이터 설계자가 데이터와 독립적으로 응용 프로그램을 개발할 수 있습니다. 데이터를 직접 처리해야 할 경우 응용 프로그램에 포함되어야 할 수 있는 가정으로 인해 데이터에 스키마가 사용되지 않을 경우 이러한 장점은 특히 유용할 수 있습니다.  
   * 이 추상화는 스크립트에서의 액세스를 간소화하여 기업이 데이터 보안을 유지할 수 있게 합니다.  
 
-데이터베이스 트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 만들기 및 실행은 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼의 [클라이언트 SDK](documentdb-sdk-dotnet.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 및 [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)를 통해 지원됩니다.
+데이터베이스 트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 만들기 및 실행은 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼의 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), [Azure Cosmos DB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) 및 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 통해 지원됩니다.
 
 이 자습서에서는 [Q Promise와 함께 Node.js SDK](http://azure.github.io/azure-documentdb-node-q/)를 사용하여 저장 프로시저, 트리거 및 UDF의 구문 및 사용법을 설명합니다.   
 
@@ -98,12 +98,12 @@ Azure DocumentDB의 언어 통합 트랜잭션 실행인 JavaScript를 사용해
         });
 
 
-컨텍스트 개체는 DocumentDB 저장소에서 수행될 수 있는 모든 작업에 대한 액세스와 요청 및 응답 개체에 대한 액세스를 제공합니다. 여기서는 응답 개체를 사용하여 클라이언트로 전송되는 응답의 본문을 설정했습니다. 자세한 내용은 [DocumentDB JavaScript 서버 SDK 설명서](http://azure.github.io/azure-documentdb-js-server/)를 참조하세요.  
+컨텍스트 개체는 Cosmos DB 저장소에서 수행할 수 있는 모든 작업에 대한 액세스와 요청 및 응답 개체에 대한 액세스를 제공합니다. 여기서는 응답 개체를 사용하여 클라이언트로 전송되는 응답의 본문을 설정했습니다. 자세한 내용은 [Azure Cosmos DB JavaScript 서버 SDK 설명서](http://azure.github.io/azure-documentdb-js-server/)를 참조하세요.  
 
 이 예제를 확장하여 저장 프로시저에 데이터베이스 관련 기능을 더 추가하겠습니다. 저장 프로시저는 컬렉션 내의 문서와 첨부 파일을 만들고 업데이트하고 읽고 쿼리 및 삭제할 수 있습니다.    
 
 ### <a name="example-write-a-stored-procedure-to-create-a-document"></a>예: 문서 작성을 위한 저장 프로시저 작성
-다음 코드 조각에서는 DocumentDB 리소스와 상호 작용하기 위한 컨텍스트 개체를 사용하는 방법을 보여 줍니다.
+다음 코드 조각에서는 컨텍스트 개체를 사용하여 Cosmos DB 리소스를 조작하는 방법을 보여 줍니다.
 
     var createDocumentStoredProc = {
         id: "createMyDocument",
@@ -122,7 +122,7 @@ Azure DocumentDB의 언어 통합 트랜잭션 실행인 JavaScript를 사용해
     }
 
 
-이 저장 프로시저는 현재 컬렉션에 만들 문서의 본문을 입력 documentToCreate로 사용합니다. 이러한 모든 작업은 비동기이며 JavaScript 함수 콜백에 따라 달라집니다. 콜백 함수에는 작업이 실패할 경우의 오류 개체 및 만들어진 개체에 각각 사용되는 두 개의 매개 변수가 있습니다. 콜백 내에서 사용자는 예외를 처리하거나 오류를 throw할 수 있습니다. 콜백이 제공되지 않았고 오류가 있는 경우, DocumentDB 런타임이 오류를 throw합니다.   
+이 저장 프로시저는 현재 컬렉션에 만들 문서의 본문을 입력 documentToCreate로 사용합니다. 이러한 모든 작업은 비동기이며 JavaScript 함수 콜백에 따라 달라집니다. 콜백 함수에는 작업이 실패할 경우의 오류 개체 및 만들어진 개체에 각각 사용되는 두 개의 매개 변수가 있습니다. 콜백 내에서 사용자는 예외를 처리하거나 오류를 throw할 수 있습니다. 콜백이 제공되지 않았고 오류가 있는 경우, Azure Cosmos DB 런타임에서 오류를 throw합니다.   
 
 위 예제에서 콜백은 작업이 실패한 경우에 오류를 throw합니다. 그렇지 않으면 만들어진 문서의 ID를 클라이언트에 반환되는 응답의 본문으로 설정합니다. 다음은 이 저장 프로시저가 입력 매개 변수를 사용하여 실행되는 방법을 보여 줍니다.
 
@@ -150,7 +150,7 @@ Azure DocumentDB의 언어 통합 트랜잭션 실행인 JavaScript를 사용해
     });
 
 
-문서 본문 배열을 입력으로 사용하고 여러 네트워크 요청을 통해 각각 개별적으로 만드는 대신 동일한 저장 프로시저 실행에서 모두 만들도록 이 저장 프로시저를 수정할 수 있습니다. 이 저장 프로시저를 사용하여 DocumentDB에 대한 효율적인 대량 가져오기를 구현할 수 있습니다(이 자습서의 뒷부분에서 설명).   
+문서 본문 배열을 입력으로 사용하고 여러 네트워크 요청을 통해 각각 개별적으로 만드는 대신 동일한 저장 프로시저 실행에서 모두 만들도록 이 저장 프로시저를 수정할 수 있습니다. 이 저장 프로시저를 사용하여 Cosmos DB에 대한 효율적인 대량 가져오기를 구현할 수 있습니다(이 자습서의 뒷부분에서 설명).   
 
 설명한 예제에서는 저장 프로시저를 사용하는 방법을 보여 주었습니다. 트리거와 UDF(사용자 정의 함수)는 자습서의 뒷부분에서 설명합니다.
 
@@ -159,7 +159,7 @@ Azure DocumentDB의 언어 통합 트랜잭션 실행인 JavaScript를 사용해
 
 간단히 설명하면, 원자성은 트랜잭션 내부에서 수행된 모든 작업이 하나의 단위로 처리되어 모두 커밋되거나 커밋되지 않도록 합니다. 일관성은 데이터가 트랜잭션 간에 항상 양호한 내부 상태로 유지되도록 합니다. 격리는 두 트랜잭션이 서로를 방해하지 않도록 합니다. 일반적으로 대부분의 상용 시스템은 응용 프로그램 요구에 따라 사용할 수 있는 여러 격리 수준을 제공합니다. 내구성은 데이터베이스에서 커밋된 변경 내용이 항상 유지되도록 합니다.   
 
-DocumentDB에서 JavaScript는 데이터베이스와 동일한 메모리 공간에 호스트됩니다. 따라서 저장 프로시저 및 트리거 내에서 수행된 요청이 동일한 데이터베이스 세션 범위에서 실행됩니다. 이렇게 하면 DocumentDB에서 단일 저장 프로시저/트리거에 속하는 모든 작업에 대해 ACID를 보장할 수 있습니다. 다음 저장 프로시저 정의를 고려해 보세요.
+Cosmos DB에서 JavaScript는 데이터베이스와 동일한 메모리 공간에 호스트됩니다. 따라서 저장 프로시저 및 트리거 내에서 수행된 요청이 동일한 데이터베이스 세션 범위에서 실행됩니다. 이렇게 하면 Cosmos DB에서 단일 저장 프로시저/트리거에 속하는 모든 작업에 대해 ACID를 보장할 수 있습니다. 다음 저장 프로시저 정의를 고려해 보세요.
 
     // JavaScript source code
     var exchangeItemsSproc = {
@@ -226,22 +226,22 @@ DocumentDB에서 JavaScript는 데이터베이스와 동일한 메모리 공간�
 
 이 저장 프로시저는 게임 앱 내의 트랜잭션을 사용하여 단일 작업으로 두 플레이어 간에 항목을 교환합니다. 저장 프로시저는 각각 인수로 전달된 플레이어 ID에 해당하는 두 개의 문서를 읽으려고 합니다. 두 플레이어 문서가 모두 있으면 저장 프로시저가 항목을 교환하여 문서를 업데이트합니다. 이 과정에서 오류가 발생할 경우 JavaScript 예외가 발생하여 암시적으로 트랜잭션이 중단됩니다.
 
-저장 프로시저가 등록된 컬렉션이 단일 파티션 컬렉션인 경우 트랜잭션은 해당 컬렉션 내의 모든 문서로 범위가 지정됩니다. 컬렉션이 분할된 경우 저장 프로시저는 단일 파티션 키의 트랜잭션 범위에서 실행됩니다. 이 경우 각 저장 프로시저 실행에는 트랜잭션이 실행되는 범위에 해당하는 파티션 키 값이 포함되어야 합니다. 자세한 내용은 [DocumentDB 분할](documentdb-partition-data.md)을 참조하세요.
+저장 프로시저가 등록된 컬렉션이 단일 파티션 컬렉션인 경우 트랜잭션은 해당 컬렉션 내의 모든 문서로 범위가 지정됩니다. 컬렉션이 분할된 경우 저장 프로시저는 단일 파티션 키의 트랜잭션 범위에서 실행됩니다. 이 경우 각 저장 프로시저 실행에는 트랜잭션이 실행되는 범위에 해당하는 파티션 키 값이 포함되어야 합니다. 자세한 내용은 [Azure Cosmos DB 분할](documentdb-partition-data.md)을 참조하세요.
 
 ### <a name="commit-and-rollback"></a>커밋 및 롤백
-트랜잭션은 기본적으로 DocumentDB의 JavaScript 프로그래밍 모델에 전체 통합됩니다. JavaScript 함수 내부에서 모든 작업은 자동으로 단일 트랜잭션 아래에 래핑됩니다. JavaScript가 예외 없이 완료되면 데이터베이스에 대한 작업이 커밋됩니다. 실제로 관계형 데이터베이스의 "BEGIN TRANSACTION" 및 "COMMIT TRANSACTION" 문은 DocumentDB에서 암시적입니다.  
+트랜잭션은 기본적으로 Cosmos DB의 JavaScript 프로그래밍 모델에 전체 통합됩니다. JavaScript 함수 내부에서 모든 작업은 자동으로 단일 트랜잭션 아래에 래핑됩니다. JavaScript가 예외 없이 완료되면 데이터베이스에 대한 작업이 커밋됩니다. 실제로 관계형 데이터베이스의 "BEGIN TRANSACTION" 및 "COMMIT TRANSACTION" 문은 Cosmos DB에서 암시적입니다.  
 
-스크립트에서 전파된 예외가 있을 경우 DocumentDB의 JavaScript 런타임이 전체 트랜잭션을 롤백합니다. 앞의 예제에 표시된 대로, 예외 발생은 DocumentDB의 "ROLLBACK TRANSACTION"과 동등합니다.
+스크립트에서 전파된 예외가 있을 경우 Cosmos DB의 JavaScript 런타임이 전체 트랜잭션을 롤백합니다. 앞의 예제에 표시된 대로, 예외 throw는 Cosmos DB의 "ROLLBACK TRANSACTION"과 동등합니다.
 
 ### <a name="data-consistency"></a>데이터 일관성
 저장 프로시저와 트리거는 항상 DocumentDB 컬렉션의 주 복제본에서 실행됩니다. 이렇게 하면 저장 프로시저 내부의 읽기에서 강력한 일관성을 제공합니다. 사용자 정의 함수를 사용한 쿼리는 주 복제본이나 모든 보조 복제본에서 실행할 수 있지만 적절한 복제본을 선택하여 요청된 일관성 수준을 충족해야 합니다.
 
 ## <a name="bounded-execution"></a>제한된 예외
-모든 DocumentDB 작업은 서버에서 지정된 요청 시간 제한 기간 내에 완료되어야 합니다. 이 제약 조건은 JavaScript 함수(저장 프로시저, 트리거 및 사용자 정의 함수)에도 적용됩니다. 작업이 시간 제한 내에 완료되지 않으면 트랜잭션이 롤백됩니다. JavaScript 함수는 시간 제한 내에 완료되거나 실행을 일괄 처리/다시 시작하는 연속 기반 모델을 구현해야 합니다.  
+모든 Cosmos DB 작업은 서버에서 지정된 요청 시간 제한 기간 내에 완료되어야 합니다. 이 제약 조건은 JavaScript 함수(저장 프로시저, 트리거 및 사용자 정의 함수)에도 적용됩니다. 작업이 시간 제한 내에 완료되지 않으면 트랜잭션이 롤백됩니다. JavaScript 함수는 시간 제한 내에 완료되거나 실행을 일괄 처리/다시 시작하는 연속 기반 모델을 구현해야 합니다.  
 
 시간 제한을 처리하는 저장 프로시저 및 트리거 개발을 간소화하기 위해 컬렉션 개체 아래의 모든 함수(문서와 첨부 파일 만들기, 읽기, 바꾸기 및 삭제)는 해당 작업이 완료되는지 여부를 나타내는 부울 값을 반환합니다. 이 값이 false이면 시간 제한이 만료되며 프로시저 실행이 종료되어야 함을 나타냅니다.  수락되지 않은 첫 번째 저장소 작업 전에 대기된 작업은 저장 프로시저가 제시간에 완료되고 더 이상 요청을 대기열에 추가하지 않을 경우 완료됩니다.  
 
-JavaScript 함수는 리소스 사용에 의해서도 제한됩니다. DocumentDB는 프로비전된 데이터베이스 계정 크기에 따라 컬렉션당 처리량을 예약합니다. 처리량은 요청 단위 또는 RU라고 하는 정규화된 CPU, 메모리 및 IO 사용 단위로 표현됩니다. JavaScript 함수는 짧은 시간 내에 다수의 RU를 사용할 수 있으며, 컬렉션 한도에 도달할 경우 비율이 제한될 수 있습니다. 기본 데이터베이스 작업의 가용성을 위해 리소스를 많이 사용하는 저장 프로시저가 보장될 수도 있습니다.  
+JavaScript 함수는 리소스 사용에 의해서도 제한됩니다. Cosmos DB는 프로비전된 데이터베이스 계정 크기에 따라 컬렉션당 처리량을 예약합니다. 처리량은 요청 단위 또는 RU라고 하는 정규화된 CPU, 메모리 및 IO 사용 단위로 표현됩니다. JavaScript 함수는 짧은 시간 내에 다수의 RU를 사용할 수 있으며, 컬렉션 한도에 도달할 경우 비율이 제한될 수 있습니다. 기본 데이터베이스 작업의 가용성을 위해 리소스를 많이 사용하는 저장 프로시저가 보장될 수도 있습니다.  
 
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>예: 데이터베이스 프로그램으로 데이터 대량 가져오기
 다음은 문서를 컬렉션으로 대량 가져오기 위해 작성된 저장 프로시저의 예입니다. 저장 프로시저가 createDocument의 부울 반환 값을 검사하여 제한된 실행을 처리한 다음 각 저장 프로시저 호출에 삽입된 문서 수를 사용하여 일괄 처리의 진행 상황을 추적하고 다시 시작하는 방법을 확인합니다.
@@ -297,7 +297,7 @@ JavaScript 함수는 리소스 사용에 의해서도 제한됩니다. DocumentD
 
 ## <a id="trigger"></a> 데이터베이스 트리거
 ### <a name="database-pre-triggers"></a>데이터베이스 사전 트리거
-DocumentDB는 문서 작업에 의해 실행되거나 트리거되는 트리거를 제공합니다. 예를 들어 문서를 만들 때 사전 트리거를 지정할 수 있습니다. 이 사전 트리거는 문서를 만들기 전에 실행됩니다. 다음은 사전 트리거를 사용하여 만드는 문서의 속성 유효성을 검사할 수 있는 방법의 예입니다.
+Cosmos DB는 문서 작업에 의해 실행되거나 트리거되는 트리거를 제공합니다. 예를 들어 문서를 만들 때 사전 트리거를 지정할 수 있습니다. 이 사전 트리거는 문서를 만들기 전에 실행됩니다. 다음은 사전 트리거를 사용하여 만드는 문서의 속성 유효성을 검사할 수 있는 방법의 예입니다.
 
     var validateDocumentContentsTrigger = {
         id: "validateDocumentContents",
@@ -436,10 +436,10 @@ DocumentDB는 문서 작업에 의해 실행되거나 트리거되는 트리거�
 
 이 트리거는 메타데이터 문서를 쿼리하고 새로 만든 문서에 대한 세부 정보로 업데이트합니다.  
 
-한 가지 중요한 사항은 DocumentDB에서 트리거의 **트랜잭션** 실행입니다. 이 사후 트리거는 원본 문서 만들기와 동일한 트랜잭션의 일부로 실행됩니다. 따라서 사후 트리거에서 예외가 발생할 경우(가령 메타데이터 문서를 업데이트할 수 없는 경우) 전체 트랜잭션이 실패하고 롤백됩니다. 문서가 만들어지지 않고 예외가 반환됩니다.  
+한 가지 중요한 사항은 Cosmos DB에서 트리거의 **트랜잭션** 실행입니다. 이 사후 트리거는 원본 문서 만들기와 동일한 트랜잭션의 일부로 실행됩니다. 따라서 사후 트리거에서 예외가 발생할 경우(가령 메타데이터 문서를 업데이트할 수 없는 경우) 전체 트랜잭션이 실패하고 롤백됩니다. 문서가 만들어지지 않고 예외가 반환됩니다.  
 
 ## <a id="udf"></a>사용자 정의 함수
-UDF(사용자 정의 함수)는 DocumentDB SQL 쿼리 언어 문법을 확장하고 사용자 지정 비즈니스 논리를 구현하는 데 사용됩니다. UDF는 쿼리 내부에서만 호출할 수 있습니다. 컨텍스트 개체에 액세스할 수 없으며 계산 전용 JavaScript로 사용되어야 합니다. 따라서 UDF는 DocumentDB 서비스의 보조 복제본에서 실행할 수 있습니다.  
+UDF(사용자 정의 함수)는 DocumentDB API SQL 쿼리 언어 문법을 확장하고 사용자 지정 비즈니스 논리를 구현하는 데 사용됩니다. UDF는 쿼리 내부에서만 호출할 수 있습니다. 컨텍스트 개체에 액세스할 수 없으며 계산 전용 JavaScript로 사용되어야 합니다. 따라서 UDF는 Cosmos DB 서비스의 보조 복제본에서 실행할 수 있습니다.  
 
 다음 샘플에서는 다양한 수입 브래킷에 대한 비율에 따라 소득세를 계산하는 UDF를 만든 다음 쿼리 내부에서 사용하여 납부한 세금이 $20,000를 초과하는 모든 사람을 찾습니다.
 
@@ -707,7 +707,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
         });
 
 
-다음 예제에서는 UDF(사용자 정의 함수)를 만들고 [DocumentDB SQL 쿼리](documentdb-sql-query.md)에 사용하는 방법을 보여 줍니다.
+다음 예제에서는 UDF(사용자 정의 함수)를 만들고 [DocumentDB API SQL 쿼리](documentdb-sql-query.md)에 사용하는 방법을 보여 줍니다.
 
     UserDefinedFunction function = new UserDefinedFunction()
     {

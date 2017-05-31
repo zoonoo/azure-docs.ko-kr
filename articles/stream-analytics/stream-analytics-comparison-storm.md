@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/24/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 627f9dccb48712fced81f2c6dc694043f7162205
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5b5aa75756d2a7061d531d50a59a2c52dfb75cbe
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -333,7 +334,7 @@ Stream Analytics에 확장 가능한 코드에 대한 지원은 없습니다.
             </td>
             <td width="246" valign="top">
                 <p>
-토폴로지의 많은 출력을 지원하여 각 출력에는 다운스트림 처리에 대한 사용자 지정 논리가 있을 수 있습니다. 기본적으로 Storm은 PowerBI, Azure 이벤트 허브, Azure Blob 저장소, Azure DocumentDB, SQL 및 HBase에 대한 커넥터를 포함합니다. 지원되지 않는 커넥터는 사용자 지정 코드를 통해 구현될 수 있습니다.
+토폴로지의 많은 출력을 지원하여 각 출력에는 다운스트림 처리에 대한 사용자 지정 논리가 있을 수 있습니다. 기본적으로 Storm은 PowerBI, Azure Event Hubs, Azure Blob Store, Azure Cosmos DB, SQL 및 HBase에 대한 커넥터를 포함합니다. 지원되지 않는 커넥터는 사용자 지정 코드를 통해 구현될 수 있습니다.
                 </p>
             </td>
         </tr>
@@ -569,7 +570,7 @@ SLA 가동 시간 99.9% </p>
             </td>
             <td width="246" valign="top">
                 <p>
-데이터 크기에 제한이 없습니다. 커넥터를 HBase, DocumentDB, SQL Server 및 Azure에 사용할 수 있습니다. 지원되지 않는 커넥터는 사용자 지정 코드를 통해 구현될 수 있습니다.
+데이터 크기에 제한이 없습니다. 커넥터를 HBase, Azure Cosmos DB, SQL Server 및 Azure에 사용할 수 있습니다. 지원되지 않는 커넥터는 사용자 지정 코드를 통해 구현될 수 있습니다.
                 </p>
                 <p>
 참조 데이터 새로 고침은 사용자 지정 코드로 처리해야 합니다.

@@ -1,27 +1,29 @@
 ---
-title: "DocumentDB용 NoSQL Python 예제 | Microsoft Docs"
-description: "NoSQL 데이터베이스에서 JSON 문서에 대한 CRUD 작업을 비롯한 DocumentDB의 일반적인 작업에 대한 github의 NoSQL Python 예제를 찾습니다."
+title: "Azure Cosmos DB에 대한 DocumentDB API Python 예제 | Microsoft Docs"
+description: "CRUD 작업을 비롯한 Azure Cosmos DB의 일반적인 작업에 대한 github의 Python 예제를 찾습니다."
 keywords: "Python 예제"
-services: documentdb
+services: cosmosdb
 author: moderakh
 manager: jhubbard
 editor: monicar
 documentationcenter: python
 ms.assetid: 7f4f8db3-e9db-4645-92ef-7819d486a349
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2016
 ms.author: moderakh
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7b555732bad08c86c33ee78344ae9c4e6af7c7b8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 06272744be5bd0b86dbbd1c94dcbd922d125118f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="documentdb-python-examples"></a>DocumentDB Python 예제
+# <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 예제
 > [!div class="op_single_selector"]
 > * [.NET 예제](documentdb-dotnet-samples.md)
 > * [Node.js 예제](documentdb-nodejs-samples.md)
@@ -30,7 +32,7 @@ ms.openlocfilehash: 7b555732bad08c86c33ee78344ae9c4e6af7c7b8
 > 
 > 
 
-Azure DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub 리포지토리에 포함됩니다. 이 문서는 다음을 제공합니다.
+Azure Cosmos DB 리소스에 대해 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub 리포지토리에 포함되어 있습니다. 이 문서는 다음을 제공합니다.
 
 * 각 Python 예제 프로젝트 파일에서 작업에 연결합니다. 
 * 관련된 API 참조 콘텐츠에 대한 링크입니다.
@@ -69,10 +71,5 @@ Azure DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업�
 | [컬렉션의 성능 계층 가져오기](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L139-L161) |[DocumentQueryable.QueryOffers](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [컬렉션의 성능 계층 변경](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L163-L175) |[document_client.ReplaceOffer](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [컬렉션 삭제](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L212-L225) |[document_client.DeleteCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

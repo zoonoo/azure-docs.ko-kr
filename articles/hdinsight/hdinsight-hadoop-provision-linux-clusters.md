@@ -1,6 +1,7 @@
 ---
 title: "Azure HDInsight에서 Hadoop, HBase, Kafka, Storm 또는 Spark 클러스터 만들기 | Microsoft Docs"
 description: "브라우저, Azure CLI, Azure PowerShell, REST 또는 SDK를 사용하여 Linux 기반 HDInsight에서 Hadoop, HBase, Storm 또는 Spark 클러스터를 만드는 방법에 대해 알아봅니다."
+keywords: "hadoop 클러스터 설정, kafka 클러스터 설정, spark 클러스터 설정, hbase 클러스터 설정, storm 클러스터 설정, hadoop에서 클러스터란"
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -17,10 +18,10 @@ ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 9fc96db2b832f1e57813bebd2d46e4b78ed04677
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: ed0a5cfc02572d537f4b179ad612ad153a2db1d4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -177,22 +178,35 @@ HDInsight 클러스터를 만들 때 또는 클러스터를 만든 후에 저장
 보조 Azure Storage에 대한 자세한 내용은 [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 보조 Data Lake Storage에 대한 자세한 내용은 [Azure Portal을 사용하는 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
 
 
-#### <a name="use-hiveoozie-metastore"></a>Hive/Oozie metastore
+#### <a name="use-hiveoozie-metastore"></a>Hive metastore
+
 HDInsight 클러스터를 삭제한 후 Hive 테이블을 유지하려는 경우 사용자 지정 metastore를 사용하는 것이 좋습니다. 해당 metastore를 다른 HDInsight 클러스터에 연결할 수 있습니다.
 
 > [!IMPORTANT]
 > 특정 HDInsight 클러스터 버전에 대해 만든 HDInsight metastore는 여러 다른 HDInsight 클러스터 버전 간에 공유할 수 없습니다. HDInsight 버전 목록은 [지원되는 HDInsight 버전](hdinsight-component-versioning.md#supported-hdinsight-versions)을 참조하세요.
->
->
 
-Metastore는 Hive 테이블, 파티션, 스키마, 열 등 Hive 및 Oozie 메타데이터에 대한 정보를 포함합니다. metastore를 통해 Hive 및 Oozie 메타데이터를 보존할 수 있으므로 새 클러스터를 만들 때 Hive 테이블 또는 Oozie 작업을 다시 만들 필요가 없습니다. 기본적으로 Hive는 포함된 Azure SQL 데이터베이스를 사용하여 이 정보를 저장합니다. 포함된 데이터베이스에서는 클러스터가 삭제된 경우 메타데이터를 유지할 수 없습니다. Hive metastore를 구성하여 HDInsight 클러스터에서 Hive 테이블을 만든 경우 동일한 Hive metastore를 사용하여 클러스터를 다시 만들면 해당 테이블이 유지됩니다.
+Metastore는 Hive 테이블, 파티션, 스키마, 열 등 Hive 메타데이터에 대한 정보를 포함합니다. Metastore를 사용하면 Hive 메타데이터를 보존할 수 있으므로 새 클러스터를 만들 때 Hive 테이블을 다시 만들 필요가 없습니다. 기본적으로 Hive는 포함된 Azure SQL 데이터베이스를 사용하여 이 정보를 저장합니다. 포함된 데이터베이스에서는 클러스터가 삭제된 경우 메타데이터를 유지할 수 없습니다. Hive metastore를 구성하여 HDInsight 클러스터에서 Hive 테이블을 만든 경우 동일한 Hive metastore를 사용하여 클러스터를 다시 만들면 해당 테이블이 유지됩니다.
 
-HBase 클러스터 유형에는 Metastore 구성을 사용할 수 없습니다.
+일부 클러스터 유형에는 Metastore 구성을 사용할 수 없습니다. 예를 들어, HBase 또는 Kafka 클러스터에는 사용할 수 없습니다.
 
 > [!IMPORTANT]
-> 사용자 지정 metastore를 만들 때 대시 또는 하이픈을 포함하는 데이터베이스 이름은 사용하지 마세요. 이렇게 하면 클러스터 만들기 프로세스가 실패할 수 있습니다.
->
->
+> 사용자 지정 Metastore를 만들 때 대시, 하이픈 또는 공백을 포함하는 데이터베이스 이름은 사용하지 마세요. 이렇게 하면 클러스터 만들기 프로세스가 실패할 수 있습니다.
+
+> [!WARNING]
+> Azure SQL Warehouse에서는 Hive metastore가 지원되지 않습니다.
+
+
+#### <a name="oozie-metastore"></a>Oozie Metastore
+
+Oozie 사용 시 성능을 높이려면 사용자 지정 Metastore를 사용합니다. 클러스터를 삭제한 후 Oozie 작업 데이터에 액세스하려는 경우에도 사용자 지정 Metastore가 유용합니다. Oozie를 사용하지 않거나 Oozie를 일시적으로만 사용하려는 경우에는 사용자 지정 Metastore를 만들 필요가 없습니다.
+
+> [!IMPORTANT]
+> 사용자 지정 Oozie Metastore는 다시 사용할 수 없습니다. 사용자 지정 Oozie Metastore를 사용하려면 HDInsight 클러스터를 만들 때 빈 Azure SQL Database를 제공해야 합니다.
+
+일부 클러스터 유형에는 Metastore 구성을 사용할 수 없습니다. 예를 들어, HBase 또는 Kafka 클러스터에는 사용할 수 없습니다.
+
+> [!WARNING]
+> Azure SQL Warehouse에서는 Oozie Metastore가 지원되지 않습니다.
 
 ## <a name="install-hdinsight-applications"></a>HDInsight 응용 프로그램 설치
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: mfussell
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 0fb4cc7b3c071eeb0bff15f9a57fc7e2106d7ca7
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 81dae4c35fead96af8a8a2823952a0bd7f2e537e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -42,7 +42,7 @@ Service Fabric을 사용하면 컴퓨터의 공유 풀(클러스터라고 함)�
 * 응용 프로그램의 요구 사항에 따라 여러 부분을 확장할 수 있습니다.
 * 개발 팀은 변경 내용을 보다 민첩하게 롤아웃할 수 있으므로 고객에게 보다 빠르고 빈번하게 기능을 제공할 수 있습니다.
 
-Service Fabric은 Azure SQL Database, Azure DocumentDB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, 비즈니스용 Skype 및 기타 많은 주요 Azure 서비스 등 오늘날의 여러 Microsoft 서비스를 지원합니다.
+Service Fabric은 Azure SQL Database, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, 비즈니스용 Skype, 기타 많은 주요 Azure 서비스 등 오늘날의 여러 Microsoft 서비스를 지원합니다.
 
 Service Fabric은 필요에 따라 작은 규모로 시작하여 수백 또는 수천 대의 컴퓨터가 있는 대규모 환경으로 확장할 수 있는 클라우드 네이티브 서비스를 만들 수 있도록 조정되어 있습니다.
 

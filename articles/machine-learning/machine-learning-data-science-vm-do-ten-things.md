@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: gokuma;weig;bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 3b608f341278ceaef9dd112cea38f138be69ee44
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: c35d1548262f25e65c391c927919b8acf1411e10
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>데이터 과학 가상 컴퓨터로 할 수 있는 10가지 일
-Microsoft DSVM(데이터 과학 가상 컴퓨터)은 다양한 데이터 탐색 및 모델링 작업을 수행할 수 있는 강력한 데이터 과학 개발 환경입니다. 이 환경에는 온-프레미스, 클라우드 또는 하이브리드 배포에 대한 간편하고 신속하게 분석을 시작할 수 있는 여러 대중적인 분석 도구가 기본적으로 내장되고 번들로 제공됩니다. DSVM은 여러 Azure 서비스와 긴밀하게 연동하며 Azure SQL 데이터 웨어하우스, Azure Data Lake, Azure 저장소 또는 DocumentDB에서 Azure에 저장된 데이터를 읽고 처리할 수 있습니다. 또한 Azure 기계 학습 및 Azure Data Factory와 같은 기타 분석 도구를 활용할 수 있습니다.
+Microsoft DSVM(데이터 과학 가상 컴퓨터)은 다양한 데이터 탐색 및 모델링 작업을 수행할 수 있는 강력한 데이터 과학 개발 환경입니다. 이 환경에는 온-프레미스, 클라우드 또는 하이브리드 배포에 대한 간편하고 신속하게 분석을 시작할 수 있는 여러 대중적인 분석 도구가 기본적으로 내장되고 번들로 제공됩니다. DSVM은 여러 Azure 서비스와 긴밀하게 연동하며 Azure의 Azure SQL Data Warehouse, Azure Data Lake, Azure Storage 또는 Azure Cosmos DB에 저장된 데이터를 읽고 처리할 수 있습니다. 또한 Azure 기계 학습 및 Azure Data Factory와 같은 기타 분석 도구를 활용할 수 있습니다.
 
 이 문서에서는 DSVM을 사용하여 다양한 데이터 과학 작업을 수행하고 다른 Azure 서비스와 상호 작용하는 방법을 설명합니다. 다음은 DSVM에서 수행할 수 있는 작업 중 일부입니다.
 
@@ -32,7 +33,7 @@ Microsoft DSVM(데이터 과학 가상 컴퓨터)은 다양한 데이터 탐색 
 4. Azure Portal 또는 Powershell을 사용하여 Azure 리소스 관리
 5. Azure 파일 저장소를 DSVM에 탑재 가능한 드라이브로 만들어 저장소 공간을 확장하고 전체 팀에서 대규모 데이터 집합/코드 공유
 6. GitHub를 사용하여 팀과 코드를 공유하고 사전 설치된 Git 클라이언트(Git Bash Git GUI)를 사용하여 리포지토리에 액세스
-7. Azure Blob 저장소, Azure Data Lake, Azure HDInsight(Hadoop), Azure DocumentDB, Azure SQL 데이터 웨어하우스 및 데이터베이스 등의 다양한 Azure 데이터 및 분석 서비스에 액세스
+7. Azure Blob Storage, Azure Data Lake, Azure HDInsight(Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse, 데이터베이스 등의 다양한 Azure 데이터 및 분석 서비스에 액세스
 8. DSVM에 사전 설치된 Power BI Desktop을 사용하여 보고서 및 대시보드를 구축하여 클라우드에 배포
 9. 프로젝트 요구 사항에 맞게 DSVM을 동적으로 확장
 10. 가상 컴퓨터에 추가 도구 설치   
@@ -798,22 +799,22 @@ Azure SQL 데이터 웨어하우스는 엔터프라이즈급 SQL Server 환경�
 
 이 [문서](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)에 제공된 지침에 따라 Azure SQL Data Warehouse를 프로비전할 수 있습니다. Azure SQL Data Warehouse를 프로비전하면 이 [연습](machine-learning-data-science-process-sqldw-walkthrough.md) 을 사용하여 SQL Data Warehouse 내의 데이터를 사용해 데이터 업로드, 탐색 및 모델링을 수행할 수 있습니다.
 
-#### <a name="azure-documentdb"></a>Azure DocumentDB
-Azure DocumentDB는 클라우드의 NoSQL 데이터베이스입니다. JSON과 같은 문서를 작업할 수 있으며 문서를 저장 및 쿼리할 수 있습니다.
+#### <a name="azure-cosmos-db"></a>Azure Cosmos DB
+Azure Cosmos DB는 클라우드의 NoSQL 데이터베이스입니다. JSON과 같은 문서를 작업할 수 있으며 문서를 저장 및 쿼리할 수 있습니다.
 
-DSVM에서 DocumentDB에 액세스하려면 다음과 같은 필수 조건 단계를 수행해야 합니다.
+DSVM에서 Azure Cosmos DB에 액세스하려면 다음과 같은 필수 조건 단계를 수행해야 합니다.
 
 1. DocumentDB Python SDK를 설치합니다(명령 프롬프트에서 ```pip install pydocumentdb``` 실행).
-2. [Azure 포털](https://portal.azure.com)
-3. [여기](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) 서 "DocumentDB 마이그레이션 도구"를 다운로드하여 원하는 디렉터리에 추출합니다.
-4. 마이그레이션 도구(DocumentDB 마이그레이션 도구를 설치한 디렉터리 dtui.exe)에서 다음 명령 매개 변수를 사용하여 [공개 Blob](https://cahandson.blob.core.windows.net/samples/volcano.json) 에 저장된 JSON 데이터(화산 데이터)를 DocumentDB로 가져옵니다. 아래의 원본 및 대상 위치 매개 변수를 입력합니다.
+2. [Azure Portal](https://portal.azure.com)에서 Azure Cosmos DB 계정과 Document DB 데이터베이스를 만듭니다.
+3. [여기](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)서 "Azure Cosmos DB 마이그레이션 도구"를 다운로드하여 원하는 디렉터리에 추출합니다.
+4. 마이그레이션 도구(Cosmos DB 마이그레이션 도구를 설치한 디렉터리 dtui.exe)에 다음 명령 매개 변수를 사용하여 [공용 Blob](https://cahandson.blob.core.windows.net/samples/volcano.json)에 저장된 JSON 데이터(화산 데이터)를 Cosmos DB로 가져옵니다. 아래의 원본 및 대상 위치 매개 변수를 입력합니다.
    
     /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
 
 데이터를 가져온 후에는 Jupyter로 이동하여 *DocumentDBSample*이라는 제목의 Notebook을 열 수 있습니다. 이 Notebook에는 DocumentDB에 액세스하여 몇 가지 기본 쿼리를 수행할 수 있는 Python 코드가 포함되어 있습니다. 서비스 [설명서 페이지](https://azure.microsoft.com/documentation/learning-paths/documentdb/)를 방문하여 DocumentDB에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Power BI Desktop을 사용하여 보고서 및 대시보드 작성
-위의 DocumentDB 예에서 본 Volcano JSON 파일을 Power BI에서 시각화하여 데이터를 시각적으로 살펴보겠습니다. 자세한 단계는 [Power BI 문서](../documentdb/documentdb-powerbi-visualize.md)에서 확인할 수 있습니다. 대략적인 단계는 아래와 같습니다.
+위의 Cosmos DB 예제에서 확인한 Volcano JSON 파일을 Power BI에서 시각화하여 데이터를 시각적으로 살펴보겠습니다. 자세한 단계는 [Power BI 문서](../documentdb/documentdb-powerbi-visualize.md)에서 확인할 수 있습니다. 대략적인 단계는 아래와 같습니다.
 
 1. Power BI Desktop을 열고 "Get Data"를 수행합니다. URL을 https://cahandson.blob.core.windows.net/samples/volcano.json으로 지정합니다.
 2. 목록으로 가져온 JSON 레코드가 보일 것입니다.

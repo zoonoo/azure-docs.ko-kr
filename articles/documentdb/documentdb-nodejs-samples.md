@@ -1,27 +1,29 @@
 ---
-title: "DocumentDB용 NoSQL Node.js 예제 | Microsoft Docs"
-description: "NoSQL 데이터베이스에서 JSON 문서에 대한 CRUD 작업을 비롯한 DocumentDB의 일반적인 작업에 대한 github의 NoSQL Node.js 예제를 찾습니다."
+title: "Azure Cosmos DB에 대한 Node.js 예제 | Microsoft Docs"
+description: "CRUD 작업을 비롯한 Azure Cosmos DB의 일반적인 작업에 대한 github의 Node.js 예제를 찾습니다."
 keywords: "Node.js 예제"
-services: documentdb
+services: cosmosdb
 author: moderakh
 manager: jhubbard
 editor: monicar
 documentationcenter: nodejs
 ms.assetid: d87d97be-47a5-4928-8d46-a541fbb33213
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2017
 ms.author: moderakh
-translationtype: Human Translation
-ms.sourcegitcommit: 6d3872dfa5187ea4e0570fdfd0ed3804f461af3f
-ms.openlocfilehash: bc3350a094361817f68e31de6561d050a3295f61
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5415bef7706f1a621429f76fb451ff459693b0e9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="documentdb-nodejs-examples"></a>DocumentDB Node.js 예제
+# <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 예제
 > [!div class="op_single_selector"]
 > * [.NET 예제](documentdb-dotnet-samples.md)
 > * [Node.js 예제](documentdb-nodejs-samples.md)
@@ -30,7 +32,7 @@ ms.openlocfilehash: bc3350a094361817f68e31de6561d050a3295f61
 > 
 > 
 
-Azure DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub 리포지토리에 포함됩니다. 이 문서는 다음을 제공합니다.
+Azure Cosmos DB 리소스에 대해 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub 리포지토리에 포함되어 있습니다. 이 문서는 다음을 제공합니다.
 
 * 각 Node.js 예제 프로젝트 파일에서 작업에 연결합니다.
 * 관련된 API 참조 콘텐츠에 대한 링크입니다.
@@ -100,7 +102,7 @@ Azure DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업�
 | [문자열 경로에 범위 인덱스 만들기](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L349-L425) |[IndexKind.Range](http://azure.github.io/azure-documentdb-node/global.html#IndexKind), [IndexingPolicy](http://azure.github.io/azure-documentdb-node/global.html#IndexingPolicy), [DocumentClient.queryDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html#queryDocument) |
 | [기본 indexPolicy로 컬렉션을 만든 다음 이 온라인 업데이트](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.IndexManagement/app.js#L519-L614) |[DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createCollection)<br> [DocumentClient.replaceCollection#replaceCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html) |
 
-인덱싱에 대한 자세한 내용은 [DocumentDB 인덱싱 정책](documentdb-indexing-policies.md)을 참조하세요.
+인덱싱에 대한 자세한 내용은 [Azure Cosmos DB 인덱싱 정책](documentdb-indexing-policies.md)을 참조하세요.
 
 ## <a name="server-side-programming-examples"></a>서버 쪽 프로그래밍 예제
 [ServerSideScripts](https://github.com/Azure/azure-documentdb-node/tree/master/samples/ServerSideScripts) 프로젝트의 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/ServerSideScripts/app.js) 파일은 다음 작업을 수행하는 방법을 보여 줍니다.
@@ -110,7 +112,7 @@ Azure DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업�
 | [저장 프로시저 만들기](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.ServerSideScripts/app.js#L44-L71) |[DocumentClient.createStoredProcedure](http://azure.github.io/azure-documentdb-node/DocumentClient.html#createStoredProcedure) |
 | [저장 프로시저 실행](https://github.com/Azure/azure-documentdb-node/blob/ef53e5f6707a5dc45920fb6ad54d9c7e008a6c18/samples/DocumentDB.Samples.ServerSideScripts/app.js#L73-L90) |[DocumentClient.executeStoredProcedure](http://azure.github.io/azure-documentdb-node/DocumentClient.html#executeStoredProcedure) |
 
-서버 쪽 프로그래밍에 대한 자세한 내용은 [DocumentDB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF](documentdb-programming.md)를 참조하세요.
+서버 쪽 프로그래밍에 대한 자세한 내용은 [Azure Cosmos DB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF](documentdb-programming.md)를 참조하세요.
 
 ## <a name="partitioning-examples"></a>분할 예제
 [Partitioning](https://github.com/Azure/azure-documentdb-node/tree/master/samples/Partitioning) 프로젝트의 [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) 파일은 다음 작업을 수행하는 방법을 보여 줍니다.
@@ -119,11 +121,6 @@ Azure DocumentDB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업�
 | --- | --- |
 | [HashPartitionResolver 사용](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) |[HashPartitionResolver](http://azure.github.io/azure-documentdb-node/HashPartitionResolver.html) |
 
-DocumentDB에서 데이터 파티션에 대한 자세한 내용은 [DocumentDB에서 데이터 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+Azure Cosmos DB에서 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 데이터 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
 
 

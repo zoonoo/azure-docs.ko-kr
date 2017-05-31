@@ -1,33 +1,34 @@
 ---
-title: "Azure DocumentDB 포털 도구: 쿼리 탐색기 | Microsoft Docs"
-description: "DocumentDB 컬렉션에 대해 SQL 쿼리를 작성하고 실행하기 위해 Azure 포털의 SQL 쿼리 편집기인 DocumentDB 쿼리 탐색기에 대해 알아봅니다."
+title: "Azure Cosmos DB 포털 도구: 쿼리 탐색기 | Microsoft Docs"
+description: "Azure Cosmos DB 컬렉션에 대해 SQL 쿼리를 작성하고 실행하기 위한 Azure Portal의 SQL 쿼리 편집기인 Azure Cosmos DB 쿼리 탐색기에 대해 알아봅니다."
 keywords: "SQL 쿼리 작성, SQL 쿼리 편집기"
-services: documentdb
+services: cosmosdb
 author: kirillg
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: ac378240-b11f-4522-ae9f-09da3a6f9c16
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: kirillg
-translationtype: Human Translation
-ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
-ms.openlocfilehash: c4c2cd8ddcb541b2619f7e1b140222899f15f87c
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 77389c6d0779a08b8d717076fc5678d3d7fb3b0c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="write-edit-and-run-sql-queries-for-documentdb-using-query-explorer-in-the-azure-portal"></a>Azure Portal에서 쿼리 탐색기를 사용하여 DocumentDB에 대한 SQL 쿼리 작성, 편집 및 실행
-이 문서에서는 [DocumentDB 컬렉션](documentdb-create-collection.md)에 대해 SQL 쿼리를 작성하고 편집하고 실행할 수 있게 해주는 Azure Portal 도구인 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 쿼리 탐색기에 대해 개괄적으로 설명합니다.
+# <a name="write-edit-and-run-sql-queries-for-azure-cosmos-db-using-query-explorer-in-the-azure-portal"></a>Azure Portal에서 쿼리 탐색기를 사용하여 Azure Cosmos DB에 대한 SQL 쿼리 작성, 편집 및 실행
+이 문서에서는 [DocumentDB 컬렉션](documentdb-create-collection.md)에 대해 SQL 쿼리를 작성하고 편집하고 실행할 수 있게 해주는 Azure Portal 도구인 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 쿼리 탐색기에 대해 개괄적으로 설명합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색에서 ![Azure DocumentDB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)**NoSQL(DocumentDB)**을 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 모음에서 ![Azure Cosmos DB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**을 클릭합니다. 
 
-    **NoSQL(DocumentDB)**이 표시되지 않으면 아래쪽에서 **추가 서비스**를 클릭한 다음 ![Azure DocumentDB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)**NoSQL(DocumentDB)**을 클릭합니다.
+    **Azure Cosmos DB**가 표시되지 않으면 맨 아래에서 **추가 서비스**를 클릭한 다음 ![Azure Cosmos DB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**을 클릭합니다.
 2. 리소스 메뉴에서 **쿼리 탐색기**를 클릭합니다. 
    
     ![쿼리 탐색기가 강조 표시된 Azure 포털 스크린샷](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
@@ -68,11 +69,11 @@ ms.lasthandoff: 02/23/2017
 
 ![쿼리 탐색기 쿼리 오류 스크린샷](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
-## <a name="run-documentdb-sql-queries-outside-the-portal"></a>포털 외부 DocumentDB SQL 쿼리 실행
-Azure 포털의 쿼리 탐색기는 DocumentDB에 대해 SQL 쿼리를 실행하는 방법 중 한 가지입니다. [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 사용하여 SQL 쿼리를 실행할 수도 있습니다. 이러한 다른 방법에 대한 자세한 내용은 [SQL 쿼리 실행](documentdb-sql-query.md#ExecutingSqlQueries)
+## <a name="run-documentdb-api-sql-queries-outside-the-portal"></a>포털 외부에서 DocumentDB API SQL 쿼리 실행
+Azure Portal의 쿼리 탐색기는 Cosmos DB에 대해 SQL 쿼리를 실행하는 방법 중 하나입니다. [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [클라이언트 SDK](documentdb-sdk-dotnet.md)를 사용하여 SQL 쿼리를 실행할 수도 있습니다. 이러한 다른 방법에 대한 자세한 내용은 [SQL 쿼리 실행](documentdb-sql-query.md#ExecutingSqlQueries)
 
 ## <a name="next-steps"></a>다음 단계
-쿼리 탐색기에서 지원되는 DocumentDB SQL 문법에 대해 자세히 알아보려면 [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서를 참조하거나 [SQL 쿼리 치트 시트](documentdb-sql-query-cheat-sheet.md)를 인쇄합니다.
+쿼리 탐색기에서 지원되는 DocumentDB API SQL 문법에 대한 자세한 내용은 [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md) 문서를 참조하거나 [SQL 쿼리 참고 자료](documentdb-sql-query-cheat-sheet.md)를 인쇄합니다.
 샘플 데이터 집합을 사용하여 쿼리를 온라인으로 테스트할 수 있는 [Query Playground](https://www.documentdb.com/sql/demo) 를 통해 다양한 쿼리를 실행해 볼 수도 있습니다.
 
 

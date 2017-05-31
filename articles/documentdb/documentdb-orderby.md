@@ -1,15 +1,16 @@
 ---
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 0ca716857733290fad4278e3be5059408bb75393
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 51bed95b47f08cb9ba6c0785d9ac8bb1c9f1ad4c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="sorting-documentdb-data-using-order-by"></a>Order By를 사용하여 DocumentDB 데이터 정렬
-Microsoft Azure DocumentDB는 JSON 문서에 대해 SQL을 사용한 문서 쿼리를 지원합니다. SQL 쿼리 문에서 ORDER BY 절을 사용하여 쿼리 결과를 주문할 수 있습니다.
+# <a name="sorting-azure-cosmos-db-data-using-order-by"></a>Order By를 사용하여 Azure Cosmos DB 데이터 정렬
+Microsoft Azure Cosmos DB는 JSON 문서에 대해 SQL을 사용한 문서 쿼리를 지원합니다. SQL 쿼리 문에서 ORDER BY 절을 사용하여 쿼리 결과를 주문할 수 있습니다.
 
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다. 
 
@@ -19,10 +20,10 @@ Microsoft Azure DocumentDB는 JSON 문서에 대해 SQL을 사용한 문서 쿼�
 
 [샘플](#samples) 및 [FAQ](#faq)도 제공됩니다.
 
-SQL 쿼리에 대한 전체 참조는 [DocumentDB 쿼리 자습서](documentdb-sql-query.md)를 참조하세요.
+SQL 쿼리에 대한 전체 참조는 [Azure Cosmos DB 쿼리 자습서](documentdb-sql-query.md)를 참조하세요.
 
 ## <a name="how-to-query-with-order-by"></a>Order By로 쿼리하는 방법
-ANSI-SQL에서와 마찬가지로, 이제 DocumentDB를 쿼리할 때 SQL문에 선택적 Order By절을 포함할 수 있습니다. 절은 선택적 ASC/DESC 인수를 포함하여 결과를 검색해야 하는 순서를 지정할 수 있습니다. 
+ANSI-SQL에서와 마찬가지로, 이제 Cosmos DB를 쿼리할 때 SQL문에 선택적 Order By절을 포함할 수 있습니다. 절은 선택적 ASC/DESC 인수를 포함하여 결과를 검색해야 하는 순서를 지정할 수 있습니다. 
 
 ### <a name="ordering-using-sql"></a>SQL을 사용하여 순서 지정
 예를 들어 다음은 해당 제목의 내림차순으로 상위 10개 설명서를 검색하는 쿼리입니다. 
@@ -49,10 +50,10 @@ Books.ShippingDetails.Weight와 같은 문서 내에서 중첩된 모든 속성�
         // Iterate through books
     }
 
-DocumentDB는 곧 추가 쿼리 형식을 가진 단일 숫자, 문자열 또는 쿼리 당 부울 속성으로 순서를 지정하도록 지원합니다. 자세한 내용은 [다음 단계](#Whats_coming_next) 를 참조하세요.
+Cosmos DB는 쿼리당 단일 숫자, 문자열 또는 부울 속성을 사용한 순서 지정을 지원하며, 추가 쿼리 형식이 곧 제공될 예정입니다. 자세한 내용은 [다음 단계](#Whats_coming_next) 를 참조하세요.
 
 ## <a name="configure-an-indexing-policy-for-order-by"></a>Order By로 색인 정책 구성
-DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 특정 경로/속성, 데이터 형식(문자열/숫자) 및 다른 전체 자릿수 값(최대 전체 자릿수 또는 고정된 전체 자릿수 값)에 대해 설정된다는 사실에 유의하십시오. DocumentDB가 기본적으로 인덱싱 해시를 사용하기 때문에 Order By를 사용하려면 숫자, 문자열 또는 둘 모두의 범위에 사용자 지정 인덱싱 정책을 사용하여 새 컬렉션을 만들어야 합니다. 
+Cosmos DB는 두 종류의 인덱스(해시 및 범위)를 지원하며, 특정 경로/속성, 데이터 형식(문자열/숫자), 다양한 전체 자릿수 값(최대 전체 자릿수 또는 고정된 전체 자릿수 값)에 대해 설정할 수 있습니다. Cosmos DB는 기본적으로 인덱싱 해시를 사용하기 때문에 Order By를 사용하려면 숫자, 문자열 또는 둘 다의 범위에 사용자 지정 인덱싱 정책을 사용하여 새 컬렉션을 만들어야 합니다. 
 
 > [!NOTE]
 > 문자열 범위 인덱스는 2015년 7월 7일에 REST API 버전 2015-06-03에서 도입되었습니다. 문자열에 대해 Order By을 위한 정책을 만들려면 NET SDK의 SDK 버전 1.2.0. 또는 버전 1.1.0 Python, Node.js 또는 Java SDK를 사용해야 합니다.
@@ -61,7 +62,7 @@ DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 
 > 
 > 
 
-자세한 내용은 [DocumentDB 색인 정책](documentdb-indexing-policies.md)을 참조하세요.
+자세한 내용은 [Azure Cosmos DB 인덱싱 정책](documentdb-indexing-policies.md)을 참조하세요.
 
 ### <a name="indexing-for-order-by-against-all-properties"></a>모든 속성에 대한 Order By의 인덱싱
 다음은 JSON 문서 내에서 표시되는 임의/모든 숫자 또는 문자열 속성에 대해 Order By로 인덱싱된 "모든 범위"를 가지고 컬렉션을 만들 수 있는 방법입니다. 다음은 최대 전체 자릿수(-1)에서 범위에 대한 문자열 값의 기본 인덱스 유형을 무시합니다.
@@ -96,13 +97,13 @@ DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 
 ## <a name="faq"></a>FAQ
 **Order By 쿼리의 예상된 요청 단위(RU) 소비**
 
-Order By는 조회에 대한 DocumentDB 인덱스를 사용하므로 Order By 쿼리에서 사용되는 요청 단위의 수는 Order By 없이 해당 쿼리와 유사합니다. DocumentDB에서의 다른 모든 작업과 마찬가지로, 요청 단위 수는 문서의 크기/모양 및 쿼리의 복잡성에 따라 달라집니다. 
+Order By는 조회를 위해 Cosmos DB 인덱스를 사용하므로 Order By 쿼리에서 사용되는 요청 단위 수는 Order By가 없는 동등 쿼리와 유사합니다. Cosmos DB에서의 다른 모든 작업과 마찬가지로, 요청 단위 수는 문서의 크기/모양 및 쿼리의 복잡성에 따라 달라집니다. 
 
 **Order By에 대한 예상 인덱싱 오버헤드**
 
 인덱싱 저장소 오버헤드는 속성의 수에 비례합니다. 최악의 경우, 인덱스 오버헤드는 데이터의 100%가 됩니다. 범위/Order By 인덱싱 및 기본 해시 인덱싱 사이의 처리량(요청 단위) 오버헤드에는 차이가 없습니다.
 
-**Order By를 사용하여 DocumentDB에서 기존 내 데이터를 쿼리하는 방법**
+**Order By를 사용하여 Cosmos DB에서 내 기존 데이터를 쿼리하는 방법**
 
 Order By를 사용하여 쿼리 결과를 정렬하기 위해 컬렉션의 인덱싱 정책을 수정하여 정렬하는 데 사용된 속성에 대해 범위 인덱스 형식을 사용해야 합니다. [인덱싱 정책 수정](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection)을 참조하세요. 
 
@@ -127,9 +128,9 @@ Order By가 지원되지 않는다는 오류가 발생하면 Order By를 지원�
 [GitHub 샘플 프로젝트](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)를 분기하고 주문 데이터를 시작합니다. 
 
 ## <a name="references"></a>참조
-* [DocumentDB 쿼리 참조](documentdb-sql-query.md)
-* [DocumentDB 인덱싱 정책 참조](documentdb-indexing-policies.md)
-* [DocumentDB SQL 참조(영문)](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [DocumentDB Order By 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
+* [Azure Cosmos DB 쿼리 참조](documentdb-sql-query.md)
+* [Azure Cosmos DB 인덱싱 정책 참조](documentdb-indexing-policies.md)
+* [Azure Cosmos DB SQL 참조](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+* [Azure Cosmos DB Order By 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
 
 

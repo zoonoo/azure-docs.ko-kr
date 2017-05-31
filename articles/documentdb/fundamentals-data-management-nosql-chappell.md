@@ -1,9 +1,11 @@
 ---
-redirect_url: https://azure.microsoft.com/services/documentdb/
+redirect_url: https://azure.microsoft.com/services/cosmos-db/
 ROBOTS: NOINDEX, NOFOLLOW
-translationtype: Human Translation
-ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
-ms.openlocfilehash: 48380d1fd5394cc32b4e868a82f456497bc4a915
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 28af0300f7027ccce8207d0f767490bddd4bf532
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 
@@ -18,13 +20,8 @@ Azure에서는 다양한 NoSQL 기술을 제공하지만 기술 간의 차이점
   
   * 응용 프로그램에서 읽고 쓰는 운영 데이터와 BI(비즈니스 인텔리전스)를 제공하는 데 사용되는 관계형 데이터를 구분하여 요구 사항에 적합한 기술을 결정하도록 지원
   * 관계형 기술에 대한 간략한 검토
-  * 각 Azure NoSQL 기술(DocumentDB, 테이블 저장소, HBase 및 HDInsight) 소개
+  * 각 Azure NoSQL 기술(Azure Cosmos DB, Table Storage, HBase 및 HDInsight) 소개
   * NoSQL 기술과 Azure SQL 데이터베이스 비교 
-  * Azure DocumentDB와 테이블 저장소와 HBase와 HDInsight를 사용 하는 경우 SQL 데이터베이스
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+  * Azure Cosmos DB와 테이블 저장소와 HBase와 HDInsight를 사용 하는 경우 SQL 데이터베이스
 
 

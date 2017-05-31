@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: d0d283f21caf53406c51670e75bf2796a175be51
-ms.lasthandoff: 03/25/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 291fb1bb3a8925ccc39d846d23328f028cb826b8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -54,7 +55,7 @@ ms.lasthandoff: 03/25/2017
 
 ### <a name="parse-json-action"></a>'JSON 구문 분석' 작업
 
-`Parse JSON` 작업을 통해 논리 앱에 사용하기 위해 친숙한 토큰에 JSON 콘텐츠를 구문 분석할 수 있습니다. 이 작업을 통해 요청 트리거와 마찬가지로 구문 분석하려는 콘텐츠에 맞게 JSON 스키마를 입력하거나 생성할 수 있습니다. 이 도구를 통해 Service Bus, DocumentDB 등의 데이터를 훨씬 쉽게 사용할 수 있습니다.
+`Parse JSON` 작업을 통해 논리 앱에 사용하기 위해 친숙한 토큰에 JSON 콘텐츠를 구문 분석할 수 있습니다. 이 작업을 통해 요청 트리거와 마찬가지로 구문 분석하려는 콘텐츠에 맞게 JSON 스키마를 입력하거나 생성할 수 있습니다. 이 도구를 통해 Service Bus, Azure Cosmos DB 등의 데이터를 훨씬 쉽게 사용할 수 있습니다.
 
 ![Parse JSON](./media/logic-apps-content-type/ParseJSON.png)
 

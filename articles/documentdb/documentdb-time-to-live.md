@@ -1,33 +1,34 @@
 ---
-title: "TTL(Time to live)을 사용하여 DocumentDB에서 데이터 만료 | Microsoft Docs"
-description: "TTL을 사용하여 Microsoft Azure DocumentDB는 일정 기간 후에 시스템에서 문서를 자동으로 삭제하는 기능을 제공합니다."
-services: documentdb
+title: "TTL(Time To Live)을 사용하여 Azure Cosmos DB의 데이터 만료 | Microsoft Docs"
+description: "TTL을 사용하여 Microsoft Azure Cosmos DB는 일정 기간 후에 시스템에서 문서를 자동으로 삭제하는 기능을 제공합니다."
+services: cosmosdb
 documentationcenter: 
 keywords: TTL(Time to live)
 author: arramac
 manager: jhubbard
 editor: 
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: arramac
-translationtype: Human Translation
-ms.sourcegitcommit: 1ad5307054dbd860f9c65db4b82ea5f560a554c8
-ms.openlocfilehash: 14a06dd20547f2910b2321372b27d9f777e54cc7
-ms.lasthandoff: 01/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7a1d4c722fdb926c43b23e333f9fa558ba163b65
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="expire-data-in-documentdb-collections-automatically-with-time-to-live"></a>TTL(Time to live)을 사용하여 자동으로 DocumentDB 컬렉션의 데이터 만료
+# <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료
 응용 프로그램은 방대한 양의 데이터을 생성하고 저장할 수 있습니다. 컴퓨터에서 생성한 이벤트 데이터, 로그 및 사용자 세션 정보와 같은 이 데이터 중 일부는 한정된 기간에만 사용할 수 있습니다. 데이터가 응용 프로그램의 요구를 넘게 되면 이 데이터를 삭제하고 응용 프로그램의 저장소 요구를 줄이는 것이 안전합니다.
 
-"time to live" 또는 TTL을 사용하여 Microsoft Azure DocumentDB는 일정 기간 후에 데이터베이스에서 문서를 자동으로 삭제하는 기능을 제공합니다. 기본 TTL(Time to live)을 컬렉션 수준에서 설정할 수 있고 문서별로 재정의할 수 있습니다. TTL을 컬렉션 기본값으로 설정하거나 문서 수준으로 설정하면 DocumentDB는 마지막으로 수정된 이후 해당 기간(초) 후에 존재하는 문서를 자동으로 제거합니다.
+"time to live" 또는 TTL을 사용하여 Microsoft Azure Cosmos DB는 일정 기간 후에 데이터베이스에서 문서를 자동으로 삭제하는 기능을 제공합니다. 기본 TTL(Time to live)을 컬렉션 수준에서 설정할 수 있고 문서별로 재정의할 수 있습니다. TTL을 컬렉션 기본값으로 설정하거나 문서 수준에서 설정하면 Cosmos DB는 마지막으로 수정된 이후 해당 기간(초) 후에 존재하는 문서를 자동으로 제거합니다.
 
-문서를 마지막으로 수정한 경우 DocumentDB의 TTL(Time to live)에서는 오프셋을 사용합니다. 이렇게 하려면 모든 문서에 있는 `_ts` 필드를 사용합니다. _ts 필드는 날짜 및 시간을 나타내는 Unix 스타일 Epoch 타임스탬프입니다. `_ts` 필드는 문서가 수정될 때마다 업데이트됩니다. 
+Cosmos DB의 TTL(Time To Live)은 문서가 마지막으로 수정된 시간을 기준으로 오프셋을 사용합니다. 이렇게 하려면 모든 문서에 있는 `_ts` 필드를 사용합니다. _ts 필드는 날짜 및 시간을 나타내는 Unix 스타일 Epoch 타임스탬프입니다. `_ts` 필드는 문서가 수정될 때마다 업데이트됩니다. 
 
 ## <a name="ttl-behavior"></a>TTL 동작
 TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL 속성에 의해 제어됩니다. 값은 초 단위로 설정되고 문서가 마지막으로 수정되는 `_ts` 필드에서 델타로 처리됩니다.
@@ -53,10 +54,10 @@ TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL
 | 문서에서 TTL = n |문서 수준에서 아무 것도 재정의하지 않습니다. 문서에서 TTL은 시스템에 의해 해석되지 않습니다. |TTL = n인 문서는 간격 n(초) 후에 만료됩니다. 다른 문서는 간격 -1을 상속하며 만료되지 않습니다. |TTL = n인 문서는 간격 n(초) 후에 만료됩니다. 다른 문서는 컬렉션에서 "n" 간격을 상속합니다. |
 
 ## <a name="configuring-ttl"></a>TTL 구성
-기본적으로 TTL(Time to live)은 모든 DocumentDB 컬렉션 및 문서에서 기본적으로 비활성화됩니다.
+기본적으로 TTL(Time To Live)은 모든 Cosmos DB 컬렉션 및 문서에서 사용되지 않습니다.
 
 ## <a name="enabling-ttl"></a>TTL 사용
-컬렉션 또는 컬렉션 내 문서에서 TTL을 사용하려면 컬렉션의 DefaultTTL 속성을 -1 또는&0;이 아닌 양수로 설정해야 합니다. DefaultTTL을 -1로 설정하면 기본적으로 컬렉션에서 모든 문서가 계속 존재하게 되지만 DocumentDB 서비스는 이 기본값을 재정의한 문서에 대해 이 컬렉션을 모니터링해야 합니다.
+컬렉션 또는 컬렉션 내 문서에서 TTL을 사용하려면 컬렉션의 DefaultTTL 속성을 -1 또는 0이 아닌 양수로 설정해야 합니다. DefaultTTL을 -1로 설정하면 기본적으로 컬렉션에 있는 모든 문서가 계속 존재하지만 Cosmos DB 서비스는 이 기본값을 재정의한 문서에 대해 이 컬렉션을 모니터링해야 합니다.
 
     DocumentCollection collectionDefinition = new DocumentCollection();
     collectionDefinition.Id = "orders";
@@ -69,7 +70,7 @@ TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL
         new RequestOptions { OfferThroughput = 20000 });
 
 ## <a name="configuring-default-ttl-on-a-collection"></a>컬렉션에서 기본 TTL 구성
-기본 수명을 컬렉션 수준에서 구성할 수 있습니다. 컬렉션에서 TTL을 설정하려면 문서(`_ts`)의 타임스탬프를 마지막으로 수정한 이후 컬렉션에 있는 모든 문서를 만료할 기간(초)을 나타내는&0;이 아닌 양수 값을 제공해야 합니다. 또는 기본값을 -1로 설정할 수 있습니다. 즉, 컬렉션에 삽입된 모든 문서가 기본적으로 영원히 지속됩니다.
+기본 수명을 컬렉션 수준에서 구성할 수 있습니다. 컬렉션에서 TTL을 설정하려면 문서(`_ts`)의 타임스탬프를 마지막으로 수정한 이후 컬렉션에 있는 모든 문서를 만료할 기간(초)을 나타내는 0이 아닌 양수 값을 제공해야 합니다. 또는 기본값을 -1로 설정할 수 있습니다. 즉, 컬렉션에 삽입된 모든 문서가 기본적으로 영원히 지속됩니다.
 
     DocumentCollection collectionDefinition = new DocumentCollection();
     collectionDefinition.Id = "orders";
@@ -85,7 +86,7 @@ TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL
 ## <a name="setting-ttl-on-a-document"></a>문서에서 TTL 설정
 컬렉션에서 기본 TTL을 설정하는 것 외에도 특정 문서 수준에서 TTL을 설정할 수 있습니다. 이렇게 하면 컬렉션의 기본값을 재정의합니다.
 
-* 문서에서 TTL을 설정하려면 문서(`_ts`)의 타임스탬프를 마지막으로 수정한 이후 문서를 만료할 기간(초)을 나타내는&0;이 아닌 양수 값을 제공해야 합니다.
+* 문서에서 TTL을 설정하려면 문서(`_ts`)의 타임스탬프를 마지막으로 수정한 이후 문서를 만료할 기간(초)을 나타내는 0이 아닌 양수 값을 제공해야 합니다.
 * 문서에 TTL 필드가 없는 경우 컬렉션의 기본값이 적용됩니다.
 * 컬렉션 수준에서 TTL을 사용하지 않으면 문서에서 TTL 필드는 컬렉션에 다시 TTL을 사용할 때까지 무시됩니다.
 
@@ -162,7 +163,7 @@ TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL
 
 **문서에서 TTL은 RU 요금에 영향을 주나요?**
 
-아니요, DocumentDB에서 TTL을 통해 만료된 문서를 삭제하는 RU 요금에 아무런 영향을 주지 않습니다.
+아니요, Cosmos DB에서 TTL을 통해 만료된 문서를 삭제할 경우 RU 요금에 영향을 주지 않습니다.
 
 **TTL 기능이 전체 문서에 적용되나요, 또는 개별 문서 속성 값을 만료할 수 있나요?**
 
@@ -173,6 +174,6 @@ TTL은 문서 전체에 적용됩니다. 문서의 일부만 만료하고 싶다
 예. 컬렉션에는 일관성 또는 지연 중 하나에 대한 [인덱싱 정책 집합](documentdb-indexing-policies.md) 이 있어야 합니다. 인덱싱 설정을 사용하여 컬렉션에서 DefaultTTL을 없음으로 설정하면 DefaultTTL이 이미 설정되어 있는 컬렉션에서 인덱싱을 해제하는 것과 같은 오류가 발생합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure DocumentDB에 대해 자세히 알아보려면 서비스 [*설명서*](https://azure.microsoft.com/documentation/services/documentdb/) 페이지를 참조하세요.
+Azure Cosmos DB에 대한 자세한 내용은 서비스 [*설명서*](https://azure.microsoft.com/documentation/services/documentdb/) 페이지를 참조하세요.
 
 

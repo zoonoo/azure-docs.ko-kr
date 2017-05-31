@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/24/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 15b6f6c85c5a5accbd31225c277de87346a2e16f
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f47fbe0e9c6cb4d09e6233f6d26211969a5c1f00
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/27/2017
 이 문서에서는 Service Fabric 응용 프로그램을 패키지하고 배포를 준비하는 방법에 대해 설명합니다.
 
 ## <a name="package-layout"></a>패키지 레이아웃
-서비스 패브릭 클러스터에 배포할 수 있도록 응용 프로그램 매니페스트, 서비스 매니페스트 및 기타 필요한 패키지 파일을 특정 레이아웃으로 구성해야 합니다. 이 문서에 예로 제공된 매니페스트를 다음 디렉터리 구조로 구성해야 합니다.
+Service Fabric 클러스터에 배포할 수 있도록 응용 프로그램 매니페스트, 하나 이상의 서비스 매니페스트 및 기타 필요한 패키지 파일을 특정 레이아웃으로 구성해야 합니다. 이 문서에 예로 제공된 매니페스트를 다음 디렉터리 구조로 구성해야 합니다.
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -51,10 +52,10 @@ D:\TEMP\MYAPPLICATIONTYPE
 ## <a name="use-setupentrypoint"></a>SetupEntryPoint 사용
 **SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행해야 하는 경우 또는 높은 권한을 사용하여 작업을 수행해야 하는 경우입니다. 예:
 
-* 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 서비스 패브릭 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지는 않습니다. 예를 들어 npm.exe 파일에는 node.js 응용 프로그램 배포를 위해 구성되는 환경 변수가 필요합니다.
+* 서비스 실행 파일에 필요한 환경 변수를 설정하고 초기화합니다. 이것은 Service Fabric 프로그래밍 모델을 통해 작성된 실행 파일에만 국한되지 않습니다. 예를 들어 npm.exe 파일에는 node.js 응용 프로그램 배포를 위해 구성되는 환경 변수가 필요합니다.
 * 보안 인증서를 설치하여 액세스 제어를 설정합니다.
 
-**SetupEntryPoint**를 구성하는 방법에 대한 자세한 내용은 [서비스 설치 진입점에 대한 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.  
+**SetupEntryPoint**를 구성하는 방법에 대한 자세한 내용은 [서비스 설치 진입점에 대한 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.
 
 ## <a name="configure"></a>구성 
 ### <a name="build-a-package-by-using-visual-studio"></a>Visual Studio를 사용하여 패키지 빌드
@@ -113,13 +114,13 @@ PS D:\temp>
 
 응용 프로그램에 [응용 프로그램 매개 변수](service-fabric-manage-multiple-environment-app-configuration.md)가 정의되어 있으면 적절한 유효성 검사를 위해 [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps)에 이 매개 변수를 전달할 수 있습니다.
 
-응용 프로그램을 배포할 클러스터를 알고 있는 경우 이미지 저장소 연결 문자열에 전달하는 것이 좋습니다. 이 경우 이미 클러스터에서 실행 중인 이전 버전의 응용 프로그램에 대해서도 패키지의 유효성이 검사됩니다. 예를 들어 유효성 검사를 통해 동일한 버전이지만 다른 내용이 포함된 패키지를 이미 배포했는지 여부를 확인할 수 있습니다.  
+응용 프로그램을 배포할 클러스터를 알고 있는 경우 `ImageStoreConnectionString` 매개 변수에 전달하는 것이 좋습니다. 이 경우 이미 클러스터에서 실행 중인 이전 버전의 응용 프로그램에 대해서도 패키지의 유효성이 검사됩니다. 예를 들어 유효성 검사를 통해 동일한 버전이지만 다른 내용이 포함된 패키지를 이미 배포했는지 여부를 확인할 수 있습니다.  
 
 응용 프로그램이 올바르게 패키지되고 유효성 검사를 통과하는 경우 압축이 필요하면 파일의 크기와 수를 기반으로 평가합니다. 
 
 ## <a name="compress-a-package"></a>패키지 압축
 패키지가 크거나 파일이 많은 경우 이를 압축하여 더 빠르게 배포할 수 있습니다. 압축은 파일 수와 패키지 크기를 줄입니다.
-[응용 프로그램 패키지를 업로드](service-fabric-deploy-remove-applications.md#upload-the-application-package)하는 경우 압축되지 않은 패키지를 업로드하는 것보다 시간이 더 오래 걸릴 수 있지만, 응용 프로그램 유형을 더 빠르게 [등록](service-fabric-deploy-remove-applications.md#register-the-application-package) 및 [등록 취소](service-fabric-deploy-remove-applications.md#unregister-an-application-type)할 수 있습니다.
+압축된 응용 프로그램 패키지의 경우 [응용 프로그램 패키지 업로드](service-fabric-deploy-remove-applications.md#upload-the-application-package) 작업에 걸리는 시간이 압축되지 않은 패키지 업로드에 비해 더 길어질 수 있지만(특히 압축 시간이 포함되는 경우), [등록](service-fabric-deploy-remove-applications.md#register-the-application-package) 및 [응용 프로그램 유형 등록 취소](service-fabric-deploy-remove-applications.md#unregister-an-application-type)는 압축된 응용 프로그램 패키지가 더 빠릅니다.
 
 배포 메커니즘은 압축된 패키지와 압축되지 않은 패키지에 대해 모두 동일합니다. 압축된 패키지는 클러스터 이미지 저장소에 그대로 저장되며, 먼저 노드에서 압축이 풀린 후에 응용 프로그램이 실행됩니다.
 압축은 유효한 Service Fabric 패키지를 압축된 버전으로 바꿉니다. 폴더에 대한 쓰기 권한을 허용해야 합니다. 이미 압축된 패키지에 압축을 실행하면 아무런 변화가 없습니다. 

@@ -1,14 +1,14 @@
 ---
-title: "NoSQL 및 SQL을 사용하는 경우 | Microsoft Docs"
-description: "SQL 솔루션과 비관계형 NoSQL 솔루션 사용의 이점을 비교합니다. Microsoft Azure NoSQL 서비스 또는 SQL Server 중 무엇이 시나리오에 가장 적합한지를 알아봅니다."
+title: "NoSQL 및 SQL과 Azure Cosmos DB | Microsoft Docs"
+description: "SQL 솔루션 및 Azure Cosmos DB와 비관계형 NoSQL 솔루션 사용의 이점을 비교합니다. Azure Cosmos DB가 NoSQL 및 SQL의 이점을 제공하는 방법을 알아봅니다."
 keywords: "nosql과 sql, NoSQL을 사용하는 경우, sql과 nosql"
-services: documentdb
+services: cosmosdb
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 71ef1798-d709-4ccb-9f5c-57948fb96229
-ms.service: documentdb
+ms.service: cosmosdb
 ms.custom: overview
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -16,14 +16,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 84b0b4121e8fc10bdfd3b5daf7fff280dc301d28
-ms.lasthandoff: 11/17/2016
-
+redirect_url: https://aka.ms/cosmosdb
+ROBOTS: NOINDEX, NOFOLLOW
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9062bbc9b7ae2f3f38bf55d3e37986238a145819
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 ---
-# <a name="nosql-vs-sql"></a>NoSQL과 SQL
+# <a name="nosql-vs-sql-and-azure-cosmos-db"></a>NoSQL 및 SQL과 Azure Cosmos DB
 SQL Server 및 RDBMS(관계형 데이터베이스)는 20년 넘게 사용하고 있는 데이터베이스입니다. 그러나 더 많은 볼륨 및 빠른 속도로 각종 데이터를 처리해야 할 필요성의 증가로 인해 응용 프로그램 개발자에게 필요한 데이터 저장소 특성이 변경되었습니다. 이 시나리오를 지원하기 위해 대규모로 비구조적 데이터 및 다른 유형의 데이터를 저장할 수 있는 NoSQL 데이터베이스가 인기를 얻었습니다. 대부분의 개발자의 경우 관계형 데이터베이스는 테이블 구조는 이해하기 쉬우며 친숙하기 때문에 기본 또는 준비된 옵션이지만 관계형 데이터베이스를 탐색할 이유도 많습니다.
 
 NoSQL은 SQL 데이터베이스와는 분명히 다른 데이터베이스의 범주입니다. NoSQL은 "SQL이 아님"인 데이터 관리 시스템 또는 "SQL만이 아님" 데이터 관리 접근 방식을 참조하는 데 자주 사용됩니다. 문서 데이터베이스, 키 값 저장소, 열 패밀리 저장소 및 게임, 소셜, IoT 앱으로 널리 사용되는 그래프 데이터베이스를 포함하여 NoSQL 범주에는 다양한 기술이 있습니다.
@@ -41,7 +43,7 @@ NoSQL은 SQL 데이터베이스와는 분명히 다른 데이터베이스의 범
 
 지금까지는 잘 되고 있습니다. 이제 단일 게시물의 구조 및 그 표시 방법에 대해 알아봅니다. 웹 사이트 또는 응용 프로그램에 게시물 및 연결된 이미지, 오디오, 비디오, 주석, 점수, 사용자 정보를 표시하려는 경우 콘텐츠를 검색하기 위해 8개의 테이블 조인을 사용하여 쿼리를 수행해야 합니다. 동적으로 로드하고 화면에 표시되는 게시물의 스트림을 상상해 보면 작업을 완료하는 데 수천 개의 쿼리와 많은 조인이 필요하리란 것을 쉽게 예측할 수 있습니다.
 
-이제 SQL이 [JSON 형식인](https://msdn.microsoft.com/library/dn921897.aspx) 동적 데이터를 지원하므로 SQL Server와 같은 관계형 솔루션을 사용하여 데이터를 저장하고 조인를 사용하여 쿼리할 수 있습니다. 하지만 다른 옵션이 있으며 이 특정 시나리오에 대한 접근 방식을 간소화하는 NoSQL 옵션입니다. 다음과 같은 단일 문서를 사용하고 Azure NoSQL 문서 데이터베이스 서비스인 DocumentDB에 저장하여 성능을 향상시킬 수 있으며 조인 없이 하나의 쿼리로 전체 게시물을 검색할 수 있습니다. 더 단순하고 간단하며 성능이 빨라집니다.
+이제 SQL이 [JSON 형식인](https://msdn.microsoft.com/library/dn921897.aspx) 동적 데이터를 지원하므로 SQL Server와 같은 관계형 솔루션을 사용하여 데이터를 저장하고 조인를 사용하여 쿼리할 수 있습니다. 하지만 다른 옵션이 있으며 이 특정 시나리오에 대한 접근 방식을 간소화하는 NoSQL 옵션입니다. 다음과 같은 단일 문서를 사용하고 Azure NoSQL 문서 데이터베이스 서비스인 Azure Cosmos DB에 저장하여 성능을 향상시킬 수 있으며 조인 없이 하나의 쿼리로 전체 게시물을 검색할 수 있습니다. 더 단순하고 간단하며 성능이 빨라집니다.
 
     {
         "id":"ew12-res2-234e-544f",
@@ -70,7 +72,7 @@ NoSQL은 SQL 데이터베이스와는 분명히 다른 데이터베이스의 범
 * [Azure SQL 데이터베이스](https://azure.microsoft.com/services/sql-database/) 는 로그인 정보와 같은 엄청난 양의 데이터 및 사용 현황 분석에 대한 데이터를 저장하는 데 사용할 수 있습니다.
 * [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)은 프로세스에 대한 피드백을 제공하고 적절한 사용자에게 적절한 콘텐츠를 제공하는 데 도움이 될 수 있는 인텔리전스 및 정보를 빌드하는 데 사용할 수 있습니다.
 
-이 소셜 참여 사이트는 NoSQL 데이터베이스가 이 작업에 대한 적절한 데이터 모델인 단 하나의 시나리오입니다. 이 시나리오 및 소셜 미디어 응용 프로그램에서 DocumentDB에 대한 데이터를 모델링하는 방법에 대한 자세한 내용은 [Going social with DocumentDB(DocumentDB로 소셜 이동)](documentdb-social-media-apps.md)를 참조하세요. 
+이 소셜 참여 사이트는 NoSQL 데이터베이스가 이 작업에 대한 적절한 데이터 모델인 단 하나의 시나리오입니다. 이 시나리오 및 소셜 미디어 응용 프로그램에서 Azure Cosmos DB에 대한 데이터를 모델링하는 방법에 대한 자세한 내용은 [Going social with Azure Cosmos DB](documentdb-social-media-apps.md)(Azure Cosmos DB를 사용하여 소셜 네트워크 디자인)를 참조하세요. 
 
 ## <a name="nosql-vs-sql-comparison"></a>NoSQL과 SQL 비교
 다음 표에서 NoSQL과 SQL 간의 주요 차이점을 비교합니다. 
@@ -82,18 +84,18 @@ NoSQL 데이터베이스가 요구 사항에 가장 적합한 경우 계속해�
 ## <a name="what-are-the-microsoft-azure-nosql-offerings"></a>Microsoft Azure NoSQL에서 제공하는 서비스
 Azure에는 완벽하게 관리되는 4가지의 NoSQL 서비스가 있습니다. 
 
-* [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)
+* [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)
 * [Azure 테이블 저장소](https://azure.microsoft.com/services/storage/)
 * [HDInsight의 일부인 Azure HBase](https://azure.microsoft.com/services/hdinsight/)
 * [Azure Redis 캐시(영문)](https://azure.microsoft.com/services/cache/)
 
 다음 차트에서는 각 서비스에 대한 주요 차이점을 비교합니다. 응용 프로그램의 요구 사항을 가장 잘 설명하는 서비스는 무엇인가요? 
 
-![DocumentDB, 테이블 저장소, HDInsight의 일부인 HBase, Redis 캐시를 포함하여 Microsoft Azure의 NoSQL 제품을 사용하는 경우를 보여 주는 NoSQL 및 SQL 다이어그램입니다.](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
+![Azure Cosmos DB, Table Storage, HDInsight의 일부인 HBase, Redis Cache를 포함하여 Microsoft Azure의 NoSQL 제품을 사용하는 경우를 보여 주는 NoSQL 및 SQL 다이어그램입니다.](./media/documentdb-nosql-vs-sql/nosql-vs-sql-documentdb-storage-hbase-hdinsight-redis-cache.png)
 
 하나 이상의 서비스가 응용 프로그램의 요구 사항을 충족하는 경우 추가로 다음 리소스를 참조하세요. 
 
-* [DocumentDB 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/) 및 [DocumentDB 사용 사례](documentdb-use-cases.md)
+* [Azure Cosmos DB 사용 사례](documentdb-use-cases.md)
 * [Azure 테이블 저장소 시작](../storage/storage-dotnet-how-to-use-tables.md)
 * [HDInsight의 HBase는 무엇인가요?](../hdinsight/hdinsight-hbase-overview.md)
 * [Redis Cache 학습 경로](https://azure.microsoft.com/documentation/learning-paths/redis-cache/)
@@ -120,7 +122,7 @@ SQL 및 NoSQL 제품을 자세히 알아볼 수 있도록 무료 이용에 초�
 
 * 모든 Azure 서비스를 위해 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 에 등록한 후 $200 상당의 모든 Azure 서비스를 이용할 수 있습니다.
   
-  * [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)
+  * [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)
   * [HDInsight의 일부인 Azure HBase](https://azure.microsoft.com/services/hdinsight/)
   * [Azure Redis 캐시(영문)](https://azure.microsoft.com/services/cache/)
   * [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)

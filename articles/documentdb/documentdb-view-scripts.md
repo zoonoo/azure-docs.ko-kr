@@ -1,34 +1,35 @@
 ---
-title: "Azure DocumentDB 포털 도구: 스크립트 탐색기 | Microsoft Docs"
-description: "JavaScript 저장 프로시저, 트리거 및 사용자 정의 함수를 포함하여 DocumentDB 서버 쪽 프로그래밍 아티팩트를 관리하는 Azure Portal 도구인 DocumentDB 스크립트 탐색기에 대해 알아봅니다."
+title: "Azure Cosmos DB 포털 도구: 스크립트 탐색기 | Microsoft Docs"
+description: "JavaScript 저장 프로시저, 트리거 및 사용자 정의 함수를 포함하여 Azure Cosmos DB 서버 쪽 프로그래밍 아티팩트를 관리하는 Azure Portal 도구인 Azure Cosmos DB 스크립트 탐색기에 대해 알아봅니다."
 keywords: "javascript 편집기"
-services: documentdb
+services: cosmosdb
 author: kirillg
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: 9d0620da-2449-4c17-82a4-24aaa46e9b3e
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: kirillg
-translationtype: Human Translation
-ms.sourcegitcommit: 429687c6e5a196a3b489dc4dd79ae886b7ad9c38
-ms.openlocfilehash: ccff673996d53d2b3b2c177bfb6fff01613b7097
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: e9c3e92dd1c35ff6893565e61f7e7b940b6ede7e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="create-and-run-stored-procedures-triggers-and-user-defined-functions-using-the-documentdb-script-explorer"></a>저장 프로시저, 트리거 및 DocumentDB 스크립트 탐색기를 사용하는 사용자 정의 함수 만들기 및 실행
-이 문서에서는 저장 프로시저, 트리거 및 사용자 정의 함수를 포함하여 DocumentDB 서버 쪽 프로그래밍 아티팩트를 보고 실행할 수 있도록 하는 Azure 포털의 JavaScript 편집기인 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 스크립트 탐색기의 개요를 제공합니다. DocumentDB 서버 쪽 프로그래밍에 대한 자세한 내용은 [Stored procedures, database triggers, and UDFs](documentdb-programming.md) (저장 프로시저, 데이터베이스 트리거 및 UDF) 문서를 참조하세요.
+# <a name="create-and-run-stored-procedures-triggers-and-user-defined-functions-using-the-azure-cosmos-db-script-explorer"></a>저장 프로시저, 트리거 및 Azure Cosmos DB 스크립트 탐색기를 사용하는 사용자 정의 함수 만들기 및 실행
+이 문서에서는 저장 프로시저, 트리거 및 사용자 정의 함수를 포함하여 Cosmos DB 서버 쪽 프로그래밍 아티팩트를 보고 실행할 수 있도록 하는 Azure Portal의 JavaScript 편집기인 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 스크립트 탐색기의 개요를 제공합니다. Cosmos DB 서버 쪽 프로그래밍에 대한 자세한 내용은 [Stored procedures, database triggers, and UDFs](documentdb-programming.md)(저장 프로시저, 데이터베이스 트리거 및 UDF) 문서를 참조하세요.
 
 ## <a name="launch-script-explorer"></a>스크립트 탐색기 시작
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색에서 ![Azure DocumentDB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)**NoSQL(DocumentDB)**을 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 모음에서 ![Azure Cosmos DB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**을 클릭합니다. 
 
-    **NoSQL(DocumentDB)**이 표시되지 않으면 아래쪽에서 **추가 서비스**를 클릭한 다음 ![Azure DocumentDB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png)**NoSQL(DocumentDB)**을 클릭합니다.
+    **Azure Cosmos DB**가 표시되지 않으면 맨 아래에서 **추가 서비스**를 클릭한 다음 ![Azure Cosmos DB 아이콘](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **Azure Cosmos DB**을 클릭합니다.
 2. 리소스 메뉴에서 **스크립트 탐색기**를 클릭합니다.
    
     ![스크립트 탐색기 명령의 스크린샷](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -47,7 +48,7 @@ ms.lasthandoff: 02/15/2017
     ![스크립트 탐색기 새로 고침 명령의 스크린샷](./media/documentdb-view-scripts/scriptexplorerrefresh.png)
 
 ## <a name="create-view-and-edit-stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수 만들기, 보기 및 편집
-스크립트 탐색기를 사용하면 DocumentDB 서버 쪽 프로그래밍 아티팩트에 대해 쉽게 CRUD 작업을 수행할 수 있습니다.  
+스크립트 탐색기를 사용하면 Cosmos DB 서버 쪽 프로그래밍 아티팩트에 대해 쉽게 CRUD 작업을 수행할 수 있습니다.  
 
 * 스크립트를 만들려면 스크립트 탐색기 내에서 해당하는 만들기 명령을 클릭하고 ID를 제공한 다음 스크립트 내용을 입력하고 **저장**을 클릭합니다.
   
@@ -109,6 +110,5 @@ Azure 포털의 스크립트 탐색기는 저장 프로시저, 트리거 및 Doc
 ## <a name="next-steps"></a>다음 단계
 DocumentDB 서버 쪽 프로그래밍에 대한 자세한 내용은 [저장 프로시저, 데이터베이스 트리거 및 UDF](documentdb-programming.md) 문서를 참조하세요.
 
-[학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/) 도 DocumentDB에 대해 자세히 파악할 수 있는 유용한 리소스입니다.  
 
 

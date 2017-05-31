@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/08/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b3eebdd714b38ffd9432404944829d05ef3c3dc6
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2601850f99188445cf63a6a4f185bdc4ebb92c29
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -44,6 +44,12 @@ Seamless SSO는 Azure AD Connect를 통해 사용하도록 설정되고 [암호 
 
 ![Seamless Single Sign-On](./media/active-directory-aadconnect-sso/sso1.png)
 
+Seamless SSO의 다른 기능과 다음과 같습니다.
+
+- Azure AD 로그인 요청에 `domain_hint` 또는 `login_hint` 매개 변수가 포함되어 있으면(테넌트의 응용 프로그램에서 시작) Seamless SSO가 이를 활용하므로 사용자가 자신의 사용자 이름과 암호를 입력하지 않아도 됩니다.
+- Seamless SSO는 사용자 이름으로 온-프레미스 기본 사용자 이름(일반적으로 "userPrincipalName") 또는 Azure AD Connect에 구성된 또 다른 특성("대체 ID"라고 함)을 지원합니다.
+- Seamless SSO는 편의적인 기능입니다. 즉 SSO가 어떤 이유로 실패하는 경우 사용자 로그인 환경은 일반 동작으로 대체되므로 사용자는 로그인 페이지에 암호를 입력해야 합니다.
+
 ## <a name="whats-available-during-preview"></a>미리 보기 중에 무엇을 사용할 수 있나요?
 
 >[!NOTE]
@@ -63,8 +69,6 @@ Seamless SSO는 Windows 기반 데스크톱과 같이 Kerberos 인증이 가능�
 
 >[!NOTE]
 >Windows 10의 경우 최적의 Azure AD 환경을 위해 [Azure AD 조인](../active-directory-azureadjoin-overview.md)을 사용할 것을 권장합니다.
-
-Azure AD 로그인 요청에 `domain_hint` 또는 `login_hint` 매개 변수가 포함되어 있으면(테넌트의 응용 프로그램에서 시작) Seamless SSO가 이를 활용하므로 사용자가 자신의 사용자 이름과 암호를 입력하지 않아도 됩니다.
 
 ## <a name="how-does-azure-ad-seamless-sso-work"></a>Azure AD의 Seamless SSO 작동 방식
 
@@ -103,7 +107,7 @@ Seamless SSO는 편의적인 기능입니다. 즉 SSO가 어떤 이유로 실패
 
 - Azure AD Connect 서버는 `*.msappproxy.net` URL과 통신할 수 있습니다.
 - Azure AD Connect(버전 1.1.484.0 이상)가 포트 443을 통해 Azure AD에 대해 HTTPS 요청을 수행할 수 있습니다. 이 기능은 기능을 사용하도록 설정하는 데만 사용되고 실제 사용자 로그인에는 사용되지 않습니다.
-- Azure AD Connect가 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/details.aspx?id=41653)에 대한 직접적인 IP 연결을 생성할 수도 있습니다. 다시, 기능을 사용하도록 설정하는 데만 사용됩니다.
+- Azure AD Connect가 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 직접적인 IP 연결을 생성할 수도 있습니다. 다시, 기능을 사용하도록 설정하는 데만 사용됩니다.
 
 >[!NOTE]
 > Azure AD Connect의 이전 버전(1.1.484.0 이전)은 포트 9090을 통해 Azure AD와 통신할 수 있어야 합니다.
@@ -120,9 +124,9 @@ Azure AD Connect가 [빠른 설치](active-directory-aadconnect-get-started-expr
 
 ![Azure AD Connect - 사용자 로그인 변경](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
-"Single Sign-On" 페이지에 도달할 때까지 설치 마법사를 계속 진행합니다. Azure AD Connect를 통해 Azure AD로 동기화하는 각 AD 포리스트에 대해, 그리고 Seamless SSO를 사용할 사용자에 대해 도메인 관리자 자격 증명을 제공해야 합니다. 도메인 관리자 자격 증명은 Azure AD Connect 또는 Azure AD에 저장되지 않고 앞에서 설명한 대로 컴퓨터 계정을 만들고 Kerberos SPN을 구성하는 데만 사용됩니다.
+"Single Sign-On 사용" 페이지에 도달할 때까지 마법사를 계속 진행합니다. Azure AD Connect를 통해 Azure AD로 동기화하는 각 AD 포리스트에 대해, 그리고 Seamless SSO를 사용할 사용자에 대해 도메인 관리자 자격 증명을 제공해야 합니다. 도메인 관리자 자격 증명은 Azure AD Connect 또는 Azure AD에 저장되지 않고 앞에서 설명한 대로 컴퓨터 계정을 만들고 Kerberos SPN을 구성하는 데만 사용됩니다.
 
-이때 Seamless SSO가 테넌트에서 사용하도록 설정됩니다. 사용자가 이 기능을 활용할 수 있으려면 먼저 다음 섹션의 단계를 완료해야 합니다.
+마법사를 완료하면 SSO Seamless가 테넌트에서 사용하도록 설정됩니다. 사용자가 이 기능을 활용할 수 있으려면 먼저 다음 섹션의 단계를 완료해야 합니다.
 
 ## <a name="rolling-the-feature-out-to-your-users"></a>사용자에게 기능 롤아웃
 
@@ -142,10 +146,10 @@ Seamless SSO에 사용된 Azure AD URL에 마침표가 포함되어 있기 때�
 ![Single Sign-On](./media/active-directory-aadconnect-sso/sso6.png)  
 4. 정책을 사용하도록 설정하고 대화 상자에서 다음 값/데이터를 입력합니다. 이는 Kerberos 티켓이 전송되는 Azure AD URL입니다.
 
-        Value: https://autologon.microsoftazuread-sso.com  
-        Data: 1  
-        Value: https://aadg.windows.net.nsatc.net  
-        Data: 1  
+        Value: https://autologon.microsoftazuread-sso.com
+        Data: 1
+        Value: https://aadg.windows.net.nsatc.net
+        Data: 1
 5. **확인**을 클릭하고 **확인**을 다시 클릭합니다.
 
 다음과 같이 표시되어야 합니다.
@@ -155,29 +159,26 @@ Seamless SSO에 사용된 Azure AD URL에 마침표가 포함되어 있기 때�
 >[!NOTE]
 >기본적으로 Chrome은 Internet Explorer와 동일한 신뢰할 수 있는 사이트 URL 집합을 사용합니다. Chrome에 대해 다른 설정을 구성한 경우에는 해당 설정을 별도로 업데이트해야 합니다.
 
-## <a name="troubleshooting-seamless-sso"></a>Seamless SSO 문제 해결
+## <a name="disabling-azure-ad-seamless-sso"></a>Azure AD Seamless SSO를 사용하지 않도록 설정
 
-Seamless SSO 문제 해결에는 다음 검사 목록을 사용합니다.
+Azure AD Seamless SSO는 Azure AD Connect를 통해 사용하지 않도록 설정할 수 있습니다.
 
-1. Azure AD Connect 도구의 테넌트에서 Seamless SSO 기능이 사용되는지 확인합니다. 차단된 포트 등의 이유로 기능을 사용할 수 없으면 모든 [필수 구성 요소](#pre-requisites)가 포함되어 있는지 확인합니다. 그래도 기능을 사용하도록 설정하는 데 문제가 있으면 Microsoft 지원에 문의하세요.
-2. 두 서비스 URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net)이 모두 인트라넷 영역 설정의 일부로 정의됩니다.
-3. 회사 데스크톱이 AD 도메인에 가입되어 있는지 확인합니다.
-4. 사용자가 AD 도메인 계정으로 데스크톱에 로그온되어 있는지 확인합니다.
-5. 사용자의 계정이 Seamless SSO가 설정된 AD 포리스트에 있는지 확인합니다.
-6. 데스크톱이 회사 네트워크에 연결되어 있는지 확인합니다.
-7. 데스크톱의 시간이 Active Directory 및 도메인 컨트롤러 시간과 동기화되어 있고 서로 5분 이내에 있는지 확인합니다.
-8. 데스크톱에서 기존 Kerberos 티켓을 제거합니다. 이 작업을 수행하려면 명령 프롬프트에서 **klist purge** 명령을 실행합니다.
-9. 브라우저의 콘솔 로그("개발자 도구" 아래)를 검토하면 잠재적인 문제를 쉽게 확인할 수 있습니다.
+Azure AD Connect를 실행하고 “사용자 로그인 페이지 변경”(Change user sign-in page)을 선택하고 “다음”을 클릭합니다. 그런 다음 “Single Sign-On 사용” 옵션의 선택을 취소합니다. 마법사를 계속 진행합니다. 마법사를 완료하면 SSO Seamless가 테넌트에서 사용하지 않도록 설정됩니다. 그러나 다음과 같은 메시지가 화면에 표시됩니다.
 
-### <a name="domain-controller-logs"></a>도메인 컨트롤러 로그
+“Single Sign-On을 이제 사용하지 않도록 설정했습니다. 하지만 정리를 완료하기 위해 수행할 추가 수동 단계가 남아 있습니다. 자세한 정보”
 
-도메인 컨트롤러에서 성공 감사가 사용되면 사용자가 Seamless SSO를 통해 로그인할 때마다 보안 항목(컴퓨터 계정 **AzureADSSOAcc$**와 연결된 이벤트 4769)이 이벤트 로그에 기록됩니다. 다음 쿼리를 사용하여 이러한 보안 이벤트를 찾을 수 있습니다.
+다음은 필요한 수동 단계입니다.
 
-```
-    <QueryList>
-      <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ServiceName'] and (Data='AZUREADSSOACC$')]]</Select>
-      </Query>
-    </QueryList>
-```
+- Seamless SSO가 사용하도록 설정된 AD 포리스트 목록을 가져옵니다.
+  - PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 그러면 Azure AD 테넌트 관리자 자격 증명을 입력하라는 팝업 메시지가 표시되어야 합니다.
+  - `Get-AzureADSSOStatus`를 호출합니다. 그러면 이 기능이 사용하도록 설정된 AD 포리스트 목록("도메인" 목록처럼 보임)이 표시됩니다.
+- 위의 목록에서 찾은 각 AD 포리스트에서 AZUREADSSOACCT 컴퓨터 계정을 수동으로 삭제합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [문제 해결 가이드](active-directory-aadconnect-troubleshoot-sso.md)를 읽고 Azure AD Seamless SSO와 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
+
+## <a name="feedback"></a>사용자 의견
+
+Microsoft는 사용자의 의견을 소중하게 생각합니다. 문의 사항이 있으면 아래의 댓글 섹션을 사용하세요. 새로운 기능을 요청하려면 [UserVoice 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect)을 사용하세요.
 

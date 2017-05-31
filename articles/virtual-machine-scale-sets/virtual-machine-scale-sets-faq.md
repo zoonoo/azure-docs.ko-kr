@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/10/2017
+ms.date: 5/09/2017
 ms.author: negat
 ms.custom: na
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1c7b4c4b7675bfc33e102c9abb4f942a1dd33ad4
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: de67dba5e615db8138957420a1db89d444a37d67
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -100,15 +100,19 @@ VM에 인증서를 안전하게 전달하기 위해 고객의 Key Vault에서 Wi
 다음 JSON을 사용합니다.
 
 ```json
-        "secrets": [ {
-              "sourceVault": {
-                      "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
-          },
-          "vaultCertificates": [ {
-                      "certificateUrl": "https://mykeyvault1.vault.azure.net/secrets/{secretname}/{secret-version}",
-                  "certificateStore": "certificateStoreName"
-          } ]
-        } ]
+"secrets": [
+    {
+        "sourceVault": {
+            "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
+        },
+        "vaultCertificates": [
+            {
+                "certificateUrl": "https://mykeyvault1.vault.azure.net/secrets/{secretname}/{secret-version}",
+                "certificateStore": "certificateStoreName"
+            }
+        ]
+    }
+]
 ```
 
 코드는 Windows와 Linux를 모두 지원합니다.
@@ -122,42 +126,42 @@ VM에 인증서를 안전하게 전달하기 위해 고객의 Key Vault에서 Wi
 
     다음 PowerShell 명령을 사용합니다.
 
-  ```powershell
-  Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+    ```powershell
+    Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-  Login-AzureRmAccount
+    Login-AzureRmAccount
 
-  Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
-  ```
+    Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
+    ```
 
-  이 명령은 Azure Resource Manager 템플릿에 대한 입력을 제공합니다.
+    이 명령은 Azure Resource Manager 템플릿에 대한 입력을 제공합니다.
 
-  Key Vault에서 자체 서명된 인증서를 만드는 방법에 대한 예제를 보려면 [Service Fabric 클러스터 보안 시나리오](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)를 참조하세요.
+    Key Vault에서 자체 서명된 인증서를 만드는 방법에 대한 예제를 보려면 [Service Fabric 클러스터 보안 시나리오](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)를 참조하세요.
 
 2.  Resource Manager 템플릿을 변경합니다.
 
-  가상 컴퓨터 크기 집합 리소스의 일부로 **virtualMachineProfile**에 다음 속성을 추가합니다.
+    가상 컴퓨터 크기 집합 리소스의 일부로 **virtualMachineProfile**에 다음 속성을 추가합니다.
 
-  ```json 
-  "osProfile": {
-              "computerNamePrefix": "[variables('namingInfix')]",
-              "adminUsername": "[parameters('adminUsername')]",
-              "adminPassword": "[parameters('adminPassword')]",
-              "secrets": [
-                {
-                  "sourceVault": {
+    ```json 
+    "osProfile": {
+        "computerNamePrefix": "[variables('namingInfix')]",
+        "adminUsername": "[parameters('adminUsername')]",
+        "adminPassword": "[parameters('adminPassword')]",
+        "secrets": [
+            {
+                "sourceVault": {
                     "id": "[resourceId('KeyVault', 'Microsoft.KeyVault/vaults', 'MikhegnVault')]"
-                  },
-                  "vaultCertificates": [
+                },
+                "vaultCertificates": [
                     {
-                      "certificateUrl": "https://mikhegnvault.vault.azure.net:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
-                      "certificateStore": "My"
+                        "certificateUrl": "https://mikhegnvault.vault.azure.net:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
+                        "certificateStore": "My"
                     }
-                  ]
-                }
-              ]
+                ]
             }
-  ```
+        ]
+    }
+    ```
   
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Resource Manager 템플릿에서 Linux 가상 컴퓨터 크기 집합으로 SSH 인증에 사용하려는 SSH 키 쌍을 지정할 수 있나요?  
@@ -168,20 +172,20 @@ VM에 인증서를 안전하게 전달하기 위해 고객의 Key Vault에서 Wi
 
 ```json 
 "osProfile": {
-          "computerName": "[variables('vmName')]",
-          "adminUsername": "[parameters('adminUserName')]",
-          "linuxConfiguration": {
-            "disablePasswordAuthentication": "true",
-            "ssh": {
-              "publicKeys": [
+    "computerName": "[variables('vmName')]",
+    "adminUsername": "[parameters('adminUserName')]",
+    "linuxConfiguration": {
+        "disablePasswordAuthentication": "true",
+        "ssh": {
+            "publicKeys": [
                 {
-                  "path": "[variables('sshKeyPath')]",
-                  "keyData": "[parameters('sshKeyData')]"
+                    "path": "[variables('sshKeyPath')]",
+                    "keyData": "[parameters('sshKeyData')]"
                 }
-              ]
-            }
-          }
+            ]
         }
+    }
+}
 ```
  
 이 JSON 블록은  [101-vm-sshkey GitHub 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)에서 사용됩니다.
@@ -204,13 +208,15 @@ VM에 공개 SSH 키만 프로비전하는 경우 Key Vault에 공개 키를 적
 Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있습니다.
 
 ```json
-"linuxConfiguration": {  
-          "ssh": {  
-            "publicKeys": [ {  
-              "path": "path",
-              "keyData": "publickey"
-            } ]
-          }
+"linuxConfiguration": {
+    "ssh": {
+        "publicKeys": [
+            {
+                "path": "path",
+                "keyData": "publickey"
+            }
+        ]
+    }
 ```
  
 linuxConfiguration 요소 이름 | 필수 | 형식 | 설명
@@ -224,7 +230,7 @@ keyData | 예 | String | base64로 인코딩된 SSH 공개 키를 지정합니�
  
 ### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>동일한 Key Vault에서 둘 이상의 인증서를 추가한 후에 `Update-AzureRmVmss`를 실행하면 다음과 같은 메시지가 나타납니다.
  
-  Update-AzureRmVmss: 허용되지 않는 /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev의 반복된 인스턴스를 포함하고 있는 비밀을 나열합니다.
+>Update-AzureRmVmss: 허용되지 않는 /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev의 반복된 인스턴스를 포함하고 있는 비밀을 나열합니다.
  
 이 기존 원본 자격 증명 모음에 대해 새 자격 증명 모음 인증서를 사용하는 대신, 동일한 자격 증명 모음을 다시 추가하려고 하면 이러한 현상이 발생할 수 있습니다. 다른 비밀을 더 추가하는 경우 `Add-AzureRmVmssSecret` 명령은 제대로 작동하지 않습니다.
  
@@ -404,28 +410,28 @@ Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -Virtua
 확장을 정의하려면 JsonADDomainExtension 속성을 사용합니다.
 
 ```json
-                    "extensionProfile": {
-                        "extensions": [
-                            {
-                                "name": "joindomain",
-                                "properties": {
-                                    "publisher": "Microsoft.Compute",
-                                    "type": "JsonADDomainExtension",
-                                    "typeHandlerVersion": "1.3",
-                                    "settings": {
-                                        "Name": "[parameters('domainName')]",
-                                        "OUPath": "[variables('ouPath')]",
-                                        "User": "[variables('domainAndUsername')]",
-                                        "Restart": "true",
-                                        "Options": "[variables('domainJoinOptions')]"
-                                    },
-                                    "protectedsettings": {
-                                        "Password": "[parameters('domainJoinPassword')]"
-                                    }
-                                }
-                            }
-                        ]
-                    }
+"extensionProfile": {
+    "extensions": [
+        {
+            "name": "joindomain",
+            "properties": {
+                "publisher": "Microsoft.Compute",
+                "type": "JsonADDomainExtension",
+                "typeHandlerVersion": "1.3",
+                "settings": {
+                    "Name": "[parameters('domainName')]",
+                    "OUPath": "[variables('ouPath')]",
+                    "User": "[variables('domainAndUsername')]",
+                    "Restart": "true",
+                    "Options": "[variables('domainJoinOptions')]"
+                },
+                "protectedsettings": {
+                    "Password": "[parameters('domainJoinPassword')]"
+                }
+            }
+        }
+    ]
+}
 ```
  
 ### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot-for-example-commandtoexecute-powershellexe--executionpolicy-unrestricted-install-windowsfeature-name-fs-resource-manager-includemanagementtools"></a>내 가상 컴퓨터 크기 집합은 설치를 시도하며 이로 인해 재부팅이 필요합니다. 예: "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted Install-WindowsFeature –Name FS-Resource-Manager –IncludeManagementTools"
@@ -463,14 +469,49 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ## <a name="networking"></a>네트워킹
  
+### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>집합의 모든 VM NIC에 적용되도록 확장 집합에 NSG(네트워크 보안 그룹)를 할당할 수 있나요?
+
+예. 네트워크 프로필의 networkInterfaceConfigurations 섹션에서 참조하여 네트워크 보안 그룹을 확장 집합에 직접 적용할 수 있습니다. 예제:
+
+```json
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+        {
+            "name": "nic1",
+            "properties": {
+                "primary": "true",
+                "ipConfigurations": [
+                    {
+                        "name": "ip1",
+                        "properties": {
+                            "subnet": {
+                                "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
+                            }
+                "loadBalancerInboundNatPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/inboundNatPools/natPool1')]"
+                                }
+                            ],
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "networkSecurityGroup": {
+                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]"
+                }
+            }
+        }
+    ]
+}
+```
+
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>동일한 구독 및 동일한 지역에서 가상 컴퓨터 크기 집합에 대해 VIP 교환을 수행하려면 어떻게 합니까?
 
 동일한 구독 및 동일한 하위 지역의 가상 컴퓨터 크기 집합에 대해 VIP 교환을 수행하려면 [VIP 교환: Azure Resource Manager의 청록색 배포](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)를 참조하세요.
- 
-  
-### <a name="what-is-the-resourceguid-property-on-a-nic-used-for"></a>NIC에 대해 어떤 resourceGuid 속성이 사용되나요?
-
-NIC(네트워크 인터페이스 카드)에 대한 resourceGuid 속성은 고유한 ID입니다. 하위 계층에서 나중에 이 ID를 기록할 것입니다. 
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>정적 개인 IP 주소를 할당하는 데 사용할 개인 IP 주소의 범위를 지정하려면 어떻게 하나요?
 
@@ -505,34 +546,39 @@ VM이 2개 미만인 가상 컴퓨터 크기 집합을 만드는 또 다른 경�
 지정된 임계값에 대한 경고를 처리하는 방법은 다소 유연한 편입니다. 예를 들어 사용자 지정 웹후크를 정의할 수 있습니다. 다음 웹후크 예제는 Resource Manager 템플릿에서 가져옵니다.
 
 ```json
-   {
-         "type": "Microsoft.Insights/autoscaleSettings",
-           "apiVersion": "[variables('insightsApi')]",
-                 "name": "autoscale",
-                   "location": "[parameters('resourceLocation')]",
-                     "dependsOn": [
-                         "[concat('Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]"
-                 ],
-                 "properties": {
-                         "name": "autoscale",
-                     "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
-                     "enabled": true,
-                     "notifications": [{
-                               "operation": "Scale",
-                              "email": {
-                                     "sendToSubscriptionAdministrator": true,
-                                     "sendToSubscriptionCoAdministrators": true,
-                                     "customEmails": [
-                                        "youremail@address.com"
-                                     ]},
-                              "webhooks": [{
-                                    "serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
-                                    "properties": {
-                                        "key1": "custommetric",
-                                        "key2": "scalevmss"
-                                    }
-                                    }
-                              ]}],
+{
+    "type": "Microsoft.Insights/autoscaleSettings",
+    "apiVersion": "[variables('insightsApi')]",
+    "name": "autoscale",
+    "location": "[parameters('resourceLocation')]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]"
+    ],
+    "properties": {
+        "name": "autoscale",
+        "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
+        "enabled": true,
+        "notifications": [
+            {
+                "operation": "Scale",
+                "email": {
+                    "sendToSubscriptionAdministrator": true,
+                    "sendToSubscriptionCoAdministrators": true,
+                    "customEmails": [
+                        "youremail@address.com"
+                    ]
+                },
+                "webhooks": [
+                    {
+                        "serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
+                        "properties": {
+                            "key1": "custommetric",
+                            "key2": "scalevmss"
+                        }
+                    }
+                ]
+            }
+        ],
 ```
 
 이 예제에서는 임계값에 도달될 경우 경고가 Pagerduty.com으로 이동됩니다.
@@ -568,12 +614,12 @@ VM이 2개 미만인 가상 컴퓨터 크기 집합을 만드는 또 다른 경�
 부팅 진단을 켜려면 먼저 저장소 계정을 만듭니다. 그런 후 이 JSON 블록을 가상 컴퓨터 크기 집합 **virtualMachineProfile**에 배치하고 해당 가상 컴퓨터 크기 집합을 업데이트합니다.
 
 ```json
-      "diagnosticsProfile": {
-        "bootDiagnostics": {
-          "enabled": true,
-          "storageUri": "http://yourstorageaccount.blob.core.windows.net"
-        }
-      }
+"diagnosticsProfile": {
+    "bootDiagnostics": {
+        "enabled": true,
+        "storageUri": "http://yourstorageaccount.blob.core.windows.net"
+    }
+}
 ```
 
 새 VM이 만들어지면 VM의 InstanceView 속성에 스크린샷 등에 대한 세부 정보가 표시됩니다. 예를 들면 다음과 같습니다.

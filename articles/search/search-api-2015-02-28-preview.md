@@ -12,11 +12,13 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: search
-ms.date: 09/07/2016
+ms.date: 05/01/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 524d3300e621d8e383833198c14c2e2e8461683b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ea3fc801074bb6d7e7c32574bc94702c79a61185
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -153,7 +155,7 @@ HTTP POST 또는 PUT 요청을 사용하여 Azure 검색 서비스 내에서 새
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
-* `Content-Type`: 필수 사항입니다.  `application/json`
+* `Content-Type`: 필수 사항입니다. `application/json`
 * `api-key`: 필수 사항입니다. `api-key` 는
 * 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
 
@@ -274,7 +276,7 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
 
 `key` - 필드가 인덱스 내의 문서에 대한 고유 식별자를 포함하는 것으로 표시합니다. 정확히 하나의 필드를 `key` 필드로 선택해야 하며 해당 필드의 형식은 `Edm.String`이어야 합니다. 키 필드를 사용하면 [문서 조회](#LookupAPI)를 통해 문서를 직접 조회할 수 있습니다.
 
-`retrievable` - 검색 결과에서 필드를 반환할 수 있는지 여부를 설정합니다.  이익 등의 필드를 필터, 정렬 또는 점수 매기기 메커니즘으로 사용하며 최종 사용자에게는 필드를 표시하지 않으려는 경우 이 기능을 사용하면 유용합니다.  `true` for `key` 로 설정해야 합니다.
+`retrievable` - 검색 결과에서 필드를 반환할 수 있는지 여부를 설정합니다.  이익 등의 필드를 필터, 정렬 또는 점수 매기기 메커니즘으로 사용하며 최종 사용자에게는 필드를 표시하지 않으려는 경우 이 기능을 사용하면 유용합니다. `true` for `key` 로 설정해야 합니다.
 
 `analyzer` - 필드의 검색 시간 및 인덱싱 시간에 사용할 분석기 이름을 설정합니다. 허용되는 값은 [분석기](https://msdn.microsoft.com/library/mt605304.aspx)를 참조하세요. 이 옵션은 `searchable` 필드에만 사용할 수 있으며 `searchAnalyzer` 또는 `indexAnalyzer`와 함께 설정할 수 없습니다.  필드에 대해 분석기를 선택한 후에는 변경할 수 없습니다.
 
@@ -748,7 +750,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
-* `Content-Type`: 필수 사항입니다.  `application/json`
+* `Content-Type`: 필수 사항입니다. `application/json`
 * `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 업데이트** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
 
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key` 는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md) 를 참조하세요.
@@ -1119,7 +1121,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 ## <a name="document-operations"></a>문서 작업
 Azure 검색에서는 인덱스가 클라우드에 저장되며 서비스에 업로드하는 JSON 문서를 사용하여 인덱스를 채웁니다. 업로드하는 모든 문서는 검색 데이터 모음으로 구성됩니다. 문서에는 필드가 포함되며, 이러한 필드 중 일부는 문서 업로드 시 검색 용어로 토큰화됩니다. Azure 검색 API의 `/docs` URL 세그먼트는 인덱스의 문서 컬렉션을 나타냅니다. 문서 업로드/병합/삭제/쿼리 등 컬렉션에 대해 수행하는 모든 작업은 단일 인덱스의 컨텍스트에서 수행되므로 이러한 작업의 URL은 항상 지정된 인덱스 이름에 대해 `/indexes/[index name]/docs` 로 시작됩니다.
 
-응용 프로그램 코드는 Azure Search에 업로드할 수 있는 JSON 문서를 생성해야 합니다. 또는 데이터 원본이 Azure SQL Database 또는 DocumentDB인 경우 [인덱서](https://msdn.microsoft.com/library/dn946891.aspx)를 사용하여 문서를 로드할 수도 있습니다. 일반적으로 인덱스는 사용자가 제공하는 단일 데이터 집합에서 채워집니다.
+응용 프로그램 코드는 Azure Search에 업로드할 수 있는 JSON 문서를 생성해야 합니다. 또는 데이터 원본이 Azure SQL Database 또는 Azure Cosmos DB인 경우 [인덱서](https://msdn.microsoft.com/library/dn946891.aspx)를 사용하여 문서를 로드할 수도 있습니다. 일반적으로 인덱스는 사용자가 제공하는 단일 데이터 집합에서 채워집니다.
 
 검색하려는 항목당 문서 하나를 포함하도록 계획해야 합니다. 예를 들어 영화 대여 응용 프로그램은 영화당 문서 하나를, 상점 응용 프로그램은 SKU당 문서 하나를, 온라인 교육 과정 응용 프로그램은 과정당 문서 하나를, 리서치 업체는 리포지토리의 학술 문서당 문서 하나를 포함할 수 있습니다.
 
@@ -1148,7 +1150,7 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
-* `Content-Type`: 필수 사항입니다.  `application/json`
+* `Content-Type`: 필수 사항입니다. `application/json`
 * `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **문서 추가** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
 
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key` 는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md) 를 참조하세요.
@@ -1968,9 +1970,4 @@ POST의 경우:
       "top": 5,
       "suggesterName": "sg"
     }
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: bbe76873c94aea0db7843af36d8a8d44d7565bbb
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 9550b0076105b018bd8ede50519ac96bfb773001
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -45,7 +46,7 @@ ms.lasthandoff: 04/22/2017
 
 * ExpressRoute/S2S 공존 연결을 만들지 않습니다.
 * 기존 연결로 Resource Manager 배포 모델을 사용하여 만든 가상 네트워크가 있습니다.
-* VNet용 가상 네트워크 게이트웨이는 RouteBased입니다. PolicyBased VPN 게이트웨이가 있다면 가상 네트워크 게이트웨이를 삭제하고 새 VPN 게이트웨이를 RoutBased로 만들어야 합니다.
+* VNet용 가상 네트워크 게이트웨이는 RouteBased입니다. PolicyBased VPN 게이트웨이가 있다면 가상 네트워크 게이트웨이를 삭제하고 새 VPN 게이트웨이를 RouteBased로 만들어야 합니다.
 * 어떠한 주소 범위도 이 Vnet이 연결하고 있는 Vnet에 대해 겹치지 않습니다.
 * 호환되는 VPN 장치 및 그것을 구성할 수 있는 사람이 있습니다. [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 장치를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
 * VPN 장치에 대한 외부 연결 공용 IP 주소가 있습니다. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
@@ -94,3 +95,4 @@ ms.lasthandoff: 04/22/2017
 ## <a name="next-steps"></a>다음 단계
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 가상 컴퓨터 [학습 경로](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) 를 참조하세요.
+

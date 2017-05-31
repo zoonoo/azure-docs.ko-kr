@@ -9,15 +9,15 @@ editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 8df9fbf4b09cb63cafc9d43592edc68068a28f14
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1469e7a2f5f41ef52c0ff77e6e70378951594135
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -159,7 +159,7 @@ Microsoft R을 사용하여 데이터베이스 내 분석을 사용하도록 설
 * **AzCopy**: Microsoft Azure Storage 계정 내부/외부로 데이터를 이동시키는 데 사용합니다. 사용법을 보려면 명령 프롬프트에 **Azcopy** 를 입력합니다. 
 * **Microsoft Azure Storage Explorer**: Azure Storage 계정 내에 저장한 개체를 검색하고, Azure Storage 내부/외부로 데이터를 전송하는 데 사용합니다. 검색에 **Storage Explorer** 를 입력하거나 Windows 시작 메뉴에서 찾은 후 이 도구에 액세스할 수 있습니다. 
 * **Adlcopy**: Azure Data Lake로 데이터를 이동하는 데 사용합니다. 사용법을 보려면 명령 프롬프트에 **adlcopy** 를 입력하면 됩니다. 
-* **dtui**: 클라우드의 Azure DocumentDB, NoSQL 데이터베이스 내부/외부로 데이터를 이동하는 데 사용합니다. 명령 프롬프트에 **dtui** 를 입력하면 됩니다. 
+* **dtui**: 클라우드의 NoSQL 데이터베이스인 Azure Cosmos DB로 데이터를 이동하거나 그 반대로 이동하는 데 사용됩니다. 명령 프롬프트에 **dtui** 를 입력하면 됩니다. 
 * **Microsoft 데이터 관리 게이트웨이**: 온-프레미스 데이터 원본과 클라우드 간에 데이터를 이동할 수 있도록 합니다. Azure Data Factory와 같은 도구 내에서 사용됩니다. 
 * **Microsoft Azure Powershell**: VM에도 설치된 Powershell 스크립트 언어의 Azure 리소스를 관리하는 데 사용되는 도구입니다. 
 
