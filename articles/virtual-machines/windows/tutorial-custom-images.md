@@ -13,21 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/08/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: ab19073735816ebb32a9840ec03b31b358ccb565
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 773b37ec8f775d68f1faca0d252f3064c7de0317
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
-이 자습서에서는 Azure 가상 컴퓨터의 사용자 지정 이미지를 정의하는 방법에 대해 알아봅니다. 사용자 지정 이미지를 사용하면 이미 구성되어 있는 이미지를 사용하여 VM을 만들 수 있습니다. 사용자 지정 이미지는 이진 파일 및 응용 프로그램 사전 로드, 응용 프로그램 구성, VM 데이터 디스크 정의, 기타 OS 구성을 부트스트랩하는 데 사용할 수 있습니다. 사용자 지정 이미지를 만들 때 사용자 지정하는 VM 및 연결된 모든 디스크가 이미지에 포함됩니다.
+사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 응용 프로그램 사전 로드, 응용 프로그램 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 이 자습서에서는 Azure Virtual Machines의 사용자 지정 이미지를 만듭니다. 다음 방법에 대해 알아봅니다.
 
-최신 [Azure PowerShell](/powershell/azure/overview) 모듈을 사용하여 이 자습서의 단계를 완료할 수 있습니다.
+> [!div class="checklist"]
+> * VM Sysprep 및 일반화
+> * 사용자 지정 이미지 만들기
+> * 사용자 지정 이미지에서 VM 만들기
+> * 구독에 모든 이미지 나열
+> * 이미지 삭제
+
+이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -169,11 +176,40 @@ New-AzureRmVM `
     -VM $vmConfig
 ```
 
+## <a name="image-management"></a>이미지 관리 
+
+일반적인 이미지 관리 작업의 몇 가지 예제와 PowerShell을 사용하여 완료하는 방법은 다음과 같습니다.
+
+이름별로 모든 이미지를 나열합니다.
+
+```powershell
+$images = Find-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images.name
+```
+
+이미지를 삭제합니다. 이 예제에서는 *myResourceGroup*에서 *myOldImage*라는 이미지를 삭제합니다.
+
+```powershell
+Remove-AzureRmImage `
+    -ImageName myOldImage `
+    -ResourceGroupName myResourceGroup
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 사용자 지정 VM 이미지 만들기에 대해 알아보았습니다. 고가용성 Virtual Machines에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
+이 자습서에서는 사용자 지정 VM 이미지를 만들었습니다. 다음 방법에 대해 알아보았습니다.
 
-[항상 사용 가능한 VM 만들기](tutorial-availability-sets.md)
+> [!div class="checklist"]
+> * VM Sysprep 및 일반화
+> * 사용자 지정 이미지 만들기
+> * 사용자 지정 이미지에서 VM 만들기
+> * 구독에 모든 이미지 나열
+> * 이미지 삭제
+
+고가용성 Virtual Machines에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
+
+> [!div class="nextstepaction"]
+> [항상 사용 가능한 VM 만들기](tutorial-availability-sets.md)
 
 
 

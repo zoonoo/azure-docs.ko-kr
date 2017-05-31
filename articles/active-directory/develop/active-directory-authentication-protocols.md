@@ -14,10 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 51c6a8ae17821d4eb00bf26612bc6e1e434ebbd9
-ms.lasthandoff: 04/18/2017
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 27c582436bd57adfb5e8edb0f63c0f206db66c89
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -30,7 +32,8 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 * [페더레이션 메타데이터](active-directory-federation-metadata.md) - Azure AD에서 생성되는 메타데이터 문서를 찾고 해석하는 방법을 알아봅니다.
 * [Azure AD의 OAuth 2.0](active-directory-protocols-oauth-code.md) - Azure AD의 OAuth 2.0 구현에 대해 알아봅니다.
 * [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) - 권한 부여 프로토콜 OAuth 2.0을 인증에 사용하는 방법을 알아봅니다.
-* [서비스 간 호출](active-directory-protocols-oauth-service-to-service.md) - 서비스 간 호출을 위해 OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하는 방법을 알아봅니다.
+* [클라이언트 자격 증명을 사용한 서비스 간 호출](active-directory-protocols-oauth-service-to-service.md) - 서비스 간 호출을 위해 OAuth 2.0 클라이언트 자격 증명 부여 흐름을 사용하는 방법을 알아봅니다.
+* [On-Behalf-Of 흐름을 사용한 서비스 간 호출](active-directory-protocols-oauth-on-behalf-of.md) - 서비스 간 호출을 위해 OAuth 2.0 On-Behalf-Of 흐름을 사용하는 방법을 알아봅니다.
 * [SAML 프로토콜 참조](active-directory-saml-protocol-reference.md) - Azure AD의 Single Sign On 및 Single Sign Out SAML 프로필에 대해 알아봅니다.
 
 ## <a name="see-also"></a>참고 항목
@@ -39,5 +42,4 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 [인증에 Azure AD 사용](../../app-service-web/web-sites-authentication-authorization.md)
 
 [Active Directory 코드 샘플](active-directory-code-samples.md)
-
 

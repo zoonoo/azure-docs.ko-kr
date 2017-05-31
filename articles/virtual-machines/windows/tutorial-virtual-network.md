@@ -13,30 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/18/2017
+ms.date: 05/02/2017
 ms.author: davidmu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: e1b3e9756e149c5cba67f8b5c37e1d153dbf81ab
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7fd0ace35cfe0286c874e4a75b733053aa945d39
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Virtual Network 및 Windows Virtual Machines 관리
 
-이 자습서에서는 VNet(가상 네트워크)에 여러 VM(가상 컴퓨터)을 만드는 방법을 알아보고 이러한 컴퓨터 간에 네트워크 연결을 구성합니다. 완료되면 HTTP 연결의 경우 포트 80을 통해 인터넷에서 '프런트 엔드' VM에 액세스할 수 있습니다. SQL Server 데이터베이스가 있는 '백 엔드' VM은 격리되며, 포트 1433에서 프런트 엔드 VM을 통해서만 액세스할 수 있습니다.
+Azure Virtual Machines는 내부 및 외부 네트워크 통신에서 Azure 네트워킹을 사용합니다. 이 자습서에서는 가상 네트워크에 여러 VM(가상 컴퓨터)을 만들고 이러한 컴퓨터 간에 네트워크 연결을 구성합니다. 다음 방법에 대해 알아봅니다.
 
-최신 [Azure PowerShell](/powershell/azure/overview) 모듈을 사용하여 이 자습서의 단계를 완료할 수 있습니다.
+> [!div class="checklist"]
+> * 가상 네트워크 만들기
+> * 가상 네트워크 서브넷 만들기
+> * 네트워크 보안 그룹을 사용하여 네트워크 트래픽 제어
+> * 트래픽 규칙의 실제 동작 보기
+
+이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 ## <a name="create-vnet"></a>VNet 만들기
 
 VNet은 클라우드의 사용자 네트워크를 나타내는 표현입니다. 구독 전용 Azure 클라우드를 논리적으로 격리한 것이 VNet입니다. VNet 내에서 서브넷, 해당 서브넷에 대한 연결 규칙 및 VM에서 서브넷으로의 연결을 찾습니다.
 
-다른 Azure 리소스를 만들려면 먼저 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 리소스 그룹을 만들어야 합니다. 다음 예제에서는 *westus* 위치에 *myRGNetwork*라는 리소스 그룹을 만듭니다.
+다른 Azure 리소스를 만들려면 먼저 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 리소스 그룹을 만들어야 합니다. 다음 예제에서는 *EastUS* 위치에 *myRGNetwork*라는 리소스 그룹을 만듭니다.
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location westus
+New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
 서브넷은 VNet의 자식 리소스이며, IP 주소 접두사를 사용하여 CIDR 블록 내의 주소 공간 세그먼트를 정의하는 데 도움이 됩니다. NIC는 서브넷에 추가하고 VM에 연결하여 다양한 워크로드에 대한 연결을 제공할 수 있습니다.
@@ -54,7 +60,7 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 ```powershell
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myVNet `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $frontendSubnet
@@ -69,7 +75,7 @@ VM이 VNet에서 통신하려면 가상 네트워크 인터페이스(NIC)가 필
 ```powershell
 $pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -AllocationMethod Static `
   -Name myPublicIPAddress
 ```
@@ -80,7 +86,7 @@ $pip = New-AzureRmPublicIpAddress `
 ```powershell
 $frontendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myFrontendNic `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id
@@ -122,7 +128,7 @@ $frontendVM = Add-AzureRmVMNetworkInterface `
     -Id $frontendNic.Id
 New-AzureRmVM `
     -ResourceGroupName myRGNetwork `
-    -Location westus `
+    -Location EastUS `
     -VM $frontendVM
 ```
 
@@ -184,7 +190,7 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
 ```powershell
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myBackendNSG `
   -SecurityRules $nsgBackendRule
 ```
@@ -213,7 +219,7 @@ $vnet = Get-AzureRmVirtualNetwork `
 ```powershell
 $backendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -Name myBackendNic `
   -SubnetId $vnet.Subnets[1].Id
 ```
@@ -254,7 +260,7 @@ $backendVM = Add-AzureRmVMNetworkInterface `
   -Id $backendNic.Id
 New-AzureRmVM `
   -ResourceGroupName myRGNetwork `
-  -Location westus `
+  -Location EastUS `
   -VM $backendVM
 ```
 
@@ -262,6 +268,16 @@ New-AzureRmVM `
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 가상 컴퓨터에 관련된 Azure 네트워크를 만들고 보호하는 방법을 배웠습니다. 다음 자습서로 이동하여 Azure Security Center를 통해 VM 보안을 모니터링하는 방법을 알아보세요.
+이 자습서에서는 가상 컴퓨터와 관련된 Azure Networks를 만들고 보호했습니다. 
 
-[가상 컴퓨터 보안 관리](./tutorial-azure-security.md)
+> [!div class="checklist"]
+> * 가상 네트워크 만들기
+> * 가상 네트워크 서브넷 만들기
+> * 네트워크 보안 그룹을 사용하여 네트워크 트래픽 제어
+> * 트래픽 규칙의 실제 동작 보기
+
+다음 자습서로 이동하여 Azure Backup을 사용하는 가상 컴퓨터의 데이터 보안 모니터링에 대해 알아보세요. 을 참조하세요.
+
+> [!div class="nextstepaction"]
+> [Azure에서 Windows 가상 컴퓨터 백업](./tutorial-backup-vms.md)
+

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/02/2017
+ms.date: 05/08/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0053f93218e9fec4d72fb229bfb2c6159d8b5bc7
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: d129ea9e5f3e320ccd705028f9860188babe2fe4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -55,7 +56,7 @@ PowerShell을 사용하여 Data Lake Store를 사용하도록 HDInsight를 구�
 ## <a name="create-a-data-lake-store-account"></a>Data Lake 저장소 계정 만들기
 Data Lake Store 계정을 만들려면 다음을 수행합니다.
 
-1. 바탕 화면에서 PowerShell 창을 열고 다음 코드 조각을 입력합니다.
+1. 바탕 화면에서 PowerShell 창을 열고 다음 코드 조각을 입력합니다. 로그인하라는 메시지가 표시되면 구독 관리자 또는 소유자 중 하나로 로그인합니다. 
 
         # Sign in to your Azure account
         Login-AzureRmAccount
@@ -73,26 +74,42 @@ Data Lake Store 계정을 만들려면 다음을 수행합니다.
     > Data Lake Store 리소스 공급자를 등록하고 `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`과 유사한 오류가 발생하는 경우 구독을 Data Lake Store에 대한 허용 목록에 추가할 수 없습니다. Data Lake Store 공개 미리 보기에 Azure 구독을 사용하려면 [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)의 지침에 따르세요.
     >
 
-2. 로그인하라는 메시지가 표시되면 구독 관리자 또는 소유자 중 하나로 로그인합니다.
-3. Data Lake Store 계정은 Azure 리소스 그룹과 연결됩니다. 리소스 그룹을 만들기 시작합니다.
+2. Data Lake Store 계정은 Azure 리소스 그룹과 연결됩니다. 리소스 그룹을 만들기 시작합니다.
 
         $resourceGroupName = "<your new resource group name>"
         New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-    ![Azure 리소스 그룹 만들기](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Azure 리소스 그룹 만들기")
+    다음과 유사한 출력이 표시됩니다.
+
+        ResourceGroupName : hdiadlgrp
+        Location          : eastus2
+        ProvisioningState : Succeeded
+        Tags              :
+        ResourceId        : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp
+
 3. Data Lake Store 계정을 만듭니다. 지정하는 계정 이름은 소문자와 숫자만 포함해야 합니다.
 
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
-    ![Azure Data Lake 계정 만들기](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateADLAcc.png "Azure Data Lake 계정 만들기")
-4. 계정이 성공적으로 만들어졌는지 확인합니다.
+    다음과 유사한 출력이 표시됩니다.
 
-        Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
+        ...
+        ProvisioningState           : Succeeded
+        State                       : Active
+        CreationTime                : 5/5/2017 10:53:56 PM
+        EncryptionState             : Enabled
+        ...
+        LastModifiedTime            : 5/5/2017 10:53:56 PM
+        Endpoint                    : hdiadlstore.azuredatalakestore.net
+        DefaultGroup                :
+        Id                          : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp/providers/Microsoft.DataLakeStore/accounts/hdiadlstore
+        Name                        : hdiadlstore
+        Type                        : Microsoft.DataLakeStore/accounts
+        Location                    : East US 2
+        Tags                        : {}
 
-    출력은 **True**여야 합니다.
-
-5. Data Lake Store를 기본 저장소로 사용하면 클러스터를 만드는 동안 클러스터 관련 파일을 복사하는 루트 경로를 지정해야 합니다. 코드 조각에서 **/clusters/hdiadlcluster**라는 루트 경로를 만들려면 다음과 같은 cmdlet을 사용합니다.
+4. Data Lake Store를 기본 저장소로 사용하면 클러스터를 만드는 동안 클러스터 관련 파일을 복사하는 루트 경로를 지정해야 합니다. 코드 조각에서 **/clusters/hdiadlcluster**라는 루트 경로를 만들려면 다음과 같은 cmdlet을 사용합니다.
 
         $myrootdir = "/"
         New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStoreName -Path $myrootdir/clusters/hdiadlcluster
@@ -120,7 +137,7 @@ Azure Data Lake에 대한 Active Directory 인증을 설정하려면 다음 두 
 
         pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
-    메시지가 표시되면 이전에 지정한 개인 키 암호를 입력합니다. **-po** 매개 변수에 대해 지정한 값은 .pfx 파일에 연관된 암호입니다. 또한 명령을 성공적으로 완료한 후에 지정한 인증서 디렉터리에서 CertFile.pfx를 확인해야 합니다.
+    메시지가 표시되면 이전에 지정한 개인 키 암호를 입력합니다. **-po** 매개 변수에 대해 지정한 값은 .pfx 파일에 연관된 암호입니다. 또한 명령을 성공적으로 완료한 후에 지정한 인증서 디렉터리에서 **CertFile.pfx**를 확인해야 합니다.
 
 ### <a name="create-an-azure-ad-and-a-service-principal"></a>Azure AD 및 서비스 주체 만들기
 이 섹션에서는 Azure AD 응용 프로그램에 대한 서비스 주체를 만들고, 서비스 주체에 역할을 할당하고, 인증서를 제공하여 서비스 주체로 인증합니다. Azure AD에서 응용 프로그램을 만들려면 다음과 같은 명령을 실행합니다.
@@ -172,7 +189,7 @@ Azure Data Lake에 대한 Active Directory 인증을 설정하려면 다음 두 
         $location = "East US 2"
         $storageAccountName = $dataLakeStoreName                          # Data Lake Store account name
         $storageRootPath = "<Storage root path you specified earlier>" # E.g. /clusters/hdiadlcluster
-        $clusterName = $containerName                   # As a best practice, have the same name for the cluster and container
+        $clusterName = "<unique cluster name>"
         $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
         $httpCredentials = Get-Credential
         $sshCredentials = Get-Credential
@@ -208,7 +225,7 @@ HDInsight 클러스터를 구성한 후에 테스트 작업을 실행하여 Data
 1. 연결한 후에 다음 명령을 사용하여 Hive CLI(명령줄 인터페이스)를 시작합니다.
 
         hive
-2. CLI를 사용하여 다음 문을 입력합니다. 그러면 Data Lake Store에서 샘플 데이터를 사용하여 **vehicles** 라는 새 테이블을 만듭니다.
+2. CLI를 사용하여 다음 문을 입력합니다. 그러면 Data Lake Store에서 샘플 데이터를 사용하여 **vehicles**라는 새 테이블을 만듭니다.
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)

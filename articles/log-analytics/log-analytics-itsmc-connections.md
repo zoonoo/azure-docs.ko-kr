@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: v-jysur
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 283ae010aafe309bb09f7c49248b61717cb56dd0
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 732d968112913b252b40a37abc24f4de5d37999f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>ITSM 제품/서비스를 IT Service Management Connector(미리 보기)에 연결
@@ -95,9 +95,8 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 - 리소스 그룹 이름
 - 위치
 - Service Manager 서버 세부 정보(서버 이름, 도메인, 사용자 이름 및 암호)
-- 배포용 URL
-- 웹앱에 대한 사이트 이름
-- BizTalk 서비스 이름.
+- 웹앱에 대한 사이트 이름 접두사
+- ServiceBus 네임스페이스.
 
 이 스크립트는 사용자가 지정한 이름(및 웹앱을 고유하게 만드는 몇 가지 추가 설정)을 사용하여 웹앱을 만듭니다. **웹앱 URL**, **클라이언트 ID** 및 **클라이언트 암호**를 생성합니다.
 

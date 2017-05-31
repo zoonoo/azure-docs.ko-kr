@@ -3,7 +3,7 @@ title: "Azure API Management 고급 정책 | Microsoft Docs"
 description: "Azure API Management에 사용할 수 있는 고급 정책에 대해 알아봅니다."
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: bfadac7b34eca2ef1f9bcabc6e267ca9572990b8
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: f9272946fe4a03a732aa686680bba054c8ef1688
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
@@ -35,18 +36,20 @@ ms.lasthandoff: 03/18/2017
   
 -   [다시 시도](#Retry) - 조건이 충족될 때까지 포함된 정책 문을 실행하도록 다시 시도합니다. 실행은 지정된 시간 간격으로 최대 지정된 재시도 횟수까지 반복됩니다.  
   
--   [응답 반환](#ReturnResponse) - 파이프라인 실행을 중단하고 호출자에게 직접 지정된 응답을 반환합니다.  
+-   [응답 반환](#ReturnResponse) - 파이프라인 실행을 중단하고 호출자에게 직접 지정된 응답을 반환합니다. 
   
 -   [단방향 요청 전송](#SendOneWayRequest) - 지정된 URL에 대한 응답을 기다리지 않고 요청을 보냅니다.  
   
 -   [요청 전송](#SendRequest) - 지정된 URL로 요청을 보냅니다.  
-  
--   [변수 설정](api-management-advanced-policies.md#set-variable) - 나중에 액세스할 수 있도록 명명된 [context](api-management-policy-expressions.md#ContextVariables) 변수의 값을 유지합니다.  
-  
+
+-   [HTTP 프록시 설정](#SetHttpProxy) - HTTP 프록시를 통해 전달되는 요청을 라우팅할수 있습니다.  
+
 -   [요청 메서드 설정](#SetRequestMethod) - 요청에 대한 HTTP 메서드를 변경할 수 있습니다.  
   
 -   [상태 코드 설정](#SetStatus) - 지정된 값으로 HTTP 상태 코드를 변경합니다.  
   
+-   [변수 설정](api-management-advanced-policies.md#set-variable) - 나중에 액세스할 수 있도록 명명된 [context](api-management-policy-expressions.md#ContextVariables) 변수의 값을 유지합니다.  
+
 -   [추적](#Trace) - [API 검사기](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) 출력에 문자열을 추가합니다.  
   
 -   [대기](#Wait) - 계속하기 전에 완료할 포함된 [요청 전송](api-management-advanced-policies.md#SendRequest), [캐시에서 값 가져오기](api-management-caching-policies.md#GetFromCacheByKey) 또는 [제어 흐름](api-management-advanced-policies.md#choose) 정책 등을 기다립니다.  
@@ -620,6 +623,144 @@ status code and media type. If no example or schema found, the content is empty.
   
 -   **정책 범위:** 모든 범위  
   
+##  <a name="SetHttpProxy"></a> HTTP 프록시 설정  
+ `proxy` 정책은 HTTP 프록시를 통해 백 엔드에 전달된 요청을 라우팅하도록 허용합니다. 게이트웨이와 프록시 간에 HTTP(HTTPS 아님)만 지원됩니다. 기본 및 NTLM 인증만 해당됩니다.
+  
+### <a name="policy-statement"></a>정책 문  
+  
+```xml  
+<proxy url="http://hostname-or-ip:port" username="username" password="password" />  
+  
+```  
+  
+### <a name="example"></a>예제  
+사용자 이름 및 암호의 값으로 [속성](api-management-howto-properties.md)을 사용하면 정책 문서에 중요한 정보를 저장하지 않도록 합니다.  
+  
+```xml  
+<proxy url="http://192.168.1.1:8080" username={{username}} password={{password}} />
+  
+```  
+  
+### <a name="elements"></a>요소  
+  
+|요소|설명|필수|  
+|-------------|-----------------|--------------|  
+|proxy|루트 요소|예|  
+
+### <a name="attributes"></a>특성  
+  
+|특성|설명|필수|기본값|  
+|---------------|-----------------|--------------|-------------|  
+|url="문자열"|http://host:port 형식의 프록시 URL입니다.|예|해당 없음|  
+|사용자 이름="문자열"|프록시 인증에 사용할 사용자 이름입니다.|아니요|해당 없음|  
+|암호="문자열"|프록시 인증에 사용할 암호입니다.|아니요|해당 없음|  
+
+### <a name="usage"></a>사용 현황  
+ 이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
+  
+-   **정책 섹션:** inbound  
+  
+-   **정책 범위:** 모든 범위  
+
+##  <a name="SetRequestMethod"></a> 요청 메서드 설정  
+ `set-method` 정책을 통해 요청에 대한 HTTP 메서드를 변경할 수 있습니다.  
+  
+### <a name="policy-statement"></a>정책 문:  
+  
+```xml  
+<set-method>METHOD</set-method>  
+  
+```  
+  
+### <a name="example"></a>예제  
+ 이 샘플 정책은 `set-method` 정책을 사용하며 HTTP 응답 코드가 500 이상인 경우 Slack 대화방에 메시지를 보내는 예를 보여줍니다. 이 샘플에 대한 자세한 내용은 [Azure API Management 서비스에서 외부 서비스 사용](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)을 참조하세요.  
+  
+```xml  
+<choose>  
+    <when condition="@(context.Response.StatusCode >= 500)">  
+      <send-one-way-request mode="new">  
+        <set-url>https://hooks.slack.com/services/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</set-url>  
+        <set-method>POST</set-method>  
+        <set-body>@{  
+                return new JObject(  
+                        new JProperty("username","APIM Alert"),  
+                        new JProperty("icon_emoji", ":ghost:"),  
+                        new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",  
+                                                context.Request.Method,  
+                                                context.Request.Url.Path + context.Request.Url.QueryString,  
+                                                context.Request.Url.Host,  
+                                                context.Response.StatusCode,  
+                                                context.Response.StatusReason,  
+                                                context.User.Email  
+                                                ))  
+                        ).ToString();  
+            }</set-body>  
+      </send-one-way-request>  
+    </when>  
+</choose>  
+  
+```  
+  
+### <a name="elements"></a>요소  
+  
+|요소|설명|필수|  
+|-------------|-----------------|--------------|  
+|set-method|루트 요소입니다. 이 요소 값은 HTTP 메서드를 지정합니다.|예|  
+  
+### <a name="usage"></a>사용 현황  
+ 이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
+  
+-   **정책 섹션:** inbound, on-error  
+  
+-   **정책 범위:** 모든 범위  
+  
+##  <a name="SetStatus"></a> 상태 코드 설정  
+ `set-status` 정책은 HTTP 상태 코드를 지정된 값으로 설정합니다.  
+  
+### <a name="policy-statement"></a>정책 문:  
+  
+```xml  
+<set-status code="" reason=""/>  
+  
+```  
+  
+### <a name="example"></a>예  
+ 이 예에서는 인증 토큰이 유효하지 않은 경우 401 응답을 반환하는 방법을 보여 줍니다. 자세한 내용은 [Azure API Management 서비스에서 외부 서비스 사용](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)을 참조하세요.  
+  
+```xml  
+<choose>  
+  <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
+    <return-response response-variable-name="existing response variable">  
+      <set-status code="401" reason="Unauthorized" />  
+      <set-header name="WWW-Authenticate" exists-action="override">  
+        <value>Bearer error="invalid_token"</value>  
+      </set-header>  
+    </return-response>  
+  </when>  
+</choose>  
+  
+```  
+  
+### <a name="elements"></a>요소  
+  
+|요소|설명|필수|  
+|-------------|-----------------|--------------|  
+|set-status|루트 요소입니다.|예|  
+  
+### <a name="attributes"></a>특성  
+  
+|특성|설명|필수|기본값|  
+|---------------|-----------------|--------------|-------------|  
+|code="integer"|반환할 HTTP 상태 코드입니다.|예|해당 없음|  
+|reason="string"|상태 코드를 반환하는 이유에 대한 설명입니다.|예|해당 없음|  
+  
+### <a name="usage"></a>사용 현황  
+ 이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
+  
+-   **정책 섹션:** outbound, backend, on-error  
+  
+-   **정책 범위:** 모든 범위  
+
 ##  <a name="set-variable"></a> 변수 설정  
  `set-variable` 정책은 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수를 선언하고 [식](api-management-policy-expressions.md) 또는 문자열 리터럴을 통해 지정된 값을 할당합니다. 식에 리터럴이 포함된 경우 리터럴은 문자열로 변환되고 값 형식은 `System.String`이 됩니다.  
   
@@ -720,106 +861,7 @@ status code and media type. If no example or schema found, the content is empty.
 -   System.Char?  
   
 -   System.DateTime?  
-  
-##  <a name="SetRequestMethod"></a> 요청 메서드 설정  
- `set-method` 정책을 통해 요청에 대한 HTTP 메서드를 변경할 수 있습니다.  
-  
-### <a name="policy-statement"></a>정책 문:  
-  
-```xml  
-<set-method>METHOD</set-method>  
-  
-```  
-  
-### <a name="example"></a>예제  
- 이 샘플 정책은 `set-method` 정책을 사용하며 HTTP 응답 코드가 500 이상인 경우 Slack 대화방에 메시지를 보내는 예를 보여줍니다. 이 샘플에 대한 자세한 내용은 [Azure API Management 서비스에서 외부 서비스 사용](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)을 참조하세요.  
-  
-```xml  
-<choose>  
-    <when condition="@(context.Response.StatusCode >= 500)">  
-      <send-one-way-request mode="new">  
-        <set-url>https://hooks.slack.com/services/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</set-url>  
-        <set-method>POST</set-method>  
-        <set-body>@{  
-                return new JObject(  
-                        new JProperty("username","APIM Alert"),  
-                        new JProperty("icon_emoji", ":ghost:"),  
-                        new JProperty("text", String.Format("{0} {1}\nHost: {2}\n{3} {4}\n User: {5}",  
-                                                context.Request.Method,  
-                                                context.Request.Url.Path + context.Request.Url.QueryString,  
-                                                context.Request.Url.Host,  
-                                                context.Response.StatusCode,  
-                                                context.Response.StatusReason,  
-                                                context.User.Email  
-                                                ))  
-                        ).ToString();  
-            }</set-body>  
-      </send-one-way-request>  
-    </when>  
-</choose>  
-  
-```  
-  
-### <a name="elements"></a>요소  
-  
-|요소|설명|필수|  
-|-------------|-----------------|--------------|  
-|set-method|루트 요소입니다. 이 요소 값은 HTTP 메서드를 지정합니다.|예|  
-  
-### <a name="usage"></a>사용 현황  
- 이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
-  
--   **정책 섹션:** inbound, on-error  
-  
--   **정책 범위:** 모든 범위  
-  
-##  <a name="SetStatus"></a> 상태 코드 설정  
- `set-status` 정책은 HTTP 상태 코드를 지정된 값으로 설정합니다.  
-  
-### <a name="policy-statement"></a>정책 문:  
-  
-```xml  
-<set-status code="" reason=""/>  
-  
-```  
-  
-### <a name="example"></a>예  
- 이 예에서는 인증 토큰이 유효하지 않은 경우 401 응답을 반환하는 방법을 보여 줍니다. 자세한 내용은 [Azure API Management 서비스에서 외부 서비스 사용](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)을 참조하세요.  
-  
-```xml  
-<choose>  
-  <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
-    <return-response response-variable-name="existing response variable">  
-      <set-status code="401" reason="Unauthorized" />  
-      <set-header name="WWW-Authenticate" exists-action="override">  
-        <value>Bearer error="invalid_token"</value>  
-      </set-header>  
-    </return-response>  
-  </when>  
-</choose>  
-  
-```  
-  
-### <a name="elements"></a>요소  
-  
-|요소|설명|필수|  
-|-------------|-----------------|--------------|  
-|set-status|루트 요소입니다.|예|  
-  
-### <a name="attributes"></a>특성  
-  
-|특성|설명|필수|기본값|  
-|---------------|-----------------|--------------|-------------|  
-|code="integer"|반환할 HTTP 상태 코드입니다.|예|해당 없음|  
-|reason="string"|상태 코드를 반환하는 이유에 대한 설명입니다.|예|해당 없음|  
-  
-### <a name="usage"></a>사용 현황  
- 이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
-  
--   **정책 섹션:** outbound, backend, on-error  
-  
--   **정책 범위:** 모든 범위  
-  
+
 ##  <a name="Trace"></a> 추적  
  `trace` 정책은 [API 검사기](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) 출력에 문자열을 추가합니다. 이 정책은 추적이 트리거된 경우에만 실행됩니다(즉, `Ocp-Apim-Trace` 요청 헤더가 있고 `true`로 설정된 경우 및 `Ocp-Apim-Subscription-Key` 요청 헤더가 있고 관리자 계정에 연결된 유효한 키를 보유하는 경우).  
   

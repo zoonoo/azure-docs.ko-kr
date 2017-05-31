@@ -12,23 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
-ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 49ba7e6d5d67b109632b08ce936357804c80da40
-ms.lasthandoff: 04/27/2017
+ms.date: 05/04/2017
+ms.author: rodejo
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 81fdae033afd90b77d3725f8c39b8a6c6bbc3812
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 
 > [!IMPORTANT]
-> 이 콘텐츠는 Office 365 그룹이라고도 하는 통합 그룹에만 적용됩니다. 이러한 cmdlet은 현재 공개 미리 보기에서 제공됩니다.
+> 이 콘텐츠는 Office 365 그룹이라고도 하는 통합 그룹에만 적용됩니다. 
 
 Office 365 그룹 설정은 설정 개체와 SettingsTemplate 개체를 사용하여 구성됩니다. 처음에는 디렉터리에 설정 개체가 보이지 않습니다. 즉, 디렉터리가 기본 설정으로 구성됩니다. 기본 설정을 변경하려면 설정 템플릿을 사용하여 새 설정 개체를 만들어야 합니다. 설정 템플릿은 Microsoft가 정의합니다. 여러 종류의 설정 템플릿이 있습니다. 디렉터리에 대한 그룹 설정을 구성하려면 "Group.Unified" 템플릿을 사용하세요. 단일 그룹의 그룹 설정을 구성하려면 "Group.Unified.Guest" 템플릿을 사용하세요. 이 템플릿은 그룹에 대한 게스트 액세스 관리에 사용됩니다. 
 
-cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 이 모듈에 대한 자세한 내용과 모듈을 컴퓨터에 다운로드하여 설치하는 방법에 대한 지침은 [Azure Active Directory PowerShell 버전 2](https://docs.microsoft.com/powershell/azuread/)를 참조하세요. 이러한 cmdlet은 현재 공개 미리 보기 상태이므로 [여기](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.85)에서 찾을 수 있는 모듈의 미리 보기 릴리스를 설치해야 합니다.
+cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 이 모듈에 대한 자세한 내용과 모듈을 컴퓨터에 다운로드하여 설치하는 방법에 대한 지침은 [Azure Active Directory PowerShell 버전 2](https://docs.microsoft.com/powershell/azuread/)를 참조하세요. 모듈의 버전 2 릴리스를 [여기](https://www.powershellgallery.com/packages/AzureAD/)에서 설치할 수 있습니다.
+
+## <a name="retrieve-a-specific-settings-value"></a>특정 설정 값 검색
+검색할 설정의 이름을 알고 있는 경우 아래 cmdlet을 사용하여 현재 설정 값을 검색할 수 있습니다. 이 예제에서는 "UsageGuidelinesUrl"이라는 설정의 값을 검색합니다. 향후 이 문서에서 디렉터리 설정 및 해당 이름에 대해 자세히 살펴볼 수 있습니다.
+
+```powershell
+(Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+```
 
 ## <a name="create-settings-at-the-directory-level"></a>디렉터리 수준에서 설정 만들기
 다음 단계는 디렉터리 수준에서 설정을 만드는 것입니다. 이 설정은 디렉터리에 있는 모든 통합 그룹에 적용됩니다.

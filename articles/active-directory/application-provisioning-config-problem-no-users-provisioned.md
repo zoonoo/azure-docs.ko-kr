@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 05/04/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a51fb6e5a10e09205822e055659794aea2f6a4fb
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 0b63c7d15ca7570033a889dc1b57ebd202f4627b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/18/2017
 
 앱에 연결할 Azure AD에 제공된 앱 자격 증명이 유효한지 확인을 비롯하여 응용 프로그램에 대해 자동 프로비전이 구성됩니다. 앱에 프로비전되는 사용자 및/또는 그룹은 다음 사항으로 결정됩니다.
 
--   응용 프로그램에 **할당된** 사용자 및 그룹. 할당에 대한 자세한 내용은 [Azure Active Directory 미리 보기에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)을 참조하세요.
+-   응용 프로그램에 **할당된** 사용자 및 그룹. 할당에 대한 자세한 내용은 [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)을 참조하세요.
 
 -   **특성 매핑**을 사용하도록 설정했으며 Azure AD의 유효한 특성을 앱에 동기화하도록 구성했는지 여부. 특성 매핑에 대한 자세한 내용은 [Azure Active Directory에서 SaaS 응용 프로그램에 대한 사용자 프로비전 특성 매핑 사용자 지정](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)을 참조하세요.
 
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/18/2017
 
 사용자가 프로비전되지 않으면 Azure AD의 감사 로그를 참조하고 특정 사용자에 대한 로그 항목을 검색하세요.
 
-프로비전 감사 로그는 Azure Portal의 **Azure Active Directory&gt;엔터프라이즈 응용 프로그램&gt; \[응용 프로그램 이름\] &gt;감사 로그** 탭에서 액세스할 수 있습니다. **계정 프로비전** 범주의 로그를 필터링하여 해당 앱의 프로비전 이벤트만 볼 수 있습니다. 특성 매핑에서 사용자에 대해 구성된 “일치 ID”를 기반으로 사용자를 검색할 수 있습니다. 예를 들어 Azure AD 측에서 “사용자 계정 이름” 또는 “메일 주소”를 일치하는 특성으로 구성하고 프로비전하지 않는 사용자의 값이 “audrey@contoso.com”인 경우 감사 로그에서 “audrey@contoso.com”을 검색한 후 반환된 항목을 검토합니다.
+프로비전 감사 로그는 Azure Portal의 **Azure Active Directory&gt;엔터프라이즈 응용 프로그램&gt; \[응용 프로그램 이름\] &gt;감사 로그** 탭에서 액세스할 수 있습니다. **계정 프로비저닝** 범주의 로그를 필터링하여 해당 앱의 프로비저닝 이벤트만 볼 수 있습니다. 특성 매핑에서 사용자에 대해 구성된 “일치 ID”를 기반으로 사용자를 검색할 수 있습니다. 예를 들어 Azure AD 측에서 “사용자 계정 이름” 또는 “메일 주소”를 일치하는 특성으로 구성하고 프로비전하지 않는 사용자의 값이 “audrey@contoso.com”인 경우 감사 로그에서 “audrey@contoso.com”을 검색한 후 반환된 항목을 검토합니다.
 
 프로비전 감사 로그는 프로비전 범위에 있는 할당된 사용자에 대해 Azure AD 쿼리, 해당 사용자의 존재에 대해 대상 앱 쿼리, 시스템 간의 사용자 객체 비교를 비롯하여 프로비전 서비스에서 수행한 모든 작업을 기록합니다. 그런 다음 비교를 기반으로 대상 시스템에서 사용자 계정을 추가, 업데이트 또는 비활성화합니다.
 

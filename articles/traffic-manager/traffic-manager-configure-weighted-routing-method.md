@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: dc2111a34fa0292a21510bbd84089979faf1cb71
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 7aa4c9120d44ff1b3e59a57090ea04e3f8021fc4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 ---
 
@@ -34,10 +35,10 @@ ms.lasthandoff: 03/22/2017
 2. 포털의 검색 창에서 **Traffic Manager 프로필**을 검색한 다음, 라우팅 방법을 구성하려는 프로필 이름을 클릭합니다.
 3. **Traffic Manager 프로필** 블레이드에서 사용자 구성에 포함할 클라우드 서비스 및 웹 사이트가 모두 있는지 확인합니다.
 4. **설정** 섹션에서 **구성**을 클릭하고 **구성** 블레이드에서 다음과 같이 완료합니다.
-    1. **트래픽 라우팅 방법 설정**에서 트래픽 라우팅 방법이 **장애 조치(Failover)**인지 확인합니다. 아닌 경우 드롭다운 목록에서 **장애 조치(Failover)**를 클릭합니다.
+    1. **트래픽 라우팅 방법 설정**에서 트래픽 라우팅 방법이 **가중치 적용**인지 확인합니다. 아닌 경우 드롭다운 목록에서 **가중치 적용**을 클릭합니다.
     2. **끝점 모니터 설정**을 다음과 같이 이 프로필 내의 모든 끝점과 동일하게 설정합니다.
         1. 적절한 **프로토콜**을 선택하고 **포트** 번호를 지정합니다. 
-        2. **경로**에서 슬래시 */*를 입력합니다. 끝점을 모니터링하려면 경로와 파일 이름을 지정해야 합니다. 슬래시 "/"는 상대 경로에 유효한 입력이며 파일이 루트 디렉터리(기본값)에 있음을 나타냅니다.
+        2. **경로**에서 슬래시  */* 를 입력합니다. 끝점을 모니터링하려면 경로와 파일 이름을 지정해야 합니다. 슬래시 "/"는 상대 경로에 유효한 입력이며 파일이 루트 디렉터리(기본값)에 있음을 나타냅니다.
         3. 페이지 위쪽에서 **저장**을 클릭합니다.
 5. 다음과 같이 사용자 구성의 변경 내용을 테스트합니다.
     1.    포털의 검색 창에서 Traffic Manager 프로필 이름을 검색하고 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.

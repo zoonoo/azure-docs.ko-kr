@@ -12,17 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/11/2017
+ms.date: 5/1/2017
 ms.author: raiye
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 51b5c32eb73dc70b4019e60342db659959cc93bb
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: f084e9cbb4a14308e1e9d7a62c9f800b8c965d91
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## <a name="april-guest-os"></a>게스트 OS 4월
+| 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 17-04 |  [4015217]  |WS 2016 OS 품질 향상 | 5.6 | 2017년 4월 11 |
+| Rel 17-04 |  [4015546]  |Windows 보안 전용 |2.61 | 2017년 4월 11 |
+| Rel 17-04 |  [4015547]  |Windows 보안 전용 |4.41 | 2017년 4월 11 |
+| Rel 17-04 |  [4015548]  |Windows 보안 전용 |3.48 | 2017년 4월 11 |
+| Rel 17-04 |  [4014661]  |Internet Explorer |2.61, 3.48, 4.41 | 2017년 4월 11 |
+| Rel 17-04 |  [4014550]; [4014560]; [4014562]; [4014556]; [4014574] |.NET 보안 |4.41 | 2017년 4월 11 |
+| Rel 17-04 |  [4014564]; [4014572]; [4014549] |.NET 보안 |3.48 | 2017년 4월 11 |
+| Rel 17-04 |  [4014566]; [4014552]; [4014573]; [4014558]  |.NET 보안 |2.61 | 2017년 4월 11 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0181 |5.6 | 2017년 4월 11 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | 2017년 4월 11 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE-2017-0169 |4.41 | 2017년 4월 11 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0182; CVE-2017-0186; CVE-2017-0191 |2.61, 3.48, 4.41, 5.6 | 2017년 4월 11 |
+| Rel 17-04 |  [4015193]  |Magallanes(칠레)의 Windows에서 DST 변경 사항 |2.61, 3.48, 4.41 | 2017년 4월 11 |
+| Rel 17-04 |  [4012215]  |Windows 7 SP1 및 Windows Server 2008 R2 SP1용 2017년 3월 보안 월별 품질 롤업 |2.61 | 2017년 4월 11 |
+| Rel 17-04 |  [4012217]  |Windows Server 2012용 2017년 3월 보안 월별 품질 롤업 |3.48 | 2017년 4월 11 |
+| Rel 17-04 |  [4012216]  |Windows 8.1 및 Windows Server 2012 R2용 2017년 3월 보안 월별 품질 롤업 |4.41 | 2017년 4월 11 |
 
 ## <a name="march-guest-os"></a>게스트 OS 3월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -37,8 +58,6 @@ ms.lasthandoff: 04/12/2017
 | 해당 없음 |  [3205409] |2016년 12월 Windows Server 2012용 보안 월별 품질 롤업 |3.47 |2017년 3월 14일 |
 | 해당 없음 |  [3205401] |2016년 12월 Windows 8.1 및 Windows Server 2012 R2용 보안 월별 품질 롤업 |4.40 |2017년 3월 14일 |
 | 해당 없음 |  [3211320] |Windows 10 버전 1607 및 Windows Server 2016용 누적 업데이트 제공: 2017년 1월 24일 |5.5 |2017년 3월 14일 |
-
-
 
 ## <a name="january-guest-os"></a>게스트 OS 1월
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -420,6 +439,30 @@ ms.lasthandoff: 04/12/2017
 | 해당 없음 |[3007054] |Windows에서 Windows 스토어 응용 프로그램 내 문서를 인쇄할 때 PIN으로 보호된 인쇄 옵션을 항상 표시 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2999802] |점선 대신 실선이 Windows에서 인쇄됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2896881] |Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 |4.15, 3.22, 2.34 |2015년 1월 13일 |
+
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015546]: http://support.microsoft.com/kb/4015546
+[4015547]: http://support.microsoft.com/kb/4015547
+[4015548]: http://support.microsoft.com/kb/4015548
+[4014661]: http://support.microsoft.com/kb/4014661
+[4014550]: http://support.microsoft.com/kb/4014550
+[4014560]: http://support.microsoft.com/kb/4014560
+[4014562]: http://support.microsoft.com/kb/4014562
+[4014556]: http://support.microsoft.com/kb/4014556
+[4014574]: http://support.microsoft.com/kb/4014574
+[4014564]: http://support.microsoft.com/kb/4014564
+[4014572]: http://support.microsoft.com/kb/4014572
+[4014549]: http://support.microsoft.com/kb/4014549
+[4014566]: http://support.microsoft.com/kb/4014566
+[4014552]: http://support.microsoft.com/kb/4014552
+[4014573]: http://support.microsoft.com/kb/4014573
+[4014558]: http://support.microsoft.com/kb/4014558
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015193]: http://support.microsoft.com/kb/4015193
+[4012215]: http://support.microsoft.com/kb/4012215
+[4012217]: http://support.microsoft.com/kb/4012217
+[4012216]: http://support.microsoft.com/kb/4012216
+
 
 [4013429]: http://support.microsoft.com/kb/4013429 
 [4012212]: http://support.microsoft.com/kb/4012212 

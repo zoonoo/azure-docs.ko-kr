@@ -15,31 +15,30 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 04/14/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: a287ebd634a9305229424d0efea266146f88a952
-ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
-ms.lasthandoff: 01/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: aebabd15e781e726def545960ce3c1ec7674c530
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
 # <a name="datasource-connections"></a>데이터 원본 연결
 특정 데이터 원본에 연결할 때 Azure Analysis Service의 데이터 모델은 서로 다른 데이터 공급자가 필요할 수 있습니다. 경우에 따라 SQL Server Native Client(SQLNCLI11)와 같은 네이티브 공급자를 사용하여 데이터 원본에 연결하는 테이블 형식 모델은 오류를 반환할 수 있습니다.
 
-예를 들어 Azure SQL Database와 같은 클라우드 데이터 원본에 연결되는 메모리 내 또는 직접 쿼리 데이터 모델이 있는 경우 SQLOLEDB 이외의 네이티브 공급자를 사용하는 경우 **"'SQLNCLI11.1'은 등록되지 않은 공급자입니다."**라는 오류 메시지가 나타날 수 있습니다.
-
-또는 온-프레미스 데이터 원본에 DirectQuery 모델을 연결한 경우, 네이티브 공급자를 사용하는 경우 **"OLE DB 행 집합을 만드는 데 오류가 발생했습니다. 'LIMIT' 가까이에 잘못된 구문이 있습니다."**라는 오류 메시지가 나타날 수 있습니다.
+Azure SQL Database와 같은 클라우드 데이터 원본에 연결되는 메모리 내 또는 직접 쿼리 데이터 모델의 경우 SQLOLEDB 이외의 네이티브 공급자를 사용하는 경우 **"'SQLNCLI11.1'은 등록되지 않은 공급자입니다."**라는 오류 메시지가 나타날 수 있습니다. 또는 온-프레미스 데이터 원본에 DirectQuery 모델을 연결한 경우, 네이티브 공급자를 사용하는 경우 **"OLE DB 행 집합을 만드는 데 오류가 발생했습니다. 'LIMIT' 가까이에 잘못된 구문이 있습니다."**라는 오류 메시지가 나타날 수 있습니다.
 
 ## <a name="data-source-providers"></a>데이터 원본 공급자
-다음 데이터 원본 공급자는 온-프레미스 또는 클라우드 데이터 원본에 연결할 경우 메모리 내 또는 직접 쿼리 데이터 모델에 지원됩니다.
+다음 데이터 원본 공급자는 클라우드 또는 온-프레미스의 데이터 원본에 연결할 경우 메모리 내 또는 직접 쿼리 데이터 모델에 지원됩니다.
 
 ### <a name="cloud"></a>클라우드
-| **데이터 원본** | **메모리 내** | **직접 쿼리** |
+| **데이터 원본** | **메모리 내** | **DirectQuery** |
 |  --- | --- | --- |
 | Azure SQL 데이터 웨어하우스 |SQL Server용 .NET Framework 데이터 공급자 |SQL Server용 .NET Framework 데이터 공급자 |
 | Azure SQL 데이터베이스 |SQL Server용 .NET Framework 데이터 공급자 |SQL Server용 .NET Framework 데이터 공급자 | |
 
 ### <a name="on-premises-via-gateway"></a>온-프레미스(게이트웨이 사용)
-|**데이터 원본** | **메모리 내** | **직접 쿼리** |
+|**데이터 원본** | **메모리 내** | **DirectQuery** |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0 |SQL Server용 .NET Framework 데이터 공급자 |
 | SQL Server |SQL Server용 Microsoft OLE DB Provider |SQL Server용 .NET Framework 데이터 공급자 | |
@@ -76,6 +75,7 @@ ms.lasthandoff: 01/18/2017
 * SQL 인증을 사용하는 경우 가장은 서비스 계정이어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-온-프레미스 데이터 원본이 있는 경우 [온-프레미스 게이트웨이](analysis-services-gateway.md)를 설치해야 합니다. SSDT 또는 SSMS에서 서버를 관리하는 방법에 대해 알아보려면 [사용자 서버 관리](analysis-services-manage.md)를 참조하세요.
+온-프레미스 데이터 원본이 있는 경우 [온-프레미스 게이트웨이](analysis-services-gateway.md)를 설치해야 합니다.   
+SSDT 또는 SSMS에서 서버를 관리하는 방법에 대해 알아보려면 [사용자 서버 관리](analysis-services-manage.md)를 참조하세요.
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory에서 조건부 액세스 시작 - 미리 보기 | Microsoft Docs"
+title: "Azure Active Directory에서 조건부 액세스 시작 | Microsoft Docs"
 description: "위치 조건을 사용하여 조건부 액세스를 테스트합니다."
 services: active-directory
 keywords: "앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책"
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: ae60cd810b4beb26f714e2ea2566e5354c482fa8
-ms.openlocfilehash: 3022f5e27ddaf125161bbf7132b41a27024f40b6
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 52b65b24867906d0c574a323904d980e126bcbd2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="get-started-with-conditional-access-in-azure-active-directory---preview"></a>Azure Active Directory에서 조건부 액세스 시작 - 미리 보기
-
-이 항목에서 설명하는 동작은 현재 [미리 보기](active-directory-preview-explainer.md)로 있습니다.
+# <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Azure Active Directory에서 조건부 액세스 시작
 
 조건부 액세스는 권한 있는 사용자가 앱에 액세스할 수 있는 조건을 정의할 수 있게 해주는 Azure Active Directory의 기능입니다. 
 
@@ -160,10 +160,5 @@ ms.openlocfilehash: 3022f5e27ddaf125161bbf7132b41a27024f40b6
 ## <a name="next-steps"></a>다음 단계
 
 조건부 액세스에 대한 자세한 내용은 [Azure Active Directory 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

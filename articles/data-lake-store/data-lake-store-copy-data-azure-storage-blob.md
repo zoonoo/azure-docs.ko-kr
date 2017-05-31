@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/06/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 4c0b60afdc95a44dc5fdb0e43605e8bb079278e5
-ms.openlocfilehash: 9f8635cd028d7d0d6a69faf6c2dc1de05dc5bb36
-ms.lasthandoff: 12/02/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: c7ccd172440ae36844c7a5863a9f9d55a05411f9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -44,7 +45,7 @@ Azure Data Lake Store는 다음 원본에서 데이터를 복사하는 [AdlCopy]
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure 저장소 Blob** 컨테이너
 * **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
-* **Azure 데이터 레이크 분석 계정(선택 사항)** - 데이터 레이크 저장소 계정을 만드는 방법에 대한 지침은 [Azure 데이터 레이크 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md) 을 참조하세요.
+* **Azure 데이터 레이크 분석 계정(선택 사항)** - 데이터 레이크 저장소 계정을 만드는 방법에 대한 지침은 [Azure 데이터 레이크 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)을 참조하세요.
 * **AdlCopy 도구**. [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy)에서 AdlCopy 도구를 설치합니다.
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>AdlCopy 도구 구문
@@ -175,6 +176,9 @@ Data Lake Analytics 계정을 사용하여 Azure 저장소 Blob에서 Data Lake 
 ## <a name="performance-considerations-for-using-adlcopy"></a>AdlCopy 사용에 대한 성능 고려 사항
 
 AdlCopy는 수천 개의 파일 및 폴더가 포함된 데이터의 복사를 지원합니다. 그러나 대량의 데이터 집합을 복사할 때 문제가 발생할 경우 파일/폴더를 더 작은 하위 폴더에 배포할 수 있습니다. AdlCopy는 임시 복사본용으로 빌드되었습니다. 반복적으로 데이터를 복사하려는 경우 복사 작업 관련 전체 관리 기능을 제공하는 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) 사용을 고려해야 합니다.
+
+## <a name="release-notes"></a>릴리스 정보
+* 1.0.13 - 여러 adlcopy 명령을 통해 데이터를 동일한 Azure Data Lake Store 계정에 복사하는 경우 실행할 때마다 자격 증명을 다시 입력할 필요가 없습니다. 이제 Adlcopy가 여러 번 실행할 때 해당 정보를 캐시합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)

@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2016
+ms.date: 05/04/2017
 ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3349f890391aec7fc6361b149d148d828cbe3b97
-ms.lasthandoff: 12/08/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c4e482e9f985553938ce132c617ba0b1a2128106
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -33,7 +34,7 @@ Azure Active Directory는 [SCIM 2.0 프로토콜 사양](https://tools.ietf.org/
 Azure Active Directory에서 SCIM에 대한 두 가지 사용 사례가 있습니다.
 
 * **SCIM을 지원하는 응용 프로그램에 사용자 및 그룹 프로비전** - SCIM 2.0을 지원하며 인증에 OAuth 전달자 토큰을 사용할 수 있는 응용 프로그램은 Azure AD에서 바로 작동합니다.
-* **다른 API 기반 프로비전을 지원하는 응용 프로그램에 대한 프로비전 솔루션 작성** - 비 SCIM 응용 프로그램의 경우 Azure AD의 SCIM 끝점과 응용 프로그램이 사용자 프로비전을 지원하는 API 간에 번역할 SCIM 끝점을 만들 수 있습니다.  SCIM 끝점의 개발을 지원하려면 SCIM 끝점을 제공하고 SCIM 메시지를 번역하는 방법을 보여주는 코드 샘플과 함께 CLI 라이브러리를 제공합니다.  
+* **다른 API 기반 프로비전을 지원하는 응용 프로그램에 대한 프로비전 솔루션 작성** - 비 SCIM 응용 프로그램의 경우 Azure AD SCIM 끝점과 응용 프로그램이 사용자 프로비전을 지원하는 API 간에 번역할 SCIM 끝점을 만들 수 있습니다.  SCIM 끝점의 개발을 지원하려면 SCIM 끝점을 제공하고 SCIM 메시지를 번역하는 방법을 보여주는 코드 샘플과 함께 CLI 라이브러리를 제공합니다.  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>SCIM을 지원하는 응용 프로그램에 사용자 및 그룹 프로비전
 Azure Active Directory은 [도메인간 ID 관리용 시스템 2(SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) 웹 서비스를 구현하고 인증에 대한 OAuth 전달자 토큰을 수락하는 응용 프로그램에 자동으로 할당된 사용자 및 그룹을 프로비전하도록 구성할 수 있습니다. SCIM 2.0 사양 내에서 응용 프로그램은 다음의 요구 사항을 충족해야 합니다.
@@ -117,16 +118,16 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현
 2. **Active Directory > 디렉터리 > [사용자의 디렉터리] > 응용 프로그램**으로 이동하고 **추가 > 갤러리에서 응용 프로그램 추가**를 선택합니다.
 3. 왼쪽에서 **사용자 지정** 탭을 선택하고 "SCIM 테스트 앱"과 같은 이름을 입력한 다음 확인 표시 아이콘을 클릭하여 앱 개체를 만듭니다. 만든 응용 프로그램 개체는 SCIM 끝점 뿐만 아니라 Single Sign-On을 프로비전하고 구현하는 대상 앱을 나타내도록 합니다.
 
-![][2]
+  ![][2]
 
-1. 결과 화면에서 두 번째 **계정 프로비전 구성** 단추를 선택합니다.
+4. 결과 화면에서 두 번째 **계정 프로비전 구성** 단추를 선택합니다.
 2. 대화 상자에서 인터넷에 노출된 URL 및 프로그램 SCIM 끝점의 포트를 입력합니다. <ip-address>가 인터넷 노출된 IP 주소인 경우 http://testmachine.contoso.com:9000 또는 http://<ip-address>:9000/과 같습니다.  
-3. **다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 Azure Active Directory에서 SCIM 끝점에 연결을 시도하게 합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.  
-4. 웹 서비스에 연결하려는 시도가 성공하면 나머지 화면에서 **다음**을 클릭한 다음 **완료**를 클릭하여 대화 상자를 종료합니다.
-5. 결과 화면에서 세 번째 **계정 할당** 단추를 선택합니다. 사용자 및 그룹 결과 섹션에서 응용 프로그램에 프로비전하려는 사용자 또는 그룹을 할당합니다.
-6. 사용자 및 그룹이 할당되면 화면 위쪽의 **구성** 탭을 클릭합니다.
-7. **계정 프로비전**에서 상태가 켜기로 설정되었는지 확인합니다. 
-8. **도구**에서 **계정 프로비전 다시시작**을 클릭하여 프로비전 프로세스를 시작합니다.
+5. **다음**을 클릭하고 **테스트 시작** 단추를 클릭하여 Azure Active Directory에서 SCIM 끝점에 연결을 시도하게 합니다. 시도가 실패하는 경우 진단 정보가 표시됩니다.  
+6. 웹 서비스에 연결하려는 시도가 성공하면 나머지 화면에서 **다음**을 클릭한 다음 **완료**를 클릭하여 대화 상자를 종료합니다.
+7. 결과 화면에서 세 번째 **계정 할당** 단추를 선택합니다. 사용자 및 그룹 결과 섹션에서 응용 프로그램에 프로비전하려는 사용자 또는 그룹을 할당합니다.
+8. 사용자 및 그룹이 할당되면 화면 위쪽의 **구성** 탭을 클릭합니다.
+9. **계정 프로비전**에서 상태가 켜기로 설정되었는지 확인합니다. 
+10. **도구**에서 **계정 프로비전 다시시작**을 클릭하여 프로비전 프로세스를 시작합니다.
 
 프로비전 프로세스가 SCIM 끝점에 요청을 보내려고 시작하기 전에 5-10분이 경과될 수 있습니다.  연결 시도의 요약은 응용 프로그램의 대시보드 탭에서 제공되고 프로비전 활동에 대한 보고서 및 프로비전 오류는 모두 디렉터리의 보고서 탭에서 다운로드할 수 있습니다.
 
@@ -262,7 +263,7 @@ SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프�
     }
 
 ### <a name="handling-endpoint-authentication"></a>끝점 인증 처리
-Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다.   요청을 받는 모든 서비스는 예상된 Azure Active Directory 테넌트 대신 Azure Active Directory의 Graph 웹 서비스에 액세스하는 데 대해 발급자를 Azure Active Directory로 인증해야 합니다.  토큰에서 발급자는 "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"와 같은 iss 클레임으로 식별됩니다.  이 예제에서 상대 주소 세그먼트인 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422가 토큰이 발급된 대신 Azure Active Directory 테넌트의 고유한 발급자인 반면 클레임 값의 기본 주소인 https://sts.windows.net은 Azure Active Directory를 발급자로 식별합니다.  토큰이 Azure Active Directory의 Graph 웹 서비스에 액세스하기 위해 발급되었다면 해당 서비스의 실별자인 00000002-0000-0000-c000-000000000000는 토큰의 aud 클레임의 값에 있어야 합니다.  
+Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다.   요청을 받는 모든 서비스는 예상된 Azure Active Directory 테넌트 대신 Azure Active Directory의 Graph 웹 서비스에 액세스하는 데 대해 발급자를 Azure Active Directory로 인증해야 합니다.  토큰에서 발급자는 "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"와 같은 iss 클레임으로 식별됩니다.  이 예제에서 상대 주소 세그먼트인 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422가 토큰이 발급된 대신 Azure Active Directory 테넌트의 고유한 발급자인 반면 클레임 값의 기본 주소인 https://sts.windows.net은 Azure Active Directory를 발급자로 식별합니다.  토큰이 Azure Active Directory의 Graph 웹 서비스에 액세스하기 위해 발급되었다면 해당 서비스의 식별자인 00000002-0000-0000-c000-000000000000는 토큰의 aud 클레임의 값에 있어야 합니다.  
 
 SCIM 서비스 구축을 위해 Microsoft에서 제공하는 공용 언어 인프라 라이브러리를 사용하는 개발자는 Microsoft.Owin.Security.ActiveDirectory 패키지로 다음 단계를 수행하여 Azure Active Directory에서 요청을 인증할 수 있습니다. 
 
@@ -352,7 +353,7 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | proxyAddresses |emails[type eq "other"].Value |
 
 ## <a name="user-provisioning-and-de-provisioning"></a>사용자 프로비전 및 프로비전 해제
-아래 그림은 다른 ID 저장소에 사용자의 수명 주기를 관리하도록 Azure Active Directory가 SCIM 서비스를 보낸다는 메세지를 보여줍니다.  또한 다이어그램은 이러한 서비스 구축을 위해 Microsoft에서 제공하는 공용 언어 인프라 라이브러리를 사용하여 구현된 SCIM 서비스가 이러한 요청을 어떻게 공급자의 메서드에 호출로 번역하는지를 보여줍니다.  
+아래 그림은 다른 ID 저장소에 사용자의 수명 주기를 관리하도록 Azure Active Directory가 SCIM 서비스를 보낸다는 메시지를 보여줍니다.  또한 다이어그램은 이러한 서비스 구축을 위해 Microsoft에서 제공하는 공용 언어 인프라 라이브러리를 사용하여 구현된 SCIM 서비스가 이러한 요청을 어떻게 공급자의 메서드에 호출로 번역하는지를 보여줍니다.  
 
 ![][4]
 *그림: 사용자 프로비전 및 시퀀스 프로비전 해제*
@@ -449,7 +450,7 @@ Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters 인터페이�
       "department":null,
       "manager":null}
 
-SCIM 서비스 구현에 대해 Microsoft에서 제공하는 공용 언어 인프라 라이브러리는 요청이 서비스 공급자의 만들기 메서드에 호출을 요청하도록 번역됩니다.  만들기 매서드에는 다음 서명이 있습니다. 
+SCIM 서비스 구현에 대해 Microsoft에서 제공하는 공용 언어 인프라 라이브러리는 요청이 서비스 공급자의 만들기 메서드에 호출을 요청하도록 번역됩니다.  만들기 메서드에는 다음 서명이 있습니다. 
 
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
@@ -639,7 +640,7 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
 
-서비스가 SCIM 서비스 구현에 대해 Microsoft에서 제공하는 공용 언어 인프라 라이브러리를 사용하여 작성되면 요청이 서비스 공급자의 삭제 메서드 호출로 번역됩니다.   해당 매서드에는 다음 서명이 있습니다. 
+서비스가 SCIM 서비스 구현에 대해 Microsoft에서 제공하는 공용 언어 인프라 라이브러리를 사용하여 작성되면 요청이 서비스 공급자의 삭제 메서드 호출로 번역됩니다.   해당 메서드에는 다음 서명이 있습니다. 
 
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
@@ -655,7 +656,7 @@ SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러�
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="group-provisioning-and-de-provisioning"></a>그룹 프로비전 및 프로비전 해제
-아래 그림은 다른 ID 저장소에 그룹의 수명 주기를 관리하도록 Azure Active Directory가 SCIM 서비스를 보낸다는 메세지를 보여줍니다.  이러한 메시지는 세 가지 부분에서 사용자에 관련된 메시지가 다릅니다. 
+아래 그림은 다른 ID 저장소에 그룹의 수명 주기를 관리하도록 Azure Active Directory가 SCIM 서비스를 보낸다는 메시지를 보여줍니다.  이러한 메시지는 세 가지 부분에서 사용자에 관련된 메시지가 다릅니다. 
 
 * 그룹 리소스의 스키마는 http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group으로 식별됩니다.  
 * 그룹을 검색하는 요청은 멤버 특성이 요청에 대한 응답에서 제공된 리소스로부터 제외된다고 규정합니다.  

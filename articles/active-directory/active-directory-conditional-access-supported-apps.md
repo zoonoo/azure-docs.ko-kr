@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 569777b7034ebeccddf6d9ef89ee2f9fb667cc3f
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 40eb1d80830818a492c78d5091aaa9cca8d48f16
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -68,7 +69,7 @@ Exchange에서는 중요한 두 가지 범주의 프로토콜을 제공합니다
 * **레거시 프로토콜** - AD FS를 사용하면 레거시 프로토콜을 차단할 수 있습니다. 이렇게 하면 최신 인증을 사용하지 않는 Office 2013 및 이전 버전의 Office와 같이 오래된 Office 클라이언트에 대한 액세스를 차단합니다.
 
 ### <a name="use-ad-fs-to-block-legacy-protocol"></a>AD FS를 통한 레거시 프로토콜 차단
-다음 예제를 사용하면 AD FS 수준에서 레거시 프로토콜 액세스를 차단할 수 있습니다. 일반적인 두 가지 구성에서 선택합니다.
+다음 예제 발급 권한 부여 규칙을 사용하면 AD FS 수준에서 레거시 프로토콜 액세스를 차단할 수 있습니다. 일반적인 두 가지 구성에서 선택합니다.
 
 #### <a name="option-1-allow-exchange-activesync-and-allow-legacy-apps-but-only-on-the-intranet"></a>옵션 1: Exchange ActiveSync 허용 및 인트라넷에 있는 레거시 앱만 허용
 다음 세 가지 규칙을 Microsoft Office 365 ID 플랫폼의 AD FS 신뢰 당사자 트러스트에 적용하면 Exchange ActiveSync 트래픽과 브라우저 및 최신 인증 트래픽에 액세스할 수 있습니다. 레거시 앱은 익스트라넷에서 차단됩니다.

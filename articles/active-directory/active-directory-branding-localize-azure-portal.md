@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 미리 보기에서 로그인 페이지에 언어별 회사 브랜딩 추가 | Microsoft Docs"
+title: "Azure Active Directory에서 로그인 페이지에 언어별 회사 브랜딩 추가 | Microsoft Docs"
 description: "언어별 회사 브랜딩 그림 및 텍스트를 Azure에 로그인 페이지에 추가하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: 
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fece49df6a35f09ee73bb4b9ec4c33a0529a9f59
-ms.lasthandoff: 12/29/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: e1fe8d855386ceec39edbc985538cdf32d78a13b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="add-language-specific-company-branding-to-your-sign-in-page-in-the-azure-active-directory-preview"></a>Azure Active Directory 미리 보기에서 로그인 페이지에 언어별 회사 브랜딩 추가
-혼동을 피하기 위해 대부분의 회사는 관리하는 모든 웹 사이트 및 서비스에 일관된 모양과 느낌을 적용하고자 합니다. Azure Active Directory 미리 보기는 회사 로고 및 사용자 지정 색 구성표를 포함하도록 로그인 페이지의 외관을 사용자 지정하는 방식으로 이 기능을 제공합니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md)  로그인 페이지는 Office 365 또는 Azure AD를 ID 공급자로 사용하는 기타 웹 기반 응용 프로그램에 로그인할 경우에 표시되는 페이지입니다. 자격 증명을 입력하려면 이 페이지와 상호 작용합니다.
+# <a name="add-language-specific-company-branding-to-your-sign-in-page-in-the-azure-active-directory"></a>Azure Active Directory에서 로그인 페이지에 언어별 회사 브랜딩 추가
+혼동을 피하기 위해 대부분의 회사는 관리하는 모든 웹 사이트 및 서비스에 일관된 모양과 느낌을 적용하고자 합니다. Azure Active Directory는 회사 로고 및 사용자 지정 색 구성표를 포함하도록 로그인 페이지의 외관을 사용자 지정하는 방식으로 이 기능을 제공합니다. 로그인 페이지는 Office 365 또는 Azure AD를 ID 공급자로 사용하는 기타 웹 기반 응용 프로그램에 로그인할 경우에 표시되는 페이지입니다. 자격 증명을 입력하려면 이 페이지와 상호 작용합니다.
 
 ## <a name="customizing-the-sign-in-page-for-another-language"></a>다른 언어에 대한 로그인 페이지 사용자 지정
 [로그인 페이지에 회사 브랜딩 추가](active-directory-branding-custom-signon-azure-portal.md)에 설명된 대로 사용자 지정 로그인 페이지를 이미 만든 경우 사용자 지정 로그인 페이지에 언어별 요소를 추가할 수 있습니다. 기본 사용자 지정 가능 요소 집합으로 디렉터리당 하나의 로그인 페이지를 구성할 수 있습니다. 기본 페이지 요소 집합을 구성한 후 다른 로캘로 추가 버전을 구성할 수 있습니다. 다양한 요소를 적절히 조합하여 사용할 수도 있습니다. 예를 들어 다음과 같이 할 수 있습니다.

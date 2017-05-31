@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 509c216b8d284d6f0aac2efbea70d254b9a2016b
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 90708ff93a86f0b0883f069b45ed4e17c9667014
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Azure Resource Manager 및 C를 사용하여 Azure 가상 컴퓨터 관리# #
+# <a name="manage-azure-virtual-machines-using-azure-resource-manager-and-c"></a>Azure Resource Manager 및 C#을 사용하여 Azure Virtual Machines 관리 #
 
 이 문서의 작업은 가상 컴퓨터의 시작, 중지 및 업데이트와 같은 가상 컴퓨터 관리 방법을 보여 줍니다.
 
@@ -34,14 +35,14 @@ Visual Studio가 설치되어 있는지 확인하고 가상 컴퓨터를 관리�
 
 1. [Visual Studio](https://www.visualstudio.com/)를 아직 설치하지 않았으면 설치합니다.
 2. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭합니다.
-3. **템플릿** > **Visual C#**에서 **콘솔 응용 프로그램**을 선택하고, 프로젝트의 이름과 위치를 입력한 다음 **확인**을 클릭합니다.
+3. **템플릿** > **Visual C#**에서 **콘솔 앱(.NET Framework)**을 선택하고, 프로젝트의 이름과 위치를 입력한 다음 **확인**을 클릭합니다.
 
 ### <a name="install-libraries"></a>라이브러리 설치
 
 NuGet 패키지는 이 문서에서 작업을 수행하는 데 필요한 라이브러리를 설치하는 가장 쉬운 방법입니다. Visual Studio에서 필요한 라이브러리를 가져오려면 다음 단계를 수행합니다.
 
-1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭하고 **찾아보기**를 클릭합니다.
-2. 검색 상자에 *Microsoft.IdentityModel.Clients.ActiveDirectory*를 입력하고 **설치**를 클릭한 후 지침에 따라 패키지를 설치합니다.
+1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **솔루션의 NuGet 패키지 관리**를 클릭하고 **찾아보기**를 클릭합니다.
+2. 검색 상자에 *Microsoft.IdentityModel.Clients.ActiveDirectory*를 입력하고 프로젝트를 선택하고 **설치**를 클릭한 후 지침에 따라 패키지를 설치합니다.
 3. 페이지의 위쪽에서 **시험판 포함**을 선택합니다. 검색 상자에 *Microsoft.Azure.Management.Compute*를 입력하고 **설치**를 클릭한 후 지침에 따라 패키지를 설치합니다.
 
 이제 가상 컴퓨터를 관리하기 위해 라이브러리를 사용할 준비가 되었습니다.
@@ -50,7 +51,7 @@ NuGet 패키지는 이 문서에서 작업을 수행하는 데 필요한 라이�
 
 Azure Resource Manager와 상호 작용하려면 [Active Directory 서비스 주체](../../resource-group-authenticate-service-principal.md)에 액세스할 수 있는지 확인합니다. 서비스 주체에서 Azure Resource Manager에서 요청을 인증받기 위한 토큰을 얻을 수 있습니다.
 
-1. 만들었던 프로젝트에 대한 Program.cs 파일을 연 후, 다음 using 문을 파일의 위쪽에 추가합니다.
+1. 만들었던 프로젝트에 대한 Program.cs 파일을 연 후, 다음 using 문을 파일의 위쪽에 기존 문에 추가합니다.
 
     ```   
     using Microsoft.Azure;
@@ -75,8 +76,8 @@ Azure Resource Manager와 상호 작용하려면 [Active Directory 서비스 주
     ```    
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -88,9 +89,9 @@ Azure Resource Manager와 상호 작용하려면 [Active Directory 서비스 주
 
     다음 값을 바꿉니다.
     
-    - *{client-id}*를 Azure Active Directory 응용 프로그램의 식별자로 이 식별자는 AD 응용 프로그램의 속성 블레이드에서 찾을 수 있습니다. Azure Portal에서 AD 응용 프로그램을 찾으려면 리소스 메뉴에서 **Azure Active Directory**를 클릭한 다음 **앱 등록**을 클릭합니다.
-    - *{client-secret}*을 AD 응용 프로그램의 선택키 이 식별자는 AD 응용 프로그램의 속성 블레이드에서 찾을 수 있습니다.
-    - *{tenant-id}*를 구독의 테넌트 식별자로 Azure Portal의 Azure Active Directory에 대한 속성 블레이드에서 테넌트 식별자를 찾을 수 있습니다. *디렉터리 ID*로 레이블이 지정되어 있습니다.
+    - *client-id*를 Azure Active Directory 응용 프로그램의 식별자로 바꿉니다. 이 식별자는 AD 응용 프로그램의 속성 블레이드에서 찾을 수 있습니다. Azure Portal에서 AD 응용 프로그램을 찾으려면 리소스 메뉴에서 **Azure Active Directory**를 클릭한 다음 **앱 등록**을 클릭합니다.
+    - *client-secret*을 AD 응용 프로그램의 액세스 키로 바꿉니다. 이 식별자는 AD 응용 프로그램의 속성 블레이드에서 찾을 수 있습니다.
+    - *tenant-id*를 구독의 테넌트 식별자로 바꿉니다. Azure Portal의 Azure Active Directory에 대한 속성 블레이드에서 테넌트 식별자를 찾을 수 있습니다. *디렉터리 ID*로 레이블이 지정되어 있습니다.
 
 4. 이전에 추가한 메서드를 호출하려면 Program.cs 파일의 Main 메서드에 다음 코드를 추가합니다.
    

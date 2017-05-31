@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/29/2016
+ms.date: 05/08/2017
 ms.author: kyliel
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2d44a2d9a247ffce8bcf35152170562ac0b86710
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 7a92105f9d7be88311f2ecd89b22e35f3ad3bbac
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/27/2017
 이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
 * **Azure 구독**- 계정이 없는 경우 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우에는 [Visual Studio 구독자를 위한 월간 Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요. 그렇지 않으면 [무료 평가판 계정 만들기](https://azure.microsoft.com/pricing/free-trial/)를 참조하세요.  
-* **Azure PowerShell 도구**- Azure PowerShell 모듈이 설치되어 있고 Azure 구독을 사용하도록 구성되어 있어야 합니다. 모듈을 다운로드하려면 [Azure 다운로드](https://azure.microsoft.com/downloads/)를 참조하세요. 모듈 설치 및 구성에 대한 자습서는 여기에서 확인할 수 있습니다. [Azure Downloads](https://azure.microsoft.com/downloads/) cmdlet을 사용하여 VHD를 업로드합니다.
+* **Azure PowerShell 도구**- Azure PowerShell 모듈이 설치되어 있고 Azure 구독을 사용하도록 구성되어 있어야 합니다. 모듈을 다운로드하려면 [Azure 다운로드](https://azure.microsoft.com/downloads/)를 참조하세요. 모듈 설치 및 구성 방법을 설명한 자습서는 여기에서 확인할 수 있습니다. [Azure Downloads](https://azure.microsoft.com/downloads/) cmdlet을 사용하여 VHD를 업로드합니다.
 * **.vhd 파일에 설치된 FreeBSD 운영 체제**- 가상 하드 디스크에 지원되는 FreeBSD 운영 체제를 설치해야 합니다. .vhd 파일을 만드는 도구는 여러 가지가 있습니다. 예를 들어 Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. Hyper-V를 설치하고 사용하는 방법에 대한 자세한 내용은 [Hyper-V 설치 및 가상 컴퓨터 만들기](http://technet.microsoft.com/library/hh846766.aspx)를 참조하세요.
 
 > [!NOTE]
@@ -51,12 +52,7 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
         # service netif restart
 2. SSH를 활성화합니다.
 
-    SSH는 디스크에서 설치 후 기본적으로 사용됩니다. 어떤 이유로 활성화하지 않았거나 FreeBSD VHD를 직접 사용하는 경우 다음을 입력합니다.
-
-        # echo 'sshd_enable="YES"' >> /etc/rc.conf
-        # ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
-        # ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
-        # service sshd restart
+    SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. FreeBSD 디스크에서 설치 후에는 기본적으로 사용하도록 설정되어 있습니다. 
 3. 직렬 콘솔을 설치합니다.
 
         # echo 'console="comconsole vidconsole"' >> /boot/loader.conf
@@ -66,16 +62,16 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
     Azure에서 root 계정이 비활성화됩니다. 다시 말해서 상승된 권한으로 명령을 실행하려면 권한 없는 사용자로 sudo를 사용해야 합니다.
 
         # pkg install sudo
-   ;
+   
 5. Azure 에이전트에 대한 필수 조건.
 
         # pkg install python27  
-        # pkg install Py27-setuptools27   
+        # pkg install Py27-setuptools  
         # ln -s /usr/local/bin/python2.7 /usr/bin/python   
         # pkg install git
 6. Azure 에이전트를 설치합니다.
 
-    언제든지 최신 버전의 Azure 에이전트를 [github](https://github.com/Azure/WALinuxAgent/releases)에서 확인할 수 있습니다. 버전 2.0.10+는 FreeBSD 10 및 10.1을 공식적으로 지원하며 버전 2.1.4는 FreeBSD 10.2 이상 릴리스를 공식적으로 지원합니다.
+    언제든지 최신 버전의 Azure 에이전트를 [github](https://github.com/Azure/WALinuxAgent/releases)에서 확인할 수 있습니다. 버전 2.0.10 이상은 FreeBSD 10 및 10.1을 공식적으로 지원하며, 버전 2.1.4 이상(2.2.x 포함)은 FreeBSD 10.2 이상 릴리스를 공식적으로 지원합니다.
 
         # git clone https://github.com/Azure/WALinuxAgent.git  
         # cd WALinuxAgent  
@@ -108,8 +104,8 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
         # waagent -version
         WALinuxAgent-2.1.4 running on freebsd 10.3
         Python: 2.7.11
-        # service –e | grep waagent
-        /etc/rc.d/waagent
+        # ps auxw | grep waagent
+        root   639   0.0  0.5 104620 17520 u0- I    05:17    0:00.20 python /usr/local/sbin/waagent -daemon (python2.7)
         # cat /var/log/waagent.log
 7. 시스템을 프로비전 해제합니다.
 
@@ -164,12 +160,12 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
     이 명령은 직장 또는 학교 계정으로 로그인할 수 있는 로그인 창을 엽니다.
 
     ![PowerShell 창](./media/freebsd-create-upload-vhd/add_azureaccount.png)
-3. Azure가 자격 증명 정보를 인증한고 저장합니다. 그런 다음 창을 닫습니다.
+3. Azure가 자격 증명 정보를 인증하고 저장합니다. 그런 다음 창을 닫습니다.
 
 ### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>인증서 방법을 사용하여 .vhd 파일 업로드
 1. Azure PowerShell 콘솔을 엽니다.
 2. 다음을 입력합니다.  `Get-AzurePublishSettingsFile`
-3. .publishsettings 파일을 다운로드할 것을 요구하는 브라우저 창이 열립니다. 이 파일에는 Azure 구독에 대한 정보와 인증서가 포함되어 있습니다.
+3. 브라우저 창이 열리고 .publishsettings 파일을 다운로드하라는 메시지가 표시됩니다. 이 파일에는 Azure 구독에 대한 정보와 인증서가 포함되어 있습니다.
 
     ![브라우저 다운로드 페이지](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. .publishsettings 파일을 저장합니다.
@@ -182,10 +178,10 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 ## <a name="step-4-upload-the-vhd-file"></a>4단계: .vhd 파일 업로드
 .vhd 파일을 업로드할 때 Blob 저장소 내 임의의 위치에 .vhd 파일을 배치할 수 있습니다. 다음은 파일을 업로드할 때 사용되는 몇 가지 용어입니다.
 
-* **BlobStorageURL** 은 2단계에서 만든 저장소 계정의 URL입니다.
-* **YourImagesFolder** 는 이미지를 저장하려는 Blob 저장소 내 컨테이너입니다.
-* **VHDName** 은 가상 하드 디스크를 식별하기 위해 Azure 클래식 포털에 표시되는 레이블입니다.
-* **PathToVHDFile** 은 .vhd 파일의 전체 경로 및 이름입니다.
+* **BlobStorageURL**은 2단계에서 만든 저장소 계정의 URL입니다.
+* **YourImagesFolder**는 이미지를 저장하려는 Blob 저장소 내 컨테이너입니다.
+* **VHDName**은 가상 하드 디스크를 식별하기 위해 Azure 클래식 포털에 표시되는 레이블입니다.
+* **PathToVHDFile**은 .vhd 파일의 전체 경로 및 이름입니다.
 
 이전 단계에서 사용한 Azure PowerShell 창에서 다음을 입력합니다.
 

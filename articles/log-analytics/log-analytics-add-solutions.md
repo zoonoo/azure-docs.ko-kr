@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/05/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 7899df8a09b6f5c8bc916bb6ad872afa3844e425
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 00fb88afe9ee107543aa7557ff0953d066d05bfd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -69,7 +70,7 @@ Azure Marketplace는 [Log Analytics을 위한 관리 솔루션](https://azuremar
 
 ## <a name="offers-and-pricing-tiers"></a>제품 및 가격 책정 계층
 
-다음은 각 운영 관리 및 보안 제품에 속하는 관리 솔루션을 구분한 테이블입니다.
+다음은 각 Operations Management Suite 제품에 속하는 관리 솔루션을 구분한 테이블입니다.
 이 테이블에는 각 관리 솔루션에 적용되는 가격 책정 계층도 분류되어 있습니다.
 이 테이블의 모든 솔루션은 Azure Portal 및 Log Analytics 포털의 솔루션 갤러리 내에서 얻을 수 있습니다.
 

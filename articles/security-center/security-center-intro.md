@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 3155990d977d8b0849c9e0be92db11ad6567cd6e
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: fd52bd8e14ca9bdcd06fc820e5e03fb5feccc72f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -83,7 +84,7 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 >
 >
 
-**방지 정책**(위 참조)을 선택하여 **방지 정책** 블레이드를 엽니다. **권장 사항 표시** 를 사용하면 구독 내에서 리소스의 보안 요구를 기반으로 모니터링하려는 보안 컨트롤과 보려는 권장 지침을 선택할 수 있습니다.
+**방지 정책**(위 참조)을 선택하여 **방지 정책** 블레이드를 엽니다. **권장 사항 표시**를 사용하면 구독 내에서 리소스의 보안 요구를 기반으로 모니터링하려는 보안 컨트롤과 보려는 권장 지침을 선택할 수 있습니다.
 
 그런 다음 정책 세부 정보를 볼 리소스 그룹을 선택합니다.
 
@@ -112,10 +113,10 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 
 ![Azure 보안 센터의 보안 권장 사항][5]
 
-### <a name="resource-health"></a>리소스 상태
-**리소스 보안 상태** 타일은 환경의 전체 보안 상태를 VM, 웹 응용 프로그램 및 다른 리소스를 비롯한 리소스 종류별로 표시합니다.   
+### <a name="security-state-of-azure-resources"></a>Azure 리소스의 보안 상태
+대시보드의 **방지**섹션은 환경의 전체 보안 상태를 VM, 웹 응용 프로그램 및 다른 리소스를 비롯한 리소스 형식별로 표시합니다.   
 
-**리소스 보안 상태** 타일에서 리소스 종류를 선택하여 식별된 잠재적 보안 취약성 목록을 비롯한 자세한 정보를 봅니다. (아래 예제에서**계산**을 선택합니다.)
+**방지**에서 리소스 형식을 선택하여 식별된 잠재적 보안 취약성 목록을 비롯한 자세한 정보를 봅니다. (아래 예제에서**계산**을 선택합니다.)
 
 ![리소스 상태 타일][6]
 
@@ -145,9 +146,9 @@ Azure 보안 센터, 주요 기능 및 작동 방법에 대해 알아봅니다.
 ## <a name="get-started"></a>시작
 보안 센터를 시작하려면 Microsoft Azure에 대한 구독이 필요합니다. 보안 센터는 Azure 구독을 사용하여 사용하도록 설정됩니다. 구독이 없는 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 
- [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에서 보안 센터에 액세스합니다. 자세한 내용은 [포털 설명서](https://azure.microsoft.com/documentation/services/azure-portal/) 를 참조하세요.
+ [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에서 보안 센터에 액세스합니다. 자세한 내용은 [포털 설명서](https://azure.microsoft.com/documentation/services/azure-portal/)를 참조하세요.
 
-[Azure 보안 센터 시작](security-center-get-started.md) 은 보안 센터의 보안 모니터링 및 정책 관리 구성 요소를 빠르게 안내합니다.
+[Azure 보안 센터 시작](security-center-get-started.md)은 보안 센터의 보안 모니터링 및 정책 관리 구성 요소를 빠르게 안내합니다.
 
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 보안 센터, 주요 기능 및 시작하는 방법을 소개하였습니다. 자세한 알아보려면 다음을 참조하세요.

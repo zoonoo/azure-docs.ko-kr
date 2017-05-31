@@ -13,13 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 05/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6c92292a67d14ac43c0fe5dbe7e14672c74b216b
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: cf460eed4bd290fbdcb9670a4ec4999f4c96c275
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석
@@ -31,11 +32,11 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
 ### <a name="prerequisites"></a>필수 조건
 
-* **HDInsight 클러스터**. 새 Linux 기반 HDInsight 클러스터를 만드는 단계는 [Linux의 HDInsight에서 Hive와 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md) 을 참조하세요.
+* **HDInsight 클러스터**. 새 Linux 기반 HDInsight 클러스터를 만드는 단계는 [Linux의 HDInsight에서 Hive와 Hadoop 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
 * **Azure SQL 데이터베이스**. Azure SQL Database를 대상 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 분 만에 SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)를 참조하세요.
 
-* **Azure CLI**. Azure CLI를 설치하지 않은 경우 자세한 단계는 [Azure CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조하세요.
+* **Azure CLI**. Azure CLI를 설치하지 않은 경우 자세한 단계는 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하세요.
 
 ## <a name="download-the-flight-data"></a>비행 데이터 다운로드
 
@@ -59,7 +60,7 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
     scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
     ```
 
-    **FILENAME** 을 zip 파일의 이름으로 바꿉니다. **USERNAME** 을 HDInsight 클러스터에 대한 SSH 로그인으로 바꿉니다. CLUSTERNAME을 HDInsight 클러스터의 이름으로 바꿉니다.
+    **FILENAME**을 zip 파일의 이름으로 바꿉니다. **USERNAME**을 HDInsight 클러스터에 대한 SSH 로그인으로 바꿉니다. CLUSTERNAME을 HDInsight 클러스터의 이름으로 바꿉니다.
 
    > [!NOTE]
    > SSH 로그인을 인증하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공용 키를 사용하는 경우, `-i` 매개 변수를 사용하고 개인 키와 일치하는 경로를 지정합니다. 예: `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
@@ -157,9 +158,9 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
     FROM delays_raw;
     ```
 
-2. **Ctrl + X**, **Y**를 차례로 사용하여 파일을 저장합니다.
+2. 파일을 저장하려면 **Ctrl + X**, **Y**를 차례로 사용합니다.
 
-3. 다음 명령을 사용하여 Hive를 시작하고 **flightdelays.hql** 파일을 실행합니다.
+3. Hive를 시작하고 **flightdelays.hql** 파일을 실행하려면 다음 명령을 사용합니다.
 
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -f flightdelays.hql
@@ -188,18 +189,18 @@ Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분
 
     이 쿼리는 평균 지연 시간과 함께 날씨 지연이 발생된 도시 목록이 검색된 후 `/tutorials/flightdelays/output`에 저장됩니다. 나중에 Sqoop는 이 위치에서 데이터를 읽어 Azure SQL Database로 내보냅니다.
 
-6. Beeline을 종료하려면 프롬프트에 `!quit` 을 입력합니다.
+6. Beeline을 종료하려면 프롬프트에 `!quit`을 입력합니다.
 
 ## <a name="create-a-sql-database"></a>SQL 데이터베이스 만들기
 
 SQL 데이터베이스가 이미 있는 경우 서버 이름을 가져와야 합니다. [SQL Databases](https://portal.azure.com)를 선택하여 **Azure Portal**에서 서버 이름을 찾은 다음 사용하려는 데이터베이스의 이름을 필터링합니다. 서버 이름은 **서버** 열에 나열됩니다.
 
-SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 분 만에 SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md) 의 정보를 사용하여 만듭니다. 데이터베이스에 사용한 서버 이름을 저장해야 합니다.
+SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 분 만에 SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md) 의 정보를 사용하여 만듭니다. 데이터베이스에 사용한 서버 이름을 저장합니다.
 
 ## <a name="create-a-sql-database-table"></a>SQL 데이터베이스 테이블 만들기
 
 > [!NOTE]
-> 여러 가지 방법으로 SQL Database에 연결하고 테이블을 생성할 수 있습니다. 다음 단계는 HDInsight 클러스터의 [FreeTDS](http://www.freetds.org/) 를 사용합니다.
+> 여러 가지 방법으로 SQL Database에 연결하고 테이블을 생성할 수 있습니다. 다음 단계는 HDInsight 클러스터의 [FreeTDS](http://www.freetds.org/)를 사용합니다.
 
 
 1. SSH를 사용하여 Linux 기반 HDInsight 클러스터에 연결하고 SSH 세션에서 다음 단계를 실행합니다.
@@ -210,7 +211,7 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. 설치가 끝나면 다음 명령을 사용하여 SQL Database 서버에 연결합니다. **serverName** 을 SQL 데이터베이스 서버 이름으로 바꿉니다. **adminLogin** 및 **adminPassword**를 SQL Database의 로그인으로 바꿉니다. **databaseName** 을 데이터베이스 이름으로 바꿉니다.
+3. 설치가 끝나면 다음 명령을 사용하여 SQL Database 서버에 연결합니다. **serverName**을 SQL 데이터베이스 서버 이름으로 바꿉니다. **adminLogin** 및 **adminPassword**를 SQL Database의 로그인으로 바꿉니다. **databaseName**을 데이터베이스 이름으로 바꿉니다.
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
@@ -237,23 +238,23 @@ SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 자습서: 몇 �
     GO
     ```
 
-    `GO` 문을 입력하면 이전 문이 평가됩니다. 클러스터형 인덱스가 있는 **지연**이라는 테이블이 만들어집니다.
+    `GO` 문을 입력하면 이전 문이 평가됩니다. 이 쿼리는 클러스터형 인덱스가 있는 **지연**이라는 테이블을 만듭니다.
 
-    다음을 사용하여 테이블이 생성되었는지 확인합니다.
+    다음 쿼리를 사용하여 테이블이 생성되었는지 확인합니다.
 
     ```
     SELECT * FROM information_schema.tables
     GO
     ```
 
-    다음과 유사하게 출력됩니다.
+    다음 텍스트와 유사하게 출력됩니다.
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
     databaseName       dbo     delays      BASE TABLE
     ```
 
-5. `exit` at the `1>` 를 입력하여 tsql 유틸리티를 종료합니다.
+5. `exit` at the `1>`를 입력하여 tsql 유틸리티를 종료합니다.
 
 ## <a name="export-data-with-sqoop"></a>Sqoop으로 데이터 내보내기
 
