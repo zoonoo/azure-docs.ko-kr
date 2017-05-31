@@ -1,13 +1,13 @@
 ---
 title: "Azure Cosmos DB에 대한 Azure PowerShell 샘플 | Microsoft Docs"
 description: "Azure PowerShell 샘플 - Azure Cosmos DB 계정을 만들고 관리할 수 있도록 하는 스크립트입니다."
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: na
 ms.topic: article

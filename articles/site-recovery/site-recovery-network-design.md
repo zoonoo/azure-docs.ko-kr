@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: pratshar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6e6d05d7a7595e17d026be6a448b2fa2cca9b816
 ms.openlocfilehash: a62fe406af18c9c7d9b58839bfa0d6e785b614ef
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="designing-your-network-for-disaster-recovery"></a>재해 복구를 위한 네트워크 디자인
+
 이 문서는 BCDR(비즈니스 연속성 및 재해 복구) 인프라를 설계, 구현 및 지원할 책임이 있고 Microsoft ASR(Azure Site Recovery)를 활용하여 BCDR 서비스를 지원하고 개선하려는 IT 전문가에게 리디렉션됩니다. 이 문서는 System Center Virtual Machine Manager 서버 배포에 대한 실제적인 고려 사항, 확대 서브넷과 서브넷 장애 조치의 장단점 및 Microsoft Azure의 가상 사이트에 대한 재해 복구를 구조화하는 방법을 설명합니다.
 
 ## <a name="overview"></a>개요

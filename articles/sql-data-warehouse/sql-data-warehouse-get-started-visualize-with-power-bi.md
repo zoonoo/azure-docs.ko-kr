@@ -3,7 +3,7 @@ title: "Power BI Microsoft Azure로 SQL 데이터 웨어하우스 데이터 시�
 description: "Power BI로 SQL 데이터 웨어하우스 데이터 시각화"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: 
 ms.assetid: d7fb89d1-da1d-4788-a111-68d0e3fda799

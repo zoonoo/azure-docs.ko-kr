@@ -15,9 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/08/2017
 ms.author: heidist
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
 ms.openlocfilehash: bfed40417d800e86de7ef437c42162b1e1a0d886
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/24/2017
 
 ---
@@ -75,7 +76,7 @@ Azure 검색에서 서비스에는&1;개 파티션과&1;개 복제본으로 구�
 
 Azure Search에 대한 Service Level Agreement(서비스 수준 약정)는 문서 추가, 업데이트 또는 삭제로 구성된 쿼리 작업 및 인덱스 업데이트를 대상으로 합니다.
 
-### <a name="index-availability-during-a-rebuild"></a>인덱스 다시 작성 중 가용성###
+### <a name="index-availability-during-a-rebuild"></a>인덱스 다시 작성 중 가용성
 
 Azure 검색의 고가용성은 인덱스 다시 작성을 포함하지 않는 쿼리 및 인덱스 업데이트와 관련이 있습니다. 필드를 삭제하거나, 데이터 유형을 변경하거나, 필드 이름을 변경하는 경우 인덱스를 다시 작성해야 합니다. 인덱스를 다시 작성하려면 인덱스를 삭제하고 인덱스를 다시 만들고 데이터를 다시 로드해야 합니다.
 

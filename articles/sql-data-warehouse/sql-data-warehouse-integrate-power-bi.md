@@ -3,7 +3,7 @@ title: "SQL Data Warehouse와 함께 Power BI 사용 | Microsoft Docs"
 description: "솔루션 개발을 위한 Azure SQL 데이터 웨어하우스와 함께 Power BI 사용을 위한 팁"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: 
 ms.assetid: b12bee87-2268-40c2-81bf-ab27588b32e8

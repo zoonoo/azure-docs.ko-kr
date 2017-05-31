@@ -1,13 +1,13 @@
 ---
 title: "Azure CosmosDB Table API .NET SDK 및 리소스 | Microsoft Docs"
 description: "릴리스 날짜, 사용 중지 날짜 및 각 버전의 변경 내용을 포함하여 Azure CosmosDB Table API에 대해 자세히 알아봅니다."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet

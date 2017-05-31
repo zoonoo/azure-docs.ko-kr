@@ -3,7 +3,7 @@ title: "SQL Data Warehouse와 통합된 솔루션 구축 | Microsoft Docs"
 description: "SQL 데이터 웨어하우스와 통합된 솔루션과 파트너 및 도구 "
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: mlee3gsd
 manager: jhubbard
 editor: 
 ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f

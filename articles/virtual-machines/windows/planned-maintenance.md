@@ -3,7 +3,7 @@ title: "Azure에서 Windows VM에 대한 계획된 유지 관리 | Microsoft Doc
 description: "Azure 계획된 유지 관리의 정의와 계획된 유지 관리가 Azure를 실행하는 Windows 가상 컴퓨터에 주는 영향에 대해 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
-author: 
+author: zivr
 manager: timlt
 editor: 
 tags: azure-service-management,azure-resource-manager
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
-ms.author: 
-translationtype: Human Translation
+ms.author: zivr
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: 198c1804b342b8faf406a08eff7bc42994b9dd0d
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/31/2017
 
 

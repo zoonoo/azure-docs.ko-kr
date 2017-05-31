@@ -1,14 +1,14 @@
 ---
 title: "Azure CLI 스크립트 - Azure Cosmos DB에 대한 다중 지역 복제 | Microsoft Docs"
 description: "Azure CLI 스크립트 샘플 - Azure Cosmos DB에 대한 다중 지역 복제"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: sample

@@ -1,14 +1,14 @@
 ---
 title: "Azure CLI 스크립트-Azure Cosmos DB MongoDB API 계정, 데이터베이스 및 컬렉션 만들기 | Microsoft Docs"
 description: "Azure CLI 스크립트 샘플 - Azure Cosmos DB MongoDB API 계정, 데이터베이스 및 컬렉션 만들기"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: sample
 ms.devlang: azurecli
 ms.topic: sample

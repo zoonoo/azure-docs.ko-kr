@@ -1,14 +1,14 @@
 ---
 title: "Azure Cosmos DB에서 그래프 데이터를 쿼리하는 방법 | Microsoft Docs"
 description: "Azure Cosmos DB에서 그래프 데이터를 쿼리하는 방법을 알아봅니다."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 8bde5c80-581c-4f70-acb4-9578873c92fa
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
