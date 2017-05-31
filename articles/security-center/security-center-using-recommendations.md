@@ -1,6 +1,6 @@
 ---
 title: "Azure Security Center 권장 사항을 사용하여 보안 강화 | Microsoft Docs"
-description: " Azure Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법 알아보기. "
+description: " Azure Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 알아봅니다. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 05/08/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 313801fc3b845cd30506b1a26918660e77d2a986
-ms.openlocfilehash: 67095e0d8752fb3a2bca692f65e77cde5fd1a966
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 36dd149812a0e8c8ca8ef2bac09c1920ec15d3ba
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -75,7 +77,7 @@ Jeff는 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에 �
 
 1. Jeff는 **권장 사항** 타일을 선택하여 **권장 사항** 블레이드를 엽니다.
    ![권장 사항 타일 선택][3]
-2. Jeff는 권장 사항 목록을 검토합니다. 또한 Security Center에서 우선 순위에 따라 우선 순위가 가장 높은 것부터 낮은 순으로 권장 사항 목록이 표시됩니다. 목록에서 우선 순위가 가장 높은 항목을 해결하기로 결정합니다. **권장 사항** 블레이드에서 **Endpoint Protection 설치**를 선택합니다.
+2. Jeff는 권장 사항 목록을 검토합니다. 또한 Security Center에서 우선 순위에 따라 우선 순위가 가장 높은 것부터 낮은 순으로 권장 사항 목록이 표시됩니다. 목록에서 우선 순위가 높은 항목을 해결하기로 결정합니다. **권장 사항** 블레이드에서 **Endpoint Protection 설치**를 선택합니다.
 3. 맬웨어 방지 프로그램을 사용하지 않는 VM의 목록을 표시하는 **Endpoint Protection 설치** 블레이드가 열립니다. Jeff는 VM 목록을 검토하고 모든 VM을 선택한 다음 **3개의 VM에 설치**를 선택합니다.
    ![Endpoint Protection 설치][4]
 4. **Endpoint Protection 선택** 블레이드가 열리고 Jeff에게 두 가지 맬웨어 방지 솔루션을 제공합니다. Jeff는 **Microsoft 맬웨어 방지** 솔루션을 선택합니다.
@@ -114,9 +116,4 @@ Security Center에서 권장 사항을 모니터링하면 공격이 발생하기
 [5]:./media/security-center-using-recommendations/microsoft-antimalware.png
 [6]: ./media/security-center-using-recommendations/provide-security-contact-details.png
 [7]: ./media/security-center-using-recommendations/dismiss-recommendation.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

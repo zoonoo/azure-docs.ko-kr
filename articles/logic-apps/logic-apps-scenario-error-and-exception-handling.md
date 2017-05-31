@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
-ms.author: b-hoedid
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: b996ed1889ec39de78dcee9bbcb18a5982fc5f7f
-ms.lasthandoff: 04/04/2017
+ms.author: LADocs; b-hoedid
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f68b27e007ad2de9e880f1fe0736d403f74dc80b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -46,12 +47,12 @@ ms.lasthandoff: 04/04/2017
 
 ## <a name="how-we-solved-the-problem"></a>문제를 해결한 방법
 
-[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") 를 로그 및 오류 기록에 대한 리포지토리로 선택했습니다(DocumentDB에서는 기록을 문서로 참조합니다). Azure Logic Apps에 모든 응답에 대한 표준 템플릿이 있으므로 사용자 지정 스키마를 만들 필요가 없습니다. 오류 및 로그 기록에 대한 **삽입** 및 **쿼리**에 API 앱을 만들 수 있습니다. API 앱 내에서 각각에 대한 스키마를 정의할 수도 있습니다.  
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB")를 로그 및 오류 레코드에 대한 리포지토리로 선택했습니다(Cosmos DB에서는 레코드를 문서로 참조함). Azure Logic Apps에 모든 응답에 대한 표준 템플릿이 있으므로 사용자 지정 스키마를 만들 필요가 없습니다. 오류 및 로그 기록에 대한 **삽입** 및 **쿼리**에 API 앱을 만들 수 있습니다. API 앱 내에서 각각에 대한 스키마를 정의할 수도 있습니다.  
 
-다른 요구 사항은 특정 날짜 이후 기록을 제거하는 것입니다. DocumentDB에는 TTL( [Time-To-Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time-To-Live") )이라는 속성이 있으며 이를 사용하면 각 기록 또는 컬렉션에 **Time-To-Live** 값을 설정할 수 있습니다. 이 기능으로 인해 DocumentDB에서 기록을 수동으로 삭제할 필요성이 없어집니다.
+다른 요구 사항은 특정 날짜 이후 기록을 제거하는 것입니다. Cosmos DB에는 TTL([Time To Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time To Live"))이라는 속성이 있으며, 이 속성을 사용하여 각 기록 또는 컬렉션에 대한 **Time To Live** 값을 설정할 수 있습니다. 이 기능 덕분에 Cosmos DB에서 레코드를 수동으로 삭제할 필요가 없어졌습니다.
 
 > [!IMPORTANT]
-> 이 자습서를 완료하려면 DocumentDB 데이터베이스와 두 개의 컬렉션(로깅 및 오류)을 만들어야 합니다.
+> 이 자습서를 완료하려면 Cosmos DB 데이터베이스와 두 개의 컬렉션(로깅 및 오류)을 만들어야 합니다.
 
 ## <a name="create-the-logic-app"></a>논리 앱 만들기
 
@@ -258,7 +259,7 @@ API 앱에서 발생한 로그 응답 메시지입니다.
 }             
 ```
 
-#### <a name="insert-error-into-documentdb--request"></a>DocumentDB의 삽입 오류 - 요청
+#### <a name="insert-error-into-cosmos-db--request"></a>Cosmos DB에 삽입 오류 - 요청
 
 ``` json
 
@@ -281,7 +282,7 @@ API 앱에서 발생한 로그 응답 메시지입니다.
 }
 ```
 
-#### <a name="insert-error-into-documentdb--response"></a>DocumentDB의 삽입 오류 - 응답
+#### <a name="insert-error-into-cosmos-db--response"></a>Cosmos DB에 삽입 오류 - 응답
 
 ``` json
 {
@@ -399,16 +400,16 @@ API 앱에서 발생한 로그 응답 메시지입니다.
 ```
 
 
-## <a name="documentdb-repository-and-portal"></a>DocumentDB 리포지토리 및 포털
+## <a name="cosmos-db-repository-and-portal"></a>Cosmos DB 리포지토리 및 포털
 
-[DocumentDB](https://azure.microsoft.com/services/documentdb)에 기능을 추가한 솔루션.
+솔루션은 [Cosmos DB](https://azure.microsoft.com/services/documentdb)와 관련된 기능을 추가했습니다.
 
 ### <a name="error-management-portal"></a>오류 관리 포털
 
-오류를 보려면 DocumentDB에서 오류 기록을 표시하는 MVC 웹앱을 만들 수 있습니다. 현재 버전에는 **목록**, **세부 정보**, **편집** 및 **삭제** 작업이 포함됩니다.
+오류를 보기 위해 Cosmos DB의 오류 레코드를 표시하는 MVC 웹앱을 만들 수 있습니다. 현재 버전에는 **목록**, **세부 정보**, **편집** 및 **삭제** 작업이 포함됩니다.
 
 > [!NOTE]
-> 편집 작업: DocumentDB는 전체 문서를 바꿉니다. **목록** 및 **세부 정보** 보기에 표시된 기록은 예제만 해당됩니다. 실제 환자 예약 기록이 없습니다.
+> 편집 작업: Cosmos DB는 전체 문서를 바꿉니다. **목록** 및 **세부 정보** 보기에 표시된 기록은 예제만 해당됩니다. 실제 환자 예약 기록이 없습니다.
 
 다음은 앞에서 설명한 접근 방식을 사용하여 만든 MVC 앱 정보의 예입니다.
 
@@ -492,3 +493,4 @@ DocumentDB의 모든 문서에는 고유한 ID가 있어야 합니다. `PatientI
 * [논리 앱 예제 및 시나리오 더 보기](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Logic Apps 모니터링에 대해 알아보기](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Logic Apps용 자동화된 배포 템플릿 만들기](../logic-apps/logic-apps-create-deploy-template.md)
+

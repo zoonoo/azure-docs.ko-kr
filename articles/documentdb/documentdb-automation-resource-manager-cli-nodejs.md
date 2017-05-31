@@ -1,37 +1,42 @@
 ---
-title: "DocumentDB 자동화 - Resource Manager - Azure CLI 1.0 | Microsoft Docs"
-description: "Azure 리소스 관리자 템플릿 또는 CLI를 사용하여 DocumentDB 데이터베이스 계정을 배포합니다. DocumentDB는 JSON 데이터에 대한 클라우드 기반 NoSQL 데이터베이스입니다."
-services: documentdb
+title: "Azure Cosmos DB 자동화 - Resource Manager - Azure CLI 1.0 | Microsoft Docs"
+description: "Azure Resource Manager 템플릿 또는 CLI를 사용하여 Azure Cosmos DB 데이터베이스 계정을 배포합니다. Azure Cosmos DB는 전역적으로 분산된 클라우드 기반 데이터베이스입니다."
+services: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-resource-manager
 documentationcenter: 
 ms.assetid: eae5eec6-0e27-442c-abfc-ef6b7fd3f8d2
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 0959dace90686324b9fe4360f4696f8d85c3a9e7
-ms.lasthandoff: 03/31/2017
+redirect_url: https://aka.ms/acdbclisamples
+ROBOTS: NOINDEX, NOFOLLOW
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 80902661eb811bdd8f6e00bcd5f61a8939a4e47c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="automate-documentdb-account-creation-using-azure-cli-10-and-azure-resource-manager-templates"></a>Azure CLI 1.0 및 Azure Resource Manager 템플릿을 사용하여 DocumentDB 계정 자동화
+# <a name="automate-azure-cosmos-db-account-creation-using-azure-cli-10-and-azure-resource-manager-templates"></a>Azure CLI 1.0 및 Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 계정 자동화
 > [!div class="op_single_selector"]
 > * [Azure 포털](documentdb-create-account.md)
 > * [Azure CLI 1.0](documentdb-automation-resource-manager-cli-nodejs.md)
 > * [Azure CLI 2.0](documentdb-automation-resource-manager-cli.md)
 > * [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 
-이 문서에서는 Azure Resource Manager 템플릿 또는 Azure CLI(명령줄 인터페이스) 1.0을 사용하여 Azure DocumentDB 계정을 만드는 방법을 보여 줍니다. Azure 포털을 사용하여 DocumentDB 계정을 만들려면 [Azure 포털을 사용하여 DocumentDB 데이터베이스 계정 만들기](documentdb-create-account.md)를 참조하세요.
+이 문서에서는 Azure Resource Manager 템플릿 또는 Azure CLI(명령줄 인터페이스) 1.0을 사용하여 Azure Cosmos DB DocumentDB API 계정을 만드는 방법을 보여 줍니다. Azure Portal을 사용하여 Azure Cosmos DB 계정을 만들려면 [Azure Portal을 사용하여 Azure Cosmos DB 데이터베이스 계정 만들기](documentdb-create-account.md)를 참조하세요.
 
-DocumentDB 데이터베이스 계정은 현재 Resource Manager 템플릿 및 Azure CLI 1.0을 사용하여 만들 수 있는 유일한 DocumentDB 리소스입니다.
+Azure Cosmos DB DocumentDB API 맟 MongoDB API 데이터베이스 계정은 현재 Resource Manager 템플릿 및 Azure CLI 1.0을 사용하여 만들 수 있는 유일한 Azure Cosmos DB 리소스입니다.
+
+CLI 2.0을 사용하여 Azure Cosmos DB DocumentDB API, 테이블 API, Graph API 또는 Mongo DB 계정을 만들려면 [Azure CLI를 사용하여 Azure DocumentDB 계정 만들기](documentdb-automation-resource-manager-cli.md)를 참조하세요.
 
 ## <a name="getting-ready"></a>준비
 Azure 리소스 그룹에서 Azure CLI 1.0을 사용하려면 올바른 버전 및 Azure 계정이 있어야 합니다. Azure CLI 1.0이 없으면 [설치](../cli-install-nodejs.md)하세요.
@@ -97,7 +102,7 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정 
 필요한 경우 `azure config mode asm`을 입력하여 기본 명령 집합으로 다시 전환할 수 있습니다.
 
 ### <a name="create-or-retrieve-your-resource-group"></a>리소스 그룹 만들기 또는 검색
-DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. 사용할 리소스 그룹의 이름을 이미 알고 있는 경우 [2단계](#create-documentdb-account-cli)로 건너뜁니다.
+Azure Cosmos DB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. 사용할 리소스 그룹의 이름을 이미 알고 있는 경우 [2단계](#create-documentdb-account-cli)로 건너뜁니다.
 
 현재 리소스 그룹의 모든 목록을 검토하려면 다음 명령을 실행하고 사용할 리소스 그룹 이름을 메모합니다.
 
@@ -108,7 +113,7 @@ DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. �
     azure group create <resourcegroupname> <resourcegrouplocation>
 
 * `<resourcegroupname>` 은 영숫자, 마침표, 밑줄, '-' 문자 및 괄호를 사용할 수 있고 마침표로 끝날 수 없습니다.
-* `<resourcegrouplocation>` 은 DocumentDB를 일반적으로 사용할 수 있는 하위 지역 중 하나여야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
+* `<resourcegrouplocation>`은 Azure Cosmos DB를 일반적으로 사용할 수 있는 하위 지역 중 하나여야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
 
 예제 입력:
 
@@ -131,17 +136,17 @@ DocumentDB 계정을 만들려면 먼저 리소스 그룹이 필요합니다. �
 오류가 발생하면 [문제 해결](#troubleshooting)을 참조하세요.
 
 ## <a name="understanding-resource-manager-templates-and-resource-groups"></a>Resource Manager 템플릿 및 리소스 그룹 이해
-대부분의 응용 프로그램은 다양한 리소스 유형(예: 하나 이상의 DocumentDB 계정, 저장소 계정, 네트워크 또는 콘텐츠 배달 네트워크)의 조합으로 구축되었습니다. 기본 Azure 서비스 관리 API 및 Azure 포털에서는 서비스 단위 접근 방식을 사용하여 이러한 항목을 나타냈습니다. 이 접근 방식에서는 하나의 논리적인 배포 단위가 아니라 개별적으로 각 서비스를 배포하고 관리(또는 이러한 작업을 수행하는 다른 도구를 찾아야 함)해야 합니다.
+대부분의 응용 프로그램은 다양한 리소스 유형(예: 하나 이상의 Azure Cosmos DB 계정, 저장소 계정, 가상 네트워크 또는 콘텐츠 배달 네트워크)의 조합으로 구축되었습니다. 기본 Azure 서비스 관리 API 및 Azure 포털에서는 서비스 단위 접근 방식을 사용하여 이러한 항목을 나타냈습니다. 이 접근 방식에서는 하나의 논리적인 배포 단위가 아니라 개별적으로 각 서비스를 배포하고 관리(또는 이러한 작업을 수행하는 다른 도구를 찾아야 함)해야 합니다.
 
 *Azure 리소스 관리자 템플릿* 을 사용하면 선언적 방식으로 이러한 다양한 리소스를 하나의 논리적 배포 단위로 배포하고 관리할 수 있습니다. 명령을 통해 차례로 배포할 항목을 Azure에 지시하는 대신 JSON 파일에서 전체 배포(모든 리소스와 관련된 구성 및 배포 매개 변수)를 설명하고 이러한 리소스를 하나의 그룹으로 배포하도록 Azure에 지시합니다.
 
 Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)에서 확인할 수 있습니다. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
 
-## <a id="quick-create-documentdb-account"></a>태스크: 단일 지역 DocumentDB 계정 만들기
-이 섹션의 지침을 사용하여 단일 지역 DocumentDB 계정을 만들 수 있습니다. Resource Manager 템플릿 사용 여부에 상관없이 Azure CLI 1.0을 사용하여 이 작업을 수행할 수 있습니다.
+## <a id="quick-create-documentdb-account"></a>작업: 단일 하위 지역 Azure Cosmos DB 계정 만들기
+이 섹션의 지침을 사용하여 단일 하위 지역 Azure Cosmos DB 계정을 만듭니다. Resource Manager 템플릿 사용 여부에 상관없이 Azure CLI 1.0을 사용하여 이 작업을 수행할 수 있습니다.
 
-### <a id="create-single-documentdb-account-cli-arm"></a> Resource Manager 템플릿을 사용하지 않고 Azure CLI 1.0을 통해 단일 지역 DocumentDB 계정 만들기
-명령 프롬프트에서 다음 명령을 입력하여 새 또는 기존 리소스 그룹에 DocumentDB 계정을 만듭니다.
+### <a id="create-single-documentdb-account-cli-arm"></a> Resource Manager 템플릿을 사용하지 않고 Azure CLI 1.0을 통해 단일 하위 지역 Azure Cosmos DB 계정 만들기
+명령 프롬프트에서 다음 명령을 입력하여 새 또는 기존 리소스 그룹에 Azure Cosmos DB 계정을 만듭니다.
 
 > [!TIP]
 > Azure PowerShell 또는 Windows PowerShell에서 이 명령을 실행하는 경우 예기치 않은 토큰에 대한 오류가 발생합니다. 그 대신 Windows 명령 프롬프트에서 이 명령을 실행합니다.
@@ -152,9 +157,9 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure Resource 
 
 * `<resourcegroupname>` 은 영숫자, 마침표, 밑줄, '-' 문자 및 괄호를 사용할 수 있고 마침표로 끝날 수 없습니다.
 * `<resourcegrouplocation>`은 현재 리소스 그룹의 영역입니다.
-* `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [DocumentDB 방화벽 지원](documentdb-firewall-support.md)을 참조하세요.
+* `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [Azure Cosmos DB 방화벽 지원](documentdb-firewall-support.md)을 참조하세요.
 * `<databaseaccountname>` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다.
-* `<databaseaccountlocation>` 은 DocumentDB를 일반적으로 사용할 수 있는 하위 지역 중 하나여야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
+* `<databaseaccountlocation>`은 Azure Cosmos DB를 일반적으로 사용할 수 있는 하위 지역 중 하나여야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
 
 예제 입력:
 
@@ -178,10 +183,10 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure Resource 
 
 오류가 발생하면 [문제 해결](#troubleshooting)을 참조하세요.
 
-명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
+명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure Portal](https://portal.azure.com)의 **Azure Cosmos DB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
 
-### <a id="create-single-documentdb-account-cli-arm"></a> Resource Manager 템플릿을 사용하여 Azure CLI 1.0을 통해 단일 지역 DocumentDB 계정 만들기
-이 섹션의 지침에서는 Azure Resource Manager 템플릿 및 선택적 매개 변수 파일(둘 다 JSON 파일임)을 사용하여 DocumentDB 계정을 만드는 방법을 설명합니다. 템플릿을 사용하면 원하는 내용을 정확히 기술하고 오류 없이 반복할 수 있습니다.
+### <a id="create-single-documentdb-account-cli-arm"></a> Resource Manager 템플릿을 사용하여 Azure CLI 1.0을 통해 단일 하위 지역 Azure Cosmos DB 계정 만들기
+이 섹션의 지침에서는 Azure Resource Manager 템플릿 및 선택적 매개 변수 파일(둘 다 JSON 파일임)을 사용하여 Azure Cosmos DB 계정을 만드는 방법을 설명합니다. 템플릿을 사용하면 원하는 내용을 정확히 기술하고 오류 없이 반복할 수 있습니다.
 
 다음 내용이 포함된 로컬 템플릿 파일을 만듭니다. 파일 이름을 azuredeploy.json으로 지정합니다.
 
@@ -217,7 +222,7 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure Resource 
         ]
     }
 
-failoverPriority는 단일 지역 계정이므로 0으로 설정해야 합니다. failoverPriority가 0이면 이 하위 지역이 [DocumentDB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다.
+failoverPriority는 단일 지역 계정이므로 0으로 설정해야 합니다. failoverPriority가 0이면 이 하위 지역이 [Azure Cosmos DB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다.
 명령줄에서 값을 입력하거나 값을 지정하는 매개 변수 파일을 만들 수 있습니다.
 
 매개 변수 파일을 만들려면 새 파일에 다음 내용을 복사하고 파일 이름을 azuredeploy.parameters.json으로 지정합니다. 명령 프롬프트에서 데이터베이스 계정 이름을 지정하려는 경우 이 파일을 만들지 않고 계속할 수 있습니다.
@@ -235,9 +240,9 @@ failoverPriority는 단일 지역 계정이므로 0으로 설정해야 합니다
         }
     }
 
-azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용하려는 데이터베이스 이름으로 업데이트한 후 파일을 저장합니다. `"databaseAccountName"` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. `"locationName1"` 값 필드를 DocumentDB 계정을 만들려는 지역으로 업데이트합니다.
+azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용하려는 데이터베이스 이름으로 업데이트한 후 파일을 저장합니다. `"databaseAccountName"` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. `"locationName1"`의 값 필드를 Azure Cosmos DB 계정을 만들려는 하위 지역으로 업데이트합니다.
 
-리소스 그룹에 DocumentDB 계정을 만들려면 다음 명령을 실행하고 템플릿 파일에 대한 경로, 매개 변수 파일 또는 매개 변수 값에 대한 경로, 배포할 리소스 그룹의 이름 및 배포 이름(-n은 선택 사항)을 제공합니다.
+리소스 그룹에 Azure Cosmos DB 계정을 만들려면 다음 명령을 실행하고 템플릿 파일에 대한 경로, 매개 변수 파일 또는 매개 변수 값에 대한 경로, 배포할 리소스 그룹의 이름 및 배포 이름(-n은 선택 사항)을 제공합니다.
 
 매개 변수 파일을 사용하려면:
 
@@ -245,7 +250,7 @@ azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용�
 
 * `<PathToTemplate>` 은 1단계에서 만든 azuredeploy.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
 * `<PathToParameterFile>` 은 1단계에서 만든 azuredeploy.parameters.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
-* `<resourcegroupname>` 은 DocumentDB 데이터베이스 계정을 추가할 기존 리소스 그룹의 이름입니다.
+* `<resourcegroupname>`은 Azure Cosmos DB 데이터베이스 계정을 추가할 기존 리소스 그룹의 이름입니다.
 * `<deploymentname>` 은 배포의 선택적 이름입니다.
 
 예제 입력:
@@ -290,9 +295,9 @@ azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용�
 
 오류가 발생하면 [문제 해결](#troubleshooting)을 참조하세요.  
 
-명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
+명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure Portal](https://portal.azure.com)의 **Azure Cosmos DB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
 
-## <a id="quick-create-documentdb-with-mongodb-api-account"></a>태스크: 단일 지역 DocumentDB 만들기: MongoDB 계정에 대한 API
+## <a id="quick-create-documentdb-with-mongodb-api-account"></a>작업: 단일 하위 지역 Azure Cosmos DB 만들기: MongoDB 계정용 API
 이 섹션의 지침을 사용하여 MongoDB 계정의 단일 지역 API를 만듭니다. Resource Manager 템플릿으로 Azure CLI 1.0을 사용하여 이 작업을 수행할 수 있습니다.
 
 ### <a id="create-single-documentdb-with-mongodb-api-account-cli-arm"></a> Resource Manager 템플릿에서 Azure CLI 1.0을 사용하여 단일 지역 MongoDB 계정 만들기
@@ -333,9 +338,9 @@ azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용�
         ]
     }
 
-이 종류는 MongoDB로 설정되어야 이 계정이 MongoDB API를 지동하도록 지정됩니다. 지정된 속성이 없을 경우 기본값은 네이티브 DocumentDB 계정이 됩니다.
+이 종류는 MongoDB로 설정되어야 이 계정이 MongoDB API를 지동하도록 지정됩니다. 지정된 속성이 없을 경우 기본값은 Azure Cosmos DB DocumentDB API 계정이 됩니다.
 
-failoverPriority는 단일 지역 계정이므로 0으로 설정해야 합니다. failoverPriority가 0이면 이 하위 지역이 [DocumentDB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다.
+failoverPriority는 단일 지역 계정이므로 0으로 설정해야 합니다. failoverPriority가 0이면 이 하위 지역이 [Azure Cosmos DB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다.
 명령줄에서 값을 입력하거나 값을 지정하는 매개 변수 파일을 만들 수 있습니다.
 
 매개 변수 파일을 만들려면 새 파일에 다음 내용을 복사하고 파일 이름을 azuredeploy.parameters.json으로 지정합니다. 명령 프롬프트에서 데이터베이스 계정 이름을 지정하려는 경우 이 파일을 만들지 않고 계속할 수 있습니다.
@@ -353,9 +358,9 @@ failoverPriority는 단일 지역 계정이므로 0으로 설정해야 합니다
         }
     }
 
-azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용하려는 데이터베이스 이름으로 업데이트한 후 파일을 저장합니다. `"databaseAccountName"` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. `"locationName1"` 값 필드를 DocumentDB 계정을 만들려는 지역으로 업데이트합니다.
+azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용하려는 데이터베이스 이름으로 업데이트한 후 파일을 저장합니다. `"databaseAccountName"` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. `"locationName1"`의 값 필드를 Azure Cosmos DB 계정을 만들려는 하위 지역으로 업데이트합니다.
 
-리소스 그룹에 DocumentDB 계정을 만들려면 다음 명령을 실행하고 템플릿 파일에 대한 경로, 매개 변수 파일 또는 매개 변수 값에 대한 경로, 배포할 리소스 그룹의 이름 및 배포 이름(-n은 선택 사항)을 제공합니다.
+리소스 그룹에 Azure Cosmos DB 계정을 만들려면 다음 명령을 실행하고 템플릿 파일에 대한 경로, 매개 변수 파일 또는 매개 변수 값에 대한 경로, 배포할 리소스 그룹의 이름 및 배포 이름(-n은 선택 사항)을 제공합니다.
 
 매개 변수 파일을 사용하려면:
 
@@ -363,7 +368,7 @@ azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용�
 
 * `<PathToTemplate>` 은 1단계에서 만든 azuredeploy.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
 * `<PathToParameterFile>` 은 1단계에서 만든 azuredeploy.parameters.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
-* `<resourcegroupname>` 은 DocumentDB 데이터베이스 계정을 추가할 기존 리소스 그룹의 이름입니다.
+* `<resourcegroupname>`은 Azure Cosmos DB 데이터베이스 계정을 추가할 기존 리소스 그룹의 이름입니다.
 * `<deploymentname>` 은 배포의 선택적 이름입니다.
 
 예제 입력:
@@ -408,13 +413,13 @@ azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용�
 
 오류가 발생하면 [문제 해결](#troubleshooting)을 참조하세요.  
 
-명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
+명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure Portal](https://portal.azure.com)의 **Azure Cosmos DB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
 
-## <a id="create-multi-documentdb-account"></a>작업: 다중 지역 DocumentDB 계정 만들기
-DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#services)에 걸쳐 [전역적으로 데이터를 배포][distribute-globally]할 수 있는 기능이 있습니다. DocumentDB 계정을 만들 때 원하는 서비스 존재 지역을 지정할 수 있습니다. 이 섹션의 지침을 사용하여 다중 지역 DocumentDB 계정을 만들 수 있습니다. Resource Manager 템플릿 사용 여부에 상관없이 Azure CLI 1.0을 사용하여 이 작업을 수행할 수 있습니다.
+## <a id="create-multi-documentdb-account"></a>작업: 다중 하위 지역 Azure Cosmos DB 계정 만들기
+Azure Cosmos DB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#services)에 걸쳐 [전역적으로 데이터를 배포][distribute-globally]할 수 있는 기능이 있습니다. Azure Cosmos DB 계정을 만들 때 원하는 서비스 존재 하위 지역을 지정할 수 있습니다. 이 섹션의 지침을 사용하여 다중 하위 지역 Azure Cosmos DB 계정을 만들 수 있습니다. Resource Manager 템플릿 사용 여부에 상관없이 Azure CLI 1.0을 사용하여 이 작업을 수행할 수 있습니다.
 
-### <a id="create-multi-documentdb-account-cli"></a> Resource Manager 템플릿 없이 Azure CLI 1.0을 사용하여 다중 지역 DocumentDB 계정 만들기
-명령 프롬프트에서 다음 명령을 입력하여 새 또는 기존 리소스 그룹에 DocumentDB 계정을 만듭니다.
+### <a id="create-multi-documentdb-account-cli"></a> Resource Manager 템플릿을 사용하지 않고 Azure CLI 1.0을 통해 다중 하위 지역 Azure Cosmos DB 계정 만들기
+명령 프롬프트에서 다음 명령을 입력하여 새 또는 기존 리소스 그룹에 Azure Cosmos DB 계정을 만듭니다.
 
 > [!TIP]
 > Azure PowerShell 또는 Windows PowerShell에서 이 명령을 실행하는 경우 예기치 않은 토큰에 대한 오류가 발생합니다. 그 대신 Windows 명령 프롬프트에서 이 명령을 실행합니다.
@@ -425,9 +430,9 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
 
 * `<resourcegroupname>` 은 영숫자, 마침표, 밑줄, '-' 문자 및 괄호를 사용할 수 있고 마침표로 끝날 수 없습니다.
 * `<resourcegrouplocation>`은 현재 리소스 그룹의 영역입니다.
-* `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [DocumentDB 방화벽 지원](documentdb-firewall-support.md)을 참조하세요.
+* `<ip-range-filter>` 지정된 데이터베이스 계정에 대해 허용된 클라이언트 IP 목록으로 포함할 IP 주소 집합 또는 IP 주소 범위를 CIDR 형식으로 지정합니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 자세한 내용은 [Azure Cosmos DB 방화벽 지원](documentdb-firewall-support.md)을 참조하세요.
 * `<databaseaccountname>` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다.
-* `<databaseaccountlocation1>` 및 `<databaseaccountlocation2>`는 DocumentDB를 일반적으로 사용할 수 있는 지역이어야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
+* `<databaseaccountlocation1>` 및 `<databaseaccountlocation2>`는 Azure Cosmos DB를 일반적으로 사용할 수 있는 하위 지역이어야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
 
 예제 입력:
 
@@ -451,10 +456,10 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
 
 오류가 발생하면 [문제 해결](#troubleshooting)을 참조하세요.
 
-명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
+명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure Portal](https://portal.azure.com)의 **Azure Cosmos DB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
 
-### <a id="create-multi-documentdb-account-cli-arm"></a> Resource Manager 템플릿에서 Azure CLI 1.0을 사용하여 다중 지역 DocumentDB 계정 만들기
-이 섹션의 지침에서는 Azure Resource Manager 템플릿 및 선택적 매개 변수 파일(둘 다 JSON 파일임)을 사용하여 DocumentDB 계정을 만드는 방법을 설명합니다. 템플릿을 사용하면 원하는 내용을 정확히 기술하고 오류 없이 반복할 수 있습니다.
+### <a id="create-multi-documentdb-account-cli-arm"></a> Resource Manager 템플릿을 사용하여 Azure CLI 1.0을 통해 다중 하위 지역 Azure Cosmos DB 계정 만들기
+이 섹션의 지침에서는 Azure Resource Manager 템플릿 및 선택적 매개 변수 파일(둘 다 JSON 파일임)을 사용하여 Azure Cosmos DB 계정을 만드는 방법을 설명합니다. 템플릿을 사용하면 원하는 내용을 정확히 기술하고 오류 없이 반복할 수 있습니다.
 
 다음 내용이 포함된 로컬 템플릿 파일을 만듭니다. 파일 이름을 azuredeploy.json으로 지정합니다.
 
@@ -497,9 +502,9 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
         ]
     }
 
-이전 템플릿을 사용하여 두 지역의 DocumentDB 계정을 만들 수 있습니다. 더 많은 지역의 계정을 만들려면 "locations" 배열에 추가한 다음 해당 매개 변수를 추가합니다.
+이전 템플릿을 사용하여 두 하위 지역의 Azure Cosmos DB 계정을 만들 수 있습니다. 더 많은 지역의 계정을 만들려면 "locations" 배열에 추가한 다음 해당 매개 변수를 추가합니다.
 
-하위 지역 중 하나에서 failoverPriority 값이 0이어야 하며, 이는 이 하위 지역이 [DocumentDB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다. 장애 조치 우선 순위 값은 위치 간에 고유해야 하며, 가장 큰 값이 총 지역 수보다 작아야 합니다. 명령줄에서 값을 입력하거나 값을 지정하는 매개 변수 파일을 만들 수 있습니다.
+하위 지역 중 하나에서 failoverPriority 값이 0이어야 하며, 이는 이 하위 지역이 [Azure Cosmos DB 계정의 쓰기 하위 지역][scaling-globally]으로 유지됨을 나타냅니다. 장애 조치 우선 순위 값은 위치 간에 고유해야 하며, 가장 큰 값이 총 지역 수보다 작아야 합니다. 명령줄에서 값을 입력하거나 값을 지정하는 매개 변수 파일을 만들 수 있습니다.
 
 매개 변수 파일을 만들려면 새 파일에 다음 내용을 복사하고 파일 이름을 azuredeploy.parameters.json으로 지정합니다. 명령 프롬프트에서 데이터베이스 계정 이름을 지정하려는 경우 이 파일을 만들지 않고 계속할 수 있습니다.
 
@@ -519,9 +524,9 @@ DocumentDB는 여러 [Azure 지역](https://azure.microsoft.com/regions/#service
         }
     }
 
-azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용하려는 데이터베이스 이름으로 업데이트한 후 파일을 저장합니다. `"databaseAccountName"` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. `"locationName1"` 및 `"locationName2"` 값 필드를 DocumentDB 계정을 만들려는 지역으로 업데이트합니다.
+azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용하려는 데이터베이스 이름으로 업데이트한 후 파일을 저장합니다. `"databaseAccountName"` 은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. `"locationName1"` 및 `"locationName2"`의 값 필드를 Azure Cosmos DB 계정을 만들려는 하위 지역으로 업데이트합니다.
 
-리소스 그룹에 DocumentDB 계정을 만들려면 다음 명령을 실행하고 템플릿 파일에 대한 경로, 매개 변수 파일 또는 매개 변수 값에 대한 경로, 배포할 리소스 그룹의 이름 및 배포 이름(-n은 선택 사항)을 제공합니다.
+리소스 그룹에 Azure Cosmos DB 계정을 만들려면 다음 명령을 실행하고 템플릿 파일에 대한 경로, 매개 변수 파일 또는 매개 변수 값에 대한 경로, 배포할 리소스 그룹의 이름 및 배포 이름(-n은 선택 사항)을 제공합니다.
 
 매개 변수 파일을 사용하려면:
 
@@ -529,7 +534,7 @@ azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용�
 
 * `<PathToTemplate>` 은 1단계에서 만든 azuredeploy.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
 * `<PathToParameterFile>` 은 1단계에서 만든 azuredeploy.parameters.json 파일에 대한 경로입니다. 경로 이름에 공백이 있으면 이 매개 변수 앞뒤에 큰따옴표를 배치합니다.
-* `<resourcegroupname>` 은 DocumentDB 데이터베이스 계정을 추가할 기존 리소스 그룹의 이름입니다.
+* `<resourcegroupname>`은 Azure Cosmos DB 데이터베이스 계정을 추가할 기존 리소스 그룹의 이름입니다.
 * `<deploymentname>` 은 배포의 선택적 이름입니다.
 
 예제 입력:
@@ -575,13 +580,13 @@ azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용�
 
 오류가 발생하면 [문제 해결](#troubleshooting)을 참조하세요.  
 
-명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure 포털](https://portal.azure.com)의 **DocumentDB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
+명령이 반환된 후 몇 분 동안 계정이 **만드는 중** 상태에 있다가 사용할 준비가 되면 **온라인**으로 바뀝니다. [Azure Portal](https://portal.azure.com)의 **Azure Cosmos DB 계정** 블레이드에서 계정의 상태를 확인할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 리소스 그룹 또는 데이터베이스 계정을 만드는 동안 `Deployment provisioning state was not successful` 과 같은 오류가 발생하면 몇 가지 문제 해결 옵션이 있습니다.
 
 > [!NOTE]
-> 데이터베이스 계정 이름에 잘못된 문자를 제공하거나 DocumentDB를 사용할 수 없는 위치를 제공하면 배포 오류가 발생합니다. 데이터베이스 계정 이름은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. 모든 유효한 데이터베이스 계정 위치는 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 나열됩니다.
+> 데이터베이스 계정 이름에 잘못된 문자를 제공하거나 Azure Cosmos DB를 사용할 수 없는 위치를 제공하면 배포 오류가 발생합니다. 데이터베이스 계정 이름은 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. 모든 유효한 데이터베이스 계정 위치는 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 나열됩니다.
 >
 >
 
@@ -600,24 +605,21 @@ azuredeploy.parameters.json 파일에서 `"samplearmacct"` 값 필드를 사용�
     ![배포 오류 메시지를 탐색하는 방법을 보여 주는 Azure 포털의 스크린샷](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)
 
 ## <a name="next-steps"></a>다음 단계
-이제 DocumentDB 계정을 만들었으므로 다음 단계에서는 DocumentDB 데이터베이스를 만들게 됩니다. 다음 중 하나를 사용하여 데이터베이스를 만들 수 있습니다.
+Azure Cosmos DB 계정이 생겼으며 다음 단계는 Azure Cosmos 데이터베이스를 만드는 것입니다. 다음 중 하나를 사용하여 데이터베이스를 만들 수 있습니다.
 
-* [Azure Portal을 사용하여 DocumentDB 컬렉션 및 데이터베이스 만들기](documentdb-create-collection.md)에 설명된 Azure Portal
+* [Azure Portal을 사용하여 Azure Cosmos DB 컬렉션 및 데이터베이스 만들기](documentdb-create-collection.md)에 설명된 Azure Portal
 * GitHub에서 [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) 리포지토리의 [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) 프로젝트에 있는 C# .NET 샘플.
-* [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB에는 .NET, Java, Python, Node.js 및 JavaScript API SDK가 있습니다.
+* [Azure Cosmos DB DocumentDB API SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Azure Cosmos DB DocumentDB API에는 .NET, Java, Python, Node.js 및 JavaScript API SDK가 있습니다.
 
 데이터베이스를 만든 후에 데이터베이스에 [하나 이상의 컬렉션을 추가](documentdb-create-collection.md)한 다음, 이 컬렉션에 [문서를 추가](documentdb-view-json-document-explorer.md)해야 합니다.
 
-컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#ExecutingSqlQueries)하기 위해 [DocumentDB SQL](documentdb-sql-query.md)을 사용할 수 있습니다.
+컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#ExecutingSqlQueries)하기 위해 [SQL](documentdb-sql-query.md)을 사용할 수 있습니다.
 
-DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
-
-* [DocumentDB 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
-* [DocumentDB 리소스 모델 및 개념](documentdb-resources.md)
+Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 다중 모델 소개](../cosmos-db/introduction.md)를 참조하세요.
 
 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[distribute-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally
-[scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
+[distribute-globally]: https://azure.microsoft.com/documentation/articles/documentdb-distribute-data-globally
+[scaling-globally]: https://azure.microsoft.com/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
 

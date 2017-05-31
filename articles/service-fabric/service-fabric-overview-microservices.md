@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/06/2017
 ms.author: msfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: a2a72da08ccff17407fcdd98783137b091651b47
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 77eb843f83bd2d246dd4943e52c1e8b2ac07a5ab
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -129,7 +131,7 @@ DNS가 특정 URL을 특정 컴퓨터에 확인하는 것과 동일한 방법으
 상태는 진단과 다릅니다. 상태는 적절한 조치를 취하도록 마이크로 서비스가 현재 상태를 보고하는 것입니다. 좋은 예는 가용성 유지를 위한 업그레이드 및 배포 메커니즘과의 상호 작용입니다. 프로세스 충돌이나 컴퓨터 재부팅으로 서비스가 현재 정상 상태가 아니더라도 계속 운영될 수 있습니다. 업그레이드를 수행하여 상황을 악화시키는 일은 지양해야 합니다. 먼저 조사부터 하거나 마이크로 서비스가 복구할 시간을 주는 것이 최선입니다. 마이크로 서비스의 상태 이벤트를 통해 정보에 입각한 의사 결정을 내리고 효과적인 자체 복구 서비스를 만들 수 있습니다.
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>마이크로 서비스 플랫폼으로서의 서비스 패브릭
-Azure Service Fabric은 Microsoft가 보통 모놀리식 스타일의 박스 제품을 제공하는 것에서 서비스를 제공하는 것으로 전환해가는 과정에서 나타났습니다. Azure SQL Database 및 Azure DocumentDB와 같은 대규모 서비스를 구축 및 운영한 경험을 기반으로 Service Fabric을 만들었습니다. 플랫폼은 시간이 지남에 따라 더 많은 서비스를 도입하는 방향으로 발전했습니다. 중요한 점은 Service Fabric이 Azure뿐 아니라 독립 실행형 Windows Server 배포에서 실행되어야 했다는 점입니다.
+Azure Service Fabric은 Microsoft가 보통 모놀리식 스타일의 박스 제품을 제공하는 것에서 서비스를 제공하는 것으로 전환해가는 과정에서 나타났습니다. Azure SQL Database 및 Azure Cosmos DB와 같은 대규모 서비스를 구축 및 운영한 경험을 기반으로 Service Fabric을 만들었습니다. 플랫폼은 시간이 지남에 따라 더 많은 서비스를 도입하는 방향으로 발전했습니다. 중요한 점은 Service Fabric이 Azure뿐 아니라 독립 실행형 Windows Server 배포에서 실행되어야 했다는 점입니다.
 
 ***Service Fabric의 목표는 인프라 리소스의 효율적 활용 등, 서비스 구축 및 실행의 난제를 해결하여 팀이 마이크로 서비스 접근 방식을 사용하여 비즈니스 문제를 해결할 수 있게 하는 것입니다.***
 
@@ -153,9 +155,4 @@ Service Fabric은 마이크로 서비스 접근 방식을 사용하는 응용 �
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 05/09/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: b942f934ecb25083d779096dc628e342870edc26
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 360073c0ed75552e62e69ce72b225ba35a2a3e09
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -30,19 +31,17 @@ ms.lasthandoff: 04/13/2017
 >
 
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
-1. **Security Center** 블레이드에서 **권장 사항 타일**을 선택합니다.  이렇게 하면 **권장 사항** 블레이드가 열립니다.
-   ![보안 센터 블레이드][1]
-2. **권장 사항** 블레이드에서 **구독에 대한 데이터 수집 사용**을 선택합니다.  그러면 **데이터 수집 켜기** 블레이드가 열립니다.
+1. **권장 사항** 블레이드에서 **구독에 대한 데이터 수집 사용**을 선택합니다.  그러면 **데이터 수집 켜기** 블레이드가 열립니다.
    ![권장 사항 블레이드][2]
-3. **데이터 수집 켜기** 블레이드에서 구독을 선택합니다. 해당 구독에 대한 **보안 정책** 블레이드가 열립니다.
-4. **보안 정책** 블레이드에서 자동으로 로그를 수집하도록 **데이터 컬렉션**에서 **켜기**를 선택합니다. 데이터 컬렉션을 켜면 구독에 현재 포함된 VM과 지원되는 새 VM에 모니터링 확장이 프로비전됩니다.
+2. **데이터 수집 켜기** 블레이드에서 구독을 선택합니다. 해당 구독에 대한 **보안 정책** 블레이드가 열립니다.
+3. **보안 정책** 블레이드에서 자동으로 로그를 수집하도록 **데이터 컬렉션**에서 **켜기**를 선택합니다. 데이터 컬렉션을 켜면 구독에 현재 포함된 VM과 지원되는 새 VM에 모니터링 확장이 프로비전됩니다.
 
    ![보안 정책 블레이드][3]
 
-5. **저장**을 선택합니다.
-6. **지역당 저장소 계정 선택**을 선택합니다. 가상 컴퓨터를 실행 중인 각 영역에 대해 가상 컴퓨터에서 수집한 데이터가 저장되는 저장소 계정을 선택합니다. 각 지역에 대한 저장소 계정을 선택하지 않으면, 사용자를 위해 저장소 계정을 만들고 securitydata 리소스 그룹에 배치합니다. 이 예제에서는 **newstoracct**를 선택합니다. 구독에 대한 보안 정책에 돌아가서 다른 저장소 계정을 선택하여 나중에 저장소 계정을 변경할 수 있습니다.
+4. **저장**을 선택합니다.
+5. **지역당 저장소 계정 선택**을 선택합니다. 가상 컴퓨터를 실행 중인 각 영역에 대해 가상 컴퓨터에서 수집한 데이터가 저장되는 저장소 계정을 선택합니다. 각 지역에 대한 저장소 계정을 선택하지 않으면, 사용자를 위해 저장소 계정을 만들고 securitydata 리소스 그룹에 배치합니다. 이 예제에서는 **newstoracct**를 선택합니다. 구독에 대한 보안 정책에 돌아가서 다른 저장소 계정을 선택하여 나중에 저장소 계정을 변경할 수 있습니다.
    ![저장소 계정 선택][4]
-7. **확인**을 선택합니다.
+6. **확인**을 선택합니다.
 
 > [!NOTE]
 > 먼저 구독 수준에서 데이터 수집을 켜고 저장소 계정을 선택하는 것이 좋습니다. Azure 구독 수준 및 리소스 그룹 수준에서 보안 정책을 설정할 수 있지만 데이터 수집 및 저장소 계정 구성은 구독 수준에서만 발생합니다.
@@ -80,7 +79,6 @@ ms.lasthandoff: 04/13/2017
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)-- 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
 
 <!--Image references-->
-[1]: ./media/security-center-enable-data-collection/security-center-blade.png
 [2]: ./media/security-center-enable-data-collection/recommendations.png
 [3]: ./media/security-center-enable-data-collection/data-collection.png
 [4]: ./media/security-center-enable-data-collection/storage-account.png

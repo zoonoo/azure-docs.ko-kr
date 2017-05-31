@@ -14,17 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/15/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: 0841744b806f3dba38dddee21fb7fe881e07134f
-ms.openlocfilehash: 51c9d9afb6c2ed460abd4c47a6afbc404b97a85e
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 54b8e16504e1170058dd021f7f7e2fba7b99bba7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결
 Azure 검색 서비스는 호스팅되는 클라우드 검색 서비스로, 훌륭한 검색 환경을 간편하게 제공할 수 있습니다. 검색에 앞서 데이터를 Azure 검색 인덱스에 입력해야 합니다. 데이터가 Azure SQL Database에 있는 경우 새 **Azure SQL Database용 Azure Search 인덱서**(또는 줄여서 **Azure SQL 인덱서**)를 사용하여 인덱싱 프로세스를 자동화할 수 있습니다. 이는 작성할 코드 및 관리할 인프라가 없음을 의미합니다.
 
-이 문서에서는 인덱서 사용 원리를 다루지만 Azure SQL Database에서만 사용할 수 있는 기능(예: 통합 변경 내용 추적)에 대해서도 설명합니다. Azure Search는 Azure DocumentDB, Blob Storage, Table Storage 등 다른 데이터 원본도 지원합니다. 추가 데이터 원본에 대한 지원을 확인하려면 [Azure Search 사용자 의견 포럼](https://feedback.azure.com/forums/263029-azure-search/)에 의견을 남겨 주시기 바랍니다.
+이 문서에서는 인덱서 사용 원리를 다루지만 Azure SQL Database에서만 사용할 수 있는 기능(예: 통합 변경 내용 추적)에 대해서도 설명합니다. Azure Search는 Azure Cosmos DB, Blob Storage, Table Storage 등의 다른 데이터 원본도 지원합니다. 추가 데이터 원본에 대한 지원을 확인하려면 [Azure Search 사용자 의견 포럼](https://feedback.azure.com/forums/263029-azure-search/)에 의견을 남겨 주시기 바랍니다.
 
 ## <a name="indexers-and-data-sources"></a>인덱서 및 데이터 원본
 다음을 사용하여 Azure SQL 인덱서를 설정하고 구성할 수 있습니다.

@@ -1,6 +1,6 @@
 ---
 title: "Azure Security Center에서 웹 응용 프로그램 방화벽 추가 | Microsoft Docs"
-description: "이 문서에서는 Azure 보안 센터 권장 사항 **웹 응용 프로그램 방화벽 추가** 및 **응용 프로그램 보호 완료**를 구현하는 방법을 보여 줍니다."
+description: "이 문서에서는 Azure Security Center 권장 사항 **웹 응용 프로그램 방화벽 추가** 및 **응용 프로그램 보호 완료**를 구현하는 방법을 보여 줍니다."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 05/09/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 2286437f4ab13384f895e906ccda48ac1b4c553d
-ms.openlocfilehash: b44a0373ceca84b423984e01eee1e57a67d97cdd
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: d04a07237029953d8a9b20704d85e852ce45d867
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -40,7 +42,9 @@ Security Center에서는 가상 컴퓨터와 App Service 환경에 있는 웹 �
 3. 기존 웹 응용 프로그램 방화벽(사용 가능한 경우)을 사용하도록 선택하거나, 새로 만들 수 있습니다. 이 예제에서는 기존 WAF가 없으므로 WAF를 만들어 보겠습니다.
 4. WAF를 만들려면 통합 파트너 목록에서 솔루션을 선택합니다. 이 예제에서는 **Barracuda Web Application Firewall**을 선택합니다.
 5. 파트너 솔루션에 대한 정보를 제공하는 **Barracuda Web Application Firewall** 블레이드가 열립니다. 정보 블레이드에서 **만들기** 를 선택합니다.
+
    ![방화벽 정보 블레이드][3]
+
 6. **새 웹 응용 프로그램 방화벽** 블레이드가 열립니다 이 블레이드에서 **VM 구성** 단계를 수행하고 **WAF 정보**를 입력할 수 있습니다. **VM 구성**을 선택합니다.
 7. **VM 구성** 블레이드에서 WAF를 실행할 가상 컴퓨터를 스핀업하는 데 필요한 정보를 입력합니다.
    ![VM configuration][4]
@@ -48,9 +52,12 @@ Security Center에서는 가상 컴퓨터와 App Service 환경에 있는 웹 �
 
 ## <a name="finalize-application-protection"></a>응용 프로그램 보호 완료
 1. **권장 사항** 블레이드로 돌아갑니다. WAF를 만든 후에 **응용 프로그램 보호 완료**라고 하는 새 항목이 생성되었습니다. 새 항목을 사용하면 Azure 가상 네트워크 내에서 WAF를 연결하는 프로세스를 완료하여 응용 프로그램을 보호할 수 있다는 점을 알 수 있습니다.
+
    ![응용 프로그램 보호 완료][5]
+
 2. **응용 프로그램 보호 완료**를 선택합니다. 새 블레이드가 열립니다. 해당 트래픽 경로를 전환해야 하는 웹 응용 프로그램을 확인할 수 있습니다.
 3. 웹 응용 프로그램을 선택합니다. 웹 응용 프로그램 방화벽 설정을 완료하는 단계를 알려주는 블레이드가 열립니다. 단계를 완료한 다음 **트래픽 제한**을 선택합니다. 그려면 Security Center가 연결을 수행합니다.
+
    ![트래픽 제한][6]
 
 > [!NOTE]
@@ -60,7 +67,7 @@ Security Center에서는 가상 컴퓨터와 App Service 환경에 있는 웹 �
 
 이제 해당 WAF의 로그가 완전히 통합되었습니다. 보안 센터에서 자동으로 로그를 수집 및 분석하기 시작하여 중요한 보안 경고를 사용자에게 드러낼 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 이 문서에서는 보안 센터 권장 사항 "웹 응용 프로그램 추가"를 구현하는 방법을 보여 주었습니다. 웹 응용 프로그램 방화벽 구성에 대한 자세한 내용은 다음을 참조하세요.
 
 * [앱 서비스 환경에 대한 웹 응용 프로그램 방화벽(WAF) 구성](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
@@ -81,9 +88,4 @@ Security Center에서는 가상 컴퓨터와 App Service 환경에 있는 웹 �
 [4]: ./media/security-center-add-web-application-firewall/select-vm-config.png
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

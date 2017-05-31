@@ -12,12 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/02/2017
+ms.date: 05/01/2017
 ms.author: liamca
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 56eeed7634fca840172ab828be5f202d80f3f4fb
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -80,7 +81,7 @@ ms.lasthandoff: 04/07/2017
 분산 검색 서비스를 동기화 상태로 유지하기 위한 두 가지 방법이 있습니다. 이러한 방법은 [Azure Search 인덱서](search-indexer-overview.md) 또는 푸시 API([Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)라고도 함)를 사용합니다.  
 
 ### <a name="azure-search-indexers"></a>Azure 검색 인덱서
-Azure 검색 인덱서를 사용하고 있다면 이미 Azure SQL DB 또는 DocumentDB와 같은 중앙 데이터 저장소에서 데이터 변경 내용을 가져오고 있을 것입니다. 새 검색 서비스를 만들 때 해당 서비스에 대해 동일한 이 데이터 저장소를 가리키는 새 Azure 검색 인덱서를 만들면 됩니다. 이러한 방식으로 새 변경 내용이 데이터 저장소에 들어올 때마다 다양한 인덱서에 의해 인덱싱됩니다.  
+Azure Search 인덱서를 사용하고 있다면 이미 Azure SQL DB 또는 Azure Cosmos DB와 같은 중앙 데이터 저장소에서 데이터 변경 내용을 가져오고 있는 것입니다. 새 검색 서비스를 만들 때 해당 서비스에 대해 동일한 이 데이터 저장소를 가리키는 새 Azure 검색 인덱서를 만들면 됩니다. 이러한 방식으로 새 변경 내용이 데이터 저장소에 들어올 때마다 다양한 인덱서에 의해 인덱싱됩니다.  
 
 이러한 아키텍처 형태의 예는 다음과 같습니다.
 

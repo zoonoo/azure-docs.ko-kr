@@ -1,45 +1,38 @@
 ---
-title: "MongoDB API를 사용하여 DocumentDB 웹앱 빌드 | Microsoft 문서"
-description: "DocumentDB MongoDB API를 사용하여 온라인 데이터베이스 웹앱을 만드는 NoSQL 자습서입니다."
+title: "Azure Cosmos DB MongoDB API를 사용하여 웹앱 빌드 | Microsoft Docs"
+description: "MongoDB API를 사용하여 온라인 데이터베이스 웹앱을 만드는 Azure Cosmos DB 자습서입니다."
 keywords: "MongoDB 예제"
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: 61a2ab3a-2fc3-4d49-a263-ed87c66628f6
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/28/2017
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: c37304efecb2de247a2d63fe244e71c96966ebe0
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 3242e3382c5920e69db5ecdbfc2462456aea94bd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="web-application-development-with-documentdb-api-for-mongodb"></a>DocumentDB: MongoDB API를 사용한 웹 응용 프로그램 개발
-> [!div class="op_single_selector"]
-> * [.NET](documentdb-dotnet-application.md)
-> * [MongoDB용 .NET](documentdb-mongodb-application.md)
-> * [Node.JS](documentdb-nodejs-application.md)
-> * [Java](documentdb-java-application.md)
-> * [Python](documentdb-python-application.md)
-> 
-> 
+# <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB: .NET을 사용하여 MongoDB 앱에 연결
 
-이 예제에서는 .NET을 사용하여 DocumentDB: MongoDB API 웹앱을 빌드하는 방법을 보여 줍니다.
+이 예제에서는 .NET을 사용하여 MongoDB API 웹앱을 빌드하는 방법을 보여 줍니다.
 
 이 예제를 사용하려면 다음을 수행해야 합니다.
 
-* Azure DocumentDB: MongoDB API 계정을 [만듭니다](documentdb-create-mongodb-account.md).
+* Azure Cosmos DB 데이터베이스를 [만듭니다](documentdb-create-mongodb-account.md).
 * MongoDB [연결 문자열](documentdb-connect-mongodb-account.md) 정보를 검색합니다.
 
-최소한의 수정으로 [가상 컴퓨터에서 실행되는 MongoDB에 연결하는 Azure에서 웹앱 만들기](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) 자습서를 사용하여 DocumentDB: MongoDB API 계정에 연결되는 MongoDB 응용 프로그램을 신속하게 설치할 수 있습니다(Azure 웹앱에 로컬로 또는 게시됨).  
+최소한의 수정으로 [가상 컴퓨터에서 실행되는 MongoDB에 연결되는 Azure에서 웹앱 만들기](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) 자습서를 사용하여 MongoDB API 계정에 연결되는 MongoDB 응용 프로그램을 빠르게 설치할 수 있습니다(로컬로 또는 Azure 웹앱에 게시됨).  
 
 1. 한 번 수정하여 자습서를 수행합니다.  Dal.cs 코드를 다음으로 바꿉니다.
 
@@ -187,5 +180,5 @@ ms.lasthandoff: 03/08/2017
 3. 앱을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* DocumentDB: MongoDB API 계정으로 [MongoChef를 사용](documentdb-mongodb-mongochef.md)하고 [RoboMongo를 사용](documentdb-mongodb-robomongo.md)하는 방법을 알아봅니다.
+* Azure Cosmos DB의 MongoDB API 계정으로 [MongoChef를 사용](documentdb-mongodb-mongochef.md)하고 [RoboMongo를 사용](documentdb-mongodb-robomongo.md)하는 방법을 알아봅니다.
 

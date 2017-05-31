@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8b453c7fe85a60791867d1c49fc2350e5f51a489
-ms.openlocfilehash: 0e917d1594deefd2b2764b09dc8bea79420c0d37
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ad88c17e0c6bad7cb58c8517a47bbe5fe0fae763
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -43,7 +44,7 @@ Azure IoT Suite는 장치를 프로비전하고 연결하며 IoT 장치에서 �
 [SDL(보안 개발 수명 주기)](https://www.microsoft.com/sdl/) 은 보안 요구 사항을 전체 소프트웨어 수명 주기에 포함하는 전사적인 필수 개발 프로세스를 제공합니다. 동일한 보안 실무 수준에 따라 운영 활동이 진행되도록 하기 위해 OSA(운영 보안 보증) 프로세스에 따른 엄격한 보안 지침을 사용합니다. 또한 규정 준수 의무를 충족하는지 지속적으로 확인하기 위해 타사 감사 업체와도 협력하며 Microsoft Digital Crimes Unit, Microsoft 보안 대응 센터 및 Microsoft 맬웨어 보호 센터를 비롯한 우수한 센터를 만들어 광범위한 보안 작업에 참여하고 있습니다.
 
 ## <a name="microsoft-azure---secure-iot-infrastructure-for-your-business"></a>Microsoft Azure - 비즈니스를 위한 보안 IoT 인프라
-Microsoft Azure는 데이터 보호 및 개인 정보 보호를 위한 업계 선도적인 노력을 통해 지속적으로 증가하는 통합 클라우드 서비스(분석, 기계 학습, 저장소, 보안, 네트워킹 및 웹) 컬렉션을 결합하는 완전한 클라우드 솔루션을 제공합니다. Microsoft의 [보안 위험 가정](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) 전략은 공격을 시뮬레이트하는 소프트웨어 보안 전문가로 구성된 전용 "레드 팀"을 활용하여 Azure에서 새로운 위협을 감지 및 보호하고 위험으로부터 복구하는 기능을 테스트합니다. [글로벌 문제 대응](https://www.microsoft.com/TrustCenter/Security/DesignOpSecurity) 팀은 공격 및 악의적인 활동이 미치는 영향을 최소화 하기 위해&24;시간 내내 노력합니다. 이 팀은 문제 관리, 통신 및 복구를 위해 설정된 절차를 따르며 내부 및 외부 파트너와 검색 가능하며 예측 가능한 인터페이스를 사용합니다.
+Microsoft Azure는 데이터 보호 및 개인 정보 보호를 위한 업계 선도적인 노력을 통해 지속적으로 증가하는 통합 클라우드 서비스(분석, 기계 학습, 저장소, 보안, 네트워킹 및 웹) 컬렉션을 결합하는 완전한 클라우드 솔루션을 제공합니다. Microsoft의 [보안 위험 가정](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) 전략은 공격을 시뮬레이트하는 소프트웨어 보안 전문가로 구성된 전용 "레드 팀"을 활용하여 Azure에서 새로운 위협을 감지 및 보호하고 위험으로부터 복구하는 기능을 테스트합니다. [글로벌 문제 대응](https://www.microsoft.com/TrustCenter/Security/DesignOpSecurity) 팀은 공격 및 악의적인 활동이 미치는 영향을 최소화 하기 위해 24시간 내내 노력합니다. 이 팀은 문제 관리, 통신 및 복구를 위해 설정된 절차를 따르며 내부 및 외부 파트너와 검색 가능하며 예측 가능한 인터페이스를 사용합니다.
 
 시스템은 지속적인 침입 탐지 및 방지, 서비스 거부 공격 방지, 일반적인 침투 테스트, 외부 도구를 통해 위협을 식별하고 완화할 수 있습니다. [다단계 인증](../multi-factor-authentication/multi-factor-authentication.md) 은 최종 사용자가 네트워크에 액세스하는 추가 보안 계층을 제공합니다. 또한 응용 프로그램 및 호스트 공급자를 위해 액세스 제어, 모니터링, 맬웨어 방지, 취약점 검색, 패치 및 구성 관리를 제공합니다.
 
@@ -69,7 +70,7 @@ Azure IoT Suite는 각 장치에 대해 IoT 인프라에서 작업 중인 장치
 * 시스템 수준 권한 부여 및 인증은 장치 ID를 사용하며 액세스 자격 증명 및 권한은 즉시 취소 가능합니다.
 
 ### <a name="secure-connectivity"></a>보안 연결
-메시징의 내구성은 IoT 솔루션의 중요한 기능입니다. 지속적으로 명령을 제공하고 장치에서 데이터를 수신해야 하는 필요성은 IoT 장치가 인터넷 또는 불안정할 수 있는 기타 유사한 네트워크를 통해 연결된다는 사실로 강조됩니다. Azure IoT Hub는 메시지에 대한 응답에서 승인 시스템을 통해 클라우드 및 장치 간 메시징의 내구성을 제공합니다. 메시징에 대한 추가 내구성은 IoT Hub에서 메시지를 원격 분석의 경우 최대&7;일 및 명령의 경우 최대&2;일 동안 캐싱하여 달성할 수 있습니다.
+메시징의 내구성은 IoT 솔루션의 중요한 기능입니다. 지속적으로 명령을 제공하고 장치에서 데이터를 수신해야 하는 필요성은 IoT 장치가 인터넷 또는 불안정할 수 있는 기타 유사한 네트워크를 통해 연결된다는 사실로 강조됩니다. Azure IoT Hub는 메시지에 대한 응답에서 승인 시스템을 통해 클라우드 및 장치 간 메시징의 내구성을 제공합니다. 메시징에 대한 추가 내구성은 IoT Hub에서 메시지를 원격 분석의 경우 최대 7일 및 명령의 경우 최대 2일 동안 캐싱하여 달성할 수 있습니다.
 
 효율성은 리소스 및 리소스가 제한된 환경에서 작업의 보존을 위해 중요합니다. 널리 사용되는 http 프로토콜의 업계 표준 보안 버전인 HTTPS(HTTP Secure)가 Azure IoT Hub에서 지원되며 효율적인 통신을 가능하게 합니다. AMQP(Advanced Message Queuing Protocol) 및 MQTT(Message Queuing Telemetry Transport)가 Azure IoT Hub에서 지원되며 리소스 사용에 관한 효율성뿐만 아니라 안정적인 메시지 전달을 위해서 설계되었습니다. 
 
@@ -79,14 +80,14 @@ Azure IoT Suite는 각 장치에 대해 IoT 인프라에서 작업 중인 장치
 
 * 장치 및 Azure IoT Hub 간 또는 게이트웨이 및 Azure IoT Hub 간 통신 경로는 X.509 프로토콜을 사용하여 인증된 Azure IoT Hub와 업계 표준 전송 계층 보안(TLS)을 사용하여 보안이 설정됩니다.
 * 요청하지 않은 인바운드 연결에서 장치를 보호하기 위해 Azure IoT Hub는 장치에 대한 연결을 열지 않습니다. 장치는 모든 연결을 시작합니다. 
-* Azure IoT Hub는 지속적으로 장치에 대한 메시지를 저장하고 장치가 연결될 때까지 기다립니다. 이러한 명령은&2;일 동안 저장되며 전원 또는 연결 문제로 인해 산발적으로 장치 연결을 가능하게 하여 이러한 명령을 수신합니다. Azure IoT Hub는 각 장치에 대한 장치별 큐를 유지 관리합니다.
+* Azure IoT Hub는 지속적으로 장치에 대한 메시지를 저장하고 장치가 연결될 때까지 기다립니다. 이러한 명령은 2일 동안 저장되며 전원 또는 연결 문제로 인해 산발적으로 장치 연결을 가능하게 하여 이러한 명령을 수신합니다. Azure IoT Hub는 각 장치에 대한 장치별 큐를 유지 관리합니다.
 
 ### <a name="secure-processing-and-storage-in-the-cloud"></a>보안 처리 및 클라우드 저장소
 암호화된 통신에서 클라우드 데이터 처리까지, Azure IoT Suite를 통해 데이터 보안을 유지할 수 있습니다. 추가적인 암호화를 구현하고 보안 키를 관리하는 유연성을 제공합니다. Azure IoT Suite는 사용자 인증 및 권한 부여를 위해 AAD(Azure Active Directory)를 사용하여 클라우드 데이터에 대해 정책 기반 권한 부여 모델을 제공할 수 있으며 감사 및 검토가 가능한 간편한 액세스 관리를 허용합니다. 이 모델을 사용하면 클라우드 데이터 및 Azure IoT Suite에 연결된 장치에 대한 거의 즉각적인 액세스 해제가 가능합니다.
 
 데이터가 클라우드에 있는 경우 사용자가 정의한 워크플로에 처리 및 저장할 수 있습니다. 데이터의 각 부분에 대한 액세스는 사용된 저장소 서비스에 따라 Azure Active Directory로 제어됩니다.
 
-IoT 인프라에서 사용되는 모든 키는 보안 저장소의 클라우드에 저장되며 키를 다시 프로비전해야하는 경우 롤오버할 수 있는 기능을 보유합니다. 데이터는 [DocumentDB](../documentdb/documentdb-introduction.md) 또는 [SQL 데이터베이스](../sql-database/sql-database-faq.md)에 저장할 수 있으며 원하는 보안 수준의 정의를 사용할 수 있습니다. 또한 Azure에서는 데이터에 대한 모든 액세스를 모니터링 및 감사하는 방법을 제공하여 침입 또는 무단 액세스를 경고합니다.
+IoT 인프라에서 사용되는 모든 키는 보안 저장소의 클라우드에 저장되며 키를 다시 프로비전해야하는 경우 롤오버할 수 있는 기능을 보유합니다. 데이터는 [Azure Cosmos DB](../documentdb/documentdb-introduction.md) 또는 [SQL Database](../sql-database/sql-database-faq.md)에 저장할 수 있으며 원하는 보안 수준의 정의를 사용할 수 있습니다. 또한 Azure에서는 데이터에 대한 모든 액세스를 모니터링 및 감사하는 방법을 제공하여 침입 또는 무단 액세스를 경고합니다.
 
 ## <a name="conclusion"></a>결론
 사물 인터넷은 비즈니스와 가장 밀접한 사물에서 시작합니다. IoT는 비용 절감, 수익 증대 및 비즈니스 변환으로 비즈니스에 놀라운 가치를 선사합니다. 이 변환의 성공 여부는 주로 적합한 IoT 소프트웨어 및 서비스 공급자를 선택하느냐에 달려 있습니다. 즉, 비즈니스 요구 및 요구 사항을 이해하여 이 변환을 촉진시킬 뿐만 아니라 주요 설계 고려 사항으로 보안, 개인 정보, 투명성 및 규정 준수가 기본 제공되는 서비스 및 소프트웨어를 제공하는 공급자를 찾는 것입니다. Microsoft는 보안 소프트웨어 및 서비스를 개발 및 배포하는 데 풍부한 경험을 보유하고 있으며 새로운 시대의 사물 인터넷 분야에 앞장서고 있습니다. 
@@ -97,7 +98,7 @@ Microsoft Azure IoT Suite는 설계부터 보안 조치로 구축되어 자산�
 미리 구성된 각 Azure IoT Suite 솔루션은 다음과 같은 Azure 서비스의 인스턴스를 만듭니다.
 
 * [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): 클라우드를 "사물"에 연결하는 게이트웨이입니다. 솔루션의 보안을 설정하는 장치별 인증 지원을 통해 허브당 수백만 개의 연결까지 확장할 수 있으며 대량의 데이터를 처리할 수 있습니다.
-* [**Azure DocumentDB**](https://azure.microsoft.com/services/documentdb/): 반구조화된 데이터에 대한 확장성 있고 완전히 인덱싱된 데이터베이스 서비스로 프로비전하는 장치에 대한 메타데이터(예: 특성, 구성 및 보안 속성)를 관리합니다. DocumentDB는 높은 성능 및 처리량 처리, 데이터의 스키마와 관계 없는 인덱싱 및 풍부한 SQL 쿼리 인터페이스를 제공합니다.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/documentdb/): 반구조화된 데이터에 대한 확장성 있고 완전히 인덱싱된 데이터베이스 서비스로, 프로비전하는 장치에 대한 메타데이터(예: 특성, 구성 및 보안 속성)를 관리합니다. Cosmos DB는 높은 성능 및 처리량 처리, 데이터의 스키마와 관계 없는 인덱싱 및 풍부한 SQL 쿼리 인터페이스를 제공합니다.
 * [**Azure 스트림 분석**](https://azure.microsoft.com/services/stream-analytics/): 장치, 센서, 인프라 및 응용 프로그램에서 실시간 정보를 파악하는 저비용 분석 솔루션을 빠르게 개발 및 배포하는 클라우드의 실시간 스트림 처리입니다. 이 완전히 관리되는 서비스의 데이터를 높은 처리량, 낮은 대기 시간 및 복원력을 확보하면서 어떤 볼륨으로도 확장할 수 있습니다.
 * [**Azure App Services**](https://azure.microsoft.com/services/app-service/): 강력한 웹 및 모바일 앱을 빌드하기 위한 클라우드 플랫폼으로 클라우드 또는 온-프레미스 등 어디서나 데이터에 연결할 수 있습니다. iOS, Android 및 Windows를 위한 유용한 모바일 앱을 빌드하세요. 수십 개의 클라우드 기반 서비스와 엔터프라이즈 응용 프로그램에 즉시 연결 가능하므로 귀사의 SaaS(Software as a Service) 및 엔터프라이즈 응용 프로그램과 통합이 용이합니다. 가장 자주 사용하는 언어와 IDE(.NET, Node.js, PHP, Python 또는 Java)로 코딩하여 더욱 빨리 웹앱과 API를 빌드하세요.
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Azure App Service의 Logic Apps 기능을 통해 IoT 솔루션을 기존의 LOB(기간 업무) 시스템에 통합하고 워크플로 프로세스를 자동화할 수 있습니다. 논리 앱을 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. 논리 앱은 SaaS, 클라우드 기반 및 온-프레미스 응용 프로그램의 방대한 생태계에 즉시 연결을 제공합니다.
@@ -124,3 +125,4 @@ IoT Hub 개발자 가이드의 [IoT Hub에 대한 액세스 제어][lnk-devguide
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md
+

@@ -1,44 +1,45 @@
 ---
-title: "Azure DocumentDB로 MongoDB에 MongoChef 사용 | Microsoft Docs"
-description: "DocumentDB: MongoDB API 계정으로 MongoChef를 사용하는 방법을 알아보기"
+title: "Azure Cosmos DB에 MongoChef 사용 | Microsoft Docs"
+description: "Azure Cosmos DB: MongoDB API 계정으로 MongoChef를 사용하는 방법을 알아봅니다."
 keywords: MongoChef
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/27/2017
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: eb5a10e414a4dcce50b34a54d0e56fd5f7a16737
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 8363b73cfae818449e5a907a17e742bf97e5107a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="use-mongochef-with-a-documentdb-api-for-mongodb-account"></a>DocumentDB: MongoDB API 계정으로 MongoChef 사용
+# <a name="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Azure Cosmos DB: MongoDB API 계정으로 MongoChef 사용
 
-Azure DocumentDB: MongoDB API 계정에 연결하려면 다음을 수행해야 합니다.
+Azure Cosmos DB: MongoDB API 계정에 연결하려면 다음을 수행해야 합니다.
 
 * [MongoChef](http://3t.io/mongochef)
-* DocumentDB: MongoDB API 계정의 [연결 문자열](documentdb-connect-mongodb-account.md) 정보가 필요합니다.
+* Azure Cosmos DB: MongoDB API 계정의 [연결 문자열](documentdb-connect-mongodb-account.md) 정보가 필요합니다.
 
 ## <a name="create-the-connection-in-mongochef"></a>MongoChef에서 연결을 만듭니다.
-DocumentDB: MongoDB API 계정을 MongoChef 연결 관리자에 추가하려면 다음 단계를 수행합니다.
+Azure Cosmos DB: MongoDB API 계정을 MongoChef 연결 관리자에 추가하려면 다음 단계를 수행합니다.
 
-1. [여기](documentdb-connect-mongodb-account.md)에 있는 지침을 사용하여 DocumentDB: MongoDB API 연결 정보를 검색합니다.
+1. [여기](documentdb-connect-mongodb-account.md)에 있는 지침을 사용하여 Azure Cosmos DB: MongoDB API 연결 정보를 검색합니다.
 
     ![연결 문자열 블레이드의 스크린샷](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 2. **연결**을 클릭하여 연결 관리자를 열려고 **새 연결**을 클릭합니다.
 
     ![MongoChef 연결 관리자의 스크린샷](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
-3. **새 연결** 창의 **서버** 탭에서 DocumentDB: MongoDB API 계정의 호스트(FQDN)를 입력합니다.
+3. **새 연결** 창의 **서버** 탭에서 Azure Cosmos DB: MongoDB API 계정의 호스트(FQDN) 및 포트를 입력합니다.
 
     ![MongoChef 연결 관리자 서버 탭의 스크린샷](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 4. **새 연결** 창의 **인증** 탭에서 인증 모드 **표준(MONGODB CR 또는 SCARM-SHA-1)**을 선택하고 사용자 이름 및 암호를 입력합니다.  기본 인증 DB(관리자)를 그대로 사용하거나 고유한 값을 지정합니다.
@@ -116,5 +117,5 @@ MongoChef를 사용하여 데이터베이스, 컬렉션 및 문서를 만들려�
     ![MongoChef 쿼리 결과의 스크린샷](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>다음 단계
-* DocumentDB: MongoDB API [샘플](documentdb-mongodb-samples.md)을 살펴봅니다.
+* Azure Cosmos DB: MongoDB API [샘플](documentdb-mongodb-samples.md)을 살펴봅니다.
 

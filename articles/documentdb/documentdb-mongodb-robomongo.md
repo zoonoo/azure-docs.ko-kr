@@ -1,37 +1,38 @@
 ---
-title: "Azure DocumentDB로 MongoDB에 Robomongo 사용 | Microsoft 문서"
-description: "DocumentDB: MongoDB API 계정으로 Robomongo를 사용하는 방법을 알아보기"
+title: "Azure Cosmos DB에 Robomongo 사용 | Microsoft Docs"
+description: "Azure Cosmos DB: MongoDB API 계정으로 Robomongo를 사용하는 방법을 알아봅니다."
 keywords: robomongo
-services: documentdb
+services: cosmosdb
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
-ms.service: documentdb
+ms.service: cosmosdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 04/28/2017
 ms.author: anhoh
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: a8db7fbde5d6cd01b558ec351719bae361710efd
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: bad2d57a6252bb30e4c8435c52da19c95304d8da
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="use-robomongo-with-a-documentdb-api-for-mongodb-account"></a>DocumentDB: MongoDB API 계정으로 Robomongo 사용
-Robomongo를 사용하여 Azure DocumentDB: MongoDB API 계정에 연결하려면 다음을 수행해야 합니다.
+# <a name="use-robomongo-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Azure Cosmos DB: MongoDB API 계정으로 Robomongo 사용
+Robomongo를 사용하여 Azure Cosmos DB: MongoDB API 계정에 연결하려면 다음을 수행해야 합니다.
 
 * [Robomongo](https://robomongo.org/) 다운로드 및 설치
-* DocumentDB: MongoDB API 계정의 [연결 문자열](documentdb-connect-mongodb-account.md) 정보가 필요합니다.
+* Azure Cosmos DB: MongoDB API 계정의 [연결 문자열](documentdb-connect-mongodb-account.md) 정보가 필요합니다.
 
 ## <a name="connect-using-robomongo"></a>Robomongo를 사용하여 연결
-DocumentDB: MongoDB API 계정을 Robomongo MongoDB 연결에 추가하려면 다음 단계를 수행합니다.
+Azure Cosmos DB: MongoDB API 계정을 Robomongo MongoDB 연결에 추가하려면 다음 단계를 수행합니다.
 
-1. [여기](documentdb-connect-mongodb-account.md)에 있는 지침을 사용하여 DocumentDB: MongoDB API 계정 연결 정보를 검색합니다.
+1. [여기](documentdb-connect-mongodb-account.md)에 있는 지침을 사용하여 Azure Cosmos DB: MongoDB API 계정 연결 정보를 검색합니다.
 
     ![연결 문자열 블레이드의 스크린샷](./media/documentdb-mongodb-robomongo/connectionstringblade.png)
 2. *Robomongo.exe* 실행
@@ -51,5 +52,5 @@ DocumentDB: MongoDB API 계정을 Robomongo MongoDB 연결에 추가하려면 �
 7. 마지막으로 **테스트**를 클릭하여 연결할 수 있는지 확인한 다음 **저장**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* DocumentDB: MongoDB API [샘플](documentdb-mongodb-samples.md)을 살펴봅니다.
+* Azure Cosmos DB: MongoDB API [샘플](documentdb-mongodb-samples.md)을 살펴봅니다.
 

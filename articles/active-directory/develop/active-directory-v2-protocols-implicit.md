@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 1ea1f54832a13b57caf3d6783e482fad4ba00781
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2ac6f92d027c893316b6e310e4c3103ab0e51785
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -44,7 +47,7 @@ v2.0 끝점을 사용하면, Microsoft 개인 계정 및 회사/학교 계정을
 ![OpenId Connect 스윔 레인](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-the-sign-in-request"></a>로그인 요청 보내기
-사용자를 앱에 처음으로 로그인하려면 [OpenID Connect](active-directory-v2-protocols-oidc.md) 권한 부여 요청을 보내고&2;.0 끝점으로부터 `id_token`을 받습니다.
+사용자를 앱에 처음으로 로그인하려면 [OpenID Connect](active-directory-v2-protocols-oidc.md) 권한 부여 요청을 보내고 2.0 끝점으로부터 `id_token`을 받습니다.
 
 ```
 // Line breaks for legibility only
@@ -219,29 +222,13 @@ iFrame 요청에 이러한 오류를 수신하면, 사용자는 새 토큰을 �
 `id_token`과 `access_token`은 모두 짧은 시간 안에 만료되기 때문에 앱은 주기적으로 토큰을 새로 고치도록 준비가 되어야 합니다.  이러한 유형의 토큰을 새로 고치려면, Azure AD의 동작을 제어하도록 `prompt=none` 매개 변수를 사용하여 위와 동일한 숨겨진 iFrame 요청을 수행합니다.  새 `id_token`을 받으려면 `response_type=id_token` 및 `scope=openid`는 물론 `nonce` 매개 변수를 사용해야 합니다.
 
 ## <a name="send-a-sign-out-request"></a>로그아웃 요청 보내기
-OpenIdConnect `end_session_endpoint` 는 현재 v2.0 끝점에서 지원되지 않습니다. 즉, 앱이 v2.0 끝점에 요청을 보내 사용자 세션을 종료하고 v2.0 끝점에서 설정한 쿠키를 지울 수 없습니다.
-사용자를 로그아웃하기 위해 앱은 단순히 사용자와의 해당 세션을 종료하고 v2.0 끝점과의 사용자 세션을 그대로 둡니다.  다음에 사용자가 로그인하려고 하면 자주 로그인한 계정이 나열된 "계정 선택" 페이지가 표시됩니다.
-해당 페이지에서 사용자는 계정을 로그아웃하고 v2.0 끝점과의 세션을 종료할 수 있습니다.
-
-<!--
-
-When you wish to sign the user out of the  app, it is not sufficient to clear your app's cookies or otherwise end the session with the user.  You must also redirect the user to the v2.0 endpoint for sign out.  If you fail to do so, the user will be able to re-authenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the v2.0 endpoint.
-
-You can simply redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
+OpenIdConnect `end_session_endpoint`에서는 앱이 v2.0 끝점에 요청을 보내 사용자 세션을 종료하고 v2.0 끝점에서 설정한 쿠키를 지울 수 있습니다.  앱은 웹 응용 프로그램에서 특정 사용자를 완전히 로그아웃시키기 위해 일반적으로 토큰 캐시를 지우거나 쿠키를 삭제하여 고유한 사용자 세션을 종료한 다음 브라우저를 아래 주소로 리디렉션합니다.
 
 ```
-GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
-post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| Parameter | | Description |
-| ----------------------- | ------------------------------- | ------------ |
-| post_logout_redirect_uri | recommended | The URL which the user should be redirected to after successful logout.  If not included, the user will be shown a generic message by the v2.0 endpoint.  |
-
--->
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-
+| 매개 변수를 포함해야 합니다. |  | 설명 |
+| --- | --- | --- |
+| tenant |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 응용 프로그램에 로그인할 수 있는 사용자를 제어할 수 있습니다.  허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다.  자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
+| post_logout_redirect_uri | 권장 | 로그아웃이 완료된 후 사용자가 반환되어야 하는 URL입니다. 이 값은 응용 프로그램에 대해 등록된 리디렉션 URI 중 하나와 일치해야 합니다. 포함되지 않은 경우 v2.0 끝점에서 사용자에게 일반 메시지를 표시합니다. |
