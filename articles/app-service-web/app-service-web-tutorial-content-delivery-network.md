@@ -1,13 +1,15 @@
 ---
 title: "Azure App Service에 CDN(Content Delivery Network) 추가 | Microsoft Docs"
 description: "Azure App Service에 CDN(Content Delivery Network) 추가하여 전 세계의 고객에게 가까운 서버에서 정적 파일을 캐시하고 제공합니다."
-services: app-service
+services: app-service\web
 author: syntaxc4
 ms.author: cfowler
 ms.date: 05/01/2017
-ms.topic: hero-article
+ms.topic: article
 ms.service: app-service-web
 manager: erikre
+ms.workload: web
+ms.custom: mvc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 7208abc0e6eaa9067c5bb36a09e1bfd276fe0b0c

@@ -14,13 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: b7ad7b91c6b836f26b45959ef65a99666a4bf69a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/08/2016
 
 
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>자습서: Azure BizTalk 서비스를 사용하여 EDIFACT 송장 처리
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 BizTalk 서비스 포털을 사용하여 X12 및 EDIFACT 규약을 구성 및 배포할 수 있습니다. 이 자습서에서는 거래 파트너 간에 송장 교환을 위해 EDIFACT 규약을 만드는 방법에 대해 살펴봅니다. 이 자습서는 EDIFACT 메시지를 교환하는 두 거래 업체 Northwind와 Contoso를 포함하는 종단 간 비즈니스 솔루션에 대해 작성되었습니다.  
 
 ## <a name="sample-based-on-this-tutorial"></a>이 자습서를 기반으로 하는 샘플
@@ -277,10 +282,5 @@ BizTalk 서비스 EDI 브리지는 나가는 메시지의 일괄 처리도 지�
 [16]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-16.PNG  
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG  
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

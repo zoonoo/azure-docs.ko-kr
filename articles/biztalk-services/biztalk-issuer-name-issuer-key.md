@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
 ms.openlocfilehash: 4fb13a158c660105a5fc8f79a92c67ba65c5356d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk 서비스: 발급자 이름 및 발급자 키
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Azure BizTalk 서비스는 서비스 버스 발급자 이름 및 발급자 키와 액세스 제어 발급자 이름 및 발급자 키를 사용합니다. 구체적으로 살펴보면 다음과 같습니다.
 
 | 작업 | 발급자 이름 및 발급자 키 |
@@ -97,10 +102,5 @@ Azure BizTalk 서비스는 서비스 버스 발급자 이름 및 발급자 키�
 * [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk 서비스: 백업 및 복원](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [BizTalk 서비스: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

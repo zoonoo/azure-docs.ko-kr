@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 1013419f9283c3e81a6a6e8ed56a34d6ee5937ea
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>BizTalk 서비스의 관리 및 개발 작업 목록
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 ## <a name="getting-started"></a>시작하기
 Microsoft Azure BizTalk 서비스로 작업할 때 고려해야 할 몇 가지 온-프레미스와 클라우드 기반 구성 요소가 있습니다. 시작하려면 다음 프로세스 흐름을 고려하세요.  
 
@@ -53,10 +58,5 @@ Microsoft Azure BizTalk 서비스로 작업할 때 고려해야 할 몇 가지 �
 [메시지 맵 및 변환 학습 및 만들기](https://msdn.microsoft.com/library/azure/hh689905.aspx)  
 [BizTalk 어댑터 서비스(BAS) 사용](https://msdn.microsoft.com/library/azure/hh689889.aspx)  
 [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=303664)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

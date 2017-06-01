@@ -100,7 +100,7 @@ Resource Manager 가상 컴퓨터의 경우 다음 PowerShell 예제를 사용�
 
 ```PowerShell
 Login-AzureRMAccount
-Select-AzureSubscription -SubscriptionId "**"
+Select-AzureRMSubscription -SubscriptionId "**"
 
 $workspaceName = "your workspace name"
 $VMresourcegroup = "**"

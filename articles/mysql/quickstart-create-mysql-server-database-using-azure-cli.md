@@ -51,7 +51,7 @@ az group create --name mycliresource --location westus
 다음 예제에서는 `westus`에 있는 MySQL용 Azure Database 서버를 `mycliserver`라는 이름으로 `mycliresource` 리소스 그룹에 만듭니다. 서버에는 `myadmin` 이름과 `Password01!` 암호의 관리자 로그인이 있습니다. 서버는 서버의 모든 데이터베이스 간에 공유되는 **기본** 성능 계층과 **50** 계산 단위로 만들어집니다. 응용 프로그램 요구 사항에 따라 계산과 저장소의 크기를 확장하거나 축소할 수 있습니다.
 
 ```azurecli
-az mysql server create --resource-group mycliresource --name mycliserver--location westus --user myadmin --password Password01! --performance-tier Basic --compute-units 50
+az mysql server create --resource-group mycliresource --name mycliserver --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
 
 ![Azure CLI를 사용한 MySQL용 Azure 데이터베이스 서버 만들기 ](./media/quickstart-create-mysql-server-database-using-azure-cli/3_az-mysq-server-create.png)
