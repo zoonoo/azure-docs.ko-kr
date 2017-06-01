@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 87bd4e1d2b51857526b9137c09b7013c5221c698
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -91,16 +91,16 @@ Azure 게시자인 사용자는 Marketplace에서 다른 개발자, ISV 및 IT �
 ## <a name="manage-your-solution"></a>솔루션 관리
 다음 리소스에서 도움말을 사용하여 솔루션을 관리합니다.
 * [가상 컴퓨터 제품에 대한 사후 생성 가이드 참고](marketplace-publishing-vm-image-post-publishing.md)
-* [제품 또는 SKU의 비기술적인 세부 정보 업데이트](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
-* [제품 또는 SKU의 기술적인 세부 정보 업데이트](marketplace-publishing-vm-image-post-publishing.md#1-how-to-update-the-technical-details-of-a-sku)
-* [나열된 제품에 새 SKU 추가](marketplace-publishing-vm-image-post-publishing.md#3-how-to-add-a-new-sku-under-a-listed-offer)
-* [나열된 SKU에 대한 데이터 디스크 수 변경](marketplace-publishing-vm-image-post-publishing.md#4-how-to-change-the-data-disk-count-for-a-listed-sku)
+* [제품 또는 SKU의 비기술적인 세부 정보 업데이트](marketplace-publishing-vm-image-post-publishing.md#update-the-nontechnical-details-of-an-offer-or-a-sku)
+* [제품 또는 SKU의 기술적인 세부 정보 업데이트](marketplace-publishing-vm-image-post-publishing.md#update-the-technical-details-of-a-sku)
+* [나열된 제품에 새 SKU 추가](marketplace-publishing-vm-image-post-publishing.md#add-a-new-sku-under-a-listed-offer)
+* [나열된 SKU에 대한 데이터 디스크 수 변경](marketplace-publishing-vm-image-post-publishing.md#change-the-data-disk-count-for-a-listed-sku)
 * [Marketplace에서 나열된 제품 삭제](marketplace-publishing-vm-image-post-publishing.md)
-* [Marketplace에서 나열된 SKU 삭제](marketplace-publishing-vm-image-post-publishing.md#6-how-to-delete-a-listed-sku-from-the-azure-marketplace)
-* [Marketplace에서 나열된 현재 버전의 SKU 삭제](marketplace-publishing-vm-image-post-publishing.md#7-how-to-delete-the-current-version-of-a-listed-sku-from-the-azure-marketplace)
-* [나열 가격을 프로덕션 값으로 되돌리기](marketplace-publishing-vm-image-post-publishing.md#8-how-to-revert-listing-price-to-production-values)
-* [청구 모델을 프로덕션 값으로 되돌리기](marketplace-publishing-vm-image-post-publishing.md#9-how-to-revert-billing-model-to-production-values)
-* [나열된 SKU의 표시 유형 설정을 프로덕션 값으로 되돌리기](marketplace-publishing-vm-image-post-publishing.md#10-how-to-revert-visibility-setting-of-a-listed-sku-to-the-production-value)
+* [Marketplace에서 나열된 SKU 삭제](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
+* [Marketplace에서 나열된 현재 버전의 SKU 삭제](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
+* [나열 가격을 프로덕션 값으로 되돌리기](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
+* [청구 모델을 프로덕션 값으로 되돌리기](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
+* [나열된 SKU의 표시 유형 설정을 프로덕션 값으로 되돌리기](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
 * [클라우드 솔루션 공급자 재판매인 인센티브 변경](marketplace-publishing-csp-incentive.md)
 * [지급 보고 이해](marketplace-publishing-report-payout.md)
 * [게시자로 지원 받기](marketplace-publishing-get-publisher-support.md)

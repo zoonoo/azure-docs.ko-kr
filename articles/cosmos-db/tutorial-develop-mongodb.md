@@ -2,13 +2,13 @@
 title: "Azure Cosmos DB MongoDB API를 사용하여 웹앱 빌드 | Microsoft Docs"
 description: "MongoDB API를 사용하여 온라인 데이터베이스 웹앱을 만드는 Azure Cosmos DB 자습서입니다."
 keywords: "MongoDB 예제"
-services: cosmosdb
+services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: 61a2ab3a-2fc3-4d49-a263-ed87c66628f6
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7d78ac544c7e001444c5112b20824f75f9723652
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: d92244361cf86ee8b3c8dc2384f3085644b92e60
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만드는 방법과 [MongoDB API](../documentdb/documentdb-protocol-mongodb.md)를 사용하여 데이터를 저장할 데이터베이스와 컬렉션을 만드는 방법을 보여 줍니다. 
+이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만드는 방법과 [MongoDB API](mongodb-introduction.md)를 사용하여 데이터를 저장할 데이터베이스와 컬렉션을 만드는 방법을 보여 줍니다. 
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -44,11 +44,11 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 > [!TIP]
 > * Azure Cosmos DB 계정이 이미 있나요? 그렇다면 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다.
 > * Azure DocumentDB 계정이 있나요? 그렇다면 이 계정은 이제 Azure Cosmos DB 계정이 되며, [Visual Studio 솔루션 설치](#SetupVS)를 건너뛸 수 있습니다.  
-> * Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](../documentdb/documentdb-nosql-local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다. 
+> * Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다. 
 >
 >
 
-[!INCLUDE [cosmosdb-create-dbaccount-mongodb](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 
@@ -225,6 +225,6 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 다음 자습서로 진행하여 MongoDB 데이터를 Azure Cosmos DB로 가져올 수 있습니다.  
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB로 MongoDB 데이터 가져오기](../documentdb/documentdb-mongodb-migrate.md)
+> [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md)
 
 

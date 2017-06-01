@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c5c0b40d796130d93111545c93bedf86c374fd9
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 625eeefe94ec0d068cc9cc68b59c371697c786a8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -101,7 +102,7 @@ ms.lasthandoff: 11/17/2016
 * 사용자 지정 도메인 만들기가 성공했지만 아직 새로 고쳐지지 않았을 수 있습니다. **사용자 지정 도메인 및 SSL** 블레이드를 다시 열어 봅니다.
 * 일부 지점에서 사용자 지정 도메인을 삭제했을 수 있습니다. 앱의 주 블레이드에서 **설정** > **감사 로그**를 클릭하여 감사 로그를 확인합니다. 
 * 표시된 **사용자 지정 도메인 및 SSL** 블레이드가 다른 Azure 구독에서 생성된 앱에 속해 있을 수 있습니다. 다른 구독의 다른 앱으로 전환하고 해당 **사용자 지정 도메인 및 SSL** 블레이드를 확인합니다.  
-    포털 내에서는 해당 앱과 다른 Azure 구독에서 만든 사용자 지정 도메인을 보거나 관리할 수 없습니다. 그러나 도메인의 **도메인 관리** 블레이드에서 **고급 관리**를 클릭하면 해당 도메인 공급자의 웹 사이트로 리디렉션되며, 여기에서 다른 Azure 구독에서 만든 앱에 대해   [외부 사용자 지정 도메인과 같은 사용자 지정 도메인을 수동으로 구성](web-sites-custom-domain-name.md) 
+    포털 내에서는 해당 앱과 다른 Azure 구독에서 만든 사용자 지정 도메인을 보거나 관리할 수 없습니다. 그러나 도메인의 **도메인 관리** 블레이드에서 **고급 관리**를 클릭하면 해당 도메인 공급자의 웹 사이트로 리디렉션되며, 여기에서 다른 Azure 구독에서 만든 앱에 대해   [외부 사용자 지정 도메인과 같은 사용자 지정 도메인을 수동으로 구성](app-service-web-tutorial-custom-domain.md) 
   할 수 있습니다. 
 
 

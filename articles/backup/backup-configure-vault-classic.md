@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a7b55e3949cf8406f7c62e9dfd6cc1567d3a5996
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 52b7360230efd0a63e411339fe32f929a905391d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -49,8 +50,6 @@ ms.lasthandoff: 03/14/2017
 
 ## <a name="download-the-vault-credential-file"></a>자격 증명 모음 자격 증명 파일 다운로드
 온-프레미스 컴퓨터는 백업 자격 증명 모음을 인증해야 Azure에 데이터를 백업할 수 있습니다. 인증은 *보관 자격 증명*을 통해 수행됩니다. 보관 자격 증명 파일은 클래식 포털에서 보안 채널을 통해 다운로드됩니다. 인증서 개인 키는 포털 또는 서비스에 유지되지 않습니다.
-
-[보관 자격 증명을 사용하여 백업 서비스 인증](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file)에 대한 자세한 내용을 알아보세요.
 
 ### <a name="to-download-the-vault-credential-file-to-a-local-machine"></a>로컬 컴퓨터에 자격 증명 모음 자격 증명 파일을 다운로드하려면
 1. 왼쪽 탐색 창에서 **복구 서비스**를 클릭한 다음 생성된 백업 자격 증명 모음을 선택합니다.
@@ -116,7 +115,7 @@ ms.lasthandoff: 03/14/2017
 3. 백업 예약 마법사의 시작 페이지에서 **다음**을 클릭합니다.
 4. 백업할 항목 선택 페이지에서 **항목 추가**를 클릭합니다.
 5. 백업할 파일 및 폴더를 선택한 다음 **확인**을 클릭합니다.
-6. **Next**를 클릭합니다.
+6. **다음**을 누릅니다.
 7. **백업 일정 지정** 페이지에서 **백업 일정**을 지정하고 **다음**을 클릭합니다.
 
     매일(하루에 최대 속도로 3회) 또는 매주 백업을 예약할 수 있습니다.

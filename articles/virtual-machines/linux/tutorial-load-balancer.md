@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 079289f385266293ecfce7cd02b1673a774afbbe
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 817f6763ba663de994a40aefcda31dc8466ef12a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -32,11 +33,12 @@ ms.lasthandoff: 05/15/2017
 > * 부하 분산 장치 트래픽 규칙 만들기
 > * cloud-init를 사용하여 기본 Node.js 앱 만들기
 > * 가상 컴퓨터 만들기 및 부하 분산 장치에 연결
-> * 작동 중인 부하 분산 장치 보기
+> * 부하 분산 장치의 실제 동작 보기
 > * 부하 분산 장치에서 VM 추가 및 제거
 
-이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="azure-load-balancer-overview"></a>Azure Load Balancer 개요
 Azure Load Balancer는 들어오는 트래픽을 정상 VM 간에 분산하여 고가용성을 제공하는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치 상태 프로브가 각 VM에서 지정된 포트를 모니터링하고 작동하는 VM으로만 트래픽을 분산합니다.
@@ -53,7 +55,7 @@ Azure Load Balancer는 들어오는 트래픽을 정상 VM 간에 분산하여 �
 ## <a name="create-azure-load-balancer"></a>Azure Load Balancer 만들기
 이 섹션에서는 부하 분산 장치의 각 구성 요소를 만들고 구성하는 방법을 자세히 설명합니다. 부하 분산 장치를 만들려면 먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupLoadBalancer*라는 리소스 그룹을 만듭니다.
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
@@ -290,7 +292,7 @@ az network nic ip-config address-pool add \
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 부하 분산 장치를 만들어 VM에 연결했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 부하 분산 장치를 만들고 VM에 연결했습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Load Balancer 만들기
@@ -298,7 +300,7 @@ az network nic ip-config address-pool add \
 > * 부하 분산 장치 트래픽 규칙 만들기
 > * cloud-init를 사용하여 기본 Node.js 앱 만들기
 > * 가상 컴퓨터 만들기 및 부하 분산 장치에 연결
-> * 작동 중인 부하 분산 장치 보기
+> * 부하 분산 장치의 실제 동작 보기
 > * 부하 분산 장치에서 VM 추가 및 제거
 
 다음 자습서에서는 Azure Virtual Network 구성 요소에 대해 자세히 알아봅니다.

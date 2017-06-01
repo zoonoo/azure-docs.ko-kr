@@ -1,14 +1,14 @@
 ---
 title: "Azure Cosmos DB에서 SQL을 사용하여 쿼리하는 방법 | Microsoft Docs"
 description: "Azure Cosmos DB에서 SQL을 사용하여 DocumentDB 데이터를 쿼리하는 방법을 알아봅니다."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: tutorial-develop
 ms.devlang: na
 ms.topic: article
@@ -17,17 +17,17 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: dd34ff43e78175b0d6a6e38bbd1303070f6549ab
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: a2a562c06c6302b9548e758b4c6754ec13b6001d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
 
 # <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: SQL을 사용하여 쿼리하는 방법
 
-Azure Cosmos DB [DocumentDB API](../documentdb/documentdb-introduction.md)는 SQL을 사용하여 문서를 쿼리할 수 있도록 지원합니다. 이 문서에서는 샘플 문서 및 두 가지 샘플 SQL 쿼리와 결과를 제공합니다.
+Azure Cosmos DB [DocumentDB API](documentdb-introduction.md)는 SQL을 사용하여 문서를 쿼리할 수 있도록 지원합니다. 이 문서에서는 샘플 문서 및 두 가지 샘플 SQL 쿼리와 결과를 제공합니다.
 
 이 문서에서 다루는 작업은 다음과 같습니다. 
 
@@ -68,10 +68,10 @@ Azure Cosmos DB [DocumentDB API](../documentdb/documentdb-introduction.md)는 SQ
 ```
 ## <a name="where-can-i-run-sql-queries"></a>SQL 쿼리를 실행할 수 있는 위치
 
-Azure Portal의 [데이터 탐색기]를 사용하여 [REST API 및 SDK](../documentdb/documentdb-query-collections-query-explorer.md)를 통해 쿼리를 실행할 수 있으며, 기존 샘플 데이터 집합에 대해 쿼리를 실행하는 [쿼리 실습](https://www.documentdb.com/sql/demo)도 사용할 수 있습니다.
+Azure Portal의 [데이터 탐색기]를 사용하여 [REST API 및 SDK](documentdb-sdk-dotnet.md)를 통해 쿼리를 실행할 수 있으며, 기존 샘플 데이터 집합에 대해 쿼리를 실행하는 [쿼리 실습](https://www.documentdb.com/sql/demo)도 사용할 수 있습니다.
 
 SQL 쿼리에 대한 자세한 내용은 다음을 참조하세요.
-* [SQL 쿼리 및 SQL 구문](../documentdb/documentdb-sql-query.md)
+* [SQL 쿼리 및 SQL 구문](documentdb-sql-query.md)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -89,23 +89,34 @@ SQL 쿼리에 대한 자세한 내용은 다음을 참조하세요.
 
 **결과**
 
-    [{
-        "id": "AndersenFamily",
-        "lastName": "Andersen",
-        "parents": [
-           { "firstName": "Thomas" },
-           { "firstName": "Mary Kay"}
-        ],
-        "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
-        ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
-        "creationDate": 1431620472,
-        "isRegistered": true
-    }]
+```json
+{
+  "id": "WakefieldFamily",
+  "parents": [
+      { "familyName": "Wakefield", "givenName": "Robin" },
+      { "familyName": "Miller", "givenName": "Ben" }
+  ],
+  "children": [
+      {
+        "familyName": "Merriam", 
+        "givenName": "Jesse", 
+        "gender": "female", "grade": 1,
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+        ]
+      },
+      { 
+        "familyName": "Miller", 
+         "givenName": "Lisa", 
+         "gender": "female", 
+         "grade": 8 }
+  ],
+  "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+  "creationDate": 1431620462,
+  "isRegistered": false
+}
+```
 
 ## <a name="example-query-2"></a>예제 쿼리 2
 

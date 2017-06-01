@@ -3,7 +3,7 @@ title: "Azure Log Analytics에 Linux 컴퓨터 연결 | Microsoft Docs"
 description: "Log Analytics를 사용하여 Linux 컴퓨터에서 생성되는 데이터를 수집하고 그에 따른 조치를 취할 수 있습니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: b01b0d3d61168c1eec52f3fd040b829e0c51a878
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 10da54ebce28dfdcd0f793b1c717e738150b72ae
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -750,7 +751,7 @@ Linux 용 OMS 에이전트의 현재 제한 사항에 대해 알아보려면 다
 ### <a name="azure-diagnostics"></a>Azure 진단
 Azure에서 실행되는 Linux 가상 컴퓨터의 경우, Azure 진단 및 Operations Management Suite의 데이터 수집을 허용하려면 추가적인 단계가 필요합니다. **버전 2.2** 가 필요합니다.
 
-Linux용 진단 확장 설치 및 구성에 대한 자세한 내용은 [Azure CLI 명령을 사용하여 Linux 진단 확장을 사용하도록 설정](../virtual-machines/linux/classic/diagnostic-extension.md#use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension)을 참조하세요.
+Linux용 진단 확장 설치 및 구성에 대한 자세한 내용은 [Azure CLI 명령을 사용하여 Linux 진단 확장을 사용하도록 설정](../virtual-machines/linux/classic/diagnostic-extension-v2.md#use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension)을 참조하세요.
 
 **Linux 진단 확장을 2.0에서 2.2로 업그레이드 Azure CLI ASM:**
 

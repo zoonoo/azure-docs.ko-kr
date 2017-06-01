@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6f50ced708cb79a39e190657e4720c515c09990f
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: ad4160abfef748033eeb84a2f07a37124ce3b4b1
 ms.contentlocale: ko-kr
 
 
@@ -47,14 +48,14 @@ ms.contentlocale: ko-kr
 <add key="Tenant" value="common" />
 <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" /> 
 ```
-9. `ClientId`를 방금 등록한 응용 프로그램 ID로 바꿉니다.
-10. `redirectUri`를 프로젝트의 SSL URL로 바꿉니다. 
+<!-- Workaround for Docs conversion bug -->
+<ol start="9">
+<li>
+`ClientId`를 방금 등록한 응용 프로그램 ID로 바꿉니다.
+</li>
+<li>
+`redirectUri`를 프로젝트의 SSL URL로 바꿉니다.
+</li>
+</ol>
 <!-- End Docs -->
-
-> 참고
-> ### <a name="restricting-users-from-only-one-organization-to-sign-in-to-your-application"></a>한 조직의 사용자만 응용 프로그램에 로그인하도록 제한
-> 기본적으로 Azure Active Directory와 통합된 회사 또는 조직의 회사 및 학교 계정뿐만 아니라 개인 계정(outlook.com, live.com 등)도 응용 프로그램에 로그인할 수 있습니다. 응용 프로그램에서 한 조직에서의 로그인만 허용하도록 하려면 `web.config`의 `Tenant` 매개 변수를 `Common`에서 조직의 테넌트 이름(예: `contoso.onmicrosoft.com`)으로 바꿉니다. 그런 다음 OWIN 시작 클래스의 *ValidateIssuer* 인수를 `true`로 변경합니다.
-특정 조직 목록의 사용자만 허용하려면 `ValidateIssuer`를 `true`로 설정하고 `ValidIssuers` 매개 변수를 사용하여 조직 목록을 지정합니다.
-또 다른 방법으로 `IssuerValidator parameter`를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현합니다. `TokenValidationParameters`에 대한 자세한 내용은 [이](https://msdn.microsoft.com/en-us/library/system.identitymodel.tokens.tokenvalidationparameters(v=vs.114).aspx) MSDN 문서를 참조하세요.
-
 

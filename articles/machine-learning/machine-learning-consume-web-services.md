@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/05/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: f4f3caed8390ba3a80d6cf1282f4d2751c67ae6b
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 650ac9e8607c7c3b26cc2eebfe78169331800edd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -150,7 +151,7 @@ Azure Machine Learning 웹 서비스 포털에서 필요한 정보를 찾으려�
             ],
             "ColumnTypes": [
               "Numeric"
-            ].
+            ],
           "Values": [
             [
               "0"
@@ -159,10 +160,11 @@ Azure Machine Learning 웹 서비스 포털에서 필요한 정보를 찾으려�
               "1"
             ]
           ]
-        }
-      },
+         }
+       },
       "GlobalParameters": {}
-    }
+     }
+   }
 
 다음은 C# 구현을 위한 코드 샘플입니다. 기존 웹 서비스의 경우 **API 도움말 페이지** 또는 **사용** 페이지 아래에서 코드 샘플을 찾을 수 있습니다. 새 웹 서비스의 경우 **사용** 페이지 아래에서 코드 샘플을 찾을 수 있습니다.
 

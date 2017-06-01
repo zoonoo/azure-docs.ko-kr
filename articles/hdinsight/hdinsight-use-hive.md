@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 05/12/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: b8c32f6e15d65efc8dc464017027d3cde94b2667
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: f974c2714fc600d850baff64fdf65aae178e5068
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -54,7 +54,7 @@ HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형�
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux 또는 Windows* |Windows |
 
 > [!IMPORTANT]
-> \* Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.3 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+> \* Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
 >
 > Windows 기반 HDInsight 클러스터를 사용하는 경우 브라우저에서 [쿼리 콘솔](hdinsight-hadoop-use-hive-query-console.md) 또는 [원격 데스크톱](hdinsight-hadoop-use-hive-remote-desktop.md)을 사용하여 Hive 쿼리를 실행할 수 있습니다.
 

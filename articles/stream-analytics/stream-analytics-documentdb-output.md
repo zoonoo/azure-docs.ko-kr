@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 01bf4188c40abb424c654a733c6d626f3bd694ba
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cb85dff7f8bf8a8715aaa9ecd02da59b9108915c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -42,7 +42,7 @@ Stream Analytics를 Cosmos DB와 통합하면 지정된 문서 ID 열에 따라 
 Stream Analytics에서는 문서 ID 충돌로 인해 삽입에 실패한 경우에만 업데이트가 수행되는 낙관적 Upsert 방식을 활용합니다. 이 업데이트는 Stream Analytics에서 패치로 수행되므로 문서의 부분 업데이트가 가능합니다. 즉, 새 속성 추가 또는 기존 속성 바꾸기가 증분식으로 수행됩니다. JSON 문서에서 배열 속성 값을 변경하면 전체 배열을 덮어씁니다. 즉, 배열이 병합되지 않습니다.
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Cosmos DB의 데이터 분할
-데이터 분할에 권장되는 방법은 Cosmos DB [분할 컬렉션](../documentdb/documentdb-partition-data.md#single-partition-and-partitioned-collections)입니다. 
+데이터 분할에 권장되는 방법은 Cosmos DB [분할 컬렉션](../cosmos-db/partition-data.md)입니다. 
 
 Stream Analytics를 사용하면 단일 Cosmos DB 컬렉션의 경우에도 응용 프로그램의 쿼리 패턴 및 성능 요구를 기준으로 데이터를 분할할 수 있습니다. 각 컬렉션은 최대 10GB의 데이터(최대값)를 포함할 수 있으며, 현재 컬렉션을 강화(또는 오버플로)할 방법은 없습니다. 규모 확장의 경우 Stream Analytics에서는 주어진 접두사를 사용하여 여러 컬렉션에 쓸 수 있도록 허용합니다(아래 사용법 정보 참조). Stream Analytics에서는 사용자가 제공한 PartitionKey 열에 따라 [해시 파티션 확인자](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) 전략을 사용하여 해당 출력 레코드를 분할합니다. 스트리밍 작업 시작 시 지정된 접두사를 가진 컬렉션 수가 작업에서 병렬로 기록할 출력 파티션 수로 사용됩니다(Cosmos DB 컬렉션 = 출력 파티션). 삽입만 수행하는 지연 인덱싱을 사용하는 단일 컬렉션의 경우 약 0.4MB/초의 쓰기 처리량을 예상할 수 있습니다. 여러 컬렉션을 사용하여 처리량 및 용량을 늘릴 수 있습니다.
 

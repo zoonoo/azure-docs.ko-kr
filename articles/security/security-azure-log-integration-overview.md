@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 05/20/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 931105183156efc958d4daef50a6858ea36ea3bb
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 616a29b3f7db817e63a3a3673b845cc86752af77
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -26,7 +27,7 @@ Azure 로그 통합, 주요 기능 및 작동 원리에 대해 알아봅니다.
 
 ## <a name="overview"></a>개요
 
-Azure 로그 통합은 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합할 수 있게 해주는 무료 솔루션입니다. 
+Azure 로그 통합은 Azure 리소스의 원시 로그를 온-프레미스 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합할 수 있게 해주는 무료 솔루션입니다.
 
 Azure 로그 통합은 Azure 리소스에서 Windows 이벤트 뷰어 채널, [Azure 활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Azure Security Center 경고](../security-center/security-center-intro.md) 및 [Azure 진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)로부터 Windows 이벤트를 수집합니다. 이 통합을 통해 SIEM 솔루션에서 보안 이벤트를 집계하고, 상관 관계를 설정하고, 분석하고, 경고할 수 있도록 온-프레미스 또는 클라우드의 모든 자산에 대한 통합 대시보드를 제공할 수 있습니다.
 
@@ -48,7 +49,7 @@ Azure 로그 통합 기능은 현재 Azure 활동 로그, Azure 구독의 Window
 
 | 로그 형식  |JSON(Splunk, ELK)을 지원하는 Log Analytics| ArcSight  | QRadar  |   
 |---|---|---|---|
-|  AAD 감사 로그 |  yes | FlexConnector JSON 파서 파일을 만들어야 합니다. 자세한 내용은 ArcSight 설명서를 참조하세요.  |  로그 원본 확장을 만들어야 합니다. 자세한 내용은 QRadar 설명서를 참조하세요. |  
+|  AAD 감사 로그 |  예 | FlexConnector JSON 파서 파일을 만들어야 합니다. 자세한 내용은 ArcSight 설명서를 참조하세요.  |  로그 원본 확장을 만들어야 합니다. 자세한 내용은 QRadar 설명서를 참조하세요. |  
 | 활동 로그  | 예  |  Azure 로그 통합 다운로드와 함께 다운로드 센터에서 사용할 수 있는 FlexConnector JSON 파서 파일 |  [QRadar DSM](https://www.ibm.com/support/knowledgecenter/SSKMKU/com.ibm.dsm.doc/c_dsm_guide_microsoft_azure_overview.html)(Syslog를 통해 전송) |  
 | ASC 경고  | 예  |  FlexConnector JSON 파서 파일을 만들어야 합니다. 자세한 내용은 ArcSight 설명서를 참조하세요. | [QRadar DSM](https://www.ibm.com/support/knowledgecenter/SSKMKU/com.ibm.dsm.doc/c_dsm_guide_microsoft_azure_overview.html)(Syslog를 통해 전송)   |   
 | 진단 로그(리소스 로그) | 예 | 최종 사용자는 FlexConnector JSON 파서 파일을 만들어야 합니다. 이 작업을 수행하는 방법은 ArcSight 설명서를 참조하세요. | 로그 원본 확장을 만들어야 합니다. 자세한 내용은 QRadar 설명서를 참조하세요. |
@@ -57,7 +58,7 @@ Azure 로그 통합 기능은 현재 Azure 활동 로그, Azure 구독의 Window
 >[!NOTE]
 Azure 로그 통합은 무료 솔루션이지만 로그 파일 정보 저장소로 인한 Azure Storage 비용이 발생합니다.
 
-[Azure 로그 통합 MSDN 포럼](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration)을 통해 커뮤니티의 지원을 받을 수 있습니다. 이 포럼은 Azure 로그 통합을 최대한 활용하는 방법에 대한 질문, 답변, 팁, 요령 등 서로 지원할 수 있는 기능을 AzLog 커뮤니티에 제공합니다. 또한 Azure 로그 통합 팀이 이 포럼을 모니터링하며 가능한 한 언제든지 도움을 드릴 것입니다. 
+[Azure 로그 통합 MSDN 포럼](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration)을 통해 커뮤니티의 지원을 받을 수 있습니다. 이 포럼은 Azure 로그 통합을 최대한 활용하는 방법에 대한 질문, 답변, 팁, 요령 등 서로 지원할 수 있는 기능을 AzLog 커뮤니티에 제공합니다. 또한 Azure 로그 통합 팀이 이 포럼을 모니터링하며 가능한 한 언제든지 도움을 드릴 것입니다.
 
 [지원 요청](../azure-supportability/how-to-create-azure-support-request.md)을 열 수도 있습니다. 지원 요청을 열려면 지원을 요청하는 서비스로 **로그 통합**을 선택합니다.
 

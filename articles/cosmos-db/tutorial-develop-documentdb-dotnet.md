@@ -1,14 +1,14 @@
 ---
 title: "Azure Cosmos DB: .NET의 DocumentDB API를 사용하여 개발 | Microsoft Docs"
 description: ".NET을 사용하는 Azure Cosmos DB의 DocumentDB API를 통해 개발하는 방법에 대해 알아봅니다."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e1148b849fc89f51159abd3b1b910c2df2d9571e
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 485fb2e8ac96e2cdb8e4293b63971af1c1b9baf4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 [DocumentDB .NET API](../documentdb/documentdb-introduction.md)를 사용하여 [파티션 키](../documentdb/documentdb-partition-data.md#partition-keys)가 있는 문서 데이터베이스와 컬렉션을 만드는 방법을 보여 줍니다. 컬렉션을 만들 때 파티션 키를 정의하면 데이터가 증가함에 따라 응용 프로그램이 손쉽게 확장하도록 준비할 수 있습니다. 
+이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 [DocumentDB .NET API](documentdb-introduction.md)를 사용하여 [파티션 키](documentdb-partition-data.md#partition-keys)가 있는 문서 데이터베이스와 컬렉션을 만드는 방법을 보여 줍니다. 컬렉션을 만들 때 파티션 키를 정의하면 데이터가 증가함에 따라 응용 프로그램이 손쉽게 확장하도록 준비할 수 있습니다. 
 
-이 자습서에서는 [DocumentDB .NET API](../documentdb/documentdb-sdk-dotnet.md)를 사용하여 다음 작업을 수행합니다.
+이 자습서에서는 [DocumentDB .NET API](documentdb-sdk-dotnet.md)를 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * Azure Cosmos DB 계정 만들기
@@ -46,7 +46,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 다음 항목이 있는지 확인합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)에 등록할 수 있습니다. 
-    * 또는 개발을 위해 Azure DocumentDB 서비스를 에뮬레이트하는 로컬 환경을 사용하려는 경우 이 자습서의 [Azure Cosmos DB 에뮬레이터](../documentdb/documentdb-nosql-local-emulator.md)를 사용할 수 있습니다.
+    * 또는 개발을 위해 Azure DocumentDB 서비스를 에뮬레이트하는 로컬 환경을 사용하려는 경우 이 자습서의 [Azure Cosmos DB 에뮬레이터](local-emulator.md)를 사용할 수 있습니다.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
@@ -56,11 +56,11 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 > [!TIP]
 > * Azure Cosmos DB 계정이 이미 있나요? 그렇다면 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다.
 > * Azure DocumentDB 계정이 있나요? 그렇다면 이 계정은 이제 Azure Cosmos DB 계정이 되며, [Visual Studio 솔루션 설치](#SetupVS)를 건너뛸 수 있습니다.  
-> * Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](../documentdb/documentdb-nosql-local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다. 
+> * Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다. 
 >
 >
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>Visual Studio 솔루션 설치
 1. 컴퓨터에서 **Visual Studio**를 엽니다.
@@ -120,24 +120,24 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>데이터베이스 만들기
 
-다음으로 [DocumentDB .NET SDK](../documentdb/documentdb-sdk-dotnet.md)에서 **DocumentClient** 클래스의 [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 메서드 또는 [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) 메서드를 사용하여 Azure Cosmos DB [데이터베이스](../documentdb/documentdb-resources.md#databases)를 만듭니다. 데이터베이스는 여러 컬렉션으로 분할된 JSON 문서 저장소의 논리적 컨테이너입니다.
+다음으로 [DocumentDB .NET SDK](documentdb-sdk-dotnet.md)에서 **DocumentClient** 클래스의 [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 메서드 또는 [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) 메서드를 사용하여 Azure Cosmos DB [데이터베이스](documentdb-resources.md#databases)를 만듭니다. 데이터베이스는 여러 컬렉션으로 분할된 JSON 문서 저장소의 논리적 컨테이너입니다.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
 ```
 ## <a name="decide-on-a-partition-key"></a>파티션 키 결정 
 
-컬렉션은 문서를 저장하기 위한 컨테이너입니다. 논리적인 리소스이며 [하나 이상의 물리적 파티션](partition-data.md)에 걸쳐 있을 수 있습니다. [파티션 키](../documentdb/documentdb-partition-data.md)는 서버 또는 파티션 간에 데이터를 배포하는 데 사용되는 문서 내의 속성(또는 경로)입니다. 동일한 파티션 키가 있는 문서는 모두 동일한 파티션에 저장됩니다. 
+컬렉션은 문서를 저장하기 위한 컨테이너입니다. 논리적인 리소스이며 [하나 이상의 물리적 파티션](partition-data.md)에 걸쳐 있을 수 있습니다. [파티션 키](documentdb-partition-data.md)는 서버 또는 파티션 간에 데이터를 배포하는 데 사용되는 문서 내의 속성(또는 경로)입니다. 동일한 파티션 키가 있는 문서는 모두 동일한 파티션에 저장됩니다. 
 
 파티션 키를 결정하는 것은 컬렉션을 만들기 전에 수행해야 하는 중요한 결정입니다. 파티션 키는 Azure Cosmos DB에서 여러 서버 또는 파티션간에 데이터를 배포하는 데 사용할 수 있는 문서 내의 속성 (또는 경로)입니다. Cosmos DB는 파티션 키 값을 해시하고 해시된 결과를 사용하여 문서를 저장할 파티션을 결정합니다. 동일한 파티션 키가 있는 문서는 모두 동일한 파티션에 저장되며, 컬렉션이 생성되면 파티션 키를 변경할 수 없습니다. 
 
 이 자습서에서는 파티션 키를 `/deviceId`로 설정하여 단일 장치의 모든 데이터가 단일 파티션에 저장되도록 합니다. 값이 많은 파티션 키를 선택하려고 합니다. 각 키는 데이터가 증가함에 따라 Cosmos DB의 부하를 분산하고, 컬렉션의 전체 처리량을 달성할 수 있도록 거의 동일한 빈도로 사용됩니다. 
 
-분할에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정하는 방법](../documentdb/documentdb-partition-data.md)을 참조하세요. 
+분할에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정하는 방법](partition-data.md)을 참조하세요. 
 
 ## <a id="CreateColl"></a>컬렉션 만들기 
 
-이제 `/deviceId` 파티션 키를 알고 있으므로 **DocumentClient** 클래스의 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 메서드 또는 [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) 메서드를 사용하여 [컬렉션](../documentdb/documentdb-resources.md#collections)을 만들어 보겠습니다. 컬렉션은 JSON 문서 및 관련된 모든 JavaScript 응용 프로그램 논리의 컨테이너입니다. 
+이제 `/deviceId` 파티션 키를 알고 있으므로 **DocumentClient** 클래스의 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 메서드 또는 [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) 메서드를 사용하여 [컬렉션](documentdb-resources.md#collections)을 만들어 보겠습니다. 컬렉션은 JSON 문서 및 관련된 모든 JavaScript 응용 프로그램 논리의 컨테이너입니다. 
 
 > [!WARNING]
 > 응용 프로그램이 Azure Cosmos DB와 통신하기 위해 처리량을 예약할 때 컬렉션을 만드는 것은 가격에 영향을 미칩니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
@@ -159,10 +159,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 2500 });
 ```
 
-이 메서드에서 Azure Cosmos DB에 REST API 호출을 요청하고, 서비스는 요청된 처리량에 따라 파티션 수를 프로비전합니다. SDK 또는 [Azure Portal](../documentdb/documentdb-set-throughput.md)을 사용하여 성능 요구 사항이 진화함에 따라 컬렉션의 처리량을 변경할 수 있습니다.
+이 메서드에서 Azure Cosmos DB에 REST API 호출을 요청하고, 서비스는 요청된 처리량에 따라 파티션 수를 프로비전합니다. SDK 또는 [Azure Portal](set-throughput.md)을 사용하여 성능 요구 사항이 진화함에 따라 컬렉션의 처리량을 변경할 수 있습니다.
 
 ## <a id="CreateDoc"></a>JSON 문서 만들기
-Azure Cosmos DB에 일부 JSON 문서를 삽입해 보겠습니다. **DocumentClient** 클래스의 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 메서드를 사용하여 [문서](../documentdb/documentdb-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 이 샘플 클래스에는 장치 읽기와 컬렉션에 새 장치 읽기를 삽입하기 위한 CreateDocumentAsync 호출이 포함되어 있습니다.
+Azure Cosmos DB에 일부 JSON 문서를 삽입해 보겠습니다. **DocumentClient** 클래스의 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 메서드를 사용하여 [문서](documentdb-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 이 샘플 클래스에는 장치 읽기와 컬렉션에 새 장치 읽기를 삽입하기 위한 CreateDocumentAsync 호출이 포함되어 있습니다.
 
 ```csharp
 public class DeviceReading
@@ -314,5 +314,5 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 이제 다음 자습서로 진행하여 추가 데이터를 Cosmos DB 계정으로 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB로 데이터 가져오기](../documentdb/documentdb-import-data.md)
+> [Azure Cosmos DB로 데이터 가져오기](import-data.md)
 

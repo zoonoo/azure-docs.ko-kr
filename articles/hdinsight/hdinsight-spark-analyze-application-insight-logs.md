@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2017
+ms.date: 05/25/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 92d591054244ceb01adbfbd8ff027d47b04a6c83
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 02ecc95d97719908a18f615dc3e19af2a563cc73
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -36,7 +36,7 @@ HDInsight에서 Spark를 사용하여 Application Insights 원격 분석 데이�
 * Linux 기반 HDInsight 클러스터를 만드는 데 익숙해야 합니다. 자세한 내용은 [HDInsight에서 Spark 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
   > [!IMPORTANT]
-  > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.3 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+  > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
 
 * 웹 브라우저.
 
@@ -89,7 +89,9 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
 
 3. 페이지의 첫 번째 필드(**셀**이라고 함)에 다음 텍스트를 입력합니다.
 
-        sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
+   ```python
+   sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
+   ```
 
     이 코드는 Spark가 입력 데이터에 대한 디렉터리 구조에 재귀적으로 액세스하도록 구성합니다. Application Insights 원격 분석은 `/{telemetry type}/YYYY-MM-DD/{##}/`과 유사한 디렉터리 구조에 기록됩니다.
 
@@ -104,8 +106,10 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
         SparkContext and HiveContext created. Executing user code ...
 5. 새 셀은 첫 번째 셀의 아래에 생성됩니다. 새 셀에서 다음 텍스트를 입력합니다. `CONTAINER` 및 `STORAGEACCOUNT`를 Application Insights 데이터를 포함하는 Azure Storage 계정 이름 및 BLOB 컨테이너 이름으로 바꿉니다.
 
-        %%bash
-        hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```python
+   %%bash
+   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```
 
     **SHIFT+ENTER**를 사용하여 이 셀을 실행합니다. 다음 텍스트와 유사한 결과가 표시됩니다.
 
@@ -119,13 +123,17 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
 
 6. 다음 셀에서 다음 코드를 입력합니다. `WASB_PATH`를 이전 단계의 경로로 바꿉니다.
 
-        jsonFiles = sc.textFile('WASB_PATH')
-        jsonData = sqlContext.read.json(jsonFiles)
+   ```python
+   jsonFiles = sc.textFile('WASB_PATH')
+   jsonData = sqlContext.read.json(jsonFiles)
+   ```
 
     이 코드는 연속 내보내기 프로세스에서 내보낸 JSON 파일에서 데이터 프레임을 만듭니다. **SHIFT+ENTER** 를 사용하여 이 셀을 실행합니다.
 7. 다음 셀에서 다음을 입력하고 실행하여 Spark가 JSON 파일에 대해 만든 스키마를 봅니다.
 
-        jsonData.printSchema()
+   ```python
+   jsonData.printSchema()
+   ```
 
     각 유형의 원격 분석에 대한 스키마는 달라질 수 있습니다. 다음 예제는 웹 요청(`Requests` 하위 디렉터리에 저장된 데이터)에 대해 생성되는 스키마입니다.
 
@@ -191,8 +199,11 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
         |    |    |    |-- protocol: string (nullable = true)
 8. 다음을 사용하여 데이터 프레임을 임시 테이블로 등록하고 데이터에 대해 쿼리를 실행합니다.
 
-        jsonData.registerTempTable("requests")
-        sqlContext.sql("select context.location.city from requests where context.location.city is not null")
+   ```python
+   jsonData.registerTempTable("requests")
+   df = sqlContext.sql("select context.location.city from requests where context.location.city is not null")
+   df.show()
+   ```
 
     이 쿼리는 context.location.city가 null이 아닌 상위 20개 레코드에 대한 도시 정보를 반환합니다.
 
@@ -219,7 +230,9 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
 2. Jupyter 페이지의 오른쪽 위 모퉁이에서 **새로 만들기**, **Scala**를 차례로 선택합니다. Scala 기반 Jupyter Notebook을 포함하는 새 브라우저 탭이 나타납니다.
 3. 페이지의 첫 번째 필드(**셀**이라고 함)에 다음 텍스트를 입력합니다.
 
-        sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
+   ```scala
+   sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
+   ```
 
     이 코드는 Spark가 입력 데이터에 대한 디렉터리 구조에 재귀적으로 액세스하도록 구성합니다. Application Insights 원격 분석은 `/{telemetry type}/YYYY-MM-DD/{##}/`과 유사한 디렉터리 구조에 기록됩니다.
 
@@ -234,8 +247,10 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
         SparkContext and HiveContext created. Executing user code ...
 5. 새 셀은 첫 번째 셀의 아래에 생성됩니다. 새 셀에서 다음 텍스트를 입력합니다. `CONTAINER` 및 `STORAGEACCOUNT`를 Application Insights 로그를 포함하는 Azure Storage 계정 이름 및 BLOB 컨테이너 이름으로 바꿉니다.
 
-        %%bash
-        hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```scala
+   %%bash
+   hdfs dfs -ls wasb://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
+   ```
 
     **SHIFT+ENTER**를 사용하여 이 셀을 실행합니다. 다음 텍스트와 유사한 결과가 표시됩니다.
 
@@ -249,13 +264,19 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
 
 6. 다음 셀에서 다음 코드를 입력합니다. `WASB\_PATH`를 이전 단계의 경로로 바꿉니다.
 
-        jsonFiles = sc.textFile('WASB_PATH')
-        jsonData = sqlContext.read.json(jsonFiles)
+   ```scala
+   var jsonFiles = sc.textFile('WASB_PATH')
+   val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+   var jsonData = sqlContext.read.json(jsonFiles)
+   ```
 
     이 코드는 연속 내보내기 프로세스에서 내보낸 JSON 파일에서 데이터 프레임을 만듭니다. **SHIFT+ENTER** 를 사용하여 이 셀을 실행합니다.
+
 7. 다음 셀에서 다음을 입력하고 실행하여 Spark가 JSON 파일에 대해 만든 스키마를 봅니다.
 
-        jsonData.printSchema
+   ```scala
+   jsonData.printSchema
+   ```
 
     각 유형의 원격 분석에 대한 스키마는 달라질 수 있습니다. 다음 예제는 웹 요청(`Requests` 하위 디렉터리에 저장된 데이터)에 대해 생성되는 스키마입니다.
 
@@ -319,10 +340,13 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
         |    |    |    |-- hashTag: string (nullable = true)
         |    |    |    |-- host: string (nullable = true)
         |    |    |    |-- protocol: string (nullable = true)
+
 8. 다음을 사용하여 데이터 프레임을 임시 테이블로 등록하고 데이터에 대해 쿼리를 실행합니다.
 
-        jsonData.registerTempTable("requests")
-        var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
+   ```scala
+   jsonData.registerTempTable("requests")
+   var city = sqlContext.sql("select context.location.city from requests where context.location.city is not null limit 10").show()
+   ```
 
     이 쿼리는 context.location.city가 null이 아닌 상위 20개 레코드에 대한 도시 정보를 반환합니다.
 

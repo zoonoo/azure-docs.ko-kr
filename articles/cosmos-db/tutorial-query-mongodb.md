@@ -1,14 +1,14 @@
 ---
 title: "Azure Cosmos DB: DocumentDB API를 사용하여 쿼리하는 방법 | Microsoft Docs"
 description: "Azure Cosmos DB의 DocumentDB API를 사용하여 쿼리하는 방법을 알아봅니다."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,17 +16,17 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 696ff01c7ac65215777cfe0ae3412ff91a09135b
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: feffc553a9aa931d96cec71c101674fce08a466b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 
 # <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: MongoDB API를 사용하여 쿼리하는 방법
 
-Azure Cosmos DB [MongoDB API](../documentdb/documentdb-protocol-mongodb.md)는 [MongoDB 셸 쿼리](https://docs.mongodb.com/manual/tutorial/query-documents/)를 지원합니다. 
+Azure Cosmos DB [MongoDB API](mongodb-introduction.md)는 [MongoDB 셸 쿼리](https://docs.mongodb.com/manual/tutorial/query-documents/)를 지원합니다. 
 
 이 문서에서 다루는 작업은 다음과 같습니다. 
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 05/24/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 78b8902927977c3b7dca3bd6e24633858ef8e6e9
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 9ab6d3e5e41f155b1404cee8a555078409c09c60
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -33,7 +33,7 @@ ms.lasthandoff: 05/11/2017
 ```json
 "resources": [ 
   { 
-      "apiVersion": "2015-01-01", 
+      "apiVersion": "2017-05-10", 
       "name": "linkedTemplate", 
       "type": "Microsoft.Resources/deployments", 
       "properties": { 
@@ -53,7 +53,7 @@ ms.lasthandoff: 05/11/2017
 다른 리소스 형식과 마찬가지로 연결된 템플릿과 기타 리소스 간에 종속성을 설정할 수 있습니다. 따라서 다른 리소스에 연결된 템플릿의 출력 값이 필요한 경우 연결된 템플릿이 먼지 배포되었는지 확인할 수 있습니다. 또는 연결된 템플릿이 다른 리소스에 종속될 경우 연결된 템플릿 이전에 다른 리소스가 배포되었는지 확인할 수 있습니다. 다음 구문을 사용하여 연결된 템플릿에서 값을 검색할 수 있습니다.
 
 ```json
-"[reference('linkedTemplate').outputs.exampleProperty]"
+"[reference('linkedTemplate').outputs.exampleProperty.value]"
 ```
 
 Resource Manager 서비스는 연결된 템플릿에 액세스할 수 있어야 합니다. 로컬 파일 또는 연결된 템플릿에 대해 로컬 네트워크에만 사용할 수 있는 파일을 지정할 수 없습니다. **http** 또는 **https** 중 하나를 포함하는 URI 값만 제공할 수 있습니다. 한 가지 옵션은 연결된 템플릿을 저장소 계정에 배치하고 다음 예제와 같이 해당 항목의 URI를 사용하는 것입니다.
@@ -75,7 +75,7 @@ Resource Manager 서비스는 연결된 템플릿에 액세스할 수 있어야 
 },
 "resources": [
     {
-        "apiVersion": "2015-01-01",
+        "apiVersion": "2017-05-10",
         "name": "linkedTemplate",
         "type": "Microsoft.Resources/deployments",
         "properties": {
@@ -101,7 +101,7 @@ Resource Manager는 연결된 각 템플릿을 별도 배포로 처리합니다.
 ```json
 "resources": [ 
   { 
-     "apiVersion": "2015-01-01", 
+     "apiVersion": "2017-05-10", 
      "name": "linkedTemplate", 
      "type": "Microsoft.Resources/deployments", 
      "properties": { 
@@ -142,116 +142,6 @@ Resource Manager는 연결된 각 템플릿을 별도 배포로 처리합니다.
 }
 ```
 
-## <a name="conditionally-linking-to-templates"></a>조건부로 템플릿에 연결
-연결된 템플릿의 URI를 생성하는 데 사용되는 매개 변수 값을 전달하여 다른 템플릿에 연결할 수 있습니다. 이 방법은 배포하는 동안 사용할 연결된 템플릿을 지정해야 하는 경우에 효과적으로 작동합니다. 예를 들어 기존 저장소 계정에 사용할 하나의 템플릿을 지정하고 새 저장소 계정에 사용할 다른 템플릿을 지정할 수 있습니다.
-
-다음 예제는 저장소 계정 이름에 대한 매개 변수 및 저장소 계정이 신규 또는 기존인지 여부를 지정할 매개 변수를 보여 줍니다.
-
-```json
-"parameters": {
-    "storageAccountName": {
-        "type": "String"
-    },
-    "newOrExisting": {
-        "type": "String",
-        "allowedValues": [
-            "new",
-            "existing"
-        ]
-    }
-},
-```
-
-신규 또는 기존 매개 변수 값을 포함하는 템플릿 URI에 대한 변수를 만듭니다.
-
-```json
-"variables": {
-    "templatelink": "[concat('https://raw.githubusercontent.com/exampleuser/templates/master/',parameters('newOrExisting'),'StorageAccount.json')]"
-},
-```
-
-배포 리소스에 대한 변수 값을 제공합니다.
-
-```json
-"resources": [
-    {
-        "apiVersion": "2015-01-01",
-        "name": "linkedTemplate",
-        "type": "Microsoft.Resources/deployments",
-        "properties": {
-            "mode": "incremental",
-            "templateLink": {
-                "uri": "[variables('templatelink')]",
-                "contentVersion": "1.0.0.0"
-            },
-            "parameters": {
-                "StorageAccountName": {
-                    "value": "[parameters('storageAccountName')]"
-                }
-            }
-        }
-    }
-],
-```
-
-URI는 **existingStorageAccount.json** 또는 **newStorageAccount.json**이라는 템플릿으로 확인됩니다. 이러한 URI에 대한 템플릿을 만듭니다.
-
-다음 예제는 **existingStorageAccount.json** 템플릿을 보여 줍니다.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "String"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "storageAccountInfo": {
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-      "type" : "object"
-    }
-  }
-}
-```
-
-다음 예제는 **newStorageAccount.json** 템플릿을 보여 줍니다. 기존 저장소 계정 템플릿과 같이 저장소 계정 개체는 출력으로 돌아갑니다. 마스터 템플릿은 연결된 템플릿을 사용하여 작동합니다.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[parameters('StorageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-    "storageAccountInfo": {
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('StorageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
-      "type" : "object"
-    }
-  }
-}
-```
-
 ## <a name="complete-example"></a>전체 예제
 다음 예제 템플릿은 이 문서의 여러 가지 개념을 설명하기 위해 링크된 템플릿의 단순화된 배열을 보여줍니다. 이 예제는 템플릿이 공용 액세스가 꺼진 저장소 계정에 있는 동일한 컨테이너에 추가되었다고 가정합니다. 링크된 템플릿은 **출력** 섹션의 기본 템플릿에 값을 다시 전달합니다.
 
@@ -266,7 +156,7 @@ URI는 **existingStorageAccount.json** 또는 **newStorageAccount.json**이라�
   },
   "resources": [
     {
-      "apiVersion": "2015-01-01",
+      "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
       "properties": {
