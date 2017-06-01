@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 91fab2cd7ad2babd567380308698f0608dda4cbf
-ms.lasthandoff: 05/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 162f4e753524f0d1236575618fc8413466481857
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -323,7 +324,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
         // Batch service. This CloudPool instance is therefore considered "unbound," and we can modify its properties.
         pool = batchClient.PoolOperations.CreatePool(
             poolId: poolId,
-            targetDedicated: 3,                                                         // 3 compute nodes
+            targetDedicatedComputeNodes: 3,                                             // 3 compute nodes
             virtualMachineSize: "small",                                                // single-core, 1.75 GB memory, 225 GB disk
             cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
 
@@ -365,7 +366,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 [CreatePool][net_pool_create]을 사용하여 풀을 만들 때 계산 노드 수, [노드의 크기](../cloud-services/cloud-services-sizes-specs.md), 노드의 운영 체제와 같은 매개 변수를 몇 가지 지정합니다. *DotNetTutorial*에서 [CloudServiceConfiguration][net_cloudserviceconfiguration]을 사용하여 [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md)의 Windows Server 2012 R2를 지정합니다. 그러나 [VirtualMachineConfiguration][net_virtualmachineconfiguration]을 지정하는 대신, 마켓플레이스 이미지로 만든 노드 풀을 만들 수도 있습니다. 마켓플레이스 이미지에는 Windows 및 Linux 이미지가 모두 포함되며, 자세한 내용은 [Azure 배치 풀에 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 배치의 계산 리소스에 대한 요금이 부과됩니다. 비용을 최소화하려면 샘플을 실행하기 전에 `targetDedicated` 을 1로 낮출 수 있습니다.
+> 배치의 계산 리소스에 대한 요금이 부과됩니다. 비용을 최소화하려면 샘플을 실행하기 전에 `targetDedicatedComputeNodes` 을 1로 낮출 수 있습니다.
 >
 >
 
@@ -558,7 +559,7 @@ private static async Task<bool> MonitorTasks(
 
     // All tasks have reached the "Completed" state, however, this does not
     // guarantee all tasks completed successfully. Here we further check each task's
-    // ExecutionInfo property to ensure that it did not encounter a scheduling error
+    // ExecutionInfo property to ensure that it did not encounter a failure
     // or return a non-zero exit code.
 
     // Update the detail level to populate only the task id and executionInfo
@@ -568,32 +569,25 @@ private static async Task<bool> MonitorTasks(
 
     foreach (CloudTask task in tasks)
     {
-        // Populate the task's properties with the latest info from the
-        // Batch service
+        // Populate the task's properties with the latest info from the Batch service
         await task.RefreshAsync(detail);
 
-        if (task.ExecutionInformation.SchedulingError != null)
+        if (task.ExecutionInformation.Result == TaskExecutionResult.Failure)
         {
-            // A scheduling error indicates a problem starting the task on the node.
-            // It is important to note that the task's state can be "Completed," yet
-            // still have encountered a scheduling error.
+            // A task with failure information set indicates there was a problem with the task. It is important to note that
+            // the task's state can be "Completed," yet still have encountered a failure.
 
             allTasksSuccessful = false;
 
-            Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}",
-                task.Id,
-                task.ExecutionInformation.SchedulingError.Message);
-        }
-        else if (task.ExecutionInformation.ExitCode != 0)
-        {
-            // A non-zero exit code may indicate that the application executed by
-            // the task encountered an error during execution. As not every
-            // application returns non-zero on failure by default (e.g. robocopy),
-            // your implementation of error checking may differ from this example.
+            Console.WriteLine("WARNING: Task [{0}] encountered a failure: {1}", task.Id, task.ExecutionInformation.FailureInformation.Message);
+            if (task.ExecutionInformation.ExitCode != 0)
+            {
+                // A non-zero exit code may indicate that the application executed by the task encountered an error
+                // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
+                // your implementation of error checking may differ from this example.
 
-            allTasksSuccessful = false;
-
-            Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+                Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+            }
         }
     }
 

@@ -79,7 +79,7 @@ Azure에서 VM은 이미지에서 만들어집니다. 이미지는 일반적으�
 
 Azure 마켓플레이스의 이미지에서 VM을 만들 때 실제로는 템플릿을 사용하게 됩니다. Azure Resource Manager 템플릿은 VM, 저장소, 가상 네트워킹 등으로 구성된 복잡한 응용 프로그램 환경을 만드는 데 사용할 수 있는 선언적 JSON(JavaScript Object Notation) 파일입니다. [고유 템플릿 빌드](../articles/resource-group-authoring-templates.md) 방법을 비롯하여 [Azure Resource Manager 템플릿](../articles/azure-resource-manager/resource-group-overview.md) 사용에 대해 자세히 알아볼 수 있습니다.
 
-[Azure CLI](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Azure PowerShell](../articles/virtual-machines/windows/upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 사용자 지정 이미지를 직접 만들고 업로드하여 특정 빌드 요구 사항에 맞는 사용자 지정 VM을 빠르게 만들 수 있습니다.
+[Azure CLI](../articles/virtual-machines/linux/upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Azure PowerShell](../articles/virtual-machines/windows/upload-generalized-managed.md)을 사용하여 사용자 지정 이미지를 직접 만들고 업로드하여 특정 빌드 요구 사항에 맞는 사용자 지정 VM을 빠르게 만들 수 있습니다.
 
 ## <a name="availability-sets"></a>가용성 집합
 가용성 집합은 중복성과 가용성을 제공하기 위해 Azure에서 응용 프로그램이 빌드되는 방식을 이해할 수 있도록 하는 VM의 논리적 그룹입니다. 고가용성 응용 프로그램을 제공하고 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 충족하기 위해 가용성 집합 내에서 둘 이상의 VM을 만드는 것이 좋습니다. 단일 VM이 [Azure Premium Storage](../articles/storage/storage-premium-storage.md)를 사용하는 경우, Azure SLA는 계획되지 않은 유지 관리 이벤트에 적용합니다. 가용성 집합은 하드웨어 장애로부터 보호하고 업데이트를 안전하게 적용할 수 있도록 하는 두 개의 추가 그룹인 FD(장애 도메인)와 UD(업데이트 도메인)로 구성됩니다.

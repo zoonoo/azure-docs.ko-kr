@@ -16,10 +16,11 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: fb0cd3898703b9acf54d7ff70774bd090d39f0e5
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: dccebad561b04306126f986193a57aee176aaa0d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -27,15 +28,17 @@ ms.lasthandoff: 04/22/2017
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 가이드에서는 Azure CLI를 사용하여 [Azure SQL Database 논리 서버](sql-database-features.md)의 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)에서 Azure SQL Database를 배포하는 방법에 대해 자세히 설명합니다.
 
-이 빠른 시작을 완료하려면 최신 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)을 설치했는지 확인합니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+이 빠른 시작에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
 [az login](/cli/azure/#login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
-```azurecli
+```azure-cli
 az login
 ```
 
@@ -43,7 +46,7 @@ az login
 
 이 빠른 시작의 스크립트에서 사용할 변수를 정의합니다.
 
-```azurecli
+```azure-cli
 # The data center and resource name for your resources
 export resourcegroupname = myResourceGroup
 export location = westeurope
@@ -63,14 +66,14 @@ export databasename = mySampleDatabase
 
 [az group create](/cli/azure/group#create) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제는 `westeurope` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
-```azurecli
+```azurazure-cliecli
 az group create --name $resourcegroupname --location $location
 ```
 ## <a name="create-a-logical-server"></a>논리 서버 만들기
 
 [az sql server create](/cli/azure/sql/server#create) 명령을 사용하여 [Azure SQL Database 논리 서버](sql-database-features.md)를 만듭니다. 논리 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함합니다. 다음 예제에서는 관리자 로그인 이름이 `ServerAdmin`이고 암호가 `ChangeYourAdminPassword1`인 리소스 그룹에 임의로 이름이 지정된 서버를 생성합니다. 이러한 미리 정의된 값은 필요에 따라 바꿉니다.
 
-```azurecli
+```azure-cli
 az sql server create --name $servername --resource-group $resourcegroupname --location $location \
     --admin-user $adminlogin --admin-password $password
 ```
@@ -79,7 +82,7 @@ az sql server create --name $servername --resource-group $resourcegroupname --lo
 
 [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) 명령을 사용하여 [Azure SQL Database 서버 수준 방화벽 규칙](sql-database-firewall-configure.md)을 만듭니다. 서버 수준 방화벽 규칙을 통해 외부 응용 프로그램(예: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 SQL Database 서비스 방화벽을 통해 SQL Database에 연결되도록 할 수 있습니다. 다음 예제에서 방화벽은 다른 Azure 리소스에 대해서만 열립니다. 외부 연결을 사용하려면 IP 주소를 사용자 환경에 적절한 주소로 변경합니다. 모든 IP 주소를 열려면 시작 IP 주소로 0.0.0.0을, 끝나는 IP 주소로 255.255.255.255를 사용합니다.  
 
-```azurecli
+```azure-cli
 az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
     -n AllowYourIp --start-ip-address $startip --end-ip-address $endip
 ```
@@ -92,7 +95,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 [az sql db create](/cli/azure/sql/db#create) 명령을 사용하여 서버에서 [S0 성능 수준](sql-database-service-tiers.md)인 데이터베이스를 만듭니다. 다음 예제에서는 `mySampleDatabase`라는 데이터베이스를 만들고 AdventureWorksLT 샘플 데이터를 이 데이터베이스에 로드합니다. 이러한 미리 정의된 값을 원하는 대로 대체합니다(이 컬렉션 빌드의 다른 빠른 시작은 이 빠른 시작의 값에 기반함).
 
-```azurecli
+```azure-cli
 az sql db create --resource-group $resourcegroupname --server $servername \
     --name $databasename --sample-name AdventureWorksLT --service-objective S0
 ```

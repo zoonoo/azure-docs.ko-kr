@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 679b6962633cd734a1b1e339e8422da5b9c4ddfd
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 873a3b83bf85c7e2d6d299bd25ebb135c300aacb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -33,8 +33,8 @@ ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면
 
 ## <a name="connectivity-provider"></a>연결 공급자
 
-* Microsoft 클라우드에 연결하는 데 [Express 경로 연결 파트너](expressroute-locations.md#partners) 와 작업할 수 있습니다. [세 가지 방법](expressroute-introduction.md)으로 온-프레미스 네트워크와 Microsoft 간에 연결을 설정할 수 있습니다. 
-* 공급자가 Express 경로 연결 파트너가 아닌 경우 [클라우드 Exchange 공급자](expressroute-locations.md#c1partners)를 통해 Microsoft 클라우드에 계속 연결할 수 있습니다.
+* Microsoft 클라우드에 연결하는 데 [Express 경로 연결 파트너](expressroute-locations.md#partners) 와 작업할 수 있습니다. [세 가지 방법](expressroute-introduction.md)으로 온-프레미스 네트워크와 Microsoft 간에 연결을 설정할 수 있습니다.
+* 공급자가 Express 경로 연결 파트너가 아닌 경우 [클라우드 Exchange 공급자](expressroute-locations.md#connectivity-through-exchange-providers)를 통해 Microsoft 클라우드에 계속 연결할 수 있습니다.
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
 * **중복 연결**: 사용자와 공급자 간 물리적 연결에서 중복성 요구 사항은 없습니다. [클라우드 Exchange에 대해 단 하나의 물리적 연결만](expressroute-faqs.md#onep2plink)있는 경우에도 Microsoft의 라우터 및 피어링 라우터 간에 중복 BGP 세션을 설정해야 합니다.
