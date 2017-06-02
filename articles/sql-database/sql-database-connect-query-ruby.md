@@ -8,18 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: quick start connect, mvc
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 05/07/2017
-ms.author: andrela;sstein;carlrab
+ms.topic: hero-article
+ms.date: 05/24/2017
+ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 56f1b57798b073622d273b16975981b23a0ad55d
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 2d1092af00c1bce3e47d980a512a25eff1f0d9b6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,10 +28,13 @@ ms.lasthandoff: 05/09/2017
 
 이 빠른 시작은 [Ruby](https://Ruby.org)를 사용하여 Azure SQL Database에 연결한 후 Mac OS 및 Ubuntu Linux 플랫폼의 데이터베이스에서 Transact-SQL 문을 사용하여 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.
 
+## <a name="prerequisites"></a>필수 조건
+
 이 빠른 시작은 다음과 같은 빠른 시작 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 
 - [DB 만들기 - 포털](sql-database-get-started-portal.md)
 - [DB 만들기 - CLI](sql-database-get-started-cli.md)
+- [DB 만들기 - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-ruby-and-database-communication-libraries"></a>Ruby 및 데이터베이스 통신 라이브러리 설치
 

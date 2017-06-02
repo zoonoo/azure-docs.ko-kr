@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 40ace51c4ba74039b3a5d5997acdf2da7b98b4a9
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 759631bca9b29134098dba55ef07513d0ee42549
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -33,7 +34,7 @@ ms.lasthandoff: 04/18/2017
 
 암호 기반 SSO의 경우 최종 사용자 브라우저는 다음 중 하나일 수 있습니다.
 
--   Internet Explorer 8, 9, 10, 11 -- Windows 7 이상
+-   Internet Explorer 8, 9, 10, 11 - Windows 7 이상
 
 -   Chrome - Windows 7 이상 및 Mac OS X 이상
 
@@ -47,9 +48,9 @@ ms.lasthandoff: 04/18/2017
 
 1.  지원되는 브라우저 중 하나에서 [액세스 패널](https://myapps.microsoft.com)을 열고 Azure AD에서 **사용자**로 로그인합니다.
 
-2.  액세스 패널에서 **password-SSO application**(암호-SSO 응용 프로그램)을 클릭합니다.
+2.  액세스 패널에서 **암호-SSO 응용 프로그램**을 클릭합니다.
 
-3.  소프트웨어를 설치하라는 프롬프트에서 **Install Now**(지금 설치)를 선택합니다.
+3.  소프트웨어를 설치하라는 프롬프트에서 **지금 설치**를 선택합니다.
 
 4.  브라우저에 따라 다운로드 링크로 이동됩니다. 브라우저에 확장을 **추가**합니다.
 
@@ -75,11 +76,11 @@ ms.lasthandoff: 04/18/2017
 
 -   그룹 정책 개체(GPO)를 편집하는 "설정 편집" 사용 권한이 있어야 합니다. 기본적으로 도메인 관리자, 엔터프라이즈 관리자 및 그룹 정책 작성자/소유자 보안 그룹의 멤버에게 이 권한이 있습니다. [자세히 알아보기](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-자습서에 따라 그룹 정책을 구성하고 사용자에게 배포하는 방법에 대한 단계별 지침은 [그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy)을 따릅니다.
+자습서에 따라 그룹 정책을 구성하고 사용자에게 배포하는 방법에 대한 단계별 지침은 [그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](active-directory-saas-ie-group-policy.md)을 따릅니다.
 
 ## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Internet Explorer에서 액세스 패널 문제 해결
 
-진단 도구 및 IE용 확장을 구성하는 방법에 대한 단계별 지침에 액세스하려면 [Internet Explorer의 액세스 패널 확장 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot) 가이드를 따릅니다.
+진단 도구 및 IE용 확장을 구성하는 방법에 대한 단계별 지침에 액세스하려면 [Internet Explorer의 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md) 가이드를 따릅니다.
 
 ## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>이러한 문제 해결 단계로 문제가 해결되지 않는 경우
 
@@ -87,7 +88,7 @@ ms.lasthandoff: 04/18/2017
 
 -   상관 관계 오류 ID
 
--   UPN(사용자 메일 주소)
+-   UPN(사용자 전자 메일 주소)
 
 -   TenantID
 

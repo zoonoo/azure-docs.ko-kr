@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 488b16623300d80a53a61badee420de106c418b0
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: c7fb1c796556baf09a34c4bc6ed71964071d5874
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -41,10 +42,7 @@ Azure 클래식 포털의 크기 조정 페이지에서 웹 역할 또는 작업
 
 * 클라우드 서비스에 연결되는 리소스의 크기를 조정할 수 있습니다. 리소스를 연결하는 방법에 대한 자세한 내용은 [방법: 클라우드 서비스에 리소스 연결](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service)을 참조하세요.
 
-* 응용 프로그램의 가용성을 높이려면 응용 프로그램이 두 개 이상의 역할 인스턴스와 함께 배포되는지 확인해야 합니다. 자세한 내용은 [Service Level Agreements(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
-
-> [!WARNING]
-> 자동 크기 조정은 클래식 Azure Storage 계정에서만 작동합니다. Azure Resource Manager 저장소 계정에서는 작동하지 않습니다.
+* 응용 프로그램의 가용성을 높이려면 응용 프로그램이 두 개 이상의 역할 인스턴스와 함께 배포되는지 확인해야 합니다. 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
 ## <a name="schedule-scaling"></a>크기 조정 예약
 기본적으로 모든 역할은 특정 일정을 따르지 않습니다. 따라서 변경된 모든 설정은 연중 모든 날짜 및 모든 시간에 적용됩니다. 필요한 경우 다음 모드 중 하나에 대해 수동 또는 자동 크기 조정을 설정할 수 있습니다.

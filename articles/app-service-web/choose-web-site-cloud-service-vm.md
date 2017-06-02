@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f5e6d100effee99b1a1576c0e21f1a311f8131b
-ms.lasthandoff: 12/08/2016
-
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 17289f6401b36ff6e6a201564aa387f42c712699
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, 가상 컴퓨터, Service Fabric 및 Cloud Services 비교
@@ -51,7 +52,7 @@ App Service 또는 Service Fabric에서 실행하려면 기존 응용 프로그�
 | 통합된 MySQL-as-a-Service 지원 |X |X |X | |Cloud Services는 ClearDB 제공 항목을 통해 MySQL-as-a-Service를 통합할 수 있지만 Azure Portal 워크플로에는 포함되지 않습니다. |
 | ASP.NET, 클래식 ASP, Node.js, PHP, Python 지원 |X |X |X |X |Service Fabric에서는 [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md)를 사용하여 웹 프런트 엔드를 만들거나 모든 유형의 응용 프로그램(Node.js, Java 등)을 [게스트 실행 파일](../service-fabric/service-fabric-deploy-existing-app.md)로 배포할 수 있습니다. |
 | 다시 배포하지 않고 여러 인스턴스로 규모 확장 |X |X |X |X |가상 컴퓨터는 여러 인스턴스로 규모 확장될 수 있지만 이러한 컴퓨터에서 실행되는 서비스가 이 규모 확장을 처리하도록 작성되어야 합니다. 컴퓨터 간에 요청을 라우팅하는 부하 분산 장치를 구성하고 유지 관리 또는 하드웨어 오류로 인해 모든 인스턴스가 동시에 다시 시작되지 않도록 선호도 그룹을 만들어야 합니다. |
-| SSL 지원 |X |X |X |X |App Service 웹앱의 경우 사용자 지정 도메인 이름에 대한 SSL은 기본 및 표준 모드에서만 지원됩니다. 웹앱에 SSL을 사용하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 SSL 인증서 구성](web-sites-configure-ssl-certificate.md)을 참조하세요. |
+| SSL 지원 |X |X |X |X |App Service 웹앱의 경우 사용자 지정 도메인 이름에 대한 SSL은 기본 및 표준 모드에서만 지원됩니다. 웹앱에 SSL을 사용하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 SSL 인증서 구성](app-service-web-tutorial-custom-ssl.md)을 참조하세요. |
 | Visual Studio 통합 |X |X |X |X | |
 | 원격 디버깅 |X |X |X | | |
 | TFS를 사용하여 코드 배포 |X |X |X |X | |

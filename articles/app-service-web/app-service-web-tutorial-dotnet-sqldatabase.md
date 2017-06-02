@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 6563d1520149ae5ced7e2de80686ef1624ebb651
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 3ae3e5d55454a33a35950057667f9648b63bb331
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드
@@ -111,19 +111,7 @@ ms.lasthandoff: 05/09/2017
 
 ### <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
-Azure 웹앱에도 _App Service 계획_이 필요합니다. 
-
-> [!NOTE]
-> App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스의 컬렉션을 나타냅니다. App Service 계획에 할당된 모든 앱은 정의된 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
->
-> App Service 계획은 다음을 정의합니다.
->
-> - 지역(북유럽, 미국 동부, 동남 아시아)
-> - 인스턴스 크기(소, 중, 대)
-> - 확장 개수(1, 2, 3개 인스턴스 등) 
-> - SKU(무료, 공유, 기본, 표준, 프리미엄)
->
->
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 **App Service 계획** 옆에 있는 **새로 만들기**를 클릭합니다. 
 

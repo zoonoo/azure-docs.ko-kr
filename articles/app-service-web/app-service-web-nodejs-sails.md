@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 62f674945745eb019c92173798b6eef43337c9f3
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 09ececc567c09ea4e0b77d4d37445b7c232de23c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -188,7 +188,7 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
 
 1. [MongoDB 프로토콜 지원을 사용하는 Cosmos DB 계정을 만듭니다](../documentdb/documentdb-create-mongodb-account.md).
 2. [Cosmos DB 컬렉션 및 데이터베이스를 만듭니다](../documentdb/documentdb-create-collection.md). 컬렉션의 이름은 중요하지 않지만 Sails.js에서 연결할 때 데이터베이스의 이름이 필요합니다.
-3. [Cosmos DB 데이터베이스에 대한 연결 정보를 찾습니다](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
+3. [Cosmos DB 데이터베이스에 대한 연결 정보를 찾습니다](../cosmos-db/connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
 2. 명령줄 터미널에서 MongoDB 어댑터를 설치합니다.
 
         npm install sails-mongo --save
@@ -206,7 +206,7 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, 
         },
 
     > [!NOTE] 
-    > `ssl: true` 옵션은 [Cosmos DB에서 필요](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements)하기 때문에 중요합니다. 
+    > `ssl: true` 옵션은 [Cosmos DB에서 필요](../cosmos-db/connect-mongodb-account.md#connection-string-requirements)하기 때문에 중요합니다. 
     >
     >
 

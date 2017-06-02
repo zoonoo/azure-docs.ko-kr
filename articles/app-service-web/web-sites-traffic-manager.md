@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e5711e9c9d3ff70b38a4d19aa6be7b037cdb38aa
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 25502e4124442ed1853e3c3d9226107328c29316
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -48,7 +49,7 @@ Azure에서 Azure 트래픽 관리자를 사용할 경우 다음 사항에 유�
 * 프로필에서 지역당 하나의 웹 앱 끝점만 지정할 수 있습니다. 한 지역의 끝점으로 하나의 웹 앱을 선택한 경우 해당 지역의 나머지 웹 앱은 해당 프로필에 대해 선택할 수 없게 됩니다.
 * Azure 트래픽 관리자 프로필에서 지정한 웹앱 끝점은 프로필에서 웹앱에 대한 구성 페이지의 **도메인 이름** 섹션에 표시되지만 이 섹션에서 구성할 수 없습니다.
 * 프로필에 웹앱을 추가한 후 사이트를 설정한 경우 웹앱의 포털 페이지의 대시보드에 있는 **사이트 URL** 은 해당 웹앱의 사용자 지정 도메인 URL을 표시합니다. 그렇지 않으면 트래픽 관리자 프로필 URL(예: `contoso.trafficmgr.com`)을 표시합니다. 웹앱의 직접적인 도메인 이름과 트래픽 관리자 URL은 모두 웹앱 구성 페이지의 **도메인 이름** 섹션에 표시됩니다.
-* 사용자 지정 도메인 이름이 예상대로 작동하지만 웹 앱에 해당 이름을 추가하는 작업 외에도 DNS 맵이 트래픽 관리자 URL을 가리키도록 구성해야 합니다. Azure 웹앱에 대해 사용자 지정 도메인을 설정하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md)을 참조하세요.
+* 사용자 지정 도메인 이름이 예상대로 작동하지만 웹 앱에 해당 이름을 추가하는 작업 외에도 DNS 맵이 트래픽 관리자 URL을 가리키도록 구성해야 합니다. Azure 웹앱에 대해 사용자 지정 도메인을 설정하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](app-service-web-tutorial-custom-domain.md)을 참조하세요.
 * 표준 모드에 있는 웹 앱만 Azure 트래픽 관리자 프로필에 추가할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

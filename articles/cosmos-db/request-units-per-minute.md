@@ -1,13 +1,13 @@
 ---
 title: "Azure CosmosDB: 분당 요청 단위(RU/m) | Microsoft Docs"
 description: "분당 요청 단위를 활용하여 비용을 절감하는 방법을 알아봅니다."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: arnomicrosoft
 manager: jhubbard
 editor: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: acomet
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 878b7335fb5e09bc8704f7211cc6293ad6ea4bea
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: ea63b988a72801ae4c288048021a915b20a34794
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -112,7 +112,7 @@ await client.ReplaceOfferAsync(offerV2);
 
 이 섹션에서는 RU/m을 사용하기 위해 적합한 시나리오의 개요를 제공합니다.
 
-**개발/테스트 환경:** 적합합니다. 개발 단계에서 다른 워크로드를 사용하여 응용 프로그램을 테스트하는 경우 RU/m은 이 단계에서 유연성을 제공할 수 있습니다. 반면 [에뮬레이터](../documentdb/documentdb-nosql-local-emulator.md)는 추가 비용 없이 Azure Cosmos DB를 테스트할 수 있는 유용한 도구입니다. 그러나 클라우드 환경에서 시작하려는 경우 임시 성능 요구 사항에 맞게 RU/m에 뛰어난 유연성을 제공합니다. 처음에는 성능 요구 사항에 대해 염려하지 않고 개발하는 데 많은 시간을 투자합니다. 최소 RU/s를 프로비전하여 시작하고 RU/m을 사용하도록 설정하는 것이 좋습니다.
+**개발/테스트 환경:** 적합합니다. 개발 단계에서 다른 워크로드를 사용하여 응용 프로그램을 테스트하는 경우 RU/m은 이 단계에서 유연성을 제공할 수 있습니다. 반면 [에뮬레이터](local-emulator.md)는 추가 비용 없이 Azure Cosmos DB를 테스트할 수 있는 유용한 도구입니다. 그러나 클라우드 환경에서 시작하려는 경우 임시 성능 요구 사항에 맞게 RU/m에 뛰어난 유연성을 제공합니다. 처음에는 성능 요구 사항에 대해 염려하지 않고 개발하는 데 많은 시간을 투자합니다. 최소 RU/s를 프로비전하여 시작하고 RU/m을 사용하도록 설정하는 것이 좋습니다.
 
 **예측할 수 없고 급증하는 분 단위 요구 사항:** 적합 – 비용 절감: 25-75%. RU/m이 크게 개선되었고 대부분의 프로덕션 시나리오가 해당 그룹에 속합니다. IoT 워크로드가 몇 분 동안 여러 번 급증하는 경우, 시스템에서 동시에 대량 삽입을 수행할 때 쿼리가 실행되는 경우, 급증하는 요구 사항을 처리하기 위한 추가 용량이 필요합니다. 아래의 단계별 접근 방식을 적용하여 리소스 요구 사항을 최적화하는 것이 좋습니다.
 
@@ -175,8 +175,8 @@ var query = client.CreateDocumentQuery<Book>(
 
 이 문서에서는 Azure Cosmos DB에서 분할이 작동하는 방식, 분할된 컬렉션을 만드는 방법 및 응용 프로그램에 적합한 파티션 키를 선택하는 방법을 설명했습니다.
 
-* Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행합니다. 샘플에 대해서는 [Azure Cosmos DB를 사용한 성능 및 규모 테스트](../documentdb/documentdb-performance-testing.md)를 참조하세요.
-* [SDK](../documentdb/documentdb-sdk-dotnet.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 코딩을 시작합니다.
-* Azure Cosmos DB에서 [프로비전된 처리량](../documentdb/documentdb-request-units.md)에 대한 자세한 정보 
+* Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행합니다. 샘플에 대해서는 [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)를 참조하세요.
+* [SDK](documentdb-sdk-dotnet.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 코딩을 시작합니다.
+* Azure Cosmos DB에서 [프로비전된 처리량](request-units.md)에 대한 자세한 정보 
 
 

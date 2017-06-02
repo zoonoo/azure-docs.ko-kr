@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: bc0b0b652312f6bcc27a981da766e19cded7bd6c
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 1b62ab8fe4f8a736821eb9da3d77fe2f654de745
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -126,7 +126,5 @@ Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 ### <a name="how-do-i-report-issues-with-azure-ad-b2c"></a>Azure AD B2C에서 발생한 문제를 보고하려면 어떻게 해야 합니까?
 [Azure Active Directory B2C에 대한 파일 지원 요청](active-directory-b2c-support.md)을 참조하세요.
 
-## <a name="more-information"></a>자세한 정보
-또한 현재 [서비스 제한, 제한 사항 및 제약 조건](active-directory-b2c-limitations.md)을 검토하려 합니다.
 
 

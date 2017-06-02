@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 05/18/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 59db0f71f1eec6a2bd5e2b0b7ee8c2c4bc373430
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -123,7 +123,7 @@ SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하�
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<server-base-url>/plugins/servlet/samlsso`
      
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [SAML SSO for Jira by resolution GmbH 지원 팀](mailto:c.eitel@resolution.de)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [SAML SSO for Jira by resolution GmbH 지원 팀](https://www.resolution.de/go/support)에 문의하세요. 
 
 5. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
@@ -288,7 +288,7 @@ SAML SSO for Jira by resolution GmbH에서 프로비전은 수동 작업입니�
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 [액세스 패널]에서 [SAML SSO for Jira by resolution GmbH] 타일을 클릭하면 SAML SSO for Jira by resolution GmbH 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [Azure 시작](https://msdn.microsoft.com/library/dn308586)을 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [Azure 시작](active-directory-saas-access-panel-introduction.md)을 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

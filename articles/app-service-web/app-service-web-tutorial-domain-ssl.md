@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 78358e97f76454c19d5a377a2dac2bbf08c616ce
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 535a7dbe24a1badc8539b61d34c09bdeda41ad40
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -52,19 +53,11 @@ az group create --name myResourceGroup --location westeurope
 
 `---location`에 사용할 수 있는 가능한 값을 보려면 `az appservice list-locations` Azure CLI 명령을 사용합니다.
 
-## <a name="create-an-app-service-plan"></a>앱 서비스 계획 만들기
+## <a name="create-an-app-service-plan"></a>App Service 계획 만들기
 
-Linux 기반 App Service 계획을 [az appservice plan create](/cli/azure/appservice/plan#create) 명령으로 만듭니다. 
+[az appservice plan create](/cli/azure/appservice/plan#create) 명령으로 App Service 계획을 만듭니다. 
 
-> [!NOTE] 
-> App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스의 컬렉션을 나타냅니다. App Service 계획에 할당된 모든 응용 프로그램은 정의된 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
-> 
-> App Service 계획은 다음을 정의합니다. 
-> * 지역(북유럽, 미국 동부, 동남 아시아) 
-> * 인스턴스 크기(소, 중, 대) 
-> * 확장 개수(1, 2, 3개 인스턴스 등) 
-> * SKU(무료, 공유, 기본, 표준, 프리미엄) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 다음 예제에서는 **기본** 가격 책정 계층을 사용하는 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
 

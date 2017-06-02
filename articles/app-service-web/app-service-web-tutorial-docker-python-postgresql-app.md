@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: beverst
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 554843c5f3161a45ff984b000944f546b44dd472
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ca086f76e50cb27f012bb2e7f05595be5fdcb241
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드
@@ -355,16 +355,7 @@ docker push <registry_name>.azurecr.io/flask-postgresql-sample
 
 [az appservice plan create](/cli/azure/appservice/plan#create) 명령으로 App Service 계획을 만듭니다. 
 
-> [!NOTE] 
-> App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스의 컬렉션을 나타냅니다. App Service 계획에 할당된 모든 응용 프로그램은 정의된 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
-> 
-> App Service 계획은 다음을 정의합니다. 
-> 
-> * 지역(북유럽, 미국 동부, 동남 아시아 등) 
-> * 인스턴스 크기(소, 중, 대) 
-> * 확장 개수(1, 2, 3개 인스턴스 등) 
-> * SKU(무료, 공유, 기본, 표준, 프리미엄) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 다음 예제에서는 S1 가격 책정 계층을 사용하여 `myAppServicePlan`이라는 Linux 기반 App Service 계획을 만듭니다.
 

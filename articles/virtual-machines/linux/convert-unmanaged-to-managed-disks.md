@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 7b1bfcc8163d7166831123524f3ec53f4a3dfe09
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 6bab6cbd84c55e668f2caf9b9f94621eec982203
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -38,9 +38,6 @@ ms.lasthandoff: 05/11/2017
 
 ## <a name="convert-vm-to-azure-managed-disks"></a>VM을 Azure Managed Disks로 변환
 이 섹션에서는 기존 Azure VM을 관리되는 않는 디스크에서 관리되는 디스크로 변환하는 방법을 설명합니다. 이 프로세스를 사용하여 프리미엄(SSD) 관리되지 않는 디스크에서 프리미엄 Managed Disks로 또는 표준(HDD) 관리되지 않는 디스크에서 표준 Managed Disks로 변환할 수 있습니다.
-
-> [!IMPORTANT]
-> 다음 절차를 수행하면 기본 vhd 컨테이너에 블록 Blob 하나가 남습니다. 이 파일의 이름은 “VMName.xxxxxxx.status”입니다. 남아 있는 이 상태 개체를 삭제하지 마세요. 향후 조치를 통해 이 문제를 해결할 것입니다.
 
 1. [az vm deallocate](/cli/azure/vm#deallocate)로 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`에서 `myVM`이라는 VM의 할당을 취소합니다.
 

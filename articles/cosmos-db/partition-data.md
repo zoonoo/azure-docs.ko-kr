@@ -1,13 +1,13 @@
 ---
 title: "Azure Cosmos DB에서 분할 및 수평적 확장 | Microsoft Docs"
 description: "Azure Cosmos DB에서 분할 작동 방법, 분할 및 파티션 키를 구성하는 방법 및 응용 프로그램에 대한 올바른 파티션 키를 선택하는 방법에 대해 알아봅니다."
-services: cosmosdb
+services: cosmos-db
 author: arramac
 manager: jhubbard
 editor: monicar
 documentationcenter: 
 ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 920c6f810e723712b72f642b783f093bb5d4f7d4
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cd3b13b9988f51fd3755ced48714fdc18cf1ea3c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -66,7 +66,7 @@ Cosmos DB는 해시 기반 분할을 사용합니다. 항목을 작성하는 경
 Azure Cosmos DB 컨테이너를 "고정" 또는 "무제한"으로 만들 수 있습니다. 고정 크기 컨테이너는 최대 제한 10GB 및 10,000RU/s 처리량을 설정할 수 있습니다. 일부 API를 사용하면 고정된 크기의 컨테이너에서 파티션 키를 생략할 수 있습니다. 무제한으로 컨테이너를 만들려면 최소 처리량 2500RU/s를 지정해야 합니다.
 
 ## <a name="partitioning-and-provisioned-throughput"></a>분할 및 프로비전된 처리량
-Cosmos DB는 예측 가능한 성능을 위해 설계되었습니다. 컨테이너를 만들 때 **RU/m의 잠재적인 기능으로 초당 [요청 단위](../documentdb/documentdb-request-units.md)(RU)** 측면에서 처리량을 예약합니다. 각 요청에는 작업에 소비된 CPU, 메모리 및 IO 같은 시스템 리소스의 양에 비례하는 요청 단위 요금이 할당됩니다. 세션 일관성에 따라 1KB 문서를 읽을 경우 1RU(요청 단위)가 소비됩니다. 저장된 항목 수 또는 동시에 실행되는 요청 수에 상관없이 읽기당 1RU입니다. 항목의 크기가 클수록 크기에 따라 더 높은 요청 단위가 필요합니다. 응용 프로그램에 지원해야 하는 엔터티 크기 및 읽기 수를 알고 있는 경우 응용 프로그램의 읽기 요구 사항에 필요한 정확한 양의 처리량을 프로비전할 수 있습니다. 
+Cosmos DB는 예측 가능한 성능을 위해 설계되었습니다. 컨테이너를 만들 때 **RU/m의 잠재적인 기능으로 초당 [요청 단위](request-units.md)(RU)** 측면에서 처리량을 예약합니다. 각 요청에는 작업에 소비된 CPU, 메모리 및 IO 같은 시스템 리소스의 양에 비례하는 요청 단위 요금이 할당됩니다. 세션 일관성에 따라 1KB 문서를 읽을 경우 1RU(요청 단위)가 소비됩니다. 저장된 항목 수 또는 동시에 실행되는 요청 수에 상관없이 읽기당 1RU입니다. 항목의 크기가 클수록 크기에 따라 더 높은 요청 단위가 필요합니다. 응용 프로그램에 지원해야 하는 엔터티 크기 및 읽기 수를 알고 있는 경우 응용 프로그램의 읽기 요구 사항에 필요한 정확한 양의 처리량을 프로비전할 수 있습니다. 
 
 > [!NOTE]
 > 컨테이너의 전체 처리량을 달성하려면 다양한 파티션 키 값 간에 요청을 균등하게 분산시킬 수 있는 파티션 키를 선택해야 합니다.
@@ -78,7 +78,7 @@ Cosmos DB는 예측 가능한 성능을 위해 설계되었습니다. 컨테이�
 Azure Portal 또는 Azure CLI를 사용하여 언제든지 컨테이너를 만들고 확장할 수 있습니다. 이 섹션에서는 컨테이너를 만들고 각 지원되는 API의 처리량 및 파티션 키 정의를 지정하는 방법을 보여 줍니다.
 
 ### <a name="documentdb-api"></a>DocumentDB API
-다음 샘플에서는 DocumentDB API를 사용하여 컨테이너(컬렉션)를 만드는 방법을 보여 줍니다. [DocumentDB API를 사용하여 분할](../documentdb/documentdb-partition-data.md)에서 자세한 내용을 볼 수 있습니다.
+다음 샘플에서는 DocumentDB API를 사용하여 컨테이너(컬렉션)를 만드는 방법을 보여 줍니다. [DocumentDB API를 사용하여 분할](partition-data.md)에서 자세한 내용을 볼 수 있습니다.
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -207,8 +207,8 @@ Cosmos DB를 사용하여 다중 테넌트 응용 프로그램을 구현하는 �
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Cosmos DB API를 사용하여 분할하기 위한 개념 및 모범 사례의 개요를 제공했습니다. 
 
-* [Azure Cosmos DB에서 프로비전된 처리량](../documentdb/documentdb-request-units.md)에 대한 자세한 정보
-* [Azure Cosmos DB에서 글로벌 배포](../documentdb/documentdb-distribute-data-globally.md)에 대한 자세한 정보
+* [Azure Cosmos DB에서 프로비전된 처리량](request-units.md)에 대한 자세한 정보
+* [Azure Cosmos DB에서 글로벌 배포](distribute-data-globally.md)에 대한 자세한 정보
 
 
 
