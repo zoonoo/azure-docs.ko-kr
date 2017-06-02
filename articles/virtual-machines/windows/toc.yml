@@ -130,6 +130,8 @@
     items:
     - name: VM 만들기 개요
       href: creation-choices.md
+    - name: 전문화된 VHD에서 VM 만들기
+      href: create-vm-specialized.md
     - name: 템플릿으로 VM 만들기
       href: ps-template.md
     - name: 'C#으로 VM 만들기'
@@ -215,20 +217,6 @@
       href: expand-data-disks.md
     - name: 'D:를 데이터 디스크로 사용'
       href: change-drive-letter.md
-    - name: 관리되지 않는 디스크를 사용하여 VM 만들기
-      items:
-      - name: VHD 업로드
-        href: upload-image.md
-      - name: 관리되지 않는 이미지 만들기
-        href: capture-image.md
-      - name: 일반화된 VHD에서 관리되지 않는 VM 만들기
-        href: create-vm-generalized.md
-      - name: VM 복사
-        href: vhd-copy.md
-      - name: 전문화된 VHD에서 VM 만들기
-        href: create-vm-specialized.md
-      - name: 관리되지 않는 데이터 디스크 연결
-        href: attach-disk-portal.md
   - name: VM 네트워킹
     href: ps-common-network-ref.md
     items:
@@ -341,10 +329,8 @@
       items:
       - name: AWS(Amazon Web Services)에서 Azure로 마이그레이션
         href: aws-to-azure.md
-    - name: 일반화된 VHD에서 VM 업로드 및 만들기
-      href: upload-generalized-managed.md
-    - name: 전문화된 VHD에서 VM 업로드 및 만들기
-      href: upload-specialized.md
+      - name: 일반화된 VHD에서 VM 업로드 및 만들기
+        href: upload-generalized-managed.md
     - name: 클래식에서 Azure Resource Manager로 마이그레이션
       href: migration-classic-resource-manager-overview.md
       items:

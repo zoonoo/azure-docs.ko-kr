@@ -64,7 +64,6 @@
 #### [포털](resource-group-create-service-principal-portal.md)
 ### [구독에 액세스하는 인증 API](resource-manager-api-authentication.md)
 ### [리소스 잠금](resource-group-lock-resources.md)
-### [보안 고려 사항](best-practices-resource-manager-security.md)
 
 ## 리소스 정책 설정
 ### [리소스 정책이란?](resource-manager-policy.md)
