@@ -47,7 +47,7 @@ https://azclisamples.blob.core.windows.net/vhds/sample.vhd에서 사용한 VHD�
 
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n az-cli-vhd
 ```
 

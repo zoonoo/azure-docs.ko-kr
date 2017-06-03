@@ -9,6 +9,7 @@ ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 05/02/2017
 ms.topic: hero-article
 ms.service: functions
+ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
 ms.translationtype: Human Translation
@@ -35,11 +36,13 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
 [az login](/cli/azure/#login) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다. 
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -49,7 +52,7 @@ az login
 
 다음 예제에서는 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 ## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
@@ -58,7 +61,7 @@ az group create --name myResourceGroup --location westeurope
 
 다음 명령에서 `<storage_name>` 자리 표시자를 전역적으로 고유한 저장소 계정 이름으로 바꿉니다. 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
@@ -88,7 +91,7 @@ az storage account create --name <storage_name> --location westeurope --resource
 
 다음 명령에서 `<app_name>` 자리 표시자 및 `<storage_name>`의 저장소 계정 이름을 고유한 함수 앱 이름으로 바꿉니다. `<app_name>`은 함수 앱의 기본 DNS 도메인으로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. 
 
-```azurecli
+```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
 ```
 기본적으로 함수 앱은 소비 호스팅 계획에 따라 만들어지므로 함수에서 요구하는 대로 동적으로 리소스가 추가되고 함수가 실행될 때만 비용이 청구됩니다. 자세한 내용은 [올바른 호스팅 계획 선택](functions-scale.md)을 참조하세요. 
@@ -119,7 +122,7 @@ az functionapp create --name <app_name> --storage-account  <storage_name>  --res
 
 새 함수 앱에서 사용자의 함수 코드를 만드는 여러 가지 방법이 있습니다. 이 항목은 GitHub의 샘플 리포지토리에 연결됩니다. 이전처럼, 다음 코드는 `<app_name>` 자리 표시자를 작성한 함수 앱의 이름으로 바꿉니다. 
 
-```azurecli
+```azurecli-interactive
 az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
 ```
 배포 소스가 설정되었으면 Azure CLI는 다음 예와 비슷한 정보를 표시합니다(가독성을 위해 null 값은 제거).
@@ -159,7 +162,7 @@ curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 
 이 컬렉션의 다른 빠른 시작은 이 빠른 시작을 기반으로 구성됩니다. 다음 빠른 시작 또는 자습서를 사용하여 계속하려는 경우 이 빠른 시작에서 만든 리소스를 정리하지 않습니다. 계속하지 않으려는 경우 다음 명령을 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 메시지가 표시되면 `y`를 입력합니다.

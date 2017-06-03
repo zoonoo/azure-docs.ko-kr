@@ -56,12 +56,12 @@ Azure 내에서 신뢰할 수 있는 VM 기반 솔루션을 배포하려면 항�
 
 리소스 그룹을 만듭니다.
 
-```azurecli-interactive
+```azurecli-interactive 
 az group create --name myResourceGroupAvailability --location eastus
 ```
 
 
-```azurecli
+```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
@@ -77,7 +77,7 @@ az vm availability-set create \
 
 [az vm create](/cli/azure/vm#create)를 사용하여 VM을 만들 때 가용성 집합의 이름을 지정하는 `--availability-set` 매개 변수를 사용하여 가용성 집합을 지정합니다.
 
-```azurecli
+```azurecli-interactive 
 for i in `seq 1 2`; do
    az vm create \
      --resource-group myResourceGroupAvailability \
@@ -99,7 +99,7 @@ VM을 추가할 때 발생할 수 있는 한 가지 문제는 특정 VM 크기�
 
 나중에 더 많은 VM을 가용성 집합에 추가할 수 있지만 하드웨어에서 사용 가능한 VM 크기를 알아야 합니다. [az vm availability-set list-sizes](/cli/azure/availability-set#list-sizes)를 사용하여 하드웨어 클러스터에서 가용성 집합에 대한 사용 가능한 모든 크기를 나열합니다.
 
-```azurecli
+```azurecli-interactive 
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \

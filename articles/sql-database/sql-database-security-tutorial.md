@@ -9,7 +9,7 @@ editor:
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-secure
+ms.custom: tutorial-secure, mvc
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -112,7 +112,7 @@ SQL 인증을 사용하여 사용자를 만들려면 다음 단계를 수행합�
 3. 쿼리 창에서 다음 쿼리를 입력합니다.
 
     ```sql
-    CREATE USER 'ApplicationUserUser' WITH PASSWORD = 'strong_password';
+    CREATE USER ApplicationUserUse' WITH PASSWORD = 'YourStrongPassword1';
     ```
 
 4. 도구 모음에서 **실행**을 클릭하여 사용자를 만듭니다.
@@ -120,8 +120,8 @@ SQL 인증을 사용하여 사용자를 만들려면 다음 단계를 수행합�
 5. 기본적으로 사용자는 데이터베이스에 연결할 수 있지만 데이터를 읽거나 쓰는 권한은 없습니다. 새로 만든 사용자에게 이러한 권한을 부여하려면 새 쿼리 창에서 다음 두 가지 명령을 실행합니다.
 
     ```sql
-    ALTER ROLE db_datareader ADD MEMBER 'ApplicationUserUser';
-    ALTER ROLE db_datawriter ADD MEMBER 'ApplicationUserUser';
+    ALTER ROLE db_datareader ADD MEMBER ApplicationUserUser;
+    ALTER ROLE db_datawriter ADD MEMBER ApplicationUserUser;
     ```
 
 새로운 사용자 만들기와 같은 관리자 작업을 실행해야 하는 경우가 아니라면 데이터베이스 수준에서 관리자가 아닌 계정을 만들어서 데이터베이스에 연결하는 것이 가장 좋습니다. Azure Active Directory를 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure Active Directory 자습서](./sql-database-aad-authentication-configure.md)를 검토하세요.

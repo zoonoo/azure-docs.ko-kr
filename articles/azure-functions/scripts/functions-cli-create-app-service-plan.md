@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 04/11/2017
 ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 8c98e392c1c735458184bb782ed9c42f468f33de
@@ -27,6 +28,10 @@ ms.lasthandoff: 05/15/2017
 이 샘플 스크립트는 함수에 대한 컨테이너인 Azure 함수 앱을 만듭니다. 함수 앱은 전용 App Service 계획을 사용하여 생성됩니다. 이는 서버 리소스가 항상 켜져 있음을 의미합니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 

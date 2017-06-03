@@ -42,7 +42,7 @@ ms.lasthandoff: 06/01/2017
 
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
