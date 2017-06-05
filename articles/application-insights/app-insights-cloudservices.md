@@ -3,6 +3,7 @@ title: "Azure Cloud Services용 Application Insights | Microsoft Docs"
 description: "Application Insights를 사용하여 웹 및 작업자 역할을 효과적으로 모니터링"
 services: application-insights
 documentationcenter: 
+keywords: "WAD2AI, Azure 진단"
 author: CFreemanwa
 manager: carmonm
 editor: alancameronwills
@@ -15,15 +16,15 @@ ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bfae0fcf992c38d7afef6140fdd79d87ab0ecb4f
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: a5e5cc37c4635b78279a5e240603b6a728922eb8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure 클라우드 서비스용 Application Insights
-[Application Insights][start]를 사용하여 [Microsoft Azure 클라우드 서비스 앱](https://azure.microsoft.com/services/cloud-services/)의 가용성, 성능, 실패 및 사용 현황을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
+[Microsoft Azure Cloud Service 앱](https://azure.microsoft.com/services/cloud-services/)은 Application Insights SDK의 데이터를 Cloud Services의 [Azure 진단](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터와 조합하여 [Application Insights][start]로 가용성, 성능, 오류 및 사용 현황을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
 ![예제](./media/app-insights-cloudservices/sample.png)
 
@@ -143,7 +144,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 * [문제 해결][qna]을 참조하세요.
 
 ## <a name="view-azure-diagnostic-events"></a>Azure 진단 이벤트 보기
-진단 유틸리티를 찾을 수 있는 위치:
+여기서 Application Insights의 [Azure 진단](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) 정보를 확인합니다.
 
 * 성능 카운터는 사용자 지정 메트릭으로 표시됩니다. 
 * Windows 이벤트 로그는 추적 및 사용자 지정 이벤트로 표시됩니다.
