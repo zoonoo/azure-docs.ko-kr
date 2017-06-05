@@ -235,25 +235,27 @@
 
 ### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
 
-## 응용 프로그램 및 클러스터 상태 검사
-### [Service Fabric 상태 모니터링](service-fabric-health-introduction.md)
-### [서비스 상태 보고 및 확인](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-### [사용자 지정 상태 보고서 추가](service-fabric-report-health.md)
-### [시스템 상태 보고서를 사용하여 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-### [상태 보고서 보기](service-fabric-view-entities-aggregated-health.md)
-
 ## 모니터링 및 진단
 ### [응용 프로그램 모니터링 및 진단](service-fabric-diagnostics-overview.md)
-### 로컬로 서비스 모니터링 및 진단
-#### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-#### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-### Azure 진단 로그
-#### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-#### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [서비스 프로세스에서 로그 수집](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Windows Server 컨테이너 모니터링](service-fabric-diagnostics-containers-windowsserver.md)
-### [상태 저장 Reliable Services의 진단](service-fabric-reliable-services-diagnostics.md)
-### [Reliable Actors의 진단](service-fabric-reliable-actors-diagnostics.md)
+### 이벤트 생성
+#### [인프라 수준 이벤트 생성](service-fabric-diagnostics-event-generation-infra.md)
+##### [Reliable Services 이벤트](service-fabric-reliable-services-diagnostics.md)
+##### [Reliable Actors 이벤트](service-fabric-reliable-actors-diagnostics.md)
+#### [응용 프로그램 수준 이벤트 생성](service-fabric-diagnostics-event-generation-app.md)
+### 응용 프로그램 및 클러스터 상태 검사
+#### [Service Fabric 상태 모니터링](service-fabric-health-introduction.md)
+#### [서비스 상태 보고 및 확인](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [사용자 지정 상태 보고서 추가](service-fabric-report-health.md)
+#### [시스템 상태 보고서를 사용하여 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [상태 보고서 보기](service-fabric-view-entities-aggregated-health.md)
+### 이벤트 집계
+#### [EventFlow를 사용하여 이벤트 집계](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Azure 진단을 사용하여 이벤트 집계
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### 이벤트 분석
+#### [Application Insights를 사용하여 이벤트 분석](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [OMS를 사용하여 이벤트 분석](service-fabric-diagnostics-event-analysis-oms.md)
 ### [로컬 클러스터 문제 해결](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # 참조

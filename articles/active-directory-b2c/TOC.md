@@ -3,6 +3,7 @@
 # 시작
 ## [Azure AD B2C 디렉터리 만들기](active-directory-b2c-get-started.md)
 ## [응용 프로그램 등록](active-directory-b2c-app-registration.md)
+## [기본 제공 정책](active-directory-b2c-reference-policies.md)
 ## 모바일 및 데스크톱 앱
 ### [개요](active-directory-b2c-reference-oauth-code.md)
 ### iOS
@@ -63,6 +64,7 @@
 #### [추가 클레임 가져오기](active-directory-b2c-rest-api-step-custom.md)
 ### 로그인 사용자 지정
 #### [사용자 입력 구성](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [사용자 지정 특성](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [UI 사용자 지정](active-directory-b2c-ui-customization-custom.md)
 #### [토큰 사용자 지정](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### 문제 해결
@@ -74,7 +76,6 @@
 ## 용어
 ### [응용 프로그램 유형](active-directory-b2c-apps.md)
 ### [인증 프로토콜](active-directory-b2c-reference-protocols.md)
-### [기본 제공 정책](active-directory-b2c-reference-policies.md)
 ### [토큰](active-directory-b2c-reference-tokens.md)
 ## [지역 가용성 및 데이터 상주](active-directory-b2c-reference-tenant-type.md)
 ## [청구 사용](active-directory-b2c-how-to-enable-billing.md)

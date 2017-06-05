@@ -13,14 +13,12 @@
     href: sql-database-get-started-cli.md
   - name: DB 만들기 - PowerShell
     href: sql-database-get-started-powershell.md
-  - name: 관리
+  - name: 연결 및 쿼리
     items:
     - name: SSMS
       href: sql-database-connect-query-ssms.md
     - name: VS 코드
       href: sql-database-connect-query-vscode.md
-  - name: 연결
-    items:
     - name: .NET
       href: sql-database-connect-query-dotnet.md
     - name: PHP
@@ -37,7 +35,7 @@
   items:
   - name: 1 - 새 SQL DB 만들기/디자인
     href: sql-database-design-first-database.md
-  - name: 2 - 기존 SQL Server 마이그레이션
+  - name: 2 - SQL Server DB 마이그레이션
     href: sql-database-migrate-your-sql-server-database.md
   - name: 3 - SQL DB 보안
     href: sql-database-security-tutorial.md
@@ -45,26 +43,8 @@
     href: sql-database-performance-tutorial.md
   - name: 5 - 다중 테넌트 앱 구현
     href: sql-database-multi-tenant-application.md
-  - name: Wingtip SaaS 자습서
-    items:
-    - name: Wingtip SaaS 소개
-      href: sql-database-wtp-overview.md
-    - name: Wingtip SaaS 샘플 배포
-      href: sql-database-saas-tutorial.md
-    - name: 새 테넌트 프로비전/카탈로그
-      href: sql-database-saas-tutorial-provision-and-catalog.md
-    - name: 성능 모니터링
-      href: sql-database-saas-tutorial-performance-monitoring.md
-    - name: 단일 테넌트 복원
-      href: sql-database-saas-tutorial-restore-single-tenant.md
-    - name: 테넌트 스키마 관리
-      href: sql-database-saas-tutorial-schema-management.md
-    - name: 임시 분석 실행
-      href: sql-database-saas-tutorial-adhoc-analytics.md
-    - name: Log Analytics로 모니터링
-      href: sql-database-saas-tutorial-log-analytics.md
-    - name: 테넌트 분석 관리
-      href: sql-database-saas-tutorial-tenant-analytics.md
+  - name: 6 - 지역 분산 데이터베이스 구현
+    href: sql-database-implement-geo-distributed-database.md 
 - name: 샘플
   items:
   - name: Azure CLI
@@ -145,7 +125,7 @@
       href: sql-database-ssms-mfa-authentication.md
     - name: 감사
       href: sql-database-auditing.md
-    - name: 감사 및 TDS
+    - name: 테이블 감사 및 TDS
       href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
     - name: 위협 감지
       href: sql-database-threat-detection.md
@@ -175,25 +155,12 @@
       href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
     - name: 앱 업그레이드
       href: sql-database-manage-application-rolling-upgrade.md
-  - name: 개발
+  - name: 데이터베이스 개발
     items:
     - name: 개요
       href: sql-database-develop-overview.md
     - name: 연결
       href: sql-database-libraries.md
-    - name: 앱 디자인 - SaaS
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-    - name: 보안 - SaaS
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-    - name: 포트 - ADO.NET
-      href: sql-database-develop-direct-route-ports-adonet-v12.md
-    - name: 앱 인증
- 
-      href: sql-database-client-id-keys.md
-    - name: 오류 메시지
-      href: sql-database-develop-error-messages.md
-    - name: Dapper
-      href: sql-database-elastic-scale-working-with-dapper.md
     - name: JSON 데이터
       href: sql-database-json-features.md
     - name: 메모리 내
@@ -231,8 +198,6 @@
       href: sql-database-monitoring-with-dmvs.md
     - name: 성능 지침
       href: sql-database-performance-guidance.md
-    - name: 일괄 처리
-      href: sql-database-use-batching-to-improve-performance.md
     - name: 확장 이벤트
       href: sql-database-xevent-db-diff-from-svr.md
     - name: 호환성 수준
@@ -355,6 +320,8 @@
       href: sql-database-xevent-code-event-file.md
     - name: 확장된 이벤트 - 링 버퍼
       href: sql-database-xevent-code-ring-buffer.md
+    - name: 진단 로깅
+      href: sql-database-metrics-diag-logging.md
   - name: 관리
     items:
     - name: Azure 자동화
@@ -363,6 +330,25 @@
       href: sql-database-ssms-remoteapp.md
     - name: SSMS - MFA
       href: sql-database-ssms-mfa-authentication-configure.md
+  - name: 앱 개발
+    items:
+    - name: 포트 - ADO.NET
+      href: sql-database-develop-direct-route-ports-adonet-v12.md
+    - name: 앱 인증
+ 
+      href: sql-database-client-id-keys.md
+    - name: 오류 메시지
+      href: sql-database-develop-error-messages.md
+    - name: Dapper
+      href: sql-database-elastic-scale-working-with-dapper.md
+    - name: 성능을 위한 일괄 처리
+      href: sql-database-use-batching-to-improve-performance.md
+    - name: SaaS 앱 디자인
+      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+    - name: SaaS 앱 보안
+      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+    - name: SaaS 앱 자습서
+      href: sql-database-wtp-overview.md
 - name: 참조
   items:
   - name: PowerShell
@@ -442,5 +428,3 @@
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
     - name: 탄력적 풀 사용자 지정 대시보드
       href: https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
-
-

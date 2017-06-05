@@ -7,6 +7,7 @@
 ## [첫 번째 논리 앱 만들기](logic-apps-create-a-logic-app.md)
 ## [논리 앱용 템플릿](logic-apps-use-logic-app-templates.md)
 ## [템플릿에서 논리 앱 만들기](logic-apps-arm-provision.md)
+## [논리 앱으로 MABS 앱 이동](logic-apps-move-from-mabs.md)
 
 # 방법
 ## 빌드
@@ -80,6 +81,7 @@
 ### [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [사용량 계량](logic-apps-pricing.md)
 
+
 # 서버를 사용하지 않음
 ## 개요
 ### [Azure에서 서버를 사용하지 않음](logic-apps-serverless-overview.md)
@@ -128,6 +130,8 @@
 ### [Twitter](../connectors/connectors-create-api-twitter.md)
 ### [X12](logic-apps-enterprise-integration-x12.md)
 ### [XML 유효성 검사](logic-apps-enterprise-integration-xml-validation.md)
+
+## [커넥터: 자세한 내용](https://docs.microsoft.com/connectors/)
 ## 스키마 기록
 ### [GA](logic-apps-schema-2016-04-01.md)
 ### [미리 보기](logic-apps-schema-2015-08-01.md)

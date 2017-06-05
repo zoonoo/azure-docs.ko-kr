@@ -140,6 +140,14 @@
       href: move-vm.md
     - name: 고가용성 VM 만들기
       href: create-cli-complete.md
+    - name: Ansible
+      items:
+      - name: 설치 및 구성
+        href: ansible-install-configure.md
+      - name: 기본 VM 만들기
+        href: ansible-create-vm.md
+      - name: 전체 VM 만들기
+        href: ansible-create-complete-vm.md
     - name: VM 템플릿으로 앱 배포
       items:
       - name: 자습서 개요
@@ -194,7 +202,7 @@
       href: upload-vhd.md
     - name: 이미지로 기존 VM 캡처
       href: capture-image.md
-    - name: Azure 인증 이미지 만들기
+    - name: Azure 이미지 만들기
       items:
       - name: Ubuntu
         href: create-upload-ubuntu.md
@@ -206,6 +214,8 @@
         href: create-upload-centos.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
   - name: VM 저장소 관리
     items:
     - name: Azure Managed Disks

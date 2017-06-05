@@ -41,6 +41,7 @@
 ### [관리를 위한 컴퓨터 탑재](automation-dsc-onboarding.md)
 ### [DSC 구성 컴파일](automation-dsc-compile.md)
 ### [Chocolatey를 사용하여 연속 배포](automation-dsc-cd-chocolatey.md)
+### [OMS Log Analytics에 Azure Automation DSC 보고 데이터 전달](automation-dsc-diagnostics.md)
 ## 자동화 자산 관리
 ### [인증서](automation-certificates.md)
 ### [연결](automation-connections.md)

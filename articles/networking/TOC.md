@@ -1,6 +1,7 @@
 # 개요
 ## [Azure 네트워킹 정보](networking-overview.md)
 ## 아키텍처
+### [가상 데이터 센터](networking-virtual-datacenter.md)
 ### [여러 네트워크 경로를 포함한 비대칭 라우팅](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [네트워크 설계 보안](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [허브-스포크 토폴로지](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
@@ -44,6 +45,7 @@
 ### [VM에 대한 IP 흐름 확인](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## 샘플 스크립트
 ### [Azure CLI](cli-samples.md)
+### [PowerShell](powershell-samples.md)
 ## 자습서
 ### [VM 부하 분산](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [가상 네트워크에 컴퓨터 연결](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)

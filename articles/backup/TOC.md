@@ -16,13 +16,23 @@
 ### [Azure 포털의 Windows Server](backup-client-automation.md)
 ### [클래식 포털의 Windows Server](backup-client-automation-classic.md)
 
-## Azure Backup 서버
-### [Azure 포털에서 Azure Backup Server 작업 준비](backup-azure-microsoft-azure-backup.md)
-### [클래식 포털에서 Azure Backup Server 작업 준비](backup-azure-microsoft-azure-backup-classic.md)
-### [Azure Backup Server를 사용하여 VMware 서버 백업](backup-azure-backup-server-vmware.md)
-### [Azure Backup Server를 사용하여 Exchange 백업](backup-azure-exchange-mabs.md)
-### [Azure Backup Server를 사용하여 SharePoint 팜 백업](backup-azure-backup-sharepoint-mabs.md)
-### [Azure Backup Server를 사용하여 SQL 백업](backup-azure-sql-mabs.md)
+## Azure 백업 서버
+### [Azure Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)
+### 설치 또는 업그레이드
+#### [Azure 포털에서 Azure Backup Server 작업 준비](backup-azure-microsoft-azure-backup.md)
+#### [클래식 포털에서 Azure Backup Server 작업 준비](backup-azure-microsoft-azure-backup-classic.md)
+#### [Azure Backup Server에 저장소 추가](backup-mabs-add-storage.md)
+#### [Azure Backup Server를 v.2로 업그레이드](backup-mabs-upgrade-to-v2.md)
+#### [Azure Backup Server의 무인 설치](backup-mabs-unattended-install.md)
+### 워크로드 보호
+#### [Azure Backup Server를 사용하여 VMware 서버 백업](backup-azure-backup-server-vmware.md)
+#### [Azure Backup Server를 사용하여 Exchange 백업](backup-azure-exchange-mabs.md)
+#### [Azure Backup Server를 사용하여 SharePoint 팜 백업](backup-azure-backup-sharepoint-mabs.md)
+#### [Azure Backup Server를 사용하여 SQL 백업](backup-azure-sql-mabs.md)
+#### [시스템 상태 및 완전 복구 보호](backup-mabs-system-state-and-bmr.md)
+### 문제 해결
+#### [Azure Backup Server 문제 해결](backup-azure-mabs-troubleshoot.md)
+
 
 ## Data Protection Manager
 ### [Azure 포털에서 DPM 작업 준비](backup-azure-dpm-introduction.md)
@@ -33,19 +43,25 @@
 ### [SharePoint 팜을 백업하기 위해 DPM 사용](backup-azure-backup-sharepoint.md)
 
 ## Azure VM
-### [Azure 가상 컴퓨터 준비](backup-azure-vms-prepare.md)
-### [리소스 관리자가 배포된 가상 컴퓨터 준비](backup-azure-arm-vms-prepare.md)
-### [VM 백업 인프라 계획](backup-azure-vms-introduction.md)
-### [Backup 자격 증명 모음에 Azure 가상 컴퓨터 백업](backup-azure-vms.md)
-### [Recovery Services 자격 증명 모음에 Azure 가상 컴퓨터 백업](backup-azure-arm-vms.md)
-### [암호화된 가상 컴퓨터 백업 및 복원](backup-azure-vms-encryption.md)
-### [클래식 포털에서 Azure VM 백업 관리 및 모니터링](backup-azure-manage-vms-classic.md)
-### [Azure 포털에서 Azure VM 백업 관리](backup-azure-manage-vms.md)
-### [Azure 포털에서 Azure VM 백업에 대한 경고 모니터링](backup-azure-monitor-vms.md)
-### [Azure VM 백업에서 파일 복구](backup-azure-restore-files-from-vm.md)
-### [Azure의 가상 컴퓨터 복원](backup-azure-restore-vms.md)
-### [Azure 포털에서 Resource Manager 배포 VM 복구](backup-azure-arm-restore-vms.md)
-### [Azure Backup을 사용하여 암호화된 VM의 Key Vault 키 및 비밀 복원](backup-azure-restore-key-secret.md)
+### VM 준비
+#### [Azure 가상 컴퓨터 준비](backup-azure-vms-prepare.md)
+#### [리소스 관리자가 배포된 가상 컴퓨터 준비](backup-azure-arm-vms-prepare.md)
+### 환경 계획
+#### [VM 백업 인프라 계획](backup-azure-vms-introduction.md)
+### 서버 및 워크로드 백업
+#### [백업 자격 증명 모음에 Azure Virtual Machines 백업](backup-azure-vms.md)
+#### [Recovery Services 자격 증명 모음에 Azure 가상 컴퓨터 백업](backup-azure-arm-vms.md)
+#### [암호화된 가상 컴퓨터 백업](backup-azure-vms-encryption.md)
+### VM 관리 및 모니터링
+#### [클래식 포털에서 Azure VM 백업 관리 및 모니터링](backup-azure-manage-vms-classic.md)
+#### [Azure 포털에서 Azure VM 백업 관리](backup-azure-manage-vms.md)
+#### [Azure 포털에서 Azure VM 백업에 대한 경고 모니터링](backup-azure-monitor-vms.md)
+### VM에서 데이터 복원
+#### [Azure VM 백업에서 파일 복구](backup-azure-restore-files-from-vm.md)
+#### [Azure의 가상 컴퓨터 복원](backup-azure-restore-vms.md)
+#### [Azure 포털에서 Resource Manager 배포 VM 복구](backup-azure-arm-restore-vms.md)
+#### [Azure Backup을 사용하여 암호화된 VM의 Key Vault 키 및 비밀 복원](backup-azure-restore-key-secret.md)
+#### [암호화된 가상 컴퓨터 복원](backup-azure-vms-encryption.md)
 
 ## Azure SQL 데이터베이스
 ### [장기 백업 보존 구성](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
@@ -66,7 +82,6 @@
 ## 문제 해결
 ### [Azure 포털에서 Azure VM 백업 문제](backup-azure-vms-troubleshoot.md)
 ### [클래식 포털에서 Azure VM 백업 문제](backup-azure-vms-troubleshoot-classic.md)
-### [Azure 백업 서버](backup-azure-mabs-troubleshoot.md)
 ### [Azure VM Backup 실패: 스냅숏 상태에 대해 VM 에이전트와 통신할 수 없음 - 스냅숏 VM 하위 작업 시간 초과](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Azure Backup에서 파일 및 폴더의 느린 백업](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 

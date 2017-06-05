@@ -5,6 +5,7 @@
 ## [Azure ID 솔루션 이해](understand-azure-identity-solutions.md)
 ## [Azure Portal 환경에서 미리 보기](active-directory-preview-explainer.md)
 
+
 # 시작
 ## [Azure AD 테넌트 가져오기](active-directory-howto-tenant.md)
 ## [Azure AD Premium에 등록](active-directory-get-started-premium.md)
@@ -14,7 +15,8 @@
 ### [클래식 포털](active-directory-licensing-what-is.md)
 ## [조직의 Azure 가져오기](sign-up-organization.md)
 ## [FAQ](active-directory-faq.md)
-## [SaaS 앱 자습서](active-directory-saas-tutorial-list.md)
+## [Azure Active Directory를 지원하는 방법](active-directory-troubleshooting-support-howto.md)
+## [SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)
 
 # 방법
 ## 계획 및 디자인

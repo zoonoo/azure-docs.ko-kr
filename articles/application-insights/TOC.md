@@ -116,7 +116,7 @@
 ### [샘플링](app-insights-sampling.md)
 
 ## 관리
-### [가격 책정 및 할당량 관리](app-insights-pricing.md)
+### [가격 책정 및 데이터 볼륨 관리](app-insights-pricing.md)
 ### [SCOM에 대해 Application Insights를 사용하여 응용 프로그램 성능 모니터링](app-insights-scom.md)
 
 ## 내보내기

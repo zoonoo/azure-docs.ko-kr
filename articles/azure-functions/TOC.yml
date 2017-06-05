@@ -69,7 +69,7 @@
     href: functions-how-to-use-azure-function-app-settings.md
   - name: Azure Functions에 대한 연속 배포
     href: functions-continuous-deployment.md
-  - name: 인프라를 코드로 사용하여 함수 배포
+  - name: 리소스 배포 자동화
     href: functions-infrastructure-as-code.md
   - name: Azure Functions 모니터링
     href: functions-monitoring.md
@@ -85,35 +85,31 @@
   items:
   - name: 바인딩
     items:
-    - name: Cosmos DB 바인딩
+    - name: Blob 저장소
+      href: functions-bindings-storage-blob.md
+    - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: 이벤트 허브 바인딩
+    - name: 이벤트 허브
       href: functions-bindings-event-hubs.md
-    - name: HTTP 및 webhook 바인딩
+    - name: 외부 파일
+      href: functions-bindings-external-file.md
+    - name: HTTP 및 웹후크
       href: functions-bindings-http-webhook.md
-    - name: Mobile Apps 바인딩
+    - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
-    - name: 알림 허브 출력 바인딩
+    - name: Notification Hubs
       href: functions-bindings-notification-hubs.md
-    - name: 큐 및 항목에 대한 Service Bus 트리거 및 바인딩
+    - name: 큐 저장소
+      href: functions-bindings-storage-queue.md
+    - name: SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: 서비스 버스
       href: functions-bindings-service-bus.md
-    - name: Sendgrid 바인딩
-      href: functions-bindings-sendgrid.md
-    - name: 저장소 바인딩
-      items:
-      - name: Blob 바인딩
-        href: functions-bindings-storage-blob.md
-      - name: 큐 바인딩
-        href: functions-bindings-storage-queue.md
-      - name: 테이블 바인딩
-        href: functions-bindings-storage-table.md
-      - name: 외부 파일 바인딩
-        href: functions-bindings-external-file.md
-    - name: SendGrid 바인딩
-      href: functions-bindings-sendgrid.md
-    - name: 타이머 트리거
+    - name: 테이블 저장소
+      href: functions-bindings-storage-table.md
+    - name: 타이머
       href: functions-bindings-timer.md
-    - name: Twilio 출력 바인딩
+    - name: Twilio
       href: functions-bindings-twilio.md
   - name: OpenAPI 참조
     href: functions-api-definition.md     

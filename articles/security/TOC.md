@@ -10,6 +10,7 @@
 ### [고급 위협 감지](azure-threat-detection.md)
 ### [로깅 및 감사](azure-log-audit.md)
 ### [공용 클라우드에서 격리](azure-isolation.md)
+### [보안 기술 기능](azure-security-technical-capabilities.md)
 
 # 시작
 ## [Azure 보안 시작하기](azure-security-getting-started.md)
@@ -18,6 +19,7 @@
 
 ## 네트워크 보안
 ### [네트워크 보안 모범 사례](azure-security-network-security-best-practices.md)
+###[Azure 네트워크 보안](azure-network-security.md)
 ### [경계 보안](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [하이브리드 네트워크 아키텍처 보안](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
 

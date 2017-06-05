@@ -12,10 +12,6 @@
 #### [Node.JS](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### 시뮬레이션된 게이트웨이 사용
-#### [Linux에서 시뮬레이션](iot-hub-linux-iot-edge-get-started.md)
-#### [Windows에서 시뮬레이션](iot-hub-windows-iot-edge-get-started.md)
-
 ### 실제 장치 사용
 #### [Node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [C를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-c-get-started.md)
@@ -31,6 +27,8 @@
 ##### [Intel NUC를 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [게이트웨이를 IoT Hub에 연결](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [데이터 변환에 게이트웨이 사용](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+
+### [온라인 장치 시뮬레이터 사용](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ## [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
 ## [IoT Hub 메시지를 Azure 데이터 저장소에 저장](iot-hub-store-data-in-azure-table-storage.md)
@@ -48,15 +46,21 @@
 ### [추가 프로토콜 지원](iot-hub-protocol-gateway.md)
 ## [개발](iot-hub-how-to.md)
 ### [개발자 가이드](iot-hub-devguide.md)
-#### [메시지 보내기 및 받기](iot-hub-devguide-messaging.md)
 #### [장치-클라우드 기능 가이드](iot-hub-devguide-d2c-guidance.md)
 #### [클라우드-장치 기능 가이드](iot-hub-devguide-c2d-guidance.md)
+#### [메시지 보내기 및 받기](iot-hub-devguide-messaging.md)
+##### [IoT Hub에 장치-클라우드 메시지 보내기](iot-hub-devguide-messages-d2c.md)
+##### [기본 제공 끝점에서 장치-클라우드 메시지 읽기](iot-hub-devguide-messages-read-builtin.md)
+##### [장치-클라우드 메시지에 대한 사용자 지정 끝점 및 라우팅 규칙 사용](iot-hub-devguide-messages-read-custom.md)
+##### [IoT Hub에서 클라우드-장치 메시지 보내기](iot-hub-devguide-messages-c2d.md)
+##### [IoT Hub 메시지 만들기 및 읽기](iot-hub-devguide-messages-construct.md)
 #### [장치에서 파일 업로드](iot-hub-devguide-file-upload.md)
 #### [장치 ID 관리](iot-hub-devguide-identity-registry.md)
 #### [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)
 #### [쌍 장치 이해](iot-hub-devguide-device-twins.md)
 #### [장치에서 직접 메서드 호출](iot-hub-devguide-direct-methods.md)
 #### [여러 장치에서 작업 예약](iot-hub-devguide-jobs.md)
+#### [통신 프로토콜 선택](iot-hub-devguide-protocols.md)
 #### [IoT Hub 끝점](iot-hub-devguide-endpoints.md)
 #### [쿼리 언어](iot-hub-devguide-query-language.md)
 #### [할당량 및 제한](iot-hub-devguide-quotas-throttling.md)
@@ -119,18 +123,22 @@
 ### [보안 아키텍처](iot-hub-security-architecture.md)
 ### [IoT 배포 보안 유지](iot-hub-security-deployment.md)
 ## IoT Edge
+### 시작
+#### [Linux](iot-hub-linux-iot-edge-get-started.md)
+#### [Windows](iot-hub-windows-iot-edge-get-started.md)
 ### 장치 시뮬레이션
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [실제 장치 사용](iot-hub-iot-edge-physical-device.md)
 
 # 참조
-## [Azure CLI 2.0 미리 보기](/cli/azure/iot)
+## [Azure CLI 2.0](/cli/azure/iot)
 ## [.NET(서비스)](/dotnet/api/microsoft.azure.devices)
 ## [.NET(장치)](/dotnet/api/microsoft.azure.devices.client)
 ## [.NET(서비스)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java(장치)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Azure IoT SDK](http://azure.github.io/azure-iot-sdks/)
+## [Node.js SDK](http://azure.github.io/azure-iot-sdk-node/)
+## [C 장치 SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST(리소스 공급자)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
 ## [REST(장치 ID)](https://docs.microsoft.com/rest/api/iothub/deviceapi)

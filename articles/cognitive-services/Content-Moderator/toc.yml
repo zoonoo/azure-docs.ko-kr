@@ -1,57 +1,56 @@
-- name: "Content Moderator Documentation"
+- name: Content Moderator 설명서
   href: ../index.md
-- name: "Overview"
+- name: 개요
   items: 
-  - name: "Learn about the Content Moderator API"
+  - name: Content Moderator API에 대한 자세한 정보
     href: overview.md
-- name: "Get started"
+- name: 시작
   items: 
-  - name: "Get started with Content Moderator"
+  - name: Content Moderator 시작
     href: quick-start.md
-- name: "How to"
+- name: 방법
   items: 
-  - name: "Review tool user guide"
+  - name: 검토 도구 사용자 가이드
     items:
-    - name: "Human in the loop"
+    - name: 사용자 참여형
       href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: "Create team"
+    - name: 팀 만들기
       href: Review-Tool-User-Guide/Sign-up.md
-    - name: "Upload images"
+    - name: 이미지 업로드
       href: Review-Tool-User-Guide/Upload-Images.md
-    - name: "Image reviews"
+    - name: 이미지 검토
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: "Text reviews"
+    - name: 텍스트 검토
       href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: "Team and subteams"
+    - name: 팀 및 하위 팀
       href: Review-Tool-User-Guide/SubTeams.md
-    - name: "Using workflows"
+    - name: 워크플로 사용
       href: Review-Tool-User-Guide/Workflows.md
-    - name: "Settings"
+    - name: 설정
       href: Review-Tool-User-Guide/Configure.md
-    - name: "View dashboard"
+    - name: 대시보드 보기
       href: Review-Tool-User-Guide/View-Dashboard.md
-- name: "Reference"
+- name: 참조
   items: 
-  - name: "API Reference Guide"  
+  - name: API 참조 가이드
+  
     href: api-reference.md
     items:
-  - name: "Review APIs"
+  - name: API 검토
     href: review-api.md
-  - name: "Review Authentication"
-    href: Review-API-Authentication.md
-  - name: "Image moderation"
+  - name: 이미지 조정
     href: image-moderation-api.md
-  - name: "Text moderation"
+  - name: 텍스트 조정
     href: text-moderation-api.md
-  - name: "Text moderation - languages"
+  - name: 텍스트 조정 - 언어
     href: Text-Moderation-API-Languages.md
-  - name: "Video moderation"
+  - name: 비디오 조정
     href: video-moderation-api.md
-- name: "Resources"
+- name: 리소스
   items:  
-  - name: "Windows SDK"
+  - name: Windows SDK
     href: https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/
-  - name: "Samples"
+  - name: 샘플
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services
-  - name: "FAQ"
+  - name: FAQ
     href: FAQs.md

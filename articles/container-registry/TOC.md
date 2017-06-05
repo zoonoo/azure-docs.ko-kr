@@ -17,6 +17,7 @@
 
 ## [Azure CLI 2.0](/cli/azure/acr)
 ## [REST (영문)](/rest/api/containerregistry)
+## [원격 분석 헤더](container-registry-headers.md)
 
 # 관련 항목
 

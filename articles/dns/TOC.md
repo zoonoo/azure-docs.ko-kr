@@ -1,4 +1,5 @@
 # 개요
+
 ## [Azure DNS란?](dns-overview.md)
 ## [DNS 영역 및 레코드](dns-zones-records.md)
 ## [Azure DNS로 DNS 위임](dns-domain-delegation.md)
@@ -18,17 +19,21 @@
 # 방법
 
 ## DNS 영역 관리
+### [포털](dns-operations-dnszones-portal.md)
 ### [PowerShell](dns-operations-dnszones.md)
-### [Azure CLI](dns-operations-dnszones-cli.md)
+### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
-
-## [DNS 레코드 관리](dns-operations-recordsets-portal.md)
+## DNS 레코드 관리
+### [포털](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
-### [Azure CLI](dns-operations-recordsets-cli.md)
+### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 
-## [역방향 DNS 레코드 관리](dns-reverse-dns-record-operations-ps.md)
-### [Azure CLI](dns-reverse-dns-record-operations-cli.md)
-### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
+## 역방향 DNS 관리
+### [개요](dns-reverse-dns-overview.md)
+### [Azure DNS에서 역방향 조회 영역 호스트](dns-reverse-dns-hosting.md)
+### [Azure 서비스에 대한 역방향 DNS 레코드 관리](dns-reverse-dns-for-azure-services.md)
 
 ## [DNS 영역 파일 가져오기 및 내보내기](dns-import-export.md)
 ## [다른 Azure 서비스와 통합](dns-for-azure-services.md)

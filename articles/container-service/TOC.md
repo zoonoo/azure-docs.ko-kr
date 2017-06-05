@@ -11,6 +11,7 @@
 ## [클러스터 배포 - Azure CLI](container-service-create-acs-cluster-cli.md)
 ## [Kubernetes 및 Jenkins를 사용하는 CI/CD](container-service-kubernetes-jenkins.md)
 ## [Docker Swarm 및 VSTS를 사용하는 CI/CD](container-service-docker-swarm-setup-ci-cd.md)
+## [ACS 엔진에서 Docker Swarm 모드 및 VSTS를 사용하는 CI/CD](container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md)
 
 # 개념
 ## [컨테이너 보안](container-service-security.md)

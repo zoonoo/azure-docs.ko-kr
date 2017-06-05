@@ -2,6 +2,7 @@
 ## [Azure DevTest Labs 정보](devtest-lab-overview.md)
 ## [개념](devtest-lab-concepts.md)
 ## 시나리오
+### [개발자용 랩 사용](devtest-lab-developer-lab.md)
 ### [학습에 랩 사용](devtest-lab-training-lab.md)
 
 # 시작
