@@ -10,17 +10,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: quick start manage, mvc
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/17/2017
+ms.date: 05/24/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 45405c7bb9993d1fd529b25b599c3cd7f459843c
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 82c8a34fcccb6d19dc82110a6d95a80d748835f0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,10 +29,13 @@ ms.lasthandoff: 04/20/2017
 
 [Visual Studio Code](https://code.visualstudio.com/docs)는 Microsoft SQL Server, Azure SQL Database 및 SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원하는 Linux, macOS, Windows용 그래픽 코드 편집기입니다. 이 빠른 시작은 Visual Studio 코드를 사용하여 Azure SQL Database에 연결한 후 Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.
 
+## <a name="prerequisites"></a>필수 조건
+
 이 빠른 시작은 다음과 같은 빠른 시작 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 
 - [DB 만들기 - 포털](sql-database-get-started-portal.md)
 - [DB 만들기 - CLI](sql-database-get-started-cli.md)
+- [DB 만들기 - PowerShell](sql-database-get-started-powershell.md)
 
 시작하기 전에 최신 버전의 [Visual Studio Code](https://code.visualstudio.com/Download)를 설치하고 했는지 [mssql 확장](https://aka.ms/mssql-marketplace)을 로드했는지 확인합니다. mssql 확장에 대한 설치 지침은 [VS Code 설치](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) 및 [Visual Studio Code용 mssql](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql)을 참조하세요. 
 
@@ -59,7 +63,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 
-Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
+Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차에는 정규화된 서버 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
@@ -96,17 +100,15 @@ Visual Studio Code를 사용하여 Azure SQL Database 서버에 연결합니다.
 
 4. 프롬프트에 따라 새 연결 프로필의 연결 속성을 지정합니다. 각 값을 지정한 후에 **ENTER** 키를 눌러서 계속합니다. 
 
-   다음 테이블에서는 연결 프로필 속성을 설명합니다.
-
-   | 설정 | 설명 |
-   |-----|-----|
-   | **서버 이름** | **mynewserver20170313.database.windows.net**과 같은 정규화된 서버 이름을 입력합니다. |
-   | **데이터베이스 이름** | **mySampleDatabase**와 같은 데이터베이스 이름을 입력합니다. |
-   | **인증** | SQL 로그인 선택 |
-   | **사용자 이름** | 서버 관리자 계정을 입력합니다. |
-   | **암호(SQL 로그인)** | 서버 관리자 계정의 암호를 입력합니다. | 
-   | **암호를 저장하시겠습니까?** | **예** 또는 **아니요**를 선택합니다. |
-   | **[옵션]이 프로필의 이름 입력** | **mySampleDatabase**와 같은 연결 프로필 이름을 입력합니다. 
+   | 설정       | 제안 값 | 설명 |
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **서버 이름 | 정규화된 서버 이름 | 이름은 **mynewserver20170313.database.windows.net**과 같아야 합니다. |
+   | **데이터베이스 이름** | mySampleDatabase | 연결할 데이터베이스의 이름입니다. |
+   | **인증** | SQL 로그인| SQL 인증은 이 자습서에서 구성한 유일한 인증 유형입니다. |
+   | **사용자 이름** | 서버 관리자 계정 | 서버를 만들 때 지정한 계정입니다. |
+   | **암호(SQL 로그인)** | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
+   | **암호를 저장하시겠습니까?** | 예 또는 아니요 | 매번 암호를 입력하지 않으려면 예를 선택합니다. |
+   | **이 프로필의 이름 입력** | **mySampleDatabase**와 같은 프로필 이름 | 프로필 이름을 저장할 경우 후속 로그인의 연결 속도가 빨라집니다. | 
 
 5. **ESC** 키를 누르면 프로필을 만들고 연결하도록 사용자에게 알려 주는 정보 메시지가 닫힙니다.
 

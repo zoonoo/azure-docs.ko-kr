@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 89c19e9b64fc4e1fea68c717fd5f5e0e054ac10c
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: cc85ae1c6642e763e57327c151ec68845f7673f7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -55,11 +55,9 @@ Azure Analysis Services의 데이터 모델을 만들 때 SQL Server Analysis Se
 ## <a name="data-sources"></a>데이터 원본
 Azure에서 서버에 배포한 데이터 모델은 조직이나 클라우드의 온-프레미스 데이터 원본에 대한 연결을 지원합니다. 하이브리드 BI 솔루션을 위한 온-프레미스 및 클라우드 데이터 원본의 데이터를 모두 결합합니다.
 
-![데이터 원본](./media/analysis-services-overview/aas-overview-data-sources.png)
+서버가 클라우드에 있기 때문에 클라우드 데이터 원본에 원활하게 연결됩니다. 온-프레미스 데이터 원본에 연결할 때 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 사용하면 클라우드에서 서버를 통해 신속하고 안전하게 연결할 수 있습니다.
 
-서버가 클라우드에 있기 때문에 클라우드 데이터 원본에 원활하게 연결됩니다. 온-프레미스 데이터 원본에 연결할 때 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 사용하면 클라우드에서 Analysis Services 서버를 통해 신속하고 안전하게 연결할 수 있습니다.
-
-\* 테이블 형식 1400 모델에만 해당합니다.
+지원되는 온-프레미스 데이터 원본에 대한 자세한 내용을 보려면 [Azure Analysis Services에서 지원되는 데이터 원본](analysis-services-datasource.md)을 참조하세요.
 
 
 ## <a name="explore-your-data-from-anywhere"></a>어디에서나 데이터 탐색

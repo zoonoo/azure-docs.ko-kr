@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/08/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 63b6086b7bab5cb61ed6f4a229afd1ffa44cc31e
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/18/2017
 
 IoT Suite 연결된 공장 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 종단 간 산업 솔루션의 구현입니다.
 
-* 시뮬레이션된 공장 생산 라인에서 OPC UA 서버를 실행하는 시뮬레이션된 산업 장치 및 실제 OPC UA 서버 장치에 연결합니다.
+* 시뮬레이션된 공장 생산 라인에서 OPC UA 서버를 실행하는 시뮬레이션된 산업 장치 및 실제 OPC UA 서버 장치에 연결합니다. OPC UA에 대한 자세한 내용은 [FAQ][lnk-faq]를 참조하세요.
 * 이러한 장치 및 생산 라인의 운영 KPI 및 OEE를 보여 줍니다.
 * OPC UA 서버 시스템과 상호 작용하는 데 클라우드 기반 응용 프로그램을 사용하는 방법을 보여 줍니다.
 * 고유한 OPC UA 서버 장치를 연결할 수 있습니다.
@@ -132,3 +132,4 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
+[lnk-faq]: iot-suite-faq.md

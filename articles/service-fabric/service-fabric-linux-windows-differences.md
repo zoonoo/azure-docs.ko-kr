@@ -15,25 +15,28 @@ ms.workload: NA
 ms.date: 03/23/2017
 ms.author: subramar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: e2d21b28c482427c60f708171336e6901b50e544
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Linux(미리 보기)와 Windows(일반적으로 사용 가능)의 Service Fabric 간의 차이점
 
-Linux의 Service Fabric이 미리 보기이므로 일부 기능은 Windows에서는 지원되지만 Linux에서는 지원되지 않습니다. 결국 Linux의 Service Fabric이 일반적으로 사용할 수 있게 되는 경우 기능 집합이 동등해 집니다.
+Linux의 Service Fabric이 미리 보기이므로 일부 기능은 Windows에서는 지원되지만 Linux에서는 지원되지 않습니다. 결국 Linux의 Service Fabric이 일반적으로 사용할 수 있게 되는 경우 기능 집합이 동등해 집니다. 향후 릴리스에서는 이 기능 차이가 축소됩니다. 제공되는 최신 릴리스(즉, Windows에서 버전 5.6 및 Linux에서 버전 5.5) 간에는 다음과 같은 차이점이 있습니다. 
 
-* 신뢰할 수 있는 컬렉션(및 신뢰할 수 있는 상태 저장 서비스)는 Linux에서 지원되지 않습니다.
-* ReverseProxy는 Linux에서 사용할 수 없습니다.
-* 독립 실행형 설치 관리자는 Linux에서 사용할 수 없습니다.
-* 매니페스트 파일에 대한 XML 스키마 유효성 검사는 Linux에서 수행되지 않습니다. 
-* 콘솔 리디렉션은 Linux에서 지원되지 않습니다. 
-* FAS(오류 분석 서비스)는 Linux에서 사용할 수 없습니다.
-* Azure Active Directory는 Linux에서 지원되지 않습니다.
-* Powershell 명령에 있는 동일한 일부 CLI 명령을 사용할 수 없습니다.
+* Reliable Collections(및 Reliable Stateful Services) 
+* ReverseProxy 
+* 독립 실행형 설치 관리자 
+* 매니페스트 파일에 대한 XML 스키마 유효성 검사 
+* 콘솔 리디렉션 
+* FAS(오류 분석 서비스)
+* Docker Compose 및 볼륨, 컨테이너에 대한 로깅 드라이버 
+* 컨테이너 및 서비스에 대한 리소스 관리 
+* DNS 서비스
+* Azure Active Directory 지원
+* 특정 Powershell 명령에 있는 동일한 CLI 명령 
 * PowerShell 명령의 하위 집합만을 (다음 섹션에서 확장된 대로) Linux 클러스터에서 실행할 수 있습니다.
 
 >[!NOTE]

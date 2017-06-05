@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 1478a2eedad496d3113fef28920d10859d11b1ce
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: f35f693131bd1f4f47b161afb0a4f38d4f00bbd6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -47,18 +47,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-a-timer-triggered-function"></a>타이머 트리거 함수 만들기
 
-1. 함수 앱을 확장하고 **함수** 옆에 있는 **+** 단추를 클릭하고, 원하는 언어의 **TimerTrigger** 템플릿을 클릭합니다. 그런 다음 표에 지정된 것처럼 **만들기**를 클릭합니다.
+1. 함수 앱을 확장하고 **함수** 옆에 있는 **+** 단추를 클릭하고, 원하는 언어의 **TimerTrigger** 템플릿을 클릭합니다. 그런 다음 표에 지정된 것처럼 설정을 사용합니다.
 
-| 설정 | 제안 값 | 설명 |
-|---|---|---|
-| **함수 이름 지정** | TimerTriggerCSharp1 | 타이머 트리거 함수의 이름을 정의합니다. |
-| **[일정](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | 1분마다 함수가 실행되도록 예약하는 6개 필드의 [CRON 식](http://en.wikipedia.org/wiki/Cron#CRON_expression)입니다. |
+    ![Azure Portal에서 타이머 트리거 함수를 만듭니다.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
 
-함수는 1분마다 실행되는 선택한 언어로 생성됩니다.
+    | 설정 | 제안 값 | 설명 |
+    |---|---|---|
+    | **함수 이름 지정** | TimerTriggerCSharp1 | 타이머 트리거 함수의 이름을 정의합니다. |
+    | **[일정](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | 1분마다 함수가 실행되도록 예약하는 6개 필드의 [CRON 식](http://en.wikipedia.org/wiki/Cron#CRON_expression)입니다. |
 
-1. 로그에 기록된 추적 정보를 확인하여 실행을 확인합니다.
+2. **만들기**를 클릭합니다. 함수는 1분마다 실행되는 선택한 언어로 생성됩니다.
 
-![Azure Portal에서 함수 로그 뷰어.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+3. 로그에 기록된 추적 정보를 확인하여 실행을 확인합니다.
+
+    ![Azure Portal에서 함수 로그 뷰어.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
 이제 함수의 일정을 변경하여 1시간에 한 번처럼 덜 자주 실행되도록 할 수 있습니다. 
 

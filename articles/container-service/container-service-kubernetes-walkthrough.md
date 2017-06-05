@@ -18,10 +18,10 @@ ms.date: 05/08/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2ec155129374c03ba7e0ecaa5d2bf29a1d3111aa
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 0604a85192ed632b621113b98cc44172c584ea01
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -78,7 +78,7 @@ az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --
 몇 분 후 명령이 완료되면 Kubernetes 클러스터가 작동해야 합니다.
 
 > [!IMPORTANT]
-> 계정에 Azure AD 서비스 주체를 만들 수 있는 권한이 없으면 명령은 `Insufficient privileges to complete the operation.`과 유사한 오류를 생성합니다. 자세한 내용은 [Kubernetes 클러스터의 서비스 주체 정보](container-service-kubernetes-service-principal.md)를 참조하세요.
+> 계정에 Azure AD 서비스 주체를 만들 수 있는 권한이 없는 경우 명령은 **권한이 부족하여 작업을 완료할 수 없습니다**와 비슷한 오류를 생성합니다. 자세한 내용은 [Kubernetes 클러스터의 서비스 주체 정보](container-service-kubernetes-service-principal.md)를 참조하세요.
 > 
 
 

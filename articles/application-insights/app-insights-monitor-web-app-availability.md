@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/25/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 74cd4dbf74afbf5e7e0e7d0b7aca49b5aa214b83
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -246,7 +246,14 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
 테스트가 완료되면 응답 시간 및 성공률이 표시됩니다.
 
-## <a name="automation"></a>Automation
+
+![성능 테스트](./media/app-insights-monitor-web-app-availability/perf-test.png)
+
+> [!TIP]
+> 성능 테스트 결과를 살펴 보려면 [라이브 스트림](app-insights-live-stream.md) 및 [프로필](app-insights-profiler.md)을 사용합니다.
+>
+
+## <a name="automation"></a>자동화
 * [PowerShell 스크립트를 사용하여 가용성 테스트를 자동으로 설정](app-insights-powershell.md#add-an-availability-test)합니다.
 * 경고가 발생하면 호출되는 [웹후크](../monitoring-and-diagnostics/insights-webhooks-alerts.md)를 설정합니다.
 

@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 05/05/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 84f9677daebe13f54a54802b1b16cc6487a0b845
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -344,18 +344,24 @@ Azure Batch 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 해
 
 ## <a name="pool-network-configuration"></a>풀 네트워크 구성
 
-Azure Batch에서 계산 노드의 풀을 만드는 경우 API를 사용하여 풀의 계산 노드를 만들어야 하는 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md)의 ID를 지정할 수 있습니다.
+Azure Batch에서 계산 노드의 풀을 만드는 경우 풀의 계산 노드를 생성해야 하는 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md)의 서브넷 ID를 지정할 수 있습니다.
 
 * VNet은 다음과 같아야 합니다.
 
    * Azure Batch 계정과 동일한 Azure **지역**이어야 합니다.
    * Azure Batch 계정과 동일한 **구독**이어야 합니다.
 
-* VNet에는 풀의 `targetDedicated` 속성에 맞도록 사용 가능한 **IP 주소**가 충분히 있어야 합니다. 서브넷에 사용 가능한 IP 주소가 충분하지 않으면 Batch 서비스는 풀에서 계산 노드를 부분적으로 할당하고 크기 조정 오류를 반환합니다.
+* 지원되는 VNet 유형은 배치 계정에 대해 풀이 할당되는 방식에 따라 다릅니다.
+    - **poolAllocationMode** 속성을 'BatchService'로 설정하여 배치 계정을 만든 경우 지정된 VNet은 클래식 VNet이어야 합니다.
+    - **poolAllocationMode** 속성을 'UserSubscription'으로 설정하여 배치 계정을 만든 경우 지정된 VNet은 클래식 VNet이거나 Azure Resource Manager VNet이어야 합니다. VNet을 사용하려면 가상 컴퓨터 구성을 사용하여 풀을 만들어야 합니다. 클라우드 서비스 구성을 사용하여 만든 풀은 지원되지 않습니다.
+
+* **poolAllocationMode** 속성을 'BatchService'로 설정하여 배치 계정을 만든 경우 Batch 서비스 주체가 VNet에 액세스할 수 있는 권한을 제공해야 합니다. 'Microsoft Azure Batch' 또는 'MicrosoftAzureBatch' 이름의 Batch 서비스 주체에는 지정된 VNet에 대한 [클래식 가상 컴퓨터 참여자 RBAC(역할 기반 Access Control)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) 역할이 있어야 합니다. 지정된 RBAC 역할을 제공하지 않으면 Batch 서비스는 400(잘못된 요청)을 반환합니다.
+
+* 지정된 서브넷에서 총 대상 노드 수(즉, 풀의 `targetDedicatedNodes` 및 `targetLowPriorityNodes` 속성의 합)를 수용할 만한 충분한 가용 **IP 주소**가 있어야 합니다. 서브넷에 사용 가능한 IP 주소가 충분하지 않으면 Batch 서비스는 풀에서 계산 노드를 부분적으로 할당하고 크기 조정 오류를 반환합니다.
 
 * 지정된 서브넷은 Batch 서비스의 통신이 계산 노드에서 작업을 예약할 수 있도록 허용해야 합니다. 계산 노드에 대한 통신이 VNet과 연결된 **NSG(네트워크 보안 그룹)**에서 거부되는 경우 Batch 서비스는 계산 노드의 상태를 **사용할 수 없음**으로 설정합니다.
 
-* 지정된 VNet에 연결된 NSG가 있으면 인바운드 통신이 활성화되어야 합니다. Linux 및 Windows 풀 모두의 경우 포트 29876 및 29877이 활성화되어야 합니다. 필요에 따라 Linux 풀의 SSH 또는 Windows 풀의 RDP에서 포트 22 또는 3389를 설정(하거나 선택적으로 필터링)할 수 있습니다.
+* 지정된 VNet에 연결된 NSG(네트워크 보안 그룹)가 있는 경우 인바운드 통신에 대해 몇 개의 예약된 시스템 포트를 사용할 수 있어야 합니다. 가상 컴퓨터 구성을 사용하여 만든 풀의 경우 포트 29876 및 29877을 사용하도록 설정하고 , Linux의 경우 포트 22, Windows의 경우 포트 3389를 사용하도록 설정합니다. 클라우드 서비스 구성을 사용하여 만든 풀의 경우 포트 10100, 20100 및 30100을 사용하도록 설정합니다. 또한 포트 443에서 Azure Storage에 대한 아웃바운드 연결을 사용하도록 설정합니다.
 
 VNet에 대한 추가 설정은 Batch 계정의 풀 할당 모드에 따라 다릅니다.
 
@@ -415,16 +421,24 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 ### <a name="task-failure-handling"></a>태스크 오류 처리
 태스크 오류는 다음 범주로 분류됩니다.
 
-* **예약 오류**
+* **사전 처리 실패**
 
-    태스크에 대해 지정된 파일의 전송이 어떤 이유로든 실패한 경우 해당 태스크에 대해 *예약 오류*가 설정됩니다.
+    작업 시작에 실패하면 작업에 대해 사전 처리 오류가 설정됩니다.  
 
-    태스크의 리소스 파일이 이동되었거나, 저장소 계정을 더 이상 사용할 수 없거나, 노드에 파일을 복사하지 못하도록 하는 다른 문제가 발생하는 경우 예약 오류가 발생할 수 있습니다.
+    태스크의 리소스 파일이 이동되었거나, 저장소 계정을 더 이상 사용할 수 없거나, 노드에 파일을 복사하지 못하도록 하는 다른 문제가 발생하는 경우 사전 처리 오류가 발생할 수 있습니다.
+
+* **파일 업로드 오류**
+
+    태스크에 대해 지정된 파일 업로드가 어떤 이유로든 실패한 경우 해당 태스크에 대해 파일 업로드 오류가 설정됩니다.
+
+    Azure Storage 액세스를 위해 제공된 SAS가 유효하지 않거나 쓰기 권한이 제공되지 않는 경우, 저장소 계정을 더 이상 사용할 수 없거나, 노드에서 파일의 복사를 방지하여 다른 문제가 발생한 경우 파일 업로드 오류가 발생할 수 있습니다.    
+
 * **응용 프로그램 오류**
 
     태스크의 명령줄에서 지정된 프로세스도 실패할 수 있습니다. 태스크에 의해 실행된 프로세스에서 0이 아닌 종료 코드가 반환되면 프로세스가 실패한 것으로 간주됩니다(다음 섹션에서 *태스크 종료 코드* 참조).
 
     응용 프로그램 오류의 경우 지정된 횟수까지 자동으로 태스크를 다시 시도하도록 Batch를 구성할 수 있습니다.
+
 * **제약 조건 오류**
 
     작업 또는 태스크의 최대 실행 기간을 지정하는 제약 조건( *maxWallClockTime*)을 지정할 수 있습니다. 이 기능은 작동되지 않는 태스크를 종료하는 데 유용할 수 있습니다.
@@ -435,6 +449,7 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 * `stderr` 및 `stdout`
 
     실행하는 동안 응용 프로그램에서 문제를 해결하는 데 사용할 수 있는 진단 출력을 생성할 수 있습니다. 앞서 [파일 및 디렉터리](#files-and-directories) 섹션에서 설명했듯이, Batch 서비스는 계산 노드의 태스크 디렉터리에 있는 `stdout.txt` 및 `stderr.txt` 파일에 표준 출력 및 표준 오류 출력을 작성합니다. Azure 포털 또는 Batch SDK 중 하나를 사용하여 이러한 파일을 다운로드할 수 있습니다. 예를 들어, Batch .NET API에서 [ComputeNode.GetNodeFile][net_getfile_node] 및 [CloudTask.GetNodeFile][net_getfile_task]을 사용하여 문제 해결을 위해 이러한 파일 및 다른 파일을 검색할 수 있습니다.
+
 * **태스크 종료 코드**
 
     앞서 설명했듯이 태스크에서 실행하는 프로세스가 0이 아닌 종료 코드를 반환하는 경우 태스크는 Batch 서비스에서 실패했다고 표시됩니다. 태스크가 프로세스를 실행하는 경우 Batch는 *프로세스의 반환 코드*를 사용하여 태스크의 종료 코드 속성을 채웁니다. 태스크의 종료 코드는 Batch 서비스에 의해 결정되지 **않는**다는 점에 주의해야 합니다. 태스크의 종료 코드는 프로세스 자체 또는 프로세스가 실행되는 운영 체제에 의해 결정됩니다.
@@ -445,7 +460,7 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 일시적인 문제로 인해 태스크가 응답하지 않거나 실행하는 데 너무 오래 걸릴 수도 있습니다. 태스크에 대한 최대 실행 간격을 설정할 수 있습니다. 최대 실행 간격을 초과하면 Batch 서비스가 태스크 응용 프로그램을 중단합니다.
 
 ### <a name="connecting-to-compute-nodes"></a>계산 노드 연결
-계산 노드에 원격으로 로그인하여 추가 디버깅 및 문제 해결을 수행할 수 있습니다. Azure 포털을 사용하여 Windows 노드에 RDP(원격 데스크톱 프로토콜) 파일을 다운로드하고 Linux 노드에 SSH(Secure Shell) 연결 정보를 가져올 수 있습니다. 또한 [Batch .NET][net_rdpfile] 또는 [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes)과 같은 Batch API를 사용하여 수행할 수 있습니다.
+계산 노드에 원격으로 로그인하여 추가 디버깅 및 문제 해결을 수행할 수 있습니다. Azure 포털을 사용하여 Windows 노드에 RDP(원격 데스크톱 프로토콜) 파일을 다운로드하고 Linux 노드에 SSH(Secure Shell) 연결 정보를 가져올 수 있습니다. 또한 [Batch .NET][net_rdpfile] 또는 [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)과 같은 Batch API를 사용하여 수행할 수 있습니다.
 
 > [!IMPORTANT]
 > RDP 또는 SSH를 통해 노드에 연결하려면 먼저 해당 노드에서 사용자를 만들어야 합니다. 이렇게 하려면 Azure Portal을 사용할 수 있습니다. Batch REST API를 사용하여 [노드에 사용자 계정을 추가][rest_create_user]하거나 Batch .NET에서 [ComputeNode.CreateComputeNodeUser][net_create_user] 메서드를 호출하거나 Batch Python 모듈에서 [add_user][py_add_user] 메서드를 호출합니다.

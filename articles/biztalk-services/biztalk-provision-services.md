@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 299a6fb23cd0fa725324bbdbdc669ff125a99d1b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Azure 포털을 사용하여 BizTalk 서비스 만들기
 
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+
 > [!TIP]
 > Azure 포털에 로그인하려면 Azure 계정과 Azure 구독이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. [Azure 무료 평가판](http://go.microsoft.com/fwlink/p/?LinkID=239738)을 참조하세요.
-> 
-> 
+
 
 ## <a name="create-a-biztalk-service"></a>BizTalk 서비스 만들기
 선택한 버전에 따라 일부 BizTalk 서비스 설정을 사용하지 못할 수도 있습니다.
@@ -65,10 +69,8 @@ ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
     </td>
     </tr>
     </table>
-   다음 화살표를 선택합니다.
-5. 저장소 및 데이터베이스 설정을 입력합니다.
-   
-    <table border="1">
+다음 화살표를 선택합니다.
+5. 저장소 및 데이터베이스 설정을 입력합니다.  <table border="1">
     <tr>
     <td><strong>저장소 계정 모니터링/보관</strong></td>
     <td>기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다. <br/><br/>새 저장소 계정을 만들 경우 <strong>저장소 계정 이름</strong>을 입력합니다.</td>
@@ -78,21 +80,19 @@ ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
     <td>기존 Azure SQL 데이터베이스를 사용하는 경우 다른 BizTalk 서비스에서는 이 데이터베이스를 사용할 수 없습니다. Azure SQL 데이터베이스 서버를 만들 때 입력한 로그인 이름과 암호가 있어야 합니다.<br/><br/><strong>팁</strong> BizTalk 서비스와 동일한 지역에 추적 데이터베이스 및 모니터링/보관 저장소 계정을 만듭니다.</td>
     </tr>
     </table>
-   다음 화살표를 선택합니다.
-6. 데이터베이스 설정을 입력합니다.
-   
-    <table border="1">
+다음 화살표를 선택합니다.
+6. 데이터베이스 설정을 입력합니다.  <table border="1">
     <tr>
     <td><strong>Name</strong></td>
     <td>이전 화면에서 <strong>새 SQL Database 인스턴스 만들기</strong>를 선택한 경우에 사용할 수 있습니다.
     <br/><br/>
-    BizTalk 서비스에서 사용할 SQL Database 이름을 입력합니다.</td>
+BizTalk 서비스에서 사용할 SQL Database 이름을 입력합니다.</td>
     </tr>
     <tr>
     <td><strong>서버</strong></td>
     <td>이전 화면에서 <strong>새 SQL Database 인스턴스 만들기</strong>를 선택한 경우에 사용할 수 있습니다.
     <br/><br/>
-    기존 SQL Database 서버를 선택하거나 새 SQL Database 서버를 만듭니다.</td>
+기존 SQL Database 서버를 선택하거나 새 SQL Database 서버를 만듭니다.</td>
     </tr>
     <tr>
     <td><strong>서버 로그인 이름</strong></td>
@@ -120,7 +120,7 @@ BizTalk 서비스 상태에 따라 완료할 수 없는 작업도 일부 있습�
 * [프로덕션이 준비된 인증서 추가](#AddCert)
 * [액세스 제어 네임스페이스 가져오기](#ACS)
 
-#### <a name="a-nameinstallcertainstall-the-certificate-on-a-local-computer"></a><a name="InstallCert"></a>로컬 컴퓨터에 인증서 설치
+#### <a name="InstallCert"></a>로컬 컴퓨터에 인증서 설치
 BizTalk 서비스 프로비전의 일부로 자체 서명된 인증서가 만들어지고 BizTalk 서비스 구독에 연결됩니다. 이 인증서를 다운로드하여 BizTalk 서비스 응용 프로그램을 배포하거나 BizTalk 서비스 끝점으로 메시지를 보낼 컴퓨터에 설치해야 합니다.
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
@@ -130,13 +130,13 @@ BizTalk 서비스 프로비전의 일부로 자체 서명된 인증서가 만들
    ![SSL 인증서 수정][QuickGlance]
 5. 인증서를 두 번 클릭하고 마법사를 실행하여 인증서를 설치합니다. **신뢰할 수 있는 루트 인증 기관** 저장소에 인증서를 설치해야 합니다.
 
-#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>프로덕션이 준비된 인증서 추가
+#### <a name="AddCert"></a>프로덕션이 준비된 인증서 추가
 BizTalk 서비스를 만들 때 자동으로 만들어진 자체 서명된 인증서는 개발 환경에서만 사용하기 위한 용도로 제공됩니다. 프로덕션 시나리오의 경우 이 인증서를 프로덕션이 준비된 인증서로 대체합니다.
 
 1. **대시보드** 탭에서 **SSL 인증서 업데이트**를 선택합니다.
 2. BizTalk 서비스 이름을 포함하는 개인 SSL 인증서(*CertificateName*.pfx)를 찾아 암호를 입력하고 확인 표시를 클릭합니다.
 
-#### <a name="a-nameacsaget-the-access-control-namespace"></a><a name="ACS"></a>액세스 제어 네임스페이스 가져오기
+#### <a name="ACS"></a>액세스 제어 네임스페이스 가져오기
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
 2. 왼쪽 탐색 창에서 **BizTalk 서비스** 를 선택한 다음 해당 BizTalk 서비스를 선택합니다.
 3. 작업 표시줄에서 **연결 정보**를 선택합니다.  
@@ -171,7 +171,7 @@ Visual Studio에서 BizTalk 서비스를 배포할 때 이 액세스 제어 네�
 <td>Azure 구독</td>
 <td>구독은 Azure 포털에 로그인할 수 있는 사용자를 결정합니다. 계정 소유자는 <a HREF="https://account.windowsazure.com/Subscriptions">Azure 구독</a>에서 구독을 만듭니다.
 <br/><br/>
-Azure 계정에는 여러 구독이 있을 수 있으며, 허용된 모든 사용자가 관리할 수 있습니다. 예를 들어 Azure 계정 소유자는 <em>BizTalkServiceSubscription</em>이라는 구독을 만들고, 회사 내의 BizTalk 관리자(예: ContosoBTSAdmins@live.com))에게 이 구독에 대한 액세스를 제공합니다. 이 시나리오에서 BizTalk 관리자는 Azure 포털에 로그인하고 구독의 모든 호스팅 서비스(Azure BizTalk 서비스 포함)에 대해 전체 관리자 권한을 가집니다. BizTalk 관리자는 Azure 계정 소유자가 아니므로 대금 청구 정보에 대한 액세스 권한이 없습니다.
+Azure 계정에는 여러 구독이 있을 수 있으며, 허용된 모든 사용자가 관리할 수 있습니다. 예를 들어 Azure 계정 소유자는 <em>BizTalkServiceSubscription</em>이라는 구독을 만들고, 회사 내의 BizTalk 관리자(예: ContosoBTSAdmins@live.com)에게 이 구독에 대한 액세스를 제공합니다. 이 시나리오에서 BizTalk 관리자는 Azure 포털에 로그인하고 구독의 모든 호스팅 서비스(Azure BizTalk 서비스 포함)에 대해 전체 관리자 권한을 가집니다. BizTalk 관리자는 Azure 계정 소유자가 아니므로 대금 청구 정보에 대한 액세스 권한이 없습니다.
 <br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">Azure Portal에서 구독 및 저장소 계정 관리</a>에 자세한 내용이 나와 있습니다.
 </td>
@@ -271,9 +271,4 @@ BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk 서비스: 대시
 [QuickGlance]: ./media/biztalk-provision-services/WABS_QuickGlance.png
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

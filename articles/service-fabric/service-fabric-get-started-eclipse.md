@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/03/2016
 ms.author: saysa
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: c50c77b3288bc0a2d9148d04c6fc45aa24882ebb
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 9cc621380a6b22a6b1da617d76c56e4773bb3dde
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -37,7 +37,8 @@ Eclipse에서 Service Fabric 플러그 인을 설치할 수 있습니다. 플러
 2.  Service Fabric 플러그 인을 설치하려면 Eclipse Neon에서 **도움말** > **새 소프트웨어 설치**로 이동합니다.
   1.    **Work with**(사용할 플러그인) 상자에 **http://dl.microsoft.com/eclipse**를 입력합니다.
   2.    **추가**를 클릭합니다.
-    ![Eclipse Neon용 Service Fabric 플러그 인][sf-eclipse-plugin-install]
+
+         ![Eclipse Neon용 Service Fabric 플러그 인][sf-eclipse-plugin-install] 
   3.    Service Fabric 플러그 인을 선택한 다음 **다음**을 클릭합니다.
   4.    설치 단계를 완료한 다음 Microsoft 소프트웨어 사용 조건에 동의합니다.
 
@@ -149,7 +150,7 @@ Eclipse Neon을 사용하여 응용 프로그램을 업그레이드하려면 중
 
 <!-- Images -->
 
-[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[sf-eclipse-plugin-install]: ./media/service-fabric-get-started-eclipse/service-fabric-eclipse-plugin.png
 
 [create-application/p1]:./media/service-fabric-get-started-eclipse/create-application/p1.png
 [create-application/p2]:./media/service-fabric-get-started-eclipse/create-application/p2.png

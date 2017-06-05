@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/24/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 90ed1d5ca50bfb19a9d1c5d258e9588e05893270
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 97da0f4dc5d5528bfb803eefe9037651939a8efd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -84,7 +84,7 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
 대시보드에서는 다음 정보를 표시합니다.
 
-* 솔루션의 상태, 위치 및 현재 프로덕션 구성을 보여 주는 **팩터리 목록** 패널. 솔루션을 처음으로 실행하면 여러 개의 시뮬레이션된 장치가 있습니다. 생산 라인 시뮬레이션은 시뮬레이션된 작업을 수행하고 데이터를 공유하는 생산 라인당 실제 OPC UA 서버 세 개로 구성됩니다. 
+* 솔루션의 상태, 위치 및 현재 프로덕션 구성을 보여 주는 **팩터리 목록** 패널. 솔루션을 처음으로 실행하면 여러 개의 시뮬레이션된 장치가 있습니다. 생산 라인 시뮬레이션은 시뮬레이션된 작업을 수행하고 데이터를 공유하는 생산 라인당 실제 OPC UA 서버 세 개로 구성됩니다. OPC UA에 대한 자세한 내용은 [FAQ][lnk-faq]를 참조하세요.
 * **지도**는 솔루션에 연결된 각 장치의 위치를 보여줍니다. 솔루션은 Bing Maps API를 사용하여 지도에 정보를 표시할 수 있습니다. 구독이 Bing Maps Enterprise API에 대해 설정된 경우 이 기능이 자동으로 사용됩니다. 설정되지 않은 경우 지도를 동적으로 만드는 방법을 알아보려면 [FAQ][lnk-faq]를 참조하세요.
 * 원격 분석 또는 OEE/KPI 값이 특정 임계값을 초과할 때 생성되는 경고를 표시하는 **경고** 패널.
 * 기업 전체 또는 현재 보고 있는 공장/생산 라인/스테이션의 OEE 값을 표시하는 **설비 종합 효율** 패널. 이 값은 스테이션 보기에서 엔터프라이즈 수준까지 집계됩니다. OEE 수치 및 구성 요소를 구체적으로 분석할 수 있습니다.

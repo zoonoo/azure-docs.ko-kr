@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
-ms.author: cherylmc
+ms.date: 05/30/2017
+ms.author: cherylmc,yushwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: d8f69793e9ed71137adcf4ee1e6ac3e4ccb49456
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 3627b3dfa5067883625b9a714645164ec99c8a51
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -195,6 +195,11 @@ Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 
 ### <a name="can-i-connect-a-virtual-network-with-ipsec-vpns-to-my-expressroute-circuit"></a>IPsec VPN을 사용하는 가상 네트워크를 Express 경로 회로에 연결할 수 있습니까?
 
 예, 지원됩니다. 자세한 내용은 [공존하는 Express 경로 및 사이트 간 VPN 연결 구성](../expressroute/expressroute-howto-coexist-classic.md)을 참조하세요.
+
+## <a name="ipsecike-policy"></a>IPsec/IKE 정책
+
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+
 
 ## <a name="bgp"></a>BGP
 
