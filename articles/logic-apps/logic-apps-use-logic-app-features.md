@@ -106,7 +106,7 @@ Logic App Designer가 있더라도 논리 앱을 정의하는 코드를 직접 �
 
 3.    완료하면 **저장**을 선택합니다. 
 
-    이제 리트윗이&5;개를 초과한 새 트윗은 매시간마다 Dropbox의 **tweets** 폴더로 배달됩니다.
+    이제 리트윗이 5개를 초과한 새 트윗은 매시간마다 Dropbox의 **tweets** 폴더로 배달됩니다.
 
 논리 앱 정의에 대해 더 알아보려면 [논리 응용 프로그램 정의 작성](../logic-apps/logic-apps-author-definitions.md)을 참조하십시오.
 
