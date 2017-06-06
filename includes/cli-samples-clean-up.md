@@ -2,6 +2,6 @@
 
 리소스를 정리하려면 다음 명령을 실행합니다.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```

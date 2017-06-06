@@ -3,7 +3,7 @@ title: "Azure Portal을 사용하여 릴레이 유형의 네임스페이스 만�
 description: "Azure Portal을 사용하여 릴레이 네임스페이스를 만드는 방법입니다."
 services: service-bus-relay
 documentationcenter: .net
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 78ab6753-877a-4426-92ec-a81675d62a57
@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/17/2017
-ms.author: jotaub;sethm
+ms.author: sethm
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: dc2b69db669366a89b33751ca2b3a9f5af292da2

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/15/2017
+ms.date: 06/05/2017
 ms.author: pratshar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b1a5b2879a7b98ec4ad3e8ebbc9e95c0740d89f
 ms.openlocfilehash: 3aaa005319b1ce2a10cd913c63b31860d31b797e
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/23/2017
 
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 02/23/2017
 > * [VMM에서 VMM으로 테스트 장애 조치](./site-recovery-test-failover-vmm-to-vmm.md)
 
 
-이 문서는 VMM으로 관리되는 온-프레미스 사이트를 복구 사이트로 사용하여 Site Recovery로 보호되는 가상 컴퓨터 및 물리적 서버의 테스트 장애 조치(failover) 또는 재해 복구 훈련을 수행하기 위한 정보와 지침을 제공합니다. 
+이 문서는 VMM으로 관리되는 온-프레미스 사이트를 복구 사이트로 사용하여 Site Recovery로 보호되는 가상 컴퓨터 및 물리적 서버의 테스트 장애 조치(failover) 또는 재해 복구 훈련을 수행하기 위한 정보와 지침을 제공합니다.
 
 이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
@@ -49,7 +50,7 @@ ms.lasthandoff: 02/23/2017
 테스트 장애 조치에 사용되는 가상 컴퓨터가 DHCP를 사용하는 경우 테스트 장애 조치의 목적으로 생성된 격리된 네트워크에 테스트 DHCP 서버를 만들어야 합니다.
 
 ### <a name="prepare-active-directory"></a>Active Directory 준비
-응용프로그램 테스트를 위해 테스트 장애 조치를 실행하려면 테스트 환경에서 프로덕션 Active Directory 환경의 복사본이 필요합니다. 자세한 내용은 [Active Directory의 테스트 장애 조치(failover) 시 고려 사항](site-recovery-active-directory.md#test-failover-considerations) 섹션을 살펴보세요. 
+응용프로그램 테스트를 위해 테스트 장애 조치를 실행하려면 테스트 환경에서 프로덕션 Active Directory 환경의 복사본이 필요합니다. 자세한 내용은 [Active Directory의 테스트 장애 조치(failover) 시 고려 사항](site-recovery-active-directory.md#test-failover-considerations) 섹션을 살펴보세요.
 
 ### <a name="prepare-dns"></a>DNS 준비
 다음과 같이 테스트 장애 조치에 대한 DNS 서버를 준비합니다.
@@ -76,9 +77,9 @@ ms.lasthandoff: 02/23/2017
 
 1. **복구 계획** > *recoveryplan_name*을 선택합니다. **장애 조치(Failover)** > **Test 장애 조치(Failover)**에서 의견이나 질문을 게시합니다.
 1. **테스트 장애 조치** 블레이드에서 테스트 장애 조치(failover) 후에 가상 컴퓨터를 네트워크에 연결할 방법을 지정합니다. 자세한 내용은 [네트워크 옵션](#network-options-in-site-recovery)을 참조하세요.
-1. **작업** 탭에서 장애 조치 진행 상황을 추적합니다. 
+1. **작업** 탭에서 장애 조치 진행 상황을 추적합니다.
 1. 완료되면 가상 컴퓨터가 성공적으로 시작되는지 확인합니다.
-1. 작업을 완료하면 복구 계획에서 **테스트 장애 조치 정리**를 클릭합니다. **참고** 에서 테스트 장애 조치와 연관된 모든 관측 내용을 기록하고 저장합니다. 그러면 테스트 장애 조치(failover) 중에 생성된 가상 컴퓨터 및 네트워크가 삭제됩니다. 
+1. 작업을 완료하면 복구 계획에서 **테스트 장애 조치 정리**를 클릭합니다. **참고** 에서 테스트 장애 조치와 연관된 모든 관측 내용을 기록하고 저장합니다. 그러면 테스트 장애 조치(failover) 중에 생성된 가상 컴퓨터 및 네트워크가 삭제됩니다.
 
 
 ## <a name="network-options-in-site-recovery"></a>Site Recovery의 네트워크 옵션
@@ -97,10 +98,10 @@ ms.lasthandoff: 02/23/2017
 >
 
 
-## <a name="test-failover-to-a-production-network-on-recovery-site"></a>복구 사이트의 프로덕션 네트워크로 테스트 장애 조치(failover) 
+## <a name="test-failover-to-a-production-network-on-recovery-site"></a>복구 사이트의 프로덕션 네트워크로 테스트 장애 조치(failover)
 테스트 장애 조치(Failover)를 수행할 때 **네트워크 매핑**에서 입력한 프로덕션 복구 사이트 네트워크와 다른 네트워크를 선택하는 것이 좋습니다. 그러나 장애 조치(failover)된 가상 컴퓨터에서 종단 간 네트워크 연결의 유효성을 검사하려는 경우 다음 사항에 유의하세요.
 
-1. 테스트 장애 조치(failover)를 수행할 때 기본 가상 컴퓨터를 종료합니다. 기본 가상 컴퓨터를 종료하지 않으면 ID가 같은 두 가상 컴퓨터가 동시에 같은 네트워크에서 실행되므로 원치 않는 결과가 발생할 수 있습니다. 
+1. 테스트 장애 조치(failover)를 수행할 때 기본 가상 컴퓨터를 종료합니다. 기본 가상 컴퓨터를 종료하지 않으면 ID가 같은 두 가상 컴퓨터가 동시에 같은 네트워크에서 실행되므로 원치 않는 결과가 발생할 수 있습니다.
 1. 테스트 장애 조치(failover) 가상 컴퓨터에 수행하는 모든 변경 내용은 테스트 장애 조치(failover) 가상 컴퓨터를 정리할 때 손실됩니다. 이러한 변경 내용은 기본 가상 컴퓨터에 다시 복제되지 않습니다.
 1. 이러한 방법으로 테스트를 수행하면 프로덕션 응용 프로그램이 가동 중지되는 결과를 가져옵니다. 재해 복구 훈련이 진행 중인 동안에는 응용 프로그램을 사용하지 말라고 응용 프로그램 사용자에게 알려야 합니다.  
 
