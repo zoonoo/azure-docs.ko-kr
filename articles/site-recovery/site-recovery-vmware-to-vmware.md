@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: cff6ef0c1c49110edc53ec82f88d9875439aab8a
-ms.lasthandoff: 01/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: c49f283971b33a4e88573e1d67ba159021fbccb8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -32,7 +33,7 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 ## <a name="step-1-create-a-vault"></a>1단계: 자격 증명 모음 만들기
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 새로 만들기 > 관리 > 백업 및 사이트 복구(OMS)를 클릭합니다. 또는 찾아보기 > Recovery Services 자격 증명 모음 > 추가를 클릭합니다.
-3. **이름** 에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 그 중에서 하나를 선택합니다.
+3. **이름**에 자격 증명 모음을 식별하기 위한 이름을 지정합니다. 구독이 두 개 이상인 경우 그 중에서 하나를 선택합니다.
 4. **리소스 그룹**에서 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다. 필수 필드를 완료할 Azure 지역을 지정합니다.
 5. **위치**에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격](https://azure.microsoft.com/pricing/details/site-recovery/)을 참조합니다.
 6. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 대시보드에 고정을 클릭하고 만들기를 클릭합니다.
@@ -56,21 +57,22 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 
 다음과 같이 업데이트를 설치합니다.
 
-1. [update](https://aka.ms/asr-scout-update4) zip 파일을 다운로드합니다. 이 zip 파일에는 다음 파일이 포함됩니다.
+1. [update](https://aka.ms/asr-scout-update5) zip 파일을 다운로드합니다. 이 zip 파일에는 다음 파일이 포함됩니다.
 
    * RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
    * CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe
-   * UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe
+   * UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
    * UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-   * vCon_Windows_8.0.4.0_GA_Update_4_8921562_16Sep16.exe
+   * vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe
    * UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 2. .zip 파일의 압축을 풉니다.<br>
 3. **RX 서버**: **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.<br>
 4. **구성 서버/프로세스 서버**: **CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.<br>
-5. **Windows 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면 **UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe**를 마스터 대상 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 통합된 에이전트는 원본 서버에 적용할 수도 없습니다. 이 목록의 뒷부분에서 설명했듯이 원본 서버에도 설치해야 합니다.<br>
-6. **vContinuum 서버**: **vCon_Windows_8.0.4.0_GA_Update_4_8921562_16Sep16.exe**를 vContinuum 서버에 복사합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.<br>
+5. **Windows 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 마스터 대상 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 또한 통합된 에이전트는 원본이 업데이트 4까지 업데이트되지 않은 경우 원본 서버에 적용할 수 없습니다. 이 목록의 뒷부분에서 설명했듯이 원본 서버에도 설치해야 합니다.<br>
+6. **vContinuum 서버**: **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe**를 vContinuum 서버에 복사합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.<br>
 7. **Linux 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 마스터 대상 서버로 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.<br>
-8. **Windows 원본 서버**: 통합된 에이전트를 업데이트하려면 **UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe**를 원본 서버에 복사합니다. 실행하려면 두 번 클릭합니다.<br>
+8. **Windows 원본 서버**: 이미 원본이 업데이트 4에 있으면 원본에서 업데이트 5 에이전트를 설치할 필요가 없습니다. 업데이트 4 이하인 경우 업데이트 5 에이전트를 적용합니다.
+통합된 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 원본 서버에 복사합니다. 실행하려면 두 번 클릭합니다. <br>
 9. **Linux 원본 서버**: 통합된 에이전트를 업데이트하려면 Linux 서버에 해당 버전의 UA 파일을 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예: RHEL 6.7 64비트 서버의 경우 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
 
 ## <a name="step-4-set-up-replication"></a>4단계: 복제 설정
@@ -84,8 +86,40 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
    * [빠른 설치 가이드](https://aka.ms/asr-scout-quick-install-guide)
 
 ## <a name="updates"></a>업데이트
+### <a name="azure-site-recovery-scout-801-update-5"></a>Azure Site Recovery Scout 8.0.1 업데이트 5
+Scout 업데이트 5는 누적 업데이트입니다. 업데이트 1부터 업데이트 4까지의 수정 사항과 함께 다음과 같은 새 버그 수정 및 향상된 기능이 모두 포함되어 있습니다.
+ASR Scout 업데이트 4부터 업데이트 5까지 추가된 수정 사항은 마스터 대상 및 vContinuum 구성 요소에 적용됩니다. 모든 원본 서버, 마스터 대상, 구성 서버, 프로세스 서버 및 RX가 이미 ASR Scout 업데이트 4에 있는 경우 업데이트 5만 마스터 대상 서버에 적용해야 합니다. 
+
+**새 플랫폼 지원**
+* SUSE Linux Enterprise Server 11 SP4(서비스 팩 4)
+
+> [!NOTE]
+> SLES 11 SP4 64비트 **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz**는 기본 Scout GA 패키지 **InMage_Scout_Standard_8.0.1 GA.zip**과 함께 패키지되어 있습니다. [1단계](#step-1-create-a-vault)에 설명된 대로 Scout GA 패키지를 다운로드합니다.
+>
+
+**버그 수정 및 향상된 기능**
+
+* Windows 클러스터 지원 안정성 향상
+    * 수정됨 - P2V MSCS 클러스터 디스크 일부가 복구 후 RAW되는 경우가 있음
+    * 수정됨 - 디스크 순서 불일치로 인해 P2V MSCS 클러스터 복구 실패
+    * 수정됨 - 디스크 크기 불일치로 인해 MSCS 클러스터에서 디스크 작업 추가 실패
+    * 수정됨 - 크기 확인에서 RDM LUN을 사용한 원본 MSCS 클러스터 매핑 준비 확인 실패
+    * 수정됨 - SCSI 불일치 문제로 인해 단일 노드 클러스터 보호 실패 
+    * 수정됨 - 대상 클러스터 디스크가 있는 경우 P2V Windows 클러스터 서버의 다시 보호가 실패합니다. 
+    
+* 장애 복구 보호 중 보호되는 원본 컴퓨터(앞선 보호 중)와 동일한 ESXi 서버에 선택한 MT가 없는 경우, vContinuum은 장애 복구(Failback) 복구 중 잘못된 MT를 선택하고, 이후에 복구 작업이 실패합니다.
+
+> [!NOTE]
+> 
+> * 위에 나온 P2V 클러스터 수정은 ASR Scout 업데이트 5로 새로 보호되는 그러한 물리적 MSCS 클러스터에만 적용할 수 있습니다. 이전 업데이트를 사용하여 이미 보호되는 P2V MSCS 클러스터에서 클러스터 수정을 사용하려면 [ASR Scout 릴리스 정보](https://aka.ms/asr-scout-release-notes)의 섹션 12인 보호되는 P2V MSCS 클러스터를 Scout 업데이트 5로 업그레이드에 언급된 업그레이드 단계를 수행해야 합니다.
+> 
+> * 실제 MSCS 클러스터를 다시 보호하는 데 다시 보호할 때만 기존 대상 디스크를 다시 사용할 수 있습니다. 동일한 디스크 집합은 초기 보호될 때처럼 각 클러스터 노드에서 활성 상태입니다. 그렇지 않은 경우 [ASR Scout 릴리스 정보](https://aka.ms/asr-scout-release-notes)의 섹션 12에 언급된 대로 대상쪽 디스크를 올바른 데이터 저장소 경로로 이동하는 수동 단계를 통해 다시 보호하는 동안 다시 사용할 수 있습니다. 업그레이드 단계를 수행하지 않고 P2V 모드에서 MSCS 클러스터를 다시 보호하는 경우 대상 ESXi 서버에 새 디스크를 만들게 됩니다. 데이터 저장소에서 이전 디스크를 수동으로 삭제해야 합니다.
+> 
+> * 원본 SLES11 또는 서비스 팩 서버를 사용하는 SLES11이 정상적으로 재부팅될 때마다 CX UI에서는 알림이 표시되지 않기 때문에 다시 동기화에 대한 **루트** 디스크 복제 쌍을 수동으로 표시해야 합니다. 다시 동기화에 대해 루트 디스크를 표시하지 않을 경우 DI(데이터 무결성) 문제가 표시될 수 있습니다.
+> 
+
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery 서비스 Scout 8.0.1 업데이트 4
-Scout 업데이트 4는 누적 업데이트입니다. 업데이트&1;부터 업데이트&3;까지의 모든 수정 프로그램과 다음 새 버그 수정 및 향상된 기능이 있습니다.
+Scout 업데이트 4는 누적 업데이트입니다. 업데이트 1부터 업데이트 3까지의 모든 수정 프로그램과 다음 새 버그 수정 및 향상된 기능이 있습니다.
 
 **새 플랫폼 지원**
 
@@ -117,7 +151,7 @@ Scout 업데이트 4는 누적 업데이트입니다. 업데이트&1;부터 업�
 * 범위 이탈 예외로 인해 cxps 전송 서버 작동이 중단됩니다.
 * vContinuum 마법사의 푸시 설치 페이지에서 서버 이름 및 IP 열의 크기를 조정할 수 있습니다.
 * RX API 향상 기능
-  * 사용 가능한&5;개의 최신 공통된 일관성 지점을 제공합니다(보장됨 태그만).
+  * 사용 가능한 5개의 최신 공통된 일관성 지점을 제공합니다(보장됨 태그만).
   * 보호된 모든 장치에 대한 용량 및 여유 공간 세부 정보를 제공합니다.
   * 원본 서버에서 Scout 드라이버 상태를 제공합니다.
 
@@ -174,7 +208,7 @@ Scout 업데이트 4는 누적 업데이트입니다. 업데이트&1;부터 업�
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery 서비스 Scout 8.0.1 업데이트 1
 업데이트 1에는 다음 버그 수정 및 새로운 기능이 포함됩니다.
 
-* 서버 인스턴스 당&31;일간 무료 보호됩니다. 기능을 테스트 하거나 개념 증명을 설정할 수 있습니다.
+* 서버 인스턴스 당 31일간 무료 보호됩니다. 기능을 테스트 하거나 개념 증명을 설정할 수 있습니다.
   * 장애 조치 및 장애 복구를 포함한 서버의 모든 작업은 사이트 복구 Scout를 사용하여 서버를 먼저 보호한 시점부터 시작하여 처음 31일에 대해 무료입니다.
   * 32일째부터는 보호된 각 서버가 사이트를 소유하는 고객에게 Azure Site Recovery 보호를 위해 표준 인스턴스 요금으로 청구됩니다.
   * 언제든지 현재 부과되고 있는 보호된 서버의 수는 Azure Site Recovery 자격 증명의 대시보드 페이지에서 사용할 수 있습니다.
@@ -192,7 +226,7 @@ Scout 업데이트 4는 누적 업데이트입니다. 업데이트&1;부터 업�
   * 다시 동기화 임계값은 예상대로 적용되지 않으며, 일치하지 않는 복제 동작을 수행합니다.
   * 구성 서버 인터페이스에 제대로 나타나지 않는 RPO 설정입니다. 압축되지 않은 데이터 값은 압축된 값을 잘못 표시합니다.
   * 제거 작업은 vContinuum 마법사에서 예상대로 삭제되지 않으며 복제는 구성 서버 인터페이스에서 삭제되지 않습니다.
-  * vContinuum 마법사에서 MSCS 가상 컴퓨터를 보호하는 동안 디스크 보기에서 **세부 정보** 를 클릭하면 디스크는 자동으로 선택되지 않습니다.
+  * vContinuum 마법사에서 MSCS 가상 컴퓨터를 보호하는 동안 디스크 보기에서 **세부 정보**를 클릭하면 디스크는 자동으로 선택되지 않습니다.
   * P2V(physical-to-virtual) 시나리오 도중에 CIMnotify나 CqMgHost와 같은 필요한 HP 서비스는 가상 컴퓨터 복구에서 수동으로 이동되지 않습니다. 이 때문에 부팅 시간이 늘어납니다.
   * 마스터 대상 서버에 26개 이상의 디스크가 있으면 Linux 가상 컴퓨터 보호가 실패합니다.
 

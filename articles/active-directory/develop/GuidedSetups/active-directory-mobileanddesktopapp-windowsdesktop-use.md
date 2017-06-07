@@ -201,7 +201,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 <!--start-collapse-->
 ### <a name="more-information"></a>추가 정보
 
-*OpenID Connect*를 통해 획득된 토큰에는 사용자와 관련된 정보의 일부가 포함됩니다. `DisplayBasicTokenInfo`는 토큰에 포함된 기본 정보를 표시합니다(예: 사용자 표시 이름 및 ID, 토큰 만료 날짜 및 액세스 토큰 자체를 나타내는 문자열). 사용자가 볼 수 있도록 이러한 정보가 표시됩니다. [Microsoft Graph API 호출](Call Microsoft Graph API) 단추를 여러 번 누르면 동일한 토큰이 후속 요청에 다시 사용된 것을 볼 수 있습니다. MSAL이 토큰 갱신 시점이라고 판단한 경우에는 만료 날짜가 연장된 것도 확인할 수 있습니다.
+*OpenID Connect*를 통해 획득된 토큰에는 사용자와 관련된 정보의 일부가 포함됩니다. `DisplayBasicTokenInfo`는 토큰에 포함된 기본 정보를 표시합니다(예: 사용자 표시 이름 및 ID, 토큰 만료 날짜 및 액세스 토큰 자체를 나타내는 문자열). 사용자가 볼 수 있도록 이러한 정보가 표시됩니다. *Microsoft Graph API 호출* (Call Microsoft Graph API) 단추를 여러 번 누르면 동일한 토큰이 후속 요청에 다시 사용된 것을 볼 수 있습니다. MSAL이 토큰 갱신 시점이라고 판단한 경우에는 만료 날짜가 연장된 것도 확인할 수 있습니다.
 <!--end-collapse-->
 
 
