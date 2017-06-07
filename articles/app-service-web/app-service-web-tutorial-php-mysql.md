@@ -48,9 +48,9 @@ ms.lasthandoff: 06/01/2017
 1. [MySQL 다운로드, 설치 및 시작](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 1. [Azure CLI 2.0 다운로드 및 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prepare-local-mysql"></a>로컬 MySQL 준비
 

@@ -46,7 +46,7 @@ VPN Gateway에는 `-GatewayType` *Vpn*이 필요합니다.
     
 ## <a name="gwsku"></a>게이트웨이 SKU
 
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-original-include.md)]
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
 ### <a name="configuring-the-gateway-sku"></a>게이트웨이 SKU 구성
 ####<a name="specifying-the-gateway-sku-in-the-azure-portal"></a>Azure 포털에서 게이트웨이 SKU 지정

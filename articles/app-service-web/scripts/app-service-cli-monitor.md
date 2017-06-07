@@ -30,6 +30,10 @@ ms.lasthandoff: 05/15/2017
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="sample-script"></a>샘플 스크립트
 
 [!code-azurecli-interactive[기본](../../../cli_scripts/app-service/monitor-with-logs/monitor-with-logs.sh "로그 모니터링")]

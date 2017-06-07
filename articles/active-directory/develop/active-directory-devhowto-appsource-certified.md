@@ -47,7 +47,7 @@ Azure AD 로그인을 지원하는 응용 프로그램 빌드에 대한 자세�
 [AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: ./active-directory-developers-guide.md
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
-[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#guides
+[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#get-started
 
 
 <!--Image references-->

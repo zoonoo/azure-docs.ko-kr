@@ -165,7 +165,7 @@ Python은 STDIN에서 읽을 수 있는 `sys` 모듈 및 STDOUT에 출력하는 
 3. mapper.py 및 reducer.py가 올바른 줄 끝을 가지고 있는지 확인하려면 다음 명령을 사용합니다.
 
     ```bash
-    perl -pi -e 's/\r\n/\n/g' mappery.py
+    perl -pi -e 's/\r\n/\n/g' mapper.py
     perl -pi -e 's/\r\n/\n/g' reducer.py
     ```
 

@@ -12,11 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 06/02/2017
 ms.author: garye
-translationtype: Human Translation
+ROBOTS: NOINDEX
+redirect_url: /azure/machine-learning/machine-learning-consume-web-services
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
 ms.openlocfilehash: 2dfcdf2207d1437a917c493075e3245bd58381ac
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/10/2017
 
 
@@ -77,7 +81,7 @@ Machine Learning 웹 서비스에 대한 자세한 내용은 [Machine Learning �
 4. 웹 서비스를 클릭합니다.
 5. 끝점을 클릭합니다. "API 키"는 오른쪽 아래에 있습니다.
 
-## <a name="a-idconnectaconnect-to-a-machine-learning-web-service"></a><a id="connect"></a>Machine Learning 웹 서비스에 연결
+## <a id="connect"></a>Machine Learning 웹 서비스에 연결
 HTTP 요청 및 응답을 지원하는 모든 프로그래밍 언어를 사용하여 Machine Learning 웹 서비스에 연결할 수 있습니다. Machine Learning 웹 서비스 도움말 페이지에서 C#, Python 및 R로 작성된 예제를 볼 수 있습니다.
 
 **Machine Learning API 도움말** 웹 서비스를 배포하면 Machine Learning API 도움말이 생성됩니다. [Azure 기계 학습 연습 - 웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)를 참조하세요.

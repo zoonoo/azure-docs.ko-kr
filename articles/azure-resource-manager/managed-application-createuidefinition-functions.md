@@ -641,7 +641,7 @@ null이 아닌 첫 번째 매개 변수의 값을 반환합니다. 이 함수는
 다음 예제는 `"https://portal.azure.com/"`을 반환합니다.
 
 ```json
-"[encodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
+"[decodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
 ```
 
 ## <a name="math-functions"></a>수학 함수

@@ -12,11 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 6/06/2017
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
 ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/10/2016
 
 
 ---
@@ -54,7 +56,7 @@ ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
 3. `Set-AzureRmLogProfile` 을 사용하여 프로필을 만듭니다.
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
 서비스 버스 규칙 ID는 예를 들어, {service bus resource ID}/authorizationrules/{key name} 형식의 문자열입니다. 
@@ -79,10 +81,5 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 * [저장소 계정에 활동 로그 보관](monitoring-archive-activity-log.md)
 * [Azure 활동 로그 개요 알아보기](monitoring-overview-activity-logs.md)
 * [활동 로그 이벤트를 기반으로 경고 설정](insights-auditlog-to-webhook-email.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

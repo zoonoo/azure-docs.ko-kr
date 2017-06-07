@@ -105,7 +105,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 1. [Azure Portal](http://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **키**를 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 app.config 파일에 복사하게 됩니다.
 
-    ![Azure Portal에서 선택키 보기 및 복사, 키 블레이드](./media/create-documentdb-dotnet-core/keys.png)
+    ![Azure Portal에서 선택키 보기 및 복사, 키 블레이드](./media/create-table-dotnet/keys.png)
 
 2. Visual Studio에서 app.config 파일을 엽니다. 
 

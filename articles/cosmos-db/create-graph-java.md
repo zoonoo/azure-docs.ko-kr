@@ -87,7 +87,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 1. [Azure Portal](http://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **키**를 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 `Program.java` 파일에 복사하게 됩니다.
 
-    ![Azure Portal에서 선택키 보기 및 복사, 키 블레이드](./media/create-documentdb-dotnet/keys.png)
+    ![Azure Portal에서 선택키 보기 및 복사, 키 블레이드](./media/create-graph-java/keys.png)
 
 2. `src/remote-secure.yaml` 파일을 엽니다. 
 
