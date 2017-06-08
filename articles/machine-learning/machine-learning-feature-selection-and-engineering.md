@@ -11,14 +11,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: deprecated
+ms.topic: article
 ms.date: 01/18/2017
 ms.author: zhangya;bradsev
-ROBOTS: NOINDEX, NOFOLLOW
+ROBOTS: NOINDEX
 redirect_url: machine-learning-data-science-create-features
-translationtype: Human Translation
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ba61d00f277af579c87a130336ead9879b82a6de
 ms.openlocfilehash: c6b88355df430e78594fc1283c9df01ad6e27e20
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/13/2016
 
 
 ---
@@ -78,7 +81,7 @@ Azure Machine Learning 실험에서는 사전 처리된 입력 데이터 집합�
 
 ![성능 결과 비교](./media/machine-learning-feature-selection-and-engineering/result1.png)
 
-### <a name="a-nameexample2a-example-2-creating-features-in-text-mining"></a><a name="example2"></a> 예 2: 텍스트 마이닝에 기능 만들기
+### <a name="example2"></a> 예 2: 텍스트 마이닝에 기능 만들기
 기능 엔지니어링은 문서 분류 및 감성 분석 등의 텍스트 마이닝 관련 작업에 광범위하게 적용됩니다. 예를 들어 문서를 여러 범주로 분류하려는 경우, 일반적으로 한 문서 범주에 포함된 단어 또는 문구가 다른 문서 범주에서 발생할 가능성이 적다고 가정합니다. 즉, 단어 또는 문구 분포 빈도를 통해 서로 다른 문서 범주의 특징을 결정할 수 있습니다. 텍스트 마이닝 응용 프로그램에서는 개별 텍스트 내용이 일반적으로 입력 데이터로 제공되므로, 단어 또는 문구 빈도와 관련된 기능을 생성하려면 기능 엔지니어링 프로세스가 필요합니다.
 
 이 작업을 수행하기 위해 *기능 해싱*이라는 기술을 적용하여 임의의 텍스트 기능을 인덱스로 전환합니다. 각 텍스트 기능(단어 또는 문구)을 특정 인덱스에 연관시키는 대신, 이 메서드에서는 해시 함수를 기능에 적용하고 해시 값을 인덱스로 직접 사용하여 작동합니다.
@@ -133,9 +136,4 @@ Azure Machine Learning 스튜디오에서는 기능 선택의 모듈을 제공�
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

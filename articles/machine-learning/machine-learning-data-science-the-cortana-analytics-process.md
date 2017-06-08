@@ -11,14 +11,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: deprecated
+ms.topic: article
 ms.date: 01/18/2017
 ms.author: bradsev
-ROBOTS: NOINDEX, NOFOLLOW
+ROBOTS: NOINDEX
 redirect_url: data-science-process-overview
-translationtype: Human Translation
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 49bb8201a93e622774e197801b566caa03ed28a6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -83,10 +86,5 @@ TDSP에 특정 유형의 **설명서** 아티팩트가 규정되어 있지 않�
 * [실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
 * [Azure HD.mdnsight에서 Spark를 사용하는 데이터 과학](machine-learning-data-science-spark-overview.md)
 * [Azure Data Lake에서 확장성 있는 데이터 과학: 종단 간 연습](machine-learning-data-science-process-data-lake-walkthrough.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

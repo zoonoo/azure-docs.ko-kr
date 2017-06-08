@@ -1,11 +1,27 @@
 ---
-
-ROBOTS: NOINDEX, NOFOLLOW
+title: "(사용되지 않음) Azure Machine Learning을 사용한 생존 분석 | Microsoft Docs"
+description: "(사용되지 않음) 생존 분석 이벤트 발생 확률"
+services: machine-learning
+documentationcenter: 
+author: zhangya
+manager: jhubbard
+editor: cgronlun
+ms.assetid: a142fc45-cdfb-4971-910e-05dab8bc699e
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/06/2017
+ms.author: zhangya
+ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 38a086281ec9a93961caf492036aeed27091a462
-ms.lasthandoff: 05/03/2017
+redirect_document_id: TRUE
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2d9feed054fb4641e660c685d396260246ed1d54
+ms.openlocfilehash: 32ae345bb1d4bc364440543ea5c273e9b358ae40
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -27,7 +43,7 @@ ms.lasthandoff: 05/03/2017
 > 
 
 ## <a name="consumption-of-web-service"></a>웹 서비스 사용
-웹 서비스의 입력 데이터가 다음 표에 표시됩니다. 학습 데이터, 테스트 데이터, 관련 시간, "시간" 차원 인덱스, "이벤트" 차원 인덱스 및 변수 유형(연속 또는 요소)의 6가지 정보가 입력으로 필요합니다. 학습 데이터는 행이 쉼표로 구분되고 열이 세미콜론으로 구분되는 문자열로 표시됩니다. 데이터 기능 수는 유연합니다. 입력 문자열의 모든 요소는 숫자여야 합니다. 학습 데이터에서 "시간" 차원은 연구 시작점(환자가 약물 치료 프로그램을 받음, 학생이 박사 과정을 시작함, 자동차가 운행을 시작함 등) 이후 관련 이벤트(환자가 약물을 사용함, 학생이 박사 학위를 받음, 자동차의 브레이크 패드가 고장 남 등)가 발생할 때까지 경과된 시간 단위(일, 년, 마일리지 등) 수를 나타냅니다. "이벤트" 차원은 연구 종료 시 관련 이벤트가 발생하는지를 나타냅니다. "이벤트=1" 값은 관련 이벤트가 "시간" 차원으로 지정된 시간에 발생함을 의미하지만 "이벤트=0"은 관련 이벤트가 "시간" 차원으로 지정된 시간에 발생하지 않았음을 의미합니다.
+웹 서비스의 입력 데이터가 다음 표에 표시됩니다. 학습 데이터, 테스트 데이터, 관련 시간, "시간" 차원 인덱스, "이벤트" 차원 인덱스 및 변수 유형(연속 또는 요소)의&6;가지 정보가 입력으로 필요합니다. 학습 데이터는 행이 쉼표로 구분되고 열이 세미콜론으로 구분되는 문자열로 표시됩니다. 데이터 기능 수는 유연합니다. 입력 문자열의 모든 요소는 숫자여야 합니다. 학습 데이터에서 "시간" 차원은 연구 시작점(환자가 약물 치료 프로그램을 받음, 학생이 박사 과정을 시작함, 자동차가 운행을 시작함 등) 이후 관련 이벤트(환자가 약물을 사용함, 학생이 박사 학위를 받음, 자동차의 브레이크 패드가 고장 남 등)가 발생할 때까지 경과된 시간 단위(일, 년, 마일리지 등) 수를 나타냅니다. "이벤트" 차원은 연구 종료 시 관련 이벤트가 발생하는지를 나타냅니다. "이벤트=1" 값은 관련 이벤트가 "시간" 차원으로 지정된 시간에 발생함을 의미하지만 "이벤트=0"은 관련 이벤트가 "시간" 차원으로 지정된 시간에 발생하지 않았음을 의미합니다.
 
 * trainingdata - 문자열입니다. 행은 쉼표로 구분되고 열은 세미콜론으로 구분됩니다. 각 행에는 "시간" 차원, "이벤트" 차원 및 예측 요인 변수가 포함됩니다.
 * testingdata - 특정 개체에 대한 예측 요인 변수를 포함하는 데이터의 한 행입니다.
