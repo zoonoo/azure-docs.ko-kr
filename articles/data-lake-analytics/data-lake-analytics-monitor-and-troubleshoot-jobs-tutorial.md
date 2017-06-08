@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
-ms.openlocfilehash: 1915201480f57c5f132e13bb5ce4283fbea975fe
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: b2b19a6f2ea20c414119e9dfbf84fda92dd93402
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,7 +33,7 @@ Azure 포털을 사용하여 데이터 레이크 분석 작업의 문제를 해�
 
 * **데이터 레이크 분석 작업 프로세스에 대한 기본 지식**. [Azure 포털을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)을 참조하세요.
 * **데이터 레이크 분석 계정**. [Azure Portal을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account)을 참조하세요.
-* **기본 데이터 레이크 저장소 계정에 샘플 데이터 복사**.  [원본 데이터 준비](data-lake-analytics-get-started-portal.md#prepare-source-data)
+* **기본 데이터 레이크 저장소 계정에 샘플 데이터 복사**.  [원본 데이터 준비](data-lake-analytics-get-started-portal.md)
 
 ## <a name="submit-a-data-lake-analytics-job"></a>데이터 레이크 분석 작업 제출
 이제 잘못된 원본 파일 이름을 사용하여 U-SQL 작업 이름을 만듭니다.  
@@ -40,7 +42,7 @@ Azure 포털을 사용하여 데이터 레이크 분석 작업의 문제를 해�
 
 1. Azure 포털의 왼쪽 위 모서리에서 **Microsoft Azure** 를 클릭합니다.
 2. 데이터 레이크 분석 계정 이름을 가진 타일을 클릭합니다.  계정을 만들었을 때 여기에 고정되었습니다.
-   계정이 여기에 고정되어 있지 않은 경우 [포털에서 분석 계정 열기](data-lake-analytics-manage-use-portal.md#access-adla-account)를 참조하세요.
+   계정이 여기에 고정되어 있지 않은 경우 [포털에서 분석 계정 열기](data-lake-analytics-manage-use-portal.md#manage-data-sources)를 참조하세요.
 3. 위쪽 메뉴에서 **새 작업** 을 클릭합니다.
 4. 작업 이름을 입력하고 다음 U-SQL 스크립트를 입력합니다.
 
@@ -102,9 +104,4 @@ Azure 포털을 사용하여 데이터 레이크 분석 작업의 문제를 해�
 * [Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)
 * [Visual Studio를 사용하여 Azure 데이터 레이크 분석 및 U-SQL 시작](data-lake-analytics-u-sql-get-started.md)
 * [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

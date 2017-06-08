@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
 ms.openlocfilehash: e14f42497d5ee0c89fe1fa0824431e2d82e6555a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="biztalk-services-throttling"></a>BizTalk 서비스: 제한
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Azure BizTalk 서비스는 메모리 사용량과 동시 메시지 처리 수의 두 가지 조건에 따라 서비스 제한을 구현합니다. 이 항목에서는 제한 임계값을 나열하고 제한 조건이 발생할 때의 런타임 동작을 설명합니다.
 
 ## <a name="throttling-thresholds"></a>제한 임계값
@@ -65,10 +70,5 @@ Azure BizTalk 서비스가 제한 상태에 들어가면 다음과 같은 상황
 * [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk 서비스: 백업 및 복원](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [BizTalk 서비스: 발급자 이름 및 발급자 키](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

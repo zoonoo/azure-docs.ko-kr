@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 6d878b00094f573adc440d2384c426506fea0a40
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 9ea3896f73e0e97b89743d8b17c8fd1e723153c3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -120,6 +121,52 @@ while(true)
 {"id":"Device5","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 ```
 
+장치에 쌍으로 된 데이터가 있는 경우 장치 데이터와 함께 내보내집니다. 다음 예제는 이러한 형식을 보여줍니다. "twinETag" 줄의 모든 데이터는 끝까지 쌍으로 된 데이터입니다.
+```
+{
+   "id":"export-6d84f075-0",
+   "eTag":"MQ==",
+   "status":"enabled",
+   "statusReason":"firstUpdate",
+   "authentication":null,
+   "twinETag":"AAAAAAAAAAI=",
+   "tags":{
+      "Location":"LivingRoom"
+   },
+   "properties":{
+      "desired":{
+         "Thermostat":{
+            "Temperature":75.1,
+            "Unit":"F"
+         },
+         "$metadata":{
+            "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+            "$lastUpdatedVersion":2,
+            "Thermostat":{
+               "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+               "$lastUpdatedVersion":2,
+               "Temperature":{
+                  "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+                  "$lastUpdatedVersion":2
+               },
+               "Unit":{
+                  "$lastUpdated":"2017-03-09T18:30:52.3167248Z",
+                  "$lastUpdatedVersion":2
+               }
+            }
+         },
+         "$version":2
+      },
+      "reported":{
+         "$metadata":{
+            "$lastUpdated":"2017-03-09T18:30:51.1309437Z"
+         },
+         "$version":1
+      }
+   }
+}
+```
+
 코드에서 이 데이터에 액세스해야 하는 경우 **ExportImportDevice** 클래스를 사용하여 이 데이터를 쉽게 역직렬화할 수 있습니다. 다음 C# 코드 조각은 이전에 블록 blob에 내보낸 장치 정보를 읽는 방법을 보여 줍니다.
 
 ```csharp
@@ -170,6 +217,8 @@ ID 레지스트리에 새 장치를 프로비전할 뿐만 아니라 기존 장�
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
+장치 쌍에 데이터를 가져오는 데도 이 메서드를 사용할 수 있습니다. 입력 데이터의 형식은 **ExportDevicesAsync**의 섹션에 표시된 내용과 같습니다. 이러한 방법으로 내보낸 데이터를 다시 가져올 수도 있습니다. $metadata는 선택 사항입니다.
+
 ## <a name="import-behavior"></a>가져오기 동작
 
 **ImportDevicesAsync** 메서드를 사용하여 ID 레지스트리에서 다음 대량 작업을 수행할 수 있습니다.
@@ -179,18 +228,21 @@ JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasU
 * 대량으로 상태 변경(장치를 사용 또는 사용하지 않도록 설정)
 * 새 장치 인증 키의 대량 할당
 * 장치 인증 키의 대량 자동 다시 생성
+* 쌍으로 된 데이터의 대량 업데이트
 
 단일 **ImportDevicesAsync** 호출 내에서 이전 작업의 조합을 수행할 수 있습니다. 예를 들어 새 장치를 등록하는 동시에 기존 장치를 삭제 또는 업데이트할 수 있습니다. **ExportDevicesAsync** 메서드와 함께 사용하는 경우 모든 장치를 한 IoT Hub에서 다른 IoT Hub로 완전히 마이그레이션할 수 있습니다.
+
+가져오기 파일이 쌍으로 된 메타데이터를 지정하는 경우 이 메타데이터는 쌍의 기존 메타데이터를 덮어씁니다. 그렇지 않으면 현재 시간을 사용하여 `lastUpdateTime` 메타데이터가 업데이트됩니다. 
 
 각 장치에 대한 가져오기 직렬화 데이터에 선택적 **importMode** 속성을 사용하여 가져오기 프로세스를 장치별로 제어합니다. **importMode** 속성에 다음과 같은 옵션이 있습니다.
 
 | importMode | 설명 |
 | --- | --- |
-| **createOrUpdate** |지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. |
-| **create** |지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdate** |지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 장치 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 장치의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **create** |지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 장치 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 장치의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **update** |지정된 **ID**를 가진 장치가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **updateIfMatchETag** |지정된 **ID**를 가진 장치가 이미 존재하는 경우 **ETag**가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
-| **createOrUpdateIfMatchETag** |지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdateIfMatchETag** |지정된 **ID**를 가진 장치가 존재하지 않는 경우, 새로 등록됩니다. <br/>장치가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 장치 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 장치의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **delete** |지정된 **ID**를 가진 장치가 이미 존재하는 경우, **ETag** 값과 관계 없이 삭제됩니다. <br/>장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
 | **deleteIfMatchETag** |지정된 **ID**를 가진 장치가 이미 존재하는 경우, **ETag**가 일치하는 경우에만 삭제됩니다. 장치가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
 
@@ -355,11 +407,11 @@ static string GetContainerSasUri(CloudBlobContainer container)
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드][lnk-devguide]
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

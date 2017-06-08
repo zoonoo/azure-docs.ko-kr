@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 05/09/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: a935fe574bffaad109abd13151c4da1027210014
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5f9b421571fa98d9881a9e955b05041de124f922
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -153,7 +153,7 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 4. HBase 테이블에서 데이터를 쿼리하려면 다음 HiveQL 스크립트를 실행합니다.
    
-         SELECT * FROM hbasecontacts;
+         SELECT count(rowkey) FROM hbasecontacts;
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Curl을 사용하여 HBase REST API 사용
 
@@ -182,7 +182,7 @@ REST API는 [기본 인증](http://en.wikipedia.org/wiki/Basic_access_authentica
         -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
    
-    -d 스위치에 지정된 값을 base64로 인코딩해야 합니다.  예제에서:
+    -d 스위치에 지정된 값을 base64로 인코딩해야 합니다.  예제:
    
    * MTAwMA==: 1000
    * UGVyc29uYWw6TmFtZQ==: Personal:Name

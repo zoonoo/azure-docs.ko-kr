@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
 ms.openlocfilehash: 7be96ed59a148f7c622551eaa66279a94e2c83f1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -72,8 +75,3 @@ Azure AD는 이 값을 `https://login.microsoftonline.com/<TenantIdGUID>/`로 �
 
 ### <a name="status"></a>가동 상태
 Azure AD에서는 `Status` 요소의 `StatusCode` 요소를 사용하여 로그아웃의 성공 여부를 나타냅니다. 로그아웃 시도가 실패하면 `StatusCode` 요소는 사용자 지정 오류 메시지를 포함할 수도 있습니다.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 37f795fe59496b0267120537115cf56d44cc5325
-ms.openlocfilehash: 60cde851a466a5b4b0752908f11272eedb246b0a
-ms.lasthandoff: 12/23/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 270f890b5ec58ffd009ff913a6df9d941889a6dc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 ---
 
@@ -30,12 +31,12 @@ ms.lasthandoff: 12/23/2016
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음 항목이 있어야 합니다.
-*   시스템에 Visual Studio 2012, 2013 또는 2015를 설치합니다.
-*   Azure Powershell을 설치합니다. [Azure Powershell을 다운로드합니다](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-*   데이터 변환 작업을 초기화하는 구성 설정 및 이러한 설정을 가져오는 지침도 여기에 포함됩니다.
-*   리소스 그룹 내의 하이브리드 데이터 리소스에서 올바르게 구성된 작업 정의입니다.
-*   모든 필수 dll입니다. 이러한 dll을 [GitHub 리포지토리](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)에서 다운로드합니다.
-*   Github 리포지토리의 `Get-ConfigurationParams.ps1` [스크립트](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)입니다.
+*    시스템에 Visual Studio 2012, 2013 또는 2015를 설치합니다.
+*    Azure Powershell을 설치합니다. [Azure Powershell을 다운로드합니다](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*    데이터 변환 작업을 초기화하는 구성 설정 및 이러한 설정을 가져오는 지침도 여기에 포함됩니다.
+*    리소스 그룹 내의 하이브리드 데이터 리소스에서 올바르게 구성된 작업 정의입니다.
+*    모든 필수 dll입니다. 이러한 dll을 [GitHub 리포지토리](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)에서 다운로드합니다.
+*    Github 리포지토리의 `Get-ConfigurationParams.ps1` [스크립트](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)입니다.
 
 ## <a name="step-by-step"></a>단계별 과정
 
@@ -51,19 +52,23 @@ ms.lasthandoff: 12/23/2016
         ActiveDirectoryKey 및 AppName의 값을 전달할 수 있습니다.
 
 
-2. 이 스크립트는 다음 값을 출력합니다.      - 클라이언트 ID      - 테넌트 ID      - Active Directory 키(위에서 입력한 것과 동일함)      - 구독 ID
+2. 이 스크립트는 다음 값을 출력합니다.
+    * 클라이언트 ID
+    * 테넌트 ID
+    * Active Directory 키(위에서 입력한 것과 동일)
+    * 구독 ID
 
 3. Visual Studio 2012, 2013 또는 2015를 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
 
     1. **Visual Studio 2012/2013/2015**을 실행합니다.
     1. **File**을 클릭하고 **New**를 가리킨 다음 **프로젝트**를 클릭합니다.
     2. **템플릿**을 확장하고 **Visual C#**를 선택합니다.
-    3. 오른쪽의 프로젝트 형식 목록에서 **콘솔 응용 프로그램** 을 선택합니다.
+    3. 오른쪽의 프로젝트 형식 목록에서 **콘솔 응용 프로그램**을 선택합니다.
     4. **이름**으로 **DataTransformationApp**을 입력합니다.
     5. **위치**로 **C:\DataTransformation**을 선택합니다.
-    6. **확인** 을 클릭하여 프로젝트를 만듭니다.
+    6. **확인**을 클릭하여 프로젝트를 만듭니다.
 
-4.  이제 만든 프로젝트에서 [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) 폴더에서 **참조**로 나타난 모든 DLL을 추가합니다. dll 파일을 다운로드하려면 다음을 수행합니다.
+4.    이제 만든 프로젝트에서 [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) 폴더에서 **참조**로 나타난 모든 DLL을 추가합니다. dll 파일을 다운로드하려면 다음을 수행합니다.
 
     1. Visual Studio에서 **보기 > 솔루션 탐색기**로 이동합니다.
     1. 데이터 변환 앱 프로젝트의 왼쪽에 있는 화살표를 클릭합니다. **참조**를 클릭하고 **참조 추가**를 마우스 오른쪽 단추로 선택합니다.

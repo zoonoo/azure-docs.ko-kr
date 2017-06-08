@@ -1,6 +1,6 @@
 ---
-title: "가상 컴퓨터 크기 집합에 앱 배포 | Microsoft Docs"
-description: "가상 컴퓨터 크기 집합에 앱 배포"
+title: "Azure 가상 컴퓨터 확장 집합 업그레이드 | Microsoft Docs"
+description: "Azure 가상 컴퓨터 확장 집합 업그레이드"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gbowerman
@@ -13,11 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 05/15/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5158c51149e75952eaf91af14f3fcf2dd1ed2af
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: bbc04cfb1145f3be2957d11f2ed6253428c4b9c3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -93,10 +95,5 @@ $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 **업그레이드**를 클릭한 후 **세부 정보 보기**를 클릭하면 UD 0의 가상 컴퓨터가 업데이트되기 시작합니다.
 
 ![진행 중인 업데이트를 보여 주는 Vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

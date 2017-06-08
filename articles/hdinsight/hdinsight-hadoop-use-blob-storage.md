@@ -1,7 +1,7 @@
 ---
 title: "HDFS 호환 가능 Azure Storage에서 데이터 쿼리 | Microsoft Docs"
 description: "Azure Storage 및 Azure Data Lake Store에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법을 알아봅니다."
-keywords: "Blob Storage, hdfs, 구조화된 데이터, 구조화되지 않은 데이터, Data Lake Store"
+keywords: "Blob 저장소, HDFS, 구조적 데이터, 비구조적 데이터, Data Lake Store, Hadoop 입력, Hadoop 출력, Hadoop 저장소, HDFS 입력, HDFS 출력, HDFS 저장소, WASB Azure"
 services: hdinsight,storage
 documentationcenter: 
 tags: azure-portal
@@ -10,17 +10,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 1d2e65f2-16de-449e-915f-3ffbc230f815
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: f5c36624360b4a09819ea70f3ac23f943688c120
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: a8f59b891ee048bc71efc6f913e7998f6eed6d62
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -37,7 +38,7 @@ Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 �
 Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 저장소 솔루션입니다. HDInsight는 Azure Storage의 Blob 컨테이너를 클러스터의 기본 파일 시스템으로 사용합니다. HDFS(Hadoop Distributed File System) 인터페이스를 통해 HDInsight의 전체 구성 요소 집합을 Blob로 저장된 구조적 또는 비구조적 데이터에 대해 직접 작동할 수 있습니다.
 
 > [!WARNING]
-> Azure Storage 계정을 만들 때 사용 가능한 여러 가지 옵션이 있습니다. 다음 표에서는 HDInsight에 지원되는 옵션에 대한 정보를 제공합니다.
+> Azure Storage 계정을 만들 때 사용할 수 있는 몇 가지 옵션이 있습니다. 다음 표에서는 HDInsight에 지원되는 옵션에 대한 정보를 제공합니다.
 > 
 > | 저장소 계정 유형 | 저장소 계층 | HDInsight에서 지원됨 |
 > | ------- | ------- | ------- |
@@ -100,7 +101,7 @@ Blob을 사용하려면 먼저 [Azure Storage 계정][azure-storage-create]을 �
 
 어디에 있든, 만들어진 각 Blob은 Azure 저장소 계정의 일부 컨테이너에 속합니다. 이 컨테이너는 HDInsight 외부에 생성된 기존 Blob일 수도 있고 HDInsight 클러스터용으로 생성된 컨테이너일 수도 있습니다.
 
-기본 Blob 컨테이너는 작업 기록 및 로그와 같은 클러스터 특정 정보를 저장합니다. 여러 HDInsight 클러스터의 기본 Blob 컨테이너를 공유하지 마세요. 이 경우 작업 기록이 손상될 수 있습니다. 각 클러스터에 다른 컨테이너를 사용하고 기본 저장소 계정 대신 모든 관련 클러스터 배포에 지정된 연결 저장소 계정에서 공유 데이터를 배치하는 것이 좋습니다. 연결된 저장소 계정에 대한 자세한 내용은 [HDInsight 클러스터 만들기][hdinsight-creation]를 참조하세요. 그러나 원래 HDInsight 클러스터를 삭제한 후에 기본 저장소 컨테이너를 다시 사용할 수 있습니다. HBase 클러스터의 경우 삭제된 HBase 클러스터에서 사용되었던 기본 Blob 컨테이너를 사용하여 새로운 HBase 클러스터를 만들어 HBase 테이블 스키마 및 데이터를 실제로 보존할 수 있습니다.
+기본 Blob 컨테이너는 작업 기록 및 로그와 같은 클러스터 특정 정보를 저장합니다. 여러 HDInsight 클러스터의 기본 Blob 컨테이너를 공유하지 마세요. 이 경우 작업 기록이 손상될 수 있습니다. 각 클러스터에 다른 컨테이너를 사용하고 기본 저장소 계정 대신 모든 관련 클러스터 배포에 지정된 연결 저장소 계정에서 공유 데이터를 배치하는 것이 좋습니다. 연결된 저장소 계정에 대한 자세한 내용은 [HDInsight 클러스터 만들기][hdinsight-creation]를 참조하세요. 그러나 원래 HDInsight 클러스터를 삭제한 후에 기본 저장소 컨테이너를 다시 사용할 수 있습니다. HBase 클러스터의 경우 삭제된 HBase 클러스터에서 사용되는 기본 Blob 컨테이너를 사용하여 새 HBase 클러스터를 만듦으로써 HBase 테이블 스키마 및 데이터를 실제로 보존할 수 있습니다.
 
 #### <a name="using-the-azure-portal"></a>Azure 포털 사용
 포털에서 HDInsight 클러스터를 만드는 경우 저장소 계정 세부 정보를 제공할 수 있는 옵션(아래 그림 참조)이 있습니다. 추가 저장소 계정을 클러스터와 연결할지 여부를 지정할 수도 있으며, 연결하려는 경우, Data Lake Store 또는 다른 Azure Storage Blob을 추가 저장소로 선택할 수 있습니다.

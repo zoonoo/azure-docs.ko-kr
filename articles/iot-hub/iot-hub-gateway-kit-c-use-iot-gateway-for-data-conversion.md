@@ -1,6 +1,6 @@
 ---
-title: "IoT 게이트웨이에서 Azure IoT Gateway SDK를 통해 데이터 변환 | Microsoft Docs"
-description: "IoT 게이트웨이를 사용하여 Azure IoT Gateway SDK의 사용자 지정 모듈을 통해 센서 데이터의 형식을 변환합니다."
+title: "IoT 게이트웨이에서 Azure IoT Edge를 통해 데이터 변환 | Microsoft Docs"
+description: "IoT 게이트웨이를 사용하여 Azure IoT Edge의 사용자 지정 모듈을 통해 센서 데이터의 형식을 변환합니다."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,21 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: d7897f1a7eee5fbb04cf43da0d0156a6b8fb11f6
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7bf9e64db91cb0fec37ff242bea94dbbd0833054
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-gateway-sdk"></a>IoT 게이트웨이를 사용하여 Azure IoT Gateway SDK를 통해 센서 데이터 변환
+# <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-edge"></a>IoT 게이트웨이를 사용하여 Azure IoT Edge를 통해 센서 데이터 변환
 
 > [!NOTE]
 > 이 자습서을 시작하기 전에 순서대로 다음 단원을 완료했는지 확인합니다.
 > * [Intel NUC를 IoT 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 > * [IoT 게이트웨이를 사용하여 클라우드에 작업 연결 - SensorTag에서 Azure IoT Hub로](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 
-Iot 게이트웨이의 한 가지 목적은 먼저 수집된 데이터를 처리한 후에 클라우드로 보내는 것입니다. Azure IoT Gateway SDK는 데이터 처리 워크플로를 구성하기 위해 만들고 어셈블할 수 있는 모듈을 채택하고 있습니다. 모듈은 메시지를 받고, 관련 작업을 수행한 다음, 다른 모듈에서 처리하도록 해당 메시지를 보냅니다.
+Iot 게이트웨이의 한 가지 목적은 먼저 수집된 데이터를 처리한 후에 클라우드로 보내는 것입니다. Azure IoT Edge에서는 데이터 처리 워크플로를 구성하기 위해 만들고 어셈블할 수 있는 모듈이 도입되었습니다. 모듈은 메시지를 받고, 관련 작업을 수행한 다음, 다른 모듈에서 처리하도록 해당 메시지를 보냅니다.
 
 ## <a name="what-you-learn"></a>학습 내용
 
@@ -39,7 +40,7 @@ SensorTag의 메시지를 다른 형식으로 변환하는 모듈을 만드는 �
 
 * 받은 메시지를 .json 형식으로 변환하는 모듈을 만듭니다.
 * 모듈을 컴파일합니다.
-* Azure IoT Gateway SDK의 BLE 샘플 응용 프로그램에 모듈을 추가합니다.
+* Azure IoT Edge의 BLE 샘플 응용 프로그램에 모듈을 추가합니다.
 * 샘플 응용 프로그램을 실행합니다.
 
 ## <a name="what-you-need"></a>필요한 항목
@@ -61,7 +62,7 @@ SensorTag의 메시지를 다른 형식으로 변환하는 모듈을 만드는 �
    git clone https://github.com/Azure-Samples/iot-hub-c-intel-nuc-gateway-customized-module.git
    ```
 
-   이 모듈은 C 프로그래밍 언어로 작성된 네이티브 Azure Gateway SDK 모듈이며, 받은 메시지의 형식을 다음 형식으로 변환합니다.
+   이 모듈은 C 프로그래밍 언어로 작성된 네이티브 Azure Edge 모듈이며, 받은 메시지의 형식을 다음 형식으로 변환합니다.
 
    ```json
    {"deviceId": "Intel NUC Gateway", "messageId": 0, "temperature": 0.0}

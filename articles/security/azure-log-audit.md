@@ -16,18 +16,18 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: df1778b6a3e74d79e55dcc18c4faff7944063a2f
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 9e5c929251259a86944121e504dc033bc99e3bc4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 로깅 및 감사
-## <a name="10-introduction"></a>1.0 소개
-### <a name="11-overview"></a>1.1 개요
+## <a name="introduction"></a>소개
+### <a name="overview"></a>개요
 현재 및 미래의 Azure 고객이 Azure 플랫폼에서 사용할 수 있는 다양한 보안 관련 기능을 이해하고 사용할 수 있도록 Microsoft는 일련의 백서, 보안 개요, 모범 사례 및 검사 목록을 개발했습니다. 주제는 폭과 깊이에 따라 다양하게 다루어지며 정기적으로 업데이트됩니다. 이 문서는 다음의 요약 섹션에서 설명하는 시리즈의 일부입니다.
-### <a name="12-azure-platform"></a>1.2 Azure 플랫폼
+### <a name="azure-platform"></a>Azure 플랫폼
 Azure는 매우 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 장치를 지원하는 개방적이고 유연한 클라우드 서비스 플랫폼입니다.
 
 예를 들어 다음을 수행할 수 있습니다.
@@ -43,7 +43,7 @@ IT 자산을 만들거나 클라우드 공급자로 마이그레이션하는 경
 
 Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위한 시설에서 응용 프로그램에 이르는 인프라를 설계하며 비즈니스의 보안 요구 사항을 충족하는 신뢰할 수 있는 기반을 제공합니다. 또한 Azure는 다양하게 구성 가능한 보안 옵션 및 제어 능력을 제공하므로 배포에 대한 고유한 요구 사항에 맞게 보안을 사용자 지정할 수 있습니다. 이 문서는 이러한 요구 사항을 충족하는 데 도움이 됩니다.
 
-### <a name="13-abstract"></a>1.3 요약
+### <a name="abstract"></a>요약
 보안 관련 이벤트의 감사와 로깅 및 관련 경고는 효과적인 데이터 보호 전략의 중요한 구성 요소입니다. 보안 로그 및 보고서는 의심스러운 활동에 대한 전자 기록을 제공하며, 내부 공격뿐만 아니라 네트워크의 외부 침투 시도 또는 성공을 나타낼 수 있는 패턴을 검색할 수 있도록 도움을 줍니다. 감사를 사용하여 사용자 활동을 모니터링하고, 규제 준수를 문서화하며, 법정 분석 등을 수행할 수 있습니다. 경고는 보안 이벤트가 발생할 때 즉각적인 알림을 제공합니다.
 
 Microsoft Azure 서비스 및 제품은 구성 가능한 보안 감사 및 로깅 옵션을 제공하여 보안 정책과 메커니즘의 차이를 식별하고 이러한 차이를 해결하여 위반을 방지할 수 있게 합니다. Microsoft 서비스는 옵션, 즉 연속적인 가시성을 제공하는 중앙 집중식 모니터링, 로깅 및 분석 시스템, 시의 적절한 경고 및 장치와 서비스에서 생성하는 많은 양의 정보를 관리하는 데 도움이 되는 보고서 중 일부(및 경우에 따라 모두)를 제공합니다.
@@ -55,7 +55,7 @@ Microsoft Azure 로그 데이터는 분석을 위해 SIEM(Security Incident and 
 > [!Note]
 > 여기에 포함된 특정 권장 사항으로 인해 데이터, 네트워크 또는 계산 리소스 사용량이 증가하고, 라이선스 또는 구독 비용이 증가할 수 있습니다.
 
-## <a name="20-types-of-logs-in-azure"></a>2.0 Azure의 로그 유형
+## <a name="types-of-logs-in-azure"></a>Azure의 로그 유형
 클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 로그는 응용 프로그램을 유지하고 정상 상태에서 실행하도록 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 로깅 데이터를 사용하여 응용 프로그램에 대해 깊이 이해할 수 있습니다. 이러한 정보를 통해 응용 프로그램 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
 
 Azure에서는 모든 Azure 서비스에 대해 광범위한 로깅을 생성합니다. 이러한 로그는 다음과 같은 유형으로 분류됩니다.
@@ -79,7 +79,7 @@ Azure에서는 모든 Azure 서비스에 대해 광범위한 로깅을 생성합
 |[Application insight](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)|로그, 예외 및 사용자 지정 진단|    여러 플랫폼의 웹 개발자를 위한 APM(Application Performance Management) 서비스|    REST API, [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
 |데이터 처리/보안 경고|    Azure Security Center 경고, OMS 경고|    보안 정보 및 경고입니다.|     REST API, JSON|
 
-### <a name="21-activity-log"></a>2.1 활동 로그
+### <a name="activity-log"></a>활동 로그
 [Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 정보를 제공합니다. 활동 로그는 구독에 대한 [제어 평면 이벤트](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/)를 보고하기 때문에 이전에는 "감사 로그" 또는 "작업 로그"로 알려져 있었습니다. 활동 로그를 사용하면 구독의 리소스에서 수행한 모든 쓰기 작업(PUT, POST, DELETE)에 대한 '무엇을, 누가, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기(GET) 작업은 포함되지 않습니다.
 
 여기서 PUT, POST, DELETE는 리소스에 포함된 쓰기 작업 활동 로그를 모두 참조합니다. 예를 들어 활동 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다.
@@ -105,7 +105,7 @@ Azure Portal, [CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli),
 -    로그 프로필을 사용하여 활동 로그를 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)로 내보냅니다.
 
 하나의 내보내는 로그와 동일한 구독에 있지 않은 저장소 계정 또는 [Event Hub 네임스페이스](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive)를 사용할 수 있습니다. 설정을 구성하는 사용자는 두 구독 모두에 대해 적절한 [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) 액세스 권한을 가지고 있어야 합니다.
-### <a name="22-azure-diagnostic-logs"></a>2.2 Azure 진단 로그
+### <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 Azure 진단 로그는 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공하는 리소스에서 내보냅니다. 이러한 로그의 내용은 리소스 종류(예를 들어 [Windows 이벤트 시스템 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)는 VM에 대한 진단 로그의 한 범주이며, [Blob, 테이블 및 큐 로그](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account)는 저장소 계정에 대한 진단 로그의 범주임)에 따라 다르며, 구독에 있는 리소스에서 수행된 작업에 대한 정보를 제공하는 활동 로그와는 다릅니다.
 
 ![Azure 진단 로그](./media/azure-log-audit/azure-log-audit-fig2.png)
@@ -148,7 +148,7 @@ Azure 진단 로그는 PowerShell, CLI(명령줄 인터페이스) 및 REST API�
 |||Microsoft.StreamAnalytics/streamingjobs|작성|
 |서비스 버스|[Azure Service Bus 진단 로그](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
-### <a name="23-azure-active-directory-reporting"></a>2.3 Azure Active Directory 보고
+### <a name="azure-active-directory-reporting"></a>Azure Active Directory 보고
 Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및 감사 보고서가 포함되어 있습니다. [Azure Active Directory 감사 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide)를 사용하면 고객이 자신의 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. 권한 있는 작업에는 권한 상승 변경(예: 역할 만들기 또는 암호 재설정), 정책 구성 변경(예: 암호 정책) 또는 디렉터리 구성 변경(예: 도메인 페더레이션 설정 변경)이 포함됩니다.
 
 보고서는 이벤트 이름의 감사 레코드, 작업을 수행한 행위자, 변경으로 인한 영향을 받은 대상 리소스, 날짜 및 시간(UTC)을 제공합니다. 고객은 [감사 로그 보기](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)에서 설명한 대로 [Azure Portal](https://portal.azure.com/)을 통해 Azure Active Directory에 대한 감사 이벤트 목록을 검색할 수 있습니다. 포함된 보고서 목록은 다음과 같습니다.
@@ -174,7 +174,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 장기 보존 기간 동안 감사 이벤트를 저장하려는 고객의 경우 보고 API를 사용하여 [감사 이벤트](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events)를 정기적으로 별도의 데이터 저장소로 가져올 수 있습니다.
 
-### <a name="24-virtual-machine-logs-using-azure-diagnostics"></a>2.4 Azure 진단을 사용하는 가상 컴퓨터 로그
+### <a name="virtual-machine-logs-using-azure-diagnostics"></a>Azure 진단을 사용하는 가상 컴퓨터 로그
 [Azure 진단](https://docs.microsoft.com/azure/azure-diagnostics)은 배포된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure의 기능입니다. 별도의 여러 원본에서 진단 확장을 사용할 수 있습니다. [Azure 클라우드 서비스 웹 및 작업자 역할](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)이 현재 지원되고 있습니다.
 
 ![Azure 진단을 사용하는 가상 컴퓨터 로그](./media/azure-log-audit/azure-log-audit-fig3.png)
@@ -191,7 +191,7 @@ Microsoft Windows를 실행하는 [Azure Virtual Machines](https://azure.microso
 
 -    [Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 기능으로 Windows 가상 컴퓨터 만들기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-### <a name="25-storage-analytics"></a>2.5 저장소 분석
+### <a name="storage-analytics"></a>저장소 분석
 [Azure 저장소 분석](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)은 로깅을 수행하며 저장소 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 저장소 계정에 대한 문제를 진단할 수 있습니다. 저장소 분석 로깅은 [Blob, 큐 및 테이블 서비스](https://docs.microsoft.com/azure/storage/storage-introduction)에서 사용할 수 있습니다. 저장소 분석은 저장소 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다.
 
 이 정로를 사용하면 개별 요청을 모니터링하고 저장소 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다. 서비스 끝점에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 저장소 계정의 활동이 Blob 끝점에는 있지만 테이블 또는 큐 끝점에는 없는 경우 Blob service와 관련된 로그만 만들어집니다.
@@ -220,7 +220,7 @@ Microsoft Windows를 실행하는 [Azure Virtual Machines](https://azure.microso
 |     분석 데이터에 대한 요청 |     오류 코드가 304(수정되지 않음)인 실패한 GET 요청 |
 | 로그 만들기/삭제 등 저장소 분석 자체에서 수행한 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) 및 [저장소 분석 로그 형식](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) 항목에 나와 있습니다. | 기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) 및 [저장소 분석 로그 형식](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format)에서 설명하고 있습니다. |
 
-### <a name="26-azure-networking-logs"></a>2.6 Azure 네트워킹 로그
+### <a name="azure-networking-logs"></a>Azure 네트워킹 로그
 Azure의 네트워킹 로깅 및 모니터링은 포괄적이며 다음 두 가지 범주를 포함합니다.
 
 -    [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) - 시나리오 기반 모니터링이 Network Watcher 기능과 함께 제공됩니다. 이 서비스에는 패킷 캡처, 다음 홉, IP 흐름 확인, 보안 그룹 보기, NSG 흐름 로그가 포함되어 있습니다. 시나리오 수준 모니터링에서는 개별 네트워크 리소스 모니터링과 달리 네트워크 리소스의 종단 간 보기를 제공합니다.
@@ -233,7 +233,7 @@ Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나
 
 **NSG 흐름 로깅** - 네트워크 보안 그룹의 흐름 로그를 사용하면 그룹의 보안 규칙으로 허용되거나 거부되는 트래픽과 관련된 로그를 캡처할 수 있습니다. 이러한 흐름 로그는 JSON 형식으로 작성되고, 규칙별 아웃바운드/인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜) 및 트래픽이 허용되거나 거부된 경우를 보여 줍니다.
 
-### <a name="27-network-security-group-flow-logging"></a>2.7 네트워크 보안 그룹 흐름 로깅
+### <a name="network-security-group-flow-logging"></a>네트워크 보안 그룹 흐름 로깅
 
 [네트워크 보안 그룹 흐름 로그](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)는 네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 볼 수 있는 Network Watcher의 기능입니다. 이러한 흐름 로그는 JSON 형식으로 작성되고, 규칙별 아웃바운드/인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜) 및 트래픽이 허용되거나 거부된 경우를 보여 줍니다.
 
@@ -267,7 +267,7 @@ Network Watcher는 진단 로그 보기를 제공합니다. 이 보기에는 진
 
 -    [네트워크 구독 제한](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits) - 제한과 대조한 네트워크 리소스 사용량을 볼 수 있습니다.
 
-### <a name="28-application-insight"></a>2.8 Application Insight
+### <a name="application-insight"></a>Application Insight
 
 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)는 여러 플랫폼의 웹 개발자를 위한 확장성 있는 APM(Application Performance Management) 서비스입니다. 이를 사용하여 라이브 웹 응용 프로그램을 모니터링합니다. 성능 이상을 자동으로 검색합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다.
 
@@ -315,7 +315,7 @@ Application Insights는 응용 프로그램 팀에서 앱의 작동 방식과 �
 |[REST API](https://dev.applicationinsights.io/)|메트릭 및 원시 데이터에 대한 쿼리를 실행하는 코드를 작성합니다.||
 |[연속 내보내기](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-export-telemetry)|원시 데이터가 도착하는 즉시 대량으로 저장소에 내보냅니다.||
 
-### <a name="29-azure-security-center-alerts"></a>2.9 Azure Security Center 경고
+### <a name="azure-security-center-alerts"></a>Azure Security Center 경고
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)는 Azure 리소스, 네트워크 및 연결된 파트너 솔루션(예: 방화벽 및 끝점 보호 솔루션)의 로그 데이터를 자동으로 수집, 분석 및 통합하여 실제 위협을 검색하고 가양성을 줄입니다. 우선 순위가 지정된 보안 경고의 목록은 문제를 신속하게 조사해야 하는 정보 및 공격을 해결하는 방법에 대한 권장 사항과 함께 보안 센터에 표시됩니다.
 
 보안 센터 위협 감지는 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 보안 정보를 자동으로 수집하여 작동합니다. 위협을 식별하도록 종종 여러 소스의 정보를 상호 연결하는 이 정보를 분석합니다. 보안 경고는 위협을 해결하는 방법에 대한 권장 사항과 함께 보안 센터에서 우선 순위가 지정됩니다.
@@ -334,7 +334,7 @@ Application Insights는 응용 프로그램 팀에서 앱의 작동 방식과 �
 많은 보안 작업 및 사고 대응 팀은 보안 경고를 조사하고 심사하기 위한 시작점으로 SIEM(보안 정보 및 이벤트 관리) 솔루션을 활용합니다. Azure 로그 통합을 사용하여 고객은 Azure 진단 및 Azure 감사 로그에 수집된 Azure Security Center 경고와 가상 컴퓨터 보안 이벤트를 거의 실시간으로 로그 분석 또는 SIEM 솔루션과 동기화할 수 있습니다.
 
 
-## <a name="30-log-analytics"></a>3.0 Log Analytics
+## <a name="log-analytics"></a>Log Analytics
 
 Log Analytics는 클라우드 및 온-프레미스 환경의 리소스로 생성된 데이터를 수집 및 분석할 수 있게 하는 [OMS(Operations Management Suite)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 서비스입니다. 통합 검색 및 사용자 지정 대시보드를 사용하여 실제 위치에 관계없이 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 정보를 제공합니다.
 
@@ -388,7 +388,7 @@ Log Analytics의 중심에는 Azure 클라우드에서 호스팅되는 OMS 리�
 ||Microsoft.Web/<br>sites/<br>slots|||||
 
 
-## <a name="40-log-integration-with-on-premises-siem-systems"></a>4.0 온-프레미스 SIEM 시스템과 로그 통합
+## <a name="log-integration-with-on-premises-siem-systems"></a>온-프레미스 SIEM 시스템과 로그 통합
 [Azure 로그 통합](https://www.microsoft.com/download/details.aspx?id=53324)을 사용하면 Azure 리소스의 원시 로그를 온-프레미스 **SIEM(Security Information and Event Management) 시스템**에 통합할 수 있습니다.
 
 ![로그 통합](./media/azure-log-audit/azure-log-audit-fig9.png)

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 2684e09daa3554a5768a96ae18757a669e221efe
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 1a0f69e6530f1ab3734e1a44e5be056aacb0fff0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -29,7 +30,7 @@ Azure 부하 분산 장치는 들어오는 트래픽의 공용 IP 주소 및 포
 
 *servicedefinition.csdef* 파일은 끝점 구성을 포함하며, 웹 역할 또는 작업자 역할 배포에 대한 역할 인스턴스가 여러 개 있는 경우 부하 분산 장치가 설정됩니다. 클라우드 배포에 인스턴스를 추가하는 방법은 서비스 구성 파일(.csfg)에서 인스턴스 개수를 변경하는 것입니다.
 
-다음 그림에서는 공용 및 개인 TCP 포트 80에 대해 3개의 가상 컴퓨터 간에 공유되는 암호화된 웹 트래픽의 부하 분산 끝점을 보여 줍니다. 이 세 대의 가상 컴퓨터는 부하 분산 집합에 속합니다.
+다음 그림에서는 공용 및 개인 TCP 포트 80에 대해 3개의 가상 컴퓨터 간에 공유되는 웹 트래픽의 부하가 분산된 끝점을 보여줍니다. 이 세 대의 가상 컴퓨터는 부하 분산 집합에 속합니다.
 
 ![공용 부하 분산 장치 예](./media/load-balancer-internet-overview/IC727496.png))
 

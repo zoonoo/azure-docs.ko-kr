@@ -1,6 +1,6 @@
 ---
-title: "Visual Studio 및 C#와 함께 Apache Storm 토폴로지 | Microsoft Docs"
-description: "Visual Studio에 HDInsight 도구를 사용하여 Visual Studio에서 단순한 단어 개수 토폴로지를 만들어 C#로 Storm 토폴로지를 만드는 방법에 대해 알아봅니다."
+title: "Visual Studio 및 C#과 함께 Apache Storm 토폴로지 - Azure | Microsoft Docs"
+description: "Visual Studio용 Hadoop 도구를 사용하여 Visual Studio에서 단순한 단어 개수 토폴로지를 만들어 C#에서 Storm 토폴로지를 만드는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,16 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: cc6b16b559c4d1eafc570d0361c710487021f175
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 7b267ba427da276f53326c9068417521c8976e63
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="develop-c-topologies-for-apache-storm-on-hdinsight-using-hadoop-tools-for-visual-studio"></a>Visual Studio용 Hadoop 도구를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발
 
-Visual Studio에 HDInsight 도구를 사용하여 C# Storm 토폴로지를 만드는 방법에 대해 알아봅니다. 이 문서는 Visual Studio에서 Storm 프로젝트를 만들고, 프로젝트를 로컬로 테스트하고, HDInsight 클러스터에서 Apache Storm에 배포하는 과정을 보여 줍니다.
+Visual Studio용 Data Lake(Hadoop) 도구를 사용하여 C# Storm 토폴로지를 만드는 방법에 대해 알아봅니다. 이 문서는 Visual Studio에서 Storm 프로젝트를 만들고, 프로젝트를 로컬로 테스트하고, HDInsight 클러스터에서 Apache Storm에 배포하는 과정을 보여 줍니다.
 
 또한 C# 및 Java 구성 요소를 사용하는 하이브리드 토폴로지를 만드는 방법에 대해서도 배웁니다.
 
@@ -53,26 +54,26 @@ Visual Studio에 HDInsight 도구를 사용하여 C# Storm 토폴로지를 만�
 
 * Azure SDK 2.9.5 이상
 
-* Visual Studio용 HDInsight 도구: Visual Studio용 HDInsight 도구를 설치하고 구성하려면 [Visual Studio용 HDInsight 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md) 을 참조하세요.
+* Visual Studio용 Data Lake 도구: 설치 및 구성하려면 [Visual Studio용 Data Lake 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
   > [!NOTE]
-  > Visual Studio용 HDInsight 도구는 Visual Studio Express에서 지원되지 않습니다.
+  > Visual Studio용 Data Lake 도구는 Visual Studio Express에서 지원되지 않습니다.
 
-* HDInsight 클러스터의 Apache Storm: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](hdinsight-apache-storm-tutorial-get-started.md) 을 참조하세요.
+* HDInsight 클러스터의 Apache Storm: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](hdinsight-apache-storm-tutorial-get-started.md)을 참조하세요.
 
   > [!IMPORTANT]
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 ## <a name="templates"></a>템플릿
 
-Visual Studio용 HDInsight 도구는 다음 템플릿을 제공합니다.
+Visual Studio용 Data Lake 도구는 다음 템플릿을 제공합니다.
 
 | 프로젝트 형식 | 데모 |
 | --- | --- |
 | Storm 응용 프로그램 |빈 Storm 토폴로지 프로젝트 |
 | Storm Azure SQL 기록기 샘플 |Azure SQL 데이터베이스에 쓰는 방법 |
-| Storm DocumentDB 판독기 샘플 |Azure DocumentDB에서 읽는 방법 |
-| Storm DocumentDB 기록기 샘플 |Azure DocumentDB에 쓰는 방법 |
+| Storm Azure Cosmos DB 판독기 샘플 |Azure Cosmos DB에서 읽는 방법 |
+| Storm Azure Cosmos DB 기록기 샘플 |Azure Cosmos DB에 기록하는 방법 |
 | Storm 이벤트 허브 판독기 샘플 |Azure 이벤트 허브에서 읽는 방법 |
 | Storm 이벤트 허브 기록기 샘플 |Azure 이벤트 허브에 쓰는 방법 |
 | Storm HBase 판독기 샘플 |HDInsight 클러스터의 HBase에서 읽는 방법 |
@@ -95,7 +96,7 @@ HBase 판독기 및 기록기 템플릿은 HBase Java API가 아니라 HBase RES
 
 ## <a name="create-a-c-topology"></a>C# 토폴로지 만들기
 
-1. 최신 버전의 Visual Studio용 HDInsight 도구를 아직 설치하지 않은 경우 [Visual Studio용 HDInsight 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
+1. 최신 버전의 Visual Studio용 Data Lake 도구를 아직 설치하지 않은 경우 [Visual Studio용 Data Lake 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
 2. Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 
@@ -420,9 +421,9 @@ return topologyBuilder;
 
 **Storm 샘플** 프로젝트에 설명된 대로 구성 요소가 트랜잭션인지 여부는 구성에 따라 런타임으로 설정할 수 있습니다.
 
-## <a name="hybrid-topology"></a>하이브리드 토폴로지
+## <a name="hybrid-topology-with-c-and-java"></a>C# 및 Java를 통한 하이브리드 토폴로지
 
-Visual Studio용 HDInsight 도구를 사용하여 일부 구성 요소는 C#이고 다른 구성 요소는 Java인 하이브리드 토폴로지를 만들 수도 있습니다.
+Visual Studio용 Data Lake 도구를 사용하여 일부 구성 요소는 C#이고 다른 구성 요소는 Java인 하이브리드 토폴로지를 만들 수도 있습니다.
 
 예제 하이브리드 토폴로지의 경우 프로젝트를 만들고 **Storm 하이브리드 샘플**을 선택합니다. 이 샘플 형식은 다음 개념을 보여 줍니다.
 
@@ -514,7 +515,7 @@ SCP.NET의 최신 릴리스는 NuGet을 통해 패키지 업그레이드를 지�
 > 1. **솔루션 탐색기**에서 프로젝트의 이름을 마우스 오른쪽 단추를 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 > 2. **검색** 필드를 사용하여 검색한 다음 **Microsoft.SCP.Net.SDK**를 프로젝트에 추가합니다.
 
-## <a name="troubleshooting"></a>문제 해결
+## <a name="troubleshooting-common-issues-with-topologies"></a>토폴로지의 일반적인 문제 해결
 
 ### <a name="null-pointer-exceptions"></a>Null 포인터 예외
 
@@ -635,7 +636,7 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
     }
     ```
 
-    코드 주석을 읽어보세요. 이 코드는 **LocalContext** 를 사용하여 개발 환경에서 구성 요소를 실행하며, 구성 요소 간의 데이터 스트림을 로컬 드라이브에 텍스트 파일로 유지합니다.
+    코드 주석을 읽어보세요. 이 코드는 **LocalContext**를 사용하여 개발 환경에서 구성 요소를 실행하며, 구성 요소 간의 데이터 스트림을 로컬 드라이브에 텍스트 파일로 유지합니다.
 
 1. **Program.cs**를 열고 **주** 메서드에 다음을 추가합니다.
 

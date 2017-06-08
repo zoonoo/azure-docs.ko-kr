@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory B2B 공동 작업의 제한 사항 | Microsoft Docs"
-description: "Azure Active Directory B2B 공동 작업 미리 보기의 현재 제한 사항"
+description: "Azure Active Directory B2B 공동 작업의 현재 제한 사항"
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 05/04/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: cdc951d4e16e7f0df425dba7c33d86255276f526
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: f13f4ac6e32f568fb5f56261b542e0e2c49f5b3d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/13/2017
 
 
 ---
@@ -33,7 +34,7 @@ Azure AD B2B를 통해 리소스 조직(초대하는 조직)에서 다단계 인
 
 
 ## <a name="instant-on"></a>인스턴트 온
-B2B 공동 작업 흐름에서 해당 디렉터리에 사용자를 추가하고 초대 상환, 앱 할당 등에서 사용자를 동적으로 업데이트합니다. 업데이트 및 쓰기는 일반적으로 한 디렉터리 인스턴스에서 발생하며 모든 인스턴스에 걸쳐 복제해야 합니다. 복제를 완료하는 데는 0이 아닌 시간이 사용될 수 있습니다. 개체가 디렉터리의 한 인스턴스에서 기록 또는 업데이트되고 이 개체를 검색하기 위한 호출이 다른 인스턴스로 부하 분산될 경우에는 이로 인해 권한 부여 문제가 발생했습니다. 이러한 복제 대기 시간을 없애거나 줄이기 위해 많은 작업을 했지만 이러한 문제가 드물지만 여전히 발생할 수 있습니다. 이 문제가 발생할 경우 새로 고치거나 다시 시도하면 도움이 됩니다. API를 사용하여 앱을 작성할 경우 백오프를 사용하여 다시 시도하는 것은 이 문제를 완화하기 위한 좋은 방어 사례입니다.
+B2B 공동 작업 흐름에서 해당 디렉터리에 사용자를 추가하고 초대 상환, 앱 할당 등에서 사용자를 동적으로 업데이트합니다. 업데이트 및 쓰기는 일반적으로 한 디렉터리 인스턴스에서 발생하며 모든 인스턴스에 걸쳐 복제해야 합니다. 모든 인스턴스가 업데이트되면 복제가 완료됩니다. 개체가 디렉터리의 한 인스턴스에서 기록 또는 업데이트되고 이 개체를 검색하기 위한 호출이 다른 인스턴스로 부하 분산될 경우에는 이로 인해 권한 부여 문제가 발생했습니다. 이러한 복제 대기 시간을 없애거나 줄이기 위해 많은 작업을 했지만 이러한 문제가 드물지만 여전히 발생할 수 있습니다. 이 문제가 발생할 경우 새로 고치거나 다시 시도하면 도움이 됩니다. API를 사용하여 앱을 작성할 경우 백오프를 사용하여 다시 시도하는 것은 이 문제를 완화하기 위한 좋은 방어 사례입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

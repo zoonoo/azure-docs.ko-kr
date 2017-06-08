@@ -3,7 +3,7 @@ title: "Azure Application Insights로 ASP.NET에 대한 웹앱 분석 설정 | M
 description: "Azure 또는 온-프레미스에 호스트되는 ASP.NET 웹 사이트에 대한 성능, 가용성 및 사용 현황 분석을 구성합니다."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
 ms.service: application-insights
@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/04/2017
+ms.date: 05/15/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 04bac05363f0f7468e41ccfd96a85e4bd7bf761c
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: af932e111ebc60ee86c823e65000d39fa6ea81cb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -52,7 +52,12 @@ Application Insights 구성 페이지로 계속 진행:
 
 **a.** Azure에 액세스하는 데 사용할 계정 및 구독을 선택합니다.
 
-**b.** Azure에서 앱의 데이터를 보려는 리소스를 선택합니다. 일반적으로 각 앱에 대해 별도의 리소스를 만듭니다. 데이터가 저장되는 위치나 리소스 그룹을 설정하려면 **설정 구성**을 클릭합니다. 리소스 그룹은 데이터에 대한 액세스를 제어하는 데 사용됩니다. 예를 들어, 동일한 시스템의 부분을 형성하는 몇 개의 앱이 있는 경우 해당 앱의 Application Insights 데이터를 동일한 리소스 그룹에 배치할 수 있습니다.
+**b.** Azure에서 앱의 데이터를 보려는 리소스를 선택합니다. 일반적으로
+
+* 단일 응용 프로그램의 [여러 구성 요소에 대해 단일 리소스](app-insights-monitor-multi-role-apps.md)를 사용합니다. 
+* 관계 없는 응용 프로그램에 대해 별도의 리소스를 만듭니다.
+ 
+데이터가 저장되는 위치나 리소스 그룹을 설정하려면 **설정 구성**을 클릭합니다. 리소스 그룹은 데이터에 대한 액세스를 제어하는 데 사용됩니다. 예를 들어, 동일한 시스템의 부분을 형성하는 몇 개의 앱이 있는 경우 해당 앱의 Application Insights 데이터를 동일한 리소스 그룹에 배치할 수 있습니다.
 
 **c.** 비용을 부담하지 않으려면 무료 데이터 볼륨 한도에서 상한 값을 설정합니다. Application Insights는 원격 분석이 특정 볼륨까지 무료입니다. 리소스를 만든 후 포털에서 **기능 및 가격** > **데이터 볼륨 관리** > **일일 볼륨 상한**을 열어 선택 항목을 변경할 수 있습니다.
 

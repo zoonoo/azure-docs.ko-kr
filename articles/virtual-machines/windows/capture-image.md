@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7316782a1884f4affe5041bf767aa0e32946fbe0
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 8f1d488fd8f71bf90c8bf7b7c1544445ffbd7686
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -26,8 +27,30 @@ ms.lasthandoff: 04/27/2017
 이 문서에서는 Azure PowerShell을 사용하여 일반화된 Azure VM 이미지를 만드는 방법을 보여줍니다. 그런 다음 이미지를 사용하여 다른 VM을 만들 수 있습니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결된 데이터 디스크가 포함됩니다. 새 VM을 만들 때 해당 리소스를 설정해야 하므로 이미지는 가상 네트워크 리소스를 포함하지 않습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-* 이미 [일반화된 VM](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 갖고 있어야 합니다. VM을 일반화하면 여러 정보 중에서 모든 개인 계정 정보가 제거되고 이미지로 사용할 컴퓨터가 준비됩니다. `sudo waagent -deprovision+user`을 사용하여 Linux VM을 일반화한 다음 PowerShell을 사용하여 VM을 캡처할 수 있습니다. VM을 캡처하는 데 CLI를 사용하는 방법에 대한 정보는 [Azure CLI를 사용하여 Linux 가상 컴퓨터 일반화하고 캡처하는 방법](../linux/capture-image.md)을 참조하세요.
-* Azure PowerShell 버전 1.0.x 이상을 설치해야 합니다. PowerShell을 아직 설치하지 않은 경우 설치 단계에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요.
+Azure PowerShell 버전 1.0.x 이상을 설치해야 합니다. PowerShell을 아직 설치하지 않은 경우 설치 단계에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요.
+
+## <a name="generalize-the-windows-vm-using-sysprep"></a>Sysprep을 사용하여 Windows VM 일반화
+
+Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 이미지로 사용할 컴퓨터를 준비합니다. Sysprep에 대한 자세한 내용은 [Sysprep 사용 방법: 소개](http://technet.microsoft.com/library/bb457073.aspx)를 참조하세요.
+
+가상 컴퓨터에서 실행되는 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
+> [!IMPORTANT]
+> Azure에 VHD를 업로드하기 전에 Sysprep을 처음으로 실행하는 경우 Sysprep을 실행하기 전에 [VM을 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)해야 합니다. 
+> 
+> 
+
+1. Windows 가상 컴퓨터에 로그인
+2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 **%windir%\system32\sysprep**로 변경한 후 `sysprep.exe`를 실행합니다.
+3. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
+4. **종료 옵션**에서 **종료**를 선택합니다.
+5. **확인**을 클릭합니다.
+   
+    ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
+6. Sysprep이 완료되면 가상 컴퓨터를 종료합니다. VM을 다시 시작하지 마세요.
+
+
+`sudo waagent -deprovision+user`을 사용하여 Linux VM을 일반화한 다음 PowerShell을 사용하여 VM을 캡처할 수 있습니다. VM을 캡처하는 데 CLI를 사용하는 방법에 대한 정보는 [Azure CLI를 사용하여 Linux 가상 컴퓨터 일반화하고 캡처하는 방법](../linux/capture-image.md)을 참조하세요.
 
 ## <a name="log-in-to-azure-powershell"></a>Azure PowerShell에 로그인합니다.
 1. Azure PowerShell을 열고 Azure 계정에 로그인합니다.

@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 741e67d1419eb54e0ca1913dd0d4fb5e56895bbd
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 9035dd639433f1edc628db85f1663add4abfdbd3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/18/2017
 스크립트 동작을 사용하여 Azure HDInsight에 Solr을 설치하는 방법에 대해 알아봅니다. Solr은 강력한 검색 플랫폼으로서 Hadoop에서 관리하는 데이터에 대한 엔터프라이즈 수준의 검색 기능을 제공합니다.
 
 > [!IMPORTANT]
-    > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)를 참조하세요.
+    > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
 
 > [!IMPORTANT]
 > 이 문서에 사용된 샘플 스크립트는 특정 구성의 Solr 클러스터를 만듭니다. 다른 컬렉션, 분할, 스키마, 복제 등으로 Solr 클러스터를 구성하려는 경우 이 스크립트와 Solr 바이너리를 수정해야 합니다.

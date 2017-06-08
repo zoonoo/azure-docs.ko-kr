@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2017
 ms.author: joflore
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: f318499ac18a9d03bb108675de199481ab52fd1c
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0c586692720512d2822e67994e22e1f6d50fd921
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -28,20 +28,43 @@ ms.lasthandoff: 05/03/2017
 
 ## <a name="administrator-password-policy-differences"></a>관리자 암호 정책 차이점
 
-Microsoft는 모든 Azure 관리자 역할(예: 전역 관리자, 기술 지원팀 관리자, 암호 관리자 등)에 강력한 기본 암호 재설정 정책을 적용합니다.
+Microsoft는 모든 Azure 관리자 역할(예: 전역 관리자, 기술 지원팀 관리자, 암호 관리자 등)에 강력한 기본 암호 재설정 **두 개의 게이트** 정책을 적용합니다.
 
 그러면 관리자가 보안 질문을 사용하지 않도록 설정하고 다음을 적용합니다.
 
-인증 데이터의 한 부분을 요구하는 어떤 게이트 정책은 다음과 같은 경우에 적용됩니다.
+두 가지 인증 데이터(전자 메일 주소 **및** 전화 번호)를 요구하는 두 개의 게이트 정책은 다음과 같은 경우에 적용됩니다.
+
+* 모든 Azure 관리자 역할
+  * 기술 지원팀 관리자
+  * 서비스 지원 관리자
+  * 대금 청구 관리자
+  * 파트너 계층1 지원
+  * 파트너 계층2 지원
+  * Exchange 서비스 관리자
+  * Lync 서비스 관리자
+  * 사용자 계정 관리자
+  * 디렉터리 작성자
+  * 전역 관리자/회사 관리자
+  * SharePoint 서비스 관리자
+  * 규정 준수 관리자
+  * 응용 프로그램 관리자
+  * 보안 관리자
+  * 권한 있는 역할 관리자
+  * Intune 서비스 관리자
+  * 응용 프로그램 프록시 서비스 관리자
+  * CRM 서비스 관리자
+  * Power BI 서비스 관리자
+  
+* 평가판에서 30일 경과 **또는**
+* 베니티 도메인이 있는 경우(contoso.com) **또는**
+* Azure AD Connect가 온-프레미스 디렉터리에서 ID를 동기화하는 경우
+
+### <a name="exceptions"></a>예외
+한 가지 인증 데이터(전자 메일 주소 **또는** 전화 번호)를 요구하는 한 개의 게이트 정책은 다음과 같은 경우에 적용됩니다.
 
 * 첫 번째 30일 평가판 **또는**
 * 베니티 도메인이 없는 경우(*.onmicrosoft.com) **및** Azure AD Connect가 ID를 동기화하지 않는 경우
 
-두 가지 인증 데이터를 요구하는 두 개의 게이트 정책은 다음과 같은 경우에 적용됩니다.
-
-* 평가판에서 30일 경과 **또는**
-* 베니티 도메인이 있는 경우(contoso.com) **또는**
-* Azure AD Connect가 온-프레미스 디렉터리에서 ID를 동기화하는 경우
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>모든 사용자 계정에 적용되는 UserPrincipalName 정책
 
@@ -118,3 +141,4 @@ Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Mi
 * [**기술 심층 분석**](active-directory-passwords-how-it-works.md) - 작동 방식을 이해하기 위해 심층 분석
 * [**질문과 대답**](active-directory-passwords-faq.md) - 어떤 방식으로? 그 이유는 무엇을? 어디서? 누가? 언제? - 많은 분들이 항상 묻는 질문에 대한 답변입니다.
 * [**문제 해결**](active-directory-passwords-troubleshoot.md) - SSPR의 일반적인 문제 해결 방법 알아보기
+

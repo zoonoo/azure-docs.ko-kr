@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 21cdfbbc457aad1cd3b1a5b20745eee4286a78bb
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: cf2a063acb2a36af2ff71f45159b2e23c9971b32
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -59,7 +59,7 @@ VNET 연결을 사용하려면 Azure Portal 포털에서 API Management 서비�
 > 또한 이 다이어그램은 다양한 끝점에 대한 IP 주소를 보여주지만, API Management 서비스**만** 이 구성된 호스트 이름에서 응답합니다.
 
 > [!IMPORTANT]
-> Resource Manager VNET에 Azure API Management 인스턴스를 배포할 때 서비스이 Azure API Management 인스턴스를 제외한 다른 리소스가 포함되어 있는 전용 서브넷에 있어야 합니다. 다른 리소스가 포함된 Resource Manager VNET 서브넷에 Azure API Management 인스턴스를 배포하려고 하면 배포가 실패합니다.
+> Resource Manager VNET에 Azure API Management 인스턴스를 배포할 때 서비스는 Azure API Management 인스턴스를 제외한 다른 리소스가 포함되어 있는 전용 서브넷에 있어야 합니다. 다른 리소스가 포함된 Resource Manager VNET 서브넷에 Azure API Management 인스턴스를 배포하려고 하면 배포가 실패합니다.
 >
 >
 
@@ -94,8 +94,7 @@ API 관리 서비스가 VNET에 연결된 후에는 공용 서비스에 액세�
 * **사용자 지정 DNS 서버 설치**: API Management 서비스는 여러 API 서비스에 따라 달라집니다. API Management가 사용자 지정 DNS 서버를 사용하는 VNET에서 호스트되는 경우 해당 Azure 서비스의 호스트 이름을 확인해야 합니다. 사용자 지정 DNS 설정에 대한 [이](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 지침을 따르세요. 아래의 포트 테이블 및 기타 네트워크 요구 사항을 참조하세요.
 
 > [!IMPORTANT]
-> VNET에 사용자 지정 DNS 서버를 사용하고 있는 경우에는 API Management 서비스를 배포하기 **전에** 설정해야 합니다. 또는 새 DNS 서버 설정을 선택하기 위해 서비스를 호스팅하는 CloudService를 다시 시작해야 합니다.
->
+> VNET에 사용자 지정 DNS 서버를 사용하고 있는 경우에는 API Management 서비스를 배포하기 **전에** 설정하는 것이 좋습니다. 그렇지 않으면 [네트워크 구성 작업 적용](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservices#ApiManagementServices_ApplyNetworkConfigurationUpdates)을 실행하여 DNS 서버를 변경할 때마다 API Management 서비스를 업데이트해야 합니다.
 
 * **API Management에 필요한 포트**: API Management가 배포된 인바운드 및 아웃바운드 트래픽은 [네트워크 보안 그룹][Network Security Group]을 사용하여 제어할 수 있습니다. 이러한 포트를 사용할 수 없는 경우 API Management가 정상적으로 작동하지 않고 액세스하지 못하게 될 수 있습니다. 이러한 포트가 하나 이상 차단되는 것은 VNET에서 API Management를 사용하는 경우 가장 일반적인 잘못된 구성 문제입니다.
 
@@ -109,13 +108,14 @@ API 관리 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 �
 | * / 1433 |아웃바운드 |TCP |Azure SQL에 대한 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
 | * / 11000 - 11999 |아웃바운드 |TCP |Azure SQL V12에 대한 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
 | * / 14000 - 14999 |아웃바운드 |TCP |Azure SQL V12에 대한 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
-| * / 9350 - 9354 |아웃바운드 |TCP |Service Bus에 대한 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
-| * / 5671 |아웃바운드 |AMQP |이벤트 허브 정책에 대한 로그의 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
+| * / 5671 |아웃바운드 |AMQP |이벤트 허브 정책 및 모니터링 에이전트에 대한 로그의 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
 | 6381 - 6383 / 6381 - 6383 |인바운드 및 아웃바운드 |UDP |Redis 캐시에 대한 종속성 |VIRTUAL_NETWORK / VIRTUAL_NETWORK |외부 및 내부 |-
 | * / 445 |아웃바운드 |TCP |GIT의 Azure 파일 공유에 대한 종속성 |VIRTUAL_NETWORK / 인터넷 |외부 및 내부 |
 | * / * | 인바운드 |TCP |Azure 인프라 부하 분산 장치 | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |외부 및 내부 |
 
 * **SSL 기능**: SSL 인증서 체인 작성 및 유효성 검사를 사용하도록 설정하려면 API Management에서 ocsp.msocsp.com, mscrl.microsoft.com 및 crl.microsoft.com으로의 아웃바운드 네트워크 연결이 필요합니다.
+
+* **메트릭 및 상태 모니터링**: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net 도메인에서 해결하는 Azure 모니터링 끝점에 아웃바운드 네트워크 연결.
 
 * **Express Route 설정**: 고객의 일반적인 구성은 온-프레미스 흐름 대신 아웃바운드 인터넷 트래픽을 강제하는 기본 경로(0.0.0.0/0)로 정의되어 있습니다. 이 트래픽 흐름은 변함없이 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 끝점에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 해결책은 하나의(또는 그 이상) [UDR][UDRs](사용자 정의 경로)을 Azure API Management를 포함하는 서브넷에 정의하는 것입니다. UDR이 정의한 특정 서브넷 경로는 기본 경로대신 적용됩니다.
   가능하면 다음 구성을 사용하는 것이 좋습니다.

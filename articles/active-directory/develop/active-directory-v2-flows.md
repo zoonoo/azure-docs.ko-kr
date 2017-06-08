@@ -12,11 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/01/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 86055605be6fe264fcb53b26d87a36bcba568a53
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ab08c126b746ad6f8a835585b7e9773a505e8317
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -92,9 +95,9 @@ Web API는 웹 서버 앱, 데스크톱 및 모바일 앱, 단일 페이지 앱,
 
 ![Web API 인증 흐름](../../media/active-directory-v2-flows/convergence_scenarios_webapi.png)
 
-권한 부여 코드, 새로 고침 토큰 및 액세스 토큰을 가져오는 세부 단계에 대한 자세한 내용은 [OAuth 2.0 프로토콜](active-directory-v2-protocols-oauth-code.md)을 참조하세요.
-
 OAuth 2.0 액세스 토큰을 사용하여 Web API 보안을 유지하는 방법을 알아보려면 [시작 섹션](active-directory-appmodel-v2-overview.md#getting-started)에서 Web API 코드 샘플을 확인하세요.
+
+대부분의 경우 웹 API는 Azure Active Directory로 보호되는 다른 다운스트림 API에 대해 아웃바운드 요청도 해야 합니다.  이렇게 하기 위해 웹 API는 Azure AD의 **On Behalf Of** 흐름을 활용하여 웹 API가 아웃바운드 요청에서 사용할 다른 액세스 토큰에 대해 들어오는 액세스 토큰을 교환하도록 할 수 있습니다.  v2.0 끝점의 On Behalf Of 흐름은 [여기서 자세히 설명](active-directory-v2-protocols-oauth-on-behalf-of.md)합니다.
 
 ## <a name="mobile-and-native-apps"></a>모바일 및 네이티브 앱
 모바일 및 데스크톱 앱과 같은 장치 설치 앱은 데이터를 저장하고 사용자 대신 기능을 수행하는 백 엔드 서비스 또는 Web API에 액세스해야 하는 경우가 많습니다. 이러한 앱은 [OAuth 2.0 권한 부여 코드 흐름](active-directory-v2-protocols-oauth-code.md)을 사용하여 백 엔드 서비스에 로그인 및 권한 부여를 추가할 수 있습니다.
@@ -112,7 +115,7 @@ OAuth 2.0 액세스 토큰을 사용하여 Web API 보안을 유지하는 방법
 
 이 시나리오의 작동 방식을 확인하려면 [시작](active-directory-appmodel-v2-overview.md#getting-started) 섹션의 단일 페이지 앱 코드 샘플 중 하나를 시도해 보세요.
 
-### <a name="daemons-and-server-side-apps"></a>디먼 및 서버 쪽 앱
+## <a name="daemons-and-server-side-apps"></a>디먼 및 서버 쪽 앱
 장기 실행 프로세스가 있거나 사용자와의 상호 작용 없이 작동하는 앱은 Web API와 같은 보안 리소스에 액세스하는 방법도 필요로 합니다. 이러한 앱은 OAuth 2.0 클라이언트 자격 증명 흐름을 사용하여 사용자의 위임된 ID 대신 앱 ID로 인증하고 토큰을 가져올 수 있습니다.
 
 이 흐름에서 앱은 `/token` 끝점과 직접 상호 작용하여 끝점을 가져옵니다.
@@ -120,18 +123,4 @@ OAuth 2.0 액세스 토큰을 사용하여 Web API 보안을 유지하는 방법
 ![디먼 앱 인증 흐름](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
 디먼 앱을 작성하려면 [시작](active-directory-appmodel-v2-overview.md#getting-started) 섹션에서 클라이언트 자격 증명 설명서를 참조하거나 [.NET 샘플 앱](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)을 사용해 보세요.
-
-## <a name="current-limitations"></a>현재 제한 사항
-이 섹션의 앱 형식은 v2.0 끝점에서 현재 지원되지 않지만 향후 개발을 위한 로드맵에 있습니다. v2.0 끝점에 대한 추가 제한 사항은 [v2.0 끝점을 사용해야 하나요?](active-directory-v2-limitations.md)를 참조하세요.
-
-### <a name="chained-web-apis-on-behalf-of"></a>연결된 Web API(On-Behalf-Of)
-많은 아키텍처에는 다른 다운스트림 Web API를 호출해야 하는 Web API가 포함되어 있으며 둘 다 v2.0 끝점에 의해 보안이 유지됩니다. 이 시나리오는 Web API 백 엔드를 포함하는 네이티브 클라이언트에서 일반적이며, Web API 백 엔드가 다시 Office 365 또는 Graph API와 같은 Microsoft Online Services 인스턴스를 호출합니다.
-
-[On-Behalf-Of](active-directory-v2-protocols.md) 흐름이라고도 하는 OAuth 2.0 JWT(JSON Web Token) 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다. On-Behalf-Of 흐름은 현재 v2.0 끝점에 구현되어 있지 않습니다. 일반 공급 Azure AD 서비스에서 이 흐름이 작동하는 방식을 확인하려면 [GitHub의 On-Behalf-Of 코드 샘플](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)을 참조하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

@@ -3,7 +3,7 @@ title: "Application Insights 리소스를 만들기 위한 PowerShell 스크립�
 description: "Application Insights 리소스의 생성을 자동화합니다."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
 ms.service: application-insights

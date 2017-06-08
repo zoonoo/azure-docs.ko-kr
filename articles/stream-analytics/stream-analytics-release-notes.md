@@ -15,10 +15,10 @@ ms.workload: data-services
 ms.date: 05/03/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 05c5476cbfd616ce47d6d93627c6e7dd4d8a0d6f
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6a5ec66172e7920a89ff8c0592224f01f19c9e41
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -85,7 +85,7 @@ ms.lasthandoff: 05/03/2017
 | --- | --- |
 | Azure IoT Suite 공개 미리 보기 |Stream Analytics이 Azure IoT Suite의 공개 미리 보기에 포함되어 있습니다. |
 | Azure 포털 통합 |Azure 관리 포털에서 지속적으로 존재할 뿐만 아니라 이제 Stream Analytics은 [Azure 포털](https://azure.microsoft.com/overview/preview-portal/)에 통합되었습니다. Preview 포털의 Stream Analytics 기능은 현재 Azure 관리 포털에서 제공되는 기능의 하위 집합이지만 브라우저 내 쿼리 테스트, Power BI 출력 구성, 액세스한 구독에서 새 입력 및 출력 리소스로 이동 또는 만들기에 대한 지원은 없습니다. |
-| DocumentDB 출력에 대한 지원 |이제 Stream Analytics 작업은 [DocumentDB](https://azure.microsoft.com/services/documentdb/)로 출력할 수 있습니다. |
+| Cosmos DB 출력 지원 |이제 Stream Analytics 작업이 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)에 출력할 수 있습니다. |
 | IoT Hub 입력에 대한 지원 |이제 Stream Analytics 작업이 IoT Hub에서 데이터를 수집할 수 있습니다. |
 | 다른 유형의 이벤트를 위한 TIMESTAMP BY |단일 데이터 스트림에 서로 다른 필드의 타임스탬프를 가진 여러 이벤트 형식이 포함된 경우 이제 식에서 [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) 를 사용하여 각 사례에 대해 서로 다른 타임스탬프 필드를 지정할 수 있습니다. |
 

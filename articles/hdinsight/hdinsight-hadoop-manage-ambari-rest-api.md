@@ -1,6 +1,6 @@
 ---
-title: "Ambari REST API를 사용하여 Azure HDInsight 모니터링 및 관리 | Microsoft Docs"
-description: "Ambari를 사용하여 Linux 기반 HDInsight 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight 클러스터에 포함된 Ambari REST API를 사용하는 방법을 배웁니다."
+title: "Ambari REST API를 사용하여 Hadoop 모니터링 및 관리 - Azure HDInsight | Microsoft Docs"
+description: "Ambari를 사용하여 Azure HDInsight에서 Hadoop 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight 클러스터에 포함된 Ambari REST API를 사용하는 방법을 배웁니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 05/16/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ce6d8301c9c9fc0b9ac6bc2e31023ebbbba8a67c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 7ac80a8521b48f43538ca06a054f8302eb32eea6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -27,7 +28,9 @@ ms.lasthandoff: 04/27/2017
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클러스터의 관리 및 모니터링을 간소화합니다. Ambari는 Linux 운영 체제를 사용하는 HDInsight 클러스터에 포함되어 있으며 클러스터를 모니터링하고 구성을 변경하는 데 사용됩니다. 이 문서에서는 Ambari REST API를 사용하는 기본 사항을 알아봅니다.
+Ambari REST API를 사용하여 Azure HDInsight에서 Hadoop 클러스터를 관리하고 모니터링하는 방법에 대해 알아봅니다.
+
+Apache Ambari는 손쉬운 웹 UI 및 REST API 사용을 제공하여 Hadoop 클러스터의 관리 및 모니터링을 간소화합니다. Ambari는 Linux 운영 체제를 사용하는 HDInsight 클러스터에 포함되어 있으며 클러스터를 모니터링하고 구성을 변경하는 데 사용됩니다.
 
 ## <a id="whatis"></a>Ambari 정의
 

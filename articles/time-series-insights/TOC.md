@@ -12,7 +12,9 @@
 ## [IoT Hub 이벤트 원본 만들기](time-series-insights-how-to-add-an-event-source-iothub.md)
 ## [환경 규모 조정](time-series-insights-how-to-scale-your-environment.md)
 ## [문제 진단 및 해결](time-series-insights-diagnose-and-solve-problems.md)
-## [C#을 사용하여 데이터 쿼리](time-series-insights-query-data-csharp.md)
+## 개발
+### [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)
+### [C#을 사용하여 데이터 쿼리](time-series-insights-query-data-csharp.md)
 
 # 참조
 ## [쿼리 API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)

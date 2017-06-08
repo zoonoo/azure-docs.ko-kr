@@ -8,13 +8,13 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 04/21/2017
+ms.date: 05/10/2017
 ms.author: bruceper
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 0a319f25149c41fcdde0722ce232b3e229b95d0d
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: b046e95e2167009727f6ea8f3dd237619c61434f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -28,6 +28,15 @@ Key Vault를 사용하면 응용 프로그램 내에서 중요한 정보를 안�
 - Key Vault의 2016년 9월 릴리스를 통해 응용 프로그램에서 Key Vault [인증서](https://docs.microsoft.com/rest/api/keyvault/certificate-operations)를 사용할 수 있게 되었습니다. 자세한 내용은 [키, 암호 및 인증서 정보](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)를 참조하세요.
 
 Azure 키 자격 증명 모음에 대한 일반적인 내용은 [키 자격 증명 모음이란?](key-vault-whatis.md)을 참조하세요.
+
+## <a name="public-preview---may-10-2017"></a>공개 미리 보기 - 2017년 5월 10일
+
+>[!NOTE]
+>이 Azure Key Vault 미리 보기 버전에서는 **일시 삭제** 기능만 미리 보기 상태입니다. 전반적인 Azure Key Vault는 전체 프로덕션 서비스입니다.
+
+이 미리 보기에는 주요 자격 증명 모음 및 주요 자격 증명 모음 개체의 복구 가능한 삭제인 새로운 일시 삭제 기능과 개발자를 위한 업데이트된 인터페이스인 [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/), [REST](https://docs.microsoft.com/rest/api/keyvault/) 및 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/)이 포함되어 있습니다. 
+
+새로운 일시 삭제 기능에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](key-vault-ovw-soft-delete.md)를 참조하세요.
 
 ## <a name="videos"></a>비디오
 
@@ -108,6 +117,11 @@ Azure에서 Key Vault를 통합 및 사용하는 방법에 대한 작업별 지�
 - [Azure Disk Encryption](../security/azure-security-disk-encryption.md)은 업계 표준인 Windows의 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 활용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 이 솔루션은 Azure 주요 자격 증명 모음과 함께 통합되어 주요 자격 증명 모음 구독에서 디스크 암호화 키 및 암호를 제어하고 관리할 수 있도록 하며 가상 컴퓨터 디스크의 모든 휴지 상태 데이터가 Azure 저장소에서 암호화되도록 보장합니다.
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)는 계정에 저장된 데이터의 암호화에 대한 옵션을 제공합니다. 키 관리의 경우 Data Lake Store는 Data Lake Store에 저장된 모든 데이터의 암호를 해독하는 데 필요한 MEK(마스터 암호화 키)를 관리하는 두 가지 모드를 제공합니다. Data Lake Store에서 MEK를 관리하도록 하거나 Azure Key Vault 계정을 사용하여 MEK의 소유권을 유지하도록 선택할 수 있습니다. Data Lake Store 계정을 만들면서 키 관리 모드를 지정합니다. 
 - [Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key)을 통해 테넌트 키를 직접 관리할 수 있습니다. 예를 들어, Microsoft가 테넌트 키를 관리하는 대신(기본값) 테넌트 키를 직접 관리하여 해당 조직에 적용되는 특정 규정을 준수할 수 있습니다. 테넌트 키 직접 관리는 BYOK(Bring Your Own Key)라고 하기도 합니다.
+
+## <a name="key-vault-overviews-and-concepts"></a>Key Vault 개요 및 개념
+
+- [Key Vault 보안 권역](key-vault-ovw-security-worlds.md)
+- [Key Vault 일시 삭제](key-vault-ovw-soft-delete.md)
 
 ## <a name="social"></a>사회적
 

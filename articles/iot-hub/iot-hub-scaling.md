@@ -16,10 +16,10 @@ ms.date: 09/19/2016
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4a860f5aaa03ccfa73f1508548ca8b1344679c38
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 03eeecc575be3073066a203cdd4ec6944bb23afc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -57,11 +57,11 @@ IoT Hub ID 레지스트리 작업은 대부분이 장치 프로비전과 관련�
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드][lnk-devguide]
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [Azure IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

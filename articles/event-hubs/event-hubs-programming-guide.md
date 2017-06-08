@@ -1,6 +1,6 @@
 ---
 title: "Azure Event Hubs에 대한 프로그래밍 가이드 | Microsoft Docs"
-description: "Azure.NET SDK를 사용하는 Azure 이벤트 허브로 프로그래밍 설명"
+description: "Azure.NET SDK를 사용하여 Azure Event Hubs에 대한 코드를 작성합니다."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,24 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 02/10/2017
+ms.date: 05/17/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d8a767e9149c6c5eca5b22f094ae924135fa7a2d
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 6d0a1501b97ddb2c819361b00a85ebec12f7b50e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="event-hubs-programming-guide"></a>이벤트 허브 프로그래밍 가이드
+
 이 문서에서는 Azure Event Hub 및 Azure .NET SDK를 사용하여 코드를 작성하는 몇 가지 일반적인 시나리오에 대해 논의합니다. 이벤트 허브에 대한 예비 이해가 있다고 가정합니다. 이벤트 허브의 개요에 대한 개념은 [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)를 참조하세요.
 
 ## <a name="event-publishers"></a>이벤트 게시자
-HTTP POST를 사용하거나 AMQP 1.0 연결을 통해 이벤트 허브에 이벤트를 보냅니다. 처리되는 특정 시나리오에 따라 어떤 것을 언제 사용할지를 선택합니다. AMQP 1.0 연결은 영구 메시징 채널을 제공하기 때문에 서비스 버스에서 조정된 연결로 계량되며 시나리오에서 자주 높은 메시지 볼륨 및 낮은 대기 시간 요구 사항에 적절합니다.
+
+HTTP POST를 사용하거나 AMQP 1.0 연결을 통해 이벤트 허브에 이벤트를 보냅니다. 해결할 구체적인 시나리오에 따라 무엇을 언제 사용할지 선택합니다. AMQP 1.0 연결은 영구 메시징 채널을 제공하기 때문에 서비스 버스에서 조정된 연결로 계량되며 시나리오에서 자주 높은 메시지 볼륨 및 낮은 대기 시간 요구 사항에 적절합니다.
 
 [NamespaceManager][] 클래스를 사용하여 이벤트 허브를 만들고 관리합니다. .NET 관리 API를 사용하는 경우 Event Hubs에 데이터를 게시하기 위한 기본 구조는 [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) 및 [EventData][] 클래스입니다. [EventHubClient][]는 이벤트가 이벤트 허브로 전송되는 AMQP 통신 채널을 제공합니다. [EventData][] 클래스는 이벤트를 나타내며 이벤트 허브에 메시지를 게시하는데 사용됩니다. 이 클래스는 이벤트에 대한 본문, 일부 메타데이터 및 헤더 정보를 포함합니다. [EventData][] 개체가 이벤트 허브를 통과할 때 여기에 다른 속성이 추가됩니다.
 
 ## <a name="get-started"></a>시작
+
 이벤트 허브를 지원하는 .NET 클래스는 Microsoft.ServiceBus.dll 어셈블리에 제공됩니다. 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법은 [서비스 버스 NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)를 다운로드하는 것입니다. 또는 Visual Studio에서 [패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 을 사용할 수 있습니다. 이렇게 하려면 [패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 창에서 다음 명령을 발급합니다.
 
 ```

@@ -1,5 +1,5 @@
 ---
-title: "Jupyter Notebook을 로컬로 설치하고 Azure HDInsight Spark 클러스터에 연결 | Microsoft Docs"
+title: "Jupyter를 로컬로 설치하고 Azure HDInsight Spark 클러스터에 연결 | Microsoft Docs"
 description: "컴퓨터에 로컬로 Jupyter 노트북을 설치하고 Azure HDInsight에서 Apache Spark 클러스터에 연결하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 689bcb86a5eb4476cb62516f623cd23702cd6bc9
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: c2949fbda0503c779b117aebb14d4d7b76bae426
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-cluster-on-hdinsight"></a>컴퓨터에 Jupyter Notebook을 설치하고 HDInsight에서 Apache Spark 클러스터에 연결
+# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter 노트북을 설치하고 HDInsight에서 Apache Spark에 연결
 
 이 문서에서는 Spark Magic이 있는 사용자 지정 PySpark(Python용) 및 Spark(Scala용) 커널을 사용하여 Jupyter Notebook을 설치한 후 해당 노트북을 HDInsight 클러스터에 연결하는 방법을 알아봅니다. 로컬 컴퓨터에 Jupyter를 설치하는 여러 가지 이유와 몇 가지 어려운 문제가 있을 수 있습니다. 이에 대한 자세한 내용은 이 문서의 끝에 있는 [내 컴퓨터에 Jupyter를 설치해야 하는 이유](#why-should-i-install-jupyter-on-my-computer) 섹션을 참조하세요.
 
@@ -61,7 +61,7 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
 
 * 클러스터 v3.5 및 v3.6의 경우 `pip install sparkmagic==0.11.2`를 실행하여 sparkmagic 0.11.2를 설치합니다.
 
-## <a name="configure-spark-magic-to-access-the-hdinsight-spark-cluster"></a>HDInsight에서 Spark 클러스터에 액세스하도록 Spark Magic 구성
+## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에 연결하도록 Spark Magic 구성
 
 이 섹션에서는 이전에 설치한 Spark Magic이 Azure HDInsight에서 이미 만든 Apache Spark 클러스터에 연결되도록 구성합니다.
 
@@ -119,7 +119,7 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
 
     a. 새 Notebook을 만듭니다. 오른쪽 구석에서 **새로 만들기**를 클릭합니다. 기본 커널 **Python2**와 설치하는 두 개의 새 커널 **PySpark** 및 **Spark**가 표시되어야 합니다. **PySpark**를 클릭합니다.
 
-    ![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "새 Jupyter 노트북 만들기")
+    ![Jupyter 노트북의 커널](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Jupyter 노트북의 커널")
 
     b. 다음 코드 조각을 실행합니다.
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 98e5764f84f23ec586ebd823634b9024e4689c5c
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: c78b69188136d6df7887e92600984c4fa269d355
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -163,9 +164,9 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
-[Azure 앱 서비스에서 사용자 지정 도메인 이름 구성]: ./web-sites-custom-domain-name.md
+[Azure 앱 서비스에서 사용자 지정 도메인 이름 구성]: ./app-service-web-tutorial-custom-domain.md
 [Azure 앱 서비스에서 웹앱에 대한 스테이징 환경으로 배포]: ./web-sites-staged-publishing.md
-[Azure 앱 서비스에서 앱에 대한 HTTPS를 사용하도록 설정]: ./web-sites-configure-ssl-certificate.md
+[Azure 앱 서비스에서 앱에 대한 HTTPS를 사용하도록 설정]: ./app-service-web-tutorial-custom-ssl.md
 [방법: 웹 끝점 모니터링]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Azure 앱 서비스에서 웹 앱에 대한 기본 사항 모니터링]: ./web-sites-monitor.md
 [파이프라인 모드]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application

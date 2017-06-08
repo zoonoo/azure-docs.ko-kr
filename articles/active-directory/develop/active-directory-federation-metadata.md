@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: 9904ec79782b1790ecb21f31b078fea9936c8380
-ms.openlocfilehash: 305b7ce52d1313ecde641c952db291588fabf01c
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: a2f3c2d97df37e067670af48b37cc2e2dd3a36cc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -40,7 +43,7 @@ Azure AD는 페더레이션 메타데이터를 `https://login.microsoftonline.co
 
 **테넌트에 독립적인 끝점**의 경우 `TenantDomainName`은(는) `common`입니다. 이 문서는 login.microsoftonline.com에서 호스트되는 모든 Azure AD 테넌트에 공통된 페더레이션 메타데이터 요소만을 나열합니다.
 
-예를 들어, 테넌트별 끝점은 `https:// login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`일 수 있습니다. 테넌트 독립적 끝점은 [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml)입니다. 브라우저에서 이 URL을 입력하여 페더레이션 메타데이터 문서를 볼 수 있습니다.
+예를 들어, 테넌트별 끝점은 `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`일 수 있습니다. 테넌트 독립적 끝점은 [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml)입니다. 브라우저에서 이 URL을 입력하여 페더레이션 메타데이터 문서를 볼 수 있습니다.
 
 ## <a name="contents-of-federation-metadata"></a>페더레이션 메타데이터의 내용
 다음 섹션에는 Azure AD에서 발급한 토큰을 사용하는 서비스에 필요한 정보를 제공합니다.
@@ -155,9 +158,4 @@ https://login.microsoftonline.com/common/wsfed
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/common/saml2" />
   </IDPSSODescriptor>
 ```
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -13,8 +13,9 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 04/09/2017
+ms.date: 06/01/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: cd7ab0bbe92fa32d23a841b0b17bee8510f6b406
@@ -27,6 +28,10 @@ ms.lasthandoff: 05/15/2017
 이 샘플 스크립트는 관련된 리소스를 사용하여 함수 앱을 만든 다음 여기에 `www.<yourdomain>`을 매핑합니다. 사용자 지정 도메인에 매핑하려면 함수 앱이 소비 계획이 아니라 App Service 계획에서 생성되어야 합니다. Azure Functions는 A 레코드를 사용한 사용자 지정 도메인 매핑을 지원합니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 

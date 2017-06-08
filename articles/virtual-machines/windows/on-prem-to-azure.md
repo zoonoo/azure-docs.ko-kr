@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 9da3cf830857211fe414f55e250e222b9d17438b
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 098904d8b5262d8a19d1c10003e0bcaa668ef2dc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -42,7 +43,7 @@ AWS 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | 기존 AWS EC2 인스턴스를 Azure Managed Disks에 마이그레이션하려고 합니다.                                     | [Amazon Web Services(AWS)에서 Azure Managed Disks로 마이그레이션](aws-to-azure.md)                           |
 | 사용하려는 다른 가상화 플랫폼의 VM이 있어서 여러 Azure VM을 만들기 위해 이미지로 사용합니다. | [Managed Disks를 사용하여 Azure에 일반화된 VHD 업로드 및 새 VM 만들기](upload-generalized-managed.md) |
-| 고유하게 사용자 지정된 VM을 Azure에서 다시 만들려고 합니다.                                                      | [Managed Disks를 사용하여 Azure에 특수화된 VHD 업로드 및 새 VM 만들기](upload-specialized.md)         |
+| 고유하게 사용자 지정된 VM을 Azure에서 다시 만들려고 합니다.                                                      | [Managed Disks를 사용하여 Azure에 특수화된 VHD 업로드 및 새 VM 만들기](create-vm-specialized.md)         |
 
 
 ## <a name="overview-of-managed-disks"></a>Managed Disks 개요

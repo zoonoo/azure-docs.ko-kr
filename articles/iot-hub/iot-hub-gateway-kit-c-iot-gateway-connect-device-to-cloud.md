@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/06/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: e8efc3204512b7213c44a15c25b38287465975df
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 2b772afc946f1637cb8d61c198bc9cf18f42e1ba
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -122,7 +123,7 @@ SensorTag와 IoT 게이트웨이와 간의 연결이 설정되었습니다.
 
 ## <a name="run-a-ble-sample-application-to-send-sensortag-data-to-your-iot-hub"></a>BLE 샘플 응용 프로그램을 실행하여 IoT Hub로 SensorTag 데이터 전송
 
-BLE(Bluetooth Low Energy) 샘플 응용 프로그램은 Azure IoT 게이트웨이 SDK에 제공됩니다. 샘플 응용 프로그램은 BLE 연결에서 데이터를 수집하여 IoT hub로 보냅니다. 샘플 응용 프로그램을 실행하려면 다음 작업을 수행해야 합니다.
+BLE(Bluetooth Low Energy) 샘플 응용 프로그램은 Azure IoT Edge에서 제공됩니다. 샘플 응용 프로그램은 BLE 연결에서 데이터를 수집하여 IoT hub로 보냅니다. 샘플 응용 프로그램을 실행하려면 다음 작업을 수행해야 합니다.
 
 1. 샘플 응용 프로그램을 구성합니다.
 1. IoT 게이트웨이에서 샘플 응용 프로그램을 실행합니다.
@@ -170,5 +171,5 @@ BLE(Bluetooth Low Energy) 샘플 응용 프로그램은 Azure IoT 게이트웨�
 
 ## <a name="next-steps"></a>다음 단계
 
-[IoT 게이트웨이를 사용하여 Azure IoT Gateway SDK를 통해 센서 데이터 변환](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+[IoT 게이트웨이를 사용하여 Azure IoT Edge를 통해 센서 데이터 변환](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 

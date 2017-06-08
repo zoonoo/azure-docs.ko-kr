@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 0b53eb34293078ad2ce334583fee88a8c5ac5ccf
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 6ed02ead07c50b9a49e8868756b6f957d7b49b99
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -74,7 +75,7 @@ SQL Database는 서비스 계층 + 단일 데이터베이스에 대한 성능 �
 eDTU 및 서비스 계층을 이해하려면 [SQL 데이터베이스 옵션 및 성능](sql-database-service-tiers.md)을 참조하세요.
 
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>탄력적 풀에서 활성 지역 복제의 사용량은 청구서에 어떻게 표시되나요?
-단일 데이터베이스와 달리, 탄력적 데이터베이스의 [활성 지역 복제](sql-database-geo-replication-overview.md) 를 사용해도 청구서에 직접적인 영향은 없습니다.  각 풀(기본 풀 및 보조 풀)에 프로비전된 eDTU에 대해서만 요금이 청구됩니다.
+단일 데이터베이스와 달리, 탄력적 데이터베이스의 [활성 지역 복제](sql-database-geo-replication-overview.md)를 사용해도 청구서에 직접적인 영향은 없습니다.  각 풀(기본 풀 및 보조 풀)에 프로비전된 eDTU에 대해서만 요금이 청구됩니다.
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>감사 기능 사용이 청구서 요금에 반영되는 방식
 감사는 추가 비용 없이 SQL Database 서비스에 기본으로 제공되며 Basic, Standard, Premium 및 Premium RS 데이터베이스에서 사용할 수 있습니다. 하지만 감사 로그를 저장할 때 감사 기능은 Azure 저장소 계정을 사용하며 감사 로그의 크기에 따라 Azure 저장소의 테이블 및 큐에 대한 요금이 부과됩니다.

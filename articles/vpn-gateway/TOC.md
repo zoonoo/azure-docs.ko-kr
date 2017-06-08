@@ -7,6 +7,7 @@
 ## [VPN Gateway 계획 및 설계](vpn-gateway-plan-design.md)
 ## [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)
 ## [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)
+## [암호화 요구 사항 정보](vpn-gateway-about-compliance-crypto.md)
 ## [BGP 및 VPN Gateway 정보](vpn-gateway-bgp-overview.md)
 ## [항상 사용 가능한 연결 정보](vpn-gateway-highlyavailable.md)
 
@@ -21,44 +22,52 @@
 ### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 ### [Azure 포털(클래식)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### 지점 및 사이트 간 자체 서명된 인증서 생성
+#### [PowerShell](vpn-gateway-certificates-point-to-site.md)
+#### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## VNet 간 연결 구성
 ### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure 포털(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## 배포 모델 간 VNet-VNet 연결 구성
 ### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## [사이트 간 및 ExpressRoute 공존 연결 구성](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-## 강제 터널링 구성
-### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
-### [PowerShell(클래식)](vpn-gateway-about-forced-tunneling.md)
+## 사이트 간 및 ExpressRoute 공존 연결 구성
+### [PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## 여러 사이트 간 연결 구성
 ### [Azure 포털](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [PowerShell(클래식)](vpn-gateway-multi-site.md)
-## [VPN Gateway용 BGP 구성](vpn-gateway-bgp-resource-manager-ps.md)
-## [항상 사용 가능한 활성-활성 연결 구성](vpn-gateway-activeactive-rm-powershell.md)
+## 여러 정책 기반 VPN 장치 연결
+### [PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
+## 연결에서 IPsec/IKE 정책 구성
+### [PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
+## 항상 사용 가능한 활성-활성 연결 구성
+### [PowerShell](vpn-gateway-activeactive-rm-powershell.md)
+## VPN Gateway에 BGP 구성
+### [PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+## 강제 터널링 구성
+### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
+### [PowerShell(클래식)](vpn-gateway-about-forced-tunneling.md)
 ## 로컬 네트워크 게이트웨이 설정 수정
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
-### [CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [VPN 게이트웨이 연결 확인](vpn-gateway-verify-connection-resource-manager.md)
 ## [VPN 게이트웨이 다시 설정](vpn-gateway-resetgw-classic.md)
 ## VPN Gateway 삭제
 ### [Azure 포털](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell(클래식)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## 지점 및 사이트 간 자체 서명된 인증서 만들기
-### [PowerShell](vpn-gateway-certificates-point-to-site.md)
-### [Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 ## [VPN Gateway(클래식) 구성](vpn-gateway-configure-vpn-gateway-mp.md)
 ## 문제 해결
 ### [VNet에 대한 VPN 처리량의 유효성 검사](vpn-gateway-validate-throughput-to-vnet.md)
 
 # 참조
-## [PowerShell](/powershell/module/azurerm.network)
-## [PowerShell(클래식)](/powershell/module/azure/?view=azuresmps-3.7.0)
-## [REST (영문)](https://msdn.microsoft.com/library/mt163859)
+## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)
+## [PowerShell(클래식)](/powershell/module/azure/?view=azuresmps-3.7.0#networking)
+## [REST (영문)](/rest/api/network/virtualnetworkgateways)
 ## [REST(클래식)](https://msdn.microsoft.com/library/jj154113)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
+## [Azure CLI](/cli/azure/network/vnet-gateway)
 
 # 관련 항목
 ## [가상 네트워크](/azure/virtual-network/)

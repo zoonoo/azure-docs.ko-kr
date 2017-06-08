@@ -3,7 +3,7 @@ title: "Azure에서 Linux VM에 대한 계획된 유지 관리 | Microsoft Docs"
 description: "Azure 계획된 유지 관리의 정의와 계획된 유지 관리가 Azure를 실행하는 Windows 가상 컴퓨터에 주는 영향에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: 
+author: zivr
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -14,10 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/27/2017
-ms.author: 
-translationtype: Human Translation
+ms.author: zivr
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 28c2fb5a67eca0c5ab2f0299bba7c11375e10558
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
 
 

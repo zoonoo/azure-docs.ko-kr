@@ -3,7 +3,7 @@ title: "새 Azure Application Insights 리소스 만들기 | Microsoft Docs"
 description: "새 라이브 응용 프로그램에 대한 Application Insights 모니터링을 수동으로 설정합니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights

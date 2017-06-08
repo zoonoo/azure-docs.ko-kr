@@ -44,6 +44,7 @@
 
 ## 관리
 ### [등록](notification-hubs-push-notification-registration-management.md)
+### [APNS 토큰 기반 인증](notification-hubs-push-notification-http2-token-authentification.md)
 
 ## [보안](notification-hubs-push-notification-security.md)
 ### 보안 푸시

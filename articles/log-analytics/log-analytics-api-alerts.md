@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
+ms.date: 05/12/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: db3a68e532775728099854a46d1ad0841e38b4a8
-ms.openlocfilehash: 3161a05a051ba741cf76e149f7b5e5a4324be0a4
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 5ce72ffef4394bf3bbe39fa420c4fcaa965ae35c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/13/2017
 
 
 ---
@@ -69,6 +70,9 @@ Get 메서드를 사용하여 저장된 검색에 대한 모든 일정을 검색
 ### <a name="creating-a-schedule"></a>일정 만들기
 고유 일정 ID와 Put 메서드를 사용하여 새 일정을 만듭니다.  두 일정은 서로 다른 저장된 검색과 연결되었다 하더라도 동일한 ID를 가질 수 없습니다.  OMS 콘솔에서 일정을 만드는 경우 일정 ID에 대해 GUID가 생성됩니다.
 
+> [!NOTE]
+> Log Analytics API를 사용하여 만든 저장된 모든 검색, 일정 및 작업의 이름은 소문자여야 합니다.
+
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
@@ -107,6 +111,9 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 
 ### <a name="creating-or-editing-actions"></a>작업 만들기 또는 편집
 일정에 고유한 작업 ID와 Put 메서드를 사용하여 새 작업을 만듭니다.  OMS 콘솔에서 작업을 만드는 경우 GUID는 작업 ID에 대한 것입니다.
+
+> [!NOTE]
+> Log Analytics API를 사용하여 만든 저장된 모든 검색, 일정 및 작업의 이름은 소문자여야 합니다.
 
 동일한 저장된 검색에 대해 기존 작업 ID와 Put 메서드를 사용하여 해당 일정을 수정합니다.  요청 본문에는 일정의 etag가 포함되어야 합니다.
 

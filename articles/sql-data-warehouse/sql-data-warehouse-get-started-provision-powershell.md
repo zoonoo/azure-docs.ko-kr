@@ -3,7 +3,7 @@ title: "PowerShell을 사용하여 SQL Data Warehouse 만들기 | Microsoft Docs
 description: "PowerShell을 사용하여 SQL 데이터 웨어하우스 만들기"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 ms.assetid: 97434863-7938-4129-8949-5a119f5949e3
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: elbutter;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
 ms.openlocfilehash: 58ba34f8f99b7cd2b6a9a199bc70d79431405100
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/10/2017
 
 

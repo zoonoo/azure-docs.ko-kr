@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 5348cedf369264defc5bb8417397aae046915ca7
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 77ebe20940bce0e21caa60567e1ccffaba7351b3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -80,4 +81,6 @@ Azure VM에 AWS 인스턴스 마이그레이션할 수 있습니다. 이 시나�
 - [Azure에 Hyper-V VM(VMM 없음) 마이그레이션](site-recovery-hyper-v-site-to-azure.md)
 - [Azure 지역 간에 Azure VM 마이그레이션](site-recovery-migrate-azure-to-azure.md)
 - [Azure에 AWS 인스턴스 마이그레이션](site-recovery-migrate-aws-to-azure.md)
+- 재해 복구 수요에 맞게 다른 지역으로 [복제할 수 있도록 마이그레이션된 컴퓨터를 준비](site-recovery-azure-to-azure-after-migration.md)합니다.
+- [Azure Virtual Machines를 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호를 시작합니다.
 

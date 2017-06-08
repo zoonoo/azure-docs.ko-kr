@@ -3,7 +3,7 @@ title: "Azure Application Insights의 Analytics로 데이터 가져오기 | Micr
 description: "앱 원격 분석에 연결할 정적 데이터를 가져오거나 Analytics로 쿼리할 별도 데이터 스트림을 가져옵니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,11 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: awills
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 4f10e5a8200af870e0adb8977b9c68b9998a6de7
-ms.lasthandoff: 03/21/2017
+ms.author: cfreeman
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: d649644959d907ff7fd6c1de360b091682f13d5b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -187,11 +188,11 @@ JSON은 데이터의 부분 매핑을 허용합니다. 따라서 JSON 형식의 
 * **400 잘못된 요청**: 요청 페이로드가 잘못되었음을 나타냅니다. 다음을 확인하세요.
  * 올바른 계측 키
  * 유효한 시간 값. 현재 시간(UTC)이어야 합니다.
- * 데이터는 스키마를 준수합니다.
+ * 이벤트의 JSON이 스키마를 준수합니다.
 * **403 사용 권한 없음**: 전송한 Blob에 액세스할 수 없습니다. 공유 액세스 키가 유효한지와 만료되지 않았는지 확인합니다.
 * **404 찾을 수 없음**:
  * Blob이 존재하지 않습니다.
- * 데이터 원본 이름이 잘못되었습니다.
+ * SourceId가 잘못되었습니다.
 
 응답 오류 메시지에서 좀 더 자세한 정보를 사용할 수 있습니다.
 
@@ -203,8 +204,6 @@ JSON은 데이터의 부분 매핑을 허용합니다. 따라서 JSON 형식의 
 ### <a name="classes"></a>클래스
 
 ```C#
-
-
 namespace IngestionClient 
 { 
     using System; 
@@ -357,7 +356,6 @@ namespace IngestionClient
         #endregion Private 
     } 
 } 
-
 ```
 
 ### <a name="ingest-data"></a>데이터 수집
@@ -365,14 +363,11 @@ namespace IngestionClient
 각 blob에 대한 이 코드를 사용합니다. 
 
 ```C#
-
-
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
-   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "tableId/sourceId", "blobUrlWithSas"); 
+   var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 
 
    bool success = await client.RequestBlobIngestion(ingestionRequest);
-
 ```
 
 ## <a name="next-steps"></a>다음 단계

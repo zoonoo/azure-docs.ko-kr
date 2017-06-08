@@ -13,20 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/27/2017
+ms.date: 05/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 54920f3b6665ce5d74bf8025d44d5e16bd8a54b4
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 014d282daffdbfc03e7f3495f8e59bfda4cdb396
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="how-to-customize-a-windows-virtual-machine-in-azure"></a>Azure에서 Windows 가상 컴퓨터를 사용자 지정하는 방법
-신속하고 일관된 방식으로 VM(Virtual Machines)을 구성하려면 일반적으로 자동화 양식이 필요합니다. Windows VM을 사용자 지정하는 일반적인 방법은 [Windows용 사용자 지정 스크립트 확장](extensions-customscript.md)을 사용하는 것입니다. 이 자습서에서는 사용자 지정 스크립트 확장을 사용하여 IIS를 설치하고 구성하여 기본 웹 사이트를 실행하는 방법을 설명합니다.
+신속하고 일관된 방식으로 VM(Virtual Machines)을 구성하려면 일반적으로 자동화 양식이 필요합니다. Windows VM을 사용자 지정하는 일반적인 방법은 [Windows용 사용자 지정 스크립트 확장](extensions-customscript.md)을 사용하는 것입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
-최신 [Azure PowerShell](/powershell/azure/overview) 모듈을 사용하여 이 자습서의 단계를 완료할 수 있습니다.
+> [!div class="checklist"]
+> * 사용자 지정 스크립트 확장을 사용하여 IIS 설치
+> * 사용자 지정 스크립트 확장을 사용하는 VM 만들기
+> * 확장이 적용된 후 실행 중인 IIS 사이트 보기
+
+이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 
 ## <a name="custom-script-extension-overview"></a>사용자 지정 스크립트 확장 개요
@@ -38,10 +44,10 @@ Windows VM 및 Linux VM 둘 다에 사용자 지정 스크립트 확장을 사�
 
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
-VM을 만들려면 먼저 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *westus* 위치에 *myResourceGroupAutomate*라는 리소스 그룹을 만듭니다.
+VM을 만들려면 먼저 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *EastUS* 위치에 *myResourceGroupAutomate*라는 리소스 그룹을 만듭니다.
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location westus
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroupAutomate -Location EastUS
 ```
 
 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
@@ -61,7 +67,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 # Create a virtual network
 $vnet = New-AzureRmVirtualNetwork `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -Name myVnet `
     -AddressPrefix 192.168.0.0/16 `
     -Subnet $subnetConfig
@@ -69,7 +75,7 @@ $vnet = New-AzureRmVirtualNetwork `
 # Create a public IP address and specify a DNS name
 $publicIP = New-AzureRmPublicIpAddress `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -AllocationMethod Static `
     -IdleTimeoutInMinutes 4 `
     -Name "myPublicIP"
@@ -101,7 +107,7 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
 # Create a network security group
 $nsg = New-AzureRmNetworkSecurityGroup `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -Name myNetworkSecurityGroup `
     -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 
@@ -109,7 +115,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 $nic = New-AzureRmNetworkInterface `
     -Name myNic `
     -ResourceGroupName myResourceGroupAutomate `
-    -Location westus `
+    -Location EastUS `
     -SubnetId $vnet.Subnets[0].Id `
     -PublicIpAddressId $publicIP.Id `
     -NetworkSecurityGroupId $nsg.Id
@@ -121,7 +127,7 @@ Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer `
     -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
-New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location westus -VM $vmConfig
+New-AzureRmVM -ResourceGroupName myResourceGroupAutomate -Location EastUS -VM $vmConfig
 ```
 
 리소스 및 VM을 만드는 데 몇 분 정도 걸립니다.
@@ -138,7 +144,7 @@ Set-AzureRmVMExtension -ResourceGroupName myResourceGroupAutomate `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-    -Location westus
+    -Location EastUS
 ```
 
 
@@ -158,7 +164,15 @@ Get-AzureRmPublicIPAddress `
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 처음 부팅 시 VM을 사용자 지정하는 방법을 배웠습니다. 사용자 지정 VM 이미지를 만드는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+이 자습서에서는 VM에서 IIS 설치를 자동화합니다. 다음 방법에 대해 알아보았습니다.
 
-[사용자 지정 VM 이미지 만들기](./tutorial-custom-images.md)
+> [!div class="checklist"]
+> * 사용자 지정 스크립트 확장을 사용하여 IIS 설치
+> * 사용자 지정 스크립트 확장을 사용하는 VM 만들기
+> * 확장이 적용된 후 실행 중인 IIS 사이트 보기
+
+사용자 지정 VM 이미지를 만드는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+
+> [!div class="nextstepaction"]
+> [사용자 지정 VM 이미지 만들기](./tutorial-custom-images.md)
 

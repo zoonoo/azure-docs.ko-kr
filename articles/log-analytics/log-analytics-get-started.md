@@ -3,7 +3,7 @@ title: "Azure Log Analytics 작업 영역 시작 | Microsoft Docs"
 description: "Log Analytics의 작업 영역은 몇 분 안에 시작하고 실행할 수 있습니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 508716de-72d3-4c06-9218-1ede631f23a6
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/12/2017
-ms.author: banders
-translationtype: Human Translation
+ms.author: magoedte
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
 ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/28/2017
 
 

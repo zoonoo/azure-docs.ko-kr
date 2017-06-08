@@ -3,7 +3,7 @@ title: "TSQL를 사용하여 SQL Data Warehouse 만들기 | Microsoft Docs"
 description: "TSQL를 사용하여 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 tags: azure-sql-data-warehouse
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: elbutter;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
 ms.openlocfilehash: 836d72e32e54ecef9691b55214766a1fc3ff9701
+ms.contentlocale: ko-kr
 ms.lasthandoff: 12/07/2016
 
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 97ed0ae7cf9f741155c57053bc8b34a0246d0586
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 492e0ca675f2a827b172c33fcd33226abc95dcec
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/13/2017
 
 
 ---
@@ -47,7 +48,7 @@ Azure 진단에서 데이터를 수신하는 이벤트 허브는 Azure SDK 2.9 �
 * *.wadcfgx* 파일과 다음 방법 중 하나를 사용하는 응용 프로그램에서 Azure 진단의 기존 구성은 다음과 같습니다.
   * Visual Studio: [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 구성](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
   * Windows PowerShell: [PowerShell을 사용하여 Azure 클라우드 서비스에서 진단 사용](../cloud-services/cloud-services-diagnostics-powershell.md)
-* 항목별로 프로비전되는 이벤트 허브 네임스페이스, [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* 항목별로 프로비전되는 Event Hubs 네임스페이스([Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) 참조)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>이벤트 허브 싱크에 Azure 진단 연결
 기본적으로 Azure 진단은 항상 Azure Storage 계정에 로그 및 메트릭을 전송합니다. 응용 프로그램은 *.wadcfgx* 파일의 **PublicConfig** / **WadCfg** 요소에 새로운 **Sinks** 섹션을 추가하여 이벤트 허브에 데이터를 전송할 수도 있습니다. Visual Studio에서 *.wadcfgx* 파일은 **클라우드 서비스 프로젝트** > **역할** > **(RoleName)** > **diagnostics.wadcfgx** 파일이라는 경로에 저장됩니다.

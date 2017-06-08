@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c6de21da824a6e81c38f36c41c05ddd704fadcb6
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: e2bfbdd5ca8ec178c2c32c7b52637a8ec7e88a4c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -345,7 +346,6 @@ jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 �
 **마켓플레이스에 대해 솔루션 범위 템플릿 조정**
 
 ## <a name="next-steps"></a>다음 단계
-* Azure 리소스 관리자에서 보안을 처리하는 방법에 대한 권장 사항을 보려면 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)
 * 템플릿 내부 및 외부로 상태를 공유하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
 

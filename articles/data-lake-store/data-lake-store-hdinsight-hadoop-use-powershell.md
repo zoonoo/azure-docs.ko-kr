@@ -11,12 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/14/2017
+ms.date: 05/08/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: eb92706201760c2682d7b45a51a518c40aba3bd4
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: a6a87bb3d13f5d9acea7cd84fe7eea901ab263e5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -77,7 +78,7 @@ PowerShell을 사용하여 데이터 레이크 저장소와 함께 작동하도�
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
    > [!NOTE]
-   > Data Lake 저장소 리소스 공급자를 등록할 때 `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`와 유사한 오류가 나타나는 경우 구독이 Azure Data Lake 저장소에 대한 허용 목록에 추가되지 않았을 수 있습니다. 이 [지침](data-lake-store-get-started-portal.md)에 따라 Data Lake 저장소 공개 미리 보기에 대한 Azure 구독을 활성화해야 합니다.
+   > Data Lake Store 리소스 공급자를 등록할 때 `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`와 유사한 오류가 나타나는 경우 구독이 Azure Data Lake Store에 대한 허용 목록에 추가되지 않았을 수 있습니다. 이 [지침](data-lake-store-get-started-portal.md)에 따라 Data Lake 저장소 공개 미리 보기에 대한 Azure 구독을 활성화해야 합니다.
    >
    >
 2. Azure 데이터 레이크 저장소 계정은 Azure 리소스 그룹과 연결됩니다. Azure 리소스 그룹을 만드는 작업부터 시작합니다.
@@ -85,18 +86,36 @@ PowerShell을 사용하여 데이터 레이크 저장소와 함께 작동하도�
         $resourceGroupName = "<your new resource group name>"
         New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-    ![Azure 리소스 그룹 만들기](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Azure 리소스 그룹 만들기")
+    다음과 유사한 출력이 표시됩니다.
+
+        ResourceGroupName : hdiadlgrp
+        Location          : eastus2
+        ProvisioningState : Succeeded
+        Tags              :
+        ResourceId        : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp
+
 3. Azure 데이터 레이크 저장소 계정을 만듭니다. 지정하는 계정 이름은 소문자와 숫자만 포함해야 합니다.
 
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
-    ![Azure Data Lake 계정 만들기](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateADLAcc.png "Azure Data Lake 계정 만들기")
-4. 계정이 성공적으로 만들어졌는지 확인합니다.
+    다음과 유사한 출력이 표시됩니다.
 
-        Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
+        ...
+        ProvisioningState           : Succeeded
+        State                       : Active
+        CreationTime                : 5/5/2017 10:53:56 PM
+        EncryptionState             : Enabled
+        ...
+        LastModifiedTime            : 5/5/2017 10:53:56 PM
+        Endpoint                    : hdiadlstore.azuredatalakestore.net
+        DefaultGroup                :
+        Id                          : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp/providers/Microsoft.DataLakeStore/accounts/hdiadlstore
+        Name                        : hdiadlstore
+        Type                        : Microsoft.DataLakeStore/accounts
+        Location                    : East US 2
+        Tags                        : {}
 
-    이에 대한 출력은 **True**여야 합니다.
 5. 일부 샘플 데이터를 Azure 데이터 레이크에 업로드합니다. 나중에 이 문서에서 사용하여 HDInsight 클러스터에서 데이터에 액세스할 수 있는지 확인합니다. 업로드할 일부 샘플 데이터를 찾는 경우 **Azure 데이터 레이크 Git 리포지토리** 의 [Ambulance Data](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)폴더에 있을 수 있습니다.
 
         $myrootdir = "/"
@@ -206,7 +225,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 1. 연결되면 다음 명령을 사용하여 Hive CLI를 시작합니다.
 
         hive
-2. CLI를 사용하여 다음 문을 입력하여 Data Lake 저장소에서 샘플 데이터를 사용한 **vehicles** 라는 새 테이블을 만듭니다.
+2. CLI를 사용하여 다음 문을 입력하여 Data Lake 저장소에서 샘플 데이터를 사용한 **vehicles**라는 새 테이블을 만듭니다.
 
         DROP TABLE vehicles;
         CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';

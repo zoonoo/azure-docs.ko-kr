@@ -12,12 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/02/2017
 ms.author: antisch
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 4d37dfc6c7110aa32788bbd3c3f81cd84a1426d2
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 698978fd717091c49a1375e222f46f4325431223
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -25,7 +26,9 @@ ms.lasthandoff: 03/24/2017
 
 이 스크립트는 Azure 배치 계정을 만들고 계정의 다양한 속성을 쿼리 및 업데이트하는 방법을 보여 줍니다.
 
-필요한 경우 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)에 있는 지침을 사용하여 Azure CLI를 설치한 다음, `az login`을 실행하여 Azure에 로그인합니다.
+## <a name="prerequisites"></a>필수 조건
+
+아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)에 있는 지침을 사용하여 설치합니다.
 
 ## <a name="batch-account-sample-script"></a>배치 계정 샘플 스크립트
 

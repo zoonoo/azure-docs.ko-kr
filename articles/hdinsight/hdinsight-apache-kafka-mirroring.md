@@ -1,6 +1,6 @@
 ---
-title: "HDInsight 클러스터에서 Apache Kafka 미러링 | Microsoft 문서"
-description: "Kafka의 미러링 기능으로 보조 클러스터에 토픽을 미러링하여 HDInsight 클러스터에서 Kafka 복제본을 유지하는 방법에 대해 알아봅니다."
+title: "Apache Kafka 토픽 미러링 - Azure HDInsight | Microsoft Docs"
+description: "Apache Kafka의 미러링 기능으로 보조 클러스터에 토픽을 미러링하여 HDInsight 클러스터에서 Kafka 복제본을 유지하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,32 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 05/15/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c7517f61944b9fdb02a3589d7c9cd83355dae6d8
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 0b8de346d8209dcfd665baf18ce054e5556a883b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 ---
-# <a name="use-mirrormaker-to-create-a-replica-of-a-kafka-on-hdinsight-cluster-preview"></a>MirrorMaker를 사용하여 HDInsight 클러스터에서 Kafka 복제본 만들기(미리 보기)
+# <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>MirrorMaker를 사용하여 HDInsight에서 Kafka와 함께 Apache Kafka 토픽 복제(미리 보기)
 
-Apache Kafka에는 한 Kafka 클러스터에서 다른 Kafka 클러스터로 토픽을 복제할 수 있는 미러링 기능이 있습니다. 예를 들어 다른 Azure 영역의 Kafka 클러스터 간에 레코드를 복제합니다.
+Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터로 복제하는 방법에 대해 알아봅니다. 미러링은 연속적 프로세스로 실행되거나 한 클러스터에서 다른 클러스터로 데이터를 마이그레이션하는 방법으로 단속적으로 사용될 수 있습니다.
 
-미러링은 연속적 프로세스로 실행되거나 한 클러스터에서 다른 클러스터로 데이터를 마이그레이션하는 방법으로 단속적으로 사용될 수 있습니다.
+이 예제에서 미러링은 두 HDInsight 클러스터 간에 항목을 복제하는 데 사용됩니다. 두 클러스터 모두 동일한 지역의 Azure Virtual Network에 있습니다.
 
 > [!WARNING]
 > 미러링이 내결함성을 달성하는 수단으로 간주되어서는 안됩니다. 토픽 내의 항목에 대한 오프셋은 원본 및 대상 클러스터 간에 서로 다르므로 클라이언트에서는 이 두 가지를 서로 교환하여 사용할 수 없습니다.
-> 
+>
 > 내결함성이 염려되는 경우 클러스터 내의 토픽에 대한 복제를 설정해야 합니다. 자세한 내용은 [HDInsight에서 Kafka 시작](hdinsight-apache-kafka-get-started.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
-
-* Azure Virtual Network: 원본 및 대상 Kafka 클러스터는 서로 직접 통신할 수 있어야 합니다. HDInsight에서는 Kafka API를 공개적으로 인터넷에 공개하지 않기 때문에 원본 및 대상 클러스터가 모두 동일한 Azure Virtual Network에 있어야 합니다.
-
-* 2개 Kafka 클러스터: 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Virtual Network에서 2개의 Kafka를 HDInsight 클러스터에 만듭니다.
-
-## <a name="how-does-mirroring-work"></a>미러링 작동 방식
+## <a name="how-kafka-mirroring-works"></a>Kafka 미러링 작동 방식
 
 미러링은 MirrorMaker 도구(Apache Kafka의 일부)를 사용하여 원본 클러스터의 토픽에서 레코드를 소비한 다음 대상 클러스터에 로컬 복사본을 만듭니다. MirrorMaker는 원본 클러스터에서 읽은 *소비자*(0개 이상)와 로컬(대상) 클러스터에 쓰는 *생산자*(1개)를 사용합니다.
 
@@ -46,18 +41,22 @@ Apache Kafka에는 한 Kafka 클러스터에서 다른 Kafka 클러스터로 토
 
 ![미러링 프로세스 다이어그램](./media/hdinsight-apache-kafka-mirroring/kafka-mirroring.png)
 
+HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka 서비스에 제공하지 않습니다. Kafka 생산자 또는 소비자는 Kafka 클러스터의 노드와 동일한 Azure 가상 네트워크에 있어야 합니다. 이 예제에서는 Kafka 원본 및 대상 클러스터가 모두 동일한 Azure 가상 네트워크에 있습니다. 클러스터 간의 통신 흐름을 보여 주는 다이어그램은 다음과 같습니다.
+
+![Azure 가상 네트워크에 있는 원본 및 대상 Kafka 클러스터 다이어그램](./media/hdinsight-apache-kafka-mirroring/spark-kafka-vnet.png)
+
 원본 및 대상 클러스터는 노드와 파티션 수에 따라 다를 수 있으며 토픽 내의 오프셋도 다릅니다. 미러링은 분할에 사용되는 키 값을 유지하므로 레코드 순서는 키 기준으로 유지됩니다.
 
-### <a name="mirroring-between-networks"></a>네트워크 간 미러링
+### <a name="mirroring-across-network-boundaries"></a>네트워크 경계를 넘은 미러링
 
 다른 네트워크의 Kafka 클러스터 간에 미러링해야 하는 경우 다음과 같은 추가 고려 사항이 있습니다.
 
 * **게이트웨이**: 네트워크는 TCPIP 수준에서 통신할 수 있어야 합니다.
 
-* **이름 확인**: 각 네트워크의 Kafka 클러스터는 호스트 이름을 사용하여 서로 연결할 수 있어야 합니다. 이렇게 하려면 요청을 다른 네트워크로 전달하도록 구성된 DNS(도메인 이름 시스템) 서버가 각 네트워크에 필요할 수 있습니다. 
-  
+* **이름 확인**: 각 네트워크의 Kafka 클러스터는 호스트 이름을 사용하여 서로 연결할 수 있어야 합니다. 이렇게 하려면 요청을 다른 네트워크로 전달하도록 구성된 DNS(도메인 이름 시스템) 서버가 각 네트워크에 필요할 수 있습니다.
+
     Azure Virtual Network를 만들 때 네트워크에서 제공되는 자동 DNS를 사용하는 대신 사용자 지정 DNS 서버와 해당 서버의 IP 주소를 지정해야 합니다. 가상 네트워크를 만든 후에는 해당 IP 주소를 사용하는 Azure Virtual Network를 만든 다음 DNS 소프트웨어를 설치하고 구성해야 합니다.
-  
+
     > [!WARNING]
     > HDInsight를 Virtual Network에 설치하기 전에 사용자 지정 DNS 서버를 만들고 구성합니다. Virtual Network에 구성된 DNS 서버를 사용하기 위해 HDInsight를 추가로 구성할 필요는 없습니다.
 
@@ -65,20 +64,13 @@ Apache Kafka에는 한 Kafka 클러스터에서 다른 Kafka 클러스터로 토
 
 ## <a name="create-kafka-clusters"></a>Kafka 클러스터 만들기
 
-HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka 서비스에 제공하지 않습니다. Kafka와 통신하는 대상은 Kafka 클러스터의 노드와 동일한 Azure 가상 네트워크에 있어야 합니다. 이 예제에서는 Kafka 원본 및 대상 클러스터가 모두 동일한 Azure 가상 네트워크에 있습니다. 클러스터 간의 통신 흐름을 보여 주는 다이어그램은 다음과 같습니다.
-
-![Azure 가상 네트워크에 있는 원본 및 대상 Kafka 클러스터 다이어그램](./media/hdinsight-apache-kafka-mirroring/spark-kafka-vnet.png)
-
-> [!NOTE]
-> Kafka 자체는 가상 네트워크 내의 통신으로 제한되지만, 클러스터의 다른 서비스(예: SSH, Ambari)는 인터넷을 통해 액세스할 수 있습니다. HDInsight에서 사용할 수 있는 공용 포트에 대한 자세한 내용은 [HDInsight에서 사용하는 포트 및 URI](hdinsight-hadoop-port-settings-for-services.md)를 참조하세요.
-
 Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있지만 Azure Resource Manager 템플릿을 사용하는 것이 더 쉽습니다. 다음 단계에 따라 Azure 가상 네트워크와 두 Kafka 클러스터를 Azure 구독에 배포합니다.
 
 1. Azure에 로그인하고 Azure Portal에서 템플릿을 열려면 다음 단추를 사용합니다.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure Resource Manager 템플릿은 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet.json**에 있습니다.
+    Azure Resource Manager 템플릿은 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.json**에 있습니다.
 
 2. 다음 정보를 사용하여 **사용자 지정 배포** 블레이드의 항목을 채웁니다.
     
@@ -86,7 +78,7 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
     
     * **리소스 그룹**: 그룹을 만들거나 기존 그룹을 선택합니다. 이 그룹에는 HDInsight 클러스터가 포함됩니다.
 
-    * **위치**: 지리적으로 가까운 위치를 선택합니다. 이 위치는 __SETTINGS__ 섹션의 위치와 일치해야 합니다.
+    * **위치**: 지리적으로 가까운 위치를 선택합니다.
      
     * **기본 클러스터 이름**: 이 값은 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어 **hdi**를 입력하면 **source-hdi** 및 **dest-hdi** 클러스터가 만들어집니다.
 
@@ -97,8 +89,6 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
     * **SSH 사용자 이름**: 원본 및 대상 Kafka 클러스터에 만들 SSH 사용자입니다.
 
     * **SSH 암호**: 원본 및 대상 Kafka 클러스터에 대한 SSH 사용자의 암호입니다.
-
-    * **위치**: 클러스터가 만들어지는 지역입니다.
 
 3. **사용 약관**을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
 
@@ -141,12 +131,12 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
     ```bash
     echo $SOURCE_ZKHOSTS
     ```
-   
- 이 명령은 다음 텍스트와 비슷한 정보를 반환합니다.
-   
-       zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181
-   
- 이 정보를 저장합니다. 해당 정보는 다음 섹션에서 사용됩니다.
+
+    이 명령은 다음 텍스트와 비슷한 정보를 반환합니다.
+
+    `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181`
+
+    이 정보를 저장합니다. 해당 정보는 다음 섹션에서 사용됩니다.
 
 ## <a name="configure-mirroring"></a>미러링 구성
 
@@ -173,7 +163,7 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
    
     이 파일은 원본 Kafka 클러스터에서 읽을 때 사용할 소비자 정보를 설명합니다. 소비자 구성에 대한 자세한 내용은 kafka.apache.org의 [소비자 구성](https://kafka.apache.org/documentation#consumerconfigs)(영문)을 참조하세요.
    
-    **Ctrl + X**, **Y** 및 Enter 키를 사용하여 파일을 저장합니다.
+    파일을 저장하려면 **Ctrl + X**, **Y** 및 **Enter** 키를 사용합니다.
 
 3. 대상 클러스터와 통신하는 생산자를 구성하기 전에 **대상** 클러스터에 대한 broker 호스트를 찾아야 합니다. 다음 명령을 사용하여 이 정보를 검색합니다.
    

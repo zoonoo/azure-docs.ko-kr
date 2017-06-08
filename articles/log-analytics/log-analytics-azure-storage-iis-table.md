@@ -3,7 +3,7 @@ title: "Azure Log Analytics에서 이벤트에 대해 IIS와 Table Storage에 Bl
 description: "Log Analytics는 Table Storage에 진단을 쓰는 Azure 서비스 또는 Blob Storage에 기록된 IIS 로그에 대해 로그를 읽을 수 있습니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
 ms.openlocfilehash: b40d7c0acd8cc6a672f25489b745561c24501482
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/28/2017
 
 

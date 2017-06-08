@@ -3,7 +3,7 @@ title: "5분 내에 Azure에서 정적 HTML 웹앱 만들기 | Microsoft Docs"
 description: "샘플 앱을 배포하여 App Service에서 웹앱을 실행하는 작업이 얼마나 쉬운지 알아봅니다."
 services: app-service\web
 documentationcenter: 
-author: cephalin
+author: rick-anderson
 manager: wpickett
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
@@ -12,73 +12,77 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/17/2017
-ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: ba9b9b780da74c44f6314fa289f1d6b8c231dd30
-ms.lasthandoff: 05/03/2017
-
+ms.date: 05/08/2017
+ms.author: riande
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 895906e1ab4bc50093ed3b18f043c3dd515ca054
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="create-a-static-html-web-app-in-azure-in-five-minutes"></a>5분 내에 Azure에서 정적 HTML 웹앱 만들기
-[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
-이 빠른 시작을 사용하면 몇 분 만에 [Azure App Service](../app-service/app-service-value-prop-what-is.md)에 간단한 HTML+CSS 사이트를 배포할 수 있습니다.
+이 빠른 시작에서는 기본적인 HTML+CSS 사이트를 Azure에 배포하는 방법을 단계별로 안내합니다. [Azure App Service 계획](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)을 사용하여 앱을 실행하고, [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만듭니다. Git를 사용하여 앱을 Azure에 배포합니다. 필수 구성 요소가 설치된 후 자습서를 완료하는 데는 약 5분 정도 걸립니다.
 
-시작하기 전에 Azure CLI가 설치되었는지 확인합니다. 자세한 내용은 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
-`az login`을 실행하고 화면상의 지침을 따라 Azure에 로그인합니다.
-   
-```azurecli
-az login
+## <a name="prerequisites"></a>필수 조건
+
+이 샘플을 만들기 전에 다음 구성 요소를 다운로드하여 설치합니다.
+
+- [Git](https://git-scm.com/)
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="download-the-sample"></a>샘플 다운로드
+
+터미널 창에서 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
+
+```bash
+git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-## <a name="create-a-resource-group"></a>리소스 그룹 만들기   
-[리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 함께 관리하려는 웹앱 및 해당 SQL Database 백 엔드와 같은 모든 Azure 리소스를 배치하는 위치입니다.
+## <a name="view-the-html"></a>HTML 보기
 
-```azurecli
-az group create --location "West Europe" --name myResourceGroup
+샘플 HTML을 포함하는 디렉터리로 이동합니다. 브라우저에서 *index.html* 파일을 엽니다.
+
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser.png)
+
+[!INCLUDE [login-to-azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [configure-deployment-user](../../includes/configure-deployment-user.md)] 
+
+[!INCLUDE [app-service-web-quickstart1](../../includes/app-service-web-quickstart1.md)] 
+
+`quickStartPlan` App Service 계획에서 [웹앱](app-service-web-overview.md)을 만듭니다. 웹앱은 코드에 대한 호스팅 공간을 제공하고, 배포된 앱을 확인할 수 있도록 URL도 제공합니다.
+
+[!INCLUDE [app-service-web-quickstart2](../../includes/app-service-web-quickstart2.md)] 
+
+이 페이지는 Azure App Service 웹앱으로 실행됩니다.
+
+![hello-world-in-browser](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+
+## <a name="update-and-redeploy-the-app"></a>앱 업데이트 및 다시 배포
+
+*index.html* 파일을 엽니다. 태그를 변경합니다. 예를 들어 `Hello world!`를 `Hello Azure!`로 변경하세요.
+
+Git에서 변경 내용을 커밋한 다음 Azure에 코드 변경 내용을 푸시합니다.
+
+```bash
+git commit -am "updated HTML"
+git push azure master
 ```
 
-`--location`에 사용할 수 있는 가능한 값을 보려면 `az appservice list-locations` Azure CLI 명령을 사용합니다.
+배포가 완료되면 브라우저를 새로 고쳐 변경 내용을 확인합니다.
 
+[!INCLUDE [manage-azure-web-app](../../includes/manage-azure-web-app.md)]
 
-## <a name="create-an-app-service-plan"></a>앱 서비스 계획 만들기
-"무료" [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)을 만듭니다. 
-
-```azurecli
-az appservice plan create --name my-free-appservice-plan --resource-group myResourceGroup --sku FREE
-```
-
-## <a name="create-a-web-app"></a>웹앱 만들기
-`<app_name>`에 고유한 이름이 있는 웹앱을 만듭니다.
-
-```azurecli
-az appservice web create --name <app_name> --resource-group myResourceGroup --plan my-free-appservice-plan
-```
-
-## <a name="deploy-sample-application"></a>샘플 응용 프로그램 배포
-GitHub에서 샘플 HTML 사이트를 배포합니다.
-
-```azurecli
-az appservice web source-control config --name <app_name> --resource-group myResourceGroup \
---repo-url "https://github.com/Azure-Samples/app-service-web-html-get-started.git" --branch master --manual-integration 
-```
-
-## <a name="browse-to-web-app"></a>웹앱으로 이동
-Azure에서 실시간으로 실행 중인 앱을 확인하려면 다음 명령을 실행합니다.
-
-```azurecli
-az appservice web browse --name <app_name> --resource-group myResourceGroup
-```
-
-축하합니다. 첫 번째 정적 HTML 사이트가 Azure App Service에서 실시간으로 실행 중입니다.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-미리 만든 [웹앱 CLI 스크립트](app-service-cli-samples.md)를 탐색합니다.
-
+- 샘플 [Web Apps CLI 스크립트](app-service-cli-samples.md)를 탐색합니다.
+- [App Service 앱](app-service-web-tutorial-custom-domain.md)에 contoso.com 등의 [사용자 지정 도메인 이름을 매핑](app-service-web-tutorial-custom-domain.md)하는 방법을 알아봅니다.

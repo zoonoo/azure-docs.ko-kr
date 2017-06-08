@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: c9ff71b3b4f1d2190f112b81835cdd98ceb3357e
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 5281f6af0e93da7aa1c72891c179afea99c6a26c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -201,7 +202,7 @@ IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 �
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [Azure IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -215,5 +216,5 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

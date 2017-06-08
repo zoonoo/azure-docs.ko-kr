@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 8a8a28e6491855434c4445bedd5644d7da109f8a
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 7830dc4774652f4d108e98660dce3bcea7b32d05
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -31,8 +32,6 @@ ms.lasthandoff: 04/21/2017
 2. **앱 전용 액세스**: 디먼 서비스 및 예약된 작업을 실행하는 앱. 리소스에 대한 직접 액세스 권한을 앱의 ID에 부여합니다. 이 방법은 Azure에 대한 장기적인 헤드리스 액세스(자동)가 필요한 앱에 작동합니다.
 
 이 항목에서는 이러한 권한 부여 방법을 모두 채택하는 앱을 만드는 단계별 지침을 제공합니다. REST API 또는 C#을 사용하여 각 단계를 수행하는 방법을 보여 줍니다. 전체 ASP.NET MVC 응용 프로그램은 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense)에서 사용할 수 있습니다.
-
-이 항목의 모든 코드는 [http://vipswapper.azurewebsites.net/cloudsense](http://vipswapper.azurewebsites.net/cloudsense)에서 실행해 볼 수 있는 웹앱으로 실행됩니다.
 
 ## <a name="what-the-web-app-does"></a>웹앱이 수행하는 작업
 웹앱:

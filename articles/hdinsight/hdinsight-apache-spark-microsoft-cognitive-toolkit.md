@@ -13,12 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 05/25/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 2dc1f8ae8e0a2986806445dc9852a54ceaaef5a4
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: b0d57fcef9eda57309d27f214edd184a38a44481
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -86,7 +87,7 @@ Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트를 �
 
 3. Jupyter 노트북에서 오른쪽 위 모서리에 있는 **업로드**를 클릭한 다음 GitHub 리포지토리를 복제한 위치로 이동합니다.
 
-    ![Azure HDInsight Spark 클러스터에 Jupyter 노트북 업로드](./media/hdinsight-apache-spark-microsoft-cognitive-toolkit.md/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Azure HDInsight Spark 클러스터에 Jupyter 노트북 업로드")
+    ![Azure HDInsight Spark 클러스터에 Jupyter 노트북 업로드](./media/hdinsight-apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Azure HDInsight Spark 클러스터에 Jupyter 노트북 업로드")
 
 4. **업로드**를 다시 클릭합니다.
 
@@ -126,6 +127,5 @@ Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트를 �
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 

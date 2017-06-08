@@ -49,6 +49,7 @@
 #### [Linux 컨테이너 배포](service-fabric-deploy-container-linux.md)
 #### [Docker Compose(미리 보기)](service-fabric-docker-compose.md)
 #### [컨테이너 및 서비스에 대한 리소스 관리](service-fabric-resource-governance.md)
+#### [볼륨 및 로깅 드라이버](service-fabric-containers-volume-logging-drivers.md)
 
 ### Reliable Service 서비스 빌드
 #### [개요](service-fabric-reliable-services-introduction.md)
@@ -69,7 +70,6 @@
 ##### [Windows에서 C#](service-fabric-reliable-services-quick-start.md)
 ##### [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
 
-#### Reliable Services 수명 주기
 #### [구성](service-fabric-reliable-services-configuration.md)
 #### [알림 보내기](service-fabric-reliable-services-notifications.md)
 #### [백업 및 복원](service-fabric-reliable-services-backup-restore.md)
@@ -87,12 +87,12 @@
 ### Reliable Actor 서비스 빌드
 #### [개요](service-fabric-reliable-actors-introduction.md)
 #### 개념
-#### [아키텍처](service-fabric-reliable-actors-platform.md)
-#### [수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
-#### [상태 관리](service-fabric-reliable-actors-state-management.md)
-#### [다형성](service-fabric-reliable-actors-polymorphism.md)
-#### [다시 표시](service-fabric-reliable-actors-reentrancy.md)
-#### [형식 직렬화](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+##### [아키텍처](service-fabric-reliable-actors-platform.md)
+##### [수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
+##### [상태 관리](service-fabric-reliable-actors-state-management.md)
+##### [다형성](service-fabric-reliable-actors-polymorphism.md)
+##### [다시 표시](service-fabric-reliable-actors-reentrancy.md)
+##### [형식 직렬화](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 #### 시작
 ##### [Windows에서 C#](service-fabric-reliable-actors-get-started.md)
@@ -108,6 +108,7 @@
 #### [서비스 통신](service-fabric-connect-and-communicate-with-services.md)
 #### [DNS 서비스](service-fabric-dnsservice.md)
 #### [역방향 프록시](service-fabric-reverseproxy.md)
+#### [보안 통신에 대한 역방향 프록시 구성](service-fabric-reverseproxy-configure-secure-communication.md)
 
 ### [웹 프런트 엔드 추가](service-fabric-add-a-web-frontend.md)
 
@@ -215,6 +216,7 @@
 ### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
 
 ### [Azure CLI를 사용하여 클러스터 관리](service-fabric-azure-cli.md)
+### [클러스터 노드 패치](service-fabric-patch-orchestration-application.md)
 
 ### 클러스터 리소스 관리 및 오케스트레이션
 #### [클러스터 Resource Manager 개요](service-fabric-cluster-resource-manager-introduction.md)
@@ -233,27 +235,31 @@
 
 ### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
 
-## 응용 프로그램 및 클러스터 상태 검사
-### [Service Fabric 상태 모니터링](service-fabric-health-introduction.md)
-### [서비스 상태 보고 및 확인](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-### [사용자 지정 상태 보고서 추가](service-fabric-report-health.md)
-### [시스템 상태 보고서를 사용하여 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-### [상태 보고서 보기](service-fabric-view-entities-aggregated-health.md)
-
 ## 모니터링 및 진단
 ### [응용 프로그램 모니터링 및 진단](service-fabric-diagnostics-overview.md)
-### 로컬로 서비스 모니터링 및 진단
-#### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-#### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-### Azure 진단 로그
-#### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-#### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [서비스 프로세스에서 로그 수집](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [상태 저장 Reliable Services의 진단](service-fabric-reliable-services-diagnostics.md)
-### [Reliable Actors의 진단](service-fabric-reliable-actors-diagnostics.md)
+### 이벤트 생성
+#### [인프라 수준 이벤트 생성](service-fabric-diagnostics-event-generation-infra.md)
+##### [Reliable Services 이벤트](service-fabric-reliable-services-diagnostics.md)
+##### [Reliable Actors 이벤트](service-fabric-reliable-actors-diagnostics.md)
+#### [응용 프로그램 수준 이벤트 생성](service-fabric-diagnostics-event-generation-app.md)
+### 응용 프로그램 및 클러스터 상태 검사
+#### [Service Fabric 상태 모니터링](service-fabric-health-introduction.md)
+#### [서비스 상태 보고 및 확인](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [사용자 지정 상태 보고서 추가](service-fabric-report-health.md)
+#### [시스템 상태 보고서를 사용하여 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [상태 보고서 보기](service-fabric-view-entities-aggregated-health.md)
+### 이벤트 집계
+#### [EventFlow를 사용하여 이벤트 집계](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Azure 진단을 사용하여 이벤트 집계
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### 이벤트 분석
+#### [Application Insights를 사용하여 이벤트 분석](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [OMS를 사용하여 이벤트 분석](service-fabric-diagnostics-event-analysis-oms.md)
 ### [로컬 클러스터 문제 해결](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # 참조
+## [PowerShell(Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
 ## [Java API](/java/api/)
 ## [.NET](/dotnet/api/)

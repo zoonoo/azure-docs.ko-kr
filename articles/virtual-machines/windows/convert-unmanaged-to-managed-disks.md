@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6530da96cd6e6ccd90714a9d3c9f00f88afe853e
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: b3a2bf688f1837a17312ec4bb5ca6b87209076cd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/03/2017
 저장소 계정에 비관리 디스크를 사용하는 기존 Azure VM이 있고 [관리 디스크](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 활용하고 싶다면 VM을 변환하면 됩니다. 이 프로세스는 저장소 계정의 비관리 디스크를 사용하는 OS 디스크 및 연결된 데이터 디스크를 관리 디스크를 사용하도록 변환합니다. VM이 종료되고 할당이 취소되면 Powershell을 사용하여 관리 디스크를 사용하도록 VM을 변환할 수 있습니다. 변환 후 VM을 다시 시작하면 이제 VM이 관리 디스크를 사용합니다.
 
 시작하기 전에 [Managed Disks로 마이그레이션하기 위한 계획](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)을 검토하세요.
-마이그레이션 프로세스는 되돌릴 수 없으므로 프로덕션 환경에서 마이그레이션을 수행하기 전에 테스트 가상 컴퓨터를 마이그레이션하여 마이그레이션 프로세스를 테스트하세요.
+마이그레이션 프로세스는 되돌릴 수 없으므로 프로덕션 환경에서 마이그레이션을 수행하기 전에 테스트 가상 컴퓨터를 마이그레이션하여 마이그레이션 프로세스를 테스트하세요. VM의 관리는 마이그레이션하는 동안 잠기므로 완료될 때까지 VM을 시작, 중지 또는 삭제할 수 없습니다.
 
 
 > [!IMPORTANT] 

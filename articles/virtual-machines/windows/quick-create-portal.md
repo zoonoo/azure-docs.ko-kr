@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/03/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 8d64ede4fd5f442cbfc88a61e2ad8388e0df2a7b
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: fac46780cfd591a00ce73ea1bb4ce73893d22967
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -97,7 +98,7 @@ IIS를 설치하고 VM에 포트 80을 열어서 인터넷에서 웹 서버에 �
 
 ![IIS 기본 사이트](./media/quick-create-powershell/default-iis-website.png) 
 
-## <a name="delete-virtual-machine"></a>가상 컴퓨터 삭제
+## <a name="clean-up-resources"></a>리소스 정리
 
 더 이상 필요하지 않을 때 리소스 그룹, 가상 컴퓨터 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 가상 컴퓨터 블레이드에서 해당 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
 

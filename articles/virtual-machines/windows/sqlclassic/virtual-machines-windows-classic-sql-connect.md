@@ -1,5 +1,5 @@
 ---
-title: "SQL Server 가상 컴퓨터에 연결(클래식) | Microsoft Docs"
+title: "Azure에서 SQL Server 가상 컴퓨터에 연결(클래식) | Microsoft Docs"
 description: "Azure의 가상 컴퓨터에서 실행되는 SQL Server에 연결하는 방법을 알아봅니다. 이 항목에서는 클래식 배포 모드를 사용합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,10 +14,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: edc013dee657cbda7c0d9020b6ff4ccda0580dcd
-ms.lasthandoff: 03/25/2017
+experimental: true
+experimental_id: d51f3cc6-753b-4e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/12/2017
 
 
 ---

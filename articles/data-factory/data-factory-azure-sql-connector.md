@@ -12,19 +12,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 05/04/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: c2616c6ff91a8fe78d60ed3bbae90b0739a6c104
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 4bc3ab14d7b2960a0732743edc31e12eb320b5ad
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
 # <a name="move-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure SQL 데이터베이스 간 데이터 이동
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure SQL Database 간에 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.  
 
-모든 지원되는 원본 데이터 저장소에서 Azure SQL Database로 또는 Azure SQL Database에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요.
+## <a name="supported-scenarios"></a>지원되는 시나리오
+**Azure SQL Database**에서 다음 데이터 저장소로 데이터를 복사할 수 있습니다.
+
+[!INCLUDE [data-factory-supported-sinks](../../includes/data-factory-supported-sinks.md)]
+
+다음 데이터 저장소에서 **Azure SQL Database**로 데이터를 복사할 수 있습니다.
+
+[!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
 ## <a name="supported-authentication-type"></a>지원되는 인증 유형
 Azure SQL Database 커넥터는 기본 인증을 지원합니다.
@@ -38,11 +46,12 @@ Azure SQL Database 커넥터는 기본 인증을 지원합니다.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다. 
 
-1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스**를 만듭니다.
-2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 
-3. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 
+1. **데이터 팩터리**를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 
+2. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스**를 만듭니다. 예를 들어 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 경우 Azure Storage 계정 및 Azure SQL Database를 데이터 팩터리에 연결하는 두 개의 연결된 서비스를 만듭니다. Azure SQL Database와 관련된 연결된 서비스 속성은 [연결된 서비스 속성](#linked-service-properties) 섹션을 참조하세요. 
+3. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 마지막 단계에서 설명한 예제에서는 입력 데이터가 포함된 BLOB 컨테이너 및 폴더를 지정하는 데이터 집합을 만듭니다. 그리고 Blob Storage에서 복사한 데이터를 포함하는 Azure SQL Database의 SQL 테이블을 지정하는 또 다른 데이터 집합을 만듭니다. Azure Data Lake Store와 관련된 데이터 집합 속성은 [데이터 집합 속성](#dataset-properties) 섹션을 참조하세요.
+4. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 앞에서 언급한 예에서는 BlobSource를 원본으로, SqlSink를 복사 작업의 싱크로 사용합니다. 마찬가지로, Azure SQL Database에서 Azure Blob Storage로 복사하는 경우 복사 작업에 SqlSource 및 BlobSink를 사용합니다. Azure SQL Database와 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties) 섹션을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대한 자세한 내용을 보려면 데이터 저장소에 대한 이전 섹션의 링크를 클릭하세요.
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  다른 곳에서 Azure SQL Database로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples) 섹션을 참조하세요. 
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  다른 곳에서 Azure SQL Database로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples-for-copying-data-to-and-from-sql-database) 섹션을 참조하세요. 
 
 다음 섹션에서는 Azure SQL Database에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다. 
 
@@ -158,10 +167,10 @@ GO
 }
 ```
 
-## <a name="json-examples"></a>JSON 예
+## <a name="json-examples-for-copying-data-to-and-from-sql-database"></a>SQL Database로/에서 데이터를 복사하는 JSON 예제
 다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Blob 저장소 및 Azure SQL 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
 
-## <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>예제: Azure SQL Database에서 Azure Blob에 데이터 복사
+### <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>예제: Azure SQL Database에서 Azure Blob에 데이터 복사
 샘플이 다음 데이터 팩터리 엔터티를 정의합니다.
 
 1. [AzureSqlDatabase](#linked-service-properties)형식의 연결된 서비스입니다.
@@ -353,7 +362,7 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 �
 
 SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsource) 섹션 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 참조하세요.
 
-## <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>예제: Azure Blob에서 Azure SQL Database로 데이터 복사
+### <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>예제: Azure Blob에서 Azure SQL Database로 데이터 복사
 샘플이 다음 데이터 팩터리 엔터티를 정의합니다.  
 
 1. [AzureSqlDatabase](#linked-service-properties)형식의 연결된 서비스입니다.

@@ -10,13 +10,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/26/2017
+ms.date: 05/05/2017
 ms.author: tamram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 171393bc4145a1d39d6ae7bf76815e7cd2d18164
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 29f642754430957e77ef68946f721f8e15dba065
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -60,9 +60,10 @@ Batch에 환경 변수를 사용하는 방법에 대한 자세한 내용은 [태
 | AZ_BATCH_MASTER_NODE            | [다중 인스턴스 태스크][multi_instance]의 기본 태스크가 실행되는 계산 노드의 IP 주소와 포트입니다. | 다중 인스턴스 기본 및 하위 태스크입니다. | `10.0.0.4:6000`|
 | AZ_BATCH_TASK_SHARED_DIR | [다중 인스턴스 태스크][multi_instance]의 기본 태스크 및 모든 하위 태스크일 경우 동일한 디렉터리 경로입니다. 경로는 다중 인스턴스 태스크가 실행되며 해당 노드에서 실행 중인 태스크 명령에 읽기/쓰기 액세스 권한을 가진 모든 노드에 존재합니다([조정 명령][coord_cmd]과 [응용 프로그램 명령][app_cmd] 둘 다). 다른 노드에서 실행되는 하위 태스크 또는 기본 태스크는 이 디렉터리에 대한 원격 액세스 권한이 없습니다(“공유” 네트워크 디렉터리가 아님). | 다중 인스턴스 기본 및 하위 태스크입니다. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | 현재 노드가 [다중 인스턴스 태스크][multi_instance]의 마스터 노드인지 여부를 지정합니다. 가능한 값은 `true` 및 `false`입니다.| 다중 인스턴스 기본 및 하위 태스크입니다. | `true` |
-
+| AZ_BATCH_NODE_IS_DEDICATED | `true`의 경우 현재 노드는 전용된 노드입니다. `false`의 경우 [우선 순위가 낮은 노드](batch-low-pri-vms.md)입니다. | 모든 태스크입니다. | `true` |
 
 [files_dirs]: https://azure.microsoft.com/documentation/articles/batch-api-basics/#files-and-directories
 [multi_instance]: https://azure.microsoft.com/documentation/articles/batch-mpi/
 [coord_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#coordination-command
 [app_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#application-command
+

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: d716f11818bc0ad6dd9e5f93951b011dd6774c7b
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: bbea08798a601989d06774475cb25ee67e99add6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,7 +28,8 @@ ms.lasthandoff: 03/22/2017
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI](network-watcher-nsg-flow-logging-cli.md)
+> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 네트워크 보안 그룹 흐름 로그는 네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 볼 수 있는 Network Watcher의 기능입니다. 이러한 흐름 로그는 json 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜)를 보여 줍니다.
@@ -35,6 +37,12 @@ ms.lasthandoff: 03/22/2017
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 컴퓨터를 포함한 리소스 그룹을 사용할 수 있다고 가정합니다.
+
+## <a name="register-insights-provider"></a>Insights 공급자 등록
+
+흐름 로깅이 성공적으로 작동하기 위해서 **Microsoft.Insights** 공급자를 등록해야 합니다. 공급자를 등록하려면 **구독**으로 이동한 후 흐름 로그를 사용하도록 설정할 구독을 선택합니다. **구독** 블레이드에서 **리소스 공급자**를 선택합니다. 공급자의 목록을 탐색하고 **microsoft.insights** 공급자가 등록되어 있는지 확인합니다. 등록되어 있지 않으면 **등록**을 클릭합니다.
+
+![공급자 보기][providers]
 
 ## <a name="enable-flow-logs"></a>흐름 로그를 사용하도록 설정
 
@@ -93,4 +101,4 @@ Network Watcher 인스턴스로 이동하고 **흐름 로그**를 선택합니�
 [4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
-
+[providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png

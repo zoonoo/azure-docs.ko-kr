@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 05/03/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d75088bd83b0b70c889388c95331bb56fe9ba15b
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 951a7849beb9653083ed0112dbbb6cf57175469d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -172,12 +173,15 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 * `"equals": "value"`
 * `"like": "value"`
+* `"match": "value"`
 * `"contains": "value"`
 * `"in": ["value1","value2"]`
 * `"containsKey": "keyName"`
 * `"exists": "bool"`
 
 **like** 조건을 사용하는 경우 값에 와일드카드(*)를 제공할 수 있습니다.
+
+**match** 조건을 사용하는 경우 자릿수 하나를 나타내려면 `#`를, 문자 하나를 나타내려면 `?`를, 해당 실제 문자를 나타내려면 다른 모든 문자를 제공합니다. 예제는 [명명 규칙 설정](#set-naming-convention)을 참조하세요.
 
 ### <a name="fields"></a>필드
 조건은 필드를 사용하여 구성됩니다. 필드는 리소스의 상태를 설명하는 데 사용되는 리소스 요청 페이로드의 속성을 나타냅니다.  
@@ -318,6 +322,36 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
       "field": "name",
       "like": "namePrefix*nameSuffix"
     }
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+리소스 이름이 패턴과 일치하도록 지정하려면 match 조건을 사용합니다. 다음 예제에서는 `contoso`로 시작하고 여섯 개의 추가 문자가 포함된 이름이 필요합니다.
+
+```json
+{
+  "if": {
+    "not": {
+      "field": "name",
+      "match": "contoso??????"
+    }
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+2자리 숫자, 대시, 3개 문자, 대시 및 4자리 숫자로 구성되는 날짜 패턴이 필요하면 다음을 사용합니다.
+
+```json
+{
+  "if": {
+    "field": "tags.date",
+    "match": "##-???-####"
   },
   "then": {
     "effect": "deny"

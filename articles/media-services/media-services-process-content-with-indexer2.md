@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 15/05/2017
 ms.author: adsolank;juliako;
-translationtype: Human Translation
-ms.sourcegitcommit: 7065d5e87dbf47153bc89b37b56af81927b8b92b
-ms.openlocfilehash: 902e872b224b267c989f741345efdd8ef3fa8ce3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 717a8ace8c469b0529ac3c98f22b8ee5a53b3d3b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -83,6 +85,10 @@ Azure 미디어 인덱서 2 미리 보기는 다음 언어에 대한 음성-텍�
 * 포르투갈어[PtBr]
 * 아랍어(이집트)[ArEg]
 * 일본어 [JaJp]
+
+## <a name="supported-file-types"></a>지원되는 파일 형식
+
+지원되는 파일 형식에 대한 내용은 [지원되는 코덱/형식](media-services-media-encoder-standard-formats.md#input-containerfile-formats) 섹션을 참조하세요.
 
 ## <a name="sample-code"></a>샘플 코드
 
@@ -278,10 +284,5 @@ Azure 미디어 인덱서 2 미리 보기는 다음 언어에 대한 음성-텍�
 [Azure 미디어 서비스 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a51be4038ef6f9890645a71cd10cc86cb58929f3
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: dd0382aaec0cdcbd6688d99f7bc0245fae5b963f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
 
-웹앱, 모바일 백 엔드 및 API 앱을 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포할 때 **표준** 또는 **프리미엄** App Service 계획 모드에서 실행 시 기본 프로덕션 슬롯 대신 개별 배포 슬롯으로 배포할 수 있습니다. 배포 슬롯은 실제로 고유한 호스트 이름이 있는 라이브 앱입니다. 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 응용 프로그램을 배포 슬롯에 배포하면 다음과 같은 이점이 있습니다.
+웹앱, Linux의 웹앱, 모바일 백 엔드 및 API 앱을 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포할 때 **표준** 또는 **프리미엄** App Service 계획 모드에서 실행하면 기본 프로덕션 슬롯 대신 별도의 배포 슬롯에 배포할 수 있습니다. 배포 슬롯은 실제로 고유한 호스트 이름이 있는 라이브 앱입니다. 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 응용 프로그램을 배포 슬롯에 배포하면 다음과 같은 이점이 있습니다.
 
 * 프로덕션 슬롯과 교환하기 전에 준비 배포 슬롯에서 앱 변경 사항의 유효성을 검사할 수 있습니다.
 * 먼저 슬롯으로 앱을 배포하고 프로덕션으로 교환하기 때문에 프로덕션으로 교환되기 전에 슬롯에 있는 모든 인스턴스가 준비되어 있는 상태입니다. 따라서 앱을 배포할 때 가동 중지가 발생하지 않습니다. 트래픽 리디렉션은 중단 없이 원활하게 수행되며 교환 작업으로 인해 삭제되는 요청은 없습니다. 사전 교환 유효성 검사가 필요하지 않은 경우 [자동 교환](#Auto-Swap) 을 구성하여 이 전체 워크플로를 자동화할 수 있습니다.
@@ -119,6 +120,9 @@ ms.lasthandoff: 04/27/2017
 미리 보기가 있는 교환 또는 다단계 교환은 연결 문자열과 같은 슬롯 관련 구성 요소의 유효성 검사를 간소화합니다.
 업무상 중요한 워크로드의 경우 프로덕션 슬롯의 구성이 적용될 때 앱이 예상대로 동작하는지 확인하려고 할 것입니다. 이러한 유효성 검사는 앱이 프로덕션으로 교환되기 *전에* 수행해야 합니다. 미리 보기가 있는 교환이 필요합니다.
 
+> [!NOTE]
+> 미리 보기가 있는 교환은 Linux의 웹앱에서 지원되지 않습니다.
+
 **미리 보기가 있는 교환** 옵션을 사용할 경우([배포 슬롯 교환](#Swap)) App Service에서 다음을 수행합니다.
 
 - 대상 슬롯(예: 프로덕션)의 기존 워크로드가 영향을 받지 않도록 해당 슬롯을 변경되지 않은 상태로 유지합니다.
@@ -140,6 +144,9 @@ ms.lasthandoff: 04/27/2017
 > 슬롯에 대해 자동 교환을 사용할 때 슬롯 구성은 정확히 대상 슬롯(일반적으로 프로덕션 슬롯)에 의도한 구성이어야 합니다.
 > 
 > 
+
+> [!NOTE]
+> 자동 교환은 Linux의 웹앱에서 지원되지 않습니다.
 
 슬롯에 대한 자동 교환 구성은 쉽습니다. 다음 단계를 따르세요.
 
@@ -276,9 +283,9 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, App Se
 > 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 앱 서비스 웹 앱 – 비 프로덕션 배포 슬롯에 대한 웹 액세스 차단](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-
-[Microsoft Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)
+[Azure App Service 웹앱 - 비프로덕션 배포 슬롯에 대한 웹 액세스 차단(영문)](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+[Linux의 App Service 소개](./app-service-linux-intro.md)
+[Microsoft Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]:  ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png

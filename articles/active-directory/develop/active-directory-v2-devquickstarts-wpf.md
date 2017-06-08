@@ -14,9 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/30/2016
 ms.author: dastrock; vittorib
-translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 52a4c326c7618b9a31df539c8b0eb0ced44ce609
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: d0602a61b0335ef2bb92e27051c286852bc08d35
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -259,10 +262,5 @@ MSAL은 개인 및 회사 계정을 사용하여 공통 ID 기능을 앱에 쉽�
 
 ## <a name="get-security-updates-for-our-products"></a>당사 제품에 대한 보안 업데이트 가져오기
 [이 페이지](https://technet.microsoft.com/security/dd252948) 를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

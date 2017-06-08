@@ -3,7 +3,7 @@ title: "Azure Log Analytics에서 로그 검색을 사용하여 데이터 찾기
 description: "로그 검색을 사용하면 사용자 환경 내에서 여러 소스의 컴퓨터 데이터를 서로 연결하고 결합할 수 있습니다."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: bwren
 manager: carmonm
 editor: 
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
-ms.author: banders
+ms.date: 05/16/2017
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: d4935af0647f0629cca327a7e87c29f1252af382
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: b005d0fb25483f3dce14133038d7759dff07fc7c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -148,7 +149,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 
 #### <a name="to-search-using-a-boolean-operator"></a>부울 연산자를 사용하여 검색하려면
-* 검색 쿼리 필드에 `EventLog=System TimeGenerated>NOW-24HOURS"`  
+* 검색 쿼리 필드에 `EventLog=System TimeGenerated>NOW-24HOURS`  
     ![부울 값을 사용하여 검색](./media/log-analytics-log-searches/oms-search-boolean.png)
 
 시간 간격을 그래픽으로 제어할 수 있지만, 그렇게 하려는 대부분의 시간에 쿼리에 직접 하는 시간 필터를 포함하여 장점이 있습니다. 예를 들어 이 방식은 대시보드 페이지에서 *전역* 시간 선택기와 무관하게 각 타일에 대한 시간을 재정의할 수 있는 경우 대시보드와 잘 작동합니다. 자세한 내용은 [대시보드에서 시간 문제](http://cloudadministrator.wordpress.com/2014/10/19/system-center-advisor-restarted-time-matters-in-dashboard-part-6/)를 참조하십시오.

@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 05/08/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 5c529ae41b42d276d37e6103305e33ed04694e18
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 0604a85192ed632b621113b98cc44172c584ea01
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -29,21 +30,31 @@ ms.lasthandoff: 04/07/2017
 
 이 연습에서는 Azure CLI 2.0 명령을 사용하여 Azure Container Service에서 Kubernetes 클러스터를 만드는 방법을 보여줍니다. 그런 다음 `kubectl` 명령줄 도구를 사용하여 클러스터에서 컨테이너 작업을 시작할 수 있습니다.
 
-다음 이미지는 1개의 마스터와 2개의 에이전트가 있는 Container Service 클러스터의 아키텍처를 보여 줍니다. 마스터 노드는 Kubernetes REST API를 제공합니다. 에이전트 노드는 Azure 가용성 집합에서 그룹화되고 컨테이너를 실행합니다. 모든 VM은 동일한 개인 가상 네트워크에 있으며 서로 완벽하게 액세스할 수 있습니다.
+다음 이미지는 1개의 Linux 마스터와 2개의 Linux 에이전트가 있는 Container Service 클러스터의 아키텍처를 보여 줍니다. 마스터 노드는 Kubernetes REST API를 제공합니다. 에이전트 노드는 Azure 가용성 집합에서 그룹화되고 컨테이너를 실행합니다. 모든 VM은 동일한 개인 가상 네트워크에 있으며 서로 완벽하게 액세스할 수 있습니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
-## <a name="prerequisites"></a>필수 조건
-이 연습에서는 [Azure CLI 2.0](/cli/azure/install-az-cli2)이 설치 및 설정되어 있다고 가정합니다. 
+자세한 배경 정보는 [Azure Container Service 소개](container-service-intro.md) 및 [Kubernetes 설명서](https://kubernetes.io/docs/home/)를 참조하세요.
 
-이 명령 예제에서는 Linux 및 macOS에서 공통적으로, Bash 셸에서 Azure CLI를 실행하고 있다고 가정합니다. Windows 클라이언트에서 Azure CLI를 실행하는 경우 명령 셸에 따라 일부 스크립팅 및 파일 구문을 다를 수 있습니다. 
+## <a name="prerequisites"></a>필수 조건
+Azure CLI 2.0을 사용하여 Azure Container Service 클러스터를 만들려면 다음을 수행해야 합니다.
+* Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))이 있어야 합니다.
+* [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 설정해야 합니다.
+
+또한 다음이 필요합니다(또는 Azure CLI를 사용하여 클러스터 배포 중에 자동으로 생성할 수 있음).
+
+* **SSH RSA 공용 키**: SSH(보안 셸) RSA 키를 미리 만들려면 [macOS 및 Linux](../virtual-machines/linux/mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/linux/ssh-from-windows.md) 지침을 참조하세요. 
+
+* **서비스 주체 클라이언트 ID 및 비밀**: Azure Active Directory 서비스 주체를 만드는 단계 및 추가 정보는 [Kubernetes 클러스터에 대한 서비스 주체 정보](container-service-kubernetes-service-principal.md)를 참조하세요.
+
+ 이 문서의 명령 예제에서는 SSH 키 및 서비스 주체를 자동으로 생성합니다.
 
 ## <a name="create-your-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
 
-다음은 Azure CLI 2.0을 사용하여 클러스터를 만드는 간단한 셸 명령입니다. 
+다음은 Azure CLI 2.0을 사용하여 클러스터를 만드는 간단한 bash 셸 명령입니다. 
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
-클러스터를 만들려면 먼저 특정 위치에 리소스 그룹을 만들어야 합니다. 다음과 유사한 명령을 실행합니다.
+클러스터를 만들려면 Azure Container Service를 [사용할 수 있는](https://azure.microsoft.com/regions/services/) 위치에 리소스 그룹을 먼저 만들어야 합니다. 다음과 유사한 명령을 실행합니다.
 
 ```azurecli
 RESOURCE_GROUP=my-resource-group
@@ -52,9 +63,11 @@ az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
 ### <a name="create-a-cluster"></a>클러스터 만들기
-리소스 그룹이 있으면 해당 그룹에 클러스터를 만들 수 있습니다. 다음 예제에서는 기본 `~/.ssh/` 디렉터리에 아직 없는 경우 배포를 위해 필요한 SSH 공용 및 개인 키 파일을 생성하는 `--generate-ssh-keys` 옵션을 사용합니다. 
+`--orchestrator-type=kubernetes`에서 `az acs create` 명령을 사용하여 리소스 그룹에서 Kubernetes 클러스터를 만듭니다. 명령 구문의 경우 `az acs create` [도움말](/cli/azure/acs#create)을 참조하세요.
 
-이 명령은 Azure의 Kubernetes 클러스터가 사용하는 [Azure Active Directory 서비스 주체](container-service-kubernetes-service-principal.md)를 자동으로 생성합니다.
+이 버전의 명령은 Kubernetes 클러스터에 대한 SSH RSA 키 및 서비스 주체를 자동으로 생성합니다.
+
+
 
 ```azurecli
 DNS_PREFIX=some-unique-value
@@ -62,23 +75,29 @@ CLUSTER_NAME=any-acs-cluster-name
 az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX --generate-ssh-keys
 ```
 
-
 몇 분 후 명령이 완료되면 Kubernetes 클러스터가 작동해야 합니다.
+
+> [!IMPORTANT]
+> 계정에 Azure AD 서비스 주체를 만들 수 있는 권한이 없는 경우 명령은 **권한이 부족하여 작업을 완료할 수 없습니다**와 비슷한 오류를 생성합니다. 자세한 내용은 [Kubernetes 클러스터의 서비스 주체 정보](container-service-kubernetes-service-principal.md)를 참조하세요.
+> 
+
+
 
 ### <a name="connect-to-the-cluster"></a>클러스터에 연결
 
 클라이언트 컴퓨터에서 Kubernetes 클러스터에 연결하려면 Kubernetes 명령줄 클라이언트인 [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/)을 사용합니다. 
 
-`kubectl`이 아직 설치되지 않은 경우 다음을 사용하여 설치할 수 있습니다.
+`kubectl`이 아직 설치되지 않은 경우 `az acs kubernetes install-cli`를 사용하여 설치할 수 있습니다. ([Kubernetes 사이트](https://kubernetes.io/docs/tasks/kubectl/install/)에서 다운로드할 수도 있습니다.)
 
 ```azurecli
 sudo az acs kubernetes install-cli
 ```
+
 > [!TIP]
 > 기본적으로 이 명령은 `kubectl` 이진 파일을 Linux 또는 macOS 시스템의 `/usr/local/bin/kubectl`이나 Windows의 `C:\Program Files (x86)\kubectl.exe`에 설치합니다. 다른 설치 경로를 지정하려면 `--install-location` 매개 변수를 사용합니다.
 >
-
-`kubectl`이 설치된 후에는 시스템 경로에서 해당 디렉터리를 확인하거나 해당 경로에 추가합니다. 
+> `kubectl`이 설치된 후에는 시스템 경로에서 해당 디렉터리를 확인하거나 해당 경로에 추가합니다. 
+>
 
 
 그런 후 다음 명령을 실행하여 마스터 Kubernetes 클러스터 구성을 `~/.kube/config` 파일에 다운로드합니다.
@@ -104,8 +123,8 @@ kubectl get nodes
 * `kubectl exec`를 사용하여 컨테이너에서 명령 실행 
 * Kubernetes 대시보드에 액세스
 
-### <a name="start-a-simple-container"></a>간단한 컨테이너 시작
-다음을 실행하면 간단한 컨테이너(이 경우 Nginx 웹 서버)를 실행할 수 있습니다.
+### <a name="start-a-container"></a>컨테이너 시작
+다음을 실행하면 컨테이너(이 경우 Nginx 웹 서버)를 실행할 수 있습니다.
 
 ```bash
 kubectl run nginx --image nginx
@@ -147,7 +166,7 @@ Kubernetes 웹 인터페이스를 보려면 다음을 사용할 수 있습니다
 ```bash
 kubectl proxy
 ```
-이 명령은 [http://localhost:8001/ui](http://localhost:8001/ui)에서 실행 중인 Kubernetes 웹 UI를 보는 데 사용할 수 있는 localhost에서 간단한 인증된 프록시를 실행합니다. 자세한 내용은 [Azure Container Service에서 Kubernetes 웹 UI 사용](container-service-kubernetes-ui.md)을 참조하세요.
+이 명령은 [http://localhost:8001/ui](http://localhost:8001/ui)에서 실행 중인 Kubernetes 웹 UI를 보는 데 사용할 수 있는 localhost에서 인증된 프록시를 실행합니다. 자세한 내용은 [Azure Container Service에서 Kubernetes 웹 UI 사용](container-service-kubernetes-ui.md)을 참조하세요.
 
 ![Kubernetes 대시보드 이미지](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
@@ -159,7 +178,7 @@ Kubernetes를 사용하면 클러스터에서 실행 중인 원격 Docker 컨테
 kubectl get pods
 ```
 
-pod 이름을 사용하여 pod에서 원격 명령을 실행할 수 있습니다.  예:
+pod 이름을 사용하여 pod에서 원격 명령을 실행할 수 있습니다. 예:
 
 ```bash
 kubectl exec <pod name> date

@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 75a2fa16a7e33cf85746538e120ca90a389b05c5
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 25183c6c3c69f7d4c2872252197e2dc8662fefd4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -83,7 +84,7 @@ ID 레지스트리에서 ID의 **상태** 속성을 업데이트하여 장치를
 
 ## <a name="device-provisioning"></a>장치 프로비전
 
-지정된 IoT 솔루션이 저장하는 장치 데이터는 해당 솔루션의 요구 사항에 따라 다릅니다. 하지만 어떤 솔루션이든 최소한 장치 ID와 인증 키를 저장해야 합니다. Azure IoT Hub는 ID, 인증 키 및 상태 코드와 같은 각 장치에 대한 값을 저장할 수 있는 ID 레지스트리를 포함합니다. 솔루션은 Azure Table Storage, Azure Blob Storage 또는 Azure DocumentDB와 같은 기타 Azure 서비스를 사용하여 추가 장치 데이터를 저장할 수 있습니다.
+지정된 IoT 솔루션이 저장하는 장치 데이터는 해당 솔루션의 요구 사항에 따라 다릅니다. 하지만 어떤 솔루션이든 최소한 장치 ID와 인증 키를 저장해야 합니다. Azure IoT Hub는 ID, 인증 키 및 상태 코드와 같은 각 장치에 대한 값을 저장할 수 있는 ID 레지스트리를 포함합니다. 솔루션은 Azure Table Storage, Azure Blob Storage 또는 Azure Cosmos DB와 같은 기타 Azure 서비스를 사용하여 추가 장치 데이터를 저장할 수 있습니다.
 
 *장치 프로비전* 은 솔루션 저장소에 초기 장치 데이터를 추가하는 프로세스입니다. 새 장치를 허브에 연결하도록 하려면 장치 ID 및 키를 IoT Hub ID 레지스트리에 추가해야 합니다. 프로비전 프로세스의 일부로, 다른 솔루션 저장소에서 장치 특정 데이터를 초기화해야 할 수 있습니다.
 
@@ -99,6 +100,50 @@ IoT 솔루션에서 장치가 연결되어 있는지 확인해야 하는 경우(
 
 > [!NOTE]
 > IoT 솔루션에서 장치 연결 상태만으로 클라우드-장치 메시지를 보낼지 여부를 결정해야 하고 메시지가 큰 장치 집합으로 브로드캐스트되지 않으면, 짧은 만료 시간을 사용하는 것이 더 간단한 패턴입니다. 이렇게 하면 이 패턴은 더 효율적으로 유지되면서 하트비트 패턴을 사용하여 장치 연결 상태 레지스트리를 유지 관리하는 것과 동일한 결과를 얻을 수 있습니다. 또한 메시지 승인을 요청하여 장치가 메시지를 받을 수 있거나 온라인 상태가 아니거나 실패한 IoT Hub의 알림을 받는 것도 가능합니다.
+
+## <a name="device-lifecycle-notifications"></a>장치 수명 주기 알림
+
+장치 ID가 생성 또는 삭제되면 IoT Hub에서 장치 수명 주기 알림을 전송하여 IoT 솔루션에 알릴 수 있습니다. 이를 수행하려면 IoT 솔루션이 경로를 만들고 데이터 원본을 *DeviceLifecycleEvents*와 동일하게 설정해야 합니다. 기본적으로 수명 주기 알림이 전송되지 않습니다. 즉, 이러한 경로는 미리 존재하지 않습니다. 알림 메시지는 속성과 본문을 포함합니다.
+
+- 속성
+
+메시지 시스템 속성 앞에 `'$'` 기호를 붙입니다.
+
+| 이름 | 값 |
+| --- | --- |
+$content-type | application/json |
+$iothub-enqueuedtime |  알림이 전송된 시간 |
+$iothub-message-source | deviceLifecycleEvents |
+$content-encoding | utf-8 |
+opType | "createDeviceIdentity" 또는 "deleteDeviceIdentity" |
+hubName | IoT Hub의 이름 |
+deviceId | 장치의 ID |
+operationTimestamp | 작업의 ISO8601 타임스탬프 |
+iothub-message-schema | deviceLifecycleNotification |
+
+- 본문
+
+이 섹션은 JSON 형식이며, 생성된 장치 ID 쌍을 나타냅니다. 예를 들면 다음과 같습니다.
+``` 
+{
+    "deviceId":"11576-ailn-test-0-67333793211",
+    "etag":"AAAAAAAAAAE=",
+    "properties": {
+        "desired": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        },
+        "reported": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        }
+    }
+}
+```
 
 ## <a name="reference-topics"></a>참조 항목:
 

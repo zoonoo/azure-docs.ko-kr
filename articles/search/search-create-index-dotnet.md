@@ -13,12 +13,13 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 04/21/2017
+ms.date: 05/22/2017
 ms.author: brjohnst
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 52dcb10495c564c5d8058b9c786b4cd331b6ae18
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 0531b5c3b63a3fa54bb331f3d8d09c8119e789ea
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -59,13 +60,17 @@ Azure Search 서비스를 프로비전했다면 .NET SDK를 사용하여 서비�
 ## <a name="create-an-instance-of-the-searchserviceclient-class"></a>SearchServiceClient 클래스의 인스턴스 만들기
 Azure Search .NET SDK 사용을 시작하려면 `SearchServiceClient` 클래스의 인스턴스를 만들어야 합니다. 이 클래스에는 몇 가지 생성자가 있습니다. 검색 서비스 이름과 `SearchCredentials` 개체를 매개 변수로 사용할 생성자입니다. `SearchCredentials` 는 API 키를 래핑합니다.
 
-아래 코드에서는 응용 프로그램의 구성 파일(`app.config` 또는 `web.config`)에 저장된 API 키와 검색 서비스 이름을 사용하여 새 `SearchServiceClient`를 만듭니다.
+아래 코드에서는 응용 프로그램의 구성 파일([샘플 응용 프로그램](http://aka.ms/search-dotnet-howto)의 경우 `appsettings.json`)에 저장된 API 키와 검색 서비스 이름의 값을 사용하여 새 `SearchServiceClient`를 만듭니다.
 
 ```csharp
-string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
-string adminApiKey = ConfigurationManager.AppSettings["SearchServiceAdminApiKey"];
+private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+{
+    string searchServiceName = configuration["SearchServiceName"];
+    string adminApiKey = configuration["SearchServiceAdminApiKey"];
 
-SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+    SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+    return serviceClient;
+}
 ```
 
 `SearchServiceClient`에는 `Indexes` 속성이 있습니다. 이 속성은 Azure Search 인덱스를 생성, 나열, 업데이트 또는 삭제하는 데 필요한 모든 메서드를 제공합니다.
@@ -93,13 +98,19 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 예를 들어 인덱스 "호텔"의 이름을 지정하고 모델 클래스를 사용해 필드를 정의했습니다. 모델 클래스의 각 속성에는 해당 인덱스 필드의 검색 관련 동작을 결정하는 특성이 있습니다. 모델 클래스는 다음과 같이 정의됩니다.
 
 ```csharp
+using System;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
+using Microsoft.Spatial;
+using Newtonsoft.Json;
+
 // The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
 // It ensures that Pascal-case property names in the model class are mapped to camel-case
 // field names in the index.
 [SerializePropertyNamesAsCamelCase]
 public partial class Hotel
 {
-    [Key]
+    [System.ComponentModel.DataAnnotations.Key]
     [IsFilterable]
     public string HotelId { get; set; }
 

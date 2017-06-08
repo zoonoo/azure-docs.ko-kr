@@ -1,85 +1,89 @@
-- name: "LUIS Documentation"
+- name: LUIS 설명서
   href: ../index.md
-- name: "Overview"
+- name: 개요
   items: 
-  - name: "Learn about Language Understanding Intelligent Service"
+  - name: 언어 인식 인텔리전트 서비스에 대해 알아보기
     href: Home.md
-- name: "Quickstarts"
+- name: 빠른 시작
   expanded: true
   items: 
-  - name: "Create a new app"
+  - name: 새 앱 만들기
     href: luis-get-started-create-app.md
-- name: "Tutorials"
+- name: 자습서
   items: 
-  - name: "Integrate LUIS with a bot using Node.js"
+  - name: Node.js를 사용하는 봇과 LUIS 통합
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
-- name: "Concepts"
+- name: 개념
   items: 
-  - name: "Intents"
+  - name: 의도
     href: luis-concept-intent.md
-  - name: "Entities"
+  - name: 엔터티
     href: luis-concept-entity-types.md
-  - name: "Utterances"
+  - name: 발언
     href: luis-concept-utterance.md
-  - name: "Support for multiple languages"
+  - name: 기능
+    href: luis-concept-feature.md
+  - name: 여러 언어 지원
     href: luis-concept-language-support.md
-- name: "How-to guides"
+- name: 방법 가이드
   items: 
-  - name: "Plan your app"
+  - name: 앱 계획
     href: Plan-your-app.md
-  - name: "Build a LUIS app"
+  - name: LUIS 앱 빌드
     items: 
-    - name: "Start a new app"
+    - name: 새 앱 시작
       href: Create-new-app.md
-    - name: "Add intents"
+    - name: 의도 추가
       href: Add-intents.md
-    - name: "Add utterances"
+    - name: 발언 추가
       href: Add-example-utterances.md
-    - name: "Add entities"
+    - name: 엔터티 추가
       href: Add-entities.md
-    - name: "Improve performance using features"
+    - name: 기능을 사용하여 성능 향상
       href: Add-Features.md
-    - name: "Train and test the app"
+    - name: 앱 학습 및 테스트
       href: Train-Test.md
-    - name: "Use active learning"
+    - name: 활성 학습 사용
       href: Label-Suggested-Utterances.md
-    - name: "Publish your app"
+    - name: 앱 게시
       href: PublishApp.md
-  - name: "Prebuilt models"
+  - name: 미리 작성된 모델
     items: 
-    - name: "Use prebuilt entities"
+    - name: 미리 작성된 엔터티 사용
       href: Pre-builtEntities.md
-    - name: "Use prebuilt domains"
+    - name: 미리 작성된 도메인 사용
       href: luis-how-to-use-prebuilt-domains.md
-    - name: "Use the Cortana prebuilt app"
+    - name: Cortana 미리 작성된 앱 사용
       href: Cortana-Prebuilt-App.md
-  - name: "Manage your LUIS app"
+  - name: LUIS 앱 관리
     items: 
-    - name: "Monitor your app using the dashboard"
+    - name: 대시보드를 사용하여 앱 모니터링
       href: App-Dashboard.md
-    - name: "Manage keys"
+    - name: 키 관리
       href: Manage-Keys.md
-    - name: "Create subscription keys"
+    - name: 구독 키 만들기
       href: AzureIbizaSubscription.md
-    - name: "Manage versions"
+    - name: 버전 관리
       href: luis-how-to-manage-versions.md
-    - name: "Collaborate on a LUIS app"
+    - name: LUIS 앱에서 공동 작업
       href: luis-how-to-collaborate.md    
-- name: "Reference"
+- name: 참조
   items: 
-  - name: "LUIS API"
+  - name: API 작성
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
-  - name: "SDKs"
+  - name: 끝점 API
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78      
+  - name: SDK
     items:
-    - name: "Android"
+    - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
-    - name: "Node.js"
+    - name: Node.js
       href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
-    - name: "Python"
+    - name: Python
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
-    - name: "Windows"
+    - name: Windows
       href: https://github.com/Microsoft/Cognitive-LUIS-Windows
-- name: "Resources"
+- name: 리소스
   items: 
-  - name: "LUIS FAQ"
+  - name: LUIS FAQ
     href: luis-resources-faq.md

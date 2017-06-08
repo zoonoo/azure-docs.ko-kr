@@ -12,12 +12,12 @@ ms.custom: connection security
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/15/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 079e4234c7969b267e7e3a3a518cae570da77dfe
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: dd8b3d5b26f4a903f403e5c7e9dba645a14b3231
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에서 SSL 연결 구성
@@ -28,19 +28,19 @@ PostgreSQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용해
 ## <a name="enforcing-ssl-connections"></a>SSL 연결 적용
 Azure Portal 및 CLI를 통해 프로비전된 모든 MySQL용 Azure 데이터베이스 서버의 경우 SSL 연결 적용이 기본적으로 활성화됩니다. 
 
-마찬가지로, Azure Portal의 해당 서버에 있는 “연결 문자열” 설정에서 미리 정의된 연결 문자열에는 SSL을 사용하여 데이터베이스 서버에 연결하기 위한 일반적인 언어에 대한 필수 매개 변수가 포함되어 있습니다. SSL 매개 변수는 커넥터에 따라 달라집니다. 예를 들어 "ssl = true", "sslmode=require" 또는 "sslmode=required"이거나 다른 변형이 사용될 수 있습니다.
+마찬가지로, Azure Portal의 해당 서버에 있는 “연결 문자열” 설정에서 미리 정의된 연결 문자열에는 SSL을 사용하여 데이터베이스 서버에 연결하기 위한 일반적인 언어에 대한 필수 매개 변수가 포함되어 있습니다. SSL 매개 변수는 “ssl=true” 또는 “sslmode=require” 또는 “sslmode=required” 및 다른 변형과 같은 커넥터에 따라 달라집니다.
 
 ## <a name="configure-enforcement-of-ssl"></a>SSL 적용 구성
 필요에 따라 SSL 연결 적용을 사용하지 않도록 설정할 수 있습니다. Microsoft Azure는 항상 향상된 보안을 위해 **SSL 연결 적용** 설정을 사용하는 것을 권장합니다.
 
-#### <a name="using-the-azure-portal"></a>Azure 포털 사용
+### <a name="using-the-azure-portal"></a>Azure 포털 사용
 PostgreSQL용 Azure 데이터베이스 서버를 방문하여 **연결 보안**을 클릭합니다. 설정/해제 단추를 사용하여 **SSL 연결 적용** 설정을 사용하거나 사용하지 않도록 설정합니다. 그런 다음 **Save**를 클릭합니다. 
 
 ![연결 보안 - SSL 적용 사용 안 함](./media/concepts-ssl-connection-security/1-disable-ssl.png)
 
 **SSL 적용 상태** 표시기를 확인할 수 있는 **개요** 페이지에서 설정을 확인할 수 있습니다.
 
-#### <a name="using-azure-cli"></a>Azure CLI 사용
+### <a name="using-azure-cli"></a>Azure CLI 사용
 Azure CLI에서 `Enabled` 또는 `Disabled` 값을 각각 사용하여 **ssl-enforcement** 매개 변수를 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
 ```azurecli
@@ -86,7 +86,7 @@ cd openssl-1.1.0e
 ```bash
 make
 ```
-컴파일이 완료되면 다음 명령을 실행하여 OpenSSL을 실행 파일로 설치할 수 있습니다.
+컴파일이 완료되면 다음 명령을 실행하여 OpenSSL을 실행 가능하도록 설치할 준비가 되었습니다.
 ```bash
 make install
 ```
@@ -102,8 +102,8 @@ OpenSSL 1.1.0e 7 Apr 2014
 
 #### <a name="for-windows"></a>Windows의 경우
 다음 방법을 수행하면 Windows PC에서 OpenSSL을 설치할 수 있습니다.
-1. **(권장)** OpenSSL은 기본적으로 Windows 10 이상에서 기본 제공 Windows용 Bash 기능을 사용하여 설치됩니다. Windows 10의 Windows용 Bash 기능을 사용하도록 설정하는 방법에 대한 지침은 [여기](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)에 나와 있습니다.
-2. 커뮤니티에서 제공되는 Win32/64 응용 프로그램을 다운로드하여. OpenSSL Software Foundation에서 특정 Windows 설치 관리자를 제공하거나 보증하지는 않지만 사용 가능한 설치 관리자의 목록은 [여기](https://wiki.openssl.org/index.php/Binaries)에서 확인할 수 있습니다.
+1. **(권장)** Window 10 이상에서 기본 제공되는 Windows용 Bash 기능을 사용하면 OpenSSL이 기본적으로 설치됩니다. Windows 10의 Windows용 Bash 기능을 사용하도록 설정하는 방법에 대한 지침은 [여기](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)에 나와 있습니다.
+2. 커뮤니티에서 제공되는 Win32/64 응용 프로그램을 다운로드하여, OpenSSL Software Foundation에서 특정 Windows 설치 관리자를 제공하거나 보증하지는 않지만 사용 가능한 설치 관리자의 목록은 [여기](https://wiki.openssl.org/index.php/Binaries)에서 확인할 수 있습니다.
 
 ### <a name="decode-your-certificate-file"></a>인증서 파일 디코딩
 다운로드한 루트 CA 파일은 암호화된 형식입니다. OpenSSL을 사용하여 인증서 파일을 디코딩합니다. 이렇게 하려면 다음 OpenSSL 명령을 실행합니다.
@@ -115,8 +115,12 @@ OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -text -out root.crt
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>SSL 인증서 인증을 사용하여 PostgreSQL용 Azure 데이터베이스에 연결
 이제 인증서를 성공적으로 디코딩했으므로 SSL을 통해 데이터베이스 서버에 안전하게 연결할 수 있습니다. 서버 인증서 확인을 허용하려면 사용자의 홈 디렉터리에 있는 파일 ~/.postgresql/root.crt에 인증서를 배치해야 합니다. (Microsoft Windows에서 이 파일의 이름은 %APPDATA%\postgresql\root.crt입니다.) 다음은 PostgreSQL용 Azure 데이터베이스에 연결하기 위한 지침입니다.
 
+> [!NOTE]
+> 현재 서비스에 연결된 상태에서 "sslmode=verify-full"을 사용하는 경우 연결이 다음과 같은 오류로 실패하는 알려진 문제가 있습니다. _“&lt;region&gt;.control.database.windows.net”에 대한 서버 인증서(및 7개 다른 이름)가 호스트 이름 “&lt;servername&gt;.postgres.database.azure.com”과 일치하지 않습니다._
+> "sslmode=verify-full"이 필요한 경우 서버 명명 규칙 **&lt;servername&gt;.database.windows.net**을 연결 문자열 호스트 이름으로 사용하세요. 나중에 이 제한을 제거할 예정입니다. 다른 [SSL 모드](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS)를 사용하여 연결하면 기본 호스트 명명 규칙 **&lt;servername&gt;.postgres.database.azure.com**을 계속 사용해야 합니다.
+
 #### <a name="using-psql-command-line-utility"></a>psql 명령줄 유틸리티 사용
-다음 예제에서는 pgsql 명령줄 인터페이스 및 psql 명령줄 유틸리티와 생성한 `root.crt` 파일 및 `sslmode=verify-ca` 옵션을 사용하여 PostgreSQL 서버에 성공적으로 연결하는 방법을 둘 다 보여 줍니다.
+다음 예제에서는 psql 명령줄 유틸리티를 사용하여 PostgreSQL 서버에 성공적으로 연결하는 방법을 보여 줍니다. 만든 `root.crt` 파일과 `sslmode=verify-ca` 또는 `sslmode=verify-full` 옵션을 사용합니다.
 
 PostgreSQL 명령줄 인터페이스를 사용하여 다음 명령을 실행합니다.
 ```bash
@@ -136,9 +140,10 @@ postgres=>
 ```
 
 #### <a name="using-pgadmin-gui-tool"></a>pgAdmin GUI 도구 사용
-SSL을 통해 안전하게 연결하도록 pgAdmin 4를 구성하려면 `SSL mode = Verify-CA`를 다음과 같이 설정해야 합니다.
+SSL을 통해 안전하게 연결하도록 pgAdmin 4를 구성하려면 `SSL mode = Verify-CA` 또는 `SSL mode = Verify-Full`을 다음과 같이 설정해야 합니다.
 
 ![pgAdmin - 연결 - SSL 모드 Require 스크린샷](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
 ## <a name="next-steps"></a>다음 단계
 [용 Azure 데이터베이스를 위한 연결 라이브러리](concepts-connection-libraries.md) 후에 다양한 응용 프로그램 연결 옵션 검토
+

@@ -95,10 +95,6 @@
         href: java-create-azure-website-using-java-sdk.md
       - name: 기존 앱 업로드
         href: web-sites-java-add-app.md
-      - name: Eclipse 원격 디버깅
-        href: app-service-web-debug-java-web-app-in-eclipse.md
-      - name: IntelliJ 원격 디버깅
-        href: app-service-web-debug-java-web-app-in-intellij.md
     - name: Python
       items:
       - name: MySQL을 사용하는 Django 앱
@@ -141,9 +137,9 @@
     href: web-sites-deploy.md
     items:
     - name: FTP를 통해 배포
-      href: app-service-deploy-content-sync.md
+      href: app-service-deploy-ftp.md
     - name: 클라우드 동기화를 통해 배포
-      href: web-sites-deploy.md
+      href: app-service-deploy-content-sync.md
     - name: 연속 배포
       href: app-service-continuous-deployment.md
     - name: 스테이징에 배포
@@ -162,8 +158,6 @@
       items:
       - name: 도메인 구입
         href: custom-dns-web-site-buydomains-web-app.md
-      - name: 타사 도메인 매핑
-        href: web-sites-custom-domain-name.md
       - name: Traffic Manager로 도메인 매핑
         href: web-sites-traffic-manager-custom-domain-name.md
       - name: GoDaddy 도메인 매핑
@@ -204,10 +198,6 @@
         href: web-sites-authentication-authorization.md
       - name: 다중 테넌트 데이터베이스를 사용하는 앱
         href: web-sites-dotnet-entity-framework-row-level-security.md
-    - name: 사용자 지정 SSL 할당
-      items:
-      - name: 타사 SSL 인증서 구성
-        href: web-sites-configure-ssl-certificate.md
     - name: HTTPS 적용
       href: web-sites-configure-ssl-certificate.md#enforce-https-on-your-app
     - name: TLS 상호 인증 구성
@@ -278,6 +268,16 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: 성능 문제 해결
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: FAQ
+      items:
+      - name: '가용성, 성능 및 응용 프로그램 FAQ'
+        href: app-service-web-availability-performance-application-issues-faq.md
+      - name: 배포 FAQ
+        href: app-service-web-deployment-faq.md
+      - name: 오픈 소스 기술 FAQ
+        href: app-service-web-open-source-technologies-faq.md
+      - name: 구성 및 관리 FAQ
+        href: app-service-web-configuration-and-management-faq.md
   - name: 가격
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: 할당량 정보

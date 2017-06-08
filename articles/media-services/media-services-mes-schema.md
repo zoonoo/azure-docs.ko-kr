@@ -12,19 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 05/12/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: a526610f5b09ce73a9c192ec45ae8aafab001401
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: b35390c6eb912db966648bff4efb59cece2837b3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 스키마
 이 항목에서는 [Media Encoder Standard 기본 설정](media-services-mes-presets-overview.md)의 기반이 되는 XML 스키마의 일부 요소와 형식에 대해 설명하며, 요소 및 해당 유효 값에 대한 설명도 제공합니다. 전체 스키마는 나중에 게시됩니다.  
 
-## <a name="a-namepreseta-preset-root-element"></a><a name="Preset"></a> 기본 설정(루트 요소)
+## <a name="Preset"></a> 기본 설정(루트 요소)
 인코딩 기본 설정을 정의합니다.  
 
 ### <a name="elements"></a>요소
@@ -38,7 +39,7 @@ ms.lasthandoff: 01/13/2017
 | --- | --- | --- |
 | **버전**<br/><br/> 필수 |**xs: decimal** |기본 설정 버전입니다. 적용되는 제한 사항으로 xs:fractionDigits value="1" 및 xs:minInclusive value="1"이 있습니다(예: **version="1.0"**). |
 
-## <a name="a-nameencodinga-encoding"></a><a name="Encoding"></a> Encoding
+## <a name="Encoding"></a> Encoding
 다음 요소의 시퀀스를 포함합니다.  
 
 ### <a name="elements"></a>요소
@@ -50,24 +51,24 @@ ms.lasthandoff: 01/13/2017
 | **PngImage** |[PngImage](media-services-mes-schema.md#PngImage) |Png 이미지 설정입니다. |
 | **JpgImage** |[JpgImage](media-services-mes-schema.md#JpgImage) |Jpg 이미지 설정입니다. |
 
-## <a name="a-nameh264videoa-h264video"></a><a name="H264Video"></a> H264Video
+## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>요소
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
-| **TwoPass**<br/><br/> minOccurs="0" |**xs: boolean** |현재는&1; 패스 인코딩만 지원됩니다. |
+| **TwoPass**<br/><br/> minOccurs="0" |**xs: boolean** |현재는 1 패스 인코딩만 지원됩니다. |
 | **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs: time** |IDR 프레임 사이의 (기본) 간격을 결정합니다. |
 | **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default=”false” |**xs: boolean** |true로 설정된 경우 인코더에서 비디오 장면 변경을 감지하고 IDR 프레임을 삽입합니다. |
 | **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |인코딩 속도와 비디오 품질 간의 균형을 제어합니다. **Speed**, **Balanced** 또는 **Quality** 값 중 하나일 수 있습니다.<br/><br/> 기본값: **Balanced** |
 | **SyncMode**<br/><br/> minOccurs="0" | |향후 릴리스에서 공개될 기능입니다. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |출력 비디오 레이어의 컬렉션입니다. |
 
-## <a name="a-nameh264layersa-h264layers"></a><a name="H264Layers"></a> H264Layers
+## <a name="H264Layers"></a> H264Layers
 ### <a name="elements"></a>요소
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |H264 레이어의 컬렉션입니다. |
 
-## <a name="a-nameh264layera-h264layer"></a><a name="H264Layer"></a> H264Layer
+## <a name="H264Layer"></a> H264Layer
 > [!NOTE]
 > 비디오 제한은 [H264 수준](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels) 표에서 설명하는 값을 기반으로 합니다.  
 > 
@@ -86,11 +87,11 @@ ms.lasthandoff: 01/13/2017
 | **BFrames**<br/><br/> minOccurs="0" |**xs:int** |참조 프레임 사이의 B 프레임 수입니다. |
 | **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |GOP의 참조 프레임 수입니다. |
 | **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs:string** |**Cabac** 및 **Cavlc** 값 중 하나일 수 있습니다. |
-| **FrameRate**<br/><br/> minOccurs="0" |유리수입니다. |출력 비디오의 프레임 속도를 결정합니다. 인코더에서 입력 비디오와 동일한 프레임 속도를 사용하도록 하려면 "0/1"(기본값)을 사용합니다. 허용되는 값은 아래와 같이 일반적인 비디오 프레임 속도일 것으로 예상되지만, 유효한 유리수는 모두 허용됩니다. 예를 들어 1/1은 1fps이고 사용할 수 있습니다.<br/><br/> - 12/1(12fps)<br/><br/> - 15/1(15fps)<br/><br/> - 24/1(24fps)<br/><br/> - 24000/1001(23.976fps)<br/><br/> - 25/1(25fps)<br/><br/>  - 30/1(30fps)<br/><br/> - 30000/1001(29.97fps) |
+| **FrameRate**<br/><br/> minOccurs="0" |유리수입니다. |출력 비디오의 프레임 속도를 결정합니다. 인코더에서 입력 비디오와 동일한 프레임 속도를 사용하도록 하려면 "0/1"(기본값)을 사용합니다. 허용되는 값은 아래와 같이 일반적인 비디오 프레임 속도일 것으로 예상되지만, 유효한 유리수는 모두 허용됩니다. 예를 들어 1/1은 1fps이고 사용할 수 있습니다.<br/><br/> - 12/1(12fps)<br/><br/> - 15/1(15fps)<br/><br/> - 24/1(24fps)<br/><br/> - 24000/1001(23.976fps)<br/><br/> - 25/1(25fps)<br/><br/>  - 30/1(30fps)<br/><br/> - 30000/1001(29.97fps) <br/> <br/>**참고** 다중 비트 전송률 인코딩에 대한 사용자 지정 사전 설정을 만들면 사전 설정의 모든 계층에서는 FrameRate와 동일한 값을 사용**해야** 합니다.|
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs: boolean** |Azure Media Encoder에서 복사합니다. |
 | **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |프레임이 분할되는 조각 수를 결정합니다. 기본값을 사용하는 것이 좋습니다. |
 
-## <a name="a-nameaacaudioa-aacaudio"></a><a name="AACAudio"></a> AACAudio
+## <a name="AACAudio"></a> AACAudio
  다음 요소와 그룹의 시퀀스를 포함합니다.  
 
  AAC에 대한 자세한 내용은 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)를 참조하세요.  
@@ -110,7 +111,7 @@ ms.lasthandoff: 01/13/2017
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |각 프로필에 대해 설정할 수 있는 적절한 채널 수, 샘플링 속도 및 비트 전송률을 확인하려면 [AudioGroup](media-services-mes-schema.md#AudioGroup)에 대한 설명을 참조하세요. |
 
-## <a name="a-nameaudiogroupa-audiogroup"></a><a name="AudioGroup"></a> AudioGroup
+## <a name="AudioGroup"></a> AudioGroup
 각 프로필에 유효한 값에 대한 자세한 내용은 뒤에 나오는 "오디오 코덱 세부 정보" 표를 참조하세요.  
 
 ### <a name="elements"></a>요소
@@ -128,14 +129,14 @@ ms.lasthandoff: 01/13/2017
 **HEAACV2**|2:<br/><br/> - 22050 : 8 &lt;= 비트 전송률 &lt;= 10<br/><br/> - 24000 : 8 &lt;= 비트 전송률 &lt;= 10<br/><br/> - 32000 : 12 &lt;= 비트 전송률 &lt;= 64<br/><br/> - 44100 : 20 &lt;= 비트 전송률 &lt;= 64<br/><br/> - 48000 : 20 &lt;= 비트 전송률 &lt;= 64<br/><br/> - 88200 : 64 &lt;= 비트 전송률 &lt;= 64  
   
 
-## <a name="a-nameclipa-clip"></a><a name="Clip"></a> Clip
+## <a name="Clip"></a> Clip
 ### <a name="attributes"></a>특성
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |프레젠테이션 시작 시간을 지정합니다. StartTime 값이 입력 비디오의 절대 타임스탬프와 일치해야 합니다. 예를 들어 입력 비디오의 첫 번째 프레임에 12:00:10.000 타임스탬프가 있으면 StartTime은 12:00:10.000 이상이어야 합니다. |
 | **Duration** |**xs:duration** |프레젠테이션 지속 시간을 지정합니다 (예: 비디오의 오버레이 모양). |
 
-## <a name="a-nameoutputa-output"></a><a name="Output"></a> Output
+## <a name="Output"></a> Output
 ### <a name="attributes"></a>특성
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
@@ -153,7 +154,7 @@ ms.lasthandoff: 01/13/2017
 | **{Extension}** |출력 파일의 "Type" 속성에서 상속됩니다. 출력 파일 이름의 확장명은 "mp4", "ts", "jpg", "png" 또는 "bmp" 중 하나입니다. |
 | **{Index}** |미리 보기의 경우 필수 항목입니다. 한 번만 존재해야 합니다. |
 
-## <a name="a-namevideoa-video-complex-type-inherits-from-codec"></a><a name="Video"></a> Video(Codec에서 상속되는 복합 형식)
+## <a name="Video"></a> Video(Codec에서 상속되는 복합 형식)
 ### <a name="attributes"></a>특성
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
@@ -162,14 +163,14 @@ ms.lasthandoff: 01/13/2017
 | **Range** |**xs:string** | |
 | **PreserveResolutionAfterRotation** |**xs: boolean** |자세한 내용은 [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation)을 참조하세요. |
 
-### <a name="a-namepreserveresolutionafterrotationa-preserveresolutionafterrotation"></a><a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
+### <a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
 PreserveResolutionAfterRotation 플래그를 백분율 용어로 표현된 해상도 값(Width=”100%” , Height = “100%”)과 함께 사용하는 것이 좋습니다.  
 
 기본적으로 MES(Media Encoder Standard) 기본 설정의 인코딩 해상도 설정(Width, Height)은 0도 회전의 비디오를 대상으로 합니다. 예를 들어 입력 비디오가 1280x720이고 0도 회전인 경우 기본 설정은 이와 동일한 해상도를 가진 출력인지 확인하는 것입니다. 아래 그림을 참조하세요.  
 
 ![MESRoation1](./media/media-services-shemas/media-services-mes-roation1.png) 
 
-그러나 입력 비디오가&0;도가 아닌 회전으로 캡처되는 경우(예: 스마트폰 또는 태블릿의 세로 고정) MES에서는 기본적으로 입력 비디오에 인코딩 해상도 설정(Width, Height)을 적용한 다음 회전을 보정합니다. 예를 들어 아래 그림을 참조하세요. 기본 설정에서 Width = “100%”, Height = “100%”를 사용하며, 이렇게 하면 MES에서 너비 1280픽셀, 높이 720픽셀의 출력인 것으로 해석합니다. 비디오를 회전하면 창에 맞게 왼쪽과 오른쪽에 기둥 상자 영역을 표시하면서 그림을 축소합니다.  
+그러나 입력 비디오가 0도가 아닌 회전으로 캡처되는 경우(예: 스마트폰 또는 태블릿의 세로 고정) MES에서는 기본적으로 입력 비디오에 인코딩 해상도 설정(Width, Height)을 적용한 다음 회전을 보정합니다. 예를 들어 아래 그림을 참조하세요. 기본 설정에서 Width = “100%”, Height = “100%”를 사용하며, 이렇게 하면 MES에서 너비 1280픽셀, 높이 720픽셀의 출력인 것으로 해석합니다. 비디오를 회전하면 창에 맞게 왼쪽과 오른쪽에 기둥 상자 영역을 표시하면서 그림을 축소합니다.  
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
@@ -177,7 +178,7 @@ PreserveResolutionAfterRotation 플래그를 백분율 용어로 표현된 해�
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 
-## <a name="a-nameformatgroupa-formatgroup-group"></a><a name="FormatGroup"></a> FormatGroup(그룹)
+## <a name="FormatGroup"></a> FormatGroup(그룹)
 ### <a name="elements"></a>요소
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
@@ -185,7 +186,7 @@ PreserveResolutionAfterRotation 플래그를 백분율 용어로 표현된 해�
 | **PngFormat** |**PngFormat** | |
 | **JpgFormat** |**JpgFormat** | |
 
-## <a name="a-namebmplayera-bmplayer"></a><a name="BmpLayer"></a> BmpLayer
+## <a name="BmpLayer"></a> BmpLayer
 ### <a name="element"></a>요소
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
@@ -197,7 +198,7 @@ PreserveResolutionAfterRotation 플래그를 백분율 용어로 표현된 해�
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
-## <a name="a-namepnglayera-pnglayer"></a><a name="PngLayer"></a> PngLayer
+## <a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>요소
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
@@ -209,7 +210,7 @@ PreserveResolutionAfterRotation 플래그를 백분율 용어로 표현된 해�
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
-## <a name="a-namejpglayera-jpglayer"></a><a name="JpgLayer"></a> JpgLayer
+## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>요소
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
@@ -222,37 +223,37 @@ PreserveResolutionAfterRotation 플래그를 백분율 용어로 표현된 해�
 | --- | --- | --- |
 | **Condition** |**xs:string** | |
 
-## <a name="a-namepnglayersa-pnglayers"></a><a name="PngLayers"></a> PngLayers
+## <a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>요소
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
-## <a name="a-namebmplayersa-bmplayers"></a><a name="BmpLayers"></a> BmpLayers
+## <a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>요소
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
-## <a name="a-namejpglayersa-jpglayers"></a><a name="JpgLayers"></a> JpgLayers
+## <a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>요소
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
-## <a name="a-namebmpimagea-bmpimage-complex-type-inherits-from-video"></a><a name="BmpImage"></a> BmpImage(Video에서 상속되는 복합 형식)
+## <a name="BmpImage"></a> BmpImage(Video에서 상속되는 복합 형식)
 ### <a name="elements"></a>요소
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
-## <a name="a-namejpgimagea-jpgimage-complex-type-inherits-from-video"></a><a name="JpgImage"></a> JpgImage(Video에서 상속되는 복합 형식)
+## <a name="JpgImage"></a> JpgImage(Video에서 상속되는 복합 형식)
 ### <a name="elements"></a>요소
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
-## <a name="a-namepngimagea-pngimage-complex-type-inherits-from-video"></a><a name="PngImage"></a> PngImage(Video에서 상속되는 복합 형식)
+## <a name="PngImage"></a> PngImage(Video에서 상속되는 복합 형식)
 ### <a name="elements"></a>요소
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |

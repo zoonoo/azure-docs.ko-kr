@@ -15,10 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e391dc0f88bd7e065f968a490b3c1ddb1fa75978
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 312f84fe2aaf3f63fe2b8d818786ef1c570ccfe1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -51,7 +52,7 @@ ms.lasthandoff: 04/27/2017
 ### <a name="log-searches"></a>로그 검색
 [로그 검색](../log-analytics/log-analytics-log-searches.md)은 Log Analytics 리포지토리에서 데이터를 추출하고 분석하는 데 사용됩니다.  사용자가 리포지토리에서 데이터의 임시 분석을 수행할 수 있는 것 외에도 보기 및 경고에서 사용합니다.  
 
-모든 보기 또는 경고에서 사용하지 않더라도 사용자에게 도움이 되는 것으로 판단되는 쿼리를 정의해야 합니다.  이러한 쿼리는 포털에서 [저장된 검색]으로 사용할 수 있으며, 사용자 지정 보기의 [쿼리 목록 시각화 요소](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part)에도 포함할 수 있습니다.
+모든 보기 또는 경고에서 사용하지 않더라도 사용자에게 도움이 되는 것으로 판단되는 쿼리를 정의해야 합니다.  이러한 쿼리는 포털에서 저장된 검색으로 사용할 수 있으며, 사용자 지정 보기의 [쿼리 목록 시각화 요소](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part)에도 포함할 수 있습니다.
 
 ### <a name="alerts"></a>경고
 [Log Analytics의 경고](../log-analytics/log-analytics-alerts.md)는 리포지토리의 데이터에 대한 [로그 검색](#log-searches)을 통해 로그를 통해 문제를 식별합니다.  사용자에게 알리거나 응답에서 작업을 자동으로 실행합니다. 응용 프로그램에 대한 다양한 경고 조건을 식별하고, 해당 경고 규칙을 솔루션 파일에 포함해야 합니다.

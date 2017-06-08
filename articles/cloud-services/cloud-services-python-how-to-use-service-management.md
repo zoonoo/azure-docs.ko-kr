@@ -12,21 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 05/30/2017
 ms.author: lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 90f417768d58c42df9b786b5c50d96970f133548
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ee96a30d10f882da936f554152fab8a9c6897807
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 
 ---
 # <a name="how-to-use-service-management-from-python"></a>Python에서 서비스 관리를 사용하는 방법
-> [!NOTE]
-> 서비스 관리 API는 현재 미리 보기 릴리스에서 사용할 수 있는 새로운 리소스 관리 API로 대체되고 있습니다.  Python에서 새로운 리소스 관리 API를 사용하는 방법에 대한 자세한 내용은 [Azure 리소스 관리 설명서](http://azure-sdk-for-python.readthedocs.org/) 를 참조하세요.
-> 
-> 
-
 이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. [Python용 Azure SDK](https://github.com/Azure/azure-sdk-for-python)의 **ServiceManagementService** 클래스는 [Azure 클래식 포털][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다(예: **클라우드 서비스, 배포, 데이터 관리 서비스, 가상 컴퓨터 만들기, 업데이트 및 삭제**). 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 응용 프로그램을 빌드하는 데 유용할 수 있습니다.
 
 ## <a name="WhatIs"> </a>서비스 관리 정의
@@ -45,8 +41,8 @@ Python용 Azure SDK는 REST API인 [Azure Service Management API][svc-mgmt-rest-
 
 > [!NOTE]
 > 이제 Windows에서 실행할 때 OpenSSL로 만든 인증서를 사용할 수 있습니다.  Python 2.7.4 이상이 필요합니다. .pfx 인증서 지원은 나중에 제거될 가능성이 크기 때문에 사용자는 .pfx 대신 OpenSSL을 사용하는 것이 좋습니다.
-> 
-> 
+>
+>
 
 ### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Windows/Mac/Linux의 관리 인증서(OpenSSL)
 [OpenSSL](http://www.openssl.org/) 을 사용하여 관리 인증서를 만들 수 있습니다.  실제로 서버용(`.cer` 파일)과 클라이언트용(`.pem` 파일)으로 두 개의 인증서를 만들어야 합니다. `.pem` 파일을 만들려면 다음을 실행합니다.
@@ -432,5 +428,4 @@ Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [W
 
 
 [cloud service]:/services/cloud-services/
-
 

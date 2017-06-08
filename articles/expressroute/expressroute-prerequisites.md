@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 05/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: a56749a5ac1098db3970140a76b71c77c1f74c07
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 873a3b83bf85c7e2d6d299bd25ebb135c300aacb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,13 +28,13 @@ ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Azure 계정
-* 유효한 활성 Microsoft Azure 계정 ExpressRoute 회로를 설정하려면 이 계정이 필요합니다. ExpressRoute 회로는 Azure 구독 내의 리소스입니다. Azure 구독은 Office 365 서비스 및 CRM online과 같은 Azure가 아닌 Microsoft 클라우드 서비스에 연결이 제한된 경우더라도 필요합니다.
+* 유효한 활성 Microsoft Azure 계정 ExpressRoute 회로를 설정하려면 이 계정이 필요합니다. ExpressRoute 회로는 Azure 구독 내의 리소스입니다. Azure 구독은 Office 365 서비스 및 Dynamics 365와 같은 Azure 이외의 Microsoft 클라우드 서비스에 대한 연결이 제한되는 경우에도 필요합니다.
 * 활성 Office 365 구독(Office 365 서비스를 사용하는 경우). 자세한 내용은 이 문서의 [Office 365 특정 요구 사항](#office-365-specific-requirements) 섹션을 참조하세요.
 
 ## <a name="connectivity-provider"></a>연결 공급자
 
-* Microsoft 클라우드에 연결하는 데 [Express 경로 연결 파트너](expressroute-locations.md#partners) 와 작업할 수 있습니다. [세 가지 방법](expressroute-introduction.md)으로 온-프레미스 네트워크와 Microsoft 간에 연결을 설정할 수 있습니다. 
-* 공급자가 Express 경로 연결 파트너가 아닌 경우 [클라우드 Exchange 공급자](expressroute-locations.md#c1partners)를 통해 Microsoft 클라우드에 계속 연결할 수 있습니다.
+* Microsoft 클라우드에 연결하는 데 [Express 경로 연결 파트너](expressroute-locations.md#partners) 와 작업할 수 있습니다. [세 가지 방법](expressroute-introduction.md)으로 온-프레미스 네트워크와 Microsoft 간에 연결을 설정할 수 있습니다.
+* 공급자가 Express 경로 연결 파트너가 아닌 경우 [클라우드 Exchange 공급자](expressroute-locations.md#connectivity-through-exchange-providers)를 통해 Microsoft 클라우드에 계속 연결할 수 있습니다.
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
 * **중복 연결**: 사용자와 공급자 간 물리적 연결에서 중복성 요구 사항은 없습니다. [클라우드 Exchange에 대해 단 하나의 물리적 연결만](expressroute-faqs.md#onep2plink)있는 경우에도 Microsoft의 라우터 및 피어링 라우터 간에 중복 BGP 세션을 설정해야 합니다.
@@ -53,10 +54,10 @@ ExpressRoute에서 Office 365를 사용하도록 설정하려는 경우 Office 3
 * [온-프레미스 환경과 Office 365 통합](https://support.office.com/en-us/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Office 365 고급 교육 비디오의 ExpressRoute](https://channel9.msdn.com/series/aer/)
 
-## <a name="crm-online"></a>CRM Online
-ExpressRoute에서 CRM Online을 사용하도록 설정하려는 경우 CRM Online에 대한 자세한 내용은 다음 문서를 검토합니다.
+## <a name="dynamics-365"></a>Dynamics 365
+ExpressRoute에서 Dynamics 365를 사용하도록 설정하려는 경우 Dynamics 365에 대한 자세한 내용은 다음 문서를 검토합니다.
 
-* [CRM Online URLs](https://support.microsoft.com/kb/2655102) 및 [IP 주소 범위](https://support.microsoft.com/kb/2728473)
+* [Dynamics 365 URL](https://support.microsoft.com/kb/2655102) 및 [IP 주소 범위](https://support.microsoft.com/kb/2728473)
 
 ## <a name="next-steps"></a>다음 단계
 * Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.

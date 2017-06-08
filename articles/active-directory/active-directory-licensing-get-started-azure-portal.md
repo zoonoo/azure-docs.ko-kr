@@ -1,6 +1,6 @@
 ---
 
-title: "Azure Active Directory 미리 보기에서 라이선스 시작 | Microsoft Docs"
+title: "Azure Active Directory에서 라이선스 시작 | Microsoft Docs"
 description: "Office 365, Microsoft Intune 및 Azure Active Directory Premium 및 Basic 버전을 포함하여 Azure Active Directory 라이선스에 대한 설명, 작동 방법, 시작하는 방법 및 모범 사례"
 services: active-directory
 keywords: "Azure AD 라이선스"
@@ -14,21 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 05/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 3bad24f35cf7867f1e02e8470c602a7f6a9ce8fb
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 8e9d6900910f45b5f17600fc5608191871c5ab21
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
 
-# <a name="license-yourself-and-your-users-in-azure-active-directory-preview"></a>Azure Active Directory 미리 보기에서 사용자 본인 및 사용자의 사용자 라이선스
+# <a name="license-yourself-and-your-users-in-azure-active-directory"></a>Azure Active Directory에서 사용자 본인 및 사용자의 사용자 라이선스
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
+> * [Azure 포털](active-directory-licensing-get-started-azure-portal.md)
 > * [Azure 클래식 포털](active-directory-licensing-what-is.md)
 >
 >
@@ -59,7 +60,7 @@ Enterprise Mobility Suite, Azure AD Premium 또는 Azure AD Basic을 구매 또�
 
 유료 기능을 구성하기 위해서는 구독을 얻기만 하면 되는 반면, Azure AD 유료 기능을 사용하려면 적절한 개인에게 라이선스를 배포해야 합니다. 일반적으로 액세스 권한이 있어야 하거나 Azure AD 유료 기능을 통해 관리되는 모든 사용자에게 라이선스가 할당되어야 합니다. 라이선스 할당은 Azure AD Premium, Basic 또는 Enterprise Mobility Suite 등의 구매한 서비스와 사용자 간의 매핑입니다.
 
-디렉터리의 어떤 사용자에게 라이선스가 있어야 하는지 관리하는 것은 간단합니다. Azure Portal에서 그룹에 라이선스를 할당하거나 포털, PowerShell 또는 API를 통해 적절한 개인에게 직접 라이선스를 할당하여 수행할 수 있습니다. 라이선스를 그룹에 할당하면 라이선스가 모든 그룹 구성원에게 할당됩니다. 사용자를 그룹에 추가하거나 그룹에서 제거하면 적절한 라이선스가 추가 또는 제거됩니다. 그룹 할당에는 사용자가 사용 가능한 모든 그룹 관리를 이용할 수 있으며 응용 프로그램에 대한 그룹 기반 할당과 일치합니다. 이 방법을 사용하면 디렉터리의 모든 사용자가 자동으로 할당되도록 규칙을 설정하거나 적절한 직책을 가진 모든 사람에게 라이선스가 있는지 확인하거나 조직의 다른 관리자에게 의사 결정을 위임할 수도 있습니다. 
+디렉터리의 어떤 사용자에게 라이선스가 있어야 하는지 관리하는 것은 간단합니다. Azure Portal에서 그룹에 라이선스를 할당(이 기능은 미리 보기 상태)하거나 포털, PowerShell 또는 API를 통해 적절한 개인에게 직접 라이선스를 할당하여 수행할 수 있습니다. 라이선스를 그룹에 할당하면 라이선스가 모든 그룹 구성원에게 할당됩니다. 사용자를 그룹에 추가하거나 그룹에서 제거하면 적절한 라이선스가 추가 또는 제거됩니다. 그룹 할당에는 사용자가 사용 가능한 모든 그룹 관리를 이용할 수 있으며 응용 프로그램에 대한 그룹 기반 할당과 일치합니다. 이 방법을 사용하면 디렉터리의 모든 사용자가 자동으로 할당되도록 규칙을 설정하거나 적절한 직책을 가진 모든 사람에게 라이선스가 있는지 확인하거나 조직의 다른 관리자에게 의사 결정을 위임할 수도 있습니다. 
 
 고급 시나리오 및 Office 365 라이선스 시나리오 등 그룹에 라이선스 할당에 대한 자세한 내용은 [다음 문서](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-assignment-azure-portal)를 참조하세요.
 

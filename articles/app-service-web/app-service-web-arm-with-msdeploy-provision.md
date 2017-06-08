@@ -13,9 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
-translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: f836bffd0610224b5cb69f4f6836dbc55e0721a3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 071be50ff7f72ecd711b2c3036f39b70df01a6ba
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -123,7 +125,7 @@ Visual Studio 2015를 열고 파일 > 새 프로젝트를 선택합니다. 표�
 
 이 **packageUri** 는 패키지 zip을 업로드할 저장소 계정을 가리키는 저장소 계정 uri를 사용합니다. Azure 리소스 관리자는 템플릿 배포 시 저장소 계정에서 로컬로 패키지를 가져오는 데 [공유 액세스 서명](../storage/storage-dotnet-shared-access-signature-part-1.md) 을 활용합니다. 패키지를 업로드하고, 필요한 키를 만들고 템플릿에 매개 변수(*_artifactsLocation* 및 *_artifactsLocationSasToken*)로 전달하기 위해 Azure 관리 API를 호출하는 PowerShell 스크립트를 통해 이 프로세스를 자동화할 수 있습니다. 저장소 컨테이너에 업로드되는 패키지의 파일 이름 및 폴더에 대한 매개 변수를 정의해야 합니다.
 
-다음으로 사용자 지정 도메인을 활용하도록 호스트 이름 바인딩을 설정하려면 다른 중첩된 리소스에 추가해야 합니다. 먼저 호스트 이름을 소유하고 소유한 Azure에서 확인하도록 설정해야 합니다. [Azure App Service에서 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md)을 참조하세요. 이 작업을 완료했으면 Microsoft.Web/sites 리소스 섹션의 템플릿에 다음을 추가할 수 있습니다.
+다음으로 사용자 지정 도메인을 활용하도록 호스트 이름 바인딩을 설정하려면 다른 중첩된 리소스에 추가해야 합니다. 먼저 호스트 이름을 소유하고 소유한 Azure에서 확인하도록 설정해야 합니다. [Azure App Service에서 사용자 지정 도메인 이름 구성](app-service-web-tutorial-custom-domain.md)을 참조하세요. 이 작업을 완료했으면 Microsoft.Web/sites 리소스 섹션의 템플릿에 다음을 추가할 수 있습니다.
 
     {
         "apiVersion": "2015-08-01",
@@ -196,10 +198,5 @@ ARM 배포 템플릿에 매개 변수로 이를 전달할 수 있습니다.
     Set-AzureRmResource -ApiVersion 2014-11-01 -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -PropertyObject $props
 
 이제 응용 프로그램이 배포되었고 https://www.yourcustomdomain.com을 통해 탐색할 수 있어야 합니다.
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

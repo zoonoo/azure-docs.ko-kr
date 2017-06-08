@@ -13,20 +13,28 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 05/02/2017
 ms.author: iainfou
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: bbd4f044d85f2e22f27edc44b91fd42aef304ed2
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 8a5f6e8bf01c8bc38f3fd327acd0ddc8f9cdd7de
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>가상 컴퓨터 확장 집합을 만들고 Windows에 고가용성 앱 배포
-이 자습서에서는 Azure에서 가상 컴퓨터 확장 집합를 사용하여 앱이 실행되는 VM(Virtual Machines)의 수를 신속하게 조정할 수 있는 방법을 알아봅니다. 가상 컴퓨터 확장 집합을 사용하면 동일한 자동 크기 조정 가상 컴퓨터 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU 사용률, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 가상 컴퓨터 확장 집합의 실제 동작을 확인하려면 여러 Windows VM에서 실행되는 기본 IIS 웹 사이트를 빌드합니다.
+가상 컴퓨터 확장 집합을 사용하면 동일한 자동 크기 조정 가상 컴퓨터 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU 사용률, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 자습서에서는 Azure에서 가상 컴퓨터 확장 집합을 배포합니다. 다음 방법에 대해 알아봅니다.
 
-최신 [Azure PowerShell](/powershell/azureps-cmdlets-docs/) 모듈을 사용하여 이 자습서의 단계를 완료할 수 있습니다.
+> [!div class="checklist"]
+> * 사용자 지정 스크립트 확장을 사용하여 크기를 조정하는 IIS 사이트를 정의
+> * 확장 집합에 대한 부하 분산 장치 만들기
+> * 가상 컴퓨터 확장 집합 만들기
+> * 확장 집합의 인스턴스 수 증가 또는 감소
+> * 자동 크기 조정 규칙 만들기
+
+이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 
 ## <a name="scale-set-overview"></a>확장 집합 개요
@@ -38,10 +46,10 @@ VM은 필요에 따라 확장 집합에 생성됩니다. 사용자는 확장 집
 
 
 ## <a name="create-an-app-to-scale"></a>크기를 조정하는 앱 만들기
-확장 집합을 만들려면 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *westus* 위치에 *myResourceGroupAutomate*라는 리소스 그룹을 만듭니다.
+확장 집합을 만들려면 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *EastUS* 위치에 *myResourceGroupAutomate*라는 리소스 그룹을 만듭니다.
 
 ```powershell
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location westus
+New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location EastUS
 ```
 
 이전 자습서에서는 사용자 지정 스크립트 확장을 사용하여 [VM 구성을 자동화](tutorial-automate-vm-deployment.md)하는 방법을 배웠습니다. 확장 집합 구성을 만든 후 사용자 지정 스크립트 확장을 적용하여 IIS를 설치하고 구성합니다.
@@ -49,7 +57,7 @@ New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location we
 ```powershell
 # Create a config object
 $vmssConfig = New-AzureRmVmssConfig `
-    -Location WestUS `
+    -Location EastUS `
     -SkuCapacity 2 `
     -SkuName Standard_DS2 `
     -UpgradePolicyMode Automatic
@@ -78,7 +86,7 @@ Azure Load Balancer는 들어오는 트래픽을 정상 VM 간에 분산하여 �
 # Create a public IP address
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupScaleSet `
-  -Location westus `
+  -Location EastUS `
   -AllocationMethod Static `
   -Name myPublicIP
 
@@ -92,7 +100,7 @@ $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPo
 $lb = New-AzureRmLoadBalancer `
   -ResourceGroupName myResourceGroupScaleSet `
   -Name myLoadBalancer `
-  -Location westus `
+  -Location EastUS `
   -FrontendIpConfiguration $frontendIP `
   -BackendAddressPool $backendPool
 
@@ -142,7 +150,7 @@ $subnet = New-AzureRmVirtualNetworkSubnetConfig `
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName "myResourceGroupScaleSet" `
   -Name "myVnet" `
-  -Location "westus" `
+  -Location "EastUS" `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $subnet
 $ipConfig = New-AzureRmVmssIpConfig `
@@ -194,7 +202,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Loop through the instanaces in your scale set
-for ($i=0; $i -le ($set.Sku.Capacity - 1); $i++) {
+for ($i=0; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
     Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
       -VMScaleSetName myScaleSet `
       -InstanceId $i
@@ -284,6 +292,17 @@ Add-AzureRmAutoscaleSetting `
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 가상 컴퓨터 확장 집합을 만드는 방법을 배웠습니다. Virtual Machines의 부하 분산 개념에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
+이 자습서에서는 가상 컴퓨터 확장 집합을 만들었습니다. 다음 방법에 대해 알아보았습니다.
 
-[Virtual Machines 부하 분산](tutorial-load-balancer.md)
+> [!div class="checklist"]
+> * 사용자 지정 스크립트 확장을 사용하여 크기를 조정하는 IIS 사이트를 정의
+> * 확장 집합에 대한 부하 분산 장치 만들기
+> * 가상 컴퓨터 확장 집합 만들기
+> * 확장 집합의 인스턴스 수 증가 또는 감소
+> * 자동 크기 조정 규칙 만들기
+
+Virtual Machines의 부하 분산 개념에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
+
+> [!div class="nextstepaction"]
+> [Virtual Machines 부하 분산](tutorial-load-balancer.md)
+

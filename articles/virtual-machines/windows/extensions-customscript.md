@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: bd67dc463daee2d7763e722f079930d8712fe478
-ms.openlocfilehash: 81a08a3cbd14c4a61efe68d9dd9fcd032dd1e1cd
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 957fb7bf1bd646ae5e4d27350502bdf14b0f00c3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -91,6 +92,8 @@ Windows용 사용자 지정 스크립트 확장은 대상 가상 컴퓨터가 �
 | storageAccountName(예) | examplestorageacct |
 | storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |
 
+**참고** - 이러한 속성 이름은 대/소문자를 구분합니다. 배포 문제를 방지하려면 위와 같이 이름을 사용합니다.
+
 ## <a name="template-deployment"></a>템플릿 배포
 
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 이전 섹션에서 자세히 설명되어 있는 JSON 스키마는 Azure Resource Manager 템플릿에서 사용하여 Azure Resource Manager 템플릿 배포 중 사용자 지정 스크립트 확장을 실행할 수 있습니다. 사용자 지정 스크립트 확장이 포함된 샘플 템플릿은 여기 [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)에서 확인할 수 있습니다.
@@ -126,7 +129,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
-여기서 `<n>`은 확장의 실행 간에 변경될 수 있는&10;진수 정수입니다.  `1.*` 값은 확장의 현재 실제 `typeHandlerVersion` 값과 일치합니다.  예를 들어, 실제 디렉터리는 `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`일 수 있습니다.  
+여기서 `<n>`은 확장의 실행 간에 변경될 수 있는 10진수 정수입니다.  `1.*` 값은 확장의 현재 실제 `typeHandlerVersion` 값과 일치합니다.  예를 들어, 실제 디렉터리는 `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`일 수 있습니다.  
 
 `commandToExecute` 명령을 실행할 경우 확장은 현재 작업 디렉터리처럼 이 디렉터리를 설정합니다(예: `...\Downloads\2`). 그러면 `fileURIs` 속성을 통해 다운로드된 파일을 배치하는 상대 경로를 사용할 수 있습니다. 예제는 아래 테이블을 참조하세요.
 

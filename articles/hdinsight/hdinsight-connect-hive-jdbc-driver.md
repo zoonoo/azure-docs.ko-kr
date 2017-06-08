@@ -1,6 +1,6 @@
 ---
-title: "JDBC를 사용하여 Azure HDInsight에서 Hive 쿼리"
-description: "JDBC를 사용하여 Azure HDInsight의 Hive를 연결하고 클라우드에 저장된 데이터에서 쿼리를 원격으로 실행하는 방법을 알아봅니다."
+title: "JDBC를 통해 Hive 쿼리 - Azure HDInsight | Microsoft Docs"
+description: "JDBC를 사용하여 Azure HDInsight에서 Hadoop 클러스터의 Hive에 연결하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,46 +14,44 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 05/16/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: e03cad1e221c94d55609c182756f5927796c6a80
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: dd76e2450be2b05d011de7ded49bfa9630190e71
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
-# <a name="connect-to-hive-on-azure-hdinsight-using-the-hive-jdbc-driver"></a>Hive JDBC 드라이버를 사용하여 Azure HDInsight에서 Hive에 연결
+# <a name="query-hive-through-jdbc"></a>JDBC를 통해 Hive 쿼리
 
 [!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-이 문서에서는 Java 응용 프로그램에서 JDBC를 사용하여 원격으로 HDInsight 클러스터에 Hive 쿼리를 제출하는 방법에 대해 배웁니다. SQuirreL SQL 클라이언트에서 연결하는 방법 및 Java에서 프로그래밍 방식으로 연결하는 방법을 학습합니다.
+Java 응용 프로그램에서 JDBC를 사용하여 Azure HDInsight의 Hadoop에 Hive 쿼리를 제출하는 방법을 알아봅니다. 이 문서의 정보는 프로그래밍 방식으로 SQuirrel SQL 클라이언트에서 연결하는 방법을 보여 줍니다.
 
 Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서의 단계를 완료하려면 다음이 필요합니다.
-
 * HDInsight 클러스터의 Hadoop. Linux 또는 Windows 기반의 클러스터가 작동합니다.
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.3 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL은 JDBC 클라이언트 응용 프로그램입니다.
 
-이 문서에서 연결된 Java 예제 응용 프로그램을 빌드하고 실행하려면 다음이 필요합니다.
-
 * [JDK(Java Developer Kit) 버전 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 이상
+
 * [Apache Maven](https://maven.apache.org). Maven은 이 문서와 관련된 프로젝트에서 사용되는 Java 프로젝트에 대한 프로젝트 빌드 시스템입니다.
 
-## <a name="connection-string"></a>연결 문자열
+## <a name="jdbc-connection-string"></a>JDBC 연결 문자열
 
-Azure에서 HDInsight 클러스터에 대한 JDBC가 443을 통해 연결되어 트래픽이 SSL을 사용하여 보호됩니다. 클러스터가 뒤에 있는 공용 게이트웨이는 HiveServer2에서 실제로 수신하는 포트로 트래픽을 리디렉션합니다. 따라서 일반적인 연결 문자열은 다음과 같습니다.
+Azure에서 HDInsight 클러스터에 대한 JDBC가 443을 통해 연결되어 트래픽이 SSL을 사용하여 보호됩니다. 클러스터가 뒤에 있는 공용 게이트웨이는 HiveServer2에서 실제로 수신하는 포트로 트래픽을 리디렉션합니다. 다음은 예제 연결 문자열입니다.
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
 
-**CLUSTERNAME** 을 HDInsight 클러스터의 이름으로 바꿉니다.
+`CLUSTERNAME` 을 HDInsight 클러스터 이름으로 바꿉니다.
 
 ## <a name="authentication"></a>인증
 
@@ -67,23 +65,23 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 ## <a name="connect-with-squirrel-sql-client"></a>SQuirreL SQL 클라이언트를 사용하여 연결
 
-SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실행하는 데 사용할 수 있는 JDBC 클라이언트입니다. 다음 단계에서는 SQuirreL SQL을 이미 설치했다고 가정하고 Hive에 대한 드라이버를 다운로드 및 구성하는 과정을 안내합니다.
+SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실행하는 데 사용할 수 있는 JDBC 클라이언트입니다. 다음 단계에서는 SQuirreL SQL을 이미 설치했다고 가정합니다.
 
 1. HDInsight 클러스터에서 Hive JDBC 드라이버를 복사합니다.
 
     * **Linux 기반 HDInsight**의 경우 다음 단계에 따라 필요한 jar 파일을 다운로드합니다.
 
-        1. 파일을 포함할 새 디렉터리를 만듭니다. 예: `mkdir hivedriver`.
-        2. 명령 프롬프트, Bash, PowerShell 또는 다른 명령줄 프롬프트에서 새 디렉터리로 변경하고 다음 명령을 사용하여 HDInsight 클러스터에서 파일을 복사합니다.
+        1. 파일을 포함하는 디렉터리를 만듭니다. 예: `mkdir hivedriver`.
 
-                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
-                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+        2. 명령줄에서 다음 명령을 사용하여 HDInsight 클러스터에서 파일을 복사합니다.
 
-            **USERNAME**은 클러스터의 SSH 사용자 계정으로 바꿉니다. **CLUSTERNAME**은 HDInsight 클러스터 이름으로 바꿉니다.
+            ```bash
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
+            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+            ```
 
-        > [!NOTE]
-        > Windows 환경에는 `scp` 명령이 없을 수 있습니다. 그렇다면 PSCP 유틸리티를 대신 사용합니다. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있습니다.
+            `USERNAME`은 클러스터의 SSH 사용자 계정 이름으로 바꿉니다. `CLUSTERNAME`은 HDInsight 클러스터 이름으로 바꿉니다.
 
     * **Windows 기반 HDInsight**의 경우 다음 단계에 따라 jar 파일을 다운로드합니다.
 
@@ -91,7 +89,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
             ![원격 데스크톱 아이콘](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopicon.png)
 
-        2. [원격 데스크톱] 블레이드에서 **연결** 단추를 사용하여 클러스터에 연결합니다. 원격 데스크톱을 사용하지 않는 경우 사용자 이름rhk암호를 입력하는 양식을 사용한 다음 **사용**을 선택하여 클러스터에서 원격 데스크톱을 사용하도록 설정합니다.
+        2. [원격 데스크톱] 블레이드에서 **연결** 단추를 사용하여 클러스터에 연결합니다. 원격 데스크톱을 사용하지 않는 경우 사용자 이름 및 암호를 입력하는 양식을 사용한 다음 **사용**을 선택하여 클러스터에서 원격 데스크톱을 사용하도록 설정합니다.
 
             ![원격 데스크톱 블레이드](./media/hdinsight-connect-hive-jdbc-driver/remotedesktopblade.png)
 
@@ -112,7 +110,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     ![창 왼쪽의 드라이버 탭](./media/hdinsight-connect-hive-jdbc-driver/squirreldrivers.png)
 
-3. **드라이버** 대화 상자 위쪽의 아이콘에서 **+** 아이콘을 선택하여 새 드라이버를 만듭니다.
+3. **드라이버** 대화 상자 위쪽의 아이콘에서 **+** 아이콘을 선택하여 드라이버를 만듭니다.
 
     ![드라이버 아이콘](./media/hdinsight-connect-hive-jdbc-driver/driversicons.png)
 
@@ -127,7 +125,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
    **확인**을 클릭하여 이러한 설정을 저장합니다.
 
-5. SQuirreL SQL 창의 왼쪽에서 **별칭**을 선택합니다. 그런 다음 **+** 아이콘을 클릭하여 새 연결 별칭을 만듭니다.
+5. SQuirreL SQL 창의 왼쪽에서 **별칭**을 선택합니다. 그런 다음 **+** 아이콘을 클릭하여 연결 별칭을 만듭니다.
 
     ![새 별칭 추가](./media/hdinsight-connect-hive-jdbc-driver/aliases.png)
 
@@ -143,13 +141,13 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     * **사용자 이름**: HDInsight 클러스터의 클러스터 로그인 계정 이름입니다. 기본값은 `admin`입니다.
 
-    * **암호**: 클러스터 로그인 계정의 암호입니다. HDInsight 클러스터를 만들 때 제공한 암호입니다.
+    * **암호**: 클러스터 로그인 계정의 암호입니다.
 
     ![별칭 추가 대화 상자](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
     **테스트** 단추를 사용하여 연결이 작동하는지 확인합니다. **연결 대상: Hive on HDInsight** 대화 상자가 나타나면 **연결**을 선택하여 테스트를 수행합니다. 테스트가 성공하면 **연결 성공** 대화 상자가 표시됩니다.
 
-    **별칭 추가** 대화 상자의 아래쪽에 있는 **확인**을 사용하여 연결 별칭을 저장합니다.
+    연결 별칭을 저장하려면 **별칭 추가** 대화 상자의 아래쪽에 있는 **확인** 단추를 사용합니다.
 
 7. SQuirreL SQL 위쪽의 **연결 대상** 드롭다운에서 **Hive on HDInsight**를 선택합니다. 메시지가 표시되면 **연결**을 선택합니다.
 
@@ -177,7 +175,7 @@ at java.util.concurrent.FutureTas...(FutureTask.java:122)
 at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 ```
 
-**원인**: 이 오류는 SQuirreL에서 사용하는 common-codec.jar 파일 버전과 HDInsight 클러스터에서 다운로드한 Hive JDBC 구성 요소에 필요한 파일의 버전과 일치하지 않아 발생합니다.
+**원인**: 이 오류는 SQuirreL에서 사용하는 common-codec.jar 파일 버전과 Hive JDBC 구성 요소에 필요한 파일의 버전과 일치하지 않아 발생합니다.
 
 **해결**: 이 오류를 해결하려면 다음 단계를 수행합니다.
 

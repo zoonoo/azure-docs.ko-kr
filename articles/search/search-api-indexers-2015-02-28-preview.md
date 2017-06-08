@@ -12,17 +12,19 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/01/2016
+ms.date: 05/01/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
-ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 356ceb98106d080d8c24dedc3547bee33750156e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)
 > [!NOTE]
-> 이 문서에서는 [2015-02-28-Preview REST API](search-api-2015-02-28-preview.md)의 인덱서를 설명합니다. 이 API 버전에는 문서 추출 기능이 있는 Azure Blob 저장소 인덱서와 Azure 테이블 저장소 인덱서의 미리 보기 버전 및 기타 향상된 기능이 추가되었습니다. 또한 API는 Azure SQL 데이터베이스, Azure VM SQL Server 및 Azure DocumentDB용 인덱서를 비롯하여 일반 공급(GA) 인덱서도 지원합니다.
+> 이 문서에서는 [2015-02-28-Preview REST API](search-api-2015-02-28-preview.md)의 인덱서를 설명합니다. 이 API 버전에는 문서 추출 기능이 있는 Azure Blob 저장소 인덱서와 Azure 테이블 저장소 인덱서의 미리 보기 버전 및 기타 향상된 기능이 추가되었습니다. 또한 API는 Azure SQL Database, Azure VM SQL Server 및 Azure Cosmos DB용 인덱서를 포함하여 GA(일반 공급) 인덱서도 지원합니다.
 > 
 > 
 
@@ -42,7 +44,7 @@ ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
 현재 지원되는 데이터 원본은 다음과 같습니다.
 
 * **Azure SQL Database** 및 **Azure VM의 SQL Server** 대상 연습은 [이 문서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)를 참조하세요. 
-* **Azure DocumentDB**. 대상 연습은 [이 문서](search-howto-index-documentdb.md)를 참조하세요. 
+* **Azure Cosmos DB**. 대상 연습은 [이 문서](search-howto-index-documentdb.md)를 참조하세요. 
 * **Azure Blob 저장소**- PDF, Microsoft Office(DOCX/DOC, XSLX/XLS, PPTX/PPT, MSG), HTML, XML, ZIP 및 일반 텍스트 파일(JSON 포함) 문서 형식을 포함합니다. 대상 연습은 [이 문서](search-howto-indexing-azure-blob-storage.md)를 참조하세요.
 * **Azure Table Storage**. 대상 연습은 [이 문서](search-howto-indexing-azure-tables.md)를 참조하세요.
 
@@ -53,7 +55,7 @@ ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
 ## <a name="typical-usage-flow"></a>일반적인 사용 흐름
 지정된 `data source` 또는 `indexer` 리소스에 대한 간단한 HTTP 요청(POST, GET, PUT, DELETE)을 통해 인덱서 및 데이터 원본을 만들고 관리할 수 있습니다.
 
-자동 인덱싱은 일반적으로 다음&4;단계 프로세스를 통해 설정됩니다.
+자동 인덱싱은 일반적으로 다음 4단계 프로세스를 통해 설정됩니다.
 
 1. 인덱싱해야 하는 데이터가 포함된 데이터 원본을 식별합니다. Azure 검색에서는 데이터 원본에 있는 일부 데이터 형식을 지원하지 않을 수 있습니다. 목록은 [지원되는 데이터 형식](https://msdn.microsoft.com/library/azure/dn798938.aspx) 을 참조하세요.
 2. 스키마가 데이터 원본과 호환되는 Azure 검색 인덱스를 만듭니다.
@@ -123,13 +125,13 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
 * `description`: 선택적 설명입니다. 
 * `type`: 필수 다음과 같은 지원되는 데이터 원본 유형 중 하나여야 합니다.
   * `azuresql` - Azure SQL 데이터베이스 또는 Azure VM의 SQL Server
-  * `documentdb` - Azure DocumentDB
+  * `documentdb` - Azure Cosmos DB
   * `azureblob` - Azure Blob Storage
   * `azuretable` - Azure Table Storage
 * `credentials`:
   * 필수 `connectionString` 속성은 데이터 원본의 연결 문자열을 지정합니다. 연결 문자열의 형식은 데이터 원본 유형에 따라 달라 집니다. 
     * Azure SQL의 경우 일반적인 SQL Server 연결 문자열입니다. Azure Portal을 사용하여 연결 문자열을 검색하는 경우 `ADO.NET connection string` 옵션을 사용합니다.
-    * DocumentDB의 경우 연결 문자열은 `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`형식이어야 합니다. 모든 값이 필요합니다. [Azure Portal](https://portal.azure.com/)에서 이러한 값을 확인할 수 있습니다.  
+    * Azure Cosmos DB의 경우 연결 문자열은 `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"` 형식이어야 합니다. 모든 값이 필요합니다. [Azure Portal](https://portal.azure.com/)에서 이러한 값을 확인할 수 있습니다.  
     * Azure Blob 및 Table Storage의 경우 저장소 계정 연결 문자열입니다. 형식은 [여기](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/)에서 설명합니다. HTTPS 끝점 프로토콜이 필요합니다.  
 * `container`, 필수: `name` 및 `query` 속성을 사용하여 인덱스에 데이터를 지정합니다: 
   * `name`, 필수:
@@ -167,7 +169,7 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
         "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
     } 
 
-DocumentDB 데이터 원본을 사용할 때는 DocumentDB에서 제공되는 `_ts` 속성을 사용해야 합니다. 
+Azure Cosmos DB 데이터 원본을 사용할 때는 Azure Cosmos DB에서 제공하는 `_ts` 속성을 사용해야 합니다. 
 
 Azure Blob 데이터 원본을 사용하는 경우 Azure 검색은 Blob의 마지막 수정 타임스탬프를 기반으로 상위 워터마크 변경 감지 정책을 자동으로 사용하므로 이러한 정책을 직접 지정할 필요가 없습니다.   
 
@@ -412,7 +414,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
 * `maxFailedItems` : 인덱서 실행을 실패한 것으로 간주하기 전까지 허용되는 인덱싱 실패 가능 항목의 수입니다. 기본값은 0입니다. 실패한 항목에 대한 정보는 [인덱서 상태 가져오기](#GetIndexerStatus) 작업에서 반환됩니다. 
 * `maxFailedItemsPerBatch` : 인덱서 실행을 실패한 것으로 간주하기 전까지 각 일괄 처리에서 허용되는 인덱싱 실패 가능 항목의 수입니다. 기본값은 0입니다.
 * `base64EncodeKeys`: 문서 키를 base-64로 인코딩할지 여부를 지정합니다. Azure 검색에서는 문서 키에 포함할 수 있는 문자에 제한이 적용됩니다. 그러나 원본 데이터의 값은 유효하지 않은 문자를 포함할 수 있습니다. 이러한 값을 문서 키로 인덱싱해야 하는 경우에는 이 플래그를 true로 설정할 수 있습니다. 기본값은 `false`입니다.
-* `batchSize`: 성능을 향상시키기 위해 단일 배치로 인덱싱되고 데이터 원본에서 읽는 항목 수를 지정합니다. 기본값은 데이터 원본 형식에 따라 달라 집니다. Azure SQL 및 DocumentDB의 경우 1000, Azure Blob 저장소의 경우 10입니다.
+* `batchSize`: 성능을 향상시키기 위해 단일 배치로 인덱싱되고 데이터 원본에서 읽는 항목 수를 지정합니다. 기본값은 데이터 원본 형식에 따라 달라집니다. Azure SQL 및 Azure Cosmos DB의 경우 1000, Azure Blob Storage의 경우 10입니다.
 
 **필드 매핑**
 
@@ -796,9 +798,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 <td>지원되지 않음. Azure 검색에서는 현재 기본 형식과 문자열 컬렉션만 지원합니다.</td>
 </tr>
 </table>
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

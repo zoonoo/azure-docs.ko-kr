@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 62d5b9d1698dc8f0331fc9ced8fc9611055db06e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4dd1ba30101d364fa52738a4e1c3e07874c5ed1f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -30,45 +32,30 @@ Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 계정, 데이
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure PowerShell**. [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)의 필수 조건 섹션을 참조하세요.
 
-<!-- ################################ -->
-<!-- ################################ -->
+## <a name="running-the-snippets"></a>코드 조각 실행
 
+이 자습서의 PowerShell 코드 조각은 이러한 변수를 사용하여 이 정보를 저장합니다.
 
-## <a name="install-azure-powershell-10-or-greater"></a>Azure PowerShell 1.0 이상 설치
-[Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)의 필수 조건 섹션을 참조하세요.
+```
+$rg = "<ResourceGroupName>"
+$adls = "<DataLakeAccountName>"
+$adla = "<DataLakeAnalyticsAccountName>"
+$location = "East US 2"
+```
 
 ## <a name="manage-accounts"></a>계정 관리
-데이터 레이크 분석 작업을 실행하려면 데이터 레이크 분석 계정이 있어야 합니다. Azure HDInsight와 달리 작업을 실행하지 않는 경우 분석 계정에 대해 비용을 지불하지 않습니다.  작업이 실행되는 시간에 대해서만 비용을 지불합니다.  자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.  
 
-### <a name="create-accounts"></a>계정 만들기
-    $resourceGroupName = "<ResourceGroupName>"
-    $dataLakeStoreName = "<DataLakeAccountName>"
-    $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-    $location = "<Microsoft Data Center>"
+### <a name="create-a-data-lake-analytics-account"></a>Data Lake 분석 계정 만들기
 
-    Write-Host "Create a resource group ..." -ForegroundColor Green
-    New-AzureRmResourceGroup `
-        -Name  $resourceGroupName `
-        -Location $location
+```
+New-AzureRmResourceGroup -Name  $rg -Location $location
+New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
+New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
+```
 
-    Write-Host "Create a Data Lake account ..."  -ForegroundColor Green
-    New-AzureRmDataLakeStoreAccount `
-        -ResourceGroupName $resourceGroupName `
-        -Name $dataLakeStoreName `
-        -Location $location 
-
-    Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
-    New-AzureRmDataLakeAnalyticsAccount `
-        -Name $dataLakeAnalyticsAccountName `
-        -ResourceGroupName $resourceGroupName `
-        -Location $location `
-        -DefaultDataLake $dataLakeStoreName
-
-    Write-Host "The newly created Data Lake Analytics account ..."  -ForegroundColor Green
-    Get-AzureRmDataLakeAnalyticsAccount `
-        -ResourceGroupName $resourceGroupName `
-        -Name $dataLakeAnalyticsAccountName  
+### <a name="create-a-data-lake-analytics-account-using-a-template"></a>템플릿을 사용하여 Data Lake Analytics 계정 만들기
 
 Azure 리소스 그룹 템플릿을 사용할 수도 있습니다. Data Lake Analytics 계정 및 종속 Data Lake Store 계정에 대한 템플릿은 [부록 A](#appendix-a)에 있습니다. .json 템플릿을 사용하여 템플릿을 파일에 저장한 후 다음 PowerShell 스크립트를 사용하여 호출합니다.
 
@@ -94,19 +81,11 @@ Azure 리소스 그룹 템플릿을 사용할 수도 있습니다. Data Lake Ana
     New-AzureRmResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $ResourceGroupName -TemplateFile $ARMTemplateFile -TemplateParameterObject $parameters 
 
 
-### <a name="list-account"></a>계정 나열
+### <a name="list-accounts"></a>계정 나열
+
 현재 구독 내의 데이터 레이크 분석 계정 나열
 
     Get-AzureRmDataLakeAnalyticsAccount
-
-출력은 다음과 같습니다.
-
-    Id         : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/learn1021rg/providers/Microsoft.DataLakeAnalytics/accounts/learn1021adla
-    Location   : eastus2
-    Name       : learn1021adla
-    Properties : Microsoft.Azure.Management.DataLake.Analytics.Models.DataLakeAnalyticsAccountProperties
-    Tags       : {}
-    Type       : Microsoft.DataLakeAnalytics/accounts
 
 특정 리소스 그룹 내의 데이터 레이크 분석 계정 나열
 
@@ -275,26 +254,6 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
         -ItemType Database `
         -Path "master"
 
-### <a name="create-catalog-secret"></a>카탈로그 암호 만들기
-    New-AzureRmDataLakeAnalyticsCatalogSecret  `
-            -Account $adlAnalyticsAccountName `
-            -DatabaseName "master" `
-            -Secret (Get-Credential -UserName "username" -Message "Enter the password")
-
-### <a name="modify-catalog-secret"></a>카탈로그 암호 수정
-    Set-AzureRmDataLakeAnalyticsCatalogSecret  `
-            -Account $adlAnalyticsAccountName `
-            -DatabaseName "master" `
-            -Secret (Get-Credential -UserName "username" -Message "Enter the password")
-
-
-
-### <a name="delete-catalog-secret"></a>카탈로그 암호 삭제
-    Remove-AzureRmDataLakeAnalyticsCatalogSecret  `
-            -Account $adlAnalyticsAccountName `
-            -DatabaseName "master"
-
-
 ## <a name="use-azure-resource-manager-groups"></a>Azure 리소스 관리자 그룹 사용
 응용 프로그램은 일반적으로 웹앱, 데이터베이스, 데이터베이스 서버, 저장소 및 타사 서비스 등 많은 구성 요소로 구성됩니다. ARM(Azure 리소스 관리자)을 사용하면 Azure 리소스 그룹이라고 하는 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트, 모니터링 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 전체 그룹에 대한 롤업 비용을 확인하여 조직에 요금 청구를 명확히 할 수 있습니다. 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요. 
 
@@ -373,10 +332,5 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
         }
       }
     }
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

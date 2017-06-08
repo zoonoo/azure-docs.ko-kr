@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 1/10/2017
+ms.date: 06/05/2017
 ms.author: anoopkv
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f849ea027022cc753bf818d7980170b5875221f0
 ms.openlocfilehash: 47431f934f092ea7c614599b6c8e3fe3a946a955
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/13/2017
 
 ---
 
@@ -81,10 +83,4 @@ ms.openlocfilehash: 47431f934f092ea7c614599b6c8e3fe3a946a955
 ## <a name="next-steps"></a>다음 단계
 
 다음 단계는 Azure에서 [대상 환경 설정](./site-recovery-prepare-target-physical-to-azure.md)을 포함합니다.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

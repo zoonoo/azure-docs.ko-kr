@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: e2ccb78da419b12a9845d720efb5b0229d4f455b
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/27/2017
 
 
@@ -35,8 +36,6 @@ ms.lasthandoff: 04/27/2017
 온-프레미스 솔루션용 Trend Micro의 현재 구독이 있는 경우 Azure Virtual Machines를 보호하는 데 사용할 수 있습니다. 아직 구독 고객이 아닌 경우에는 평가판 구독에 등록할 수 있습니다. 이 솔루션에 대한 자세한 내용은 Trend Micro 블로그 게시물 [Deep Security에 대한 Microsoft Azure VM 에이전트 확장](http://go.microsoft.com/fwlink/p/?LinkId=403945)을 참조하세요.
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>새 VM에 Deep Security Agent 설치
-
-<!-- old portal [Azure classic portal](http://manage.windowsazure.com) -->
 
 **Marketplace**의 이미지를 사용하여 가상 컴퓨터를 만드는 경우 [Azure Portal](http://portal.azure.com)에서 Trend Micro 보안 확장을 설치할 수 있습니다. 포털을 사용하면 단일 가상 컴퓨터를 만들 때 Trend Micro의 보호 기능을 쉽게 추가할 수 있습니다.
 

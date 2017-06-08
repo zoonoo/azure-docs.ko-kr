@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 132c1cf6b06924b8d23d696ea732856886be975d
-ms.lasthandoff: 05/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1aebecdaacd3525bec07a9359e52d2bc3d1539de
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -76,7 +77,8 @@ WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다
 >
 
 ### <a name="hard-disk-drives"></a>하드 디스크 드라이브
-2.5" SSD 또는 2.5"/3.5" SATA II/III 내부 하드 드라이브만 Import/Export 서비스에서 사용하도록 지원됩니다. 최대 10TB의 하드 드라이브를 사용할 수 있습니다.
+2.5" SSD 또는 2.5"/3.5" SATA II/III 내부 HDD만 Import/Export 서비스에서 사용하도록 지원됩니다. 단일 가져오기/내보내기 작업에는 최대 10개의 HDD/SSD가 있을 수 있으며, 개별 HDD/SSD는 임의 크기일 수 있습니다. 다수의 드라이브가 여러 작업에 분산될 수 있으며, 만들 수 있는 작업 수에 대한 제한은 없습니다. 
+
 가져오기 작업의 경우 드라이브의 첫 번째 데이터 볼륨만 처리됩니다. 데이터 볼륨은 NTFS로 포맷되어 있어야 합니다.
 
 > [!IMPORTANT]
@@ -508,6 +510,14 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같이 알려진 모든 운송업�
 
 [Azure 백업의 오프라인 백업 워크플로](../backup/backup-azure-backup-import-export.md)를 참조하세요.
 
+**각 배송에 허용되는 최대 HDD 수는 몇 개인가요?
+
+각 배송에 허용되는 HDD 수에 대한 제한은 없으며, 디스크가 여러 작업에 속하는 경우 a) 해당 작업 이름으로 디스크에 레이블을 지정하고, b) 추적 번호에 접미사 -1, -2 등을 추가하여 작업을 업데이트하는 것이 좋습니다.
+  
+**디스크 Import/Export에서 지원되는 최대 블록 Blob 및 페이지 Blob 크기는 무엇인가요?
+
+최대 블록 Blob 크기는 약 4.768TB 또는 5,000,000MB입니다.
+최대 페이지 Blob 크기는 1TB입니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [WAImportExport 도구 설정](storage-import-export-tool-how-to.md)

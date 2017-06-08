@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 1aa8fff31d8d1908b1ea93cb970487d08ea4adf6
-ms.openlocfilehash: ddd6fcc8de133a5ff5f427d070c6c6ec207d9236
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 7db29c186cf6e6f3b40a680ab76f1d2763f806ba
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -26,8 +27,10 @@ ms.lasthandoff: 03/31/2017
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
-> - [CLI](network-watcher-check-ip-flow-verify-cli.md)
+> - [CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)
 > - [Azure REST API](network-watcher-check-ip-flow-verify-rest.md)
+
 
 IP 흐름 확인은 가상 컴퓨터 간에 트래픽을 허용하는지를 확인할 수 있는 Network Watcher의 기능입니다. 들어오거나 나가는 트래픽에 대해 유효성 검사를 실행할 수 있습니다. 이 시나리오는 가상 컴퓨터가 외부 리소스 또는 다른 리소스에 연결할 수 있는지에 대한 현재 상태를 가져올 때 유용합니다. IP 흐름 확인은 NSG(네트워크 보안 그룹) 규칙이 모두 제대로 구성되었는지 확인하고 NSG 규칙에 의해 차단되는 흐름 문제를 해결하는 데 사용될 수 있습니다. IP 흐름 확인을 사용하여 차단하려는 트래픽이 NSG에서 제대로 차단되었는지 확인할 수도 있습니다.
 

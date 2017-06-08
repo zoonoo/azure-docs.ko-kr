@@ -14,17 +14,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 1ab9b7e306fda89235f4e9388fdbae4ea54307df
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
+ms.openlocfilehash: 4400ebce2fbed709dcadf41cd2b834fd36416c15
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/02/2017
 
 
 ---
 # <a name="azure-functions-external-file-bindings-preview"></a>Azure Functions 외부 파일 바인딩(미리 보기)
-이 문서에서는 Azure Functions에서 외부 파일 바인딩을 구성 및 사용하는 방법에 대해 설명합니다. Azure Functions는 외부 파일에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
+이 문서에서는 기본 제공 바인딩을 활용하는 사용자 함수 내에서 다양한 SaaS 공급자(예: OneDrive, Dropbox)의 파일을 조작하는 방법을 보여 줍니다. Azure Functions는 외부 파일에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
 
-외부 파일 바인딩을 사용하면 함수가 Azure 외부에 호스팅된 파일에 액세스할 수 있습니다. 이 바인딩은 새 API 연결을 만들거나 함수 앱의 리소스 그룹에서 기존 API 연결을 사용합니다.
+이 바인딩은 SaaS 공급자에 대한 API 연결을 만들거나 함수 앱의 리소스 그룹에서 기존 API 연결을 사용합니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -254,76 +255,6 @@ C# 함수에서 다음 형식 중 하나에 바인딩할 수도 있으며, Funct
 * `CloudBlockBlob`
 * `CloudPageBlob`
 
-<a name="inputsample"></a>
-
-## <a name="input-sample"></a>입력 샘플
-다음과 같이 [Storage 큐 트리거](functions-bindings-storage-queue.md), n개의 외부 파일 입력, 외부 파일 출력을 정의하는 function.json이 있는 경우를 가정합니다.
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "myInputFile",
-      "type": "apiHubFile",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "<name of external file connection>",
-      "direction": "in"
-    },
-    {
-      "name": "myOutputFile",
-      "type": "apiHubFile",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "<name of external file connection>",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-입력 파일을 출력 파일로 복사하는 언어별 샘플을 참조하세요.
-
-* [C#](#incsharp)
-* [Node.JS](#innodejs)
-
-<a name="incsharp"></a>
-
-### <a name="input-usage-in-c"></a>C에서 입력 사용# #
-
-```cs
-public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    myOutputFile = myInputFile;
-}
-```
-
-<!--
-<a name="infsharp"></a>
-### Input usage in F# ##
-```fsharp
-
-```
--->
-
-<a name="innodejs"></a>
-
-### <a name="input-usage-in-nodejs"></a>Node.js에서 입력 사용
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputFile = context.bindings.myInputFile;
-    context.done();
-};
-```
 
 <a name="output"></a>
 
@@ -368,8 +299,76 @@ C# 함수에서 다음 중 원하는 형식으로 출력할 수 있습니다.
 
 <a name="outputsample"></a>
 
-## <a name="output-sample"></a>출력 샘플
-[입력 샘플](#inputsample)을 참조하세요.
+<a name="sample"></a>
+
+## <a name="input--output-sample"></a>입력 + 출력 샘플
+다음과 같이 [Storage 큐 트리거](functions-bindings-storage-queue.md), n개의 외부 파일 입력, 외부 파일 출력을 정의하는 function.json이 있는 경우를 가정합니다.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnection",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputFile",
+      "type": "apiHubFile",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "<name of external file connection>",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputFile",
+      "type": "apiHubFile",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "<name of external file connection>",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+입력 파일을 출력 파일로 복사하는 언어별 샘플을 참조하세요.
+
+* [C#](#incsharp)
+* [Node.JS](#innodejs)
+
+<a name="incsharp"></a>
+
+### <a name="usage-in-c"></a>C에서 사용# #
+
+```cs
+public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    myOutputFile = myInputFile;
+}
+```
+
+<!--
+<a name="infsharp"></a>
+### Input usage in F# ##
+```fsharp
+
+```
+-->
+
+<a name="innodejs"></a>
+
+### <a name="usage-in-nodejs"></a>Node.js에서 사용
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputFile = context.bindings.myInputFile;
+    context.done();
+};
+```
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]

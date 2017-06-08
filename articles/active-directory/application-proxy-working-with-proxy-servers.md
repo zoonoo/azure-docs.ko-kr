@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 05/22/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: f31625783aa03dd01a73b5e5b39dd899e109b3b9
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: ea928ba4d13970a32123a8ada8575658cecde5d8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -118,7 +119,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 커넥터 서비스 액세스를 위해 다음 끝점에 대한 액세스를 허용합니다.
 
 * *.msappproxy.net
-* *.servicebus.microsoft.net
+* *.servicebus.windows.net
 
 초기 등록을 위해 다음 끝점에 대한 액세스를 허용합니다.
 

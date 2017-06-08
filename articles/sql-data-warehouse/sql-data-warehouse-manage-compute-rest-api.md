@@ -3,7 +3,7 @@ title: "Azure SQL Data Warehouse의 REST를 사용한 일시 중지, 다시 시�
 description: "계산 능력을 관리하는 PowerShell 작업 DWU를 조정하여 계산 리소스 크기를 조정합니다. 또는 계산 리소스를 일지 중지한 다음 다시 시작하여 비용을 절감합니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: barbkess
 editor: 
 ms.assetid: 21de7337-9356-49bb-a6eb-06c1beeba2c4
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: elbutter;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: 548e61004bd95d9e785fea438eb8b81aa63f1739
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/28/2017
 
 

@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/30/2017
 ms.author: gsacavdm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: dee24deacbe69ada64519802c0eb1b83f565f57e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 1d97c75f3130ea6fdacbc6335b6e70677b4d226e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -57,30 +57,16 @@ ms.lasthandoff: 05/09/2017
 1. 이제 제공되는 **메타데이터 다운로드** 단추를 클릭하고 이후 단계에서 사용할 메타데이터를 저장합니다.
 
 ## <a name="add-a-saml-signing-certificate-to-azure-ad-b2c"></a>SAML 서명 인증서를 Azure AD B2C에 추가
-Salesforce 인증서 업로드를 Azure AD B2C 테넌트에 저장해야 합니다. 다음을 수행합니다.
+SAML 요청에 서명할 때 사용할 SAML 인증서를 Azure AD B2C 테넌트에 업로드해야 합니다. 다음을 수행합니다.
 
-1. PowerShell을 열고 작업 디렉터리인 `active-directory-b2c-advanced-policies`로 이동합니다.
-1. ExploreAdmin 도구를 사용하여 폴더로 전환합니다.
-
-    ```powershell
-    cd active-directory-b2c-advanced-policies\ExploreAdmin
-    ```
-
-1. powershell로 ExploreAdmin 도구를 가져옵니다.
-
-    ```powershell
-    Import-Module .\ExploreAdmin.dll
-    ```
-
-1. 다음 명령에서 `tenantName`을 Azure AD B2C 테넌트의 이름(예: fabrikamb2c.onmicrosoft.com)으로 바꾸고 `certificateId`를 정책에서 나중에 참조할 인증서의 이름(예: ContosoSalesforceCert)으로 바꾸고 마지막으로 `pathToCert` 및 `password`를 인증서의 경로 및 암호로 바꿉니다. 명령을 실행합니다.
-
-    ```PowerShell
-    Set-CpimCertificate -TenantId {tenantName} -CertificateId {certificateId} -CertificateFileName {pathToCert} - CertificatePassword {password}
-    ```
-
-    명령을 실행하면 Azure AD B2C 테넌트에 로컬인 onmicrosoft.com 관리자 계정으로 로그인해야 합니다. 
-
-1. PowerShell을 닫습니다.
+1. Azure AD B2C 테넌트로 이동하고 B2C **설정 > ID 경험 프레임워크 > 정책 키**를 엽니다.
+1. **+추가**를 클릭합니다.
+1. 옵션:
+ * **옵션 > 업로드**
+ * **이름**: > `ContosoIdpSamlCert`를 선택합니다.  키의 이름에 B2C_1A_ 접두사가 자동으로 추가됩니다. B2C_1A_를 포함한 전체 이름을 기록해 두세요. 나중에 정책에서 참조할 때 사용하게 될 것입니다.
+ * **파일 업로드 제어**를 사용하여 인증서를 선택하고 해당하는 경우 인증서의 암호를 입력합니다.
+1. **만들기**
+1. `B2C_1A_ContosoIdpSamlCert` 키가 생성되었는지 확인합니다.
 
 ## <a name="create-the-salesforce-saml-claims-provider-in-your-base-policy"></a>기본 정책에서 Salesforce SAML 클레임 공급자 만들기
 
@@ -107,8 +93,8 @@ Salesforce 인증서 업로드를 Azure AD B2C 테넌트에 저장해야 합니�
             </Item>
           </Metadata>       
           <CryptographicKeys>
-            <Key Id="SamlAssertionSigning" StorageReferenceId="ContosoIdpSamlCert"/>
-            <Key Id="SamlMessageSigning" StorageReferenceId="ContosoIdpSamlCert "/>
+            <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ContosoIdpSamlCert"/>
+            <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_ContosoIdpSamlCert "/>
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="userId"/>
@@ -219,12 +205,12 @@ Salesforce에서 Azure AD B2C를 연결된 앱으로 등록해야 합니다.
     1. **엔터티 ID** 필드에 다음 URL을 입력하고 `tenantName`을 해당 내용으로 바꿉니다. 
     
         ```
-        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_base
+        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
         ```
 
     1. **ACS URL** 필드에 다음 URL을 입력하고 `tenantName`을 해당 내용으로 바꿉니다. 
         ```
-        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_base/samlp/sso/assertionconsumer
+        https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
         ```
 
     1. 다른 모든 설정은 기본값으로 유지합니다.

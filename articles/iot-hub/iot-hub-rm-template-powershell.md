@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: dc9f9c39a8eb644229887f76b5c441d4211af059
-ms.openlocfilehash: 6f9c36239f8485313066a594eea74bfcd168536e
-ms.lasthandoff: 02/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: d55de6c3f49abf3ac117dcb265dd7f1bcaa05f24
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -45,20 +46,33 @@ Azure 리소스 관리자를 사용하여 Azure IoT Hub를 프로그래밍 방�
 ## <a name="connect-to-your-azure-subscription"></a>Azure 구독에 연결
 PowerShell 명령 프롬프트에서 다음 명령을 입력하여 Azure 구독에 로그인합니다.
 
-```
+```powershell
 Login-AzureRmAccount
+```
+
+Azure 구독이 여러 개 있는 경우 Azure에 로그인하면 자격 증명과 연결된 모든 Azure 구독에 액세스할 수 있습니다. 다음 명령을 사용하여 사용할 수 있는 Azure 구독을 나열합니다.
+
+```powershell
+Get-AzureRMSubscription
+```
+
+다음 명령을 사용하여 IoT Hub를 만드는 명령을 실행하는 데 사용할 구독을 선택합니다. 이전 명령의 출력에서 구독 이름 또는 ID를 사용할 수 있습니다.
+
+```powershell
+Select-AzureRMSubscription `
+    -SubscriptionName "{your subscription name}"
 ```
 
 다음 명령을 사용하여 IoT Hub 및 현재 지원되는 API 버전을 배포할 수 있는 위치를 검색할 수 있습니다.
 
-```
+```powershell
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).Locations
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Devices).ResourceTypes | Where-Object ResourceTypeName -eq IoTHubs).ApiVersions
 ```
 
 IoT Hub가 지원되는 위치 중 하나에서 다음 명령을 사용하여 IoT Hub를 포함하는 리소스 그룹을 만듭니다. 이 예에서는 **MyIoTRG1**이라는 리소스 그룹을 만듭니다.
 
-```
+```powershell
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
@@ -67,7 +81,7 @@ JSON 템플릿을 사용하여 리소스 그룹에 IoT hub를 만듭니다. Azur
 
 1. 텍스트 편집기에서 새로운 표준 IoT Hub를 만드는 다음 리소스 정의를 사용하여 **template.json**이라는 Azure Resource Manager 템플릿을 만듭니다. 이 예에서는 **미국 동부** 지역에 IoT Hub를 추가하고 이벤트 허브와 호환되는 끝점에 두 개의 소비자 그룹(**cg1** 및 **cg2**)을 만들고 **2016-02-03** API 버전을 사용합니다. 또한 이 템플릿에서 매개 변수로 IoT Hub 이름 **hubName**을 전달해야 합니다. IoT Hub를 지원하는 현재 위치 목록에 대해서는 [Azure 상태][lnk-status]를 참조하세요.
    
-    ```
+    ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
@@ -119,7 +133,7 @@ JSON 템플릿을 사용하여 리소스 그룹에 IoT hub를 만듭니다. Azur
 2. 로컬 컴퓨터에 Azure Resource Manager 템플릿 파일을 저장합니다. 이 예제에서는 **c:\templates** 폴더에 저장하는 것으로 가정합니다.
 3. 다음 명령을 실행하여 새 IoT Hub를 배포하고, 매개 변수로 IoT Hub 이름을 전달합니다. 이 예제에서 IoT Hub 이름은 **abcmyiothub** 입니다(이 이름은 전역적으로 고유해야 하므로 사용자의 이름 또는 이니셜을 포함해야 함).
    
-    ```
+    ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
 4. 앞에서 만든 IoT Hub의 키가 출력에 표시됩니다.
@@ -143,7 +157,7 @@ IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 �
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [Azure IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -157,5 +171,5 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

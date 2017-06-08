@@ -1,0 +1,243 @@
+---
+title: "Node.js를 사용하여 Azure Cosmos DB에 MongoDB 앱 연결 | Microsoft Docs"
+description: "Azure Cosmos DB에 기존 Node.js MongoDB 앱을 연결하는 자세한 방법"
+services: cosmos-db
+documentationcenter: 
+author: mimig1
+manager: jhubbard
+editor: 
+ms.assetid: 
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
+ms.workload: 
+ms.tgt_pltfrm: na
+ms.devlang: nodejs
+ms.topic: hero-article
+ms.date: 05/10/2017
+ms.author: mimig
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: bfdf42ef717c090bffb89e9f276a135c58b1884f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
+
+
+---
+# <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: 기존 Node.js MongoDB 웹앱 마이그레이션 
+
+Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
+
+이 빠른 시작은 Node.js로 작성된 기존의 [MongoDB](mongodb-introduction.md) 앱을 사용하는 방법을 보여주고 MongoDB 클라이언트 연결을 지원하는 Azure Cosmos DB 데이터베이스에 연결합니다. 즉, Node.js 응용 프로그램은 MongoDB API를 사용하여 데이터베이스에 연결됩니다. Azure Cosmos DB에 데이터가 저장되는 응용 프로그램에 대해 투명합니다.
+
+완료하고 나면 MEAN 응용 프로그램(MongoDB, Express, AngularJS 및 Node.js)이 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)에서 실행됩니다. 
+
+![Azure App Service에서 실행 중인 MEAN.js 응용 프로그램](./media/create-mongodb-nodejs/meanjs-in-azure.png)
+
+## <a name="prerequisites"></a>필수 조건 
+
+이 빠른 시작을 시작하기 전에 컴퓨터에 [Azure CLI가 설치되었는지](https://docs.microsoft.com/cli/azure/install-azure-cli) 확인합니다. 또한, [Node.js](https://nodejs.org/) 및 [Git](http://www.git-scm.com/downloads)가 필요합니다. `az`, `npm` 및 `git` 명령을 실행합니다.
+
+Node.js에 대한 실무 지식이 있어야 합니다. 이 빠른 시작은 일반적으로 Node.js 응용 프로그램을 개발하는 데 도움이 되지 않습니다.
+
+## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+
+git bash와 같은 git 터미널 창을 열고 `cd`를 수행하여 작업 디렉터리로 이동합니다.  
+
+다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 샘플 리포지토리에는 기본 [MEAN.js](http://meanjs.org/) 응용 프로그램이 들어 있습니다. 
+
+```bash
+git clone https://github.com/prashanthmadi/mean
+```
+
+## <a name="run-the-application"></a>응용 프로그램 실행
+
+필요한 패키지를 설치하고 응용 프로그램을 시작합니다.
+
+```bash
+cd mean
+npm install
+npm start
+```
+
+## <a name="log-in-to-azure"></a>Azure에 로그인
+
+이제 터미널 창에서 Azure CLI 2.0을 사용하여 Azure App Service에서 Node.js 응용 프로그램을 호스트하는 데 필요한 리소스를 만듭니다.  [az login](/cli/azure/#login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다. 
+
+```azurecli 
+az login 
+``` 
+   
+### <a name="add-the-azure-cosmos-db-module"></a>Azure Cosmos DB 모듈 추가
+
+Azure Cosmos DB 명령을 사용하려면 Azure Cosmos DB 모듈을 추가합니다. 
+
+```azurecli
+az component update --add cosmosdb
+```
+
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+
+[az group create](/cli/azure/group#create)를 사용하여 [리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. Azure 리소스 그룹은 웹앱, 데이터베이스, 저장소 계정이 관리되었는지 등 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+
+다음 예제에서는 유럽 서부 지역의 리소스 그룹을 만듭니다. 리소스 그룹에 고유한 이름을 선택합니다.
+
+```azurecli
+az group create --name myResourceGroup --location "West Europe"
+```
+
+## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
+
+[az cosmosdb create](/cli/azure/cosmosdb#create) 명령을 사용하여 Azure Cosmos DB 계정을 만듭니다.
+
+다음 명령에서 `<cosmosdb_name>` 자리 표시자를 표시하는 고유한 Azure Cosmos DB 이름을 바꿉니다. 이 고유한 이름은 Azure Cosmos DB 끝점의 일부(`https://<cosmosdb_name>.documents.azure.com/`)로 사용되므로, Azure의 모든 Azure Cosmos DB 계정에서 고유해야 합니다. 
+
+```azurecli
+az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
+```
+
+`--kind MongoDB` 매개 변수는 MongoDB 클라이언트 연결을 사용하도록 설정합니다.
+
+Azure Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정보를 표시합니다. 
+
+```json
+{
+  "databaseAccountOfferType": "Standard",
+  "documentEndpoint": "https://<cosmosdb_name>.documents.azure.com:443/",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Document
+DB/databaseAccounts/<cosmosdb_name>",
+  "kind": "MongoDB",
+  "location": "West Europe",
+  "name": "<cosmosdb_name>",
+  "readLocations": [
+    {
+      "documentEndpoint": "https://<cosmosdb_name>-westeurope.documents.azure.com:443/",
+      "failoverPriority": 0,
+      "id": "<cosmosdb_name>-westeurope",
+      "locationName": "West Europe",
+      "provisioningState": "Succeeded"
+    }
+  ],
+  "resourceGroup": "myResourceGroup",
+  "type": "Microsoft.DocumentDB/databaseAccounts",
+  "writeLocations": [
+    {
+      "documentEndpoint": "https://<cosmosdb_name>-westeurope.documents.azure.com:443/",
+      "failoverPriority": 0,
+      "id": "<cosmosdb_name>-westeurope",
+      "locationName": "West Europe",
+      "provisioningState": "Succeeded"
+    }
+  ]
+} 
+```
+
+## <a name="connect-your-nodejs-application-to-the-database"></a>데이터베이스에 Node.js 응용 프로그램 연결
+
+이 단계에서는 MongoDB 연결 문자열을 사용하여 MEAN.js 샘플 응용 프로그램을 방금 만든 Azure Cosmos DB 데이터베이스에 연결합니다. 
+
+## <a name="retrieve-the-key"></a>키 검색
+
+Azure Cosmos DB 데이터베이스에 연결하기 위해 데이터베이스 키가 필요합니다. [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) 명령을 사용하여 기본 키를 검색합니다.
+
+```azurecli
+az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
+```
+
+Azure CLI는 다음 예와 유사한 정보를 출력합니다. 
+
+```json
+{
+  "primaryMasterKey": "RUayjYjixJDWG5xTqIiXjC...",
+  "primaryReadonlyMasterKey": "...",
+  "secondaryMasterKey": "...",
+  "secondaryReadonlyMasterKey": "..."
+}
+```
+
+`primaryMasterKey` 값을 텍스트 편집기에 복사합니다. 이 정보는 다음 단계에서 필요합니다.
+
+<a name="devconfig"></a>
+## <a name="configure-the-connection-string-in-your-nodejs-application"></a>Node.js 응용 프로그램에 연결 문자열 구성
+
+MEAN.js 리포지토리에서 `config/env/local-development.js`를 엽니다.
+
+이 파일 내용을 다음 코드로 바꿉니다. 두 개의 `<cosmosdb_name>` 자리 표시자를 Azure Cosmos DB 계정 이름으로 바꾸고 `<primary_master_key>` 자리 표시자를 이전 단계에서 복사한 키로 바꿔야 합니다.
+
+```javascript
+'use strict';
+
+module.exports = {
+  db: {
+    uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean-dev?ssl=true&sslverifycertificate=false'
+  }
+};
+```
+
+> [!NOTE] 
+> `ssl=true` 옵션은 [Azure Cosmos DB에서 SSL이 필요](connect-mongodb-account.md#connection-string-requirements)하기 때문에 중요합니다. 
+>
+>
+
+변경 내용을 저장합니다.
+
+### <a name="run-the-application-again"></a>응용 프로그램을 다시 실행합니다.
+
+`npm start`을 다시 실행합니다. 
+
+```bash
+npm start
+```
+
+이제 콘솔 메시지에서는 개발 환경이 실행된다고 알려 주어야 합니다. 
+
+브라우저에서 `http://localhost:3000`으로 이동합니다. 맨 위 메뉴에서 **등록**을 클릭하여 두 개의 더미 사용자를 만듭니다. 
+
+MEAN.js 샘플 응용 프로그램은 데이터베이스에 사용자 데이터를 저장합니다. 성공해서 MEAN.js가 생성된 사용자로 자동 로그인하면 Azure Cosmos DB 연결이 작동합니다. 
+
+![MEAN.js가 MongoDB 연결에 성공](./media/create-mongodb-nodejs/mongodb-connect-success.png)
+
+## <a name="view-data-in-data-explorer"></a>데이터 탐색기에서 데이터 보기
+
+Azure Cosmos DB에서 저장된 데이터는 Azure Portal에서 비즈니스 논리 보기, 쿼리 및 실행에 사용할 수 있습니다.
+
+이전 단계에서 만든 사용자 데이터를 보고 쿼리하고 사용하려면 웹 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+
+맨 위에 있는 검색 상자에서 Azure Cosmos DB를 입력합니다. Cosmos DB 계정 블레이드가 열리면 Cosmos DB 계정을 선택합니다. 왼쪽 탐색에서 데이터 탐색기를 클릭합니다. 컬렉션 창에서 컬렉션을 확장하면 컬렉션에서 문서를 보고, 데이터를 쿼리하고 저장된 프로시저, 트리거 및 UDF를 만들고 실행합니다. 
+
+![Azure Portal의 데이터 탐색기](./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png)
+
+
+## <a name="deploy-the-nodejs-application-to-azure"></a>Azure에 Node.js 응용 프로그램 배포
+
+이 단계에서는 MongoDB에 연결된 Node.js 응용 프로그램을 Azure Cosmos DB에 배포합니다.
+
+개발 환경을 위해 이전에 변경한 구성 파일을 알 수 있습니다(`/config/env/local-development.js`). 응용 프로그램을 App Service에 배포하면 기본적으로 프로덕션 환경에서 실행합니다. 이제 해당 구성 파일을 동일하게 변경해야 합니다.
+
+MEAN.js 리포지토리에서 `config/env/production.js`를 엽니다.
+
+`db` 개체에서 다음 예에 표시된 것과 같이 `uri` 값을 바꿉니다. 전과 같이 자리 표시자를 바꿔야 합니다.
+
+```javascript
+'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
+```
+
+터미널에서 Git에 모든 변경 내용을 커밋합니다. 두 명령을 복사하여 함께 실행할 수 있습니다.
+
+```bash
+git add .
+git commit -m "configured MongoDB connection string"
+```
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 앱을 계속 사용하지 않으려면 Azure Portal에서 다음 단계에 따라 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
+
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다. 
+2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+이 빠른 시작에서, Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 MongoDB 컬렉션을 만드는 방법을 알아보았습니다. 이제 Azure Cosmos DB에 MongoDB 데이터를 마이그레이션할 수 있습니다.  
+
+> [!div class="nextstepaction"]
+> [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md)
+

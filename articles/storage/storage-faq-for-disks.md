@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 284b239860481cf76f647d78f6a7b5e2b7cf9a3b
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: af7d5b03e1490ed8d90021980f14c47281e8a655
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -79,6 +80,7 @@ Managed Disks는 저장소 계정과 관련된 한도를 없앱니다. 그러나
 
 현재는 아니지만 나중에는 기본 옵션으로 사용될 예정입니다.
 
+
 **내가 빈 관리 디스크를 만들 수 있나요?**
 
 예, 사용자가 빈 디스크를 만들 수 있습니다. 관리 디스크는 VM에 독립적으로 즉, VM에 연결하지 않고 만들 수 있습니다.
@@ -126,6 +128,10 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소(LRS)만 지원됩니
 
 **serialize된(sysprep 또는 일반화되지 않은) OS 디스크를 사용하여 VM을 프로비전할 때 컴퓨터 이름 속성을 변경할 수 있나요?** 아니요. 컴퓨터 이름 속성은 업데이트할 수 없습니다. 새 VM은 OS 디스크를 만들 때 사용한 부모 VM에서 이 속성을 상속합니다. 
 
+**Managed Disks를 사용하여 VM을 만드는 Azure Resource Manager 템플릿 예제가 배치된 위치**
+* https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md
+* https://github.com/chagarw/MDPP
+
 ## <a name="managed-disks-and-port-8443"></a>Managed Disks 및 포트 8443
 
 **고객이 Azure Managed Disks를 사용하는 VM의 포트 8443에서 아웃바운드 트래픽의 차단을 해제해야 하는 이유는 무엇인가요?**
@@ -144,7 +150,7 @@ Azure VM 에이전트는 Azure 플랫폼에 각 VM 확장의 상태를 보고하
 
 확장은 성공적으로 배포되지 않습니다. 확장의 상태를 알 수 없습니다. 
 
-**차단된 포트 8443이 있는 여러 VM(확장이 있는 첫 번째 VM 및 첫 번째 VM에 종속된 두 번째 VM)을 프로비전하는 데 ARM 템플릿을 사용하는 경우 어떻게 되나요?**
+**차단된 포트 8443이 있는 여러 VM(확장이 있는 첫 번째 VM 및 첫 번째 VM에 종속된 두 번째 VM)을 프로비전하는 데 Azure Resource Manager 템플릿을 사용하는 경우 어떻게 되나요?**
 
 확장이 성공적으로 배포되지 않았기 때문에 첫 번째 VM은 실패한 배포로 표시됩니다. 두 번째 VM은 배포되지 않습니다. 
 

@@ -1,31 +1,33 @@
 ---
-title: "Azure Active Directory PoC 플레이 북 문서 블록 | Microsoft Docs"
+
+title: "Azure Active Directory 개념 증명 플레이 북: 문서 블록 | Microsoft Docs"
 description: "ID 및 액세스 관리 시나리오를 탐색하고 신속하게 구현"
 services: active-directory
 keywords: "Azure Active Directory, 플레이 북, 개념 증명, PoC"
 documentationcenter: 
 author: dstefanMSFT
-manager: asuthar
+manager: femila
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2017
+ms.date: 05/04/2017
 ms.author: dstefan
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b6f26a338450619cef012467bf78b9469622ba08
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 9c81bc0c702d559eee8b5fbf2a0508697f4276a0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
-## <a name="catalog-of-actors"></a>행위자의 카탈로그
+## <a name="catalog-of-roles"></a>역할 카탈로그
 
-| 행위자 | 설명 | PoC 책임 |
+| 역할 | 설명 | 개념 증명(PoC) 책임 |
 | --- | --- | --- |
 | **ID 아키텍처/개발 팀** | 이 팀은 일반적으로 솔루션을 설계하고, 프로토타입을 구현하고, 승인을 추진하고, 마지막으로 작업으로 전달하는 팀입니다. | 환경을 제공하고 관리 효율성 측면에서 다양한 시나리오를 평가합니다. |
 | **온-프레미스 ID 작업 팀** | Active Directory 포리스트, LDAP 디렉터리, HR 시스템 및 페더레이션 ID 공급자와 같은 다양한 ID 원본을 온-프레미스에서 관리합니다. | PoC 시나리오에 필요한 온-프레미스 리소스에 대한 액세스를 제공합니다.<br/>가능한 한 적게 포함되어야 합니다.|
@@ -151,7 +153,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 작업 모임을 설정하고 각 행위자와 함께 자습서 단계를 따릅니다. | [자습서: ServiceNow와 Azure Active Directory 통합](active-directory-saas-servicenow-tutorial.md) |
 | 필수 구성 요소에서 식별된 그룹에게 앱을 할당합니다. POC의 범위에 조건부 액세스가 있으면 나중에 다시 방문하여 MFA 등을 추가할 수 있습니다. <br/>이 작업은 프로비전 프로세스에서 시작됩니다(구성된 경우). |  [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](active-directory-groups-create-azure-portal.md) |
 | Azure AD 관리 포털을 사용하여 갤러리에서 ServiceNow 응용 프로그램을 추가합니다.| [Azure AD management Portal: Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview)(Azure AD 관리 포털: 엔터프라이즈 응용 프로그램) <br/>[Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능](active-directory-enterprise-apps-whats-new-azure-portal.md) |
-| ServiceNow 앱의 “Single sign-on” 블레이드에서 ServiceNow 앱의 “Single sign-on” 블레이드에서 “SAML 기반 로그온”을 사용하도록 설정합니다. |  |
+| ServiceNow 앱의 "Single Sign-On" 블레이드에서 "SAML 기반 로그인"을 사용하도록 설정합니다. |  |
 | ServiceNow URL을 통해 “로그온 URL” 및 “식별자” 필드를 입력합니다.<br/>“새 인증서 활성화” 상자를 선택하고<br/>설정을 저장합니다. |  |
 | 패널 아래쪽에서 “ServiceNow 구성” 블레이드를 열어 ServiceNow를 구성하기 위한 사용자 지정된 지침을 확인합니다. |  |
 | 지침에 따라 ServiceNow를 구성합니다. |  |
@@ -184,7 +186,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 단계 | 리소스 |
 | --- | --- |
 | 브라우저 확장을 설치합니다. | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409)(Firefox용 액세스 패널 확장) |
-| 갤러리에서 응용 프로그램을 구성합니다. | [Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능: 새롭고 개선된 응용 프로그램 갤러리](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
+| 갤러리에서 응용 프로그램을 구성합니다. | [Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능: 새롭고 개선된 응용 프로그램 갤러리](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | 암호 SSO를 구성합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리: 암호 기반 로그온](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | 필수 구성 요소에서 식별된 그룹에게 앱을 할당합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) |
 | 액세스 권한이 있는 테스트 사용자로 https://myapps.microsoft.com/에 로그인합니다. |  |
@@ -210,7 +212,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | 사전에 대상 응용 프로그램 및 정확한 로그인 URL 목록 제공. 예를 들어 Twitter를 사용할 수 있습니다. | [Microsoft Azure Marketplace의 Twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Sign up for Twitter](https://twitter.com/signup?lang=en)(Twitter 가입) |
-| 이 SaaS 응용 프로그램에 대한 공유 자격 증명. | [Azure AD를 사용한 계정 공유](active-directory-sharing-accounts.md)<br/>[Azure AD automated password roll-over for Facebook, Twitter and LinkedIn now in preview! - Enterprise Mobility and Security Blog](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)(Facebook, Twitter 및 LinkedIn에 대한 Azure AD 자동화된 암호 롤오버 미리 보기 - 엔터프라이즈 모바일 및 보안 블로그) |
+| 이 SaaS 응용 프로그램에 대한 공유 자격 증명. | [Azure AD를 사용한 계정 공유](active-directory-sharing-accounts.md)<br/>[이제 미리 보기에서 Facebook, Twitter 및 LinkedIn에 대해 Azure AD 자동화된 암호 롤오버! - 엔터프라이즈 모바일 및 보안 블로그](영문) (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | 같은 계정에 액세스할 두 명 이상의 팀원에 대한 자격 증명. 이 팀원은 보안 그룹에 속해야 합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) |
 | Internet Explorer, Chrome 또는 Firefox용 액세스 패널 확장을 배포할 컴퓨터에 대한 로컬 관리자 권한 | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409)(Firefox용 액세스 패널 확장) |
 
@@ -219,7 +221,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 단계 | 리소스 |
 | --- | --- |
 | 브라우저 확장을 설치합니다. | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409)(Firefox용 액세스 패널 확장) |
-| 갤러리에서 응용 프로그램을 구성합니다. | [Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능: 새롭고 개선된 응용 프로그램 갤러리](active-directory-enterprise-apps-whats-new-azure-portal.md#the-new-and-improved-application-gallery) |
+| 갤러리에서 응용 프로그램을 구성합니다. | [Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능: 새롭고 개선된 응용 프로그램 갤러리](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | 암호 SSO를 구성합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리: 암호 기반 로그온](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | 필수 구성 요소에서 식별된 그룹에게 자격 증명을 할당할 때 앱을 할당합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) |
 | **같은 공유 계정**으로 앱에 액세스하는 서로 다른 사용자로 로그인합니다.  |  |
@@ -287,7 +289,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 일반 LDAP 커넥터를 추가합니다. | [일반 LDAP 커넥터 기술 참조: 새 커넥터 만들기](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
 | 생성된 커넥터에 대한 실행 프로필을 만듭니다(전체 가져오기, 델타 가져오기, 전체 동기화, 델타 동기화, 내보내기) | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)(관리 에이전트 실행 프로필 만들기)<br/> [Azure AD Connect Sync Service Manager에서 커넥터 사용](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | 전체 가져오기 프로필을 실행하고 커넥터 공간에 개체가 있는지 확인합니다. | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)(커넥터 공간 개체 검색)<br/>[Azure AD Connect Sync Service Manager에서 커넥터 사용: 커넥터 공간 검색](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
-| Metaverse의 개체에 작업에 필요한 특성이 포함되도록 동기화 규칙을 만듭니다. | [Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례: 동기화 규칙 변경](/connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect 동기화: 선언적 프로비전 이해](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect Sync: 선언적 프로비전 식 이해](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
+| Metaverse의 개체에 작업에 필요한 특성이 포함되도록 동기화 규칙을 만듭니다. | [Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례: 동기화 규칙 변경](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect 동기화: 선언적 프로비전 이해](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect Sync: 선언적 프로비전 식 이해](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | 전체 동기화 주기를 시작합니다. | [Azure AD Connect 동기화: 스케줄러: 스케줄러 시작](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | 문제 발생 시 문제 해결을 수행합니다. | [Azure AD와 동기화되지 않는 개체 문제 해결](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
 | LDAP 사용자가 응용 프로그램에 로그인하고 액세스할 수 있는지 확인합니다. | https://myapps.microsoft.com |
@@ -381,8 +383,8 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | 테넌트에서 셀프 서비스 암호 관리 사용. | [IT 관리자에 대한 Azure Active Directory 암호 재설정](active-directory-passwords.md) |
-| 온-프레미스에서 암호를 관리하도록 암호 쓰기 저장 사용. 이 작업에는 특정 Azure AD Connect 버전이 필요합니다. | [암호 쓰기 저장 필수 구성 요소](active-directory-passwords-getting-started.md#writeback-prerequisites) |
-| 이 기능을 사용할 PoC 사용자를 식별하고 보안 그룹의 구성원인지 확인. 사용자는 기능을 완전히 소개할 수 있는 관리자가 아닌 사용자여야 합니다. | [사용자 지정: Azure AD 암호 관리: 암호 재설정에 대한 액세스 제한](active-directory-passwords-customize.md#restrict-access-to-password-reset) |
+| 온-프레미스에서 암호를 관리하도록 암호 쓰기 저장 사용. 이 작업에는 특정 Azure AD Connect 버전이 필요합니다. | [암호 쓰기 저장 필수 구성 요소](active-directory-passwords-writeback.md) |
+| 이 기능을 사용할 PoC 사용자를 식별하고 보안 그룹의 구성원인지 확인. 사용자는 기능을 완전히 소개할 수 있는 관리자가 아닌 사용자여야 합니다. | [사용자 지정: Azure AD 암호 관리: 암호 재설정에 대한 액세스 제한](active-directory-passwords-writeback.md) |
 
 
 ### <a name="steps"></a>단계

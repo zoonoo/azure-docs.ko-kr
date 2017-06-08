@@ -1,4 +1,5 @@
 ---
+
 title: "Azure 리소스 액세스 권한 할당 보기 | Microsoft Docs"
 description: "Azure Portal에서 모든 사용자 또는 그룹에 대한 모든 역할 기반 액세스 제어 할당 보기 및 관리"
 services: active-directory
@@ -12,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/21/2017
+ms.date: 05/04/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 82f084b220ba321945975c8d1a6d22e419acf5e4
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: e3b31a3db4b8f435c29cbc9dbdd09d100e821026
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal---public-preview"></a>Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기 - 공개 미리 보기
+# <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Azure Portal에서 사용자 및 그룹에 대한 액세스 권한 할당 보기
 > [!div class="op_single_selector"]
 > * [사용자 또는 그룹에 따른 액세스 관리](role-based-access-control-manage-assignments.md)
 > * [리소스에 따른 액세스 관리](role-based-access-control-configure.md)
 
-Azure Active Directory 미리 보기 상태인 RBAC(역할 기반 액세스 제어)로 Azure 리소스에 대한 액세스 권한을 관리할 수 있습니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md)
+Azure AD(Azure Active Directory)의 RBAC(역할 기반 액세스 제어)로 Azure 리소스에 대한 액세스를 관리할 수 있습니다. 
 
 두 가지 방법으로 사용 권한을 제한할 수 있기 때문에 RBAC를 사용하여 할당된 액세스 권한은 세분화됩니다.
 
@@ -44,7 +46,7 @@ Azure Active Directory 미리 보기 상태인 RBAC(역할 기반 액세스 제�
 2. **사용자 및 그룹** 및 **모든 사용자** 또는 **모든 그룹**을 차례로 선택합니다. 이 예제에서는 개별 사용자에게 집중합니다.
     ![Azure Active Directory에서 사용자 및 그룹 관리 - 스크린샷](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
 3. 이름 또는 사용자 이름별로 사용자를 검색합니다.
-4. 사용자 블레이드에서 **Azure 리소스** 를 선택합니다. 해당 사용자에 대한 모든 액세스 권한 할당이 표시됩니다.
+4. 사용자 블레이드에서 **Azure 리소스**를 선택합니다. 해당 사용자에 대한 모든 액세스 권한 할당이 표시됩니다.
 
 ### <a name="read-permissions-to-view-assignments"></a>할당을 보는 읽기 사용 권한
 이 페이지에서는 읽을 수 있는 사용 권한이 있는 액세스 권한 할당만 보여 줍니다. 예를 들어 구독 A에 대한 읽기 액세스 권한이 있으며 Azure 리소스 블레이드로 이동하여 사용자의 할당을 확인합니다. 구독 A에 대한 액세스 권한 할당을 확인할 수 있지만 구독 B에 대한 액세스 권한 할당이 있는지 표시되지 않습니다.

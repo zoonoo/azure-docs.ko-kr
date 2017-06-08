@@ -1,96 +1,12 @@
 ---
-title: "DocumentDB 데이터베이스 및 컬렉션 만들기 | Microsoft Docs"
-description: "클라우드 기반 문서 데이터베이스인 Azure DocumentDB용 온라인 서비스 포털을 사용하여 NoSQL Database 및 JSON 문서 컬렉션을 만드는 방법을 알아봅니다. 지금 무료 평가판을 사용해보세요."
-services: documentdb
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: 
-ms.assetid: b81ad2f6-df7f-4c6d-8ca9-f8a9982d647e
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/18/2017
-ms.author: mimig
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 97b634b10f75dd10c9cf4b61a5b9674f7ee73e00
-ms.lasthandoff: 04/20/2017
+redirect_url: https://docs.microsoft.com/azure/cosmos-db/create-documentdb-dotnet#create-collection
+ROBOTS: NOINDEX, NOFOLLOW
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 68403cf23a7e5482b9e253faf4d053d433e8eaaf
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="how-to-create-a-documentdb-collection-and-database-using-the-azure-portal"></a>Azure Portal을 사용하여 DocumentDB 컬렉션 및 데이터베이스를 만드는 방법
-Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-create-account.md), 데이터베이스, 컬렉션 및 문서가 있어야 합니다. 이 토픽에서는 Azure 포털에서 DocumentDB 컬렉션을 만드는 방법을 설명합니다.
-
-컬렉션이 무엇인지 모르시겠습니까? [DocumentDB 컬렉션이란 무엇인가요?](#what-is-a-documentdb-collection)를 참조하세요.
-
-컬렉션 추가 단추를 사용하거나 [데이터 탐색기(미리 보기)](#data-explorer)를 사용하여 포털에서 컬렉션을 만들 수 있습니다.
-
-## <a name="create-a-colletion-using-add-collection-button"></a>컬렉션 추가 단추를 사용하여 컬렉션 만들기
-
-1. [Azure Portal](https://portal.azure.com/)의 이동 표시줄에서 **DocumentDB(NoSQL)**를 클릭한 다음 **DocumentDB(NoSQL)** 블레이드에서 컬렉션을 추가할 계정을 선택합니다. 나열된 계정이 없는 경우 [DocumentDB 계정을 만들](documentdb-create-account.md)어야 합니다.
-
-   ![이동 표시줄에서 DocumentDB 계정을, DocumentDB 계정 블레이드에서 계정을, DocumentDB 계정 블레이드와 데이터베이스 렌즈에서 데이터베이스를 강조 표시한 스크린샷](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
-
-   이동 표시줄에 **DocumentDB(NoSQL)**가 표시되지 않으면 **서비스 더 보기**를 클릭한 다음 **DocumentDB(NoSQL)**를 클릭합니다. 나열된 계정이 없는 경우 [DocumentDB 계정을 만들](documentdb-create-account.md)어야 합니다.
-2. 선택한 계정의 **DocumentDB 계정** 블레이드에서 **컬렉션 추가**를 클릭합니다.
-
-    ![이동 표시줄에서 DocumentDB 계정을, DocumentDB 계정 블레이드에서 계정을, DocumentDB 계정 블레이드와 데이터베이스 렌즈에서 데이터베이스를 강조 표시한 스크린샷](./media/documentdb-create-collection/docdb-database-creation-3.png)
-3. **컬렉션 추가** 블레이드의 **컬렉션 ID** 상자에 새로운 컬렉션에 대한 ID를 입력합니다. 컬렉션 이름은 1~255자 사이여야 하며 `/ \ # ?` 또는 후행 공백을 포함할 수 없습니다. 이름의 유효성이 검사되면 ID 상자에 녹색 확인 표시가 나타납니다.
-
-    ![데이터베이스 블레이드의 컬렉션 추가 단추, 컬렉션 추가 블레이드의 설정 및 확인 단추를 강조 표시하는 스크린샷 - DocumentDB용 Azure 포털 - NoSQL JSON 데이터베이스용 클라우드 기반 데이터베이스 작성자](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
-4. 기본적으로 **스토리지 용량**은 파티션된 컬렉션을 처리하도록 **250GB**로 설정됩니다.
-
-    처리량 수준이 초당 400-10,000요청 단위(RU/s)인 [단일 파티션 컬렉션](documentdb-partition-data.md#single-partition-and-partitioned-collections)을 원하는 경우 저장소 용량을 **10GB**로 설정합니다. 하나의 RU는 1KB 문서를 읽는 처리량에 해당합니다. 요청 단위에 대한 자세한 내용은 [요청 단위](documentdb-request-units.md)를 참조하세요.
-
-    여러 파티션에서 무제한 저장소를 처리하도록 확장하고 최소 처리량 수준이 2,500RU/s인 [분할된 컬렉션](documentdb-partition-data.md#single-partition-and-partitioned-collections)을 원하는 경우 저장소 용량을 **250GB**로 설정합니다.
-
-    10GB 또는 250GB 이외의 양을 프로비저닝하려는 경우 저장소 용량을 **사용자 지정**으로 설정합니다. DocumentDB의 규모는 거의 무제한이므로, 지원 요청에 요청하는 저장소 크기 및 처리량 값을 포함해 주세요.
-
-6. **파티션 키** 상자에 컬렉션에 대한 파티션 키를 입력합니다. 분할 컬렉션에 필요하며 단일 파티션 컬렉션에는 선택 사항입니다. 올바른 파티션 키를 선택하는 것은 성능이 뛰어난 컬렉션을 만드는 데 중요합니다. 파티션 키의 선택에 대한 자세한 내용은 [분할 설계](documentdb-partition-data.md#designing-for-partitioning)를 참조하세요.
-7. **데이터베이스** 블레이드에서 새 데이터베이스를 만들거나 기존 데이터베이스를 사용합니다. 데이터베이스 이름은 1~255자 사이여야 하며 `/ \ # ?` 또는 후행 공백을 포함할 수 없습니다. 이름의 유효성을 검사하려면 텍스트 상자 밖을 클릭합니다. 이름의 유효성이 검사되면 상자에 녹색 확인 표시가 나타납니다.
-8. 화면 맨 아래의 **확인** 을 클릭하여 새 컬렉션을 만듭니다.
-9. 이제 **개요** 블레이드의 **컬렉션** 렌즈에 새 컬렉션이 표시됩니다.
-
-    ![데이터베이스 블레이드의 새 컬렉션 스크린샷 - DocumentDB용 Azure 포털 - NoSQL JSON 데이터베이스용 클라우드 기반 데이터베이스 작성자](./media/documentdb-create-collection/docdb-collection-creation-9.png)
-10. **선택 사항:** 포털에서 컬렉션의 처리량을 수정하려면 리소스 메뉴에서 **크기 조정**을 클릭합니다 .
-
-    ![크기 조정이 선택된 리소스 메뉴의 스크린샷](./media/documentdb-create-collection/docdb-collection-creation-scale.png)
-
-<a id="data-explorer"></a>
-## <a name="create-a-collection-by-using-data-explorer-preview"></a>데이터 탐색기(미리 보기)를 사용하여 컬렉션 만들기
-
-포털에서 컬렉션을 만드는 또 다른 방법은 데이터 탐색기를 사용하는 것입니다. 데이터 탐색기를 열려면 다음 그림과 같이 포털의 탐색 모음에서 **데이터 탐색기(미리 보기)**를 클릭하고 **새 컬렉션** 단추를 클릭합니다.
-
- ![포털의 새 컬렉션 단추를 보여 주는 스크린샷](./media/documentdb-create-collection/azure-documentdb-data-explorer.png)
-
-
-## <a name="what-is-a-documentdb-collection"></a>DocumentDB 컬렉션이란 무엇인가요?
-컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다. 컬렉션은 컬렉션의 프로비전된 처리량에 따라 [비용](documentdb-performance-levels.md) 이 결정되는 청구 가능 엔터티입니다. 컬렉션은 하나 이상의 파티션/서버에 걸쳐 있을 수 있으며 크기가 거의 무제한인 저장소 또는 처리량을 처리하도록 확장할 수 있습니다.
-
-컬렉션은 DocumentDB에서 하나 이상의 물리적 서버에 자동으로 분할됩니다. 컬렉션을 만들 때 초당 요청 단위 및 파티션 키 속성 면에서 프로비전된 처리량을 지정할 수 있습니다. 이 속성 값은 DocumentDB에서 파티션 간에 문서를 분산시키고 쿼리와 같은 요청을 라우팅하는 데 사용됩니다. 파티션 키 값은 저장 프로시저 및 트리거에 대한 트랜잭션 경계 역할도 수행합니다. 각 컬렉션에는 동일 계정에서 다른 컬렉션과 공유되지 않는 해당 컬렉션에 해당되는 예약된 처리량을 갖습니다. 따라서 저장소 및 처리량의 측면에서 응용 프로그램의 규모를 확장할 수 있습니다.
-
-컬렉션은 관계형 데이터베이스의 테이블과 동일하지 않습니다. 컬렉션은 스키마를 적용하지 않으며 사실상 DocumentDB는 스키마를 적용하지 않는 스키마 없는 데이터베이스입니다. 따라서 동일한 컬렉션에서도 다양한 스키마를 사용해서 여러 유형의 문서를 저장할 수 있습니다. 테이블에서와 같은 방식으로 컬렉션을 사용해서 단일 유형의 개체를 저장할 수도 있습니다. 모델 효율성은 쿼리 및 트랜잭션에 데이터가 표시되는 방법에 따라서만 결정됩니다.
-
-## <a name="other-ways-to-create-a-documentdb-collection"></a>DocumentDB 컬렉션을 만드는 다른 방법
-포털에서 컬렉션을 만들지 않아도 됩니다. [DocumentDB SDK](documentdb-sdk-dotnet.md) 및 REST API를 사용하여 컬렉션을 만들 수도 있습니다.
-
-* C# 코드 샘플은 [C# 컬렉션 샘플](documentdb-dotnet-samples.md#collection-examples)을 참조하세요.
-* Node.js 코드 샘플은 [Node.js 컬렉션 샘플](documentdb-nodejs-samples.md#collection-examples)을 참조하세요.
-* Python 코드 샘플은 [Python 컬렉션 샘플](documentdb-python-samples.md#collection-examples)을 참조하세요.
-* REST API 샘플은 [컬렉션 만들기](https://msdn.microsoft.com/library/azure/mt489078.aspx)를 참조하세요.
-
-## <a name="troubleshooting"></a>문제 해결
-**컬렉션 추가** 가 Azure 포털에서 비활성화된 경우 이는 계정이 현재 비활성화됨을 의미하며 일반적으로 월에 모든 혜택 크레딧이 사용될 때 발생합니다.    
-
-## <a name="next-steps"></a>다음 단계
-이제 컬렉션이 있으므로 다음 단계는 컬렉션에 문서를 추가하거나 문서를 가져오는 것입니다. 컬렉션에 문서를 추가하는 경우 다음과 같은 몇 가지 옵션이 있습니다.
-
-* 포털의 문서 탐색기를 사용하여 [문서를 추가](documentdb-view-json-document-explorer.md) 할 수 있습니다.
-* DocumentDB 데이터 마이그레이션 도구를 사용하여 [문서 및 데이터를 가져올](documentdb-import-data.md) 수 있습니다. 이 도구를 통해 SQL Server, MongoDB, Azure Table Storage 및 다른 DocumentDB 컬렉션의 데이터와 JSON 및 CSV 파일을 가져올 수 있습니다.
-* 또는 [DocumentDB SDK](documentdb-sdk-dotnet.md)중 하나를 사용하여 문서를 추가할 수도 있습니다. DocumentDB에는 .NET, Java, Python, Node.js 및 JavaScript API SDK가 있습니다. DocumentDB.NET SDK를 사용하여 문서로 작업하는 방법을 보여주는 C# 코드 샘플은 [C# 문서 샘플](documentdb-dotnet-samples.md#document-examples)을 참조하세요. DocumentDB Node.js SDK를 사용하여 문서로 작업하는 방법을 보여주는 Node.js 코드 샘플은 [Node.js 문서 샘플](documentdb-nodejs-samples.md#document-examples)을 참조하세요.
-
-컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#ExecutingSqlQueries)하기 위해 [DocumentDB SQL](documentdb-sql-query.md)을 사용할 수 있습니다. 
 

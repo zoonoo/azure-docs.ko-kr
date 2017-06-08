@@ -1,11 +1,11 @@
 # 개요
-
 ## [Azure Analysis Services란?](analysis-services-overview.md)
+## [지원되는 데이터 원본](analysis-services-datasource.md)
 
-# 시작
-## [서버 만들기](analysis-services-create-server.md)
-## [서버에 배포](analysis-services-deploy.md)
-## [연결](analysis-services-connect.md)
+# 빠른 시작
+## [서버 만들기 - 포털](analysis-services-create-server.md)
+## [모델 배포 - SSDT](analysis-services-deploy.md)
+
 
 # 자습서
 ## 모델 만들기 및 배포
@@ -18,7 +18,7 @@
 ### [단원 6: 측정값 만들기](tutorials/aas-lesson-6-create-measures.md)  
 ### [단원 7: 핵심 성과 지표 보기](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
 ### [단원 8: 큐브 뷰 만들기](tutorials/aas-lesson-8-create-perspectives.md) 
-### [단원 9: 계층 구조 만들기](tutorials/aas-lesson-9-create-hierarchies.md)  
+### [단원 9: 계층 구조 만들기](tutorials/aas-lesson-9-create-hierarchies.md) 
 ### [단원 10: 파티션 만들기](tutorials/aas-lesson-10-create-partitions.md) 
 ### [단원 11: 역할 만들기](tutorials/aas-lesson-11-create-roles.md)
 ### [단원 12: Excel에서 분석](tutorials/aas-lesson-12-analyze-in-excel.md)
@@ -31,12 +31,12 @@
 ## [서버 관리](analysis-services-manage.md)
 ## [사용자 관리](analysis-services-manage-users.md)
 ## [온-프레미스 데이터 게이트웨이 통합](analysis-services-gateway.md)
+## [서버에 연결](analysis-services-connect.md)
 ## [Excel과 연결](analysis-services-connect-excel.md)
 ## [Power BI와 연결](analysis-services-connect-pbi.md)
 ## [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
 ## [백업 및 복원](analysis-services-backup.md)
 ## [고가용성](analysis-services-bcdr.md)
-## [데이터 원본 연결](analysis-services-datasource.md)
 ## [.odc 파일 만들기](analysis-services-odc.md)
 
 # 참조

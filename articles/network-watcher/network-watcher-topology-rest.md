@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 50d82847fb629880f298f79f9ab791a13836f01c
-ms.openlocfilehash: 4fa34050a8039cebebe30842469c596c83744313
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 568f3060da372f4a08cec342e04359172522cb69
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -25,7 +26,8 @@ ms.lasthandoff: 03/31/2017
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-topology-powershell.md)
-> - [CLI](network-watcher-topology-cli.md)
+> - [CLI 1.0](network-watcher-topology-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-topology-cli.md)
 > - [REST API](network-watcher-topology-rest.md)
 
 Network Watcher의 토폴로지 기능은 구독에 있는 네트워크 리소스의 시각적 표현을 제공합니다. 포털에서 이 시각화가 자동으로 표시됩니다. PowerShell을 통해 포털에 있는 토폴로지 보기 이외의 정보를 검색할 수 있습니다.

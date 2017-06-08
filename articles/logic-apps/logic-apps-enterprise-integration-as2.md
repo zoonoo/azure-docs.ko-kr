@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: mandia
+ms.author: LADocs; mandia
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 5733592fc1633d8722905c33dd267b4cbe1fe184
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 09a2373585f49a39192a841072d86e395ff311db
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/10/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -172,6 +172,9 @@ Azure Logic Apps의 AS2 메시지를 교환하기 전에 AS2 규약을 만들고
 2.    또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 사용자 계정 블레이드에서 **개요**를 선택한 다음 **규약** 타일을 선택합니다. 
 
     ![모든 규약을 보려면 "규약" 타일을 선택합니다](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+
+## <a name="view-the-swagger"></a>swagger 보기
+[swagger 정보](/connectors/as2/)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  

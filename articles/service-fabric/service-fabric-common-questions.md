@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2017
+ms.date: 05/10/2017
 ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6c0c6b24f9d669e7ed45e6b2acf2e75390e5e1f4
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 2bfbb3b8f7282ec8ae8abe9597230a3485221ecf
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -44,13 +45,13 @@ OS 업데이트 문제는 일반적으로 컴퓨터를 재부팅해야 하며 �
 
 그 동안에는 클러스터 관리자가 수동으로 각 노드의 패치를 안전한 방식으로 시작할 수 있는 [스크립트를 제공](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/)합니다.
 
-### <a name="can-i-use-large-virtual-scale-sets-in-my-sf-cluster"></a>SF 클러스터 내에서 큰 가상 크기 집합을 사용할 수 있나요? 
+### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>SF 클러스터 내에서 큰 가상 컴퓨터 크기 집합을 사용할 수 있나요? 
 
 **간단한 대답** - 아니요 
 
-**자세한 대답** - VMSS(큰 가상 크기 집합)은 최대 1000개 VM 인스턴스까지 VMSS를 확장하도록 허용하지만 PG(배치 그룹)을 사용하여 이 작업을 수행합니다. FD(장애 도메인) 및 UD(업그레이드 도메인)는 Service Fabric이 서비스 복제본/서비스 인스턴스의 배치 결정을 내리는 데 사용하는 배치 그룹 내에서만 일관됩니다. FD 및 UD는 배치 그룹 내에서만 호환되므로 SF에서 사용할 수 없습니다. 예를 들어 PG1의 VM1이 토폴로지 FD=0을 갖고 PG2의 VM9가 토폴로지 FD=4를 갖는 경우 VM1 및 VM2가 2개의 다른 하드웨어 랙에 있다는 것을 의미하지는 않으므로 SF는 이 경우 FD 값을 사용하여 배치 결정을 내릴 수 없습니다.
+**자세한 대답** - 큰 가상 컴퓨터 크기 집합은 최대 1000개 VM 인스턴스까지 가상 컴퓨터 크기 집합을 확장하도록 허용하지만 PG(배치 그룹)을 사용하여 이 작업을 수행합니다. FD(장애 도메인) 및 UD(업그레이드 도메인)는 Service Fabric이 서비스 복제본/서비스 인스턴스의 배치 결정을 내리는 데 사용하는 배치 그룹 내에서만 일관됩니다. FD 및 UD는 배치 그룹 내에서만 호환되므로 SF에서 사용할 수 없습니다. 예를 들어 PG1의 VM1이 토폴로지 FD=0을 갖고 PG2의 VM9가 토폴로지 FD=4를 갖는 경우 VM1 및 VM2가 2개의 다른 하드웨어 랙에 있다는 것을 의미하지는 않으므로 SF는 이 경우 FD 값을 사용하여 배치 결정을 내릴 수 없습니다.
 
-현재 큰 VMSS에서는 수준 4 부하 분산 지원 부족과 같은 기타 문제가 나타납니다. [큰 VMSS 대한 세부 정보](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)를 참조하세요.
+현재 큰 가상 컴퓨터 크기 집합에서는 수준 4 부하 분산 지원 부족과 같은 기타 문제가 나타납니다. [큰 크기 집합에 대한 세부 정보](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)를 참조하세요.
 
 
 
@@ -76,6 +77,17 @@ Service Fabric 클러스터는 이름 지정 서비스 및 장애 조치(Failove
 
 배포하기 전 응용 프로그램 테스트를 위해 클러스트를 만드는 경우 해당 클러스터를 [연속 통합/연속 배포 파이프라인](service-fabric-set-up-continuous-integration.md)의 일부로 동적으로 만드는 것이 좋습니다.
 
+## <a name="container-support"></a>컨테이너 지원
+
+### <a name="why-are-my-containers-that-are-deployed-to-sf-are-unable-to-resolve-dns-addresses"></a>SF에 배포된 내 컨테이너에서 DNS 주소를 확인할 수 없는 이유는 무엇인가요?
+
+이 문제는 5.6.204.9494 버전의 클러스터에 대해 보고되었습니다. 
+
+**완화** : [이 문서](service-fabric-dnsservice.md)에 따라 클러스터의 DNS Service Fabric 서비스를 사용하도록 설정합니다.
+
+**수정**: 사용 가능한 경우 5.6.204.9494보다 높은 지원되는 클러스터 버전으로 업그레이드합니다. 클러스터가 자동 업그레이드로 설정되면 클러스터는 이 문제가 수정된 버전으로 자동으로 업그레이드됩니다.
+
+  
 ## <a name="application-design"></a>응용 프로그램 설계
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Reliable Collection의 파티션에 대해 데이터를 쿼리하는 가장 좋은 방법은 무엇인가요?
@@ -104,7 +116,7 @@ Reliable Services는 일반적으로 분할되므로 저장할 수 있는 양은
 
 이 계산에서는 다음 사항도 가정합니다.
 
-- 파티션 간 데이터 분포는 대략적으로 균일하거나 부하 메트릭을 클러스터 리소스 관리자에게 보고합니다. 기본적으로 Service Fabric은 복제본 수에 따라 부하 분산을 수행합니다. 위의 예에서는 클러스터의 각 노드에 주 복제본 10개와 보조 복제본 20개를 배치합니다. 파티션 간에 부하가 고르게 분포된 경우에는 원활하게 작동합니다. 부하가 고르게 분포되지 않은 경우 로드를 보고하여 리소스 관리자가 작은 크기의 복제본을 함께 패킹하여 큰 복제본이 개별 노드에서 더 많은 메모리를 사용하도록 합니다.
+- 파티션 간 데이터 분포는 대략적으로 균일하거나 부하 메트릭을 클러스터 Resource Manager에 보고합니다. 기본적으로 Service Fabric은 복제본 수에 따라 부하 분산을 수행합니다. 위의 예에서는 클러스터의 각 노드에 주 복제본 10개와 보조 복제본 20개를 배치합니다. 파티션 간에 부하가 고르게 분포된 경우에는 원활하게 작동합니다. 부하가 고르게 분포되지 않은 경우 로드를 보고하여 Resource Manager에서 작은 크기의 복제본을 함께 패킹하여 큰 복제본이 개별 노드에서 더 많은 메모리를 사용하도록 합니다.
 
 - 문제가 되는 Reliable Services는 클러스터에서 유일한 저장 상태입니다. 여러 서비스를 클러스터에 배포할 수 있으므로 각각 해당 상태를 실행 및 관리해야 하는 리소스에 유념해야 합니다.
 

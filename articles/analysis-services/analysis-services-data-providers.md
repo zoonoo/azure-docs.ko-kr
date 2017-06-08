@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 04/14/2016
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c29a6627f712b9d89ac65e845f3ccb4fb87bf8fb
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 6457b7d30b12a7bb138f9912e21418742814be09
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -34,7 +35,7 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 응용 프로그�
 클라이언트 연결을 위한 클라이언트 라이브러리는 Azure Analysis Services 서버에서 데이터 원본에 연결하는 데 필요한 데이터 공급자와는 다릅니다. 데이터 원본 연결에 대한 자세한 내용은 [데이터 원본 연결](analysis-services-datasource.md)을 참조하세요.
 
 ## <a name="download-the-latest-preview-client-libraries"></a>최신 **미리 보기** 클라이언트 라이브러리 다운로드  
-최신 버그 수정 및 업데이트를 다운로드하려면 다음 클라이언트 라이브러리를 사용합니다. 이러한 클라이언트 라이브러리는 Azure Analysis Services 또는 SQL Server vNext Analysis Services에 연결할 때 권장됩니다.
+최신 버그 수정 및 업데이트를 다운로드하려면 다음 클라이언트 라이브러리를 사용합니다. 이러한 클라이언트 라이브러리는 Azure Analysis Services 또는 SQL Server 2017 Analysis Services에 연결할 때 권장됩니다.
 
 [MSOLAP(amd64) 미리 보기](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/amd64/SQL_AS_OLEDB.msi)</br>
 [MSOLAP(x86) 미리 보기](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.500.170/x86/SQL_AS_OLEDB.msi)</br>

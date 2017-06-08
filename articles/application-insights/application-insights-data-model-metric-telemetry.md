@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1bedede1934141927a770c97b61aeb5218652b3e
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 069457d7ef7855749f64e299e0db579e6bb2b590
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -72,7 +72,7 @@ Application Insights 포털 및 UI에서 참조하려는 메트릭의 이름입�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [사용자 지정 이벤트 및 메트릭용 Application Insights API](app-insights-api-custom-events-metrics.md#send-metrics) 사용 방법을 알아봅니다.
+- [사용자 지정 이벤트 및 메트릭용 Application Insights API](app-insights-api-custom-events-metrics.md#trackmetric) 사용 방법을 알아봅니다.
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
 - Application Insights에서 지원되는 [플랫폼](app-insights-platforms.md)을 확인합니다.
 

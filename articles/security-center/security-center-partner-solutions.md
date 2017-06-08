@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 05/09/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
-ms.openlocfilehash: 2d7ab8fbed1d4edb60416c7c6b7ae08ddbdec91a
-ms.lasthandoff: 02/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5ffc3253cf07018ad6fe9f0112c75c2e1495e5df
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -34,33 +35,30 @@ ms.lasthandoff: 02/06/2017
 
 ![파트너 솔루션 타일][1]
 
-**파트너 솔루션** 타일은 파트너 솔루션의 수와 해당 솔루션의 상태 요약을 표시합니다.
-
-파트너 솔루션의 **상태** 는 다음과 같을 수 있습니다.
-
-* 보호됨(녹색) - 상태 문제가 없습니다.
-* 비정상(빨강) - 즉각적인 주의가 필요한 상태 문제가 있습니다.
-* 중지된 보고(주황) - 솔루션이 상태의 보고를 중지했습니다.
-* 알 수 없는 보호 상태(주황) - 이 때에는 기존 솔루션에 새 리소스를 추가하는 실패한 프로세스로 인해 솔루션의 상태를 알 수 없습니다.
-* 보고되지 않음(회색) - 솔루션이 아무 것도 보고하지 않았습니다. 솔루션이 방금 연결되었고 여전히 배포 중인 경우 솔루션의 상태를 보고하지 않을 수 있습니다.
-
-구독과 통합된 솔루션이 없는 경우 이 타일은 솔루션이 없음을 표시합니다. **파트너 솔루션** 타일을 선택하면 **권장 사항** 블레이드를 열어 파트너 보안 솔루션을 배포할 수 있습니다.
-
-![파트너 솔루션 없음][2]
+**파트너 솔루션** 타일에는 구독과 통합된 파트너 솔루션 수가 표시됩니다. 통합된 솔루션이 없는 경우 숫자 0이 타일에 표시됩니다.
 
 파트너 솔루션의 상태를 보려면:
 
-1. **파트너 솔루션** 타일을 선택합니다. 블레이드가 열리고 보안 센터에 연결된 파트너 솔루션의 목록을 표시합니다.
+1. **파트너 솔루션** 타일을 선택합니다. **파트너 솔루션** 블레이드가 열리고 Security Center에 연결된 파트너 솔루션의 목록을 표시합니다.
 
    ![파트너 솔루션][3]
-2. 파트너 솔루션을 선택합니다. 이 예제에서는 **F5 WAF2** 솔루션을 선택하도록 합니다.  블레이드가 열리고 파트너 솔루션의 상태 및 솔루션의 관련 리소스를 표시합니다. **솔루션 콘솔** 을 선택하여 이 솔루션에 대한 파트너 관리 환경을 엽니다.
+
+   파트너 솔루션의 상태는 다음과 같을 수 있습니다.
+
+   * 보호됨(녹색) - 상태 문제가 없습니다.
+   * 비정상(빨강) - 즉각적인 주의가 필요한 상태 문제가 있습니다.
+   * 중지된 보고(주황) - 솔루션이 상태의 보고를 중지했습니다.
+   * 알 수 없는 보호 상태(주황) - 이 때에는 기존 솔루션에 새 리소스를 추가하는 실패한 프로세스로 인해 솔루션의 상태를 알 수 없습니다.
+   * 보고되지 않음(회색) - 솔루션이 아무 것도 보고하지 않았습니다. 솔루션이 방금 연결되었고 여전히 배포 중인 경우 솔루션의 상태를 보고하지 않을 수 있습니다.
+
+2. 파트너 솔루션을 선택합니다. 이 예제에서는 **Qualys** 솔루션을 선택하도록 합니다.  블레이드가 열리고 파트너 솔루션의 상태 및 솔루션의 관련 리소스를 표시합니다. **솔루션 콘솔** 을 선택하여 이 솔루션에 대한 파트너 관리 환경을 엽니다.
 
    ![파트너 솔루션 세부 정보][4]
-3. **F5-WAF2** 블레이드로 돌아가 **앱 연결**을 선택합니다. **응용 프로그램 연결** 블레이드가 열립니다. 여기서 리소스를 파트너 솔루션에 연결할 수 있습니다.
+3. **Qualys** 블레이드로 돌아가 **VM 연결**을 선택합니다. **응용 프로그램 연결** 블레이드가 열립니다. 여기서 리소스를 파트너 솔루션에 연결할 수 있습니다.
 
    ![리소스를 파트너 솔루션에 연결][5]
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 이 문서에서는 보안 센터의 **파트너 솔루션** 타일을 소개했습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md) - Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
@@ -72,7 +70,6 @@ ms.lasthandoff: 02/06/2017
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png
-[2]: ./media/security-center-partner-solutions/no-partner-solutions-to-display.png
 [3]: ./media/security-center-partner-solutions/partner-solutions.png
 [4]: ./media/security-center-partner-solutions/partner-solutions-detail.png
 [5]: ./media/security-center-partner-solutions/link-applications.png

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 05/08/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 5844540801a6f0ff593b3f404f6815473c65a52e
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 66984bef9e82df80818eea31bd37de524b567b33
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -91,7 +91,7 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 <a id="copyindex" />
 
 ## <a name="copyindex"></a>copyIndex
-`copyIndex(offset)`
+`copyIndex(loopName, offset)`
 
 반복 루프의 인덱스를 반환합니다. 
 
@@ -99,11 +99,16 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
+| loopName | 아니요 | string | 반복을 가져오기 위한 루프의 이름입니다. |
 | offset |아니요 |int |0부터 시작하는 반복 값에 더할 숫자입니다. |
 
 ### <a name="remarks"></a>설명
 
-이 함수는 항상 **copy** 개체에 사용됩니다. **offset** 값을 제공하지 않으면 현재 반복 값이 반환됩니다. 반복 값은 0부터 시작합니다. **copyIndex**를 사용하는 방법의 설명은 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+이 함수는 항상 **copy** 개체에 사용됩니다. **offset** 값을 제공하지 않으면 현재 반복 값이 반환됩니다. 반복 값은 0부터 시작합니다.
+
+**loopName** 속성을 사용하면 copyIndex에서 리소스 반복 또는 속성 반복을 참조하는지 여부를 지정할 수 있습니다. **loopName**에 값을 제공하지 않으면 현재 리소스 종류 반복이 사용됩니다. 속성에서 반복하는 경우 **loopName**의 값을 제공합니다. 
+ 
+**copyIndex**를 사용하는 방법의 설명은 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 
 ### <a name="examples"></a>예
 

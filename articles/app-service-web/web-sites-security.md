@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: eaf3df69428124127ef3daf134bc948cd0988ec6
-ms.openlocfilehash: c1956e97444077f197ab5d0fd67097ddea0f7244
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 3071bf565b14966de2293205026c4524d7b0f0c5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -56,7 +57,7 @@ Azure가 응용 프로그램이 실행되는 인프라 및 플랫폼의 보안�
 사용자 고유의 침투 테스트를 수행하거나 다른 스캐너 도구 모음 또는 공급자를 사용하려면 [Azure 침투 테스트 승인 프로세스](https://security-forms.azure.com/penetration-testing/terms) 에 따라 원하는 침투 테스트를 수행하기 위한 사전 승인을 얻어야 합니다.
 
 ## <a name="https"></a> 고객과 보안 통신
-앱 서비스 앱에 대해 만든 **\*.azurewebsites.net** 도메인 이름을 사용하는 경우 모든 **\*.azurewebsites.net** 도메인 이름에 대해 SSL 인증서가 제공되므로 HTTPS를 즉시 사용할 수 있습니다. 사이트에서 [사용자 지정 도메인 이름](web-sites-custom-domain-name.md)을 사용하는 경우 SSL 인증서를 업로드하여 해당 사용자 지정 도메인에 대해 [HTTPS를 사용하도록 설정](web-sites-configure-ssl-certificate.md)할 수 있습니다.
+앱 서비스 앱에 대해 만든 **\*.azurewebsites.net** 도메인 이름을 사용하는 경우 모든 **\*.azurewebsites.net** 도메인 이름에 대해 SSL 인증서가 제공되므로 HTTPS를 즉시 사용할 수 있습니다. 사이트에서 [사용자 지정 도메인 이름](app-service-web-tutorial-custom-domain.md)을 사용하는 경우 SSL 인증서를 업로드하여 해당 사용자 지정 도메인에 대해 [HTTPS를 사용하도록 설정](app-service-web-tutorial-custom-ssl.md)할 수 있습니다.
 
 [HTTPS](https://en.wikipedia.org/wiki/HTTPS) 를 사용하도록 설정하면 앱과 사용자 간의 통신에서 MITM 공격으로부터 보호할 수 있습니다.
 

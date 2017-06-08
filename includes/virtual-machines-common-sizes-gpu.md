@@ -7,22 +7,22 @@ NC 인스턴스는 NVIDIA Tesla K80 카드를 통해 구동됩니다. 이제 에
 
 ## <a name="nv-instances"></a>NV 인스턴스
 
-| 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | GPU |
-| --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 |
-| Standard_NV12 |12 |112 |680 | 2 |
-| Standard_NV24 |24 |224 |1,440 | 4 |
+| 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | GPU | 최대 데이터 디스크 수 |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NV6 |6 |56 |380 | 1 | 8 |
+| Standard_NV12 |12 |112 |680 | 2 | 16 |
+| Standard_NV24 |24 |224 |1,440 | 4 | 32 |
 
 1 GPU = M60 카드 절반.
 
 ## <a name="nc-instances"></a>NC 인스턴스
 
-| 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | GPU |
-| --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 380 | 1 |
-| Standard_NC12 |12 |112 | 680 | 2 |
-| Standard_NC24 |24 |224 | 1,440 | 4 |
-| Standard_NC24r* |24 |224 | 1,440 | 4 |
+| 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | GPU | 최대 데이터 디스크 수 |
+| --- | --- | --- | --- | --- | --- |
+| Standard_NC6 |6 |56 | 380 | 1 | 8 |
+| Standard_NC12 |12 |112 | 680 | 2 | 16 |
+| Standard_NC24 |24 |224 | 1,440 | 4 | 32 |
+| Standard_NC24r* |24 |224 | 1,440 | 4 | 32 |
 
 1 GPU = K80 카드의 절반.
 

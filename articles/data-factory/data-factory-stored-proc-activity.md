@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 05/22/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: db3645304ab1274da7cd312bf01bbdb0fd158beb
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 726f1e2caa4ad313510355c52bcdc100fc1fb488
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -35,9 +35,20 @@ ms.lasthandoff: 05/03/2017
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
-Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 변환 작업을 통해 원시 데이터를 변환 및 처리하여 예측 가능한, 통찰력 있는 정보로 만듭니다. 저장 프로시저 작업은 Data Factory에서 지원하는 변환 작업 중 하나입니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
+## <a name="overview"></a>개요
+Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 변환 작업을 통해 원시 데이터를 변환 및 처리하여 예측 가능한, 통찰력 있는 정보로 만듭니다. 저장 프로시저 작업은 Data Factory에서 지원하는 변환 작업 중 하나입니다. 이 문서는 데이터 팩터리의 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
 
-저장 프로시저 작업을 사용하여 엔터프라이즈 또는 Azure VM(Virtual Machine)의 Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database의 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다.  SQL Server를 사용 중인 경우 데이터베이스를 호스트하는 동일한 컴퓨터 또는 데이터베이스에 대한 액세스 권한이 있는 별도 컴퓨터에서 데이터 관리 게이트웨이를 설치합니다. 데이터 관리 게이트웨이는 온-프레미스/Azure VM에서 데이터 원본을 Cloud Services에 안전하고 관리되는 방식으로 연결하는 구성 요소입니다. 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
+저장 프로시저 작업을 사용하여 엔터프라이즈 또는 Azure VM(Virtual Machine)의 다음 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다. 
+
+- Azure SQL 데이터베이스
+- Azure SQL 데이터 웨어하우스
+- SQL Server 데이터베이스.  SQL Server를 사용 중인 경우 데이터베이스를 호스트하는 동일한 컴퓨터 또는 데이터베이스에 대한 액세스 권한이 있는 별도 컴퓨터에서 데이터 관리 게이트웨이를 설치합니다. 데이터 관리 게이트웨이는 온-프레미스/Azure VM에서 데이터 원본을 Cloud Services에 안전하고 관리되는 방식으로 연결하는 구성 요소입니다. 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
+
+> [!IMPORTANT]
+> Azure SQL Database 또는 SQL Server로 데이터를 복사할 때 **sqlWriterStoredProcedureName** 속성을 사용하여 복사 작업에 저장 프로시저를 호출하도록 **SqlSink**를 구성할 수 있습니다. 자세한 내용은 [복사 작업에서 저장 프로시저 호출](data-factory-invoke-stored-procedure-from-copy-activity.md)을 참조하세요. 이 속성에 대한 자세한 내용은 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties)를 참조하세요.
+>  
+> Azure SQL Database, SQL Server 또는 Azure SQL Data Warehouse에서 데이터를 복사하는 경우 복사 작업에서 **sqlReaderStoredProcedureName** 속성을 사용하여 원본 데이터베이스에서 데이터를 읽는 저장 프로시저를 호출하도록 **SqlSource**를 구성할 수 있습니다. 자세한 내용은 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)를 참조하세요.          
+
 
 다음 연습에서는 파이프라인에서 저장 프로시저 활동을 사용하여 Azure SQL Database에서 저장 프로시저를 호출합니다. 
 
@@ -96,7 +107,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
    ![Data Factory 홈페이지](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### <a name="create-an-azure-sql-linked-service"></a>Azure SQL 연결된 서비스 만들기
-데이터 팩터리를 만든 후 Azure SQL 데이터베이스를 데이터 팩터리에 연결하는 Azure SQL 연결된 서비스를 만듭니다. 이 데이터베이스는 sampletable 테이블과 sp_sample 저장 프로시저를 포함합니다.
+데이터 팩터리를 만든 후 sampletable 테이블 및 sp_sample 저장 프로시저가 포함된 Azure SQL 데이터베이스를 데이터 팩터리에 연결하는 Azure SQL 연결된 서비스를 만듭니다.
 
 1. **SProcDF**에 대한 **Data Factory** 블레이드에서 **작성 및 배포**를 클릭하여 Data Factory 편집기를 시작합니다.
 2. 명령 모음에서 **새 데이터 저장소**를 클릭하고 **Azure SQL Database**를 선택합니다. 편집기에 Azure SQL 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
@@ -115,6 +126,8 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
     ![연결된 서비스와 트리 뷰](media/data-factory-stored-proc-activity/tree-view.png)
 
 ### <a name="create-an-output-dataset"></a>출력 데이터 집합 만들기
+저장 프로시저가 어떠한 데이터도 생성하지 않는 경우에도 저장 프로시저 작업의 출력 데이터 집합을 지정해야 합니다. 이는 출력 데이터 집합이 작업의 일정(작업 실행 빈도 즉, 매시간, 매일 등)을 지정하기 때문입니다. 출력 데이터 집합은 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스나 저장 프로시저를 실행하려는 SQL Server 데이터베이스를 참조하는 **연결된 서비스** 를 사용해야 합니다. 출력 데이터 집합은 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 집합에 자동으로 쓰지 않습니다. 출력 데이터 집합이 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. 경우에 따라 출력 데이터 집합은 **더미 데이터 집합**(저장 프로시저의 출력을 실제로 보관하고 있지 않은 테이블을 가리키는 데이터 집합)일 수 있습니다. 더미 데이터 집합은 저장 프로시저 작업의 실행 일정을 지정하는 데에만 사용됩니다. 
+
 1. 단추가 표시되지 않는 경우 도구 모음에서 **... 추가**, **새 데이터 집합**, **Azure SQL**을 차례로 클릭합니다. 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure SQL**을 선택합니다.
 
     ![연결된 서비스와 트리 뷰](media/data-factory-stored-proc-activity/new-dataset.png)
@@ -141,8 +154,14 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
     ![연결된 서비스와 트리 뷰](media/data-factory-stored-proc-activity/tree-view-2.png)
 
 ### <a name="create-a-pipeline-with-sqlserverstoredprocedure-activity"></a>SqlServerStoredProcedure 작업을 사용하여 파이프라인 만들기
-이제 SqlServerStoredProcedure 작업을 사용하여 파이프라인 만들겠습니다.
+이제 저장 프로시저 작업을 사용하여 파이프라인 만들겠습니다. 
 
+다음 속성을 확인합니다. 
+
+- **type** 속성이 **SqlServerStoredProcedure**로 설정되어 있어야 합니다. 
+- type 속성의 **storedProcedureName**은 **sp_sample**(저장 프로시저의 이름)로 설정되어 있어야 합니다.
+- **storedProcedureParameters** 섹션에는 **DataTime** 매개 변수 하나가 있어야 합니다. JSON에서 이 매개 변수의 이름 및 대/소문자는 저장 프로시저 정의에 있는 매개 변수의 이름 및 대/소문자와 일치해야 합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: `"param1": null`(모두 소문자)을 사용합니다.
+ 
 1. 단추가 표시되지 않는 경우 도구 모음에서 **... 추가**를 클릭하고 **새 파이프라인**을 클릭합니다.
 2. 다음 JSON 코드 조각을 복사하여 붙여넣습니다.   
 
@@ -171,16 +190,12 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
                     "name": "SprocActivitySample"
                 }
             ],
-             "start": "2016-08-02T00:00:00Z",
-             "end": "2016-08-02T05:00:00Z",
+             "start": "2017-04-02T00:00:00Z",
+             "end": "2017-04-02T05:00:00Z",
             "isPaused": false
         }
     }
     ```
-
-    **storedProcedureName**은 **sp_sample**로 설정됩니다. **DateTime** 매개 변수의 이름 및 대/소문자는 저장 프로시저 정의에 있는 매개 변수의 이름 및 대/소문자와 일치해야 합니다.
-
-    매개 변수에 대해 null을 전달해야 하는 경우 구문: "param1": null(모두 소문자)을 사용합니다.
 3. 파이프라인을 배포하려면 도구 모음에서 **배포** 를 클릭합니다.  
 
 ### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
@@ -199,10 +214,74 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 
    Azure Data Factory 파이프라인 모니터링에 대한 자세한 내용은 [파이프라인 모니터링](data-factory-monitor-manage-pipelines.md) 을 참조하세요.  
 
-> [!NOTE]
-> 이 예에서 SprocActivitySample에는 입력이 없습니다. 이 작업을 작업 업스트림과 연결하려면(즉, 처리 전) 업스트림 작업의 출력을 이 작업의 입력으로 사용할 수 있습니다. 이 경우 업스트림 작업이 완료되어 업스트림 작업의 출력이 제공될 때까지(Ready 상태) 이 작업은 실행되지 않습니다. 입력은 저장 프로시저 활동에 대한 매개 변수로 직접 사용할 수 없습니다. 파이프라인의 연결 활동에 대한 자세한 내용은 [파이프라인의 여러 활동](data-factory-create-pipelines.md#multiple-activities-in-a-pipeline)을 참조하세요.
->
->
+
+## <a name="specify-an-input-dataset"></a>입력 데이터 집합 지정
+이 연습에서는 저장 프로시저 작업에 입력 데이터 집합이 없습니다. 입력 데이터 집합을 지정하면 입력 데이터 집합의 조각을 사용할 수 있을 때까지(준비 상태) 저장 프로시저 작업이 실행되지 않습니다. 데이터 집합은 (동일한 파이프라인의 다른 작업에서 생성하지 않은) 외부 데이터 집합 또는 업스트림 작업(이 작업 이전에 실행된 작업)에서 생성된 내부 데이터 집합일 수 있습니다. 저장 프로시저 작업에 대해 입력 데이터 집합을 여러 개 지정할 수 있습니다. 이렇게 하면 모든 입력 데이터 집합 조각을 사용할 수 있는 경우에만(준비 상태) 저장 프로시저 작업이 실행됩니다. 저장 프로시저에서 입력 데이터 집합을 매개 변수로 사용할 수 없습니다. 저장 프로시저 작업을 시작하기 전에 종속성을 확인하는 데만 사용됩니다.
+
+## <a name="chaining-with-other-activities"></a>다른 작업과 연결
+업스트림 작업을 이 작업과 연결하려는 경우 업스트림 작업의 출력을 이 작업의 입력으로 지정합니다. 이렇게 하면 업스트림 작업이 완료되고 업스트림 작업의 출력 데이터 집합을 사용할 수 있을 때까지(준비 상태) 저장 프로시저 작업이 실행되지 않습니다. 여러 업스트림 작업의 출력 데이터 집합을 저장 프로시저 작업의 입력 데이터 집합으로 지정할 수 있습니다. 이렇게 하면 모든 입력 데이터 집합 조각을 사용할 수 있는 경우에만 저장 프로시저 작업이 실행됩니다.  
+
+다음 예제에서 복사 작업의 출력은 OutputDataset으로, 저장 프로시저 작업의 입력입니다. 따라서 복사 작업이 완료되고 OutputDataset 조각이 사용할 수 있을 때까지(준비 상태) 저장 프로시저 작업이 실행되지 않습니다. 여러 입력 데이터 집합을 지정하면 입력 데이터 집합의 모든 조각을 사용할 수 있을 때까지(준비 상태) 저장 프로시저 작업이 실행되지 않습니다. 입력 데이터 집합은 저장 프로시저 작업에 대한 매개 변수로 직접 사용할 수 없습니다. 
+
+연결 작업에 대한 자세한 내용은 [파이프라인의 여러 작업](data-factory-create-pipelines.md#multiple-activities-in-a-pipeline)을 참조하세요.
+
+```json
+{
+
+    "name": "ADFTutorialPipeline",
+    "properties": {
+        "description": "Copy data from a blob to blob",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [ { "name": "InputDataset" } ],
+                "outputs": [ { "name": "OutputDataset" } ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst"
+                },
+                "name": "CopyFromBlobToSQL"
+            },
+            {
+                "type": "SqlServerStoredProcedure",
+                "typeProperties": {
+                    "storedProcedureName": "SPSproc"
+                },
+                "inputs": [ { "name": "OutputDataset" } ],
+                "outputs": [ { "name": "SQLOutputDataset" } ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "name": "RunStoredProcedure"
+            }
+
+        ],
+        "start": "2017-04-12T00:00:00Z",
+        "end": "2017-04-13T00:00:00Z",
+        "isPaused": false,
+    }
+}
+```
+
+마찬가지로 저장 프로시저 작업을 **다운스트림 작업**(저장 프로시저 작업이 완료된 후 실행되는 작업)과 연결시키려면 저장 프로시저 작업의 출력 데이터 집합을 파이프라인 내 다운스트림 작업의 입력으로 지정합니다.
+
+> [!IMPORTANT]
+> Azure SQL Database 또는 SQL Server로 데이터를 복사할 때 **sqlWriterStoredProcedureName** 속성을 사용하여 복사 작업에 저장 프로시저를 호출하도록 **SqlSink**를 구성할 수 있습니다. 자세한 내용은 [복사 작업에서 저장 프로시저 호출](data-factory-invoke-stored-procedure-from-copy-activity.md)을 참조하세요. 이 속성에 대한 자세한 내용은 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties)를 참조하세요.
+>  
+> Azure SQL Database, SQL Server 또는 Azure SQL Data Warehouse에서 데이터를 복사하는 경우 복사 작업에서 **sqlReaderStoredProcedureName** 속성을 사용하여 원본 데이터베이스에서 데이터를 읽는 저장 프로시저를 호출하도록 **SqlSource**를 구성할 수 있습니다. 자세한 내용은 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)를 참조하세요.          
 
 ## <a name="json-format"></a>JSON 형식
 다음은 저장 프로시저 작업을 정의하기 위한 JSON 형식입니다.
@@ -226,7 +305,8 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 }
 ```
 
-## <a name="json-properties"></a>JSON 속성
+다음 표에서는 이러한 JSON 속성에 대해 설명합니다.
+
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | name | 작업의 이름 |예 |
@@ -234,7 +314,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 | type | **SqlServerStoredProcedure**로 설정되어야 합니다. | 예 |
 | inputs | 선택 사항입니다. 입력 데이터 집합을 지정하는 경우 실행할 저장 프로시저 작업에 사용할 수 있어야 합니다('Ready' 상태). 저장 프로시저에서 입력 데이터 집합을 매개 변수로 사용할 수 없습니다. 저장 프로시저 작업을 시작하기 전에 종속성을 확인하는 데만 사용됩니다. |아니요 |
 | outputs | 저장 프로시저 작업에 대한 출력 데이터 집합을 지정해야 합니다. 출력 데이터 집합은 저장 프로시저 작업에 대한 **일정** (매시간, 매주, 매월 등)을 지정합니다. <br/><br/>출력 데이터 집합은 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스나 저장 프로시저를 실행하려는 SQL Server 데이터베이스를 참조하는 **연결된 서비스** 를 사용해야 합니다. <br/><br/>출력 데이터 집합은 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 집합에 자동으로 쓰지 않습니다. 출력 데이터 집합이 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. <br/><br/>경우에 따라 출력 데이터 집합은 저장 프로시저 작업을 실행하는 일정을 지정하기 위해서만 사용되는 **더미 데이터 집합**일 수 있습니다. |예 |
-| storedProcedureName |출력 테이블에서 사용하는 연결된 서비스로 표시되는 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스의 저장 프로시저 이름을 지정합니다. |예 |
+| storedProcedureName |출력 테이블에서 사용하는 연결된 서비스로 표시되는 Azure SQL Database, Azure SQL Data Warehouse 또는 SQL Server Database의 저장 프로시저 이름을 지정합니다. |예 |
 | storedProcedureParameters |저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: "param1": null(모두 소문자)을 사용합니다. 이 속성을 사용하는 방법에 대한 자세한 내용은 다음 샘플을 참조하세요. |아니요 |
 
 ## <a name="passing-a-static-value"></a>정적 값 전달

@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: fbc3807351a9d83e4bcc5ba0661001754621f430
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 7a9ec95348f4aa8a14a716a758fb362c1ede61b3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -112,10 +113,7 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
    2. Azure AD Connect 설치 및 실행: [Azure AD Connect의 사용자 지정 설치](connect/active-directory-aadconnect-get-started-custom.md) 지침을 사용하여 Azure AD Connect를 설치합니다.
    3. 디렉터리 동기화를 확인하고 관리합니다. 이 단계에는 SSO(Single Sign-On) 지침이 포함되어 있습니다.
    
-   > [!NOTE]
-   > 아래 링크의 문서에 설명된 대로 AD FS와의 페더레이션을 구성합니다. 미리 보기 기능은 구성할 필요 없습니다.
-   > 
-   > 
+   [Azure AD Connect의 사용자 지정 설치](connect/active-directory-aadconnect-get-started-custom.md)에 설명된 대로 AD FS와 페더레이션을 구성합니다.
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Active Directory 도메인 서비스 스키마 업그레이드
 > [!NOTE]

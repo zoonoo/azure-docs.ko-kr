@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 859c0bf3afec46e07b8b8da73fffbc37f3f7959d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -53,7 +54,7 @@ Azure PowerShell 버전 1.2.1 이상이 컴퓨터에 설치되어야 합니다. 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Azure 디스크 암호화 필수 구성 요소 구성 스크립트 가져오기 및 실행
 Azure 디스크 암호화 필수 구성 요소 구성 스크립트는 Azure 가상 컴퓨터를 암호화하는 데 필요한 모든 필수 구성 요소를 설정합니다.
 
-1. [Azure 디스크 암호화 필수 구성 요소 설치 스크립트](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)가 있는 GitHub 페이지로 이동합니다.
+1. [Azure 디스크 암호화 필수 구성 요소 설치 스크립트](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)가 있는 GitHub 페이지로 이동합니다.
 2. GibHub 페이지에서 **원시** 단추를 클릭합니다.
 3. **CTRL-A**를 사용하여 페이지에서 모든 텍스트를 선택한 다음 **CTRL-C**를 사용하여 페이지의 모든 텍스트를 클립보드에 복사합니다.
 4. **메모장** 을 열고 복사한 텍스트를 메모장에 붙여넣습니다.

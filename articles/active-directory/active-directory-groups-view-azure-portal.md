@@ -1,6 +1,7 @@
 ---
-title: "Azure Active Directory 미리 보기에서 기존의 모든 그룹 보기 | Microsoft Docs"
-description: "Azure Active Directory 미리 보기에서 그룹을 보거나 검색하는 방법"
+
+title: "Azure Active Directory에서 기존의 모든 그룹 보기 | Microsoft Docs"
+description: "Azure Active Directory에서 그룹을 보거나 검색하는 방법"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 3546ae6951a514108e62f8840a601930aa1ac4c2
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 1cc8b9194433840df9ce16baf1a0ec2c3dd08ad9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Azure Active Directory에서 사용자 그룹을 보거나 검색
-이 문서는 Azure Active Directory(Azure AD) 미리 보기에서 모든 그룹을 보는 방법을 설명합니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md) Azure AD(Azure Active Directory) 사용자 관리의 주요 기능 중 하나는 사용자로 채울 수 있는 그룹을 만드는 기능입니다. 그룹을 사용하여 한 번에 많은 사용자에게 라이선스 또는 사용 권한을 할당하는 등 관리 작업을 수행합니다.
+이 문서는 Azure AD(Azure Active Directory)에서 모든 그룹을 보는 방법을 설명합니다. Azure AD의 사용자 관리 기능 중 하나는 여러 사용자에게 라이선스 또는 사용 권한을 한 번에 할당하는 관리 작업을 수행하는 데 그룹을 사용할 수 있다는 것입니다.
 
 ## <a name="how-do-i-see-all-the-groups"></a>모든 그룹을 보려면 어떻게 해야 합니까?
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.

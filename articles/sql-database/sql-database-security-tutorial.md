@@ -4,39 +4,46 @@ description: "Azure SQL Database 보안 기술 및 기능에 대해 자세히 �
 services: sql-database
 documentationcenter: 
 author: DRediske
-manager: johammer
+manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-secure
+ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/03/2017
+ms.date: 05/07/2017
 ms.author: daredis
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: eb2c8ec946a08ed3b538d613199706779b80bd1f
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 34815f5b716a38f957392d8955f924eeb6fe621e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Database 보안
 
-이 자습서에서는 SQL Database 보안의 기본을 안내합니다. 몇 가지 간단한 단계만 거치면 모든 데이터베이스를 악의적인 사용자 또는 무단 액세스로부터 보호하는 기능을 크게 향상시킬 수 있습니다.
+SQL Database는 방화벽 규칙, 사용자에게 ID 확인을 요구하는 인증 메커니즘 및 역할 기반 멤버 자격과 권한을 통한 데이터 인증을 사용하여 데이터베이스에 대한 액세스를 제한할 뿐만 아니라 행 수준 보안과 동적 데이터 마스킹을 사용하여 데이터베이스에 대한 액세스도 제한함으로써 데이터를 보호합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+몇 가지 간단한 단계만 거치면 악의적인 사용자 또는 무단 액세스로부터 데이터베이스를 보호하는 기능을 크게 향상시킬 수 있습니다. 이 자습서에서는 다음에 대해 알아봅니다. 
+
+> [!div class="checklist"]
+> * 서버 및 데이터베이스에 대한 방화벽 규칙 설정
+> * 보안 연결 문자열을 사용하여 데이터베이스에 연결
+> * 사용자 액세스 관리
+> * 암호화로 데이터 보호
+> * SQL Database 감사 사용
+> * SQL Database 위협 감지 사용
 
 이 자습서를 완료하려면 Excel 및 최신 버전의 SSMS([SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx))가 설치되어 있는지 확인합니다.
 
 
-
 ## <a name="set-up-firewall-rules-for-your-database"></a>데이터베이스에 대한 방화벽 규칙 설정
 
-Azure SQL Database는 방화벽으로 보호됩니다. 기본적으로 다른 Azure 서비스의 연결을 제외하고 서버와 서버 내부의 데이터베이스에 대한 모든 연결은 거부됩니다. 가장 안전한 설정은 ‘Azure 서비스에 대한 액세스 허용’을 ‘사용 안 함’으로 설정하는 것입니다. Azure VM 또는 클라우드 서비스에서 데이터베이스에 연결해야 하는 경우 [예약된 IP](../virtual-network/virtual-networks-reserved-public-ip.md)를 만들고 방화벽을 통해 예약된 IP 주소 액세스만 허용해야 합니다. 
+Azure에서 SQL Database는 방화벽으로 보호됩니다. 기본적으로 다른 Azure 서비스의 연결을 제외하고 서버와 서버 내부의 데이터베이스에 대한 모든 연결은 거부됩니다. 가장 안전한 구성은 ‘Azure 서비스에 대한 액세스 허용’을 [끄기]로 설정하는 것입니다. Azure VM 또는 클라우드 서비스에서 데이터베이스에 연결해야 하는 경우 [예약된 IP](../virtual-network/virtual-networks-reserved-public-ip.md)를 만들고 방화벽을 통해 예약된 IP 주소 액세스만 허용해야 합니다. 
 
 특정 IP 주소에서 연결을 허용하도록 서버에 대한 [SQL Database 서버 수준 방화벽 규칙](sql-database-firewall-configure.md)을 만들려면 다음 단계를 수행합니다. 
 
@@ -61,7 +68,7 @@ Azure SQL Database는 방화벽으로 보호됩니다. 기본적으로 다른 Az
 
 동일한 논리 서버 내의 다른 데이터베이스에 대해 다른 방화벽 설정이 필요한 경우 각 데이터베이스에 대해 데이터베이스 수준 규칙을 만들어야 합니다. 데이터베이스 수준 방화벽 규칙은 Transact-SQL 문을 사용하는 경우에 한해 첫 번째 서버 수준 방화벽 규칙을 구성한 후에만 구성할 수 있습니다. 다음 단계에 따라 데이터베이스 관련 방화벽 규칙을 만듭니다.
 
-1. 예를 들면 [SSMS](./sql-database-connect-query-ssms.md)를 사용하여 데이터베이스에 연결합니다.
+1. 예를 들어 [SQL Server Management Studio](./sql-database-connect-query-ssms.md)를 사용하여 데이터베이스에 연결
 
 2. 개체 탐색기에서 방화벽 규칙을 추가할 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다. 데이터베이스에 연결된 비어 있는 쿼리 창이 열립니다.
 
@@ -73,9 +80,9 @@ Azure SQL Database는 방화벽으로 보호됩니다. 기본적으로 다른 Az
 
 4. 도구 모음에서 **실행**을 클릭하여 방화벽 규칙을 만듭니다.
 
-## <a name="connect-to-the-database-using-a-secure-connection-string"></a>보안 연결 문자열을 사용하여 데이터베이스에 연결
+## <a name="connect-to-your-database-using-a-secure-connection-string"></a>보안 연결 문자열을 사용하여 데이터베이스에 연결
 
-클라이언트와 SQL Database 간에 암호화된 보안 연결을 보장하려면1) 암호화된 연결을 요청하고 2) 서버의 인증서를 신뢰하지 않도록 연결 문자열을 구성해야 합니다. 이렇게 하면 TLS(전송 계층 보안)를 사용하여 연결이 설정되고 메시지 가로채기(man-in-the-middle) 공격의 위험을 줄일 수 있습니다. 아래 스크린샷의 ADO.NET에 표시된 것처럼 Azure Portal에서 지원되는 클라이언트 드라이버의 Azure SQL Database에 대해 올바르게 구성된 연결 문자열을 얻을 수 있습니다.
+클라이언트와 SQL Database 간에 암호화된 보안 연결을 보장하려면1) 암호화된 연결을 요청하고 2) 서버의 인증서를 신뢰하지 않도록 연결 문자열을 구성해야 합니다. 이렇게 하면 TLS(전송 계층 보안)를 사용하여 연결이 설정되고 메시지 가로채기(man-in-the-middle) 공격의 위험을 줄일 수 있습니다. 아래 스크린샷의 ADO.NET에 표시된 것처럼 Azure Portal에서 지원되는 클라이언트 드라이버의 SQL Database에 대해 올바르게 구성된 연결 문자열을 얻을 수 있습니다.
 
 1. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다.
 
@@ -98,14 +105,14 @@ Azure SQL Database는 방화벽으로 보호됩니다. 기본적으로 다른 Az
 
 SQL 인증을 사용하여 사용자를 만들려면 다음 단계를 수행합니다.
 
-1. 서버 관리자 자격 증명(예: [SSMS](./sql-database-connect-query-ssms.md))을 사용하여 데이터베이스에 연결합니다.
+1. 서버 관리자 자격 증명(예: [SQL Server Management Studio](./sql-database-connect-query-ssms.md))을 사용하여 데이터베이스에 연결합니다.
 
 2. 개체 탐색기에서 새 사용자를 추가할 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다. 선택한 데이터베이스에 연결된 비어 있는 쿼리 창이 열립니다.
 
 3. 쿼리 창에서 다음 쿼리를 입력합니다.
 
     ```sql
-    CREATE USER ApplicationUserUser WITH PASSWORD = 'strong_password';
+    CREATE USER ApplicationUserUse' WITH PASSWORD = 'YourStrongPassword1';
     ```
 
 4. 도구 모음에서 **실행**을 클릭하여 사용자를 만듭니다.
@@ -132,11 +139,11 @@ Azure SQL Database 투명한 데이터 암호화(TDE)는 암호화된 데이터�
 
 3. **데이터 암호화**를 켜짐으로 설정하고 **저장**을 클릭합니다.
 
-암호화 프로세스가 백그라운드에서 시작됩니다. 예를 들어 [SSMS](./sql-database-connect-query-ssms.md)를 데이터베이스로 사용하여 SQL Database에 연결하고 sys.dm_database_encryption_keys 뷰의 encryption_state 열을 쿼리하여 진행 상황을 모니터링할 수 있습니다.
+암호화 프로세스가 백그라운드에서 시작됩니다. [SQL Server Management Studio](./sql-database-connect-query-ssms.md)를 사용하여 `sys.dm_database_encryption_keys` 보기의 encryption_state 열을 쿼리하고 SQL Database에 연결하여 진행률을 모니터링할 수 있습니다.
 
 ## <a name="enable-sql-database-auditing"></a>SQL Database 감사 사용
 
-Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 기록합니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다. 데이터베이스에 대한 기본 감사 정책을 만들려면 다음 단계를 수행합니다.
+Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 기록합니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 잠재적인 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다. SQL Database에 대한 기본 감사 정책을 만들려면 다음 단계를 수행합니다.
 
 1. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다.
 
@@ -148,7 +155,7 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 
     ![설정 상속](./media/sql-database-security-tutorial/auditing-get-started-server-inherit.png)
 
-4. 서버 수준 감사에 추가로 또는 서버 수준 감사 대신 데이터베이스 수준에서 Blob 감사를 사용하려면 **서버의 감사 설정 상속** 옵션을 **선택 취소**하고, 감사를 **켜고**, **Blob** 감사 유형을 선택합니다.
+4. 서버 수준에서 지정된 형식과 다른 감사 형식(또는 위치)을 사용하는 것을 선호하는 경우 **서버의 감사 설정 상속** 옵션을 **선택 취소**하고, 감사를 **켜고**, **Blob** 감사 유형을 선택합니다.
 
     > 서버 Blob 감사가 활성화되면 구성된 데이터베이스 감사가 서버 Blob 감사와 나란히 존재하게 됩니다.
 
@@ -212,8 +219,17 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 
 
 ## <a name="next-steps"></a>다음 단계
+몇 가지 간단한 단계만 거치면 악의적인 사용자 또는 무단 액세스로부터 데이터베이스를 보호하는 기능을 크게 향상시킬 수 있습니다. 이 자습서에서는 다음에 대해 알아봅니다. 
 
-* 모든 SQL Database 보안 기능에 대한 개요는 [SQL Database 보안 개요](sql-database-security-overview.md)를 참조하세요.
-* 데이터베이스의 중요한 열을 추가로 암호화하려면 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)로 클라이언트 쪽 암호화를 사용하는 것이 좋습니다.
-* 추가적인 액세스 제어 기능의 경우 [행 수준 보안](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)은 사용자의 그룹 구성원을 기반으로 데이터베이스의 행에 대한 액세스를 제한할 수 있으며 [동적 데이터 마스킹](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)은 응용 프로그램 계층의 권한이 없는 사용자에게 데이터를 마스킹하여 중요한 데이터 노출을 제한합니다. 
+> [!div class="checklist"]
+> * 서버 및 데이터베이스에 대한 방화벽 규칙 설정
+> * 보안 연결 문자열을 사용하여 데이터베이스에 연결
+> * 사용자 액세스 관리
+> * 암호화로 데이터 보호
+> * SQL Database 감사 사용
+> * SQL Database 위협 감지 사용
+
+> [!div class="nextstepaction"]
+>[SQL Database 성능 향상](sql-database-performance-tutorial.md)
+
 

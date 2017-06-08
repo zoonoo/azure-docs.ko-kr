@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
-ms.openlocfilehash: ae06e6855a11f91ce18e3b12698b3d01e23a6a2c
-ms.lasthandoff: 01/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: de5e1732dab570b80692efcdd08e4ed2d8c98800
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -101,7 +102,7 @@ db_owner 데이터베이스 역할의 멤버, dbo 사용자 또는 서버 관리
 ## <a name="next-steps"></a>다음 단계
 * 데이터베이스 액세스 및 로그인 관리에 대한 자세한 내용은 [SQL 데이터베이스 보안: 데이터베이스 액세스 및 로그인 보안 관리](sql-database-manage-logins.md)를 참조하세요.
 * 포함된 데이터베이스 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
-* 활성 지역 복제를 사용 및 구성하는 방법에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)
-* 지리적 복원 사용에 대한 내용은 [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore)
+* 활성 지역 복제를 사용 및 구성하는 방법에 대한 자세한 내용은 [활성 지역 복제](sql-database-geo-replication-overview.md)를 참조하세요.
+* 지역 복원을 사용하는 방법에 대한 내용은 [지역 복원](sql-database-recovery-using-backups.md#geo-restore)을 참조하세요.
 
 

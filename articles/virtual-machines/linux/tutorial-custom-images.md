@@ -13,21 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/21/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 2ce92b3f0a21f80eb4294161d6d3a5275c992600
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: de8ffb5ef81ac9ef4a9217f275f2c96973948eb1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
-이 자습서에서는 Azure 가상 컴퓨터의 사용자 지정 이미지를 정의하는 방법에 대해 알아봅니다. 사용자 지정 이미지를 사용하면 이미 구성되어 있는 이미지를 사용하여 VM을 만들 수 있습니다. 사용자 지정 이미지는 이진 파일 및 응용 프로그램 사전 로드, 응용 프로그램 구성, VM 데이터 디스크 정의, 기타 OS 구성을 부트스트랩하는 데 사용할 수 있습니다. 사용자 지정 이미지를 만들 때 사용자 지정하는 VM 및 연결된 모든 디스크가 이미지에 포함됩니다.
+사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 응용 프로그램 사전 로드, 응용 프로그램 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 이 자습서에서는 Azure 가상 컴퓨터의 사용자 지정 이미지를 직접 만듭니다. 다음 방법에 대해 알아봅니다.
 
-이 자습서의 단계는 최신 [Azure CLI 2.0](/cli/azure/install-azure-cli)을 사용하여 완료할 수 있습니다.
+> [!div class="checklist"]
+> * VM 프로비전 해제 및 일반화
+> * 사용자 지정 이미지 만들기
+> * 사용자 지정 이미지에서 VM 만들기
+> * 구독에서 모든 이미지 나열
+> * 이미지 삭제
+
+이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 또한 브라우저에서 [Cloud Shell](/azure/cloud-shell/quickstart)을 사용할 수도 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -35,9 +42,9 @@ ms.lasthandoff: 05/03/2017
 
 이 자습서의 예제를 완료하려면 기존 가상 컴퓨터가 있어야 합니다. 필요한 경우 이 [스크립트 샘플](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md)을 사용하여 가상 컴퓨터를 만들 수 있습니다. 이 자습서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
 
-## <a name="prepare-vm"></a>VM 준비
+## <a name="create-a-custom-image"></a>사용자 지정 이미지 만들기
 
-가상 컴퓨터의 이미지를 만들려면 프로비전을 해제하고 할당을 취소한 후 원본 VM을 일반화된 것으로 표시하여 VM을 준비해야 합니다.
+가상 컴퓨터의 이미지를 만들려면 프로비전을 해제하고 할당을 취소한 후 원본 VM을 일반화된 것으로 표시하여 VM을 준비해야 합니다. VM이 준비되면 이미지를 만들 수 있습니다.
 
 ### <a name="deprovision-the-vm"></a>VM 프로비전 해제 
 
@@ -67,22 +74,22 @@ exit
 이미지를 만들려면 VM을 할당 취소해야 합니다. [az vm deallocate](/cli//azure/vm#deallocate)를 사용하여 VM의 할당을 취소합니다. 
    
 ```azurecli
-az vm deallocate --resource-group myRGCaptureImage --name myVM
+az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
 마지막으로, VM이 일반화된 사실을 Azure 플랫폼이 알 수 있도록 [az vm generalize](/cli//azure/vm#generalize) 명령을 사용하여 VM 상태를 일반화됨으로 설정합니다. 일반화된 VM에서만 이미지를 만들 수 있습니다.
    
 ```azurecli
-az vm generalize --resource-group myResourceGroupImages --name myVM
+az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="create-the-image"></a>이미지 만들기
+### <a name="create-the-image"></a>이미지 만들기
 
 이제 [az image create](/cli//azure/image#create)를 사용하여 VM의 이미지를 만들 수 있습니다. 다음 예제에서는 *myVM*이라는 VM에서 *myImage*라는 이미지를 만듭니다.
    
 ```azurecli
 az image create \
-    --resource-group myResourceGroupImages \
+    --resource-group myResourceGroup \
     --name myImage \
     --source myVM
 ```
@@ -93,17 +100,46 @@ az image create \
 
 ```azurecli
 az vm create \
-    --resource-group myResourceGroupImages \
+    --resource-group myResourceGroup \
     --name myVMfromImage \
     --image myImage \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
 
+## <a name="image-management"></a>이미지 관리 
+
+일반적인 이미지 관리 작업의 몇 가지 예제와 Azure CLI를 사용하여 완료하는 방법은 다음과 같습니다.
+
+모든 이미지를 테이블 형식으로 이름별로 나열합니다.
+
+```azurecli
+az image list \
+  --resource-group myResourceGroup
+```
+
+이미지 삭제를 삭제합니다. 이 예제에서는 *myResourceGroup*에서 *myOldImage*라는 이미지를 삭제합니다.
+
+```azurecli
+az image delete \
+    --name myOldImage \
+    --resource-group myResourceGroup
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 사용자 지정 VM 이미지 만들기에 대해 알아보았습니다. 고가용성 Virtual Machines에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
+이 자습서에서는 사용자 지정 VM 이미지를 만들었습니다. 다음 방법에 대해 알아보았습니다.
 
-[고가용성 VM 만들기](tutorial-availability-sets.md)
+> [!div class="checklist"]
+> * VM 프로비전 해제 및 일반화
+> * 사용자 지정 이미지 만들기
+> * 사용자 지정 이미지에서 VM 만들기
+> * 구독에서 모든 이미지 나열
+> * 이미지 삭제
+
+고가용성 가상 컴퓨터에 대해 알아보려면 다음 자습서로 진행합니다.
+
+> [!div class="nextstepaction"]
+> [고가용성 VM 만들기](tutorial-availability-sets.md)
 
 

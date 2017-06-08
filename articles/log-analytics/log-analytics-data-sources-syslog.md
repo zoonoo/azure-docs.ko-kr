@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
 ms.openlocfilehash: 6e92a79c0b7ea35f110c779922255d6ddc93ed7c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -178,10 +180,5 @@ Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니�
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다. 
 * [사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 syslog 레코드의 데이터를 개별 필드로 구문 분석합니다.
 * [Linux 에이전트를 구성](log-analytics-linux-agents.md) 합니다. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

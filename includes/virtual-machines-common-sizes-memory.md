@@ -46,7 +46,7 @@ ACU: 180-240
 
 ACU: 210-250
 
-| 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | 최대 데이터 디스크 수 | 최대 캐시된 디스크 처리량: IOPS/MBps(GiB 단위 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수/네트워크 대역폭 |
+| 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | 최대 데이터 디스크 수 | 최대 캐시된 로컬 디스크 처리량: IOPS/MBps(GiB 단위 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수/네트워크 대역폭 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2 |2 |14 |28 |4 |8,000/64(72) |6,400/96 |2/높음 |
 | Standard_DS12_v2 |4 |28 |56 |8 |16,000/128(144) |12,800/192 |4/높음 |
@@ -58,7 +58,7 @@ MBps = 초당 10^6바이트, GiB = 1024^3바이트
 
 *DSv2 시리즈 VM에서 제공 가능한 디스크 처리량(IOPS 또는 MBps)는 연결된 디스크의 수, 크기 및 스트라이핑에 의해 제한될 수 있습니다.  자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../articles/storage/storage-premium-storage.md)를 참조하세요.
 
-**일부 지역에서는 Standard_DS15_v2 크기에 대해 가속화된 네트워킹을 사용할 수 있습니다. 사용 현황 및 가용성에 대한 자세한 내용은 참조 [가속화된 네트워킹이 미리 보기에 있음](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) 및 [가상 컴퓨터에 대한 가속화된 네트워킹](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md)을 참조하세요.
+**일부 지역에서는 Standard_DS15_v2 크기에 대해 가속화된 네트워킹을 사용할 수 있습니다. 사용 현황 및 가용성에 대한 자세한 내용은 참조 [가속화된 네트워킹이 미리 보기에 있음](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) 및 [가상 컴퓨터에 대한 가속화된 네트워킹](../articles/virtual-network/virtual-network-create-vm-accelerated-networking.md)을 참조하세요.
 
 ***인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 <br>
@@ -78,7 +78,7 @@ ACU: 210-250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 32 / 32x500                       | 8/극히 높음           |
 | Standard_D15_v2** | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 40 / 40x500                       | 8/극히 높음*          |
 
-*일부 지역에서는 Standard_D15_v2 크기에 대해 가속화된 네트워킹을 사용할 수 있습니다. 사용 현황 및 가용성에 대한 자세한 내용은 참조 [가속화된 네트워킹이 미리 보기에 있음](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) 및 [가상 컴퓨터에 대한 가속화된 네트워킹](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md)을 참조하세요.
+*일부 지역에서는 Standard_D15_v2 크기에 대해 가속화된 네트워킹을 사용할 수 있습니다. 사용 현황 및 가용성에 대한 자세한 내용은 참조 [가속화된 네트워킹이 미리 보기에 있음](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) 및 [가상 컴퓨터에 대한 가속화된 네트워킹](../articles/virtual-network/virtual-network-create-vm-accelerated-networking.md)을 참조하세요.
 
 **인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 
@@ -88,7 +88,7 @@ ACU: 210-250
 
 ACU: 160
 
-| 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | 최대 데이터 디스크 수 | 최대 캐시된 디스크 처리량: IOPS/MBps(GiB 단위 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수/네트워크 대역폭 |
+| 크기 | CPU 코어 | 메모리: GiB | 로컬 SSD: GiB | 최대 데이터 디스크 수 | 최대 캐시된 로컬 디스크 처리량: IOPS/MBps(GiB 단위 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수/네트워크 대역폭 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11 |2 |14 |28 |4 |8,000/64(72) |6,400/64 |2/높음 |
 | Standard_DS12 |4 |28 |56 |8 |16,000/128(144) |12,800/128 |4/높음 |

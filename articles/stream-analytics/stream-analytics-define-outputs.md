@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: f2c67bb0629c8a37e557d4813e3efa459f3c82ad
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 693a4a0dbe7e067492040a12c6cb3b003bbcc54e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -301,15 +302,15 @@ DateTime | string | string |  DateTime | string
 | 인코딩 |CSV 또는 JSON 형식인 경우 인코딩을 지정해야 합니다. 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다. |
 | 구분 기호 |CSV 직렬화에만 적용됩니다. 스트림 분석은 CSV 형식에서 데이터를 직렬화하기 위해 다양하고 일반적인 구분 기호를 지원합니다. 지원되는 값은 쉼표, 세미콜론, 공백, 탭 및 세로 막대입니다. |
 
-## <a name="documentdb"></a>DocumentDB
-[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 는 완벽하게 관리되는 NoSQL 문서 데이터베이스 서비스로, 스키마 없는 데이터에 대한 쿼리 및 트랜잭션, 예측 가능하고 신뢰할 수 있는 성능 및 신속한 개발을 제공합니다.
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)는 완벽하게 관리되는 NoSQL 문서 데이터베이스 서비스로, 스키마 없는 데이터에 대한 쿼리 및 트랜잭션, 예측 가능하고 신뢰할 수 있는 성능 및 신속한 개발을 제공합니다.
 
-아래 목록은 DocumentDB 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
+아래 목록에는 Azure Cosmos DB 출력을 만들기 위한 속성 이름 및 해당 설명이 나와 있습니다.
 
 * **출력 별칭** – ASA 쿼리에서 이 출력을 참조할 별칭입니다.  
-* **계정 이름** – DocumentDB 계정의 이름 또는 끝점 URI입니다.  
-* **계정 키** – DocumentDB 계정에 대한 공유 선택키입니다.  
-* **데이터베이스** – DocumentDB 데이터베이스 이름입니다.  
+* **계정 이름** – Cosmos DB 계정의 이름 또는 끝점 URI입니다.  
+* **계정 키** – Cosmos DB 계정에 대한 공유 액세스 키입니다.  
+* **데이터베이스** – Cosmos DB 데이터베이스 이름입니다.  
 * **컬렉션 이름 패턴** – 사용될 컬렉션에 대한 컬렉션 이름이나 패턴입니다. 컬렉션 이름 형식은 선택적 {partition} 토큰을 사용하여 구성할 수 있으며 파티션은 0부터 시작합니다. 다음은 유효한 입력 샘플입니다.  
   1\) MyCollection – "MyCollection"이라는 이름의 컬렉션이 있어야 합니다.  
   2\) MyCollection{partition} – "MyCollection0”, “MyCollection1”, “MyCollection2” 등의 컬렉션이 있어야 합니다.  

@@ -1,5 +1,5 @@
 ---
-title: "포털(클래식 포털)에서 클라우드 서비스 크기 자동 조정 | Microsoft Docs"
+title: "포털에서 클라우드 서비스의 크기를 자동으로 조정하는 방법 | Microsoft Docs"
 description: "포털을 사용하여 Azure에서 클라우드 서비스 웹 역할 또는 작업자 역할에 대한 자동 크기 조정 규칙을 구성하는 방법에 대해 알아봅니다."
 services: cloud-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 7891fbd326340ed102f885e84993ef987e044023
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: e746decaea19477e52aba3ce714d8dd10140602e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/23/2017
 
 ---
 
@@ -42,10 +43,7 @@ ms.lasthandoff: 03/25/2017
 
 * 구독에 연결된 다른 리소스의 크기도 조정할 수 있습니다.
 
-* 응용 프로그램의 가용성을 높이려면 응용 프로그램이 두 개 이상의 역할 인스턴스와 함께 배포되는지 확인해야 합니다. 자세한 내용은 [Service Level Agreements(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
-
-> [!WARNING]
-> 자동 크기 조정은 클래식 Azure Storage 계정에서만 작동합니다. Azure Resource Manager 저장소 계정에서는 작동하지 않습니다.
+* 응용 프로그램의 가용성을 높이려면 응용 프로그램이 두 개 이상의 역할 인스턴스와 함께 배포되는지 확인해야 합니다. 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
 
 ## <a name="where-scale-is-located"></a>크기 조정 기능이 제공되는 위치
@@ -53,10 +51,10 @@ ms.lasthandoff: 03/25/2017
 
 1. 클라우드 서비스 블레이드의 **역할 및 인스턴스** 타일에서 클라우드 서비스의 이름을 선택합니다.   
    **중요**: 역할 아래에 있는 역할 인스턴스가 아니라 클라우드 서비스 역할을 클릭해야 합니다.
-   
+
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. **크기 조정** 타일을 선택합니다.
-   
+
     ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>자동 크기 조정
@@ -78,25 +76,25 @@ ms.lasthandoff: 03/25/2017
 프로필은 크기 조정의 최소 및 최대 인스턴스와 이 크기 조정 범위가 활성화되는 경우를 설정합니다.
 
 * **항상**
-  
+
     항상은 이 범위의 인스턴스를 항상 사용 가능하게 유지합니다.  
-  
+
     ![항상 크기를 조정하는 클라우드 서비스](./media/cloud-services-how-to-scale-portal/select-always.png)
 * **되풀이**
-  
+
     크기를 조정할 요일 집합을 선택합니다.
-  
+
     ![되풀이 일정을 사용하는 클라우드 서비스 크기 조정](./media/cloud-services-how-to-scale-portal/select-recurrence.png)
 * **고정 날짜**
-  
+
     역할 크기를 조정할 고정된 날짜 범위입니다.
-  
+
     ![고정 날짜를 사용하는 클라우드 서비스 크기 조정](./media/cloud-services-how-to-scale-portal/select-fixed.png)
 
 프로필을 구성한 후 프로필 블레이드 아래쪽에 있는 **확인** 단추를 선택합니다.
 
 #### <a name="rule"></a>규칙
-규칙이 프로필에 추가되고 크기 조정을 트리거하는 조건을 나타냅니다. 
+규칙이 프로필에 추가되고 크기 조정을 트리거하는 조건을 나타냅니다.
 
 규칙 트리거는 조건 값을 추가할 수 있는 클라우드 서비스(CPU 사용량, 디스크 작업 또는 네트워크 작업)의 메트릭을 기준으로 합니다. 또한 메시지 큐 또는 구독에 연결된 일부 다른 Azure 리소스의 메트릭을 기준으로 트리거가 작동되도록 할 수 있습니다.
 
@@ -109,12 +107,11 @@ ms.lasthandoff: 03/25/2017
 
 ![프로필 및 규칙을 사용하는 클라우드 서비스 크기 조정 설정](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 
-이 설정은 역할에서 자동 크기 조정이 제거되고 인스턴스 수를 직접 설정할 수 있게 됩니다. 
+이 설정은 역할에서 자동 크기 조정이 제거되고 인스턴스 수를 직접 설정할 수 있게 됩니다.
 
 1. 크기 조정(수동 또는 자동) 옵션입니다.
 2. 크기 조정할 인스턴스를 설정하기 위한 역할 인스턴스 슬라이더입니다.
 3. 크기를 조정할 역할의 인스턴스입니다.
 
 크기 조정 설정을 구성한 후 맨 위에 있는 **저장** 아이콘을 선택합니다.
-
 

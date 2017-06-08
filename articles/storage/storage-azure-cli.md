@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 02/18/2017
+ms.date: 05/15/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 5b77598e76de3508d90b35ce5a1f2ee338aca0c8
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 90b67cf3d136882d59ed7fe4210f93fb694e96a6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -48,7 +49,7 @@ ms.lasthandoff: 04/25/2017
 
 ## <a name="working-with-the-cli"></a>CLI 사용
 
-CLI를 설치했으면 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 `az` 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. `az` 명령을 입력하면 다음과 비슷한 결과가 표시됩니다.
+CLI를 설치했으면 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 `az` 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. `az` 명령을 입력하여 기본 명령의 전체 목록을 확인합니다(다음 예제 출력이 잘림).
 
 ```
      /\
@@ -62,38 +63,15 @@ Welcome to the cool new Azure CLI!
 
 Here are the base commands:
 
-    account   : Commands to manage subscriptions.
-    acr       : Commands to manage Azure container registries.
-    acs       : Commands to manage Azure container services.
-    ad        : Synchronize on-premises directories and manage Azure Active Directory (AAD)
-                resources.
-    appservice: Commands to manage your Azure web apps and App Service plans.
-    cloud     : Manage the Azure clouds registered.
-    component : Commands to manage and update Azure CLI 2.0 components.
-    configure : Configure Azure CLI 2.0 or view your configuration. The command is
-                interactive, so just type `az configure` and respond to the prompts.
-    container : Set up automated builds and deployments for multi-container Docker applications.
-    disk      : Commands to manage 'Managed Disks'.
-    feature   : Commands to manage resource provider features, such as previews.
-    feedback  : Loving or hating the CLI?  Let us know!
-    group     : Commands to manage resource groups.
-    image     : Commands to manage custom virtual machine images based on managed disks/snapshots.
-    lock
-    login     : Log in to access Azure subscriptions.
-    logout    : Log out to remove access to Azure subscriptions.
-    network   : Manages Network resources.
-    policy    : Commands to manage resource policies.
-    provider  : Manage resource providers.
-    resource  : Generic commands to manage Azure resources.
-    role      : Use role assignments to manage access to your Azure resources.
-    snapshot  : Commands to manage snapshots.
-    storage   : Durable, highly available, and massively scalable cloud storage.
-    tag       : Manage resource tags.
-    vm        : Provision Linux and Windows virtual machines in minutes.
-    vmss      : Create highly available, auto-scalable Linux or Windows virtual machines.
+    account          : Manage subscriptions.
+    acr              : Manage Azure container registries.
+    acs              : Manage Azure Container Services.
+    ad               : Synchronize on-premises directories and manage Azure Active Directory
+                       resources.
+    ...
 ```
 
-명령줄 인터페이스에서 `az storage -h` 명령을 실행하여 `storage` 그룹 명령과 그 하위 그룹을 나열합니다. 하위 그룹에 대한 설명은 Azure CLI에서 저장소 리소스 작업을 위해 제공하는 기능에 대한 개요입니다.
+명령줄 인터페이스에서 `az storage --help` 명령을 실행하여 `storage` 명령 하위 그룹을 나열합니다. 하위 그룹에 대한 설명은 Azure CLI에서 저장소 리소스 작업을 위해 제공하는 기능에 대한 개요입니다.
 
 ```
 Group
@@ -103,14 +81,14 @@ Subgroups:
     account  : Manage storage accounts.
     blob     : Object storage for unstructured data.
     container: Manage blob storage containers.
-    cors     : Manage Storage service Cross-Orgin Resource Sharing (CORS).
+    cors     : Manage Storage service Cross-Origin Resource Sharing (CORS).
     directory: Manage file storage directories.
     entity   : Manage table storage entities.
     file     : File shares that use the standard SMB 3.0 protocol.
     logging  : Manage Storage service logging information.
     message  : Manage queue storage messages.
     metrics  : Manage Storage service metrics.
-    queue    : Effectively scale apps according to traffic using queues.
+    queue    : Use queues to effectively scale applications according to traffic.
     share    : Manage file shares.
     table    : NoSQL key-value storage using semi-structured datasets.
 ```
@@ -141,16 +119,16 @@ export file_to_upload=<file_to_upload>
 export destination_file=<destination_file>
 
 echo "Creating the container..."
-az storage container create -n $container_name
+az storage container create --name $container_name
 
 echo "Uploading the file..."
-az storage blob upload -f $file_to_upload -c $container_name -n $blob_name
+az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
 
 echo "Listing the blobs..."
-az storage blob list -c $container_name
+az storage blob list --container-name $container_name --output table
 
 echo "Downloading the file..."
-az storage blob download -c $container_name -n $blob_name -f $destination_file
+az storage blob download --container-name $container_name --name $blob_name --file $destination_file --output table
 
 echo "Done"
 ```
@@ -178,18 +156,19 @@ echo "Done"
 
 ```
 Creating the container...
-Success
----------
-True
-Uploading the file...                                           Percent complete: %100.0
+{
+  "created": true
+}
+Uploading the file...
+Percent complete: %100.0
 Listing the blobs...
-Name           Blob Type      Length  Content Type              Last Modified
--------------  -----------  --------  ------------------------  -------------------------
-test_blob.txt  BlockBlob         771  application/octet-stream  2016-12-21T15:35:30+00:00
+Name       Blob Type      Length  Content Type              Last Modified
+---------  -----------  --------  ------------------------  -------------------------
+README.md  BlockBlob        6700  application/octet-stream  2017-05-12T20:54:59+00:00
 Downloading the file...
 Name
--------------
-test_blob.txt
+---------
+README.md
 Done
 ```
 
@@ -203,12 +182,16 @@ Done
 Azure Storage를 사용하려면 저장소 계정이 필요합니다. [구독에 연결](#connect-to-your-azure-subscription)하도록 컴퓨터를 구성한 후 새 Azure Storage 계정을 만들 수 있습니다.
 
 ```azurecli
-az storage account create -l <location> -n <account_name> -g <resource_group> --sku <account_sku>
+az storage account create \
+    --location <location> \
+    --name <account_name> \
+    --resource-group <resource_group> \
+    --sku <account_sku>
 ```
 
-* `-l`[필수]: 위치입니다. 예를 들어 "미국 서부"를 선택합니다.
-* `-n`[필수]: 저장소 계정 이름입니다. 이름의 길이는 3-24자여야 하며, 소문자 영숫자만 사용합니다.
-* `-g`[필수]: 리소스 그룹의 이름입니다.
+* `--location`[필수]: 위치입니다. 예를 들어 "미국 서부"를 선택합니다.
+* `--name`[필수]: 저장소 계정 이름입니다. 이름의 길이는 3-24자여야 하며, 소문자 영숫자만 사용합니다.
+* `--resource-group`[필수]: 리소스 그룹의 이름입니다.
 * `--sku`[필수]: 저장소 계정 SKU입니다. 허용되는 값은 다음과 같습니다.
   * `Premium_LRS`
   * `Standard_GRS`
@@ -227,13 +210,15 @@ export AZURE_STORAGE_ACCESS_KEY=<key>
 기본 저장소 계정을 설정하는 또 다른 방법은 연결 문자열을 사용하는 것입니다. 먼저 `show-connection-string` 명령으로 연결 문자열을 가져옵니다.
 
 ```azurecli
-az storage account show-connection-string -n <account_name> -g <resource_group>
+az storage account show-connection-string \
+    --name <account_name> \
+    --resource-group <resource_group>
 ```
 
 그런 다음 출력 연결 문자열을 복사하고 `AZURE_STORAGE_CONNECTION_STRING` 환경 변수를 설정합니다(연결 문자열을 따옴표로 묶어야 할 수도 있음).
 
 ```azurecli
-export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
+export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
@@ -247,7 +232,7 @@ Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 �
 Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. `az storage container create` 명령을 사용하면 컨테이너를 만들 수 있습니다.
 
 ```azurecli
-az storage container create -n <container_name>
+az storage container create --name <container_name>
 ```
 
 선택적인 `--public-access` 인수를 지정하면 새 컨테이너에 대한 읽기 액세스의 다음 세 가지 수준 중 하나를 설정할 수 있습니다.
@@ -262,7 +247,10 @@ az storage container create -n <container_name>
 Azure Blob 저장소는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. `blob upload` 명령을 사용하여 컨테이너에 Blob을 업로드합니다.
 
 ```azurecli
-az storage blob upload -f <local_file_path> -c <container_name> -n <blob_name>
+az storage blob upload \
+    --file <local_file_path> \
+    --container-name <container_name> \
+    --name <blob_name>
 ```
 
  기본적으로 `blob upload` 명령은 페이지 Blob에 *.vhd 파일을 업로드하며, 그렇지 않으면 블록 Blob에 업로드합니다. Blob을 업로드할 때 다른 유형을 지정하려면 `--type` 인수를 사용할 수 있으며, 허용되는 값은 `append`, `block` 및 `page`입니다.
@@ -273,7 +261,10 @@ az storage blob upload -f <local_file_path> -c <container_name> -n <blob_name>
 다음 예제에서는 컨테이너에서 Blob을 다운로드하는 방법을 보여 줍니다.
 
 ```azurecli
-az storage blob download -c mycontainer -n myblob.png -f ~/mydownloadedblob.png
+az storage blob download \
+    --container-name mycontainer \
+    --name myblob.png \
+    --file ~/mydownloadedblob.png
 ```
 
 ### <a name="copy-blobs"></a>Blob 복사
@@ -282,20 +273,35 @@ az storage blob download -c mycontainer -n myblob.png -f ~/mydownloadedblob.png
 다음 예제에서는 한 저장소 계정에서 다른 계정으로 Blob을 복사하는 방법을 보여줍니다. 먼저 다른 계정에 컨테이너를 만들고, 해당 Blob을 공개적으로 익명으로 액세스할 수 있도록 지정합니다. 그런 다음 컨테이너에 파일을 업로드하고, 마지막으로 해당 컨테이너의 Blob을 현재 계정의 **mycontainer** 컨테이너에 복사합니다.
 
 ```azurecli
-az storage container create -n mycontainer2 --account-name <accountName2> --account-key <accountKey2> --public-access blob
+# Create container in second account
+az storage container create \
+    --account-name <accountName2> \
+    --account-key <accountKey2> \
+    --name mycontainer2 \
+    --public-access blob
 
-az storage blob upload -f ~/Images/HelloWorld.png -c mycontainer2 -n myBlockBlob2 --account-name <accountName2> --account-key <accountKey2>
+# Upload blob to container in second account
+az storage blob upload \
+    --account-name <accountName2> \
+    --account-key <accountKey2> \
+    --file ~/Images/HelloWorld.png \
+    --container-name mycontainer2 \
+    --name myBlockBlob2
 
-az storage blob copy start -u https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2 -b myBlobBlob -c mycontainer
+# Copy blob from second account to current account
+az storage blob copy start \
+    --source-uri https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2 \
+    --destination-blob myBlobBlob \
+    --destination-container mycontainer
 ```
 
-원본 Blob URL(`-u`로 지정됨)은 공개적으로 액세스할 수 있거나 SAS(공유 액세스 서명) 토큰을 포함해야 합니다.
+원본 Blob URL(`--source-uri`로 지정됨)은 공개적으로 액세스할 수 있거나 SAS(공유 액세스 서명) 토큰을 포함해야 합니다.
 
 ### <a name="delete-a-blob"></a>Blob 삭제
 Blob을 삭제하려면 `blob delete` 명령을 사용합니다.
 
 ```azurecli
-az storage blob delete -c <container_name> -n <blob_name>
+az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
 ## <a name="create-and-manage-file-shares"></a>파일 공유 만들기 및 관리
@@ -305,17 +311,17 @@ Azure File Storage는 SMB(서버 메시지 블록) 프로토콜을 사용하는 
 Azure에서 Azure 파일 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.
 
 ```azurecli
-az storage share create -n myshare
+az storage share create --name myshare
 ```
 
 ### <a name="create-a-directory"></a>디렉터리 만들기
-디렉터리는 Azure 파일 공유에 대한 선택적 계층적 구조를 제공합니다. 다음 예에서는 파일 공유에 **myDir** 이라는 디렉터리를 만듭니다.
+디렉터리는 Azure 파일 공유에 대한 계층 구조를 제공합니다. 다음 예에서는 파일 공유에 **myDir** 이라는 디렉터리를 만듭니다.
 
 ```azurecli
-az storage directory create -n myDir -s myshare
+az storage directory create --name myDir --share-name myshare
 ```
 
-해당 디렉터리 경로에 여러 수준이 포함 될 수 있습니다( *예:***a/b**). 그러나 모든 부모 디렉터리가 존재하는지 확인해야 합니다. 예를 들어, 경로 **a/b**의 경우, 먼저 디렉터리 **a**를 만든 다음, **b** 디렉터리를 만듭니다.
+디렉터리 경로에는 여러 수준이 포함 될 수 있습니다(예:**dir1/dir2**). 그러나 하위 디렉터리를 만들기 전에 모든 부모 디렉터리가 존재하는지 확인해야 합니다. 예를 들어, 경로 **dir1/dir2**의 경우, 먼저 **dir1** 디렉터리를 만든 다음, **dir2** 디렉터리를 만듭니다.
 
 ### <a name="upload-a-local-file-to-a-share"></a>공유에 로컬 파일 업로드
 다음 예제에서는 **~/temp/samplefile.txt**에서 **myshare** 파일 공유의 루트로 파일을 업로드합니다. `--source` 인수는 업로드할 기존 로컬 파일을 지정합니다.
@@ -337,13 +343,13 @@ az storage file upload --share-name myshare/myDir --source ~/temp/samplefile.txt
 
 ```azurecli
 # List the files in the root of a share
-az storage file list -s myshare
+az storage file list --share-name myshare --output table
 
 # List the files in a directory within a share
-az storage file list -s myshare/myDir
+az storage file list --share-name myshare/myDir --output table
 
 # List the files in a path within a share
-az storage file list -s myshare -p myDir/mySubDir/MySubDir2
+az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --output table
 ```
 
 ### <a name="copy-files"></a>파일 복사        

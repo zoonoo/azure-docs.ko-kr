@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 05/04/2017
 ms.author: curtand;jeffsta
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 77d857e8d692f8bf47e00d655071a825533290b6
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: b1ea25a3ec4c10d1821ea876055b15e38d269432
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -58,7 +60,7 @@ ms.openlocfilehash: 77d857e8d692f8bf47e00d655071a825533290b6
 사용자 지정 도메인 이름을 삭제하려면 먼저 Azure AD 디렉터리에서 이러한 리소스를 변경 또는 삭제해야 합니다.
 
 ## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>PowerShell 또는 Graph API를 사용하여 도메인 이름 관리
-Azure Active Directory의 도메인 이름에 대한 대부분의 관리 작업은 Microsoft PowerShell을 사용하거나 프로그래밍 방식으로 공개 미리 보기에서 Azure AD Graph API를 사용하여 완료할 수도 있습니다.
+Azure Active Directory의 도메인 이름에 대한 대부분의 관리 작업은 Microsoft PowerShell을 사용하거나 프로그래밍 방식으로 Azure AD Graph API를 사용하여 완료할 수도 있습니다.
 
 * [PowerShell을 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Graph API를 사용하여 Azure AD에서 도메인 이름 관리](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
@@ -66,10 +68,5 @@ Azure Active Directory의 도메인 이름에 대한 대부분의 관리 작업�
 ## <a name="next-steps"></a>다음 단계
 * [Azure AD에서 도메인 이름에 대해 알아보기](active-directory-add-domain-concepts.md)
 * [사용자 지정 도메인 이름 관리](active-directory-add-manage-domain-names.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

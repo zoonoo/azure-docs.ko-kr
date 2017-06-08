@@ -12,13 +12,14 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 05/22/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: e5cfa4c0a6964c3722ecaa6727336f5497565885
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: b04fe441cf83ed616b0464eec83a6caf3a449532
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -272,9 +273,11 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
 
 * [장치 연결][lnk-connect-device]
 * [장치 관리 시작][lnk-device-management]
-* [IoT Gateway SDK 시작][lnk-gateway-SDK]
+* [Azure IoT Hub 시작][lnk-iot-edge]
 
 IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리하는 방법을 알아보려면 [장치-클라우드 메시지 처리][lnk-process-d2c-tutorial] 자습서를 참조하세요.
+[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+
 
 <!-- Images. -->
 [7]: ./media/iot-hub-node-node-getstarted/runapp1.png
@@ -296,6 +299,6 @@ IoT 솔루션을 확장하고 대량의 장치-클라우드 메시지를 처리�
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 

@@ -13,11 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 01/23/2017
+ms.date: 05/15/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76cc9c79851cc040e6a36c5499a77c0d95948154
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: c91f840077ccd9e55a403533c97a852542f0d326
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -108,7 +110,7 @@ Azure Data Catalog 포럼을 사용하여 문제를 보고하고, 정보를 공�
 Microsoft는 Azure Data Catalog에 더 많은 데이터 원본을 추가하는 작업을 활발히 하고 있습니다. 지원되는지 확인하고 싶은 데이터 원본이 있는 경우, [Azure Data Catalog 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)에 제안하시기 바랍니다. 또는 이미 제안되어 있는 경우 제안에 의견을 더해 주시기 바랍니다.
 
 ## <a name="q-how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>질문: Azure 데이터 카탈로그는 어떻게 Office 365용 Power BI의 데이터 카탈로그와 연결되나요?
-Azure Data Catalog를 데이터 카탈로그가 진화한 것으로 생각할 수 있습니다. Azure Data Catalog는 데이터 원본 게시 및 검색에 대한 유사한 기능을 제공하지만 더 폭넓은 시나리오에 초점을 맞추며 Office 365에 의존하지 않습니다. Azure 데이터 카탈로그를 일반적으로 사용할 수 있게 되면 두 카탈로그가 단일 서비스로 병합됩니다.
+Azure Data Catalog를 Power BI의 데이터 카탈로그가 진화한 것으로 생각할 수 있습니다. 2017년 봄부터 Azure Data Catalog는 Excel 2016 및 Excel용 파워 쿼리에서 쿼리 공유 및 검색을 활성화하는 데 사용됩니다. Excel의 데이터 카탈로그 기능은 Power BI Pro 라이선스를 갖고 있는 사용자에게 제공됩니다.
 
 ## <a name="q-what-permissions-does-a-user-need-to-register-assets-with-azure-data-catalog"></a>질문: 사용자가 Azure 데이터 카탈로그로 자산을 등록하는 데 필요한 권한은 무엇인가요?
 Azure Data Catalog Registration Tool을 실행하는 사용자는 원본에서 메타데이터를 읽을 수 있도록 허용하는 데이터 원본에 대한 권한이 필요합니다. 사용자가 미리 보기를 포함하도록 선택하는 경우에도 해당 사용자는 등록되는 개체에서 데이터를 읽을 수 있도록 허용하는 권한이 있어야 합니다.
@@ -127,9 +129,4 @@ Azure Data Catalog의 기능을 확장하는 작업을 활발히 진행 중입�
 
 ## <a name="q-my-question-isnt-answered-here--what-should-i-do"></a>질문: 내 질문에 대답이 없습니다. 어떻게 하나요?
 [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)을 참조하세요. 게시된 질문을 여기에서 찾을 수 있습니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

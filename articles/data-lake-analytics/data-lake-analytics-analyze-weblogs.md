@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: e820ca068bd9be151c4241bb233806847855933c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ad0610c1aed8e21f322516a4b7ea41bf55cc200e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -43,7 +45,7 @@ ms.openlocfilehash: e820ca068bd9be151c4241bb233806847855933c
 * **데이터 레이크 분석 계정.**  [Azure Data Lake Analytics 계정 만들기](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account)를 참조하세요.
 
     데이터 레이크 도구는 데이터 레이크 분석 계정 만들기를 지원하지 않습니다.  따라서 Azure 포털, Azure PowerShell, .NET SDK 또는 Azure CLI를 사용하여 해당 계정을 만들어야 합니다.
-* **데이터 레이크 분석 계정에 샘플 데이터를 업로드합니다.** [샘플 데이터 파일 복사하기](data-lake-analytics-get-started-portal.md#prepare-source-data)를 참조하세요.
+* **데이터 레이크 분석 계정에 샘플 데이터를 업로드합니다.** [샘플 데이터 파일 복사하기](data-lake-analytics-get-started-portal.md)를 참조하세요.
 
     데이터 레이크 분석 작업을 실행하려면 일부 데이터가 필요합니다. 데이터 레이크 도구가 데이터 업로드를 지원하지만 이 자습서를 더 쉽게 수행하기 위해 해당 포털을 사용하여 샘플 데이터를 업로드합니다.
 
@@ -200,9 +202,4 @@ U-SQL 응용 프로그램은 대부분 U-SQL 스크립트입니다. U-SQL에 대
 * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
 * [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
 * [데이터 레이크 분석 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

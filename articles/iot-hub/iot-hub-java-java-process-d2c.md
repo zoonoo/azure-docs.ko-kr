@@ -12,11 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 05/25/2017
 ms.author: dobett
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
 ms.openlocfilehash: 616bca96eaff12fa1929605f3480098bd8b867c2
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/31/2017
 
 
@@ -228,7 +229,7 @@ IoT Hub의 메시지 라우팅에 대한 자세한 내용은 [IoT Hub를 통해 
 [일시적인 오류 처리]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-classic-portal]: https://manage.windowsazure.com
-[lnk-c2d]: iot-hub-java-java-process-d2c.md
+[lnk-c2d]: iot-hub-java-java-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java

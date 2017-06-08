@@ -14,10 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: fdf9f494f30f11a00831b6c56a3d6ac40582c0ad
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: cd4b8048245be49ea79bcb1b364f2f99c56f8291
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -31,8 +32,6 @@ Microsoft ID 플랫폼은 OAuth2 및 OpenID Connect와 같은 개방형 표준�
 >
 
 OAuth2 또는 OpenID Connect를 처음 접하는 경우 이 샘플 구성 대부분이 잘 이해되지 않을 수도 있습니다. [여기서 추천한 프로토콜에 관한 개요](active-directory-b2c-reference-protocols.md)를 간략히 살펴볼 것을 추천합니다.
-
-일부 Azure Active Directory 시나리오 및 기능만 B2C 플랫폼에서 지원합니다.  B2C 플랫폼 사용 여부를 결정하려면 [B2C 제한 사항](active-directory-b2c-limitations.md)을 참조하세요.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Azure AD B2C 디렉터리 가져오기
 

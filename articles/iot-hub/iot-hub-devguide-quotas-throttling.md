@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: e9171844e2fbac7a4e734be9144b30d1bbd0397f
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: f36ce029acebfccdfa84122a86ea3a642c048b8c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -76,6 +77,12 @@ IoT Hub는 다양한 기능에 대해 다른 한도를 적용합니다.
 
 > [!NOTE]
 > 현재 단일 IoT hub에 연결할 수는 장치의 최대 수는 500,000개입니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/en-us/support/options/)에 문의하세요.
+
+## <a name="latency"></a>대기 시간
+IoT Hub는 모든 작업에 낮은 대기 시간을 제공하기 위해 노력합니다. 그러나 네트워크 상태 및 예측할 수 없는 기타 요인으로 인해 최대 대기 시간을 보장할 수 없습니다. 따라서 솔루션을 디자인할 때 IoT Hub 작업의 최대 대기 시간에 대한 어떤 것도 가정하지 않도록 합니다. 장치에 가장 가까운 Azure 지역에서 IoT Hub를 프로비전하고 Azure IoT Edge를 사용하여 장치 또는 장치에 가까운 게이트웨이에서 대기 시간에 민감한 작업을 수행하는 것이 좋습니다.
+
+여러 IoT Hub 단위는 앞에서 설명한 대로 제한에 영향을 주지만 추가 대기 시간을 주거나 보장하지 않습니다.
+작업 대기 시간에 예기치 않은 증가가 발생한 경우 [Microsoft 지원](https://azure.microsoft.com/en-us/support/options/)에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 IoT Hub 개발자 가이드의 다른 참조 자료:

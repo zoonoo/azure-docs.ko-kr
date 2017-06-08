@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: cephalin;robmcm
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 75e51ca45a899c6b6fa123346aa3c5860fd1600d
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 1249d7ac42bec02227d47500fe3aabb601a36f88
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="create-your-first-java-web-app-in-azure-in-five-minutes"></a>5분 내에 Azure에서 첫 번째 Java 웹앱 만들기
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/08/2017
 
 ![웹앱으로 이동](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서는 Eclipse IDE for Java EE Developers를 사용하여 Java 웹앱을 빌드하고 Azure에 배포하는 방법을 보여 줍니다. 아직 Eclipse를 설치하지 않은 경우 http://www.eclipse.org/에서 무료로 다운로드할 수 있습니다.
 
@@ -155,7 +155,7 @@ Azure 도구 키트가 새 앱 서비스를 만들기 시작하고 작업을 처
 
 ![Azure에 웹앱 배포](./media/app-service-web-get-started-java/deploy-web-app-to-azure.png)
 
-축하합니다. Azure에 웹앱을 배포했습니다! 이제 Azure 웹 사이트에서 웹앱을 미리 볼 수 있습니다.
+축하합니다. Azure에 웹앱을 배포했습니다! 이제 Azure 웹 사이트에서 웹앱을 볼 수 있습니다.
 
 ![웹앱으로 이동](./media/app-service-web-get-started-java/browse-web-app-1.png)
 

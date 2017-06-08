@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/5/2017
+ms.date: 5/9/2017
 ms.author: johnkem
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 39345bdef6aeebb25fab87a17db683af78782e4f
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 18a45dd16e51e477758c3ba08f936a2e831dddb3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/08/2017
 | --- | --- | --- |
 | [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
 | [![Partner Logo][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |
-| [![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |
+| [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |
 | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Partner Logo][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] |
 | [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 
@@ -61,7 +61,7 @@ Cloudyn은 기업이 클라우드 기능을 완전히 구현할 수 있도록 �
 
 [설명서로 이동합니다.][cloudyn-doc]
 
-## <a name="datadog"></a>DataDog
+## <a name="datadog"></a>Datadog
 Datadog는 클라우드급 응용 프로그램을 위한 세계 선두의 모니터링 서비스로, 서버, 데이터베이스, 도구 및 서비스의 데이터를 하나로 모아 전체 스택에 대한 통합된 뷰를 제시합니다. 이 기능은 SaaS 기반 데이터 분석 플랫폼에서 제공되므로 개발 및 운영 팀이 협업하여 중단 시간을 방지하고, 성능 문제를 해결하며, 개발 및 개발 주기가 제 때에 끝날 수 있게 할 수 있습니다. Datadog와 Azure를 통합하면 전체 인프라에서 메트릭을 수집 및 파악하고, VM 메트릭과 응용 프로그램 수준 메트릭을 상관하며, 속성 및 사용자 지정 태그의 조합을 통해 메트릭을 상세 분석할 수 있습니다.
 
 [설명서로 이동합니다.][datadog-doc]
@@ -115,7 +115,7 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
 [cloudyn-anchor]: #cloudyn "Cloudyn"
-[datadog-anchor]: #datadog "DataDog"
+[datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
 [newrelic-anchor]: #newrelic "NewRelic"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
@@ -147,7 +147,7 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix 소개."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn 소개."
-[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "DataDog 설명서."
+[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog 설명서."
 [dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Dynatrace 설명서."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic 설명서."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie 설명서."

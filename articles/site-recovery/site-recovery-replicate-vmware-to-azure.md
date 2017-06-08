@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 2/17/2017
 ms.author: asgang
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 06ac75a40ed1dc97046836388bb7938dabd2b9ac
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: f78a857a795031f6188635091c76431cd5440d1c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -39,6 +40,7 @@ ms.lasthandoff: 04/12/2017
 #### <a name="before-you-start"></a>시작하기 전에
 VMware 가상 컴퓨터를 복제하는 경우 다음 사항에 유의하세요.
 
+* Azure 사용자 계정에 특정 [사용 권한](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)이 있어야 Azure에 새 가상 컴퓨터를 복제할 수 있습니다.
 * VMware VM은 15분마다 검색됩니다. 검색 후 포털에 나타나려면 15분 이상 걸릴 수 있습니다. 마찬가지로 vCenter Server 또는 vSphere 호스트를 추가할 때 검색이 15분 이상 걸릴 수 있습니다.
 * 가상 컴퓨터의 환경 변경 사항(예: VMware 도구 설치)이 포털에서 업데이트되는 데 15분 이상 소요될 수도 있습니다.
 * **구성 서버** 블레이드에서 vCenter Server/vSphere 호스트에 대한 **마지막 연락** 필드에서 VMware VM이 마지막으로 검색된 시간을 확인할 수 있습니다.
@@ -105,19 +107,20 @@ VMware 가상 컴퓨터를 복제하는 경우 다음 사항에 유의하세요.
 ![복제 활성화](./media/site-recovery-vmware-to-azure/VMProperties_AVSET.png)
 
 *리소스 그룹*
-   
-  * 컴퓨터가 사후 장애 조치(failover)에 속할 [리소스 그룹](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)을 선택할 수 있습니다. 장애 조치(failover) 전에 언제든지 이 설정을 변경할 수 있습니다. 
-  
+
+  * 컴퓨터가 사후 장애 조치(failover)에 속할 [리소스 그룹](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)을 선택할 수 있습니다. 장애 조치(failover) 전에 언제든지 이 설정을 변경할 수 있습니다.
+
 > [!NOTE]
 > 컴퓨터를 리소스 그룹으로 마이그레이션한 다음 컴퓨터의 보호 설정을 중단하는 경우 사후 장애 조치(failover)가 진행됩니다.
- 
+
 *가용성 집합*
 
-컴퓨터가 한 사후 장애 조치(failover)에 속해야 할 경우 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)을 선택할 수 있습니다. 가용성 집합을 선택할 때는 다음에 유의하세요.
+컴퓨터가 한 사후 장애 조치(failover)에 속해야 할 경우 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)을 선택할 수 있습니다.
+가용성 집합을 선택할 때는 다음에 유의하세요.
 
 * 지정된 리소스 그룹에 속하는 가용성 집합만 나열됩니다.  
-* 다른 가상 네트워크를 사용하는 컴퓨터는 동일한 가용성 집합에 속할 수 없습니다. 
-* 동일한 크기의 가상 컴퓨터만 같은 가용성 집합의 일부가 될 수 있습니다. 
+* 다른 가상 네트워크를 사용하는 컴퓨터는 동일한 가용성 집합에 속할 수 없습니다.
+* 동일한 크기의 가상 컴퓨터만 같은 가용성 집합의 일부가 될 수 있습니다.
 
 *네트워크 속성*
 

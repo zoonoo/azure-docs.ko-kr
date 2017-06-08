@@ -1,5 +1,5 @@
 ---
-title: "지점 및 사이트 간에 대한 자체 서명된 인증서 만들기: PowerShell: Azure | Microsoft Docs"
+title: "지점 및 사이트 간에 대한 인증서 만들기 및 내보내기: PowerShell: Azure | Microsoft Docs"
 description: "이 문서에는 Windows 10의 PowerShell을 사용하여 자체 서명된 루트 인증서를 만들고, 공용 키를 내보내고, 클라이언트 인증서를 생성하는 단계가 나와 있습니다."
 services: vpn-gateway
 documentationcenter: na
@@ -13,33 +13,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
+ms.date: 05/04/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 72fc6eb93c77dd5a0a7ce55897f4c06fb98c0721
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: 1bfcb8683669770d6dd927cbde53a683bbc1d56e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="create-a-self-signed-root-certificate-for-point-to-site-connections-using-powershell"></a>PowerShell을 사용하여 지점 및 사이트 간 연결에 대한 자체 서명된 루트 인증서 만들기
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell"></a>PowerShell을 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
 
-지점 및 사이트 간 연결은 인증서를 사용하여 인증을 합니다. 지점 및 사이트 간 연결을 구성할 때 루트 인증서의 공용 키(.cer 파일)를 Azure에 업로드해야 합니다. 클라이언트 인증서는 루트 인증서에서 생성되고 VNet에 연결되는 모든 클라이언트 컴퓨터에 설치되어야 합니다. 클라이언트 인증서를 통해 클라이언트가 인증할 수 있습니다. 이 문서에서는 자체 서명된 루트 인증서를 만들고, 공용 키를 내보내고, 클라이언트 인증서를 생성하는 방법을 보여 줍니다. 이 문서에서는 지점 및 사이트 간 구성 지침 또는 지점 및 사이트 간 FAQ는 포함하지 않습니다. 다음 목록에서 문서 중 하나를 선택하여 정보를 확인할 수 있습니다.
+이 문서에서는 자체 서명된 루트 인증서를 만들고 클라이언트 인증서를 생성하는 방법을 보여 줍니다. 이 문서에서는 지점 및 사이트 간 구성 지침 또는 지점 및 사이트 간 FAQ는 포함하지 않습니다. 다음 목록에서 '지점 및 사이트 간 구성' 문서 중 하나를 선택하여 정보를 확인할 수 있습니다.
 
 > [!div class="op_single_selector"]
-> * [자체 서명된 인증서 만들기](vpn-gateway-certificates-point-to-site.md)
+> * [자체 서명된 인증서 만들기 - PowerShell](vpn-gateway-certificates-point-to-site.md)
+> * [자체 서명된 인증서 만들기 - Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
 > * [지점 및 사이트 간 구성 - Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [지점 및 사이트 간 구성 - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [지점 및 사이트 간 구성 - Classic - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > 
 > 
 
+지점 및 사이트 간 연결은 인증서를 사용하여 인증을 합니다. 지점 및 사이트 간 연결을 구성할 때 루트 인증서의 공용 키(.cer 파일)를 Azure에 업로드해야 합니다. 또한 클라이언트 인증서는 루트 인증서에서 생성되고 VNet에 연결되는 모든 클라이언트 컴퓨터에 설치되어야 합니다. 클라이언트 인증서를 통해 클라이언트가 인증할 수 있습니다.
+
+
+> [!NOTE]
+> Windows 10을 실행하는 컴퓨터에서 이 문서의 단계를 수행해야 합니다. 인증서를 생성하는 데 필요한 PowerShell cmdlet은 Windows 10 운영 체제의 일부이며 다른 Windows 버전에서는 작동하지 않습니다. 인증서를 생성하려면 이러한 cmdlet만 있으면 됩니다. 인증서를 생성한 후에는 지원되는 모든 클라이언트 운영 체제에 설치할 수 있습니다. Windows 10 컴퓨터에 액세스할 수 없는 경우 makecert를 사용하여 인증서를 생성할 수 있습니다. 그러나 makecert를 사용하여 생성된 인증서는 지점 및 사이트 간과 호환되지만 SHA-2가 아닙니다. makecert 관련 지침은 [makecert를 사용하여 인증서 만들기](vpn-gateway-certificates-point-to-site-makecert.md)를 참조하세요. PowerShell 또는 makecert를 사용하여 만든 인증서는 해당 인증서를 만드는 데 사용한 운영 체제뿐 아니라 [지원되는 모든 클라이언트 운영 체제](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)에 설치할 수 있습니다.
+> 
+>
+
 ## <a name="rootcert"></a>자체 서명된 루트 인증서 만들기
 
-다음 단계는 Windows 10에서 PowerShell을 사용하여 자체 서명된 인증서를 만드는 과정을 안내합니다. 이러한 단계에 사용되는 cmdlet 및 매개 변수는 PowerShell 버전이 아닌 Windows 10 운영 체제에 속합니다. 그렇다고 해서 만든 인증서를 Windows 10에만 설치할 수 있는 것은 아닙니다. 지원되는 클라이언트에 대한 자세한 내용은 [지점 및 사이트 간 FAQ](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)를 참조하세요.
+다음 단계에서는 Windows 10에서 PowerShell을 사용하여 자체 서명된 루트 인증서를 만드는 방법을 보여 줍니다. 이러한 단계에 사용되는 cmdlet 및 매개 변수는 PowerShell 버전이 아닌 Windows 10 운영 체제에 속합니다. 그렇다고 해서 만든 인증서를 Windows 10에만 설치할 수 있는 것은 아닙니다. 지원되는 모든 클라이언트에 설치할 수 있습니다. 지원되는 클라이언트에 대한 자세한 내용은 [지점 및 사이트 간 FAQ](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)를 참조하세요.
 
 1. Windows 10을 실행하는 컴퓨터에서 상승된 권한으로 Windows PowerShell 콘솔을 엽니다.
-2. 다음 예제를 사용하여 자체 서명된 루트 인증서를 만듭니다. 다음 예제에서는 'Certificates-Current User\Personal\Certificates'에 자동으로 설치된 'P2SRootCert'라는 자체 서명된 루트 인증서를 만듭니다. *certmgr.msc*를 열어 인증서를 볼 수 있습니다.
+2. 다음 예제를 사용하여 자체 서명된 루트 인증서를 만듭니다. 다음 예제에서는 'Certificates-Current User\Personal\Certificates'에 자동으로 설치된 'P2SRootCert'라는 자체 서명된 루트 인증서를 만듭니다. *certmgr.msc* 또는 *사용자 인증서 관리*를 열어 인증서를 볼 수 있습니다.
 
   ```powershell
   $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -48,17 +58,13 @@ ms.lasthandoff: 04/25/2017
   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
   ```
 
-### <a name="cer"></a>공개 키를 가져오려면
+### <a name="cer"></a>공개 키(.cer) 내보내기
 
-지점 및 사이트 간 연결에는 Azure에 업로드될 공개 키(.cer)가 필요합니다. 다음 단계는 자체 서명된 루트 인증서에 대한 .cer 파일을 내보내는 데 도움이 됩니다.
+[!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
-1. 인증서에서 .cer 파일을 가져오려면 **사용자 인증서 관리**를 엽니다. 일반적으로 'Certificates - Current User\Personal\Certificates'에서 자체 서명된 루트 인증서를 찾아 마우스 오른쪽 단추로 클릭합니다. **모든 태스크**를 클릭한 다음 **내보내기**를 클릭합니다. 이렇게 하면 **인증서 내보내기 마법사**가 열립니다.
-2. 마법사에서 **다음**을 클릭합니다. **아니요, 개인 키를 내보내지 않습니다.**를 선택한 후 **다음**을 클릭합니다.
-3. **내보내기 파일 형식** 페이지에서 **Base 64로 인코딩된 X.509(.CER)**를 선택한 후 **다음**을 클릭합니다. 
-4. **내보낼 파일**에서 인증서를 내보낼 위치를 **찾아보기**합니다. **파일 이름**에는 인증서 파일의 이름을 입력합니다. 그런 후 **다음**을 클릭합니다.
-5. **마침** 을 클릭하여 인증서를 내보냅니다. **내보내기를 완료했습니다.**라는 메시지가 표시됩니다. **확인**을 클릭하여 마법사를 닫습니다.
+exported.cer 파일을 Azure에 업로드해야 합니다. 자세한 내용은 [지점 및 사이트 간 연결 구성](vpn-gateway-howto-point-to-site-rm-ps.md#upload)을 참조하세요.
 
-### <a name="to-export-a-self-signed-root-certificate-optional"></a>자체 서명된 루트 인증서를 내보내려면(선택 사항)
+### <a name="export-the-self-signed-root-certificate-and-public-key-to-store-it-optional"></a>자체 서명된 루트 인증서 및 공개 키를 내보낸 다음 저장(선택 사항)
 
 자체 서명된 루트 인증서를 내보낸 다음 안전하게 저장할 수 있습니다. 필요한 경우 나중에 다른 컴퓨터에서 해당 인증서를 설치하고 더 많은 클라이언트 인증서를 생성하거나 다른 .cer 파일을 내보낼 수 있습니다. 자체 서명된 루트 인증서를 .pfx로 내보내려면 루트 인증서를 선택하고 [클라이언트 인증서 내보내기](#clientexport)에서 설명하는 것과 같은 단계를 사용합니다.
 
@@ -125,24 +131,12 @@ New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 
 ## <a name="clientexport"></a>클라이언트 인증서 내보내기   
 
-클라이언트 인증서를 생성하는 경우 생성하는 데 사용한 컴퓨터에 자동으로 설치됩니다. 다른 클라이언트 컴퓨터에 클라이언트 인증서를 설치하려는 경우 생성한 클라이언트 인증서를 내보내야 합니다.                              
-
-1. 클라이언트 인증서를 내보내려면 **사용자 인증서 관리**를 엽니다. 기본적으로 생성하는 클라이언트 인증서는 'Certificates - Current User\Personal\Certificates'에 있습니다. 내보낼 클라이언트 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**을 클릭한 다음 **내보내기**를 클릭하여 **인증서 내보내기 마법사**를 엽니다.
-2. 마법사에서 **다음**을 클릭하고 **예, 개인 키를 내보냅니다.**를 선택한 후 **다음**을 클릭합니다.
-3. **파일 내보내기 형식** 페이지에서 선택된 기본값을 유지합니다. **가능하면 인증 경로에 있는 인증서 모두 포함**을 선택했는지 확인합니다. 이를 선택하면 인증을 완료하는 데 필요한 루트 인증서 정보도 내보냅니다. 그런 후 **다음**을 클릭합니다.
-4. **보안** 페이지에서 개인 키를 보호해야 합니다. 암호를 사용하도록 선택하는 경우 이 인증서에 대해 설정한 암호를 기록해두거나 기억합니다. 그런 후 **다음**을 클릭합니다.
-5. **내보낼 파일**에서 인증서를 내보낼 위치를 **찾아보기**합니다. **파일 이름**에는 인증서 파일의 이름을 입력합니다. 그런 후 **다음**을 클릭합니다.
-6. **마침** 을 클릭하여 인증서를 내보냅니다.    
+[!INCLUDE [Export client certificate](../../includes/vpn-gateway-certificates-export-client-cert-include.md)]
+    
 
 ## <a name="install"></a>내보낸 클라이언트 인증서 설치
 
-클라이언트 인증서를 생성하는 데 사용한 것 외의 클라이언트 컴퓨터에서 P2S 연결을 만들려는 경우 클라이언트 인증서를 설치해야 합니다. 클라이언트 인증서를 설치하는 경우 클라이언트 인증서를 내보낼 때 만든 암호가 필요합니다.
-
-1. *.pfx* 파일을 찾아 클라이언트 컴퓨터에 복사합니다. 클라이언트 컴퓨터에서 *.pfx* 파일을 두 번 클릭하여 설치합니다. **저장소 위치**를 **현재 사용자**로 유지한 후 **다음**을 클릭합니다.
-2. 가져올 **파일** 페이지에서 아무 것도 변경하지 않습니다. **다음**을 클릭합니다.
-3. **개인 키 보호** 페이지에서 인증서의 암호를 입력하거나 보안 주체가 올바른지 확인한 후 **다음**을 클릭합니다.
-4. **인증서 저장소** 페이지에서 기본 위치를 유지한 후 **다음**을 클릭합니다.
-5. **Finish**를 클릭합니다. 인증서 설치에 대한 **보안 경고**에서 **예**를 클릭합니다. 인증서를 생성했으므로 '예'를 클릭하면 됩니다. 이제 인증서를 성공적으로 가져왔습니다.
+[!INCLUDE [Install client certificate](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: cc2a24b26b152671173770adfd4aefcfcb2512d4
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: f1b9beabfb0a92e5cc49d6af762693ae45a85e42
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -89,7 +89,7 @@ ms.lasthandoff: 05/02/2017
 * 데이터 레이크 분석
 * 데이터 레이크 저장소
 * DNS
-* DocumentDB
+* Azure Cosmos DB
 * Event Hubs
 * HDInsight 클러스터 - [HDInsight 제한 사항](#hdinsight-limitations) 참조
 * IoT Hub
@@ -125,20 +125,21 @@ ms.lasthandoff: 05/02/2017
 현재 리소스 이동을 사용하지 않는 서비스는 다음과 같습니다.
 
 * AD 하이브리드 상태 관리 서비스
-* 응용 프로그램 게이트웨이
+* Application Gateway
+* Managed Disks를 포함하는 Virtual Machines의 가용성 집합
 * BizTalk 서비스
 * 컨테이너 서비스
 * Express 경로
 * DevTest Labs - 같은 구독의 새 리소스 그룹으로의 이동이 사용되도록 설정되지만 구독 간 이동은 사용되도록 설정되지 않습니다.
 * Dynamics LCS
+* Managed Disks에서 만든 이미지
+* Managed Disks
+* Managed Applications
 * Recovery Services 자격 증명 모음 - Recovery Services 자격 증명 모음과 연결된 Compute, Network 및 Storage 리소스도 이동하지 않습니다. [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
 * 보안
+* Managed Disks에서 만든 스냅숏
 * Key Vault에 저장된 인증서를 사용하는 가상 컴퓨터
 * Managed Disks를 포함하는 가상 컴퓨터
-* Managed Disks를 포함하는 Virtual Machines의 가용성 집합
-* Managed Disks
-* Managed Disks에서 만든 이미지
-* Managed Disks에서 만든 스냅숏
 * 가상 네트가상 네트워크(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Marketplace 리소스에서 만든 Virtual Machines는 구독 간에 이동할 수 없습니다. 리소스를 현재 구독에서 프로비전 해제하고 새 구독에 다시 배포해야 합니다.
 
@@ -214,7 +215,7 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
 * 대상 구독은 다른 어떠한 클래식 리소스도 포함할 수 없습니다.
 * 이동은 클래식 이동에 대한 별도의 REST API를 통해서만 요청할 수 있습니다. 클래식 리소스를 새 구독으로 이동할 경우 표준 Resource Manager 이동 명령은 작동하지 않습니다.
 
-새 구독으로 클래식 리소스를 이동하려면 포털 또는 클래식 리소스에 한정된 REST 작업을 사용하세요. 포털을 통해 클래식 리소스를 이동하는 방법에 대한 내용은 [포털 사용](#use-portal)을 참조하세요. REST를 사용하려면 다음 단계를 수행합니다.
+클래식 리소스를 새 구독으로 이동하려면 클래식 리소스와 관련된 REST 작업을 사용합니다. REST를 사용하려면 다음 단계를 수행합니다.
 
 1. 원본 구독이 구독 간 이동에 참여할 수 있는지 확인합니다. 다음 작업을 사용합니다.
 

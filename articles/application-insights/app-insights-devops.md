@@ -3,7 +3,7 @@ title: "웹 응용 프로그램 성능 모니터링 - Azure Application Insights
 description: "devOps 주기에 Application Insights를 적용하는 방법"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
 ms.service: application-insights

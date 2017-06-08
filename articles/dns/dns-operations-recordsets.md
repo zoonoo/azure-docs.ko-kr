@@ -14,10 +14,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1d7f24b8a65347bc54b273d08c06b22320cbeb2c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 54389c0b6dfbe5483106ca74e379dff9091fb907
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -303,13 +304,17 @@ Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### <a name="to-modify-ns-records-at-the-zone-apex"></a>영역 루트의 NS 레코드를 수정하려면
 
-영역 루트(인용 부호를 포함하는 `-Name "@"`)에 자동으로 생성된 NS 레코드 집합에서 레코드를 추가, 제거 또는 수정할 수는 없습니다. 레코드 집합 TTL 및 메타데이터를 수정하는 변경 작업만 허용됩니다.
+각 DNS 영역에 영역 루트의 NS 레코드 집합이 자동으로 만들어집니다. 여기에는 영역에 할당된 Azure DNS 이름 서버의 이름이 포함됩니다.
 
-다음 예제에서는 NS 레코드 집합의 TTL 속성을 변경하는 방법을 보여 줍니다.
+이 NS 레코드 집합에 추가 이름 서버를 추가하여 DNS 공급자가 2개 이상 있는 공동 호스팅 도메인을 지원할 수 있습니다. 또한 이 레코드 집합의 TTL 및 메타데이터를 수정할 수 있습니다.또한 이 레코드 집합의 TTL 및 메타데이터를 수정할 수 있습니다. 그러나 미리 채워진 Azure DNS 이름 서버를 제거 또는 수정할 수 없습니다.
+
+이는 영역 루트에 있는 NS 레코드 집합에만 적용됩니다. 영역의 다른 NS 레코드 집합은 제약 없이 수정할 수 있습니다(자식 영역을 위임하는 데 사용되므로).
+
+다음 예제에서는 영역 루트의 NS 레코드 집합에 추가 이름 서버를 추가하는 방법을 보여 줍니다.
 
 ```powershell
 $rs = Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
-$rs.Ttl = 300
+Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname ns1.myotherdnsprovider.com
 Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 

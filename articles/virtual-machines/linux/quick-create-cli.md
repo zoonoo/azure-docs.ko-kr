@@ -13,13 +13,14 @@ ms.devlang: azurecli
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 05/11/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 83b72b046605f6076302d4347afa70707060929e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 935cc417e7fa60e725c26560adf97ed00cf4bf06
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -29,13 +30,15 @@ ms.lasthandoff: 05/09/2017
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+이 빠른 시작에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 
-[az login](/cli/azure/#login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+[az login](/cli/azure/#login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따르거나 **시도**를 클릭하여 Cloud Shell을 사용하세요.
 
-```azurecli
+```azurecli-interactive 
 az login
 ```
 
@@ -45,7 +48,7 @@ az login
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -55,13 +58,13 @@ az group create --name myResourceGroup --location eastus
 
 다음 예제에서는 *myVM*이라는 VM을 만들고 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
 VM을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다. `publicIpAddress`을 기록해 둡니다. 이 주소는 VM에 액세스하는 데 사용됩니다.
 
-```azurecli
+```azurecli-interactive 
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -76,9 +79,9 @@ VM을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합�
 
 ## <a name="open-port-80-for-web-traffic"></a>웹 트래픽에 대해 포트 80 열기 
 
-기본적으로 Azure에 배포된 Linux 가상 컴퓨터에는 SSH 연결만이 가능합니다. 이 VM이 웹 서버가 되는 경우 인터넷에서 포트 80을 열어야 합니다. [az vm open-port](/cli/azure/vm#open-port)] 명령을 사용하여 원하는 포트를 엽니다.  
+기본적으로 Azure에 배포된 Linux 가상 컴퓨터에는 SSH 연결만이 가능합니다. 이 VM이 웹 서버가 되는 경우 인터넷에서 포트 80을 열어야 합니다. [az vm open-port](/cli/azure/vm#open-port) 명령을 사용하여 원하는 포트를 엽니다.  
  
- ```azurecli 
+ ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
@@ -104,18 +107,18 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
-## <a name="view-the-ngix-welcome-page"></a>NGIX 시작 페이지 보기
+## <a name="view-the-nginx-welcome-page"></a>NGINX 시작 페이지 보기
 
 NGINX를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 사용자가 선택한 웹 브라우저를 사용하여 기본 NGINX 시작 페이지를 볼 수 있습니다. 위에 설명한 *publicIpAddress*를 사용하여 기본 페이지를 방문해야 합니다. 
 
 ![NGINX 기본 사이트](./media/quick-create-cli/nginx.png) 
 
 
-## <a name="delete-virtual-machine"></a>가상 컴퓨터 삭제
+## <a name="clean-up-resources"></a>리소스 정리
 
 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#delete) 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

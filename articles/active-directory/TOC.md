@@ -1,8 +1,10 @@
 # 개요
 ## [Azure Active Directory란?](active-directory-whatis.md)
 ## [버전 선택](active-directory-editions.md)
-
 ## [Azure ID 관리 정보](identity-fundamentals.md)
+## [Azure ID 솔루션 이해](understand-azure-identity-solutions.md)
+## [Azure Portal 환경에서 미리 보기](active-directory-preview-explainer.md)
+
 
 # 시작
 ## [Azure AD 테넌트 가져오기](active-directory-howto-tenant.md)
@@ -13,7 +15,8 @@
 ### [클래식 포털](active-directory-licensing-what-is.md)
 ## [조직의 Azure 가져오기](sign-up-organization.md)
 ## [FAQ](active-directory-faq.md)
-## [SaaS 앱 자습서](active-directory-saas-tutorial-list.md)
+## [Azure Active Directory를 지원하는 방법](active-directory-troubleshooting-support-howto.md)
+## [SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)
 
 # 방법
 ## 계획 및 디자인
@@ -89,18 +92,19 @@
 ### 문제 해결
 #### [누락된 감사 데이터](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [다운로드에서 누락된 데이터](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    프로그래밍 방식 액세스
+###    [프로그래밍 방식 액세스](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [감사 참조](active-directory-reporting-api-audit-reference.md)
-#### [감사 샘플](active-directory-reporting-api-audit-samples.md)
-#### [데이터 가져오기](active-directory-reporting-api-with-certificates.md)
-#### [필수 구성 요소](active-directory-reporting-api-prerequisites.md)
 #### [로그인 참조](active-directory-reporting-api-sign-in-activity-reference.md)
+#### [필수 구성 요소](active-directory-reporting-api-prerequisites-azure-portal.md)
+#### [감사 샘플](active-directory-reporting-api-audit-samples.md)
 #### [로그인 샘플](active-directory-reporting-api-sign-in-activity-samples.md)
+#### [데이터 가져오기](active-directory-reporting-api-with-certificates.md)
 ### [클래식 포털](active-directory-view-access-usage-reports.md)
 #### [Azure AD 보고](active-directory-reporting-getting-started.md)
 #### [보고 가이드](active-directory-reporting-guide.md)
 #### [알려진 네트워크](active-directory-known-networks.md)
 #### [API](active-directory-reporting-api-getting-started.md)
+##### [필수 구성 요소](active-directory-reporting-api-prerequisites.md)
 #### [감사 이벤트](active-directory-reporting-audit-events.md)
 #### [대기 시간](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -113,7 +117,7 @@
 ##### [알 수 없는 원본](active-directory-reporting-sign-ins-from-unknown-sources.md)
 ##### [비정상적인 로그인](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
-## [암호 관리](active-directory-passwords.md)
+## [암호 관리](active-directory-passwords-overview.md)
 ### 사용자 문서
 #### [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
 #### [암호 모범 사례](active-directory-secure-passwords.md)
@@ -171,11 +175,14 @@
 ##### [KCD와 SSO](active-directory-application-proxy-sso-using-kcd.md)
 ##### [헤더와 SSO](application-proxy-ping-access.md)
 ##### [암호 보관을 사용하는 SSO](application-proxy-sso-azure-portal.md)
-#### 모범 사례 이해
+#### 개념
 ##### [커넥터](application-proxy-understand-connectors.md)
 ##### [보안](application-proxy-security-considerations.md)
 ##### [네트워크](application-proxy-network-topology-considerations.md)
-#### 
+
+
+##### [TMG 또는 UAG에서 업그레이드](application-proxy-transition-from-uag-tmg.md)
+
 #### 고급 구성
 ##### [별도 네트워크에 게시](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [프록시 서버](application-proxy-working-with-proxy-servers.md)
@@ -186,7 +193,6 @@
 #### 게시 연습
 ##### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
-##### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [문제 해결](active-directory-application-proxy-troubleshoot.md)
 #### 클래식 포털 사용
 ##### [커넥터 다운로드](application-proxy-enable-classic-portal.md)
@@ -201,12 +207,6 @@
 #### [사용자 제거](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [내 앱 모두 보기](active-directory-coreapps-view-azure-portal.md)
 #### [사용자 계정 프로비전 관리](active-directory-enterprise-apps-manage-provisioning.md)
-
-### 개발
-#### [사용자 할당](active-directory-applications-guiding-developers-assigning-users.md)
-#### [그룹 할당](active-directory-applications-guiding-developers-assigning-groups.md)
-#### [할당 요구](active-directory-applications-guiding-developers-requiring-user-assignment.md)
-#### [LoB 앱 개발](active-directory-applications-guiding-developers-for-lob-applications.md)
 
 ### [앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
 #### [셀프 서비스 액세스](active-directory-self-service-application-access.md)
@@ -226,7 +226,7 @@
 ##### [액세스 패널](active-directory-application-access-panel-content-map.md)
 ##### [응용 프로그램 프록시](active-directory-application-proxy-content-map.md)
 ##### [조건부 액세스](active-directory-application-conditional-access-content-map.md)
-
+### [앱 개발](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [문서 라이브러리](active-directory-apps-index.md)
 
 ## 디렉터리 관리
@@ -294,11 +294,13 @@
 ##### [리소스별](role-based-access-control-configure.md)
 #### [기본 제공 역할](role-based-access-built-in-roles.md)
 #### [사용자 지정 역할](role-based-access-control-custom-roles.md)
+#### [내부 및 외부 사용자에 대한 사용자 지정 역할 할당](role-based-access-control-create-custom-roles-for-internal-external-users.md)
 #### [보고](role-based-access-control-access-change-history-report.md)
 #### 역할을 관리하는 다양한 방법
 ##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
-##### [REST](role-based-access-control-manage-access-rest.md)
+##### [REST (영문)](role-based-access-control-manage-access-rest.md)
+#### [테넌트 관리자 액세스 권한 상승](role-based-access-control-tenant-admin-access.md)
 #### [문제 해결](role-based-access-control-troubleshooting.md)
 #### [리소스 공급자 작업](role-based-access-control-resource-provider-operations.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
@@ -306,12 +308,13 @@
 ## ID 보안
 ### [조건부 액세스](active-directory-conditional-access-azure-portal.md)
 #### [시작](active-directory-conditional-access-azure-portal-get-started.md)
+#### [모범 사례](active-directory-conditional-access-best-practices.md)
+#### [기술 참조](active-directory-conditional-access-technical-reference.md)
 #### [지원되는 앱](active-directory-conditional-access-supported-apps.md)
 #### [장치 정책 이해](active-directory-conditional-access-device-policies.md)
 #### [연결된 앱에 대한 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
-#### [기술 참조](active-directory-conditional-access-technical-reference.md)
-#### [FAQ](active-directory-conditional-faqs.md)
 #### [재구성](active-directory-conditional-access-device-remediation.md)
+#### [FAQ](active-directory-conditional-faqs.md)
 #### [클래식 포털](active-directory-conditional-access.md)
 ##### [시작](active-directory-conditional-access-azuread-connected-apps.md)
 
@@ -332,6 +335,7 @@
 #### [로그인 환경](active-directory-identityprotection-flows.md)
 #### [위험 이벤트 시뮬레이션](active-directory-identityprotection-playbook.md)
 #### [사용자 차단 해제](active-directory-identityprotection-unblock-howto.md)
+#### [FAQ](active-directory-identity-protection-faqs.md)
 #### [용어](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2017
+ms.date: 05/18/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 3df12cd8700a75c1288967e86cd92e6ed4886d59
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: ced46c64c1c105aa987759e05ab3680bc399f9a0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -40,14 +41,14 @@ ms.lasthandoff: 03/24/2017
 ## <a name="processing-of-incoming-messaging-requests"></a>들어오는 메시징 요청 처리
 클라이언트가 서비스 버스에 요청을 보내면 Azure 부하 분산 장치가 모든 게이트웨이 노드로 해당 요청을 라우팅합니다. 게이트웨이 노드는 요청 권한을 부여 합니다. 메시징 엔터티(큐, 토픽, 구독)에 관한 요청인 경우 게이트웨이 노드는 게이트웨이 저장소에서 해당 엔터티를 조회하여 해당 엔터티가 위치한 메시징 저장소를 결정합니다. 그런 다음, 현재 이 컨테이너에 서비스를 제공하는 중인 메시징 브로커 노드를 조회하고 해당 메시징 브로커 노드에 요청을 보냅니다. 메시징 브로커 노드는 요청을 처리하고 컨테이너 저장소에서 엔터티 상태를 업데이트합니다. 그 다음, 메시징 브로커 노드는 응답을 게이트웨이 노드로 다시 보내 원래 요청을 실행한 클라이언트에 적절한 응답을 전송합니다.
 
-![들어오는 메시징 요청 처리](./media/service-bus-architecture/IC690644.png)
+![들어오는 메시징 요청 처리](./media/service-bus-architecture/ic690644.png)
 
 ## <a name="processing-of-incoming-relay-requests"></a>들어오는 릴레이 요청 처리
-클라이언트가 서비스 버스에 요청을 보내면 Azure 부하 분산 장치가 모든 게이트웨이 노드로 해당 요청을 라우팅합니다. 요청이 수신 대기 중인 요청인 경우 게이트웨이 노드는 새 릴레이를 만듭니다. 요청이 특정 릴레이에 대한 연결 요청인 경우 게이트웨이 노드는 해당 릴레이를 소유한 게이트웨이 노드로 연결 요청을 전달합니다. 릴레이를 소유한 게이트웨이 노드는 수신 대기 중인 클라이언트로 랑데부 요청을 보내 수신기가 연결 요청을 수신한 게이트웨이 노드에 대한 임시 채널을 만들도록 요청합니다.
+클라이언트가 [Azure Relay](/azure/service-bus-relay/) 서비스에 요청을 보내면 Azure Load Balancer가 게이트웨이 노드 중 하나로 해당 요청을 라우팅합니다. 요청이 수신 대기 중인 요청인 경우 게이트웨이 노드는 새 릴레이를 만듭니다. 요청이 특정 릴레이에 대한 연결 요청인 경우 게이트웨이 노드는 해당 릴레이를 소유한 게이트웨이 노드로 연결 요청을 전달합니다. 릴레이를 소유한 게이트웨이 노드는 수신 대기 중인 클라이언트로 랑데부 요청을 보내 수신기가 연결 요청을 수신한 게이트웨이 노드에 대한 임시 채널을 만들도록 요청합니다.
 
 릴레이 연결이 설정되면 클라이언트가 랑데부에 사용되는 게이트웨이 노드를 통해 메시지를 교환할 수 있습니다.
 
-![들어오는 WCF 릴레이 요청 처리](./media/service-bus-architecture/IC690645.png)
+![들어오는 WCF 릴레이 요청 처리](./media/service-bus-architecture/ic690645.png)
 
 ## <a name="next-steps"></a>다음 단계
 Service Bus 아키텍처의 개요를 읽었으므로 자세한 내용은 다음 링크를 참조하세요.

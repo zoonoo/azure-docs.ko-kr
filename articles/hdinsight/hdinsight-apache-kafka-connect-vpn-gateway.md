@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/18/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9ddf19c008c35525419a357436b1a969a4b19205
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9489fdc3c5388a7510bc4411b4abb05fa72fbf4f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -229,7 +230,7 @@ HDInsight 클러스터는 Azure Virtual Network 내에서 보호되며 들어오
 
     클러스터의 HTTPS 사용자 이름 및 암호를 입력하라는 메시지가 표시되면 입력합니다. 클러스터에 대한 Ambari Web UI가 표시됩니다.
 
-2. Kafka에 대한 정보를 보려면 왼쪽 목록에서 __Kafka__를 선택합니다. 
+2. Kafka에 대한 정보를 보려면 왼쪽 목록에서 __Kafka__를 선택합니다.
 
     ![Kafka가 강조 표시된 서비스 목록](./media/hdinsight-apache-kafka-connect-vpn-gateway/select-kafka-service.png)
 
@@ -271,7 +272,7 @@ HDInsight 클러스터는 Azure Virtual Network 내에서 보호되며 들어오
 
 ## <a name="connect-to-the-vpn-gateway"></a>VPN Gateway에 연결
 
-__Windows 클라이언트__에서 VPN Gateway에 연결하려면 [지점- 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameconnectapart-7---connect-to-azure) 문서의 __Azure에 연결__ 섹션을 사용합니다.
+__Windows 클라이언트__에서 VPN Gateway에 연결하려면 [지점- 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#a-nameclientcertificatea7---install-an-exported-client-certificate) 문서의 __Azure에 연결__ 섹션을 사용합니다.
 
 ## <a name="remote-kafka-client"></a>원격 Kafka 클라이언트
 
@@ -319,7 +320,7 @@ __Windows 클라이언트__에서 VPN Gateway에 연결하려면 [지점- 사이
   ```
 
     `'ip_address'` 항목을 이 섹션의 1단계에서 반환된 주소로 바꿉니다.
-    
+
     > [!NOTE]
     > 이 코드는 문자열 `test message`를 토픽 `testtopic`으로 전송합니다. HDInsight에서 Kafka의 기본 구성은 토픽이 없을 때 만드는 것입니다.
 

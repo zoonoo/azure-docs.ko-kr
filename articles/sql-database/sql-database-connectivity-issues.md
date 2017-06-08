@@ -336,7 +336,7 @@ Enterprise Library 6(EntLib60)은 Azure SQL 데이터베이스를 포함한 견�
 ### <a name="entlib60-classes-for-transient-errors-and-retry"></a>일시적 오류 및 재시도용 EntLib60 클래스
 다음 EntLib60 클래스는 특히 재시도 논리에 유용합니다. 이러한 클래스는 모두 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 네임스페이스에 있으며, 여기에 추가 클래스가 있을 수 있습니다.
 
-***Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 네임스페이스:*
+**Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** *네임스페이스:*
 
 * **RetryPolicy** 클래스
   

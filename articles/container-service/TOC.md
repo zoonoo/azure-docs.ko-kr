@@ -10,8 +10,8 @@
 ## [클러스터 배포 - 포털](container-service-deployment.md)
 ## [클러스터 배포 - Azure CLI](container-service-create-acs-cluster-cli.md)
 ## [Kubernetes 및 Jenkins를 사용하는 CI/CD](container-service-kubernetes-jenkins.md)
-## [DC/OS 및 VSTS를 사용하는 CI/CD](container-service-setup-ci-cd.md)
 ## [Docker Swarm 및 VSTS를 사용하는 CI/CD](container-service-docker-swarm-setup-ci-cd.md)
+## [ACS 엔진에서 Docker Swarm 모드 및 VSTS를 사용하는 CI/CD](container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md)
 
 # 개념
 ## [컨테이너 보안](container-service-security.md)
@@ -29,6 +29,7 @@
 ### [DC/OS의 앱/사용자별 Orchestrator](container-service-application-specific-marathon.md)
 ### [파일 공유 추가](container-service-dcos-fileshare.md)
 ### [Azure Container Registry 사용](container-service-dcos-acr.md)
+### [Vamp로 카나리아 릴리스](container-service-dcos-vamp-canary-release.md)
 ### DC/OS 모니터링
 #### [ELK로 모니터링](container-service-monitoring-elk.md)
 #### [OMS로 모니터링](container-service-monitoring-oms.md)
@@ -43,6 +44,7 @@
 #### [OMS로 모니터링](container-service-kubernetes-oms.md)
 #### [Datadog로 모니터링](container-service-kubernetes-datadog.md)
 #### [Sysdig로 모니터링](container-service-kubernetes-sysdig.md)
+#### [CoScale로 모니터링](container-service-kubernetes-coscale.md)
 ## Docker Swarm을 사용하여 관리
 ### [Docker 및 Docker Compose](container-service-docker-swarm.md)
 

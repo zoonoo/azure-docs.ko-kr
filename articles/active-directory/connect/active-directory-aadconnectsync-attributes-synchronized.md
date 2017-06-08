@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: markvi;andkjell
-translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 9238141fc56abcb618d71e4bfd1eccb77f282c71
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 08df9939eb31c224d62d96a0d034d1cda10ba270
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -102,6 +103,7 @@ ms.lasthandoff: 03/08/2017
 | msExchAuditOwner |X | | | |
 | msExchBlockedSendersHash |X |X | | |
 | msExchBypassAudit |X | | | |
+| msExchBypassModerationLink | | |X |Azure AD Connect 버전 1.1.524.0에서 사용 가능 |
 | msExchCoManagedByLink | | |X | |
 | msExchDelegateListLink |X | | | |
 | msExchELCExpirySuspensionEnd |X | | | |
@@ -430,6 +432,18 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 | msExchUCVoiceMailSettings |X | | |UM(통합 메시징)-온라인 음성 메일 사용: Microsoft Lync Server Intergration 사용자가 온라인 서비스에 음성 메일이 있는지 Lync Server 온-프레미스에 나타내기 위해서 사용합니다. |
 | msExchUserHoldPolicies |X | | |소송 보류: 어떤 사용자가 소송을 보류 중인지 확인하기 위해 클라우드 서비스를 사용합니다. |
 | proxyAddresses |X |X |X |Exchange Online의 x500 주소만 삽입됩니다. |
+
+## <a name="exchange-mail-public-folder"></a>Exchange 메일 공용 폴더
+이러한 특성은 **Exchange 메일 공용 폴더**를 사용하도록 설정할 때 온-프레미스 Active Directory에서 Azure AD에서 동기화됩니다.
+
+| 특성 이름 | PublicFolder | 주석 |
+| --- | :---:| --- |
+| displayName | X |  |
+| mail | X |  |
+| msExchRecipientTypeDetails | X |  |
+| objectGUID | X |  |
+| proxyAddresses | X |  |
+| targetAddress | X |  |
 
 ## <a name="device-writeback"></a>장치 쓰기 저장
 Active Directory에 장치 개체를 만듭니다. 이러한 개체는 Azure AD에 가입된 장치이거나 도메인에 가입된 Windows 10 컴퓨터일 수 있습니다.

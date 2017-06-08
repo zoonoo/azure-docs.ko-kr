@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 849fd1871d0f19883f25b0f211a09831931a752b
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: b519761229e1d19e31ff40a87720aa496586114b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/12/2017
 
 ---
 #<a name="service-fabric-documentation"></a>Service Fabric 설명서
@@ -127,7 +128,8 @@ Service Fabric을 사용하여 확장성 및 안정성이 뛰어난 마이크로
                 <div class="card">
                     <div class="cardText">
                         <h3>명령줄</h3>
-                        <p><a href="/powershell/module/ServiceFabric">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.servicefabric">PowerShell(Azure)</a></p>
+                        <p><a href="/powershell/azure/overview?view=azureservicefabricps">PowerShell</a></p>
                     </div>
                 </div>
             </div>

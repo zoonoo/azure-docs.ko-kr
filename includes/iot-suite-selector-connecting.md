@@ -1,7 +1,6 @@
 > [!div class="op_single_selector"]
 > * [Windows에서 C](../articles/iot-suite/iot-suite-connecting-devices.md)
 > * [Linux에서 C](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-> * [Mbed에서 C](../articles/iot-suite/iot-suite-connecting-devices-mbed.md)
 > * [Node.JS](../articles/iot-suite/iot-suite-connecting-devices-node.md)
 > 
 > 

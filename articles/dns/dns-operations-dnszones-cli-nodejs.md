@@ -13,18 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 9b545937f3e375dfcef815a66263a57bd5042f69
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 588c87749f049eff5b9e0729f6769c8367ba41e4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 ---
 
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 Azure DNS에서 DNS 영역을 관리하는 방법
 
 > [!div class="op_single_selector"]
-> * [Azure CLI](dns-operations-dnszones-cli.md)
+> * [포털](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
+> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 이 가이드는 Windows, Mac 및 Linux에서 사용할 수 있는 플랫폼 간 Azure CLI 1.0을 사용하여 DNS 영역을 관리하는 방법을 보여 줍니다. [Azure PowerShell](dns-operations-dnszones.md) 또는 Azure Portal을 사용하여 DNS 영역을 관리할 수도 있습니다.
 
@@ -32,8 +35,8 @@ ms.lasthandoff: 02/27/2017
 
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
-* [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI
-* [Azure CLI 2.0](dns-operations-dnszones-cli.md) - 리소스 관리 배포 모델용 차세대 CLI
+* [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI.
+* [Azure CLI 2.0](dns-operations-dnszones-cli.md) - 리소스 관리 배포 모델용 차세대 CLI.
 
 ## <a name="introduction"></a>소개
 

@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 67313e4ff780e6c64dfc3d767ea49167c2a390f4
 ms.openlocfilehash: 701a3bbadb340c9390b486a5295eced056db70a0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -59,9 +61,4 @@ Operations Management Suite 포털에서 B2B(Business-to-Business) 메시지를 
 * [AS2 추적 스키마](logic-apps-track-integration-account-as2-tracking-schemas.md)에 대해 자세히 알아봅니다.    
 * [X12 추적 스키마](logic-apps-track-integration-account-x12-tracking-schema.md)에 대해 자세히 알아봅니다.  
 * [엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md)에 대해 자세히 알아봅니다.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

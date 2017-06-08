@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
 ms.author: ashwink
-translationtype: Human Translation
-ms.sourcegitcommit: b521c3bb99c9a6980df46eacec4e1ebe72fb01a1
-ms.openlocfilehash: 00f6a7af021029d1795071c930e05f200578fa14
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6f1234381a6aad9632d88825aab1a5bf304a20fb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 02/23/2017
 되풀이 일정 또는 특정 날짜에 성능 메트릭 임계값을 기반으로 가상 컴퓨터 크기 집합의 규모를 확장 및 감축할 수 있습니다. 또한 크기 조정 동작에 대한 전자 메일 및 웹후크 알림을 구성할 수 있습니다. 이 연습에서는 VM 크기 집합에서 Resource Manager 템플릿을 사용하여 이 모든 개체를 구성하는 예를 보여 줍니다.
 
 > [!NOTE]
-> 이 연습에서는 VM 크기 집합에 대한 단계를 설명하지만 동일 정보가 Cloud Services 및 웹앱의 자동 크기 조정에 적용됩니다.
+> 이 연습에서는 VM Scale Sets에 대한 단계를 설명하지만 동일한 정보가 [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 및 [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 자동 크기 조정에도 적용됩니다.
 > CPU와 같은 간단한 성능 메트릭을 기반으로 VM 크기 집합에 대한 간단한 규모 감축/확장 설정을 지정하려면 [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) 및 [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) 문서를 참조하세요.
 >
 >
@@ -202,7 +203,7 @@ ms.lasthandoff: 02/23/2017
             }
           }
     ```
-    지원되는 필드와 해당 값은 [자동 크기 조정 REST API 설명서](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx)를 참조하세요. 이제 자동 크기 조정 설정에 이전에 설명한&3;개의 프로필이 포함되어 있습니다.
+    지원되는 필드와 해당 값은 [자동 크기 조정 REST API 설명서](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx)를 참조하세요. 이제 자동 크기 조정 설정에 이전에 설명한 3개의 프로필이 포함되어 있습니다.
 
 7. 마지막으로 자동 크기 조정 **알림** 섹션을 확인합니다. 규모 확장 또는 축소 동작이 성공적으로 트리거된 경우 자동 크기 조정 알림을 통해 세 가지 작업을 수행할 수 있습니다.
    - 구독의 관리자와 공동 관리자에게 알림

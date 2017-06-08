@@ -29,7 +29,7 @@ ms.lasthandoff: 02/23/2017
 ## <a name="about-windows-hello-for-business"></a>비즈니스용 Windows Hello 정보
 비즈니스용 Windows Hello는 조직과 소비자를 위한 보안 방법으로, 암호 수준을 넘어서는 개인/공개 키 또는 인증서 기반 인증 방법입니다. 이 인증 방식은 암호를 대신할 수 있으며 위반, 도난 및 피싱에 강한 키 쌍 자격 증명에 의존합니다.
 
- 사용자는 비즈니스용 Windows Hello를 사용하여 Microsoft 계정, Windows Server Active Directory 계정, Microsoft Azure AD(Azure Active Directory) 계정 또는 FIDO(Fast ID Online) 인증을 지원하는 Microsoft가 아닌 타사 서비스에 인증할 수 있습니다. 비즈니스용 Windows Hello 등록 중에 진행되는 초기&2;단계 인증 후에 비즈니스용 Windows Hello가 사용자의 장치에 설치되며 사용자는 Windows Hello 또는 PIN에 해당하는 제스처를 설정합니다. 사용자는 ID를 확인하는 제스처를 제공합니다. 그러면 Windows에서 비즈니스용 Windows Hello를 사용하여 사용자를 인증하고 사용자가 보호된 리소스 및 서비스에 액세스할 수 있습니다.
+ 사용자는 비즈니스용 Windows Hello를 사용하여 Microsoft 계정, Windows Server Active Directory 계정, Microsoft Azure AD(Azure Active Directory) 계정 또는 FIDO(Fast ID Online) 인증을 지원하는 Microsoft가 아닌 타사 서비스에 인증할 수 있습니다. 비즈니스용 Windows Hello 등록 중에 진행되는 초기 2단계 인증 후에 비즈니스용 Windows Hello가 사용자의 장치에 설치되며 사용자는 Windows Hello 또는 PIN에 해당하는 제스처를 설정합니다. 사용자는 ID를 확인하는 제스처를 제공합니다. 그러면 Windows에서 비즈니스용 Windows Hello를 사용하여 사용자를 인증하고 사용자가 보호된 리소스 및 서비스에 액세스할 수 있습니다.
 
 개인 키는 사용자가 장치에 로그인하는 데 사용하는 스마트 카드와 같은 PIN, 생체 인식 또는 원격 장치 등의 "사용자 제스처"를 통해서만 사용할 수 있습니다. 이 정보는 인증서 또는 비대칭 키 쌍에 연결됩니다. 개인 키는 장치에 TPM(신뢰할 수 있는 플랫폼 모듈) 칩이 있는지를 입증하는 하드웨어입니다. 개인 키는 절대 장치 밖으로 나가지 않습니다.
 

@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 06/05/2017
 ms.author: nisoneji
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
 ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -133,9 +135,4 @@ Azure에 복제하는 경우 이 작업을 수행할 필요가 없습니다.
 * [VMM 클라우드의 Hyper-V VM을 Azure로 복제](site-recovery-vmm-to-azure.md)
 * [Hyper-V VM(VMM 없음)을 Azure로 복제](site-recovery-hyper-v-site-to-azure.md)
 * [VMM 사이트 간에 Hyper-V VM 복제](site-recovery-vmm-to-vmm.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

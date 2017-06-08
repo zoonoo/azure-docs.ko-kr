@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/03/2017
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 69378496fb7e4176243d36950e7270809248d2bb
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: d365446b7eafd373b3d1bde2ed0a407f1e917b86
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -78,74 +79,6 @@ Azure AD에 대한 필수 조건:
     - 조직 구성 단위 내에 서비스 주체 개체 및 컴퓨터 개체를 만들 수 있는 권한
     - 역방향 DNS 프록시 규칙을 만들 수 있는 권한
     - 컴퓨터를 Azure AD 도메인에 가입할 수 있는 권한
-
-**VPN을 통해 온-프레미스 Active Directory와 통합된 HDInsight**
-
-이 아키텍처는 Azure IaaS에서 실행되는 Azure AD와 통합된 HDInsight와 유사합니다. 유일한 차이점은 Azure AD가 온-프레미스에 있고 Azure AD에 대한 HDInsight의 시야가 [Azure에서 온-프레미스 네트워크로 VPN 연결](../expressroute/expressroute-introduction.md)을 통한다는 점입니다.
-
-![도메인에 가입된 HDInsight 클러스터 토폴로지](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_3.png)
-
-> [!NOTE]
-> 이 아키텍처에서 HDInsight 클러스터와 함께 Azure Data Lake Store를 사용할 수 없습니다.
-
-Azure AD에 대한 필수 조건:
-
-* [조직 구성 단위](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md)를 만들어야 하며 여기에 HDInsight 클러스터 VM 및 클러스터에 사용되는 서비스 주체를 배치해야 합니다.
-* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md)가 Azure AD와의 통신을 위해 설정되어야 합니다. LDAPS를 설정하는 데 사용된 인증서는 자체 서명된 인증서가 아닌 실제 인증서여야 합니다.
-* HDInsight 서브넷의 IP 주소 범위에 대한 도메인에 역방향 DNS 영역을 만들어야 합니다(예: 이전 그림의 10.2.0.0/24).
-* 서비스 계정 또는 사용자 계정이 필요합니다. 이 계정을 사용하여 HDInsight 클러스터를 만듭니다. 이 계정에는 다음 사용 권한이 있어야 합니다.
-
-    - 조직 구성 단위 내에 서비스 주체 개체 및 컴퓨터 개체를 만들 수 있는 권한
-    - 역방향 DNS 프록시 규칙을 만들 수 있는 권한
-    - 컴퓨터를 Azure AD 도메인에 가입할 수 있는 권한
-
-**Azure AD와 동기화된 온-프레미스 Active Directory와 통합된 HDInsight**
-
-이 아키텍처는 클라우드 전용 Azure AD와 통합된 HDInsight와 유사합니다. 유일한 차이점은 온-프레미스 Active Directory가 Azure AD에 동기화된다는 점입니다. HDInsight가 Azure AD와 통합될 수 있도록 클라우드에 도메인 컨트롤러를 구성합니다. 이것은 [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)를 사용하여 적용됩니다. Azure AD DS는 클라우드에 도메인 컨트롤러 컴퓨터를 만들고 이에 대한 IP 주소를 제공합니다. 고가용성을 위해 두 개의 도메인 컨트롤러를 만듭니다.
-
-현재 Azure AD DS는 클래식 가상 네트워크에만 존재합니다. Azure 클래식 포털을 사용해야만 액세스할 수 있습니다. HDInsight 가상 네트워크는 VNet 간 피어링을 사용하여 클래식 가상 네트워크와 피어링되어야 하는 Azure Portal에 존재합니다.
-
-> [!NOTE]
-> 클래식 가상 네트워크와 Azure Resource Manager 가상 네트워크 간에 피어링을 수행하려면 두 가상 네트워크가 동일한 지역 내에 있어야 하고 동일한 Azure 구독 하에 있어야 합니다.
-
-![도메인에 가입된 HDInsight 클러스터 토폴로지](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
-
-Azure AD에 대한 필수 조건:
-
-* [조직 구성 단위](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md)를 만들어야 하며 여기에 HDInsight 클러스터 VM 및 클러스터에 사용되는 서비스 주체를 배치해야 합니다.
-* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md)는 Azure AD DS를 구성할 때 설정되어야 합니다. LDAPS를 설정하는 데 사용된 인증서는 자체 서명된 인증서가 아닌 실제 인증서여야 합니다.
-* HDInsight 서브넷의 IP 주소 범위에 대한 도메인에 역방향 DNS 영역을 만들어야 합니다(예: 이전 그림의 10.2.0.0/24).
-* [암호 해시](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)는 Azure AD에서 Azure AD DS로 동기화되어야 합니다.
-* 서비스 계정 또는 사용자 계정이 필요합니다. 이 계정을 사용하여 HDInsight 클러스터를 만듭니다. 이 계정에는 다음 사용 권한이 있어야 합니다.
-
-    - 조직 구성 단위 내에 서비스 주체 개체 및 컴퓨터 개체를 만들 수 있는 권한
-    - 역방향 DNS 프록시 규칙을 만들 수 있는 권한
-    - 컴퓨터를 Active Directory 도메인에 가입할 수 있는 권한
-
-**기본이 아닌 Azure AD와 통합된 HDInsight(테스트 및 개발용으로만 권장됨)**
-
-이 아키텍처는 클라우드 전용 Azure AD와 통합된 HDInsight와 유사합니다. 대부분의 회사에서 Azure AD에 대한 관리자 액세스는 특정 개인에게만 제한됩니다. 따라서 개념 증명을 수행하거나 도메인에 가입된 클러스터를 만들려고 시도하려는 경우 관리자가 Azure AD에 필수 조건을 구성하기를 기다리는 대신 구독에 Azure AD 인스턴스를 만드는 것이 유용할 수 있습니다. 이것은 사용자가 만든 Azure AD 인스턴스이므로 Azure AD에 대해 Azure AD DS를 구성할 수 모든 권한을 갖습니다.
-
-Azure AD DS는 클라우드에서 도메인 컨트롤러 컴퓨터를 만들고 이에 대한 IP 주소를 제공합니다. 고가용성을 위해 두 개의 도메인 컨트롤러를 만듭니다.
-
-Azure AD DS는 클래식 가상 네트워크에만 존재하므로 Azure 클래식 포털에 대한 액세스가 필요하고 Azure AD DS 구성을 위해 클래식 가상 네트워크를 만들어야 합니다. HDInsight 가상 네트워크는 VNet 간 피어링을 사용하여 클래식 가상 네트워크와 피어링되어야 하는 Azure Portal에 존재합니다.
-
-> [!NOTE]
-> 클래식 및 Azure Resource Manager 가상 네트워크 간에 피어링을 수행하려면 두 가상 네트워크가 동일한 지역 내에 있어야 하고 동일한 Azure 구독 하에 있어야 합니다.
-
-![도메인에 가입된 HDInsight 클러스터 토폴로지](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
-
-Azure AD에 대한 필수 조건:
-
-* [조직 구성 단위](../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md)를 만들어야 하며 여기에 HDInsight 클러스터 VM 및 클러스터에 사용되는 서비스 주체를 배치해야 합니다.
-* [LDAPS](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md)는 Azure AD DS를 구성할 때 설정되어야 합니다. LDAPS를 구성하도록 [자체 서명된 인증서](../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md)를 만들 수 있습니다. 그러나 자체 서명된 인증서를 사용하려면 <a href="mailto:hdipreview@microsoft.com">hdipreview@microsoft.com</a>에서 예외를 요청해야 합니다.
-* HDInsight 서브넷의 IP 주소 범위에 대한 도메인에 역방향 DNS 영역을 만들어야 합니다(예: 이전 그림의 10.2.0.0/24).
-* [암호 해시](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)는 Azure AD에서 Azure AD DS로 동기화되어야 합니다.
-* 서비스 계정 또는 사용자 계정이 필요합니다. 이 계정을 사용하여 HDInsight 클러스터를 만듭니다. 이 계정에는 다음 사용 권한이 있어야 합니다.
-
-    - 조직 구성 단위 내에 서비스 주체 개체 및 컴퓨터 개체를 만들 수 있는 권한
-    - 역방향 DNS 프록시 규칙을 만들 수 있는 권한
-    - 컴퓨터를 Azure Active Directory 도메인에 가입할 수 있는 권한
 
 ## <a name="next-steps"></a>다음 단계
 * 도메인에 가입된 HDInsight 클러스터를 구성하려면 [도메인에 가입된 HDInsight 클러스터 구성](hdinsight-domain-joined-configure.md)을 참조하세요.

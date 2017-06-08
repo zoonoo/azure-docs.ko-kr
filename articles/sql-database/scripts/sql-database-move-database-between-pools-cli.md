@@ -9,7 +9,7 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: monitor & manage
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
@@ -30,6 +30,10 @@ ms.lasthandoff: 05/15/2017
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="sample-script"></a>샘플 스크립트
 
 [!code-azurecli-interactive[기본](../../../cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh "풀 간에 데이터베이스 이동")]
@@ -38,7 +42,7 @@ ms.lasthandoff: 05/15/2017
 
 스크립트 샘플을 실행한 후에 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

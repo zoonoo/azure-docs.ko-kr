@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/04/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 564dd782834898709f89f85e10627d07b17138ce
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 3f6ae31f577eb1bc70a06e183518aadbc6279159
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -138,7 +139,7 @@ Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용
 | 작동 방법에 대해 알아보고 일반적인 질문에 대한 답 찾기 |[SaaS 앱에 자동화된 사용자 프로비전 및 프로비전 해제](active-directory-saas-app-provisioning.md) |
 | Azure AD와 SaaS 앱 간에 매핑되는 정보 방식 구성 |[특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)<br><br>[특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | SCIM 프로토콜을 지원하는 앱에 자동화된 프로비전을 사용하는 방법 |[SCIM 사용한 앱에 자동화된 사용자 프로비전 설정](active-directory-scim-provisioning.md) |
-| 프로비전 오류의 알림 받기 |[프로비전 알림](active-directory-saas-account-provisioning-notifications.md) |
+| 사용자 프로비전에 대해 보고하고 문제를 해결하는 방법 |[자동 사용자 프로비전 보고](active-directory-saas-provisioning-reporting.md)<br><br>[프로비전 알림](active-directory-saas-account-provisioning-notifications.md)<br><br>[사용자 프로비전 문제 해결](active-directory-application-provisioning-content-map.md) |
 | 특성 값에 따라 응용 프로그램에 프로비전된 제한 |[범위 지정 필터](active-directory-saas-scoping-filters.md) |
 
 자동화된 사용자 프로비전은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 프로비전되는 사용자를 관리](#managing-access-to-applications)할 수 있습니다.
@@ -168,16 +169,16 @@ Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용
 그룹 기반 응용 프로그램 액세스 관리는 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 및 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)에 사용할 수 있습니다. 셀프 서비스 그룹 관리, 셀프 서비스 응용 프로그램 관리 및 동적 그룹은 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
 
 ### <a name="b2b-collaboration-enable-partner-access-to-applications"></a>B2B 공동 작업: 응용 프로그램에 대한 파트너 액세스 사용
-비즈니스가 다른 회사와 협력한 경우 회사 응용 프로그램에 대한 파트너 액세스를 관리해야 할 가능성이 있습니다. Azure Active Directory B2B 공동 작업은 파트너와 앱을 공유하는 쉽고 안전한 방법을 제공합니다. 이 기능은 현재 미리 보기로 제공됩니다.
+비즈니스가 다른 회사와 협력한 경우 회사 응용 프로그램에 대한 파트너 액세스를 관리해야 할 가능성이 있습니다. Azure Active Directory B2B 공동 작업은 파트너와 앱을 공유하는 쉽고 안전한 방법을 제공합니다.
 
 | 문서 가이드 |  |
 |:---:| --- |
 | 다른 Azure AD의 개요는 파트너, 고객 등 외부 사용자를 관리할 수 있는 기능을 갖추고 있습니다. |[Azure AD에서 외부 ID 관리 기능 비교](active-directory-b2b-compare-external-identities.md) |
-| B2B 공동 작업 미리 보기 및 시작하는 방법 소개 |[Azure AD와 간단하고 안전한 클라우드 통합](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B 공동 작업](active-directory-b2b-collaboration-overview.md) |
-| Azure AD B2B 공동 작업 및 사용하는 방법 자세히 알아보기 |[B2B 공동 작업: 작동 방식](active-directory-b2b-how-it-works.md)<br /><br />[Azure AD B2B 공동 작업 미리 보기의 현재 제한 사항](active-directory-b2b-current-preview-limitations.md)<br /><br />[Azure AD B2B 공동 작업 미리 보기를 사용하는 자세한 연습](active-directory-b2b-detailed-walkthrough.md) |
+| B2B 공동 작업 및 시작하는 방법에 대한 소개 |[Azure AD와 간단하고 안전한 클라우드 통합](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B 공동 작업](active-directory-b2b-collaboration-overview.md) |
+| Azure AD B2B 공동 작업 및 사용하는 방법 자세히 알아보기 |[B2B 공동 작업: 작동 방식](active-directory-b2b-how-it-works.md)<br /><br />[Azure AD B2B 공동 작업의 현재 제한 사항](active-directory-b2b-current-limitations.md)<br /><br />[Azure AD B2B 공동 작업 사용에 대한 자세한 연습](active-directory-b2b-detailed-walkthrough.md) |
 | Azure AD B2B 공동 작업의 작동 방법에 대한 기술 세부 정보가 포함된 참조 문서 |[파트너 사용자를 추가하기 위한 CSV 파일 형식](active-directory-b2b-references-csv-file-format.md)<br /><br />[Azure AD B2B 공동 작업의 영향을 받는 사용자 특성](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[파트너 사용자에 대한 사용자 토큰 형식](active-directory-b2b-references-external-user-token-format.md) |
 
-B2B 공동 작업 미리 보기는 [모든 버전의 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)에 현재 사용할 수 있습니다.
+B2B 공동 작업은 현재 [모든 Azure Active Directory 버전](https://azure.microsoft.com/pricing/details/active-directory/)에 사용할 수 있습니다.
 
 ### <a name="access-panel-a-portal-for-accessing-apps-and-self-service-features"></a>액세스 패널: 앱 및 셀프 서비스 기능에 액세스하기 위한 포털
 Azure AD 액세스 패널은 최종 사용자가 자신의 앱을 시작하고 해당 앱 및 그룹 멤버 자격을 관리할 수 있도록 하는 셀프 서비스 기능에 액세스하는 위치에 있습니다. 액세스 패널 외에도 SSO를 사용한 앱에 액세스하기 위한 다른 옵션이 아래 목록에 포함됩니다.

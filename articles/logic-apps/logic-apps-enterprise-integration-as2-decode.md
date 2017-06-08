@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: da3fc08cc5c506dba02ccda16940a28a4600a288
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b92cfff10dc0f10ebd4554d1614a23fb7dc46a37
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -86,6 +87,9 @@ AS2 디코딩 커넥터는 다음과 같은 태스크를 수행합니다.
 ## <a name="try-this-sample"></a>이 샘플 사용해보기
 
 완벽하게 작동하는 논리 앱 및 샘플 AS2 시나리오를 배포하려면 [AS2 논리 앱 템플릿 및 시나리오](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/)를 참조하세요.
+
+## <a name="view-the-swagger"></a>swagger 보기
+[swagger 정보](/connectors/as2/)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md) 

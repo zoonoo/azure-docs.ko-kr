@@ -13,24 +13,25 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a43e740bde8d91a47b84787e4bf72e4667b84de6
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 932fd74ec83f43b604382346ee2c273f5453fcd0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
 
-# <a name="deploy-a-linux-vm-into-an-existing-virtual-network"></a>기존 가상 네트워크에 Linux VM 배포
+# <a name="how-to-deploy-a-linux-virtual-machine-into-an-existing-azure-virtual-network-with-the-azure-cli"></a>Azure CLI를 사용하여 기존 Azure Virtual Network에 Linux 가상 컴퓨터를 배포하는 방법
 
 이 문서에서는 Azure CLI 2.0을 사용하여 기존 가상 네트워크에 VM(가상 컴퓨터)을 배포하는 방법을 보여줍니다. 요구 사항은 다음과 같습니다.
 
 - [Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
-- [SSH 공용 및 개인 키 파일](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SSH 공용 및 개인 키 파일](mac-create-ssh-keys.md)
 
-[Azure CLI 1.0](deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
+[Azure CLI 1.0](deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md)에서 이러한 단계를 수행할 수도 있습니다.
 
 
 ## <a name="quick-commands"></a>빠른 명령
@@ -38,7 +39,7 @@ ms.lasthandoff: 04/03/2017
 
 이 사용자 지정 환경을 만들려면 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 로그인해야 합니다.
 
-다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `myVnet` 및 `myVM`이 포함됩니다.
+다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myVnet*, *myVM*이 포함됩니다.
 
 **사전 요구 사항:** Azure 리소스 그룹, 가상 네트워크 및 서브넷, 인바운드 SSH가 있는 네트워크 보안 그룹, 가상 네트워크 인터페이스 카드.
 
@@ -50,7 +51,7 @@ az vm create \
     --name myVM \
     --image Debian \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --generate-ssh-keys \
     --nics myNic
 ```
 
@@ -60,26 +61,26 @@ az vm create \
 
 이 사용자 지정 환경을 만들려면 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/#login)을 사용하여 로그인해야 합니다.
 
-다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `myVnet` 및 `myVM`이 포함됩니다.
+다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myVnet*, *myVM*이 포함됩니다.
 
 ## <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
-먼저 Azure 리소스 그룹을 만들어서 연습에서 만드는 모든 항목을 구성합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. [az group create](/cli/azure/group#create)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `westus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
+먼저 Azure 리소스 그룹을 만들어서 연습에서 만드는 모든 항목을 구성합니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요. [az group create](/cli/azure/group#create)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create \
     --name myResourceGroup \
-    --location westus
+    --location eastus
 ```
 
 ## <a name="create-the-virtual-network"></a>가상 네트워크 만들기
 
-VM가 Azure 가상 네트워크 내에서 시작되도록 빌드합니다. Azure 가상 네트워크에 대한 자세한 내용은 [Azure CLI를 사용하여 가상 네트워크 만들기](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. [az network vnet create](/cli/azure/network/vnet#create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 `myVnet`이라는 가상 네트워크와 `mySubnet`이라는 서브넷을 만듭니다.
+VM가 Azure 가상 네트워크 내에서 시작되도록 빌드합니다. Azure 가상 네트워크에 대한 자세한 내용은 [Azure CLI를 사용하여 가상 네트워크 만들기](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)를 참조하세요. [az network vnet create](/cli/azure/network/vnet#create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVnet*이라는 가상 네트워크와 *mySubnet*이라는 서브넷을 만듭니다.
 
 ```azurecli
 az network vnet create \
     --resource-group myResourceGroup \
-    --location westus \
+    --location eastus \
     --name myVnet \
     --address-prefix 10.10.0.0/16 \
     --subnet-name mySubnet \
@@ -88,32 +89,27 @@ az network vnet create \
 
 ## <a name="create-the-network-security-group"></a>네트워크 보안 그룹 만들기
 
-Azure 네트워크 보안 그룹은 네트워크 계층에서 방화벽과 동일합니다. 네트워크 보안 그룹에 대한 자세한 내용은 [Azure CLI에서 네트워크 보안 그룹을 만드는 방법](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. [az network nsg create](/cli/azure/network/nsg#create)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹을 만듭니다.
+Azure 네트워크 보안 그룹은 네트워크 계층에서 방화벽과 동일합니다. 네트워크 보안 그룹에 대한 자세한 내용은 [Azure CLI에서 네트워크 보안 그룹을 만드는 방법](../../virtual-network/virtual-networks-create-nsg-arm-cli.md)을 참조하세요. [az network nsg create](/cli/azure/network/nsg#create)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
 az network nsg create \
     --resource-group myResourceGroup \
-    --location westus \
+    --location eastus \
     --name myNetworkSecurityGroup
 ```
 
 ## <a name="add-an-inbound-ssh-allow-rule"></a>인바운드 SSH 허용 규칙 추가
 
-Linux VM은 인터넷에서 액세스를 해야 하므로 인바운드 포트 22 트래픽이 Linux VM의 포트 22에 대한 네트워크를 통해 전달되도록 허용하는 규칙이 필요합니다. [az network nsg rule create](/cli/azure/network/nsg/rule#create)를 사용하여 네트워크 보안 그룹에 대해 인바운드 규칙을 추가합니다. 다음 예제는 `myNetworkSecurityGroupRuleSSH`이라는 규칙을 만듭니다.
+VM은 인터넷에서 액세스를 해야 하므로 인바운드 포트 22 트래픽이 VM의 포트 22에 대한 네트워크를 통해 전달되도록 허용하는 규칙이 필요합니다. [az network nsg rule create](/cli/azure/network/nsg/rule#create)를 사용하여 네트워크 보안 그룹에 대해 인바운드 규칙을 추가합니다. 다음 예제에서는 *myNetworkSecurityGroupRuleSSH*이라는 규칙을 만듭니다.
 
 ```azurecli
 az network nsg rule create \
     --resource-group myResourceGroup \
     --nsg-name myNetworkSecurityGroup \
     --name myNetworkSecurityGroupRuleSSH \
-    --protocol tcp \
-    --direction inbound \
     --priority 1000 \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
+    --protocol tcp \
     --destination-port-range 22 \
-    --access allow
 ```
 
 ## <a name="attach-the-subnet-to-the-network-security-group"></a>네트워크 보안 그룹에 서브넷 연결
@@ -130,12 +126,12 @@ az network vnet subnet update \
 
 ## <a name="add-a-virtual-network-interface-card-to-the-subnet"></a>가상 네트워크 인터페이스 카드를 서브넷에 추가합니다.
 
-가상 네트워크 인터페이스 카드(VNic)는 다른 VM에 연결하여 다시 사용할 수 있기 때문에 중요합니다. 이렇게 다시 사용하면 VM이 임시 리소스가 되는 동안 VNic를 정적 리소스로 유지할 수 있습니다. VNic를 만들고 [az network nic create](/cli/azure/network/nic#create)로 서브넷에 연결합니다. 다음 예제는 `myNic`라는 VNic를 만듭니다.
+가상 네트워크 인터페이스 카드(VNic)는 다른 VM에 연결하여 다시 사용할 수 있기 때문에 중요합니다. 이렇게 다시 사용하면 VM이 임시 리소스가 되는 동안 VNic를 정적 리소스로 유지할 수 있습니다. VNic를 만들고 [az network nic create](/cli/azure/network/nic#create)로 서브넷에 연결합니다. 다음 예제는 *myNic*라는 VNic를 만듭니다.
 
 ```azurecli
 az network nic create \
     --resource-group myResourceGroup \
-    --location westus \
+    --location eastus \
     --name myNic \
     --vnet-name myVnet \
     --subnet mySubnet
@@ -143,9 +139,9 @@ az network nic create \
 
 ## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>가상 네트워크 인프라에 VM 배포
 
-이제 가상 네트워크, 서브넷 및 네트워크 보안 그룹이 SSH에 대한 포트 22를 제외한 모든 인바운드 트래픽을 차단하여 서브넷을 보호하는 방화벽의 역할을 하게 됩니다. 이제 이 기존 네트워크 인프라 내에 VM을 배포할 수 있습니다.
+이제 가상 네트워크, 서브넷 및 네트워크 보안 그룹이 SSH에 대한 포트 22를 제외한 모든 인바운드 트래픽을 차단하여 서브넷을 보호하는 역할을 하게 됩니다. 이제 이 기존 네트워크 인프라 내에 VM을 배포할 수 있습니다.
 
-[az vm create](/cli/azure/vm#create)로 VM을 만듭니다. 전체 VM을 배포하기 위해 Azure CLI 2.0과 함께 사용하는 플래그에 대한 자세한 내용은 [Azure CLI를 사용하여 전체 Linux 환경 만들기](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+[az vm create](/cli/azure/vm#create)로 VM을 만듭니다. 전체 VM을 배포하기 위해 Azure CLI 2.0과 함께 사용하는 플래그에 대한 자세한 내용은 [Azure CLI를 사용하여 전체 Linux 환경 만들기](create-cli-complete.md)를 참조하세요.
 
 다음 예제는 Azure Managed Disks를 사용하여 VM을 만듭니다. 이들 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../../storage/storage-managed-disks-overview.md)를 참조하세요. 관리되지 않는 디스크를 사용하려는 경우 아래의 추가 정보를 참조하세요.
 
@@ -155,7 +151,7 @@ az vm create \
     --name myVM \
     --image Debian \
     --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --generate-ssh-keys \
     --nics myNic
 ```
 
@@ -166,12 +162,12 @@ az vm create \
     --storage-account mystorageaccount
 ```
 
-기존 리소스를 호출하기 위해 CLI 플래그를 사용하여 Azure에서 기존 네트워크 내에 VM을 배포하도록 지시합니다. 다시 말해, 가상 네트워크 및 서브넷이 배포되면 Azure 지역 내에서 정적 또는 영구적으로 리소스로 유지할 수 있습니다. 이 예제에서는 VNic에 공용 IP 주소를 만들어 할당하지 않았기 때문에 이 VM은 인터넷을 통해 공개적으로 액세스할 수 없습니다. 자세한 내용은 [Azure CLI을 사용하여 고정 공용 IP가 있는 VM 만들기](../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+기존 리소스를 호출하기 위해 CLI 플래그를 사용하여 Azure에서 기존 네트워크 내에 VM을 배포하도록 지시합니다. 가상 네트워크 및 서브넷이 배포되면 Azure 지역 내에서 정적 또는 영구적으로 리소스로 유지할 수 있습니다. 이 예제에서는 VNic에 공용 IP 주소를 만들어 할당하지 않았기 때문에 이 VM은 인터넷을 통해 공개적으로 액세스할 수 없습니다. 자세한 내용은 [Azure CLI을 사용하여 고정 공용 IP가 있는 VM 만들기](../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure에서 가상 컴퓨터를 만드는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure Resource Manager 템플릿을 사용하여 특정 배포 만들기](../windows/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure CLI 명령을 직접 사용하여 Linux VM에 대한 고유한 사용자 지정 환경 만들기](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [템플릿을 사용하여 Azure에서 Linux VM 만들기](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure Resource Manager 템플릿을 사용하여 특정 배포 만들기](../windows/cli-deploy-templates.md)
+* [Azure CLI 명령을 직접 사용하여 Linux VM에 대한 고유한 사용자 지정 환경 만들기](create-cli-complete.md)
+* [템플릿을 사용하여 Azure에서 Linux VM 만들기](create-ssh-secured-vm-from-template.md)
 

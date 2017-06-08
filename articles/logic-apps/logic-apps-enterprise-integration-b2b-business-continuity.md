@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: e28c1410145d8da168a73e74251ac037997d1752
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 197df490690754730425231f358fde31d17dcfad
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -45,7 +45,7 @@ B2B 워크로드에는 주문 및 청구서와 같은 금전 거래가 포함됩
 
 4. Logic Apps 통합 계정의 비즈니스 연속성은 B2B 프로토콜 X12, AS2 및 EDIFACT에 따라 지원하도록 설계되었습니다.  자세한 단계를 알아보려면 해당 링크를 선택하세요.
 
-5. 권장 지침은 보조 지역에 모든 주 지역 리소스를 배포하는 것입니다. 주 지역 리소스에는 Azure SQL Database 또는 Azure DocumentDB, 메시징에 사용되는 Azure Service Bus/Azure Event Hubs, Azure API Management, Azure App Service의 Logic Apps 기능이 포함됩니다.   
+5. 권장 지침은 보조 지역에 모든 주 지역 리소스를 배포하는 것입니다. 주 지역 리소스에는 Azure SQL Database 또는 Azure Cosmos DB, 메시징에 사용되는 Azure Service Bus/Azure Event Hubs, Azure API Management, Azure App Service의 Logic Apps 기능이 포함됩니다.   
 
 6. 주 지역에서 보조 지역으로의 연결을 설정합니다. 주 지역에서 실행 상태를 끌어오려면 보조 지역에 논리 앱을 만듭니다. 논리 앱에 트리거 및 작업이 있어야 합니다. 트리거는 주 지역 통합 계정에 연결해야 합니다. 작업은 보조 지역 통합 계정에 연결해야 합니다. 시간 간격에 따라 트리거는 주 지역 실행 상태 테이블을 폴링하고 새 레코드를 가져오며(있는 경우) 작업은 새 레코드를 보조 지역 통합 계정에 업데이트합니다. 이 프로세스는 주 지역에서 보조 지역으로 증분 런타임 상태를 가져오는 데 도움이 됩니다.
 

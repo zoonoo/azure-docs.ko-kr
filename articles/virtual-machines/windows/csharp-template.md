@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 738ff9882cffc428f571ab6aea96c0927d2ce443
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 7bed1e96cec49e8b62d671952976025453da6787
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -35,14 +36,14 @@ ms.lasthandoff: 03/31/2017
 
 1. [Visual Studio](https://www.visualstudio.com/)를 아직 설치하지 않았으면 설치합니다.
 2. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭합니다.
-3. **템플릿** > **Visual C#**에서 **콘솔 응용 프로그램**을 선택하고, 프로젝트의 이름과 위치를 입력한 다음 **확인**을 클릭합니다.
+3. **템플릿** > **Visual C#**에서 **콘솔 앱(.NET Framework)**을 선택하고, 프로젝트의 이름과 위치를 입력한 다음 **확인**을 클릭합니다.
 
 ## <a name="step-2-install-libraries"></a>2단계: 라이브러리 설치
 
 NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리를 설치하는 가장 쉬운 방법입니다. 리소스를 만들려면 Azure Resource Manager 라이브러리 및 Azure Active Directory 인증 라이브러리가 필요합니다. Visual Studio에서 이러한 라이브러리를 가져오려면 다음 단계를 수행합니다.
 
-1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭하고 **찾아보기**를 클릭합니다.
-2. 검색 상자에 *Microsoft.IdentityModel.Clients.ActiveDirectory*를 입력하고 **설치**를 클릭한 후 지침에 따라 패키지를 설치합니다.
+1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **솔루션의 NuGet 패키지 관리...**를 클릭하고 **찾아보기**를 클릭합니다.
+2. 검색 상자에 *Microsoft.IdentityModel.Clients.ActiveDirectory*를 입력하고 프로젝트를 선택하고 **설치**를 클릭한 후 지침에 따라 패키지를 설치합니다.
 3. 페이지의 위쪽에서 **시험판 포함**을 선택합니다. 검색 상자에 *Microsoft.Azure.Management.ResourceManager*를 입력하고 **설치**를 클릭한 다음 지침에 따라 패키지를 설치합니다.
 
 이제 라이브러리를 사용하기 시작하여 응용 프로그램을 만들 준비가 되었습니다.
@@ -51,7 +52,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 이 단계를 시작하기 전에 [Active Directory 서비스 주체](../../resource-group-authenticate-service-principal.md)에 액세스할 수 있는지 확인합니다. 서비스 주체에서 Azure Resource Manager에서 요청을 인증받기 위한 토큰을 얻을 수 있습니다.
 
-1. 만들었던 프로젝트에 대한 Program.cs 파일을 연 후, 다음 using 문을 파일의 위쪽에 추가합니다.
+1. 만들었던 프로젝트에 대한 Program.cs 파일을 연 후, 다음 using 문을 파일의 위쪽에 기존 문에 추가합니다.
 
     ```
     using Microsoft.Azure;
@@ -67,8 +68,8 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     ```
     private static async Task<AuthenticationResult> GetAccessTokenAsync()
     {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+      var cc = new ClientCredential("client-id", "client-secret");
+      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
       if (token == null)
       {
@@ -80,9 +81,9 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
     다음 값을 바꿉니다.
     
-    - *{client-id}*를 Azure Active Directory 응용 프로그램의 식별자로 이 식별자는 AD 응용 프로그램의 속성 블레이드에서 찾을 수 있습니다. Azure Portal에서 AD 응용 프로그램을 찾으려면 리소스 메뉴에서 **Azure Active Directory**를 클릭한 다음 **앱 등록**을 클릭합니다.
-    - *{client-secret}*을 AD 응용 프로그램의 선택키 이 식별자는 AD 응용 프로그램의 속성 블레이드에서 찾을 수 있습니다.
-    - *{tenant-id}*를 구독의 테넌트 식별자로 Azure Portal의 Azure Active Directory에 대한 속성 블레이드에서 테넌트 식별자를 찾을 수 있습니다. *디렉터리 ID*로 레이블이 지정되어 있습니다.
+    - *client-id*를 Azure Active Directory 응용 프로그램의 식별자로 바꿉니다. 이 식별자는 AD 응용 프로그램의 속성 블레이드에서 찾을 수 있습니다. Azure Portal에서 AD 응용 프로그램을 찾으려면 리소스 메뉴에서 **Azure Active Directory**를 클릭한 다음 **앱 등록**을 클릭합니다.
+    - *client-secret*을 AD 응용 프로그램의 액세스 키로 바꿉니다. 이 식별자는 AD 응용 프로그램의 속성 블레이드에서 찾을 수 있습니다.
+    - *tenant-id*를 구독의 테넌트 식별자로 바꿉니다. Azure Portal의 Azure Active Directory에 대한 속성 블레이드에서 테넌트 식별자를 찾을 수 있습니다. *디렉터리 ID*로 레이블이 지정되어 있습니다.
 
 3. 방금 추가한 메서드를 호출하려면 Main 메서드에 다음 코드를 추가합니다.
 
@@ -102,7 +103,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     ```
     var groupName = "myResourceGroup";
     var subscriptionId = "subsciptionId";
-    var deploymentName = "deploymentName;
+    var deploymentName = "deploymentName";
     var location = "location";
     ```
 

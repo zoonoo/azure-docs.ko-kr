@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: b06e4fc6e0ba18778731a72127f9ba154e773253
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 61999ebea05371c53e5ff27644a68039db1aef96
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -132,8 +132,8 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     
     | 특성 이름  | 특성 값 | 네임스페이스 |
     | --------------- | --------------- | --------------- |
-    | rolesessionname | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | role               | user.assignedroles | 비워 둡니다. |
+    | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
+    | 역할               | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >AWS 콘솔에서 모든 역할을 가져오려면 Azure AD에서 사용자 프로비전을 구성해야 합니다. 프로비전 단계는 아래에서 참조하세요.
@@ -424,3 +424,4 @@ Azure AD 사용자가 AWS(Amazon Web Services)에 로그인할 수 있도록 하
 [39]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
 [40]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
 [41]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_on.png
+

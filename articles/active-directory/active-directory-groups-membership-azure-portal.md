@@ -1,5 +1,6 @@
 ---
-title: "Azure Active Directory 미리 보기에서 그룹이 속하는 그룹 관리 | Microsoft Docs"
+
+title: "Azure Active Directory에서 그룹이 속하는 그룹 관리 | Microsoft Docs"
 description: "Azure Active Directory에서 그룹은 다른 그룹을 포함할 수 있습니다. 해당 멤버 자격을 관리하는 방법은 다음과 같습니다."
 services: active-directory
 documentationcenter: 
@@ -12,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 8e0563f3490186a19dd9418ebf7beac7dd8dd046
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 08e04a6590176c4084ca47b4bd6cbb22500eca2d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
 # <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에서 그룹이 속하는 그룹 관리
-Azure Active Directory 미리 보기에서 그룹은 다른 그룹을 포함할 수 있습니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md) 해당 멤버 자격을 관리하는 방법은 다음과 같습니다.
+Azure Active Directory에서 그룹은 다른 그룹을 포함할 수 있습니다. 해당 멤버 자격을 관리하는 방법은 다음과 같습니다.
 
 ## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>내 그룹이 멤버인 그룹을 찾으려면 어떻게 해야 합니까?
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.

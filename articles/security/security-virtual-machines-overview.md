@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 05/04/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 70d22ae8d7f67f1e12a233e004f1eb749927e7d8
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 9307b1688ed9e3dc412d044e72bdf88b7bb4d1ec
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
@@ -48,7 +49,7 @@ Azure를 사용하여 다음과 같은 보안이 강화된 규정 준수 솔루�
 * 규정 준수
 
 ## <a name="antimalware"></a>맬웨어 방지
-Azure를 통해 가상 컴퓨터를 악성 파일, 애드웨어 및 기타 위협으로부터 보호할 수 있도록 Microsoft, Symantec, Trend Micro, McAfee 및 Kaspersky 등의 보안 공급업체의 맬웨어 방지 소프트웨어를 사용할 수 있습니다. 아래 추가 정보 섹션을 참조하여 파트너 솔루션에 대한 문서를 검색하세요.
+Azure를 통해 가상 컴퓨터를 악성 파일, 애드웨어 및 기타 위협으로부터 보호할 수 있도록 Microsoft, Symantec, Trend Micro 및 Kaspersky 등의 보안 공급업체의 맬웨어 방지 소프트웨어를 사용할 수 있습니다. 아래 추가 정보 섹션을 참조하여 파트너 솔루션에 대한 문서를 검색하세요.
 
 Azure 클라우드 서비스 및 가상 컴퓨터를 위한 Microsoft 맬웨어 방지 프로그램은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 및 제거하는 데 도움이 되는 실시간 보호 기능입니다.  Microsoft 맬웨어 방지 프로그램은 알려진 악성 또는 원치 않는 소프트웨어가 Azure 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 경고를 제공합니다.
 
@@ -73,11 +74,10 @@ Microsoft 맬웨어 방지 프로그램을 배포하고 사용할 때 다음과 
 * [Azure 가상 컴퓨터에 맬웨어 방지 솔루션 배포](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법](../virtual-machines/windows/classic/install-trend.md)
 * [Windows VM에서 Symantec Endpoint Protection을 설치하고 구성하는 방법](../virtual-machines/windows/classic/install-symantec.md)
-* [Azure 가상 컴퓨터에 대한 새로운 맬웨어 방지 옵션 - McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 * [Azure 마켓플레이스의 보안 솔루션](https://azure.microsoft.com/marketplace/?term=security)
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈
-암호화 및 인증은 키 자체가 보호되지 않는 한 보안을 향상시키지 않습니다. 중요한 키와 암호 정보를 Azure 주요 자격 증명 모음에 보관함으로써 관리와 보안을 단순화할 수 있습니다. 주요 자격 증명 모음은 FIPS 140-2 Level 2 기준에 따라 인증된 HSM(하드웨어 보안 모듈)에 키를 보관할 수 있는 옵션을 제공합니다. 백업 또는 [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx) 를 위한 SQL Server 암호화 키는 응용 프로그램의 키 또는 암호와 함께 주요 자격 증명 모음에 저장됩니다. 이러한 보호된 항목에 대한 사용 권한 및 액세스는 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)를 통해 관리됩니다.
+암호화 및 인증은 키 자체가 보호되지 않는 한 보안을 향상시키지 않습니다. 중요한 키와 암호 정보를 Azure 주요 자격 증명 모음에 보관함으로써 관리와 보안을 단순화할 수 있습니다. 주요 자격 증명 모음은 FIPS 140-2 Level 2 기준에 따라 인증된 HSM(하드웨어 보안 모듈)에 키를 보관할 수 있는 옵션을 제공합니다. 백업 또는 [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)를 위한 SQL Server 암호화 키는 응용 프로그램의 키 또는 암호와 함께 주요 자격 증명 모음에 저장됩니다. 이러한 보호된 항목에 대한 사용 권한 및 액세스는 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)를 통해 관리됩니다.
 
 자세한 정보:
 
@@ -114,7 +114,7 @@ Azure 백업은 자본 투자 없이 최소의 비용으로 응용 프로그램 
 * **유연한 복제 제공** - 사이트 복구를 사용하여 Hyper-V 가상 컴퓨터, VMware 가상 컴퓨터 및 Windows/Linux 물리적 서버에서 실행 중인 워크로드를 복제할 수 있습니다.
 * **장애 조치 및 복구 지원** - 사이트 복구는 프로덕션 환경에 영향을 주지 않고 재해 복구 훈련을 지원하는 테스트 장애 조치를 제공합니다. 또한 예상된 중단에 대한 데이터 손실을 제거하고 계획된 장애 조치를 실행하거나 예기치 않은 재해에 대한 데이터 손상(복제 빈도에 따라 다름)을 최소화하고 계획되지 않은 장애 조치를 실행할 수 있습니다. 장애 조치 후에 기본 사이트를 장애 복구할 수 있습니다. 사이트 복구는 다중 계층 응용 프로그램의 장애 조치 및 복구를 사용자 지정할 수 있도록 스크립트와 Azure 자동화 통합 문서를 포함할 수 있는 복구 계획을 제공합니다.
 * **보조 데이터 센터 제거** - 보조 온-프레미스 사이트 또는 Azure에 복제할 수 있습니다. 재해 복구에 대한 대상으로 Azure를 사용하면 보조 사이트를 유지 관리하는 비용 및 복잡성이 제거됩니다. 복제된 데이터는 Azure Storage에 저장됩니다.
-* **기존 BCDR 기술과 통합** - 사이트 복구는 다른 응용 프로그램 BCDR 기능과 협력합니다. 예를 들어 사이트 복구를 사용하여 회사 워크로드의 SQL Server 백 엔드를 보호할 수 있습니다. 여기에는 가용성 그룹의 장애 조치를 관리하는 SQL Server AlwaysOn의 기본 지원이 포함됩니다.
+* **기존 BCDR 기술과 통합** - 사이트 복구는 다른 응용 프로그램 BCDR 기능과 협력합니다. 예를 들어 사이트 복구를 사용하여 회사 워크로드의 SQL Server 백 엔드를 보호할 수 있습니다. 여기에는 가용성 그룹의 장애 조치를 관리하는 SQL Server Always On의 기본 지원이 포함됩니다.
 
 자세한 정보:
 
@@ -136,7 +136,7 @@ Azure 보안 센터는 위협을 예방, 감지 및 대응하는 데 도움이 �
 
 Azure 보안 센터는 다음과 같은 방법을 통해 가상 컴퓨터 보안을 최적화하고 모니터링하는 데 도움을 줍니다.
 
-* 시스템 업데이트 적용, ACL 끝점 구성, 맬웨어 방지 프로그램 활성화, 네트워크 보안 그룹 활성화 및 디스크 암호화 적용과 같은 가상 컴퓨터 [보안 권장 사항](../security-center/security-center-recommendations.md) 을 제공합니다.
+* 시스템 업데이트 적용, ACL 끝점 구성, 맬웨어 방지 프로그램 활성화, 네트워크 보안 그룹 활성화 및 디스크 암호화 적용과 같은 가상 컴퓨터 [보안 권장 사항](../security-center/security-center-recommendations.md)을 제공합니다.
 * 가상 컴퓨터의 상태 모니터링
 
 자세한 정보:

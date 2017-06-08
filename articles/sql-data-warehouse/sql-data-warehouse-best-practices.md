@@ -3,7 +3,7 @@ title: "Azure SQL Data Warehouse에 대한 모범 사례 | Microsoft Docs"
 description: "Azure SQL 데이터 웨어하우스에 대한 솔루션을 개발하면서 알아야 할 권장 사항 및 모범 사례입니다. 이 내용은 성공적인 개발에 도움이 됩니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: shivaniguptamsft
 manager: jhubbard
 editor: 
 ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: shigu;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: aac6261cd3e8a8d6775c44dc6e3b279db4474ff8
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
 
 

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/01/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e1e09f4f75da05ca051b78e57979600fd3e36006
-ms.lasthandoff: 04/27/2017
-
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 7ddd9244558479f1fc77c0a9f3d02d0d3b95ca9f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure에서의 Windows 가상 컴퓨터 개요
@@ -49,7 +50,7 @@ Azure에서 응용 프로그램 인프라를 구축하는 경우에는 언제나
 ### <a name="naming"></a>이름 지정
 가상 컴퓨터에는 할당된 [이름](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)과 운영 체제의 일부로 구성된 컴퓨터 이름이 있습니다. VM 이름은 최대 15자로 제한됩니다.
 
-Azure를 사용하여 운영 체제 디스크를 만드는 경우 컴퓨터 이름과 가상 컴퓨터 이름은 동일합니다. 이전에 구성된 운영 체제를 포함하고 있는 [사용자 고유의 이미지를 업로드하여 사용하고](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 이 이미지를 사용하여 가상 컴퓨터를 만드는 경우 이름이 다를 수 있습니다. 사용자 고유의 이미지 파일을 업로드하면 운영 체제의 컴퓨터 이름과 가상 컴퓨터 이름을 동일하게 지정하는 것이 좋습니다.
+Azure를 사용하여 운영 체제 디스크를 만드는 경우 컴퓨터 이름과 가상 컴퓨터 이름은 동일합니다. 이전에 구성된 운영 체제를 포함하고 있는 [사용자 고유의 이미지를 업로드하여 사용하고](upload-generalized-managed.md) 이 이미지를 사용하여 가상 컴퓨터를 만드는 경우 이름이 다를 수 있습니다. 사용자 고유의 이미지 파일을 업로드하면 운영 체제의 컴퓨터 이름과 가상 컴퓨터 이름을 동일하게 지정하는 것이 좋습니다.
 
 ### <a name="locations"></a>위치
 Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](https://azure.microsoft.com/regions/)에 걸쳐 배포됩니다. 일반적으로 VM을 만들 때 지역을 **위치**라고 합니다. VM의 경우 가상 하드 디스크가 저장되는 위치가 지정됩니다.
@@ -83,7 +84,7 @@ Azure에서는 다양한 버전과 종류의 Windows Server 운영 체제에서 
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST API |[이미지 게시자 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[이미지 제안 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[이미지 SKU 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
-[사용자 고유의 이미지를 업로드하고 사용하도록](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 선택할 수 있습니다. 이렇게 하는 경우 게시자 이름, 제안 및 SKU는 사용되지 않습니다.
+[사용자 고유의 이미지를 업로드하고 사용하도록](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) 선택할 수 있습니다. 이렇게 하는 경우 게시자 이름, 제안 및 SKU는 사용되지 않습니다.
 
 ### <a name="extensions"></a>확장
 VM [확장](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)은 배포 후 구성 및 자동화 작업을 통해 VM 추가 기능을 제공합니다.
@@ -130,7 +131,7 @@ VM은 스크립팅 지원을 통해 브라우저 기반 포털, 명령줄 도구
 | 방법 | 설명 |
 | --- | --- |
 | Azure 포털 |허브 메뉴에서 **Virtual Machines**를 클릭하고 목록에서 VM을 선택합니다. VM에 대한 블레이드에서 개요 정보, 설정 값 및 모니터링 메트릭에 액세스할 수 있습니다. |
-| Azure PowerShell |PowerShell을 사용한 VM 관리에 대한 내용은 [Resource Manager 및 PowerShell을 사용하여 Azure Virtual Machines 관리](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. |
+| Azure PowerShell |PowerShell을 사용하여 VM을 관리하는 방법에 대한 자세한 내용은 [Azure PowerShell 을 사용하여 Windows VM 만들기 및 관리](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. |
 | REST API |[VM 가져오기 정보](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) 작업을 사용하여 VM에 대한 정보를 가져옵니다. |
 | 클라이언트 SDK |C#를 사용한 VM 관리에 대한 내용은 [Azure Resource Manager 및 C#를 사용하여 Azure Virtual Machines 관리](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. |
 

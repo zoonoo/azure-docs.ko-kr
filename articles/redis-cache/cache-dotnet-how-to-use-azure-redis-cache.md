@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/11/2017
+ms.date: 05/30/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 1d208f931af4704528309780b45e170627f1753c
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: db851023c8620bec6583184326029d1a3e99ad88
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -36,8 +37,8 @@ ms.lasthandoff: 03/09/2017
 Microsoft Azure Redis 캐시는 다음 계층에서 사용할 수 있습니다.
 
 * **기본** – 단일 노드. 최대 53GB까지 여러 개의 크기
-* **표준** –&2;노드 주/복제본. 최대 53GB까지 여러 개의 크기 99.9% SLA
-* **프리미엄** – 최대 10개 분할 데이터베이스와 2노드 주/복제본. 6GB에서 530GB에 이르는 다양한 크기(자세한 내용 문의). 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure 가상 네트워크](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 99.9% SLA
+* **표준** – 2노드 주/복제본. 최대 53GB까지 여러 개의 크기 99.9% SLA
+* **프리미엄** – 최대 10개 분할 데이터베이스와 2노드 주/복제본. 6GB ~ 530GB에 이르는 여러 개의 크기 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure 가상 네트워크](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 99.9% SLA
 
 각 계층은 기능과 가격이 다릅니다. 가격 책정에 대한 내용은 [캐시 가격 책정 정보][Cache Pricing Details]를 참조하세요.
 
@@ -210,7 +211,7 @@ Azure Redis Cache는 .NET 개체 및 기본 데이터 유형을 캐시할 수 �
 * Redsmin 및 Redis Desktop Manager와 같은 타사 서비스 및 도구와 함께 Azure Redis Cache를 사용할 수도 있습니다.
   * Redsmin에 대한 자세한 내용은 [Azure Redis 연결 문자열을 검색하고 Redsmin과 함께 사용하는 방법][How to retrieve an Azure Redis connection string and use it with Redsmin]을 참조하세요.
   * [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager)를 사용하여 GUI가 포함된 Azure Redis Cache의 데이터에 액세스하고 해당 데이터를 검사합니다.
-* [redis][redis](영문) 설명서를 참조하고 [redis 데이터 형식][redis data types](영문) 및 [Redis 데이터 형식에 대한&15;분 소개][a fifteen minute introduction to Redis data types](영문)에 대해 읽어 보세요.
+* [redis][redis](영문) 설명서를 참조하고 [redis 데이터 형식][redis data types](영문) 및 [Redis 데이터 형식에 대한 15분 소개][a fifteen minute introduction to Redis data types](영문)에 대해 읽어 보세요.
 
 <!-- INTRA-TOPIC LINKS -->
 [Next Steps]: #next-steps

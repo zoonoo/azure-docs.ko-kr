@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeeda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 215f9baeda7cd0bcf3fd66893919575647849e7d
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 9de6a57671cf65c4aa5d8695d21e0932175b1183
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/22/2017
 
 ---
 # <a name="azure-active-directory-b2c-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: 사용자 지정 정책에서 UI 사용자 지정
@@ -30,14 +30,6 @@ ms.lasthandoff: 05/02/2017
 ## <a name="prerequisites"></a>필수 조건
 
 계속하기 전에 [사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md)을 완료해야 합니다.  로컬 계정을 사용하여 등록 및 로그인하기 위한 사용자 지정 정책이 작동해야 합니다.
-
-### <a name="confirming-your-b2c-tenant"></a>B2C 테넌트 확인
-
-사용자 지정 정책이 비공개 미리 보기 상태이기 때문에 Azure AD B2C 테넌트가 사용자 지정 정책 업로드에 대해 활성화되었는지 확인합니다.
-
-1. [Azure Portal](https://portal.azure.com)에서 [Azure AD B2C 테넌트의 컨텍스트로 전환](active-directory-b2c-navigate-to-b2c-context.md)하고 Azure AD B2C 블레이드를 엽니다.
-1. **모든 정책**을 클릭합니다.
-1. **업로드 정책**을 사용할 수 있는지 확인합니다.  단추를 비활성화한 경우 AADB2CPreview@microsoft.com을 전자 메일로 보냅니다.
 
 ## <a name="the-page-ui-customization-feature"></a>페이지 UI 사용자 지정 기능
 

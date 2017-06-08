@@ -16,10 +16,11 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: d0a5bc9d3365a48b03d6f53c21d672a928777956
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 21ce246fab787e06576a295ec4ea45ae3fdfc379
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 ---
 # <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>Storm 및 HBase를 사용하여 다른 시간에 도착하는 이벤트의 상관 관계 지정
@@ -40,7 +41,7 @@ Apache Storm으로 영구적인 데이터 저장소를 사용하여 다른 시�
 * HDInsight 클러스터에서 Apache HBase(Linux 또는 Windows 기반)
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
 
 * 개발 환경에서 [Java](https://java.com) 1,7 이상 - Java는 HDInsight 클러스터에 제출될 때 토폴로지를 패키징하는 데 사용됩니다.
 

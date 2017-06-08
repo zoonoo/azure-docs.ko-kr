@@ -16,10 +16,10 @@ ms.date: 04/21/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b600b7d67de24eab5395f085a2a424159b14ff28
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: a0a3b7ad7757439b5f73c38e759761f671ca2e17
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 기본 제공 역할
@@ -55,7 +55,7 @@ Azure 역할 기반 액세스 제어(RBAC)에는 사용자, 그룹 및 서비스
 | [데이터 팩터리 참여자](#data-factory-contributor) |데이터 팩터리 및 그 안에 포함된 자식 리소스를 만들고 관리할 수 있습니다. |
 | [DevTest Lab 사용자](#devtest-labs-user) |모든 항목을 볼 수 있으며 가상 컴퓨터를 연결, 시작, 다시 시작 및 종료할 수 있음 |
 | [DNS 영역 참여자](#dns-zone-contributor) |DNS 영역 및 레코드를 관리할 수 있음 |
-| [DocumentDB 계정 참여자](#documentdb-account-contributor) |DocumentDB 계정을 관리할 수 있음 |
+| [Azure Cosmos DB 계정 참가자](#documentdb-account-contributor) |Azure Cosmos DB 계정을 관리할 수 있음 |
 | [지능형 시스템 계정 참여자](#intelligent-systems-account-contributor) |지능형 시스템 계정을 관리할 수 있음 |
 | [Monitoring Reader](#monitoring-reader) |모든 모니터링 데이터를 읽을 수 있음 |
 | [Monitoring Contributor](#monitoring-contributor) |모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 |
@@ -365,8 +365,8 @@ DNS 영역 및 레코드를 관리할 수 있음
 | Microsoft.Resources/subscriptions/resourceGroups/read |리소스 그룹 읽기 |
 | Microsoft.Support/\* |지원 티켓 만들기 및 관리 |
 
-### <a name="documentdb-account-contributor"></a>DocumentDB 계정 참여자
-DocumentDB 계정을 관리할 수 있음
+### <a name="azure-cosmos-db-account-contributor"></a>Azure Cosmos DB 계정 참가자
+Azure Cosmos DB 계정을 관리할 수 있음
 
 | **actions** |  |
 | --- | --- |

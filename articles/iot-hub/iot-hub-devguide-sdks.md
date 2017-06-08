@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: ff08ea2b6231b2344244b14e44bcfd9acd065508
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 1cb65f738bd77179a7ed379e3c1664c5eb232a68
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -30,7 +31,7 @@ IoT Hub를 사용하기 위한 SDK에는 다음 세 가지 범주가 있습니�
 
 * **서비스 SDK**를 사용하면 IoT Hub를 관리하고, 필요에 따라 IoT 장치로 메시지를 보낼 수 있습니다.
 
-* **게이트웨이 SDK**를 사용하면 지원되는 프로토콜 중 하나를 사용하지 않거나 에지 노드에서 메시지를 처리해야 할 때 장치를 활성화하도록 게이트웨이를 빌드할 수 있습니다.
+* **Azure IoT Edge**를 사용하면 지원되는 프로토콜 중 하나를 사용하지 않거나 에지에서 메시지를 처리해야 할 때 장치를 활성화하도록 게이트웨이를 빌드할 수 있습니다.
 
 SDK는 여러 프로그래밍 언어를 지원하기 위해 제공됩니다.
 
@@ -70,11 +71,11 @@ Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 IoT Hub �
 > [!NOTE]
 > 언어 및 플랫폼 특정 패키지 관리자를 사용하여 개발 컴퓨터에서 이진 파일 및 종속성을 설치하는 방법에 대한 정보는 GitHub 리포지토리의 추가 정보 파일을 참조하세요.
 
-## <a name="azure-iot-gateway-sdks"></a>Azure IoT Gateway SDK
+## <a name="azure-iot-edge"></a>Azure IoT Edge
 
-이 Azure IoT Gateway SDK는 IoT 게이트웨이 솔루션을 만드는 인프라 및 모듈을 포함합니다. SDK를 확장하여 모든 종단 간 시나리오에 맞는 게이트웨이를 만들 수 있습니다.
+Azure IoT Edge에는 IoT 게이트웨이 솔루션을 만들기 위한 인프라 및 모듈이 포함되어 있습니다. IoT Edge를 확장하여 종단 간 시나리오에 맞는 게이트웨이를 만들 수 있습니다.
 
-GitHub에서 [Azure IoT Gateway SDK][lnk-gateway-sdk]를 다운로드할 수 있습니다.
+GitHub에서 [Azure IoT Edge][lnk-gateway-sdk]를 다운로드할 수 있습니다.
 
 ## <a name="online-api-reference-documentation"></a>온라인 API 참조 설명서
 
@@ -87,7 +88,7 @@ GitHub에서 [Azure IoT Gateway SDK][lnk-gateway-sdk]를 다운로드할 수 있
 * [Java용 Azure IoT 서비스 SDK][lnk-java-service-ref]
 * [Node.js용 Azure IoT 장치 SDK][lnk-node-ref]
 * [Node.js용 Azure IoT 서비스 SDK][lnk-node-service-ref]
-* [Azure IoT Gateway SDK][lnk-gateway-ref]
+* [Azure IoT Edge][lnk-gateway-ref]
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -110,7 +111,7 @@ GitHub에서 [Azure IoT Gateway SDK][lnk-gateway-sdk]를 다운로드할 수 있
 [lnk-python-device-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device
 [lnk-python-service-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/service
 [lnk-certified]: https://catalog.azureiotsuite.com/
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
 
 [lnk-dotnet-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices
 [lnk-c-ref]: https://azure.github.io/azure-iot-sdk-c/index.html
@@ -119,7 +120,7 @@ GitHub에서 [Azure IoT Gateway SDK][lnk-gateway-sdk]를 다운로드할 수 있
 [lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
 [lnk-java-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth
 [lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html
-[lnk-gateway-ref]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
+[lnk-gateway-ref]: http://azure.github.io/iot-edge/api_reference/c/html/
 
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md

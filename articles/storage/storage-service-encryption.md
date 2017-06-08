@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 05/09/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 680f41dc15b9681059847174a6910cfc937abd8b
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 7b91be16b5820f379f7408b477311ea86b213ccd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,23 +30,15 @@ ms.lasthandoff: 04/21/2017
 ## <a name="overview"></a>개요
 Azure 저장소는 여러 개발자가 보안 응용 프로그램을 함께 빌드할 수 있도록 하는 포괄적인 보안 기능을 제공합니다. [클라이언트 쪽 암호화](storage-client-side-encryption.md), HTTP 또는 SMB 3.0을 사용하여 응용 프로그램과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다. 저장소 서비스 암호화는 휴지 상태의 암호화를 제공하며 암호화, 암호 해독, 키 관리를 완전히 투명한 방식으로 처리합니다. 모든 데이터는 가장 강력한 블록 암호화 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 암호화됩니다.
 
-SSE는 데이터를 Azure Storage에 기록할 때 데이터를 암호화하는 방식으로 작동하며 Azure Blob Storage 및 File Storage(미리 보기)에 사용할 수 있습니다. 다음에 대해 작동합니다.
+SSE는 데이터를 Azure Storage에 기록할 때 데이터를 암호화하는 방식으로 작동하며 Azure Blob Storage 및 File Storage에 사용할 수 있습니다. 다음에 대해 작동합니다.
 
-* 일반 용도의 저장소 계정 및 Blob 저장소 계정
-* 표준 저장소 및 프리미엄 저장소 
+* 표준 저장소: Blob에 대한 범용 저장소 계정과 File Storage 및 Blob Storage 계정
+* Premium Storage 
 * 모든 중복 수준(LRS, ZRS, GRS, RA-GRS)
 * Azure Resource Manager 저장소 계정(클래식 아님) 
-* Blob Storage에 대한 모든 영역. File Storage의 경우 가용성 섹션을 확인하세요.
-
-저장소 서비스 암호화 – 이제 File Storage의 데이터 암호화에 파일 미리 보기 SSE를 사용할 수 있습니다. 현재 미리 보기로 제공되고 있습니다. 아래에서 제공하는 것은 File Storage에 SSE를 사용할 수 있는 지역 목록입니다.
-
-SSE 파일 미리 보기에 참여하려면 ssediscussions@microsoft.com에 문의하세요.
+* 모든 지역
 
 자세히 알아보려면 FAQ를 참조하세요.
-
-### <a name="availability-for-file-storage"></a>File Storage에 대한 가용성
-File Storage에 대한 저장소 서비스 암호화는 현재 동아시아, 북유럽 및 미국 동부 2 지역에서 사용할 수 있습니다.
-
 
 저장소 계정에 대한 저장소 서비스 암호화를 사용하거나 사용하지 않도록 설정하려면 [Azure Portal](https://azure.portal.com) 에 로그인한 후 저장소 계정을 선택합니다. 설정 블레이드에서 이 스크린샷에 표시된 것처럼 Blob 서비스 섹션을 찾은 후 암호화를 클릭합니다.
 
@@ -58,22 +51,17 @@ File Storage에 대한 저장소 서비스 암호화는 현재 동아시아, 북
 암호화 설정을 클릭하면 저장소 서비스 암호화를 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
 ![암호화 속성을 보여 주는 포털 스크린샷](./media/storage-service-encryption/image2.png)
-<br/>*그림 1.1: Blob Service에 SSE 사용(2단계)*
+<br/>*그림 3: Blob 및 파일 서비스에 SSE 사용(2단계)*
 
-![암호화 속성을 보여 주는 포털 스크린샷](./media/storage-service-encryption/image4.png)
-<br/>*그림 2.1: 파일 서비스에 SSE 사용(2단계)*
 ## <a name="encryption-scenarios"></a>암호화 시나리오
-저장소 계정 수준에서 저장소 서비스 암호화를 사용할 수 있습니다. 다음과 같은 고객 시나리오가 지원됩니다.
+저장소 계정 수준에서 저장소 서비스 암호화를 사용할 수 있습니다. 사용하도록 설정하면 고객이 암호화할 서비스를 선택합니다. 다음과 같은 고객 시나리오가 지원됩니다.
 
-* Blob Storage 및 File Storage의 암호화.
-* 리소스 관리자 저장소 계정으로 마이그레이션된 클래식 저장소 계정의 암호화는 파일 서비스가 아니라 Blob Service에 대한 암호화를 위해 지원됩니다.
-* File Storage에 대한 암호화는 새로 만든 저장소 계정에 대해서만 지원됩니다.
+* 리소스 관리자 계정의 Blob Storage 및 File Storage 암호화
+* 리소스 관리자 저장소 계정으로 마이그레이션된 후 클래식 저장소 계정의 Blob 및 파일 서비스 암호화
 
 SSE에는 다음 제한 사항이 있습니다.
 
 * 클래식 저장소 계정의 암호화는 지원되지 않습니다.
-* 리소스 관리자 저장소 계정으로 마이그레이션된 클래식 저장소 계정의 암호화는 파일 서비스가 아니라 Blob Service에 대한 암호화를 위해 지원됩니다.
-* File Storage에 대한 암호화는 새로 만든 저장소 계정에 대해서만 지원됩니다.
 * 기존 데이터 - SSE만 암호화가 사용된 후 새로 만든 데이터를 암호화합니다. 예를 들어 새 Resource Manager 저장소 계정을 만들지만 암호화를 켜지 않는 경우 Blob 또는 보관된 VHD를 해당 저장소 계정으로 업로드한 후 SSE를 켜면 해당 Blob가 재작성되거나 복사되지 않은 경우 Blob가 암호화되지 않습니다.
 * 마켓플레이스 지원 - [Azure 포털](https://portal.azure.com), PowerShell 및 Azure CLI를 사용하여 마켓플레이스에서 만든 VM의 암호화를 사용합니다. VHD 기본 이미지는 암호화되지 않은 상태로 유지되지만 VM이 작동된 후 작성된 내용은 모두 암호화됩니다.
 * 테이블 및 큐 데이터는 암호화되지 않습니다.
@@ -133,19 +121,19 @@ A: 아니요, SSE는 Resource Manager 저장소 계정에만 지원됩니다.
 
 A: 새 Resource Manager 저장소 계정을 만들고 [AzCopy](storage-use-azcopy.md) 를 사용하여 기존 클래식 저장소 계정에서 데이터를 새로 만든 Resource Manager 저장소 계정으로 복사합니다. 
 
-클래식 저장소 계정을 Resource Manager 저장소 계정으로 마이그레이션하는 경우 마이그레이션 중 데이터는 암호화되지 않습니다. 그러나 저장소 계정을 마이그레이션한 다음 암호화를 사용하는 경우 저장소 계정에 기록된 새 데이터는 암호화됩니다. 자세한 내용은 [클래식에서 Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/)을 참조하세요. Blob Storage에만 지원됩니다. File Storage 미리 보기의 경우 사용자는 새 Resource Manager 저장소 계정을 만들어야 합니다.
+클래식 저장소 계정을 리소스 관리자 저장소 계정으로 마이그레이션하는 경우 이 작업은 즉각적이며 계정의 유형을 변경하지만 기존 데이터에는 영향을 주지 않습니다. 새로 기록되는 데이터는 암호화를 사용하도록 설정한 후에만 암호화됩니다. 자세한 내용은 [클래식에서 Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/)을 참조하세요. 이 기능은 Blob 및 파일 서비스에 대해서만 지원됩니다.
 
 **Q: 기존의 Resource Manager 저장소 계정이 있습니다. 이 계정에 SSE를 사용할 수 있나요?**
 
-A: 예, 하지만 새로 작성한 Blob만 암호화됩니다. 돌아가 기존에 있는 데이터를 암호화하지 않습니다. File Storage 미리 보기에는 아직 지원되지 않습니다.
+A: 예, 하지만 새로 작성한 데이터만 암호화됩니다. 돌아가 기존에 있는 데이터를 암호화하지 않습니다. File Storage 미리 보기에는 아직 지원되지 않습니다.
 
 **Q: 기존 Resource Manager 저장소 계정에서 현재 데이터를 암호화하고 싶습니다.**
 
-A: Resource Manager 저장소 계정에서 언제든지 SSE를 사용하도록 설정할 수 있습니다. 그러나 이미 있던 Blob는 암호화되지 않습니다. 이러한 Blob을 암호화하려면 다른 이름이나 다른 컨테이너에 복사한 후 암호화되지 않은 버전을 제거할 수 있습니다. File Storage 미리 보기에는 아직 지원되지 않습니다.
+A: Resource Manager 저장소 계정에서 언제든지 SSE를 사용하도록 설정할 수 있습니다. 그러나 이미 있던 데이터는 암호화되지 않습니다. 기존 데이터를 암호화하려면 다른 이름이나 다른 컨테이너에 복사한 후 암호화되지 않은 버전을 제거할 수 있습니다.
 
 **Q: 프리미엄 저장소를 사용 중입니다. SSE를 사용할 수 있나요?**
 
-A: 예, SSE는 표준 저장소 및 프리미엄 저장소 모두에서 지원됩니다. File Storage 미리 보기에는 아직 지원되지 않습니다.
+A: 예, SSE는 표준 저장소 및 프리미엄 저장소 모두에서 지원됩니다.  파일 서비스에 대한 Premium Storage는 지원되지 않습니다.
 
 **Q: 새 저장소 계정을 만들고 SSE를 사용한 경우 이 저장소 계정을 사용하여 새 VM을 만들면 내 VM이 암호화되어 있나요?**
 

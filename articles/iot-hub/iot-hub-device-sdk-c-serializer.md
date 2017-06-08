@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
-translationtype: Human Translation
-ms.sourcegitcommit: ef066a50b71389cb1cdd3bb0f8d342a34a4cc722
-ms.openlocfilehash: 587412f02c6bb6bd2c5b1896a890607fa1c058f8
-ms.lasthandoff: 02/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 0c192a9c5e738d92d02fb1a16a80569c9f80d732
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -666,15 +667,15 @@ serializer_deinit();
 ## <a name="next-steps"></a>다음 단계
 이 문서는 **C용 Azure IoT 장치 SDK**에 포함된 **serializer** 라이브러리의 고유한 측면에 대해 자세히 설명합니다. 제공된 정보로 모델을 사용하여 이벤트를 전송하고 IoT Hub에서 메시지를 수신하는 방법을 잘 이해할 수 있습니다.
 
-또한 **C용 Azure IoT 장치 SDK**로 응용 프로그램을 개발하는 방법에 대한&3;부로 구성된 시리즈를 완료합니다. API를 시작하는 방법뿐만 아니라 API의 작동 방식을 매우 정확하게 이해할 수 있는 충분한 정보를 제공합니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. 또는 [SDK 설명서](https://github.com/Azure/azure-iot-sdk-c) 가 추가 정보를 얻을 수 있는 훌륭한 리소스입니다.
+또한 **C용 Azure IoT 장치 SDK**로 응용 프로그램을 개발하는 방법에 대한 3부로 구성된 시리즈를 완료합니다. API를 시작하는 방법뿐만 아니라 API의 작동 방식을 매우 정확하게 이해할 수 있는 충분한 정보를 제공합니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. 또는 [SDK 설명서](https://github.com/Azure/azure-iot-sdk-c) 가 추가 정보를 얻을 수 있는 훌륭한 리소스입니다.
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK][lnk-sdks]를 참조하세요.
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [Azure IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

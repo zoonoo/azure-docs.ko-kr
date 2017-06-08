@@ -14,9 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9c40d273f102339fac8ea633c870b869d10106a7
 ms.openlocfilehash: ccbc051f49220e824782ed4831a31ab1a716570a
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/17/2017
 
 
@@ -38,12 +40,12 @@ Xamarin을 사용하면 iOS, Android 및 Windows(모바일 장치 및 PC)에서 
 * [기본 프로젝트](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip)를 다운로드하거나 [완성된 샘플](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)을 다운로드하세요. 각 다운로드는 Visual Studio 2013 솔루션입니다.
 * 또한 사용자를 만들고 앱을 등록할 Azure AD 테넌트도 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](active-directory-howto-tenant.md).
 
-준비가 완료되면 다음&4;가지 섹션의 절차를 수행합니다.
+준비가 완료되면 다음 4가지 섹션의 절차를 수행합니다.
 
 ## <a name="step-1-set-up-your-xamarin-development-environment"></a>1단계: Xamarin 개발 환경 설정
 이 자습서에는 iOS, Android 및 Windows용 프로젝트가 포함되어 있으므로 Visual Studio와 Xamarin이 둘 다 필요합니다. 필요한 환경을 만들려면 MSDN에서 [Visual Studio 및 Xamarin 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx)의 프로세스를 완료하세요. 이러한 지침에는 설치 관리자가 완료되기를 기다리는 동안 Xamarin에 대해 자세히 알아보기 위해 검토할 수 있는 자료가 포함되어 있습니다.
 
-필요한 설정을 마치면 Visual Studio에서 솔루션을 엽니다. 그러면&5;개의 플랫폼별 프로젝트와 모든 플랫폼에서 공유되는&1;개의 PCL, DirectorySearcher.cs의&6;개 프로젝트를 찾을 수 있습니다.
+필요한 설정을 마치면 Visual Studio에서 솔루션을 엽니다. 그러면 5개의 플랫폼별 프로젝트와 모든 플랫폼에서 공유되는 1개의 PCL, DirectorySearcher.cs의 6개 프로젝트를 찾을 수 있습니다.
 
 ## <a name="step-2-register-the-directorysearcher-app"></a>2단계: DirectorySearcher 앱 등록
 앱에서 토큰을 가져올 수 있도록 먼저 Azure AD 테넌트에 앱을 등록하고 Azure AD Graph API에 액세스할 수 있는 권한을 부여해야 합니다. 방법은 다음과 같습니다.

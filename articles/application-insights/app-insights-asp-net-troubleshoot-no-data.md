@@ -3,7 +3,7 @@ title: "데이터 없음 문제 해결 - .NET용 Application Insights"
 description: "Azure Application Insights에서 데이터를 볼 수 없나요? 여기를 참조하세요."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
 ms.service: application-insights

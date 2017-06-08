@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 8ee0301a48265b91f951c96c3339a3c3e3bdb1cb
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: cea4531175df2cc39790497dc049d27e23ffa0c6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -32,9 +33,9 @@ DevTest Labs는 새 랩을 빠르게 자동 생성하거나 기존 랩을 수정
 공용 [Github 리포지토리](https://github.com/Azure/azure-devtestlab)에서 미리 만들어진 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) 및 [PowerShell 스크립트](https://github.com/Azure/azure-devtestlab/tree/master/Scripts)를 찾을 수 있습니다. 그대로 사용하거나 요구 사항에 맞게 사용자 지정하고 [개인 Git 리포지토리](devtest-lab-add-artifact-repo.md)에 저장합니다. 
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>2단계: Azure Resource Manager 템플릿 수정
-[Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기](devtest-lab-create-environment-from-arm.md)는 DevTest 랩 안에서 Azure Resource Manager 템플릿을 사용하여 Azure 솔루션의 인프라와 구성을 정의하고 여러 VM을 일관적 상태로 반복 배포하는 방법을 보여줍니다.
+이전에 템플릿을 만든 적이 없는 경우 [첫 번째 Azure Resource Manager 템플릿 만들기](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template)에 나온 단계를 수행하시면 됩니다.
 
-예를 들어 새 가상 네트워크를 만들고 기존 랩 전체에 적용하려는 경우 Azure Resource Manager 템플릿을 사용하여 빠르게 수행할 수 있습니다.
+또한 [Azure Resource Manager 템플릿 작성에 대한 모범 사례](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices)에 안정적이고 사용하기 쉬운 Azure Resource Manager 템플릿을 만드는 데 도움이 되는 다양한 지침과 제안이 나와 있습니다. 일반적으로 제공되는 접근 방식 또는 예제 중 하나의 변형을 사용하고 사용자 필요에 따라 템플릿을 수정하게 됩니다.
 
 ## <a name="step-3-deploy-resources-with-powershell"></a>3단계: PowerShell로 리소스 배포
 템플릿과 스크립트를 사용자 지정한 후 [Resource Manager 템플릿 및 Azure PowerShell로 리소스를 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)하는 데 필요한 단계를 따르십시오. 이 문서는 Azure Resource Manager 템플릿과 Azure PowerShell을 사용하여 Azure에 리소스를 배포하는 방법에 대한 일반 정보를 제공합니다.

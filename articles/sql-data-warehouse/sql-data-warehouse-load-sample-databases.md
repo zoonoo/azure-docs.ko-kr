@@ -3,7 +3,7 @@ title: "샘플 데이터를 SQL Data Warehouse에 로드 | Microsoft Docs"
 description: "SQL 데이터 웨어하우스로 샘플 데이터를 로드"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: ckarst
 manager: jhubbard
 editor: 
 ms.assetid: e338ecf8-cfee-419b-b7b6-98108d381c62
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: cakarst;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
 ms.openlocfilehash: cc5ec6022cede019541d697905aa068b88d25ee4
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/22/2017
 
 

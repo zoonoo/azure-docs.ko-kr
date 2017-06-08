@@ -14,12 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 05/25/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ba5e069fb57be9ed896c0454b011aabf5fd68a0b
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 102cd55a0b55e18ec5240bf6ddf94a1909c08ebb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -34,7 +35,7 @@ Azure HDInsight에서 [Apache Mahout](http://mahout.apache.org) 기계 학습 �
 * Linux 기반 HDInsight 클러스터입니다. HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 사용 시작][getstarted]을 참조하세요.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)를 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
 
 * [Azure PowerShell](/powershell/azure/overview)
 
@@ -76,98 +77,7 @@ user-ratings.txt에 포함된 데이터의 구조는 `userID`, `movieID`, `userR
 > [!NOTE]
 > 이 파일은 HDInsight 클러스터에 연결하고 작업을 실행하는 데 사용하는 정보를 안내합니다. 작업을 완료하고 output.txt 파일을 다운로드하는 데 몇 분이 걸립니다.
 
-```powershell
-# Login to your Azure subscription
-# Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-if(-not($sub))
-{
-    Add-AzureRmAccount
-}
-
-# Get cluster info
-$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-$creds=Get-Credential -UserName "admin" -Message "Enter the login for the cluster"
-
-#Get the cluster info so we can get the resource group, storage, etc.
-$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-$resourceGroup = $clusterInfo.ResourceGroup
-$storageAccountName = $clusterInfo.DefaultStorageAccount.split('.')[0]
-$container = $clusterInfo.DefaultStorageContainer
-$storageAccountKey = (Get-AzureRmStorageAccountKey `
-    -Name $storageAccountName `
--ResourceGroupName $resourceGroup)[0].Value
-
-#Create a storage context and upload the file
-$context = New-AzureStorageContext `
-    -StorageAccountName $storageAccountName `
-    -StorageAccountKey $storageAccountKey
-
-#Use Hive to figure out the path to the mahout examples
-#Because the file name/path has a version number in it that changes
-$queryString = "!ls /usr/hdp/current/mahout-client"
-$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
-$hiveJob=Start-AzureRmHDInsightJob -ClusterName $clusterName -JobDefinition $hiveJobDefinition -HttpCredential $creds
-wait-azurermhdinsightjob -ClusterName $clusterName -JobId $hiveJob.JobId -HttpCredential $creds > $null
-#Get the files returned from Hive
-$files=get-azurermhdinsightjoboutput -clustername $clusterName -JobId $hiveJob.JobId -DefaultContainer $container -DefaultStorageAccountName $storageAccountName -DefaultStorageAccountKey $storageAccountKey -HttpCredential $creds
-#Find the file that starts with mahout-examples and ends in job.jar
-$jarFile = $files | select-string "mahout-examples.+job\.jar" | % {$_.Matches.Value}
-#Add the full path
-$jarFile = "file:///usr/hdp/current/mahout-client/$jarFile"
-
-# The arguments for the mahout job
-# * input - the path to the data uploaded to HDInsight
-# * output - the path to store output data
-# * tempDir - the directory for temp files
-$jobArguments = "-s", "SIMILARITY_COOCCURRENCE", `
-                "--input", "/HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt",
-                "--output", "/example/out",
-                "--tempDir", "/example/temp"
-
-# Create the job definition
-$jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-    -JarFile $jarFile `
-    -ClassName "org.apache.mahout.cf.taste.hadoop.item.RecommenderJob" `
-    -Arguments $jobArguments
-
-# Start the job
-$job = Start-AzureRmHDInsightJob `
-    -ClusterName $clusterName `
-    -JobDefinition $jobDefinition `
-    -HttpCredential $creds
-
-# Wait on the job to complete
-Write-Host "Wait for the job to complete ..." -ForegroundColor Green
-Wait-AzureRmHDInsightJob `
-        -ClusterName $clusterName `
-        -JobId $job.JobId `
-        -HttpCredential $creds
-
-# Write out any error information
-Write-Host "STDERR"
-Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $job.JobId `
-        -HttpCredential $creds `
-        -DisplayOutputType StandardError
-
-# Download the output
-Get-AzureStorageBlobContent `
-        -Blob example/out/part-r-00000 `
-        -Container $container `
-        -Destination output.txt `
-        -Context $context
-#Download movie and user files for use in displaying results
-Get-AzureStorageBlobContent -blob "HdiSamples/HdiSamples/MahoutMovieData/moviedb.txt" `
-        -Container $container `
-        -Destination moviedb.txt `
-        -Context $context
-Get-AzureStorageBlobContent -blob "HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt" `
-        -Container $container `
-        -Destination user-ratings.txt `
-        -Context $context
-```
+[!code-powershell[기본](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
 
 > [!NOTE]
 > Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제거하지 않습니다. 이 `--tempDir` 매개 변수는 쉽게 삭제할 수 있도록 임시 파일을 특정 디렉터리로 분리하기 위해 예제 작업에서 지정되었습니다.
@@ -189,89 +99,7 @@ Mahout 작업은 STDOUT로 출력을 반환하지 않습니다. 대신 지정된
 
 생성된 출력을 응용 프로그램에서 사용할 수 있긴 하지만 사용자에게 친숙한 형식은 아닙니다. 서버의 `moviedb.txt`를 사용하여 영화 이름으로 `movieId`를 분석할 수 있습니다. 다음 PowerShell 스크립트를 사용하여 영화 이름과 함께 추천 항목을 표시합니다.
 
-```powershell
-<#
-.SYNOPSIS
-    Displays recommendations for movies.
-.DESCRIPTION
-    Displays recommendations generated by Mahout
-    with HDInsight example in a human readable format.
-.EXAMPLE
-    .\Show-Recommendation -userId 4
-        -userDataFile "user-ratings.txt"
-        -movieFile "moviedb.txt"
-        -recommendationFile "output.txt"
-#>
-
-[CmdletBinding(SupportsShouldProcess = $true)]
-param(
-    #The user ID
-    [Parameter(Mandatory = $true)]
-    [String]$userId,
-
-    [Parameter(Mandatory = $true)]
-    [String]$userDataFile,
-
-    [Parameter(Mandatory = $true)]
-    [String]$movieFile,
-
-    [Parameter(Mandatory = $true)]
-    [String]$recommendationFile
-)
-# Read movie ID & description into hash table
-Write-Host "Reading movies descriptions" -ForegroundColor Green
-$movieById = @{}
-foreach($line in Get-Content $movieFile)
-{
-    $tokens = $line.Split("|")
-    $movieById[$tokens[0]] = $tokens[1]
-}
-# Load movies user has already seen (rated)
-# into a hash table
-Write-Host "Reading rated movies" -ForegroundColor Green
-$ratedMovieIds = @{}
-foreach($line in Get-Content $userDataFile)
-{
-    $tokens = $line.Split("`t")
-    if($tokens[0] -eq $userId)
-    {
-        # Resolve the ID to the movie name
-        $ratedMovieIds[$movieById[$tokens[1]]] = $tokens[2]
-    }
-}
-# Read recommendations generated by Mahout
-Write-Host "Reading recommendations" -ForegroundColor Green
-$recommendations = @{}
-foreach($line in get-content $recommendationFile)
-{
-    $tokens = $line.Split("`t")
-    if($tokens[0] -eq $userId)
-    {
-        #Trim leading/treailing [] and split at ,
-        $movieIdAndScores = $tokens[1].TrimStart("[").TrimEnd("]").Split(",")
-        foreach($movieIdAndScore in $movieIdAndScores)
-        {
-            #Split at : and store title and score in a hash table
-            $idAndScore = $movieIdAndScore.Split(":")
-            $recommendations[$movieById[$idAndScore[0]]] = $idAndScore[1]
-        }
-        break
-    }
-}
-
-Write-Host "Rated movies" -ForegroundColor Green
-Write-Host "---------------------------" -ForegroundColor Green
-$ratedFormat = @{Expression={$_.Name};Label="Movie";Width=40}, `
-                @{Expression={$_.Value};Label="Rating"}
-$ratedMovieIds | format-table $ratedFormat
-Write-Host "---------------------------" -ForegroundColor Green
-
-write-host "Recommended movies" -ForegroundColor Green
-Write-Host "---------------------------" -ForegroundColor Green
-$recommendationFormat = @{Expression={$_.Name};Label="Movie";Width=40}, `
-                        @{Expression={$_.Value};Label="Score"}
-$recommendations | format-table $recommendationFormat
-```
+[!code-powershell[기본](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=106-180)]
 
 다음 명령을 사용하여 사용자에게 친숙한 형식으로 추천 정보를 표시합니다. 
 
@@ -400,7 +228,6 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 [upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest
-[management]: https://manage.windowsazure.com/
 [enableremote]: ./media/hdinsight-mahout/enableremote.png
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png

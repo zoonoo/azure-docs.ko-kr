@@ -3,7 +3,7 @@ title: "Azure Application Insights 데이터 보존 및 저장소 | Microsoft Do
 description: "보존 및 개인 정보 취급 방침"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights

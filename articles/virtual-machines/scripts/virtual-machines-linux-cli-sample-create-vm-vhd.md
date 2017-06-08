@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: c654db0142df904acc5212b0f53991c54cbf2087
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 9e62713be30a07ae00dac07de21009d2c379d609
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -34,17 +35,19 @@ https://azclisamples.blob.core.windows.net/vhds/sample.vhd에서 사용한 VHD�
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-vhd/create-vm-vhd.sh "VHD를 사용하여 VM 만들기")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-vhd/create-vm-vhd.sh "VHD를 사용하여 VM 만들기")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n az-cli-vhd
 ```
 

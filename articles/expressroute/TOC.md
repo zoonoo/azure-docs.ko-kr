@@ -47,7 +47,8 @@
 ### [ARP 테이블(클래식) 받기](expressroute-troubleshooting-arp-classic.md)
 
 # 참조
-## [PowerShell](/powershell/module/azurerm.network)
+## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+## [Azure CLI](/cli/azure/network/express-route)
 ## [REST (영문)](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST(클래식)](https://msdn.microsoft.com/library/azure/dn606310)
 

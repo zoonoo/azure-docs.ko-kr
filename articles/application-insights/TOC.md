@@ -12,6 +12,7 @@
 ### [이미 라이브 상태인 웹앱](app-insights-monitor-performance-live-website-now.md)
 ### [Windows 서비스](app-insights-windows-services.md)
 ### [Windows 데스크톱](app-insights-windows-desktop.md)
+### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## Java 앱 모니터링
 ### [웹앱](app-insights-java-get-started.md)
@@ -33,7 +34,8 @@
 ## 계획 및 디자인
 ### [웹앱 및 서비스 심층 진단](app-insights-devops.md)
 ### [웹 응용 프로그램의 성능 모니터링](app-insights-web-monitor-performance.md)
-### [Application Insights 리소스 구분](app-insights-separate-resources.md)
+### [개발, 테스트 및 프로덕션 구분](app-insights-separate-resources.md)
+### [여러 구성 요소를 사용하여 앱 모니터링](app-insights-monitor-multi-role-apps.md)
 ### [Application Insights에서 다음을 수행하는 방법](app-insights-how-do-i.md)
 
 
@@ -112,10 +114,9 @@
 ### [사용자 지정 이벤트 및 메트릭용 API ](app-insights-api-custom-events-metrics.md)
 ### [필터링 및 원격 분석 전처리](app-insights-api-filtering-sampling.md)
 ### [샘플링](app-insights-sampling.md)
-### [ASP.NET Core](app-insights-asp-net-core.md)
 
 ## 관리
-### [가격 책정 및 할당량 관리](app-insights-pricing.md)
+### [가격 책정 및 데이터 볼륨 관리](app-insights-pricing.md)
 ### [SCOM에 대해 Application Insights를 사용하여 응용 프로그램 성능 모니터링](app-insights-scom.md)
 
 ## 내보내기
@@ -138,7 +139,7 @@
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [REST (영문)](https://dev.applicationinsights.io/)
+## [데이터 액세스 API](https://dev.applicationinsights.io/)
 ## [데이터 모델](application-insights-data-model.md)
 ### [요청](application-insights-data-model-request-telemetry.md)
 ### [종속성](application-insights-data-model-dependency-telemetry.md)
@@ -146,6 +147,7 @@
 ### [추적](application-insights-data-model-trace-telemetry.md)
 ### [Event](application-insights-data-model-event-telemetry.md)
 ### [메트릭](application-insights-data-model-metric-telemetry.md)
+### [컨텍스트](application-insights-data-model-context.md)
 ## [원격 분석 상관 관계](application-insights-correlation.md)
 
 # 리소스

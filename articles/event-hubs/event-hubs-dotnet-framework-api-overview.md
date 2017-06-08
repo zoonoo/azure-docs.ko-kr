@@ -12,15 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
-ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 0e59d117bd9a1355b5b58c76cf9b39ec3005b122
-ms.lasthandoff: 02/02/2017
+ms.date: 05/03/2017
+ms.author: sethm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
+ms.openlocfilehash: 41435316adaee5c66de503571184fce8937d38ee
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/04/2017
 
 
 ---
+
 # <a name="event-hubs-net-framework-api-overview"></a>Event Hubs .NET Framework API 개요
 이 문서에서는 핵심 Event Hubs .NET Framework 클라이언트 API 일부를 요약해서 설명합니다. 관리와 런타임 API 등 두 가지 범주가 있습니다. 런타임 API는 메시지를 주고받는 데 필요한 모든 작업으로 구성됩니다. 관리 작업을 사용하면 엔터티를 만들고 업데이트 및 삭제하여 이벤트 허브 엔터티 상태를 관리할 수 있습니다.
 
@@ -127,7 +129,7 @@ await host.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await host.UnregisterEventProcessorAsync();
 ```
 
-[IEventProcessor](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) 인터페이스는 다음과 같이 정의됩니다.
+[IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) 인터페이스는 다음과 같이 정의됩니다.
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -170,7 +172,7 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이벤트 허브 시나리어에 대한 자세한 내용은 다음 링크를 방문하십시오.
+이벤트 허브 시나리오에 대한 자세한 내용은 다음 링크를 방문하십시오.
 
 * [Azure 이벤트 허브 정의](event-hubs-what-is-event-hubs.md)
 * [이벤트 허브 프로그래밍 가이드](event-hubs-programming-guide.md)
@@ -178,5 +180,5 @@ public class SimpleEventProcessor : IEventProcessor
 .NET API 참조는 다음과 같습니다.
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-* [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
+* [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)
 

@@ -3,7 +3,7 @@ title: "Azure Application Insights에서 어떻게 할까요? | Microsoft Docs"
 description: "Application Insights의 FAQ"
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: d7795a494fbe8d3a850d7d8805cf059a86965a64
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 618fcfa3354ef5900d89546ffb7c222a852fe4f8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/05/2017
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -82,55 +82,11 @@ ms.lasthandoff: 04/05/2017
 * [새 리소스 만들기](app-insights-powershell-script-create-resource.md)
 * [새 경고 만들기](app-insights-alerts.md#automation)
 
-## <a name="application-versions-and-stamps"></a>응용 프로그램 버전 및 스탬프
-### <a name="separate-the-results-from-dev-test-and-prod"></a>개발, 테스트 및 프로덕션에서 결과 분리
-* 서로 다른 환경에서 서로 다른 iKey 설정
-* 서로 다른 스탬프(개발, 테스트, 프로덕션)에 대해 서로 다른 속성 값으로 원격 분석 태그
+## <a name="separate-telemetry-from-different-versions"></a>서로 다른 버전에서 별도 원격 분석
 
-[자세히 알아보기](app-insights-separate-resources.md)
-
-### <a name="filter-on-build-number"></a>빌드 번호 필터링
-앱의 새 버전을 게시하면서 다른 빌드의 원격 분석을 구분하고자 할 수 있습니다.
-
-응용 프로그램 버전 속성을 설정하여 [검색](app-insights-diagnostic-search.md) 및 [메트릭 탐색기](app-insights-metrics-explorer.md) 결과를 필터링할 수 있습니다.
-
-![](./media/app-insights-how-do-i/050-filter.png)
-
-응용 프로그램 버전 속성은 몇 가지 다른 방법으로 설정할 수 있습니다.
-
-* 직접 설정:
-
-    `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* [원격 분석 이니셜라이저](app-insights-api-custom-events-metrics.md#defaults) 에서 해당 줄을 래핑하여 모든 TelemetryClient 인스턴스가 일관되게 설정되었는지 확인합니다.
-* [ASP.NET] `BuildInfo.config`에서 버전을 설정합니다. 웹 모듈은 BuildLabel 노드에서 버전을 선택합니다. 프로젝트에 이 파일을 포함하고 솔루션 탐색기에서 항상 복사 속성을 설정합니다.
-
-    ```XML
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
-      <ProjectName>AppVersionExpt</ProjectName>
-      <Build type="MSBuild">
-        <MSBuild>
-          <BuildLabel kind="label">1.0.0.2</BuildLabel>
-        </MSBuild>
-      </Build>
-    </DeploymentEvent>
-
-    ```
-* [ASP.NET] MSBuild에서 BuildInfo.config를 자동으로 생성합니다. 이 작업을 수행하려면.csproj 파일에 몇 줄을 추가합니다.
-
-    ```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup>
-    ```
-
-    그러면 *yourProjectName*.BuildInfo.config 파일이 생성됩니다. 게시 프로세스의 이름이 BuildInfo.config로 바뀝니다.
-
-    Visual Studio를 사용하여 빌드할때 빌드 레이블에는 자리 표시자(AutoGen_...)가 포함됩니다. MSBuild로 빌드할 때는 정확한 버전 번호가 입력됩니다.
-
-    MSBuild가 버전 번호를 생성하게 하려면 AssemblyReference.cs에서 `1.0.*` 같이 버전을 설정합니다.
+* 앱에서 여러 역할: 단일 Application Insights 리소스 사용 및 cloud_Rolename 필터링. [자세히 알아보기](app-insights-monitor-multi-role-apps.md)
+* 개발, 테스트 및 릴리스 버전 구분: 다른 Application Insights 리소스 사용. web.config에서 계측 키를 선택합니다. [자세히 알아보기](app-insights-separate-resources.md)
+* 빌드 버전 보고: 원격 분석 이니셜라이저를 사용하여 속성 추가. [자세히 알아보기](app-insights-separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>백엔드 서버 및 데스크톱 앱 모니터링
 [Windows Server SDK 모듈을 사용합니다](app-insights-windows-desktop.md).
@@ -209,21 +165,3 @@ ms.lasthandoff: 04/05/2017
 * 먼저 [새 차트를 추가하고](app-insights-metrics-explorer.md) 제공한 기본 집합에 카운터가 있는지 확인합니다.
 * 없으면 [성능 카운터 모듈에서 수집한 집합에 카운터를 추가합니다](app-insights-performance-counters.md).
 
-## <a name="version-and-release-tracking"></a>버전 및 릴리스 추적
-응용 프로그램 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. .csproj 파일에서 다음을 추가합니다.  
-
-```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup>
-```
-
-빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **응용 프로그램 버전** 을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](app-insights-diagnostic-search.md)을 수행하거나 [메트릭을 탐색](app-insights-metrics-explorer.md)할 때 버전을 기준으로 필터링할 수 있습니다.
-
-그러나 빌드 버전 번호는 Visual Studio의 개발자 빌드가 아니라 Microsoft Build Engine에서만 생성된다는 점에 유의해야 합니다.
-
-### <a name="release-annotations"></a>릴리스 주석
-Visual Studio Team Services를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](app-insights-annotations.md)이 차트에 추가됩니다. 다음 이미지는 이러한 표식이 어떻게 나타나는지를 보여줍니다.
-
-![차트의 샘플 릴리스 주석 스크린샷](./media/app-insights-asp-net/release-annotation.png)

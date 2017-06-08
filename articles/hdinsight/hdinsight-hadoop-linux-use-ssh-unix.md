@@ -1,32 +1,35 @@
 ---
-title: "Windows, Linux, Unix 또는 OS X에서 HDInsight(Hadoop)과 함께 SSH 사용 | Microsoft Docs"
-description: " SSH(보안 셸)를 사용하여 HDInsight에 액세스할 수 있습니다. 이 문서에서는 Windows, Linux, Unix 또는 OS X 클라이언트에서 HDInsight와 함께 연결하기 위해 SSH를 사용하는 방법을 설명합니다."
+title: "Hadoop에서 SSH 사용 - Azure HDInsight | Microsoft Docs"
+description: "SSH(보안 셸)를 사용하여 HDInsight에 액세스할 수 있습니다. 이 문서에서는 Windows, Linux, Unix 또는 macOS 클라이언트의 ssh 및 scp 명령을 사용하여 HDInsight에 연결하는 방법에 대해 설명합니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
+keywords: "Linux의 Hadoop 명령, Hadoop Linux 명령, Hadoop macOS, SSH Hadoop, SSH Hadoop 클러스터"
 ms.assetid: a6a16405-a4a7-4151-9bbf-ab26972216c5
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/03/2017
+ms.date: 05/12/2017
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 248e820ccd2c68a8500aab3233c5beea3c8cc868
-ms.lasthandoff: 04/04/2017
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 3eb1d4df7ab87ec692716339eb0ecb9df4c58732
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
+
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Hadoop)에 연결
 
-[SSH (보안 셸)](https://en.wikipedia.org/wiki/Secure_Shell)을 사용하여 HDInsight에 안전하게 연결하는 방법을 알아봅니다. HDInsight는 클러스터 내에서 노드에 대한 운영 체제로 Linux(Ubuntu)를 사용할 수 있습니다. Linux 기반 클러스터의 헤드 및 에지 노드에 연결하고 해당 노드에서 직접 명령을 실행하는 데 SSH를 사용할 수 있습니다.
+[SSH(보안 셸)](https://en.wikipedia.org/wiki/Secure_Shell)을 사용하여 Azure HDInsight의 Hadoop에 안전하게 연결하는 방법에 대해 알아봅니다. 
 
-다음 테이블에서는 SSH를 사용하여 HDInsight에 연결할 때 필요한 주소와 포트 정보를 포함합니다.
+HDInsight는 Hadoop 클러스터 내에서 노드의 운영 체제로 Linux(Ubuntu)를 사용할 수 있습니다. 다음 표에서는 SSH 클라이언트를 사용하여 Linux 기반 HDInsight에 연결할 때 필요한 주소와 포트 정보를 보여 줍니다.
 
 | 주소 | 포트 | 다음에 연결... |
 | ----- | ----- | ----- |
@@ -38,40 +41,44 @@ ms.lasthandoff: 04/04/2017
 > [!NOTE]
 > `<edgenodename>`을 에지 노드의 이름으로 바꿉니다.
 >
-> `<clustername>` 을 HDInsight 클러스터 이름으로 바꿉니다.
+> `<clustername>`을 클러스터의 이름으로 바꿉니다.
 >
-> 에지 노드가 있는 경우 __에지 노드에 항상 연결__하는 것이 좋습니다. 헤드 노드는 클러스터의 상태에 중요한 서비스를 호스트합니다. 에지 노드는 배치한 내용을 실행합니다.
+> 클러스터에 에지 노드가 있는 경우 __항상 SSH를 사용하여 에지 노드에 연결__하는 것이 좋습니다. 헤드 노드는 Hadoop의 상태에 중요한 서비스를 호스팅합니다. 에지 노드는 배치한 내용을 실행합니다.
 >
 > 에지 노드를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 에지 노드 사용](hdinsight-apps-use-edge-node.md#access-an-edge-node)을 참조하세요.
 
 ## <a name="ssh-clients"></a>SSH 클라이언트
 
-대부분의 운영 체제는 `ssh` 클라이언트를 제공합니다. Microsoft Windows는 기본적으로 SSH 클라이언트를 제공하지 않습니다. Windows용 SSH 클라이언트는 다음 패키지에서 각각 제공됩니다.
+Linux, Unix 및 macOS 시스템은 `ssh` 및 `scp` 명령을 제공합니다. `ssh` 클라이언트는 일반적으로 Linux 또는 Unix 기반 시스템에서 원격 명령줄 세션을 만드는 데 사용됩니다. `scp` 클라이언트는 클라이언트와 원격 시스템 간에 파일을 안전하게 복사하는 데 사용됩니다.
 
-* [Windows 10의 Ubuntu에 있는 Bash](https://msdn.microsoft.com/commandline/wsl/about):는 `ssh` 명령은 Windows 명령줄에서 Bash를 통해 제공됩니다.
+Microsoft Windows는 기본적으로 SSH 클라이언트를 제공하지 않습니다. `ssh` 및 `scp` 클라이언트는 Windows에서 다음 패키지를 통해 사용할 수 있습니다.
 
-* [Git(https://git-scm.com/)](https://git-scm.com/): `ssh` 명령은 GitBash 명령줄을 통해 제공됩니다.
+* [Azure Cloud Shell](../cloud-shell/quickstart.md): 브라우저에 Bash 환경을 제공하고 `ssh`, `scp` 및 기타 일반적인 Linux 명령을 제공합니다.
 
-* [GitHub 데스크탑(https://desktop.github.com/)](https://desktop.github.com/): `ssh` 명령은 Git Shell 명령줄을 통해 제공됩니다. GitHub 데스크탑은 Bash, Windows 명령 프롬프트 또는 PowerShell을 Git Shell의 명령줄로 사용하여 구성될 수 있습니다.
+* [Windows 10의 Ubuntu에 있는 Bash](https://msdn.microsoft.com/commandline/wsl/about)(영문): `ssh` 및 `scp` 명령은 Windows 명령줄에서 Bash를 통해 사용할 수 있습니다.
+
+* [Git(https://git-scm.com/)](https://git-scm.com/)(영문): `ssh` 및 `scp` 명령은 GitBash 명령줄을 통해 사용할 수 있습니다.
+
+* [GitHub 데스크톱(https://desktop.github.com/)](https://desktop.github.com/)(영문): `ssh` 및 `scp` 명령은 GitHub 셸 명령줄을 통해 사용할 수 있습니다. GitHub 데스크탑은 Bash, Windows 명령 프롬프트 또는 PowerShell을 Git Shell의 명령줄로 사용하여 구성될 수 있습니다.
 
 * [OpenSSH(https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): PowerShell 팀은 OpenSSH를 Windows에 이식하여 테스트 릴리스를 제공합니다.
 
     > [!WARNING]
     > OpenSSH 패키지는 SSH 서버 구성 요소 `sshd`를 포함합니다. 이 구성 요소는 다른 사용자가 연결할 수 있도록 시스템에서 SSH 서버를 시작합니다. 시스템에서 SSH 서버를 호스트하려는 것이 아니라면 이 구성 요소를 구성하거나 포트 22를 열지 않습니다. HDInsight와 통신할 필요가 없습니다.
 
-[PuTTY(http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) 및 [MobaXterm(http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/)과 같은 몇 가지 그래픽 SSH 클라이언트가 있습니다. 이러한 클라이언트를 사용하여 HDInsight에 연결할 수 있는 반면 서버에 연결하는 프로세스는 `ssh` 유틸리티를 사용하는 것과 다릅니다. 자세한 내용은 사용하는 그래픽 클라이언트의 설명서를 참조하세요.
+[PuTTY(http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) 및 [MobaXterm(http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/)과 같은 몇 가지 그래픽 SSH 클라이언트가 있습니다. 이러한 클라이언트를 사용하여 HDInsight에 연결할 수 있지만, 연결하는 프로세스는 `ssh` 유틸리티를 사용하는 것과 다릅니다. 자세한 내용은 사용하는 그래픽 클라이언트의 설명서를 참조하세요.
 
 ## <a id="sshkey"></a>인증: SSH 키
 
-SSH 키는 [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_cryptography)를 사용하여 클러스터를 보호합니다. SSH 키는 암호보다 더 안전하고 HDInsight 클러스터를 보호하는 쉬운 방법을 제공합니다.
+SSH 키는 [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_cryptography)를 사용하여 SSH 세션을 인증합니다. SSH 키는 암호보다 더 안전하며, Hadoop 클러스터에 대한 액세스를 안전하게 보호하는 쉬운 방법을 제공합니다.
 
 키를 사용하여 SSH 계정을 보호한 경우 클라이언트는 연결할 때 일치하는 개인 키를 제공해야 합니다.
 
 * 대부분의 클라이언트는 __기본 키__를 사용하도록 구성될 수 있습니다. 예를 들어 `ssh` 클라이언트는 Linux 및 Unix 환경의 `~/.ssh/id_rsa`에서 개인 키를 찾습니다.
 
-* __개인 키에 대한 경로__를 지정할 수 있습니다. `ssh` 클라이언트에서 `-i` 매개 변수를 사용하여 개인 키에 대한 경로를 지정합니다. 예: `ssh -i ~/.ssh/hdinsight sshuser@myedge.mycluster-ssh.azurehdinsight.net`
+* __개인 키에 대한 경로__를 지정할 수 있습니다. `ssh` 클라이언트에서 `-i` 매개 변수를 사용하여 개인 키에 대한 경로를 지정합니다. 예: `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
 
-* 서로 다른 서버에서 사용하기 위한 __여러 개인 키__가 있는 경우 [ssh-agent(https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent)와 같은 유틸리티를 사용하여 자동으로 사용할 키를 선택할 수 있습니다.
+* 서로 다른 서버에서 사용할 수 있는 __여러 개의 개인 키__가 있는 경우 [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent)와 같은 유틸리티를 사용하는 것이 좋습니다. `ssh-agent` 유틸리티를 사용하여 SSH 세션을 설정할 때 사용할 키를 자동으로 선택할 수 있습니다.
 
 > [!IMPORTANT]
 >
@@ -90,7 +97,7 @@ SSH 키는 [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_crypt
 * __개인 키__는 HDInsight 클러스터에 클라이언트를 인증하는 데 사용됩니다.
 
 > [!IMPORTANT]
-> 암호를 사용하여 키를 보호할 수 있습니다. 이것이 사용자의 개인 키의 암호입니다. 누군가 사용자의 개인 키를 얻게 되더라도 키를 사용하기 위해 암호가 있어야 합니다.
+> 암호를 사용하여 키를 보호할 수 있습니다. 암호는 사실상 개인 키의 암호입니다. 누군가 사용자의 개인 키를 얻게 되더라도 키를 사용하기 위해 암호가 있어야 합니다.
 
 ### <a name="create-hdinsight-using-the-public-key"></a>공용 키를 사용하여 HDInsight 만들기
 
@@ -139,11 +146,11 @@ __도메인에 조인된 HDInsight 클러스터__를 사용하는 경우 SSH와 
 
         ssh sshuser@wn0-myhdi
 
-    클러스터에서 노드의 도메인 이름 목록을 검색하려면 [Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서에 있는 예제를 참조하세요.
+    클러스터에 있는 노드의 도메인 이름 목록을 검색하려면 [Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서를 참조하세요.
 
-SSH 계정이 __암호__를 사용하여 보호되는 경우 암호를 입력하라는 메시지가 표시되고 연결이 설정됩니다.
+__암호__를 사용하여 SSH 계정을 보호하는 경우 연결할 때 해당 암호를 입력합니다.
 
-__SSH 키__를 사용하여 SSH 계정을 보호할 경우 로컬 환경이 SSH 에이전트 전달에 맞게 구성되었는지 확인해야 합니다.
+__SSH 키__를 사용하여 SSH 계정을 보호하는 경우 SSH 전달이 클라이언트에서 활성화되어 있는지 확인합니다.
 
 > [!NOTE]
 > 클러스터에서 모든 노드에 직접 액세스하는 다른 방법은 Azure Virtual Network에 HDInsight를 설치하는 것입니다. 그런 다음 동일한 가상 네트워크에 원격 컴퓨터를 조인하고 클러스터에 있는 모든 노드에 직접 액세스할 수 있습니다.
@@ -153,7 +160,7 @@ __SSH 키__를 사용하여 SSH 계정을 보호할 경우 로컬 환경이 SSH 
 ### <a name="configure-ssh-agent-forwarding"></a>SSH 에이전트 전달 구성
 
 > [!IMPORTANT]
-> 다음 단계에서는 Linux/UNIX 기반 시스템이며 Bash on Windows 10으로 작업한다고 가정합니다. 이 단계가 시스템에서 작동하지 않는다면 해당 SSH 클라이언트에 대한 설명서를 참조해야 할 수 있습니다.
+> 다음 단계에서는 Linux 또는 UNIX 기반 시스템이며 Windows 10의 Bash를 통해 작업한다고 가정합니다. 이 단계가 시스템에서 작동하지 않는다면 해당 SSH 클라이언트에 대한 설명서를 참조해야 할 수 있습니다.
 
 1. 텍스트 편집기를 사용하여 `~/.ssh/config`를 엽니다. 이 파일이 존재하지 않으면 명령줄에 `touch ~/.ssh/config`를 입력하여 만들 수 있습니다.
 
@@ -172,7 +179,7 @@ __SSH 키__를 사용하여 SSH 계정을 보호할 경우 로컬 환경이 SSH 
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    아무 것도 반환되지 않으면 `ssh-agent`가 실행되지 않는 것입니다. `ssh-agent` 설치 및 구성에 관한 특정 단계는 [ssh에서 ssh-agent 사용(http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh)의 에이전트 시작 스크립트나 SSH 클라이언트 설명서를 참조하십시오.
+    아무 것도 반환되지 않으면 `ssh-agent`가 실행되지 않는 것입니다. 자세한 내용은 [ssh에서 ssh-agent 사용(http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh)(영문)의 에이전트 시작 스크립트 또는 SSH 클라이언트 설명서를 참조하세요.
 
 4. **ssh-agent** 가 실행 중인지 확인한 후에는 다음을 사용하여 SSH 개인 키를 에이전트에 추가합니다.
 

@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: a80c051d17eefd394ff5cd0d12e99b16ca3ae28c
-ms.lasthandoff: 03/10/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 82d64d159412af6ff2bba1d625af66cdd18a4616
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -75,6 +76,9 @@ AS2 인코딩 커넥터는 다음과 같은 태스크를 수행합니다.
 ## <a name="try-this-sample"></a>이 샘플 사용해보기
 
 완벽하게 작동하는 논리 앱 및 샘플 AS2 시나리오를 배포하려면 [AS2 논리 앱 템플릿 및 시나리오](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/)를 참조하세요.
+
+## <a name="view-the-swagger"></a>swagger 보기
+[swagger 정보](/connectors/as2/)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기") 

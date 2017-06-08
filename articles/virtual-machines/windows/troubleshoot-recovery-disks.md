@@ -4,7 +4,7 @@ title: "Azure PowerShell에서 Windows 문제 해결 VM 사용 | Microsoft Docs"
 description: "Azure PowerShell을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Azure에서 Windows VM 문제를 해결하는 방법을 알아봅니다."
 services: virtual-machines-windows
 documentationCenter: 
-authors: iainfoulds
+authors: genlin
 manager: timlt
 editor: 
 ms.service: virtual-machines-windows
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/13/2016
-ms.author: iainfou
-translationtype: Human Translation
+ms.date: 05/26/2017
+ms.author: genli
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 36de0375cef661dddb384f9f7651e3faf8df793c
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/27/2017
 
 

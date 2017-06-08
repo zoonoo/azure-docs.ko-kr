@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: cdc50ec4bf98d7924ad5bf97c9a757f0bac01173
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b0b2e8f375fa0b80e4f933515e1e8a689478483e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -74,7 +75,7 @@ IoT Hub는 메시지 라우팅을 작동하기 위해 이러한 서비스 끝점
 ## <a name="field-gateways"></a>현장 게이트웨이
 IoT 솔루션에서 *필드 게이트웨이*는 장치와 IoT Hub 끝점 사이에 위치하며 일반적으로 장치 가까이에 위치합니다. 장치는 해당 장치에서 지원되는 프로토콜을 사용하여 필드 게이트웨이와 직접 통신합니다. 필드 게이트웨이는 IoT Hub에서 지원하는 프로토콜을 사용하여 IoT Hub 끝점에 연결됩니다. 필드 게이트웨이는 게이트웨이에 의도된 종단 간 시나리오를 완수하는 소프트웨어를 실행하는 매우 특수화된 하드웨어나 저출력 컴퓨터일 수 있습니다.
 
-[Azure IoT Gateway SDK][lnk-gateway-sdk]를 사용하여 필드 게이트웨이를 구현할 수 있습니다. SDK는 여러 장치에서 동일한 IoT Hub 연결로 통신을 다중 송신할 수 있는 기능과 같은 특정한 기능을 제공합니다.
+[Azure IoT Edge][lnk-gateway-sdk]를 사용하여 필드 게이트웨이를 구현할 수 있습니다. IoT Edge는 여러 장치에서 동일한 IoT Hub 연결로 통신을 다중 송신할 수 있는 기능과 같은 특정 기능을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
@@ -83,7 +84,7 @@ IoT 솔루션에서 *필드 게이트웨이*는 장치와 IoT Hub 끝점 사이�
 * [할당량 및 제한][lnk-devguide-quotas]
 * [IoT Hub MQTT 지원][lnk-devguide-mqtt]
 
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
 
 [img-endpoints]: ./media/iot-hub-devguide-endpoints/endpoints.png
 [lnk-amqp]: https://www.amqp.org/

@@ -1,6 +1,6 @@
 ---
-title: "HDInsight의 Apache Kafka 소개 | Microsoft Docs"
-description: "HDInsight의 Apache Kafka에 대해 알아봅니다. 무엇인지, 무엇을 하는지, 어디서 예제와 시작 정보를 찾는지에 대해 설명합니다."
+title: "HDInsight의 Apache Kafka 소개 - Azure | Microsoft Docs"
+description: "HDInsight의 Apache Kafka에 대해 알아보세요. 이것이 무엇인지, 무엇을 하는지, 어디서 예제와 시작 정보를 찾는지에 대해 설명합니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: ca48abcdc9f9d05648a4b03bdb5fec7b4a5b7cce
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: f3e1cfb23a28d0d1fc7a60bdc8b282b72984fd03
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>HDInsight의 Apache Kafka 소개(미리 보기)

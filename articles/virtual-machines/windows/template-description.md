@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b011f51e7b5aa921c43c906fb36fa3020a2dc7e6
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 907e5b80aeeee4ab2eb0466490ba9ef9b0348144
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -460,5 +461,5 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 
 - [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)을 사용하여 고유의 템플릿을 만듭니다.
 - [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](ps-template.md)를 사용하여 자신이 만든 템플릿을 배포합니다.
-- [Azure Resource Manager 및 PowerShell을 사용하여 가상 컴퓨터 관리](ps-manage.md)를 검토하여 자신이 만든 VM을 관리하는 방법을 알아봅니다.
+- [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 검토하여 만든 VM을 관리하는 방법을 알아봅니다.
 

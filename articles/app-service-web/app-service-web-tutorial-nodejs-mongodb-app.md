@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 25fec75615d2376f3e566b509536eadd03590c0e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 2a3d63b3829e750b62658d720522ae1abf89cd86
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Azure에서 Node.js 및 MongoDB 웹앱 작성
@@ -221,7 +221,7 @@ db: {
 ```
 
 > [!NOTE] 
-> `ssl=true` 옵션은 [Cosmos DB에서 SSL이 필요](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements)하기 때문에 중요합니다. 
+> `ssl=true` 옵션은 [Cosmos DB에서 SSL이 필요](../cosmos-db/connect-mongodb-account.md#connection-string-requirements)하기 때문에 중요합니다. 
 >
 >
 
@@ -269,16 +269,7 @@ MEAN.JS version: 0.5.0
 
 [az appservice plan create](/cli/azure/appservice/plan#create) 명령으로 App Service 계획을 만듭니다. 
 
-> [!NOTE] 
-> App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스의 컬렉션을 나타냅니다. App Service 계획에 할당된 모든 응용 프로그램은 정의된 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
-> 
-> App Service 계획은 다음을 정의합니다. 
-> 
-> * 지역(북유럽, 미국 동부, 동남 아시아) 
-> * 인스턴스 크기(소, 중, 대) 
-> * 확장 개수(1, 2, 3개 인스턴스 등) 
-> * SKU(무료, 공유, 기본, 표준, 프리미엄) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 다음 예제에서는 **무료** 가격 책정 계층을 사용하여 _myAppServicePlan_이라는 App Service 계획을 만듭니다.
 

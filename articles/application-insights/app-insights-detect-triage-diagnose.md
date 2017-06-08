@@ -1,7 +1,7 @@
 ---
 title: "웹앱 문제 감지 및 진단 - Azure Application Insights | Microsoft Docs"
 description: "충돌 분석 및 응용 프로그램에서 성능 문제 감지 및 진단"
-author: alancameronwills
+author: CFreemanwa
 services: application-insights
 documentationcenter: 
 manager: carmonm

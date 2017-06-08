@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: ab6076d430688ee54515ec4a0d960728ae1f1e48
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 306dde28a4af82197ae5a75bee83c0e7cf219e42
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -83,7 +84,7 @@ ms.lasthandoff: 04/27/2017
 | --- | --- | --- |
 | name |활동의 이름입니다. 활동을 수행하도록 구성된 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 260</li><li>문자, 숫자 또는 밑줄(_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |예 |
 | 설명 |활동의 용도를 설명하는 텍스트입니다. |예 |
-| type |작업의 유형을 지정합니다. 다양한 유형의 활동은 [데이터 저장소](#data-stores) 및 [변환 활동](#transformation-activities) 문서를 참조하세요. |예 |
+| type |작업의 유형을 지정합니다. 다른 유형의 작업에 대해서는 [데이터 저장소](#data-stores) 및 [데이터 변환 작업](#data-transformation-activities) 섹션을 참조하세요. |예 |
 | inputs |작업에서 사용하는 입력 테이블<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |예 |
 | outputs |활동에서 사용하는 출력 테이블입니다.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |예 |
 | linkedServiceName |작업에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>작업은 필요한 계산 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. |HDInsight 활동, Azure Machine Learning 활동 및 저장 프로시저 활동의 경우 예 <br/><br/>다른 모든 사용자의 경우 아니요 |
@@ -371,7 +372,7 @@ structure:
 |:--- |:--- |
 | **Azure** |[Azure Blob 저장소](#azure-blob-storage) |
 | &nbsp; |[Azure 데이터 레이크 저장소](#azure-datalake-store) |
-| &nbsp; |[Azure DocumentDB](#azure-documentdb) |
+| &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
 | &nbsp; |[Azure 검색](#azure-search) |
@@ -775,20 +776,20 @@ Azure Data Lake Store에 데이터를 복사하는 경우 복사 활동의 **sin
 
 자세한 내용은 [Azure Data Lake Store 커넥터](data-factory-azure-datalake-connector.md#copy-activity-properties) 문서를 참조하세요. 
 
-## <a name="azure-documentdb"></a>Azure DocumentDB
+## <a name="azure-cosmos-db"></a>Azure Cosmos DB  
 
 ### <a name="linked-service"></a>연결된 서비스
-Azure DocumentDB 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **DocumentDb**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.  
+Azure Cosmos DB 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **DocumentDb**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.  
 
 | **속성** | **설명** | **필수** |
 | --- | --- | --- |
-| connectionString |Azure DocumentDB 데이터베이스에 연결하는 데 필요한 정보를 지정합니다. |예 |
+| connectionString |Azure Cosmos DB 데이터베이스에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
 #### <a name="example"></a>예제
 
 ```json
 {
-    "name": "DocumentDbLinkedService",
+    "name": "CosmosDBLinkedService",
     "properties": {
         "type": "DocumentDb",
         "typeProperties": {
@@ -797,23 +798,23 @@ Azure DocumentDB 연결된 서비스를 정의하려면 연결된 서비스의 *
     }
 }
 ```
-자세한 내용은 [DocumentDB 커넥터](data-factory-azure-documentdb-connector.md#linked-service-properties) 문서를 참조하세요.
+자세한 내용은 [Azure Cosmos DB 커넥터](data-factory-azure-documentdb-connector.md#linked-service-properties) 문서를 참조하세요.
 
 ### <a name="dataset"></a>데이터 집합
-Azure DocumentDB 데이터 집합을 정의하려면 데이터 집합의 **type**을 **DocumentDbCollection**으로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다. 
+Azure Cosmos DB 데이터 집합을 정의하려면 데이터 집합의 **type**을 **DocumentDbCollection**으로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다. 
 
 | **속성** | **설명** | **필수** |
 | --- | --- | --- |
-| collectionName |DocumentDB 문서 컬렉션의 이름입니다. |예 |
+| collectionName |Azure Cosmos DB 컬렉션의 이름입니다. |예 |
 
 #### <a name="example"></a>예제
 
 ```json
 {
-    "name": "PersonDocumentDbTable",
+    "name": "PersonCosmosDBTable",
     "properties": {
         "type": "DocumentDbCollection",
-        "linkedServiceName": "DocumentDbLinkedService",
+        "linkedServiceName": "CosmosDBLinkedService",
         "typeProperties": {
             "collectionName": "Person"
         },
@@ -825,16 +826,16 @@ Azure DocumentDB 데이터 집합을 정의하려면 데이터 집합의 **type*
     }
 }
 ```
-자세한 내용은 [DocumentDB 커넥터](data-factory-azure-documentdb-connector.md#dataset-properties) 문서를 참조하세요.
+자세한 내용은 [Azure Cosmos DB 커넥터](data-factory-azure-documentdb-connector.md#dataset-properties) 문서를 참조하세요.
 
-### <a name="documentdb-collection-source-in-copy-activity"></a>복사 활동의 DocumentDB 컬렉션 소스
-Azure DocumentDB에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **DocumentDbCollectionSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
+### <a name="azure-cosmos-db-collection-source-in-copy-activity"></a>복사 작업에서 Azure Cosmos DB 컬렉션 원본
+Azure Cosmos DB에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **DocumentDbCollectionSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
 
 | **속성** | **설명** | **허용되는 값** | **필수** |
 | --- | --- | --- | --- |
-| 쿼리 |데이터를 읽는 쿼리를 지정합니다. |DocumentDB에서 지원하는 쿼리 문자열입니다. <br/><br/>예제: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아니요 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
-| nestingSeparator |문서가 중첩됨을 나타내는 특수 문자 |모든 character입니다. <br/><br/>DocumentDB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 nestingSeparator, 즉 위 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다. |아니요 |
+| 쿼리 |데이터를 읽는 쿼리를 지정합니다. |Azure Cosmos DB에서 지원하는 쿼리 문자열입니다. <br/><br/>예: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아니요 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
+| nestingSeparator |문서가 중첩됨을 나타내는 특수 문자 |모든 character입니다. <br/><br/>Azure Cosmos DB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 nestingSeparator, 즉 위 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다. |아니요 |
 
 #### <a name="example"></a>예제
 
@@ -858,7 +859,7 @@ Azure DocumentDB에서 데이터를 복사하는 경우 복사 활동의 **sourc
                 }
             },
             "inputs": [{
-                "name": "PersonDocumentDbTable"
+                "name": "PersonCosmosDBTable"
             }],
             "outputs": [{
                 "name": "PersonBlobTableOut"
@@ -866,7 +867,7 @@ Azure DocumentDB에서 데이터를 복사하는 경우 복사 활동의 **sourc
             "policy": {
                 "concurrency": 1
             },
-            "name": "CopyFromDocDbToBlob"
+            "name": "CopyFromCosmosDbToBlob"
         }],
         "start": "2016-04-01T00:00:00",
         "end": "2016-04-02T00:00:00"
@@ -874,13 +875,13 @@ Azure DocumentDB에서 데이터를 복사하는 경우 복사 활동의 **sourc
 }
 ```
 
-### <a name="documentdb-collection-sink-in-copy-activity"></a>복사 활동의 DocumentDB 컬렉션 싱크
-Azure DocumentDB에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **DocumentDbCollectionSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
+### <a name="azure-cosmos-db-collection-sink-in-copy-activity"></a>복사 작업의 Azure Cosmos DB 컬렉션 싱크
+Azure Cosmos DB에 데이터를 복사하는 경우 복사 작업의 **sink type**을 **DocumentDbCollectionSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
 
 | **속성** | **설명** | **허용되는 값** | **필수** |
 | --- | --- | --- | --- |
-| nestingSeparator |중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>위의 예에서 출력 테이블의 `Name.First`은(는) DocumentDB 문서에서 다음 JSON 구조를 생성합니다.<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |중첩 수준을 구분하는데 사용되는 문자입니다.<br/><br/>기본값은 `.`.(점)입니다. |중첩 수준을 구분하는데 사용되는 문자입니다. <br/><br/>기본값은 `.`.(점)입니다. |
-| writeBatchSize |문서를 작성하는 DocumentDB 서비스에 대한 병렬 요청 수입니다.<br/><br/>이 속성을 사용하여 DocumentDB 간 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. DocumentDB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 오류 메시지: “요청 빈도가 높습니다."를 발생 시킬 수 있는 제한을 방지해야 합니다.<br/><br/>제한은 문서의 크기, 문서에서 용어의 수, 대상 컬렉션의 인덱싱 정책 등 여러 가지 요인으로 결정됩니다. 복사 활동의 경우 더 나은 컬렉션(예: S3)을 사용하여 가장 많은 처리량(2,500 요청 단위/초)을 제공할 수 있습니다. |Integer |아니요(기본값: 5) |
+| nestingSeparator |중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>위의 예에서 출력 테이블의 `Name.First`는 Cosmos DB 문서에서 다음 JSON 구조를 생성합니다.<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |중첩 수준을 구분하는데 사용되는 문자입니다.<br/><br/>기본값은 `.`.(점)입니다. |중첩 수준을 구분하는데 사용되는 문자입니다. <br/><br/>기본값은 `.`.(점)입니다. |
+| writeBatchSize |문서를 작성하는 Azure Cosmos DB 서비스에 대한 병렬 요청 수입니다.<br/><br/>이 속성을 사용하여 Azure Cosmos DB 간 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. Azure Cosmos DB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 하지만 오류 메시지: “요청 빈도가 높습니다."를 발생 시킬 수 있는 제한을 방지해야 합니다.<br/><br/>제한은 문서의 크기, 문서에서 용어의 수, 대상 컬렉션의 인덱싱 정책 등 여러 가지 요인으로 결정됩니다. 복사 활동의 경우 더 나은 컬렉션(예: S3)을 사용하여 가장 많은 처리량(2,500 요청 단위/초)을 제공할 수 있습니다. |Integer |아니요(기본값: 5) |
 | writeBatchTimeout |시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예: “00:30:00”(30분). |아니요 |
 
 #### <a name="example"></a>예제
@@ -910,12 +911,12 @@ Azure DocumentDB에 데이터를 복사하는 경우 복사 활동의 **sink typ
                 "name": "PersonBlobTableIn"
             }],
             "outputs": [{
-                "name": "PersonDocumentDbTableOut"
+                "name": "PersonCosmosDbTableOut"
             }],
             "policy": {
                 "concurrency": 1
             },
-            "name": "CopyFromBlobToDocDb"
+            "name": "CopyFromBlobToCosmosDb"
         }],
         "start": "2016-04-14T00:00:00",
         "end": "2016-04-15T00:00:00"
@@ -923,7 +924,7 @@ Azure DocumentDB에 데이터를 복사하는 경우 복사 활동의 **sink typ
 }
 ```
 
-자세한 내용은 [DocumentDB 커넥터](data-factory-azure-documentdb-connector.md#copy-activity-properties) 문서를 참조하세요.
+자세한 내용은 [Azure Cosmos DB 커넥터](data-factory-azure-documentdb-connector.md#copy-activity-properties) 문서를 참조하세요.
 
 ## <a name="azure-sql-database"></a>Azure SQL 데이터베이스
 
@@ -5097,7 +5098,7 @@ SQL Server 연결된 서비스를 만들고 [저장 프로시저 활동](data-fa
 
 자세한 내용은 [SQL Server 커넥터](data-factory-sqlserver-connector.md#linked-service-properties) 문서를 참조하세요.
 
-## <a name="transformation-activites"></a>데이터 변환 활동
+## <a name="data-transformation-activities"></a>데이터 변환 작업
 
 작업 | 설명
 -------- | -----------

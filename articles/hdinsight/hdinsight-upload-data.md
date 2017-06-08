@@ -1,6 +1,7 @@
 ---
 title: "HDInsight에서 Hadoop 작업용 데이터 업로드 | Microsoft Docs"
 description: "Azure CLI, Azure 저장소 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 Hadoop 작업 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다."
+keywords: "etl hadoop, hadoop으로 데이터 가져오기, hadoop 데이터 로드"
 services: hdinsight,storage
 documentationcenter: 
 tags: azure-portal
@@ -9,17 +10,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 56b913ee-0f9a-4e9f-9eaf-c571f8603dd6
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/12/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0caac0c7ad76df7e7fa657227339d1df8b4a3c77
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 134afd3495c555f85e8838cbe0344a3a48534950
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -187,7 +189,7 @@ Azure 저장소를 사용하기 위한 그래픽 인터페이스를 제공하는
 
 1. Azure 저장소 탐색기를 실행합니다. 저장소 탐색기를 처음 실행하는 경우 **저장소 계정 이름** 및 **저장소 계정 키**를 묻는 메시지가 표시됩니다. 이전에 실행한 적이 있는 경우 **추가** 단추를 사용하여 새 저장소 계정 이름과 키를 추가합니다.
 
-    HDinsight 클러스터에서 사용하는 저장소 계정에 대한 이름과 키를 입력한 다음 **저장 및 열기**를 선택합니다.
+    HDInsight 클러스터에서 사용하는 저장소 계정에 대한 이름과 키를 입력한 다음 **저장 및 열기**를 선택합니다.
 
     ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 2. 인터페이스 왼쪽의 컨테이너 목록에서 HDInsight 클러스터와 연결된 컨테이너의 이름을 클릭합니다. 기본적으로 HDInsight 클러스터의 이름이지만 클러스터를 만들 때 특정 이름을 입력한 경우에는 다를 수 있습니다.

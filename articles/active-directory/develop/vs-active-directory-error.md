@@ -14,10 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 76a60d16d975efa18da27fda87cf447bd1223acb
-ms.lasthandoff: 03/21/2017
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: fef47d27bc68e5b11b06dc6b67d7afdb088bad15
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -69,7 +71,8 @@ Web API 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 �
     &lt;Project&gt;
         &lt;PropertyGroup&gt;
             <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
-        &lt;/PropertyGroup> &lt;/Project&gt;
+        &lt;/PropertyGroup>
+    &lt;/Project&gt;
 </pre>
 
 개별 사용자 계정 인증을 감지하기 위해 마법사는 사용자의 **Packages.config** 파일에서 패키지 요소를 찾습니다.

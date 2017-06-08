@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 0ceba4142fd7b0e6edc1b7a6c14470d21806004a
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: 9d788bf8e41fe225a4c24a4f5b464e8664f3d677
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -36,6 +37,8 @@ ms.lasthandoff: 04/13/2017
 
 > [!NOTE]
 > 이 자습서에서는 Azure Data Factory를 사용하여 데이터를 복사하는 방법을 표시하지 않습니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+> 
+> 파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [Data Factory에서 예약 및 실행](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요.
 
 
 ## <a name="walkthrough-create-and-publish-data-factory-entities"></a>연습: 데이터 팩터리 엔터티 만들기 및 게시
@@ -54,8 +57,8 @@ ms.lasthandoff: 04/13/2017
 5. 파이프라인을 게시한 후에 모니터링하려면 Azure Portal 블레이드 및 모니터링 및 관리 앱을 사용합니다. 
   
 ### <a name="prerequisites"></a>필수 조건
-1. [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다. 문서를 전환하려면 맨 위에 있는 드롭다운 목록에서 **개요 및 필수 구성 요소** 옵션을 선택할 수도 있습니다. 필수 구성 요소를 완료한 후에 드롭 다운 목록에서 **Visual Studio** 옵션을 선택하여 이 문서로 다시 전환합니다.  
-2. **Azure 구독의 관리자** 여야만 Visual Studio에서 Azure Data Factory에 데이터 팩터리 엔터티를 게시할 수 있습니다. 
+1. [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다. 문서를 전환하려면 맨 위에 있는 드롭다운 목록에서 **개요 및 필수 구성 요소** 옵션을 선택할 수도 있습니다. 필수 구성 요소를 완료한 후에 드롭 다운 목록에서 **Visual Studio** 옵션을 선택하여 이 문서로 다시 전환합니다.
+2. 데이터 팩터리 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [데이터 팩터리 참여자](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.  
 3. 다음 항목이 컴퓨터에 설치되어 있어야 합니다.
    * Visual Studio 2013 또는 Visual Studio 2015
    * Visual Studio 2013 또는 Visual Studio 2015용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013** 또는 **VS 2015**를 클릭합니다.
@@ -101,7 +104,6 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
         "properties": {
         "type": "HDInsightOnDemand",
             "typeProperties": {
-                "version": "3.2",
                 "clusterSize": 1,
                 "timeToLive": "00:30:00",
                 "linkedServiceName": "AzureStorageLinkedService1"
@@ -114,7 +116,6 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
     속성 | 설명
     -------- | ----------- 
-    버전 | 만들어질 HDInsight Hadoop 클러스터의 버전을 지정합니다.
     ClusterSize | HDInsight Hadoop 클러스터의 크기를 지정합니다.
     TimeToLive | HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다.
     linkedServiceName | HDInsight Hadoop 클러스터에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다. 

@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/16/2017
+ms.date: 06/01/2017
 ms.author: ryanwi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 491f61afe899c746c193f0d3703d3212f9258e63
 ms.openlocfilehash: 578046d6939b90cb58d457087bb465006630b4c1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -47,10 +49,5 @@ FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 
 | InvalidX509Store |X509 인증서 저장소를 열 수 없습니다. |
 | InvalidSubjectName |주체 이름이 올바르지 않습니다. |
 | InvalidAllowedCommonNameList |일반 이름 목록 문자열의 형식이 올바르지 않습니다. 쉼표로 구분된 목록이어야 합니다. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

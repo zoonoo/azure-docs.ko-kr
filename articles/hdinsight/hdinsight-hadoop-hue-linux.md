@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: b0bd7539e0ec3dbbeaa759f66f3097ed6caab1a8
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 66884a73a8ea1cbf72a48f9a776fa45ae1976591
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/12/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/12/2017
 HDInsight 클러스터에서 Hue를 설치하고 터널링을 사용하여 Hue로 요청을 라우팅하는 방법을 알아봅니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
 
 ## <a name="what-is-hue"></a>Hue 정의
 Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 프로그램 집합입니다. Hue를 사용하여 Hadoop 클러스터(HDInsight 클러스터의 경우, WASB)와 연결된 저장소를 찾아보고 Hive 작업 및 Pig 스크립트 등을 실행할 수 있습니다. HDInsight Hadoop 클러스터에서 Hue 설치는 다음 구성 요소를 지원합니다.
@@ -66,7 +66,7 @@ Linux 기반 HDInsight 클러스터에 Hue를 설치하는 스크립트는 https
    >
 2. **선택적 구성** 블레이드에서 **스크립트 동작**을 선택하고 아래와 같은 정보를 제공합니다.
 
-    ![색상에 대한 스크립트 작업 매개 변수 제공](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "색상에 대한 스크립트 작업 매개 변수 제공")
+    ![색상에 대한 스크립트 작업 매개 변수 제공](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "색상에 대한 스크립트 작업 매개 변수 제공")
 
    * **이름**: 스크립트 동작의 이름을 입력합니다.
    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
@@ -108,15 +108,15 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
    >
    >
 
-    ![Hue 포털에 로그인](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Hue 포털에 자격 증명 지정")
+    ![Hue 포털에 로그인](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Hue 포털에 자격 증명 지정")
 
 ### <a name="run-a-hive-query"></a>HIVE 쿼리 실행
 1. Hue 포털에서 **쿼리 편집기**를 클릭하고 **Hive**를 클릭하여 Hive 편집기를 엽니다.
 
-    ![Hive 사용](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "Hive 사용")
+    ![Hive 사용](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Hive 사용")
 2. **지원** 탭의 **데이터베이스**에서 **hivesampletable**이 표시되어야 합니다. HDInsight에서 모든 Hadoop 클러스터로 제공되는 예제 테이블입니다. 스크린 캡처에 표시된 것처럼 오른쪽 창에서 예제 쿼리를 입력하면 **결과** 탭에서 출력이 표시됩니다.
 
-    ![Hive 쿼리 실행](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.Query.png "Hive 쿼리 실행")
+    ![Hive 쿼리 실행](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Hive 쿼리 실행")
 
     **차트** 탭을 사용하여 결과를 시각적으로 표시할 수 있습니다.
 
@@ -124,7 +124,7 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 1. Hue 포털에서 메뉴 모음의 오른쪽 위에 있는 **파일 브라우저** 를 클릭합니다.
 2. 기본적으로 **/user/myuser** 디렉터리에서 파일 브라우저를 엽니다. 경로에서 사용자 디렉터리 바로 앞 슬래시를 클릭하여 클러스터와 연결된 Azure 저장소 컨테이너의 루트로 이동합니다.
 
-    ![파일 브라우저 사용](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "파일 브라우저 사용")
+    ![파일 브라우저 사용](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "파일 브라우저 사용")
 3. 파일 또는 폴더를 마우스 오른쪽 단추로 클릭하여 사용 가능한 작업을 참조하세요. 오른쪽 모서리에서 **업로드** 단추를 사용하여 현재 디렉터리에 파일을 업로드합니다. **새로 만들기** 단추를 사용하여 새 파일 또는 디렉터리를 만듭니다.
 
 > [!NOTE]
@@ -142,7 +142,7 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
 4. Linux 클러스터의 경우 보조 헤드 노드에서 Resource Manager를 실행하는 반면 기본 헤드 노드에서 서비스를 실행하는 시나리오가 있을 수 있습니다. Hue를 사용하여 클러스터에서 실행 중인 작업의 세부 정보를 보려면  이러한 시나리오에 오류가 발생할 수 있습니다. 그러나 작업이 완료되었을 때 작업 세부 정보를 볼 수 있습니다.
 
-   ![Hue 포털 오류](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Hue 포털 오류")
+   ![Hue 포털 오류](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Hue 포털 오류")
 
    이는 알려진 문제 때문입니다. 해결 방법으로 Ambari를 수정하여 활성 Resource Manager가 기본 헤드 노드에서 실행되도록 합니다.
 5. `wasbs://`을 사용하여 HDInsight 클러스터가 Azure 저장소를 사용하는 동안 Hue는 WebHDFS를 이해합니다. 따라서 스크립트 동작에 사용할 사용자 지정 스크립트는 WASB와 통신을 위한 WebHDFS와 호환 가능한 서비스인 WebWasb를 설치합니다. 따라서 Hue 포털이 HDFS가 제대로 있다고 하더라도( **파일 브라우저**로 마우스를 이동할 때처럼) WASB로 해석되어야 합니다.

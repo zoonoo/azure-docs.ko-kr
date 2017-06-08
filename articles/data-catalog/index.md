@@ -10,11 +10,13 @@ ms.service: data-catalog
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 05/25/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: c5ada5ff9a0ba37cecff9e2d507736457cc11eb5
-ms.openlocfilehash: b04ec1a07bd1d74aa061409823c78ea814d127fc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 0e7431332d46ba3891dff0cf70685be0277d4ddd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 ---
 #<a name="data-catalog-documentation"></a>Data Catalog 설명서
@@ -71,6 +73,7 @@ Data Catalog를 사용하여 조직 및 팀에서 데이터 원본을 검색하�
                     <div class="cardText">
                         <h3>REST (영문)</h3>
                         <p><a href="/rest/api/datacatalog/">REST API</a></p>
+                        <p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">검색 구문 참조</a></p>
                     </div>
                 </div>
             </div>
@@ -78,10 +81,5 @@ Data Catalog를 사용하여 조직 및 팀에서 데이터 원본을 검색하�
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
-translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 50630084a3df9bc1fed27efb41bc557d0e03916f
-ms.lasthandoff: 12/06/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 08a84ace63465e7c058add69a25687fe46c7ea07
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -45,8 +46,8 @@ Azure 앱 서비스는 5개의 계층, 무료, 공유, 기본, 표준 및 프리
 
 이러한 기본 구성 설정 외에 다음 항목도 구성할 수 있습니다.
 
-* **SSL(Secure Socket Layer)** 암호화. 사용자 지정 도메인 이름과 SSL을 사용하려면 SSL 인증서를 가져와 웹 앱이 해당 인증서를 사용하도록 구성해야 합니다. [Azure 앱 서비스에서 웹 앱에 대한 HTTPS를 사용하도록 설정](web-sites-configure-ssl-certificate.md)을 참조하세요.
-* **사용자 지정 도메인 이름.**  웹 앱에는 자동으로 azurewebsites.net 하위 도메인이 있습니다. Contoso.com 등의 사용자 지정 도메인 이름을 연결할 수 있습니다. [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성](web-sites-custom-domain-name.md)을 참조하세요.
+* **SSL(Secure Socket Layer)** 암호화. 사용자 지정 도메인 이름과 SSL을 사용하려면 SSL 인증서를 가져와 웹 앱이 해당 인증서를 사용하도록 구성해야 합니다. [Azure 앱 서비스에서 웹 앱에 대한 HTTPS를 사용하도록 설정](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+* **사용자 지정 도메인 이름.** 웹 앱에는 자동으로 azurewebsites.net 하위 도메인이 있습니다. Contoso.com 등의 사용자 지정 도메인 이름을 연결할 수 있습니다. [Azure 앱 서비스에서 사용자 지정 도메인 이름 구성](app-service-web-tutorial-custom-domain.md)을 참조하세요.
 
 언어별 구성:
 

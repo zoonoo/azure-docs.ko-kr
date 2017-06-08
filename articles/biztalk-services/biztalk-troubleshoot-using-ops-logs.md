@@ -14,19 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: c4a8ea0612ab4792f2fccb2295bdf365b742111d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c0c83361f94ffd9c30d7fcc551ff4b85ad7d6fa5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk 서비스: 작업 로그를 사용한 문제 해결
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 ## <a name="what-are-the-operation-logs"></a>작업 로그의 정의
 작업 로그는 Azure 클래식 포털에서 사용할 수 있는 관리 서비스 기능으로서 BizTalk 서비스를 포함한 Azure 서비스에서 수행된 작업의 기록 로그를 볼 수 있습니다. 이렇게 하면 BizTalk 서비스 구독에서 180일 이전의 관리 작업과 관련된 기록 데이터를 볼 수 있습니다.
 
 > [!NOTE]
 > 이 기능은 서비스가 시작되었을 경우, 백업되었을 경우 등과 같은 BizTalk 서비스의 관리 작업에 대한 로그만 캡처합니다. 이러한 작업은 Azure 클래식 포털에서 수행되었는지 또는 [BizTalk 서비스 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)를 사용하여 수행되었는지 여부에 관계없이 추적됩니다. 관리 서비스를 사용하여 추적된 작업의 전체 목록을 보려면 [Azure 관리 서비스를 사용하여 추적된 작업](#bizops)를 사용하여 수행되었는지 여부에 관계없이 추적됩니다.<br/><br/>
->  BizTalk 서비스 런타임과 관련된 작업(예: 브리지에서 처리하는 메시지 등)에 대한 로그는 캡처하지 않습니다. 이러한 로그를 보려면 BizTalk 서비스 포털에서 추적 뷰를 사용합니다. 자세한 내용은 [메시지 추적](http://msdn.microsoft.com/library/azure/hh949805.aspx)을 참조하세요.
+> BizTalk 서비스 런타임과 관련된 작업(예: 브리지에서 처리하는 메시지 등)에 대한 로그는 캡처하지 않습니다. 이러한 로그를 보려면 BizTalk 서비스 포털에서 추적 뷰를 사용합니다. 자세한 내용은 [메시지 추적](http://msdn.microsoft.com/library/azure/hh949805.aspx)을 참조하세요.
 > 
 > 
 
@@ -36,7 +41,7 @@ ms.openlocfilehash: c4a8ea0612ab4792f2fccb2295bdf365b742111d
 3. 확인 표시를 선택하여 필터링된 목록을 봅니다. 다음 그림은 testbiztalkservice와 관련된 작업을 보여 줍니다.  ![작업 로그 보기][ViewLogs] 
 4. 특정 작업에 대한 자세한 내용을 보려면 아래쪽의 작업 표시줄에서 **세부 정보** 를 클릭합니다.
 
-## <a name="a-namebizopsaoperations-tracked-using-azure-management-services"></a><a name="bizops"></a>Azure 관리 서비스를 사용하여 추적된 작업
+## <a name="bizops"></a>Azure 관리 서비스를 사용하여 추적된 작업
 다음 표에서는 Azure 관리 서비스를 사용하여 추적된 작업의 목록을 보여 줍니다.
 
 | 작업 이름 | 작업 |
@@ -69,10 +74,5 @@ ms.openlocfilehash: c4a8ea0612ab4792f2fccb2295bdf365b742111d
 * [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

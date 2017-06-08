@@ -3,7 +3,7 @@ title: "Azure Application Insights에서 웹앱 성능 변화의 스마트 진�
 description: "웹앱의 성능 원격 분석에서 스파이크 또는 단계의 자동 진단입니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd

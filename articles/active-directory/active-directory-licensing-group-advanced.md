@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2017
+ms.date: 05/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: a7240c52e9351a60e3cf577d8112862c7dc8d913
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: d4c509c43ff647f3d9b96ffd136073312a81049b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -115,8 +116,7 @@ ms.lasthandoff: 03/14/2017
 그룹 라이선스 할당의 경우 사용 위치가 지정되지 않은 사용자는 디렉터리의 위치를 상속합니다. 사용자가 다른 위치에 있는 경우 라이선스가 있는 그룹에 사용자를 추가하기 전에 해당 사실이 사용자 개체에 제대로 반영되는지 확인합니다.
 
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>PowerShell을 사용하여 누가 상속됨과 직접 라이선스를 가지고 있는지 확인
-
-Azure AD 릴리스의 미리 보기 기간 동안에는 PowerShell을 사용하여 그룹 라이선스 할당을 완벽하게 제어할 수 없습니다. 그러나 사용자 상태에 대한 기본 정보를 검색하는 데 사용하거나 그룹에서 라이선스를 상속받았는지 또는 직접 할당했는지 확인하는 데 사용할 수 있습니다. 아래 코드 샘플에서는 관리자가 라이선스 할당에 대한 기본 보고서를 생성할 수 있는 방법을 보여 줍니다.
+그룹 기반 라이선스가 공개 미리 보기 상태인 동안에는 PowerShell을 사용하여 그룹 라이선스 할당을 완벽하게 제어할 수 없습니다. 그러나 사용자 상태에 대한 기본 정보를 검색하는 데 사용하거나 그룹에서 라이선스를 상속받았는지 또는 직접 할당했는지 확인하는 데 사용할 수 있습니다. 아래 코드 샘플에서는 관리자가 라이선스 할당에 대한 기본 보고서를 생성할 수 있는 방법을 보여 줍니다.
 
 1. `connect-msolservice` cmdlet을 실행하여 인증하고 테넌트에 연결합니다.
 

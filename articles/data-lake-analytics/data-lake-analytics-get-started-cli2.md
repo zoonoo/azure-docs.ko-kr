@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 109460cecc4e11c729203af97c9bf1c22b90e61a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 3f957bda2c38bdeac3ee6b0dbd94fac497c8f7cf
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20-preview"></a>자습서: Azure CLI 2.0을 사용하여 Azure Data Lake Analytics 시작(미리 보기)
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>자습서: Azure CLI 2.0을 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Azure CLI 2.0을 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-SQL](data-lake-analytics-u-sql-get-started.md)로 Data Lake Analytics 작업을 정의하고, 작업을 Data Lake Analytics 계정에 제출하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
@@ -32,12 +33,6 @@ Azure CLI 2.0을 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure CLI 2.0**. [Azure CLI 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli)을 참조하세요.
-* **Data Lake Store/Analytics CLI 2.0 미리 보기를 사용하도록 설정**. Data Lake Store 및 Data Lake Analytics CLI 2.0는 여전히 미리 보기 상태입니다. 다음 명령을 실행하여 둘 다 사용하도록 설정합니다.
-
-    ```azurecli
-    az component update --add dls
-    az component update --add dla 
-    ```
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -61,15 +56,15 @@ az account set --subscription <subscription id>
 모든 작업을 실행하기 전에 Data Lake Analytics 계정이 있어야 합니다. Data Lake Analytics 계정을 만들려면 다음 항목을 지정해야 합니다.
 
 * **Azure 리소스 그룹**. Azure 리소스 그룹 내에서 Data Lake Analytics 계정을 만들어야 합니다. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
-  
+
     구독 중인 기존 리소스 그룹을 나열하려면
-  
+
     ```azurecli
-    az group list 
+    az group list
     ```
 
     새 리소스 그룹을 만들려면 다음을 수행합니다.
-  
+
     ```azurecli
     az group create --name "<Resource Group Name>" --location "<Azure Location>"
     ```
@@ -77,15 +72,15 @@ az account set --subscription <subscription id>
 * **Data Lake Analytics 계정 이름**. Data Lake Analytics 계정마다 이름이 있습니다.
 * **위치** - Data Lake Analytics를 지원하는 Azure 데이터 센터 중 하나를 사용합니다.
 * **기본 Data Lake Store 계정**: 각 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다.
-  
+
     기존Data Lake Store 계정을 나열하려면
 
     ```azurecli
     az dls account list
     ```
-  
+
     새 Data Lake Store 계정을 만들려면
-  
+
     ```azurecli
     az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"
     ```
@@ -104,9 +99,9 @@ az dla account show --account "<Data Lake Analytics Account Name>"
 ```
 
 ## <a name="upload-data-to-data-lake-store"></a>데이터 레이크 저장소에 데이터 업로드
-이 자습서에서는 몇 가지 검색 로그를 처리합니다.  검색 로그는 데이터 레이크 저장소 또는 Azure Blob 저장소에 저장할 수 있습니다. 
+이 자습서에서는 몇 가지 검색 로그를 처리합니다.  검색 로그는 데이터 레이크 저장소 또는 Azure Blob 저장소에 저장할 수 있습니다.
 
-Azure Portal은 검색 로그 파일을 포함하는 기본 Data Lake Store 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다. 기본 데이터 레이크 저장소 계정에 데이터를 업로드하려면 [원본 데이터 준비](data-lake-analytics-get-started-portal.md#prepare-source-data) 를 참조하세요.
+Azure Portal은 검색 로그 파일을 포함하는 기본 Data Lake Store 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다. 기본 데이터 레이크 저장소 계정에 데이터를 업로드하려면 [원본 데이터 준비](data-lake-analytics-get-started-portal.md) 를 참조하세요.
 
 CLI 2.0를 사용하여 파일을 업로드하려면 다음 명령을 사용합니다.
 
@@ -123,7 +118,7 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 **데이터 레이크 분석 작업 스크립트를 만들려면**
 
 다음 U-SQL 스크립트를 사용하여 텍스트 파일을 만들고 사용자의 워크스테이션에 텍스트 파일을 저장합니다.
-  
+
     @searchlog =
         EXTRACT UserId          int,
                 Start           DateTime,
@@ -138,8 +133,8 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
     OUTPUT @searchlog   
         TO "/Output/SearchLog-from-Data-Lake.csv"
     USING Outputters.Csv();
-  
-이 U-SQL 스크립트는 **Extractors.Tsv()**를 사용하여 원본 데이터 파일을 읽은 다음 **Outputters.Csv()**를 사용하여 csv 파일을 만듭니다. 
+
+이 U-SQL 스크립트는 **Extractors.Tsv()**를 사용하여 원본 데이터 파일을 읽은 다음 **Outputters.Csv()**를 사용하여 csv 파일을 만듭니다.
 
 원본 파일을 다른 위치에 복사하지 않는 한 두 경로를 수정하지 마세요.  출력 폴더가 없는 경우 데이터 레이크 분석에서 해당 폴더를 만듭니다.
 
@@ -150,11 +145,11 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 연결된 저장소 계정의 파일에 액세스하려면 절대 경로를 사용해야 합니다.  연결된 Azure 저장소 계정에 저장된 파일에 대한 구문은 다음과 같습니다.
 
     wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-  
+
   > [!NOTE]
   > 공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob 컨테이너는 현재 지원되지 않습니다.      
-  > 
-  > 
+  >
+  >
 
 **작업을 제출하려면**
 
@@ -189,7 +184,7 @@ az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity 
 
 ```azurecli
 az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
-az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" 
+az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
 az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"
 ```
@@ -210,5 +205,4 @@ az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-fro
 * U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
 * 관리 작업을 보려면 [Azure Portal을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 * 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
-
 

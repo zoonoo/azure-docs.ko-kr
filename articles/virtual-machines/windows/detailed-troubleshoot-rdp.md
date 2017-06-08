@@ -3,7 +3,7 @@ title: "Azure에서 원격 데스크톱 상세 문제 해결 | Microsoft Docs"
 description: "Azure에서 Windows 가상 컴퓨터에 연결할 수 없는 원격 데스크톱 오류에 대한 자세한 문제 해결 단계 검토"
 services: virtual-machines-windows
 documentationcenter: 
-author: iainfoulds
+author: genlin
 manager: timlt
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -14,12 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 12/20/2016
-ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2e84a7f8d0f8d15a808092deab8cc7a9bca1541d
-ms.lasthandoff: 04/27/2017
+ms.date: 05/26/2017
+ms.author: genli
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 3ba81282cd7b58cc118497c14e911fc89815d6d4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,9 +28,9 @@ ms.lasthandoff: 04/27/2017
 이 문서에서는 Windows 기반 Azure 가상 컴퓨터에 대한 복잡한 원격 데스크톱 오류를 진단 및 해결하는 자세한 문제 해결 단계를 제공합니다.
 
 > [!IMPORTANT]
-> 일반적인 원격 데스크톱 오류를 제거하려면 계속하기 전에 [원격 데스크톱에 대한 기본적인 문제 해결 문서](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 읽어야 합니다.
+> 일반적인 원격 데스크톱 오류를 제거하려면 계속하기 전에 [원격 데스크톱에 대한 기본적인 문제 해결 문서](troubleshoot-rdp-connection.md)를 읽어야 합니다.
 
-[기본 원격 데스크톱 문제 해결 가이드](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 나오는 특정 오류 메시지와 유사하지 않는 원격 데스크톱 오류 메시지가 발생할 수 있습니다. RDP(원격 데스크톱) 클라이언트에서 Azure VM의 RDP 서비스에 연결할 수 없는 이유를 확인하려면 다음 단계를 수행합니다.
+[기본 원격 데스크톱 문제 해결 가이드](troubleshoot-rdp-connection.md)에 나오는 특정 오류 메시지와 유사하지 않는 원격 데스크톱 오류 메시지가 발생할 수 있습니다. RDP(원격 데스크톱) 클라이언트에서 Azure VM의 RDP 서비스에 연결할 수 없는 이유를 확인하려면 다음 단계를 수행합니다.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -81,7 +82,7 @@ ms.lasthandoff: 04/27/2017
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
 
-인터넷에 직접 연결된 컴퓨터가 없는 경우 리소스 그룹 또는 클라우드 서비스에서 새 Azure 가상 컴퓨터로 만들고 테스트합니다. 자세한 내용은 [Azure에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 테스트가 완료되면 가상 컴퓨터와 리소스 그룹 또는 클라우드 서비스를 삭제할 수 있습니다.
+인터넷에 직접 연결된 컴퓨터가 없는 경우 리소스 그룹 또는 클라우드 서비스에서 새 Azure 가상 컴퓨터로 만들고 테스트합니다. 자세한 내용은 [Azure에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-hero-tutorial.md)를 참조하세요. 테스트가 완료되면 가상 컴퓨터와 리소스 그룹 또는 클라우드 서비스를 삭제할 수 있습니다.
 
 인터넷에 직접 연결된 컴퓨터로 원격 데스크톱에 연결할 수 있는 경우 조직 인트라넷 에지 장치에서 다음을 확인합니다.
 
@@ -98,10 +99,8 @@ ms.lasthandoff: 04/27/2017
 
 > [!NOTE]
 > 리소스 관리자에서 만든 가상 컴퓨터의 경우, [소스 4: 네트워크 보안 그룹](#source-4-network-security-groups)으로 건너뜁니다.
-> 
-> 
 
-동일한 클라우드 서비스 또는 가상 네트워크에 다른 가상 컴퓨터가 없는 경우 만듭니다. [Azure에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 단계를 따릅니다. 테스트가 완료된 후에 테스트 가상 컴퓨터를 삭제합니다.
+동일한 클라우드 서비스 또는 가상 네트워크에 다른 가상 컴퓨터가 없는 경우 만듭니다. [Azure에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-hero-tutorial.md)의 단계를 따릅니다. 테스트가 완료된 후에 테스트 가상 컴퓨터를 삭제합니다.
 
 원격 데스크톱을 통해 동일한 클라우드 서비스 또는 가상 네트워크의 가상 컴퓨터에 연결할 수 있는 경우 다음 설정을 확인합니다.
 
@@ -125,7 +124,7 @@ ms.lasthandoff: 04/27/2017
 ## <a name="source-5-windows-based-azure-vm"></a>발생지 5: Windows 기반 Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-[이 문서](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 지침에 따르세요. 이 문서는 가상 컴퓨터에서 원격 데스크톱 서비스를 다시 설정합니다.
+[이 문서](reset-rdp.md)의 지침에 따르세요. 이 문서는 가상 컴퓨터에서 원격 데스크톱 서비스를 다시 설정합니다.
 
 * "원격 데스크톱" Windows 방화벽 기본 규칙(TCP 포트 3389)이 활성화됩니다.
 * HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections 레지스트리 값이 0으로 설정되어 원격 데스크톱 연결이 활성화됩니다.
@@ -145,10 +144,12 @@ ms.lasthandoff: 04/27/2017
 
 Azure 구독 이름, 클라우드 서비스 이름 및 해당 가상 컴퓨터 이름(< and > 문자 제거)을 입력하고 이러한 명령을 실행합니다.
 
-    $subscr="<Name of your Azure subscription>"
-    $serviceName="<Name of the cloud service that contains the target virtual machine>"
-    $vmName="<Name of the target virtual machine>"
-    .\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
+```powershell
+$subscr="<Name of your Azure subscription>"
+$serviceName="<Name of the cloud service that contains the target virtual machine>"
+$vmName="<Name of the target virtual machine>"
+.\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
+```
 
 *Get-AzureSubscription* 명령 표시의 **SubscriptionName** 속성에서 올바른 구독 이름을 가져올 수 있습니다. **Get-AzureVM** 명령 표시의 *ServiceName* 열에서 가상 컴퓨터의 클라우드 서비스 이름을 가져올 수 있습니다.
 
@@ -156,37 +157,49 @@ Azure 구독 이름, 클라우드 서비스 이름 및 해당 가상 컴퓨터 �
 
 다음으로, 이러한 명령을 사용하여 원격 Azure PowerShell 세션을 시작합니다.
 
-    $uri = Get-AzureWinRMUri -ServiceName $serviceName -Name $vmName
-    $creds = Get-Credential
-    Enter-PSSession -ConnectionUri $uri -Credential $creds
+```powershell
+$uri = Get-AzureWinRMUri -ServiceName $serviceName -Name $vmName
+$creds = Get-Credential
+Enter-PSSession -ConnectionUri $uri -Credential $creds
+```
 
 유효한 관리자 자격 증명을 입력한 후 다음 Azure PowerShell 프롬프트와 비슷한 내용이 표시되어야 합니다.
 
-    [cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
+```powershell
+[cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
+```
 
 이 프롬프트의 첫 번째 부분은 대상 VM을 포함하는 클라우드 서비스 이름으로, "cloudservice4testing.cloudapp.net"과 다를 수 있습니다. 이제 이 클라우드 서비스에 대해 Azure PowerShell 명령을 실행하여 언급된 문제를 조사하고 구성을 수정할 수 있습니다.
 
 ### <a name="to-manually-correct-the-remote-desktop-services-listening-tcp-port"></a>TCP 포트에서 수신 대기하는 원격 데스크톱 서비스를 수동으로 수정하려면
 원격 Azure PowerShell 세션 프롬프트에서 이 명령을 사용합니다.
 
-    Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```powershell
+Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```
 
 PortNumber 속성은 현재 포트 번호를 보여줍니다. 필요한 경우 이 명령을 사용하여 원격 데스크톱 포트 번호를 다시 기본값(3389)으로 변경합니다.
 
-    Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
+```powershell
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
+```
 
 이 명령을 사용하여 포트가 3389로 변경되었는지 확인합니다.
 
-    Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```powershell
+Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+```
 
 이 명령을 사용하여 원격 Azure PowerShell 세션을 종료합니다.
 
-    Exit-PSSession
+```powershell
+Exit-PSSession
+```
 
 Azure VM에 대한 원격 데스크톱 끝점도 TCP 포트 3398을 내부 포트로 사용하고 있는지 확인합니다. Azure VM을 다시 시작한 후 원격 데스크톱 연결을 다시 시도합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
-[Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법](reset-rdp.md)
 
 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)
 

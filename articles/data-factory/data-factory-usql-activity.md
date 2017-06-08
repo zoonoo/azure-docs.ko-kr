@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: b41d906d6948f0f9e3cdb38b4a478b39f55ce219
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 88628fb2c07ad72c646f7e3ed076e7a4b1519200
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -40,8 +41,7 @@ Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의
 > Data Lake Analytics U-SQL 작업이 포함된 파이프라인을 만들기 전에 Azure Data Lake Analytics 계정을 만듭니다. Azure Data Lake Analytics에 대해 알아보려면 [Azure Data Lake Analytics 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)을 참조하세요.
 > 
 > Data Factory, 연결된 서비스, 데이터 집합 및 파이프라인 만들기를 위한 자세한 단계는 [첫 파이프라인 빌드하기 자습서](data-factory-build-your-first-pipeline.md) 를 검토하세요. Data Factory 편집기, Visual Studio 또는 Azure PowerShell에서 JSON 조각을 사용하여 Data Factory 엔터티를 만듭니다.
-> 
-> 
+
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure 데이터 레이크 분석 연결된 서비스
 Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연결하는 **Azure 데이터 레이크 분석** 연결된 서비스를 만듭니다. 파이프라인에서 데이터 레이크 분석 U-SQL 작업은 이 연결된 서비스를 가리킵니다. 
@@ -84,7 +84,7 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 | Azure Active Directory에서 관리되지 않는 사용자 계정(@hotmail.com, @live.com 등) |12시간 |
 | AAD(Azure Active Directory)에서 관리되는 사용자 계정 |마지막 조각이 실행된 후 14일 <br/><br/>OAuth 기반 연결된 서비스를 기반으로 하는 조각이 14일마다 한 번 이상 실행된 경우 90일 |
 
-이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다. 
+이 오류를 방지/해결하려면 **토큰이 만료**되면 **권한 부여** 단추를 사용하여 다시 인증하고 연결된 서비스를 다시 배포합니다. 다음 섹션의 코드를 사용하여 프로그래밍 방식으로 **sessionId** 및 **권한 부여** 속성의 값을 생성할 수도 있습니다.
 
 ### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>프로그래밍 방식으로 sessionId와 권한 부여 값을 생성하려면
 
@@ -176,12 +176,14 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 | 형식 |type 속성은 **DataLakeAnalyticsU-SQL**로 설정되어야 합니다. |예 |
 | scriptPath |U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. |아니요(스크립트를 사용하는 경우) |
 | scriptLinkedService |스크립트가 포함된 저장소를 Data Factory에 연결하는 연결된 서비스입니다. |아니요(스크립트를 사용하는 경우) |
-| script |scriptPath 및 scriptLinkedService를 지정하는 대신 인라인 스크립트를 지정합니다. 예: "script" : "CREATE DATABASE test" |아니요(scriptPath 및 scriptLinkedService를 사용하는 경우) |
+| script |scriptPath 및 scriptLinkedService를 지정하는 대신 인라인 스크립트를 지정합니다. 예: `"script": "CREATE DATABASE test"` |아니요(scriptPath 및 scriptLinkedService를 사용하는 경우) |
 | degreeOfParallelism |작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. |아니요 |
 | 우선 순위 |대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. |아니요 |
 | 매개 변수 |U-SQL 스크립트의 매개 변수 |아니요 |
+| runtimeVersion | 사용할 U-SQL 엔진의 런타임 버전 | 아니요 | 
+| compilationMode | <p>U-SQL의 컴파일 모드 다음 값 중 하나여야 합니다.</p> <ul><li>**의미 체계:** 의미 체계 검사 및 필수 온전성 검사만 수행합니다.</li><li>**전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다.</li><li>**SingleBox:** TargetType이 SingleBox로 설정된 상태에서 전체 컴파일을 수행합니다.</li></ul><p>이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. </p>| 아니요 | 
 
-스크립트 정의에 대해서는 [SearchLogProcessing.txt 스크립트 정의](#script-definition) 를 참조하세요. 
+스크립트 정의에 대해서는 [SearchLogProcessing.txt 스크립트 정의](#sample-u-sql-script) 를 참조하세요. 
 
 ## <a name="sample-input-and-output-datasets"></a>샘플 입력 및 출력 데이터 집합
 ### <a name="input-dataset"></a>입력 데이터 집합

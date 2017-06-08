@@ -12,13 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 05/15/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 0bd6fce848c6d174eb519f8ef8a14f9ead5fa5ce
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 1199840da725afdae3ee69a26db9ceedb2ab37e3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -79,15 +80,27 @@ Azure Portal에서 HDInsight 클러스터를 볼 때 __속성__에서 __저장�
 
 이 저장소 정보는 스크립트에서 클러스터의 core-site.xml 구성만 수정하기 때문에 표시되지 않습니다. 이 정보는 Azure 관리 API를 사용하여 클러스터 정보를 검색할 때 사용되지 않습니다.
 
-이 스크립트를 사용하여 클러스터에 추가된 저장소 계정 정보를 보려면 Ambari REST API를 사용합니다. 다음 명령은 [cURL(http://curl.haxx.se/)](http://curl.haxx.se/) 및 [jq(https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/)를 사용하여 Ambari에서 JSON 데이터를 검색하고 구문 분석하는 방법을 보여 줍니다.
+이 스크립트를 사용하여 클러스터에 추가된 저장소 계정 정보를 보려면 Ambari REST API를 사용합니다. 다음 명령을 사용하여 클러스터에 대한 이 정보를 검색합니다.
 
-> [!div class="tabbedCodeSnippets" data-resources="OutlookServices.Calendar"]
-> ```PowerShell
-> curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["""fs.azure.account.key.STORAGEACCOUNT.blob.core.windows.net"""] | select(. != null)'
-> ```
-> ```Bash
-> curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.STORAGEACCOUNT.blob.core.windows.net"] | select(. != null)'
-> ```
+```PowerShell
+$creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
+    -Credential $creds
+$respObj = ConvertFrom-Json $resp.Content
+$respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.windows.net"
+```
+
+> [!NOTE]
+> `$clusterName`을 HDInsight 클러스터의 이름으로 설정합니다. `$storageAccountName`을 저장소 계정의 이름으로 설정합니다. 메시지가 표시되면 클러스터 로그인(관리자) 및 암호를 입력합니다.
+
+```Bash
+curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.windows.net"] | select(. != null)'
+```
+
+> [!NOTE]
+> `$PASSWORD`를 클러스터 로그인(관리자) 계정 암호로 설정합니다. `$CLUSTERNAME`을 HDInsight 클러스터의 이름으로 설정합니다. `$STORAGEACCOUNTNAME`을 저장소 계정의 이름으로 설정합니다.
+>
+> 이 예제는 [curl(http://curl.haxx.se/)](http://curl.haxx.se/) 및 [jq(https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/)를 사용하여 JSON 데이터를 검색하고 구문 분석합니다.
 
 이 명령을 사용할 때는 __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다. __PASSWORD__는 클러스터의 HTTP 로그인 암호로 바꿉니다. __STORAGEACCOUNT__는 스크립트 동작을 사용하여 추가한 저장소 계정의 이름으로 바꿉니다. 이 명령에서 반환되는 정보는 다음 텍스트와 비슷합니다.
 
@@ -124,9 +137,15 @@ Azure Portal에서 HDInsight 클러스터를 볼 때 __속성__에서 __저장�
 
 저장소 계정이 HDInsight 클러스터와 다른 하위 지역에 있는 경우 성능이 저하될 수 있습니다. 다른 하위 지역의 데이터에 액세스하면 하위 지역 Azure 데이터 센터 외부와 공용 인터넷을 통해 네트워크 트래픽이 전송되어 대기 시간이 발생할 수 있습니다.
 
+> [!WARNING]
+> HDInsight 클러스터와 다른 지역에서는 저장소 계정을 사용할 수 없습니다.
+
 ### <a name="additional-charges"></a>추가 요금
 
 저장소 계정이 HDInsight 클러스터와 다른 하위 지역에 있는 경우 Azure 청구에서 추가 송신 요금이 발생할 수 있습니다. 트래픽이 다른 하위 지역의 또 다른 Azure 데이터 센터로 전송되는 경우에도 데이터가 하위 지역 데이터 센터를 떠날 때 송신 요금이 적용됩니다.
+
+> [!WARNING]
+> HDInsight 클러스터와 다른 지역에서는 저장소 계정을 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

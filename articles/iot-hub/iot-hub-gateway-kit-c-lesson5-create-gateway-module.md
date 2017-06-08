@@ -17,15 +17,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 027597c73d7282ef929363bab904e7d3d423d3d4
-ms.openlocfilehash: db2757015cf8e821cffcfe39bcbd1559c23fc7ed
-ms.lasthandoff: 02/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 5e28422158684c3aaf0ac3fdf5b19c80fbccfb02
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="lesson-5-create-your-first-azure-iot-gateway-module"></a>5단원: 첫 번째 Azure IoT 게이트웨이 모듈 만들기
-게이트웨이 SDK를 통해 Java,.NET 또는 Node.js로 작성된 모듈을 빌드할 수 있지만 이 자습서는 C에서 모듈을 구축하기 위한 단계를 안내합니다.
+Azure IoT Edge를 통해 Java, .NET 또는 Node.js로 작성된 모듈을 빌드할 수 있지만 이 자습서는 C에서 모듈을 빌드하기 위한 단계를 안내합니다.
 
 ## <a name="what-you-will-do"></a>수행할 사항
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 02/23/2017
 
 ## <a name="what-you-need"></a>필요한 항목
 
-호스트 컴퓨터에 설치된 Azure IoT 게이트웨이 SDK
+호스트 컴퓨터에 설치된 Azure IoT Edge
 
 ## <a name="folder-structure"></a>폴더 구조
 
@@ -54,7 +55,7 @@ ms.lasthandoff: 02/23/2017
 
 ## <a name="compile-and-run-the-helloworld-sample-app-on-intel-nuc"></a>Intel NUC에서 hello_world 샘플 앱 컴파일 및 실행
 
-`hello_world` 샘플은 앱과 연결된 미리 정의된&2;개의 모듈을 지정하는 `hello_world.json` 파일을 기준으로 게이트웨이를 만듭니다. 이 게이트웨이는 "hello world" 메시지를 5초마다 파일에 로깅합니다. 이 섹션에서는 기본 모듈을 사용하여 `hello_world` 앱을 컴파일하고 실행합니다.
+`hello_world` 샘플은 앱과 연결된 미리 정의된 2개의 모듈을 지정하는 `hello_world.json` 파일을 기준으로 게이트웨이를 만듭니다. 이 게이트웨이는 "hello world" 메시지를 5초마다 파일에 로깅합니다. 이 섹션에서는 기본 모듈을 사용하여 `hello_world` 앱을 컴파일하고 실행합니다.
 
 `hello_world` 앱을 컴파일 및 실행하려면 호스트 컴퓨터에서 다음 단계를 수행합니다.
 
@@ -103,7 +104,7 @@ ms.lasthandoff: 02/23/2017
 
 아래 단계는 새 모듈을 만들고 Intel NUC에서 컴파일하는 과정을 안내합니다. 모듈은 메시지가 발생하면 타임스탬프와 함께 메시지를 출력합니다. 이 섹션에서는 첫 번째 사용자 지정된 게이트웨이 모듈을 만들 것입니다.
 
-Azure IoT 게이트웨이 SDK 모듈은 다음 인터페이스를 구현해야 합니다.
+Azure IoT Edge 모듈은 다음 인터페이스를 구현해야 합니다.
 
    ```C
    pfModule_ParseConfigurationFromJson Module_ParseConfigurationFromJson

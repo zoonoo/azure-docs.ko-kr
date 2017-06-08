@@ -15,16 +15,18 @@ ms.author: jovanpop
 ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-translationtype: Human Translation
-ms.sourcegitcommit: 76d06bd9e0b033a2fb993f6183900e42e5232665
-ms.openlocfilehash: 741095b0ec2ae2ce125b59dfc5d1112d0a92de43
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 57057bbdbbafff6843070336efc986286d84af36
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL 데이터베이스의 JSON 기능 시작
 Azure SQL 데이터베이스를 사용하면 [JSON](http://www.json.org/) (JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다.
 
-JSON은 최신 웹 및 모바일 응용 프로그램에서 데이터를 교환하는 데 사용되는 일반적인 데이터 형식입니다. 또한 JSON은 또한 로그 파일 또는 NoSQL 데이터베이스(예: [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/))에 반구조화된 데이터를 저장하는 데도 사용됩니다. 많은 REST 웹 서비스는 JSON 텍스트로 형식이 지정된 결과를 반환하거나 JSON으로 형식이 지정된 데이터를 수락합니다. 대부분의 Azure 서비스(예: [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/) 및 [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/))는 JSON을 반환하거나 사용하는 REST 끝점이 있습니다.
+JSON은 최신 웹 및 모바일 응용 프로그램에서 데이터를 교환하는 데 사용되는 일반적인 데이터 형식입니다. 또한 JSON은 로그 파일 또는 NoSQL 데이터베이스(예: [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/))에 반구조화된 데이터를 저장하는 데도 사용됩니다. 많은 REST 웹 서비스는 JSON 텍스트로 형식이 지정된 결과를 반환하거나 JSON으로 형식이 지정된 데이터를 수락합니다. 대부분의 Azure 서비스(예: [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/) 및 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/))에는 JSON을 반환하거나 사용하는 REST 끝점이 있습니다.
 
 Azure SQL 데이터베이스를 사용하여 JSON 데이터를 쉽게 사용하고 데이터베이스를 최신 서비스와 통합할 수 있습니다.
 
@@ -204,10 +206,5 @@ JSON을 응용 프로그램에 통합하는 방법을 알아보려면 다음 리
 * [Channel 9 비디오](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
 JSON을 응용 프로그램에 통합하는 다양한 시나리오에 대해 알아보려면 이 [Channel 9 비디오](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds)에서 데모를 참조하거나 [JSON 블로그 게시물](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/)에서 사용 사례와 일치하는 시나리오 찾아보세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

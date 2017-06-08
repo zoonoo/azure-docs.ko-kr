@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 000440fb2c38eadc0ffdcab84a3c23bb034e834f
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/09/2017
-
 
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑
@@ -217,6 +217,8 @@ DNS 레코드를 관리하기 위한 페이지를 찾습니다. 각 도메인 �
 DNS 레코드 페이지가 다음 스크린샷과 같이 표시됩니다.
 
 ![DNS 레코드 페이지](./media/app-service-web-tutorial-custom-domain/a-record.png)
+
+<a name="enable-a"></a>
 
 ### <a name="enable-the-a-record-mapping-in-your-app"></a>앱에서 A 레코드 매핑 사용
 

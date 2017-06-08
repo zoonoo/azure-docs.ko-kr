@@ -32,6 +32,7 @@
 ### [사용자 로그인 옵션](active-directory-aadconnect-user-signin.md)
 ### [페더레이션에 대한 여러 도메인 지원](active-directory-aadconnect-multiple-domains.md)
 ### [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md)
+### [Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용](active-directory-aadconnect-federation-saml-idp.md)
 
 
 

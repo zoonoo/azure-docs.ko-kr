@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/06/2017
 ms.author: edmaca, yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: c26ac89bd7ef494331ba309aacf87de03506ac4c
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 9be337c3e04959a1ad2152c989c8532383362521
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -41,7 +42,7 @@ U-SQL은 데이터 레이크 등에서 데이터를 준비하고 변환하고 �
     경우에 따라 계정을 만들고 수동으로 데이터를 업로드하기 위해 [Azure Portal을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)의 다음 두 섹션을 살펴볼 수 있습니다.
 
     1. [Azure Data Lake Analytics 계정 만들기](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-    2. [기본 데이터 레이크 저장소 계정에 SearchLog.tsv를 업로드하기](data-lake-analytics-get-started-portal.md#prepare-source-data).
+    2. [기본 데이터 레이크 저장소 계정에 SearchLog.tsv를 업로드하기](data-lake-analytics-get-started-portal.md).
 
 ## <a name="connect-to-azure"></a>Azure에 연결
 **Data Lake Analytics에 연결**
@@ -198,7 +199,7 @@ Visual Studio용 데이터 레이크 도구는 진행률, 데이터 I/O, 실행 
 
 ## <a name="run-u-sql-locally"></a>로컬에서 U-SQL 실행
 
-Azure Data Lake 서비스의 경우처럼 Visual Studio와 Azure Data Lake U-SQL SDK에 대해 Azure Data Lake 도구를 사용하여 워크스테이션에서 U-SQL 작업을 실행할 수 있습니다. 이들 두 가지 로컬 실행 기능으로 U-SQL 작업을 테스트하고 디버그하는 시간을 절약할 수 있습니다. 
+Azure Data Lake 서비스의 경우처럼 Visual Studio와 Azure Data Lake U-SQL SDK에 대해 Azure Data Lake 도구를 사용하여 워크스테이션에서 U-SQL 작업을 실행할 수 있습니다. 이들 두 가지 로컬 실행 기능으로 U-SQL 작업을 테스트하고 디버그하는 시간을 절약할 수 있습니다.
 
 * [로컬 실행 및 Azure Data Lake U-SQL SDK를 사용하여 U-SQL 작업 테스트 및 디버그](data-lake-analytics-data-lake-tools-local-run.md)
 

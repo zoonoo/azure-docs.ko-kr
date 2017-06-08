@@ -3,7 +3,7 @@ title: "Apache Storm을 사용하여 Azure Event Hubs에서 이벤트 수신 | M
 description: "Apache Storm을 사용하여 Event Hubs에서 수신 시작"
 services: event-hubs
 documentationcenter: 
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 
@@ -12,29 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: jotaub;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 35bf064fdf2a766b8f699bed5c32d30c6c4dcd3c
-ms.lasthandoff: 04/18/2017
+ms.date: 05/03/2017
+ms.author: sethm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 195f5b7453a2ca576cfdbf39acd1f644c9edad33
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Apache Storm을 사용하여 Event Hubs에서 이벤트 수신
+
 [Apache Storm](https://storm.incubator.apache.org)은 분산된 실시간 계산 시스템으로, 바인딩되지 않은 데이터 스트림의 안정적인 처리를 간소화합니다. 이 섹션에서는 Azure Event Hubs Storm Spout를 사용하여 Event Hubs에서 이벤트를 수신하는 방법을 보여 줍니다. Apache Storm을 사용하면 다른 노드에 호스트된 여러 프로세스 간에 이벤트를 분할할 수 있습니다. 이벤트 허브와 Storm을 통합하면 Storm의 Zookeeper 설치를 통해 진행률을 투명하게 확인하고 지속적인 검사점을 관리하여 이벤트 사용이 간소화되고 이벤트 허브에서 병렬 수신됩니다.
 
 Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs overview]를 참조하세요.
 
+## <a name="create-project-and-add-code"></a>프로젝트 만들기 및 코드 추가
+
 이 자습서에서는 이미 사용할 수 있는 이벤트 허브 spout와 함께 제공되는 [HDInsight Storm][HDInsight Storm] 설치를 사용합니다.
 
-1. [HDInsight Storm - 시작 절차](../hdinsight/hdinsight-storm-overview.md) 에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
+1. [HDInsight Storm - 시작 절차](../hdinsight/hdinsight-storm-overview.md)에 따라 새 HDInsight 클러스터를 만들고 원격 데스크톱을 통해 이 클러스터에 연결합니다.
 2. `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 파일을 로컬 개발 환경에 복사합니다. 이 파일에는 events-storm-spout가 포함되어 있습니다.
 3. 다음 명령을 사용하여 패키지를 로컬 Maven 저장소에 설치합니다. 그러면 이후 단계에서 Storm 프로젝트에 참조로 추가할 수 있습니다.
 
-```shell
-        mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
-```
+    ```shell
+    mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
+    ```
 4. Eclipse에서 새 Maven 프로젝트를 만듭니다(**파일**, **새로 만들기**, **프로젝트**를 차례로 클릭).
    
     ![][12]
@@ -42,35 +46,37 @@ Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Ev
 6. **maven-archetype-quickstart** 원형을 선택하고 **다음**을 클릭합니다.
 7. **GroupId** 및 **ArtifactId**를 삽입하고 **마침**을 클릭합니다.
 8. **pom.xml**에서 `<dependency>` 노드에 다음 종속성을 추가합니다.
-```xml  
-        <dependency>
-            <groupId>org.apache.storm</groupId>
-            <artifactId>storm-core</artifactId>
-            <version>0.9.2-incubating</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.microsoft.eventhubs</groupId>
-            <artifactId>eventhubs-storm-spout</artifactId>
-            <version>0.9</version>
-        </dependency>
-        <dependency>
-            <groupId>com.netflix.curator</groupId>
-            <artifactId>curator-framework</artifactId>
-            <version>1.3.3</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-            </exclusions>
-            <scope>provided</scope>
-        </dependency>
-```
+
+    ```xml  
+    <dependency>
+        <groupId>org.apache.storm</groupId>
+        <artifactId>storm-core</artifactId>
+        <version>0.9.2-incubating</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.eventhubs</groupId>
+        <artifactId>eventhubs-storm-spout</artifactId>
+        <version>0.9</version>
+    </dependency>
+    <dependency>
+        <groupId>com.netflix.curator</groupId>
+        <artifactId>curator-framework</artifactId>
+        <version>1.3.3</version>
+        <exclusions>
+            <exclusion>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+            </exclusion>
+        </exclusions>
+        <scope>provided</scope>
+    </dependency>
+    ```
+
 9. **src** 폴더에 **Config.properties**라는 파일을 만들고 다음 내용을 복사하여 다음 값으로 대체합니다.
 
     ```java
@@ -126,8 +132,8 @@ Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Ev
     }
     ```
     
-    이 Storm 볼트는 수신된 이벤트의 콘텐츠를 기록합니다. 튜플을 저장소 서비스에 저장하도록 간단히 확장할 수 있습니다. [HDInsight 센서 분석 자습서] 에서는 동일한 방법을 사용하여 데이터를 HBase에 저장합니다.
-11. 다음 코드를 포함하는 **LogTopology** 라는 클래스를 만듭니다.
+    이 Storm 볼트는 수신된 이벤트의 콘텐츠를 기록합니다. 튜플을 저장소 서비스에 저장하도록 간단히 확장할 수 있습니다. [HDInsight 센서 분석 자습서]에서는 동일한 방법을 사용하여 데이터를 HBase에 저장합니다.
+11. 다음 코드를 포함하는 **LogTopology**라는 클래스를 만듭니다.
     
     ```java
     import java.io.FileReader;
@@ -236,12 +242,12 @@ Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Ev
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-* [이벤트 허브 개요](event-hubs-what-is-event-hubs.md)
+* [Event Hubs 개요][Event Hubs overview]
 * [이벤트 허브 만들기](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
 <!-- Links -->
-[Event Hubs overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
 [HDInsight 센서 분석 자습서]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 

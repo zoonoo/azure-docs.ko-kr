@@ -13,30 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 05/02/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 7a6f255c64a584e29801aacb40c79462751fe535
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: e22fa4ed45ffaed1a05292e9b86d5cebc0079117
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Azure CLI로 Linux VM 만들기 및 관리
 
-이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machine 만들기 항목에 대해 다룹니다. 이 자습서는 상태 관리, VM 삭제 및 크기 조정 등의 기본적인 관리 작업도 다룹니다.
+Azure 가상 컴퓨터는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure 가상 컴퓨터 배포 항목에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
 
-최신 [Azure CLI 2.0](/cli/azure/install-azure-cli)을 사용하여 이 자습서의 단계를 완료할 수 있습니다.
+> [!div class="checklist"]
+> * 만들기 및 VM에 연결
+> * VM 이미지 선택 및 사용
+> * 특정 VM 크기 보기 및 사용
+> * VM 크기 조정
+> * VM 상태 보기 및 이해
+
+이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 또한 브라우저에서 [Cloud Shell](/azure/cloud-shell/quickstart)을 사용할 수도 있습니다.
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
 [az group create](https://docs.microsoft.com/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 컴퓨터보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *westus* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 컴퓨터보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 
 
 ```azurecli
-az group create --name myResourceGroupVM --location westus
+az group create --name myResourceGroupVM --location eastus
 ```
 
 리소스 그룹은 VM을 만들거나 수정할 때 지정되며 이 자습서 전체에서 확인할 수 있습니다.
@@ -57,7 +64,7 @@ VM이 만들어지면 Azure CLI에서 VM에 대한 정보를 출력합니다. `p
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westus",
+  "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -156,7 +163,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 특정 지역에서 사용할 수 있는 VM 크기의 목록을 보려면 [az vm list-sizes](/cli/azure/vm#list-sizes) 명령을 사용합니다. 
 
 ```azurecli
-az vm list-sizes --location westus --output table
+az vm list-sizes --location eastus --output table
 ```
 
 부분 출력:
@@ -297,6 +304,17 @@ az group delete --name myResourceGroupVM --no-wait --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 기본 VM 만들기 및 관리에 대해 배웠습니다. VM 디스크에 대해 자세히 알아보려면 다음 자습서로 이동합니다.  
+이 자습서에서는 기본 VM을 만들고 관리하는 방법에 대해 알아보았습니다.
 
-[VM 디스크 만들기 및 관리](./tutorial-manage-disks.md)
+> [!div class="checklist"]
+> * 만들기 및 VM에 연결
+> * VM 이미지 선택 및 사용
+> * 특정 VM 크기 보기 및 사용
+> * VM 크기 조정
+> * VM 상태 보기 및 이해
+
+VM 디스크에 대해 자세히 알아보려면 다음 자습서로 이동합니다.  
+
+> [!div class="nextstepaction"]
+> [VM 디스크 만들기 및 관리](./tutorial-manage-disks.md)
+

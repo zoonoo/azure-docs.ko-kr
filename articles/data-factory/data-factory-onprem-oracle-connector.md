@@ -12,19 +12,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 06/04/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 750dfb2ff8b4d82b2f42518c3873a32d6be0bc20
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 18fffb6cae9107b9301ff702d483b598836ac180
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="move-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 온-프레미스 Oracle 간 데이터 이동
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 Oracle 데이터베이스의 데이터를 다른 곳으로 이동하는 방법 또는 그 반대로 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
-지원되는 원본 데이터 저장소에서 Oracle 데이터베이스로 또는 Oracle 데이터베이스에서 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요.
+## <a name="supported-scenarios"></a>지원되는 시나리오
+**Oracle 데이터베이스에서** 다음 데이터 저장소로 데이터를 복사할 수 있습니다.
+
+[!INCLUDE [data-factory-supported-sink](../../includes/data-factory-supported-sinks.md)]
+
+다음 데이터 저장소에서 **Oracle 데이터베이스로** 데이터를 복사할 수 있습니다.
+
+[!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미스 Oracle 원본에 연결하도록 지원합니다. [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하여 데이터 관리 게이트웨이에 대해 알아보고 [온-프레미스에서 클라우드로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하여 데이터를 이동하는 데이터 파이프라인의 게이트웨이 설정에 대 한 단계별 지침에 대해 알아보세요.
@@ -37,11 +45,16 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 ## <a name="supported-versions-and-installation"></a>지원되는 버전 및 설치
 이 Oracle 커넥터는 다음 두 가지 버전의 드라이버를 지원합니다.
 
-- **Microsoft Driver for Oracle(권장)**: 데이터 관리 게이트웨이 버전 2.7부터 Microsoft Driver for Oracle은 게이트웨이와 함께 자동으로 설치되므로 Oracle에 대한 연결을 설정하기 위해 해당 드라이버를 추가로 처리할 필요가 없으며 이 드라이버를 사용하여 더 나은 복사 성능을 얻을 수 있습니다. Oracle Database 버전 10g 릴리스 2 이상을 사용할 수 있습니다.
+- **Microsoft Driver for Oracle(권장)**: 데이터 관리 게이트웨이 버전 2.7부터 Microsoft Driver for Oracle은 게이트웨이와 함께 자동으로 설치되므로 Oracle에 대한 연결을 설정하기 위해 해당 드라이버를 추가로 처리할 필요가 없으며 이 드라이버를 사용하여 더 나은 복사 성능을 얻을 수 있습니다. 아래 Oracle 데이터베이스 버전이 지원됩니다.
+    - Oracle 12c R1(12.1)
+    - Oracle 11g R1, R2(11.1, 11.2)
+    - Oracle 10g R1, R2(10.1, 10.2)
+    - Oracle 9i R1, R2(9.0.1, 9.2)
+    - Oracle 8i R3(8.1.7)
 
-    > [!IMPORTANT]
-    > 현재 Oracle용 Microsoft 드라이버는 Oracle에서 데이터를 복사하는 것만 지원하고 Oracle로 쓰는 것은 지원하지 않습니다. 데이터 관리 게이트웨이 진단 탭의 연결 테스트 기능은 이 드라이버를 지원하지 않습니다. 또는 복사 마법사를 사용하여 연결의 유효성을 검사할 수도 있습니다.
-    >
+> [!IMPORTANT]
+> 현재 Oracle용 Microsoft 드라이버는 Oracle에서 데이터를 복사하는 것만 지원하고 Oracle로 쓰는 것은 지원하지 않습니다. 데이터 관리 게이트웨이 진단 탭의 연결 테스트 기능은 이 드라이버를 지원하지 않습니다. 또는 복사 마법사를 사용하여 연결의 유효성을 검사할 수도 있습니다.
+>
 
 - **.NET용 Oracle Data Provider:**  Oracle Data Provider를 사용하여 Oracle로 데이터를 복사하거나 Oracle에서 데이터를 복사하도록 선택할 수 있습니다. 이 구성 요소는 [Windows용 Oracle Data Access Components](http://www.oracle.com/technetwork/topics/dotnet/downloads/)에 포함됩니다. 게이트웨이가 설치되어 있는 컴퓨터에 해당 버전(32/64비트)을 설치합니다. [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) 은 Oracle Database 10g 릴리스 2 이상에 액세스할 수 있습니다.
 
@@ -60,11 +73,12 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
-1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스**를 만듭니다.
-2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다.
-3. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다.
+1. **데이터 팩터리**를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 
+2. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스**를 만듭니다. 예를 들어 Oracle 데이터베이스에서 Azure Blob Storage로 복사하는 경우 Oracle 데이터베이스 및 Azure 저장소 계정을 데이터 팩터리에 연결하는 두 개의 연결된 서비스를 만듭니다. Oracle과 관련된 연결된 서비스 속성은 [연결된 서비스 속성](#linked-service-properties) 섹션을 참조하세요.
+3. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 마지막 단계에서 설명한 예에서는 입력 데이터가 포함된 Oracle 데이터베이스의 테이블을 지정하는 데이터 집합을 만듭니다. 그리고 Blob 컨테이너와 Oracle 데이터베이스에서 복사된 데이터가 저장되는 폴더를 지정하는 또 다른 데이터 집합을 만듭니다. Oracle과 관련된 데이터 집합 속성은 [데이터 집합 속성](#dataset-properties) 섹션을 참조하세요.
+4. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 앞에서 언급한 예에서는 OracleSource를 원본으로, BlobSink를 복사 작업의 싱크로 사용합니다. 마찬가지로, Azure Blob Storage에서 Oracle 데이터베이스로 복사하는 경우 복사 작업에 BlobSource 및 OracleSink를 사용합니다. Oracle 데이터베이스와 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties) 섹션을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대 한 자세한 내용을 보려면 데이터 저장소에 대한 이전 섹션의 링크를 클릭하세요. 
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API를 사용하는 경우(.NET API 제외) JSON 형식을 사용하여 데이터 팩터리 엔터티를 직접 정의합니다.  다른 곳에서 온-프레미스 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples) 섹션을 참조하세요.
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API를 사용하는 경우(.NET API 제외) JSON 형식을 사용하여 데이터 팩터리 엔터티를 직접 정의합니다.  다른 곳에서 온-프레미스 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples-for-copying-data-to-and-from-oracle-database) 섹션을 참조하세요.
 
 다음 섹션에서는 데이터 팩터리 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -145,7 +159,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 | sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아니요 |
 | sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
 
-## <a name="json-examples"></a>JSON 예
+## <a name="json-examples-for-copying-data-to-and-from-oracle-database"></a>Oracle 데이터베이스로/에서 데이터를 복사하는 JSON 예제
 다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 Oracle 데이터베이스와 Azure Blob 저장소 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.   
 
 ## <a name="example-copy-data-from-oracle-to-azure-blob"></a>예: Oracle에서 Azure Blob으로 데이터 복사
@@ -541,7 +555,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
     "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
-### <a name="type-mapping-for-oracle"></a>Oracle에 대한 형식 매핑
+## <a name="type-mapping-for-oracle"></a>Oracle에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: a4452dee2beec650f84dff4083e91684fe61d8b6
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: f200a639eefd6a0552e9c7e3980323c9b1bd9d4f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -31,16 +33,11 @@ IoT 솔루션 보안 유지에 대한 자세한 내용은 다음을 참조하세
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [IoT Gateway SDK를 사용하는 장치 시뮬레이션][lnk-gateway]
+* [Azure IoT Edge에서 장치 시뮬레이션][lnk-iotedge]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
-[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 

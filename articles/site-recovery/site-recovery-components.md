@@ -14,23 +14,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 4674985363bc1267449e018ab15a53757a8fd32d
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 3d2b3509666633df4f6f6f0c385af3667f4bcf3e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 
 ---
-# <a name="how-does-azure-site-recovery-work"></a>Azure Site Recovery 작동 방식
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스의 기본 아키텍처와 이를 작동하게 하는 구성 요소에 대해 설명합니다.
+# <a name="how-does-azure-site-recovery-work-for-on-premises-infrastructure"></a>온-프레미스 인프라에 Azure Site Recovery가 작동하나요?
+
+> [!div class="op_single_selector"]
+> * [Azure 가상 컴퓨터 복제](site-recovery-azure-to-azure-architecture.md)
+> * [온-프레미스 컴퓨터 복제](site-recovery-components.md)
+
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스의 기본 아키텍처와 온-프레미스에서 Azure로 복제를 위해 이를 작동하게 하는 구성 요소에 대해 설명합니다.
 
 이 문서의 하단 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견을 게시합니다.
 
 
 ## <a name="replicate-to-azure"></a>Azure에 복제
 
-다음 사항을 Azure로 복제할 수 있습니다.
+다음 온-프레미스 인프라에서 Azure로 복제 및 보호할 수 있습니다.
 
 - **VMware**: [지원되는 호스트](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)에서 실행되는 온-프레미스 VMware VM. [지원되는 운영 체제](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)에서 실행되는 VMware VM을 복제할 수 있습니다.
 - **Hyper-V**: [지원되는 호스트](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)에서 실행되는 온-프레미스 Hyper-V VM.
@@ -42,12 +48,11 @@ VMware VM을 Azure에 복제하는 데 필요한 사항은 다음과 같습니�
 
 영역 | 구성 요소 | 세부 정보
 --- | --- | ---
-**Azure** | Azure에서 Azure 계정, Azure Storage 계정 및 Azure 네트워크가 필요합니다. | 저장소 및 네트워크는 Resource Manager 계정 또는 기존 계정일 수 있습니다.<br/><br/>  복제된 데이터를 저장소 계정에 저장하고 온-프레미스 사이트에서 장애 조치가 발생한 경우 복제된 데이터를 사용하여 Azure VM을 만듭니다. Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
 **구성 서버** | 모든 온-프레미스 구성 요소(단일 관리 서버구성 서버, 프로세스 서버, 마스터 대상 서버)를 실행하는 단일 관리 서버(VMWare VM) | 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
  **프로세스 서버**:  | 기본적으로 구성 서버에 설치합니다. | 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화하며 복제 데이터를 Azure Storage로 전송합니다.<br/><br/> 또한 프로세스 서버는 보호되는 컴퓨터에서 모바일 서비스의 푸시 설치를 처리하며 VMware VM의 자동 복구를 수행합니다.<br/><br/> 배포가 늘어나면 프로세스 서버로 실행하는 별도의 추가 전용 서버를 추가하여 증가하는 복제 트래픽을 처리할 수 있습니다.
  **마스터 대상 서버** | 기본적으로 온-프레미스 구성 서버에 설치합니다. | Azure에서 장애 복구 중에 복제 데이터를 처리합니다.<br/><br/> 장애 복구 트래픽 볼륨이 높은 경우 장애 복구를 위해 별도 마스터 대상 서버를 배포할 수 있습니다.
-**VMware 서버** | VMware VM은 vSphere ESXi 서버에서 호스트되며 호스트를 관리하는 vCenter 서버를 사용하는 것이 좋습니다. | VMware 서버를 사용자의 Recovery Services 자격 증명 모음에 추가합니다.<br/><br/> I
-**복제된 컴퓨터** | 복제하려는 각 VMware VM에 모바일 서비스가 설치됩니다. 각 컴퓨터에 수동으로 설치되거나 프로세스 서버에서 강제 설치로 설치될 수 있습니다.
+**VMware 서버** | VMware VM은 vSphere ESXi 서버에서 호스트되며 호스트를 관리하는 vCenter 서버를 사용하는 것이 좋습니다. | VMware 서버를 사용자의 Recovery Services 자격 증명 모음에 추가합니다.<br/><br/>
+**복제된 컴퓨터** | 복제하려는 각 VMware VM에 모바일 서비스가 설치됩니다. 각 컴퓨터에 수동으로 설치되거나 프로세스 서버에서 강제 설치로 설치될 수 있습니다.| -
 
 **그림 1: VMware에서 Azure 구성 요소로**
 
@@ -76,14 +81,6 @@ VMware VM을 Azure에 복제하는 데 필요한 사항은 다음과 같습니�
 3. 장애 조치를 실행하면 Azure에 복제본 VM이 만들어집니다. 복제본 Azure VM에서 워크로드에 액세스하려면 장애 조치를 커밋합니다.
 4. 기본 온-프레미스 사이트를 다시 사용할 수 있는 경우 장애 복구를 수행할 수 있습니다. 장애 복구 인프라를 설정하고 보조 사이트에서 기본 사이트에 컴퓨터를 복제하기 시작하며 보조 사이트에서 계획되지 않은 장애 조치를 실행합니다. 이 장애 조치를 커밋한 후에 데이터가 다시 온-프레미스로 돌아오면 Azure에 다시 복제를 사용하도록 설정해야 합니다. [자세히 알아보기](site-recovery-failback-azure-to-vmware.md)
 
-몇 가지 장애 복구 요구 사항이 있습니다.
-
-
-- **Azure에서 임시 프로세스 서버**: 장애 조치 후 Azure에서 장애 복구하려면 Azure에서 복제를 처리하기 위해 프로세스 서버로 구성된 Azure VM을 설정해야 합니다. 장애 복구를 완료한 후 이 VM을 삭제할 수 있습니다.
-- **VPN 연결**: 장애 복구를 수행하려면 Azure 네트워크에서 온-프레미스 사이트로 VPN 연결(또는 Azure Express 경로) 설정이 필요합니다.
-- **별도의 온-프레미스 마스터 대상 서버**: 온-프레미스 마스터 대상 서버는 장애 복구를 처리합니다. 마스터 대상 서버는 기본적으로 관리 서버에 설치되지만 대량의 트래픽 볼륨을 장애 복구하는 경우 이 목적으로 별도의 온-프레미스 마스터 대상 서버를 설정해야 합니다.
-- **장애 복구 정책**: 온-프레미스 사이트에 다시 복제하려면 장애 복구 정책이 필요합니다. 이 정책은 복제 정책을 만들 때 자동으로 생성됩니다.
-
 **그림 3: VMware/물리적 장애 복구**
 
 ![장애 복구](./media/site-recovery-components/enhanced-failback.png)
@@ -96,16 +93,6 @@ VMware VM을 Azure에 복제하는 데 필요한 사항은 다음과 같습니�
 - 장애 복구를 위해 온-프레미스 VMware 인프라가 필요합니다. 실제 컴퓨터로 장애 복구를 수행할 수 없습니다.
 
 ## <a name="hyper-v-to-azure"></a>Hyper-V에서 Azure로
-
-Hyper-V VM을 Azure에 복제하는 데 필요한 사항은 다음과 같습니다.
-
-**영역** | **구성 요소** | **세부 정보**
---- | --- | ---
-**Azure** | Azure에서는 Microsoft Azure 계정, Azure Storage 계정 및 Azure 네트워크가 필요합니다. | 저장소 및 네트워크는 Resource Manager 기반 계정 또는 기존 계정일 수 있습니다.<br/><br/> 복제된 데이터를 저장소 계정에 저장하고 온-프레미스 사이트에서 장애 조치가 발생한 경우 복제된 데이터를 사용하여 Azure VM을 만듭니다.<br/><br/> Azure VM을 만들 때 Azure 가상 네트워크에 연결합니다.
-**VMM 서버** | VMM 클라우드에 있는 Hyper-V 호스트 | VMM 클라우드에서 Hyper-V 호스트를 관리하는 경우 Recovery Services 자격 증명 모음에 VMM 서버를 등록합니다.<br/><br/> VMM 서버에서 Site Recovery Provider를 설치하여 Azure로 복제를 오케스트레이션합니다.<br/><br/> 논리 및 VM 네트워크를 설정하여 네트워크 매핑을 구성해야 합니다. VM 네트워크는 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.
-**Hyper-V 호스트** | Hyper-V 서버는 VMM 서버를 사용하거나 사용하지 않고 배포할 수 있습니다. | VMM 서버가 없는 경우 Site Recovery 복제를 오케스트레이션하기 위해 Site Recovery Provider가 인터넷을 통해 호스트에 설치됩니다. VMM 서버가 있는 경우, 공급자는 호스트가 아니라 서버에 설치됩니다.<br/><br/> Recovery Services 에이전트는 호스트에 설치되어 데이터 복제를 처리합니다.<br/><br/> 공급자 및 에이전트로부터의 통신은 모두 보호 및 암호화됩니다. Azure 저장소에 복제된 데이터도 암호화됩니다.
-**Hyper-V VM** | Hyper-V 호스트 서버에 하나 이상의 VM이 필요합니다. | 명시적으로 VM에 설치해야 하는 것은 없음
-
 
 ### <a name="replication-process"></a>복제 프로세스
 
@@ -152,7 +139,6 @@ InMage Scout을 사용하여 VMware VM 또는 물리적 서버에서 보조 사�
 
 **영역** | **구성 요소** | **세부 정보**
 --- | --- | ---
-**Azure** | InMage Scout. | InMage Scout를 얻으려면 Azure 구독이 필요합니다.<br/><br/> Recovery Services 자격 증명 모음을 만든 후에 InMage Scout를 다운로드하고 최신 업데이트를 설치하여 배포를 설정합니다.
 **프로세스 서버** | 기본 사이트에 있음 | 프로세스 서버를 배포하여 캐시, 압축 및 데이터 최적화를 처리합니다.<br/><br/> 또한 보호하려는 컴퓨터에 대해 통합 에이전트의 푸시 설치를 처리합니다.
 **구성 서버** | 보조 사이트에 있음 | 구성 서버는 관리 웹 사이트나 vContinuum 콘솔을 사용하여 배포를 관리, 구성 및 모니터링합니다.
 **vContinuum 서버** | 선택 사항입니다. 구성 서버와 동일한 위치에 설치됩니다. | 보호되는 환경을 관리 및 모니터링하기 위한 콘솔을 제공합니다.
@@ -180,8 +166,7 @@ Hyper-V VM을 보조 사이트에 복제하는 데 필요한 사항은 다음과
 
 **영역** | **구성 요소** | **세부 정보**
 --- | --- | ---
-**Azure** | Microsoft Azure 계정이 있어야 합니다. |
-**VMM 서버** | VMM 서버는 기본 사이트에서&1;개, 보조 사이트에서&1;개를 사용하는 것이 좋습니다. | 각 VMM 서버는 인터넷에 연결되어야 합니다.<br/><br/> 각 서버에는 Hyper-V 기능 프로필 집합을 가진 하나 이상의 VMM 사설 클라우드가 있어야 합니다.<br/><br/> VMM 서버에 Azure Site Recovery 공급자를 설치합니다. 공급자는 인터넷을 통해 사이트 복구 서비스에서의 복제를 조정 및 오케스트레이션합니다. 공급자와 Azure 간의 통신은 모두 안전하고 암호화됩니다.
+**VMM 서버** | VMM 서버는 기본 사이트에서 1개, 보조 사이트에서 1개를 사용하는 것이 좋습니다. | 각 VMM 서버는 인터넷에 연결되어야 합니다.<br/><br/> 각 서버에는 Hyper-V 기능 프로필 집합을 가진 하나 이상의 VMM 사설 클라우드가 있어야 합니다.<br/><br/> VMM 서버에 Azure Site Recovery 공급자를 설치합니다. 공급자는 인터넷을 통해 사이트 복구 서비스에서의 복제를 조정 및 오케스트레이션합니다. 공급자와 Azure 간의 통신은 모두 안전하고 암호화됩니다.
 **Hyper-V 서버** |  기본 및 보조 VMM 클라우드에 있는 하나 이상의 Hyper-V 호스트 서버.<br/><br/> 서버는 인터넷에 연결되어야 합니다.<br/><br/> Kerberos 또는 인증서 인증을 사용하여 LAN 또는 VPN을 통해 기본 및 보조 Hyper-V 호스트 서버 간에 데이터가 복제됩니다.  
 **Hyper-V VM** | 원본 Hyper-V 호스트 서버에 있음. | 원본 호스트 서버에는 복제하려는 VM이 하나 이상 있어야 합니다.
 

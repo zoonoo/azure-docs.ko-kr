@@ -14,10 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a58f328795f85e5392d1bd4c305aabb48b65798c
-ms.lasthandoff: 03/21/2017
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 1b96ab084acae14b35634666ae465d406c25f75a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -41,7 +43,9 @@ ms.lasthandoff: 03/21/2017
          &lt;meta charset="utf-8" /&gt; 
         &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; 
         &lt;title&gt;@ViewBag.Title - My ASP.NET Application&lt;/title&gt; 
-        @Styles.Render @Scripts.Render &lt;/head&gt; 
+        @Styles.Render("~/Content/css") 
+        @Scripts.Render("~/bundles/modernizr") 
+    &lt;/head&gt; 
     &lt;body&gt; 
         &lt;div class="navbar navbar-inverse navbar-fixed-top"&gt; 
             &lt;div class="container"&gt; 
@@ -51,24 +55,29 @@ ms.lasthandoff: 03/21/2017
                         &lt;span class="icon-bar"&gt;&lt;/span&gt; 
                         &lt;span class="icon-bar"&gt;&lt;/span&gt; 
                     &lt;/button&gt; 
-                    @Html.ActionLink name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) &lt;/div&gt; 
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) 
+                &lt;/div&gt; 
                 &lt;div class="navbar-collapse collapse"&gt; 
                     &lt;ul class="nav navbar-nav"&gt; 
-                        &lt;li&gt;@Html.ActionLink "Index", "Home")&lt;/li&gt; 
-                        &lt;li&gt;@Html.ActionLink "About", "Home")&lt;/li&gt; 
-                        &lt;li&gt;@Html.ActionLink "Contact", "Home")&lt;/li&gt; 
+                        &lt;li&gt;@Html.ActionLink("Home", "Index", "Home")&lt;/li&gt; 
+                        &lt;li&gt;@Html.ActionLink("About", "About", "Home")&lt;/li&gt; 
+                        &lt;li&gt;@Html.ActionLink("Contact", "Contact", "Home")&lt;/li&gt; 
                     &lt;/ul&gt; 
-                    <span style="background-color:yellow">@Html.Partial</span> 
+                    <span style="background-color:yellow">@Html.Partial("_LoginPartial")</span> 
                 &lt;/div&gt; 
             &lt;/div&gt; 
         &lt;/div&gt; 
         &lt;div class="container body-content"&gt; 
-            @RenderBody &lt;hr /&gt; 
+            @RenderBody() 
+            &lt;hr /&gt; 
             &lt;footer&gt; 
                 &lt;p&gt;&amp;copy; @DateTime.Now.Year - My ASP.NET Application&lt;/p&gt; 
             &lt;/footer&gt; 
         &lt;/div&gt; 
-        @Scripts.Render @Scripts.Render @RenderSection required: false) &lt;/body&gt; 
+        @Scripts.Render("~/bundles/jquery") 
+        @Scripts.Render("~/bundles/bootstrap") 
+        @RenderSection("scripts", required: false) 
+    &lt;/body&gt; 
     &lt;/html&gt;
 </pre>
 

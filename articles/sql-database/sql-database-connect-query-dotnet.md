@@ -8,18 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 7faca033-24b4-4f64-9301-b4de41e73dfd
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/07/2017
-ms.author: andrela;sstein;carlrab
+ms.date: 05/23/2017
+ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0dff167c370fcd2df40aa2ac302d0f09990e1d41
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4faa029062fef6495debd5d787a1d86f4747453b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -27,14 +27,17 @@ ms.lasthandoff: 05/09/2017
 
 이 빠른 시작은 [C# 및 ADO.NET](https://msdn.microsoft.com/library/kb9s9ks0.aspx)을 사용하여 Azure SQL Database에 연결한 후 Windows, Mac OS 및 Ubuntu Linux 플랫폼에서 Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.
 
+## <a name="prerequisites"></a>필수 조건
+
 이 빠른 시작은 다음과 같은 빠른 시작 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 
 - [DB 만들기 - 포털](sql-database-get-started-portal.md)
 - [DB 만들기 - CLI](sql-database-get-started-cli.md)
+- [DB 만들기 - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-net"></a>.NET 설치
 
-이 섹션의 단계에서는 사용자가 .NET을 사용하여 개발하는 데 익숙하고 Azure SQL Database 작업에 익숙하지 않다고 가정합니다. .NET을 사용하여 개발하는 것이 처음인 경우 [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/en-us/sql-server/developer-get-started/)로 이동하여 **.NET**을 선택한 다음 운영 체제를 선택합니다.
+이 섹션의 단계에서는 사용자가 .NET을 사용하여 개발하는 데 익숙하고 Azure SQL Database 작업에 익숙하지 않다고 가정합니다. .NET을 사용하여 개발하는 것이 처음인 경우 [SQL Server를 사용하여 앱 빌드](https://www.microsoft.com/sql-server/developer-get-started/)로 이동하여 **.NET**을 선택한 다음 운영 체제를 선택합니다.
 
 ### <a name="windows-net-framework-and-net-core"></a>**Windows .NET Framework 및 .NET Core**
 

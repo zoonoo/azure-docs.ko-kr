@@ -17,10 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
-ms.openlocfilehash: 399ac2d571b65503da7d9cc47d2dec9aa5e4c3d7
-ms.lasthandoff: 01/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b87974be9570f7d03fe84ae0a1d1fa7e346ff189
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 01/25/2017
 ## <a name="what-you-will-do"></a>수행할 사항
 
 - Intel NUC를 IoT 게이트웨이로 설정합니다.
-- Intel NUC에 Azure IoT 게이트웨이 SDK 패키지를 설치합니다.
+- Intel NUC에 Azure IoT Edge 패키지를 설치합니다.
 - 게이트웨이 기능을 확인하려면 Intel NUC에서 "hello_world" 샘플 응용 프로그램을 실행합니다.
 문제가 있으면 [문제 해결 페이지](iot-hub-gateway-kit-c-sim-troubleshooting.md)에서 솔루션을 검색하세요.
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 01/25/2017
 
 ## <a name="what-you-need"></a>필요한 항목
 
-- 사전 설치된 Intel IoT 게이트웨이 소프트웨어 제품군을 포함하는 Intel NUC 키트 DE3815TYKE(Wind River Linux *&7;.0.0.13)
+- 사전 설치된 Intel IoT 게이트웨이 소프트웨어 제품군을 포함하는 Intel NUC 키트 DE3815TYKE(Wind River Linux * 7.0.0.13)
 - 이더넷 케이블
 - 키보드
 - HDMI 또는 VGA 케이블
@@ -86,9 +87,9 @@ NUC 장치의 IP 주소를 얻기 위해 키보드 및 모니터가 필요합니
    호스트 컴퓨터의 Intel NUC에서 작동하기에 보다 효율적이고 생산적입니다. IP 주소, 사용자 이름 및 SSH 클라이언트를 통해 NUC 연결할 때 사용할 암호가 필요합니다. MacOS에서 SSH 클라이언트를 사용하는 예제입니다.
    ![MacOS에서 실행되는 SSH 클라이언트](media/iot-hub-gateway-kit-lessons/lesson1/ssh.png)
 
-## <a name="install-the-azure-iot-gateway-sdk-package"></a>Azure IoT 게이트웨이 SDK 패키지 설치
+## <a name="install-the-azure-iot-edge-package"></a>Azure IoT Edge 패키지 설치
 
-Azure IoT 게이트웨이 SDK 패키지는 SDK 및 해당 종속성이 사전 컴파일된 이진 파일을 포함합니다. 이러한 이진 파일은 Azure IoT 게이트웨이 SDK, Azure IoT SDK 및 해당하는 도구입니다. 또한 이 패키지에는 게이트웨이 기능을 확인하는 데 사용되는 "hello_world" 샘플 응용 프로그램이 포함되어 있습니다. SDK는 게이트웨이의 핵심 부분입니다. 패키지를 설치하려면 다음 단계를 따르세요.
+Azure IoT Edge 패키지에는 SDK 및 해당 종속성이 사전 컴파일된 이진 파일이 포함되어 있습니다. 이러한 이진 파일은 Azure IoT Edge, Azure IoT SDK 및 해당하는 도구입니다. 또한 이 패키지에는 게이트웨이 기능을 확인하는 데 사용되는 "hello_world" 샘플 응용 프로그램이 포함되어 있습니다. IoT Edge는 게이트웨이의 핵심 부분입니다. 패키지를 설치하려면 다음 단계를 따르세요.
 
 1. 터미널 창에서 다음 명령을 실행하여 IoT 클라우드 저장소를 추가합니다.
 
@@ -115,9 +116,9 @@ Azure IoT 게이트웨이 SDK 패키지는 SDK 및 해당 종속성이 사전 �
 
    패키지를 설치한 후 Intel NUC는 게이트웨이로 작동해야 합니다.
 
-## <a name="run-the-azure-iot-gateway-sdk-helloworld-sample-application"></a>Azure IoT 게이트웨이 SDK "hello_world" 샘플 응용 프로그램을 실행합니다.
+## <a name="run-the-azure-iot-edge-helloworld-sample-application"></a>Azure IoT Edge "hello_world" 샘플 응용 프로그램을 실행합니다.
 
-`azureiotgatewaysdk/samples`로 이동하여 샘플 "hello_world" 샘플 응용 프로그램을 실행합니다. 이 샘플 응용 프로그램은 `hello_world.json` 파일에서 게이트웨이를 만들고 Azure IoT 게이트웨이 SDK 아키텍처의 기본 구성 요소를 사용하여 5초마다 파일에 hellow world 메시지를 기록합니다.
+`azureiotgatewaysdk/samples`로 이동하여 샘플 "hello_world" 샘플 응용 프로그램을 실행합니다. 이 샘플 응용 프로그램은 `hello_world.json` 파일에서 게이트웨이를 만들고 Azure IoT Edge 아키텍처의 기본 구성 요소를 사용하여 5초마다 파일에 hellow world 메시지를 기록합니다.
 
 다음 명령을 실행하여 샘플 "hello_world" 샘플 응용 프로그램을 실행합니다.
 

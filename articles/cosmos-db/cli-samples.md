@@ -1,14 +1,14 @@
 ---
 title: "Azure Cosmos DB에 대한 Azure CLI 샘플 | Microsoft Docs"
 description: "Azure CLI 샘플 - Azure Cosmos DB 계정, 데이터베이스, 컨테이너, 하위 지역 및 방화벽을 만들고 관리합니다."
-services: cosmosdb
+services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
-ms.custom: sample
+ms.service: cosmos-db
+ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na

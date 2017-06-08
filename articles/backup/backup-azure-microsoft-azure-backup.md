@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/10/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
-ms.openlocfilehash: 1462ee0e247fb5d590a70d23ece5723a065b4140
-ms.lasthandoff: 01/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: e8838095d621957fe6b4ee50464154617e1c4740
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -69,9 +70,12 @@ Azure에서 기본 서버를 실행하지 않을 경우 Hyper-V VM, VMware VM �
 Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 수 있습니다. [DPM 및 중복 제거](https://technet.microsoft.com/library/dn891438.aspx) 가 Hyper-V VM에 배포될 때 함께 작동하는 방법에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> 도메인 컨트롤러로 실행하는 컴퓨터에 Azure 백업 서버를 설치할 수 없습니다.
->
->
+> Azure Backup Server는 단일 용도의 전용 서버에서 실행하도록 설계되었습니다. Azure Backup Server를 다음 항목에 설치할 수 없습니다.
+> - 도메인 컨트롤러로 실행하는 컴퓨터
+> - 응용 프로그램 서버 역할이 설치된 컴퓨터
+> - System Center Operations Manager 관리 서버인 컴퓨터
+> - Exchange Server를 실행하는 컴퓨터
+> - 클러스터의 한 노드인 컴퓨터
 
 Azure Backup Server를 도메인에 가입시켜야 합니다. 서버를 다른 도메인으로 옮기려는 경우 Azure Backup Server를 설치하기 전에 서버를 새 도메인에 가입시키는 것이 좋습니다. 배포 후 기존 Azure 백업 서버 컴퓨터를 새 도메인으로 이동하는 것은 *지원되지 않습니다*.
 

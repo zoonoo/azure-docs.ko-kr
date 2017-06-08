@@ -12,7 +12,8 @@
 
 ## 템플릿 만들기
 ### [크기 집합 템플릿에 대해 알아보기](virtual-machine-scale-sets-mvss-start.md)
-### [가상 네트워크 추가](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [기존 가상 네트워크 사용](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [사용자 지정 이미지 사용](virtual-machine-scale-sets-mvss-custom-image.md)
 
 ## 배포
 ### [포털을 사용하여 만들기](virtual-machine-scale-sets-portal-create.md)

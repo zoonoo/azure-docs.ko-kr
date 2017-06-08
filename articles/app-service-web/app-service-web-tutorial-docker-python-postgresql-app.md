@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: beverst
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 554843c5f3161a45ff984b000944f546b44dd472
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ca086f76e50cb27f012bb2e7f05595be5fdcb241
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드
@@ -36,6 +36,8 @@ ms.lasthandoff: 05/10/2017
 1. [PostgreSQL 다운로드, 설치 및 실행](https://www.postgresql.org/download/)
 1. [Docker Community Edition 다운로드 및 설치](https://www.docker.com/community-edition)
 1. [Azure CLI 2.0 다운로드 및 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -120,7 +122,7 @@ Flask 샘플 응용 프로그램은 데이터베이스에 사용자 데이터를
 
 이제 터미널 창에서 Azure CLI 2.0을 사용하여 Azure App Service에서 Python 응용 프로그램을 호스트하는 데 필요한 리소스를 만들 예정입니다.  [az login](/cli/azure/#login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다. 
 
-```azurecli 
+```azurecli-interactive 
 az login 
 ``` 
    
@@ -130,7 +132,7 @@ az login
 
 다음 예제에서는 미국 서부 지역의 리소스 그룹을 만듭니다.
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location "West US"
 ```
 
@@ -142,7 +144,7 @@ az group create --name myResourceGroup --location "West US"
 
 다음 명령에서 `<postgresql_name>` 자리 표시자를 고유한 PostgreSQL 서버 이름으로 대체합니다. 이 고유한 이름은 PostgreSQL 끝점의 일부로 사용되므로(`https://<postgresql_name>.postgres.database.azure.com`) 이름은 Azure의 모든 서버에서 고유해야 합니다. 
 
-```azurecli
+```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --admin-user <my_admin_username>
 ```
 
@@ -178,7 +180,7 @@ PostgreSQL용 Azure 데이터베이스 서버를 만들면 Azure CLI는 다음 �
 
 이 데이터베이스에 액세스하려면 이제 모든 IP 주소에서 연결할 수 있도록 해야 합니다. 이 작업은 다음 Azure CLI 명령을 통해 수행할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=255.255.255.255 --name AllowAllIPs
 ```
 
@@ -288,7 +290,7 @@ INFO  [alembic.runtime.migration] Will assume transactional DDL.
 
 다음 명령에서 컨테이너 레지스트리를 만들려면 `<registry_name>`을 선택한 고유한 Azure Container Registry 이름으로 바꿉니다.
 
-```azurecli
+```azurecli-interactive
 az acr create --name <registry_name> --resource-group myResourceGroup --location "West US" --sku Basic
 ```
 
@@ -318,7 +320,7 @@ az acr create --name <registry_name> --resource-group myResourceGroup --location
 
 이러한 자격 증명에 액세스하려면 먼저 관리 모드를 사용하도록 설정해야 합니다.
 
-```azurecli
+```azurecli-interactive
 az acr update --name <registry_name> --admin-enabled true
 az acr credential show -n <registry_name>
 ```
@@ -355,20 +357,11 @@ docker push <registry_name>.azurecr.io/flask-postgresql-sample
 
 [az appservice plan create](/cli/azure/appservice/plan#create) 명령으로 App Service 계획을 만듭니다. 
 
-> [!NOTE] 
-> App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스의 컬렉션을 나타냅니다. App Service 계획에 할당된 모든 응용 프로그램은 정의된 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
-> 
-> App Service 계획은 다음을 정의합니다. 
-> 
-> * 지역(북유럽, 미국 동부, 동남 아시아 등) 
-> * 인스턴스 크기(소, 중, 대) 
-> * 확장 개수(1, 2, 3개 인스턴스 등) 
-> * SKU(무료, 공유, 기본, 표준, 프리미엄) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 다음 예제에서는 S1 가격 책정 계층을 사용하여 `myAppServicePlan`이라는 Linux 기반 App Service 계획을 만듭니다.
 
-```azurecli
+```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
 ```
 
@@ -416,7 +409,7 @@ App Service 계획을 만들면 Azure CLI는 다음 예와 비슷한 정보를 �
 
 다음 명령에서 `<app_name>` 자리 표시자를 고유한 응용 프로그램 이름으로 대체합니다. 이 고유한 이름은 웹앱에 대한 기본 도메인 이름의 일부로 사용되므로 이름은 Azure에 있는 모든 앱에서 고유해야 합니다. 나중에 사용자에게 노출하기 전에 웹앱에 사용자 지정 DNS 항목을 매핑할 수 있습니다. 
 
-```azurecli
+```azurecli-interactive
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
@@ -448,7 +441,7 @@ App Service에서는 [az appservice web config appsettings update](/cli/azure/ap
 
 다음에 따라 데이터베이스 연결 정보를 앱 설정으로 지정할 수 있습니다. 또한 `PORT` 변수를 사용하여 포트 80에서 HTTP 트래픽을 수신하도록 Docker 컨테이너에서 포트 5000을 매핑할 것임을 지정합니다.
 
-```azurecli
+```azurecli-interactive
 az appservice web config appsettings update --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration" PORT=5000
 ```
 
@@ -464,7 +457,7 @@ az appservice web config container update --resource-group myResourceGroup --nam
 
 Docker 컨테이너를 업데이트하거나 위의 설정을 변경할 때마다 앱을 다시 시작하여 모든 설정을 적용하고 최신 컨테이너를 레지스트리에서 끌어옵니다.
 
-```azurecli
+```azurecli-interactive
 az appservice web restart --resource-group myResourceGroup --name <app_name>
 ```
 

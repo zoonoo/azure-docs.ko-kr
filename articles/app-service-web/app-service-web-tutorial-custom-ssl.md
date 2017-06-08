@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: a0e245121f2a9ff4109b281cd7286ed601bf64ac
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c5ec6dc244cc70591806dab171a289a0e55ff0a0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 06/01/2017
 
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩
@@ -45,7 +45,7 @@ ms.lasthandoff: 05/09/2017
 이 자습서를 따르기 전에 다음을 완료했는지 확인합니다.
 
 - [App Service 앱 만들기](/azure/app-service/)
-- [웹앱에 사용자 지정 DNS 이름 매핑](web-sites-custom-domain-name.md)
+- [웹앱에 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)
 - 신뢰할 수 있는 인증 기관에서 SSL 인증서 구매
 
 <a name="requirements"></a>

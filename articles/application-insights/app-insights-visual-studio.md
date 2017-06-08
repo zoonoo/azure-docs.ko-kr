@@ -3,7 +3,7 @@ title: "Visual Studio에서 Azure Application Insights로 작업 | Microsoft Doc
 description: "디버깅 및 프로덕션 중에 웹앱 성능 분석 및 진단입니다."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 2059802b-1131-477e-a7b4-5f70fb53f974
 ms.service: application-insights

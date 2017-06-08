@@ -12,12 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+ms.date: 05/02/2017
 ms.author: antisch
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 7cec2a8c66868c601c38dc2dea61dda38d3cd3b2
-ms.lasthandoff: 03/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 2556b02459886390b803407c5cb828687229a44e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -25,14 +26,16 @@ ms.lasthandoff: 03/24/2017
 
 다음 스크립트는 Azure Batch 서비스에서 계산 노드의 풀을 만들고 관리하기 위해 Azure CLI에서 사용 가능한 몇 가지 도구를 보여 줍니다.
 
-이 스크립트를 실행하기 전에 배치 계정이 이미 설정되어 있고 응용 프로그램이 구성되어 있다고 가정합니다. 자세한 내용은 이러한 각 항목을 다루는 [샘플 스크립트](../batch-cli-samples.md)를 참조하세요.
-
 > [!NOTE]
 > 샘플에 있는 명령은 Azure 가상 컴퓨터를 만듭니다. VM을 실행하면 계정에 요금이 발생합니다. 이러한 요금을 최소화하려면 샘플 실행을 완료한 후 VM을 삭제합니다. [풀 정리](#clean-up-pools)를 참조하세요.
 
-필요한 경우 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)에 있는 지침을 사용하여 Azure CLI를 설치한 다음, `az login`을 실행하여 Azure에 로그인합니다.
+Batch 풀은 Cloud Services 구성(Windows 전용)이나 Virtual Machine 구성(Windows 및 Linux)의 두 가지 방법을 구성할 수 있습니다. 아래 샘플 스크립트는 두 가지 구성으로 풀을 만드는 방법을 보여 줍니다.
 
-Batch 풀은 Cloud Services 구성(Windows 전용)이나 Virtual Machine 구성(Windows 및 Linux)의 두 가지 방법을 구성할 수 있습니다.
+## <a name="prerequisites"></a>필수 조건
+
+- 아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)에 있는 지침을 사용하여 설치합니다.
+- 아직 배치 계정이 없는 경우 새로 만듭니다. 계정을 만드는 샘플 스크립트에 대한 [Azure CLI로 배치 계정 만들기](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-create-account)를 참조하세요.
+- 시작 작업에서 실행할 응용 프로그램을 아직 구성하지 않은 경우 이를 수행합니다. 응용 프로그램을 만들고 Azure에 응용 프로그램 패키지를 업로드하는 샘플 스크립트는 [Azure CLI를 사용하여 응용 프로그램을 Azure 배치에 추가](https://docs.microsoft.com/azure/batch/scripts/batch-cli-sample-add-application)를 참조하세요.
 
 ## <a name="pool-with-cloud-service-configuration-sample-script"></a>클라우드 서비스 구성이 있는 풀 샘플 스크립트
 

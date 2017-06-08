@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 04/19/2017
+wms.date: 05/14/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: a022e7fc34cac85cb26cc6ca86a6941b1ccbfb95
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 3663b9005c68fd95158a81b54767a234ad5f37c4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -59,7 +59,7 @@ SQL Database에 필요한 서비스 수준은 각 리소스 규격의 최고 부
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> P11 및 P15 성능 수준을 사용하는 고객은 추가 비용 없이 최대 4TB의 포함된 저장소를 사용할 수 있습니다. 이 4TB 옵션은 미국 동부2, 미국 서부, 유럽 서부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부에서 현재 사용할 수 있습니다.
+> P11 및 P15 성능 수준을 사용하는 고객은 추가 비용 없이 최대 4TB의 포함된 저장소를 사용할 수 있습니다. 이러한 4TB 옵션은 현재 미국 동부2, 미국 서부, 미국 버지니아 주 정부, 유럽 서부, 독일 중부, 동남 아시아, 일본 동부, 오스트레일리아 동부, 캐나다 중부 및 캐나다 동부에서 사용할 수 있습니다.
 >
 
 ### <a name="maximum-in-memory-oltp-storage"></a>최대 메모리 내 OLTP 저장소

@@ -3,7 +3,7 @@ title: "Azure Application Insights에서 리소스, 역할 및 액세스 제어 
 description: "조직 Insights의 소유자, 참여자 및 읽기 권한자입니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
 ms.service: application-insights

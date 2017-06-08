@@ -3,7 +3,7 @@ title: "PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft
 description: "Azure Resource Manager 템플릿을 사용하여 PowerShell에서 리소스, 경고 및 가용성 테스트 생성을 자동화합니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
 ms.service: application-insights

@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 05/16/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 0637fb4d7c6cb8c3cfd4aab5d06571bd83f59683
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 183cb2ad4f2a80f9a0e1e7a33f1cacae006c0df4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -113,7 +114,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 **cloudDataMovementUnits** 속성에 **허용되는 값**은 1(기본값), 2, 4, 8, 16, 32입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다.
 
 > [!NOTE]
-> 더 높은 처리량을 위해 더 많은 클라우드 DMU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 8 이상의 설정은 현재 **Blob storage/Data Lake Store/Amazon S3/cloud FTP에서 Blob storage/Data Lake Store/Azure SQL Database로 여러 파일을 복사**하는 경우에만 작동합니다.
+> 더 높은 처리량을 위해 더 많은 클라우드 DMU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 8 이상의 설정은 현재 **Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP에서 Blob storage/Data Lake Store/Azure SQL Database로 여러 파일을 복사**하는 경우에만 작동합니다.
 >
 >
 
@@ -307,15 +308,15 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 * **데이터 관리 게이트웨이**를 사용해야 하는 SQL Server 및 Oracle과 같은 **온-프레미스 관계형 데이터베이스**는 [데이터 관리 게이트웨이에 대한 고려 사항](#considerations-for-data-management-gateway) 섹션을 참조하세요.
 
 ### <a name="nosql-stores"></a>NoSQL 저장소
-*(테이블 저장소 및 Azure DocumentDB 포함)*
+*(테이블 저장소 및 Azure Cosmos DB 포함)*
 
 * **테이블 저장소**:
   * **파티션**: 인터리브 파티션에 데이터를 작성하면 성능이 크게 저하됩니다. 파티션 키로 원본 데이터를 정렬할 수 있으므로 데이터는 파티션에 차례로 효율적으로 삽입되거나 논리를 조정하여 단일 파티션에 데이터를 기록할 수 있습니다.
-* **DocumentDB**:
-  * **배치 크기**: **writeBatchSize** 속성은 문서를 작성하는 DocumentDB 서비스에 대한 병렬 요청 수를 설정합니다. DocumentDB에 더 많은 병렬 요청이 전송되기 때문에 **writeBatchSize**가 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 그러나 DocumentDB에 작성할 때 제한을 확인하세요(오류 메시지 "요청 속도가 큽니다"). 문서 크기, 문서에서 용어의 수 및 대상 컬렉션의 인덱싱 정책 등 여러 가지 요인으로 인해 제한이 발생할 수 있습니다. 복사 처리량을 더 높이려면 더 나은 컬렉션(예: S3)을 사용하는 것이 좋습니다.
+* **Azure Cosmos DB**의 경우:
+  * **배치 크기**: **writeBatchSize** 속성은 문서를 작성하는 Azure Cosmos DB 서비스에 대한 병렬 요청 수를 설정합니다. Azure Cosmos DB에 더 많은 병렬 요청이 전송되기 때문에 **writeBatchSize**가 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 그러나 Azure Cosmos DB에 작성할 때 제한을 확인하세요(오류 메시지 "요청 속도가 큽니다"). 문서 크기, 문서에서 용어의 수 및 대상 컬렉션의 인덱싱 정책 등 여러 가지 요인으로 인해 제한이 발생할 수 있습니다. 복사 처리량을 더 높이려면 더 나은 컬렉션(예: S3)을 사용하는 것이 좋습니다.
 
 ## <a name="considerations-for-serialization-and-deserialization"></a>직렬화 및 역직렬화에 대한 고려 사항
-입력 데이터 집합 또는 출력 데이터 집합이 파일인 경우 직렬화 및 역직렬화가 발생할 수 있습니다. 현재 복사 작업은 Avro 및 텍스트(예: CSV 및 TSV) 데이터 형식을 지원합니다.
+입력 데이터 집합 또는 출력 데이터 집합이 파일인 경우 직렬화 및 역직렬화가 발생할 수 있습니다. 복사 작업에서 지원하는 파일 형식에 대한 세부 정보는 [지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md)을 참조하세요.
 
 **복사 동작**:
 
@@ -339,7 +340,7 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 ## <a name="considerations-for-column-mapping"></a>열 매핑에 대한 고려 사항
 복사 작업에서 **columnMappings** 속성을 설정하여 입력 열의 전체 또는 하위 집합을 출력 열에 매핑할 수 있습니다. 데이터 이동 서비스는 원본에서 데이터를 읽은 후에 데이터를 싱크에 쓰기 전에 데이터에 열 매핑을 수행해야 합니다. 이 추가 처리는 복사 처리량을 감소시킵니다.
 
-원본 데이터 저장소를 쿼리할 수 있는 경우 예를 들어 SQL Database 또는 SQL Server와 같은 관계형 저장소이거나 테이블 저장소 또는 DocumentDB와 같은 NoSQL 저장소인 경우 열 매핑을 사용하는 대신, 열 필터링 및 재정렬 논리를 **query** 속성에 푸시하는 것이 좋습니다. 이러한 방식으로 데이터 이동 서비스가 원본 데이터 저장소에서 데이터를 읽는 동안 프로젝션이 발생하며 이는 훨씬 효율적입니다.
+원본 데이터 저장소를 쿼리할 수 있는 경우 예를 들어 SQL Database 또는 SQL Server와 같은 관계형 저장소이거나 테이블 저장소 또는 Azure Cosmos DB와 같은 NoSQL 저장소인 경우 열 매핑을 사용하는 대신, 열 필터링 및 재정렬 논리를 **query** 속성에 푸시하는 것이 좋습니다. 이러한 방식으로 데이터 이동 서비스가 원본 데이터 저장소에서 데이터를 읽는 동안 프로젝션이 발생하며 이는 훨씬 효율적입니다.
 
 ## <a name="considerations-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 고려 사항
 게이트웨이 설치 권장 사항은 [데이터 관리 게이트웨이의 사용에 대한 고려 사항](data-factory-data-management-gateway.md#considerations-for-using-gateway)을 참조하세요.
@@ -406,7 +407,7 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 * Azure Storage(Blob 저장소 및 테이블 저장소 포함): [Azure Storage 확장성 목표](../storage/storage-scalability-targets.md) 및 [Azure Storage 성능 및 확장성 검사 목록](../storage/storage-performance-checklist.md)
 * Azure SQL Database: [성능을 모니터링](../sql-database/sql-database-single-database-monitor.md)하고 DTU(데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
 * Azure SQL Data Warehouse: 해당 기능은 DWU(데이터 웨어하우스 단위)로 측정됩니다. [Azure SQL Data Warehouse의 계산 능력 관리(개요)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
-* Azure DocumentDB: [DocumentDB의 성능 수준](../documentdb/documentdb-performance-levels.md)
+* Azure Cosmos DB: [Azure Cosmos DB의 성능 수준](../documentdb/documentdb-performance-levels.md)
 * 온-프레미스 SQL Server: [성능에 대한 모니터링 및 튜닝](https://msdn.microsoft.com/library/ms189081.aspx)
 * 온-프레미스 파일 서버: [파일 서버에 대한 성능 튜닝](https://msdn.microsoft.com/library/dn567661.aspx)
 

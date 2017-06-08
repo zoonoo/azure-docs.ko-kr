@@ -13,27 +13,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: corywink
-translationtype: Human Translation
-ms.sourcegitcommit: 4c2de5227388a1f23af84048a83564816ae329bd
-ms.openlocfilehash: 6f7e787f18a9ffa77430c86931196c638f000cc8
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: bdf4cd89d5ad0392337dfe761108608d506adf18
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="customize-a-preconfigured-solution"></a>미리 구성된 솔루션 사용자 지정
+
 Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내에서 함께 협력하는 서비스를 보여주어 종단간 솔루션을 제공합니다. 이 시작 지점에서 특정 시나리오에 대한 솔루션을 확장하고 사용자 지정할 수 있는 다양한 위치가 있습니다. 다음 섹션에서는 이러한 일반적인 사용자 지정 위치를 설명합니다.
 
 ## <a name="find-the-source-code"></a>소스 코드 찾기
+
 미리 구성된 솔루션에 대한 소스 코드는 다음 리포지토리의 GitHub에서 사용할 수 있습니다.
 
 * 원격 모니터링: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 * 예측 유지 관리: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
+* 연결된 팩터리: [https://github.com/Azure/azure-iot-connected-factory](https://github.com/Azure/azure-iot-connected-factory)
 
 미리 구성된 솔루션에 대한 소스 코드는 패턴과 Azure IoT Suite를 사용하여 IoT 솔루션의 종단 간 기능을 구현하는 데 사용하는 작업 방식과 패턴을 보여 주기 위해 제공됩니다. GitHub 리포지토리에서 솔루션을 빌드 및 배포하는 방법에 대한 자세한 내용을 확인할 수 있습니다.
 
 ## <a name="change-the-preconfigured-rules"></a>미리 구성된 규칙 변경
+
 원격 모니터링 솔루션은 솔루션에서 장치 정보, 원격 분석 및 규칙 논리를 다루는 세 개의 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 작업을 포함합니다.
 
 세 개의 Stream Analytics 작업 및 해당 구문은 [원격 모니터링 미리 구성된 솔루션 연습](iot-suite-remote-monitoring-sample-walkthrough.md)에 자세히 설명되어 있습니다. 
@@ -51,26 +56,29 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 
 > [!NOTE]
 > 원격 모니터링 대시보드는 특정 데이터에 따라 달라지므로 작업 변경은 대시보드 실패를 일으킬 수 있습니다.
-> 
-> 
 
 ## <a name="add-your-own-rules"></a>사용자 고유 규칙 추가
+
 미리 구성된 Azure 스트림 분석 작업 변경 외에도 Azure 포털을 사용하여 새 작업을 추가하거나 기존 작업에 새 쿼리를 추가할 수 있습니다.
 
 ## <a name="customize-devices"></a>장치 사용자 지정
+
 가장 일반적인 확장 작업 중 하나는 시나리오와 관련된 장치를 사용하는 것입니다. 장치를 사용하는 여러 방법이 있습니다. 이 방법은 해당 시나리오에 맞게 시뮬레이션된 장치를 변경하거나 [IoT 장치 SDK][IoT Device SDK] 를 사용하여 솔루션에 대한 실제 장치에 연결하는 것이 포함됩니다.
 
 장치를 추가하기 위한 단계별 가이드는 [Iot Suite 연결 장치](iot-suite-connecting-devices.md) 문서 및 [원격 모니터링 C SDK 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring)을 참조하세요. 이 샘플은 미리 구성된 원격 모니터링 솔루션을 사용하도록 설계되었습니다.
 
 ### <a name="create-your-own-simulated-device"></a>고유한 시뮬레이션된 장치 만들기
+
 .NET 시뮬레이터는 [원격 모니터링 솔루션 소스 코드](https://github.com/Azure/azure-iot-remote-monitoring)에 포함되어 있습니다. 이 시뮬레이터는 솔루션의 일부로 프로비전되었으며 다른 메타데이터, 원격 분석을 보내거나 다른 명령 및 메서드에 응답하도록 변경될 수 있습니다.
 
 미리 구성된 솔루션 시뮬레이터의 원격 모니터링에서 미리 구성된 시뮬레이터는 온도 및 습도 원격 분석을 내보내는 냉각 장치입니다. GitHub 리포지토리를 분기한 경우 [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) 프로젝트에서 시뮬레이터를 수정할 수 있습니다.
 
 ### <a name="available-locations-for-simulated-devices"></a>시뮬레이션된 장치에 사용 가능한 위치
+
 위치의 기본 집합은 시애틀/레드먼드, 워싱턴, 미국입니다. [SampleDeviceFactory.cs][lnk-sample-device-factory]에서 이러한 위치를 변경할 수 있습니다.
 
 ### <a name="add-a-desired-property-update-handler-to-the-simulator"></a>시뮬레이터에 desired 속성 업데이트 처리기 추가
+
 솔루션 포털에서 장치의 desired 속성에 대한 값을 설정할 수 있습니다. 장치가 desired 속성 값을 검색하는 경우 속성 변경 요청을 처리하는 것이 장치의 책임입니다. desired 속성을 통해 속성 값 변경에 대한 지원을 추가하려면 시뮬레이터에 처리기를 추가해야 합니다.
 
 시뮬레이터는 솔루션 포털에서 desired 값을 설정하여 업데이트할 수 있는 **SetPointTemp** 및 **TelemetryInterval** 속성에 대한 처리기를 포함합니다.
@@ -100,6 +108,7 @@ _desiredPropertyUpdateHandlers.Add(SetPointTempPropertyName, OnSetPointTempUpdat
 **SetPointTempPropertyName**은 "Config.SetPointTemp"로 정의되는 상수입니다.
 
 ### <a name="add-support-for-a-new-method-to-the-simulator"></a>시뮬레이터에 새 메서드에 대한 지원 추가
+
 시뮬레이터를 사용자 지정하여 새 [메서드(직접 메서드)][lnk-direct-methods]에 대한 지원을 추가할 수 있습니다. 필요한 두 가지 주요 단계는 다음과 같습니다.
 
 - 시뮬레이터는 메서드의 세부 정보를 사용하여 미리 구성된 솔루션에서 IoT Hub에 알려야 합니다.
@@ -118,7 +127,7 @@ _desiredPropertyUpdateHandlers.Add(SetPointTempPropertyName, OnSetPointTempUpdat
 
 메서드 서명은 다음 형식을 가집니다. `<method name>--<parameter #0 name>-<parameter #1 type>-...-<parameter #n name>-<parameter #n type>` 예를 들어 **FwPackageURI**라는 문자열 매개 변수를 예상하는 **InitiateFirmwareUpdate** 메서드를 지정하려면 다음 메서드 서명을 사용합니다.
 
-```
+```json
 InitiateFirmwareUpate--FwPackageURI-string: "description of method"
 ```
 
@@ -128,8 +137,6 @@ InitiateFirmwareUpate--FwPackageURI-string: "description of method"
 
 > [!NOTE]
 > 솔루션 백 엔드는 장치에서 *장치 정보* 메시지를 받을 때 지원되는 메서드에 대한 정보만을 업데이트합니다.
-> 
-> 
 
 Common 프로젝트에서 **SampleDeviceFactory** 클래스의 다음 코드 예제는 장치에서 전송된 reported 속성에서 **SupportedMethods** 목록에 메서드를 추가하는 방법을 보여 줍니다.
 
@@ -206,19 +213,25 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 - "FirmwareUpdate 수락" 메시지를 즉시 반환하여 장치에서 요청이 수락되었다는 것을 나타냅니다.
 
 ### <a name="build-and-use-your-own-physical-device"></a>고유한 (물리적) 장치 빌드 및 사용
+
 [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) 는 IoT 솔루션으로 다양한 장치 유형(언어 및 운영 체제)를 연결하기 위한 라이브러리를 제공합니다.
 
 ## <a name="modify-dashboard-limits"></a>대시보드 제한 수정
+
 ### <a name="number-of-devices-displayed-in-dashboard-dropdown"></a>대시보드 드롭다운에 표시되는 장치 수
+
 기본값은 200입니다. [DashboardController.cs][lnk-dashboard-controller]에서 이 수를 변경할 수 있습니다.
 
 ### <a name="number-of-pins-to-display-in-bing-map-control"></a>Bing 지도 컨트롤에 표시할 핀 수
+
 기본값은 200입니다. [TelemetryApiController.cs][lnk-telemetry-api-controller-01]에서 이 수를 변경할 수 있습니다.
 
 ### <a name="time-period-of-telemetry-graph"></a>원격 분석 그래프의 시간 간격
+
 기본값은 10분입니다. [TelmetryApiController.cs][lnk-telemetry-api-controller-02]에서 이 값을 변경할 수 있습니다.
 
 ## <a name="manually-set-up-application-roles"></a>수동으로 응용 프로그램 역할 설정
+
 다음 절차에서는 미리 구성된 솔루션에 **관리** 및 **읽기 전용** 응용 프로그램 역할을 추가하는 방법을 설명합니다. azureiotsuite.com 사이트에서 프로비전되는 미리 구성된 솔루션에는 **관리** 및 **읽기 전용** 역할이 이미 포함되어 있습니다.
 
 **ReadOnly** 역할의 구성원은 대시보드 및 장치 목록을 볼 수는 있지만 장치를 추가하거나 장치 특성을 변경하거나 명령을 전송할 수는 없습니다.  **Admin** 역할의 구성원에게는 솔루션의 모든 기능에 대한 모든 권한이 있습니다.
@@ -231,13 +244,13 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 6. 페이지의 아래쪽에서 **매니페스트 관리**와 **매니페스트 다운로드**를 차례로 클릭합니다.
 7. 이 절차는 .json 파일을 로컬 컴퓨터에 다운로드합니다. 이 파일을 편집할 수 있도록 원하는 텍스트 편집기에서 엽니다.
 8. .json 파일의 세 번째 줄에는 다음 내용을 확인할 수 있습니다.
-   
-   ```
+
+   ```json
    "appRoles" : [],
    ```
    이 줄을 다음 코드로 바꿉니다.
-   
-   ```
+
+   ```json
    "appRoles": [
    {
    "allowedMemberTypes": [
@@ -260,20 +273,24 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
    "value": "ReadOnly"
    } ],
    ```
+
 9. 업데이트한 .json 파일을 저장합니다. 기존 파일을 덮어쓰면 됩니다.
 10. Azure 클래식 포털 페이지의 아래쪽에서 **매니페스트 관리**와 **매니페스트 업로드**를 차례로 클릭하여 이전 단계에서 저장한 .json 파일을 업로드합니다.
 11. 이제 **관리** 및 **읽기 전용** 역할이 응용 프로그램에 추가되었습니다.
 12. 이러한 역할 중 하나를 디렉터리의 사용자에게 할당하려면 [azureiotsuite.com 사이트의 권한][lnk-permissions]을 참조하세요.
 
 ## <a name="feedback"></a>사용자 의견
+
 이 문서에서 포함했으면 하는 사용자 지정이 있나요? [사용자 의견](https://feedback.azure.com/forums/321918-azure-iot)에 기능 제안을 추가하거나 이 문서에 대한 의견을 입력해 주시기 바랍니다. 
 
 ## <a name="next-steps"></a>다음 단계
+
 미리 구성된 솔루션을 사용자 지정하기 위한 옵션에 대한 자세한 내용은 다음을 참조하세요.
 
 * [미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 논리 앱 연결][lnk-logicapp]
 * [원격 모니터링 사전 구성 솔루션으로 동적 원격 분석 사용][lnk-dynamic]
 * [미리 구성된 원격 모니터링 솔루션의 장치 정보 메타데이터][lnk-devinfo]
+* [연결된 공장 솔루션이 OPC UA 서버의 데이터를 표시하는 방식 사용자 지정][lnk-cf-customize]
 
 [lnk-logicapp]: iot-suite-logic-apps-tutorial.md
 [lnk-dynamic]: iot-suite-dynamic-telemetry.md
@@ -287,3 +304,4 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+[lnk-cf-customize]: iot-suite-connected-factory-customize.md

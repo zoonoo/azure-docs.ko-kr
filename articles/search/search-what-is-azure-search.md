@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.date: 04/24/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 25f4ef15390ed5b97bd2927126f5ecf250d2daf9
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: db227bfea10255322c090e68b197cfb2dd1cf15b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="what-is-azure-search"></a>Azure 검색이란?
-Azure Search는 서버 및 인프라 관리를 Microsoft에 의한 클라우드 SaaS(Search-as-a-Service) 솔루션으로, 사용자는 데이터를 채운 다음 웹 또는 모바일 응용 프로그램에 검색을 추가하는 데 사용할 수 있는 즉시 사용 가능한 서비스입니다. Azure Search를 사용하면 검색 인프라를 관리할 필요가 없고 검색 전문가가 아니라도 간단한 [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 또는 [.NET SDK](search-howto-dotnet-sdk.md)를 사용하여 응용 프로그램에 강력한 검색 환경을 쉽게 추가할 수 있습니다.
+Azure Search는 서버 및 인프라 관리를 Microsoft에 의한 클라우드 SaaS(Search-as-a-Service) 솔루션으로, 사용자는 데이터를 채운 다음 웹 또는 모바일 응용 프로그램에 검색을 추가하는 데 사용할 수 있는 즉시 사용 가능한 서비스입니다. Azure Search를 사용하면 검색 인프라를 관리할 필요가 없고 검색 전문가가 아니라도 간단한 [REST API](/rest/api/searchservice/) 또는 [.NET SDK](search-howto-dotnet-sdk.md)를 사용하여 응용 프로그램에 강력한 검색 환경을 쉽게 추가할 수 있습니다.
 
 <a name="feature-drilldown"></a>
 
@@ -39,7 +39,7 @@ Azure Search에서는 [56개 언어](https://docs.microsoft.com/rest/api/searchs
 
 ### <a name="data-integration"></a>데이터 통합
 
-JSON 데이터 구조를 밀어넣어 Azure Search 인덱스를 채울 수 있습니다. 또한 지원되는 데이터 원본에 대해 [인덱서](search-indexer-overview.md)를 통해 자동으로 Azure SQL Database, Azure DocumentDB 또는 [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)를 크롤링하여 검색 인덱스의 콘텐츠를 주 데이터 저장소와 동기화할 수 있습니다.
+JSON 데이터 구조를 밀어넣어 Azure Search 인덱스를 채울 수 있습니다. 또한 지원되는 데이터 원본에 대해 [인덱서](search-indexer-overview.md)를 통해 자동으로 [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-documentdb.md) 또는 [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)를 크롤링하여 검색 인덱스의 콘텐츠를 주 데이터 저장소와 동기화할 수 있습니다.
 
 *문서 해독*을 사용하여 Microsoft Office, PDF 및 HTML 문서를 포함한 [주요 파일 형식을 인덱싱](search-howto-indexing-azure-blob-storage.md)할 수 있습니다.
 
@@ -53,7 +53,7 @@ JSON 데이터 구조를 밀어넣어 Azure Search 인덱스를 채울 수 있�
 
 + **적중 항목 강조 표시**[는 검색 결과의 일치하는 키워드에 시각적 서식을 적용](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)합니다. 강조 표시된 조각을 반환할 필드를 선택할 수 있습니다.
 
-+ **간단한 점수 매기기** 는 Azure 검색의 핵심적인 장점입니다. [점수 매기기 프로필](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)은 문서 자체의 값에 대한 함수로써 관련성을 모델링할 수 있도록 허용하는 데 사용됩니다. 예를 들어 최신 제품 또는 할인 제품을 검색 결과의 더 높은 부분에 나타내려고 할 수 있습니다. 또한 따로 추적하고 저장한 고객 검색 기본 설정에 따라 개인화된 점수에 태그를 사용하여 점수 매기기 프로필을 만들 수도 있습니다.
++ **간단한 점수 매기기** 는 Azure 검색의 핵심적인 장점입니다. [점수 매기기 프로필](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)은 문서 자체의 값에 대한 함수로써 관련성을 모델링할 수 있도록 허용하는 데 사용됩니다. 예를 들어 최신 제품 또는 할인 제품을 검색 결과의 더 높은 부분에 나타내려고 할 수 있습니다. 또한 따로 추적하고 저장한 고객 검색 기본 설정에 따라 개인화된 점수에 태그를 사용하여 점수 매기기 프로필을 만들 수도 있습니다.
 
 + **정렬** 은 인덱스 스키마를 통해 여러 필드에 제공된 후 쿼리 시 단일 검색 매개 변수를 통해 전환됩니다.
 
@@ -83,7 +83,7 @@ Azure Search는 지리적 위치를 지능적으로 처리하고, 필터링하�
 
 ## <a name="how-it-works"></a>작동 방법
 ### <a name="step-1-provision-service"></a>1단계: 서비스 프로비전
-[Azure Portal](https://portal.azure.com/) 또는 [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn832684.aspx)에서 Azure Search 서비스를 스핀업할 수 있습니다. 다른 구독자와 공유되는 무료 서비스 또는 서비스에만 사용되는 전용 리소스를 제공하는 [유료 계층](https://azure.microsoft.com/pricing/details/search/) 중에서 선택할 수 있습니다.
+[Azure Portal](https://portal.azure.com/) 또는 [Azure 리소스 관리 API](/rest/api/searchmanagement/)에서 Azure Search 서비스를 스핀업할 수 있습니다. 다른 구독자와 공유되는 무료 서비스 또는 서비스에만 사용되는 전용 리소스를 제공하는 [유료 계층](https://azure.microsoft.com/pricing/details/search/) 중에서 선택할 수 있습니다.
 
 유료 계층의 경우 다음 2가지 차원에서 서비스를 확장할 수 있습니다. 
 
@@ -95,14 +95,14 @@ Azure Search는 지리적 위치를 지능적으로 처리하고, 필터링하�
 ### <a name="step-2-create-index"></a>2단계: 인덱스 만들기
 검색 가능한 콘텐츠를 업로드하려면 먼저 Azure Search 인덱스를 정의해야 합니다. 인덱스는 데이터가 보관된 데이터베이스 테이블과 비슷하며 검색 쿼리를 수용할 수 있습니다. 데이터베이스의 필드와 마찬가지로, 매핑할 인덱스 스키마를 정의하여 검색하려는 문서의 구조를 반영합니다.
 
-스키마는 Azure Portal에서 만들거나 [.NET SDK](search-howto-dotnet-sdk.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용하여 프로그래밍 방식으로 만들 수 있습니다.
+스키마는 Azure Portal에서 만들거나 [.NET SDK](search-howto-dotnet-sdk.md) 또는 [REST API](/rest/api/searchservice/)를 사용하여 프로그래밍 방식으로 만들 수 있습니다.
 
 ### <a name="step-3-index-data"></a>3단계: 인덱스 데이터
 인덱스를 정의했으면 콘텐츠를 업로드할 준비가 된 것입니다. 밀어넣기 또는 끌어오기 모델을 사용할 수 있습니다.
 
-끌어오기 모델은 외부 데이터 원본에서 데이터를 검색합니다. 이 방식은 데이터에 연결, 데이터 읽기 및 데이터 직렬화 등의 데이터 수집 측면을 능률화하고 자동화하는 *인덱서*를 통해 지원됩니다. [인덱서](/rest/api/searchservice/Indexer-ope)는 Azure DocumentDB, Azure SQL Database, Azure Blob Storage 및 Azure VM에서 호스트되는 SQL Server에서 사용할 수 있습니다. 필요 시 또는 예약된 데이터 새로 고침을 위해 인덱서를 구성할 수 있습니다.
+끌어오기 모델은 외부 데이터 원본에서 데이터를 검색합니다. 이 방식은 데이터에 연결, 데이터 읽기 및 데이터 직렬화 등의 데이터 수집 측면을 능률화하고 자동화하는 *인덱서*를 통해 지원됩니다. [인덱서](/rest/api/searchservice/Indexer-operations)는 Azure Cosmos DB, Azure SQL Database, Azure Blob Storage 및 Azure VM에 호스트된 SQL Server에서 사용할 수 있습니다. 필요 시 또는 예약된 데이터 새로 고침을 위해 인덱서를 구성할 수 있습니다.
 
-밀어넣기 모델은 SDK 또는 업데이트된 문서를 인덱스에 보내기 위해 사용되는 REST API를 통해 제공됩니다. JSON 형식을 사용하여 거의 모든 데이터 집합에서 데이터를 밀어넣을 수 있습니다. 데이터 로드에 대한 지침은 [문서 추가, 업데이트 또는 삭제](https://msdn.microsoft.com/library/azure/dn798930.aspx) 또는 [.NET SDK를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
+밀어넣기 모델은 SDK 또는 업데이트된 문서를 인덱스에 보내기 위해 사용되는 REST API를 통해 제공됩니다. JSON 형식을 사용하여 거의 모든 데이터 집합에서 데이터를 밀어넣을 수 있습니다. 데이터 로드에 대한 지침은 [문서 추가, 업데이트 또는 삭제](/rest/api/searchservice/addupdate-or-delete-documents) 또는 [.NET SDK를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
 ### <a name="step-4-search"></a>4단계: 검색
 인덱스를 채운 후에 REST API 또는 .NET SDK와 함께 간단한 HTTP 요청을 사용하여 서비스 끝점에 [검색 쿼리를 실행](/rest/api/searchservice/Search-Documents) 할 수 있습니다.
@@ -140,7 +140,7 @@ Azure Search의 가장 광범위한 기능을 활용할 수 있는 고객 사용
 
 |플랫폼 |설명 |
 |-----|------------|
-|[REST (영문)](https://docs.microsoft.com/rest/api/searchservice/) | 모든 프로그래밍 플랫폼 및 언어(Xamarin, Java 및 JavaScript 포함)에서 지원하는 HTTP 명령|
+|[REST (영문)](/rest/api/searchservice/) | 모든 프로그래밍 플랫폼 및 언어(Xamarin, Java 및 JavaScript 포함)에서 지원하는 HTTP 명령|
 |[.NET SDK](search-howto-dotnet-sdk.md) | REST API에 대한 .NET 래퍼는 C# 및 .NET Framework를 대상으로 하는 다른 관리되는 코드 언어로 효율적인 코딩 제공 |
 
 ## <a name="free-trial"></a>무료 평가판

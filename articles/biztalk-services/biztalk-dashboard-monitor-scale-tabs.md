@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: ec1c54c8520170cd19095bf8d752c79c2fd812d8
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>대시보드, 모니터, 확장, 구성 및 하이브리드 연결 탭 검토
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 BizTalk 서비스를 만들고 응용 프로그램을 배포한 후 BizTalk 서비스 설정 중 일부를 변경하고 응용 프로그램 성능을 모니터링할 수 있습니다. 
 
 Azure 클래식 포털을 열면 **모든 항목** 탭이 자동으로 표시됩니다. BizTalk Service를 보려면 **모든 항목** 탭에서 BizTalk Service를 선택하거나 **BIZTALK Services** 탭을 선택한 후 BizTalk Service 이름을 선택합니다.
@@ -225,7 +229,7 @@ Free Edition에는 적용되지 않습니다.
 BizTalk 서비스 이름을 선택하면 다음 항목이 표시된 모니터 탭을 사용할 수 있습니다.
 
 ##### <a name="metric-graph-displays-the-selected-performance-metrics"></a>메트릭 그래프: 선택한 성능 메트릭을 표시합니다.
-이러한 메트릭은 BizTalk 서비스 상태와 관련된 실시간 값을 제공합니다. 표시할 성능 메트릭을 선택합니다. 최대&6;개의 성능 메트릭을 동시에 표시할 수 있습니다. 
+이러한 메트릭은 BizTalk 서비스 상태와 관련된 실시간 값을 제공합니다. 표시할 성능 메트릭을 선택합니다. 최대 6개의 성능 메트릭을 동시에 표시할 수 있습니다. 
 
 또한 표시되는 메트릭의 **상대** 또는 **절대** 값과 시간 범위 **간격**을 선택할 수 있습니다. 
 
@@ -313,7 +317,7 @@ BizTalk 서비스 이름을 선택하면 다음 항목이 표시된 모니터 �
 ## <a name="scale"></a>확장
 크기 조정 탭에서 BizTalk 서비스에 사용되는 단위 수를 추가하거나 줄일 수 있습니다. 기본적으로 한 개의 단위가 구성되어 있습니다. 단위를 더 추가하여 BizTalk 서비스를 확장할 수 있습니다. 크기를 늘리면 처리량을 늘리는 것입니다. 배포된 브리지, 계약, LOB 연결, 처리 능력 등 리소스의 양도 증가합니다. 예를 들어 1단위에서 2단위로 크기를 늘립니다. 이 경우 브리지 수, 계약, LOB 연결, 처리 기능을 두 배로 배포할 수 있습니다.
 
-일부 BizTalk 버전에서는 크기 조정 옵션을 제공하지 않습니다. 이 경우&1; 단위가 허용됩니다. 사용 중인 버전에서 크기 조정할 수 있는 단위 수를 확인하려면 [BizTalk 서비스: 버전 차트](biztalk-editions-feature-chart.md)를 참조하세요.
+일부 BizTalk 버전에서는 크기 조정 옵션을 제공하지 않습니다. 이 경우 1 단위가 허용됩니다. 사용 중인 버전에서 크기 조정할 수 있는 단위 수를 확인하려면 [BizTalk 서비스: 버전 차트](biztalk-editions-feature-chart.md)를 참조하세요.
 
 단위 수를 늘리면 가격이 달라질 수 있습니다. 단위를 늘리고 **저장** 을 선택하면 청구 금액이 달라질 수 있다는 메시지가 표시됩니다. 그런 다음 계속하도록 선택합니다. 단위 수를 늘리면 BizTalk 서비스 상태가 활성에서 업데이트 중으로 변합니다. 업데이트 중 상태에서도 BizTalk 서비스는 계속 실행됩니다.
 

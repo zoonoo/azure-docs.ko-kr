@@ -11,14 +11,16 @@ ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: sample
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 99fa912a47598801c4f8f3ad586319b89c14d73e
-ms.lasthandoff: 04/04/2017
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: e674170c064eb8264f8525d15272d0d72089efcd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 ---
 # <a name="create-a-web-app-with-deployment-from-github"></a>GitHub의 배포를 사용하여 웹앱 만들기
@@ -29,7 +31,7 @@ ms.lasthandoff: 04/04/2017
 
 ## <a name="create-app-sample"></a>앱 샘플 만들기
 
-[!code-azurecli[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "GitHub의 배포를 사용하여 웹앱 만들기")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "GitHub의 배포를 사용하여 웹앱 만들기")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -50,3 +52,4 @@ ms.lasthandoff: 04/04/2017
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
 추가 App Service CLI 스크립트 샘플은 [Azure App Service 설명서](../app-service-cli-samples.md)에서 확인할 수 있습니다.
+

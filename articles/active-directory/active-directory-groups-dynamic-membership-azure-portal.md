@@ -1,6 +1,6 @@
 ---
 
-title: "Azure Active Directory 미리 보기에서 특성 기반 동적 그룹 멤버 자격 | Microsoft Docs"
+title: "Azure Active Directory에서 특성 기반 동적 그룹 멤버 자격 | Microsoft Docs"
 description: "지원되는 식 규칙 연산자 및 매개 변수를 포함하는 동적 그룹 멤버 자격에 대한 고급 규칙을 만드는 방법."
 services: active-directory
 documentationcenter: 
@@ -13,20 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6ef550047a28a6070cad5da2e00cf18fbca3f9fa
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: da03dc8afa58ddfe97301dabed186ed325410937
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory-preview"></a>Azure Active Directory 미리 보기에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
-Azure 포털은 고급 규칙을 설정할 수 있는 기능을 제공하여 Azure Active Directory(Azure AD) 미리 보기 그룹에 대해 보다 복잡한 특성 기반 동적 멤버 자격을 사용할 수 있도록 합니다. [미리 보기 상태에서의 기능](active-directory-preview-explainer.md) 
-
-이 문서는 특성 및 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다.
+# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
+Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 고급 규칙을 만들 수 있습니다. 이 문서는 특성 및 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다.
 
 ## <a name="to-create-the-advanced-rule"></a>고급 규칙을 만들려면
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 64427583dba57716c23e1a01df820a263c5e7298
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: ef766161f53b92003c266f26af10a37790d8fad8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -38,7 +40,7 @@ U-SQL Database에는 다음이 포함됩니다.
 각 Azure 데이터 레이크 분석 계정은 기본 Azure 데이터 레이크 저장소 계정이 연결되어 있습니다. 이 데이터 레이크 저장소 계정을 기본 데이터 레이크 저장소 계정이라고 합니다. U-SQL 카탈로그는 기본 데이터 레이크 저장소 계정의 /catalog 폴더 아래에 저장됩니다. /catalog 폴더에서 어떤 파일도 삭제하지 마세요.
 
 ### <a name="use-azure-portal"></a>Azure Portal 사용
-[포털을 사용하여 Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md#view-u-sql-catalog)를 참조하세요.
+[포털을 사용하여 Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md#manage-data-lake-analytics-accounts)를 참조하세요.
 
 ### <a name="use-data-lake-tools-for-visual-studio"></a>Visual Studio용 데이터 레이크 도구를 사용합니다.
 Visual Studio용 데이터 레이크 도구를 사용하여 카탈로그를 관리할 수 있습니다.  도구에 대한 자세한 내용은 [Visual Studio용 데이터 레이크 도구 사용](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
@@ -60,30 +62,24 @@ Visual Studio용 데이터 레이크 도구를 사용하여 카탈로그를 관�
 
 ## <a name="see-also"></a>참고 항목
 * 시작하기
-  
+
   * [Azure 포털을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
   * [Azure PowerShell을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-powershell.md)
   * [Azure .NET SDK를 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-net-sdk.md)
   * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
   * [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
 * U-SQL 및 개발
-  
+
   * [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
   * [Azure Data Lake Analytics 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)
   * [Data Lake Analytics 작업을 위한 U-SQL 사용자 정의 연산자 개발](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 * 관리
-  
+
   * [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
   * [Azure PowerShell을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-powershell.md)
   * [Azure 포털을 사용하여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 * 종단간 자습서
-  
+
   * [Azure Data Lake Analytics 대화형 자습서 사용](data-lake-analytics-use-interactive-tutorials.md)
   * [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

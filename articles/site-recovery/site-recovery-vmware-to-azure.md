@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: c2e21eefff3ce501ee5fc4003f60df25c4d7665d
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: de45957d4531202005d6b38e8b218ffe023fa0b2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -87,7 +88,7 @@ VMware VM을 Azure에 마이그레이션하려는 경우(장애 조치만 해당
 
 1. Windows Server 2012 R2 이상을 VMware VM에 설치합니다.
 2. [필수 조건](#prerequisites)에 나열된 URL에 대한 액세스 권한이 VM에 있는지 확인합니다.
-3. [VMware vSphere PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)을 설치합니다.
+3. [VMware vSphere PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1)을 설치합니다.
 
 
 ## <a name="prepare-for-automatic-discovery-and-push-installation"></a>자동 검색 및 푸시 설치를 위한 준비
@@ -223,10 +224,11 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 
 시작하기 전에 다음을 수행합니다.
 
+- Azure 사용자 계정에 특정 [사용 권한](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)이 있어야 Azure에 새 가상 컴퓨터를 복제할 수 있습니다.
 - VM을 추가하거나 수정하는 경우 변경 사항이 적용되어 포털에 표시되는 데 15분 이상 걸릴 수 있습니다.
 - **구성 서버** > **마지막 연락**에서 VM을 마지막으로 검색한 시간을 확인할 수 있습니다.
 - 예약된 검색을 기다리지 않고 VM을 추가하려면 구성 서버를 강조 표시하고(클릭하지 않음) **새로 고침**을 클릭합니다.
-* 복제를 사용하도록 설정하는 경우 푸시 설치용으로 VM이 준비되면 프로세스 서버가 자동으로 모바일 서비스를 설치합니다.
+- 복제를 사용하도록 설정하는 경우 푸시 설치용으로 VM이 준비되면 프로세스 서버가 자동으로 모바일 서비스를 설치합니다.
 
 
 ### <a name="exclude-disks-from-replication"></a>복제에서 디스크 제외
@@ -271,10 +273,6 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
     ![복제 활성화](./media/site-recovery-vmware-to-azure/enable-replication7.png)
 13. **복제 사용**을 클릭합니다. **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 
-복제를 활성화한 후 푸시 설치를 설정하는 경우 모바일 서비스가 설치됩니다. VM에서 모바일 서비스의 푸시 설치를 수행한 후 보호 작업이 시작되고 실패합니다. 실패 후 각 컴퓨터를 수동으로 다시 시작해야 합니다. 그러면, 보호 작업이 다시 시작되고 초기 복제가 발생합니다.
-
-
-
 ### <a name="view-and-manage-vm-properties"></a>VM 속성 보기 및 관리
 
 VM 속성을 확인하고 필요한 사항을 변경하는 것이 좋습니다.
@@ -297,7 +295,20 @@ VM 속성을 확인하고 필요한 사항을 변경하는 것이 좋습니다.
      - 예를 들어 원본 컴퓨터에 두 네트워크 어댑터가 있고 대상 컴퓨터 크기가 4를 지원하는 경우, 대상 컴퓨터에는 2개의 어댑터가 있어야 합니다. 원본 컴퓨터에 두 어댑터가 있지만 지원되는 대상 크기가 하나만 지원하는 경우 대상 컴퓨터에는 1개의 어댑터만 있어야 합니다.     
    - 가상 컴퓨터에 네트워크 어댑터가 여러 개 있으면 모두 동일한 네트워크에 연결됩니다.
    - 가상 컴퓨터에 네트워크 어댑터가 여러 개 있으면 목록에서 첫 번째 어댑터가 Azure 가상 컴퓨터에서 *기본* 네트워크 어댑터가 됩니다.
-5. **디스크**에서 복제될 VM 운영 체제 및 데이터 디스크를 볼 수 있습니다.
+4. **디스크**에서 복제될 VM 운영 체제 및 데이터 디스크를 볼 수 있습니다.
+
+#### <a name="managed-disks"></a>관리 디스크
+
+**계산 및 네트워크** > **계산 속성**에서 Azure에 장애 조치 시 컴퓨터에 Managed Disks를 연결하려면 VM에서 "Managed Disks 사용" 설정을 "예"로 설정할 수 있습니다. Managed Disks는 VM 디스크와 연결된 저장소 계정을 관리하여 Azure IaaS VM의 디스크 관리를 간소화합니다. [Managed Disks에 대해 자세히 알아봅니다.](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview)
+
+   - Managed Disks를 만들고 Azure에 장애 조치 시에만 가상 컴퓨터에 연결합니다. 보호를 사용하도록 설정하여 온-프레미스 컴퓨터의 데이터를 저장소 계정에 계속 복제합니다.  Resource Manager 배포 모델을 사용하여 배포된 가상 컴퓨터에 대해서만 Managed Disks를 만들 수 있습니다.  
+
+   - "Managed Disks 사용"을 "예"로 설정하면 리소스 그룹에서 "Managed Disks 사용"을 "예"로 설정한 가용성 집합만을 선택할 수 있습니다. Managed Disks를 포함한 가상 컴퓨터가 "Managed Disks 사용" 속성을 "예"로 설정한 가용성 집합의 일부이기 때문입니다. 장애 조치 시 Managed Disks를 사용하려는 의도에 따라 "Managed Disks 사용" 속성이 설정된 가용성 집합을 만들었는지 확인합니다.  마찬가지로 "Managed Disks 사용"을 "아니요"로 설정하면 리소스 그룹에서 "Managed Disks 사용" 속성을 "아니요"로 설정한 가용성 집합만을 선택할 수 있습니다. [Managed Disks와 가용성 집합에 대해 자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set).
+
+  > [!NOTE]
+  > 복제에 사용되는 저장소 계정이 특정 시점에 저장소 서비스 암호화로 암호화된 경우 장애 조치 중에 Managed Disks를 만드는 작업에 실패합니다. "Managed Disks 사용"을 "아니요"로 설정하고 장애 조치를 다시 시도하거나 가상 컴퓨터에 대한 보호를 사용하지 않도록 하고 특정 시점에서 저장소 서비스 암호화를 사용하지 않은 저장소 계정에 보호할 수 있습니다.
+  > [저장소 서비스를 암호화 및 Managed Disks에 대해 자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#managed-disks-and-encryption).
+
 
 ## <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
 

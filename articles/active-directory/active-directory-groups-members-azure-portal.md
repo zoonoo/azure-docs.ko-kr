@@ -1,5 +1,6 @@
 ---
-title: "Azure Active Directory 미리 보기에서 그룹의 멤버 관리 | Microsoft Docs"
+
+title: "Azure Active Directory에서 그룹의 멤버 관리 | Microsoft Docs"
 description: "Azure Active Directory의 그룹에서 사용자 및 장치를 추가 또는 제거하는 방법"
 services: active-directory
 documentationcenter: 
@@ -12,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 3373af848720c7c04e679d7fd4b075c5571fb417
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 044e88f95712e1cc5b5532f5492c78d711a8d858
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
 # <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트의 사용자에 대한 그룹 멤버 자격 관리
-이 문서는 Azure Active Directory(Azure AD) 미리 보기에서 그룹의 멤버를 관리하는 방법을 설명합니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md)
+이 문서는 Azure AD(Azure Active Directory)에서 그룹의 멤버를 관리하는 방법을 설명합니다.
 
 ## <a name="how-do-i-find-the-members-and-manage-them"></a>어떻게 멤버를 찾고 관리하나요?
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.

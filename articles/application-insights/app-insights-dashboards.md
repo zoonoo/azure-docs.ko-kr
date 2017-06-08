@@ -3,7 +3,7 @@ title: "Azure Application Insights의 대시보드 및 탐색 | Microsoft Docs"
 description: "키 APM 차트 및 쿼리의 뷰를 만듭니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
 ms.service: application-insights

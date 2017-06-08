@@ -1,4 +1,5 @@
 ---
+
 title: "Azure Portal에서 작업 보고서 찾기 | Microsoft Docs"
 description: "Azure Portal에서 Azure Active Directory 작업 보고서를 찾는 방법을 알아봅니다."
 services: active-directory
@@ -12,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2017
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: f2f5ed98df88df69ee300c9da94ad013a631b3b9
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 7f6d82d211e9b3d25b0efe62ab8dd32f827b08ef
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -47,7 +49,7 @@ Azure Portal의 컨텍스트 기반 보고서의 경우 기존 보고서가 단�
 -     암호 재설정 활동
 -     암호 재설정 등록 활동
 -     셀프 서비스 그룹 작업
--     Office&365; 그룹 이름 변경
+-     Office 365 그룹 이름 변경
 -     계정 프로비전 활동
 -     암호 롤오버 상태
 -     계정 프로비전 오류
@@ -124,8 +126,8 @@ Azure Portal의 **Azure Active Directory** 블레이드 **보안** 섹션에서�
 
 보안 보고서에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-- [Azure Active Directory 포털에서 제공하는 위험에 노출된 사용자 보안 보고서 - 미리 보기](active-directory-reporting-security-user-at-risk.md)
-- [Azure Active Directory 포털에서 제공하는 위험한 로그인 보고서 - 미리 보기](active-directory-reporting-security-risky-sign-ins.md)
+- [Azure Active Directory 포털의 위험에 노출된 사용자 보안 보고서](active-directory-reporting-security-user-at-risk.md)
+- [Azure Active Directory 포털의 위험한 로그인 보고서](active-directory-reporting-security-risky-sign-ins.md)
 
 
 ## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Azure 클래식 포털 및 Azure Portal의 작업 보고서
@@ -145,7 +147,7 @@ Azure Portal의 **Azure Active Directory** 블레이드 **보안** 섹션에서�
 | 계정 프로비전 활동        | **작업 범주**로 **계정 사용자 프로비전**을 선택합니다.         |
 | 암호 롤오버 상태             | **작업 범주**로 **자동 앱 암호 롤오버**를 선택합니다.      |
 | 계정 프로비전 오류          | **작업 범주**로 **계정 사용자 프로비전**을 선택합니다.        |
-| Office&365; 그룹 이름 변경         | **작업 범주**로 **셀프 서비스 암호 관리**를 선택합니다. **작업 리소스 유형**으로 **그룹**을 선택합니다. **작업 원본**으로 **O365 그룹**을 선택합니다.|
+| Office 365 그룹 이름 변경         | **작업 범주**로 **셀프 서비스 암호 관리**를 선택합니다. **작업 리소스 유형**으로 **그룹**을 선택합니다. **작업 원본**으로 **O365 그룹**을 선택합니다.|
 
 **응용 프로그램 사용 현황** 보고서를 보려면 **Azure Active Directory** 블레이드의 **관리**에서 **Enterprise 응용 프로그램**을 선택한 다음 **로그인**을 선택합니다.
 

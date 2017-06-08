@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/30/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 06f81b11205085357ba4ba4e2f0d2e1e4c0e940a
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: f36d5da78818410e028a73a36a502a758400e5a5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -74,9 +75,19 @@ Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합
 ## <a name="pages-under-the-section-sync"></a>섹션 동기화의 페이지
 
 ### <a name="connect-your-directories"></a>디렉터리에 연결
-Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충분한 권한이 있는 계정의 자격 증명이 필요합니다. NetBios 또는 FQDN 형식으로 도메인 부분을 입력할 수 있습니다(예: FABRIKAM\syncuser 또는 fabrikam.com\syncuser). 기본 읽기 권한만 필요하기 때문에 이 계정은 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 더 많은 사용 권한이 할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 및 사용 권한](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)을 참조하세요.
+Active Directory 도메인 서비스에 연결하려면 Azure AD Connect에 충분한 권한이 있는 계정의 포리스트 이름과 자격 증명이 필요합니다.
 
-![연결 디렉터리](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
+![연결 디렉터리](./media/active-directory-aadconnect-get-started-custom/connectdir01.png)
+
+포리스트 이름을 입력하고 **디렉터리 추가**를 클릭하면 팝업 대화 상자가 나타나고 다음 옵션을 묻는 메시지가 표시됩니다.
+
+| 옵션 | 설명 |
+| --- | --- |
+| 기존 계정 사용 | 디렉터리 동기화 중에 AD 포리스트에 연결하기 위해 Azure AD Connect를 사용할 기존 AD DS 계정을 제공하려면 이 옵션을 선택합니다. NetBios 또는 FQDN 형식으로 도메인 부분을 입력할 수 있습니다(예: FABRIKAM\syncuser 또는 fabrikam.com\syncuser). 기본 읽기 권한만 필요하기 때문에 이 계정은 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 더 많은 사용 권한이 할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 및 권한](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)을 참조하세요. |
+| 새 계정 만들기 | Azure AD Connect 마법사에서 디렉터리 동기화 중에 AD 포리스트에 연결하기 위해 Azure AD Connect에 필요한 AD DS 계정을 만들게 하려면 이 옵션을 선택합니다. 이 옵션을 선택하면 엔터프라이즈 관리자 계정의 사용자 이름과 암호를 입력합니다. Azure AD Connect 마법사에서 제공된 엔터프라이즈 관리자 계정을 사용하여 필요한 AD DS 계정을 만듭니다. NetBios 또는 FQDN 형식으로 도메인 부분을 입력할 수 있습니다(예: FABRIKAM\administrator 또는 fabrikam.com\administrator). |
+
+![연결 디렉터리](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
+
 
 ### <a name="azure-ad-sign-in-configuration"></a>Azure AD 로그인 구성
 이 페이지를 사용하면 온-프레미스 AD DS에 있는 UPN 도메인을 검토하고 이는 Azure AD에서 확인됩니다. 또한 이 페이지를 사용하면 userPrincipalName에 사용할 특성을 구성할 수 있습니다.
@@ -99,7 +110,7 @@ Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충
 ![DomainOU 필터링](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
 마법사의 이 페이지에서는 도메인 기반 및 OU 기반 필터링을 구성합니다. 변경을 원하는 경우 변경하기 전에 [도메인 기반 필터링](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) 및 [ou 기반 필터링](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering)을 참조하세요. 일부 OU는 기능에 필수적이므로 반드시 선택해야 합니다.
 
-OU 기반 필터링을 사용하는 경우 나중에 추가된 새 OU가 기본적으로 동기화됩니다. 새 OU가 동기화되지 않아야 하는 동작을 원하는 경우 마법사가 [OU 기반 필터링](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering)으로 완료된 후에 구성할 수 있습니다.
+Azure AD Connect 버전 1.1.524.0 미만에서 OU 기반 필터링을 사용하면 기본적으로 나중에 추가되는 새 OU가 동기화됩니다. 새 OU가 동기화되지 않아야 하는 동작을 원하는 경우 마법사가 [OU 기반 필터링](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering)으로 완료된 후에 구성할 수 있습니다. Azure AD Connect 버전 1.1.524.0 이상에서는 새 OU를 동기화할지 여부를 지정할 수 있습니다.
 
 [그룹 기반 필터링](#sync-filtering-based-on-groups)을 사용하려는 경우 그룹이 있는 OU가 포함되고 OU 필터링으로 필터링되지 않는지 확인합니다. OU 필터링은 그룹 기반 필터링 전에 평가됩니다.
 
@@ -108,6 +119,8 @@ OU 기반 필터링을 사용하는 경우 나중에 추가된 새 OU가 기본�
 이 경고가 표시된 경우 이러한 도메인에 실제로 연결할 수 없는지 그리고 경고가 예상되는지 확인합니다.
 
 ### <a name="uniquely-identifying-your-users"></a>사용자를 고유하게 식별
+
+#### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>온-프레미스 디렉터리에서 사용자를 식별하는 방법 선택
 포리스트 기능 간에 일치를 사용하여 AD DS 포리스트의 사용자가 Azure AD에서 표현되는 방법을 정의할 수 있습니다. 사용자는 포리스트 전반에 걸쳐 한번만 표시할 수 있거나 활성화된 계정과 비활성화된 계정의 조합으로 이루어집니다. 사용자가 일부 포리스트 내에서 연락처로 표시될 수 있습니다.
 
 ![고유한](./media/active-directory-aadconnect-get-started-custom/unique.png)
@@ -120,7 +133,15 @@ OU 기반 필터링을 사용하는 경우 나중에 추가된 새 OU가 기본�
 | sAMAccountName 및 MailNickName |이 옵션은 사용자에 대한 로그인 ID를 찾을 수 있을 것으로 예상되는 특성에 조인합니다. |
 | 특정 특성 |이 옵션을 사용하면 고유한 특성을 선택할 수 있습니다. **제한:** 메타버스에서 이미 찾을 수 있는 특성을 선택해야 합니다. 사용자 지정 특성(메타버스에 없는)을 선택하면 마법사를 완료할 수 없습니다. |
 
-**원본 앵커** - 특성 sourceAnchor는 사용자 개체의 수명 동안 변경할 수 없는 특성입니다. Azure AD에서 사용자와 온-프레미스 사용자를 연결하는 기본 키입니다. 특성을 변경할 수 없으므로, 좋은 특성을 사용해야 합니다. 좋은 후보는 objectGUID입니다. 사용자 계정이 포리스트/도메인 간에 이동하지 않은 한 이 특성이 변경되지 않습니다. 포리스트 간에 계정을 이동하는 다중 포리스트 환경에서 employeeID가 있는 특성과 같은 다른 특성이 사용되어야 합니다. 결혼을 하거나 할당이 변경될 때 바뀔 수 있는 특성을 피하십시오. @-sign와 함께 특성을 사용할 수 없으므로 email 및 userPrincipalName을 사용할 수 없습니다. 또한 이 특성은 대소문자를 구분하므로 포리스트 간에 개체를 이동하는 경우 대/소문자를 유지해야 합니다. 이진 특성은 Base64로 인코딩되지만 다른 특성 유형은 인코딩되지 않은 상태로 남아 있습니다. 페더레이션 시나리오 및 일부 Azure AD 인터페이스에서는 이 특성을 immutableID라고도 합니다. 원본 앵커에 대한 자세한 정보는 [디자인 개념](active-directory-aadconnect-design-concepts.md#sourceanchor)에서 찾을 수 있습니다.
+#### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Azure AD로 사용자를 식별하는 방법 선택 - 원본 앵커
+sourceAnchor 특성은 사용자 개체의 수명 동안 변경할 수 없는 특성입니다. Azure AD에서 사용자와 온-프레미스 사용자를 연결하는 기본 키입니다.
+
+| 설정 | 설명 |
+| --- | --- |
+| Let Azure manage the source anchor for me(Azure에서 원본 앵커를 대신 관리) | Azure AD에서 이 특성을 선택하게 하려면 이 옵션을 선택합니다. 이 옵션을 선택하면 Azure AD Connect 마법사에서 [Azure AD Connect: 설계 개념 - msDS-ConsistencyGuid를 sourceAnchor로 사용](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor) 문서 섹션에서 설명하는 sourceAnchor 특성 선택 논리를 적용합니다. 마법사에서 사용자 지정 설치가 완료된 후 원본 앵커 특성으로 선택된 속성을 알려줍니다. |
+| 특정 특성 | 기존 AD 특성을 sourceAnchor 특성으로 지정하려면 이 옵션을 선택합니다. |
+
+특성을 변경할 수 없으므로, 좋은 특성을 사용해야 합니다. 좋은 후보는 objectGUID입니다. 사용자 계정이 포리스트/도메인 간에 이동하지 않은 한 이 특성이 변경되지 않습니다. 포리스트 간에 계정을 이동하는 다중 포리스트 환경에서 employeeID가 있는 특성과 같은 다른 특성이 사용되어야 합니다. 결혼을 하거나 할당이 변경될 때 바뀔 수 있는 특성을 피하십시오. @-sign와 함께 특성을 사용할 수 없으므로 email 및 userPrincipalName을 사용할 수 없습니다. 또한 이 특성은 대소문자를 구분하므로 포리스트 간에 개체를 이동하는 경우 대/소문자를 유지해야 합니다. 이진 특성은 Base64로 인코딩되지만 다른 특성 유형은 인코딩되지 않은 상태로 남아 있습니다. 페더레이션 시나리오 및 일부 Azure AD 인터페이스에서는 이 특성을 immutableID라고도 합니다. 원본 앵커에 대한 자세한 정보는 [디자인 개념](active-directory-aadconnect-design-concepts.md#sourceanchor)에서 찾을 수 있습니다.
 
 ### <a name="sync-filtering-based-on-groups"></a>그룹에 따라 동기화 필터링
 그룹 기능에 대해 필터링하면 파일럿을 위해 개체의 작은 하위 집합만 동기화할 수 있습니다. 이 기능을 사용하려면 온-프레미스 Active Directory에서 이 목적을 위한 그룹을 만듭니다. 그런 다음 Azure AD에 직접 구성원으로 동기화해야 하는 사용자와 그룹을 추가합니다. 나중에 사용자를 이 그룹에 추가하고 제거하여 Azure AD에 있어야 하는 개체의 목록을 유지할 수 있습니다. 동기화하려는 모든 개체는 그룹의 직접 구성원이어야 합니다. 사용자, 그룹, 연락처 및 컴퓨터/장치는 모두 직접 구성원이어야 합니다. 중첩된 그룹 구성원은 확인되지 않습니다. 그룹을 구성원으로 추가하는 경우 해당 그룹 자체만 추가되며 그룹의 구성원은 추가되지 않습니다.
@@ -147,6 +168,7 @@ OU 기반 필터링을 사용하는 경우 나중에 추가된 새 OU가 기본�
 | 선택적 기능 | 설명 |
 | --- | --- |
 | Exchange 하이브리드 배포 |Exchange 하이브리드 배포 기능을 통해 온-프레미스 및 Office 365에서 모두 Exchange 사서함을 동시에 존재하게 할 수 있습니다. Azure AD Connect에서는 [특성](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) 의 특정 집합을 Azure AD에서 온-프레미스 디렉터리로 다시 동기화합니다. |
+| Exchange 메일 공용 폴더 | Exchange 메일 공용 폴더 기능을 사용하면 온-프레미스 Active Directory의 메일 사용이 가능한 공용 폴더 개체를 Azure AD로 동기화할 수 있습니다. |
 | Azure AD 앱 및 특성 필터링 |Azure AD 앱 및 특성 필터링을 사용하여 동기화된 특성 집합을 사용자 지정할 수 있습니다. 이 옵션은 마법사에 구성 페이지를 두 개 더 추가합니다. 자세한 내용은 [Azure AD 앱 및 특성 필터링](#azure-ad-app-and-attribute-filtering)을 참조하세요. |
 | 암호 동기화 |페더레이션을 로그인 솔루션으로 선택한 경우 이 옵션을 사용하도록 설정할 수 있습니다. 암호 동기화는 백업 옵션으로 사용할 수 있습니다. 자세한 내용은 [암호 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)를 참조하세요. </br></br>통과 인증을 선택한 경우 레거시 클라이언트 지원을 보장하고 백업 옵션으로 이 옵션이 기본적으로 사용됩니다. 자세한 내용은 [암호 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)를 참조하세요.|
 | 비밀번호 쓰기 저장 |비밀번호 쓰기 저장을 사용하도록 설정하면 Azure AD에서 이루어지는 암호 변경 사항이 온-프레미스 디렉터리에 다시 기록됩니다. 자세한 내용은 [암호 관리 시작](../active-directory-passwords-getting-started.md)을 참조하세요. |

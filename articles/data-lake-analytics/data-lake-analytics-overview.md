@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/06/2017
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: cb2da3515cfe5fd460e16b019d3738f4a9a050bb
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: d44570c7faa3e2468022ef539239c88f0418b2fa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -47,12 +47,9 @@ Azure Data Lake Analytics는 빅 데이터 분석을 간소화하는 주문형 �
     Data Lake Analytics은 Azure Data Lake에서 작업할 때 최적화되어 빅 데이터 작업에 대한 최상의 성능, 처리량 및 병렬화를 제공합니다.  또한 Data Lake Analytics는 Azure Blob 저장소 및 Azure SQL 데이터베이스에서 작업할 수도 있습니다.
 
 ## <a name="see-also"></a>참고 항목
-* 시작하기
+* 시작
   
-  * [Azure 포털을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
-  * [Azure PowerShell을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-powershell.md)
-  * [Azure .NET SDK를 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-net-sdk.md)
-  * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
+  * [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)를 사용하여 Data Lake Analytics 시작
   * [Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
 
 * 관리

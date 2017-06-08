@@ -15,6 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: bd1736fdc04498779c7b749bf9cb1c79de075c96
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/27/2017
 
 이 스크립트는 Windows Server 2016을 실행하는 Azure Virtual Machine을 만듭니다. 스크립트를 실행하면 RDP를 통해 가상 컴퓨터에 액세스할 수 있습니다.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

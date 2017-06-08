@@ -29,6 +29,10 @@
 ## 관리
 ### [배치 PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
+#### [배치 계정 만들기](./scripts/batch-cli-sample-create-account.md)
+#### [응용 프로그램 추가](./scripts/batch-cli-sample-add-application.md)
+#### [풀 관리](./scripts/batch-cli-sample-manage-pool.md)
+#### [작업 및 태스크 실행](./scripts/batch-cli-sample-run-job.md)
 
 # 참조
 ## [PowerShell](/powershell/module/azurerm.batch)
@@ -63,7 +67,6 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [C# 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Python 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [CLI 샘플](batch-cli-samples.md)
 ## [큰 계산 리소스](big-compute-resources.md)
 ## [블로그](https://blogs.technet.microsoft.com/windowshpc/)
 

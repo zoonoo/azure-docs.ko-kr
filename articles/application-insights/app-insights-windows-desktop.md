@@ -3,7 +3,7 @@ title: "Windows 데스크톱 앱의 사용량 및 성능 모니터링"
 description: "HockeyApp 및 Application Insights를 사용하여 Windows 데스크톱 앱의 사용량 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: windows
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights

@@ -3,7 +3,7 @@ title: "SQL Data Warehouse와 함께 Azure Data Factory 사용 | Microsoft Docs"
 description: "솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 Azure 데이터 팩터리(ADF) 사용을 위한 팁"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 ms.assetid: 492de762-c7a2-4cdb-943f-3135230e94f1
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: elbutter;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 12743b3594a0a62b0b974fb6dd1c39972c1bd3fa
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
 
 

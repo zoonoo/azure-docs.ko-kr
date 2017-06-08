@@ -11,12 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 05/11/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f2640725660f5f5d5da0badafc55afc7079d5d24
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 847bc76c37ed929851712ba1c12463a01032e267
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/03/2017
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
 - [Azure CLI 1.0](#quick-commands) - 클래식 및 리소스 관리 배포 모델용 CLI(이 문서)
-- [Azure CLI 2.0](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
+- [Azure CLI 2.0](nsg-quickstart.md) - 리소스 관리 배포 모델용 차세대 CLI
 
 
 ## <a name="quick-commands"></a>빠른 명령
@@ -38,35 +39,45 @@ ms.lasthandoff: 04/03/2017
 azure config mode arm
 ```
 
-다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `myNetworkSecurityGroup` 및 `myVnet`가 포함됩니다.
+다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNetworkSecurityGroup* 및 *myVnet*이 포함됩니다.
 
-고유한 이름 및 위치를 적절히 입력하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 `WestUS` 위치에 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹을 만듭니다.
+고유한 이름 및 위치를 적절히 입력하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
-azure network nsg create --resource-group myResourceGroup --location westus \
+azure network nsg create \
+    --resource-group myResourceGroup \
+    --location eastus \
     --name myNetworkSecurityGroup
 ```
 
-웹 서버에 대한 HTTP 트래픽을 허용하는 규칙을 추가하거나 SSH 액세스 또는 데이터베이스 연결 등 사용자 고유의 시나리오에 맞게 조정합니다. 다음 예제에서는 80 포트에서 TCP 트래픽을 허용하도록 `myNetworkSecurityGroupRule`이라는 규칙을 만듭니다.
+웹 서버에 대한 HTTP 트래픽을 허용하는 규칙을 추가하거나 SSH 액세스 또는 데이터베이스 연결 등 사용자 고유의 시나리오에 맞게 조정합니다. 다음 예제에서는 포트 80의 TCP 트래픽을 허용하도록 *myNetworkSecurityGroupRule*이라는 규칙을 만듭니다.
 
 ```azurecli
-azure network nsg rule create --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-    --protocol tcp --direction inbound --priority 1000 \
-    --destination-port-range 80 --access allow
+azure network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup \
+    --name myNetworkSecurityGroupRule \
+    --protocol tcp \
+    --direction inbound \
+    --priority 1000 \
+    --destination-port-range 80 \
+    --access allow
 ```
 
-네트워크 보안 그룹을 VM의 네트워크 인터페이스(NIC)에 연결합니다. 다음 예제에서는 `myNic`라는 기존 NIC를 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹에 연결합니다.
+네트워크 보안 그룹을 VM의 네트워크 인터페이스(NIC)에 연결합니다. 다음 예제에서는 *myNic*라는 기존 NIC를 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹에 연결합니다.
 
 ```azurecli
-azure network nic set --resource-group myResourceGroup \
-    --network-security-group-name myNetworkSecurityGroup --name myNic
+azure network nic set \
+    --resource-group myResourceGroup \
+    --network-security-group-name myNetworkSecurityGroup \
+    --name myNic
 ```
 
-또는 네트워크 보안 그룹을 단일 VM의 네트워크 인터페이스가 아니라 가상 네트워크 서브넷에 연결할 수 있습니다. 다음 예제에서는 `myVnet` 가상 네트워크에서 `mySubnet`이라는 기존 서브넷을 `myNetworkSecurityGroup`이라는 네트워크 보안 그룹에 연결합니다.
+또는 네트워크 보안 그룹을 단일 VM의 네트워크 인터페이스가 아니라 가상 네트워크 서브넷에 연결할 수 있습니다. 다음 예제에서는 *myVnet* 가상 네트워크에 있는 *mySubnet*이라는 기존 서브넷을 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹에 연결합니다.
 
 ```azurecli
-azure network vnet subnet set --resource-group myResourceGroup \
+azure network vnet subnet set \
+    --resource-group myResourceGroup \
     --network-security-group-name myNetworkSecurityGroup \
     --vnet-name myVnet --name mySubnet
 ```

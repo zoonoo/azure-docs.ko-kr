@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/09/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: de997066642c72a0a9e1d7210a96a3904580e6ed
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4371092aa31db444c4ca0374b4b2e7d700029a8b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -30,7 +31,7 @@ HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/) 를 사용하는 �
 >
 
 > [!IMPORTANT]
-> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요. Linux 기반 HDInsight에서 Phoenix 사용 방법에 대한 자세한 내용은 [HDInsight의 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hdinsight-hbase-phoenix-squirrel-linux.md)을 참조하세요.
+> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요. Linux 기반 HDInsight에서 Phoenix 사용 방법에 대한 자세한 내용은 [HDInsight의 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hdinsight-hbase-phoenix-squirrel-linux.md)을 참조하세요.
 >
 
 
@@ -206,7 +207,7 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
   >
   >     java.exe -jar[SQuirreL jar 파일 경로]
 5. **확인** 을 클릭하여 대상 디렉터리 만들기를 확인합니다.
-6. 기본 설정은 기본 및 표준 패키지를 설치하는 것입니다.  **다음**을 클릭합니다.
+6. 기본 설정은 기본 및 표준 패키지를 설치하는 것입니다.  **다음**을 누릅니다.
 7. **다음**을 두 번 클릭한 후 **완료**를 클릭합니다.
 
 **Phoenix 드라이버를 설치하려면**

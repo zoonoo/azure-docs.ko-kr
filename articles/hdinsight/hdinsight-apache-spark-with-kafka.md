@@ -1,6 +1,6 @@
 ---
-title: "Azure HDInsight의 Kafka에서 Apache Spark 사용 | Microsoft Docs"
-description: "HDInsight에서 Spark를 사용하여 HDInsight 클러스터의 Kafka에 데이터를 읽고 쓰는 방법에 대해 알아봅니다. 이 예제에서는 Jupyter Notebook의 Scala를 사용하여 HDInsight의 Kafka에 임의의 데이터를 쓴 다음 Spark 스트리밍을 사용하여 해당 데이터를 다시 읽습니다."
+title: "Kafka와 함께 Apache Spark 스트리밍 - Azure HDInsight | Microsoft Docs"
+description: "HDInsight에서 Apache Spark를 사용하여 HDInsight의 Apache Kafka에 데이터를 읽고 쓰는 방법에 대해 알아봅니다. 이 예제에서는 Jupyter Notebook의 Scala를 사용하여 HDInsight의 Kafka에 데이터를 쓴 다음 Spark 스트리밍을 사용하여 해당 데이터를 다시 읽습니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,32 +13,23 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 05/15/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: c56decc1f7603795e027ce20363c387c593999ae
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: ceff0df193b3356ed2a23f381ea65369063957b1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 ---
 # <a name="use-apache-spark-with-kafka-preview-on-hdinsight"></a>HDInsight의 Kafka(미리 보기)에서 Apache Spark 사용
 
-Apache Spark를 사용하여 Apache Kafka에(서) 데이터를 스트리밍할 수 있습니다. 이 문서에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 Kafka에(서) 데이터를 스트리밍하는 방법에 대해 알아봅니다.
+Spark Apache Spark를 사용하여 Apache Kafka에(서) 데이터를 스트리밍하는 방법을 알아봅니다. 이 문서에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 Kafka에(서) 데이터를 스트리밍하는 방법에 대해 알아봅니다.
 
 > [!NOTE]
 > 이 문서의 단계는 HDInsight의 Spark와 HDInsight의 Kafka 클러스터를 모두 포함하는 Azure 리소스 그룹을 만듭니다. 이러한 클러스터는 모두 Azure Virtual Network에 있으며, 여기서는 Spark 클러스터와 Kafka 클러스터 간에 직접 통신할 수 있습니다.
-> 
+>
 > 이 문서의 단계를 완료하는 경우 과도한 요금이 청구되지 않도록 클러스터를 삭제해야 합니다.
-
-## <a name="prerequisites"></a>필수 조건
-
-* Azure 구독
-
-* SSH 클라이언트(`ssh` 및 `scp` 명령 필요) - 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조합니다.
-
-* [cURL](https://curl.haxx.se/) - HTTP 요청을 만들기 위한 플랫폼 간 유틸리티입니다.
-
-* [jq](https://stedolan.github.io/jq/) - JSON 문서를 구문 분석하기 위한 플랫폼 간 유틸리티입니다.
 
 ## <a name="create-the-clusters"></a>클러스터 만들기
 
@@ -53,9 +44,9 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
 1. Azure에 로그인하고 Azure Portal에서 템플릿을 열려면 다음 단추를 사용합니다.
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    Azure Resource Manager 템플릿은 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet.json**에 있습니다.
+    Azure Resource Manager 템플릿은 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v2.json**에 있습니다.
 
 2. 다음 정보를 사용하여 **사용자 지정 배포** 블레이드의 항목을 채웁니다.
    
@@ -63,7 +54,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
    
     * **리소스 그룹**: 그룹을 만들거나 기존 그룹을 선택합니다. 이 그룹에는 HDInsight 클러스터가 포함됩니다.
 
-    * **위치**: 지리적으로 가까운 위치를 선택합니다. 이 위치는 __SETTINGS__ 섹션의 위치와 일치해야 합니다.
+    * **위치**: 지리적으로 가까운 위치를 선택합니다.
 
     * **기본 클러스터 이름**: 이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **hdi**를 입력하면 spark-hdi__라는 Spark 클러스터와 **kafka-hdi**라는 Kafka 클러스터가 만들어집니다.
 
@@ -74,8 +65,6 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
     * **SSH 사용자 이름**: Spark 및 Kafka 클러스터에 만들 SSH 사용자입니다.
 
     * **SSH 암호**: Spark 및 Kafka 클러스터에 대한 SSH 사용자의 암호입니다.
-
-    * **위치**: 클러스터가 만들어지는 지역입니다.
 
 3. **사용 약관**을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
 
@@ -114,28 +103,50 @@ Notebook의 코드에서 수행하는 작업은 다음과 같습니다.
 
 프로젝트의 각 셀에는 코드 수행 작업을 설명하는 주석 또는 텍스트 섹션이 있습니다.
 
-##<a id="kafkahosts"></a> Kafka 호스트 정보
+## <a id="kafkahosts"></a> Kafka 호스트 정보
 
 HDInsight에서 Kafka와 작동하는 응용 프로그램을 만들 때는 무엇보다도 먼저 Kafka 클러스터에 대한 Kafka broker와 Zookeeper 호스트 정보를 가져와야 합니다. 이는 클라이언트 응용 프로그램에서 Kafka와 통신하는 데 사용됩니다.
 
 > [!NOTE]
 > Kafka broker와 Zookeeper 호스트는 인터넷을 통해 직접 액세스 할 수 없습니다. Kafka를 사용하는 모든 응용 프로그램은 Kafka 클러스터에서 실행하거나 Kafka 클러스터와 동일한 Azure Virtual Network에서 실행해야 합니다. 이 경우 예제는 동일한 가상 네트워크에 있는 HDInsight 클러스터의 Spark에서 실행됩니다.
 
-개발 환경에서 다음 명령을 사용하여 broker 및 Zookeeper 정보를 검색합니다. __PASSWORD__는 클러스터를 만들 때 사용한 로그인(관리자) 암호로 바꿉니다. __BASENAME__은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
+개발 환경에서 다음 명령을 사용하여 broker 및 Zookeeper 정보를 검색합니다.
 
 * __Kafka broker__ 정보를 가져오려면
 
-        curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
+    ```bash
+    curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
+    ```
 
-    > [!IMPORTANT]
-    > Windows PowerShell에서 이 명령을 사용하면 셸 인용 방법 오류가 발생할 수 있습니다. 이 경우 사용할 명령: `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'`
+    > [!NOTE]
+    > `$PASSWORD`를 클러스터를 만들 때 사용한 로그인(관리자) 암호로 설정합니다. `$CLUSTERNAME`을 클러스터를 만들 때 사용한 기본 이름으로 설정합니다.
+
+    ```powershell
+    $creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
+        -Credential $creds
+    $respObj = ConvertFrom-Json $resp.Content
+    $brokerHosts = $respObj.host_components.HostRoles.host_name
+    ($brokerHosts -join ":9092,") + ":9092"
+    ```
+
+    > [!NOTE]
+    > `$cluterName`을 HDInsight 클러스터의 이름으로 설정합니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다.
 
 * __Zookeeper 호스트__ 정보를 가져오려면
 
-        curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'
-    
-    > [!IMPORTANT]
-    > Windows PowerShell에서 이 명령을 사용하면 셸 인용 방법 오류가 발생할 수 있습니다. 이 경우 사용할 명령: `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["""\(.host_components[].HostRoles.host_name):2181"""] | join(""",""")'`
+    ```bash
+    curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'
+    ```
+
+    ```powershell
+    $creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" `
+        -Credential $creds
+    $respObj = ConvertFrom-Json $resp.Content
+    $zookeeperHosts = $respObj.host_components.HostRoles.host_name
+    ($zookeeperHosts -join ":2181,") + ":2181"
+    ```
 
 두 명령 모두 다음 텍스트와 비슷한 정보를 반환합니다.
 
@@ -150,13 +161,13 @@ HDInsight에서 Kafka와 작동하는 응용 프로그램을 만들 때는 무�
 
 Jupyter Notebook 예제를 사용하려면 Spark 클러스터의 Jupyter Notebook 서버에 이 예제를 업로드해야 합니다. 다음 단계에 따라 Notebook을 업로드합니다.
 
-1. 웹 브라우저에서 다음 URL을 사용하여 Spark 클러스터의 Jupyter Notebook 서버에 연결합니다. __BASENAME__은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
+1. 웹 브라우저에서 다음 URL을 사용하여 Spark 클러스터의 Jupyter Notebook 서버에 연결합니다. `CLUSTERNAME`을 Spark 클러스터의 이름으로 바꿉니다.
 
-        https://spark-BASENAME.azurehdinsight.net/jupyter
+        https://CLUSTERNAME.azurehdinsight.net/jupyter
 
     메시지가 표시되면 클러스터를 만들 때 사용한 클러스터 로그인(관리자) 이름과 암호를 입력합니다.
 
-2. 페이지의 오른쪽 위에서 __업로드__ 단추를 사용하여 `KafkaStreaming.ipynb` 파일을 업로드합니다. 파일 브라우저 대화 상자에서 파일을 선택하고 __열기__를 선택합니다. 
+2. 페이지의 오른쪽 위에서 __업로드__ 단추를 사용하여 `KafkaStreaming.ipynb` 파일을 업로드합니다. 파일 브라우저 대화 상자에서 파일을 선택하고 __열기__를 선택합니다.
 
     ![업로드 단추를 사용하여 Notebook을 선택하고 업로드](./media/hdinsight-apache-spark-with-kafka/upload-button.png)
 

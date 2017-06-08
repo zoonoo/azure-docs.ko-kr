@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Spark에서 Jupyter Notebook에 사용자 지정 Maven 패키지 사용 | Microsoft Docs"
-description: "HDInsight Spark 클러스터에서 사용할 수 있는 Jupyter 노트북을 외부 Spark 패키지를 사용하도록 구성하는 방법에 대한 단계별 지침입니다."
+title: "Azure HDInsight의 Spark에서 Jupyter와 함께 사용자 지정 Maven 패키지 사용 | Microsoft Docs"
+description: "HDInsight Spark 클러스터에서 사용할 수 있는 Jupyter 노트북을 사용자 지정 Maven 패키지를 사용하도록 구성하는 방법에 대한 단계별 지침입니다."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: db2e8391bcae98b2ef0fb93fb4e4e98a287b4846
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: fed11346e43d460b2def53cd1c0addfe0557d480
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -42,7 +42,6 @@ ms.lasthandoff: 04/06/2017
 ## <a name="prerequisites"></a>필수 조건
 다음이 있어야 합니다.
 
-* Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Jupyter 노트북에서 외부 패키지 사용
@@ -59,11 +58,11 @@ ms.lasthandoff: 04/06/2017
 
 3. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 후 **Spark**를 클릭합니다.
    
-    ![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.createnotebook.png "새 Jupyter 노트북 만들기")
+    ![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "새 Jupyter 노트북 만들기")
 
 4. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 맨 위에서 노트북 이름을 클릭하고 식별하기 쉬운 이름을 입력합니다.
    
-    ![노트북 이름 제공](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "노트북 이름 제공")
+    ![노트북 이름 제공](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "노트북 이름 제공")
 
 5. `%%configure` Magic을 사용하여 외부 패키지를 사용하도록 Notebook을 구성합니다. 외부 패키지를 사용하는 Notebook에서 `%%configure` Magic을 호출해야 합니다. 이렇게 하면 커널은 세션이 시작되기 전에 패키지를 사용하도록 구성됩니다.
 

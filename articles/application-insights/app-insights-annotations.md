@@ -3,7 +3,7 @@ title: "Application Insights에 대한 릴리스 주석 | Microsoft Docs"
 description: "Application Insights에서 배포 또는 빌드 표식을 메트릭 탐색기 차트에 추가합니다."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 23173e33-d4f2-4528-a730-913a8fd5f02e
 ms.service: application-insights

@@ -11,6 +11,7 @@
 ## [연결된 공장 솔루션 개요](iot-suite-connected-factory-overview.md)
 ## [원격 모니터링 솔루션 연습](iot-suite-remote-monitoring-sample-walkthrough.md)
 ## [예측 유지 관리 솔루션 연습](iot-suite-predictive-walkthrough.md)
+## [연결된 공장 솔루션 연습](iot-suite-connected-factory-sample-walkthrough.md)
 ## [Raspberry Pi에 연결](iot-suite-raspberry-pi-kit-get-started.md)
 ### C 사용
 #### [시뮬레이션된 데이터](iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
@@ -29,7 +30,6 @@
 ### [Windows에서 C](iot-suite-connecting-devices.md)
 ### [Linux에서 C](iot-suite-connecting-devices-linux.md)
 ### [Node.JS](iot-suite-connecting-devices-node.md)
-## [mbed 장치 연결](iot-suite-connecting-devices-mbed.md)
 ## [논리 앱을 원격 모니터링 솔루션에 연결](iot-suite-logic-apps-tutorial.md)
 ## [미리 구성된 솔루션 사용자 지정](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [원격 모니터링 솔루션과 함께 동적 원격 분석 사용](iot-suite-dynamic-telemetry.md)

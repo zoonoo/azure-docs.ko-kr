@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 03/03/2017
 ms.author: maroche
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: ef4517191084148ff3810226c927ee45a61b2c49
-ms.lasthandoff: 03/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 9f9754aef4f1e933163cd80862c84ba8281def80
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ ms.lasthandoff: 03/03/2017
 2016년 9월 16일 주를 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
 * IBM DB2 데이터 원본에 대한 지원입니다. 이제 사용자가 DB2 데이터베이스, 테이블 및 뷰를 등록하고 검색할 수 있습니다.
-* Azure DocumentDB 데이터 원본에 대한 지원입니다. 이제 사용자가 DocumentDB 데이터베이스 및 컬렉션을 등록하고 검색할 수 있습니다.
+* Azure Cosmos DB 데이터 원본을 지원합니다. 이제 사용자가 Cosmos DB 데이터베이스 및 컬렉션을 등록하고 검색할 수 있습니다.
 * 데이터 카탈로그 포털에서 카탈로그 이름을 사용자 지정하는 것에 대한 지원. 이제 카탈로그 관리자는 포털 제목에 표시될, 조직 이름과 같은 텍스트를 제공할 수 있습니다.
 
 ## <a name="whats-new-for-the-week-of-august-26-2016-release"></a>2016년 8월 26일 주 릴리스의 새로운 기능

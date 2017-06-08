@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 5/9/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c78f07cb780d5e7cd758fb782fc6ba37946f9537
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 3e61ad19df34c6a57da43e26bd2ab9d7ecdbf98e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -50,8 +51,28 @@ ms.lasthandoff: 04/20/2017
 * **연결**: 해당 끝점에서 사용하는 모든 프로토콜을 사용하여 서비스에 연결합니다.
 * **다시 시도**: 여러 가지 이유로(예: 서비스가 끝점 주소를 확인한 마지막 시점 이후 이동한 경우) 연결 시도가 실패할 수 있습니다. 이 경우 앞의 확인 및 연결 단계를 다시 시도하고 연결에 성공할 때까지 이 주기를 반복해야 합니다.
 
+## <a name="connecting-to-other-services"></a>다른 서비스에 연결
+클러스터의 노드는 동일한 로컬 네트워크에 있으므로 클러스터 내에서 서로 연결하고 있는 서비스는 다른 서비스의 끝점에 직접 액세스할 수 있습니다. 서비스 간에 연결하기 쉽게 하려면 Service Fabric에서 명명 서비스를 사용하는 추가 서비스를 제공합니다. DNS 서비스 및 역방향 프록시 서비스.
+
+
+### <a name="dns-service"></a>DNS 서비스
+많은 서비스, 특히 컨테이너화된 서비스는 기존 URL 이름을 사용할 수 있으므로 명명 서비스 프로토콜 대신 표준 DNS 프로토콜을 사용하여 이러한 이름을 확인할 수 있으면 특히 응용 프로그램 "리프트 앤 시프트" 시나리오에서 매우 편리합니다. 바로 이것이 DNS 서비스의 용도입니다. DNS 서비스를 통해 DNS 이름을 서비스 이름에 매핑할 수 있으므로 끝점 IP 주소를 확인할 수 있습니다. 
+
+다음 다이어그램과 같이 Service Fabric 클러스터에서 실행되는 DNS 서비스는 DNS 이름을 서비스 이름에 매핑하며, 명명 서비스는 이 서비스 이름을 확인하여 연결할 끝점 주소를 반환합니다. 서비스의 DNS 이름은 생성 시 제공됩니다. 
+
+![서비스 끝점][9]
+
+DNS 서비스를 사용하는 방법에 대한 자세한 내용은 [Azure Service Fabric의 DNS 서비스](service-fabric-dnsservice.md) 문서를 참조하세요.
+
+### <a name="reverse-proxy-service"></a>역방향 프록시 서비스
+HTTPS를 포함하여 HTTP 끝점을 노출하는 클러스터의 역방향 프록시 주소 서비스입니다. 역방향 프록시는 특정 URI 형식을 사용하여 다른 서비스와 해당 메서드 호출을 간소화하고 명명 서비스를 사용하여 한 서비스에서 다른 서비스와 통신하는 데 필요한 확인, 연결, 재시도 단계를 처리합니다. 즉, URL 호출처럼 간단한 과정으로 설정하여 다른 서비스를 호출할 때 명명 서비스를 사용자로부터 숨깁니다.
+
+![서비스 끝점][10]
+
+역방향 프록시 서비스를 사용하는 방법에 대한 자세한 내용은 [Azure Service Fabric의 역방향 프록시](service-fabric-reverseproxy.md) 문서를 참조하세요.
+
 ## <a name="connections-from-external-clients"></a>외부 클라이언트에서 연결
-클러스터의 노드는 일반적으로 동일한 로컬 네트워크에 있으므로 클러스터 내에서 서로 연결하고 있는 서비스는 다른 서비스의 끝점에 직접 액세스할 수 있습니다. 그러나 일부 환경에서는 클러스터가 제한된 포트 집합을 통한 외부 수신 트래픽을 경로 지정하는 부하 분산 장치 뒤에 있을 수 있습니다. 이러한 경우 서비스는 여전히 서로 통신하고 명명 서비스를 사용하여 주소를 확인할 수 있지만 외부 클라이언트가 서비스에 연결할 수 있도록 하는 추가 단계를 수행해야 합니다.
+클러스터의 노드는 동일한 로컬 네트워크에 있으므로 클러스터 내에서 서로 연결하고 있는 서비스는 다른 서비스의 끝점에 직접 액세스할 수 있습니다. 그러나 일부 환경에서는 클러스터가 제한된 포트 집합을 통한 외부 수신 트래픽을 경로 지정하는 부하 분산 장치 뒤에 있을 수 있습니다. 이러한 경우 서비스는 여전히 서로 통신하고 명명 서비스를 사용하여 주소를 확인할 수 있지만 외부 클라이언트가 서비스에 연결할 수 있도록 하는 추가 단계를 수행해야 합니다.
 
 ## <a name="service-fabric-in-azure"></a>Azure의 서비스 패브릭
 Azure의 서비스 패브릭 클러스터는 Azure 부하 분산 장치 뒤에 배치됩니다. 클러스터로의 모든 외부 트래픽은 부하 분산 장치를 통과해야 합니다. 부하 분산 장치는 지정된 포트에서의 인바운드 트래픽을 동일한 포트가 열린 임의 *노드* 에 자동으로 전달합니다. Azure Load Balancer는 *노드*에서 열린 포트만 알고 있으며 개별 *서비스*에 의해 열린 포트는 알지 못합니다.
@@ -152,7 +173,7 @@ Azure의 서비스 패브릭 클러스터는 Azure 부하 분산 장치 뒤에 �
 
 Azure Load Balancer 및 프로브는 *노드*만 알고 있으며 노드에서 실행하는 *서비스*는 알지 못합니다. Azure 부하 분산 장치는 프로브에 응답하는 노드에 항상 트래픽을 보내므로 프로브에 응답할 수 있는 노드에서 서비스를 사용할 수 있도록 주의해야 합니다.
 
-## <a name="built-in-communication-api-options"></a>기본 제공 통신 API 옵션
+## <a name="reliable-services-built-in-communication-api-options"></a>Reliable Services: 기본 제공 통신 API 옵션
 Reliable Services 프레임워크에서는 미리 작성된 여러 통신 옵션을 제공합니다. 그 중에서 가장 적합한 옵션은 프로그래밍 모델, 통신 프레임워크 및 서비스가 작성되는 프로그래밍 언어로 무엇을 선택하는지에 따라 달라집니다.
 
 * **특정 프로토콜이 없는 경우:** 특정 통신 프레임워크를 선택하지는 않지만 항목을 신속하게 실행하고 싶을 때 가장 적합한 옵션은 Reliable Services 및 Reliable Actors에 대한 강력한 형식의 원격 프로시저 호출을 허용하는 [서비스 원격](service-fabric-reliable-services-communication-remoting.md)입니다. 이는 서비스 통신을 시작하기에 가장 쉽고 빠른 방법입니다. 서비스 원격은 서비스 주소, 연결, 다시 시도 및 오류 처리의 확인을 처리합니다. 이 기능은 C# 및 Java 응용 프로그램에 둘 다 사용할 수 있습니다.
@@ -172,4 +193,6 @@ Reliable Services 프레임워크에서는 미리 작성된 여러 통신 옵션
 [5]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerport.png
 [7]: ./media/service-fabric-connect-and-communicate-with-services/distributedservices.png
 [8]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerprobe.png
+[9]: ./media/service-fabric-connect-and-communicate-with-services/dns.png
+[10]: ./media/service-fabric-reverseproxy/internal-communication.png
 

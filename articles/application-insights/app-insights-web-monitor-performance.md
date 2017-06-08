@@ -3,7 +3,7 @@ title: "Application Insights로 앱 상태 및 사용 현황 모니터링"
 description: "Application Insights를 시작합니다. 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 40650472-e860-4c1b-a589-9956245df307
 ms.service: application-insights

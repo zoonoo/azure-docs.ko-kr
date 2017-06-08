@@ -6,19 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/25/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 328537b2bfbe15a23a9199bbb3c07851eaa85390
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 5bd17fc68447b8387dfaad33fe2d0055596ec086
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -28,19 +30,20 @@ ms.lasthandoff: 05/03/2017
 
 1. [디렉터리에서 암호 재설정 사용](active-directory-passwords-getting-started.md)
 2. [비밀번호 쓰기 저장을 위한 온-프레미스 AD 권한 구성](active-directory-passwords-how-it-works.md#active-directory-permissions)
-3. [필요한 라이선스 할당 및 확인](active-directory-passwords-licensing.md)
-4. 점진적으로 롤아웃하려는 경우 암호 재설정을 사용자 그룹으로 제한하여 시간에 따라 기능을 천천히 롤아웃할 수 있습니다. 이렇게 하려면**셀프 서비스 암호 재설정이 사용하도록 설정됨**을 **모든 사람**에서 **그룹**으로 전환하고 암호 재설정을 사용할 보안 그룹을 선택합니다. 이 그룹의 모든 구성원에게 라이선스가 할당되어 있어야 하며 [그룹 기반 라이선스](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing)를 사용하는 훌륭한 방법입니다.
-5. 정책에 따라 최소 [인증 데이터](active-directory-passwords-data.md) 집합을 채웁니다.
-6. 사용자에게 등록 방법 및 재설정 방법을 보여 주는 지침을 제공하여 SSPR 사용 방법을 알려 줍니다.
+3. [비밀번호 쓰기 저장을 구성](active-directory-passwords-writeback.md#configuring-password-writeback)하여 Azure AD에서 온-프레미스 디렉터리로 비밀번호를 다시 기록합니다
+4. [필요한 라이선스 할당 및 확인](active-directory-passwords-licensing.md)
+5. 점진적으로 롤아웃하려는 경우 암호 재설정을 사용자 그룹으로 제한하여 시간에 따라 기능을 천천히 롤아웃할 수 있습니다. 이렇게 하려면**셀프 서비스 암호 재설정이 사용하도록 설정됨**을 **모든 사람**에서 **그룹**으로 전환하고 암호 재설정을 사용할 보안 그룹을 선택합니다. 이 그룹의 모든 구성원에게 라이선스가 할당되어 있어야 하며 [그룹 기반 라이선스](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing)를 사용하는 훌륭한 방법입니다.
+6. 정책에 따라 최소 [인증 데이터](active-directory-passwords-data.md) 집합을 채웁니다.
+7. 사용자에게 등록 방법 및 재설정 방법을 보여 주는 지침을 제공하여 SSPR 사용 방법을 알려 줍니다.
     > [!NOTE]
     > 관리자가 아닌 사용자로 SSPR을 테스트합니다. Microsoft가 Azure 관리자 유형 계정에 강력한 인증 요구 사항을 적용하기 때문입니다. 관리자 암호 정책에 대한 자세한 내용은 [심층 분석 문서](active-directory-passwords-how-it-works.md)를 참조하세요.
 
-7. 언제든지 등록을 적용할 수 있으며, 일정 기간이 지나면 인증 정보를 다시 확인하도록 사용자에게 요구할 수 있습니다. 사용자가 의무적으로 등록하지 않아도 되게 하려면 [최종 사용자에게 등록을 요구하지 않고 암호 재설정을 배포](active-directory-passwords-data.md)하면 됩니다.
-8. 시간이 지나면 [Azure AD에서 제공하는 보고서](active-directory-passwords-reporting.md)를 검토하여 사용자의 등록과 사용을 검토합니다.
+8. 언제든지 등록을 적용할 수 있으며, 일정 기간이 지나면 인증 정보를 다시 확인하도록 사용자에게 요구할 수 있습니다. 사용자가 의무적으로 등록하지 않아도 되게 하려면 [최종 사용자에게 등록을 요구하지 않고 암호 재설정을 배포](active-directory-passwords-data.md)하면 됩니다.
+9. 시간이 지나면 [Azure AD에서 제공하는 보고서](active-directory-passwords-reporting.md)를 검토하여 사용자의 등록과 사용을 검토합니다.
 
 ## <a name="email-based-rollout"></a>전자 메일 기반 롤아웃
 
-사용자가 SSPR을 사용하게 만드는 가장 쉬운 방법은 간단한 지침이 포함된 전자 메일 캠페인이라는 사실을 많은 고객이 알고 있습니다. Microsoft는 고객의 롤아웃에 도움이 되도록 템플릿으로 사용할 수 있는 세 가지 간단한 전자 메일을 만들었습니다.
+사용자가 SSPR을 사용하게 만드는 가장 쉬운 방법은 간단한 지침이 포함된 전자 메일 캠페인이라는 사실을 많은 고객이 알고 있습니다. [Microsoft는 고객의 롤아웃에 도움이 되도록 템플릿으로 사용할 수 있는 세 가지 간단한 전자 메일을 만들었습니다.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
 
 * **출시 예정** 전자 메일 템플릿 - 롤아웃 몇 주 또는 며칠 전에 사용자에게 어떤 작업을 수행해야 한다는 사실을 알리기 위해 사용됩니다.
 * **현재 사용 가능한** 전자 메일 템플릿 - 사용자가 필요할 때 SSPR을 사용할 수 있도록 출시 당일에 사용자가 인증 데이터를 등록하고 확인하도록 유도하기 위해 사용됩니다.

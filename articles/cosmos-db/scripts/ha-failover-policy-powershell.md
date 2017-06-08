@@ -1,17 +1,17 @@
 ---
 title: "Azure PowerShell 스크립트-Azure Cosmos DB 장애 조치 정책 만들기 | Microsoft Docs"
 description: "Azure PowerShell 스크립트 샘플 - Azure Cosmos DB 장애 조치 정책 만들기"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
-ms.custom: sample
+ms.service: cosmos-db
+ms.custom: mvc
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 3/13/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: e04fbd97dd4d5ecaf12edf47d80572b32d29ed00
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 414c684c78314a92bbbe12e6164e2b10fb682b0f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 
@@ -51,7 +52,9 @@ ms.lasthandoff: 03/23/2017
 4. **웹앱/ 웹 API 포함** 스위치를 **예**로 설정합니다. **회신 URL** 은 Azure AD B2C에서 응용 프로그램이 요청한 토큰을 반환하는 끝점입니다. 예를 들어 `https://localhost:44316/`을 입력합니다.
 5. **만들기** 를 클릭하여 응용 프로그램을 등록합니다.
 6. 방금 만든 응용 프로그램을 클릭하고, 나중에 코드에서 사용할 전역적으로 고유한 **응용 프로그램 클라이언트 ID** 를 적어둡니다. 
-7. 또한 웹 응용 프로그램이 Azure AD B2C에서 보호하는 Web API를 호출하는 경우 **키** 블레이드로 이동하고 **키 생성** 단추를 클릭하여 **응용 프로그램 암호**를 만들려고 합니다.
+7. 웹 응용 프로그램이 Azure AD B2C로 보호되는 웹 API를 호출하는 경우 다음을 수행하십시오.
+   1. **키** 블레이드로 이동하여 **키 생성** 단추를 클릭하여 **응용 프로그램 비밀**을 만듭니다.
+   2. **API 액세스**를 클릭하고 **추가**를 클릭하여 웹 API와 범위(사용 권한)을 선택합니다.
 
 > [!NOTE]
 > **응용 프로그램 암호** 는 중요한 보안 자격 증명이며 적절하게 보호해야 합니다.
@@ -78,7 +81,9 @@ ms.lasthandoff: 03/23/2017
 5. 사용자 지정 체계로 **리디렉션 URI**를 입력합니다. 예를 들어 com.onmicrosoft.contoso.appname://redirect/경로입니다. [올바른 리디렉션 URI](#choosing-a-redirect-uri)를 선택합니다.
 6. **저장**을 클릭하여 응용 프로그램을 등록합니다.
 7. 방금 만든 응용 프로그램을 클릭하고, 나중에 코드에서 사용할 전역적으로 고유한 **응용 프로그램 클라이언트 ID** 를 적어둡니다.
-8. 또한 네이티브 응용 프로그램이 Azure AD B2C에서 보호하는 Web API를 호출하는 경우 **키** 블레이드로 이동하고 **키 생성** 단추를 클릭하여 **응용 프로그램 암호**를 만들려고 합니다.
+8. 네이티브 응용 프로그램이 Azure AD B2C로 보호되는 웹 API를 호출하는 경우 다음을 수행하십시오.
+   1. **키** 블레이드로 이동하여 **키 생성** 단추를 클릭하여 **응용 프로그램 비밀**을 만듭니다.
+   2. **API 액세스**를 클릭하고 **추가**를 클릭하여 웹 API와 범위(사용 권한)을 선택합니다.
 
 > [!NOTE]
 > **응용 프로그램 암호** 는 중요한 보안 자격 증명이며 적절하게 보호해야 합니다.
@@ -89,9 +94,7 @@ ms.lasthandoff: 03/23/2017
 * **고유**: 리디렉션 URI의 체계는 모든 응용 프로그램에 대해 고유해야 합니다. 예제에서는(com.onmicrosoft.contoso.appname://redirect/path) 체계로 com.onmicrosoft.contoso.appname을 사용합니다. 이 패턴을 따르는 것이 좋습니다. 두 개의 응용 프로그램이 동일한 체계를 공유하는 경우 "앱 선택" 대화 상자가 나타납니다. 사용자가 잘못 선택하는 경우 로그인이 실패합니다. 
 * **전체**: 리디렉션 URI에는 체계 및 경로가 있어야 합니다. 경로는 도메인 뒤에 하나 이상의 슬래시를 포함해야 합니다(예: //contoso/는 작동, //contoso는 실패). 
 
-## <a name="build-a-quick-start-application"></a>빠른 시작 응용 프로그램 빌드하기
-Azure AD B2C로 등록된 응용 프로그램이 있다면 작동할 빠른 시작 자습서 중 하나를 완료할 수 있습니다. 몇 가지 권장 사항입니다.
-
-[!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
+## <a name="build-an-application"></a>응용 프로그램 빌드
+Azure AD B2C로 등록된 응용 프로그램이 있다면 작동할 [빠른 시작 자습서](active-directory-b2c-overview.md#get-started) 중 하나를 완료하여 실행할 수 있습니다.
 
 

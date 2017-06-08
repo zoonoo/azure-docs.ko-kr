@@ -13,9 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/30/2016
 ms.author: jejiang
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 98b04d28d1b905dad19ad6cf608733c6554f01cf
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c49f80f8dcd330d7f46726241e7178351b9cc28f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -32,8 +34,8 @@ U-SQL을 사용하면 C#, VB.Net 또는 F# 등의 .Net 언어로 사용자 고�
 이러한 단점을 해결하기 위해 코드 숨김을 어셈블리로 전환하고 Data Lake Analytics 카탈로그에 등록할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* Visual Studio 2015, Visual Studio 2013 update 4, Visual C++가 설치된 Visual Studio 2012
-* Microsoft Azure SDK for.NET 버전 2.5 이상.  웹 플랫폼 설치 관리자를 사용하여 설치합니다.
+* Visual Studio 2017, Visual Studio 2015, Visual Studio 2013 업데이트 4 또는 Visual Studio 2012와 Visual C++ 설치
+* Microsoft Azure SDK for.NET 버전 2.5 이상.  웹 플랫폼 설치 관리자 또는 Visual Studio 설치 관리자를 사용하여 설치
 * 데이터 레이크 분석 계정입니다.  [Azure Portal을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)을 참조하세요.
 * [AZure 데이터 레이크 분석 U-SQL 스튜디오 시작하기](data-lake-analytics-u-sql-get-started.md) 자습서를 살펴보세요.
 * Azure에 연결
@@ -79,8 +81,3 @@ U-SQL을 사용하면 C#, VB.Net 또는 F# 등의 .Net 언어로 사용자 고�
 * [U-SQL 응용 프로그램 개발에 Visual Studio용 데이터 레이크 도구 사용하기](data-lake-analytics-data-lake-tools-get-started.md)
 * [Data Lake Analytics(U-SQL) 카탈로그 사용](data-lake-analytics-use-u-sql-catalog.md)
 * [Azure Data Lake Tools for Visual Studio Code 사용](data-lake-analytics-data-lake-tools-for-vscode.md)
-
-
-<!--HONumber=Dec16_HO2-->
-
-

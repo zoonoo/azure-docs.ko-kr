@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 209f8869e9ed681285865154bdd4d2d7a0f22456
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 7701d46be70901d361f8a045c386bfa4cdaf98b6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -145,6 +146,7 @@ ADFS 서버가 Azure AD 인증서를 자동으로 업데이트하도록 구성�
 |버전 기록 | [버전 기록](active-directory-aadconnect-version-history.md)|
 |DirSync, Azure ADSync 및 Azure AD Connect 비교 | [디렉터리 통합 도구 비교](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
 |Azure AD의 비 ADFS 호환성 목록 | [Azure AD 페더레이션 호환성 목록](active-directory-aadconnect-federation-compatibility.md)|
+|SAML 2.0 Idp 구성|[Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용](active-directory-aadconnect-federation-saml-idp.md)|
 |동기화된 특성 | [동기화된 특성](active-directory-aadconnectsync-attributes-synchronized.md)|
 |Azure AD Connect Health를 사용하여 모니터링 | [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)|
 |질문과 대답 | [Azure AD Connect FAQ](active-directory-aadconnect-faq.md)|

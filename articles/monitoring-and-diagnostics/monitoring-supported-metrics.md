@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/17/2017
+ms.date: 5/10/2017
 ms.author: johnkem
-translationtype: Human Translation
-ms.sourcegitcommit: 354bf45625c209c22118804d3835ca71e3128580
-ms.openlocfilehash: deda64fb779e176bb00c3256fa3028e7e3567eb4
-ms.lasthandoff: 02/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: ff47eaa27351f8d1685090edc54d90e5e91a1de0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -42,6 +43,38 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |QueryPoolBusyThreads|쿼리 풀의 사용 중인 스레드|개수|평균|쿼리 스레드 풀의 사용 중인 스레드 수입니다.|
 |CommandPoolJobQueueLength|명령 풀의 작업 큐 길이|개수|평균|명령 스레드 풀의 큐에 있는 작업 수입니다.|
 |ProcessingPoolJobQueueLength|처리 풀의 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 비-I/O 작업 수입니다.|
+|CurrentConnections|연결: 현재 연결|개수|평균|현재 설정된 클라이언트 연결 수입니다.|
+|CleanerCurrentPrice|메모리: 클리너 현재 가격|개수|평균|현재 메모리 가격, $/바이트/시간, 1000으로 일반화됩니다.|
+|CleanerMemoryShrinkable|메모리: 클리너 메모리 축소 가능|바이트|평균|메모리 양, 바이트 단위, 백그라운드 클리너에 의해 제거되는 대상입니다.|
+|CleanerMemoryNonshrinkable|메모리: 클리너 메모리 축소 불가능|바이트|평균|메모리 양, 바이트 단위, 백그라운드 클리너에 의해 제거되는 대상이 아닙니다.|
+|MemoryUsage|메모리: 메모리 사용량|바이트|평균|클리너 메모리 가격을 계산하는 데 사용되는 서버 프로세스의 메모리 사용량입니다. 메모리 매핑된 데이터 크기를 더한 카운터 Process\PrivateBytes와 동일하며 xVelocity 엔진 메모리 제한을 초과하여 xVelocity 메모리 내 분석 엔진(VertiPaq)에서 매핑하거나 할당하는 메모리를 무시합니다.|
+|MemoryLimitHard|메모리: 메모리 제한 하드|바이트|평균|하드 메모리 제한, 구성 파일 원본입니다.|
+|MemoryLimitHigh|메모리: 메모리 제한 상한|바이트|평균|상한 메모리 제한, 구성 파일 원본입니다.|
+|MemoryLimitLow|메모리: 메모리 제한 하한|바이트|평균|하한 메모리 제한, 구성 파일 원본입니다.|
+|MemoryLimitVertiPaq|메모리: 메모리 제한 VertiPaq|바이트|평균|메모리 내 제한, 구성 파일 원본입니다.|
+|할당량|메모리: 할당량|바이트|평균|현재 메모리 할당량, 바이트 단위입니다. 메모리 할당량은 메모리 부여 또는 메모리 예약이라고도 합니다.|
+|QuotaBlocked|메모리: 차단된 할당량|개수|평균|다른 메모리 할당량이 해제될 때까지 차단되는 할당량 요청의 현재 수입니다.|
+|VertiPaqNonpaged|메모리: 페이징되지 않은 VertiPaq|바이트|평균|메모리 내 엔진에서 사용하기 위해 설정된 작동 중에 잠긴 메모리 바이트입니다.|
+|VertiPaqPaged|메모리: 페이징된 VertiPaq|바이트|평균|메모리 내 데이터에 사용 중인 페이징된 메모리 바이트입니다.|
+|RowsReadPerSec|처리: 초당 읽은 행|초당 개수|평균|모든 관계형 데이터베이스에서 읽은 행의 비율입니다.|
+|RowsConvertedPerSec|처리: 초당 변환된 행|초당 개수|평균|처리하는 동안 변환된 행의 비율입니다.|
+|RowsWrittenPerSec|처리: 초당 작성된 행|초당 개수|평균|처리하는 동안 작성된 행의 비율입니다.|
+|CommandPoolBusyThreads|스레드: 명령 풀 사용 중인 스레드|개수|평균|명령 스레드 풀의 사용 중인 스레드 수입니다.|
+|CommandPoolIdleThreads|스레드: 명령 풀 유휴 상태 스레드|개수|평균|명령 스레드 풀의 유휴 상태 스레드 수입니다.|
+|LongParsingBusyThreads|스레드: 긴 구문 분석 사용 중인 스레드|개수|평균|긴 구문 분석 스레드 풀에서 사용 중인 스레드 수입니다.|
+|LongParsingIdleThreads|스레드: 긴 구문 분석 유휴 상태 스레드|개수|평균|긴 구문 분석 스레드 풀에서 유휴 상태 스레드 수입니다.|
+|LongParsingJobQueueLength|스레드: 긴 구문 분석 작업 큐 길이|개수|평균|긴 구문 분석 스레드 풀의 큐에 있는 작업 수입니다.|
+|ProcessingPoolBusyIOJobThreads|스레드: 처리 풀 사용 중인 I/O 작업 스레드|개수|평균|처리 스레드 풀에서 I/O 작업을 실행 중인 스레드 수입니다.|
+|ProcessingPoolBusyNonIOThreads|스레드: 처리 풀 사용 중인 비-I/O 스레드|개수|평균|처리 스레드 풀에서 비-I/O 작업을 실행 중인 스레드 수입니다.|
+|ProcessingPoolIOJobQueueLength|스레드: 처리 풀 I/O 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 I/O 작업 수입니다.|
+|ProcessingPoolIdleIOJobThreads|스레드: 처리 풀 유휴 상태 I/O 작업 스레드|개수|평균|처리 스레드 풀에서 I/O 작업의 유휴 상태 스레드 수입니다.|
+|ProcessingPoolIdleNonIOThreads|스레드: 처리 풀 유휴 상태 비-I/O 스레드|개수|평균|비-I/O 작업 전용인 처리 스레드 풀에서 유휴 상태 스레드 수입니다.|
+|QueryPoolIdleThreads|스레드: 쿼리 풀 유휴 상태 스레드|개수|평균|처리 스레드 풀에서 I/O 작업의 유휴 상태 스레드 수입니다.|
+|QueryPoolJobQueueLength|스레드: 쿼리 풀 작업 큐 길이|개수|평균|쿼리 스레드 풀의 큐에 있는 작업 수입니다.|
+|ShortParsingBusyThreads|스레드: 짧은 구문 분석 사용 중인 스레드|개수|평균|짧은 구문 분석 스레드 풀에서 사용 중인 스레드 수입니다.|
+|ShortParsingIdleThreads|스레드: 짧은 구문 분석 유휴 상태 스레드|개수|평균|짧은 구문 분석 스레드 풀에서 유휴 상태 스레드 수입니다.|
+|ShortParsingJobQueueLength|스레드: 짧은 구문 분석 작업 큐 길이|개수|평균|짧은 구문 분석 스레드 풀의 큐에 있는 작업 수입니다.|
+|memory_thrashing_metric|메모리 쓰래싱|백분율|평균|평균 메모리 쓰래싱입니다.|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
@@ -299,6 +332,42 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |디스크 읽기 작업/초|디스크 읽기 작업/초|초당 개수|평균|디스크 읽기 IOPS|
 |디스크 쓰기 작업/초|디스크 쓰기 작업/초|초당 개수|평균|디스크 쓰기 IOPS|
 
+## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|CustomerInsightsApiCalls|CustomerInsightsApiCalls|개수|합계||
+
+## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|cpu_percent|CPU 백분율|백분율|평균|CPU 백분율|
+|compute_limit|계산 단위 제한|개수|평균|계산 단위 제한|
+|compute_consumption_percent|계산 단위 백분율|백분율|평균|계산 단위 백분율|
+|memory_percent|메모리 백분율|백분율|평균|메모리 백분율|
+|io_consumption_percent|IO 백분율|백분율|평균|IO 백분율|
+|storage_percent|저장소 비율|백분율|평균|저장소 비율|
+|storage_used|저장소 사용됨|바이트|평균|저장소 사용됨|
+|storage_limit|저장소 제한|바이트|평균|저장소 제한|
+|active_connections|전체 활성 연결|개수|평균|전체 활성 연결|
+|connections_failed|실패한 전체 연결|개수|평균|실패한 전체 연결|
+
+## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|cpu_percent|CPU 백분율|백분율|평균|CPU 백분율|
+|compute_limit|계산 단위 제한|개수|평균|계산 단위 제한|
+|compute_consumption_percent|계산 단위 백분율|백분율|평균|계산 단위 백분율|
+|memory_percent|메모리 백분율|백분율|평균|메모리 백분율|
+|io_consumption_percent|IO 백분율|백분율|평균|IO 백분율|
+|storage_percent|저장소 비율|백분율|평균|저장소 비율|
+|storage_used|저장소 사용됨|바이트|평균|저장소 사용됨|
+|storage_limit|저장소 제한|바이트|평균|저장소 제한|
+|active_connections|전체 활성 연결|개수|평균|전체 활성 연결|
+|connections_failed|실패한 전체 연결|개수|평균|실패한 전체 연결|
+
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
@@ -311,7 +380,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |devices.totalDevices|총 장치|개수|합계|IoT 허브에 등록된 장치 수|
 |devices.connectedDevices.allProtocol|연결된 장치|개수|합계|IoT 허브에 연결된 장치 수|
 |d2c.telemetry.egress.success|배달된 원격 분석 메시지|개수|합계|메시지가 끝점에 성공적으로 작성된 횟수(전체)|
-|d2c.telemetry.egress.dropped|삭제된 메시지|개수|합계|어떤 경로에도 일치하지 않고 대체(fallback) 경로가 사용되지 않도록 설정되었으므로 삭제된 메시지 수|
+|d2c.telemetry.egress.dropped|삭제된 메시지|개수|합계|배달 끝점이 쓸모가 없어졌기 때문에 삭제된 메시지 수|
 |d2c.telemetry.egress.orphaned|분리된 메시지|개수|합계|대체 경로를 포함하여 경로가 일치하지 않는 메시지 수|
 |d2c.telemetry.egress.invalid|잘못된 메시지|개수|합계|끝점과 호환되지 않아서 배달되지 않은 메시지 수|
 |d2c.telemetry.egress.fallback|대체(fallback) 조건과 일치하는 메시지|개수|합계|대체(fallback) 끝점에 작성된 메시지 수|
@@ -354,12 +423,14 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |jobs.queryJobs.failure|실패한 작업 쿼리|개수|합계|쿼리 작업에 대한 실패한 모든 호출 수입니다.|
 |jobs.completed|완료된 작업|개수|합계|완료된 모든 작업의 수입니다.|
 |jobs.failed|실패한 작업|개수|합계|실패한 모든 작업의 수입니다.|
+|d2c.telemetry.ingress.sendThrottle|제한 오류 수|개수|합계|장치 처리량 제한으로 인한 제한 오류 수|
+|dailyMessageQuotaUsed|사용된 전체 메시지 수|개수|평균|현재 사용되는 전체 메시지 수|
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
-|INREQS|들어오는 요청|개수|합계|네임스페이스에 대한 총 들어오는 요청|
+|INREQS|들어오는 보내기 요청|개수|합계|알림 허브에 대해 들어오는 전체 보내기 요청|
 |SUCCREQ|성공한 요청|개수|합계|네임스페이스에 대한 총 성공한 요청|
 |FAILREQ|실패한 요청|개수|합계|네임스페이스에 대한 총 실패한 요청|
 |SVRBSY|서버 작업 중 오류|개수|합계|네임스페이스에 대한 총 서버 작업 중 오류|
@@ -367,11 +438,11 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |MISCERR|다른 오류|개수|합계|네임스페이스에 대한 총 실패한 요청|
 |INMSGS|들어오는 메시지 |개수|합계|네임스페이스에 대한 총 들어오는 메시지|
 |OUTMSGS|보내는 메시지 |개수|합계|네임스페이스에 대한 총 나가는 메시지|
-|EHINMBS|들어오는 바이트|초당 바이트 수|합계|Event Hub 네임스페이스에 대한 들어오는 메시지 처리량|
-|EHOUTMBS|나가는 바이트|초당 바이트 수|합계|네임스페이스에 대한 총 나가는 메시지|
+|EHINMBS|들어오는 바이트|바이트|합계|Event Hub 네임스페이스에 대한 들어오는 메시지 처리량|
+|EHOUTMBS|나가는 바이트|바이트|합계|네임스페이스에 대한 총 나가는 메시지|
 |EHABL|백로그 메시지 보관|개수|합계|Event Hub 네임스페이스에 대한 백로그에 메시지 보관|
 |EHAMSGS|메시지 보관|개수|합계|Event Hub 네임스페이스에 보관된 메시지|
-|EHAMBS|메시지 보관 처리량|초당 바이트 수|합계|Event Hub 네임스페이스에서 보관된 메시지 처리량|
+|EHAMBS|메시지 보관 처리량|바이트|합계|Event Hub 네임스페이스에서 보관된 메시지 처리량|
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
@@ -477,6 +548,10 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |outgoing.mpns.dropped|MPNS 삭제된 알림|개수|합계|MPNS에서 삭제된 푸시의 수입니다(MPNS 응답 헤더: X-NotificationStatus: QueueFull 또는 Suppressed).|
 |outgoing.mpns.pnserror|MPNS 오류|개수|합계|MPNS와의 통신 오류로 인해 실패한 푸시의 수입니다.|
 |outgoing.mpns.authenticationerror|MPNS 인증 오류|개수|합계|PNS가 제공된 자격 증명을 수락하지 않았거나 자격 증명이 차단되어 실패한 푸시의 수입니다.|
+|notificationhub.devices|알림 허브 장치|개수|평균|알림 허브의 장치 수|
+|notificationhub.pushes|알림 허브 푸시 알림|개수|합계|알림 허브의 푸시 알림 수|
+|incoming.all.requests|들어오는 모든 요청|개수|합계|알림 허브에 대해 들어오는 전체 요청|
+|incoming.all.failedrequests|들어오는 모든 실패한 요청|개수|합계|알림 허브에 대해 들어오는 실패한 전체 요청|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
@@ -512,10 +587,9 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |sessions_percent|세션 백분율|백분율|평균|세션 백분율|
 |dtu_limit|DTU 제한|개수|평균|DTU 제한|
 |dtu_used|DTU 사용됨|개수|평균|DTU 사용됨|
-|service_level_objective|데이터베이스의 서비스 수준 목표|개수|합계|데이터베이스의 서비스 수준 목표|
 |dwu_limit|DWU 제한|개수|최대|DWU 제한|
-|dwu_consumption_percent|DWU 백분율|백분율|평균|DWU 백분율|
-|dwu_used|DWU 사용됨|개수|평균|DWU 사용됨|
+|dwu_consumption_percent|DWU 백분율|백분율|최대|DWU 백분율|
+|dwu_used|DWU 사용됨|개수|최대|DWU 사용됨|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
@@ -608,7 +682,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |FunctionExecutionCount|함수 실행 횟수|개수|평균|함수 실행 횟수|
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Monitor의 메트릭에 대해 읽기](monitoring-overview.md#monitoring-sources)
+* [Azure Monitor의 메트릭에 대해 읽기](monitoring-overview-metrics.md)
 * [메트릭에 대한 경고 만들기](insights-receive-alert-notifications.md)
 * [저장소, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](monitoring-overview-of-diagnostic-logs.md)
 

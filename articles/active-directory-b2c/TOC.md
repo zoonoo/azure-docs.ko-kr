@@ -3,29 +3,29 @@
 # 시작
 ## [Azure AD B2C 디렉터리 만들기](active-directory-b2c-get-started.md)
 ## [응용 프로그램 등록](active-directory-b2c-app-registration.md)
+## [기본 제공 정책](active-directory-b2c-reference-policies.md)
 ## 모바일 및 데스크톱 앱
 ### [개요](active-directory-b2c-reference-oauth-code.md)
 ### iOS
 #### [MSAL을 사용한 iOS Swift](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
-#### [AppAuth를 사용한 iOS ObjC](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth)
+#### [AppAuth를 사용한 iOS ObjC](active-directory-b2c-devquickstarts-ios.md)
 ### Android
 #### [MSAL을 사용한 Android](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal)
-#### [AppAuth를 사용한 Android](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth)
+#### [AppAuth를 사용한 Android](active-directory-b2c-devquickstarts-android.md)
 ### [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
-## Web Apps
+## 웹 앱
 ### [개요](active-directory-b2c-reference-oidc.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
-### [NodeJS](active-directory-b2c-devquickstarts-web-node.md)
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
+### [Node.JS](active-directory-b2c-devquickstarts-web-node.md)
 ## 단일 페이지 앱
 ### [개요](active-directory-b2c-reference-spa.md)
-### [JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-### [.NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
-### [NodeJS](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi)
+### [MSAL을 사용하여 JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+### [Hello를 사용하여 JavaScript](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## Web API
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [NodeJS](active-directory-b2c-devquickstarts-api-node.md)
+### [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [.NET Web API 호출](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # 가이드
@@ -48,9 +48,10 @@
 ## [UI 사용자 지정](active-directory-b2c-reference-ui-customization.md)
 ### [사용자 지정을 위한 도우미 도구](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)
+## [보고 API 사용](active-directory-b2c-reference-usage-reporting-api.md)
 ## [셀프 서비스 암호 재설정 설정하기](active-directory-b2c-reference-sspr.md)
 
-# ID 경험 엔진
+# ID 경험 프레임워크
 ## [사용자 지정 정책](active-directory-b2c-overview-custom.md)
 ## 가이드
 ### [시작](active-directory-b2c-get-started-custom.md)
@@ -59,10 +60,11 @@
 ### SAML 공급자 구성
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### RESTful API 통합
-#### [추가 클레임 가져오기](active-directory-b2c-rest-api-step-custom.md)
 #### [사용자 입력 유효성 검사](active-directory-b2c-rest-api-validation-custom.md)
+#### [추가 클레임 가져오기](active-directory-b2c-rest-api-step-custom.md)
 ### 로그인 사용자 지정
 #### [사용자 입력 구성](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [사용자 지정 특성](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [UI 사용자 지정](active-directory-b2c-ui-customization-custom.md)
 #### [토큰 사용자 지정](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### 문제 해결
@@ -70,16 +72,14 @@
 ## 참조
 ### [릴리스 정보](active-directory-b2c-developer-notes-custom.md)
 
-
 # 참조
 ## 용어
 ### [응용 프로그램 유형](active-directory-b2c-apps.md)
 ### [인증 프로토콜](active-directory-b2c-reference-protocols.md)
-### [기본 제공 정책](active-directory-b2c-reference-policies.md)
 ### [토큰](active-directory-b2c-reference-tokens.md)
 ## [지역 가용성 및 데이터 상주](active-directory-b2c-reference-tenant-type.md)
+## [청구 사용](active-directory-b2c-how-to-enable-billing.md)
 ## [위협 관리](active-directory-b2c-reference-threat-management.md)
-## [한계 및 제한 사항](active-directory-b2c-limitations.md)
 ## [디렉터리를 만들 때의 문제](active-directory-b2c-support-create-directory.md)
 
 # 관련 항목

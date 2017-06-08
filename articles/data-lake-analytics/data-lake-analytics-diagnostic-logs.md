@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
-ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 71a839d9c076d33c404a56bf0544666dc86eaa4d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -31,14 +31,6 @@ Data Lake Analytics 계정에 대한 진단 로깅을 사용하는 방법 및 �
 * 데이터에 액세스하는 사용자의 목록.
 * 데이터가 액세스되는 빈도.
 * 계정에 저장된 데이터의 양.
-
-## <a name="prerequisites"></a>필수 조건
-
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-
-* **Azure 구독을 사용하도록 설정합니다** . [지침](data-lake-analytics-get-started-portal.md)을 참조하세요.
-
-* **Azure Data Lake Analytics 계정**. [Azure 포털을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)의 지침을 따릅니다.
 
 ## <a name="enable-logging"></a>로깅 사용
 

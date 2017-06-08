@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 1e48b0848c9f286f3bb0b3758403135a4f280bc0
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 0ce6114073b80c1d9bb719654ab8cebc30dfefac
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -153,9 +153,9 @@ Site Recovery를 사용하여 음과 같이 Citrix XenApp와 XenDesktop 배포�
 * Citrix XenApp 및 XenDesktop 배포를 Azure로 마이그레이션하기 위해 Site Recovery를 사용하여 클라우드 마이그레이션을 간소화합니다.
 * 테스트 및 디버깅을 위해 프로덕션 환경과 유사한 주문형 복사본을 만들어 Citrix XenApp/XenDesktop 테스트를 간소화합니다.
 * 이 솔루션은 Windows Server 운영 체제 가상 데스크톱에만 적용할 수 있으며 Azure의 라이선스에 대해 아직 지원되지 않는 클라이언트 가상 데스크톱에는 적용할 수 없습니다. 
-Azure의 클라이언트/서버 데스크톱용 라이선스에 대해 [자세히 알아보세요](https://azure.microsoft.com/en-us/pricing/licensing-faq/).
+Azure의 클라이언트/서버 데스크톱용 라이선스에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/licensing-faq/).
 
-Citrix XenApp 및 XenDesktop 배포 보호에 대해 [자세히 알아보세요](https://aka.ms/citrix-xenapp-xendesktop-with-asr).
+Citrix XenApp 및 XenDesktop 배포 보호에 대해 [자세히 알아보세요](site-recovery-citrix-xenapp-and-xendesktop.md). 또는 세부 사항을 동일하게 설명하는 [Citrix의 백서](https://aka.ms/citrix-xenapp-xendesktop-with-asr)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 [필수 구성 요소 확인](site-recovery-prereq.md) 

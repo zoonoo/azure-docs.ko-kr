@@ -3,8 +3,8 @@ title: "비즈니스용 OneDrive | Microsoft Docs"
 description: "Azure 앱 서비스로 논리 앱을 만듭니다. 비즈니스용 OneDrive에 연결하여 파일을 관리합니다. 파일에 대해 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: cf9484e9-7a20-4de0-93c8-0fa132221f2b
@@ -14,52 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: 992b4b7bab8878355cbe936b75768e67b086286e
+ms.author: mandia; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: b8823797adad64f9895a46bfb8788090bfae8dd2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>비즈니스용 OneDrive 커넥터 시작
 비즈니스용 OneDrive에 연결하여 파일을 관리합니다. 파일에 대해 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다.
 
-> [!NOTE]
-> 이 버전의 문서는 논리 앱 2015-08-01-preview 스키마 버전에 적용됩니다.
-> 
-> 
-
 이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
-
-## <a name="triggers-and-actions"></a>트리거 및 작업
-비즈니스용 OneDrive 커넥터는 작업으로 사용할 수 있으며 트리거를 가지고 있습니다. 모든 커넥터는 JSON 및 XML 형식의 데이터를 지원합니다.
-
- 비즈니스용 OneDrive 커넥터에서는 다음과 같은 작업 및/또는 트리거를 사용할 수 있습니다.
-
-### <a name="onedrive-for-business-actions"></a>비즈니스용 OneDrive 작업
-다음 작업을 수행할 수 있습니다.
-
-| 작업 | 설명 |
-| --- | --- |
-| [GetFileMetadata](connectors-create-api-onedriveforbusiness.md#getfilemetadata) |ID를 사용하여 비즈니스용 OneDrive에서 파일 메타데이터를 검색합니다. |
-| [UpdateFile](connectors-create-api-onedriveforbusiness.md#updatefile) |비즈니스용 OneDrive에서 파일을 업데이트합니다. |
-| [DeleteFile](connectors-create-api-onedriveforbusiness.md#deletefile) |비즈니스용 OneDrive에서 파일을 삭제합니다. |
-| [GetFileMetadataByPath](connectors-create-api-onedriveforbusiness.md#getfilemetadatabypath) |경로를 사용하여 비즈니스용 OneDrive에서 파일 메타데이터를 검색합니다. |
-| [GetFileContentByPath](connectors-create-api-onedriveforbusiness.md#getfilecontentbypath) |경로를 사용하여 비즈니스용 OneDrive에서 파일 컨텐츠를 검색합니다. |
-| [GetFileContent](connectors-create-api-onedriveforbusiness.md#getfilecontent) |ID를 사용하여 비즈니스용 OneDrive에서 파일 컨텐츠를 검색합니다. |
-| [CreateFile](connectors-create-api-onedriveforbusiness.md#createfile) |비즈니스용 OneDrive에 파일을 업로드합니다. |
-| [CopyFile](connectors-create-api-onedriveforbusiness.md#copyfile) |비즈니스용 OneDrive에 파일을 복사합니다. |
-| [ListFolder](connectors-create-api-onedriveforbusiness.md#listfolder) |비즈니스용 OneDrive 폴더에 파일을 나열합니다. |
-| [ListRootFolder](connectors-create-api-onedriveforbusiness.md#listrootfolder) |비즈니스용 OneDrive 루트 폴더에 파일을 나열합니다. |
-| [ExtractFolderV2](connectors-create-api-onedriveforbusiness.md#extractfolderv2) |비즈니스용 OneDrive로 폴더를 추출합니다. |
-
-### <a name="onedrive-for-business-triggers"></a>비즈니스용 OneDrive 트리거
-다음 이벤트를 수신할 수 있습니다.
-
-| 트리거 | 설명 |
-| --- | --- |
-| 파일을 만들 때 |비즈니스용 OneDrive 폴더에서 새 파일을 만들 때 흐름을 트리거합니다. |
-| 파일을 수정할 때 |비즈니스용 OneDrive 폴더에서 파일을 수정할 때 흐름을 트리거합니다. |
 
 ## <a name="create-a-connection-to-onedrive-for-business"></a>비즈니스용 OneDrive에 대한 연결 만들기
 비즈니스용 OneDrive로 논리 앱을 만들려면 먼저 **연결**을 만든 후에 다음 속성에 대한 세부 정보를 제공해야 합니다.
@@ -72,258 +39,10 @@ ms.openlocfilehash: 992b4b7bab8878355cbe936b75768e67b086286e
 
 > [!INCLUDE [Steps to create a connection to OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
 > 
-> [!TIP]
-> 다른 논리 앱에서 이 연결을 사용할 수 있습니다.
-> 
-> 
 
-## <a name="reference-for-onedrive-for-business"></a>비즈니스용 OneDrive에 대한 참조
-적용 버전: 1.0
+## <a name="view-the-swagger"></a>swagger 보기
 
-## <a name="getfilemetadata"></a>GetFileMetadata
-ID를 사용하여 파일 메타데이터 가져오기: ID를 사용하여 비즈니스용 OneDrive에서 파일 메타데이터를 검색합니다.
+[swagger 정보](/connectors/onedriveforbusinessconnector/)를 참조하세요.
 
-```GET: /datasets/default/files/{id}```
-
-| 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
-| --- | --- | --- | --- | --- | --- |
-| id |string |예 |path |없음 |파일 지정 |
-
-#### <a name="response"></a>응답
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 기본값 |작업이 실패했습니다. |
-
-## <a name="updatefile"></a>UpdateFile
-파일 업데이트: 비즈니스용 OneDrive에서 파일을 업데이트합니다.
-
-```PUT: /datasets/default/files/{id}```
-
-| 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
-| --- | --- | --- | --- | --- | --- |
-| id |string |예 |path |없음 |업데이트할 파일 지정 |
-| body | |예 |body |없음 |비즈니스용 OneDrive에서 업데이트할 파일의 콘텐츠 |
-
-#### <a name="response"></a>응답
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 기본값 |작업이 실패했습니다. |
-
-## <a name="deletefile"></a>DeleteFile
-파일 삭제: 비즈니스용 OneDrive에서 파일을 삭제합니다.
-
-```DELETE: /datasets/default/files/{id}```
-
-| 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
-| --- | --- | --- | --- | --- | --- |
-| id |string |예 |path |없음 |삭제할 파일 지정 |
-
-#### <a name="response"></a>응답
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 기본값 |작업이 실패했습니다. |
-
-## <a name="getfilemetadatabypath"></a>GetFileMetadataByPath
-경로를 사용하여 파일 메타데이터 가져오기: 경로를 사용하여 비즈니스용 OneDrive에서 파일 메타데이터를 검색합니다.
-
-```GET: /datasets/default/GetFileByPath```
-
-| 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
-| --- | --- | --- | --- | --- | --- |
-| path |string |yes |쿼리 |없음 |비즈니스용 OneDrive의 파일에 대한 고유 경로 |
-
-#### <a name="response"></a>응답
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 기본값 |작업이 실패했습니다. |
-
-## <a name="getfilecontentbypath"></a>GetFileContentByPath
-경로를 사용하여 파일 컨텐츠 가져오기: 경로를 사용하여 비즈니스용 OneDrive에서 파일 컨텐츠를 검색합니다.
-
-```GET: /datasets/default/GetFileContentByPath```
-
-| 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
-| --- | --- | --- | --- | --- | --- |
-| path |string |yes |쿼리 |없음 |비즈니스용 OneDrive의 파일에 대한 고유 경로 |
-
-#### <a name="response"></a>응답
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 기본값 |작업이 실패했습니다. |
-
-## <a name="getfilecontent"></a>GetFileContent
-ID를 사용하여 파일 콘텐츠 가져오기: ID를 사용하여 비즈니스용 OneDrive에서 파일 콘텐츠를 검색합니다.
-
-```GET: /datasets/default/files/{id}/content```
-
-| 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
-| --- | --- | --- | --- | --- | --- |
-| id |string |예 |path |없음 |파일 지정 |
-
-#### <a name="response"></a>응답
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 기본값 |작업이 실패했습니다. |
-
-## <a name="createfile"></a>CreateFile
-파일 만들기: 비즈니스용 OneDrive에 파일을 업로드합니다.
-
-```POST: /datasets/default/files```
-
-| 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
-| --- | --- | --- | --- | --- | --- |
-| folderPath |string |yes |쿼리 |없음 |비즈니스용 OneDrive에 파일을 업로드할 폴더 경로 |
-| name |string |yes |쿼리 |없음 |비즈니스용 OneDrive에서 만들 파일 이름 |
-| body | |예 |body |없음 |비즈니스용 OneDrive에 업로드할 파일의 콘텐츠 |
-
-#### <a name="response"></a>응답
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 기본값 |작업이 실패했습니다. |
-
-## <a name="copyfile"></a>CopyFile
-파일 복사: 비즈니스용 OneDrive에 파일을 복사합니다.
-
-```POST: /datasets/default/copyFile```
-
-| 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
-| --- | --- | --- | --- | --- | --- |
-| 원본 |string |yes |쿼리 |없음 |원본 파일에 대한 URL |
-| destination |string |yes |쿼리 |없음 |대상 파일 이름을 포함한 비즈니스용 OneDrive의 대상 파일 경로 |
-| overwrite |부울 |no |쿼리 |false |'true'로 설정할 경우 대상 덮어쓰기 |
-
-#### <a name="response"></a>응답
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 기본값 |작업이 실패했습니다. |
-
-## <a name="onnewfile"></a>OnNewFile
-파일을 만들 경우: 비즈니스용 OneDrive 폴더에서 새 파일을 만들 때 흐름을 트리거합니다.
-
-```GET: /datasets/default/triggers/onnewfile```
-
-| 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
-| --- | --- | --- | --- | --- | --- |
-| folderId |string |yes |쿼리 |없음 |폴더 지정 |
-
-#### <a name="response"></a>응답
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 기본값 |작업이 실패했습니다. |
-
-## <a name="onupdatedfile"></a>OnUpdatedFile
-파일을 수정할 경우: 비즈니스용 OneDrive 폴더에서 파일을 수정할 때 흐름을 트리거합니다.
-
-```GET: /datasets/default/triggers/onupdatedfile```
-
-| 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
-| --- | --- | --- | --- | --- | --- |
-| folderId |string |yes |쿼리 |없음 |폴더 지정 |
-
-#### <a name="response"></a>응답
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 기본값 |작업이 실패했습니다. |
-
-## <a name="listfolder"></a>ListFolder
-폴더에 파일 나열: 비즈니스용 OneDrive 폴더에 파일을 나열합니다.
-
-```GET: /datasets/default/folders/{id}```
-
-| 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
-| --- | --- | --- | --- | --- | --- |
-| id |string |예 |path |없음 |폴더 지정 |
-
-#### <a name="response"></a>응답
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 기본값 |작업이 실패했습니다. |
-
-## <a name="listrootfolder"></a>ListRootFolder
-루트 폴더 나열: 비즈니스용 OneDrive 루트 폴더에 파일을 나열합니다.
-
-```GET: /datasets/default/folders```
-
-이 호출에 대한 매개 변수는 없습니다.
-
-#### <a name="response"></a>응답
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 기본값 |작업이 실패했습니다. |
-
-## <a name="extractfolderv2"></a>ExtractFolderV2
-폴더 추출: 비즈니스용 OneDrive로 폴더를 추출합니다.
-
-```POST: /datasets/default/extractFolderV2```
-
-| 이름 | 데이터 형식 | 필수 | 위치 | 기본값 | 설명 |
-| --- | --- | --- | --- | --- | --- |
-| 원본 |string |yes |쿼리 |없음 |보관 파일의 경로 |
-| destination |string |yes |쿼리 |없음 |보관 콘텐츠를 추출할 비즈니스용 OneDrive의 경로 |
-| overwrite |부울 |no |쿼리 |false |'true'로 설정할 경우 대상 파일 덮어쓰기 |
-
-#### <a name="response"></a>응답
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 기본값 |작업이 실패했습니다. |
-
-## <a name="object-definitions"></a>개체 정의
-### <a name="datasetsmetadata"></a>DataSetsMetadata
-| 속성 이름 | 데이터 형식 | 필수 |
-| --- | --- | --- |
-| tabular |정의되지 않음 |아니요 |
-| Blob |정의되지 않음 |아니요 |
-
-### <a name="tabulardatasetsmetadata"></a>TabularDataSetsMetadata
-| 속성 이름 | 데이터 형식 | 필수 |
-| --- | --- | --- |
-| 원본 |string |아니요 |
-| displayName |string |아니요 |
-| urlEncoding |string |아니요 |
-| tableDisplayName |string |아니요 |
-| tablePluralName |string |아니요 |
-
-### <a name="blobdatasetsmetadata"></a>BlobDataSetsMetadata
-| 속성 이름 | 데이터 형식 | 필수 |
-| --- | --- | --- |
-| 원본 |string |아니요 |
-| displayName |string |아니요 |
-| urlEncoding |string |아니요 |
-
-### <a name="blobmetadata"></a>BlobMetadata
-| 속성 이름 | 데이터 형식 | 필수 |
-| --- | --- | --- |
-| id |string |아니요 |
-| Name |string |아니요 |
-| DisplayName |string |아니요 |
-| Path |string |아니요 |
-| LastModified |string |아니요 |
-| 크기 |정수 |아니요 |
-| MediaType |string |아니요 |
-| IsFolder |부울 |아니요 |
-| ETag |string |아니요 |
-| FileLocator |string |아니요 |
-
-### <a name="object"></a>Object
-## <a name="next-steps"></a>다음 단계
-[논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+## <a name="more-connectors"></a>추가 커넥터
+[API 목록](apis-list.md)으로 돌아갑니다.

@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: cb5c975d92b01e6fd40601b3607c0e472d893a16
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: c175d54fcc7e55bae5057adbb4b9dba0a8843fe2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/13/2017
 
 
 ---
@@ -139,11 +140,11 @@ LinkedIn Elevate에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
 
-       a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
+    a. [특성 추가]를 클릭하여 특성 세부 정보 페이지를 열고, 아래와 같이 부서 특성을 추가합니다.
+    
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
-
-       b. Click on **Ok** to save the attribute.
+    b. **확인**을 클릭하여 해당 특성을 저장합니다.
 
 10. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
 
@@ -253,3 +254,4 @@ Linked Elevate 응용 프로그램이 JIT(Just-in-time) 사용자 프로비저�
 [201]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_203.png
+

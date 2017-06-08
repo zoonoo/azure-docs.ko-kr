@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 68cb08a8b40220639f880c83a44014b81598d45a
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: a95c534d8f2ad5e8e2c7bdfc2b11405c70312727
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -29,9 +30,11 @@ ms.lasthandoff: 04/06/2017
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli[주](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "LAMP 스택을 사용하여 가상 컴퓨터 확장 집합 만들기")]
+[!code-azurecli-interactive[주](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "LAMP 스택을 사용하여 가상 컴퓨터 확장 집합 만들기")]
 
 ## <a name="connect"></a>연결
 
@@ -43,7 +46,7 @@ ms.lasthandoff: 04/06/2017
 
 다음 명령을 실행하여 리소스 그룹, 확장 집합, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli
+```azurecli-interactive 
 az group delete -n myResourceGroup
 ```
 

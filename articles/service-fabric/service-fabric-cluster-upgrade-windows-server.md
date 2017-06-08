@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 6196cb7fa13cf664faa72b7f5f5e0645e4402739
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0c62f84993c83619cd55f9081450deaf0b21c090
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -112,6 +113,10 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 > 인터넷에 연결되지 않은 클러스터를 실행하는 경우 Service Fabric 팀 블로그를 모니터링하여 새 릴리스를 확인해야 합니다. 시스템은 새 릴리스를 알리는 클러스터 상태 경고를 표시하지 않습니다.  
 >
 >
+
+#### <a name="auto-provisioning-vs-manual-provisioning"></a>자동 프로비전 및 수동 프로비전
+최신 코드 버전의 자동 다운로드 및 등록을 사용하도록 설정하려면 Service Fabric 업데이트 서비스를 설정합니다. 지침에 대해서는 Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt [독립 실행형 패키지](service-fabric-cluster-standalone-package-contents.md)를 참조하세요.
+수동 프로세스에 대해서는 아래의 지침을 따르세요.
 
 구성 업그레이드를 시작하기 전에 클러스터 구성을 수정하여 다음 속성을 false로 설정합니다.
 

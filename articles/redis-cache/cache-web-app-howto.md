@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/27/2017
+ms.date: 05/09/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 076a85b7b965f163255e919eb61700aef0d1fc18
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: f23f71cc01eccf17d36885f786de9a7517606803
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -190,7 +191,7 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
 
     ```xml
     <connectionStrings>
-        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
 
@@ -203,10 +204,13 @@ Visual Studio 2013이 있는 경우 [최신 Visual Studio 2013용 Azure SDK를 �
         <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
       </configSections>
       <connectionStrings>
-        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
       </connectionStrings>
       ...
       ```
+
+    > [!NOTE]
+    > 연결 문자열은 자습서를 작성하는 데 사용된 Visual Studio 및 SQL Server Express 버전에 따라 다를 수 있습니다. 설치에 맞게 Web.config 템플릿을 구성해야 하며 `(LocalDB)\v11.0`(SQL Server Express 2012에서) 또는 `Data Source=(LocalDB)\MSSQLLocalDB`(SQL Server Express 2014 이상에서)와 같은 `Data Source` 항목이 포함될 수 있습니다. 연결 문자열 및 SQL Express 버전에 대한 자세한 내용은 [SQL Server 2016 Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-2016-express-localdb)를 참조하세요.
 
 ### <a name="add-the-controller"></a>컨트롤러 추가
 1. **F6** 을 눌러 프로젝트를 빌드합니다. 

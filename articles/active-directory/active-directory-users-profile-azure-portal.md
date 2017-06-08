@@ -1,5 +1,6 @@
 ---
-title: "Azure Active Directory 미리 보기에서 사용자에 대한 프로필 정보 추가 또는 변경 | Microsoft Docs"
+
+title: "Azure Active Directory에서 사용자에 대한 프로필 정보 추가 또는 변경 | Microsoft Docs"
 description: "Azure Active Directory에서 프로필 사진을 포함하여 사용자 프로필을 추가하는 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
@@ -12,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 0dc1f1ef73334187fe76302ff3bd5a5446dec768
-ms.openlocfilehash: 21370f9c30ac1dcaa979ab9724155c91bda128f7
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: ccc6dfaf1653d5888541d78f5e9e20b183709574
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory-preview"></a>Azure Active Directory 미리 보기에서 사용자에 대한 프로필 정보 추가 또는 변경
-이 문서에서는 Azure Active Directory(Azure AD) 미리 보기에서 프로필 사진 또는 전화 및 전자 메일 인증 정보와 같은 사용자 프로필 정보를 추가하는 방법을 설명합니다. [무엇이 미리 보기 상태인가요?](active-directory-preview-explainer.md) 조직 내에서 새 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-users-create-azure-portal.md)를 참조하세요.
+# <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Azure Active Directory에서 사용자에 대한 프로필 정보 추가 또는 변경
+이 문서에서는 Azure AD(Azure Active Directory)에서 프로필 사진 또는 전화 및 전자 메일 인증 정보와 같은 사용자 프로필 정보를 추가하는 방법을 설명합니다. 조직 내에서 새 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-users-create-azure-portal.md)를 참조하세요.
 
 ## <a name="to-change-profile-information"></a>프로필 정보를 변경하려면
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
@@ -39,9 +41,9 @@ ms.lasthandoff: 02/27/2017
 6. 프로필 정보를 추가하거나 변경합니다. 그런 다음 명령 모음에서 **저장**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Active Directory 미리 보기에 새 사용자 추가](active-directory-users-create-azure-portal.md)
-* [Azure Active Directory 미리 보기에서 사용자 암호 재설정](active-directory-users-reset-password-azure-portal.md)
-* [Azure Active Directory 미리 보기에서 관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)
-* [Azure Active Directory 미리 보기에서 사용자에 대한 프로필 정보 추가 또는 변경](active-directory-users-work-info-azure-portal.md)
-* [Azure Active Directory 미리 보기의 디렉터리에서 사용자 삭제](active-directory-users-delete-user-azure-portal.md)
+* [Azure Active Directory에 새 사용자 추가](active-directory-users-create-azure-portal.md)
+* [Azure Active Directory에서 사용자 암호 재설정](active-directory-users-reset-password-azure-portal.md)
+* [Azure Active Directory에서 관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)
+* [Azure Active Directory에서 사용자에 대한 프로필 정보 추가 또는 변경](active-directory-users-work-info-azure-portal.md)
+* [Azure Active Directory의 디렉터리에서 사용자 삭제](active-directory-users-delete-user-azure-portal.md)
 

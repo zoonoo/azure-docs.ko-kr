@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/22/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: e6eaf4e7a3b0aa8241c026f66150d3f6e9d933d0
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: e8774cc290847d48ecdc5dcdac1f2533fdc7d072
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -25,6 +26,9 @@ ms.lasthandoff: 04/21/2017
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>연결된 팩터리의 미리 구성된 솔루션을 위해 Windows 또는 Linux에 게이트웨이 배포
 
 이 문서의 단계에서는 Windows 또는 Linux에서 Docker를 사용하여 게이트웨이를 배포하는 방법을 보여 줍니다. 게이트웨이를 사용하면 연결된 팩터리의 미리 구성된 솔루션에 대한 연결을 사용하도록 설정할 수 있습니다.
+
+> [!NOTE]
+> Docker 컨테이너에서 실행되는 게이트웨이 소프트웨어는 [Azure IoT Edge]입니다.
 
 ## <a name="windows-deployment"></a>Windows 배포
 
@@ -149,4 +153,4 @@ Linux 게이트웨이 장치에서 [Docker를 설치]합니다.
 [오픈 소스 OPC UA 클라이언트]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
 [Docker를 설치]: https://www.docker.com/community-edition#/download
 [lnk-walkthrough]: iot-suite-overview.md
-
+[Azure IoT Edge]: https://github.com/Azure/iot-edge

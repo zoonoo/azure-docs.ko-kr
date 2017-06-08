@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 05/12/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 43f18fb3ce873eef5c2d96a89ab41fc6efc443d8
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: a36fce44efb3c32f83f33b19d2bca5ad73782a1b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/15/2017
 
 
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 개요
-Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 
+Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
 
 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다. Express 경로 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 Express 경로 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다. ExpressRoute를 사용하여 네트워크를 Microsoft에 연결하는 방법에 대한 내용은 [ExpressRoute 연결 모델](expressroute-connectivity-models.md)을 참조하세요.
 
@@ -56,7 +56,7 @@ Express 경로 연결을 사용하면 다음 서비스에 액세스할 수 있�
 
 * Microsoft Azure 서비스
 * Microsoft Office 365 서비스
-* Microsoft CRM Online 서비스 
+* Microsoft Dynamics 365
 
 Express 경로를 통해 지원되는 서비스에 대한 자세한 목록은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 방문할 수 있습니다.
 

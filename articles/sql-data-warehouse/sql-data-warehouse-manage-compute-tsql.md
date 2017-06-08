@@ -3,7 +3,7 @@ title: "Azure SQL Data Warehouse의 T-SQL을 사용한 일시 중지, 다시 시
 description: "DWU를 조정하여 성능을 확장하는 Transact-SQL (T-SQL) 작업입니다. 사용량이 많지 않은 시간 동안 다시 조정하여 비용을 절감합니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 ms.assetid: a970d939-2adf-4856-8a78-d4fe8ab2cceb
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/30/2017
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: elbutter;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: e37a943c775261a6817169c95a931f1b268305d9
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/31/2017
 
 

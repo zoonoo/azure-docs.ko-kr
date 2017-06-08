@@ -1,5 +1,5 @@
 ---
-title: "Azure AD v&2;.0에서 지원되는 인증 프로토콜에 대해 알아보기 | Microsoft Docs"
+title: "Azure AD v 2.0에서 지원되는 인증 프로토콜에 대해 알아보기 | Microsoft Docs"
 description: "Azure AD v2.0 끝점에서 지원하는 프로토콜에 대한 가이드입니다."
 services: active-directory
 documentationcenter: 
@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 02bf4191e60bfe7a49a37eed10f7571e08502150
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: b665f45c66b35ab93e19ed1b54a6e215c93dcf57
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -26,8 +29,8 @@ v2.0 끝점은 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0으로 Ia
 
 > [!NOTE]
 > 일부 Azure Active Directory 시나리오 및 기능만 v2.0 끝점에서 지원합니다.  v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
-> 
-> 
+>
+>
 
 ## <a name="the-basics"></a>기본 사항
 거의 모든 OAuth 및 OpenID Connect 흐름에서 교환에 참여하는 다음 네 가지 요소가 있습니다.
@@ -79,12 +82,5 @@ v2.0 끝점에서 사용되는 다양한 토큰 형식에 대한 자세한 내�
 * [Open ID Connect를 사용하는 웹앱 빌드](active-directory-v2-protocols-oidc.md)
 * [OAuth 2.0 암시적 흐름으로 단일 페이지 앱 구축](active-directory-v2-protocols-implicit.md)
 * [OAuth 2.0 클라이언트 자격 증명 흐름으로 디먼 또는 서버 쪽 프로세스 빌드](active-directory-v2-protocols-oauth-client-creds.md)
-* 흐름 대신 OAuth 2.0으로 웹 API에서 토큰 가져오기(출시 예정)
-
-<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* [OAuth 2.0 On Behalf Of 흐름으로 웹 API에서 토큰 가져오기](active-directory-v2-protocols-oauth-on-behalf-of.md)
 

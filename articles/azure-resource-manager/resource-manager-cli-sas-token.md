@@ -12,11 +12,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 05/31/2017
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 2ab1cf399f47e2c19647b2a2a82de5c11f08e8c8
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/21/2017
 
 
@@ -63,8 +64,7 @@ az storage blob upload \
 저장소 계정에 개인 템플릿을 배포하려면 SAS 토큰을 생성하고 해당 템플릿의 URI에 포함합니다. 배포를 완료할 만큼 충분한 여유를 두고 만료 기간을 설정합니다.
    
 ```azurecli
-seconds='@'$(( $(date +%s) + 1800 ))
-expiretime=$(date +%Y-%m-%dT%H:%MZ --date=$seconds)
+expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group ManageGroup \
     --name {your-unique-name} \

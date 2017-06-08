@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: f09dd58f17b228d6381af95c40c5391886bbb8f1
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 845dd16c703362e9e64f02832a35c90e7e77e264
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -167,164 +168,9 @@ Logic Apps를 사용하여 Dynamics 365(온라인)에 연결하고 레코드를 
 
 논리 앱 문제 해결에 대한 자세한 내용은 [논리 앱 오류 진단](../logic-apps/logic-apps-diagnosing-failures.md)을 참조하세요.
 
-## <a name="technical-details"></a>기술 세부 정보
-## <a name="triggers"></a>트리거
-| 트리거 | 설명 |
-| --- | --- |
-| 레코드가 만들어질 때 |Dynamics 365에서 개체가 만들어질 때 흐름을 트리거합니다. |
-| 레코드가 업데이트될 때 |Dynamics 365에서 개체가 만들어질 때 흐름을 트리거합니다. |
-| 레코드가 삭제될 때 |Dynamics 365에서 개체가 삭제될 때 흐름을 트리거합니다. |
+## <a name="view-the-swagger"></a>swagger 보기
 
-## <a name="actions"></a>작업
-| 작업 | 설명 |
-| --- | --- |
-| 레코드 목록 |이 작업은 엔터티에 대한 레코드를 가져옵니다. |
-| 새 레코드 만들기 |이 작업은 엔터티에 대한 새 레코드를 만듭니다. |
-| 레코드 가져오기 |이 작업은 엔터티에 대해 지정된 레코드를 가져옵니다. |
-| 레코드 삭제 |이 작업은 엔터티 컬렉션에서 레코드를 삭제합니다. |
-| 레코드 업데이트 |이 작업은 엔터티에 대한 기존 레코드를 업데이트합니다. |
-
-### <a name="trigger-and-action-details"></a>트리거 및 작업 세부 정보
-이 섹션에서는 모든 필수 또는 선택적 입력 속성 및 커넥터와 연결된 모든 해당 출력을 비롯한 각 트리거 및 작업에 대한 특정 세부 정보를 참조하세요.
-
-#### <a name="when-a-record-is-created"></a>레코드가 만들어질 때
-Dynamics 365에서 개체가 만들어질 때 흐름을 트리거합니다.
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| dataset* |조직 이름 |Contoso와 같은 Dynamics 365 조직의 이름 |
-| table* |엔터티 이름 |엔터티 이름 |
-| $filter |필터 쿼리 |반환된 항목을 제한할 ODATA 필터 쿼리 |
-| $orderby |Order By |항목의 순서를 지정하는 ODATA orderBy 쿼리 |
-
-별표(*)는 속성이 필수 사항임을 의미합니다.
-
-##### <a name="output-details"></a>출력 세부 정보
-ItemsList
-
-| 속성 이름 | 데이터 형식 |
-| --- | --- |
-| value |array |
-
-#### <a name="when-a-record-is-updated"></a>레코드가 업데이트될 때
-Dynamics 365에서 개체가 만들어질 때 흐름을 트리거합니다.
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| dataset* |조직 이름 |Contoso와 같은 Dynamics 365 조직의 이름 |
-| table* |엔터티 이름 |엔터티 이름 |
-
-별표(*)는 속성이 필수 사항임을 의미합니다.
-
-##### <a name="output-details"></a>출력 세부 정보
-ItemsList
-
-| 속성 이름 | 데이터 형식 |
-| --- | --- |
-| value |array |
-
-#### <a name="when-a-record-is-deleted"></a>레코드가 삭제될 때
-Dynamics 365에서 개체가 삭제될 때 흐름을 트리거합니다.
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| dataset* |조직 이름 |Contoso와 같은 Dynamics 365 조직의 이름 |
-| table* |엔터티 이름 |엔터티 이름 |
-
-
-별표(*)는 속성이 필수 사항임을 의미합니다.
-
-##### <a name="output-details"></a>출력 세부 정보
-ItemsList
-
-| 속성 이름 | 데이터 형식 |
-| --- | --- |
-| value |array |
-
-#### <a name="list-records"></a>레코드 목록
-이 작업은 엔터티에 대한 레코드를 가져옵니다.
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| dataset* |조직 이름 |Contoso와 같은 Dynamics 365 조직의 이름 |
-| table* |엔터티 이름 |엔터티 이름 |
-| $filter |필터 쿼리 |반환된 항목을 제한할 ODATA 필터 쿼리 |
-| $orderby |Order By |항목의 순서를 지정하는 ODATA orderBy 쿼리 |
-
-별표(*)는 속성이 필수 사항임을 의미합니다.
-
-##### <a name="output-details"></a>출력 세부 정보
-ItemsList
-
-| 속성 이름 | 데이터 형식 |
-| --- | --- |
-| value |array |
-
-#### <a name="create-a-new-record"></a>새 레코드 만들기
-이 작업은 엔터티에 대한 새 레코드를 만듭니다.
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| dataset* |조직 이름 |Contoso와 같은 Dynamics 365 조직의 이름 |
-| table* |엔터티 이름 |엔터티 이름 |
-
-별표(*)는 속성이 필수 사항임을 의미합니다.
-
-##### <a name="output-details"></a>출력 세부 정보
-없음.
-
-#### <a name="get-record"></a>레코드 가져오기
-이 작업은 엔터티에 대해 지정된 레코드를 가져옵니다.
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| dataset* |조직 이름 |Contoso와 같은 Dynamics 365 조직의 이름 |
-| table* |엔터티 이름 |엔터티 이름 |
-| id* |항목 ID |레코드에 대한 ID를 지정 |
-
-별표(*)는 속성이 필수 사항임을 의미합니다.
-
-##### <a name="output-details"></a>출력 세부 정보
-없음.
-
-#### <a name="delete-a-record"></a>레코드 삭제
-이 작업은 엔터티 컬렉션에서 레코드를 삭제합니다.
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| dataset* |조직 이름 |Contoso와 같은 Dynamics 365 조직의 이름 |
-| table* |엔터티 이름 |엔터티 이름 |
-| id* |항목 ID |레코드에 대한 ID를 지정 |
-
-별표(*)는 속성이 필수 사항임을 의미합니다.
-
-#### <a name="update-a-record"></a>레코드 업데이트
-이 작업은 엔터티에 대한 기존 레코드를 업데이트합니다.
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| dataset* |조직 이름 |Contoso와 같은 Dynamics 365 조직의 이름 |
-| table* |엔터티 이름 |엔터티 이름 |
-| id* |파일 ID |레코드에 대한 ID를 지정 |
-
-별표(*)는 속성이 필수 사항임을 의미합니다.
-
-##### <a name="output-details"></a>출력 세부 정보
-없음.
-
-## <a name="http-responses"></a>HTTP 응답
-작업 및 트리거는 다음 HTTP 상태 코드 중 하나 이상을 반환할 수 있습니다.
-
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 202 |수락됨 |
-| 400 |잘못된 요청 |
-| 401 |권한 없음 |
-| 403 |사용할 수 없음 |
-| 404 |찾을 수 없음 |
-| 500 |내부 서버 오류. 알 수 없는 오류 발생. |
-| 기본값 |작업이 실패했습니다. |
+[swagger 정보](/connectors/crm/)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.

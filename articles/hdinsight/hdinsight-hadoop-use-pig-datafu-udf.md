@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 05/04/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: ca390e1e93660eb27c08d1fce0574c6e3646a329
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: b9dcb069003c647073c978feb588debb689d560e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
 # <a name="use-datafu-with-pig-on-hdinsight"></a>HDInsight에서 pig와 함께 DataFu 사용
 
-DataFu은 Hadoop과 함께 사용하기 위해 공개 소스 라이브러리의 컬렉션입니다. 이 문서에서는 HDInsight 클러스터에서 DataFu를 사용하는 방법과 Pig와 함께 DataFu 사용자 정의 함수(UDF)를 사용하는 방법을 배웁니다.
+HDInsight과 함께 DataFu를 사용하는 방법에 대해 알아봅니다. DataFu는 Hadoop에서 Pig와 함께 사용하기 위한 오픈 소스 라이브러리의 컬렉션입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -33,7 +34,7 @@ DataFu은 Hadoop과 함께 사용하기 위해 공개 소스 라이브러리의 
 * Azure HDInsight 클러스터(Linux 또는 Windows 기반)
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
 
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
@@ -48,31 +49,31 @@ Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니
 
 1. SSH를 사용하여 Linux 기반 HDInsight 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-2. 다음 명령을 사용하여 wget 유틸리티를 사용하여 DataFu jar 파일을 다운로드하거나 브라우저에 링크를 복사하여 붙여 넣여 다운로드를 시작합니다.
+2. 다음 명령을 사용하여 wget 유틸리티를 사용하여 DataFu jar 파일을 다운로드하거나 브라우저에 링크를 복사하여 붙여 넣어 다운로드를 시작합니다.
 
     ```
     wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
     ```
 
-3. 그런 다음 HDInsight 클러스터의 기본 저장소에 파일을 업로드합니다. 이렇게 하면 클러스터의 모든 노드에서 파일을 사용할 수 있으며, 클러스터를 삭제하고 다시 만들더라도 파일이 저장소에 남아 있습니다.
+3. 그런 다음 HDInsight 클러스터의 기본 저장소에 파일을 업로드합니다. 기본 저장소에 파일을 배치하면 클러스터의 모든 노드에 사용할 수 있습니다.
 
     ```
     hdfs dfs -put datafu-1.2.0.jar /example/jars
     ```
 
     > [!NOTE]
-    > 위의 예제에서는 이 디렉터리가 클러스터 저장소에 이미 존재하기 때문에 jar 파일을 `/example/jars`에 저장합니다. HDInsight 클러스터 저장소에 원하는 모든 위치를 사용할 수 있습니다.
+    > 이전 명령은 이 디렉터리가 클러스터 저장소에 이미 존재하기 때문에 jar 파일을 `/example/jars`에 저장합니다. HDInsight 클러스터 저장소에 원하는 모든 위치를 사용할 수 있습니다.
 
 ## <a name="use-datafu-with-pig"></a>Pig와 함께 DataFu 사용
 
-이 섹션의 단계에서는 HDInsight에서 Pig를 사용하는 것에 익숙하고 Pig Latin 문만 제공하고 클러스터와 함께 사용하는 방법에 대한 단계는 제공하지 않는 것을 가정합니다. HDInsight와 함께 Pig 사용에 대한 자세한 내용은 [Pig와 함께 HDInsight 사용](hdinsight-use-pig.md)을 참조하세요.
+이 섹션의 단계에서는 HDInsight에서 Pig 사용에 익숙하다고 가정합니다. HDInsight와 함께 Pig 사용에 대한 자세한 내용은 [Pig와 함께 HDInsight 사용](hdinsight-use-pig.md)을 참조하세요.
 
 > [!IMPORTANT]
 > Linux 기반 HDInsight 클러스터의 Pig에서 DataFu를 사용하는 경우 먼저 jar 파일을 등록해야 합니다.
 >
-> 클러스터에서 Azure Storage를 사용하는 경우에는 `wasb://` 패스를 사용해야 합니다. 예: `register wasb:///example/jars/datafu-1.2.0.jar`.
+> 클러스터에서 Azure Storage를 사용하는 경우 `wasb://` 경로를 사용합니다. 예: `register wasb:///example/jars/datafu-1.2.0.jar`.
 >
-> 클러스터에서 Azure Data Lake Store를 사용하는 경우에는 `adl://` 패스를 사용해야 합니다. 예: `register adl://home/example/jars/datafu-1.2.0.jar`.
+> 클러스터에서 Azure Data Lake Store를 사용하는 경우 `adl://` 경로를 사용합니다. 예: `register adl://home/example/jars/datafu-1.2.0.jar`.
 >
 > DataFu는 기본적으로 Windows 기반 HDInsight 클러스터에 등록됩니다.
 
@@ -80,17 +81,19 @@ Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니
 
     DEFINE SHA datafu.pig.hash.SHA();
 
-이는 SHA 해시 함수에 대해 `SHA` 라는 별칭을 정의합니다. 그러면 이를 Pig Latin 스크립트에서 사용하여 입력 데이터에 대한 해시를 생성할 수 있습니다. 예를 들어, 다음은 입력 데이터의 이름을 해시 값으로 대체합니다.
+이 문은 SHA 해시 함수에 대해 `SHA`라는 별칭을 정의합니다. 그러면 이 별칭을 Pig Latin 스크립트에서 사용하여 입력 데이터에 대한 해시를 생성할 수 있습니다. 예를 들어 다음 코드는 입력 데이터의 이름을 해시 값으로 대체합니다.
 
-    raw = LOAD '/data/raw/' USING PigStorage(',') AS  
-        (name:chararray,
-        int1:int,
-        int2:int,
-        int3:int);
-    mask = FOREACH raw GENERATE SHA(name), int1, int2, int3;
-    DUMP mask;
+```piglatin
+raw = LOAD '/data/raw/' USING PigStorage(',') AS  
+    (name:chararray,
+    int1:int,
+    int2:int,
+    int3:int);
+mask = FOREACH raw GENERATE SHA(name), int1, int2, int3;
+DUMP mask;
+```
 
-다음과 같은 입력 데이터와 함께 사용하는 경우
+이 코드가 다음 입력 데이터와 함께 사용되는 경우:
 
     Lana Zemljaric,5,9,1
     Qiong Zhong,9,3,6

@@ -2,6 +2,7 @@
 ## [Azure DevTest Labs 정보](devtest-lab-overview.md)
 ## [개념](devtest-lab-concepts.md)
 ## 시나리오
+### [개발자용 랩 사용](devtest-lab-developer-lab.md)
 ### [학습에 랩 사용](devtest-lab-training-lab.md)
 
 # 시작
@@ -9,10 +10,11 @@
 ## [첫 번째 VM 만들기](devtest-lab-create-first-vm.md)
 ## [시작 정책 설정](devtest-lab-get-started-with-lab-policies.md)
 
-# 방법
+# 방법 가이드
 ## 랩에서 VM 사용
 ### [VM 만들기](devtest-lab-add-vm.md)
 ### [클레임할 수 있는 VM 만들기](devtest-lab-add-claimable-vm.md)
+### [Azure CLI로 VM 만들기 및 관리](devtest-lab-vmcli.md)
 
 ## 랩에서 환경 사용
 ### [환경 만들기](devtest-lab-create-environment-from-arm.md)
@@ -44,6 +46,8 @@
 ## 가상 네트워크 관리
 ### [가상 네트워크 구성](devtest-lab-configure-vnet.md)
 ### [IP 구성 옵션 선택](devtest-lab-shared-ip.md)
+
+## [랩 확장](devtest-lab-scale-lab.md)
 
 # 참조
 ## [CLI 2.0](/cli/azure/lab)

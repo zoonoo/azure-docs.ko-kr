@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/09/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 1673e14285456307441c836ba2225556416d4a7b
-ms.openlocfilehash: 4c50968dd66ab351a5ef1b8e06557855870c5d4e
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 6bc564cc5121a6b7b7896f1d90177140bee15fbb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -131,7 +132,7 @@ Azure AD 로그인 페이지는 현재 확인 상태를 사용하여 Azure AD에
 기본 특성 userPrincipalName을 유지하는 것이 좋습니다. 이 특성은 라우팅할 수 없고 확인할 수 없는 경우 다른 특성(전자 메일 등)을 로그인 ID를 보유하는 특성으로 선택할 수 있습니다. 대체 ID로도 알려져 있습니다. 대체 ID 특성 값은 RFC 822 표준을 따라야 합니다. 암호 SSO 및 페더레이션 SSO 모두에 대체 ID를 로그인 솔루션으로 사용할 수 있습니다.
 
 > [!NOTE]
-> 대체 ID를 사용하면 모든 Office 365 워크로드 및 통과 인증과 호환되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](https://technet.microsoft.com/library/dn659436.aspx)을 참조하세요.
+> 대체 ID를 사용하면 일부 Office 365 워크로드와 호환되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](https://technet.microsoft.com/library/dn659436.aspx)을 참조하세요.
 >
 >
 

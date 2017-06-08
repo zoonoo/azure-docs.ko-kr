@@ -61,6 +61,9 @@
 ### [뷰](operations-management-suite-solutions-resources-views.md)
 ### [모범 사례](operations-management-suite-solutions-best-practices.md)
 
+## 관리 시나리오
+### [Runbook에서 분석 데이터 수집](operations-management-suite-runbook-datacollect.md)
+
 ## [OMS와 통합](operations-management-suite-integration.md)
 
 # 참조

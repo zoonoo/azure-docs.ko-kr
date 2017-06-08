@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory 미리 보기에서 엔터프라이즈 앱에 대한 Single Sign-On 관리 | Microsoft Docs"
+title: "Azure Active Directory에서 엔터프라이즈 앱에 대한 Single Sign-On 관리 | Microsoft Docs"
 description: "Azure Active Directory를 사용하여 엔터프라이즈 앱에 대한 Single Sign-On을 관리하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: 
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 05/04/2017
 ms.author: asmalser
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f03079498568f52802b34ce57242a414e648fe3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 118b77064a96585b0d5b951ca56313776021624e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="preview-managing-single-sign-on-for-enterprise-apps-in-the-new-azure-portal"></a>미리 보기: 새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리
+# <a name="managing-single-sign-on-for-enterprise-apps"></a>엔터프라이즈 앱에 대한 Single Sign-On 관리
 > [!div class="op_single_selector"]
 > * [Azure 포털](active-directory-enterprise-apps-manage-sso.md)
 > * [Azure 클래식 포털](active-directory-sso-integrate-saas-apps.md)
 > 
-> 
 
-이 문서에서는 [Azure 포털](https://portal.azure.com)을 사용하여 응용 프로그램, 특히 [Azure AD(Azure Active Directory) 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)에서 추가된 응용 프로그램에 대한 Single Sign-On 설정을 관리하는 방법을 설명합니다. Single Sign-On에 대한 Azure AD 관리 환경은 현재 공개 미리 보기이며 이 문서에서는 새로운 기능뿐만 아니라 미리 보기 기간 동안만 적용될 몇 가지 임시 제한 사항에 대해 설명합니다. [미리 보기 상태에서의 기능](active-directory-preview-explainer.md)
+이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 응용 프로그램, 특히 [Azure Active Directory 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)에서 추가된 응용 프로그램에 대한 Single Sign-On 설정을 관리하는 방법을 설명합니다. 
 
-## <a name="finding-your-apps-in-the-new-portal"></a>새 포털에서 앱 찾기
-2016년 9월을 기준으로 [Azure 클래식 포털](https://manage.windowsazure.com) 내의 [Azure Active Directory 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)를 사용하여 디렉터리 관리자에 의해 디렉터리의 Single Sign-On이 구성된 모든 응용 프로그램을 이제 Azure Portal에서 확인하고 관리할 수 있습니다.
-
-[포털](https://portal.azure.com)에서 **서비스 더 보기** 목록에 있을 수 있는 링크인 Azure Portal의 **엔터프라이즈 응용 프로그램** 섹션에서 이러한 응용 프로그램을 확인할 수 있습니다. 엔터프라이즈 앱은 조직 내에서 사용자가 배포하고 사용하는 앱입니다.
+## <a name="finding-your-apps"></a>앱 찾기
+## <a name="finding-your-apps-in-the-portal"></a>포털에서 앱 찾기
+[Azure Active Directory 응용 프로그램 갤러리](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)를 사용하여 디렉터리 관리자에 의해 디렉터리의 Single Sign-On이 구성된 모든 응용 프로그램을 이제 [Azure Portal](https://portal.azure.com)에서 확인하고 관리할 수 있습니다. 응용 프로그램은 포털의 **추가 서비스** &gt; **엔터프라이즈 응용 프로그램** 섹션에서 찾을 수 있습니다. 엔터프라이즈 앱은 조직 내에서 배포 및 사용되는 앱입니다.
 
 ![엔터프라이즈 응용 프로그램 블레이드][1]
 
@@ -65,14 +65,10 @@ Single Sign-On 설정을 관리하려면 **Single Sign-On**을 선택합니다.
 ### <a name="user-attributes"></a>사용자 특성
 여기에서 관리자는 사용자 로그인마다 Azure AD가 응용 프로그램에 발행하는 SAML 토큰에서 전송되는 특성을 보고 편집할 수 있습니다.
 
-첫 번째 미리 보기 릴리스의 경우 편집 가능하며 지원되는 유일한 특성은 **사용자 ID** 특성입니다. 이 특성의 값은 응용 프로그램 내에서 각 사용자를 고유하게 식별하는 Azure AD의 필드입니다. 예를 들어 "메일 주소"를 사용자 이름 및 고유 식별자로 사용하여 앱이 배포된 경우 해당 값은 Azure AD의 "user.mail" 필드로 설정됩니다.
-
-추가 특성의 편집은 후속 미리 보기에서 지원됩니다.
+편집 가능하며 지원되는 유일한 특성은 **사용자 ID** 특성입니다. 이 특성의 값은 응용 프로그램 내에서 각 사용자를 고유하게 식별하는 Azure AD의 필드입니다. 예를 들어 "메일 주소"를 사용자 이름 및 고유 식별자로 사용하여 앱이 배포된 경우 해당 값은 Azure AD의 "user.mail" 필드로 설정됩니다.
 
 ### <a name="saml-signing-certificate"></a>SAML 서명 인증서
 이 섹션에서는 Azure AD가 사용자 인증마다 응용 프로그램에 발급된 SAML 토큰을 서명하는 데 사용하는 인증서의 세부 정보를 보여 줍니다. 이를 통해 만료 날짜를 포함하여 현재 인증서의 속성을 검사할 수 있습니다.
-
-인증서를 롤오버하고 추가 인증서 옵션을 관리하는 기능은 후속 미리 보기 릴리스에서 지원됩니다. 전체 인증서 관리는 [Azure 클래식 포털](active-directory-sso-certs.md)에서 여전히 수행할 수 있습니다.
 
 ### <a name="application-configuration"></a>응용 프로그램 구성
 마지막 섹션에서는 Azure Active Directory를 ID 공급자로 사용하도록 응용 프로그램 자체를 구성하는 데 필요한 설명서 및/또는 컨트롤을 제공합니다.
@@ -80,7 +76,7 @@ Single Sign-On 설정을 관리하려면 **Single Sign-On**을 선택합니다.
 **응용 프로그램 구성** 플라이아웃 메뉴에서 응용 프로그램을 구성하기 위해 포함된 간결한 새 지침을 제공합니다. 이는 새 Azure Portal에 고유한 또 다른 새 기능입니다.
 
 > [!NOTE]
-> 포함된 설명서의 전체 예제를 보려면 Salesforce.com 응용 프로그램을 참조하세요. 추가 앱에 대한 설명서는 미리 보기 기간 동안 계속 추가됩니다.
+> 포함된 설명서의 전체 예제를 보려면 Salesforce.com 응용 프로그램을 참조하세요. 추가 앱에 대한 설명서는 계속 추가됩니다.
 > 
 > 
 
@@ -96,14 +92,13 @@ Single Sign-On 설정을 관리하려면 **Single Sign-On**을 선택합니다.
 
 ![연결된 로그온][5]
 
+##<a name="feedback"></a>사용자 의견
+
+향상된 Azure AD 환경 사용이 사용자의 마음에 들기를 바랍니다. 사용자 의견을 계속 보내주세요! [피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal)의 **관리자 포털Admin Portal** 섹션에서 개선을 위한 의견과 아이디어를 게시합니다.  매일 멋진 새로운 기능을 구축하는 방법을 기대하며, 사용자의 지침에 따라 다음에 구축할 기능을 구체화하고 정의하겠습니다.
+
 [1]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.PNG
 [3]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.PNG
 [4]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.PNG
 [5]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.PNG
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

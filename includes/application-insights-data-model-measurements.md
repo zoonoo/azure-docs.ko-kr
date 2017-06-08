@@ -6,12 +6,12 @@
 응용 프로그램 분석에서 [사용자 지정 측정값](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H)을 쿼리할 수 있습니다.
 
 ```
-customEvents 
-| where customMeasurements != "" 
+customEvents
+| where customMeasurements != ""
 | summarize avg(todouble(customMeasurements["Completion Time"]) * itemCount)
 ```
 
  > [!NOTE]
- > 사용자 지정 측정값은 현재 소속된 원격 분석 항목과 연결됩니다. 이들은 이러한 측정값이 포함된 원격 분석 항목을 사용하여 샘플링됩니다. 다른 원격 분석 유형과 독립적 관계에 있는 측정값을 추적하려면 [메트릭 원격 분석](../articles/application-insights/app-insights-api-custom-events-metrics.md#send-metrics)을 사용하세요.
+ > 사용자 지정 측정값은 현재 소속된 원격 분석 항목과 연결됩니다. 이들은 이러한 측정값이 포함된 원격 분석 항목을 사용하여 샘플링됩니다. 다른 원격 분석 유형과 독립적 관계에 있는 측정값을 추적하려면 [메트릭 원격 분석](../articles/application-insights/app-insights-api-custom-events-metrics.md)을 사용하세요.
 
 최대 키 길이: 150

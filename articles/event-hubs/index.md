@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d6ed0042e91c011700022d84b548f90d2610c4ad
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 25aa4af6ac5ce9822daa8e7070d4fa59e11afc1f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 ---
 
@@ -119,7 +120,7 @@ Event Hubs를 사용하여 연결된 IoT 장치 및 응용 프로그램에서 �
                 <div class="card">
                     <div class="cardText">
                         <h3>언어</h3>
-                        <p><a href="/dotnet/api/">.NET API 브라우저</a></p>
+                        <p><a href="/dotnet/api/overview/azure/eventhub/">.NET</a></p>
                    </div>
                 </div>
             </div>
@@ -130,9 +131,8 @@ Event Hubs를 사용하여 연결된 IoT 장치 및 응용 프로그램에서 �
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p><a href="/java/api/com.microsoft.azure.eventhubs">com.microsoft.azure.eventhubs</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.eventprocessorhost">com.microsoft.azure.eventprocessorhost</a></p>
+                        <h3>자바</h3>
+                        <p><a href="/java/api/overview/azure/eventhub/">Java</a></p>
                     </div>
                 </div>
             </div>

@@ -12,11 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/16/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
-ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6decf3e228bf31f9da4ea2bfa4d0ada0b2ffad61
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -26,7 +28,7 @@ ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
-Azure 포털 및 Azure Resource Manager API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
+Azure Portal 및 Azure Resource Manager API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독과 리소스에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
 ## <a name="list-all-role-assignments"></a>모든 역할 할당 나열
 지정된 범위 및 하위 범위에서 모든 역할 할당을 나열합니다.
@@ -650,9 +652,4 @@ URI 내에서 다음을 대체하여 요청을 사용자 지정합니다.
 ## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

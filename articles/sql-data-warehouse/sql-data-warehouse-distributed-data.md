@@ -3,7 +3,7 @@ title: "Azure SQL Data Warehouse의 분산 데이터 작동 원리 | Microsoft D
 description: "SQL Data Warehouse 및 병렬 데이터 웨어하우스의 대규모 병렬 처리(MPP) 시스템에 데이터가 분산되는 원리와 분산 테이블의 옵션에 대해 알아봅니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: jrowlandjones
 manager: jhubbard
 editor: 
 ms.assetid: bae494a6-7ac5-4c38-8ca3-ab2696c63a9f
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: jrj;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
 ms.openlocfilehash: 195b78a7f634d01f228c90efb34763e4175708ac
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/24/2017
 
 

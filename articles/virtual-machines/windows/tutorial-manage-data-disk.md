@@ -13,21 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: d68fc54f3fd08b3d7d66a9cd1ddb91c340191468
+ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
+ms.openlocfilehash: a7511a35a7b186fc424088e7ff5cbc933d325712
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="manage-azure-disks-with-powershell"></a>PowerShell을 사용하여 Azure 디스크 관리
 
-이 자습서에서는 다양한 유형의 VM 디스크, 디스크 구성을 선택하는 방법 및 Azure VM에 디스크를 만들고 연결하는 방법에 대해 알아봅니다. 또한 이 자습서에서는 디스크 스냅숏 만들기도 다룹니다.  
+Azure 가상 컴퓨터는 디스크를 사용하여 VM 운영 체제, 응용 프로그램 및 데이터를 저장합니다. VM을 만들 때 예상되는 워크로드에 적합한 디스크 크기와 구성을 선택하는 것이 중요합니다. 이 자습서에서는 VM 디스크의 배포 및 관리에 대해 다룹니다. 다음에 대해 알아봅니다.
 
-최신 [Azure PowerShell](/powershell/azure/overview) 모듈을 사용하여 이 자습서의 단계를 완료할 수 있습니다.
+> [!div class="checklist"]
+> * OS 디스크 및 임시 디스크
+> * 데이터 디스크
+> * 표준 및 프리미엄 디스크
+> * 디스크 성능
+> * 데이터 디스크 연결 및 준비
+
+이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 ## <a name="default-azure-disks"></a>기본 Azure 디스크
 
@@ -39,7 +47,7 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 ### <a name="temporary-disk-sizes"></a>임시 디스크 크기
 
-| 형식 | VM 크기 | 최대 임시 디스크 크기 |
+| 형식 | VM 크기 | 최대 임시 디스크 크기(GB) |
 |----|----|----|
 | [범용](sizes-general.md) | A 및 D 시리즈 | 800 |
 | [Compute에 최적화](sizes-compute.md) | F 시리즈 | 800 |
@@ -136,7 +144,17 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 VM 디스크에 대해 배웠습니다. VM 구성 자동화에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
+이 자습서에서는 다음과 같은 VM 디스크 항목에 대해 알아보았습니다.
 
-[VM 구성 자동화](./tutorial-automate-vm-deployment.md)
+> [!div class="checklist"]
+> * OS 디스크 및 임시 디스크
+> * 데이터 디스크
+> * 표준 및 프리미엄 디스크
+> * 디스크 성능
+> * 데이터 디스크 연결 및 준비
+
+VM 구성 자동화에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
+
+> [!div class="nextstepaction"]
+> [VM 구성 자동화](./tutorial-automate-vm-deployment.md)
 

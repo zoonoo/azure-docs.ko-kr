@@ -3,7 +3,7 @@ title: Azure Application Insights FAQ | Microsoft Docs
 description: "Application Insights에 대한 질문과 대답입니다."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 65c199064273930f66db580b6c01dabb4b906e7a
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 8a6a8027b93d0d5b353c41c103d2c9ad5faa70c1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -172,6 +172,8 @@ ms.lasthandoff: 05/10/2017
 POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사용할 수 있습니다. 메시지 매개 변수에 데이터를 배치합니다. 이것은 필터링할 수 없지만 문자열 속성에 대한 제한보다 긴 제한이 있습니다.
 
 ## <a name="should-i-use-single-or-multiple-application-insights-resources"></a>단일 또는 여러 Application Insights 리소스를 사용해야 하나요?
+
+단일 비즈니스 시스템의 모든 구성 요소 또는 역할에 대해 단일 리소스를 사용합니다. 개발, 테스트 및 릴리스 버전과 독립 응용 프로그램에 대해 별도의 리소스를 사용합니다.
 
 * [여기에서 토론 참조](app-insights-separate-resources.md)
 * [예 - 작업자 및 웹 역할이 포함된 클라우드 서비스](app-insights-cloudservices.md)

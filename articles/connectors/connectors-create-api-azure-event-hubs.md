@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: e776d095356e10ef47ca49e2a8b9f97d63fb80be
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: fd691f898e26bea0a304bcf52e5df9ee7db8b818
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -122,19 +123,8 @@ Event Hub에 액세스하는 논리 앱의 경우 Event Hubs 네임스페이스�
 
     이제 논리 앱에서 이벤트를 보내는 작업을 설정했습니다. 
 
-## <a name="technical-details"></a>기술 세부 정보
-
-### <a name="triggers"></a>트리거
-
-| 트리거 | 설명 |
-| --- | --- |
-| 이벤트가 Event Hub에서 사용 가능한 경우 | 이벤트가 지정된 Event Hub에서 사용 가능한 경우 워크플로를 트리거합니다. |
-
-### <a name="actions"></a>작업
-
-| 작업 | 설명 |
-| --- | --- |
-| 이벤트 보내기 | 지정된 Event Hub에 이벤트를 보냅니다. |
+## <a name="view-the-swagger"></a>swagger 보기
+[swagger 정보](/connectors/eventhubs/)를 참조하세요. 
 
 ## <a name="get-help"></a>도움말 보기
 

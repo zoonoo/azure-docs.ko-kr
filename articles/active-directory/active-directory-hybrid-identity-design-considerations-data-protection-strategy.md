@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 05/04/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 82bc44b20158a22dfae0d6c8fbf5f1c1f4577c91
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 3d0508c5cc31ab9fda728596895aaab8e4cb7814
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -115,22 +116,22 @@ Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액�
 
 그림x에서 보여준 다이어그램에서 각 상호 작용은 Azure AD에서 다룰 수 있는 하나의 액세스 제어 시나리오를 나타냅니다. 아래에서 각 시나리오에 대해 설명합니다.
 
-1.온-프레미스에서 호스트되는 응용 프로그램에 대한 조건부 액세스: Windows Server 2012 R2에서 AD FS를 사용하도록 구성된 응용 프로그램에 대한 액세스 정책이 있는 등록된 장치를 사용할 수 있습니다. 온-프레미스에 대해 조건부 액세스를 설정하는 방법에 대한 자세한 내용은 [Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정](active-directory-conditional-access.md)을 참조하세요.
+1. 온-프레미스에서 호스트되는 응용 프로그램에 대한 조건부 액세스: Windows Server 2012 R2에서 AD FS를 사용하도록 구성된 응용 프로그램에 대한 액세스 정책이 있는 등록된 장치를 사용할 수 있습니다. 온-프레미스에 대해 조건부 액세스를 설정하는 방법에 대한 자세한 내용은 [Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정](active-directory-conditional-access.md)을 참조하세요.
 
-2.Azure 관리 포털에 액세스 제어: 또한 Azure에는 RBAC(역할 기반 액세스 제어)를 사용하여 관리 포털에 대한 액세스를 제어하는 기능이 있습니다. 이 방법을 사용하면 회사에서 개인이 Azure 관리 포털에 액세스한 경우에 수행할 수 있는 작업의 양을 제한할 수 있습니다. RBAC를 사용하여 포털에 대한 액세스를 제어하려면 IT 관리자는 다음 액세스 관리 방법을 사용하여 액세스를 위임할 수 있습니다.
+2. Azure Portal에 대한 액세스 제어: Azure에서는 RBAC(역할 기반 액세스 제어)를 사용하여 포털에 대한 액세스도 제어할 수 있습니다. 이 방법을 사용하면 회사에서 개인이 Azure Portal에서 수행할 수 있는 작업의 양을 제한할 수 있습니다. RBAC를 사용하여 포털에 대한 액세스를 제어하려면 IT 관리자는 다음 액세스 관리 방법을 사용하여 액세스를 위임할 수 있습니다.
 
 * 그룹 기반 역할 할당: 로컬 Active Directory에서 동기화될 수 있는 Azure AD 그룹에 대한 액세스를 할당할 수 있습니다. 이렇게 하면 그룹 관리에 대한 도구 및 프로세스에서 조직이 만든 기존 투자를 활용할 수 있습니다. 또한 Azure AD Premium의 위임된 그룹 관리 기능을 사용할 수 있습니다.
 * Azure에서 기본 제공 역할 활용: 세 가지 역할(소유자, 참가자 및 읽기 권한자)을 사용하여 사용자 및 그룹에 작업 수행에 필요한 작업만 수행할 수 있는 권한을 제공할 수 있습니다.
 * 리소스에 대한 세부적인 액세스: 웹사이트 또는 데이터베이스와 같은 특정 구독, 리소스 그룹 또는 개별 Azure 리소스에 대한 사용자 및 그룹에 역할을 할당할 수 있습니다. 이러한 방식으로 사용자는 필요한 모든 리소스에 대해 액세스하고 관리할 필요가 없는 리소스에 액세스하지 않을 수 있습니다.
 
 > [!NOTE]
-> 이 기능에 대한 자세한 내용은 [Azure의 역할 기반 액세스 제어](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) 를 참조하세요. 또한 응용 프로그램을 빌드하고 이에 대한 액세스 제어를 사용자 지정하려는 개발자의 경우 권한 부여를 위해 Azure AD 응용 프로그램 역할을 사용할 수 있습니다. 이 기능을 사용하여 앱을 개발하는 방법에 대해 [WebApp-RoleClaims-DotNet 예제](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) 를 검토합니다.
+> 응용 프로그램을 빌드하고 이에 대한 액세스 제어를 사용자 지정하려는 경우 권한 부여를 위해 Azure AD 응용 프로그램 역할을 사용할 수 있습니다. 이 기능을 사용하여 앱을 개발하는 방법에 대해 [WebApp-RoleClaims-DotNet 예제](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) 를 검토합니다.
 >
 >
 
-3.Microsoft Intune을 사용한 Office 365 응용 프로그램에 대한 조건부 액세스 : IT 관리자는 조건부 액세스 장치 정책을 프로비전하여 규격 장치를 사용하는 정보 작업자가 서비스에 액세스할 수 있도록 하는 동시에 회사 리소스를 보호할 수 있습니다. 자세한 내용은 [Office 365 서비스에 대한 조건부 액세스 장치 정책](active-directory-conditional-access-device-policies.md)을 참조하세요.
+3. Microsoft Intune을 사용한 Office 365 응용 프로그램에 대한 조건부 액세스: IT 관리자는 조건부 액세스 장치 정책을 프로비전하여 규격 장치를 사용하는 정보 작업자가 서비스에 액세스할 수 있도록 하는 동시에 회사 리소스를 보호할 수 있습니다. 자세한 내용은 [Office 365 서비스에 대한 조건부 액세스 장치 정책](active-directory-conditional-access-device-policies.md)을 참조하세요.
 
-4.SaaS 앱에 대한 조건부 액세스: [이 기능](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx)을 사용하면 응용 프로그램별 Multi-Factor Authentication 액세스 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다. 응용 프로그램에 할당된 모든 사용자 또는 지정된 보안 그룹 내의 사용자에 제한적으로 다단계 인증 규칙을 적용할 수 있습니다. 조직 네트워크 내부에 있는 IP 주소에서 응용 프로그램에 액세스하는 경우에는 다단계 인증 요구 사항에서 제외될 수도 있습니다.
+4. SaaS 앱에 대한 조건부 액세스: [이 기능](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx)을 사용하면 응용 프로그램별 Multi-Factor Authentication 액세스 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다. 응용 프로그램에 할당된 모든 사용자 또는 지정된 보안 그룹 내의 사용자에 제한적으로 다단계 인증 규칙을 적용할 수 있습니다. 조직 네트워크 내부에 있는 IP 주소에서 응용 프로그램에 액세스하는 경우에는 다단계 인증 요구 사항에서 제외될 수도 있습니다.
 
 액세스 제어에 대한 옵션은 다중 계층 접근 방법을 사용하기 때문에 이러한 옵션 간의 비교는 이 작업에 적용될 수 없습니다. 리소스에 대한 액세스를 제어하기 위해 필요한 각 시나리오에 사용 가능한 모든 옵션을 활용하도록 합니다.
 

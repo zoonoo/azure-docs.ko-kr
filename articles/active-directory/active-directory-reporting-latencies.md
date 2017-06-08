@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2016
+ms.date: 05/04/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 9443a00232420d58dea52ed01f31a4ef964a1620
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -34,6 +36,7 @@ ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
 | 감염 가능성이 있는 장치에서 로그인 |2시간 |4시간 |8시간 |
 | 비정상적인 로그인 활동을 포함하는 사용자 |2시간 |4시간 |8시간 |
 | 자격 증명이 손실된 사용자 |2시간 |4시간 |8시간 |
+| 모든 사용자 로그인 활동 |2시간 |4시간 |8시간 |
 | **응용 프로그램 보고서** | | | |
 | 계정 프로비전 활동 |2시간 |4시간 |8시간 |
 | 계정 프로비전 오류 |2시간 |4시간 |8시간 |
@@ -52,12 +55,5 @@ ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
 | RMS 사용 현황 |2시간 |4시간 |8시간 |
 | RMS 장치 사용 |2시간 |4시간 |8시간 |
 | RMS 사용 응용 프로그램 사용 현황 |2시간 |4시간 |8시간 |
-| **비공개 미리 보기 보고서** | | | |
-| 모든 사용자 로그인 활동 |2시간 |4시간 |8시간 |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,143 +12,247 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/17/2017
+ms.date: 05/12/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 8ecf7c058b90fd18e41fd4e1cbc29e22dfeb0883
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: a8e35456af8c9f2cf1bf9e9c364e33641f29a477
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="deploy-multiple-instances-of-resources-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스의 여러 인스턴스 배포
+# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스 또는 속성의 여러 인스턴스 배포
 이 항목에서는 Azure 리소스 관리자 템플릿을 반복하여 리소스의 여러 인스턴스를 만드는 방법을 보여 줍니다.
 
-## <a name="copy-and-copyindex"></a>copy 및 copyIndex
+## <a name="resource-iteration"></a>리소스 반복
+리소스 종류의 여러 인스턴스를 만들려면 리소스 종류에 `copy` 요소를 추가합니다. copy 요소에서 이 루프의 반복 횟수와 이름을 지정합니다. count 값은 양의 정수여야 하며 800을 초과할 수 없습니다. Resource Manager는 병렬로 리소스를 만듭니다. 따라서 생성되는 순서는 정해져 있지 않습니다. 시퀀스에서 반복된 리소스를 만들려면 [직렬 복사](#serial-copy)를 참조하세요. 
+
 다음 형식으로 리소스를 여러 번 만듭니다.
 
 ```json
-"resources": [ 
-  { 
-      "name": "[concat('examplecopy-', copyIndex())", 
-      "type": "Microsoft.Web/sites", 
-      "location": "East US", 
-      "apiVersion": "2015-08-01",
-      "copy": { 
-         "name": "websitescopy", 
-         "count": "[parameters('count')]" 
-      }, 
-      "properties": {
-          "serverFarmId": "hostingPlanName"
-      } 
-  } 
-]
-```
-
-반복할 횟수를 copy 개체에 지정합니다.
-
-```json
-"copy": { 
-    "name": "websitescopy", 
-    "count": "[parameters('count')]" 
-} 
-```
-
-count 값은 양의 정수여야 하며 800을 초과할 수 없습니다.
-
-각 리소스의 이름에는 `copyIndex()` 함수가 포함되어 있으며 이 함수는 루프에서 현재 반복을 반환합니다.
-
-```json
-"name": "[concat('examplecopy-', copyIndex())]",
-```
-
-3개의 웹 사이트를 배포하는 경우 다음과 같은 이름이 지정됩니다.
-
-* examplecopy-0
-* examplecopy-1
-* examplecopy-2.
-
-인덱스 값을 오프셋하여 값을 `copyIndex(1)`와 같은 copyIndex() 함수를 전달할 수 있습니다. 수행할 반복 수는 복사 요소에서 지정되지만 copyIndex의 값이 지정된 값 만큼 오프셋됩니다. 따라서 이전 예제와 같은 템플릿을 사용하지만 copyIndex(1)를 지정하여 다음과 같이 명명된 3개의 웹 사이트를 배포합니다.
-
-* examplecopy-1
-* examplecopy-2
-* examplecopy-3
-
-Resource Manager는 병렬로 리소스를 만듭니다. 따라서 생성되는 순서는 정해져 있지 않습니다. 순서대로 반복된 리소스를 만들려면 [Azure Resource Manager 템플릿에 대한 순차적 루핑](resource-manager-sequential-loop.md)을 참조하세요. 
-
-최상위 리소스에만 복사본 개체를 적용할 수 있습니다. 리소스 유형의 속성이나 자식 리소스에는 적용할 수 없습니다. 다음 의사 코드 예제는 복사본을 적용할 수 있는 위치를 보여 줍니다.
-
-```json
-"resources": [
-  {
-    "type": "{provider-namespace-and-type}",
-    "name": "parentResource",
-    "copy": {  
-      /* Yes, copy can be applied here */
-    },
-    "properties": {
-      "exampleProperty": {
-        /* No, copy cannot be applied here */
-      }
-    },
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
     "resources": [
-      {
-        "type": "{provider-type}",
-        "name": "childResource",
-        /* No, copy cannot be applied here. The resource must be promoted to top-level. */ 
-      }
-    ]
-  }
-] 
+        {
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
+            "copy": {
+                "name": "storagecopy",
+                "count": 3
+            }
+        }
+    ],
+    "outputs": {}
+}
 ```
 
-자식 리소스를 반복하려면 [자식 리소스의 여러 인스턴스 만들기](#create-multiple-instances-of-a-child-resource)를 참조하세요.
+각 리소스의 이름에는 `copyIndex()` 함수가 포함되어 있으며 이 함수는 루프에서 현재 반복을 반환합니다. `copyIndex()`는 0부터 시작합니다. 따라서 예제는 다음과 같습니다.
 
-속성에 복사본을 적용할 수 없더라도 속성은 여전히 이 속성이 포함된 리소스의 반복 중 일부입니다. 따라서 값을 지정하는 속성 내에 copyIndex()를 사용할 수 있습니다. 속성에 대한 여러 값을 만들려면 [리소스 종류에서 속성의 여러 인스턴스 만들기](resource-manager-property-copy.md)를 참조하세요.
+```json
+"name": "[concat('storage', copyIndex())]",
+```
 
-## <a name="use-copy-with-array"></a>배열을 사용하여 복사
-복사 작업은 배열의 각 요소를 반복할 수 있으므로 배열을 사용할 때 유용합니다. 다음 이름의 웹 사이트 3개를 배포하려면
+다음과 같은 이름을 만듭니다.
 
-* examplecopy-Contoso
-* examplecopy-Fabrikam
-* examplecopy-Coho
+* storage0
+* storage1
+* storage2
 
-다음 템플릿을 사용합니다.
+인덱스 값을 오프셋하려면 copyIndex() 함수에 값을 전달하면 됩니다. 수행할 반복 수는 복사 요소에서 지정되지만 copyIndex의 값이 지정된 값 만큼 오프셋됩니다. 따라서 예제는 다음과 같습니다.
+
+```json
+"name": "[concat('storage', copyIndex(1))]",
+```
+
+다음과 같은 이름을 만듭니다.
+
+* storage1
+* storage2
+* storage3
+
+복사 작업은 배열의 각 요소를 반복할 수 있으므로 배열을 사용할 때 유용합니다. 배열의 `length` 함수를 사용하여 반복 횟수를 지정하고, `copyIndex`를 사용하여 배열의 현재 인덱스를 검색합니다. 따라서 예제는 다음과 같습니다.
 
 ```json
 "parameters": { 
   "org": { 
      "type": "array", 
      "defaultValue": [ 
-         "Contoso", 
-         "Fabrikam", 
-         "Coho" 
+         "contoso", 
+         "fabrikam", 
+         "coho" 
       ] 
   }
 }, 
 "resources": [ 
   { 
-      "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
-      "type": "Microsoft.Web/sites", 
-      "location": "East US", 
-      "apiVersion": "2015-08-01",
+      "name": "[concat('storage', parameters('org')[copyIndex()])]", 
       "copy": { 
-         "name": "websitescopy", 
+         "name": "storagecopy", 
          "count": "[length(parameters('org'))]" 
       }, 
-      "properties": {
-          "serverFarmId": "hostingPlanName"
-      } 
+      ...
   } 
 ]
 ```
 
-`length` 함수는 횟수를 지정하는데 사용됩니다. length 함수에 대한 매개 변수로 배열을 제공합니다.
+다음과 같은 이름을 만듭니다.
+
+* storagecontoso
+* storagefabrikam
+* storagecoho
+
+## <a name="serial-copy"></a>직렬 복사
+
+복사 요소를 사용하여 리소스 형식의 여러 인스턴스를 만드는 경우 Resource Manager는 기본적으로 동시에 해당 인스턴스를 배포합니다. 그러나 그 결과로 리소스가 배포되도록 지정하려고 합니다. 예를 들어 프로덕션 환경을 업데이트할 때 특정 수를 한 번에 업데이트하도록 업데이트를 늦추려고 할 수 있습니다.
+
+Resource Manager는 순차적으로 여러 인스턴스를 배포할 수 있는 복사 요소의 속성을 제공합니다. 복사 요소에서 `mode`를 **직렬**로 설정하고 `batchSize`를 한 번에 배포할 인스턴스 수로 설정합니다. Resource Manager는 직렬 모드에서 루프에 이전 인스턴스의 종속성을 만듭니다. 따라서 이전 일괄 처리가 완료될 때까지 하나의 일괄 처리를 시작하지 않습니다.
 
 ```json
 "copy": {
-    "name": "websitescopy",
-    "count": "[length(parameters('siteNames'))]"
+    "name": "iterator",
+    "count": "[parameters('numberToDeploy')]",
+    "mode": "serial",
+    "batchSize": 2
+},
+```
+
+모드 속성은 기본 값인 **병렬**을 수용합니다.
+
+실제 리소스를 만들지 않고 직렬 복사본을 테스트하려면 다음 템플릿을 사용하여 비어 있는 중첩된 템플릿을 배포합니다.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "numberToDeploy": {
+      "type": "int",
+      "minValue": 2,
+      "defaultValue": 5
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2015-01-01",
+      "type": "Microsoft.Resources/deployments",
+      "name": "[concat('loop-', copyIndex())]",
+      "copy": {
+        "name": "iterator",
+        "count": "[parameters('numberToDeploy')]",
+        "mode": "serial",
+        "batchSize": 1
+      },
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {},
+          "variables": {},
+          "resources": [],
+          "outputs": {
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {
+  }
+}
+```
+
+배포 기록에서 중첩된 배포가 순서대로 처리되는지를 확인합니다.
+
+![직렬 배포](./media/resource-group-create-multiple/serial-copy.png)
+
+보다 현실적인 시나리오의 경우 다음 예제에서는 중첩된 템플릿을 사용하는 Linux VM 하나당 두 개의 인스턴스를 배포합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUsername": {
+            "type": "string",
+            "metadata": {
+                "description": "User name for the Virtual Machine."
+            }
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Password for the Virtual Machine."
+            }
+        },
+        "dnsLabelPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+            }
+        },
+        "ubuntuOSVersion": {
+            "type": "string",
+            "defaultValue": "16.04.0-LTS",
+            "allowedValues": [
+                "12.04.5-LTS",
+                "14.04.5-LTS",
+                "15.10",
+                "16.04.0-LTS"
+            ],
+            "metadata": {
+                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
+            }
+        }
+    },
+    "variables": {
+        "templatelink": "https://raw.githubusercontent.com/rjmax/Build2017/master/Act1.TemplateEnhancements/Chapter03.LinuxVM.json"
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-01-01",
+            "name": "[concat('nestedDeployment',copyIndex())]",
+            "type": "Microsoft.Resources/deployments",
+            "copy": {
+                "name": "myCopySet",
+                "count": 4,
+                "mode": "serial",
+                "batchSize": 2
+            },
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('templatelink')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "adminUsername": {
+                        "value": "[parameters('adminUsername')]"
+                    },
+                    "adminPassword": {
+                        "value": "[parameters('adminPassword')]"
+                    },
+                    "dnsLabelPrefix": {
+                        "value": "[parameters('dnsLabelPrefix')]"
+                    },
+                    "ubuntuOSVersion": {
+                        "value": "[parameters('ubuntuOSVersion')]"
+                    },
+                    "index":{
+                        "value": "[copyIndex()]"
+                    }
+                }
+            }
+        }
+    ]
 }
 ```
 
@@ -162,16 +266,18 @@ Resource Manager는 병렬로 리소스를 만듭니다. 따라서 생성되는 
     "parameters": {},
     "resources": [
         {
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2016-01-01",
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
             "location": "[resourceGroup().location]",
-            "properties": {
-                "accountType": "Standard_LRS"
+            "sku": {
+                "name": "Standard_LRS"
             },
-            "copy": { 
-                "name": "storagecopy", 
-                "count": 3 
+            "kind": "Storage",
+            "properties": {},
+            "copy": {
+                "name": "storagecopy",
+                "count": 3
             }
         },
         {
@@ -238,7 +344,6 @@ Resource Manager는 병렬로 리소스를 만듭니다. 따라서 생성되는 
 
 ## <a name="next-steps"></a>다음 단계
 * 템플릿 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
-* 순서대로 반복된 리소스를 만들려면 [Azure Resource Manager 템플릿에 대한 순차적 루핑](resource-manager-sequential-loop.md)을 참조하세요.
 * 템플릿 배포 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
 

@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 05/04/2017
 ms.author: abnarain
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: dfa78d1773afd0094ff98a5761a771101016ee13
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: 01f3ef6d0e8e43e702b8292a7c215d3df58817f2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
@@ -138,7 +139,7 @@ ms.lasthandoff: 03/27/2017
 | --- | --- | --- |
 | *.servicebus.windows.net |443, 80 |데이터 이동 서비스 백 엔드와 통신에 사용됨 |
 | *.core.windows.net |443 |Azure Blob를 사용하여 준비된 복사에 사용됨(구성된 경우)|
-| *frontend.clouddatahub.net |443 |데이터 이동 서비스 백 엔드와 통신에 사용됨 |
+| *.frontend.clouddatahub.net |443 |데이터 이동 서비스 백 엔드와 통신에 사용됨 |
 
 
 Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으로 사용할 수 있습니다. 그렇지 않은 경우 게이트웨이 컴퓨터에서 도메인 및 포트를 그에 따라 구성할 수 있습니다.
@@ -425,7 +426,7 @@ API 기반 방식으로 자격 증명을 암호화하려는 경우에는 [New-Az
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Azure PowerShell에서 **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\** 폴더로 전환합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key**와 연결된**RegisterGateway.ps1**을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
+1. Azure PowerShell에서 **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\** 폴더로 전환합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key**와 연결된 **RegisterGateway.ps1**을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

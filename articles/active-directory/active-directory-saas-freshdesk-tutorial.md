@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0a8f2de60ab60b980b29c4dbc78045bd20693b9d
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 47609ab453cf3db3cb745f91ed23904ff90e7b41
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -131,11 +131,11 @@ FreshDesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 8. 위쪽의 메뉴에서 **관리자**를 클릭합니다.
    
-       ![Admin](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "Admin")
+   ![관리자](./media/active-directory-saas-freshdesk-tutorial/IC776768.png "관리자")
 
 9. **일반 설정** 탭에서 **보안**을 클릭합니다.
    
-       ![Security](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "Security")
+   ![보안](./media/active-directory-saas-freshdesk-tutorial/IC776769.png "보안")
 
 10. **보안** 섹션에서 다음 단계를 수행합니다.
    

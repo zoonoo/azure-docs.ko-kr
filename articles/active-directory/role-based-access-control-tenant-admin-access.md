@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 05/09/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: b9eb9c7f59d0936364bad788ed3b6635b2453739
-ms.openlocfilehash: 9bcad7aaf7f1bd8c51dbfa88381276a70a4def5c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 0fa44799a0bd49d3d96a1916f32e6452405abce8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -24,7 +26,7 @@ ms.openlocfilehash: 9bcad7aaf7f1bd8c51dbfa88381276a70a4def5c
 
 역할 기반 액세스 제어를 통해 테넌트 관리자가 액세스에서 임시 권한이 상승되어 평소보다 높은 수준의 사용 권한을 부여받을 수 있습니다. 테넌트 관리자는 필요할 때 사용자 액세스 관리자 역할로 스스로의 권한을 높일 수 있습니다. 해당 역할은 테넌트 관리자 사용 권한을 주어 "/" 범위에서 자신 또는 다른 사용자에게 역할을 부여합니다.
 
-이 기능은 테넌트 관리자가 조직에 있는 모든 구독을 확인할 수 있도록 하기 때문에 중요합니다. 또한 자동화 앱(예: 송장 발행 및 감사)에서 모든 구독에 액세스하여 대금 청구 또는 자산 관리 측면에서 조직의 상태를 정확하게 볼 수 있게 합니다.  
+이 기능은 테넌트 관리자가 조직에 있는 모든 구독을 확인할 수 있도록 하기 때문에 중요합니다. 또한 자동화 앱(예: 송장 발행 및 감사)에서 모든 구독에 액세스하여 조직의 대금 청구 또는 자산 관리 상태를 정확하게 볼 수 있게 합니다.  
 
 ## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>elevateAccess를 사용하여 테넌트 액세스 권한을 부여하는 방법
 
@@ -106,9 +108,4 @@ ms.openlocfilehash: 9bcad7aaf7f1bd8c51dbfa88381276a70a4def5c
 - [REST를 사용하여 역할 기반 액세스 제어를 관리](role-based-access-control-manage-access-rest.md)하는 방법에 대해 알아보기
 
 - Azure Portal에서 [액세스 할당 관리](role-based-access-control-manage-assignments.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

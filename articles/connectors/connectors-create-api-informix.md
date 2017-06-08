@@ -4,7 +4,7 @@ description: "REST API 매개 변수를 사용하는 Informix 커넥터 개요"
 services: 
 documentationcenter: 
 author: gplarsen
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
@@ -14,10 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
-ms.author: plarsen
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: 614400a8787fdd2081fa8e981c0fc6b6dd794a58
+ms.author: plarsen; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: ca7a62338740e39647b39f2221bc5ac7321ba4fd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -270,145 +272,16 @@ Informix 테이블에서 한 행을 제거하는 논리 앱 작업을 만들 수
     
     ![](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)
 
-## <a name="technical-details"></a>기술 세부 정보
-## <a name="actions"></a>작업
-작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. Informix 데이터베이스 커넥터에 포함되는 작업은 다음과 같습니다. 
-
-| 작업 | 설명 |
-| --- | --- |
-| [GetRow](connectors-create-api-informix.md#get-row) |Informix 테이블의 한 행을 검색합니다. |
-| [GetRows](connectors-create-api-informix.md#get-rows) |Informix 테이블의 행들을 검색합니다. |
-| [InsertRow](connectors-create-api-informix.md#insert-row) |Informix 테이블에 새 행을 삽입합니다. |
-| [DeleteRow](connectors-create-api-informix.md#delete-row) |Informix 테이블의 한 행을 삭제합니다. |
-| [GetTables](connectors-create-api-informix.md#get-tables) |Informix 데이터베이스의 테이블들을 검색합니다. |
-| [UpdateRow](connectors-create-api-informix.md#update-row) |Informix 테이블의 기존 행을 업데이트합니다. |
-
-### <a name="action-details"></a>작업 세부 정보
-이 섹션에서는 모든 필수 또는 선택적 입력 속성 및 커넥터와 연결된 모든 해당 출력을 비롯한 각 작업에 대한 특정 세부 정보를 참조하세요.
-
-#### <a name="get-row"></a>행 가져오기
-Informix 테이블의 한 행을 검색합니다.  
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| table * |테이블 이름 |Informix 테이블 이름 |
-| id * |행 ID |검색할 행의 고유 식별자 |
-
-별표(*)는 속성이 필수 사항임을 의미합니다.
-
-##### <a name="output-details"></a>출력 세부 정보
-항목
-
-| 속성 이름 | 데이터 형식 |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="get-rows"></a>행 가져오기
-Informix 테이블의 행들을 검색합니다.  
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| table* |테이블 이름 |Informix 테이블 이름 |
-| $skip |숫자 건너뛰며 세기 |건너뛸 항목의 수(기본값 = 0) |
-| $top |최대 가져오기 수 |검색할 항목의 최대 수(기본값 = 256) |
-| $filter |필터 쿼리 |항목의 수를 제한할 ODATA 필터 쿼리 |
-| $orderby |Order By |항목의 순서를 지정하는 ODATA orderBy 쿼리 |
-
-별표(*)는 속성이 필수 사항임을 의미합니다.
-
-##### <a name="output-details"></a>출력 세부 정보
-ItemsList
-
-| 속성 이름 | 데이터 형식 |
-| --- | --- |
-| value |array |
-
-#### <a name="insert-row"></a>행 삽입
-Informix 테이블에 새 행을 삽입합니다.  
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| table* |테이블 이름 |Informix 테이블 이름 |
-| item* |행 |지정된 Informix 테이블에 삽입할 행 |
-
-별표(*)는 속성이 필수 사항임을 의미합니다.
-
-##### <a name="output-details"></a>출력 세부 정보
-항목
-
-| 속성 이름 | 데이터 형식 |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="delete-row"></a>행 삭제
-Informix 테이블의 한 행을 삭제합니다.  
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| table* |테이블 이름 |Informix 테이블 이름 |
-| id* |행 ID |삭제할 행의 고유 식별자 |
-
-별표(*)는 속성이 필수 사항임을 의미합니다.
-
-##### <a name="output-details"></a>출력 세부 정보
-없음.
-
-#### <a name="get-tables"></a>테이블 가져오기
-Informix 데이터베이스의 테이블들을 검색합니다.  
-
-이 호출에 대한 매개 변수는 없습니다. 
-
-##### <a name="output-details"></a>출력 세부 정보
-TablesList
-
-| 속성 이름 | 데이터 형식 |
-| --- | --- |
-| value |array |
-
-#### <a name="update-row"></a>행 업데이트
-Informix 테이블의 기존 행을 업데이트합니다.  
-
-| 속성 이름 | 표시 이름 | 설명 |
-| --- | --- | --- |
-| table* |테이블 이름 |Informix 테이블 이름 |
-| id* |행 ID |업데이트할 행의 고유 식별자 |
-| item* |행 |업데이트된 값을 가진 행 |
-
-별표(*)는 속성이 필수 사항임을 의미합니다.
-
-##### <a name="output-details"></a>출력 세부 정보
-항목
-
-| 속성 이름 | 데이터 형식 |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="http-responses"></a>HTTP 응답
-다른 작업을 호출할 때 특정 응답이 발생할 수 있습니다. 다음 표에서는 응답 및 해당 설명을 대략적으로 설명합니다.  
-
-| 이름 | 설명 |
-| --- | --- |
-| 200 |확인 |
-| 202 |수락됨 |
-| 400 |잘못된 요청 |
-| 401 |권한 없음 |
-| 403 |사용할 수 없음 |
-| 404 |찾을 수 없음 |
-| 500 |내부 서버 오류. 알 수 없는 오류 발생 |
-| 기본값 |작업이 실패했습니다. |
-
 ## <a name="supported-informix-platforms-and-versions"></a>지원되는 Informix 플랫폼 및 버전
 DRDA (Distributed Relational Database Architecture) 클라이언트 연결을 지원하도록 구성된 경우 이 커넥터에서 지원하는 IBM Informix 버전은 다음과 같습니다.
 
 * IBM Informix 12.1
 * IBM Informix 11.7
 
+## <a name="view-the-swagger"></a>swagger 보기
+[swagger 정보](/connectors/informix/)를 참조하세요. 
+
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

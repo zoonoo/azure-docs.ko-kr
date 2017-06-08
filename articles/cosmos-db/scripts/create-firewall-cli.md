@@ -1,20 +1,20 @@
 ---
 title: "Azure CLI 스크립트-Azure Cosmos DB에 대한 방화벽 만들기 | Microsoft Docs"
 description: "Azure CLI 스크립트 샘플 - Azure Cosmos DB에 대한 방화벽 만들기"
-services: cosmosdb
+services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
 manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: 
-ms.service: cosmosdb
-ms.custom: sample
+ms.service: cosmos-db
+ms.custom: sammvcple
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
-ms.date: 05/10/2017
+ms.date: 06/02/2017
 ms.author: mimig
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
@@ -30,6 +30,8 @@ ms.lasthandoff: 05/15/2017
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## <a name="sample-script"></a>샘플 스크립트
 
 [!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-create-firewall/secure-cosmosdb-create-firewall.sh?highlight=38-42 "Azure Cosmos DB 방화벽 만들기")]
@@ -38,7 +40,7 @@ ms.lasthandoff: 05/15/2017
 
 스크립트 샘플을 실행한 후에 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

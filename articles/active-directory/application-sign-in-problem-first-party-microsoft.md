@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: c3594b292a5b548bcb1e0df5959775d139576597
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/18/2017
 
 
@@ -69,7 +70,7 @@ ms.lasthandoff: 04/18/2017
 
    * 사용자의 **인증 연락처 정보**를 최신으로 유지하여 Multi-Factor Authentication 또는 조건부 액세스 정책을 적용할 수 있도록 해야 합니다. [사용자의 Multi-Factor Authentication 상태 확인](#check-a-users-multi-factor-authentication-status) 또는 [사용자의 인증 연락처 정보 확인](#check-a-users-authentication-contact-info)
 
--   **라이선스를 필요로 하는 **Microsoft** 응용 프로그램**(예: office 365)의 경우 위의 일반 문제를 확인하면 확인할 몇 가지 특정 문제는 다음과 같습니다.
+-   라이선스를 필요로 하는 **Microsoft** **응용 프로그램**(예: office 365)의 경우 위의 일반 문제를 확인하면 확인할 몇 가지 특정 문제는 다음과 같습니다.
 
    * 사용자를 확인하거나 **라이선스를 할당합니다.** [사용자의 할당된 라이선스 확인](#check-a-users-assigned-licenses) 또는 [그룹의 할당된 라이선스 확인](#check-a-groups-assigned-licenses)
 
@@ -83,7 +84,7 @@ ms.lasthandoff: 04/18/2017
 
    *  라이선스가 액세스하는 **응용 프로그램에 적용되는지** 확인합니다.
 
--   **라이선스를 필요로 하지 않는 **Microsoft** 응용 프로그램**의 경우 확인할 몇 가지 다른 항목은 다음과 같습니다.
+-   라이선스를 필요로 하지 않는 **Microsoft** **응용 프로그램**의 경우 확인할 몇 가지 다른 항목은 다음과 같습니다.
 
    * 응용 프로그램이 **사용자 수준 사용 권한**을 요청하는 경우(예: "이 사용자의 사서함에 액세스") 사용자가 응용 프로그램에 로그인하고 **사용자 수준 동의 작업**을 수행하여 응용 프로그램이 해당 데이터에 액세스할 수 있도록 합니다.
 

@@ -3,7 +3,7 @@ title: "Azure Application Insights 내 Analytics 문제 해결 | Microsoft Docs"
 description: "Application Insights Analytics에 문제가 있습니까? 여기에서 시작합니다. "
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
 ms.service: application-insights

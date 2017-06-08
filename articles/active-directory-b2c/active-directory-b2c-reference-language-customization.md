@@ -13,10 +13,10 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: sama
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: c7dd179206947a457e8898160a320c48e8481328
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 7134467421927e9a26e23f89684eeb6864a2f9a3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -165,7 +165,7 @@ JSON 리소스를 '사용자 지정 언어'로 업로드할 수 있도록 이 �
 
 | language              | 언어 코드 |
 |-----------------------|---------------|
-| 벵골어               | bn            |
+| 벵골어                | bn            |
 | 체코어                 | cs            |
 | 덴마크어                | da            |
 | 독일어                | de            |
@@ -202,3 +202,4 @@ JSON 리소스를 '사용자 지정 언어'로 업로드할 수 있도록 이 �
 | 터키어               | tr            |
 | 중국어 - 간체  | zh-hans       |
 | 중국어 - 번체 | zh-hant       |
+

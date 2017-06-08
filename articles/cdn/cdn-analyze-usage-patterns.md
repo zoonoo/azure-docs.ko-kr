@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ec6a021e087d9218856370e8bf067359de54bdb9
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 41d63ef88e9f0caf3d5f74841ec4670875fdaad1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Azure CDN 사용 패턴 분석
-[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)] 아래 가이드에서는 Verizon 프로필에 대한 관리 포털을 통해 핵심 보고서를 확인하는 단계를 진행합니다. 또한 Verizon 및 Akamai 프로필에 대한 핵심 분석 데이터를 [Azure Portal을 통해](cdn-log-analysis.md) 저장소, 이벤트 허브 또는 Log Analytics(OMS)로 내보낼 수도 있습니다.
 
 다음과 같은 보고서를 사용하여 CDN 사용 패턴을 볼 수 있습니다.
 
@@ -32,7 +34,7 @@ ms.openlocfilehash: ec6a021e087d9218856370e8bf067359de54bdb9
 * 캐시 적중률
 * 전송되는 IPv4/IPv6 데이터
 
-## <a name="accessing-advanced-http-reports"></a>고급 HTTP 보고서 액세스
+## <a name="accessing-core-reports"></a>핵심 보고서 액세스
 1. CDN 프로필 블레이드에서 **관리** 단추를 클릭합니다.
    
     ![CDN 프로필 블레이드 관리 단추](./media/cdn-reports/cdn-manage-btn.png)
@@ -136,10 +138,5 @@ ms.openlocfilehash: ec6a021e087d9218856370e8bf067359de54bdb9
 
 ## <a name="considerations"></a>고려 사항
 보고서는 최근 18개월 내에서만 생성할 수 있습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

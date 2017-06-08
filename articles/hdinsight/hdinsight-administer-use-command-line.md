@@ -1,6 +1,6 @@
 ---
 title: "Azure CLI를 사용하여 Hadoop 클러스터 관리 | Microsoft Docs"
-description: "Azure CLI를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법"
+description: "Azure 명령줄 인터페이스를 사용하여 Azure HDInsight의 Hadoop 클러스터를 관리하는 방법을 알아봅니다. Azure CLI는 Windows, Mac 및 Linux에서 작동합니다."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -9,17 +9,18 @@ tags: azure-portal
 documentationcenter: 
 ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: e70e24951481c33525a852479c9c9647a45e71ac
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: c8067e582dd7e20b4ca35771123303de6c4a4ef6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -50,8 +51,8 @@ ms.lasthandoff: 03/21/2017
 
     azure hdinsight cluster create -h
 
-## <a name="create-clusters"></a>클러스터 만들기
-[Azure CLI를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md)참조하세요.
+## <a name="create-clusters-with-the-cli"></a>CLI를 사용하여 클러스터 만들기
+[Azure CLI를 사용하여 HDInsight의 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md)를 참조하세요.
 
 ## <a name="list-and-show-cluster-details"></a>클러스터 세부 정보 나열 및 표시
 클러스터 세부 정보를 나열하고 표시하려면 다음 명령을 사용합니다.
@@ -59,7 +60,7 @@ ms.lasthandoff: 03/21/2017
     azure hdinsight cluster list
     azure hdinsight cluster show <Cluster Name>
 
-![HDI.CLIListCluster][image-cli-clusterlisting]
+![클러스터 목록의 명령줄 보기][image-cli-clusterlisting]
 
 ## <a name="delete-clusters"></a>클러스터 삭제
 클러스터를 삭제하려면 다음 명령을 사용합니다.
@@ -107,5 +108,5 @@ Hadoop 클러스터 크기를 변경하려면
 [image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "클러스터 나열 및 표시"
+[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "클러스터 나열 및 표시"
 

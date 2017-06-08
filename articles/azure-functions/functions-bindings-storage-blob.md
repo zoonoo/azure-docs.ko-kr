@@ -16,14 +16,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: chrande, glenga
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7b4ae9281bca20949c37b2c797e4a1a677665929
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 198a8421636945bdf60c4ed519d065617a7fc287
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="azure-functions-storage-blob-bindings"></a>Azure Functions Storage Blob 바인딩
+# <a name="azure-functions-blob-storage-bindings"></a>Azure Functions Blob Storage 바인딩
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 이 문서에서는 Azure Functions에서 Azure Storage Blob 바인딩을 구성하고 코딩하는 방법을 설명합니다. Azure Functions는 Azure Storage Blob에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
@@ -57,7 +58,7 @@ Azure Storage Blob 트리거를 통해 저장소 컨테이너에서 새롭고 �
 * `path`에 대해서는 [Name patterns](#pattern)를 참조하여 Blob 이름 패턴을 형성하는 방법에 대해 알아보세요.
 * `connection`은 저장소 연결 문자열을 포함하는 앱 설정의 이름을 포함해야 합니다. Azure Portal에서 **통합** 탭에 있는 표준 편집기는 저장소 계정을 만들거나 기존 계정을 선택하는 경우 사용하는 이 앱 설정을 구성합니다. 이 앱 설정을 수동으로 만들려면 [이 앱 설정을 수동으로 구성](functions-how-to-use-azure-function-app-settings.md)을 참조하세요. 
 
-소비 계획을 실행할 때 함수 앱이 유휴 상태가 되는 경우 새 Blob 처리에 하루 최대 10분이 걸릴 수 있습니다. 함수 앱이 실행되면 Blob이 더 신속하게 처리됩니다. 이 초기 지연을 방지하려면 Always On을 활성화하여 App Service 계획을 사용하거나 다른 메커니즘을 사용하여 Blob 이름을 포함하는 큐 메시지처럼 Blob 처리를 트리거합니다. 
+소비 계획을 실행할 때 함수 앱이 유휴 상태가 되는 경우 새 Blob 처리에 하루 최대 10분이 걸릴 수 있습니다. 함수 앱이 실행되면 BLOB이 더 신속하게 처리됩니다. 이 초기 지연을 방지하려면 Always On을 활성화하여 App Service 계획을 사용하거나 다른 메커니즘을 사용하여 Blob 이름을 포함하는 큐 메시지처럼 Blob 처리를 트리거합니다. 
 
 또한 자세한 내용은 다음 부제목 중 하나를 참조하세요.
 
@@ -179,7 +180,7 @@ Storage Blob 트리거를 정의하는 다음과 같은 function.json이 있다�
 
 <a name="triggercsharp"></a>
 
-### <a name="trigger-usage-in-c"></a>C에서 트리거 사용# #
+### <a name="trigger-usage-in-c"></a>C#에서 트리거 사용 #
 
 ```cs
 public static void Run(string myBlob, TraceWriter log)
@@ -290,7 +291,7 @@ C# 함수에서 다음 형식 중 하나에 바인딩할 수도 있으며, Funct
 
 <a name="incsharp"></a>
 
-### <a name="input-usage-in-c"></a>C에서 입력 사용# #
+### <a name="input-usage-in-c"></a>C#에서 입력 사용 #
 
 ```cs
 public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)

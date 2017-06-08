@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 29d30cacb29fee1b2c5b8ef523051fa543bee829
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 652a2eb0db0e41c4706e06cd0cb2e97ce1eb6ab2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -53,10 +53,10 @@ ms.lasthandoff: 04/28/2017
 1. **새 응용 프로그램 등록**을 선택합니다.
 1. 응용 프로그램의 **이름**을 입력합니다(예: Azure AD B2C 앱).
 1. 응용 프로그램 종류의 **웹앱/API**를 입력합니다.
-1. '로그온 URL'에서 아래 URL을 입력합니다. 여기서 `{tenantName}`은 Azure AD B2C 테넌트의 이름(즉, fabrikamb2c.onmicrosoft.com)으로 바꿔야 합니다.
+1. '로그온 URL'에서 아래 URL을 입력합니다. 여기서 `yourtenant`는 Azure AD B2C 테넌트의 이름(즉, fabrikamb2c.onmicrosoft.com)으로 바꿔야 합니다.
 
     ```
-    https://login.microsoftonline.com/te/{tenantName}.onmicrosoft.com/oauth2/authresp
+    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. **응용 프로그램 ID**를 가져옵니다.
@@ -68,28 +68,16 @@ ms.lasthandoff: 04/28/2017
 
 Azure AD B2C 테넌트에 `contoso.com` 응용 프로그램 키를 저장해야 합니다. 다음을 수행합니다.
 
-1. PowerShell을 열고 작업 디렉터리인 `active-directory-b2c-advanced-policies`로 이동합니다.
-1. ExploreAdmin 도구를 사용하여 폴더로 전환합니다.
+1. Azure AD B2C 테넌트로 이동하고 [B2C 설정] > [ID 경험 프레임워크] > [정책 키]를 엽니다.
+1. [+추가]를 클릭합니다.
+1. 옵션:
+ * [옵션] > `Manual`
+ * [이름]: > `ContosoAppSecret`을 선택합니다. Azure AD 테넌트 이름과 일치하는 이름을 선택합니다.  키의 이름에 B2C_1A_ 접두사가 자동으로 추가됩니다.
+ * `Secret` 텍스트 상자에 응용 프로그램 키를 붙여 넣습니다.
+ * 서명을 선택합니다.
+1. `Create`을 클릭합니다.
+1. `B2C_1A_ContosoAppSecret` 키가 생성되었는지 확인합니다.
 
-    ```powershell
-    cd active-directory-b2c-advanced-policies\ExploreAdmin
-    ```
-
-1. PowerShell로 ExploreAdmin 도구를 가져옵니다.
-
-    ```powershell
-    Import-Module .\ExploreAdmin.dll
-    ```
-
-1. 다음 명령에서 `tenantName`을 Azure AD B2C 테넌트의 이름(예: fabrikamb2c.onmicrosoft.com)으로 바꾸고 `SecretReferenceId`를 비밀을 참조하는 데 사용한 이름(예: ContosoAppSecret)으로 바꾸고 `ClientSecret`을 `contoso.com` 응용 프로그램 키로 바꿉니다. 명령을 실행합니다.
-
-    ```PowerShell
-    Set-CpimKeyContainer -Tenant {tenantName} -StorageReferenceId {SecretReferenceId} -UnencodedAsciiKey {ClientSecret}
-    ```
-
-    명령을 실행하면 Azure AD B2C 테넌트에 로컬인 onmicrosoft.com 관리자 계정으로 로그인해야 합니다. 'TokenSigningKeyContainer'를 찾을 수 없다는 오류가 표시되면 [시작](active-directory-b2c-get-started-custom.md) 가이드를 수행합니다.
-
-1. PowerShell을 닫습니다.
 
 ## <a name="add-a-claims-provider-in-your-base-policy"></a>기본 정책에서 클레임 공급자 추가
 
@@ -104,39 +92,39 @@ Azure AD B2C 테넌트에 `contoso.com` 응용 프로그램 키를 저장해야 
         <Domain>Contoso</Domain>
         <DisplayName>Login using Contoso</DisplayName>
         <TechnicalProfiles>
-        <TechnicalProfile Id="ContosoProfile">
-            <DisplayName>Contoso Employee</DisplayName>
-            <Description>Login with your Contoso account</Description>
-            <Protocol Name="OpenIdConnect"/>
-            <OutputTokenFormat>JWT</OutputTokenFormat>
-            <Metadata>
-                <Item Key="METADATA">https://login.windows.net/contoso.com/.well-known/openid-configuration</Item>
-                <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
-                <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
-                <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
-                <Item Key="response_types">id_token</Item>
-                <Item Key="UsePolicyInRedirectUri">false</Item>
-            </Metadata>
-            <CryptographicKeys>
-            <Key Id="client_secret" StorageReferenceId="ContosoAppSecret"/>
-            </CryptographicKeys>
-            <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="userId" PartnerClaimType="oid"/>
-                <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
-                <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
-                <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-                <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-                <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
-                <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
-            </OutputClaims>
-            <OutputClaimsTransformations>
-                <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
-                <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
-                <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
-                <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
-            </OutputClaimsTransformations>
-            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
-        </TechnicalProfile>
+            <TechnicalProfile Id="ContosoProfile">
+                <DisplayName>Contoso Employee</DisplayName>
+                <Description>Login with your Contoso account</Description>
+                <Protocol Name="OpenIdConnect"/>
+                <OutputTokenFormat>JWT</OutputTokenFormat>
+                <Metadata>
+                    <Item Key="METADATA">https://login.windows.net/contoso.com/.well-known/openid-configuration</Item>
+                    <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
+                    <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+                    <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
+                    <Item Key="response_types">id_token</Item>
+                    <Item Key="UsePolicyInRedirectUri">false</Item>
+                </Metadata>
+                <CryptographicKeys>
+                    <Key Id="client_secret" StorageReferenceId="B2C_1A_ContosoAppSecret"/>
+                </CryptographicKeys>
+                <OutputClaims>
+                    <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="oid"/>
+                    <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
+                    <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+                    <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
+                    <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
+                    <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
+                </OutputClaims>
+                <OutputClaimsTransformations>
+                    <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
+                    <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName"/>
+                    <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
+                    <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
+                </OutputClaimsTransformations>
+                <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
+            </TechnicalProfile>
         </TechnicalProfiles>
     </ClaimsProvider>
     ```
@@ -153,9 +141,9 @@ Azure AD 끝점에서 토큰을 가져오기 위해 Azure AD B2C에서 Azure AD�
 1. `<Description>` 값을 업데이트합니다.
 1. Azure AD는 OpenID Connect 프로토콜을 사용하므로 `<Protocol>`이 "OpenIDConnect"이어야 합니다.
 
-위의 XML에서 `<Metdata>` 섹션을 업데이트하여 특정 Azure AD 테넌트의 구성 설정을 반영해야 합니다. XML에서 다음과 같이 메타데이터 값을 업데이트합니다.
+위의 XML에서 `<Metadata>` 섹션을 업데이트하여 특정 Azure AD 테넌트의 구성 설정을 반영해야 합니다. XML에서 다음과 같이 메타데이터 값을 업데이트합니다.
 
-1. `<Item Key="METADATA">`를 `https://login.windows.net/{tenantName}/.well-known/openid-configuration`로 설정합니다. 여기서 `tenantName`는 Azure AD 테넌트 이름입니다(예: contoso.com).
+1. `<Item Key="METADATA">`를 `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`로 설정합니다. 여기서 `yourAzureADtenant`는 Azure AD 테넌트 이름입니다(예: contoso.com).
 1. 브라우저를 열고 방금 업데이트한 `Metadata` URL로 이동합니다.
 1. 브라우저에서 '발급자' 개체를 찾아 해당 값을 복사합니다. 다음 `https://sts.windows.net/{tenantId}/`과 같아야 합니다.
 1. XML에서 `<Item Key="ProviderName">` 값을 붙여 넣습니다.
@@ -164,9 +152,9 @@ Azure AD 끝점에서 토큰을 가져오기 위해 Azure AD B2C에서 Azure AD�
 1. `<Item Key="response_types">`을 `id_token`로 설정했는지 확인합니다.
 1. `<Item Key="UsePolicyInRedirectUri">`을 `false`로 설정했는지 확인합니다.
 
-[Azure AD B2C 테넌트에 등록한 Azure AD 비밀](#add-the-azure-ad-key-to-azure-ad-b2c)을 Azure AD `<ClaimsProvider>`으로 연결해야 합니다.
+또한 Azure AD B2C 테넌트에 등록한 Azure AD 비밀을 Azure AD `<ClaimsProvider>`로 연결해야 합니다.
 
-1. 앞서 XML의 `<CryptographicKeys>` 섹션에서 `StorageReferenceId` 값을 정의한 비밀의 참조 ID(예: ContosoAppSecret)로 업데이트합니다.
+* 앞서 XML의 `<CryptographicKeys>` 섹션에서 `StorageReferenceId` 값을 정의한 비밀의 참조 ID(예: ContosoAppSecret)로 업데이트합니다.
 
 ### <a name="upload-the-extension-file-for-verification"></a>확인을 위한 확장 파일 업로드
 
@@ -222,7 +210,7 @@ Azure AD 끝점에서 토큰을 가져오기 위해 Azure AD B2C에서 Azure AD�
 이제 방금 만든 사용자 경험을 시작하는 RP 파일을 업데이트해야 합니다.
 
 1. 작업 디렉터리에서 SignUpOrSignIn.xml의 복사본을 만들고 이름을 바꿉니다(예: SignUpOrSignInWithAAD.xml).
-1. 새 파일을 열고 `<TrustFrameworkPolicy>`의 `PolicyId` 특성을 고유한 값으로 업데이트합니다. 이것이 정책의 이름입니다(예: SignUpOrSignInWithAAD).
+1. 새 파일을 열고 `<TrustFrameworkPolicy>`의 `PolicyId` 특성을 고유한 값(예: SignUpOrSignInWithAAD)으로 업데이트합니다. 이것이 정책의 이름입니다(예: B2C\_1A\_SignUpOrSignInWithAAD).
 1. `<DefaultUserJourney>`에서 `ReferenceId` 특성을 수정하여 만든 새 사용자 경험의 ID와 일치시킵니다(예: SignUpOrSignUsingContoso).
 1. 변경 내용을 저장하고 파일을 업로드합니다.
 
@@ -231,7 +219,6 @@ Azure AD 끝점에서 토큰을 가져오기 위해 Azure AD B2C에서 Azure AD�
 해당 블레이드를 열고 "지금 실행"을 클릭하여 방금 업로드한 사용자 지정 정책을 테스트합니다. 문제가 발생하는 경우 [문제를 해결](active-directory-b2c-troubleshoot-custom.md)하는 방법을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
- 
-AADB2CPreview@microsoft.com에 대한 피드백을 제공합니다.
 
+AADB2CPreview@microsoft.com에 대한 피드백을 제공합니다.
 

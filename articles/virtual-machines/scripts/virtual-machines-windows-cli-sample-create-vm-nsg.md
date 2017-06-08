@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: a532629eee3a0a01795df312a80a5095ddff9fa0
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 79ada397a1e268bb7e37d9a373141d6c5e2eb5ff
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -29,17 +29,19 @@ ms.lasthandoff: 04/06/2017
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli[기본](../../../cli_scripts/virtual-machine/create-vm-nsg/create-windows-vm-nsg.sh "NSG를 사용하여 VM 만들기")]
+[!code-azurecli-interactive[기본](../../../cli_scripts/virtual-machine/create-vm-nsg/create-windows-vm-nsg.sh "NSG를 사용하여 VM 만들기")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup --yes
 ```
 

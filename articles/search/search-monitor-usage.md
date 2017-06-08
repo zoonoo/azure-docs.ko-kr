@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 04/05/2017
+ms.date: 05/01/2017
 ms.author: betorres
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: ab273c56fe9818ea65979376ec829032f67f04ed
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 16cb5a1e16a59200f0e731622398efcf24c3f777
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -62,11 +63,11 @@ Azure Search는 다음 세 가지 메트릭에 대한 데이터를 수집합니�
 >
 
 ### <a name="using-the-rest-api"></a>REST API 사용
-Azure 검색 REST API와 .NET SDK는 모두 서비스 메트릭에 대한 프로그래밍 방식 액세스를 제공합니다.  [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx) 를 사용하여 Azure SQL 데이터베이스나 DocumentDB에서 인덱스를 로드하는 경우, 추가 API를 사용하여 필요한 숫자를 얻을 수 있습니다.
+Azure 검색 REST API와 .NET SDK는 모두 서비스 메트릭에 대한 프로그래밍 방식 액세스를 제공합니다.  [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx)를 사용하여 Azure SQL Database나 Azure Cosmos DB에서 인덱스를 로드하는 경우, 추가 API를 사용하여 필요한 숫자를 얻을 수 있습니다.
 
-* [인덱스 통계 가져오기](https://msdn.microsoft.com/library/azure/dn798942.aspx)
-* [문서 수 계산](https://msdn.microsoft.com/library/azure/dn798924.aspx)
-* [인덱서 상태 가져오기](https://msdn.microsoft.com/library/azure/dn946884.aspx)
+* [인덱스 통계 가져오기](/rest/api/searchservice/get-index-statistics)
+* [문서 수 계산](/rest/api/searchservice/count-documents)
+* [인덱서 상태 가져오기](/rest/api/searchservice/get-indexer-status)
 
 ## <a name="how-to-export-logs-and-metrics"></a>로그 및 메트릭을 내보내는 방법
 

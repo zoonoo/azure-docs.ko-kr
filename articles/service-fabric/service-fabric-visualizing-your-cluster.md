@@ -3,7 +3,7 @@ title: "Service Fabric Explorer를 사용하여 클러스터 시각화 | Microso
 description: "서비스 패브릭 탐색기는 Microsoft Azure 서비스 패브릭 클러스터에서 클라우드 응용 프로그램 및 노드를 검사 및 관리하기 위한 웹 기반 도구입니다."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
-ms.author: seanmck
-translationtype: Human Translation
+ms.date: 06/02/2017
+ms.author: ryanwi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 2bf6bd76b653e30f38595631eff576d8eeb8efda
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/27/2017
 
 

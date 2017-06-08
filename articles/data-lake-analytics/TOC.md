@@ -2,8 +2,7 @@
 ## [Data Lake Analytics란?](data-lake-analytics-overview.md)
 
 # 시작
-## [대화식 자습서: 웹 사이트 로그 분석](data-lake-analytics-use-interactive-tutorials.md)
-## [Azure Portal](data-lake-analytics-get-started-portal.md)
+## [Azure 포털](data-lake-analytics-get-started-portal.md)
 ## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
 ## [Java SDK](data-lake-analytics-get-started-java-sdk.md)
@@ -17,6 +16,7 @@
 ## 개발
 ### [U-SQL 기본 사항](data-lake-analytics-u-sql-get-started.md)
 ### [U-SQL 카탈로그](data-lake-analytics-u-sql-catalog.md)
+### [U-SQL 조인](data-lake-analytics-u-sql-combine-data-with-joins.md)
 ### [U-SQL 매개 변수](data-lake-analytics-u-sql-parameterize_scripts.md)
 ### [U-SQL 창 함수](data-lake-analytics-use-window-functions.md)
 ### [U-SQL 사용자 정의 연산자](data-lake-analytics-u-sql-develop-user-defined-operators.md)
@@ -26,6 +26,8 @@
 
 ## 솔루션 만들기
 ### [웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
+### [대화식 자습서: 웹 사이트 로그 분석](data-lake-analytics-use-interactive-tutorials.md)
+
 
 ## 관리
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)

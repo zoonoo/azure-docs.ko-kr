@@ -13,21 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/17/2017
+ms.date: 05/02/2017
 ms.author: iainfou
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 188c4758843a49ca38a151835d561c5f2d58d3a0
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 5b6c65ec8431c3a55e7cbccec3db5d08974982b5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
 
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>처음 부팅 시 Linux 가상 컴퓨터를 사용자 지정하는 방법
-신속하고 일관된 방식으로 VM(Virtual Machines)을 만들려면 일반적으로 자동화 기능이 필요합니다. 처음 부팅 시 VM을 사용자 지정하는 일반적인 방법은 [cloud-init](https://cloudinit.readthedocs.io)를 사용하는 것입니다. 이 자습서에서는 cloud-init를 사용하여 자동으로 패키지를 설치하고, NGINX 웹 서버를 구성하고, Node.js 앱을 배포하는 방법을 설명합니다.
+이전 자습서에서는 VM(가상 컴퓨터)에 SSH를 적용하고 NGINX를 수동으로 설치하는 방법에 대해 알아보았습니다. 빠르고 일관된 방식으로 VM을 만들려면 일반적으로 자동화 기능이 필요합니다. 처음 부팅 시 VM을 사용자 지정하는 일반적인 방법은 [cloud-init](https://cloudinit.readthedocs.io)를 사용하는 것입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
-최신 [Azure CLI 2.0](/cli/azure/install-azure-cli)을 사용하여 이 자습서의 단계를 완료할 수 있습니다.
+> [!div class="checklist"]
+> * cloud-init 구성 파일 만들기
+> * cloud-init 파일을 사용하는 VM 만들기
+> * VM을 만든 후에 실행 중인 Node.js 앱 보기
+> * Key Vault를 사용하여 안전하게 인증서 저장
+> * cloud-init를 사용하여 NGINX 배포 자동화
 
+이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 또한 브라우저에서 [Cloud Shell](/azure/cloud-shell/quickstart)을 사용할 수도 있습니다.
 
 ## <a name="cloud-init-overview"></a>Cloud-init 개요
 [Cloud-init](https://cloudinit.readthedocs.io)는 처음 부팅 시 Linux VM을 사용자 지정하는 데 널리 사용되는 방법입니다. Cloud-init를 사용하여 패키지를 설치하고 파일을 쓰거나, 사용자 및 보안을 구성할 수 있습니다. 초기 부팅 프로세스 중에 cloud-init가 실행되면 구성을 적용하기 위한 추가 단계나 필요한 에이전트가 없습니다.
@@ -92,10 +98,10 @@ runcmd:
 cloud-init 구성 옵션에 대한 자세한 내용은 [cloud-init 구성 예제](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)]를 참조하세요.
 
 ## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
-VM을 만들려면 먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *westus* 위치에 *myResourceGroupAutomate*라는 리소스 그룹을 만듭니다.
+VM을 만들려면 먼저 [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupAutomate*라는 리소스 그룹을 만듭니다.
 
 ```azurecli
-az group create --name myResourceGroupAutomate --location westus
+az group create --name myResourceGroupAutomate --location eastus
 ```
 
 이제 [az vm create](/cli/azure/vm#create)로 VM을 만듭니다. `--custom-data` 매개 변수를 사용하여 cloud-init 구성 파일을 전달합니다. 현재 작업 디렉터리 외부에 파일을 저장한 경우 *cloud-init.txt* 구성의 전체 경로를 제공합니다. 다음 예제에서는 *myAutomatedVM*이라는 VM을 만듭니다.
@@ -260,7 +266,17 @@ az vm open-port \
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 처음 부팅 시 VM을 사용자 지정하는 방법을 배웠습니다. 사용자 지정 VM 이미지를 만드는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+이 자습서에서는 cloud-init를 사용하여 처음 부팅할 때 VM을 구성했습니다. 다음 방법에 대해 알아보았습니다.
 
-[사용자 지정 VM 이미지 만들기](./tutorial-custom-images.md)
+> [!div class="checklist"]
+> * cloud-init 구성 파일 만들기
+> * cloud-init 파일을 사용하는 VM 만들기
+> * VM을 만든 후에 실행 중인 Node.js 앱 보기
+> * Key Vault를 사용하여 안전하게 인증서 저장
+> * cloud-init를 사용하여 NGINX 배포 자동화
+
+사용자 지정 VM 이미지를 만드는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+
+> [!div class="nextstepaction"]
+> [사용자 지정 VM 이미지 만들기](./tutorial-custom-images.md)
 

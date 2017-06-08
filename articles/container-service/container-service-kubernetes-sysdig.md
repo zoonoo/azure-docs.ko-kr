@@ -16,14 +16,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
-translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: daabc3ccda51cfd165e2ae6e1d329e866b3ebbcb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 0a344f3254802f787472a6d7cf91d658259955dc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
 
-# <a name="monitor-an-azure-container-service-kubenrnetes-cluster-using-sysdig"></a>Sysdig을 사용하여 Azure Container Service Kubenrnetes 클러스터 모니터링
+# <a name="monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>Sysdig을 사용하여 Azure Container Service Kubernetes 클러스터 모니터링
 
 ## <a name="prerequisites"></a>필수 조건
 이 연습에서는 [Azure Container Service를 사용하여 Kubernetes 클러스터를 만들었다고](container-service-kubernetes-walkthrough.md) 가정합니다.
@@ -89,9 +91,4 @@ $ kubectl create -f sysdig-daemonset.yaml
 일단 설치하여 실행 중이면 에이전트는 Sysdig로 데이터를 다시 공급합니다.  [sysdig 대시보드](https://app.sysdigcloud.com)로 돌아가 컨테이너에 대한 정보를 확인합니다.
 
 [새 대시보드 마법사](https://app.sysdigcloud.com/#/dashboards/new)를 통해 Kubernetes 특정 대시보드를 설치할 수도 있습니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

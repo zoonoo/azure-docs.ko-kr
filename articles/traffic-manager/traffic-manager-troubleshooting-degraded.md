@@ -1,6 +1,6 @@
 ---
 title: "Azure 트래픽 관리자의 성능 저하 상태 문제해결"
-description: "성능 저하 상태를으로 표시할 때 트래픽 관리자 프로필 문제를 해결하는 방법입니다."
+description: "성능 저하 상태로 표시할 때 Traffic Manager 문제를 해결하는 방법입니다."
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -11,23 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 05/03/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 179dc3fa0c1ab534cb1116269832f3bc81c4c434
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: b1d00fb84695d2289f37647f55a7c56cf28c8c96
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 ---
 
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Azure 트래픽 관리자의 성능 저하 상태 문제 해결
 
-이 문서에서는 성능 저하 상태를 보여 주는 Azure Traffic Manager 프로필 문제를 해결하는 방법을 설명합니다. 이 시나리오의 경우 사용자의 일부 .cloudapp.net 호스티드 서비스를 가리키는 Traffic Manager 프로필을 구성했다는 점을 고려합니다. Traffic Manager의 상태를 확인하는 경우 상태는 성능이 저하됨으로 표시됩니다.
+이 문서에서는 성능 저하 상태를 보여 주는 Azure Traffic Manager 프로필 문제를 해결하는 방법을 설명합니다. 이 시나리오의 경우 사용자의 일부 .cloudapp.net 호스티드 서비스를 가리키는 Traffic Manager 프로필을 구성했다는 점을 고려합니다. Traffic Manager의 상태가 **성능 저하됨** 상태를 표시하는 경우 하나 이상의 끝점 상태가 **성능 저하됨**일 수 있습니다.
 
-![성능이 저하됨](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
+![성능 저하 끝점 상태](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-해당 프로필의 끝점 탭으로 이동하는 경우 오프라인 상태인 하나 이상의 끝점이 표시됩니다.
+Traffic Manager의 상태가 **비활성** 상태를 표시하는 경우 두 끝점이 모두 **비활성**일 수 있습니다.
 
-![오프라인](./media/traffic-manager-troubleshooting-degraded/traffic-manager-offline.png)
+![비활성 Traffic Manager 상태](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
 ## <a name="understanding-traffic-manager-probes"></a>Traffic Manager 이해 프로브
 
@@ -94,9 +96,4 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [Azure Traffic Manager cmdlet][1]
 
 [1]: https://msdn.microsoft.com/library/mt125941(v=azure.200).aspx
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

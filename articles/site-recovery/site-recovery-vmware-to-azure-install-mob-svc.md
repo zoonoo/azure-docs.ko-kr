@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/20/2017
+ms.date: 5/11/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6437190ac58a021ce84993f667bbb5fad6031bb3
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: 6e91a8b21fe7bfe2c6944cfa1c10d835a75ddd13
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 ---
 
@@ -53,14 +54,18 @@ Azure Site Recovery 모바일 서비스는 컴퓨터에서 데이터 쓰기를 �
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1(64비트) </br> Windows Server 2012(64비트) </br> Windows Server 2012 R2(64비트) |
 |Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| RHEL(Red Hat Enterprise Linux) 6.4, 6.5, 6.6, 6.7, 6.8(64비트만 해당) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8(64비트만 해당) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | RHEL(Red Hat Enterprise Linux) 7.1, 7.2(64비트만 해당) </br> CentOS 7.0, 7.1, 7.2(64비트만 해당)</br> CentOs 7.3(마이그레이션만 해당) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3(64비트만 해당)|
-|Microsoft-ASR_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5(64비트만 해당)|
+|Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4(64비트만 해당)|
+|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5(64비트만 해당)|
+|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04(64비트만 해당)|
 
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>GUI를 사용하여 수동으로 모바일 서비스 설치
 
->[!NOTE]
+>[!IMPORTANT]
 > GUI 기반 설치는 Windows 운영 체제에서만 작동합니다.
+> 구성 서버를 사용하여 Azure 구독/지역 간에 Azure IaaS 가상 컴퓨터를 복제하는 경우 명령줄 기반 설치 메서드를 사용합니다
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 

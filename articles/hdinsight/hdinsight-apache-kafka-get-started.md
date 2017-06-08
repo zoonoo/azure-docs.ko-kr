@@ -1,6 +1,6 @@
 ---
-title: "HDInsight에서 Apache Kafka 시작 | Microsoft 문서"
-description: "HDInsight에서 Kafka 클러스터를 만들고 사용할 때 필요한 기본 사항에 대해 알아봅니다."
+title: "Apache Kafka 시작 - Azure HDInsight | Microsoft 문서 도구"
+description: "Azure HDInsight의 Apache Kafka 클러스터를 만드는 방법에 대해 알아봅니다. 토픽, 구독자 및 소비자를 만드는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,31 +13,25 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/14/2017
+ms.date: 05/16/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 695c6bd0a08e88be2d8e28eb15d903f3ae1eccaf
+ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
+ms.openlocfilehash: f92d71542a2aa797b84f8742f74a02fea895e25a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/17/2017
 
 ---
-# <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>HDInsight에서 Apache Kafka(미리 보기) 시작
+# <a name="start-with-apache-kafka-preview-on-hdinsight"></a>HDInsight의 Apache Kafka(미리 보기) 시작
 
-[Apache Kafka](https://kafka.apache.org)는 HDInsight와 함께 제공되는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-구독 메시지 큐와 유사한 기능을 제공하므로 메시지 브로커로 자주 사용됩니다. 이 문서에서는 HDInsight 클러스터에서 Kafka를 만든 다음 Java 응용 프로그램에서 데이터를 보내고 받는 방법에 대해 알아봅니다.
+Azure HDInsight의 [Apache Kafka](https://kafka.apache.org) 클러스터를 만들고 사용하는 방법에 대해 알아봅니다. Kafka는 HDInsight와 함께 제공되는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-구독 메시지 큐와 유사한 기능을 제공하므로 메시지 브로커로 자주 사용됩니다.
 
 > [!NOTE]
 > 현재 HDInsight에는 두 가지 버전의 Kafka, 즉 0.9.0(HDInsight 3.4) 및 0.10.0(HDInsight 3.5)이 제공됩니다. 이 문서의 단계에서는 HDInsight 3.5에서 Kafka를 사용하는 것으로 가정합니다.
 
-## <a name="prerequisite"></a>필수 요소
-
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-이 Apache Kafka 자습서를 성공적으로 완료하려면 다음 항목이 필요합니다.
-
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-
-* **SSH 및 SCP 사용 경험**. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+## <a name="prerequisites"></a>필수 조건
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 또는 이와 동등한 프로그램(예: OpenJDK)
 
@@ -94,7 +88,7 @@ ms.lasthandoff: 05/03/2017
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
-클라이언트에서 SSH를 사용하여 클러스터에 연결합니다. Windows 10에서 Linux, Unix, MacOS 또는 Bash를 사용하는 경우 다음 명령을 사용합니다.
+클라이언트에서 SSH를 다음과 같이 사용하여 클러스터에 연결합니다.
 
 ```ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net```
 
@@ -104,7 +98,7 @@ ms.lasthandoff: 05/03/2017
 
 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-##<a id="getkafkainfo"></a>Zookeeper 및 Broker 호스트 정보 가져오기
+## <a id="getkafkainfo"></a>Zookeeper 및 Broker 호스트 정보 가져오기
 
 Kafka를 사용할 때는 두 가지 호스트, 즉 *Zookeeper* 호스트와 *Broker* 호스트의 값을 알고 있어야 합니다. 이러한 호스트는 Kafka API 및 Kafka와 함께 제공되는 다양한 유틸리티에서 사용됩니다.
 
@@ -116,12 +110,12 @@ Kafka를 사용할 때는 두 가지 호스트, 즉 *Zookeeper* 호스트와 *Br
     sudo apt -y install jq
     ```
 
-2. 다음 명령을 사용하여 Ambari에서 검색한 정보로 환경 변수를 설정합니다. __KAFKANAME__은 Kafka 클러스터의 이름으로 바꿉니다. __PASSWORD__는 클러스터를 만들 때 사용한 로그인(관리자) 암호로 바꿉니다.
+2. 다음 명령을 사용하여 Ambari에서 검색한 정보로 환경 변수를 설정합니다. __CLUSTERNAME__은 Kafka 클러스터의 이름으로 바꿉니다. __PASSWORD__는 클러스터를 만들 때 사용한 로그인(관리자) 암호로 바꿉니다.
 
     ```bash
-    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/KAFKANAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
 
-    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/KAFKANAME/services/HDFS/components/DATANODE | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
+    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G http://headnodehost:8080/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
 
     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     echo '$KAFKABROKERS='$KAFKABROKERS
@@ -136,8 +130,8 @@ Kafka를 사용할 때는 두 가지 호스트, 즉 *Zookeeper* 호스트와 *Br
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
    
     > [!WARNING]
-    > 항상 정확하도록 이 세션에서 반환된 정보에 의존하지 마세요. 클러스터를 확장하면 새 broker가 추가되거나 제거됩니다. 오류가 발생하고 노드가 대체되면 노드의 호스트 이름을 변경할 수 있습니다. 
-    > 
+    > 항상 정확하도록 이 세션에서 반환된 정보에 의존하지 마세요. 클러스터를 확장하면 새 broker가 추가되거나 제거됩니다. 오류가 발생하고 노드가 대체되면 노드의 호스트 이름을 변경할 수 있습니다.
+    >
     > Zookeeper와 broker 호스트 정보는 올바른 정보를 얻기 위해 사용하기 직전에 검색해야 합니다.
 
 ## <a name="create-a-topic"></a>토픽 만들기
@@ -176,7 +170,7 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic test --from-beginning
     ```
    
-    이렇게 하면 토픽에서 레코드를 검색하여 표시합니다. `--from-beginning`을 사용하면 스트림 시작 부분부터 시작하도록 소비자에 지시하여 모든 레코드를 검색합니다.
+    이 명령은 토픽에서 레코드를 검색하여 표시합니다. `--from-beginning`을 사용하면 스트림 시작 부분부터 시작하도록 소비자에 지시하여 모든 레코드를 검색합니다.
 
 3. __Ctrl+C__를 사용하여 소비자를 중지합니다.
 
@@ -192,12 +186,12 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
 
     * **Consumer** - 토픽에서 레코드를 읽습니다.
 
-2. 개발 환경의 명령줄에서 예제의 `Producer-Consumer` 디렉터리 위치로 디렉터리를 변경한 후 다음 명령을 사용하여 jar 패키지를 만듭니다.
-   
+2. 디렉터리를 예제의 `Producer-Consumer` 디렉터리 위치로 변경한 후 다음 명령을 사용하여 jar 패키지를 만듭니다.
+
     ```
     mvn clean package
     ```
-   
+
     이 명령은 `kafka-producer-consumer-1.0-SNAPSHOT.jar`라는 파일이 포함된 `target`이라는 디렉터리를 만듭니다.
 
 3. 다음 명령을 사용하여 `kafka-producer-consumer-1.0-SNAPSHOT.jar` 파일을 HDInsight 클러스터에 복사합니다.
@@ -208,13 +202,13 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
    
     **SSHUSER**는 클러스터의 SSH 사용자로 바꾸고, **CLUSTERNAME**은 클러스터 이름으로 바꿉니다. 메시지가 표시되면 SSH 사용자의 암호를 입력합니다.
 
-4. `scp` 명령으로 파일 복사를 완료하면 SSH를 사용하여 클러스터에 연결한 후 다음을 사용하여 이전에 만든 test 토픽에 레코드를 기록합니다.
-   
+4. `scp` 명령이 파일 복사를 완료하면 SSH를 사용하여 클러스터에 연결합니다. 다음 명령을 사용하여 테스트 토픽에 레코드를 씁니다.
+
     ```bash
     ./kafka-producer-consumer.jar producer $KAFKABROKERS
     ```
-   
-    이 명령은 생산자를 시작하고 레코드를 기록합니다. 기록된 레코드 수를 확인할 수 있도록 카운터가 표시됩니다.
+
+    기록된 레코드 수를 확인할 수 있도록 카운터가 표시됩니다.
 
     > [!NOTE]
     > 권한 거부 오류가 표시되면 다음 명령을 사용하여 파일을 실행하도록 만듭니다. ```chmod +x kafka-producer-consumer.jar```
@@ -240,7 +234,7 @@ Kafka의 중요한 개념은 소비자에서 레코드를 읽을 때 그룹 ID�
     ```
 
     > [!NOTE]
-    > 이 세션은 새로운 SSH 세션이므로 [Zookeeper 및 Broker 호스트 정보 가져오기](#getkafkainfo) 섹션의 명령을 사용하여 `$KAFKABROKERS`를 설정해야 합니다.
+    > [Zookeeper 및 Broker 호스트 정보 가져오기](#getkafkainfo) 섹션의 명령을 사용하여 이 SSH 세션에 대해 `$KAFKABROKERS`를 설정합니다.
 
 2. 각 세션에서 토픽으로부터 받은 레코드를 계산하는 것을 지켜봅니다. 두 세션의 합계는 앞서 한 소비자로부터 받은 것과 같아야 합니다.
 
@@ -260,11 +254,11 @@ Kafka에 저장된 레코드는 파티션에서 받은 순서대로 저장됩니
     이 프로젝트에는 이전에 만들어진 `test` 토픽에서 레코드를 읽는 `Stream` 클래스 하나만 있습니다. 읽은 단어를 집계하여 각 단어를 내보내고 `wordcounts`라는 토픽에 집계합니다. `wordcounts` 토픽은 이 섹션의 이후 단계에서 만들어집니다.
 
 2. 개발 환경의 명령줄에서 `Streaming` 디렉터리 위치로 디렉터리를 변경한 후 다음 명령을 사용하여 jar 패키지를 만듭니다.
-   
-    ```
+
+    ```bash
     mvn clean package
     ```
-   
+
     이 명령은 `kafka-streaming-1.0-SNAPSHOT.jar`라는 파일이 포함된 `target`이라는 디렉터리를 만듭니다.
 
 3. 다음 명령을 사용하여 `kafka-streaming-1.0-SNAPSHOT.jar` 파일을 HDInsight 클러스터에 복사합니다.

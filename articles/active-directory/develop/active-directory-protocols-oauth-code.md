@@ -14,9 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
 ms.openlocfilehash: a3e21d5af43562afde927bb623b910c96ad48158
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -377,8 +380,3 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | correlation_id |여러 구성 요소에서 진단에 도움이 될 수 있는 요청에 대한 고유 식별자입니다. |
 
 오류 코드 및 권장되는 클라이언트 작업에 대한 설명은 [토큰 끝점 오류에 대한 오류 코드](#error-codes-for-token-endpoint-errors)를 참조하세요.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

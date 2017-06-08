@@ -1,5 +1,5 @@
 # 개요
-## [Hadoop](hdinsight-hadoop-introduction.md)
+## [HDInsight 및 Hadoop 정보](hdinsight-hadoop-introduction.md)
 ## [HDInsight의 Hadoop 구성 요소](hdinsight-component-versioning.md)
 ## [R Server](hdinsight-hadoop-r-server-overview.md)
 ## [Apache Spark](hdinsight-apache-spark-overview.md)
@@ -133,6 +133,7 @@
 ### [부트스트랩을 사용하여 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [스크립트 작업을 사용하여 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
 ### [스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)
+### [Presto 설치 및 사용](hdinsight-hadoop-install-presto.md)
 ### [Mono 설치 또는 업데이트](hdinsight-hadoop-install-mono.md)
 ### [Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md)
 ### [Giraph 사용](hdinsight-hadoop-giraph-install-linux.md)
@@ -221,5 +222,6 @@
 ### [Ambari API를 사용하여 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md)
 
 # 리소스
+## [HDInsight에 대한 Windows 도구](hdinsight-hadoop-windows-tools.md)
 ## [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

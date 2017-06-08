@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: renash
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e773fd4917c7a96201d94d31b2098a3486d27900
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 4e2422e8651d6fd17df2670e78606d1caeaf64ce
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -676,14 +676,11 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
     
     종단 간 문제 해결 지침에 대해서는 [Azure 파일 문제 해결 문서](storage-troubleshoot-file-connection-problems.md)를 참조할 수 있습니다.               
 
-18. **Azure Files에서 서버 쪽 암호화를 사용하하려면 어떻게 해야 하나요?**
-> [!NOTE]
-> Azure Files에서 [서버 쪽 암호화](storage-service-encryption.md)는 현재 미리 보기 상태입니다. 미리 보기 중에 질문이 있는 경우 [SSEDiscussion](mailto:ssediscussions@microsoft.com)에 문의할 수 있습니다.
-
-    [Server Side Encryption](storage-service-encryption.md) for Azure Files is currently in preview. During preview, you can enable this feature only on new Azure Resource Manager storage accounts created by using the [Azure portal](https://portal.azure.com). There is no additional charge for enabling this feature. When you enable Storage Service Encryption for Azure File Storage, your data is automatically encrypted for you. 
+18. **Azure File Storage에서 서버 쪽 암호화를 사용하려면 어떻게 해야 하나요?**
     
-    We plan to support enabling encryption for file storage with [Azure PowerShell](/powershell/resourcemanager/azurerm.storage/v2.7.0/azurerm.storage), [Azure CLI](storage-azure-cli.md), and the [Azure Storage Resource Provider REST API](/rest/api/storagerp/storageaccounts) in the future. 
-    See [Storage Service Encryption](storage-service-encryption.md) for more information about encryption at rest in Azure Storage, and you can contact ssediscussions@microsoft.com if you have questions during the preview.
+    Azure File Storage 서비스를 위한 [서버 쪽 암호화](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)는 모든 지역과 공용 및 국가별 클라우드에서 일반적으로 사용 가능합니다. [Azure Portal](https://ms.portal.azure.com/), [Microsoft Azure Storage 리소스 공급자 API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts), [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx) 또는 [Azure CLI](https://azure.microsoft.com/en-us/documentation/articles/storage-azure-cli/)를 사용하여 File Storage 서비스에 대해 SSE를 사용하도록 설정할 수 있습니다.
+    
+    Azure File Storage에서 SSE를 사용하도록 설정한 후에는 해당 저장소 계정의 파일 저장소에 기록된 모든 새 데이터가 자동으로 암호화됩니다. 이 기능은 기존 또는 새 저장소 계정에서 기존 또는 새 공유에 기록된 모든 새로운 데이터에 대해 사용할 수 있습니다. 이 기능을 사용하는 추가 비용은 없습니다. [Azure File Storage 서비스에서 SSE를 사용하도록 설정하는 방법](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.

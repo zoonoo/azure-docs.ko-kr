@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 05/25/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: cbd764b3c6ce912c825aa2756ac6f35c23d047bf
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: eeddc0da23192a0082f2fcddbb0cc5f3e4a72074
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -76,8 +77,6 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 이 섹션의 FAQ는 일반적인 모니터링 및 문제 해결 질문을 다룹니다. Azure Redis Cache 인스턴스를 모니터링하고 관련 문제를 해결하는 방법에 대한 자세한 내용은 [Azure Redis Cache를 모니터링하는 방법](cache-how-to-monitor.md) 및 [Azure Redis Cache 문제를 해결하는 방법](cache-how-to-troubleshoot.md)을 참조하세요.
 
 * [내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
-* [내 캐시 진단 저장소 계정 설정이 변경되었습니다. 무슨 일인가요?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
-* [다른 것을 제외하고 일부 새 캐시에 대해서만 진단이 사용되는 이유는 무엇인가요?](#why-are-diagnostics-enabled-for-some-new-caches-but-not-others)
 * [왜 시간 초과가 표시되나요?](#why-am-i-seeing-timeouts)
 * [내 클라이언트가 캐시에서 연결이 끊어진 것은 무엇 때문인가요?](#why-was-my-client-disconnected-from-the-cache)
 
@@ -426,12 +425,6 @@ Redis 캐시 **리소스 메뉴**에도 캐시 문제를 모니터링하고 해�
 * **새 지원 요청** 을 클릭하여 캐시에 대한 지원 요청을 엽니다.
 
 이러한 도구는 Azure Redis Cache 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 응용 프로그램 관리에 도움이 됩니다. 자세한 내용은 [Azure Redis Cache를 구성하는 방법](cache-configure.md)의 "지원 및 문제 해결 설정" 섹션을 참조하세요.
-
-### <a name="my-cache-diagnostics-storage-account-settings-changed-what-happened"></a>내 캐시 진단 저장소 계정 설정이 변경되었습니다. 무슨 일인가요?
-같은 지역, 같은 구독에 소속된 캐시는 진단 저장소 설정을 공유하며, 구성이 변경되면(진단 활성화/비활성화 또는 저장소 계정 변경) 해당 지역에 있는 구독의 모든 캐시에 적용됩니다. 캐시에 대한 진단 설정이 변경된 경우 동일한 구독 및 지역의 다른 캐시에 대한 진단 설정이 변경되었는지 아닌지를 확인합니다. 확인하는 한 가지 방법은 `Write DiagnosticSettings` 이벤트에 대한 캐시의 감사 로그를 확인하는 것입니다. 감사 로그 작업에 대한 자세한 내용은 [이벤트 및 감사 로그 보기](../monitoring-and-diagnostics/insights-debugging-with-events.md) 및 [Resource Manager로 작업 감사](../azure-resource-manager/resource-group-audit.md)를 참조하세요. Azure Redis Cache 이벤트 모니터링에 대한 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
-
-### <a name="why-are-diagnostics-enabled-for-some-new-caches-but-not-others"></a>다른 것을 제외하고 일부 새 캐시에 대해서만 진단이 사용되는 이유는 무엇인가요?
-동일한 지역 및 구독의 캐시는 동일한 진단 저장소 설정을 공유합니다. 진단이 사용되도록 설정된 다른 캐시가 있는 동일한 지역 및 구독에 새 캐시를 만드는 경우 동일한 설정을 사용하여 새 캐시에 대해 진단이 사용되도록 설정됩니다.
 
 <a name="cache-timeouts"></a>
 

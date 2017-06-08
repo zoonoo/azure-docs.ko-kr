@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/07/2017
+ms.date: 05/09/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 0dbf6a121c07d7d1340898f51a38c3572e57b3a2
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 74ea95349faa7ee3376050c22b4bb2375837b5c0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -63,20 +64,22 @@ ms.lasthandoff: 04/06/2017
    2. **Nuget 패키지 관리자** 탭에서 **패키지 원본**이 **nuget.org**로 설정되어 있고 **시험판 포함** 확인란이 선택되어 있는지 확인합니다.
    3. 다음 NuGet 패키지를 검색하고 설치합니다.
 
-      * `Microsoft.Azure.Management.DataLake.Store` - 이 자습서는 v1.0.4를 사용합니다.
-      * `Microsoft.Azure.Management.DataLake.StoreUploader` - 이 자습서는 v1.0.1-미리 보기를 사용합니다.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 이 자습서는 v2.2.11을 사용합니다.
+      * `Microsoft.Azure.Management.DataLake.Store` - 이 자습서에서는 v2.1.3-미리 보기를 사용합니다.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 이 자습서는 v2.2.12를 사용합니다.
 
-        ![Nuget 원본 추가](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "새 Azure Data Lake 계정 만들기")
+        ![Nuget 원본 추가](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "새 Azure Data Lake 계정 만들기")
    4. **NuGet 패키지 관리자**를 닫습니다.
 6. **Program.cs**를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
 
         using System;
         using System.IO;
-    System.Security.Cryptography.X509Certificates 사용; // 인증서로 만든 Azure AD 응용 프로그램을 사용하는 경우에만 필요      System.Threading 사용;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Threading;
 
         using Microsoft.Azure.Management.DataLake.Store;
-    Microsoft.Azure.Management.DataLake.Store.Models 사용;  Microsoft.Azure.Management.DataLake.StoreUploader 사용;  Microsoft.IdentityModel.Clients.ActiveDirectory 사용;  Microsoft.Rest.Azure.Authentication 사용;
+        using Microsoft.Azure.Management.DataLake.Store.Models;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using Microsoft.Rest.Azure.Authentication;
 
 7. 아래와 같이 변수를 선언하고 이미 존재하는 Data Lake Store 이름과 리소스 그룹 이름에 대한 값을 제공합니다. 또한, 여기에 제공하는 로컬 경로와 파일 이름이 컴퓨터에 존재해야 합니다. 네임스페이스 선언 후에 다음 코드 조각을 추가합니다.
 
@@ -125,7 +128,7 @@ ms.lasthandoff: 04/06/2017
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
 
-위의 코드 조각에 대해 알아야 할 내용.
+위의 코드 조각에 대해 알아야 할 내용:
 
 * 자습서를 신속하게 완료할 수 있도록, 이 코드 조각은 기본적으로 모든 Azure 구독에서 사용할 수 있는 Azure AD 도메인 및 클라이언트 ID를 사용합니다. 따라서 **이 코드 조각을 응용 프로그램에서 있는 그대로 사용**할 수 있습니다.
 * 하지만, 자체적인 Azure AD 도메인과 응용 프로그램 클라이언트 ID를 사용하려면 Azure AD 네이티브 응용 프로그램을 만든 다음 그 응용 프로그램에 대한 Azure AD 테넌트 ID, 클라이언트 ID 및 리디렉션 URI를 사용해야 합니다. 지침은 [Data Lake Store를 사용하여 최종 사용자 인증을 위한 Active Directory 응용 프로그램 만들기](data-lake-store-end-user-authenticate-using-active-directory.md)를 참조하세요.
@@ -197,13 +200,10 @@ ms.lasthandoff: 04/06/2017
     // Upload a file
     public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
     {
-        var parameters = new UploadParameters(srcFilePath, destFilePath, _adlsAccountName, isOverwrite: force);
-        var frontend = new DataLakeStoreFrontEndAdapter(_adlsAccountName, _adlsFileSystemClient);
-        var uploader = new DataLakeStoreUploader(parameters, frontend);
-        uploader.Execute();
+        _adlsFileSystemClient.FileSystem.UploadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite:force);
     }
 
-`DataLakeStoreUploader` 는 로컬 파일 경로와 Data Lake Store 파일 경로 간의 재귀 업로드 및 다운로드를 지원합니다.    
+SDK는 로컬 파일 경로와 Data Lake Store 파일 경로 간의 재귀 업로드 및 다운로드를 지원합니다.    
 
 ## <a name="get-file-or-directory-info"></a>파일 또는 디렉터리 정보 가져오기
 다음 코드 조각은 Data Lake Store에서 사용할 수 있는 파일이나 디렉터리에 대한 정보를 검색하는 데 사용할 수 있는 `GetItemInfo` 메서드를 보여 줍니다.
@@ -248,19 +248,15 @@ ms.lasthandoff: 04/06/2017
 다음 코드 조각은 Data Lake Store 계정에서 파일을 다운로드하는 데 사용하는 `DownloadFile` 메서드를 보여 줍니다.
 
     // Download file
-    public static async Task DownloadFile(string srcPath, string destPath)
+       public static void DownloadFile(string srcFilePath, string destFilePath)
     {
-        using (var stream = await _adlsFileSystemClient.FileSystem.OpenAsync(_adlsAccountName, srcPath))
-        using (var fileStream = new FileStream(destPath, FileMode.Create))
-        {
-            await stream.CopyToAsync(fileStream);
-        }
+         _adlsFileSystemClient.FileSystem.DownloadFile(_adlsAccountName, srcFilePath, destFilePath);
     }
 
 ## <a name="next-steps"></a>다음 단계
 * [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 * [Azure 데이터 레이크 분석에 데이터 레이크 저장소 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Data Lake Store .NET SDK 참조](https://msdn.microsoft.com/library/mt581387.aspx)
+* [Data Lake Store .NET SDK 참조](https://docs.microsoft.com/dotnet/api/?view=azuremgmtdatalakestore-2.1.0-preview&term=DataLake.Store)
 * [Data Lake Store REST 참조](https://msdn.microsoft.com/library/mt693424.aspx)
 

@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
-ms.openlocfilehash: c9f2e3beafd19e0d4d62e409a80da336be17b90b
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: c54a1ed648022875f489179a3321dedf2d290d7e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
+
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-portal"></a>자습서: Azure Portal을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-build-your-first-pipeline.md)
@@ -31,12 +33,14 @@ ms.lasthandoff: 02/03/2017
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-이 문서에서는 [Azure 포털](https://portal.azure.com/) 을 사용하여 첫 번째 Azure Data Factory를 만드는 방법을 알아봅니다. 다른 도구/SDK를 사용하여 이 자습서를 수행하려면 드롭다운 목록에서 옵션 중 하나를 선택합니다. 
+이 문서에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 첫 번째 Azure Data Factory를 만드는 방법을 알아봅니다. 다른 도구/SDK를 사용하여 이 자습서를 수행하려면 드롭다운 목록에서 옵션 중 하나를 선택합니다. 
+
+이 자습서의 파이프라인에는 **HDInsight Hive 작업**이라는 하나의 작업이 있습니다. 이 작업은 Azure HDInsight 클러스터에서 입력 데이터를 변환하여 출력 데이터를 생성하는 Hive 스크립트를 실행합니다. 파이프라인은 지정된 시작 및 종료 시간 사이, 한 달에 한 번 실행되도록 예약됩니다. 
 
 > [!NOTE]
-> 이 자습서의 데이터 파이프라인은 출력 데이터를 생성하는 입력 데이터를 변환합니다. 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사하지 않습니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+> 이 자습서의 데이터 파이프라인은 출력 데이터를 생성하는 입력 데이터를 변환합니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 > 
-> 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 정보는 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요. 
+> 파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [Data Factory에서 예약 및 실행](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 1. [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
@@ -61,13 +65,15 @@ ms.lasthandoff: 02/03/2017
    >
 4. 데이터 팩터리를 만들려는 위치의 **Azure 구독** 을 선택합니다.
 5. 기존 **리소스 그룹** 을 선택하거나 리소스 그룹을 만듭니다. 이 자습서에서 **ADFGetStartedRG**라는 이름의 리소스 그룹을 만듭니다.
-6. **새 Data Factory** 블레이드에서 **만들기**를 클릭합니다.
+6. 데이터 팩터리의 **위치** 를 선택합니다. Data Factory 서비스에서 지원하는 지역만 드롭다운 목록에 표시됩니다.
+7. **대시보드에 고정**을 선택합니다. 
+8. **새 Data Factory** 블레이드에서 **만들기**를 클릭합니다.
 
    > [!IMPORTANT]
    > 데이터 팩터리 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [데이터 팩터리 참여자](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
    >
    >
-7. 다음과 같이 Azure 포털의 **시작 보드** 에 생성되는 데이터 팩터리가 표시됩니다.   
+7. 대시보드에서 데이터 팩터리 배포 중 상태의 타일이 표시됩니다.    
 
    ![데이터 팩터리 만들기 상태](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 8. 축하합니다. 첫 번째 데이터 팩터리 만들기가 완료되었습니다. 데이터 팩터리 만들기를 완료한 후에는 데이터 팩터리 페이지가 표시되며 여기에 데이터 팩터리의 내용이 표시됩니다.     
@@ -114,7 +120,6 @@ ms.lasthandoff: 02/03/2017
       "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-          "version": "3.2",
           "clusterSize": 1,
           "timeToLive": "00:30:00",
           "linkedServiceName": "AzureStorageLinkedService"
@@ -127,7 +132,6 @@ ms.lasthandoff: 02/03/2017
 
    | 속성 | 설명 |
    |:--- |:--- |
-   | 버전 |생성되는 HDInsight 버전을 3.2로 지정합니다. |
    | ClusterSize |HDInsight 클러스터의 크기를 지정합니다. |
    | TimeToLive |HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다. |
    | linkedServiceName |HDInsight에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다. |
@@ -184,13 +188,16 @@ ms.lasthandoff: 02/03/2017
 
    | 속성 | 설명 |
    |:--- |:--- |
-   | type |Azure blob 저장소에 데이터가 있기 때문에 형식 속성은 AzureBlob로 설정됩니다. |
-   | linkedServiceName |이전에 만든 AzureStorageLinkedService를 참조합니다. |
-   | fileName |이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일을 선택합니다. 이 경우에 input.log만 처리됩니다. |
-   | type |로그 파일이 텍스트 형식이므로 TextFormat을 사용합니다. |
-   | columnDelimiter |로그 파일의 열은 ,(쉼표)로 구분됩니다. |
-   | frequency/interval |월 및 간격을 설정한 빈도가 1인 경우 입력 조각은 매월 제공됩니다. |
-   | external |입력 데이터가 데이터 팩터리 서비스에서 생성되지 않는 경우 이 속성은 true로 설정됩니다. |
+   | type |Azure Blob 저장소에 데이터가 있기 때문에 type 속성은 **AzureBlob**으로 설정됩니다. |
+   | linkedServiceName |이전에 만든 **AzureStorageLinkedService**를 참조합니다. |
+   | folderPath | 입력 Blob이 포함된 Blob **컨테이너**와 **폴더**를 지정합니다. | 
+   | fileName |이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일을 선택합니다. 이 자습서에서는 **input.log**만 처리됩니다. |
+   | type |로그 파일이 텍스트 형식이므로 **TextFormat**을 사용합니다. |
+   | columnDelimiter |로그 파일의 열은 **쉼표(`,`)**로 구분됩니다. |
+   | frequency/interval |**월** 및 간격을 설정한 빈도가 **1**인 경우 입력 조각은 매월 제공됩니다. |
+   | external | 이 파이프라인에 의해 입력 데이터가 생성되지 않는 경우 이 속성은 **true**로 설정됩니다. 이 자습서에서는 이 파이프라인에 의해 input.log 파일이 생성되지 않으므로 이 속성을 true로 설정합니다. |
+
+    이러한 JSON 속성에 대한 자세한 내용은 [Azure Blob 커넥터 문서](data-factory-azure-blob-connector.md#dataset-properties)를 참조하세요.
 3. 명령 모음에서 **배포** 를 클릭하여 새로 만든 데이터 집합을 배포합니다. 왼쪽의 트리 보기에서 데이터 집합을 표시합니다.
 
 ### <a name="create-output-dataset"></a>출력 데이터 집합 만들기

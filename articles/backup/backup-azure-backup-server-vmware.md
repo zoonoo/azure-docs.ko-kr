@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 04/20/2017
 ms.author: markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 34146bd110661c12c4ec1e11d34d7bdfa3cac688
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: faa3c9d5de759e4d8c0589153ea93e83a580f983
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -93,7 +94,7 @@ Azure Backup Server는 VMware vCenter Server 버전 6.0 및 5.5를 백업하거�
 
   ![오류가 있는 인증서 대화 상자 ](./media/backup-azure-backup-server-vmware/certificate-store-selected.png)
 
-  선택한 인증서 저장소가 **인증서 가져오기 마법사**에 표시됩니다. **다음**을 클릭합니다.
+  선택한 인증서 저장소가 **인증서 가져오기 마법사**에 표시됩니다. **다음**을 누릅니다.
 
   ![오류가 있는 인증서 대화 상자 ](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 
@@ -260,7 +261,7 @@ Azure Backup Server에 VMware Server를 추가하기 전에 [Microsoft Azure Bac
 
 ## <a name="add-the-vcenter-server-to-azure-backup-server"></a>Azure Backup Server에 vCenter Server 추가
 
-프로덕션 서버 추가 마법사를 열려면
+프로덕션 서버 추가 마법사를 열려면:
 
 1. Azure Backup Server 콘솔에서 **관리**, **프로덕션 서버**를 차례로 클릭한 다음, **추가**를 클릭합니다.
 

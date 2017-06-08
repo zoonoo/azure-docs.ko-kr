@@ -3,7 +3,7 @@ title: "Azure 포털에서 SQL Data Warehouse 만들기 | Microsoft Docs"
 description: "Azure 포털에서 SQL 데이터 웨어하우스를 만드는 방법을 알아봅니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: hirokib
 manager: jhubbard
 editor: 
 tags: azure-sql-data-warehouse
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: elbutter;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
 ms.openlocfilehash: 75f4792ff2aa2b73ebc3ff976887a74ce09988f3
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/10/2017
 
 

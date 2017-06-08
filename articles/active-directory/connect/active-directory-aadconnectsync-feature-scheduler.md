@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/28/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: feb6e388a98cd6e133d010cada97f895140c3f4f
-ms.openlocfilehash: ee9a3b605c5445007f880a37e96c2326dd7c9b89
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: fe7f508ed1c4eb57663f7e252d286719af03dbb1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -45,9 +46,9 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 
 이 cmdlet을 실행했을 때 **사용할 수 없는 동기화 명령 또는 cmdlet** 이 나타나면 PowerShell 모듈이 로드되지 않은 것입니다. 기본 설정보다 PowerShell 제한 수준이 높은 도메인 컨트롤러 또는 서버에서 Azure AD Connect를 실행할 경우 이 문제가 발생할 수 있습니다. 이 오류가 나타나면 `Import-Module ADSync`을(를) 실행하여 cmdlet을 사용할 수 있게 합니다.
 
-* **AllowedSyncCycleInterval**. 동기화를 발생시키는 가장 잦은 간격 Azure AD입니다. 이 설정보다 더 자주 동기화할 수 없으며 계속 지원됩니다.
+* **AllowedSyncCycleInterval**. Azure AD에서 허용되는 동기화 주기 간의 가장 짧은 시간 간격입니다. 이 설정보다 더 자주 동기화할 수 없으며 계속 지원됩니다.
 * **CurrentlyEffectiveSyncCycleInterval**. 현재 적용 중인 일정입니다. AllowedSyncInterval보다 낮은 경우 CustomizedSyncInterval(설정된 경우)과 동일한 값을 갖습니다. 1.1.281 이전 빌드를 사용하고 CustomizedSyncCycleInterval을 변경한 경우 이 변경 내용은 다음 동기화 주기 후에 적용됩니다. 1.1.281 빌드의 경우 변경 내용은 즉시 적용됩니다.
-* **CustomizedSyncCycleInterval**. 스케줄러를 기본값 30분이 아닌 다른 빈도로 실행하려면 이 설정을 구성합니다. 위의 그림에서는 스케줄러가&1;시간마다 실행되도록 설정되었습니다. 이 설정을 AllowedSyncInterval보다 낮은 값으로 설정하면 후자가 사용됩니다.
+* **CustomizedSyncCycleInterval**. 스케줄러를 기본값 30분이 아닌 다른 빈도로 실행하려면 이 설정을 구성합니다. 위의 그림에서는 스케줄러가 1시간마다 실행되도록 설정되었습니다. 이 설정을 AllowedSyncInterval보다 낮은 값으로 설정하면 후자가 사용됩니다.
 * **NextSyncCyclePolicyType**. 델타 또는 초기입니다. 다음 실행 시 델타 변경만 처리할지 또는 전체 가져오기 및 동기화를 수행할지 여부를 정의합니다. 후자는 새 규칙 또는 변경된 규칙을 다시 처리하기도 합니다.
 * **NextSyncCycleStartTimeInUTC**. 스케줄러가 다음 동기화 주기를 시작하는 다음 시간입니다.
 * **PurgeRunHistoryInterval**. 작업 로그가 유지되어야 하는 시간입니다. 이러한 로그는 Synchronization Service Manager에서 검토할 수 있습니다. 기본값은 7일 동안 로그를 유지하는 것입니다.

@@ -17,12 +17,11 @@
 ### [네트워크 보안 그룹](virtual-networks-nsg.md)
 
 ## 배포
-### 가상 네트워크
-#### [포털](virtual-networks-create-vnet-arm-pportal.md)
+### [가상 네트워크](virtual-networks-create-vnet-arm-pportal.md)
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [템플릿](virtual-networks-create-vnet-arm-template-click.md)
-#### [포털(클래식)](virtual-networks-create-vnet-classic-pportal.md)
+#### [포털(기본)](virtual-networks-create-vnet-classic-pportal.md)
 #### [PowerShell(클래식)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 #### [CLI(클래식)](virtual-networks-create-vnet-classic-cli.md)
 
@@ -46,14 +45,9 @@
 #### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
 #### [템플릿](virtual-networks-create-vnetpeering-arm-template-click.md)
 
-### 네트워크 인터페이스
-#### [추가, 변경 또는 삭제](virtual-network-network-interface.md)
-#### [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)
-
 ### [공용 IP 주소](virtual-network-public-ip-address.md)
 
 ### 가상 컴퓨터
-#### [네트워크 인터페이스 추가 또는 제거](virtual-network-network-interface-vm.md) 
 #### 정적 공용 IP 주소를 사용하는 VM 만들기
 ##### [포털](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -81,6 +75,8 @@
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [템플릿](virtual-network-multiple-ip-addresses-template.md)
 
+#### [가속 네트워킹을 사용하여 VM 만들기](virtual-network-create-vm-accelerated-networking.md)
+
 ### 연결 시나리오
 #### [가상 네트워크(VNet)에서 VNet으로](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 #### [VNet(Resource Manager)에서 VNet(클래식)으로](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -98,23 +94,29 @@
 ##### [샘플 응용 프로그램](virtual-networks-sample-app.md)
 
 ## 구성
-### VM에 대해 가속된 네트워킹
-#### [Azure Portal](virtual-network-accelerated-networking-portal.md)
-#### [PowerShell](virtual-network-accelerated-networking-powershell.md)
-### [VM 네트워크 처리량 최적화](virtual-network-optimize-network-bandwidth.md)
+
 ### 액세스 제어 목록
 #### [클래식 포털](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
-### [VM 및 클라우드 서비스의 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+### 가상 컴퓨터
+#### [네트워크 인터페이스 추가 또는 제거](virtual-network-network-interface-vm.md)
+#### [VM 및 클라우드 서비스의 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+#### [네트워크 처리량 최적화](virtual-network-optimize-network-bandwidth.md)
+#### [호스트 이름 보기 및 수정](virtual-networks-viewing-and-modifying-hostnames.md)
 
 ## 관리
+### [가상 네트워크](virtual-network-manage-network.md)
+#### [서브넷](virtual-network-manage-subnet.md)
+#### [피어링](virtual-network-manage-peering.md)
 ### 네트워크 보안 그룹
 #### [포털](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [로그](virtual-network-nsg-manage-log.md)
+### NIC(네트워크 인터페이스)
+#### [NIC 만들기, 변경 또는 삭제](virtual-network-network-interface.md)
+#### [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)
 ### 가상 컴퓨터
-#### [호스트 이름 보기 및 수정](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [다른 서브넷으로 VM 이동](virtual-networks-move-vm-role-to-subnet.md)
 
 ## 문제 해결

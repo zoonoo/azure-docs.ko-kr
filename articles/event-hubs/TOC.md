@@ -1,5 +1,6 @@
 # 개요
 ## [Event Hubs란?](event-hubs-what-is-event-hubs.md)
+## [Event Hubs 기능](event-hubs-features.md)
 ## [FAQ](event-hubs-faq.md)
 
 # 시작

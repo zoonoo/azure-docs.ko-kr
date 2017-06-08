@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fa79ab0ab80481c8969c6fa653e92b10985cab3b
-ms.openlocfilehash: 80ae80d3243b531c7348a709aa4ad6e6ed401980
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: afced52b3ae6f3b7f400364f5ec7d049aa166590
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -25,7 +26,8 @@ ms.lasthandoff: 03/31/2017
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI](network-watcher-security-group-view-cli.md)
+> - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 보안 그룹 보기는 가상 컴퓨터에 적용되는 효과적으로 구성된 네트워크 보안 규칙을 반환합니다. 이 기능은 VM에 구성된 네트워크 보안 그룹 및 규칙을 감사하고 진단하여 트래픽을 올바르게 허용하거나 거부하는 데 유용합니다. 이 문서에서는 REST API를 사용하여 가상 컴퓨터에 효과적으로 적용된 보안 규칙을 검색하는 방법을 보여 줍니다.

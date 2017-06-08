@@ -1,21 +1,21 @@
 ### <a name="noconnection"></a>로컬 네트워크 게이트웨이 IP 주소 접두사를 수정하려면 - 게이트웨이 연결 없음
 
-- 추가 주소 접두사를 추가하려면:
+추가 주소 접두사를 추가하려면:
 
-  ```powershell
-  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-  ```
+```powershell
+$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+-AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+```
 
-- 주소 접두사를 제거하려면:<br>
-  더 이상 필요하지 않은 접두사는 생략합니다. 이 예제에서는 이전 예제의 20.0.0.0/24 접두사가 더 이상 필요하지 않으므로 해당 접두사를 제외하고 로컬 네트워크 게이트웨이를 업데이트합니다.
+주소 접두사를 제거하려면:<br>
+더 이상 필요하지 않은 접두사는 생략합니다. 이 예제에서는 이전 예제의 20.0.0.0/24 접두사가 더 이상 필요하지 않으므로 해당 접두사를 제외하고 로컬 네트워크 게이트웨이를 업데이트합니다.
 
-  ```powershell
-  $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-  Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
-  -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
-  ```
+```powershell
+$local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+-AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+```
 
 ### <a name="withconnection"></a>로컬 네트워크 게이트웨이 IP 주소 접두사를 수정하려면 - 기존 게이트웨이 연결
 

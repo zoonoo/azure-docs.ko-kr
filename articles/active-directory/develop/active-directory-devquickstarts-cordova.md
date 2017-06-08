@@ -14,9 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: vittorib
-translationtype: Human Translation
+ms.custom: aaddev
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d7333f9752a9e03c1087a4bc588284b418d8926
 ms.openlocfilehash: 4a80252f139d653ff8788b3c1a6a075448cb48e7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -290,9 +293,4 @@ var authority = "https://login.windows.net/common",
 이제 좀 더 자세하고 좀 더 흥미로운 시나리오를 진행해 보겠습니다. 다음을 시도해 볼 수 있습니다. [Azure AD를 사용하여 Node.js Web API 보안 유지](active-directory-devquickstarts-webapi-nodejs.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

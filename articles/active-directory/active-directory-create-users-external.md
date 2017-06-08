@@ -12,18 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/14/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
-ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
-ms.lasthandoff: 01/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 661470454775d43ce88410a6c995bbcc5e06264c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Azure Active Directory의 다른 디렉터리 또는 파트너 회사의 사용자 추가
 > [!div class="op_single_selector"]
-> * [Azure 포털](active-directory-users-create-external-azure-portal.md)
+> * [Azure 포털](active-directory-users-create-external-azure-portal.md )
 > * [Azure 클래식 포털](active-directory-create-users-external.md)
 >
 >
@@ -44,9 +45,8 @@ ms.lasthandoff: 01/31/2017
 > [!IMPORTANT]
 > 조직에서 둘 이상의 도메인을 사용하는 경우 사용자 계정을 추가할 때 다음과 같은 문제를 알고 있어야 합니다.
 >
-> * 도메인 간에 동일한 UPN(사용자 계정 이름)을 갖는 여러 개의 사용자 계정을 추가하려면 예를 들어 **먼저** geoffgrisso@contoso.onmicrosoft.com,을 추가한 **다음** geoffgrisso@contoso.com을 추가합니다.
-> * geoffgrisso@contoso.onmicrosoft.com을 추가하기 전에 geoffgrisso@contoso.com을 추가하지 **마세요**. 이 작업은 중요하며 실행을 취소하기가 복잡할 수 있습니다.
->
+> * 도메인 간에 동일한 UPN(사용자 계정 이름)을 가진 사용자 계정을 추가하려면 예를 들어 **먼저** geoffgrisso@contoso.onmicrosoft.com을 추가한 **다음** geoffgrisso@contoso.com을 추가합니다.
+> * geoffgrisso@contoso.onmicrosoft.com을 추가하기 전에 geoffgrisso@contoso.com을 추가하지 **마세요**.
 >
 
 ID가 온-프레미스 Active Directory 서비스와 동기화된 사용자에 대한 정보를 변경하는 경우 Azure 클래식 포털에서 사용자 정보를 변경할 수 없습니다. 사용자 정보를 변경하려면 온-프레미스 Active Directory 관리 도구를 사용합니다.
@@ -74,15 +74,7 @@ ID가 온-프레미스 Active Directory 서비스와 동기화된 사용자에 �
 * **Dynamics CRM**: PowerShell을 통해 라이선스를 부여할 경우 사용이 허가된 리소스에 외부 사용자가 액세스할 수 있습니다.
 * **Dynamics AX**: PowerShell을 통해 라이선스를 부여할 경우 외부 사용자가 Dynamics AX의 권한이 부여된 리소스에 액세스할 수 있습니다. [Azure AD 외부 사용자](#known-limitations-of-azure-ad-external-users) 에 대한 제한은 Dynamics AX의 외부 사용자에게도 적용합니다.
 
-### <a name="known-limitations-of-azure-ad-external-users"></a>Azure AD 외부 사용자의 알려진 제한 사항
-* 관리자인 외부 사용자는 홈 디렉터리 외부에 있는 디렉터리(B2B 공동 작업)에 파트너 회사의 사용자를 추가할 수 없습니다.
-* 외부 사용자가 홈 디렉터리 외부에 있는 디렉터리의 다중 테넌트 응용 프로그램에 동의할 수 없습니다.
-* PowerBI는 현재 외부 사용자의 액세스를 지원하지 않습니다.
-* Office 포털은 현재 외부 사용자에 대한 라이선싱을 지원하지 않습니다.
-* Azure AD PowerShell과 관련하여 외부 사용자는 해당 홈 디렉터리에 로그인되며 외부 사용자인 경우 디렉터리를 관리할 수 없습니다.
-* Dynamics CRM Outlook 플러그 인을 구성할 때 외부 사용자가 'CRM Online'를 선택하는 대신 Dynamics CRM Online 테넌트의 URL을 수동으로 입력해야 할 수도 있습니다.
-
-## <a name="whats-next"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory에 새 사용자 추가](active-directory-create-users.md)
 * [Azure AD 관리](active-directory-administer.md)
 * [Azure AD에서 암호 관리](active-directory-manage-passwords.md)

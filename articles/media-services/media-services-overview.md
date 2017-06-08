@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
-ms.lasthandoff: 01/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 0a84e69f33ae30040c2365e6a5180e17e8df7539
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -74,7 +75,7 @@ Azure 미디어 서비스 개념은 [개념](media-services-concepts.md)을 참�
 
 Azure 미디어 서비스의 모든 주요 구성 요소를 소개하는 사용 방법 시리즈는 [Azure 미디어 서비스 단계별 자습서](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series)를 참조하세요. 이 시리즈에는 개념에 대한 훌륭한 개요가 포함되어 있으며 AMSE 도구를 사용하여 AMS 작업을 보여 줍니다. AMSE 도구는 Windows 도구입니다. 이 도구는 [.NET용 AMS SDK](https://github.com/Azure/azure-sdk-for-media-services), [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java) 또는 [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)를 사용하여 프로그래밍 방식으로 수행할 수 있는 대부분의 작업을 지원합니다.
 
-## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Azure 미디어 서비스를 사용하여 주문형 미디어 제공: 일반적인 시나리오 및 작업
+## <a id="vod_scenarios"></a>Azure 미디어 서비스를 사용하여 주문형 미디어 제공: 일반적인 시나리오 및 작업
 이 섹션에서는 일반적인 시나리오를 설명하고 관련 항목에 대한 링크를 제공합니다. 다음 다이어그램에서는 주문 시 콘텐츠 배달과 관련된 미디어 서비스 플랫폼의 주요 부분을 보여 줍니다.
 
 ![VoD 워크플로](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
@@ -126,7 +127,7 @@ Azure 미디어 서비스의 모든 주요 구성 요소를 소개하는 사용 
     SAS 로케이터를 사용하는 경우 콘텐츠는 Azure blob 저장소에서 다운로드됩니다. 이 경우 스트리밍 끝점이 시작된 상태에 있을 필요가 없습니다.
 4. 콘텐츠를 점진적으로 다운로드합니다.
 
-## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Azure 미디어 서비스를 사용하여 라이브 스트리밍 이벤트 제공
+## <a id="live_scenarios"></a>Azure 미디어 서비스를 사용하여 라이브 스트리밍 이벤트 제공
 라이브 스트리밍 작업을 수행할 때 일반적으로 다음 구성 요소가 관련됩니다.
 
 * 이벤트를 브로드캐스트하는 데 사용되는 카메라
@@ -185,8 +186,7 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 계정에서 프로비전할 **스트리밍 예약 단위** 및 **인코딩 예약 단위**의 수를 지정하여 **미디어 서비스**를 확장할 수 있습니다.
 
 또한 저장소 계정을 추가하여 미디어 서비스 계정을 확장할 수 있습니다. 각 저장소 계정은 500TB로 제한됩니다. 여러 저장소 계정을 단일 미디어 서비스 계정에 연결하여 기본 제한 이상으로 저장소를 확장할 수 있습니다.
-Media Services 고객은 필요에 따라 **표준** 스트리밍 끝점이나 하나 이상의 **프리미엄** 스트리밍 끝점을 선택합니다. 표준 스트리밍 끝점은 대부분의 스트리밍 워크로드에 적합합니다. 프리미엄 스트리밍 단위와 동일한 기능을 포함합니다.
-표준 스트리밍 끝점은 대부분의 스트리밍 워크로드에 적합합니다. 고급 작업이 있거나 스트리밍 용량 요구 사항이 표준 스트리밍 끝점 처리량 목표에 맞지 않거나 배율 단위(프리미엄 스트리밍 단위라고도 함)를 조정하여 증가하는 대역폭 요구를 처리하도록 스트리밍 끝점 서비스의 용량을 제어하려는 경우 배율 단위를 할당하는 것이 좋습니다.
+Media Services 고객은 필요에 따라 **표준** 스트리밍 끝점이나 하나 이상의 **프리미엄** 스트리밍 끝점을 선택합니다. 표준 스트리밍 끝점은 대부분의 스트리밍 워크로드에 적합합니다. 프리미엄 스트리밍 단위와 동일한 기능을 포함합니다. 고급 작업이 있거나 스트리밍 용량 요구 사항이 표준 스트리밍 끝점 처리량 목표에 맞지 않거나 배율 단위(프리미엄 스트리밍 단위라고도 함)를 조정하여 증가하는 대역폭 요구를 처리하도록 스트리밍 끝점 서비스의 용량을 제어하려는 경우 배율 단위를 할당하는 것이 좋습니다.
 
 [이](media-services-portal-scale-streaming-endpoints.md) 항목은 관련 항목으로 연결됩니다.
 

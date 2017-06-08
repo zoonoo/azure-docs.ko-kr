@@ -3,7 +3,7 @@ title: "Azure Application Insights 데이터 모델 | Microsoft Docs"
 description: "JSON의 연속 내보내기에서 내보내고 필터로 사용하는 속성을 설명합니다."
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights

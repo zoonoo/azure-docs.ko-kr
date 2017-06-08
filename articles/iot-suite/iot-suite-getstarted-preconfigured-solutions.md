@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2017
+ms.date: 05/15/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: e68815c2dafc596c3560ad3fcb2a7bf96d29182b
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 2364ab79ec4091d41e4d340e13033181df05b507
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/15/2017
 
 
 ---
-# <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>자습서: 미리 구성된 솔루션 시작
-## <a name="introduction"></a>소개
+# <a name="get-started-with-the-preconfigured-solutions"></a>미리 구성된 솔루션 시작
+
 Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 여러 Azure IoT 서비스를 결합하여 일반적인 IoT 비즈니스 시나리오를 구현하는 종합적인 솔루션을 제공합니다. 미리 구성된 *원격 모니터링* 솔루션은 장치에 연결되고 장치를 모니터링합니다. 데이터의 해당 스트림에 자동으로 응답하는 프로세스를 만들어 장치에서 데이터 스트림을 분석하고 비즈니스 성과를 향상시키는 솔루션을 사용할 수 있습니다.
 
 이 자습서는 미리 구성된 원격 모니터링 솔루션을 프로비전하는 방법을 보여 줍니다. 또한 미리 구성된 솔루션의 기본 기능을 안내합니다. 미리 구성된 솔루션의 일부로 배포되는 솔루션 *대시보드*에서 다수의 기능에 액세스할 수 있습니다.
@@ -34,8 +35,6 @@ Azure IoT Suite의 [미리 구성된 솔루션][lnk-preconfigured-solutions]은 
 
 > [!NOTE]
 > 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][lnk_free_trial]을 참조하세요.
-> 
-> 
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 

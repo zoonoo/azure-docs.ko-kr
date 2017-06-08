@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 05/18/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2d6ef39ad4678d331eadd2c0bfd6ff93c99da501
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: db9f2174e9928083957f160be8c268fe21cd4169
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Runbook이 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)으로 작동됩니다.  실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호하는 인증 방법입니다.  
+- Runbook이 [Azure 실행 계정](automation-offering-get-started.md#authentication-methods)으로 작동됩니다.  실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호하는 인증 방법입니다.  
 
 - 이 솔루션은 Automation 계정이 상주하는 위치와 동일한 구독에 있는 VM만 관리할 수 있습니다.  
 

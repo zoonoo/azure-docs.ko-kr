@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
 ms.openlocfilehash: c123b76b0e4c95cfebcc79063fb1c3a27efc8646
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/31/2017
 
 
@@ -39,7 +40,9 @@ Azure 포털, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 >
 
 활동 로그를 소개하는 다음 동영상을 봅니다.
-[!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+> 
+>
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>활동 로그에서 수행할 수 있는 작업
 활동 로그를 통해 수행할 수 있는 몇 가지 작업은 다음과 같습니다.

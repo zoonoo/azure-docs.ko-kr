@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 4db7d45678c592749831c6b12d38363134da9e93
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: eeaa5641a4bcea0e8b46e85e40ff5b92113446c1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -35,41 +36,41 @@ Azure CLI를 사용하여 Azure 데이터 레이크 분석 계정을 만들고, 
 * **Azure CLI**. [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하세요.
   * 이 데모를 완료하려면 **시험판** [Azure CLI 도구](https://github.com/MicrosoftBigData/AzureDataLake/releases) 를 다운로드하여 설치합니다.
 * **인증**은 다음 명령을 사용합니다.
-  
+
         azure login
     회사 또는 학교 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](../xplat-cli-connect.md)을 참조하세요.
 * **Azure Resource Manager 모드로 전환**은 다음 명령을 사용합니다.
-  
+
         azure config mode arm
 
 ## <a name="create-data-lake-analytics-account"></a>데이터 레이크 분석 계정 만들기
 모든 작업을 실행하기 전에 Data Lake Analytics 계정이 있어야 합니다. 데이터 레이크 분석 계정을 만들려면 다음을 지정해야 합니다.
 
 * **Azure 리소스 그룹**: Azure 리소스 그룹 내에서 데이터 레이크 분석 계정을 만들어야 합니다. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)를 사용하면 그룹으로 응용 프로그램에서 리소스와 함께 사용할 수 있습니다. 응용 프로그램에 대한 모든 리소스의 배포, 업데이트 또는 삭제를 조정된 단일 작업으로 수행할 수 있습니다.  
-  
+
     구독에서 리소스 그룹을 나열하려면:
-  
-        azure group list 
-  
+
+        azure group list
+
     새 리소스 그룹을 만들려면 다음을 수행합니다.
-  
+
         azure group create -n "<Resource Group Name>" -l "<Azure Location>"
 * **데이터 레이크 분석 계정 이름**
 * **위치**: 데이터 레이크 분석을 지원하는 Azure 데이터 센터 중 하나입니다.
 * **기본 데이터 레이크 계정**: 각 데이터 레이크 분석 계정에는 기본 데이터 레이크 계정이 있습니다.
-  
+
     기존 데이터 레이크 계정을 나열하려면
-  
+
         azure datalake store account list
-  
+
     새 데이터 레이크 계정을 만들려면:
-  
+
         azure datalake store account create "<Data Lake Store Account Name>" "<Azure Location>" "<Resource Group Name>"
-  
+
   > [!NOTE]
   > 데이터 레이크 계정 이름은 소문자와 숫자만 포함해야 합니다.
-  > 
-  > 
+  >
+  >
 
 **데이터 레이크 분석 계정을 만들려면**
 
@@ -82,13 +83,13 @@ Azure CLI를 사용하여 Azure 데이터 레이크 분석 계정을 만들고, 
 
 > [!NOTE]
 > 데이터 레이크 분석 계정 이름은 소문자와 숫자만 포함해야 합니다.
-> 
-> 
+>
+>
 
 ## <a name="upload-data-to-data-lake-store"></a>데이터 레이크 저장소에 데이터 업로드
-이 자습서에서는 몇 가지 검색 로그를 처리합니다.  검색 로그는 데이터 레이크 저장소 또는 Azure Blob 저장소에 저장할 수 있습니다. 
+이 자습서에서는 몇 가지 검색 로그를 처리합니다.  검색 로그는 데이터 레이크 저장소 또는 Azure Blob 저장소에 저장할 수 있습니다.
 
-Azure 포털은 검색 로그 파일을 포함하는 기본 데이터 레이크 저장소 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다. 기본 데이터 레이크 저장소 계정에 데이터를 업로드하려면 [원본 데이터 준비](data-lake-analytics-get-started-portal.md#prepare-source-data) 를 참조하세요.
+Azure 포털은 검색 로그 파일을 포함하는 기본 데이터 레이크 저장소 계정에 샘플 데이터 파일을 복사하는 사용자 인터페이스를 제공합니다. 기본 데이터 레이크 저장소 계정에 데이터를 업로드하려면 [원본 데이터 준비](data-lake-analytics-get-started-portal.md) 를 참조하세요.
 
 CLI를 사용하여 파일을 업로드하려면 다음 명령을 사용합니다.
 
@@ -103,7 +104,7 @@ CLI를 사용하여 파일을 업로드하려면 다음 명령을 사용합니�
 **데이터 레이크 분석 작업 스크립트를 만들려면**
 
 * 다음 U-SQL 스크립트를 사용하여 텍스트 파일을 만들고 사용자의 워크스테이션에 텍스트 파일을 저장합니다.
-  
+
         @searchlog =
             EXTRACT UserId          int,
                     Start           DateTime,
@@ -114,27 +115,27 @@ CLI를 사용하여 파일을 업로드하려면 다음 명령을 사용합니�
                     ClickedUrls     string
             FROM "/Samples/Data/SearchLog.tsv"
             USING Extractors.Tsv();
-  
+
         OUTPUT @searchlog   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
-  
-    이 U-SQL 스크립트는 **Extractors.Tsv()**를 사용하여 원본 데이터 파일을 읽은 다음 **Outputters.Csv()**를 사용하여 csv 파일을 만듭니다. 
-  
+
+    이 U-SQL 스크립트는 **Extractors.Tsv()**를 사용하여 원본 데이터 파일을 읽은 다음 **Outputters.Csv()**를 사용하여 csv 파일을 만듭니다.
+
     원본 파일을 다른 위치에 복사하지 않는 한 두 경로를 수정하지 마세요.  출력 폴더가 없는 경우 데이터 레이크 분석에서 해당 폴더를 만듭니다.
-  
-    기본 데이터 레이크 계정에 저장된 파일의 상대 경로를 사용하는 것이 더 쉽습니다. 절대 경로를 사용할 수도 있습니다.  예를 들면 다음과 같습니다. 
-  
+
+    기본 데이터 레이크 계정에 저장된 파일의 상대 경로를 사용하는 것이 더 쉽습니다. 절대 경로를 사용할 수도 있습니다.  예를 들면 다음과 같습니다.
+
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-  
+
     연결된 저장소 계정의 파일에 액세스하려면 절대 경로를 사용해야 합니다.  연결된 Azure 저장소 계정에 저장된 파일에 대한 구문은 다음과 같습니다.
-  
+
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-  
+
   > [!NOTE]
   > 공용 Blob 또는 공용 컨테이너 액세스 권한이 있는 Azure Blob 컨테이너는 현재 지원되지 않습니다.      
-  > 
-  > 
+  >
+  >
 
 **작업을 제출하려면**
 
@@ -162,5 +163,4 @@ azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>
 * U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
 * 관리 작업을 보려면 [Azure 포털을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 * 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
-
 

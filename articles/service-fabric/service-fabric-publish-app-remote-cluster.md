@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 ms.author: cawa
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 4ee53679ca6f42f2181e6552fce89c18f289a116
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: c440c520d84fc503ff9e705555449e92555d4721
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="publish-an-application-to-a-remote-cluster-by-using-visual-studio"></a>Visual Studio를 사용하여 원격 클러스터에 응용 프로그램 게시
+# <a name="deploy-and-remove-applications-using-visual-studio"></a>Visual Studio를 사용하여 응용 프로그램 배포 및 제거
 > [!div class="op_single_selector"]
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -38,23 +39,21 @@ Visual Studio용 Azure 서비스 패브릭 확장은 서비스 패브릭 클러�
 서비스 패브릭 응용 프로그램 게시를 위한 매개 변수로 게시 프로필 경로를 사용하는 PowerShell 스크립트입니다. 이 스크립트는 응용 프로그램의 일부이므로 응용 프로그램 맞게 필요에 따라 편하게 수정할 수 있습니다.
 
 ### <a name="publish-profiles"></a>게시 프로필
-이름이 **PublishProfiles** 인 Service Fabric 응용 프로그램 프로젝트의 폴더에는 다음과 같이 응용 프로그램을 게시하기 위해 중요한 정보를 저장하는 XML 파일이 들어있습니다.
+이름이 **PublishProfiles**인 Service Fabric 응용 프로그램 프로젝트의 폴더에는 다음과 같이 응용 프로그램을 게시하기 위해 중요한 정보를 저장하는 XML 파일이 들어있습니다.
 
 * 서비스 패브릭 클러스터 연결 매개 변수
 * 응용 프로그램 매개 변수 파일 경로
 * 업그레이드 설정
 
-기본적으로 응용 프로그램은 Local.xml 및 Cloud.xml의 두 게시 프로필을 포함합니다. 기본 파일 중 하나를 복사 및 붙여넣기하여 프로필을 더 추가할 수 있습니다.
+기본적으로 응용 프로그램은 Local.1Node.xml, Local.5Node.xml 및 Cloud.xml의 세 가지 게시 프로필을 포함하게 됩니다. 기본 파일 중 하나를 복사 및 붙여넣기하여 프로필을 더 추가할 수 있습니다.
 
 ### <a name="application-parameter-files"></a>응용 프로그램 매개 변수 파일
-이름이 **ApplicationParameters** 인 서비스 패브릭 응용 프로그램 프로젝트의 폴더에는 사용자 특정 응용 프로그램 매니페스트 매개 변수 값에 대한 XML 파일이 들어있습니다. 배포 설정에 다른 값을 사용할 수 잇게 응용 프로그램 매니페스트 파일을 매개 변수화할 수 있습니다. 응용 프로그램을 매개 변수화하는 방법에 대한 자세한 내용은 [서비스 패브릭에서 여러 환경 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요.
+이름이 **ApplicationParameters**인 서비스 패브릭 응용 프로그램 프로젝트의 폴더에는 사용자 특정 응용 프로그램 매니페스트 매개 변수 값에 대한 XML 파일이 들어있습니다. 배포 설정에 다른 값을 사용할 수 잇게 응용 프로그램 매니페스트 파일을 매개 변수화할 수 있습니다. 응용 프로그램을 매개 변수화하는 방법에 대한 자세한 내용은 [서비스 패브릭에서 여러 환경 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요.
 
 > [!NOTE]
 > 행위자 서비스의 경우 편집기에서 또는 게시 대화 상자를 통해 파일 편집을 시도하기 전에 프로젝트를 먼저 빌드해야 합니다. 매니페스트 파일의 일부가 빌드 중에 생성되기 때문입니다.
-> 
-> 
 
-## <a name="to-publish-an-application-by-using-the-publish-service-fabric-application-dialog-box"></a>서비스 패브릭 응용 프로그램 게시 대화 상자를 사용하여 응용 프로그램을 게시하려면
+## <a name="to-publish-an-application-using-the-publish-service-fabric-application-dialog-box"></a>Service Fabric 응용 프로그램 게시 대화 상자를 사용하여 응용 프로그램을 게시하려면
 다음 단계에서는 Visual Studio Service Fabric 도구에서 제공하는 **Service Fabric 응용 프로그램 게시** 대화 상자를 사용하여 응용 프로그램을 게시하는 방법을 보여 줍니다.
 
 1. Service Fabric 응용 프로그램 프로젝트의 바로 가기 메뉴에서 **게시...**를 선택하여 **Service Fabric 응용 프로그램 게시** 대화 상자를 봅니다.
@@ -73,12 +72,12 @@ Visual Studio용 Azure 서비스 패브릭 확장은 서비스 패브릭 클러�
    > 
    > 
    
-    끝점을 선택하면 Visual Studio가 선택한 서비스 패브릭 클러스터에 대해 연결 유효성을 확인합니다. 클러스터에 보안이 없으면 Visual Studio가 즉시 연결할 수 있습니다. 그러나 클러스터가 보안 상태이면 계속하기 전에 로컬 컴퓨터에 인증서를 설치해야 합니다. 자세한 내용은 [보안 연결을 구성하는 방법](service-fabric-visualstudio-configure-secure-connections.md) 을 참조하세요. 완료되면 **확인** 단추를 선택합니다. 선택한 클러스터가 **Service Fabric 응용 프로그램 게시** 대화 상자에 표시됩니다.
+    끝점을 선택하면 Visual Studio가 선택한 서비스 패브릭 클러스터에 대해 연결 유효성을 확인합니다. 클러스터에 보안이 없으면 Visual Studio가 즉시 연결할 수 있습니다. 그러나 클러스터가 보안 상태이면 계속하기 전에 로컬 컴퓨터에 인증서를 설치해야 합니다. 자세한 내용은 [보안 연결을 구성하는 방법](service-fabric-visualstudio-configure-secure-connections.md)을 참조하세요. 완료되면 **확인** 단추를 선택합니다. 선택한 클러스터가 **Service Fabric 응용 프로그램 게시** 대화 상자에 표시됩니다.
 3. **응용 프로그램 매개 변수 파일** 드롭다운 목록에서 응용 프로그램 매개 변수 파일로 이동합니다. 응용 프로그램 매개 변수 파일은 응용 프로그램 매니페스트 파일의 매개 변수에 대한 사용자 특정 값을 담고 있습니다. 매개 변수를 추가 또는 변경하려면 **편집** 단추를 선택합니다. **매개 변수** 표에서 매개 변수의 값을 입력하거나 변경합니다. 완료되면 **저장** 단추를 선택합니다.
    
     ![**매개 변수 편집** 대화 상자][2]
-4. **응용 프로그램 업그레이드** 확인란을 사용하여 이 게시 작업이 업그레이드인지 여부를 지정합니다. 업그레이드 게시 작업은 일반적인 게시 작업과 다릅니다. 차이점 목록은 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md) 를 참조하세요. 업그레이드 설정을 구성하려면 **업그레이드 설정 구성** 링크를 선택합니다. 업그레이드 매개 변수 편집기가 나타납니다. 업그레이드 매개 변수에 대한 자세한 내용은 [서비스 패브릭 응용 프로그램의 업그레이드 구성](service-fabric-visualstudio-configure-upgrade.md) 을 참조하세요.
-5. **매니페스트 버전...** 버튼을 선택하여 **버전 편집** 대화 상자를 봅니다. 업그레이드를 수행하려면 응용 프로그램 및 서비스 버전을 업데이트해야 합니다. 응용 프로그램과 서비스 매니페스트 버전이 업그레이드 프로세스에 어떻게 영향을 미치는지 확인하려면 [Service Fabric 응용 프로그램 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md) 를 참조하세요.
+4. **응용 프로그램 업그레이드** 확인란을 사용하여 이 게시 작업이 업그레이드인지 여부를 지정합니다. 업그레이드 게시 작업은 일반적인 게시 작업과 다릅니다. 차이점 목록은 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)를 참조하세요. 업그레이드 설정을 구성하려면 **업그레이드 설정 구성** 링크를 선택합니다. 업그레이드 매개 변수 편집기가 나타납니다. 업그레이드 매개 변수에 대한 자세한 내용은 [서비스 패브릭 응용 프로그램의 업그레이드 구성](service-fabric-visualstudio-configure-upgrade.md)을 참조하세요.
+5. **매니페스트 버전...** 버튼을 선택하여 **버전 편집** 대화 상자를 봅니다. 업그레이드를 수행하려면 응용 프로그램 및 서비스 버전을 업데이트해야 합니다. 응용 프로그램과 서비스 매니페스트 버전이 업그레이드 프로세스에 어떻게 영향을 미치는지 확인하려면 [Service Fabric 응용 프로그램 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
    
     ![**버전 편집** 대화 상자][3]
    
@@ -91,7 +90,7 @@ Visual Studio용 Azure 서비스 패브릭 확장은 서비스 패브릭 클러�
 6. 모든 필요한 설정을 지정한 후에는 **게시** 단추를 선택하여 응용 프로그램을 선택한 서비스 패브릭 클러스터에 게시합니다. 지정한 설정이 게시 프로세스에 적용됩니다.
 
 ## <a name="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters"></a>임의 클러스터 끝점(당사 클러스터 포함)에 게시
-Visual Studio 게시 환경은 Azure 구독 중 하나와 연결된 원격 클러스터에 게시하도록 최적화되어 있습니다. 그러나 게시 프로필 XML을 직접 편집하여 임의 끝점(예: 서비스 패브릭 당사 클러스터)에 게시할 수 있습니다. 위에서 설명한 대로, 기본적으로 **Local.xml** 및 **Cloud.xml**이라는 두 게시 프로필이 제공되지만 다양한 환경에 맞는 추가 프로필을 만들 수 있습니다. 예를 들어 **Party.xml**라는 당사 클러스터에 게시하기 위한 프로필을 만들 수 있습니다.
+Visual Studio 게시 환경은 Azure 구독 중 하나와 연결된 원격 클러스터에 게시하도록 최적화되어 있습니다. 그러나 게시 프로필 XML을 직접 편집하여 임의 끝점(예: 서비스 패브릭 당사 클러스터)에 게시할 수 있습니다. 위에서 설명한 대로, 기본적으로 **Local.1Node.xml**, **Local.5Node.xml** 및 **Cloud.xml**이라는 세 게시 프로필이 제공되지만 다양한 환경에 맞는 추가 프로필을 만들 수 있습니다. 예를 들어 **Party.xml**라는 당사 클러스터에 게시하기 위한 프로필을 만들 수 있습니다.
 
 비보안 클러스터에 연결하는 경우 `partycluster1.eastus.cloudapp.azure.com:19000`과 같은 클러스터 연결 끝점만 있으면 됩니다. 이 경우 게시 프로필의 연결 끝점은 다음과 같습니다.
 

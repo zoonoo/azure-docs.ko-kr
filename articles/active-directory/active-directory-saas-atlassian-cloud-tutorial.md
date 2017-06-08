@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8928581d9636f571008f965185eeb61b414a16e7
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: da9e5f015f93090f4efb00f6c3af07ba2f5503bc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -129,13 +130,13 @@ Atlassian Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
     >[Atlassian Cloud SAML 구성] 화면에서 정확한 **식별자** 값을 가져올 수 있습니다.
     >
 
- 3. **다음**을 클릭합니다.
+ 3. **다음**을 누릅니다.
  
 4. **Atlassian Cloud에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_05.png)
  1. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
- 2. **다음**을 클릭합니다.
+ 2. **다음**을 누릅니다.
 
 5. 응용 프로그램에 SSO를 구성하려면 관리자 권한으로 Atlassian Portal에 로그인합니다.
 
@@ -208,7 +209,7 @@ Atlassian Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-atlassian-cloud-tutorial/create_aaduser_05.png) 
   1. 사용자 유형에서 조직의 새 사용자를 선택합니다.
   2. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
-  3. **다음**을 클릭합니다.
+  3. **다음**을 누릅니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -217,7 +218,7 @@ Atlassian Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
    2. **성** 텍스트 상자에 **Simon**을 입력합니다.
    3. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    4. **역할** 목록에서 **사용자**를 선택합니다.
-   5. **다음**을 클릭합니다.
+   5. **다음**을 누릅니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -252,7 +253,7 @@ Atlassian Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면
  
 4. **사용자 만들기** 단추를 클릭하면 사용자에게 전자 메일 초대장을 보내고 이 초대를 수락하면 해당 사용자가 시스템에서 활성화됩니다. 
 
-### <a name="assig-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure SSO를 사용할 수 있도록 Britta Simon에게 Atlassian Cloud에 대한 액세스 권한을 부여합니다.
 

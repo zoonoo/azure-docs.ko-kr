@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f04ac382521c7268d0eb03d1b3bfc78ee0b07d40
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 6918b206c637e1e0ad99b472c6a45a4fc343dc6d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -142,7 +143,7 @@ Stop-AzureRmVM -Name "myVM" -ResourceGroupName "myResourceGroup"
 $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
 ```
 
-이 문서의 시작 부분에 나와 있는 것처럼 **VM과 동일한 VNET**에서 새 NIC를 만들거나, 기존 NIC를 연결할 수 있습니다. VNET에서 기존 NIC `MyNic3`을 연결한다고 가정해 보겠습니다. 
+이 문서의 시작 부분에 나와 있는 것처럼 **VM과 동일한 VNET**에서 새 NIC를 만들거나, 기존 NIC를 연결할 수 있습니다. VNET에서 기존 NIC `MyNic3`을 연결한다고 가정합니다. 
 
 ```powershell
 $nicId = (Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" -Name "MyNic3").Id
@@ -184,8 +185,8 @@ $vm = Get-AzureRmVm -Name "myVM" -ResourceGroupName "myResourceGroup"
 
 ```powershell
 $vm.NetworkProfile.NetworkInterfaces
-
-Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup"
+Remove-AzureRmNetworkInterface -Name "myNic3" -ResourceGroupName "myResourceGroup" | `
+    Update-AzureRmVm -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 여러 NIC 만들기

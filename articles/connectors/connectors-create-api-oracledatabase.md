@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia
+ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1d7574110d616643c67b19e9a4bf21ee9187503d
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 014b726c2e960029cf5896e07063e807e9ae1915
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -90,7 +90,7 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 ### <a name="workflow-ideas"></a>워크플로 아이디어
 
-* #oracle 해시 태그를 모니터하고 데이터베이스에 트윗을 배치하여 다른 응용 프로그램 내에서 사용하고 쿼리할 수 있도록 하려고 합니다. 논리 앱에서 `Twitter - When a new tweet is posted` 트리거를 추가하고 **#oracle** 해시 태그를 입력합니다. 그런 다음 `Oracle Database - Insert row` 작업을 추가하고 테이블을 선택합니다.
+* \#oracle 해시 태그를 모니터하고 데이터베이스에 트윗을 배치하여 다른 응용 프로그램 내에서 사용하고 쿼리할 수 있도록 하려고 합니다. 논리 앱에서 `Twitter - When a new tweet is posted` 트리거를 추가하고 **#oracle** 해시 태그를 입력합니다. 그런 다음 `Oracle Database - Insert row` 작업을 추가하고 테이블을 선택합니다.
 
     ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
@@ -124,6 +124,8 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 * 복합 키가 있는 모든 테이블
 * 테이블의 중첩된 개체 유형
  
+## <a name="view-the-swagger"></a>swagger 보기
+[swagger 정보](/connectors/oracle/)를 참조하세요. 
 
 ## <a name="get-some-help"></a>도움 받기
 

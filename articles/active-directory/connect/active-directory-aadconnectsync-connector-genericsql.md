@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 06/2/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 7185ab62ee0e4383a7128fe731bd68da0ae87e66
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: b7e99f8a4d7bc1cd30c71ce08ad38c13203f8b69
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/12/2017
 
 
 ---
@@ -121,6 +122,7 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 * 다중값 및 부울 특성은 나열되지 않습니다.
 * **DN이 앵커** 가 연결 페이지에서 선택되지 않는 한 동일한 특성은 앵커 및 DN 특성에 사용될 수 없습니다.
 * **DN이 앵커** 가 연결 페이지에서 선택되면 이 페이지는 DN 특성에만 필요합니다. 이 특성은 앵커 특성으로도 사용됩니다.
+
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
 ### <a name="schema-4-define-attribute-type-reference-and-direction"></a>스키마4(특성 형식, 참조 및 방향 정의)
@@ -130,7 +132,8 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 
 * **DataType**: 동기화 엔진에 의해 알려진 해당 형식에 특성 형식을 매핑하는 데 사용됩니다. 기본값은 SQL 스키마에서 검색하는 대로 동일한 형식을 사용하지만 날짜/시간 및 참조는 쉽게 감지할 수 없습니다. 이 경우에 **DateTime** 또는 **참조**를 지정해야 합니다.
 * **방향**: 방향 특성을 가져오기, 내보내기 또는 ImportExport로 설정할 수 있습니다. ImportExport는 기본값입니다.
-  ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
+
+![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
 
 참고:
 
@@ -150,6 +153,12 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
+>[!IMPORTANT]
+ 2017년 5월을 기준으로 "*", 즉 **옵션**이 흐름 내보내기 및 가져오기를 지원하도록 변경되었습니다. 이 옵션을 사용하려는 경우 다중 값 테이블/뷰에 개체 형식을 포함하는 특성이 있어야 합니다.
+
+![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
+
+ </br> "*"를 선택하면 해당 개체 형식의 열 이름도 지정해야 합니다.</br> ![](./media/active-directory-aadconnectsync-connector-genericsql/any-03.png)
 
 가져온 후 아래 이미지와 유사한 화면이 표시됩니다.
 
@@ -162,8 +171,7 @@ ODBC 드라이버가 작동하는 데 필요한 포트는 데이터베이스 공
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
->[!IMPORTANT]
- "*" 즉,* *모든 옵션**은 내보내기/삭제 작업 중에 사용할 수 없습니다.
+
 
 일반 SQL 커넥터는 델타 가져오기에 대한 다음 메서드를 지원합니다.
 

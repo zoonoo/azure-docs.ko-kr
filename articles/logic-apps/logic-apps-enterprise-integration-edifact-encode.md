@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: padmavc
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 507fb3200fe62aaa813464e5d6152a79907fdef7
-ms.lasthandoff: 04/06/2017
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: e83488f4ec420c2af40d373239ba6989387da3cb
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -93,6 +94,9 @@ EDIFACT 인코딩 커넥터는 다음과 같은 태스크를 수행합니다.
 * 기술 및/또는 기능 승인을 요청합니다(구성된 경우).
   * 기술 승인인 CONTRL 메시지는 교환 수신을 나타냅니다.
   * 기능 승인인 CONTRL 메시지는 오류 또는 지원되지 않는 기능 목록과 함께 수신된 교환, 그룹 또는 메시지의 승인 또는 거부를 나타냅니다.
+
+## <a name="view-swagger-file"></a>Swagger 파일 보기
+EDIFACT 커넥터에 대 한 Swagger 세부 정보를 보려면 [EDIFACT](/connectors/edifact/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기") 

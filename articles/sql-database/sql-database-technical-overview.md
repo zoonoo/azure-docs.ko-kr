@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: shkurhek
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: a139b97e20685a5ced513c1fd180a74e91c497a7
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: 36a9fd78f5c53891f38bc3a8356cef666f4d0ca2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>SQL 데이터베이스 정의 SQL 데이터베이스 소개
@@ -49,7 +50,7 @@ SQL Database 서비스는 네 가지 서비스 계층, 즉 Basic, Standard, Prem
 ## <a name="keep-your-app-and-business-running"></a>앱 및 비즈니스 운영 유지
 Azure의 업계 선도적인 99.99% 가용성 [SLA](http://azure.microsoft.com/support/legal/sla/)(서비스 수준 계약)를 Microsoft에서 관리되는 전 세계 데이터 센터 네트워크의 지원을 받아 앱을 연중 무휴(24/7)로 실행할 수 있습니다. 다른 방법으로 구입 또는 설계, 구축 및 관리해야 할 수도 있는 기본 제공 보안, 내결함성 및 [데이터 보호](sql-database-automated-backups.md)를 모든 SQL 데이터베이스에서 이용합니다. SQL Database와 함께 각 서비스 계층은 이런 방식으로 시작하고 실행하고 계속하는 데 사용할 수 있는 포괄적인 비즈니스 연속성 기능 및 옵션 집합을 제공합니다. [특정 시점 복원](sql-database-recovery-using-backups.md)을 사용하면 데이터베이스를 최대 35일 전의 상태로 복원할 수 있습니다. [장기 백업 보존](sql-database-long-term-retention.md)을 구성하면 최대 10년 동안 보안 자격 증명 모음에 백업을 저장할 수 있습니다. 또한 데이터베이스를 호스팅하는 데이터 센터에서 중단이 발생하면 [최신 백업의 지역 중복 복사본](sql-database-recovery-using-backups.md)에서 데이터베이스를 복원할 수 있습니다. 데이터 센터가 중단된 경우 신속한 장애 조치를 위해 필요에 따라 하나 이상의 지역에서[읽을 수 있는 지역 중복 복제본](sql-database-geo-replication-overview.md)을 구성할 수도 있습니다. 또는 이러한 복제본을 사용하여 여러 지리적 영역에서 더 빠른 읽기 성능을 제공하거나 [가동 중지 시간 없이 응용 프로그램 업그레이드](sql-database-manage-application-rolling-upgrade.md)할 수도 있습니다. 
 
-![SQL 데이터베이스 지역에서 복제](./media/sql-database-technical-overview/azure_sqldb_map.png)
+![SQL Database 지역에서 복제](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
 서로 다른 서비스 계층에 사용할 수 있는 다양한 무중단 업무 방식 기능에 대한 자세한 내용은 [무중단 업무 방식](sql-database-business-continuity.md) 을 참조하세요.
 

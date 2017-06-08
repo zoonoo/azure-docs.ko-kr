@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/03/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 764b54dd7fa6ac8d7b3fadb0745f06cbd3bff689
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 136de1c5599fa3c66f90c32c2f0599b166197928
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -35,7 +36,7 @@ HDInsight 클러스터에서 MapReduce 작업을 실행하는 방법에 대해 �
 | [원격 데스크톱](hdinsight-hadoop-use-mapreduce-remote-desktop.md)(HDInsight 3.2 및 3.3) |**원격 데스크톱** |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.2 및 3.3 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
 
 ## <a id="whatis"></a>MapReduce란
 
@@ -172,7 +173,7 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 | [원격 데스크톱](hdinsight-hadoop-use-mapreduce-remote-desktop.md)(HDInsight 3.2 및 3.3) |**원격 데스크톱** |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.2 및 3.3 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
 
 ## <a id="nextsteps"></a>다음 단계
 

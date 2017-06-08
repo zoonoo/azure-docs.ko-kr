@@ -10,6 +10,7 @@
 | 리소스 관리자 API 읽기 |시간당 15000 |시간당 15000 |
 | 리소스 관리자 API 쓰기 |시간당 1200 |시간당 1200 |
 | 리소스 관리자 API 요청 크기 |4194304바이트 |4194304바이트 |
+| 구독당 태그 수 |10000 |10000 |
 | [클라우드 서비스](../articles/cloud-services/cloud-services-choose-me.md)  |해당 없음<sup>3</sup> |해당 없음<sup>3</sup> |
 | [선호도 그룹](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md)  |해당 없음<sup>3</sup> |해당 없음<sup>3</sup> |
 

@@ -4,7 +4,7 @@ IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장
 
 1. 다음 변수 선언을 `#include` 문 뒤에 추가합니다. 원격 모니터링 솔루션 대시보드에서 자리 표시자 값 [Device Id] 및 [Device Key]를 장치에 대해 기록한 값으로 바꿉니다. 솔루션 대시보드에서 IoT Hub 호스트 이름을 사용하여 [IoTHub Name]을 바꿉니다. 예를 들어 IoT Hub 호스트 이름이 **contoso.azure-devices.net**인 경우 [IoTHub Name]을 **contoso**로 바꿉니다.
    
-    ```
+    ```c
     static const char* deviceId = "[Device Id]";
     static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
     ```
@@ -17,7 +17,7 @@ IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장
    - IoT Hub의 장치 쌍에서 설정된 desired 속성을 수신하고 작업을 수행할 수 있습니다.
    - 솔루션 포털을 통해 호출된 **Reboot** 및 **InitiateFirmwareUpdate** 직접 메서드에 응답할 수 있습니다. 장치는 reported 속성을 사용하여 지원하는 직접 메서드에 대한 정보를 보냅니다.
    
-    ```
+    ```c
     // Define the Model
     BEGIN_NAMESPACE(Contoso);
 
@@ -90,7 +90,7 @@ IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장
 
 1. 솔루션 대시보드에서 설정된 desired 속성을 처리하는 다음 함수를 추가합니다. 이러한 desired 속성은 모델에서 정의됩니다.
 
-    ```
+    ```c
     void onDesiredTemperatureMeanValue(void* argument)
     {
       /* By convention 'argument' is of the type of the MODEL */
@@ -109,7 +109,7 @@ IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장
 
 1. IoT Hub를 통해 호출된 직접 메서드를 처리하는 다음 함수를 추가합니다. 이러한 직접 메서드는 모델에서 정의됩니다.
 
-    ```
+    ```c
     /* Handlers for direct methods */
     METHODRETURN_HANDLE Reboot(Thermostat* thermostat)
     {
@@ -132,7 +132,7 @@ IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장
 
 1. 미리 구성된 솔루션으로 메시지를 보내는 다음 함수를 추가합니다.
    
-    ```
+    ```c
     /* Send data to IoT Hub */
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
     {
@@ -160,7 +160,7 @@ IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장
 
 1. 장치가 미리 구성된 솔루션에 새 reported 속성 값을 전송했을 때 실행되는 다음 콜백 처리기를 추가합니다.
 
-    ```
+    ```c
     /* Callback after sending reported properties */
     void deviceTwinCallback(int status_code, void* userContextCallback)
     {
@@ -180,7 +180,7 @@ IoT Hub serializer 클라이언트 라이브러리는 모델을 사용하여 장
     - 1초마다 원격 분석을 보내는 루프를 만듭니다.
     - 모든 리소스의 초기화를 취소합니다.
 
-      ```
+      ```c
       void remote_monitoring_run(void)
       {
         if (platform_init() != 0)

@@ -1,40 +1,44 @@
 ---
-title: "Azure Search에 대한 DocumentDB 데이터 소스 인덱싱 | Microsoft Docs"
-description: "이 문서에서는 DocumentDB 데이터 소스를 사용하여 Azure Search 인덱서를 만드는 방법을 보여 줍니다."
+title: "Azure Search를 위해 Cosmos DB 데이터 원본 인덱싱 | Microsoft Docs"
+description: "이 문서에서는 Cosmos DB를 데이터 원본으로 사용하여 Azure Search 인덱서를 만드는 방법을 보여 줍니다."
 services: search
 documentationcenter: 
 author: chaosrealm
 manager: pablocas
 editor: 
 ms.assetid: 
-ms.service: documentdb
+ms.service: cosmosdb
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 04/11/2017
+ms.date: 05/01/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 5f657ed128103d4bf1304dfc5fae8d86ef950d87
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: 333f8320820a1729a14ffc2e29446e7452aa768e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/10/2017
 
 
 ---
-# <a name="connecting-documentdb-with-azure-search-using-indexers"></a>인덱서를 사용해서 DocumentDB를 Azure 검색에 연결
+# <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>인덱서를 사용해서 Cosmos DB를 Azure Search에 연결
 
-DocumentDB 데이터에 대해 뛰어난 검색 환경을 구현하려는 경우 Azure Search 인덱서를 사용하여 Azure Search 인덱스로 데이터를 끌어올 수 있습니다. 이 문서에서는 인덱싱 인프라를 유지 관리하기 위해 어떠한 코드도 작성할 필요 없이 Azure DocumentDB를 Azure Search와 통합하는 방법을 보여 줍니다.
+Cosmos DB 데이터에 대한 뛰어난 검색 환경을 구현하려는 경우 Azure Search 인덱서를 사용하여 데이터를 Azure Search 인덱스로 끌어올 수 있습니다. 이 문서에서는 인덱싱 인프라를 유지 관리하기 위해 어떠한 코드도 작성할 필요 없이 Azure Cosmos DB를 Azure Search와 통합하는 방법을 보여 줍니다.
 
-DocumentDB 인덱서를 설정하려면 [Azure Search 서비스](search-create-service-portal.md)가 있어야 하고 인덱스, 데이터 원본 및 마지막으로 인덱서를 만듭니다. [포털](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search) 또는 모든 비.NET 언어에 대한 [REST API](/rest/api/searchservice/)를 사용하여 이러한 개체를 만들 수 있습니다. 
+Cosmos DB 인덱서를 설정하려면 [Azure Search 서비스](search-create-service-portal.md)가 있어야 하고 인덱스, 데이터 원본, 마지막으로 인덱서를 만듭니다. [포털](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search) 또는 모든 비.NET 언어에 대한 [REST API](/rest/api/searchservice/)를 사용하여 이러한 개체를 만들 수 있습니다. 
 
 포털을 사용할 경우 [데이터 가져오기 마법사](search-import-data-portal.md)가 이러한 모든 리소스의 생성 방법을 안내합니다.
 
 > [!NOTE]
-> DocumentDB 대시보드에서 **데이터 가져오기** 마법사를 시작하여 해당 데이터 원본에 대한 인덱싱을 단순화할 수 있습니다. 왼쪽 탐색에서 **컬렉션** > **Azure Search 추가**로 이동하여 시작합니다.
+> Cosmos DB는 DocumentDB의 다음 세대입니다. 제품 이름이 변경되었지만 구문은 이전과 동일합니다. 이 인덱서 문서에 설명된 대로 계속해서 `documentdb`를 지정하세요. 
+
+> [!TIP]
+> Cosmos DB 대시보드에서 **데이터 가져오기** 마법사를 시작하여 해당 데이터 원본에 대한 인덱싱을 단순화할 수 있습니다. 왼쪽 탐색에서 **컬렉션** > **Azure Search 추가**로 이동하여 시작합니다.
 
 <a name="Concepts"></a>
 ## <a name="azure-search-indexer-concepts"></a>Azure Search 인덱서 개념
-Azure 검색에서는 데이터 소스(DocumentDB 포함) 및 데이터 소스에 대해 작동하는 인덱서의 생성 및 관리가 지원됩니다.
+Azure Search에서는 데이터 원본(Cosmos DB 포함) 및 데이터 원본에 대해 작동하는 인덱서의 생성과 관리가 지원됩니다.
 
 **데이터 원본**은 인덱싱할 데이터, 자격 증명 및 데이터의 변경 사항 식별 정책(예: 컬렉션 내 수정 또는 삭제된 문서)을 지정합니다. 데이터 소스는 독립 리소스로 정의되므로 여러 인덱서에서 사용할 수 있습니다.
 
@@ -67,20 +71,20 @@ Azure 검색에서는 데이터 소스(DocumentDB 포함) 및 데이터 소스�
 
 요청 본문에는 다음 필드를 포함해야 하는 데이터 소스 정의가 포함됩니다.
 
-* **이름**: DocumentDB 데이터베이스를 표시할 이름을 선택합니다.
+* **이름**: Cosmos DB 데이터베이스를 표시할 이름을 선택합니다.
 * **형식**: `documentdb`여야 합니다.
 * **자격 증명**:
   
-  * **connectionString**: 필수입니다. Azure DocumentDB 데이터베이스에 대한 연결 정보를 다음 형식으로 지정합니다. `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+  * **connectionString**: 필수입니다. Azure Cosmos DB 데이터베이스에 대한 연결 정보를 다음 형식으로 지정합니다. `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
 * **컨테이너**:
   
-  * **이름**: 필수입니다. 인덱싱할 DocumentDB 컬렉션의 ID를 지정합니다.
+  * **이름**: 필수입니다. 인덱싱할 Cosmos DB 컬렉션의 ID를 지정합니다.
   * **쿼리**: 선택 사항입니다. 추상 JSON 문서를 Azure 검색이 인덱싱할 수 있는 평면 스키마로 평면화하는 쿼리를 지정할 수 있습니다.
 * **dataChangeDetectionPolicy**: 권장 사항입니다. [변경된 문서 인덱싱](#DataChangeDetectionPolicy) 섹션을 참조하세요.
 * **dataDeletionDetectionPolicy**: 선택 사항입니다. [삭제된 문서 인덱싱](#DataDeletionDetectionPolicy) 섹션을 참조하세요.
 
 ### <a name="using-queries-to-shape-indexed-data"></a>쿼리를 사용하여 인덱싱된 데이터 형성
-중첩된 속성 또는 배열을 평면화하고, JSON 속성을 프로젝션하고, 인덱싱할 데이터를 필터링하는 DocumentDB 쿼리를 지정할 수 있습니다. 
+중첩된 속성 또는 배열을 평면화하고, JSON 속성을 프로젝션하고, 인덱싱할 데이터를 필터링하는 Cosmos DB 쿼리를 지정할 수 있습니다. 
 
 예제 문서:
 
@@ -142,7 +146,7 @@ Azure 검색에서는 데이터 소스(DocumentDB 포함) 및 데이터 소스�
 대상 인덱스의 스키마가 소스 JSON 문서의 스키마 또는 사용자 지정 쿼리 프로젝션의 출력과 호환되는지 확인합니다.
 
 > [!NOTE]
-> 분할된 컬렉션의 경우 기본 문서 키는 DocumentDB의 `_rid` 속성이며 Azure Search에서 이름을 `rid`로 변경합니다. 또한 DocumentDB의 `_rid` 값은 Azure Search 키에 유효하지 않은 문자를 포함합니다. 따라서 `_rid` 값은 Base64로 인코딩됩니다.
+> 분할된 컬렉션의 경우 기본 문서 키는 Cosmos DB의 `_rid` 속성이며 Azure Search에서 이름을 `rid`로 변경합니다. 또한 Cosmos DB의 `_rid` 값은 Azure Search 키에 유효하지 않은 문자를 포함합니다. 따라서 `_rid` 값은 Base64로 인코딩됩니다.
 > 
 > 
 
@@ -229,7 +233,7 @@ Azure 검색에서는 데이터 소스(DocumentDB 포함) 및 데이터 소스�
 
 <a name="DataChangeDetectionPolicy"></a>
 ## <a name="indexing-changed-documents"></a>변경된 문서 인덱싱
-데이터 변경 감지 정책의 목적은 변경된 데이터 항목을 효율적으로 식별하는 것입니다. 현재까지 지원되는 유일한 정책은 DocumentDB에서 제공된 `_ts`(타임스탬프) 속성을 사용하는 `High Water Mark` 정책입니다. 이는 다음과 같이 지정됩니다.
+데이터 변경 감지 정책의 목적은 변경된 데이터 항목을 효율적으로 식별하는 것입니다. 현재까지 지원되는 유일한 정책은 Cosmos DB에서 제공된 `_ts`(타임스탬프) 속성을 사용하는 `High Water Mark` 정책입니다. 이는 다음과 같이 지정됩니다.
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -277,7 +281,7 @@ Azure 검색에서는 데이터 소스(DocumentDB 포함) 및 데이터 소스�
     }
 
 ## <a name="NextSteps"></a>다음 단계
-축하합니다. DocumentDB의 인덱서를 사용해서 Azure 검색에 Azure DocumentDB를 통합하는 방법에 대해 배웠습니다.
+축하합니다. Cosmos DB용 인덱서를 사용하여 Azure Search에 Azure Cosmos DB를 통합하는 방법을 알아보았습니다.
 
-* Azure DocumentDB에 대해 알아보려면 [DocumentDB 서비스 페이지](https://azure.microsoft.com/services/documentdb/)를 참조하세요.
+* Azure Cosmos DB에 대한 자세한 내용은 [Cosmos DB 서비스 페이지](https://azure.microsoft.com/services/documentdb/)를 참조하세요.
 * Azure 검색에 대해 알아보려면 [검색 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조하세요.

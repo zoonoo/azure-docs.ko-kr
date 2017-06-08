@@ -3,7 +3,7 @@ title: "Azure에서 강력한 Windows VM 유지 관리 | Microsoft Docs"
 description: "Windows 가상 컴퓨터를 강력하게 유지 관리합니다."
 services: virtual-machines-windows
 documentationcenter: 
-author: 
+author: zivr
 manager: timlt
 editor: 
 tags: azure-service-management,azure-resource-manager
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
-ms.author: 
-translationtype: Human Translation
+ms.author: zivr
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: b95a5bd216a6d9cdd6ae6ba8e849d0bf4be71fe5
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
 
 

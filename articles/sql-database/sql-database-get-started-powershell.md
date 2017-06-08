@@ -9,17 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start create
+ms.custom: DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9a8cf3ad9c252b6a1ace1e7f3cf191428b228d80
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: d1acc548dca4c89572eece8dbdae0eae4853a97c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -27,9 +28,9 @@ ms.lasthandoff: 04/27/2017
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 PowerShell이 사용됩니다. 이 가이드에서는 PowerShell을 사용하여 [Azure SQL Database 논리 서버](sql-database-features.md)의 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)에서 Azure SQL Database를 배포하는 방법에 대해 자세히 설명합니다.
 
-이 자습서를 완료하려면 최신 [Azure PowerShell](/powershell/azure/overview)을 설치했는지 확인합니다. 
-
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
+이 자습서에는 Azure PowerShell 모듈 버전 4.0 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -92,14 +93,15 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > SQL Database는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 포트 1433을 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다
 >
 
-## <a name="create-a-blank-database"></a>빈 데이터베이스 만들기
+## <a name="create-a-database-in-the-server-with-sample-data"></a>샘플 데이터를 사용하여 서버에서 데이터베이스 만들기
 
-[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) 명령을 사용하여 서버에 [S0 성능 수준](sql-database-service-tiers.md)인 비어 있는 SQL Database를 만듭니다. 다음 예제에서는 `mySampleDatabase`라는 데이터베이스를 만듭니다. 이 미리 정의된 값은 필요에 따라 바꿉니다.
+[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) 명령을 사용하여 서버에 [S0 성능 수준](sql-database-service-tiers.md)인 데이터베이스를 만듭니다. 다음 예제에서는 `mySampleDatabase`라는 데이터베이스를 만들고 AdventureWorksLT 샘플 데이터를 이 데이터베이스에 로드합니다. 이러한 미리 정의된 값을 원하는 대로 대체합니다(이 컬렉션 빌드의 다른 빠른 시작은 이 빠른 시작의 값에 기반함).
 
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `
+    -SampleName "AdventureWorksLT" `
     -RequestedServiceObjectiveName "S0"
 ```
 

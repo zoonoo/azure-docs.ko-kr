@@ -6,19 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+editor: gahug
 ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 05/12/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: b4d2819f51506651ebeb5b7b7c2d016c0cfc154d
+ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
+ms.openlocfilehash: 5a338029cea5f448fc4d84a1a9c01c867ecd5028
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/13/2017
 
 
 ---
@@ -67,9 +69,9 @@ IT 관리자는 SSPR(셀프 서비스 암호 재설정)을 사용하여 사용�
 
 Azure AD에 온-프레미스 ID 동기화를 사용하려면 조직의 서버에 [Azure AD Connect](./connect/active-directory-aadconnect.md)를 설치하고 구성해야 합니다. 이 응용 프로그램은 기존 ID 소스에서 Azure AD 도메인으로의 사용자 및 그룹 동기화를 처리합니다.
 
-[기본 설정을 사용하여 Azure AD Connect 시작](./connect/active-directory-aadconnect-get-started-express.md)
-
-[DirSync 또는 Azure AD Sync에서 Azure AD Connect로 업그레이드](./connect/active-directory-aadconnect-dirsync-deprecated.md)
+* [DirSync 또는 Azure AD Sync에서 Azure AD Connect로 업그레이드](./connect/active-directory-aadconnect-dirsync-deprecated.md)
+* [기본 설정을 사용하여 Azure AD Connect 시작](./connect/active-directory-aadconnect-get-started-express.md)
+* [비밀번호 쓰기 저장을 구성](active-directory-passwords-writeback.md#configuring-password-writeback)하여 Azure AD에서 온-프레미스 디렉터리로 비밀번호 다시 쓰기
 
 ## <a name="disabling-self-service-password-reset"></a>셀프 서비스 암호 재설정 해제
 

@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/20/2016
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
-ms.openlocfilehash: 3074bf378f809a9857c7ea72521961368a14772c
-ms.lasthandoff: 02/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 307b327e4c04a0461e39930114eb193791cbda9a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 ---
 
@@ -34,7 +35,7 @@ ms.lasthandoff: 02/27/2017
 
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
-* [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI
+* [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md) - 클래식 및 리소스 관리 배포 모델용 CLI.
 * [Azure CLI 2.0](dns-operations-recordsets-cli.md) - 리소스 관리 배포 모델용 차세대 CLI
 
 이 문서의 예제에서는 이미 [Azure CLI 1.0을 설치했고, 로그인했고, DNS 영역을 만들었다](dns-operations-dnszones-cli-nodejs.md)고 가정합니다.
@@ -221,8 +222,6 @@ azure network dns record-set add-record MyResourceGroup contoso.com www A -a 5.6
 azure network dns record-set delete-record MyResourceGroup contoso.com www A -a 1.2.3.4
 ```
 
-영역 루트(인용 부호를 포함하는 `-Name "@"`)에 자동으로 생성된 NS 레코드 집합에서 레코드를 추가, 제거 또는 수정할 수는 없습니다. 이 레코드 집합의 경우 레코드 집합 TTL 및 메타데이터를 수정하는 변경 작업만 허용됩니다.
-
 ### <a name="to-modify-a-cname-record"></a>CNAME 레코드를 수정하려면
 
 CNAME 레코드를 수정하려면 `azure network dns record-set add-record`를 사용하여 새 레코드 값을 추가합니다. 다른 레코드 형식과 달리 CNAME 레코드 집합은 단일 레코드만 포함할 수 있습니다. 따라서 새 레코드가 추가될 때 기존 레코드는 *교체*되므로 별도로 삭제할 필요가 없습니다.  이 교체를 허용할지 묻는 메시지가 표시됩니다.
@@ -241,6 +240,21 @@ azure network dns record-set add-record MyResourceGroup contoso.com www CNAME --
 
 ```azurecli
 azure network dns record-set set-soa-record rg1 contoso.com --email admin.contoso.com
+```
+
+
+### <a name="to-modify-ns-records-at-the-zone-apex"></a>영역 루트의 NS 레코드를 수정하려면
+
+각 DNS 영역에 영역 루트의 NS 레코드 집합이 자동으로 만들어집니다. 여기에는 영역에 할당된 Azure DNS 이름 서버의 이름이 포함됩니다.
+
+이 NS 레코드 집합에 추가 이름 서버를 추가하여 DNS 공급자가 2개 이상 있는 공동 호스팅 도메인을 지원할 수 있습니다. 또한 이 레코드 집합의 TTL 및 메타데이터를 수정할 수 있습니다.또한 이 레코드 집합의 TTL 및 메타데이터를 수정할 수 있습니다. 그러나 미리 채워진 Azure DNS 이름 서버를 제거 또는 수정할 수 없습니다.
+
+이는 영역 루트에 있는 NS 레코드 집합에만 적용됩니다. 영역의 다른 NS 레코드 집합은 제약 없이 수정할 수 있습니다(자식 영역을 위임하는 데 사용되므로).
+
+다음 예제에서는 영역 루트의 NS 레코드 집합에 추가 이름 서버를 추가하는 방법을 보여 줍니다.
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>기존 레코드 집합의 TTL을 수정하려면

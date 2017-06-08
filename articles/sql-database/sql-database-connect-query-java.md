@@ -8,18 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: article
-ms.date: 05/07/2017
-ms.author: andrela;carlrab;sstein
+ms.topic: hero-article
+ms.date: 05/23/2017
+ms.author: andrela
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: defb32835971fe423e77a11817fce057fa7c929d
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 63ab7345b70d456d9d1ad23255d9ca7e777e161d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -27,10 +27,13 @@ ms.lasthandoff: 05/09/2017
 
 이 빠른 시작은 [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)를 사용하여 Azure SQL Database에 연결한 후 Mac OS, Ubuntu Linux 및 Windows 플랫폼의 데이터베이스에서 Transact-SQL 문을 사용하여 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.
 
+## <a name="prerequisites"></a>필수 조건
+
 이 빠른 시작은 다음과 같은 빠른 시작 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 
 - [DB 만들기 - 포털](sql-database-get-started-portal.md)
 - [DB 만들기 - CLI](sql-database-get-started-cli.md)
+- [DB 만들기 - PowerShell](sql-database-get-started-powershell.md)
 
 ## <a name="install-java-software"></a>Java 소프트웨어 설치
 
@@ -70,7 +73,7 @@ Azure SQL Database에 연결하는 데 필요한 연결 정보를 가져옵니�
 
 6. 전체 **JDBC** 연결 문자열을 검토합니다.
 
-    ![JDBC 연결 문자열](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)    
+    ![JDBC 연결 문자열](./media/sql-database-connect-query-jdbc/jdbc-connection-string.png)   
 
 ### <a name="create-maven-project"></a>**Maven 프로젝트 만들기**
 터미널에서 새 Maven 프로젝트를 만듭니다. 
@@ -106,7 +109,7 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "your_server.database.windows.net";
+        String hostName = "your_server";
         String dbName = "your_database";
         String user = "your_username";
         String password = "your_password";
@@ -161,7 +164,7 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "your_server.database.windows.net";
+        String hostName = "your_server";
         String dbName = "your_database";
         String user = "your_username";
         String password = "your_password";
@@ -217,7 +220,7 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "your_server.database.windows.net";
+        String hostName = "your_server";
         String dbName = "your_database";
         String user = "your_username";
         String password = "your_password";
@@ -268,7 +271,7 @@ public class App {
     public static void main(String[] args) {
     
         // Connect to database
-        String hostName = "your_server.database.windows.net";
+        String hostName = "your_server";
         String dbName = "your_database";
         String user = "your_username";
         String password = "your_password";
@@ -292,7 +295,7 @@ public class App {
                         int count = prep.executeUpdate();
                         System.out.println("Deleted: " + count + " row(s)");
                 }
-        }        
+        }       
         catch (Exception e) {
                 e.printStackTrace();
         }

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d6d506eef720488969c5b33fe4b94c02752c6b58
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 6adc34f208c6c4363b73f6e42b4a4d6ae2e4483f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 [App Service로 사용자 지정 도메인을 수동으로 매핑](web-sites-custom-domain-name.md)하는 방법을 이미 알고 있다고 가정합니다.
+이 문서에서는 [App Service로 사용자 지정 도메인을 수동으로 매핑](app-service-web-tutorial-custom-domain.md)하는 방법을 이미 알고 있다고 가정합니다.
 
 ## <a name="bind-the-domain-name-preemptively"></a>도메인 이름을 먼저 바인딩
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 04/03/2017
 
 다음 단계를 따르세요.
 
-1. 첫째, [DNS 레코드 만들기](web-sites-custom-domain-name.md#createdns) 단계를 수행하여 DNS 레지스트리를 사용해서 확인 TXT 레코드를 만듭니다.
+1. 첫째, [DNS 레코드 만들기](app-service-web-tutorial-custom-domain.md#create-a) 단계를 수행하여 DNS 레지스트리를 사용해서 확인 TXT 레코드를 만듭니다.
 추가 TXT 레코드는 &lt;*subdomain*>.&lt;*rootdomain*>에서 &lt;*appname*>.azurewebsites.net으로 매핑하는 규칙을 사용합니다.
 예는 다음 표를 참조하세요.  
  
@@ -70,16 +71,16 @@ ms.lasthandoff: 04/03/2017
     </tr>
     </table>
 
-2. 그런 후 [앱에 대해 사용자 지정 도메인 이름 사용](web-sites-custom-domain-name.md#enable) 단계를 사용하여 Azure 앱에 사용자 지정 도메인 이름을 추가합니다.
+2. 그런 후 [앱에 대해 사용자 지정 도메인 이름 사용](app-service-web-tutorial-custom-domain.md#enable-a) 단계를 사용하여 Azure 앱에 사용자 지정 도메인 이름을 추가합니다.
 
     이제 Azure 앱에서 사용자 지정 도메인이 활성화되었습니다. 이제 남은 작업은 도메인 등록 기관을 통해 DNS 레코드를 업데이트하는 것입니다.
 
-3. 마지막으로, [DNS 레코드 만들기](web-sites-custom-domain-name.md#createdns)에 표시된 대로 Azure 앱을 가리키도록 도메인의 DNS 레코드를 업데이트합니다. 
+3. 마지막으로, [DNS 레코드 만들기](app-service-web-tutorial-custom-domain.md#create-a)에 표시된 대로 Azure 앱을 가리키도록 도메인의 DNS 레코드를 업데이트합니다. 
 
     사용자 트래픽은 DNS가 전파된 후 바로 Azure 앱에 리디렉션되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure에서 SSL 인증서를 구입](web-sites-purchase-ssl-web-site.md)하거나 [다른 곳에서 SSL 인증서를 사용](web-sites-configure-ssl-certificate.md)하여 HTTPS로 사용자 지정 도메인 이름의 보안을 유지하는 방법을 알아봅니다.
+[Azure에서 SSL 인증서를 구입](web-sites-purchase-ssl-web-site.md)하거나 [다른 곳에서 SSL 인증서를 사용](app-service-web-tutorial-custom-ssl.md)하여 HTTPS로 사용자 지정 도메인 이름의 보안을 유지하는 방법을 알아봅니다.
 
 > [!NOTE]
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.

@@ -1,6 +1,6 @@
 ---
 title: "Linux의 보증 배포판 | Microsoft Docs"
-description: "Ubuntu, OpenLogic, Oracle 및 SUSE 관련 지침을 포함하여 Azure에서 Linux의 인증 배포를 수행하는 방법에 대해 알아봅니다."
+description: "Ubuntu, CentOS, Oracle 및 SUSE 관련 지침을 포함하여 Azure에서 Linux의 인증 배포를 수행하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
 author: szarkos
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3a9edce4b8e7208579ee810ad40a65b22db20cac
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 0fbbf4aacd22f0458b82adcf4335890fbf5ec628
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
@@ -41,7 +42,7 @@ Azure Linux 에이전트는 Azure 갤러리 이미지에 사전에 이미 설치
 
 | 배포 | 버전 | 드라이버 | 에이전트 |
 | --- | --- | --- | --- |
-| OpenLogic의 CentOS |CentOS 6.3 이상, 7.0 이상 |CentOS 6.3: [LIS 다운로드](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: 커널에 있음 |패키지: "WALinuxAgent"의 [OpenLogic 리포지토리](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/)에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Rogue Wave Software의 CentOS(이전의 OpenLogic) |CentOS 6.3 이상, 7.0 이상 |CentOS 6.3: [LIS 다운로드](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: 커널에 있음 |패키지: "WALinuxAgent"의 [리포지토리](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/)에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0 이상 |커널에 있음 |소스 코드: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debian 7.9 이상, 8.2 이상 |커널에 있음 |패키지: "waagent"에서 리포지토리의  <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4 이상, 7.0 이상 |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음  <br/>소스 코드: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
@@ -51,10 +52,6 @@ Azure Linux 에이전트는 Azure 갤러리 이미지에 사전에 이미 설치
 | Ubuntu |Ubuntu 12.04, 14.04, 16.04, 16.10 |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음  <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## <a name="partners"></a>파트너
-### <a name="openlogic"></a>OpenLogic
-[http://www.openlogic.com/azure](http://www.openlogic.com/azure)
-
-OpenLogic은 클라우드와 데이터 센터에 있어서 엔터프라이즈 오픈 소스 솔루션의 선두 주자입니다. OpenLogic은 오픈 소스 소프트웨어를 안전하게 얻고 지원하고 제어하도록 다양한 산업 분야에 걸쳐 수 많은 선두 엔터프라이즈를 돕습니다. OpenLogic은 OpenLogic Expert Community에서 지원하는 600개의 오픈 소스 패키지에 대한 상업용 기술 지원 및 보장을 제공하며, 여기에는 Azure에 CentOS 이미지를 제공하기 위한 착수 파트너가 되는 것뿐만 아니라 CentOS에 대한 엔터프라이즈 수준의 지원도 포함됩니다.
 
 ### <a name="coreos"></a>CoreOS
 [https://coreos.com/docs/running-coreos/cloud-providers/azure/](https://coreos.com/docs/running-coreos/cloud-providers/azure/)

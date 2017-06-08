@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/08/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: df5832478bf7049a7bb883eacac4be961ef65cf9
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: acb68b274228aa647dc7be5d36b2b077bd213c1b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/10/2017
 
 
 ---
@@ -32,7 +32,7 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 응용 프로�
 * [Service Fabric SDK 및 도구](service-fabric-get-started.md)
 *  Windows용 Docker  [Windows용 Docker CE 가져오기(안정화)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환**을 선택합니다. 그러려면 Windows를 기반으로 하는 Docker 이미지를 실행해야 합니다.
 
-컨테이너를 사용하여 Windows Server 2016에서 실행되는 3개 이상의 노드가 있는 Windows 클러스터 - [클러스터를 만들](service-fabric-get-started-azure-cluster.md)거나 [체험판으로 Service Fabric을 사용](http://tryazureservicefabrictest.westus.cloudapp.azure.com/)하세요. 
+컨테이너를 사용하여 Windows Server 2016에서 실행되는 3개 이상의 노드가 있는 Windows 클러스터 - [클러스터를 만들](service-fabric-get-started-azure-cluster.md)거나 [체험판으로 Service Fabric을 사용](http://tryazureservicefabric.westus.cloudapp.azure.com/)하세요. 
 
 Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md). 
 
@@ -111,7 +111,7 @@ Dockerfile에서 Docker 이미지를 정의합니다. Dockerfile은 이미지를
     docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
     ```
 
-3. 실행 중인 컨테이너에 연결합니다.  포트 8000에서 반환되는 IP 주소(예: "http://172.31.194.61:8000")를 가리키는 웹 브라우저를 엽니다. 제목인 "헬로 월드!"가  브라우저에 표시되어야 합니다.
+3. 실행 중인 컨테이너에 연결합니다.  포트 8000에서 반환되는 IP 주소(예: " http://172.31.194.61:8000 ")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 4. 컨테이너를 중지하려면 다음을 실행합니다.
 
@@ -190,10 +190,10 @@ Service Fabric SDK 및 도구는 컨테이너를 Service Fabric 클러스터에 
 
 3. 앱이 ```Ready``` 상태이면 사용할 준비가 되었습니다.  ![준비][2]
 
-4. 브라우저를 열고 http://containercluster.westus2.cloudapp.azure.com으로 이동합니다. 제목인 "헬로 월드!"가  브라우저에 표시되어야 합니다.
+4. 브라우저를 열고 http://containercluster.westus2.cloudapp.azure.com으로 이동합니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ## <a name="clean-up"></a>정리
-클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](service-fabric-get-started-azure-cluster.md#remove-the-cluster)하는 것이 좋습니다.  [파티 클러스터](http://tryazureservicefabrictest.westus.cloudapp.azure.com/)는 몇 시간 후 자동으로 삭제됩니다.
+클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](service-fabric-get-started-azure-cluster.md#remove-the-cluster)하는 것이 좋습니다.  [파티 클러스터](http://tryazureservicefabric.westus.cloudapp.azure.com/)는 몇 시간 후 자동으로 삭제됩니다.
 
 이미지를 컨테이너 레지스트리에 푸시한 후에 개발 컴퓨터에서 로컬 이미지를 삭제할 수 있습니다.
 

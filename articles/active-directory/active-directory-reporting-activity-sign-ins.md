@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory 포털의 로그인 작업 보고서 | Microsoft Docs"
 description: "Azure Active Directory 포털의 로그인 작업 보고서 소개"
 services: active-directory
@@ -16,10 +15,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0e8ae05b5f8644d4dfd0e6205224cabfb0919531
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -37,6 +36,17 @@ Azure Active Directory의 보고 아키텍처는 다음 구성 요소로 구성�
     - **위험 플래그가 지정된 사용자** - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다. 자세한 내용은 위험 플래그가 지정된 사용자를 참조하세요.
 
 이 항목에서는 로그인 활동에 대한 개요를 제공합니다.
+
+## <a name="pre-requisite"></a>필수 구성 요소
+
+### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
+* 보안 관리 또는 보안 판독기 역할의 사용자
+* 전역 관리자
+* 모든 사용자(비관리자)가 자신의 로그인에 액세스할 수 있습니다. 
+
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>로그인 작업에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?
+* 모든 로그인 활동 보고서를 보려면 테넌트에 이와 관련된 Azure AD Premium 라이선스가 있어야 합니다.
+
 
 ## <a name="signs-in-activities"></a>로그인 활동
 

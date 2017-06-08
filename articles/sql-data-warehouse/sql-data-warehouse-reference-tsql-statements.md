@@ -3,7 +3,7 @@ title: "SQL Data Warehouse Transact-SQL 참조 | Microsoft Docs"
 description: "SQL 데이터 웨어하우스에 의해 사용되는 TRANSACT-SQL 항목에 대한 참조 내용에 대한 링크"
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: 
 ms.assetid: 0abc5934-1e67-491a-b7d7-8b520d1ae98e
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
-ms.author: barbkess
-translationtype: Human Translation
+ms.author: kevin;barbkess
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 5aca3011fc67e009bc3d543235049a4d5dd3a69b
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
 
 

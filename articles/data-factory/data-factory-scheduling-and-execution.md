@@ -103,9 +103,9 @@ Data Factory 파이프라인의 활동은 0개 이상의 입력 **데이터 집�
             },
             "partitionedBy": [
                 { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-                { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "%M" } },
-                { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "%d" } },
-                { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "%H" }}
+                { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+                { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+                { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "HH" }}
             ]
         },
         "availability": {
@@ -343,8 +343,8 @@ Azure Blob 저장소에서 매시간 사용 가능한 센서로부터 입력 측
       "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
       "partitionedBy": [
         { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "MM"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "dd"}}
       ],
       "format": {
         "type": "TextFormat"
@@ -372,8 +372,8 @@ Azure Blob 저장소에서 매시간 사용 가능한 센서로부터 입력 측
       "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
       "partitionedBy": [
         { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "MM"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "dd"}}
       ],
       "format": {
         "type": "TextFormat"
@@ -418,8 +418,8 @@ hive 스크립트는 적절한 *DateTime* 정보를 매개 변수로 받아 **Wi
                 "scriptLinkedService": "StorageLinkedService",
                 "defines": {
                     "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
-                    "Month": "$$Text.Format('{0:%M}',WindowStart)",
-                    "Day": "$$Text.Format('{0:%d}',WindowStart)"
+                    "Month": "$$Text.Format('{0:MM}',WindowStart)",
+                    "Day": "$$Text.Format('{0:dd}',WindowStart)"
                 }
             },
             "scheduler": {
@@ -465,8 +465,8 @@ Data Factory가 출력 데이터 조각의 기간에 맞추어 처리할 적절�
       "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
       "partitionedBy": [
         { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "MM"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "dd"}}
       ],
       "format": {
         "type": "TextFormat"
@@ -495,8 +495,8 @@ Data Factory가 출력 데이터 조각의 기간에 맞추어 처리할 적절�
       "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
       "partitionedBy": [
         { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "MM"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "dd"}}
       ],
       "format": {
         "type": "TextFormat"
@@ -525,8 +525,8 @@ Data Factory가 출력 데이터 조각의 기간에 맞추어 처리할 적절�
       "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
       "partitionedBy": [
         { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "MM"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "dd"}}
       ],
       "format": {
         "type": "TextFormat"
@@ -576,8 +576,8 @@ hive 작업에서는 2개의 입력을 받아 매일 출력 조각을 생성합�
           "scriptLinkedService": "StorageLinkedService",
           "defines": {
             "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
-            "Month": "$$Text.Format('{0:%M}',WindowStart)",
-            "Day": "$$Text.Format('{0:%d}',WindowStart)"
+            "Month": "$$Text.Format('{0:MM}',WindowStart)",
+            "Day": "$$Text.Format('{0:dd}',WindowStart)"
           }
         },
         "scheduler": {

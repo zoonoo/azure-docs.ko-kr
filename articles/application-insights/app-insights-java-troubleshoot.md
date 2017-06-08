@@ -3,7 +3,7 @@ title: "Java 웹 프로젝트에서 Application Insights 문제 해결"
 description: "문제 해결 가이드 - Application Insights를 사용하여 라이브 Java 앱을 모니터링합니다."
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
 ms.service: application-insights

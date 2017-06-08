@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/23/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 5acfbfbe7327fc28fa909e6ef7e0f9b6ce8b0e54
-ms.openlocfilehash: e0be8f4617c2fdbe1cb6fe2f904bf9ea7056c55e
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: a6dc6148c3307d41801a4c1112397f3e63006ae8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 ---
 
 
-# <a name="publish-applications-using-azure-ad-application-proxy---public-preview"></a>Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시
+# <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-proxy-publish-azure-portal.md)
@@ -41,7 +43,7 @@ Azure AD(Active Directory) 응용 프로그램 프록시를 사용하면 인터�
 > 응용 프로그램 프록시를 처음 사용하는 경우 이미 암호 기반 인증으로 설정된 응용 프로그램을 선택합니다. 응용 프로그램 프록시에서는 다른 유형의 인증을 지원하지만 암호 기반 앱이 가장 빠르고 쉽게 시작하고 실행할 수 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com/)에서 관리자로 로그인합니다.
-2. **Azure Active Directory** > **엔터프라이즈 응용 프로그램** > **추가**를 차례로 선택합니다.
+2. **Azure Active Directory** > **Enterprise 응용 프로그램** > **새로운 응용 프로그램**을 선택합니다.
 
   ![엔터프라이즈 응용 프로그램 추가](./media/application-proxy-publish-azure-portal/add-app.png)
 
@@ -97,9 +99,4 @@ Azure AD(Active Directory) 응용 프로그램 프록시를 사용하면 인터�
 - [커넥터 다운로드](active-directory-application-proxy-enable.md) 및 [커넥터 그룹 만들기](active-directory-application-proxy-connectors-azure-portal.md)를 수행하여 별도의 네트워크와 위치에 응용 프로그램을 게시합니다.
 
 - 새로 게시된 앱에 대해 [SSO(Single Sign-On) 설정](application-proxy-sso-azure-portal.md)을 수행합니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

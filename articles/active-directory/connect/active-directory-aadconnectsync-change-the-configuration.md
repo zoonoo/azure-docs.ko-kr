@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 7c237bfb42fdd2ffdfface1a12ab21c51d2504bb
-ms.openlocfilehash: b327671b12bf6e2ce040ef6e6b0a58a0fead22b4
-ms.lasthandoff: 02/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
+ms.openlocfilehash: 4a88cf56eea3dd562d4d5dcc4fe7364ea226a348
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 
 ---
@@ -125,7 +126,7 @@ Fabrikam에는 지정된 이름, 성 및 표시 이름에 로컬 알파벳이 �
 `attributeName` <- `Left([attributeName],448)`
 
 ### <a name="changing-the-userprincipalsuffix"></a>userPrincipalSuffix 변경
-Active Directory의 userPrincipalName 특성을 항상 사용자가 알 수 있는 것은 아니며 로그인 ID로 적절하지 않을 수도 있습니다. Azure AD Connect Sync 설치 마법사를 통해 여러 특성을 선택할 수 있습니다(예: 메일). 하지만 일부 경우에는 특성을 계산해야 합니다. 예를 들어 회사 Contoso에는&2;개의 Azure AD 디렉터리가 있습니다. 하나는 프로덕션용이고 하나는 테스트용입니다. 테스트 테넌트의 사용자가 로그인 ID에 다른 접미사를 사용하도록 할 수 있습니다.  
+Active Directory의 userPrincipalName 특성을 항상 사용자가 알 수 있는 것은 아니며 로그인 ID로 적절하지 않을 수도 있습니다. Azure AD Connect Sync 설치 마법사를 통해 여러 특성을 선택할 수 있습니다(예: 메일). 하지만 일부 경우에는 특성을 계산해야 합니다. 예를 들어 회사 Contoso에는 2개의 Azure AD 디렉터리가 있습니다. 하나는 프로덕션용이고 하나는 테스트용입니다. 테스트 테넌트의 사용자가 로그인 ID에 다른 접미사를 사용하도록 할 수 있습니다.  
 `userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
 이 식에서는 첫 번째 @-sign(Word) 왼쪽에 있는 모든 것을 고정된 문자열과 연결합니다.
@@ -171,6 +172,244 @@ Fabrikam에서는 클라우드에 동기화된 특성 중 일부라도 클라우
 ![변경 후 PowerShell](./media/active-directory-aadconnectsync-change-the-configuration/powershell2.png)  
 
 동일한 **PrecedenceBefore** 값을 사용하는 사용자 지정 동기화 규칙이 많이 있을 수 있습니다.
+
+
+## <a name="enable-synchronization-of-preferreddatalocation"></a>PreferredDataLocation 동기화 사용
+Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **PreferredDataLocation** 특성의 동기화를 지원합니다. 구체적으로 다음과 같은 변경 내용이 도입되었습니다.
+
+* Azure AD 커넥터의 **User** 개체 형식의 스키마가 문자열 형식의 단일 값인 PreferredDataLocation 특성을 포함하도록 확장되었습니다.
+
+* 메타버스의 **Person** 개체 형식의 스키마가 문자열 형식의 단일 값인 PreferredDataLocation 특성을 포함하도록 확장되었습니다.
+
+기본적으로 PreferredDataLocation 특성이 온-프레미스 Active Directory에 없기 때문에 동기화에 대해 PreferredDataLocation 특성을 사용하도록 설정되지 않습니다. 동기화를 사용하도록 수동으로 설정해야 합니다.
+
+> [!IMPORTANT]
+> 현재 Azure AD를 사용하면 Azure AD PowerShell을 사용하여 동기화된 User 개체와 클라우드 User 개체 모두의 PreferredDataLocation 특성을 직접 구성할 수 있습니다. PreferredDataLocation 특성의 동기화를 사용하도록 설정한 후에는 Azure AD Connect에서 온-프레미스 Active Directory의 원본 특성 값에 따라 **동기화된 User 개체**를 재정의하므로 Azure AD PowerShell을 사용하여 이러한 개체의 특성을 구성하는 것을 중지해야 합니다 .
+
+> [!IMPORTANT]
+> 2017년 9월 1일부터 Azure AD는 더 이상 Azure AD PowerShell을 사용하여 **동기화된 User 개체**의 PreferredDataLocation 특성을 직접 구성하도록 허용하지 않습니다. 동기화된 User 개체에 PreferredLocation 특성을 구성하려면 Azure AD Connect만 사용해야 합니다.
+
+PreferredDataLocation 특성의 동기화를 사용하도록 설정하기 전에 다음을 수행해야 합니다.
+
+ * 먼저 온-프레미스 Active Directory 특성을 원본 특성으로 사용할지 결정합니다. 이 특성은 **문자열** 형식의 **단일 값**이어야 합니다.
+
+ * 이전에 Azure AD PowerShell을 사용하여 Azure AD의 동기화된 기존 User 개체에 PreferredDataLocation 특성을 구성한 경우, 특성 값을 온-프레미스 Active Directory의 해당 User 개체로 **백포팅**해야 합니다.
+ 
+    > [!IMPORTANT]
+    > 특성 값을 온-프레미스 Active Directory의 해당 User 개체로 백포팅하지 않으면, PreferredDataLocation 특성에 대한 동기화를 사용하도록 설정할 때 Azure AD Connect에서 Azure AD의 기존 특성 값을 제거합니다.
+
+ * 이제 두 개 이상의 온-프레미스 AD User 개체에 원본 특성을 구성하는 것이 좋습니다. 이러한 개체는 나중에 확인하는 데 사용할 수 있습니다.
+ 
+PreferredDataLocation 특성의 동기화를 사용하도록 설정하는 단계는 다음과 같이 요약할 수 있습니다.
+
+1. 동기화 스케줄러를 비활성화하고 진행 중인 동기화가 없는지 확인합니다.
+
+2. 온-프레미스 AD 커넥터 스키마에 원본 특성 추가
+
+3. Azure AD 커넥터 스키마에 PreferredDataLocation 추가
+
+4. 온-프레미스 Active Directory에서 특성 값을 전달하는 인바운드 동기화 규칙 만들기
+
+5. Azure AD로 특성 값을 전달하는 아웃바운드 동기화 규칙 만들기
+
+6. 전체 동기화 주기 실행
+
+7. 동기화 스케줄러를 사용하도록 설정
+
+> [!NOTE]
+> 이 섹션의 나머지 부분에서는 이러한 단계에 대해 자세히 설명하며, 단일 포리스트 토폴로지를 사용하고 사용자 지정 동기화 규칙이 없는 Azure AD 배포와 관련됩니다. 다중 포리스트 토폴로지, 사용자 지정 동기화 규칙이 구성되어 있거나 스테이징 서버가 있으면 이에 따라 단계를 조정해야 합니다.
+
+### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>1단계: 동기화 스케줄러 비활성화 및 진행 중인 동기화가 없는지 확인
+Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록 동기화 규칙을 업데이트하는 중에 동기화가 수행되지 않도록 합니다. 기본 제공 동기화 스케줄러를 비활성화하려면
+
+ 1. Azure AD Connect 서버에서 PowerShell 세션을 시작합니다.
+
+ 2. cmdlet을 실행하여 예약된 동기화 비활성화: `Set-ADSyncScheduler -SyncCycleEnabled $false`
+ 
+ 3. 시작 → 동기화 서비스로 이동하여 **Synchronization Service Manager**를 시작합니다.
+ 
+ 4. **작업** 탭으로 이동하고 상태가 *“진행 중”*인 작업이 없는지 확인합니다.
+
+![동기화 서비스 관리자 - 진행 중인 작업이 없는지 확인](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step1.png)
+
+### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>2단계: 온-프레미스 AD 커넥터 스키마에 원본 특성 추가
+모든 AD 특성을 온-프레미스 AD 커넥터 공간으로 가져오지는 않습니다. 가져온 특성 목록에 원본 특성을 추가하려면 다음을 수행합니다.
+
+ 1. Synchronization Service Manager에 있는 **커넥터** 탭으로 이동합니다.
+ 
+ 2. **온-프레미스 AD 커넥터**를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
+ 
+ 3. 팝업 대화 상자에서 **특성 선택** 탭으로 이동합니다.
+ 
+ 4. 특성 목록에서 원본 특성이 선택되어 있는지 확인합니다.
+ 
+ 5. **확인**을 클릭하여 저장합니다.
+
+![온-프레미스 AD 커넥터 스키마에 원본 특성 추가](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step2.png)
+
+### <a name="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>3단계: Azure AD 커넥터 스키마에 PreferredDataLocation 추가
+기본적으로 PreferredDataLocation 특성은 Azure AD Connect 공간으로 가져오지 않습니다. 가져온 특성 목록에 PreferredDataLocation 특성을 추가하려면 다음을 수행합니다.
+
+ 1. Synchronization Service Manager에 있는 **커넥터** 탭으로 이동합니다.
+
+ 2. **Azure AD 커넥터**를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
+
+ 3. 팝업 대화 상자에서 **특성 선택** 탭으로 이동합니다.
+
+ 4. 특성 목록에서 PreferredDataLocation 특성이 선택되어 있는지 확인합니다.
+
+ 5. **확인**을 클릭하여 저장합니다.
+
+![Azure AD 커넥터 스키마에 원본 특성 추가](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step3.png)
+
+### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>4단계: 온-프레미스 Active Directory에서 특성 값을 전달하는 인바운드 동기화 규칙 만들기
+인바운드 동기화 규칙은 온-프레미스 Active Directory의 원본 특성에서 메타버스로 특성 값을 전달하도록 허용합니다.
+
+1. 시작 → 동기화 규칙 편집기로 이동하여 **동기화 규칙 편집기**를 시작합니다.
+
+2. **방향** 검색 필터를 **인바운드**로 설정합니다.
+
+3. **새 규칙 추가** 단추를 클릭하여 새 인바운드 규칙을 만듭니다.
+
+4. **설명 탭** 아래에서 다음 구성을 제공합니다.
+ 
+    | 특성 | 값 | 세부 정보 |
+    | --- | --- | --- |
+    | 이름 | *이름 제공* | 예: *"AD에서 인바운드 - 사용자 PreferredDataLocation"* |
+    | 설명 | *설명 제공* |  |
+    | 연결된 시스템 | *온-프레미스 AD 커넥터 선택* |  |
+    | 연결된 시스템 개체 유형 | **User** |  |
+    | 메타버스 개체 유형 | **Person** |  |
+    | 링크 형식 | **Join** |  |
+    | 우선 순위 | *1-99 사이의 숫자 선택* | 1-99는 사용자 지정 동기화 규칙을 위해 예약되어 있습니다. 다른 동기화 규칙에서 사용하는 값은 선택하지 않습니다. |
+
+5. **범위 지정 필터** 탭으로 이동하여 **다음 절이 있는 단일 범위 지정 필터 그룹**을 추가합니다.
+ 
+    | 특성 | 연산자 | 값 |
+    | --- | --- | --- |
+    | adminDescription | NOTSTARTWITH | 사용자\_ | 
+ 
+    범위 지정 필터는 이 인바운드 동기화 규칙이 적용되는 온-프레미스 AD 개체를 결정합니다. 이 예제에서는 *"AD에서 인바운드 - 사용자 일반"* OOB 동기화 규칙과 동일한 범위 지정 필터를 사용하며, Azure AD User 쓰기 저장 기능을 통해 만든 User 개체에 동기화 규칙이 적용되지 않도록 합니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
+
+6. **변환 탭**으로 이동하여 다음 변환 규칙을 구현합니다.
+ 
+    | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
+    | --- | --- | --- | --- | --- |
+    | 직접 | PreferredDataLocation | 원본 특성 선택 | 선택 취소됨 | 업데이트 |
+
+7. **추가**를 클릭하여 인바운드 규칙을 만듭니다.
+
+![인바운드 동기화 규칙 만들기](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step4.png)
+
+### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>5단계: Azure AD로 특성 값을 전달하는 아웃바운드 동기화 규칙 만들기
+아웃바운드 동기화 규칙은 메타버스에서 Azure AD의 PreferredDataLocation 특성으로 특성 값을 전달하도록 허용합니다.
+
+1. **동기화 규칙** 편집기로 이동합니다.
+
+2. **방향** 검색 필터를 **아웃바운드**로 설정합니다.
+
+3. **새 규칙 추가** 단추를 클릭합니다.
+
+4. **설명 탭** 아래에서 다음 구성을 제공합니다.
+
+    | 특성 | 값 | 세부 정보 |
+    | --- | --- | --- |
+    | 이름 | *이름 제공* | 예: "AAD로 아웃바운드 - 사용자 PreferredDataLocation" |
+    | 설명 | *설명 제공* |
+    | 연결된 시스템 | *AAD 커넥터 선택* |
+    | 연결된 시스템 개체 유형 | 사용자 ||
+    | 메타버스 개체 유형 | **Person** ||
+    | 링크 형식 | **Join** ||
+    | 우선 순위 | *1-99 사이의 숫자 선택* | 1-99는 사용자 지정 동기화 규칙을 위해 예약되어 있습니다. 다른 동기화 규칙에서 사용하는 값은 선택하지 않습니다. |
+
+5. **범위 지정 필터** 탭으로 이동하여 **다음 두 절이 있는 단일 범위 지정 필터 그룹**을 추가합니다.
+ 
+    | 특성 | 연산자 | 값 |
+    | --- | --- | --- |
+    | sourceObjectType | EQUAL | 사용자 |
+    | cloudMastered | NOTEQUAL | True |
+
+    범위 지정 필터는 이 아웃바운드 동기화 규칙이 적용되는 Azure AD 개체를 결정합니다. 이 예제에서는 "AD로 아웃바운드 - 사용자 ID" OOB 동기화 규칙과 동일한 범위 지정 필터를 사용합니다. 온-프레미스 Active Directory와 동기화되지 않은 User 개체에 동기화 규칙이 적용되지 않도록 합니다. Azure AD Connect 배포에 따라 범위 지정 필터를 조정해야 할 수도 있습니다.
+    
+6. **변환 탭**으로 이동하여 다음 변환 규칙을 구현합니다.
+
+    | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
+    | --- | --- | --- | --- | --- |
+    | 직접 | PreferredDataLocation | PreferredDataLocation | 선택 취소됨 | 업데이트 |
+
+7. **추가**를 클릭하여 아웃바운드 규칙을 만듭니다.
+
+![아웃바운드 동기화 규칙 만들기](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step5.png)
+
+### <a name="step-6-run-full-synchronization-cycle"></a>6단계: 전체 동기화 주기 실행
+일반적으로 AD 및 Azure AD 커넥터 스키마 모두에 새 특성을 추가하고 사용자 지정 동기화 규칙을 도입했으므로 전체 동기화 주기가 필요합니다. Azure AD로 내보내기 전에 변경 내용을 확인하는 것이 좋습니다. 다음 단계를 사용하여 전체 동기화 주기를 구성하는 단계를 수동으로 실행하는 동안 변경 내용을 확인할 수 있습니다. 
+
+1. **온-프레미스 AD 커넥터**에서 다음과 같이 **전체 가져오기** 단계를 실행합니다
+
+   1. Synchronization Service Manager에 있는 **작업** 탭으로 이동합니다.
+
+   2. **온-프레미스 AD 커넥터**를 마우스 오른쪽 단추로 클릭하고 **실행...**을 선택합니다.
+
+   3. 팝업 대화 상자에서 **전체 가져오기**를 선택하고 **확인**을 클릭합니다.
+    
+   4. 작업이 완료될 때까지 기다립니다.
+
+    > [!NOTE]
+    > 원본 특성이 가져온 특성 목록에 이미 포함되어 있으면 온-프레미스 AD 커넥터에서 전체 가져오기를 건너뛸 수 있습니다. 즉 [2단계: 온-프레미스 AD 커넥터 스키마에 원본 특성 추가](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema)에서 변경하지 않아도 됩니다.
+
+2. **Azure AD 커넥터**에서 다음과 같이 **전체 가져오기** 단계를 실행합니다
+
+   1. **Azure AD 커넥터**를 마우스 오른쪽 단추로 클릭하고 **실행...**을 선택합니다.
+
+   2. 팝업 대화 상자에서 **전체 가져오기**를 선택하고 **확인**을 클릭합니다.
+   
+   3. 작업이 완료될 때까지 기다립니다.
+
+3. 기존 User 개체에 대한 동기화 규칙 변경 내용을 확인합니다.
+
+온-프레미스 Active Directory의 원본 특성과 Azure AD의 PreferredDataLocation을 각각의 커넥터 공간으로 가져왔습니다. 전체 동기화 단계를 진행하기 전에 온-프레미스 AD 커넥터 공간에 있는 기존 User 개체에 대해 **미리 보기**를 수행하는 것이 좋습니다. 선택한 개체에 원본 특성이 채워져야 합니다. PreferredDataLocation이 메타버스에 채워진 성공적인 **미리 보기**는 동기화 규칙을 올바르게 구성했음을 나타내는 좋은 지표입니다. **미리 보기**를 수행하는 방법에 대한 자세한 내용은 [변경 확인](#verify-the-change) 섹션을 참조하세요.
+
+4. **온-프레미스 AD 커넥터**에서 다음과 같이 **전체 동기화** 단계를 실행합니다.
+
+   1. **온-프레미스 AD 커넥터**를 마우스 오른쪽 단추로 클릭하고 **실행...**을 선택합니다.
+  
+   2. 팝업 대화 상자에서 **전체 동기화**를 선택하고 **확인**을 클릭합니다.
+   
+   3. 작업이 완료될 때까지 기다립니다.
+
+5. Azure AD로의 **보류 중인 내보내기**를 확인합니다.
+
+   1. **Azure AD 커넥터**를 마우스 오른쪽 단추로 클릭하고 **커넥터 공간 검색**을 선택합니다.
+
+   2. [커넥터 공간 검색] 팝업 대화 상자에서
+
+      1. **범위**를 **보류 중인 내보내기**로 설정합니다.
+      
+      2. **추가, 수정 및 삭제**를 포함한 세 개의 확인란을 모두 선택합니다.
+      
+      3. **검색** 단추를 클릭하여 내보낼 변경 내용이 있는 개체의 목록을 가져옵니다. 지정된 개체에 대한 변경 내용을 검사하려면 해당 개체를 두 번 클릭합니다.
+      
+      4. 필요한 변경 내용인지 확인합니다.
+
+6. **Azure AD 커넥터**에서 **내보내기** 단계를 실행합니다.
+      
+   1. **Azure AD 커넥터**를 마우스 오른쪽 단추로 클릭하고 **실행...**을 선택합니다.
+   
+   2. [커넥터 실행] 팝업 대화 상자에서 **내보내기**를 선택하고 **확인**을 클릭합니다.
+   
+   3. Azure AD로 내보내기가 완료될 때까지 기다립니다.
+
+> [!NOTE]
+> Azure AD 커넥터에 전체 동기화 단계 및 내보내기 단계가 포함되지 않은 단계가 나타날 수 있습니다. 특성 값이 온-프레미스 Active Directory에서 Azure AD로만 전달되기 때문에 이러한 단계가 필요하지 않습니다.
+
+### <a name="step-7-re-enable-sync-scheduler"></a>7단계: 동기화 스케줄러를 다시 사용하도록 설정
+기본 제공 동기화 스케줄러를 다시 사용하도록 설정하려면
+
+1. PowerShell 세션을 시작합니다.
+
+2. cmdlet을 실행하여 예약된 동기화 다시 활성화: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+
+
 
 ## <a name="next-steps"></a>다음 단계
 * [선언적 프로비전 이해](active-directory-aadconnectsync-understanding-declarative-provisioning.md)에서 구성 모델에 대해 자세히 알아봅니다.

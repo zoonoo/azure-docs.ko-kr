@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/04/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: c9d5fdc2ff27454b2492751034b43658ee9d46c5
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
+ms.openlocfilehash: e7ed94a3aa24d401e073cf260453550b4c67f47e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20-preview"></a>Azure CLI 2.0(미리 보기)을 사용하여 Azure Data Lake Store 시작
+# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure Data Lake Store 시작
 > [!div class="op_single_selector"]
 > * [포털](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -50,14 +51,6 @@ Azure CLI 2.0은 Azure 리소스를 관리하기 위한 Azure의 새로운 명�
 ## <a name="authentication"></a>인증
 
 이 문서는 최종 사용자로 로그인하는 Data Lake Store에 보다 간단한 인증 방식을 사용합니다. Data Lake Store 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준을 따릅니다. 하지만 Data Lake Store에 인증하는 다른 방법인 **최종 사용자 인증** 또는 **서비스간 인증**도 있습니다. 인증 하는 방법에 대한 지침 및 자세한 내용은 [Azure Active Directory를 사용하여 Data Lake Store로 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
-
-## <a name="enable-data-lake-store-preview-in-azure-cli-20"></a>Azure CLI 2.0에서 Data Lake Store(미리 보기)를 사용하도록 설정
-
-Data Lake Store CLI 2.0은 현재 미리 보기 상태이며 Azure CLI 2.0을 설치할 때 기본적으로 사용하도록 설정되어 있지 않습니다. 다음 명령을 실행하여 Data Lake Store CLI 2.0을 사용하도록 설정합니다.
-
-```azurecli
-az component update --add dls
-```
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.

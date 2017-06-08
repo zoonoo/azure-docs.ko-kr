@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: fc97b01c04be81b89cadf1f16c87dcb2069d7b64
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 12b4fda8a8805d49ad1318af3367a53e97ddf48b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 05/15/2017
 
 ---
 
@@ -29,11 +30,13 @@ ms.lasthandoff: 04/06/2017
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli[기본](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "VM 빠른 생성")]
+[!code-azurecli-interactive[기본](../../../cli_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.sh "VM 빠른 생성")]
 
 ## <a name="custom-script-extension"></a>사용자 지정 스크립트 확장
 
@@ -53,7 +56,7 @@ apt-get -y install nginx
 
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

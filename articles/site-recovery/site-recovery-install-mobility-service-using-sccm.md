@@ -12,15 +12,19 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
+ms.date: 5/11/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ded45356e6dd22b485adfe7f85ddd0abb21280e5
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
+ms.openlocfilehash: 65d9cc77d7ce87d05a9357673712c518e4e43dc3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/16/2017
 
 ---
 # <a name="automate-mobility-service-installation-by-using-software-deployment-tools"></a>소프트웨어 배포 도구를 사용하여 모바일 서비스 설치 자동화
+
+>[!IMPORTANT]
+이 문서에서는 **9.9.4510.1** 이상 버전을 사용한다고 가정합니다.
 
 이 문서에서는 System Center Configuration Manager를 사용하여 데이터 센터에서 Azure Site Recovery 모바일 서비스를 배포하는 방법의 예제를 제공합니다. Configuration Manager 같은 소프트웨어 배포 도구를 사용하면 다음과 같은 장점이 있습니다.
 * 소프트웨어 업데이트에 대한 계획된 유지 관리 시간에 새로 설치 및 업그레이드 배포 예약
@@ -59,46 +63,100 @@ ms.lasthandoff: 04/03/2017
    > [!NOTE]
    > 이 스크립트의 [CSIP] 자리 표시자를 구성 서버 IP 주소의 실제 값으로 바꿉니다.
 
-```
+```DOS
 Time /t >> C:\Temp\logfile.log
 REM ==================================================
 REM ==== Clean up the folders ========================
 RMDIR /S /q %temp%\MobSvc
 MKDIR %Temp%\MobSvc
+MKDIR C:\Temp
 REM ==================================================
+
 REM ==== Copy new files ==============================
 COPY M*.* %Temp%\MobSvc
 CD %Temp%\MobSvc
 REN Micro*.exe MobSvcInstaller.exe
 REM ==================================================
+
 REM ==== Extract the installer =======================
 MobSvcInstaller.exe /q /x:%Temp%\MobSvc\Extracted
 REM ==== Wait 10s for extraction to complete =========
 TIMEOUT /t 10
 REM =================================================
-REM ==== Extract the installer ======================
+
+REM ==== Perform installation =======================
+REM =================================================
+
 CD %Temp%\MobSvc\Extracted
-REM ==================================================
-REM ==== Check if Mob Svc is already installed =======
-REM ==== If not installed run install command ========
-REM ==== Else run upgrade command =====================
-REM ==== {275197FC-14FD-4560-A5EB-38217F80CBD1} is ====
-REM ==== guid for Mob Svc Installer ====================
-whoami >> C:\temp\logfile.log
-REM SET PRODKEY=HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
-REM REG QUERY %PRODKEY%\{275197FC-14FD-4560-A5EB-38217F80CBD1} >> C:\Temp\logfile.log 2>&1
-REM REG QUERY %PRODKEY%\{275197FC-14FD-4560-A5EB-38217F80CBD1}
-REM IF NOT %ERRORLEVEL% EQU 0 (GOTO :INSTALL) ELSE GOTO :UPDATE
-NET START | FIND "InMage Scout Application Service"
-IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UPDATE
+whoami >> C:\Temp\logfile.log
+SET PRODKEY=HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+REG QUERY %PRODKEY%\{275197FC-14FD-4560-A5EB-38217F80CBD1}
+IF NOT %ERRORLEVEL% EQU 0 (
+    echo "Product is not installed. Goto INSTALL." >> C:\Temp\logfile.log
+    GOTO :INSTALL
+) ELSE (
+    echo "Product is installed." >> C:\Temp\logfile.log
+
+    echo "Checking for Post-install action status." >> C:\Temp\logfile.log
+    GOTO :POSTINSTALLCHECK
+)
+
+:POSTINSTALLCHECK
+    REG QUERY "HKLM\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5" /v "PostInstallActions" | Find "Succeeded"
+    If %ERRORLEVEL% EQU 0 (
+        echo "Post-install actions succeeded. Checking for Configuration status." >> C:\Temp\logfile.log
+        GOTO :CONFIGURATIONCHECK
+    ) ELSE (
+        echo "Post-install actions didn't succeed. Goto INSTALL." >> C:\Temp\logfile.log
+        GOTO :INSTALL
+    )
+
+:CONFIGURATIONCHECK
+    REG QUERY "HKLM\SOFTWARE\Wow6432Node\InMage Systems\Installed Products\5" /v "AgentConfigurationStatus" | Find "Succeeded"
+    If %ERRORLEVEL% EQU 0 (
+        echo "Configuration has succeeded. Goto UPGRADE." >> C:\Temp\logfile.log
+        GOTO :UPGRADE
+    ) ELSE (
+        echo "Configuration didn't succeed. Goto CONFIGURE." >> C:\Temp\logfile.log
+        GOTO :CONFIGURE
+    )
+
+
 :INSTALL
-    echo "Install" >> c:\Temp\logfile.log
-     UnifiedAgent.exe /Role "Agent" /CSEndpoint "10.10.20.168" /PassphraseFilePath %Temp%\MobSvc\MobSvc.passphrase
-GOTO :ENDSCRIPT
-:UPDATE
-    echo "Update" >> C:\Temp\logfile.log
-    UnifiedAgent.exe /upgrade
+    echo "Perform installation." >> C:\Temp\logfile.log
+    UnifiedAgent.exe /Role MS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+    IF %ERRORLEVEL% EQU 0 (
+        echo "Installation has succeeded." >> C:\Temp\logfile.log
+        (GOTO :CONFIGURE)
+    ) ELSE (
+        echo "Installation has failed." >> C:\Temp\logfile.log
+        GOTO :ENDSCRIPT
+    )
+
+:CONFIGURE
+    echo "Perform configuration." >> C:\Temp\logfile.log
+    cd "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent"
+    UnifiedAgentConfigurator.exe  /CSEndPoint "[CSIP]" /PassphraseFilePath %Temp%\MobSvc\MobSvc.passphrase
+    IF %ERRORLEVEL% EQU 0 (
+        echo "Configuration has succeeded." >> C:\Temp\logfile.log
+    ) ELSE (
+        echo "Configuration has failed." >> C:\Temp\logfile.log
+    )
+    GOTO :ENDSCRIPT
+
+:UPGRADE
+    echo "Perform upgrade." >> C:\Temp\logfile.log
+    UnifiedAgent.exe /Platform "VmWare" /Silent
+    IF %ERRORLEVEL% EQU 0 (
+        echo "Upgrade has succeeded." >> C:\Temp\logfile.log
+    ) ELSE (
+        echo "Upgrade has failed." >> C:\Temp\logfile.log
+    )
+    GOTO :ENDSCRIPT
+
 :ENDSCRIPT
+    echo "End of script." >> C:\Temp\logfile.log
+
 
 ```
 
@@ -118,7 +176,7 @@ GOTO :ENDSCRIPT
   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
 8. **이 표준 프로그램에 대한 정보 지정** 페이지에서 다음 입력을 제공하고 **다음**을 클릭합니다. (다른 입력은 해당 기본값을 사용할 수 있습니다.)
- 
+
   | **매개 변수 이름** | **값** |
   |--|--|
   | 이름 | Microsoft Azure Mobility Service(Windows) 설치 |
@@ -129,7 +187,7 @@ GOTO :ENDSCRIPT
 
 9. 다음 페이지에서 대상 운영 체제를 선택합니다. 모바일 서비스는 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2에만 설치할 수 있습니다.
 
-  ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png) 
+  ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)
 
 10. 마법사를 완료하려면 **다음**을 두 번 클릭합니다.
 
@@ -181,27 +239,36 @@ Configuration Manager 콘솔을 사용하여 배포 진행률을 모니터링할
    `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
 6. 네트워크 공유에서 다음 파일을 **MobSvcLinux** 폴더로 복사합니다.
-   * Microsoft-ASR\_UA\_*version*\_OEL-64\_GA\_*date*\_Release.tar.gz
-   * Microsoft-ASR\_UA\_*version*\_RHEL6-64\_GA\_*date*\_Release.tar.gz
-   * Microsoft-ASR\_UA\_*version*\_RHEL7-64\_GA\_*date*\_Release.tar.gz
-   * Microsoft-ASR\_UA\_*version*\_SLES11-SP3-64\_GA\_*date*\_Release.tar.gz
+   * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
+   * Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*OL6-64\*release.tar.gz
+   * Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz
+
 
 7. 아래 코드를 복사하여 **MobSvcLinux** 폴더에 **install_linux.sh**로 저장합니다.
    > [!NOTE]
    > 이 스크립트의 [CSIP] 자리 표시자를 구성 서버 IP 주소의 실제 값으로 바꿉니다.
 
-```
-#!/bin/sh
+```Bash
+#!/usr/bin/env bash
 
 rm -rf /tmp/MobSvc
-
 mkdir -p /tmp/MobSvc
+INSTALL_DIR='/usr/local/ASR'
+VX_VERSION_FILE='/usr/local/.vx_version'
+
+echo "=============================" >> /tmp/MobSvc/sccm.log
+echo `date` >> /tmp/MobSvc/sccm.log
+echo "=============================" >> /tmp/MobSvc/sccm.log
 
 if [ -f /etc/oracle-release ] && [ -f /etc/redhat-release ]; then
     if grep -q 'Oracle Linux Server release 6.*' /etc/oracle-release; then
         if uname -a | grep -q x86_64; then
             OS="OL6-64"
-        cp *OL6*.tar.gz /tmp/MobSvc
+            echo $OS >> /tmp/MobSvc/sccm.log
+            cp *OL6*.tar.gz /tmp/MobSvc
         fi
     fi
 elif [ -f /etc/redhat-release ]; then
@@ -210,55 +277,112 @@ elif [ -f /etc/redhat-release ]; then
         grep -q 'CentOS release 6.* (Final)' /etc/redhat-release; then
         if uname -a | grep -q x86_64; then
             OS="RHEL6-64"
+            echo $OS >> /tmp/MobSvc/sccm.log
             cp *RHEL6*.tar.gz /tmp/MobSvc
         fi
     elif grep -q 'Red Hat Enterprise Linux Server release 7.* (Maipo)' /etc/redhat-release || \
         grep -q 'CentOS Linux release 7.* (Core)' /etc/redhat-release; then
         if uname -a | grep -q x86_64; then
             OS="RHEL7-64"
+            echo $OS >> /tmp/MobSvc/sccm.log
             cp *RHEL7*.tar.gz /tmp/MobSvc
-    fi
+                fi
     fi
 elif [ -f /etc/SuSE-release ] && grep -q 'VERSION = 11' /etc/SuSE-release; then
     if grep -q "SUSE Linux Enterprise Server 11" /etc/SuSE-release && grep -q 'PATCHLEVEL = 3' /etc/SuSE-release; then
         if uname -a | grep -q x86_64; then
             OS="SLES11-SP3-64"
-        echo $OS >> /tmp/MobSvc/sccm.log
-        cp *SLES11*.tar.gz /tmp/MobSvc
+            echo $OS >> /tmp/MobSvc/sccm.log
+            cp *SLES11-SP3*.tar.gz /tmp/MobSvc
+        fi
+    elif grep -q "SUSE Linux Enterprise Server 11" /etc/SuSE-release && grep -q 'PATCHLEVEL = 4' /etc/SuSE-release; then
+        if uname -a | grep -q x86_64; then
+            OS="SLES11-SP4-64"
+            echo $OS >> /tmp/MobSvc/sccm.log
+            cp *SLES11-SP4*.tar.gz /tmp/MobSvc
         fi
     fi
 elif [ -f /etc/lsb-release ] ; then
     if grep -q 'DISTRIB_RELEASE=14.04' /etc/lsb-release ; then
        if uname -a | grep -q x86_64; then
            OS="UBUNTU-14.04-64"
-       cp *UBUNTU*.tar.gz /tmp/MobSvc
+           echo $OS >> /tmp/MobSvc/sccm.log
+           cp *UBUNTU-14*.tar.gz /tmp/MobSvc
        fi
     fi
 else
     exit 1
 fi
-if [ "${OS}" ==  "" ]; then
+
+if [ -z "$OS" ]; then
     exit 1
 fi
+
+Install()
+{
+    echo "Perform Installation." >> /tmp/MobSvc/sccm.log
+    ./install -q -d ${INSTALL_DIR} -r MS -v VmWare
+    RET_VAL=$?
+    echo "Installation Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
+    if [ $RET_VAL -eq 0 ]; then
+        echo "Installation has succeeded. Proceed to configuration." >> /tmp/MobSvc/sccm.log
+        Configure
+    else
+        echo "Installation has failed." >> /tmp/MobSvc/sccm.log
+        exit $RET_VAL
+    fi
+}
+
+Configure()
+{
+    echo "Perform configuration." >> /tmp/MobSvc/sccm.log
+    ${INSTALL_DIR}/Vx/bin/UnifiedAgentConfigurator.sh -i [CSIP] -P MobSvc.passphrase
+    RET_VAL=$?
+    echo "Configuration Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
+    if [ $RET_VAL -eq 0 ]; then
+        echo "Configuration has succeeded." >> /tmp/MobSvc/sccm.log
+    else
+        echo "Configuration has failed." >> /tmp/MobSvc/sccm.log
+        exit $RET_VAL
+    fi
+}
+
+Upgrade()
+{
+    echo "Perform Upgrade." >> /tmp/MobSvc/sccm.log
+    ./install -q -v VmWare
+    RET_VAL=$?
+    echo "Upgrade Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
+    if [ $RET_VAL -eq 0 ]; then
+        echo "Upgrade has succeeded." >> /tmp/MobSvc/sccm.log
+    else
+        echo "Upgrade has failed." >> /tmp/MobSvc/sccm.log
+        exit $RET_VAL
+    fi
+}
+
 cp MobSvc.passphrase /tmp/MobSvc
 cd /tmp/MobSvc
 
 tar -zxvf *.tar.gz
 
-
-if [ -e /usr/local/.vx_version ];
-then
-    ./install -A u
-    echo "Errorcode:$?"
-    Error=$?
-
+if [ -e ${VX_VERSION_FILE} ]; then
+    echo "${VX_VERSION_FILE} exists. Checking for configuration status." >> /tmp/MobSvc/sccm.log
+    agent_configuration=$(grep ^AGENT_CONFIGURATION_STATUS "${VX_VERSION_FILE}" | cut -d"=" -f2 | tr -d " ")
+    echo "agent_configuration=$agent_configuration" >> /tmp/MobSvc/sccm.log
+     if [ "$agent_configuration" == "Succeeded" ]; then
+        echo "Agent is already configured. Proceed to Upgrade." >> /tmp/MobSvc/sccm.log
+        Upgrade
+    else
+        echo "Agent is not configured. Proceed to Configure." >> /tmp/MobSvc/sccm.log
+        Configure
+    fi
 else
-    ./install -t both -a host -R Agent -d /usr/local/ASR -i [CS IP] -p 443 -s y -c https -P MobSvc.passphrase >> /tmp/MobSvc/sccm.log 2>&1 && echo "Install Progress"
-    Error=$?
+    Install
 fi
+
 cd /tmp
-rm -rf /tm/MobSvc
-exit ${Error}
+
 ```
 
 ### <a name="step-2-create-a-package"></a>2단계: 패키지 만들기
@@ -289,8 +413,8 @@ exit ${Error}
 9. 다음 페이지에서 **모든 플랫폼에서 이 프로그램 실행**을 선택합니다.
   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)
 
-10. 마법사를 완료하려면 **다음**을 두 번 클릭합니다. 
- 
+10. 마법사를 완료하려면 **다음**을 두 번 클릭합니다.
+
 > [!NOTE]
 > 스크립트는 모바일 서비스 에이전트의 새로 설치 및 이미 설치된 에이전트의 업데이트를 모두 지원합니다.
 

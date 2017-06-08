@@ -11,7 +11,7 @@
 ## [모범 사례](sql-data-warehouse-best-practices.md)
 ## [관리](sql-data-warehouse-overview-manage.md)
 ## [지원 받기](sql-data-warehouse-get-started-create-support-ticket.md)
-## [문제 해결](sql-data-warehouse-troubleshoot.md)
+
 
 # 방법
 
@@ -114,7 +114,7 @@
 
 ### [개요](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore 압축](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [쿼리](sql-data-warehouse-manage-monitor.md)
+### [모니터](sql-data-warehouse-manage-monitor.md)
 ### [워크로드](sql-data-warehouse-develop-concurrency.md)
 
 ## 보안
@@ -126,6 +126,9 @@
 ### [암호화](sql-data-warehouse-encryption-tde.md)
 ### [T-SQL을 사용하여 암호화](sql-data-warehouse-encryption-tde-tsql.md)
 ### [위협 감지](sql-data-warehouse-security-threat-detection.md)
+
+## 문제 해결
+### [문제 해결](sql-data-warehouse-troubleshoot.md)
 
 # 참조
 

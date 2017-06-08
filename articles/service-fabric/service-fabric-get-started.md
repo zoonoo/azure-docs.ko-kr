@@ -12,12 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/22/2017
+ms.date: 05/26/2017
 ms.author: ryanwi, mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 91049ee124999269a326106cbd6fc211cc027d26
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 25243603abd2f30adc11640f00b782c8d827796e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -70,9 +71,16 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 > 불편을 끼쳐드려 죄송합니다. 
 
 현재 버전은 다음과 같습니다.
-* Service Fabric SDK 2.5.216
-* Service Fabric 런타임 5.5.216
-* Visual Studio 2015 도구 1.5.50311.1
+* Service Fabric SDK 2.6.210
+* Service Fabric 런타임 5.6.210
+* Visual Studio 2015 도구 1.6.50508.2
+* Visual Studio 2017 업데이트 2
+
+현재 미리 보기 버전은 다음과 같습니다.
+* Service Fabric SDK 255.255.2709.255
+* Service Fabric 런타임 255.255.5709.255
+* Visual Studio 2015 도구 1.6.50509.5
+* Visual Studio 2017 업데이트 3 미리 보기 1
 
 지원되는 버전 목록은 [Service Fabric 지원](service-fabric-support.md)을 참조하세요.
 

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c7062721017176b4caacbd48a513c2610058b835
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 6615fc7f23a8a53ae0b8d855f5b157c3787a1f06
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -34,10 +35,12 @@ ms.lasthandoff: 04/27/2017
 
 이 문서에서는 Azure PowerShell을 사용하여 첫 번째 Azure Data Factory를 만듭니다. 다른 도구/SDK를 사용하여 이 자습서를 수행하려면 드롭다운 목록에서 옵션 중 하나를 선택합니다.
 
+이 자습서의 파이프라인에는 **HDInsight Hive 작업**이라는 하나의 작업이 있습니다. 이 작업은 Azure HDInsight 클러스터에서 입력 데이터를 변환하여 출력 데이터를 생성하는 Hive 스크립트를 실행합니다. 파이프라인은 지정된 시작 및 종료 시간 사이, 한 달에 한 번 실행되도록 예약됩니다. 
+
 > [!NOTE]
 > 이 자습서의 데이터 파이프라인은 출력 데이터를 생성하는 입력 데이터를 변환합니다. 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사하지 않습니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 > 
-> 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 정보는 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요. 
+> 파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [Data Factory에서 예약 및 실행](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
@@ -142,7 +145,6 @@ ms.lasthandoff: 04/27/2017
       "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-          "version": "3.2",
           "clusterSize": 1,
           "timeToLive": "00:30:00",
           "linkedServiceName": "StorageLinkedService"
@@ -154,7 +156,6 @@ ms.lasthandoff: 04/27/2017
 
    | 속성 | 설명 |
    |:--- |:--- |
-   | 버전 |생성되는 HDInsight 버전을 3.2로 지정합니다. |
    | ClusterSize |HDInsight 클러스터의 크기를 지정합니다. |
    | TimeToLive |HDInsight 클러스터가 삭제되기 전 유휴 시간을 지정합니다. |
    | linkedServiceName |HDInsight에 의해 생성되는 로그를 저장하는데 사용될 저장소 계정을 지정합니다. |
@@ -341,7 +342,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
     ```PowerShell
     Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
     ```
-    여기에 지정하는 StartDateTime은 파이프라인 JSON에 지정된 것과 동일한 시작 시간입니다. 다음과 유사한 결과가 표시됩니다.
+    여기에 지정하는 StartDateTime은 파이프라인 JSON에 지정된 것과 동일한 시작 시간입니다. 샘플 출력은 다음과 같습니다.
 
     ```PowerShell
     ResourceGroupName : ADFTutorialResourceGroup
@@ -361,7 +362,7 @@ Azure Blob 저장소에 저장된 출력 데이터를 나타내는 출력 데이
     Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
     ```
 
-    다음과 유사한 결과가 표시됩니다.
+    샘플 출력은 다음과 같습니다. 
 
     ```PowerShell
     Id                  : 0f6334f2-d56c-4d48-b427-d4f0fb4ef883_635268096000000000_635292288000000000_AzureBlobOutput
