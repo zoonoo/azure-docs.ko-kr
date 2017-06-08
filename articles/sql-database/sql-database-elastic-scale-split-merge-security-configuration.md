@@ -8,16 +8,18 @@ manager: jhubbard
 author: torsteng
 ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 7eecd3cc01cc708c3da1efb1cbb3b1cddb86d6f0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -452,10 +454,5 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 이 데이터베이스에 저장된 자격 증명은 암호화됩니다. 그러나 서비스 배포의 웹 역할과 작업자 역할 모두 최신 상태를 유지하고 저장된 자격 증명의 암호화 및 암호 해독에 사용되는 인증서와 메타데이터 데이터베이스에 액세스할 때 보안을 유지해야 합니다. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

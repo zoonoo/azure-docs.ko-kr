@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/19/2017
+ms.date: 06/07/2017
 ms.author: motanv;heeldin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
 ms.openlocfilehash: 4de9967b41c37bbfacf63caf0f993f625bf3c779
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -231,10 +233,5 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
 * 서비스를 테스트하는 방법
   * [서비스 작업 중 오류 시뮬레이션](service-fabric-testability-workload-tests.md)
   * [서비스 대 서비스 통신 오류](service-fabric-testability-scenarios-service-communication.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

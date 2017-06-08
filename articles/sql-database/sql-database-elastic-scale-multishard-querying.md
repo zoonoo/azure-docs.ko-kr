@@ -8,16 +8,18 @@ author: torsteng
 editor: 
 ms.assetid: a4379c15-f213-4026-ab6f-a450ee9d5758
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2016
 ms.author: torsteng
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 873df52da976597ddfaa8f777b90382bfa7723fc
 ms.openlocfilehash: aa54ec3d982ea4422422bd4e520d2211aad57159
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -75,10 +77,5 @@ ms.openlocfilehash: aa54ec3d982ea4422422bd4e520d2211aad57159
 **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx)** 클래스 및 메서드.
 
 [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)를 사용하여 분할된 데이터베이스를 관리합니다. [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx)라고 하는 네임스페이스가 포함되며, 이 네임스페이스는 단일 쿼리 및 결과를 사용하여 여러 분할된 데이터베이스를 쿼리하는 기능을 제공합니다. 분할된 데이터베이스의 컬렉션에 대해 쿼리 추상화를 제공합니다. 또한 대체 실행 정책, 특히 부분 결과를 제공하여 많은 분할된 데이터베이스를 쿼리할 때 오류를 처리합니다.  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

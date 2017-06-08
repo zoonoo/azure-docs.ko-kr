@@ -3,7 +3,7 @@ title: "Azure Service Fabric 재해 복구 | Microsoft Docs"
 description: "Azure 서비스 패브릭은 모든 유형의 재해를 처리하는 데 필요한 기능을 제공합니다. 이 문서에서는 발생할 수 있는 재해의 유형과 처리하는 방법을 설명합니다."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: masnider
 manager: timlt
 editor: 
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/01/2017
-ms.author: seanmck
-translationtype: Human Translation
+ms.author: masnider
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
 ms.openlocfilehash: 73f5413fb7dd0ca179bf5012478a453963e996a1
+ms.contentlocale: ko-kr
 ms.lasthandoff: 12/14/2016
 
 
