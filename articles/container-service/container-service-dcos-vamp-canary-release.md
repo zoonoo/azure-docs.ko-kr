@@ -46,7 +46,7 @@ ms.lasthandoff: 05/17/2017
 
 ## <a name="set-up-vamp"></a>Vamp 설치
 
-DC/OS 클러스터가 실행 중이니, DC/OS UI(http://localhost:80)에서 Vamp를 설치할 수 있습니다. 
+DC/OS 클러스터가 실행 중이니, DC/OS UI( http://localhost:80 )에서 Vamp를 설치할 수 있습니다. 
 
 ![DC/OS UI](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 

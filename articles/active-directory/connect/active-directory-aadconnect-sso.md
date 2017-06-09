@@ -130,7 +130,7 @@ Azure AD Connect가 [빠른 설치](active-directory-aadconnect-get-started-expr
 
 ## <a name="rolling-the-feature-out-to-your-users"></a>사용자에게 기능 롤아웃
 
-Seamless SSO 기능을 사용자에게 롤아웃하려면 Active Directory의 그룹 정책을 통해 사용자의 인트라넷 영역 설정에 두 Azure AD URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net)을 추가해야 합니다. 이는 Internet Explorer 및 Google Chrome(Internet Explorer와 동일한 신뢰할 수 있는 사이트 URL 집합을 공유하는 경우)에서만 작동합니다. Mozilla Firefox에 대해서는 별도로 구성해야 합니다.
+Seamless SSO 기능을 사용자에게 롤아웃하려면 Active Directory의 그룹 정책을 통해 사용자의 인트라넷 영역 설정에 두 Azure AD URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net )을 추가해야 합니다. 이는 Internet Explorer 및 Google Chrome(Internet Explorer와 동일한 신뢰할 수 있는 사이트 URL 집합을 공유하는 경우)에서만 작동합니다. Mozilla Firefox에 대해서는 별도로 구성해야 합니다.
 
 ### <a name="why-do-you-need-this"></a>필요한 이유
 
