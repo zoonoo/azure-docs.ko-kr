@@ -157,7 +157,7 @@ CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 다음 그림은 간단한 쿼리에 대한 쿼리 계획을 보여줍니다.
 
 ````
-SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
+SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
 ````
 
 쿼리 계획에는 기록 테이블(강조 표시)에 있는 Clustered Index Scan 연산자의 기간 열 (ValidTo) 끝에 적용 되는 추가 필터가 포함됩니다. 이 예는 한 달 재방문 주기 기간이 WebsiteUserInfo 테이블에 설정되었다고 가정합니다.
