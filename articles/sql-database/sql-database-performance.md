@@ -8,24 +8,25 @@ manager: jhubbard
 editor: monicar
 ms.assetid: a60b75ac-cf27-4d73-8322-ee4d4c448aa2
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/19/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 155e9ddb48c65ad1648e18eb306c9badc2cb27e8
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 071cc504cc4111e20391af86ffdc7819644ec434
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/14/2016
 
 
 ---
 # <a name="sql-database-performance-insight"></a>SQL 데이터베이스 성능 Insight
 Azure SQL 데이터베이스는 인텔리전트 튜닝 작업 및 권장 사항을 제공하여 데이터베이스의 성능을 파악하고 향상시키는 데 도움이 되는 성능 도구를 제공합니다. 
 
-1. [Azure Portal](http://portal.azure.com)에서 데이터베이스를 찾아 **모든 설정** > **성능 ** > **개요**를 클릭하여 **성능** 페이지를 엽니다. 
+1. [Azure Portal](http://portal.azure.com)에서 데이터베이스를 찾아 **모든 설정** > **성능** > **개요**를 클릭하면 **성능** 페이지가 열립니다. 
 2. [SQL Database 관리자](#sql-database-advisor)를 열려면 **권장 사항**을 클릭하고 [Query Performance Insight](#query-performance-insight)를 열려면 **쿼리**를 클릭합니다.
    
     ![성능 보기](./media/sql-database-performance/entries.png)
@@ -56,6 +57,6 @@ Azure SQL 데이터베이스는 인텔리전트 튜닝 작업 및 권장 사항�
 
 ## <a name="additional-resources"></a>추가 리소스
 * [단일 데이터베이스의 Azure SQL 데이터베이스 성능 지침](sql-database-performance-guidance.md)
-* [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool.md)
+* [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool-guidance.md)
 
 

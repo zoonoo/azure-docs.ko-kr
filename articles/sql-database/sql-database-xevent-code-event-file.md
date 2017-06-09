@@ -1,6 +1,6 @@
 ---
 title: "SQL Database에 대한 XEvent 이벤트 파일 코드 | Microsoft Docs"
-description: "Azure SQL Database에서 확장 이벤트의 이벤트 파일 대상을 보여주는 2단계 코드 샘플에 대해 PowerShell 및 Transact-SQL을 제공합니다. Azure 저장소는 이 시나리오의 필수 부분입니다."
+description: "Azure SQL Database에서 확장 이벤트의 이벤트 파일 대상을 보여주는&2;단계 코드 샘플에 대해 PowerShell 및 Transact-SQL을 제공합니다. Azure 저장소는 이 시나리오의 필수 부분입니다."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -9,17 +9,18 @@ editor:
 tags: 
 ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & manage
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: genemi
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 36bde9353c60b4f1d03188061b2b0182841d34ae
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fdbe5ff497b7acc9d8521b8ba1a016ae11bc69d2
+ms.openlocfilehash: 3bb6cc477b413a8636433038429e4defec1d2676
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/15/2017
 
 Microsoft SQL Server의 [이벤트 파일 대상](http://msdn.microsoft.com/library/ff878115.aspx) 을 사용하여 이벤트 출력을 로컬 하드 드라이브 파일에 저장합니다. 하지만 이러한 파일은 Azure SQL Database에서 사용할 수 없습니다. 대신 Azure 저장소 서비스를 사용하여 이벤트 파일 대상을 지원합니다.
 
-이 항목에서는 2단계 코드 샘플을 제공합니다.
+이 항목에서는&2;단계 코드 샘플을 제공합니다.
 
 * 클라우드에서 Azure 저장소 컨테이너를 만드는 PowerShell.
 * Transact-SQL:
@@ -44,7 +45,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](http://msdn.microsoft.com/libr
 * Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * 테이블을 만들 수 있는 데이터베이스.
   
-  * 또는 몇 분 이내에 [**AdventureWorksLT** 데모 데이터베이스를 만들](sql-database-get-started-portal.md) 수 있습니다.
+  * 또는 몇 분 이내에 [**AdventureWorksLT** 데모 데이터베이스를 만들](sql-database-get-started.md) 수 있습니다.
 * SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전). 
   다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
   
