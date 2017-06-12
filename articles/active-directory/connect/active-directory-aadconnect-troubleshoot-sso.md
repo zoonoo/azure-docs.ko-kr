@@ -27,14 +27,14 @@ ms.lasthandoff: 05/09/2017
 ## <a name="known-issues"></a>알려진 문제
 
 - Azure AD Connect를 사용하여 30개가 넘는 AD 포리스트를 동기화하는 경우 Seamless SSO를 설정하는 데 사용된 마법사가 제대로 작동하지 않습니다. 해결 방법으로 테넌트에서 Seamless SSO를 [수동으로 활성화](#manual-reset-of-azure-ad-seamless-sso)할 수 있습니다.
-- "로컬 인트라넷" 영역 대신 "신뢰할 수 있는 사이트" 영역에 Azure AD 서비스 URL(https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net)을 추가합니다.
+- "로컬 인트라넷" 영역 대신 "신뢰할 수 있는 사이트" 영역에 Azure AD 서비스 URL(https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net )을 추가합니다.
 
 ## <a name="troubleshooting-checklist"></a>문제 해결 검사 목록
 
 Azure AD Seamless SSO 문제 해결에는 다음 검사 목록을 사용합니다.
 
 1. Azure AD Connect 도구의 테넌트에서 Seamless SSO 기능이 사용되는지 확인합니다. 차단된 포트 등의 이유로 기능을 사용할 수 없으면 모든 [필수 구성 요소](active-directory-aadconnect-sso.md#pre-requisites)가 포함되어 있는지 확인합니다. 그래도 기능을 사용하도록 설정하는 데 문제가 있으면 Microsoft 지원에 문의하세요.
-2. 두 서비스 URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net)이 모두 인트라넷 영역 설정의 일부로 정의됩니다.
+2. 두 서비스 URL(https://autologon.microsoftazuread-sso.com 및 https://aadg.windows.net.nsatc.net )이 모두 인트라넷 영역 설정의 일부로 정의됩니다.
 3. 회사 데스크톱이 AD 도메인에 가입되어 있는지 확인합니다.
 4. 사용자가 AD 도메인 계정으로 데스크톱에 로그온되어 있는지 확인합니다.
 5. 사용자의 계정이 Seamless SSO가 설정된 AD 포리스트에 있는지 확인합니다.

@@ -2,16 +2,15 @@
 title: "MySQL용 Azure 데이터베이스에 대한 연결 라이브러리 | Microsoft Docs"
 description: "이 문서에는 클라이언트 프로그램에서 MySQL용 Azure 데이터베이스에 연결하는 데 사용할 수 있는 각 라이브러리 또는 드라이버가 나열되어 있습니다."
 services: mysql
-author: wutao
+author: mswutao
 ms.author: wutao
 manager: jhubbard
-editor: jasonh
+editor: jasonwhowell
 ms.assetid: 
 ms.service: mysql-database
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: e3f04c20dbd0329149fdd7de56338f5baaedf5ce

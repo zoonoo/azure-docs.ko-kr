@@ -9,16 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
 ms.openlocfilehash: f4150149cea4fa31e7b991e15ffcbefa8a202ada
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/20/2016
 
 
 ---
@@ -52,9 +54,4 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 >
 
 탄력적 풀의 경우 이 섹션에서 설명하는 기법을 사용하여 풀의 개별 데이터베이스를 모니터링할 수 있습니다. 하지만 전체적으로 풀을 모니터링할 수도 있습니다. 자세한 내용은 [탄력적 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)를 참조하세요.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 
