@@ -59,7 +59,7 @@ ms.lasthandoff: 02/13/2017
   ![원본 설정](./media/site-recovery-set-up-physical-to-azure/plus-config-srv.png)
 2. **서버 추가** 블레이드에서 **구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
 4. Site Recovery 통합 설치 프로그램 설치 파일을 다운로드합니다.
-5. 자격 증명 모음 등록 키를 다운로드합니다. 통합 설치 프로그램을 실행하는 경우 등록 키가 필요합니다. 이 키는 생성된 날로부터&5;일간 유효합니다.
+5. 자격 증명 모음 등록 키를 다운로드합니다. 통합 설치 프로그램을 실행하는 경우 등록 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
 
     ![원본 설정](./media/site-recovery-set-up-physical-to-azure/set-source2.png)
 6. 구성 서버로 사용 중인 컴퓨터에서 **Azure Site Recovery 통합 설치 프로그램**을 실행하여 구성 서버, 프로세스 서버 및 마스터 대상 서버를 설치합니다.
@@ -67,7 +67,7 @@ ms.lasthandoff: 02/13/2017
 #### <a name="run-azure-site-recovery-unified-setup"></a>Azure Site Recovery 통합 설치 프로그램 실행
 
 > [!TIP]
-> 사용자 컴퓨터의 시스템 클록에서 시간이 현지 시간보다&5;분 이상 차이가 날 경우 구성 서버 등록에 실패합니다. 설치를 시작하기 전에 시스템 클록을 [시간 서버](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)와 동기화합니다.
+> 사용자 컴퓨터의 시스템 클록에서 시간이 현지 시간보다 5분 이상 차이가 날 경우 구성 서버 등록에 실패합니다. 설치를 시작하기 전에 시스템 클록을 [시간 서버](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)와 동기화합니다.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
