@@ -42,7 +42,7 @@ ms.lasthandoff: 03/06/2017
 ![온-프레미스 위치와 Azure 간 복제를 위한 가상 컴퓨터 관리자 사이트 배포](media/site-recovery-monitoring-and-troubleshooting/image2.png)
 
 ### <a name="hyper-v-site-deployment-for-replication-between-on-premises-locations-and-azure"></a>온-프레미스 위치와 Azure 간 복제를 위한 Hyper-V 사이트 배포
-이 프로세스는 가상 컴퓨터 관리자 배포와 비슷합니다. Hyper-V 호스트 자체에 Azure Site Recovery 공급자 및 Azure Recovery Services 에이전트가 설치된다는 것이 유일한 차이점입니다. [자세히 알아보기](site-recovery-hyper-v-azure-architecture.md). 등&amp;4;가지 유형의 클러스터가 제공됩니다.
+이 프로세스는 가상 컴퓨터 관리자 배포와 비슷합니다. Hyper-V 호스트 자체에 Azure Site Recovery 공급자 및 Azure Recovery Services 에이전트가 설치된다는 것이 유일한 차이점입니다. [자세히 알아보기](site-recovery-hyper-v-azure-architecture.md). 등 4가지 유형의 클러스터가 제공됩니다.
 
 ## <a name="monitor-configuration-protection-and-recovery-operations"></a>구성, 보호 및 복구 작업 모니터링
 Azure Site Recovery에서 모든 작업이 감사되며 **작업** 탭 아래에서 추적됩니다. 모든 구성, 보호 또는 복구 오류는 **작업** 탭으로 이동하고 오류를 찾아보십시오.

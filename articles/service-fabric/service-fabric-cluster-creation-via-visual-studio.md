@@ -53,7 +53,7 @@ ms.lasthandoff: 02/22/2017
 | sourceVaultResourceId |저장된 클러스터를 보호하는 인증서가 있는 키 자격 증명 모음의 *리소스 ID* 입니다. |
 | certificateUrlValue |클러스터 보안 인증서의 URL입니다. |
 
-Visual Studio 서비스 패브릭 리소스 관리자 템플릿은 인증서로 보호되는 보안 클러스터를 만듭니다. 이 인증서는 마지막&3;개의 템플릿 매개 변수(`certificateThumbprint`, `sourceVaultValue` 및 `certificateUrlValue`)로 식별되며 **Azure 주요 자격 증명 모음**에 있어야 합니다. 클러스터 보안 인증서를 만드는 방법에 대한 자세한 내용은 [서비스 패브릭 클러스터 보안 시나리오](service-fabric-cluster-security.md#x509-certificates-and-service-fabric) 문서를 참조하세요.
+Visual Studio 서비스 패브릭 리소스 관리자 템플릿은 인증서로 보호되는 보안 클러스터를 만듭니다. 이 인증서는 마지막 3개의 템플릿 매개 변수(`certificateThumbprint`, `sourceVaultValue` 및 `certificateUrlValue`)로 식별되며 **Azure 주요 자격 증명 모음**에 있어야 합니다. 클러스터 보안 인증서를 만드는 방법에 대한 자세한 내용은 [서비스 패브릭 클러스터 보안 시나리오](service-fabric-cluster-security.md#x509-certificates-and-service-fabric) 문서를 참조하세요.
 
 ## <a name="optional-change-the-cluster-name"></a>선택 사항: 클러스터 이름 변경
 모든 서비스 패브릭 클러스터에는 이름이 있습니다. Azure에서 패브릭 클러스터가 만들어지면 클러스터 이름은 클러스터에 대한 DNS(Domain Name System) 이름을 Azure 지역과 함께 결정합니다. 예를 들어 클러스터 이름을 `myBigCluster`로 지정했으며 새 클러스터를 호스트할 리소스 그룹의 위치(Azure 하위 지역)가 미국 동부이면 클러스터의 DNS 이름은 `myBigCluster.eastus.cloudapp.azure.com`이 됩니다.

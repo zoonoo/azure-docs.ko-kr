@@ -1,5 +1,5 @@
 ---
-title: "Azure MFA의&2;단계 검증에 대해 알아보기 | Microsoft Docs"
+title: "Azure MFA의 2단계 검증에 대해 알아보기 | Microsoft Docs"
 description: "Azure Multi-factor Authentication이란 무엇인가에 대해 설명하고 MFA를 사용하는 이유, Multi-Factor Authentication 클라이언트 및 사용 가능한 다양한 방법과 버전에 대해 설명합니다. "
 keywords: "MFA 소개, mfa 개요, mfa 정의"
 services: multi-factor-authentication
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/23/2017
 
 <center>![사용자 이름 및 암호](./media/multi-factor-authentication/pword.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![인증서](./media/multi-factor-authentication/phone.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![스마트폰](./media/multi-factor-authentication/hware.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![스마트 카드](./media/multi-factor-authentication/smart.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![가상 스마트 카드](./media/multi-factor-authentication/vsmart.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![사용자 이름 및 암호](./media/multi-factor-authentication/cert.png)</center>
 
-Azure Multi-factor Authentication(MFA)은 Microsoft의&2;단계 인증 솔루션입니다. Azure MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 응용 프로그램에 대한 액세스를 보호하는 데 도움이 됩니다. 전화 통화, 문자 메시지 또는 모바일 앱 확인과 같은 다양한 확인 방법을 통해 강력한 인증을 전달합니다.
+Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션입니다. Azure MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 응용 프로그램에 대한 액세스를 보호하는 데 도움이 됩니다. 전화 통화, 문자 메시지 또는 모바일 앱 확인과 같은 다양한 확인 방법을 통해 강력한 인증을 전달합니다.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/WA-MFA-Overview/player]
 >

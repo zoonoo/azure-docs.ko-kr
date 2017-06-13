@@ -56,7 +56,7 @@ ms.lasthandoff: 02/21/2017
 ![구성 서버 연결](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
 3. 서버 목록에서 구성 서버를 선택합니다.
-4. **확인**을 클릭합니다. 구성 서버는&1;~2분 내에 연결해야 합니다.
+4. **확인**을 클릭합니다. 구성 서버는 1~2분 내에 연결해야 합니다.
 
 ![구성 서버 연결](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 02/21/2017
 ![복제 정책 설정 편집](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
 3. 필요에 따라 설정을 변경합니다.
-4. **Save**를 클릭합니다. 정책은 해당 복제 정책을 사용하는 VM 개수에 따라&2;~5분 내에 저장해야 합니다.
+4. **Save**를 클릭합니다. 정책은 해당 복제 정책을 사용하는 VM 개수에 따라 2~5분 내에 저장해야 합니다.
 
 ![복제 정책 저장](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/21/2017
 1. 구성 서버를 연결하려는 복제 정책을 선택합니다.
 2. **분리**를 클릭합니다.
 3. 서버 목록에서 구성 서버를 선택합니다.
-4. **확인**을 클릭합니다. 구성 서버는&1;~2분 내에 분리해야 합니다.
+4. **확인**을 클릭합니다. 구성 서버는 1~2분 내에 분리해야 합니다.
 
     > [!NOTE]
     > 정책을 사용하는 복제된 항목이 하나 이상 있는 경우 구성 서버를 분리할 수 없습니다. 구성 서버를 분리하기 전에 정책을 사용하는 복제된 항목이 있는지 확인합니다.
