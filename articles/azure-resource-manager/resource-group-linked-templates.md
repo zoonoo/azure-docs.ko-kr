@@ -170,8 +170,8 @@ Resource Manager는 연결된 각 템플릿을 별도 배포로 처리합니다.
   ],
   "outputs": {
     "result": {
-      "type": "object",
-      "value": "[reference('linkedTemplate').outputs.result]"
+      "type": "string",
+      "value": "[reference('linkedTemplate').outputs.result.value]"
     }
   }
 }

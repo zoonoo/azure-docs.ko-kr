@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 01/25/2017
+ms.date: 06/07/2017
 ms.author: bharatn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: a3b0362f0c3b42e4a61348abe306c3beaa6f0c86
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -126,10 +128,5 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 * [Reliable Services 원격을 사용하여 원격 프로시저 호출](service-fabric-reliable-services-communication-remoting.md)
 * [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)
 * [Reliable Services에 대한 통신 보안 유지](service-fabric-reliable-services-secure-communication.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

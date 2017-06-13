@@ -153,7 +153,7 @@ IoT Hub를 만들었습니다. 이 자습서를 완료하는 데 필요한 IoT H
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.14.0</version> 
+        <version>0.13.0</version> 
     </dependency>
     ```
 
