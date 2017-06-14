@@ -3,7 +3,7 @@ title: "Azure AD B2C: Node.js를 사용하여 Web API 보안 유지 | Microsoft 
 description: "B2C 테넌트에서 토큰을 수락하는 Node.js Web API를 빌드하는 방법"
 services: active-directory-b2c
 documentationcenter: 
-author: xerners
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a

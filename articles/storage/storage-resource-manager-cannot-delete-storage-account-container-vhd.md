@@ -13,11 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 06/13/2017
 ms.author: genli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 75d5e82e2f4e747747f24376239e23f6512f916a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -96,9 +98,4 @@ VHD를 사용 중인 VM(데이터 디스크에 대한)에서 VHD를 분리하려
 ## <a name="next-steps"></a>다음 단계
 * [저장소 계정 삭제](storage-create-storage-account.md#delete-a-storage-account)
 * [Microsoft Azure(PowerShell)에서 Blob 저장소의 임대 잠금을 해제하는 방법](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
