@@ -32,6 +32,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 빠른 시작에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 
 [az login](/cli/azure/#login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
@@ -46,7 +48,7 @@ az login
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -56,7 +58,7 @@ az group create --name myResourceGroup --location eastus
 
 다음 예제에서는 *myVM*이라는 VM을 만듭니다. 이 예제에서는 관리 사용자 이름으로 *azureuser*를 사용하고 암호로 *myPassword12*를 사용합니다. 이러한 값을 사용자 환경에 적절한 값으로 업데이트합니다. 가상 컴퓨터와의 연결을 만들 때 이러한 값이 필요합니다.
 
-```azurecli
+```azurecli-interactive 
 az vm create `
   --resource-group myResourceGroup `
   --name myVM --image win2016datacenter `
@@ -66,7 +68,7 @@ az vm create `
 
 VM을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다. `publicIpAaddress`을 기록해 둡니다. 이 주소는 VM에 액세스하는 데 사용됩니다.
 
-```azurecli
+```azurecli-interactive 
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -83,7 +85,7 @@ VM을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합�
 
 기본적으로 Azure에 배포된 Windows 가상 컴퓨터에는 RDP 연결만이 가능합니다. 이 VM이 웹 서버가 되는 경우 인터넷에서 포트 80을 열어야 합니다. [az vm open-port](/cli/azure/vm#open-port) 명령을 사용하여 원하는 포트를 엽니다.  
  
- ```azurecli 
+ ```azurecli-interactive  
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
@@ -114,7 +116,7 @@ IIS를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 �
 
 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#delete) 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
