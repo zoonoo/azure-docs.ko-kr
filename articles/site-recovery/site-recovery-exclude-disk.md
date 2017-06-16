@@ -8,7 +8,7 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
@@ -108,8 +108,8 @@ DB-Disk4 | Disk4 |G:\ |사용자 데이터베이스 2
 
 **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | ---
-DISK0 |    C:\ | 운영 체제 디스크
-Disk1 |    E:\ | 임시 저장소</br /> </br />Azure에서 이 디스크를 추가하고 사용 가능한 첫 번째 드라이브 문자를 할당합니다.
+DISK0 | C:\ | 운영 체제 디스크
+Disk1 | E:\ | 임시 저장소</br /> </br />Azure에서 이 디스크를 추가하고 사용 가능한 첫 번째 드라이브 문자를 할당합니다.
 Disk2 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 Disk3 | G:\ | 사용자 데이터베이스 2
 
@@ -141,13 +141,13 @@ SQL tempdb 디스크였던(tempdb 폴더 경로 F:\MSSQL\Data\) Disk3은 복제�
 3. 다음 sqlcmd를 실행하여 tempdb 경로를 새 경로로 바꿉니다.
 
         sqlcmd -A -S SalesDB        **Use your SQL DBname**
-        USE master;        
-        GO        
-        ALTER DATABASE tempdb        
+        USE master;     
+        GO      
+        ALTER DATABASE tempdb       
         MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-        GO        
-        ALTER DATABASE tempdb        
-        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');        
+        GO      
+        ALTER DATABASE tempdb       
+        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
         GO
 
 
@@ -173,9 +173,9 @@ SQL tempdb 디스크였던(tempdb 폴더 경로 F:\MSSQL\Data\) Disk3은 복제�
 **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | ---
 DISK0 | C:\ | 운영 체제 디스크
-Disk1 |    E:\ | 임시 저장소</br /> </br />Azure에서 이 디스크를 추가하고 사용 가능한 첫 번째 드라이브 문자를 할당합니다.
-Disk2 |    D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
-Disk3 |    G:\ | 사용자 데이터베이스 2
+Disk1 | E:\ | 임시 저장소</br /> </br />Azure에서 이 디스크를 추가하고 사용 가능한 첫 번째 드라이브 문자를 할당합니다.
+Disk2 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
+Disk3 | G:\ | 사용자 데이터베이스 2
 
 
 #### <a name="vmware-to-azure"></a>VMware에서 Azure로
@@ -186,8 +186,8 @@ Azure에서 온-프레미스 VMware로 계획된 장애 조치(failover) 후 VMW
 **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | ---
 DISK0 | C:\ | 운영 체제 디스크
-Disk1 |    D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
-Disk2 |    G:\ | 사용자 데이터베이스 2
+Disk1 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
+Disk2 | G:\ | 사용자 데이터베이스 2
 
 #### <a name="hyper-v-to-azure"></a>Hyper-V에서 Azure로
 원래 위치로 장애 복구가 수행되면 장애 복구 가상 컴퓨터 디스크 구성은 Hyper-V의 원래 가상 컴퓨터 디스크 구성과 동일하게 유지됩니다. Hyper-V 사이트에서 Azure로 제외된 디스크는 장애 복구 가상 컴퓨터에서 사용할 수 있습니다.
@@ -196,7 +196,7 @@ Azure에서 온-프레미스 Hyper-V로 계획된 장애 조치(failover) 후 Hy
 
 **디스크 이름** | **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 |    C:\ | 운영 체제 디스크
+DB-Disk0-OS | DISK0 |   C:\ | 운영 체제 디스크
 DB-Disk1 | Disk1 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 DB-Disk2(제외된 디스크) | Disk2 | E:\ | 임시 파일
 DB-Disk3(제외된 디스크) | Disk3 | F:\ | SQL tempdb 데이터베이스(폴더 경로(F:\MSSQL\Data\))
