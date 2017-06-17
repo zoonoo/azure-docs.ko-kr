@@ -4,13 +4,9 @@ description: "SSL 연결을 올바르게 사용하도록 MySQL용 Azure 데이�
 services: mysql
 author: JasonMAnderson
 ms.author: janders
-editor: jasonh
+editor: jasonwhowell
 manager: jhubbard
-ms.assetid: 
 ms.service: mysql-database
-ms.custom: quick start create
-ms.tgt_pltfrm: portal
-ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation

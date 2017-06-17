@@ -5,12 +5,9 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: portal
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
@@ -40,7 +37,7 @@ MySQL용 Azure Database를 사용하면 서버를 다시 특정 시점으로 서
 
 2. MySQL용 Azure Database 서버를 찾습니다. 왼쪽 창에서 **모든 리소스**를 선택한 다음, 목록에서 서버를 선택합니다.
 
-3.    서버 개요 블레이드 맨 위에서 도구 모음에 있는 **복원**을 클릭합니다. 복원 블레이드가 열립니다.
+3.  서버 개요 블레이드 맨 위에서 도구 모음에 있는 **복원**을 클릭합니다. 복원 블레이드가 열립니다.
 ![복원 단추 클릭](./media/howto-restore-server-portal/click-restore-button.png)
 
 4. 필요한 정보로 복원 양식을 채웁니다.

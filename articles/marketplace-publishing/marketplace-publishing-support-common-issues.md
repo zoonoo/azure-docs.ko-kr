@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -30,8 +32,8 @@ ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
 
 > [!NOTE]
 > 고객 또는 Azure 재판매인이 환불 또는 크레딧을 요청하기 위해 Microsoft에 연락하는 경우 Microsoft는 Azure 서비스 조항에 사용하는 정책을 적용합니다. Microsoft 정책에 환불 또는 크레딧을 지급해야 한다고 표시되어 있으면 Microsoft는 고객 또는 Azure 재판매인(해당하는 경우)에게 환불 또는 크레딧을 사전에 지급하고 귀하는 Microsoft에 귀하를 대신하여 지급할 권한을 부여합니다. Microsoft 정책에 환불 또는 크레딧을 지급해야 한다고 표시되어 있지 않으면 Microsoft는 고객 또는 Azure 재판매인에게 귀하에게 직접 연락하도록 요청할 수 있습니다.
-> 
-> 
+>
+>
 
   ![1_RequestRefund][1]
 
@@ -39,12 +41,12 @@ ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
 2. **문제 유형** 상자에서 **고객 관리**를 선택합니다.
 3. **범주** 상자에서 **고객 환불 승인 또는 요청**을 선택합니다.
 4. **요청 시작**을 클릭합니다.
-   
+
    ![2_RequestRefund][2]
 
 1. 연락처 정보 제공
 2. **문제가 무엇인가요?** 상자에서 다음 정보를 입력합니다.
-   
+
    * 영향을 받는 고객의 구독 ID
    * 고객 이름
    * 제공해야 할 크레딧 양
@@ -83,8 +85,8 @@ ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
 
 > [!NOTE]
 > 전화번호나 메일 주소를 사용하여 확인할 수 있습니다.
-> 
-> 
+>
+>
 
 ![protectacct][6]
 
@@ -121,9 +123,4 @@ ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
 [6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
