@@ -30,8 +30,6 @@ ms.lasthandoff: 05/15/2017
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 ## <a name="sample-script"></a>샘플 스크립트
 
 [!code-azurecli-interactive[주](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "LAMP 스택을 사용하여 가상 컴퓨터 확장 집합 만들기")]

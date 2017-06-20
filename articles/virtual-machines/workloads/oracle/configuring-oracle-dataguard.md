@@ -23,7 +23,7 @@ ms.lasthandoff: 05/16/2017
 
 ---
 
-# <a name="implement-oracle-data-guard-on-azure-linux-vm"></a>Azure Linux VM에서 Oracle Data Guard 구현
+# <a name="implement-oracle-data-guard-on-azure-linux-vm"></a>Azure Linux VM에서 Oracle Data Guard 구현 
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 가이드에서는 Azure CLI를 사용하여 Marketplace 갤러리 이미지에서 Oracle 12c 데이터베이스를 배포하는 방법을 자세히 설명합니다. Oracle 데이터베이스를 만들면 이 문서에서는 Azure VM에서 Data Guard를 설치 및 구성하는 단계별 방법을 보여 줍니다.
 
