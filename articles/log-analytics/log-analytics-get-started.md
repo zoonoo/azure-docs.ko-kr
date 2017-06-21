@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/28/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -56,7 +56,7 @@ Azure 계정이 아직 없다면 Log Analytics를 사용하기 위해 계정을 
    * **가격 책정 계층**  
        ![빠른 생성](./media/log-analytics-get-started/oms-onboard-quick-create.png)
 3. **확인**을 클릭하면 작업 영역 목록이 표시됩니다.
-4. 작업 영역의 세부 정보를 보려면 Azure Portal에서 작업 영역을 선택합니다.       
+4. Azure Portal에서 세부 정보를 보려면 작업 영역을 선택합니다.       
     ![작업 영역 정보](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
 ## <a name="3-add-solutions-and-solution-offerings"></a>3 솔루션 및 솔루션 제품 추가

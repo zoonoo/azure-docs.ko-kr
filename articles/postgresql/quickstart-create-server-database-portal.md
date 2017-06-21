@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/19/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c67ada15c11b81021ff5e6f6e5edc5cb530ece98
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 7bbf70786bff83ad3cfae9cb9b893f41736874b5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -77,7 +77,7 @@ PostgreSQL용 Azure Database 서비스는 서버 수준 방화벽을 만듭니�
 4.  **저장**을 클릭한 다음 **X**을 클릭하여 **연결 보안** 페이지를 닫습니다.
 
   > [!NOTE]
-  > Azure PostgreSQL 서버는 5432 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 5432 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 5432 포트를 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다
+  > Azure PostgreSQL 서버는 5432 포트를 통해 통신합니다. 회사 네트워크 내에서 연결하려는 경우 5432 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 5432 포트를 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다.
   >
 
 ## <a name="get-the-connection-information"></a>연결 정보 가져오기
@@ -169,6 +169,6 @@ GUI 도구 _pgAdmin_을 사용하여 Azure PostgreSQL 서버에 연결하려면
 3.  삭제할 서버 이름을 확인하고 적용되는 항목 아래 데이터베이스를 표시합니다. 텍스트 상자에 **mypgserver 20170401**을 입력한 다음 삭제를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [내보내기 및 가져오기](./howto-migrate-using-export-and-import.md) 또는 [덤프 및 복원](./howto-migrate-using-dump-and-restore.md)을 사용하여 데이터베이스를 마이그레이션합니다.
-- Azure CLI를 사용하여 PostgreSQL용 Azure Database 서버를 만들려면 [PostgreSQL 서버 만들기 - CLI](./quickstart-create-server-database-azure-cli.md)를 참조하세요.
-- 기술 개요는 [PostgreSQL용 Azure Database 서비스 정보](./overview.md)를 참조하세요.
+> [!div class="nextstepaction"]
+> [내보내기 및 가져오기를 사용하여 데이터베이스 마이그레이션](./howto-migrate-using-export-and-import.md)
+

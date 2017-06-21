@@ -43,5 +43,5 @@
 | VPN Gateway당 지점 및 사이트 간 루트 인증서 |20 |20 |
 | 가상 네트워크당 보조 IP 구성 |1000 |지원에 문의 |
 
-기본값에서 제한을 늘려야 하는 경우 [지원에 문의하세요](../articles/azure-supportability/how-to-create-azure-support-request.md).
+기본값에서 제한을 늘려야 하는 경우 [지원에 문의하세요](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 
