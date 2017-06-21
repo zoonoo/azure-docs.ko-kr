@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/23/2017
 ms.author: anhoh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: e8369e624f0c39bf4871aaac5da694decf4fbe18
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: fef21c512aa8a6af32cec20e2e44cf4e20ac24ae
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -264,7 +264,7 @@ documentdb 계정을 시작하는 코드가 있다면 DocumentDB 리소스와 �
 
 ## <a id="CreateColl"></a>6단계: 컬렉션 만들기
 > [!WARNING]
-> **CreateDocumentCollectionAsync** 는 가격 책정 의미가 포함된 새 컬렉션을 만듭니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
+> **CreateDocumentCollectionAsync** 는 가격 책정 의미가 포함된 새 컬렉션을 만듭니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
 > 
 > 
 

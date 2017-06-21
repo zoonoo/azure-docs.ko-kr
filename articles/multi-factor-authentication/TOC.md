@@ -7,15 +7,15 @@
 ## [배포할 위치 선택](multi-factor-authentication-get-started.md)
 ## [클라우드의 MFA](multi-factor-authentication-get-started-cloud.md)
 ## [온-프레미스에서 MFA](multi-factor-authentication-get-started-server.md)
-## [O365 사용자에 대한 MFA](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+## [O365 사용자에 대한 MFA](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [보안 모범 사례](multi-factor-authentication-security-best-practices.md)
 
 # 방법
 ## 배포 및 사용
-### [인증 공급자 만들기](multi-factor-authentication-get-started-auth-provider.md)
 ### [설정 구성](multi-factor-authentication-whats-next.md)
 ### [MFA 보고서](multi-factor-authentication-manage-reports.md)
 ### [기존 네트워크 정책 서버 사용](multi-factor-authentication-nps-extension.md)
+### [인증 공급자 만들기](multi-factor-authentication-get-started-auth-provider.md)
 ### 온-프레미스에서 Azure MFA
 #### [사용자 포털 설치](multi-factor-authentication-get-started-portal.md)
 #### [고급 VPN 구성](multi-factor-authentication-advanced-vpn-configurations.md)

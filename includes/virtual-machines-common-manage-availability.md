@@ -25,9 +25,9 @@
    ![업데이트 도메인 및 장애 도메인 구성의 개념적 그림](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>가용성 집합에서 VM에 Managed Disks 사용
-현재 관리되지 않는 디스크에서 VM을 사용하는 경우 [가용성 집합에서 VM을 변환하여 Managed Disks를 사용](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set-to-managed-disks-in-a-managed-availability-set)하는 것이 좋습니다.
+현재 관리되지 않는 디스크에서 VM을 사용하는 경우 [가용성 집합에서 VM을 변환하여 Managed Disks를 사용](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)하는 것이 좋습니다.
 
-[Managed Disks](../articles/storage/storage-managed-disks-overview.md)는 단일 실패 지점을 피할 만큼 가용성 집합의 VM 디스크를 서로 충분히 격리시켜서 가용성 집합에 대해 향상된 안정성을 제공합니다. 이 기능은 디스크를 다른 저장소 클러스터에 자동으로 배치하여 구현됩니다. 하드웨어 또는 소프트웨어 장애로 인해 저장소 클러스터에 장애가 발생하면 해당 스탬프에 디스크가 있는 VM 인스턴스만 실패합니다. 
+[Managed Disks](../articles/storage/storage-managed-disks-overview.md)는 단일 실패 지점을 피할 만큼 가용성 집합의 VM 디스크를 서로 충분히 격리시켜서 가용성 집합에 대해 향상된 안정성을 제공합니다. 이 기능은 디스크를 다른 저장소 클러스터에 자동으로 배치하여 구현됩니다. 하드웨어 또는 소프트웨어 장애로 인해 저장소 클러스터에 장애가 발생하면 해당 스탬프에 디스크가 있는 VM 인스턴스만 실패합니다.
 
 ![Managed Disk FD](./media/virtual-machines-common-manage-availability/md-fd.png)
 
@@ -36,7 +36,7 @@
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-[관리되지 않는 디스크](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks)에서 VM을 사용하려는 경우 VM의 VHD(가상 하드 디스크)를 [페이지 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)로 저장하는 저장소 계정에 대한 아래의 유용한 모범 사례를 따릅니다. 
+[관리되지 않는 디스크](../articles/storage/storage-about-disks-and-vhds-windows.md#types-of-disks)에서 VM을 사용하려는 경우 VM의 VHD(가상 하드 디스크)를 [페이지 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)로 저장하는 저장소 계정에 대한 아래의 유용한 모범 사례를 따릅니다.
 
 1. **동일한 저장소 계정에서 VM과 모든 디스크(OS 및 데이터) 연결 유지**
 2. 저장소 계정에 더 많은 VHD를 추가하기 전에 **저장소 계정에서 관리되지 않는 디스크의 수에 대한 [제한](../articles/storage/storage-scalability-targets.md) 검토**
@@ -62,4 +62,3 @@
 [가용성 집합과 부하 분산 장치 결합]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [가용성 집합의 VM에 Managed Disks 사용]: #use-managed-disks-for-vms-in-an-availability-set
-

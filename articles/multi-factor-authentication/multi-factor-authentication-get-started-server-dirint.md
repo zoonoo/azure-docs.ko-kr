@@ -5,20 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/16/2017
+ms.date: 06/16/2017
 ms.author: kgremban
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
 ms.openlocfilehash: 07b14394b0e07fd78d70d77aeef8a2feb17284e0
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/17/2017
-
 
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
@@ -95,7 +96,7 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 | 내선 번호 |사용자 레코드에 전화 내선 번호를 포함하는 특성의 이름을 입력합니다.  내선 번호 필드의 값은 기본 전화 번호에 대한 내선 번호로만 사용됩니다.  기본값은 없습니다. <br><br>내선 번호 특성이 지정되지 않은 경우 내선 번호를 전화 특성의 일부로 포함시킬 수 있습니다. 이 경우 올바르게 구문 분석하도록 'x'의 확장명을 앞에 둡니다.  예를 들어 555-123-4567 x890에서 555-123-4567은 전화 번호이고 890은 내선 번호입니다. |
 | 기본값 복원 단추 |모든 특성을 기본값으로 다시 되돌리려면 **기본값 복원**을 클릭합니다.  기본값은 일반 Active Directory 또는 ADAM 스키마에서 제대로 작동합니다. |
 
-특성을 편집하려면 특성 탭의 **편집**을 클릭합니다.  특성을 편집할 수 있는 창이 나타납니다. 모든 특성 옆의 **...**을 선택하여 표시할 특성을 선택할 수 있는 창을 엽니다. 
+특성을 편집하려면 특성 탭의 **편집**을 클릭합니다.  특성을 편집할 수 있는 창이 나타납니다. 모든 특성 옆의 **...**을 선택하여 표시할 특성을 선택할 수 있는 창을 엽니다.
 
 ![특성 편집](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
@@ -138,5 +139,4 @@ LDAP 디렉터리에서 DirSync를 지원하고 DirSync에 대해 구성된 경�
 백업 RADIUS 프록시나 LDAP 프록시로 제공하기 위해 또는 IIS 인증을 위해 추가 Multi-Factor Auth 서버를 설정할 수 있습니다. 동기화 구성은 모든 에이전트 간에 공유됩니다. 그러나 이러한 에이전트 중 하나만 Multi-Factor Auth 서버 서비스를 실행할 수 있습니다. 이 탭을 사용하면 동기화를 위해 사용하도록 설정해야 하는 Multi-Factor Auth 서버를 선택할 수 있습니다.
 
 ![Multi-Factor-Auth 서버](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-
 

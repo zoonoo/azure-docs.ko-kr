@@ -8,7 +8,7 @@ manager: rochakm
 editor: rayne-wiselman
 ms.assetid: 8e7d868e-00f3-4e8b-9a9e-f23365abf6ac
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/21/2017
 2. **VMware 및 실제 컴퓨터의 경우** 아래에서 **복제 정책**을 선택합니다.
 3. **+ 복제 정책**을 선택합니다.
 
-      ![복제 정책 만들기](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
+    ![복제 정책 만들기](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
 4. 정책 이름을 입력합니다.
 

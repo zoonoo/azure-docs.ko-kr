@@ -40,12 +40,7 @@
 #### [PowerShell(클래식)](virtual-network-create-udr-classic-ps.md)
 #### [CLI(클래식)](virtual-network-create-udr-classic-cli.md)
 
-### 가상 네트워크 피어링
-#### [포털](virtual-networks-create-vnetpeering-arm-portal.md)
-#### [PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
-#### [템플릿](virtual-networks-create-vnetpeering-arm-template-click.md)
-
-### [공용 IP 주소](virtual-network-public-ip-address.md)
+### [가상 네트워크 피어링](virtual-network-create-peering.md)
 
 ### 가상 컴퓨터
 #### 정적 공용 IP 주소를 사용하는 VM 만들기
@@ -118,6 +113,7 @@
 #### [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)
 ### 가상 컴퓨터
 #### [다른 서브넷으로 VM 이동](virtual-networks-move-vm-role-to-subnet.md)
+### [공용 IP 주소](virtual-network-public-ip-address.md)
 
 ## 문제 해결
 ### 네트워크 보안 그룹

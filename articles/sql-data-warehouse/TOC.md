@@ -48,6 +48,7 @@
 #### [데이터 형식](sql-data-warehouse-tables-data-types.md)
 #### [분산 테이블](sql-data-warehouse-tables-distribute.md)
 #### [인덱스](sql-data-warehouse-tables-index.md)
+#### [ID](sql-data-warehouse-tables-identity.md)
 #### [파티션](sql-data-warehouse-tables-partition.md)
 #### [통계](sql-data-warehouse-tables-statistics.md)
 #### [임시](sql-data-warehouse-tables-temporary.md)

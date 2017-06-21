@@ -5,10 +5,8 @@ services: mysql
 author: jasonh
 ms.author: kamathsun
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
 ms.topic: article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
@@ -47,9 +45,9 @@ MySQL용 Azure 데이터베이스에는 서버를 만들 때 선택할 수 있�
 
 ## <a name="preview-functional-limitations"></a>미리 보기 기능 제한 사항:
 ### <a name="scale-operations"></a>크기 조정 작업:
-1.    서비스 계층 간 서버의 동적 크기 조정은 현재 지원되지 않습니다. 즉, 기본 및 표준 서비스 계층 간 전환은 가능하지 않습니다.
-2.    미리 생성된 서버에서 필요 시 저장소의 동적 증가는 현재 지원되지 않습니다.
-3.    서버 저장소 크기를 줄이는 것은 지원되지 않습니다.
+1.  서비스 계층 간 서버의 동적 크기 조정은 현재 지원되지 않습니다. 즉, 기본 및 표준 서비스 계층 간 전환은 가능하지 않습니다.
+2.  미리 생성된 서버에서 필요 시 저장소의 동적 증가는 현재 지원되지 않습니다.
+3.  서버 저장소 크기를 줄이는 것은 지원되지 않습니다.
 
 ### <a name="server-version-upgrades"></a>서버 버전 업그레이드:
 - 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다.
@@ -58,8 +56,8 @@ MySQL용 Azure 데이터베이스에는 서버를 만들 때 선택할 수 있�
 - 구독 및 리소스 그룹에서 미리 생성된 서버를 동적으로 이동하는 것은 현재 지원되지 않습니다.
 
 ### <a name="point-in-time-restore"></a>특정 시점 복원:
-1.    다른 서비스 계층 및/또는 Compute 단위 및 저장소 크기로 복원할 수 없습니다.
-2.    삭제된 서버를 복원하는 것은 지원되지 않습니다.
+1.  다른 서비스 계층 및/또는 Compute 단위 및 저장소 크기로 복원할 수 없습니다.
+2.  삭제된 서버를 복원하는 것은 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계:
 [각 서비스 계층에서 사용할 수 있는 기능](concepts-service-tiers.md)

@@ -23,6 +23,7 @@
 
 # 참조
 ## [REST (영문)](/rest/api/datacatalog/)
+## [검색 구문 참조](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [개발자 개념](data-catalog-developer-concepts.md)
 ## [개발자 샘플](data-catalog-samples.md)
 
@@ -34,8 +35,3 @@
 ## [가격 책정](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-catalog)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

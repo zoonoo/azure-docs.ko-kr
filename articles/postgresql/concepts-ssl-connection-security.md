@@ -4,13 +4,10 @@ description: "SSL 연결을 올바르게 사용하기 위해 PostgreSQL용 Azure
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
-editor: jasonh
+editor: jasonwhowell
 manager: jhubbard
-ms.assetid: 
 ms.service: postgresql-database
-ms.custom: connection security
-ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.custom: 
 ms.topic: article
 ms.date: 05/15/2017
 ms.translationtype: Human Translation

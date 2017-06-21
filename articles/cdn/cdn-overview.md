@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: rli
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: ede96c450e1aa5e87d4dd2c1131cefec7cf3493c
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 299e55e095ac323ed0ded7c7844d7cd103174af2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -51,7 +51,7 @@ Azure CDN 제품은 **Akamai의 Azure CDN Standard**, **Verizon의 Azure CDN Sta
 
 |  | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |
-| [저장소](cdn-create-a-storage-account-with-cdn.md), [클라우드 서비스](cdn-cloud-service-with-cdn.md), [웹앱](../app-service-web/cdn-websites-with-cdn.md), [미디어 서비스](../media-services/media-services-portal-manage-streaming-endpoints.md)와 같은 Azure와 간편하게 통합 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [저장소](cdn-create-a-storage-account-with-cdn.md), [클라우드 서비스](cdn-cloud-service-with-cdn.md), [웹앱](../app-service-web/app-service-web-tutorial-content-delivery-network.md), [미디어 서비스](../media-services/media-services-portal-manage-streaming-endpoints.md)와 같은 Azure와 간편하게 통합 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) 또는 [PowerShell](cdn-manage-powershell.md)을 통한 관리. |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | CDN 끝점에 HTTPS 지원 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | 사용자 지정 도메인 HTTPS | |**&#x2713;** |**&#x2713;** |

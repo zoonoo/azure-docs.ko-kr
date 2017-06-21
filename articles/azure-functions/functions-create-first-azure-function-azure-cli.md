@@ -42,7 +42,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 
 [az login](/cli/azure/#login) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다. 
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 

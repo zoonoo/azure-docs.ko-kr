@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/20/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
@@ -357,7 +357,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
 **게이트웨이 컴퓨터에서:**
 
-1.    **Ksetup** 유틸리티를 실행하여 Kerberos KDC 서버 및 영역을 구성합니다.
+1.  **Ksetup** 유틸리티를 실행하여 Kerberos KDC 서버 및 영역을 구성합니다.
 
     Kerberos 영역은 Windows 도메인과 다르기 때문에 컴퓨터를 작업 그룹의 구성원으로 구성해야 합니다. 그러려면 다음과 같이 Kerberos 영역을 설정하고 KDC 서버를 추가합니다. *REALM.COM*은 고유한 각 영역으로 필요에 맞게 바꿉니다.
 
@@ -366,7 +366,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
     이러한 2개 명령을 실행한 후 컴퓨터를 **다시 시작**합니다.
 
-2.    **Ksetup** 명령을 사용하여 구성을 확인합니다. 출력은 다음과 같아야 합니다.
+2.  **Ksetup** 명령을 사용하여 구성을 확인합니다. 출력은 다음과 같아야 합니다.
 
             C:> Ksetup
             default realm = REALM.COM (external)
@@ -380,8 +380,8 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 ### <a name="kerberos-mutual-trust"></a>옵션 2: Windows 도메인과 Kerberos 영역 사이에 상호 트러스트를 사용하도록 설정
 
 #### <a name="requirement"></a>요구 사항:
-*    게이트웨이 컴퓨터가 Windows 도메인에 가입해야 합니다.
-*    도메인 컨트롤러의 설정을 업데이트하는 권한이 있어야 합니다.
+*   게이트웨이 컴퓨터가 Windows 도메인에 가입해야 합니다.
+*   도메인 컨트롤러의 설정을 업데이트하는 권한이 있어야 합니다.
 
 #### <a name="how-to-configure"></a>구성 방법:
 
@@ -390,7 +390,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
 **KDC 서버에서:**
 
-1.    다음 구성 템플릿을 참조하여 **krb5.conf** 파일에서 KDC가 Windows 도메인을 신뢰하도록 KDC 구성을 편집합니다. 기본적으로 이 구성은 **/etc/krb5.conf**에 있습니다.
+1.  다음 구성 템플릿을 참조하여 **krb5.conf** 파일에서 KDC가 Windows 도메인을 신뢰하도록 KDC 구성을 편집합니다. 기본적으로 이 구성은 **/etc/krb5.conf**에 있습니다.
 
             [logging]
              default = FILE:/var/log/krb5libs.log
@@ -428,24 +428,24 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
   **다시 시작** 구성 후에 KDC 서비스입니다.
 
-2.    다음 명령을 사용하여 KDC 서버의 **krbtgt/REALM.COM@AD.COM**이라는 주체를 준비합니다.
+2.  다음 명령을 사용하여 KDC 서버의 **krbtgt/REALM.COM@AD.COM**이라는 주체를 준비합니다.
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3.    **hadoop.security.auth_to_local** HDFS 서비스 구성 파일에서 `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`를 추가합니다.
+3.  **hadoop.security.auth_to_local** HDFS 서비스 구성 파일에서 `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`를 추가합니다.
 
 **도메인 컨트롤러에서:**
 
-1.    다음 **Ksetup** 명령을 실행하여 영역 항목을 추가합니다.
+1.  다음 **Ksetup** 명령을 실행하여 영역 항목을 추가합니다.
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.    Windows 도메인에서 Kerberos 영역으로의 트러스트를 설정합니다. [password]는 **krbtgt/REALM.COM@AD.COM** 주체의 암호입니다.
+2.  Windows 도메인에서 Kerberos 영역으로의 트러스트를 설정합니다. [password]는 **krbtgt/REALM.COM@AD.COM** 주체의 암호입니다.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
-3.    Kerberos에서 사용되는 암호화 알고리즘을 선택합니다.
+3.  Kerberos에서 사용되는 암호화 알고리즘을 선택합니다.
 
     1. 서버 관리자 > 그룹 정책 관리 > 도메인 > 그룹 정책 개체 > 기본 또는 활성 도메인 정책으로 이동하고 편집을 클릭합니다.
 
@@ -459,7 +459,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
                 C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
-4.    Windows 도메인에서 Kerberos 주체를 사용하려면 도메인 계정 및 Kerberos 주체 간의 매핑을 만듭니다.
+4.  Windows 도메인에서 Kerberos 주체를 사용하려면 도메인 계정 및 Kerberos 주체 간의 매핑을 만듭니다.
 
     1. 관리 도구 > **Active Directory 사용자 및 컴퓨터**를 시작합니다.
 

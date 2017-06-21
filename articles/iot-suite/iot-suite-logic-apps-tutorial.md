@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 06/16/2017
 ms.author: corywink
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/10/2017
 
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 03/10/2017
 6. **요청**을 선택합니다. 이 작업은 특정 JSON 형식 페이로드와 함께 들어오는 HTTP 요청이 트리거로 작동하도록 지정합니다.
 7. 다음 코드를 요청 본문 JSON 스키마에 붙여 넣습니다.
    
-    ```
+    ```json
     {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "id": "/",
@@ -109,14 +110,14 @@ ms.lasthandoff: 03/10/2017
 
 1. git 클라이언트를 사용하여 최신 버전의 [azure-iot-remote-monitoring github 리포지토리][lnk-rmgithub]를 복제합니다. 예:
    
-    ```
+    ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
     ```
 2. Visual Studio에서 리포지토리의 로컬 복사본에서 **RemoteMonitoring.sln**을 엽니다.
 3. **Infrastructure\\Repository** 폴더에서 **ActionRepository.cs** 파일을 엽니다.
 4. 다음과 같이 **actionIds** 사전을 Logic App에서 기록한 **이 URL에 대한 Http 게시**로 업데이트합니다.
    
-    ```
+    ```csharp
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
     {
         { "Send Message", "<Http Post to this URL>" },
@@ -132,9 +133,9 @@ ms.lasthandoff: 03/10/2017
 2. 로컬로 배포하려면 [로컬 배포][lnk-localdeploy] 지침을 따릅니다.
 3. 클라우드로 배포하고 기존 클라우드 배포를 업데이트하려면 [클라우드 배포][lnk-clouddeploy] 지침을 따릅니다. 원래 배포의 이름을 배포 이름으로 사용합니다. 예를 들어 원래 배포가 **demologicapp**였다면 다음 명령을 사용합니다.
    
-   ``
+   ```cmd
    build.cmd cloud release demologicapp
-   ``
+   ```
    
    빌드 스크립트를 실행하는 경우 솔루션을 프로비전했을 때 사용한 것과 동일한 Azure 계정, 구독, 지역 및 Active Directory 인스턴스를 사용해야 합니다.
 

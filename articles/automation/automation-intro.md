@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
-ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: e37e79f3990d920a656330c4f4c5cf7748183441
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -50,7 +52,7 @@ Azure 자동화의 Runbook은 Windows PowerShell 또는 Windows PowerShell 워�
 [Azure 자동화 DSC](automation-dsc-overview.md) 는 엔터프라이즈 환경에 필요한 서비스를 제공하는 PowerShell DSC에 대한 클라우드 기반 솔루션입니다.  Azure 자동화에서 DSC 리소스를 관리하고 Azure 클라우드의 DSC 끌어오기 서버에서 이를 검색하는 가상 또는 실제 컴퓨터에 구성을 적용할 수 있습니다.  또한 노드가 할당된 구성에서 파생되는 시기 및 새 구성이 적용되는 시기와 같은 중요한 이벤트를 알려주는 보고 서비스를 제공합니다. 
 
 ## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Azure 자동화를 사용하여 고유한 DSC 구성 만들기
-[DSC 구성](automation-dsc-overview.md#azure-automation-dsc-terms) 은 노드의 원하는 상태를 지정합니다.  여러 노드는 동일한 구성을 적용하여 동일한 상태를 유지하도록 할 수 있습니다.  로컬 컴퓨터에서 텍스트 편집기를 사용하여 구성을 만들고 컴파일하고 노드에 적용할 수 있는 Azure 자동화에 가져올 수 있습니다.
+[DSC 구성](automation-dsc-overview.md) 은 노드의 원하는 상태를 지정합니다.  여러 노드는 동일한 구성을 적용하여 동일한 상태를 유지하도록 할 수 있습니다.  로컬 컴퓨터에서 텍스트 편집기를 사용하여 구성을 만들고 컴파일하고 노드에 적용할 수 있는 Azure 자동화에 가져올 수 있습니다.
 
 ## <a name="getting-modules-and-configurations"></a>모듈 및 구성 가져오기
 [PowerShell 갤러리](http://www.powershellgallery.com/)의 Runbook 및 DSC 구성에서 사용할 수 있는 cmdlet을 포함하는 [PowerShell 모듈](automation-runbook-gallery.md#modules-in-powershell-gallery)을 가져올 수 있습니다. Azure 포털에서 이 갤러리를 실행하여 Azure 자동화에 직접 모듈을 가져오거나 수동으로 다운로드하고 가져올 수 있습니다. Azure 포털에서 모듈을 직접 설치할 수는 없지만 다운로드하여 다른 모듈처럼 설치할 수 있습니다. 
@@ -83,10 +85,5 @@ Azure 자동화의 Runbook은 Windows PowerShell 또는 Windows PowerShell 워�
 
 ## <a name="can-i-provide-feedback"></a>피드백을 제공할 수 있습니까?
 **사용자 의견을 보내 주세요!** Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하세요. Azure 자동화에 대한 의견이나 기능 요청이 있는 경우 [사용자 음성](http://feedback.windowsazure.com/forums/34192--general-feedback)에 게시하세요. 감사합니다. 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

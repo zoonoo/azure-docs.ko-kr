@@ -155,7 +155,7 @@
 #### [기존 웹 서비스 재학습](machine-learning-retrain-existing-resource-manager-based-web-service.md)
 #### [문제 해결](machine-learning-troubleshooting-retraining-models.md)
 ### 모델 사용
-#### [개요](machine-learning-connect-to-azure-machine-learning-web-service.md)
+#### [개요](machine-learning-consume-web-services.md)
 #### [Excel 사용](machine-learning-consuming-from-excel.md)
 #### [Excel 추가 기능 사용](machine-learning-excel-add-in-for-web-services.md)
 #### [웹앱 템플릿 사용](machine-learning-consume-web-service-with-web-app-template.md)

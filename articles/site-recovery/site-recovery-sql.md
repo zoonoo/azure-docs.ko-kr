@@ -8,7 +8,7 @@ manager: gauravd
 editor: 
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -101,18 +101,18 @@ SQL Server를 제대로 실행하려면 보조 복구 사이트에서 Active Dir
 이 문서의 지침에서는 도메인 컨트롤러를 보조 위치에서 사용할 수 있다고 가정합니다. Site Recovery를 사용한 Active Directory 보호에 대해 [자세히 알아보세요](site-recovery-active-directory.md).
 
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-azure"></a>Azure로 복제하기 위한 SQL Server Always On과 통합 
+## <a name="integrate-with-sql-server-always-on-for-replication-to-azure"></a>Azure로 복제하기 위한 SQL Server Always On과 통합
 
 수행해야 할 사항:
 
-1. Azure Automation 계정에 스크립트를 가져옵니다. 여기에는 [Resource Manager 가상 컴퓨터](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) 및 [클래식 가상 컴퓨터](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1)에서 SQL 가용성 그룹의 장애 조치(failover) 스크립트가 포함됩니다. 
+1. Azure Automation 계정에 스크립트를 가져옵니다. 여기에는 [Resource Manager 가상 컴퓨터](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) 및 [클래식 가상 컴퓨터](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1)에서 SQL 가용성 그룹의 장애 조치(failover) 스크립트가 포함됩니다.
 
     [![Azure에 배포](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. ASR-SQL-FailoverAG를 복구 계획의 첫 번째 그룹에 대한 이전 작업으로 추가합니다.
 
-1. 스크립트에서 사용할 수 있는 지침에 따라 가용성 그룹의 이름을 제공하는 자동화 변수를 만듭니다. 
+1. 스크립트에서 사용할 수 있는 지침에 따라 가용성 그룹의 이름을 제공하는 자동화 변수를 만듭니다.
 
 ### <a name="steps-to-do-a-test-failover"></a>테스트 장애 조치(failover)를 수행하는 단계
 
@@ -124,13 +124,13 @@ SQL Always On은 테스트 장애 조치(failover)를 고유하게 지원하지 
 
     ![Azure Backup에서 복원 ](./media/site-recovery-sql/restore-from-backup.png)
 
-1. 백업에서 복원된 가상 컴퓨터에 [쿼럼을 강제](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure)합니다. 
+1. 백업에서 복원된 가상 컴퓨터에 [쿼럼을 강제](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure)합니다.
 
-1. 테스트 장애 조치(failover) 네트워크에서 사용할 수 있는 IP에 수신기의 IP를 업데이트합니다. 
- 
+1. 테스트 장애 조치(failover) 네트워크에서 사용할 수 있는 IP에 수신기의 IP를 업데이트합니다.
+
     ![수신기 IP 업데이트](./media/site-recovery-sql/update-listener-ip.png)
 
-1. 수신기를 온라인 상태로 만듭니다. 
+1. 수신기를 온라인 상태로 만듭니다.
 
     ![수신기를 온라인 상태로 만들기](./media/site-recovery-sql/bring-listener-online.png)
 
@@ -144,7 +144,7 @@ SQL Always On은 테스트 장애 조치(failover)를 고유하게 지원하지 
 
 ### <a name="steps-to-do-a-failover"></a>장애 조치(failover)를 수행하는 단계
 
-복구 계획에 스크립트를 추가하고 테스트 장애 조치(failover)를 수행하여 복구 계획의 유효성을 검사했으면 복구 계획의 장애 조치(failover)를 수행할 수 있습니다. 
+복구 계획에 스크립트를 추가하고 테스트 장애 조치(failover)를 수행하여 복구 계획의 유효성을 검사했으면 복구 계획의 장애 조치(failover)를 수행할 수 있습니다.
 
 
 ## <a name="integrate-with-sql-server-always-on-for-replication-to-a-secondary-on-premises-site"></a>복제를 위해 SQL Server Always On을 보조 온-프레미스 사이트로 통합
@@ -155,7 +155,7 @@ SQL Server가 고가용성을 위해 고가용성 그룹(또는 FCI)을 사용�
 1. 보조 사이트에서 가상 네트워크를 만듭니다.
 1. 가상 네트워크 및 기본 사이트 사이에서 사이트 간 VPN 연결을 설정합니다.
 1. 복구 사이트에서 가상 컴퓨터를 만들고 SQL Server를 설치합니다.
-1. 기존의 Always On 가용성 그룹을 새 SQL Server VM으로 확장합니다. 이 SQL Server 인스턴스를 비동기 복제 복사본으로 구성합니다. 
+1. 기존의 Always On 가용성 그룹을 새 SQL Server VM으로 확장합니다. 이 SQL Server 인스턴스를 비동기 복제 복사본으로 구성합니다.
 1. 가용성 그룹 수신기를 만들거나 비동기 복제 가상 컴퓨터를 포함하도록 기존 수신기를 업데이트합니다.
 1. 수신기를 사용하여 응용 프로그램 팜이 설정되었는지 확인합니다. 데이터베이스 서버 이름을 사용하여 설정하는 경우, 수신기를 사용하도록 업데이트하여 장애 조치 후에 이를 다시 인식할 필요가 없도록 합니다.
 

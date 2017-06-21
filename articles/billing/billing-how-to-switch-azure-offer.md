@@ -13,11 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/13/2017
 ms.author: genli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9c4c872d03a3927d02d17de6cc2aae6e684f1fad
 ms.openlocfilehash: b6a1e6175833ea0cdc785b18c88b43e06a7ad57c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -107,10 +109,5 @@ Azure 제품은 사용자가 소유한 Azure 구독의 *유형*을 말합니다.
 
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

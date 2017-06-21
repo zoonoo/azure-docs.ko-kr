@@ -4,12 +4,9 @@ description: "이 문서에서는 Azure Portal을 사용하여 신속하게 새�
 services: mysql
 author: v-chenyh
 ms.author: nolanwu
-editor: jasonh
+editor: jasonwhowell
 manager: jhubbard
-ms.assetid: 
 ms.service: mysql-database
-ms.tgt_pltfrm: portal
-ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
