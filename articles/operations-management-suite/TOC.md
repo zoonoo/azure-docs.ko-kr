@@ -3,8 +3,10 @@
 ## [OMS 아키텍처](operations-management-suite-architecture.md)
 
 # 시작
-## 연습
-### [서비스 맵](operations-management-suite-walkthrough-servicemap.md)
+## [Log Analytics](../log-analytics/log-analytics-get-started.md)
+## [자동화](../automation/automation-offering-get-started.md)
+## [백업](../backup/backup-introduction-to-azure-backup.md)
+## [사이트 복구](../site-recovery/site-recovery-overview.md)
 
 
 # 방법
@@ -35,13 +37,15 @@
 #### [AD 평가](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD 복제 상태](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [경고 관리](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-#### [서비스 맵](operations-management-suite-service-map.md)
-##### [구성](operations-management-suite-service-map-configure.md)
 #### [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [컨테이너](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Key Vault 분석](../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [네트워크 성능 모니터](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Service Fabric Analytics](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### 서비스 맵
+##### [연습](operations-management-suite-walkthrough-servicemap.md)
+##### [사용](operations-management-suite-service-map.md)
+##### [구성](operations-management-suite-service-map-configure.md)
 #### [SQL 평가](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Analytics 업그레이드](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)

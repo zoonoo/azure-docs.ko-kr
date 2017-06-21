@@ -200,13 +200,13 @@
 #### [삭제](service-fabric-cluster-delete.md)
 
 ### 독립 실행형 클러스터
-#### [독립 실행형 패키지의 내용](service-fabric-cluster-standalone-package-contents.md)
 #### [배포를 위한 계획 및 준비](service-fabric-cluster-standalone-deployment-preparation.md)
 #### 생성
 ##### [온-프레미스 만들기](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Azure 가상 컴퓨터에서 만들기](service-fabric-cluster-creation-with-windows-azure-vms.md)
 ##### [인증서를 사용하여 보안](service-fabric-windows-cluster-x509-security.md)  
 ##### [Windows 보안을 사용하여 보안](service-fabric-windows-cluster-windows-security.md)
+##### [독립 실행형 패키지의 내용](service-fabric-cluster-standalone-package-contents.md)
 #### [규모](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [액세스 제어 설정](service-fabric-cluster-security-roles.md)
 #### [구성](service-fabric-cluster-manifest.md)
@@ -232,8 +232,6 @@
 #### [클러스터 균형 조정](service-fabric-cluster-resource-manager-balancing.md)
 #### [제한](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [서비스 이동](service-fabric-cluster-resource-manager-movement-cost.md)
-
-### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
 
 ## 모니터링 및 진단
 ### [응용 프로그램 모니터링 및 진단](service-fabric-diagnostics-overview.md)
@@ -261,8 +259,9 @@
 # 참조
 ## [PowerShell(Azure)](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
-## [Java API](/java/api/)
-## [.NET](/dotnet/api/)
+## [Azure CLI](/cli/azure/sf)
+## [Java API](/java/api/overview/azure/servicefabric)
+## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST (영문)](/rest/api/servicefabric)
 
 # 리소스
