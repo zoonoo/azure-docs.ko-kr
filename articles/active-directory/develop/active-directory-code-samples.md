@@ -3,7 +3,7 @@ title: "Azure Active Directory 코드 샘플 | Microsoft Docs"
 description: "시나리오별로 구성된 Azure Active Directory 코드 샘플의 인덱스입니다."
 services: active-directory
 documentationcenter: dev-center-name
-author: priyamohanram
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433

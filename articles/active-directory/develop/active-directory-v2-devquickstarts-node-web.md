@@ -3,7 +3,7 @@ title: "Azure Active Directory v2.0 Node.js 웹앱 로그인 | Microsoft Docs"
 description: "개인 Microsoft 계정과 회사 또는 학교 계정을 사용하여 사용자를 로그인하는 Node.js 웹앱을 작성하는 방법을 알아봅니다."
 services: active-directory
 documentationcenter: nodejs
-author: brandwe
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: 1b889e72-f5c3-464a-af57-79abf5e2e147
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 05/13/2017
-ms.author: brandwe
+ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
