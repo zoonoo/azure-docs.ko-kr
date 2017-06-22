@@ -3,7 +3,7 @@ title: "Azure AD Java 웹앱 시작 | Microsoft Docs"
 description: "회사 또는 학교 계정을 사용하여 사용자가 로그인하는 Java 웹앱을 빌드할 수 있습니다."
 services: active-directory
 documentationcenter: java
-author: brandwe
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: brandwe
+ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228

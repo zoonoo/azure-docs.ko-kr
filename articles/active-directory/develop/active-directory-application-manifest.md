@@ -3,7 +3,7 @@ title: "Azure Active Directory 응용 프로그램 매니페스트 이해 | Micr
 description: "Azure AD 테넌트의 응용 프로그램 ID 구성을 나타내고 OAuth 권한 부여, 승인 환경 등을 용이하게 하는 데 사용되는 Azure Active Directory 응용 프로그램 매니페스트에 대한 자세한 정보를 다룹니다."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: sureshja
 manager: mbaldwin
 editor: 
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
-ms.author: dkershaw;bryanla
+ms.author: sureshja
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b

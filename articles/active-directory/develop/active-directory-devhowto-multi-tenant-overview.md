@@ -3,7 +3,7 @@ title: "모든 Azure AD 사용자에게 로그인할 수 있는 앱 작성 방�
 description: "모든 Azure Active Directory 테넌트로부터 사용자를 로그인할 수 있게 하는 응용 프로그램(또는 다중 테넌트 응용 프로그램으로 알려짐)을 빌드하기 위한 단계별 지침."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: dstrockis
 manager: mbaldwin
 editor: 
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2017
-ms.author: skwan;bryanla
+ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a

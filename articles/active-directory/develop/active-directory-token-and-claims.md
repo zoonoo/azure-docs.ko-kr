@@ -2,7 +2,7 @@
 title: "Azure AD에서 지원하는 다른 토큰 및 클레임 유형에 대해 알아보기 | Microsoft Docs"
 description: "AAD(Azure Active Directory)에서 발급하는 SAML 2.0 및 JWT(JSON 웹 토큰)를 이해하고 평가하기 위한 가이드입니다."
 documentationcenter: na
-author: bryanla
+author: dstrockis
 services: active-directory
 manager: mbaldwin
 editor: 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/08/2017
-ms.author: mbaldwin
+ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 83bb2090d3a2fbd4fabdcd660c72590557cfcafc

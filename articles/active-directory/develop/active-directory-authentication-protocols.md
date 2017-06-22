@@ -2,7 +2,7 @@
 title: "Azure Active Directory 인증 프로토콜 | Microsoft Docs"
 description: "Azure AD(Active Directory)에서 지원되는 인증 프로토콜 개요"
 documentationcenter: dev-center-name
-author: bryanla
+author: priyamohanram
 services: active-directory
 manager: mbaldwin
 editor: 

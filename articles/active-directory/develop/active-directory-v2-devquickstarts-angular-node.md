@@ -3,7 +3,7 @@ title: "Azure AD v2.0 NodeJS AngularJS 단일 페이지 앱 시작하기 | Micro
 description: "개인 Microsoft 계정과 회사 또는 학교 계정이 있는 사용자로 로그인하는 Angular JS 단일 페이지 앱을 빌드하는 방법입니다."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: d286aa33-8a94-452f-beb7-ddc6c6daa5c8
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
+ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b

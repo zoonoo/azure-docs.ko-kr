@@ -3,7 +3,7 @@ title: "Azure AD의 OAuth2 암시적 허용 흐름 이해 | Microsoft Docs"
 description: "Azure Active Directory의 OAuth2 암시적 허용 흐름 구현 및 이 구현이 응용 프로그램에 적합한지 여부에 대해 자세히 알아봅니다."
 services: active-directory
 documentationcenter: dev-center-name
-author: vibronet
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2016
-ms.author: vittorib;bryanla
+ms.author: jmprieur
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f3f8292eb505c73b5fda86499581fe85ad3f8e47

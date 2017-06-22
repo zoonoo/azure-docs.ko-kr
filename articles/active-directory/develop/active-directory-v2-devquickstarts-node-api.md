@@ -3,7 +3,7 @@ title: "Node.js를 사용하여 Azure Active Directory v2.0 웹 API 보안 유�
 description: "개인 Microsoft 계정과 회사 또는 학교 계정 둘 다의 토큰을 허용하는 Node.js 웹 API를 빌드하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: nodejs
-author: brandwe
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: 0b572fc1-2aaf-4cb6-82de-63010fb1941d
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 05/13/2017
-ms.author: brandwe
+ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6

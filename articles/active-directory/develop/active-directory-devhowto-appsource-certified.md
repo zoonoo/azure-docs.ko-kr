@@ -3,7 +3,7 @@ title: "Azure Active Directory에 대해 인증된 AppSource 가져오는 방법
 description: "Azure Active Directory에 대해 인증된 응용 프로그램 AppSource 가져오는 방법에 대한 세부 정보."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: andretms
 manager: mbaldwin
 editor: 
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/28/2017
-ms.author: skwan;bryanla
+ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e1299c1f7f8a31f7034fc0736fcd9d66153a9758

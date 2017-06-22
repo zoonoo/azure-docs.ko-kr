@@ -3,7 +3,7 @@ title: "Azure AD .NET 시작 | Microsoft Docs"
 description: "로그인을 위해 Azure AD와 통합되고 OAuth를 사용하여 Azure AD로 보호되는 API를 호출하는 .NET Windows Desktop 응용 프로그램 빌드 방법"
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
+ms.author: jmprieur
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
