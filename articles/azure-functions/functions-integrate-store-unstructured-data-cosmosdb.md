@@ -11,7 +11,7 @@ keywords: "Azure Functions, Functions, 이벤트 처리, Cosmos DB, 동적 계�
 ms.assetid: 
 ms.service: functions
 ms.devlang: multiple
-ms.topic: ms-hero
+ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/08/2017
@@ -164,3 +164,4 @@ Azure Functions에 대한 자세한 내용은 다음 항목을 참조하세요.
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
+
