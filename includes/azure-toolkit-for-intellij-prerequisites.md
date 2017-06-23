@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 IntelliJ용 Azure 도구 키트에는 다음 소프트웨어 구성 요소가 필요합니다.
 
 * IntelliJ IDEA Ultimate Edition - <https://www.jetbrains.com/idea/download/>에서 다운로드할 수 있습니다.
