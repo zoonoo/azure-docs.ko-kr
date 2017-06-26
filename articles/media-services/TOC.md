@@ -6,7 +6,13 @@
 ## [개발 환경 설정](media-services-set-up-computer.md)
 ###[.NET](media-services-dotnet-how-to-use.md)
 ###[REST (영문)](media-services-rest-how-to-use.md)  
-## 프로그래밍 방식으로 연결
+## [AAD 인증을 사용하여 API 액세스](media-services-use-aad-auth-to-access-ams-api.md)
+###[포털을 사용하여 AAD 인증 관리](media-services-portal-get-started-with-aad.md)
+###[.NET으로 API 액세스](media-services-dotnet-get-started-with-aad.md)
+###[REST로 API 액세스](media-services-rest-connect-with-aad.md)
+###[CLI를 사용하여 AAD 앱 만들기 및 구성](media-services-cli-create-and-configure-aad-app.md)
+###[PowerShell을 사용하여 AAD 앱 만들기 및 구성](media-services-powershell-create-and-configure-aad-app.md)
+## ACS 키를 사용하여 프로그래밍 방식으로 연결
 ### [.NET](media-services-dotnet-connect-programmatically.md)
 ### [REST (영문)](media-services-rest-connect-programmatically.md)
 
@@ -214,7 +220,7 @@
 ## [PowerShell(리소스 관리자)](/powershell/module/azurerm.media)
 ## [PowerShell(서비스 관리)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST (영문)](/rest/api/media)
+## [REST (영문)](/rest/api/media/mediaservice)  
 
 # 리소스
 ## [릴리스 정보](media-services-release-notes.md)

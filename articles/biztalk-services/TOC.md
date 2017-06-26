@@ -1,6 +1,5 @@
 # 개요
 ## [버전](biztalk-editions-feature-chart.md)
-## [하이브리드 연결 정보](integration-hybrid-connection-overview.md)
 
 # 시작
 ## [Biztalk Services 만들기](biztalk-provision-services.md)
@@ -12,8 +11,6 @@
 ## 구성
 ### [제한](biztalk-throttling-thresholds.md)
 ### [서비스 설정 및 모니터링](biztalk-dashboard-monitor-scale-tabs.md)
-## 통합
-### [하이브리드 연결](integration-hybrid-connection-create-manage.md)
 ## 마이그레이션
 ### [BizTalk Server EDI 솔루션을 BizTalk Services로](biztalk-migrating-to-edi-guide.md)
 ## 모니터
@@ -21,6 +18,9 @@
 ## 보안
 ### [액세스 제어](biztalk-issuer-name-issuer-key.md)
 ## [문제 해결](biztalk-troubleshoot-using-ops-logs.md)
+## 하이브리드 연결
+### [개요](integration-hybrid-connection-overview.md)
+### [만들기 및 관리](integration-hybrid-connection-create-manage.md)
 
 # 리소스
 ## [릴리스 정보](biztalk-release-notes.md)

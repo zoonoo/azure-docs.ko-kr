@@ -1,6 +1,6 @@
 # 개요
 ## [리소스 관리자란?](resource-group-overview.md)
-## [지원되는 서비스](resource-manager-supported-services.md)
+## [리소스 공급자 및 형식](resource-manager-supported-services.md)
 ## [Resource Manager 및 클래식 배포](resource-manager-deployment-model.md)
 ## [구독 거버넌스](resource-manager-subscription-governance.md)
 ## [Managed Applications](managed-application-overview.md)
@@ -67,12 +67,13 @@
 
 ## 리소스 정책 설정
 ### [리소스 정책이란?](resource-manager-policy.md)
-### [포털 정책 할당](resource-manager-policy-portal.md)
-### [스크립트 정책 할당](resource-manager-policy-create-assign.md)
-### [리소스 태그 정책](resource-manager-policy-tags.md)
-### [저장소 정책](resource-manager-policy-storage.md)
-### [Linux VM 정책](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Windows VM 정책](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [포털을 사용하여 정책 할당](resource-manager-policy-portal.md)
+### [스크립트를 사용하여 정책 할당](resource-manager-policy-create-assign.md)
+### 예
+#### [리소스 태그](resource-manager-policy-tags.md)
+#### [저장소](resource-manager-policy-storage.md)
+#### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## 관리되는 응용 프로그램 사용
 ### [관리되는 응용 프로그램 게시](managed-application-publishing.md)

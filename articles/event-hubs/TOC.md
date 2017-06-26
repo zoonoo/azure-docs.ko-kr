@@ -19,13 +19,11 @@
 
 # 방법
 ## 계획 및 디자인
-### [🔧 Azure 서비스와 일반적인 통합 시나리오](event-hubs-common-integrations.md)
 ### [Event Hubs 전용](event-hubs-dedicated-overview.md)
 ### [인증 및 보안 모델 개요](event-hubs-authentication-and-security-model-overview.md)
 ### [가용성 및 일관성](event-hubs-availability-and-consistency.md)
+### [처리량 단위 규모를 자동으로 조정](event-hubs-auto-inflate.md)
 ## 개발
-### [🔧 오류 처리 및 다시 시도](event-hubs-handling-errors-retry.md)
-### [🔧 성능 및 확장 관리](event-hubs-performance-scale.md)
 ### [사용 가능한 API](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

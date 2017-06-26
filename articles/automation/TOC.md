@@ -11,7 +11,7 @@
 ### [독립 실행형 Automation 계정 만들기](automation-create-standalone-account.md)
 ### [Azure AD 사용자 계정 만들기](automation-create-aduser-account.md)
 ### [AWS로 인증 구성](automation-config-aws-account.md)
-### [PowerShell을 사용하여 Azure 실행 계정 만들기](automation-update-account-powershell.md)
+### [Automation 실행 계정 만들기](automation-create-runas-account.md)
 ### [Automation 계정 구성의 유효성 검사](automation-verify-runas-authentication.md)
 ### [역할 기반 액세스 제어 관리](automation-role-based-access-control.md)
 ### [Automation 계정 관리](automation-manage-account.md)
@@ -56,12 +56,12 @@
 ### [Azure VM 경고 수정](automation-azure-vm-alert-integration.md)
 ### [JSON 태그가 있는 VM 시작/중지](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [리소스 그룹 제거](automation-scenario-remove-resourcegroup.md)
-### [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
 ### [GitHub Enterprise와 소스 제어 통합](automation-scenario-source-control-integration-with-github-ent.md)
 ### [VSTS와 소스 제어 통합](automation-scenario-source-control-integration-with-VSTS.md)
 ## 솔루션
 ### [변경 내용 추적](../log-analytics/log-analytics-change-tracking.md)
 ### [업데이트 관리](../operations-management-suite/oms-solution-update-management.md)
+### [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
 ## 모니터
 ### [Log Analytics에 Azure Automation 작업 데이터 전달](automation-manage-send-joblogs-log-analytics.md)
 ### [Log Analytics에서 Azure Automation 계정 연결 해제](automation-unlink-from-log-analytics.md)
