@@ -45,10 +45,12 @@
 ### [EDIFACT 엔터프라이즈 통합](logic-apps-enterprise-integration-edifact.md)
 ### [EDIFACT 인코딩](logic-apps-enterprise-integration-edifact-encode.md)
 ### [EDIFACT 디코딩](logic-apps-enterprise-integration-edifact-decode.md)
+### [UNH2.5 세그먼트를 포함하는 EDIFACT 문서를 처리하는 방법](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [X12 엔터프라이즈 통합](logic-apps-enterprise-integration-x12.md)
 ### [X12 인코딩](logic-apps-enterprise-integration-x12-encode.md)
 ### [X12 디코딩](logic-apps-enterprise-integration-x12-decode.md)
 ### [재해 복구](logic-apps-enterprise-integration-b2b-business-continuity.md)
+### [오류 및 해결 방법](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## 온-프레미스 데이터 액세스
 ### [온-프레미스 데이터에 연결](logic-apps-gateway-connection.md)
@@ -75,7 +77,6 @@
 ### [Azure Functions를 사용하여 논리 앱 호출](logic-apps-scenario-function-sb-trigger.md)
 ### [오류 및 예외 처리 추가](logic-apps-scenario-error-and-exception-handling.md)
 ### [B2B 처리](logic-apps-enterprise-integration-b2b.md)
-### [UNH2.5 세그먼트를 포함하는 EDIFACT 문서를 처리하는 방법](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 
 ## 가격 및 청구
 ### [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)
@@ -116,6 +117,7 @@
 ### [HTTP 웹후크](../connectors/connectors-native-webhook.md)
 ### [Informix](../connectors/connectors-create-api-informix.md)
 ### [통합 계정](logic-apps-enterprise-integration-metadata.md)
+### [MQ](../connectors/connectors-create-api-mq.md)
 ### [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md)
 ### [Oracle 데이터베이스](../connectors/connectors-create-api-oracledatabase.md)
 ### [요청/응답](../connectors/connectors-native-reqres.md)

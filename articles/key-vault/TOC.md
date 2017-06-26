@@ -21,6 +21,9 @@
 ### [테넌트 ID 변경](key-vault-subscription-move-fix.md)
 ### [가용성 및 중복성](key-vault-disaster-recovery-guidance.md)
 ### [Key Vault 보안 설정](key-vault-secure-your-key-vault.md)
+### [보안 워크로드 개요](key-vault-ovw-security-worlds.md)
+### [일시 삭제 개요](key-vault-ovw-soft-delete.md)
+### [저장소 계정 키 개요](key-vault-ovw-storage-keys.md)
 
 ## 자동화
 ### [Azure Automation](automation-manage-key-vault.md)
@@ -43,7 +46,7 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # 리소스
-## [키 및 비밀 정보](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [키, 비밀 및 인증서에 대한 정보](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
 ## [코드 샘플](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [블로그](http://blogs.technet.com/b/kv/)

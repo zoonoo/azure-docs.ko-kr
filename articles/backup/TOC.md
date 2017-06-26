@@ -48,7 +48,7 @@
 #### [리소스 관리자가 배포된 가상 컴퓨터 준비](backup-azure-arm-vms-prepare.md)
 ### 환경 계획
 #### [VM 백업 인프라 계획](backup-azure-vms-introduction.md)
-### 서버 및 워크로드 백업
+### VM 백업
 #### [백업 자격 증명 모음에 Azure Virtual Machines 백업](backup-azure-vms.md)
 #### [Recovery Services 자격 증명 모음에 Azure 가상 컴퓨터 백업](backup-azure-arm-vms.md)
 #### [암호화된 가상 컴퓨터 백업](backup-azure-vms-encryption.md)

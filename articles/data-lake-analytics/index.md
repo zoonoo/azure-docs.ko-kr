@@ -2,8 +2,8 @@
 title: "Azure Data Lake Analytics 설명서 - 자습서, API 참조 | Microsoft Docs"
 description: "Data Lake Analytics를 사용하는 빅 데이터 분석에 대해 알아봅니다. 자습서에서는 실시간으로 일괄 처리 대화형 분석을 실행하는 방법 및 U-SQL 쿼리를 작성하는 방법을 보여 줍니다."
 services: data-lake-analytics
-author: carolz
-manager: carolz
+author: saveenr
+manager: saveenr
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics
@@ -12,10 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 6098c2b7465ee14a5303d07c014a6f918ad62a61
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 050965185c0c4b2d6880b74592e640be85678c06
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="data-lake-analytics-documentation"></a>Data Lake Analytics 설명서
@@ -77,133 +78,30 @@ Data Lake Analytics를 사용하여 방대한 데이터 집합으로 확장되�
         </div>
         </a>
     </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-powershell">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/powershell.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure PowerShell을 사용하여 Azure Data Lake Analytics 시작</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-net-sdk">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>.NET SDK를 사용하여 Azure Data Lake Analytics 시작</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-java-sdk">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/java.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Java SDK를 사용하여 Azure Data Lake Analytics 시작</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Visual Studio용 Data Lake 도구를 사용하여 U-SQL 스크립트 만들기</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-cli">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/cli.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure CLI를 사용하여 Azure Data Lake Analytics 시작</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-rest-api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>REST API을 사용하여 Azure Data Lake Analytics 시작</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-python">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/python.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Python을 사용하여 Azure Data Lake Store 시작</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
 </ul>
+
+## <a name="quickstarts"></a>빠른 시작
+<table>
+    <tr>
+        <td><a href="data-lake-analytics-get-started-portal.md">포털</a></td>
+        <td><a href="data-lake-analytics-data-lake-tools-get-started.md">Visual Studio</a></td>
+        <td><a href="data-lake-analytics-data-lake-tools-for-vscode.md">Contact.java</a></td>
+        <td><a href="data-lake-analytics-get-started-powershell.md">PowerShell</a></td>
+        <td><a href="data-lake-analytics-get-started-cli2.md">Azure CLI 2.0</a></td>
+    </tr>
+</table>
+
+## <a name="manage-data-lake-analytics"></a>Data Lake Analytics 관리
+<table>
+    <tr>
+        <td><a href="data-lake-analytics-manage-use-portal.md">포털</a></td>
+        <td><a href="data-lake-analytics-manage-use-powershell.md">Python</a></td>
+        <td><a href="data-lake-analytics-manage-use-cli.md">Azure CLI</a></td>
+        <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
+        <td><a href="data-lake-analytics-get-started-python.md">Python SDK</a></td>
+        <td><a href="data-lake-analytics-get-started-java-sdk.md">Java SDK</a></td>
+    </tr>
+</table>
 
 ---
  

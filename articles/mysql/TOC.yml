@@ -11,6 +11,12 @@
     href: quickstart-create-mysql-server-database-using-azure-portal.md
   - name: DB 만들기 - Azure CLI
     href: quickstart-create-mysql-server-database-using-azure-cli.md
+  - name: 연결 및 쿼리
+    items:
+    - name: PHP
+      href: connect-php.md
+    - name: Java
+      href: connect-java.md
 - name: 자습서
   items:
   - name: 1 - 데이터베이스 설계
@@ -85,8 +91,12 @@
       href: howto-connection-string.md
     - name: SSL 구성
       href: howto-configure-ssl.md
-    - name: 웹앱
+    - name: 웹 앱
       href: howto-connect-webapp.md
+  - name: 서버 매개 변수 구성
+    items:
+    - name: Azure 포털
+      href: howto-server-parameters.md
 - name: 참조
   items:
   - name: Azure CLI
@@ -99,6 +109,8 @@
     href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
   - name: 스택 오버플로
     href: http://stackoverflow.com/questions/tagged/azure-database-mysql
+  - name: 비디오
+    href: videos.md
   - name: 기능 요청
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: 지역 가용성

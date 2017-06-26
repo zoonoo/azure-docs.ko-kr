@@ -22,6 +22,8 @@
 ### [우선 순위가 낮은 VM](batch-low-pri-vms.md)
 ### [배치 관리 .NET을 사용하여 배치 계정 관리](batch-management-dotnet.md)
 ### [작업 유지 및 태스크 출력](batch-task-output.md)
+#### [Batch API를 사용하여 출력 유지](batch-task-output-files.md)
+#### [파일 규칙 라이브러리를 사용하여 출력 유지](batch-task-output-file-conventions.md)
 ### [MPI 작업 일괄 실행](batch-mpi.md)
 ### [작업 종속성](batch-task-dependencies.md)
 ### [작업 실행을 위한 사용자 계정](batch-user-accounts.md)

@@ -1,6 +1,7 @@
 # 개요
 
 ## [소개](storage-introduction.md)
+## [Blob, 파일 또는 데이터 디스크 선택](storage-decide-blobs-files-disks.md)
 
 # 시작
 
@@ -50,6 +51,7 @@
 ### [관리 디스크를 Linux VM에 추가](../virtual-machines/linux/add-disk.md)
 ### [Windows에서 스냅숏을 사용하여 관리 디스크로서 저장된 VHD 복사본 만들기](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 ### [Linux에서 스냅숏을 사용하여 관리 디스크로서 저장된 VHD 복사본 만들기](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+### [Resource Manager 템플릿에서 관리되는 디스크 사용](storage-using-managed-disks-template-deployments.md)
 
 # 방법
 ## [저장소 계정을 만드는](storage-create-storage-account.md)
@@ -70,7 +72,8 @@
 ### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## 파일 사용
 ### [개요](/rest/api/storageservices/File-Service-Concepts)
-### [Azure 파일 문제 해결](storage-troubleshoot-file-connection-problems.md)
+### [Azure 파일 문제 해결 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+### [Azure 파일 문제 해결 - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 ### [샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## 디스크 사용
 ### [Windows VM용 디스크 및 VHD](storage-about-disks-and-vhds-windows.md)
@@ -109,6 +112,7 @@
 ## 보안
 ### [보안 지침](storage-security-guide.md)
 ### [미사용 데이터 암호화](storage-service-encryption.md)
+### [고객 키로 미사용 데이터 암호화](storage-service-encryption-customer-managed-keys.md)
 ### [공유 키 인증](https://msdn.microsoft.com/library/dd179428.aspx)
 ### [공유 액세스 서명(SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [자습서: Azure Key Vault를 사용하여 Blob 암호화 및 해독](storage-encrypt-decrypt-blobs-key-vault.md)
@@ -130,7 +134,8 @@
 ### [재해 복구 지침](storage-disaster-recovery-guidance.md)
 ## 데이터 전송
 ### [저장소로 또는 반대로 데이터 이동](storage-moving-data.md)
-### [AzCopy 명령줄 유틸리티](storage-use-azcopy.md)
+### [Windows에서 AzCopy](storage-use-azcopy.md)
+### [Linux에서 AzCopy](storage-use-azcopy-linux.md)
 ### [Import/Export 서비스 사용](storage-import-export-service.md)
 ### [Import/Export 도구 사용](storage-import-export-tool-how-to.md)
 #### [Import/Export 도구 설정](storage-import-export-tool-setup.md)

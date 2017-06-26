@@ -78,6 +78,7 @@
 ## [서비스 REST(미리 보기)](search-api-2015-02-28-preview.md)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/search/)
 ## 데모 사이트
+### [검색 분석기 데모](http://alice.unearth.ai/)
 ### [작업 목록 앱](http://aka.ms/azjobsdemo)
 ### [라이브 데모 앱](https://searchsamples.azurewebsites.net/)
 ## 코스웨어 및 자습서

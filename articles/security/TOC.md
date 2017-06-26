@@ -11,6 +11,7 @@
 ### [로깅 및 감사](azure-log-audit.md)
 ### [공용 클라우드에서 격리](azure-isolation.md)
 ### [보안 기술 기능](azure-security-technical-capabilities.md)
+### [Azure에서 거버넌스](governance-in-azure.md)
 
 # 시작
 ## [Azure 보안 시작하기](azure-security-getting-started.md)

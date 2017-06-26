@@ -17,11 +17,21 @@
 ## [FAQ](active-directory-faq.md)
 ## [Azure Active Directory를 지원하는 방법](active-directory-troubleshooting-support-howto.md)
 ## [SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)
+## Azure AD 컨트롤
+### [액세스 검토 완료](active-directory-azure-ad-controls-complete-an-access-review.md)
+### [액세스 검토 만들기](active-directory-azure-ad-controls-create-an-access-review.md)
+### [액세스 검토 수행 방법](active-directory-azure-ad-controls-perform-an-access-review.md)
+
 
 # 방법
 ## 계획 및 디자인
 ### [Azure AD 아키텍처 이해](active-directory-architecture.md)
+### [전자 메일 정책 및 구성 보안](secure-email-introduction.md)
+#### [권장된 정책](secure-email-recommended-policies.md)
+#### [배포 정책 및 구성](secure-email-deploy-recommended-policies.md)
+#### [EMS 및 Office 365 서비스 설명](secure-email-ems-office365-service-descriptions.md)
 ### [하이브리드 ID 솔루션 배포](active-directory-hybrid-identity-design-considerations-overview.md)
+### [Azure Active Directory의 클레임 매핑](active-directory-claims-mapping.md)
 
 #### 요구 사항 결정
 ##### [ID](active-directory-hybrid-identity-design-considerations-business-needs.md)
@@ -43,6 +53,16 @@
 ### 사용자 추가
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
 #### [클래식 포털](active-directory-create-users.md)
+### Azure AD 컨트롤
+#### [액세스 검토로 게스트 액세스](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+#### [검토로 사용자 액세스 관리](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+
+### [그룹을 사용하여 라이선스 할당](active-directory-licensing-whatis-azure-portal.md)
+#### [그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md)
+#### [그룹에서 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
+#### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
+#### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
 
 ### [다른 디렉터리에서 사용자 추가(클래식 포털)](active-directory-create-users-external.md)
 ### [사용자 삭제](active-directory-users-delete-user-azure-portal.md)
@@ -50,6 +70,8 @@
 ### [암호 재설정](active-directory-users-reset-password-azure-portal.md)
 ### [사용자 작업 정보 관리](active-directory-users-work-info-azure-portal.md)
 ### [공유 계정](active-directory-sharing-accounts.md)
+
+
 
 ## [그룹 및 구성원 관리](active-directory-manage-groups.md)
 ### 그룹 관리
@@ -59,6 +81,12 @@
 ### [그룹 구성원 관리](active-directory-groups-members-azure-portal.md)
 ### [그룹 소유자 관리](active-directory-accessmanagement-managing-group-owners.md)
 ### [그룹 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
+### [그룹을 사용하여 라이선스 할당](active-directory-licensing-whatis-azure-portal.md)
+#### [그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md)
+#### [그룹에서 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
+#### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
+#### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
 ### [모든 그룹 보기](active-directory-groups-view-azure-portal.md)
 ### [전용 그룹 사용](active-directory-accessmanagement-dedicated-groups.md)
 ### [SaaS 앱에 대한 그룹 액세스 추가](active-directory-accessmanagement-group-saasapps.md)
@@ -69,12 +97,6 @@
 ### 고급 규칙 만들기
 #### [Azure 포털](active-directory-groups-dynamic-membership-azure-portal.md)
 #### [클래식 포털](active-directory-accessmanagement-groups-with-advanced-rules.md)
-### [그룹 기반 라이선스](active-directory-licensing-whatis-azure-portal.md)
-#### [그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md)
-#### [그룹의 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
-#### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
-#### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
 ### [셀프 서비스 그룹 설정](active-directory-accessmanagement-self-service-group-management.md)
 ### [문제 해결](active-directory-accessmanagement-troubleshooting.md)
 
@@ -92,13 +114,14 @@
 ### 문제 해결
 #### [누락된 감사 데이터](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [다운로드에서 누락된 데이터](active-directory-reporting-troubleshoot-missing-data-download.md)
-###    [프로그래밍 방식 액세스](active-directory-reporting-api-getting-started-azure-portal.md)
+#### [Azure Active Directory 활동 로그 콘텐츠 팩 오류](active-directory-reporting-troubleshoot-content-pack.md)
+### [프로그래밍 방식 액세스](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [감사 참조](active-directory-reporting-api-audit-reference.md)
 #### [로그인 참조](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [필수 구성 요소](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [감사 샘플](active-directory-reporting-api-audit-samples.md)
 #### [로그인 샘플](active-directory-reporting-api-sign-in-activity-samples.md)
-#### [데이터 가져오기](active-directory-reporting-api-with-certificates.md)
+#### [인증서 사용](active-directory-reporting-api-with-certificates.md)
 ### [클래식 포털](active-directory-view-access-usage-reports.md)
 #### [Azure AD 보고](active-directory-reporting-getting-started.md)
 #### [보고 가이드](active-directory-reporting-guide.md)
@@ -165,6 +188,8 @@
 ### [클라우드 앱 검색](active-directory-cloudappdiscovery-whatis.md)
 #### [레지스트리 설정 업데이트](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [보안 및 개인 정보 이해](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+### Azure AD 컨트롤
+####[프로그램 및 해당 컨트롤 관리](active-directory-azure-ad-controls-manage-programs-and-controls.md)
 
 ### [앱 프록시를 사용하여 원격으로 앱에 액세스](active-directory-application-proxy-get-started.md)
 #### 시작

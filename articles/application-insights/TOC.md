@@ -43,6 +43,7 @@
 ### Azure
 #### [프로파일러](app-insights-profiler.md)
 #### [진단](app-insights-azure-diagnostics.md)
+#### [미리 보기](app-insights-previews.md)
 
 ### ASP.NET
 #### [더 많은 원격 분석 수집](app-insights-asp-net-more.md)
@@ -91,8 +92,9 @@
 
 ### 사용
 #### [개요](app-insights-usage-overview.md)
-#### [보존](app-insights-usage-retention.md)
 #### [사용자, 세션, 이벤트](app-insights-usage-segmentation.md)
+#### [보존](app-insights-usage-retention.md)
+#### [통합 문서](app-insights-usage-workbooks.md)
 
 ### 분석
 
@@ -108,6 +110,7 @@
 ### [리소스 만들기](app-insights-powershell-script-create-resource.md)
 ### [경고 설정](app-insights-powershell-alerts.md)
 ### [Azure 진단 가져오기](app-insights-powershell-azure-diagnostics.md)
+### [Microsoft Flow 자동화](app-insights-automate-with-flow.md)
 
 ## 개발
 

@@ -140,6 +140,12 @@
       href: move-vm.md
     - name: 고가용성 VM 만들기
       href: create-cli-complete.md
+    - name: Terraform
+      items:
+      - name: 설치 및 구성
+        href: ../terraform-install-configure.md
+      - name: 기본 인프라 만들기
+        href: ../terraform-create-complete-vm.md
     - name: Ansible
       items:
       - name: 설치 및 구성
@@ -202,6 +208,8 @@
       href: upload-vhd.md
     - name: 이미지로 기존 VM 캡처
       href: capture-image.md
+    - name: Packer로 이미지 만들기
+      href: build-image-with-packer.md
     - name: Azure 이미지 만들기
       items:
       - name: Ubuntu
@@ -312,7 +320,11 @@
   - name: 응용 프로그램 실행
     items:
     - name: Cloud Foundry
-      href: cloudfoundry-get-started.md
+      items:
+      - name: 개요
+        href: cloudfoundry-get-started.md
+      - name: 첫 번째 앱 배포
+        href: cloudfoundry-deploy-your-first-app.md
     - name: 데이터 과학 VM 개요
       href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: MongoDB
@@ -366,6 +378,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: 문제 해결
     items:
+    - name: 시스템 다시 부팅 이해
+      href: understand-vm-reboot.md
     - name: SSH 연결
       href: troubleshoot-ssh-connection.md
       items:

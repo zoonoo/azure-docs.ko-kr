@@ -50,6 +50,7 @@
 ### [PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [PowerShell(클래식)](vpn-gateway-about-forced-tunneling.md)
 ## 로컬 네트워크 게이트웨이 설정 수정
+### [Azure 포털](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [VPN 게이트웨이 연결 확인](vpn-gateway-verify-connection-resource-manager.md)
@@ -59,6 +60,7 @@
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell(클래식)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [VPN Gateway(클래식) 구성](vpn-gateway-configure-vpn-gateway-mp.md)
+## [게이트웨이 SKU(이전)](vpn-gateway-about-skus-legacy.md)
 ## 문제 해결
 ### [VNet에 대한 VPN 처리량의 유효성 검사](vpn-gateway-validate-throughput-to-vnet.md)
 
