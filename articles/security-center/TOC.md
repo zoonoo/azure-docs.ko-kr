@@ -5,11 +5,13 @@
 ## 시나리오
 ### [사고 대응](security-center-incident-response.md)
 ### [권장 사항을 사용하여 보안 강화](security-center-using-recommendations.md)
+## [플랫폼 마이그레이션](security-center-platform-migration.md)
 
 # 시작
 ## [빠른 시작](security-center-get-started.md)
 ## [계획 및 작업](security-center-planning-and-operations-guide.md)
 ## [권한](security-center-permissions.md)
+## [지원되는 플랫폼](security-center-os-coverage.md)
 ## [파트너 통합](security-center-partner-integration.md)
 ## [FAQ](security-center-faq.md)
 
