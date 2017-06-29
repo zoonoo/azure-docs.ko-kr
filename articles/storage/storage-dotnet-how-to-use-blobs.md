@@ -14,9 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: marsma
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: e9cfcdd9d6e36c1154b91904da60483825ff8b94
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/25/2017
 
 ---
@@ -53,7 +54,7 @@ Blob 저장소를 사용하는 추가 예제는 [.NET에서 Azure Blob 저장소
 다음 **using** 지시문을 `Program.cs` 파일 맨 위에 추가합니다.
 
 ```csharp
-using Microsoft.Azure; // Namespace for CloudConfigurationManager
+using Microsoft.WindowsAzure; // Namespace for CloudConfigurationManager
 using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 ```
