@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 08fd1956d3c6499f059b138de22d3b104a9da6c1
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 79156c0b511dafcb43ed91800f01338dbb7ee5f3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -30,15 +30,6 @@ ms.lasthandoff: 05/31/2017
 ![Azure DocumentDB API](./media/documentdb-introduction/cosmosdb-documentdb.png) 
 
 DocumentDB API와 함께 Azure Cosmos DB는 스키마 없는 JSON 데이터에 꾸준히 낮은 대기 시간으로 풍부하고 친숙한 [SQL 쿼리 기능](documentdb-sql-query.md)을 제공합니다. 이 문서에서는 Azure Cosmos DB DocumentDB API의 개요에 대해 설명하고, 이 API를 사용하여 방대한 볼륨의 JSON 데이터를 저장하고, 밀리초 크기 대기 시간 내에서 쿼리하고, 스키마를 쉽게 발전시키는 방법을 제공합니다. 
-
-## <a name="how-can-i-learn-about-the-documentdb-api"></a>DocumentDB API에 대해 어떻게 알아볼 수 있나요?
-DocumentDB API에 대해 알아보고 작동 방식을 확인하는 빠른 방법은 다음 세 단계를 수행하는 것입니다. 
-
-1. Azure Cosmos DB의 사용 이점을 소개하는 [Azure Cosmos DB 정의](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) 동영상(2분)을 시청합니다.
-2. Azure Portal을 사용하여 Azure Cosmos DB를 시작하는 방법을 강조하는 [Azure에서 Azure Cosmos DB 만들기](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) 동영상(3분)을 시청합니다.
-3. 다양한 활동을 통해 DocumentDB에서 사용할 수 있는 풍부한 쿼리 기능에 대해 알아볼 수 있는 [쿼리 실습](http://www.documentdb.com/sql/demo)을 방문합니다. 샌드박스 탭으로 이동하여 고유한 사용자 지정 SQL 쿼리를 실행하고 DocumentDB를 시험해 보세요.
-
-그런 다음 이 문서로 돌아와서 자세히 살펴봅니다.  
 
 ## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Azure Cosmos DB는 어떤 기능 및 주요 기능을 제공하나요?
 Azure Cosmos DB는 DocumentDB API를 통해 다음과 같은 주요 기능 및 이점을 제공합니다.
@@ -78,13 +69,13 @@ Azure Cosmos DB 내의 모든 리소스는 JSON 문서로 모델링되고 저장
 
 ## <a name="develop"></a> DocumentDB API를 사용하여 앱을 개발하려면 어떻게 해야 하나요?
 
-Azure Cosmos DB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 DocumentDB REST API를 통해 리소스를 노출합니다. 또한 DocumentDB API에 대해 많이 사용되는 몇 개의 언어를 위한 프로그래밍 라이브러리를 제공합니다. 클라이언트 라이브러리는 주소 캐싱, 예외 관리, 자동 재시도 등과 같은 세부 정보를 처리하여 API 작업의 많은 측면을 간소화합니다. 현재 라이브러리는 다음 언어 및 플랫폼에 사용할 수 있습니다.  
+Azure Cosmos DB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 REST API를 통해 리소스를 노출합니다. 또한 DocumentDB API에 대해 많이 사용되는 몇 개의 언어를 위한 프로그래밍 라이브러리를 제공합니다. 클라이언트 라이브러리는 주소 캐싱, 예외 관리, 자동 재시도 등과 같은 세부 정보를 처리하여 API 작업의 많은 측면을 간소화합니다. 현재 라이브러리는 다음 언어 및 플랫폼에 사용할 수 있습니다.  
 
 | 다운로드 | 설명서 |
 | --- | --- |
-| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET 라이브러리](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
+| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET 라이브러리](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
 | [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js 라이브러리](http://azure.github.io/azure-documentdb-node/) |
-| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java 라이브러리](http://azure.github.io/azure-documentdb-java/) |
+| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java 라이브러리](/java/api/com.microsoft.azure.documentdb) |
 | [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript 라이브러리](http://azure.github.io/azure-documentdb-js/) |
 | 해당 없음 |[서버 쪽 JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python 라이브러리](http://azure.github.io/azure-documentdb-python/) |

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4b7192b22d1583be2b2ab027b040c9a2fce8a293
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: db97edd3c4fbfdbe955c49cc9a58de30c5085305
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -81,39 +82,9 @@ Azure Resource Manager가 처음이라면 익숙하지 않은 용어가 있을 �
 ## <a name="resource-providers"></a>리소스 공급자
 각 리소스 공급자는 Azure 서비스를 사용하는 일련의 리소스 및 작업을 제공합니다. 예를 들어 키와 암호를 저장하려는 경우 **Microsoft.KeyVault** 리소스 공급자로 작업합니다. 이 리소스 공급자는 키 자격 증명 모음을 만드는 데 **자격 증명 모음**이라는 리소스 유형을 제공합니다. 
 
-리소스 배포를 시작하기 전에 사용 가능한 리소스 공급자를 이해해야 합니다. 리소스 공급자 및 리소스의 이름을 알고 있으면 Azure에 배포하려는 리소스를 정의할 수 있습니다.
+리소스 종류의 이름은 **{resource-provider}/{resource-type}** 양식입니다. 예를 들어 키 자격 증명 모음 형식은 **Microsoft.KeyVault\vaults**입니다.
 
-포털을 통해 모든 리소스 공급자를 볼 수 있습니다. 구독에 대한 블레이드에서 **리소스 공급자**를 선택합니다.
-
-![리소스 공급자 보기](./media/resource-group-overview/view-resource-providers.png)
-
-다음 PowerShell cmdlet을 사용하여 모든 리소스 공급자를 검색합니다.
-
-```powershell
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-또는 Azure CLI 2.0으로 다음 명령을 사용하여 모든 리소스 공급자를 검색합니다.
-
-```azurecli
-az provider list
-```
-
-사용해야 하는 리소스 공급자의 반환된 목록을 살펴볼 수 있습니다.
-
-리소스 공급자에 대한 세부 정보를 가져오려면 명령에 공급자 네임스페이스를 추가합니다. 이 명령은 리소스 공급자에 지원되는 리소스 유형 및 지원되는 위치와 각 리소스 유형에 대한 API 버전을 반환합니다. 다음 PowerShell cmdlet은 Microsoft.Compute에 대한 세부 정보를 가져옵니다.
-
-```powershell
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
-```
-
-또는 Azure CLI 2.0으로 다음 명령을 사용하여 Microsoft.Compute에 지원되는 리소스 유형, 위치 및 API 버전을 검색합니다.
-
-```azurecli
-az provider show --namespace Microsoft.Compute
-```
-
-자세한 내용은 [Resource Manager 공급자, 지역, API 버전 및 스키마](resource-manager-supported-services.md)를 참조하세요.
+리소스 배포를 시작하기 전에 사용 가능한 리소스 공급자를 이해해야 합니다. 리소스 공급자 및 리소스의 이름을 알고 있으면 Azure에 배포하려는 리소스를 정의할 수 있습니다. 또한 각 리소스 종류에 대한 유효한 위치와 API 버전을 알아야 합니다. 자세한 내용은 [리소스 공급자 및 형식](resource-manager-supported-services.md)을 참조하세요.
 
 ## <a name="template-deployment"></a>템플릿 배포
 Resource Manager로 Azure 솔루션의 인프라 및 구성을 정의하는 템플릿을 JSON 형식으로 만들 수 있습니다. 템플릿을 사용하여 수명 주기 내내 솔루션을 반복적으로 배포하고 안심하고 일관된 상태로 리소스를 배포할 수 있습니다. 포털에서 솔루션을 만들 때 자동으로 솔루션에 배포 템플릿을 포함합니다. 솔루션용 템플릿으로 시작하고 특정 요구 사항에 맞게 사용자 지정할 수 있기 때문에 서식 파일을 처음부터 새로 만들 필요가 없습니다. 리소스 그룹의 현재 상태를 내보내거나 특정 배포에 사용된 템플릿을 검토하여 기존 리소스 그룹에 대한 템플릿을 검색할 수 있습니다. [내보낸 템플릿](resource-manager-export-template.md)을 살펴보면 템플릿 구문에 대해 알아보는 데 도움이 됩니다.

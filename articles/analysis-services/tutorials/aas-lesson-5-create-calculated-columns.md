@@ -10,27 +10,27 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 0cce578185ba7811e4b13cc061a2adcb18452b13
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 893371145d77e156843271907aeef0c3756d0403
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-5-create-calculated-columns"></a>단원 5: 계산된 열 만들기
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-이 단원에서는 계산된 열을 추가하여 모델에서 새 데이터를 만듭니다. 쿼리 편집기를 사용하거나 여기에서처럼 나중에 모델 디자이너에서 데이터 가져오기를 사용할 때 계산된 열(사용자 지정 열로)을 만들 수 있습니다. 자세한 내용은 [계산된 열](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns)을 참조하세요.
+이 단원에서는 계산된 열을 추가하여 모델에서 데이터를 만듭니다. 쿼리 편집기를 사용하거나 여기에서처럼 나중에 모델 디자이너에서 데이터 가져오기를 사용할 때 계산된 열(사용자 지정 열로)을 만들 수 있습니다. 자세한 내용은 [계산된 열](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns)을 참조하세요.
   
-서로 다른 세 테이블에 5개의 새 계산된 열을 만들겠습니다. 단계는 작업마다 약간 다릅니다. 이것은 새로운 열을 생성하고 이름을 바꾸며 테이블의 여러 위치에 배치하는 여러 가지 방법이 있음을 보여줍니다.  
+서로 다른 세 테이블에 5개의 새 계산된 열을 만듭니다. 단계는 열을 생성하고 이름을 바꾸며 테이블의 여러 위치에 배치하는 여러 가지 방법이 있음을 보여 주는 각 작업에 대해 약간 다릅니다.  
 
-여기서는 먼저 DAX(Data Analysis Expressions)를 사용합니다. DAX는 테이블 형식 모델에 대해 사용자 지정 가능한 수식을 만드는 특별한 언어입니다. 이 자습서에서는 DAX를 사용하여 계산된 열, 측정값 및 역할 필터를 만듭니다. 자세한 내용은 [테이블 형식 모델의 DAX](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular)를 참조하세요. 
+이 단원에서는 먼저 DAX(Data Analysis Expressions)를 사용합니다. DAX는 테이블 형식 모델에 대해 사용자 지정 가능한 수식을 만드는 특별한 언어입니다. 이 자습서에서는 DAX를 사용하여 계산된 열, 측정값 및 역할 필터를 만듭니다. 자세한 내용은 [테이블 형식 모델의 DAX](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular)를 참조하세요. 
   
 이 단원을 완료하기 위한 예상 시간: **15분**  
   
@@ -51,7 +51,7 @@ ms.lasthandoff: 05/05/2017
   
     **계산된 열 1**이라는 새 열이 **사분기** 열의 왼쪽에 삽입됩니다.  
   
-4.  테이블 위의 수식 입력줄에 다음 DAX 수식을 입력합니다. 자동 완성을 통해 열 및 테이블의 정규화된 이름을 입력하고 사용 가능한 함수 목록을 보여줍니다.  
+4.  테이블 위의 수식 입력줄에 다음 DAX 수식을 입력합니다. 자동 완성을 통해 열 및 테이블의 정규화된 이름을 입력하고 사용 가능한 함수 목록을 보여 줍니다.  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  

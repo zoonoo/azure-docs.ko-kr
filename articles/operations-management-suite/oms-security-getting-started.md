@@ -4,7 +4,7 @@ description: "이 문서는 Operations Management Suite 보안 및 감사 솔루
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -138,6 +139,12 @@ ID 활동을 모니터링함으로써 문제가 발생하기 전에 사전 대�
 ### <a name="threat-intelligence"></a>위협 인텔리전스
 
 IT 관리자는 OMS 보안 및 감사에 제공되는 위협 인텔리전스 옵션을 사용하여 환경에 대한 보안 위협을 식별할 수 있습니다. 예를 들어 특정 컴퓨터가 봇넷의 일부인이 여부를 식별할 수 있습니다. 공격자가 컴퓨터를 명령 및 컨트롤에 몰래 연결하는 맬웨어를 불법으로 설치할 경우 해당 컴퓨터가 봇넷의 노드가 되었다고 합니다. darknet 같은 지하 통신 채널에서 오는 잠재적 위협도 식별할 수 있습니다. [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](oms-security-responding-alerts.md) 문서를 읽고 위협 인텔리전스에 대해 자세히 알아보세요.
+
+일부 시나리오에서는 모니터링되는 한 컴퓨터에서 잠재적인 악성 IP에 액세스한 것을 확인할 수 있습니다.
+
+![위협 인텔리전스 맵](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+이 경고와 같은 범주 내의 다른 경고는 [Microsoft 위협 인텔리전스](https://youtu.be/O4WtxgUrDc8)를 활용하여 OMS 보안을 통해 생성됩니다. 위협 인텔리전스 데이터는 Microsoft에서 수집하며 업계 선두적인 위협 인텔리전스 공급자로부터 구입합니다. 이 데이터는 자주 업데이트되며 빠르게 변화하는 위협에 대해 대응합니다. 이러한 특성으로 인해 보안 경고를 [조사](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/)하는 동안 다른 보안 정보 원본과 결합되어야 합니다. 
 
 ### <a name="baseline-assessment"></a>기준 평가
 

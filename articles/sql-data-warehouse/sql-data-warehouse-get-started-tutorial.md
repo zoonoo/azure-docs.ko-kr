@@ -16,10 +16,10 @@ ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -577,6 +577,9 @@ SQL Data Warehouse가 개선시켜야 하는 쿼리 성능 향상과 고속 성�
 6. 데이터 웨어하우스를 400DWU로 다시 조정합니다. 각각의 100DWU는 Azure SQL Data Warehouse에 또 다른 계산 노드를 추가한다는 것을 기억하세요.
 
 7. 쿼리를 다시 실행합니다. 상당한 차이에 주목해야 합니다. 
+
+    > [!NOTE]
+    > 쿼리가 많은 데이터를 반환하기 때문에 SSMS를 실행하는 컴퓨터의 대역폭 가용성에 성능 병목 상태가 발생할 수도 있습니다. 따라서 성능이 하나도 개선되지 않을 수 있습니다.
 
 > [!NOTE]
 > SQL Data Warehouse는 대규모 병렬 처리를 사용하기 때문입니다. 수백만 개의 행에서 검색 또는 분석 기능을 수행하는 쿼리를 통해 Azure SQL Data Warehouse의 진정한 능력을 경험할 수 있습니다.

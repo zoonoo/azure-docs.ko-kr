@@ -1,7 +1,7 @@
 ---
-title: "Azure HDInsight에서 Apache Storm 시작 | Microsoft Docs"
-description: "Linux 기반 HDInsight에서 Apache Storm 및 Storm Starter 샘플을 사용한 빅 데이터 분석을 시작합니다. Storm을 사용하여 실시간으로 데이터를 처리하는 방법을 알아봅니다."
-keywords: "apache storm, apache storm 자습서, 빅 데이터 분석, storm 시작"
+title: "HDInsight의 Apache Storm에서 Storm-starter예제 - Azure | Microsoft Docs"
+description: "HDInsight에서 Apache Storm 및 storm-starter 예제를 사용하여 빅 데이터 분석 및 데이터 처리를 수행하는 방법을 알아봅니다."
+keywords: "storm-starter, apache storm 예제"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,15 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: larryfr
-ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 5976051ea06896e4158071cb6839ba415b4622d2
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 5936a45973eb41d2c5b3a1a47c663e393e628f54
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/09/2017
 
 ---
-#<a name="get-started-with-the-storm-starter-samples-for-big-data-analytics-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Storm Starter 샘플을 사용하여 빅 데이터 분석 시작
+#<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>storm-starter 예제를 사용하여 HDInsight의 Apache Storm 시작
+
+storm-starter 예제를 사용하여 HDInsight의 Apache Storm을 시작하는 방법을 알아봅니다.
 
 Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시간 계산 시스템입니다. Azure HDInsight의 Storm을 사용하여 실시간 데이터 분석을 수행하는 클라우드 기반 Storm 클러스터를 만들 수 있습니다.
 
@@ -84,7 +86,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
     > [!NOTE]
     > 클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
 
-## <a name="run-a-storm-starter-sample-on-hdinsight"></a>HDInsight에서 Storm Starter 샘플 실행
+## <a name="run-a-storm-starter-sample-on-hdinsight"></a>HDInsight에서 storm-starter 샘플 실행
 
 1. SSH를 사용하여 HDInsight 클러스터에 연결합니다.
 
@@ -106,9 +108,9 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
     > [!NOTE]
     > 클러스터에 고유한 토폴로지를 제출할 때 `storm` 명령을 사용하기 전에 먼저 jar 파일을 포함하는 클러스터를 복사해야 합니다. `scp` 명령을 사용하여 파일을 복사합니다. 예를 들어 `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
-    > WordCount 예제 및 다른 Storm 스타터 예제는 `/usr/hdp/current/storm-client/contrib/storm-starter/`에서 클러스터에 이미 포함되어 있습니다.
+    > WordCount 예제 및 다른 storm-starter 예제는 `/usr/hdp/current/storm-client/contrib/storm-starter/`에서 클러스터에 이미 포함되어 있습니다.
 
-Storm 시작 예제의 원본을 보려면 [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter)에서 코드를 찾을 수 있습니다. 이 링크는 Storm 1.0.x에 해당하며 HDInsight 3.5와 함께 제공됩니다. Storm의 다른 버전의 경우 페이지 맨 위에 있는 __분기__ 단추를 사용하여 다른 Storm 버전을 선택합니다.
+storm-starter 예제의 소스를 보려면 [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter)에서 코드를 찾을 수 있습니다. 이 링크는 Storm 1.0.x에 해당하며 HDInsight 3.5와 함께 제공됩니다. Storm의 다른 버전의 경우 페이지 맨 위에 있는 __분기__ 단추를 사용하여 다른 Storm 버전을 선택합니다.
 
 ## <a name="monitor-the-topology"></a>토폴로지 모니터링
 
@@ -123,7 +125,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 2. **토폴로지 요약**의 **이름** 열에서 **wordcount** 항목을 선택합니다. 토폴로지에 대한 정보가 표시됩니다.
 
-    ![스톰 스타터 WordCount 토폴로지 정보가 있는 스톰 대시보드.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
+    ![storm-starter WordCount 토폴로지 정보가 있는 Storm 대시보드.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
 
     이 페이지에서는 다음 정보를 제공합니다.
 

@@ -14,13 +14,14 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 06/06/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: e37a3194bb65ccf3bb6168a2f456902a9c48edc5
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 99bb3db7cc80e8426e1dca14bc3d733ee6c7342c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 개인 Docker 컨테이너 레지스트리 만들기
@@ -45,17 +46,38 @@ ms.lasthandoff: 03/28/2017
 >
 >
 
-다음 명령은 미국 중남부 지역에 `myResourceGroup`이라는 리소스 그룹의 `myRegistry1`라는 컨테이너 레지스트리를 만들기 위해 최소의 매개 변수를 사용합니다.
+다음 명령은 최소 매개 변수를 사용하여 `myResourceGroup` 리소스 그룹에 `myRegistry1` 컨테이너 레지스트리를 만들고 *기본* SKU를 사용합니다.
 
 ```azurecli
-az acr create -n myRegistry1 -g myResourceGroup -l southcentralus
+az acr create --name myRegistry1 --resource-group myResourceGroup --sku Basic
 ```
 
 * `--storage-account-name` 는 선택 사항입니다. 지정하지 않으면 지정된 리소스 그룹에서 레지스트리 이름 및 타임스탬프로 구성된 이름으로 저장소 계정이 만들어집니다.
 
-다음과 유사하게 출력됩니다.
+레지스트리를 만들면 출력은 다음과 비슷합니다.
 
-![az acr create 출력](./media/container-registry-get-started-azure-cli/acr_create.png)
+```azurecli
+{
+  "adminUserEnabled": false,
+  "creationDate": "2017-06-06T18:36:29.124842+00:00",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry
+/registries/myRegistry1",
+  "location": "southcentralus",
+  "loginServer": "myregistry1.azurecr.io",
+  "name": "myRegistry1",
+  "provisioningState": "Succeeded",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "storageAccount": {
+    "name": "myregistry123456789"
+  },
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+
+```
 
 
 특별 고려 사항:

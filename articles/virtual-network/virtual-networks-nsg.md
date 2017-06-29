@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: dfa9f6e4bc95a1cd99f84e58167192d951960a7a
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 4043c68a3c8559eab6f5e4352bb599015366e5b5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -182,7 +183,7 @@ NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리�
 1. WEB과 DB 서버 간의 트래픽을 분리합니다.
 2. 부하 분산 규칙은 트래픽을 부하 분산 장치에서 80 포트의 모든 웹 서버로 전달합니다.
 3. 부하 분산 장치 NAT 규칙은 50001 포트의 부하 분산 장치로 들어오는 트래픽을 WEB1 VM의 3389 포트로 전달합니다.
-4. 요구 사항 1과 3을 제외하고는 인터넷에서 프런트 엔드 또는 백 엔드 VM에 액세스할 수 없습니다.
+4. 요구 사항 2와 3을 제외하고는 인터넷에서 프런트 엔드 또는 백 엔드 VM에 액세스할 수 없습니다.
 5. WEB 또는 DB 서버에서 아웃바운드로 인터넷에 액세스할 수 없습니다.
 6. FrontEnd 서브넷에서의 액세스는 모든 웹 서버의 3389 포트에 허용됩니다.
 7. FrontEnd 서브넷에서의 액세스는 모든 DB 서버의 3389 포트에 허용됩니다.

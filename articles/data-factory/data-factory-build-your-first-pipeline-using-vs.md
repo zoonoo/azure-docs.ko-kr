@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 9d788bf8e41fe225a4c24a4f5b464e8664f3d677
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 7ea9988b02bc09626a11efb5e95c2349b378256a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/22/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -202,7 +202,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
     }
     ```
     JSON 코드 조각에서는 파이프라인의 Hive 작업에서 생성한 출력 데이터를 나타내는 **AzureBlobOutput**이라는 데이터 집합을 정의합니다. Hive 작업에서 생성된 출력 데이터가 `adfgetstarted`라는 Blob 컨테이너 및 `partitioneddata` 폴더에 배치되도록 지정합니다. 
-     
+    
     **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다. 출력 데이터 집합은 파이프라인의 일정을 결정합니다. 파이프라인은 해당 시작 및 종료 시간 사이에 매월 실행됩니다. 
 
     이러한 속성에 대한 설명은 **입력 데이터 집합 만들기** 섹션을 참조하세요. 파이프라인에서 데이터 집합이 생성되므로 출력 데이터 집합에 외부 속성을 설정하지 않습니다.
@@ -320,7 +320,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
 - **구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.**라는 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요.
     - Azure PowerShell에서 다음 명령을 실행하여 Data Factory 공급자를 등록합니다.
-        ```PowerShell    
+        ```PowerShell   
         Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다.

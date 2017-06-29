@@ -27,7 +27,7 @@ VM 디스크로 Standard Storage를 사용하는 방법에 대한 자세한 내�
 
 ### <a name="premium-storage"></a>Premium Storage 
 
-Premium Storage는 SSD에 의해 지원되며 I/O 사용량이 많은 작업을 실행하는 VM을 위해 고성능의 낮은 대기 시간의 디스크를 지원합니다. Premium Storage는 DS, DSv2, GS 또는 FS 시리즈 Azure VM과 함께 사용할 수 있습니다. 자세한 내용은 [Premium Storage](../articles/storage/storage-premium-storage.md)를 참조하세요.
+Premium Storage는 SSD에 의해 지원되며 I/O 사용량이 많은 작업을 실행하는 VM을 위해 고성능의 낮은 대기 시간의 디스크를 지원합니다. Premium Storage는 DS, DSv2, GS, Ls 또는 FS 시리즈 Azure VM과 함께 사용할 수 있습니다. 자세한 내용은 [Premium Storage](../articles/storage/storage-premium-storage.md)를 참조하세요.
 
 ### <a name="unmanaged-disks"></a>관리되지 않는 디스크
 
@@ -50,6 +50,7 @@ Managed Disks는 백그라운드에서 저장소 계정 만들기/관리 작업�
 | 디스크 유형 | 반도체 드라이브(SSD) | 하드 디스크 드라이브 (HDD)  |
 | 개요  | IO 사용량이 많은 작업을 실행하거나 중요 업무용 프로덕션 환경을 호스팅하는 VM을 위해 SSD 기반의 고성능, 낮은 대기 시간 디스크 지원 | 개발/테스트 VM 시나리오를 위한 HDD 기반의 경제적인 디스크 지원 |
 | 시나리오  | 프로덕션 및 성능이 중요한 워크로드 | 개발/테스트, 중요하지 않음, <br>액세스를 자주 하지 않음 |
-| 디스크 크기 | P10: 128GB<br>P20: 512GB<br>P30: 1024GB | 비관리 디스크: 1GB – 1TB <br><br>관리 디스크:<br> S4: 32GB <br>S6: 64GB <br>S10: 128GB <br>S20: 512GB <br>S30: 1024GB |
-| 디스크당 최대 처리량 | 200MB/s | 60MB/s |
-| 디스크당 최대 IOPS | 5000IOPS | 500IOPS |
+| 디스크 크기 | P4: 32GB<br>P6: 64GB<br>P10: 128GB<br>P20: 512GB<br>P30: 1024GB<br>P40: 2048GB<br>P50: 4095GB | 관리되지 않는 디스크: 1GB-4TB(4095GB) <br><br>관리 디스크:<br> S4: 32GB <br>S6: 64GB <br>S10: 128GB <br>S20: 512GB <br>S30: 1024GB <br>S40: 2048GB<br>S50: 4095GB| 
+| 디스크당 최대 처리량 | 250MB/초 | 60MB/s | 
+| 디스크당 최대 IOPS | 7500IOPS | 500IOPS | 
+

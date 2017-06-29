@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 1691ef4a3de8f17d61aeead05b7d9eaeadc2d58a
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>단원 7: 핵심 성과 지표 만들기
@@ -60,7 +60,7 @@ ms.lasthandoff: 05/05/2017
     ![aas-lesson7-kpi](../tutorials/media/aas-lesson7-kpi.png)
     
     > [!TIP]  
-    > 제공되는 아이콘 스타일 아래 확장 가능한 **설명** 레이블이 있습니다. 이 레이블을 사용하여 다양한 KPI 요소에 대한 설명을 입력하여 클라이언트 응용 프로그램에서 쉽게 식별할 수 있도록 합니다.  
+    > 제공되는 아이콘 스타일 아래 확장 가능한 **설명** 레이블이 있습니다. 다양한 KPI 요소에 대한 설명을 사용하여 클라이언트 응용 프로그램에서 쉽게 식별할 수 있도록 합니다.  
   
 9. **확인**을 클릭하여 KPI를 완료합니다.  
   

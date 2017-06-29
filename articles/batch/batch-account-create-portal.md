@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 8cfe8689494a9f85d1533d259a2744e18407ecef
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 053e2ae7f382bc55a6638ccd612289ab2ba64e52
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -82,7 +82,12 @@ ms.lasthandoff: 05/08/2017
 
     ![구독 액세스 제어][subscription_access]
 
-4. **권한 추가** 블레이드에서 **참가자** 역할을 선택하고 **MicrosoftAzureBatch**(공백 없음)를 검색합니다. **MicrosoftAzureBatch**를 선택하고 **저장**을 클릭합니다.
+4. **권한 추가** 블레이드에서 **참가자** 역할을 선택하고 Batch API를 검색합니다. API를 찾을 때까지 다음 문자열 각각을 검색합니다.
+    1. **MicrosoftAzureBatch**
+    2. **Microsoft Azure Batch** - 최신 Azure AD 테넌트에서는 이 이름을 사용할 수도 있습니다.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864**는 Batch API에 대한 ID입니다. 
+
+5. Batch API를 찾으면 해당 API를 선택하고 **저장**을 클릭합니다.
 
     ![배치 권한 추가][add_permission]
 
