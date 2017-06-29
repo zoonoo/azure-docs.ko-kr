@@ -15,10 +15,10 @@ ms.date: 04/18/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 745e115409a5b1e5e4f343ca0a5bb922272d3020
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 80fd9d79652e4f0d9c4c524e3a762bcc3462bb53
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/02/2017
 
 ---
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 05/11/2017
        {
          "name": "string",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-05-01",
+         "apiVersion": "2016-12-01",
          "sku": {
            "name": "string"
          },
@@ -102,6 +102,8 @@ ms.lasthandoff: 05/11/2017
    }
    ```
 
+  VS Code는 2016-12-01이 유효한 API 버전이 아님을 나타낼 수 있습니다. 템플릿 참조 설명서에서 버전 번호를 사용하는 경우 경고를 무시할 수 있습니다. 스키마가 리소스 공급자에서 최신 버전 번호로 업데이트되지 않은 경우 이 경고가 표시됩니다. 
+  
   앞의 예제에는 저장소 계정에 필요하지 않을 수도 있는 많은 자리 표시자 값 및 몇 가지 속성이 포함됩니다.
 
 ## <a name="set-values-for-storage-account"></a>저장소 계정에 대한 값 설정
@@ -117,7 +119,7 @@ ms.lasthandoff: 05/11/2017
      {
        "name": "string",
        "type": "Microsoft.Storage/storageAccounts",
-       "apiVersion": "2016-05-01",
+       "apiVersion": "2016-12-01",
        "sku": {
          "name": "string"
        },
@@ -156,7 +158,7 @@ ms.lasthandoff: 05/11/2017
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -199,7 +201,7 @@ ms.lasthandoff: 05/11/2017
     {
       "name": "string",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "string"
       },
@@ -328,7 +330,7 @@ ms.lasthandoff: 05/11/2017
     {
       "name": "[variables('storageName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-05-01",
+      "apiVersion": "2016-12-01",
       "sku": {
         "name": "[parameters('storageSKU')]"
       },

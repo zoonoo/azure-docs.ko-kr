@@ -13,10 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
-ms.openlocfilehash: 449110cfda1a08b73b5e21cbf495e59f32d80339
-ms.lasthandoff: 01/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 1976a514b4469704dcba9381c5fcbe8805a11ecd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 01/14/2017
 
 이 문서에서는 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)를 사용하여 인덱스를 쿼리하는 방법을 보여 줍니다.
 
-이 연습을 시작하기 전에 [Azure 검색 인덱스를 만들고](search-what-is-an-index.md) [데이터로 채워야](search-what-is-data-import.md) 합니다.
+이 연습을 시작하기 전에 [Azure 검색 인덱스를 만들고](search-what-is-an-index.md) [데이터로 채워야](search-what-is-data-import.md) 합니다. 배경 정보는 [Azure Search에서 전체 텍스트 검색의 작동 방식](search-lucene-query-architecture.md)을 참조하세요.
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>Azure 검색 서비스의 쿼리 API 키 식별
 Azure 검색 REST API에 대한 모든 검색 작업의 주요 구성 요소는 프로비전한 서비스에 대해 생성한 *API 키* 입니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
@@ -72,7 +73,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-인덱스에 필터를 적용하여 하루에&150; 달러가 저렴한 호텔을 찾고 `hotelId` 및 `description`를 반환합니다.
+인덱스에 필터를 적용하여 하루에 150 달러가 저렴한 호텔을 찾고 `hotelId` 및 `description`를 반환합니다.
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01

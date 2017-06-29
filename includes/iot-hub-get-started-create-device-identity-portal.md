@@ -1,5 +1,5 @@
 ## <a name="create-a-device-identity"></a>장치 ID 만들기
-이 섹션에서는 [Azure Portal][lnk-azure-portal]을 사용하여 IoT hub의 ID 레지스트리에 장치 ID를 만듭니다. ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 "ID 레지스트리" 섹션을 참조하세요. 포털의 **Device Explorer**를 사용하면 IoT Hub에 장치-클라우드 메시지를 보낼 때 장치가 자신을 식별하는 데 사용할 수 있는 고유의 장치 ID 및 키를 생성할 수 있습니다.
+이 섹션에서는 [Azure Portal][lnk-azure-portal]을 사용하여 IoT hub의 ID 레지스트리에 장치 ID를 만듭니다. ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 "ID 레지스트리" 섹션을 참조하세요. 포털의 **Device Explorer**를 사용하면 IoT Hub에 장치-클라우드 메시지를 보낼 때 장치가 자신을 식별하는 데 사용할 수 있는 고유의 장치 ID 및 키를 생성할 수 있습니다. 장치 ID는 대/소문자를 구분합니다.
 
 1. [Azure Portal][lnk-azure-portal]에 로그인되어 있어야 합니다. 
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2017
+ms.date: 06/09/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: d1e1f977c9023f4727d8c444b5e490e8f5ba8d9e
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 07dc5e1520cf60e19a1961ad85d2aea0cc7bd15f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -28,9 +28,9 @@ ms.lasthandoff: 05/31/2017
 
 ![Azure Table Storage API 및 Azure Cosmos DB](./media/table-introduction/premium-tables.png) 
 
-Azure Cosmos DB는 유연한 스키마가 있는 키-값 저장소를 필요로 하는 응용 프로그램에 대한 테이블 API를 제공합니다. [Azure Table Storage](../storage/storage-introduction.md) SDK 및 REST API를 Azure Cosmos DB와 함께 사용하여 작업할 수 있습니다. Azure Cosmos DB를 사용하면 높은 처리량 요구 사항의 테이블을 만들 수 있습니다. Azure Cosmos DB는 현재 공개 미리 보기에서 처리량 액세스에 최적화된 테이블(비공식적으로 "프리미엄 테이블"이라고 함)을 지원합니다. 
+Azure Cosmos DB는 유연한 스키마, 예측 가능한 성능, 글로벌 배포 및 높은 처리량을 가진 키-값 저장소를 필요로 하는 응용 프로그램에 대한 Table API (미리 보기)를 제공합니다. Table API는 Azure Table storage와 같은 기능을 제공하지만 Azure Cosmos DB 엔진의 이점을 활용합니다. 
 
-높은 저장소 및 낮은 처리량 요구 사항의 테이블에 대해서도 Azure Table Storage를 계속 사용할 수 있습니다. Azure Cosmos DB는 향후 업데이트에서 저장소 최적화 테이블을 지원하고 기존 및 새로운 Azure Table Storage 계정을 Azure Cosmos DB로 업그레이드할 것입니다.
+저장 용량이 크고 처리량이 낮은 테이블에 대해 Azure Table 저장소를 계속 사용할 수 있습니다. Azure Cosmos DB는 향후 업데이트에서 저장소 최적화 테이블을 지원하고 기존 및 새로운 Azure Table Storage 계정을 Azure Cosmos DB로 업그레이드할 것입니다.
 
 ## <a name="premium-and-standard-table-apis"></a>프리미엄 및 표준 테이블 API
 현재 Azure Table Storage를 사용하는 경우 Azure Cosmos DB의 "프리미엄 테이블" 미리 보기로 이동하면 다음과 같은 이점이 있습니다.
@@ -56,3 +56,4 @@ Azure Cosmos DB는 유연한 스키마가 있는 키-값 저장소를 필요로 
 * 기존 NET 테이블 SDK를 사용하여 [Azure Cosmos DB 테이블 API](create-table-dotnet.md)를 시작합니다.
 * [Azure Cosmos DB를 사용한 글로벌 배포](distribute-data-globally.md)에 대해 자세히 알아봅니다.
 * [Azure Cosmos DB의 프로비전된 처리량](request-units.md)에 대해 자세히 알아봅니다.
+

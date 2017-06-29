@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Kubernetes 클러스터 빠른 시작 | Microsoft Docs"
-description: "Azure Container Service에서 Kubernetes 클러스터 배포 및 시작"
+title: "빠른 시작 - Linux용 Azure Kubernetes 클러스터 | Microsoft Docs"
+description: "Azure Container Service에서 Azure CLI를 사용하여 Linux 컨테이너용 Kubernetes 클러스터를 빠르게 만드는 방법에 대해 알아봅니다."
 services: container-service
 documentationcenter: 
 author: anhowe
@@ -14,191 +14,154 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 05/31/2017
 ms.author: anhowe
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 0604a85192ed632b621113b98cc44172c584ea01
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 25043f6bf5e5ab3def8563bd2c096b79706bfec1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
-# <a name="get-started-with-a-kubernetes-cluster-in-container-service"></a>Container Service에서 Kubernetes 클러스터 시작
+# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Linux 컨테이너용 Kubernetes 클러스터 배포
 
+명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 가이드에서는 Azure CLI를 사용하여 [Azure Container Service](container-service-intro.md)에서 [Kubernetes](https://kubernetes.io/docs/home/) 클러스터를 배포하는 방법에 대해 자세히 설명합니다. 클러스터가 배포되면 Kubernetes `kubectl` 명령줄 도구를 사용하여 해당 클러스터에 연결하고 첫 번째 Linux 컨테이너를 배포합니다.
 
-이 연습에서는 Azure CLI 2.0 명령을 사용하여 Azure Container Service에서 Kubernetes 클러스터를 만드는 방법을 보여줍니다. 그런 다음 `kubectl` 명령줄 도구를 사용하여 클러스터에서 컨테이너 작업을 시작할 수 있습니다.
+이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
-다음 이미지는 1개의 Linux 마스터와 2개의 Linux 에이전트가 있는 Container Service 클러스터의 아키텍처를 보여 줍니다. 마스터 노드는 Kubernetes REST API를 제공합니다. 에이전트 노드는 Azure 가용성 집합에서 그룹화되고 컨테이너를 실행합니다. 모든 VM은 동일한 개인 가상 네트워크에 있으며 서로 완벽하게 액세스할 수 있습니다.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-walkthrough/kubernetes.png)
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-자세한 배경 정보는 [Azure Container Service 소개](container-service-intro.md) 및 [Kubernetes 설명서](https://kubernetes.io/docs/home/)를 참조하세요.
+## <a name="log-in-to-azure"></a>Azure에 로그인 
 
-## <a name="prerequisites"></a>필수 조건
-Azure CLI 2.0을 사용하여 Azure Container Service 클러스터를 만들려면 다음을 수행해야 합니다.
-* Azure 계정([무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/))이 있어야 합니다.
-* [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 설정해야 합니다.
+[az login](/cli/azure/#login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
-또한 다음이 필요합니다(또는 Azure CLI를 사용하여 클러스터 배포 중에 자동으로 생성할 수 있음).
-
-* **SSH RSA 공용 키**: SSH(보안 셸) RSA 키를 미리 만들려면 [macOS 및 Linux](../virtual-machines/linux/mac-create-ssh-keys.md) 또는 [Windows](../virtual-machines/linux/ssh-from-windows.md) 지침을 참조하세요. 
-
-* **서비스 주체 클라이언트 ID 및 비밀**: Azure Active Directory 서비스 주체를 만드는 단계 및 추가 정보는 [Kubernetes 클러스터에 대한 서비스 주체 정보](container-service-kubernetes-service-principal.md)를 참조하세요.
-
- 이 문서의 명령 예제에서는 SSH 키 및 서비스 주체를 자동으로 생성합니다.
-
-## <a name="create-your-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
-
-다음은 Azure CLI 2.0을 사용하여 클러스터를 만드는 간단한 bash 셸 명령입니다. 
-
-### <a name="create-a-resource-group"></a>리소스 그룹 만들기
-클러스터를 만들려면 Azure Container Service를 [사용할 수 있는](https://azure.microsoft.com/regions/services/) 위치에 리소스 그룹을 먼저 만들어야 합니다. 다음과 유사한 명령을 실행합니다.
-
-```azurecli
-RESOURCE_GROUP=my-resource-group
-LOCATION=westus
-az group create --name=$RESOURCE_GROUP --location=$LOCATION
+```azurecli-interactive
+az login
 ```
 
-### <a name="create-a-cluster"></a>클러스터 만들기
-`--orchestrator-type=kubernetes`에서 `az acs create` 명령을 사용하여 리소스 그룹에서 Kubernetes 클러스터를 만듭니다. 명령 구문의 경우 `az acs create` [도움말](/cli/azure/acs#create)을 참조하세요.
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-이 버전의 명령은 Kubernetes 클러스터에 대한 SSH RSA 키 및 서비스 주체를 자동으로 생성합니다.
+[az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 
 
+다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
-
-```azurecli
-DNS_PREFIX=some-unique-value
-CLUSTER_NAME=any-acs-cluster-name
-az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX --generate-ssh-keys
+```azurecli-interactive 
+az group create --name myResourceGroup --location eastus
 ```
 
-몇 분 후 명령이 완료되면 Kubernetes 클러스터가 작동해야 합니다.
+## <a name="create-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
+[az acs create](/cli/azure/acs#create) 명령을 사용하여 Azure Container Service에서 Kubernetes 클러스터를 만듭니다. 
 
-> [!IMPORTANT]
-> 계정에 Azure AD 서비스 주체를 만들 수 있는 권한이 없는 경우 명령은 **권한이 부족하여 작업을 완료할 수 없습니다**와 비슷한 오류를 생성합니다. 자세한 내용은 [Kubernetes 클러스터의 서비스 주체 정보](container-service-kubernetes-service-principal.md)를 참조하세요.
-> 
-
+다음 예제에서는 하나의 Linux 마스터 노드와 두 개의 Linux 에이전트 노드가 있는 *myK8sCluster* 클러스터를 만들고, SSH 키가 기본 위치에 없는 경우 해당 SSH 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. 클러스터 이름을 사용자 환경에 적절한 이름으로 업데이트합니다. 
 
 
-### <a name="connect-to-the-cluster"></a>클러스터에 연결
+
+```azurecli-interactive 
+az acs create --orchestrator-type=kubernetes \
+    --resource-group myResourceGroup \
+    --name=myK8sCluster \
+    --agent-count=2 \
+    --generate-ssh-keys 
+```
+
+몇 분 후 명령이 완료되면 배포에 대한 정보가 표시됩니다.
+
+## <a name="install-kubectl"></a>kubectl 설치
 
 클라이언트 컴퓨터에서 Kubernetes 클러스터에 연결하려면 Kubernetes 명령줄 클라이언트인 [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/)을 사용합니다. 
 
-`kubectl`이 아직 설치되지 않은 경우 `az acs kubernetes install-cli`를 사용하여 설치할 수 있습니다. ([Kubernetes 사이트](https://kubernetes.io/docs/tasks/kubectl/install/)에서 다운로드할 수도 있습니다.)
+Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. 로컬로 설치하려면 [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) 명령을 사용하면 됩니다.
 
-```azurecli
-sudo az acs kubernetes install-cli
+다음 Azure CLI 예제에서는 `kubectl`을 시스템에 설치합니다. macOS 또는 Linux에서 Azure CLI를 실행하는 경우 `sudo`를 사용하여 이 명령을 실행해야 할 수도 있습니다.
+
+```azurecli-interactive 
+az acs kubernetes install-cli 
 ```
 
-> [!TIP]
-> 기본적으로 이 명령은 `kubectl` 이진 파일을 Linux 또는 macOS 시스템의 `/usr/local/bin/kubectl`이나 Windows의 `C:\Program Files (x86)\kubectl.exe`에 설치합니다. 다른 설치 경로를 지정하려면 `--install-location` 매개 변수를 사용합니다.
->
-> `kubectl`이 설치된 후에는 시스템 경로에서 해당 디렉터리를 확인하거나 해당 경로에 추가합니다. 
->
+## <a name="connect-with-kubectl"></a>Kubectl로 연결
 
+Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) 명령을 실행합니다. 다음 예제에서는 Kubernetes 클러스터에 대한 클러스터 구성을 다운로드합니다.
 
-그런 후 다음 명령을 실행하여 마스터 Kubernetes 클러스터 구성을 `~/.kube/config` 파일에 다운로드합니다.
-
-```azurecli
-az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
+```azurecli-interactive 
+az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-`kubectl`을 설치하고 구성하는 추가 옵션은 [Azure Container Service 클러스터에 연결](container-service-connect.md)을 참조하세요.
+시스템에서 클러스터에 대한 연결을 확인하려면 다음을 실행합니다.
 
-이제 컴퓨터에서 클러스터에 액세스할 준비가 되었습니다. 다음을 실행해 보세요.
-
-```bash
+```azurecli-interactive
 kubectl get nodes
 ```
 
-클러스터의 컴퓨터 목록이 표시되는지 확인하세요.
+`kubectl`에서 마스터 및 에이전트 노드를 나열합니다.
 
-## <a name="create-your-first-kubernetes-service"></a>첫 번째 Kubernetes 서비스 만들기
+```azurecli-interactive
+NAME                    STATUS                     AGE       VERSION
+k8s-agent-98dc3136-0    Ready                      5m        v1.5.3
+k8s-agent-98dc3136-1    Ready                      5m        v1.5.3
+k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
-이 연습을 완료하면 다음 방법을 알 수 있게 됩니다.
-* Docker 응용 프로그램 배포 및 전 세계에 공개
-* `kubectl exec`를 사용하여 컨테이너에서 명령 실행 
-* Kubernetes 대시보드에 액세스
-
-### <a name="start-a-container"></a>컨테이너 시작
-다음을 실행하면 컨테이너(이 경우 Nginx 웹 서버)를 실행할 수 있습니다.
-
-```bash
-kubectl run nginx --image nginx
 ```
 
-이 명령은 노드 중 하나에 있는 Pod에서 Nginx Docker 컨테이너를 시작합니다.
 
-실행 중인 컨테이너를 보려면 다음을 실행하세요.
+## <a name="deploy-an-nginx-container"></a>NGINX 컨테이너 배포
 
-```bash
+하나 이상의 컨테이너가 포함된 Kubernetes *Pod* 내부에서 Docker 컨테이너를 실행할 수 있습니다. 
+
+다음 명령은 노드 중 하나에 있는 Kubernetes Pod에서 NGINX Docker 컨테이너를 시작합니다. 이 경우 컨테이너는 [Docker 허브](https://hub.docker.com/_/nginx/)의 이미지에서 끌어온 NGINX 웹 서버를 실행합니다.
+
+```azurecli-interactive
+kubectl run nginx --image nginx
+```
+컨테이너가 실행 중인지 확인하려면 다음을 실행합니다.
+
+```azurecli-interactive
 kubectl get pods
 ```
 
-### <a name="expose-the-service-to-the-world"></a>전 세계에 서비스 공개
-전 세계에 서비스를 공개하려면 `LoadBalancer` 유형의 Kubernetes `Service`를 만듭니다.
+## <a name="view-the-nginx-welcome-page"></a>NGINX 시작 페이지 보기
+공용 IP 주소로 NGINX 서버를 전 세계에 공개하려면 다음 명령을 입력합니다.
 
-```bash
+```azurecli-interactive
 kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
-이 명령으로 Kubernetes에서 공용 IP 주소를 사용하여 Azure Load Balancer 규칙이 생성됩니다. 변경 내용이 부하 분산 장치로 전파되는 데 몇 분 정도 걸립니다. 자세한 내용은 [Azure Container Service의 Kubernetes 클러스터에서 컨테이너 부하 분산](container-service-kubernetes-load-balancing.md)을 참조하세요.
+이 명령을 사용하면 Kubernetes에서 해당 공용 IP 주소를 사용하여 서비스 및 [Azure 부하 분산 장치 규칙](container-service-kubernetes-load-balancing.md)을 만듭니다. 
 
-다음 명령을 실행하여 `pending`에서 외부 IP 주소를 표시하도록 서비스가 변경되는 것을 확인합니다.
+다음 명령을 실행하여 서비스의 상태를 확인합니다.
 
-```bash
-watch 'kubectl get svc'
+```azurecli-interactive
+kubectl get svc
 ```
 
-  ![pending에서 외부 IP 주소로 전환을 확인하는 이미지](media/container-service-kubernetes-walkthrough/kubernetes-nginx3.png)
-
-외부 IP 주소가 표시되면 브라우저에서 해당 IP로 이동할 수 있습니다.
-
-  ![Nginx로 이동하는 이미지](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
-
-
-### <a name="browse-the-kubernetes-ui"></a>Kubernetes UI 찾아보기
-Kubernetes 웹 인터페이스를 보려면 다음을 사용할 수 있습니다.
-
-```bash
-kubectl proxy
-```
-이 명령은 [http://localhost:8001/ui](http://localhost:8001/ui)에서 실행 중인 Kubernetes 웹 UI를 보는 데 사용할 수 있는 localhost에서 인증된 프록시를 실행합니다. 자세한 내용은 [Azure Container Service에서 Kubernetes 웹 UI 사용](container-service-kubernetes-ui.md)을 참조하세요.
-
-![Kubernetes 대시보드 이미지](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
-
-### <a name="remote-sessions-inside-your-containers"></a>컨테이너 내 원격 세션
-Kubernetes를 사용하면 클러스터에서 실행 중인 원격 Docker 컨테이너에서 명령을 실행할 수 있습니다.
-
-```bash
-# Get the name of your nginx pods
-kubectl get pods
+처음에는 IP 주소가 `pending`으로 표시됩니다. 몇 분 후에 다음과 같이 서비스의 외부 IP 주소가 설정됩니다.
+  
+```azurecli-interactive
+NAME         CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE       
+kubernetes   10.0.0.1       <none>          443/TCP        21h       
+nginx        10.0.111.25    52.179.3.96     80/TCP         22m
 ```
 
-pod 이름을 사용하여 pod에서 원격 명령을 실행할 수 있습니다. 예:
+선택한 웹 브라우저를 사용하여 외부 IP 주소의 기본 NGINX 시작 페이지를 볼 수 있습니다.
 
-```bash
-kubectl exec <pod name> date
+![Nginx로 이동하는 이미지](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
+
+
+## <a name="delete-cluster"></a>클러스터 삭제
+클러스터가 더 이상 필요하지 않으면 [az group delete](/cli/azure/group#delete) 명령을 사용하여 리소스 그룹, 컨테이너 서비스 및 모든 관련 리소스를 제거할 수 있습니다.
+
+```azurecli-interactive 
+az group delete --name myResourceGroup
 ```
-
-`-it` 플래그를 사용하여 완전한 대화형 세션을 가져올 수도 있습니다.
-
-```bash
-kubectl exec <pod name> -it bash
-```
-
-![컨테이너 내 원격 세션](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)
-
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Kubernetes 클러스터로 더 많은 작업을 하려면 다음 리소스를 참조하세요.
+이 빠른 시작에서는 Kubernetes 클러스터를 배포하고, `kubectl`로 연결하고, NGINX 컨테이너가 있는 Pod를 배포했습니다. Azure Container Service에 대해 자세히 알아보려면 Kubernetes 클러스터 자습서로 계속 진행하세요.
 
-* [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) - 컨테이너화된 응용프로그램을 배포, 크기 조정, 업데이트 및 디버그하는 방법을 보여 줍니다.
-* [Kubernetes 사용자 가이드](http://kubernetes.io/docs/user-guide/) - 기존 Kubernetes 클러스터에서 실행되는 프로그램에 대한 정보를 제공합니다.
-* [Kubernetes 예제](https://github.com/kubernetes/kubernetes/tree/master/examples) - Kubernetes로 실제 응용 프로그램을 실행하는 방법에 대한 예제를 제공합니다.
+> [!div class="nextstepaction"]
+> [ACS Kubernetes 클러스터 관리](./container-service-tutorial-kubernetes-prepare-app.md)
 

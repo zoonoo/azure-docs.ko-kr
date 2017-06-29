@@ -12,13 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+f1_keywords:
+- sql13.swb.windowsazurestorage.connect.f1
 ms.date: 01/23/2017
 ms.author: robinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 33988eaaf926dcd91a1e63ae766e815cda93cf03
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 16d9fa8a7b7593f222976897bddf615c28109540
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -89,7 +91,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 ## <a name="manage-your-storage-account"></a>저장소 계정 관리
 ### <a name="change-your-account-configuration"></a>계정 구성 변경
-저장소 계정을 만든 후에는 Blob 저장소 계정에 대한 액세스 계층 변경 또는 계정에 사용되는 복제 옵션 변경 등, 해당 구성을 수정할 수 있습니다. [Azure 포털](https://portal.azure.com)에서 저장소 계정으로 이동하고 **모든 설정**을 클릭한 다음 **구성**을 클릭하여 계정 구성을 확인하거나 변경합니다.
+저장소 계정을 만든 후에는 Blob 저장소 계정에 대한 액세스 계층 변경 또는 계정에 사용되는 복제 옵션 변경 등, 해당 구성을 수정할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 저장소 계정으로 이동하고 **설정**에서 **구성**을 클릭하여 계정 구성을 확인하거나 변경합니다.
 
 > [!NOTE]
 > 저장소 계정을 만들 때 선택한 성능 계층에 따라 일부 복제 옵션을 사용하지 못할 수 있습니다.

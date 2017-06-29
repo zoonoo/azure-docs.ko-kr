@@ -1,6 +1,6 @@
 ## <a name="create-a-device-identity"></a>장치 ID 만들기
 
-이 섹션에서는 [iothub-explorer][iot-hub-explorer]라는 Node.js 도구를 사용하여 이 자습서에서 사용할 장치 ID를 만듭니다.
+이 섹션에서는 [iothub-explorer][iot-hub-explorer]라는 Node.js 도구를 사용하여 이 자습서에서 사용할 장치 ID를 만듭니다. 장치 ID는 대/소문자를 구분합니다.
 
 1. 명령줄 환경에서 다음을 실행 합니다.
 

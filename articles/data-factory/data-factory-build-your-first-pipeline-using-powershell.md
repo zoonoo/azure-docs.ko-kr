@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 04/17/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 6615fc7f23a8a53ae0b8d855f5b157c3787a1f06
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: d3908e2984889656a70b5295eab19164ad3bfa95
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -57,7 +57,7 @@ ms.lasthandoff: 05/18/2017
     ```    
    * 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
     ```PowerShell
-    Get-AzureRmSubscription    
+    Get-AzureRmSubscription 
     ```
    * 다음 명령을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
     ```PowerShell

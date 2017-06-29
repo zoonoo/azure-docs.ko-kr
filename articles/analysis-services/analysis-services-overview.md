@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cc85ae1c6642e763e57327c151ec68845f7673f7
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 34726377836d00d484ca01edb098f6c7cbfa9dbf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -31,7 +31,6 @@ ms.lasthandoff: 05/31/2017
 이 비디오를 통해 Azure Analysis Services에서 전반적인 Microsoft BI 기능과 연동하는 방법과 데이터 모델을 클라우드로 가져올 때 얻을 수 있는 많은 이점에 대해 알아보세요.
 
 
->
 >[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/Azure-Analysis-Services-overview/player]
 >
 >
@@ -43,7 +42,7 @@ Azure Analysis Services는 이미 알고 있는 것과 동일한 SQL Server Anal
 ## <a name="use-the-tools-you-already-know"></a>이미 알고 있는 도구 사용
 ![BI 개발자 도구](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-Azure Analysis Services의 데이터 모델을 만들 때 SQL Server Analysis Services에서 사용한 것과 같은 도구를 사용 합니다. [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)에서 [SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx)를 사용하거나 [Azure Powershell](/powershell/azureps-cmdlets-docs) 및 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 템플릿을 사용하여 테이블 형식 모델을 작성하고 배포합니다.
+Azure Analysis Services의 데이터 모델을 만들 때 SQL Server Analysis Services에서 사용한 것과 같은 도구를 사용 합니다. [SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx)를 사용하여 모델을 작성하고 배포합니다. [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 서버 및 모델 데이터베이스를 관리합니다. [PowerShell](analysis-services-powershell.md) 및 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 템플릿을 사용하여 작업 자동화 
 
 ## <a name="supports-the-latest-features"></a>최신 기능 지원
 1200 및 1400 미리 보기 호환성 수준의 테이블 형식 모델을 지원합니다.
@@ -55,9 +54,7 @@ Azure Analysis Services의 데이터 모델을 만들 때 SQL Server Analysis Se
 ## <a name="data-sources"></a>데이터 원본
 Azure에서 서버에 배포한 데이터 모델은 조직이나 클라우드의 온-프레미스 데이터 원본에 대한 연결을 지원합니다. 하이브리드 BI 솔루션을 위한 온-프레미스 및 클라우드 데이터 원본의 데이터를 모두 결합합니다.
 
-서버가 클라우드에 있기 때문에 클라우드 데이터 원본에 원활하게 연결됩니다. 온-프레미스 데이터 원본에 연결할 때 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 사용하면 클라우드에서 서버를 통해 신속하고 안전하게 연결할 수 있습니다.
-
-지원되는 온-프레미스 데이터 원본에 대한 자세한 내용을 보려면 [Azure Analysis Services에서 지원되는 데이터 원본](analysis-services-datasource.md)을 참조하세요.
+서버가 클라우드에 있기 때문에 클라우드 데이터 원본에 원활하게 연결됩니다. 온-프레미스 데이터 원본에 연결할 때 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 사용하면 클라우드에서 서버를 통해 신속하고 안전하게 연결할 수 있습니다. 지원되는 온-프레미스 데이터 원본에 대한 자세한 내용을 보려면 [Azure Analysis Services에서 지원되는 데이터 원본](analysis-services-datasource.md)을 참조하세요.
 
 
 ## <a name="explore-your-data-from-anywhere"></a>어디에서나 데이터 탐색
@@ -84,13 +81,17 @@ Azure Analysis Services는 [Microsoft Online Services 약관](http://www.microso
 Azure 보안에 대한 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/trustcenter/Security/AzureSecurity)를 참조하세요.
 
 ## <a name="get-help"></a>도움말 보기
-Azure Analysis Services에서는 간단하게 설정하고 관리할 수 있습니다. 서버를 만들고 관리하는 데 필요한 모든 정보는 여기서 찾을 수 있습니다. 서버에 배포할 데이터 모델을 만드는 것은 온-프레미스 서버에 배포할 데이터 모델을 만드는 것과 매우 비슷합니다. 개념, 절차, 자습서 및 참조 문서에 대한 광범위한 자료는 [MSDN의 Analysis Services](https://msdn.microsoft.com/library/bb522607.aspx)에 있습니다.
 
-또한 다수의 유용한 동영상도 [Channel 9의 Azure Analysis Services](https://channel9.msdn.com/series/Azure-Analysis-Services)에 있습니다.
+### <a name="documentation"></a>설명서
+Azure Analysis Services에서는 간단하게 설정하고 관리할 수 있습니다. 서버를 만들고 관리하는 데 필요한 모든 정보는 여기서 찾을 수 있습니다. 서버에 배포할 데이터 모델을 만드는 것은 온-프레미스 서버에 배포할 데이터 모델을 만드는 것과 매우 비슷합니다. 개념, 절차, 자습서 및 참조 문서에 대한 광범위한 자료는 [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services)에 있습니다.
 
-상황이 빠르게 변화하고 있습니다. 최신 정보는 언제든지 [Azure Analysis Services 블로그](https://go.microsoft.com/fwlink/?linkid=830920)에서 얻을 수 있습니다.
+### <a name="videos"></a>비디오
+[Channel 9의 Azure Analysis Services](https://channel9.msdn.com/series/Azure-Analysis-Services)에서 유용한 동영상을 확인하세요.
 
-## <a name="community"></a>커뮤니티
+### <a name="blogs"></a>블로그
+상황이 빠르게 변화하고 있습니다. 최신 정보는 언제든지 [Analysis Services 팀 블로그](https://blogs.msdn.microsoft.com/analysisservices/) 및 [Azure 블로그](https://azure.microsoft.com/blog/)에서 얻을 수 있습니다.
+
+### <a name="community"></a>커뮤니티
 Analysis Services에는 활발한 사용자 커뮤니티가 있습니다. [Azure Analysis Services 포럼](https://aka.ms/azureanalysisservicesforum)에서 주최하는 대화에 참여해 보세요.
 
 ## <a name="feedback"></a>사용자 의견
@@ -100,5 +101,4 @@ Analysis Services에는 활발한 사용자 커뮤니티가 있습니다. [Azure
 
 ## <a name="next-steps"></a>다음 단계
 Azure Analysis Services에 대해 자세히 이해했으므로 이제는 이 서비스를 시작할 단계입니다. Azure에서 [서버를 만들고](analysis-services-create-server.md) 이 서버에 [테이블 형식 모델을 배포하는](analysis-services-deploy.md) 방법에 대해 알아봅니다.
-
 

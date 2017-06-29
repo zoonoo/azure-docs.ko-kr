@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a6e9e504f4ccb8fb1e0a151dcfe76339fcc8051a
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -62,4 +62,10 @@ Azure 검색을 사용하면 검색 결과의 페이징을 구현하기가 쉽�
 ## <a name="hit-highlighting"></a>적중 항목 강조 표시
 Azure 검색에서는 `highlight`, `highlightPreTag` 및 `highlightPostTag` 매개 변수를 사용하여 검색 쿼리와 일치하는 검색 결과의 정확한 부분을 쉽게 강조할 수 있습니다. 어떤 *검색 가능한* 필드의 일치 텍스트를 강조할지를 지정할 수 있으며 Azure 검색에서 반환하는 일치 텍스트의 시작 및 끝부분에 추가할 정확한 문자열 태그를 지정할 수 있습니다.
 
+## <a name="try-out-query-syntax"></a>쿼리 구문 사용
 
+구문 차이점을 이해하는 가장 좋은 방법은 쿼리를 제출하고 결과를 검토하는 것입니다.
+
++ Azure Portal에서 [검색 탐색기](search-explorer.md)를 사용합니다. [샘플 인덱스](search-get-started-portal.md)를 배포하여 포털에서 도구를 사용하여 몇 분 안에 인덱스를 쿼리할 수 있습니다.
+
++ [Fiddler](search-fiddler.md) 또는 Chrome Postman을 사용하여 검색 서비스에 업로드한 인덱스에 대한 쿼리를 제출합니다. 두 도구는 HTTP 끝점에 대한 REST 호출을 지원합니다. 

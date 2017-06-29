@@ -12,61 +12,36 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 06/16/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 1b0d278c102497eca978d8cd3fa29cd2527f186c
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="security-alerts-by-type-in-azure-security-center"></a>Azure Security Center에서 유형별 보안 경고
-이 문서를 통해 Azure Security Center에서 사용할 수 있는 다양한 유형의 보안 경고를 이해할 수 있습니다. 경고를 관리하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.
+# <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 이해
+이 문서를 통해 Azure Security Center에서 사용할 수 있는 다양한 유형의 보안 경고 및 관련된 정보를 이해할 수 있습니다. 경고 및 인시던트를 관리하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.
 
 > [!NOTE]
 > 고급 감지를 설정하려면 Azure Security Center 표준으로 업그레이드합니다. 무료 60일 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](security-center-policies.md)에서 **가격 책정 계층**을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 >
->
 
 ## <a name="what-type-of-alerts-are-available"></a>어떤 유형의 경고를 사용할 수 있습니까?
-Azure Security Center는 사이버 kill 체인의 모든 단계에 맞는 다양한 경고를 제공합니다. 다음 그림에서는 이러한 단계 중 일부에 관련된 다양한 경고를 보여 줍니다.
-
-![Kill 체인](./media/security-center-alerts-type/security-center-alerts-type-fig1.png)
-
-**대상 및 공격**
-
-* 인바운드 RDP/SSH 공격
-* 응용 프로그램 및 DDoS 공격(WAF 파트너)
-* 침입 감지(NG Firewall 파트너)
-
-**설치 및 악용**
-
-* 알려진 맬웨어 서명(AM 파트너)
-* 메모리 내 맬웨어 및 악용 시도
-* 의심스러운 프로세스 실행
-* 검색을 방지하는 회피적인 전략
-* 수평 이동
-* 내부 정찰
-* 의심스러운 PowerShell 활동
-
-**게시 위반**  
-
-* 알려진 악의적인 IP(데이터 탈출 또는 명령 및 컨트롤)에 대한 통신
-* 손상된 리소스를 사용하여 추가 공격 탑재(RDP/SSH 무차별 암호 대입 공격 및 스팸을 스캔하는 아웃바운드 포트)
-
-다른 종류의 공격은 각 단계와 연결되고 다른 하위 시스템을 대상으로 합니다. 이러한 단계에서 공격을 해결하려면 Security Center에는 세 가지 범주의 경고가 발생합니다.
+Azure Security Center는 다양한 [검색 기능](security-center-detection-capabilities.md)을 사용하여 고객에게 환경을 대상으로 하는 잠재적인 공격에 대해 경고합니다. 이러한 경고는 트리거한 경고, 대상 리소스 및 공격의 출처에 대한 중요한 정보를 포함합니다. 경고에 포함된 정보는 위협을 검색하는 데 사용되는 분석의 유형에 따라 달라집니다. 인시던트는 위협을 조사할 때 유용할 수 있는 추가 컨텍스트 정보를 포함할 수도 있습니다.  이 문서는 다음 경고 유형에 대한 정보를 제공합니다.
 
 * VMBA(가상 컴퓨터 동작 분석)
 * 네트워크 분석
 * 리소스 분석
+* 컨텍스트 정보
 
 ## <a name="virtual-machine-behavioral-analysis"></a>VMBA(가상 컴퓨터 동작 분석)
 Azure Security Center는 동작 분석을 사용하여 가상 컴퓨터 이벤트 로그의 분석에 따라 손상된 리소스를 식별할 수 있습니다. 예를 들어 프로세스 만들기 이벤트 및 로그인 이벤트가 있습니다. 또한 광범위한 캠페인의 증거 지원을 확인하는 다른 신호와의 상관 관계가 있습니다.
 
 > [!NOTE]
 > Security Center 감지 기능이 작동하는 방법에 대한 자세한 내용은 [Azure Security Center 감지 기능](security-center-detection-capabilities.md)을 참조하세요.
->
 >
 
 ### <a name="crash-analysis"></a>충돌 분석
@@ -258,6 +233,18 @@ SQL 삽입은 구문 분석 및 실행을 위해 나중에 SQL Server의 인스�
 알 수 없는 IP 주소에서 액세스 이벤트가 서버에서 감지된 경우 이 경고가 트리거되며 이는 마지막 기간에서는 확인할 수 없습니다.
 
 ![비정상적인 액세스 경고](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
+
+## <a name="contextual-information"></a>컨텍스트 정보
+조사 중 분석가는 위협의 원인 및 완화하는 방법에 대한 결과에 도달하기 위해 추가 컨텍스트가 필요합니다.  예를 들어 네트워크가 변칙적으로 검색되었지만 네트워크에서 또는 대상 리소스와 관련하여 발생하는 다른 작업에 대한 이해 없이는 다음으로 수행할 작업을 이해하기가 어렵습니다. 이를 방지하기 위해 보안 인시던트는 수집기에 도움을 줄 수 있는 아티팩트, 관련된 이벤트 및 정보를 포함할 수 있습니다. 추가 정보의 가용성은 검색된 위협의 종류 및 사용자 환경의 구성에 따라 달라지며 모든 보안 인시던트에 사용할 수 없습니다.
+
+추가 정보를 사용할 수 있는 경우 경고 목록 아래의 보안 인시던트에 표시됩니다. 이는 다음과 같은 정보를 포함할 수 있습니다.
+
+- 로그 지우기 이벤트
+- 알 수 없는 장치에서 연결된 PNP 장치
+- 실행 가능하지 않은 경고 
+
+![비정상적인 액세스 경고](./media/security-center-alerts-type/security-center-alerts-type-fig20.png) 
+
 
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 Security Center에서 발생하는 다양한 종류의 보안 경고에 대해 알아보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: de04bf367f9f9f92756202cf6c1571f811a0f1f7
-ms.lasthandoff: 04/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: dc2c8f58e0a2faf1b00f4903148328a5141a8637
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -28,7 +29,6 @@ ms.lasthandoff: 04/22/2017
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 > * [Node.JS](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/22/2017
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure Active Directory 응용 프로그램을 만듭니다**. Azure AD 응용 프로그램을 사용하여 Azure AD로 Data Lake Store 응용 프로그램을 인증합니다. Azure AD로 인증하는 여러 접근 방법에는 **최종 사용자 인증** 또는 **서비스 간 인증**이 있습니다. 인증 하는 방법에 대한 지침 및 자세한 내용은 [Azure Active Directory를 사용하여 Data Lake Store로 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
+* **Azure Active Directory 응용 프로그램을 만듭니다**. Azure AD 응용 프로그램을 사용하여 Azure AD로 Data Lake Store 응용 프로그램을 인증합니다. Azure AD로 인증하는 여러 접근 방법에는 **최종 사용자 인증** 또는 **서비스 간 인증**이 있습니다. 지침 및 인증 방법에 대한 자세한 내용은 [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md) 또는 [서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 * [cURL](http://curl.haxx.se/). 이 문서에서는 cURL을 사용하여 Data Lake 저장소 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증하려면 어떻게 해야 하나요?

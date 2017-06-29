@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 2058e74c1c2e719e879a3808d24790bfe86a9e1b
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: fde5cd9a9efc3a13e731a91962ced5c086a72355
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="supplemental-lesson---detail-rows"></a>추가 단원 - 세부 정보 행
@@ -42,7 +42,7 @@ ms.lasthandoff: 05/05/2017
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. 피벗 테이블에서 연도 및 지역 이름에 대해 집계된 값을 두 번 클릭합니다. 여기서는 2014년 오스트레일리아에 대한 값을 두 번 클릭했습니다. 많은 양의 데이터가 포함된 새 시트가 열리지만 실제로 유용하지는 않습니다.
+3. 피벗 테이블에서 연도 및 지역 이름에 대해 집계된 값을 두 번 클릭합니다. 여기서는 2014년 오스트레일리아에 대한 값을 두 번 클릭했습니다. 데이터가 포함된 새 시트가 열리지만 유용한 데이터가 아닙니다.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   

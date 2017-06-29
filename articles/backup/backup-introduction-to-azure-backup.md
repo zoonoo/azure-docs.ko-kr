@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 5/8/2017
-ms.author: markgal;trinadhk; anuragm
+ms.date: 6/14/2017
+ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: a5f297ad0a60a595ce9a50bdde1eadf015c69b89
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 629b3c54a35f939845349e6f2ed7743885e41f3b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -224,7 +224,13 @@ Azure Backup에는 *보호된 인스턴스*당 최대 9999개 복구 지점(백�
 ## <a name="what-is-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음이란?
 Recovery Services 자격 증명 모음은 백업 복사본, 복구 지점 및 백업 정책과 같은 데이터를 보관하는 데 사용되는 Azure의 온라인 저장소 엔터티입니다. Recovery Services 자격 증명 모음을 사용하여 Azure 서비스 및 온-프레미스 서버와 워크스테이션에 대한 백업 데이터를 보관할 수 있습니다. Recovery Services 자격 증명 모음을 사용하면 관리 오버헤드를 최소화하면서 백업 데이터를 쉽게 구성할 수 있습니다. 구독 내에서 Recovery Services 자격 증명 모음을 원하는 만큼 만들 수 있습니다.
 
-Azure Service Manager를 기반으로 한 백업 자격 증명 모음이 자격 증명 모음의 첫 번째 버전이었습니다. Azure Resource Manager 모델 기능을 추가한 Recovery Services 자격 증명 모음이 자격 증명 모음의 두 번째 버전입니다. 기능 차이에 대한 자세한 설명은 [Recovery Services 자격 증명 모음 개요 문서](backup-azure-recovery-services-vault-overview.md)를 참조하세요. Azure Portal에서 백업 자격 증명 모음을 더 이상 만들 수 없지만 백업 자격 증명 모음은 계속 지원됩니다.  
+Azure Service Manager를 기반으로 한 백업 자격 증명 모음이 자격 증명 모음의 첫 번째 버전이었습니다. Azure Resource Manager 모델 기능을 추가한 Recovery Services 자격 증명 모음이 자격 증명 모음의 두 번째 버전입니다. 기능 차이에 대한 자세한 설명은 [Recovery Services 자격 증명 모음 개요 문서](backup-azure-recovery-services-vault-overview.md)를 참조하세요. Azure Portal에서 백업 자격 증명 모음을 더 이상 만들 수 없지만 백업 자격 증명 모음은 계속 지원됩니다.
+
+> [!IMPORTANT]
+> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> **2017년 11월 1일 시작**:
+>- 나머지 모든 Backup 자격 증명 모음은 자동으로 Recovery Services 자격 증명 모음으로 업그레이드됩니다.
+>- 클래식 포털에서는 백업 데이터에 액세스할 수 없습니다. 대신 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에서 백업 데이터에 액세스할 수 있습니다.
+>
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Azure Backup은 Azure Site Recovery와 어떻게 다른가요?
 Azure Backup 및 Azure Site Recovery는 모두 데이터를 백업하고 해당 데이터를 복원할 수 있다는 점에서 서로 관련되어 있습니다. 그러나 이러한 서비스에는 비즈니스 연속성과 재해 복구를 비즈니스에 제공하는 데 있어 다른 목적이 있습니다. Azure Backup을 사용하여 데 세분화된 수준에서 데이터를 보호하고 복원합니다. 예를 들어 랩톱의 프레젠테이션이 손상된 경우 Azure Backup을 사용하여 해당 프레젠테이션을 복원합니다. 다른 데이터 센터를 통해 VM에 구성과 데이터를 복제하려면 Azure Site Recovery를 사용합니다.

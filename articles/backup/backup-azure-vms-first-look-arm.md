@@ -16,10 +16,11 @@ ms.topic: hero-article
 ms.date: 02/15/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d39678bb7e7d2263b6b2f8d36da1bd86dcfff271
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: fd923fa711aa0af72e8d81d84fd0adb2e003596a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -40,7 +41,9 @@ ms.lasthandoff: 04/03/2017
 * Azure Disk Encryption와 BEK 및 KEK를 사용하여 암호화된 VM
 * 사용자 지정 사전 스냅숏 및 사후 스냅숏 스크립트를 사용하는 VSS 및 Linux VM을 사용하여 Windows VM의 응용 프로그램 일치 백업
 
-Premium Storage VM 보호에 대한 자세한 내용은 [Premium Storage VM 백업 및 복원](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) 문서를 참조하세요. Managed Disks VM 지원에 대한 자세한 내용은 [Managed Disks의 VM 백업 및 복원](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요. Linux VM을 백업하기 위한 사전 및 사후 스크립트 프레임워크에 대한 자세한 내용은 [사전 스크립트 및 사후 스크립트를 사용하여 응용 프로그램 일치 Linux VM 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)을 참조하세요.
+Premium Storage VM 보호에 대한 자세한 내용은 [Premium Storage VM 백업 및 복원](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) 문서를 참조하세요. Managed Disks VM 지원에 대한 자세한 내용은 [Managed Disks의 VM 백업 및 복원](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요. Linux VM을 백업하기 위한 사전 및 사후 스크립트 프레임워크에 대한 자세한 내용은 [사전 및 사후 스크립트를 사용하여 응용 프로그램 일치 Linux VM 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)을 참조하세요.
+
+백업 가능 항목 및 백업 불가능 항목에 대해 자세히 알아보려면 [여기](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)를 참조하세요.
 
 > [!NOTE]
 > 이 자습서에서는 Azure 구독에 이미 VM이 있으며 VM에 액세스하는 백업 서비스를 허용하도록 조치를 취했다고 가정합니다.

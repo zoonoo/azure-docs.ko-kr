@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: abb27292d4b5533fe6f3d66d6921fea8c82f18dd
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: dacd689576dce65bbf1a975409ea7d7f2c3ada90
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -47,7 +48,7 @@ Azure Active Directory Domain Services를 사용하도록 설정한 가상 네�
    ![가상 네트워크에 대한 DNS 서버 설정 업데이트](./media/active-directory-domain-services-getting-started/update-dns.png)
 
 > [!NOTE]
-> 가상 네트워크에 대한 DNS 서버 설정을 업데이트한 후 네트워크의 가상 컴퓨터에서 업데이트된 DNS 구성을 가져오는 데 약간의 시간이 걸릴 수 있습니다. 가상 컴퓨터가 도메인에 연결할 수 없는 경우 가상 컴퓨터에서 DNS 캐시를 플러시할 수 있습니다('ipconfig /flushdns'). 이 명령은 가상 컴퓨터의 DNS 설정을 강제로 새로 고칩니다.
+> 네트워크에서 가상 컴퓨터만 다시 시작 시 새 DNS 설정을 얻습니다. 업데이트된 DNS 설정을 즉시 얻어야 하는 경우 포털, PowerShell 또는 CLI로 다시 시작을 트리거합니다.
 >
 >
 

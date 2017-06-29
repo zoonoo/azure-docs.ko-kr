@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 06/15/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: f3e1cfb23a28d0d1fc7a60bdc8b282b72984fd03
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f6a49be148ded1a90a642b83d3d70a83e572f4e4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>HDInsight의 Apache Kafka 소개(미리 보기)
@@ -39,6 +39,12 @@ Kafka에서 제공하는 기능은 다음과 같습니다.
 * 순차적 전달: 레코드는 각 파티션 내에서 수신된 순서대로 스트림에 저장됩니다. 파티션마다 소비자 프로세스를 하나씩 연결하여 레코드가 순서대로 처리되도록 보장할 수 있습니다.
 
 * 내결함성: 노드 간에 결함을 허용하기 위해 파티션을 복제할 수 있습니다.
+
+* Azure Managed Disks와 통합: 관리 디스크는 HDInsight 클러스터에서 가상 컴퓨터에 사용된 디스크에 대해 더 높은 규모와 처리량을 제공합니다.
+
+    기본적으로 관리 디스크는 HDInsight에서 Kafka에 대해 사용하도록 설정되며 HDInsight 생성 중에 노드당 사용된 디스크 수를 구성할 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks](../storage/storage-managed-disks-overview.md)를 참조하세요.
+
+    HDInsight에서 Kafka로 관리 디스크 구성에 대한 자세한 내용은 [HDInsight에서 Kafka의 확장성 높이기](hdinsight-apache-kafka-scalability.md)를 참조하세요.
 
 ## <a name="use-cases"></a>사용 사례
 

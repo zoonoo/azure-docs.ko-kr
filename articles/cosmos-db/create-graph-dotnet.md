@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/21/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 597b12b98edb07e453fc3cd5a0884c584a5bfd14
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 3491aa53a55d988876710c0ac19383e642dda27b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -61,7 +61,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 앱에서 어떤 상황이 발생하고 있는지 빠르게 살펴보겠습니다. Program.cs 파일을 열어 보면 이러한 코드 줄에서 Azure Cosmos DB 리소스를 만드는 것을 알 수 있습니다. 
 
-* DocumentClient가 초기화됩니다. 미리 보기에서는 DocumentDB 클라이언트에 대한 그래프 확장 API를 추가했습니다. DocumentDB 클라이언트 및 리소스에서 분리된 독립 실행형 그래프 클라이언트에서 작업합니다.
+* DocumentClient가 초기화됩니다. 미리 보기에서는 Azure Cosmos DB 클라이언트에 그래프 확장 API를 추가했습니다. Azure Cosmos DB 클라이언트 및 리소스에서 분리된 독립 실행형 그래프 클라이언트를 개발하고 있습니다.
 
     ```csharp
     using (DocumentClient client = new DocumentClient(

@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/21/2017
+ms.date: 6/01/2017
 ms.author: negat
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 4ec20a30f423d4b30e953f873100be90167f987b
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -45,7 +46,7 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 
 ## <a name="api-versions"></a>API 버전
 
-관리 디스크를 사용하는 크기 집합의 최신 일반 공급 API 버전은 `2016-04-30-preview`입니다. 비관리 디스크를 사용하는 크기 집합은 계속해서 현재와 같이 작동할 것이며, 심지어 관리 디스크를 지원하는 새 API 버전에서도 마찬가지입니다. 하지만 비관리 디스크를 사용하는 크기 집합은 새 api 버전에서도 관리 디스크의 이점을 누릴 수 없습니다.
+관리되는 디스크가 포함된 확장 집합에는 `2016-04-30-preview` 이상의 Microsoft.Compute APi 버전이 필요합니다. 비관리 디스크를 사용하는 크기 집합은 계속해서 현재와 같이 작동할 것이며, 심지어 관리 디스크를 지원하는 새 API 버전에서도 마찬가지입니다. 하지만 비관리 디스크를 사용하는 크기 집합은 새 api 버전에서도 관리 디스크의 이점을 누릴 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

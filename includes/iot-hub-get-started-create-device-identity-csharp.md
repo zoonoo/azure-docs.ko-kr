@@ -1,5 +1,5 @@
 ## <a name="create-a-device-identity"></a>장치 ID 만들기
-이 섹션에서는 IoT Hub의 ID 레지스트리에서 장치 ID를 만드는 .NET 콘솔 앱을 작성합니다. ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 "ID 레지스트리" 섹션을 참조하세요. 이 콘솔 앱을 실행하면 장치-클라우드 메시지를 IoT Hub로 보낼 때 장치가 자체적으로 ID를 식별하는 데 사용할 수 있는 고유한 장치 ID와 키를 생성합니다.
+이 섹션에서는 IoT Hub의 ID 레지스트리에서 장치 ID를 만드는 .NET 콘솔 앱을 작성합니다. ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 "ID 레지스트리" 섹션을 참조하세요. 이 콘솔 앱을 실행하면 장치-클라우드 메시지를 IoT Hub로 보낼 때 장치가 자체적으로 ID를 식별하는 데 사용할 수 있는 고유한 장치 ID와 키를 생성합니다. 장치 ID는 대/소문자를 구분합니다.
 
 1. Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 바탕화면 프로젝트를 새 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 이름을 **CreateDeviceIdentity**로 솔루션 이름을 **IoTHubGetStarted**로 지정합니다.
    
