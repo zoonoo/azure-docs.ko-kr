@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: cenkd;juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
 ms.openlocfilehash: d0f9899d6b8cc83ea4f2836444b41a9dabe7fea7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -92,7 +94,7 @@ ms.openlocfilehash: d0f9899d6b8cc83ea4f2836444b41a9dabe7fea7
 > 
 > 
 
-### <a name="a-idfiltersafilters"></a><a id="filters"></a>필터
+### <a id="filters"></a>필터
 자산 필터에는 두 가지 유형이 있습니다. 
 
 * 전역 필터(Azure 미디어 서비스 계정의 모든 자산에 적용 가능, 계정의 수명 동안 보유) 
@@ -100,7 +102,7 @@ ms.openlocfilehash: d0f9899d6b8cc83ea4f2836444b41a9dabe7fea7
 
 전역 및 로컬 필터 형식은 속성과 정확하게 동일합니다. 둘 사이의 주요 차이는 어떤 시나리오에 어떤 유형의 필터가 더 적합한가의 차이입니다. 전역 필터는 일반적으로 장치 프로필에 적합(변환 필터링)한 반면 로컬 필터는 특정 자산을 트리밍하는 데 사용할 수 있습니다.
 
-## <a name="a-idscenariosacommon-scenarios"></a><a id="scenarios"></a>일반적인 시나리오
+## <a id="scenarios"></a>일반적인 시나리오
 앞에서 설명한 것처럼 스트리밍 라이브 이벤트 또는 주문형 비디오 등의 콘텐츠를 고객에게 전달할 때는 다양한 네트워크 조건의 다양한 장치에 고품질 비디오를 제공하는 것이 목표입니다. 또한 자산 필터링 및 **동적 매니페스트**사용과 관련된 다른 요구 사항이 있을 수 있습니다. 다음 섹션에서는 다양한 필터링 시나리오에 대한 간략한 개요를 제공합니다.
 
 * 자산과 연결된 모든 변환 대신 특정 장치에서 처리할 수 있는 오디오 및 비디오 변환의 하위 집합만 지정합니다. 
@@ -210,9 +212,4 @@ ms.openlocfilehash: d0f9899d6b8cc83ea4f2836444b41a9dabe7fea7
 [language_filter]: ./media/media-services-dynamic-manifest-overview/media-services-language-filter.png
 [dvr_filter]: ./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

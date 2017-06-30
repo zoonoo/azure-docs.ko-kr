@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: da455a350f61e17425cd308d0fdc8bb5294a0b76
 ms.openlocfilehash: 574921fdecdadaa48c572685f7486d4e7b1d25f4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -48,7 +50,7 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 2. [미디어 인코더 표준 인코더를 사용하여 H.264 MP4 적응 비트 전송률 집합을 생성합니다](media-services-dotnet-encode-with-media-encoder-standard.md).
 3. [콘텐츠를 스트림합니다](media-services-deliver-content-overview.md).
 
-## <a name="a-idunsupportedformatsaformats-that-are-not-supported-by-dynamic-packaging"></a><a id="unsupported_formats"></a>동적 패키징에서 지원하지 않는 형식
+## <a id="unsupported_formats"></a>동적 패키징에서 지원하지 않는 형식
 다음과 같은 소스 파일 형식은 동적 패키징에서 지원하지 않습니다.
 
 * Dolby Digital mp4 파일
@@ -59,10 +61,5 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
