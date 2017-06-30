@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: e4bb75b0a45dd922479cbd40ad94190c30b4333f
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/13/2017
 
 
@@ -121,7 +122,7 @@ Azure Media Services에서 **채널**, **프로그램** 및 **스트리밍 끝�
 >
 >
 
-### <a name="a-idstatesachannel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>채널 상태 및 상태가 청구 모드에 매핑되는 방식
+### <a id="states"></a>채널 상태 및 상태가 청구 모드에 매핑되는 방식
 채널의 현재 상태입니다. 가능한 값은 다음과 같습니다.
 
 * **중지됨**. 이는 채널을 만든 후 초기 상태입니다(포털에서 자동 시작을 선택하지 않은 경우). 이 상태에서는 요금이 청구되지 않습니다. 이 상태에서 채널 속성을 업데이트할 수 있지만 스트리밍은 허용되지 않습니다.
