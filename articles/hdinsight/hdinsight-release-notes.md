@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
@@ -76,9 +76,9 @@ ms.lasthandoff: 05/13/2017
 Spark 2.0.1은 Spark 클러스터(HDInsight 버전 3.5)에서 사용할 수 있습니다.
 
 ## <a name="11162016---release-of-r-server-90-on-hdinsight-35-spark-20"></a>2016/11/16 - HDInsight 3.5(Spark 2.0)의 R Server 9.0 릴리스
-*    R Server 클러스터에는 이제 HDI 3.5의 R Server 9.0(Spark 2.0)과 HDI 3.4의 R Server 8.0(Spark 1.6)의 두 버전에 대한 옵션이 포함되어 있습니다.
-*    HDI 3.5(Spark 2.0)의 R Server 9.0은 R 3.3.2 버전을 기반으로 하며, Hive 및 Parquet의 데이터를 Spark DataFrames로 직접 로드하여 ScaleR로 분석할 수 있는 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 원본 함수를 포함하고 있습니다. 자세한 내용은 **?RxHiveData** 및 **?RxParquetData** 명령을 사용하여 R에서 이러한 함수에 대한 인라인 도움말을 참조하세요.
-*    RStudio Server 커뮤니티 버전은 기본적으로 프로비전 흐름의 일부로 클러스터 구성 블레이드(옵트아웃 옵션 사용)에서 설치됩니다.
+*   R Server 클러스터에는 이제 HDI 3.5의 R Server 9.0(Spark 2.0)과 HDI 3.4의 R Server 8.0(Spark 1.6)의 두 버전에 대한 옵션이 포함되어 있습니다.
+*   HDI 3.5(Spark 2.0)의 R Server 9.0은 R 3.3.2 버전을 기반으로 하며, Hive 및 Parquet의 데이터를 Spark DataFrames로 직접 로드하여 ScaleR로 분석할 수 있는 RxHiveData 및 RxParquetData라는 새로운 ScaleR 데이터 원본 함수를 포함하고 있습니다. 자세한 내용은 **?RxHiveData** 및 **?RxParquetData** 명령을 사용하여 R에서 이러한 함수에 대한 인라인 도움말을 참조하세요.
+*   RStudio Server 커뮤니티 버전은 기본적으로 프로비전 흐름의 일부로 클러스터 구성 블레이드(옵트아웃 옵션 사용)에서 설치됩니다.
 
 ## <a name="11092016---release-of-spark-20-on-hdinsight"></a>2016/11/09 - HDInsight의 Spark 2.0 릴리스
 * 이제 HDInsight 3.5에서 Spark 2.0 클러스터에서는 Livy 및 Jupyter 서비스를 지원합니다.
