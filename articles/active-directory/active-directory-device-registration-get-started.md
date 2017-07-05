@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 06/23/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 9934902811354ffa4047d70d995a6dd44be0229b
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/10/2017
 
 
@@ -51,19 +52,19 @@ Azure Active Directory에서 관리자 포털을 사용하여 등록된 장치�
 
 **Azure Active Directory 장치 등록 서비스를 사용하도록 설정하려면**
 
-1.    관리자 권한으로 Microsoft Azure Portal에 로그인합니다.
+1.  관리자 권한으로 Microsoft Azure Portal에 로그인합니다.
 
-2.    왼쪽 창에서 **Active Directory**를 선택합니다.
+2.  왼쪽 창에서 **Active Directory**를 선택합니다.
 
-3.    디렉터리 탭에서 해당 디렉터리를 선택합니다.
+3.  디렉터리 탭에서 해당 디렉터리를 선택합니다.
 
-4.    **Configure**를 클릭합니다.
+4.  **Configure**를 클릭합니다.
 
-5.    **장치**로 스크롤합니다.
+5.  **장치**로 스크롤합니다.
 
-6.    “사용자가 장치를 Azure AD에 등록할 수 있습니다.”에 대해 모두를 선택합니다.
+6.  “사용자가 장치를 Azure AD에 등록할 수 있습니다.”에 대해 모두를 선택합니다.
 
-7.    사용자당 권한을 부여하려는 최대 장치 수를 선택합니다.
+7.  사용자당 권한을 부여하려는 최대 장치 수를 선택합니다.
 
 Office 365에 대한 모바일 장치 관리 및 Microsoft Intune에 등록하려면 장치가 등록되어야 합니다. 이러한 서비스 중 하나를 구성한 경우 **모두**가 선택되고 **없음** 단추는 사용할 수 없습니다. 이러한 서비스가 올바르게 구성되어 있는지와 적절한 라이선스가 있는지 확인하세요.
 
@@ -79,19 +80,19 @@ Azure 관리자 포털에서 장치를 보고 차단 및 차단 해제할 수 �
 
 **Azure Active Directory에서 장치 개체를 보고 관리하려면**
  
-1.    관리자 권한으로 Microsoft Azure Portal에 로그온합니다.
+1.  관리자 권한으로 Microsoft Azure Portal에 로그온합니다.
 
-2.    왼쪽 창에서 **Active Directory**를 선택합니다.
+2.  왼쪽 창에서 **Active Directory**를 선택합니다.
 
-3.    디렉터리를 선택합니다.
+3.  디렉터리를 선택합니다.
 
-4.    **사용자**를 선택합니다. 
+4.  **사용자**를 선택합니다. 
 
 5.  장치를 보도록 허용할 사용자를 클릭합니다.
 
-6.    **장치**를 선택합니다.
+6.  **장치**를 선택합니다.
 
-7.    **등록된 장치**를 선택합니다.
+7.  **등록된 장치**를 선택합니다.
 
 이제 사용자가 등록한 장치를 보거나 차단 또는 차단 해제할 수 있습니다.
 온-프레미스 도메인에 조인되고 자동으로 등록된 Windows 10 장치가 사용자 탭에 표시되지 않습니다. 모든 엔터프라이즈 장치를 찾으려면 Get-MsolDevice PowerShell 명령을 사용하세요. 

@@ -12,14 +12,14 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 96ed03c48c4be12638aae6ab30f3843a7e68c995
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: d69e70ae178c9ae889d44998938cb2c215ff10ba
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -68,9 +68,9 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
 ## <a id="GitClone"></a>2단계: GitHub 프로젝트 복제
 [Azure Cosmos DB 및 Java 시작](https://github.com/Azure-Samples/documentdb-java-getting-started)의 경우 GitHub 리포지토리를 복제하여 시작할 수 있습니다. 예를 들어 로컬 디렉터리에서 다음을 실행하여 샘플 프로젝트를 로컬로 검색합니다.
 
-    git clone git@github.com:Azure-Samples/documentdb-java-getting-started.git
+    git clone git@github.com:Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
 
-    cd documentdb-java-getting-started
+    cd azure-cosmos-db-documentdb-java-getting-started
 
 디렉터리에는 프로젝트의 `pom.xml` 및 `Program.java`을 비롯한 Java 소스 코드를 포함하는 `src` 폴더를 포함합니다. 여기서는 Azure DocumentDB를 사용하여 문서 만들기 및 컬렉션 내에서 데이터 쿼리와 같은 간단한 작업을 수행하는 방법을 보여 줍니다. `pom.xml`은 [Maven의 DocumentDB Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)에 대한 종속성을 포함합니다.
 
@@ -94,7 +94,7 @@ Azure Portal에서 Azure Cosmos DB 계정으로 이동한 다음 **키**를 클�
 ![Java 콘솔 응용 프로그램을 만들기 위해 NoSQL 자습서에서 사용하는 Azure Portal의 스크린샷입니다. 액티브 허브, Azure Cosmos DB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조 키 값이 강조 표시된 Azure Cosmos DB 계정을 보여 줌][keys]
 
 ## <a name="step-4-create-a-database"></a>4단계: 데이터베이스 만들기
-**DocumentClient** 클래스의 [createDatabase](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) 메서드를 사용하여 Azure Cosmos DB [데이터베이스](documentdb-resources.md#databases)를 만들 수 있습니다. 데이터베이스는 여러 컬렉션으로 분할된 JSON 문서 저장소의 논리적 컨테이너입니다.
+**DocumentClient** 클래스의 [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) 메서드를 사용하여 Azure Cosmos DB [데이터베이스](documentdb-resources.md#databases)를 만들 수 있습니다. 데이터베이스는 여러 컬렉션으로 분할된 JSON 문서 저장소의 논리적 컨테이너입니다.
 
     Database database = new Database();
     database.setId("familydb");
@@ -102,11 +102,11 @@ Azure Portal에서 Azure Cosmos DB 계정으로 이동한 다음 **키**를 클�
 
 ## <a id="CreateColl"></a>5단계: 컬렉션 만들기
 > [!WARNING]
-> **createCollection**은 가격 책정 의미가 포함된 예약된 처리량이 있는 새 컬렉션을 만듭니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
+> **createCollection**은 가격 책정 의미가 포함된 예약된 처리량이 있는 새 컬렉션을 만듭니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
 > 
 > 
 
-**DocumentClient** 클래스의 [createCollection](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createCollection-java.lang.String-com.microsoft.azure.documentdb.DocumentCollection-com.microsoft.azure.documentdb.RequestOptions-) 메서드를 사용하여 [컬렉션](documentdb-resources.md#collections)을 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다.
+**DocumentClient** 클래스의 [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) 메서드를 사용하여 [컬렉션](documentdb-resources.md#collections)을 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다.
 
 
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -120,7 +120,7 @@ Azure Portal에서 Azure Cosmos DB 계정으로 이동한 다음 **키**를 클�
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>6단계: JSON 문서 만들기
-**DocumentClient** 클래스의 [createDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDocument-java.lang.String-java.lang.Object-com.microsoft.azure.documentdb.RequestOptions-boolean-) 메서드를 사용하여 [문서](documentdb-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 이제 하나 이상의 문서를 삽입할 수 있습니다. 데이터베이스에 저장하려는 데이터가 이미 있는 경우 DocumentDB의 [데이터 마이그레이션 도구](import-data.md)를 사용하여 데이터를 데이터베이스로 가져올 수 있습니다.
+**DocumentClient** 클래스의 [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) 메서드를 사용하여 [문서](documentdb-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 이제 하나 이상의 문서를 삽입할 수 있습니다. 데이터베이스에 저장하려는 데이터가 이미 있는 경우 DocumentDB의 [데이터 마이그레이션 도구](import-data.md)를 사용하여 데이터를 데이터베이스로 가져올 수 있습니다.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -143,7 +143,7 @@ Azure Portal에서 Azure Cosmos DB 계정으로 이동한 다음 **키**를 클�
 ![NoSQL에서 Java 콘솔 응용 프로그램을 만들기 위해 사용한 계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>7단계: Azure Cosmos DB 리소스 쿼리
-Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리](documentdb-sql-query.md)를 지원합니다.  다음 샘플 코드에서는 [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-) 메서드와 함께 SQL 구문을 사용하여 Azure Cosmos DB의 문서를 쿼리하는 방법을 보여 줍니다.
+Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리](documentdb-sql-query.md)를 지원합니다.  다음 샘플 코드에서는 [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) 메서드와 함께 SQL 구문을 사용하여 Azure Cosmos DB의 문서를 쿼리하는 방법을 보여 줍니다.
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -156,7 +156,7 @@ Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 �
     }
 
 ## <a id="ReplaceDocument"></a>8단계: JSON 문서 바꾸기
-Azure Cosmos DB는 [replaceDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#replaceDocument-com.microsoft.azure.documentdb.Document-com.microsoft.azure.documentdb.RequestOptions-) 메서드를 사용하여 JSON 문서를 업데이트하도록 지원합니다.
+Azure Cosmos DB는 [replaceDocument](/java/api/com.microsoft.azure.documentdb._document_client.replacedocument) 메서드를 사용하여 JSON 문서를 업데이트하도록 지원합니다.
 
     // Update a property
     andersenFamily.Children[0].Grade = 6;
@@ -167,7 +167,7 @@ Azure Cosmos DB는 [replaceDocument](http://azure.github.io/azure-documentdb-jav
         null);
 
 ## <a id="DeleteDocument"></a>9단계: JSON 문서 삭제
-마찬가지로, Azure Cosmos DB는 [deleteDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#deleteDocument-java.lang.String-com.microsoft.azure.documentdb.RequestOptions-) 메서드를 사용하여 JSON 문서를 삭제하도록 지원합니다.  
+마찬가지로, Azure Cosmos DB는 [deleteDocument](/java/api/com.microsoft.azure.documentdb._document_client.deletedocument) 메서드를 사용하여 JSON 문서를 삭제하도록 지원합니다.  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
@@ -177,7 +177,7 @@ Azure Cosmos DB는 [replaceDocument](http://azure.github.io/azure-documentdb-jav
     this.client.deleteDatabase("/dbs/familydb", null);
 
 ## <a id="Run"></a>11단계: Java 콘솔 응용 프로그램 모두 함께 실행
-콘솔에서 응용 프로그램을 실행하려면 먼저 Maven을 사용하여 컴파일합니다.
+콘솔에서 응용 프로그램을 실행하려면 프로젝트 폴더로 이동하고 Maven을 사용하여 컴파일합니다.
     
     mvn package
 

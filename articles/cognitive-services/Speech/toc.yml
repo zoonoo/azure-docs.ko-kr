@@ -1,33 +1,37 @@
-- name: Bing Speech 설명서
+- name: Bing Speech Documentation
   href: ../index.md
-- name: 개요
+- name: Overview
   href: Home.md
-- name: 시작
+- name: Get started
   items:
-  - name: "C#(REST API)\_\_"
+  - name: 'C#(REST API)  '
     href: GetStarted/GetStartedREST.md
   - name: cURL(REST API)
     href: GetStarted/GetStarted-cURL.md
-  - name: "JavaScript(Websocket API)\_\_\_"
+  - name: 'JavaScript(Websocket API)   '
  
     href: GetStarted/GetStartedJSWebsockets.md
-  - name: 'C#(클라이언트 라이브러리)'
+  - name: 'C#(Client Library)'
     href: GetStarted/GetStartedCSharpDesktop.md
-  - name: 'C#(서비스 라이브러리)'
+  - name: 'C#(Service Library)'
     href: GetStarted/GetStartedCSharpServiceLibrary.md
-  - name: "iOS의 Objective C(클라이언트 라이브러리)\_\_\_"
+  - name: 'Objective C on iOS(Client Library)   '
     href: GetStarted/Get-Started-ObjectiveC-iOS.md
-  - name: Android의 Java(클라이언트 라이브러리)
+  - name: Java on Android(Client Library)
     href: GetStarted/GetStartedJavaAndroid.md
-- name: 참조
+- name: Reference
   items: 
-  - name: 음성 인식 API 참조
+  - name: Speech recognition API reference
     href: API-Reference-REST/BingVoiceRecognition.md
-  - name: 텍스트를 음성으로 변환 API 참조
+  - name: Text-to-speech API reference
     href: API-Reference-REST/BingVoiceOutput.md
-  - name: Websocket 프로토콜
+  - name: Websocket Protocol
     href: API-Reference-REST/websocketprotocol.md
-  - name: SDK 및 샘플
+  - name: SDKs & Samples
     items:
     - name: JavaScript
       href: https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
