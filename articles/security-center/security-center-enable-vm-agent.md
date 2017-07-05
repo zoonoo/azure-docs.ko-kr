@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 83328eb874485d4541ff2131f736a30f350a0eb6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -50,9 +52,4 @@ Azure 마켓플레이스에서 배포된 VM에 VM 에이전트가 기본적으�
 <!--Image references-->
 [1]: ./media/security-center-enable-vm-agent/enable-vm-agent.png
 [2]: ./media/security-center-enable-vm-agent/vm-agent-is-missing.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
