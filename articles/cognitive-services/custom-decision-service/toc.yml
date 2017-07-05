@@ -1,16 +1,20 @@
-- name: 사용자 지정 의사 결정 서비스
+- name: Custom Decision Service
   href: ../index.md
-- name: 개요
+- name: Overview
   href: custom-decision-service-overview.md
-- name: 시작
+- name: Get started
   items:
-  - name: 응용 프로그램 등록
+  - name: Register your application
     href: custom-decision-service-get-started-register.md
-  - name: 브라우저에서 API 호출
+  - name: Call API from a browser
     href: custom-decision-service-get-started-browser.md
-  - name: 앱에서 API 호출
+  - name: Call API from an app
     href: custom-decision-service-get-started-app.md
-- name: 자습서
+- name: Tutorial
   href: custom-decision-service-tutorial.md
-- name: API 참조
+- name: API reference
   href: custom-decision-service-api-reference.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
