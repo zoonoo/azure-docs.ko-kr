@@ -6,7 +6,7 @@ keywords: "Active Directory 암호 관리, 암호 관리, Azure AD 셀프 서비
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
