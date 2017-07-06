@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1bafa072519cff1599a0cae1d361207ad0fa35d5
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 29d19364b9a98e351c95f13e68a2e63b9f6439f8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -42,7 +42,7 @@ X12 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 속�
 
 2. X12 메시지 인코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
 
-3.    검색 상자에서 필터에 "x12"를 입력합니다. X12 - **규약 이름으로 X12 메시지 인코딩** 또는 **X12 - ID으로 X12 메시지 인코딩** 중 하나를 선택합니다.
+3.  검색 상자에서 필터에 "x12"를 입력합니다. X12 - **규약 이름으로 X12 메시지 인코딩** 또는 **X12 - ID으로 X12 메시지 인코딩** 중 하나를 선택합니다.
    
     !["x12" 검색](./media/logic-apps-enterprise-integration-x12-encode/x12decodeimage1.png) 
 
@@ -57,7 +57,7 @@ X12 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 속�
     | 연결 이름 * |연결의 이름을 입력합니다. |
     | 통합 계정 * |통합 계정의 이름을 입력합니다. 통합 계정 및 논리 앱이 동일한 Azure 위치에 있어야 합니다. |
 
-5.    완료되면 연결 정보는 이 예제와 유사해야 합니다. 연결 만들기를 완료하려면 **만들기**를 선택합니다.
+5.  완료되면 연결 정보는 이 예제와 유사해야 합니다. 연결 만들기를 완료하려면 **만들기**를 선택합니다.
 
     ![통합 계정 연결 생성](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage2.png)
 

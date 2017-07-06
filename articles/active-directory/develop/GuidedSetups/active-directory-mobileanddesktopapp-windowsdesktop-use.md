@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 4c0e6cd7ec4a91040af588a406fbad8b8c1607e9
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 826ba0a00b26993d4f37f0a8ce587d7bb77e7eb4
 ms.contentlocale: ko-kr
 
 
@@ -27,7 +27,7 @@ ms.contentlocale: ko-kr
 
 이 섹션에서는 MSAL을 사용하여 Microsoft Graph API에 대한 토큰을 가져오는 방법을 보여 줍니다.
 
-1.    `MainWindow.xaml.cs`에서 클래스에 MSAL 라이브러리에 대한 참조를 추가합니다.
+1.  `MainWindow.xaml.cs`에서 클래스에 MSAL 라이브러리에 대한 참조를 추가합니다.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -104,9 +104,9 @@ public partial class MainWindow : Window
 `AcquireTokenSilentAsync`는 토큰 획득 및 갱신을 자동으로 처리합니다. `AcquireTokenAsync`가 처음으로 실행된 후 요청에 대한 호출 또는 토큰 갱신이 자동으로 수행되므로 `AcquireTokenSilentAsync`는 후속 호출을 위해 보호되는 리소스에 액세스하려고 토큰을 얻는 데 일반적으로 사용되는 메서드가 됩니다.
 결국 `AcquireTokenSilentAsync`에 실패합니다(예: 사용자 로그아웃 또는 다른 장치에서 사용자가 암호 변경). MSAL이 대화형 작업을 요구해 이 문제를 해결할 수 있다고 감지하면 `MsalUiRequiredException`을 실행합니다. 응용 프로그램에서는 이러한 예외를 다음 두 가지 방법으로 처리할 수 있습니다.
 
-1.    즉시 `AcquireTokenAsync`에 대한 호출을 수행합니다. 그러면 사용자에게 로그인하라는 메시지가 표시됩니다. 이 패턴은 응용 프로그램에 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 응용 프로그램에서 일반적으로 사용됩니다. 이 안내식 설정에서 생성한 샘플에서는 이 패턴을 사용합니다. 여러분이 처음으로 샘플을 실행하면 로그인하라는 메시지를 볼 수 있습니다. 지금까지 이 응용 프로그램을 사용한 사용자가 없기 때문에 `PublicClientApp.Users.FirstOrDefault()`에는 null 값이 포함되어 있고 `MsalUiRequiredException` 예외가 발생합니다. 샘플의 코드는 `AcquireTokenAsync`를 호출해 예외를 처리하여 사용자에게 로그인하라는 메시지가 표시됩니다.
+1.  즉시 `AcquireTokenAsync`에 대한 호출을 수행합니다. 그러면 사용자에게 로그인하라는 메시지가 표시됩니다. 이 패턴은 응용 프로그램에 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 응용 프로그램에서 일반적으로 사용됩니다. 이 안내식 설정에서 생성한 샘플에서는 이 패턴을 사용합니다. 여러분이 처음으로 샘플을 실행하면 로그인하라는 메시지를 볼 수 있습니다. 지금까지 이 응용 프로그램을 사용한 사용자가 없기 때문에 `PublicClientApp.Users.FirstOrDefault()`에는 null 값이 포함되어 있고 `MsalUiRequiredException` 예외가 발생합니다. 샘플의 코드는 `AcquireTokenAsync`를 호출해 예외를 처리하여 사용자에게 로그인하라는 메시지가 표시됩니다.
 
-2.    또한 응용 프로그램에서는 대화형 로그인이 필요하다는 시각적 표시를 사용자에게 보여줍니다. 따라서 사용자가 로그인할 적절한 시간을 선택하거나 이후에 응용 프로그램이 `AcquireTokenSilentAsync`를 다시 시작할 수 있습니다. 이는 사용자가 중단 없이 응용 프로그램의 기능을 사용할 수 있는 경우(예: 응용 프로그램에 사용 가능한 오프라인 콘텐츠가 있는 경우) 일반적으로 사용됩니다. 이 경우 사용자가 보호되는 리소스에 액세스하거나 오래된 정보를 새로 고치기 위해 로그인할 시점을 결정하거나 응용 프로그램이 일시적으로 사용할 수 없게 된 후 네트워크가 복원된 경우 `AcquireTokenSilentAsync`를 다시 시도하도록 결정할 수 있습니다.
+2.  또한 응용 프로그램에서는 대화형 로그인이 필요하다는 시각적 표시를 사용자에게 보여줍니다. 따라서 사용자가 로그인할 적절한 시간을 선택하거나 이후에 응용 프로그램이 `AcquireTokenSilentAsync`를 다시 시작할 수 있습니다. 이는 사용자가 중단 없이 응용 프로그램의 기능을 사용할 수 있는 경우(예: 응용 프로그램에 사용 가능한 오프라인 콘텐츠가 있는 경우) 일반적으로 사용됩니다. 이 경우 사용자가 보호되는 리소스에 액세스하거나 오래된 정보를 새로 고치기 위해 로그인할 시점을 결정하거나 응용 프로그램이 일시적으로 사용할 수 없게 된 후 네트워크가 복원된 경우 `AcquireTokenSilentAsync`를 다시 시도하도록 결정할 수 있습니다.
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>방금 가져온 토큰을 사용하여 Microsoft Graph API 호출
