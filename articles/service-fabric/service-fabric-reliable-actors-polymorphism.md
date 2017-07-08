@@ -3,7 +3,7 @@ title: "Reliable Actors 프레임워크의 다형성 | Microsoft Docs"
 description: "Reliable Actors 프레임워크에서 .NET 인터페이스 및 형식의 계층 구조를 구축하여 기능 및 API 정의를 다시 사용합니다."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: vturecek
 manager: timlt
 editor: vturecek
 ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46

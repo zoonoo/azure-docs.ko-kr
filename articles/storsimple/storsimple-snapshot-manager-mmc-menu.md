@@ -4,7 +4,7 @@ description: "StorSimple 스냅숏 관리자에서 표준 Microsoft Management C
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
 ms.service: storsimple
@@ -12,17 +12,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/25/2016
+ms.date: 06/05/2017
 ms.author: v-sharos
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: b2be03e12b2deaecb352f8703650cf23cdefdebd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>StorSimple 스냅숏 관리자에서 MMC 메뉴 작업 사용
+
 ## <a name="overview"></a>개요
-StorSimple 스냅숏 관리자에서 모든 작업 메뉴에 나열된 다음과 같은 작업 및 **작업** 창의 모든 변형을 확인할 수 있습니다. 
+StorSimple 스냅숏 관리자에서 모든 작업 메뉴에 나열된 다음과 같은 작업 및 **작업** 창의 모든 변형을 확인할 수 있습니다.
 
 * 보기
 * 여기에서 창 새로 만들기 
@@ -99,10 +102,5 @@ StorSimple 스냅숏 관리자에서 모든 작업 메뉴에 나열된 다음과
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 스냅숏 관리자 사용자 인터페이스](storsimple-use-snapshot-manager.md)에 대해 자세히 알아봅니다.
 * [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
