@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: cbe2b6bbc8e193bdbbf08572a8488239c633548d
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 84c27de6b5fafb3b9236fed77a9d0557d89d217c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -64,7 +64,7 @@ ms.lasthandoff: 05/25/2017
 
 ## <a name="get-the-wingtip-application-scripts"></a>Wingtip 응용 프로그램 스크립트 가져오기
 
-Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github 리포지토리에서 사용할 수 있습니다. [Wingtip SaaS 스크립트를 다운로드하는 단계](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github 리포지토리에서 사용할 수 있습니다. [Wingtip SaaS 스크립트를 다운로드하는 단계](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>작업 계정 데이터베이스 및 새 작업 계정 만들기
 
@@ -136,3 +136,4 @@ Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS]
 * [Wingtip SaaS 응용 프로그램 배포를 기반으로 작성된 추가 자습서](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [규모가 확장된 클라우드 데이터베이스 관리](sql-database-elastic-jobs-overview.md)
 * [규모가 확장된 클라우드 데이터베이스 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)
+

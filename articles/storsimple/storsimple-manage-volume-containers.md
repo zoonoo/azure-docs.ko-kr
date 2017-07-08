@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/24/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4fb0f4e61ec98546e7044bf760d24a1ba932fe5b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: bb55a7a4bff0fd4319de6f6ce958686ad8a4142b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -59,10 +61,5 @@ Microsoft Azure StorSimple 장치의 볼륨 컨테이너는 저장소 계정, �
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 볼륨 관리](storsimple-manage-volumes.md)에 대해 자세히 알아봅니다. 
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -14,9 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60d4bcafa51a6eedea06901a0557d13b4e85ec7a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 33630644e2b3b6565d009276145ecf220802cc63
+ms.openlocfilehash: 49b35ff1b82f5384b105d99ce95773648a11f6f4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -82,7 +84,7 @@ try {
 CloudFileClient fileClient = storageAccount.createCloudFileClient();
 ```
 
-파일 저장소 클라이언트를 사용하면 공유에 대한 참조를 가져올 수 있습니다..
+파일 저장소 클라이언트를 사용하면 공유에 대한 참조를 가져올 수 있습니다.
 
 ```java
 // Get a reference to the file share
@@ -233,10 +235,5 @@ try
 * [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

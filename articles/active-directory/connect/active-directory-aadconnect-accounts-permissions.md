@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 366c2c43ec50b0b6c47a25ea9b0e9d7109827429
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 44859d5368a954aee6939f6a6060738aa97c9c05
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -91,7 +91,7 @@ Azure AD Connect를 설치할 때 **디렉터리 연결** 페이지에 지정한
 | 암호 동기화 |<li>디렉터리 변경 내용 복제</li>  <li>모든 디렉터리 변경 내용 복제 |
 | Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
 | Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 
-| 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../active-directory-passwords.md)에 설명된 특성에 사용 권한을 작성합니다. |
+| 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../active-directory-passwords-writeback.md)에 설명된 특성에 사용 권한을 작성합니다. |
 | 장치 쓰기 저장 |[장치 쓰기 저장](active-directory-aadconnect-feature-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다. |
 | 그룹 쓰기 저장 |배포 그룹을 찾을 수 있어야 하는 OU에서 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다. |
 

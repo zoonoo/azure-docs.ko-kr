@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
-ms.openlocfilehash: bec672005b0b1856faeb230f5674013a37add774
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 22665107cdf689042a5b0eee34eaeacc0434fbc4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -80,11 +82,11 @@ SAP Cloud for Customer의 Azure AD 통합을 구성하려면 갤러리의 SAP Cl
 
 6. 검색 상자에 **SAP Cloud for Customer**를 입력합니다.
    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_01.png)
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_01.png)
 
 7. 결과 창에서 **SAP Cloud for Customer**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.
    
-    ![Active Directory](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_02.png)
+    ![Active Directory](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_02.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 SAP Cloud for Customer에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
@@ -106,15 +108,15 @@ SAP Cloud for Customer에서 Azure AD Single Sign-On을 구성하고 테스트�
 
 1. Azure 클래식 포털의 **SAP Cloud for Customer** 응용 프로그램 통합 페이지에 있는 상단 메뉴에서 **특성**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_80.png) 
+    ![Single Sign-on 구성](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_80.png) 
 
 2. 특성의 SAML 토큰 특성 목록에서 nameidentifier 특성을 선택한 다음 **편집**을 클릭합니다.
    
-    ![Single Sing-on 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_84.png) 
+    ![Single Sing-on 구성](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_84.png) 
 
 3. **사용자 특성 편집** 대화 상자에서 다음 단계를 수행합니다.
    
-    ![Single Sing-on 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_85.png) 
+    ![Single Sing-on 구성](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_85.png) 
 
     a. **특성 값** 목록에서 **ExtractMailPrefix()** 함수를 선택합니다.
 
@@ -130,23 +132,23 @@ SAP Cloud for Customer에서 Azure AD Single Sign-On을 구성하고 테스트�
 
 2. **SAP Cloud for Customer에 대한 사용자 로그온 방법 선택** 페이지에서 **Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_03.png) 
+    ![Single Sign-on 구성](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_03.png) 
 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_04.png) 
+    ![Single Sign-On 구성](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_04.png) 
    
     a. **로그온 URL** 텍스트 상자에 `https://<server name>.crm.ondemand.com` 패턴을 사용하여 사용자가 SAP Cloud for Customer 응용 프로그램에 로그인하는 데 사용할 URL을 입력합니다.
    
-    b. click **다음**
+    b. **다음**을 누릅니다
 
 4. **SAP Cloud for Customer에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
    
-    ![Single Sing-on 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_05.png)
+    ![Single Sing-on 구성](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_05.png)
    
     a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
    
-    b. **다음**을 클릭합니다.
+    b. **다음**을 누릅니다.
 
 5. SSO를 구성하려면 다음 단계를 수행합니다.
    
@@ -156,7 +158,7 @@ SAP Cloud for Customer에서 Azure AD Single Sign-On을 구성하고 테스트�
    
     c. **새 ID 공급자** 를 클릭하고 Azure 클래식 포털에서 다운로드한 메타데이터 XML 파일을 선택합니다. 시스템은 메타데이터를 가져와서 필수 서명 인증서 및 암호화 인증서를 자동으로 업로드합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_54.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_54.png)
    
     d. Azure AD에서는 SAML 요청에서 어설션 소비자 서비스 URL 요소가 필요합니다. 따라서 **어설션 소비자 서비스 URL 포함** 확인란을 선택합니다.
    
@@ -166,11 +168,11 @@ SAP Cloud for Customer에서 Azure AD Single Sign-On을 구성하고 테스트�
    
     g. **내 시스템** 탭을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_52.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_52.png)
    
     h. **SSO URL**을 복사하고 **Azure AD 로그온 URL** 텍스트 상자에 붙여 넣습니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_53.png)
+    ![Single Sign-On 구성](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_53.png)
    
     i. 직원이 **수동 ID 공급자 선택**을 선택하여 사용자 ID 및 암호 또는 SSO를 사용하는 로그온 중 하나를 수동으로 선택할 수 있는지 여부를 지정합니다.
    
@@ -208,29 +210,29 @@ SAP Cloud for Customer에서 Azure AD Single Sign-On을 구성하고 테스트�
 
 1. **Azure 클래식 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_09.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_09.png) 
 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
 
 3. 사용자 목록을 표시하려면 위쪽 메뉴에서 **사용자**를 클릭합니다.
    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_03.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_03.png) 
 
 4. **사용자 추가** 대화 상자를 열려면 아래쪽 도구 모음에서 **사용자 추가**를 클릭합니다.
    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_04.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_04.png) 
 
 5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_05.png) 
    
     a. 사용자 유형에서 조직의 새 사용자를 선택합니다.
    
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
    
-    c. **다음**을 클릭합니다.
+    c. **다음**을 누릅니다.
 
-6. **사용자 프로필** 대화 상자 페이지에서  ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png) 단계를 수행합니다. 
+6. **사용자 프로필** 대화 상자 페이지에서  ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_06.png) 단계를 수행합니다. 
    
     a. **이름** 텍스트 상자에 **Britta**를 입력합니다.  
    
@@ -240,15 +242,15 @@ SAP Cloud for Customer에서 Azure AD Single Sign-On을 구성하고 테스트�
    
     d. **역할** 목록에서 **사용자**를 선택합니다.
    
-    e. **다음**을 클릭합니다.
+    e. **다음**을 누릅니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_07.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_07.png) 
 
 8. **임시 암호 가져오기** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_08.png) 
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_08.png) 
    
     a. **새 암호**값을 적어둡니다.
    
@@ -275,7 +277,7 @@ SAP Cloud for Customer에서 Azure AD Single Sign-On을 구성하고 테스트�
 
 2. 응용 프로그램 목록에서 **SAP Cloud for Customer**를 선택합니다.
    
-    ![Single Sing-on 구성](./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_sapcloudforcustomer_50.png) 
+    ![Single Sing-on 구성](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_50.png) 
 
 3. 위쪽의 메뉴에서 **사용자**를 클릭합니다.
    
@@ -298,24 +300,19 @@ SAP Cloud for Customer에서 Azure AD Single Sign-On을 구성하고 테스트�
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_100.png
+[6]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_05.png
+[10]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_06.png
+[11]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_07.png
+[20]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_201.png
-[203]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+[200]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_201.png
+[203]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_203.png
+[204]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_204.png
+[205]: ./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_205.png
 

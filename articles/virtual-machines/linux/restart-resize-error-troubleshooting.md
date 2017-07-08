@@ -16,9 +16,10 @@ ms.workload: required
 ms.date: 01/10/2017
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: e49322dbccf4ec1157bc7e3a109175869b53518d
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
 
 

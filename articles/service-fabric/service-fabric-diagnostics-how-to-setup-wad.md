@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2017
+ms.date: 06/30/2017
 ms.author: dekapur
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7c3311800af27016b7f993b375055bbc65d9a727
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: e8b6709d4b2cbb71fdf2d83c9a95998ab147b4ba
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -81,7 +82,7 @@ Azure 지원 팀이 사용자의 지원 요청을 처리하려면 지원 로그�
 4. **deploy.ps1** 을 실행하고 구독 ID, 리소스 그룹 이름(같은 이름을 사용하여 구성 업데이트) 및 고유한 배포 이름을 입력합니다.
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Azure 리소스 관리자를 사용하여 클러스터 만들기의 일환으로 진단 확장 배포
-리소스 관리자를 사용하여 클러스터를 만들려면 클러스터를 만들기 전에 진단 구성 JSON을 전체 클러스터 Resource Manager 템플릿에 추가해야 합니다. 리소스 관리자 템플릿 샘플의 일부로 진단 구성이 추가된 샘플 5VM 클러스터 리소스 관리자 템플릿이 제공됩니다. Azure 샘플 갤러리의 [진단 Resource Manager 템플릿 샘플이 포함된 5노드 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad)에서 샘플을 볼 수 있습니다.
+리소스 관리자를 사용하여 클러스터를 만들려면 클러스터를 만들기 전에 진단 구성 JSON을 전체 클러스터 Resource Manager 템플릿에 추가해야 합니다. 리소스 관리자 템플릿 샘플의 일부로 진단 구성이 추가된 샘플 5VM 클러스터 리소스 관리자 템플릿이 제공됩니다. Azure 샘플 갤러리의 [진단 Resource Manager 템플릿 샘플이 포함된 5노드 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)에서 샘플을 볼 수 있습니다.
 
 Resource Manager 템플릿에서 진단 설정을 표시하려면 azuredeploy.json 파일을 열고 **IaaSDiagnostics**를 검색합니다. 이 템플릿을 사용하여 클러스터를 만들려면 이전 링크에 제공된 **Azure에 배포** 버튼을 선택합니다.
 

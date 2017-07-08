@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 3071bf565b14966de2293205026c4524d7b0f0c5
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: b70d74441f3d6d9793ae516b3f04e36e786a9a8f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -38,7 +38,7 @@ Azure 앱 서비스의 보안에는 두 가지 수준이 있습니다.
 * 앱 서비스 앱 및 외부 리소스(예: PowerShell 관리, 명령줄 인터페이스, Azure SDK, REST API 및 하이브리드 연결) 간의 모든 통신은 적절하게 암호화됩니다.
 * 24시간 위협 관리를 통해 맬웨어, DDoS(배포된 서비스 거부), MITM(메시지 가로채기) 및 기타 위협으로부터 앱 서비스 리소스를 보호합니다. 
 
-Azure의 인프라 및 플랫폼 보안에 대한 자세한 내용은 [Azure 보안 센터](/support/trust-center/security/)를 참조하세요.
+Azure의 인프라 및 플랫폼 보안에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/security/)를 참조하세요.
 
 #### <a name="application-security"></a>응용 프로그램 보안
 Azure가 응용 프로그램이 실행되는 인프라 및 플랫폼의 보안을 담당하는 반면 응용 프로그램 자체를 보호하는 것은 사용자 책임입니다. 즉, 응용 프로그램 코드 및 콘텐츠를 안전한 방식으로 개발, 배포 및 관리해야 합니다. 이렇게 하지 않으면 응용 프로그램 코드 또는 콘텐츠는 다음과 같은 위협에 취약할 수 있습니다.

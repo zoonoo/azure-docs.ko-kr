@@ -4,7 +4,7 @@ description: "Azure 공동 관리자, 서비스 관리자 및 계정 관리자�
 services: 
 documentationcenter: 
 author: genlin
-manager: vikdesai
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 06/13/2017
 ms.author: genli
-translationtype: Human Translation
-ms.sourcegitcommit: 6d438cde704323a07cc125eb75d08cb64b2432ec
-ms.openlocfilehash: 00b71701c4c114007e2d9a6d23f20b3df5fb2534
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 782489e7551fef3daed4de8212821e93f7777535
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -99,16 +100,16 @@ Azure 계정의 소유권을 다른 계정에 양도하려면 [Azure 구독의 �
 
 | 관리 역할 | 제한 | 설명 |
 | --- | --- | --- |
-| 계정 관리자(AA) |Azure 계정당&1;개 |Azure 구독을 등록했거나 구입했고, [계정 센터](https://account.windowsazure.com/Home/Index) 에 액세스하여 다양한 관리 작업을 수행할 권한이 부여된 사용자입니다. 이러한 관리 작업에는 구독 만들기, 구독 취소, 구독에 대한 대금 청구 변경 및 서비스 관리자 변경이 포함됩니다. |
-| 서비스 관리자(SA) |Azure 구독당&1;개 |이 역할은 [Azure 포털](https://portal.azure.com)에서 서비스를 관리할 권한이 있습니다. 기본적으로 새 구독의 경우 계정 관리자가 서비스 관리자이기도 합니다. |
-| [Azure 클래식 포털](https://manage.windowsazure.com) |구독당&200; |서비스 관리자와 동일한 액세스 권한이 있지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없는 역할입니다. |
+| 계정 관리자(AA) |Azure 계정당 1개 |Azure 구독을 등록했거나 구입했고, [계정 센터](https://account.windowsazure.com/Home/Index) 에 액세스하여 다양한 관리 작업을 수행할 권한이 부여된 사용자입니다. 이러한 관리 작업에는 구독 만들기, 구독 취소, 구독에 대한 대금 청구 변경 및 서비스 관리자 변경이 포함됩니다. |
+| 서비스 관리자(SA) |Azure 구독당 1개 |이 역할은 [Azure 포털](https://portal.azure.com)에서 서비스를 관리할 권한이 있습니다. 기본적으로 새 구독의 경우 계정 관리자가 서비스 관리자이기도 합니다. |
+| [Azure 클래식 포털](https://manage.windowsazure.com) |구독당 200 |서비스 관리자와 동일한 액세스 권한이 있지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없는 역할입니다. |
 
 Azure Active Directory RBAC(역할 기반 액세스 제어)를 사용하면 사용자를 여러 역할에 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
 ## <a name="limitations-and-restrictions-for-admin-accounts"></a>관리자 계정에 대한 제한 사항
 * 구독은 각각 Azure AD 디렉터리(기본 디렉터리라고도 함)와 연결됩니다. 구독이 연결된 기본 디렉터리를 찾으려면 [Azure 클래식 포털](https://manage.windowsazure.com/)로 이동하여 **설정** > **구독**을 선택합니다. 구독 ID를 확인하여 기본 디렉터리를 찾습니다.
 * Microsoft 계정으로 로그인하는 경우 다른 Microsoft 계정 또는 기본 디렉터리 내의 사용자를 공동 관리자로 추가할 수 있습니다.
-* 조직 계정으로 로그인하는 경우 해당 조직의 다른 조직 계정을 공동 관리자로 추가할 수 있습니다. 예를 들어 abby@contoso.com은 bob@contoso.com을 서비스 관리자 또는 공동 관리자로 추가할 수 있지만 john@noncontoso.com이 기본 디렉터리에 있지 않으면 john@notcontoso.com은 추가할 수 없습니다. 조직 계정을 사용하여 로그인한 사용자는 Microsoft 계정 사용자를 서비스 관리자 또는 공동 관리자로 계속해서 추가할 수 있습니다.
+* 조직 계정으로 로그인하는 경우 해당 조직의 다른 조직 계정을 공동 관리자로 추가할 수 있습니다. 예를 들어 abby@contoso.com은 bob@contoso.com을 서비스 관리자 또는 공동 관리자로 추가할 수 있지만 john@notcontoso.com이 기본 디렉터리에 있지 않으면 john@notcontoso.com은 추가할 수 없습니다. 조직 계정을 사용하여 로그인한 사용자는 Microsoft 계정 사용자를 서비스 관리자 또는 공동 관리자로 계속해서 추가할 수 있습니다.
 * 이제 조직 계정으로 Azure에 로그인할 수 있으므로 서비스 관리자 및 공동 관리자 계정 요구 사항이 다음과 같이 변경되었습니다.
 
   | 로그인 방법 | 기본 디렉터리 내에서 Microsoft 계정 또는 사용자를 CA 또는 SA로 추가하나요? | 동일한 조직의 조직 계정을 CA 또는 SA로 추가하나요? | 다른 조직의 조직 계정을 CA 또는 SA로 추가하나요? |

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 1f8af4fa220b30de2ba04d4088a57ffc6a8d624b
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 64dbff3e5e8cff538effe8a0623e48e81420f16a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -33,7 +34,7 @@ Microsoft Azure Machine Learning은 데이터에 대한 예측 분석 솔루션�
 * **끝점**: *끝점* 은 입력으로 기능을 가져오고, 지정된 Machine Learning 모델을 적용하고, 점수가 매겨진 출력을 반환하는 데 사용되는 Azure Machine Learning 개체입니다.
 * **점수 매기기 웹 서비스**: *점수 매기기 웹 서비스* 는 위에서 언급한 대로 끝점 컬렉션입니다.
 
-각 끝점에는 배치 실행 및 동기 실행을 위한 API가 있습니다. Stream Analytics은 동기 실행을 사용합니다. 특정 서비스는 AzureML 스튜디오에 있는 [Request/Response Service](../machine-learning/machine-learning-consume-web-services.md#request-response-service-rrs) 라는 서비스입니다.
+각 끝점에는 배치 실행 및 동기 실행을 위한 API가 있습니다. Stream Analytics은 동기 실행을 사용합니다. 특정 서비스는 AzureML 스튜디오에 있는 [Request/Response Service](../machine-learning/machine-learning-consume-web-services.md) 라는 서비스입니다.
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Stream Analytics 작업에 필요한 Machine Learning 리소스
 Stream Analytics 작업을 처리하려면 요청/응답 끝점, [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md#get-an-azure-machine-learning-authorization-key)및 swagger 정의가 모두 있어야 성공적으로 실행됩니다. Stream Analytics에는 swagger 끝점에 대한 url을 생성하고, 인터페이스를 조회하고, 사용자에게 기본 UDF 정의를 반환하는 추가 끝점이 있습니다.
@@ -200,9 +201,8 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
+* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

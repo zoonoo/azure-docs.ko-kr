@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1c28e756548b69d336b7f66ae9fbfa3c9259f787
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 46bc735bb288a29828903a5d1891c78c2bfae86a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -172,7 +174,7 @@ ms.openlocfilehash: 1c28e756548b69d336b7f66ae9fbfa3c9259f787
             }
         }
 
-## <a name="a-idjsonathumbnail-json-preset"></a><a id="json"></a>미리 보기 JSON 기본 설정
+## <a id="json"></a>미리 보기 JSON 기본 설정
 스키마에 대한 자세한 내용은 [이 항목](https://msdn.microsoft.com/library/mt269962.aspx) 을 참조하세요.
 
     {
@@ -274,7 +276,7 @@ ms.openlocfilehash: 1c28e756548b69d336b7f66ae9fbfa3c9259f787
     }
 
 
-## <a name="a-idxmlathumbnail-xml-preset"></a><a id="xml"></a>미리 보기 XML 기본 설정
+## <a id="xml"></a>미리 보기 XML 기본 설정
 스키마에 대한 자세한 내용은 [이 항목](https://msdn.microsoft.com/library/mt269962.aspx) 을 참조하세요.
 
     <?xml version="1.0" encoding="utf-16"?>
@@ -373,10 +375,5 @@ ms.openlocfilehash: 1c28e756548b69d336b7f66ae9fbfa3c9259f787
 
 ## <a name="see-also"></a>참고 항목
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

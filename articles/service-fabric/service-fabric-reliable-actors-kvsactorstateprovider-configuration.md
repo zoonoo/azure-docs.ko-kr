@@ -1,6 +1,6 @@
 ---
 title: "Azure 마이크로 서비스에서 KVSActorStateProvider 설정 변경 | Microsoft Docs"
-description: "&quot;KVSActorStateProvider&quot; 형식의 Azure 서비스 패브릭 상태 저장 행위자를 구성하는 방법에 대해 알아봅니다."
+description: "'KVSActorStateProvider' 형식의 Azure 서비스 패브릭 상태 저장 행위자를 구성하는 방법에 대해 알아봅니다."
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 6/29/2017
 ms.author: sumukhs
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
 ms.openlocfilehash: 9610c37111bf8fd36c1eaea4f48e46953661aacf
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -92,10 +94,5 @@ Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의�
 ## <a name="remarks"></a>설명
 BatchAcknowledgementInterval 매개 변수는 복제 지연을 제어합니다. '0' 값은 처리량을 희생하여 가장 낮은 대기 시간을 제공합니다(더 많은 승인 메시지를 보내고 처리해야 하므로 각각에 포함된 승인은 적음).
 BatchAcknowledgementInterval의 값이 클수록 전체적인 복제 처리량은 높아지고 작업 대기 시간은 더욱 길어집니다. 이 값은 트랜잭션 커밋의 대기 시간으로 직접 변환됩니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

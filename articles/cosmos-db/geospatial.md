@@ -16,15 +16,15 @@ ms.date: 05/22/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 0f914eacf5b8742a1499744d48c1de3fbf5fe03b
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: d5785c81fb597e7d30eb7d3a880e7194d8358ed5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 지리 공간 및 GeoJSON 위치 데이터 작업
-이 문서에서는 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)의 지리 공간 기능을 소개합니다. 이 문서를 읽은 후에는 다음과 같은 질문에 답할 수 있습니다.
+이 문서에서는 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)의 지리 공간 기능을 소개합니다. 이 문서를 읽은 후에는 다음과 같은 질문에 답할 수 있습니다.
 
 * Azure Cosmos DB에 공간 데이터를 저장하려면 어떻게 해야 하나요?
 * SQL 및 LINQ에서 Azure Cosmos DB의 지리 공간 데이터를 쿼리하려면 어떻게 해야 하나요?

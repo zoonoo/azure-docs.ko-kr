@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 06/12/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2bf6bd76b653e30f38595631eff576d8eeb8efda
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: c58de22e29b6403e88bf22bdfe704a25757cdfca
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -33,11 +33,6 @@ Service Fabric Explorer를 사용하는 방법을 알아보려면 다음 Microso
 
 ## <a name="connect-to-service-fabric-explorer"></a>서비스 패브릭 탐색기에 연결
 [개발 환경 준비](service-fabric-get-started.md)에 대한 지침을 따른 경우 http://localhost:19080/Explorer로 이동하여 로컬 클러스터에서 Service Fabric Explorer를 시작할 수 있습니다.
-
-> [!NOTE]
-> 서비스 패브릭 탐색기에서 Internet Explorer를 사용하여 원격 클러스터를 관리하는 경우 일부 Internet Explorer 설정을 구성해야 합니다. 모든 정보가 올바르게 로드되도록 하려면 **도구** > **호환성 보기 설정**으로 이동하고 **호환성 보기에서 인트라넷 사이트 표시**를 선택 취소합니다.
->
->
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>서비스 패브릭 탐색기 레이아웃 이해
 왼쪽의 트리를 사용하여 서비스 패브릭 탐색기를 탐색할 수 있습니다. 트리의 루트에서 클러스터 대시보드는 응용 프로그램 및 노드 상태에 대한 요약을 포함하여 클러스터에 대한 개요를 제공합니다.

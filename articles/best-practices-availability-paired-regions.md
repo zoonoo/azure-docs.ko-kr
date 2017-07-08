@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
-ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
-ms.lasthandoff: 02/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 32bff438c2e56b1c21aa907b6bff6c1d1e879de3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/14/2017
 
 ---
 
@@ -35,6 +36,16 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 
 | Geography | 쌍을 이루는 지역 |  |
 |:--- |:--- |:--- |
+| 아시아 |동아시아 |동남아시아 |
+| 오스트레일리아 |오스트레일리아 동부 |오스트레일리아 남동부 |
+| 브라질 |브라질 남부(1) |미국 중남부 |
+| 캐나다 |캐나다 중부 |캐나다 동부 |
+| 중국 |중국 북부 |중국 동부|
+| 유럽 |북유럽 |서유럽 |
+| 독일 |독일 중부 |독일 북동부 |
+| 인도 |인도 중부 |인도 남부 |
+| 일본 |일본 동부 |일본 서부 |
+| 한국 |한국 중부 |한국 남부 |
 | 북아메리카 |미국 중북부 |미국 중남부 |
 | 북아메리카 |미국 동부 |미국 서부 |
 | 북아메리카 |미국 동부 2 |미국 중부 |
@@ -49,6 +60,8 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 | 인도 |인도 중부 |인도 남부 |
 | 캐나다 |캐나다 중부 |캐나다 동부 |
 | 영국 |영국 서부 |영국 남부 |
+| 한국 |한국 중부 |한국 남부 |
+| 독일 |독일 중부 |독일 북동부 |
 
 표 1 - Azure 지역 쌍 매핑
 

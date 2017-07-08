@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83328eb874485d4541ff2131f736a30f350a0eb6
+ms.sourcegitcommit: f532f1aea9b8c4be6707862be4001099aa3c1d32
+ms.openlocfilehash: 337a7adfd93c76882a749685702bea6d1524c96a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 07/06/2017
 
 
 ---

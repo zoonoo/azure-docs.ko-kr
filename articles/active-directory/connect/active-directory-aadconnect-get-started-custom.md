@@ -18,7 +18,7 @@ ms.translationtype: Human Translation
 ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
 ms.openlocfilehash: f36d5da78818410e028a73a36a502a758400e5a5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -200,8 +200,8 @@ Azure AD에서 조직이 추가한 사용자 지정 특성 또는 Active Directo
 ### <a name="enabling-single-sign-on-sso"></a>SSO(Single Sign-On) 사용하도록 설정
 암호 동기화 또는 통과 인증에 사용하기 위해 single sign-on을 구성하면 Azure AD에 동기화되는 각 포리스트에 대해 한 번만 완료하면 되므로 과정이 간단합니다. 구성은 다음과 같이 두 단계로 이루어집니다.
 
-1.    온-프레미스 Active Directory에 필요한 컴퓨터 계정을 만듭니다.
-2.    클라이언트 컴퓨터의 인트라넷 영역을 구성하여 single sign on을 지원합니다.
+1.  온-프레미스 Active Directory에 필요한 컴퓨터 계정을 만듭니다.
+2.  클라이언트 컴퓨터의 인트라넷 영역을 구성하여 single sign on을 지원합니다.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Active Directory에서 컴퓨터 계정 만들기
 Azure AD Connect 도구에서 추가한 각 포리스트에 대해 도메인 관리자 자격 증명을 제공하여 각 포리스트에 컴퓨터 계정을 만들 수 있도록 해야 합니다. 자격 증명은 계정을 만드는 데만 사용되며 다른 작업에 저장되거나 사용되지 않습니다. 아래와 같이 Azure AD Connect 마법사의 **Single Sign-On을 사용하도록 설정** 페이지에서 자격 증명을 추가합니다.
@@ -215,20 +215,20 @@ Azure AD Connect 도구에서 추가한 각 포리스트에 대해 도메인 관
 클라이언트가 인트라넷 영역에 자동으로 로그인되도록 하려면 URL이 인트라넷 영역에 포함되도록 해야 합니다. 이렇게 하면 도메인에 가입된 컴퓨터가 기업 네트워크에 연결될 때 Kerberos 티켓을 Azure AD로 자동으로 보냅니다.
 그룹 정책 관리 도구가 있는 컴퓨터에서 다음을 수행합니다.
 
-1.    그룹 정책 관리 도구를 엽니다.
-2.    모든 사용자에게 표시될 그룹 정책을 편집합니다. 예를 들어 기본 도메인 정책은 다음과 같습니다.
-3.    **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page**로 이동하고 아래 이미지에 따라 **영역에 대한 사이트 할당 목록**을 선택합니다.
-4.    정책을 사용하도록 설정하고 대화 상자에서 다음 두 항목을 입력합니다.
+1.  그룹 정책 관리 도구를 엽니다.
+2.  모든 사용자에게 표시될 그룹 정책을 편집합니다. 예를 들어 기본 도메인 정책은 다음과 같습니다.
+3.  **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page**로 이동하고 아래 이미지에 따라 **영역에 대한 사이트 할당 목록**을 선택합니다.
+4.  정책을 사용하도록 설정하고 대화 상자에서 다음 두 항목을 입력합니다.
 
-        값: `https://autologon.microsoftazuread-sso.com`  
-        Data 1  
-        값: `https://aadg.windows.net.nsatc.net`  
-        Data 1
+        Value: `https://autologon.microsoftazuread-sso.com`  
+        Data: 1  
+        Value: `https://aadg.windows.net.nsatc.net`  
+        Data: 1
 
-5.    다음과 유사하게 나타납니다.  
+5.  다음과 유사하게 나타납니다.  
 ![인트라넷 영역](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.    **확인**을 두 번 클릭합니다.
+6.  **확인**을 두 번 클릭합니다.
 
 ## <a name="configuring-federation-with-ad-fs"></a>AD FS로 페더레이션 구성
 Azure AD Connect를 사용하여 AD FS를 구성하는 것은 단 몇 번의 클릭으로 간단합니다. 구성하기 전에 다음 사항이 필요합니다.

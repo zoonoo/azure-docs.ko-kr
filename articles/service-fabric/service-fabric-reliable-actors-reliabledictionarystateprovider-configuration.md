@@ -1,6 +1,6 @@
 ---
 title: "Azure 마이크로 서비스에서 ReliableDictionaryActorStateProvider 설정 변경 | Microsoft Docs"
-description: "&quot;ReliableDictionaryActorStateProvider&quot; 형식의 Azure 서비스 패브릭 상태 저장 행위자 구성에 대해 알아봅니다."
+description: "'ReliableDictionaryActorStateProvider' 형식의 Azure 서비스 패브릭 상태 저장 행위자 구성에 대해 알아봅니다."
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/8/2017
+ms.date: 6/29/2017
 ms.author: sumukhs
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
 ms.openlocfilehash: e787f48f14539dff3035c51e14243c7bd9dcbb73
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -124,10 +126,5 @@ OptimizeForLowerDiskUsage를 true로 설정하면 활성 복제본이 로그 파
 MaxRecordSizeInKB 설정은 복제자가 로그 파일에 쓸 수 있는 레코드의 최대 크기를 정의합니다. 대부분의 경우 기본 1024KB 레코드 크기가 최적입니다. 그러나 서비스에서 더 큰 데이터 항목이 상태 정보의 일부가 되도록 할 경우 이 값을 늘려야 할 수 있습니다. MaxRecordSizeInKB를 1024보다 작은 값으로 설정하면 작은 레코드만 작은 레코드에 필요한 공간을 사용하므로 이점이 적습니다. 이 값은 드문 경우에만 변경되어야 합니다.
 
 SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며 서비스가 노드에 대한 기본 공유 로그에서 별도의 공유 로그를 사용하도록 합니다. 최상의 효율성을 위해 최대한 많은 서비스가 동일한 공유 로그를 지정해야 합니다. 공유 로그 파일에만 사용되는 디스크에 공유 로그 파일을 배치해야 헤드 이동 경합이 감소합니다. 이 값은 드문 경우에만 변경되어야 합니다.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 34cc5f5b2947f775c00548e5d8699976caabfd47
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 030a1fc9f36d6fcfa607552d85ce232e36eaa64b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -112,16 +112,16 @@ MobileXpense에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Single Sign-on 구성](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url11.png)
 
-       In the **Reply URL** textbox, type a URL using the following pattern: `https://<sub domain>.mobilexpense.com/SSO/SAML20/SAML/AssertionConsumerService.aspx`
+    **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<sub domain>.mobilexpense.com/SSO/SAML20/SAML/AssertionConsumerService.aspx`
 
 4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
 
     ![Single Sign-on 구성](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url22.png)
 
-    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<sub domain>.mobilexpense.com/<customername>`
-     
-    > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [MobileXpense 클라이언트 지원 팀](http://www.mobilexpense.net/contact)에 문의하세요. 
+**로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<sub domain>.mobilexpense.com/<customername>`
+
+> [!NOTE] 
+> 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [MobileXpense 클라이언트 지원 팀](http://www.mobilexpense.net/contact)에 문의하세요. 
 
 5. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 

@@ -53,18 +53,20 @@
 ## 솔루션 사용
 ### [솔루션 개요](log-analytics-add-solutions.md)
 ### [대상 솔루션](../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json)
-### [Activity Log Analytics](log-analytics-activity.md)(활동 로그 분석)
+### [활동 로그 분석](log-analytics-activity.md)
 ### [AD 평가](log-analytics-ad-assessment.md)
 ### [AD 복제 상태](log-analytics-ad-replication-status.md)
+### [에이전트 상태](../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [경고 관리](log-analytics-solution-alert-management.md)
+### [Application Insights 커넥터](log-analytics-app-insights-connector.md)
 ### [Azure SQL Analytics](log-analytics-azure-sql.md)
 ### [Azure Web Apps 분석](log-analytics-azure-web-apps-analytics.md)
 ### [용량 및 성능](log-analytics-capacity.md)
 ### [변경 내용 추적](log-analytics-change-tracking.md)
 ### [컨테이너](log-analytics-containers.md)
 ### [DNS 분석](log-analytics-dns.md)
-### [OMS에서 IT Service Management Connector](log-analytics-itsmc-overview.md)
-#### [OMS에서 IT Service Management 연결](log-analytics-itsmc-connections.md)
+### [IT Service Management Connector](log-analytics-itsmc-overview.md)
+#### [IT Service Management 연결](log-analytics-itsmc-connections.md)
 ### [키 자격 증명 모음](log-analytics-azure-key-vault.md)
 ### Logic Apps B2B 메시지
 #### [Logic Apps B2B 메시지 솔루션](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
@@ -89,6 +91,7 @@
 ### [PowerShell cmdlet](log-analytics-powershell-workspace-configuration.md)
 ### [Resource Manager 템플릿](log-analytics-template-workspace-configuration.md)
 ### [Log Search API](log-analytics-log-search-api.md)
+#### [Python](log-analytics-log-search-api-python.md)
 ### [알림 API](log-analytics-api-alerts.md)
 
 # 참조
@@ -96,6 +99,7 @@
 ## [REST (영문)](/rest/api/loganalytics)
 
 # 리소스
-## [Windows 분석](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=log-analytics)
+## [Windows 분석](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

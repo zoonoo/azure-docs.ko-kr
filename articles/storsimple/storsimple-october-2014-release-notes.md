@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d3f4908fd8e245960ba1b1b1244aafeb06922eb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4dfd3973593a94adfc15a6e15d69c697e13998af
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -94,10 +96,5 @@ StorSimple 장치를 업데이트 하기 전에 다음 필수 조건이 충족�
 
 ## <a name="virtual-device-updates-in-the-october-release"></a>10월 릴리스의 가상 장치 업데이트
 이 릴리스에는 가상 장치에 대한 업데이트는 포함되지 않습니다. 이 업데이트를 적용해도 가상 장치의 소프트웨어 버전은 변경되지 않습니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

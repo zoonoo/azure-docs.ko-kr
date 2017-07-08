@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4394a5ddd17e635661cd89b42f76b0558ffa17ab
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 32c6d4ed5470077856d4ab175a5df5188b3690a6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -67,7 +68,7 @@ Microsoft에는 이렇게 통합이 깨졌을 때 자동으로 감지할 기술�
 
 -   Internet Explorer의 보안 설정에 따라, 웹 사이트가 **신뢰할 수 있는 영역**에 속해 있지 않으면 응용 프로그램에서 스크립트 실행이 차단될 수 있습니다.
 
-  *  이 문제를 해결하려면 사용자에게 **Internet Explorer 보안 설정**에서 **응용 프로그램의 웹 사이트**를 **신뢰할 수 있는 사이트** 목록에 추가하라고 요청합니다. 사용자가 자세한 지침을 확인할 수 있도록 [사이트를 신뢰할 수 있는 사이트 목록에 추가하는 방법](https://answers.microsoft.com/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) 문서로 안내할 수도 있습니다.
+  *  이 문제를 해결하려면 사용자에게 **Internet Explorer 보안 설정**에서 **응용 프로그램의 웹 사이트**를 **신뢰할 수 있는 사이트** 목록에 추가하라고 요청합니다. 사용자가 자세한 지침을 확인할 수 있도록 [사이트를 신뢰할 수 있는 사이트 목록에 추가하는 방법](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) 문서로 안내할 수도 있습니다.
 
 -   드물게 Internet Explorer의 보안 유효성 검사 때문에 스크립트 실행 속도보다 페이지 로드 속도가 느려질 수 있습니다.
 
@@ -89,9 +90,9 @@ Microsoft에는 이렇게 통합이 깨졌을 때 자동으로 감지할 기술�
 
 1.  지원되는 브라우저 중 하나에서 [액세스 패널](https://myapps.microsoft.com)을 열고 Azure AD에서 **사용자**로 로그인합니다.
 
-2.  액세스 패널에서 **password-SSO application**(암호-SSO 응용 프로그램)을 클릭합니다.
+2.  액세스 패널에서 **암호-SSO 응용 프로그램**을 클릭합니다.
 
-3.  소프트웨어를 설치하라는 프롬프트에서 **Install Now**(지금 설치)를 선택합니다.
+3.  소프트웨어를 설치하라는 프롬프트에서 **지금 설치**를 선택합니다.
 
 4.  브라우저에 따라 다운로드 링크로 이동됩니다. 브라우저에 확장을 **추가**합니다.
 
