@@ -104,7 +104,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
    > 이후 빠른 시작에서 서버 및 해당 데이터베이스에 연결하려면 이 정규화된 서버 이름이 필요합니다.
    > 
 
-   ![서버 이름](./media/sql-database-get-started-portal/server-name.png) 
+   ![서버 이름](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. 이전 이미지에 표시된 대로 도구 모음에서 **서버 방화벽 설정**을 클릭합니다. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다. 
 
