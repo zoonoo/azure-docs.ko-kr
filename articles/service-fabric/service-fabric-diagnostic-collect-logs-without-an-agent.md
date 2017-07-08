@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/18/2017
 ms.author: karolz
-translationtype: Human Translation
-ms.sourcegitcommit: d7f7b157d8d6fb54259c8f23d5005509f4eb7872
-ms.openlocfilehash: 22acb6afbfbfff753e71b5e821385798cc76ffdd
-ms.lasthandoff: 01/19/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 08f7b57985382f2abbb90ba1e13a30f40b38917f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -53,15 +54,15 @@ EventFlow 이진을 NuGet 패키지 집합으로 사용할 수 있습니다. Eve
 
 EventFlow를 호스팅하는 서비스는 응용 프로그램 로그에 대해 원본과 대상에 따라 적합한 패키지를 포함해야 합니다. 다음 패키지를 추가합니다. 
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource` 
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` 
     * (서비스의 EventSource 클래스 및 표준 EventSources에서 데이터 캡처, 예: *Microsoft-ServiceFabric-Services* 및 *Microsoft-ServiceFabric-Actors*)
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights` 
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` 
     * (여기서는 Azure Application Insights 리소스에 로그를 보낼 것임)  
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric` 
     * (Service Fabric 서비스 구성에서 EventFlow 파이프라인의 초기화를 활성화하고 진단 데이터를 Service Fabric 상태 보고서로 보내 모든 문제를 보고)
 
 > [!NOTE]
-> `Microsoft.Diagnostics.EventFlow.Input.EventSource` 패키지에서는 서비스 프로젝트가 .NET Framework 4.6 이상을 대상으로 해야 합니다. 이 패키지를 설치하기 전에 프로젝트 속성에서 적합한 대상 프레임워크를 설정해야 합니다. 
+> `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` 패키지에서는 서비스 프로젝트가 .NET Framework 4.6 이상을 대상으로 해야 합니다. 이 패키지를 설치하기 전에 프로젝트 속성에서 적합한 대상 프레임워크를 설정해야 합니다. 
 
 모든 패키지를 설치한 다음에는 서비스에서 EventFlow를 구성하여 활성화합니다.
 
@@ -176,3 +177,4 @@ namespace Stateless1
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-collect-logs-without-an-agent/eventflow-nugets.png
 [2]: ./media/service-fabric-diagnostics-collect-logs-without-an-agent/ai-traces.png
+

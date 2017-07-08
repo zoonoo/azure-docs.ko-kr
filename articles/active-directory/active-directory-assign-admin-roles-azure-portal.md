@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 8e8723c6dc81012a0dddd4e0a28c4d4af6828c6c
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 59954c02741de2fbba22a3e41640573914efdad8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -156,6 +156,17 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 
 ## <a name="assign-or-remove-administrator-roles"></a>관리자 역할 할당 또는 제거
 Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방법은 [Azure Active Directory 미리 보기에서 관리자 역할에 사용자 지정](active-directory-users-assign-role-azure-portal.md)을 참조하세요.
+
+## <a name="deprecated-roles"></a>사용되지 않는 역할
+
+다음 역할은 사용할 수 없습니다. 이 역할은 사용되지 않으며 향후 Azure AD에서 제거됩니다.
+
+* 임시 라이선스 관리자
+* 전자 메일 확인 사용자 생성자
+* 장치 연결
+* 장치 관리
+* 장치 사용자
+* 작업 공간 장치 연결
 
 ## <a name="next-steps"></a>다음 단계
 

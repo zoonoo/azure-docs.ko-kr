@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 035fac3cbdc9765fa8d5c80e3d2d9449e1bf5b3a
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 637463399593f4bc9ff5bfcbf67bf93b816efc7f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/21/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -78,7 +78,6 @@ Elastic Database 도구는 무료로 제공됩니다. Elastic Database 도구를
 ## <a name="next-steps"></a>다음 단계
 Elastic Database 도구에 대한 자세한 내용은 다음 페이지를 참조하세요.
 
-* [탄력적 데이터베이스 도구 설명서 맵](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/) 
 * 코드 샘플: 
   * [Azure SQL용 Elastic DB 도구 - 시작](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
   * [Azure SQL용 Elastic DB 도구 - Entity Framework 통합](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)

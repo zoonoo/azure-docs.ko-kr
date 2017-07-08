@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a4e73e9c8a66fca132b1f26913ee8ef5e397269
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1303815755584e912891d501018b257b96e5f063
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -51,9 +53,4 @@ Azure 보안 정보 사이트에서는 현재 다음과 같은 범주를 다루�
 >
 
 사용자의 의견을 원합니다! 추가하고 싶은 범주가 있다면 알려 주세요! 기존 범주에 추가하고 싶은 문서가 있는 경우에도 알려 주세요! 아래 의견 섹션을 사용하거나 [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) 으로 보내 주시면 권장해 주신 내용을 계획에 통합하겠습니다.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

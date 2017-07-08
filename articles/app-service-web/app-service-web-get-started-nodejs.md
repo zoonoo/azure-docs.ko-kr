@@ -16,10 +16,10 @@ ms.date: 05/05/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: b58ecb5dee434ab2295ccf3ff9a80dbfbdd1fe14
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: e41c6f544ace374eb1f059c115e585a70265a571
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
@@ -139,7 +139,7 @@ Node.js 샘플 코드는 Azure App Service 웹앱에서 실행 중입니다.
 
 ![Azure에서 실행되는 샘플 앱](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-**축하합니다.** App Service에 첫 번째 PHP 앱을 배포했습니다.
+**축하합니다.** App Service에 첫 번째 Node.js 앱을 배포했습니다.
 
 ## <a name="update-and-redeploy-the-code"></a>코드 업데이트 및 다시 배포
 

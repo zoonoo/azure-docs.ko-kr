@@ -45,7 +45,7 @@ RADIUS 인증을 구성하려면 Windows 서버에 Azure Multi-Factor Authentica
 
   공유 암호는 Azure Multi-Factor Authentication 서버 및 어플라이언스/서버 모두에서 동일해야 합니다.
 
-6. 모든 사용자를 내부 서버로 가져왔거나 가져올 예정이고 Multi-Factor Authentication을 사용하려는 경우 **Require Azure Multi-Factor Authentication user match**(Azure Multi-Factor Authentication 사용자 일치 필요) 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나&2;단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
+6. 모든 사용자를 내부 서버로 가져왔거나 가져올 예정이고 Multi-Factor Authentication을 사용하려는 경우 **Require Azure Multi-Factor Authentication user match**(Azure Multi-Factor Authentication 사용자 일치 필요) 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 7. 대역외 전화 통화, SMS 또는 푸시 알림에 대한 대체(fallback)로 모바일 확인 앱에서 OATH 암호를 사용하려는 경우 **대체 OATH 토큰 사용** 상자를 선택합니다.
 8. **확인**을 클릭합니다.
 

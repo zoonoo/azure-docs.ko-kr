@@ -14,9 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 12/15/2016
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 82c9d68bc3f1650648fac0597f4a329ef053b109
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9b56317fe8326a20fccfff4687f518d1e847122f
+ms.openlocfilehash: af9da85c37211d2436c23cc05400031c661ef51e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -90,10 +92,5 @@ Blob이 초기 헤더 줄을 포함하지 않는 경우 헤더는 인덱서 구�
 
 ## <a name="help-us-make-azure-search-better"></a>Azure 검색 개선 지원
 기능 요청 또는 개선에 대한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 연락해 주세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

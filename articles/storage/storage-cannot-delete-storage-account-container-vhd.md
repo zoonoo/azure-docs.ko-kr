@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: genli
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 64f875581dccd2ad1215a82eba1e2659fe01d191
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 9f3e824414ad6c1a0aba98a3d549ee63ddc7272f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -138,5 +138,4 @@ VM을 삭제한후 연결된 VHD의 blob를 삭제하려고 하면 다음 메시
 
 ## <a name="next-steps"></a>다음 단계
 * [저장소 계정 삭제](storage-create-storage-account.md#delete-a-storage-account)
-* [Microsoft Azure(PowerShell)에서 Blob 저장소의 임대 잠금을 해제하는 방법](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
 

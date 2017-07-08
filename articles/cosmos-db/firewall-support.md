@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: ankshah
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 9a17d9fe0c252e2327ffbd75fde38d1f97ce3cc9
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: e08c0ba9c1fc0bab72ae8c1158aafaad4f66920e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -50,7 +50,7 @@ Azure에서 클라우드 서비스는 Azure Cosmos DB를 사용하여 중간 계
 인터넷에 있는 컴퓨터에서 Azure Cosmos DB 데이터베이스 계정에 액세스하려면 컴퓨터의 클라이언트 IP 주소 또는 IP 주소 범위를 Azure Cosmos DB 데이터베이스 계정에 허용되는 IP 주소 목록에 추가해야 합니다. 
 
 ## <a id="configure-ip-policy"></a> IP 액세스 제어 정책 구성
-Azure Portal에서나, [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md)을 통해 프로그래밍 방식으로 또는 `ipRangeFilter` 속성을 업데이트하여 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 IP 액세스 제어 정책을 설정할 수 있습니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 예: "13.91.6.132,13.91.6.1/24". 이러한 메서드를 통해 데이터베이스 계정을 업데이트할 때에는 기본 설정으로 다시 설정되지 않도록 모든 속성을 채워야 합니다.
+Azure Portal에서나, [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md)을 통해 프로그래밍 방식으로 또는 `ipRangeFilter` 속성을 업데이트하여 [REST API](/rest/api/documentdb/)를 통해 IP 액세스 제어 정책을 설정할 수 있습니다. IP 주소/범위는 쉼표로 구분하며 공백을 포함해서는 안 됩니다. 예: "13.91.6.132,13.91.6.1/24". 이러한 메서드를 통해 데이터베이스 계정을 업데이트할 때에는 기본 설정으로 다시 설정되지 않도록 모든 속성을 채워야 합니다.
 
 > [!NOTE]
 > Azure Cosmos DB 데이터베이스 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 컴퓨터에서 시도하는 모든 Azure Cosmos DB 데이터베이스 계정 액세스가 차단됩니다. 이 모델 때문에 액세스 제어의 무결성을 보장하기 위해 포털에서 데이터 평면 작업을 검색하는 기능도 차단됩니다.

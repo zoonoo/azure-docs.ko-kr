@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: ae6af47c82a5c0425f6cd53b8ba1134797505e6c
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: 2372d9d4dc190e7583bcc513042a85e970325e14
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/21/2017
 
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>개인 Docker 컨테이너 레지스트리로 인증
@@ -52,7 +53,7 @@ Azure Container Registry에서는 익명 액세스를 사용할 수 없습니다
 
 여러 서비스 주체를 레지스트리에 할당할 수 있으므로 여러 사용자 또는 응용 프로그램에 대한 액세스를 정의할 수 있습니다. 또한 서비스 주체는 다음 예제와 같은 개발자 또는 DevOps 시나리오에서 레지스트리에 대한 "헤드리스" 연결을 사용하도록 설정할 수 있습니다.
 
-  * 레지스트리에서 DC/OS, Docker Swarm 및 Kubernetes를 포함한 오케스트레이션 시스템으로 컨테이너 배포 - 컨테이너 레지스트리를 관련 Azure 서비스(예: [Container Service](../container-service/index.md), [App Service](../app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) 등)로 가져올 수도 있습니다.
+  * 레지스트리에서 DC/OS, Docker Swarm 및 Kubernetes를 포함한 오케스트레이션 시스템으로 컨테이너 배포 - 컨테이너 레지스트리를 관련 Azure 서비스(예: [Container Service](../container-service/index.yml), [App Service](../app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) 등)로 가져올 수도 있습니다.
 
   * 컨테이너 이미지를 작성하고 레지스트리로 푸시하는 지속적인 통합 및 배포 솔루션(예: Visual Studio Team Services 또는 Jenkins)
 

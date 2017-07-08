@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 842f6667d79d6a2cf3ab6fb7ccff575055585dca
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 9b23f34300248ff87ed4a6abbeb6cfdda6570581
 ms.contentlocale: ko-kr
 
 
@@ -26,9 +26,9 @@ ms.contentlocale: ko-kr
 ## <a name="create-an-application-express"></a>응용 프로그램(Express) 만들기
 이제 *Microsoft 응용 프로그램 등록 포털*에서 등용 프로그램을 등록해야 합니다.
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)을 통해 응용 프로그램을 등록합니다.
-2.    응용 프로그램 이름과 메일을 입력합니다.
-3.    안내식 설정 옵션이 선택되어 있는지 확인합니다.
-4.    지침에 따라 응용 프로그램 ID를 가져와 코드에 붙여넣습니다.
+2.  응용 프로그램 이름과 메일을 입력합니다.
+3.  안내식 설정 옵션이 선택되어 있는지 확인합니다.
+4.  지침에 따라 응용 프로그램 ID를 가져와 코드에 붙여넣습니다.
 
 ### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>솔루션에 응용 프로그램 등록 정보 추가(고급)
 이제 *Microsoft 응용 프로그램 등록 포털*에서 등용 프로그램을 등록해야 합니다.
@@ -36,8 +36,8 @@ ms.contentlocale: ko-kr
 2. 응용 프로그램 이름과 메일을 입력합니다. 
 3. 안내식 설정 옵션이 선택 취소되어 있는지 확인합니다.
 4. `Add Platforms`를 클릭한 다음 `Native Application`을 선택하고 [저장]을 누릅니다.
-5.    (`app` > `java` > *`{host}.{namespace}`*에서) `MainActivity`를 엽니다.
-6.    `final static String CLIENT_ID`로 시작하는 줄에서 *[여기에 응용 프로그램 ID 입력]*을 방금 등록한 응용 프로그램 ID로 바꿉니다.
+5.  (`app` > `java` > *`{host}.{namespace}`*에서) `MainActivity`를 엽니다.
+6.  `final static String CLIENT_ID`로 시작하는 줄에서 *[여기에 응용 프로그램 ID 입력]*을 방금 등록한 응용 프로그램 ID로 바꿉니다.
 
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";

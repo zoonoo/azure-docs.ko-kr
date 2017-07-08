@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 51de0e9aa1d29d0b3f3ffc4f126b8ca688be3504
 ms.openlocfilehash: 5e96805f8880a30a5fc8779d8f07addb6d068c09
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -46,10 +48,5 @@ ms.openlocfilehash: 5e96805f8880a30a5fc8779d8f07addb6d068c09
 VM 크기 집합에서는 IC, VM과 같은 여러 리소스 간의 상관 관계를 구성하지 않고 네트워크, 저장소, 가상 컴퓨터, 확장 속성을 중앙 집중적으로 구성할 수 있습니다.
 
 VM 크기 집합에 대한 소개 정보를 보려면 [가상 컴퓨터 크기 집합 제품 페이지](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 참조하세요. 자세한 내용은 [가상 컴퓨터 크기 집합 설명서](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/)를 참조하세요.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 21cbbb10065df9ae9c63b775a6526ea9c4f92136
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -32,7 +34,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 > 
 > 
 
-## <a name="a-nameassetfilesa-assetfiles-element-root-element"></a><a name="AssetFiles"></a> AssetFiles 요소(루트 요소)
+## <a name="AssetFiles"></a> AssetFiles 요소(루트 요소)
 인코딩 작업에 대한 [AssetFile 요소](media-services-input-metadata-schema.md#AssetFile) 컬렉션이 포함됩니다.  
 
 이 항목 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
@@ -41,7 +43,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | --- | --- |
 | **AssetFile**<br /><br /> minOccurs="1" maxOccurs="unbounded" |단일 자식 요소입니다. 자세한 내용은 [AssetFile 요소](media-services-input-metadata-schema.md#AssetFile)를 참조하세요. |
 
-## <a name="a-nameassetfilea-assetfile-element"></a><a name="AssetFile"></a> AssetFile 요소
+## <a name="AssetFile"></a> AssetFile 요소
  자산 파일을 설명하는 속성과 요소를 포함하고 있습니다.  
 
  이 항목 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
@@ -71,7 +73,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **AudioTracks**<br /><br /> minOccurs="0" | |각각의 실제 자산 파일에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 이 요소에는 자산 파일의 일부인 모든 [AudioTracks 요소](media-services-input-metadata-schema.md#AudioTracks)의 컬렉션이 포함됩니다. |
 | **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |key/value 문자열로 표시되는 자산 파일의 메타데이터입니다. 예:<br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
 
-## <a name="a-nametracktypea-tracktype"></a><a name="TrackType"></a> TrackType
+## <a name="TrackType"></a> TrackType
 이 항목 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
@@ -96,7 +98,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **Disposition**<br /><br /> minOccurs="0" maxOccurs="1" |[StreamDispositionType](media-services-input-metadata-schema.md#StreamDispositionType) |프레젠테이션 정보가 포함됩니다(예: 특정 오디오 트랙이 시각 장애 시청자를 위한 것인지 여부). |
 | **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |다양한 정보를 저장하는 데 사용할 수 있는 일반 key/value 문자열입니다. 예제: key=”language” 및 value=”eng” |
 
-## <a name="a-nameaudiotracktypea-audiotracktype-inherits-from-tracktype"></a><a name="AudioTrackType"></a> AudioTrackType(TrackType에서 상속)
+## <a name="AudioTrackType"></a> AudioTrackType(TrackType에서 상속)
  **AudioTrackType**는 [TrackType](media-services-input-metadata-schema.md#TrackType)에서 상속되는 전역 복합 형식입니다.  
 
  형식은 자산 파일의 특정 오디오 트랙을 나타냅니다.  
@@ -113,7 +115,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **Bitrate** |**xs:int** |자산 파일에서 계산되는 평균 오디오 비트 전송률(bps)입니다. 기본 스트림 페이로드만 계산되며, 패키징 오버헤드는 이 개수에 포함되지 않습니다. |
 | **BitsPerSample** |**xs:int** |wFormatTag 형식 샘플당 비트입니다. |
 
-## <a name="a-namevideotracktypea-videotracktype-inherits-from-tracktype"></a><a name="VideoTrackType"></a> VideoTrackType(TrackType에서 상속)
+## <a name="VideoTrackType"></a> VideoTrackType(TrackType에서 상속)
 **VideoTrackType**는 [TrackType](media-services-input-metadata-schema.md#TrackType)에서 상속되는 전역 복합 형식입니다.  
 
 형식은 자산 파일의 특정 비디오 트랙을 나타냅니다.  
@@ -139,7 +141,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **MaxGOPBitrate** |**xs:int** |이 비디오 트랙의 최대 GOP 평균 비트 전송률(Kb/초)입니다. |
 | **HasBFrames** |**xs:int** |B 프레임의 비디오 트랙 번호입니다. |
 
-## <a name="a-namemetadatatypea-metadatatype"></a><a name="MetadataType"></a> MetadataType
+## <a name="MetadataType"></a> MetadataType
 **MetadataType**은 자산 파일의 메타데이터를 key/value 문자열로 설명하는 전역 복합 형식입니다. 예제: key=”language” 및 value=”eng”  
 
 이 항목 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
@@ -150,7 +152,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **key**<br /><br /> 필수 |**xs:string** |key/value 쌍의 키입니다. |
 | **값**<br /><br /> 필수 |**xs:string** |key/value 쌍의 값입니다. |
 
-## <a name="a-nameprogramtypea-programtype"></a><a name="ProgramType"></a> ProgramType
+## <a name="ProgramType"></a> ProgramType
 **ProgramType**은 프로그램을 설명하는 전역 복합 형식입니다.  
 
 ### <a name="attributes"></a>특성
@@ -163,7 +165,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **StartPTS** |**xs: long** |프레젠테이션 시작 타임스탬프입니다. |
 | **EndPTS** |**xs: long** |프레젠테이션 끝 타임스탬프입니다. |
 
-## <a name="a-namestreamdispositiontypea-streamdispositiontype"></a><a name="StreamDispositionType"></a> StreamDispositionType
+## <a name="StreamDispositionType"></a> StreamDispositionType
 **StreamDispositionType**은 스트림을 설명하는 전역 복합 형식입니다.  
 
 이 항목 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
@@ -183,7 +185,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | **CleanEffects**<br /><br /> 필수 |**xs:int** |이 트랙에 새 효과가 있음을 나타내려면 이 속성을 1로 설정합니다. |
 | **AttachedPic**<br /><br /> 필수 |**xs:int** |이 트랙에 그림이 있음을 나타내려면 이 속성을 1로 설정합니다. |
 
-## <a name="a-nameprogramsa-programs-element"></a><a name="Programs"></a> Programs 요소
+## <a name="Programs"></a> Programs 요소
 여러 **Program** 요소를 보유하는 래퍼 요소입니다.  
 
 ### <a name="child-elements"></a>자식 요소
@@ -191,7 +193,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | --- | --- | --- |
 | **Program**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |MPEG-TS 형식의 자산 파일에는 자산 파일의 프로그램에 대한 정보가 포함됩니다. |
 
-## <a name="a-namevideotracksa-videotracks-element"></a><a name="VideoTracks"></a> VideoTracks 요소
+## <a name="VideoTracks"></a> VideoTracks 요소
  여러 **VideoTrack** 요소를 보유하는 래퍼 요소입니다.  
 
  이 항목 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
@@ -201,7 +203,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | --- | --- | --- |
 | **VideoTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[VideoTrackType(TrackType에서 상속)](media-services-input-metadata-schema.md#VideoTrackType) |자산 파일의 비디오 트랙에 대한 정보가 포함됩니다. |
 
-## <a name="a-nameaudiotracksa-audiotracks-element"></a><a name="AudioTracks"></a> AudioTracks 요소
+## <a name="AudioTracks"></a> AudioTracks 요소
  여러 **AudioTrack** 요소를 보유하는 래퍼 요소입니다.  
 
  이 항목 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
@@ -211,7 +213,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 | --- | --- | --- |
 | **AudioTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[AudioTrackType(TrackType에서 상속)](media-services-input-metadata-schema.md#AudioTrackType) |자산 파일의 오디오 트랙에 대한 정보가 포함됩니다. |
 
-## <a name="a-namecodea-schema-code"></a><a name="code"></a> 스키마 코드
+## <a name="code"></a> 스키마 코드
     <?xml version="1.0" encoding="utf-8"?>  
     <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.0"  
                xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata"  
@@ -610,7 +612,7 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
     </xs:schema>  
 
 
-## <a name="a-namexmla-xml-example"></a><a name="xml"></a> XML 예제
+## <a name="xml"></a> XML 예제
 다음은 입력 메타데이터 파일의 예제입니다.  
 
     <?xml version="1.0" encoding="utf-8"?>  
@@ -645,10 +647,5 @@ ms.openlocfilehash: 2274f8b69e82edb2f3e24f23ac6f89dcd7dfcb17
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

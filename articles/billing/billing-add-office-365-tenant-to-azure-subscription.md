@@ -4,7 +4,7 @@ description: "Azure 구독에 Office 365 디렉터리(테넌트)를 추가하는
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: vikdesai
+manager: jlian
 editor: 
 tags: billing,top-support-issue
 ms.assetid: cc9c57c6-7bfd-4dea-9027-c75ef3737589

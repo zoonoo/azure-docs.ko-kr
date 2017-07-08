@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure
 ms.date: 11/17/2016
 ms.author: keikhara
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
 ms.openlocfilehash: f10236ab89339234a32abf42c42083e233ab3a52
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -116,9 +118,4 @@ $ dcos package uninstall msoms
 ## <a name="next-steps"></a>다음 단계
 
  이제 컨테이너를 모니터링하도록 OMS를 설정했으므로 [컨테이너 대시보드 참조](../log-analytics/log-analytics-containers.md)를 참조하세요.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: "Python에서 큐 저장소를 사용하는 방법 | Microsoft Docs"
-description: "Azure 큐 서비스를 사용하여 Python에서 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다.&quot;"
+description: "Azure 큐 서비스를 사용하여 Python에서 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다.\""
 services: storage
 documentationcenter: python
 author: robinsh
@@ -14,9 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: fefebeae665ccd14f15b0197241b30d33830fd09
-ms.openlocfilehash: 8b09e5c7505554f1007cdf46ae74a100fb083432
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1ae54ed11130223f2795120e199234fec609d3fc
+ms.openlocfilehash: 1ad3ba6853edda93034b84996823262cb017c71a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -117,8 +119,3 @@ queue_service.delete_queue('taskqueue')
 
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
-
-
-<!--HONumber=Nov16_HO3-->
-
-

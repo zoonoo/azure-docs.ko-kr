@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 08/31/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 22fe6397120c36e1aa716f4711fbe9e7c72d17e8
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 1895094b28d9596eec644078b6f9a877b526b89e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -287,10 +288,13 @@ RP 트러스트 구성에서 그룹 멤버 자격을 역할 클레임으로 포�
     }
    
     <mark>[Authorize(Roles="Domain Admins")]</mark>
-    public ActionResult Contact()  {      ViewBag.Message = "Your contact page.";
+    public ActionResult Contact()
+    {
+        ViewBag.Message = "Your contact page.";
    
         return View();
-    }  </pre>
+    }
+    </pre>
    
     이 자습서의 AD FS 실습 환경에서는 **테스트 사용자**를 **테스트 그룹**에 추가했기 때문에 테스트 그룹을 사용하여 `About`에 대한 권한 부여를 테스트합니다. `Contact`의 경우 **테스트 사용자**가 속해 있지 않은 **도메인 관리**의 부정적인 사례를 테스트합니다.
 3. `F5` 키를 눌러 디버거를 시작하고 로그인한 후 **About**을 클릭합니다. 이제 인증된 사용자에게 해당 작업에 대한 권한이 부여된 경우 `~/About/Index` 페이지가 성공적으로 표시되어야 합니다.
@@ -350,7 +354,6 @@ Azure App Service Web Apps은 [하이브리드 연결](../biztalk-services/integ
 <a name="bkmk_resources"></a>
 
 ## <a name="further-resources"></a>추가 리소스
-* [SSL 및 Authorize 특성을 사용하여 응용 프로그램 보호](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
 * [Azure 앱에서 온-프레미스 Active Directory를 사용하여 인증](web-sites-authentication-authorization.md)
 * [Azure Active Directory 인증을 사용하여 LOB(기간 업무) Azure 앱 만들기](web-sites-dotnet-lob-application-azure-ad.md)
 * [Visual Studio 2013의 ASP.NET에서 온-프레미스 조직 인증 옵션(ADFS) 사용](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)

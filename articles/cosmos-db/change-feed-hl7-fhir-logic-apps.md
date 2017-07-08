@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: a5bd59cd94beaf2181b463929b0af0b9d63cf4ee
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 6e6e12f3d6d95002b223ad0fcb11d72bd920cdaf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -131,7 +131,7 @@ Azure Cosmos DB DocumentDB .NET API에서 [`CreateDocumentChangeFeedQuery`](http
         {
             /// <summary>
             ///     Gets the new or modified FHIR documents from Last Run Date 
-            ///        or create date of the collection
+            ///     or create date of the collection
             /// </summary>
             /// <param name="databaseId"></param>
             /// <param name="collectionId"></param>
@@ -156,7 +156,7 @@ Azure Cosmos DB DocumentDB .NET API에서 [`CreateDocumentChangeFeedQuery`](http
             {
                 var collectionLink = UriFactory.CreateDocumentCollectionUri(databaseId, collectionId);
     
-                var context = new DocumentDbContext();    
+                var context = new DocumentDbContext();  
     
                 var docs = new List<dynamic>();
     
@@ -232,7 +232,7 @@ Azure Cosmos DB DocumentDB .NET API에서 [`CreateDocumentChangeFeedQuery`](http
 - Azure Service Bus 큐를 사용하여 HL7 FHIR 문서 배포 처리
 
 ## <a name="next-steps"></a>다음 단계
-Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 홈페이지](https://azure.microsoft.com/services/documentdb/)를 참조하세요. Logic Apps에 대한 자세한 내용은 [Logic Apps](https://azure.microsoft.com/services/logic-apps/)를 참조하세요.
+Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 홈페이지](https://azure.microsoft.com/services/cosmos-db/)를 참조하세요. Logic Apps에 대한 자세한 내용은 [Logic Apps](https://azure.microsoft.com/services/logic-apps/)를 참조하세요.
 
 
 
