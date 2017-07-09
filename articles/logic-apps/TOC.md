@@ -139,6 +139,7 @@
 ### [미리 보기](logic-apps-schema-2015-08-01.md)
 
 # 리소스
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=logic-apps)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-logic-apps)

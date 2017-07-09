@@ -14,3 +14,5 @@
 
 # 참조
 ## [Azure CLI 2.0](/cli/azure) 
+# 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

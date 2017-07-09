@@ -6,3 +6,5 @@
 ## [Oracle ASM 구성](configure-oracle-asm.md)
 ## [Oracle DataGuard 구성](configuring-oracle-dataguard.md)
 ## [Oracle GoldenGate 구성](configure-oracle-golden-gate.md)
+# 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

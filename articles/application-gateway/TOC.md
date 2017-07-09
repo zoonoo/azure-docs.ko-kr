@@ -64,8 +64,9 @@
 ## [부하 분산 장치](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-application-gateway)
+## [가격 책정](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-application-gateway)

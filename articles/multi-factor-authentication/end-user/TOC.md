@@ -14,8 +14,5 @@
 ### [휴대폰으로 로그인](microsoft-authenticator-app-phone-signin-faq.md)
 ### [FAQ](microsoft-authenticator-app-faq.md)
 
-
-
-<!--HONumber=Feb17_HO3-->
-
-
+# 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

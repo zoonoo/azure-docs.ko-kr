@@ -62,14 +62,15 @@
 ## [Azure 클라우드의 배치 및 HPC 솔루션](batch-hpc-solutions.md)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/batch/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-batch)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=batch)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [C# 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Python 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [큰 계산 리소스](big-compute-resources.md)
 ## [블로그](https://blogs.technet.microsoft.com/windowshpc/)
+## [C# 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [가격 책정](https://azure.microsoft.com/pricing/details/batch/)
+## [Python 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-batch)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
 

@@ -21,24 +21,27 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [템플릿](virtual-networks-create-vnet-arm-template-click.md)
-#### [포털(기본)](virtual-networks-create-vnet-classic-pportal.md)
-#### [PowerShell(클래식)](virtual-networks-create-vnet-classic-netcfg-ps.md)
-#### [CLI(클래식)](virtual-networks-create-vnet-classic-cli.md)
+#### 클래식
+##### [포털](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### 네트워크 보안 그룹
 #### [포털](virtual-networks-create-nsg-arm-pportal.md)
 #### [PowerShell](virtual-networks-create-nsg-arm-ps.md)
 #### [CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [템플릿](virtual-networks-create-nsg-arm-template.md)
-#### [PowerShell(클래식)](virtual-networks-create-nsg-classic-ps.md)
-#### [CLI(클래식)](virtual-networks-create-nsg-classic-cli.md)
+#### 클래식
+##### [PowerShell](virtual-networks-create-nsg-classic-ps.md)
+##### [CLI](virtual-networks-create-nsg-classic-cli.md)
 
 ### 사용자 정의 경로
 #### [PowerShell](virtual-network-create-udr-arm-ps.md)
 #### [CLI](virtual-network-create-udr-arm-cli.md)
 #### [템플릿](virtual-network-create-udr-arm-template.md)
-#### [PowerShell(클래식)](virtual-network-create-udr-classic-ps.md)
-#### [CLI(클래식)](virtual-network-create-udr-classic-cli.md)
+#### 클래식
+##### [PowerShell](virtual-network-create-udr-classic-ps.md)
+##### [CLI](virtual-network-create-udr-classic-cli.md)
 
 ### [가상 네트워크 피어링](virtual-network-create-peering.md)
 
@@ -48,21 +51,24 @@
 ##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 ##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [템플릿](virtual-network-deploy-static-pip-arm-template.md)
-##### [PowerShell(클래식)](virtual-networks-reserved-public-ip.md)
+##### 클래식
+###### [PowerShell](virtual-networks-reserved-public-ip.md)
 
 #### 고정 개인 IP 주소를 사용하는 VM 만들기
 ##### [포털](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
-##### [포털(클래식)](virtual-networks-static-private-ip-classic-pportal.md)
-##### [PowerShell(클래식)](virtual-networks-static-private-ip-classic-ps.md)
-##### [CLI(클래식)](virtual-networks-static-private-ip-classic-cli.md)
+##### 클래식
+###### [포털](virtual-networks-static-private-ip-classic-pportal.md)
+###### [PowerShell](virtual-networks-static-private-ip-classic-ps.md)
+###### [CLI](virtual-networks-static-private-ip-classic-cli.md)
 
 #### 여러 네트워크 인터페이스를 사용하는 VM 만들기
 ##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [PowerShell(클래식)](virtual-network-deploy-multinic-classic-ps.md)
-##### [CLI(클래식)](virtual-network-deploy-multinic-classic-cli.md)
+##### 클래식
+###### [PowerShell](virtual-network-deploy-multinic-classic-ps.md)
+###### [CLI](virtual-network-deploy-multinic-classic-cli.md)
 
 #### 여러 IP 주소를 사용하여 VM 만들기
 ##### [Azure 포털](virtual-network-multiple-ip-addresses-portal.md)
@@ -103,6 +109,9 @@
 ### [가상 네트워크](virtual-network-manage-network.md)
 #### [서브넷](virtual-network-manage-subnet.md)
 #### [피어링](virtual-network-manage-peering.md)
+#### 클래식
+##### [네트워크 구성 파일](virtual-networks-using-network-configuration-file.md)
+##### [선호도 그룹에서 지역으로 마이그레이션](virtual-networks-migrate-to-regional-vnet.md)
 ### 네트워크 보안 그룹
 #### [포털](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
@@ -126,7 +135,7 @@
 
 # 참조
 ## [PowerShell(리소스 관리자)](/powershell/module/azurerm.network)
-## [PowerShell(클래식)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [PowerShell(클래식)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST(리소스 관리자)](https://msdn.microsoft.com/library/mt163658.aspx)
@@ -143,6 +152,7 @@
 ## [ExpressRoute](/azure/expressroute/)
 
 # 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
 ## [네트워킹 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)

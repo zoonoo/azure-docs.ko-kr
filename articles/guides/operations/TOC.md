@@ -99,3 +99,5 @@
 #### [가상 네트워크에 컴퓨터 연결](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [다음 단계](azure-operations-guide.md#next-steps)
+# 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

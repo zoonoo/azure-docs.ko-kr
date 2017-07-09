@@ -70,7 +70,8 @@
 ### [포털을 사용하여 정책 할당](resource-manager-policy-portal.md)
 ### [스크립트를 사용하여 정책 할당](resource-manager-policy-create-assign.md)
 ### 예
-#### [리소스 태그](resource-manager-policy-tags.md)
+#### [태그](resource-manager-policy-tags.md)
+#### [명명 규칙](resource-manager-policy-naming-convention.md)
 #### [저장소](resource-manager-policy-storage.md)
 #### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -119,8 +120,9 @@
 ## [REST (영문)](/rest/api/resources/)
 
 # 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=azure-resource-manager)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [제한 요청](resource-manager-request-limits.md)
 ## [비동기 작업 추적](resource-manager-async-operations.md)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=azure-resource-manager)

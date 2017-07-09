@@ -3,8 +3,7 @@
 ## [버전 선택](active-directory-editions.md)
 ## [Azure ID 관리 정보](identity-fundamentals.md)
 ## [Azure ID 솔루션 이해](understand-azure-identity-solutions.md)
-## [Azure Portal 환경에서 미리 보기](active-directory-preview-explainer.md)
-
+## [하이브리드 ID 솔루션 선택](choose-hybrid-identity-solution.md)
 
 # 시작
 ## [Azure AD 테넌트 가져오기](active-directory-howto-tenant.md)
@@ -13,14 +12,16 @@
 ## Azure AD 라이선스 관리
 ### [Azure 포털](active-directory-licensing-get-started-azure-portal.md)
 ### [클래식 포털](active-directory-licensing-what-is.md)
-## [조직의 Azure 가져오기](sign-up-organization.md)
+### [그룹을 사용하여 라이선스 할당](active-directory-licensing-whatis-azure-portal.md)
+#### [그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md)
+#### [그룹에서 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
+#### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
+#### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
+#### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
 ## [FAQ](active-directory-faq.md)
 ## [Azure Active Directory를 지원하는 방법](active-directory-troubleshooting-support-howto.md)
 ## [SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)
-## Azure AD 컨트롤
-### [액세스 검토 완료](active-directory-azure-ad-controls-complete-an-access-review.md)
-### [액세스 검토 만들기](active-directory-azure-ad-controls-create-an-access-review.md)
-### [액세스 검토 수행 방법](active-directory-azure-ad-controls-perform-an-access-review.md)
+
 
 
 # 방법
@@ -53,9 +54,7 @@
 ### 사용자 추가
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
 #### [클래식 포털](active-directory-create-users.md)
-### Azure AD 컨트롤
-#### [액세스 검토로 게스트 액세스](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-#### [검토로 사용자 액세스 관리](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+
 
 ### [그룹을 사용하여 라이선스 할당](active-directory-licensing-whatis-azure-portal.md)
 #### [그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md)
@@ -106,11 +105,13 @@
 ### [위험에 노출된 사용자](active-directory-reporting-security-user-at-risk.md)
 ### [위험한 로그인](active-directory-reporting-security-risky-sign-ins.md)
 ### [위험 이벤트](active-directory-reporting-risk-events.md)
-### [명명된 위치](active-directory-named-locations.md)
-### [보고서 마이그레이션](active-directory-reporting-migration.md)
 ### [보존](active-directory-reporting-retention.md)
 ### [대기 시간](active-directory-reporting-latencies-azure-portal.md)
 ### [FAQ](active-directory-reporting-faq.md)
+### 작업
+#### [명명된 위치 구성](active-directory-named-locations.md)
+#### [활동 보고서 보기](active-directory-reporting-migration.md)
+#### [Azure Active Directory Power BI 콘텐츠 팩 사용](active-directory-reporting-power-bi-content-pack-how-to.md)  
 ### 문제 해결
 #### [누락된 감사 데이터](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [다운로드에서 누락된 데이터](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -188,8 +189,7 @@
 ### [클라우드 앱 검색](active-directory-cloudappdiscovery-whatis.md)
 #### [레지스트리 설정 업데이트](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [보안 및 개인 정보 이해](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
-### Azure AD 컨트롤
-####[프로그램 및 해당 컨트롤 관리](active-directory-azure-ad-controls-manage-programs-and-controls.md)
+
 
 ### [앱 프록시를 사용하여 원격으로 앱에 액세스](active-directory-application-proxy-get-started.md)
 #### 시작
@@ -215,6 +215,7 @@
 ##### [네이티브 클라이언트 앱](active-directory-application-proxy-native-client.md)
 ##### [자동 설치](active-directory-application-proxy-silent-installation.md)
 ##### [사용자 지정 홈 페이지](application-proxy-office365-app-launcher.md)
+##### [인라인 링크 변환](application-proxy-link-translation.md)
 #### 게시 연습
 ##### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
@@ -399,9 +400,10 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)
+## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
-## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)

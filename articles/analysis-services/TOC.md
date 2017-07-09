@@ -1,11 +1,14 @@
 # 개요
 ## [Azure Analysis Services란?](analysis-services-overview.md)
 ## [지원되는 데이터 원본](analysis-services-datasource.md)
+## [인증 및 사용자 권한](analysis-services-manage-users.md)
 
 # 빠른 시작
 ## [서버 만들기 - 포털](analysis-services-create-server.md)
 ## [모델 배포 - SSDT](analysis-services-deploy.md)
 
+# 샘플
+## [GitHub의 Analysis Services 샘플](https://github.com/Microsoft/Analysis-Services)
 
 # 자습서
 ## 모델 만들기 및 배포
@@ -29,9 +32,9 @@
 
 # 방법 
 ## [서버 관리](analysis-services-manage.md)
-## [사용자 관리](analysis-services-manage-users.md)
+## [데이터베이스 사용자 관리](analysis-services-database-users.md)
+## [서버 관리자 관리](analysis-services-server-admins.md)
 ## [온-프레미스 데이터 게이트웨이 통합](analysis-services-gateway.md)
-## [서버에 연결](analysis-services-connect.md)
 ## [Excel과 연결](analysis-services-connect-excel.md)
 ## [Power BI와 연결](analysis-services-connect-pbi.md)
 ## [클라이언트 라이브러리 가져오기](analysis-services-data-providers.md)
@@ -44,13 +47,15 @@
 ## [REST (영문)](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [파워 쿼리 M](https://msdn.microsoft.com/library/mt211003.aspx)
+## [테이블 형식 모델 스크립팅 언어(TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # 리소스
 ## [Analysis Services 팀 블로그](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
-## [사용자 의견](https://feedback.azure.com/forums/556165-azure-analysis-services)
-## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
-## [가격 책정](https://azure.microsoft.com/pricing/details/analysis-services/)
-## [비디오](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [Azure 상태](https://azure.microsoft.com/status/)
+## [사용자 의견](https://feedback.azure.com/forums/556165-azure-analysis-services)
+## [가격 책정](https://azure.microsoft.com/pricing/details/analysis-services/)
+## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [비디오](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 

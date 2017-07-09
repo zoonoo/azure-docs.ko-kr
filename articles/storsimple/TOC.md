@@ -216,14 +216,15 @@
 ## [StorSimple 5000-7000 시리즈](http://onlinehelp.storsimple.com)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=storsimple)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [마케팅 블로그](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=storsimple)
 ## [지원 블로그](http://blogs.msdn.com/b/storsimple/)
 ## [타사 알림](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
 

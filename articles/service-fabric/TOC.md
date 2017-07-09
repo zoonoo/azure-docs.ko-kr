@@ -2,11 +2,11 @@
 # 개요
 ## [Service Fabric이란?](service-fabric-overview.md)
 ## [마이크로 서비스 이해](service-fabric-overview-microservices.md)
+## [큰 그림](service-fabric-content-roadmap.md)
 ## [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
 ## [패턴 및 시나리오](service-fabric-patterns-and-scenarios.md)
 ## [아키텍처](service-fabric-architecture.md)
 ## [용어](service-fabric-technical-overview.md)
-## [주요 내용](service-fabric-content-roadmap.md)
 
 # 시작
 ## 개발 환경 설정
@@ -131,6 +131,10 @@
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
+### API Management와 통합
+#### [개요](service-fabric-api-management-overview.md)
+#### [빠른 시작](service-fabric-api-management-quick-start.md)
+
 ### Cloud Services에서 마이그레이션
 #### [Cloud Services와 Service Fabric 비교](service-fabric-cloud-services-migration-differences.md)
 #### [Service Fabric으로 마이그레이션](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -142,6 +146,7 @@
 ### [ImageStoreConnectionString 설정 이해](service-fabric-image-store-connection-string.md)
 ### 응용 프로그램 배포 또는 제거
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 ### 응용 프로그램 업그레이드
@@ -215,7 +220,8 @@
 ### [클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 ### [보안 클러스터에 연결](service-fabric-connect-to-secure-cluster.md)
 
-### [Azure CLI를 사용하여 클러스터 관리](service-fabric-azure-cli.md)
+### [XPlat CLI를 사용하여 클러스터 관리](service-fabric-azure-cli.md)
+### [Azure CLI 2.0 명령을 사용하여 클러스터 관리](service-fabric-azure-cli-2-0.md)
 ### [클러스터 노드 패치](service-fabric-patch-orchestration-application.md)
 
 ### 클러스터 리소스 관리 및 오케스트레이션
@@ -258,18 +264,19 @@
 
 # 참조
 ## [PowerShell(Azure)](/powershell/module/azurerm.servicefabric/)
-## [PowerShell](/powershell/azure/overview?view=azureservicefabricps)
+## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI](/cli/azure/sf)
 ## [Java API](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/servicefabric?view=azure-dotnet)
 ## [REST (영문)](/rest/api/servicefabric)
 
 # 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [Service Fabric에 대한 일반적인 질문](service-fabric-common-questions.md)
-## [Service Fabric 지원 옵션](service-fabric-support.md)
-## [샘플 코드](http://aka.ms/servicefabricsamples)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [가격 책정](https://azure.microsoft.com/pricing/details/service-fabric/)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [가격 책정](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [샘플 코드](http://aka.ms/servicefabricsamples)
+## [Service Fabric 지원 옵션](service-fabric-support.md)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)

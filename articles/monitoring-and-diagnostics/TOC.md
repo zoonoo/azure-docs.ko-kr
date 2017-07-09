@@ -70,6 +70,7 @@
 ### [1.3 이상](azure-diagnostics-schema-1dot3-and-later.md)
 
 # 리소스
-## [PowerShell 샘플](insights-powershell-samples.md)
 ## [Azure CLI 1.0 샘플](insights-cli-samples.md)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [PowerShell 샘플](insights-powershell-samples.md)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=monitor)

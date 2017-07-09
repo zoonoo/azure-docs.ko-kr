@@ -114,8 +114,9 @@
 ## [REST (영문)](https://msdn.microsoft.com/library/azure/ee460812)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/cloud-services/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
+## [가격 책정](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

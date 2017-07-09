@@ -105,3 +105,5 @@
 #### [토큰 참조](active-directory-v2-tokens.md)
 #### [인증서 자격 증명](active-directory-certificate-credentials.md)
 ### [범위](active-directory-v2-scopes.md)
+# 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

@@ -88,10 +88,11 @@
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # 리소스
-## [가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Azure AD B2C 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-b2c)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [질문과 대답](active-directory-b2c-faqs.md)
+## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [지원](active-directory-b2c-support.md)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c)

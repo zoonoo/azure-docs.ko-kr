@@ -37,7 +37,7 @@
     href: tutorial-monitoring.md
   - name: 11 - VM 보안 관리
     href: tutorial-azure-security.md
-  - name: 12 - Jenkins CI/CD
+  - name: 12 - Jenkins 배포
     href: tutorial-jenkins-github-docker-cicd.md
 - name: 샘플
   items:
@@ -204,6 +204,8 @@
       href: cli-ps-findimage.md
     - name: 사용자 지정 VM 이미지 만들기
       href: create-upload-generic.md
+    - name: VHD 다운로드
+      href: download-vhd.md
     - name: 사용자 지정 VM 이미지 업로드
       href: upload-vhd.md
     - name: 이미지로 기존 VM 캡처
@@ -331,6 +333,8 @@
       href: install-mongodb.md
     - name: MySQL
       href: mysql-install.md
+    - name: OpenShift
+      href: openshift-get-started.md
     - name: PostgreSQL
       href: postgresql-install.md
     - name: LAMP 스택 배포
@@ -378,6 +382,8 @@
       href: migration-classic-resource-manager-faq.md
   - name: 문제 해결
     items:
+    - name: Linux VM 암호 재설정
+      href: virtual-machines-linux-reset-password.md
     - name: 시스템 다시 부팅 이해
       href: understand-vm-reboot.md
     - name: SSH 연결
@@ -393,6 +399,8 @@
     - name: 할당 오류
       href: allocation-failure.md
     - name: 배포 문제
+      href: troubleshoot-deploy-vm.md
+    - name: VM 만들기
       href: troubleshoot-deployment-new-vm.md
     - name: 새 Azure 노드에 VM 다시 배포
       href: redeploy-to-new-node.md
@@ -424,6 +432,8 @@
   items:
   - name: 작성자 템플릿
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
   - name: 커뮤니티 템플릿
     href: https://azure.microsoft.com/documentation/templates
   - name: 가격
