@@ -26,3 +26,5 @@
 # 관련 항목
 ## [Azure Active Directory](/azure/active-directory/)
 ## [역할 기반 액세스 제어](../role-based-access-control-what-is.md)
+# 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

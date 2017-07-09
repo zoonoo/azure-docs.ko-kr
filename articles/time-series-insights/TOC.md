@@ -5,6 +5,7 @@
 ## [환경 만들기](time-series-insights-get-started.md)
 ## [데이터 액세스 권한 부여](time-series-insights-data-access.md)
 ## [이벤트 원본 만들기](time-series-insights-add-event-source.md)
+## [참조 데이터 집합 만들기](time-series-insights-add-reference-data-set.md)
 ## [이벤트 보내기](time-series-insights-send-events.md)
 
 # 방법
@@ -15,6 +16,7 @@
 ## 개발
 ### [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)
 ### [C#을 사용하여 데이터 쿼리](time-series-insights-query-data-csharp.md)
+### [C#을 사용하여 참조 데이터 관리](time-series-insights-manage-reference-data-csharp.md)
 
 # 참조
 ## [쿼리 API](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
@@ -26,4 +28,5 @@
 ## [Azure 스트림 분석](/azure/stream-analytics/)
 
 # 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/time-series-insights/)

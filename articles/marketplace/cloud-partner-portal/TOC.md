@@ -32,3 +32,5 @@
 ## [게시자 프로필 관리](./cloud-partner-portal-manage-publisher-profile.md)
 ## [사용자 관리](./cloud-partner-portal-manage-users.md)
 ## [지원 받기](./cloud-partner-portal-support-for-cloud-partner-portal.md)
+# 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

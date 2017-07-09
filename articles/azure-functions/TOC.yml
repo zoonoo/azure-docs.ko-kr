@@ -74,6 +74,8 @@
        href: functions-test-a-function.md
      - name: 로컬에서 개발 및 디버깅
        href: functions-run-local.md
+     - name: Visual Studio 개발
+       href: functions-develop-vs.md
   - name: 배포
     items:
     - name: 연속 배포
@@ -100,7 +102,7 @@
       href: functions-bindings-storage-blob.md
     - name: Cosmos DB
       href: functions-bindings-documentdb.md
-    - name: 이벤트 허브
+    - name: Event Hubs
       href: functions-bindings-event-hubs.md
     - name: 외부 파일
       href: functions-bindings-external-file.md
@@ -126,6 +128,8 @@
     href: functions-api-definition.md     
 - name: 리소스
   items:
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
   - name: 가격
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: 국가별 가용성

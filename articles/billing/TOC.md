@@ -40,4 +40,5 @@
 ## [파트너 솔루션: Cloudyn](billing-usage-rate-card-partner-solution-cloudyn.md)
 
 # 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [지원에 문의](../azure-supportability/how-to-create-azure-support-request.md)

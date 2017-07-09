@@ -193,6 +193,10 @@
 ### [컬렉션](machine-learning-gallery-collections.md)
 ### [사용자 지정 모듈](machine-learning-gallery-custom-modules.md)
 
+## Cortana Intelligence 파트너 솔루션
+### [Cortana Intelligence 게시 가이드](cortana-intelligence-appsource-publishing-guide.md)
+### [Cortana Intelligence 솔루션 평가 도구](cortana-intelligence-appsource-evaluation-tool.md)
+
 ## Cortana 분석
 ### API
 #### [이상 감지](machine-learning-apps-anomaly-detection-api.md)
@@ -207,6 +211,7 @@
 ##### [설정](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 
 ## [Net# 신경망 언어](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)

@@ -1,6 +1,6 @@
 # 개요
 ## [Application Insights란?](app-insights-overview.md)
-## [DevOps 사이클의 성능 모니터링](app-insights-detect-triage-diagnose.md)
+## [DevOps를 위한 성능 모니터링 개요](app-insights-detect-triage-diagnose.md)
 
 # 시작
 ## Azure 모니터링
@@ -80,7 +80,6 @@
 #### [이를 통해 검색](app-insights-diagnostic-search.md)
 #### [metrics](app-insights-metrics-explorer.md)
 #### [라이브 스트림](app-insights-live-stream.md)
-
 #### [응용 프로그램 맵](app-insights-app-map.md)
 #### [HockeyApp 데이터](app-insights-hockeyapp-bridge-app.md)
 
@@ -93,6 +92,7 @@
 ### 사용
 #### [개요](app-insights-usage-overview.md)
 #### [사용자, 세션, 이벤트](app-insights-usage-segmentation.md)
+#### [깔때기](app-insights-understand-usage-patterns.md)
 #### [보존](app-insights-usage-retention.md)
 #### [통합 문서](app-insights-usage-workbooks.md)
 
@@ -111,6 +111,7 @@
 ### [경고 설정](app-insights-powershell-alerts.md)
 ### [Azure 진단 가져오기](app-insights-powershell-azure-diagnostics.md)
 ### [Microsoft Flow 자동화](app-insights-automate-with-flow.md)
+### [Azure 논리 앱과 자동화](automate-with-logic-apps.md)
 
 ## 개발
 
@@ -154,6 +155,7 @@
 ## [원격 분석 상관 관계](application-insights-correlation.md)
 
 # 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 
 ## [언어 및 플랫폼](app-insights-platforms.md)
 

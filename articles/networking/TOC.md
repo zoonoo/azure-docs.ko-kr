@@ -59,9 +59,10 @@
 ## [REST (영문)](https://msdn.microsoft.com/library/mt163658.aspx)
 
 # 리소스
-## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
 ## [작성자 템플릿](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [커뮤니티 템플릿](https://azure.microsoft.com/resources/templates/)
+## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
 ## [가격 책정](https://azure.microsoft.com/pricing)
 ## [국가별 가용성](https://azure.microsoft.com/regions/services/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-network)

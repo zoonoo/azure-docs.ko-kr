@@ -48,3 +48,5 @@
 ### [FAQ](multi-factor-authentication-faq.md)
 ### [질문하기](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [NPS 확장 오류](multi-factor-authentication-nps-errors.md)
+# 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

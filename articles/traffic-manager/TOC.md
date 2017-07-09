@@ -41,10 +41,11 @@
 ## [Azure DNS](/azure/dns/)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/traffic-manager/)
-## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-## [서비스 제한](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [블로그](https://azure.microsoft.com/blog/topics/networking/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [가격 책정](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [서비스 제한](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)

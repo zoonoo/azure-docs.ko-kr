@@ -14,16 +14,18 @@
 ### [서비스 한도](key-vault-service-limits.md)
 ### [HSM 보호 키](key-vault-hsm-protected-keys.md)
 ### [.NET 2.0으로 마이그레이션](key-vault-dotnet2api-release-notes.md)
+### 개요
+#### [보안 워크로드 개요](key-vault-ovw-security-worlds.md)
+#### [일시 삭제 개요](key-vault-ovw-soft-delete.md)
+#### [제한 개요](key-vault-ovw-throttling.md)
 
 ## 관리
 ### [Azure Key Vault 로깅](key-vault-logging.md)
 ### [방화벽 뒤에 액세스](key-vault-access-behind-firewall.md)
 ### [테넌트 ID 변경](key-vault-subscription-move-fix.md)
+### [그룹을 사용하여 액세스 권한 부여](key-vault-group-permissions-for-apps.md)
 ### [가용성 및 중복성](key-vault-disaster-recovery-guidance.md)
 ### [Key Vault 보안 설정](key-vault-secure-your-key-vault.md)
-### [보안 워크로드 개요](key-vault-ovw-security-worlds.md)
-### [일시 삭제 개요](key-vault-ovw-soft-delete.md)
-### [저장소 계정 키 개요](key-vault-ovw-storage-keys.md)
 
 ## 자동화
 ### [Azure Automation](automation-manage-key-vault.md)
@@ -47,7 +49,8 @@
 
 # 리소스
 ## [키, 비밀 및 인증서에 대한 정보](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
-## [코드 샘플](https://www.microsoft.com/download/details.aspx?id=45343)
-## [가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [블로그](http://blogs.technet.com/b/kv/)
+## [코드 샘플](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
+## [가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)

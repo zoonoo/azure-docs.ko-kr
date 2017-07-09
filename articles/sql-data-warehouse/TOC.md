@@ -140,10 +140,11 @@
 ## [PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-sqldw/)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [가격 책정](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## 파트너

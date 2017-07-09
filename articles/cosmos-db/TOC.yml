@@ -29,6 +29,8 @@
       href: create-mongodb-dotnet.md
     - name: 자바
       href: create-mongodb-java.md
+    - name: Golang
+      href: create-mongodb-golang.md
   - name: 그래프
     items:
     - name: .NET
@@ -310,6 +312,8 @@
       href: graph-sdk-dotnet.md
 - name: 리소스
   items:
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
   - name: 가격
     href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: FAQ

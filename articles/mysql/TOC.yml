@@ -103,6 +103,8 @@
     href: /cli/azure/mysql
 - name: 리소스
   items:
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
   - name: 가격
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: MSDN 포럼

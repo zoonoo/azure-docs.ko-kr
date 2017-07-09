@@ -28,10 +28,11 @@
 ## [개발자 샘플](data-catalog-samples.md)
 
 # 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [Azure Data Catalog의 키보드 바로 가기](data-catalog-keyboard-shortcuts.md)
-## [용어](data-catalog-terminology.md)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
+## [가격 책정](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [릴리스 정보](data-catalog-whats-new.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-catalog)
-## [가격 책정](https://azure.microsoft.com/pricing/details/data-catalog/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [용어](data-catalog-terminology.md)

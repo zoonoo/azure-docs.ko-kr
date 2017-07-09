@@ -62,8 +62,9 @@
 ## [웹앱](/azure/app-service-web/)
 
 # 리소스
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=dns)
-## [가격 책정](https://azure.microsoft.com/pricing/details/dns/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [기능 요청](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
-## [기능 요청](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
+## [가격 책정](https://azure.microsoft.com/pricing/details/dns/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=dns)

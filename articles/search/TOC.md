@@ -73,21 +73,22 @@
 ## [REST(관리)](/rest/api/searchmanagement)
 
 # 리소스
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=search)
 ## [API 버전](search-api-versions.md)
-## [서비스 REST(미리 보기)](search-api-2015-02-28-preview.md)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/search/)
+## [서비스 REST(미리 보기)](search-api-2015-02-28-preview.md)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=search)
+## 코스웨어 및 자습서
 ## 데모 사이트
-### [검색 분석기 데모](http://alice.unearth.ai/)
+## 파트너 및 커뮤니티
+### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [작업 목록 앱](http://aka.ms/azjobsdemo)
 ### [라이브 데모 앱](https://searchsamples.azurewebsites.net/)
-## 코스웨어 및 자습서
-### [Virtual Academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
-### [비디오 및 자습서](search-video-demo-tutorial-list.md)
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-## 파트너 및 커뮤니티
 ### [관계형 데이터 모델링](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [다중 레벨 패싯](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [포럼](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [검색 분석기 데모](http://alice.unearth.ai/)
 ### [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-search)
-### [Azure Search GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [비디오 및 자습서](search-video-demo-tutorial-list.md)
+### [Virtual Academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)

@@ -23,9 +23,10 @@
 ### [만들기 및 관리](integration-hybrid-connection-create-manage.md)
 
 # 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
+## [가격 책정](https://azure.microsoft.com/pricing/details/biztalk-services/)
 ## [릴리스 정보](biztalk-release-notes.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=biztalk-services)
-## [가격 책정](https://azure.microsoft.com/pricing/details/biztalk-services/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/biztalk-services)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)

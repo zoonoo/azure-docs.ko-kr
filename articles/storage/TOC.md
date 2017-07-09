@@ -113,9 +113,10 @@
 ### [보안 지침](storage-security-guide.md)
 ### [미사용 데이터 암호화](storage-service-encryption.md)
 ### [고객 키로 미사용 데이터 암호화](storage-service-encryption-customer-managed-keys.md)
-### [공유 키 인증](https://msdn.microsoft.com/library/dd179428.aspx)
+### [공유 키 인증](/rest/api/storageservices/Authentication-for-the-Azure-Storage-Services)
 ### [공유 액세스 서명(SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [자습서: Azure Key Vault를 사용하여 Blob 암호화 및 해독](storage-encrypt-decrypt-blobs-key-vault.md)
+### [보안 전송 필요](storage-require-secure-transfer.md)
 ### 클라이언트 쪽 암호화
 #### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
@@ -201,11 +202,12 @@
 ### [문제 해결 자습서](storage-e2e-troubleshooting-classic-portal.md)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [Azure Storage 클라이언트 도구](storage-explorers.md)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+## [가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=storage)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=storage)
 
 ## Azure Storage 탐색기

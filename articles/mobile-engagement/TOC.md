@@ -127,17 +127,18 @@
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-sdk-content.md)
 
 # 리소스
+## [.NET API 샘플](mobile-engagement-dotnet-sdk-service-api.md)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [데모 앱 샘플](mobile-engagement-demo-apps.md)
+## [Service Level Agreement(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+## [동영상 및 업데이트](https://azure.microsoft.com/documentation/services/mobile-engagement/)
 ## 릴리스 정보
 ### [Android SDK](mobile-engagement-android-release-notes.md)
 ### [iOS SDK](mobile-engagement-ios-release-notes.md)
 ### [웹 SDK](mobile-engagement-web-release-notes.md)
-### [Windows 유니버설 앱 SDK](mobile-engagement-windows-store-release-notes.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-release-notes.md)
-## [가격 책정](https://azure.microsoft.com/pricing/details/mobile-engagement/)
-## [데모 앱 샘플](mobile-engagement-demo-apps.md)
-## [.NET API 샘플](mobile-engagement-dotnet-sdk-service-api.md)
-## [동영상 및 업데이트](https://azure.microsoft.com/documentation/services/mobile-engagement/)
-## [Service Level Agreement(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+### [Windows 유니버설 앱 SDK](mobile-engagement-windows-store-release-notes.md)
 
 
 
