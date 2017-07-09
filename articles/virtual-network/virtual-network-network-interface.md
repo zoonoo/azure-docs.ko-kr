@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: jdial
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: f1fb0f6348b579121be64bff4411952026f8528d
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 871d469ada9857af6d6fe70f1dd38385fb18e312
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 06/02/2017
 
 
 ---
 
 # <a name="create-change-or-delete-network-interfaces"></a>네트워크 인터페이스 만들기, 변경 또는 삭제
 
-NIC(네트워크 인터페이스)를 만들고 삭제하는 방법 및 해당 설정을 변경하는 방법에 대해 알아봅니다. NIC를 사용하면 Azure VM(가상 컴퓨터)에서 인터넷, Azure 및 온-프레미스 리소스와 통신할 수 있습니다. Azure Portal을 사용하여 VM을 만들 때 포털에서는 사용자에 대한 기본 설정이 포함된 하나의 NIC를 만듭니다. 대신 사용자 지정 설정이 포함된 NIC를 만들고 VM을 만들 때 해당 VM에 하나 이상을 추가하도록 선택할 수 있습니다. 또한 기존 NIC의 기본 NIC 설정을 변경할 수도 있습니다. 이 문서에서는 사용자 지정 설정이 포함된 NIC를 만들고, 기존 NIC 설정(예: 네트워크 필터 할당(네트워크 보안 그룹), 서브넷 할당, DNS 서버 설정 및 IP 전달)을 변경하며, NIC를 삭제하는 방법에 대해 설명합니다. 
+NIC(네트워크 인터페이스)를 만들고 삭제하는 방법 및 해당 설정을 변경하는 방법에 대해 알아봅니다. NIC를 사용하면 Azure VM(가상 컴퓨터)에서 인터넷, Azure 및 온-프레미스 리소스와 통신할 수 있습니다. Azure Portal을 사용하여 VM을 만들 때 포털에서는 사용자에 대한 기본 설정이 포함된 하나의 NIC를 만듭니다. 대신 사용자 지정 설정이 포함된 NIC를 만들고 VM을 만들 때 해당 VM에 하나 이상을 추가하도록 선택할 수 있습니다. 또한 기존 NIC의 기본 NIC 설정을 변경할 수도 있습니다. 이 문서에서는 사용자 지정 설정이 포함된 NIC를 만들고, 기존 NIC 설정(예: 네트워크 필터 할당(네트워크 보안 그룹), 서브넷 할당, DNS 서버 설정 및 IP 전달)을 변경하며, NIC를 삭제하는 방법에 대해 설명합니다.
 
-NIC에 대한 IP 주소를 추가, 변경 또는 제거해야 하는 경우 [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md) 문서를 참조하세요. VM에서 NIC를 추가하거나 제거해야 하는 경우 [NIC 추가 또는 제거](virtual-network-network-interface-vm.md) 문서를 참조하세요. 
+NIC에 대한 IP 주소를 추가, 변경 또는 제거해야 하는 경우 [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md) 문서를 참조하세요. VM에서 NIC를 추가하거나 제거해야 하는 경우 [NIC 추가 또는 제거](virtual-network-network-interface-vm.md) 문서를 참조하세요.
 
 
 ## <a name="before"></a>시작하기 전에
@@ -36,8 +36,8 @@ NIC에 대한 IP 주소를 추가, 변경 또는 제거해야 하는 경우 [IP 
 이 문서에서 설명하는 섹션의 모든 단계를 수행하기 전에 다음 작업을 완료해야 합니다.
 
 - [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) 문서를 검토하여 NIC에 대한 제한 사항을 알아봅니다.
-- Azure 계정이 있는 Azure Portal, Azure CLI(명령줄 인터페이스) 또는 Azure PowerShell에 로그인합니다. 아직 Azure 계정이 없으면 [체험 계정](https://azure.microsoft.com/free)에 등록합니다.
-- PowerShell 명령을 사용하여 이 문서의 작업을 수행하는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서의 단계를 완료하여 Azure PowerShell을 설치하고 구성합니다. 최신 버전의 Azure PowerShell cmdlet을 설치했는지 확인합니다. 예제와 함께 PowerShell 명령에 대한 도움말을 보려면 `get-help <command> -full`을 입력합니다.
+- Azure 계정이 있는 Azure Portal, Azure CLI(명령줄 인터페이스) 또는 Azure PowerShell에 로그인합니다. 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
+- PowerShell 명령을 사용하여 이 문서의 작업을 수행하는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서의 단계를 완료하여 Azure PowerShell을 설치하고 구성합니다. 최신 버전의 Azure PowerShell commandlet을 설치했는지 확인합니다. 예제와 함께 PowerShell 명령에 대한 도움말을 보려면 `get-help <command> -full`을 입력합니다.
 - Azure CLI(명령줄 인터페이스) 명령을 사용하여 이 문서의 작업을 수행하는 경우 [Azure CLI 설치 및 구성 방법](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서의 단계를 완료하여 Azure CLI를 설치하고 구성합니다. 최신 버전의 Azure CLI를 설치했는지 확인합니다. CLI 명령에 대한 도움말을 보려면 `az <command> --help`를 입력합니다.
 
 ## <a name="create-nic"></a>NIC 만들기
@@ -54,7 +54,7 @@ Azure Portal을 사용하여 VM을 만들 때 포털에서는 사용자에 대�
     |가상 네트워크|예|NIC를 연결할 VNet을 선택합니다. NIC와 동일한 구독과 위치에 있는 VNet에만 해당 NIC를 연결할 수 있습니다. NIC가 만들어지면 연결된 VNet을 변경할 수 없습니다. 또한 NIC를 추가하는 VM은 NIC와 동일한 위치 및 구독에 있어야 합니다.|
     |서브넷|예|선택한 VNet에 있는 서브넷을 선택합니다. NIC를 만든 후에는 연결된 서브넷을 변경할 수 있습니다.|
     |개인 IP 주소 할당|예| 다음 할당 방법 중에서 선택합니다. **동적:** 이 옵션을 선택하면 선택한 서브넷의 주소 공간에서 사용 가능한 주소를 Azure에서 자동으로 할당합니다. VM이 중지됨(할당 취소됨) 상태에서 시작될 때 Azure에서 다른 주소를 NIC에 할당할 수 있습니다. VM을 중지(할당 취소)되지 않은 상태에서 시작하는 경우에는 주소가 동일하게 유지됩니다. **고정:** 이 옵션을 선택하면 선택한 서브넷의 주소 공간에서 사용 가능한 IP 주소를 수동으로 할당해야 합니다. 고정 주소는 변경하거나 NIC를 삭제할 때까지 변경되지 않습니다. NIC를 만든 후에는 할당 방법을 변경할 수 있습니다. Azure DHCP 서버는 이 주소를 VM 운영 체제 내의 NIC에 할당합니다.|
-    |네트워크 보안 그룹|아니요| **없음**으로 설정된 상태로 두거나 기존 NSG(네트워크 보안 그룹)을 선택하거나 NSG를 만듭니다. NSG를 사용하면 NIC 내부 및 외부 네트워크 트래픽을 필터링할 수 있습니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](virtual-networks-nsg.md)을 참조하세요. NSG를 만들려면 [NSG 만들기](virtual-networks-create-nsg-arm-pportal.md) 문서를 참조하세요. NIC에 0-1개의 NSG를 적용할 수 있습니다. 또한 NIC가 연결된 서브넷에도 마찬가지입니다. NIC 및 해당 NIC가 연결된 서브넷에 NSG를 적용할 때 때로는 예기치 않은 결과가 발생할 수 있습니다. NIC 및 서브넷에 적용되는 NSG 문제를 해결하려면 [NSG 문제 해결](virtual-network-nsg-troubleshoot-portal.md#view-effective-security-rules-for-a-network-interface) 문서를 참조하세요.|
+    |네트워크 보안 그룹|아니요| **없음**으로 설정된 상태로 두거나 기존 NSG(네트워크 보안 그룹)을 선택하거나 NSG를 만듭니다. NSG를 사용하면 NIC 내부 및 외부 네트워크 트래픽을 필터링할 수 있습니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](virtual-networks-nsg.md)을 참조하세요. NSG를 만들려면 [NSG 만들기](virtual-networks-create-nsg-arm-pportal.md) 문서를 참조하세요. NIC에 0-1개의 NSG를 적용할 수 있습니다. 또한 NIC가 연결된 서브넷에도 마찬가지입니다. NIC 및 해당 NIC가 연결된 서브넷에 NSG를 적용할 때 때로는 예기치 않은 결과가 발생할 수 있습니다. NIC 및 서브넷에 적용되는 NSG 문제를 해결하려면 [NSG 문제 해결](virtual-network-nsg-troubleshoot-portal.md#a-namensgaview-effective-security-rules-for-a-network-security-group-nsg) 문서를 참조하세요.|
     |구독|예|Azure [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 중 하나를 선택합니다. NIC를 연결하는 VM과 VNet은 동일한 구독에 있어야 합니다.|
     |리소스 그룹|예|기존 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)을 선택하거나 리소스 그룹을 만듭니다. NIC는 연결한 VM 또는 연결된 VNet과 동일하거나 다른 리소스 그룹에 있을 수 있습니다.|
     |위치|예|NIC를 연결하는 VM과 VNet을 연결하는 VM은 동일한 [위치](https://azure.microsoft.com/regions)에 있어야 하며, 이 위치를 지역이라고도 합니다.|
@@ -84,7 +84,7 @@ NIC에 대한 대부분의 설정을 보고 변경할 수 있습니다.
     - **DNS 서버:** Azure DHCP 서버에서 NIC를 할당하는 DNS 서버를 지정할 수 있습니다. NIC는 해당 NIC가 연결된 VNet에서 설정을 상속하거나 연결된 VNet에 대한 설정을 재정의하는 사용자 지정 설정을 가질 수 있습니다. 표시되는 항목을 수정하려면 이 문서의 [DNS 서버 변경](#dns) 섹션에서 설명하는 단계를 수행합니다.
     - **NSG(네트워크 보안 그룹):** NIC에 연결된 NSG를 표시합니다(있는 경우). NSG에는 인바운드 및 아웃바운드 규칙이 포함되어 NIC의 네트워크 트래픽을 필터링합니다. NSG가 NIC에 연결되어 있으면 연결된 NSG의 이름이 표시됩니다. 표시된 항목을 수정하려면 이 문서에 있는 [NSG와 네트워크 인터페이스 연결 또는 분리](#associate-nsg) 섹션의 단계를 수행합니다.
     - **속성:** NIC의 MAC 주소(NIC가 VM에 연결되어 있지 않으면 비어 있음)와 해당 NIC가 있는 구독에 대한 키 설정을 표시합니다.
-    - **효과적인 보안 규칙:** NIC가 실행 중인 VM에 연결되어 있고 NSG가 NIC, 연결된 서브넷 또는 둘 다에 연결되어 있으면 보안 규칙이 나열됩니다. 표시되는 항목에 대한 자세한 내용은 [네트워크 보안 그룹 문제 해결](virtual-network-nsg-troubleshoot-portal.md#view-effective-security-rules-for-a-network-interface) 문서를 참조하세요. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](virtual-networks-nsg.md)을 참조하세요.
+    - **효과적인 보안 규칙:** NIC가 실행 중인 VM에 연결되어 있고 NSG가 NIC, 연결된 서브넷 또는 둘 다에 연결되어 있으면 보안 규칙이 나열됩니다. 표시되는 항목에 대한 자세한 내용은 [네트워크 보안 그룹 문제 해결](virtual-network-nsg-troubleshoot-portal.md#a-namensgaview-effective-security-rules-for-a-network-security-group-nsg) 문서를 참조하세요. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](virtual-networks-nsg.md)을 참조하세요.
     - **유효 경로:** NIC가 실행 중인 VM에 연결되어 있으면 경로가 나열됩니다. 경로는 Azure 기본 경로, UDR(사용자 정의 경로) 및 NIC가 연결된 서브넷에 있을 수 있는 BGP 경로의 조합입니다. 표시되는 항목에 대한 자세한 내용은 [경로 문제 해결](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-network-interface) 문서를 참조하세요. Azure 기본 경로 및 UDR에 대한 자세한 내용은 [사용자 정의 경로](virtual-networks-udr-overview.md) 문서를 참조하세요.
     - **일반적인 Azure Resource Manager 설정:** 일반적인 Azure Resource Manager 설정에 대한 자세한 내용은 [활동 로그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [액세스 제어(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [태그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [자동화 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group) 문서를 참조하세요.
 

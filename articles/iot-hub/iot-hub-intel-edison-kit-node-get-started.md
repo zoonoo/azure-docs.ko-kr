@@ -13,13 +13,14 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2017
+ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 231d9f2e4a501f20a47b1cec55c75fba4c2e57c8
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 9e9198f827d0906f65f59322126ef27ba6428d3e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -193,6 +194,7 @@ ms.lasthandoff: 04/20/2017
 3. 그런 다음 repo 폴더로 이동하고 다음 명령을 실행하여 모든 패키지를 설치합니다. 완료하는 데 몇 분 정도 걸릴 수 있습니다.
    
    ```bash
+   cd iot-hub-node-intel-edison-client-app
    npm install
    ```
 
@@ -207,9 +209,9 @@ ms.lasthandoff: 04/20/2017
 
    ![Config 파일](media/iot-hub-intel-edison-kit-node-get-started/13_configure_file.png)
 
-   이 파일에는 사용자가 구성할 수 있는 두 개의 매크로가 있습니다. 첫 번째는 클라우드로 전송되는 두 메시지 사이의 간격을 정의하는 `INTERVAL`입니다. 두 번째는 시뮬레이션된 센서 데이터의 사용 여부에 대한 부울 값인 `SIMULATED_DATA`입니다.
+   이 파일에는 사용자가 구성할 수 있는 두 개의 매크로가 있습니다. 첫 번째는 클라우드로 전송되는 두 메시지 사이의 간격을 정의하는 `INTERVAL`입니다. 두 번째는 시뮬레이션된 센서 데이터의 사용 여부에 대한 부울 값인 `simulatedData`입니다.
 
-   **센서가 없는 경우** `SIMULATED_DATA` 값을 `1`로 설정하여 샘플 응용 프로그램에서 시뮬레이션된 센서 데이터를 만들어서 사용하게 합니다.
+   **센서가 없는 경우** `simulatedData` 값을 `true`로 설정하여 샘플 응용 프로그램에서 시뮬레이션된 센서 데이터를 만들어서 사용하게 합니다.
 
 1. Control-O > Enter > Control-X를 눌러 저장하고 종료합니다.
 
@@ -232,3 +234,4 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 샘플 응용 프로그램을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

@@ -15,10 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: riande
-translationtype: Human Translation
-ms.sourcegitcommit: 3f6bb2604d6f20e299ae5583a0ad215f02b9b803
-ms.openlocfilehash: 016d44cb57d5ad76dc0b115be6fbac6835d84396
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 64c18f2cfabbb7af6ffd89b4c2a9095fca1cf799
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -668,8 +669,6 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
 > 
 
 ## <a name="next-steps"></a>다음 단계
-실제 응용 프로그램에는 인증 및 권한 부여가 필요할 수 있으므로 멤버 자격 데이터베이스를 사용할 수 있습니다. [OAuth, 멤버 자격 및 SQL 데이터베이스를 사용하여 안전한 ASP.NET MVC 응용 프로그램 배포](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) (영문) 자습서는 현재 자습서를 기반으로 작성되었으며, 멤버 자격 데이터베이스를 사용하여 웹 응용 프로그램을 배포하는 방법을 설명합니다.
-
 Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azure 저장소를 사용하는 것입니다. Azure 저장소는 비관계형 데이터 저장소를 Blob 및 테이블 형식으로 제공합니다. Web API, ASP.NET MVC 및 Window Azure에 대한 자세한 내용은 다음 링크를 참조하십시오.
 
 * [MVC를 사용하여 Entity Framework 시작][EFCodeFirstMVCTutorial]

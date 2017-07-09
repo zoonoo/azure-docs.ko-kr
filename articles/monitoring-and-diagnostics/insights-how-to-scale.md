@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8f1c94ae5389739e03a7b1a70421e538516c873f
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 44bcf3ed1be8007a3c1ab9b727acf9a249cf84cc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/27/2017
 
 인스턴스 개수에 따라 크기를 조정하기 전에 인스턴스 개수뿐 아니라 **가격 책정 계층** 도 크기 조정에 영향을 준다는 것을 고려해야 합니다. 가격 책정 계층마다 다른 코어 및 메모리 수를 가질 수 있으므로 인스턴스 수가 동일할 때 성능이 더 높습니다(*강화* 또는 *규모 축소*). 이 문서에서는 특히 *규모 감축* 및 *규모 확장*에 대해 설명합니다.
 
-포털에서 규모를 감축할 수 있으며, [REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx) 또는 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 사용하여 수동 또는 자동으로 크기를 조정할 수도 있습니다.
+포털에서 규모를 감축할 수 있으며, [REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx) 또는 [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)를 사용하여 수동 또는 자동으로 크기를 조정할 수도 있습니다.
 
 > [!NOTE]
 > 이 문서에서 포털([http://portal.azure.com](http://portal.azure.com))에서 자동 크기 조정 설정을 만드는 방법을 설명합니다. 이 포털에서 만든 자동 크기 조정 설정은 클래식 포털([http://manage.windowsazure.com](http://manage.windowsazure.com))에서 편집할 수 없습니다.

@@ -4,7 +4,7 @@ description: "기존 연결이 있는 VPN Gateway에 다중 사이트 S2S 연결
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
@@ -16,18 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 9550b0076105b018bd8ede50519ac96bfb773001
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 7ec57789ee76f4ec54e4f7b68ea75c19522f3d7c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
+
 > [!div class="op_single_selector"]
-> * [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-> * [클래식 - PowerShell](vpn-gateway-multi-site.md)
-> 
+> * [Azure 포털](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [PowerShell(클래식)](vpn-gateway-multi-site.md)
+>
 > 
 
 이 문서에서는 Azure Portal을 사용하여 기존 연결이 있는 VPN 게이트웨이에 S2S(사이트 간) 연결을 추가하는 과정을 안내합니다. 이러한 유형의 연결을 "다중 사이트" 구성이라고 합니다. S2S 연결, 사이트 간 연결 또는 VNet 간 연결이 이미 있는 VNet에 S2S 연결을 추가할 수 있습니다. 연결을 추가하는 데 몇 가지 제한이 있습니다. 구성을 시작하기 전에 확인하려면 이 문서의 [시작 하기 전에](#before) 섹션을 확인합니다. 

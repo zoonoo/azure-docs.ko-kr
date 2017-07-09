@@ -1,22 +1,25 @@
-<properties
-   pageTitle="Azure Search의 동의어(미리 보기) | Microsoft Docs"
-   description="Azure Search REST API에서 노출된 동의어(미리 보기) 기능에 대한 예비 설명서입니다."
-   services="search"
-   documentationCenter=""
-   authors="mhko"
-   manager="pablocas"
-   editor=""/>
+---
+pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
+description: "Azure Search REST API에서 노출된 동의어(미리 보기) 기능에 대한 예비 설명서입니다."
+services: search
+documentationCenter: 
+authors: mhko
+manager: pablocas
+editor: 
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 07/07/2016
+ms.author: nateko
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
-<tags
-   ms.service="search"
-   ms.devlang="rest-api"
-   ms.workload="search"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.date="07/07/2016"
-   ms.author="nateko"/>
-
-
+---
 # <a name="synonyms-in-azure-search-preview"></a>Azure Search의 동의어(미리 보기)
 
 검색 엔진의 동의어는 사용자가 실제로 용어를 제공할 필요 없이 쿼리의 범위를 암시적으로 확장하는 동등한 용어를 연결합니다. 예를 들어 용어 "dog"와 "canine" 및 "puppy"의 동의어 연결을 지정하면 "dog", "canine" 또는 "puppy"를 포함하는 모든 문서는 쿼리의 범위에 속하게 됩니다.
@@ -35,9 +38,9 @@ Azure Search에서 동의어 지원은 사용자가 정의하고 서비스에 �
 
 동의어를 검색 응용 프로그램에 통합하는 과정은 다음의 두 단계 프로세스로 이루어집니다.
 
-1.    아래 API를 통해 동의어 맵을 검색 서비스에 추가합니다.  
+1.  아래 API를 통해 동의어 맵을 검색 서비스에 추가합니다.  
 
-2.    인덱스 정의에서 동의어 맵을 사용하도록 검색 가능한 필드를 구성합니다.
+2.  인덱스 정의에서 동의어 맵을 사용하도록 검색 가능한 필드를 구성합니다.
 
 ### <a name="synonymmaps-resource-apis"></a>SynonymMaps 리소스 API
 

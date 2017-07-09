@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: acomet
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 8591e1fd76587053cc03515c57295e118fff2c0d
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: c7d01eee1ba10599ca24291bb71cd7fdc6455f0e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 ---
 
@@ -32,7 +32,7 @@ Azure Cosmos DB는 대규모의 고가용성 응용 프로그램을 쉽게 빌�
 
 ## <a name="why-we-use-request-units-rus"></a>RU(요청 단위)를 사용하는 이유
 
-Azure Cosmos DB 성능은 파티션에 대해 프로비전된 RU([요청 단위](request-units.md)) 크기를 기준으로 합니다. 프로비저닝은 초 단위이며 초당 RU 단위로 구입합니다([시간별 청구와 혼동하지 말 것](https://azure.microsoft.com/pricing/details/documentdb/)). RU는 응용 프로그램의 필수 처리량 프로비전을 간소화하는 통화로 간주되어야 합니다. 고객은 읽기 및 쓰기 용량 단위 간을 구분해서 생각할 필요가 없습니다. 단일 통화 모델의 RU를 사용하면 읽기 및 쓰기 간에 프로비전된 용량을 효율적으로 공유할 수 있습니다. 이러한 프로비전된 용량 모델을 사용하면 서비스는 짧은 대기 시간 및 높은 가용성이 보장되는 예측 가능하고 일관된 처리량을 제공할 수 있습니다. 마지막으로 RU를 사용하여 처리량을 모델링하지만 프로비전된 각 RU에는 정의된 양의 리소스(메모리, 코어)가 있습니다. 초당 RU는 IOPS만이 아닙니다.
+Azure Cosmos DB 성능은 파티션에 대해 프로비전된 RU([요청 단위](request-units.md)) 크기를 기준으로 합니다. 프로비저닝은 초 단위이며 초당 RU 단위로 구입합니다([시간별 청구와 혼동하지 말 것](https://azure.microsoft.com/pricing/details/cosmos-db/)). RU는 응용 프로그램의 필수 처리량 프로비전을 간소화하는 통화로 간주되어야 합니다. 고객은 읽기 및 쓰기 용량 단위 간을 구분해서 생각할 필요가 없습니다. 단일 통화 모델의 RU를 사용하면 읽기 및 쓰기 간에 프로비전된 용량을 효율적으로 공유할 수 있습니다. 이러한 프로비전된 용량 모델을 사용하면 서비스는 짧은 대기 시간 및 높은 가용성이 보장되는 예측 가능하고 일관된 처리량을 제공할 수 있습니다. 마지막으로 RU를 사용하여 처리량을 모델링하지만 프로비전된 각 RU에는 정의된 양의 리소스(메모리, 코어)가 있습니다. 초당 RU는 IOPS만이 아닙니다.
 
 전역적으로 분산된 데이터베이스 시스템인 Azure Cosmos DB는 고가용성 외에 대기 시간, 처리량 및 일관성에 대한 SLA를 제공하는 유일한 Azure 서비스입니다. 프로비전하는 처리량은 Azure Cosmos DB 데이터베이스 계정에 연결된 각 하위 지역에 적용됩니다. 읽기의 경우 Azure Cosmos DB는 선택 가능한 여러 개의 잘 정의된 [일관성 수준](consistency-levels.md)을 제공합니다. Azure Cosmos DB는 [전역으로 분산된](distribute-data-globally.md) 대규모의 고가용성 응용 프로그램을 쉽게 빌드하기 위한 전역으로 분산된 다중 모델 데이터베이스 서비스입니다. 기본적으로 Cosmos DB는 수집하는 모든 데이터를 자동으로 효율적으로 인덱싱합니다. 이를 통해 모든 종류의 데이터에 대해 빠르고 일관된 [SQL](documentdb-sql-query.md)(및 [JavaScript](programming.md)) 쿼리가 가능해집니다. 
 
@@ -40,7 +40,7 @@ Azure Cosmos DB 성능은 파티션에 대해 프로비전된 RU([요청 단위]
 
 ## <a name="why-we-use-request-units-rus"></a>RU(요청 단위)를 사용하는 이유
 
-Cosmos DB 성능은 파티션에 대해 프로비전된 RU([요청 단위](request-units.md)) 크기를 기준으로 합니다. 프로비전은 초 단위이며 초당 RU 및 분당 RU 단위로 구입합니다([시간별 청구와 혼동하지 말 것](https://azure.microsoft.com/pricing/details/documentdb/)). RU는 응용 프로그램의 필수 처리량 프로비전을 간소화하는 통화로 간주되어야 합니다. 고객은 읽기 및 쓰기 용량 단위 간을 구분해서 생각할 필요가 없습니다. 단일 통화 모델의 RU를 사용하면 읽기 및 쓰기 간에 프로비전된 용량을 효율적으로 공유할 수 있습니다. 이러한 프로비전된 용량 모델을 사용하면 서비스는 짧은 대기 시간 및 높은 가용성이 보장되는 예측 가능하고 일관된 처리량을 제공할 수 있습니다. 마지막으로 RU를 사용하여 처리량을 모델링하지만 프로비전된 각 RU에는 정의된 양의 리소스(메모리, 코어)가 있습니다. 초당 RU는 IOPS만이 아닙니다.
+Cosmos DB 성능은 파티션에 대해 프로비전된 RU([요청 단위](request-units.md)) 크기를 기준으로 합니다. 프로비전은 초 단위이며 초당 RU 및 분당 RU 단위로 구입합니다([시간별 청구와 혼동하지 말 것](https://azure.microsoft.com/pricing/details/cosmos-db/)). RU는 응용 프로그램의 필수 처리량 프로비전을 간소화하는 통화로 간주되어야 합니다. 고객은 읽기 및 쓰기 용량 단위 간을 구분해서 생각할 필요가 없습니다. 단일 통화 모델의 RU를 사용하면 읽기 및 쓰기 간에 프로비전된 용량을 효율적으로 공유할 수 있습니다. 이러한 프로비전된 용량 모델을 사용하면 서비스는 짧은 대기 시간 및 높은 가용성이 보장되는 예측 가능하고 일관된 처리량을 제공할 수 있습니다. 마지막으로 RU를 사용하여 처리량을 모델링하지만 프로비전된 각 RU에는 정의된 양의 리소스(메모리, 코어)가 있습니다. 초당 RU는 IOPS만이 아닙니다.
 
 전역적으로 분산된 데이터베이스 시스템인 Cosmos DB는 고가용성 외에 대기 시간, 처리량 및 일관성에 대한 SLA를 제공하는 유일한 Azure 서비스입니다. 프로비전하는 처리량은 Cosmos DB 데이터베이스 계정에 연결된 각 하위 지역에 적용됩니다. 읽기의 경우 Cosmos DB는 선택 가능한 여러 개의 잘 정의된 [일관성 수준](consistency-levels.md)을 제공합니다. 
 

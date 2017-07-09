@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 2b25b4f4925962b1e4de681d268e78909a93eccd
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 77f50a830c38b3a90110845e58ee7cbb28742c10
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/28/2017
 
 ---
+
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 컴퓨터 확장 및 기능
 
 Azure Virtual Machines 확장은 Azure Virtual Machines에서 배포 후 구성 및 Automation 작업을 제공하는 작은 응용 프로그램입니다. 예를 들어 가상 컴퓨터에서 소프트웨어가 설치되도록 요구하거나, 바이러스 백신 보호 또는 Docker 구성을 요구하는 경우 VM 확장을 사용하여 이러한 작업을 완료할 수 있습니다. Azure CLI, PowerShell, Azure Resource Manager 템플릿 및 Azure Portal을 사용하여 Azure VM 확장을 실행할 수 있습니다. 확장을 새 가상 컴퓨터 배포와 번들로 제공하거나 기존 시스템에 대해 실행할 수 있습니다.
@@ -39,7 +40,7 @@ Azure Virtual Machines 확장은 Azure Virtual Machines에서 배포 후 구성 
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 컴퓨터에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Linux용 사용자 지정 스크립트 확장을 사용하면 Bash 스크립트를 가상 컴퓨터에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Linux VM 사용자 지정 스크립트 확장](extensions-customscript.md)을 참조하세요.
 
-VM 확장이 종단 간 응용 프로그램 배포에 사용되는 예제를 살펴보려면 [Azure Virtual Machine에 대한 응용 프로그램 배포 자동화](../windows/dotnet-core-1-landing.md)를 참조하세요.
+VM 확장이 종단 간 응용 프로그램 배포에 사용되는 예제를 살펴보려면 [Azure Virtual Machine에 대한 응용 프로그램 배포 자동화](../linux/dotnet-core-1-landing.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -130,7 +131,7 @@ Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포�
 }
 ```
 
-자세한 내용은 [Linux VM 확장을 사용하여 Azure Resource Manager 템플릿 작성](../windows/extensions-authoring-templates.md)을 참조하세요.
+자세한 내용은 [Linux VM 확장을 사용하여 Azure Resource Manager 템플릿 작성](../linux/extensions-authoring-templates.md)을 참조하세요.
 
 ## <a name="secure-vm-extension-data"></a>VM 확장 데이터 보호
 

@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 06/29/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: e5b622be66c3e009c67a00dd380efd87b013c920
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -72,6 +73,21 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
 1. **저장**을 선택합니다.
 
     기본적으로 이 정책을 사용하도록 설정하면 현재 랩의 모든 VM에 적용됩니다. 특정 VM에서 이 설정을 제거하려면 VM의 블레이드를 열고 해당 **자동 종료** 설정을 변경합니다. 
+
+## <a name="set-auto-start"></a>자동 시작 설정
+자동 시작 정책을 사용하면 현재 랩의 VM을 시작할 시기를 지정할 수 있습니다.  
+
+1. 랩의 **구성 및 정책** 블레이드에서 **자동 시작**을 선택합니다.
+   
+    ![자동 시작](./media/devtest-lab-set-lab-policy/auto-start.png)
+
+2. 이 정책을 사용하도록 설정하려면 **설정**을 선택하고 사용하지 않도록 설정하려면 **해제**를 선택합니다.
+
+3. 이 정책을 사용하도록 설정한 경우 예약 시작 시간, 표준 시간대 및 해당 시간이 적용되는 요일을 지정합니다. 
+
+4. **저장**을 선택합니다.
+
+    사용하도록 설정해도 이 정책이 현재 랩의 VM에 자동으로 적용되지 않습니다. 이 설정을 특정 VM에 적용하려면 VM의 블레이드를 열고 해당 **자동 시작** 설정을 변경합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

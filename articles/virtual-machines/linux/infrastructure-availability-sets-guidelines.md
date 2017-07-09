@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2c4c44cc0f1f55a46d797b78ab56f88ddcf3953e
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: c5fad478a8fbbdeef2fe72f0b8f2ebe32852bbc5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -48,13 +48,13 @@ Azure에서 VM(가상 컴퓨터)은 가용성 집합이라는 논리적 그룹�
 
 Azure의 기본 인프라는 여러 하드웨어 클러스터로 분할됩니다. 각 하드웨어 클러스터는 다양한 VM 크기를 지원할 수 있습니다. 가용성 집합은 언제든지 특정 시점에 단일 하드웨어 클러스터에만 호스트될 수 있습니다. 따라서 단일 가용성 집합에 존재할 수 있는 VM 크기 범위는 하드웨어 클러스터에서 지원하는 VM 크기 범위로 제한됩니다. 가용성 집합에 대한 하드웨어 클러스터는 가용성 집합의 첫 번째 VM이 배포되거나 모든 VM이 현재 중지-할당 해제 상태에 있는 가용성 집합에서 첫 번째 VM을 시작할 때 선택됩니다. CLI 명령인 “az vm list-sizes --location \<string\>”을 사용하여 가용성 집합에 사용할 수 있는 VM 크기 범위를 확인할 수 있습니다.
 
-각 하드웨어 클러스터는 여러 개의 업데이트 도메인 및 장애 도메인을 구분됩니다. 이러한 도메인은 공통 업데이트 주기를 공유하거나 전력 및 네트워킹과 같은 비슷한 실제 인프라를 공유하는 호스트에 의해 정의됩니다. Azure는 가용성 및 내결함성을 유지하기 위해 가용성 집합 내의 VM을 도메인 간에 자동으로 분산합니다. 가용성 집합 내의 응용 프로그램 크기와 VM 수에 따라, 사용하려는 도메인 수를 조정할 수 있습니다. [업데이트 및 장애 도메인의 가용성 및 사용 관리](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대해 자세히 읽어보세요.
+각 하드웨어 클러스터는 여러 개의 업데이트 도메인 및 장애 도메인을 구분됩니다. 이러한 도메인은 공통 업데이트 주기를 공유하거나 전력 및 네트워킹과 같은 비슷한 실제 인프라를 공유하는 호스트에 의해 정의됩니다. Azure는 가용성 및 내결함성을 유지하기 위해 가용성 집합 내의 VM을 도메인 간에 자동으로 분산합니다. 가용성 집합 내의 응용 프로그램 크기와 VM 수에 따라, 사용하려는 도메인 수를 조정할 수 있습니다. [업데이트 및 장애 도메인의 가용성 및 사용 관리](manage-availability.md)에 대해 자세히 읽어보세요.
 
 또한 응용 프로그램 인프라를 디자인할 때 사용할 응용 프로그램 계층을 계획합니다. 동일한 목적의 VM을 가용성 집합으로 그룹화합니다(예: nginx 또는 Apache를 실행하는 프런트 엔드 VM에 대한 가용성 집합). MongoDB 또는 MySQL을 실행하는 백 엔드 VM에 대한 별도의 가용성 집합을 만듭니다. 응용 프로그램의 각 구성 요소를 가용성 집합을 통해 보호하고 항상 하나 이상의 인스턴스가 실행 상태를 유지하도록 하는 것이 그 목표입니다.
 
 각 응용 프로그램 계층 앞에서 부하 분산 장치를 사용하여 가용성 집합과 함께 작동되도록 하고, 항상 트래픽이 실행 중인 인스턴스로 라우팅되도록 할 수 있습니다. 부하 분산 장치가 없어도 VM이 계획되거나 계획되지 않은 유지 관리 이벤트에서 계속 실행될 수 있지만 주 VM을 사용할 수 없는 경우 최종 사용자가 이러한 이벤트를 해결하지 못할 수 있습니다.
 
-저장소 계층에서 고가용성을 위해 응용 프로그램을 디자인합니다. 가장 좋은 방법은 [가용성 집합의 VM에 Managed Disks를 사용](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)하는 것입니다. 현재 관리되지 않는 디스크를 사용하는 경우 [가용성 집합에서 VM을 변환하여 Managed Disks를 사용](convert-unmanaged-to-managed-disks.md#convert-vm-in-an-availability-set-to-managed-disks)하는 것이 좋습니다.
+저장소 계층에서 고가용성을 위해 응용 프로그램을 디자인합니다. 가장 좋은 방법은 [가용성 집합의 VM에 Managed Disks를 사용](manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)하는 것입니다. 현재 관리되지 않는 디스크를 사용하는 경우 [가용성 집합에서 VM을 변환하여 Managed Disks를 사용](convert-unmanaged-to-managed-disks.md#convert-vms-in-an-availability-set)하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]

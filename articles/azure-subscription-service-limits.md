@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 06/27/2017
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 2450eada5a49763542c95799a381f2029fec7575
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 13f968b5eeaeb74c6364b9b7c29651657f73e052
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -28,9 +29,9 @@ ms.lasthandoff: 04/21/2017
 Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://azure.microsoft.com/pricing/)를 참조하세요. 여기에서 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하거나 서비스에 대한 가격 정보 페이지를 방문하여 비용을 예측할 수 있습니다(예: [Windows VM](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). 비용 관리에 대한 팁은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](billing/billing-getting-started.md)를 참조하세요.
 
 > [!NOTE]
-> **기본 제한**이상으로 제한 또는 할당량을 높이려는 경우 [무료로 온라인 고객 지원 요청을 개설](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)합니다. 다음 표에 나오는 **최대 제한** 값 이상으로 제한을 높일 수 없습니다. **최대 제한** 열이 없는 경우는 리소스에 조정 가능한 제한이 없습니다. 
+> **기본 제한**이상으로 제한 또는 할당량을 높이려는 경우 [무료로 온라인 고객 지원 요청을 개설](azure-supportability/resource-manager-core-quotas-request.md)합니다. 다음 표에 나오는 **최대 제한** 값 이상으로 제한을 높일 수 없습니다. **최대 제한** 열이 없는 경우는 리소스에 조정 가능한 제한이 없습니다. 
 > 
-> 무료 평가판 구독을 제한하거나 할당량을 증가할 수 없습니다. 무료 평가판을 사용하는 경우 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [Azure 무료 평가판에서 종량제로 업그레이드](billing-upgrade-azure-subscription.md)를 참조하세요.
+> 무료 평가판 구독을 제한하거나 할당량을 증가할 수 없습니다. 무료 평가판을 사용하는 경우 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [Azure 무료 평가판에서 종량제로 업그레이드](billing/billing-upgrade-azure-subscription.md)를 참조하세요.
 > 
 
 ## <a name="limits-and-the-azure-resource-manager"></a>제한 및 Azure 리소스 관리자
