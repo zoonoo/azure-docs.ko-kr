@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2017
-ms.author: edmaca, yanacai
+ms.date: 06/28/2017
+ms.author: saveenr, yanacai
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: b2fd62683f0272da271eebeb6eb3a71388ecb59e
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 401e2d84e5e2eb9f66a16b299fbb93bd1943e04b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -33,7 +33,7 @@ Visual Studio를 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-
 
 * **Visual Studio**: Express를 제외한 모든 버전이 지원됩니다.
     * Visual Studio 2017
-    * Visual Studio 2015 업데이트 4
+    * Visual Studio 2015
     * Visual Studio 2013
 * **.NET용 Microsoft Azure SDK** 버전 2.7.1 이상.  [웹 플랫폼 설치 관리자](http://www.microsoft.com/web/downloads/platform.aspx)를 사용하여 설치합니다.
 * **Data Lake Analytics** 계정. 계정을 만들려면 [Azure Portal을 사용하여 Azure Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)을 참조하세요.
@@ -89,10 +89,10 @@ OUTPUT @a
 
     ![U-SQL Visual Studio 데이터 레이크 분석 작업 성능 그래프](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-   *  **작업 요약**에 작업의 요약 정보가 표시됩니다.   
+   * **작업 요약**에 작업의 요약 정보가 표시됩니다.   
    * **작업 세부 정보**에는 스크립트, 리소스 및 꼭짓점을 비롯하여 작업에 대한 보다 자세한 정보가 표시됩니다.
-   *  **작업 그래프**는 작업의 진행률을 시각화합니다.
-   *  **메타데이터 작업**에는 U-SQL 카탈로그에서 수행된 모든 작업이 표시됩니다.
+   * **작업 그래프**는 작업의 진행률을 시각화합니다.
+   * **메타데이터 작업**에는 U-SQL 카탈로그에서 수행된 모든 작업이 표시됩니다.
    * **데이터**에는 모든 입력 및 출력이 표시됩니다.
    * **진단**에서는 작업 실행 및 성능 최적화에 대한 고급 분석을 제공합니다.
 

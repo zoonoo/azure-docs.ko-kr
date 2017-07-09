@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 4649bec5290e09b8a18e3e12719e63bf5e57c0b0
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 3499ff57e650c70679dfa018eec5dbe1a6173a33
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/04/2017
 
 
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 06/16/2017
 1. 블레이드의 위쪽에서 **+추가** 를 클릭합니다.
 1. 소비자에게 응용 프로그램을 설명하는 응용 프로그램의 **이름** 을 입력합니다. 예를 들어 "Contoso B2C 앱"을 입력할 수 있습니다.
 1. **웹앱/ 웹 API 포함** 스위치를 **예**로 설정합니다.
-1. Azure AD B2C에서 응용 프로그램이 요청한 토큰을 반환하는 끝점인 **회신 URL**에 대한 [적절한](#choosing-a-web-app/api-reply-url) 값을 입력합니다. 예를 들어 `https://localhost:44316/`을 입력합니다.
+1. Azure AD B2C에서 응용 프로그램이 요청한 토큰을 반환하는 끝점인 **회신 URL**에 대한 [적절한](#limitations) 값을 입력합니다. 예를 들어 `https://localhost:44316/`을 입력합니다.
 1. **만들기** 를 클릭하여 응용 프로그램을 등록합니다.
 1. 방금 만든 응용 프로그램을 클릭하고, 나중에 코드에서 사용할 전역적으로 고유한 **응용 프로그램 클라이언트 ID** 를 적어둡니다.
 1. 웹 응용 프로그램이 Azure AD B2C로 보호되는 웹 API를 호출하는 경우 다음을 수행하십시오.
@@ -154,3 +154,4 @@ B2C 응용 프로그램은 다음에서 편집할 수 없습니다.
 ## <a name="next-steps"></a>다음 단계
 
 Azure AD B2C로 등록된 응용 프로그램이 있다면 작동할 [빠른 시작 자습서](active-directory-b2c-overview.md#get-started) 중 하나를 완료하여 실행할 수 있습니다.
+
