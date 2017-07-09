@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c30ffa9e392bb6411312b0789ae6e8218f770bc1
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: b82bb1ab419831e803689edb2a2a7fe256dde5a2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="enable-monitoring-and-diagnostics"></a>모니터링 및 진단 사용
-[Azure 포털](https://portal.azure.com)에서 리소스에 대한 다양하고 빈번한 모니터링 및 진단 데이터를 구성할 수 있습니다. [REST API](https://msdn.microsoft.com/library/azure/dn931932.aspx) 또는 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 사용하여 프로그래밍 방식으로 진단을 구성할 수도 있습니다.
+[Azure 포털](https://portal.azure.com)에서 리소스에 대한 다양하고 빈번한 모니터링 및 진단 데이터를 구성할 수 있습니다. [REST API](https://msdn.microsoft.com/library/azure/dn931932.aspx) 또는 [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)를 사용하여 프로그래밍 방식으로 진단을 구성할 수도 있습니다.
 
 Azure의 진단, 모니터링 및 메트릭 데이터는 선택한 저장소 계정에 저장됩니다. 따라서 저장소 탐색기부터 Power BI 및 타사 도구에 이르기까지 원하는 도구를 사용하여 데이터를 읽을 수 있습니다.
 
@@ -65,10 +67,5 @@ Azure의 진단, 모니터링 및 메트릭 데이터는 선택한 저장소 계
 * [응용 프로그램 성능을 모니터링](../application-insights/app-insights-azure-web-apps.md) 합니다.
 * [이벤트 및 활동 로그를 보고](insights-debugging-with-events.md) 서비스에서 발생한 모든 사항을 알아봅니다.
 * [서비스 상태를 추적](insights-service-health.md) 하여 Azure에서 성능 저하 또는 서비스 중단이 발생한 시기를 확인합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

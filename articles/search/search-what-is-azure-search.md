@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/24/2017
 ms.author: ashmaka
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: db227bfea10255322c090e68b197cfb2dd1cf15b
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 99685748120b40cd02328f6ece0b8dde55042d61
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/08/2017
 
 ---
 # <a name="what-is-azure-search"></a>Azure 검색이란?
@@ -31,7 +31,7 @@ Azure Search의 기능에 대해 알아봅니다.
 
 ### <a name="full-text-search-and-text-analysis"></a>전체 텍스트 검색 및 텍스트 분석
 
-[전체 텍스트 검색](https://en.wikipedia.org/wiki/Full_text_search)은 대부분의 검색 기반 앱에서 기본적으로 사용되는 검색 방식입니다. Azure Search에서 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)을 사용하여 쿼리를 공식화할 수 있습니다. 뿐만 아니라 [Lucene 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 은 유사 항목 검색, 근접 검색, 용어 승격 및 정규식을 사용할 수 있습니다. 또한 Azure Search는 응용 프로그램에서 음성 일치를 사용하는 복잡한 검색 쿼리와 정규식을 처리할 수 있도록 [사용자 지정 어휘 분석기](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)를 지원합니다.
+[전체 텍스트 검색](search-lucene-query-architecture.md)은 대부분의 검색 기반 앱에서 기본적으로 사용되는 검색 방식입니다. Azure Search에서 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)을 사용하여 쿼리를 공식화할 수 있습니다. 뿐만 아니라 [Lucene 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 은 유사 항목 검색, 근접 검색, 용어 승격 및 정규식을 사용할 수 있습니다. 또한 Azure Search는 응용 프로그램에서 음성 일치를 사용하는 복잡한 검색 쿼리와 정규식을 처리할 수 있도록 [사용자 지정 어휘 분석기](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)를 지원합니다.
 
 ### <a name="language-support"></a>언어 지원
 

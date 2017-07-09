@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/16/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bb836357af6d006c18db578164f02fa7bd043b45
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: bf5bd20007c186bfd01b82aa06213ef9e7424a05
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -33,8 +33,8 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="diagnose-data-changes"></a>데이터 변경 진단
 
-1.    분석에서 쿼리를 실행하고 시간 차트로 렌더링합니다. 
-2.    강조 표시된 최대 사용 지점이 있는 경우 클릭합니다.
+1.  분석에서 쿼리를 실행하고 시간 차트로 렌더링합니다. 
+2.  강조 표시된 최대 사용 지점이 있는 경우 클릭합니다.
  
     ![최대 사용 지점](./media/app-insights-analytics-diagnostics/peak.png)
 
@@ -48,11 +48,11 @@ ms.lasthandoff: 05/10/2017
 
     차트의 두 가지 구성 요소인 true 및 false 필터로 확인합니다. false 구성 요소는 변경되지 않은 추세를 보여 줍니다. 즉, 진단에서 식별한 문제가 있는 차원 조합을 제외하면 원격 분석 결과에 변화가 없습니다. 반면, 해당 조합 내의 결과는 강조 표시된 조사 영역 내의 큰 변화를 보여 줍니다. 진단에서 변화를 설명하는 속성 조합을 발견했음을 나타냅니다.
 
-4.    패턴이 복잡할 경우 차원을 표시하려면 **모두 표시** 위로 마우스를 이동해야 합니다.
+4.  패턴이 복잡할 경우 차원을 표시하려면 **모두 표시** 위로 마우스를 이동해야 합니다.
 
     ![모두 표시](./media/app-insights-analytics-diagnostics/show-all.png)
  
-5.    진단에서 알림을 제공한 중요한 패턴을 찾지 못한 경우 '결과 없음' 페이지가 표시됩니다. 이 시점에서 쿼리를 변경할 수 있습니다. 예를 들어 분석 쿼리에서 시간 범위 및 범주화를 좁혀 추가 분석을 수행하고 더 나은 결과를 얻을 수 있습니다.
+5.  진단에서 알림을 제공한 중요한 패턴을 찾지 못한 경우 '결과 없음' 페이지가 표시됩니다. 이 시점에서 쿼리를 변경할 수 있습니다. 예를 들어 분석 쿼리에서 시간 범위 및 범주화를 좁혀 추가 분석을 수행하고 더 나은 결과를 얻을 수 있습니다.
 
 특정 브라우저에서 웹 사이트의 특정 페이지에 문제가 있다는 사실을 알았으므로 이제 문제 페이지로 바로 이동하여 최근 변경 내용을 조사할 수 있습니다.
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="how-it-works"></a>작동 방법
 
-스마트 진단은 [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns) 작업을 기반으로 한 자율적인 고급 기계 학습 알고리즘을 사용합니다. 이 진단에서는 데이터 변경을 설명할 수 있는 후보 패턴을 찾습니다. 메트릭에 대한 각 후보의 영향을 분석하고 변경과 가장 관련이 있는 패턴을 보여 줍니다.
+스마트 진단은 [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns_v2) 작업을 기반으로 한 자율적인 고급 기계 학습 알고리즘을 사용합니다. 이 진단에서는 데이터 변경을 설명할 수 있는 후보 패턴을 찾습니다. 메트릭에 대한 각 후보의 영향을 분석하고 변경과 가장 관련이 있는 패턴을 보여 줍니다.
 
 ## <a name="no-diagnostic-points"></a>진단 지점은 없나요?
 

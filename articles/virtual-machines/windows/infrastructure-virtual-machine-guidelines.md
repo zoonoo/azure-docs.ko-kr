@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 1d8f2565fa50f8deeb2d139a9195129580bceab8
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: f5fd03ef7e18706bd99688acb83cda02fb4a027a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -44,12 +45,12 @@ ms.lasthandoff: 03/31/2017
 ## <a name="virtual-machines"></a>가상 컴퓨터
 Azure 환경 내의 주요 구성 리소스 중 하나가 VM일 것입니다. 이 리소스에서 응용 프로그램, 데이터베이스, 인증, 서비스 등을 실행합니다.
 
-성능 및 비용 측면에서 환경 규모를 올바르게 조정하려면 [다양한 VM 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 이해하는 것이 중요합니다. VM에 충분한 CPU 코어 또는 메모리가 없으면 디자인 및 개발 품질과 관계없이 응용 프로그램의 성능이 저하됩니다. 인프라의 각 구성 요소에 사용할 VM 크기를 결정할 때는 각 VM 시리즈에 대해 제안된 워크로드를 먼저 검토해야 합니다. 배포 후에 [VM의 크기를 변경](https://azure.microsoft.com/blog/resize-virtual-machines/) 할 수 있습니다.
+성능 및 비용 측면에서 환경 규모를 올바르게 조정하려면 [다양한 VM 크기](sizes.md) 를 이해하는 것이 중요합니다. VM에 충분한 CPU 코어 또는 메모리가 없으면 디자인 및 개발 품질과 관계없이 응용 프로그램의 성능이 저하됩니다. 인프라의 각 구성 요소에 사용할 VM 크기를 결정할 때는 각 VM 시리즈에 대해 제안된 워크로드를 먼저 검토해야 합니다. 배포 후에 [VM의 크기를 변경](resize-vm.md) 할 수 있습니다.
 
-저장소는 VM의 성능에 중요한 역할을 합니다. 일반 스핀 디스크를 사용하는 Standard 저장소를 사용할 수도 있고, I/O 워크로드가 높고 최고의 성능이 필요한 경우에는 SSD 디스크를 사용하는 Premium 저장소를 사용할 수도 있습니다. VM 크기와 마찬가지로 저장 미디어를 선택하는 데 비용을 고려해야 합니다. 최적의 VM 성능을 위해 적절한 저장소를 디자인하는 방법을 이해하려는 경우 [저장소 인프라 지침 문서](infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 읽어보세요.
+저장소는 VM의 성능에 중요한 역할을 합니다. 일반 스핀 디스크를 사용하는 Standard 저장소를 사용할 수도 있고, I/O 워크로드가 높고 최고의 성능이 필요한 경우에는 SSD 디스크를 사용하는 Premium 저장소를 사용할 수도 있습니다. VM 크기와 마찬가지로 저장 미디어를 선택하는 데 비용을 고려해야 합니다. 최적의 VM 성능을 위해 적절한 저장소를 디자인하는 방법을 이해하려는 경우 [저장소 인프라 지침 문서](infrastructure-storage-solutions-guidelines.md) 를 읽어보세요.
 
 ## <a name="resource-groups"></a>리소스 그룹
-VM과 같은 구성 요소는 손쉬운 관리 및 유지 관리를 위해 [Azure 리소스 그룹](../../azure-resource-manager/resource-group-overview.md)을 사용하여 논리적으로 그룹화됩니다. 리소스 그룹을 사용하여 지정된 응용 프로그램을 구성하는 모든 리소스를 만들고, 관리하고, 모니터링할 수 있습니다. [역할 기반 액세스 제어](../../active-directory/role-based-access-control-what-is.md) 를 구현하여 팀 내의 사람 사람들에게 필요한 리소스에 대한 액세스 권한만 부여할 수도 있습니다. 시간을 투입하여 리소스 그룹 및 역할 할당을 계획합니다. 실제로 리소스 그룹을 디자인 및 구현하는 다양한 접근 방법이 있으므로 VM을 구축하는 최선의 방법을 이해하려면 [리소스 그룹 지침 문서](infrastructure-resource-groups-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 읽어보세요.
+VM과 같은 구성 요소는 손쉬운 관리 및 유지 관리를 위해 [Azure 리소스 그룹](../../azure-resource-manager/resource-group-overview.md)을 사용하여 논리적으로 그룹화됩니다. 리소스 그룹을 사용하여 지정된 응용 프로그램을 구성하는 모든 리소스를 만들고, 관리하고, 모니터링할 수 있습니다. [역할 기반 액세스 제어](../../active-directory/role-based-access-control-what-is.md) 를 구현하여 팀 내의 사람 사람들에게 필요한 리소스에 대한 액세스 권한만 부여할 수도 있습니다. 시간을 투입하여 리소스 그룹 및 역할 할당을 계획합니다. 실제로 리소스 그룹을 디자인 및 구현하는 다양한 접근 방법이 있으므로 VM을 구축하는 최선의 방법을 이해하려면 [리소스 그룹 지침 문서](infrastructure-resource-groups-guidelines.md) 를 읽어보세요.
 
 ## <a name="templates"></a>템플릿
 선언적 JSON 파일에 정의되는 템플릿을 작성하여 VM을 만들 수 있습니다. 템플릿은 VM 자체는 물론, 일반적으로 필요한 저장소, 네트워킹, 네트워크 인터페이스, IP 주소 지정 등을 작성합니다. 템플릿을 통해 개발 및 테스트를 위한 일관되고 재현 가능한 환경을 만들어 프로덕션 환경에 쉽게 복제하고 그 반대도 가능합니다. VM을 만들어 배포하는 데 템플릿을 사용하는 방법을 이해하려면 [템플릿 작성 및 사용](../../azure-resource-manager/resource-group-overview.md#template-deployment) 에 대해 자세히 읽어보세요.

@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 06/23/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 91a4e54b3dd2e1f44a6b52c548a243ae98e3ba3f
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/27/2017
 
 
@@ -58,17 +59,17 @@ ms.lasthandoff: 04/27/2017
 
 온-프레미스 AD 도메인에 조인된 Windows 10 및 Windows Server 2016:
 
-1.    관리자 권한으로 명령 프롬프트를 엽니다.
+1.  관리자 권한으로 명령 프롬프트를 엽니다.
 
-2.    `dsregcmd.exe /debug /leave`를 입력합니다.
+2.  `dsregcmd.exe /debug /leave`를 입력합니다.
 
-3.    로그아웃했다가 로그인하여 장치를 다시 등록하는 예약된 작업을 트리거합니다. 
+3.  로그아웃했다가 로그인하여 장치를 다시 등록하는 예약된 작업을 트리거합니다. 
 
 온-프레미스 AD 도메인에 조인된 다른 Windows 플랫폼:
 
-1.    관리자 권한으로 명령 프롬프트를 엽니다.
-2.    `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`을 입력합니다.
-3.    `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`을 입력합니다.
+1.  관리자 권한으로 명령 프롬프트를 엽니다.
+2.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`을 입력합니다.
+3.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`을 입력합니다.
 
 ---
 
@@ -76,13 +77,13 @@ ms.lasthandoff: 04/27/2017
 
 **A:**
 
--    Windows 10 및 Windows Server 2016의 경우 같은 장치를 반복해서 조인 해제했다가 다시 조인하면 중복된 항목이 나타날 수 있습니다. 
+-   Windows 10 및 Windows Server 2016의 경우 같은 장치를 반복해서 조인 해제했다가 다시 조인하면 중복된 항목이 나타날 수 있습니다. 
 
--    회사 또는 학교 계정 추가를 사용한 경우 회사 또는 학교 계정 추가를 사용하는 각 Windows 사용자는 장치 이름이 같은 새 장치 레코드를 만들게 됩니다.
+-   회사 또는 학교 계정 추가를 사용한 경우 회사 또는 학교 계정 추가를 사용하는 각 Windows 사용자는 장치 이름이 같은 새 장치 레코드를 만들게 됩니다.
 
--    자동 등록을 사용하여 온-프레미스 AD 도메인에 조인된 다른 Windows 플랫폼은 장치에 로그인하는 각 도메인 사용자에 대해 장치 이름이 같은 새 장치 레코드를 만듭니다. 
+-   자동 등록을 사용하여 온-프레미스 AD 도메인에 조인된 다른 Windows 플랫폼은 장치에 로그인하는 각 도메인 사용자에 대해 장치 이름이 같은 새 장치 레코드를 만듭니다. 
 
--    초기화되었다가 같은 이름으로 다시 설치되고 다시 조인된 AADJ 장치는 장치 이름이 같은 다른 레코드로 표시됩니다.
+-   초기화되었다가 같은 이름으로 다시 설치되고 다시 조인된 AADJ 장치는 장치 이름이 같은 다른 레코드로 표시됩니다.
 
 ---
 

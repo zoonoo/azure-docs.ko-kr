@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: liamca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0740bc1f9e8b8be3c59518d9b23b8a1411c6d16a
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: bfb6fc04d3aa4937336083d04137e22694e5146c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene은 Azure 검색에서 퀴리를 만들기 위해 구문 예제를 쿼리합니다.
 Azure Search를 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https://msdn.microsoft.com/library/azure/dn798920.aspx)을 사용하거나, [Azure 검색의 Lucene 쿼리 파서](https://msdn.microsoft.com/library/azure/mt589323.aspx)를 대신 사용할 수 있습니다. Lucene 쿼리 파서는 필드 범위 쿼리, 유사 항목 검색, 근접 검색, 용어 상승 및 정규식 등의 더 복잡한 쿼리 구조를 지원합니다.
 
-이 문서에서는 Lucene 쿼리 구문과 결과를 나란히 표시하는 예제를 살펴볼 수 있습니다. 예제는 스크립트 및 HTML 테스트용 온라인 코드 편집기인 [JSFiddle](https://jsfiddle.net/)에서 사전 로드된 검색 인덱스를 기준으로 실행됩니다. 쿼리 처리에 대한 배경 정보를 보려면 [Azure Search에서 전체 텍스트 검색의 작동 방식](search-lucene-query-architecture.md)을 참조하세요.
+이 문서에서는 Lucene 쿼리 구문과 결과를 나란히 표시하는 예제를 살펴볼 수 있습니다. 예제는 스크립트 및 HTML 테스트용 온라인 코드 편집기인 [JSFiddle](https://jsfiddle.net)에서 사전 로드된 검색 인덱스를 기준으로 실행됩니다. 쿼리 처리에 대한 배경 정보를 보려면 [Azure Search에서 전체 텍스트 검색의 작동 방식](search-lucene-query-architecture.md)을 참조하세요.
 
 쿼리 예제 URL을 마우스 오른쪽 단추로 클릭하여 별도의 브라우저 창에서 JSFiddle을 엽니다.
 

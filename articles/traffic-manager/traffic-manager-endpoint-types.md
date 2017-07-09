@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 6d048b73528d1812f1be9585d30812ca4aeaa397
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: f0609465edde67a9e11af86c3265ea29a737fc85
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -50,7 +51,7 @@ Azure 끝점을 사용하는 경우 Traffic Manager는 '클래식' IaaS VM, 클�
 외부 끝점은 Azure 외부 서비스에 대해 사용됩니다. 예: 온-프레미스에서 호스팅되는 서비스 또는 다른 공급자로 호스팅되는 서비스. 외부 끝점은 개별적으로 사용되거나 동일한 Traffic Manager 프로필에서 Azure 끝점과 결합될 수 있습니다. 외부 끝점과 Azure 끝점을 결합하여 다양한 시나리오를 사용할 수 있습니다.
 
 * 활성-활성 또는 활성-수동 장애 조치(Failover) 모델에서 기존 온-프레미스 응용 프로그램에 대한 향상된 중복성을 제공하는 데 Azure를 사용합니다.
-* 전 세계 사용자를 위해 응용 프로그램 대기 시간을 줄이려면 Azure에서 추가 지리적 위치에 대한 기존 온-프레미스 응용 프로그램을 확장합니다. 자세한 내용은 [Traffic Manager '성능' 트래픽 라우팅](traffic-manager-routing-methods.md#performance-traffic-routing-method)을 참조하세요.
+* 전 세계 사용자를 위해 응용 프로그램 대기 시간을 줄이려면 Azure에서 추가 지리적 위치에 대한 기존 온-프레미스 응용 프로그램을 확장합니다. 자세한 내용은 [Traffic Manager '성능' 트래픽 라우팅](traffic-manager-routing-methods.md#a-name--performanceaperformance-traffic-routing-method)을 참조하세요.
 * 지속적으로 또는 스파이크 수요를 충족하기 위해 '클라우드로 버스트'로 기존 온-프레미스 응용 프로그램에 대한 추가 용량을 제공하는 데 Azure를 사용합니다.
 
 경우에 따라 Azure 서비스를 참조하는 데 외부 끝점을 사용하는 것이 유용합니다.(예는 [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints) 참조). 이 경우 상태 검사는 외부 끝점 비율이 아닌 Azure 끝점 비율로 청구됩니다. 그러나 Azure 끝점과 달리 기본 서비스를 중지하거나 삭제하는 경우 Traffic Manager에서 끝점을 비활성화하거나 삭제하기 전까지 상태 검사 요금 청구는 계속됩니다.
@@ -95,5 +96,4 @@ Traffic Manager에서 끝점 비활성화는 유지 관리 모드이거나 다�
 * [Traffic Manager 작동 방식](traffic-manager-how-traffic-manager-works.md)에 대해 알아봅니다.
 * Traffic Manager [끝점 모니터링 및 자동 장애 조치(failover)](traffic-manager-monitoring.md)에 대해 알아봅니다.
 * Traffic Manager [트래픽 라우팅 방법](traffic-manager-routing-methods.md)에 대해 알아봅니다.
-
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2017
 ms.author: zivr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 28c2fb5a67eca0c5ab2f0299bba7c11375e10558
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: f5e52f4642b85a75f0c9f1892fbf0e565aa8b35b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -36,4 +36,5 @@ Microsoft Azure는 가상 컴퓨터의 기반이 되는 호스트 인프라의 �
 
 -   재부팅이 필요하거나 호스트된 가상 컴퓨터로 다시 배포하는 VM 다시 시작 유지 보수
 
-이 페이지에서는 Microsoft Azure에서 계획된 유지 관리를 수행하는 방법을 설명합니다. 계획되지 않은 이벤트(중단)에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리](../windows/manage-availability.md)를 참조하세요.
+이 페이지에서는 Microsoft Azure에서 계획된 유지 관리를 수행하는 방법을 설명합니다. 계획되지 않은 이벤트(중단)에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리](../linux/manage-availability.md)를 참조하세요.
+

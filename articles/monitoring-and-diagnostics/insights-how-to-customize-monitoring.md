@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 5ccb5c0b3c2ffaf8aba855a9dbe3da9691ab149b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/08/2017
 
 
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure의 메트릭 개요
-모든 Azure 서비스는 서비스의 상태, 성능, 가용성 및 사용량을 모니터링할 수 있게 해주는 주요 메트릭을 추적합니다. Azure 포털에서 이러한 메트릭을 볼 수 있으며, [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) 또는 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 사용하여 프로그래밍 방식으로 전체 메트릭 집합에 액세스할 수도 있습니다.
+모든 Azure 서비스는 서비스의 상태, 성능, 가용성 및 사용량을 모니터링할 수 있게 해주는 주요 메트릭을 추적합니다. Azure 포털에서 이러한 메트릭을 볼 수 있으며, [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) 또는 [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)를 사용하여 프로그래밍 방식으로 전체 메트릭 집합에 액세스할 수도 있습니다.
 
 일부 서비스의 경우 메트릭을 확인하기 위해 진단을 켜야 할 수도 있습니다. 가상 컴퓨터와 같은 기타 서비스의 경우 기본 메트릭 집합이 표시되지만 전체 집합 고빈도 메트릭을 사용하도록 설정해야 합니다. 자세히 알아보려면 [모니터링 및 진단 사용](insights-how-to-use-diagnostics.md) 을 참조하세요.
 
@@ -58,7 +60,7 @@ ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
 
 ![사용 현황](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
-메트릭과 마찬가지로, [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) 또는 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/)를 사용하여 프로그래밍 방식으로 사용 할당량의 전체 집합에 액세스할 수 있습니다.
+메트릭과 마찬가지로, [REST API](https://msdn.microsoft.com/library/azure/dn931963.aspx) 또는 [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)를 사용하여 프로그래밍 방식으로 사용 할당량의 전체 집합에 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [경고 알림을 수신](insights-receive-alert-notifications.md) 합니다.
@@ -67,10 +69,5 @@ ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
 * [응용 프로그램 성능을 모니터링](../application-insights/app-insights-azure-web-apps.md) 합니다.
 * [JavaScript 앱 및 웹 페이지용 Application Insights](../application-insights/app-insights-web-track-usage.md) 를 사용하여 웹 페이지를 방문하는 브라우저에 대한 클라이언트 분석을 가져옵니다.
 * [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md) 합니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

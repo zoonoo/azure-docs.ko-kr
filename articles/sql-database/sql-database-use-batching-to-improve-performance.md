@@ -8,17 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: b62097f945bc5c595c0893d16bb2c1d9bbfd7a07
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 22cff47444306e599325ba3035d83a0266d69c72
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -41,7 +42,7 @@ SQL 데이터베이스를 사용하는 장점 중 하나는 데이터베이스�
 ## <a name="batching-strategies"></a>일괄 처리 전략
 ### <a name="note-about-timing-results-in-this-topic"></a>이 문서의 타이밍 결과에 대한 정보
 > [!NOTE]
-> 결과가 기준은 아니며 **상대적인 성능**을 표시하기 위한 것입니다. 타이밍은 평균적으로 최소 10회의 테스트 실행을 기반으로 합니다. 작업은 빈 테이블로의 삽입니다. 테스트는 얼마 전에 측정된 것이므로 지금 발생하는 처리량과 반드시 일치하지 않을 수도 있습니다. 일괄 처리 기법의 상대적인 장점은 유사합니다.
+> 결과가 기준은 아니며 **상대적인 성능**을 표시하기 위한 것입니다. 타이밍은 평균적으로 최소 10회의 테스트 실행을 기반으로 합니다. 작업은 빈 테이블로의 삽입니다. 테스트는 V12 이전 버전에서 측정되었으며, 새로운 [서비스 계층](sql-database-service-tiers.md)을 사용하는 V12 데이터베이스에서 경험하는 처리량과 일치하지 않을 수 있습니다. 일괄 처리 기법의 상대적인 장점은 유사합니다.
 > 
 > 
 
@@ -120,7 +121,7 @@ SQL 데이터베이스를 사용하는 장점 중 하나는 데이터베이스�
 
 이전 예제는 로컬 트랜잭션을 모든 ADO.NET 코드에 두 줄로 추가할 수 있다는 것을 보여줍니다. 트랜잭션은 순차적인 삽입, 업데이트, 삭제 작업을 생성하는 코드의 성능을 향상시키는 신속한 방법을 제공합니다. 하지만 가장 빠른 성능의 경우에는, 클라이언트 쪽 일괄 처리의 장점(예: 테이블 반환 매개 변수)을 활용하기 위한 코드 변경을 고려합니다.
 
-ADO.NET의 트랜잭션에 대한 자세한 내용은 [ADO.NET의 로컬 트랜잭션](https://msdn.microsoft.com/library/vstudio/2k2hy99x.aspx)을 참조하세요.
+ADO.NET의 트랜잭션에 대한 자세한 내용은 [ADO.NET의 로컬 트랜잭션](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions)을 참조하세요.
 
 ### <a name="table-valued-parameters"></a>테이블 반환 매개 변수
 테이블 반환 매개 변수는 Transact-SQL 문, 저장 프로시저, 함수의 매개 변수로 사용자 정의 테이블 형식을 지원합니다. 클라이언트 쪽 일괄 처리 기법을 사용하면 여러 행의 데이터를 테이블 반환 변수 내에서 전송할 수 있습니다. 테이블 반환 매개 변수를 사용하려면 우선 테이블 형식을 정의합니다. 다음 Transact-SQL 문은 **MyTableType**이라는 이름의 테이블 형식을 만듭니다.
@@ -619,6 +620,6 @@ PurchaseOrderDetail 테이블의 OrderID 열은 PurchaseOrder 테이블에서 �
 * 보다 많은 시나리오에 일괄 처리를 구현하는 방법으로 크기 및 시간에 따른 버퍼링을 고려합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서는 일괄 처리와 관련된 데이터베이스 디자인과 코딩 기법이 응용 프로그램 성능과 확장성을 향상시킬 수 있는 방법에 중점을 두고 있습니다. 하지만 이것은 사용자의 전반적인 전략 중 한 가지 요소에 불과합니다. 성능과 확장성을 개선하는 방법을 더 보려면 [단일 데이터베이스의 Azure SQL Database 성능 지침](sql-database-performance-guidance.md) 및 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool.md)을 참조하세요.
+이 문서는 일괄 처리와 관련된 데이터베이스 디자인과 코딩 기법이 응용 프로그램 성능과 확장성을 향상시킬 수 있는 방법에 중점을 두고 있습니다. 하지만 이것은 사용자의 전반적인 전략 중 한 가지 요소에 불과합니다. 성능과 확장성을 개선하는 방법을 더 보려면 [단일 데이터베이스의 Azure SQL Database 성능 지침](sql-database-performance-guidance.md) 및 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요.
 
 
