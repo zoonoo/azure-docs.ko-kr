@@ -4,7 +4,7 @@ description: "이전에는 마켓플레이스로 알려진 외부 서비스의 �
 services: 
 documentationcenter: 
 author: adpick
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
