@@ -4,7 +4,7 @@ description: "Azure 계정의 프로필을 변경하는 방법을 설명하고 A
 services: 
 documentationcenter: 
 author: genlin
-manager: narmstr
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
