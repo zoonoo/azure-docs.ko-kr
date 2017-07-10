@@ -23,22 +23,26 @@ ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="associate-an-office-365-tenant-to-an-azure-subscription"></a>Azure 구독에 Office 365 테넌트 연결
+<a id="associate-an-office-365-tenant-to-an-azure-subscription" class="xliff"></a>
+# Azure 구독에 Office 365 테넌트 연결
 Azure 구독에서 Office 365 테넌트에 액세스할 수 있도록 별도 Azure 및 Office 365 구독을 연결합니다. 구독을 연결하려면 Azure 서비스 관리자 계정으로 Azure에 로그인하고 디렉터리를 추가한 다음 Azure Active Directory 테넌트에 Office 365 조직 계정을 추가합니다.
 
 Azure Active Directory 인스턴스에서 사용자를 위한 Office 365 구독이 필요하거나 Office 365 계정이 있지만 Azure 계정이 없는 경우 [Office 365 계정을 사용하여 Azure에 등록](billing-use-existing-office-365-account-azure-subscription.md)을 참조하세요. 
 
-## <a name="before-you-begin"></a>시작하기 전에
+<a id="before-you-begin" class="xliff"></a>
+## 시작하기 전에
 * Azure 구독 서비스 관리자의 자격 증명이 있어야 합니다. 공동 관리자 계정은 이 문서의 단계 중 일부를 수행할 수 없습니다. 서비스 관리자를 변경하려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription)을 참조하세요.
 * Office 365 테넌트 전역 관리자의 자격 증명이 있어야 합니다.
 * 서비스 관리자의 전자 메일 주소가 Office 365 테넌트에 있지 않아야 합니다.
 * 서비스 관리자의 전자 메일 주소가 Office 365 전역 관리자의 전자 메일 주소와 일치하지 않아야 합니다.
 * Microsoft 계정이며 조직 계정인 전자 메일 주소를 사용하는 경우 Azure 구독의 서비스 관리자를 일시적으로 변경하여 다른 Microsoft 계정을 사용합니다. [Microsoft 계정 등록 페이지](https://signup.live.com/)에서 Microsoft 계정을 만들 수 있습니다.
 
-## <a name="link-office-365-tenant-to-azure-subscription"></a>Azure 구독에 Office 365 테넌트 연결
+<a id="link-office-365-tenant-to-azure-subscription" class="xliff"></a>
+## Azure 구독에 Office 365 테넌트 연결
 Azure 구독에 Office 365 테넌트를 연결하려면 다음 단계를 따릅니다.
 
-### <a name="step-1-add-office-365-tenant-to-your-azure-subscription"></a>1단계: Azure 구독에 Office 365 테넌트 추가
+<a id="step-1-add-office-365-tenant-to-your-azure-subscription" class="xliff"></a>
+### 1단계: Azure 구독에 Office 365 테넌트 추가
 
 1. 서비스 관리자 자격 증명을 사용하여 [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
 
@@ -98,7 +102,8 @@ Azure 구독에 Office 365 테넌트를 연결하려면 다음 단계를 따릅�
    
 5. **완료** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png)을 선택합니다.
 
-### <a name="step-3-add-your-office-365-organizational-accounts-as-co-administrators-to-the-azure-active-directory-tenant"></a>3단계: Office 365 조직 계정을 Azure Active Directory 테넌트에 공동 관리자로 추가
+<a id="step-3-add-your-office-365-organizational-accounts-as-co-administrators-to-the-azure-active-directory-tenant" class="xliff"></a>
+### 3단계: Office 365 조직 계정을 Azure Active Directory 테넌트에 공동 관리자로 추가
    
 1. **관리자** 탭을 선택한 다음 **추가**를 선택합니다.
    
@@ -121,7 +126,8 @@ Azure 구독에 Office 365 테넌트를 연결하려면 다음 단계를 따릅�
    
     ![Azure 로그인 페이지의 스크린샷](./media/billing-add-office-365-tenant-to-azure-subscription/s324_azure-sign-in-with-co-admin.png)
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+<a id="need-help-contact-support" class="xliff"></a>
+## 도움이 필요하세요? 지원에 문의하세요.
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 
