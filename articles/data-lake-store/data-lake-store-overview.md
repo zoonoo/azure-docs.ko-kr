@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 06/29/2017
 ms.author: nitinme
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -55,7 +57,7 @@ Azure 데이터 레이크 저장소는 사전 변환 없이 모든 데이터를 
 
 데이터에 대한 Azure 데이터 레이크 저장소 컨테이너는 기본적으로 폴더 및 파일입니다. SDK, Azure 포털 및 Azure Powershell을 사용하여 저장된 데이터에서 작동합니다. 이러한 인터페이스 및 적절한 컨테이너를 사용하여 저장소에 데이터를 저장하는 한 모든 종류의 데이터를 저장할 수 있습니다. 데이터 레이크 저장소는 저장하는 데이터의 형식에 따라 데이터의 특수한 처리를 수행하지 않습니다.
 
-## <a name="a-namedatalakestoresecurityasecuring-data-in-azure-data-lake-store"></a><a name="DataLakeStoreSecurity"></a>Azure 데이터 레이크 저장소의 데이터 보호
+## <a name="DataLakeStoreSecurity"></a>Azure 데이터 레이크 저장소의 데이터 보호
 Azure 데이터 레이크 저장소는 인증 및 액세스 제어 목록(ACL)을 위해 Azure Active Directory를 사용하여 데이터에 대한 액세스를 관리합니다.
 
 | 기능 | 설명 |
@@ -101,10 +103,5 @@ Azure 포털을 사용하여 데이터 레이크 저장소를 프로비전하는
 * [Apache Sqoop을 사용하여 관계형 원본 및 Azure Data Lake 저장소 간에 데이터 이동](https://mix.office.com/watch/1butcdjxmu114)
 * [Azure 데이터 팩터리를 사용하여 Azure Data Lake 저장소에 대한 데이터 오케스트레이션](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Azure Data Lake 저장소에서 데이터 보호](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
