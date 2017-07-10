@@ -24,12 +24,14 @@ ms.contentlocale: ko-kr
 ms.lasthandoff: 03/02/2017
 
 ---
-# <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Microsoft Azure 구독에 대한 청구 또는 크레딧 경고 설정
+<a id="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions" class="xliff"></a>
+# Microsoft Azure 구독에 대한 청구 또는 크레딧 경고 설정
 Azure 구독의 계정 관리자인 경우 Azure 청구 경고 서비스를 사용하여 Azure 계정에 대한 청구 활동을 모니터링하고 관리하는 데 도움이 되는 사용자 지정된 청구 경고를 만들 수 있습니다.
 
 이 서비스는 미리 보기이므로 먼저 미리 보기 기능 페이지에서 이 서비스를 사용하도록 설정해야 합니다.
 
-## <a name="set-the-alert-threshold-and-email-recipients"></a>경고 임계값 및 메일 받는 사람 설정
+<a id="set-the-alert-threshold-and-email-recipients" class="xliff"></a>
+## 경고 임계값 및 메일 받는 사람 설정
 1. [미리 보기 기능 페이지](https://account.windowsazure.com/PreviewFeatures)를 방문하여 **청구 경고 서비스**를 사용하도록 설정합니다.
 
 1. 구독에 대해 청구 서비스가 설정되었다는 메일 확인을 받은 후에 계정 포털의 [구독 페이지](https://account.windowsazure.com/Subscriptions) 를 방문합니다. 모니터링할 구독을 클릭한 다음 **경고**를 클릭합니다.
@@ -46,13 +48,16 @@ Azure 구독의 계정 관리자인 경우 Azure 청구 경고 서비스를 사�
 
 Azure는 모든 메일 주소를 지원하지만 해당 메일 주소가 작동하는지 확인하지 않으므로 오타가 없는지 다시 한 번 확인하세요.
 
-## <a name="check-on-your-alerts"></a>경고 확인
+<a id="check-on-your-alerts" class="xliff"></a>
+## 경고 확인
 경고를 설정하고 나면 계정 센터에 해당 경고가 나열되고 더 설정할 수 있는 경고 횟수가 표시됩니다. 각 경고에 대해 전송된 날짜 및 시간, 청구 금액 합계에 대한 경고인지 금액 크레딧에 대한 경고인지 여부 및 설정한 한도가 표시됩니다. 날짜 및 시간 형식은 24시간 UTC(Universal Time Coordinate)이며 날짜는 yyyy-mm-dd 형식입니다. 경고를 편집하려면 목록에서 경고의 더하기 기호를 클릭하고, 경고를 삭제하려면 휴지통을 클릭합니다.
 
-## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>EA(기업 계약) 고객의 청구 경고
+<a id="billing-alerts-for-enterprise-agreement-ea-customers" class="xliff"></a>
+## EA(기업 계약) 고객의 청구 경고
 EA 고객은 지출 할당량을 설정하여 등록 상태인 각 부서에 대한 경고를 받을 수 있습니다. 시작 방법은 EA 포털에서 [부서 지출 할당량](https://ea.azure.com/helpdocs/departmentSpendingQuotas)을 참조하세요.
 
-## <a name="learn-more-about-azure-cost-management"></a>Azure 비용 관리에 대한 자세한 정보
+<a id="learn-more-about-azure-cost-management" class="xliff"></a>
+## Azure 비용 관리에 대한 자세한 정보
 - [가격 계산기](https://azure.microsoft.com/pricing/calculator/), [총 소유 비용 계산기](https://aka.ms/azure-tco-calculator)를 사용하여 비용 및 서비스를 추가할 시기를 예측합니다.
 - [Azure Portal에서 정기적으로 사용량 및 비용을 검토합니다](billing-getting-started.md#costs).
 - [Azure Advisor 비용 권장 사항](../advisor/advisor-cost-recommendations.md)을 켭니다.
