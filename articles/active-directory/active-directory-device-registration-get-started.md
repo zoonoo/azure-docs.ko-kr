@@ -22,7 +22,8 @@ ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="get-started-with-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록 시작
+<a id="get-started-with-azure-active-directory-device-registration" class="xliff"></a>
+# Azure Active Directory 장치 등록 시작
 
 Azure Active Directory 장치 등록은 장치 기반 조건부 액세스 시나리오의 기초입니다. 장치가 등록될 경우 Azure Active Directory 장치 등록은 사용자가 로그인할 때 장치를 인증하는 데 사용되는 ID로 장치를 제공합니다. 그런 다음 인증된 장치 및 그 장치의 특성을 사용하여 클라우드 및 온-프레미스에 호스트되는 응용 프로그램에 조건부 액세스 정책을 적용할 수 있습니다.
 
@@ -35,7 +36,8 @@ Azure Active Directory Device Registration으로 사용할 수 있는 시나리�
 
 - **온-프레미스에서 호스트되는 응용 프로그램에 대한 조건부 액세스:** Windows Server 2012 R2에서 AD FS를 사용하도록 구성된 응용 프로그램에 대한 액세스 정책이 있는 등록된 장치를 사용할 수 있습니다. 온-프레미스에 대해 조건부 액세스를 설정하는 방법에 대한 자세한 내용은 [Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정](active-directory-device-registration-on-premises-setup.md)을 참조하세요.
 
-## <a name="setting-up-azure-active-directory-device-registration"></a>Azure Active Directory Device Registration 설정
+<a id="setting-up-azure-active-directory-device-registration" class="xliff"></a>
+## Azure Active Directory Device Registration 설정
 
 장치 등록을 설정하려면 다음과 같은 여러 옵션을 사용할 수 있습니다.
 
@@ -48,7 +50,8 @@ Azure Active Directory Device Registration으로 사용할 수 있는 시나리�
 최신 지침을 보려면 [Windows 도메인 가입 장치의 Azure Active Directory 자동 등록을 구성하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.  
 Azure Active Directory에서 관리자 포털을 사용하여 등록된 장치를 보고 사용하거나 사용하지 않도록 설정할 수도 있습니다.
 
-## <a name="enable-the-azure-active-directory-device-registration-service"></a>Azure Active Directory 장치 등록 서비스 사용
+<a id="enable-the-azure-active-directory-device-registration-service" class="xliff"></a>
+## Azure Active Directory 장치 등록 서비스 사용
 
 **Azure Active Directory 장치 등록 서비스를 사용하도록 설정하려면**
 
@@ -68,13 +71,14 @@ Azure Active Directory에서 관리자 포털을 사용하여 등록된 장치�
 
 Office 365에 대한 모바일 장치 관리 및 Microsoft Intune에 등록하려면 장치가 등록되어야 합니다. 이러한 서비스 중 하나를 구성한 경우 **모두**가 선택되고 **없음** 단추는 사용할 수 없습니다. 이러한 서비스가 올바르게 구성되어 있는지와 적절한 라이선스가 있는지 확인하세요.
 
-기본적으로&2;단계 인증은 서비스에 대해 사용되지 않습니다. 그러나 장치를 등록하는 경우&2;단계 인증을 사용하는 것이 좋습니다.
+기본적으로 2단계 인증은 서비스에 대해 사용되지 않습니다. 그러나 장치를 등록하는 경우 2단계 인증을 사용하는 것이 좋습니다.
 
-- 이 서비스에 대해&2;단계 인증을 요구하기 전에 Azure Active Directory에서&2;단계 인증 공급자를 구성하고 Multi-Factor Authentication에 대해 사용자 계정을 구성해야 합니다. Azure Active Directory에 Multi-Factor Authentication 추가를 참조하세요.
+- 이 서비스에 대해 2단계 인증을 요구하기 전에 Azure Active Directory에서 2단계 인증 공급자를 구성하고 Multi-Factor Authentication에 대해 사용자 계정을 구성해야 합니다. Azure Active Directory에 Multi-Factor Authentication 추가를 참조하세요.
 
 - Windows Server 2012 R2에서 AD FS를 사용하는 경우 AD FS에서 2단계 인증 모듈을 구성해야 합니다. Active Directory Federation Services로 Multi-Factor Authentication 사용을 참조하세요.
 
-## <a name="view-and-manage-device-objects-in-azure-active-directory"></a>Azure Active Directory에서 장치 개체 보기 및 관리
+<a id="view-and-manage-device-objects-in-azure-active-directory" class="xliff"></a>
+## Azure Active Directory에서 장치 개체 보기 및 관리
 
 Azure 관리자 포털에서 장치를 보고 차단 및 차단 해제할 수 있습니다. 차단된 장치는 등록된 장치만 허용하도록 구성된 응용 프로그램에 더 이상 액세스할 수 없습니다.
 
@@ -98,7 +102,8 @@ Azure 관리자 포털에서 장치를 보고 차단 및 차단 해제할 수 �
 온-프레미스 도메인에 조인되고 자동으로 등록된 Windows 10 장치가 사용자 탭에 표시되지 않습니다. 모든 엔터프라이즈 장치를 찾으려면 Get-MsolDevice PowerShell 명령을 사용하세요. 
 
 
-## <a name="next-steps"></a>다음 단계
+<a id="next-steps" class="xliff"></a>
+## 다음 단계
 
 자동 장치 등록을 설정하려면 [Windows 도메인 조인 장치의 Azure Active Directory 자동 등록을 구성하는 방법](active-directory-conditional-access-automatic-device-registration-setup.md)을 참조하세요.
 
