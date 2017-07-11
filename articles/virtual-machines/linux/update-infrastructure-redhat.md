@@ -14,14 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: borisb
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3ea6083425b9f881ba82077cfecbe24964304a79
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 07815d691ffe57f0349f7a90ced4a2fcc1ab834f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="red-hat-update-infrastructure-rhui-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure의 주문형 Red Hat Enterprise Linux Vm에 대한 RHUI(Red Hat Update Infrastructure)
+<a id="red-hat-update-infrastructure-rhui-for-on-demand-red-hat-enterprise-linux-vms-in-azure" class="xliff"></a>
+
+# Azure의 주문형 Red Hat Enterprise Linux Vm에 대한 RHUI(Red Hat Update Infrastructure)
 Azure 마켓플레이스에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise Linux)이미지에서 만든 가상 컴퓨터는 Azure에 배포된 RHUI(Red Hat Update Infrastructure)에 액세스하도록 등록됩니다.  주문형 RHEL 인스턴스는 국가별 yum 리포지토리에 액세스하며 증분 업데이트를 받을 수 있습니다.
 
 RHUI에서 관리되는 yum 리포지토리 목록은 프로비전 중 RHEL 인스턴스에 구성됩니다. 따라서 추가 구성을 할 필요가 없습니다. RHEL 인스턴스가 최신 업데이트를 적용할 준비가 되면 `yum update`를 실행합니다.
@@ -30,10 +33,14 @@ RHUI에서 관리되는 yum 리포지토리 목록은 프로비전 중 RHEL 인�
 > 2016년 9월에 업데이트된 Azure RHUI를 배포했고 2017년 1월에 이전 Azure RHUI를 단계적으로 종료하기 시작했습니다. 2016년 9월 이후부터 RHEL 이미지(또는 해당 스냅숏)을 사용하고 있었다면 조치가 필요하지 않습니다. 그러나 오래된 스냅숏/VM을 있다면 Azure RHUI에 중단 없이 액세스하기 위해 해당 구성을 업데이트해야 합니다.
 > 
 
-## <a name="rhui-azure-infrastructure-update"></a>RHUI Azure 인프라 업데이트
-2016년 9월을 기준으로 Azure는 새로운 RHUI(Red Hat 업데이트 인프라) 서버 모음을 포함합니다. 이러한 서버는 모든 VM에서 지역에 관계없이 단일 끝점(rhui-1.micrsoft.com)을 사용할 수 있도록 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 통해 배포됩니다. Azure Marketplace에서 새로운 RHEL PAYG(종량제) 이미지(버전 날짜 2016년 9월 이상)는 새 Azure RHUI 서버를 가리키며 추가 작업이 필요하지 않습니다.
+<a id="rhui-azure-infrastructure-update" class="xliff"></a>
 
-### <a name="determine-if-action-is-required"></a>작업이 필요한지 확인
+## RHUI Azure 인프라 업데이트
+2016년 9월을 기준으로 Azure는 새로운 RHUI(Red Hat 업데이트 인프라) 서버 모음을 포함합니다. 이러한 서버는 모든 VM에서 하위 지역에 관계없이 단일 끝점(rhui-1.micrsoft.com)을 사용할 수 있도록 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)를 통해 배포됩니다. Azure Marketplace에서 새로운 RHEL PAYG(종량제) 이미지(버전 날짜 2016년 9월 이상)는 새 Azure RHUI 서버를 가리키며 추가 작업이 필요하지 않습니다.
+
+<a id="determine-if-action-is-required" class="xliff"></a>
+
+### 작업이 필요한지 확인
 RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경우 다음 단계를 수행합니다.
 1. Azure RHUI 끝점에 대한 VM 구성 검사
 
@@ -55,14 +62,18 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
 
 4. 영향을 받는 VM이 프로비전되는 원본 이미지/스냅숏에서 구성을 업데이트해야 합니다.
 
-### <a name="phased-shutdown-of-the-old-azure-rhui"></a>이전 Azure RHUI의 단계적인 종료
+<a id="phased-shutdown-of-the-old-azure-rhui" class="xliff"></a>
+
+### 이전 Azure RHUI의 단계적인 종료
 이전 Azure RHUI를 종료하는 동안에는 다음과 같이 액세스를 제한합니다.
 
 1. 이미 연결 중인 일련의 IP 주소에 추가 액세스(ACL)를 제한합니다. 가능한 부작용: 이전 Azure RHUI를 계속해서 사용하는 경우 새 VM에 연결하지 못할 수 있습니다. 종료/할당 취소/시작 시퀀스를 수행하는 동적 IP를 가진 RHEL VM은 새 IP를 수신할 수 있으므로 이전 Azure RHUI에 연결하지 못할 수도 있습니다.
 
 2. 미러 콘텐츠 배달 서버 종료 가능한 부작용: 추가 CDSes를 종료했기 때문에 `yum update` 서비스 시간이 길어진 만큼 이전 Azure RHUI에 연결할 수 없을 지점까지의 제한 시간이 길어집니다.
 
-### <a name="the-ips-for-the-new-rhui-content-delivery-servers-are"></a>새 RHUI 콘텐츠 배달 서버에 대한 IP
+<a id="the-ips-for-the-new-rhui-content-delivery-servers-are" class="xliff"></a>
+
+### 새 RHUI 콘텐츠 배달 서버에 대한 IP
 네트워크 구성을 사용하여 RHEL PAYG VM에서 추가 액세스를 제한하려는 경우 사용자의 환경에 따라 작동하도록 다음 IP를 `yum update`에 대해 허용해야 합니다. 
 
 ```
@@ -80,7 +91,9 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
 51.4.228.145
 ```
 
-### <a name="manual-update-procedure-to-use-the-new-azure-rhui-servers"></a>새 Azure RHUI 서버를 사용하기 위한 수동 업데이트 절차
+<a id="manual-update-procedure-to-use-the-new-azure-rhui-servers" class="xliff"></a>
+
+### 새 Azure RHUI 서버를 사용하기 위한 수동 업데이트 절차
 공개 키 서명 다운로드(curl을 통해)
 
 ```bash
@@ -162,7 +175,9 @@ sudo rpm -U azureclient.rpm
 
 완료되면 VM에서 Azure RHUI에 액세스할 수 있는지 확인
 
-### <a name="all-in-one-script-for-automating-the-preceding-task"></a>이전 태스크를 자동화하는 일체형 스크립트
+<a id="all-in-one-script-for-automating-the-preceding-task" class="xliff"></a>
+
+### 이전 태스크를 자동화하는 일체형 스크립트
 영향을 받는 VM을 새 Azure RHUI 서버에 업데이트하는 작업을 자동화하기 위해 필요에 따라 다음 스크립트를 사용합니다.
 
 ```sh
@@ -202,10 +217,14 @@ fi
 sudo rpm -U azureclient.rpm
 ```
 
-## <a name="rhui-overview"></a>RHUI 개요
-[Red Hat 업데이트 인프라](https://access.redhat.com/products/red-hat-update-infrastructure) 는 Red Hat 인증 클라우드 공급자가 호스트하는 Red Hat Enterprise Linux 클라우드 인스턴스의 yum 리포지토리 콘텐츠를 관리할 수 있는 확장성이 뛰어난 솔루션을 제공합니다. 업스트림 Pulp 프로젝트를 기반으로, RHUI는 클라우드 공급자가 Red Hat 호스트되는 리포지토리 콘텐츠를 로컬로 미러링하고, 고유한 콘텐츠로 사용자 지정 리포지토리를 만들고, 부하 분산된 콘텐츠 배달 시스템을 통해 이러한 리포지토리를 대규모 최종 사용자 그룹에 제공하도록 허용합니다.
+<a id="rhui-overview" class="xliff"></a>
 
-## <a name="regions-where-rhui-is-available"></a>RHUI 사용 가능한 지역
+## RHUI 개요
+[Red Hat 업데이트 인프라](https://access.redhat.com/products/red-hat-update-infrastructure)는 Red Hat 인증 클라우드 공급자가 호스트하는 Red Hat Enterprise Linux 클라우드 인스턴스의 yum 리포지토리 콘텐츠를 관리할 수 있는 확장성이 뛰어난 솔루션을 제공합니다. 업스트림 Pulp 프로젝트를 기반으로, RHUI는 클라우드 공급자가 Red Hat 호스트되는 리포지토리 콘텐츠를 로컬로 미러링하고, 고유한 콘텐츠로 사용자 지정 리포지토리를 만들고, 부하 분산된 콘텐츠 배달 시스템을 통해 이러한 리포지토리를 대규모 최종 사용자 그룹에 제공하도록 허용합니다.
+
+<a id="regions-where-rhui-is-available" class="xliff"></a>
+
+## RHUI 사용 가능한 지역
 RHUI는 RHEL 주문형 이미지를 사용할 수 있는 모든 지역에서 제공됩니다. RHUI는 현재 [Azure 상태 대시보드](https://azure.microsoft.com/status/) 페이지, Azure 미국 정부 및 Azure 독일 지역에 나열된 모든 공용 지역을 포함합니다. RHEL 주문형 이미지에서 프로비전된 VM에 대한 RHUI 액세스 권한은 해당 가격에 포함되어 있습니다. 추가 지역/국가 클라우드 가용성은 향후 RHEL 주문형 가용성을 확장할 때 업데이트될 예정입니다.
 
 > [!NOTE]
@@ -213,7 +232,9 @@ RHUI는 RHEL 주문형 이미지를 사용할 수 있는 모든 지역에서 제
 > 
 > 
 
-## <a name="get-updates-from-another-update-repository"></a>다른 업데이트 리파지토리에서 업데이트 받기
+<a id="get-updates-from-another-update-repository" class="xliff"></a>
+
+## 다른 업데이트 리파지토리에서 업데이트 받기
 Azure 호스티드 RHUI가 아닌 다른 업데이트 리포지토리에서 업데이트를 가져와야 하는 경우 먼저 RHUI에서 인스턴스의 등록을 취소해야 합니다. 그런 다음 원하는 업데이트 인프라(예: Red Hat 위성 또는 Red Hat 고객 포털 CDN)에 다시 등록해야 합니다. 이러한 서비스에 대한 적합한 Red Hat 구독 및 [Azure에서 Red Hat 클라우드 액세스](https://access.redhat.com/ecosystem/partners/ccsp/microsoft-azure)에 대한 등록이 필요합니다.
 
 RHUI 등록을 취소하고 업데이트 인프라에 재등록하려면 다음 단계를 따릅니다.
@@ -233,7 +254,9 @@ RHUI 등록을 취소하고 업데이트 인프라에 재등록하려면 다음 
 > Azure 호스티드 RHUI 이외의 업데이트 인프라를 지속적으로 사용해야 한다면 [Azure용 Red Hat 기반 가상 컴퓨터 만들기 및 업데이트](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서에서 설명된 대로 사용자 고유의 (BYOL 유형) 이미지를 만들어 배포하는 것을 고려해 보도록 합니다.
 > 
 
-## <a name="next-steps"></a>다음 단계
-Azure 마켓플레이스 종량제 이미지에서 Red Hat Enterprise Linux VM을 만들고 Azure 호스티드 RHUI를 활용하려면 [Azure 마켓플레이스](https://azure.microsoft.com/marketplace/partners/redhat/)로 갑니다. 아무런 추가 설치도 없이 RHEL 인스턴스에서 `yum update` 를 사용할 수 있습니다.
+<a id="next-steps" class="xliff"></a>
+
+## 다음 단계
+Azure Marketplace 종량제 이미지에서 Red Hat Enterprise Linux VM을 만들고 Azure 호스티드 RHUI를 활용하려면 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/)로 갑니다. 아무런 추가 설치도 없이 RHEL 인스턴스에서 `yum update`를 사용할 수 있습니다.
 
 

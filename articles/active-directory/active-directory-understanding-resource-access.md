@@ -1,6 +1,6 @@
 ---
 title: "Azure의 리소스 액세스 이해 | Microsoft Docs"
-description: "이 항목에서는 구독 관리자를 사용하여 전체 Azure 포털에서 리소스 액세스를 제어하는 방법에 대한 개념을 설명합니다."
+description: "이 항목에서는 구독 관리자를 사용하여 전체 Azure Portal에서 리소스 액세스를 제어하는 방법에 대한 개념을 설명합니다."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,16 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 05/08/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 9906aa7ac4296089fd2e41897323e757b181a022
-ms.lasthandoff: 02/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
+ms.openlocfilehash: d9143c1ec2075f71659e8deaadc93d1972ea9a85
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="understanding-resource-access-in-azure"></a>Azure의 리소스 액세스 이해
+<a id="understanding-resource-access-in-azure" class="xliff"></a>
+
+# Azure의 리소스 액세스 이해
 > [!NOTE]
 > 이 항목에서는 구독 관리자를 사용하여 전체 Azure 포털에서 리소스 액세스를 제어하는 방법에 대한 개념을 설명합니다. 또는 Azure 미리 보기 포털이 [역할 기반 액세스 제어](role-based-access-control-configure.md) 을 제공하여 Azure 리소스를 보다 정확하게 관리할 수 있습니다.
 > 
@@ -45,7 +48,7 @@ Azure 클래식 포털 내의 기능은 Microsoft 계정을 통해 로그인하�
 
 <br><br>![간단한 사용자 로그인 흐름][3]
 
-단순한 경우 조직(예: Contoso)은  요금 청구를 적용하고 동일한 집합의 구독에 대해 액세스 제어합니다. 즉, 디렉터리는 단일 Azure 계정에 의해 소유된 구독에 연결됩니다. Azure 클래식 포털에 로그인하면 사용자는 리소스의 두 가지 컬렉션(이전 그림에서 주황색으로 표시)을 볼 수 있습니다.
+단순한 경우 조직(예: Contoso)은 요금 청구를 적용하고 동일한 집합의 구독에 대해 액세스 제어합니다. 즉, 디렉터리는 단일 Azure 계정에 의해 소유된 구독에 연결됩니다. Azure 클래식 포털에 로그인하면 사용자는 리소스의 두 가지 컬렉션(이전 그림에서 주황색으로 표시)을 볼 수 있습니다.
 
 * 사용자 계정이 있는 디렉터리 (원본 또는 외래 사용자로 추가). 로그인에 사용되는 디렉터리는 이 계산과 관련이 없으므로 디렉터리는 로그인 위치에 관계없이 항상 표시됩니다.
 * (SA 또는 CA인 경우) 사용자가 액세스 할 수 있는 로그인 AND로 사용되는 디렉터리와 연결된 구독의 일부인 리소스.
@@ -56,7 +59,9 @@ Azure 클래식 포털 내의 기능은 Microsoft 계정을 통해 로그인하�
 
 구독 간에 리소스를 이동하는 등의 작업은 구독의 단일 디렉터리 보기의 결과로 더 어려울 수 있습니다. 리소스 전송을 수행하려면 **설정**에서 구독 페이지의 **디렉터리 편집** 명령을 처음 사용하여 동일한 디렉터리에 구독을 연결해야 할 수도 있습니다.
 
-## <a name="next-steps"></a>다음 단계
+<a id="next-steps" class="xliff"></a>
+
+## 다음 단계
 * Azure 구독에 대한 관리자를 변경하는 방법에 대해 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing/billing-add-change-azure-subscription-administrator.md)
 * Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](active-directory-how-subscriptions-associated-directory.md)
 * Azure AD에서 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles.md)
