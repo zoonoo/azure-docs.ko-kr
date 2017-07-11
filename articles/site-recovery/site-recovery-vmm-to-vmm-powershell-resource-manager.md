@@ -22,7 +22,9 @@ ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site-using-powershell-resource-manager"></a>PowerShell을 사용하여 보조 VMM 사이트에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제(Resource Manager)
+<a id="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site-using-powershell-resource-manager" class="xliff"></a>
+
+# PowerShell을 사용하여 보조 VMM 사이트에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제(Resource Manager)
 > [!div class="op_single_selector"]
 > * [Azure 포털](site-recovery-vmm-to-vmm.md)
 > * [클래식 포털](site-recovery-vmm-to-vmm-classic.md)
@@ -51,7 +53,9 @@ Azure Site Recovery에 오신 것을 환영합니다! System Center VMM(Virtual 
 >
 >
 
-## <a name="on-premises-prerequisites"></a>온-프레미스 필수 조건
+<a id="on-premises-prerequisites" class="xliff"></a>
+
+## 온-프레미스 필수 조건
 이 시나리오를 배포하기 위해 기본 및 보조 온-프레미스 사이트에서 필요한 사항은 다음과 같습니다.
 
 | **필수 구성 요소** | **세부 정보** |
@@ -60,7 +64,9 @@ Azure Site Recovery에 오신 것을 환영합니다! System Center VMM(Virtual 
 | **Hyper-V** |Hyper-V 서버는 Hyper-V 역할로 Windows Server 2012 이상을 실행해야 하며 최신 업데이트가 설치되어 있어야 합니다.<br/><br/> Hyper-V 서버에 VM이 하나 이상 있어야 합니다.<br/><br/>  Hyper-V 호스트 서버는 기본 및 보조 VMM 클라우드의 호스트 그룹에 있어야 합니다.<br/><br/> Windows Server 2012 R2의 클러스터에서 Hyper-V를 실행하는 경우 [업데이트 2961977](https://support.microsoft.com/kb/2961977)을 설치해야 합니다.<br/><br/> Windows Server 2012의 클러스터에서 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. [자세히 알아보기](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
 | **공급자** |사이트 복구 배포 중에 VMM 서버에 Azure Site Recovery 공급자를 설치합니다. 공급자는 HTTPS 443을 통해 Site Recovery와 통신하여 복제를 오케스트레이션합니다. LAN 또는 VPN 연결을 통해 기본 및 보조 Hyper-V 서버 간에 데이터 복제가 발생합니다.<br/><br/> VMM 서버에서 실행되는 공급자는 다음 URL에 액세스할 수 있어야 합니다. *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net.<br/><br/> 또한 VMM 서버에서 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653)로의 방화벽 통신을 허용하고 HTTPS(443) 프로토콜을 허용합니다. |
 
-### <a name="network-mapping-prerequisites"></a>네트워크 매핑 필수 조건
+<a id="network-mapping-prerequisites" class="xliff"></a>
+
+### 네트워크 매핑 필수 조건
 네트워크 매핑 기능은 다음을 위해 기본 및 보조 VMM 서버의 VMM VM 네트워크 간을 매핑합니다.
 
 * 장애 조치(Failover) 후 보조 Hyper-V 호스트에 복제본 VM을 최적으로 배치합니다.
@@ -78,12 +84,16 @@ Azure Site Recovery에 오신 것을 환영합니다! System Center VMM(Virtual 
 
 [알아보세요](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) .
 
-### <a name="powershell-prerequisites"></a>PowerShell 필수 구성 요소
+<a id="powershell-prerequisites" class="xliff"></a>
+
+### PowerShell 필수 구성 요소
 Azure PowerShell을 사용할 준비가 되었는지 확인하세요. 이미 PowerShell을 사용하고 있는 경우 버전 0.8.10 이상으로 업그레이드해야 합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요. PowerShell을 설정 및 구성하면 [여기](/powershell/azure/overview)에서 서비스에 사용 가능한 모든 cmdlet을 볼 수 있습니다.
 
 Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처리되는 방법 등 cmdlet를 사용하는 데 도움이 되는 팁을 보려면 [Azure Cmdlet 시작하기](/powershell/azure/get-started-azureps)를 참조하세요.
 
-## <a name="step-1-set-the-subscription"></a>1단계: 구독 설정
+<a id="step-1-set-the-subscription" class="xliff"></a>
+
+## 1단계: 구독 설정
 1. Azure powershell에서 다음 cmdlet을 사용하여 Azure 계정에 로그인합니다.
 
         $UserName = "<user@live.com>"
@@ -98,7 +108,9 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
         Set-AzureRmContext –SubscriptionID <subscriptionId>
 
-## <a name="step-2-create-a-recovery-services-vault"></a>2단계: 복구 서비스 자격 증명 모음 만들기
+<a id="step-2-create-a-recovery-services-vault" class="xliff"></a>
+
+## 2단계: 복구 서비스 자격 증명 모음 만들기
 1. 또한 Azure Resource Manager 리소스 그룹이 없는 경우 만듭니다.
 
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
@@ -106,7 +118,9 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>3단계: 복구 서비스 자격 증명 모음 설정
+<a id="step-3-set-the-recovery-services-vault-context" class="xliff"></a>
+
+## 3단계: 복구 서비스 자격 증명 모음 설정
 1. 자격 증명 모음을 이미 만든 경우 아래 명령을 실행하여 자격 증명 모음을 가져옵니다.
 
        $vault = Get-AzureRmRecoveryServicesVault -Name #vaultname
@@ -114,7 +128,9 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
        Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
-## <a name="step-4-install-the-azure-site-recovery-provider"></a>4단계: Azure Site Recovery 공급자 설치
+<a id="step-4-install-the-azure-site-recovery-provider" class="xliff"></a>
+
+## 4단계: Azure Site Recovery 공급자 설치
 1. VMM 컴퓨터에서 다음 명령을 실행하여 디렉터리를 만듭니다.
 
        New-Item c:\ASR -type directory
@@ -142,7 +158,9 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
        pushd $BinPath
        $encryptionFilePath = "C:\temp\".\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
 
-## <a name="step-5-create-and-associate-a-replication-policy"></a>5단계: 복제 정책 만들기 및 연결
+<a id="step-5-create-and-associate-a-replication-policy" class="xliff"></a>
+
+## 5단계: 복제 정책 만들기 및 연결
 1. 다음 명령을 실행하여 Hyper-V 2012 R2 복제 정책을 만듭니다.
 
         $ReplicationFrequencyInSeconds = "300";        #options are 30,300,900
@@ -191,7 +209,9 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 작동 완료 여부를 확인하려면 [작업 모니터](#monitor)의 단계를 따릅니다.
 
-## <a name="step-6-configure-network-mapping"></a>6단계: 네트워크 매핑 구성
+<a id="step-6-configure-network-mapping" class="xliff"></a>
+
+## 6단계: 네트워크 매핑 구성
 1. 첫 번째 명령은 현재 Azure Site Recovery 자격 증명 모음의 서버를 가져옵니다. 이 명령은 $Servers 어레이 변수에 Microsoft Azure Site Recovery 서버를 저장합니다.
 
         $Servers = Get-AzureRmSiteRecoveryServer
@@ -209,7 +229,9 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
         New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
-## <a name="step-7-configure-storage-mapping"></a>7단계: 저장소 매핑 구성
+<a id="step-7-configure-storage-mapping" class="xliff"></a>
+
+## 7단계: 저장소 매핑 구성
 1. 아래 명령으로 저장소 분류의 목록을 $storageclassifications 변수로 가져옵니다.
 
         $storageclassifications = Get-AzureRmSiteRecoveryStorageClassification
@@ -229,7 +251,9 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
         New-AzureRmSiteRecoveryStorageClassificationMapping -PrimaryStorageClassification $SourceClassificaion -RecoveryStorageClassification $TargetClassification
 
-## <a name="step-8-enable-protection-for-virtual-machines"></a>8단계: 가상 컴퓨터의 보호 활성화
+<a id="step-8-enable-protection-for-virtual-machines" class="xliff"></a>
+
+## 8단계: 가상 컴퓨터의 보호 활성화
 서버, 클라우드 및 네트워크가 제대로 구성되었으면 클라우드에서 가상 컴퓨터에 대한 보호를 설정할 수 있습니다.
 
 1. 보호를 활성화하려면 다음 명령을 실행하여 보호 컨테이너를 가져옵니다.
@@ -242,7 +266,9 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
           $jobResult = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
 
-## <a name="test-your-deployment"></a>배포 테스트
+<a id="test-your-deployment" class="xliff"></a>
+
+## 배포 테스트
 배포를 테스트하려면 단일 가상 컴퓨터에 대한 테스트 장애 조치(Failover)를 실행하거나, 여러 개의 가상 컴퓨터로 구성된 복구 계획을 만들고 이 계획에 대한 테스트 장애 조치(Failover)를 실행하면 됩니다. 테스트 장애 조치(Failover)에서는 격리된 네트워크에서 장애 조치(Failover) 및 복구 메커니즘을 시뮬레이션합니다.
 
 > [!NOTE]
@@ -252,7 +278,9 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 작동 완료 여부를 확인하려면 [작업 모니터](#monitor)의 단계를 따릅니다.
 
-### <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
+<a id="run-a-test-failover" class="xliff"></a>
+
+### 테스트 장애 조치(Failover) 실행
 1. 아래 cmdlet를 실행하여 VM에 대해 테스트 장애 조치(Failover)를 수행하려는 VM 네트워크를 가져옵니다.
 
        $Servers = Get-AzureRmSiteRecoveryServer
@@ -270,7 +298,9 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
        $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan -VMNetwork $RecoveryNetworks[1]
 
-### <a name="run-a-planned-failover"></a>계획된 장애 조치(Failover) 실행
+<a id="run-a-planned-failover" class="xliff"></a>
+
+### 계획된 장애 조치(Failover) 실행
 1. 다음을 수행하여 VM의 계획된 장애 조치(Failover)를 수행합니다.
 
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
@@ -284,7 +314,9 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
         $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan
 
-### <a name="run-an-unplanned-failover"></a>계획되지 않은 장애 조치 실행
+<a id="run-an-unplanned-failover" class="xliff"></a>
+
+### 계획되지 않은 장애 조치 실행
 1. 다음을 수행하여 VM의 계획되지 않은 장애 조치(Failover)를 수행합니다.
 
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
@@ -319,6 +351,8 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 
 
-## <a name="next-steps"></a>다음 단계
+<a id="next-steps" class="xliff"></a>
+
+## 다음 단계
 [자세히 알아보세요](/powershell/module/azurerm.recoveryservices.backup/#recovery) .
 
