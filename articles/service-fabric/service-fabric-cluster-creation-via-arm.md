@@ -22,7 +22,9 @@ ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기
+<a id="create-a-service-fabric-cluster-by-using-azure-resource-manager" class="xliff"></a>
+
+# Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기
 > [!div class="op_single_selector"]
 > * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
 > * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
@@ -41,7 +43,9 @@ Azure Resource Manager를 사용하여 Azure에 보안 Azure Service Fabric 클�
 
 Linux나 Windows 클러스터 모두 보안 클러스터를 만드는 개념은 같습니다. 자세한 내용 및 보안 Linux 클러스터 만들기를 위한 도우미 스크립트는 [Linux에서 보안 클러스터 만들기](#secure-linux-clusters)를 참조하세요.
 
-## <a name="sign-in-to-your-azure-account"></a>Azure 계정에 로그인
+<a id="sign-in-to-your-azure-account" class="xliff"></a>
+
+## Azure 계정에 로그인
 이 가이드에서는 [Azure PowerShell][azure-powershell]을 사용합니다. 새로 PowerShell 세션을 시작하려면 Azure 계정에 로그인한 후 Azure 명령을 실행하기 전에 구독을 선택합니다.
 
 Azure 계정 로그인:
@@ -57,7 +61,9 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-## <a name="set-up-a-key-vault"></a>Key Vault 설정
+<a id="set-up-a-key-vault" class="xliff"></a>
+
+## Key Vault 설정
 이 섹션에서는 Azure에서 Service Fabric 클러스터에 대해서와 Service Fabric 응용 프로그램에 대해서 Key Vault를 만드는 단계를 살펴봅니다. Azure Key Vault에 대한 완전한 가이드는 [Key Vault 시작 가이드][key-vault-get-started]를 참조하세요.
 
 서비스 패브릭은 클러스터에 보안 적용을 하고 응용 프로그램 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. Key Vault는 Azure에서 Service Fabric 클러스터에 대한 인증서를 관리하는 데 사용됩니다. 클러스터를 Azure에 배포할 때 Service Fabric 클러스터 생성을 담당하는 Azure 리소스 공급자는 Key Vault에서 인증서를 가져와 클러스터 VM에 설치합니다.
@@ -66,7 +72,9 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 ![인증서 설치 다이어그램][cluster-security-cert-installation]
 
-### <a name="create-a-resource-group"></a>리소스 그룹 만들기
+<a id="create-a-resource-group" class="xliff"></a>
+
+### 리소스 그룹 만들기
 첫 번째 단계는 Key Vault 전용 리소스 그룹을 만드는 것입니다. Key Vault를 자체 리소스 그룹에 배치하는 것이 좋습니다. 이렇게 하면 키 및 암호는 유실하지 않고 Service Fabric 클러스터가 있는 리소스 그룹과 같은 계산 및 저장소 리소스 그룹을 제거할 수 있습니다. 사용자 Key Vault를 포함하는 리소스 그룹은 해당 그룹을 사용하는 클러스터와 _동일한 지역에 있어야_ 합니다.
 
 여러 지역에 클러스터를 배포하려는 경우 리소스 그룹과 Key Vault를 해당 항목이 속한 지역을 표시하는 방식으로 명명하는 것이 좋습니다.  
@@ -90,7 +98,9 @@ Set-AzureRmContext -SubscriptionId <guid>
 ```
 <a id="new-key-vault"></a>
 
-### <a name="create-a-key-vault-in-the-new-resource-group"></a>새 리소스 그룹에 Key Vault 만들기
+<a id="create-a-key-vault-in-the-new-resource-group" class="xliff"></a>
+
+### 새 리소스 그룹에 Key Vault 만들기
 연산 리소스 공급자가 인증서를 가져와 가상 컴퓨터 인스턴스에 설치할 수 있도록 Key Vault를 _배포에 대해 사용하도록 설정해야 합니다_.
 
 ```powershell
@@ -126,7 +136,9 @@ Set-AzureRmContext -SubscriptionId <guid>
 ```
 <a id="existing-key-vault"></a>
 
-## <a name="use-an-existing-key-vault"></a>기존 Key Vault 사용
+<a id="use-an-existing-key-vault" class="xliff"></a>
+
+## 기존 Key Vault 사용
 
 기존 Key Vault를 사용하려면 연산 리소스 공급자가 인증서를 가져와 클러스터 노드에 설치할 수 있도록 Key Vault를 _배포에 대해 사용하도록 설정해야 합니다_.
 
@@ -138,11 +150,15 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployme
 
 <a id="add-certificate-to-key-vault"></a>
 
-## <a name="add-certificates-to-your-key-vault"></a>Key Vault에 인증서 추가
+<a id="add-certificates-to-your-key-vault" class="xliff"></a>
+
+## Key Vault에 인증서 추가
 
 인증서는 서비스 패브릭에서 클러스터 및 해당 응용 프로그램의 다양한 측면을 보호하기 위해 인증 및 암호화를 제공하는 데 사용됩니다. Service Fabric에서 인증서가 사용되는 방식에 대한 자세한 내용은 [Service Fabric 클러스터 보안 시나리오][service-fabric-cluster-security]를 참조하세요.
 
-### <a name="cluster-and-server-certificate-required"></a>클러스터 및 서버 인증서(필수)
+<a id="cluster-and-server-certificate-required" class="xliff"></a>
+
+### 클러스터 및 서버 인증서(필수)
 이 인증서는 클러스터를 보호하고 무단 액세스를 방지하기 위해 필요합니다. 다음 두 방법으로 클러스터 보안을 제공합니다.
 
 * 클러스터 인증: 클러스터 페더레이션을 위해 노드 간 통신을 인증합니다. 이 인증서로 자신의 신분을 증명할 수 있는 노드만 클러스터에 가입할 수 있습니다.
@@ -154,13 +170,17 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployme
 * 키 교환을 위해 인증서를 만들어야 합니다. 이 인증서는 개인 정보 교환(.pfx) 파일로 내보낼 수 있습니다.
 * 인증서의 주체 이름은 Service Fabric 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이렇게 일치해야 합니다. .cloudapp.azure.com 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다.  클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
-### <a name="application-certificates-optional"></a>응용 프로그램 인증서(선택 사항)
+<a id="application-certificates-optional" class="xliff"></a>
+
+### 응용 프로그램 인증서(선택 사항)
 응용 프로그램 보안을 위해 클러스터에 제한 없는 수의 인증서를 추가로 설치할 수 있습니다. 클러스터를 만들기 전에, 다음과 같이 노드에 인증서를 설치하도록 요구하는 응용 프로그램 보안 시나리오를 고려해 보세요.
 
 * 응용 프로그램 구성 값의 암호화 및 암호 해독
 * 복제 중에 노드 간 데이터 암호화
 
-### <a name="formatting-certificates-for-azure-resource-provider-use"></a>Azure 리소스 공급자 사용을 위한 인증서 서식 지정
+<a id="formatting-certificates-for-azure-resource-provider-use" class="xliff"></a>
+
+### Azure 리소스 공급자 사용을 위한 인증서 서식 지정
 Key Vault를 통해 개인 키 파일(.pfx)을 직접 추가하여 사용할 수 있습니다. 그러나 Azure 계산 리소스 공급자에는 특수 JSON(JavaScript Object Notation) 형식으로 저장된 키가 필요합니다. 이 형식에는 기본 64 인코딩 문자열형태의 .pfx 파일과 개인 키 암호가 포함됩니다. 이러한 요구를 수용하기 위해 키를 JSON 문자열에 배치한 후 Key Vault에 “암호”로 저장해야 합니다.
 
 이 프로세스를 보다 쉽게 수행할 수 있도록 하기 위해 PowerShell 모듈이 [GitHub에서 사용할 수 있게 제공됩니다][service-fabric-rp-helpers]. 모듈을 사용하려면 다음을 수행합니다.
@@ -177,7 +197,9 @@ Key Vault를 통해 개인 키 파일(.pfx)을 직접 추가하여 사용할 수
 
 이 PowerShell 모듈의 `Invoke-AddCertToKeyVault` 명령은 자동으로 인증서 개인 키 서식을 JSON 문자열에 지정하고 Key Vault에 업로드합니다. 이 명령을 사용하여 클러스터 인증서 및 추가 응용 프로그램 인증서를 Key Vault에 추가합니다. 클러스터에 설치하려는 모든 추가 인증서에 대해 이 단계를 반복합니다.
 
-#### <a name="uploading-an-existing-certificate"></a>기존 인증서 업로드
+<a id="uploading-an-existing-certificate" class="xliff"></a>
+
+#### 기존 인증서 업로드
 
 ```powershell
 
@@ -225,7 +247,9 @@ Value : https://mywestusvault.vault.azure.net:443/secrets/mycert/4d087088df974e8
 
 <a id="add-self-signed-certificate-to-key-vault"></a>
 
-#### <a name="creating-a-self-signed-certificate-and-uploading-it-to-the-key-vault"></a>자체 서명된 인증서를 만들어 Key Vault에 업로드
+<a id="creating-a-self-signed-certificate-and-uploading-it-to-the-key-vault" class="xliff"></a>
+
+#### 자체 서명된 인증서를 만들어 Key Vault에 업로드
 
 이미 인증서를 Key Vault에 업로드한 경우 이 단계를 건너뜁니다. 이 단계는 새로운 자체 서명 인증서를 생성하여 Key Vault에 업로드하기 위한 것입니다. 다음 스크립트의 매개 변수를 변경하여 실행한 다음에는 인증서 암호를 입력하라는 메시지가 나타납니다.  
 
@@ -292,7 +316,9 @@ Value : https://westuskv1.vault.azure.net:443/secrets/chackonewcertificate1/ee24
 
 <a id="add-AAD-for-client"></a>
 
-## <a name="set-up-azure-active-directory-for-client-authentication"></a>클라이언트 인증에 대한 Azure Active Directory 설정
+<a id="set-up-azure-active-directory-for-client-authentication" class="xliff"></a>
+
+## 클라이언트 인증에 대한 Azure Active Directory 설정
 
 조직(테넌트)에서는 Azure AD를 사용하여 응용 프로그램에 대한 사용자 액세스를 관리할 수 있습니다. 응용 프로그램은 웹 기반 로그인 UI를 갖는 항목과 네이티브 클라이언트 환경을 갖는 항목으로 나뉩니다. 이 문서에서는 이미 테넌트를 만들었다고 가정합니다. 그러지 않은 경우 [Azure Active Directory 테넌트를 얻는 방법][active-directory-howto-tenant]을 참조하세요.
 
@@ -335,18 +361,26 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 },
 ```
 
-## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>서비스 패브릭 클러스터 Resource Manager 템플릿 만들기
+<a id="create-a-service-fabric-cluster-resource-manager-template" class="xliff"></a>
+
+## 서비스 패브릭 클러스터 Resource Manager 템플릿 만들기
 이 섹션에서는 이전 PowerShell 명령의 출력이 Service Fabric Cluster Resource Manager 템플릿에서 사용됩니다.
 
 샘플 Resource Manager 템플릿은 [GitHub의 Azure 빠른 시작 템플릿 갤러리][azure-quickstart-templates]에 제공됩니다. 이러한 템플릿은 클러스터 템플릿의 시작점으로 사용할 수 있습니다.
 
-### <a name="create-the-resource-manager-template"></a>리소스 관리자 템플릿 만들기
+<a id="create-the-resource-manager-template" class="xliff"></a>
+
+### 리소스 관리자 템플릿 만들기
 이 가이드에서는 [5 노드 보안 클러스터][service-fabric-secure-cluster-5-node-1-nodetype] 예제 템플릿과 템플릿 매개 변수를 사용합니다. `azuredeploy.json`와 `azuredeploy.parameters.json`을 컴퓨터에 다운로드하고 선호하는 텍스트 편집기로 두 파일을 엽니다.
 
-### <a name="add-certificates"></a>인증서 추가
+<a id="add-certificates" class="xliff"></a>
+
+### 인증서 추가
 인증서 키를 포함하는 Key Vault 참조하여 Cluster Resource Manager 템플릿에 인증서를 추가합니다. Resource Manager 템플릿 파일에 Key Vault 값을 두는 것이 좋습니다. 이렇게 하면 Resource Manager 템플릿을 계속 재사용할 수 있고 배포에 특정한 값이 없게 됩니다.
 
-#### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>가상 컴퓨터 크기 집합 osProfile에 모든 인증서 추가
+<a id="add-all-certificates-to-the-virtual-machine-scale-set-osprofile" class="xliff"></a>
+
+#### 가상 컴퓨터 크기 집합 osProfile에 모든 인증서 추가
 클러스터에 설치된 모든 인증서는 크기 집합 리소스(Microsoft.Compute/virtualMachineScaleSets)의 osProfile 섹션에 구성되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 응용 프로그램에 사용하려는 모든 응용 프로그램 보안 인증서가 포함됩니다.
 
 ```json
@@ -381,10 +415,14 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 }
 ```
 
-#### <a name="configure-the-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서 구성
+<a id="configure-the-service-fabric-cluster-certificate" class="xliff"></a>
+
+#### Service Fabric 클러스터 인증서 구성
 또한 클러스터 인증 인증서는 서비스 패브릭 클러스터 리소스(Microsoft.ServiceFabric/clusters)와, 가상 컴퓨터 크기 집합 리소스의 가상 컴퓨터 크기 집합에 대해 Service Fabric 확장에서 모두 구성되어야 합니다. 이렇게 해야 Service Fabric 리소스 공급자는 클러스터 인증에 대한 사용 및 관리 끝점에 대한 서버 인증을 위해 그것을 구성할 수 있습니다.
 
-##### <a name="virtual-machine-scale-set-resource"></a>가상 컴퓨터 크기 집합 리소스:
+<a id="virtual-machine-scale-set-resource" class="xliff"></a>
+
+##### 가상 컴퓨터 크기 집합 리소스:
 ```json
 {
   "apiVersion": "2016-03-30",
@@ -416,7 +454,9 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 }
 ```
 
-##### <a name="service-fabric-resource"></a>서비스 패브릭 리소스:
+<a id="service-fabric-resource" class="xliff"></a>
+
+##### 서비스 패브릭 리소스:
 ```json
 {
   "apiVersion": "2016-03-01",
@@ -436,7 +476,9 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 }
 ```
 
-### <a name="insert-azure-ad-configuration"></a>Azure AD 구성 삽입
+<a id="insert-azure-ad-configuration" class="xliff"></a>
+
+### Azure AD 구성 삽입
 이전에 만든 Azure AD 구성을 Resource Manager 템플릿에 직접 삽입할 수 있습니다. 그러나 Resource Manager 템플릿을 계속 재사용하고 배포에 특정한 값이 없도록 하기 위해 먼저 값을 매개 변수 파일에 추출하는 것이 좋습니다.
 
 ```json
@@ -519,17 +561,23 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 
 ![리소스 관리자 종속성 맵][cluster-security-arm-dependency-map]
 
-## <a name="create-the-cluster"></a>클러스터 만들기
+<a id="create-the-cluster" class="xliff"></a>
+
+## 클러스터 만들기
 이제 [Azure 리소스 템플릿 배포][resource-group-template-deploy]를 사용하여 클러스터를 만들 준비가 되었습니다.
 
-#### <a name="test-it"></a>테스트
+<a id="test-it" class="xliff"></a>
+
+#### 테스트
 매개 변수 파일로 Resource Manager 템플릿을 테스트하려면 다음 PowerShell 명령을 사용합니다.
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
-#### <a name="deploy-it"></a>배포
+<a id="deploy-it" class="xliff"></a>
+
+#### 배포
 Resource Manager 템플릿 테스트를 통과했다면 매개 변수 파일로 Resource Manager 템플릿을 배포하기 위해 다음 PowerShell 명령을 사용합니다.
 
 ```powershell
@@ -538,7 +586,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 
 <a name="assign-roles"></a>
 
-## <a name="assign-users-to-roles"></a>역할에 사용자 할당
+<a id="assign-users-to-roles" class="xliff"></a>
+
+## 역할에 사용자 할당
 클러스터를 나타내는 응용 프로그램을 만들었으면 사용자를 Service Fabric에서 지원하는 역할(읽기 전용 및 관리자)에 할당합니다. [Azure 클래식 포털][azure-classic-portal]을 사용하여 역할을 할당할 수 있습니다.
 
 1. Azure Portal에서 테넌트로 이동한 다음 **응용 프로그램**을 선택합니다.
@@ -558,7 +608,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 
  <a name="secure-linux-cluster"></a>
 
-## <a name="create-secure-clusters-on-linux"></a>Linux에서 보안 클러스터 만들기
+<a id="create-secure-clusters-on-linux" class="xliff"></a>
+
+## Linux에서 보안 클러스터 만들기
 작업 편의를 위해 [도우미 스크립트](http://github.com/ChackDan/Service-Fabric/tree/master/Scripts/CertUpload4Linux)가 제공됩니다. 이 도우미 스크립트를 사용하기 전에 먼저 Azure CLI(명령줄 인터페이스)를 설치했으며 해당 경로에 있는지 확인합니다. 다운로드한 후 `chmod +x cert_helper.py` 를 실행하여 스크립트에 실행할 권한이 있는지 확인합니다. 첫 번째 단계에서는 `azure login` 명령으로 CLI를 사용하여 Azure 계정에 로그인합니다. Azure 계정에 로그인한 후 다음 명령에 표시된 것처럼 CA 서명된 인증서로 도우미 스크립트를 사용합니다.
 
 ```sh
@@ -569,7 +621,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 -h 매개 변수는 도움말 텍스트를 인쇄합니다.
 
 
-이 명령은 출력으로 다음&3;개의 문자열을 반환합니다.
+이 명령은 출력으로 다음 3개의 문자열을 반환합니다.
 
 * SourceVaultID - 사용자를 위해 생성된 새로운 KeyVault ResourceGroup의 ID 
 * 인증서에 액세스하기 위한 CertificateUrl
@@ -580,7 +632,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 ```sh
 ./cert_helper.py pfx -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -sname "mycert" -l "East US" -p "pfxtest"
 ```
-위의 명령을 실행하면 다음과 같이&3;가지 문자열이 표시됩니다.
+위의 명령을 실행하면 다음과 같이 3가지 문자열이 표시됩니다.
 
 ```sh
 SourceVault: /subscriptions/fffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/mykvrg/providers/Microsoft.KeyVault/vaults/mykvname
@@ -597,52 +649,80 @@ CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 ```sh
 ./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"   -sname "mycert" -l "East US" -p "selftest" -subj "mytest.eastus.cloudapp.net"
 ```
-이 명령은 동일한&3;개의 문자열 SourceVault, CertificateUrl 및 CertificateThumbprint를 반환합니다. 그런 다음 문자열을 사용하여 보안 Linux 클러스터와, 자체 서명 인증서가 있는 위치를 모두 만들 수 있습니다. 클러스터에 연결하려면 자체 서명 인증서가 필요합니다. [클러스터에 대한 클라이언트 액세스 인증](service-fabric-connect-to-secure-cluster.md)을 위한 다음 지침을 통해 보안 클러스터에 연결할 수 있습니다.
+이 명령은 동일한 3개의 문자열 SourceVault, CertificateUrl 및 CertificateThumbprint를 반환합니다. 그런 다음 문자열을 사용하여 보안 Linux 클러스터와, 자체 서명 인증서가 있는 위치를 모두 만들 수 있습니다. 클러스터에 연결하려면 자체 서명 인증서가 필요합니다. [클러스터에 대한 클라이언트 액세스 인증](service-fabric-connect-to-secure-cluster.md)을 위한 다음 지침을 통해 보안 클러스터에 연결할 수 있습니다.
 
 인증서의 주체 이름은 Service Fabric 클러스터 액세스에 사용되는 도메인과 일치해야 합니다. 클러스터의 HTTPS 관리 끝점 및 Service Fabric Explorer에 대해 SSL을 제공하려면 이렇게 일치해야 합니다. `.cloudapp.azure.com` 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
 [Azure Portal에서 클러스터 만들기](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal) 섹션에서 설명한 대로 Azure Portal에서 도우미 스크립트를 통해 매개 변수를 입력할 수 있습니다.
 
-## <a name="next-steps"></a>다음 단계
+<a id="next-steps" class="xliff"></a>
+
+## 다음 단계
 이제 Azure Active Directory를 사용하여 관리 인증을 제공하는 보안 클러스터가 생겨났습니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [응용 프로그램 암호를 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.
 
-## <a name="troubleshoot-setting-up-azure-active-directory-for-client-authentication"></a>클라이언트 인증에 대한 Azure Active Directory 설정 문제 해결
+<a id="troubleshoot-setting-up-azure-active-directory-for-client-authentication" class="xliff"></a>
+
+## 클라이언트 인증에 대한 Azure Active Directory 설정 문제 해결
 클라이언트 인증을 위한 Azure AD를 설정하는 동안 문제가 발생할 경우 이 섹션에서 가능한 해결 방법을 찾아봅니다.
 
-### <a name="service-fabric-explorer-prompts-you-to-select-a-certificate"></a>Service Fabric Explorer에 인증서를 선택하라는 메시지가 표시 
-#### <a name="problem"></a>문제
+<a id="service-fabric-explorer-prompts-you-to-select-a-certificate" class="xliff"></a>
+
+### Service Fabric Explorer에 인증서를 선택하라는 메시지가 표시 
+<a id="problem" class="xliff"></a>
+
+#### 문제
 Service Fabric Explorer에서 Azure AD에 로그인한 후 브라우저가 홈 페이지로 돌아가지만 인증서를 선택하라는 메시지가 표시됩니다.
 
 ![SFX 인증서 선택 대화 상자][sfx-select-certificate-dialog]
 
-#### <a name="reason"></a>이유
+<a id="reason" class="xliff"></a>
+
+#### 이유
 Azure AD 클러스터 응용 프로그램에서 사용자에게 역할이 할당되지 않았습니다. 이 때문에 Service Fabric 클러스터에서 Azure AD 인증이 실패합니다. Service Fabric Explorer는 인증서 인증으로 대체됩니다.
 
-#### <a name="solution"></a>해결 방법
+<a id="solution" class="xliff"></a>
+
+#### 해결 방법
 Azure AD 설정 지침을 따르고 사용자 역할을 할당합니다. 또한 `SetupApplications.ps1`에서처럼 “앱에 액세스하려면 사용자 할당 필요”를 살펴보는 것이 좋습니다.
 
-### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>“지정된 자격 증명이 올바르지 않다”는 오류가 표시되면서 PowerShell 연결 실패
-#### <a name="problem"></a>문제
+<a id="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid" class="xliff"></a>
+
+### “지정된 자격 증명이 올바르지 않다”는 오류가 표시되면서 PowerShell 연결 실패
+<a id="problem" class="xliff"></a>
+
+#### 문제
 PowerShell을 사용하여 “AzureActiveDirectory”보안 모드로 클러스터에 연결할 때, Azure AD 로그인 후 연결이 실패하고 “지정된 자격 증명이 올바르지 않다"는 오류가 표시됨
 
-#### <a name="solution"></a>해결 방법
+<a id="solution" class="xliff"></a>
+
+#### 해결 방법
 이 솔루션은 이전과 동일합니다.
 
-### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>로그인할 때 Service Fabric Explorer가 실패를 반환함: "AADSTS50011"
-#### <a name="problem"></a>문제
+<a id="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011" class="xliff"></a>
+
+### 로그인할 때 Service Fabric Explorer가 실패를 반환함: "AADSTS50011"
+<a id="problem" class="xliff"></a>
+
+#### 문제
 Service Fabric Explorer에서 Azure AD에 로그인할 때 페이지가 "AADSTS50011: 회신 주소 &lt;url&gt;이 응용 프로그램 &lt;guid&gt;에 대해 구성된 회신 주소와 일치하지 않습니다.”라는 실패를 반환합니다.
 
 ![SFX 회신 주소가 일치하지 않습니다.][sfx-reply-address-not-match]
 
-#### <a name="reason"></a>이유
+<a id="reason" class="xliff"></a>
+
+#### 이유
 Service Fabric Explorer를 나타내는 클러스터(웹) 응용 프로그램이 Azure AD에 대해 인증을 시도하며, 해당 요청의 일부로 리디렉션 반환 URL을 제공합니다. 그렇지만 Azure AD 응용 프로그램 **REPLY URL** 목록에 표시되지 않습니다.
 
-#### <a name="solution"></a>해결 방법
+<a id="solution" class="xliff"></a>
+
+#### 해결 방법
 클러스터(웹) 응용 프로그램의 **Configure** 탭에서 **REPLY URL** 목록에 Service Fabric Explorer URL을 추가하거나 목록의 항목 중 하나를 대체합니다. 마친 후 변경 사항을 저장합니다.
 
 ![웹 응용 프로그램 회신 URL][web-application-reply-url]
 
-### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>PowerShell 통해 Azure AD 인증을 사용하여 클러스터 연결
+<a id="connect-the-cluster-by-using-azure-ad-authentication-via-powershell" class="xliff"></a>
+
+### PowerShell 통해 Azure AD 인증을 사용하여 클러스터 연결
 Service Fabric 클러스터에 연결하려면 다음 PowerShell 명령 예제를 사용합니다.
 
 ```powershell
@@ -651,10 +731,14 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalIn
 
 Connect-ServiceFabricCluster cmdlet에 대해 알아보려면 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx)를 참조하세요.
 
-### <a name="can-i-reuse-the-same-azure-ad-tenant-in-multiple-clusters"></a>여러 클러스터에서 동일한 Azure AD테넌트를 다시 사용할 수 있나요?
+<a id="can-i-reuse-the-same-azure-ad-tenant-in-multiple-clusters" class="xliff"></a>
+
+### 여러 클러스터에서 동일한 Azure AD테넌트를 다시 사용할 수 있나요?
 예. 그렇지만 Service Fabric Explorer의 URL을 클러스터(웹) 응용 프로그램에 추가해야 합니다. 그러지 않으면 Service Fabric Explorer가 작동하지 않습니다.
 
-### <a name="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled"></a>Azure AD가 사용되도록 설정된 경우에도 서버 인증서가 계속 필요한 이유는 무엇인가요?
+<a id="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled" class="xliff"></a>
+
+### Azure AD가 사용되도록 설정된 경우에도 서버 인증서가 계속 필요한 이유는 무엇인가요?
 FabricClient와 FabricGateway는 상호 인증을 수행합니다. Azure AD 인증 중에는 Azure AD 통합은 서버에 클라이언트 ID를 제공하고 서버 인증서가 서버 ID를 확인하는 데 사용됩니다. Service Fabric 인증서에 대한 자세한 내용은 [X.509 인증서 및 Service Fabric][x509-certificates-and-service-fabric]을 참조하세요.
 
 <!-- Links -->
