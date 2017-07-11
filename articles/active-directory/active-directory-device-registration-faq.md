@@ -21,7 +21,8 @@ ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="azure-active-directory-automatic-device-registration-faq"></a>Azure Active Directory 자동 장치 등록 FAQ
+<a id="azure-active-directory-automatic-device-registration-faq" class="xliff"></a>
+# Azure Active Directory 자동 장치 등록 FAQ
 
 **Q: 최근에 장치를 등록했습니다. Azure Portal에서 내 사용자 정보에 장치가 표시되지 않는 이유는 무엇인가요?**
 
