@@ -14,17 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: curtand
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
 ms.openlocfilehash: 8c4920107b5d05716021bcef80d3c52c25f6eade
+ms.contentlocale: ko-kr
 ms.lasthandoff: 12/29/2016
 
 
 ---
-# <a name="managing-owners-for-a-group"></a>그룹에 대한 소유자 관리
+<a id="managing-owners-for-a-group" class="xliff"></a>
+
+# 그룹에 대한 소유자 관리
 리소스 소유자가 Azure AD 그룹에 리소스에 대한 액세스 권한을 할당하면 그룹의 멤버 자격은 그룹 소유자에 의해 관리됩니다. 실질적으로 리소스 소유자는 사용자를 해당 리소스에 할당할 권한을 그룹 소유자에게 위임합니다.
 
-## <a name="assigning-group-ownership"></a>그룹 소유권 할당
+<a id="assigning-group-ownership" class="xliff"></a>
+
+## 그룹 소유권 할당
 **그룹에 소유자를 추가하려면**
 
 1. [Azure 클래식 포털](https://manage.windowsazure.com)에서 **Active Directory**를 선택한 다음 조직의 디렉터리를 엽니다.
@@ -39,7 +44,9 @@ ms.lasthandoff: 12/29/2016
 3. **소유자** 탭을 선택합니다.
 4. 이 그룹에서 제거할 소유자를 선택한 후 **제거**를 선택합니다.
 
-## <a name="additional-information"></a>추가 정보
+<a id="additional-information" class="xliff"></a>
+
+## 추가 정보
 이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
 
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
