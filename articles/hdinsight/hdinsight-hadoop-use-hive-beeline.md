@@ -15,17 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/05/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: e75bc8b74f965a0d4509b6967f1cdc7fa32eec56
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 93ea31b4469f21e92337a768668ae6d93bbc6ba6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="use-the-beeline-client-with-apache-hive"></a>Apache Hive와 함께 Beeline 클라이언트 사용
+<a id="use-the-beeline-client-with-apache-hive" class="xliff"></a>
+
+# Apache Hive와 함께 Beeline 클라이언트 사용
 
 [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell)을 사용하여 HDInsight에서 Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
 
@@ -33,7 +35,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
 | Beeline을 실행하는 위치 | 매개 변수 |
 | --- | --- | --- |
-| 헤드 노드 또는 에지 노드에 대한 SSH 연결 | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin` |
+| 헤드 노드 또는 에지 노드에 대한 SSH 연결 | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'` |
 | 클러스터 외부 | `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
 
 > [!NOTE]
@@ -56,22 +58,20 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
 ## <a id="beeline"></a>Beeline 사용
 
-1. Beeline을 시작할 때 HDInsight 클러스터에서 HiveServer2에 대한 연결 문자열을 제공해야 합니다. 클러스터 로그인에 대한 계정 이름을 제공해야 합니다(일반적으로 `admin`). 클러스터 외부에서 명령을 실행하는 경우 클러스터 로그인 암호도 제공해야 합니다. 다음 테이블을 사용하여 연결 문자열 형식 및 사용할 매개 변수를 찾습니다.
+1. Beeline을 시작할 때 HDInsight 클러스터에서 HiveServer2에 대한 연결 문자열을 제공해야 합니다. 클러스터 외부에서 명령을 실행하려면 클러스터 로그인 계정 이름 (기본값: `admin`)과 암호도 제공해야 합니다. 다음 테이블을 사용하여 연결 문자열 형식 및 사용할 매개 변수를 찾습니다.
 
     | Beeline을 실행하는 위치 | 매개 변수 |
     | --- | --- | --- |
-    | 헤드 노드 또는 에지 노드에 대한 SSH 연결 | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin` |
+    | 헤드 노드 또는 에지 노드에 대한 SSH 연결 | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'` |
     | 클러스터 외부 | `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
 
     예를 들어 다음 명령은 SSH 세션에서 클러스터까지 Beeline을 시작하는 데 사용할 수 있습니다.
 
     ```bash
-    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
     ```
 
-    이 명령은 Beeline 클라이언트를 시작하고 클러스터 헤드 노드의 HiveServer2에 연결합니다. `-n` 매개 변수는 클러스터 로그인 계정을 제공하는 데 사용됩니다. 기본 로그인은 `admin`입니다. 클러스터를 만드는 중에 다른 이름을 사용한 경우 `admin` 대신 이 이름을 사용합니다.
-
-    명령이 완료되면 `jdbc:hive2://headnodehost:10001/>` 프롬프트가 표시됩니다.
+    이 명령은 Beeline 클라이언트를 시작하고 클러스터 헤드 노드의 HiveServer2에 연결합니다. 명령이 완료되면 `jdbc:hive2://headnodehost:10001/>` 프롬프트가 표시됩니다.
 
 2. Beeline 명령은 일반적으로 `!` 문자로 시작합니다. 예를 들어 `!help`는 도움말을 표시합니다. 그러나 일부 명령에서는 `!`를 생략할 수 있습니다. 예를 들어 `help`도 작동합니다.
 
@@ -193,10 +193,10 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
 3. 파일을 저장하려면 **Ctrl**+**_X**을 사용한 다음 **Y**를 입력하고 마지막으로 **Enter** 키를 누릅니다.
 
-4. Beeline을 사용하여 파일을 실행하려면 다음을 사용합니다. **HOSTNAME**을 헤드 노드에 가져온 이전 이름으로 바꾸고 **PASSWORD**를 관리자 계정의 암호로 바꿉니다.
+4. 다음을 사용하여 Beeline을 통해 파일을 실행합니다.
 
     ```bash
-    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin -i query.hql
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i query.hql
     ```
 
     > [!NOTE]
@@ -232,6 +232,15 @@ Beeline을 로컬로 설치했거나 [sutoiku/beeline](https://hub.docker.com/r/
 연결 문자열의 `clustername`을 HDInsight 클러스터 이름으로 바꿉니다.
 
 `admin`을 클러스터 로그인 이름으로 바꾸고, `password`를 클러스터 로그인 암호로 바꿉니다.
+
+## <a id="sparksql"></a>Spark와 함께 Beeline 사용
+
+Spark는 자체적으로 HiveServer2를 구현하며, HiveServer2는 종종 Spark Thrift 서버라고 합니다. 이 서비스는 Hive 대신 Spark SQL을 사용하여 쿼리를 해결하고, 쿼리에 따라 더 나은 성능을 제공할 수 있습니다.
+
+HDInsight 클러스터에서 Spark의 Spark Thrift 서버에 연결하려면 `10001` 대신 `10002` 포트를 사용합니다. 예: `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`
+
+> [!IMPORTANT]
+> Spark Thrift 서버는 인터넷을 통해 직접 액세스할 수 없습니다. SSH 세션이나 HDInsight 클러스터와 동일한 Azure Virtual Network에서만 연결할 수 있습니다.
 
 ## <a id="summary"></a><a id="nextsteps"></a>다음 단계
 

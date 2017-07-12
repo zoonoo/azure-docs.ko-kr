@@ -15,18 +15,24 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 89356670737ed7b9adc5df51466ce71eb73b3cd4
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: e66d1e245d74c11e8bf36e307009910126551b0b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure(큰 인스턴스)에서 SAP HANA를 설치하고 구성하는 방법
+<a id="how-to-install-and-configure-sap-hana-large-instances-on-azure" class="xliff"></a>
+
+# Azure(큰 인스턴스)에서 SAP HANA를 설치하고 구성하는 방법
 
 SAP HANA의 설치는 사용자가 진행하며 Azure(큰 인스턴스) 서버에서 새 SAP HANA가 제공된 후, Azure VNet 및 HANA 큰 인스턴스 단위 간에 연결이 설정된 후에 작업을 시작할 수 있습니다. SAP 정책에 따라 SAP HANA의 설치는 SAP HANA 설치 인증 시험인 Certified SAP Technology Associate를 통과한 인증된 SAP HANA 설치 담당자 또는 SAP 인증 SI(시스템 통합업체)가 수행해야 합니다.
 
-## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>HANA 큰 인스턴스 단위를 받은 후 첫 번째 단계
+특히 HANA 2.0을 설치할 때 설치하기로 결정한 SAP HANA 릴리스에서 지원되는 OS를 확인하려면 [SAP Support Note # 2235581 - SAP HANA: 지원되는 운영 체제](https://launchpad.support.sap.com/#/notes/2235581/E)를 다시 확인하세요. HANA 2.0에서 지원되는 OS는 HANA 1.0에서 지원되는 OS보다 더 제한적이라는 것을 알 수 있습니다. 
+
+<a id="first-steps-after-receiving-the-hana-large-instance-units" class="xliff"></a>
+
+## HANA 큰 인스턴스 단위를 받은 후 첫 번째 단계
 
 HANA 큰 인스턴스를 받고 인스턴스에 대한 액세스 및 연결을 설정한 후 **첫 번째 단계**는 사용자의 OS 공급자에 인스턴스의 OS를 등록하는 것입니다. 여기에는 HANA 대용량 인스턴스 유닛을 연결할 수 있는 Azure의 VM에서 배포해야 하는 SUSE SMT 인스턴스에 SUSE Linux OS를 등록하는 것이 포함됩니다. 또는 연결해야 하는 Red Hat Subscription Manager에 RedHat OS를 등록해야 합니다. 이 [문서](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 설명도 참조하세요. 이 단계는 앞으로 OS를 패치할 수 있도록 하는 데도 필요합니다. 고객에게 책임이 있는 작업입니다. SUSE의 경우 [여기](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html)서 SMT 설치 및 구성을 위한 설명서를 찾아보세요.
 
@@ -56,7 +62,9 @@ SLES12 SP1 및 RHEL 7.2부터 이러한 매개 변수를 /etc/sysctl.d 디렉터
 
 **다섯 번째 단계**는 etc/hosts를 확인하는 것입니다. 블레이드를 인계하면 다양한 용도로 서로 다른 IP 주소가 할당됩니다(다음 섹션 참조). etc/hosts를 확인하세요. 기존 테넌트에 단위가 추가된 경우 새로 배포된 시스템의 etc/hosts가 이전에 제공된 시스템의 IP 주소로 올바르게 유지되지 않을 수 있습니다. 따라서 새로 배포된 인스턴스에서 상호 작용하고 테넌트에 이전에 배포된 단위의 이름을 확인할 수 있도록 올바른 설정을 확인하는 것은 고객의 책임입니다. 
 
-## <a name="networking"></a>네트워킹
+<a id="networking" class="xliff"></a>
+
+## 네트워킹
 Azure VNet을 디자인할 때 권장 사항을 따르고 다음 문서에 설명된 대로 Azure VNet을 HANA 큰 인스턴스에 연결한다고 가정합니다.
 
 - [Azure에서 SAP HANA(큰 인스턴스) 개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
@@ -77,7 +85,9 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 
 
 
-## <a name="storage"></a>저장소
+<a id="storage" class="xliff"></a>
+
+## 저장소
 
 Azure(큰 인스턴스)에서 SAP HANA에 대한 저장소 레이아웃은 SAP 권장 모범 사례를 통해 Azure Service Management의 SAP HANA에 의해 구성됩니다. [SAP HANA 저장소 요구 사항](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서를 참조하세요. 이 문서를 읽고 HANA 큰 인스턴스 단위를 살펴보면 단위에 HANA/data에 대해 상당히 많은 디스크 볼륨이 있고 HANA/log/backup 볼륨이 있다는 것을 알게 될 것입니다. HANA/data 크기가 너무 큰 이유는 고객으로서 우리가 제공하는 저장소 스냅숏이 동일한 디스크 볼륨을 사용하고 있기 때문입니다. 따라서 수행하는 저장소 스냅숏이 많을수록 더 많은 공간이 필요합니다. HANA/log/backup 볼륨은 데이터베이스 백업을 넣는 볼륨이 아니라 HANA 트랜잭션 로그의 백업 볼륨으로 활용하는 볼륨으로 간주됩니다. 향후 버전의 저장소 스냅숏 셀프 서비스에서는 HANA 큰 인스턴스 인프라에서 제공하는 재해 복구 기능을 옵션으로 추가하려는 경우 이 특정 볼륨을 대상으로 스냅숏을 자주 생성하고 재해 복구 사이트로 더 자주 복제할 수 있습니다. 자세한 내용은 [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
 
@@ -101,31 +111,55 @@ hdbparam 프레임워크를 사용하여 SAP HANA 데이터베이스 설치 후 
 SAP HANA 2.0에서는 hdbparam 프레임워크가 사용되지 않습니다. 따라서 SQL 명령을 사용하여 매개 변수를 설정해야 합니다. 자세한 내용은 [SAP Note #2399079: HANA 2에서 hdbparam 제거](https://launchpad.support.sap.com/#/notes/2399079)를 참조하세요.
 
 
-## <a name="operating-system"></a>운영 체제
+<a id="operating-system" class="xliff"></a>
+
+## 운영 체제
+
+[SAP Support Note #1999997 - FAQ: SAP HANA 메모리](https://launchpad.support.sap.com/#/notes/1999997/E)에 따라 제공되는 OS 이미지의 스왑 공간은 2GB로 설정됩니다. 원하는 다른 모든 설정은 고객이 설정해야 합니다.
 
 [SUSE Linux Enterprise Server 12 SP1 for SAP Applications](https://www.suse.com/products/sles-for-sap/hana)는 Azure(큰 인스턴스)에서 SAP HANA에 대해 설치되는 Linux 배포판입니다. 이 특정 배포판은 SAP 관련 기능을 &quot;바로 사용할 수 있게&quot; 제공합니다(SLES에서 SAP을 효과적으로 실행하기 위해 미리 설정된 매개 변수 포함).
 
 SLES의 SAP HANA 배포와 관련된 몇 가지 유용한 리소스(고가용성 설정, SAP 작업과 관련된 보안 강화 등)에 대해서는 SUSE 웹 사이트의 [리소스 라이브러리/백서](https://www.suse.com/products/sles-for-sap/resource-library#white-papers) 및 SCN(SAP Community Network)의 [SUSE의 SAP](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)을 참조하세요.
 
-유용한 추가 SLES 관련 링크:
+SUSE 관련 링크에 있는 유용한 추가 SAP 정보:
 
 - [SUSE Linux의 SAP HANA 사이트](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
-- [SAP 모범 사례: 복제 대기 – SUSE Linux Enterprise 12의 SAP NetWeaver](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
-- [ClamSAP - SAP에 대한 SLES 바이러스 보호](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap)(SLES 12 for SAP Applications 포함)
+- [SAP 모범 사례: 복제 큐에 넣기 – SUSE Linux Enterprise 12의 SAP NetWeaver](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)(영문)
+- [ClamSAP - SAP용 SLES 바이러스 방지](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap)(SLES 12 for SAP Applications 포함)(영문)
 
-SLES 12 SP1의 SAP HANA 구현에 적용할 수 있는 SAP Support Notes:
+SLES 12에서 SAP HANA 구현에 적용할 수 있는 SAP Support Note:
 
-- [SAP Support Note #1944799 – SLES 운영 체제 설치에 대한 SAP HANA 지침](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
-- [SAP Support Note #2205917 – SLES 12 for SAP Applications를 위한 SAP HANA DB 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2205917/E)
-- [SAP Support Note #1984787 – SUSE Linux Enterprise Server 12: 설치 참고](https://launchpad.support.sap.com/#/notes/1984787)
-- [SAP Support Note #171356 – Linux의 SAP 소프트웨어: 일반 정보](https://launchpad.support.sap.com/#/notes/1984787)
-- [SAP Support Note #1391070 – Linux UUID 솔루션](https://launchpad.support.sap.com/#/notes/1391070)
+- [SAP Support Note #1944799 – SLES 운영 체제 설치를 위한 SAP HANA 지침](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)(영문)
+- [SAP Support Note #2205917 – SAP HANA DB: SLES 12 for SAP Applications를 위한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2205917/E)(영문)
+- [SAP Support Note #1984787 – SUSE Linux Enterprise Server 12: 설치 참고](https://launchpad.support.sap.com/#/notes/1984787)(영문)
+- [SAP Support Note #171356 – SAP Software on Linux: 일반 정보](https://launchpad.support.sap.com/#/notes/1984787)(영문)
+- [SAP Support Note #1391070 – Linux UUID 솔루션](https://launchpad.support.sap.com/#/notes/1391070)(영문)
 
-## <a name="time-synchronization"></a>시간 동기화
+[SAP HANA용 Red Hat Enterprise Linux](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana)(영문)는 HANA 큰 인스턴스에서 SAP HANA를 실행하기 위한 또 다른 제품입니다. RHEL 6.7 및 7.2 릴리스를 사용할 수 있습니다. 
+
+Red Hat 관련 링크에 있는 유용한 추가 SAP 정보:
+- [Red Hat Linux 사이트의 SAP HANA](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat)
+
+Red Hat에서 SAP HANA 구현에 적용할 수 있는 SAP Support Note:
+
+- [SAP Support Note #2009879 – RHEL(Red Hat Enterprise Linux) 운영 체제를 위한 SAP HANA 지침](https://launchpad.support.sap.com/#/notes/2009879/E)(영문)
+- [SAP Support Note #2292690 - SAP HANA DB: RHEL 7을 위한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2292690)(영문)
+- [SAP Support Note #2247020 - SAP HANA DB: RHEL 6.7을 위한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2247020)(영문)
+- [SAP Support Note #1391070 – Linux UUID 솔루션](https://launchpad.support.sap.com/#/notes/1391070)(영문)
+- [SAP Support Note #2228351 - Linux: RHEL 6 또는 SLES 11의 SAP HANA Database SPS 11 수정 번호 110 이상](https://launchpad.support.sap.com/#/notes/2228351)(영문)
+- [SAP Support Note #2397039 - FAQ: RHEL의 SAP](https://launchpad.support.sap.com/#/notes/2397039)(영문)
+- [SAP Support Note #1496410 - Red Hat Enterprise Linux 6.x: 설치 및 업그레이드](https://launchpad.support.sap.com/#/notes/1496410)(영문)
+- [SAP Support Note #2002167 - Red Hat Enterprise Linux 7.x: 설치 및 업그레이드](https://launchpad.support.sap.com/#/notes/2002167)(영문)
+
+<a id="time-synchronization" class="xliff"></a>
+
+## 시간 동기화
 
 SAP은 SAP 시스템을 구성하는 다양한 구성 요소의 시간 차이에 매우 민감합니다. 오랫 동안 SAP(Basis)으로 작업해왔다면 오류 제목 ZDATE\_LARGE\_TIME\_DIFF를 갖는 SAP ABAP 짧은 덤프가 친숙할 것입니다. 이러한 짧은 덤프는 다른 서버 또는 VM의 시스템 시간이 너무 큰 차이를 보일 때 나타나기 때문입니다.
 
 Azure(큰 인스턴스)에 있는 SAP HANA의 경우 Azure에서 수행되는 시간 동기화가 큰 인스턴스 스탬프의 계산 장치에 적용되지 않습니다. Azure는 시스템 시간이 제대로 동기화되도록 하므로 Azure(VM)에서 SAP 응용 프로그램을 실행하는 경우는 해당되지 않습니다. 결과적으로 Azure VM에서 실행되는 SAP 응용 프로그램 서버와 HANA 큰 인스턴스에서 실행되는 SAP HANA 데이터베이스 인스턴스에서 사용할 수 있는 별도의 시간 서버를 설정해야 합니다. 큰 인스턴스 스탬프의 저장소 인프라는 NTP 서버와 시간 동기화됩니다.
+
+
 
 
 
