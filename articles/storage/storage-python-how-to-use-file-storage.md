@@ -14,25 +14,33 @@ ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fefebeae665ccd14f15b0197241b30d33830fd09
 ms.openlocfilehash: 9973da827ea5a9311904d7d6d4c22d59b5e2d0ce
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
-# <a name="how-to-use-azure-file-storage-from-python"></a>Python에서 Azure 파일 저장소를 사용하는 방법
+<a id="how-to-use-azure-file-storage-from-python" class="xliff"></a>
+
+# Python에서 Azure 파일 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
-## <a name="overview"></a>개요
+<a id="overview" class="xliff"></a>
+
+## 개요
 이 문서에서는 파일 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Python으로 작성되었으며 [Microsoft Azure Storage SDK for Python]을 사용합니다. 여기서 다루는 시나리오에는 파일 업로드, 나열, 다운로드 및 삭제가 포함됩니다.
 
 [!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-share"></a>공유 만들기
+<a id="create-a-share" class="xliff"></a>
+
+## 공유 만들기
 **FileService** 개체를 사용하면 공유, 디렉터리 및 파일 작업을 수행할 수 있습니다. 다음 코드는 **FileService** 개체를 만듭니다. 프로그래밍 방식으로 Azure 저장소에 액세스하려는 Python 파일의 위쪽에 다음을 추가합니다.
 
 ```python
@@ -42,7 +50,7 @@ from azure.storage.file import FileService
 다음 코드는 저장소 계정 이름 및 계정 키를 사용하여 **FileService** 개체를 만듭니다.  'myaccount' 및 'mykey'를 사용자의 계정 이름 및 키로 바꾸세요.
 
 ```python
-file_service = **FileService** (account_name='myaccount', account_key='mykey')
+file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
 다음 코드 예제에서는 **FileService** 개체를 사용하여 공유가 없는 경우 새로 만들 수 있습니다.
@@ -51,7 +59,9 @@ file_service = **FileService** (account_name='myaccount', account_key='mykey')
 file_service.create_share('myshare')
 ```
 
-## <a name="upload-a-file-into-a-share"></a>파일을 공유로 업로드
+<a id="upload-a-file-into-a-share" class="xliff"></a>
+
+## 파일을 공유로 업로드
 Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 루트 디렉터리가 포함되어 있습니다. 이 섹션에서는 로컬 저장소에서 공유의 루트 디렉터리로 파일을 업로드하는 방법을 배웁니다.
 
 파일을 만들고 데이터를 업로드하려면 **create\_file\_from\_path**, **create\_file\_from\_stream**, **create\_file\_from\_bytes** 또는 **create\_file\_from\_text** 메서드를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
@@ -70,14 +80,18 @@ file_service.create_file_from_path(
     content_settings=ContentSettings(content_type='image/png'))
 ```
 
-## <a name="how-to-create-a-directory"></a>방법: 디렉터리 만들기
+<a id="how-to-create-a-directory" class="xliff"></a>
+
+## 방법: 디렉터리 만들기
 또한 루트 디렉터리에 이들 모두를 포함하는 대신 하위 디렉터리 내에서 파일을 배치하여 저장소를 구성할 수 있습니다. Azure 파일 저장소 서비스를 사용하면 계정이 허용하는 만큼 많은 디렉터리를 만들 수 있습니다. 아래 코드는 루트 디렉터리 아래에 **sampledir** 라는 이름의 하위 디렉터리를 만듭니다.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
 ```
 
-## <a name="how-to-list-files-and-directories-in-a-share"></a>방법: 공유에 파일 및 디렉터리 나열
+<a id="how-to-list-files-and-directories-in-a-share" class="xliff"></a>
+
+## 방법: 공유에 파일 및 디렉터리 나열
 공유의 파일 및 디렉터리를 나열하려면 **list\_directories\_and\_files** 메서드를 사용합니다. 이 메서드는 생성기를 반환합니다. 다음 코드는 공유에 있는 각 파일 및 디렉터리의 **이름** 을 콘솔에 출력합니다.
 
 ```python
@@ -86,7 +100,9 @@ for file_or_dir in generator:
     print(file_or_dir.name)
 ```
 
-## <a name="download-files"></a>파일 다운로드
+<a id="download-files" class="xliff"></a>
+
+## 파일 다운로드
 파일에서 데이터를 다운로드하려면 **get\_file\_to\_path**, **get\_file\_to\_stream**, **get\_file\_to\_bytes** 또는 **get\_file\_to\_text**를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
 
 다음 예제에서는 **get\_file\_to\_path**를 사용하여 **myfile** 파일의 내용을 다운로드 후 **out-sunset.png** 파일에 저장하는 방법을 보여 줍니다.
@@ -95,14 +111,18 @@ for file_or_dir in generator:
 file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 ```
 
-## <a name="delete-a-file"></a>파일 삭제
+<a id="delete-a-file" class="xliff"></a>
+
+## 파일 삭제
 마지막으로 파일을 삭제하려면 **delete_file**을 호출합니다.
 
 ```python
 file_service.delete_file('myshare', None, 'myfile')
 ```
 
-## <a name="next-steps"></a>다음 단계
+<a id="next-steps" class="xliff"></a>
+
+## 다음 단계
 이제 파일 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 자세히 알아보세요.
 
 * [Python 개발자 센터](/develop/python/)
@@ -112,9 +132,4 @@ file_service.delete_file('myshare', None, 'myfile')
 
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

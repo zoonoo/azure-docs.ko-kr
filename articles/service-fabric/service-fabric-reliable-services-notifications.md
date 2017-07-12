@@ -12,16 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2017
+ms.date: 6/29/2017
 ms.author: mcoskun
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 18c71608f7429f7c52720282ca66f44c88de2d84
+ms.contentlocale: ko-kr
 ms.lasthandoff: 11/17/2016
 
 
 ---
-# <a name="reliable-services-notifications"></a>Reliable Services 알림
+<a id="reliable-services-notifications" class="xliff"></a>
+
+# Reliable Services 알림
 알림을 사용하면 클라이언트에서 관심 있는 개체에 대한 변경 내용을 추적할 수 있습니다. *신뢰할 수 있는 상태 관리자* 및 *신뢰할 수 있는 사전*의 두 가지 개체 유형에서 알림을 지원합니다.
 
 알림을 사용하는 일반적인 이유:
@@ -31,7 +34,9 @@ ms.lasthandoff: 11/17/2016
 
 알림은 작업 적용의 일부로 실행됩니다. 이 때문에 알림은 가능한 한 빨리 처리되어야 하며 동기 이벤트는 광범위한 작업을 포함하지 않아야 합니다.
 
-## <a name="reliable-state-manager-notifications"></a>신뢰할 수 있는 상태 관리자 알림
+<a id="reliable-state-manager-notifications" class="xliff"></a>
+
+## 신뢰할 수 있는 상태 관리자 알림
 신뢰할 수 있는 상태 관리자는 다음 이벤트에 대한 알림을 제공합니다.
 
 * 트랜잭션
@@ -106,7 +111,9 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 }
 ```
 
-## <a name="reliable-dictionary-notifications"></a>신뢰할 수 있는 사전 알림
+<a id="reliable-dictionary-notifications" class="xliff"></a>
+
+## 신뢰할 수 있는 사전 알림
 신뢰할 수 있는 사전은 다음 이벤트에 대한 알림을 제공합니다.
 
 * Rebuild: **ReliableDictionary** 가 복구 또는 복사된 로컬 상태 또는 백업에서 해당 상태를 복구하면 호출됩니다.
@@ -203,7 +210,9 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 }
 ```
 
-## <a name="recommendations"></a>추천
+<a id="recommendations" class="xliff"></a>
+
+## 추천
 * *하세요* .
 * *마세요* .
 * *하세요* . 새 작업 형식이 나중에 추가될 수 있습니다.
@@ -216,7 +225,9 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 * 여러 작업을 포함하는 트랜잭션의 경우 작업이 사용자로부터 주 복제본에 수신된 순서대로 적용됩니다.
 * 거짓 진행률 처리의 일부로, 일부 작업이 실행 취소될 수 있습니다. 이러한 실행 취소 작업에 대해 알림이 발생하고 복제본의 상태가 안정적인 지점으로 롤백됩니다. 실행 취소 알림의 중요한 차이점은 중복 키가 있는 이벤트가 집계된다는 것입니다. 예를 들어 트랜잭션 T1이 실행 취소되는 경우 Delete(X)에 대한 단일 알림이 표시됩니다.
 
-## <a name="next-steps"></a>다음 단계
+<a id="next-steps" class="xliff"></a>
+
+## 다음 단계
 * [신뢰할 수 있는 컬렉션](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services 빠른 시작](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services 백업 및 복원(재해 복구)](service-fabric-reliable-services-backup-restore.md)
