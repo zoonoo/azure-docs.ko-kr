@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 858ed6ca4355c36c728ae88bf9488f362d487646
-ms.openlocfilehash: 7ffef4a8dcd10fa6608d200b4ca34fb3517c0cc6
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: d686d411b0877d2e4aef992e6b28da2a6f03b66e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -431,8 +431,8 @@ Azure Site Recovery에 오신 것을 환영합니다! 이 문서는 클래식 �
    4. **tar –xvzf Microsoft-ASR_UA_8.4.0.0_RHEL6-64***
       ![Linux master target server](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
    5. 현재 위치가 tar 파일의 내용을 추출한 디렉터리인지 확인합니다.
-   6. **echo* `<passphrase>`* >passphrase.txt** 명령을 사용하여 구성 서버 암호를 로컬 파일로 복사합니다.
-   7. “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i* `<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**” 명령을 실행합니다.
+   6. **echo *`<passphrase>`* >passphrase.txt** 명령을 사용하여 구성 서버 암호를 로컬 파일에 복사합니다.
+   7. "**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**" 명령을 실행합니다.
 
       ![대상 서버 등록](./media/site-recovery-vmware-to-azure-classic-legacy/linux-mt-install.png)
 7. 약 10-15분 동안 기다린 후 페이지에서 **서버** > **구성 서버** **서버 세부 정보** 탭에 마스터 대상 서버가 등록된 것으로 나열되는지 확인합니다. Linux를 실행하며 등록되지 않은 경우 /usr/local/ASR/Vx/bin/hostconfigcli에서 호스트 구성 도구를 다시 실행합니다. 루트 권한으로 chmod를 실행하여 액세스 권한을 설정해야 합니다.

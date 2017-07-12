@@ -13,18 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 06/01/2017
 ms.author: kevin;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 2c3cc25a651c9b5d9e0aa6180629abc44f2a4d89
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 7c38488d55719f5bc376a929a36c98c1e5900eaf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="system-views"></a>시스템 뷰
-## <a name="sql-data-warehouse-catalog-views"></a>SQL 데이터 웨어하우스 카탈로그 보기
+<a id="system-views" class="xliff"></a>
+
+# 시스템 뷰
+<a id="sql-data-warehouse-catalog-views" class="xliff"></a>
+
+## SQL 데이터 웨어하우스 카탈로그 보기
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_database_mappings](http://msdn.microsoft.com/library/mt203891.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
@@ -42,7 +46,9 @@ ms.lasthandoff: 05/12/2017
 * [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
-## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>SQL 데이터 웨어하우스 동적 관리 보기(DMV)
+<a id="sql-data-warehouse-dynamic-management-views-dmvs" class="xliff"></a>
+
+## SQL 데이터 웨어하우스 동적 관리 보기(DMV)
 * [sys.dm_pdw_dms_cores](http://msdn.microsoft.com/library/mt203911.aspx)
 * [sys.dm_pdw_dms_external_work](https://msdn.microsoft.com/library/mt204024.aspx)
 * [sys.dm_pdw_dms_workers](http://msdn.microsoft.com/library/mt203878.aspx)
@@ -62,14 +68,18 @@ ms.lasthandoff: 05/12/2017
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
 * [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
 
-## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>SQL 데이터 웨어하우스에 적용 가능한 SQL Server DMV
+<a id="sql-server-dmvs-applicable-to-sql-data-warehouse" class="xliff"></a>
+
+## SQL 데이터 웨어하우스에 적용 가능한 SQL Server DMV
 다음 DMV는 SQL 데이터 웨어하우스에 적용할 수 있지만 **master** 데이터베이스에 연결하여 실행해야 합니다.
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
 * [sys.fn_helpcollations()](https://msdn.microsoft.com/library/ms187963.aspx)
 
-## <a name="sql-server-catalog-views"></a>SQL Server 카탈로그 보기
+<a id="sql-server-catalog-views" class="xliff"></a>
+
+## SQL Server 카탈로그 보기
 * [sys.all_columns](http://msdn.microsoft.com/library/ms177522.aspx)
 * [sys.all_objects](http://msdn.microsoft.com/library/ms178618.aspx)
 * [sys.all_parameters](http://msdn.microsoft.com/library/ms190340.aspx)
@@ -135,7 +145,9 @@ ms.lasthandoff: 05/12/2017
 * [sys.types](http://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.views](http://msdn.microsoft.com/library/ms190334.aspx)
 
-## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스에서 사용할 수 있는 SQL Server DMV
+<a id="sql-server-dmvs-available-in-sql-data-warehouse" class="xliff"></a>
+
+## SQL 데이터 웨어하우스에서 사용할 수 있는 SQL Server DMV
 SQL 데이터 웨어하우스는 다양한 SQL Server 동적 관리 보기(DMV)를 표시합니다. 이 보기는 SQL 데이터 웨어하우스에서 쿼리한 경우 배포에서 실행되고 있는 SQL 데이터베이스의 상태를 보고합니다.
 
 SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므로, SQL 데이터웨어하우스와 분석 플랫폼 시스템의 병렬 데이터 웨어하우스(PDW) 모두 동일한 시스템 보기를 사용합니다.
@@ -149,6 +161,8 @@ SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므�
 
 | SQL 데이터 웨어하우스의 DMV 이름 | MSDN의 SQL Server TRANSACT-SQL 항목 링크 |
 |:--- |:--- |
+| sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
+| sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_file_space_usage |[sys.dm_db_file_space_usage](http://msdn.microsoft.com/library/ms174412.aspx) |
 | sys.dm_pdw_nodes_db_index_usage_stats |[sys.dm_db_index_usage_stats](http://msdn.microsoft.com/library/ms188755.aspx) |
 | sys.dm_pdw_nodes_db_partition_stats |[sys.dm_db_partition_stats](http://msdn.microsoft.com/library/ms187737.aspx) |
@@ -166,7 +180,7 @@ SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므�
 | sys.dm_pdw_nodes_exec_requests |[sys.dm_exec_requests](http://msdn.microsoft.com/library/ms177648.aspx) |
 | sys.dm_pdw_nodes_exec_sessions |[sys.dm_exec_sessions](https://msdn.microsoft.com/en-us/library/ms176013.aspx) |
 | sys.dm_pdw_nodes_io_pending_io_requests |[sys.dm_io_pending_io_requests](http://msdn.microsoft.com/library/ms188762.aspx) |
-| sys.dm_pdw_nodes_io_virtual_file_stats |[sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql.md) |
+| sys.dm_pdw_nodes_io_virtual_file_stats |[sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) |
 | sys.dm_pdw_nodes_os_buffer_descriptors |[sys.dm_os_buffer_descriptors](http://msdn.microsoft.com/library/ms173442.aspx) |
 | sys.dm_pdw_nodes_os_child_instances |[sys.dm_os_child_instances](http://msdn.microsoft.com/library/ms165698.aspx) |
 | sys.dm_pdw_nodes_os_cluster_nodes |[sys.dm_os_cluster_nodes](http://msdn.microsoft.com/library/ms187341.aspx) |
@@ -209,7 +223,9 @@ SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므�
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](http://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스에서 사용할 수 있는 SQL Server 2016 PolyBase DMV
+<a id="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse" class="xliff"></a>
+
+## SQL 데이터 웨어하우스에서 사용할 수 있는 SQL Server 2016 PolyBase DMV
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
 * [sys.dm_exec_compute_nodes](https://msdn.microsoft.com/library/mt130700.aspx)
@@ -221,7 +237,9 @@ SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므�
 * [sys.dm_exec_external_operations](https://msdn.microsoft.com/library/mt146391.aspx)
 * [sys.dm_exec_external_work](https://msdn.microsoft.com/library/mt146375.aspx)
 
-## <a name="sql-server-informationschema-views"></a>SQL Server INFORMATION_SCHEMA 보기
+<a id="sql-server-informationschema-views" class="xliff"></a>
+
+## SQL Server INFORMATION_SCHEMA 보기
 * [CHECK_CONSTRAINTS](http://msdn.microsoft.com/library/ms189772.aspx)
 * [열](http://msdn.microsoft.com/library/ms188348.aspx)
 * [매개 변수](http://msdn.microsoft.com/library/ms173796.aspx)
@@ -232,7 +250,9 @@ SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므�
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
 * [뷰](http://msdn.microsoft.com/library/ms181381.aspx)
 
-## <a name="next-steps"></a>다음 단계
+<a id="next-steps" class="xliff"></a>
+
+## 다음 단계
 자세한 참조 정보는 [SQL Data Warehouse 참조 개요][SQL Data Warehouse reference overview]를 참조하세요.
 
 <!--Image references-->

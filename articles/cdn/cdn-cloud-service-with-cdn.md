@@ -14,13 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
 ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="a-nameintroa-integrate-a-cloud-service-with-azure-cdn"></a><a name="intro"></a> Azure CDN과 클라우드 서비스 통합
+# <a name="intro"></a> Azure CDN과 클라우드 서비스 통합
 클라우드 서비스는 Azure CDN과 통합되어 클라우드 서비스의 위치에 있는 모든 콘텐츠를 제공할 수 있습니다. 이 접근 방식을 통해 다음과 같은 장점을 얻을 수 있습니다.
 
 * 클라우드 서비스 프로젝트 디렉터리의 이미지, 스크립트 및 스타일시트를 쉽게 배포 및 업데이트
@@ -29,7 +31,9 @@ ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
 * 웹 응용 프로그램 및 CDN 제공 콘텐츠에 대한 통합 배포 워크플로
 * ASP.NET 묶음 및 축소를 Azure CDN과 통합
 
-## <a name="what-you-will-learn"></a>알아볼 내용
+<a id="what-you-will-learn" class="xliff"></a>
+
+## 알아볼 내용
 이 자습서에서는 다음 방법을 알아봅니다.
 
 * [Azure CDN 끝점을 클라우드 서비스와 통합하여 Azure CDN에서 웹 페이지의 정적 콘텐츠 제공](#deploy)
@@ -38,10 +42,14 @@ ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
 * [Visual Studio의 스크립트 디버깅 환경은 유지하면서 Azure CDN을 통해 묶이고 축소된 콘텐츠 제공](#bundling)
 * [Azure CDN이 오프라인인 경우 스크립트 및 CSS 대체 구성](#fallback)
 
-## <a name="what-you-will-build"></a>빌드할 내용
+<a id="what-you-will-build" class="xliff"></a>
+
+## 빌드할 내용
 기본 ASP.NET MVC 템플릿을 사용하여 클라우드 서비스 웹 역할을 배포하고, 코드를 추가하여 통합 Azure CDN에서 이미지, 컨트롤러 작업 결과, 기본 JavaScript 및 CSS 파일과 같은 콘텐츠를 제공하고, 코드를 작성하여 CDN이 오프라인인 경우에 제공할 번들의 대체 메커니즘을 구성합니다.
 
-## <a name="what-you-will-need"></a>필요한 사항
+<a id="what-you-will-need" class="xliff"></a>
+
+## 필요한 사항
 이 자습서를 사용하려면 다음 필수 조건이 필요합니다.
 
 * 활성 [Microsoft Azure 계정](/account/)
@@ -57,7 +65,9 @@ ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
 
 <a name="deploy"></a>
 
-## <a name="deploy-a-cloud-service"></a>클라우드 서비스 배포
+<a id="deploy-a-cloud-service" class="xliff"></a>
+
+## 클라우드 서비스 배포
 이 섹션에서는 Visual Studio 2015에서 기본 ASP.NET MVC 응용 프로그램 템플릿을 클라우드 서비스 웹 역할에 배포한 후 새로운 CDN 끝점과 통합합니다. 아래의 지침을 따르세요.
 
 1. Visual Studio 2015의 메뉴 모음에서 **파일 > 새로 만들기 > 프로젝트 > 클라우드 > Azure 클라우드 서비스**로 이동하여 새 Azure 클라우드 서비스를 만듭니다. 해당 서비스의 이름을 지정하고 **확인**을 클릭합니다.
@@ -98,7 +108,9 @@ ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
    > 
    > 
 
-## <a name="create-a-new-cdn-profile"></a>새 CDN 프로필 만들기
+<a id="create-a-new-cdn-profile" class="xliff"></a>
+
+## 새 CDN 프로필 만들기
 CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝점이 하나 이상 있습니다.  여러 프로필을 사용하여 인터넷 도메인, 웹 응용 프로그램 또는 일부 기타 조건에서 CDN 끝점을 구성할 수도 있습니다.
 
 > [!TIP]
@@ -108,7 +120,9 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-## <a name="create-a-new-cdn-endpoint"></a>새 CDN 끝점 만들기
+<a id="create-a-new-cdn-endpoint" class="xliff"></a>
+
+## 새 CDN 끝점 만들기
 **저장소 계정에 대한 새 CDN 끝점을 만들려면**
 
 1. [Azure 관리 포털](https://portal.azure.com)에서 CDN 프로필로 이동합니다.  이전 단계에서 대시보드에 고정해 놓았을 수 있습니다.  그렇지 않은 경우 **찾아보기**, **CDN 프로필**을 차례로 클릭한 다음 끝점을 추가하려는 프로필을 클릭하면 찾을 수 있습니다.
@@ -137,7 +151,9 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
    > 
    > 
 
-## <a name="test-the-cdn-endpoint"></a>CDN 끝점 테스트
+<a id="test-the-cdn-endpoint" class="xliff"></a>
+
+## CDN 끝점 테스트
 게시 상태가 **완료됨**인 경우 브라우저 창을 열고 **http://<cdnName>*.azureedge.net/Content/bootstrap.css**로 이동합니다. 이 자습서 설정에서 이 URL은 다음과 같습니다.
 
     http://camservice.azureedge.net/Content/bootstrap.css
@@ -157,7 +173,7 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
 * 모든 controller/action
 * CDN 끝점에서 쿼리 문자열을 사용하도록 설정한 경우 쿼리 문자열이 포함된 모든 URL
 
-실제로 위의 구성으로 **http://*&lt;cdnName>*.azureedge.net/**에서 전체 클라우드 서비스를 호스트할 수 있습니다. **http://camservice.azureedge.net/**으로 이동한 경우 Home/Index에서 작업 결과를 가져옵니다.
+실제로 위의 구성을 사용하면 **http://*&lt;cdnName>*.azureedge.net/**에서 전체 클라우드 서비스를 호스팅할 수 있습니다. **http://camservice.azureedge.net/**으로 이동하면 Home/Index에서 작업 결과를 가져옵니다.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -171,7 +187,9 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
 
 <a name="caching"></a>
 
-## <a name="configure-caching-options-for-static-files-in-your-cloud-service"></a>클라우드 서비스의 정적 파일에 대한 캐싱 옵션 구성
+<a id="configure-caching-options-for-static-files-in-your-cloud-service" class="xliff"></a>
+
+## 클라우드 서비스의 정적 파일에 대한 캐싱 옵션 구성
 클라우드 서비스의 Azure CDN 통합으로 정적 콘텐츠를 CDN 끝점에서 캐시하는 방법을 지정할 수 있습니다. 이를 수행하려면 웹 역할 프로젝트(예: WebRole1)에서 *Web.config*를 열고 `<staticContent>` 요소를 `<system.webServer>`에 추가합니다. 아래 XML은 캐시가 3일 이내에 만료되도록 구성합니다.  
 
     <system.webServer>
@@ -200,7 +218,9 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
 
 <a name="controller"></a>
 
-## <a name="serve-content-from-controller-actions-through-azure-cdn"></a>Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공
+<a id="serve-content-from-controller-actions-through-azure-cdn" class="xliff"></a>
+
+## Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공
 클라우드 서비스 웹 역할을 Azure CDN과 통합한 경우 Azure CDN을 통해 컨트롤러 작업의 콘텐츠를 비교적 쉽게 제공할 수 있습니다. [Maarten Balliauw](https://twitter.com/maartenballiauw)는 Azure CDN을 통해 직접 클라우드 서비스를 제공(위에서 설명함)하지 않고 [Azure CDN으로 웹 대기 시간 단축](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN)에서 재미있는 MemeGenerator 컨트롤러로 이 작업을 수행하는 방법을 보여 줍니다. 여기서 그 방법을 간단히 재현해보겠습니다.
 
 클라우드 서비스에서 다음과 같은 젊은 척 노리스의 이미지( [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)제공 사진)를 기반으로 하여 밈을 생성하려고 한다고 가정해 보세요.
@@ -367,7 +387,9 @@ CDN 프로필은 CDN 끝점의 컬렉션입니다.  각 프로필에는 CDN 끝�
 
 <a name="bundling"></a>
 
-## <a name="integrate-aspnet-bundling-and-minification-with-azure-cdn"></a>ASP.NET 묶음 및 축소를 Azure CDN과 통합
+<a id="integrate-aspnet-bundling-and-minification-with-azure-cdn" class="xliff"></a>
+
+## ASP.NET 묶음 및 축소를 Azure CDN과 통합
 스크립트 및 CSS 스타일시트는 드물게 변경되며 Azure CDN 캐시의 주요 후보입니다. Azure CDN을 통해 전체 웹 역할을 제공하는 것은 묶음 및 축소를 Azure CDN에 통합하는 가장 쉬운 방법입니다. 그러나 이러한 방법을 원하지 않을 수도 있으므로 다음과 같이 ASP.NET 묶음 및 축소의 바람직한 개발자 환경을 유지하면서 동시에 통합을 수행하는 방법을 설명하겠습니다.
 
 * 탁월한 디버그 모드 환경
@@ -486,7 +508,9 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 <a name="fallback"></a>
 
-## <a name="fallback-mechanism-for-cdn-urls"></a>CDN URL의 대체 메커니즘
+<a id="fallback-mechanism-for-cdn-urls" class="xliff"></a>
+
+## CDN URL의 대체 메커니즘
 어떤 이유로 Azure CDN 끝점에 문제가 발생한 경우 JavaScript 또는 부트스트랩을 로드하는 대체 옵션으로 원본 웹 서버에 액세스할 수 있을 정도로 지능적인 웹 페이지를 원합니다. CDN을 사용할 수 없어서 웹 사이트의 이미지가 손실되는 심각한 상황이 올 수도 있지만 좀 더 심각한 경우는 스크립트 및 스타일시트에서 제공하는 중요한 페이지 기능을 사용하지 못하는 게 되는 것입니다.
 
 [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) 클래스에는 CDN 오류에 대비해 대체 메커니즘을 구성할 수 있도록 [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx)이라는 속성이 포함되어 있습니다. 이 속성을 사용하려면 다음 단계를 따르세요.
@@ -590,7 +614,9 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
     그러나 || 식의 첫 부분이 항상 true를 반환하므로(바로 위의 줄에서) document.write() 함수가 실행되지 않습니다.
 
-## <a name="more-information"></a>추가 정보
+<a id="more-information" class="xliff"></a>
+
+## 추가 정보
 * [Azure CDN(콘텐츠 배달 네트워크) 개요](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 * [Azure CDN 사용](cdn-create-new-endpoint.md)
 * [ASP.NET 묶음 및 축소](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
@@ -600,9 +626,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 [cdn-new-endpoint-button]: ./media/cdn-cloud-service-with-cdn/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
