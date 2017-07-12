@@ -2,14 +2,17 @@
 
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: https://gallery.cortanaintelligence.com/
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: be75a60762674ab347ab7adaddfb17c4208a2b9e
+ms.contentlocale: ko-kr
 ms.lasthandoff: 05/03/2017
 
 
 ---
-# <a name="deprecated-forecasting---autoregressive-integrated-moving-average-arima"></a>(사용되지 않음)예측 - ARIMA(자동 회귀 통합 이동 평균)
+<a id="deprecated-forecasting---autoregressive-integrated-moving-average-arima" class="xliff"></a>
+
+# (사용되지 않음)예측 - ARIMA(자동 회귀 통합 이동 평균)
 
 > [!NOTE]
 > Microsoft DataMarket은 종료되고 있는 중이며 이 API는 사용되지 않습니다. 
@@ -25,7 +28,9 @@ ms.lasthandoff: 05/03/2017
 > 
 > 
 
-## <a name="consumption-of-web-service"></a>웹 서비스 사용
+<a id="consumption-of-web-service" class="xliff"></a>
+
+## 웹 서비스 사용
 이 서비스는 4개의 인수를 받아들여 ARIMA 예측을 계산합니다.
 입력 인수는 다음과 같습니다.
 
@@ -49,7 +54,9 @@ ms.lasthandoff: 05/03/2017
 
 다양한 자동화된 방식으로 서비스를 사용할 수 있습니다(예제 앱은 [여기](http://microsoftazuremachinelearning.azurewebsites.net/ArimaForecasting.aspx)참조).
 
-### <a name="starting-c-code-for-web-service-consumption"></a>웹 서비스 사용의 C# 코드 시작:
+<a id="starting-c-code-for-web-service-consumption" class="xliff"></a>
+
+### 웹 서비스 사용의 C# 코드 시작:
     public class Input
     {
         public string frequency;
@@ -79,21 +86,29 @@ ms.lasthandoff: 05/03/2017
           var scoreResult = result.ReadAsStringAsync().Result;
       }
 
-## <a name="creation-of-web-service"></a>웹 서비스 만들기
+<a id="creation-of-web-service" class="xliff"></a>
+
+## 웹 서비스 만들기
 > 이 웹 서비스는 Azure 기계 학습을 사용하여 만들었습니다. 무료 평가판 및 실험을 만들고 [웹 서비스를 게시](machine-learning-publish-a-machine-learning-web-service.md)하는 방법에 대한 소개 비디오는 [azure.com/ml](http://azure.com/ml)을 참조하세요. 다음은 웹 서비스를 만든 실험과 실험 내 각 모듈의 예제 코드의 스크린샷입니다.
 > 
 > 
 
 Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 샘플 입력 데이터는 미리 정의된 데이터 스키마로 업로드되었습니다. 데이터 스키마에 연결된 것은 R의 ‘auto.arima’ 및 ‘forecast’ 함수를 사용하여 ARIMA 예측 모델을 생성하는 [R 스크립트 실행][execute-r-script] 모듈입니다. 
 
-### <a name="experiment-flow"></a>실험 흐름:
+<a id="experiment-flow" class="xliff"></a>
+
+### 실험 흐름:
 ![작업 영역 만들기][2]
 
-#### <a name="module-1"></a>모듈 1:
+<a id="module-1" class="xliff"></a>
+
+#### 모듈 1:
     # Add in the CSV file with the data in the format shown below 
 ![작업 영역 만들기][3]    
 
-#### <a name="module-2"></a>모듈 2:
+<a id="module-2" class="xliff"></a>
+
+#### 모듈 2:
     # data input
     data <- maml.mapInputPort(1) # class: data.frame
     library(forecast)
@@ -121,10 +136,14 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 샘
     maml.mapOutputPort("data.forecast");
 
 
-## <a name="limitations"></a>제한 사항
+<a id="limitations" class="xliff"></a>
+
+## 제한 사항
 이 예제는 매우 간단한 ARIMA 예측 예제입니다. 위의 예제 코드에서 볼 수 있듯이 오류 catch가 구현되어 있지 않으며, 이 서비스에서는 모든 변수가 연속/양수 값이고 빈도가 1보다 큰 정수여야 한다고 가정합니다. 날짜와 값 벡터의 길이는 동일해야 합니다. 날짜 변수는 ‘mm/dd/yyyy’ 형식을 준수해야 합니다.
 
-## <a name="faq"></a>FAQ
+<a id="faq" class="xliff"></a>
+
+## FAQ
 웹 서비스 사용 또는 마켓플레이스 게시 방법과 관련한 질문과 대답은 [여기](machine-learning-marketplace-faq.md)를 참조하세요.
 
 [1]: ./media/machine-learning-r-csharp-arima/arima-img1.png
