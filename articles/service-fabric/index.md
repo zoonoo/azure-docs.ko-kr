@@ -19,7 +19,9 @@ ms.contentlocale: ko-kr
 ms.lasthandoff: 06/23/2017
 
 ---
-#<a name="service-fabric-documentation"></a>Service Fabric 설명서
+<a id="service-fabric-documentation" class="xliff"></a>
+
+#Service Fabric 설명서
 
 Service Fabric을 사용하여 확장성 및 안정성이 뛰어난 마이크로 서비스를 패키징, 배포 및 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 및 코드 샘플에서는 이 미들웨어 플랫폼을 사용하여 클라우드 규모 응용 프로그램을 빌드하고 관리하는 방법을 보여 줍니다.
 
