@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d365f7137527d60eb509b4f431295de2218ea706
 ms.openlocfilehash: 5ff91cccb711d61ed120e4a4e820d6a5dfc5e4a6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/31/2017
 
 
 ---
 
-# <a name="create-a-virtual-network-classic-with-a-netcfg-file-using-the-azure-classic-portal"></a>Azure 클래식 포털에서 netcfg 파일을 사용하여 가상 네트워크(클래식) 만들기
+<a id="create-a-virtual-network-classic-with-a-netcfg-file-using-the-azure-classic-portal" class="xliff"></a>
+
+# Azure 클래식 포털에서 netcfg 파일을 사용하여 가상 네트워크(클래식) 만들기
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
@@ -33,7 +37,9 @@ ms.openlocfilehash: 5ff91cccb711d61ed120e4a4e820d6a5dfc5e4a6
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-## <a name="how-to-create-a-vnet-with-a-network-config-file-in-the-microsoft-azure-classic-portal"></a>Microsoft Azure 클래식 포털에 네트워크 구성 파일로 VNet을 만드는 방법
+<a id="how-to-create-a-vnet-with-a-network-config-file-in-the-microsoft-azure-classic-portal" class="xliff"></a>
+
+## Microsoft Azure 클래식 포털에 네트워크 구성 파일로 VNet을 만드는 방법
 Azure에서는 xml 파일을 사용하여 구독에 사용할 수 있는 모든 VNet을 정의합니다. 이 파일을 다운로드하고 편집하여 클래식 배포 모델을 통해 VNet을 만들거나 기존 VNet을 수정하거나 삭제할 수 있습니다. 이 문서에서는 네트워크 구성(또는 netcfg) 파일이라고 하는 파일을 다운로드하고, VNet을 추가하고, 파일을 업로드하여 VNet을 만드는 방법을 설명합니다. 네트워크 구성 파일에 대해 자세히 알아보려면 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 검토하세요.
 
 Azure 클래식 포털을 통해 netcfg 파일을 사용하여 VNet을 만들려면 다음 단계를 수행합니다.
@@ -84,9 +90,4 @@ Azure 클래식 포털을 통해 netcfg 파일을 사용하여 VNet을 만들려
 10. VNet을 만들려면 이전 그림의 상자 오른쪽 모서리에 있는 확인 표시 단추를 클릭합니다. 잠시 후에 다음 그림과 같이 사용 가능한 VNet 목록에 해당 VNet이 표시됩니다.
 
     ![새 가상 네트워크](./media/virtual-networks-create-vnet-classic-portal/vnet-create-portal-netcfg-figure6.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
