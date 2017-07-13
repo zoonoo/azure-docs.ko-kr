@@ -1,9 +1,8 @@
 <!--author=alkohli last changed: 01/20/17-->
 
 
-<a id="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service" class="xliff"></a>
-
 #### StorSimple 장치 관리자 서비스와 동일한 Azure 구독에 있는 저장소 계정 자격 증명을 추가하려면
+<a id="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service" class="xliff"></a>
 
 1. StorSimple 장치 관리자 서비스로 이동합니다. **구성** 섹션에서 **저장소 계정 자격 증명**을 클릭합니다.
 

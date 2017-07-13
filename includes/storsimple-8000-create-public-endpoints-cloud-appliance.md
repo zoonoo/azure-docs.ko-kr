@@ -1,6 +1,5 @@
-<a id="to-create-public-endpoints-on-the-cloud-appliance" class="xliff"></a>
-
 #### 클라우드 어플라이언스에 공용 끝점을 만들려면
+<a id="to-create-public-endpoints-on-the-cloud-appliance" class="xliff"></a>
 
 1. Azure 포털에 로그인합니다.
 2. **Virtual Machines**로 이동한 후 클라우드 어플라이언스로 사용 중인 가상 컴퓨터를 선택합니다.

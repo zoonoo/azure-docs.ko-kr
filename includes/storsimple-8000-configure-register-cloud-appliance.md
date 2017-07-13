@@ -1,6 +1,5 @@
-<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
-
 #### 클라우드 어플라이언스를 구성 및 등록하려면
+<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
 
 1. **장치** 블레이드에서 만든 StorSimple Cloud Appliance를 선택하여 클릭합니다.
 
