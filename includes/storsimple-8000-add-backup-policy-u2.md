@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
-
 #### StorSimple 백업 정책을 추가하려면
+<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
 
 1. StorSimple 장치로 이동하고 **백업 정책**을 클릭합니다.
 

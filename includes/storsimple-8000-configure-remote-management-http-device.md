@@ -1,7 +1,6 @@
 
-<a id="to-configure-remote-management-on-cloud-appliance" class="xliff"></a>
-
 #### 클라우드 어플라이언스에서 원격 관리를 구성하려면
+<a id="to-configure-remote-management-on-cloud-appliance" class="xliff"></a>
 
 1. StorSimple 장치 관리자 서비스에서 **장치**를 클릭합니다. 서비스에 연결된 장치 목록에서 클라우드 어플라이언스를 선택하여 클릭합니다.
     ![StorSimple 클라우드 어플라이언스 선택](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage1.png)

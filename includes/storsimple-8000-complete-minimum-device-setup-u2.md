@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
-
 #### 최소 StorSimple 장치 설치를 완료하려면
+<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
 
 1. **장치** 블레이드의 테이블 형식 장치 목록에서 장치를 선택하고 클릭합니다. 장치가 **설정 준비 완료** 상태입니다. **장치 구성** 블레이드가 열립니다.
 

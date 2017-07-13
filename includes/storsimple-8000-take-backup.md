@@ -1,8 +1,7 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-take-a-backup" class="xliff"></a>
-
 ### 백업을 수행하려면
+<a id="to-take-a-backup" class="xliff"></a>
 
 1. StorSimple 장치 관리자 서비스로 이동합니다. 테이블 형식 장치 목록에서 장치를 선택하고 클릭한 후 **모든 설정**을 클릭합니다. **설정** 블레이드에서 **설정 > 관리 > 백업 정책**으로 이동합니다.
 
