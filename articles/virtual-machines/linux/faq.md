@@ -15,45 +15,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d579b55f07a2e710624b10fe77c17f449b09ab42
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: 5a0092481cb461f26ba463f4c9bbaf114ecb1248
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="frequently-asked-question-about-linux-virtual-machines"></a>Linux 가상 컴퓨터에 대한 질문과 대답
+# Linux 가상 컴퓨터에 대한 질문과 대답
+<a id="frequently-asked-question-about-linux-virtual-machines" class="xliff"></a>
 이 문서에서는 Azure에서 Resource Manager 배포 모델을 사용하여 만든 Linux 가상 컴퓨터에 대한 일반적인 질문을 일부 해결합니다. 이 항목의 Windows 버전에 대해서는 [Windows 가상 컴퓨터에 대한 질문과 대답](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
-## <a name="what-can-i-run-on-an-azure-vm"></a>Azure VM에서 무엇을 실행할 수 있습니까?
+## Azure VM에서 무엇을 실행할 수 있습니까?
+<a id="what-can-i-run-on-an-azure-vm" class="xliff"></a>
 모든 구독자는 Azure 가상 컴퓨터에서 서버 소프트웨어를 실행할 수 있습니다. 자세한 내용은 [Azure 인증 배포의 Linux](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
-## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>가상 컴퓨터에 얼마나 많은 용량의 저장소를 사용할 수 있습니까?
+## 가상 컴퓨터에 얼마나 많은 용량의 저장소를 사용할 수 있습니까?
+<a id="how-much-storage-can-i-use-with-a-virtual-machine" class="xliff"></a>
 각 데이터 디스크의 최대 용량은 1 TB 입니다. 사용할 수 있는 데이터 디스크의 수는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [가상 컴퓨터의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크에 대한 저장소를 제공합니다. 각 디스크는 페이지 blob으로 저장된 .vhd 파일입니다. 가격 책정에 대한 자세한 내용은 [저장소 가격 세부 정보](https://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
 
-## <a name="how-can-i-access-my-virtual-machine"></a>나의 가상 컴퓨터에 액세스 하려면 어떻게 해야 합니까?
+## 나의 가상 컴퓨터에 액세스 하려면 어떻게 해야 합니까?
+<a id="how-can-i-access-my-virtual-machine" class="xliff"></a>
 Virtual Machine에 로그온하려면 SSH(보안 셸)를 사용하여 원격 연결을 설정합니다. [Windows에서](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 또는 [Linux 및 Mac에서](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 연결하는 방법은 지침을 참조하세요. 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
 
 문제가 있는 경우 [SSH(Secure Shell) 연결 문제 해결](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 확인하세요.
 
-## <a name="can-i-use-the-temporary-disk-devsdb1-to-store-data"></a>임시 디스크(/dev/sdb1)를 데이터 저장에 사용할 수 있나요?
+## 임시 디스크(/dev/sdb1)를 데이터 저장에 사용할 수 있나요?
+<a id="can-i-use-the-temporary-disk-devsdb1-to-store-data" class="xliff"></a>
 임시 디스크(/dev/sdb1)를 데이터 저장에 사용하지 마세요. 임시 디스크는 임시 저장소로만 사용해야 합니다. 복구할 수 없는 데이터는 손실될 위험이 있습니다.
 
-## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>기존 Azure VM을 복사 또는 복제할 수 있나요?
+## 기존 Azure VM을 복사 또는 복제할 수 있나요?
+<a id="can-i-copy-or-clone-an-existing-azure-vm" class="xliff"></a>
 예. 자세한 내용은 [Resource Manager 배포 모델에서 Linux 가상 컴퓨터의 복사본을 만드는 방법](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
-## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Azure Resource Manager를 통해 캐나다 중부 및 캐나다 동부 지역이 보이지 않는 이유가 무엇인가요?
+## Azure Resource Manager를 통해 캐나다 중부 및 캐나다 동부 지역이 보이지 않는 이유가 무엇인가요?
+<a id="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager" class="xliff"></a>
 캐나다 중부 및 캐나다 동부의 새로운 두 지역은 기존의 Azure 구독에 대한 가상 컴퓨터 만들기에 자동으로 등록되지 않습니다. 가상 컴퓨터가 Azure 포털을 통해 Azure Resource Manager를 사용하는 다른 지역에 배포될 때 자동으로 등록됩니다. 가상 컴퓨터가 다른 Azure 지역에 배포된 후 새로운 지역은 다음 가상 컴퓨터에 대해 사용할 수 있어야 합니다.
 
-## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>VM을 만든 후에 NIC를 추가할 수 있나요?
+## VM을 만든 후에 NIC를 추가할 수 있나요?
+<a id="can-i-add-a-nic-to-my-vm-after-its-created" class="xliff"></a>
 예, 이제 가능합니다. 먼저 VM에 대한 할당 취소를 중지해야 합니다. 그런 다음 NIC를 추가하거나 제거할 수 있습니다(VM에 있는 마지막 NIC가 아닌 경우). 
 
-## <a name="are-there-any-computer-name-requirements"></a>컴퓨터 이름 요구 사항이 있나요?
+## 컴퓨터 이름 요구 사항이 있나요?
+<a id="are-there-any-computer-name-requirements" class="xliff"></a>
 예. 컴퓨터 이름은 64자까지 지정할 수 있습니다. 리소스 명명과 관련된 자세한 내용은 [인프라 명명 지침](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 참조하세요.
 
-## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>VM을 만들 때의 사용자 이름 요구 사항은 무엇인가요?
+## 리소스 그룹 이름에 대한 요구 사항이 있나요?
+<a id="are-there-any-resource-group-name-requirements" class="xliff"></a>
+예. 리소스 그룹 이름은 90자까지 지정할 수 있습니다. 리소스 그룹에 대한 자세한 내용은 [인프라 리소스 그룹 지침](infrastructure-resource-groups-guidelines.md)을 참조하세요.
+
+## VM을 만들 때의 사용자 이름 요구 사항은 무엇인가요?
+<a id="what-are-the-username-requirements-when-creating-a-vm" class="xliff"></a>
 사용자 이름은 1~64자 사이로 지정해야 합니다.
 
 다음 사용자 이름은 사용할 수 없습니다.
@@ -86,7 +101,8 @@ Virtual Machine에 로그온하려면 SSH(보안 셸)를 사용하여 원격 연
 </table>
 
 
-## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>VM을 만들 때의 암호 요구 사항은 무엇인가요?
+## VM을 만들 때의 암호 요구 사항은 무엇인가요?
+<a id="what-are-the-password-requirements-when-creating-a-vm" class="xliff"></a>
 암호는 6~72자 사이로 지정해야 하며 다음의 4가지 복잡성 요구 사항 중 3가지를 충족해야 합니다.
 
 * 소문자 포함
