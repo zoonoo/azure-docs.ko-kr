@@ -12,34 +12,41 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/23/2017
+ms.date: 06/21/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: ff8d911750a551f4a099fcba13841c98881104a9
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: b4d5ab66db64a50d1b87edd4bf445e49004e67b4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="update-management-solution-in-oms"></a>OMS의 업데이트 관리 솔루션
-OMS의 업데이트 관리 솔루션을 사용하면 Windows 및 Linux 컴퓨터에 대한 업데이트를 관리할 수 있습니다.  모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 대한 필수 업데이트를 설치하는 프로세스를 시작할 수 있습니다. 
+# OMS의 업데이트 관리 솔루션
+<a id="update-management-solution-in-oms" class="xliff"></a>
 
-## <a name="solution-components"></a>솔루션 구성 요소
+![업데이트 관리 기호](./media/oms-solution-update-management/update-management-symbol.png)
 
-OMS를 통해 관리되는 컴퓨터는 다음을 사용하여 평가 및 업데이트 배포를 수행합니다. 
+OMS의 업데이트 관리 솔루션을 사용하면 Windows 및 Linux 컴퓨터에 대한 업데이트를 관리할 수 있습니다.  모든 에이전트 컴퓨터에서 사용 가능한 업데이트의 상태를 신속하게 평가하고 서버에 대한 필수 업데이트를 설치하는 프로세스를 시작할 수 있습니다.
+
+
+## 솔루션 개요
+<a id="solution-overview" class="xliff"></a>
+OMS를 통해 관리되는 컴퓨터는 다음을 사용하여 평가 및 업데이트 배포를 수행합니다.
 
 * Windows 또는 Linux용 OMS 에이전트
-* Linux용 PowerShell DSC(필요한 상태 구성) 
-* Automation Hybrid Runbook Worker 
+* Linux용 PowerShell DSC(필요한 상태 구성)
+* Automation Hybrid Runbook Worker
 * Windows 컴퓨터용 Microsoft Update 또는 Windows Server Update Services
 
 다음 다이어그램은 솔루션이 업데이트를 평가하고 작업 영역의 모든 연결된 Windows Server 및 Linux 컴퓨터에 업데이트를 적용하는 방식과 관련된 동작 및 데이터 흐름의 개념도를 보여 줍니다.    
 
-#### <a name="windows-server"></a>Windows Server
+#### Windows Server
+<a id="windows-server" class="xliff"></a>
 ![Windows Server 업데이트 관리 프로세스 흐름](media/oms-solution-update-management/update-mgmt-windows-updateworkflow.png)
 
-#### <a name="linux"></a>Linux
+#### Linux
+<a id="linux" class="xliff"></a>
 ![Linux 업데이트 관리 프로세스 흐름](media/oms-solution-update-management/update-mgmt-linux-updateworkflow.png)
 
 컴퓨터가 업데이트 준수를 검색한 후 OMS 에이전트는 OMS에 대량으로 정보를 전달합니다. Windows 컴퓨터에서 준수 검사는 기본적으로 12시간마다 수행됩니다.  검사 일정 외에도 MMA(Microsoft Monitoring Agent)가 다시 시작되면 업데이트 설치 전 그리고 업데이트 설치 후 15분 내에 업데이트 준수 검사가 시작됩니다.  Linux 컴퓨터의 경우 기본적으로 3시간마다 준수 검사가 수행되며, MMA 에이전트가 다시 시작되면 15분 내에 준수 검사가 시작됩니다.  
@@ -50,15 +57,16 @@ OMS를 통해 관리되는 컴퓨터는 다음을 사용하여 평가 및 업데
 
 업데이트 배포에 지정된 날짜 및 시간에 대상 컴퓨터는 배포를 병렬로 실행합니다.  업데이트가 여전히 필수인지 확인하기 위한 검사가 수행된 수 업데이트가 설치됩니다.  WSUS 클라이언트 컴퓨터의 경우 업데이트가 WSUS에서 승인되지 않으면 업데이트 배포가 실패합니다.  적용된 업데이트의 결과는 OMS로 전달되어 대시보드에서 또는 검색 이벤트를 통해 처리 및 요약됩니다.     
 
-## <a name="prerequisites"></a>필수 조건
-* 이 솔루션은 Windows Server 2008 이상에 대한 업데이트 평가 및 Windows Server 2008 R2 이상에 대한 업데이트 배포 수행을 지원합니다.  Server Core 및 Nano 서버 설치 옵션은 지원되지 않습니다.
+## 필수 조건
+<a id="prerequisites" class="xliff"></a>
+* 이 솔루션은 Windows Server 2008 이상에 대한 업데이트 평가 및 Windows Server 2008 R2 SP1 이상에 대한 업데이트 배포 수행을 지원합니다.  Server Core 및 Nano 서버 설치 옵션은 지원되지 않습니다.
 
     > [!NOTE]
-    > Windows Server 2008 R2에 업데이트를 배포하려면 .NET Framework 4.5 및 WMF 5.0 이상이 필요합니다.
+    > Windows Server 2008 R2 SP1에 업데이트를 배포하려면 .NET Framework 4.5 및 WMF 5.0 이상이 필요합니다.
     >  
 * Windows 클라이언트 운영 체제는 지원되지 않습니다.  
 * Windows 에이전트는 WSUS(Windows Server Update Services) 서버와 통신하도록 구성되거나 Microsoft Update에 대한 액세스 권한이 있어야 합니다.  
-  
+
     > [!NOTE]
     > System Center Configuration Manager에서 동시에 Windows 에이전트를 관리할 수 없습니다.  
     >
@@ -66,19 +74,24 @@ OMS를 통해 관리되는 컴퓨터는 다음을 사용하여 평가 및 업데
 * Red Hat Enterprise 6(x86/x64) 및 7(x64)
 * SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)
 * Ubuntu 12.04 LTS 및 최신 x86/x64  
+    > [!NOTE]  
+    > Ubuntu에서 유지 관리 기간 외에 업데이트가 적용되지 않도록 하려면 자동 업데이트를 사용하지 않도록 Unattended-Upgrade 패키지를 다시 구성합니다. 구성 방법에 대한 자세한 내용은 [Ubuntu Server 가이드의 자동 업데이트 항목](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)을 참조하세요.
+
 * Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.  
 
     > [!NOTE]
     > 여러 OMS 작업 영역에 보고하도록 구성된 Linux용 OMS 에이전트는 이 솔루션에서 지원되지 않습니다.  
-    > 
+    >
 
 Linux용 OMS 에이전트를 설치하고 최신 버전을 다운로드하는 방법에 대한 자세한 내용은 [Linux용 Operations Management Suite 에이전트](https://github.com/microsoft/oms-agent-for-linux)를 참조하세요.  Windows용 OMS 에이전트를 설치하는 방법은 [Windows용 Operations Management Suite 에이전트](../log-analytics/log-analytics-windows-agents.md)를 검토하세요.  
 
-## <a name="solution-components"></a>솔루션 구성 요소
-이 솔루션은 Automation 계정 및 직접 연결된 에이전트 또는 Operations Manager와 연결된 관리 그룹에 추가되는 다음 리소스로 구성됩니다. 
+## 솔루션 구성 요소
+<a id="solution-components" class="xliff"></a>
+이 솔루션은 Automation 계정 및 직접 연결된 에이전트 또는 Operations Manager와 연결된 관리 그룹에 추가되는 다음 리소스로 구성됩니다.
 
-### <a name="management-packs"></a>관리 팩
-System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된 경우 다음 관리 팩이 Operations Manager에 설치됩니다.  이 솔루션을 추가한 후 직접 연결된 Windows 컴퓨터에 이러한 관리 팩도 함께 설치됩니다. 이러한 관리 팩과 관련하여 아무 것도 구성하거나 관리할 필요가 없습니다. 
+### 관리 팩
+<a id="management-packs" class="xliff"></a>
+System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된 경우 다음 관리 팩이 Operations Manager에 설치됩니다.  이 솔루션을 추가한 후 직접 연결된 Windows 컴퓨터에 이러한 관리 팩도 함께 설치됩니다. 이러한 관리 팩과 관련하여 아무 것도 구성하거나 관리할 필요가 없습니다.
 
 * Microsoft System Center Advisor 업데이트 평가 인텔리전스 팩(Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration(Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -86,13 +99,15 @@ System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된
 
 솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../log-analytics/log-analytics-om-agents.md)을 참조하세요.
 
-### <a name="hybrid-worker-groups"></a>Hybrid Worker 그룹
+### Hybrid Worker 그룹
+<a id="hybrid-worker-groups" class="xliff"></a>
 이 솔루션을 사용하도록 설정하면 이 솔루션에 포함된 Runbook을 지원하기 위해 OMS 작업 영역에 직접 연결된 모든 Windows 컴퓨터가 자동으로 Hybrid Runbook Worker로 구성됩니다.  솔루션에서 관리하는 각 Windows 컴퓨터는 Automation 계정의 Hybrid Runbook Worker 그룹 블레이드에 *Hostname FQDN_GUID* 명명 규칙에 따라 나열됩니다.  계정의 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없으며, 만약 지정하면 오류가 발생합니다. 이러한 그룹은 관리 솔루션을 지원하는 용도로만 사용할 수 있습니다.   
 
 하지만 솔루션과 Hybrid Runbook Worker 그룹 멤버 자격에 동일한 계정을 사용하는 한 Automation Runbook을 지원하기 위해 Automation 계정의 Hybrid Runbook Worker 그룹에 Windows 컴퓨터를 추가할 수 있습니다.  이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.  
 
-## <a name="configuration"></a>구성
-다음 단계를 수행하여 업데이트 관리 솔루션을 OMS 작업 영역에 추가하고 에이전트가 보고하는지 확인합니다. 작업 영역에 이미 연결된 Windows 에이전트는 추가 구성 없이 자동으로 추가됩니다. 
+## 구성
+<a id="configuration" class="xliff"></a>
+다음 단계를 수행하여 업데이트 관리 솔루션을 OMS 작업 영역에 추가하고 에이전트가 보고하는지 확인합니다. 작업 영역에 이미 연결된 Windows 에이전트는 추가 구성 없이 자동으로 추가됩니다.
 
 다음 메서드를 사용하여 솔루션을 배포할 수 있습니다.
 
@@ -101,7 +116,8 @@ System Center Operations Manager 관리 그룹이 OMS 작업 영역에 연결된
 
 같은 리소스 그룹 및 지역에서 Automation 계정과 OMS 작업 영역이 이미 연결된 경우 Automation 및 제어를 선택하면 현재 구성을 확인한 후 이 솔루션만 설치되고 두 서비스에서 구성됩니다.  Azure Marketplace에서 업데이트 관리 솔루션을 선택해도 동일한 동작이 제공됩니다.  구독에 두 서비스 중 어떤 것도 배포하지 않은 경우 **새 솔루션 만들기** 블레이드의 단계에 따라 다른 미리 선택된 권장 솔루션을 설치할 것을 확인합니다.  필요에 따라 솔루션 갤러리에서 [OMS 솔루션 추가](../log-analytics/log-analytics-add-solutions.md)에 설명된 단계에 따라 OMS 작업 영역에 업데이트 관리 솔루션을 추가할 수 있습니다.  
 
-### <a name="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms"></a>OMS 에이전트 및 Operations Manager 관리 그룹이 OMS에 연결되었는지 확인
+### OMS 에이전트 및 Operations Manager 관리 그룹이 OMS에 연결되었는지 확인
+<a id="confirm-oms-agents-and-operations-manager-management-group-connected-to-oms" class="xliff"></a>
 
 몇 분 후 다음 로그 검색을 실행하여 직접 연결된 Linux용 및 Windows용 OMS 에이전트가 OMS와 통신하는지 확인할 수 있습니다.
 
@@ -114,14 +130,22 @@ Windows 컴퓨터에서 다음 사항을 검토하여 에이전트가 OMS에 연
 1.  제어판에서 Microsoft Monitoring Agent를 열면 **OMS(Azure Log Analytics)** 탭에서 에이전트가 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.**와 같은 메시지를 표시합니다.   
 2.  Windows 이벤트 로그를 열고, **응용 프로그램 및 서비스 Logs\Operations Manager**로 이동하여 원본 서비스 커넥터에서 이벤트 ID 3000 및 5002를 검색합니다.  이러한 이벤트는 컴퓨터가 OMS 작업 영역에 등록되었으며 구성을 수신하고 있음을 나타냅니다.  
 
-에이전트가 OMS 서비스와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 통신하도록 구성된 경우 [Log Analytics에서 프록시 및 방화벽 설정 구성](../log-analytics/log-analytics-proxy-firewall.md) 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다.
-  
-평가가 수행된 후 새로 추가된 Linux 에이전트의 상태가 **업데이트됨**으로 표시됩니다.  이 프로세스는 최대 6시간까지 걸릴 수 있습니다. 
+에이전트가 OMS 서비스와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 인터넷과 통신하도록 구성된 경우 [Windows 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-windows-agents.md#network) 또는 [Linux 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-linux.md#network)을 검토하여 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다.
+
+> [!NOTE]
+> Linux 시스템이 프록시 또는 OMS Gateway와 통신하도록 구성되고 이 솔루션을 온보딩하는 경우 다음 명령을 수행하여 파일에 omiuser 그룹 읽기 권한을 부여하도록 *proxy.conf* 사용 권한을 업데이트하세요.  
+> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
+> `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
+
+
+평가가 수행된 후 새로 추가된 Linux 에이전트의 상태가 **업데이트됨**으로 표시됩니다.  이 프로세스는 최대 6시간까지 걸릴 수 있습니다.
 
 Operations Manager 관리 그룹이 OMS와 통신하는지 확인하려면 [OMS와 Operations Manager 통합 유효성 검사](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms)를 참조하세요.
 
-## <a name="data-collection"></a>데이터 수집
-### <a name="supported-agents"></a>지원되는 에이전트
+## 데이터 수집
+<a id="data-collection" class="xliff"></a>
+### 지원되는 에이전트
+<a id="supported-agents" class="xliff"></a>
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
 | 연결된 소스 | 지원됨 | 설명 |
@@ -131,32 +155,37 @@ Operations Manager 관리 그룹이 OMS와 통신하는지 확인하려면 [OMS�
 | Operations Manager 관리 그룹 |예 |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br>Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 OMS 리포지토리로 전달됩니다. |
 | Azure Storage 계정 |아니요 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
 
-### <a name="collection-frequency"></a>수집 빈도
-관리되는 Windows 컴퓨터 각각의 경우 검색은 하루에 두 번 수행됩니다. 15분마다 Windows API가 호출되어 마지막 업데이트 시간을 쿼리하여 상태가 변경되었는지, 상태가 변경되었다면 준수 검사가 시작되었는지 확인합니다.  관리되는 Linux 컴퓨터 각각의 경우 검색은 세 시간마다 수행됩니다. 
+### 수집 빈도
+<a id="collection-frequency" class="xliff"></a>
+관리되는 Windows 컴퓨터 각각의 경우 검색은 하루에 두 번 수행됩니다. 15분마다 Windows API가 호출되어 마지막 업데이트 시간을 쿼리하여 상태가 변경되었는지, 상태가 변경되었다면 준수 검사가 시작되었는지 확인합니다.  관리되는 Linux 컴퓨터 각각의 경우 검색은 세 시간마다 수행됩니다.
 
 관리되는 컴퓨터의 업데이트 데이터가 대시보드에 표시될 때까지 30분에서 6시간이 걸릴 수 있습니다.   
 
-## <a name="using-the-solution"></a>솔루션 사용
+## 솔루션 사용
+<a id="using-the-solution" class="xliff"></a>
 업데이트 관리 솔루션을 OMS 작업 영역에 추가할 때 OMS 대시보드에 **업데이트 관리** 타일이 추가됩니다. 이 타일은 현재 환경의 컴퓨터 수 및 그래픽 표현과 업데이트 준수를 표시합니다.<br><br>
 ![업데이트 관리 요약 타일](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 
-## <a name="viewing-update-assessments"></a>업데이트 평가 보기
-**업데이트 관리** 타일을 클릭하여 **업데이트 관리** 대시보드를 엽니다.<br><br> ![업데이트 관리 요약 대시보드](./media/oms-solution-update-management/update-management-dashboard.png)<br> 
+## 업데이트 평가 보기
+<a id="viewing-update-assessments" class="xliff"></a>
+**업데이트 관리** 타일을 클릭하여 **업데이트 관리** 대시보드를 엽니다.<br><br> ![업데이트 관리 요약 대시보드](./media/oms-solution-update-management/update-management-dashboard.png)<br>
 
 이 대시보드는 업데이트 상태를 운영 체제 및 업데이트 분류(중요, 보안 또는 기타(예: 정의 업데이트))에 따라 구체적으로 분류하여 보여 줍니다. **업데이트 배포** 타일을 선택하면 일정, 현재 실행 중인 배포, 완료된 배포를 확인하거나 새 배포를 예약할 수 있는 업데이트 배포 페이지로 리디렉션됩니다.  
 
 특정 타일을 클릭하여 모든 레코드를 반환하는 로그 검색을 실행할 수 있으며, 특정 범주 및 미리 정의된 기준을 쿼리하려면 **일반적인 업데이트 쿼리** 열에 제공되는 목록에서 하나를 선택합니다.    
 
-## <a name="installing-updates"></a>업데이트 설치
-작업 영역의 모든 Linux 및 Windows 컴퓨터에 대한 업데이트 평가가 완료된 후에는 *업데이트 배포*를 만들어서 필수 업데이트를 설치할 수 있습니다.  업데이트 배포는 하나 이상의 컴퓨터에 필수 업데이트를 예약하여 설치합니다.  배포 범위에 포함되어야 하는 컴퓨터 또는 컴퓨터 그룹 외에도 배포 날짜 및 시간을 지정합니다.  컴퓨터 그룹에 대한 자세한 내용은 [Log Analytics의 컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 참조하세요.  업데이트 배포에 컴퓨터 그룹을 포함하는 경우 일정 생성 시 딱 한 번만 그룹 구성원을 평가합니다.  이후의 그룹 변경 내용은 반영되지 않습니다.  이 문제를 해결하려면 예약된 업데이트 배포를 삭제하고 다시 만들면 됩니다. 
+## 업데이트 설치
+<a id="installing-updates" class="xliff"></a>
+작업 영역의 모든 Linux 및 Windows 컴퓨터에 대한 업데이트 평가가 완료된 후에는 *업데이트 배포*를 만들어서 필수 업데이트를 설치할 수 있습니다.  업데이트 배포는 하나 이상의 컴퓨터에 필수 업데이트를 예약하여 설치합니다.  배포 범위에 포함되어야 하는 컴퓨터 또는 컴퓨터 그룹 외에도 배포 날짜 및 시간을 지정합니다.  컴퓨터 그룹에 대한 자세한 내용은 [Log Analytics의 컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 참조하세요.  업데이트 배포에 컴퓨터 그룹을 포함하는 경우 일정 생성 시 딱 한 번만 그룹 구성원을 평가합니다.  이후의 그룹 변경 내용은 반영되지 않습니다.  이 문제를 해결하려면 예약된 업데이트 배포를 삭제하고 다시 만들면 됩니다.
 
 > [!NOTE]
 > Azure Marketplace에서 배포된 VM은 기본적으로 Windows 업데이트 서비스에서 자동으로 업데이트를 받도록 설정됩니다.  이 동작은 작업 영역에 이 솔루션 또는 Windows VM을 추가한 후에도 변경되지 않습니다.  이 솔루션에서 업데이트를 능동적으로 관리하지 않는 경우 이 동작(업데이트 자동 적용)이 적용됩니다.  
 
 Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise Linux) 이미지에서 만든 가상 컴퓨터는 Azure에 배포된 [RHUI(Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md)에 액세스하도록 등록됩니다.  다른 모든 Linux 배포판은 지원되는 방법에 따라 배포판 온라인 파일 리포지토리에서 업데이트되어야 합니다.  
 
-### <a name="viewing-update-deployments"></a>업데이트 배포 보기
+### 업데이트 배포 보기
+<a id="viewing-update-deployments" class="xliff"></a>
 **업데이트 배포** 타일을 클릭하여 기존 업데이트 배포의 목록을 볼 수 있습니다.  **예약됨**, **실행 중** 및 **완료됨**와 같은 상태별로 그룹화합니다.<br><br> ![업데이트 배포 일정 페이지](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
 
 각 업데이트 배포에 표시된 속성을 다음 테이블에서 설명합니다.
@@ -179,10 +208,11 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 | Linux 컴퓨터 |업데이트 배포의 Linux 컴퓨터 수를 상태별로 나열합니다.  상태를 클릭하여 업데이트 배포에 대한 해당 상태와 함께 모든 업데이트 레코드를 반환하는 로그 검색을 실행합니다. |
 | 컴퓨터 설치 상태 |업데이트 배포에 포함된 컴퓨터 및 업데이트가 제대로 설치된 비율을 나열합니다. 항목 중 하나를 클릭하여 모든 누락된 중요 업데이트를 반환하는 로그 검색을 실행합니다. |
 | **업데이트 보기** | |
-| Windows 업데이트 |업데이트 배포에 포함된 Windows 업데이트 및 설치 상태를 각 업데이트별로 나열합니다.  특정 업데이트에 대한 모든 업데이트 레코드를 반환하는 로그 검색을 실행하려면 업데이트를 선택하고, 배포에 대한 모든 업데이트 레코드를 반환하는 로그 검색을 실행하려면 상태를 클릭합니다. | 
-| Linux 업데이트 |업데이트 배포에 포함된 Linux 업데이트 및 설치 상태를 각 업데이트별로 나열합니다.  특정 업데이트에 대한 모든 업데이트 레코드를 반환하는 로그 검색을 실행하려면 업데이트를 선택하고, 배포에 대한 모든 업데이트 레코드를 반환하는 로그 검색을 실행하려면 상태를 클릭합니다. | 
+| Windows 업데이트 |업데이트 배포에 포함된 Windows 업데이트 및 설치 상태를 각 업데이트별로 나열합니다.  특정 업데이트에 대한 모든 업데이트 레코드를 반환하는 로그 검색을 실행하려면 업데이트를 선택하고, 배포에 대한 모든 업데이트 레코드를 반환하는 로그 검색을 실행하려면 상태를 클릭합니다. |
+| Linux 업데이트 |업데이트 배포에 포함된 Linux 업데이트 및 설치 상태를 각 업데이트별로 나열합니다.  특정 업데이트에 대한 모든 업데이트 레코드를 반환하는 로그 검색을 실행하려면 업데이트를 선택하고, 배포에 대한 모든 업데이트 레코드를 반환하는 로그 검색을 실행하려면 상태를 클릭합니다. |
 
-### <a name="creating-an-update-deployment"></a>업데이트 배포 만들기
+### 업데이트 배포 만들기
+<a id="creating-an-update-deployment" class="xliff"></a>
 **새 업데이트 배포** 페이지를 열려면 화면 맨 위에 있는 **추가** 단추를 클릭하여 새 업데이트 배포를 만듭니다.  다음 테이블에서 속성의 값을 제공해야 합니다.
 
 | 속성 | 설명 |
@@ -196,15 +226,18 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 
 <br><br> ![새 업데이트 배포 페이지](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
-### <a name="time-range"></a>시간 범위
-기본적으로 업데이트 관리 솔루션에서 분석된 데이터의 범위는 최근 1일 이내에 생성된 모든 연결된 관리 그룹에서 시작됩니다. 
+### 시간 범위
+<a id="time-range" class="xliff"></a>
+기본적으로 업데이트 관리 솔루션에서 분석된 데이터의 범위는 최근 1일 이내에 생성된 모든 연결된 관리 그룹에서 시작됩니다.
 
 데이터의 시간 범위를 변경하려면 대시보드 위쪽에서 **데이터 기반**을 선택합니다. 지난 7일, 1일 또는 6시간 내에 생성되거나 업데이트된 레코드를 선택할 수 있습니다. 또는 **사용자 지정** 을 선택하고 사용자 지정 날짜 범위를 지정할 수 있습니다.
 
-## <a name="log-analytics-records"></a>Log Analytics 레코드
+## Log Analytics 레코드
+<a id="log-analytics-records" class="xliff"></a>
 업데이트 관리 솔루션은 OMS 리포지토리에 두 가지 유형의 레코드를 만듭니다.
 
-### <a name="update-records"></a>업데이트 레코드
+### 업데이트 레코드
+<a id="update-records" class="xliff"></a>
 **업데이트**라는 형식의 레코드가 각 컴퓨터에 설치되었거나 필요한 각 업데이트에 만들어집니다. 업데이트 레코드는 다음 테이블의 속성을 가집니다.
 
 | 속성 | 설명 |
@@ -233,11 +266,11 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 | UpdateID |업데이트를 고유하게 식별하는 GUID입니다. |
 | UpdateState |이 컴퓨터에 업데이트가 설치되어 있는지 여부를 명시합니다.<br>가능한 값은 다음과 같습니다.<br>- 설치됨 - 이 컴퓨터에 업데이트가 설치되어 있습니다.<br>- 필요함 - 업데이트가 설치되어 있지 않으며 이 컴퓨터에 필요합니다. |
 
-**업데이트**의 형식을 포함한 레코드를 반환하는 로그 검색을 수행하는 경우 검색에 의해 반환되는 업데이트를 요약하는 일련의 타일을 표시하는 **업데이트** 보기를 선택할 수 있습니다. **누락 및 적용된 업데이트** 및 **필수 및 선택적 업데이트** 타일에 있는 항목을 클릭하여 해당 업데이트 집합에 대한 보기의 범위를 지정할 수 있습니다. **목록** 또는 **테이블** 보기를 선택하여 개별 레코드를 반환합니다.<br> 
+**업데이트**의 형식을 포함한 레코드를 반환하는 로그 검색을 수행하는 경우 검색에 의해 반환되는 업데이트를 요약하는 일련의 타일을 표시하는 **업데이트** 보기를 선택할 수 있습니다. **누락 및 적용된 업데이트** 및 **필수 및 선택적 업데이트** 타일에 있는 항목을 클릭하여 해당 업데이트 집합에 대한 보기의 범위를 지정할 수 있습니다. **목록** 또는 **테이블** 보기를 선택하여 개별 레코드를 반환합니다.<br>
 
 ![레코드 형식 업데이트로 로그 검색 업데이트 보기](./media/oms-solution-update-management/update-la-view-updates.png)  
 
-**테이블** 보기에서 모든 레코드의 **KBID**를 클릭하여 KB 문서를 포함한 브라우저를 열 수 있습니다. 이를 통해 특정 업데이트의 세부 정보를 신속하게 읽을 수 있습니다.<br> 
+**테이블** 보기에서 모든 레코드의 **KBID**를 클릭하여 KB 문서를 포함한 브라우저를 열 수 있습니다. 이를 통해 특정 업데이트의 세부 정보를 신속하게 읽을 수 있습니다.<br>
 
 ![타일 레코드 형식 업데이트로 로그 검색 테이블 보기](./media/oms-solution-update-management/update-la-view-table.png)
 
@@ -245,7 +278,8 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 
 ![타일 레코드 형식 업데이트로 로그 검색 목록 보기](./media/oms-solution-update-management/update-la-view-list.png)
 
-### <a name="updatesummary-records"></a>UpdateSummary 레코드
+### UpdateSummary 레코드
+<a id="updatesummary-records" class="xliff"></a>
 형식이 **UpdateSummary**인 레코드가 각 Windows 에이전트 컴퓨터에 만들어집니다. 이 레코드는 업데이트를 위해 컴퓨터를 검색할 때마다 업데이트됩니다. **UpdateSummary** 레코드는 다음 테이블의 속성을 가집니다.
 
 | 속성 | 설명 |
@@ -268,45 +302,48 @@ Azure Marketplace에서 사용할 수 있는 주문형 RHEL(Red Hat Enterprise L
 | WindowsUpdateSetting |컴퓨터가 중요한 업데이트를 설치하는 방법에 대한 설정입니다.<br>가능한 값은 다음과 같습니다.<br>- 사용 안 함<br>- 설치하기 전에 알림<br>- 예약된 설치 |
 | WSUSServer |컴퓨터에서 사용하도록 구성된 경우 WSUS 서버의 URL입니다. |
 
-## <a name="sample-log-searches"></a>샘플 로그 검색
-다음 테이블은 이 솔루션에 의해 수집된 업데이트 레코드에 대한 샘플 로그 검색을 제공합니다. 
+## 샘플 로그 검색
+<a id="sample-log-searches" class="xliff"></a>
+다음 테이블은 이 솔루션에 의해 수집된 업데이트 레코드에 대한 샘플 로그 검색을 제공합니다.
 
 | 쿼리 | 설명 |
 | --- | --- |
-|업데이트가 필요한 Windows 기반 서버 컴퓨터 |`Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false | measure count() by Computer` |
-|업데이트가 필요한 Linux 서버 | `Type:Update OSType=Linux UpdateState!="Not needed" | measure count() by Computer` |
-| 업데이트가 누락된 모든 컴퓨터 |`Type=Update UpdateState=Needed Optional=false | select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| 특정 컴퓨터의 누락된 업데이트(값을 사용자 고유의 컴퓨터 이름으로 대체) |`Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" | select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate` |
-| 중요 또는 보안 업데이트가 누락된 모든 컴퓨터 |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates"`) |
-| 업데이트가 수동으로 적용된 컴퓨터에 필요한 중요 또는 보안 업데이트 |`Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual | Distinct Computer} | Distinct KBID` |
-| 중요 또는 보안 필수 업데이트가 누락된 컴퓨터의 오류 이벤트 |`Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false | Distinct Computer}` |
-| 업데이트 롤업이 누락된 모든 컴퓨터 |`Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed| select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate` |
-| 모든 컴퓨터에 누락된 업데이트 구분 |`Type=Update UpdateState=Needed Optional=false | Distinct Title` |
-| 업데이트 실행에 실패한 업데이트가 있는 Windows 기반 서버 컴퓨터 | `Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Title, UpdateRunName` |
-| 업데이트 실행에 실패한 업데이트가 있는 Linux 서버 |`Type:UpdateRunProgress InstallationStatus=failed | measure count() by Computer, Product, UpdateRunName` |
-| WSUS 컴퓨터 멤버 자격 |`Type=UpdateSummary | measure count() by WSUSServer` |
-| 자동 업데이트 구성 |`Type=UpdateSummary | measure count() by WindowsUpdateSetting` |
-| 자동 업데이트를 사용하지 않는 컴퓨터 |`Type=UpdateSummary WindowsUpdateSetting=Manual` |
-| 패키지 업데이트를 사용할 수 있는 모든 Linux 컴퓨터 목록 |`Type=Update and OSType=Linux and UpdateState!="Not needed" | measure count() by Computer` |
-| 중요 또는 보안 취약점을 해결하는 패키지 업데이트를 사용할 수 있는 모든 Linux 컴퓨터 목록 |`Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") | measure count() by Computer` |
-| 사용 가능한 업데이트가 있는 모든 패키지 목록 |Type=Update and OSType=Linux and UpdateState!="Not needed" |
-| 중요 또는 보안 취약점을 해결하는 업데이트를 사용할 수 있는 모든 패키지 목록 |`Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates")` |
-| 컴퓨터를 수정한 업데이트 배포 나열 |`Type:UpdateRunProgress | measure Count() by UpdateRunName` |
-|이 업데이트 실행에서 업데이트된 컴퓨터(값을 사용자의 업데이트 배포 이름으로 대체) |`Type:UpdateRunProgress UpdateRunName="DeploymentName" | measure Count() by Computer` |
-| 사용할 수 있는 업데이트가 있는 모든 "Ubuntu" 컴퓨터 목록 |`Type=Update and OSType=Linux and OSName = Ubuntu &| measure count() by Computer` |
+| Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false &#124; measure count() by Computer |업데이트가 필요한 Windows 기반 서버 컴퓨터 |
+| Type:Update OSType=Linux UpdateState!="Not needed" &#124; measure count() by Computer |업데이트가 필요한 Linux 서버 | 
+| Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |업데이트가 누락된 모든 컴퓨터 |
+| Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |특정 컴퓨터의 누락된 업데이트(값을 사용자 고유의 컴퓨터 이름으로 대체)|
+| Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |중요 또는 보안 업데이트가 누락된 모든 컴퓨터 | 
+| Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |업데이트가 수동으로 적용된 컴퓨터에 필요한 중요 또는 보안 업데이트 |
+| Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |중요 또는 보안 필수 업데이트가 누락된 컴퓨터의 오류 이벤트 |
+| Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |업데이트 롤업이 누락된 모든 컴퓨터 | 
+| Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |모든 컴퓨터에 누락된 업데이트 구분 | 
+| Type:UpdateRunProgress InstallationStatus=failed &#124; measure count() by Computer, Title, UpdateRunName |업데이트 실행에 실패한 업데이트가 있는 Windows 기반 서버 컴퓨터 | 
+| Type:UpdateRunProgress InstallationStatus=failed &#124; measure count() by Computer, Product, UpdateRunName |업데이트 실행에 실패한 업데이트가 있는 Linux 서버 | 
+| Type=UpdateSummary &#124; measure count() by WSUSServer |WSUS 컴퓨터 멤버 자격 | 
+| Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |자동 업데이트 구성 | 
+| Type=UpdateSummary WindowsUpdateSetting=Manual |자동 업데이트를 사용하지 않는 컴퓨터 | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |패키지 업데이트를 사용할 수 있는 모든 Linux 컴퓨터 목록 | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |중요 또는 보안 취약점을 해결하는 패키지 업데이트를 사용할 수 있는 모든 Linux 컴퓨터 목록 | 
+| Type=Update and OSType=Linux and UpdateState!="Not needed" |사용 가능한 업데이트가 있는 모든 패키지 목록 | 
+| Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |중요 또는 보안 취약점을 해결하는 업데이트를 사용할 수 있는 모든 패키지 목록 | 
+| Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |컴퓨터를 수정한 업데이트 배포 나열 | 
+| Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |이 업데이트 실행에서 업데이트된 컴퓨터(값을 사용자의 업데이트 배포 이름으로 대체) | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |사용할 수 있는 업데이트가 있는 모든 "Ubuntu" 컴퓨터 목록 | 
 
-## <a name="troubleshooting"></a>문제 해결 
+## 문제 해결
+<a id="troubleshooting" class="xliff"></a>
 
 이 섹션에서는 업데이트 관리 솔루션과 관련된 문제 해결에 도움이 되는 정보를 제공합니다.  
 
-### <a name="how-do-i-troubleshoot-update-deployments"></a>업데이트 배포를 문제를 해결하려면 어떻게 해야 하나요?
+### 업데이트 배포를 문제를 해결하려면 어떻게 해야 하나요?
+<a id="how-do-i-troubleshoot-update-deployments" class="xliff"></a>
 이 솔루션을 지원하는 OMS 작업 영역과 연결된 Automation 계정의 작업 블레이드에서 예약된 업데이트 배포에 포함된 업데이트의 배포를 담당하는 Runbook의 결과를 살펴볼 수 있습니다.  **Patch-MicrosoftOMSComputer** Runbook은 특정 관리형 컴퓨터를 대상으로 하는 자식 Runbook이며, 자세한 정보 스트림이 해당 배포에 대한 자세한 정보를 제공하는지 검토합니다.  출력에는 적용되는 필수 업데이트, 다운로드 상태, 설치 상태 및 추가 세부 정보가 표시됩니다.<br><br> ![배포 작업 상태 업데이트](media/oms-solution-update-management/update-la-patchrunbook-outputstream.png)<br>
 
 자세한 내용은 [Automation Runbook 출력 및 메시지](../automation/automation-runbook-output-and-messages.md)를 참조하세요.   
-  
-## <a name="next-steps"></a>다음 단계
+
+## 다음 단계
+<a id="next-steps" class="xliff"></a>
 * [Log Analytics](../log-analytics/log-analytics-log-searches.md)의 로그 검색을 사용하여 자세한 업데이트 데이터 보기
 * 관리되는 컴퓨터에 대한 업데이트 준수를 표시하는 [고유한 대시보드 만들기](../log-analytics/log-analytics-dashboards.md)
 * 중요 업데이트가 컴퓨터에서 누락된 것으로 검색되거나 컴퓨터가 자동 업데이트를 사용하지 않도록 설정한 경우 [경고 만들기](../log-analytics/log-analytics-alerts.md)  
-
 
