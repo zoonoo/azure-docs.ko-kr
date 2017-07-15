@@ -14,17 +14,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/10/2017
+ms.date: 07/03/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: b60a0d1668e7c1010663ee2b11bff26b0bb70cf0
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 993cff63037017e37ff5b0787f50ba002df28d03
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
-# <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Store 사용
+# Azure HDInsight 클러스터에 Data Lake Store 사용
+<a id="use-data-lake-store-with-azure-hdinsight-clusters" class="xliff"></a>
 
 HDInsight 클러스터에서 데이터를 분석하기 위해 [Azure Storage](../storage/storage-introduction.md), [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) 또는 양 쪽 모두에 데이터를 저장할 수 있습니다. 두 가지 저장소 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
@@ -35,7 +36,8 @@ HDInsight 클러스터에서 데이터를 분석하기 위해 [Azure Storage](..
 > 
 > 
 
-## <a name="availabilities-for-hdinsight-clusters"></a>HDInsight 클러스터에 대한 가용성
+## HDInsight 클러스터에 대한 가용성
+<a id="availabilities-for-hdinsight-clusters" class="xliff"></a>
 
 Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 시스템은 기본 체계와 권한을 의미합니다. 상대 경로를 확인하기 위해 사용할 수 있습니다. HDInsight 클러스터를 만드는 과정에서 Azure Storage에서 Blob 컨테이너를 기본 파일 시스템으로 지정하거나 HDInsight 3.5 이상을 통해, 몇 가지 예외를 제외하고 Azure Storage 또는 Azure Data Lake Store를 기본 파일 시스템으로 선택할 수 있습니다. 
 
@@ -59,7 +61,8 @@ HDInsight 클러스터는 Data Lake Store를 두 가지 방식으로 사용할 �
 Data Lake Store를 추가 저장소 계정으로 사용하면 클러스터에서 Azure Storage로 읽거나 쓰는 성능 또는 기능에 영향을 주지 않습니다.
 
 
-## <a name="use-data-lake-store-as-default-storage"></a>Data Lake Store를 기본 저장소로 사용
+## Data Lake Store를 기본 저장소로 사용
+<a id="use-data-lake-store-as-default-storage" class="xliff"></a>
 
 HDInsight가 Data Lake Store를 기본 저장소로 하여 배포되는 경우 클러스터 관련 파일은 Data Lake Store의 다음 위치에 저장됩니다.
 
@@ -81,7 +84,8 @@ Data Lake Store를 기본 저장소로 사용할 수 있으려면 다음 경로�
 서비스 주체 및 액세스 부여에 대한 자세한 내용은 [Data Lake Store 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
 
 
-## <a name="use-data-lake-store-as-additional-storage"></a>추가 저장소로 Data Lake Store 사용
+## 추가 저장소로 Data Lake Store 사용
+<a id="use-data-lake-store-as-additional-storage" class="xliff"></a>
 
 Azure Data Lake Store를 클러스터에 대한 추가 저장소로 사용할 수도 있습니다. 이런 경우 클러스터 기본 저장소는 Azure Storage Blob 또는 Data Lake Store 계정입니다. 추가 저장소로 Data Lake Store에 저장된 데이터에 대해 HDInsight 작업을 실행하는 경우 파일에 대한 정규화된 경로를 사용해야 합니다. 예:
 
@@ -96,15 +100,22 @@ Data Lake Store를 기본 저장소로 사용할 수 있으려면 파일이 저�
 서비스 주체 및 액세스 부여에 대한 자세한 내용은 [Data Lake Store 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
 
 
-## <a name="use-more-than-one-data-lake-store-accounts"></a>둘 이상의 Data Lake Store 계정 사용
+## 둘 이상의 Data Lake Store 계정 사용
+<a id="use-more-than-one-data-lake-store-accounts" class="xliff"></a>
 
 추가로 Data Lake Store 계정을 추가하고 둘 이상의 Data Lake Store 계정을 추가하는 것은 하나 이상의 Data Lake Store 계정에 있는 데이터에 HDInsight 클러스터 권한을 부여하여 수행합니다. [Data Lake Store 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
 
-## <a name="configure-data-lake-store-access"></a>Data Lake Store 액세스 구성
+## Data Lake Store 액세스 구성
+<a id="configure-data-lake-store-access" class="xliff"></a>
 
 HDInsight 클러스터에서 Data Lake Store 액세스를 구성하려면 Azure AD(Azure Active Directory) 서비스 주체가 있어야 합니다. Azure AD 관리자만 서비스 주체를 만들 수 있습니다. 서비스 주체는 인증서로 만들어야 합니다. 자세한 내용은 [Data Lake Store 액세스 구성](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access) 및 [자체 서명된 인증서로 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
 
-## <a name="access-files-from-the-cluster"></a>클러스터에서 파일 액세스
+> [!NOTE]
+> Azure Data Lake Store를 HDInsight 클러스터의 추가 저장소로 사용하려는 경우 이 문서에서 설명한 대로 클러스터를 만드는 동안 이 작업을 수행하는 것이 좋습니다. 기존의 HDInsight 클러스터에 Azure Data Lake Store를 추가 저장소로 추가하는 것은 복잡한 프로세스이며 오류가 발생하기 쉽습니다.
+>
+
+## 클러스터에서 파일 액세스
+<a id="access-files-from-the-cluster" class="xliff"></a>
 
 HDInsight 클러스터에서 Data Lake Store의 파일에 액세스할 수 있는 방법은 여러 가지입니다.
 
@@ -124,7 +135,8 @@ HDInsight 클러스터에서 Data Lake Store의 파일에 액세스할 수 있�
 
         /example/data/sample.log
 
-## <a name="create-hdinsight-clusters-with-access-to-data-lake-store"></a>Data Lake Store에 대한 액세스로 HDInsight 클러스터 만들기
+## Data Lake Store에 대한 액세스로 HDInsight 클러스터 만들기
+<a id="create-hdinsight-clusters-with-access-to-data-lake-store" class="xliff"></a>
 
 Data Lake Store에 대한 액세스로 HDInsight 클러스터를 만드는 방법에 대한 자세한 지침은 다음 링크를 사용하세요.
 
@@ -134,7 +146,8 @@ Data Lake Store에 대한 액세스로 HDInsight 클러스터를 만드는 방�
 * [Azure 템플릿 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 
-## <a name="next-steps"></a>다음 단계
+## 다음 단계
+<a id="next-steps" class="xliff"></a>
 이 문서에서는 HDInsight로 HDFS 호환 Azure Data Lake Store를 사용하는 방법을 알아보았습니다. 이제 장기적이고 확장성 있는 보관 데이터 취득 솔루션을 구축할 수 있으며, 저장된 구조적 및 비구조적 데이터 내부의 정보를 활용하는 데 HDInsight를 사용할 수 있습니다.
 
 자세한 내용은 다음을 참조하세요.
