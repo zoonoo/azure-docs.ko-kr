@@ -3,7 +3,7 @@ title: "Application Insights에서 .NET 추적 로그 탐색"
 description: "추적, NLog 또는 Log4Net을 사용하여 생성된 로그를 검색합니다."
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
 ms.service: application-insights
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/3/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1b0c902adff1d60a04fb3cddef5862256d54f813
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: e562e6a1a6c2b8203f3d5a9a2ee5680372499693
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -96,6 +96,19 @@ Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSou
  * `Name`은 수집할 EventSource의 이름을 지정합니다.
  * `Level`은 수집할 로깅 수준을 지정합니다. `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning` 중 하나일 수 있습니다.
  * `Keywords`(선택 사항)는 사용할 키워드 정수 값 조합을 지정합니다.
+
+## <a name="using-diagnosticsource-events"></a>DiagnosticSource 이벤트 사용
+Application Insights에 추적으로 보낼 [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) 이벤트를 구성할 수 있습니다. 먼저 [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet 패키지를 설치합니다. 그런 다음 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+      <Sources>
+        <Add Name="MyDiagnosticSourceName" />
+      </Sources>
+    </Add>
+```
+
+추적하려는 각 DiagnosticSource에 대해 `Name` 특성 집합이 포함된 항목을 DiagnosticSource 이름에 추가합니다.
 
 ## <a name="using-etw-events"></a>ETW 이벤트 사용
 추적으로 Application Insights에 전송될 ETW 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EtwCollector` NuGet 패키지를 설치합니다. 그런 후 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.

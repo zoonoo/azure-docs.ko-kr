@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: eec118430c6262626728c3156634361c977ccb4b
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -32,6 +33,9 @@ ms.lasthandoff: 03/29/2017
 ## <a name="create-an-alert-rule"></a>경고 규칙 만들기
 
 OMS 포털을 사용하여 경고 규칙을 만들려면 경고를 호출해야 하는 레코드에 대한 로그 검색을 만드는 것으로 시작합니다.  그러면 **경고** 단추를 사용할 수 있으며 이 단추를 사용하여 경고 규칙을 만들고 구성할 수 있습니다.
+
+>[!NOTE]
+> 현재 OMS 작업 영역에서 최대 250개의 경고 규칙을 만들 수 있습니다. 
 
 1. OMS 개요 페이지에서 **로그 검색**을 클릭합니다.
 2. 새 로그 검색 쿼리를 만들거나 저장된 로그 검색을 선택합니다. 

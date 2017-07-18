@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: davidmu
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 6b6e3f0a1182fbce209494af111cf8159e43b639
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: b8714cf97e0497cfea2b5c449ec857a16cc14924
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -64,7 +64,7 @@ ms.lasthandoff: 05/17/2017
 | 실행 중인 VM 다시 시작 |[Restart-AzureRmVM](/powershell/module/azurerm.compute/restart-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
 | VM 삭제 |[Remove-AzureRmVM](/powershell/module/azurerm.compute/remove-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM |
 | VM 일반화 |[Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm) -ResourceGroupName $myResourceGroup -Name $myVM -Generalized<BR></BR><BR></BR>이 명령을 Save-AzureRmVMImage를 실행하기 전에 실행합니다. |
-| VM 캡처 |[Save-AzureRmVMImage](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/Save-AzureRmVMImage) -ResourceGroupName $myResourceGroup -VMName $myVM -DestinationContainerName "myImageContainer" -VHDNamePrefix "myImagePrefix" -Path "C:\filepath\filename.json"<BR></BR><BR></BR>가상 컴퓨터를 이미지를 만드는 데 사용하려면 [종료 및 일반화](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)해야 합니다. 이 명령을 실행하기 전에 Set-AzureRmVm을 실행합니다. |
+| VM 캡처 |[Save-AzureRmVMImage](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/Save-AzureRmVMImage) -ResourceGroupName $myResourceGroup -VMName $myVM -DestinationContainerName "myImageContainer" -VHDNamePrefix "myImagePrefix" -Path "C:\filepath\filename.json"<BR></BR><BR></BR>가상 컴퓨터를 [준비하여 종료하고 일반화하여](prepare-for-upload-vhd-image.md) 이미지를 만드는 데 사용해야 합니다. 이 명령을 실행하기 전에 Set-AzureRmVm을 실행합니다. |
 | VM 업데이트 |[Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) -ResourceGroupName $myResourceGroup -VM $vm<BR></BR><BR></BR>Get-AzureRmVM을 사용하여 현재 VM 구성을 가져오고, VM 개체에서 구성 설정을 변경한 후, 이 명령을 실행합니다. |
 | VM에 데이터 디스크 추가 |[Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/Add-AzureRmVMDataDisk) -VM $vm -Name "myDataDisk" -VhdUri "https://mystore1.blob.core.windows.net/vhds/myDataDisk.vhd" -LUN # -Caching ReadWrite -DiskSizeinGB # -CreateOption Empty<BR></BR><BR></BR>VM 개체를 가져오려면 Get-AzureRmVM을 사용합니다. LUN 번호 및 디스크 크기를 지정합니다. VM에 구성 변경을 적용하려면 Update-AzureRmVM을 실행합니다. 추가한 디스크가 초기화되지 않았습니다. |
 | VM에서 데이터 디스크 제거 |[Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) -VM $vm -Name "myDataDisk"<BR></BR><BR></BR>VM 개체를 가져오려면 Get-AzureRmVM을 사용합니다. VM에 구성 변경을 적용하려면 Update-AzureRmVM을 실행합니다. |

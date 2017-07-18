@@ -11,13 +11,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 02/12/2017
+ms.workload: storage-backup-recovery
+ms.date: 05/31/2017
 ms.author: bsiva
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: c01805f797151f8970e1dcd2fdc58a8634fb0083
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: b2420da03b83a355215d7beeffd5b4cff10da75b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -48,26 +49,37 @@ Site Recovery는 다음 운영 체제 중 하나를 실행하는 EC2 인스턴�
 
 ## <a name="deployment-steps"></a>배포 단계
 
-1. 복구 서비스 자격 증명 모음 만들기
+1. Recovery Services 자격 증명 모음을 만듭니다.
+2. EC2 인스턴스의 보안 그룹에는 마이그레이션하려는 EC2 인스턴스와 구성 서버를 배포하려는 인스턴스 간의 통신을 허용하도록 구성된 규칙이 있어야 합니다.
 
-2. EC2 인스턴스에 대한 보안 그룹에는 다음과 같이 구성된 규칙이 있어야 합니다. ![규칙](./media/site-recovery-migrate-aws-to-azure/migration_pic1.png)
+3. EC2 인스턴스와 동일한 Amazon 가상 사설 클라우드에서 ASR 구성 서버를 배포합니다. 구성 서버 배포 요구 사항은 VMware/Physical to Azure 필수 구성 요소를 참조하세요.
 
-3. EC2 인스턴스와 동일한 Amazon 가상 사설 클라우드에서 ASR 구성 서버를 배포합니다. 구성 서버 배포 요구 사항의 Azure 필수 구성 요소에 대한 VMware / 물리적 참조 ![DeployCS](./media/site-recovery-migrate-aws-to-azure/migration_pic2.png)
+    ![DeployCS](./media/site-recovery-migrate-aws-to-azure/migration_pic2.png)
 
-4.    구성 서버가 AWS에 배포되고 Recovery Services 자격 증명 모음으로 등록되면 아래와 같이 Site Recovery 인프라 아래에서 구성 서버 및 프로세스 서버가 표시됩니다. ![CSinVault](./media/site-recovery-migrate-aws-to-azure/migration_pic3.png)
-  >[!NOTE]
-  >구성 서버 및 프로세스 서버가 표시되는 데 최대 15분까지 걸릴 수 있습니다.
-  >
+4.  구성 서버가 AWS에 배포되고 Recovery Services 자격 증명 모음으로 등록되면 아래와 같이 Site Recovery 인프라 아래에서 구성 서버 및 프로세스 서버가 표시됩니다.
 
-5. 배포한 후에 구성 서버가 마이그레이션할 VM과 통신할 수 있는지 유효성을 검사합니다.
+    ![CSinVault](./media/site-recovery-migrate-aws-to-azure/migration_pic3.png)
 
-6. [복제 설정 지정](site-recovery-setup-replication-settings-vmware.md)
+5. 구성 서버를 배포(표시되는 데 최대 15분이 걸릴 수 있음)한 후에 마이그레이션할 VM과 통신할 수 있는지 유효성을 검사합니다.
+
+6. [복제 설정을 지정합니다](site-recovery-setup-replication-settings-vmware.md).
 
 7. 복제 사용: 마이그레이션할 VM에 대해 복제를 사용하도록 설정합니다. EC2 콘솔에서 얻을 수 있는 개인 IP 주소를 사용하여 EC2 인스턴스를 검색할 수 있습니다.
-![SelectVM](./media/site-recovery-migrate-aws-to-azure/migration_pic4.png)
-8. EC2 인스턴스가 보호되고 Azure에 복제가 완료되면 [테스트 장애 조치를 실행](site-recovery-test-failover-to-azure.md)하여 Azure에서 응용 프로그램의 성능을 검사합니다. ![TFI](./media/site-recovery-migrate-aws-to-azure/migration_pic5.png)
+
+    ![SelectVM](./media/site-recovery-migrate-aws-to-azure/migration_pic4.png)
+
+8. EC2 인스턴스가 보호되고 Azure에 복제가 완료되면 [테스트 장애 조치를 실행](site-recovery-test-failover-to-azure.md)하여 Azure에서 응용 프로그램의 성능을 검사합니다.
+
+    ![TFI](./media/site-recovery-migrate-aws-to-azure/migration_pic5.png)
 
 9. 각 VM에 대해 AWS에서 Azure로 장애 조치를 실행합니다. 선택적으로 복구 계획을 만들고 장애 조치를 실행하여 AWS에서 Azure에 여러 가상 컴퓨터를 마이그레이션할 수 있습니다. [자세히 알아봅니다](site-recovery-create-recovery-plans.md) .
 
-10. 마이그레이션의 경우 장애 조치를 커밋할 필요가 없습니다. 대신 마이그레이션할 각 컴퓨터에 대해 마이그레이션 완료 옵션을 선택합니다. 마이그레이션 완료 작업은 마이그레이션 프로세스를 마치고 가상 컴퓨터에 대한 복제를 제거하며 컴퓨터에 대한 Site Recovery 청구를 중지합니다.![마이그레이션](./media/site-recovery-migrate-aws-to-azure/migration_pic6.png)
+10. 마이그레이션의 경우 장애 조치를 커밋할 필요가 없습니다. 대신 마이그레이션할 각 컴퓨터에 대해 마이그레이션 완료 옵션을 선택합니다. 마이그레이션 완료 작업은 마이그레이션 프로세스를 마치고 가상 컴퓨터에 대한 복제를 제거하며 컴퓨터에 대한 Site Recovery 청구를 중지합니다.
+
+    ![마이그레이션](./media/site-recovery-migrate-aws-to-azure/migration_pic6.png)
+
+## <a name="next-steps"></a>다음 단계
+
+- 재해 복구 수요에 맞게 다른 지역으로 [복제할 수 있도록 마이그레이션된 컴퓨터를 준비](site-recovery-azure-to-azure-after-migration.md)합니다.
+- [Azure Virtual Machines를 복제](site-recovery-azure-to-azure.md)하여 워크로드 보호를 시작합니다.
 

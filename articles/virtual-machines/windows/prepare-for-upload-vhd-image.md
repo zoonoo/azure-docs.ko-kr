@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/11/2017
+ms.date: 5/26/2017
 ms.author: glimoli;genli
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 104063500a33dfe55c56467517a5002c562772df
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 4d8972e5a18cbe471ec4c5baa53992cc23fad129
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -260,20 +261,31 @@ Windows용 최신 업데이트를 설치합니다. 가능하지 않은 경우 �
    * [KB3115224](https://support.microsoft.com/kb/3115224) Windows Server 2012 R2 또는 Windows Server 2012 호스트에서 실행되는 VM에 대한 안정성 개선
    * [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: 권한 상승 문제를 해결하기 위한 Microsoft Windows용 보안 업데이트: 2016년 3월 8일
    * [KB3063075](https://support.microsoft.com/kb/3063075) Microsoft Azure에서 Windows Server 2012 R2 가상 컴퓨터를 실행할 때 많은 ID 129 이벤트가 기록됨
-   * [KB3137061](https://support.microsoft.com/kb/3137061) Microsoft Azure VM은 데이터 중단에서 복구되지 않으며 데이터 손상 문제가 발생함
    * [KB3114025](https://support.microsoft.com/kb/3114025) Windows 8.1 또는 Server 2012 R2에서 Azure 파일 저장소에 액세스할 때 성능이 저하됨
    * [KB3033930](https://support.microsoft.com/kb/3033930) Windows에서 Azure 서비스에 대한 프로세스당 RIO 버퍼의 64K 제한이 핫픽스로 인해 증가됨
    * [KB3004545](https://support.microsoft.com/kb/3004545) Windows의 VPN 연결을 통해 Azure 호스팅 서비스에서 호스트되는 가상 컴퓨터에 액세스할 수 없음
    * [KB3082343](https://support.microsoft.com/kb/3082343) Azure 사이트 간 VPN 터널이 Windows Server 2012 R2 RRAS를 사용할 때 크로스-프레미스 VPN 연결이 끊어짐
-   * [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: 권한 상승 문제를 해결하기 위한 Microsoft Windows용 보안 업데이트: 2016년 3월 8일
    * [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: CSRSS용 보안 업데이트에 대한 설명: 2016년 4월 12일
    * [KB2904100](https://support.microsoft.com/kb/2904100) Windows에서 디스크 입/출력을 수행하는 동안 시스템이 중지됨
      
 ## Sysprep 실행 <a id="step23"></a>    
-여러 VM에 배포할 이미지를 만들려는 경우 Azure에 VHD를 업로드하기 전에 [Sysprep을 실행하여 이미지를 일반화](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)해야 합니다. 특수화된 VHD를 사용하여 Sysprep을 실행하지 않아도 됩니다. 자세한 내용은 다음 문서를 참조하세요.
+여러 VM에 배포할 이미지를 만들려는 경우 Azure에 VHD를 업로드하기 전에 Sysprep을 실행하여 이미지를 일반화해야 합니다. 특수화된 VHD를 사용하여 Sysprep을 실행하지 않아도 됩니다. 
+
+Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 이미지로 사용할 컴퓨터를 준비합니다. Sysprep에 대한 자세한 내용은 [Sysprep 사용 방법: 소개](http://technet.microsoft.com/library/bb457073.aspx)를 참조하세요.
+
+가상 컴퓨터에서 실행되는 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
+1. Windows 가상 컴퓨터에 로그인
+2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 **%windir%\system32\sysprep**로 변경한 후 `sysprep.exe`를 실행합니다.
+3. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
+4. **종료 옵션**에서 **종료**를 선택합니다.
+5. **확인**을 클릭합니다.
    
-   * [Sysprep을 사용하여 Windows 가상 컴퓨터 일반화](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-   * [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+    ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
+6. Sysprep이 완료되면 가상 컴퓨터를 종료합니다. VM을 다시 시작하지 마세요.
+
+
+
 
 ## <a name="complete-recommended-configurations"></a>권장된 구성 완료
 다음 설정은 VHD 업로드에 영향을 주지 않습니다. 그러나 반드시 구성하는 것이 좋습니다.
@@ -299,6 +311,6 @@ Windows용 최신 업데이트를 설치합니다. 가능하지 않은 경우 �
     ```
 
 ## <a name="next-steps"></a>다음 단계
-* [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](upload-generalized-managed.md)
 
 

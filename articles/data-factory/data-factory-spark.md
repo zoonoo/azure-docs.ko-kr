@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 124f04eb39296899af501d506476ad966442fc3d
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: dbee3f1d0aae885325ef9efe9c2f48961495e8b9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -299,7 +299,7 @@ Spark 활동이 포함된 Data Factory 파이프라인을 만드는 일반적인
 | className | 응용 프로그램의 Java/Spark main 클래스 | 아니요 |
 | arguments | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 아니요 |
 | proxyUser | Spark 프로그램 실행을 가장하는 사용자 계정 | 아니요 |
-| sparkConfig | Spark 구성 속성입니다. | 아니요 |
+| sparkConfig | [Spark 구성 - 응용 프로그램 속성](https://spark.apache.org/docs/latest/configuration.html#available-properties) 항목에 나열된 Spark 구성 속성의 값을 지정합니다. | 아니요 |
 | getDebugInfo | sparkJobLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 Spark 로그 파일을 언제 복사할지 지정합니다. 허용되는 값: None, Always 또는 Failure. 기본값: None. | 아니요 |
 | sparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Azure Storage 연결된 서비스입니다.  이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 저장소가 사용됩니다. | 아니요 |
 
@@ -310,7 +310,7 @@ HDInsight 연결된 서비스에서 참조하는 Azure Blob Storage에 다음 �
 
 | Path | 설명 | 필수 | 형식 |
 | ---- | ----------- | -------- | ---- |
-| 등 4가지 유형의 클러스터가 제공됩니다.    | 저장소 연결된 서비스에서 Spark 작업의 루트 경로    | 예 | 폴더 |
+| 등 4가지 유형의 클러스터가 제공됩니다. | 저장소 연결된 서비스에서 Spark 작업의 루트 경로  | 예 | 폴더 |
 | &lt;사용자 정의 &gt; | Spark 작업의 엔트리 파일을 가리키는 경로 | 예 | 파일 |
 | ./jars | 이 폴더 아래 모든 파일이 업로드되고 클러스터의 java classpath에 배치됨 | 아니요 | 폴더 |
 | ./pyFiles | 이 폴더 아래 모든 파일이 업로드되고 클러스터의 PYTHONPATH에 배치됨 | 아니요 | 폴더 |

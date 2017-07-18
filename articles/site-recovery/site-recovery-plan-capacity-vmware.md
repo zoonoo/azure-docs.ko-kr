@@ -1,6 +1,6 @@
 ---
-title: "Azure에 대한 VMware 복제를 위한 용량 및 크기 조정 계획 | Microsoft Docs"
-description: "이 문서를 사용하여 Azure에 VMware VM을 복제하는 경우 용량 및 크기 조정 계획"
+title: "Azure Site Recovery를 사용하여 Azure에 VMware 복제를 위한 용량 및 크기 조정 계획 | Microsoft Docs"
+description: "Azure Site Recovery를 사용하여 Azure에 VMware VM을 복제하는 경우 용량 및 크기 조정을 계획하려면 이 문서를 사용합니다."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,22 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/05/2017
+ms.date: 05/24/2017
 ms.author: rayne
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 86366359e065c9a9b4a52136254588e67125fb5f
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 8b580ac239bfb6d7b633fb03d4cfb91b168b0610
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 VMware 복제를 위한 용량 및 크기 조정 계획
 
-[Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 VMware VM 및 물리적 서버를 Azure에 복제하는 경우 용량 및 크기 조정을 계획하는 방법을 파악하려면 이 문서를 사용합니다.
+[Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 VMware VM 및 물리적 서버를 Azure에 복제하는 경우 용량 및 크기 조정 계획을 파악하려면 이 문서를 사용합니다.
 
 ## <a name="how-do-i-start-capacity-planning"></a>용량 계획을 시작하려면 어떻게 해야 하나요?
 
-[Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc)를 사용하여 복제 환경에 대한 정보를 수집합니다. 여기에는 호환되는 가상 컴퓨터 및 호환되지 않는 가상 컴퓨터의 수, VM당 디스크 수, 디스크당 데이터 변동률에 대한 정보가 포함됩니다. 네트워크 대역폭 요구 사항 및 성공적인 복제 및 테스트 장애 조치(failover)에 필요한 Azure 인프라에 대해서도 다룹니다.
+VMware 복제를 위해 [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc)를 실행하여 복제 환경에 대한 정보를 수집합니다. [자세히 알아보세요](site-recovery-deployment-planner.md) . 호환되거나 호환되지 않는 VM, VM당 디스크 및 디스크당 데이터 변동에 대한 정보를 수집합니다. 도구는 네트워크 대역폭 요구 사항과 성공적인 복제 및 테스트 장애 조치(failover)에 필요한 Azure 인프라에 대해서도 다룹니다.
 
 ## <a name="capacity-considerations"></a>용량 고려 사항
 
@@ -79,7 +80,7 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="control-network-bandwidth"></a>네트워크 대역폭 제어
 
-[Deployment Planner 도구](https://aka.ms/asr-deployment-planner-doc)를 사용하여 복제(초기 복제 및 그 후 델타 복제 포함)에 필요한 대역폭을 계산할 수 있습니다. 복제에 사용되는 대역폭 사용량을 제어하는 몇 가지 옵션이 있습니다.
+[Deployment Planner 도구](site-recovery-deployment-planner.md)를 사용하여 복제(초기 복제 및 다음 델타)에 필요한 대역폭을 계산한 후 다음 몇 가지 옵션을 사용한 복제에 사용되는 대역폭의 양을 제어할 수 있습니다.
 
 * **대역폭 제한**: Azure에 복제하는 VMware 트래픽이 특정 프로세스 서버를 통과합니다. 프로세스 서버로 실행되는 컴퓨터에서 대역폭을 제한할 수 있습니다.
 * **대역폭 영향**: 몇 가지 레지스트리 키를 사용하면 복제에 사용되는 대역폭에 영향을 줄 수 있습니다.
@@ -87,6 +88,7 @@ ms.lasthandoff: 03/22/2017
   * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM**은 장애 복구(failback) 동안 데이터 전송에 사용되는 스레드 수를 지정합니다.
 
 ### <a name="throttle-bandwidth"></a>대역폭 제한
+
 1. 프로세스 서버 역할을 하는 컴퓨터에서 Azure Backup MMC 스냅인을 엽니다. 기본적으로 바탕 화면 또는 C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin 폴더에 Backup의 바로 가기가 있습니다.
 2. 스냅인에서 **속성 변경**을 클릭합니다.
 
@@ -140,9 +142,7 @@ ms.lasthandoff: 03/22/2017
 3. **대상 프로세스 서버 선택**에서 사용할 새 프로세스 서버를 선택한 다음 서버가 처리할 가상 컴퓨터를 선택합니다. 서버에 대한 정보를 얻으려면 정보 아이콘을 클릭합니다. 부하 결정을 할 때 도움이 되도록 선택된 각 가상 컴퓨터를 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시됩니다. 새 프로세스 서버로 복제를 시작하려면 확인 표시를 클릭합니다.
 
 
+## <a name="next-steps"></a>다음 단계
 
-
-
-
-
+[Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner) 다운로드 및 실행
 

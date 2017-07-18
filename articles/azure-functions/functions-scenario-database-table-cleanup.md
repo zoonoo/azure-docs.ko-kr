@@ -1,6 +1,6 @@
 ---
-title: "Azure Functions를 사용하여 예약된 정리 작업 수행 | Microsoft 문서"
-description: "Azure Functions를 사용하여 이벤트 타이머에 기반하여 실행되는 C# 함수를 만듭니다."
+title: "Azure Functions를 사용하여 데이터베이스 정리 작업 수행 | Microsoft Docs"
+description: "Azure Functions를 사용하여 Azure SQL Database에 연결하여 행을 주기적으로 정리하는 작업을 예약합니다."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -13,91 +13,117 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 05/22/2017
 ms.author: glenga
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b873a7d0ef9efa79c9a173a8bfd3522b12522322
-ms.openlocfilehash: c0b4a963275dae5bbf203388cb61086393803b15
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 6fd0e32374827b249f5aba1cbfc39117c88c6272
 ms.contentlocale: ko-kr
-ms.lasthandoff: 11/29/2016
+ms.lasthandoff: 05/25/2017
 
 
 ---
-# <a name="use-azure-functions-to-perform-a-scheduled-clean-up-task"></a>Azure Functions을 사용하여 예약된 정리 작업 수행하기
-이 토픽에서는 Azure Functions를 사용하여 데이터베이스 테이블에서 행을 정리하는 이벤트 타이머에 따라 실행하는 새로운 함수를 C#에서 만드는 방법을 알아봅니다. 새 함수는 Azure Functions 포털에서 미리 정의된 템플릿을 기반으로 생성됩니다. 이 시나리오를 지원하려면 문자열을 연결하는 데이터베이스를 함수 앱에서 앱 서비스 설정으로 설정해야 합니다. 
+# <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
+이 항목에서는 Azure Functions를 사용하여 Azure SQL Database의 테이블에서 행을 정리하는 예약된 작업을 만드는 방법을 보여 줍니다. 새 C# 함수는 Azure Portal에서 미리 정의된 타이머 트리거 템플릿을 기반으로 생성됩니다. 이 시나리오를 지원하려면 데이터베이스 연결 문자열을 함수 앱에서 설정으로 지정해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 함수가 Mobile Apps 테이블에서 개별 CRUD 작업을 처리하게 하려면 [Mobile Apps 바인딩](functions-bindings-mobile-apps.md)을 사용해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [무료 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
 
-이 토픽은 SQL Database의 *TodoItems* 테이블에서 대량 정리 작업을 실행하는 Transact-SQL 명령을 보여줍니다. 이 TodoItems 테이블은 [Azure App Service Mobile Apps 빠른 시작 자습서](../app-service-mobile/app-service-mobile-ios-get-started.md)를 완료하면 만들어집니다. 샘플 데이터베이스도 사용할 수 있습니다. 다른 테이블을 사용하고자 할 경우, 명령을 수정해야 합니다.
++ 이 항목에서는 타이머 트리거 함수를 사용합니다. 이 함수의 C# 버전을 만들려면 [Azure에서 타이머에 따라 트리거되는 함수 만들기](functions-create-scheduled-function.md) 항목의 단계를 완료합니다.   
 
-포털의 Mobile Apps 백엔드에 사용된 연결 문자열은 **모든 설정** > **응용 프로그램 설정** > **연결 문자열** > **연결 문자열 값 표시** > **MS_TableConnectionString**에서 가져올 수 있습니다. 또한, 포털의 SQL Database에서 끌어온 연결 문자열은 **모든 설정** > **속성** > **데이터베이스 연결 문자열 표시** > **ADO.NET(SQL 인증)**에서 가져올 수 있습니다.
++ 이 항목은 AdventureWorksLT 샘플 데이터베이스의 **SalesOrderHeader** 테이블에서 대량 정리 작업을 실행하는 Transact-SQL 명령을 보여 줍니다. AdventureWorksLT 샘플 데이터베이스를 만들려면 [Azure Portal에서 Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 항목의 단계를 완료합니다. 
 
-이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 함수가 모바일 앱 테이블에서 개별 CRUD 작업을 처리하게 하려면 모바일 테이블 바인딩을 사용해야 합니다.
+## <a name="get-connection-information"></a>연결 정보 가져오기
 
-## <a name="set-a-sql-database-connection-string-in-the-function-app"></a>함수 앱에서 SQL 데이터베이스 연결 문자열 설정
-함수 앱은 Azure에서 함수 실행을 호스트합니다. 함수 앱 설정에 연결 문자열과 다른 비밀 정보를 저장하는 것이 좋습니다. 이렇게 하면 함수 코드가 리포지토리 어딘가에 있더라도 정보가 우연히 공개되지 않습니다. 
+[Azure Portal에서 Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md)를 완료하면 만든 데이터베이스에 대한 연결 문자열을 가져와야 합니다.
 
-1. [Azure Functions 포털](https://functions.azure.com/signin) 로 이동하여 Azure 계정으로 로그인합니다.
-2. 기존 함수 앱을 사용하는 경우 **함수 앱**에서 선택하고 **열기**를 클릭합니다. 새 함수 앱을 만들려면 새 함수 앱에 대해 고유한 **이름**을 입력하거나 생성된 이름을 수락하거나 선호하는 **지역**을 선택한 후 **만들기 + 시작**을 클릭합니다. 
-3. 함수 앱에서 **함수 앱 설정** > **App Service 설정으로 이동**을 클릭합니다. 
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+ 
+3. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 선택합니다.
+
+4. **데이터베이스 연결 문자열 표시**를 선택하고 **ADO.NET** 연결 문자열 전체를 복사합니다.
+
+    ![ADO.NET 연결 문자열을 복사합니다.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
+
+## <a name="set-the-connection-string"></a>연결 문자열 설정 
+
+함수 앱은 Azure에서 함수 실행을 호스트합니다. 함수 앱 설정에 연결 문자열과 다른 비밀 정보를 저장하는 것이 좋습니다. 응용 프로그램 설정을 사용하여 코드로 연결 문자열이 실수로 노출되는 것을 방지합니다. 
+
+1. [Azure에서 타이머에 따라 트리거되는 함수 만들기](functions-create-scheduled-function.md)에서 만든 함수 앱으로 이동합니다.
+
+2. **플랫폼 기능** > **응용 프로그램 설정**을 선택합니다.
    
-    ![함수 앱 설정 블레이드](./media/functions-create-an-event-processing-function/functions-app-service-settings.png)
-4. 함수 앱에서 **모든 설정**을 클릭하고 **응용 프로그램 설정**으로 스크롤을 내린 다음, **연결 문자열**에서 **이름**에 `sqldb_connection`을 입력하고 연결 문자열을 **값**에 붙여넣습니다. **저장**을 클릭한 다음, 함수 앱 블레이드를 닫고 Functions 포털로 돌아옵니다.
+    ![함수 앱에 대한 응용 프로그램 설정입니다.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings.png)
+
+2. **연결 문자열**까지 아래로 스크롤하고 테이블에 지정된 설정을 사용하여 연결 문자열을 추가합니다.
    
-    ![앱 서비스 설정 연결 문자열](./media/functions-create-an-event-processing-function/functions-app-service-settings-connection-strings.png)
+    ![함수 앱 설정에 연결 문자열을 추가합니다.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-strings.png)
+
+    | 설정       | 제안 값 | 설명             | 
+    | ------------ | ------------------ | --------------------- | 
+    | **Name**  |  sqldb_connection  | 함수 코드에 저장된 연결 문자열에 액세스하는 데 사용합니다.    |
+    | **값** | 복사한 문자열  | 이전 섹션에서 복사한 연결 문자열을 붙여넣습니다. |
+    | **형식** | SQL 데이터베이스 | 기본 SQL Database 연결을 사용합니다. |   
+
+3. **Save**를 클릭합니다.
 
 이제 SQL 데이터베이스와 연결하는 C# 함수 코드를 추가할 수 있습니다.
 
-## <a name="create-a-timer-triggered-function-from-the-template"></a>템플릿에서 타이머로 트리거된 함수 만들기
-1. 함수 앱에서 **+새 함수** > **TimerTrigger - C#** > **만들기**를 클릭합니다. 1분에 한 번씩 기본 일정에서 실행되는 기본 이름을 가진 함수를 만듭니다. 
-   
-    ![새 타이머로 트리거되는 함수 만들기](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
-2. **개발** 탭의 **코드** 창에서 기존 함수 코드의 맨 위에 다음 어셈블리 참조를 추가합니다.
+## <a name="update-your-function-code"></a>함수 코드 업데이트
+
+1. 함수 앱에서 타이머 트리거 함수를 선택합니다.
+ 
+3. 기존 함수 코드의 맨 위에 다음 어셈블리 참조를 추가합니다.
+
     ```cs
-        #r "System.Configuration"
-        #r "System.Data"
+    #r "System.Configuration"
+    #r "System.Data"
     ```
 
 3. 다음 `using` 문을 함수에 추가합니다.
     ```cs
-        using System.Configuration;
-        using System.Data.SqlClient;
-        using System.Threading.Tasks;
+    using System.Configuration;
+    using System.Data.SqlClient;
+    using System.Threading.Tasks;
     ```
 
 4. 기존 **Run** 함수를 다음 코드로 바꿉니다.
     ```cs
-        public static async Task Run(TimerInfo myTimer, TraceWriter log)
+    public static async Task Run(TimerInfo myTimer, TraceWriter log)
+    {
+        var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
+        using (SqlConnection conn = new SqlConnection(str))
         {
-            var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(str))
+            conn.Open();
+            var text = "UPDATE SalesLT.SalesOrderHeader " + 
+                    "SET [Status] = 5  WHERE ShipDate < GetDate();";
+
+            using (SqlCommand cmd = new SqlCommand(text, conn))
             {
-                conn.Open();
-                var text = "DELETE from dbo.TodoItems WHERE Complete='True'";
-                using (SqlCommand cmd = new SqlCommand(text, conn))
-                {
-                    // Execute the command and log the # rows deleted.
-                    var rows = await cmd.ExecuteNonQueryAsync();
-                    log.Info($"{rows} rows were deleted");
-                }
+                // Execute the command and log the # rows affected.
+                var rows = await cmd.ExecuteNonQueryAsync();
+                log.Info($"{rows} rows were updated");
             }
         }
+    }
     ```
 
-5. **저장**을 클릭하고 **로그** 창에서 다음 함수 실행을 지켜본 다음, TodoItems 테이블에서 삭제된 행 개수를 메모합니다.
-6. (선택 사항) [모바일 앱 퀵스타트 앱](../app-service-mobile/app-service-mobile-ios-get-started.md)을 사용하여 추가 항목을 "완료됨"으로 표시하고 **로그** 창으로 돌아와서 다음 함수 실행 시 같은 개수의 행이 삭제되는지 확인합니다. 
+    이 샘플 명령은 운송 날짜를 기준으로 **Status** 열을 업데이트합니다. 32행의 데이터를 업데이트해야 합니다.
+
+5. **저장**을 클릭하고 **로그** 창에서 다음 함수 실행을 확인한 다음 **SalesOrderHeader** 테이블에서 업데이트된 행 개수를 메모합니다.
+
+    ![함수 로그를 확인합니다.](./media/functions-scenario-database-table-cleanup/functions-logs.png)
 
 ## <a name="next-steps"></a>다음 단계
-Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
+
+다음으로, Logic Apps와 함께 함수를 사용하여 다른 서비스와 통합하는 방법에 대해 알아봅니다.
+
+> [!div class="nextstepaction"] 
+> [Logic Apps와 통합되는 함수 만들기](functions-twitter-email.md)
+
+Functions에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * [Azure Functions 개발자 참조](functions-reference.md)  
-   함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
+  함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
 * [Azure Functions 테스트](functions-test-a-function.md)  
-   함수를 테스트하는 다양한 도구와 기법을 설명합니다.
-* [Azure Functions 크기 조정 방법](functions-scale.md)  
-  Azure Functions와 함께 제공되는 서비스 계획(소비 계획 포함) 및 올바른 계획 선택 방법에 대해 설명합니다.  
-
-
-
+  함수를 테스트하는 다양한 도구와 기법을 설명합니다.  
 

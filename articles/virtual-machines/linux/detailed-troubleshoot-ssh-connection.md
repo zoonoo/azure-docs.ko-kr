@@ -14,17 +14,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 03/07/2017
+ms.date: 05/18/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: df65c08a56596af2341b9cad4c89b5d18f6c6404
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: f31f17121fdb42f4ae911efde9e98bbd223d0680
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="detailed-ssh-troubleshooting-steps"></a>자세한 SSH 문제 해결
-SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여러 원인이 있습니다. 추가적인 [일반 SSH 문제 해결 단계](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 진행한 경우 연결 문제를 추가적으로 해결해야 합니다. 이 문서에서는 SSH 연결에 문제가 있는지 확인하는 자세한 문제 해결 단계와 해결 방법을 안내합니다.
+# <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 연결할 때의 문제에 대한 자세한 SSH 문제 해결 단계
+SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여러 원인이 있습니다. 추가적인 [일반 SSH 문제 해결 단계](troubleshoot-ssh-connection.md)를 진행한 경우 연결 문제를 추가적으로 해결해야 합니다. 이 문서에서는 SSH 연결에 문제가 있는지 확인하는 자세한 문제 해결 단계와 해결 방법을 안내합니다.
 
 ## <a name="take-preliminary-steps"></a>준비 단계 수행
 다음 다이어그램은 관련된 구성 요소를 보여 줍니다.
@@ -95,7 +96,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 ![조직 에지 장치를 강조하는 다이어그램](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-인터넷에 직접 연결된 컴퓨터가 없는 경우 자체 리소스 그룹에 또는 클라우드 서비스에 새 Azure VM을 만든 후 사용합니다. 자세한 내용은 [Azure에서 Linux를 실행하는 가상 컴퓨터 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 테스트가 완료되면 리소스 그룹 또는 VM 및 클라우드 서비스를 삭제합니다.
+인터넷에 직접 연결된 컴퓨터가 없는 경우 자체 리소스 그룹에 또는 클라우드 서비스에 새 Azure VM을 만든 후 사용합니다. 자세한 내용은 [Azure에서 Linux를 실행하는 가상 컴퓨터 만들기](quick-create-cli.md)를 참조하세요. 테스트가 완료되면 리소스 그룹 또는 VM 및 클라우드 서비스를 삭제합니다.
 
 인터넷에 직접 연결된 컴퓨터에 대한 SSH 연결을 설정할 수 있는 경우 조직 에지 장치에서 다음을 확인합니다.
 
@@ -113,7 +114,7 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 
 ![클라우드 서비스 끝점 및 ACL을 강조하는 다이어그램](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
-동일한 가상 네트워크에 다른 VM이 없는 경우 새 가상 컴퓨터를 손쉽게 만들 수 있습니다. 자세한 내용은 [CLI를 사용하여 Azure에서 Linux VM 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 테스트를 마치면 추가한 VM을 삭제합니다.
+동일한 가상 네트워크에 다른 VM이 없는 경우 새 가상 컴퓨터를 손쉽게 만들 수 있습니다. 자세한 내용은 [CLI를 사용하여 Azure에서 Linux VM 만들기](quick-create-cli.md)를 참조하세요. 테스트를 마치면 추가한 VM을 삭제합니다.
 
 동일한 가상 네트워크에 있는 VM과 SSH의 연결을 만들 수 있는 경우 다음 영역을 확인합니다.
 
@@ -143,6 +144,6 @@ SSH 클라이언트가 VM의 SSH 서비스에 도달할 수 없는 데에는 여
 * Azure 가상 컴퓨터에서 실행 중인 침입 검색 또는 네트워크 모니터링 소프트웨어가 SSH 연결을 방지하고 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
-응용 프로그램 액세스 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+응용 프로그램 액세스 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](troubleshoot-app-connection.md)을 참조하세요.
 
 

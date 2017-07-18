@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: cec0ceb0da57150e4bdd9f9a0f6d3e751c108523
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 00d030a502cf70ea9a5dea767f560cdf2919573e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -44,10 +46,13 @@ Log Analytics **설정**의 **데이터** 메뉴에서 데이터 원본을 구�
 
 ![Windows 이벤트 구성](./media/log-analytics-data-sources/configure-events.png)
 
-1. OMS 콘솔에서 **설정** 타일을 선택합니다.
+1. OMS 콘솔에서 화면 상단에 있는 **설정** 버튼 또는 **설정** 타일을 클릭합니다.
 2. **데이터**를 선택합니다.
 3. 구성할 데이터 원본을 클릭합니다.
 4. 해당 구성에 대한 세부 정보를 보려면 위 표에서 각 데이터 원본에 대한 설명서 링크를 따릅니다.
+
+> [!NOTE]
+> 현재 Azure Portal에서 Log Analytics 데이터 원본을 구성할 수 없습니다.
 
 ## <a name="data-collection"></a>데이터 수집
 데이터 원본 구성은 몇 분 이내에 Log Analytics에 직접 연결된 에이전트로 전달됩니다.  지정된 데이터는 에이전트에서 수집되어 각 데이터 원본에 특정한 간격으로 Log Analytics에 직접 전달됩니다.  이러한 세부 사항은 각 데이터 원본에 대한 설명서를 참조하세요.
@@ -63,9 +68,4 @@ Log Analytics에서 수집된 모든 데이터는 OMS 리포지토리에 레코�
 * Log Analytics에 기능을 추가하고 OMS 리포지토리로 데이터를 수집하는 [솔루션](log-analytics-add-solutions.md) 에 대해 알아봅니다.
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.  
 * 데이터 원본 및 솔루션에서 수집된 중요한 데이터를 사전에 알리도록 [경고](log-analytics-alerts.md)를 구성합니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -4,7 +4,7 @@ description:
 services: 
 documentationcenter: 
 author: vikramdesai01
-manager: vikramdesai01
+manager: vikdesai
 editor: 
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: vikdesai
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 3453e80246393f15cf0ee2eb29b2fb1d53f77078
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 247782a86a0d20486513dff0dae0c1564b5ecb72
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -63,7 +64,7 @@ ms.lasthandoff: 04/26/2017
     ![청구 읽기 권한자가 Azure Portal에서 볼 수 있는 내용을 보여 주는 스크린샷](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> 청구 읽기 권한자 기능은 미리 보기이며 Azure 글로벌 클라우드에서만 사용할 수 있습니다.
+> 청구 읽기 권한자 기능은 미리 보기의 기능이며 엔터프라이즈(EA) 구독 또는 비 글로벌 클라우드는 아직 지원하지 않습니다.
 
 ## <a name="adding-users-to-other-roles"></a>다른 역할에 사용자 추가
 
@@ -76,3 +77,4 @@ ms.lasthandoff: 04/26/2017
 ## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
 
 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+

@@ -1,6 +1,6 @@
 ---
 title: "일반화된 온-프레미스 VHD에서 관리되는 Azure VM 만들기 | Microsoft Docs"
-description: "온-프레미스에서 업로드한 VHD를 사용하여 Azure에서 관리되는 VM을 만들고 Resource Manager 배포 모델에서 Managed Disks를 사용합니다."
+description: "일반화된 VHD를 Azure에 업로드하고 이를 사용하여 Resource Manager 배포 모델에서 새 VM을 만듭니다."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,37 +13,32 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 05/19/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d5233e71863a47988ab3458ba15dba7b53025db9
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 581082600db3c14c2ef33acb1d47b0b48e9d0142
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/03/2017
 
 ---
 
-# <a name="create-a-new-vm-from-a-generalized-vhd-uploaded-to-azure-using-managed-disks"></a>Managed Disks를 사용하여 Azure에 업로드된 일반화된 VHD에서 새 VM 만들기
+# <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기
 
-다른 클라우드 또는 온-프레미스 가상화 도구에서 내보낸 VHD를 업로드하여 Azure에서 새 VM을 만들 수 있습니다. 새 VM에 대해 [Managed Disks](../../storage/storage-managed-disks-overview.md)를 사용하면 VM 관리를 간소화하고 VM이 가용성 집합에 배치되는 경우 가용성이 증가됩니다. 여러 Azure VM 인스턴스를 만드는데 사용할 VHD를 업로드하는 경우 먼저 [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 VHD를 일반화해야 합니다. Sysprep은 VHD에서 모든 컴퓨터의 특정 정보 및 개인 계정 정보를 제거합니다. 
+이 항목에서는 PowerShell을 사용하여 일반화된 VM의 VHD를 Azure에 업로드하고, VHD에서 이미지를 만들고, 해당 이미지에서 새 VM을 만드는 과정을 안내합니다. 다른 클라우드 또는 온-프레미스 가상화 도구에서 내보낸 VHD를 업로드할 수 있습니다. 새 VM에 대해 [Managed Disks](../../storage/storage-managed-disks-overview.md)를 사용하면 VM 관리를 간소화하고 VM이 가용성 집합에 배치되는 경우 가용성이 증가됩니다. 
 
-Azure Managed Disks를 사용하면 Azure VM의 [저장소 계정](../../storage/storage-introduction.md)을 관리할 필요가 없습니다. 필요한 디스크의 유형인 [프리미엄](../../storage/storage-premium-storage-performance.md) 또는 [표준](../../storage/storage-standard-storage.md)과 크기만 지정하면 Azure가 알아서 디스크를 만들고 관리합니다. 
-
-
-> [!IMPORTANT]
-> [Managed Disks](../../storage/storage-managed-disks-overview.md)로 마이그레이션을 시작하기 전에 [Managed Disks로 마이그레이션하기 위한 계획](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)을 검토하세요.
->
-> Azure에 VHD를 업로드하기 전에 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 수행해야 합니다.
->
->
+샘플 스크립트를 사용하려면 [Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-PowerShell을 사용하는 경우 AzureRM.Compute PowerShell 모듈이 최신 버전인지 확인합니다. 다음 명령을 실행하여 PowerShell을 설치합니다.
 
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-자세한 내용은 [Azure PowerShell 버전 관리](/powershell/azure/overview)를 참조하세요.
+- Azure에 VHD를 업로드하기 전에 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 수행해야 합니다.
+- [Managed Disks](../../storage/storage-managed-disks-overview.md)로 마이그레이션을 시작하기 전에 [Managed Disks로 마이그레이션하기 위한 계획](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)을 검토하세요.
+- AzureRM.Compute PowerShell 모듈이 최신 버전인지 확인합니다. 다음 명령을 실행하여 PowerShell을 설치합니다.
+
+    ```powershell
+    Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+    ```
+    자세한 내용은 [Azure PowerShell 버전 관리](/powershell/azure/overview)를 참조하세요.
 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Sysprep을 사용하여 Windows VM 일반화
@@ -81,7 +76,7 @@ PowerShell 버전 1.4 이상을 아직 설치하지 않은 경우 [Azure PowerSh
     ```powershell
     Get-AzureRmSubscription
     ```
-3. 구독 ID를 사용하여 올바른 구독을 설정합니다. `<subscriptionID>`를 올바른 구독의 ID로 바꿉니다.
+3. 구독 ID를 사용하여 올바른 구독을 설정합니다. *<subscriptionID>*를 올바른 구독의 ID로 바꿉니다.
    
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
@@ -108,16 +103,16 @@ Get-AzureRmStorageAccount
     Get-AzureRmResourceGroup
     ```
 
-    **미국 서부** 지역에 **myResourceGroup** 이라는 이름의 리소스 그룹을 만들려면 다음을 입력합니다.
+    **미국 동부** 지역에 **myResourceGroup** 이라는 이름의 리소스 그룹을 만들려면 다음을 입력합니다.
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    New-AzureRmResourceGroup -Name myResourceGroup -Location "East US"
     ```
 
 2. [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet을 사용하여 이 리소스 그룹에 **mystorageaccount**라는 이름의 저장소 계정을 만듭니다.
    
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
+    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "East US"`
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
    
@@ -131,7 +126,7 @@ Get-AzureRmStorageAccount
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>저장소 계정에 VHD 업로드
 
-[Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet을 사용하여 저장소 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 `"C:\Users\Public\Documents\Virtual hard disks\"`에서 **myResourceGroup** 리소스 그룹의 **mystorageaccount**라는 저장소 계정에 파일 **myVHD.vhd**를 업로드합니다. 파일은 **mycontainer**라는 컨테이너에 배치되고 새 파일 이름은 **myUploadedVHD.vhd**가 됩니다.
+[Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet을 사용하여 저장소 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 *"C:\Users\Public\Documents\Virtual hard disks\"*에서 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 저장소 계정에 파일 *myVHD.vhd*를 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 배치되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -160,63 +155,51 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 업로드된 VHD를 사용하여 Managed Disk 또는 새 VM을 만들려면 나중에 사용할 수 있도록 **대상 URI** 경로를 저장합니다.
 
 ### <a name="other-options-for-uploading-a-vhd"></a>VHD를 업로드하기 위한 기타 옵션
-
+ 
+ 
 또한 다음 방법 중 하나를 사용하여 저장소 계정에 VHD를 업로드할 수 있습니다.
 
--   [Azure 저장소 Blob 복사 API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-
--   [Azure Storage 탐색기 Blob 업로드](https://azurestorageexplorer.codeplex.com/)
-
--   [저장소 가져오기/내보내기 서비스 REST API 참조](https://msdn.microsoft.com/library/dn529096.aspx)
-
-    예상 업로드 시간이 7일보다 긴 경우 가져오기/내보내기 서비스를 사용하는 것이 좋습니다. [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html)를 사용하여 데이터 크기 및 전송 단위로 시간을 예측할 수 있습니다. 
-
+- [AZCopy](http://aka.ms/downloadazcopy)
+- [Azure 저장소 Blob 복사 API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+- [Azure Storage 탐색기 Blob 업로드](https://azurestorageexplorer.codeplex.com/)
+- [저장소 가져오기/내보내기 서비스 REST API 참조](https://msdn.microsoft.com/library/dn529096.aspx)
+-    예상 업로드 시간이 7일보다 긴 경우 가져오기/내보내기 서비스를 사용하는 것이 좋습니다. [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html)를 사용하여 데이터 크기 및 전송 단위로 시간을 예측할 수 있습니다. 
     가져오기/내보내기를 사용하여 표준 저장소 계정을 복사할 수 있습니다. AzCopy와 같은 도구를 사용하여 표준 저장소에서 프리미엄 저장소 계정으로 복사해야 합니다.
+
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>업로드된 VHD에서 관리되는 이미지 만들기 
 
-일반화된 OS VHD를 사용하여 관리되는 이미지를 만듭니다.
+일반화된 OS VHD를 사용하여 관리 이미지를 만듭니다. 사용자 고유의 정보로 값을 대체합니다.
 
 
 1.  먼저, 공통 매개 변수를 설정합니다.
 
     ```powershell
-    $rgName = "myResourceGroupName"
     $vmName = "myVM"
-    $location = "West Central US" 
+    $computerName = "myComputer"
+    $vmSize = "Standard_DS1_v2"
+    $location = "East US" 
     $imageName = "yourImageName"
-    $osVhdUri = "https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
     ```
 
 4.  일반화된 OS VHD를 사용하여 이미지를 만듭니다.
 
     ```powershell
     $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $urlOfUploadedImageVhd
     $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
-
-## <a name="setup-some-variables-for-the-image"></a>이미지에 대한 몇 가지 변수 설정
-
-먼저 이미지에 대한 기본 정보를 수집하고 이미지의 변수를 만들어야 합니다. 이 예제에서는 **미국 중서부** 위치의 **myResourceGroup** 리소스 그룹에 있는 **myImage**라는 관리되는 VM 이미지를 사용합니다. 
-
-```powershell
-$rgName = "myResourceGroup"
-$location = "West Central US"
-$imageName = "myImage"
-$image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
-```
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 [가상 네트워크](../../virtual-network/virtual-networks-overview.md)의 vNet 및 서브넷을 만듭니다.
 
-1. 서브넷을 만듭니다. 이 예제에서는 주소 접두사로 **10.0.0.0/24**를 사용하는 **mySubnet**이라는 서브넷을 만듭니다.  
+1. 서브넷을 만듭니다. 이 예제에서는 주소 접두사로 *10.0.0.0/24*를 사용하는 *mySubnet*이라는 서브넷을 만듭니다.  
    
     ```powershell
     $subnetName = "mySubnet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. 가상 네트워크 만들기 이 예제에서는 주소 접두사로 **10.0.0.0/16**을 사용하는 **myVnet**이라는 가상 네트워크를 만듭니다.  
+2. 가상 네트워크 만들기 이 예제에서는 주소 접두사로 *10.0.0.0/16*을 사용하는 *myVnet*이라는 가상 네트워크를 만듭니다.  
    
     ```powershell
     $vnetName = "myVnet"
@@ -228,7 +211,7 @@ $image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
 
 가상 네트워크에서 가상 컴퓨터와 통신하려면 [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 및 네트워크 인터페이스가 필요합니다.
 
-1. 공용 IP 주소 만들기. 이 예에서는 **myPip**라는 공용 IP 주소를 만듭니다. 
+1. 공용 IP 주소 만들기. 이 예에서는 *myPip*라는 공용 IP 주소를 만듭니다. 
    
     ```powershell
     $ipName = "myPip"
@@ -247,7 +230,7 @@ $image = Get-AzureRMImage -ImageName $imageName -ResourceGroupName $rgName
 
 RDP를 사용하여 VM에 로그인할 수 있으려면 포트 3389에 대한 RDP 액세스를 허용하는 NSG(네트워크 보안 규칙)가 필요합니다. 
 
-이 예에서는 포트 3389를 통한 RDP 트래픽을 허용하는 **myRdpRule**이라는 규칙을 포함하는 **myNsg**로 명명된 NSG를 만듭니다. NSG에 대한 자세한 내용은 [PowerShell을 사용하여 Azure에서 VM으로 포트 열기](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+이 예에서는 포트 3389를 통한 RDP 트래픽을 허용하는 *myRdpRule*이라는 규칙을 포함하는 *myNsg*로 명명된 NSG를 만듭니다. NSG에 대한 자세한 내용은 [PowerShell을 사용하여 Azure에서 VM으로 포트 열기](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ```powershell
 $nsgName = "myNsg"
@@ -279,21 +262,7 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 $cred = Get-Credential
 ```
 
-## <a name="set-variables-for-the-vm-name-computer-name-and-the-size-of-the-vm"></a>VM 이름, 컴퓨터 이름 및 VM 크기에 대한 변수 설정
-
-1. VM 이름 및 컴퓨터 이름에 대한 변수를 만듭니다. 이 예제에서는 VM 이름을 **myVM**으로 설정하고 컴퓨터 이름을 **myComputer**로 설정합니다.
-
-    ```powershell
-    $vmName = "myVM"
-    $computerName = "myComputer"
-    ```
-2. 가상 컴퓨터의 크기를 설정합니다. 이 예제에서는 **Standard_DS1_v2** 크기의 VM을 만듭니다. 자세한 내용은 [VM 크기](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) 설명서를 참조하세요.
-
-    ```powershell
-    $vmSize = "Standard_DS1_v2"
-    ```
-
-3. VM 구성에 VM의 이름과 크기를 추가합니다.
+## <a name="add-the-vm-name-and-size-to-the-vm-configuration"></a>VM 구성에 VM의 이름과 크기를 추가합니다.
 
 ```powershell
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
@@ -309,10 +278,10 @@ $vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
 
 ## <a name="set-the-os-configuration-and-add-the-nic"></a>OS 구성을 설정하고 NIC를 추가합니다.
 
-저장소 유형(PremiumLRS 또는 StandardLRS) 및 OS 디스크의 크기를 입력합니다. 이 예제에서는 계정 유형을 **PremiumLRS**로, 디스크 크기를 **128GB**로, 디스크 캐싱을 **ReadWrite**로 설정합니다.
+저장소 유형(PremiumLRS 또는 StandardLRS) 및 OS 디스크의 크기를 입력합니다. 이 예제에서는 계정 유형을 *PremiumLRS*로, 디스크 크기를 *128GB*로, 디스크 캐싱을 *ReadWrite*로 설정합니다.
 
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm  -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 `
+$vm = Set-AzureRmVMOSDisk -VM $vm -DiskSizeInGB 128 `
 -CreateOption FromImage -Caching ReadWrite
 
 $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName `
@@ -323,7 +292,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 
 ## <a name="create-the-vm"></a>VM 만들기
 
-이전에 작성하여 **$vm** 변수에 저장한 구성을 사용하여 새 VM을 만듭니다.
+**$vm** 변수에 저장한 구성을 사용하여 새 VM을 만듭니다.
 
 ```powershell
 New-AzureRmVM -VM $vm -ResourceGroupName $rgName -Location $location

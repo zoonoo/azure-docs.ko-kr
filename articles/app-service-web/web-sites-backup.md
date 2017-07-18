@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
+ms.author: cephalin;aelnably
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 673ea14ff534f237e06dd1d00586dad5736792d5
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 891359514e776e169bf05df7b84d2b99306f98bf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/10/2017
 <a name="whatsbackedup"></a>
 
 ## <a name="what-gets-backed-up"></a>백업 대상
-App Service는 앱에서 사용하도록 구성한 Azure 저장소 계정과 컨테이너에 다음 정보를 백업할 수 있습니다. 
+App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨테이너에 다음 정보를 백업할 수 있습니다. 
 
 * 앱 구성
 * 파일 콘텐츠
@@ -59,32 +59,35 @@ App Service는 앱에서 사용하도록 구성한 Azure 저장소 계정과 컨
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>수동 백업 만들기
-1. [Azure Portal](https://portal.azure.com)에서 앱의 블레이드로 이동하고 **설정**을 선택한 다음 **백업**을 선택합니다. **백업** 블레이드가 표시됩니다.
+1. [Azure Portal](https://portal.azure.com)에서 앱의 블레이드로 이동하여 **백업**을 선택합니다. **백업** 블레이드가 표시됩니다.
    
     ![백업 페이지][ChooseBackupsPage]
    
    > [!NOTE]
-   > 아래와 같은 메시지가 표시되면 백업을 계속 진행하기 전에 해당 App Service 계획을 클릭하여 업그레이드해야 합니다.
-   > 자세한 내용은 [Azure에서 앱 확장](web-sites-scale.md)을 참조하세요.  
-   > ![저장소 계정 선택](./media/web-sites-backup/01UpgradePlan.png)
+   > 아래와 같은 메시지가 나타나면 백업을 계속 진행하기 전에 클릭하여 앱 서비스 계획을 업그레이드해야 합니다.
+   > 자세한 내용은 [Azure에서 앱 확장](web-sites-scale.md) 을 참조하세요.  
+   > ![저장소 계정 선택](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
-2. **백업** 블레이드에서 **저장소: 구성되지 않음**을 클릭하여 저장소 계정을 구성합니다.
+
+2. **백업** 블레이드에서 **구성** 클릭
+![구성 클릭](./media/web-sites-backup/ClickConfigure1.png)
+3. **백업 구성** 블레이드에서 **저장소: 구성되지 않음**을 클릭하여 저장소 계정을 구성합니다.
    
     ![저장소 계정 선택][ChooseStorageAccount]
-3. **저장소 계정** 및 **컨테이너**를 선택하여 백업 대상을 선택합니다. 저장소 계정은 백업하려는 앱과 동일한 구독에 속해야 합니다. 필요한 경우 각 블레이드에서 새 저장소 계정이나 새 컨테이너를 만들 수 있습니다. 완료되면 **선택**을 클릭합니다.
+4. **저장소 계정** 및 **컨테이너**를 선택하여 백업 대상을 선택합니다. 저장소 계정은 백업할 앱이 있는 동일한 구독에 속해야 합니다. 필요한 경우 각 블레이드에서 새 저장소 계정이 나 새 컨테이너를 만들 수 있습니다. 완료되면 **선택**을 클릭합니다.
    
-    ![저장소 계정 선택](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. 왼쪽에 열려 있는 **백업 설정 구성** 블레이드에서 **데이터베이스 설정**을 클릭하고, 백업에 포함할 데이터베이스(SQL 데이터베이스, MySQL 또는 PostgreSQL)를 선택한 다음 **확인**을 클릭합니다.  
+    ![저장소 계정 선택](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+5. 왼쪽에 열려 있는 **백업 구성** 블레이드에서 **데이터베이스 백업**을 구성한 다음 백업에 포함할 데이터베이스(SQL Database 또는 MySQL)를 선택하고 **확인**을 클릭합니다.  
    
-    ![저장소 계정 선택](./media/web-sites-backup/03ConfigureDatabase.png)
+    ![저장소 계정 선택](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
    > 이 목록에 표시될 데이터베이스의 경우 연결 문자열은 앱의 **응용 프로그램 설정** 블레이드에서 **연결 문자열** 섹션에 있어야 합니다.
    > 
    > 
-5. **백업 설정 구성** 블레이드에서 **저장**을 클릭합니다.    
-6. **백업** 블레이드 명령 모음에서 **지금 백업**을 클릭합니다.
+6. **백업 구성** 블레이드에서 **저장**을 클릭합니다.    
+7. **백업** 블레이드에서 **백업**을 클릭합니다.
    
     ![BackUpNow 단추][BackUpNow]
    
@@ -95,24 +98,12 @@ App Service는 앱에서 사용하도록 구성한 Azure 저장소 계정과 컨
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>자동화된 백업 구성
-1. **백업** 블레이드에서 **일정: 구성되지 않음**을 클릭합니다. 
+1. **백업 구성** 블레이드에서 **예약된 백업**을 **켜기**로 설정합니다. 
    
-    ![저장소 계정 선택](./media/web-sites-backup/05ScheduleBackup.png)
-2. **백업 일정 설정** 블레이드에서 **예약된 백업**을 **켜기**로 설정하고 원하는 대로 백업 일정을 구성한 다음 **확인**을 클릭합니다.
+    ![저장소 계정 선택](./media/web-sites-backup/05ScheduleBackup1.png)
+2. 백업 일정 옵션이 표시되면 **예약된 백업**을 **켜기**로 설정하고 원하는 대로 백업 일정을 구성한 다음 **확인**을 클릭합니다.
    
     ![자동 백업 사용][SetAutomatedBackupOn]
-3. 왼쪽에 열려 있는 **백업 설정 구성** 블레이드에서 **저장소 설정**을 클릭한 다음 **저장소 계정** 및 **컨테이너**를 선택하여 백업 대상을 선택합니다. 저장소 계정은 백업하려는 앱과 동일한 구독에 속해야 합니다. 필요한 경우 각 블레이드에서 새 저장소 계정이나 새 컨테이너를 만들 수 있습니다. 완료되면 **선택**을 클릭합니다.
-   
-    ![저장소 계정 선택](./media/web-sites-backup/02ChooseStorageAccount1.png)
-4. **백업 설정 구성** 블레이드에서 **데이터베이스 설정**을 클릭하고, 백업에 포함할 데이터베이스(SQL 데이터베이스, MySQL 또는 PostgreSQL)를 선택한 다음 **확인**을 클릭합니다. 
-   
-    ![저장소 계정 선택](./media/web-sites-backup/03ConfigureDatabase.png)
-   
-   > [!NOTE]
-   > 이 목록에 표시될 데이터베이스의 경우 연결 문자열은 앱의 **응용 프로그램 설정** 블레이드에서 **연결 문자열** 섹션에 있어야 합니다.
-   >  [MySQL 인앱](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)을 사용하는 경우 **응용 프로그램 설정** 아래의 포털에서 연결 문자열이 표시되지 않으므로 데이터베이스가 표시되지 않습니다.
-   > 
-5. **백업 설정 구성** 블레이드에서 **저장**을 클릭합니다.    
 
 <a name="partialbackups"></a>
 
@@ -173,19 +164,19 @@ App Service는 앱에서 사용하도록 구성한 Azure 저장소 계정과 컨
 
 
 <!-- IMAGES -->
-[ChooseBackupsPage]:./media/web-sites-backup/01ChooseBackupsPage.png
-[ChooseStorageAccount]:./media/web-sites-backup/02ChooseStorageAccount.png
-[IncludedDatabases]:./media/web-sites-backup/03IncludedDatabases.png
-[BackUpNow]:./media/web-sites-backup/04BackUpNow.png
-[BackupProgress]:./media/web-sites-backup/05BackupProgress.png
-[SetAutomatedBackupOn]:./media/web-sites-backup/06SetAutomatedBackupOn.png
-[Frequency]:./media/web-sites-backup/07Frequency.png
-[StartDate]:./media/web-sites-backup/08StartDate.png
-[StartTime]:./media/web-sites-backup/09StartTime.png
-[SaveIcon]:./media/web-sites-backup/10SaveIcon.png
-[ImagesFolder]:./media/web-sites-backup/11Images.png
-[LogsFolder]:./media/web-sites-backup/12Logs.png
-[GhostUpgradeWarning]:./media/web-sites-backup/13GhostUpgradeWarning.png
+[ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage1.png
+[ChooseStorageAccount]: ./media/web-sites-backup/02ChooseStorageAccount-1.png
+[IncludedDatabases]: ./media/web-sites-backup/03IncludedDatabases.png
+[BackUpNow]: ./media/web-sites-backup/04BackUpNow1.png
+[BackupProgress]: ./media/web-sites-backup/05BackupProgress.png
+[SetAutomatedBackupOn]: ./media/web-sites-backup/06SetAutomatedBackupOn1.png
+[Frequency]: ./media/web-sites-backup/07Frequency.png
+[StartDate]: ./media/web-sites-backup/08StartDate.png
+[StartTime]: ./media/web-sites-backup/09StartTime.png
+[SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
+[ImagesFolder]: ./media/web-sites-backup/11Images.png
+[LogsFolder]: ./media/web-sites-backup/12Logs.png
+[GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
 [kudu-portal]:./media/web-sites-backup/kudu-portal.PNG
 
 

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 05/29/2017
 ms.author: v-jysur
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 732d968112913b252b40a37abc24f4de5d37999f
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: e4f2e0a23aa52a0e02e7047916b77fb15107defa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>ITSM 제품/서비스를 IT Service Management Connector(미리 보기)에 연결
@@ -32,7 +32,7 @@ ms.lasthandoff: 05/09/2017
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-oms"></a>System Center Service Manager를 OMS의 IT Service Management Connector에 연결
 
-다음 섹션에서는 System Center Service Manager 제품을 OMS의 IT Service Manager Connector에 연결하는 방법을 자세히 설명합니다.
+다음 섹션에서는 System Center Service Manager 제품을 OMS의 IT Service Management Connector에 연결하는 방법을 자세히 설명합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 05/09/2017
 - IT Service Management Connector가 설치되어 있습니다.
 추가 정보: [구성](log-analytics-itsmc-overview.md#configuration)
 - Service Manager 웹 응용 프로그램(웹앱)이 배포 및 구성되어 있습니다. 웹앱에 대한 정보는 [여기](#create-and-deploy-service-manager-web-app-service)를 참조하세요.
-- 하이브리드 연결이 생성 및 구성되어 있습니다. 추가 정보: [하이브리드 연결 구성](#configure-the-hybrid-connector-role)
+- 하이브리드 연결이 생성 및 구성되어 있습니다. 추가 정보: [하이브리드 연결 구성](#configure-the-hybrid-connection)
 - 지원되는 Service Manager 버전: 2012 R2 또는 2016
 - 사용자 역할: [고급 운영자](https://technet.microsoft.com/library/ff461054.aspx)
 
@@ -100,7 +100,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 이 스크립트는 사용자가 지정한 이름(및 웹앱을 고유하게 만드는 몇 가지 추가 설정)을 사용하여 웹앱을 만듭니다. **웹앱 URL**, **클라이언트 ID** 및 **클라이언트 암호**를 생성합니다.
 
-값을 저장한 다음, IT Service Management Cconnector와의 연결을 만들 때 사용합니다.
+값을 저장한 다음, IT Service Management Connector와의 연결을 만들 때 사용합니다.
 
 **웹앱 설치 확인**
 
@@ -110,7 +110,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 ### <a name="configure-the-hybrid-connection"></a>하이브리드 연결 구성
 
-다음 절차에 따라 Service Manager 인스턴스를 OMS의 IT Service Manager Connector에 연결하는 하이브리드 커넥터 역할을 연결합니다.
+다음 절차에 따라 Service Manager 인스턴스를 OMS의 IT Service Management Connector에 연결하는 하이브리드 연결을 구성합니다.
 
 1. **Azure 리소스** 아래에서 Service Manager 웹앱을 찾습니다.
 2. **설정** > **네트워킹**을 클릭합니다.
@@ -170,17 +170,19 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 ## <a name="connect-servicenow-to-it-service-management-connector-in-oms"></a>ServiceNow를 OMS의 IT Service Management Connector에 연결
 
-다음 섹션에서는 ServiceNow 제품을 OMS의 IT Service Manager Connector에 연결하는 방법을 자세히 설명합니다.
+다음 섹션에서는 ServiceNow 제품을 OMS의 IT Service Management Connector에 연결하는 방법을 자세히 설명합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 
 다음 필수 조건을 갖추고 있는지 확인합니다.
 
 - IT Service Management Connector가 설치되어 있습니다. 추가 정보: [구성](log-analytics-itsmc-overview.md#configuration)
-- ServiceNow 제품에 대한 클라이언트 ID 및 클라이언트 암호가 생성되어 사용할 수 있게 됩니다.  클라이언트 ID 및 암호를 생성하는 방법에 대한 자세한 내용은 [OAuth 설정](http://wiki.servicenow.com/index.php?title=OAuth_Setup)을 참조하세요.
 - ServiceNow 지원 버전 – Fuji, Geneva, Helsinki
-- Microsoft OMS 통합용 사용자 앱(ServiceNow 앱)이 설치되고 통합 사용자 역할이 구성됩니다. [자세히 알아보세요](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 )을 확인하세요.
-- 사용자 역할: 통합 사용자 역할. 통합 사용자 역할을 만드는 방법에 대한 자세한 내용은 [여기](#create-integration-user-role-in-servicenow-app)에 나와 있습니다.
+
+ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합니다.
+- ServiceNow 제품에 대한 클라이언트 ID 및 클라이언트 암호를 생성합니다. 클라이언트 ID 및 암호를 생성하는 방법에 대한 자세한 내용은 [OAuth 설정](http://wiki.servicenow.com/index.php?title=OAuth_Setup)을 참조하세요.
+- Microsoft OMS 통합용 사용자 앱(ServiceNow 앱)을 설치합니다. [자세히 알아보세요](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 )을 확인하세요.
+- 설치된 사용자 앱에 대한 통합 사용자 역할을 만듭니다. 통합 사용자 역할을 만드는 방법에 대한 자세한 내용은 [여기](#create-integration-user-role-in-servicenow-app)에 나와 있습니다.
 
 
 ### <a name="connection-procedure"></a>**연결 절차**
@@ -223,14 +225,14 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 다음 절차를 수행합니다.
 
-1.    [ServiceNow 스토어](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0)를 방문하고 **ServiceNow 및 Microsoft OMS 통합용 사용자 앱**을 ServiceNow 인스턴스에 설치합니다.
-2.    설치 후 ServiceNow 인스턴스의 왼쪽 탐색 모음으로 가서 Microsoft OMS 통합기를 검색한 후 선택합니다.  
-3.    **설치 검사 목록**을 클릭합니다.
+1.  [ServiceNow 스토어](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0)를 방문하고 **ServiceNow 및 Microsoft OMS 통합용 사용자 앱**을 ServiceNow 인스턴스에 설치합니다.
+2.  설치 후 ServiceNow 인스턴스의 왼쪽 탐색 모음으로 가서 Microsoft OMS 통합기를 검색한 후 선택합니다.  
+3.  **설치 검사 목록**을 클릭합니다.
 
     사용자 역할을 아직 생성해야 할 경우 상태가 **완료되지 않음**으로 표시됩니다.
 
-4.    **통합 사용자 만들기** 옆의 텍스트 상자에 OMS에서 IT Service Management Connector에 연결될 수 있는 사용자의 사용자 이름을 입력합니다.
-5.    이 사용자에 대한 암호를 입력하고 **확인**을 클릭합니다.  
+4.  **통합 사용자 만들기** 옆의 텍스트 상자에 OMS에서 IT Service Management Connector에 연결될 수 있는 사용자의 사용자 이름을 입력합니다.
+5.  이 사용자에 대한 암호를 입력하고 **확인**을 클릭합니다.  
 
 >[!NOTE]
 
@@ -241,10 +243,10 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 기본 역할:
 - personalize_choices
 - import_transformer
--     x_mioms_microsoft.user
--     itil
--     template_editor
--     view_changer
+-   x_mioms_microsoft.user
+-   itil
+-   template_editor
+-   view_changer
 
 사용자가 성공적으로 만들어지면 **설치 검사 목록 확인**의 상태가 완료됨으로 바뀌고 해당 앱에 대해 만들어진 사용자의 역할 세부 정보가 표시됩니다.
 
@@ -261,7 +263,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 ## <a name="connect-provance-to-it-service-management-connector-in-oms"></a>Province를 OMS의 IT Service Management Connector에 연결
 
-다음 섹션에서는 Provance 제품을 OMS의 IT Service Manager Connector에 연결하는 방법을 자세히 설명합니다.
+다음 섹션에서는 Provance 제품을 OMS의 IT Service Management Connector에 연결하는 방법을 자세히 설명합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 
@@ -305,7 +307,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-oms"></a>Cherwell를 OMS의 IT Service Management Connector에 연결
 
-다음 섹션에서는 Cherwell 제품을 OMS의 IT Service Manager Connector에 연결하는 방법을 자세히 설명합니다.
+다음 섹션에서는 Cherwell 제품을 OMS의 IT Service Management Connector에 연결하는 방법을 자세히 설명합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 
@@ -343,7 +345,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 성공적으로 연결 및 동기화된 경우:
 
-- 이 Cherwell 연결에서 선택된 작업 항목을 OMS Log Analytics로 가져옵니다. IT Service Management Connector 타일에서 이러한 작업 항목의 요약을 볼 수 있습니다.
+- 이 Cherwell 연결에서 선택된 작업 항목을 OMS Log Analytics로 가져옵니다. IT Service Management Connector 타일에서 이러한 작업 항목에 대한 요약을 볼 수 있습니다.
 - OMS에서 이 Cherwell 인스턴스의 인시던트 및 이벤트를 만들 수 있습니다. 추가 정보: OMS 경고에 대한 ITSM 작업 항목 만들기 및 OMS 로그에서 ITSM 작업 항목 만들기
 
 추가 정보: [OMS 경고에 대한 작업 항목 만들기 ITSM](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) 및 [OMS 로그에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)

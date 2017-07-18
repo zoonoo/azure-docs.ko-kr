@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2016
-ms.author: padmavc
+ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 4d68fde29e85fcf9aa623b4d798262bcd486a8bb
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: d1c61ba220b4334f053428a23e620e8004fc60f7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="track-b2b-messages-in-the-operations-management-suite-portal"></a>Operations Management Suite 포털에서 B2B 메시지 추적
+
+![Logic Apps B2B 기호](./media/logic-apps-track-b2b-messages-omsportal/logic-apps-b2b-symbol.png)
+
 B2B 통신에서는 실행되는 두 비즈니스 프로세스 또는 응용 프로그램 간에 메시지 교환이 진행됩니다. Operations Management Suite 포털에서 다음과 같은 웹 기반 추적 기능을 사용하여 메시지가 제대로 처리되는지 여부를 확인합니다.
 
 * 메시지 수 및 상태
@@ -67,9 +70,10 @@ B2B 통신에서는 실행되는 두 비즈니스 프로세스 또는 응용 프
 2. 홈 페이지에서 **Logic Apps B2B 메시지**를 선택하여 AS2 및 X12 메시지 상태를 봅니다.  데이터는 1일을 기반으로 합니다.
 ![논리 앱 B2B 메시지 선택](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
-3. 상태별로 AS2 또는 X12를 선택하여 메시지 목록으로 이동합니다. 다음 스크린 샷에서는 AS2 메시지 상태를 보여 줍니다. AS2 및 X12 메시지 상태 속성 설명이 나중에 "메시지 목록 속성 설명"에 표시됩니다.  
+3. 상태별로 AS2 또는 X12 또는 EDIFACT 메시지를 선택하여 메시지 목록으로 이동합니다. 다음 스크린 샷에서는 AS2 메시지 상태를 보여 줍니다. AS2 및 X12 메시지 상태 속성 설명이 나중에 "메시지 목록 속성 설명"에 표시됩니다.  
 ![AS2 메시지 상태 선택](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
-4. AS2 또는 X12 메시지 목록에서 행을 선택하여 로그 검색으로 이동합니다.  로그 검색은 동일한 실행 ID를 갖는 모든 작업을 나열합니다.
+
+4. AS2 또는 X12 또는 EDIFACT 메시지 목록에서 행을 선택하여 로그 검색으로 이동합니다.  로그 검색은 동일한 실행 ID를 갖는 모든 작업을 나열합니다.
 ![메시지 상태 선택](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
 
 ## <a name="message-list-property-descriptions"></a>메시지 목록 속성 설명
@@ -92,8 +96,8 @@ B2B 통신에서는 실행되는 두 비즈니스 프로세스 또는 응용 프
 
 | 속성 | 설명 |
 | --- | --- |
-| 보낸 사람 | 수신 설정에 구성된 게스트 파트너 또는 AS2 규약의 송신 설정에 구성된 호스트 파트너입니다. |
-| 받는 사람 | 수신 설정에 구성된 호스트 파트너 또는 AS2 규약의 송신 설정에 구성된 게스트 파트너입니다. |
+| 보낸 사람 | 수신 설정에 구성된 게스트 파트너 또는 X12 규약의 송신 설정에 구성된 호스트 파트너입니다. |
+| 받는 사람 | 수신 설정에 구성된 호스트 파트너 또는 X12 규약의 송신 설정에 구성된 게스트 파트너입니다. |
 | 논리 앱 | AS2 작업이 구성된 Logic App. |
 | 가동 상태 | X12 메시지 상태 <br>성공 = 양호한 X12 메시지를 받거나 보내고, 기능 Ack를 구성하지 않았습니다. <br>성공 = 양호한 X12 메시지를 받거나 보내고, 기능 Ack를 구성하고 받거나, 기능 Ack를 보냈습니다. <br>실패 = 잘못된 X12 메시지를 받거나 보냈습니다. <br>보류 중 = 양호한 X12 메시지를 받거나 보내고, 기능 Ack를 구성하고 기능 Ack를 기다리고 있습니다. |
 | Ack | 기능 Ack(997) 상태 <br>수락됨 = 양의 기능 Ack를 받거나 보냈습니다. <br>거부됨 = 음의 기능 Ack를 받거나 보냈습니다. <br>보류 중 = 기능 Ack를 기다렸지만 받지 못했습니다. <br>보류 중 = 기능 Ack를 생성했지만 파트너에게 보낼 수 없습니다. <br>필요하지 않음 = 기능 Ack가 구성되지 않습니다. |
@@ -103,6 +107,24 @@ B2B 통신에서는 실행되는 두 비즈니스 프로세스 또는 응용 프
 | ICN | X12 메시지의 교환 제어 번호. |
 | TSCN | X12 메시지의 트랜잭션 집합 컨트롤 번호. |
 | Timestamp | X12 작업이 메시지를 처리하는 시간. |
+
+
+#### <a name="edifact-message-list-property-descriptions"></a>EDIFACT 메시지 목록 속성 설명
+
+| 속성 | 설명 |
+| --- | --- |
+| 보낸 사람 | 수신 설정에 구성된 게스트 파트너 또는 EDIFACT 규약의 송신 설정에 구성된 호스트 파트너입니다. |
+| 받는 사람 | 수신 설정에 구성된 호스트 파트너 또는 EDIFACT 규약의 송신 설정에 구성된 게스트 파트너입니다. |
+| 논리 앱 | AS2 작업이 구성된 Logic App. |
+| 가동 상태 | EDIFACT 메시지 상태 <br>성공 = 양호한 X12 메시지를 받거나 보내고, 기능 Ack를 구성하지 않았습니다. <br>성공 = 양호한 X12 메시지를 받거나 보내고, 기능 Ack를 구성하고 받거나, 기능 Ack를 보냈습니다. <br>실패 = 잘못된 X12 메시지를 받거나 보냈습니다. <br>보류 중 = 양호한 X12 메시지를 받거나 보내고, 기능 Ack를 구성하고 기능 Ack를 기다리고 있습니다. |
+| Ack | 기능 Ack(997) 상태 <br>수락됨 = 양의 기능 Ack를 받거나 보냈습니다. <br>거부됨 = 음의 기능 Ack를 받거나 보냈습니다. <br>보류 중 = 기능 Ack를 기다렸지만 받지 못했습니다. <br>보류 중 = 기능 Ack를 생성했지만 파트너에게 보낼 수 없습니다. <br>필요하지 않음 = 기능 Ack가 구성되지 않습니다. |
+| 방향 | EDIFACT 메시지 방향 |
+| 상관관계 ID | Logic App 내의 모든 트리거와 작업을 상호 연결하는 ID. |
+| 메시지 유형 |  EDIFACT 메시지 형식 |
+| ICN | EDIFACT 메시지의 교환 제어 번호 |
+| TSCN | EDIFACT 메시지의 트랜잭션 집합 컨트롤 번호 |
+| 타임 스탬프 | EDIFACT 작업이 메시지를 처리하는 시간 |
+
 
 ## <a name="queries-in-the-operations-management-suite-portal"></a>Operations Management Suite 포털의 쿼리
 
