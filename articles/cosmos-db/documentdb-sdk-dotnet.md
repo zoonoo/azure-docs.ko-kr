@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/05/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 38bd198958180caece4747b972476475059191df
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: e42d4746c89614f6990cb84c0b25871a078ecbec
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/31/2017
 
 <tr><td>**SDK 다운로드**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 
-<tr><td>**API 설명서**</td><td>[.NET API 참조 설명서](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**API 설명서**</td><td>[.NET API 참조 설명서](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**샘플**</td><td>[.NET 코드 샘플](documentdb-dotnet-samples.md)</td></tr>
 
@@ -53,16 +53,22 @@ ms.lasthandoff: 05/31/2017
 
 ## <a name="release-notes"></a>릴리스 정보
 
+### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
+*   [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet)를 인스턴스화하는 동안 사용자 지정 JsonSerializerSettings를 지정하기 위한 지원을 추가하였습니다.
+
+### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
+*   SSE4 명령을 지원하지 않고 DocumentDB API 쿼리를 실행할 때 SEHException을 throw하는 x64 컴퓨터에 영향을 준 문제가 해결되었습니다.
+
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
-*    분당 요청 단위(RU/m) 기능에 대한 지원이 추가되었습니다.
-*    ConsistentPrefix라는 새로운 일관성 수준에 대한 지원이 추가되었습니다.
-*    개별 파티션의 쿼리 메트릭에 대한 지원이 추가되었습니다.
-*    쿼리의 연속 토큰 크기 제한에 대한 지원이 추가되었습니다.
-*    실패한 요청의 자세한 추적에 대한 지원이 추가되었습니다.
-*    SDK의 성능이 약간 향상되었습니다.
+*   분당 요청 단위(RU/m) 기능에 대한 지원이 추가되었습니다.
+*   ConsistentPrefix라는 새로운 일관성 수준에 대한 지원이 추가되었습니다.
+*   개별 파티션의 쿼리 메트릭에 대한 지원이 추가되었습니다.
+*   쿼리의 연속 토큰 크기 제한에 대한 지원이 추가되었습니다.
+*   실패한 요청의 자세한 추적에 대한 지원이 추가되었습니다.
+*   SDK의 성능이 약간 향상되었습니다.
 
 ### <a name="a-name11341134"></a><a name="1.13.4"/>1.13.4
-* 기능적으로 1.13.4와 동일합니다. 내부적으로 약간 변경되었습니다.
+* 기능적으로 1.13.3과 동일합니다. 내부적으로 약간 변경되었습니다.
 
 ### <a name="a-name11331133"></a><a name="1.13.3"/>1.13.3
 * 기능적으로 1.13.2와 동일합니다. 내부적으로 약간 변경되었습니다.
@@ -169,11 +175,11 @@ ms.lasthandoff: 05/31/2017
 * **[수정됨]** DocumentDB 끝점을 쿼리하면 'System.Net.Http.HttpRequestException: 스트림에 콘텐츠를 복사하는 중 오류가 발생했습니다.'가 나타납니다.
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
-* 페이징, 조건식 및 범위 비교에 대한 새 연산자를 포함하는 확장 LINQ 지원입니다.
+* 페이징, 조건식 및 범위 비교에 대한 새 연산자를 포함하는 LINQ 지원이 확장되었습니다.
   * LINQ에서 SELECT TOP 동작을 사용하도록 설정하는 Take 연산자
   * 문자열 범위 비교를 사용하도록 설정하는 CompareTo 연산자
   * 조건부 (?) 및 병합 연산자 (??)
-* **[수정됨]** 모델 프로젝션을 linq 쿼리의 Where-In과 결합할 때의 ArgumentOutOfRangeException이 수정되었습니다.  [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+* **[수정됨]** 모델 프로젝션을 LINQ 쿼리의 Where-In과 결합할 때의 ArgumentOutOfRangeException이 수정되었습니다. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
 * **[수정됨]** Select가 마지막 식이 아니면 LINQ 공급자는 프로젝션이 없다고 가정하고 SELECT *를 잘못 생성했습니다.  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -190,57 +196,59 @@ ms.lasthandoff: 05/31/2017
 * **[수정됨]** nl-NL 등과 같은 en 이외의 문화권 정보를 사용할 때의 지역화 문제 
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
-* ID 기반 라우팅
+* ID 기반 라우팅 추가
   * ID 기반 리소스 링크 생성을 지원하기 위한 새 UriFactory 도우미
   * URI에서 수행할 DocumentClient의 새 오버로드
 * LINQ에서 지리 공간에 대한 IsValid() 및 IsValidDetailed() 추가됨
-* LINQ 공급자 지원 향상됨
+* LINQ 공급자 지원이 향상되었습니다.
   * **수학** - Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate
   * **문자열** - Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper
   * **배열** - Concat, Contains, Count
   * **IN** 연산자
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
-* 인덱싱 정책 수정 지원 추가됨
+* 인덱싱 정책 수정 지원이 추가되었습니다.
   * DocumentClient의 새로운 ReplaceDocumentCollectionAsync 메서드
   * 인덱스 정책 변경 진행률을 추적하기 위한 ResourceResponse<T>의 새로운 IndexTransformationProgress 속성
   * 이제 DocumentCollection.IndexingPolicy를 변경할 수 있음
-* 공간 인덱싱 및 쿼리 지원 추가됨
+* 공간 인덱싱 및 쿼리 지원이 추가되었습니다.
   * 점 및 다각형과 같은 공간 형식을 직렬화/역직렬화하기 위한 새로운 Microsoft.Azure.Documents.Spatial 네임스페이스
   * Cosmos DB에 저장된 GeoJSON 데이터를 인덱싱하기 위한 새로운 SpatialIndex 클래스
-* **[수정됨]** : linq 식에서 잘못된 SQL 쿼리가 생성됨 [#38](https://github.com/Azure/azure-documentdb-net/issues/38)
+* **[수정됨]** LINQ 식 [#38](https://github.com/Azure/azure-documentdb-net/issues/38)에서 생성된 잘못된 SQL 쿼리.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Newtonsoft.Json v5.0.7에 대한 종속성 
-* Order By를 지원하기 위한 변경 내용
+* Newtonsoft.Json v5.0.7에 대한 종속성이 추가되었습니다.
+* Order By를 지원하기 위한 변경 내용은 다음과 같습니다.
   
   * OrderBy() 또는 OrderByDescending()에 대한 LINQ 공급자 지원
   * Order By를 지원하기 위한 IndexingPolicy 
     
-    **NB: 가능한 새로운 변경** 
+    **가능한 주요 변경 내용** 
     
     사용자 지정 인덱싱 정책을 사용하여 컬렉션을 프로비전하는 기존 코드가 있다면 기존 코드는 새 IndexingPolicy 클래스를 지원하도록 업데이트되어야 합니다. 사용자 지정 인덱싱 정책이 없다면 이 변경 사항은 영향을 주지 않습니다.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* 새로운 HashPartitionResolver 및 RangePartitionResolver 클래스와 IPartitionResolver를 사용한 데이터 분할 지원
-* DataContract 직렬화
-* LINQ 공급자의 Guid 지원
-* LINQ의 UDF 지원
+* 새로운 HashPartitionResolver 및 RangePartitionResolver 클래스와 IPartitionResolver를 사용한 데이터 분할 지원이 추가되었습니다.
+* DataContract serialization이 추가되었습니다.
+* LINQ 공급자의 GUID 지원이 추가되었습니다.
+* LINQ의 UDF 지원이 추가되었습니다.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA SDK
 
 ## <a name="release--retirement-dates"></a>릴리스 및 사용 중지 날짜
-Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.
+Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK 사용 중지 최소 **12개월** 전에 알림을 제공합니다.
 
 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다. 
 
-사용 중지된 SDK를 사용하는 Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
+사용 중지된 SDK를 사용하는 Azure Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
 
 <br/>
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.15.0](#1.15.0) |2017년 6월 30일 |--- |
+| [1.14.1](#1.14.1) |2017년 5월 23일 |--- |
 | [1.14.0](#1.14.0) |2017년 5월 10일 |--- |
 | [1.13.4](#1.13.4) |2017년 5월 09일 |--- |
 | [1.13.3](#1.13.3) |2017년 5월 06일 |--- |

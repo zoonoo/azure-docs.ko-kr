@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/25/2015
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: cbdef43381deac957c0e48b7043273c43b032935
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 4fbf4fcfba4452111f406fe0f2303731877eba71
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -29,6 +29,9 @@ ms.lasthandoff: 04/07/2017
 Application Insights에서 Java 및 ASP.NET 웹 응용 프로그램과 서비스, WCF 서비스를 모니터링할 수 있습니다. 온-프레미스, 가상 컴퓨터에서 또는 Microsoft Azure 웹 사이트로 호스팅할 수 있습니다. 
 
 Application Insights는 클라이언트쪽에서 iOS, Android 및 Windows 스토어 앱을 포함하여 다양한 장치 및 웹 페이지에서 원격 분석을 수행할 수 있습니다.
+
+>[!Note]
+> 웹 응용 프로그램에서 느리게 작동하는 페이지 찾기에 사용할 수 있는 새 환경을 만들었습니다. 액세스 권한이 없는 경우 [미리 보기 블레이드](app-insights-previews.md)로 미리 보기 옵션을 구성하여 활성화합니다. [대화형 성능 조사를 사용하여 성능 병목 현상 찾기 및 해결](#Find-and-fix-performance-bottlenecks-with-an-interactive-Performance-investigation)에서 이 새로운 환경에 대해 읽어 보세요.
 
 ## <a name="setup"></a>성능 모니터링 설정
 Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로젝트에 ApplicationInsights.config가 없음) 다음 방법 중 하나를 선택하여 작업을 시작합니다.
@@ -52,8 +55,6 @@ Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로
 
 > [!NOTE]
 > **모든 메트릭의 선택을 취소합니다** . 메트릭은 그룹으로 구분되며 그룹 내의 모든 멤버를 선택하면 해당 그룹의 다른 멤버만 표시됩니다.
-> 
-> 
 
 ## <a name="metrics"></a>성능 메트릭의 의미 성능 타일 및 보고서
 다양한 성능 메트릭을 가져올 수 있습니다. 먼저 응용 프로그램 블레이드에 기본적으로 표시되는 메트릭부터 살펴보겠습니다.
@@ -114,6 +115,37 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 * 웹 사이트의 작동이 중단되거나 응답이 잘못되거나 속도가 느려지는 경우 경고를 받도록 [웹 테스트][availability]를 설정합니다. 
 * 요청 수를 다른 메트릭과 비교하여 오류 또는 느린 응답이 부하와 관련되어 있는지 확인합니다.
 * 코드에서 [검사 추적 문을 삽입 및 검색][diagnostic]하여 문제를 파악합니다.
+* [라이브 메트릭 스트림][livestream]을 사용하여 작업에서 웹앱을 모니터링합니다.
+* [스냅숏 디버거][snapshot]를 사용하여 .Net 응용 프로그램의 상태를 캡처합니다.
+
+## <a name="find-and-fix-performance-bottlenecks-with-an-interactive-performance-investigation"></a>대화형 성능 조사를 사용하여 성능 병목 현상 찾기 및 해결
+
+새 Application Insights 대화형 성능 조사를 사용하여 전반적인 성능이 저하되는 웹앱의 영역을 찾을 수 있습니다. 저하되는 특정 페이지를 신속하게 찾을 수 있으며 이러한 페이지 간의 상관 관계를 확인하기 위해 [프로파일링 도구](app-insights-profiler.md)를 사용할 수 있습니다.
+
+### <a name="create-a-list-of-slow-performing-pages"></a>느리게 작동하는 페이지 목록 만들기 
+
+성능 문제를 찾기 위한 첫 번째 단계는 느린 응답 페이지의 목록을 가져오는 것입니다. 아래 스크린샷은 성능 블레이드를 사용하여 추가 조사를 위해 잠재적인 페이지의 목록을 가져오는 방법을 보여 줍니다. 이 페이지에서 약 오후 6시와 약 오후 10시에 다시 앱의 응답 시간에 저하가 있었음을 신속하게 확인할 수 있습니다. 또한 고객/세부 정보 가져오기 작업에 507.05밀리초의 중앙 응답 시간으로 일부 장기 실행 작업이 있었음을 확인할 수 있습니다. 
+
+![Application Insights 대화형 성능](./media/app-insights-web-monitor-performance/performance1.png)
+
+### <a name="drill-down-on-specific-pages"></a>특정 페이지에 대해 드릴다운
+
+앱의 성능에 대한 스냅숏을 만든 후 느리게 작동하는 특정 작업에 대한 자세한 세부 정보를 얻을 수 있습니다. 아래와 같이 세부 정보를 보려면 목록에서 모든 작업을 클릭합니다. 차트에서 성능이 종속성을 기반으로 했는지 확인할 수 있습니다. 또한 다양한 응답 시간을 경험한 사용자 수를 확인할 수도 있습니다. 
+
+![Application insights 작업 블레이드](./media/app-insights-web-monitor-performance/performance5.png)
+
+### <a name="drill-down-on-a-specific-time-period"></a>특정 기간에 대해 드릴다운
+
+조사할 특정 시점을 식별한 후 성능 저하를 발생시켰을 수도 있는 특정 작업을 살펴보도록 더 자세히 드릴다운합니다. 특정 시점을 클릭할 때 다음과 같은 페이지의 세부 정보를 가져옵니다. 아래 예제에서 서버 응답 코드 및 작업 기간과 함께 지정된 기간에 대해 나열된 작업을 볼 수 있습니다. 또한 이 정보를 개발 팀에 전송해야 하는 경우 TFS 작업 항목을 열기 위한 url이 있습니다.
+
+![Application Insights 시간 조각](./media/app-insights-web-monitor-performance/performance2.png)
+
+### <a name="drill-down-on-a-specific-operation"></a>특정 작업에 대해 드릴다운
+
+조사할 특정 시점을 식별한 후 성능 저하를 발생시켰을 수도 있는 특정 작업을 살펴보도록 더 자세히 드릴다운합니다. 아래와 같이 작업의 세부 정보를 보려면 목록에서 작업을 클릭합니다. 이 예제에서 작업이 실패하고 Application Insights에서 응용 프로그램에서 throw했던 예외의 세부 정보를 제공한 것을 볼 수 있습니다. 다시, 이 블레이드에서 TFS 작업 항목을 쉽게 만들 수 있습니다.
+
+![Application insights 작업 블레이드](./media/app-insights-web-monitor-performance/performance3.png)
+
 
 ## <a name="next"></a>다음 단계
 [웹 테스트][availability] - 전 세계에서 웹 요청이 일정한 간격으로 응용 프로그램에 전송되도록 합니다.
@@ -135,6 +167,9 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
+[livestream]: app-insights-live-stream.md
+[snapshot]: app-insights-snapshot-debugger.md
+
 
 
 

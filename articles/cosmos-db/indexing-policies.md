@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 05/22/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 1eb7da270accedd9dcadca230422b14cd15f24b5
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 6d5a5814977d05fbe7be52dcb482a622de1c2ef6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -186,7 +186,7 @@ Azure Cosmos DB는 점, 다각형 또는 LineString 데이터 형식에 지정�
 | 범위      | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
 | 공간     | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled              |
 
-기본적으로, 쿼리를 처리하는 데 검색이 필요할 수 있음을 알리기 위한 범위 인덱스가 없는 경우(자릿수) >=와 같은 범위 연산자로 쿼리에 대한 오류가 반환됩니다. REST API의 x-ms-documentdb-enable-scan 헤더를 사용하거나 .NET SDK의 EnableScanInQuery 요청 옵션을 사용하여 범위 인덱스 없이 범위 쿼리를 수행할 수 있습니다. DocumentDB가 필터링하는 데 인덱스를 사용할 수 있는 쿼리에 다른 필터가 있는 경우, 오류가 반환되지 않습니다.
+기본적으로, 쿼리를 처리하는 데 검색이 필요할 수 있음을 알리기 위한 범위 인덱스가 없는 경우(자릿수) >=와 같은 범위 연산자로 쿼리에 대한 오류가 반환됩니다. REST API의 x-ms-documentdb-enable-scan 헤더를 사용하거나 .NET SDK의 EnableScanInQuery 요청 옵션을 사용하여 범위 인덱스 없이 범위 쿼리를 수행할 수 있습니다. Azure Cosmos DB가 필터링하는 데 인덱스를 사용할 수 있는 쿼리에 다른 필터가 있는 경우, 오류가 반환되지 않습니다.
 
 공간 쿼리에 대해서도 동일한 규칙이 적용됩니다. 기본적으로 공간 인덱스가 없고 인덱스에서 제공될 수 있는 다른 필터가 없는 경우 공간 쿼리에 오류가 반환됩니다. x-ms-documentdb-enable-scan/EnableScanInQuery를 사용하여 스캔으로 수행할 수 있습니다.
 
@@ -229,7 +229,7 @@ Azure Cosmos DB는 점, 다각형 또는 LineString 데이터 형식에 지정�
 
 자동 인덱싱이 해제된 상태에서도 특정 문서만 선택적으로 인덱스에 추가할 수 있습니다. 반대로, 자동 인덱싱을 설정된 상태로 두고 특정 문서만 선택적으로 제외할 수도 있습니다. 인덱싱 설정/해제 구성은 문서의 하위 집합만 쿼리해야 할 경우에 유용합니다.
 
-예를 들어 다음 샘플은 [DocumentDB .NET SDK](https://github.com/Azure/azure-documentdb-java) 및 [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 속성을 사용하여 문서를 명시적으로 포함하는 방법을 보여 줍니다.
+예를 들어 다음 샘플은 [DocumentDB API .NET SDK](https://github.com/Azure/azure-documentdb-java) 및 [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 속성을 사용하여 문서를 명시적으로 포함하는 방법을 보여 줍니다.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -251,7 +251,7 @@ Azure Cosmos DB를 사용하면 즉석에서 컬렉션의 인덱싱 정책을 �
 
 또한 인덱스 변환은 **내부**에서 수행되므로 Azure Cosmos DB가 인덱스의 두 복사본을 유지하지 않고 이전 인덱스를 새 인덱스로 교환합니다. 즉, 추가 디스크 공간이 없는 필요하지 않거나 인덱스 변환을 수행하는 동안 컬렉션에서 사용할 수 있음을 의미합니다.
 
-인덱싱 정책을 변경하는 경우 이전 인덱스에서 새 인덱스로 이동하기 위해 변경 내용을 적용하는 방식은 주로 포함/제회 경로, 인덱스 유형 및 자릿수보다 인덱싱 모드 구성을 기반으로 합니다. 이전 정책과 새 정책 모두가 일관성 인덱싱을 사용하는 경우, Azure Cosmos DB는 온라인 인덱스 변환을 수행합니다. 변환이 진행 중인 동안 일관성 인덱싱 모드로 다른 인덱싱 정책 변경을 적용할 수 없습니다.
+인덱싱 정책을 변경하는 경우 이전 인덱스에서 새 인덱스로 이동하기 위해 변경 내용을 적용하는 방식은 주로 포함/제외 경로, 인덱스 유형 및 자릿수보다 인덱싱 모드 구성을 기반으로 합니다. 이전 정책과 새 정책 모두가 일관성 인덱싱을 사용하는 경우, Azure Cosmos DB는 온라인 인덱스 변환을 수행합니다. 변환이 진행 중인 동안 일관성 인덱싱 모드로 다른 인덱싱 정책 변경을 적용할 수 없습니다.
 
 그러나 변환이 진행 중인 동안 지연 또는 없음 인덱싱 모드로 이동할 수 있습니다. 
 
@@ -409,8 +409,8 @@ DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 �
 ## <a name="next-steps"></a>다음 단계
 인덱스 정책 관리 샘플 및 Azure Cosmos DB의 쿼리 언어에 대한 자세한 내용을 보려면 아래 링크를 참조하세요.
 
-1. [DocumentDB .NET 인덱스 관리 코드 샘플](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [DocumentDB REST API 컬렉션 작업](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3. [DocumentDB SQL을 사용한 쿼리](documentdb-sql-query.md)
+1. [DocumentDB API .NET 인덱스 관리 코드 샘플](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+2. [DocumentDB API REST 컬렉션 작업](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+3. [SQL을 사용한 쿼리](documentdb-sql-query.md)
 
 

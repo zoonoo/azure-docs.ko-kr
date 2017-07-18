@@ -16,10 +16,10 @@ ms.date: 05/24/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 929ee15b77215ca6b150918eff6f608dc153776e
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 38afe40cf45cf13d587faf13cc5216e4326b84a0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -143,7 +143,7 @@ Azure Portal을 사용하거나 프로그래밍 방식으로 S1, S2 및 S3 성�
 
 **.NET SDK를 사용하여 단일 파티션 컬렉션으로 마이그레이션하려면**
 
-컬렉션의 성능 수준 변경에 대한 다른 옵션은 SDK를 통하는 것입니다. 이 섹션에서는 [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx)를 사용한 컬렉션 성능 수준 변경에 대해서만 설명하지만 다른 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)의 경우에도 프로세스는 유사합니다. .NET SDK를 처음 사용하는 경우 [시작 자습서](documentdb-get-started.md)를 참조하세요.
+컬렉션의 성능 수준 변경에 대한 다른 옵션은 SDK를 통하는 것입니다. 이 섹션에서는 [DocumentDB .NET API](documentdb-sdk-dotnet.md)를 사용한 컬렉션의 성능 수준 변경에 대해서만 다루고 있으나, 다른 SDK의 경우에도 프로세스는 유사합니다.
 
 다음 코드 조각에서는 컬렉션 처리량을 5,000RU/s로 변경합니다.
     
@@ -161,7 +161,7 @@ Azure Portal을 사용하거나 프로그래밍 방식으로 S1, S2 및 S3 성�
     await client.ReplaceOfferAsync(offer);
 ```
 
-offer 메서드에 대한 자세한 내용 및 추가 예제를 보려면 [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) 을 방문하세요.
+offer 메서드에 대한 자세한 내용 및 추가 예제를 보려면 [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx)을 방문하세요.
 
 * [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
 * [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
@@ -177,7 +177,7 @@ EA 고객에게 적용한 가격은 현재 계약이 종료될 때까지 보호�
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB의 가격 책정 및 데이터 관리에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-1.    [Cosmos DB의 데이터 분할](documentdb-partition-data.md). 단일 파티션 컨테이너와 분할된 컨테이너 간의 차이점을 이해하고 매끄럽게 크기를 조정하는 분할 전략을 구현하는 데 유용한 팁을 알아봅니다.
-2.    [Cosmos DB 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/). 처리량 프로비전 및 저장소 소비 비용에 대해 알아봅니다.
-3.    [요청 단위](request-units.md) 읽기, 쓰기, 쿼리와 같은 다양한 작업 유형의 처리량 사용에 대해 알아봅니다.
+1.  [Cosmos DB의 데이터 분할](documentdb-partition-data.md). 단일 파티션 컨테이너와 분할된 컨테이너 간의 차이점을 이해하고 매끄럽게 크기를 조정하는 분할 전략을 구현하는 데 유용한 팁을 알아봅니다.
+2.  [Cosmos DB 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/). 처리량 프로비전 및 저장소 소비 비용에 대해 알아봅니다.
+3.  [요청 단위](request-units.md) 읽기, 쓰기, 쿼리와 같은 다양한 작업 유형의 처리량 사용에 대해 알아봅니다.
 

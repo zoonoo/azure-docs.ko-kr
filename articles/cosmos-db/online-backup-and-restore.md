@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 06/23/2017
 ms.author: raprasa
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 11e60ab8dfada4b8b0e1cd73ca60dc428364dc68
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: a438b5079ae48c82fb2dbd5ce4547302364e0ef5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -51,8 +51,9 @@ Cosmos DB 내에 저장된 데이터와 달리 자동 백업은 Azure Blob Stora
 ![GRS Azure Storage에 있는 모든 Cosmos DB 엔터티의 정기적인 전체 백업](./media/online-backup-and-restore/automatic-backup.png)
 
 ## <a name="retention-period-for-a-given-snapshot"></a>지정된 스냅숏에 대한 보존 기간
-위에서 설명한 대로 데이터의 스냅숏을 정기적으로 수행하며 규정 준수 규칙에 대하여 제거되기 전 최대 90일까지 최신 스냅숏을 유지합니다. 컨테이너 또는 계정이 삭제되면 Cosmos DB는 90일 동안 마지막 백업을 저장합니다.
+위에서 설명한 대로 4시간마다 데이터를 스냅숏을 찍고 30일 동안 마지막 두 개의 스냅숏을 유지합니다. 규정 준수 규칙당 스냅숏은 90일 후 제거됩니다.
 
+사용자 고유의 스냅숏을 유지하려는 경우 Azure Cosmos DB [데이터 마이그레이션 도구](import-data.md#export-to-json-file)에서 JSON으로 내보내기 옵션을 사용하여 추가 백업을 예약할 수 있습니다. 
 
 ## <a name="restore-database-from-the-online-backup"></a>온라인 백업에서 데이터베이스 복원
 데이터를 실수로 삭제하는 경우 [지원 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하거나 [Azure 지원에 문의](https://azure.microsoft.com/support/options/)하여 마지막 자동 백업에서 데이터를 복원할 수 있습니다. 복원될 백업의 특정 스냅숏에 대해 Cosmos DB는 최소한 해당 스냅숏의 백업 주기 동안 데이터를 사용할 수 있어야 한다고 요구합니다.

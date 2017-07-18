@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 098904d8b5262d8a19d1c10003e0bcaa668ef2dc
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 24ee84bdd1c795d6354bb5cb8fe397b078e7c51f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -30,8 +30,8 @@ ms.lasthandoff: 05/26/2017
 AWS 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업로드하여 Managed Disks를 활용하는 VM을 만들 수 있습니다. Azure Managed Disks를 사용하면 Azure IaaS VM의 저장소 계정을 관리할 필요가 없습니다. 필요한 디스크의 유형(프리미엄 또는 표준)과 크기만 지정하면 Azure가 알아서 디스크를 만들고 관리합니다. 
 
 일반화된 VHD 및 특수한 VHD를 모두 업로드할 수 있습니다. 
-**일반화된 VHD** - 일반화된 VHD에는 Sysprep을 사용하여 제거된 모든 개인 계정 정보가 포함되어 있습니다. 
-**특수한 VHD** - 특수한 VHD는 사용자 계정, 응용 프로그램 및 원본 VM의 다른 상태 데이터를 유지 관리합니다. 
+- **일반화된 VHD** - Sysprep을 사용하여 제거된 모든 개인 계정 정보가 포함되어 있습니다. 
+- **특수한 VHD** - 사용자 계정, 응용 프로그램 및 원본 VM의 다른 상태 데이터를 유지 관리합니다. 
 
 > [!IMPORTANT]
 > Azure에 VHD를 업로드하기 전에 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 수행해야 합니다.
@@ -41,9 +41,9 @@ AWS 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업
 
 | 시나리오                                                                                                                         | 문서화                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| 기존 AWS EC2 인스턴스를 Azure Managed Disks에 마이그레이션하려고 합니다.                                     | [Amazon Web Services(AWS)에서 Azure Managed Disks로 마이그레이션](aws-to-azure.md)                           |
-| 사용하려는 다른 가상화 플랫폼의 VM이 있어서 여러 Azure VM을 만들기 위해 이미지로 사용합니다. | [Managed Disks를 사용하여 Azure에 일반화된 VHD 업로드 및 새 VM 만들기](upload-generalized-managed.md) |
-| 고유하게 사용자 지정된 VM을 Azure에서 다시 만들려고 합니다.                                                      | [Managed Disks를 사용하여 Azure에 특수화된 VHD 업로드 및 새 VM 만들기](create-vm-specialized.md)         |
+| 기존 AWS EC2 인스턴스를 Azure Managed Disks에 마이그레이션하려고 합니다.                                     | [AWS(Amazon Web Services)에서 Azure로 VM 이동](aws-to-azure.md)                           |
+| 사용하려는 다른 가상화 플랫폼의 VM이 있어서 여러 Azure VM을 만들기 위해 이미지로 사용합니다. | [일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기](upload-generalized-managed.md) |
+| 고유하게 사용자 지정된 VM을 Azure에서 다시 만들려고 합니다.                                                      | [Azure에 전문화된 VHD 업로드 및 새 VM 만들기](create-vm-specialized.md)         |
 
 
 ## <a name="overview-of-managed-disks"></a>Managed Disks 개요
@@ -77,7 +77,7 @@ VM에서 사용할 수 있는 프리미엄 Managed Disks에는 세 종류가 있
 | 프리미엄 디스크 유형  | P10               | P20               | P30               |
 |---------------------|-------------------|-------------------|-------------------|
 | 디스크 크기           | 128GB            | 512GB            | 1024GB(1TB)    |
-| 디스크당 IOPS       | 500               | 2300              | 5000              |
+| 디스크당 IOPS       | 500               | 2,300              | 5000              |
 | 디스크당 처리량 | 초당 100MB | 초당 150MB | 초당 200MB |
 
 **표준 Managed Disks**

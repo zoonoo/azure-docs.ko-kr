@@ -1,5 +1,5 @@
 ---
-title: "Transact-SQL로 Azure SQL Database에 대해 계획 또는 계획되지 않은 장애 조치 시작 | Microsoft Docs"
+title: "TSQL:Azure SQL Database에 대한 장애 조치(failover) 시작 | Microsoft Docs"
 description: "Transact-SQL을 사용하여 Azure SQL 데이터베이스에 대해 계획 또는 계획되지 않은 장애 조치 시작"
 services: sql-database
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 6ea2cfcf41900ecbf4d254cc4a195848144a0fa0
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 459941d2c82e5d4ef62beab4ccf775ab8f5efce4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---

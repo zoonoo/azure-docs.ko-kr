@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 06/19/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: eeaab56b376ffd3123efb95a1223b7344dd6d187
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: 65709ef9f6cdd50fb8650a1a11c9321defb9cf5b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -111,16 +112,16 @@ Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 �
 
    ![](./media/data-factory-data-processing-using-batch/image3.png)
 
-   **Inputfolder** 및 **outputfolder**는 **mycontainer**에서 최상위 폴더이며 **inputfolder**에는 날짜-시간 스탬프(YYYY-MM-DD-HH)와 함께 하위 폴더가 있습니다.
+   `Inputfolder` 및 `outputfolder`는 `mycontainer`에서 최상위 폴더입니다. `inputfolder`는 날짜-시간 스탬프(YYYY-MM-DD-HH)와 함께 하위 폴더를 갖습니다.
 
-   **Azure Storage 탐색기**를 사용 중인 경우 다음 단계에서 다음과 같은 이름이 지정된 파일을 업로드 해야 합니다: inputfolder/2015-11-16-00/file.txt, inputfolder/2015-11-16-01/file.txt 등 이 단계는 자동으로 폴더를 만듭니다.
+   **Azure Storage 탐색기**를 사용 중인 경우 다음 단계에서 다음과 같은 이름이 지정된 파일을 업로드 해야 합니다: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt` 등 이 단계는 자동으로 폴더를 만듭니다.
 3. 키워드 **Microsoft**가 있는 콘텐츠를 사용하여 컴퓨터에 텍스트 파일 **file.txt**를 만듭니다. 예: "테스트 사용자 지정 작업 Microsoft 테스트 사용자 지정 작업 Microsoft”
 4. Azure Blob 저장소의 다음 입력 폴더에 파일을 업로드합니다.
 
    ![](./media/data-factory-data-processing-using-batch/image4.png)
 
-   **Azure 저장소 탐색기**를 사용 중인 경우 파일 **file.txt**를 **mycontainer**에 업로드합니다. 도구 모음의 **복사**를 클릭하여 Blob의 복사본을 만듭니다. **Blob 복사** 대화 상자에서 **대상 Blob 이름**을 **inputfolder/2015-11-16-00/file.txt**로 변경합니다. 이 단계를 반복하여 inputfolder/2015-11-16-01/file.txt, inputfolder/2015-11-16-02/file.txt, inputfolder/2015-11-16-03/file.txt, inputfolder/2015-11-16-04/file.txt 등을 만듭니다. 이 작업은 자동으로 폴더를 만듭니다.
-5. **customactivitycontainer**라는 다른 컨테이너를 만듭니다. 이 컨테이너에 사용자 지정 작업 zip 파일을 업로드합니다.
+   **Azure 저장소 탐색기**를 사용 중인 경우 파일 **file.txt**를 **mycontainer**에 업로드합니다. 도구 모음의 **복사**를 클릭하여 Blob의 복사본을 만듭니다. **Blob 복사** 대화 상자에서 **대상 Blob 이름**을 `inputfolder/2015-11-16-00/file.txt`로 변경합니다. 이 단계를 반복하여 `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt` 등을 만듭니다. 이 작업은 자동으로 폴더를 만듭니다.
+5. `customactivitycontainer`라는 다른 컨테이너를 만듭니다. 이 컨테이너에 사용자 지정 작업 zip 파일을 업로드합니다.
 
 #### <a name="visual-studio"></a>Visual Studio
 Data Factory 솔루션에서 사용될 사용자 지정 배치 활동을 만들려면 Microsoft Visual Studio 2012 이상을 설치합니다.
@@ -368,7 +369,7 @@ public IDictionary<string, string> Execute(
 3. **\\bin\\Debug** 폴더의 이진을 모두 포함하는 **MyDotNetActivity.zip** Zip 파일을 만듭니다. 오류가 발생할 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 MyDotNetActivity.**pdb** 파일을 포함할 수 있습니다.
 
    ![](./media/data-factory-data-processing-using-batch/image5.png)
-4. **ADFTutorialDataFactory**의 연결된 서비스 **StorageLinkedService**가 사용하는 Azure Blob 저장소의 Blob 컨테이너 **customactivitycontainer**에 Blob으로 **MyDotNetActivity.zip**을 업로드합니다. Blob 컨테이너 **customactivitycontainer**가 아직 없는 경우 새로 만듭니다.
+4. **ADFTutorialDataFactory**의 연결된 서비스 **StorageLinkedService**가 사용하는 Azure Blob 저장소의 Blob 컨테이너 `customactivitycontainer`에 Blob으로 **MyDotNetActivity.zip**을 업로드합니다. 아직 없는 경우 `customactivitycontainer` Blob 컨테이너를 만듭니다.
 
 #### <a name="execute-method"></a>메서드 실행
 이 섹션에서는 Execute 메서드에서 코드에 대한 자세한 내용과 참고 사항을 제공합니다.
@@ -447,7 +448,7 @@ public IDictionary<string, string> Execute(
 ### <a name="create-the-data-factory"></a>데이터 팩터리 만들기
 [사용자 지정 작업 만들기](#create-the-custom-activity) 섹션에서 사용자 지정 작업을 만들고 이진과 함께 zip 파일을 업로드하고 PDB 파일을 Azure Blob 컨테이너에 업로드했습니다. 이 섹션에서는 **사용자 지정 작업**을 사용하는 **파이프라인**으로 Azure **데이터 팩터리**를 만듭니다.
 
-사용자 지정 작업에 대한 입력 데이터 집합은 Blob 저장소에서 입력 폴더(mycontainer\\inputfolder)의 Blob(파일)을 나타냅니다. 이 작업에 대한 출력 데이터 집합은 Blob 저장소에서 출력 폴더(mycontainer\\outputfolder)의 출력 Blob을 나타냅니다.
+사용자 지정 작업에 대한 입력 데이터 집합은 Blob 저장소에서 입력 폴더(`mycontainer\\inputfolder`)의 Blob(파일)을 나타냅니다. 이 작업에 대한 출력 데이터 집합은 Blob 저장소에서 출력 폴더(`mycontainer\\outputfolder`)의 출력 Blob을 나타냅니다.
 
 입력 폴더에 있는 하나 이상의 파일을 삭제합니다.
 
@@ -668,7 +669,7 @@ test custom activity Microsoft test custom activity Microsoft
     }
     ```
 
-    각 입력 조각에 대해 출력 BLOB/파일이 생성됩니다. 각 조각에 대해 출력 파일의 이름을 지정하는 방법은 다음과 같습니다. **mycontainer\\outputfolder**라는 하나의 출력 폴더에 모든 출력 파일이 생성됩니다.
+    각 입력 조각에 대해 출력 BLOB/파일이 생성됩니다. 각 조각에 대해 출력 파일의 이름을 지정하는 방법은 다음과 같습니다. `mycontainer\\outputfolder`라는 하나의 출력 폴더에 모든 출력 파일이 생성됩니다.
 
     | **조각** | **시작 시간**          | **출력 파일**       |
     |-----------|-------------------------|-----------------------|
@@ -771,7 +772,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    ![](./media/data-factory-data-processing-using-batch/image13.png)
 6. Azure 포털을 사용하여 **조각**과 연결된 **태스크**를 보고 각 조각이 실행된 VM을 봅니다. 자세한 내용은 [Data Factory 및 배치 통합](#data-factory-and-batch-integration) 섹션을 참조하세요.
-7. Azure Blob 저장소에서 **mycontainer**의 **outputfolder**에 출력 파일이 표시됩니다.
+7. Azure Blob 저장소에서 `mycontainer`의 `outputfolder`에 출력 파일이 표시됩니다.
 
    ![](./media/data-factory-data-processing-using-batch/image15.png)
 
@@ -788,7 +789,7 @@ test custom activity Microsoft test custom activity Microsoft
 10. 이제 **OutputDataset** 블레이드에서 **11/16/2015 01:00:00 AM**으로 설정된 **SLICE START TIME**으로 조각을 오른쪽 단추로 클릭하고 **실행**을 클릭하여 조각을 다시 실행/다시 처리합니다. 이제 조각에 하나의 파일 대신 5개의 파일이 있습니다.
 
     ![](./media/data-factory-data-processing-using-batch/image17.png)
-11. 조각이 실행되고 해당 상태가 **Ready** 상태가 된 후 Blob 저장소에 있는 **mycontainer**의 **outputfolder**에 있는 이 조각(**2015-11-16-01.txt**)에 대한 출력 파일의 콘텐츠를 확인합니다. 조각의 각 파일에 대한 줄이 있어야 합니다.
+11. 조각이 실행되고 해당 상태가 **Ready** 상태가 된 후 Blob 저장소에 있는 `mycontainer`의 `outputfolder`에 있는 이 조각(**2015-11-16-01.txt**)에 대한 출력 파일의 콘텐츠를 확인합니다. 조각의 각 파일에 대한 줄이 있어야 합니다.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -804,7 +805,7 @@ test custom activity Microsoft test custom activity Microsoft
 >
 
 #### <a name="data-factory-and-batch-integration"></a>Data Factory 및 배치 통합
-Data Factory 서비스가 Azure 배치에 **adf-poolname:job-xxx**라는 이름으로 작업을 만듭니다.
+Data Factory 서비스가 Azure Batch에 `adf-poolname:job-xxx`라는 이름으로 작업을 만듭니다.
 
 ![Azure Data Factory - 배치 작업](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
@@ -855,7 +856,7 @@ Data Factory 서비스가 Azure 배치에 **adf-poolname:job-xxx**라는 이름�
    ![](./media/data-factory-data-processing-using-batch/image21.png)
 
    > [!NOTE]
-   > **dfjobs**라는 **컨테이너**가 Azure Blob 저장소에 표시됩니다. 이 컨테이너는 자동으로 삭제되지 않지만 솔루션 테스트 후 안전하게 삭제할 수 있습니다. 마찬가지로 데이터 팩터리 솔루션은 **adf-\<pool ID/name\>:job-0000000001**이라는 Azure 배치 **작업**을 만듭니다. 원하는 경우 솔루션을 테스트한 후 이 작업을 삭제할 수 있습니다.
+   > `adfjobs`라는 **컨테이너**가 Azure Blob 저장소에 표시됩니다. 이 컨테이너는 자동으로 삭제되지 않지만 솔루션 테스트 후 안전하게 삭제할 수 있습니다. 마찬가지로 데이터 팩터리 솔루션은 `adf-\<pool ID/name\>:job-0000000001`이라는 Azure 배치 **작업**을 만듭니다. 원하는 경우 솔루션을 테스트한 후 이 작업을 삭제할 수 있습니다.
    >
    >
 7. 사용자 지정 작업은 패키지에서 **app.config** 파일을 사용하지 않습니다. 따라서 코드가 구성 파일에서 연결 문자열을 읽는 경우 런타임 시 작동하지 않습니다. Azure 배치를 사용할 경우 **Azure KeyVault**에 모든 암호를 저장하고, 인증서 기반 서비스 주체를 사용하여 KeyVault를 보호하고, 인증서를 Azure 배치 풀에 배포하는 것이 좋습니다. 그러면 .NET 사용자 지정 활동은 런타임에 주요 자격 증명 모음의 암호에 액세스할 수 있습니다. 이 솔루션은 일반 솔루션이며 연결 문자열뿐 아니라 모든 유형의 암호로 확장될 수 있습니다.
@@ -865,14 +866,14 @@ Data Factory 서비스가 Azure 배치에 **adf-poolname:job-xxx**라는 이름�
 #### <a name="extend-the-sample"></a>샘플 확장
 Azure Data Factory 및 Azure 배치 기능에 대한 자세한 내용을 보려면 이 샘플을 확장할 수 있습니다. 예를 들어 서로 다른 시간 범위에서 조각을 처리하려면 다음 단계를 수행합니다.
 
-1. **inputfolder**2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09에 다음 하위 폴더를 추가하고 해당 폴더에 입력 파일을 배치합니다. `2015-11-16T05:00:00Z`에서 `2015-11-16T10:00:00Z`(으)로 파이프라인에 대한 종료 시간을 변경합니다. **다이어그램 보기**에서 **InputDataset**을 두 번 클릭하고 입력 조각이 준비되었는지 확인합니다. **OuptutDataset**을 두 번 클릭하여 출력 조각의 상태를 봅니다. 준비 상태에 있는 경우 출력 파일에 대한 outputfolder를 확인합니다.
+1. `inputfolder`에 다음 하위 폴더 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09를 추가하고 해당 폴더에 입력 파일을 배치합니다. `2015-11-16T05:00:00Z`에서 `2015-11-16T10:00:00Z`(으)로 파이프라인에 대한 종료 시간을 변경합니다. **다이어그램 보기**에서 **InputDataset**을 두 번 클릭하고 입력 조각이 준비되었는지 확인합니다. **OuptutDataset**을 두 번 클릭하여 출력 조각의 상태를 봅니다. 준비 상태에 있는 경우 출력 파일에 대한 출력 폴더를 확인합니다.
 2. 솔루션, 특히 Azure 배치에서 발생하는 처리의 성능에 미치는 영향을 이해하려면 **동시성** 설정을 증가 또는 감소시킵니다. (4단계: **동시성** 설정에 대한 파이프라인 만들기 및 실행을 참조하세요.)
 3. 상위/하위 **VM당 최대 작업**을 가진 풀을 만듭니다. 만든 새 풀을 사용하려면 데이터 팩터리 솔루션에서 Azure 배치 연결된 서비스를 업데이트합니다. (4단계: **VM당 최대 작업** 설정에 대한 파이프라인 만들기 및 실행을 참조하세요.)
 4. **자동 크기 조정** 기능이 있는 Azure 배치 풀을 만듭니다. Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 응용 프로그램에서 사용하는 처리 능력을 동적으로 조정하는 것입니다. 
 
-    여기에 나오는 샘플 수식은 다음과 같은 동작을 구현합니다. 풀이 처음 만들어질 때는 VM 1개로 시작합니다. $PendingTasks 메트릭은 실행되거나 큐에 대기 중인 활성 상태의 작업 수를 정의합니다.  이 수식은 지난 180초 동안에서 보류 중인 작업의 평균 수를 찾은 후 그에 따라 TargetDedicated를 설정합니다. 또한 TargetDedicated가 VM 25개를 초과하지 않도록 합니다. 따라서 새 작업이 제출되면 풀이 자동으로 커지고, 작업이 완료되면 VM은 하나씩 사용 가능한 상태로 해제된 후 크기 자동 조정에 따라 해당 VM이 축소됩니다. startingNumberOfVMs 및 maxNumberofVMs은 요구에 맞게 조정될 수 있습니다.
+    여기에 나오는 샘플 수식은 다음과 같은 동작을 구현합니다. 풀이 처음 만들어질 때는 VM 1개로 시작합니다. $PendingTasks 메트릭은 실행되거나 큐에 대기 중인 활성 상태의 작업 수를 정의합니다.  이 수식은 지난 180초 동안에서 보류 중인 작업의 평균 수를 찾은 후 그에 따라 TargetDedicated를 설정합니다. 또한 TargetDedicated가 25개의 VM을 초과하지 않도록 합니다. 따라서 새 작업이 제출되면 풀이 자동으로 커지고, 작업이 완료되면 VM은 하나씩 사용 가능한 상태로 해제된 후 자동 크기 조정에 따라 해당 VM이 축소됩니다. startingNumberOfVMs 및 maxNumberofVMs은 요구에 맞게 조정될 수 있습니다.
  
-    크기 자동 조정 수식:
+    자동 크기 조정 수식:
 
     ``` 
     startingNumberOfVMs = 1;

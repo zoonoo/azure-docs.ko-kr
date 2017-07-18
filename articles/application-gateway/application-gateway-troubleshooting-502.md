@@ -1,5 +1,5 @@
 ---
-title: "응용 프로그램 게이트웨이 잘못된 게이트웨이 502 오류 문제 해결 | Microsoft Docs"
+title: "Azure Application Gateway 502 잘못된 게이트웨이 오류 문제 해결 | Microsoft Docs"
 description: "응용 프로그램 게이트웨이 502 오류를 해결하는 방법을 알아봅니다"
 services: application-gateway
 documentationcenter: na
@@ -13,27 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 05/09/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 178cd0e1c20947c952a2abb4bad253272da9fcd4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/08/2017
 
 
 ---
 
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>응용 프로그램 게이트웨이의 잘못된 게이트웨이 오류 문제 해결
 
+응용 프로그램 게이트웨이를 사용할 때 받은 502 잘못된 게이트웨이 오류 문제를 해결하는 방법을 알아봅니다.
+
 ## <a name="overview"></a>개요
 
-Azure 응용 프로그램 게이트웨이를 구성한 후에 발생할 수 있는 오류 중 하나는 "서버 오류: 502 - 웹 서버는 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못된 응답을 받았습니다."입니다. 이 오류는 다음과 같은 주요 이유로 인해 발생할 수 있습니다.
+응용 프로그램 게이트웨이를 구성한 후에 발생할 수 있는 오류 중 하나는 "서버 오류: 502 - 웹 서버가 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못된 응답을 받았습니다."입니다. 이 오류는 다음과 같은 주요 이유로 인해 발생할 수 있습니다.
 
-* Azure Application Gateway의 백 엔드 풀은 구성되지 않았거나 비어 있습니다.
-* VM 또는 VM 크기 조정 설정의 인스턴스는 모두 정상이 아닙니다.
-* 백 엔드 VM 또는 VM 크기 조정 설정의 인스턴스는 기본 상태 프로브에 응답하지 않습니다.
-* 사용자 지정 상태 프로브의 구성이 잘못되었거나 부적절합니다.
-* 사용자 요청과 관련된 요청 시간 초과 또는 연결 문제입니다.
+* Azure Application Gateway의 [백 엔드 풀은 구성되어 있지 않거나 비어 있습니다](#empty-backendaddresspool).
+* VM Scale Set의 VM 또는 인스턴스가 [모두 정상이 아닙니다](#unhealthy-instances-in-backendaddresspool).
+* VM Scale Set의 백 엔드 VM 또는 인스턴스가 [기본 상태 프로브에 응답하지 않습니다](#problems-with-default-health-probe.md).
+* 사용자 지정 상태 프로브의 구성이 [잘못되었거나 부적절합니다](#problems-with-custom-health-probe.md).
+* 사용자 요청과 관련된 [요청 시간 초과 또는 연결 문제입니다](#request-time-out).
 
 ## <a name="empty-backendaddresspool"></a>비어 있는 BackendAddressPool
 

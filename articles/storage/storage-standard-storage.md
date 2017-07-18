@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2017
+ms.date: 06/13/2017
 ms.author: yuemlu
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 37a22be9fba7b245b2c1ea3ca6e495601d63b611
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 01597767a03a5959c4c0cde994b6a7b8a34bfb7e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -31,7 +32,7 @@ Azure 표준 저장소는 대기 시간에 영향을 받지 않는 워크로드�
 
 Azure VM에 표준 디스크를 만드는 방법은 두 가지입니다.
 
-**관리되지 않는 디스크**: VM 디스크에 해당하는 VHD 파일을 저장하는 데 사용되는 저장소 계정을 관리하는 원래 방법입니다. VHD 파일은 저장소 계정에 페이지 Blob으로 저장됩니다. 관리되지 않는 디스크는 DSv2 및 GS 시리즈와 같은 Premium Storage를 주로 사용하는 VM을 비롯한 모든 Azure VM 크기에 연결될 수 있습니다. Azure VM은 여러 표준 디스크 연결을 지원하며 VM당 최대 64TB의 저장소를 허용합니다.
+**관리되지 않는 디스크**: VM 디스크에 해당하는 VHD 파일을 저장하는 데 사용되는 저장소 계정을 관리하는 원래 방법입니다. VHD 파일은 저장소 계정에 페이지 Blob으로 저장됩니다. 관리되지 않는 디스크는 DSv2 및 GS 시리즈와 같은 Premium Storage를 주로 사용하는 VM을 비롯한 모든 Azure VM 크기에 연결될 수 있습니다. Azure VM은 여러 표준 디스크 연결을 지원하며 VM당 최대 256TB의 저장소를 허용합니다.
 
 [**Azure Managed Disks**](storage-managed-disks-overview.md): 이 기능은 VM 디스크에 사용되는 저장소 계정을 관리해 줍니다. 필요한 디스크의 유형(프리미엄 또는 표준)과 크기를 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다. 저장소 계정에 대한 확장성 한도 내에 머무르기 위해 다수의 저장소 계정에 디스크를 배치하려고 고심할 필요가 없습니다. Azure가 알아서 처리해 드립니다.
 
@@ -85,7 +86,7 @@ Managed Disks로 VM을 만드는 방법에 대한 자세한 내용은 다음 문
 
 | **VM 계층**            | **기본 계층 VM** | **표준 계층 VM** |
 |------------------------|-------------------|----------------------|
-| 최대 디스크 크기          | 1023GB           | 1023GB              |
+| 최대 디스크 크기          | 4,095GB           | 4,095GB              |
 | 디스크당 최대 8KB IOPS | 최대 300         | 최대 500            |
 | 디스크당 최대 대역폭 | 최대 60MB/s     | 최대 60MB/s        |
 
@@ -121,7 +122,7 @@ Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의
 * 아웃바운드 데이터 전송
 * 트랜잭션
 
-**관리되지 않는 저장소 데이터 및 디스크 크기:** 관리되지 않는 디스크 및 기타 데이터(Blob, 테이블, 큐 및 파일)의 경우 사용하는 공간의 양에 대해서만 요금이 청구됩니다. 예를 들어 VM의 페이지 Blob이 127GB로 프로비전되었는데 VM이 실제로 10GB의 공간만을 사용한다면 10GB의 공간에 대해서만 요금이 청구됩니다. 
+**관리되지 않는 저장소 데이터 및 디스크 크기:** 관리되지 않는 디스크 및 기타 데이터(Blob, 테이블, 큐 및 파일)의 경우 사용하는 공간의 양에 대해서만 요금이 청구됩니다. 예를 들어 VM의 페이지 Blob이 127GB로 프로비전되었는데 VM이 실제로 10GB의 공간만을 사용한다면 10GB의 공간에 대해서만 요금이 청구됩니다. 표준 저장소를 최대 8191GB까지, 표준 관리되지 않는 디스크를 최대 4095GB까지 지원합니다. 
 
 **Managed Disks:** Managed Disks는 프로비전된 크기에 따라 요금이 청구됩니다. 디스크가 10GB 디스크로 프로비전된 경우 5GB만 사용하더라도 프로비전된 크기 즉, 10GB에 대해 요금이 청구됩니다.
 
@@ -154,3 +155,4 @@ Azure Backup 서비스를 Managed Disks와 함께 사용하면 시간 기반 백
 * [Resource Manager 및 PowerShell을 사용하여 VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md)
 
 * [Azure CLI 2.0을 사용하여 Linux VM 만들기](../virtual-machines/linux/quick-create-cli.md)
+

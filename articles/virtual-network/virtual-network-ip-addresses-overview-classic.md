@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 54277a39601cd7f986a8ff8f517ab02eac77309b
-ms.openlocfilehash: dfc34435ad6e8982c0298301bdefe489c37db8f1
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: c9eb4bad1c0069b3f8ed2df30ef72b2c530ffab3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -167,21 +169,16 @@ Azure에서 [네트워킹에 대한 제한](../azure-subscription-service-limits
 
 |  | 리소스 | 클래식 | 리소스 관리자 |
 | --- | --- | --- | --- |
-| **공용 IP 주소** |VM |ILPIP(동적 전용)로 참조 |공용 IP(동적 또는 정적)로 참조 |
-|  |IaaS VM 또는 PaaS 역할 인스턴스에 할당 |VM의 NIC에 연결 | |
-| 인터넷 연결 부하 분산 장치 |VIP(동적) 또는 예약된 IP(정적)로 참조 |공용 IP(동적 또는 정적)로 참조 | |
-|  |클라우드 서비스에 할당 |부하 분산 장치의 프런트 엔드 구성에 연결 | |
+| **공용 IP 주소** |***VM*** |ILPIP(동적 전용)로 참조 |공용 IP(동적 또는 정적)로 참조 |
+|  ||IaaS VM 또는 PaaS 역할 인스턴스에 할당 |VM의 NIC에 연결 | |
+|  |***인터넷 연결 부하 분산 장치*** |VIP(동적) 또는 예약된 IP(정적)로 참조 |공용 IP(동적 또는 정적)로 참조 | |
+|  ||클라우드 서비스에 할당 |부하 분산 장치의 프런트 엔드 구성에 연결 | |
 |  | | | |
-| **개인 IP 주소** |VM |DIP로 참조 |개인 IP 주소로 참조 |
-|  |IaaS VM 또는 PaaS 역할 인스턴스에 할당 |VM의 NIC에 할당 | |
-| ILB(내부 부하 분산 장치) |ILB(동적 또는 정적)에 할당 |ILB의 프런트 엔드 구성(동적 또는 정적)에 할당 | |
+| **개인 IP 주소** |***VM*** |DIP로 참조 |개인 IP 주소로 참조 |
+|  ||IaaS VM 또는 PaaS 역할 인스턴스에 할당 |VM의 NIC에 할당 | |
+|  |***ILB(내부 부하 분산 장치)*** |ILB(동적 또는 정적)에 할당 |ILB의 프런트 엔드 구성(동적 또는 정적)에 할당 | |
 
 ## <a name="next-steps"></a>다음 단계
-* [고정 개인 IP 주소를 사용하는 VM을 배포](virtual-networks-static-private-ip-classic-pportal.md) 합니다.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
+* Azure Portal을 사용하여 [고정 개인 IP 주소를 사용하는 VM 배포](virtual-networks-static-private-ip-classic-pportal.md)
 
 

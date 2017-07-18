@@ -11,23 +11,18 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1c56a7f16361ac4fae97be6c9f21c959723b396c
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 622604dc3ce69085feff6705168d58ad9938c429
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 장애 복구
-
-> [!div class="op_single_selector"]
-> * [Azure의 VMware/물리적 컴퓨터](site-recovery-failback-azure-to-vmware.md)
-> * [Azure의 Hyper-V VM](site-recovery-failback-from-azure-to-hyper-v.md)
-
 
 이 문서에서는 가상 컴퓨터를 Azure Virtual Machines에서 온-프레미스 사이트로 장애 복구하는 방법에 대해 설명합니다. [Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-vmware-to-azure-classic.md) 자습서를 사용하여 온-프레미스 사이트에서 Azure로 장애 조치한 후 이 문서의 지침에 따라 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 장애 복구하세요.
 
@@ -76,7 +71,7 @@ VMware 가상 컴퓨터를 장애 조치했는데 원본 온-프레미스 가상
 
 Azure로 장애 조치된 물리적 컴퓨터는 VMware 가상 컴퓨터(P2A2V라고도 함)로만 장애 복구할 수 있습니다. 이 흐름은 대체 위치 복구 아래에 있습니다.
 
-* 보호되고 Azure로 장애 조치된 Windows Server 2008 R2 SP1 서버는 장애 복구할 수 없습니다.
+* 보호되고 Azure로 장애 조치(Failover)된 경우 Windows Server 2008 R2 SP1 물리적 서버.
 * 하나 이상의 마스터 대상 서버와 장애 복구(failback)해야 하는 필수 ESX/ESXi 호스트를 검색해야 합니다.
 
 ## <a name="have-you-completed-reprotection"></a>다시 보호를 완료했습니까?
@@ -112,7 +107,7 @@ Azure로 장애 조치된 물리적 컴퓨터는 VMware 가상 컴퓨터(P2A2V�
 
 ### <a name="what-happens-to-vmware-tools-post-failback"></a>장애 복구 후 VMware 도구는 어떻게 되나요?
 
-Azure로 장애 조치 중에는 VMware 도구를 Azure 가상 컴퓨터에서 실행할 수 없습니다. Windows 가상 컴퓨터의 경우 ASR는 장애 조치 중에 VMware 도구를 비활성화합니다. Linux 가상 컴퓨터의 경우 ASR는 장애 조치 중에 VMware 도구를 제거합니다. 
+Azure로 장애 조치 중에는 VMware 도구를 Azure 가상 컴퓨터에서 실행할 수 없습니다. Windows 가상 컴퓨터의 경우 ASR는 장애 조치 중에 VMware 도구를 비활성화합니다. Linux 가상 컴퓨터의 경우 ASR는 장애 조치 중에 VMware 도구를 제거합니다.
 
 Windows 가상 컴퓨터의 장애 복구 중에는 장애 복구 시 VMware 도구가 다시 활성화됩니다. 마찬가지로, linux 가상 컴퓨터의 경우 장애 복구 중에 컴퓨터에 VMware 도구가 다시 설치됩니다.
 

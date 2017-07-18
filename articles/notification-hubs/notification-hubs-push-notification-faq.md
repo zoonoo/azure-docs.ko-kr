@@ -15,10 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 029401a1884aebf0625ad8d68410dcdcd491d0ad
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: c8592ea38d62213327549583a1e931ea682ee56e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/06/2017
 
 
 ---

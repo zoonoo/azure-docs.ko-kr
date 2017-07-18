@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: d109c50be94a227efd39f151c01070a8e30b237d
-ms.lasthandoff: 03/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 22f9369d18edae34f51f20712c3f92e0a57700f2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -40,7 +41,7 @@ ms.lasthandoff: 03/17/2017
 ## <a name="more-help-with-machine-learning-studio"></a>기계 학습 스튜디오에 대한 추가 도움말
 * Microsoft Azure 기계 학습의 개요는 [Microsoft Azure의 기계 학습 소개](machine-learning-what-is-machine-learning.md)를 참조하세요.
 * 점수 매기기 웹 서비스를 배포하는 방법에 대한 자세한 내용은 [Azure 기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
-* 점수 매기기 웹 서비스를 사용하는 방법에 대한 자세한 내용은 [기계 학습 실험에서 배포된 Azure 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
+* 점수 매기기 웹 서비스를 사용하는 방법에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

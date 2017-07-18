@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 06/06/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 244413be8b094605883445bb3cbf675b538b704e
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 3bad3219b087523125047f24d643ffdc5e24caa0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -28,6 +29,9 @@ ms.lasthandoff: 03/10/2017
 이 항목에서는 MES(Media Encoder Standard)를 사용하여 입력 해상도 및 비트 전송률을 기반으로 비트 전송률 사다리를 자동 생성하는 방법을 보여 줍니다. 자동 생성된 사전 설정은 입력 해상도 및 비트 전송률을 초과하지 않습니다. 예를 들어, 입력이 3Mbps에서 720p이고 출력이 최적 시 720p로 유지되는 경우 3Mbps보다 낮은 전송률로 시작됩니다.
 
 이 기능을 사용하려면 인코딩 작업을 만들 때 **적응 스트리밍** 사전 설정을 지정해야 합니다. **적응 스트리밍** 사전 설정을 사용할 때 MES 인코더는 비트 전송률 사다리를 지능적으로 제한합니다. 하지만 서비스에서 사용할 레이어 수와 해상도를 결정하므로 인코딩 비용은 제어할 수 없습니다. 이 항목의 [끝](#output)에서, **적응 스트리밍** 사전 설정으로 인코딩한 결과로 MES에 의해 생성된 출력 계층의 예를 볼 수 있습니다.
+
+>[!NOTE]
+> 이 사전 설정은 스트리밍 가능 출력 자산을 생성하려는 경우에만 사용할 수 있습니다. 특히, 출력 자산에는 오디오 및 비디오가 인터리빙되지 않은 MP4 파일이 포함됩니다. 출력에 비디오 및 오디오가 인터리빙된 MP4 파일을 포함시켜야 하는 경우(예: 점진적 다운로드 파일로 사용하는 경우) [이 섹션에서](media-services-mes-presets-overview.md) 나열된 사전 설정 중 하나를 사용합니다.
 
 ## <a id="encoding_with_dotnet"></a>미디어 서비스 .NET SDK를 사용하여 인코딩
 

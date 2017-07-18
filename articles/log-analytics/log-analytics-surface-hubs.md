@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: d568c52a7cbbe593658fb95203bfa98af13a1554
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: b6ecd0d09589fec85c1633f528afc1165c346b7f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Log Analytics로 Surface Hub를 모니터링하여 상태 추적
+
+![Surface Hub 기호](./media/log-analytics-surface-hubs/surface-hub-symbol.png)
 
 이 문서에서는 Log Analytics의 Surface Hub 솔루션을 사용하여 Microsoft OMS(Operations Management Suite)를 통해 Microsoft Surface Hub 장치를 모니터링하는 방법을 설명합니다. Log Analytics는 Surface Hub 상태를 추적하여 Surface Hub가 사용되고 있는 방식을 파악하는 데 도움이 됩니다.
 
@@ -36,11 +39,11 @@ Surface Hub마다 Microsoft Monitoring Agent가 설치되어 있습니다. 에�
 
 다음으로 OMS 구독을 기존 Microsoft Azure 구독에 추가하거나 OMS 포털을 통해 직접 새 작업 영역을 만듭니다. 이 방법들에 대한 자세한 지침은 [Log Analytics 시작](log-analytics-get-started.md)에서 설명하고 있습니다. 일단 OMS 구독을 설정한 후에 Surface Hub 장치를 등록하는 두 가지 방법은 다음과 같습니다.
 
-* InTune을 통한 자동 등록
+* InTune을 통해 자동으로
 * Surface Hub 장치의 **설정**을 통한 수동 등록
 
 ## <a name="set-up-monitoring"></a>모니터링 설정
-OMS에서 Log Analytics를 사용하여 Surface Hub의 상태와 활동을 모니터링할 수 있습니다. 그리고 InTune을 사용하거나 로컬로 Surface Hub의 **설정**을 사용하여 해당 Surface Hub를 OMS에 등록할 수 있습니다.
+OMS에서 Log Analytics를 사용하여 Surface Hub의 상태와 활동을 모니터링할 수 있습니다. InTune을 사용하거나 로컬로 Surface Hub의 **설정**을 사용하여 해당 Surface Hub를 OMS에 등록할 수 있습니다.
 
 ## <a name="connect-surface-hubs-to-oms-through-intune"></a>InTune 통해 OMS에 Surface Hub 연결
 Surface Hub를 관리할 OMS 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다. 이 ID와 키는 OMS 포털에서 가져올 수 있습니다.
@@ -56,7 +59,7 @@ InTune은 하나 이상의 장치에 적용되는 OMS 구성 설정을 중앙에
 
    ![InTune 정책](./media/log-analytics-surface-hubs/intune.png)
 
-그러면 InTune에서 대상 그룹의 장치와 OMS 설정을 동기화하여 OMS 작업 영역에 해당 장치를 등록 합니다.
+그런 다음 InTune에서 대상 그룹의 장치와 OMS 설정을 동기화하여 OMS 작업 영역에 해당 장치를 등록합니다.
 
 ## <a name="connect-surface-hubs-to-oms-using-the-settings-app"></a>설정 앱을 통해 OMS에 Surface Hub 연결
 Surface Hub를 관리할 OMS 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다. 이 ID와 키는 OMS 포털에서 가져올 수 있습니다.

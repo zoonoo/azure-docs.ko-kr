@@ -13,11 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 06/14/2017
 ms.author: saurse;markgal;nkolli;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
-ms.openlocfilehash: 096c119ad116b87b3e27b71ab9a286d2961cf7df
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 0871f061da668360ff5749f5097353645ee26c82
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -28,9 +30,15 @@ ms.openlocfilehash: 096c119ad116b87b3e27b71ab9a286d2961cf7df
 >
 >
 
-이 문서에서는 Windows Server 또는 Windows Client에서 Azure 백업을 설정하고 백업과 복원을 관리하기 위해 PowerShell을 사용하는 방법을 보여 줍니다.
+이 문서에서는 PowerShell을 사용하여 Windows Server 또는 Windows 워크스테이션 데이터를 백업 자격 증명 모음으로 백업하는 방법을 설명합니다. 모든 새 배포에 Recovery Services 자격 증명 모음을 사용하는 것이 좋습니다. 새 Azure Backup 사용자이며 구독에 백업 자격 증명 모음을 만들지 않은 경우 [PowerShell을 사용하여 Data Protection Manager 데이터를 Azure로 배포 및 관리](backup-client-automation.md) 문서를 사용하여 Recovery Services 자격 증명 모음에 데이터를 저장합니다. 
 
-## <a name="install-azure-powershell"></a>Azure PowerShell 설치
+> [!IMPORTANT]
+> 이제 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드할 수 있습니다. 자세한 내용은 [Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md) 문서를 참조하세요. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것이 좋습니다.<br/> **2017년 11월 1일 시작**:
+>- 나머지 모든 Backup 자격 증명 모음은 자동으로 Recovery Services 자격 증명 모음으로 업그레이드됩니다.
+>- 클래식 포털에서는 백업 데이터에 액세스할 수 없습니다. 대신 Azure Portal을 사용하여 Recovery Services 자격 증명 모음에서 백업 데이터에 액세스할 수 있습니다.
+>
+
+## <a name="install-azure-powershell"></a>Azure Powershell 설치
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Azure PowerShell 1.0이 2015년 10월에 출시되었습니다. 이 릴리스는 0.9.8 릴리스를 성공했으며 특히 cmdlet의 이름 지정 패턴에서 중요한 변경 내용이 이루어졌습니다. 1.0 cmdlet는 명명 패턴{verb}-AzureRm{noun}을 따릅니다. 반면 0.9.8 이름은 **Rm**을 포함하지 않습니다.(예를 들어 New-AzureResourceGroup 대신 New-AzureRmResourceGroup) 반면 0.9.8 이름은 **Switch-AzureMode AzureResourceManager** 명령을 실행하여 리소스 관리자 모드를 사용하도록 설정해야 합니다. 이 명령은 1.0 이상에서는 필요하지 않습니다.
@@ -565,7 +573,7 @@ PS C:\> .\MARSAgentInstaller.exe /d /q
 하지만 Azure에 저장된 데이터는 그대로 유지되며 사용자가 설정한 보존 정책에 따라 보존됩니다. 이전 지점은 시간이 경과하면 자동으로 삭제됩니다.
 
 ## <a name="remote-management"></a>원격 관리
-Azure 백업 에이전트, 정책, 데이터 원본와 관련된 모든 관리는 PowerShell을 통해 원격으로 수행될 수 있습니다. 원격으로 관리될 컴퓨터는 올바르게 준비되어야 합니다.
+Azure 백업 에이전트, 정책, 데이터 원본과 관련된 모든 관리는 PowerShell을 통해 원격으로 수행될 수 있습니다. 원격으로 관리될 컴퓨터는 올바르게 준비되어야 합니다.
 
 기본적으로 WinRM 서비스는 수동 시작으로 구성됩니다. 시작 유형은 반드시 *자동* 으로 설정되어야 하며 서비스가 시작되어야 합니다. WinRM 서비스가 실행되는지 확인하도록 Status 속성의 값은 *Running*이어야 합니다.
 
@@ -605,9 +613,4 @@ Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 �
 
 * [Azure 백업 소개](backup-introduction-to-azure-backup.md)
 * [Windows 서버 백업](backup-configure-vault.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

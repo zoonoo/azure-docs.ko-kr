@@ -13,12 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 06/15/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 480f0544f155365d94b325bbf799bb999268dc31
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 2234924251447bb32d7cca0623a4e8d4f8d4e7ff
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -46,7 +47,7 @@ ms.lasthandoff: 04/25/2017
 
 ## <a name="what-you-learn"></a>학습 내용
 
-다양한 관리 옵션으로 iothub-explorer를 사용하는 방법에 대해 알아봅니다.
+배포 컴퓨터에서 다양한 관리 옵션으로 iothub-explorer를 사용하는 방법에 대해 알아봅니다.
 
 ## <a name="what-you-do"></a>수행할 작업
 
@@ -58,7 +59,7 @@ ms.lasthandoff: 04/25/2017
   - 활성 Azure 구독.
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 응용 프로그램
-- iothub-explorer ([iothub-explorer 설치](https://github.com/azure/iothub-explorer))
+- iothub-explorer (개발 컴퓨터에 [iothub-explorer 설치](https://github.com/azure/iothub-explorer))
 
 ## <a name="connect-to-your-iot-hub"></a>IoT Hub에 연결
 
@@ -87,7 +88,7 @@ iothub-explorer device-method <your device Id> stop
 다음 명령을 실행하여 desired 속성의 간격(interval = 3000)을 설정합니다.
 
 ```bash
-iothub-explorer update-twin mydevice {\"properties\":{\"desired\":{\"interval\":3000}}}
+iothub-explorer update-twin <your device id> {\"properties\":{\"desired\":{\"interval\":3000}}}
 ```
 
 이 속성은 장치에서 읽을 수 있습니다.
@@ -145,3 +146,4 @@ iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperatur
 다양한 관리 옵션으로 iothub-explorer를 사용하는 방법을 알아보았습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 15/05/2017
+ms.date: 02/06/2017
 ms.author: adsolank;juliako;
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 717a8ace8c469b0529ac3c98f22b8ee5a53b3d3b
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: c7f11a2fc19446cd24e8c5fddfbe82d9f1712754
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -85,6 +85,9 @@ Azure 미디어 인덱서 2 미리 보기는 다음 언어에 대한 음성-텍�
 * 포르투갈어[PtBr]
 * 아랍어(이집트)[ArEg]
 * 일본어 [JaJp]
+* 러시아어[RuRu]
+* 영국 영어[EnGb]
+* 스페인어(멕시코)[EsMx] 
 
 ## <a name="supported-file-types"></a>지원되는 파일 형식
 

@@ -5,17 +5,16 @@ services: postgresql
 author: kamathsun
 ms.author: sukamat
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
+editor: jasonwhowell
 ms.service: postgresql-database
-ms.tgt_pltfrm: portal
+ms.custom: mvc
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/01/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2df8d6e3d3629ad0e383aa80ba7fee02f8862410
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: a4ddb9d4f672de6cf1ebe137bf06e5e2c8b7796f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 제한 사항
@@ -45,23 +44,24 @@ PostgreSQL용 Azure 데이터베이스에는 서버를 만들 때 선택할 수 
 너무 많은 연결에 도달하면 다음 오류가 나타날 수 있습니다.
 > 오류: 너무 많은 클라이언트가 이미 연결되어 있습니다.
 
-## <a name="preview-functional-limitations"></a>미리 보기 기능 제한 사항:
-### <a name="scale-operations"></a>크기 조정 작업:
-1.    서비스 계층 간 서버의 동적 크기 조정은 현재 지원되지 않습니다. 즉, 기본 및 표준 서비스 계층 간 전환은 가능하지 않습니다.
-2.    미리 생성된 서버에서 필요 시 저장소의 동적 증가는 현재 지원되지 않습니다.
-3.    서버 저장소 크기를 줄이는 것은 지원되지 않습니다.
+## <a name="preview-functional-limitations"></a>미리 보기 기능 제한 사항
+### <a name="scale-operations"></a>크기 조정 작업
+1.  서비스 계층 간 서버의 동적 크기 조정은 현재 지원되지 않습니다. 즉, 기본 및 표준 서비스 계층 간 전환은 가능하지 않습니다.
+2.  미리 생성된 서버에서 필요 시 저장소의 동적 증가는 현재 지원되지 않습니다.
+3.  서버 저장소 크기를 줄이는 것은 지원되지 않습니다.
 
-### <a name="server-version-upgrades"></a>서버 버전 업그레이드:
+### <a name="server-version-upgrades"></a>서버 버전 업그레이드
 - 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다.
 
-### <a name="subscription-management"></a>구독 관리:
+### <a name="subscription-management"></a>구독 관리
 - 구독 및 리소스 그룹에서 미리 생성된 서버를 동적으로 이동하는 것은 현재 지원되지 않습니다.
 
-### <a name="point-in-time-restore"></a>특정 시점 복원:
-1.    다른 서비스 계층 및/또는 Compute 단위 및 저장소 크기로 복원할 수 없습니다.
-2.    삭제된 서버를 복원하는 것은 지원되지 않습니다.
+### <a name="point-in-time-restore"></a>특정 시점 복원
+1.  다른 서비스 계층 및/또는 Compute 단위 및 저장소 크기로 복원할 수 없습니다.
+2.  삭제된 서버를 복원하는 것은 지원되지 않습니다.
 
-## <a name="next-steps"></a>다음 단계:
-- [각 서비스 계층에서 사용할 수 있는 기능](concepts-service-tiers.md) 이해
+## <a name="next-steps"></a>다음 단계
+- [각 가격 책정 계층에서 사용할 수 있는 기능](concepts-service-tiers.md) 이해
 - [지원되는 PostgreSQL Database 버전](concepts-supported-versions.md) 이해
 - [Azure Portal을 사용하여 PostgreSQL용 Azure 데이터베이스에서 서버를 백업 및 복원하는 방법](howto-restore-server-portal.md) 검토
+

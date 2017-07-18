@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 5ea043ce3bcd0f500fd765f13764ea3ee83e1ba9
-ms.openlocfilehash: 83c3592014c73c0cf36d371d2752bc76b7c8a4e8
-ms.lasthandoff: 12/22/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 97ef8d2693296fc2692be46afcedfd01b07d743f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -115,6 +116,12 @@ New Relic을 사용하려면 [Azure에서 New Relic 응용 프로그램 성능 �
 Azure 앱 서비스에서 웹앱, API 앱 그리고 WebJob을 원격으로 프로파일할 수 있습니다. 프로세스가 예상보다 느리게 실행되거나, HTTP 요청 대기시간이 평상시 보다 높고 프로세스의 CPU 사용량 또한 높은 경우, 원격으로 프로세스를 프로파일할 수 있으며, 프로세스 활동과 코드 hot path를 분석하기 위해 CPU 샘플링 호출 스택을 가져옵니다.
 
 자세한 내용은 [Azure 앱 서비스에서 원격 프로파일링 지원](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service)을 참조하세요.
+
+#### <a name="use-application-insights-profiler"></a>Application Insights Profiler 사용
+
+때로는 특정 코드가 성능 기준에 맞게 작성되지 않아 App Service 앱이 느리게 작동합니다. 예를 들어 병렬로 실행될 수 있는 순차 코드와 원하지 않는 데이터베이스 잠금 경합이 있습니다. 코드에서 이러한 병목 현상을 제거하면 앱 성능이 향상되지만, 정교한 추적과 로그를 설정하지 않으면 감지하기가 어렵습니다. Application Insights Profiler를 사용하면 App Service 앱의 이러한 문제를 해결할 수 있습니다. 
+
+Application Insights Profiler는 최소 구성을 통해 각 웹 호출에 대한 응답 시간 및 느린 응답을 일으키는 코드 줄을 나타내는 추적에 대한 통계를 제공합니다. 자세한 내용은 [Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링](../application-insights/app-insights-profiler.md)을 참조하세요. 
 
 #### <a name="use-the-azure-app-service-support-portal"></a>Azure 앱 서비스 지원 포털 사용
 웹앱은 HTTP 로그, 이벤트 로그, 프로세스 덤프 등등을 확인하여 사용자의 웹앱과 연관된 문제 해결 기능을 제공합니다. **http://&lt;your app name>.scm.azurewebsites.net/Support**에서 지원 포털을 사용하여 모든 정보에 액세스할 수 있습니다.

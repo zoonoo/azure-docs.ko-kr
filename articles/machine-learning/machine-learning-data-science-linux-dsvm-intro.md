@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d8ae05316b424af7d87c3c5ebdac575bcc04998d
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: f5c33212da13b33be60488992d93305807c98d38
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Linux 데이터 과학 가상 컴퓨터 프로비전
 Linux 데이터 과학 가상 컴퓨터는 다양한 도구가 미리 설치되어 있는 CentOS 기반 Azure Virtual Machine입니다. 이러한 도구는 보통 데이터 분석 및 기계 학습을 수행하는 데 사용됩니다. 포함된 주요 소프트웨어 구성 요소는 다음과 같습니다.
 
+* 운영 체제: Linux CentOS 배포.
 * Microsoft R Server Developer Edition
 * 널리 사용되는 데이터 분석 라이브러리를 포함한 Anaconda Python 배포(버전 2.7 및 3.5)
 * JuliaPro - 인기 있는 과학 및 데이터 분석 라이브러리와 함께 Julia 언어의 큐레이트 배포
@@ -82,7 +83,7 @@ Linux 데이터 과학 가상 컴퓨터의 인스턴스를 만드는 단계는 �
    
    b. **크기**:
    
-   * 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. **모두 보기** 를 선택하면 더 많은 VM 크기 선택 항목을 확인할 수 있습니다.
+   * 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. **모두 보기**를 선택하면 더 많은 VM 크기 선택 항목을 확인할 수 있습니다.
    
    c. **설정**:
    
@@ -129,7 +130,7 @@ R은 가장 많이 사용되는 데이터 분석 및 Machine Learning 언어 중
 
 R 콘솔을 시작하려면 셸에서 **R**만 입력하면 됩니다. 이렇게 하면 대화형 환경으로 이동됩니다. R 프로그램을 개발하려면 일반적으로 Emacs, vi, gedit 등의 편집기를 사용한 다음 R 내에서 스크립트를 실행합니다. RStudio를 통해 R 프로그램을 개발하기 위한 전체 그래픽 IDE 환경을 사용할 수 있습니다.
 
-또한 원하는 경우 [상위 20개 R 패키지](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) 를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R** 을 입력하여 이 스크립트를 실행할 수 있습니다.  
+또한 원하는 경우 [상위 20개 R 패키지](http://www.kdnuggets.com/2015/06/top-20-r-packages.html)를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R**을 입력하여 이 스크립트를 실행할 수 있습니다.  
 
 ### <a name="python"></a>Python
 Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7 및 3.5가 설치되었습니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. 기본 텍스트 편집기를 사용할 수 있습니다. 또한 Anaconda Python 배포에 번들로 포함된 Python IDE인 Spyder를 사용할 수도 있습니다. Spyder를 사용하려면 그래픽 데스크톱 또는 X11 전달이 필요합니다. 그래픽 데스크톱에 Spyder에 대한 바로 가기가 제공됩니다.
@@ -202,11 +203,11 @@ Microsoft R Server에서 Spark 컨텍스트를 실행하기 전에 로컬 단일
 
 **Eclipse** 는 다국어를 지원하는 확장형 오픈 소스 IDE입니다. Java 개발자 버전은 VM에 설치된 인스턴스입니다. 주요 언어에 사용할 수 있는 몇 가지 플러그 인을 설치하여 환경을 확장할 수 있습니다. 또한 **Eclipse용 Azure 도구 키트**라는 Eclipse에 플러그 인을 설치했습니다. Java와 같은 언어를 지원하는 Eclipse 개발 환경을 사용하여 Azure 응용 프로그램을 만들고 개발, 테스트 및 배포할 수 있습니다. 또한 Java 환경 내에서 다른 Azure 서비스에 액세스할 수 있는 **Java용 Azure SDK** 도 있습니다. Eclipse용 Azure 도구 키트에 대한 자세한 내용은 [Eclipse용 Azure 도구 키트](../azure-toolkit-for-eclipse.md)를 참조하세요.
 
-**LaTex** 는 texlive 패키지를 통해 Emacs 추가 기능 [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) 패키지와 함께 설치되며 Emacs 내에서의 LaTex 문서 작성을 단순화합니다.  
+**LaTex**는 texlive 패키지를 통해 Emacs 추가 기능 [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) 패키지와 함께 설치되며 Emacs 내에서의 LaTex 문서 작성을 단순화합니다.  
 
 ### <a name="databases"></a>데이터베이스
 #### <a name="postgres"></a>Postgres
-서비스를 실행 중이며 initdb가 이미 완료된 VM에서는 오픈 소스 데이터베이스 **Postgres** 가 제공됩니다. 데이터베이스 및 사용자를 만들어야 합니다. 자세한 내용은 [Postgres 설명서](https://www.postgresql.org/docs/)를 참조하세요.  
+서비스를 실행 중이며 initdb가 이미 완료된 VM에서는 오픈 소스 데이터베이스 **Postgres**가 제공됩니다. 데이터베이스 및 사용자를 만들어야 합니다. 자세한 내용은 [Postgres 설명서](https://www.postgresql.org/docs/)를 참조하세요.  
 
 #### <a name="graphical-sql-client"></a>그래픽 SQL 클라이언트
 Microsoft SQL Server, Postgres, MySQL 등의 다양한 데이터베이스에 연결하고 SQL 쿼리를 실행할 수 있도록 그래픽 SQL 클라이언트인 **SQuirrel SQL**이 제공됩니다. SQuirrel SQL은 그래픽 데스크톱 세션(예: X2Go 클라이언트 사용)에서 실행할 수 있습니다. SQuirrel SQL을 호출하려는 경우 바탕 화면의 아이콘에서 시작하거나 셸에서 다음 명령을 실행하면 됩니다.
@@ -312,7 +313,7 @@ Vowpal Wabbit은 온라인, 해시, allreduce, 축소, learning2search, 활성 �
 
 R 라이브러리뿐만 아니라 명령줄로도 제공됩니다.
 
-R에서 이 라이브러리를 사용하려면 셸에서 **R** 을 입력하여 대화형 R 세션을 시작하고 라이브러리를 로드합니다.
+R에서 이 라이브러리를 사용하려면 셸에서 **R**을 입력하여 대화형 R 세션을 시작하고 라이브러리를 로드합니다.
 
 R 프롬프트에서 실행할 수 있는 간단한 예제는 다음과 같습니다.
 
@@ -340,7 +341,7 @@ xgboost에 대한 자세한 내용은 [xgboost 설명서 페이지](https://xgbo
 #### <a name="rattle"></a>Rattle
 Rattle(**R** **A**nalytical **T**ool **T**o **L**earn **E**asily)은 GUI 기반 데이터 탐색 및 모델링 기능을 사용합니다. Rattle은 통계 및 시각적 데이터 요약을 표시하고, 즉시 모델링할 수 있도록 데이터를 변환하고, 해당 데이터에서 감독되거나 감독되지 않는 모델을 빌드하고, 모델의 성능을 그래픽으로 표시하고, 새 데이터 집합의 점수를 매깁니다. 또한 UI에서 작업을 복제하여 R에서 직접 실행하거나 추가 분석을 위한 시작점으로 사용할 수 있는 R 코드를 생성할 수도 있습니다.
 
-Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중이어야 합니다. 터미널에서 ```R``` 을 입력하여 R 환경을 설정합니다. R 프롬프트에서 다음 명령을 입력합니다.
+Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중이어야 합니다. 터미널에서 ```R```을 입력하여 R 환경을 설정합니다. R 프롬프트에서 다음 명령을 입력합니다.
 
     library(rattle)
     rattle()
@@ -355,8 +356,8 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 1. **실행**을 클릭합니다.
 2. 예제 날씨 데이터 집합을 사용할지 묻는 팝업 대화 상자가 표시됩니다. **예** 를 클릭하여 예제를 로드합니다.
 3. **모델** 탭을 클릭합니다.
-4. **실행** 을 클릭하여 의사 결정 트리를 빌드합니다.
-5. **그리기** 를 클릭하여 의사 결정 트리를 표시합니다.
+4. **실행**을 클릭하여 의사 결정 트리를 빌드합니다.
+5. **그리기**를 클릭하여 의사 결정 트리를 표시합니다.
 6. **포리스트** 라디오 단추를 클릭하고 **실행**을 클릭하여 임의 포리스트를 빌드합니다.
 7. **평가** 탭을 클릭합니다.
 8. **위험** 라디오 단추를 클릭하고 **실행**을 클릭하여 두 개의 위험(누적) 성능 도표를 표시합니다.
@@ -372,6 +373,6 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 * [Linux 데이터 과학 가상 컴퓨터의 데이터 과학](machine-learning-data-science-linux-dsvm-walkthrough.md) 연습은 여기에 프로비전된 Linux 데이터 과학을 사용하여 여러 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여 줍니다. 
 * 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 컴퓨터 내의 셸에서 *dsvm-more-info* 를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.  
 * [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
-* [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com) 를 방문하여 Cortana 분석 Suite을 사용하는 기계 학습 및 데이터 분석 샘플을 확인합니다.
+* [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com)를 방문하여 Cortana 분석 Suite을 사용하는 기계 학습 및 데이터 분석 샘플을 확인합니다.
 
 

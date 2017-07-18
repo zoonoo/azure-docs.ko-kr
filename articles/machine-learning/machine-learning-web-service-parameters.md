@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: 4c9f2bb57e3669327d8704b93fa56e2ace1e8b35
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 482726c1dae5385964e08b720e529817d5907537
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -54,7 +55,7 @@ Azure 기계 학습 웹 서비스는 구성 가능한 매개 변수로 모듈이
    * **인증 유형 지정**에서 "계정"을 선택합니다.
    * Azure Blob 저장소에 대한 계정 정보를 입력합니다. 
      <p />
-3. **컨테이너로 시작하는 Blob 경로 매개 변수**오른쪽에 있는 아이콘을 클릭합니다. 다음과 같이 표시됩니다.
+3. **컨테이너 매개 변수로 시작하는 blob에 대한 경로**의 오른쪽에 있는 아이콘을 클릭합니다. 다음과 같이 표시됩니다.
    
    ![웹 서비스 매개 변수 아이콘][icon]
    
@@ -76,7 +77,7 @@ Azure 기계 학습 웹 서비스는 구성 가능한 매개 변수로 모듈이
 ## <a name="more-information"></a>자세한 정보
 자세한 예제는 [Machine Learning 블로그](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx)의 [웹 서비스 매개 변수](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) 항목을 참조하세요.
 
-기계 학습 웹 서비스에 액세스하는 방법에 대한 자세한 내용은 [게시된 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
+Machine Learning 웹 서비스 액세스에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
 <!-- Images -->
 [icon]: ./media/machine-learning-web-service-parameters/icon.png

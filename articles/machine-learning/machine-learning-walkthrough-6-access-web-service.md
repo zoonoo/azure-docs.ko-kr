@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
-ms.openlocfilehash: 89bec0e3af42b03ef21e3e8c4059f6aad86db4c0
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: d309f6c4749a80c81859b693a2bd5927e8fe0e54
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -48,6 +49,6 @@ ms.lasthandoff: 03/02/2017
 
 또한 R, C# 및 Python 프로그래밍 언어에서 제공하는 시작 코드를 사용하여 웹 서비스에 액세스하는 사용자 지정 응용 프로그램을 개발할 수도 있습니다.
 
-자세한 내용은 [Azure 기계 학습 실험에서 게시된 Machine Learning 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
+자세한 내용은 [Azure Machine Learning 웹 서비스 사용 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
 

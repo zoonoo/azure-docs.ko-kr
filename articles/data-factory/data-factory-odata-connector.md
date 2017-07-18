@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 06/04/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 2cb8c9b50f3067561c63be194151d6128cd45299
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 624b6c8f317477d83539392c6c2f15c2dc69d401
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/06/2017
 
 
 ---
@@ -153,6 +154,35 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 | 속성 | 설명 | 예 | 필수 |
 | --- | --- | --- | --- |
 | 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |"?$select=Name, Description&$top=5" |아니요 |
+
+## <a name="type-mapping-for-odata"></a>OData에 대한 형식 매핑
+[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
+
+1. 네이티브 원본 형식에서 .NET 형식으로 변환
+2. .NET 형식에서 네이티브 싱크 형식으로 변환
+
+OData의 데이터를 이동하는 경우 OData 형식에서 .NET 형식으로 다음 매핑이 사용됩니다.
+
+| OData 데이터 형식 | .NET 형식 |
+| --- | --- |
+| Edm.Binary |Byte[] |
+| Edm.Boolean |Bool |
+| Edm.Byte |Byte[] |
+| Edm.DateTime |DateTime |
+| Edm.Decimal |10진수 |
+| Edm.Double |Double |
+| Edm.Single |Single |
+| Edm.Guid |Guid |
+| Edm.Int16 |Int16 |
+| Edm.Int32 |Int32 |
+| Edm.Int64 |Int64 |
+| Edm.SByte |Int16 |
+| Edm.String |문자열 |
+| Edm.Time |timespan |
+| Edm.DateTimeOffset |Datetimeoffset |
+
+> [!Note]
+> OData 복합 데이터 형식 예: 개체는 지원되지 않습니다.
 
 ## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>JSON 예: OData 소스에서 Azure Blob으로 데이터 복사
 다음 예제에서는 [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 OData 소스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다. 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.

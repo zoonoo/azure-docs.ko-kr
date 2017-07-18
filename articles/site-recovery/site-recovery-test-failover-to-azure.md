@@ -15,17 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: pratshar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 0df4b3535449c88f11fa7a58811f68c82549558f
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 198640030b638720863ffae05543b32692608f1b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
-# <a name="test-----failover-to-azure-in-site-recovery"></a>Site Recovery에서 Azure로 테스트 장애 조치(failover)
-> [!div class="op_single_selector"]
-> * [Azure로 테스트 장애 조치](./site-recovery-test-failover-to-azure.md)
-> * [VMM에서 VMM으로 테스트 장애 조치](./site-recovery-test-failover-vmm-to-vmm.md)
+# <a name="test--failover-to-azure-in-site-recovery"></a>Site Recovery에서 Azure로 테스트 장애 조치(failover)
+
 
 
 이 문서는 Azure를 복구 사이트로 사용하여 Site Recovery로 보호되는 가상 컴퓨터 및 물리적 서버의 테스트 장애 조치(failover) 또는 재해 복구 훈련을 수행하기 위한 정보와 지침을 제공합니다.
@@ -50,7 +48,7 @@ ms.lasthandoff: 05/02/2017
     1.  **가장 최근에 처리된 시점**: 복구 계획의 모든 가상 컴퓨터를 Site Recovery 서비스에서 이미 처리한 최근 복구 지점으로 장애 조치합니다. 가상 컴퓨터의 테스트 장애 조치(Failover)를 수행할 때 가장 최근에 처리된 복구 지점의 타임스탬프도 표시됩니다. 복구 계획의 장애 조치를 수행하는 경우 개별 가상 컴퓨터로 이동하여 **최근 복구 지점** 타일을 살펴보면 이 정보를 얻을 수 있습니다. 처리되지 않은 데이터를 처리하느라 소요되는 시간이 없기 때문에 이 옵션은 낮은 RTO(복구 시간 목표) 장애 조치(Failover) 옵션을 제공합니다.
     1.    **최신 응용 프로그램 일치**: 복구 계획의 모든 가상 컴퓨터를 Site Recovery 서비스에서 이미 처리한 최신 응용 프로그램 일치 복구 지점으로 장애 조치합니다. 가상 컴퓨터의 테스트 장애 조치(Failover)를 수행할 때 최신 앱 일치 복구 지점의 타임스탬프도 표시됩니다. 복구 계획의 장애 조치를 수행하는 경우 개별 가상 컴퓨터로 이동하여 **최근 복구 지점** 타일을 살펴보면 이 정보를 얻을 수 있습니다.
     1.    **최신**: 먼저 Site Recovery 서비스로 보낸 모든 데이터를 처리한 다음 각 가상 컴퓨터에 대한 복구 지점을 만든 후에 해당 복구 지점에 장애 조치합니다. 이 옵션은 장애 조치를 트리거했을 때 Site Recovery 서비스로 복제된 모든 데이터가 장애 조치 후에 만들어진 가상 컴퓨터에 있게 되므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
-    1.    **사용자 지정**: 가상 컴퓨터의 테스트 장애 조치를 수행하는 경우 이 옵션을 사용하여 특정 복구 지점으로 장애 조치할 수 있습니다.
+    1.  **사용자 지정**: 가상 컴퓨터의 테스트 장애 조치를 수행하는 경우 이 옵션을 사용하여 특정 복구 지점으로 장애 조치할 수 있습니다.
 1. **Azure 가상 네트워크** 선택: 테스트 가상 컴퓨터를 만들 Azure 가상 네트워크를 제공합니다. Site Recovery는 가상 컴퓨터의 **계산 및 네트워크** 설정에서 제공한 것과 동일한 IP를 사용하여 동일한 이름의 서브넷에 테스트 가상 컴퓨터를 만들려고 시도합니다. 테스트 장애 조치에 제공된 Azure 가상 네트워크에서 이름이 동일한 서브넷을 사용할 수 없는 경우 사전순으로 첫 번째 서브넷에 테스트 가상 컴퓨터가 만들어집니다. 서브넷에서 동일한 IP를 사용할 수 없는 경우 가상 컴퓨터는 서브넷에서 사용할 수 있는 다른 IP 주소를 얻습니다. [자세한 내용](#creating-a-network-for-test-failover)은 이 섹션을 참조하세요.
 1. Azure에 장애 조치(Failover)하고 데이터 암호화를 사용하는 경우 **암호화 키**에서 공급자 설치 중에 데이터 암호화를 활성화할 때 발행된 인증서를 선택합니다. 가상 컴퓨터에서 암호화를 사용하지 않는 경우 이 단계를 무시해도 됩니다.
 1. **작업** 탭에서 장애 조치 진행 상황을 추적합니다. Azure 포털에서 테스트 복제본 컴퓨터가 표시되어야 합니다.
@@ -77,19 +75,19 @@ ms.lasthandoff: 05/02/2017
 
 경우에 따라 가상 컴퓨터의 장애 조치(failover)에는 추가적인 중간 단계가 필요하며 일반적으로 완료하는 데 8 ~ 10분 정도가 소요됩니다. 여기에 해당하는 경우는 다음과 같습니다.
 
-* 9.8 이전 버전의 모바일 서비스를 사용하는 VMware 가상 컴퓨터
-* 물리적 서버 
+* 9.8 이전의 모바일 서비스 버전을 사용하는 VMware 가상 컴퓨터
+* 물리적 서버
 * VMware Linux 가상 컴퓨터
 * 물리적 서버로 보호되는 Hyper-V 가상 컴퓨터
-* 다음 드라이버가 부팅 드라이버로 제공되지 않는 VMware 가상 컴퓨터 
-    * storvsc 
-    * vmbus 
-    * storflt 
-    * intelide 
+* 다음 드라이버가 부팅 드라이버로 제공되지 않는 VMware 가상 컴퓨터
+    * storvsc
+    * vmbus
+    * storflt
+    * intelide
     * atapi
 * DHCP 또는 고정 IP 주소 사용 여부와 관계없이 DHCP 서비스를 사용할 수 없는 VMware 가상 컴퓨터
 
-다른 모든 경우에는 이러한 중간 단계가 필요하지 않으며 장애 조치(failover)에 소요되는 시간이 훨씬 짧습니다. 
+다른 모든 경우에는 이러한 중간 단계가 필요하지 않으며 장애 조치(failover)에 소요되는 시간이 훨씬 짧습니다.
 
 
 ## <a name="creating-a-network-for-test-failover"></a>테스트 장애 조치(Failover)를 위한 네트워크 만들기

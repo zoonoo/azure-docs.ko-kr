@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 12/29/2016
+ms.date: 06/01/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4e542ea6431933668d96f7028431826bceb9f337
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 2ec31c5444f72c7255d8925bdb3ea85854cfaf1a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -35,7 +36,7 @@ Microsoft HPC Pack은 Windows 또는 Linux HPC 응용 프로그램을 실행하�
 * 시나리오 1. 계산 집약적 작업자 역할 인스턴스 배포(PaaS)
 * 시나리오 2. 계산 집약적 VM에 계산 노드 배포(IaaS)
 
-Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 필수 구성 요소에 대해서는 [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 를 참조하세요.
+Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 필수 구성 요소에 대해서는 [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>시나리오 1: 계산 집약적 작업자 역할 인스턴스 배포(PaaS)
 기존 HPC 팩 클러스터에서 클라우드 서비스(PaaS)에서 실행 중인 Azure 작업자 역할 인스턴스(Azure 노드)에 추가 계산 리소스를 추가합니다. 이 기능은 HPC 팩에서 "Azure로 버스트"라고도 하며 작업자 역할 인스턴스에 다양한 크기를 지원합니다. Azure 노드를 추가할 때는 RDMA 지원 크기 중 하나를 지정합니다.
@@ -58,7 +59,7 @@ Windows에서 계산 집약적 인스턴스를 사용하기 위한 일반적인 
     헤드 노드와 Azure 간 연결을 보호하기 위한 인증서를 구성합니다. 옵션 및 절차에 대한 자세한 내용은 [HPC 팩용 Azure 관리 인증서 구성 시나리오](http://technet.microsoft.com/library/gg481759.aspx)를 참조하세요. 테스트 배포의 경우 HPC 팩은 Azure 구독에 신속하게 업로드할 수 있는 기본 Microsoft HPC Azure 관리 인증서를 설치합니다.
 3. **새 클라우드 서비스 및 저장소 계정 만들기**
    
-    Azure 클래식 포털을 사용하여 RDMA 가능 인스턴스를 사용할 수 있는 지역에 배포하기 위한 클라우드 서비스 및 저장소 계정을 만듭니다.
+    Azure Portal을 사용하여 RDMA 가능 인스턴스를 사용할 수 있는 지역에 배포하기 위한 클라우드 서비스 및 저장소 계정을 만듭니다.
 4. **Azure 노드 템플릿 만들기**
    
     HPC 클러스터 관리자에서 노드 템플릿 마법사를 사용합니다. 단계를 보려면 "Microsoft HPC 팩을 사용하여 Azure 노드를 배포하는 단계"에서 [Azure 노드 템플릿 만들기](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) 를 참조하세요.

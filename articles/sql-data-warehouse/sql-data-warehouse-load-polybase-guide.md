@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 6/5/2016
 ms.custom: loading
 ms.author: cakarst;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 1a82f9f1de27c9197bf61d63dd27c5191fec1544
-ms.openlocfilehash: 3e1bf2372762de474310c78d512a6a073c7a01b6
-ms.lasthandoff: 01/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 6938b92d8e5b46d908dc5b2155bdfdc89bb1dc8c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 
@@ -119,60 +120,19 @@ WHERE
     AND DateRequested > '12/31/2013'
     AND DateRequested < '01/01/2015';
 ```
+## <a name="isolate-loading-users"></a>사용자 로드 격리
+SQL DW로 데이터를 로드할 수 있는 여러 명의 사용자가 필요한 경우가 있습니다. [CREATE TABLE AS SELECT(Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]는 데이터베이스의 CONTROL 권한이 필요하므로 모든 스키마에 대한 제어 액세스가 있는 여러 명의 사용자가 필요합니다. 이를 제한하기 위해 DENY CONTROL 문을 사용할 수 있습니다.
 
+예: 데이터베이스 스키마, 부서 A에 대한 스키마_A 및 부서 B에 대한 스키마_B를 가정합니다. 데이터베이스 사용자, 사용자_A 및 사용자_B가 부서 A와 B 각각에서 PolyBase 로딩에 대한 사용자가 되도록 합니다. 둘 모두 데이터베이스 CONTROL 권한을 부여 받습니다.
+스키마 A와 B의 작성자는 이제 DENY를 사용하여 해당 스키마를 잠급니다.
 
-## <a name="working-around-the-polybase-utf-8-requirement"></a>PolyBase UTF-8 요구 사항 해결
-현재 PolyBase에서는 UTF-8로 인코딩된 데이터 파일의 로드를 지원합니다. UTF-8에서 ASCII와 같은 문자 인코딩을 사용하기 때문에, PolyBase에서는 ASCII로 인코딩된 데이터의 로드도 지원합니다. 그러나 PolyBase에서 UTF-16/유니코드 또는 확장 ASCII 문자 등의 다른 문자 인코딩은 지원하지 않습니다. 확장 ASCII에는 독일어에서 흔히 사용되는 움라우트와 같이 악센트가 있는 문자가 포함됩니다.
+```sql
+   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
+   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+```   
+ 이로 인해 사용자_A 및 사용자_B는 이제 다른 부서의 스키마에서 차단되어야 합니다.
+ 
 
-이 요구 사항을 해결하는 최상의 방법은 UTF-8 인코딩으로 다시 작성하는 것입니다.
-
-이 작업을 수행하는 방법에는 몇 가지가 있습니다. 다음은 Powershell을 사용하는 두 가지 방법입니다.
-
-### <a name="simple-example-for-small-files"></a>작은 파일에 대한 간단한 예
-다음은 파일을 만드는 간단한 한 줄 짜리 Powershell 스크립트입니다.
-
-```PowerShell
-Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
-```
-
-데이터를 간단하게 다시 인코딩할 수 있으면서도 가장 효율적입니다. 다음 예에 있는 io 스트리밍을 통해서는 같은 결과를 훨씬 빠르게 얻을 수 있습니다.
-
-### <a name="io-streaming-example-for-larger-files"></a>큰 파일에 대한 IO 스트리밍의 예
-다음 코드 샘플은 더 복잡하지만 원본에서 대상으로 데이터 행을 스트리밍하기 때문에 훨씬 효율적입니다. 큰 파일에는 이 방법을 사용합니다.
-
-```PowerShell
-#Static variables
-$ascii = [System.Text.Encoding]::ASCII
-$utf16le = [System.Text.Encoding]::Unicode
-$utf8 = [System.Text.Encoding]::UTF8
-$ansi = [System.Text.Encoding]::Default
-$append = $False
-
-#Set source file path and file name
-$src = [System.IO.Path]::Combine("C:\input_file_path\","input_file_name.txt")
-
-#Set source file encoding (using list above)
-$src_enc = $ansi
-
-#Set target file path and file name
-$tgt = [System.IO.Path]::Combine("C:\output_file_path\","output_file_name.txt")
-
-#Set target file encoding (using list above)
-$tgt_enc = $utf8
-
-$read = New-Object System.IO.StreamReader($src,$src_enc)
-$write = New-Object System.IO.StreamWriter($tgt,$append,$tgt_enc)
-
-while ($read.Peek() -ne -1)
-{
-    $line = $read.ReadLine();
-    $write.WriteLine($line);
-}
-$read.Close()
-$read.Dispose()
-$write.Close()
-$write.Dispose()
-```
 
 ## <a name="next-steps"></a>다음 단계
 SQL Data Warehouse로 데이터를 이동하는 방법에 대한 자세한 내용은 [데이터 마이그레이션 개요][data migration overview]를 참조하세요.

@@ -1,5 +1,5 @@
 ---
-title: "SQL Database 지역에서 복제를 사용하여 재해 복구를 위한 클라우드 솔루션 설계 | Microsoft Docs"
+title: "재해 복구 솔루션 설계 - Azure SQL Database | Microsoft Docs"
 description: "올바른 장애 조치 패턴을 선택하여 재해 복구를 위한 클라우드 솔루션을 설계하는 방법에 대해 알아봅니다."
 services: sql-database
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: sashan;carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: f8da648fd38da894cd2d9fbbac09ac69d24be3fb
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 4f5131fdd2ca83e7a0a2f986a2fa1e3551814c6e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---

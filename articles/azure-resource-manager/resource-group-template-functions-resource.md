@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 66c71906614e5d0c8e8531271444fc59a5cb779f
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 71588c6ea8ed8371a5ceca241290af65a0866345
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -52,47 +52,6 @@ list 작업을 지원하는 모든 리소스 형식에 대한 값을 반환합�
 | resourceName 또는 resourceIdentifier |예 |string |리소스에 대한 고유 식별자. |
 | apiVersion |예 |string |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
 
-### <a name="remarks"></a>설명
-
-**list**로 시작하는 작업은 템플릿에서 함수로 사용됩니다. 사용 가능한 작업에는 listKeys 뿐만 아니라 `list`, `listAdminKeys`, `listStatus`와 같은 작업도 포함됩니다. list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell 옵션이 제공됩니다.
-
-* 리소스 공급자에 대한 [REST API 작업](/rest/api/)을 보고 list 작업을 찾습니다. 예를 들어 저장소 계정에는 [listKeys 작업](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys)이 있습니다.
-* [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) PowerShell cmdlet을 사용합니다. 다음 예제에서는 저장소 계정에 대한 모든 list 작업을 가져옵니다.
-
-  ```powershell
-  Get-AzureRmProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
-  ```
-* 다음 Azure CLI 명령 및 JSON 유틸리티 [jq](http://stedolan.github.io/jq/download/)를 사용하여 list 작업만 필터링합니다.
-
-  ```azurecli
-  azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
-  ```
-
-[resourceId 함수](#resourceid) 또는 형식 `{providerNamespace}/{resourceType}/{resourceName}`을 사용하여 리소스를 지정합니다.
-
-### <a name="examples"></a>예
-
-다음 예에서는 출력 섹션의 저장소 계정에서 기본 및 보조 키를 반환하는 방법을 보여 줍니다.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountId": {
-            "type": "string"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "storageKeysOutput": {
-            "value": "[listKeys(parameters('storageAccountId'), '2016-01-01')]",
-            "type" : "object"
-        }
-    }
-}
-``` 
-
 ### <a name="return-value"></a>반환 값
 
 listKeys에서 반환된 개체는 다음 형식을 가집니다.
@@ -116,6 +75,48 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 
 다른 list 함수는 다른 반환 형식을 갖습니다. 함수의 형식을 보려면 예제 템플릿에 표시된 것처럼 outputs 섹션에 포함합니다. 
 
+### <a name="remarks"></a>설명
+
+**list**로 시작하는 작업은 템플릿에서 함수로 사용됩니다. 사용 가능한 작업에는 listKeys 뿐만 아니라 `list`, `listAdminKeys`, `listStatus`와 같은 작업도 포함됩니다. list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell 옵션이 제공됩니다.
+
+* 리소스 공급자에 대한 [REST API 작업](/rest/api/)을 보고 list 작업을 찾습니다. 예를 들어 저장소 계정에는 [listKeys 작업](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys)이 있습니다.
+* [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) PowerShell cmdlet을 사용합니다. 다음 예제에서는 저장소 계정에 대한 모든 list 작업을 가져옵니다.
+
+  ```powershell
+  Get-AzureRmProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
+  ```
+* 다음 Azure CLI 명령을 사용하여 목록 작업만 필터링합니다.
+
+  ```azurecli
+  az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
+  ```
+
+[resourceId 함수](#resourceid) 또는 형식 `{providerNamespace}/{resourceType}/{resourceName}`을 사용하여 리소스를 지정합니다.
+
+
+### <a name="example"></a>예
+
+다음 예에서는 출력 섹션의 저장소 계정에서 기본 및 보조 키를 반환하는 방법을 보여 줍니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountId": {
+            "type": "string"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "storageKeysOutput": {
+            "value": "[listKeys(parameters('storageAccountId'), '2016-01-01')]",
+            "type" : "object"
+        }
+    }
+}
+``` 
+
 <a id="providers" />
 
 ## <a name="providers"></a>providers
@@ -129,24 +130,6 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 |:--- |:--- |:--- |:--- |
 | providerNamespace |예 |string |공급자의 네임스페이스입니다. |
 | resourceType |아니요 |string |지정된 네임스페이스 내의 리소스 유형입니다. |
-
-### <a name="examples"></a>예
-
-다음 예에서는 공급자 함수를 사용하는 방법을 보여 줍니다.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "providerOutput": {
-            "value": "[providers('Microsoft.Storage', 'storageAccounts')]",
-            "type" : "object"
-        }
-    }
-}
-```
 
 ### <a name="return-value"></a>반환 값
 
@@ -162,6 +145,46 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 
 반환된 값의 배열 순서는 보장되지 않습니다.
 
+### <a name="example"></a>예
+
+다음 예에서는 공급자 함수를 사용하는 방법을 보여 줍니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "providerOutput": {
+            "value": "[providers('Microsoft.Web', 'sites')]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+앞의 예제는 다음과 같은 형식의 개체를 반환합니다.
+
+```json
+{
+  "resourceType": "sites",
+  "locations": [
+    "South Central US",
+    "North Europe",
+    "West Europe",
+    "Southeast Asia",
+    ...
+  ],
+  "apiVersions": [
+    "2016-08-01",
+    "2016-03-01",
+    "2015-08-01-preview",
+    "2015-08-01",
+    ...
+  ]
+}
+```
+
 <a id="reference" />
 
 ## <a name="reference"></a>reference
@@ -176,6 +199,10 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 | resourceName 또는 resourceIdentifier |예 |string |리소스의 이름 또는 고유 식별자입니다. |
 | apiVersion |아니요 |string |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
 
+### <a name="return-value"></a>반환 값
+
+모든 리소스 형식은 reference 함수에 대해 다른 속성을 반환합니다. 이 함수는 미리 정의된 단일 형식을 반환하지 않습니다. 리소스 형식에 대한 속성을 보려면 예제와 같이 outputs 섹션의 개체를 반환합니다.
+
 ### <a name="remarks"></a>설명
 
 reference 함수는 런타임 상태에서 값을 파생하므로 변수 섹션에서 사용할 수 없습니다. 템플릿의 출력 섹션에서 사용할 수 있습니다. 
@@ -184,30 +211,24 @@ reference 함수는 런타임 상태에서 값을 파생하므로 변수 섹션�
 
 리소스 유형에 대한 속성 이름 및 값을 보려면 outputs 섹션에서 개체를 반환하는 템플릿을 만듭니다. 해당 유형의 기존 리소스가 있는 경우 템플릿은 새로운 리소스를 배포하지 않고 개체를 반환합니다. 
 
-### <a name="examples"></a>예
-
-다음 예제는 이 템플릿에 배포되지 않지만 동일한 리소스 그룹 내에 존재하는 저장소 계정을 참조합니다.
+일반적으로 **reference** 함수를 사용하여 blob 끝점 URI 또는 정규화된 도메인 이름과 같은 개체의 특정 값을 반환합니다.
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountName": {
-            "type": "string"
-        }
+"outputs": {
+    "BlobUri": {
+        "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
+        "type" : "string"
     },
-    "resources": [],
-    "outputs": {
-        "ExistingStorage": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
-            "type" : "object"
-        }
+    "FQDN": {
+        "value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')), '2016-03-30').dnsSettings.fqdn]",
+        "type" : "string"
     }
 }
 ```
 
-또는 동일한 템플릿에서 리소스를 배포하고 참조할 수 있습니다.
+### <a name="example"></a>예
+
+동일한 템플릿에서 리소스를 배포하고 참조하려면 다음을 수행합니다.
 
 ```json
 {
@@ -242,24 +263,44 @@ reference 함수는 런타임 상태에서 값을 파생하므로 변수 섹션�
 }
 ``` 
 
-reference 함수를 사용하여 blob 끝점 URI 또는 정규화된 도메인 이름과 같은 개체의 특정 값을 반환합니다.
+앞의 예제는 다음과 같은 형식의 개체를 반환합니다.
 
 ```json
-"outputs": {
-    "BlobUri": {
-        "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
-        "type" : "string"
-    },
-    "FQDN": {
-        "value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')), '2016-03-30').dnsSettings.fqdn]",
-        "type" : "string"
-    }
+{
+   "creationTime": "2017-06-13T21:24:46.618364Z",
+   "primaryEndpoints": {
+     "blob": "https://examplestorage.blob.core.windows.net/",
+     "file": "https://examplestorage.file.core.windows.net/",
+     "queue": "https://examplestorage.queue.core.windows.net/",
+     "table": "https://examplestorage.table.core.windows.net/"
+   },
+   "primaryLocation": "southcentralus",
+   "provisioningState": "Succeeded",
+   "statusOfPrimary": "available",
+   "supportsHttpsTrafficOnly": false
 }
 ```
 
-### <a name="return-value"></a>반환 값
+다음 예제는 이 템플릿에 배포되지 않지만 동일한 리소스 그룹 내에 존재하는 저장소 계정을 참조합니다.
 
-모든 리소스 형식은 reference 함수에 대해 다른 속성을 반환합니다. 이 함수는 미리 정의된 단일 형식을 반환하지 않습니다. 리소스 형식에 대한 속성을 보려면 예제와 같이 outputs 섹션의 개체를 반환합니다.
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountName": {
+            "type": "string"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "ExistingStorage": {
+            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
+            "type" : "object"
+        }
+    }
+}
+```
 
 <a id="resourcegroup" />
 
@@ -268,7 +309,40 @@ reference 함수를 사용하여 blob 끝점 URI 또는 정규화된 도메인 �
 
 현재 리소스 그룹을 나타내는 개체를 반환합니다. 
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+반환된 개체는 다음 형식으로 되어 있습니다.
+
+```json
+{
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+  "name": "{resourceGroupName}",
+  "location": "{resourceGroupLocation}",
+  "tags": {
+  },
+  "properties": {
+    "provisioningState": "{status}"
+  }
+}
+```
+
+### <a name="remarks"></a>설명
+
+resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 리소스를 만드는 데 사용됩니다. 다음 예에서는 리소스 그룹 위치를 사용하여 웹 사이트에 대한 위치를 할당합니다.
+
+```json
+"resources": [
+   {
+      "apiVersion": "2016-08-01",
+      "type": "Microsoft.Web/sites",
+      "name": "[parameters('siteName')]",
+      "location": "[resourceGroup().location]",
+      ...
+   }
+]
+```
+
+### <a name="example"></a>예
 
 다음 템플릿은 리소스 그룹의 속성을 반환합니다.
 
@@ -286,33 +360,15 @@ reference 함수를 사용하여 blob 끝점 URI 또는 정규화된 도메인 �
 }
 ```
 
-resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 리소스를 만드는 데 사용됩니다. 다음 예에서는 리소스 그룹 위치를 사용하여 웹 사이트에 대한 위치를 할당합니다.
-
-```json
-"resources": [
-   {
-      "apiVersion": "2014-06-01",
-      "type": "Microsoft.Web/sites",
-      "name": "[parameters('siteName')]",
-      "location": "[resourceGroup().location]",
-      ...
-   }
-]
-```
-
-### <a name="return-value"></a>반환 값
-
-반환된 개체는 다음 형식으로 되어 있습니다.
+앞의 예제는 다음과 같은 형식의 개체를 반환합니다.
 
 ```json
 {
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-  "name": "{resourceGroupName}",
-  "location": "{resourceGroupLocation}",
-  "tags": {
-  },
+  "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
+  "name": "examplegroup",
+  "location": "southcentralus",
   "properties": {
-    "provisioningState": "{status}"
+    "provisioningState": "Succeeded"
   }
 }
 ```
@@ -334,29 +390,40 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 | resourceName1 |예 |string |리소스의 이름입니다. |
 | resourceName2 |아니요 |string |리소스가 중첩된 경우 다음 리소스 이름 세그먼트입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
 
-다음 예제에서는 리소스 그룹의 저장소 계정에 대한 리소스 ID를 반환합니다.
+식별자는 다음 형식으로 반환됩니다.
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "resourceIdOutput": {
-            "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]",
-            "type" : "string"
-        }
-    }
-}
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-다음 예제에서는 다른 리소스 그룹의 웹 사이트에 대한 리소스 ID 및 다른 리소스 그룹의 데이터베이스에 대한 리소스 ID를 검색하는 방법을 보여 줍니다.
+### <a name="remarks"></a>설명
+
+사용자가 지정한 매개 변수 값은 리소스가 현재 배포와 동일한 구독 및 리소스 그룹에 있는지 여부에 따라 달라집니다.
+
+동일한 구독 및 리소스 그룹의 저장소 계정에 대한 리소스 ID를 가져오려면 다음을 사용합니다.
 
 ```json
-[resourceId('otherResourceGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
+"[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
+```
+
+구독은 동일하지만 리소스 그룹은 다른 저장소 계정에 대한 리소스 ID를 가져오려면 다음을 사용합니다.
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+```
+
+다른 구독 및 리소스 그룹의 저장소 계정에 대한 리소스 ID를 가져오려면 다음을 사용합니다.
+
+```json
+"[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+```
+
+다른 리소스 그룹의 데이터베이스에 대한 리소스 ID를 가져오려면 다음을 사용합니다.
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
 대체 리소스 그룹의 저장소 계정 또는 가상 네트워크를 사용할 경우 이 함수를 사용해야 합니다. 저장소 계정 또는 가상 네트워크를 여러 리소스 그룹에서 사용할 수 있으므로, 단일 리소스 그룹을 삭제할 때 해당 저장소 계정 또는 가상 네트워크를 삭제하지 않습니다. 다음 예에서는 외부 리소스 그룹의 리소스를 쉽게 사용할 수 있는 방법을 보여 줍니다.
@@ -404,13 +471,44 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 }
 ```
 
-### <a name="return-value"></a>반환 값
+### <a name="example"></a>예
 
-식별자는 다음 형식으로 반환됩니다.
+다음 예제에서는 리소스 그룹의 저장소 계정에 대한 리소스 ID를 반환합니다.
 
 ```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "sameRGOutput": {
+            "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]",
+            "type" : "string"
+        },
+        "differentRGOutput": {
+            "value": "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
+            "type" : "string"
+        },
+        "differentSubOutput": {
+            "value": "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
+            "type" : "string"
+        },
+        "nestedResourceOutput": {
+            "value": "[resourceId('Microsoft.SQL/servers/databases', 'serverName', 'databaseName')]",
+            "type" : "string"
+        }
+    }
+}
 ```
+
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| sameRGOutput | 문자열 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | 문자열 | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | 문자열 | /subscriptions/{different-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | 문자열 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 <a id="subscription" />
 
@@ -419,7 +517,20 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 현재 배포에 대한 구독 관련 세부 정보를 반환합니다. 
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+이 함수는 다음 형식을 반환합니다.
+
+```json
+{
+    "id": "/subscriptions/{subscription-id}",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}",
+    "displayName": "{name-of-subscription}"
+}
+```
+
+### <a name="example"></a>예
 
 다음 예에서는 출력 섹션에서 호출되는 구독 함수를 보여 줍니다. 
 
@@ -434,19 +545,6 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
             "type" : "object"
         }
     }
-}
-```
-
-### <a name="return-value"></a>반환 값
-
-이 함수는 다음 형식을 반환합니다.
-
-```json
-{
-    "id": "/subscriptions/{subscription-id}",
-    "subscriptionId": "{subscription-id}",
-    "tenantId": "{tenant-id}",
-    "displayName": "{name-of-subscription}"
 }
 ```
 

@@ -3,7 +3,7 @@ title: "Service Fabric에서 여러 환경 관리 | Microsoft Docs"
 description: "한 컴퓨터에서 수천 개의 컴퓨터에 이르는 클러스터에서 서비스 패브릭 응용 프로그램을 실행할 수 있습니다. 어떤 경우에 해당하는 다양한 환경에 대해 다르게 응용 프로그램을 구성하려 합니다. 이 문서에서는 환경 당 다른 응용 프로그램 매개 변수를 정의하는 방법을 설명합니다."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikkelhegn
 manager: timlt
 editor: 
 ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
@@ -12,19 +12,20 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/06/2017
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: b57655c8041fa366d0aeb13e744e30e834ec85fa
-ms.openlocfilehash: 7432e45ef33bd4d51fca8e8db8ec880e8beaf3ab
-ms.lasthandoff: 02/08/2017
+ms.date: 06/07/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: eaf1daf8d9f973fe82ba9e82c60a2a82f2681786
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="manage-application-parameters-for-multiple-environments"></a>여러 환경에 대한 응용 프로그램 매개 변수 관리
 하나의 컴퓨터에서 수천개의 컴퓨터를 사용하여 Azure 서비스 패브릭 클러스터를 만들 수 있습니다. 응용 프로그램 이진 파일은 다양한 환경에 걸쳐 수정하지 않고 실행할 수 있는 반면 응용 프로그램은 배포하는 컴퓨터의 수에 따라 다르게 구성하려는 경우가 많습니다.
 
-간단한 예로 상태 비저장 서비스에 대해 `InstanceCount` 를 고려합니다. Azure에서 응용 프로그램을 실행할 때 일반적으로 이 매개 변수를 "-1"이라는 특수 값으로 설정하고자 합니다. 이는 서비스가 클러스터의 모든 노드(또는 배치 제약 조건을 설정한 경우 노드 형식의 모든 노드)에서 실행하도록 합니다. 그러나 단일 컴퓨터의 동일한 끝점에서 수신하는 여러 프로세스를 가질 수 없으므로 이 구성은 단일 컴퓨터 클러스터에 적합하지 않습니다. 대신 일반적으로 `InstanceCount` 를 "1"로 설정합니다.
+간단한 예로 상태 비저장 서비스에 대해 `InstanceCount` 를 고려합니다. Azure에서 응용 프로그램을 실행할 때 일반적으로 이 매개 변수를 "-1"이라는 특수 값으로 설정하고자 합니다. 이 구성은 서비스가 클러스터의 모든 노드(또는 배치 제약 조건을 설정한 경우 노드 형식의 모든 노드)에서 실행하도록 합니다. 그러나 단일 컴퓨터의 동일한 끝점에서 수신하는 여러 프로세스를 가질 수 없으므로 이 구성은 단일 컴퓨터 클러스터에 적합하지 않습니다. 대신 일반적으로 `InstanceCount`를 "1"로 설정합니다.
 
 ## <a name="specifying-environment-specific-parameters"></a>환경 특정 매개 변수 지정
 이 구성 문제에 대한 해법은 지정된 환경에 대한 해당 매개 변수 값을 입력하는 매개 변수가 있는 기본 서비스 및 응용 프로그램 매개 변수 파일의 집합입니다. 기본 서비스 및 응용 프로그램 매개 변수는 응용 프로그램 및 서비스 매니페스트에서 구성됩니다. ServiceManifest.xml 및 ApplicationManifest.xml에 대한 스키마 정의는 Service Fabric SDK 및 도구와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다.
@@ -33,18 +34,18 @@ ms.lasthandoff: 02/08/2017
 서비스 패브릭 응용 프로그램은 서비스 인스턴스의 컬렉션으로 이루어 집니다. 빈 응용 프로그램을 만들고 모든 서비스 인스턴스를 동적으로 만들 수 있지만 응용 프로그램 인스턴스화될 때 대부분의 응용 프로그램에는 항상 만들 수 있는 핵심 서비스 집합이 있습니다. 이 서비스를 "기본 서비스" 라고 합니다. 예비 대괄호에 포함된 환경 단위 구성에 대한 자리 표시자와 함께 응용 프로그램 매니페스트에서 지정됩니다.
 
 ```xml
-    <DefaultServices>
-        <Service Name="Stateful1">
-            <StatefulService
-                ServiceTypeName="Stateful1Type"
-                TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
-                MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+  <DefaultServices>
+      <Service Name="Stateful1">
+          <StatefulService
+              ServiceTypeName="Stateful1Type"
+              TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
+              MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
 
-                <UniformInt64Partition
-                    PartitionCount="[Stateful1_PartitionCount]"
-                    LowKey="-9223372036854775808"
-                    HighKey="9223372036854775807"
-                />
+              <UniformInt64Partition
+                  PartitionCount="[Stateful1_PartitionCount]"
+                  LowKey="-9223372036854775808"
+                  HighKey="9223372036854775807"
+              />
         </StatefulService>
     </Service>
   </DefaultServices>
@@ -73,14 +74,14 @@ DefaultValue 특성은 지정된 환경에 보다 구체적인 매개 변수가 
 `Stateful1` 서비스에 대한 Config\Settings.xml 파일에 다음 설정이 있다고 가정합니다.
 
 ```xml
-    <Section Name="MyConfigSection">
-      <Parameter Name="MaxQueueSize" Value="25" />
-    </Section>
+  <Section Name="MyConfigSection">
+     <Parameter Name="MaxQueueSize" Value="25" />
+  </Section>
 ```
 특정 응용 프로그램/환경 쌍에 대해 이 값을 재정의하려면 응용 프로그램 매니페스트에서 서비스 매니페스트를 가져올 때 `ConfigOverride` 을 만듭니다.
 
 ```xml
-    <ConfigOverrides>
+  <ConfigOverrides>
      <ConfigOverride Name="Config">
         <Settings>
            <Section Name="MyConfigSection">
@@ -177,7 +178,7 @@ Service Fabric에는 각 서비스 인스턴스에 대해 설정된 기본 제�
         }
     }
 ```
-다음은 로컬 개발 컴퓨터에서 실행할 때 `FrontEndService`라는 서비스 유형을 갖는 `GuestExe.Application`이라는 응용 프로그램 유형에 대한 예제 환경 변수입니다.
+다음은 로컬 개발 컴퓨터에서 실행할 때 `FrontEndService`라는 서비스 유형을 갖는 `GuestExe.Application`이라는 응용 프로그램 유형에 대한 환경 변수의 예제입니다.
 
 * **Fabric_ApplicationName = fabric:/GuestExe.Application**
 * **Fabric_CodePackageName = Code**
@@ -203,7 +204,7 @@ Service Fabric에는 각 서비스 인스턴스에 대해 설정된 기본 제�
 
 ![솔루션 탐색기에서 응용 프로그램 매개 변수 파일][app-parameters-solution-explorer]
 
-새 매개 변수 파일을 만들려면 기존 매개 변수 파일을 복사하고 붙여 넣은 다음 새 이름을 지정합니다.
+매개 변수 파일을 만들려면 기존 매개 변수 파일을 복사하고 붙여 넣은 다음 새 이름을 지정합니다.
 
 ## <a name="identifying-environment-specific-parameters-during-deployment"></a>배포하는 동안 환경 단위 매개 변수 식별
 배포 시 적절한 매개 변수 파일을 선택하여 응용 프로그램에 적용해야 합니다. Visual Studio의 게시 대화 상자 또는 PowerShell을 통해 이를 수행할 수 있습니다.

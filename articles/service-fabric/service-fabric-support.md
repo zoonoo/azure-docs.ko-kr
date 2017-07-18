@@ -3,7 +3,7 @@ title: "Azure Service Fabric 지원 옵션 살펴보기 | Microsoft Docs"
 description: "지원되는 Azure Service Fabric 클러스터 버전 및 파일 지원 티켓에 대한 링크"
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: pkc
 manager: timlt
 editor: 
 ms.assetid: 
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/10/2017
-ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 44e95f78b5fe592713570e53f2469c88202a02aa
-ms.lasthandoff: 03/11/2017
+ms.date: 06/15/2017
+ms.author: pkc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: de5795d4781d8c01bce7313ae53ad801a0e48149
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -77,13 +78,19 @@ Service Fabric 문제를 보고하기 위해 GitHub 리포지토리를 설정했
  
 다음은 지원되는 Service Fabric 버전과 지원 종료 날짜 목록입니다.
 
-| **Service Fabric 런타임 클러스터** | **지원 종료 날짜** |
-| --- | --- |
-| 5.3.121 이전의 모든 클러스터 버전 |2017년 1월 20일 |
-| 5.3.* |2017년 2월 24일 |
-| 5.4.* |2017년 5월 10일     |
-| 5.5.* |현재 버전 및 종료 날짜
+| **Service Fabric 런타임 클러스터** | **호환 가능한 SDK / NuGet 패키지 버전** | **지원 종료 날짜** |
+| --- | --- | --- |
+| 5.3.121 이전의 모든 클러스터 버전 |버전 2.3보다 작거나 같음 |2017년 1월 20일 |
+| 5.3.* |버전 2.3보다 작거나 같음 |2017년 2월 24일 |
+| 5.4.* |버전 2.4보다 작거나 같음 |2017년 5월 10일     |
+| 5.5.* |버전 2.5보다 작거나 같음 |2017년 8월 10일    |
+| 5.6.* |버전 2.6보다 작거나 같음 |현재 버전 및 종료 날짜
 
+<a id="previewversion"></a>
+## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 미리 보기 버전 - 프로덕션 사용이 지원되지 않습니다.
+종종 피드백이 필요한 중요한 기능이 포함된 버전이 미리 보기로 릴리스됩니다. 이러한 미리 보기 버전은 테스트 용도로만 사용해야 합니다. 프로덕션 클러스터는 항상 지원되는 안정적인 Service Fabric 버전으로 실행해야 합니다. 미리 보기 버전은 항상 주 버전과 부 버전 번호가 255로 시작합니다. 예를 들어 Service Fabric 버전 255.255.5703.949가 표시되면 해당 릴리스 버전은 테스트 클러스터에서만 미리 보기로 사용됩니다. 이러한 미리 보기 릴리스는 포함된 기능에 관한 자세한 내용과 함께 [Service Fabric 팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric)에서 발표됩니다.
+
+이러한 미리 보기 릴리스를 위한 무료 지원 옵션이 있습니다. [Azure Service Fabric 문제 보고서](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues)에 나열된 옵션 중 하나를 사용하여 질문을 하거나 피드백을 제공하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

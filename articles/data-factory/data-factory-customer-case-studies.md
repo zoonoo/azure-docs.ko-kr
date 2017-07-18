@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 2/24/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 0850b42e15e2daf4868560a1518f7906c7ae0800
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: bfe86b8cfe9ad0fc9fbda7664873b2b590fc2805
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -30,13 +30,13 @@ ms.lasthandoff: 05/02/2017
 [보험 업계를 혁신하고 있는 최고의 보험 통계 회사](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
 
 ## <a name="rockwell-automation"></a>Rockwell Automation
-[빅데이터 솔루션으로 최대 90%의 비용을 절감하고 있는 산업 자동화 회사](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
+[빅 데이터 솔루션으로 최대 90%의 비용을 절감하고 있는 산업 자동화 회사](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
 
 ## <a name="ziosk"></a>Ziosk
 [햄버거를 먹으며 즐길 게임은 어떤 것이 좋을까요? Ziosk는 이미 알고 있습니다.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
 
 ## <a name="alaska-airlines"></a>Alaska Airlines
-[더 매력적인 기내 엔터테인먼트를 위해 태플릿과 클라우드 서비스를 사용하는 항공사](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
+[더 매력적인 기내 엔터테인먼트를 위해 태블릿과 클라우드 서비스를 사용하는 항공사](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
 
 ## <a name="tacoma-public-schools"></a>Tacoma 공립 학교
 [클라우드 분석으로 학생의 중퇴 위험을 예측하고 졸업률을 향상](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)

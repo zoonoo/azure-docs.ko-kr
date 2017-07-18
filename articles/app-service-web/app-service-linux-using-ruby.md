@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5aeef6f31dacb1b27c605d39a35a81bd0211e06a
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: ad724b99426c1873c173da905c89b471ee64ffa6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -45,11 +45,14 @@ ms.lasthandoff: 05/10/2017
 
 Ruby 웹앱이 만들어지면 Git 또는 FTP를 사용하여 배포할 수 있습니다.
 
+Ruby 앱 만들기에 대한 자세한 내용은 [시작 가이드](app-service-linux-ruby-get-started.md)를 확인하세요.
+
 ## <a name="next-steps"></a>다음 단계
 * [Linux의 웹앱이란?](app-service-linux-intro.md)
 * [Linux의 웹앱에서 웹앱 만들기](app-service-linux-how-to-create-web-app.md)
 * [Azure App Service에 대한 로컬 Git 배포](app-service-deploy-local-git.md)
 * [Linux의 Azure App Service Web App에 대한 FAQ](app-service-linux-faq.md)
+* [Linux에서 Azure 웹앱을 사용하여 Ruby 앱 만들기](app-service-linux-ruby-get-started.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-ruby/New-Linux.png

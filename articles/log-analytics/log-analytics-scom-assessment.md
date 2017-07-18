@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 97ae17912eaa7508e3ae1315800408664a340837
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 6754505e7f58a8e7305987db9204271ca9b93870
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>System Center Operations Manager 평가(미리 보기) 솔루션을 사용하여 환경 최적화
+
+![System Center Operations Manager 평가 기호](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
 
 System Center Operations Manager 평가 솔루션을 사용하여 일정한 간격으로 System Center Operations Manager 서버 환경의 위험 및 상태를 평가할 수 있습니다. 이 문서에서는 잠재적인 문제에 대해 올바른 조치를 취할 수 있도록 솔루션을 설치하고, 구성하고, 사용하도록 도와줍니다.
 
@@ -57,7 +60,7 @@ System Center Operations Manager 평가 솔루션을 사용하여 일정한 간�
 1. [System Center Operations Manager 평가를 위한 계정으로 실행 설정](#operations-manager-run-as-accounts-for-oms)  
 2. [System Center Operations Manager 평가 규칙 구성](#configure-the-assessment-rule)
 
-# <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager 평가 데이터 수집 세부 정보
+## <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager 평가 데이터 수집 세부 정보
 
 System Center Operations Manager 평가는 사용하도록 설정한 서버를 사용하여 Windows PowerShell, SQL 쿼리, 파일 정보 수집기를 통해 WMI 데이터, 레지스트리 데이터, EventLog 데이터, Operations Manager 데이터를 수집합니다.
 
@@ -155,8 +158,8 @@ System Center Operations Manager 평가 솔루션의 관리 팩에는 *Microsoft
 1. Operations Manager 콘솔의 **제작** 작업 영역에서 **규칙** 창의 *Microsoft System Center Advisor SCOM 평가 실행 평가 규칙*이라는 규칙을 검색합니다.
 2. 검색 결과에서 *유형: 관리 서버*라는 텍스트를 포함하는 항목을 선택합니다.
 3. 규칙을 오른쪽 클릭한 다음 **재정의** > **다음 클래스의 특정 개체: 관리 서버**를 클릭합니다.
-4.    사용 가능한 관리 서버 목록에서 규칙을 실행할 관리 서버를 선택합니다.
-5.    **사용** 매개 변수 값에 대한 재정의 값을 **참**으로 변경해야 합니다.  
+4.  사용 가능한 관리 서버 목록에서 규칙을 실행할 관리 서버를 선택합니다.
+5.  **사용** 매개 변수 값에 대한 재정의 값을 **참**으로 변경해야 합니다.  
     ![재정의 매개 변수](./media/log-analytics-scom-assessment/rule.png)
 
 이 창에 있는 동안 다음 정차를 사용하여 실행 빈도를 구성합니다.
@@ -237,7 +240,7 @@ OMS에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 �
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>IgnoreRecommendations.txt 텍스트 파일을 만들고 사용하려면
 
 1. IgnoreRecommendations.txt라는 파일을 만듭니다.
-2. OMS에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여 넣거나 입력한 다음 파일을 저장하고 닫습니다.
+2. OMS에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여넣거나 입력한 다음 파일을 저장하고 닫습니다.
 3. OMS에서 권장 사항을 무시할 각 컴퓨터의 다음 폴더에 파일을 둡니다.
 4. Operations Manager 관리 서버 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server.
 
