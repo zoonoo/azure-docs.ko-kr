@@ -12,26 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a26b1f6c13b11d0fb6b47599fee43f955cbf7b7a
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: bb89bed9778056c52e47d984e5d559a4abf864a2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>용량 및 성능 솔루션으로 Hyper-V 가상 컴퓨터 용량 계획(미리 보기)
 
-![용량 및 성능 솔루션](./media/log-analytics-capacity/capacity-solution.png) Log Analytics의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 용량을 이해할 수 있습니다. 이 솔루션은 Hyper-V 호스트에서 실행 중인 호스트 및 VM의 전체 사용률(CPU, 메모리 및 디스크)을 보여 줌으로써 Hyper-V 환경에 대한 정보를 제공합니다. 모든 호스트와 해당 호스트에서 실행되는 VM의 CPU, 메모리 및 디스크에 대한 메트릭이 수집됩니다.
+![용량 및 성능 기호](./media/log-analytics-capacity/capacity-solution.png)
+
+Log Analytics의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 용량을 이해할 수 있습니다. 이 솔루션은 Hyper-V 호스트에서 실행 중인 호스트 및 VM의 전체 사용률(CPU, 메모리 및 디스크)을 보여 줌으로써 Hyper-V 환경에 대한 정보를 제공합니다. 모든 호스트와 해당 호스트에서 실행되는 VM의 CPU, 메모리 및 디스크에 대한 메트릭이 수집됩니다.
 
 솔루션:
 
--    최고 및 최저 CPU 및 메모리 사용률을 가진 호스트를 보여 줍니다.
--    최고 및 최저 CPU 및 메모리 사용률을 가진 VM을 보여 줍니다.
--    최고 및 최저 IOPS 및 처리량 사용률을 가진 VM을 보여 줍니다.
--    어떤 호스트에서 어떤 VM이 실행되고 있는지 보여 줍니다.
--    클러스터된 공유 볼륨에서 높은 처리량, IOPS 및 대기 시간을 가진 상위 디스크를 보여 줍니다.
+-   최고 및 최저 CPU 및 메모리 사용률을 가진 호스트를 보여 줍니다.
+-   최고 및 최저 CPU 및 메모리 사용률을 가진 VM을 보여 줍니다.
+-   최고 및 최저 IOPS 및 처리량 사용률을 가진 VM을 보여 줍니다.
+-   어떤 호스트에서 어떤 VM이 실행되고 있는지 보여 줍니다.
+-   클러스터된 공유 볼륨에서 높은 처리량, IOPS 및 대기 시간을 가진 상위 디스크를 보여 줍니다.
 - 그룹별로 사용자 지정 및 필터링할 수 있습니다.
 
 > [!NOTE]

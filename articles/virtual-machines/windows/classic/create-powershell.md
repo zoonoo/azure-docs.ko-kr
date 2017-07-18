@@ -13,18 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 05/30/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8b823c42743bc477dceaa3270836de8ebd92c28f
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: bd14d9902f4061965c008454a14f91d3927f5b99
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>PowerShell 및 클래식 배포 모델을 사용하여 Windows 가상 컴퓨터 만들기
 > [!div class="op_single_selector"]
-> * [Azure 클래식 포털 - Windows](tutorial.md)
+> * [Azure Portal - Windows](tutorial.md)
 > * [PowerShell - Windows](create-powershell.md)
 > 
 > 
@@ -164,7 +165,7 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
     New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-클라우드 서비스의 짧은 이름은 Azure 클래식 포털의 클라우드 서비스 목록에 표시된 이름 또는 Azure 포털의 리소스 그룹 목록에 표시된 이름입니다.
+클라우드 서비스의 짧은 이름은 Azure Portal의 Cloud Services 목록에 표시된 이름 또는 Azure Portal의 리소스 그룹 목록에 표시된 이름입니다.
 
 옵션 2: 기존 클라우드 서비스 및 가상 네트워크에서 가상 컴퓨터를 만듭니다.
 
@@ -180,7 +181,7 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 이 가상 컴퓨터 또는 이와 유사한 가상 컴퓨터를 다시 만들려는 경우 다음과 같이 할 수 있습니다.
 
 * 이 명령 집합을 PowerShell 스크립트 파일(*.ps1)로 저장
-* Azure 클래식 포털의 **자동화** 섹션에서 이 명령 집합을 Azure 자동화 Runbook으로 저장합니다.
+* Azure Portal의 **자동화 계정** 섹션에서 이 명령 집합을 Azure Automation Runbook으로 저장합니다.
 
 ## <a id="examples"></a>예제
 다음은 위 단계를 사용하여 Azure에서 Windows 기반 Azure 가상 컴퓨터를 만드는 Azure PowerShell 명령 집합을 작성하는 두 가지 예제입니다.

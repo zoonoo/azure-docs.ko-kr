@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/5/2017
+ms.date: 06/9/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8446790af6af160c4b2d463191405faaed68bf0e
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 4b6f21c7949493ac1f95e7c0f255e5c96613adf1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -56,9 +56,9 @@ ms.lasthandoff: 05/17/2017
 
 * [데이터 게이트웨이가 로컬 컴퓨터에 설치](logic-apps-gateway-install.md)되어 있어야 합니다.
 
-* [온-프레미스 데이터 게이트웨이를 설치](logic-apps-gateway-install.md#requirements)하는 데 사용되는 회사 또는 학교 이메일 주소가 있는 Azure 계정이 필요합니다.
+* Azure Portal에 로그인할 때 [온-프레미스 데이터 게이트웨이를 설치](logic-apps-gateway-install.md#requirements)하는 데 사용된 것과 동일한 회사 또는 학교 계정을 사용해야 합니다. 또한 Azure Portal에서 게이트웨이 설치를 위해 게이트웨이 리소스를 만들 때 사용할 Azure 구독이 로그인 계정에 있어야 합니다.
 
-* 게이트웨이 설치를 다른 Azure 게이트웨이 리소스에서 요구할 수 없습니다. 하나의 게이트웨이 리소스에만 게이트웨이 설치를 연결할 수 있습니다. 클레임은 게이트웨이 리소스를 만들 때 발생하므로 다른 리소스에서 설치할 수 없습니다.
+* 게이트웨이 설치는 Azure 게이트웨이 리소스에서 이미 요구할 수 없습니다. 하나의 게이트웨이 리소스에만 게이트웨이 설치를 연결할 수 있습니다. 클레임은 게이트웨이 리소스를 만들 때 발생하므로 다른 리소스에서 설치할 수 없습니다.
 
 ## <a name="set-up-the-data-gateway-connection"></a>데이터 게이트웨이 연결 설정
 

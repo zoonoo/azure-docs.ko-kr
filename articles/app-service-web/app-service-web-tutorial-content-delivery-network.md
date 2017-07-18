@@ -1,27 +1,31 @@
 ---
-title: "Azure App Service에 CDN(Content Delivery Network) 추가 | Microsoft Docs"
+title: "Azure App Service에 CDN 추가 | Microsoft Docs"
 description: "Azure App Service에 CDN(Content Delivery Network) 추가하여 전 세계의 고객에게 가까운 서버에서 정적 파일을 캐시하고 제공합니다."
 services: app-service\web
 author: syntaxc4
 ms.author: cfowler
-ms.date: 05/01/2017
+ms.date: 05/31/2017
 ms.topic: article
 ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7208abc0e6eaa9067c5bb36a09e1bfd276fe0b0c
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: a4f5113c4cc0ffb5fdd072e9a59743c83154c38c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/08/2017
 
 ---
 # <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Azure App Service에 CDN(Content Delivery Network) 추가
 
 [Azure CDN(Content Delivery Network)](../cdn/cdn-overview.md)은 전략적으로 배치된 위치에서 정적 웹 콘텐츠를 캐싱하여 사용자에게 콘텐츠를 배달하기 위한 최대 처리량을 제공합니다. 또한 CDN은 웹앱에 대한 서버 부하를 감소시킵니다. 이 자습서에서는 Azure CDN을 [Azure App Service의 웹앱](app-service-web-overview.md)에 추가하는 방법을 보여줍니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+사용하게 될 샘플 정적 HTML 사이트의 홈 페이지는 다음과 같습니다.
+
+![샘플 앱 홈 페이지](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
+
+학습할 내용:
 
 > [!div class="checklist"]
 > * CDN 끝점 만들기
@@ -29,19 +33,22 @@ ms.lasthandoff: 05/09/2017
 > * 쿼리 문자열을 사용하여 캐시된 버전 제어
 > * CDN 끝점에 사용자 지정 도메인 사용
 
-사용하게 될 샘플 정적 HTML 사이트의 홈 페이지는 다음과 같습니다.
+## <a name="prerequisites"></a>필수 조건
 
-![샘플 앱 홈 페이지](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
+이 자습서를 완료하려면 다음이 필요합니다.
+
+- [Git 설치](https://git-scm.com/)
+- [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-web-app"></a>웹앱 만들기
 
-사용하게 될 웹앱을 만들기 위해 [정적 HTML 빠른 시작](app-service-web-get-started-html.md)을 수행하지만 **리소스 정리** 단계를 수행하지 않습니다.
-
-이 자습서를 완료하면 이 자습서의 뒷부분에서 웹앱에 추가 변경 작업을 배포할 수 있도록 명령 프롬프트를 열어 둡니다.
+사용할 웹앱을 만들려면 **앱 찾아보기** 단계를 통해 [정적 HTML 빠른 시작](app-service-web-get-started-html.md)을 수행합니다.
 
 ### <a name="have-a-custom-domain-ready"></a>사용자 지정 도메인 준비
 
-이 자습서의 사용자 지정 도메인 단계를 완료하려면 도메인 공급자(예: GoDaddy)의 DNS 레지스트리에 대한 액세스 권한이 있어야 합니다. 예를 들어 `contoso.com` 및 `www.contoso.com`에 대한 DNS 항목을 추가하려면 `contoso.com` 루트 도메인에 대한 DNS 설정을 구성할 수 있는 액세스 권한이 있어야 합니다.
+이 자습서의 사용자 지정 도메인 단계를 완료하려면 사용자 지정 도메인을 소유하고 도메인 공급자(예: GoDaddy)의 DNS 레지스트리에 액세스할 수 있어야 합니다. 예를 들어 `contoso.com` 및 `www.contoso.com`에 대한 DNS 항목을 추가하려면 `contoso.com` 루트 도메인에 대한 DNS 설정을 구성할 수 있는 액세스 권한이 있어야 합니다.
 
 아직 도메인 이름이 없는 경우 Azure Portal을 사용하여 도메인을 구매하려면 [App Service 도메인 자습서](custom-dns-web-site-buydomains-web-app.md)를 수행하는 것이 좋습니다. 
 
@@ -65,7 +72,7 @@ ms.lasthandoff: 05/09/2017
 
 | 설정 | 제안 값 | 설명 |
 | ------- | --------------- | ----------- |
-| **CDN 프로필** | myCDNProfile | **새 CDN 프로필 만들기**를 선택하여 만듭니다. CDN 프로필은 동일한 가격 책정 계층을 가진 CDN 끝점의 컬렉션입니다. |
+| **CDN 프로필** | myCDNProfile | **새로 만들기**를 선택하여 CDN 프로필을 만듭니다. CDN 프로필은 동일한 가격 책정 계층을 가진 CDN 끝점의 컬렉션입니다. |
 | **가격 책정 계층** | Standard Akamai | [가격 책정 계층](../cdn/cdn-overview.md#azure-cdn-features)은 공급자 및 사용 가능한 기능을 지정합니다. 이 자습서에서는 표준 Akamai를 사용합니다. |
 | **CDN 끝점 이름** | azureedge.net 도메인에서 고유한 이름 | 도메인인 *\<endpointname>.azureedge.net*에서 캐시된 리소스에 액세스합니다.
 
@@ -89,7 +96,7 @@ http://<appname>.azurewebsites.net/css/bootstrap.css
 http://<endpointname>.azureedge.net/css/bootstrap.css
 ```
 
-다음 URL에 대한 브라우저로 이동하고 Azure 웹앱에서 이전에 실행하는 동일한 페이지를 참조하지만 이제 CDN에서 제공됩니다.
+브라우저를 다음 URL로 이동합니다.
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -97,7 +104,7 @@ http://<endpointname>.azureedge.net/index.html
 
 ![CDN에서 제공되는 샘플 앱 홈 페이지](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
 
-여기서는 Azure CDN이 원본 웹앱의 자산을 검색하고 CDN 끝점에서 제공한다는 것을 보여줍니다. 
+ Azure 웹앱에서 이전에 실행한 것과 동일한 페이지가 표시됩니다. Azure CDN에서 원본 웹앱의 자산을 검색하고 CDN 끝점에서 제공하고 있습니다.
 
 이 페이지가 CDN에서 캐시된다는 것을 보장하기 위해 페이지를 새로 고칩니다. 동일한 자산에 대한 두 개의 요청에서 CDN은 요청된 콘텐츠를 캐시해야 합니다.
 
@@ -188,7 +195,7 @@ Azure CDN은 다음과 같은 캐싱 동작 옵션을 제공합니다.
 * 쿼리 문자열에 대한 캐싱 우회
 * 모든 고유한 URL 캐시 
 
-이 중에서 기본값이 가장 우선입니다. 즉, 액세스하는 URL에서 사용되는 쿼리 문자열에 관계없이 자산의 캐시된 버전이 하나임을 나타냅니다. 
+이 중 첫 번째 옵션이 기본값입니다. 즉 액세스하는 URL의 쿼리 문자열에 관계없이 캐시된 자산의 버전이 하나뿐임을 나타냅니다. 
 
 자습서의 이 섹션에서는 캐싱 동작을 변경하여 고유한 URL을 캐시합니다.
 
@@ -235,7 +242,10 @@ http://<endpointname>.azureedge.net/index.html?q=1
 
 ![CDN에서 제목에 V2, 쿼리 문자열 1](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs1.png)
 
-이 출력에서는 각 쿼리 문자열을 다르게 처리하는 것을 보여줍니다. q=1은 이전에 사용했으므로 이전에 캐시된 콘텐츠(V2)를 반환하는 반면 q=2는 새로운 항목이므로 최신 웹앱 콘텐츠를 검색하고 반환합니다(V3).
+이 출력에서는 각 쿼리 문자열이 다르게 처리됨을 보여 줍니다.
+
+* 이전에는 q=1이 사용되어 캐시된 내용(V2)을 반환합니다.
+* q=2는 새로운 쿼리 문자열이므로 최신 웹앱 내용(V3)을 검색하여 반환합니다.
 
 자세한 내용은 [쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어](../cdn/cdn-query-string.md)를 참조하세요.
 
@@ -261,7 +271,7 @@ Azure Portal의 **끝점** 페이지에 있는 왼쪽 탐색 영역에서 **개�
 
 CNAME을 관리하기 위한 섹션을 찾습니다. 고급 설정 페이지로 이동하여 CNAME, 별칭 또는 하위 도메인과 같은 단어를 찾아야 할 수도 있습니다.
 
-선택한 하위 도메인(예: **static** 또는 **cdn**)을 앞서 포털에서 보여준 **끝점 호스트 이름**에 매핑하는 새 CNAME 레코드를 만듭니다. 
+선택한 하위 도메인(예: **static** 또는 **cdn**)을 포털에서 이전에 표시한 **끝점 호스트 이름**에 매핑하는 CNAME 레코드를 만듭니다. 
 
 ### <a name="enter-the-custom-domain-in-azure"></a>Azure에서 사용자 지정 도메인 입력
 
@@ -269,7 +279,7 @@ CNAME을 관리하기 위한 섹션을 찾습니다. 고급 설정 페이지로 
    
 Azure에서 입력한 도메인 이름에 대한 CNAME 레코드가 있는지 확인합니다. CNAME이 올바르면 사용자 지정 도메인의 유효성이 검사됩니다.
 
-CNAME 레코드가 인터넷의 이름 서버로 전파되는 데 시간이 걸릴 수 있습니다. 도메인의 유효성이 즉시 검사되지 않고 CNAME 레코드가 올바른 경우 잠시 기다린 후 다시 시도하세요.
+CNAME 레코드가 인터넷의 이름 서버로 전파되는 데 시간이 걸릴 수 있습니다. 도메인의 유효성이 바로 검사되지 않으면 몇 분 후에 다시 시도합니다.
 
 ### <a name="test-the-custom-domain"></a>사용자 지정 도메인 테스트
 
@@ -283,7 +293,7 @@ CNAME 레코드가 인터넷의 이름 서버로 전파되는 데 시간이 걸�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서 학습한 방법은 다음과 같습니다.
+학습한 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * CDN 끝점 만들기
@@ -298,5 +308,4 @@ CNAME 레코드가 인터넷의 이름 서버로 전파되는 데 시간이 걸�
 
 > [!div class="nextstepaction"]
 > [Azure CDN 끝점에 자산 미리 로드](../cdn/cdn-preload-endpoint.md)
-
 

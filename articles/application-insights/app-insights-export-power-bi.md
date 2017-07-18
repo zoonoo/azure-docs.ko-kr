@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 24ccafb4df95e0010416485199e19f81e1ae31aa
-ms.openlocfilehash: 11017c7c0a761569892aebcd085d5d3fb2d67a69
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 02c51e6a576b5a91044eae784c72d7529497b814
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/14/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -84,8 +84,38 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
     ![시각화 선택](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. 간격을 두고 보고서를 수동으로 새로 고치거나 옵션 페이지에서 예약된 새로 고침을 설정합니다.
 
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="401-or-403-unauthorized"></a>401 또는 403 권한 없음 
+업데이트되지 않은 토큰을 새로 고치는 경우 발생할 수 있습니다. 여전히 액세스 권한이 있는지 확인하려면 다음 단계를 시도하십시오. 액세스 권한이 있고 자격 증명 새로 고침이 작동하지 않는 경우 지원 티켓을 여세요.
+
+1. Azure Portal에 로그인하고 리소스에 액세스할 수 있는지 확인합니다.
+2. 대시보드에 대한 자격 증명 새로 고침을 시도합니다.
+
+### <a name="502-bad-gateway"></a>502 잘못된 게이트웨이
+일반적으로 너무 많은 데이터를 반환하는 분석 쿼리가 원인입니다. 더 작은 시간 범위를 사용하거나 [ago](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#ago) 또는 [startofweek/startofmonth](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#startofweek) 함수를 사용하여 시도해야 합니다(필요한 필드인 [프로젝트](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#project-operator)만 해당).
+
+분석 쿼리에서 들어오는 데이터 집합 감소가 요구 사항을 충족하지 않는 경우 더 큰 데이터 집합을 가져오도록 [API](https://dev.applicationinsights.io/documentation/overview) 사용을 고려해야 합니다. M 쿼리 내보내기를 변환하여 API를 사용하는 방법에 대한 지침은 다음과 같습니다.
+
+1. [API 키](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID) 만들기
+2. ARM URL을 AI API로 대체하여 분석에서 내보낸 Power BI M 스크립트를 업데이트합니다(아래 예제 참조).
+   * **https://management.azure.com/subscriptions/...**를
+   * **https://api.applicationinsights.io/beta/apps/...**로 바꿉니다.
+3. 마지막으로 자격 증명을 기본으로 업데이트하고 API 키를 사용합니다.
+  
+
+**기존 스크립트**
+ ```
+ Source = Json.Document(Web.Contents("https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups//providers/microsoft.insights/components//api/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+**업데이트된 스크립트**
+ ```
+ Source = Json.Document(Web.Contents("https://api.applicationinsights.io/beta/apps/<APPLICATION_ID>/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+
 ## <a name="about-sampling"></a>샘플링 정보
 응용 프로그램에서 많은 양의 데이터를 전송하는 경우 적응 샘플링 기능이 작동하여 원격 분석의 백분율만 보낼 수도 있습니다. 이는 SDK 또는 수집에서 샘플링을 수동으로 설정한 경우에도 마찬가지입니다. [샘플링에 대해 자세히 알아봅니다.](app-insights-sampling.md)
+
 
 ## <a name="next-steps"></a>다음 단계
 * [Power BI - 알아보기](http://www.powerbi.com/learning/)

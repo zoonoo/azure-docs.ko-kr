@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 06/01/2017
 ms.author: szark
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: eaac5300292e328bcff9ddf5447bea0e53075179
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 7bd0c5549a2e1f592681760d5ef464b9570ca4ab
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/03/2017
 이 항목에서는 Azure 클라우드에서 Linux 가상 컴퓨터를 사용하는 몇 가지 측면을 간략하게 설명합니다. 갤러리의 기존 이미지를 사용하여 Linux 가상 컴퓨터 배포는 간단한 프로세스입니다.
 
 ## <a name="authentication-usernames-passwords-and-ssh-keys"></a>인증: 사용자 이름, 암호 및 SSH 키
-Azure 클래식 포털을 사용하여 Linux 가상 컴퓨터를 만들 때, 사용자 이름, 암호 또는 SSH 공개 키가 요구됩니다. Azure에 Linux 가상 컴퓨터를 배포할 때 선택하는 사용자 이름에는 다음과 같은 제약이 있습니다. 가상 컴퓨터에 이미 존재하던 시스템 계정의 이름(UID <100)(예: 'root')은 허용되지 않습니다.
+Azure Portal을 사용하여 Linux 가상 컴퓨터를 만들 때, 사용자 이름, 암호 또는 SSH 공개 키 중 하나가 요구됩니다. Azure에 Linux 가상 컴퓨터를 배포할 때 선택하는 사용자 이름에는 다음과 같은 제약이 있습니다. 가상 컴퓨터에 이미 존재하던 시스템 계정의 이름(UID <100)(예: 'root')은 허용되지 않습니다.
 
 * [Linux를 실행하는 가상 컴퓨터 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 * [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
@@ -41,7 +42,7 @@ Azure에서 가상 컴퓨터 인스턴스를 배포하는 동안 지정한 사�
 * [Azure의 Linux 가상 컴퓨터에서 루트 권한 사용](use-root-privileges.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
 ## <a name="firewall-configuration"></a>방화벽 구성
-Azure는 Azure 클래식에서 지정된 포트에 연결을 제한하는 인바운드 패킷 필터를 제공합니다. 기본적으로 허용되는 유일한 포트는 SSH입니다. Azure 클래식 포털에서 끝점을 구성하여 Linux 가상 컴퓨터의 추가 포트 액세스를 열 수 있습니다.
+Azure는 Azure Portal에서 지정된 포트에 연결을 제한하는 인바운드 패킷 필터를 제공합니다. 기본적으로 허용되는 유일한 포트는 SSH입니다. Azure Portal에서 끝점을 구성하여 Linux 가상 컴퓨터의 추가 포트 액세스를 열 수 있습니다.
 
 * [가상 컴퓨터에 끝점을 설정하는 방법](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
@@ -69,9 +70,9 @@ Azure Linux 에이전트에는 이 이름 변경을 자동으로 검색하여 �
 ## <a name="virtual-machine-image-capture"></a>가상 컴퓨터 이미지 캡처
 Azure는 기존 가상 컴퓨터의 상태를 이미지로 캡처하는 기능을 제공합니다. 이 이미지는 이후에 추가 가상 컴퓨터 인스턴스를 배포하는 데 사용할 수 있습니다. Azure Linux 에이전트는 프로비전 프로세스 중 수행된 일부 사용자 지정을 롤백하는 데 사용할 수 있습니다. 아래 단계를 따르면 가상 컴퓨터를 이미지로 캡처할 수 있습니다.
 
-1. **waagent -deprovision** 을 실행하여 사용자 지정 프로비전을 실행 취소합니다. 또는 선택적으로 프로비전 중 지정한 사용자 계정 및 연결된 모든 데이터를 삭제하려면 **waagent -deprovision+user** 를 실행합니다.
+1. **waagent -deprovision**을 실행하여 사용자 지정 프로비전을 실행 취소합니다. 또는 선택적으로 프로비전 중 지정한 사용자 계정 및 연결된 모든 데이터를 삭제하려면 **waagent -deprovision+user**를 실행합니다.
 2. 가상 컴퓨터를 종료합니다.
-3. Azure 클래식 포털에서 *캡쳐* 를 클릭하거나 PowerShell 또는 CLI 도구를 사용하여 가상 컴퓨터를 이미지로 캡쳐할 수 있습니다.
+3. Azure Portal에서 **캡쳐**를 클릭하거나 PowerShell 또는 CLI 도구를 사용하여 가상 컴퓨터를 이미지로 캡쳐할 수 있습니다.
    
    * 참고: [Linux 가상 컴퓨터를 캡처하여 템플릿으로 사용하는 방법](classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 

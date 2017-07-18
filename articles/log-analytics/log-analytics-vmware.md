@@ -12,16 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: 813120692232096275f3a7500c3b54e16af26b77
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: a9fc8427e76ee8fa48fa8f1ad452c6fe9b544ce2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
 ---
 
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics의 VMware 모니터링(미리 보기) 솔루션
+
+![VMware 기호](./media/log-analytics-vmware/vmware-symbol.png)
+
 Log Analytics VMware 모니터링 솔루션은 대규모 VMware 로그에 적합한 중앙 집중식 로깅 및 모니터링 접근 방식을 만들 수 있는 솔루션입니다. 이 문서에서는 단일 위치에서 이 솔루션을 사용하여 ESXi 호스트의 문제를 해결, 캡처 및 관리하는 방법을 설명합니다. 솔루션을 사용하면 단일 위치에서 모든 ESXi 호스트에 대한 데이터를 자세히 볼 수 있습니다. ESXi 호스트 로그를 통해 제공되는 상위 이벤트 수, 상태, VM 및 ESXi 호스트의 추세를 볼 수 있습니다. 중앙 집중식 ESXi 호스트 로그를 보고 검색하여 문제를 해결할 수 있습니다. 그리고 로그 검색 쿼리에 기반한 경고를 만들 수 있습니다.
 
 이 솔루션은 ESXi 호스트의 기본 syslog 기능을 사용하여 OMS 에이전트가 있는 대상 VM에 데이터를 푸시합니다. 그러나 대상 VM 내의 syslog에 파일을 작성하지는 않습니다. OM 에이전트는 포트 1514를 열고 수신 대기합니다. 데이터를 받으면 이를 OMS로 푸시합니다.
@@ -77,7 +81,7 @@ VMware 모니터링 솔루션에서는 사용 설정된 Linux용 OMS 에이전�
 
 | 플랫폼 | Linux 용 OMS 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Linux |![예](./media/log-analytics-vmware/oms-bullet-green.png) |![아니요](./media/log-analytics-vmware/oms-bullet-red.png) |![아니요](./media/log-analytics-vmware/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-vmware/oms-bullet-red.png) |매 3분 |
+| Linux |![예](./media/log-analytics-vmware/oms-bullet-green.png) |![아니요](./media/log-analytics-vmware/oms-bullet-red.png) |![아니요](./media/log-analytics-vmware/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-vmware/oms-bullet-red.png) |매 3분 |
 
 다음 표에서는 VMware 모니터링 솔루션에서 수집한 데이터 형식의 예를 보여 줍니다.
 
@@ -171,7 +175,7 @@ OMS 표준 기능인 검색 쿼리 저장은 유용한 것으로 확인된 쿼�
 Syslog 타임스탬프에 대한 ESXi 호스트 버그가 있었습니다. 자세한 내용은 [VMware 기술 자료](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202)를 참조하세요. 해결 방법을 적용하면 호스트가 정상적으로 작동할 것입니다.
 
 ### <a name="can-i-have-multiple-esxi-hosts-forwarding-syslog-data-to-a-single-vm-with-omsagent"></a>여러 ESXi 호스트에서 omsagent를 실행하는 단일 VM에 syslog 데이터를 전달하도록 할 수 있습니까?
- 예. 여러 ESXi 호스트에서 omsagent를 실행하는 단일 VM에 전달하도록 할 수 있습니다.
+예. 여러 ESXi 호스트에서 omsagent를 실행하는 단일 VM에 전달하도록 할 수 있습니다.
 
 ### <a name="why-dont-i-see-data-flowing-into-oms"></a>OMS로 이동하는 데이터가 보이지 않는 이유는 무엇입니까?
 여러 가지 이유가 있을 수 있습니다.

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 06/13/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 47fb74c608315b256e88dd774af7cb5260529607
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 90706434eb78009bc56fc390cfa5a30e53827c19
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -445,7 +445,7 @@ Type=Event Computer=*SQL*
 | *aggregatedField* |집계되고 있는 필드. 이 필드는 COUNT 집계 함수에 대해 선택적이지만 SUM, MAX, MIN, AVG STDDEV, PERCENTILE## 또는 PCT##(##은 1 ~ 99 사이의 숫자)의 기존 숫자 필드여야 합니다. 또한 aggregatedField는 **Extend** 지원 함수 중 하나일 수도 있습니다. |
 | *fieldAlias* |(선택 사항) 계산된 집계 값의 별칭. 지정하지 않을 경우 필드 이름은 **AggregatedValue**가 됩니다. |
 | *groupField* |결과 집합을 그룹화하는 기준이 되는 필드의 이름 |
-| *간격* |**nnnNAME** 형식의 시간 간격입니다. **nnn**은 양수입니다. **NAME**은 간격 이름입니다. 지원되는 간격 이름은 대/소문자를 구분하며 MILLISECOND[S], SECOND[S], MINUTE[S], HOUR[S], DAY[S], MONTH[S] 및 YEAR[S]를 포함합니다. |
+| *간격* |**nnnNAME** 형식의 시간 간격입니다. **nnn**은 양의 정수입니다. **NAME**은 간격 이름입니다. 지원되는 간격 이름은 대/소문자를 구분하며 MILLISECOND[S], SECOND[S], MINUTE[S], HOUR[S], DAY[S], MONTH[S] 및 YEAR[S]를 포함합니다. |
 
 날짜/시간 그룹 필드에서만 간격 옵션을 사용할 수 있습니다(예: *TimeGenerated* and *TimeCreated*) 현재 서비스에 의해 적용되지 않지만 백 엔드로 전달되는 날짜/시간 없는 필드에 런타임 오류가 발생합니다. 스키마 유효성 검사를 구현하는 경우 서비스 API는 집계 간격에 대해 날짜/시간 없이 필드를 사용하는 쿼리를 거부합니다. 현재 *Measure* 구현은 집계 함수를 그룹화하는 간격을 지원합니다.
 
@@ -692,7 +692,7 @@ Heartbeat에서 일치하는 필드가 있는 MyBackup_CL에서 다음 레코드
 
 
 ### <a name="extend"></a>Extend
-쿼리에 런타임 필드를 만들 수 있습니다. 또한 집계를 수행하려는 경우 extend 명령 뒤에 measure 명령을 사용할 수도 있습니다.
+쿼리에 런타임 필드를 만들 수 있습니다. 런타임 필드는 집계를 수행하기 위한 측정값 명령과 함께 사용할 수 없습니다.
 
 **예 1**
 

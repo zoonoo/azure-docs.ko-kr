@@ -16,10 +16,10 @@ ms.date: 04/24/2017
 ms.author: pajosh;markgal;trinadhk
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: d76fb43a1b045b98a14ae91ac339d53e9a48f1de
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: b6aed1f34a899f4e182f0cf48426ec2da88b51c2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -97,5 +97,6 @@ ms.lasthandoff: 05/04/2017
 | 백업 |가상 컴퓨터가 BEK만으로 암호화되었기 때문에 유효성 검사에 실패했습니다. BEK와 KEK 모두로 암호화된 가상 컴퓨터에서만 백업을 사용할 수 있습니다. |가상 컴퓨터는 BEK와 KEK를 사용하여 암호화해야 합니다. 먼저 VM의 암호를 해독하고 BEK와 KEK를 사용하여 암호화합니다. VM이 BEK와 KEK를 사용하여 암호화되면 백업을 사용하도록 설정합니다. [VM 암호 해독 및 암호화](../security/azure-security-disk-encryption.md)에 대한 자세한 정보  |
 | 복원 |이 VM과 연결된 키 자격 증명 모음이 없기 때문에 이 암호화된 VM을 복원할 수 없습니다. |키 자격 증명 모음을 만들려면 [Azure Key Vault 시작](../key-vault/key-vault-get-started.md)을 사용합니다. 키와 비밀이 없는 경우 이를 복원하려면 [Azure Backup으로 키 자격 증명 모음 키 및 비밀 복원](backup-azure-restore-key-secret.md)(영문) 문서를 사용합니다. |
 | 복원 |이 VM과 연결된 키와 비밀이 없기 때문에 이 암호화된 VM을 복원할 수 없습니다. |키와 비밀이 없는 경우 이를 복원하려면 [Azure Backup으로 키 자격 증명 모음 키 및 비밀 복원](backup-azure-restore-key-secret.md)(영문) 문서를 사용합니다. |
-| 복원 |백업 서비스는 구독의 리소스에 액세스할 수 있는 권한이 없습니다. |위에서 설명된 것처럼 먼저 [VM 복원 구성 선택](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration)의 **백업된 디스크 복원** 섹션에 제공된 단계에 따라 디스크를 복원합니다. 그런 후에 PowerShell을 사용하여 [복원된 디스크에서 VM을 만듭니다](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+| 복원 |백업 서비스는 구독의 리소스에 액세스할 수 있는 권한이 없습니다. |위에서 설명된 것처럼 먼저 [VM 복원 구성 선택](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration)의 **백업된 디스크 복원** 섹션에 제공된 단계에 따라 디스크를 복원합니다. 그런 후에 PowerShell을 사용하여 [복원된 디스크에서 VM을 만듭니다](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |
+|백업 | Azure Backup 서비스에는 암호화된 가상 컴퓨터의 백업을 위한 Key Vault에 대해 충분한 권한이 없습니다. | 이 경우 가상 시스템을 BitLocker 암호화 키와 키 암호화 키를 모두 사용하여 암호화해야 합니다. 그런 후에 백업을 사용하도록 설정해야 합니다.  백업 서비스는 **AzureRM.RecoveryServices.Backup cmdlet을 사용하여 가상 컴퓨터 백업**에서 PowerShell 설명서의 [보호 사용](backup-azure-vms-automation.md) 섹션에서 언급한 단계를 사용하여 PowerShell에서 이러한 권한을 제공 받아야 합니다. |  
 

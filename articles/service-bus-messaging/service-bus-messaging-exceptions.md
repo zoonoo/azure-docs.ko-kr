@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 06/06/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 3b543b1c94122a037cdd3b16e25d60957add1cb7
-ms.lasthandoff: 03/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 93300ba995f2a556cb90fc657db5cf9ad56b9846
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -120,7 +121,8 @@ ConnectionsQuotaExceeded for namespace xxx.
     Service Bus 서비스에서 예를 들어 트래픽이 높은 기간 동안 요청 처리에 지연이 발생할 수 있습니다. 이러한 경우 작업이 성공할 때까지 지연 후 작업을 다시 시도할 수 있습니다. 동일한 작업을 여러 번 시도한 후에도 계속 실패하는 경우 알려진 서비스 중단이 있는지 [Azure 서비스 상태 사이트](https://azure.microsoft.com/status/) 를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
-전체 Service Bus 및 Event Hubs .NET API 참조는 [Azure .NET API 참조](/dotnet/api/)를 확인하세요.
+
+전체 Service Bus .NET API 참조는 [Azure .NET API 참조](/dotnet/api/overview/azure/servicebus)를 확인하세요.
 
 [서비스 버스](https://azure.microsoft.com/services/service-bus/)에 대한 자세한 내용은 다음 항목을 참조하세요.
 

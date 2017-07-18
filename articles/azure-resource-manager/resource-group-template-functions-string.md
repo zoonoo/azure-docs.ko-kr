@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 9932ac04699f49b7a3ea3dabe4d380fdc4d05ec1
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 0db4ba33c3a6720ba447e27f530ca97c992fbb72
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -70,6 +70,10 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 |:--- |:--- |:--- |:--- |
 | inputString |예 |string |base64 표현으로 반환할 값입니다. |
 
+### <a name="return-value"></a>반환 값
+
+Base64 표현을 포함하는 문자열입니다.
+
 ### <a name="examples"></a>예
 
 다음 예에서는 base64 함수를 사용하는 방법을 보여 줍니다.
@@ -111,9 +115,13 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-Base64 표현을 포함하는 문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
+| toStringOutput | 문자열 | one, two, three |
+| toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 <a id="base64tojson" />
 
@@ -127,6 +135,10 @@ base64 표현을 JSON 개체로 변환합니다.
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | base64Value |예 |string |JSON 개체로 변환할 base64 표현입니다. |
+
+### <a name="return-value"></a>반환 값
+
+JSON 개체입니다.
 
 ### <a name="examples"></a>예
 
@@ -169,9 +181,13 @@ base64 표현을 JSON 개체로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-JSON 개체입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
+| toStringOutput | 문자열 | one, two, three |
+| toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 <a id="base64tostring" />
 
@@ -186,9 +202,13 @@ base64 표현을 문자열로 변환합니다.
 |:--- |:--- |:--- |:--- |
 | base64Value |예 |string |문자열로 변환할 base64 표현입니다. |
 
+### <a name="return-value"></a>반환 값
+
+변환된 base64 값의 문자열입니다.
+
 ### <a name="examples"></a>예
 
-다음 예제에서는 base64ToString 함수를 사용gkdu base64 값을 변환합니다.
+다음 예제에서는 base64ToString 함수를 사용하여 base64 값을 변환합니다.
 
 ```json
 {
@@ -227,9 +247,13 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-변환된 base64 값의 문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
+| toStringOutput | 문자열 | one, two, three |
+| toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 <a id="bool" />
 
@@ -243,6 +267,9 @@ base64 표현을 문자열로 변환합니다.
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 int |부울로 변환할 값입니다. |
+
+### <a name="return-value"></a>반환 값
+변환된 값의 부울입니다.
 
 ### <a name="examples"></a>예
 
@@ -274,8 +301,14 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
-부울입니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| trueString | Bool | True |
+| falseString | Bool | False |
+| trueInt | Bool | True |
+| falseInt | Bool | False |
 
 <a id="concat" />
 
@@ -290,6 +323,9 @@ base64 표현을 문자열로 변환합니다.
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 배열 |연결할 첫 번째 값입니다. |
 | 추가 인수 |아니요 |string |연결할 추가 값(순서대로)입니다. |
+
+### <a name="return-value"></a>반환 값
+연결된 값의 문자열 또는 배열입니다.
 
 ### <a name="examples"></a>예
 
@@ -308,12 +344,18 @@ base64 표현을 문자열로 변환합니다.
     "resources": [],
     "outputs": {
         "concatOutput": {
-            "value": "[concat(parameters('prefix'), uniqueString(resourceGroup().id))]",
+            "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]",
             "type" : "string"
         }
     }
 }
 ```
+
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| concatOutput | 문자열 | prefix-5yj4yjf5mbg72 |
 
 다음 예제에서는 두 개의 배열을 결합하는 방법을 보여 줍니다.
 
@@ -350,8 +392,11 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
-연결된 값의 문자열 또는 배열입니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| return | 배열 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 <a id="contains" />
 
@@ -366,6 +411,10 @@ base64 표현을 문자열로 변환합니다.
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
+
+### <a name="return-value"></a>반환 값
+
+항목이 있으면 **True**이고, 항목이 없으면 **False**입니다.
 
 ### <a name="examples"></a>예
 
@@ -420,9 +469,16 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-항목이 있으면 **True**이고, 항목이 없으면 **False**입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| stringTrue | Bool | True |
+| stringFalse | Bool | False |
+| objectTrue | Bool | True |
+| objectFalse | Bool | False |
+| arrayTrue | Bool | True |
+| arrayFalse | Bool | False |
 
 <a id="datauri" />
 
@@ -437,6 +493,10 @@ base64 표현을 문자열로 변환합니다.
 |:--- |:--- |:--- |:--- |
 | stringToConvert |예 |string |데이터 URI로 변환할 값입니다. |
 
+### <a name="return-value"></a>반환 값
+
+데이터 URI로 형식이 지정된 문자열입니다.
+
 ### <a name="examples"></a>예
 
 다음 예제에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
@@ -469,9 +529,12 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-데이터 URI로 형식이 지정된 문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | 문자열 | Hello, World! |
 
 <a id="datauritostring" />
 
@@ -486,6 +549,10 @@ base64 표현을 문자열로 변환합니다.
 |:--- |:--- |:--- |:--- |
 | dataUriToConvert |예 |string |변환할 데이터 URI 값입니다. |
 
+### <a name="return-value"></a>반환 값
+
+변환된 값을 포함하는 문자열입니다.
+
 ### <a name="examples"></a>예
 
 다음 예제에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
@@ -518,9 +585,12 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-변환된 값을 포함하는 문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | 문자열 | Hello, World! |
 
 <a id="empty" /> 
 
@@ -534,6 +604,10 @@ base64 표현을 문자열로 변환합니다.
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
+
+### <a name="return-value"></a>반환 값
+
+값이 비어 있으면 **True**를 반환하고 비어 있지 않으면 **False**를 반환합니다.
 
 ### <a name="examples"></a>예
 
@@ -576,9 +650,13 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-값이 비어 있으면 **True**를 반환하고 비어 있지 않으면 **False**를 반환합니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayEmpty | Bool | True |
+| objectEmpty | Bool | True |
+| stringEmpty | Bool | True |
 
 <a id="endswith" />
 
@@ -593,6 +671,10 @@ base64 표현을 문자열로 변환합니다.
 |:--- |:--- |:--- |:--- |
 | stringToSearch |예 |string |찾을 값을 포함하는 값입니다. |
 | stringToFind |예 |string |찾을 값입니다. |
+
+### <a name="return-value"></a>반환 값
+
+마지막 문자 또는 문자열의 문자가 값과 일치하면 **True**이고, 일치하지 않으면 **False**입니다.
 
 ### <a name="examples"></a>예
 
@@ -632,9 +714,16 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-마지막 문자 또는 문자열의 문자가 값과 일치하면 **True**이고, 일치하지 않으면 **False**입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
+| startsFalse | Bool | False |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
+| endsFalse | Bool | False |
 
 <a id="first" />
 
@@ -648,6 +737,10 @@ base64 표현을 문자열로 변환합니다.
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
+
+### <a name="return-value"></a>반환 값
+
+배열의 첫 번째 문자의 문자열 또는 첫 번째 요소의 형식(문자열, int, 배열 또는 개체)입니다.
 
 ### <a name="examples"></a>예
 
@@ -678,9 +771,12 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-배열의 첫 번째 문자의 문자열 또는 첫 번째 요소의 형식(문자열, int, 배열 또는 개체)입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayOutput | 문자열 | one |
+| stringOutput | 문자열 | O |
 
 <a id="indexof" />
 
@@ -695,6 +791,10 @@ base64 표현을 문자열로 변환합니다.
 |:--- |:--- |:--- |:--- |
 | stringToSearch |예 |string |찾을 값을 포함하는 값입니다. |
 | stringToFind |예 |string |찾을 값입니다. |
+
+### <a name="return-value"></a>반환 값
+
+찾을 항목의 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목이 없는 경우 -1이 반환됩니다.
 
 ### <a name="examples"></a>예
 
@@ -730,10 +830,15 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-찾을 항목의 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목이 없는 경우 -1이 반환됩니다.
-
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| firstT | int | 0 |
+| lastT | int | 3 |
+| firstString | int | 2 |
+| lastString | int | 0 |
+| notFound | int | -1 |
 
 <a id="last" />
 
@@ -747,6 +852,10 @@ base64 표현을 문자열로 변환합니다.
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
+
+### <a name="return-value"></a>반환 값
+
+배열의 마지막 문자의 문자열 또는 마지막 요소의 형식(문자열, int, 배열 또는 개체)입니다.
 
 ### <a name="examples"></a>예
 
@@ -777,9 +886,12 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-배열의 마지막 문자의 문자열 또는 마지막 요소의 형식(문자열, int, 배열 또는 개체)입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayOutput | 문자열 | three |
+| stringOutput | 문자열 | e |
 
 <a id="lastindexof" />
 
@@ -794,6 +906,10 @@ base64 표현을 문자열로 변환합니다.
 |:--- |:--- |:--- |:--- |
 | stringToSearch |예 |string |찾을 값을 포함하는 값입니다. |
 | stringToFind |예 |string |찾을 값입니다. |
+
+### <a name="return-value"></a>반환 값
+
+찾을 항목의 마지막 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목이 없는 경우 -1이 반환됩니다.
 
 ### <a name="examples"></a>예
 
@@ -829,10 +945,15 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-찾을 항목의 마지막 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목이 없는 경우 -1이 반환됩니다.
-
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| firstT | int | 0 |
+| lastT | int | 3 |
+| firstString | int | 2 |
+| lastString | int | 0 |
+| notFound | int | -1 |
 
 <a id="length" />
 
@@ -846,6 +967,10 @@ base64 표현을 문자열로 변환합니다.
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |요소 수를 가져오는 데 사용할 배열 또는 문자 수를 가져오는 데 사용할 문자열입니다. |
+
+### <a name="return-value"></a>반환 값
+
+int입니다. 
 
 ### <a name="examples"></a>예
 
@@ -883,9 +1008,12 @@ base64 표현을 문자열로 변환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-int입니다. 
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayLength | int | 3 |
+| stringLength | int | 13 |
 
 <a id="padleft" />
 
@@ -904,6 +1032,10 @@ int입니다.
 
 원래 문자열이 채울 문자 수보다 긴 경우 문자가 추가되지 않습니다.
 
+### <a name="return-value"></a>반환 값
+
+최소한 지정된 문자의 수를 포함하는 문자열입니다.
+
 ### <a name="examples"></a>예
 
 다음 예제는 문자열이 총 문자 수에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다. 
@@ -916,29 +1048,27 @@ int입니다.
         "testString": {
             "type": "string",
             "defaultValue": "123"
-        },
-        "totalCharacters": {
-            "type": "int",
-            "defaultValue": 10
         }
     },
     "resources": [],
     "outputs": {
         "stringOutput": {
             "type": "string",
-            "value": "[padLeft(parameters('testString'),parameters('totalCharacters'),'0')]"
+            "value": "[padLeft(parameters('testString'),10,'0')]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-최소한 지정된 문자의 수를 포함하는 문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| stringOutput | 문자열 | 0000000123 |
 
 <a id="replace" />
 
-## <a name="replace"></a>replace
+## <a name="replace"></a>바꾸기
 `replace(originalString, oldString, newString)`
 
 다른 문자열로 대체한 어떤 문자열의 인스턴스를 포함한 새 문자열을 반환합니다.
@@ -950,6 +1080,10 @@ int입니다.
 | originalString |예 |string |다른 문자열로 대체한 어떤 문자열의 인스턴스를 포함하는 값입니다. |
 | oldString |예 |string |원래 문자열에서 제거할 문자열입니다. |
 | newString |예 |string |제거된 문자열 대신 추가할 문자열입니다. |
+
+### <a name="return-value"></a>반환 값
+
+문자가 대체된 문자열입니다.
 
 ### <a name="examples"></a>예
 
@@ -979,9 +1113,12 @@ int입니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-문자가 대체된 문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| firstOutput | 문자열 | 1231231234 |
+| secodeOutput | 문자열 | 123-123-xxxx |
 
 <a id="skip" />
 
@@ -996,6 +1133,10 @@ int입니다.
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
 | numberToSkip |예 |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 이 값이 배열 또는 문자열의 길이보다 크면 빈 배열 또는 문자열이 반환됩니다. |
+
+### <a name="return-value"></a>반환 값
+
+배열 또는 문자열입니다.
 
 ### <a name="examples"></a>예
 
@@ -1041,9 +1182,12 @@ int입니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-배열 또는 문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayOutput | 배열 | ["three"] |
+| stringOutput | 문자열 | two three |
 
 <a id="split" />
 
@@ -1058,6 +1202,10 @@ int입니다.
 |:--- |:--- |:--- |:--- |
 | inputString |예 |string |분할할 문자열입니다. |
 | 구분 기호 |예 |문자열 또는 문자열 배열 |문자열 분할에 사용할 구분 기호입니다. |
+
+### <a name="return-value"></a>반환 값
+
+문자열 배열입니다.
 
 ### <a name="examples"></a>예
 
@@ -1094,9 +1242,12 @@ int입니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-문자열 배열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| firstOutput | 배열 | [“one”, “two”, “three”] |
+| secondOutput | 배열 | [“one”, “two”, “three”] |
 
 <a id="startswith" />
 
@@ -1111,6 +1262,10 @@ int입니다.
 |:--- |:--- |:--- |:--- |
 | stringToSearch |예 |string |찾을 값을 포함하는 값입니다. |
 | stringToFind |예 |string |찾을 값입니다. |
+
+### <a name="return-value"></a>반환 값
+
+첫 번째 문자 또는 문자열의 문자가 값과 일치하면 **True**이고, 일치하지 않으면 **False**입니다.
 
 ### <a name="examples"></a>예
 
@@ -1150,10 +1305,16 @@ int입니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-첫 번째 문자 또는 문자열의 문자가 값과 일치하면 **True**이고, 일치하지 않으면 **False**입니다.
-
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| startsTrue | Bool | True |
+| startsCapTrue | Bool | True |
+| startsFalse | Bool | False |
+| endsTrue | Bool | True |
+| endsCapTrue | Bool | True |
+| endsFalse | Bool | False |
 
 <a id="string" />
 
@@ -1167,6 +1328,10 @@ int입니다.
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |예 | 모두 |문자열로 변환할 값입니다. 개체 및 배열을 비롯하여 모든 값 형식을 변환할 수 있습니다. |
+
+### <a name="return-value"></a>반환 값
+
+변환된 값의 문자열입니다.
 
 ### <a name="examples"></a>예
 
@@ -1215,9 +1380,13 @@ int입니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| objectOutput | 문자열 | {“valueA”:10,“valueB”:“Example Text”} |
+| arrayOutput | 문자열 | [“a”,“b”,“c”] |
+| intOutput | 문자열 | 5 |
 
 <a id="substring" />
 
@@ -1233,6 +1402,23 @@ int입니다.
 | stringToParse |예 |string |부분 문자열을 추출할 원래 문자열입니다. |
 | startIndex |아니요 |int |부분 문자열의 0부터 시작하는 문자 위치입니다. |
 | length |아니요 |int |부분 문자열에 대한 문자 수입니다. 문자열 내 위치를 참조해야 합니다. |
+
+### <a name="return-value"></a>반환 값
+
+하위 문자열입니다.
+
+### <a name="remarks"></a>설명
+
+함수는 부분 문자열이 문자열의 끝을 넘어 확장하는 경우 실패합니다. 다음 예제는 "인덱스 및 길이 매개 변수는 문자열 내 위치를 참조해야 합니다. 인덱스 매개 변수: '0', 길이 매개 변수: '11', 문자열 매개 변수의 길이: '10'." 오류와 함께 실패합니다.
+
+```json
+"parameters": {
+    "inputString": { "type": "string", "value": "1234567890" }
+},
+"variables": { 
+    "prefix": "[substring(parameters('inputString'), 0, 11)]"
+}
+```
 
 ### <a name="examples"></a>예
 
@@ -1258,16 +1444,12 @@ int입니다.
 }
 ```
 
-다음 예제는 "인덱스 및 길이 매개 변수는 문자열 내 위치를 참조해야 합니다. 인덱스 매개 변수: '0', 길이 매개 변수: '11', 문자열 매개 변수의 길이: '10'." 오류와 함께 실패합니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-```json
-"parameters": {
-    "inputString": { "type": "string", "value": "1234567890" }
-},
-"variables": { 
-    "prefix": "[substring(parameters('inputString'), 0, 11)]"
-}
-```
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| substringOutput | 문자열 | two |
+
 
 <a id="take" />
 
@@ -1282,6 +1464,10 @@ int입니다.
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
 | numberToTake |예 |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정된 배열 또는 문자열의 길이보다 크면 배열 또는 문자열의 모든 요소가 반환됩니다. |
+
+### <a name="return-value"></a>반환 값
+
+배열 또는 문자열입니다.
 
 ### <a name="examples"></a>예
 
@@ -1327,9 +1513,12 @@ int입니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-배열 또는 문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayOutput | 배열 | [“one”, “two”] |
+| stringOutput | 문자열 | on |
 
 <a id="tolower" />
 
@@ -1344,6 +1533,10 @@ int입니다.
 |:--- |:--- |:--- |:--- |
 | stringToChange |예 |string |소문자로 변환할 값입니다. |
 
+### <a name="return-value"></a>반환 값
+
+소문자로 변환된 문자열입니다.
+
 ### <a name="examples"></a>예
 
 다음 예제는 매개 변수 값을 소문자 및 대문자로 변환합니다.
@@ -1371,6 +1564,13 @@ int입니다.
     }
 }
 ```
+
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| toLowerOutput | 문자열 | one two three |
+| toUpperOutput | 문자열 | ONE TWO THREE |
 
 <a id="toupper" />
 
@@ -1385,6 +1585,10 @@ int입니다.
 |:--- |:--- |:--- |:--- |
 | stringToChange |예 |string |대문자로 변환할 값입니다. |
 
+### <a name="return-value"></a>반환 값
+
+대문자로 변환된 문자열입니다.
+
 ### <a name="examples"></a>예
 
 다음 예제는 매개 변수 값을 소문자 및 대문자로 변환합니다.
@@ -1413,6 +1617,13 @@ int입니다.
 }
 ```
 
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| toLowerOutput | 문자열 | one two three |
+| toUpperOutput | 문자열 | ONE TWO THREE |
+
 <a id="trim" />
 
 ## <a name="trim"></a>trim
@@ -1425,6 +1636,10 @@ int입니다.
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToTrim |예 |string |자를 값입니다. |
+
+### <a name="return-value"></a>반환 값
+
+선행 및 후행 공백 문자가 없는 문자열입니다.
 
 ### <a name="examples"></a>예
 
@@ -1450,6 +1665,12 @@ int입니다.
 }
 ```
 
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| return | 문자열 | one two three |
+
 <a id="uniquestring" />
 
 ## <a name="uniquestring"></a>uniqueString
@@ -1471,8 +1692,6 @@ int입니다.
 반환된 값은 임의 문자열이 아닌 해시 함수의 결과입니다. 반환된 값은 13자입니다. 전역적으로 고유하지 않습니다. 의미있는 이름을 만들기 위해 해당 값과 명명 규칙의 접두사를 결합할 수도 있습니다. 다음 예제에서는 반환된 값의 형식을 보여 줍니다. 실제 값은 제공된 매개 변수에 따라 달라집니다.
 
     tcvhiyu5h2o5o
-
-### <a name="examples"></a>예
 
 다음 예제에서는 uniqueString를 사용하여 일반적으로 사용하는 수준에 대해 고유한 값을 만드는 방법을 보여 줍니다.
 
@@ -1507,6 +1726,28 @@ int입니다.
 
 13개의 문자를 포함하는 문자열입니다.
 
+### <a name="examples"></a>예
+
+다음 예제에서는 uniquestring에서 결과 반환합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "uniqueRG": {
+            "value": "[uniqueString(resourceGroup().id)]",
+            "type" : "string"
+        },
+        "uniqueDeploy": {
+            "value": "[uniqueString(resourceGroup().id, deployment().name)]",
+            "type" : "string"
+        }
+    }
+}
+```
+
 <a id="uri" />
 
 ## <a name="uri"></a>uri
@@ -1522,6 +1763,10 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 | relativeUri |예 |string |기본 uri 문자열에 추가할 상대 uri 문자열입니다. |
 
 **baseUri** 매개 변수에 대한 값은 특정 파일을 포함할 수 있지만 URI를 생성하는 경우 기본 경로만 사용됩니다. 예를 들어 `http://contoso.com/resources/azuredeploy.json`을 baseUri 매개 변수로 전달하면 기본 URI는 `http://contoso.com/resources/`가 됩니다.
+
+### <a name="return-value"></a>반환 값
+
+기본 및 상대 값에 대한 절대 URI를 나타내는 문자열입니다.
 
 ### <a name="examples"></a>예
 
@@ -1560,9 +1805,13 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-기본 및 상대 값에 대한 절대 URI를 나타내는 문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
 
 <a id="uricomponent" />
 
@@ -1577,6 +1826,10 @@ URI를 인코딩합니다.
 |:--- |:--- |:--- |:--- |
 | stringToEncode |예 |string |인코딩할 값입니다. |
 
+### <a name="return-value"></a>반환 값
+
+URI로 인코딩된 값의 문자열입니다.
+
 ### <a name="examples"></a>예
 
 다음 예제에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여 줍니다.
@@ -1608,9 +1861,14 @@ URI를 인코딩합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-URI로 인코딩된 값의 문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+
 
 <a id="uricomponenttostring" />
 
@@ -1625,6 +1883,10 @@ URI로 인코딩된 값의 문자열을 반환합니다.
 |:--- |:--- |:--- |:--- |
 | uriEncodedString |예 |string |문자열로 변환할 URI 인코딩 값입니다. |
 
+### <a name="return-value"></a>반환 값
+
+URI로 인코딩된 값의 디코딩된 문자열입니다.
+
 ### <a name="examples"></a>예
 
 다음 예제에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여 줍니다.
@@ -1656,9 +1918,14 @@ URI로 인코딩된 값의 문자열을 반환합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-URI로 인코딩된 값의 디코딩된 문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | 문자열 | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.

@@ -1,29 +1,27 @@
 ---
 title: "PostgreSQL용 Azure 데이터베이스에 대한 연결 라이브러리 | Microsoft Docs"
-description: "클라이언트 프로그램에서 PostgreSQL용 Azure 데이터베이스에 연결하는 데 사용할 수 있는 각 라이브러리 또는 드라이버가 나열되어 있습니다."
-keywords: "azure 클라우드 postgresql postgres"
+description: "이 문서에서는 개발자가 PostgreSQL용 Azure 데이터베이스에 연결하고 쿼리하도록 응용 프로그램을 코딩할 때 사용할 수 있는 여러 개의 라이브러리 및 드라이버에 대해 설명합니다."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
-ms.service: postgresql - database
-ms.tgt_pltfrm: portal
+editor: jasonwhowell
+ms.service: postgresql-database
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/15/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6bb3f393a8e9533b86919e9a1ebe3490ab838714
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 7099e26fd749820ab6869c0262e1f97d993ab7b2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에 대한 연결 라이브러리
-이 항목에는 클라이언트 프로그램에서 PostgreSQL용 Azure 데이터베이스에 연결하는 데 사용할 수 있는 각 라이브러리 또는 드라이버가 나열되어 있습니다.
+이 항목에서는 개발자가 PostgreSQL용 Azure 데이터베이스에 연결하고 쿼리하도록 응용 프로그램을 프로그래밍하는 데 사용하기 위한 여러 개의 라이브러리 및 드라이버를 나열합니다.
 
 ## <a name="client-interfaces"></a>클라이언트 인터페이스
 PostgreSQL 서버에 연결하기 위한 대부분의 언어 클라이언트 라이브러리는 외부 프로젝트이며 독립적으로 배포됩니다. 이러한 라이브러리는 Windows, Linux 및 Mac 플랫폼에서 지원됩니다. 일부 인기 있는 클라이언트 드라이버는 다음과 같습니다.
+
 | **언어** | **클라이언트 인터페이스** | **추가 정보** | **다운로드** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
 | Python | [psycopg](http://initd.org/psycopg/) | DB API 2.0 호환 | [다운로드](http://initd.org/psycopg/download/) |
@@ -38,7 +36,7 @@ PostgreSQL 서버에 연결하기 위한 대부분의 언어 클라이언트 라
 | C++ | [libpqxx](http://pqxx.org/) | 새 스타일 C++ 인터페이스 | [다운로드](http://pqxx.org/download/software/) |
 
 ## <a name="next-steps"></a>다음 단계
-- 서비스 개요를 보려면 [PostgreSQL용 Azure 데이터베이스 개요](overview.md)를 참조하세요.
-- 서버에 대한 자세한 내용은 [PostgreSQL용 Azure Databse 서버](concepts-servers.md)를 참조하세요.
-- 첫 번째 PostgreSQL 서버를 만들려면 [Azure Portal에서 PostgreSQL용 Azure 데이터베이스 만들기](quickstart-create-server-database-portal.md)를 참조하세요.
+선택한 언어를 사용하여 PostgreSQL용 Azure 데이터베이스에 연결하고 쿼리하는 방법에 대한 빠른 시작을 읽어 보십시오.
+
+[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [.NET(C#)](./connect-csharp.md)
 

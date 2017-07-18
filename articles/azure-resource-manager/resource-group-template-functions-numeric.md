@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 66984bef9e82df80818eea31bd37de524b567b33
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: f14bc4e8091eb1f0dccb761d9df1c931b9b77732
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -51,7 +51,11 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 |operand1 |예 |int |더할 첫 번째 숫자입니다. |
 |operand2 |예 |int |더할 두 번째 숫자입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+매개 변수의 합계를 포함하는 정수입니다.
+
+### <a name="example"></a>예
 
 다음 예제에서는 두 개의 매개 변수를 추가합니다.
 
@@ -62,12 +66,14 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to add"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to add"
             }
@@ -84,9 +90,11 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-매개 변수의 합계를 포함하는 정수입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| addResult | int | 8 |
 
 <a id="copyindex" />
 
@@ -110,7 +118,7 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
  
 **copyIndex**를 사용하는 방법의 설명은 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 
-### <a name="examples"></a>예
+### <a name="example"></a>예
 
 다음 예제에서는 복사 루프 및 이름에 포함되는 인덱스 값을 보여 줍니다. 
 
@@ -146,7 +154,11 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 | operand1 |예 |int |나누어지는 수입니다. |
 | operand2 |예 |int |나누는 데 사용되는 정수입니다. 0일 수 없습니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+나누기를 나타내는 정수입니다.
+
+### <a name="example"></a>예
 
 다음 예제에서는 다른 매개 변수로 매개 변수 하나를 나눕니다.
 
@@ -157,12 +169,14 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 8,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -179,9 +193,11 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-나누기를 나타내는 정수입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| divResult | int | 2 |
 
 <a id="float" />
 
@@ -196,7 +212,10 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 int |부동 소수점 숫자로 변환할 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+부동 소수점 수입니다.
+
+### <a name="example"></a>예
 
 다음 예제에서는 float를 사용해서 매개 변수를 논리 앱에 전달하는 방법을 보여 줍니다.
 
@@ -214,9 +233,6 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
         },
 ```
 
-### <a name="return-value"></a>반환 값
-부동 소수점 수입니다.
-
 <a id="int" />
 
 ## <a name="int"></a>int
@@ -230,7 +246,11 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 |:--- |:--- |:--- |:--- |
 | valueToConvert |예 |문자열 또는 int |정수로 변환할 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+변환된 값의 정수입니다.
+
+### <a name="example"></a>예
 
 다음 예제는 사용자가 제공한 매개 변수 값을 정수로 변환합니다.
 
@@ -239,29 +259,32 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "appId": { "type": "string" }
-    },
-    "variables": { 
-        "intValue": "[int(parameters('appId'))]"
+        "stringToConvert": { 
+            "type": "string",
+            "defaultValue": "4"
+        }
     },
     "resources": [
     ],
     "outputs": {
-        "divResult": {
+        "intResult": {
             "type": "int",
-            "value": "[variables('intValue')]"
+            "value": "[int(parameters('stringToConvert'))]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-정수입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| intResult | int | 4 |
+
 
 <a id="min" />
 
-## <a name="min"></a>Min
+## <a name="min"></a>min
 `min (arg1)`
 
 정수 배열 또는 쉼표로 구분된 정수 목록 중에서 최소값을 반환합니다.
@@ -272,7 +295,11 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+컬렉션의 최소값을 나타내는 정수입니다.
+
+### <a name="example"></a>예
 
 다음 예제에서는 배열 및 정소 목록에 min을 사용하는 방법을 보여 줍니다.
 
@@ -300,9 +327,12 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-컬렉션의 최소값을 나타내는 정수입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
 <a id="max" />
 
@@ -317,7 +347,11 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+컬렉션의 최대값을 나타내는 정수입니다.
+
+### <a name="example"></a>예
 
 다음 예제에서는 배열 및 정소 목록에 max를 사용하는 방법을 보여 줍니다.
 
@@ -345,9 +379,12 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-컬렉션의 최대값을 나타내는 정수입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
 <a id="mod" />
 
@@ -363,7 +400,10 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 | operand1 |예 |int |나누어지는 수입니다. |
 | operand2 |예 |int |나누는 데 사용되는 정수로, 0일 수 없습니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+나머지를 나타내는 정수입니다.
+
+### <a name="example"></a>예
 
 다음 예제에서는 다른 매개 변수로 매개 변수 하나를 나눈 나머지를 반환합니다.
 
@@ -374,12 +414,14 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -396,8 +438,11 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
-나머지를 나타내는 정수입니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| modResult | int | 1 |
 
 <a id="mul" />
 
@@ -413,7 +458,11 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 | operand1 |예 |int |곱할 첫 번째 숫자입니다. |
 | operand2 |예 |int |곱할 두 번째 숫자입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+곱하기를 나타내는 정수입니다.
+
+### <a name="example"></a>예
 
 다음 예제에서는 다른 매개 변수로 매개 변수 하나를 곱합니다.
 
@@ -424,12 +473,14 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to multiply"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to multiply"
             }
@@ -446,9 +497,11 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-곱하기를 나타내는 정수입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| mulResult | int | 15 |
 
 <a id="sub" />
 
@@ -464,7 +517,10 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 | operand1 |예 |int |빼는 피감수입니다. |
 | operand2 |예 |int |빼는 감수입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+빼기를 나타내는 정수입니다.
+
+### <a name="example"></a>예
 
 다음 예제에서는 다른 매개 변수에서 매개 변수 하나를 뺍니다.
 
@@ -475,12 +531,14 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer subtracted from"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer to subtract"
             }
@@ -497,8 +555,11 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
-빼기를 나타내는 정수입니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| subResult | int | 4 |
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.

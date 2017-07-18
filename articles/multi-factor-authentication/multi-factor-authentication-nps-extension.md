@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 06/13/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017,it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 58b289530e16c2a2e9bbe59b372c858ff22ad5ac
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 46f5761caf2883d6083245a9a1fe689ea0529212
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/29/2017
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합 - 공개 미리 보기
 
 Azure MFA의 NPS(네트워크 정책 서버) 확장은 기존 서버를 사용하여 인증 인프라에 클라우드 기반 MFA 기능을 추가합니다. NPS 확장을 사용하면 새 서버를 설치, 구성 및 유지할 필요 없이 전화 통화, SMS 또는 휴대폰 앱 인증을 기존 인증 흐름에 추가할 수 있습니다. 
 
-이 확장은 Azure MFA 서버를 배포하지 않고 VPN 연결을 보호하려는 조직을 위해 작성되었습니다. NPS 확장은 RADIUS 및 클라우드 기반 Azure MFA 간에 어댑터로 작동하여 페더레이션 사용자 또는 동기화된 사용자를 위한 또 다른 인증을 제공합니다. 
+이 확장은 Azure MFA 서버를 배포하지 않고 VPN 연결을 보호하려는 조직을 위해 작성되었습니다. NPS 확장은 RADIUS 및 클라우드 기반 Azure MFA 간에 어댑터로 작동하여 페더레이션 사용자 또는 동기화된 사용자를 위한 또 다른 인증을 제공합니다.
 
 Azure MFA용 NPS 확장을 사용하면 인증 흐름에 다음 구성 요소가 포함됩니다. 
 
@@ -41,11 +41,11 @@ Azure MFA용 NPS 확장을 사용하면 인증 흐름에 다음 구성 요소가
 
 ## <a name="plan-your-deployment"></a>배포 계획
 
-NPS 확장은 자동으로 중복을 처리하므로 특별한 구성이 필요하지 않습니다. 
+NPS 확장은 자동으로 중복을 처리하므로 특별한 구성이 필요하지 않습니다.
 
-Azure Multi-factor Authentication이 사용되는 NPS 서버를 필요에 따라 많이 만들 수 있습니다. 여러 서버를 설치한 경우 중 각각에 대해 다른 클라이언트 인증서를 사용해야 합니다. 각 서버에 대한 인증서를 만드는 것은 각 인증서를 개별적으로 업데이트할 수 있고 모든 서버 간의 가동 중지 시간을 걱정하지 않아도 된다는 의미입니다. 
+Azure Multi-factor Authentication이 사용되는 NPS 서버를 필요에 따라 많이 만들 수 있습니다. 여러 서버를 설치한 경우 중 각각에 대해 다른 클라이언트 인증서를 사용해야 합니다. 각 서버에 대한 인증서를 만드는 것은 각 인증서를 개별적으로 업데이트할 수 있고 모든 서버 간의 가동 중지 시간을 걱정하지 않아도 된다는 의미입니다.
 
-VPN 서버는 인증 요청을 라우팅하므로 새로운 Azure MFA 사용 NPS 서버에 유의해야 합니다. 
+VPN 서버는 인증 요청을 라우팅하므로 새로운 Azure MFA 사용 NPS 서버에 유의해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -61,9 +61,9 @@ Windows Server 2008 R2 SP1 이상
 
 ### <a name="libraries"></a>라이브러리
 
-이러한 라이브러리는 확장으로 자동 설치됩니다. 
--    [Visual Studio 2013(X64)용 Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
--    [Windows PowerShell용 Microsoft Azure Active Directory 모듈 버전 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+이러한 라이브러리는 확장으로 자동 설치됩니다.
+-   [Visual Studio 2013(X64)용 Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
+-   [Windows PowerShell용 Microsoft Azure Active Directory 모듈 버전 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -75,7 +75,7 @@ NPS 확장을 사용하는 모든 사용자는 Azure AD Connect를 사용하여 
 
 ## <a name="prepare-your-environment"></a>환경 준비
 
-NPS 확장을 설치하기 전에 인증 트래픽을 처리하는 환경을 준비하는 것이 좋습니다. 
+NPS 확장을 설치하기 전에 인증 트래픽을 처리하는 환경을 준비하는 것이 좋습니다.
 
 ### <a name="enable-the-nps-role-on-a-domain-joined-server"></a>도메인에 가입된 서버에서 NPS 역할 사용
 
@@ -84,17 +84,17 @@ NPS 서버는 Azure Active Directory에 연결하고 MFA 요청을 인증합니�
 1. 서버의 서버 관리자 빠른 시작 메뉴에서 **역할 및 기능 추가 마법사**를 엽니다.
 2. 설치 유형에 대한 **역할 기반 또는 기능 기반 설치**를 선택합니다.
 3. **네트워크 정책 및 액세스 서비스** 서버 역할을 선택합니다. 이 역할을 실행하기 위해 필요한 기능을 알리기 위해 팝업 창이 나타날 수 있습니다.
-4. 확인 페이지가 나올 때까지 마법사를 계속 진행합니다. **설치**를 선택합니다. 
+4. 확인 페이지가 나올 때까지 마법사를 계속 진행합니다. **설치**를 선택합니다.
 
-NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 솔루션에서 들어오는 RADIUS 요청을 처리하도록 구성해야 합니다. 
+NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 솔루션에서 들어오는 RADIUS 요청을 처리하도록 구성해야 합니다.
 
 ### <a name="configure-your-vpn-solution-to-communicate-with-the-nps-server"></a>VPN 솔루션이 NPS 서버와 통신하도록 구성
 
-사용하는 VPN 솔루션에 따라 RADIUS 인증 정책을 구성하는 단계가 달라집니다. 이 정책이 RADIUS NPS 서버를 가리키도록 구성합니다. 
+사용하는 VPN 솔루션에 따라 RADIUS 인증 정책을 구성하는 단계가 달라집니다. 이 정책이 RADIUS NPS 서버를 가리키도록 구성합니다.
 
 ### <a name="sync-domain-users-to-the-cloud"></a>도메인 사용자 클라우드로 동기화
 
-이 단계는 테넌트에서 이미 완료되었을 수 있지만 Azure AD Connect가 최근에 데이터베이스를 동기화했는지 다시 한 번 확인하는 것이 좋습니다. 
+이 단계는 테넌트에서 이미 완료되었을 수 있지만 Azure AD Connect가 최근에 데이터베이스를 동기화했는지 다시 한 번 확인하는 것이 좋습니다.
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **Azure AD Connect** 선택
@@ -102,9 +102,23 @@ NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 
 
 동기화의 새 라운드를 시작하는 경우 [Azure AD Connect 동기화: 스케줄러](../active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) 지침을 사용합니다.
 
+### <a name="determine-which-authentication-methods-your-users-can-use"></a>사용자가 사용할 수 있는 인증 방법을 결정합니다.
+
+어떤 인증 방법을 NPS 확장 배포와 함께 사용할 수 있는지에 영향을 미치는 두 가지 요소가 있습니다.
+
+1. RADIUS 클라이언트(VPN, Netscaler 서버 또는 기타)와 NPS 서버 간에 사용되는 암호 암호화 알고리즘입니다.
+   - **PAP**는 클라우드에서 전화 통화, 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드와 같은 Azure MFA의 모든 인증 방법을 지원합니다.
+   - **CHAPV2**는 전화 통화 및 모바일 앱 알림을 지원합니다.
+   - **EAP**는 지원되지 않습니다.
+2. 클라이언트 응용 프로그램(VPN, Netscaler 서버 또는 기타)이 처리할 수 있는 입력 방법입니다. 예를 들어 VPN 클라이언트에 사용자가 텍스트 또는 모바일 앱의 인증 코드를 입력할 수 있는 몇 가지 방법이 있습니까?
+
+NPS 확장을 배포하는 경우 이러한 요소를 사용하여 사용자가 사용할 수 있는 방법이 무엇인지 평가합니다. RADIUS 클라이언트가 PAP를 지원하지만, 클라이언트 UX에 확인 코드에 대한 입력 필드가 없는 경우에는 전화 통화 및 모바일 앱 알림의 두 옵션이 지원됩니다.
+
+Azure에서 [지원되지 않는 인증 방법을 사용하지 않도록 설정](multi-factor-authentication-whats-next.md#selectable-verification-methods)할 수 있습니다.
+
 ### <a name="enable-users-for-mfa"></a>MFA에 대한 사용자 설정
 
-전체 NPS 확장을 배포하기 전에 2단계 확인을 수행하려는 사용자에 대한 MFA를 사용하도록 설정해야 합니다. 즉시 배포한 확장을 테스트하려면 Multi-Factor Authentication에 완전히 등록된 하나 이상의 테스트 계정이 필요합니다. 
+전체 NPS 확장을 배포하기 전에 2단계 확인을 수행하려는 사용자에 대한 MFA를 사용하도록 설정해야 합니다. 즉시 배포한 확장을 테스트하려면 Multi-Factor Authentication에 완전히 등록된 하나 이상의 테스트 계정이 필요합니다.
 
 테스트를 시작하는 계정을 가져오려면 다음의 단계를 사용합니다.
 1. [MFA에 대한 계정을 사용하도록 설정합니다](multi-factor-authentication-get-started-user-states.md).
@@ -116,23 +130,23 @@ NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 
 ## <a name="install-the-nps-extension"></a>NPS 확장 설치
 
 > [!IMPORTANT]
-> VPN 액세스 지점 이외의 다른 서버에 NPS 확장을 설치합니다. 
+> VPN 액세스 지점 이외의 다른 서버에 NPS 확장을 설치합니다.
 
-### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Azure MFA용 NPS 확장 다운르도 및 설치 
+### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Azure MFA용 NPS 확장 다운로드 및 설치
 
-1.    Microsoft 다운로드 센터에서 [NPS 확장을 다운로드합니다](https://aka.ms/npsmfa).
-2.    이진 파일을 구성할 NPS(네트워크 정책 서버)에 복사합니다.
-3.    *setup.exe*를 실행하고 설치 지침을 따릅니다. 오류가 발생하면 필수 요소 섹션의 두 라이브러리가 성공적으로 설치되었는지 다시 확인합니다.
+1.  Microsoft 다운로드 센터에서 [NPS 확장을 다운로드합니다](https://aka.ms/npsmfa).
+2.  이진 파일을 구성할 NPS(네트워크 정책 서버)에 복사합니다.
+3.  *setup.exe*를 실행하고 설치 지침을 따릅니다. 오류가 발생하면 필수 요소 섹션의 두 라이브러리가 성공적으로 설치되었는지 다시 확인합니다.
 
 ### <a name="run-the-powershell-script"></a>PowerShell 스크립트 실행
 
 설치 관리자에서 `C:\Program Files\Microsoft\AzureMfa\Config`(여기서 C: \는 설치 드라이브) 위치에 PowerShell 스크립트를 만듭니다. 이 PowerShell 스크립트는 다음 작업을 수행합니다.
 
--    자체 서명된 인증서를 만듭니다.
--    인증서의 공개 키를 Azure AD의 서비스 주체에 연결합니다.
--    로컬 컴퓨터 인증서 저장소에 인증서를 저장합니다.
--    네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한을 부여합니다.
--    NPS를 다시 시작합니다.
+-   자체 서명된 인증서를 만듭니다.
+-   인증서의 공개 키를 Azure AD의 서비스 주체에 연결합니다.
+-   로컬 컴퓨터 인증서 저장소에 인증서를 저장합니다.
+-   네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한을 부여합니다.
+-   NPS를 다시 시작합니다.
 
 PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사용자 고유의 인증서를 사용하려는 경우가 아니면 PowerShell 스크립트를 실행하여 설치를 완료합니다. 여러 서버에 확장을 설치하는 경우 각각 자체 인증서가 있어야 합니다.
 
@@ -145,11 +159,11 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 
    `.\AzureMfaNpsExtnConfigSetup.ps1`
 
-4. PowerShell이 테넌트 ID에 대해 메시지를 표시합니다. 필수 요소 섹션의 Azure 포털에서 복사한 디렉터리 ID GUID를 사용합니다. 
+4. PowerShell이 테넌트 ID에 대해 메시지를 표시합니다. 필수 요소 섹션의 Azure 포털에서 복사한 디렉터리 ID GUID를 사용합니다.
 5. 관리자 권한으로 Azure AD에 로그인합니다.
 6. PowerShell은 스크립트가 완료되면 성공 메시지를 표시합니다.  
 
-부하 분산을 위해 설정하려는 추가 NPS 서버에서 이러한 단계를 반복합니다. 
+부하 분산을 위해 설정하려는 추가 NPS 서버에서 이러한 단계를 반복합니다.
 
 ## <a name="configure-your-nps-extension"></a>NPS 확장 구성
 
@@ -159,6 +173,10 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 
 - Azure MFA용 NPS 확장에는 사용자 및 설정을 MFA 서버에서 클라우드로 마이그레이션하는 도구가 없습니다. 이러한 이유로 기존 배포가 아닌 새 배포에 대한 확장을 사용하는 것이 좋습니다. 기존 배포에서 확장을 사용하는 경우 사용자는 증명을 다시 수행하여 클라우드의 MFA 세부 정보를 채워야 합니다.  
 - NPS 확장은 온-프레미스 Active Directory의 UPN을 사용하여 Azure MFA에서 보조 인증을 수행하는 사용자를 식별합니다. 확장은 대체 로그인 ID 또는 UPN 이외의 사용자 지정 AD 필드와 같은 다른 식별자를 사용하도록 구성될 수 없습니다.  
+- 모든 암호화 프로토콜이 모든 확인 메서드를 지원하는 것은 아닙니다.
+   - **PAP**는 전화 통화, 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드를 지원합니다.
+   - **CHAPV2**는 전화 통화 및 모바일 앱 알림을 지원합니다.
+   - **EAP**는 지원되지 않습니다.
 
 ### <a name="control-radius-clients-that-require-mfa"></a>MFA가 필요한 RADIUS 클라이언트 제어
 
@@ -220,6 +238,7 @@ AD Connect가 실행 중이고 사용자가 Windows Active Directory와 Azure Ac
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>내 모든 인증이 실패한 상태의 로그에 HTTP 연결 오류가 표시되는 이유는 무엇입니까?
 
 NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com에 연결할 수 있는지 확인합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

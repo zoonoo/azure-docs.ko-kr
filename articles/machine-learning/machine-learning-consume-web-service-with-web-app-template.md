@@ -1,6 +1,6 @@
 ---
 title: "웹앱 템플릿에서 Machine Learning 웹 서비스 사용 | Microsoft Docs"
-description: "Azure 마켓플레이스에서 웹 앱을 사용하여 Azure 기계 학습의 예측 웹 서비스를 사용합니다."
+description: "Azure Marketplace에서 웹 앱을 사용하여 Azure 기계 학습의 예측 웹 서비스를 사용합니다."
 keywords: "웹 서비스, 운영, REST API, 기계 학습"
 services: machine-learning
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye;raymondl
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 5d587618dd885ec30e35b13c5fd543c1a8853200
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 95aa1fa23d83ec0dcd00870179167e803bafbd16
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -33,7 +34,7 @@ REST API를 사용하고 웹 서비스에 액세스하는 방법은 많습니다
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-azure-machine-learning-web-app-templates"></a>Azure 기계 학습 웹 앱 템플릿
-Azure 마켓플레이스에서 사용할 수 있는 웹 앱 템플릿은 웹 서비스의 입력 데이터 및 예상 결과를 알고 있는 사용자 지정 웹 앱을 구축할 수 있습니다. 따라서 웹 앱이 웹 서비스 및 데이터에 액세스하도록 하기만 하면 나머지 작업은 템플릿이 수행합니다.
+Azure Marketplace에서 사용할 수 있는 웹 앱 템플릿은 웹 서비스의 입력 데이터 및 예상 결과를 알고 있는 사용자 지정 웹 앱을 구축할 수 있습니다. 따라서 웹 앱이 웹 서비스 및 데이터에 액세스하도록 하기만 하면 나머지 작업은 템플릿이 수행합니다.
 
 두 가지 템플릿을 사용할 수 있습니다.
 
@@ -76,7 +77,7 @@ Azure 마켓플레이스에서 사용할 수 있는 웹 앱 템플릿은 웹 서
      
      ![웹앱 만들기][image5]
 
-4. Azure가 웹앱 배포를 완료하면 Azure의 웹앱 설정 페이지의 **URL** 을 클릭하거나 웹 브라우저에 URL을 입력합니다. 위치(예:`http://carprediction.azurewebsites.net.`
+4. Azure가 웹앱 배포를 완료하면 Azure의 웹앱 설정 페이지의 **URL**을 클릭하거나 웹 브라우저에 URL을 입력합니다. 위치(예:`http://carprediction.azurewebsites.net.`
 5. 웹앱을 처음 실행할 때 **API 게시 URL** 및 **API 키**를 요청합니다.
    이전에 저장한 값을 입력합니다(**요청 URI** 및 **API 키** 각각).
      
@@ -87,7 +88,7 @@ Azure 마켓플레이스에서 사용할 수 있는 웹 앱 템플릿은 웹 서
 6. 웹앱은 현재 웹 서비스 설정과 함께 **웹앱 구성** 페이지를 표시합니다. 여기서 웹 앱에서 사용되는 설정을 변경할 수 있습니다.
    
    > [!NOTE]
-   > 여기서 설정을 변경하면 이 웹 앱에 대한 설정만 변경됩니다. 웹 서비스의 기본 설정을 변경되지 않습니다. 예를 들어, 여기에서 **설명** 을 변경하면 기계 학습 스튜디오의 웹 서비스 대시보드에 표시되는 설명은 변경되지 않습니다.
+   > 여기서 설정을 변경하면 이 웹 앱에 대한 설정만 변경됩니다. 웹 서비스의 기본 설정을 변경되지 않습니다. 예를 들어, 여기에서 **설명**을 변경하면 기계 학습 스튜디오의 웹 서비스 대시보드에 표시되는 설명은 변경되지 않습니다.
    > 
    > 
    
@@ -122,7 +123,7 @@ Azure 마켓플레이스에서 사용할 수 있는 웹 앱 템플릿은 웹 서
 
 * 기계 학습 스튜디오로 기계 학습 실험 만들기는 [Azure 기계 학습 스튜디오에서 첫 번째 실험 만들기](machine-learning-create-experiment.md)
 * 웹 서비스로서 기계 학습 실험을 배포하는 방법은 [Azure 기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)
-* 웹 서비스에 액세스하는 다른 방법은 [Azure 기계 학습 웹 서비스 사용 방법](machine-learning-consume-web-services.md)
+* 웹 서비스에 액세스하는 다른 방법은 [Azure Machine Learning 웹 서비스](machine-learning-consume-web-services.md)를 참조하세요.
 
 [image1]: media/machine-learning-consume-web-service-with-web-app-template/rrs-web-template-flow.png
 [image2]: media/machine-learning-consume-web-service-with-web-app-template/bes-web-template-flow.png

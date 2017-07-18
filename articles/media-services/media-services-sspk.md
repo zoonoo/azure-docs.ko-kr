@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 06/06/2017
 ms.author: xpouyat
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 2a6122645f96e7a1a1286ef2d13c155b5b106056
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: bb14f94ee2b51c8b1c8eb4754ead670d7f82689f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -51,8 +52,8 @@ SSPK는 뛰어난 비즈니스 가치를 제공하는 조건으로 사용 허가
 ## <a name="licensing-options"></a>라이선스 옵션
 Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지의 고유한 라이선스 계약에 따라 정식 사용자에게 제공됩니다. 하나는 부드러운 스트리밍 클라이언트 중간 제품 개발을 위한 라이선스에고 다른 하나는 부드러운 스트리밍 클라이언트 최종 제품을 최종 사용자에게 배포하기 위한 라이선스입니다.
 
-* 칩셋 제조업체, 시스템 통합 업체 또는 중간 제품 개발을 위해 소스 코드 이식 키트가 필요한 ISV(독립 소프트웨어 공급업체)는 Microsoft 부드러운 스트리밍 클라이언트 이식 키트 **중간 제품 라이선스** 를 실행해야 합니다.
-* 부드러운 스트리밍 클라이언트 최종 제품을 최종 사용자에게 배포하는 권한이 필요한 장치 제조업체 또는 ISV는 Microsoft 부드러운 스트리밍 클라이언트 이식 키트 **최종 제품 라이선스** 를 실행해야 합니다.
+* 칩셋 제조업체, 시스템 통합 업체 또는 중간 제품 개발을 위해 소스 코드 이식 키트가 필요한 ISV(독립 소프트웨어 공급업체)는 Microsoft 부드러운 스트리밍 클라이언트 이식 키트 **중간 제품 라이선스**를 실행해야 합니다.
+* 부드러운 스트리밍 클라이언트 최종 제품을 최종 사용자에게 배포하는 권한이 필요한 장치 제조업체 또는 ISV는 Microsoft 부드러운 스트리밍 클라이언트 이식 키트 **최종 제품 라이선스**를 실행해야 합니다.
 
 ### <a name="microsoft-smooth-streaming-client-porting-kit-interim-product-license"></a>Microsoft 부드러운 스트리밍 클라이언트 이식 키트 중간 제품 라이선스
 이 라이선스에 따라, Microsoft는 부드러운 스트리밍 클라이언트 이식 키트 및 필요한 지적 재산권을 제공하여 부드러운 스트리밍 클라이언트 중간 제품을 개발하고 다른 부드러운 스트리밍 클라이언트 이식 키트 장치 정식 사용자에게 배포하며 정식 사용자가 부드러운 스트리밍 클라이언트 최종 제품을 배포할 수 있도록 합니다.
@@ -84,6 +85,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * Albis Technologies Ltd.
 * Alticast Corporation
 * Amazon Digital Services, Inc.
+* Arion Technology, Inc.
 * AVC Multimedia Software Co., Ltd.
 * Cavium, Inc.
 * EchoStar Purchasing Corporation
@@ -115,6 +117,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * Amazon Digital Services, Inc.
 * AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
+* Arion Technology, Inc.
 * ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
 * British Sky Broadcasting Limited
 * CastPal Technology Inc., Shenzhen
@@ -153,6 +156,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트는 두 가지�
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
+
 
 ## <a name="media-services-learning-paths"></a>미디어 서비스 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

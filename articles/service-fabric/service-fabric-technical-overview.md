@@ -12,18 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/17/2017
+ms.date: 06/02/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0753be48514bd2087b52fc85d27754c28dbcd58b
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 74b60c0c4c0941a053bd124281772502d0136f23
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="service-fabric-terminology-overview"></a>서비스 패브릭 용어 개요
-서비스 패브릭은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 이 항목에서는 설명서에서 사용되는 용어를 이해할 수 있도록 서비스 패브릭에서 사용되는 용어에 대해 자세히 설명합니다.
+서비스 패브릭은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 이 항목에서는 설명서에서 사용되는 용어를 이해할 수 있도록 Service Fabric에서 사용되는 용어에 대해 자세히 설명합니다.
 
 이 섹션에 나열된 개념은 Microsoft Virtual Academy 비디오, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">핵심 개념인</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">디자인 타임 개념</a> 및 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">런타임 개념</a>에서도 설명됩니다.
 
@@ -65,14 +65,14 @@ ms.lasthandoff: 05/10/2017
 
 **컨테이너**: 기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 컨테이너 이미지에 서비스를 배포할 수 있습니다. 컨테이너는 응용 프로그램에서 기본 운영 체제를 가상화하는 가상화 기술입니다. 각 응용 프로그램, 해당 런타임, 종속성, 시스템 라이브러리는 운영 체제 구성물의 자체적으로 격리된 뷰에 대해 전체, 개인 액세스 권한이 있는 컨테이너 내에서 실행됩니다. Service Fabric은 Linux 및 Windows Server 컨테이너에서 Docker 컨테이너를 지원합니다.  자세한 내용은 [Service Fabric 및 컨테이너](service-fabric-containers-overview.md)를 참조하세요.
 
-**파티션 구성표**: 명명된 서비스를 만들 때 파티션 구성표를 지정합니다. 많은 양의 상태가 있는 서비스는 클러스터의 노드에 분산하는 파티션에 데이터를 분할합니다. 이렇게 하면 명명된 서비스의 상태를 조정할 수 있습니다. 상태 저장 서비스에 복제본이 있는 반면 파티션 내에서 명명된 상태 비저장 서비스에는 인스턴스가 있습니다. 일반적으로 명명된 상태 비저장 서비스는 내부 상태가 없기 때문에 하나의 파티션만을 가질 수 있습니다. 파티션 인스턴스를 가용성에 제공합니다. 인스턴스가 실패하면 다른 인스턴스는 계속 정상적으로 작동하고 서비스 패브릭은 새 인스턴스를 만듭니다. 명명된 상태 저장 서비스는 복제본 내에서 해당 상태를 유지하고 각 파티션은 동기화 상태로 유지된 모든 상태를 가진 고유한 복제를 설정합니다. 복제가 실패하면 서비스 패브릭은 기존 복제본에서 새 복제본을 작성해야 합니다.
+**파티션 구성표**: 명명된 서비스를 만들 때 파티션 구성표를 지정합니다. 많은 양의 상태가 있는 서비스는 클러스터의 노드에 상태를 분산하는 파티션에 데이터를 분할합니다. 이렇게 하면 명명된 서비스의 상태를 조정할 수 있습니다. 상태 저장 서비스에 복제본이 있는 반면 파티션 내에서 명명된 상태 비저장 서비스에는 인스턴스가 있습니다. 일반적으로 명명된 상태 비저장 서비스는 내부 상태가 없기 때문에 하나의 파티션만을 가질 수 있습니다. 파티션 인스턴스를 가용성에 제공합니다. 인스턴스가 실패하면 다른 인스턴스는 계속 정상적으로 작동하고 서비스 패브릭은 새 인스턴스를 만듭니다. 명명된 상태 저장 서비스는 복제본 내에서 해당 상태를 유지하고 각 파티션은 동기화 상태로 유지된 모든 상태를 가진 고유한 복제를 설정합니다. 복제가 실패하면 서비스 패브릭은 기존 복제본에서 새 복제본을 작성해야 합니다.
 
 자세한 내용은 [서비스 패브릭 Reliable Services 분할](service-fabric-concepts-partitioning.md) 문서를 참조하세요.
 
 ## <a name="system-services"></a>시스템 서비스
 서비스 패브릭의 플랫폼 기능을 제공하는 모든 클러스터에서 작성되는 시스템 서비스가 있습니다.
 
-**명명 서비스**: 각 서비스 패브릭 클러스터에는 서비스 이름을 클러스터의 위치로 확인하는 명명 서비스가 있습니다. 클러스터에 대해 DNS(Domain Name Service)와 비슷하게 서비스 이름과 속성을 관리할 수 있습니다. 클라이언트는 이름 지정 서비스를 사용하여 클러스터의 모든 노드와 안전하게 통신하여 서비스 네임 및 해당 위치를 확인할 수 있습니다.  클라이언트는 실제 컴퓨터 IP 주소 및 현재 주소가 실행 중인 포트를 가져옵니다. 오류, 리소스 균형 조정, 클러스터의 크기 조정 등으로 인해 응용 프로그램이 클러스터 내에서 이동하더라도 현재 네트워크 위치를 확인할 수 있는 서비스와 클라이언트를 개발할 수 있습니다.
+**명명 서비스**: 각 서비스 패브릭 클러스터에는 서비스 이름을 클러스터의 위치로 확인하는 명명 서비스가 있습니다. 클러스터에 대해 DNS(Domain Name Service)와 비슷하게 서비스 이름과 속성을 관리할 수 있습니다. 클라이언트는 이름 지정 서비스를 사용하여 클러스터의 모든 노드와 안전하게 통신하여 서비스 네임 및 해당 위치를 확인할 수 있습니다.  응용 프로그램은 실패, 리소스 분산 또는 클러스터의 크기 조정으로 인해 클러스터 내에서 이동합니다. 현재 네트워크 위치를 확인하는 서비스 및 클라이언트를 개발할 수 있습니다. 클라이언트는 실제 컴퓨터 IP 주소 및 현재 주소가 실행 중인 포트를 가져옵니다.
 
 명명 서비스와 연동되는 클라이언트 및 서비스 통신 API에 대한 자세한 내용은 [서비스를 사용하여 통신](service-fabric-connect-and-communicate-with-services.md) 을 참조하세요.
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 05/10/2017
 ## <a name="built-in-programming-models"></a>기본 제공 프로그래밍 모델
 서비스 패브릭 서비스를 작성하는 데 사용할 수 있는 .NET Framework 프로그래밍 모델이 있습니다.
 
-**Reliable Services**: 상태 비저장 및 상태 저장 서비스를 구축하는 API입니다. 상태 저장 서비스는 신뢰할 수 있는 컬렉션(예: 사전 또는 큐)에 자신의 상태를 저장합니다. 또한 웹 API 및 WCF(Windows Communication Foundation)과 같은 다양한 통신 스택을 플러그인하는 기능을 가져옵니다.
+**Reliable Services**: 상태 비저장 및 상태 저장 서비스를 구축하는 API입니다. 상태 저장 서비스는 신뢰할 수 있는 컬렉션(예: 사전 또는 큐)에 자신의 상태를 저장합니다. 또한 웹 API 및 WCF(Windows Communication Foundation)와 같은 다양한 통신 스택을 플러그인하는 기능을 가져옵니다.
 
 **Reliable Actors**: 가상 행위자 프로그래밍 모델을 통해 상태 비저장 및 상태 저장 개체를 작성하는 API입니다. 이 모델은 계산/상태의 독립적인 단위가 많은 경우 유용할 수 있습니다. 이 모델은 턴 기반 스레딩 모델을 사용하기 때문에 모든 아웃바운드 요청이 완료될 때까지 개별 행위자가 들어오는 다른 요청을 처리할 수 없으므로 다른 행위자 또는 서비스를 호출하는 코드를 방지하는 좋은 방법입니다.
 

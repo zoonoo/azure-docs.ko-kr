@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/7/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7937a4070907faa5848f125f83c23849320b9cf4
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: c1185358cc10e450c0c67baab407c49de56ad767
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -56,6 +57,7 @@ Resource Manager 배포 VM(가상 컴퓨터)을 보호하거나 백업할 수 �
 환경을 준비하기 전에, 제한 사항을 이해해 주시기 바랍니다.
 
 * 16개 이상의 데이터 디스크가 있는 가상 컴퓨터의 백업은 지원되지 않습니다.
+* 4TB 디스크가 있는 가상 컴퓨터의 백업은 지원되지 않습니다. 
 * 예약된 IP 주소가 있고 정의된 끝점이 없는 가상 컴퓨터의 백업은 지원되지 않습니다.
 * 방금 BEK를 사용하여 암호화된 VM의 백업을 지원하지 않습니다. LUKS를 사용하여 암호화된 Linux VM의 백업을 지원하지 않습니다.
 * Docker 확장을 포함한 Linux 가상 컴퓨터의 백업이 지원되지 않습니다.

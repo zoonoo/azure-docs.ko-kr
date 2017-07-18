@@ -13,10 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 587a8e225b18ae2a07d766f1a0d75623e44aec9f
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e3952c6be537e28f7f2cde8f33750b1894fde8e4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -122,7 +123,7 @@ Azure Backup 서비스는 Azure VM 확장을 사용하여 파일 시스템 일�
 [백업 및 복구 전략 계획](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)(영문) SAP HANA 문서에는 백업을 수행하는 기본 계획이 나와 있습니다.
 
 - 저장소 스냅숏(매일)
-- 파일 또는 백업을 사용한 전체 데이터 백업(매주 1회)
+- 파일 또는 백업 형식을 사용한 전체 데이터 백업(매주 1회)
 - 자동 로그 백업
 
 필요에 따라 저장소 스냅숏 없이 완전히 이동할 수 있습니다. 증분 또는 차등 백업과 같은 HANA 델타 백업으로 대체할 수 있습니다([델타 백업](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm)(영문) 참조).

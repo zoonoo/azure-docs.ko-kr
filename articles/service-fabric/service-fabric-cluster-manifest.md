@@ -1,6 +1,6 @@
 ---
-title: "독립 실행형 클러스터 구성 | Microsoft Docs"
-description: "이 문서에서는 독립 실행형 또는 개인 Service Fabric 클러스터를 구성하는 방법을 설명합니다."
+title: "Azure Service Fabric 독립 실행형 클러스터 구성 | Microsoft Docs"
+description: "독립 실행형 또는 개인 Service Fabric 클러스터를 구성하는 방법에 대해 알아봅니다."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2017
+ms.date: 06/02/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 8192f9e36ebadd41d93ec3c2fa61b05e342d5bc1
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 3b65f9391a4ff5a641546f8d0048f36386a7efe8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -37,7 +38,7 @@ ms.lasthandoff: 03/29/2017
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "01-2017",
 
 Service Fabric 클러스터를 **name** 변수에 할당하여 이름 지정할 수 있습니다. **clusterConfigurationVersion**은 클러스터의 버전 번호이며, Service Fabric 클러스터를 업그레이드할 때마다 증가해야 합니다. 그러나 **apiVersion**은 기본값으로 그대로 두어야 합니다.
 
@@ -87,6 +88,10 @@ ClusterConfig.JSON의 **properties** 섹션은 다음과 같이 클러스터를 
     "reliabilityLevel": "Bronze",
 
 주 노드에서 시스템 서비스의 단일 복사본이 실행되므로 각 안정성 수준에 대한 주 노드 수가 *Bronze*의 경우 최소 3개, *Silver*의 경우 최소 5개, *Gold*의 경우 최소 7개, *Platinum*의 경우 최소 9개가 필요합니다.
+
+clusterConfig.json에 reliabilityLevel 속성을 지정하지 않는 경우 시스템은 사용자가 보유한 "기본 NodeType" 노드 수에 따라 가장 최적화된 reliabilityLevel을 계산합니다. 예를 들어 4개의 주 노드가 있는 경우 reliabilityLevel은 Bronze로 설정되고 이러한 5개의 노드가 있는 경우 reliabilityLevel은 Silver로 설정됩니다. 클러스터에서 자동으로 최적의 안정성 수준을 검색하고 사용하므로 가까운 시일 안에 안정성 수준을 구성하는 옵션을 제거할 예정입니다.
+
+ReliabilityLevel을 업그레이드할 수 있습니다. clusterConfig.json v2를 만들고 [독립 실행형 클러스터 구성 업그레이드](service-fabric-cluster-upgrade-windows-server.md)로 확장 및 축소할 수 있습니다. 또한 reliabilityLevel이 자동으로 계산되도록 reliabilityLevel을 지정하지 않는 clusterConfig.json v2로 업그레이드할 수 있습니다. 
 
 ### <a name="diagnostics"></a>진단
 다음 코드 조각과 같이 **diagnosticsStore** 섹션을 사용하여 진단 및 문제 해결 노드와 클러스터 오류를 사용하도록 매개 변수를 구성할 수 있습니다. 
@@ -183,6 +188,21 @@ OS가 아닌 드라이브를 사용하면 OS 충돌 시에도 더 큰 안정성�
             "value": "4096"
         }]
     }]
+
+### <a name="add-on-features"></a>추가 기능
+추가 기능을 구성하려면 apiVersion은 '04-2017' 이상으로 구성되어야 하며 addonFeatures를 구성해야 합니다.
+
+    "apiVersion": "04-2017",
+    "properties": {
+      "addOnFeatures": [
+          "DnsService",
+          "RepairManager"
+      ]
+    }
+
+### <a name="container-support"></a>컨테이너 지원
+독립 실행형 클러스터에 대한 Windows Server 컨테이너와 hyper-v 컨테이너를 위한 컨테이너 지원을 사용하려면 'DnsService' 추가 기능을 사용해야 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 독립 실행형 클러스터 설치에 따라 완전한 ClusterConfig.JSON 파일을 구성한 경우 [독립 실행형 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md) 문서에 따라 클러스터를 배포한 다음 [Service Fabric Explorer로 클러스터 시각화](service-fabric-visualizing-your-cluster.md)를 계속 진행할 수 있습니다.

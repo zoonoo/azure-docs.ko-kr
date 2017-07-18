@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: f8cb0030290d200ab79e340b9b0fe8f5765d49f0
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -119,6 +120,11 @@ Azure 포털에서 복구 서비스 자격 증명 모음 대시보드는 다음�
      백업 정책을 만드는 지침은 [백업 정책 정의](backup-azure-manage-vms.md#defining-a-backup-policy)를 참조하세요.
 
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
+
+> [!NOTE]
+> 백업 정책을 관리하는 동안 최적의 백업 성능을 위해 [모범 사례](backup-azure-vms-introduction.md#best-practices)를 따라야 합니다.
+>
+>
 
 ## <a name="on-demand-backup-of-a-virtual-machine"></a>가상 컴퓨터의 주문형 백업
 보호를 위해 구성한 후에는 가상 컴퓨터의 주문형 백업을 수행할 수 있습니다. 초기 백업이 보류 중인 경우 주문형 백업은 복구 서비스 자격 증명 모음에 가상 컴퓨터의 전체 복사본을 만듭니다. 초기 백업이 완료되면 주문형 백업은 이전 스냅숏에서 복구 서비스 자격 증명 모음에 변경 내용만 보냅니다. 즉, 이후의 백업은 항상 증분형입니다.

@@ -16,9 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: 89117c59ae8948eeb32b51a0ecd4fdf0a3a2edd7
-ms.openlocfilehash: d026d6d901374a91864edf9f6ee38d5450e7f179
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: fd51bf9e965d2efd5a6bea9de142ab2ec8d27836
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -66,9 +68,4 @@ Cloud Foundry는 연속 통합(CI) 및 지속적인 업데이트(CD) 사용을 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Marketplace에서 Pivotal Cloud Foundry 배포](https://azure.microsoft.com/en-us/marketplace/partners/pivotal/pivotal-cloud-foundryazure-pcf/)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+- [Azure에서 Cloud Foundry에 앱 배포](./cloudfoundry-deploy-your-first-app.md)

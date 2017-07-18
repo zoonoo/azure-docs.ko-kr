@@ -1,6 +1,6 @@
 ---
-title: "데이터 팩터리를 사용하여 Oracle 간 데이터 이동 | Microsoft Docs"
-description: "Azure 데이터 팩터리를 사용하여 온-프레미스 Oracle 데이터베이스 간 데이터를 이동하는 방법에 대해 알아봅니다."
+title: "데이터 팩터리를 사용하여 Oracle 간 데이터 복사 | Microsoft Docs"
+description: "Azure Data Factory를 사용하여 온-프레미스 Oracle 데이터베이스 간 데이터를 복사하는 방법에 대해 알아봅니다."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 18fffb6cae9107b9301ff702d483b598836ac180
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: bb6af719fe6f1a30c5933ce4342a4c0c072f3ff4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="move-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 온-프레미스 Oracle 간 데이터 이동
+# <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 Oracle 간 데이터 복사
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 Oracle 데이터베이스의 데이터를 다른 곳으로 이동하는 방법 또는 그 반대로 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
@@ -570,15 +570,15 @@ Oracle에서 데이터를 이동하는 경우 Oracle 데이터 형식에서 .NET
 | CHAR |문자열 |
 | CLOB |문자열 |
 | DATE |DateTime |
-| FLOAT |10진수 |
-| INTEGER |10진수 |
+| FLOAT |Decimal, 문자열(전체 자릿수의 경우 > 28) |
+| INTEGER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
 | INTERVAL DAY TO SECOND |timespan |
 | LONG |문자열 |
 | LONG RAW |Byte[] |
 | NCHAR |문자열 |
 | NCLOB |문자열 |
-| NUMBER |10진수 |
+| NUMBER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | NVARCHAR2 |문자열 |
 | RAW |Byte[] |
 | ROWID |문자열 |

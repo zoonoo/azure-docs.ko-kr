@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: ff86340f18a2d3d13d55b7e0bcd4122d9b85ccd9
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: dd4e4282d774c2c336889b1df887806bfe512c10
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -731,7 +731,7 @@ API 연결은 Microsoft 관리 커넥터를 참조하는 작업입니다.
 
 ## <a name="table-action"></a>테이블 작업
 
-`table`은 항목의 배열을 **CVS** 또는 **HTML** 테이블로 변환할 수 있도록 합니다.
+`table`을 사용하면 항목의 배열을 **CSV** 또는 **HTML** 테이블로 변환할 수 있습니다.
 
 @triggerBody()을 다음으로 가정합니다
 
@@ -789,7 +789,7 @@ API 연결은 Microsoft 관리 커넥터를 참조하는 작업입니다.
 |이름|필수|형식|설명|
 |--------|------------|--------|---------------|
 |from|예|배열|원본 배열입니다.|
-|format|예|string|형식은 **CVS** 또는 **HTML**입니다.|
+|format|예|문자열|형식은 **CSV** 또는 **HTML**입니다.|
 |열|아니요|배열|열입니다. 테이블의 기본 셰이프를 재정의할 수 있습니다.|
 |열 머리글|아니요|string|열의 머리글입니다.|
 |열 값|예|String|열의 값입니다.|

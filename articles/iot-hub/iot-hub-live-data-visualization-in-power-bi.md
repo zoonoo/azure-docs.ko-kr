@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: ba25cdee46ce4ceb5acd5ff9da683a057f2bd733
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 404ab1682d9b77f22e60888340ffb70a101ed5d4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -120,11 +121,7 @@ Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Power BI 보고서를 만들고 게시하여 데이터 시각화
 
-1. 샘플 응용 프로그램이 성공적으로 실행 중인지 확인합니다. 그렇지 않은 경우 다음 명령을 실행하여 Pi에서 응용 프로그램을 실행합니다.
-
-   ```bash
-   gulp run
-   ```
+1. 응용 프로그램 예제가 사용자 장치에서 실행 중인지 확인합니다. 그렇지 않은 경우 [사용자 장치 설정](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started)에 있는 자습서를 참조할 수 있습니다.
 1. [Power BI](https://powerbi.microsoft.com/en-us/) 계정에 로그인합니다.
 1. Stream Analytics 작업에 대한 출력을 만들 때 설정한 그룹 작업 영역으로 이동합니다.
 1. **스트리밍 데이터 집합**을 클릭합니다.
@@ -164,3 +161,4 @@ Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터를 시�
 Azure IoT Hub에서 데이터를 시각화하는 또 다른 방법이 있습니다. [Azure Web Apps를 사용하여 Azure IoT Hub의 실시간 센서 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)를 참조하세요.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

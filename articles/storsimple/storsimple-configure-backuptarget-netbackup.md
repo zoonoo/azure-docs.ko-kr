@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 06/15/2017
 ms.author: hkanna
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: cbc33fa15d069b55844cc6e4356ca5a01b40c199
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 613fd0c1164ac34d36d5f21d07dfdf00c8aad614
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/17/2017
 
 ---
 
@@ -228,7 +229,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
 -   NetBackup 데이터베이스는 서버에 대해 로컬이어야 하고 StorSimple 볼륨에 상주하지 않아야 합니다.
 -   재난 복구를 위해 NetBackup 데이터베이스를 StorSimple 볼륨에 백업합니다.
--   이 솔루션에 대한 NetBackup 전체 백업과 증분 백업을 지원합니다. 가상 및 차등 백업을 사용하지 않는 것이 좋습니다.
+-   이 솔루션에 대해 NetBackup 전체 및 증분 백업(NetBackup에서는 차등 증분 백업이라고도 함)을 지원합니다. 가상 및 차등 증분 백업을 사용하지 않는 것이 좋습니다.
 -   백업 데이터 파일에는 특정 작업에 대한 데이터만 포함되어야 합니다. 예를 들어 다른 작업에 미디어 추가가 허용되지 않습니다.
 
 최신 NetBackup 설정 및 이러한 요구 사항을 구현하는 모범 사례에 대해서는 [www.veritas.com](https://www.veritas.com)에서 NetBackup 설명서를 참조하세요.

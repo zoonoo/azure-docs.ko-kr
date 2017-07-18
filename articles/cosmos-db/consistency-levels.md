@@ -3,7 +3,7 @@ title: "Azure Cosmos DB의 일관성 수준 | Microsoft Docs"
 description: "Azure Cosmos DB에는 최종 일관성, 가용성 및 대기 시간을 절충하여 조정하는 데 유용한 5가지 일관성 수준이 있습니다."
 keywords: "최종 일관성, azure cosmos db, azure, Microsoft azure"
 services: cosmos-db
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 documentationcenter: 
@@ -13,19 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
-ms.author: syamk
+ms.date: 06/16/2017
+ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b4f4a32a19c2145a18557a54d5a495ef0c8dec75
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: abca1eff9d0b79420e70da5a4c551eceda478491
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 튜닝 가능한 데이터 일관성 수준
-Azure Cosmos DB는 처음부터 모든 데이터 모델에 대한 전역 배포를 염두에 두고 설계되었습니다. 예측 가능한 짧은 대기 시간을 보증하고, 99.99% 가용성 SLA와 여러 개의 잘 정의된 관대한 일관성 모델을 제공하도록 설계되었습니다. 현재 Azure Cosmos DB는 5가지 일관성 수준(강력, 제한된 부실, 세션, 최종)을 제공합니다. 
+Azure Cosmos DB는 처음부터 모든 데이터 모델에 대한 전역 배포를 염두에 두고 설계되었습니다. 예측 가능한 짧은 대기 시간을 보증하고, 99.99% 가용성 SLA와 여러 개의 잘 정의된 관대한 일관성 모델을 제공하도록 설계되었습니다. 현재 Azure Cosmos DB는 5가지 일관성 수준(강력, 제한된 부실, 세션, 일관적인 접두사 및 최종)을 제공합니다. 
 
 Azure Cosmos DB는 분산된 데이터베이스에서 흔히 제공하는 **강력**하고 **최종 일관성**있는 모델 외에도 신중하게 변환된 조작 가능한 3가지 일관성 모델을 제공하며 실제 사용 사례에서도 유용하다는 것이 입증되었습니다. 이러한 일관성 모델은 **제한된 부실**, **세션** 및 **일관적인 접두사** 일관성 수준입니다. 이 5가지 일관성 수준을 통해 일관성, 가용성, 대기 시간 사이에서 타당하게 절충합니다. 
 
@@ -40,13 +40,13 @@ Azure Cosmos DB는 분산된 데이터베이스에서 흔히 제공하는 **강�
  
 **일관성 수준 및 보증**
 
-| 일관성 수준    | 보증 |
+| 일관성 수준 | 보증 |
 | --- | --- |
 | 강력 | 선형화 가능성 |
-| 제한된 부실    | 일관적인 접두사 k 접두사 또는 t 간격을 통해 쓰기 뒤 읽기 지연 |
-| 세션    | 일관적인 접두사 단조 읽기, 단조 쓰기, 쓰기 읽기, 읽기 뒤 쓰기 |
-| 일관적인 접두사    | 간격 없이 모든 업데이트의 일부 접두어의 업데이트 반환 |
-| 최종    | 순서 외 읽기 |
+| 제한된 부실 | 일관적인 접두사 k 접두사 또는 t 간격을 통해 쓰기 뒤 읽기 지연 |
+| 세션   | 일관적인 접두사 단조 읽기, 단조 쓰기, 쓰기 읽기, 읽기 뒤 쓰기 |
+| 일관적인 접두사 | 간격 없이 모든 업데이트의 일부 접두어의 업데이트 반환 |
+| 최종  | 순서 외 읽기 |
 
 Cosmos DB 계정에 대해 기본 일관성 수준을 구성할 수 있습니다(나중에 특정 읽기 요청에 대한 일관성 덮어씀). 내부적으로 기본 일관성 수준은 여러 지역에 걸칠 수 있는 파티션 집합 안의 데이터에 적용됩니다. 테넌트의 약 73%는 세션 일관성을 사용하고 20%는 제한된 부실을 선호합니다. 고객의 약 3%는 처음에 다양한 일관성 수준을 실험한 후 응용 프로그램에 맞는 특정 일관성을 선택하는 것으로 확인되었습니다. 또한 테넌트의 2%만이 요청에 따라 일관성 수준을 재정의하는 것으로 확인되었습니다. 
 

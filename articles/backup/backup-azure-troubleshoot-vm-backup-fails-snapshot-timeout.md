@@ -1,34 +1,36 @@
 ---
-title: "Azure Backup 실패 문제 해결: 스냅숏 VM 하위 작업 시간 초과 | Microsoft Docs"
-description: "오류 관련 Azure Backup 실패에 대한 증상, 원인 및 해결 방법: 스냅숏 상태에 대해 VM 에이전트와 통신할 수 없음 - 스냅숏 VM 하위 작업 시간 초과"
+title: "Azure Backup 오류 문제 해결: 게스트 에이전트 상태 사용할 수 없음 | Microsoft Docs"
+description: "오류: VM 에이전트와 통신할 수 없음과 관련된 Azure Backup 오류의 증상, 원인 및 해결 방법"
 services: backup
 documentationcenter: 
 author: genlin
 manager: cshepard
 editor: 
+keywords: "Azure 백업; VM 에이전트; 네트워크 연결;"
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 06/13/2017
 ms.author: genli;markgal;
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d7924d8aade1ea582faa0f319f8c1d16d5461fbc
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: dd4ac14a703663175bb477de587da8f4ad510c7c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/14/2017
 
 ---
 
-# <a name="troubleshoot-azure-backup-failure-snapshot-vm-sub-task-timed-out"></a>Azure Backup 실패 문제 해결: 스냅숏 VM 하위 작업 시간 초과
+# <a name="troubleshoot-azure-backup-failure-vm-agent-unable-to-communicate-with-azure-backup"></a>Azure Backup 오류 문제 해결: VM 에이전트가 Azure Backup으로 통신할 수 없음
 ## <a name="summary"></a>요약
-Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 네 가지 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않아 결국 백업 실패로 이어질 수도 있습니다. 이 문서에서는 스냅숏 시간 초과 오류와 관련된 백업 실패를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다.
+Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 네 가지 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않아 결국 백업 실패로 이어질 수도 있습니다. 이 문서에서는 VM 에이전트와 통신 및 확장의 문제와 관련된 백업 실패를 해결하는 데 도움이 되는 문제 해결 단계를 제공합니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="symptom"></a>증상
-서비스 제공 인프라(IaaS)를 위한 Azure Backup VM이 실패하면 [Azure Portal](https://portal.azure.com/)의 작업 오류 세부 정보에서 다음과 같은 오류 메시지가 반환됩니다. "스냅숏 상태에 대해 VM 에이전트와 통신하지 못했습니다. 스냅숏 VM 하위 작업 시간이 초과되었습니다."
+서비스 제공 인프라(IaaS)를 위한 Azure Backup VM이 실패하면 [Azure Portal](https://portal.azure.com/)의 작업 오류 세부 정보에서 다음과 같은 오류 메시지가 반환됩니다. "VM 에이전트가 Azure Backup Service와 통신할 수 없습니다.", "가상 컴퓨터에 네트워크 연결이 없으므로 스냅숏 작업이 실패했습니다."
 
 ## <a name="cause-1-the-vm-has-no-internet-access"></a>원인 1: VM이 인터넷에 연결되어 있지 않음
 배포 요구 사항에 따라 VM이 인터넷에 연결되어 있지 않거나 Azure 인프라에 대한 액세스를 차단하는 위치에 제한 사항이 있습니다.
@@ -49,6 +51,8 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 2. HTTP 프록시 서버에서 인터넷에 액세스하도록 허용하려면 네트워크 보안 그룹이 있는 경우 규칙을 추가합니다.
 
 VM 백업에 대한 HTTP 프록시를 설정하는 방법을 알아보려면 [Azure Virtual Machines를 백업하기 위한 환경 준비](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups)를 참조하세요.
+
+Managed Disks를 사용하고 있는 경우 방화벽에서 열리는 추가 포트(8443)가 필요할 수도 있습니다.
 
 ## <a name="cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>원인 2: VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
@@ -80,7 +84,21 @@ waagent의 자세한 로깅이 필요한 경우 다음 단계를 따르세요.
 2. **Logs.Verbose** 값을 *n*에서 *y*로 변경합니다.
 3. 변경 내용을 저장하고 이 섹션의 이전 단계를 수행하여 waagent를 다시 시작합니다.
 
-## <a name="cause-3-the-backup-extension-fails-to-update-or-load"></a>원인 3: 백업 확장을 업데이트 또는 로드할 수 없습니다.
+## <a name="cause-3-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>원인 3: 에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).
+
+### <a name="solution"></a>해결 방법
+VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에이전트를 다시 설치하는 것이 최신 버전을 가져오고 통신을 다시 시작하는 데 도움이 됩니다.
+
+1. 컴퓨터의 서비스에서 Windows 게스트 에이전트 서비스를 볼 수 있는지 여부를 확인합니다(services.msc).
+2. 볼 수 없는 경우 프로그램 및 기능에서 Windows 게스트 에이전트 서비스가 설치되었는지 여부를 확인합니다.
+3. 프로그램 및 기능에서 볼 수 있는 경우 Windows 게스트 에이전트를 제거합니다.
+4. [에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하여 설치합니다. 설치를 완료하려면 관리자 권한이 필요합니다.
+5. 그런 다음 서비스에서 Windows 게스트 에이전트 서비스를 볼 수 있어야 합니다.
+6. 포털에서 "지금 백업"을 클릭하여 요청 시/임시 백업을 실행해 봅니다.
+
+또한 **시스템에 .NET 4.5가 설치되어 있는지** 확인합니다. VM 에이전트가 서비스와 통신하는 데 필요합니다.
+
+## <a name="cause-4-the-backup-extension-fails-to-update-or-load"></a>원인 4: 백업 확장을 업데이트 또는 로드할 수 없습니다.
 확장을 로드할 수 없는 경우 스냅숏을 만들 수 없기 때문에 백업이 실패합니다.
 
 ### <a name="solution"></a>해결 방법
@@ -106,7 +124,7 @@ VMSnapshot Linux 최신 버전(백업에 사용되는 확장)은 1.0.91.0입니�
 
 이렇게 하면 다음 백업 동안 확장을 다시 설치해야 합니다.
 
-## <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>원인 4: 스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.
+## <a name="cause-5-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>원인 5: 스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.
 VM 백업은 기본 저장소 계정에 대한 스냅숏 명령 실행을 사용합니다. 저장소 계정에 액세스할 수 없거나 스냅숏 작업의 실행이 지연되기 때문에 백업이 실패할 수 있습니다.
 
 ### <a name="solution"></a>해결 방법

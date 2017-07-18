@@ -13,13 +13,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/5/2017
+ms.date: 06/9/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8a1ae2ef790455383118bb55c34f6ca10fe0169e
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 7122b970c2e4703df9771e8ace4e710399ca3e6c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -76,19 +76,22 @@ ms.lasthandoff: 05/17/2017
 
 * 게이트웨이가 이러한 상황에서 실행되지 않을 수 있기 때문에 꺼지거나, 절전 또는 인터넷에 연결되지 않은 컴퓨터에서 게이트웨이를 설치하지 않습니다. 또한 무선 네트워크에서는 게이트웨이 성능이 저하될 수 있습니다.
 
-* 회사 또는 학교 이메일 주소를 Azure AD(Azure Active Directory)에서 관리하는 Azure 계정으로만 로그인할 수 있습니다. Azure AD 기반 계정에서 Azure 구독을 사용하여 온-프레미스 데이터 게이트웨이를 연결하기 위해 이 계정이 필요합니다.
+* 설치하는 동안 Microsoft 계정이 아니라 Azure Active Directory(Azure AD)에서 관리하는 [회사 또는 학교 계정](https://docs.microsoft.com/azure/active-directory/sign-up-organization)으로 로그인해야 합니다. 
 
-  > [!TIP] 
-  > Microsoft 계정(예: @outlook.com)이 있는 경우 Azure 계정을 사용하여 [회사 또는 학교 이메일 주소를 만들](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) 수 있습니다. Office 365 서비스에 등록하고 실제 회사 이메일을 제공하지 않은 경우 로그인 주소는 jeff@contoso.onmicrosoft.com과 같을 수 있습니다. 
+  나중에 Azure Portal에서 게이트웨이 설치를 통해 게이트웨이 리소스를 만들고 연결할 때 동일한 회사 또는 학교 계정을 사용해야 합니다. 그런 다음 논리 앱과 온-프레미스 데이터 원본 간의 연결을 만들 때 이 게이트웨이 리소스를 선택합니다. [Azure AD 회사 또는 학교 계정을 사용해야 하는 이유는 무엇인가요?](#why-azure-work-school-account)
+
+  > [!TIP]
+  > Office 365 서비스에 등록하고 실제 회사 전자 메일을 제공하지 않은 경우 로그인 주소는 jeff@contoso.onmicrosoft.com과 같을 수 있습니다. 
 
 * 기존 게이트웨이를 14.16.6317.4보다 이전 버전인 설치 관리자를 사용하여 설정한 경우 최신 설치 관리자를 실행하여 게이트웨이 위치를 변경할 수 없습니다. 그러나 최신 설치 관리자를 사용하여 새 게이트웨이를 원하는 위치로 설정할 수 있습니다.
   
   14.16.6317.4보다 이전 버전인 게이트웨이 설치 관리자가 있지만 게이트웨이를 아직 설치하지 않은 경우 최신 설치 관리자를 다운로드하여 사용할 수 있습니다.
 
 <a name="install-gateway"></a>
+
 ## <a name="install-the-data-gateway"></a>데이터 게이트웨이 설치
 
-1.    [로컬 컴퓨터에서 게이트웨이 설치 관리자를 다운로드하고 실행합니다](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1.  [로컬 컴퓨터에서 게이트웨이 설치 관리자를 다운로드하고 실행합니다](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
 2. 개인정보처리방침 및 사용 약관을 검토하고 동의합니다.
 
@@ -96,29 +99,38 @@ ms.lasthandoff: 05/17/2017
 
 4. 메시지가 표시되면 Microsoft 계정이 아닌 Azure 회사 또는 학교 계정을 사용하여 로그인합니다.
 
-5. 이제 [게이트웨이 클라우드 서비스](#gateway-cloud-service)를 사용하여 게이트웨이 설치를 등록합니다. 
+   ![Azure 회사 또는 학교 계정으로 로그인](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-     게이트웨이 클라우드 서비스는 데이터 원본 자격 증명 및 게이트웨이 세부 정보를 암호화하고 저장합니다. 
-     또한 서비스는 논리 앱, 온-프레미스 데이터 게이트웨이 및 온-프레미스 데이터 원본과 같은 클라우드의 사용자 간에 쿼리 및 해당 결과를 라우팅합니다.
+5. 이제 설치된 게이트웨이를 [게이트웨이 클라우드 서비스](#gateway-cloud-service)에 등록합니다. **이 컴퓨터에 새 게이트웨이 등록**을 선택합니다.
 
-     1. 게이트웨이 설치에 이름을 제공하고 복구 키를 만듭니다. 
-     복구 키를 확인합니다.
+   게이트웨이 클라우드 서비스는 데이터 원본 자격 증명 및 게이트웨이 세부 정보를 암호화하고 저장합니다. 
+   또한 서비스는 논리 앱, 온-프레미스 데이터 게이트웨이 및 온-프레미스 데이터 원본 간에 쿼리 및 해당 결과를 라우팅합니다.
 
-        > [!IMPORTANT] 
-        > 복구 키는 8자 이상이어야 합니다. 키를 안전한 장소에 저장하고 보관해야 합니다. 기존 게이트웨이를 마이그레이션, 복원 또는 사용하려는 경우에도 이 키가 필요합니다.
+6. 게이트웨이 설치에 대한 이름을 제공합니다. 복구 키를 만든 다음 복구 키를 확인합니다. 
 
-     2. 게이트웨이 설치에서 사용하는 클라우드 서비스 게이트웨이 및 Azure Service Bus에 대한 기본 지역을 변경하려면 **지역 변경**을 선택합니다.
+   > [!IMPORTANT] 
+   > 복구 키는 8자 이상이어야 합니다. 키를 안전한 장소에 저장하고 보관해야 합니다. 기존 게이트웨이를 마이그레이션, 복원 또는 사용하려는 경우에도 이 키가 필요합니다.
 
-        예를 들어, 대기 시간을 줄일 수 있도록 논리 앱과 동일한 지역을 선택하거나 온-프레미스 데이터 원본에 가장 가까운 지역을 선택할 수 있습니다. 게이트웨이 리소스와 논리 앱은 서로 다른 위치에 있을 수 있습니다.
+   1. 게이트웨이 설치에서 사용하는 클라우드 서비스 게이트웨이 및 Azure Service Bus에 대한 기본 지역을 변경하려면 **지역 변경**을 선택합니다.
 
-        > [!IMPORTANT]
-        > 설치 후에 이 지역을 변경할 수 없습니다. 또한 이 지역은 게이트웨이에 대한 Azure 리소스를 만들 수 있는 위치를 결정하고 제한합니다. 따라서 Azure에서 게이트웨이 리소스를 만들 때 리소스 위치가 게이트웨이를 설치할 때 선택한 지역과 일치하는지 확인합니다.
-        > 
-        > 나중에 게이트웨이에 다른 지역을 사용하려는 경우 새 게이트웨이를 설정해야 합니다.
+      ![지역 변경](./media/logic-apps-gateway-install/change-region-gateway-install.png)
 
-     3. 작업을 완료하면 **구성**을 선택합니다.
+      기본 지역은 Azure AD 테넌트와 연결된 지역입니다.
 
-6. 이제 [게이트웨이에 대한 Azure 리소스를 만들](../logic-apps/logic-apps-gateway-connection.md) 수 있도록 Azure Portal에서 이러한 단계에 따릅니다. 
+   2. 다음 창에서 **지역 선택**을 열고 다른 지역을 선택합니다.
+
+      ![다른 지역 선택](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+
+      예를 들어, 대기 시간을 줄일 수 있도록 논리 앱과 동일한 지역을 선택하거나 온-프레미스 데이터 원본에 가장 가까운 지역을 선택할 수 있습니다. 게이트웨이 리소스와 논리 앱은 서로 다른 위치에 있을 수 있습니다.
+
+      > [!IMPORTANT]
+      > 설치 후에 이 지역을 변경할 수 없습니다. 또한 이 지역은 게이트웨이에 대한 Azure 리소스를 만들 수 있는 위치를 결정하고 제한합니다. 따라서 Azure에서 게이트웨이 리소스를 만들 때 리소스 위치가 게이트웨이를 설치할 때 선택한 지역과 일치하는지 확인합니다.
+      > 
+      > 나중에 게이트웨이에 다른 지역을 사용하려는 경우 새 게이트웨이를 설정해야 합니다.
+
+   3. 준비가 되면 **완료**를 선택합니다.
+
+7. 이제 [게이트웨이에 대한 Azure 리소스를 만들](../logic-apps/logic-apps-gateway-connection.md) 수 있도록 Azure Portal에서 이러한 단계에 따릅니다. 
 
 [데이터 게이트웨이 작동 원리](#gateway-cloud-service)에 대해 자세히 알아봅니다.
 
@@ -127,7 +139,12 @@ ms.lasthandoff: 05/17/2017
 이러한 작업을 수행하려면 게이트웨이가 설치될 때 지정된 복구 키가 있어야 합니다.
 
 1. 컴퓨터의 시작 메뉴에서 **온-프레미스 데이터 게이트웨이**를 선택합니다.
-2. 설치 관리자를 연 후에 마이그레이션, 복원 또는 사용하려는 게이트웨이에 복구 키를 제공합니다.
+
+2. 설치 관리자가 열리면 이전에 게이트웨이 설치에 사용한 것과 동일한 Azure 회사 또는 학교 계정으로 로그인합니다.
+
+3. **기존 게이트웨이 마이그레이션, 복원 또는 사용**을 선택합니다.
+
+4. 마이그레이션, 복원 또는 사용하려는 게이트웨이에 대한 이름과 복구 키를 제공합니다.
 
 <a name="restart-gateway"></a>
 ## <a name="restart-the-gateway"></a>게이트웨이 다시 시작
@@ -199,7 +216,7 @@ TcpTestSucceeded       : True
 <a name="gateway-cloud-service"></a>
 ## <a name="how-does-the-data-gateway-work"></a>데이터 게이트웨이는 어떻게 작동하나요?
 
-데이터 게이트웨이는 논리 앱, 게이트웨이 클라우드 서비스 및 온-프레미스 데이터 원본과 같은 클라우드에서 사용자 간에 신속하고 안전한 통신을 도와줍니다. 
+데이터 게이트웨이는 논리 앱, 게이트웨이 클라우드 서비스 및 온-프레미스 데이터 원본 간의 빠르고 안전한 통신을 지원합니다. 
 
 ![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -228,8 +245,10 @@ TcpTestSucceeded       : True
 **Q**: 데이터 원본과 동일한 컴퓨터에 게이트웨이를 설치해야 하나요? <br/>
 **A**: 아니요. 게이트웨이는 제공된 연결 정보를 사용하여 데이터 원본에 연결됩니다. 이러한 의미에서 게이트웨이를 클라이언트 응용 프로그램이라고 생각할 수 있습니다. 게이트웨이는 제공된 서버 이름에 연결할 수 있는 기능이 필요합니다.
 
+<a name="why-azure-work-school-account"></a>
+
 **Q:**: Azure 회사 또는 학교 계정을 사용하여 로그인해야 하는 이유는 무엇인가요? <br/>
-**A**: 온-프레미스 데이터 게이트웨이를 Azure 회사 또는 학교 계정과 연결할 수 있기 때문입니다. 로그인 계정은 Azure AD(Azure Active Directory)에서 관리하는 테넌트에 저장됩니다. 일반적으로 Azure AD 계정의 UPN는 전자 메일 주소와 일치합니다.
+**A**: 온-프레미스 데이터 게이트웨이를 설치할 때만 Azure 회사 또는 학교 계정을 사용할 수 있습니다. 로그인 계정은 Azure AD(Azure Active Directory)에서 관리하는 테넌트에 저장됩니다. 일반적으로 Azure AD 계정의 UPN(사용자 계정 이름)은 이메일 주소와 일치합니다.
 
 **Q**: 자격 증명은 어디에 저장되나요? <br/>
 **A**: 데이터 원본에 입력한 자격 증명은 게이트웨이 클라우드 서비스에 암호화되어 저장됩니다. 자격 증명은 온-프레미스 데이터 게이트웨이에서 해독됩니다.

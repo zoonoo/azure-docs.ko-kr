@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 4ffbe7e28d8b4c7d421bec477455a94609cd127a
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: e428b755f6696bd6d4047ad77579a8e9665dfbd8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="capture-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리되는 이미지 캡처
+# <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
-저장소 계정에 관리 디스크 또는 비관리 디스크로 저장되는 일반화된 VM으로 관리 이미지 리소스를 만들 수 있습니다. 그런 다음 그 이미지를 사용하여 저장소에 관리 디스크를 사용하는 여러 VM을 만들 수 있습니다. 
+저장소 계정에 관리 디스크 또는 비관리 디스크로 저장되는 일반화된 VM으로 관리 이미지 리소스를 만들 수 있습니다. 여러 VM을 만드는 데 이미지를 사용할 수 있습니다. 
 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Sysprep을 사용하여 Windows VM 일반화
@@ -117,7 +117,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
     ```powershell
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
-    ```    
+    ``` 
 
 
 
@@ -144,7 +144,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 3. VM을 일반화됨으로 표시합니다.
 
     ```powershell
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized    
+    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
     ```
 4.  일반화된 OS VHD를 사용하여 이미지를 만듭니다.
 
@@ -185,10 +185,10 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
     ```powershell
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ```    
+    ``` 
     
 
 ## <a name="next-steps"></a>다음 단계
-- 이제 [일반화된 관리 이미지로 VM 만들기](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 수행할 수 있습니다.    
+- 이제 [일반화된 관리 이미지로 VM 만들기](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 수행할 수 있습니다.  
 
 

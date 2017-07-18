@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 06/09/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a8221c35a440ae859c82072ea170b438dc40d261
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -49,7 +50,7 @@ Azure에서는 원래 클래식 배포 모델만 제공했습니다. 이 모델�
 2. 서비스에서 Resource Manager를 지원하지만 두 가지 형식(하나는 Resource Manager용, 하나는 클래식용)을 제공합니다. 이 시나리오는 가상 컴퓨터, 저장소 계정 및 가상 네트워크에만 적용됩니다.
 3. 서비스에서 Resource Manager를 지원하지 않습니다.
 
-서비스에서 Resource Manager를 지원하는지 여부를 확인하려면 [Resource Manager 지원 공급자](resource-manager-supported-services.md)를 참조하세요.
+서비스에서 리소스 관리자를 지원하는지 여부를 확인하려면 [리소스 공급자 및 형식](resource-manager-supported-services.md)을 참조하세요.
 
 사용하려는 서비스에서 Resource Manager를 지원하지 않으면 클래식 배포를 계속해서 사용해야 합니다.
 
@@ -107,7 +108,7 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
   azure group deployment create
   ```
 
-* 리소스 종류는 이름에 **(클래식)** 을 포함하지 않습니다. 아래 이미지에서는 형식을 **Storage account**으로 표시합니다.
+* 리소스 종류는 이름에 **(클래식)**을 포함하지 않습니다. 아래 이미지에서는 형식을 **Storage account**으로 표시합니다.
   
     ![웹앱](./media/resource-manager-deployment-model/resource-manager-type.png)
 
@@ -137,7 +138,7 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
   azure vm create
   ```
    
-* 리소스 종류는 이름에 **(클래식)** 을 포함합니다. 아래 이미지에서는 형식을 **Storage account (classic)**으로 표시합니다.
+* 리소스 종류는 이름에 **(클래식)**을 포함합니다. 아래 이미지에서는 형식을 **Storage account (classic)**으로 표시합니다.
   
     ![클래식 유형](./media/resource-manager-deployment-model/classic-type.png)
 

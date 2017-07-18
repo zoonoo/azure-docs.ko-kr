@@ -15,26 +15,30 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/21/2017
 ms.author: cynthn
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: de8ffb5ef81ac9ef4a9217f275f2c96973948eb1
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: d32980f05ad17a76793021d0a5355d597974a4e4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
-사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 응용 프로그램 사전 로드, 응용 프로그램 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 이 자습서에서는 Azure 가상 컴퓨터의 사용자 지정 이미지를 직접 만듭니다. 다음 방법에 대해 알아봅니다.
+사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 응용 프로그램 사전 로드, 응용 프로그램 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 이 자습서에서는 Azure Virtual Machines의 사용자 지정 이미지를 만듭니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * VM 프로비전 해제 및 일반화
 > * 사용자 지정 이미지 만들기
 > * 사용자 지정 이미지에서 VM 만들기
-> * 구독에서 모든 이미지 나열
+> * 구독에 모든 이미지 나열
 > * 이미지 삭제
 
-이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 또한 브라우저에서 [Cloud Shell](/azure/cloud-shell/quickstart)을 사용할 수도 있습니다.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -73,13 +77,13 @@ exit
 
 이미지를 만들려면 VM을 할당 취소해야 합니다. [az vm deallocate](/cli//azure/vm#deallocate)를 사용하여 VM의 할당을 취소합니다. 
    
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
 마지막으로, VM이 일반화된 사실을 Azure 플랫폼이 알 수 있도록 [az vm generalize](/cli//azure/vm#generalize) 명령을 사용하여 VM 상태를 일반화됨으로 설정합니다. 일반화된 VM에서만 이미지를 만들 수 있습니다.
    
-```azurecli
+```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
 ```
 
@@ -87,7 +91,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 이제 [az image create](/cli//azure/image#create)를 사용하여 VM의 이미지를 만들 수 있습니다. 다음 예제에서는 *myVM*이라는 VM에서 *myImage*라는 이미지를 만듭니다.
    
-```azurecli
+```azurecli-interactive 
 az image create \
     --resource-group myResourceGroup \
     --name myImage \
@@ -98,7 +102,7 @@ az image create \
 
 이미지가 생겼으니, [az vm create](/cli/azure/vm#create) 명령을 사용하여 이 이미지에서 하나 이상의 새 VM을 만들 수 있습니다. 다음 예제에서는 *myImage*라는 이미지에서 *myVMfromImage*라는 VM을 만듭니다.
 
-```azurecli
+```azurecli-interactive 
 az vm create \
     --resource-group myResourceGroup \
     --name myVMfromImage \
@@ -113,14 +117,14 @@ az vm create \
 
 모든 이미지를 테이블 형식으로 이름별로 나열합니다.
 
-```azurecli
+```azurecli-interactive 
 az image list \
   --resource-group myResourceGroup
 ```
 
 이미지 삭제를 삭제합니다. 이 예제에서는 *myResourceGroup*에서 *myOldImage*라는 이미지를 삭제합니다.
 
-```azurecli
+```azurecli-interactive 
 az image delete \
     --name myOldImage \
     --resource-group myResourceGroup
@@ -134,7 +138,7 @@ az image delete \
 > * VM 프로비전 해제 및 일반화
 > * 사용자 지정 이미지 만들기
 > * 사용자 지정 이미지에서 VM 만들기
-> * 구독에서 모든 이미지 나열
+> * 구독에 모든 이미지 나열
 > * 이미지 삭제
 
 고가용성 가상 컴퓨터에 대해 알아보려면 다음 자습서로 진행합니다.

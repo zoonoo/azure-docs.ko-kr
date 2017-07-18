@@ -13,15 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-translationtype: Human Translation
-ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
-ms.openlocfilehash: 43cf4dad58ee0e12a233125049ab4e62411459fe
-ms.lasthandoff: 01/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: 86a2cd8ae9f97c606a378452e44eec8941700531
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/23/2017
 
 
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service의 배포 자격 증명 구성
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)는 [로컬 Git 배포](app-service-deploy-local-git.md) 및 [FTP/S 배포](app-service-deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다.
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)는 [로컬 Git 배포](app-service-deploy-local-git.md) 및 [FTP/S 배포](app-service-deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다. 이들은 Azure Active Directory 자격 증명과 동일하지 않습니다.
 
 * **사용자 수준 자격 증명** - 전체 Azure 계정에 대한 자격 증명 집합입니다. 모든 구독에서 Azure 계정에 액세스할 수 있는 권한이 있는 모든 앱의 App Service에 배포하는 데 사용할 수 있습니다. 이는 **App Services** > **&lt;app_name>** > **배포 자격 증명**에서 구성하는 기본 자격 증명 집합이며, 포털 GUI에서 볼 수 있는 기본 집합이기도 입니다(예: **개요** 및 **속성**의 [리소스 블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 
@@ -32,7 +33,12 @@ ms.lasthandoff: 01/06/2017
 
 * **앱 수준 자격 증명** - 각 앱마다 하나씩의 자격 증명 집합입니다. 해당 앱에만 배포하는 데 사용할 수 있습니다. 각 앱의 자격 증명은 앱을 만들 때 자동으로 만들어지며 앱의 게시 프로필에 있습니다. 자격 증명을 수동으로 구성할 수는 없지만 언제든지 앱에 대해 다시 설정할 수 있습니다.
 
-## <a name="a-nameuserscopeaset-and-reset-user-level-credentials"></a><a name="userscope"></a>사용자 수준 자격 증명 설정 및 다시 설정
+    > [!NOTE]
+    > RBAC(역할 기반 액세스 제어)를 통해 이러한 자격 증명에 대한 액세스를 제공하려면 웹앱의 참가자 또는 더 높은 권한을 부여해야 합니다. 독자는 게시할 수 없으므로 해당 자격 증명에 액세스할 수 없습니다.
+    >
+    >
+
+## <a name="userscope"></a>사용자 수준 자격 증명 설정 및 다시 설정
 
 모든 앱의 [리소스 블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)에서 사용자 수준 자격 증명을 구성할 수 있습니다. 이러한 자격 증명을 구성하는 앱에 관계 없이 Azure 계정의 모든 앱과 모든 구독에 적용됩니다. 
 
@@ -60,7 +66,7 @@ ms.lasthandoff: 01/06/2017
 >
 >  
 
-## <a name="a-nameappscopeaget-and-reset-app-level-credentials"></a><a name="appscope"></a>앱 수준 자격 증명 정보 가져오기 및 다시 설정
+## <a name="appscope"></a>앱 수준 자격 증명 정보 가져오기 및 다시 설정
 App Service의 각 앱에 대한 앱 수준 자격 증명은 XML 게시 프로필에 저장되어 있습니다.
 
 앱 수준 자격 증명을 가져오려면
@@ -89,3 +95,4 @@ App Service의 각 앱에 대한 앱 수준 자격 증명은 XML 게시 프로�
 ## <a name="next-steps"></a>다음 단계
 
 이러한 자격 증명을 사용하여 [로컬 Git](app-service-deploy-local-git.md)에서 또는 [FTP/S](app-service-deploy-ftp.md)를 통해 앱을 배포하는 방법을 알아봅니다.
+

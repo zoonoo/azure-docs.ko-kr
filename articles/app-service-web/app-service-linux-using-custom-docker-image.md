@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 9962766b0a1fdfe313b70ea65e08785ec8a97996
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: d55cfc354ad5a9fc0f06b671f441ba4a0616bb9a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -94,7 +94,10 @@ Docker 허브에서 사용자 지정 Docker 이미지를 사용하려면
 
 ## <a name="troubleshooting"></a>문제 해결 ##
 
-응용 프로그램이 사용자 지정 Docker 이미지로 시작하지 못할 경우 LogFiles/docker 디렉터리에서 Docker 로그를 확인합니다. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다. 
+응용 프로그램이 사용자 지정 Docker 이미지로 시작하지 못할 경우 LogFiles/docker 디렉터리에서 Docker 로그를 확인합니다. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다.
+컨테이너에서 `stdout` 및 `stderr`을 로그하려면 **진단 로그** 아래에서 **웹 서버 로깅**을 활성화해야 합니다.
+
+![로깅 사용][8]
 
 ![Kudu를 사용하여 Docker 로그 보기][7]
 
@@ -120,4 +123,5 @@ Linux에서 웹앱을 시작하려면 다음 링크를 따르세요.
 [5]: ./media/app-service-linux-using-custom-docker-image/existingapp-configure-builtin.png
 [6]: ./media/app-service-linux-using-custom-docker-image/setting-port.png
 [7]: ./media/app-service-linux-using-custom-docker-image/kudu-docker-logs.png
+[8]: ./media/app-service-linux-using-custom-docker-image/logging.png
 

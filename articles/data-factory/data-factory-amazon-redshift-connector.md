@@ -14,21 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 524b87d95d3060c780b296350797501847c80638
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: e3079b55036a514b31249e5930f40ab4346f437a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Amazon Redshift에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다. 
 
-Amazon Redshift에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 표를 참조하세요. 현재 데이터 팩터리는 Amazon Redshift에서 다른 데이터 저장소로의 데이터 이동 만을 지원하지만, 다른 데이터 저장소에서 Amazon Redshift로 데이터 이동은 지원하지 않습니다.
+Amazon Redshift에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 현재 데이터 팩터리는 Amazon Redshift에서 다른 데이터 저장소로의 데이터 이동을 지원하지만, 다른 데이터 저장소에서 Amazon Redshift로 데이터 이동은 지원하지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * 온-프레미스 데이터 저장소로 데이터를 이동하는 경우 온-프레미스 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치합니다. 그런 다음 데이터 관리 게이트웨이(컴퓨터의 IP 주소 사용)에 Amazon Redshift 클러스터에 대한 액세스를 부여합니다. 자세한 내용은 [클러스터에 대한 액세스 권한 부여](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 를 참조하세요.
-* Azure 데이터 저장소에 데이터를 이동하는 경우, Microsoft Azure 데이터 센터에서 사용하는 IP 주소 범위(SQL 범위 포함)를 계산하기 위해 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 를 참조하세요.
+* Azure 데이터 저장소에 데이터를 이동하는 경우, Azure 데이터 센터에서 사용하는 IP 주소 및 SQL 범위를 계산하기 위해 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.
 
 ## <a name="getting-started"></a>시작
 다른 도구/API를 사용하여 Amazon Redshift 원본의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
@@ -62,7 +63,7 @@ Amazon Redshift에서 지원되는 모든 싱크 데이터 저장소로 데이�
 ## <a name="dataset-properties"></a>데이터 집합 속성
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
 
-**typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식(Amazon Redshift 데이터 집합을 포함)의 데이터 집합에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
+**typeProperties** 섹션은 데이터 집합의 각 형식마다 다릅니다. 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식(Amazon Redshift 데이터 집합을 포함)의 데이터 집합에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
@@ -71,9 +72,9 @@ Amazon Redshift에서 지원되는 모든 싱크 데이터 저장소로 데이�
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
 
-반면 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
+반면 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 유형에 따라 달라집니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
 
-복사 작업의 원본이 **RelationalSource** 형식인 경우 (Amazon Redshift 포함) typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
+복사 작업의 원본이 **RelationalSource** 형식인 경우(Amazon Redshift 포함) typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
@@ -127,7 +128,7 @@ Amazon Redshift에서 지원되는 모든 싱크 데이터 저장소로 데이�
 ```
 **Amazon Redshift 입력 데이터 집합:**
 
-**"external": true** 로 설정하면 데이터 집합이 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실이 Data Factory 서비스에 전달됩니다. 파이프라인에서의 작업에 의해 생성되지 않은 입력 데이터 집합에서 이 속성을 true로 설정합니다.
+`"external": true` 설정을 사용하는 경우 데이터 집합이 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 정보가 Data Factory 서비스에 전달됩니다. 파이프라인에서의 작업에 의해 생성되지 않은 입력 데이터 집합에서 이 속성을 true로 설정합니다.
 
 ```json
 {

@@ -16,9 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: a64af1a9f969c5ce5a7e2f18ca23451ac96f1a13
-ms.openlocfilehash: 7abd7b0921c029ff159935d89905d3c502aba643
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: fa3d37b963c1bb6b58127b9180cd657d7b1dabcc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -43,7 +45,7 @@ function.json 파일은 다음 속성을 제공합니다.
 * `connection` : 이 연결 문자열은 알림 허브에 대한 **DefaultFullSharedAccessSignature** 값으로 설정된 *응용 프로그램 설정* 연결 문자열이어야 합니다.
 * `direction` : *"out"*으로 설정해야 합니다. 
 * `platform`: 플랫폼 속성은 알림의 대상으로 지정된 알림 플랫폼을 나타냅니다. 다음 값 중 하나여야 합니다.
-  * `template`: 출력 바인딩에서 플랫폼 속성이 생략된 경우의 기본 플랫폼입니다. 템플릿 알림을 사용하여 Azure 알림 허브에 구성된 모든 플랫폼을 대상으로 지정할 수 있습니다. 일반적으로 Azure 알림 허브 알림에서 템플릿을 사용하여 플랫폼 간 알림을 보내는 방법에 대한 자세한 내용은 [템플릿](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 참조하세요.
+  * 기본적으로 출력 바인딩에서 platform 속성을 생략하면 템플릿 알림을 사용하여 Azure Notification Hub에 구성된 플랫폼을 대상으로 지정할 수 있습니다. 일반적으로 Azure 알림 허브 알림에서 템플릿을 사용하여 플랫폼 간 알림을 보내는 방법에 대한 자세한 내용은 [템플릿](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 참조하세요.
   * `apns`: Apple Push Notification Service입니다. APNS에 대한 알림 허브를 구성하고 클라이언트 앱에서 알림을 받는 방법에 대한 자세한 내용은 [Azure 알림 허브를 사용하여 iOS에 푸시 알림 보내기](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md)를 참조하세요. 
   * `adm`: [Amazon Device Messaging](https://developer.amazon.com/device-messaging)입니다. ADM에 대한 알림 허브를 구성하고 Kindle 앱에서 알림을 받는 방법에 대한 자세한 내용은 [Kindle 앱에 대한 알림 허브 시작](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md)을 참조하세요. 
   * `gcm`: [Google Cloud Messaging](https://developers.google.com/cloud-messaging/)입니다. 새 버전의 GCM인 Firebase Cloud Messaging도 지원됩니다. GCM/FCM에 대한 알림 허브를 구성하고 Android 클라이언트 앱에서 알림을 받는 방법에 대한 자세한 내용은 [Azure 알림 허브를 사용하여 Android에 푸시 알림 보내기](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)를 참조하세요.
@@ -294,10 +296,5 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

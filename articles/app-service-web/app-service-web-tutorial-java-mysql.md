@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e3a8bc6b11cccf7f6b277e800dbcedcd90e87006
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 5a6e4431ef25c66e1863a679f0db1363a83f4769
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -44,11 +44,12 @@ ms.lasthandoff: 06/03/2017
 1. [Git 다운로드 및 설치](https://git-scm.com/)
 1. [JDK Java 7 이상 다운로드 및 설치](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [MySQL 다운로드, 설치 및 시작](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-1. [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="prepare-local-mysql"></a>로컬 MySQL 준비 
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 06/03/2017
 
 ### <a name="connect-to-mysql-server"></a>MySQL 서버에 연결
 
-명령줄에서 로컬 MySQL 서버에 연결합니다.
+터미널 창에서 로컬 MySQL 서버에 연결합니다. 이 터미널 창을 사용하여 이 자습서의 모든 명령을 실행할 수 있습니다.
 
 ```bash
 mysql -u root -p
@@ -86,7 +87,7 @@ quit
 
 ### <a name="clone-the-sample"></a>샘플 복제
 
-명령 프롬프트에서 작업 디렉터리로 이동하고 샘플 리포지토리를 복제합니다. 
+터미널 창에서 작업 디렉터리로 이동하고 샘플 리포지토리를 복제합니다. 
 
 ```bash
 git clone https://github.com/azure-samples/mysql-spring-boot-todo
@@ -94,7 +95,7 @@ git clone https://github.com/azure-samples/mysql-spring-boot-todo
 
 ### <a name="configure-the-app-to-use-the-mysql-database"></a>MySQL 데이터베이스를 사용하도록 앱 구성
 
-MySQL 명령 프롬프트를 여는 데 사용한 것과 동일한 루트 암호로 *spring-boot-mysql-todo/src/main/resources/application.properties*의 `spring.datasource.password` 및 값을 업데이트합니다.
+MySQL 프롬프트를 여는 데 사용한 것과 동일한 루트 암호로 *spring-boot-mysql-todo/src/main/resources/application.properties*의 `spring.datasource.password` 및 값을 업데이트합니다.
 
 ```
 spring.datasource.password=mysqlpass
@@ -109,14 +110,14 @@ cd spring-boot-mysql-todo
 mvnw package spring-boot:run
 ```
 
-브라우저를 열어 http://localhost:8080에 접속하여 작업의 샘플에서 봅니다. 작업을 목록에 추가하여 MySQL 명령 프롬프트에서 다음 SQL 명령을 사용하여 MySQL에 저장된 데이터를 봅니다.
+브라우저를 열어 http://localhost:8080에 접속하여 작업의 샘플에서 봅니다. 목록에 작업을 추가하여 MySQL 프롬프트에서 다음 SQL 명령을 사용하여 MySQL에 저장된 데이터를 봅니다.
 
 ```SQL
 use testdb;
 select * from todo_item;
 ```
 
-명령 프롬프트에 `Ctrl`+`C`를 입력하여 응용 프로그램을 중지합니다. 
+터미널에서 `Ctrl`+`C`를 입력하여 응용 프로그램을 중지합니다. 
 
 ## <a name="create-an-azure-mysql-database"></a>Azure MySQL 데이트베이스 만들기
 

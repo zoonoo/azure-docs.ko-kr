@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 534397378a4d83414bfe62f2dd2c57678f09c429
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 126bc0658af3a27643bc0da2848545546f158f0c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/03/2017
 
 
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Azure에서 SendGrid를 사용하여 전자 메일을 보내는 방법
 ## <a name="overview"></a>개요
-이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 C\#
-으로 작성되었으며 .NET 표준 1.3을 지원합니다. 전자 메일 작성, 전자 메일 발송, 첨부 파일 추가 및 다양한 메일 및 추적 설정 사용 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계][Next steps] 섹션을 참조하세요.
+이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 C\#으로 작성되었으며 .NET 표준 1.3을 지원합니다. 전자 메일 작성, 전자 메일 발송, 첨부 파일 추가 및 다양한 메일 및 추적 설정 사용 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계][Next steps] 섹션을 참조하세요.
 
 ## <a name="what-is-the-sendgrid-email-service"></a>SendGrid 전자 메일 서비스 정의
 SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 신뢰할 만한 [트랜잭션 전자 메일 배달], 확장성 및 실시간 분석을 제공하는 [클라우드 기반 전자 메일 서비스]입니다. 일반적인 SendGrid 사용 사례는 다음과 같습니다.
@@ -70,7 +70,7 @@ SendGrid의 .NET 클래스 라이브러리는 **SendGrid**라고 합니다. 다�
 프로그래밍 방식으로 SendGrid 전자 메일 서비스에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
 
     using SendGrid;
-    using SendGrid.Helpers.Mail
+    using SendGrid.Helpers.Mail;
 
 ## <a name="how-to-create-an-email"></a>방법: 전자 메일 만들기
 **SendGridMessage** 개체를 사용하여 메일 메시지를 만듭니다. 일단 메시지 개체가 만들어지면 메일 보낸 사람, 메일 받는 사람, 메일 제목 및 본문을 포함하여 속성과 메서드를 설정할 수 있습니다.

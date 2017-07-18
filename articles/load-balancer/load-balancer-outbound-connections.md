@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2016
+ms.date: 5/31/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 3d2ba1d63f4bb89ff51275044922fb86b5f70365
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: bb490e7ba64f4db454e1bd7171d600ed9dd9e257
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 ---
 
@@ -45,7 +46,9 @@ SNAT 포트는 소진될 수 있는 한정된 리소스입니다. 사용 방법�
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>인스턴스 수준 공용 IP 주소가 없는 부하 분산 VM
 
-이 시나리오에서 VM은 Azure Load Balancer 풀의 일부입니다. VM에는 할당된 공용 IP 주소가 없습니다. 부하 분산 VM이 아웃바운드 흐름을 만든 경우 Azure에서는 아웃바운드 흐름의 개인 원본 IP 주소를 공용 부하 분산 장치 프론트 엔드의 공용 IP 주소로 변환합니다. Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기능을 수행합니다. 부하 분산 장치 공용 IP 주소의 임시 포트는 VM에서 발생하는 개별 흐름을 구별하는 데 사용됩니다. SNAT은 아웃바운드 흐름이 만들어질 때 임시 포트를 동적으로 할당합니다. 이 컨텍스트에서 SNAT에 사용되는 임시 포트를 SNAT 포트라고 합니다.
+이 시나리오에서 VM은 Azure Load Balancer 풀의 일부입니다.  VM에는 할당된 공용 IP 주소가 없습니다. 부하 분산 장치 리소스는 공용 IP 프런트 엔드를 백 엔드 풀과 연결하는 규칙으로 구성되어야 합니다.  이 구성을 완료하지 않으면 동작은 [인스턴스 수준 공용 IP가 없는 독립 실행형 VM](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address)에 대해 위의 섹션에 설명된 대로 나타납니다.
+
+부하 분산 VM이 아웃바운드 흐름을 만든 경우 Azure에서는 아웃바운드 흐름의 개인 원본 IP 주소를 공용 부하 분산 장치 프론트 엔드의 공용 IP 주소로 변환합니다. Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기능을 수행합니다. 부하 분산 장치 공용 IP 주소의 임시 포트는 VM에서 발생하는 개별 흐름을 구별하는 데 사용됩니다. SNAT은 아웃바운드 흐름이 만들어질 때 임시 포트를 동적으로 할당합니다. 이 컨텍스트에서 SNAT에 사용되는 임시 포트를 SNAT 포트라고 합니다.
 
 SNAT 포트는 소진될 수 있는 한정된 리소스입니다. 사용 방법을 이해하는 것이 중요합니다. 단일 대상 IP 주소에 대한 흐름 당 하나의 SNAT 포트를 사용합니다. 동일한 대상 IP 주소에 대한 여러 흐름의 경우 각 흐름은 단일 SNAT 포트를 사용합니다. 이렇게 하면 흐름은 동일한 대상 IP 주소에 대한 동일한 공용 IP 주소에서 시작하는 경우에 고유합니다. 다른 대상 IP 주소에 대한 여러 흐름은 각각 대상 당 단일 SNAT 포트를 사용합니다. 대상 IP 주소를 사용하면 흐름은 고유합니다.
 

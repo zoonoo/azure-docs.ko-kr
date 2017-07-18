@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: b11a729d935936c3abf34649c34a27b2ce7a7c45
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 3c6689d69984aa1138a57ca807d4fff4394382c6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/16/2017
 > 이 문서는 [Azure Data Factory 소개](data-factory-introduction.md)를 마쳤다고 간주합니다. 데이터 팩터리를 만드는 실습 경험이 없는 경우 [데이터 변환 자습서](data-factory-build-your-first-pipeline.md) 및/또는 [데이터 이동 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 진행하면 이 문서를 이해하는 데 도움이 됩니다.  
 
 ## <a name="overview"></a>개요
-데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. 파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 예를 들어 복사 활동을 사용하여 온-프레미스 SQL Server에서 Azure Blob Storage로 데이터를 복사할 수 있습니다. 그런 다음 Azure HDInsight 클러스터에 대해 하이브 스크립트를 실행하는 하이브 활동을 사용하여 Blob Storage의 데이터를 처리/변환함으로써 출력 데이터를 생성합니다. 마지막으로 두 번째 복사 활동을 사용하여 BI(비즈니스 인텔리전스) 보고 솔루션의 구축 기반이 되는 Azure SQL Data Warehouse로 출력 데이터를 복사합니다. 
+데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. 파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 예를 들어 복사 활동을 사용하여 온-프레미스 SQL Server에서 Azure Blob Storage로 데이터를 복사할 수 있습니다. 그런 다음 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 Hive 활동을 사용하여 Blob Storage의 데이터를 처리/변환함으로써 출력 데이터를 생성합니다. 마지막으로 두 번째 복사 활동을 사용하여 BI(비즈니스 인텔리전스) 보고 솔루션의 구축 기반이 되는 Azure SQL Data Warehouse로 출력 데이터를 복사합니다. 
 
 활동은 0개 이상의 입력 [데이터 집합](data-factory-create-datasets.md)을 받고 하나 이상의 출력 [데이터 집합](data-factory-create-datasets.md)을 생성할 수 있습니다. 다음 다이어그램은 데이터 팩터리의 파이프라인, 활동 및 데이터 집합 간 관계를 보여 줍니다. 
 
@@ -299,7 +299,7 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 - [데이터 변환 활동을 사용하여 파이프라인 빌드](data-factory-build-your-first-pipeline.md)
 - [데이터 이동 활동을 사용하여 파이프라인 빌드](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-파이프라인이 생성/배포되면 Azure Portal 블레이드 또는 모니터 앱을 사용하여 파이프라인을 관리하고 모니터링할 수 있습니다. 단계별 지침은 다음 항목을 참조하세요. 
+파이프라인이 생성/배포되면 Azure Portal 블레이드 또는 모니터 및 관리 앱을 사용하여 파이프라인을 관리하고 모니터링할 수 있습니다. 단계별 지침은 다음 항목을 참조하세요. 
 
 - [Azure Portal 블레이드를 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md)
 - [모니터 및 관리 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)

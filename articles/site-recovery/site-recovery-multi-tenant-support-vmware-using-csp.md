@@ -4,7 +4,7 @@ description: "다중 테넌트 환경에서 Azure Site Recovery를 배포하여 
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
-manager: jwhit
+manager: rochakm
 editor: 
 ms.assetid: 
 ms.service: site-recovery
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 06/23/2017
 ms.author: manayar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: ed484afc59bbf48490e3ff4389e8e28c71a5e471
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: 801eb19a2c1601653f229a5175fc71d6551ebe08
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/30/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -46,7 +46,7 @@ Azure Site Recovery는 테넌트 구독을 위해 다중 테넌트 환경을 지
 
 **그림 1: 하나의 vCenter를 사용한 공유 호스팅 시나리오**
 
-위에 나와 있는 것처럼 각각 고객은 별도 관리 서버를 갖습니다. 이는 테넌트별 VM에 테넌트 액세스를 제한하여 테넌트를 격리합니다. VMware 가상 컴퓨터 복제 시나리오는 VM을 검색하고 에이전트를 설치하기 위해 계정을 관리하는 구성 서버를 사용합니다. vCenter 액세스 제어를 통해 VM 검색을 제한하는 것 외에도 다중 테넌트 환경에 대해 동일한 원칙을 따릅니다.
+위에 나와 있는 것처럼 각각 고객은 별도 관리 서버를 갖습니다. 이는 테넌트별 VM에 테넌트 액세스를 제한하고 테넌트를 격리합니다. VMware 가상 컴퓨터 복제 시나리오는 VM을 검색하고 에이전트를 설치하기 위해 계정을 관리하는 구성 서버를 사용합니다. vCenter 액세스 제어를 통해 VM 검색을 제한하는 것 외에도 다중 테넌트 환경에 대해 동일한 원칙을 따릅니다.
 
 데이터 격리 요구 사항은 모든 민감한 인프라 정보(예: 액세스 자격 증명)를 테넌트에게 공개된 상태로 유지하는 것이 필요합니다. 이러한 이유로 관리 서버(구성 서버(CS), 프로세스 서버(PS) 및 마스터 대상 서버(MT))의 모든 구성 요소는 파트너가 독점적으로 통제하도록 하는 것이 좋습니다. 여기에는 확장 PS도 포함됩니다.
 
@@ -153,7 +153,7 @@ VM 필수 구성 요소는 Azure Site Recovery [설명서](site-recovery-vmware-
 
 ### <a name="step-2-access-tenant-account"></a>2단계: 액세스 테넌트 계정
 
-1.  1단계에서 설명된 대로 대시보드를 통해 '고객' 페이지에서 테넌트의 구독에 액세스할 수 있습니다. 여기로 이동하고 방금 만든 테넌트 계정 이름을 클릭합니다.
+1.  1단계에서 설명된 대로 대시보드를 통해 '고객' 페이지에서 테넌트의 구독에 액세스할 수 있습니다. 여기로 이동하고 만든 테넌트 계정 이름을 클릭합니다.
 2.  그러면 테넌트 계정의 구독 섹션이 열리고 여기에서 계정에 대한 기존 구독을 모니터링하고 필요에 따라 구독을 더 추가할 수 있습니다. 테넌트의 DR 작업을 관리하려면 페이지의 오른쪽에 있는 '모든 리소스(Azure Portal)' 옵션을 선택합니다.
 
     ![모든 리소스](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)
@@ -171,7 +171,7 @@ VM 필수 구성 요소는 Azure Site Recovery [설명서](site-recovery-vmware-
 
     ![구성-계정](./media/site-recovery-multi-tenant-support-vmware-using-csp/config-server-account-display.png)
 
-### <a name="step-4-register-site-recovery-infrastructure-to-recovery-services-vault"></a>4단계: 사이트 복구 인프라를 Recovery Services 자격 증명 모음에 등록
+### <a name="step-4-register-site-recovery-infrastructure-to-recovery-services-vault"></a>4단계: Site Recovery 인프라를 Recovery Services 자격 증명 모음에 등록
 1.  Azure Portal을 열고 앞에서 만든 자격 증명 모음에서 vCenter 서버를 이전 단계에서 등록된 CS에 등록합니다. 이를 위해 vCenter 액세스 계정을 사용합니다.
 2.  일반 프로세스에 대한 Site Recovery를 위해 '준비 인프라' 프로세스를 완료합니다.
 3.  이제 VM을 복제할 준비가 되었습니다. 복제 옵션 아래에 있는 VM 선택 블레이드에 테넌트의 VM만 표시되는지 확인합니다.

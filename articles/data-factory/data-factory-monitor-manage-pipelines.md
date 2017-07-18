@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 05/18/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 223edfde090c9b77467e032198c2150fbaa56a5b
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 61bb5379cd94dd00814e14420947e7783999ff0a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -27,15 +28,11 @@ ms.lasthandoff: 04/12/2017
 > * [모니터링 및 관리 앱 사용](data-factory-monitor-manage-app.md)
 
 
-Azure Data Factory는 저장소, 처리 및 데이터 이동 서비스의 안정적이고 완전한 뷰를 제공합니다. 이 서비스는 다음을 수행하는 데 사용할 수 있는 모니터링 대시보드를 제공합니다.
+> [!IMPORTANT]
+> 모니터링 및 관리 응용 프로그램은 데이터 파이프라인 모니터링 및 관리와 문제 해결에 대한 더 나은 지원을 제공합니다. 응용 프로그램 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요. 
 
-* 종단 간 데이터 파이프라인 상태를 신속하게 평가합니다.
-* 문제를 식별하고 필요한 경우 수정 작업을 수행합니다.
-* 데이터 계보를 추적합니다.
-* 모든 원본에서 데이터 간의 관계를 추적합니다.
-* 작업 실행, 시스템 상태 및 종속성을 설명하는 전체 기록을 봅니다.
 
-이 문서는 파이프라인을 모니터링하고 관리하며 디버그하는 방법을 설명합니다. 경고를 생성하고 오류에 대한 알림을 받는 방법에 대한 정보도 제공합니다.
+이 문서는 Azure Portal 및 PowerShell을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 또한 경고를 생성하고 오류에 대한 알림을 받는 방법에 대한 정보도 제공합니다.
 
 ## <a name="understand-pipelines-and-activity-states"></a>파이프라인 및 작업 상태 이해
 Azure Portal을 사용하여 다음을 수행할 수 있습니다.
@@ -44,15 +41,13 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 * 파이프라인에서 활동 보기
 * 입력 및 출력 데이터 집합 보기
 
-이 섹션은 조각이 하나의 상태에서 다른 상태로 전환되는 방식을 설명합니다.   
+이 섹션은 데이터 집합 조각이 하나의 상태에서 다른 상태로 전환되는 방식을 설명합니다.   
 
 ### <a name="navigate-to-your-data-factory"></a>데이터 팩터리로 이동
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽의 메뉴에서 **데이터 팩터리**를 클릭합니다. 데이터 팩터리가 보이지 않으면 **더 많은 서비스 >**를 클릭하고 **인텔리전스 + 분석** 범주 아래에 있는 **데이터 팩터리**를 클릭합니다.
 
    ![모두 찾아보기 -> 데이터 팩터리](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
-
-   **데이터 팩터리** 블레이드에 모든 데이터 팩터리가 표시됩니다.
 3. **데이터 팩터리** 블레이드에서 관심있는 데이터 팩터리를 선택합니다.
 
     ![데이터 팩터리 선택](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
@@ -62,13 +57,11 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
    ![데이터 팩터리 블레이드](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### <a name="diagram-view-of-your-data-factory"></a>데이터 팩터리의 다이어그램 뷰
-데이터 팩터리의 **다이어그램** 뷰에는 데이터 팩터리와 그 자산을 모니터링하고 관리하기 위한 단일 돋보기 창이 제공됩니다.
-
-데이터 팩터리의 **다이어그램** 뷰를 보려면 데이터 팩터리 홈 페이지에서 **다이어그램**을 클릭합니다.
+데이터 팩터리의 **다이어그램** 뷰에는 데이터 팩터리와 그 자산을 모니터링하고 관리하기 위한 단일 돋보기 창이 제공됩니다. 데이터 팩터리의 **다이어그램** 뷰를 보려면 데이터 팩터리 홈 페이지에서 **다이어그램**을 클릭합니다.
 
 ![다이어그램 뷰](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
-확대, 축소, 크기에 맞게, 100% 확대, 다이어그램 레이아웃 고정, 파이프라인과 테이블 자동 배치가 가능합니다. 또한 데이터 계보 정보도 볼 수 있습니다(즉, 선택한 항목의 업스트림 및 다운스트림 항목 표시).
+확대, 축소, 크기에 맞게, 100% 확대, 다이어그램 레이아웃 고정, 파이프라인과 데이터 집합 자동 배치가 가능합니다. 또한 데이터 계보 정보도 볼 수 있습니다(즉, 선택한 항목의 업스트림 및 다운스트림 항목 표시).
 
 ### <a name="activities-inside-a-pipeline"></a>파이프라인 내부의 활동
 1. 파이프라인을 마우스 오른쪽 단추로 클릭하고 **파이프라인 열기**를 클릭하면 파이프라인 내부의 모든 활동과 활동에 대한 입력 및 출력 데이터 집합이 표시됩니다. 이 기능은 파이프라인에 둘 이상의 작업이 포함된 경우 단일 파이프라인의 운영 계보를 이해하고자 할 때 유용합니다.
@@ -172,17 +165,13 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 조각은 **Ready**(준비) 또는 **Failed**(실패) 상태에서 **Waiting**(대기 중) 상태로 다시 설정할 수 있습니다. 조각 상태를 **Skip**(건너뛰기)로 표시할 수도 있으며, 이렇게 하면 작업이 실행되지 않고 조각이 처리되지 않습니다.
 
-## <a name="manage-pipelines"></a>파이프라인 관리
-Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 예를 들어 Azure PowerShell cmdlet을 실행하여 파이프라인을 일시 중지하거나 다시 시작할 수 있습니다.
+## <a name="pause-and-resume-pipelines"></a>파이프라인 일시 중지 및 다시 시작
+Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 예를 들어 Azure PowerShell cmdlet을 실행하여 파이프라인을 일시 중지하거나 다시 시작할 수 있습니다. 
 
-### <a name="pause-and-resume-pipelines"></a>파이프라인 일시 중지 및 다시 시작
-**Suspend-AzureRmDataFactoryPipeline** Powershell cmdlet을 사용하여 파이프라인을 일시 중지/일시 중단할 수 있습니다. 이 cmdlet은 문제가 해결될 때까지 파이프라인을 실행하지 않으려는 경우 유용합니다.
+> [!NOTE] 
+> 다이어그램 보기는 파이프라인 일시 중지 및 다시 시작을 지원하지 않습니다. 사용자 인터페이스를 사용하려는 경우 모니터링 및 관리 응용 프로그램을 사용합니다. 응용 프로그램 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요. 
 
-예를 들어 다음 스크린샷에 **productrecgamalbox1dev** 데이터 팩터리의 **PartitionProductsUsagePipeline**에서 문제가 확인되어 파이프라인을 일시 중단하려고 합니다.
-
-![일시 중단할 파이프라인](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
-
-파이프라인을 일시 중단하려면 다음 PowerShell 명령을 실행합니다.
+**Suspend-AzureRmDataFactoryPipeline** Powershell cmdlet을 사용하여 파이프라인을 일시 중지/일시 중단할 수 있습니다. 이 cmdlet은 문제가 해결될 때까지 파이프라인을 실행하지 않으려는 경우 유용합니다. 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -193,7 +182,7 @@ Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryNa
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
-**PartitionProductsUsagePipeline** 문제가 해결되고 나면 다음 PowerShell 명령을 실행하여 일시 중단된 파이프라인을 다시 시작할 수 있습니다.
+파이프라인 문제가 해결되고 나면 다음 PowerShell 명령을 실행하여 일시 중단된 파이프라인을 다시 시작할 수 있습니다.
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -203,8 +192,11 @@ Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryNam
 ```powershell
 Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
+
 ## <a name="debug-pipelines"></a>파이프라인 디버깅
 Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이프라인 디버그와 문제 해결을 위한 다양한 기능을 제공합니다.
+
+> [!참고} 모니터링 및 관리 앱을 사용하여 오류를 해결하기가 훨씬 쉽습니다. 응용 프로그램 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요. 
 
 ### <a name="find-errors-in-a-pipeline"></a>파이프라인에서 오류 찾기
 파이프라인에서 작업 실행이 실패하면 파이프라인에 의해 생성된 데이터 집합은 실패로 인해 오류 상태가 됩니다. 다음과 같은 방법을 사용하여 Azure Data Factory에서 오류의 문제를 해결하고 디버그할 수 있습니다.
@@ -221,7 +213,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
    ![오류가 있는 작업 실행 세부 정보 블레이드 ](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### <a name="use-powershell-to-debug-an-error"></a>PowerShell을 사용한 오류 디버그
-1. **Azure PowerShell**을 시작합니다.
+1. **PowerShell**을 시작합니다.
 2. **Get-AzureRmDataFactorySlice** 명령을 실행하여 조각과 해당 상태를 표시합니다. 조각의 상태가 **실패**로 표시됩니다.        
 
     ```powershell   
@@ -233,7 +225,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
-   **StartDateTime**을 Set-AzureRmDataFactoryPipelineActivePeriod에 대해 지정한 StartDateTime 값으로 바꿉니다.
+   **StartDateTime**을 파이프라인의 시작 시간으로 바꿉니다. 
 3. 이제 **Get-AzureRmDataFactoryRun** cmdlet을 실행하여 조각의 작업 실행에 대한 세부 정보를 가져옵니다.
 
     ```powershell   
@@ -279,12 +271,17 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     ```
 
 ## <a name="rerun-failures-in-a-pipeline"></a>파이프라인에서 실패한 항목 다시 실행
+
+> [!IMPORTANT]
+> 모니터링 및 관리 앱을 사용하여 오류를 해결하고 실패한 조각을 다시 실행하는 것이 더 쉽습니다. 응용 프로그램 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요. 
+
 ### <a name="use-the-azure-portal"></a>Azure 포털 사용
 파이프라인에서 실패에 대한 문제를 해결하고 디버그한 후에는 오류 조각으로 이동하고 명령 모음의 **실행** 단추를 클릭하여 실패한 항목을 다시 실행할 수 있습니다.
 
 ![실패한 조각 다시 실행](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
 정책 오류(예: 데이터를 사용할 수 없음)로 인해 조각 유효성 검사에 실패한 경우에는 명령 모음의 **유효성 검사** 단추를 클릭하여 오류를 해결하고 유효성 검사를 다시 할 수 있습니다.
+
 ![오류 수정 및 유효성 검사](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Azure PowerShell 사용
