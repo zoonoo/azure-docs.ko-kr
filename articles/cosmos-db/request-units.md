@@ -2,7 +2,7 @@
 title: "요청 단위 및 예상 처리량 - Azure Cosmos DB | Microsoft Docs"
 description: "Azure Cosmos DB의 요청 단위 요구 사항을 이해, 지정 및 예측하는 방법을 알아봅니다."
 services: cosmos-db
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: syamk
+ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f263aaad1ba2a902401d8210727f146cb92f4ea8
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 95adddc01ee2814515c20f36e8503de30454a8f4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -28,11 +28,11 @@ ms.lasthandoff: 05/31/2017
 ![처리량 계산기][5]
 
 ## <a name="introduction"></a>소개
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스입니다. Azure Cosmos DB를 사용하면 가상 컴퓨터를 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft의 최고 엔지니어가 Azure Cosmos DB를 작동하고 지속적으로 모니터링합니다. [DocumentDB SQL](documentdb-sql-query.md)(문서), MongoDB(문서), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/)(키-값) 및 [Gremlin](https://tinkerpop.apache.org/gremlin.html)(그래프)가 모두 기본적으로 지원되므로 원하는 API를 사용하여 데이터에 액세스할 수 있습니다. Azure Cosmos DB의 통화는 RU(요청 단위)입니다. RU를 사용하면 읽기, 쓰기 용량을 예약하거나 CPU, 메모리 및 IOPS를 프로비전할 필요가 없습니다.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스입니다. Azure Cosmos DB를 사용하면 가상 컴퓨터를 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft의 최고 엔지니어가 Azure Cosmos DB를 작동하고 지속적으로 모니터링합니다. [DocumentDB SQL](documentdb-sql-query.md)(문서), MongoDB(문서), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/)(키-값) 및 [Gremlin](https://tinkerpop.apache.org/gremlin.html)(그래프)가 모두 기본적으로 지원되므로 원하는 API를 사용하여 데이터에 액세스할 수 있습니다. Azure Cosmos DB의 통화는 RU(요청 단위)입니다. RU를 사용하면 읽기/쓰기 용량을 예약하거나 CPU, 메모리 및 IOPS를 프로비전할 필요가 없습니다.
 
-Azure Cosmos DB는 읽기, 쓰기부터 복잡한 그래프 쿼리에 이르기까지 다양한 작업에서 많은 API를 지원합니다. 모든 요청 값이 같지 않으므로 요청을 처리하는 데 필요한 계산의 양에 기반하여 정규화된 양의 **요청 단위**가 할당됩니다. 작업에 대한 요청 단위 수는 결정적이며 응답 헤더를 통해 Azure Cosmos DB의 모든 작업에 사용된 요청 단위 수를 추적할 수 있습니다. 
+Azure Cosmos DB는 단순한 읽기 및 쓰기부터 복잡한 그래프 쿼리에 이르기까지 다양한 작업에서 많은 API를 지원합니다. 모든 요청 값이 같지 않으므로 요청을 처리하는 데 필요한 계산의 양에 기반하여 정규화된 양의 **요청 단위**가 할당됩니다. 작업에 대한 요청 단위 수는 결정적이며 응답 헤더를 통해 Azure Cosmos DB의 모든 작업에 사용된 요청 단위 수를 추적할 수 있습니다. 
 
-예측 가능한 성능을 제공하려면 100 RU/초 단위로 처리량을 예약해야 합니다. 100 RU/초인 각 블록에 대해 1,000 RU/분인 블록을 연결할 수 있습니다. 초당 및 분당 프로비저닝을 결합하면 최대 사용에 대해 프로비전할 필요가 없으므로 매우 강력하며, 초당 프로비저닝만 사용하는 서비스에 비해 최대 75%의 비용을 절약할 수 있습니다.
+예측 가능한 성능을 제공하려면 100 RU/초 단위로 처리량을 예약해야 합니다. 100 RU/초인 각 블록에 대해 1,000 RU/분인 블록을 연결할 수 있습니다. 초당 및 분당 프로비전을 결합하면 최대 로드에 대해 프로비전할 필요가 없으므로 매우 강력하며, 초당 프로비전만 사용하는 서비스에 비해 최대 75%의 비용을 절약할 수 있습니다.
 
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.  
 

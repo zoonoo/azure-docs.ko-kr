@@ -11,12 +11,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/09/2017
+ms.date: 06/30/2017
 ms.author: pakunapa
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 11e300b3b1d0433bd4790332593ada2d3eede883
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: dc4a362b5737bb424ca2c196c85f4c51b6ee5e30
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -86,6 +87,23 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 ```
 
 원격 호출 프레임워크는 서비스에 throw된 예외를 클라이언트에 전파합니다. 따라서 `ServiceProxyBase` 을 사용하여 클라이언트에서 논리를 예외 처리하는 작업은 서비스가 throw하는 예외를 직접 처리할 수 있습니다.
+
+## <a name="service-proxy-lifetime"></a>서비스 프록시 수명
+ServiceProxy 만들기는 가벼운 작업이므로 사용자가 원하는 만큼 만들 수 있습니다. 서비스 프록시는 사용자가 필요할 때까지 다시 사용할 수 있습니다. 사용자는 예외 발생 시 동일한 프록시를 다시 사용할 수 있습니다. 각 서비스 프록시는 유선으로 메시지를 보내는 데 사용되는 통신 클라이언트를 포함합니다. API를 호출하는 동안 사용된 통신 클라이언트가 유효한지 내부적으로 확인합니다. 그 결과에 따라 통신 클라이언트를 다시 만듭니다. 따라서 사용자는 예외 발생 시 serviceproxy를 다시 작성할 필요가 없습니다.
+
+### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory 수명
+[FabricServiceProxyFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory)는 다른 원격 인터페이스를 위한 프록시를 만드는 팩터리입니다. 프록시를 만들기 위해 API `ServiceProxyBase.create`를 사용하는 경우 프레임워크에서 `FabricServiceProxyFactory`를 만듭니다.
+[ServiceRemotingClientFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory) 속성을 재정의해야 하는 경우 수동으로 만드는 것이 유용합니다.
+팩터리는 비용이 많이 드는 작업입니다. `FabricServiceProxyFactory`는 통신 클라이언트의 캐시를 유지 관리합니다.
+`FabricServiceProxyFactory`를 가능한 한 오랫동안 캐시하는 것이 가장 좋습니다.
+
+## <a name="remoting-exception-handling"></a>원격 예외 처리
+서비스 API에 의해 throw되는 모든 원격 예외는 RuntimeException 또는 FabricException으로 클라이언트에 다시 전송됩니다.
+
+ServiceProxy는 만들어진 서비스 파티션에 대한 모든 장애 조치(failover) 예외를 처리합니다. 장애 조치(Failover) 예외(영구적인 예외)가 있는 경우 끝점을 다시 확인하고 올바른 끝점으로 호출을 다시 시도합니다. 장애 조치(Failover) 예외에 대한 재시도 횟수는 무한합니다.
+TransientExceptions의 경우에는 호출만 다시 시도합니다.
+
+기본 재시도 매개 변수는 [OperationRetrySettings]에서 제공됩니다. (https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings)사용자는 OperationRetrySettings 개체를 ServiceProxyFactory 생성자에 전달하여 이러한 값을 구성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Reliable Services에 대한 통신 보안 유지](service-fabric-reliable-services-secure-communication.md)

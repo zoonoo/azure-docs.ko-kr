@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 07/05/2017
 ms.author: nini
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ac94bca1657efbe0ce94db953933f026217d1c8a
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 6f864581fe1d1771371d6805407cb881fedb4187
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -29,6 +30,8 @@ ms.lasthandoff: 02/28/2017
 >
 >
 
+![Service Fabric 기호](./media/log-analytics-service-fabric/service-fabric-assessment-symbol.png)
+
 이 문서에서는 Log Analytics에서 Service Fabric 솔루션을 사용하여 Service Fabric 클러스터 간의 문제를 파악 및 해결하는 방법에 대해 설명합니다.
 
 Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하여 Service Fabric VM에서 Azure 진단 데이터를 사용합니다. 그러면 Log Analytics에서는 **Reliable Service 이벤트**, **행위자 이벤트**, **작업 이벤트**, **사용자 지정 ETW 이벤트**를 포함한 Service Fabric 프레임워크 이벤트를 읽어옵니다. 솔루션 대시보드를 통해 Service Fabric 환경에서 주목할 만한 문제와 관련 이벤트를 볼 수 있습니다.
@@ -36,7 +39,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 솔루션을 시작하려면 Service Fabric 클러스터를 Log Analytics 작업 영역에 연결해야 합니다. 세 가지 시나리오를 고려해야 합니다.
 
 1. Service Fabric 클러스터를 배포하지 않은 경우 ***Log Analytics 작업 영역에 연결된 Service Fabric 클러스터 배포***의 단계에 따라 새 클러스터를 배포하고 Log Analytics에 보고하도록 구성합니다.
-2. Service Fabric 클러스터의 보안과 같은 다른 OMS 솔루션을 사용하기 위해 호스트에서 성능 카운터를 수집해야 할 경우 ***VM 확장이 설치된 OMS 작업 영역에 연결된 Service Fabric 클러스터 배포***의 단계를 따릅니다.
+2. Service Fabric 클러스터의 보안과 같은 다른 OMS 솔루션을 사용하기 위해 호스트에서 성능 카운터를 수집해야 할 경우 ***VM 확장이 설치된 Log Analytics 작업 영역에 연결된 Service Fabric 클러스터 배포***의 단계를 따릅니다.
 3. Service Fabric 클러스터를 이미 배포했고 Log Analytics에 연결하려는 경우 ***기존 저장소 계정을 Log Analytics에 추가***의 단계를 따릅니다.
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Log Analytics 작업 영역에 연결된 Service Fabric 클러스터를 배포합니다.
@@ -48,7 +51,9 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
 [![Azure에 배포](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json)
 
-위의 배포 단추를 선택하면 편집할 매개 변수가 있는 Azure 포털로 이동합니다. 새 Log Analytics 작업 영역 이름을 ![Service Fabric](./media/log-analytics-service-fabric/2.png)으로 입력하는 경우 새 리소스 그룹을 만들어야 합니다.
+위의 배포 단추를 선택하면 편집할 매개 변수가 있는 Azure Portal로 이동합니다. 새 Log Analytics 작업 영역 이름을 입력하는 경우 새 리소스 그룹을 만들어야 합니다.
+
+![서비스 패브릭](./media/log-analytics-service-fabric/2.png)
 
 ![서비스 패브릭](./media/log-analytics-service-fabric/3.png)
 
@@ -56,13 +61,13 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
 ![서비스 패브릭](./media/log-analytics-service-fabric/4.png)
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed"></a>VM 확장이 설치된 OMS 작업 영역에 연결된 Service Fabric 클러스터를 배포합니다.
+## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace-with-vm-extension-installed"></a>VM 확장이 설치된 Log Analytics 작업 영역에 연결된 Service Fabric 클러스터를 배포합니다.
 이 템플릿은 다음을 수행합니다.
 
 1. Log Analytics 작업 영역에 이미 연결된 Azure Service Fabric 클러스터를 배포합니다. 새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다.
 2. 진단 저장소 계정을 Log Analytics 작업 영역에 추가합니다.
 3. Log Analytics 작업 영역에서 Service Fabric 솔루션을 사용하도록 설정합니다.
-4. Service Fabric 클러스터의 각 VM 규모 집합에 MMA 에이전트 확장을 설치합니다. MMA 에이전트가 설치되면 노드에 대한 성능 메트릭을 볼 수 있습니다.
+4. Service Fabric 클러스터의 각 가상 컴퓨터 확장 집합에 MMA 에이전트 확장을 설치합니다. MMA 에이전트가 설치되면 노드에 대한 성능 메트릭을 볼 수 있습니다.
 
 [![Azure에 배포](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-vmss-oms%2F%2Fazuredeploy.json)
 
@@ -82,7 +87,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 * 로그 검색에서 다음 쿼리를 사용하여 노드에 대한 주요 메트릭을 살펴봅니다.
   </br>
 
-    a. 최근&1;시간 동안 모든 노드에 대한 평균 CPU 사용률을 비교하여 어떤 노드에 문제가 있으며 노드에 급증이 나타나는 시간 간격을 확인합니다.
+    a. 최근 1시간 동안 모든 노드에 대한 평균 CPU 사용률을 비교하여 어떤 노드에 문제가 있으며 노드에 급증이 나타나는 시간 간격을 확인합니다.
 
     ``` Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
 
@@ -115,7 +120,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 [![Azure에 배포](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Foms-existing-storage-account%2Fazuredeploy.json)
 
 > [!NOTE]
-> 리소스 그룹 선택 시, 기존의 Log Analytics 작업 영역으로 작업 중인 경우 "기존 사용"을 선택하고 OMS 작업 영역을 포함하는 리소스 그룹을 검색합니다. 그렇지 않은 경우 새 작업 영역을 만듭니다.
+> 리소스 그룹 선택 시, 기존의 Log Analytics 작업 영역으로 작업 중인 경우 “기존 사용”을 선택하고 Log Analytics 작업 영역을 포함하는 리소스 그룹을 검색합니다. 그렇지 않은 경우 새 작업 영역을 만듭니다.
 > ![Service Fabric](./media/log-analytics-service-fabric/8.png)
 >
 >
@@ -124,7 +129,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 ![Service Fabric](./media/log-analytics-service-fabric/9.png)
 
 ## <a name="view-service-fabric-events"></a>Service Fabric 이벤트 보기
-배포를 완료하고 작업 영역에서 Service Fabric 솔루션을 사용하도록 설정했으면 Log Analytics 포털에서 **Service Fabric** 타일을 선택하여 Service Fabric 대시보드를 실행합니다. 대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 시간 범위에 대한 열의 기준과 일치하는 카운트별로 상위 열 개의 이벤트를 나열합니다. 각 열의 오른쪽 아래쪽에 있는 **모두 보기**를 클릭하거나 열 제목을 클릭하여 전체 목록을 제공하는 로그 검색을 실행할 수 있습니다.
+배포를 완료하고 작업 영역에서 Service Fabric 솔루션을 사용하도록 설정했으면 Log Analytics 포털에서 **Service Fabric** 타일을 선택하여 Service Fabric 대시보드를 실행합니다. 대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 시간 범위에 대한 열의 기준과 일치하는 카운트별로 상위 10개의 이벤트를 나열합니다. 각 열의 오른쪽 아래쪽에 있는 **모두 보기**를 클릭하거나 열 제목을 클릭하여 전체 목록을 제공하는 로그 검색을 실행할 수 있습니다.
 
 | **Service Fabric 이벤트** | **description** |
 | --- | --- |
@@ -140,7 +145,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
 다음 표에서는 데이터 수집 방법 및 Service Fabric에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 
-| 플랫폼 | 직접 에이전트 | SCOM 에이전트 | Azure 저장소 | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
+| 플랫폼 | 직접 에이전트 | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![아니요](./media/log-analytics-malware/oms-bullet-red.png) |![아니요](./media/log-analytics-malware/oms-bullet-red.png) |![예](./media/log-analytics-malware/oms-bullet-green.png) |![아니요](./media/log-analytics-malware/oms-bullet-red.png) |![아니요](./media/log-analytics-malware/oms-bullet-red.png) |10분 |
 

@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 06/27/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 5cbe0b7f71f8dfd6f3a41fa6ff4b0c6ab5e6985d
-ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 32cbfbc78fbb808ed59142b80602a751f607706d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -25,13 +27,30 @@ ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 
 이 항목에서는 **Media Encoder Standard** 및 **Media Encoder Premium Workflow**의 인코딩 기능을 비교합니다.
 
-### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>각 인코더에서 사용되는 요금 청구 기준
+## <a name="video-and-audio-processing-capabilities"></a>비디오 및 오디오 처리 기능
+
+다음 표에서는 MES(Media Encoder Standard) 및 MEPW(Media Encoder Premium Workflow)의 기능을 비교합니다. 
+
+|기능|미디어 인코더 표준|미디어 인코더 Premium 워크플로|
+|---|---|---|
+|인코딩 중에 조건부 논리 적용<br/>(예를 들어, 입력이 HD인 경우 인코드 5.1 오디오)|아니요|예|
+|선택 자막|아니요|[예](media-services-premium-workflow-encoder-formats.md#a-idclosedcaptioningasupport-for-closed-captioning)|
+|[Dolby® Professional Loudness Correction](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> Dialogue Intelligence™ 사용|아니요|예|
+|디-인터레이스, 역텔레시네|Basic|브로드캐스트 품질|
+|검은색 테두리 감지 및 제거 <br/>(필러박스, 레터박스)|아니요|예|
+|썸네일 생성|[예](media-services-dotnet-generate-thumbnail-with-mes.md)|[예](media-services-media-encoder-premium-workflow-tutorials.md#a-idthumbnailstomultibitratemp4aadding-thumbnails-to-multibitrate-mp4-output)|
+|비디오 클리핑/잘라내기 및 붙이기|[예](media-services-advanced-encoding-with-mes.md#a-idtrimvideoatrim-a-video-clipping)|예|
+|오디오 또는 비디오 오버레이|[예](media-services-advanced-encoding-with-mes.md#a-idoverlayacreate-an-overlay)|[예](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
+|그래픽 오버레이|이미지 원본에서|이미지 및 텍스트 원본에서|
+|다중 오디오 언어 트랙|제한적|[예](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
+
+## <a id="billing"></a>각 인코더에서 사용되는 요금 청구 기준
 | 미디어 프로세서 이름 | 적용 가능한 가격 | 참고 사항 |
 | --- | --- | --- |
 | **미디어 인코더 표준** |인코더 |인코딩 작업은 [여기][1]의 인코더 열 아래에 지정된 요율을 기준으로, 출력으로 생성된 모든 미디어 파일의 전체 재생 시간(분)에 따라 요금이 부과됩니다. |
 | **Media Encoder Premium 워크플로** |프리미엄 인코더 |인코딩 작업은 [여기][1]의 프리미엄 인코더 열 아래에 지정된 요율을 기준으로, 출력으로 생성된 모든 미디어 파일의 전체 재생 시간(분)에 따라 요금이 부과됩니다. |
 
-### <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
+## <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
 | 입력 컨테이너/파일 형식 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | Adobe® Flash® F4V |예 |예 |
@@ -48,7 +67,7 @@ ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 | Matroska/WebM |예 |아니요 |
 | QuickTime(.mov) |예 |아니요 |
 
-### <a name="input-video-codecs"></a>입력 비디오 코덱
+## <a name="input-video-codecs"></a>입력 비디오 코덱
 | 입력 비디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | AVC 8비트/10비트, 최대 4:2:2, AVCIntra 포함 |8비트 4:2:0 및 4:2:2 |예 |
@@ -68,7 +87,7 @@ ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 | Apple ProRes 4444 |예 |아니요 |
 | Apple ProRes 4444 XQ |예 |아니요 |
 
-### <a name="input-audio-codecs"></a>입력 오디오 코덱
+## <a name="input-audio-codecs"></a>입력 오디오 코덱
 | 입력 오디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |예 |
@@ -84,7 +103,7 @@ ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 | [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |예 |아니요 |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |예 |아니요 |
 
-### <a name="output-containerfile-formats"></a>출력 컨테이너/파일 형식
+## <a name="output-containerfile-formats"></a>출력 컨테이너/파일 형식
 | 출력 컨테이너/파일 형식 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | Adobe® Flash® F4V |아니요 |예 |
@@ -97,7 +116,7 @@ ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 | AVI(압축되지 않은 8비트/10비트) |아니요 |예 |
 | 부드러운 스트리밍 파일 형식(PIFF 1.3) |아니요 |예 |
 
-### <a name="output-video-codecs"></a>출력 비디오 코덱
+## <a name="output-video-codecs"></a>출력 비디오 코덱
 | 출력 비디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | AVC(H.264, 8비트, 최대 High Profile, 수준 5.2, 4K Ultra HD, AVC Intra) |8비트 4:2:0만 |예 |
@@ -105,9 +124,11 @@ ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 | MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |아니요 |예 |
 | MPEG-1 |아니요 |예 |
 | Windows Media 비디오/VC-1 |아니요 |예 |
-| JPEG 축소판 그림 만들기 |아니요 |예 |
+| JPEG 축소판 그림 만들기 |예 |예 |
+| PNG 썸네일 만들기 |예 |예 |
+| BMP 썸네일 만들기 |예 |아니요 |
 
-### <a name="output-audio-codecs"></a>출력 오디오 코덱
+## <a name="output-audio-codecs"></a>출력 오디오 코덱
 | 출력 오디오 코덱 | 미디어 인코더 표준 | 미디어 인코더 Premium 워크플로 |
 | --- | --- | --- |
 | AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |예 |
@@ -133,9 +154,4 @@ ms.openlocfilehash: dd5b1f9298bc4d864377c98114ce4a91ba8bfdae
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -3,7 +3,7 @@ title: "Azure SQL Database 백업 - 자동, 지역 중복 | Microsoft Docs"
 description: "SQL Database는 몇 분마다 로컬 데이터베이스 백업을 자동으로 만들고 Azure 읽기 액세스 지역 중복 저장소를 사용하여 지리적 중복을 제공합니다."
 services: sql-database
 documentationcenter: 
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2016
-ms.author: sashan
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: d849eeedae65c8cc35271c2e9b63236760c4629c
-ms.lasthandoff: 04/15/2017
+ms.date: 07/05/2017
+ms.author: carlrab
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: cfd0d130186f851bc306065893b137c94cfb7d3d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -41,7 +42,6 @@ SQL Database는 SQL Server 기술을 사용하여 [전체](https://msdn.microsof
 
 > [!NOTE]
 > Azure Storage에서 *복제* 라는 용어는 한 위치에서 다른 위치로 파일을 복사하는 것을 말합니다. SQL의 *데이터베이스 복제* 는 주 데이터베이스와 동기화된 다수의 보조 데이터베이스를 유지하는 것을 말합니다. 
-> 
 > 
 
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>무료 백업 저장소가 얼마나 포함되어 있습니까?
@@ -69,7 +69,6 @@ SQL Database는 추가 비용 없이 최대 프로비전된 데이터베이스 �
 > [!IMPORTANT]
 > SQL Database를 호스트하는 Azure SQL 서버를 삭제하면 해당 서버에 속하는 모든 데이터베이스도 삭제되어 복구할 수 없습니다. 삭제된 서버는 복원할 수 없습니다.
 > 
-> 
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>백업 보존 기간을 확장하는 방법
 응용 프로그램에 더 긴 기간 동안 백업을 사용할 수 있어야 하는 경우 개별 데이터베이스(LTR 정책)에 대해 장기 백업 보존 정책을 구성하여 기본 제공 보존 기간을 연장할 수 있습니다. 기본 제공 보존 기간은 35일에서 최대 10년까지 연장할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
@@ -79,6 +78,10 @@ Azure Portal 또는 API를 사용하여 LTR 정책을 데이터베이스에 추�
 > [!TIP]
 > 사용 방법 가이드는 [Configure and restore from Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md)(Azure SQL Database 장기 백업 보존 관리에서 구성 및 복원)을 참조하세요.
 >
+
+## <a name="are-backups-encrypted"></a>백업이 암호화되나요?
+
+Azure SQL Database에 TDE를 사용할 때 백업이 암호화됩니다. 모든 새 Azure SQL Database는 기본적으로 사용한 TDE로 구성됩니다. TDE에 대한 자세한 내용은 [Azure SQL Database를 사용한 투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 스크립트 - SQL Database 복원 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - PowerShell을 사용하여 SQL Database 복원"
+title: "PowerShell 예제 복원 백업 Azure SQL database | Microsoft Docs"
+description: "지역 중복 백업에서 Azure SQL Database를 복원하는 Azure PowerShell 예제 스크립트"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 751c1ff5c8cd76885b91c16d2372d1cd9b0c4c39
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 2be93bd623ae3960c61d54d4219cc4b60257f88d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="restore-a-sql-database-using-powershell"></a>PowerShell을 사용하여 SQL Database 복원
+# <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>PowerShell을 사용하여 백업에서 Azure SQL Database 복원
 
-이 샘플에서는 지역 중복 백업에서 Azure SQL Database를 복원하고 삭제된 데이터베이스를 최신 백업으로 복원합니다.  
+이 PowerShell 스크립트 예제는 지역 중복 백업에서 Azure SQL Database를 복원하고 삭제된 Azure SQL Database를 최신 백업으로 복원하며 Azure SQL Database를 특정 시점으로 복원합니다.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 8ecc5208237d846d0e81914eee8874ea97744bc3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 450c60abeaaf96c7d82152d425265a6b6714f689
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -177,20 +179,29 @@ public class HelloWorldActorHost {
 마지막으로, 응용 프로그램은 배포를 위해 나중에 추가할 수 있는 행위자 서비스와 기타 모든 서비스를 패키징합니다. 여기에는 *ApplicationManifest.xml*와 행위자 서비스 패키지를 위한 자리 표시자가 포함됩니다.
 
 ## <a name="run-the-application"></a>응용 프로그램 실행
-Yeoman 스캐폴딩은 응용 프로그램을 빌드하는 Gradle 스크립트와 응용 프로그램을 배포하고 배포 취소하는 Bash 스크립트를 포함합니다. 응용 프로그램을 실행하려면 먼저 다음과 같은 Gradle을 통해 응용 프로그램을 빌드합니다.
+
+Yeoman 스캐폴딩은 응용 프로그램을 빌드하는 Gradle 스크립트와 응용 프로그램을 배포하고 제거하는 Bash 스크립트를 포함합니다. 응용 프로그램을 배포하려면 먼저 다음과 같은 Gradle을 통해 응용 프로그램을 빌드합니다.
 
 ```bash
 $ gradle
 ```
 
-이는 Service Fabric Azure CLI를 사용하여 배포할 수 있는 Service Fabric 응용 프로그램 패키지를 생성합니다. install.sh 스크립트는 응용 프로그램 패키지를 배포하는 데 필요한 Azure CLI 명령을 포함합니다. 다음과 같이 배포할 install.sh 스크립트를 실행하면 됩니다.
+그러면 Service Fabric CLI 도구를 사용하여 배포할 수 있는 Service Fabric 응용 프로그램 패키지를 생성합니다.
 
-```bask
+### <a name="deploy-with-xplat-cli"></a>XPlat CLI를 사용하여 배포
+
+XPlat CLI를 사용하는 경우 install.sh 스크립트는 응용 프로그램 패키지를 배포하는 데 필요한 Azure CLI 명령을 포함합니다. install.sh 스크립트를 실행하여 응용 프로그램을 배포합니다.
+
+```bash
 $ ./install.sh
 ```
 
+### <a name="deploy-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 배포
 
+Azure CLI 2.0을 사용하는 경우 [Azure CLI 2.0을 사용하여 응용 프로그램 수명 주기](service-fabric-application-lifecycle-azure-cli-2-0.md)를 관리하는 방법에 대한 참조 문서를 참조하세요.
 
-<!--HONumber=Jan17_HO4-->
+## <a name="related-articles"></a>관련된 문서
 
+* [Service Fabric 및 Azure CLI 2.0 시작](service-fabric-azure-cli-2-0.md)
+* [Service Fabric 및 XPlat CLI 시작](service-fabric-azure-cli.md)
 

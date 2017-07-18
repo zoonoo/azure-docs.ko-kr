@@ -9,7 +9,7 @@ editor: monicar
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-develop, mvc
+ms.custom: mvc,scale out apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 05/08/2017
 ms.author: AyoOlubek
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 80df7b504d13fe1b3be9806eb95e3980d7790970
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 0aea69d86a51c38c99a72f46737de1eea27bef83
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -42,18 +42,21 @@ ms.lasthandoff: 05/10/2017
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
+## <a name="prerequisites"></a>필수 조건
+
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
-* 컴퓨터에 설치되는 PowerShell 및 [최신 Azure PowerShell SDK](http://azure.microsoft.com/downloads/)
 
-* 최신 버전의 [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) - SQL Server Management Studio를 설치하면 다양한 데이터베이스 개발 작업을 자동화하는 데 사용할 수 있는 명령줄 유틸리티인 SQLPackage의 최신 버전도 설치됩니다.
+* 최신 버전의 PowerShell 및 [최신 Azure PowerShell SDK](http://azure.microsoft.com/downloads/)
 
-* 컴퓨터에 설치되는 [JRE(Java Runtime Environment) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 및 [최신 JDK(JAVA Development Kit)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
+* 최신 버전의 [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio를 설치하면 다양한 데이터베이스 개발 작업을 자동화하는 데 사용할 수 있는 명령줄 유틸리티인 SQLPackage의 최신 버전도 설치됩니다.
 
-* 컴퓨터에 설치되는 [Apache Maven](https://maven.apache.org/download.cgi) - Maven은 종속성을 관리하고 샘플 Java 프로젝트를 빌드, 테스트 및 실행하는 데 사용할 수 있습니다.
+* 컴퓨터에 설치된 [JRE(Java Runtime Environment) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 및 [최신 JDK(JAVA Development Kit)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
+
+* [Apache Maven](https://maven.apache.org/download.cgi) Maven은 종속성을 관리하고 샘플 Java 프로젝트를 빌드, 테스트 및 실행하는 데 사용할 수 있습니다.
 
 ## <a name="set-up-data-environment"></a>데이터 환경 설정
 
-테넌트당 데이터베이스를 프로비전합니다. 테넌트당 데이터베이스 모델은 DevOps 비용이 거의 들지 않으면서 테넌트 간에 가장 높은 수준의 격리를 제공합니다. 또한 클라우드 리소스 비용을 최적화하려면 데이터베이스 그룹에 대한 가격 대비 성능을 최적화할 수 있는 탄력적 풀에 테넌트 데이터베이스를 프로비전합니다. 다른 데이터베이스 프로비전 모델에 대해 알아보려면 [여기를 참조하세요](sql-database-design-patterns-multi-tenancy-saas-applications.md#multitenant-data-models). 
+테넌트당 데이터베이스를 프로비전합니다. 테넌트당 데이터베이스 모델은 DevOps 비용이 거의 들지 않으면서 테넌트 간에 가장 높은 수준의 격리를 제공합니다. 또한 클라우드 리소스 비용을 최적화하려면 데이터베이스 그룹에 대한 가격 대비 성능을 최적화할 수 있는 탄력적 풀에 테넌트 데이터베이스를 프로비전합니다. 다른 데이터베이스 프로비전 모델에 대해 알아보려면 [여기를 참조하세요](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).
 
 다음 단계에 따라 모든 테넌트 데이터베이스를 호스팅할 SQL 서버와 탄력적 풀을 만듭니다. 
 
@@ -71,7 +74,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    
    # Store current client IP address (modify to include your IP address)
    $startIpAddress = 0.0.0.0 
-   $endIpAddress = 0.0.0.1
+   $endIpAddress = 0.0.0.0
    ```
    
 2. Azure에 로그인하고 SQL 서버와 탄력적 풀을 만듭니다. 
@@ -505,6 +508,7 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 Java 응용 프로그램을 사용하여 'tenant1'에 연결합니다. 테넌트가 존재하지 않는다는 오류가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계 
+
 이 자습서에서는 다음에 대해 알아보았습니다.
 > [!div class="checklist"]
 > * 테넌트당 데이터베이스 패턴을 사용하여 다중 테넌트 SaaS 응용 프로그램을 지원하는 데이터베이스 환경 설정

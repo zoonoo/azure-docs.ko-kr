@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: cjiang
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7e8e54aad26ddec8be9f6e13931e42f4cc07843f
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: aea5db05843b0175b8ef8b713944e12262e33010
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -27,7 +28,11 @@ ms.lasthandoff: 04/03/2017
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
-## <a name="collect-activity-logs"></a>활동 로그 수집
+## <a name="top-issues"></a>주요 문제
+[!INCLUDE [support-disclaimer](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
+
+VM 배포 문제 및 질문은 [Azure에서 Linux 가상 컴퓨터 배포 문제 해결](troubleshoot-deploy-vm.md)을 참조하세요.
+## <a name="collect-activity-logs"></a>활동 로그 선택
 문제 해결을 시작하려면 문제와 관련된 오류를 파악하기 위해 활동 로그를 수집합니다. 다음 링크에는 수행할 프로세스에 대한 자세한 내용이 포함되어 있습니다.
 
 [배포 작업 보기](../../azure-resource-manager/resource-manager-deployment-operations.md)

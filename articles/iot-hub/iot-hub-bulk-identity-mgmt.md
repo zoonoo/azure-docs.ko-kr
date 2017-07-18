@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 07/03/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 9ea3896f73e0e97b89743d8b17c8fd1e723153c3
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 8df8cdfd0b265b11e6a11f0a5eb7ad8f0e669ca2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 장치 ID를 관리합니다.
 
-각 IoT Hub에는 서비스의 장치별 리소스(예: 진행 중인 클라우드-장치 메시지를 포함하는 큐)를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 장치 지향 끝점에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 장치 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다.
+각 IoT Hub에는 서비스에서 장치마다 리소스를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 장치 지향 끝점에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 장치 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다.
 
 가져오기 및 내보내기 작업은 사용자가 IoT Hub에 대해 대량 서비스 작업을 실행할 수 있는 *작업* 상황에서 이루어집니다.
 
@@ -37,7 +37,7 @@ ID 레지스트리 작업은 다음 작업을 수행할 때 **작업** 시스템
 * 표준 런타임 작업에 비해 잠재적으로 실행 시간이 깁니다.
 * 사용자에게 많은 양의 데이터를 반환합니다.
 
-이러한 경우 단일 API 호출을 기다리거나 작업 결과가 있을 때 차단하는 대신에 작업은 해당 IoT Hub에 대한 **작업**을 만듭니다. 그런 다음 즉시 **JobProperties** 개체를 반환합니다.
+단일 API 호출을 기다리거나 작업 결과를 차단하는 대신에 작업은 비동기적으로 해당 IoT Hub에 대한 **작업**을 만듭니다. 그런 다음 즉시 **JobProperties** 개체를 반환합니다.
 
 다음 C# 코드 조각은 작업을 만드는 방법을 보여 줍니다.
 
@@ -48,7 +48,6 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 
 > [!NOTE]
 > C# 코드에서 **RegistryManager** 클래스를 사용하려면 프로젝트에 **Microsoft.Azure.Devices** NuGet 패키지를 추가합니다. **RegistryManager** 클래스는 **Microsoft.Azure.Devices** 네임스페이스에 있습니다.
-
 
 **RegistryManager** 클래스를 사용하면 반환된 **JobProperties** 메타데이터를 사용하는 **작업**의 상태를 쿼리할 수 있습니다.
 
@@ -122,7 +121,8 @@ while(true)
 ```
 
 장치에 쌍으로 된 데이터가 있는 경우 장치 데이터와 함께 내보내집니다. 다음 예제는 이러한 형식을 보여줍니다. "twinETag" 줄의 모든 데이터는 끝까지 쌍으로 된 데이터입니다.
-```
+
+```json
 {
    "id":"export-6d84f075-0",
    "eTag":"MQ==",
@@ -172,7 +172,7 @@ while(true)
 ```csharp
 var exportedDevices = new List<ExportImportDevice>();
 
-using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondition.GenerateIfExistsCondition(), RequestOptions, null), Encoding.UTF8))
+using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondition.GenerateIfExistsCondition(), null, null), Encoding.UTF8))
 {
   while (streamReader.Peek() != -1)
   {
@@ -217,7 +217,7 @@ ID 레지스트리에 새 장치를 프로비전할 뿐만 아니라 기존 장�
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
-장치 쌍에 데이터를 가져오는 데도 이 메서드를 사용할 수 있습니다. 입력 데이터의 형식은 **ExportDevicesAsync**의 섹션에 표시된 내용과 같습니다. 이러한 방법으로 내보낸 데이터를 다시 가져올 수도 있습니다. $metadata는 선택 사항입니다.
+장치 쌍에 데이터를 가져오는 데도 이 메서드를 사용할 수 있습니다. 데이터 입력의 형식은 **ExportDevicesAsync** 섹션에 나온 형식과 같습니다. 이러한 방식으로 내보낸 데이터를 다시 가져올 수 있습니다. **$metadata**는 선택 사항입니다.
 
 ## <a name="import-behavior"></a>가져오기 동작
 
@@ -232,7 +232,7 @@ JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasU
 
 단일 **ImportDevicesAsync** 호출 내에서 이전 작업의 조합을 수행할 수 있습니다. 예를 들어 새 장치를 등록하는 동시에 기존 장치를 삭제 또는 업데이트할 수 있습니다. **ExportDevicesAsync** 메서드와 함께 사용하는 경우 모든 장치를 한 IoT Hub에서 다른 IoT Hub로 완전히 마이그레이션할 수 있습니다.
 
-가져오기 파일이 쌍으로 된 메타데이터를 지정하는 경우 이 메타데이터는 쌍의 기존 메타데이터를 덮어씁니다. 그렇지 않으면 현재 시간을 사용하여 `lastUpdateTime` 메타데이터가 업데이트됩니다. 
+가져오기 파일에 쌍으로 된 메타데이터가 있는 경우 이 메타데이터는 쌍의 기존 메타데이터를 덮어씁니다. 가져오기 파일에 쌍 메타데이터가 포함되지 않은 경우 `lastUpdateTime` 메타데이터는 현재 시간을 사용하여 업데이트됩니다.
 
 각 장치에 대한 가져오기 직렬화 데이터에 선택적 **importMode** 속성을 사용하여 가져오기 프로세스를 장치별로 제어합니다. **importMode** 속성에 다음과 같은 옵션이 있습니다.
 
@@ -263,7 +263,8 @@ var serializedDevices = new List<string>();
 
 for (var i = 0; i < 1000; i++)
 {
-// Create a new ExportImportDevice
+  // Create a new ExportImportDevice
+  // CryptoKeyGenerator is in the Microsoft.Azure.Devices.Common namespace
   var deviceToAdd = new ExportImportDevice()
   {
     Id = Guid.NewGuid().ToString(),
@@ -279,11 +280,11 @@ for (var i = 0; i < 1000; i++)
     ImportMode = ImportMode.Create
   };
 
-  // Add device to existing list
+  // Add device to the list
   serializedDevices.Add(JsonConvert.SerializeObject(deviceToAdd));
 }
 
-// Write this list to the blob
+// Write the list to the blob
 var sb = new StringBuilder();
 serializedDevices.ForEach(serializedDevice => sb.AppendLine(serializedDevice));
 await blob.DeleteIfExistsAsync();
@@ -298,8 +299,9 @@ using (CloudBlobStream stream = await blob.OpenWriteAsync())
   }
 }
 
-// Call import using the same blob to add new devices!
-// This normally takes 1 minute per 100 devices the normal way
+// Call import using the blob to add new devices
+// Log information related to the job is written to the same container
+// This normally takes 1 minute per 100 devices
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 
 // Wait until job is finished
@@ -349,7 +351,7 @@ using (CloudBlobStream stream = await blob.OpenWriteAsync())
   }
 }
 
-// Step 3: Call import using the same blob to delete all devices!
+// Step 3: Call import using the same blob to delete all devices
 importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 
 // Wait until job is finished
@@ -366,7 +368,6 @@ while(true)
 
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
-
 ```
 
 ## <a name="get-the-container-sas-uri"></a>컨테이너 SAS URI 가져오기
@@ -394,7 +395,6 @@ static string GetContainerSasUri(CloudBlobContainer container)
   // including the SAS token.
   return container.Uri + sasContainerToken;
 }
-
 ```
 
 ## <a name="next-steps"></a>다음 단계

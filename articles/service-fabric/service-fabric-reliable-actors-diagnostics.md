@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/04/2017
+ms.date: 06/29/2017
 ms.author: abhisram
-translationtype: Human Translation
-ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
-ms.openlocfilehash: 1a8a36d3b6f14c75965afca970be808015059dbb
-ms.lasthandoff: 01/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 1c53a6bbe0152f6f2b9666e6059af7c6d02e481f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -117,7 +118,7 @@ Reliable Actors 런타임에서는 다음과 같은 [동시성](service-fabric-r
 
 | 범주 이름 | 카운터 이름 | 설명 |
 | --- | --- | --- |
-| 서비스 패브릭 행위자 |# 행위자 잠금을 기다리는 행위자 호출 수 |턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 대기 중인 보류된 행위자 호출 수. |
+| 서비스 패브릭 행위자 |행위자 잠금을 기다리는 행위자 호출 수 |턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 대기 중인 보류된 행위자 호출 수. |
 | 서비스 패브릭 행위자 |잠금 대기당 평균 시간(밀리초) |턴 기반 동시성을 적용하는 행위자별 잠금을 획득하기 위해 소요된 시간(밀리초). |
 | 서비스 패브릭 행위자 |평균 밀리초 행위자 잠금 보유됨 |행위자별 잠금이 보유되는 시간(밀리초) |
 
@@ -163,7 +164,7 @@ Reliable Actors 런타임은 행위자 활성화 및 비활성화와 관련하�
 
 | 범주 이름 | 카운터 이름 | 설명 |
 | --- | --- | --- |
-| 서비스 패브릭 행위자 |# 미해결 요청 수 |서비스에서 처리 중인 요청 수 |
+| 서비스 패브릭 행위자 |미해결 요청 수 |서비스에서 처리 중인 요청 수 |
 | 서비스 패브릭 행위자 |요청당 평균 시간(밀리초) |서비스에서 요청을 처리하는 데 걸린 시간(밀리초) |
 | 서비스 패브릭 행위자 |요청 deserialization에 걸린 평균 시간(밀리초) |서비스에서 수신될 때 행위자 요청 메시지를 deserialize하는 데 걸린 시간(밀리초) |
 | 서비스 패브릭 행위자 |요청 serialization에 걸린 평균 시간(밀리초) |응답이 클라이언트로 전송되기 전에 서비스에서 행위자 응답 메시지를 serialize하는 데 걸린 시간(밀리초) |

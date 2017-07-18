@@ -1,6 +1,6 @@
 ---
 title: "OMS(Operations Management Suite)에 Linux 컴퓨터 연결 | Microsoft Docs"
-description: "이 문서에서는 MMA(Microsoft Monitoring Agent)를 사용하여 온-프레미스 인프라에 호스트된 Windows 컴퓨터를 OMS에 연결하는 방법을 설명합니다."
+description: "이 문서에서는 Linux용 OMS 에이전트를 사용하여 Azure, 기타 클라우드 또는 온-프레미스에 호스트된 Linux 컴퓨터를 OMS에 연결하는 방법을 설명합니다."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 06/15/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 3c556f3d9e81caae574ec093b6f2ce15651c4485
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 79bbb4dfe03a6c1ae782abc1404e22343bde22a0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 
-# <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>OMS(Operations Management Suite)에 Linux 컴퓨터 연결
+# <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>OMS(Operations Management Suite)에 Linux 컴퓨터 연결 
 
-OMS를 사용하여 물리적 서버 또는 가상 컴퓨터로서 온-프레미스 데이터 센터에 상주하는 Linux 컴퓨터 및 컨테이너 솔루션(예: Docker), AWS(Amazon Web Services) 또는 Microsoft Azure와 같은 클라우드 호스티드 서비스에서 생성된 데이터를 수집하고 이러한 데이터로 작업을 수행할 수 있습니다. 변경 추적과 같이 OMS에서 사용할 수 있는 관리 솔루션을 사용하여 구성 변경으 식별하고, 업데이트 관리를 통해 소프트웨어 업데이트를 관리하여 Linux VM의 수명 주기를 사전에 관리할 수도 있습니다.
+OMS를 사용하여 물리적 서버 또는 가상 컴퓨터로서 온-프레미스 데이터 센터에 상주하는 Linux 컴퓨터 및 컨테이너 솔루션(예: Docker), AWS(Amazon Web Services) 또는 Microsoft Azure와 같은 클라우드 호스티드 서비스에서 생성된 데이터를 수집하고 이러한 데이터로 작업을 수행할 수 있습니다. 변경 추적과 같이 OMS에서 사용할 수 있는 관리 솔루션을 사용하여 구성 변경으 식별하고, 업데이트 관리를 통해 소프트웨어 업데이트를 관리하여 Linux VM의 수명 주기를 사전에 관리할 수도 있습니다. 
 
-Linux용 OMS 에이전트는 TCP 포트 443을 통해 OMS 서비스와 아웃바운드 통신을 수행하고, 컴퓨터가 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버에 연결하는 경우 [프록시 및 방화벽 설정 구성](log-analytics-proxy-firewall.md)을 검토하여 적용해야 하는 구성 변경 내용을 이해하세요.  System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2를 사용하여 컴퓨터를 모니터링하는 경우 OMS 서비스와 멀티홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있고 Operations Manager에서 계속 모니터링될 수도 있습니다.  OMS와 통합된 Operations Manager 관리 그룹에서 모니터링되는 Linux 컴퓨터는 데이터 원본에 대한 구성을 수신하거나 관리 그룹을 통해 수집된 데이터를 전달하지 않습니다.  
+Linux용 OMS 에이전트는 TCP 포트 443을 통해 OMS 서비스와 아웃바운드 통신을 수행하고, 컴퓨터가 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버에 연결하는 경우 [HTTP 프록시 서버 또는 OMS 게이트웨이에서 사용하도록 에이전트 구성](#configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway)을 검토하여 적용해야 하는 구성 변경 내용을 이해하세요.  System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2를 사용하여 컴퓨터를 모니터링하는 경우 OMS 서비스와 멀티홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있고 Operations Manager에서 계속 모니터링될 수도 있습니다.  OMS와 통합된 Operations Manager 관리 그룹에서 모니터링되는 Linux 컴퓨터는 데이터 원본에 대한 구성을 수신하거나 관리 그룹을 통해 수집된 데이터를 전달하지 않습니다.  
 
 IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 OMS 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 에이전트를 구성할 수 있습니다. OMS Linux 에이전트가 OMS 게이트웨이를 통해 OMS 서비스와 통신할 수 있도록 구성하는 방법에 대한 자세한 내용 및 단계에 대해서는 [OMS 게이트웨이 사용하여 OMS에 컴퓨터 연결](log-analytics-oms-gateway.md)을 참조하세요.  
 
@@ -48,18 +48,28 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 * Ubuntu 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS(x86/x64)
 * SUSE Linux Enterprise Server 11 및 12(x86/x64)
 
+### <a name="network"></a>네트워크
+아래 정보는 Linux 에이전트가 OMS와 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다. 트래픽은 네트워크에서 OMS 서비스로 아웃바운드됩니다. 
+
+|에이전트 리소스| 포트 |  
+|------|---------|  
+|*.ods.opinsights.azure.com | 포트 443|   
+|*.oms.opinsights.azure.com | 포트 443|   
+|ods.systemcenteradvisor.com | 포트 443|   
+|*.blob.core.windows.net/ | 포트 443|   
+
 ### <a name="package-requirements"></a>패키지 요구 사항
 
- **필수 패키지**     | **설명**     | **최소 버전**
+ **필수 패키지**   | **설명**   | **최소 버전**
 --------------------- | --------------------- | -------------------
-Glibc |    GNU C 라이브러리    | 2.5-12
-Openssl    | OpenSSL 라이브러리 | 0.9.8e 또는 1.0
+Glibc | GNU C 라이브러리   | 2.5-12 
+Openssl | OpenSSL 라이브러리 | 0.9.8e 또는 1.0
 Curl | cURL 웹 클라이언트 | 7.15.5
-Python-ctypes | |
-PAM | 플러그형 인증 모듈     |
+Python-ctypes | | 
+PAM | 플러그형 인증 모듈   | 
 
 > [!NOTE]
->  Syslog 메시지를 수집하려면 rsyslog 또는 syslog-ng가 필요합니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 rsyslog 디먼을 설치하고 sysklog를 대체하도록 구성해야 합니다.
+>  Syslog 메시지를 수집하려면 rsyslog 또는 syslog-ng가 필요합니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 rsyslog 디먼을 설치하고 sysklog를 대체하도록 구성해야 합니다. 
 
 에이전트는 여러 패키지로 구성됩니다. 다음 패키지를 포함하는 릴리스 파일은 `--extract`와 함께 shell 번들을 실행하면 사용할 수 있습니다.
 
@@ -74,7 +84,7 @@ mysql-cimprov | 1.0.1 | OMI용 MySQL 서버 성능 모니터링 공급자. MySQL
 docker-cimprov | 1.0.0 | OMI용 Docker 공급자. Docker가 감지되면 설치됨.
 
 ### <a name="compatibility-with-system-center-operations-manager"></a>System Center Operations Manager와의 호환성
-Linux 용 OMS 에이전트는 System Center Operations Manager 에이전트와 에이전트 바이너리를 공유합니다. Operations Manager로 관리되는 시스템에 Linux용 OMS 에이전트를 설치하면, 컴퓨터의 OMI 및 SCX 패키지가 새 버전으로 업그레이드됩니다. 이 릴리스에서 OMS 및 Linux용 System Center 2016 - Linux 용 Operations Manager/Operations Manager 2012 R2 에이전트는 호환됩니다.
+Linux 용 OMS 에이전트는 System Center Operations Manager 에이전트와 에이전트 바이너리를 공유합니다. Operations Manager로 관리되는 시스템에 Linux용 OMS 에이전트를 설치하면, 컴퓨터의 OMI 및 SCX 패키지가 새 버전으로 업그레이드됩니다. 이 릴리스에서 OMS 및 Linux용 System Center 2016 - Linux 용 Operations Manager/Operations Manager 2012 R2 에이전트는 호환됩니다. 
 
 > [!NOTE]
 > 하지만 System Center 2012 SP1 이전 버전은 현재 OMS Agent for Linux와 호환되거나 지원되지 않습니다.<br>
@@ -91,12 +101,12 @@ OMS Agent for Linux 패키지를 설치한 후에는 다음과 같은 시스템 
 이 릴리스에서는 1.0.0-47보다 이전 버전에서 업그레이드하도록 지원됩니다. `--upgrade` 명령을 사용하여 설치를 수행하면 에이전트의 모든 구성 요소가 최신 버전으로 업그레이드됩니다.
 
 ## <a name="install-the-oms-agent-for-linux"></a>OMS Agent for Linux 설치
-OMS Agent for Linux는 자동으로 압축이 풀리는 설치 가능한 셸 스크립트 번들로 제공됩니다. 이 번들은 각 에이전트 구성 요소에 대한 Debian 및 RPM 패키지를 포함하며, 직접 설치되거나 압축이 풀린 후에 개별 패키지를 검색하는 데 사용될 수 있습니다. x64 아키텍처용 번들 1개와 x86 아키텍처용 번들 1개가 제공됩니다.
+OMS Agent for Linux는 자동으로 압축이 풀리는 설치 가능한 셸 스크립트 번들로 제공됩니다. 이 번들은 각 에이전트 구성 요소에 대한 Debian 및 RPM 패키지를 포함하며, 직접 설치되거나 압축이 풀린 후에 개별 패키지를 검색하는 데 사용될 수 있습니다. x64 아키텍처용 번들 1개와 x86 아키텍처용 번들 1개가 제공됩니다. 
 
 ### <a name="installing-the-agent"></a>에이전트 설치
 
 1. scp/sftp를 사용하여 Linux 컴퓨터로 해당 번들(x86 또는 x64)을 전송합니다.
-2. `--install` 또는 `--upgrade` 인수를 사용하여 번들을 설치합니다.
+2. `--install` 또는 `--upgrade` 인수를 사용하여 번들을 설치합니다. 
 
     > [!NOTE]
     > Linux용 System Center Operations Manager 에이전트가 이미 설치된 경우처럼 기존 패키지가 설치된 경우에는 `--upgrade` 인수를 사용합니다. 설치 중에 Operations Management Suite에 연결하려면 `-w <WorkspaceID>` 및 `-s <Shared Key>` 매개 변수를 제공합니다.
@@ -115,7 +125,7 @@ Options:
   --version              Version of this shell bundle.
   --version-check        Check versions already installed to see if upgradable.
   --debug                use shell debug mode.
-
+  
   -w id, --id id         Use workspace ID <id> for automatic onboarding.
   -s key, --shared key   Use <key> as the shared key for automatic onboarding.
   -d dmn, --domain dmn   Use <dmn> as the OMS domain for onboarding. Optional.
@@ -171,19 +181,19 @@ proxyhost|프록시 서버/OMS 게이트웨이의 주소 또는 FQDN
 설치 중에 또는 설치 후에 proxy.conf 구성 파일을 수정하여 프록시 서버를 지정할 수 있습니다.   
 
 ### <a name="specify-proxy-configuration-during-installation"></a>설치 중 프록시 구성 지정
-omsagent 설치 번들에 대한 `-p` 또는 `--proxy` 인수는 사용할 프록시 구성을 지정합니다.
+omsagent 설치 번들에 대한 `-p` 또는 `--proxy` 인수는 사용할 프록시 구성을 지정합니다. 
 
 ```
 sudo sh ./omsagent-1.3.0-1.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
 ### <a name="define-the-proxy-configuration-in-a-file"></a>파일에 프록시 구성 정의
-프록시 구성은 `/etc/opt/microsoft/omsagent/proxy.conf` 파일에서 설정할 수 있습니다. 이 파일을 직접 만들거나 편집할 수 있지만 omsagent 사용자가 읽을 수 있어야 합니다. 예:
+프록시 구성은 `/etc/opt/microsoft/omsagent/proxy.conf` 파일에서 설정할 수 있습니다. 이 파일을 직접 만들거나 편집할 수 있지만 파일에 omiuser 그룹 읽기 권한을 부여하도록 사용 권한을 업데이트해야 합니다. 예:
 ```
 proxyconf="https://proxyuser:proxypassword@proxyserver01:8080"
 sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
 sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf
-sudo chmod 600 /etc/opt/microsoft/omsagent/proxy.conf
+sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf
 sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
 ```
 
@@ -207,19 +217,20 @@ OMS Agent for Linux에서 System Center Operations Manager 관리 그룹에 보�
 작업 영역에 대한 작업 영역 ID 및 키를 제공하여 omsadmin.sh 명령을 실행합니다. 이 명령은 루트 권한(sudo 권한 상승)으로 실행해야 합니다.
 ```
 cd /opt/microsoft/omsagent/bin
-sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
+sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key> [-p <proxy>] [-v]
 ```
+옵션 -v 스위치를 통해 등록 프로세스 중에 자세한 로깅 정보 표시를 사용할 수 있습니다. 모든 정보는 셸 스크립트가 실행된 화면에 표시됩니다.
 
 ### <a name="onboarding-using-a-file"></a>파일을 사용하는 등록
-1.    파일 `/etc/omsagent-onboard.conf`를 만듭니다. 이 파일은 루트에 대해 읽을 수 있고 쓸 수 있어야 합니다.
+1.  파일 `/etc/omsagent-onboard.conf`를 만듭니다. 이 파일은 루트에 대해 읽을 수 있고 쓸 수 있어야 합니다.
 `sudo vi /etc/omsagent-onboard.conf`
-2.    작업 영역 ID 및 공유 키를 사용하여 파일에 다음 줄을 삽입합니다.
+2.  작업 영역 ID 및 공유 키를 사용하여 파일에 다음 줄을 삽입합니다.
 
         WORKSPACE_ID=<WorkspaceID>  
         SHARED_KEY=<Shared Key>  
-
-3.    다음 명령을 실행하여 OMS에 등록합니다. `sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
-4.    이 파일은 등록이 성공적으로 수행되면 삭제됩니다.
+   
+3.  다음 명령을 실행하여 OMS에 등록합니다. `sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
+4.  이 파일은 등록이 성공적으로 수행되면 삭제됩니다.
 
 ## <a name="manage-omsagent-daemon"></a>omsagent 디먼 관리
 버전 1.3.0-1부터 등록된 각 작업 영역에 대해 omsagent 디먼을 등록합니다. 디먼 이름은 *omsagent-\<workspace-id>*입니다.  `/opt/microsoft/omsagent/bin/service_control` 명령을 사용하여 디먼을 작동할 수 있습니다.
@@ -237,7 +248,7 @@ OMS Agent for Linux용 로그는 `/var/opt/microsoft/omsagent/<workspace id>/log
 ### <a name="log-rotation-configuration"></a>로그 순환 구성##
 omsagent에 대한 로그 순환 구성은 `/etc/logrotate.d/omsagent-<workspace id>`에서 찾을 수 있습니다.
 
-기본 설정은 다음과 같습니다.
+기본 설정은 다음과 같습니다. 
 ```
 /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log {
     rotate 5
@@ -250,7 +261,7 @@ omsagent에 대한 로그 순환 구성은 `/etc/logrotate.d/omsagent-<workspace
 ```
 
 ## <a name="uninstalling-the-oms-agent-for-linux"></a>OMS Agent for Linux 제거
-dpkg 또는 rpm을 사용하거나, `--remove` 인수를 사용해서 번들 .sh 파일을 실행하여 에이전트 패키지를 제거할 수 있습니다.  또한 OMS Agent for Linux의 모든 요소를 완전히 제거하려는 경우 `--purge` 인수를 사용하여 번들.sh 파일을 실행할 수 있습니다.
+dpkg 또는 rpm을 사용하거나, `--remove` 인수를 사용해서 번들 .sh 파일을 실행하여 에이전트 패키지를 제거할 수 있습니다.  또한 OMS Agent for Linux의 모든 요소를 완전히 제거하려는 경우 `--purge` 인수를 사용하여 번들.sh 파일을 실행할 수 있습니다. 
 
 ### <a name="debian--ubuntu"></a>Debian 및 Ubuntu
 ```
@@ -271,10 +282,10 @@ dpkg 또는 rpm을 사용하거나, `--remove` 인수를 사용해서 번들 .sh
 
 #### <a name="probable-causes"></a>가능한 원인
 * 등록하는 동안 지정된 프록시가 올바르지 않습니다.
-* OMS 서비스 끝점이 데이터 센터의 허용 목록에 없습니다.
+* OMS 서비스 끝점이 데이터 센터의 허용 목록에 없습니다. 
 
 #### <a name="resolutions"></a>해결 방법
-1. 다음 명령과 `-v` 옵션을 사용하여 OMS Agent for Linux가 있는 OMS 서비스에 다시 등록합니다. OMS 서비스에 대한 프록시를 통해 연결되는 에이전트의 자세한 정보를 출력할 수 있습니다.
+1. 다음 명령과 `-v` 옵션을 사용하여 OMS Agent for Linux가 있는 OMS 서비스에 다시 등록합니다. OMS 서비스에 대한 프록시를 통해 연결되는 에이전트의 자세한 정보를 출력할 수 있습니다. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. [HTTP 프록시 서버에서 사용하기 위해 에이전트 구성(#configuring the-agent-for-use-with-a-http-proxy-server)] 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 적절히 구성했는지 확인합니다.    
@@ -290,13 +301,14 @@ dpkg 또는 rpm을 사용하거나, `--remove` 인수를 사용해서 번들 .sh
 ### <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>문제: 등록하는 동안 403 오류 발생
 
 #### <a name="probable-causes"></a>가능한 원인
-* Linux 서버의 날짜 및 시간이 올바르지 않습니다
+* Linux 서버의 날짜 및 시간이 올바르지 않습니다 
 * 사용된 작업 영역 ID 및 작업 영역 키가 올바르지 않습니다.
 
 #### <a name="resolution"></a>해결 방법
 
-1. 명령 시간을 사용하여 Linux 서버에서 시간을 확인합니다. 시간이 현재 시간에서 +/-15분인 경우 등록이 실패합니다. 이 문제를 해결하려면 Linux 서버의 날짜 및/또는 시간대를 업데이트합니다.
-새로운 기능 최신 버전의 OMS Agent for Linux는 시간 차이로 인해 등록이 실패하는 경우 올바른 작업 영역 ID 및 작업 영역 키 명령을 사용하여 다시 등록하도록 알립니다.
+1. 명령 시간을 사용하여 Linux 서버에서 시간을 확인합니다. 시간이 현재 시간에서 +/-15분인 경우 등록이 실패합니다. 이 문제를 해결하려면 Linux 서버의 날짜 및/또는 시간대를 업데이트합니다. 
+2. Linux용 OMS 에이전트 최신 버전이 설치되어 있는지 확인합니다.  최신 버전은 시간 차이로 인해 등록 실패가 발생하는지 여부를 알려줍니다.
+3. 이 항목 앞부분의 설치 지침에 따라 올바른 작업 영역 ID 및 작업 영역 키를 사용하여 다시 등록합니다.
 
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>문제: 등록 직후에 로그 파일에 500 및 404 오류가 표시됨
 이 문제는 알려진 문제이며 Linux 데이터를 OMS 작업 영역으로 처음 업로드할 때 발생합니다. 이 문제는 전송되는 데이터 또는 서비스 환경에 영향을 미치지 않습니다.
@@ -313,7 +325,7 @@ dpkg 또는 rpm을 사용하거나, `--remove` 인수를 사용해서 번들 .sh
 1. `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf` 파일이 있는지 확인하여 OMS 서비스 등록에 성공했는지 알아봅니다.
 2. `omsadmin.sh` 명령줄 명령을 사용하여 다시 등록합니다.
 3. 프록시를 사용하는 경우 앞서 제공된 프록시 문제 해결 단계를 참조하세요.
-4. OMS Agent for Linux가 OMS 서비스와 통신할 수 없는 경우 에이전트의 데이터가 최대 버퍼 크기인 50MB로 대기될 수 있습니다. 명령 `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`를 실행하여 OMS Agent for Linux를 다시 시작해야 합니다.
+4. OMS Agent for Linux가 OMS 서비스와 통신할 수 없는 경우 에이전트의 데이터가 최대 버퍼 크기인 50MB로 대기될 수 있습니다. 명령 `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`를 실행하여 OMS Agent for Linux를 다시 시작해야 합니다. 
 > [!NOTE]
 > 이 문제는 에이전트 버전 1.1.0-28 및 이상에서 해결되었습니다.
 

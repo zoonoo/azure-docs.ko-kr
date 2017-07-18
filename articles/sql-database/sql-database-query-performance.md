@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/09/2016
+ms.date: 07/05/2017
 ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
-ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 1925d4ff8f5b16a0df56de987f8653cfd8441c52
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/31/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="azure-sql-database-query-performance-insight" class="xliff"></a>
-
-# Azure SQL 데이터베이스 Query Performance Insight
+# <a name="azure-sql-database-query-performance-insight"></a>Azure SQL 데이터베이스 Query Performance Insight
 관련 데이터베이스의 성능을 관리하고 튜닝하는 것은 많은 전문 지식과 시간 투자를 필요로 하는 어려운 일입니다. Query Performance Insight를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
 
 * 데이터베이스 리소스(DTU) 사용에 대한 보다 자세한 정보를 확인합니다. 
@@ -35,22 +33,16 @@ ms.lasthandoff: 01/31/2017
 
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 * Query Performance Insight를 위해서는 데이터베이스에서 [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx) 가 활성 상태여야 합니다. 쿼리 저장소가 실행되지 않는 경우 저장소를 켜라는 포털 메시지가 표시됩니다.
 
-<a id="permissions" class="xliff"></a>
-
-## 권한
-Query Performance Insight를 사용하려면 다음 [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md) 권한이 필요합니다. 
+## <a name="permissions"></a>권한
+Query Performance Insight를 사용하려면 다음 [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md) 권한이 필요합니다. 
 
 * 최상위 리소스 사용 쿼리 및 차트를 보려면 **판독기**, **소유자**, **참여자**, **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다. 
 * 쿼리 텍스트를 보려면 **소유자**, **참여자**, **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다.
 
-<a id="using-query-performance-insight" class="xliff"></a>
-
-## Query Performance Insight 사용
+## <a name="using-query-performance-insight"></a>Query Performance Insight 사용
 Query Performance Insight는 쉽게 사용할 수 있습니다.
 
 * [Azure 포털](https://portal.azure.com/) 을 열고 검사하려는 데이터베이스를 찾습니다. 
@@ -67,9 +59,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
 > 
 > 
 
-<a id="review-top-cpu-consuming-queries" class="xliff"></a>
-
-## 최상위 CPU 소비 쿼리 검토
+## <a name="review-top-cpu-consuming-queries"></a>최상위 CPU 소비 쿼리 검토
 [포털](http://portal.azure.com) 에서 다음을 수행합니다.
 
 1. SQL 데이터베이스로 이동한 후 **모든 설정** > **지원 + 문제 해결** > **Query Performance Insight**를 클릭합니다. 
@@ -90,7 +80,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
      
      확인란을 사용하여 개별 쿼리를 선택하거나 지워 차트에서 포함하거나 제외합니다.
 3. 데이터가 최신 상태가 아닌 경우 **새로 고침** 단추를 클릭합니다.
-4. 슬라이더 및 확대/축소 단추를 사용하여 관찰 간격을 변경하고 스파이크를 조사할 수 있습니다.  ![설정](./media/sql-database-query-performance/zoom.png)
+4. 슬라이더 및 확대/축소 단추를 사용하여 관찰 간격을 변경하고 스파이크를 조사할 수 있습니다. ![설정](./media/sql-database-query-performance/zoom.png)
 5. 필요에 따라 다른 보기를 원할 경우 **사용자 지정** 탭을 선택하고 다음을 설정합니다.
    
    * 메트릭(CPU, 기간, 실행 횟수)
@@ -100,9 +90,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
      
      ![설정](./media/sql-database-query-performance/custom-tab.png)
 
-<a id="viewing-individual-query-details" class="xliff"></a>
-
-## 개별 쿼리 세부 정보 보기
+## <a name="viewing-individual-query-details"></a>개별 쿼리 세부 정보 보기
 쿼리 세부 정보를 보려면:
 
 1. 맨 위 쿼리 목록에서 쿼리를 클릭합니다.
@@ -118,9 +106,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
      ![쿼리 세부 정보][3]
 4. 필요에 따라 슬라이더, 확대/축소 단추를 사용하거나 **설정** 을 클릭하여 쿼리 데이터 표시 방법을 사용자 지정하거나 다른 기간을 표시합니다.
 
-<a id="review-top-queries-per-duration" class="xliff"></a>
-
-## 기간당 최상위 쿼리 검토
+## <a name="review-top-queries-per-duration"></a>기간당 최상위 쿼리 검토
 Query Performance Insight의 최신 업데이트에는 잠재적인 병목 상태를 식별하는 데 도움이 되는 두 가지 새로운 메트릭인 기간과 실행 횟수가 제공됩니다.<br>
 
 장기 실행 쿼리는 리소스를 더 오래 잠그고, 다른 사용자를 차단하고, 확장성을 제한할 가능성이 가장 높습니다. 또한 최적화에 가장 적합한 후보이기도 합니다.<br>
@@ -138,9 +124,7 @@ Query Performance Insight의 최신 업데이트에는 잠재적인 병목 상�
      
      ![쿼리 기간][4]
 
-<a id="review-top-queries-per-execution-count" class="xliff"></a>
-
-## 실행 횟수당 최상위 쿼리 검토
+## <a name="review-top-queries-per-execution-count"></a>실행 횟수당 최상위 쿼리 검토
 실행 횟수가 높을 경우 데이터베이스 자체에는 영향을 주지 않고 리소스 사용량이 적어질 수 있지만 전체 응용 프로그램이 느려질 수도 있습니다.
 
 일부 경우에 실행 횟수가 매우 높을 경우 네트워크 왕복이 증가할 수 있습니다. 왕복은 성능에 지대한 영향을 미칩니다. 네트워크 대기 시간 및 다운스트림 서버 대기 시간이 발생할 수 있습니다. 
@@ -155,9 +139,7 @@ Query Performance Insight의 최신 업데이트에는 잠재적인 병목 상�
    
     ![쿼리 실행 횟수][5]
 
-<a id="understanding-performance-tuning-annotations" class="xliff"></a>
-
-## 성능 튜닝 주석 이해
+## <a name="understanding-performance-tuning-annotations"></a>성능 튜닝 주석 이해
 Query Performance Insight에서 워크로드를 살펴보는 동안 차트 맨 위에 세로줄이 있는 아이콘이 표시될 수 있습니다.<br>
 
 이러한 아이콘은 주석으로, [SQL Azure 데이터베이스 관리자](sql-database-advisor.md)가 수행한 작업에 영향을 미치는 성능을 나타냅니다. 주석에 마우스를 가져가면 해당 작업에 대한 기본 정보가 표시됩니다.
@@ -168,15 +150,11 @@ Query Performance Insight에서 워크로드를 살펴보는 동안 차트 맨 �
 
 ![쿼리 주석 세부 정보][7]
 
-<a id="multiple-annotations" class="xliff"></a>
-
-### 여러 주석.
+### <a name="multiple-annotations"></a>여러 주석.
 확대/축소 수준으로 인해 서로 가까이 있는 주석은 하나로 축소되어 표시될 수 있습니다. 이러한 경우 특수 아이콘이 표시됩니다. 이 아이콘을 클릭하면 그룹화된 주석 목록이 표시되는 새 블레이드가 열립니다.
 쿼리 및 성능 조정 작업의 상관 관계를 파악하면 워크로드를 파악하는 데 도움이 됩니다. 
 
-<a id="optimizing-the-query-store-configuration-for-query-performance-insight" class="xliff"></a>
-
-## Query Performance Insight에 대한 쿼리 저장소 구성 최적화
+## <a name="optimizing-the-query-store-configuration-for-query-performance-insight"></a>Query Performance Insight에 대한 쿼리 저장소 구성 최적화
 Query Performance Insight를 사용하는 동안 다음 쿼리 저장소 메시지가 나타날 수 있습니다.
 
 * "이 데이터베이스의 쿼리 저장소가 적절하게 구성되어 있지 않습니다. 자세한 내용은 여기를 클릭하세요.
@@ -192,9 +170,7 @@ Query Performance Insight를 사용하는 동안 다음 쿼리 저장소 메시�
 
 ![qds 단추][9]
 
-<a id="recommended-retention-and-capture-policy" class="xliff"></a>
-
-### 권장된 보존 및 캡처 정책
+### <a name="recommended-retention-and-capture-policy"></a>권장된 보존 및 캡처 정책
 보존 정책에는 다음과 같은 두 종류가 있습니다.
 
 * 크기 기반 - AUTO로 설정된 경우 최대 크기에 가까워지면 데이터를 자동으로 지웁니다.
@@ -232,14 +208,10 @@ Query Performance Insight를 사용하는 동안 다음 쿼리 저장소 메시�
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
 
-<a id="summary" class="xliff"></a>
-
-## 요약
+## <a name="summary"></a>요약
 쿼리 성능 Insight를 통해 쿼리 작업의 영향 및 데이터베이스 리소스 사용의 관계를 이해할 수 있습니다. 이 기능을 사용하여 최상위 사용 쿼리를 확인하고 문제가 되기 전에 해결할 쿼리를 쉽게 식별할 수 있습니다.
 
-<a id="next-steps" class="xliff"></a>
-
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 SQL 데이터베이스의 성능 향상에 관한 추가 권장 사항은 [Query Performance Insight](sql-database-advisor.md) 블레이드의 **권장 사항** 을 클릭하여 확인합니다.
 
 ![성능 관리자](./media/sql-database-query-performance/ia.png)

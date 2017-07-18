@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/26/2017
+ms.date: 06/14/2017
 ms.author: genli
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 25e19b14e1cad41a365ee88ed317078bf551c36a
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ed9945ae007d22c18d259984ee68f9c669927f9a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -37,10 +37,11 @@ Windows 기반 Azure VM(가상 컴퓨터)에 RDP(원격 데스크톱 프로토�
 1. 원격 데스크톱 구성을 다시 설정합니다.
 2. 네트워크 보안 그룹 규칙/Cloud Services 끝점을 확인합니다.
 3. VM 콘솔 로그를 검토합니다.
-4. VM 리소스 상태를 확인합니다.
-5. VM 암호를 다시 설정합니다.
-6. VM이 다시 시작됩니다.
-7. VM을 다시 배포 합니다.
+4. VM에서 NIC를 다시 설정합니다.
+5. VM 리소스 상태를 확인합니다.
+6. VM 암호를 다시 설정합니다.
+7. VM이 다시 시작됩니다.
+8. VM을 다시 배포 합니다.
 
 자세한 단계와 설명이 필요한 경우 계속 읽어보세요. [자세한 RDP 문제 해결 시나리오](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 설명한 대로 라우터 및 방화벽과 같은 로컬 네트워크 장비가 아웃바운드 TCP 포트 3389를 차단하지 않는지 확인합니다.
 
@@ -87,23 +88,25 @@ Resource Manager 배포 모델을 사용하여 만든 VM 문제를 다음 방법
     RDP 트래픽을 허용하는 규칙이 없는 경우 [네트워크 보안 그룹 규칙을 만듭니다](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). TCP 포트 3389를 허용합니다.
 3. **VM 부트 진단 검토**. 이 문제 해결 단계에서는 VM 콘솔 로그를 검토하여 VM이 문제를 보고하는지 확인합니다. 모든 VM에서 부팅 진단이 지원되는 것은 아니므로 이 문제 해결 단계는 선택 사항입니다.
    
-    구체적인 문제 해결 단계는 이 문서의 범위를 벗어나지만, RDP 연결에 영향을 주는 더 넓은 문제를 나타낼 수 있습니다. 콘솔 로그 및 VM 스크린샷 검토에 대한 자세한 내용은 [VM 부팅 진단](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)을 참조하세요.
-4. **VM 리소스 상태 확인**. 이 문제 해결 단계에서는 Azure 플랫폼에 VM 연결에 영향을 줄 수 있는 알려진 문제가 없는지 확인합니다.
+    구체적인 문제 해결 단계는 이 문서의 범위를 벗어나지만, RDP 연결에 영향을 주는 더 넓은 문제를 나타낼 수 있습니다. 콘솔 로그 및 VM 스크린샷 검토에 대한 자세한 내용은 [VM 부팅 진단](boot-diagnostics.md)을 참조하세요.
+
+4. **VM에서 NIC를 다시 설정합니다**. 자세한 내용은 [Azure Windows VM에서 NIC를 다시 설정하는 방법](reset-network-interface.md)을 참조하세요.
+5. **VM 리소스 상태 확인**. 이 문제 해결 단계에서는 Azure 플랫폼에 VM 연결에 영향을 줄 수 있는 알려진 문제가 없는지 확인합니다.
    
     Azure Portal에서 VM을 선택합니다. 목록 맨 아래 근처에 있는 **지원 + 문제 해결** 섹션이 나올 때까지 설정 창을 아래로 스크롤합니다. **리소스 상태** 단추를 클릭합니다. 정상 VM은 **사용 가능**으로 보고합니다.
    
     ![Azure Portal에서 VM 리소스 상태 확인](./media/troubleshoot-rdp-connection/check-resource-health.png)
-5. **사용자 자격 증명 다시 설정**. 이 문제 해결 단계에서는 자격 증명이 확실하지 않거나 잊어버린 경우 로컬 관리자 계정에서 암호를 다시 설정합니다.
+6. **사용자 자격 증명 다시 설정**. 이 문제 해결 단계에서는 자격 증명이 확실하지 않거나 잊어버린 경우 로컬 관리자 계정에서 암호를 다시 설정합니다.
    
     Azure Portal에서 VM을 선택합니다. 목록 맨 아래 근처에 있는 **지원 + 문제 해결** 섹션이 나올 때까지 설정 창을 아래로 스크롤합니다. **암호 다시 설정** 단추를 클릭합니다. **모드**를 **암호 다시 설정**으로 지정한 다음 사용자 이름 및 새 암호를 입력합니다. 마지막으로 **업데이트** 단추를 클릭합니다.
    
     ![Azure Portal에서 사용자 자격 증명 다시 설정](./media/troubleshoot-rdp-connection/reset-password.png)
-6. **VM 다시 시작**. 이 문제 해결 단계에서는 VM 자체의 기본 문제를 해결할 수 있습니다.
+7. **VM 다시 시작**. 이 문제 해결 단계에서는 VM 자체의 기본 문제를 해결할 수 있습니다.
    
     Azure Portal에서 VM을 선택하고 **개요** 탭을 클릭합니다. **다시 시작** 단추를 클릭합니다.
    
     ![Azure Portal에서 VM을 다시 시작합니다.](./media/troubleshoot-rdp-connection/restart-vm.png)
-7. **VM 다시 배포**. 이 문제 해결 단계에서는 Azure 내의 다른 호스트에 VM을 다시 배포하여 기본 플랫폼 또는 네트워킹 문제를 해결합니다.
+8. **VM 다시 배포**. 이 문제 해결 단계에서는 Azure 내의 다른 호스트에 VM을 다시 배포하여 기본 플랫폼 또는 네트워킹 문제를 해결합니다.
    
     Azure Portal에서 VM을 선택합니다. 목록 맨 아래 근처에 있는 **지원 + 문제 해결** 섹션이 나올 때까지 설정 창을 아래로 스크롤합니다. **다시 배포** 단추를 클릭한 다음 **다시 배포**를 클릭합니다.
    

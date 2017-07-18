@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/16/2017
+ms.date: 6/29/2017
 ms.author: msfussell
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: fb73507ed596a65607d60f59d6834cc8bf5734f7
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 9dcec753e5f999a1bac07276373c0c25f89ec58d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -57,44 +57,50 @@ Service Fabric 응용 프로그램은 응용 프로그램의 기능을 제공하
 ```
 
 ## <a name="create-the-application"></a>응용 프로그램 만들기
-1. 터미널에서 `yo azuresfguest`을 입력합니다.
-2. 프레임워크의 경우 **컨테이너**를 선택합니다.
-3. 응용 프로그램 이름을 지정합니다(예: SimpleContainerApp).
-4. DockerHub 리포지토리에서 컨테이너 이미지에 대한 URL을 제공합니다. 이미지 매개변수는 [리포지토리]/[이미지 이름] 양식을 사용합니다.
+1. 터미널에서 `yo azuresfcontainer`을 입력합니다.
+2. 응용 프로그램 이름을 지정합니다(예: mycontainerap).
+3. DockerHub 리포지토리에서 컨테이너 이미지에 대한 URL을 제공합니다. 이미지 매개변수는 [리포지토리]/[이미지 이름] 양식을 사용합니다.
+4. 이미지에 워크로드 진입점이 정의되지 않은 경우 쉼표로 구분된 일련의 명령을 컨테이너 내에서 실행하도록 입력 명령을 명시적으로 지정합니다. 그러면 시작된 후에 컨테이너가 실행되도록 유지합니다.
 
 ![컨테이너용 Service Fabric Yeoman 생성기][sf-yeoman]
 
 ## <a name="deploy-the-application"></a>응용 프로그램 배포
+
+### <a name="using-xplat-cli"></a>플랫폼 간 CLI 사용
 응용 프로그램이 빌드되면 Azure CLI를 사용하여 로컬 클러스터에 배포할 수 있습니다.
 
 1. 로컬 Service Fabric 클러스터에 연결합니다.
 
-```bash
+    ```bash
     azure servicefabric cluster connect
-```
+    ```
 
 2. 템플릿에 제공된 설치 스크립트를 사용하여 클러스터의 이미지 저장소에 응용 프로그램 패키지를 복사하고 응용 프로그램 유형을 등록하며 응용 프로그램의 인스턴스를 만듭니다.
 
-```bash
+    ```bash
     ./install.sh
-```
+    ```
 
 3. 브라우저를 열고 http://localhost:19080/Explorer에서 Service Fabric Explorer로 이동합니다(Mac OS X에서 Vagrant를 사용하는 경우 localhost를 VM의 개인 IP로 바꿉니다).
 4. 응용 프로그램 노드를 확장하면 응용 프로그램 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 5. 템플릿에 제공된 제거 스크립트를 사용하여 응용 프로그램 인스턴스를 삭제하고 응용 프로그램 유형을 등록 해제합니다.
 
-```bash
+    ```bash
     ./uninstall.sh
-```
+    ```
+
+### <a name="using-azure-cli-20"></a>Azure CLI 2.0 사용
+
+[Azure CLI 2.0을 사용하여 응용 프로그램 수명 주기](service-fabric-application-lifecycle-azure-cli-2-0.md)를 관리하는 방법은 참조 문서를 참조하세요.
 
 예제 응용 프로그램에 대해서는 [GitHub에서 Service Fabric 컨테이너 코드 샘플을 확인하세요](https://github.com/Azure-Samples/service-fabric-dotnet-containers)(영문).
 
 ## <a name="adding-more-services-to-an-existing-application"></a>기존 응용 프로그램에 더 많은 서비스 추가
 
-`yo`을 사용하여 다른 컨테이너 서비스를 이미 만든 응용 프로그램에 추가하려면 다음 단계를 수행합니다. 
+`yo`을 사용하여 다른 컨테이너 서비스를 이미 만든 응용 프로그램에 추가하려면 다음 단계를 수행합니다.
 
 1. 기존 응용 프로그램의 루트로 디렉터리를 변경합니다.  예를 들어 `MyApplication`이 Yeoman에서 만든 응용 프로그램인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
-2. `yo azuresfguest:AddService`을 실행합니다.
+2. `yo azuresfcontainer:AddService`을 실행합니다.
 
 <a id="manually"></a>
 
@@ -124,6 +130,9 @@ Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)
 
 컨테이너 내에서 실행할 쉼표로 구분된 명령 집합과 함께 선택적인 `Commands` 요소를 지정하여 입력 명령을 제공할 수 있습니다.
 
+> [!NOTE]
+> 이미지에 워크로드 진입점이 정의되지 않은 경우 쉼표로 구분된 일련의 명령을 컨테이너 내에서 실행하도록 `Commands` 요소 안의 입력 명령을 명시적으로 지정합니다. 그러면 시작된 후에 컨테이너가 실행되도록 유지합니다.
+
 ## <a name="understand-resource-governance"></a>리소스 관리 이해
 리소스 관리는 호스트에서 컨테이너가 사용할 수 있는 리소스를 제한하는 컨테이너의 기능입니다. 응용 프로그램 매니페스트에서 지정된 `ResourceGovernancePolicy`는 서비스 코드 패키지에 대한 리소스 제한을 선언하는 데 사용됩니다. 다음 리소스에 대한 리소스 제한을 설정할 수 있습니다.
 
@@ -135,8 +144,8 @@ Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)
 
 > [!NOTE]
 > 향후 릴리스에서는 IOP, 읽기/쓰기 BPS 등과 같은 특정 블록 IO 제한 지정에 대한 지원이 포함될 예정입니다.
-> 
-> 
+>
+>
 
 ```xml
     <ServiceManifestImport>
@@ -209,7 +218,7 @@ Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)
     </ServiceManifestImport>
 ```
 
-명명 서비스에 등록하면 [역방향 프록시](service-fabric-reverseproxy.md)를 사용하여 컨테이너 내 코드를 통해 쉽게 컨테이너 간 통신을 할 수 있습니다. 역방향 프록시 http 수신 대기 포트와 통신하려는 서비스 이름을 환경 변수로서 제공하면 통신이 이루어집니다. 자세한 내용은 다음 섹션을 참조하세요. 
+명명 서비스에 등록하면 [역방향 프록시](service-fabric-reverseproxy.md)를 사용하여 컨테이너 내 코드를 통해 쉽게 컨테이너 간 통신을 할 수 있습니다. 역방향 프록시 http 수신 대기 포트와 통신하려는 서비스 이름을 환경 변수로서 제공하면 통신이 이루어집니다. 자세한 내용은 다음 섹션을 참조하세요.
 
 ## <a name="configure-and-set-environment-variables"></a>환경 변수 구성 및 설정
 환경 변수는 컨테이너에 배포된 서비스나 프로세스/게스트 실행 파일로서 배포된 서비스를 위해 서비스 매니페스트의 각 코드 패키지에 지정될 수 있습니다. 이러한 환경 변수 값은 응용 프로그램 매니페스트에서 명확하게 재정의되거나 응용 프로그램 매개 변수로 배포하는 동안 지정될 수 있습니다.
@@ -317,4 +326,9 @@ Service Fabric [응용 프로그램 모델](service-fabric-application-model.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png
+
+## <a name="related-articles"></a>관련된 문서
+
+* [Service Fabric 및 Azure CLI 2.0 시작](service-fabric-azure-cli-2-0.md)
+* [Service Fabric 및 XPlat CLI 시작](service-fabric-azure-cli.md)
 

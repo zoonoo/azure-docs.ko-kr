@@ -17,10 +17,10 @@ ms.workload: NA
 ms.date: 04/13/2017
 ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: d233bea6d0314f0bda0ebfe6fb310f1c6b1579d1
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: fac947fa153d83b614dc35c3cc0d8e640bfe1c95
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -45,7 +45,7 @@ DTU는 다른 성능 수준 및 서비스 계층에서 Azure SQL Database 간의
 ![SQL Database 소개: 계층 및 수준별 단일 데이터베이스 DTU](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>eDTU(탄력적 데이터베이스 트랜잭션 단위)란?
-필요 여부에 관계없이 항상 사용할 수 있는 전용 리소스(DTU) 집합을 SQL Database에 제공하는 대신 해당 데이터베이스 간의 리소스 풀을 공유하는 SQL Database 서버의 [탄력적 풀](sql-database-elastic-pool.md)에 데이터베이스를 배치할 수 있습니다. eDTU(Elastic Database 트랜잭션 단위)로 측정되는 탄력적 풀의 공유 리소스입니다. 탄력적 풀은 매우 다양하고 예측할 수 없는 사용 패턴을 지닌 여러 데이터베이스에 대한 성능 목표를 관리하기 위한 간단하고 비용 효율적인 솔루션을 제공합니다. 탄력적 풀에서 풀의 모든 리소스를 사용하는 데이터베이스는 없으며 또한 탄력적 풀의 데이터베이스에 언제나 최소한의 리소스는 사용할 수 있음을 보장할 수 있습니다. 자세한 내용은 [탄력적 풀 및 서비스 계층](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) 을 참조하세요.
+필요 여부에 관계없이 항상 사용할 수 있는 전용 리소스(DTU) 집합을 SQL Database에 제공하는 대신 해당 데이터베이스 간의 리소스 풀을 공유하는 SQL Database 서버의 [탄력적 풀](sql-database-elastic-pool.md)에 데이터베이스를 배치할 수 있습니다. eDTU(Elastic Database 트랜잭션 단위)로 측정되는 탄력적 풀의 공유 리소스입니다. 탄력적 풀은 매우 다양하고 예측할 수 없는 사용 패턴을 지닌 여러 데이터베이스에 대한 성능 목표를 관리하기 위한 간단하고 비용 효율적인 솔루션을 제공합니다. 탄력적 풀에서 풀의 모든 리소스를 사용하는 데이터베이스는 없으며 또한 탄력적 풀의 데이터베이스에 언제나 최소한의 리소스는 사용할 수 있음을 보장할 수 있습니다. 자세한 내용은 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
 ![SQL Database 소개: 계층 및 수준별 eDTU](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 

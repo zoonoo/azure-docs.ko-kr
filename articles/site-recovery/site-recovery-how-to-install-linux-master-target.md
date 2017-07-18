@@ -12,18 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/05/2017
+ms.date: 02/13/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 60102ebb43efc8710f102450df5b98edcb1d4b39
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c7c50c539149a929b15f50e4b52dc48d92534640
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="how-to-install-a-linux-master-target-server"></a>Linux 마스터 대상 서버 설치 방법
 가상 컴퓨터를 장애 조치(failover)한 후 가상 컴퓨터를 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 컴퓨터를 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 보호된 가상 컴퓨터가 Windows 가상 컴퓨터인 경우 Windows 마스터 대상이 필요합니다. Linux 가상 컴퓨터인 경우 Linux 마스터 대상이 필요합니다. 다음 단계를 읽고 Linux 마스터 대상을 만들고 설치하는 방법에 대해 알아보세요.
+
+> [!IMPORTANT]
+> 마스터 대상 서버 9.10.0 릴리스부터 최신 마스터 대상 서버는 Ubuntu 16.04 서버에만 설치할 수 있습니다. 새 설치 프로그램은 CentOS6.6 서버에서 설치되지 않습니다. 그러나 9.10.0 버전을 사용하여 이전 마스터 대상 서버를 계속 업그레이드할 수 있습니다.
 
 ## <a name="overview"></a>개요
 이 문서에서는 Linux 마스터 대상을 설치하기 위한 정보와 지침을 제공합니다.
@@ -50,99 +53,115 @@ ms.lasthandoff: 05/08/2017
 
 ## <a name="steps-to-deploy-the-master-target-server"></a>마스터 대상 서버를 배포하는 단계
 
-### <a name="install-centos-66-minimal"></a>CentOS 6.6 minimal 설치
+**Ubuntu 16.04.2 최소 설치**
 
-다음 단계에 따라 64비트 CentOS 6.6 운영 체제를 설치합니다.
+Ubuntu 16.04.2 - 64비트 운영 체제를 설치하려면 아래에서 설명하는 단계를 수행합니다.
 
-1. 다음 링크에서 가장 가까운 미러를 선택하여 CentOS 6.6 minimal 64비트 ISO를 다운로드합니다.
+**1단계:** 다음 링크에서 가장 가까운 미러를 선택하여 Ubuntu 16.04.2 최소 64비트 ISO를 다운로드합니다.
 
-    <http://archive.kernel.org/centos-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+<https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64>
 
-    <http://mirror.symnds.com/distributions/CentOS-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스템을 부팅합니다.
 
-    <http://bay.uchicago.edu/centos-vault/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+**2단계:** 원하는 언어로 **영어**를 선택하고 Enter 키를 누릅니다.
 
-    <http://mirror.nsc.liu.se/centos-store/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso>
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image1.png)
 
-    DVD 드라이브에 CentOS 6.6 minimal 64비트 ISO를 삽입하고 시스템을 부팅합니다.
+**3단계:** **Ubuntu 서버 설치**를 선택하고 Enter 키를 누릅니다.
 
-    ![CentoOS 6.6 대화 상자 시작](./media/site-recovery-how-to-install-linux-master-target/media/image1.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image2.png)
 
-2. **건너뛰기**를 클릭하여 미디어 테스트 프로세스를 무시합니다.
+**4단계:** 원하는 언어로 **영어**를 선택하고 Enter 키를 누릅니다.
 
-    ![건너뛰기를 선택하여 미디어 테스트 프로세스 무시](./media/site-recovery-how-to-install-linux-master-target/media/image2.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image3.png)
 
-3. 설치 시작 화면에서 **다음** 단추를 클릭합니다.
+**5단계:** **표준 시간대** 옵션 목록에서 적절한 옵션을 선택하고 Enter 키를 누릅니다
 
-    ![설치 시작 화면의 다음 단추](./media/site-recovery-how-to-install-linux-master-target/media/image3.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image4.png)
 
-4. 원하는 언어로 **영어**를 선택하고 **다음**을 클릭합니다.
+**6단계:** 기본 옵션인 **아니요**를 선택하고 Enter 키를 누릅니다
 
-    ![언어 선택](./media/site-recovery-how-to-install-linux-master-target/media/image4.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image5.png)
 
-5. 자판 배열로 **영어(미국)**을 선택한 후 **다음**을 클릭합니다.
+**7단계:** 키보드에서 국적으로 **영어(미국)**을 선택하고 Enter 키를 누릅니다
 
-    ![영어 자판 배열 선택](./media/site-recovery-how-to-install-linux-master-target/media/image5.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image6.png)
 
-6. **기본 저장소 장치**를 선택하고 **다음**을 클릭합니다.
+**8단계:** 키보드 레이아웃으로 **영어(미국)**을 선택하고 Enter 키를 누릅니다.
 
-    ![저장소 장치 선택](./media/site-recovery-how-to-install-linux-master-target/media/image6.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image7.png)
 
-7. 하드 드라이브의 기존 데이터가 삭제된다는 경고 메시지가 나타납니다. 하드 드라이브에 중요한 데이터가 없는지 확인한 다음 **예, 데이터 모두 무시**를 클릭합니다.
+**9단계:** **호스트 이름 텍스트 상자**에 서버의 호스트 이름을 입력하고 **계속** 단추를 클릭합니다.
 
-    ![계속 진행하면 데이터가 삭제된다는 경고](./media/site-recovery-how-to-install-linux-master-target/media/image7.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image8.png)
 
-8. **호스트 이름** 상자에 서버 호스트 이름을 입력하고 **네트워크 구성**을 클릭합니다. **네트워크 연결** 대화 상자에서 네트워크 인터페이스를 선택하고 **편집** 단추를 클릭하여 IPV4Settings를 구성합니다.
+**10단계:** **사용자 이름**을 입력하여 **텍스트 상자**에서 사용자 계정을 만들고 **계속** 단추를 클릭합니다.
 
-    ![호스트 이름을 선택하고 IPV4 구성](./media/site-recovery-how-to-install-linux-master-target/media/image8.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image9.png)
 
-9. **eth0 시스템 편집** 대화 상자에서 **자동으로 연결** 확인란을 선택합니다. **IPv4 설정** 탭에서 **방법**을 **수동**으로 선택하고 **추가** 단추를 클릭합니다. **고정 IP**, **네트워크 마스크**, **게이트웨이** 및 **DNS 서버** 세부 정보를 입력합니다. **적용**을 클릭하여 세부 정보를 저장합니다.
+**11단계:** **텍스트 상자**에서 사용자 계정의 **암호**를 입력하고 **계속** 단추를 클릭합니다.
 
-    ![네트워크 구성에 대한 설정](./media/site-recovery-how-to-install-linux-master-target/media/image9.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image10.png)
 
-10. 표준 시간대를 선택하고 **다음**을 클릭합니다.
+**12단계:** **텍스트 상자**에서 새 사용자의 **암호**를 확인하고 **계속** 단추를 클릭합니다.
 
-    ![표준 시간대 선택](./media/site-recovery-how-to-install-linux-master-target/media/image10.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image11.png)
 
-11. **루트 암호**를 입력하고, 암호를 확인한 후 **다음**을 클릭합니다.
+**13단계:** 기본 옵션인 **아니요**를 선택하고 **Enter** 키를 누릅니다.
 
-    ![암호 추가](./media/site-recovery-how-to-install-linux-master-target/media/image11.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image12.png)
 
-12. **사용자 지정 레이아웃 만들기**를 클릭하고 **다음**을 클릭합니다.
+**14단계:** 표시된 표준 시간대가 올바른 경우 기본 옵션인 **예**를 선택하고 **Enter** 키를 누릅니다.
 
-    ![설치 유형 선택](./media/site-recovery-how-to-install-linux-master-target/media/image12.png)
+**아니요** 옵션을 선택하여 표준 시간대를 다시 구성할 수 있습니다.
 
-13. **무료** 파티션을 선택하고, **만들기**를 클릭하여 파일 시스템 형식이 **ext4**인 **/**, **/var/crash** 및 **/home** 파티션을 만듭니다. 파일 시스템 형식이 **swap**인 **스왑 파티션**을 만듭니다. 파티션 크기를 할당하려면 다음 테이블의 크기 할당 수식을 따릅니다.
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image13.png)
 
-    > [!NOTE]
-    > Linux 마스터 대상 서버는 루트 또는 보존 저장소 공간에 LVM(Logical Volume Manager)을 사용하지 않습니다. Linux 마스터 대상은 기본적으로 LVM 파티션 및 디스크 검색을 방지하도록 구성됩니다.
+**15단계:** 분할 방법 옵션에서 "**단계별 -** **전체 디스크 사용**" 옵션을 선택하고 **Enter** 키를 누릅니다.
 
-    ![파티션 이름, 파티션 크기 및 파일 시스템 유형 테이블](./media/site-recovery-how-to-install-linux-master-target/media/image13.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image14.png)
 
-14. 파티션을 만든 후 **다음**을 클릭합니다.
+**16단계:** **분할할 디스크 선택** 옵션에서 적절한 디스크를 선택하고 **Enter** 키를 누릅니다.
 
-    ![파티션에 선택된 값을 보여주는 대화 상자](./media/site-recovery-how-to-install-linux-master-target/media/image14.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image15.png)
 
-15. 기존 장치가 있으면 포맷에 대한 경고 메시지가 나타납니다. **포맷**을 클릭하여 하드 드라이브를 최신 파티션 테이블로 포맷합니다.
+**17단계:** **예**를 선택하여 디스크에 변경 내용을 작성하고 **Enter** 키를 누릅니다.
 
-    ![디스크를 포맷하려면 수식 단추 클릭](./media/site-recovery-how-to-install-linux-master-target/media/image15.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image16.png)
 
-16. **디스크에 변경 내용 쓰기**를 클릭하여 디스크에 파티션 변경 내용을 적용합니다.
+**18단계:** 기본 옵션을 선택하고 계속을 선택한 다음 Enter 키를 누릅니다.
 
-    !["디스크에 변경 내용 쓰기" 클릭](./media/site-recovery-how-to-install-linux-master-target/media/image16.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image17.png)
 
-17. **부팅 로더 설치** 옵션을 선택하고 **다음**을 클릭하여 루트 파티션에 부팅 로더를 설치합니다.
+**19단계:** 시스템에서 업그레이드를 관리할 적절한 옵션을 선택하고 **Enter** 키를 누릅니다.
 
-    ![루트 파티션에 부팅 로더 설치](./media/site-recovery-how-to-install-linux-master-target/media/image17.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image18.png)
+
+> [!WARNING]
+> Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버전이 필요하므로 가상 컴퓨터에 커널 업그레이드를 비활성화해야 합니다. 활성화한 경우 일반 업그레이드로 인해 마스터 대상 서버에 오작동이 발생합니다. "자동 업데이트 없음" 옵션을 선택했는지 확인합니다.
 
 
-18. 설치 프로세스가 시작됩니다. 진행률을 모니터링할 수 있습니다.
+**20단계:** 기본 옵션으로 바로 이동할 수 있습니다. SSH 연결에 openSSH를 설정하려는 경우 "OpenSSH 서버" 옵션 및 계속을 선택합니다.
 
-    ![설치 진행률을 보여주는 대화 상자](./media/site-recovery-how-to-install-linux-master-target/media/image18.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image19.png)
 
-19. 설치가 성공적으로 완료되면 다음 화면이 표시됩니다. **다시 부팅**을 클릭합니다.
+**21단계:** **예** 옵션을 선택하고 **Enter** 키를 누릅니다
 
-    ![설치 성공 화면](./media/site-recovery-how-to-install-linux-master-target/media/image19.png)
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image20.png)
+
+**22단계:** 부팅 로더를 설치하기 위해 적절한 장치(가급적 /dev/sda)를 선택하고 **Enter** 키를 누릅니다.
+
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image21.png)
+
+**23단계:** **계속** 단추를 선택하고 **Enter** 키를 눌러 **설치를 완료합니다.**
+
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image22.png)
+
+설치가 완료된 후에 한 번입니다. 새 사용자 자격 증명을 사용하여 VM에 로그인합니다(**10단계** 참조).
+
+다음 스크린샷에 설명된 단계를 따라 루트 사용자 암호를 설정하고 추가 작업을 위해 루트 사용자로 로그인합니다.
+
+![](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image23.png)
 
 
 ### <a name="post-installation-steps"></a>설치 후 단계
@@ -176,83 +195,20 @@ Linux 가상 컴퓨터에 있는 각 SCSI 하드 디스크의 SCSI ID를 가져�
 
     ![disk.EnableUUID가 있는지 확인](./media/site-recovery-how-to-install-linux-master-target/media/image21.png)
 
+#### <a name="disable-kernel-upgrades"></a>**커널 업그레이드 비활성화**
+
+Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버전이 필요하므로 가상 컴퓨터에 커널 업그레이드를 비활성화해야 합니다. 활성화한 경우 일반 업그레이드로 인해 마스터 대상 서버에 오작동이 발생합니다. 아래 단계를 사용하여 커널 업그레이드를 비활성화합니다.
+> [!IMPORTANT]
+> 여기에서 스크립트 단계를 입력해야 합니다.
+
 #### <a name="download-and-install-additional-packages"></a>추가 패키지를 다운로드하여 설치
 
 > [!NOTE]
 > 추가 패키지를 다운로드하여 설치할 수 있도록 인터넷에 연결되어 있는지 확인합니다. 인터넷에 연결되지 않았으면 이러한 RPM 패키지를 수동으로 찾아서 설치해야 합니다.
 
 ```
-yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx
 ```
-
-이전 명령은 CentOS 6.6 리포지토리에서 다음 15개 패키지를 다운로드하여 설치합니다. 인터넷에 액세스할 수 없는 경우 다음 RPM 패키지를 다운로드해야 합니다.
-
-
-bc-1.06.95-1.el6.x86\_64.rpm
-
-busybox-1.15.1-20.el6.x86\_64.rpm
-
-elfutils-libs-0.158-3.2.el6.x86\_64.rpm
-
-kexec-tools-2.0.0-280.el6.x86\_64.rpm
-
-lsscsi-0.23-2.el6.x86\_64.rpm
-
-lzo-2.03-3.1.el6\_5.1.x86\_64.rpm
-
-perl-5.10.1-136.el6\_6.1.x86\_64.rpm
-
-perl-Module-Pluggable-3.90-136.el6\_6.1.x86\_64.rpm
-
-perl-Pod-Escapes-1.04-136.el6\_6.1.x86\_64.rpm
-
-perl-Pod-Simple-3.13-136.el6\_6.1.x86\_64.rpm
-
-perl-libs-5.10.1-136.el6\_6.1.x86\_64.rpm
-
-perl-version-0.77-136.el6\_6.1.x86\_64.rpm
-
-rsync-3.0.6-12.el6.x86\_64.rpm
-
-snappy-1.1.0-1.el6.x86\_64.rpm
-
-wget-1.12-5.el6\_6.1.x86\_64.rpm
-
-
-#### <a name="install-additional-packages-for-specific-operating-systems"></a>특정 운영 체제용 추가 패키지 설치
-
-> [!NOTE]
-> 보호된 원본 컴퓨터에서 루트 또는 부팅 장치에 ReiserFS 또는 XFS 파일 시스템을 사용하는 경우 보호하기 전에 다음 추가 패키지를 Linux 마스터 대상에 다운로드하여 설치해야 합니다.
-
-
-***ReiserFS(Suse11SP3에서 사용되는 경우. ReiserFS는 Suse11SP3의 기본 파일 시스템이 아님)***
-
-```
-cd /usr/local
-
-wget
-<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
-
-wget
-<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
-
-rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
-reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
-```
-
-***XFS(RHEL, CentOS 7 이상)***
-
-```
-cd /usr/local
-
-wget
-<http://archive.kernel.org/centos-vault/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
-
-rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
-
-yum install device-mapper-multipath
-```
-마스터 대상에서 다중 경로 패키지를 사용하도록 설정하는 데 필요합니다.
 
 ### <a name="get-the-installer-for-setup"></a>설치를 위한 설치 프로그램 가져오기
 
@@ -361,12 +317,14 @@ wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
 3. 다음 명령을 실행하여 마스터 대상 서버를 설치하고 이 서버를 구성 서버에 등록합니다.
 
     ```
-    ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i <Configuration Server IP Address> -p 443 -s y -c https -P passphrase.txt
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 
-    예제: ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i 104.40.75.37 -p 443 -s y -c https -P passphrase.txt
+    예: 예: /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
 
     스크립트가 완료될 때까지 기다립니다. 마스터 대상이 성공적으로 등록되면 해당 마스터 대상이 포털의 Site Recovery 인프라 페이지에 나열됩니다.
+
 
 #### <a name="install-the-master-target-by-using-interactive-install"></a>대화식 설치를 사용하여 마스터 대상 설치
 
@@ -380,22 +338,31 @@ wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
 
     ![마스터 대상의 기본 설치 위치 선택](./media/site-recovery-how-to-install-linux-master-target/image17.png)
 
+설치가 완료되면 명령줄을 사용하여 구성 서버를 등록해야 합니다.
 
-3. 구성할 **전역** 설정을 선택합니다.
+1. 구성 서버의 IP 주소를 적어둡니다. 다음 단계에서 필요합니다.
 
-    ![전역 설정 구성](./media/site-recovery-how-to-install-linux-master-target/image18.png)
+2. 다음 명령을 실행하여 마스터 대상 서버를 설치하고 이 서버를 구성 서버에 등록합니다.
 
-4. 구성 서버의 IP 주소를 지정합니다.
+    ```
+    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
+    ```
 
-5. 구성 서버의 포트를 443으로 지정합니다.
+    예: 예: /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
 
-    ![구성 서버의 IP 주소 및 포트 지정](./media/site-recovery-how-to-install-linux-master-target/image19.png)
+    스크립트가 완료될 때까지 기다립니다. 마스터 대상이 성공적으로 등록되면 해당 마스터 대상이 포털의 Site Recovery 인프라 페이지에 나열됩니다.
 
-6. 구성 서버의 C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase에서 구성 서버 암호를 복사하여 **암호** 상자에 붙여 넣습니다. 텍스트를 붙여 넣은 후에도 상자는 비어 있습니다.
 
-7. 메뉴에서 **종료**로 이동합니다.
+### <a name="upgrade-the-master-target"></a>마스터 대상 업그레이드
 
-8. 설치 및 등록을 완료합니다.
+설치 관리자를 실행합니다. 마스터 대상에 에이전트가 설치되어 있는지를 자동으로 검색합니다. 업그레이드하려면 'Y'를 선택합니다. 설치가 완료되면 다음 명령을 사용하여 설치된 마스터 대상의 버전을 확인할 수 있습니다.
+
+    ```
+        cat /usr/local/.vx_version
+    ```
+
+버전 필드에서 제공된 마스터 대상 버전 번호를 볼 수 있습니다.
 
 ### <a name="install-vmware-tools-on-the-master-target-server"></a>마스터 대상 서버에 VMware 도구 설치
 

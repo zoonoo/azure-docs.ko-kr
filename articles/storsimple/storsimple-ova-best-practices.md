@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/01/2017
+ms.date: 06/08/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 6d5563d06d9097134715f8885521c85e987a3acd
-ms.lasthandoff: 05/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 56e8f5cf3886c740853a40781c42b3e36144134b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -163,7 +164,7 @@ StorSimple 가상 배열이 파일 서버로 구성되면 공유를 프로비전
 * 재해 복구 사용 사례의 경우 허용되는 공유/볼륨의 수가 16개이고 병렬로 처리할 수 있는 최대 공유/볼륨 수가 16이므로 공유/볼륨의 수와 RPO 및 RTO 사이에는 아무 관계가 없습니다.
 
 #### <a name="volumeshare-type"></a>볼륨/공유 유형
-StorSimple은 용도에 따라 로컬 고정 및 계층화의 두 가지 볼륨/공유 유형을 지원합니다. 로컬로 고정된 볼륨/공유는 씩 프로비전되는 반면 계층화 볼륨/공유는 씬 프로비전됩니다. 
+StorSimple은 용도에 따라 로컬 고정 및 계층화의 두 가지 볼륨/공유 유형을 지원합니다. 로컬로 고정된 볼륨/공유는 씩 프로비전되는 반면 계층화 볼륨/공유는 씬 프로비전됩니다. 한 번 생성되면 로컬로 고정된 볼륨/공유를 계층화 볼륨/공유로 변환하거나 *반대로* 변환할 수 없습니다.
 
 StorSimple 볼륨/공유를 구성할 때에는 다음과 같은 모범 사례를 구현하는 것이 좋습니다.
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: d95ab33460d5d86b1d2f6d7f0d4e7a9040568c29
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 48a0eaeb10d406d551c9e5870edde06809bd7544
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -65,7 +65,7 @@ Windows 에이전트를 OMS 서비스에 연결하고 등록한 경우 포트 �
 다음 표에서는 통신에 필요한 리소스를 보여줍니다.
 
 >[!NOTE]
->다음 리소스 중 일부는 이전 버전의 OMS인 Operational Insights를 언급합니다. 그러나 나열된 리소스는 나중에 변경될 예정입니다.
+>다음 리소스 중 일부는 Log Analytics의 이전 이름인 Operational Insights를 언급합니다.
 
 | 에이전트 리소스 | 포트 | HTTPS 검사 무시 |
 |---|---|---|
@@ -114,10 +114,10 @@ Windows 에이전트를 OMS 서비스에 연결하고 등록한 경우 포트 �
 
 에이전트가 다음 절차를 사용하여 OMS와 통신하고 있는지 여부를 쉽게 확인할 수 있습니다.
 
-1.    Windows 에이전트가 설치된 컴퓨터에서 제어판을 엽니다.
-2.    Microsoft Monitoring Agent를 엽니다.
-3.    Azure Log Analytics(OMS) 탭을 클릭합니다.
-4.    상태 열에는 Operations Management Suite 서비스에 성공적으로 연결된 에이전트가 표시됩니다.
+1.  Windows 에이전트가 설치된 컴퓨터에서 제어판을 엽니다.
+2.  Microsoft Monitoring Agent를 엽니다.
+3.  Azure Log Analytics(OMS) 탭을 클릭합니다.
+4.  상태 열에는 Operations Management Suite 서비스에 성공적으로 연결된 에이전트가 표시됩니다.
 
 ![연결된 에이전트](./media/log-analytics-windows-agents/mma-connected.png)
 
@@ -167,6 +167,12 @@ Windows 에이전트를 OMS 서비스에 연결하고 등록한 경우 포트 �
 |OPINSIGHTS_WORKSPACE_ID                | 추가할 작업 영역의 작업 영역 ID(guid)                    |
 |OPINSIGHTS_WORKSPACE_KEY               | 작업 영역에서 처음 인증하는 데 사용되는 작업 영역 키 |
 |OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | 작업 영역이 있는 클라우드 환경 지정 <br> 0 = Azure 상용 클라우드(기본값) <br> 1 = Azure Government |
+|OPINSIGHTS_PROXY_URL               | 사용할 프록시의 URI |
+|OPINSIGHTS_PROXY_USERNAME               | 인증된 프록시에 액세스할 사용자 이름 |
+|OPINSIGHTS_PROXY_PASSWORD               | 인증된 프록시에 액세스할 암호 |
+
+>[!NOTE]
+IExpress의 명령줄 길이 제한에 도달하지 않으려면 작업 영역이 구성되지 않은 상태로 에이전트를 설치한 후 스크립트를 사용하여 작업 영역에 대한 구성을 설정합니다.
 
 >[!NOTE]
 `OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE` 매개 변수를 사용할 때 `Command line option syntax error.`이 발생하는 경우 다음과 같은 해결 방법을 사용할 수 있습니다.
@@ -174,9 +180,10 @@ Windows 에이전트를 OMS 서비스에 연결하고 등록한 경우 포트 �
 MMASetup-AMD64.exe /C /T:.\MMAExtract
 cd .\MMAExtract
 setup.exe /qn ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+```
 
-## Add a workspace using a script
-Add a workspace using the Log Analytics agent scripting API with the following example:
+## <a name="add-a-workspace-using-a-script"></a>스크립트를 사용하여 작업 영역 추가
+다음 예제처럼 Log Analytics 에이전트 스크립팅 API를 사용하여 작업 영역을 추가합니다.
 
 ```PowerShell
 $mma = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
@@ -206,10 +213,10 @@ $mma.ReloadConfiguration()
 이 절차 및 스크립트 예제는 기존 에이전트를 업그레이드하지 않습니다.
 
 1. [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) 에서 Azure 자동화로 xPSDesiredStateConfiguration DSC 모듈을 가져옵니다.  
-2.    *OPSINSIGHTS_WS_ID* 및 *OPSINSIGHTS_WS_KEY*의 Azure Automation 변수 자산을 만듭니다. *OPSINSIGHTS_WS_ID*를 OMS Log Analytics 작업 영역 ID에 설정하고 *OPSINSIGHTS_WS_KEY*를 작업 영역의 기본 키에 설정합니다.
-3.    다음 스크립트를 사용하고 MMAgent.ps1로 저장합니다.
-4.    다음 예제를 수정 및 사용하여 Azure 자동화에 DSC를 사용하여 에이전트를 설치합니다. Azure 자동화 인터페이스 또는 cmdlet을 사용하여 MMAgent.ps1을 Azure 자동화로 가져옵니다.
-5.    구성에 노드를 할당합니다. 15분 이내에 노드가 구성을 점검하고 MMA가 노드로 푸시됩니다.
+2.  *OPSINSIGHTS_WS_ID* 및 *OPSINSIGHTS_WS_KEY*의 Azure Automation 변수 자산을 만듭니다. *OPSINSIGHTS_WS_ID*를 OMS Log Analytics 작업 영역 ID에 설정하고 *OPSINSIGHTS_WS_KEY*를 작업 영역의 기본 키에 설정합니다.
+3.  다음 스크립트를 사용하고 MMAgent.ps1로 저장합니다.
+4.  다음 예제를 수정 및 사용하여 Azure 자동화에 DSC를 사용하여 에이전트를 설치합니다. Azure 자동화 인터페이스 또는 cmdlet을 사용하여 MMAgent.ps1을 Azure 자동화로 가져옵니다.
+5.  구성에 노드를 할당합니다. 15분 이내에 노드가 구성을 점검하고 MMA가 노드로 푸시됩니다.
 
 ```PowerShell
 Configuration MMAgent
@@ -298,17 +305,17 @@ foreach ($Application in $InstalledApplications)
 IT 인프라에서 Operations Manager를 사용할 경우 Operations Manager 에이전트로 MMA 에이전트를 사용할 수 있습니다.
 
 ### <a name="to-configure-mma-agents-to-report-to-an-operations-manager-management-group"></a>MMA 에이전트에서 Operations Manager 관리 그룹으로 보고하도록 구성하려면
-1.    에이전트가 설치된 컴퓨터에서 **제어판**을 엽니다.  
-2.    **Microsoft Monitoring Agent**를 연 다음 **Operations Manager** 탭을 클릭합니다.  
+1.  에이전트가 설치된 컴퓨터에서 **제어판**을 엽니다.  
+2.  **Microsoft Monitoring Agent**를 연 다음 **Operations Manager** 탭을 클릭합니다.  
     ![Microsoft Monitoring Agent Operations Manager 탭](./media/log-analytics-windows-agents/om-mg01.png)
-3.    Operations Manager 서버가 Active Directory와 통합된 경우 **AD DS에서 관리 그룹 할당 자동 업데이트**를 클릭합니다.
-4.    **추가**를 클릭하여 **관리 그룹 추가** 대화 상자를 엽니다.  
+3.  Operations Manager 서버가 Active Directory와 통합된 경우 **AD DS에서 관리 그룹 할당 자동 업데이트**를 클릭합니다.
+4.  **추가**를 클릭하여 **관리 그룹 추가** 대화 상자를 엽니다.  
     ![Microsoft Monitoring Agent 관리 그룹 추가](./media/log-analytics-windows-agents/oms-mma-om02.png)
-5.    **관리 그룹 이름** 상자에 관리 그룹의 이름을 입력합니다.
-6.    **기본 관리 서버** 상자에 기본 관리 서버의 컴퓨터 이름을 입력합니다.
-7.    **관리 서버 포트** 상자에 TCP 포트 번호를 입력합니다.
-8.    **에이전트 작업 계정**에서 로컬 시스템 계정 또는 로컬 도메인 계정을 선택합니다.
-9.    **확인**을 클릭하여 **관리 그룹 추가** 대화 상자를 닫은 다음 **확인**을 클릭하여 **Microsoft Monitoring Agent 속성** 대화 상자를 닫습니다.
+5.  **관리 그룹 이름** 상자에 관리 그룹의 이름을 입력합니다.
+6.  **기본 관리 서버** 상자에 기본 관리 서버의 컴퓨터 이름을 입력합니다.
+7.  **관리 서버 포트** 상자에 TCP 포트 번호를 입력합니다.
+8.  **에이전트 작업 계정**에서 로컬 시스템 계정 또는 로컬 도메인 계정을 선택합니다.
+9.  **확인**을 클릭하여 **관리 그룹 추가** 대화 상자를 닫은 다음 **확인**을 클릭하여 **Microsoft Monitoring Agent 속성** 대화 상자를 닫습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

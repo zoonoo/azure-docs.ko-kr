@@ -11,21 +11,21 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 06/05/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f849ea027022cc753bf818d7980170b5875221f0
-ms.openlocfilehash: 47431f934f092ea7c614599b6c8e3fe3a946a955
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 49b9d2e21dbcb612828a25f21ed4382327d6f64c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>원본 환경 설정(Azure에 대한 물리적 서버)
 > [!div class="op_single_selector"]
-> * [VMware 가상 컴퓨터](./site-recovery-set-up-vmware-to-azure.md)
-> * [물리적 서버](./site-recovery-set-up-physical-to-azure.md)
+> * [VMware에서 Azure로](./site-recovery-set-up-vmware-to-azure.md)
+> * [물리적 서버에서 Azure로](./site-recovery-set-up-physical-to-azure.md)
 
 이 문서에서는 온-프레미스 환경을 설정하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다.
 

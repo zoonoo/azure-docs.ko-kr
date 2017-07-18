@@ -1,6 +1,6 @@
 ---
-title: "쿼리 성능 조정 권장 사항 - Azure SQL Database | Microsoft Docs"
-description: "Azure SQL 데이터베이스 관리자는 현재 쿼리 성능을 향상시킬 수 있는 기존 SQL 데이터베이스에 대한 권장 사항을 제공합니다."
+title: "성능 권장 사항 - Azure SQL Database | Microsoft Docs"
+description: "Azure SQL Database는 현재 쿼리 성능을 향상시킬 수 있는 SQL Database에 대한 권장 사항을 제공합니다."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,32 +8,45 @@ manager: jhubbard
 editor: monicar
 ms.assetid: 1db441ff-58f5-45da-8d38-b54dc2aa6145
 ms.service: sql-database
-ms.custom: monitor & manage
+ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/30/2016
+ms.date: 07/05/2017
 ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
-ms.openlocfilehash: a8d0b08abc7e3c688f9ab79499b3459b33f06848
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 357a25a665894c86ddb0f93beeb4dd59d8837489
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/02/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="sql-database-advisor"></a>SQL 데이터베이스 관리자
+# <a name="performance-recommendations"></a>성능 권장 사항
 
-Azure SQL Database에서 응용 프로그램을 학습하여 여기에 맞게 변경하고 사용자 지정된 권장 사항을 제공하여 SQL Database의 성능을 최대화할 수 있습니다. Azure SQL Database 관리자는 인덱스 만들기 및 삭제, 쿼리 매개 변수화, 스키마 문제 해결에 대한 권장 사항을 제공합니다. 이 관리자는 SQL Database의 사용 기록을 분석하여 성능을 평가합니다. 데이터베이스의 일반적인 워크로드를 실행하는 데 가장 적합한 권장 사항을 사용하는 것이 좋습니다. 
+Azure SQL Database에서 응용 프로그램을 학습하여 여기에 맞게 변경하고 사용자 지정된 권장 사항을 제공하여 SQL Database의 성능을 최대화할 수 있습니다. SQL Database 사용 기록을 분석하여 지속적으로 성능을 평가합니다. 제공된 권장 사항은 고유한 데이터베이스 워크로드 패턴에 기반하며 성능을 개선하도록 도와줍니다.
 
-다음 권장 사항은 Azure SQL Database 서버에 사용할 수 있습니다. 현재는 만들기 및 삭제 인덱스 권장 사항이 자동으로 적용되도록 설정할 수 있습니다. 자세한 내용은 [자동 인덱스 관리](sql-database-advisor-portal.md#enable-automatic-index-management)를 참조하세요.
+> [!NOTE]
+> 권장 사항을 사용하는 권장된 방법은 데이터베이스에서 '자동 튜닝'을 사용하는 것입니다. 자세한 내용은 [자동 튜닝](sql-database-automatic-tuning.md)을 참조하세요.
+>
 
 ## <a name="create-index-recommendations"></a>인덱스 만들기 권장 사항
-**인덱스 만들기** 권장 사항은 SQL 데이터베이스 서비스에서 인덱스 누락을 감지하면 나타나며(생성된 경우) 데이터베이스 워크로드에 유용할 수 있습니다(비클러스터형 인덱스만).
+Azure SQL Database는 지속적으로 실행되는 쿼리를 모니터링하고 성능을 향상시킬 수 있는 인덱스를 식별합니다. 특정 인덱스가 없다는 충분한 신뢰도가 빌드되면 새 **인덱스 만들기** 권장 사항이 생성됩니다. Azure SQL Database는 시간이 지나면 인덱스가 사용할 수 있는 성능 향상을 예상하여 신뢰도를 빌드합니다. 예상된 성능 향상에 따라 권장 사항은 높음, 보통, 낮음으로 분류됩니다. 
+
+권장 사항을 사용하여 만든 인덱스는 항상 auto_created 인덱스로 플래그가 지정됩니다. sys.indexes 보기를 확인하여 어떤 인덱스가 auto_created인지를 확인할 수 있습니다. 자동으로 만든 인덱스는 ALTER/RENAME 명령을 차단하지 않습니다. 자동으로 만든 인덱스가 있는 열을 삭제하려고 하면 명령이 전달되고 자동으로 만든 인덱스가 만든 명령을 사용하여 삭제됩니다. 일반 인덱스는 인덱싱된 열에서 ALTER/RENAME 명령을 차단합니다.
+
+인덱스 만들기 권장 사항이 적용되면 Azure SQL Database는 초기 성능과 쿼리의 성능을 비교합니다. 새 인덱스가 성능을 향상시킨 경우 권장 사항은 성공한 것으로 플래그가 지정되고 영향 보고서를 사용할 수 있습니다. 인덱스로 인해 이점이 발생하지 않은 경우 자동으로 되돌려집니다. 이러한 방식으로 Azure SQL Database를 사용하면 권장 사항을 사용하여 데이터베이스 성능을 향상하도록 할 수 있습니다.
+
+**인덱스 만들기** 권장 사항에는 데이터베이스 또는 풀 DTU 사용이 최근 20분에 80%를 넘거나 저장소가 사용의 90%를 넘는 경우 권장 사항을 적용하지 않는 백 오프 정책이 있습니다. 이 경우에 권장 사항은 연기됩니다.
 
 ## <a name="drop-index-recommendations"></a>인덱스 삭제 권장 사항
-**인덱스 삭제** 권장 사항은 SQL 데이터베이스 서비스에서 중복된 인덱스를 감지하면 나타납니다(현재 미리 보기 상태이며 중복 인덱스에만 적용됨).
+Azure SQL Database는 누락된 인덱스를 검색하는 작업 이외에도 기존 인덱스의 성능을 지속적으로 분석합니다. 인덱스를 사용하지 않으면 Azure SQL Database에서는 삭제하도록 권장합니다. 다음과 같은 두 가지 경우에는 인덱스를 삭제하는 것이 좋습니다.
+* 인덱스가 다른 인덱스의 복제본인 경우(동일하게 인덱스되거나 포함된 열, 파티션 스키마 및 필터)
+* 연장된 기간(93) 동안 인덱스를 사용하지 않은 경우
+
+인덱스 삭제 권장 사항은 구현 후에 확인도 수행합니다. 성능이 향상된 경우 영향 보고서를 사용할 수 있습니다. 성능 저하가 감지되는 경우 권장 사항이 되돌려집니다.
+
 
 ## <a name="parameterize-queries-recommendations"></a>쿼리 매개 변수화 권장 사항
 **쿼리 매개 변수화** 권장 사항은 지속적으로 다시 컴파일되지만 동일한 쿼리 실행 계획으로 종료되는 하나 이상의 쿼리가 있을 때 나타납니다. 이러한 조건에서 강제 매개 변수화를 적용할 기회가 생기며 이를 통해 쿼리 계획을 캐시하고 다시 사용하여 향후 성능을 향상시키고 리소스 사용량을 줄일 수 있습니다. 
@@ -65,12 +78,12 @@ SQL Server에 대해 실행되는 모든 쿼리는 실행 계획을 생성하기
 ## <a name="next-steps"></a>다음 단계
 권장 사항을 모니터링하고 개선된 성능을 계속 적용합니다. 데이터베이스 워크로드는 동적 이며 지속적으로 변경합니다. SQL Database 관리자는 데이터베이스 성능을 잠재적으로 향상시킬 권장 사항을 계속 제공하고 모니터링할 것입니다. 
 
-* Azure 포털에서 SQL 데이터베이스 관리자를 사용하는 방법에 대한 단계는 [Azure 포털의 SQL 데이터베이스 관리자](sql-database-advisor-portal.md) 를 참조하세요.
+* Azure Portal에서 성능 권장 사항을 사용하는 방법에 대한 단계는 [Azure Portal의 성능 권장 사항](sql-database-advisor-portal.md)을 참조하세요.
 * 상위 쿼리의 성능에 미치는 영향을 알아보려면 [Query Performance Insight](sql-database-query-performance.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 * [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
+* [역할 기반 액세스 제어](../active-directory/role-based-access-control-what-is.md)
 
 
