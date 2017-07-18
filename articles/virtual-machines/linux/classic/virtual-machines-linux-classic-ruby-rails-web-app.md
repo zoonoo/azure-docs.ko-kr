@@ -13,12 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 06/27/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 7b3c6da0e158c2824a5feb084a13eafe265762ce
-ms.lasthandoff: 01/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 4735a1789c33b7cc51896e26ec8e079f9b0de7d9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -29,20 +30,24 @@ ms.lasthandoff: 01/05/2017
 
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-vm"></a>Azure VM 만들기
 Linux 이미지와 Azure VM을 만들어 시작합니다.
 
-VM을 만들려면 Azure 클래식 포털 또는 Azure 명령줄 인터페이스(CLI)를 사용할 수 있습니다.
+VM을 만들려면 Azure Portal 또는 Azure CLI(명령줄 인터페이스)를 사용할 수 있습니다.
 
-### <a name="azure-management-portal"></a>Azure 관리 포털
-1. [Azure 클래식 포털](http://manage.windowsazure.com)
-2. **새로 만들기** > **Compute** > **Virtual Machine** > **빠른 생성**을 클릭합니다. Linux 이미지를 선택합니다.
-3. 암호를 입력합니다.
+### <a name="azure-portal"></a>Azure 포털
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. **새로 만들기**를 클릭한 다음 검색 상자에 "Ubuntu Server 14.04"를 입력합니다. 검색에서 반환된 항목을 클릭합니다. 배포 모델에서 **클래식**을 선택한 다음 "만들기"를 클릭합니다.
+3. 기본 블레이드에서 이름(VM), 사용자 이름, 인증 형식과 해당 자격 증명, Azure 구독, 리소스 그룹 및 위치와 같은 필수 필드에 대한 값을 제공합니다.
 
-VM을 프로비전하면 VM 이름을 클릭하고 **대시보드**를 클릭합니다. **SSH 세부 정보**에 나열된 SSH 끝점을 찾습니다.
+   ![새 Ubuntu 이미지 만들기](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
+
+4. VM을 프로비전한 후에 VM 이름을 클릭하고 **설정** 범주에서 **끝점**을 클릭합니다. **독립 실행형**에 나열된 SSH 끝점을 찾습니다.
+
+   ![기본 끝점](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 [Linux를 실행하는 가상 컴퓨터 만들기][vm-instructions]의 단계를 따릅니다.
@@ -54,20 +59,25 @@ VM이 프로비전된 후, 다음 명령을 실행하여 SSH 끝점을 가져올
 ## <a name="install-ruby-on-rails"></a>Rails에 Ruby 설치
 1. SSH를 사용하여 VM에 연결합니다.
 2. SSH 세션에서 다음 명령을 사용하여 VM에 Ruby를 설치합니다.
-   
+
         sudo apt-get update -y
         sudo apt-get upgrade -y
-        sudo apt-get install ruby ruby-dev build-essential libsqlite3-dev zlib1g-dev nodejs -y
-   
+
+        sudo apt-add-repository ppa:brightbox/ruby-ng
+        sudo apt-get update
+        sudo apt-get install ruby2.4
+
+        > [!TIP]
+        > The brightbox repository contains the current Ruby distribution.
+
     설치는 몇 분 정도 걸릴 수 있습니다. 완료되면 다음 명령을 사용하여 Ruby가 설치되어 있는지 확인합니다.
-   
+
         ruby -v
-   
-    설치된 Ruby 버전을 반환합니다.
+
 3. 다음 명령을 사용하여 Rails를 설치합니다.
-   
+
         sudo gem install rails --no-rdoc --no-ri -V
-   
+
     --no-rdoc 및 --no-ri 플래그를 사용하여 설명서 설치를 건너뜁니다. 이 방법이 더 빠릅니다.
     이 명령을 실행하려면 시간이 오래 걸릴 수 있으니 –V를 추가하여 설치 프로세스에 대한 정보를 표시합니다.
 
@@ -91,28 +101,32 @@ SSH를 통해 로그인한 경우.다음 명령을 실행합니다.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>끝점 추가
-1. [Azure 클래식 포털][management-portal]로 이동한 다음 VM을 선택합니다.
-   
-    ![가상 컴퓨터 목록][vmlist]
-2. 페이지 맨 위에서 **끝점**을 선택한 후 페이지 맨 아래에서 **+ 끝점 추가**를 클릭합니다.
-   
-    ![끝점 페이지][endpoints]
-3. **끝점 추가** 대화 상자에서 "독립형 끝점 추가"를 선택하고 **다음** 화살표를 클릭합니다.
-   
-    ![새 끝점 대화 상자][new-endpoint1]
-4. 다음 대화 페이지에서 다음 정보를 입력합니다.
-   
+1. [Azure Portal][https://portal.azure.com]로 이동하고 VM을 선택합니다.
+
+2. 페이지의 왼쪽 가장자리에 있는 **설정**에서 **끝점**을 선택합니다.
+
+3. 페이지 위쪽에서 **ADD**를 클릭합니다.
+
+4. **끝점 추가** 대화 페이지에서 다음 정보를 입력합니다.
+
    * **이름**: HTTP
-   * **프로토콜**: TCP
+   * **프로토콜**: - TCP
    * **공용 포트**: 80
    * **개인 포트**: 3000
-     
-     트래픽을 개인 포트 3000으로 라우팅하는 공용 포트 80이 만들어지며, Rails는 이 포트에서 수신 대기합니다.
-     
-     ![새 끝점 대화 상자][new-endpoint]
-5. 확인 표시를 클릭하여 끝점을 저장합니다.
-6. **업데이트하는 중**이라는 메시지가 나타납니다. 이 메시지가 사라지면 끝점이 활성 상태가 됩니다. 이제 가상 컴퓨터의 DNS 이름으로 이동하여 응용 프로그램을 테스트할 수 있습니다. 웹 사이트는 다음과 유사합니다.
-   
+   * **부동 PI 주소**: 사용 안 함
+   * **액세스 제어 목록 - 순서**: 1001 또는 액세스 규칙의 우선 순위를 설정하는 다른 값
+   * **액세스 제어 목록 - 이름**: allowHTTP
+   * **액세스 제어 목록 - 작업**: 허용
+   * **액세스 제어 목록 - 원격 서브넷**: 1.0.0.0/16
+
+     이 끝점에는 트래픽을 개인 포트 3000으로 라우팅하는 공용 포트 80이 있고 여기서 Rails 서버가 수신 대기합니다. 액세스 제어 목록 규칙은 포트 80에서 공용 트래픽을 허용합니다.
+
+     ![new-endpoint](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
+
+5. 확인을 클릭하여 끝점을 저장합니다.
+
+6. 메시지가 **가상 컴퓨터 끝점 저장**을 표시해야 합니다. 이 메시지가 사라지면 끝점이 활성 상태가 됩니다. 이제 가상 컴퓨터의 DNS 이름으로 이동하여 응용 프로그램을 테스트할 수 있습니다. 웹 사이트는 다음과 유사합니다.
+
     ![기본 Rails 페이지][default-rails-cloud]
 
 ## <a name="next-steps"></a>다음 단계
@@ -129,7 +143,6 @@ Ruby 응용 프로그램에서 Azure 서비스를 사용하려면 다음을 참�
 <!-- WA.com links -->
 [blobs]:../../../storage/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:https://azure.microsoft.com/develop/ruby/app-services/
-[management-portal]:https://manage.windowsazure.com/
 [tables]:../../../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]:createportal.md
 

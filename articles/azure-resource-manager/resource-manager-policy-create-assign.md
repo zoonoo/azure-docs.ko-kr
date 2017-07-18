@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 06/29/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3a2166fefc8d0b1602562b753e0413be458fae98
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: e9a858addb768ce051fccce0eaf83e49a83da21b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="assign-and-manage-resource-policies"></a>리소스 정책 할당 및 관리
 
-정책을 구현하려면 다음과 같은 세 가지 단계를 수행해야 합니다.
+정책을 구현하려면 다음 단계를 수행해야 합니다.
 
-1. 정책 규칙을 JSON으로 정의합니다.
-2. 이전 단계에서 만든 JSON의 구독에서 정책 정의를 만듭니다. 이 단계를 사용하면 정책을 할당할 수 있지만 구독에 규칙을 적용하지 않습니다.
-3. 정책을 범위(예: 구독 또는 리소스 그룹)에 할당합니다. 이제 정책의 규칙이 적용됩니다.
-
-Azure에서는 몇 가지 미리 정의된 정책을 제공하여 정의해야 하는 정책의 수를 줄일 수 있습니다. 미리 정의된 정책이 시나리오에서 작동하는 경우 처음 두 단계를 건너뛰고 미리 정의된 정책을 범위에 할당합니다.
+1. 정책 정의(Azure에서 제공하는 기본 제공 정책 포함)에서 사용자의 요구 사항을 충족하는 정책이 구독에 이미 있는지 확인합니다.
+2. 있는 경우 이름을 가져옵니다.
+3. 없는 경우 JSON으로 정책 규칙을 정의하고 사용자 구독에 정책 정의로 추가합니다. 이 단계를 사용하면 정책을 할당할 수 있지만 구독에 규칙을 적용하지 않습니다.
+4. 어느 경우든, 정책을 범위(예: 구독 또는 리소스 그룹)에 할당합니다. 이제 정책의 규칙이 적용됩니다.
 
 이 문서에서는 REST API, PowerShell 또는 Azure CLI를 통해 정책 정의를 만들고 범위에 해당 정의를 할당하는 단계에 중점을 둡니다. 포털을 사용해서 정책을 할당하려면 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](resource-manager-policy-portal.md)를 참조하세요. 이 문서에서 정책 정의를 만드는 구문은 집중적으로 설명하지 않습니다. 정책 구문에 대한 정보는 [리소스 정책 개요](resource-manager-policy.md)를 참조하세요.
 
@@ -144,30 +144,55 @@ GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015
 
 PowerShell 예제를 진행하기 전에 [최신 버전의 Azure PowerShell을 설치](/powershell/azure/install-azurerm-ps)했는지 확인합니다. 정책 매개 변수가 버전 3.6.0에 추가되었습니다. 이전 버전이 있는 경우 예제에서는 매개 변수를 찾을 수 없음을 나타내는 오류를 반환합니다.
 
-### <a name="create-policy-definition"></a>정책 정의 만들기
-`New-AzureRmPolicyDefinition` cmdlet을 사용하여 정책 정의를 만들 수 있습니다. 아래 예제에서는 유럽 북부와 유럽 서부에서만 리소스를 허용하는 정책 정의를 만듭니다.
+### <a name="view-policy-definitions"></a>정책 정의 보기
+구독에서 모든 정책 정의를 보려면 다음 명령을 사용합니다.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{
-   "if": {
-     "not": {
-       "field": "location",
-       "in": "[parameters(''allowedLocations'')]"
-     }
-   },
-   "then": {
-     "effect": "deny"
-   }
- }' -Parameter '{
-     "allowedLocations": {
-       "type": "array",
-       "metadata": {
-         "description": "An array of permitted locations for resources.",
-         "strongType": "location",
-         "displayName": "List of locations"
-       }
-     }
- }'
+Get-AzureRmPolicyDefinition
+```
+
+기본 제공 정책을 비롯한 사용 가능한 모든 정책 정의를 반환합니다. 각 정책은 다음 형식으로 반환됩니다.
+
+```powershell
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+정책 정의 만들기를 진행하기 전에 기본 제공 정책을 확인합니다. 필요한 한도를 적용하는 기본 제공 정책을 찾을 경우 정책 정의 만들기를 건너뛸 수 있습니다. 대신, 기본 제공 정책을 원하는 범위에 할당합니다.
+
+### <a name="create-policy-definition"></a>정책 정의 만들기
+`New-AzureRmPolicyDefinition` cmdlet을 사용하여 정책 정의를 만들 수 있습니다.
+
+```powershell
+$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
 ```            
 
 출력 `$policy` 개체에 저장되어 정책 할당 중에 사용됩니다. 
@@ -175,39 +200,41 @@ $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description 
 JSON을 매개 변수로 지정하지 않고 정책 규칙을 포함하는 .json 파일의 경로를 제공할 수 있습니다.
 
 ```powershell
-$policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy "c:\policies\storageskupolicy.json"
+$policy = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
 ```
 
 ### <a name="assign-policy"></a>정책 할당
 
-`New-AzureRmPolicyAssignment` cmdlet을 사용하여 원하는 범위에서 정책을 적용합니다.
+`New-AzureRmPolicyAssignment` cmdlet을 사용하여 원하는 범위에서 정책을 적용합니다. 다음 예제에서는 리소스 그룹에 정책을 할당합니다.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $policy
+```
+
+매개 변수를 요구하는 정책을 할당하려면 해당 값으로 개체를 만듭니다. 다음 예제에서는 기본 제공 정책을 검색하고 매개 변수 값에 전달합니다.
+
+```powershell
+$rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
+$policy = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
 $array = @("West US", "West US 2")
-$param = @{"allowedLocations"=$array}
-New-AzureRMPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
+$param = @{"listOfAllowedLocations"=$array}
+New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -PolicyDefinition $policy -PolicyParameterObject $param
 ```
 
-### <a name="view-policies"></a>정책 보기
+### <a name="view-policy-assignment"></a>정책 할당 보기
 
-모든 정책 할당을 가져오려면 다음을 사용합니다.
-
-```powershell
-Get-AzureRmPolicyAssignment
-```
-
-특정 정책을 가져오려면 다음을 사용합니다.
+특정 정책 할당을 가져오려면 다음을 사용합니다.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
-(Get-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope $rg.ResourceId
+(Get-AzureRmPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId
 ```
 
 정책 정의에 대한 정책 규칙을 보려면 다음을 사용합니다.
 
 ```powershell
-(Get-AzureRmPolicyDefinition -Name regionPolicyDefinition).Properties.policyRule | ConvertTo-Json
+(Get-AzureRmPolicyDefinition -Name coolAccessTier).Properties.policyRule | ConvertTo-Json
 ```
 
 ### <a name="remove-policy-assignment"></a>정책 할당 제거 
@@ -218,39 +245,70 @@ $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-## <a name="azure-cli-20"></a>Azure CLI 2.0
+## <a name="azure-cli"></a>Azure CLI
+
+### <a name="view-policy-definitions"></a>정책 정의 보기
+구독에서 모든 정책 정의를 보려면 다음 명령을 사용합니다.
+
+```azurecli
+az policy definition list
+```
+
+기본 제공 정책을 비롯한 사용 가능한 모든 정책 정의를 반환합니다. 각 정책은 다음 형식으로 반환됩니다.
+
+```azurecli
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",                                                                                                                "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                 "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",                                                                                                    "policyRule": {                                                                                                                                      "if": {                                                                                                                                              "not": {                                                                                                                                             "field": "location",                                                                                                                               "in": "[parameters('listOfAllowedLocations')]"                                                                                                   }                                                                                                                                                },                                                                                                                                                 "then": {                                                                                                                                            "effect": "Deny"                                                                                                                                 }                                                                                                                                                },                                                                                                                                                 "policyType": "BuiltIn"
+}
+```
+
+정책 정의 만들기를 진행하기 전에 기본 제공 정책을 확인합니다. 필요한 한도를 적용하는 기본 제공 정책을 찾을 경우 정책 정의 만들기를 건너뛸 수 있습니다. 대신, 기본 제공 정책을 원하는 범위에 할당합니다.
 
 ### <a name="create-policy-definition"></a>정책 정의 만들기
 
-정책 정의 명령과 함께 Azure CLI 2.0를 사용하여 정책 정의를 만들 수 있습니다. 아래 예제에서는 유럽 북부와 유럽 서부에서만 리소스를 허용하는 정책을 만듭니다.
+정책 정의 명령과 함께 Azure CLI를 사용하여 정책 정의를 만들 수 있습니다.
 
 ```azurecli
-az policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --rules '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
+az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
   },
-  "then" : {
-    "effect" : "deny"
+  "then": {
+    "effect": "deny"
   }
 }'    
 ```
 
 ### <a name="assign-policy"></a>정책 할당
 
-정책 할당 명령을 사용하여 정책을 원하는 범위에 적용할 수 있습니다.
+정책 할당 명령을 사용하여 정책을 원하는 범위에 적용할 수 있습니다. 다음 예제에서는 리소스 그룹에 정책을 할당합니다.
 
 ```azurecli
-az policy assignment create --name regionPolicyAssignment --policy regionPolicyDefinition --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
+az policy assignment create --name coolAccessTierAssignment --policy coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-### <a name="view-policy-definition"></a>정책 정의 보기
-정책 정의를 가져오려면 다음 명령을 사용합니다.
+### <a name="view-policy-assignment"></a>정책 할당 보기
+
+정책 할당을 보려면 정책 할당 이름 및 범위를 제공합니다.
 
 ```azurecli
-az policy definition show --name regionPolicyAssignment
+az policy assignment show --name coolAccessTierAssignment --scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}"
 ```
 
 ### <a name="remove-policy-assignment"></a>정책 할당 제거 
@@ -258,62 +316,7 @@ az policy definition show --name regionPolicyAssignment
 정책 할당을 제거하려면 다음을 사용합니다.
 
 ```azurecli
-az policy assignment delete --name regionPolicyAssignment --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
-```
-
-## <a name="azure-cli-10"></a>Azure CLI 1.0
-
-### <a name="create-policy-definition"></a>정책 정의 만들기
-
-정책 정의 명령과 함께 Azure CLI를 사용하여 정책 정의를 만들 수 있습니다. 아래 예제에서는 유럽 북부와 유럽 서부에서만 리소스를 허용하는 정책을 만듭니다.
-
-```azurecli
-azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{    
-  "if" : {
-    "not" : {
-      "field" : "location",
-      "in" : ["northeurope" , "westeurope"]
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}'    
-```
-
-정책 인라인을 지정하지 않고 정책이 포함된 .json 파일에 대한 경로를 지정할 수 있습니다.
-
-```azurecli
-azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
-```
-
-### <a name="assign-policy"></a>정책 할당
-
-정책 할당 명령을 사용하여 정책을 원하는 범위에 적용할 수 있습니다.
-
-```azurecli
-azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/{subscription-id}/providers/Microsoft.Authorization/policyDefinitions/{policy-name} --scope    /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
-```
-
-여기서 범위는 지정하는 리소스 그룹의 이름입니다. 매개 변수 정책 정의 ID 값을 알 수 없는 경우 Azure CLI를 통해 얻을 수 있습니다. 
-
-```azurecli
-azure policy definition show {policy-name}
-```
-
-### <a name="view-policy"></a>정책 보기
-정책을 가져오려면 다음 명령을 사용합니다.
-
-```azurecli
-azure policy definition show {definition-name} --json
-```
-
-### <a name="remove-policy-assignment"></a>정책 할당 제거 
-
-정책 할당을 제거하려면 다음을 사용합니다.
-
-```azurecli
-azure policy assignment delete --name regionPolicyAssignment --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
+az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
 ## <a name="next-steps"></a>다음 단계

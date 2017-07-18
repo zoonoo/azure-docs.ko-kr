@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/10/2017
+ms.date: 7/05/2017
 ms.author: johnkem
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: ff47eaa27351f8d1685090edc54d90e5e91a1de0
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: b034251438c65dd13d9ca0bb116699532e3960ef
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -27,8 +27,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 > [!NOTE]
 > 레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. 이 목록에는 통합 Azure Monitor 메트릭 파이프라인의 공개 미리 보기를 통해 사용할 수 있는 공개 미리보기 메트릭만 포함됩니다.
-> 
-> 
+>
+>
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
@@ -90,8 +90,10 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
-|CoreCount|코어 수|개수|합계|배치 계정의 총 코어 수|
-|TotalNodeCount|노드 수|개수|합계|배치 계정의 총 노드 수|
+|CoreCount|전용된 코어 수|개수|합계|배치 계정의 총 전용 코어 수|
+|TotalNodeCount|전용된 노드 수|개수|합계|배치 계정의 총 전용 노드 수|
+|LowPriorityCoreCount|LowPriority 코어 수|개수|합계|배치 계정의 우선 순위가 낮은 총 코어 수|
+|TotalLowPriorityNodeCount|우선 순위가 낮은 노드 수|개수|합계|배치 계정의 우선 순위가 낮은 총 노드 수|
 |CreatingNodeCount|노드 수 만들기|개수|합계|만든 노드 수|
 |StartingNodeCount|시작 노드 수|개수|합계|시작 노드 수|
 |WaitingForStartTaskNodeCount|작업 시작 대기 노드 수|개수|합계|시작 작업 완료를 기다리는 노드 수|
@@ -103,6 +105,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |RunningNodeCount|실행 노드 수|개수|합계|실행 중인 노드의 수|
 |LeavingPoolNodeCount|나가는 풀 노드 수|개수|합계|풀을 나가는 노드 수|
 |UnusableNodeCount|사용 불가 노드 수|개수|합계|사용할 수 없는 노드 수|
+|PreemptedNodeCount|선점된 노드 수|개수|합계|선점된 노드 수|
 |TaskStartEvent|작업 시작 이벤트|개수|합계|시작된 총 작업 수|
 |TaskCompleteEvent|작업 완료 이벤트|개수|합계|완료된 총 작업 수|
 |TaskFailEvent|작업 실패 이벤트|개수|합계|실패한 상태로 완료된 총 작업 수|
@@ -336,7 +339,41 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
-|CustomerInsightsApiCalls|CustomerInsightsApiCalls|개수|합계||
+|DCIApiCalls|Customer Insights API 호출 수|개수|합계||
+|DCIMappingImportOperationSuccessfulLines|매핑 가져오기 작업 성공 줄 수|개수|합계||
+|DCIMappingImportOperationFailedLines|매핑 가져오기 작업 실패 줄 수|개수|합계||
+|DCIMappingImportOperationTotalLines|매핑 가져오기 작업 총 줄 수|개수|합계||
+|DCIMappingImportOperationRuntimeInSeconds|매핑 가져오기 작업 런타임(초)|초|합계||
+|DCIOutboundProfileExportSucceeded|아웃바운드 프로필 내보내기 성공|개수|합계||
+|DCIOutboundProfileExportFailed|아웃바운드 프로필 내보내기 실패|개수|합계||
+|DCIOutboundProfileExportDuration|아웃바운드 프로필 내보내기 기간|초|합계||
+|DCIOutboundKpiExportSucceeded|아웃바운드 Kpi 내보내기 성공|개수|합계||
+|DCIOutboundKpiExportFailed|아웃바운드 Kpi 내보내기 실패|개수|합계||
+|DCIOutboundKpiExportDuration|아웃바운드 Kpi 내보내기 기간|초|합계||
+|DCIOutboundKpiExportStarted|아웃바운드 Kpi 내보내기 시작|초|합계||
+|DCIOutboundKpiRecordCount|아웃바운드 Kpi 레코드 수|초|합계||
+|DCIOutboundProfileExportCount|아웃바운드 프로필 내보내기 수|초|합계||
+|DCIOutboundInitialProfileExportFailed|아웃바운드 초기 프로필 내보내기 실패|초|합계||
+|DCIOutboundInitialProfileExportSucceeded|아웃바운드 초기 프로필 내보내기 성공|초|합계||
+|DCIOutboundInitialKpiExportFailed|아웃바운드 초기 Kpi 내보내기 실패|초|합계||
+|DCIOutboundInitialKpiExportSucceeded|아웃바운드 초기 Kpi 내보내기 성공|초|합계||
+|DCIOutboundInitialProfileExportDurationInSeconds|아웃바운드 초기 프로필 내보내기 기간(초)|초|합계||
+|AdlaJobForStandardKpiFailed|표준 Kpi에 대한 Adla 작업 실패(초)|초|합계||
+|AdlaJobForStandardKpiTimeOut|표준 Kpi에 대한 Adla 작업 시간 제한(초)|초|합계||
+|AdlaJobForStandardKpiCompleted|표준 Kpi에 대한 Adla 작업 완료(초)|초|합계||
+|ImportASAValuesFailed|ASA 값 가져오기 실패 수|개수|합계||
+|ImportASAValuesSucceeded|ASA 값 가져오기 성공 수|개수|합계||
+
+## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.DataLakeAnalytics/accounts
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|JobEndedSuccess|성공한 작업|개수|합계|성공한 작업의 수입니다.|
+|JobEndedFailure|실패한 작업|개수|합계|실패한 작업 수입니다.|
+|JobEndedCancelled|취소된 작업|개수|합계|취소된 작업 수입니다.|
+|JobAUEndedSuccess|성공한 AU 시간|초|합계|성공한 작업에 대한 총 AU 시간입니다.|
+|JobAUEndedFailure|실패한 AU 시간|초|합계|실패한 작업에 대한 총 AU 시간입니다.|
+|JobAUEndedCancelled|취소된 AU 시간|초|합계|취소된 작업에 대한 총 AU 시간입니다.|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
@@ -485,6 +522,13 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |---|---|---|---|---|
 |처리량|처리량|초당 바이트 수|평균||
 
+## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|BytesIn|BytesIn|개수|합계||
+|BytesOut|BytesOut|개수|합계||
+
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
@@ -548,10 +592,55 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |outgoing.mpns.dropped|MPNS 삭제된 알림|개수|합계|MPNS에서 삭제된 푸시의 수입니다(MPNS 응답 헤더: X-NotificationStatus: QueueFull 또는 Suppressed).|
 |outgoing.mpns.pnserror|MPNS 오류|개수|합계|MPNS와의 통신 오류로 인해 실패한 푸시의 수입니다.|
 |outgoing.mpns.authenticationerror|MPNS 인증 오류|개수|합계|PNS가 제공된 자격 증명을 수락하지 않았거나 자격 증명이 차단되어 실패한 푸시의 수입니다.|
-|notificationhub.devices|알림 허브 장치|개수|평균|알림 허브의 장치 수|
-|notificationhub.pushes|알림 허브 푸시 알림|개수|합계|알림 허브의 푸시 알림 수|
+|notificationhub.pushes|모든 나가는 알림 수|개수|합계|알림 허브의 모든 나가는 알림 수|
 |incoming.all.requests|들어오는 모든 요청|개수|합계|알림 허브에 대해 들어오는 전체 요청|
 |incoming.all.failedrequests|들어오는 모든 실패한 요청|개수|합계|알림 허브에 대해 들어오는 실패한 전체 요청|
+
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|qpu_metric|QPU|개수|평균|QPU. 범위는 S1의 경우 0-100, S2의 경우 0-200, S4의 경우 0-400임|
+|memory_metric|메모리|바이트|평균|메모리. 범위는 S1의 경우 0-25GB, S2의 경우 0-50GB, S4의 경우 0-100GB임|
+|TotalConnectionRequests|총 연결 요청 수|개수|평균|도착한 총 연결 요청 수입니다.|
+|SuccessfullConnectionsPerSec|초당 성공한 연결 수|초당 개수|평균|성공적으로 완료된 연결 비율입니다.|
+|TotalConnectionFailures|총 연결 실패 수|개수|평균|실패한 총 연결 시도 수입니다.|
+|CurrentUserSessions|현재 사용자 세션 수|개수|평균|현재 설정된 사용자 세션 수입니다.|
+|QueryPoolBusyThreads|쿼리 풀의 사용 중인 스레드|개수|평균|쿼리 스레드 풀의 사용 중인 스레드 수입니다.|
+|CommandPoolJobQueueLength|명령 풀의 작업 큐 길이|개수|평균|명령 스레드 풀의 큐에 있는 작업 수입니다.|
+|ProcessingPoolJobQueueLength|처리 풀의 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 비-I/O 작업 수입니다.|
+|CurrentConnections|연결: 현재 연결|개수|평균|현재 설정된 클라이언트 연결 수입니다.|
+|CleanerCurrentPrice|메모리: 클리너 현재 가격|개수|평균|현재 메모리 가격, $/바이트/시간, 1000으로 일반화됩니다.|
+|CleanerMemoryShrinkable|메모리: 클리너 메모리 축소 가능|바이트|평균|메모리 양, 바이트 단위, 백그라운드 클리너에 의해 제거되는 대상입니다.|
+|CleanerMemoryNonshrinkable|메모리: 클리너 메모리 축소 불가능|바이트|평균|메모리 양, 바이트 단위, 백그라운드 클리너에 의해 제거되는 대상이 아닙니다.|
+|MemoryUsage|메모리: 메모리 사용량|바이트|평균|클리너 메모리 가격을 계산하는 데 사용되는 서버 프로세스의 메모리 사용량입니다. 메모리 매핑된 데이터 크기를 더한 카운터 Process\PrivateBytes와 동일하며 xVelocity 엔진 메모리 제한을 초과하여 xVelocity 메모리 내 분석 엔진(VertiPaq)에서 매핑하거나 할당하는 메모리를 무시합니다.|
+|MemoryLimitHard|메모리: 메모리 제한 하드|바이트|평균|하드 메모리 제한, 구성 파일 원본입니다.|
+|MemoryLimitHigh|메모리: 메모리 제한 상한|바이트|평균|상한 메모리 제한, 구성 파일 원본입니다.|
+|MemoryLimitLow|메모리: 메모리 제한 하한|바이트|평균|하한 메모리 제한, 구성 파일 원본입니다.|
+|MemoryLimitVertiPaq|메모리: 메모리 제한 VertiPaq|바이트|평균|메모리 내 제한, 구성 파일 원본입니다.|
+|할당량|메모리: 할당량|바이트|평균|현재 메모리 할당량, 바이트 단위입니다. 메모리 할당량은 메모리 부여 또는 메모리 예약이라고도 합니다.|
+|QuotaBlocked|메모리: 차단된 할당량|개수|평균|다른 메모리 할당량이 해제될 때까지 차단되는 할당량 요청의 현재 수입니다.|
+|VertiPaqNonpaged|메모리: 페이징되지 않은 VertiPaq|바이트|평균|메모리 내 엔진에서 사용하기 위해 설정된 작동 중에 잠긴 메모리 바이트입니다.|
+|VertiPaqPaged|메모리: 페이징된 VertiPaq|바이트|평균|메모리 내 데이터에 사용 중인 페이징된 메모리 바이트입니다.|
+|RowsReadPerSec|처리: 초당 읽은 행|초당 개수|평균|모든 관계형 데이터베이스에서 읽은 행의 비율입니다.|
+|RowsConvertedPerSec|처리: 초당 변환된 행|초당 개수|평균|처리하는 동안 변환된 행의 비율입니다.|
+|RowsWrittenPerSec|처리: 초당 작성된 행|초당 개수|평균|처리하는 동안 작성된 행의 비율입니다.|
+|CommandPoolBusyThreads|스레드: 명령 풀 사용 중인 스레드|개수|평균|명령 스레드 풀의 사용 중인 스레드 수입니다.|
+|CommandPoolIdleThreads|스레드: 명령 풀 유휴 상태 스레드|개수|평균|명령 스레드 풀의 유휴 상태 스레드 수입니다.|
+|LongParsingBusyThreads|스레드: 긴 구문 분석 사용 중인 스레드|개수|평균|긴 구문 분석 스레드 풀에서 사용 중인 스레드 수입니다.|
+|LongParsingIdleThreads|스레드: 긴 구문 분석 유휴 상태 스레드|개수|평균|긴 구문 분석 스레드 풀에서 유휴 상태 스레드 수입니다.|
+|LongParsingJobQueueLength|스레드: 긴 구문 분석 작업 큐 길이|개수|평균|긴 구문 분석 스레드 풀의 큐에 있는 작업 수입니다.|
+|ProcessingPoolBusyIOJobThreads|스레드: 처리 풀 사용 중인 I/O 작업 스레드|개수|평균|처리 스레드 풀에서 I/O 작업을 실행 중인 스레드 수입니다.|
+|ProcessingPoolBusyNonIOThreads|스레드: 처리 풀 사용 중인 비-I/O 스레드|개수|평균|처리 스레드 풀에서 비-I/O 작업을 실행 중인 스레드 수입니다.|
+|ProcessingPoolIOJobQueueLength|스레드: 처리 풀 I/O 작업 큐 길이|개수|평균|처리 스레드 풀의 큐에 있는 I/O 작업 수입니다.|
+|ProcessingPoolIdleIOJobThreads|스레드: 처리 풀 유휴 상태 I/O 작업 스레드|개수|평균|처리 스레드 풀에서 I/O 작업의 유휴 상태 스레드 수입니다.|
+|ProcessingPoolIdleNonIOThreads|스레드: 처리 풀 유휴 상태 비-I/O 스레드|개수|평균|비-I/O 작업 전용인 처리 스레드 풀에서 유휴 상태 스레드 수입니다.|
+|QueryPoolIdleThreads|스레드: 쿼리 풀 유휴 상태 스레드|개수|평균|처리 스레드 풀에서 I/O 작업의 유휴 상태 스레드 수입니다.|
+|QueryPoolJobQueueLength|스레드: 쿼리 풀 작업 큐 길이|개수|평균|쿼리 스레드 풀의 큐에 있는 작업 수입니다.|
+|ShortParsingBusyThreads|스레드: 짧은 구문 분석 사용 중인 스레드|개수|평균|짧은 구문 분석 스레드 풀에서 사용 중인 스레드 수입니다.|
+|ShortParsingIdleThreads|스레드: 짧은 구문 분석 유휴 상태 스레드|개수|평균|짧은 구문 분석 스레드 풀에서 유휴 상태 스레드 수입니다.|
+|ShortParsingJobQueueLength|스레드: 짧은 구문 분석 작업 큐 길이|개수|평균|짧은 구문 분석 스레드 풀의 큐에 있는 작업 수입니다.|
+|memory_thrashing_metric|메모리 쓰래싱|백분율|평균|평균 메모리 쓰래싱입니다.|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
@@ -596,17 +685,33 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
 |cpu_percent|CPU 비율|백분율|평균|CPU 비율|
+|database_cpu_percent|CPU 비율|백분율|평균|CPU 비율|
 |physical_data_read_percent|데이터 IO 비율|백분율|평균|데이터 IO 비율|
+|database_physical_data_read_percent|데이터 IO 비율|백분율|평균|데이터 IO 비율|
 |log_write_percent|로그 IO 비율|백분율|평균|로그 IO 비율|
+|database_log_write_percent|로그 IO 비율|백분율|평균|로그 IO 비율|
 |dtu_consumption_percent|DTU 비율|백분율|평균|DTU 비율|
+|database_dtu_consumption_percent|DTU 비율|백분율|평균|DTU 비율|
 |storage_percent|저장소 비율|백분율|평균|저장소 비율|
 |workers_percent|작업자 백분율|백분율|평균|작업자 백분율|
+|database_workers_percent|작업자 백분율|백분율|평균|작업자 백분율|
 |sessions_percent|세션 백분율|백분율|평균|세션 백분율|
+|database_sessions_percent|세션 백분율|백분율|평균|세션 백분율|
 |eDTU_limit|eDTU 제한|개수|평균|eDTU 제한|
 |storage_limit|저장소 제한|바이트|평균|저장소 제한|
 |eDTU_used|eDTU 사용|개수|평균|eDTU 사용|
 |storage_used|저장소 사용됨|바이트|평균|저장소 사용됨|
+|database_storage_used|저장소 사용됨|바이트|평균|저장소 사용됨|
 |xtp_storage_percent|메모리 내 OLTP 저장소 백분율|백분율|평균|메모리 내 OLTP 저장소 백분율|
+
+## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|dtu_consumption_percent|DTU 비율|백분율|평균|DTU 비율|
+|database_dtu_consumption_percent|DTU 비율|백분율|평균|DTU 비율|
+|storage_used|저장소 사용됨|바이트|평균|저장소 사용됨|
+|database_storage_used|저장소 사용됨|바이트|평균|저장소 사용됨|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
@@ -635,7 +740,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |BytesReceived|데이터 입력|바이트|합계|데이터 입력|
 |BytesSent|데이터 출력|바이트|합계|데이터 출력|
 
-## <a name="microsoftwebsites-including-functions"></a>Microsoft.Web/sites(Functions 포함)
+## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites(Functions 제외)
 
 |메트릭|매트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|
@@ -655,6 +760,16 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |MemoryWorkingSet|메모리 작업 집합|바이트|평균|메모리 작업 집합|
 |AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|
 |AverageResponseTime|평균 응답 시간|초|평균|평균 응답 시간|
+
+## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites(functions)
+
+|메트릭|매트릭 표시 이름|단위|집계 형식|설명|
+|---|---|---|---|---|
+|BytesReceived|데이터 입력|바이트|합계|데이터 입력|
+|BytesSent|데이터 출력|바이트|합계|데이터 출력|
+|Http5xx|Http 서버 오류|개수|합계|Http 서버 오류|
+|MemoryWorkingSet|메모리 작업 집합|바이트|평균|메모리 작업 집합|
+|AverageMemoryWorkingSet|평균 메모리 작업 집합|바이트|평균|평균 메모리 작업 집합|
 |FunctionExecutionUnits|함수 실행 단위|개수|평균|함수 실행 단위|
 |FunctionExecutionCount|함수 실행 횟수|개수|평균|함수 실행 횟수|
 
@@ -685,5 +800,4 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 * [Azure Monitor의 메트릭에 대해 읽기](monitoring-overview-metrics.md)
 * [메트릭에 대한 경고 만들기](insights-receive-alert-notifications.md)
 * [저장소, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](monitoring-overview-of-diagnostic-logs.md)
-
 

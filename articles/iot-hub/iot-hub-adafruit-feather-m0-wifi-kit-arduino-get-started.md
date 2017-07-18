@@ -13,12 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/21/2017
+ms.date: 6/17/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: e2d44f821635ce9d91b67ecdc0653e2ba9c99b01
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 2f770a8f088754e63aec40d3f670f6ae0543d6e0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -54,6 +55,7 @@ ms.lasthandoff: 04/13/2017
 
 또한 개발 환경에는 다음 사항도 필요합니다.
 
+* 활성 Azure 구독. Azure 계정이 없는 경우 몇 분 만에 [Azure 평가판 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
 * Windows 또는 Ubuntu가 실행되는 Mac 또는 PC
 * Feather M0 WiFi를 연결할 무선 네트워크
 * 구성 도구를 다운로드하기 위한 인터넷 연결
@@ -155,9 +157,9 @@ Arduino IDE에 Feather M0 WiFi 패키지를 설치합니다.
 
    ![Arduino IDE에서 샘플 응용 프로그램 열기](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
-1. **도구** > **보드** > **보드 관리자**를 클릭한 다음 `Arduino SAMD Boards` 버전 `1.6.2` 이상을 설치합니다. 
+1. **도구** > **보드** > **보드 관리자**를 클릭한 다음 `Arduino SAMD Boards` 버전 `1.6.2` 이상을 설치합니다. 그런 다음 `Adafruit SAMD` 패키지를 설치하여 보드 파일 정의를 추가합니다.
 
-   보드 관리자에 `Arduino SAMD Boards` 버전 `1.6.2` 이상이 설치되었다고 표시됩니다.
+   보드 관리자에 `Arduino SAMD Boards` 버전 `1.6.2` 이상이 설치되었다고 표시됩니다. 
 
    ![esp8266 패키지가 설치됨](media/iot-hub-adafruit-feather-m0-wifi-get-started/7_arduino-ide-package-url.png)
 
@@ -170,7 +172,6 @@ Arduino IDE에 Feather M0 WiFi 패키지를 설치합니다.
 
 1. Arduino IDE에서 **스케치** > **라이브러리 포함** > **라이브러리 관리**를 클릭합니다.
 1. 다음 라이브러리 이름을 하나씩 검색합니다. 검색한 각 라이브러리에 대해 **설치**를 클릭합니다.
-   * `Adafruit_WINC1500`
    * `RTCZero`
    * `NTPClient`
    * `AzureIoTHub`
@@ -179,6 +180,7 @@ Arduino IDE에 Feather M0 WiFi 패키지를 설치합니다.
    * `ArduinoJson`
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
+1. 수동으로 `Adafruit_WINC1500`을 설치합니다. [이 링크](https://github.com/adafruit/Adafruit_WINC1500)를 방문하여 **클론 또는 다운로드** 단추를 클릭한 다음 **ZIP을 다운로드**합니다. 그런 다음 Arduino IDE에서 **스케치** -> **라이브러리 포함** -> **.zip 라이브러리 추가**로 이동하여 방금 다운로드한 zip 파일을 추가합니다.
 
 ### <a name="dont-have-a-real-bme280-sensor"></a>실제 BME280 센서가 없나요?
 

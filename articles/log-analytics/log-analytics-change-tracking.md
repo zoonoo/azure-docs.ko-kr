@@ -12,17 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: a3d958e1a37ddf6821d41afe7427faec1b8259b2
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 7e0fa9a83c3c83145a4813422bf73a0e711d0ecc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적
+
+![변경 내용 추적 기호](./media/log-analytics-change-tracking/change-tracking-symbol.png)
 
 이 문서를 통해 Log Analytics에서 변경 내용 추적 솔루션을 사용하여 사용자 환경의 변경 내용을 쉽게 식별할 수 있습니다. 이 솔루션은 Windows 및 Linux 소프트웨어, Windows 파일 및 레지스트리 키, Windows 서비스 및 Linux 데몬의 변경 내용을 추적합니다. 구성 변경 내용을 식별하면 운영 문제를 쉽게 특정할 수 있습니다.
 
@@ -33,6 +36,17 @@ ms.lasthandoff: 04/12/2017
 
 * 변경 내용을 모니터링할 각 컴퓨터에 [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md) 또는 [Linux](log-analytics-linux-agents.md) 에이전트가 있어야 합니다.
 * [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 OMS 작업 영역에 [변경 내용 추적] 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
+
+### <a name="configure-linux-files-to-track"></a>추적할 Linux 파일 구성
+다음 단계를 사용하여 Linux 컴퓨터에서 추적할 파일을 구성합니다.
+
+1. OMS 포털에서 **설정**을 클릭합니다(기어 기호).
+2. **설정** 페이지에서 **데이터**를 클릭한 다음 **Linux 파일 추적**을 클릭합니다.
+3. Linux 파일 변경 내용 추적에서 추적하려는 파일의 파일 이름을 포함한 전체 경로를 입력한 다음 **추가** 기호를 클릭합니다. 예: "/etc/*.conf"
+4. **Save**를 클릭합니다.  
+  
+> [!NOTE]
+> Linux 파일 추적에는 디렉터리 추적, 디렉터리 재귀 및 와일드 카드 추적과 같은 부가 기능이 포함됩니다.
 
 ### <a name="configure-windows-files-to-track"></a>추적할 Windows 파일 구성
 다음 단계를 사용하여 Windows 컴퓨터에서 추적할 파일을 구성합니다.
@@ -52,14 +66,28 @@ ms.lasthandoff: 04/12/2017
 4. **Save**를 클릭합니다.  
    ![Windows 레지스트리 변경 내용 추적](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
+### <a name="explanation-of-linux-file-collection-properties"></a>Linux 파일 컬렉션 속성 설명
+1. **형식**
+   * **File**(보고서 파일 메타데이터 - 크기, 수정 날짜, 해시 등)
+   * **Directory**(보고서 디렉터리 메타데이터 - 크기, 수정 날짜 등)
+2. **Links**(다른 파일 또는 디렉터리에 대한 Linux symlink 참조 처리)
+   * **Ignore**(참조된 파일/디렉터리를 포함하지 않도록 재귀 중에 symlink 무시)
+   * **Follow**(참조된 파일/디렉터리를 포함하도록 재귀 중에 symlink 따라 이동)
+   * **Manage**(symlink 따라 이동 및 반환된 콘텐츠 처리 변경) 
+   > [!NOTE]   
+   > 파일 콘텐츠 검색은 현재 지원되지 않으므로 “관리” 링크 옵션을 사용하지 않는 것이 좋습니다.
+3. **Recurse**(폴더 수준 재귀 및 경로 문을 충족하는 모든 파일 추적)
+4. **Sudo**(sudo 권한이 필요한 액세스 파일 또는 디렉터리 사용)
+
 ### <a name="limitations"></a>제한 사항
 현재 변경 내용 추적 솔루션은 다음 항목을 지원하지 않습니다.
 
-* 폴더(디렉터리)
-* 재귀
-* 와일드 카드
+* Windows 파일 추적을 위한 폴더(디렉터리)
+* Windows 파일 추적을 위한 재귀
+* Windows 파일 추적을 위한 와일드 카드
 * 경로 변수
 * 네트워크 파일 시스템
+* File Content(파일 내용)
 
 기타 제한 사항은 다음과 같습니다.
 

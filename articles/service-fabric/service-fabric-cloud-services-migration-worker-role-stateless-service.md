@@ -12,11 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
-ms.openlocfilehash: def92885587b11ce8275292680a524d0c8e31751
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 4ab1f83e88b262b1752300b2786340d9abca8154
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -26,7 +28,7 @@ ms.openlocfilehash: def92885587b11ce8275292680a524d0c8e31751
 ## <a name="cloud-service-project-to-service-fabric-application-project"></a>클라우드 서비스 프로젝트에서 서비스 패브릭 응용 프로그램 프로젝트
  클라우드 서비스 프로젝트 및 서비스 패브릭 응용 프로그램 프로젝트는 유사한 구조를 가지며 모두 응용 프로그램에 대한 배포 단위를 나타냅니다. 즉, 각각은 응용 프로그램을 실행하도록 배포되는 완전한 패키지를 정의합니다. 클라우드 서비스 프로젝트는 하나 이상의 웹 또는 작업자 역할을 포함합니다. 유사하게 서비스 패브릭 응용 프로그램 프로젝트에는 하나 이상의 서비스가 포함되어 있습니다. 
 
-클라우드 서비스 프로젝트는 응용 프로그램 배포를 VM 배포와 결합하므로 VM 구성 설정을 포함하고 반면에 서비스 패브릭 응용 프로그램 프로젝트는 서비스 패브릭 클러스터의 기존 VM 집합에 배포되는 응용 프로그램을 정의한다는 차이점이 있습니다. 서비스 패브릭 클러스터 자체는 ARM 템플릿 또는 Azure 포털을 통해 한 번만 배포되고 여러 서비스 패브릭 응용 프로그램을 배포할 수 있습니다.
+클라우드 서비스 프로젝트는 응용 프로그램 배포를 VM 배포와 결합하므로 VM 구성 설정을 포함하고 반면에 서비스 패브릭 응용 프로그램 프로젝트는 서비스 패브릭 클러스터의 기존 VM 집합에 배포되는 응용 프로그램을 정의한다는 차이점이 있습니다. Service Fabric 클러스터 자체는 Resource Manager 템플릿 또는 Azure Portal을 통해 한 번만 배포되고 여러 Service Fabric 응용 프로그램을 배포할 수 있습니다.
 
 ![서비스 패브릭 및 클라우드 서비스 프로젝트 비교][3]
 
@@ -260,9 +262,4 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

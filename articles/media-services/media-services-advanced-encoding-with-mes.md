@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 01448fcff64e99429e2ee7df916b110c869307fb
-ms.openlocfilehash: 7776ac35f1a8a30c959286a9e31beb666f5fc799
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 25a13ad3738286795f45bbdec681614356bd3db8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -27,6 +28,10 @@ ms.lasthandoff: 03/02/2017
 ## <a name="overview"></a>개요
 
 이 항목에서는 MES(Media Encoder Standard) 사전 설정을 사용자 지정하는 방법을 보여 줍니다. [사전 설정을 사용자 지정하는 MES를 사용한 인코딩](media-services-custom-mes-presets-with-dotnet.md) 항목에서는 .NET을 사용하여 인코딩 태스크와 이 태스크를 실행하는 작업을 만드는 방법을 보여 줍니다. 사전 설정을 사용자 지정한 후에는 이 사용자 지정 사전 설정을 인코딩 작업에 제공해야 합니다. 
+
+>[!NOTE]
+>XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처럼 요소 순서를 유지해야 합니다(예를 들어, KeyFrameInterval은 SceneChangeDetection 앞에 와야 함).
+>
 
 이 항목에서는 다음 인코딩 태스크를 수행하는 사용자 지정 사전 설정을 보여 줍니다.
 
@@ -246,9 +251,9 @@ ms.lasthandoff: 03/02/2017
 * 각 이미지 형식에 대해 출력 형식을 명시적으로 제공해야 합니다. Jpg/Png/BmpFormat. 출력 형식이 있는 경우 MES는 JpgVideo를 JpgFormat에 일치시키는 식으로 진행합니다. OutputFormat은 새 이미지 코덱 특유의 Macro: {Index}를 도입하며, 이는 이미지 출력 형식에 대해 존재해야(한 번만) 합니다.
 
 ## <a id="trim_video"></a>비디오 자르기(클리핑)
-이 섹션에서는 입력이 소위 중&2;층 파일이나 주문형 파일인 경우 입력 비디오를 클립하거나 자르는 인코더 사전 설정을 수정하는 방법을 설명합니다. 인코더는 라이브 스트림에서 캡처되거나 보관된 자산을 클립하거나 자르는 데 사용할 수도 있습니다. 이에 대한 세부 정보는 [이 블로그](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)에서 확인할 수 있습니다.
+이 섹션에서는 입력이 소위 중 2층 파일이나 주문형 파일인 경우 입력 비디오를 클립하거나 자르는 인코더 사전 설정을 수정하는 방법을 설명합니다. 인코더는 라이브 스트림에서 캡처되거나 보관된 자산을 클립하거나 자르는 데 사용할 수도 있습니다. 이에 대한 세부 정보는 [이 블로그](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)에서 확인할 수 있습니다.
 
-비디오를 자르려면 [이 섹션](media-services-mes-presets-overview.md)에 문서화된 MES 사전 설정 중 하나를 수행하고 **Sources** 요소를 아래와 같이 수정할 수 있습니다. StartTime 값이 입력 비디오의 절대 타임스탬프와 일치해야 합니다. 예를 들어 입력 비디오의 첫 번째 프레임에 12:00:10.000 타임스탬프가 있으면 StartTime은 12:00:10.000 이상이어야 합니다. 아래 예에서는 입력 비디오의 시작 타임스탬프가&0;인 것으로 가정합니다. **Sources** 는 사전 설정의 맨 앞에 있어야 합니다.
+비디오를 자르려면 [이 섹션](media-services-mes-presets-overview.md)에 문서화된 MES 사전 설정 중 하나를 수행하고 **Sources** 요소를 아래와 같이 수정할 수 있습니다. StartTime 값이 입력 비디오의 절대 타임스탬프와 일치해야 합니다. 예를 들어 입력 비디오의 첫 번째 프레임에 12:00:10.000 타임스탬프가 있으면 StartTime은 12:00:10.000 이상이어야 합니다. 아래 예에서는 입력 비디오의 시작 타임스탬프가 0인 것으로 가정합니다. **Sources** 는 사전 설정의 맨 앞에 있어야 합니다.
 
 ### <a id="json"></a>JSON 사전 설정
     {
@@ -808,10 +813,10 @@ ms.lasthandoff: 03/02/2017
 * 입력 비디오는 모두 프레임 속도가 같아야 합니다.
 * 비디오는 별도의 자산에 업로드하고 비디오를 각 자산의 기본 파일로 설정해야 합니다.
 * 비디오의 기간을 알아야 합니다.
-* 아래의 사전 설정 예제에서는 모든 입력 비디오가 타임스탬프&0;에서 시작한다고 가정합니다. 시작 타임스탬프가 다르면 StartTime 값을 수정해야 합니다. 라이브 보관에서는 이런 경우가 일반적입니다.
+* 아래의 사전 설정 예제에서는 모든 입력 비디오가 타임스탬프 0에서 시작한다고 가정합니다. 시작 타임스탬프가 다르면 StartTime 값을 수정해야 합니다. 라이브 보관에서는 이런 경우가 일반적입니다.
 * JSON 사전 설정은 입력 자산의 AssetID 값에 대한 명시적 참조를 만듭니다.
 * 샘플 코드에서는 JSON 사전 설정이 로컬 파일(예: "C:\supportFiles\preset.json")에 저장되었다고 가정합니다. 또한 두 비디오 파일을 업로드하여 두 자산을 만들었으며 사용자가 그에 따른 AssetID 값을 알고 있다고 가정합니다.
-* 코드 조각 및 JSON 사전 설정은 두 비디오 파일을 연결하는 예제를 보여줍니다. 이 예를 다음을 통해&3;개 이상의 비디오로 확장할 수 있습니다.
+* 코드 조각 및 JSON 사전 설정은 두 비디오 파일을 연결하는 예제를 보여줍니다. 이 예를 다음을 통해 3개 이상의 비디오로 확장할 수 있습니다.
 
   1. task.InputAssets.Add()를 반복 호출하여 순서대로 더 많은 비디오 추가
   2. 같은 순서로 다른 항목을 추가하여 JSON에서 "Sources" 요소를 그에 맞게 편집
@@ -909,15 +914,16 @@ ms.lasthandoff: 03/02/2017
 [미디어 인코더 표준으로 비디오 자르기](media-services-crop-video.md) 항목을 참조하세요.
 
 ## <a id="no_video"></a>입력에 비디오가 없을 때 비디오 트랙 삽입
+
 기본적으로 오디오만 포함하며 비디오는 없는 입력을 인코더로 보내면 출력 자산에는 오디오 데이터만 들어 있는 파일이 포함됩니다. Azure Media Player( [이 항목](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)참조)를 비롯한 일부 플레이어는 이러한 스트림을 처리하지 못할 수도 있습니다. 해당 시나리오에서는 이 설정을 사용하여 인코더가 출력에 단색 비디오 트랙을 추가하도록 강제 지정할 수 있습니다.
 
 > [!NOTE]
 > 인코더가 출력 비디오 트랙을 삽입하도록 강제 지정하면 출력 자산의 크기가 증가하므로 인코딩 태스크에 대한 비용이 발생합니다. 따라서 테스트를 실행하여 이러한 크기 증가가 월 요금에 주는 영향이 적절한 수준인지를 확인해야 합니다.
 >
->
 
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>최저 비트 전송률에서만 비디오 삽입
-["H264 다중 비트 전송률 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) 와 같은 다중 비트 전송률 인코딩 사전 설정을 사용하여 비디오 파일과 오디오 전용 파일이 혼합되어 있는 입력 카탈로그 전체를 스트리밍용으로 인코딩한다고 가정해 보겠습니다. 이 시나리오에서는 입력에 비디오가 없으면 모든 출력 비트 속도에서 비디오를 삽입하는 대신 인코더가 최저 비트 속도에서만 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하려면 "InsertBlackIfNoVideoBottomLayerOnly" 플래그를 지정해야 합니다.
+
+["H264 다중 비트 전송률 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) 와 같은 다중 비트 전송률 인코딩 사전 설정을 사용하여 비디오 파일과 오디오 전용 파일이 혼합되어 있는 입력 카탈로그 전체를 스트리밍용으로 인코딩한다고 가정해 보겠습니다. 이 시나리오에서는 입력에 비디오가 없으면 모든 출력 비트 속도에서 비디오를 삽입하는 대신 인코더가 최저 비트 속도에서만 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하려면 **InsertBlackIfNoVideoBottomLayerOnly** 플래그를 사용해야 합니다.
 
 [이 섹션](media-services-mes-presets-overview.md)에 문서화된 MES 사전 설정 중 하나를 가져온 후에 다음과 같이 수정할 수 있습니다.
 
@@ -932,9 +938,30 @@ ms.lasthandoff: 03/02/2017
     }
 
 #### <a name="xml-preset"></a>XML 사전 설정
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition="InsertBlackIfNoVideoBottomLayerOnly"를 사용하고 **AACAudio**에 대한 특성으로 Condition="InsertSilenceIfNoAudio"를 사용합니다.
+    
+    . . .
+    <Encoding>  
+    <H264Video Condition="InsertBlackIfNoVideoBottomLayerOnly">  
+      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+      <SceneChangeDetection>true</SceneChangeDetection>  
+      <StretchMode>AutoSize</StretchMode>
+      <H264Layers>  
+    <H264Layer>  
+      . . .
+    </H264Layer>  
+      </H264Layers>  
+      <Chapters />  
+    </H264Video>  
+    <AACAudio Condition="InsertSilenceIfNoAudio">  
+      <Profile>AACLC</Profile>  
+      <Channels>2</Channels>  
+      <SamplingRate>48000</SamplingRate>  
+      <Bitrate>128</Bitrate>  
+    </AACAudio>  
+    </Encoding>  
+    . . .
 
 ### <a name="inserting-video-at-all-output-bitrates"></a>모든 출력 비트 전송률에서 비디오 삽입
 ["H264 다중 비트 전송률 720p"](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 와 같은 다중 비트 전송률 인코딩 사전 설정을 사용하여 비디오 파일과 오디오 전용 파일이 혼합되어 있는 입력 카탈로그 전체를 스트리밍용으로 인코딩한다고 가정해 보겠습니다. 이 시나리오에서는 입력에 비디오가 없으면 인코더가 모든 출력 비트 속도에서 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하면 출력 자산의 비디오 트래픽 및 오디오 트랙 수가 모두 같아집니다. 이렇게 하려면 "InsertBlackIfNoVideo" 플래그를 지정해야 합니다.
@@ -952,9 +979,30 @@ ms.lasthandoff: 03/02/2017
     }
 
 #### <a name="xml-preset"></a>XML 사전 설정
-    <KeyFrameInterval>00:00:02</KeyFrameInterval>
-    <StretchMode>AutoSize</StretchMode>
-    <Condition>InsertBlackIfNoVideo</Condition>
+
+XML을 사용하는 경우 **H264Video** 요소에 대한 특성으로 Condition="InsertBlackIfNoVideo"를 사용하고 **AACAudio**에 대한 특성으로 Condition="InsertSilenceIfNoAudio"를 사용합니다.
+
+    . . .
+    <Encoding>  
+    <H264Video Condition="InsertBlackIfNoVideo">  
+      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+      <SceneChangeDetection>true</SceneChangeDetection>  
+      <StretchMode>AutoSize</StretchMode>
+      <H264Layers>  
+    <H264Layer>  
+      . . .
+    </H264Layer>  
+      </H264Layers>  
+      <Chapters />  
+    </H264Video>  
+    <AACAudio Condition="InsertSilenceIfNoAudio">  
+      <Profile>AACLC</Profile>  
+      <Channels>2</Channels>  
+      <SamplingRate>48000</SamplingRate>  
+      <Bitrate>128</Bitrate>  
+    </AACAudio>  
+    </Encoding>  
+    . . .  
 
 ## <a id="rotate_video"></a>비디오 회전
 [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)는 0/90/180/270도 회전을 지원합니다. 기본 동작은 들어오는 비디오 파일에서 회전 메타데이터를 검색하여 그에 맞게 보정하는 "Auto"입니다. 다음 **Sources** 요소를 [이 섹션](media-services-mes-presets-overview.md)에 정의된 사전 설정 중 하나에 포함합니다.

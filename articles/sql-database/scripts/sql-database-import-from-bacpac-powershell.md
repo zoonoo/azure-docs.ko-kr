@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 스크립트 - bacpac에서 SQL Database로 가져오기 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - PowerShell을 사용하여 bacpac에서 SQL Database로 가져오기"
+title: "PowerShell 예제 가져오기 bacpac 파일 SQL Database | Microsoft Docs"
+description: "SQL Database에 bacpac 타일을 가져오는 Azure PowerShell 예제 스크립트"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: cd6c53b7e4cc13920f1ed99934e10a38a9b3e4ed
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ba477c19a7c7bd6809aa3b78c0ef23e9cc7d5497
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="import-from-a-bacpac-into-a-sql-database-using-powershell"></a>PowerShell을 사용하여 bacpac에서 SQL Database로 가져오기
+# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>PowerShell을 사용하여 bacpac 파일을 Azure SQL Database에 가져오기
 
-이 샘플 PowerShell 스크립트는 **bacpac** 파일에서 데이터베이스를 가져옵니다.  
+이 PowerShell 스크립트 예제는 **bacpac** 파일의 데이터베이스를 Azure SQL Database에 가져옵니다.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

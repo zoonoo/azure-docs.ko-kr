@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/05/2017
 ms.author: johnkem; magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: c3e766b2e4c7bd372dc9c7b9d675a76c2d14a4cc
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: d144dd60192a4b62db393db08b82efeaa8d45447
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -188,6 +188,7 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 | Azure 배치 |[Azure 배치 진단 로깅](../batch/batch-diagnostics.md) |
 | Customer Insights | 스키마를 사용할 수 없음 |
 | 콘텐츠 배달 네트워크 | 스키마를 사용할 수 없음 |
+| CosmosDB | 스키마를 사용할 수 없음 |
 | 데이터 레이크 분석 |[Azure Data Lake Analytics에 대한 진단 로그에 액세스](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | 데이터 레이크 저장소 |[Azure Data Lake Store에 대한 진단 로그에 액세스](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | 이벤트 허브(영문) |[Azure Event Hubs 진단 로그](../event-hubs/event-hubs-diagnostic-logs.md) |
@@ -215,6 +216,7 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 |Microsoft.DataLakeAnalytics/accounts|요청|요청 로그|
 |Microsoft.DataLakeStore/accounts|감사|감사 로그|
 |Microsoft.DataLakeStore/accounts|요청|요청 로그|
+|Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|보관 로그|
 |Microsoft.EventHub/namespaces|OperationalLogs|작업 로그|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|자동 크기 조정 로그|
@@ -233,7 +235,6 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery 이벤트|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery 복제된 항목|
 |Microsoft.Search/searchServices|OperationLogs|작업 로그|
-|Microsoft.ServerManagement/nodes|RequestLogs|요청 로그|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|작업 로그|
 |Microsoft.StreamAnalytics/streamingjobs|실행|실행|
 |Microsoft.StreamAnalytics/streamingjobs|작성|작성|

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0a4c7df2ef385b8bdec467859af64fc243241d77
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 9d3b4abdd395806b1a53d4f23d45ba8b449978a9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -52,7 +53,7 @@ VM에서 진단 확장을 사용하도록 설정하면 [Get-AzureRMVmDiagnostics
 
     Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 
-cmdlet은 *PublicSettings*을 반환하며, 여기에는 Base64 인코딩 형식의 XML 구성이 포함됩니다. XML을 읽으려면 디코딩해야 합니다.
+cmdlet은 *PublicSettings*를 반환하며, 여기에는 진단 구성이 포함됩니다. WadCfg 및 xmlCfg의 두 종류의 구성이 지원됩니다. WadCfg는 JSON 구성이며 xmlCfg는 Base64 인코딩 형식의 XML 구성입니다. XML을 읽으려면 디코딩해야 합니다.
 
     $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: cephalin;dariac
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 99ec39d3f0f6e82409de571db1e7c7c9468eb068
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 7eff46740cdbc8467c711aada5e6022d82930e31
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -150,7 +151,6 @@ IDE를 사용하여 배포할 때의 단점:
 ### <a name="vs"></a>Visual Studio에서 직접 배포하는 방법
 * [Azure 및 ASP.NET 시작](app-service-web-get-started-dotnet.md). Visual Studio 및 웹 배포를 사용하여 간단한 ASP.NET MVC 웹 프로젝트를 만들고 배포하는 방법을 설명합니다.
 * [Visual Studio를 사용하여 Azure WebJobs를 배포하는 방법](websites-dotnet-deploy-webjobs.md) WebJob으로 배포되도록 콘솔 응용 프로그램 프로젝트를 구성하는 방법입니다.  
-* [멤버 자격, OAuth 및 SQL Database가 포함된 보안 ASP.NET MVC 5 앱을 Web Apps에 배포합니다](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Visual Studio, 웹 배포 및 Entity Framework Code First 마이그레이션을 사용하여 SQL 데이터베이스가 포함된 ASP.NET MVC 웹 프로젝트를 만들고 배포하는 방법을 설명합니다.
 * [Visual Studio를 사용한 ASP.NET 웹 배포](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction)(영문). 12개 부분으로 구성된 자습서 시리즈로, 이 목록의 다른 자료보다 더 폭넓은 배포 작업 범위를 다룹니다. 일부 Azure 배포 기능은 이 자습서가 작성되기 전에 추가되었지만 이후에 추가된 참고 사항에 누락된 내용이 설명되어 있습니다.
 * [Visual Studio 2012를 사용하여 Git 리포지토리에서 바로 Azure에 ASP.NET 웹 사이트 배포](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)(영문). Git 플러그 인을 사용하여 코드를 Git에 커밋하고 Azure를 Git 리포지토리에 연결하여 Visual Studio에서 ASP.NET 웹 프로젝트를 배포하는 방법을 설명합니다. Visual Studio 2013부터 Git 지원이 기본 제공되므로 플러그 인을 설치할 필요가 없습니다.
 

@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/10/2017
+ms.date: 06/29/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9d22438c6ca14ddb8843f4b72cae40e3b622e849
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -228,10 +229,7 @@ CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 위의 그림과 같이 `UnregisterReminderAsync`(C#) 또는 `unregisterReminderAsync`(Java) 메서드는 `IActorReminder`(C#) 또는 `ActorReminder`(Java) 인터페이스를 수락합니다. 행위자 기본 클래스는 미리 알림 이름에 전달하여 `IActorReminder`(C#) 또는 `ActorReminder`(Java) 인터페이스를 검색하는 데 사용할 수 있는 `GetReminder`(C#) 또는 `getReminder`(Java) 메서드를 지원합니다. 이 방법은 행위자가 `RegisterReminder`(C#) 또는 `registerReminder`(Java) 메서드 호출에서 반환된 `IActorReminder`(C#) 또는 `ActorReminder`(Java) 인터페이스를 유지할 필요가 없기 때문에 편리합니다.
 
 ## <a name="next-steps"></a>다음 단계
+Reliable Actor 이벤트 및 재진입에 대해 알아봅니다.
 * [행위자 이벤트](service-fabric-reliable-actors-events.md)
 * [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
-* [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
-* [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java 샘플 코드](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 

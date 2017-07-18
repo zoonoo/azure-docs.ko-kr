@@ -11,21 +11,21 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 06/05/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eccc927550aef4c9cd71ffad64d2eddedb74326e
-ms.openlocfilehash: 18627223bdb4f0986f07f17233ce7daf29cb7dd9
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: fd331d805c0c6ddcfb492db2902a8e53b23dcab3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>원본 환경 설정(Azure-VMware)
 > [!div class="op_single_selector"]
-> * [VMware Virtual Machines](./site-recovery-set-up-vmware-to-azure.md)
-> * [물리적 서버](./site-recovery-set-up-physical-to-azure.md)
+> * [VMware에서 Azure로](./site-recovery-set-up-vmware-to-azure.md)
+> * [물리적 서버에서 Azure로](./site-recovery-set-up-physical-to-azure.md)
 
 이 문서에서는 온-프레미스 환경을 설정하여 VMware에서 실행 중인 가상 컴퓨터를 Azure에 복제하기 시작하는 방법을 설명합니다.
 

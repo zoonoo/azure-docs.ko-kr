@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: a49be9d5037af120e429a9cc7ae77ceda5e03236
 ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/17/2016
    * 링 버퍼 유형의 대상 즉, **package0.ring_buffer**로 이벤트 출력을 보내도록 선택합니다.
 3. 이벤트 세션을 시작합니다.
 4. 몇 가지 간단한 SQL UPDATE 문을 실행합니다.
-5. SQL SELECT를 실행하여 링 버퍼에서 이벤트 출력을 검색합니다.
+5. SQL SELECT 문을 실행하여 링 버퍼에서 이벤트 출력을 검색합니다.
    
    * **sys.dm_xe_database_session_targets** 및 다른 DMV(동적 관리 뷰)가 조인됩니다.
 6. 이벤트 세션을 중지합니다.

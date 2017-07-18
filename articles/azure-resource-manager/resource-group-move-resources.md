@@ -12,27 +12,27 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 06/28/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: f1b9beabfb0a92e5cc49d6af762693ae45a85e42
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 4c373eef77605ab45c9a08ed7f60476abafa229c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 이 항목에서는 새 구독 또는 동일한 구독의 새 리소스 그룹으로 리소스를 이동하는 방법을 보여 줍니다. 포털, PowerShell, Azure CLI 또는 REST API를 사용하여 리소스를 이동할 수 있습니다. 이 항목의 이동 작업은 Azure 지원의 도움 없이도 사용 가능합니다.
 
-리소스를 이동할 때 원본 그룹과 대상 그룹은 모두 작업 중에 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트, 삭제할 수 없음을 의미하지만 리소스가 고정되었음을 의미하지는 않습니다. 예를 들어, SQL Server와 해당 데이터베이스를 새 리소스 그룹으로 이동하는 경우 해당 데이터베이스를 사용하는 응용 프로그램에는 가동 중지 시간이 발생하지 않습니다. 데이터베이스에 계속해서 읽고 쓸 수 있습니다. 
+리소스를 이동할 때 원본 그룹과 대상 그룹은 모두 작업 중에 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트, 삭제할 수 없음을 의미하지만 리소스가 고정되었음을 의미하지는 않습니다. 예를 들어, SQL Server와 해당 데이터베이스를 새 리소스 그룹으로 이동하는 경우 해당 데이터베이스를 사용하는 응용 프로그램에는 가동 중지 시간이 발생하지 않습니다. 데이터베이스에 계속해서 읽고 쓸 수 있습니다.
 
 리소스의 위치는 변경할 수 없습니다. 리소스를 이동할 때는 새 리소스 그룹으로만 이동됩니다. 새 리소스 그룹은 다른 위치를 가질 수 있지만 리소스의 위치는 변경되지 않습니다.
 
 > [!NOTE]
-> 이 문서에서는 기존 Azure 계정 제품 내에서 리소스를 이동하는 방법을 설명합니다. 기존 리소스를 계속 사용하면서 실제로 Azure 계정 제품을 변경하려는 경우(예: 종량제 요금에서 선불로 업그레이드) [Azure 구독을 다른 제품으로 전환](../billing/billing-how-to-switch-azure-offer.md)을 참조하세요. 
-> 
-> 
+> 이 문서에서는 기존 Azure 계정 제품 내에서 리소스를 이동하는 방법을 설명합니다. 기존 리소스를 계속 사용하면서 실제로 Azure 계정 제품을 변경하려는 경우(예: 종량제 요금에서 선불로 업그레이드) [Azure 구독을 다른 제품으로 전환](../billing/billing-how-to-switch-azure-offer.md)을 참조하세요.
+>
+>
 
 ## <a name="checklist-before-moving-resources"></a>리소스를 이동하기 전의 검사 목록
 리소스를 이동하기 전에 몇 가지 중요한 단계가 있습니다. 이러한 조건을 확인하면 오류를 방지할 수 있습니다.
@@ -51,20 +51,20 @@ ms.lasthandoff: 05/16/2017
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  원본 및 대상 구독에 대한 테넌트 ID가 동일하지 않으면 구독에 대한 디렉터리를 변경할 수 있습니다. 그러나 이 옵션은 Microsoft 계정(조직 계정 아님)으로 로그인한 서비스 관리자만 사용할 수 있습니다. 디렉터리를 변경하려면 [클래식 포털](https://manage.windowsazure.com/)에 로그인한 후 **설정**을 선택하고 구독을 선택합니다. **디렉터리 편집** 아이콘을 사용할 수 있는 경우 이 아이콘을 선택하여 연결된 Azure Active Directory를 변경합니다. 
+  원본 및 대상 구독에 대한 테넌트 ID가 동일하지 않으면 구독에 대한 디렉터리를 변경할 수 있습니다. 그러나 이 옵션은 Microsoft 계정(조직 계정 아님)으로 로그인한 서비스 관리자만 사용할 수 있습니다. 디렉터리를 변경하려면 [클래식 포털](https://manage.windowsazure.com/)에 로그인한 후 **설정**을 선택하고 구독을 선택합니다. **디렉터리 편집** 아이콘을 사용할 수 있는 경우 이 아이콘을 선택하여 연결된 Azure Active Directory를 변경합니다.
 
-  ![디렉터리 편집](./media/resource-group-move-resources/edit-directory.png) 
+  ![디렉터리 편집](./media/resource-group-move-resources/edit-directory.png)
 
   이 아이콘을 사용할 수 없는 경우 지원 서비스에 문의하여 리소스를 새 테넌트로 이동해야 합니다.
 
 2. 서비스는 리소스 이동 기능을 사용하도록 설정해야 합니다. 이 항목에서는 리소스 이동이 가능한 서비스와 그렇지 않은 서비스 목록을 보여 줍니다.
-3. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 문제가 발생할 수 있습니다. 등록 상태 및 등록 리소스 공급자를 확인하는 방법은 [리소스 공급자 및 형식](resource-manager-supported-services.md#resource-providers-and-types)을 참조하세요.
+3. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 문제가 발생할 수 있습니다. 등록 상태 및 등록 리소스 공급자를 확인하는 방법은 [리소스 공급자 및 형식](resource-manager-supported-services.md)을 참조하세요.
 
 ## <a name="when-to-call-support"></a>지원을 호출해야 하는 경우
 대부분의 리소스는 이 항목에 나와 있는 셀프 서비스 작업을 통해 이동할 수 있습니다. 다음에 대해 셀프 서비스 작업을 사용합니다.
 
 * Resource Manager 리소스를 이동합니다.
-* [클래식 배포 제한 사항](#classic-deployment-limitations)에 따라 클래식 리소스를 이동합니다. 
+* [클래식 배포 제한 사항](#classic-deployment-limitations)에 따라 클래식 리소스를 이동합니다.
 
 다음을 수행해야 할 때 지원을 호출합니다.
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 05/16/2017
 * Event Hubs
 * HDInsight 클러스터 - [HDInsight 제한 사항](#hdinsight-limitations) 참조
 * IoT Hub
-* 키 자격 증명 모음 
+* 키 자격 증명 모음
 * 부하 분산 장치
 * Logic Apps
 * 기계 학습
@@ -114,13 +114,14 @@ ms.lasthandoff: 05/16/2017
 * 스트림 분석
 * SQL 데이터베이스 서버 - 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다.
 * 트래픽 관리자
-* 가상 컴퓨터 - 인증서가 Key Vault에 저장된 경우 새 구독으로의 이동을 지원하지 않습니다.
+* 가상 컴퓨터
+* Key Vault에 저장된 인증서를 사용하는 Virtual Machines - 같은 구독의 새 리소스 그룹으로의 이동이 사용되도록 설정되지만 구독 간 이동은 사용되도록 설정되지 않습니다.
 * 가상 컴퓨터(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * 가상 컴퓨터 크기 집합
-* Virtual Networks - 현재 피어링된 Virtual Network는 VNet 피어링을 사용하지 않도록 설정할 때까지 이동할 수 없습니다. 사용하지 않도록 설정되면 Virtual Network를 성공적으로 이동할 수 있고 VNet 피어링을 사용할 수 있습니다.
-* VPN 게이트웨이 
+* Virtual Networks - 현재 피어링된 Virtual Network는 VNet 피어링을 사용하지 않도록 설정할 때까지 이동할 수 없습니다. 사용하지 않도록 설정되면 Virtual Network를 성공적으로 이동할 수 있고 VNet 피어링을 사용할 수 있습니다. 또한 Virtual Network에 리소스 탐색 링크가 포함된 서브넷이 있는 경우 Virtual Network를 다른 구독으로 이동할 수 없습니다. 예를 들어, Virtual Network 서브넷은 Microsoft.Cache redis 리소스가 이 서브넷에 배포된 경우 리소스 탐색 링크를 포함합니다.
+* VPN 게이트웨이
 
- 
+
 ## <a name="services-that-do-not-enable-move"></a>이동을 사용하지 않는 서비스
 현재 리소스 이동을 사용하지 않는 서비스는 다음과 같습니다.
 
@@ -138,7 +139,7 @@ ms.lasthandoff: 05/16/2017
 * Recovery Services 자격 증명 모음 - Recovery Services 자격 증명 모음과 연결된 Compute, Network 및 Storage 리소스도 이동하지 않습니다. [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
 * 보안
 * Managed Disks에서 만든 스냅숏
-* Key Vault에 저장된 인증서를 사용하는 가상 컴퓨터
+* StorSimple 장치 관리자
 * Managed Disks를 포함하는 가상 컴퓨터
 * 가상 네트가상 네트워크(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Marketplace 리소스에서 만든 Virtual Machines는 구독 간에 이동할 수 없습니다. 리소스를 현재 구독에서 프로비전 해제하고 새 구독에 다시 배포해야 합니다.
@@ -146,7 +147,7 @@ ms.lasthandoff: 05/16/2017
 ## <a name="app-service-limitations"></a>앱 서비스 제한
 앱 서비스 앱으로 작업할 경우에는 앱 서비스 계획만 이동할 수 없습니다. 앱 서비스 앱을 이동할 때는 다음 옵션을 사용할 수 있습니다.
 
-* 앱 서비스 계획과 해당 리소스 그룹에 있는 모든 기타 앱 서비스 리소스를 이미 앱 서비스 리소스가 없는 새 리소스 그룹으로 이동합니다. 이 요구 사항은 App Service 계획에 연결되지 않은 App Service 리소스도 이동해야 함을 의미합니다. 
+* 앱 서비스 계획과 해당 리소스 그룹에 있는 모든 기타 앱 서비스 리소스를 이미 앱 서비스 리소스가 없는 새 리소스 그룹으로 이동합니다. 이 요구 사항은 App Service 계획에 연결되지 않은 App Service 리소스도 이동해야 함을 의미합니다.
 * 앱을 다른 리소스 그룹으로 이동하지만 모든 앱 서비스는 원래 리소스 그룹에 유지합니다.
 
 App Service 계획은 제대로 기능하기 위해 해당 앱에 대해 앱과 같은 리소스 그룹에 상주하지 않아도 됩니다.
@@ -183,7 +184,7 @@ App Service 계획은 제대로 기능하기 위해 해당 앱에 대해 앱과 
 3. 웹앱에 인증서 업로드
 
 ## <a name="recovery-services-limitations"></a>Recovery Services 제한 사항
-Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Network 또는 Compute 리소스에 대해서는 이동이 사용되지 않습니다. 
+Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Network 또는 Compute 리소스에 대해서는 이동이 사용되지 않습니다.
 
 예를 들어, 온-프레미스 컴퓨터에서 저장소 계정(Storage1)으로 복제를 설정했고 Azure에 장애 조치(failover) 후 가상 네트워크(Network1)에 연결된 가상 컴퓨터(VM1)로 보호되는 컴퓨터를 실행하려고 한다고 가정합니다. 같은 구독 내에 있거나 여러 구독에 있는 리소스 그룹에 대해 이러한 Azure 리소스(Storage1, VM1, Network1) 작업 중 어떠한 것도 이동할 수 없습니다.
 
@@ -194,13 +195,13 @@ Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Netw
 HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스(예: 저장소 계정)를 이동합니다. 그런 다음 자체적으로 HDInsight 클러스터를 이동합니다.
 
 ## <a name="classic-deployment-limitations"></a>클래식 배포 제한 사항
-구독 내 또는 새 구독으로 리소스를 이동할지 여부에 따라 클래식 모델을 통해 배포된 리소스의 이동 옵션은 다릅니다. 
+구독 내 또는 새 구독으로 리소스를 이동할지 여부에 따라 클래식 모델을 통해 배포된 리소스의 이동 옵션은 다릅니다.
 
 ### <a name="same-subscription"></a>동일한 구독
 한 리소스 그룹에서 같은 구독 내 다른 리소스 그룹으로 리소스를 이동할 경우 다음 제한 사항이 적용됩니다.
 
 * 가상 네트워크(클래식)은 이동할 수 없습니다.
-* 가상 컴퓨터(클래식)는 클라우드 서비스로 이동해야 합니다. 
+* 가상 컴퓨터(클래식)는 클라우드 서비스로 이동해야 합니다.
 * 클라우드 서비스는 이동에 모든 가상 컴퓨터가 포함된 경우에만 이동할 수 있습니다.
 * 한 번에 하나의 클라우드 서비스만 이동할 수 있습니다.
 * 한 번에 하나의 저장소 계정(클래식)만 이동할 수 있습니다.
@@ -222,18 +223,18 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
   ```HTTP   
   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
-   
+
      요청 본문에 다음을 포함합니다.
 
-  ```json 
+  ```json
   {
     "role": "source"
   }
   ```
-  
+
      유효성 검사 작업에 대한 응답은 다음 형식입니다.
 
-  ```json 
+  ```json
   {
     "status": "{status}",
     "reasons": [
@@ -245,34 +246,34 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
 
 2. 대상 구독이 구독 간 이동에 참여할 수 있는지 확인합니다. 다음 작업을 사용합니다.
 
-  ```HTTP 
+  ```HTTP
   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
 
      요청 본문에 다음을 포함합니다.
 
-  ```json 
+  ```json
   {
     "role": "target"
   }
   ```
-   
+
      응답이 원본 구독 유효성 검사와 동일한 형식입니다.
 3. 두 구독이 유효성 검사를 통과하면 다음 작업으로 한 구독에서 다른 구독으로 모든 클래식 리소스를 이동합니다.
 
-  ```HTTP 
+  ```HTTP
   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
   ```
 
     요청 본문에 다음을 포함합니다.
 
-  ```json 
+  ```json
   {
     "target": "/subscriptions/{target-subscription-id}"
   }
   ```
 
-이 작업은 몇 분 정도 실행될 수 있습니다. 
+이 작업은 몇 분 정도 실행될 수 있습니다.
 
 ## <a name="use-portal"></a>포털 사용
 리소스를 이동하려면 해당 리소스가 포함된 리소스 그룹을 선택한 후 **이동** 단추를 선택합니다.
@@ -378,7 +379,7 @@ azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/provide
 다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 다음을 실행합니다.
 
 ```HTTP
-POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
 ```
 
 요청 본문에서 대상 리소스 그룹 및 이동할 리소스를 지정합니다. 이동 REST 작업에 대한 자세한 내용은 [리소스 이동](https://msdn.microsoft.com/library/azure/mt218710.aspx)을 참조하세요.
@@ -388,5 +389,4 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 * 구독을 관리하기 위한 Azure CLI 명령에 대한 자세한 내용은 [Resource Manager에서 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
 * 구독을 관리하기 위한 포털 기능에 대한 자세한 내용은 [Azure 포털을 사용하여 리소스 관리](resource-group-portal.md)를 참조하세요.
 * 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
-
 

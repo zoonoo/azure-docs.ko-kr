@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: d2e2effa9c215107cf0893a74df0b909fbf5d4c0
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: cf9ee59ca4e44ed01836c2efb1f4df5f073bf6e0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -41,7 +42,7 @@ IP 주소 *10.0.0.7*을 *TestVnet*이라는 이름의 VNet에서 사용할 수 �
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> 안전한 환경에서 위 명령을 테스트하려는 경우 [가상 네트워크 만들기](virtual-networks-create-vnet-classic-portal.md)의 지침에 따라 *TestVnet*이라는 이름의 VNet을 만들어 *10.0.0.0/8* 주소 공간을 사용하도록 합니다.
+> 안전한 환경에서 위 명령을 테스트하려는 경우 [가상 네트워크 만들기(클래식)](virtual-networks-create-vnet-classic-pportal.md)의 지침에 따라 *TestVnet*이라는 이름의 VNet을 만들어 *10.0.0.0/8* 주소 공간을 사용하도록 합니다.
 > 
 > 
 

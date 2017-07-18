@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Bus 인증 및 권한 부여 | Microsoft Docs"
-description: "공유 액세스 서명(SAS) 인증의 개요입니다."
+description: "SAS(공유 액세스 서명) 인증을 사용하여 Service Bus에 대해 앱을 인증합니다."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 06/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4eaae725c62f66de1b50fd2c7094f3e6e89281be
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 5ed7558cfff9991734e909e06e8bac9181131381
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="service-bus-authentication-and-authorization"></a>서비스 버스 인증 및 권한 부여
+
 응용 프로그램은 공유 액세스 서명 (SAS) 인증을 사용하거나 Azure Active Directory 액세스 제어(액세스 제어 서비스 또는 ACS 라고도 함)를 통해 Azure 서비스 버스에 인증할 수 있습니다. 공유 액세스 서명 인증을 사용하면 응용 프로그램을 네임 스페이스 또는 특정 권한이 연관된 엔터티에서 구성된 선택키를 사용하여 서비스 버스에 인증할 수 있습니다. 그런 다음 이 키를 사용하여 클라이언트가 서비스 버스를 인증하는 데 사용할 수 있는 공유 액세스 서명 토큰을 생성할 수 있습니다.
 
 > [!IMPORTANT]
@@ -32,7 +34,7 @@ ms.lasthandoff: 04/27/2017
 
 서비스 버스 네임 스페이스에서 SAS에 대한 키를 구성할 수 있습니다. 키는 해당 네임 스페이스의 모든 메시징 엔터티에 적용됩니다. 또한 서비스 버스 큐 및 항목에 키를 구성할 수 있습니다. SAS는 [Azure Relay](../service-bus-relay/relay-authentication-and-authorization.md)에서도 지원됩니다.
 
-SAS를 사용하려면 다음을 구성하는 네임스페이스, 큐 또는 토픽에서 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체를 구성할 수 있습니다.
+SAS를 사용하려면 네임스페이스, 큐 또는 토픽에서 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체를 구성할 수 있습니다. 이 규칙은 다음 요소로 구성됩니다.
 
 * *KeyName* 입니다.
 * *PrimaryKey* 는 SAS 토큰을 서명/확인하는 데 사용되는 암호화 키입니다.
@@ -67,6 +69,7 @@ New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 서비스 버스에 대한 ACS 인증 지원은 Azure.NET SDK 버전 2.0 이후에 포함됩니다. 이 인증은 [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider)에 대한 지원을 포함합니다. 연결 문자열을 매개 변수로 허용하는 모든 API는 ACS 연결 문자열에 대한 지원을 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 SAS에 대한 자세한 내용은 [공유 액세스 서명을 사용한 Service Bus 인증](service-bus-sas.md)을 계속 읽으세요.
 
 Azure Relay 인증 및 권한 부여에 관한 해당 정보는 [Azure Relay 인증 및 권한 부여](../service-bus-relay/relay-authentication-and-authorization.md)를 참조하세요. 

@@ -14,11 +14,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 7e18325426bac86d89ff0235e18ddca9fd21e8de
-ms.openlocfilehash: 41a58493c8931e8ce241ce31ecb1ca20b5a82cb3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: cbdc964b16cbc6cf291dbc4b6f60b20d67d9fc41
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -78,8 +80,8 @@ Media Services의 2017년 1월 릴리스가 시작되면 **표준** 및 **프리
 기능|표준|Premium
 ---|---|---
 처음 15일 무료| 예 |아니요
-처리량 |Azure CDN을 사용하지 않는 경우 최대 600Mbps입니다. CDN을 사용하여 크기를 조정합니다.|SU(스트리밍 단위)당&200;Mbps CDN을 사용하여 크기를 조정합니다.
-SLA | 99.9|99.9(SU당&200;Mbps)입니다.
+처리량 |Azure CDN을 사용하지 않는 경우 최대 600Mbps입니다. CDN을 사용하여 크기를 조정합니다.|SU(스트리밍 단위)당 200Mbps CDN을 사용하여 크기를 조정합니다.
+SLA | 99.9|99.9(SU당 200Mbps)입니다.
 CDN|Azure CDN, 타사 CDN 또는 CDN 없음.|Azure CDN, 타사 CDN 또는 CDN 없음.
 청구를 계산합니다.| 매일|매일
 동적 암호화|예|예
@@ -112,10 +114,5 @@ CDN 포함 SU >= 1인 버전 1.0|CDN 포함된/없는 프리미엄|**중지됨**
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

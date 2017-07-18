@@ -12,16 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 06/29/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: f5c5abc988cd363cafe8c07f83eb2686a83ee1a2
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 936064959ac9dd6422619076fabbbba887d17bb6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="containers-preview-solution-log-analytics"></a>컨테이너(미리 보기) 솔루션 Log Analytics
+# <a name="containers-preview-solution-in-log-analytics"></a>Log Analytics에서 컨테이너(미리 보기) 솔루션
+
+![컨테이너 기호](./media/log-analytics-containers/containers-symbol.png)
+
 이 문서에서는 단일 위치에서 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있게 Log Analytics의 컨테이너 솔루션을 설정 및 사용하는 방법을 설명합니다. Docker는 IT 인프라에 대한 소프트웨어 배포를 자동화하는 컨테이너를 만드는 데 사용되는 소프트웨어 가상화 시스템입니다.
 
 이 솔루션을 통해 컨테이너 호스트에서 어떤 컨테이너가 실행 중이며 컨테이너에서 어떤 이미지가 실행 중인지 확인할 수 있습니다. 컨테이너에 사용하는 명령을 표시하는 상세한 감사 정보를 확인할 수 있습니다. 또한 중앙화된 로그를 보고 검색하면 원격으로 Docker 또는 Windows 호스트를 보지 않고도 컨테이너의 문제를 해결할 수 있습니다. 호스트에서 성가시고 과도한 리소스를 소모하는 컨테이너를 찾을 수 있습니다. 또한 컨테이너에 대해 중앙화된 CPU 메모리, 저장소, 네트워크 사용 및 성능 정보를 확인할 수 있습니다. Windows를 실행하는 컴퓨터에서 Windows Server, Hyper-V, Docker 컨테이너에서 로그를 중앙 집중화 및 비교할 수 있습니다.
@@ -44,11 +48,13 @@ ms.lasthandoff: 04/25/2017
 
 [GitHub](https://github.com/Microsoft/OMS-docker)에서 해당 컨테이너 호스트에 지원되는 Docker 및 Linux 운영 체제 버전을 검토할 수 있습니다.
 
-Azure Container Service를 사용하는 Kubernetes 클러스터가 있는 경우 [Microsoft OMS(Operations Management Suite)를 사용하여 Azure Container Service 클러스터 모니터링](../container-service/container-service-kubernetes-oms.md)에서 자세한 내용을 참조하세요.
+### <a name="container-services"></a>Container Service
 
-Azure Container Service DC/OS 클러스터가 있는 경우 [Operations Management Suite를 사용하여 Azure Container Service DC/OS 클러스터 모니터링](../container-service/container-service-monitoring-oms.md)에서 자세한 내용을 참조하세요.
-
-[Windows에서 Docker 엔진](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) 문서에서 Windows를 실행하는 컴퓨터에서 Docker 엔진을 설치하고 구성하는 방법에 대한 추가 정보를 확인합니다.
+- Azure Container Service를 사용하는 Kubernetes 클러스터가 있는 경우 [Microsoft OMS(Operations Management Suite)를 사용하여 Azure Container Service 클러스터 모니터링](../container-service/container-service-kubernetes-oms.md)에서 자세한 내용을 참조하세요.
+- Azure Container Service DC/OS 클러스터가 있는 경우 [Operations Management Suite를 사용하여 Azure Container Service DC/OS 클러스터 모니터링](../container-service/container-service-monitoring-oms.md)에서 자세한 내용을 참조하세요.
+- Docker Swarm 모드 환경에 있는 경우 [Docker Swarm용 OMS 에이전트 구성](#configure-an-oms-agent-for-docker-swarm)에서 자세히 알아보세요.
+- Service Fabric과 함께 컨테이너를 사용하는 경우 [Azure Service Fabric의 개요](../service-fabric/service-fabric-overview.md)에서 자세히 알아봅니다.
+- [Windows에서 Docker 엔진](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) 문서에서 Windows를 실행하는 컴퓨터에서 Docker 엔진을 설치하고 구성하는 방법에 대한 추가 정보를 확인합니다.
 
 > [!IMPORTANT]
 > Docker는 컨테이너 호스트에 [OMS Agent for Linux](log-analytics-linux-agents.md)를 설치하기 **전에** 실행해야 합니다.  Docker 설치에 앞서 에이전트를 설치한 경우 OMS Agent for Linux를 다시 설치해야 합니다.  Docker에 대한 자세한 내용은 [Docker 웹 사이트](https://www.docker.com)를 참조하세요.
@@ -57,7 +63,13 @@ Azure Container Service DC/OS 클러스터가 있는 경우 [Operations Manageme
 
 컨테이너를 모니터링하려면 먼저 컨테이너 호스트에 다음 설정을 구성해야 합니다.
 
-## <a name="configure-settings-for-a-linux-container-host"></a>Linux 컨테이너 호스트에 대한 설정 구성
+## <a name="linux-container-hosts"></a>Linux 컨테이너 호스트
+
+지원되는 Linux 버전:
+
+- 1.13을 통한 Docker 1.11
+- Docker CE 및 EE v17.03
+
 
 다음 x64 Linux 배포는 컨테이너 호스트로 지원됩니다.
 
@@ -65,9 +77,11 @@ Azure Container Service DC/OS 클러스터가 있는 경우 [Operations Manageme
 - CoreOS(stable)
 - Amazon Linux 2016.09.0
 - openSUSE 13.2
-- CentOS 7
+- openSUSE LEAP 42.2
+- CentOS 7.2, 7.3
 - SLES 12
-- RHEL 7.2
+- RHEL 7.2, 7.3
+
 
 Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 Docker에 사용할 에이전트를 구성합니다. [OMS 작업 영역 ID 및 키](log-analytics-linux-agents.md)가 필요합니다.
 
@@ -84,10 +98,164 @@ Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
+### <a name="for-all-azure-government-linux-container-hosts-including-coreos"></a>CoreOS를 포함한 모든 Azure Government Linux 컨테이너 호스트의 경우
+
+모니터링하려는 OMS 컨테이너를 시작합니다. 다음 예제를 수정하여 사용합니다.
+
+```
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
+```
+
+
 ### <a name="switching-from-using-an-installed-linux-agent-to-one-in-a-container"></a>설치된 Linux 에이전트에서 컨테이너의 다른 에이전트로 전환
 이전에 직접 설치한 에이전트를 사용하였고 이제 실행 중인 에이전트를 사용하려는 경우 먼저 OMSAgent를 제거해야 합니다. [OMS Agent for Linux 설치 단계](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md)를 참조하세요.
 
-## <a name="supported-windows-versions"></a>지원되는 Windows 버전
+### <a name="configure-an-oms-agent-for-docker-swarm"></a>Docker Swarm용 OMS 에이전트 구성
+
+Docker Swarm에서 전역 서비스로 OMS 에이전트를 실행할 수 있습니다. 다음 정보를 사용하여 OMS 에이전트 서비스를 만듭니다. 작업 영역 ID 및 기본 키를 삽입해야 합니다.
+
+- 마스터 노드에서 다음을 실행합니다.
+
+    ```
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock  -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
+    ```
+
+### <a name="secure-your-secret-information-for-container-services"></a>컨테이너 서비스에 대한 비밀 정보 보호
+
+Docker Swarm 및 Kubernetes에 대한 비밀 OMS 작업 영역 ID 및 기본 키를 보호할 수 있습니다.
+
+#### <a name="secure-secrets-for-docker-swarm"></a>Docker Swarm에 대한 비밀 보호
+
+Docker Swarm의 경우 작업 영역 ID 및 기본 키에 대한 비밀이 생성되면 OMSagent에 대한 Docker 서비스 만들기를 실행할 수 있습니다. 다음 정보를 사용하여 비밀 정보를 만듭니다.
+
+1. 마스터 노드에서 다음을 실행합니다.
+
+    ```
+    echo "WSID" | docker secret create WSID -
+    echo "KEY" | docker secret create KEY -
+    ```
+
+2. 비밀이 제대로 생성되었는지 확인합니다.
+
+    ```
+    keiko@swarmm-master-13957614-0:/run# sudo docker secret ls
+    ```
+
+    ```
+    ID                          NAME                CREATED             UPDATED
+    j2fj153zxy91j8zbcitnjxjiv   WSID                43 minutes ago      43 minutes ago
+    l9rh3n987g9c45zffuxdxetd9   KEY                 38 minutes ago      38 minutes ago
+    ```
+
+3. 다음 명령을 실행하여 비밀을 컨테이너화된 OMS 에이전트에 탑재합니다.
+
+    ```
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
+    ```
+
+#### <a name="secure-secrets-for-kubernetes-with-yaml-files"></a>yaml 파일로 Kubernetes에 대한 비밀 보호
+
+Kubernetes의 경우 스크립트를 사용하여 작업 영역 ID 및 기본 키에 대한 비밀 .yaml 파일을 생성합니다. [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) 페이지에는 비밀 정보를 포함 또는 포함하지 않고 사용할 수 있는 파일이 있습니다.
+
+- 비밀 정보가 없는 기본 OMS 에이전트 DaemonSet(omsagent.yaml)
+- 비밀 yaml(omsagentsecret.yaml) 파일을 생성하는 비밀 생성 스크립트에 비밀 정보(omsagent-ds-secrets.yaml)를 사용하는 OMS 에이전트 DaemonSet yaml 파일.
+
+비밀을 포함 또는 포함하지 않고 omsagent DaemonSet를 만들도록 선택할 수 있습니다.
+
+##### <a name="default-omsagent-daemonset-yaml-file-without-secrets"></a>비밀이 없는 기본 OMSagent DaemonSet yaml 파일
+
+- 기본 OMS Agent DaemonSet yaml 파일에서 `<WSID>` 및 `<KEY>`를 사용자의 WSID 및 KEY로 바꿉니다. 파일을 마스터 노드에 복사하고 다음을 실행합니다.
+
+    ```
+    sudo kubectl create -f omsagent.yaml
+    ```
+
+##### <a name="default-omsagent-daemonset-yaml-file-with-secrets"></a>비밀이 있는 기본 OMSagent DaemonSet yaml 파일
+
+1. 비밀 정보를 사용하여 OMS 에이전트 DaemonSet을 사용하려면 먼저 비밀을 만듭니다.
+    1. 스크립트 및 비밀 템플릿 파일을 복사하고 이들이 같은 디렉터리에 있는지 확인합니다.
+        - 비밀 생성 스크립트 - secret-gen.sh
+        - 비밀 템플릿 - secret-template.yaml
+    2. 다음 예제와 같이 스크립트를 실행합니다. 스크립트에서 OMS 작업 영역 ID 및 기본 키를 요청하고 사용자가 이를 입력하면 스크립트에서 비밀 .yaml 파일을 생성하며 사용자가 실행할 수 있습니다.   
+
+        ```
+        #> sudo bash ./secret-gen.sh
+        ```
+
+    3. 다음을 실행하여 비밀 Pod를 만듭니다.
+        ```
+        sudo kubectl create -f omsagentsecret.yaml
+        ```
+
+    4. 확인하려면 다음을 실행합니다.
+
+        ```
+        keiko@ubuntu16-13db:~# sudo kubectl get secrets
+        ```
+
+        출력은 다음과 유사합니다.
+
+        ```
+        NAME                  TYPE                                  DATA      AGE
+        default-token-gvl91   kubernetes.io/service-account-token   3         50d
+        omsagent-secret       Opaque                                2         1d
+        ```
+
+        ```
+        keiko@ubuntu16-13db:~# sudo kubectl describe secrets omsagent-secret
+        ```
+
+        출력은 다음과 유사합니다.
+
+        ```
+        Name:           omsagent-secret
+        Namespace:      default
+        Labels:         <none>
+        Annotations:    <none>
+
+        Type:   Opaque
+
+        Data
+        ====
+        WSID:   36 bytes
+        KEY:    88 bytes
+        ```
+
+    5. ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```을 실행하여 omsagent daemon-set 만들기
+
+2. OMS 에이전트 DaemonSet가 다음과 같이 실행 중인지 확인합니다.
+
+    ```
+    keiko@ubuntu16-13db:~# sudo kubectl get ds omsagent
+    ```
+
+    ```
+    NAME       DESIRED   CURRENT   NODE-SELECTOR   AGE
+    omsagent   3         3         <none>          1h
+    ```
+
+
+Kubernetes의 경우 스크립트를 사용하여 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [omsagent yaml 파일](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml)에 다음 예제 정보를 사용하여 비밀 정보를 보호합니다.
+
+```
+keiko@ubuntu16-13db:~# sudo kubectl describe secrets omsagent-secret
+Name:           omsagent-secret
+Namespace:      default
+Labels:         <none>
+Annotations:    <none>
+
+Type:   Opaque
+
+Data
+====
+WSID:   36 bytes
+KEY:    88 bytes
+```
+
+
+## <a name="windows-container-hosts"></a>Windows 컨테이너 호스트
+
+지원되는 Windows 버전:
 
 - Windows Server 2016
 - Windows 10 1주년 버전(Professional 또는 Enterprise)
@@ -95,45 +263,43 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 ### <a name="docker-versions-supported-on-windows"></a>Windows에서 지원되는 Docker 버전
 
 - Docker 1.12 – 1.13
+- Docker 17.03.0[안정화]
 
-### <a name="preparation-before-installing-agents"></a>에이전트 설치 전 준비
+### <a name="preparation-before-installing-windows-agents"></a>Windows 에이전트 설치 전 준비
 
 Windows를 실행하는 컴퓨터에 에이전트를 설치하기 전에 Docker 서비스를 구성해야 합니다. 구성을 통해 Windows 에이전트 또는 Log Analytics 가상 컴퓨터 확장에서 Docker TCP 소켓을 사용하도록 하여 에이전트가 Docker 데몬에 원격으로 액세스하고 모니터링할 데이터를 캡처하도록 할 수 있습니다.
 
-Windows를 실행하는 컴퓨터에서는 성능 데이터가 지원되지 않습니다.
-
-Windows에서 Docker 데몬을 구성하는 방법은 [Windows에서 Docker 엔진](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon)을 참조하세요.
-
 #### <a name="to-start-docker-and-verify-its-configuration"></a>Docker를 시작하고 구성을 확인하려면
 
-1.    Windows PowerShell에서 TCP 파이프 및 명명된 파이프를 사용하도록 설정합니다.
+Windows 서버에 대한 TCP 명명된 파이프를 설정하는 데 필요한 단계입니다.
+
+1. Windows PowerShell에서 TCP 파이프 및 명명된 파이프를 사용하도록 설정합니다.
 
     ```
     Stop-Service docker
     dockerd --unregister-service
-    dockerd -H npipe:// -H 0.0.0.0:2375 --register-service
+    dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
     Start-Service docker
     ```
 
-2.    netstat를 사용하여 구성을 확인합니다. 포트 2375가 표시되어야 합니다.
+2. TCP 파이프 및 명명된 파이프에 대한 구성 파일로 Docker를 구성합니다. 구성 파일은 C:\ProgramData\docker\config\daemon.json에 있습니다.
+
+    daemon.json 파일에서 다음이 필요합니다.
 
     ```
-    PS C:\Users\User1> netstat -a | sls 2375
-
-    TCP    127.0.0.1:2375         Win2016TP5:0           LISTENING
-    TCP    127.0.0.1:2375         Win2016TP5:49705       ESTABLISHED
-    TCP    127.0.0.1:2375         Win2016TP5:49706       ESTABLISHED
-    TCP    127.0.0.1:2375         Win2016TP5:49707       ESTABLISHED
-    TCP    127.0.0.1:2375         Win2016TP5:49708       ESTABLISHED
-    TCP    127.0.0.1:49705        Win2016TP5:2375        ESTABLISHED
-    TCP    127.0.0.1:49706        Win2016TP5:2375        ESTABLISHED
-    TCP    127.0.0.1:49707        Win2016TP5:2375        ESTABLISHED
-    TCP    127.0.0.1:49708        Win2016TP5:2375        ESTABLISHED
+    {
+    "hosts": ["tcp://0.0.0.0:2375", "npipe://"]
+    }
     ```
+
+Windows 컨테이너에서 사용하는 Docker 데몬 구성에 대한 자세한 내용은 [Windows에서 Docker 엔진](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon)을 참조하세요.
+
 
 ### <a name="install-windows-agents"></a>Windows 에이전트 설치
 
 Windows 및 Hyper-V 컨테이너 모니터링을 사용하도록 설정하려면 컨테이너 호스트인 Windows 컴퓨터에 에이전트를 설치합니다. 온-프레미스 환경에서 Windows를 실행하는 컴퓨터는 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md)을 참조하세요. Azure에서 실행되는 가상 컴퓨터의 경우 [가상 컴퓨터 확장](log-analytics-azure-vm-extension.md)을 사용하여 Log Analytics에 연결합니다.
+
+Service Fabric에서 실행 중인 Windows 컨테이너를 모니터링할 수 있습니다. 그러나 [Azure에서 실행 중인 가상 컴퓨터](log-analytics-azure-vm-extension.md) 및 [온-프레미스 환경에서 Windows를 실행하는 컴퓨터](log-analytics-windows-agents.md)만 현재 Service Fabric에 대해 지원됩니다.
 
 컨테이너 솔루션이 올바르게 설정되었는지 확인하려면
 
@@ -160,7 +326,7 @@ Windows 및 Hyper-V 컨테이너 모니터링을 사용하도록 설정하려면
 | --- | --- | --- | --- | --- | --- | --- |
 | Azure |![예](./media/log-analytics-containers/oms-bullet-green.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |![아니요](./media/log-analytics-containers/oms-bullet-red.png) |매 3분 |
 
-다음 테이블은 컨테이너 솔루션에 의해 수집된 데이터 유형, 로그 검색에 사용된 데이터 유형 및 결과의 예를 보여줍니다. 하지만 Windows를 실행하는 컴퓨터에서는 성능 데이터가 아직 지원되지 않습니다.
+다음 테이블은 컨테이너 솔루션에 의해 수집된 데이터 유형, 로그 검색에 사용된 데이터 유형 및 결과의 예를 보여줍니다.
 
 | 데이터 형식 | 로그 검색의 데이터 유형 | 필드 |
 | --- | --- | --- |
