@@ -1,6 +1,6 @@
 ---
 title: "Azure Logic Apps와 통합하는 함수 만들기 | Microsoft Docs"
-description: "Azure 서비스를 사용하여 범주가 감정을 트윗하는 함수를 만듭니다."
+description: "Azure Logic Apps 및 Azure Cognitive Services와 통합하는 함수를 만들어 트윗 감정을 분류하고 감정이 나쁠 경우 알림을 보냅니다."
 services: functions, logic-apps, cognitive-services
 keywords: "워크플로, 클라우드 앱, 클라우드 서비스, 비즈니스 프로세스, 시스템 통합, Enterprise Application Integration, EAI"
 documentationcenter: 
@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 05/15/2017
 ms.author: glenga, riande
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: b8bf047be9796935ce815f4d803e229c7208ade5
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: c1c7e291e30cc519f089dec259fdf8c5a75d2677
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 7f19efa7e09b0dce43851019f94285b2887c46d5
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 7af374232fd45da8769001cd520fa7d1734cbc4e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -46,7 +46,30 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 | arg1 |예 |int, 문자열, 배열 또는 개체 |같은지 확인할 첫 번째 값입니다. |
 | arg2 |예 |int, 문자열, 배열 또는 개체 |같은지 확인할 두 번째 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+값이 같으면 **True**를 반환하고 같지 않으면 **False**를 반환합니다.
+
+### <a name="remarks"></a>설명
+
+equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 테스트하는 데 사용됩니다.
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+### <a name="example"></a>예제
 
 이 예제 템플릿에서는 다른 형식의 값이 같은지 확인합니다. 모든 기본값은 True를 반환합니다.
 
@@ -111,9 +134,14 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-값이 같으면 **True**를 반환하고 같지 않으면 **False**를 반환합니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| checkInts | Bool | True |
+| checkStrings | Bool | True |
+| checkArrays | Bool | True |
+| checkObjects | Bool | True |
 
 <a id="less" />
 
@@ -129,7 +157,11 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 | arg1 |예 |int 또는 문자열 |less 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |less 비교에 사용할 두 번째 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+첫 번째 값이 두 번째 값보다 작으면 **True**를 반환하고 작지 않으면 **False**를 반환합니다.
+
+### <a name="example"></a>예제
 
 이 예제 템플릿에서는 한 값이 다른 값보다 작은지 여부를 확인합니다.
 
@@ -139,16 +171,20 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -166,9 +202,12 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-첫 번째 값이 두 번째 값보다 작으면 **True**를 반환하고 작지 않으면 **False**를 반환합니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
 
 <a id="lessorequals" />
 
@@ -184,7 +223,11 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 | arg1 |예 |int 또는 문자열 |less 또는 equals 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |less 또는 equals 비교에 사용할 두 번째 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+첫 번째 값이 두 번째 값보다 작거나 같으면 **True**를 반환하고 크면 **False**를 반환합니다.
+
+### <a name="example"></a>예제
 
 이 예제 템플릿에서는 한 값이 다른 값보다 작거나 같은지 여부를 확인합니다.
 
@@ -194,16 +237,20 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -221,9 +268,12 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-첫 번째 값이 두 번째 값보다 작거나 같으면 **True**를 반환하고 크면 **False**를 반환합니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| checkInts | Bool | True |
+| checkStrings | Bool | False |
 
 <a id="greater" />
 
@@ -239,7 +289,11 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 | arg1 |예 |int 또는 문자열 |greater 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |greater 비교에 사용할 두 번째 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+첫 번째 값이 두 번째 값보다 크면 **True**를 반환하고 크지 않으면 **False**를 반환합니다.
+
+### <a name="example"></a>예제
 
 이 예제 템플릿에서는 한 값이 다른 값보다 큰지 여부를 확인합니다.
 
@@ -249,16 +303,20 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -276,9 +334,12 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-첫 번째 값이 두 번째 값보다 크면 **True**를 반환하고 크지 않으면 **False**를 반환합니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| checkInts | Bool | False |
+| checkStrings | Bool | True |
 
 <a id="greaterorequals" />
 
@@ -294,7 +355,11 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 | arg1 |예 |int 또는 문자열 |greater 또는 equal 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |greater 또는 equal 비교에 사용할 두 번째 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+첫 번째 값이 두 번째 값보다 크거나 같으면 **True**를 반환하고 작으면 **False**를 반환합니다.
+
+### <a name="example"></a>예제
 
 이 예제 템플릿에서는 한 값이 다른 값보다 크거나 같은지 여부를 확인합니다.
 
@@ -304,16 +369,20 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -331,9 +400,13 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-첫 번째 값이 두 번째 값보다 크거나 같으면 **True**를 반환하고 작으면 **False**를 반환합니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| checkInts | Bool | False |
+| checkStrings | Bool | True |
+
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.

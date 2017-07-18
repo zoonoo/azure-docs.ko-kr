@@ -1,56 +1,56 @@
 ---
 title: "Azure Cosmos DB Gremlin 지원 | Microsoft Docs"
-description: "Azure Cosmos DB에서 사용할 수 있는 Gremlin 언어의 기능 및 단계에 대해 자세히 알아보기"
-services: cosmosdb
+description: "Azure Cosmos DB에서 사용할 수 있는 Apache TinkerPop의 Gremlin 언어의 기능 및 단계에 대해 자세히 알아보기"
+services: cosmos-db
 documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: 
 tags: 
-ms.assetid: 
-ms.service: cosmosdb
+ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
+ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 06/10/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: db2287782df66ecee0795adb483e253021d0c2cf
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: acea54d202d1117cf2dfb1d35ad48346daa9053d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
 
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 그래프 지원
-Azure Cosmos DB는 그래프 엔터티를 만들고 그래프 쿼리 및 통과 작업을 수행하기 위한 [Gremlin]([Gremlin language](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)) Graph API를 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 통과를 수행하고, 엔터티를 삭제할 수 있습니다. 
+Azure Cosmos DB는 [Apache Tinkerpop](http://tinkerpop.apache.org)의 그래프 통과 언어로서, 그래프 엔터티를 만들고 그래프 쿼리을 수행하기 위한 Graph API인 [Gremlin]([Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps))을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
 
-Azure Cosmos DB는 그래프 데이터베이스로 엔터프라이즈급 기능을 가져옵니다. 여기에는 전역 배포, 저장소 및 처리량의 독립적 확장, 예측 가능한 1자리 밀리초 단위 대기 시간, 자동 인덱싱 및 99.99% SLA가 포함됩니다. Azure Cosmos DB는 TinkerPop/Gremlin을 지원하므로 코드를 변경하지 않고도 다른 그래프 데이터베이스를 사용하여 작성된 응용 프로그램을 쉽게 마이그레이션할 수 있습니다. 또한 Gremlin 지원을 통해, Azure Cosmos DB는 [Apache Spark GraphX](http://spark.apache.org/graphx/)와 같은 TinkerPop 지원 분석 프레임워크와 원활하게 통합됩니다. 
+Azure Cosmos DB는 그래프 데이터베이스에 엔터프라이즈급 기능을 제공합니다. 여기에는 전역 배포, 저장소 및 처리량의 독립적 확장, 예측 가능한 1자리 밀리초 단위 대기 시간, 자동 인덱싱 및 99.99% SLA가 포함됩니다. Azure Cosmos DB는 TinkerPop/Gremlin을 지원하므로 코드를 변경하지 않고도 다른 그래프 데이터베이스를 사용하여 작성된 응용 프로그램을 쉽게 마이그레이션할 수 있습니다. 또한 Gremlin 지원을 통해, Azure Cosmos DB는 [Apache Spark GraphX](http://spark.apache.org/graphx/)와 같은 TinkerPop 지원 분석 프레임워크와 원활하게 통합됩니다. 
 
 이 문서에서는 Gremlin을 빠르게 연습해볼 수 있는 과정을 제공하고, Graph API 지원 미리 보기에서 지원되는 Gremlin 기능 및 단계를 설명합니다.
 
-## <a name="gremlin-by-example"></a>예제별 Gremlin
-샘플 그래프를 사용해서 Gremlin에서 쿼리를 표현할 수 있는 방법을 살펴봅니다. 다음 그림에서는 사용자, 관심 영역 및 장치에 대한 데이터를 그래프 형태로 관리하는 비즈니스 응용 프로그램을 보여 줍니다.  
+## <a name="gremlin-by-example"></a>Gremlin 예제
+샘플 그래프를 사용하여 Gremlin에서 쿼리를 표현할 수 있는 방법을 살펴봅니다. 다음 그림에서는 사용자, 관심 영역 및 장치에 대한 데이터를 그래프 형태로 관리하는 비즈니스 응용 프로그램을 보여 줍니다.  
 
 ![사람, 장치 및 관심 분야를 보여 주는 샘플 데이터베이스](./media/gremlin-support/sample-graph.png) 
 
-이 그래프에는 다음과 같은 꼭짓점 형식(Gremlin의 "label")이 있습니다.
+이 그래프에는 다음과 같은 꼭짓점 유형(Gremlin의 "레이블")이 있습니다.
 
-- People: 그래프에는 Robin, Thomas 및 Ben의 세 사람이 있습니다.
-- Interests: 관심 있는 분야(이 예제에서는 축구 게임)
-- Devices: 사람들이 사용하는 장치
-- Operating Systems: 장치가 실행되는 운영 체제
+- 사람: 그래프에는 Robin, Thomas 및 Ben의 세 사람이 있습니다.
+- 관심 분야: 관심 있는 분야로 이 예제에서는 축구 게임입니다.
+- 장치: 사람들이 사용하는 장치입니다.
+- 운영 체제: 장치가 실행되는 운영 체제입니다.
 
-다음 에지 형식/레이블을 통해 이러한 엔터티 간 관계를 나타냅니다.
+위 엔터티 간 관계는 다음 에지 유형/레이블을 통해 나타냅니다.
 
 - Knows: 예: "Thomas knows Robin"
 - Interested: 그래프에서 사람의 관심 분야를 나타내는 데 사용합니다(예: "Ben is interested in Football").
 - RunsOS: 랩톱은 Windows OS를 실행합니다.
 - Uses: 사람이 사용하는 장치를 나타냅니다. 예를 들어 Robin은 일련 번호가 77인 Motorola 휴대폰을 사용합니다.
 
-[Gremlin 콘솔](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)을 사용하여 이 그래프에 대해 일부 작업을 실행해 보겠습니다. 또한 선택한 플랫폼(Java, Node.js, Python 또는 .NET)에서 Gremlin 드라이버를 사용하여 이러한 작업을 수행할 수도 있습니다.  Azure Cosmos DB에서 지원되는 기능을 살펴보기 전에 구문에 익숙해질 수 있는 몇 가지 예제를 확인해 보겠습니다.
+[Gremlin 콘솔](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)을 사용하여 이 그래프에 대해 일부 작업을 실행해 보겠습니다. 또한 원하는 플랫폼(Java, Node.js, Python 또는 .NET)에서 Gremlin 드라이버를 사용하여 이러한 작업을 수행할 수도 있습니다.  Azure Cosmos DB에서 지원되는 기능을 살펴보기 전에 구문에 익숙해질 수 있는 몇 가지 예제를 확인해 보겠습니다.
 
 먼저 CRUD를 살펴보겠습니다. 다음 Gremlin 문은 "Thomas" 꼭짓점을 그래프에 삽입합니다.
 
@@ -69,7 +69,7 @@ Azure Cosmos DB는 그래프 데이터베이스로 엔터프라이즈급 기능�
 :> g.V().hasLabel('person').order().by('firstName', decr)
 ```
 
-그래프가 빛나는 위치는 "Thomas의 친구들은 어떤 운영 체제를 사용하는가?"와 같은 질문에 답변해야 할 경우입니다. 이 간단한 Gremlin 통과를 실행하여 그래프에서 해당 정보를 가져올 수 있습니다.
+그래프의 강점은 "Thomas의 친구들은 어떤 운영 체제를 사용하는가?"와 같은 질문에 답변해야 할 경우에 잘 나타납니다. 다음의 간단한 Gremlin 순회를 실행하여 그래프에서 해당 정보를 가져올 수 있습니다.
 
 ```
 :> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
@@ -77,7 +77,7 @@ Azure Cosmos DB는 그래프 데이터베이스로 엔터프라이즈급 기능�
 이제 Azure Cosmos DB에서 Gremlin 개발자에게 제공하는 기능을 살펴보겠습니다.
 
 ## <a name="gremlin-features"></a>Gremlin 기능
-TinkerPop은 광범위한 그래프 기술을 포함하는 표준입니다. 따라서 그래프 공급자가 제공하는 기능을 설명하기 위한 표준 용어를 포함합니다. Azure Cosmos DB는 여러 서버 또는 클러스터에서 분할될 수 있는 지속적이고 높은 동시성을 갖는 쓰기 가능한 그래프 데이터베이스를 제공합니다. 
+TinkerPop은 광범위한 그래프 기술을 지원하는 표준입니다. 따라서 그래프 공급자가 제공하는 기능을 설명하기 위한 표준 용어를 포함합니다. Azure Cosmos DB는 여러 서버 또는 클러스터에서 분할될 수 있는 지속적이고 높은 동시성을 갖는 쓰기 가능한 그래프 데이터베이스를 제공합니다. 
 
 다음 표에는 Azure Cosmos DB를 통해 구현되는 TinkerPop 기능이 나와 있습니다. 
 
@@ -94,7 +94,7 @@ TinkerPop은 광범위한 그래프 기술을 포함하는 표준입니다. 따�
 
 Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format)을 사용합니다. GraphSON은 JSON을 사용하여 꼭짓점, 에지 및 속성(단일 및 다중 값 속성)을 나타내기 위한 Gremlin 표준 형식입니다. 
 
-예를 들어 다음 코드 조각은 Azure Cosmos DB에서 사용되는 꼭짓점의 GraphSON 표현을 보여 줍니다. 
+예를 들어 다음 코드 조각은 Azure Cosmos DB에서 *클라이언트로 반환되는* 꼭짓점의 GraphSON 표현을 보여 줍니다. 
 
 ```json
   {
@@ -137,21 +137,21 @@ Azure Cosmos DB는 Gremlin 작업의 결과를 반환할 때 [GraphSON 형식](h
 
 | 속성 | 설명 |
 | --- | --- |
-| id | 꼭짓점의 ID입니다. 고유해야 합니다(해당되는 경우 _partition 값과 조합) |
-| label | 꼭지점의 레이블입니다. 선택 사항이며, 엔터티 형식을 설명하는 데 사용됩니다. |
+| id | 꼭짓점의 ID입니다. 고유해야 합니다(해당되는 경우 _partition 값과 조합). |
+| label | 꼭짓점의 레이블입니다. 선택 사항이며, 엔터티 형식을 설명하는 데 사용됩니다. |
 | type | 비그래프 문서의 꼭짓점을 구별하는 데 사용됩니다. |
-| properties | 꼭짓점과 연결된 사용자 지정 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
+| properties | 꼭짓점과 연결된 사용자 정의 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
 | _partition(구성 가능) | 꼭짓점의 파티션 키입니다. 그래프를 여러 서버로 확장하는 데 사용할 수 있습니다. |
-| outE | 여기에는 꼭짓점의 바깥 에지 목록이 포함됩니다. 꼭짓점과 함께 인접 정보를 저장하므로 통과를 빠르게 실행할 수 있습니다. 에지는 해당 레이블을 기준으로 그룹화됩니다. |
+| outE | 여기에는 꼭짓점의 바깥 에지 목록이 포함됩니다. 꼭짓점과 함께 인접 정보를 저장하므로 순회를 빠르게 실행할 수 있습니다. 에지는 해당 레이블을 기준으로 그룹화됩니다. |
 
 또한 에지에는 그래프의 다른 부분으로 탐색하는 데 도움이 되는 다음 정보가 포함됩니다.
 
 | 속성 | 설명 |
 | --- | --- |
-| id | 에지의 ID입니다. 고유해야 합니다(해당되는 경우 _partition 값과 조합) |
-| label | 에지의 레이블입니다. 이 속성은 선택 사항이며, 관계 형식을 설명하는 데 사용됩니다. |
-| inV | 에지와 연결된 사용자 지정 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
-| properties | 에지와 연결된 사용자 지정 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
+| id | 에지의 ID입니다. 고유해야 합니다(해당되는 경우 _partition 값과 조합). |
+| label | 에지의 레이블입니다. 이 속성은 선택 사항이며, 관계 유형을 설명하는 데 사용됩니다. |
+| inV | 에지와 연결된 사용자 정의 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
+| properties | 에지와 연결된 사용자 정의 속성의 모음입니다. 각 속성에는 값이 여러 개 있을 수 있습니다. |
 
 각 속성은 배열 내에 여러 값을 저장할 수 있습니다. 
 
@@ -166,17 +166,18 @@ Azure Cosmos DB에서 그래프는 저장소 및 처리량(정규화된 초당 �
 Gremlin 작업은 Azure Cosmos DB에서 여러 파티션에 걸쳐 분산된 그래프 데이터에 원활하게 작동합니다. 그러나 그래프에 대해 일반적으로 쿼리에서 필터로 사용되고, 많은 고유 값을 가지고, 이러한 값에 대해 비슷한 액세스 빈도를 갖는 파티션 키를 선택하는 것이 좋습니다. 
 
 ## <a name="gremlin-steps"></a>Gremlin 단계
-이제 Azure Cosmos DB에서 지원되는 Gremlin 단계를 살펴보겠습니다. Gremlin 대한 전체 참조는 [TinkerPop 참조](http://tinkerpop.apache.org/docs/current/reference)를 참조하세요.
+이제 Azure Cosmos DB에서 지원되는 Gremlin 단계를 살펴보겠습니다. Gremlin에 대한 전체 참조는 [TinkerPop 참조](http://tinkerpop.apache.org/docs/current/reference)를 참조하세요.
 
 | 단계 | 설명 | TinkerPop 3.2 설명서 | 참고 사항 |
 | --- | --- | --- | --- |
 | `addE` | 두 꼭짓점 사이에 에지를 추가합니다. | [addE 단계](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | 그래프에 꼭짓점을 추가합니다. | [addV 단계](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
+| `and` | 모든 통과가 값을 반환하는지 확인합니다. | [and 단계](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | 단계의 출력에 변수를 할당하는 단계 변조기 | [as 단계](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
-| `by` | `group` 및`order`에서 사용되는 단계 변조기 | [by 단계](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
-| `coalesce` | 결과를 반환하는 첫 번째 통과를 반환합니다. | [coalesce 단계](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
-| `constant` | 상수 값 반환. `coalesce`에 사용| [constant 단계](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
-| `count` | 통과에서 해당 개수를 반환합니다. | [count 단계](http://tinkerpop.apache.org/docs/current/reference/#count-step) | |
+| `by` | `group` 및 `order`에서 사용되는 단계 변조기 | [by 단계](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
+| `coalesce` | 결과를 반환하는 첫 번째 순회를 반환합니다. | [coalesce 단계](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) | |
+| `constant` | 상수 값을 반환합니다. `coalesce`에 사용됩니다.| [constant 단계](http://tinkerpop.apache.org/docs/current/reference/#constant-step) | |
+| `count` | 순회에서 해당 개수를 반환합니다. | [count 단계](http://tinkerpop.apache.org/docs/current/reference/#count-step) | |
 | `dedup` | 중복 항목을 제거하고 값을 반환합니다. | [dedup 단계](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) | |
 | `drop` | 값(꼭짓점/에지)을 삭제합니다. | [drop 단계](http://tinkerpop.apache.org/docs/current/reference/#drop-step) | |
 | `fold` | 결과의 집계를 계산하는 장벽으로 작동합니다.| [fold 단계](http://tinkerpop.apache.org/docs/current/reference/#fold-step) | |
@@ -184,29 +185,28 @@ Gremlin 작업은 Azure Cosmos DB에서 여러 파티션에 걸쳐 분산된 그
 | `has` | 속성, 꼭짓점, 에지를 필터링하는 데 사용됩니다. `hasLabel`, `hasId`, `hasNot` 및 `has` 변형을 지원합니다. | [has 단계](http://tinkerpop.apache.org/docs/current/reference/#has-step) | |
 | `inject` | 스트림에 값을 삽입합니다.| [inject 단계](http://tinkerpop.apache.org/docs/current/reference/#inject-step) | |
 | `is` | 부울 식을 사용하여 필터를 수행하는 데 사용됩니다. | [is 단계](http://tinkerpop.apache.org/docs/current/reference/#is-step) | |
-| `limit` | 통과의 항목 수를 제한하는 데 사용됩니다.| [limit 단계](http://tinkerpop.apache.org/docs/current/reference/#limit-step) | |
-| `local` | local은 하위 쿼리와 비슷하게 통과 섹션을 래핑합니다. | [local 단계](http://tinkerpop.apache.org/docs/current/reference/#local-step) | |
+| `limit` | 순회의 항목 수를 제한하는 데 사용됩니다.| [limit 단계](http://tinkerpop.apache.org/docs/current/reference/#limit-step) | |
+| `local` | local은 하위 쿼리와 비슷하게 순회 섹션을 래핑합니다. | [local 단계](http://tinkerpop.apache.org/docs/current/reference/#local-step) | |
 | `not` | 필터의 부정을 생성하는 데 사용됩니다. | [not 단계](http://tinkerpop.apache.org/docs/current/reference/#not-step) | |
-| `optional` | 결과를 생성하는 경우 지정된 통과의 결과를 반환하고, 그렇지 않으면 호출하는 요소를 반환합니다. | [optional 단계](http://tinkerpop.apache.org/docs/current/reference/#optional-step) | |
-| `or` | 통과 중 하나 이상이 값을 반환하도록 합니다. | [or 단계](http://tinkerpop.apache.org/docs/current/reference/#or-step) | |
+| `optional` | 결과를 생성하는 경우 지정된 순회의 결과를 반환하고, 그렇지 않으면 호출하는 요소를 반환합니다. | [optional 단계](http://tinkerpop.apache.org/docs/current/reference/#optional-step) | |
+| `or` | 순회 중 하나 이상이 값을 반환하도록 합니다. | [or 단계](http://tinkerpop.apache.org/docs/current/reference/#or-step) | |
 | `order` | 결과를 지정된 정렬 순서로 반환합니다. | [order 단계](http://tinkerpop.apache.org/docs/current/reference/#order-step) | |
-| `path` | 통과의 전체 경로를 반환합니다. | [path 단계](http://tinkerpop.apache.org/docs/current/reference/#path-step) | |
+| `path` | 순회의 전체 경로를 반환합니다. | [path 단계](http://tinkerpop.apache.org/docs/current/reference/#path-step) | |
 | `project` | 속성을 맵으로 투영합니다. | [project 단계](http://tinkerpop.apache.org/docs/current/reference/#project-step) | |
 | `properties` | 지정된 레이블에 대한 속성을 반환합니다. | [properties 단계](http://tinkerpop.apache.org/docs/current/reference/#properties-step) | |
 | `range` | 지정된 값 범위로 필터링합니다.| [range 단계](http://tinkerpop.apache.org/docs/current/reference/#range-step) | |
 | `repeat` | 지정된 횟수 동안 단계를 반복합니다. 반복에 사용됩니다. | [repeat 단계](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) | |
-| `sample` | 통과의 결과를 샘플링하는 데 사용됩니다. | [sample 단계](http://tinkerpop.apache.org/docs/current/reference/#sample-step) | |
-| `select` | 통과의 결과를 투영하는 데 사용됩니다. |  [select 단계](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
-| `store` | 통과의 비차단 집계에 사용됩니다. | [store 단계](http://tinkerpop.apache.org/docs/current/reference/#store-step) | |
+| `sample` | 순회의 결과를 샘플링하는 데 사용됩니다. | [sample 단계](http://tinkerpop.apache.org/docs/current/reference/#sample-step) | |
+| `select` | 순회의 결과를 투영하는 데 사용됩니다. |  [select 단계](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `store` | 순회의 비차단 집계에 사용됩니다. | [store 단계](http://tinkerpop.apache.org/docs/current/reference/#store-step) | |
 | `tree` | 꼭짓점에서의 경로를 트리로 집계합니다. | [tree 단계](http://tinkerpop.apache.org/docs/current/reference/#tree-step) | |
 | `unfold` | 반복기를 단계로 언롤합니다.| [unfold 단계](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) | |
-| `union` | 여러 통과의 결과를 병합니다.| [union 단계](http://tinkerpop.apache.org/docs/current/reference/#union-step) | |
-| `V` | 꼭짓점 및 에지 `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV`, `otherV` 간 통화에 필요한 단계 포함 | [vertex 단계](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) | |
-| `where` | 통과의 결과를 필터링하는 데 사용. `eq`, `neq`, `lt`, `lte`, `gt`, `gte` 및 `between` 연산자 지원  | [where 단계](http://tinkerpop.apache.org/docs/current/reference/#where-step) | |
+| `union` | 여러 순회의 결과를 병합합니다.| [union 단계](http://tinkerpop.apache.org/docs/current/reference/#union-step) | |
+| `V` | 꼭짓점 및 에지 `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV`, `otherV` 간 순회에 필요한 단계가 포함되어 있습니다. | [vertex 단계](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) | |
+| `where` | 순회의 결과를 필터링하는 데 사용. `eq`, `neq`, `lt`, `lte`, `gt`, `gte` 및 `between` 연산자 지원  | [where 단계](http://tinkerpop.apache.org/docs/current/reference/#where-step) | |
 
-Azure Cosmos DB의 쓰기 최적화 엔진은 기본적으로 꼭짓점 및 에지 내의 모든 속성에 대한 자동 인덱싱을 지원합니다. 따라서 필터가 있는 쿼리, 범위 쿼리, 속성에 대한 정렬 또는 집계가 인덱스에서 처리되고 효율적으로 제공합니다. Azure Cosmos DB에서 인덱싱이 작동하는 방식에 대한 자세한 내용은 [스키마 독립적 인덱싱](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)을 참조하세요.
+Azure Cosmos DB의 쓰기 최적화 엔진은 기본적으로 꼭짓점 및 에지 내의 모든 속성에 대한 자동 인덱싱을 지원합니다. 따라서 필터가 있는 쿼리, 범위 쿼리, 속성에 대한 정렬 또는 집계가 인덱스에서 처리되고 효율적으로 제공됩니다. Azure Cosmos DB에서 인덱싱이 작동하는 방식에 대한 자세한 내용은 [스키마 독립적 인덱싱](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [SDK를 사용하여](create-graph-dotnet.md) 그래프 응용 프로그램 빌드 시작 
 * [Azure Cosmos DB 그래프 지원](graph-introduction.md)에 대해 자세히 알아보기
-

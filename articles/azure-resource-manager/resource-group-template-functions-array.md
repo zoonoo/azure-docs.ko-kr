@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 06/12/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 34fc513b6d4408e341fc5a723ca743daee39b85d
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 74982663b0501d3a5c7973a5f383e14e0f964696
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -58,7 +58,11 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 |:--- |:--- |:--- |:--- |
 | convertToArray |예 |int, 문자열, 배열 또는 개체 |배열로 변환할 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+배열입니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 여러 다른 형식의 배열 함수를 사용하는 방법을 보여 줍니다.
 
@@ -99,9 +103,13 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-배열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| intOutput | 배열 | [1] |
+| stringOutput | 배열 | ["a"] |
+| objectOutput | 배열 | [{"a": "b", "c": "d"}] |
 
 <a id="coalesce" />
 
@@ -117,7 +125,11 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 | arg1 |예 |int, 문자열, 배열 또는 개체 |null인지 테스트할 첫 번째 값입니다. |
 | 추가 인수 |아니요 |int, 문자열, 배열 또는 개체 |null인지 테스트할 추가 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+문자열, int, 배열 또는 개체일 수 있는 첫 번째 null이 아닌 매개 변수의 값입니다. 모든 매개 변수가 null이면 null입니다. 
+
+### <a name="example"></a>예제
 
 다음 예제에서는 coalesce의 다른 사용에서 출력된 결과를 보여 줍니다.
 
@@ -128,7 +140,14 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
     "parameters": {
         "objectToTest": {
             "type": "object",
-            "defaultValue": {"first": null, "second": null}
+            "defaultValue": {
+                "null1": null, 
+                "null2": null,
+                "string": "default",
+                "int": 1,
+                "object": {"first": "default"},
+                "array": [1]
+            }
         }
     },
     "resources": [
@@ -136,27 +155,37 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
     "outputs": {
         "stringOutput": {
             "type": "string",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, 'fallback')]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
         },
         "intOutput": {
             "type": "int",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, 1)]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
         },
         "objectOutput": {
             "type": "object",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, parameters('objectToTest'))]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
         },
         "arrayOutput": {
             "type": "array",
-            "value": "[coalesce(parameters('objectToTest').first, parameters('objectToTest').second, array(1))]"
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
+        },
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-문자열, int, 배열 또는 개체일 수 있는 첫 번째 null이 아닌 매개 변수의 값입니다. 모든 매개 변수가 null이면 null입니다. 
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| stringOutput | 문자열 | 기본값 |
+| intOutput | int | 1 |
+| objectOutput | Object | {"first": "default"} |
+| arrayOutput | 배열 | [1] |
+| emptyOutput | Bool | True |
 
 <a id="concat" />
 
@@ -174,7 +203,10 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 
 이 함수는 인수를 개수에 관계없이 사용할 수 있으며 매개 변수에 대한 문자열이나 배열 중 하나를 사용할 수 있습니다.
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+연결된 값의 문자열 또는 배열입니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 두 개의 배열을 결합하는 방법을 보여 줍니다.
 
@@ -211,6 +243,12 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 }
 ```
 
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| return | 배열 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+
 다음 예제에서는 2개의 문자열 값을 결합하고 연결된 문자열을 반환하는 방법을 보여 줍니다.
 
 ```json
@@ -226,15 +264,18 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
     "resources": [],
     "outputs": {
         "concatOutput": {
-            "value": "[concat(parameters('prefix'), uniqueString(resourceGroup().id))]",
+            "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]",
             "type" : "string"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>반환 값
-연결된 값의 문자열 또는 배열입니다.
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| concatOutput | 문자열 | prefix-5yj4yjf5mbg72 |
 
 <a id="contains" />
 
@@ -250,7 +291,11 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+항목이 있으면 **True**이고, 항목이 없으면 **False**입니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 여러 다른 형식의 contains를 사용하는 방법을 보여 줍니다.
 
@@ -303,9 +348,16 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-항목이 있으면 **True**이고, 항목이 없으면 **False**입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| stringTrue | Bool | True |
+| stringFalse | Bool | False |
+| objectTrue | Bool | True |
+| objectFalse | Bool | False |
+| arrayTrue | Bool | True |
+| arrayFalse | Bool | False |
 
 <a id="createarray" />
 
@@ -321,7 +373,11 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 | arg1 |예 |문자열, 정수, 배열 또는 개체 |배열의 첫 번째 값입니다. |
 | 추가 인수 |아니요 |문자열, 정수, 배열 또는 개체 |배열의 추가 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+배열입니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 여러 다른 형식의 createArray를 사용하는 방법을 보여 줍니다.
 
@@ -362,9 +418,14 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-배열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| stringArray | 배열 | ["a", "b", "c"] |
+| intArray | 배열 | [1, 2, 3] |
+| objectArray | 배열 | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | 배열 | [["one", "two", "three"]] |
 
 <a id="empty" />
 
@@ -380,7 +441,11 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+값이 비어 있으면 **True**를 반환하고 비어 있지 않으면 **False**를 반환합니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 배열, 개체 및 문자열이 비어 있는지 여부를 확인합니다.
 
@@ -421,9 +486,13 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-값이 비어 있으면 **True**를 반환하고 비어 있지 않으면 **False**를 반환합니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayEmpty | Bool | True |
+| objectEmpty | Bool | True |
+| stringEmpty | Bool | True |
 
 <a id="first" />
 
@@ -438,7 +507,11 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+배열의 첫 번째 요소 또는 문자열의 첫 번째 문자에 대한 형식(문자열, int, 배열 또는 개체)입니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 배열 및 문자열에 첫 번째 함수를 사용하는 방법을 보여 줍니다.
 
@@ -467,9 +540,12 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-배열의 첫 번째 요소 형식 또는 첫 번째 문자의 문자열 형식(문자열, int, 배열 또는 개체)입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayOutput | 문자열 | one |
+| stringOutput | 문자열 | O |
 
 <a id="intersection" />
 
@@ -486,7 +562,11 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 | arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
 | 추가 인수 |아니요 |배열 또는 개체 |공통 요소를 찾는 데 사용할 추가 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+공통 요소가 있는 배열 또는 개체입니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 배열 및 개체에 intersection을 사용하는 방법을 보여 줍니다.
 
@@ -527,9 +607,12 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-공통 요소가 있는 배열 또는 개체입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| objectOutput | Object | {"one": "a", "three": "c"} |
+| arrayOutput | 배열 | ["two", "three"] |
 
 <a id="last" />
 
@@ -544,7 +627,11 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+배열의 마지막 요소 또는 문자열의 마지막 문자에 대한 형식(문자열, int, 배열 또는 개체)입니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 배열 및 문자열에 마지막 함수를 사용하는 방법을 보여 줍니다.
 
@@ -573,9 +660,12 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-배열의 마지막 요소 형식 또는 마지막 문자의 문자열 형식(문자열, int, 배열 또는 개체)입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayOutput | 문자열 | three |
+| stringOutput | 문자열 | e |
 
 <a id="length" />
 
@@ -590,7 +680,11 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |요소 수를 가져오는 데 사용할 배열 또는 문자 수를 가져오는 데 사용할 문자열입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+int입니다. 
+
+### <a name="example"></a>예제
 
 다음 예제에서는 배열 및 문자열에 length를 사용하는 방법을 보여 줍니다.
 
@@ -626,6 +720,13 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 }
 ```
 
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayLength | int | 3 |
+| stringLength | int | 13 |
+
 배열과 함께 이 함수를 사용하면 리소스를 만들 때 반복 횟수를 지정할 수 있습니다. 다음 예제에서 매개 변수 **siteNames** 는 웹 사이트를 만들 때 사용할 이름 배열을 나타냅니다.
 
 ```json
@@ -637,13 +738,9 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 
 배열과 함께 이 함수를 사용하는 방법의 예제는 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 
-### <a name="return-value"></a>반환 값
-
-int입니다. 
-
 <a id="min" />
 
-## <a name="min"></a>Min
+## <a name="min"></a>min
 `min(arg1)`
 
 정수 배열 또는 쉼표로 구분된 정수 목록 중에서 최소값을 반환합니다.
@@ -654,7 +751,11 @@ int입니다.
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+최소값을 나타내는 int입니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 배열 및 정소 목록에 min을 사용하는 방법을 보여 줍니다.
 
@@ -682,9 +783,12 @@ int입니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-최소값을 나타내는 int입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
 <a id="max" />
 
@@ -699,7 +803,11 @@ int입니다.
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+최대값을 나타내는 int입니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 배열 및 정소 목록에 max를 사용하는 방법을 보여 줍니다.
 
@@ -727,9 +835,12 @@ int입니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-최대값을 나타내는 int입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
 <a id="range" />
 
@@ -745,7 +856,11 @@ int입니다.
 | startingInteger |예 |int |배열에서 첫 번째 정수입니다. |
 | numberofElements |예 |int |배열에 있는 정수의 수입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+정수 배열입니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 range 함수를 사용하는 방법을 보여 줍니다.
 
@@ -773,9 +888,11 @@ int입니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-정수 배열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| rangeOutput | 배열 | [5, 6, 7] |
 
 <a id="skip" />
 
@@ -791,7 +908,11 @@ int입니다.
 | originalValue |예 |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
 | numberToSkip |예 |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 이 값이 배열 또는 문자열의 길이보다 크면 빈 배열 또는 문자열이 반환됩니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+배열 또는 문자열입니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 배열에서 지정된 요소 수 및 문자열에서 지정된 수의 문자를 건너뜁니다.
 
@@ -835,9 +956,12 @@ int입니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-배열 또는 문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayOutput | 배열 | ["three"] |
+| stringOutput | 문자열 | two three |
 
 <a id="take" />
 
@@ -853,7 +977,11 @@ int입니다.
 | originalValue |예 |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
 | numberToTake |예 |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정된 배열 또는 문자열의 길이보다 크면 배열 또는 문자열의 모든 요소가 반환됩니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+배열 또는 문자열입니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 배열에서 지정된 수의 요소 및 문자열의 문자를 가져옵니다.
 
@@ -897,9 +1025,12 @@ int입니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-배열 또는 문자열입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| arrayOutput | 배열 | ["one", "two"] |
+| stringOutput | 문자열 | on |
 
 <a id="union" />
 
@@ -916,7 +1047,11 @@ int입니다.
 | arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
 | 추가 인수 |아니요 |배열 또는 개체 |요소를 조인하는 데 사용할 추가 값입니다. |
 
-### <a name="examples"></a>예
+### <a name="return-value"></a>반환 값
+
+배열 또는 개체입니다.
+
+### <a name="example"></a>예제
 
 다음 예제에서는 배열 및 개체에 union을 사용하는 방법을 보여 줍니다.
 
@@ -931,7 +1066,7 @@ int입니다.
         },
         "secondObject": {
             "type": "object",
-            "defaultValue": {"four": "d", "five": "e", "six": "f"}
+            "defaultValue": {"three": "c", "four": "d", "five": "e"}
         },
         "firstArray": {
             "type": "array",
@@ -939,7 +1074,7 @@ int입니다.
         },
         "secondArray": {
             "type": "array",
-            "defaultValue": ["four", "five"]
+            "defaultValue": ["three", "four"]
         }
     },
     "resources": [
@@ -957,9 +1092,12 @@ int입니다.
 }
 ```
 
-### <a name="return-value"></a>반환 값
+기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-배열 또는 개체입니다.
+| 이름 | 형식 | 값 |
+| ---- | ---- | ----- |
+| objectOutput | Object | {"one": "a", "two": "b", "three": "c", "four": "d", "five": "e"} |
+| arrayOutput | 배열 | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.

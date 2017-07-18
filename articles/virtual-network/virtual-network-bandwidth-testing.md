@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: steveesp
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: d05bed3b92836bf496804c9d40b5a62a96ffbc3d
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: a2cbb6ca9197c7af0d1d30e87d58b0314507a531
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -128,6 +129,38 @@ ntttcp -s10.0.0.4 -t 300
 ```
  
 시간 매개 변수를 지정하지 않을 경우 기본 테스트 시간은 60초입니다.
+
+## <a name="testing-between-vms-running-windows-and-linux"></a>Windows 및 LINUX가 실행되는 VM 간의 테스트:
+
+이 시나리오에서는 테스트를 실행할 수 있도록 비동기화 모드를 사용하도록 설정합니다. Linux의 경우 **-N 플래그**, Windows의 경우 **-ns 플래그**를 사용하여 설정합니다.
+
+#### <a name="from-linux-to-windows"></a>Linux에서 Windows로:
+
+받는 사람 <Windows>:
+
+``` bash
+ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
+```
+
+보낸 사람 <Linux>:
+
+``` bash
+ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
+```
+
+#### <a name="from-windows-to-linux"></a>Windows에서 Linux로:
+
+받는 사람 <Linux>:
+
+``` bash 
+ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
+```
+
+보낸 사람 <Windows>:
+
+``` bash
+ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
+```
 
 ## <a name="next-steps"></a>다음 단계
 * 결과에 따라 시나리오에 대해 [네트워크 처리량 컴퓨터를 최적화](virtual-network-optimize-network-bandwidth.md)할 수 있는 시간적 여유가 있을 수 있습니다.

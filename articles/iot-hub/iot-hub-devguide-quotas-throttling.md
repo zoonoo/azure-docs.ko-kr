@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 06/16/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: f36ce029acebfccdfa84122a86ea3a642c048b8c
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 3aab67303fd349195c2ffb8d0854efec74e47070
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -34,7 +34,7 @@ ms.lasthandoff: 05/18/2017
 ## <a name="operation-throttles"></a>작업 제한
 작업 제한은 분 범위에 적용하고 남용을 방지하고자 하는 속도 제한입니다. IoT Hub는 가능한 경우 오류를 반환 하지 않으려 하지만 제한이 너무 오랫동안 위반된 경우 예외를 반환하기 시작합니다.
 
-강제로 적용된 제한 목록은 다음과 같습니다. 값은 개별 허브라고 합니다.
+다음 표에서는 적용된 제한을 보여 줍니다. 값은 개별 허브라고 합니다.
 
 | 제한 | 무료 및 S1 허브 | S2 허브 | S3 허브 | 
 | -------- | ------- | ------- | ------- |
@@ -50,7 +50,7 @@ ms.lasthandoff: 05/18/2017
 | 작업 연산 <br/> (만들기, 업데이트, 나열, 삭제) | 1.67/초/단위(100/분/단위) | 1.67/초/단위(100/분/단위) | 83.33/초/단위(5000/분/단위) |
 | 장치 단위 작업 연산 처리량 | 10/초 | 최대 10/초 또는 1/초/단위 | 50/초/단위 |
 
-*장치 연결* 제한은 IoT Hub에서 동시에 연결되는 장치의 최대 수가 아니라 새 장치 연결을 설정할 수 있는 속도를 제어합니다. 이 제한은 IoT Hub에 대해 프로비전되는 단위의 수에 따라 달라집니다.
+*장치 연결* 제한은 IoT Hub에서 새 장치 연결을 설정할 수 있는 속도를 제어합니다. *장치 연결* 제한은 동시에 연결되는 장치의 최대 수를 제어하지 않습니다. 이 제한은 IoT Hub에 대해 프로비전되는 단위의 수에 따라 달라집니다.
 
 예를 들어 S1 단위 하나를 구매하는 경우 초당 연결 제한은 100개입니다. 따라서 100,000 개의 장치를 연결하려면 최소 1,000초(약 16분)가 걸립니다. 그러나 ID 레지스트리에 등록한 수만큼의 장치를 동시에 연결할 수 있습니다.
 
@@ -66,7 +66,7 @@ IoT Hub 제한 동작에 대한 자세한 설명을 보려면 블로그 게시�
 
 ## <a name="other-limits"></a>기타 제한
 
-IoT Hub는 다양한 기능에 대해 다른 한도를 적용합니다.
+IoT Hub에는 다른 작업 제한도 적용됩니다.
 
 | 작업 | 제한 |
 | --------- | ----- |
@@ -74,21 +74,28 @@ IoT Hub는 다양한 기능에 대해 다른 한도를 적용합니다.
 | 작업 | 작업 기록은 30일까지 유지됩니다. <br/> 최대 동시 작업은 1개(무료 및 S1의 경우, 5(S2의 경우), 10(S3의 경우)입니다. |
 | 추가 끝점 | 유료 SKU 허브에는 10개, 무료 SKU 허브에는 하나의 추가 끝점이 있을 수 있습니다. |
 | 메시지 라우팅 규칙 | 유료 SKU 허브에는 100개, 무료 SKU 허브에는 5개의 라우팅 규칙이 있을 수 있습니다. |
+| 장치-클라우드 메시징 | 최대 메시지 크기 256KB |
+| 클라우드-장치 메시징 | 최대 메시지 크기 64KB |
+| 클라우드-장치 메시징 | 배달 보류 중인 최대 메시지 수는 50개 |
 
 > [!NOTE]
-> 현재 단일 IoT hub에 연결할 수는 장치의 최대 수는 500,000개입니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/en-us/support/options/)에 문의하세요.
+> 현재 단일 IoT hub에 연결할 수는 장치의 최대 수는 500,000개입니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
 
 ## <a name="latency"></a>대기 시간
-IoT Hub는 모든 작업에 낮은 대기 시간을 제공하기 위해 노력합니다. 그러나 네트워크 상태 및 예측할 수 없는 기타 요인으로 인해 최대 대기 시간을 보장할 수 없습니다. 따라서 솔루션을 디자인할 때 IoT Hub 작업의 최대 대기 시간에 대한 어떤 것도 가정하지 않도록 합니다. 장치에 가장 가까운 Azure 지역에서 IoT Hub를 프로비전하고 Azure IoT Edge를 사용하여 장치 또는 장치에 가까운 게이트웨이에서 대기 시간에 민감한 작업을 수행하는 것이 좋습니다.
+IoT Hub는 모든 작업에 낮은 대기 시간을 제공하기 위해 노력합니다. 그러나 네트워크 상태 및 예측할 수 없는 기타 요인으로 인해 최대 대기 시간을 보장할 수 없습니다. 솔루션을 설계할 때 다음을 수행해야 합니다.
+
+* IoT Hub 작업의 최대 대기 시간을 가정하지 마세요.
+* 장치에 가장 가까운 Azure 지역에서 IoT Hub를 프로비전합니다.
+* Azure IoT Edge를 사용하여 장치 또는 장치에 가까운 게이트웨이에서 대기 시간에 민감한 작업을 수행하는 것이 좋습니다.
 
 여러 IoT Hub 단위는 앞에서 설명한 대로 제한에 영향을 주지만 추가 대기 시간을 주거나 보장하지 않습니다.
-작업 대기 시간에 예기치 않은 증가가 발생한 경우 [Microsoft 지원](https://azure.microsoft.com/en-us/support/options/)에 문의하세요.
+작업 대기 시간에 예기치 않은 증가가 발생한 경우 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
 * [IoT Hub 끝점][lnk-devguide-endpoints]
-* [장치 쌍 및 작업에 대한 IoT Hub 쿼리 언어][lnk-devguide-query]
+* [장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어][lnk-devguide-query]
 * [IoT Hub MQTT 지원][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

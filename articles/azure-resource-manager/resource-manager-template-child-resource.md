@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 06/01/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
-ms.openlocfilehash: d7560b689d7cea56d40ffa2db9542f74a649f9c1
-ms.lasthandoff: 03/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 5b6ce5526f354008eb4a697deec737876f22391f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -29,6 +30,16 @@ ms.lasthandoff: 03/03/2017
 자식 리소스 이름의 형식은 다음과 같습니다. `{parent-resource-name}/{child-resource-name}`
 
 그러나 부모 리소스 내에 중첩되어 있는지, 자체적으로 최상위 수준에 있는지에 따라 템플릿에 종류와 이름을 다르게 지정합니다. 이 항목에서는 두 가지 방법을 처리하는 방법을 모두 보여 줍니다.
+
+리소스에 대한 정규화된 참조를 생성할 때 형식과 이름으로 세그먼트를 결합하는 순서는 단순히 두 항목의 연결이 아닙니다.  대신, 네임스페이스 뒤에 구체성이 낮은 순으로 *형식/이름* 쌍의 시퀀스를 사용합니다.
+
+```json
+{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
+```
+
+예:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`는 올바릅니다. `Microsoft.Compute/virtualMachines/extensions/myVM/myExt`는 올바르지 않습니다.
 
 ## <a name="nested-child-resource"></a>중첩된 자식 리소스
 자식 리소스를 정의하는 가장 쉬운 방법은 부모 리소스 내에 중첩시키는 것입니다. 다음 예제에서는 SQL Server 내에 중첩된 SQL Database를 보여 줍니다.

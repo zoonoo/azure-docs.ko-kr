@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 06/16/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1cb65f738bd77179a7ed379e3c1664c5eb232a68
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: bcbf4b9633f58293edb19aeb33dec6602ac4ec8f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -41,7 +41,7 @@ Microsoft Azure IoT 장치 SDK에는 Azure IoT Hub 서비스에 연결되고 Azu
 
 다음 Azure IoT 장치 SDK는 GitHub에서 다운로드할 수 있습니다.
 
-* [C용 Azure IoT 장치 SDK][lnk-c-device-sdk] - 이식성과 광범위한 플랫폼 호환성을 위해 ANSI C(C99)로 작성되었습니다.
+* [C용 Azure IoT 장치 SDK][lnk-c-device-sdk] - 이식성과 광범위한 플랫폼 호환성을 위해 ANSI C(C99)로 작성되었습니다. C용 장치 클라이언트 라이브러리에는 하위 수준 **iothub_client** 및 **serializer**의 두 가지가 있습니다.
 * [.NET용 Azure IoT 장치 SDK][lnk-dotnet-device-sdk]
 * [Java용 Azure IoT 장치 SDK][lnk-java-device-sdk]
 * [Node.js용 Azure IoT 장치 SDK][lnk-node-device-sdk]
@@ -66,7 +66,7 @@ Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 IoT Hub �
 * [Node.js용 Azure IoT 서비스 SDK][lnk-node-service-sdk]
 * [Java용 Azure IoT 서비스 SDK][lnk-java-service-sdk]
 * [Python용 Azure IoT 서비스 SDK][lnk-python-service-sdk]
-
+* [C용 Azure IoT 서비스 SDK][lnk-c-service-sdk]
 
 > [!NOTE]
 > 언어 및 플랫폼 특정 패키지 관리자를 사용하여 개발 컴퓨터에서 이진 파일 및 종속성을 설치하는 방법에 대한 정보는 GitHub 리포지토리의 추가 정보 파일을 참조하세요.
@@ -75,7 +75,7 @@ Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 IoT Hub �
 
 Azure IoT Edge에는 IoT 게이트웨이 솔루션을 만들기 위한 인프라 및 모듈이 포함되어 있습니다. IoT Edge를 확장하여 종단 간 시나리오에 맞는 게이트웨이를 만들 수 있습니다.
 
-GitHub에서 [Azure IoT Edge][lnk-gateway-sdk]를 다운로드할 수 있습니다.
+GitHub에서 [Azure IoT Edge][lnk-iot-edge]를 다운로드할 수 있습니다.
 
 ## <a name="online-api-reference-documentation"></a>온라인 API 참조 설명서
 
@@ -95,13 +95,14 @@ GitHub에서 [Azure IoT Edge][lnk-gateway-sdk]를 다운로드할 수 있습니�
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
 * [IoT Hub 끝점][lnk-devguide-endpoints]
-* [장치 쌍 및 작업에 대한 IoT Hub 쿼리 언어][lnk-devguide-query]
+* [장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어][lnk-devguide-query]
 * [할당량 및 제한][lnk-devguide-quotas]
 * [IoT Hub MQTT 지원][lnk-devguide-mqtt]
 
 <!-- Links and images -->
 
 [lnk-c-device-sdk]: https://github.com/Azure/azure-iot-sdk-c
+[lnk-c-service-sdk]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_service_client
 [lnk-dotnet-device-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-java-device-sdk]: https://github.com/Azure/azure-iot-sdk-java/tree/master/device
 [lnk-dotnet-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
@@ -111,15 +112,15 @@ GitHub에서 [Azure IoT Edge][lnk-gateway-sdk]를 다운로드할 수 있습니�
 [lnk-python-device-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device
 [lnk-python-service-sdk]: https://github.com/Azure/azure-iot-sdk-python/tree/master/service
 [lnk-certified]: https://catalog.azureiotsuite.com/
-[lnk-gateway-sdk]: https://github.com/Azure/iot-edge
+[lnk-iot-edge]: https://github.com/Azure/iot-edge
 
 [lnk-dotnet-ref]: https://docs.microsoft.com/dotnet/api/microsoft.azure.devices
 [lnk-c-ref]: https://azure.github.io/azure-iot-sdk-c/index.html
 [lnk-java-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device
-[lnk-node-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.9/index.html
+[lnk-node-ref]: https://azure.github.io/azure-iot-sdk-node/
 [lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
 [lnk-java-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth
-[lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html
+[lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/
 [lnk-gateway-ref]: http://azure.github.io/iot-edge/api_reference/c/html/
 
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md

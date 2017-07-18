@@ -12,24 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 03/27/2017
+ms.date: 06/23/2017
 ms.author: rajanaki
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 5ff598af73b6be727753ecac5b99f28bae19a417
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 1ed0bfe4f1b77db00dc858f010f72e084e77039e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 ---
 
-#  <a name="prerequisites-for-replication-to-azure-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Azure에 복제하기 위한 필수 구성 요소
+#  <a name="prerequisites-for-replication-from-on-premises-to-azure-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 복제하기 위한 필수 조건
 
+> [!div class="op_single_selector"]
+> * [Azure에서 Azure로 복제](site-recovery-azure-to-azure-prereq.md)
+> * [온-프레미스에서 Azure로 복제](site-recovery-prereq.md)
 
-Azure Site Recovery 서비스는 온-프레미스 물리적 서버와 가상 컴퓨터를 클라우드(Azure) 또는 보조 데이터센터에 복제하는 것을 오케스트레이션하여 비즈니스 연속성 및 재해 복구(BCDR) 전략에 기여합니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지할 수 있습니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갈 수 있습니다. Site Recovery에 대한 자세한 내용은 [Site Recovery란?](site-recovery-overview.md)을 참조하세요.
+Azure Site Recovery 서비스는 Azure 가상 컴퓨터를 다른 Azure 지역으로, 그리고 온-프레미스 물리적 서버와 가상 컴퓨터를 클라우드(Azure) 또는 보조 데이터센터로 복제하는 것을 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 기본 위치에서 중단이 발생하면 보조 위치로 장애 조치하여 앱과 워크로드를 가용 상태로 유지할 수 있습니다. 기본 위치가 정상 작업 상태로 돌아오면 다시 기본 위치로 돌아갈 수 있습니다. Site Recovery에 대한 자세한 내용은 [Site Recovery란?](site-recovery-overview.md)을 참조하세요.
 
-이 문서에서는 Azure에 Site Recovery 복제를 시작하는 데 필요한 필수 구성 요소를 설명합니다.
+이 문서에서는 온-프레미스에서 Azure로 Site Recovery 복제를 시작하는 데 필요한 필수 조건을 설명합니다.
 
 이 문서의 하단에서 의견을 게시하거나 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 기술적인 질문을 합니다.
-
 
 ## <a name="azure-requirements"></a>Azure 요구 사항
 
@@ -44,7 +47,7 @@ Azure Site Recovery 서비스는 온-프레미스 물리적 서버와 가상 컴
 **네트워크 매핑** | Virtual Machine Manager 클라우드에서 Hyper-V VM을 복제하려면 장애 조치 후 Azure VM을 만들 때 적절한 네트워크에 연결되도록 네트워크 매핑을 설정해야 합니다.
 
 >[!NOTE]
->아래 섹션에서는 고객 환경에 있는 다양한 구성 요소의 필수 구성 요소에 대해 설명합니다. 특정 구성의 지원에 대한 자세한 내용은 [지원 매트릭스](site-recovery-support-matrix.md)를 참고하세요.
+>아래 섹션에서는 고객 환경에 있는 다양한 구성 요소의 필수 구성 요소에 대해 설명합니다. 특정 구성의 지원에 대한 자세한 내용은 [지원 매트릭스](site-recovery-support-matrix.md)를 참조하세요.
 >
 
 ## <a name="disaster-recovery-of-vmware-virtual-machines-or-physical-windows-or-linux-servers-to-azure"></a>Azure에 대한 VMware 가상 컴퓨터 또는 Windows나 Linux 물리적 서버의 재해 복구
@@ -67,7 +70,7 @@ Azure Site Recovery 서비스는 온-프레미스 물리적 서버와 가상 컴
 | --- | --- |
 | **온-프레미스**(VMware VM) | 복제된 VM에 VMware 도구가 설치되어 있고 실행 중이어야 합니다.<br/><br/> VM은 Azure VM을 만드는 [Azure 필수 조건](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)에 부합해야 합니다.<br/><br/>보호되는 컴퓨터의 개별 디스크 용량이 1,023GB 이하여야 합니다. <br/><br/>구성 요소 설치를 위해 설치 드라이브에는 최소 2GB의 사용 가능한 공간이 있어야 합니다.<br/><br/>다중 VM 일관성을 사용하려면 VM의 로컬 방화벽에서 포트 20004가 열려 있어야 합니다.<br/><br/>컴퓨터 이름은 1-63자(문자, 숫자 및 하이픈)를 포함해야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터에 대한 복제를 활성화한 후 Azure 이름을 수정할 수 있습니다.<br/><br/> |
 | **Windows 컴퓨터**(물리적 또는 VMware) | 컴퓨터에서 지원되는 64비트 운영 체제(Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2 SP1 이상)를 실행해야 합니다.<br/><br/> C 드라이브에 운영 체제를 설치해야 합니다. OS 디스크는 동적이 아닌 Windows 기본 디스크여야 합니다. 데이터 디스크는 동적일 수 있습니다.<br/><br/>|
-| **Linux 컴퓨터**(물리적 또는 VMware) | Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3), SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4를 실행하는 Red Hat Enterprise Linux 6.7, 6.8, 7.1 또는 7.2, Centos 6.5, 6.6, 6.7, 6.8, 7.0, 7.1 또는 7.2, Oracle Enterprise Linux 64 또는 6.5 등의 지원되는 64비트 운영 체제가 필요합니다.<br/><br/>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 네트워크 어댑터와 연관된 IP 주소에 매핑하는 항목을 포함해야 합니다.<br/><br/>장애 조치(Failover) 후에 보안 셸 클라이언트(ssh)를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려는 경우 보호된 컴퓨터의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되었는지, 그리고 방화벽 규칙에서 ssh 연결을 허용하는지 확인합니다.<br/><br/>호스트 이름, 마운트 지점, 장치 이름 및 Linux 시스템 경로와 파일 이름(예: /etc/, /usr)에는 영어만 사용해야 합니다.<br/><br/>/(root), /boot, /usr, /usr/local, /var, /etc 디렉터리(별도의 파티션/파일 시스템으로 설정된 경우)는 모두 원본 서버의 동일한 디스크(OS 디스크)에 있어야 합니다.<br/><br/>메타데이터 체크섬과 같은 XFS v5 기능은 현재 XFS 파일 시스템의 ASR에서 지원하지 않습니다. XFS 파일 시스템이 v5 기능을 사용하고 있지 않은지 확인합니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인할 수 있습니다. ftype이 1로 설정되면 XFSv5 기능이 사용됩니다.<br/><br/>Red Hat Enterprise Linux 7 및 CentOS 7 서버에서는 lsof 유틸리티를 설치하여 사용할 수 있어야 합니다.<br/><br/>
+| **Linux 컴퓨터**(물리적 또는 VMware) | 다음과 같은 지원되는 64비트 운영 체제가 필요합니다. Red Hat Enterprise Linux 6.7, 6.8, 7.1 또는 7.2. Centos 6.5, 6.6, 6.7, 6.8, 7.0, 7.1 또는 7.2. Ubuntu 14.04 LTS 서버(Ubuntu에서 지원되는 커널 버전 목록은 [지원되는 운영 체제](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) 참조). Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4 또는 6.5. SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4.<br/><br/>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 네트워크 어댑터와 연관된 IP 주소에 매핑하는 항목을 포함해야 합니다.<br/><br/>장애 조치(Failover) 후에 보안 셸 클라이언트(ssh)를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려는 경우 보호된 컴퓨터의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되었는지, 그리고 방화벽 규칙에서 ssh 연결을 허용하는지 확인합니다.<br/><br/>호스트 이름, 마운트 지점, 장치 이름 및 Linux 시스템 경로와 파일 이름(예: /etc/, /usr)에는 영어만 사용해야 합니다.<br/><br/>/(root), /boot, /usr, /usr/local, /var, /etc 디렉터리(별도의 파티션/파일 시스템으로 설정된 경우)는 모두 원본 서버의 동일한 디스크(OS 디스크)에 있어야 합니다.<br/><br/>메타데이터 체크섬과 같은 XFS v5 기능은 현재 XFS 파일 시스템의 ASR에서 지원하지 않습니다. XFS 파일 시스템이 v5 기능을 사용하고 있지 않은지 확인합니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인할 수 있습니다. ftype이 1로 설정되면 XFSv5 기능이 사용됩니다.<br/><br/>Red Hat Enterprise Linux 7 및 CentOS 7 서버에서는 lsof 유틸리티를 설치하여 사용할 수 있어야 합니다.<br/><br/>
 
 
 ## <a name="disaster-recovery-of-hyper-v-virtual-machines-to-azure-no-virtual-machine-manager"></a>Azure에 대한 Hyper-V 가상 컴퓨터의 재해 복구(Virtual Machine Manager 없음)

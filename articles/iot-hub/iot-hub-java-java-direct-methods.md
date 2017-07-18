@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2017
+ms.date: 05/12/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: bb58d485a7ae805489b468cfffd72654914f63f1
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: fe804cc01925cee58a1d694bdb94b85a8f994cef
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -62,7 +62,7 @@ ms.lasthandoff: 05/02/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.1.24</version>
+      <version>1.3.30</version>
     </dependency>
     ```
 
@@ -209,7 +209,7 @@ ms.lasthandoff: 05/02/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.2.17</version>
+      <version>1.5.22</version>
       <type>jar</type>
     </dependency>
     ```
@@ -250,10 +250,10 @@ ms.lasthandoff: 05/02/2017
     import java.util.concurrent.TimeUnit;
     ```
 
-1. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youriothubname}**을 IoT Hub 이름으로 바꾸고 **{yourhubkey}**를 *장치 ID 만들기* 섹션에서 만든 장치 키 값으로 바꿉니다.
+1. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. **{youriothubconnectionstring}**을 *IoT Hub 만들기* 섹션에서 기록한 IoT Hub 연결 문자열로 대체합니다.
 
     ```java
-    public static final String iotHubConnectionString = "HostName={youriothubname}.azure-devices.net;SharedAccessKeyName=owner;SharedAccessKey={yourhubkey}";
+    public static final String iotHubConnectionString = "{youriothubconnectionstring}";
     public static final String deviceId = "myDeviceId";
 
     public static final String methodName = "writeLine";
@@ -288,11 +288,15 @@ ms.lasthandoff: 05/02/2017
     System.out.println("Shutting down sample...");
     ```
 
+1. invoke-direct-method\src\main\java\com\mycompany\app\App.java 파일을 저장하고 닫습니다.
+
+1. **invoke-direct-method** 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 invoke-direct-method 폴더로 이동한 후 다음 명령을 실행합니다.
+
+    `mvn clean package -DskipTests`
+
 ## <a name="run-the-apps"></a>앱 실행
 
 이제 콘솔 앱을 실행할 준비가 되었습니다.
-
-이제 앱을 실행할 준비가 되었습니다.
 
 1. simulated-device 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub의 메서드 호출에 대한 대기를 시작합니다.
 
@@ -325,7 +329,7 @@ IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하�
 
 <!-- Links -->
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md
-
+[lnk-maven]: https://maven.apache.org/what-is-maven.html
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
