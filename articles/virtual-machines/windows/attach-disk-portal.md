@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: d02f92a8809efd6f58312af8cb40739299ea28f6
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: c0886302c82641f8cc1a00d3972870d58ba8afb4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -95,12 +95,15 @@ fsutil behavior query DisableDeleteNotify
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
-                
+
 디스크에서 데이터를 삭제한 후 TRIM으로 조각 모음을 실행하여 TRIM 작업이 제대로 플러시되는지 확인할 수 있습니다.
 
 ```
 defrag.exe <volume:> -l
 ```
+
+볼륨을 포맷하여 전체 볼륨이 잘리는지도 확인할 수 있습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 응용 프로그램이 데이터를 저장하는 데 D: 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수 있습니다.

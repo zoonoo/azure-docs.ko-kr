@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 05/17/2017
 ms.author: gauravbh; tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 2763da60fe25f2ca55603ecfcbbcefe3e368c25d
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 041254b07584a52ae92e603f60a439050b747af1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -49,8 +49,7 @@ az group create --name managedResourceGroup --location westcentralus
 다음으로 다음 명령을 사용하여 mainResourceGroup에 applianceMainTemplate.json을 배포합니다.
 
 ```azurecli
-az group deployment --name managedAppDeployment --resourceGroup mainResourceGroup 
-      --templateUri  
+az group deployment create --name managedAppDeployment --resourceGroup mainResourceGroup --templateUri  
 ```
 
 위의 템플릿이 실행되면 템플릿에 정의된 매개 변수 값을 묻는 메시지가 표시됩니다. 템플릿의 리소스를 프로비전하는 데 필요한 매개 변수 외에도 다음의 두 가지 주요 매개 변수 값이 필요합니다.
@@ -94,9 +93,9 @@ az appliance definition show -n ravtestAppDef1 -g ravApplianceRG2
 
 ISV에서 게시한 관리되는 응용 프로그램을 사용하기 위한 지원도 포털에 있습니다. 수행할 수 있는 단계는 다음과 같습니다.
 
-Azure Portal의 만들기 블레이드에서 [Managed Application]을 선택합니다.
+Azure Portal의 [만들기] 블레이드에서 [서비스 카탈로그 관리되는 응용 프로그램 만들기]를 선택합니다.
 
-![](./media/managed-application-consumption/create-blade.png)
+![](./media/managed-application-consumption/create-service-catalog-managed-application.png)
 
 다음으로 다양한 ISV/파트너의 제품 목록을 표시합니다. 만들려는 응용 프로그램을 선택하고 "만들기"를 클릭합니다.
 

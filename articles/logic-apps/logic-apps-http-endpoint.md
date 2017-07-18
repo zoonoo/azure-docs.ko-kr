@@ -17,10 +17,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 32a5cfdb520c745dbd0fa5c433849bd3783a364e
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c92692db23ac59f67890e26cce6b2d3272e8901d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
@@ -32,9 +32,9 @@ HTTP 끝점을 만들려면 Logic Apps가 들어오는 요청을 받을 수 있�
 
 * [요청](../connectors/connectors-native-reqres.md)
 
-* [API 연결 웹후크](logic-apps-workflow-actions-triggers.md#api-connection)
+* [API 연결 웹후크](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
 
-* [HTTP 웹후크](../connectors/connectors-native-http.md)
+* [HTTP 웹후크](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
    > 이 예제에서는 **요청** 트리거를 사용하지만 나열된 어떤 HTTP 트리거도 사용할 수 있으며, 모든 원칙은 다른 트리거 유형에 동일하게 적용됩니다.
@@ -211,7 +211,7 @@ HTTP 끝점을 만든 후 `POST` 메서드를 통해 논리 앱을 전체 URL로
 
 ## <a name="reference-content-from-an-incoming-request"></a>들어오는 요청의 콘텐츠 참조
 
-콘텐츠의 형식이 `application/json`이면 들어오는 요청의 속성을 참조할 수 있습니다. 그렇지 않으면 콘텐츠는 다른 API에 전달할 수 있는 단일 이진 단위로 처리됩니다. 이 콘텐츠를 변환하지 않고 워크플로 내에 참조할 수 없습니다. 예를 들어 `application/xml` 콘텐츠를 전달하는 경우 `@xpath()`를 사용하여 XPath 추출을 수행하거나 `@json()`를 사용하여 XML을 JSON으로 변환할 수 있습니다. [콘텐츠 형식 사용](../logic-apps/logic-apps-content-type.md)에 대해 자세히 알아봅니다.
+콘텐츠의 형식이 `application/json`이면 들어오는 요청의 속성을 참조할 수 있습니다. 그렇지 않으면 콘텐츠는 다른 API에 전달할 수 있는 단일 이진 단위로 처리됩니다. 워크플로 내에서 이 콘텐츠를 참조하려면 해당 콘텐츠를 변환해야 합니다. 예를 들어 `application/xml` 콘텐츠를 전달하는 경우 `@xpath()`를 사용하여 XPath 추출을 수행하거나 `@json()`를 사용하여 XML을 JSON으로 변환할 수 있습니다. [콘텐츠 형식 사용](../logic-apps/logic-apps-content-type.md)에 대해 자세히 알아봅니다.
 
 들어오는 요청에서 출력을 가져오려면 `@triggerOutputs()` 함수를 사용할 수 있습니다. 출력은 다음 예제와 같이 표시될 수 있습니다.
 
@@ -277,9 +277,11 @@ HTTP 끝점을 만든 후 `POST` 메서드를 통해 논리 앱을 전체 URL로
 
 A: Azure는 공유 액세스 서명(SAS)을 사용하여 논리 앱 콜백 URL을 안전하게 생성합니다. 이 서명은 쿼리 매개 변수로 전달되고 논리 앱이 시작하기 전에 유효성이 검사되어야 합니다. Azure는 논리 앱, 트리거 이름 및 수행되는 작업 별로 비밀 키의 고유한 조합을 사용하여 서명을 생성합니다. 따라서 사용자가 비밀 논리 앱 키에 액세스하지 않으면 유효한 서명을 생성할 수 없습니다.
 
-   > [!NOTE]
-   > 프로덕션/보안 시스템의 경우 URL에 공유 액세스 키가 포함되어 있고, 도메인이 논리 앱 고객 간에 공유되므로 보안 콘텐츠 정책을 관리할 수 없기 때문에 브라우저에서 직접 논리 앱을 호출하는 것이 강력히 권장됩니다.
-
+   > [!IMPORTANT]
+   > 프로덕션 및 보안 시스템의 경우 다음과 같은 이유로 논리 앱을 브라우저에서 직접 호출하는 것을 권장하지 않습니다.
+   > 
+   > * URL에 공유 액세스 키가 나타납니다.
+   > * 논리 앱 고객 간에 공유 도메인으로 인해 보안 콘텐츠 정책을 관리할 수 없습니다.
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>Q: HTTP 끝점을 추가로 구성할 수 있습니까?
 
