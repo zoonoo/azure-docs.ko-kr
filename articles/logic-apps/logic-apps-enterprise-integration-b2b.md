@@ -13,10 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: estfan
-translationtype: Human Translation
-ms.sourcegitcommit: 03cd3f4edd7bb7895efa02475411d813ef44b8b3
-ms.openlocfilehash: 6006df4b4ecd6dede94c1013881ddf699e741e51
+ms.author: LADocs; padmavc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 0625787ddcbc0091e70b111f687e25929720ad15
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -52,7 +54,7 @@ AS2 및 X12 작업을 사용하려면 엔터프라이즈 통합 계정이 있어
 
 6. 입력으로 사용할 **본문**을 추가합니다. 이 예제에서는 논리 앱을 트리거하는 HTTP 요청의 본문을 선택합니다. 또는 **헤더** 필드에서 헤더를 입력하는 식을 입력합니다.
 
-    @triggerOutputs()['headers']
+    @triggerOutputs()['헤더']
 
 7. HTTP 요청 헤더에서 찾을 수 있는 AS2에 필요한 **헤더**를 추가합니다. 이 예제에서는 논리 앱을 트리거하는 HTTP 요청의 헤더를 선택합니다.
 
@@ -78,7 +80,7 @@ AS2 및 X12 작업을 사용하려면 엔터프라이즈 통합 계정이 있어
     이제 거래 업체로부터 받은 X12 데이터를 디코딩하고 JSON 개체의 항목을 출력하는 단계를 추가합니다. 
     데이터를 받았음을 파트너에게 알리려면 HTTP 응답 작업에서 AS2 MDN(메시지 처리 알림)을 포함하는 응답을 다시 보낼 수 있습니다.
 
-12. **응답** 작업을 추가하려면 **작업 추가**를 선택합니다.
+12.    **응답** 작업을 추가하려면 **작업 추가**를 선택합니다.
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-14.png)
 
@@ -111,9 +113,4 @@ AS2 및 X12 작업을 사용하려면 엔터프라이즈 통합 계정이 있어
 
 ## <a name="learn-more"></a>자세한 정보
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

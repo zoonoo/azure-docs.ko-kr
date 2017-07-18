@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: rajram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a0a420adc57a0bcbb3779183324ab7bfafcb5bf1
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 4faccae708b5407d1eb64e746824a23688bc5834
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -52,7 +52,7 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
 - Azure Monitor에서 '자동 크기 조정' 블레이드를 열고 크기를 조정할 리소스를 선택합니다. (아래 단계에서는 웹앱과 연결된 앱 서비스 계획을 사용합니다. [Azure에서 5분 내에 첫 번째 ASP.NET 웹앱을 만들 수 있습니다.][4])
 - 리소스에 대한 크기 조정 설정 블레이드에서 현재 인스턴스 수가 하나임을 알려줍니다. '자동 크기 조정 사용'을 클릭합니다.
   ![새 웹앱에 대한 크기 조정 설정][5]
-- 크기 조정 설정의 이름을 제공하고 "규칙 추가"를 클릭합니다. 오른쪽에 열리는 컨텍스트 창에서 크기 조정 규칙 옵션이 표시됩니다. 기본적으로 리소스의 CPU 사용률이 70%를 초과하면 인스턴스 수를 하나씩 늘리는 옵션이 설정되어 있습니다. 기본값은 그대로 두고 [추가]를 클릭합니다.
+- 크기 조정 설정의 이름을 제공하고 "규칙 추가"를 클릭합니다. 오른쪽에 열리는 컨텍스트 창에서 크기 조정 규칙 옵션이 표시됩니다. 기본적으로 리소스의 CPU 백분율이 70%를 초과하면 인스턴스 수를 하나씩 늘리는 옵션이 설정되어 있습니다. 기본값은 그대로 두고 [추가]를 클릭합니다.
   ![웹앱에 대한 크기 조정 설정 만들기][6]
 - 이제 첫 번째 크기 조정 규칙을 만들었습니다. UX에서 모범 사례를 권장하고 '규칙에 하나 이상의 크기 조정을 사용하는 좋습니다.'라고 알려줍니다. 이렇게 하려면 '규칙 추가'를 클릭하고 '연산자'를 '미만'으로, '임계값'을 '20'으로, '작업'을 '다음을 기준으로 개수 줄이기'로 설정합니다. 이제 CPU 사용량을 기준으로 확장/축소하는 크기 조정 설정이 있어야 합니다.
   ![CPU 기준 크기 조정][8]
@@ -123,3 +123,4 @@ CPU 기준 크기 조정 외에도 특정 날짜에 대한 크기 조정을 다�
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
+

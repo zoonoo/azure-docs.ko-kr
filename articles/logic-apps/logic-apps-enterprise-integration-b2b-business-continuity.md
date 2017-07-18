@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
-ms.author: padmavc
+ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 197df490690754730425231f358fde31d17dcfad
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 97864ade77fc694bd1eababe22e6eeb4b9d6e11e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -69,71 +69,73 @@ Logic Apps 통합 계정의 비즈니스 연속성은 B2B 프로토콜 X12, AS2 
 
 ## <a name="x12"></a>X12 
 EDI X12 문서의 비즈니스 연속성은 컨트롤 번호를 기준으로 합니다.
-* 파트너에게 받은 컨트롤 번호(인바운드 메시지)  
-* 생성되어 파트너에게 전송되는 컨트롤 번호(아웃바운드 메시지) 
-    
-    > [!Tip]
+
+> [!Tip]
     > [X12 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/201-logic-app-x12-disaster-recovery-replication/)을 사용하여 Logic Apps를 만들 수도 있습니다. 템플릿을 사용하려면 주 통합 계정 및 보조 통합 계정을 만들어야 합니다. 템플릿은 2개의 Logic Apps, 즉 받은 컨트롤 번호용과 생성된 컨트롤 번호용 Logic Apps를 만드는 데 도움이 됩니다. 각 트리거 및 작업은 Logic Apps에 생성되며, 트리거는 주 통합 계정에, 작업은 보조 통합 계정에 연결됩니다.
-    > 
+    >
     >
 
-### <a name="control-numbers-received-from-partners"></a>파트너로부터 받은 컨트롤 번호
+필수 조건: X12 규약 수신 설정에서 중복 확인 설정을 선택하여 인바운드 메시지 ![x12 검색](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)에 대해 DR을 사용하도록 설정합니다.  
 
-1. 규약 수신 설정에 대해 중복 검사 사용   
-![X12 검색](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
+1. 보조 지역에 [논리 앱](../logic-apps/logic-apps-create-a-logic-app.md)을 만듭니다.    
 
-2. 보조 지역에 [논리 앱](../logic-apps/logic-apps-create-a-logic-app.md)을 만듭니다. 
-
-3. **X12**를 검색하고 **X12 - 받은 컨트롤 번호가 수정되었을 때**를 선택합니다.   
-![X12 검색](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN1.png)
-
-4. 트리거는 통합 계정에 대한 연결을 설정하라는 메시지를 표시합니다. 트리거는 주 지역 통합 계정에 연결해야 합니다. 연결 이름을 입력하고, 목록에서 **주 지역 통합 계정**을 선택하고, **만들기**를 클릭합니다.  
-![주 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN2.png)
-
-5. **컨트롤 번호 동기화를 시작하는 DateTime** 설정은 선택 사항입니다. **빈도** **일**, **시간**, **분** 또는 **초** 간격으로 설정할 수 있습니다.  
-![날짜/시간 및 빈도](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN3.png)
-
-6. **새 단계** > **작업 추가**를 선택합니다.    
-![작업 추가](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN4.png)
-
-7. **X12**를 검색하고 **X12 - 받은 컨트롤 번호 추가 또는 업데이트**를 선택합니다.   
-![받은 컨트롤 번호 수정](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN5.png)
-
-8. 작업을 보조 지역 통합 계정에 연결하려면 사용할 수 있는 통합 계정 목록에 대해 **연결 변경** > **새 연결 추가**를 선택합니다. 연결 이름을 입력하고 목록에서 **보조 지역 통합 계정**을 선택한 후 **만들기**를 클릭합니다.   
-![보조 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN6.png)
-
-9. 동적 콘텐츠를 선택하고 논리 앱을 저장합니다. 
-![동적 콘텐츠](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN7.png)
-
-10. 시간 간격에 따라 트리거는 주 지역 수신 컨트롤 번호 테이블을 폴링하고 새 레코드를 가져옵니다. 작업은 새 레코드를 보조 지역 통합 계정에 업데이트합니다. 업데이트가 없는 경우 트리거 상태가 **건너뜀**으로 표시됩니다.
-![컨트롤 번호 테이블](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12recevicedCN8.png)
-
-### <a name="control-numbers-generated-and-sent-to-partners"></a>컨트롤 번호가 생성되고 파트너에게 전송됨
-1. 보조 지역에 [논리 앱](../logic-apps/logic-apps-create-a-logic-app.md)을 만듭니다.
-
-2. **X12**를 검색하고 **X12 - 생성된 컨트롤 번호가 수정되었을 때**를 선택합니다.  
-![생성된 컨트롤 번호 수정](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN1.png)
+2. **X12**를 검색하고 **X12 - 컨트롤 번호가 수정되었을 때**를 선택합니다.   
+![x12 검색](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn1.png)
 
 3. 트리거는 통합 계정에 대한 연결을 설정하라는 메시지를 표시합니다. 트리거는 주 지역 통합 계정에 연결해야 합니다. 연결 이름을 입력하고, 목록에서 **주 지역 통합 계정**을 선택하고, **만들기**를 클릭합니다.   
-![주 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN2.png) 
+![주 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
 
-4. **컨트롤 번호 동기화를 시작하는 DateTime** 설정은 선택 사항입니다. **빈도** **일**, **시간**, **분** 또는 **초** 간격으로 설정할 수 있습니다.  
-![날짜/시간 및 빈도](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN3.png)  
+4. **컨트롤 번호 동기화를 시작하는 DateTime** 설정은 선택 사항입니다. **빈도** **일**, **시간**, **분** 또는 **초** 간격으로 설정할 수 있습니다.   
+![날짜/시간 및 빈도](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
-5. **새 단계** > **작업 추가**를 선택합니다.  
-![작업 추가](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN4.png)
+5. **새 단계** > **작업 추가**를 선택합니다.    
+![작업 추가](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
-6. **X12**를 검색하고 **X12 - 생성된 컨트롤 번호 추가 또는 업데이트**를 선택합니다.   
-![생성된 컨트롤 번호 추가 또는 업데이트](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN5.png)
+6. **X12**를 검색하고 **X12 - 컨트롤 번호 추가 또는 업데이트**를 선택합니다.   
+![받은 컨트롤 번호 수정](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
-7. 작업을 보조 통합 계정에 연결하려면 사용할 수 있는 통합 계정 목록에 대해 **연결 변경** > **새 연결 추가**를 선택합니다. 연결 이름을 입력하고 목록에서 **보조 지역 통합 계정**을 선택한 후 **만들기**를 클릭합니다.   
-![보조 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN6.png)
+7. 작업을 보조 지역 통합 계정에 연결하려면 사용할 수 있는 통합 계정 목록에 대해 **연결 변경** > **새 연결 추가**를 선택합니다. 연결 이름을 입력하고 목록에서 **보조 지역 통합 계정**을 선택한 후 **만들기**를 클릭합니다.   
+![보조 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
-8. 동적 콘텐츠를 선택하고 논리 앱을 저장합니다. 
-![동적 콘텐츠](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN7.png)
+8. 동적 콘텐츠를 선택하고 논리 앱을 저장합니다.   
+![동적 콘텐츠](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn7.png)
 
-9. 시간 간격에 따라 트리거는 주 지역 수신 컨트롤 번호 테이블을 폴링하고 새 레코드를 가져옵니다. 작업은 새 레코드를 보조 지역 통합 계정에 업데이트합니다. 업데이트가 없는 경우 트리거 상태가 **건너뜀**으로 표시됩니다.  
-![컨트롤 번호 테이블](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12generatedCN8.png)
+9. 시간 간격에 따라 트리거는 주 지역 수신 컨트롤 번호 테이블을 폴링하고 새 레코드를 가져옵니다. 작업은 새 레코드를 보조 지역 통합 계정에 업데이트합니다. 업데이트가 없는 경우 트리거 상태가 **건너뜀**으로 표시됩니다.   
+![컨트롤 번호 테이블](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
+
+시간 간격에 따라 증분 런타임 상태가 주 지역에서 보조 지역으로 복제됩니다. 재해 중 주 지역을 사용할 수 없는 경우 비즈니스 연속성을 위해 트래픽을 보조 지역으로 전송합니다. 
+
+## <a name="edifact"></a>EDIFACT 
+EDI EDIFACT 문서의 비즈니스 연속성은 컨트롤 번호를 기준으로 합니다.
+
+필수 조건: EDIFACT 규약 수신 설정에서 중복 확인 설정을 선택하여 인바운드 메시지에 대해 DR을 사용하도록 설정합니다.     
+![EDIFACT 검색](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
+
+1. 보조 지역에 [논리 앱](../logic-apps/logic-apps-create-a-logic-app.md)을 만듭니다.    
+
+2. **EDIFACT**를 검색하고 **EDIFACT - 컨트롤 번호가 수정되는 경우**를 선택합니다.     
+![edifact 검색](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn1.png)
+
+4. 트리거는 통합 계정에 대한 연결을 설정하라는 메시지를 표시합니다. 트리거는 주 지역 통합 계정에 연결해야 합니다. 연결 이름을 입력하고, 목록에서 **주 지역 통합 계정**을 선택하고, **만들기**를 클릭합니다.    
+![주 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
+
+5. **컨트롤 번호 동기화를 시작하는 DateTime** 설정은 선택 사항입니다. **빈도** **일**, **시간**, **분** 또는 **초** 간격으로 설정할 수 있습니다.    
+![날짜/시간 및 빈도](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+
+6. **새 단계** > **작업 추가**를 선택합니다.    
+![작업 추가](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+
+7. **EDIFACT**를 검색하고 **EDIFACT - 컨트롤 번호 추가 또는 업데이트**를 선택합니다.   
+![받은 컨트롤 번호 수정](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+
+8. 작업을 보조 지역 통합 계정에 연결하려면 사용할 수 있는 통합 계정 목록에 대해 **연결 변경** > **새 연결 추가**를 선택합니다. 연결 이름을 입력하고 목록에서 **보조 지역 통합 계정**을 선택한 후 **만들기**를 클릭합니다.   
+![보조 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+
+9. 동적 콘텐츠를 선택하고 논리 앱을 저장합니다.   
+![동적 콘텐츠](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn5.png)
+
+10. 시간 간격에 따라 트리거는 주 지역 수신 컨트롤 번호 테이블을 폴링하고 새 레코드를 가져옵니다. 작업은 새 레코드를 보조 지역 통합 계정에 업데이트합니다. 업데이트가 없는 경우 트리거 상태가 **건너뜀**으로 표시됩니다.   
+![컨트롤 번호 테이블](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
 
 시간 간격에 따라 증분 런타임 상태가 주 지역에서 보조 지역으로 복제됩니다. 재해 중 주 지역을 사용할 수 없는 경우 비즈니스 연속성을 위해 트래픽을 보조 지역으로 전송합니다. 
 
@@ -148,30 +150,31 @@ AS2 프로토콜을 사용하는 문서에 대한 비즈니스 연속성은 메�
 1. 보조 지역에 [논리 앱](../logic-apps/logic-apps-create-a-logic-app.md)을 만듭니다.  
 
 2. **AS2**를 검색하고 **AS2 - MIC 값이 만들어질 때**를 선택합니다.   
-![AS2 검색](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid1.png)
+![as2 검색](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid1.png)
 
 3. 트리거는 통합 계정에 대한 연결을 설정하라는 메시지를 표시합니다. 트리거는 주 지역 통합 계정에 연결해야 합니다. 연결 이름을 입력하고, 목록에서 **주 지역 통합 계정**을 선택하고, **만들기**를 클릭합니다.   
-![주 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid2.png)
+![주 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
 4. **MIC 값 동기화를 시작하는 DateTime** 설정은 선택 사항입니다. **빈도** **일**, **시간**, **분** 또는 **초** 간격으로 설정할 수 있습니다.   
-![날짜/시간 및 빈도](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid3.png)
+![날짜/시간 및 빈도](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid3.png)
 
 5. **새 단계** > **작업 추가**를 선택합니다.  
-![작업 추가](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid4.png)
+![작업 추가](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid4.png)
 
 6. **AS2**를 검색하고 **AS2 - MIC 추가 또는 업데이트**를 선택합니다.  
-![MIC 추가 또는 업데이트](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid5.png)
+![MIC 추가 또는 업데이트](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
 
 7. 작업을 보조 통합 계정에 연결하려면 사용할 수 있는 통합 계정 목록에 대해 **연결 변경** > **새 연결 추가**를 선택합니다. 연결 이름을 입력하고 목록에서 **보조 지역 통합 계정**을 선택한 후 **만들기**를 클릭합니다.    
-![보조 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid6.png)
+![보조 지역 통합 계정 이름](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid6.png)
 
 8. 동적 콘텐츠를 선택하고 논리 앱을 저장합니다.   
-![동적 콘텐츠](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid7.png)
+![동적 콘텐츠](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid7.png)
 
 9. 시간 간격에 따라 트리거는 주 지역 테이블을 폴링하고 새 레코드를 가져오며 작업은 새 레코드를 보조 지역 통합 계정에 업데이트합니다. 업데이트가 없는 경우 트리거 상태가 **건너뜀**으로 표시됩니다.  
-![주 지역 테이블](./media/logic-apps-enterprise-integration-b2b-business-continuity/AS2messageid8.png)
+![주 지역 테이블](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid8.png)
 
 시간 간격에 따라 증분 런타임 상태가 주 지역에서 보조 지역으로 복제됩니다. 재해 중 주 지역을 사용할 수 없는 경우 비즈니스 연속성을 위해 트래픽을 보조 지역으로 전송합니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 [B2B 메시지 모니터링](logic-apps-monitor-b2b-message.md)에 대해 자세히 알아봅니다.   

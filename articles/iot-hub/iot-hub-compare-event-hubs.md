@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: elioda
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 944f67d1d5a56c3c478da0c3af0b1f9b8797eee1
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 405dd2f8147c20ce7b96b228fdf417e86a86de92
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -34,7 +34,7 @@ IoT Hub의 주요 사용 사례 중 하나는 장치에서 원격 분석을 수�
 | 장치 프로토콜 지원 |MQTT, WebSocket을 통한 MQTT, AMQP, WebSocket을 통한 AMQP 및 HTTP를 지원합니다. 또한 IoT Hub는 사용자 지정 가능한 프로토콜 게이트웨이 구현인 [Azure IoT 프로토콜 게이트웨이][lnk-azure-protocol-gateway]에서 작동하여 사용자 지정 프로토콜을 지원합니다. |AMQP, WebSocket을 통한 AMQP 및 HTTP를 지원합니다. |
 | 보안 |장치 단위 ID 및 취소 가능한 액세스 제어를 제공합니다. [IoT Hub 개발자 가이드의 보안 섹션]을 참조하세요. |[게시자의 정책][Event Hubs publisher policies]을 통해 제한된 해지 지원을 포함하는 Event Hubs 전반의 [공유 액세스 정책][Event Hubs - security]을 제공합니다. IoT 솔루션은 종종 장치당 자격 증명 및 스푸핑 방지 측정을 지원하기 위해 사용자 지정 솔루션을 구현해야 합니다. |
 | 작업 모니터링 |IoT 솔루션을 사용하여 다양한 장치 ID 관리와 개별 인증 오류, 제한 및 잘못된 형식 예외 등의 연결 이벤트를 구독할 수 있습니다. 이러한 이벤트를 통해 개별 장치 수준에서 연결 문제를 신속 하게 식별할 수 있습니다. |집계 메트릭만 표시합니다. |
-| 확장 |수백만 대의 연결된 장치를 동시에 지원하도록 최적화됩니다. |[Azure Service Bus 할당량][Azure Service Bus quotas]에 따라 더욱 제한된 수의 동시 연결(최대 5,000개 AMQP 연결)을 지원할 수 있습니다. 반면에 이벤트 허브를 통해 사용자는 전송된 각 메시지에 파티션을 지정할 수 있습니다. |
+| 확장 |수백만 대의 연결된 장치를 동시에 지원하도록 최적화됩니다. |[Azure Service Bus 할당량][Azure Service Bus quotas]에 따라 연결을 계측합니다. 반면에 이벤트 허브를 통해 사용자는 전송된 각 메시지에 파티션을 지정할 수 있습니다. |
 | 장치 SDK |직접 MQTT, AMQP 및 HTTP API 외에도 다양한 플랫폼 및 언어에 대해 [장치 SDK][Azure IoT SDKs]를 제공합니다. |AMQP 및 HTTP 전송 인터페이스 외에도 .NET, Java 및 C에서 지원됩니다. |
 | 파일 업로드 |IoT 솔루션을 사용하여 장치에서 클라우드로 파일을 업로드합니다. 워크플로 통합에 대한 파일 알림 끝점과 디버깅 지원에 대한 작업 모니터링 범주를 포함합니다. | 지원되지 않습니다. |
 | 메시지를 여러 끝점으로 라우팅 | 최대 10개의 사용자 지정 끝점이 지원됩니다. 규칙은 메시지가 사용자 지정 끝점으로 라우팅되는 방식을 결정합니다. 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기][lnk-devguide-messaging]를 참조하세요. | 메시지 디스패치를 위해서는 추가 코드를 쓰고 호스트해야 합니다. |

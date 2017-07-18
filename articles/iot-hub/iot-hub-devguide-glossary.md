@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 2fad3e3fb88d447b377ccfce052035640c1360c3
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c3646fef95bc06f8febe45718f4f9aeb9aefb42a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -80,7 +80,7 @@ IoT Hub에서 연결된 장치로 전송되는 메시지를 참조하세요. 대
 IoT Hub에 사용자 지정 [끝점](iot-hub-devguide-endpoints.md)을 만들어 [라우팅 규칙](#routing-rules)으로 발송된 메시지를 배달할 수 있습니다. 사용자 지정 끝점은 Event Hub, Service Bus 큐 또는 Service Bus 토픽에 직접 연결됩니다.
 
 ## <a name="custom-gateway"></a>사용자 지정 게이트웨이
-게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 장치의 연결이 가능합니다. [Azure IoT Edge](#azure-iot-gateway-sdk)를 사용하여 메시지, 사용자 지정 프로토콜 변환 및 에지의 다른 프로세스를 처리하도록 사용자 지정 논리를 구현하는 사용자 지정 게이트웨이를 빌드할 수 있습니다.
+게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 장치의 연결이 가능합니다. [Azure IoT Edge](#azure-iot-edge)를 사용하여 메시지, 사용자 지정 프로토콜 변환 및 에지의 다른 프로세스를 처리하도록 사용자 지정 논리를 구현하는 사용자 지정 게이트웨이를 빌드할 수 있습니다.
 
 ## <a name="data-point-message"></a>데이터 요소 메시지
 데이터 요소 메시지는 풍속 또는 온도와 같은 [원격 분석](#telemetry) 데이터를 포함하는 [클라우드-장치](#device-to-cloud) 메시지입니다.
@@ -191,7 +191,7 @@ Azure IoT Suite는 Azure 서비스를 미리 구성된 솔루션과 함께 패�
 [작업 REST API](https://docs.microsoft.com/rest/api/iothub/jobapi)는 IoT Hub에서 실행되는 [작업](#job)을 관리할 수 있게 해줍니다.
 
 ## <a name="module"></a>모듈
-[Azure IoT Edge](iot-hub-linux-gateway-sdk-get-started.md)에서 [모듈](iot-hub-linux-gateway-sdk-get-started.md)은 특정 작업을 수행하는 구성 요소입니다. 작업에는 장치에서 메시지 수집, 메시지 변환 또는 IoT Hub로 메시지 보내기가 포함됩니다. broker는 모듈 간 메시지 전달을 담당합니다. Azure IoT Edge에는 일련의 샘플 모듈이 포함됩니다. 사용자 고유의 사용자 지정 모듈을 만들 수도 있습니다.
+[Azure IoT Edge](iot-hub-linux-iot-edge-get-started.md)에서 [모듈](iot-hub-linux-iot-edge-get-started.md)은 특정 작업을 수행하는 구성 요소입니다. 작업에는 장치에서 메시지 수집, 메시지 변환 또는 IoT Hub로 메시지 보내기가 포함됩니다. broker는 모듈 간 메시지 전달을 담당합니다. Azure IoT Edge에는 일련의 샘플 모듈이 포함됩니다. 사용자 고유의 사용자 지정 모듈을 만들 수도 있습니다.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/)는 [IoT Hub](#iot-hub)에서 장치와 통신을 위해 지원하는 메시징 프로토콜 중 하나입니다. IoT Hub에서 지원하는 메시징 프로토콜에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
@@ -224,7 +224,7 @@ IoT Hub에서 장치 지향 또는 서비스 지향 끝점에 연결하는 경�
 클라우드 서비스에 연결할 때는 재시도 정책을 사용하여 [일시적인 오류](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx)를 처리합니다.
 
 ## <a name="routing-rules"></a>라우팅 규칙
-IoT Hub에서 [기본 제공 끝점](#built-in-endpoints) 또는 [사용자 지정 끝점](#custom-endpoints)으로 장치-클라우드 메시지를 라우팅하여 솔루션 백 엔드에서 처리하도록 [라우팅 규칙](iot-hub-devguide-messaging.md#routing-rules)을 구성합니다.
+IoT Hub에서 [기본 제공 끝점](#built-in-endpoints) 또는 [사용자 지정 끝점](#custom-endpoints)으로 장치-클라우드 메시지를 라우팅하여 솔루션 백 엔드에서 처리하도록 [라우팅 규칙](iot-hub-devguide-messages-read-custom.md)을 구성합니다.
 
 ## <a name="sasl-plain"></a>SASL PLAIN
 SASL PLAIN은 [AMQP](#advanced-message-queue-protocol) 프로토콜에서 보안 토큰을 전송하는 데 사용하는 프로토콜입니다.

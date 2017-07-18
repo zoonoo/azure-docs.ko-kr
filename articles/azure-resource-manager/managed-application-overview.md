@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/11/2017
+ms.date: 05/24/2017
 ms.author: gauravbh; tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: a4348a4d2348d744c03ad3a89d0548526fa2f9f8
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: c4e0508e243bd4f0cd57ea1619f7812433329423
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -34,9 +34,13 @@ Azure Managed Applications는 공급업체에서 자체 포함된 응용 프로�
 1. 관리되는 응용 프로그램을 만들고 광범위하게 사용할 수 있게 하는 공급업체 또는 ISV(독립적 소프트웨어 공급업체) 
 2. 게시된 응용 프로그램을 만들고 사용하려는 고객 또는 소비자 
 
-이 문서에서는 두 가지 환경을 모두 다룹니다. 먼저 관리되는 응용 프로그램이 작동하는 방식을 살펴보겠습니다. 
+이 문서에서는 두 가지 환경에 대한 개요를 제공합니다. 먼저 관리되는 응용 프로그램이 작동하는 방식을 살펴보겠습니다. 
 
 관리되는 응용 프로그램은 하나의 주요 차이점이 있지만 Marketplace 솔루션 템플릿과 유사합니다. 관리되는 응용 프로그램에서 리소스는 ISV/공급업체에서 관리하는 리소스 그룹으로 프로비전됩니다. 리소스 그룹은 고객의 구독에 있지만, ISV의 테넌트에 있는 사용자, 사용자 그룹 또는 응용 프로그램은 해당 리소스 그룹에 액세스할 수 있습니다. 응용 프로그램을 관리하고 서비스를 제공하기 위해 공급업체의 ID가 Active Directory 소유자, 참가자, 읽기 권한자 또는 다른 모든 기본 제공 역할에 추가됩니다. 
+
+공급업체 환경에 대한 자세한 내용은 [Azure Managed Application 만들기 및 게시](managed-application-publishing.md)를 참조하세요.
+
+소비자 환경에 대한 자세한 내용은 [Azure Managed Application 사용](managed-application-consumption.md)을 참조하세요.
 
 ## <a name="key-concepts"></a>주요 개념
 
