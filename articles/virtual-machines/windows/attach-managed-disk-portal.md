@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 9c29390756ac2cd925ed7d2989393e63ed0a1239
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: f0cf88a06c5470ef173b22e7213419a6c8760723
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -58,6 +58,29 @@ ms.lasthandoff: 05/10/2017
 8. **새 디스크 포맷** 대화 상자에서 설정을 확인하고 **시작**을 클릭합니다.
 9. 디스크를 포맷하면 모든 데이터가 지워진다는 경고가 표시됩니다. **확인**을 클릭합니다.
 10. 포맷이 완료되면 **확인**을 클릭합니다.
+
+## <a name="use-trim-with-standard-storage"></a>표준 저장소와 TRIM 사용
+
+표준 저장소(HDD)를 사용하는 경우 TRIM을 사용하도록 설정해야 합니다. TRIM은 디스크에서 사용되지 않는 블록을 삭제하므로 실제로 사용 중인 저장소에 대해 청구됩니다. 큰 파일을 만들고 삭제하는 경우 비용을 절감할 수 있습니다. 
+
+TRIM 설정을 확인하도록 이 명령을 실행할 수 있습니다. Windows VM에서 명령 프롬프트를 열어 다음을 입력합니다.
+
+```
+fsutil behavior query DisableDeleteNotify
+```
+
+명령이 0을 반환하는 경우 TRIM이 올바르게 활성화됩니다. 1을 반환하는 경우, 다음 명령을 실행하여 TRIM을 사용하도록 설정합니다.
+```
+fsutil behavior set DisableDeleteNotify 0
+```
+
+디스크에서 데이터를 삭제한 후 TRIM으로 조각 모음을 실행하여 TRIM 작업이 제대로 플러시되는지 확인할 수 있습니다.
+
+```
+defrag.exe <volume:> -l
+```
+
+볼륨을 포맷하여 전체 볼륨이 잘리는지도 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 응용 프로그램이 데이터를 저장하는 데 D: 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수 있습니다.

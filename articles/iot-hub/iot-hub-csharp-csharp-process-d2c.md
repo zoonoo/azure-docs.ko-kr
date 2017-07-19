@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: ff0b234f27e2d5068cc0dcdc73e32e60f8622633
-ms.lasthandoff: 03/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: f8917ca67aa5f15ccc11030fd0292ac803d9e994
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -113,6 +114,9 @@ private static async void SendDeviceToCloudMessagesAsync()
 Service Bus 큐에서 메시지를 처리하는 방법에 대한 자세한 내용은 [큐 시작][Service Bus queue]을 참조하세요.
 
 1. [큐 시작][Service Bus queue]에서 설명한 대로 Service Bus 큐를 만듭니다. 큐는 IoT Hub와 동일한 구독 및 지역에 있어야 합니다. 네임스페이스 및 큐 이름을 적어둡니다.
+
+    > [!NOTE]
+    > IoT Hub으로 사용되는 Service Bus 큐 및 토픽에는 **세션** 또는 **중복 검색**이 사용하도록 설정되어 있어서는 안 됩니다. 두 옵션 중 하나가 사용하도록 설정되어 있으면 Azure Portal에서 끝점이 **연결할 수 없음**으로 표시됩니다.
 
 2. Azure Portal에서 IoT Hub를 열고 **끝점**을 클릭합니다.
     

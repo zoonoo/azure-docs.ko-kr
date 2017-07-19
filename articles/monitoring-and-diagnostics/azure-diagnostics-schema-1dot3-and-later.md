@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 4e659f2e3f7744a3de7ab4faf18cc31b0c6752b9
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 90d39f75f547eff9c87997eb83460875c12dcfe4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -162,7 +162,7 @@ Azure 진단 사용에 대한 자세한 내용은 [Azure 진단 확장](azure-di
 
 이전 XML 구성 파일에 해당하는 JSON입니다. 
 
-PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사례에서 다른 변수로 전달되기 때문입니다. 이러한 경우에는 Resource Manager 템플릿, 가상 컴퓨터 확장 집합 powershell 및 Visual Studio가 있습니다. 
+PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사례에서 다른 변수로 전달되기 때문입니다. 이러한 경우에는 Resource Manager 템플릿, 가상 컴퓨터 확장 집합 PowerShell 및 Visual Studio가 있습니다. 
 
 ```json
 "PublicConfig" {
@@ -559,7 +559,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|설명|  
 |-------------------|-----------------|  
-|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예:<br /><br /> `Application!*[Application[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[Security[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다.|  
+|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다.|  
 
 
 

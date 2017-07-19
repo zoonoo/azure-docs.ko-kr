@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 05/23/2017
 ms.author: boltean
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 1a24e3293445e6e42c8d1e8a9a38c7377120b902
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 85f5f044faddd5180f0c19d3f2c235b20f6373d5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -65,6 +66,9 @@ IP 필터 규칙을 추가하는 경우 다음 값을 입력하라는 메시지�
 
 > [!NOTE]
 > IP 주소를 거부하면 다른 Azure 서비스(예: Azure Stream Analytics, Azure Virtual Machines 또는 포털의 장치 탐색기)가 IoT Hub와 상호 작용하는 것을 막을 수 있습니다.
+
+> [!WARNING]
+> ASA(Azure Stream Analytics)를 사용하여 IP 필터링이 활성화된 IoT Hub에서 메시지를 읽는 경우 ASA 연결 문자열에 이벤트 허브와 호환되는 IoT Hub 이름 및 끝점을 사용합니다.
 
 ## <a name="delete-an-ip-filter-rule"></a>IP 필터 규칙 삭제
 
