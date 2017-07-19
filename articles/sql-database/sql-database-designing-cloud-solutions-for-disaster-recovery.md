@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 04/21/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: b1b67a83a25159414a80382030903d300aad71f7
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 40fe0ae04eb94322356ed19773512e3bc383639c
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/18/2017
 
@@ -58,7 +58,7 @@ Azure SQL Database에서 항상 사용 가능한 서비스를 빌드하고 배�
 보조 지역에서 가동 중단이 발생하는 경우 주 데이터베이스와 보조 데이터베이스 간의 복제 링크가 일시 중단되지만, 주 데이터베이스가 영향을 받지 않으므로 장애 조치는 트리거되지 않습니다. 이 경우 응용 프로그램의 가용성은 변경되지 않지만, 두 지역이 연속적으로 실패할 경우 응용 프로그램이 노출된 상태로 작동하므로 위험이 더 높아집니다.
 
 > [!NOTE]
-> 단일 DR 영역을 사용한 배포 구성이 좋습니다. 대부분의 Azure 지역은 두 지역이 있기 때문입니다. 이러한 구성은 두 영역의 치명적인 오류로부터 응용 프로그램을 보호하지 않습니다. 이러한 발생 가능성이 없는 실패 시 [지리적 복원 작업](sql-database-disaster-recovery.md#recover-using-geo-restore)을 사용하여 세 번째 지역에서 데이터베이스를 복구할 수 있습니다.
+> 재해 복구의 경우 응용 프로그램 배포를 두 지역으로 제한하여 구성하는 것이 좋습니다. 대부분의 경우 Azure 지역이 두 개뿐이기 때문입니다. 이 구성은 두 영역에서 동시에 발생하는 치명적인 오류로부터 응용 프로그램을 보호하지 않습니다.  이러한 발생 가능성이 없는 실패 시 [지리적 복원 작업](sql-database-disaster-recovery.md#recover-using-geo-restore)을 사용하여 세 번째 지역에서 데이터베이스를 복구할 수 있습니다.
 >
 
 가동 중단이 완화되면 보조 데이터베이스가 주 데이터베이스와 자동으로 다시 동기화됩니다. 동기화하는 동안 주 데이터베이스의 성능은 동기화되어야 하는 데이터의 양에 따라 약간 영향을 받을 수 있습니다. 다음 다이어그램은 보조 지역의 작동 중단을 보여 줍니다.

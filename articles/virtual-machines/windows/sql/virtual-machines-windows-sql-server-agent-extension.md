@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/24/2017
+ms.date: 07/05/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 328b7cff01b485a908be65f52425ff4e81a96b53
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: e81739e74342689b29c6718592ccf49e641d2587
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(Resource Manager)
@@ -43,6 +44,8 @@ SQL Server IaaS 에이전트 확장은 다음 관리 작업을 지원합니다.
 | **SQL 자동화된 백업** |VM에 있는 SQL Server의 기본 인스턴스에 대한 모든 데이터베이스 백업 예약을 자동화합니다. 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 백업(리소스 관리자)](virtual-machines-windows-sql-automated-backup.md)을 참조하세요. |
 | **SQL 자동화된 패치** |워크로드가 가장 많은 시간에 업데이트하지 않도록 VM에 대한 업데이트가 수행될 유지 관리 기간을 구성할 수 있습니다. 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 자동화된 패치(리소스 관리자)](virtual-machines-windows-sql-automated-patching.md)를 참조하세요. |
 | **Azure 주요 자격 증명 모음 통합** |이 서비스를 통해 SQL Server VM에서 Azure 키 자격 증명 모음을 자동으로 설치 및 구성할 수 있습니다. 자세한 내용은 [Azure VM에서 SQL Server에 대한 Azure Key Vault 통합 구성(리소스 매니저)](virtual-machines-windows-ps-sql-keyvault.md)을 참조하세요. |
+
+SQL Server IaaS 에이전트 확장을 설치하고 실행하면 Azure Portal, SQL Server Marketplace 이미지에 대한 Azure PowerShell, 확장 수동 설치를 위한 Azure PowerShell을 통해 가상 컴퓨터의 SQL Server 패널에서 이러한 관리 기능을 사용할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사항:

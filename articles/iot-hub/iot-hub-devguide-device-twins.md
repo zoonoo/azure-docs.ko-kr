@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 03/09/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: e72fcd696a4f21aa4b2cff7ae7178dbc372f1929
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 9c1d1ba1ad70fee3db6dc6c2170b171e06f804d9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -161,6 +162,45 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
         }
 3. **desired 속성 바꾸기**. 솔루션 백 엔드에서 기존의 모든 desired 속성을 완전히 덮어쓰고 `properties/desired`에 대해 새 JSON 문서를 대체할 수 있는 작업입니다.
 4. **태그 바꾸기**. 이 작업을 사용하여 솔루션 백 엔드에서 기존의 모든 태그를 완전히 덮어쓰고 `tags`에 대해 새 JSON 문서를 대체할 수 있습니다.
+5. **쌍 알림을 받습니다**. 이 작업을 통해 쌍이 수정될 때 솔루션 백 엔드는 알림을 받습니다. 이를 수행하려면 IoT 솔루션은 경로를 만들고 데이터 원본을 *twinChangeEvents*와 동일하게 설정해야 합니다. 기본적으로 쌍 알림이 전송되지 않습니다. 즉, 이러한 경로는 미리 존재하지 않습니다. 변경 속도가 너무 높은 경우 또는 내부 오류와 같은 다른 이유로 IoT Hub는 모든 변경 내용을 포함하는 하나의 알림만을 보낼 수 있습니다. 따라서 응용 프로그램에 신뢰할 수 있는 감사 및 모든 중간 상태의 로깅이 필요한 경우 D2C 메시지를 사용하는 것이 여전히 좋습니다. 쌍 알림 메시지는 속성 및 본문을 포함합니다.
+
+    - 속성
+
+    | 이름 | 값 |
+    | --- | --- |
+    $content-type | application/json |
+    $iothub-enqueuedtime |  알림이 전송된 시간 |
+    $iothub-message-source | twinChangeEvents |
+    $content-encoding | utf-8 |
+    deviceId | 장치의 ID |
+    hubName | IoT Hub의 이름 |
+    operationTimestamp | 작업의 ISO8601 타임스탬프 |
+    iothub-message-schema | deviceLifecycleNotification |
+    opType | "replaceTwin" 또는 "updateTwin" |
+
+    메시지 시스템 속성 앞에 `'$'` 기호를 붙입니다.
+
+    - 본문
+        
+    이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 모든 쌍 섹션: 태그, properties.reported, properties.desired를 포함할 수 있으며 "$metadata" 요소를 포함한다는 차이점으로 패치와 동일한 형식을 사용합니다. 예를 들면 다음과 같습니다.
+    ```
+    {
+        "properties": {
+            "desired": {
+                "$metadata": {
+                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
+                },
+                "$version": 1
+            },
+            "reported": {
+                "$metadata": {
+                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
+                },
+                "$version": 1
+            }
+        }
+    }
+    ``` 
 
 이전의 모든 작업은 [낙관적 동시성][lnk-concurrency]을 지원하며 [보안][lnk-security] 문서에서 정의한 **ServiceConnect** 권한이 필요합니다.
 
@@ -297,7 +337,7 @@ IoT Hub는 연결되지 않은 장치에 대한 desired 속성 업데이트 알�
 * [IoT Hub 끝점][lnk-endpoints] 문서에서는 각 IoT Hub가 런타임 및 관리 작업에 노출하는 다양한 끝점을 설명합니다.
 * [제한 및 할당량][lnk-quotas] 문서에서는 IoT Hub 서비스에 적용되는 할당량과 서비스를 사용할 때 예상되는 제한 동작에 대해 설명합니다.
 * [Azure IoT 장치 및 서비스 SDK][lnk-sdks] 문서에서는 IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
-* [장치 쌍 및 작업을 위한 IoT Hub 쿼리 언어][lnk-query] 문서에서는 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어에 대해 설명합니다.
+* [장치 쌍, 작업 및 메시지 라우팅을 위한 IoT Hub 쿼리 언어][lnk-query] 문서에서는 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어에 대해 설명합니다.
 * [IoT Hub MQTT 지원][lnk-devguide-mqtt] 문서에서는 MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -319,7 +359,7 @@ IoT Hub는 연결되지 않은 장치에 대한 desired 속성 업데이트 알�
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-identity]: iot-hub-devguide-identity-registry.md
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: iot-hub-devguide-messages-d2c.md
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-security]: iot-hub-devguide-security.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
