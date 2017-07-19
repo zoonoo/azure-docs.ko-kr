@@ -1,6 +1,6 @@
 ---
 title: "여러 Azure SQL 데이터베이스에 대해 분석 쿼리 실행 | Microsoft Docs"
-description: "여러 Azure SQL 데이터베이스에서 분산 쿼리 실행"
+description: "오프라인 분석을 위해 테넌트 데이터베이스에서 분석 데이터베이스로 데이터 추출"
 keywords: "sql 데이터베이스 자습서"
 services: sql-database
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/16/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5331f9a7b46f1dd31d4aa246ad9d188b5a5afc19
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>여러 Azure SQL 데이터베이스에서 분산 쿼리 실행
+# <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>오프라인 분석을 위해 테넌트 데이터베이스에서 분석 데이터베이스로 데이터 추출
 
-이 자습서에서는 카탈로그의 각 테넌트에 대한 분석 쿼리를 실행합니다. 쿼리를 실행하는 탄력적 작업이 생성됩니다. 이 작업은 데이터를 검색한 후 이 데이터를 카탈로그 서버에서 생성된 별도의 분석 데이터베이스에 로드합니다. 이 데이터베이스를 쿼리하면 모든 테넌트의 일상적인 운영 데이터에 묻혀 있는 유용한 정보를 찾아낼 수 있습니다. 작업 결과로, 테이블이 테넌트 분석 데이터베이스 내부의 결과 반환 쿼리에서 만들어집니다.
+이 자습서에서는 탄력적 작업을 사용하여 각 테넌트 데이터베이스에 대해 쿼리를 실행합니다. 이 작업에서는 티켓 판매 데이터를 추출하여 분석을 위해 분석 데이터베이스(또는 데이터 웨어하우스)에 로드합니다. 그런 다음 이 분석 데이터베이스를 쿼리하면 모든 테넌트의 일상적인 운영 데이터로부터 유용한 정보를 추출할 수 있습니다.
 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -47,7 +47,7 @@ SaaS 응용 프로그램을 사용했을 때의 커다란 기회 중 하나는 �
 
 ## <a name="get-the-wingtip-application-scripts"></a>Wingtip 응용 프로그램 스크립트 가져오기
 
-Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github 리포지토리에서 사용할 수 있습니다. [Wingtip SaaS 스크립트를 다운로드하는 단계](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github 리포지토리에서 사용할 수 있습니다. [Wingtip SaaS 스크립트를 다운로드하는 단계](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>테넌트 분석 결과에 대한 데이터베이스 배포
 
@@ -121,3 +121,4 @@ Wingtip SaaS 스크립트 및 응용 프로그램 소스 코드는 [WingtipSaaS]
 
 * [Wingtip SaaS 응용 프로그램을 기반으로 작성된](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials) 추가 자습서
 * [탄력적 작업](sql-database-elastic-jobs-overview.md)
+

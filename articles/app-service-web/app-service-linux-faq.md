@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: dcce8d855f8c37d40fe8f09ef0a97e46b342e3cf
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 3fb0f6b26f36ef4044c9733ace05c4f59909ddda
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -52,15 +52,19 @@ Linux에 웹앱을 릴리스하면서 현재 플랫폼에 기능을 추가하고
 
 **A:** 예, SCM 사이트를 통해 이 작업을 수행할 수 있습니다. 자세한 내용은 [Linux의 웹앱에 대한 SSH 지원](./app-service-linux-ssh-support.md) 문서를 참조하세요.
 
-## <a name="continuous-integrationdeployment"></a>연속 통합/배포
+## <a name="continuous-integrationdeployment"></a>지속적인 통합/배포
 
 **Q:** Docker Hub에서 이미지를 업데이트한 후에도 웹앱에서 여전히 기존 Docker 컨테이너 이미지를 사용합니다. 사용자 지정 컨테이너의 지속적인 통합/배포를 지원하나요?
 
-**A:** DockerHub 이미지에 대한 연속 통합/배포를 설정하려면 [Linux에서 웹앱을 사용하여 Docker 허브 연속 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 개인 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 응용 프로그램을 변경 또는 추가할 수 있습니다.
+**A:** DockerHub 이미지에 대한 지속적인 통합/배포를 설정하려면 [Linux에서 웹앱을 사용하여 Docker 허브 연속 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 개인 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 응용 프로그램을 변경 또는 추가할 수 있습니다.
 
 **Q:** 스테이징 환경이 지원되나요?
 
 **A:** 예.
+
+**Q:** **웹 배포**를 사용하여 내 웹앱을 설정할 수 있나요?
+
+**A:** 예. `UseWebDeployScm`이라는 앱 설정을 `false`로 설정해야 합니다.
 
 ## <a name="language-support"></a>언어 지원
 
@@ -70,7 +74,7 @@ Linux에 웹앱을 릴리스하면서 현재 플랫폼에 기능을 추가하고
 
 **Q:** 작성기를 PHP 앱의 종속성 관리자로 지원하나요?
 
-**A:** 아니요. 모든 종속성이 있는 PHP 앱을 배포해야 합니다. 향후 릴리스에서 전체 배포 환경을 계획하고 있습니다.
+**A:** 예. Git 배포 중에 Kudu는 사용자가 PHP 응용 프로그램을 배포하고 있음을 감지하고(composer.json 파일의 존재 덕분) 자동으로 작성기 설치를 트리거합니다.
 
 ## <a name="custom-containers"></a>사용자 지정 컨테이너
 
@@ -127,5 +131,5 @@ Linux에 웹앱을 릴리스하면서 현재 플랫폼에 기능을 추가하고
 * [Linux의 Azure Web App에서 웹앱 만들기](app-service-linux-how-to-create-web-app.md)
 * [Linux의 Azure Web App에 대한 SSH 지원](./app-service-linux-ssh-support.md)
 * [Azure App Service에서 스테이징 환경 설정](./web-sites-staged-publishing.md)
-* [Linux에서 Azure Web App을 사용한 Docker 허브 연속 배포](./app-service-linux-ci-cd.md)
+* [Linux에서 Azure Web App을 사용한 Docker 허브 지속적인 배포](./app-service-linux-ci-cd.md)
 

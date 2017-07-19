@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2017
+ms.date: 06/30/2017
 ms.author: steveesp
-translationtype: Human Translation
-ms.sourcegitcommit: 50be31e179bf52e009596fbc68339dfb5a1aa1e4
-ms.openlocfilehash: d53b1cae9845be32bd053ef196203ea83df06b10
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 1340048d5d518caff3397f671d0c75caaab4b5ac
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ RSS(수신측 배율)를 사용하는 VM은 RSS 없는 VM보다 더 높은 최�
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled                 : False
+    Enabled              : False
     ```
 2. 다음 명령을 입력하여 RSS를 사용하도록 설정합니다.
 
@@ -48,7 +49,7 @@ RSS(수신측 배율)를 사용하는 VM은 RSS 없는 VM보다 더 높은 최�
     ```powershell
     Name                    :Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled                 : True
+    Enabled              : True
     ```
 
 ## <a name="linux-vm"></a>Linux VM
@@ -57,7 +58,7 @@ RSS는 Azure Linux VM에 기본적으로 항상 사용되도록 설정됩니다.
 
 ### <a name="ubuntu"></a>Ubuntu
 
-최적화를 얻으려면 먼저 지원되는 최신 버전으로 업데이트합니다. 예를 들어 2017년 1월이면 다음과 같습니다.
+최적화를 얻으려면 먼저 지원되는 최신 버전으로 업데이트합니다. 예를 들어 2017년 6월이면 다음과 같습니다.
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
@@ -80,7 +81,7 @@ apt-get -y upgrade
 
 ### <a name="centos"></a>CentOS
 
-최적화를 얻으려면 먼저 지원되는 최신 버전으로 업데이트합니다. 예를 들어 2017년 1월이면 다음과 같습니다.
+최적화를 얻으려면 먼저 지원되는 최신 버전으로 업데이트합니다. 예를 들어 2017년 5월이면 다음과 같습니다.
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
@@ -88,7 +89,7 @@ apt-get -y upgrade
 "Version": "latest"
 ```
 업데이트가 완료되면 최신 LIS(Linux Integration Services)를 설치합니다.
-처리량 최적화 기능은 LIS 4.1.3부터 포함됩니다. 다음 명령을 입력하여 LIS를 설치합니다.
+처리량 최적화 기능은 LIS 4.2부터 포함됩니다. 다음 명령을 입력하여 LIS를 설치합니다.
 
 ```bash
 sudo yum update
@@ -99,20 +100,27 @@ sudo yum install microsoft-hyper-v
 ### <a name="red-hat"></a>Red Hat
 
 최적화를 얻으려면 먼저 지원되는 최신 버전으로 업데이트합니다. 예를 들어 2017년 1월이면 다음과 같습니다.
-
-"Publisher": "RedHat" "Offer": "RHEL" "Sku": "7.3" "Version": "7.3.20161104"
-
+```json
+"Publisher": "RedHat"
+"Offer": "RHEL"
+"Sku": "7.3"
+"Version": "7.3.2017062722"
+```
 업데이트가 완료되면 최신 LIS(Linux Integration Services)를 설치합니다.
-처리량 최적화 기능은 LIS 4.1.3부터 포함됩니다. 다음 명령을 입력하여 LIS를 다운로드한 후 설치합니다.
+처리량 최적화 기능은 LIS 4.2부터 포함됩니다. 다음 명령을 입력하여 LIS를 다운로드한 후 설치합니다.
 
 ```bash
-mkdir lis4.1.3
-cd lis4.1.3
-wget https://download.microsoft.com/download/7/6/B/76BE7A6E-E39F-436C-9353-F4B44EF966E9/lis-rpms-4.1.3.tar.gz
-tar xvzf lis-rpms-4.1.3.tar.gz
+mkdir lis4.2.1
+cd lis4.2.1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
+tar xvzf lis-rpms-4.2.1-1.tar.gz
 cd LISISO
-install.sh #or upgrade.sh if previous LIS was previously installed
+install.sh #or upgrade.sh if prior LIS was previously installed
 ```
- 
-[다운로드 페이지](https://www.microsoft.com/download/details.aspx?id=51612)를 확인하여 Hyper-V용 Linux Integration Services 버전 4.1에 대해 자세히 알아보세요.
+
+[다운로드 페이지](https://www.microsoft.com/download/details.aspx?id=55106)를 확인하여 Hyper-V용 Linux Integration Services 버전 4.2에 대해 자세히 알아보세요.
+
+## <a name="next-steps"></a>다음 단계
+* 이제 VM이 최적화되었으므로 [Azure VM 대역폭/처리량 테스트](virtual-network-bandwidth-testing.md)를 통해 시나리오에 대한 결과를 확인하세요.
+* [Azure Virtual Network FAQ(질문과 대답)](virtual-networks-faq.md)에 대해 자세히 알아보기
 

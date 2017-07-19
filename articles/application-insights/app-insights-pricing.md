@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0a66567d7381f38787f9aa7652c944e4bb3aef82
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 311cee724fc77256748153b5167d2a38ccba9775
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -41,19 +41,21 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 새로 만든 Application Insights 리소스가 대부분의 고객에게 충분할 경우 기본적으로 기본 계획이 적합합니다.
 
 * 기본 계획에서는 데이터 볼륨(Application Insights에서 받은 원격 분석의 바이트 수)에 따라 요금이 청구됩니다. 데이터 볼륨은 응용 프로그램의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다.
+For [분석으로 가져온 표 형식 데이터](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import)의 경우 데이터 볼륨은 Application Insights로 전송된 파일의 압축되지 않은 크기로 측정됩니다.  
 * 각 앱마다 최초의 1GB는 무료이므로 실험 중이거나 개발 중이라면 비용을 지불하지 않아도 됩니다.
 * [라이브 메트릭 스트림](app-insights-live-stream.md) 데이터는 가격 책정에 계산 되지 않습니다.
-* 기본 계획에서 [연속 내보내기](app-insights-export-telemetry.md)는 GB당 추가 요금으로 사용할 수 있습니다(단 2017년 3월 초까지는 무료).
+* [연속 내보내기](app-insights-export-telemetry.md)는 기본 계획에서 GB당 추가 요금으로 사용할 수 있습니다.
 
 ### <a name="enterprise-plan"></a>엔터프라이즈 계획
 
-* 엔터프라이즈 계획에서는 Application Insights의 모든 기능이 앱에서 사용될 수 있습니다. 엔터프라이즈 계획에서 [연속 내보내기](app-insights-export-telemetry.md) 및 [Log Analytics 커넥터](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409)는 추가 요금 없이 사용할 수 있습니다.
+* 엔터프라이즈 계획에서는 Application Insights의 모든 기능이 앱에서 사용될 수 있습니다. [연속 내보내기](app-insights-export-telemetry.md) 및 
+
+[Log Analytics 커넥터](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409)는 엔터프라이즈 계획에서 추가 요금 없이 사용할 수 있습니다.
 * 엔터프라이즈 계획의 모든 앱에 대한 원격 분석을 보내는 노드 당 비용을 지불합니다. 
  * *노드*는 앱을 호스팅하는 실제/가상 서버 컴퓨터 또는 PaaS(Platform-as-a-Service) 역할 인스턴스입니다.
  * 개발 컴퓨터, 클라이언트 브라우저 및 모바일 장치는 노드로 계산되지 않습니다.
  * 원격 분석을 보내는 여러 구성 요소(예: 웹 서비스 및 백 엔드 작업자)가 앱에 있는 경우 개별적으로 집계됩니다.
- * [라이브 메트릭 스트림](app-insights-live-stream.md) 데이터는 가격 책정에 계산 되지 않습니다.
-* 요금은 구독을 통해 앱 기준이 아니라 노드 기준으로 부과됩니다. 12개 앱에 대해 원격 분석을 보내는 노드가 5개 있는 경우 5개 노드에 대한 요금이 부과됩니다.
+ * [라이브 메트릭 스트림](app-insights-live-stream.md) 데이터는 가격 책정에 계산되지 않습니다.* 요금은 구독을 통해 앱 기준이 아니라 노드 기준으로 부과됩니다. 12개 앱에 대해 원격 분석을 보내는 노드가 5개 있는 경우 5개 노드에 대한 요금이 부과됩니다.
 * 요금이 매월 견적되지만 노드에서 앱의 원격 분석을 보내는 모든 시간에 대해서만 부과됩니다. 시간당 요금은 견적된 월별 요금/744(월 31일 기준의 시간 수)입니다.
 * 시간별로 감지되는 각 노드에 대해 1일 200MB의 데이터 볼륨 할당이 제공됩니다. 사용되지 않은 데이터 할당은 다음 날로 이월되지 않습니다.
  * 엔터프라이즈 가격 책정 옵션을 선택하면 각 구독은 해당 구독의 Application Insights 리소스에 원격 분석을 보내는 노드 수에 따라 일일 데이터 허용량을 받습니다. 따라서 하루 종일 데이터를 전송하는 5개의 노드가 있는 경우 해당 구독의 모든 Application Insights 리소스에 풀링된 1GB 허용량이 적용됩니다. 모든 노드에서 포함된 데이터를 공유하기 때문에 특정 노드에서 다른 노드보다 더 많은 데이터를 보내는 것은 중요하지 않습니다. 지정된 날에 Application Insights 리소스에서 해당 구독의 일일 데이터 할당에 포함된 것보다 많은 데이터를 받으면 GB당 초과 데이터 요금이 적용됩니다. 
@@ -79,9 +81,18 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 [다중 단계 웹 테스트](app-insights-monitor-web-app-availability.md#multi-step-web-tests)에 대한 추가 요금이 있습니다. 이는 일련의 작업을 수행하는 웹 테스트를 나타냅니다. 
 
 단일 페이지의 'ping 테스트'에 대해 별도의 요금이 부과되지 않습니다. ping 테스트와 다중 단계 테스트 모두의 원격 분석은 앱의 다른 원격 분석과 함께 청구됩니다.
+ 
+## <a name="operations-management-suite-subscription-entitlement"></a>Operations Management Suite 구독 자격
 
-## <a name="review-pricing-plan-and-estimate-costs-for-your-application-insights-resource"></a>Application Insights 리소스에 대한 가격 계획 및 예상 비용 검토
-응용 프로그램에 대한 Application Insights 리소스에서 기능 + 가격 책정 블레이드를 엽니다.
+[최근 발표](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/)된 대로 Microsoft Operations Management Suite E1 및 E2를 구매하는 고객은 추가 비용 없이 Application Insights Enterprise를 추가 구성 요소로 얻을 수 있습니다. 특히, Operations Management Suite E1 및 E2의 각 구매 단위에는 Application Insights 엔터프라이즈 계획의 노드 1개에 대한 자격이 포함됩니다. 위의 설명대로 각 Application Insights 노드에는 매일 수집되는 데이터가 200MB까지 포함되고(Log Analytics 데이터 수집과 별도) 데이터는 추가 비용 없이 90일 간 보존됩니다. 
+
+> [!NOTE]
+> 이 자격을 얻으려면 엔터프라이즈 가격 계획에 Application Insights 리소스가 있어야 합니다. 이 자격은 노드로만 적용되므로 기본 계획의 Application Insights 리소스는 아무런 이점도 없습니다. 이 자격은 기능 + 가격 블레이드에 표시된 예상 비용에서 볼 수 없습니다. 
+>
+ 
+## <a name="review-pricing-plans-and-estimate-costs"></a>가격 계획 검토 및 비용 추정
+
+Applicaition Insights를 사용하면 사용 가능한 가격 계획 및 최근 사용 패턴에 따른 가능한 비용을 쉽게 파악할 수 있습니다. 먼저 Azure Portal의 Application Insights 리소스에서 **기능 + 가격** 블레이드를 엽니다.
 
 ![가격 책정을 선택합니다.](./media/app-insights-pricing/01-pricing.png)
 

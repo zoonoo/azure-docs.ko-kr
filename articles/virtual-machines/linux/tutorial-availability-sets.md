@@ -17,10 +17,10 @@ ms.date: 05/22/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: bfa4135600cb94d3947323219969872c2da7912b
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 927eb9f4f40759c0a79daa6dd3e91e5ab0853520
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -36,10 +36,10 @@ ms.lasthandoff: 06/01/2017
 > * 가용성 집합에서 VM 만들기
 > * 사용 가능한 VM 크기 확인
 
-이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="availability-set-overview"></a>가용성 집합 개요
 

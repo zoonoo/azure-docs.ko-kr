@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2017
+ms.date: 06/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 1436b39fdb9a66a00903442496cc5203b47c1bcb
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: d8b041213b269775175a810e585103d3c538557f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -90,7 +90,7 @@ ms.lasthandoff: 05/13/2017
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-예제 템플릿을 배포하려면 Azure PowerShell 또는 Azure CLI를 사용할 수 있습니다. 2017년 5월 이후의 Azure PowerShell 또는 Azure CLI 릴리스를 사용해야 합니다. 예제에서는 템플릿을 **crossrgdeployment.json**이라는 이름의 파일로 로컬로 저장한다고 가정합니다.
+예제 템플릿을 배포하려면 포털, Azure PowerShell 또는 Azure CLI를 사용할 수 있습니다. Azure PowerShell 또는 Azure CLI의 경우 2017년 5월 이후의 릴리스를 사용해야 합니다. 예제에서는 템플릿을 **crossrgdeployment.json**이라는 이름의 파일로 로컬로 저장한다고 가정합니다.
 
 PowerShell의 경우:
 
@@ -117,6 +117,42 @@ az group deployment create \
 ```
 
 배포가 완료되면 두 개의 리소스 그룹이 표시됩니다. 각 리소스 그룹에는 저장소 계정이 포함되어 있습니다.
+
+## <a name="use-resourcegroup-function"></a>resourceGroup() 함수 사용
+
+교차 리소스 그룹 배포를 위해 [resouceGroup() 함수](resource-group-template-functions-resource.md#resourcegroup)는 중첩 템플릿 지정 방식에 따라 다르게 확인됩니다. 
+
+하나의 템플릿을 다른 템플릿 내에 포함하는 경우 중첩 템플릿의 resouceGroup()가 부모 리소스 그룹으로 확인됩니다. 포함된 템플릿은 다음 형식을 사용합니다.
+
+```json
+"apiVersion": "2017-05-10",
+"name": "embeddedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "template": {
+        ...
+        resourceGroup() refers to parent resource group
+    }
+}
+```
+
+별도의 템플릿에 연결하는 경우 연결된 템플릿의 resouceGroup()가 중첩된 리소스 그룹으로 확인됩니다. 연결된 템플릿은 다음 형식을 사용합니다.
+
+```json
+"apiVersion": "2017-05-10",
+"name": "linkedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "templateLink": {
+        ...
+        resourceGroup() in linked template refers to linked resource group
+    }
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 037045c4e76d0fb8e96944fe8a3235223594a034
-ms.lasthandoff: 03/30/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 3b2ddf764f54d2e7f23b02b5b593077938ac9355
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -32,7 +33,7 @@ Azure Application Gateway는 서비스 형태의 ADC(응용 프로그램 전달 
 
 **Q. Application Gateway에서 지원하는 기능은 어떤 것이 있나요?**
 
-Application Gateway에서는 SSL 오프로딩 및 종단 간 SSL, 웹 응용 프로그램 방화벽(미리 보기), 쿠키 기반 세션 선호도, url 경로 기반 라우팅, 다중 사이트 호스팅 등을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
+Application Gateway에서는 SSL 오프로딩 및 종단 간 SSL, 웹 응용 프로그램 방화벽, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 다중 사이트 호스팅 등을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
 
 **Q. Application Gateway와 Azure Load Balancer 간의 차이는 무엇인가요?**
 
@@ -78,6 +79,10 @@ Application Gateway에서는 하나의 공용 IP 주소만 지원됩니다.
 
 예, Application Gateway는 백 엔드로 전달되는 요청에 x-forwarded-for, x-forwarded-proto 및 x-forwarded-port 헤더를 삽입합니다. x-forwarded-for 헤더의 형식은 쉼표로 구분된 IP:Port 목록입니다. x-forwarded-proto 에 대해 유효한 값은 http 또는 https입니다. X-forwarded-port는 Application Gateway에서 요청이 도달한 포트를 지정합니다.
 
+**Q. Application Gateway를 배포하는 데 얼마의 시간이 걸리나요? Application Gateway가 업데이트되어도 여전히 작동하나요?**
+
+새 Application Gateway 배포 시 프로비전하는 데 최대 20분이 걸릴 수 있습니다. 인스턴스 크기/수가 변경되어도 중단되지 않으며, 게이트웨이는 이 시간 동안 활성 상태를 유지합니다.
+
 ## <a name="configuration"></a>구성
 
 **Q. Application Gateway가 가상 네트워크에서 항상 배포되나요?**
@@ -90,11 +95,17 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 
 **Q. Application Gateway 서브넷에서 다른 항목을 배포할 수 있나요?**
 
-아니요, 하지만 다른 응용 프로그램 게이트웨이는 서브넷에 배포할 수 있습니다.
+아니요, 그러나 서브넷에 다른 응용 프로그램 게이트웨이를 배포할 수 있습니다.
 
 **Q. Application Gateway 서브넷에서 네트워크 보안 그룹이 지원되나요?**
 
-Application Gateway 서브넷에서 네트워크 보안 그룹이 지원되지만 백 엔드 상태가 적절히 작동하려면 포트 65503-65534에 대해 예외가 적용되어야 합니다. 아웃바운드 인터넷 연결이 차단되지 않아야 합니다.
+네트워크 보안 그룹은 Application Gateway 서브넷에서 지원되지만, 다음과 같은 제한 사항이 있습니다.
+
+* 백 엔드 상태가 올바르게 작동하도록 포트 65503-65534에 들어오는 트래픽에 대한 예외를 구현해야 합니다.
+
+* 아웃바운드 인터넷 연결이 차단되지 않아야 합니다.
+
+* AzureLoadBalancer 태그의 트래픽을 허용해야 합니다.
 
 **Q. Application Gateway에서 한도는 어떻게 되나요? 이러한 한도를 늘릴 수 있나요?**
 
@@ -122,7 +133,21 @@ Application Gateway 서브넷에서 네트워크 보안 그룹이 지원되지�
 
 **Q. 사용자 지정 프로브에 대한 호스트 필드는 무엇을 나타내나요?**
 
-호스트 필드는 프로브를 보낼 이름을 지정합니다. 다중 사이트를 Application Gateway에 구성하는 경우에만 적용할 수 있습니다. 그렇지 않으면 '127.0.0.1'을 사용합니다. 이 값은 VM 호스트 이름과 다르며 \<프로토콜\>://\<호스트\>:\<포트\>\<경로\> 형식입니다. 
+호스트 필드는 프로브를 보낼 이름을 지정합니다. 다중 사이트를 Application Gateway에 구성하는 경우에만 적용할 수 있습니다. 그렇지 않으면 '127.0.0.1'을 사용합니다. 이 값은 VM 호스트 이름과 다르며 \<프로토콜\>://\<호스트\>:\<포트\>\<경로\> 형식입니다.
+
+**Q. 몇 가지 원본 IP에 대한 Application Gateway 액세스를 허용 목록에 추가할 수 있나요?**
+
+Application Gateway 서브넷에 NSG를 사용하여 이렇게 할 수 있습니다. 우선 순위에 따라 나열된 다음 제한 사항을 서브넷에 적용해야 합니다.
+
+* 원본 IP/IP 범위에서 들어오는 트래픽을 허용합니다.
+
+* [백 엔드 상태 통신](application-gateway-diagnostics.md)을 위해 모든 원본에서 포트 65503-65534로 들어오는 요청을 허용합니다.
+
+* [NSG](../virtual-network/virtual-networks-nsg.md)에 대한 들어오는 Azure Load Balancer 프로브(AzureLoadBalancer 태그) 및 인바운드 가상 네트워크 트래픽(VirtualNetwork 태그)을 허용합니다.
+
+* 모두 거부 규칙을 사용하여 다른 모든 들어오는 트래픽을 차단합니다.
+
+* 모든 대상에 대해 인터넷으로의 아웃바운드 트래픽을 허용합니다.
 
 ## <a name="performance"></a>성능
 
@@ -283,3 +308,4 @@ Application Gateway에 대해 감사 로그를 사용할 수 있습니다. 포�
 ## <a name="next-steps"></a>다음 단계
 
 Application Gateway에 대한 자세한 내용은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
+

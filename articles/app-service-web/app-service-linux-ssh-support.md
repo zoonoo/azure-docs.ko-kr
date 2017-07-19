@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c1fdd9835992559c985426855a45c09849d54af2
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 6da663ea282e09b01ce380827fa7e31505712516
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 05/10/2017
 
 [SSH(보안 셸)](https://en.wikipedia.org/wiki/Secure_Shell)는 네트워크 서비스를 안전하게 사용하기 위한 암호화 네트워크 프로토콜입니다. 이 방법은 명령줄에서 원격으로 안전하게 컴퓨터에 로그인하고 원격으로 관리 명령을 실행하는 데 가장 일반적으로 사용됩니다.
 
-Linux의 웹앱은 기본 제공된 각 Docker 이미지가 새 웹앱의 런타임 스택에 사용되는 SSH 지원을 제공합니다. 
+Linux의 웹앱은 새 웹앱의 런타임 스택에 사용되는 각 기본 제공 Docker 이미지를 통해 앱 컨테이너에 SSH 지원을 제공합니다. 
 
 ![런타임 스택](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
@@ -72,7 +72,7 @@ SSH 클라이언트 연결을 만들려면 주 사이트를 시작해야 합니�
       && echo "root:Docker!" | chpasswd
     ``` 
 
-2. [`COPY` 명령](https://docs.docker.com/engine/reference/builder/#copy)을 Dockerfile에 추가하여 [sshd_config](http://man.openbsd.org/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사합니다. 구성 파일은 Azure-App-Service GitHub 리포지토리([여기](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/sshd_config) 참조)의 sshd_config 파일을 기준으로 해야 합니다.
+2. [`COPY` 명령](https://docs.docker.com/engine/reference/builder/#copy)을 Dockerfile에 추가하여 [sshd_config](http://man.openbsd.org/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사합니다. 구성 파일은 Azure-App-Service GitHub 리포지토리([여기](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config) 참조)의 sshd_config 파일을 기준으로 해야 합니다.
 
     > [!NOTE] 
     > *sshd_config* 파일에 다음이 포함되어야 하며 이러한 항목이 없으면 연결이 실패합니다. 
@@ -103,7 +103,7 @@ SSH 클라이언트 연결을 만들려면 주 사이트를 시작해야 합니�
     COPY init_container.sh /bin/
       ...
     RUN chmod 755 /bin/init_container.sh 
-      ...        
+      ...       
     CMD ["/bin/init_container.sh"]
     ```
 

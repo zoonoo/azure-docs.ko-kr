@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
+ms.date: 06/08/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: e9601830a2444772dd268160c9ad821a772bc1b4
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: 9820cef564e291d1c8aee7c360198de1dc05379e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -28,7 +29,7 @@ Microsoft Azure 저장소 에뮬레이터는 개발 목적으로 Azure Blob, 큐
 ## <a name="get-the-storage-emulator"></a>저장소 에뮬레이터 가져오기
 저장소 에뮬레이터는 [Microsoft Azure SDK](https://azure.microsoft.com/downloads/)의 일부로 제공됩니다. [독립 실행형 설치 관리자](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)(직접 다운로드)를 사용하여 저장소 에뮬레이터를 설치할 수도 있습니다. 저장소 에뮬레이터를 설치하려면 컴퓨터에 대한 관리자 권한이 있어야 합니다.
 
-저장소 에뮬레이터는 현재 Windows에서만 실행됩니다.
+저장소 에뮬레이터는 현재 Windows에서만 실행됩니다. Linux용 저장소 에뮬레이터를 고려 중인 경우 커뮤니티에서 유지 관리하는 오픈 소스 저장소 에뮬레이터 [Azurite](https://github.com/arafato/azurite)가 하나의 옵션이 될 수 있습니다.
 
 > [!NOTE]
 > 저장소 에뮬레이터의 어느 한 버전으로 작성한 데이터에 다른 버전으로 반드시 액세스할 수 있는 것은 아닙니다. 장기간 보존하려는 데이터는 저장소 에뮬레이터가 아닌 Azure Storage 계정에 저장하는 것이 좋습니다.
@@ -259,6 +260,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 
 ## <a name="next-steps"></a>다음 단계
 
+* 커뮤니티에서 유지 관리하는 플랫폼 간 오픈 소스 저장소 에뮬레이터 [Azurite](https://github.com/arafato/azurite)를 평가합니다. 
 * [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)에는 응용 프로그램을 개발할 때 사용할 수 있는 몇 가지 코드 샘플에 대한 링크가 있습니다.
 * [Microsoft Azure Storage 탐색기](http://storageexplorer.com)를 사용하여 클라우드 저장소 계정 및 저장소 에뮬레이터의 리소스를 사용할 수 있습니다.
 

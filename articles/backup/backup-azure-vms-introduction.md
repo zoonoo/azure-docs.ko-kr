@@ -13,12 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/5/2017
+ms.date: 5/22/2017
 ms.author: markgal;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: b6780e3dc0833c9a074ba85566848ac4246fa848
-ms.lasthandoff: 04/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 6d390a75df51a22aa4e60094f3e4ba945a5725ad
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -118,7 +119,8 @@ Azure Backup은 스크립팅 프레임워크를 제공합니다. Linux VM을 백
 * 사용량이 많지 않은 시간에 VM 백업을 예약하세요. 그러면 Backup 서비스가 고객 저장소 계정에서 자격 증명 모음으로 데이터를 전송할 때 IOPS를 사용합니다.
 * 정책이 서로 다른 저장소 계정에 분산된 VM에 적용되어야 합니다. 권장 단일 저장소 계정에서 20개 이하의 총 디스크를 동일한 백업 일정으로 보호하는 것이 좋습니다. 저장소 계정에 20개가 넘는 디스크가 있는 경우 해당 VM을 여러 정책에 분산하여 백업 프로세스의 전송 단계에서 필요한 IOPS를 얻습니다.
 * 프리미엄 저장소에서 실행되는 VM을 동일한 저장소 계정에 복원하지 마세요. 복원 작업 프로세스가 백업 작업과 일치하는 경우 백업에 사용할 수 있는 IOPS를 감소시킵니다.
-* 백업 성능을 최적화하기 위해 각 프리미엄 VM을 고유한 프리미엄 저장소 계정에서 실행하는 것이 좋습니다.
+* 프리미엄 VM 백업의 경우 프리미엄 디스크를 호스트하는 저장소 계정에 성공적인 백업을 위해 스냅샷 준비에 사용할 50% 이상의 사용 가능한 공간이 있는지 확인합니다. 
+* 백업에 사용할 수 있는 Linux VM의 python 버전이 2.7인지 확인합니다.
 
 ## <a name="data-encryption"></a>데이터 암호화.
 Azure 백업은 백업 프로세스의 일부로 데이터를 암호화하지 않습니다. 그러나 VM 내에서 원활하게 데이터를 암호화하고 보호되는 데이터를 백업할 수 있습니다( [암호화된 데이터 백업](backup-azure-vms-encryption.md)에 대해 자세히 알아보기).

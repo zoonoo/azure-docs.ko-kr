@@ -13,18 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 05/30/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 06a97b48fed8f80679632f5c0320d4dd73b8e1e2
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 6032263848c469ce2f416306e5c91c29f4cb30e4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 Azure Windows 가상 컴퓨터의 이미지를 캡처합니다.
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델 정보에 대해서는 [Azure에서 실행되는 복사본 Windows VM 만들기](../../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델 정보는 [Azure에서 일반화된 VM의 관리되는 이미지 캡처](../capture-image-resource.md)를 참조하세요.
 
 이 문서에서는 Windows가 실행되는 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만들 때 이미지로 사용하는 방법을 소개합니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결되는 모든 데이터 디스크가 포함됩니다. 네트워킹 구성은 포함되지 않으므로, 이미지를 사용하는 다른 가상 컴퓨터를 만들 때 네트워크 구성을 설정해야 합니다.
 
@@ -55,7 +56,7 @@ Azure Virtual Machine의 이미지를 캡처하기 전에 대상 가상 컴퓨�
    * **확인**을 클릭합니다.
 
    ![Sysprep 실행](./media/capture-image/SysprepGeneral.png)
-5. Sysprep는 Azure 클래식 포털에서 가상 컴퓨터의 상태를 변경하는 가상 컴퓨터를 **중지**하기 위해 차단시킵니다.
+5. Sysprep을 실행하면 가상 컴퓨터가 종료되고 Azure Portal의 가상 컴퓨터 상태가 **중지됨**으로 변경됩니다.
 6. Azure Portal에서 **가상 컴퓨터(클래식)**를 클릭한 후 캡처하려는 가상 컴퓨터를 선택합니다. **VM 이미지(클래식)** 그룹은 **추가 서비스**를 볼 때 **계산** 아래에 나열됩니다.
 
 7. 명령 모음에서 **캡처**를 클릭합니다.

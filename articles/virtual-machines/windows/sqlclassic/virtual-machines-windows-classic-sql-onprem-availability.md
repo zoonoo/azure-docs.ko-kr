@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/03/2017
+ms.date: 05/31/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 59ca9514c4cac97e8dd6dafc7a59406925b7b2df
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -31,7 +32,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 * 활성 Azure 구독. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * 기존 Always On 가용성 그룹 온-프레미스. 가용성 그룹에 대한 자세한 내용은 [Always On 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
-* Azure 가상 네트워크와 온-프레미스 네트워크 간의 연결. 이 가상 네트워크 만들기에 대한 자세한 내용은 [Azure 클래식 포털에서 사이트 간 VPN 구성](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)을 참조하세요.
+* Azure 가상 네트워크와 온-프레미스 네트워크 간의 연결. 이 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)를 참조하세요.
 
 > [!IMPORTANT] 
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
@@ -44,7 +45,7 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 
 1. SQL Server Management Studio에서 **Always On 고가용성** > **가용성 그룹** > **[가용성 그룹 이름]**을 확장합니다.
 2. 마우스 오른쪽 단추로 **가용성 복제본**을 클릭한 다음 **복제본 추가**를 클릭합니다.
-3. 기본적으로는 **가용성 그룹에 복제본 추가 마법사** 가 표시됩니다. **다음**을 클릭합니다.  그 전에 이 마법사를 실행하는 중에 페이지 하단에 표시되는 **이 페이지를 다시 표시 안 함** 옵션을 선택한 경우 이 화면이 표시되지 않습니다.
+3. 기본적으로는 **가용성 그룹에 복제본 추가 마법사** 가 표시됩니다. **다음**을 누릅니다.  그 전에 이 마법사를 실행하는 중에 페이지 하단에 표시되는 **이 페이지를 다시 표시 안 함** 옵션을 선택한 경우 이 화면이 표시되지 않습니다.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
 4. 모든 기존 보조 복제본에 연결해야 합니다. **연결…**을 클릭합니다. 화면 하단의 **모두 연결…**을 을 클릭할 수 있습니다. 인증 후 **다음** 을 클릭하여 다음 화면으로 이동합니다.
@@ -74,9 +75,9 @@ SQL Server에 하나 이상의 Azure VM을 프로비전한 다음 온-프레미�
 10. **복제본 지정** 페이지가 다시 표시됩니다. **복제본**, **끝점** 및 **백업 기본 설정** 탭에서 새 Azure 복제본에 대한 설정을 확인합니다. 비즈니스 요구 사항에 맞게 설정을 수정합니다.  이 탭에 포함된 매개 변수에 대한 자세한 내용은 [복제본 지정 페이지(새 가용성 그룹 마법사/복제본 추가 마법사)](https://msdn.microsoft.com/library/hh213088.aspx)를 참조하세요. Azure 복제본이 포함된 가용성 그룹에 대해서는 수신기 탭을 사용하여 수신기를 만들 수 없습니다. 또한 마법사를 실행하기 전에 이미 수신기가 만들어진 경우 Azure에서 해당 사항이 지원되지 않는다는 메시지가 표시됩니다. 수신기를 만드는 방법은 **가용성 그룹 수신기 만들기** 섹션에서 살펴볼 것입니다.
     
      ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742865.png)
-11. **다음**을 클릭합니다.
+11. **다음**을 누릅니다.
 12. **초기 데이터 동기화 선택** 페이지에서 사용하려는 데이터 동기화 방법을 선택하고 **다음**을 클릭합니다. 대부분의 시나리오에서 **전체 데이터 동기화**를 선택합니다. 데이터 동기화 방법에 대한 자세한 내용은 [최초 데이터 동기화 선택 페이지(Always On 가용성 그룹 마법사)](https://msdn.microsoft.com/library/hh231021.aspx)를 참조하세요.
-13. **유효성 검사** 페이지에서 결과를 검토합니다. 해결되지 않은 문제를 수정하고 필요에 따라 유효성 검사를 다시 실행합니다. **다음**을 클릭합니다.
+13. **유효성 검사** 페이지에서 결과를 검토합니다. 해결되지 않은 문제를 수정하고 필요에 따라 유효성 검사를 다시 실행합니다. **다음**을 누릅니다.
     
      ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742866.png)
 14. **요약** 페이지에서 설정을 검토한 다음 **마침**을 클릭합니다.

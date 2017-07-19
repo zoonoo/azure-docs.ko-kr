@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2017
+ms.date: 06/06/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 06fe033be4df07d8c691733016bc7c44dd49f51c
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: e0c44f6aabb56dfc97188bafa5e54ce2a0183e11
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -37,20 +38,16 @@ ms.lasthandoff: 04/06/2017
 * 만들려는 솔루션에 어떤 형식의 VPN 게이트웨이가 필요한가요?
 * 어떤 게이트웨이 SKU를 사용해야 합니까?
 
+
+### <a name="planning-table"></a>계획 표
 다음 테이블은 솔루션에 대한 최상의 연결 옵션을 결정하는 데 도움이 될 수 있습니다.
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### <a name="gwrequire"></a>VPN 유형 및 SKU별 게이트웨이 요구 사항
-[!INCLUDE [vpn-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
 
-게이트웨이 SKU에 대한 자세한 내용은 [설정](vpn-gateway-about-vpn-gateway-settings.md#gwsku)을 참조하세요.
-
-#### <a name="aggregate-throughput-by-sku-and-vpn-type"></a>SKU 및 VPN 형식별 총 처리량
+### <a name="gateway-skus"></a>게이트웨이 SKU
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-#### <a name="supported-configurations-by-sku-and-vpn-type"></a>SKU와 VPN 형식별 지원되는 구성
-[!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ### <a name="wf"></a>워크플로
 다음은 클라우드 연결의 공통 워크플로를 요약한 목록입니다.
