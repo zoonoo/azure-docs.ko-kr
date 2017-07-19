@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: d1f1852d720ebf51df9ec3207b070510b08a6483
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 5a6cc2db67bb60c84c9d9c08346074e9e05345f8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -42,7 +42,7 @@ BGP의 이점에 대한 자세한 설명과 BGP 사용의 기술 요구 사항 �
 
 ![BGP 토폴로지](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crosspremv2v.png)
 
-이러한 요소를 결합하여 필요에 따라 더 복잡하고 다양한 목적으로 전송 네트워크를 빌드할 수 있습니다.
+이러한 요소를 결합하여 필요에 따라 더 복잡한 다중 홉 전송 네트워크를 빌드할 수 있습니다.
 
 ## <a name ="enablebgp"></a>1부 - Azure VPN 게이트웨이에서 BGP 구성
 다음 구성 단계에서는 다음 다이어그램에 표시된 대로 Azure VPN 게이트웨이의 BGP 매개 변수를 설정합니다.

@@ -12,20 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/25/2017
+ms.date: 06/05/2017
 ms.author: rajanaki
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 711fb0715b7f12e12a742136f75af8069cbc83d8
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 6664cb20393ec5f588c8eeb119d6f606a0072861
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/15/2017
 
 
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-to-azure"></a>Azure에 복제하기 위한 Azure Site Recovery 지원 매트릭스
-
-> [!div class="op_single_selector"]
-> * [Azure에 복제](site-recovery-support-matrix-to-azure.md)
-> * [고객 소유의 보조 사이트에 복제](site-recovery-support-matrix-to-sec-site.md)
+# <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 복제하기 위한 Azure Site Recovery 지원 매트릭스
 
 
 이 문서에서는 Azure로 복제 및 복구할 때 Azure Site Recovery에 대해 지원되는 구성 및 구성 요소를 요약하여 설명합니다. Azure Site Recovery 요구 사항에 대한 자세한 내용은 [필수 구성 요소](site-recovery-prereq.md)를 참조하세요.
@@ -68,16 +65,23 @@ ms.lasthandoff: 04/18/2017
 Azure에 복제하는 경우 보호되는 가상 컴퓨터가 [Azure 요구 사항](#failed-over-azure-vm-requirements)을 충족해야 합니다.
 다음은 Azure Site Recovery를 사용하는 경우 다양한 배포 시나리오에서 지원되는 복제된 운영 체제를 요약한 테이블입니다. 이 지원은 언급된 OS에서 실행되는 모든 워크로드에 적용됩니다.
 
- **VMware/물리적 서버** | **Hyper-V(Virtual Machine Manager 있음/없음)** |
+ **VMware/물리적 서버** | **Hyper-V(VMM 포함/제외)** |
 --- | --- |
-64비트 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5 <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>복제 컴퓨터를 SLES 11 SP3에서 SLES 11 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터가 SLES 11SP3에서 SLES 11 SP4로 업그레이드된 경우 복제를 비활성화하고 업그레이드 후 컴퓨터를 다시 보호해야 합니다. | [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868.aspx) 모든 게스트 OS
+64비트 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/>CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5 <br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/> SUSE Linux Enterprise Server 11 SP4 <br/>복제 컴퓨터를 SLES 11 SP3에서 SLES 11 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터가 SLES 11SP3에서 SLES 11 SP4로 업그레이드된 경우 복제를 비활성화하고 업그레이드 후 컴퓨터를 다시 보호해야 합니다. | [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868.aspx) 모든 게스트 OS
 
 
 >[!IMPORTANT]
 >(Azure에 복제하는 VMware/물리적 서버에 적용 가능)
 >
 > Red Hat Enterprise Linux Server 7+ 및 CentOS 7+ 서버에서 커널 버전 3.10.0-514는 Azure Site Recovery 모바일 서비스 9.8 버전부터 지원됩니다.<br/><br/>
-> 버전 9.8보다 낮은 모바일 서비스 버전을 사용하는 3.10.0-514 커널의 고객은 복제를 비활성화하고 모바일 서비스 버전을 버전 9.8로 업데이트한 다음 복제를 다시 활성화해야 합니다.  
+> 버전 9.8보다 낮은 모바일 서비스 버전을 사용하는 3.10.0-514 커널의 고객은 복제를 사용하지 않도록 설정하고 모바일 서비스 버전을 버전 9.8로 업데이트한 다음 복제를 다시 사용하도록 설정해야 합니다.
+
+
+### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>VMware/물리적 서버에 대해 지원되는 Ubuntu 커널 버전
+
+**릴리스** | **모바일 서비스 버전** | **커널 버전** |
+--- | --- | --- |
+14.04 LTS | 9.9 | 3.13.0-24-generic에서 3.13.0-117-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-75-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Linux(VMware/물리적 서버)에서 지원되는 파일 시스템 및 게스트 저장소 구성
 
@@ -90,7 +94,7 @@ HP CCISS 저장소 컨트롤러가 있는 물리적 서버는 지원되지 않�
 
 >[!Note]
 > Linux 서버에서 /(root), /boot, /usr, /usr/local, /var, /etc 디렉터리(별도의 파티션/파일 시스템으로 설정된 경우)는 모두 원본 서버의 동일한 디스크(OS 디스크)에 있어야 합니다.<br/><br/>
-> 메타데이터 체크섬과 같은 XFS v5 기능은 현재 XFS 파일 시스템의 ASR에서 지원하지 않습니다. XFS 파일 시스템이 v5 기능을 사용하고 있지 않은지 확인합니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인할 수 있습니다. ftype이 1로 설정되면 XFSv5 기능이 사용됩니다. 
+> 메타데이터 체크섬과 같은 XFS v5 기능은 현재 XFS 파일 시스템의 ASR에서 지원하지 않습니다. XFS 파일 시스템이 v5 기능을 사용하고 있지 않은지 확인합니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인할 수 있습니다. ftype이 1로 설정되면 XFSv5 기능이 사용됩니다.
 >
 
 

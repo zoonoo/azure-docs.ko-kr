@@ -12,13 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: required
-ms.date: 01/10/2017
+ms.date: 06/13/2017
 ms.devlang: na
 ms.author: delhan
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 95b12674f3e7d3d63421be6098c72d87cab562b6
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 7fe0636366c60d4679cfc69bd96cd532695b080e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -83,6 +84,6 @@ VM 크기를 줄이는 것이 가능하지 않으면, 다음 단계를 수행합
 기존 클라우드 서비스가 지역 기반 가상 네트워크에 연결되지 않은 경우에는, 기존 클라우드 서비스의 VM을 삭제하고 디스크에서 새 클라우드 서비스에 VM을 다시 만들어야 합니다. 하지만, 새 클라우드 서비스가 새 이름과 VIP를 갖게 되므로, 기존 클라우드 서비스에 이 정보를 사용하는 모든 종속성에 대해 해당 정보를 업데이트해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure에서 새 Windows VM을 만들 때 문제가 발생하면 [Azure에서 새 Windows 가상 컴퓨터 생성 관련 배포 문제 해결](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
+Azure에서 Windows VM을 만들 때 문제가 발생하면 [Azure에서 Windows 가상 컴퓨터 생성 관련 배포 문제 해결](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
 
 

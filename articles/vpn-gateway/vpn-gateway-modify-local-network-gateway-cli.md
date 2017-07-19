@@ -1,6 +1,6 @@
 ---
 title: "로컬 네트워크 게이트웨이 IP 주소 접두사 및 VPN Gateway IP 주소 수정 | Azure | CLI | Microsoft Docs"
-description: "이 문서는 Azure CLI를 사용하여 로컬 네트워크 게이트웨이에 대한 IP 주소 접두사를 변경하는 방법을 안내합니다."
+description: "이 문서에서는 Azure CLI를 사용하여 로컬 네트워크 게이트웨이에 대한 IP 주소 접두사를 변경하는 방법을 안내합니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,19 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2017
+ms.date: 06/19/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 81c1a6e2357c8d336449224fac841be8dcc2a3cd
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: cbcb0b626aceccf9c5a29e60e5b0c66e7812dee1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Azure CLI를 사용하여 로컬 네트워크 게이트웨이 설정 수정
 
-때로는 로컬 네트워크 게이트웨이 AddressPrefix 또는 GatewayIPAddress에 대한 설정을 변경합니다. 이 문서는 로컬 네트워크 게이트웨이 설정을 수정하는 방법을 안내합니다. Azure Portal 또는 PowerShell에서 이러한 설정을 수정할 수도 있습니다.
+때때로 로컬 네트워크 게이트웨이 주소 접두사 또는 게이트웨이 IP 주소에 대한 설정이 변경됩니다. 이 문서는 로컬 네트워크 게이트웨이 설정을 수정하는 방법을 안내합니다. 다음 목록에서 다른 옵션을 선택해 다른 방법으로 이러한 설정을 수정할 수도 있습니다.
+
+> [!div class="op_single_selector"]
+> * [Azure 포털](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
+> * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+>
+>
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

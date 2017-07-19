@@ -1,17 +1,13 @@
-### 사용자 지정 IPsec/IKE 정책은 모든 Azure VPN Gateway SKU에서 지원되나요?
-<a id="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus" class="xliff"></a>
+### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>사용자 지정 IPsec/IKE 정책은 모든 Azure VPN Gateway SKU에서 지원되나요?
 사용자 지정 IPsec/IKE 정책은 **VpnGw1, VpnGw2, VpnGw3, 표준** 및 **HighPerformance** VPN Gateway에서 지원됩니다. **기본** SKU는 지원되지 않습니다.
 
-### 연결에서 얼마나 많은 정책을 지정할 수 있나요?
-<a id="how-many-policies-can-i-specify-on-a-connection" class="xliff"></a>
+### <a name="how-many-policies-can-i-specify-on-a-connection"></a>연결에서 얼마나 많은 정책을 지정할 수 있나요?
 지정된 연결에 대해 ***하나의*** 정책 조합만 지정할 수 있습니다.
 
-### 연결에 대해 부분적 정책을 지정할 수 있나요? (예: IPsec을 제외하고 IKE 알고리즘만)
-<a id="can-i-specify-a-partial-policy-on-a-connection-eg-only-ike-algorithms-but-not-ipsec" class="xliff"></a>
+### <a name="can-i-specify-a-partial-policy-on-a-connection-eg-only-ike-algorithms-but-not-ipsec"></a>연결에 대해 부분적 정책을 지정할 수 있나요? (예: IPsec을 제외하고 IKE 알고리즘만)
 아니요, IKE(주 모드) 및 IPsec(빠른 모드) 모두에 대한 모든 알고리즘 및 매개 변수를 지정해야 합니다. 부분 정책 지정은 허용되지 않습니다.
 
-### 사용자 지정 정책에서 지원되는 알고리즘과 키 강도는 어떻게 되나요?
-<a id="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy" class="xliff"></a>
+### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>사용자 지정 정책에서 지원되는 알고리즘과 키 강도는 어떻게 되나요?
 아래 표에는 고객이 구성 가능하도록 지원되는 암호화 알고리즘 및 키 강도가 나와 있습니다. 모든 필드에 대해 한 가지 옵션을 선택해야 합니다.
 
 | **IPsec/IKEv2**  | **옵션**                                                                 |
@@ -29,8 +25,7 @@
 * (*) IKEv2 주 모드 SA 수명은 Azure VPN Gateway에서 28,800초로 고정됩니다.
 * (**) "UsePolicyBasedTrafficSelectors"에 대한 다음 FAQ 항목을 참조하세요.
 
-### Azure VPN Gateway 정책과 온-프레미스 VPN 장치 구성 간에 모든 항목이 일치해야 하나요?
-<a id="does-everything-need-to-match-between-the-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations" class="xliff"></a>
+### <a name="does-everything-need-to-match-between-the-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations"></a>Azure VPN Gateway 정책과 온-프레미스 VPN 장치 구성 간에 모든 항목이 일치해야 하나요?
 온-프레미스 VPN 장치 구성은 Azure IPsec/IKE 정책에서 지정한 다음 알고리즘 및 매개 변수가 일치하거나 포함해야 합니다.
 
 * IKE 암호화 알고리즘
@@ -51,30 +46,23 @@ SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 
 이 옵션을 사용하는 방법에 대한 자세한 내용은 [여러 온-프레미스 정책 기반 VPN 장치 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
 
-### 사용자 지정 정책이 Azure VPN Gateway에 대한 기본 IPsec/IKE 정책 집합을 대체하나요?
-<a id="does-the-custom-policy-replace-the-default-ipsecike-policy-sets-for-azure-vpn-gateways" class="xliff"></a>
+### <a name="does-the-custom-policy-replace-the-default-ipsecike-policy-sets-for-azure-vpn-gateways"></a>사용자 지정 정책이 Azure VPN Gateway에 대한 기본 IPsec/IKE 정책 집합을 대체하나요?
 예, 연결에 사용자 지정 정책이 지정되면 Azure VPN Gateway는 IKE 개시 장치 및 IKE 응답기로의 연결에만 정책을 사용합니다.
 
-### 사용자 지정 IPsec/IKE 정책을 제거하면 연결이 보호되지 않나요?
-<a id="if-i-remove-a-custom-ipsecike-policy-does-the-connection-become-unprotected" class="xliff"></a>
+### <a name="if-i-remove-a-custom-ipsecike-policy-does-the-connection-become-unprotected"></a>사용자 지정 IPsec/IKE 정책을 제거하면 연결이 보호되지 않나요?
 아니요, 연결은 IPsec/IKE로 계속 보호됩니다. 연결에서 사용자 지정 정책을 제거하면 Azure VPN Gateway는 [IPsec/IKE 제안의 기본 목록](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md)으로 다시 되돌려지고 온-프레미스 VPN 장치와 IKE 핸드셰이크를 다시 시작합니다.
 
-### IPsec/IKE 정책을 추가 또는 업데이트하는 것이 VPN 연결에 방해가 될까요?
-<a id="would-adding-or-updating-an-ipsecike-policy-disrupt-my-vpn-connection" class="xliff"></a>
+### <a name="would-adding-or-updating-an-ipsecike-policy-disrupt-my-vpn-connection"></a>IPsec/IKE 정책을 추가 또는 업데이트하는 것이 VPN 연결에 방해가 될까요?
 예, Azure VPN Gateway가 기존 연결을 삭제하고 IKE 핸드셰이크를 다시 시작하여 새로운 암호화 알고리즘 및 매개 변수로 IPsec 터널을 다시 설정하므로 약간의 서비스 중단(몇 초)이 발생할 수 있습니다. 중단을 최소화하려면 온-프레미스 VPN 장치가 일치하는 알고리즘 및 키 강도로 구성되었는지도 확인하세요.
 
-### 다른 연결에 다른 정책을 사용할 수 있나요?
-<a id="can-i-use-different-policies-on-different-connections" class="xliff"></a>
+### <a name="can-i-use-different-policies-on-different-connections"></a>다른 연결에 다른 정책을 사용할 수 있나요?
 예. 사용자 지정 정책은 각 연결 단위로 적용됩니다. 다른 연결에 서로 다른 IPsec/IKE 정책을 만들어 적용할 수 있습니다. 또한 연결의 하위 집합에 대해 사용자 지정 정책을 적용하도록 선택할 수도 있습니다. 나머지는 Azure 기본 IPsec/IKE 정책 집합을 사용합니다.
 
-### VNet 간 연결에서도 사용자 지정 정책을 사용할 수 있나요?
-<a id="can-i-use-the-custom-policy-on-vnet-to-vnet-connection-as-well" class="xliff"></a>
+### <a name="can-i-use-the-custom-policy-on-vnet-to-vnet-connection-as-well"></a>VNet 간 연결에서도 사용자 지정 정책을 사용할 수 있나요?
 예, IPsec 프레미스 간 연결 또는 VNet 간 연결 모두에 사용자 지정 정책을 적용할 수 있습니다.
 
-### 두 VNet 간 연결 리소스에 동일한 정책을 지정해야 하나요?
-<a id="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources" class="xliff"></a>
+### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>두 VNet 간 연결 리소스에 동일한 정책을 지정해야 하나요?
 예. Azure에서 VNet 간 터널은 두 개의 연결 리소스(각 방향당 하나씩)로 구성됩니다. 두 연결 리소스에 동일한 정책이 있는지 확인해야 합니다. 그렇지 않으면 VNet 간 연결이 설정되지 않습니다.
 
-### ExpressRoute 연결에서 사용자 지정 IPsec/IKE 정책이 작동하나요?
-<a id="does-custom-ipsecike-policy-work-on-expressroute-connection" class="xliff"></a>
+### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>ExpressRoute 연결에서 사용자 지정 IPsec/IKE 정책이 작동하나요?
 안 됩니다. IPsec/IKE 정책은 Azure VPN Gateway를 통해 S2S VPN 및 VNet 간 연결에서만 작동합니다.

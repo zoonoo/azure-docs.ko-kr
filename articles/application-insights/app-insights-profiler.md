@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6a3c4273042a7684307d56341de1065ad45eb617
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: ad9174c47e1af8d5dba080ec82f2a56fbbf78782
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -26,8 +26,7 @@ ms.lasthandoff: 05/10/2017
 
 [Azure Application Insights](app-insights-overview.md)의 프로파일링 도구를 사용하여 라이브 웹 응용 프로그램의 각 메서드에서 얼마나 많은 시간이 소요되는지 알아봅니다. 앱에서 제공한 라이브 요청의 자세한 프로필을 보여 주고 가장 많은 시간을 사용하는 '실행 부하 과다 경로'를 강조 표시합니다. 서로 다른 응답 시간을 갖는 예제를 자동으로 선택합니다. 프로파일러는 오버헤드를 최소화하기 위해 다양한 기법을 사용합니다.
 
-프로파일러는 현재 최소한 기본 가격 책정 계층의 Azure 앱 서비스에서 실행 중인 ASP.NET 웹앱에 대해 작동합니다. (ASP.NET Core를 사용하는 경우 대상 프레임워크는 `.NetCoreApp`이어야 합니다.)
-
+프로파일러는 현재 최소한 기본 가격 책정 계층의 Azure 앱 서비스에서 실행 중인 ASP.NET 웹앱에 대해 작동합니다. 
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>프로파일러 활성화
@@ -196,18 +195,21 @@ Application Insights Profiler를 활성화하면 Azure Service Profiler 에이�
 
 ## <a name="manual-installation"></a>수동 설치
 
-프로파일러를 구성하면 웹앱의 설정에 다음 업데이트가 이루어집니다. 환경에 필요한 경우, 예를 들어 응용 프로그램이 내부 부하 분산 장치를 사용하여 개인 네트워크에서 실행되는 경우 이 작업을 수동으로 직접 수행할 수 있습니다.
+프로파일러를 구성하면 웹앱의 설정에 다음 업데이트가 이루어집니다. 환경에 필요한 경우, 예를 들어 응용 프로그램이 ASE(Azure App Service Environment)에서 실행되는 경우 이 작업을 수동으로 직접 수행할 수 있습니다.
 
 1. 웹앱 제어 블레이드에서 설정을 엽니다.
 2. ".NET Framework 버전"을 v4.6으로 설정합니다.
 3. "무중단"을 사용으로 설정합니다.
 4. 앱 설정 "__APPINSIGHTS_INSTRUMENTATIONKEY__"를 추가하고 값을 SDK에서 사용한 동일한 계측 키로 설정합니다.
-5. **확장**에서 "Application Insights"를 추가합니다. 설치하는 데 몇 분 정도 걸립니다.
+5. 고급 도구를 엽니다.
+6. “이동”을 클릭하여 Kudu 웹 사이트를 엽니다.
+7. Kudu 웹 사이트에서 “사이트 확장”을 선택합니다.
+8. 갤러리에서 “__Application Insights__”를 설치합니다.
+9. 웹 앱을 다시 시작합니다.
 
 ## <a id="aspnetcore"></a>ASP.NET Core 지원
 
-AI SDK 2.0 이상을 대상으로 하는 ASP.NET Core 1.1.2 응용 프로그램에서 이 프로파일러가 작동합니다. 
-
+ASP.NET Core 응용 프로그램을 사용하려면 Microsoft.ApplicationInsights.AspNetCore Nuget 패키지 2.1.0-beta6 이상을 설치하여 프로파일러와 작동하도록 해야 합니다. 2017/6/27 이후에는 그보다 하위 버전은 더 이상 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -18,10 +18,10 @@ ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: f29b2c1da0d9b761634370f5f08ea942b66d9f1f
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -30,11 +30,11 @@ ms.lasthandoff: 04/15/2017
 방화벽 규칙이 구성되면 사용자는 관리자 계정 중 하나, 데이터베이스 소유자 또는 데이터베이스에서 데이터베이스 사용자로 SQL Database에 연결할 수 있습니다.  
 
 >  [!NOTE]  
->  이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용 됩니다. 
+>  이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. 
 >
 
 > [!TIP]
-> SQL Server 인증 사용에 대한 자습서는 [자습서: SQL Server 인증](sql-database-control-access-sql-authentication-get-started.md)을 참조합니다. Azure Active Directory 인증 사용에 대한 자습서는 [자습서: AAD 인증](sql-database-control-access-aad-authentication-get-started.md)을 참조합니다.
+> 자습서는 [Azure SQL Database 보안](sql-database-security-tutorial.md)을 참조하세요.
 >
 
 
@@ -191,9 +191,7 @@ SQL Database에서 로그인 및 사용자를 관리하는 경우 다음 사항�
 
 - 방화벽 규칙에 대해 자세히 알아보려면 [Azure SQL Database 방화벽](sql-database-firewall-configure.md)을 참조하세요.
 - 모든 SQL Database 보안 기능에 대한 개요는 [SQL 보안 개요](sql-database-security-overview.md)를 참조하세요.
-- 자습서는 [SQL 보안 시작](sql-database-control-access-sql-authentication-get-started.md)을 참조하세요.
+- 자습서는 [Azure SQL Database 보안](sql-database-security-tutorial.md)을 참조하세요.
 - 보기 및 저장 프로시저에 대한 자세한 내용은 [보기 및 저장 프로시저 만들기](https://msdn.microsoft.com/library/ms365311.aspx)를 참조하세요.
 - 데이터베이스 개체에 대한 액세스 권한 부여에 대한 자세한 내용은 [데이터베이스 개체에 대한 액세스 권한 부여](https://msdn.microsoft.com/library/ms365327.aspx)를 참조하세요.
-- SQL Server 인증 사용에 대한 자습서는 [자습서: SQL Server 인증](sql-database-control-access-sql-authentication-get-started.md)을 참조합니다.
-- Azure Active Directory 인증 사용에 대한 자습서는 [자습서: AAD 인증](sql-database-control-access-aad-authentication-get-started.md)을 참조합니다.
 

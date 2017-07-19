@@ -9,18 +9,18 @@ editor:
 tags: 
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
-ms.custom: security-access
+ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 05/05/2017
+ms.date: 07/05/2017
 ms.author: rickbyh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f018e265d008cc06631034cea417109c71e7786f
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 65966f3adf8abee6d1476e9241b35247599ab1af
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -76,20 +76,20 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 다음 두 절차는 Azure Portal에서나 PowerShell을 사용하여 Azure SQL Server에 대한 Azure Active Directory 관리자를 프로비전하는 방법을 보여 줍니다.
 
 ### <a name="azure-portal"></a>Azure 포털
-1. [Azure 포털](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 클릭하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계는 구독 연결을 Azure SQL Server의 Active Directory와 연결하여 동일한 구독이 두 Azure AD 및 SQL Server에 사용되게 합니다. (Azure SQL Server는 Azure SQL Database 또는 Azure SQL Data Warehouse에서 호스트할 수 있습니다.)
-   
-    ![choose-ad][8]
-2. 왼쪽 배너에서 **SQL Server**와 해당 **SQL Server**를 선택한 다음 **SQL Server** 블레이드의 위쪽에서 **설정**을 클릭합니다.
-   
-    ![ad 설정][9]
-3. **설정** 블레이드에서 **Active Directory 관리자**를 클릭합니다.
-4. **Active Directory 관리자** 블레이드에서 **Active Directory 관리자**를 클릭한 다음 위쪽의 **관리자 설정**을 클릭합니다.
-5. **관리자 추가** 블레이드에서 사용자를 검색하고 관리자가 될 사용자 또는 그룹을 선택한 다음 **선택**을 클릭합니다. Active Directory 관리 블레이드에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시된 사용자나 그룹은 Azure AD 관리자로 지원되지 않기 때문에 선택할 수 없습니다. 위의 **Azure AD 기능 및 제한 사항** 에서 지원되는 관리자 목록을 참조하세요. 역할 기반 액세스 제어(RBAC)는 포털에만 적용되며 SQL Server에 전파되지 않습니다.
-6. **Active directory 관리자** 블레이드 위쪽에서 **저장**을 클릭합니다.
+1. [Azure 포털](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 클릭하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계는 구독 연결을 Azure SQL Server의 Active Directory와 연결하여 동일한 구독이 두 Azure AD 및 SQL Server에 사용되게 합니다. (Azure SQL Server는 Azure SQL Database 또는 Azure SQL Data Warehouse에서 호스트할 수 있습니다.)   
+    ![choose-ad][8]   
+    
+2. 왼쪽 배너에서 **SQL Server**와 해당 **SQL Server**를 선택한 다음 **SQL Server** 블레이드에서 **Active Directory 관리자**를 클릭합니다.   
+3. **Active Directory 관리자** 블레이드에서 **관리자 설정**을 클릭합니다.   
+    ![active directory 선택](./media/sql-database-aad-authentication/select-active-directory.png)  
+    
+4. **관리자 추가** 블레이드에서 사용자를 검색하고 관리자가 될 사용자 또는 그룹을 선택한 다음 **선택**을 클릭합니다. Active Directory 관리 블레이드에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시된 사용자나 그룹은 Azure AD 관리자로 지원되지 않기 때문에 선택할 수 없습니다. [SQL Database 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](sql-database-aad-authentication.md)의 **Azure AD 기능 및 제한 사항** 섹션에서 지원되는 관리자 목록을 참조하세요. 역할 기반 액세스 제어(RBAC)는 포털에만 적용되며 SQL Server에 전파되지 않습니다.   
+    ![관리자 선택](./media/sql-database-aad-authentication/select-admin.png)  
+    
+5. **Active directory 관리자** 블레이드 위쪽에서 **저장**을 클릭합니다.   
+    ![관리자 저장](./media/sql-database-aad-authentication/save-admin.png)   
 
-    ![관리자 선택][10]
-   
-    관리자 변경 과정에는 몇 분 정도 소요될 수 있습니다. 그런 다음 새 관리자가 **Active Directory 관리자** 상자에 표시됩니다.
+관리자 변경 과정에는 몇 분 정도 소요될 수 있습니다. 그런 다음 새 관리자가 **Active Directory 관리자** 상자에 표시됩니다.
 
    > [!NOTE]
    > Azure AD 관리자를 설정하는 경우, 새 관리자 이름(사용자 또는 그룹)이 SQL Server 인증 사용자로 가상 master 데이터베이스에 있으면 안 됩니다. 새 관리자 이름이 있으면 Azure AD 관리자 설정은 실패하며, 생성 작업을 롤백하고 해당 관리자(이름)이 이미 존재한다는 것을 나타냅니다. SQL Server 인증 사용자는 Azure AD에 속하지 않기 때문에 Azure AD 인증을 사용하여 서버에 연결하려는 작업은 모두 실패합니다.
@@ -219,14 +219,14 @@ Azure Active Directory 기반의 포함된 데이터베이스 사용자 만들�
 > Azure AD 사용자는 데이터베이스 메타데이터에서 E 형식(EXTERNAL_USER) 및 그룹의 경우 X 형식(EXTERNAL_GROUPS)으로 표시됩니다. 자세한 내용은 [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx)를 참조하세요. 
 >
 
-## <a name="connect-to-the-user-database-or-data-warehouse-by-using-sql-server-management-studio-or-sql-server-data-tools"></a>SQL Server Management Studio 또는 SQL Server Data Tools를 사용하여 사용자 데이터베이스 또는 데이터 웨어하우스에 연결
+## <a name="connect-to-the-user-database-or-data-warehouse-by-using-ssms-or-ssdt"></a>SSMS 또는 SSDT를 사용하여 사용자 데이터베이스 또는 데이터 웨어하우스에 연결  
 Azure AD 관리자가 제대로 설정되었는지 확인하려면 Azure AD 관리자 계정을 사용하여 **master** 데이터베이스에 연결합니다.
 Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 소유한 서버 관리자 아님)를 프로비전하려면 해당 데이터베이스에 대한 액세스가 있는 Azure AD ID로 데이터베이스에 연결합니다.
 
 > [!IMPORTANT]
 > Azure Active Directory 인증에 대한 지원은 [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 및 Visual Studio 2015의 [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)에서 사용 가능합니다. SSMS의 2016년 8월 릴리스에는 관리자가 전화 통화, 문자 메시지, PIN이 있는 스마트 카드 또는 모바일 앱 알림을 사용하여 Multi-Factor Authentication을 요구할 수 있도록 하는 Active Directory 유니버설 인증도 포함되어 있습니다.
  
-## <a name="using-an-azure-ad-identity-to-connect-using-sql-server-management-studio-or-sql-server-database-tools"></a>SQL Server Management Studio 또는 SQL Server Data Tools를 사용하여 연결하는 데 Azure AD ID 사용
+## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>SSMS 또는 SSDT를 사용하여 연결하는 데 Azure AD ID 사용  
 
 다음 절차에서는 SQL Server Management Studio 또는 SQL Server Database Tools를 사용하여 SQL Database를 Azure AD ID에 연결하는 방법을 보여 줍니다.
 
@@ -320,8 +320,6 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 - 데이터베이스 보안 주체에 대한 자세한 내용은 [보안 주체](https://msdn.microsoft.com/library/ms181127.aspx)를 참조하세요.
 - 데이터베이스 역할에 대한 자세한 내용은 [데이터베이스 역할](https://msdn.microsoft.com/library/ms189121.aspx)을 참조하세요.
 - SQL Database의 방화벽 규칙에 대한 자세한 내용은 [SQL Database 방화벽 규칙](sql-database-firewall-configure.md)을 참조하세요.
-- SQL Server 인증 사용에 대한 자습서는 [SQL 인증 및 권한 부여](sql-database-control-access-sql-authentication-get-started.md)를 참조하세요.
-- Azure Active Directory 인증 사용에 대한 자습서는 [Azure AD 인증 및 권한 부여](sql-database-control-access-aad-authentication-get-started.md)를 참조하세요.
 
 <!--Image references-->
 
@@ -333,7 +331,6 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 [6]: ./media/sql-database-aad-authentication/6edit-directory-select.png
 [7]: ./media/sql-database-aad-authentication/7edit-directory-confirm.png
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
-[9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png

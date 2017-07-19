@@ -11,18 +11,20 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 02/13/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3156ca5b2b8ba836e94d79a97b28bf591c799b48
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: d77f9c4e6365c95b0ea1bf4d00b9f2e9c35eefde
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 다시 보호
+
+
 
 ## <a name="overview"></a>개요
 이 문서에서는 Azure 가상 컴퓨터를 Azure에서 온-프레미스 사이트로 다시 보호하는 방법에 대해 설명합니다. [Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-failover.md)를 사용하여 온-프레미스 사이트에서 Azure로 장애 조치한 후 VMware 가상 컴퓨터 또는 Windows/Linux 물리적 서버를 장애 복구할 준비가 되면 이 문서의 지침을 따릅니다.
@@ -44,7 +46,7 @@ ms.lasthandoff: 04/27/2017
 
 * 장애 복구하려는 가상 컴퓨터를 vCenter Server에서 관리하는 경우 vCenter 서버에서 가상 컴퓨터를 검색하는 데 필요한 권한이 있는지 확인해야 합니다. [자세히 알아보기](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 
-> [!WARNING] 
+> [!WARNING]
 > 온-프레미스 마스터 대상 또는 가상 컴퓨터에 스냅숏이 있는 경우 다시 보호가 실패합니다. 다시 보호를 진행하기 전에 마스터 대상에서 스냅숏을 삭제할 수 있습니다. 가상 컴퓨터의 스냅숏은 다시 보호 작업 중에 자동으로 병합됩니다.
 
 * 장애 복구 전에 다음 두 가지 추가 구성 요소를 만들어야 합니다.
@@ -103,6 +105,10 @@ ExpressRoute 연결을 설정하는 경우 가상 컴퓨터와 프로세스 서�
 * [Linux 마스터 대상 서버 설치 방법](site-recovery-how-to-install-linux-master-target.md)
 
 
+### <a name="what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback"></a>장애 복구(failback) 중 온-프레미스 ESXi 호스트에서 지원되는 데이터 저장소 유형은 무엇인가요?
+
+ASR은 현재 VMFS 데이터 저장소로의 장애 복구만 지원합니다. vSAN 또는 NFS 데이터 저장소는 지원되지 않습니다. vSAN 또는 NFS 데이터 저장소에서 실행 중인 가상 컴퓨터를 보호할 수 있습니다. 이러한 제한 때문에 NFS 데이터 저장소의 경우 다시 보호 화면의 데이터 저장소 선택 입력이 비어 있거나 vSAN 데이터 저장소를 표시하지만 작업 중에 실패합니다. 장애 복구(failback)하려는 경우 온-프레미스에 VMFS 데이터 저장소를 만들어 장애 복구(failback)할 수 있습니다. 이러한 장애 복구(failback)에서는 전체 VMDK가 다운로드됩니다. 이후 릴리스에서 NFS 및 vSAN 데이터 저장소에 대한 지원이 추가됩니다.
+
 #### <a name="common-things-to-check-after-completing-installation-of-the-master-target-server"></a>마스터 대상 서버 설치를 완료한 후 확인할 일반적 내용
 
 * 가상 컴퓨터가 vCenter 서버의 온-프레미스에 있는 경우 마스터 대상 서버는 온-프레미스 가상 컴퓨터의 VMDK에 액세스해야 합니다. 복제된 데이터를 가상 컴퓨터의 디스크에 쓰려면 액세스해야 합니다. 읽기/쓰기 액세스 권한으로 온-프레미스 가상 컴퓨터의 데이터 저장소를 마스터 대상의 호스트에 탑재했는지 확인합니다.
@@ -129,7 +135,7 @@ ExpressRoute 연결을 설정하는 경우 가상 컴퓨터와 프로세스 서�
    * Windows의 기본 보존 볼륨은 R 볼륨입니다.
 
    * Linux의 기본 보존 볼륨은 /mnt/retention입니다.
-   
+
    > [!IMPORTANT]
    > 기존 CS+PS 컴퓨터 또는 확장 또는 PS+MT 컴퓨터를 사용하는 경우 새 드라이브를 추가해야 합니다. 새 드라이브에서 위의 요구 사항을 만족시켜야 합니다. 보존 드라이브가 없으면 포털의 드롭 다운에 선택 사항이 나열되지 않습니다. 온-프레미스 마스터 대상에 드라이브를 추가하고 나면 드라이브가 포털의 선택 사항에 반영되는 데 최대 15분이 걸립니다. 15분 후에도 드라이브가 표시되지 않으면 구성 서버를 새로 고칠 수도 있습니다.
 

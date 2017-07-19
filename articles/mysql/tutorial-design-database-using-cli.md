@@ -1,22 +1,20 @@
 ---
 title: "첫 번째 Azure Database for MySQL 데이터베이스 디자인 - Azure CLI | Microsoft Docs"
-description: "이 자습서에서는 Azure CLI 2.0을 사용하여 Azure Database for MySQL 서버 및 데이터베이스를 만들고 관리하는 방법에 대해 설명합니다."
+description: "이 자습서에서는 명령줄에서 Azure CLI 2.0을 사용하여 MySQL용 Azure Database 서버 및 데이터베이스를 만들고 관리하는 방법을 설명합니다."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
 ms.service: mysql-database
-ms.devlang: na
+ms.devlang: azure-cli
 ms.topic: article
-ms.tgt_pltfrm: portal
-ms.date: 05/10/2017
+ms.date: 06/13/2017
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 99238b9c0bcc7fa80e8c72cda25f7ed809cc5195
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 590cba6cb58d0c0eaedb9f122ac048c33988004d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -26,38 +24,39 @@ Azure Database for MySQL은 MySQL Community Edition 데이터베이스 엔진을
 
 > [!div class="checklist"]
 > * Azure Database for MySQL 만들기
-> * 서버 방화벽 구성 및 [mysql 명령줄 도구](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)를 사용하여 데이터베이스 만들기
+> * 서버 방화벽 구성
+> * [mysql 명령줄 도구](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)를 사용하여 데이터베이스 만들기
 > * 샘플 데이터 로드
 > * 쿼리 데이터
 > * 데이터 업데이트
 > * 데이터 복원
 
-[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
+브라우저에서 Azure Cloud Shell을 사용하거나 컴퓨터에 [Azure CLI 2.0을 설치]( /cli/azure/install-azure-cli)하여 이 자습서의 코드 블록을 실행할 수 있습니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-[az login](/cli/azure/#login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
-```azurecli
-az login
+구독이 여러 개인 경우 리소스가 있거나 요금이 청구되는 적절한 구독을 선택합니다. [az account set](/cli/azure/account#set) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다.
+```azurecli-interactive
+az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
-명령 프롬프트 지침에 따라 브라우저에서 https://aka.ms/devicelog URL을 연 다음 **명령 프롬프트**에서 생성된 코드를 입력합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 [az group create](https://docs.microsoft.com/cli/azure/group#create) 명령을 사용하여 [Azure 리소스 그룹](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다.
 
 다음 예제는 `westus` 위치에 `mycliresource`이라는 리소스 그룹을 만듭니다.
 
-```azurecli
+```azurecli-interactive
 az group create --name mycliresource --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기
 az mysql server create 명령을 사용하여 Azure Database for MySQL 서버를 만듭니다. 서버는 여러 데이터베이스를 관리할 수 있습니다. 일반적으로 각 프로젝트 또는 각 사용자에 대해 별도의 데이터베이스가 사용됩니다.
 
-다음 예제에서는 `westus`에 있는 Azure Database for MySQL 서버를 `mycliserver`라는 이름으로 `mycliresource` 리소스 그룹에 만듭니다. 서버에는 `myadmin` 이름과 `Password01!` 암호의 관리자 로그인이 있습니다. 서버는 서버의 모든 데이터베이스 간에 공유되는 **기본** 성능 계층과 **50** 계산 단위로 만들어집니다. 응용 프로그램 요구 사항에 따라 계산과 저장소의 크기를 확장하거나 축소할 수 있습니다.
+다음 예제에서는 `westus`에 있는 MySQL용 Azure Database 서버를 `mycliserver`라는 이름으로 `mycliresource` 리소스 그룹에 만듭니다. 서버에는 `myadmin` 이름과 `Password01!` 암호의 관리자 로그인이 있습니다. 서버는 서버의 모든 데이터베이스 간에 공유되는 **기본** 성능 계층과 **50** 계산 단위로 만들어집니다. 응용 프로그램 요구 사항에 따라 계산과 저장소의 크기를 확장하거나 축소할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az mysql server create --resource-group mycliresource --name mycliserver
 --location westus --user myadmin --password Password01!
 --performance-tier Basic --compute-units 50
@@ -68,16 +67,14 @@ az mysql server firewall-rule create 명령을 사용하여 Azure Database for M
 
 다음 예제에서는 미리 정의된 주소 범위에 대한 방화벽 규칙을 만듭니다. 이 예제에서는 가능한 IP 주소 범위 전체를 보여 줍니다.
 
-```azurecli
-az mysql server firewall-rule create --resource-group mycliresource
---server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0
---end-ip-address 255.255.255.255
+```azurecli-interactive
+az mysql server firewall-rule create --resource-group mycliresource --server mycliserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 ## <a name="get-the-connection-information"></a>연결 정보 가져오기
 
 서버에 연결하려면 호스트 정보와 액세스 자격 증명을 제공해야 합니다.
-```azurecli
+```azurecli-interactive
 az mysql server show --resource-group mycliresource --name mycliserver
 ```
 
@@ -169,9 +166,8 @@ SELECT * FROM inventory;
 - 대상 서버: 복원해 두려는 새 서버의 이름을 제공합니다.
 - 원본 서버: 복원해 오려는 서버의 이름을 제공합니다.
 - 위치: 지역은 선택할 수 없으며, 기본적으로 원본 서버와 동일합니다.
-- 가격 책정 계층: 서버를 복원할 때 이 값을 변경할 수 없습니다. 원본 서버와 동일합니다. 
 
-```azurecli
+```azurecli-interactive
 az mysql server restore --resource-group mycliresource --name mycliserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mycliserver
 ```
 
@@ -181,11 +177,13 @@ az mysql server restore --resource-group mycliresource --name mycliserver-restor
 이 자습서에서는 다음에 대해 알아보았습니다.
 > [!div class="checklist"]
 > * Azure Database for MySQL 만들기
-> * 서버 방화벽 구성 및 [mysql 명령줄 도구](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)를 사용하여 데이터베이스 만들기
+> * 서버 방화벽 구성
+> * [mysql 명령줄 도구](https://dev.mysql.com/doc/refman/5.6/en/mysql.html)를 사용하여 데이터베이스 만들기
 > * 샘플 데이터 로드
 > * 쿼리 데이터
 > * 데이터 업데이트
 > * 데이터 복원
 
-[Azure Database for MySQL - Azure CLI 샘플](./sample-scripts-azure-cli.md)
+> [!div class="nextstepaction"]
+> [Azure Database for MySQL - Azure CLI 샘플](./sample-scripts-azure-cli.md)
 

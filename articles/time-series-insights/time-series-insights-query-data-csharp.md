@@ -1,6 +1,6 @@
 ---
 title: "C#을 사용하여 Azure Time Series Insights 환경에서 데이터 쿼리 | Microsoft Docs"
-description: "이 자습서에서는 C를 사용하여 Time Series Insights 환경에서 데이터를 쿼리하는 방법을 다룹니다.#"
+description: "이 자습서에서는 C#을 사용하여 Time Series Insights 환경에서 데이터를 쿼리하는 방법을 다룹니다."
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -10,25 +10,23 @@ editor: cgronlun
 ms.assetid: 
 ms.service: time-series-insights
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/25/2017
 ms.author: ankryach
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 25f7a186b4df73f3e8e6c035d58f2f1a401605cf
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 81d16b4093a4eef77e5a9c88cb39f2dd36bcba4e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 07/04/2017
 
 ---
-# <a name="query-data-from-azure-time-series-insights-environment-using-c"></a>C를 사용하여 Azure Time Series Insights 환경에서 데이터 쿼리#
-
-## <a name="introduction"></a>소개
+# <a name="query-data-from-the-azure-time-series-insights-environment-by-using-c"></a>C#을 사용하여 Azure Time Series Insights 환경에서 데이터 쿼리
 
 이 C# 샘플은 Azure Time Series Insights 환경에서 데이터를 쿼리하는 방법을 보여 줍니다.
 이 샘플은 쿼리 API 사용의 몇 가지 기본 예제를 보여 줍니다.
-1. 준비 단계로, Azure Active Directory API를 사용하여 액세스 토큰을 가져옵니다. 이 토큰을 모든 쿼리 API 요청의 `Authorization` 헤더에 전달해야 합니다.
+1. 준비 단계로, Azure Active Directory API를 통해 액세스 토큰을 가져옵니다. 이 토큰을 모든 쿼리 API 요청의 `Authorization` 헤더에 전달해야 합니다. 비대화형 응용 프로그램을 설정하려면 [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md) 문서를 참조하세요.
 2. 사용자가 액세스 권한을 가진 환경 목록을 가져옵니다. 환경 중 하나를 관심 환경으로 선택하고 이 환경에 대해 추가 데이터를 쿼리합니다.
 3. HTTPS 요청의 예로, 관심 환경에 대해 가용성 데이터를 요청합니다.
 4. 웹 소켓 요청의 예로, 관심 환경에 대해 이벤트 집계 데이터를 요청합니다. 전체 가용성 시간 범위에 대한 데이터가 요청됩니다.
@@ -52,23 +50,21 @@ namespace TimeSeriesInsightsQuerySample
 {
     class Program
     {
+        // For automated execution under application identity,
+        // use application created in Active Directory.
+        // To create the application in AAD, follow the steps provided here:
+        // https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization
+
+        // SET the application ID of application registered in your Azure Active Directory
+        private static string ApplicationClientId = "#DUMMY#";
+
+        // SET the application key of the application registered in your Azure Active Directory
+        private static string ApplicationClientSecret = "#DUMMY#";
+
         public static async Task SampleAsync()
         {
             // 1. Acquire an access token.
-            string accessToken;
-            {
-                var authenticationContext = new AuthenticationContext(
-                    "https://login.windows.net/common",
-                    TokenCache.DefaultShared);
-
-                AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
-                    "https://api.timeseries.azure.com/", // Set Resource URI to Azure Time Series Insights API
-                    "1950a258-227b-4e31-a9cf-717495945fc2", // Set well-known client ID for Azure PowerShell
-                    new Uri("urn:ietf:wg:oauth:2.0:oob"), // Set redirect URI for Azure PowerShell
-                    new PlatformParameters(PromptBehavior.Auto));
-
-                accessToken = token.AccessToken;
-            }
+            string accessToken = await AcquireAccessTokenAsync();
 
             // 2. Obtain list of environments and get environment FQDN for the environment of interest.
             string environmentFqdn;
@@ -261,6 +257,37 @@ namespace TimeSeriesInsightsQuerySample
                     Console.WriteLine("{0}\t\t{1}", currentDimensionValue, currentCount);
                 }
             }
+        }
+
+        private static async Task<string> AcquireAccessTokenAsync()
+        {
+            if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#")
+            {
+                throw new Exception(
+                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId' and 'ApplicationClientSecret'.");
+            }
+
+            var authenticationContext = new AuthenticationContext(
+                "https://login.windows.net/common",
+                TokenCache.DefaultShared);
+
+            AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
+                resource: "https://api.timeseries.azure.com/",
+                clientCredential: new ClientCredential(
+                    clientId: ApplicationClientId,
+                    clientSecret: ApplicationClientSecret));
+
+            // Show interactive logon dialog to acquire token on behalf of the user.
+            // Suitable for native apps, and not on server-side of a web application.
+            //AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
+            //    resource: "https://api.timeseries.azure.com/",
+            //    // Set well-known client ID for Azure PowerShell
+            //    clientId: "1950a258-227b-4e31-a9cf-717495945fc2",
+            //    // Set redirect URI for Azure PowerShell
+            //    redirectUri: new Uri("urn:ietf:wg:oauth:2.0:oob"),
+            //    parameters: new PlatformParameters(PromptBehavior.Auto));
+
+            return token.AccessToken;
         }
 
         static void Main(string[] args)

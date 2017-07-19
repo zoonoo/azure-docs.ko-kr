@@ -14,17 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 99c43c63f75e01713600ef5ca46a8d11e8c5c7ce
-ms.openlocfilehash: b6560fdd50c93a7e84f12047ec4401328b601deb
+ms.translationtype: HT
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: bc16ef727f0c3942b0be8c633717fd52da246c55
 ms.contentlocale: ko-kr
-ms.lasthandoff: 12/09/2016
-
+ms.lasthandoff: 07/19/2017
 
 ---
 
-# Azure Media Services 원격 분석
-<a id="azure-media-services-telemetry" class="xliff"></a>
+# <a name="azure-media-services-telemetry"></a>Azure Media Services 원격 분석
 
 AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분석/메트릭 데이터에 액세스할 수 있습니다. 현재 버전의 AMS를 사용하면 라이브 **Channel**, **StreamingEndpoint** 및 라이브 **Archive** 엔터티에 대한 원격 분석 데이터를 수집할 수 있습니다. 
 
@@ -34,8 +32,7 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 
 이 항목에서는 AMS 원격 분석을 구성 및 사용하는 방법을 설명합니다.
 
-## 원격 분석 구성
-<a id="configuring-telemetry" class="xliff"></a>
+## <a name="configuring-telemetry"></a>원격 분석 구성
 
 구성 요소 세분성 수준에서 원격 분석을 구성할 수 있습니다. "Normal" 및 "Verbose"라는 두 가지 세부 수준이 있습니다. 현재 두 수준 모두 동일한 정보를 반환합니다. "Normal”을 사용하는 것이 좋습니다. 
 
@@ -45,8 +42,7 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 
 [REST에서 원격 분석 사용](media-services-rest-telemetry.md)
 
-## 이
-<a id="consuming-telemetry-information" class="xliff"></a>
+## <a name="consuming-telemetry-information"></a>이
 
 원격 분석은 미디어 서비스 계정에 대해 원격 분석을 구성할 때 지정된 저장소 계정의 Azure Storage 테이블에 기록됩니다. 이 섹션에서는 메트릭에 대한 저장소 테이블을 설명합니다.
 
@@ -71,8 +67,7 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 - 날짜 범위 내에서 지정된 서비스에 대한 모든 데이터 검색
 - 서비스에 대한 가장 최근 데이터 검색
 
-### 원격 분석 Table Storage 출력 스키마
-<a id="telemetry-table-storage-output-schema" class="xliff"></a>
+### <a name="telemetry-table-storage-output-schema"></a>원격 분석 Table Storage 출력 스키마
 
 원격 분석 데이터는 단일 테이블 "TelemetryMetrics20160321"에 집계되어 저장됩니다. 여기서 "20160321"은 생성된 테이블의 날짜입니다. 원격 분석 시스템은 00:00 UTC 기반으로 각 날마다 별도의 테이블을 만듭니다. 이 테이블은 지정된 기간 내의 수집 비트 전송률, 보낸 바이트 수 등의 되풀이 값을 저장하는 데 사용됩니다. 
 
@@ -87,8 +82,7 @@ ObservedTime|원격 분석 이벤트가 발생한 시간(UTC)|2016-09-09T22:42:3
 ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 엔터티별 속성|이벤트에 의해 정의|StreamName: stream1, Bitrate 10123, …<br/><br/>나머지 속성은 지정된 이벤트 형식에 대해 정의됩니다. Azure 테이블 콘텐츠는 키/값 쌍입니다.  즉, 테이블 행마다 서로 다른 속성 집합을 갖습니다.
 
-### 엔터티별 스키마
-<a id="entity-specific-schema" class="xliff"></a>
+### <a name="entity-specific-schema"></a>엔터티별 스키마
 
 각각이 다음 빈도로 푸시되는 세 가지 유형의 엔터티별 원격 분석 데이터 항목이 있습니다.
 
@@ -158,11 +152,9 @@ CustomAttribute|동일한 이름 및 비트 전송률을 갖는 다른 트랙 �
 Bitrate|트랙 비트 전송률|785000
 Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경우 True|True(이러한 두 값은 메트릭으로 표시되지 않고 소스 이벤트에 있음)<br/><br/>Healthy는 다음 조건 중 하나라도 충족되면 false를 반환하는 복합 함수입니다.<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
 
-## 일반 질문과 답변
-<a id="general-qa" class="xliff"></a>
+## <a name="general-qa"></a>일반 질문과 답변
 
-### 메트릭 데이터를 사용하는 방법
-<a id="how-to-consume-metrics-data" class="xliff"></a>
+### <a name="how-to-consume-metrics-data"></a>메트릭 데이터를 사용하는 방법
 
 메트릭 데이터는 고객의 저장소 계정의 여러 Azure 테이블에 저장됩니다. 이 데이터는 다음과 같은 도구로 사용할 수 있습니다.
 
@@ -170,24 +162,20 @@ Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경�
 - Microsoft Azure Storage 탐색기(쉼표로 구분된 값 형식으로 내보내고 Excel에서 처리되도록 지원)
 - REST API
 
-### 평균 대역폭 소비량을 확인하는 방법
-<a id="how-to-find-average-bandwidth-consumption" class="xliff"></a>
+### <a name="how-to-find-average-bandwidth-consumption"></a>평균 대역폭 소비량을 확인하는 방법
 
 평균 대역폭 사용량은 특정 기간 동안의 BytesSent 평균입니다.
 
-### 스트리밍 단위 수를 정의하는 방법
-<a id="how-to-define-streaming-unit-count" class="xliff"></a>
+### <a name="how-to-define-streaming-unit-count"></a>스트리밍 단위 수를 정의하는 방법
 
 스트리밍 단위 수는 서비스 스트리밍 끝점의 최대 처리량을 한 스트리밍 끝점의 최대 처리량으로 나누어 정의할 수 있습니다. 한 스트리밍 끝점의 최대 사용 가능한 처리량은 160Mbps입니다.
 예를 들어 고객 서비스의 최대 처리량을 40MBps(특정 기간 동안의 BytesSent 최대값)로 가정합니다. 그러면 스트리밍 단위 수는 (40MBps)*(8비트/바이트)/(160Mbps) = 2개의 스트리밍 단위가 됩니다.
 
-### 평균 요청 수/초를 확인하는 방법
-<a id="how-to-find-average-requestssecond" class="xliff"></a>
+### <a name="how-to-find-average-requestssecond"></a>평균 요청 수/초를 확인하는 방법
 
 평균 요청 수/초를 확인하려면 특정 기간 동안의 평균 요청 수(RequestCount)를 계산합니다.
 
-### 채널 상태를 정의하는 방법
-<a id="how-to-define-channel-health" class="xliff"></a>
+### <a name="how-to-define-channel-health"></a>채널 상태를 정의하는 방법
 
 채널 상태는 다음 조건 중 하나가 충족될 때 false가 되도록 복합 부울 함수로 정의될 수 있습니다.
 
@@ -199,23 +187,19 @@ Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경�
 - UnexpectedBitrate == True
 
 
-### 불연속성을 검색하는 방법
-<a id="how-to-detect-discontinuities" class="xliff"></a>
+### <a name="how-to-detect-discontinuities"></a>불연속성을 검색하는 방법
 
 불연속성을 검색하려면 DiscontinuityCount > 0인 모든 채널 데이터 항목을 찾습니다. 해당 ObservedTime 타임스탬프는 불연속성이 발생한 시간을 나타냅니다.
 
-### 타임스탬프 겹침을 검색하는 방법
-<a id="how-to-detect-timestamp-overlaps" class="xliff"></a>
+### <a name="how-to-detect-timestamp-overlaps"></a>타임스탬프 겹침을 검색하는 방법
 
 타임스탬프 겹침을 검색하려면 OverlapCount > 0인 모든 채널 데이터 항목을 찾습니다. 해당 ObservedTime 타임스탬프는 타임스탬프 겹침이 발생한 시간을 나타냅니다.
 
-### 스트리밍 요청 실패 및 이유를 찾는 방법
-<a id="how-to-find-streaming-request-failures-and-reasons" class="xliff"></a>
+### <a name="how-to-find-streaming-request-failures-and-reasons"></a>스트리밍 요청 실패 및 이유를 찾는 방법
 
 스트리밍 요청 실패 및 이유를 찾으려면 ResultCode가 S_OK가 아닌 모든 스트리밍 끝점 데이터 항목을 찾습니다. 해당 StatusCode 필드는 요청 실패의 이유를 나타냅니다.
 
-### 외부 도구에서 데이터를 사용하는 방법
-<a id="how-to-consume-data-with-external-tools" class="xliff"></a>
+### <a name="how-to-consume-data-with-external-tools"></a>외부 도구에서 데이터를 사용하는 방법
 
 원격 분석 데이터는 다음 도구로 처리하고 시각화할 수 있습니다.
 
@@ -225,18 +209,15 @@ Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경�
 - AMS 라이브 대시보드
 - Azure Portal(릴리스 보류 중)
 
-### 데이터 보존을 관리하는 방법
-<a id="how-to-manage-data-retention" class="xliff"></a>
+### <a name="how-to-manage-data-retention"></a>데이터 보존을 관리하는 방법
 
 원격 분석 시스템에서는 데이터 보존 관리 또는 이전 레코드의 자동 삭제를 제공하지 않습니다. 따라서 저장소 테이블에서 이전 레코드를 관리하고 삭제해야 합니다. 해당 방법을 보려면 저장소 SDK를 참조할 수 있습니다.
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## 피드백 제공
-<a id="provide-feedback" class="xliff"></a>
+## <a name="provide-feedback"></a>피드백 제공
 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 

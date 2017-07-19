@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/07/2017
 ms.author: bharatn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 121bf91a2476a079c0737187aef8791be0b4b250
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 80669943f5b9f9d55cc6395c4dab76b32fc72c8f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -60,12 +61,12 @@ Service Fabric의 역방향 프록시는 클러스터의 모든 노드에서 실
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http(s):** 역방향 프록시를HTTP 또는 HTTPS 트래픽을 허용하도록 구성할 수 있습니다. HTTPS 트래픽의 경우 SSL(Secure Sockets Layer) 종료는 역방향 프록시에서 발생합니다. 역방향 프록시는 HTTP를 사용하여 클러스터의 서비스로 요청을 전달합니다.
-
-    HTTPS Services는 현재 Linux에서 지원되지 않습니다.
+* **http(s):** 역방향 프록시를HTTP 또는 HTTPS 트래픽을 허용하도록 구성할 수 있습니다. HTTPS 전달의 경우 HTTPS에서 수신 대기하도록 역방향 프록시가 설정되면 [Connect to a secure service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md)(역방향 프록시를 사용하여 보안 서비스에 연결)를 참조하세요.
 * **클러스터 FQDN(정규화된 도메인 이름) | 내부 IP:** 외부 클라이언트의 경우 클러스터 도메인(예: mycluster.eastus.cloudapp.azure.com)을 통해 도달할 수 있도록 역방향 프록시를 구성할 수 있습니다. 기본적으로 역방향 프록시는 모든 노드에서 실행됩니다. 내부 트래픽의 경우 localhost 또는 모든 내부 노드 IP(예: 10.0.0.1)에서 역방향 프록시에 연결할 수 있습니다.
-* **포트:** 역방향 프록시에 대해 지정된 포트(예: 19008)입니다.
+* **포트:** 역방향 프록시에 대해 지정된 포트(예: 19081)입니다.
 * **ServiceInstanceName:** "fabric:/" 체계 없이 연결하려고 하는 배포된 서비스 인스턴스의 정규화된 이름입니다. 예를 들어 *fabric:/myapp/myservice/* 서비스에 연결하려면 *myapp/myservice*를 사용합니다.
+
+    서비스 인스턴스 이름은 대/소문자를 구분합니다. URL에서 서비스 인스턴스 이름의 대/소문자 표기가 달라지면 요청이 실패하고 404(찾을 수 없음)가 표시됩니다.
 * **접미사 경로:** *myapi/values/add/3*과 같이 연결할 서비스에 대한 실제 URL 경로입니다.
 * **PartitionKey:** 분할 서비스의 경우 연결할 파티션의 계산된 파티션 키입니다. 참고로 이는 파티션 ID GUID가 *아닙니다* . 이 매개 변수는 단일 파티션 체계를 사용하는 서비스에는 필요하지 않습니다.
 * **PartitionKind:** 서비스 파티션 체계입니다. 이는 'Int64Range' 또는 'Named'일 수 있습니다. 이 매개 변수는 단일 파티션 체계를 사용하는 서비스에는 필요하지 않습니다.
@@ -89,18 +90,18 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 서비스가 단일 분할 체계를 사용하는 경우 *PartitionKey* 및 *PartitionKind* 쿼리 문자열 매개 변수는 필요하지 않으며 다음과 같이 게이트웨이를 사용하여 서비스에 연결할 수 있습니다.
 
-* 외부에서: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService`
-* 내부에서: `http://localhost:19008/MyApp/MyService`
+* 외부에서: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
+* 내부에서: `http://localhost:19081/MyApp/MyService`
 
 서비스가 Uniform Int64 분할 체계를 사용하는 경우 *PartitionKey* 및 *PartitionKind* 쿼리 문자열 매개 변수를 사용하여 서비스의 파티션에 연결해야 합니다.
 
-* 외부에서: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
-* 내부에서: `http://localhost:19008/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* 외부에서: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* 내부에서: `http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
 서비스가 노출하는 리소스에 연결하려면 URL의 서비스 이름 뒤에 리소스 경로를 추가합니다.
 
-* 외부에서: `http://mycluster.eastus.cloudapp.azure.com:19008/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
-* 내부에서: `http://localhost:19008/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
+* 외부에서: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
+* 내부에서: `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
 그러면 게이트웨이가 이 요청을 서비스의 URL에 전달합니다.
 
@@ -146,7 +147,7 @@ Azure Application Gateway는 서비스 주소의 다시 확인을 시도하고 �
     ```json
     "SFReverseProxyPort": {
         "type": "int",
-        "defaultValue": 19008,
+        "defaultValue": 19081,
         "metadata": {
             "description": "Endpoint for Service Fabric Reverse proxy"
         }
@@ -298,6 +299,7 @@ Azure Application Gateway는 서비스 주소의 다시 확인을 시도하고 �
 
 ## <a name="next-steps"></a>다음 단계
 * [GitHub의 샘플 프로젝트](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)에서 서비스 간 HTTP 통신의 예제를 참조하세요.
+* [역방향 프록시를 사용하여 보안 HTTP 서비스에 전달](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Reliable Services 원격을 사용하여 원격 프로시저 호출](service-fabric-reliable-services-communication-remoting.md)
 * [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)
 * [Reliable Services를 사용한 WCF 통신](service-fabric-reliable-services-communication-wcf.md)

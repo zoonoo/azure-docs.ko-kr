@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2017
+ms.date: 06/26/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: a8e35456af8c9f2cf1bf9e9c364e33641f29a477
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스 또는 속성의 여러 인스턴스 배포
-이 항목에서는 Azure 리소스 관리자 템플릿을 반복하여 리소스의 여러 인스턴스를 만드는 방법을 보여 줍니다.
+이 항목에서는 Azure Resource Manager 템플릿에서 반복하여 리소스의 여러 인스턴스 또는 리소스에 있는 속성의 여러 인스턴스를 만드는 방법을 보여 줍니다.
+
+리소스 배포 여부를 지정할 수 있는 논리를 템플릿에 추가해야 하는 경우 [조건부로 리소스 배포](#conditionally-deploy-resource)를 참조하세요.
 
 ## <a name="resource-iteration"></a>리소스 반복
 리소스 종류의 여러 인스턴스를 만들려면 리소스 종류에 `copy` 요소를 추가합니다. copy 요소에서 이 루프의 반복 횟수와 이름을 지정합니다. count 값은 양의 정수여야 하며 800을 초과할 수 없습니다. Resource Manager는 병렬로 리소스를 만듭니다. 따라서 생성되는 순서는 정해져 있지 않습니다. 시퀀스에서 반복된 리소스를 만들려면 [직렬 복사](#serial-copy)를 참조하세요. 
@@ -256,6 +258,147 @@ Resource Manager는 순차적으로 여러 인스턴스를 배포할 수 있는 
 }
 ```
 
+## <a name="property-iteration"></a>속성 반복
+
+리소스의 속성에 대해 여러 값을 만들려면 속성 요소에서 `copy` 배열을 추가합니다. 이 배열에는 개체가 포함되어 있으며 각 개체에는 다음 속성이 포함되어 있습니다.
+
+* name - 여러 값을 만들 속성의 이름
+* count - 만들 값 수
+* input - 속성에 할당할 값이 포함된 개체  
+
+다음 예제는 가상 컴퓨터에서 `copy`를 dataDisks 속성에 적용하는 방법을 보여 줍니다.
+
+```json
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2017-03-30",
+  "properties": {
+    "storageProfile": {
+      "copy": [{
+          "name": "dataDisks",
+          "count": 3,
+          "input": {
+              "lun": "[copyIndex('dataDisks')]",
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          }
+      }],
+      ...
+```
+
+속성 반복 내에서 `copyIndex`를 사용하는 경우 반복의 이름을 제공해야 합니다. 리소스 반복과 함께 사용할 경우 이름을 제공할 필요가 없습니다.
+
+Resource Manager는 배포 중 `copy` 배열을 확장합니다. 배열 이름은 속성의 이름이 됩니다. 입력 값은 개체 속성이 됩니다. 배포된 템플릿은 다음과 같습니다.
+
+```json
+{
+  "name": "examplevm",
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2017-03-30",
+  "properties": {
+    "storageProfile": {
+      "dataDisks": [
+          {
+              "lun": 0,
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          },
+          {
+              "lun": 1,
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          },
+          {
+              "lun": 2,
+              "createOption": "Empty",
+              "diskSizeGB": "1023"
+          }
+      }],
+      ...
+```
+
+리소스 및 속성 반복을 함께 사용할 수 있습니다. 이름별로 속성 반복을 참조하세요.
+
+```json
+{
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "[concat(parameters('vnetname'), copyIndex())]",
+    "apiVersion": "2016-06-01",
+    "copy":{
+        "count": 2,
+        "name": "vnetloop"
+    },
+    "location": "[resourceGroup().location]",
+    "properties": {
+        "addressSpace": {
+            "addressPrefixes": [
+                "[parameters('addressPrefix')]"
+            ]
+        },
+        "copy": [
+            {
+                "name": "subnets",
+                "count": 2,
+                "input": {
+                    "name": "[concat('subnet-', copyIndex('subnets'))]",
+                    "properties": {
+                        "addressPrefix": "[variables('subnetAddressPrefix')[copyIndex('subnets')]]"
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+
+리소스마다 하나의 copy 요소만 속성에 포함할 수 있습니다. 둘 이상의 속성에 대해 반복 루프를 지정하려면 복사 배열에서 여러 개체를 정의합니다. 각 개체는 개별적으로 반복됩니다. 예를 들어 부하 분산 장치에서 `frontendIPConfigurations` 속성 및 `loadBalancingRules` 속성 모두에 대해 여러 인스턴스를 만들려면 단일 copy 요소에서 두 개체를 모두 정의합니다. 
+
+```json
+{
+    "name": "[variables('loadBalancerName')]",
+    "type": "Microsoft.Network/loadBalancers",
+    "properties": {
+        "copy": [
+          {
+              "name": "frontendIPConfigurations",
+              "count": 2,
+              "input": {
+                  "name": "[concat('loadBalancerFrontEnd', copyIndex('frontendIPConfigurations', 1))]",
+                  "properties": {
+                      "publicIPAddress": {
+                          "id": "[variables(concat('publicIPAddressID', copyIndex('frontendIPConfigurations', 1)))]"
+                      }
+                  }
+              }
+          },
+          {
+              "name": "loadBalancingRules",
+              "count": 2,
+              "input": {
+                  "name": "[concat('LBRuleForVIP', copyIndex('loadBalancingRules', 1))]",
+                  "properties": {
+                      "frontendIPConfiguration": {
+                          "id": "[variables(concat('frontEndIPConfigID', copyIndex('loadBalancingRules', 1)))]"
+                      },
+                      "backendAddressPool": {
+                          "id": "[variables('lbBackendPoolID')]"
+                      },
+                      "protocol": "tcp",
+                      "frontendPort": "[variables(concat('frontEndPort' copyIndex('loadBalancingRules', 1))]",
+                      "backendPort": "[variables(concat('backEndPort' copyIndex('loadBalancingRules', 1))]",
+                      "probe": {
+                          "id": "[variables('lbProbeID')]"
+                      }
+                  }
+              }
+          }
+        ],
+        ...
+    }
+}
+```
+
 ## <a name="depend-on-resources-in-a-loop"></a>루프의 리소스에 따라 달라짐
 `dependsOn` 요소를 사용하여 어떤 리소스를 다른 리소스 다음에 배포하도록 지정합니다. 루프의 리소스 컬렉션에 따라 달라지는 리소스를 배포하려면 dependsOn 요소에 복사 루프의 이름을 제공합니다. 다음 예제에서는 가상 컴퓨터를 배포하기 전에 저장소 계정 3개를 배포하는 방법을 보여줍니다. 전체 가상 컴퓨터 정의는 표시되지 않습니다. 참고로 copy 요소의 name은 `storagecopy`로 설정되고 가상 컴퓨터에 대한 dependsOn 요소도 `storagecopy`로 설정되었습니다.
 
@@ -341,6 +484,29 @@ Resource Manager는 순차적으로 여러 인스턴스를 배포할 수 있는 
     ...
 }]
 ```
+
+## <a name="conditionally-deploy-resource"></a>조건부 리소스 배포
+
+리소스 배포 여부를 지정하려면 `condition` 요소를 사용합니다. 이 요소 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 배포됩니다. 값이 false이면 리소스가 배포되지 않습니다. 예를 들어 새 저장소 계정 배포 여부 또는 기존 저장소 계정 사용 여부를 지정하려면 다음을 사용합니다.
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+기존 또는 새 리소스 사용 예제는 [신규 또는 기존 조건 템플릿](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json)을 참조하세요.
+
+암호 또는 SSH 키를 사용하여 가상 컴퓨터를 배포하는 예제는 [사용자 이름 또는 SSH 조건 템플릿](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 템플릿 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.

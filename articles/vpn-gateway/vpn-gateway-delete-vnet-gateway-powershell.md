@@ -13,20 +13,21 @@ ms.devlang: na
 ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 06/20/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f3b464350f027bb1966638542fcc64d6fdc00a71
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: 4d0f085423d5bd60b24d88649ee1d77bcd1d009f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/21/2017
 
 
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>PowerShell을 사용하여 가상 네트워크 삭제
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-> * [클래식 - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+> * [Azure 포털](vpn-gateway-delete-vnet-gateway-portal.md)
+> * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+> * [PowerShell(클래식)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
 >
 
@@ -39,9 +40,11 @@ VPN 게이트웨이 구성에 대한 가상 네트워크 게이트웨이 삭제�
 ## <a name="before-beginning"></a>시작하기 전에
 
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. 최신 Azure Resource Manager PowerShell cmdlet을 다운로드합니다.
+
 최신 버전의 Azure Resource Manager PowerShell cmdlet을 다운로드하고 설치합니다. PowerShell cmdlet 다운로드 및 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
-### <a name="2-connect-to-your-azure-account"></a>2. Azure 계정에 연결합니다. 
+### <a name="2-connect-to-your-azure-account"></a>2. Azure 계정에 연결합니다.
+
 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
 ```powershell
@@ -84,57 +87,59 @@ $Conns=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | whe
 ```
 
 ### <a name="3-delete-all-connections"></a>3. 모든 연결을 삭제합니다.
+
 각 연결의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
 
 ```powershell
 $Conns | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
 ```
 
-### <a name="4-get-the-list-of-the-corresponding-local-network-gateways"></a>4. 해당 로컬 네트워크 게이트웨이 목록을 가져옵니다.
+### <a name="4-delete-the-virtual-network-gateway"></a>4. 가상 네트워크 게이트웨이를 삭제합니다.
 
-```powershell
-$LNG=Get-AzureRmLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
-```
-    
-### <a name="5-delete-the-local-network-gateways"></a>5. 로컬 네트워크 게이트웨이를 삭제합니다.
-각 로컬 네트워크 게이트웨이의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
+게이트웨이의 삭제를 확인하라는 메시지가 표시될 수 있습니다. 이 VNet에 S2S 구성 외에 P2S 구성이 있는 경우 가상 네트워크 게이트웨이를 삭제하면 경고 없이 모든 P2S 클라이언트의 연결이 자동으로 끊어집니다.
 
-```powershell
-$LNG | ForEach-Object {Remove-AzureRmLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
-```
-
-### <a name="6-delete-the-virtual-network-gateway"></a>6. 가상 네트워크 게이트웨이를 삭제합니다.
-게이트웨이의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
-
->[!NOTE]
-> 이 VNet에 S2S 구성 외에 P2S 구성이 있는 경우 가상 네트워크 게이트웨이를 삭제하면 경고 없이 모든 P2S 클라이언트의 연결이 자동으로 끊어집니다.
->
->
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### <a name="7-get-the-ip-configurations-of-the-virtual-network-gateway"></a>7. 가상 네트워크 게이트웨이의 IP 구성을 가져옵니다.
+이때 가상 네트워크 게이트웨이가 삭제되었습니다. 다음 단계를 사용하여 더 이상 사용되지 않는 모든 리소스를 삭제할 수 있습니다.
+
+### <a name="5-delete-the-local-network-gateways"></a>5. 로컬 네트워크 게이트웨이를 삭제합니다.
+
+해당 로컬 네트워크 게이트웨이 목록을 가져옵니다.
+
+```powershell
+$LNG=Get-AzureRmLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
+```
+
+로컬 네트워크 게이트웨이를 삭제합니다. 각 로컬 네트워크 게이트웨이의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
+
+```powershell
+$LNG | ForEach-Object {Remove-AzureRmLocalNetworkGateway -Name $_.Name -ResourceGroupName $_.ResourceGroupName}
+```
+
+### <a name="6-delete-the-public-ip-address-resources"></a>6. 공용 IP 주소 리소스를 삭제합니다.
+
+가상 네트워크 게이트웨이의 IP 구성을 가져옵니다.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-### <a name="8-get-the-list-of-public-ip-addresses-used-for-this-virtual-network-gateway"></a>8. 이 가상 네트워크 게이트웨이에 사용되는 공용 IP 주소 목록 가져오기 
-가상 네트워크 게이트웨이가 활성-활성인 경우 두 개의 공용 IP 주소가 표시됩니다.
+이 가상 네트워크 게이트웨이에 사용되는 공용 IP 주소 리소스 목록을 가져옵니다. 가상 네트워크 게이트웨이가 활성-활성인 경우 두 개의 공용 IP 주소가 표시됩니다.
 
 ```powershell
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-### <a name="9-delete-the-public-ips"></a>9. 공용 IP를 삭제합니다.
+공용 IP 리소스를 삭제합니다.
 
 ```powershell
 $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "RG1"}
 ```
 
-### <a name="10-delete-the-gateway-subnet-and-set-the-configuration"></a>10. 게이트웨이 서브넷을 삭제하고 구성을 설정합니다.
+### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. 게이트웨이 서브넷을 삭제하고 구성을 설정합니다.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
@@ -170,6 +175,7 @@ get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-obje
 ```
 
 ### <a name="3-get-the-list-of-connections-in-both-directions"></a>3. 양방향으로 연결 목록을 가져옵니다.
+
 VNet 간 구성이기 때문에 양방향 연결 목록이 필요합니다.
 
 ```powershell
@@ -183,6 +189,7 @@ $ConnsL=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | wh
  ```
 
 ### <a name="4-delete-all-connections"></a>4. 모든 연결을 삭제합니다.
+
 각 연결의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
 
 ```powershell
@@ -191,39 +198,36 @@ $ConnsR | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_
 ```
 
 ### <a name="5-delete-the-virtual-network-gateway"></a>5. 가상 네트워크 게이트웨이를 삭제합니다.
-가상 네트워크 게이트웨이의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
 
->[!NOTE]
-> VNet에 V2V 구성 외에 P2S 구성이 있는 경우 가상 네트워크 게이트웨이를 삭제하면 경고 없이 모든 P2S 클라이언트의 연결이 자동으로 끊어집니다.
->
->
-
+가상 네트워크 게이트웨이의 삭제를 확인하라는 메시지가 표시될 수 있습니다. VNet에 V2V 구성 외에 P2S 구성이 있는 경우 가상 네트워크 게이트웨이를 삭제하면 경고 없이 모든 P2S 클라이언트의 연결이 자동으로 끊어집니다.
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### <a name="6-get-the-ip-configurations-of-the-virtual-network-gateway"></a>6. 가상 네트워크 게이트웨이의 IP 구성을 가져옵니다.
+이때 가상 네트워크 게이트웨이가 삭제되었습니다. 다음 단계를 사용하여 더 이상 사용되지 않는 모든 리소스를 삭제할 수 있습니다.
+
+### <a name="6-delete-the-public-ip-address-resources"></a>6. 공용 IP 주소 리소스를 삭제합니다.
+
+가상 네트워크 게이트웨이의 IP 구성을 가져옵니다.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-### <a name="7-get-the-list-of-public-ip-addresses-used-for-this-virtual-network-gateway"></a>7. 이 가상 네트워크 게이트웨이에 사용되는 공용 IP 주소 목록을 가져옵니다. 
-가상 네트워크 게이트웨이가 활성-활성인 경우 두 개의 공용 IP 주소가 표시됩니다.
+이 가상 네트워크 게이트웨이에 사용되는 공용 IP 주소 리소스 목록을 가져옵니다. 가상 네트워크 게이트웨이가 활성-활성인 경우 두 개의 공용 IP 주소가 표시됩니다.
 
 ```powershell
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-### <a name="8-delete-the-public-ips"></a>8. 공용 IP를 삭제합니다.
-공용 IP의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
+공용 IP 리소스를 삭제합니다. 공용 IP의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
 
 ```powershell
 $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
-### <a name="9-delete-the-gateway-subnet-and-set-the-configuration"></a>9. 게이트웨이 서브넷을 삭제하고 구성을 설정합니다.
+### <a name="7-delete-the-gateway-subnet-and-set-the-configuration"></a>7. 게이트웨이 서브넷을 삭제하고 구성을 설정합니다.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
@@ -253,33 +257,36 @@ $Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-delete-the-virtual-network-gateway"></a>2. 가상 네트워크 게이트웨이를 삭제합니다.
+
 가상 네트워크 게이트웨이의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-### <a name="3-get-the-ip-configurations-of-the-virtual-network-gateway"></a>3. 가상 네트워크 게이트웨이의 IP 구성을 가져옵니다.
+이때 가상 네트워크 게이트웨이가 삭제되었습니다. 다음 단계를 사용하여 더 이상 사용되지 않는 모든 리소스를 삭제할 수 있습니다.
+
+### <a name="3-delete-the-public-ip-address-resources"></a>3. 공용 IP 주소 리소스를 삭제합니다.
+
+가상 네트워크 게이트웨이의 IP 구성을 가져옵니다.
 
 ```powershell
 $GWIpConfigs = $Gateway.IpConfigurations
 ```
 
-### <a name="4-get-the-list-of-public-ip-addresses-used-for-this-virtual-network-gateway"></a>4. 이 가상 네트워크 게이트웨이에 사용되는 공용 IP 주소 목록을 가져옵니다. 
-가상 네트워크 게이트웨이가 활성-활성인 경우 두 개의 공용 IP 주소가 표시됩니다.
+이 가상 네트워크 게이트웨이에 사용되는 공용 IP 주소 목록을 가져옵니다. 가상 네트워크 게이트웨이가 활성-활성인 경우 두 개의 공용 IP 주소가 표시됩니다.
 
 ```powershell
 $PubIP=Get-AzureRmPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-### <a name="5-delete-the-public-ips"></a>5. 공용 IP를 삭제합니다.
-공용 IP의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
+공용 IP를 삭제합니다. 공용 IP의 삭제를 확인하라는 메시지가 표시될 수 있습니다.
 
 ```powershell
 $PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 ```
 
-### <a name="6-delete-the-gateway-subnet-and-set-the-configuration"></a>6. 게이트웨이 서브넷을 삭제하고 구성을 설정합니다.
+### <a name="4-delete-the-gateway-subnet-and-set-the-configuration"></a>4. 게이트웨이 서브넷을 삭제하고 구성을 설정합니다.
 
 ```powershell
 $GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
@@ -297,6 +304,7 @@ Get-AzureRmResourceGroup
 ```
 
 ### <a name="2-locate-the-resource-group-that-you-want-to-delete"></a>2. 삭제할 리소스 그룹을 찾습니다.
+
 삭제하려는 리소스 그룹을 찾고 해당 리소스 그룹의 리소스 목록을 확인합니다. 이 예제에서 리소스 그룹의 이름은 RG1입니다. 모든 리소스 목록을 검색하도록 예제를 수정합니다.
 
 ```powershell
@@ -304,9 +312,11 @@ Find-AzureRmResource -ResourceGroupNameContains RG1
 ```
 
 ### <a name="3-verify-the-resources-in-the-list"></a>3. 목록의 리소스를 확인합니다.
+
 목록이 반환되면 리소스 그룹의 모든 리소스와 리소스 그룹 자체를 삭제할 것인지도 확인합니다. 리소스 그룹에 일부 리소스를 유지하려면 이 문서에 있는 이전 섹션의 단계를 사용하여 게이트웨이를 삭제합니다.
 
 ### <a name="4-delete-the-resource-group-and-resources"></a>4. 리소스 그룹 및 리소스를 삭제합니다.
+
 리소스 그룹 및 리소스 그룹에 포함된 모든 리소스를 삭제하려면 예제를 수정하고 실행합니다.
 
 ```powershell
@@ -314,6 +324,7 @@ Remove-AzureRmResourceGroup -Name RG1
 ```
 
 ### <a name="5-check-the-status"></a>5. 상태를 확인합니다.
+
 Azure에서 모든 리소스를 삭제하려면 다소 시간이 소요됩니다. 다음 cmdlet을 사용하여 리소스 그룹의 상태를 확인할 수 있습니다.
 
 ```powershell
@@ -322,7 +333,8 @@ Get-AzureRmResourceGroup -ResourceGroupName RG1
 
 반환되는 결과에는 'Succeeded'가 표시됩니다.
 
-    ResourceGroupName : RG1
-    Location          : eastus
-    ProvisioningState : Succeeded
-
+```
+ResourceGroupName : RG1
+Location          : eastus
+ProvisioningState : Succeeded
+```

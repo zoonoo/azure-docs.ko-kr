@@ -15,26 +15,30 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: e22fa4ed45ffaed1a05292e9b86d5cebc0079117
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 1063807ac83d2f63229f397da7ecc01f4072efd5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Azure CLI로 Linux VM 만들기 및 관리
 
-Azure 가상 컴퓨터는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure 가상 컴퓨터 배포 항목에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
+Azure 가상 컴퓨터는 완전히 구성 가능하고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 VM 크기 선택, VM 이미지 선택 및 VM 배포 등 기본적인 Azure Virtual Machines 배포 항목에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 만들기 및 VM에 연결
+> * VM 만들기 및 연결
 > * VM 이미지 선택 및 사용
 > * 특정 VM 크기 보기 및 사용
 > * VM 크기 조정
 > * VM 상태 보기 및 이해
 
-이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 또한 브라우저에서 [Cloud Shell](/azure/cloud-shell/quickstart)을 사용할 수도 있습니다.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
@@ -42,7 +46,7 @@ Azure 가상 컴퓨터는 완전히 구성 가능하고 유연한 컴퓨팅 환�
 
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 컴퓨터보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 
 
-```azurecli
+```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus
 ```
 
@@ -54,13 +58,13 @@ az group create --name myResourceGroupVM --location eastus
 
 가상 컴퓨터를 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 이 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 가상 컴퓨터를 만듭니다. 
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
 VM이 만들어지면 Azure CLI에서 VM에 대한 정보를 출력합니다. `publicIpAddress`를 메모해 둡니다. 이 주소는 가상 컴퓨터에 액세스하는 데 사용할 수 있습니다. 
 
-```azurecli
+```azurecli-interactive 
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -93,7 +97,7 @@ Azure Marketplace에는 VM을 만드는 데 사용할 수 있는 여러 VM 이�
 
 가장 일반적으로 사용되는 이미지 목록을 보려면 [az vm image list](/cli/azure/vm/image#list) 명령을 사용하세요.
 
-```azurecli
+```azurecli-interactive 
 az vm image list --output table
 ```
 
@@ -117,13 +121,13 @@ CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:
 
 전체 목록은 `--all` 인수를 추가하여 확인할 수 있습니다. 이미지 목록은 `--publisher` 또는 `–-offer`로 필터링할 수도 있습니다. 이 예제에서는 *CentOS*와 일치하는 제품이 있는 모든 이미지에 대해 목록을 필터링합니다. 
 
-```azurecli
+```azurecli-interactive 
 az vm image list --offer CentOS --all --output table
 ```
 
 부분 출력:
 
-```azurecli
+```azurecli-interactive 
 Offer             Publisher         Sku   Urn                                     Version
 ----------------  ----------------  ----  --------------------------------------  -----------
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201501         6.5.201501
@@ -136,7 +140,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207     
 
 특정 이미지를 사용하여 VM을 배포하려면 *Urn* 열에서 값을 기록해 둡니다. 이미지를 지정하면 이미지 버전 번호는 최신 버전의 배포를 선택하도록 “최신”으로 대체될 수 있습니다. 이 예제에서는 CentOS 6.5 이미지의 최신 버전을 지정하기 위해 `--image` 인수를 사용합니다.  
 
-```azurecli
+```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
 ```
 
@@ -162,13 +166,13 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 특정 지역에서 사용할 수 있는 VM 크기의 목록을 보려면 [az vm list-sizes](/cli/azure/vm#list-sizes) 명령을 사용합니다. 
 
-```azurecli
+```azurecli-interactive 
 az vm list-sizes --location eastus --output table
 ```
 
 부분 출력:
 
-```azurecli
+```azurecli-interactive 
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
                  2          3584  Standard_DS1                          1           1047552                    7168
@@ -193,7 +197,7 @@ az vm list-sizes --location eastus --output table
 
 이전 VM 만들기 예제에서는 크기가 제공되지 않았으므로 기본 크기가 사용되었습니다. [az vm create](/cli/azure/vm#create) 및 `--size` 인수를 사용하여 만들 때 VM 크기를 선택할 수 있습니다. 
 
-```azurecli
+```azurecli-interactive 
 az vm create \
     --resource-group myResourceGroupVM \
     --name myVM3 \
@@ -208,30 +212,30 @@ VM을 배포한 후에 크기를 조정하여 리소스 할당을 늘리거나 �
 
 VM의 크기를 조정하기 전에 원하는 크기를 현재 Azure 클러스터에서 사용할 수 있는지 확인합니다. [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) 명령은 크기 목록을 반환합니다. 
 
-```azurecli
+```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
 원하는 크기를 사용할 수 있는 경우 전원이 켜진 상태에서 VM 크기를 조정할 수 있지만 작업 중 다시 부팅됩니다. [az vm resize]( /cli/azure/vm#resize) 명령을 사용하여 크기 조정을 수행합니다.
 
-```azurecli
+```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
 원하는 크기가 현재 클러스터에 없는 경우 크기 조정 작업 전에 VM 할당을 취소해야 합니다. [az vm deallocate]( /cli/azure/vm#deallocate) 명령을 사용하여 VM을 중지하고 할당을 취소합니다. 참고로 VM의 전원이 다시 켜지면 임시 디스크의 모든 데이터가 제거됩니다. 고정 IP 주소를 사용하지 않는 한 공용 IP 주소도 변경됩니다. 
 
-```azurecli
+```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
 할당 취소되면 크기 조정이 발생할 수 있습니다. 
 
-```azurecli
+```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
 ```
 
 크기를 조정한 후 VM을 시작할 수 있습니다.
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
@@ -255,7 +259,7 @@ Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 이 �
 
 특정 VM의 상태를 검색하려면 [az vm get instance-view](/cli/azure/vm#get-instance-view) 명령을 사용합니다. 가상 컴퓨터 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다. 
 
-```azurecli
+```azurecli-interactive 
 az vm get-instance-view \
     --name myVM \
     --resource-group myResourceGroupVM \
@@ -264,7 +268,7 @@ az vm get-instance-view \
 
 출력:
 
-```azurecli
+```azurecli-interactive 
 ode                DisplayStatus    Level
 ------------------  ---------------  -------
 PowerState/running  VM running       Info
@@ -278,19 +282,19 @@ PowerState/running  VM running       Info
 
 이 명령은 가상 컴퓨터의 개인 및 공용 IP 주소를 반환합니다.  
 
-```azurecli
+```azurecli-interactive 
 az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
 ```
 
 ### <a name="stop-virtual-machine"></a>가상 컴퓨터 중지
 
-```azurecli
+```azurecli-interactive 
 az vm stop --resource-group myResourceGroupVM --name myVM
 ```
 
 ### <a name="start-virtual-machine"></a>가상 컴퓨터 시작
 
-```azurecli
+```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
@@ -298,16 +302,16 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 리소스 그룹을 삭제하면 그 안에 포함된 리소스도 모두 삭제됩니다.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 기본 VM을 만들고 관리하는 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 방법과 같이 기본 VM을 만들고 관리하는 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 만들기 및 VM에 연결
+> * VM 만들기 및 연결
 > * VM 이미지 선택 및 사용
 > * 특정 VM 크기 보기 및 사용
 > * VM 크기 조정

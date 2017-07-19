@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: c78b69188136d6df7887e92600984c4fa269d355
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: cacbcf879555907f81d824dc1069b05579dca010
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -52,7 +52,7 @@ ms.lasthandoff: 05/26/2017
 **웹 소켓**. WebSocket 프로토콜을 사용하도록 설정하려면 **켜기**를 설정합니다. 예를 들어 [ASP.NET SignalR] 또는 [socket.io]를 사용하는 경우가 여기에 해당합니다.
 
 <a name="alwayson"></a>
-**Always On**. 기본적으로 웹 앱은 일정 기간 동안 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템 리소스가 절약됩니다. 기본 또는 표준 모드에서는 **Always On**을 사용하도록 설정하여 앱을 항상 로드된 상태로 유지할 수 있습니다. 앱에서 지속형 웹 작업을 실행하는 경우 **Always On**을 사용하도록 설정해야 합니다. 그렇지 않으면 웹 작업이 안정적으로 실행되지 않을 수 있습니다.
+**Always On**. 기본적으로 웹 앱은 일정 기간 동안 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템 리소스가 절약됩니다. 기본 또는 표준 모드에서는 **Always On**을 사용하도록 설정하여 앱을 항상 로드된 상태로 유지할 수 있습니다. 앱에서 연속 WebJobs를 실행하거나 CRON 식을 사용하여 트리거되는 WebJobs를 실행하는 경우 **Always On**을 사용하도록 설정해야 합니다. 그러지 않으면 웹 작업이 안정적으로 실행되지 않을 수 있습니다.
 
 **관리되는 파이프라인 버전**. IIS [파이프라인 모드]를 설정합니다. 이전 버전의 IIS가 필요한 레거시 앱이 없으면 통합(기본값)으로 설정된 상태로 그대로 둡니다.
 
