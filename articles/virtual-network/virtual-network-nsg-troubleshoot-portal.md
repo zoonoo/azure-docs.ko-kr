@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3216868d867f4c840a610c45855d22575ded609c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 
 ---
@@ -41,7 +43,7 @@ VM *VM1*은 *WestUS-VNet1*이라는 VNet 내에 있는 *Subnet1* 서브넷의 �
 
 이 예제에서는 TCP 포트 3389를 사용하지만 다음 단계를 사용하여 임의 포트에 대한 인바운드 및 아웃바운드 연결 실패를 확인할 수 있습니다.
 
-### <a name="view-effective-security-rules-for-a-virtual-machine"></a>가상 컴퓨터에 대한 유효 보안 규칙 보기
+### <a name="vm"></a>가상 컴퓨터에 대한 유효 보안 규칙 보기
 VM에 대한 NSG 문제를 해결하려면 다음 단계를 완료합니다.
 
 VM 자체에서 NIC에 대한 유효 보안 규칙의 전체 목록을 볼 수 있습니다. 이러한 작업을 수행할 권한이 있는 경우 유효 규칙 블레이드에서 NIC 및 서브넷 NSG 규칙을 추가, 수정 및 삭제할 수도 있습니다.
@@ -92,7 +94,7 @@ VM 자체에서 NIC에 대한 유효 보안 규칙의 전체 목록을 볼 수 �
    
     VM에 대한 RDP 연결을 열거나 PsPing 도구를 사용하여 TCP 포트 3389가 열려 있는지 확인합니다. [PsPing 다운로드 페이지](https://technet.microsoft.com/sysinternals/psping.aspx)를 읽어 PsPing에 대해 자세히 알아볼 수 있습니다.
 
-### <a name="view-effective-security-rules-for-a-network-interface"></a>네트워크 인터페이스에 대한 유효 보안 규칙 보기
+### <a name="nic"></a>네트워크 인터페이스에 대한 유효 보안 규칙 보기
 VM 트래픽 흐름이 특정 NIC에 대해 영향을 받으면 다음 단계를 완료하여 네트워크 인터페이스 컨텍스트에서 NIC에 대한 유효 규칙의 전체 목록을 볼 수 있습니다.
 
 1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
@@ -109,7 +111,7 @@ VM 트래픽 흐름이 특정 NIC에 대해 영향을 받으면 다음 단계를
    > 
 4. NIC 및 서브넷에 연결된 NSG에 대한 규칙만 직접 편집할 수 있습니다. 방법을 알아보려면 이 문서의 **가상 컴퓨터에 대한 유효 보안 규칙 보기** 섹션, 8단계를 읽어보세요.
 
-## <a name="view-effective-security-rules-for-a-network-security-group-nsg"></a>NSG(네트워크 보안 그룹)에 대한 유효 보안 규칙 보기
+## <a name="nsg"></a>NSG(네트워크 보안 그룹)에 대한 유효 보안 규칙 보기
 NSG 규칙을 수정할 경우 추가되는 규칙이 특정 VM에 미치는 영향을 검토하려고 할 수 있습니다. 지정된 NSG 블레이드에서 컨텍스트를 전환하지 않고도, 지정된 NSG가 적용되는 모든 NIC에 대한 유효 보안 규칙의 전체 목록을 볼 수 있습니다. NSG 내의 유효 규칙 문제를 해결하려면 다음 단계를 완료합니다.
 
 1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
@@ -148,10 +150,5 @@ NSG 규칙을 수정할 경우 추가되는 규칙이 특정 VM에 미치는 영
 * VNet을 피어링한 경우 기본적으로, VIRTUAL_NETWORK 태그는 피러링된 VNet에 대한 접두사를 포함하도록 자동으로 확장됩니다. VNet 피어링 연결과 관련된 문제를 해결하기 위해 **ExpandedAddressPrefix** 목록에서 이러한 접두사를 볼 수 있습니다. 
 * 유효 보안 규칙은 VM의 NIC 및/또는 서브넷에 연결된 NSG가 있을 때만 표시됩니다. 
 * NIC 또는 서브넷과 연결된 NSG가 없고 VM에 할당된 공용 IP 주소가 있는 경우 모든 포트가 인바운드 및 아웃바운드 액세스를 위해 열립니다. VM에 공용 IP 주소가 있을 때는 NIC 또는 서브넷에 NSG를 적용하는 것이 강력하게 권장됩니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
