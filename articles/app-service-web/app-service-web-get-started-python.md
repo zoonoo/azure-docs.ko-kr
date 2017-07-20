@@ -22,16 +22,14 @@ ms.contentlocale: ko-kr
 ms.lasthandoff: 06/28/2017
 
 ---
-# Azure에서 Python 웹앱 만들기
-<a id="create-a-python-web-app-in-azure" class="xliff"></a>
+# <a name="create-a-python-web-app-in-azure"></a>Azure에서 Python 웹앱 만들기
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작에서는 Python 앱을 개발하고 Azure Web Apps에 배포하는 방법을 설명합니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 샘플 Python 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 됩니다. 필수 구성 요소가 설치된 후 단계를 완료하는 데는 약 5분 정도 걸립니다.
-## 필수 조건
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -44,8 +42,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
-## 샘플 다운로드
-<a id="download-the-sample" class="xliff"></a>
+## <a name="download-the-sample"></a>샘플 다운로드
 
 터미널 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 
@@ -61,8 +58,7 @@ git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd Python-docs-hello-world
 ```
 
-## 로컬에서 앱 실행
-<a id="run-the-app-locally" class="xliff"></a>
+## <a name="run-the-app-locally"></a>로컬에서 앱 실행
 
 Python 웹 서버에서 기본 제공을 시작하려면 터미널 창을 열고 `Python` 명령을 사용하여 응용 프로그램을 로컬로 실행합니다.
 
@@ -70,7 +66,7 @@ Python 웹 서버에서 기본 제공을 시작하려면 터미널 창을 열고
 python main.py
 ```
 
-웹 브라우저를 열고 http://localhost:5000에서 샘플 앱으로 이동합니다.
+웹 브라우저를 열고 http://localhost:5000 에서 샘플 앱으로 이동합니다.
 
 이 페이지에 표시된 샘플 앱에서 **Hello World** 메시지를 볼 수 있습니다.
 
@@ -92,8 +88,7 @@ python main.py
 
 Azure에서 비어 있는 새 웹앱을 만들었습니다.
 
-## Python을 사용하도록 구성
-<a id="configure-to-use-python" class="xliff"></a>
+## <a name="configure-to-use-python"></a>Python을 사용하도록 구성
 
 [az webapp config set](/cli/azure/webapp/config#set) 명령을 사용하여 Python 버전 `3.4`를 사용하도록 웹앱을 구성합니다.
 
@@ -150,8 +145,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## 앱으로 이동
-<a id="browse-to-the-app" class="xliff"></a>
+## <a name="browse-to-the-app"></a>앱으로 이동
 
 웹 브라우저를 사용하여 배포된 응용 프로그램으로 이동합니다.
 
@@ -165,8 +159,7 @@ Python 샘플 코드는 Azure App Service 웹앱에서 실행 중입니다.
 
 **축하합니다.** App Service에 첫 번째 Python 앱을 배포했습니다.
 
-## 코드 업데이트 및 다시 배포
-<a id="update-and-redeploy-the-code" class="xliff"></a>
+## <a name="update-and-redeploy-the-code"></a>코드 업데이트 및 다시 배포
 
 로컬 텍스트 편집기를 사용하여 Python 앱에서 `main.py` 파일을 열고 `return` 문 옆의 텍스트를 약간 변경합니다.
 
@@ -185,8 +178,7 @@ git push azure master
 
 ![Azure에서 실행되는 업데이트된 샘플 앱](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
-## 새로운 Azure 웹앱 관리
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
+## <a name="manage-your-new-azure-web-app"></a>새로운 Azure 웹앱 관리
 
 만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
 
@@ -202,8 +194,7 @@ git push azure master
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [PostgreSQL을 사용하는 Python](app-service-web-tutorial-docker-python-postgresql-app.md)
