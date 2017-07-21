@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 81549c4bc0cabcf46bc7dc66d7e6662d7f787b1e
 ms.openlocfilehash: df6353f84f898a1722e3e985244a90dbd6b22522
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/26/2017
 
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Azure AD Connect에 사용할 설치 유형 선택
@@ -73,9 +74,4 @@ Azure AD Connect에서는 새 설치에 대해 기본 및 사용자 지정의 �
 
 ## <a name="next-steps"></a>다음 단계
 사용하도록 선택한 옵션에 따라 왼쪽의 목차에서 자세한 단계를 제공하는 문서를 찾아보세요.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

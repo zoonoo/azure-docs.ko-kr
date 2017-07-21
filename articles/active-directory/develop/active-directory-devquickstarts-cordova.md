@@ -21,7 +21,6 @@ ms.openlocfilehash: 4a80252f139d653ff8788b3c1a6a075448cb48e7
 ms.contentlocale: ko-kr
 ms.lasthandoff: 02/14/2017
 
-
 ---
 # <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Azure AD를 Apache Cordova 앱에 통합
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -146,7 +145,7 @@ Azure AD는 알려진 응용 프로그램으로만 토큰을 발급합니다. �
 코드에서 먼저 해야 할 작업은 앱 및 대상 리소스를 식별하기 위해 Azure AD에서 사용되는 프로토콜 값을 추가하는 것입니다. 이러한 값은 나중에 토큰 요청을 생성하는 데 사용됩니다. Index.js 파일의 맨 위에 다음 코드 조각을 삽입합니다.
 
 ```javascript
-var authority = "https://login.windows.net/common",
+var authority = "https://login.microsoftonline.com/common",
     redirectUri = "http://MyDirectorySearcherApp",
     resourceUri = "https://graph.windows.net",
     clientId = "a5d92493-ae5a-4a9f-bcbf-9f1d354067d3",

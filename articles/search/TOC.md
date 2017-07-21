@@ -31,6 +31,7 @@
 ### [SDK 업그레이드](search-dotnet-sdk-migration.md)
 ### [REST API 업그레이드](search-api-migration.md)
 ### [복합 데이터 형식 모델링](search-howto-complex-data-types.md)
+
 ## 관리
 ### Azure Search 관리
 #### [Azure 포털](search-manage.md)

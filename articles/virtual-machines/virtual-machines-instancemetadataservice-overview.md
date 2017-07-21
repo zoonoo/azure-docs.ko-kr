@@ -2,16 +2,16 @@
 title: "Azure 인스턴스 메타데이터 서비스 개요 | Microsoft Docs"
 description: "VM의 계산, 네트워크 및 예정된 유지 관리 이벤트에 대한 정보를 가져오는 RESTful 인터페이스입니다."
 services: virtual-machines-windows, virtual-machines-linux,virtual-machines-scale-sets, cloud-services
-documentationcenter: 
+documentationcenter: virtual-machines
 author: harijay
 manager: timlt
 editor: 
-tags: 
-ms.service: azure-instancemetadataservice
+tags: azure-resource-manager
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: harijay
 ms.translationtype: Human Translation

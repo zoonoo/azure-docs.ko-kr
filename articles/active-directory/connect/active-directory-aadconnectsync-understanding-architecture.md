@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3d3ba2d11d66ecc253a34e7c4da422bf9fdbd1bd
 ms.openlocfilehash: da69c6f8d0d831349e50548c8883db249b4ee60f
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/06/2017
 
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect 동기화: 아키텍처 이해
@@ -257,10 +258,5 @@ ID 관리 프로세스는 서로 다른 연결된 데이터 원본 간에 ID 정
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -4,7 +4,7 @@ description: "Power BI를 사용하여 센서에서 수집하여 Azure IoT Hub�
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "실시간 데이터 시각화, 라이브 데이터 시각화, 센서 데이터 시각화"
 ms.assetid: e67c9c09-6219-4f0f-ad42-58edaaa74f61
@@ -20,7 +20,6 @@ ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 404ab1682d9b77f22e60888340ffb70a101ed5d4
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/15/2017
-
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화

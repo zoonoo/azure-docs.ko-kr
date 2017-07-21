@@ -20,7 +20,6 @@ ms.openlocfilehash: 7a68a2764d17b53164ded5096ddee68ab8c723ed
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 만들기
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -42,6 +41,8 @@ IoT Hub를 찾을 수 있는 다양한 위치가 있습니다.
 
 ### <a name="choose-the-name-of-the-iot-hub"></a>IoT Hub 이름 선택
 IoT Hub를 만들려면 IoT Hub의 이름을 지정해야 합니다. 이 이름은 IoT Hubs에서 고유해야 합니다. 솔루션 백 엔드에서 허브의 중복이 허용되지 않으므로 허브의 이름을 가능한 고유하게 지정하는 것이 좋습니다.
+
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 ### <a name="choose-the-pricing-tier"></a>가격 책정 계층 선택
 **무료**, **표준 1**, **표준 2**, **표준 S3**라는 네 개의 계층 중에서 선택할 수 있습니다. 무료 계층에서는 IoT Hub에 500개 장치만 연결할 수 있으며 하루에 8,000개 메시지까지 허용합니다.

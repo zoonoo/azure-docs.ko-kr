@@ -2,7 +2,7 @@
 title: "작업 그룹에서 SMS 경고 동작 | Microsoft Docs"
 description: "SMS 메시지 형식 및 SMS 메시지에 대한 응답으로 구독 취소, 재구독 또는 도움을 요청합니다."
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: 10f33898fb86bd2449994a153d99cb59dc6078d6
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>작업 그룹에서 SMS 경고 동작

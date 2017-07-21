@@ -3,7 +3,7 @@ title: "Java를 사용하여 Azure IoT Edge 모듈 만들기 | Microsoft Docs"
 description: "이 자습서에서는 최신 Azure IoT Edge Maven 패키지를 사용하여 BLE 데이터 변환기 모듈을 작성하는 방법을 소개합니다."
 services: iot-hub
 author: junyi
-manager: sushi
+manager: timlt
 ms.service: iot-hub
 ms.workload: na
 ms.tgt_pltfrm: na

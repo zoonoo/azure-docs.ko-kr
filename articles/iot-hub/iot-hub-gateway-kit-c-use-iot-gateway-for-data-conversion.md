@@ -4,7 +4,7 @@ description: "IoT 게이트웨이를 사용하여 Azure IoT Edge의 사용자 �
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "IoT 게이트웨이 데이터 변환, IoT 게이트웨이 데이터 변환"
 ms.assetid: 75f2573d-500b-4405-bff7-61021c4c3500
@@ -20,7 +20,6 @@ ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: 5f5151c9e250fb8a19a953c6212dd2675004dc55
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/26/2017
-
 
 ---
 # <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-edge"></a>IoT 게이트웨이를 사용하여 Azure IoT Edge를 통해 센서 데이터 변환

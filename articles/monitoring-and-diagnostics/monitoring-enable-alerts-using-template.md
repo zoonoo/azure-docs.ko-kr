@@ -2,7 +2,7 @@
 title: "Resource Manager 템플릿을 사용하여 메트릭 경고 만들기 | Microsoft Docs"
 description: "Resource Manager 템플릿을 사용하여 이메일 또는 Webhook으로 알림을 받는 메트릭 경고를 만드는 방법을 알아봅니다."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,6 @@ ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
 ms.contentlocale: ko-kr
 ms.lasthandoff: 12/22/2016
-
 
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기

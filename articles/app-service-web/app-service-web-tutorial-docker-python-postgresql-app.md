@@ -77,7 +77,7 @@ GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 다음 명령을 실행하여 샘플 리포지토리를 복제하고 *0.1-initialapp* 릴리스로 이동합니다.
 
 ```bash
-git clone https://github.com/Azure-Samples/docker-flask-postgres.gi
+git clone https://github.com/Azure-Samples/docker-flask-postgres.git
 cd docker-flask-postgres
 git checkout tags/0.1-initialapp
 ```
@@ -98,7 +98,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 cd app
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db run
+FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
 앱이 완전히 로드되면 다음과 비슷한 메시지가 표시됩니다.

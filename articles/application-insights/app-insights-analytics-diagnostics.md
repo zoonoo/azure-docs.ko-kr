@@ -13,11 +13,10 @@ ms.topic: article
 ms.date: 04/16/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: bf5bd20007c186bfd01b82aa06213ef9e7424a05
+ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
+ms.openlocfilehash: bb836357af6d006c18db578164f02fa7bd043b45
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="diagnose-sudden-changes-in-your-app-telemetry"></a>앱 원격 분석에서 급격한 변화 진단
@@ -62,7 +61,7 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="how-it-works"></a>작동 방법
 
-스마트 진단은 [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns_v2) 작업을 기반으로 한 자율적인 고급 기계 학습 알고리즘을 사용합니다. 이 진단에서는 데이터 변경을 설명할 수 있는 후보 패턴을 찾습니다. 메트릭에 대한 각 후보의 영향을 분석하고 변경과 가장 관련이 있는 패턴을 보여 줍니다.
+스마트 진단은 [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns) 작업을 기반으로 한 자율적인 고급 기계 학습 알고리즘을 사용합니다. 이 진단에서는 데이터 변경을 설명할 수 있는 후보 패턴을 찾습니다. 메트릭에 대한 각 후보의 영향을 분석하고 변경과 가장 관련이 있는 패턴을 보여 줍니다.
 
 ## <a name="no-diagnostic-points"></a>진단 지점은 없나요?
 

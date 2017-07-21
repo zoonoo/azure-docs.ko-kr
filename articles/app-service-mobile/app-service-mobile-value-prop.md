@@ -3,7 +3,7 @@ title: "모바일 앱 정의"
 description: "앱 서비스가 엔터프라이즈 모바일 앱에 제공하는 이점을 알아봅니다."
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
+author: ggailey777
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
+ms.author: glenga
+ms.translationtype: Human Translation
 ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: 8ce0a0e7b06f85090c07052056ddd67b97b2ee8b
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/29/2017
-
 
 ---
 # <a name="getting-started"> </a>Mobile Apps이란?
@@ -38,14 +38,14 @@ Azure App Service는 전문적 개발자를 위한 완전히 관리되는 PaaS([
 다음 기능은 클라우드 사용 모바일 개발에 중요합니다.
 
 * **인증 및 권한 부여** - 엔터프라이즈 인증을 위한 Azure Active Directory와 Facebook, Google, Twitter 및 Microsoft 계정과 같은 소셜 공급자를 포함하여 점점 증가하는 ID 공급자 목록에서 선택합니다.  Azure Mobile Apps은 각 공급자에 대한 OAuth 2.0 서비스를 제공합니다.  또한 공급자 특정 기능에 대한 ID 공급자의 SDK도 통합할 수 있습니다.
-  
+
   [인증 기능]에 대해 자세히 알아보세요.
 * **데이터 액세스** - Azure Mobile Apps은 SQL Azure 또는 온-프레미스 SQL Server에 연결된 모바일 친화적인 OData v3 데이터 원본을 제공합니다.  이 서비스는 Entity Framework를 기반으로 할 수 있으며 이를 통해 [Azure Table Storage], MongoDB, [DocumentDB] 및 SaaS API 공급자(예: Office 365 및 Salesforce.com)를 비롯한 다른 NoSQL 및 SQL 데이터 공급자와 쉽게 통합할 수 있습니다.
 * **오프라인 동기화** - 클라이언트 SDK를 통해 충돌 해결 지원을 비롯하여 백 엔드 데이터와 자동으로 동기화될 수 있는 오프라인 데이터 집합에서 작동하는 강력하고 응답성이 우수한 모바일 응용 프로그램을 쉽게 빌드할 수 있습니다.
-  
+
   [데이터 기능]에 대해 자세히 알아보세요.
 * **푸시 알림** - 클라이언트 SDK는 Azure Notification Hubs의 등록 기능과 원활하게 통합되어 수백만 명의 사용자에게 동시에 푸시 알림을 보낼 수 있습니다.
-  
+
   [푸시 알림 기능]에 대해 자세히 알아보세요.
 * **클라이언트 SDK** - 네이티브 개발([iOS], [Android] 및 [Windows]), 크로스 플랫폼 개발([iOS 및 Android용 Xamarin], [Xamarin Forms]) 및 하이브리드 응용 프로그램 개발([Apache Cordova])을 포함하는 전체 집합의 클라이언트 SDK를 제공합니다.  각 클라이언트 SDK는 MIT 라이선스로 사용할 수 있으며 오픈 소스입니다.
 
@@ -53,19 +53,19 @@ Azure App Service는 전문적 개발자를 위한 완전히 관리되는 PaaS([
 다음 플랫폼 기능은 일반적으로 모바일 프로덕션 사이트에 유용합니다.
 
 * **자동 크기 조정** - 앱 서비스를 사용하면 들어오는 고객 부하를 처리하기 위해 신속하게 확장하거나 축소할 수 있습니다. VM 수와 크기를 수동으로 선택하거나 부하 또는 일정에 따라 모바일 앱 백 엔드의 크기를 조정하도록 자동 크기 조정을 설정합니다.
-  
+
   [자동 크기 조정]에 대해 자세히 알아보세요.
 * **스테이징 환경** - App Service는 여러 버전의 사이트를 실행할 수 있으므로 A/B 테스트, 대규모 DevOps 계획의 일부로 프로덕션에서 테스트 및 새로운 백 엔드의 현재 위치 스테이징을 수행할 수 있습니다.
-  
+
   [스테이징 환경]에 대해 자세히 알아보세요.
 * **연속 배포** - App Service는 일반 SCM 시스템과 통합할 수 있어 SCM 시스템의 분기에 푸시하여 새 버전의 백 엔드를 자동으로 배포할 수 있습니다.
-  
+
   [배포 옵션]에 대해 자세히 알아보세요.
 * **가상 네트워킹** - App Service는 가상 네트워크, ExpressRoute 또는 하이브리드 연결을 사용하여 온-프레미스 리소스에 연결할 수 있습니다.
-  
+
   [하이브리드 연결], [가상 네트워크] 및 [ExpressRoute]에 대해 자세히 알아보세요.
 * **격리/전용 환경** - 높은 확장성으로 Azure App Service 앱을 안전하게 실행하기 위해 완전히 격리된 전용 환경에서 App Service를 실행할 수 있습니다.  매우 높은 확장성, 격리 또는 보안 네트워크 액세스가 요구되는 응용 프로그램 워크로드에 이상적입니다.
-  
+
   [앱 서비스 환경]에 대해 자세히 알아보세요.
 
 ## <a name="getting-started"></a>시작하기
@@ -76,8 +76,8 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 
 > [!NOTE]
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/mobile/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
-> 
-> 
+>
+>
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md

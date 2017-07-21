@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 2f33c266c14b62f51745ff67069358c007bc00a2
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/13/2017
-
 
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Azure Data Factory .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리
@@ -90,7 +89,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
 9. 응용 프로그램 ID를 가져옵니다.
 
     ```PowerShell
-    $azureAdApplication    
+    $azureAdApplication 
     ```
     출력에서 응용 프로그램 ID(applicationID)를 적어둡니다.
 
@@ -124,7 +123,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
     <?xml version="1.0" encoding="utf-8" ?>
     <configuration>
         <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+            <add key="ActiveDirectoryEndpoint" value="https://login.microsoftonline.com/" />
             <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
             <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 

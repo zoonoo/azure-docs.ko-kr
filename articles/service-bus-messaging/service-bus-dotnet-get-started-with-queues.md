@@ -20,14 +20,11 @@ ms.openlocfilehash: 02d0ce093bc42cffa4f3993826c61c8aeca4d033
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/01/2017
 
-
 ---
-# Service Bus 큐 시작
-<a id="get-started-with-service-bus-queues" class="xliff"></a>
+# <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-## 수행될 작업
-<a id="what-will-be-accomplished" class="xliff"></a>
+## <a name="what-will-be-accomplished"></a>수행될 작업
 이 자습서에서 다루는 단계는 다음과 같습니다.
 
 1. Azure Portal을 사용하여 Service Bus 네임스페이스를 만듭니다.
@@ -35,43 +32,36 @@ ms.lasthandoff: 07/01/2017
 3. 메시지를 보내는 콘솔 응용 프로그램을 작성합니다.
 4. 이전 단계에서 보낸 메시지를 수신하는 콘솔 응용 프로그램을 작성합니다.
 
-## 필수 조건
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>필수 조건
 1. [Visual Studio 2015 이상](http://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
 2. Azure 구독.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## 1. Azure Portal을 사용하여 네임스페이스 만들기
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Azure Portal을 사용하여 네임스페이스 만들기
 Service Bus 메시징 네임스페이스를 이미 만든 경우 [Azure Portal을 사용하여 큐 만들기](#2-create-a-queue-using-the-azure-portal) 섹션으로 이동합니다.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## 2. Azure Portal을 사용하여 큐 만들기
-<a id="2-create-a-queue-using-the-azure-portal" class="xliff"></a>
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Azure Portal을 사용하여 큐 만들기
 Service Bus 큐를 이미 만든 경우 [큐에 메시지 보내기](#3-send-messages-to-the-queue) 섹션으로 이동합니다.
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## 3. 큐에 메시지 보내기
-<a id="3-send-messages-to-the-queue" class="xliff"></a>
+## <a name="3-send-messages-to-the-queue"></a>3. 큐에 메시지 보내기
 큐에 메시지를 보내려면 Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 작성합니다.
 
-### 콘솔 응용 프로그램 만들기
-<a id="create-a-console-application" class="xliff"></a>
+### <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
 
 Visual Studio를 시작하고 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니다.
 
-### Service Bus NuGet 패키지 추가
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
+### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet 패키지 추가
 1. 마우스 오른쪽 단추로 새롭게 만든 프로젝트를 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 2. **찾아보기** 탭을 클릭하고 **Microsoft Azure Service Bus**를 검색한 다음 **WindowsAzure.ServiceBus** 항목을 선택합니다. **설치** 를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
    
     ![NuGet 패키지 선택][nuget-pkg]
 
-### 큐에 메시지를 보내는 코드 작성
-<a id="write-some-code-to-send-a-message-to-the-queue" class="xliff"></a>
+### <a name="write-some-code-to-send-a-message-to-the-queue"></a>큐에 메시지를 보내는 코드 작성
 1. Program.cs 파일 위쪽에 다음 `using` 문을 추가합니다.
    
     ```csharp
@@ -86,7 +76,6 @@ Visual Studio를 시작하고 **콘솔 앱(.NET Framework)** 프로젝트를 만
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
     var message = new BrokeredMessage("This is a test message!");
 
-    Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
     Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
     client.Send(message);
@@ -117,7 +106,6 @@ Visual Studio를 시작하고 **콘솔 앱(.NET Framework)** 프로젝트를 만
                 var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
                 var message = new BrokeredMessage("This is a test message!");
 
-                Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
 
                 client.Send(message);
@@ -132,8 +120,7 @@ Visual Studio를 시작하고 **콘솔 앱(.NET Framework)** 프로젝트를 만
    
       ![메시지 크기][queue-message]
 
-## 4. 큐에서 메시지 받기
-<a id="4-receive-messages-from-the-queue" class="xliff"></a>
+## <a name="4-receive-messages-from-the-queue"></a>4. 큐에서 메시지 받기
 
 1. 방금 보낸 메시지를 받으려면 새 콘솔 응용 프로그램을 만들고 이전의 보낸 사람 응용 프로그램과 유사한 Service Bus NuGet 패키지에 참조를 추가합니다.
 2. Program.cs 파일 위쪽에 다음 `using` 문을 추가합니다.
@@ -194,8 +181,7 @@ Visual Studio를 시작하고 **콘솔 앱(.NET Framework)** 프로젝트를 만
 
 축하합니다. 이제 큐를 만들고 메시지를 보내고 메시지를 받았습니다.
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 
 Service Bus 메시징의 많은 고급 기능 중 일부를 보여 주는 [샘플이 있는 GitHub 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples)를 확인합니다.
 

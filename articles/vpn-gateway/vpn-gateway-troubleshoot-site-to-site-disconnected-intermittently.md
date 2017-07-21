@@ -3,8 +3,8 @@ title: "Azure 사이트 간 VPN 일시적 연결 끊김 문제 해결 | Microsof
 description: "사이트 간 VPN 연결이 자주 끊어지는 문제를 해결하는 방법을 알아봅니다."
 services: vpn-gateway
 documentationcenter: na
-author: genlin
-manager: willchen
+author: chadmath
+manager: cshepard
 editor: 
 tags: 
 ms.service: vpn-gateway

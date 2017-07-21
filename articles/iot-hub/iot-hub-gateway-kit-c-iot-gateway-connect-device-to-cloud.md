@@ -4,7 +4,7 @@ description: "Intel NUC를 IoT 게이트웨이로 사용하여 클라우드에�
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "iot 게이트웨이로 장치를 클라우드에 연결"
 ms.assetid: cb851648-018c-4a7e-860f-b62ed3b493a5
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 61cb8eb0ad23a7d4b333bf54342b872a3a8ae1da
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/28/2017
-
 
 ---
 # <a name="use-iot-gateway-to-connect-things-to-the-cloud---sensortag-to-azure-iot-hub"></a>IoT 게이트웨이를 사용하여 장치를 클라우드에 연결 - SensorTag-Azure IoT Hub

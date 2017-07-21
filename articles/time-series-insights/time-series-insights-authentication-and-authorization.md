@@ -88,7 +88,7 @@ Time Series Insights에 액세스해야 하는 응용 프로그램이 있는 경
 
     ```csharp
     var authenticationContext = new AuthenticationContext(
-        "https://login.windows.net/common",
+        "https://login.microsoftonline.com/common",
         TokenCache.DefaultShared);
 
     AuthenticationResult token = await authenticationContext.AcquireTokenAsync(

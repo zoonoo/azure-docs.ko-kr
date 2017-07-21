@@ -3,8 +3,8 @@ title: "Xamarin Android 앱용 Azure 모바일 앱 시작"
 description: "이 자습서에 따라 Azure 모바일 앱을 사용하여 Xamarin Android 개발을 시작할 수 있습니다."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
+ms.author: glenga
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-xamarinandroid-app"></a>Xamarin.Android 앱 만들기
@@ -41,8 +41,8 @@ ms.lasthandoff: 01/20/2017
 
 > [!NOTE]
 > Azure 계정에 등록하기 전에 Azure App Service를 시작하려는 경우 [App Service 평가](https://azure.microsoft.com/try/app-service/mobile/)로 이동하세요.  App Service에서 단기 시작 Mobile App을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-mobile-app-backend"></a>새 Azure Mobile App 백 엔드 만들기
 다음 단계에 따라 새 Mobile App 백 엔드를 만드세요.
@@ -56,19 +56,19 @@ ms.lasthandoff: 01/20/2017
 
 ## <a name="download-and-run-the-xamarinandroid-app"></a>Xamarin.Android 앱 다운로드 및 실행
 1. **Xamarin.Android 프로젝트 다운로드 및 실행**에서 **다운로드** 단추를 클릭합니다.
-   
+
       압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
 2. **F5** 키를 눌러 프로젝트를 빌드하고 앱을 시작합니다.
 3. 앱에서 *자습서 완료* 등의 의미 있는 텍스트를 입력한 후 **추가** 단추를 클릭합니다.
-   
+
     ![][10]
-   
+
     요청에서 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 앱 백 엔드에서 반환된 후 데이터가 목록에 나타납니다.
-   
+
    > [!NOTE]
    > 모바일 앱 백 엔드에 액세스하여 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다. 이 코드는 ToDoActivity.cs C# 파일에 있습니다.
-   > 
-   > 
+   >
+   >
 
 ## <a name="next-steps"></a>다음 단계
 * [앱에 오프라인 동기화 추가](app-service-mobile-xamarin-android-get-started-offline-data.md)

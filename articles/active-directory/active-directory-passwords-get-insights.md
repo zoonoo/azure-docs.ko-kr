@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
 ms.openlocfilehash: 7375d2d3c237c3b1c2dcdab44b2fcb0000ff961c
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/04/2017
-
 
 ---
 # <a name="how-to-get-operational-insights-with-password-management-reports"></a>암호 관리 보고서와 함께 Operational Insights를 얻는 방법

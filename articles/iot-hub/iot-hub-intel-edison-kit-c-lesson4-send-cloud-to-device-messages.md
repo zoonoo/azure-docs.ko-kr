@@ -4,7 +4,7 @@ description: "샘플 응용 프로그램은 Edison에서 실행되며 IoT Hub에
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "웹에서 arduino led 제어, 웹을 통한 arduino led 제어"
 ROBOTS: NOINDEX
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
 ms.openlocfilehash: b4d76eeb1bc0b406800c89c4952900350d8eafa8
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/25/2017
-
 
 ---
 # <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>샘플 응용 프로그램을 실행하여 클라우드-장치 메시지 받기

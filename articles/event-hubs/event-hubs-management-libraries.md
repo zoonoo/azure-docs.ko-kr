@@ -20,7 +20,6 @@ ms.openlocfilehash: a9023448c4ced1edf54c84bb103454cbd76fbfba
 ms.contentlocale: ko-kr
 ms.lasthandoff: 04/12/2017
 
-
 ---
 
 # <a name="event-hubs-management-libraries"></a>Event Hubs 관리 라이브러리
@@ -49,7 +48,7 @@ Event Hubs 리소스를 조작하는 패턴은 일반 프로토콜을 따릅니�
 
 1. `Microsoft.IdentityModel.Clients.ActiveDirectory` 라이브러리를 사용하여 Azure Active Directory에서 토큰을 얻습니다.
     ```csharp
-    var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
     var result = await context.AcquireTokenAsync(
         "https://management.core.windows.net/",

@@ -20,11 +20,8 @@ ms.openlocfilehash: ca5ee2733df51faa5025c4d8eb687c81df4a3b4f
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/09/2017
 
-
 ---
-<a id="use-desired-properties-to-configure-devices" class="xliff"></a>
-
-# desired 속성을 사용하여 장치 구성
+# <a name="use-desired-properties-to-configure-devices"></a>desired 속성을 사용하여 장치 구성
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 이 자습서의 끝 부분에 다음 두 개의 콘솔 앱이 제공됩니다.
@@ -49,9 +46,8 @@ ms.lasthandoff: 05/09/2017
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-<a id="create-the-simulated-device-app" class="xliff"></a>
-
-## 시뮬레이션된 장치 앱 만들기
+<a id="#create-the-simulated-device-app"></a>
+## <a name="create-the-simulated-device-app"></a>시뮬레이션된 장치 앱 만들기
 이 섹션에서는 **myDeviceId**로 허브에 연결하는 Node.js 콘솔 앱을 만들고, 원하는 구성 업데이트를 기다린 다음, 시뮬레이션된 구성 업데이트 프로세스의 업데이트를 보고합니다.
 
 1. **simulatedeviceconfiguration**라는 빈 폴더를 새로 만듭니다. **simulatedeviceconfiguration** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
@@ -162,9 +158,7 @@ ms.lasthandoff: 05/09/2017
    
     메시지 `retrieved device twin`이 표시되어야 합니다. 앱이 계속 실행되게 합니다.
 
-<a id="create-the-service-app" class="xliff"></a>
-
-## 서비스 응용 프로그램 만들기
+## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
 이 섹션에서는 새로운 원격 분석 구성 개체를 사용하여 **myDeviceId**와 연결된 장치 쌍에서 *desired 속성*을 업데이트하는 .NET 콘솔 앱을 만듭니다. 그런 다음 IoT Hub에 저장된 장치 쌍을 쿼리하고 장치의 desired 구성과 reported 구성 사이의 차이점을 표시합니다.
 
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 이름을 **SetDesiredConfigurationAndQuery**로 지정합니다.
@@ -247,9 +241,7 @@ ms.lasthandoff: 05/09/2017
    > 
    > 
 
-<a id="next-steps" class="xliff"></a>
-
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 이 자습서에서는 솔루션 백 엔드에서 원하는 구성을 *desired 속성*으로 설정하고, 해당 변경 사항을 감지하고 reported 속성을 통해 상태를 보고하는 다단계 업데이트 프로세스를 시뮬레이션하는 장치 앱을 작성했습니다.
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
@@ -283,5 +275,5 @@ ms.lasthandoff: 05/09/2017
 
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-[lnk-how-to-configure-createapp]: iot-hub-node-node-twin-how-to-configure.md#create-the-simulated-device-app
+[lnk-how-to-configure-createapp]: iot-hub-csharp-node-twin-how-to-configure.md#create-the-simulated-device-app
 
