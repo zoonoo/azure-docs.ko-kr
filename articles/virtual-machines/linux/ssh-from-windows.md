@@ -3,7 +3,7 @@ title: "Linux VM용 Windows를 통한 SSH 키 사용 | Microsoft Docs"
 description: "Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure에서 Linux 가상 컴퓨터에 연결하는 방법에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: squillace
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-service-management,azure-resource-manager
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
-ms.author: rasquill
+ms.author: danlep
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 7f572adf499dd1fcd0db19500c9049af1e31cdea
 ms.contentlocale: ko-kr
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법

@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 07/18/2017
 ms.author: davidmu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: 907e5b80aeeee4ab2eb0466490ba9ef9b0348144
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/17/2017
-
 
 ---
 
@@ -40,7 +39,7 @@ ms.lasthandoff: 05/17/2017
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop",    
+      "name": "virtualMachineLoop", 
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -48,7 +47,7 @@ ms.lasthandoff: 05/17/2017
     ], 
     "properties": { 
       "hardwareProfile": { 
-        "vmSize": "Standard_DS1_v2" 
+        "vmSize": "Standard_DS1" 
       }, 
       "osProfile": { 
         "computername": "[concat('myVM', copyindex())]", 
@@ -63,10 +62,10 @@ ms.lasthandoff: 05/17/2017
           "version": "latest" 
         }, 
         "osDisk": { 
-          "name": "[concat('myOSDisk', copyindex())]" 
+          "name": "[concat('myOSDisk', copyindex())]",
           "caching": "ReadWrite", 
           "createOption": "FromImage" 
-        }
+        },
         "dataDisks": [
           {
             "name": "[concat('myDataDisk', copyindex())]",
@@ -80,15 +79,14 @@ ms.lasthandoff: 05/17/2017
         "networkInterfaces": [ 
           { 
             "id": "[resourceId('Microsoft.Network/networkInterfaces',
-              concat('myNIC', copyindex())]" 
+              concat('myNIC', copyindex()))]" 
           } 
         ] 
-      }
+      },
       "diagnosticsProfile": {
         "bootDiagnostics": {
           "enabled": "true",
-          "storageUri": "[concat('https://', variables('storageName'), 
-            '.blob.core.windows.net"
+          "storageUri": "[concat('https://', variables('storageName'), '.blob.core.windows.net')]"
         }
       } 
     },
@@ -224,7 +222,7 @@ ms.lasthandoff: 05/17/2017
 
 ```
 "copy": {
-  "name": "virtualMachineLoop",    
+  "name": "virtualMachineLoop", 
   "count": "[parameters('numberOfInstances')]"
 },
 ```
@@ -233,7 +231,7 @@ ms.lasthandoff: 05/17/2017
 
 ```
 "osDisk": { 
-  "name": "[concat('myOSDisk', copyindex())]" 
+  "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
 }
@@ -273,7 +271,7 @@ ms.lasthandoff: 05/17/2017
     "id": "[resourceId('Microsoft.Network/networkInterfaces',
       concat('myNIC', copyindex())]" 
   } ] 
-}
+},
 ```
 
 이 속성을 설정하려면 네트워크 인터페이스가 있어야 합니다. 따라서 종속성이 필요합니다. 또한 하나의 리소스(자식)가 다른 리소스(부모) 내에서 정의될 때에도 종속성을 설정해야 합니다. 예를 들어 진단 설정 및 사용자 지정 스크립트 확장 모두는 가상 컴퓨터의 자식 리소스로 정의됩니다. 가상 컴퓨터가 있을 때까지 만들 수 없습니다. 따라서 두 리소스는 가상 컴퓨터에 따라 표시됩니다.
@@ -323,7 +321,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
   "createOption": "FromImage" 
-}
+},
 ```
 
 ### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>기존 Managed Disks에서 새 가상 컴퓨터 만들기
@@ -338,7 +336,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
   }, 
   "caching": "ReadWrite",
   "createOption": "Attach" 
-}
+},
 ```
 
 ### <a name="create-new-virtual-machines-from-a-managed-image"></a>관리되는 이미지에서 새 가상 컴퓨터 만들기
@@ -356,7 +354,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
     "caching": "ReadWrite", 
     "createOption": "FromImage" 
   }
-}
+},
 ```
 
 ### <a name="attach-data-disks"></a>데이터 디스크 연결
@@ -372,7 +370,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
     "caching": "ReadWrite",
     "createOption": "Empty"
   }
-]
+],
 ```
 
 ## <a name="extensions"></a>확장

@@ -2,7 +2,7 @@
 title: "Azure 활동 로그 보관 | Microsoft Docs"
 description: "저장소 계정에 장기 보존을 위해 Azure 활동 로그를 보관하는 방법에 대해 알아봅니다."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaa162df8a6cd60cb174242e6a353439f2da58b4
 ms.openlocfilehash: eb3a0ad811a4286df1bac963904bd9154c0ccfa3
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/10/2016
 
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure 활동 로그 보관
@@ -167,10 +168,5 @@ PT1H.json 파일 내에서 각 이벤트는 이 형식에 따라 "레코드" 배
 * [분석을 위한 Blob 다운로드](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
 * [활동 로그를 이벤트 허브로 스트리밍](monitoring-stream-activity-logs-event-hubs.md)
 * [활동 로그에 대한 자세한 내용](monitoring-overview-activity-logs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

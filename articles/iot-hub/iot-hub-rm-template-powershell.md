@@ -20,7 +20,6 @@ ms.openlocfilehash: d55de6c3f49abf3ac117dcb265dd7f1bcaa05f24
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Azure Resource Manager 템플릿을 사용하여 IoT Hub 만들기(PowerShell)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -136,6 +135,7 @@ JSON 템플릿을 사용하여 리소스 그룹에 IoT hub를 만듭니다. Azur
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
+  [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 4. 앞에서 만든 IoT Hub의 키가 출력에 표시됩니다.
 5. [Azure Portal][lnk-azure-portal]을 방문하여 리소스 목록을 보거나 **Get-AzureRmResource** PowerShell cmdlet을 사용하여 응용 프로그램이 새 IoT Hub를 추가했는지 확인할 수 있습니다.
 

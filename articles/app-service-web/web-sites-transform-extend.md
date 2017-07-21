@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: abd55399ef780df945a2d643940a71425d085692
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="azure-app-service-web-app-advanced-config-and-extensions"></a>Azure 앱 서비스 웹 앱 고급 구성 및 확장
@@ -27,26 +27,27 @@ ms.lasthandoff: 01/20/2017
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-idtransformaadvanced-configuration-through-applicationhostconfig"></a><a id="transform"></a>ApplicationHost.config를 통한 고급 구성
+## <a id="transform"></a>ApplicationHost.config를 통한 고급 구성
 앱 서비스 플랫폼에서는 융통성 있게 웹 앱 구성을 제어할 수 있습니다. 앱 서비스에서 직접적인 편집에 표준 IIS ApplicationHost.config 구성 파일을 사용할 수 없지만, 이 플랫폼은 XDT(XML 문서 변환)를 기반으로 하여 선언적인 ApplicationHost.config 변환 모델을 지원합니다.
 
 이 변환 기능을 활용하려면 XDT 콘텐츠가 있는 ApplicationHost.xdt 파일을 만들어 [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console)에서 사이트 루트(d:\home\site)에 배치합니다. 변경 내용을 적용하려면 웹 앱을 다시 시작해야 할 수 있습니다.
 
 다음 applicationHost.xdt 샘플은 PHP 5.4를 사용하는 웹 앱에 새로운 사용자 지정 환경 변수를 추가하는 방법을 보여 줍니다.
 
-    <?xml version="1.0"?>
-    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-          <system.webServer>
-                <fastCgi>
-                      <application>
-                         <environmentVariables>
-                                <environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />
-                         </environmentVariables>
-                      </application>
-                </fastCgi>
-          </system.webServer>
-    </configuration>
-
+```xml
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <fastCgi>
+      <application>
+        <environmentVariables>
+          <environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />
+        </environmentVariables>
+      </application>
+    </fastCgi>
+  </system.webServer>
+</configuration>
+```
 
 변환 상태가 포함된 로그 파일 및 자세한 정보는 FTP 루트의 LogFiles\Transform 아래에서 사용할 수 있습니다.
 
@@ -55,8 +56,8 @@ ms.lasthandoff: 01/20/2017
 **참고**<br />
 `system.webServer` 아래에 있는 모듈 목록의 요소를 제거하거나 요소의 순서를 바꿀 수 없지만 목록에 추가할 수는 있습니다.
 
-## <a name="a-idextenda-extend-your-web-app"></a><a id="extend"></a> 웹앱 확장
-### <a name="a-idoverviewa-overview-of-private-web-app-extensions"></a><a id="overview"></a> 개인 웹앱 확장 개요
+## <a id="extend"></a> 웹앱 확장
+### <a id="overview"></a> 개인 웹앱 확장 개요
 앱 서비스는 관리 작업에 대한 확장성 지점으로 웹 앱 확장을 지원합니다. 실제로 일부 앱 서비스 플랫폼 기능은 사전 설치된 확장으로 구현됩니다. 사전 설치된 플랫폼 확장은 수정할 수 없는 반면, 고유 웹 앱의 개인 확장은 만들고 구성할 수 있습니다. 또한 이 기능은 XDT 선언이 있어야 사용할 수 있습니다. 개인 웹 앱 확장을 만드는 주요 단계는 다음과 같습니다.
 
 1. 웹앱 확장 **콘텐츠**: 앱 서비스에서 지원되는 웹 응용 프로그램 만들기
@@ -69,10 +70,10 @@ ms.lasthandoff: 01/20/2017
 
 개인 웹 앱 확장을 만들고 사용하도록 설정하는 단계를 설명하는 자세한 예제가 포함되어 있습니다. 다음에 나오는 PHP Manager 예제의 소스 코드는 [https://github.com/projectkudu/PHPManager](https://github.com/projectkudu/PHPManager)(영문)에서 다운로드할 수 있습니다.
 
-### <a name="a-idsitesamplea-web-app-extension-example-php-manager"></a><a id="SiteSample"></a> 웹앱 확장 예제: PHP Manager
+### <a id="SiteSample"></a> 웹앱 확장 예제: PHP Manager
 PHP Manager는 웹 앱 관리자가 PHP .ini 파일을 직접 수정할 필요 없이 웹 인터페이스에서 쉽게 PHP 설정을 보고 구성할 수 있게 하는 웹 앱 확장입니다. PHP의 일반적인 구성 파일에는 프로그램 파일 아래에 있는 php.ini 파일 및 웹 앱의 루트 폴더에 있는 .user.ini 파일이 포함됩니다. php.ini 파일은 앱 서비스 플랫폼에서 직접 편집할 수 없기 때문에 PHP Manager 확장에서 .user.ini 파일을 사용하여 설정 변경을 적용합니다.
 
-#### <a name="a-idphpwebappa-the-php-manager-web-application"></a><a id="PHPwebapp"></a> PHP Manager 웹 응용 프로그램
+#### <a id="PHPwebapp"></a> PHP Manager 웹 응용 프로그램
 다음은 PHP Manager 배포의 홈페이지입니다.
 
 ![TransformSitePHPUI][TransformSitePHPUI]
@@ -85,19 +86,21 @@ PHP Manager 확장은 Visual Studio ASP.NET MVC 4 웹 응용 프로그램 템플
 
 파일 I/O에 필요한 유일한 특수 논리는 웹 앱의 wwwroot 디렉터리가 있는 위치를 나타내는 것입니다. 다음 코드 예제에서 환경 변수 "HOME"은 웹 앱의 루트 경로를 나타내며 wwwroot 경로는 "site\wwwroot"를 추가하여 구성할 수 있음을 알 수 있습니다.
 
-    /// <summary>
-    /// Gives the location of the .user.ini file, even if one doesn't exist yet
-    /// </summary>
-    private static string GetUserSettingsFilePath()
-    {
-            var rootPath = Environment.GetEnvironmentVariable("HOME"); // For use on Azure Websites
-            if (rootPath == null)
-            {
-                rootPath = System.IO.Path.GetTempPath(); // For testing purposes
-            };
-            var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
-            return userSettingsFile;
-    }
+```csharp
+/// <summary>
+/// Gives the location of the .user.ini file, even if one doesn't exist yet
+/// </summary>
+private static string GetUserSettingsFilePath()
+{
+  var rootPath = Environment.GetEnvironmentVariable("HOME"); // For use on Azure Websites
+  if (rootPath == null)
+  {
+    rootPath = System.IO.Path.GetTempPath(); // For testing purposes
+  };
+  var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
+  return userSettingsFile;
+}
+```
 
 
 디렉터리 경로를 설정한 후에는 일반적인 파일 I/O 작업을 사용하여 파일을 읽고 파일에 쓸 수 있습니다.
@@ -112,53 +115,58 @@ PHP Manager 확장은 Visual Studio ASP.NET MVC 4 웹 응용 프로그램 템플
 
 이 요구 사항을 따르지 않으려면 웹 응용 프로그램 내에서 상대 경로만 사용하거나 ASP.NET 응용 프로그램의 경우 적절한 링크를 만드는 `@Html.ActionLink` 메서드를 사용하면 됩니다.
 
-#### <a name="a-idxdta-the-applicationhostxdt-file"></a><a id="XDT"></a> applicationHost.xdt 파일
+#### <a id="XDT"></a> applicationHost.xdt 파일
 웹앱 확장용 코드는 %HOME%\SiteExtensions\[확장 이름] 아래에 위치합니다. 이를 확장 루트라고 합니다.  
 
 applicationHost.config 파일에 웹 앱 확장을 등록하려면 확장 루트에 ApplicationHost.xdt라는 파일을 배치해야 합니다. ApplicationHost.xdt 파일의 내용은 다음과 같습니다.
 
-    <?xml version="1.0"?>
-    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-          <system.applicationHost>
-                <sites>
-                      <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
-                        <!-- NOTE: Add your extension name in the application paths below -->
-                        <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
-                        <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
-                              <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
-                        </application>
-                      </site>
-                </sites>
-          </system.applicationHost>
-    </configuration>
+```xml
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.applicationHost>
+    <sites>
+      <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
+        <!-- NOTE: Add your extension name in the application paths below -->
+        <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
+        <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
+          <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
+        </application>
+      </site>
+    </sites>
+  </system.applicationHost>
+</configuration>
+```
 
 확장 이름으로 선택하는 이름은 확장 루트 폴더와 이름이 같아야 합니다.
 
 이렇게 하면 `system.applicationHost` 사이트 목록에서 SCM 사이트 아래에 새 응용 프로그램 경로를 추가하는 효과가 있습니다. SCM 사이트는 특정 액세스 자격 증명이 사용되는 사이트 관리 끝점입니다. 여기에는 URL `https://[your-site-name].scm.azurewebsites.net`이 포함됩니다.  
 
-    <system.applicationHost>
-          ...
-          <site name="~1[your-website]" id="1716402716">
-                  <bindings>
-                    <binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
-                    <binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
-                  </bindings>
-                  <traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
-                  <detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
-                  <logFile logSiteId="false" />
-                  <application path="/" applicationPool="[your-website]">
-                    <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
-                  </application>
-                <!-- Note the custom changes that go here -->
-                  <application path="/[your-extension-name]" applicationPool="[your-website]">
-                    <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
-                  </application>
-            </site>
-      </sites>
-      ...
-    </system.applicationHost>
+```xml
+<system.applicationHost>
+  ...       
+  <sites>
+    <site name="~1[your-website]" id="1716402716">
+      <bindings>
+        <binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
+        <binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
+      </bindings>
+      <traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
+      <detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
+      <logFile logSiteId="false" />
+      <application path="/" applicationPool="[your-website]">
+        <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
+      </application>
+      <!-- Note the custom changes that go here -->
+      <application path="/[your-extension-name]" applicationPool="[your-website]">
+        <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
+      </application>
+    </site>
+  </sites>
+  ... 
+</system.applicationHost>
+```
 
-### <a name="a-iddeploya-web-app-extension-deployment"></a><a id="deploy"></a> 웹앱 확장 배포
+### <a id="deploy"></a> 웹앱 확장 배포
 웹앱 확장을 설치하려면 확장을 설치할 웹앱의 `\SiteExtensions\[your-extension-name]` 폴더에 웹 응용 프로그램의 모든 파일을 FTP를 사용하여 복사할 수 있습니다.  이 위치에 ApplicationHost.xdt 파일도 복사해야 합니다. 확장을 사용하려면 웹 앱을 다시 시작합니다.
 
 다음 주소에서 웹 앱 확장을 볼 수 있습니다.

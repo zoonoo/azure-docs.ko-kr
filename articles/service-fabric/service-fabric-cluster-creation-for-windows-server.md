@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/24/2017
+ms.date: 06/24/2017
 ms.author: chackdan;maburlik;dekapur
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 7543d98030ea143d537e0028801fd3efe3e4ff32
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/08/2017
-
 
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server에서 실행되는 독립 실행형 클러스터 만들기

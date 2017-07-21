@@ -4,7 +4,7 @@ description: "iothub-explorer CLI 도구를 사용하여 Azure IoT Hub에서 D2C
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "iothub explorer, 클라우드 장치 메시지, IoT Hub 클라우드-장치 메시지, 클라우드-장치 메시지"
 ms.assetid: 04521658-35d3-4503-ae48-51d6ad3c62cc
@@ -21,11 +21,8 @@ ms.openlocfilehash: a7abb8fb279e134b7f23df779f1c4548a9feb82d
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/08/2017
 
-
 ---
-<a id="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub" class="xliff"></a>
-
-# iothub-explorer를 사용하여 장치와 IoT Hub 간에 메시지 보내기 및 받기
+# <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>iothub-explorer를 사용하여 장치와 IoT Hub 간에 메시지 보내기 및 받기
 
 ![종단 간 다이어그램](media/iot-hub-get-started-e2e-diagram/2.png)
 
@@ -33,22 +30,16 @@ ms.lasthandoff: 05/08/2017
 
 [iothub-explorer](https://github.com/azure/iothub-explorer)에는 IoT Hub를 더 쉽게 관리할 수 있는 몇 가지 명령이 있습니다. 이 자습서에서는 iothub-explorer를 사용하여 장치와 IoT Hub 간에 메시지를 보내고 받는 방법에 중점을 둡니다.
 
-<a id="what-you-will-learn" class="xliff"></a>
-
-## 알아볼 내용
+## <a name="what-you-will-learn"></a>알아볼 내용
 
 iothub-explorer를 사용하여 장치-클라우드 메시지를 모니터링하고 클라우드-장치 메시지를 보내는 방법에 대해 알아봅니다. 장치-클라우드 메시지는 장치에서 수집한 다음 IoT Hub로 보내는 센서 데이터일 수 있습니다. 클라우드-장치 메시지는 IoT Hub에서 장치로 보내 사용자 장치에 연결된 LED를 깜박이는 명령일 수 있습니다.
 
-<a id="what-you-will-do" class="xliff"></a>
-
-## 수행할 사항
+## <a name="what-you-will-do"></a>수행할 사항
 
 - iothub-explorer를 사용하여 장치-클라우드 메시지를 모니터링합니다.
 - iothub-explorer를 사용하여 클라우드-장치 메시지를 보냅니다.
 
-<a id="what-you-need" class="xliff"></a>
-
-## 필요한 항목
+## <a name="what-you-need"></a>필요한 항목
 
 - 다음 요구 사항을 다루는 자습서 [장치 설정](iot-hub-raspberry-pi-kit-node-get-started.md) 완료:
   - 활성 Azure 구독.
@@ -56,9 +47,7 @@ iothub-explorer를 사용하여 장치-클라우드 메시지를 모니터링하
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 응용 프로그램
 - iothub-explorer ([Install iothub-explorer](https://github.com/azure/iothub-explorer))
 
-<a id="monitor-device-to-cloud-messages" class="xliff"></a>
-
-## 장치-클라우드 메시지 모니터링
+## <a name="monitor-device-to-cloud-messages"></a>장치-클라우드 메시지 모니터링
 
 장치에서 IoT Hub로 보낸 메시지를 모니터링하려면 다음 단계를 수행합니다.
 
@@ -72,9 +61,7 @@ iothub-explorer를 사용하여 장치-클라우드 메시지를 모니터링하
    > [!Note]
    > IoT Hub에서 `<device-id>`과 `<IoTHubConnectionString>`을 가져옵니다. 이전 자습서를 완료했는지 확인합니다. 또는 `HostName`, `SharedAccessKeyName` 및 `SharedAccessKey`가 있는 경우 `iothub-explorer monitor-events <device-id> --login "HostName=<my-hub>.azure-devices.net;SharedAccessKeyName=<my-policy>;SharedAccessKey=<my-policy-key>"`을(를) 사용할 수 있습니다.
 
-<a id="send-cloud-to-device-messages" class="xliff"></a>
-
-## 클라우드-장치 메시지 보내기
+## <a name="send-cloud-to-device-messages"></a>클라우드-장치 메시지 보내기
 
 IoT Hub에서 장치로 메시지를 보내려면 다음 단계를 수행합니다.
 
@@ -96,9 +83,7 @@ IoT Hub에서 장치로 메시지를 보내려면 다음 단계를 수행합니�
 > [!Note]
 > 장치에서 메시지를 받는 즉시 별도의 ack 명령을 IoT Hub로 다시 보내지 않아도 됩니다.
 
-<a id="next-steps" class="xliff"></a>
-
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 IoT 장치와 Azure IoT Hub 간에 장치-클라우드 메시지를 모니터링하고 클라우드-장치 메시지를 보내는 방법을 알아보았습니다.
 

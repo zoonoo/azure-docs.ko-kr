@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9541cd195e8afa6e692a5a0214b0d614e429c33b
 ms.openlocfilehash: 234f06a858987b03ec2ed0bbe0899423d8f0bcdd
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/20/2016
 
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
@@ -99,9 +100,4 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

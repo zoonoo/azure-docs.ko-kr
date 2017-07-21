@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: facdbff229eaf5ee20d98214c62c8b2b46acc0fd
 ms.openlocfilehash: 80617b203bf5efa4cd6bed590ea937b2e68db9e1
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/18/2017
 
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>하이브리드 ID 디렉터리 통합 도구 비교
@@ -91,10 +92,5 @@ PP = 공개 미리 보기 상태
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

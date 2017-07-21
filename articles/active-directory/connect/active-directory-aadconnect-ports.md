@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: adf358a130fd20674cbf2585de93005a9e1cb3ec
 ms.contentlocale: ko-kr
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>포트 및 프로토콜이 필요한 하이브리드 ID
@@ -80,7 +79,7 @@ ms.lasthandoff: 04/27/2017
 |프로토콜|포트 번호|설명
 | --- | --- | ---
 |HTTP|80|SSL과 같은 보안 유효성 검사에 아웃바운드 HTTP 트래픽을 사용하도록 설정합니다. 커넥터 자동 업데이트 기능이 제대로 작동하는 데도 필요합니다.
-|HTTPS|443|    기능 활성화 및 비활성화, 커넥터 등록, 커넥터 업데이트 다운로드 및 모든 사용자 로그인 요청 처리와 같은 작업을 위해 아웃바운드 HTTPS 트래픽을 사용합니다.
+|HTTPS|443| 기능 활성화 및 비활성화, 커넥터 등록, 커넥터 업데이트 다운로드 및 모든 사용자 로그인 요청 처리와 같은 작업을 위해 아웃바운드 HTTPS 트래픽을 사용합니다.
 
 또한 Azure AD Connect가 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/details.aspx?id=41653)에 대한 직접적인 IP 연결을 생성할 수 있어야 합니다.
 
@@ -88,7 +87,7 @@ ms.lasthandoff: 04/27/2017
 
 |프로토콜|포트 번호|설명
 | --- | --- | ---
-|HTTPS|443|    SSO 등록(SSO 등록 프로세스에만 필요)을 사용하도록 설정합니다.
+|HTTPS|443| SSO 등록(SSO 등록 프로세스에만 필요)을 사용하도록 설정합니다.
 
 또한 Azure AD Connect가 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/details.aspx?id=41653)에 대한 직접적인 IP 연결을 생성할 수 있어야 합니다. 다시, SSO 등록 프로세스에만 필요합니다.
 

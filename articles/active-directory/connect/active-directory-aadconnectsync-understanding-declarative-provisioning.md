@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
 ms.openlocfilehash: 5b715ec247183fc1b8cb3fa485612bb0f992b5cf
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/27/2017
 
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 동기화: 선언적 프로비전 이해
@@ -162,10 +163,4 @@ ImportedValue 함수는 특성 이름을 대괄호 대신 따옴표로 묶어야
 **참조 항목**
 
 * [Azure AD 동기화 연결: 함수 참조](active-directory-aadconnectsync-functions-reference.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

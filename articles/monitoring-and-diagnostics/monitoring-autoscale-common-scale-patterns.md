@@ -1,8 +1,8 @@
 ---
 title: "일반적인 자동 크기 조정 패턴 개요 | Microsoft Docs"
 description: "Azure에서 리소스의 크기를 자동으로 조정하는 일반적인 패턴 중 일부에 대해 알아봅니다."
-author: rajram
-manager: rboucher
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: rajram
+ms.author: ancav
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: c697b49769ffbbb4aee7a482bb067990b893490c
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>일반적인 자동 크기 조정 패턴 개요

@@ -20,7 +20,6 @@ ms.openlocfilehash: f4d72d4d11ee64e3431879f6ad1b5d8d091a0c87
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="silently-install-the-azure-ad-application-proxy-connector"></a>Azure AD 응용 프로그램 프록시 커넥터를 자동으로 설치
 사용자 인터페이스를 사용하도록 설정되지 않은 Windows Server 또는 여러 Windows 서버에 설치 스크립트를 보낼 수 있습니다. 이 문서는 Azure AD 응용 프로그램 프록시 커넥터에 대한 무인 설치 및 등록을 수행할 수 있게 하는 Windows PowerShell 스크립트를 만드는 데 도움이 됩니다.
@@ -72,7 +71,7 @@ ms.lasthandoff: 05/15/2017
         /// <summary>
         /// The AAD authentication endpoint uri
         /// </summary>
-        static readonly Uri AadAuthenticationEndpoint = new Uri("https://login.windows.net/common/oauth2/token?api-version=1.0");
+        static readonly Uri AadAuthenticationEndpoint = new Uri("https://login.microsoftonline.com/common/oauth2/token?api-version=1.0");
 
         /// <summary>
         /// The application ID of the connector in AAD

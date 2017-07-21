@@ -2,7 +2,7 @@
 title: "Azure Monitor 파트너 통합 | Microsoft Docs"
 description: "Azure Monitor의 파트너와, 파트너 통합을 위한 설명서에 액세스하는 방법을 살펴봅니다."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,6 @@ ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 5914e8be1cf2671da7af1d190811e0e809039135
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합

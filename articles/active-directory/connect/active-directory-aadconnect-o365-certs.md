@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
 ms.openlocfilehash: 51eafa16bd918a065f896ba89dec54d2340b5c69
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 01/27/2017
 
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 및 Azure Active Directory에 대한 페더레이션 인증서 갱신
@@ -55,7 +56,7 @@ Azure AD는 이 메타데이터에서 표시한 대로 페더레이션 메타데
 >
 >
 
-## <a name="check-if-the-certificates-need-to-be-updated-a-namemanagecertsa"></a>인증서를 업데이트해야 하는지를 확인합니다. <a name="managecerts"></a>
+## 인증서를 업데이트해야 하는지를 확인합니다. <a name="managecerts"></a>
 ### <a name="step-1-check-the-autocertificaterollover-state"></a>1단계: AutoCertificateRollover 상태 검사
 AD FS 서버에서 PowerShell을 엽니다. AutoCertificateRollover 값을 True로 설정했는지 확인합니다.
 
@@ -95,7 +96,7 @@ Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서
 
 \[-] 중요하지 않습니다.
 
-## <a name="renew-the-token-signing-certificate-automatically-recommended-a-nameautorenewa"></a>토큰 서명 인증서를 자동으로 갱신(권장됨) <a name="autorenew"></a>
+## 토큰 서명 인증서를 자동으로 갱신(권장됨) <a name="autorenew"></a>
 다음 두 가지가 true일 경우 수동 단계를 수행할 필요가 없습니다.
 
 * 엑스트라넷에서 페더레이션 메타데이터에 액세스할 수 있는 웹 응용 프로그램 프록시를 배포했습니다.
@@ -113,7 +114,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 예: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
-## <a name="renew-the-token-signing-certificate-manually-a-namemanualrenewa"></a>수동으로 토큰 서명 인증서 갱신 <a name="manualrenew"></a>
+## 수동으로 토큰 서명 인증서 갱신 <a name="manualrenew"></a>
 토큰 서명 인증서를 수동으로 갱신하도록 선택할 수 있습니다. 예를 들어, 다음과 같은 경우 수동 갱신에 대 한 더 적합할 수 있습니다.
 
 * 토큰 서명 인증서는 자체 서명된 인증서가 아닙니다. 가장 일반적인 이유는 조직이 조직 인증 기관에서 등록한 AD FS 인증서를 관리하기 때문입니다.
@@ -160,13 +161,8 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 >
 >
 
-## <a name="repair-azure-ad-trust-by-using-azure-ad-connect-a-nameconnectrenewa"></a>Azure AD Connect를 사용하여 Azure AD 트러스트 복구 <a name="connectrenew"></a>
+## Azure AD Connect를 사용하여 Azure AD 트러스트 복구 <a name="connectrenew"></a>
 Azure AD Connect를 사용하여 AD FS 팜/Azure AD 트러스트를 구성했다면 Azure AD Connect을 사용하여 토큰 서명 인증서에 대한 어떤 작업을 할 필요가 있는지 감지할 수 있습니다. 인증서를 갱신해야 하는 경우 Azure AD Connect를 사용하여 이렇게 할 수 있습니다.
 
 자세한 내용은 [트러스트 복구](active-directory-aadconnect-federation-management.md)를 참조합니다.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

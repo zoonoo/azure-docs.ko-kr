@@ -2,7 +2,7 @@
 title: "Azure Monitor에서의 역할, 권한 및 보안 시작 | Microsoft Docs"
 description: "Azure Monitor 기본 제공 역할 및 권한을 사용하여 모니터링 리소스에 대한 액세스를 제한하는 방법을 알아봅니다."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
@@ -169,10 +170,5 @@ New-AzureRmRoleDefinition -Role $role
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager의 RBAC 및 권한에 대해 읽기](../active-directory/role-based-access-control-what-is.md)
 * [Azure의 모니터링 개요 읽기](monitoring-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

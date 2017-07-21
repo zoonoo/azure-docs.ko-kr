@@ -20,7 +20,6 @@ ms.openlocfilehash: 8571011cac1182a5bfdfe722c194fcd681712a02
 ms.contentlocale: ko-kr
 ms.lasthandoff: 11/17/2016
 
-
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>C++에서 Blob 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
@@ -57,8 +56,8 @@ Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사�
 Azure 저장소 API를 사용하여 Blob에 액세스하려는 C++ 파일의 맨 위에 다음 include 문을 추가합니다.  
 
 ```cpp
-include <was/storage_account.h>
-include <was/blob.h>
+#include <was/storage_account.h>
+#include <was/blob.h>
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Azure 저장소 연결 문자열 설정

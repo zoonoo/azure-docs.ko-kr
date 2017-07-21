@@ -4,7 +4,7 @@ description: "Intel NUC를 센서와 Azure IoT Hub 사이의 IoT 게이트웨이
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: yjianfeng
+manager: timlt
 tags: 
 keywords: "iot 게이트웨이, intel nuc, nuc 컴퓨터, DE3815TYKE"
 ms.assetid: 917090d6-35c2-495b-a620-ca6f9c02b317
@@ -20,7 +20,6 @@ ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: b9e842a93dfdb7699158a11978aa622c31382d28
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/26/2017
-
 
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>Intel NUC를 IoT 게이트웨이로 설정

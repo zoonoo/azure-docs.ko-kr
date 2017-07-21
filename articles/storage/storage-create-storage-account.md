@@ -22,7 +22,6 @@ ms.openlocfilehash: 16d9fa8a7b7593f222976897bddf615c28109540
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="about-azure-storage-accounts"></a>Azure 저장소 계정 정보
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
@@ -109,7 +108,7 @@ Blob 저장소 계정의 경우 가격 책정 변경 외에도 액세스 계층�
 > 저장소 액세스 키를 다른 사람과 공유하지 않는 것이 좋습니다. 액세스 키를 제공하지 않고 저장소 리소스에 대한 액세스를 허용하려는 경우에는 *공유 액세스 서명*을 사용할 수 있습니다. 공유 액세스 서명에서는 정의된 간격으로 지정된 권한을 사용하여 계정의 리소스에 액세스할 수 있습니다. 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md) 을 참조하세요.
 > 
 > 
-
+<a id="view-and-copy-storage-access-keys"/></a>
 #### <a name="view-and-copy-storage-access-keys"></a>저장소 액세스 키 보기 및 복사
 [Azure 포털](https://portal.azure.com)에서 저장소 계정으로 이동하고 **모든 설정**을 클릭한 다음 **액세스 키**를 클릭하여 계정 액세스 키를 보고, 복사하며, 다시 생성합니다. 또한 **선택키** 블레이드는 응용 프로그램에서 사용하기 위해 복사할 수 있는 기본 및 보조 키를 사용하여 미리 구성된 연결 문자열을 포함합니다.
 

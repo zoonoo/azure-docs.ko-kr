@@ -20,7 +20,6 @@ ms.openlocfilehash: 384066affe46bfd2917a3a14e4cfa7d2fc8a25f1
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 
 # <a name="service-bus-management-libraries"></a>Service Bus 관리 라이브러리
@@ -49,9 +48,8 @@ Service Bus 관리 라이브러리 사용을 시작하려면 AAD(Azure Active Di
 Service Bus 리소스를 조작하는 패턴은 일반 프로토콜을 따릅니다.
 
 1. **Microsoft.IdentityModel.Clients.ActiveDirectory** 라이브러리를 사용하여 Azure Active Directory에서 토큰을 가져옵니다.
-
    ```csharp
-   var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+   var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```

@@ -21,7 +21,6 @@ ms.openlocfilehash: 7e0fa9a83c3c83145a4813422bf73a0e711d0ecc
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경에서 소프트웨어 변경 추적
 
@@ -74,8 +73,10 @@ ms.lasthandoff: 07/06/2017
    * **Ignore**(참조된 파일/디렉터리를 포함하지 않도록 재귀 중에 symlink 무시)
    * **Follow**(참조된 파일/디렉터리를 포함하도록 재귀 중에 symlink 따라 이동)
    * **Manage**(symlink 따라 이동 및 반환된 콘텐츠 처리 변경) 
+   
    > [!NOTE]   
    > 파일 콘텐츠 검색은 현재 지원되지 않으므로 “관리” 링크 옵션을 사용하지 않는 것이 좋습니다.
+   
 3. **Recurse**(폴더 수준 재귀 및 경로 문을 충족하는 모든 파일 추적)
 4. **Sudo**(sudo 권한이 필요한 액세스 파일 또는 디렉터리 사용)
 

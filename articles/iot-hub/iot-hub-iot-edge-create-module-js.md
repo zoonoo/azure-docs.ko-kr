@@ -3,7 +3,7 @@ title: "Node.js를 사용하여 Azure IoT Edge 모듈 만들기 | Microsoft Docs
 description: "이 자습서에서는 최신 Azure IoT Edge NPM 패키지 및 Yeoman 생성기를 사용하여 BLE 데이터 변환기 모듈을 작성하는 방법을 소개합니다."
 services: iot-hub
 author: sushi
-manager: xiaozha
+manager: timlt
 ms.service: iot-hub
 ms.workload: na
 ms.tgt_pltfrm: na

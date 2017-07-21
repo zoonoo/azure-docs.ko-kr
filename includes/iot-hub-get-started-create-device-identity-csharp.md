@@ -34,6 +34,8 @@
         }
    
     이 메서드는 ID **myFirstDevice**로 장치 ID를 만듭니다. ID 레지스트리에 해당 장치 ID가 이미 있는 경우 코드는 기존 장치 정보만 검색합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 이 키를 시뮬레이션된 장치 앱에서 사용하여 IoT Hub에 연결합니다.
+[!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
+
 7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);

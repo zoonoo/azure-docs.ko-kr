@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
 ms.openlocfilehash: 6e2bb0e228aa28c79969cba07352061abbb47951
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/22/2017
-
 
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>PowerShell을 사용하여 다중 NIC이 있는 VM(클래식) 만들기
@@ -136,14 +136,14 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
     ```powershell
     Add-AzureProvisioningConfig -VM $vmConfig -Windows `
         -AdminUsername $cred.UserName `
-        -Password $cred.Password
+        -Password $cred.GetNetworkCredential().Password
     ```
 
 4. 기본 NIC를 설정하여 고정 IP 주소를 할당합니다.
 
     ```powershell
-    Set-AzureSubnet            -SubnetNames $backendSubnetName -VM $vmConfig
-    Set-AzureStaticVNetIP     -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
+    Set-AzureSubnet         -SubnetNames $backendSubnetName -VM $vmConfig
+    Set-AzureStaticVNetIP   -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
     ```
 
 5. 각 VM에 두 번째 NIC를 추가합니다.

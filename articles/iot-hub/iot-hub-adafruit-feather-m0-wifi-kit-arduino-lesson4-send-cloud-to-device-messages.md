@@ -4,7 +4,7 @@ description: "샘플 응용 프로그램은 Adafruit Feather M0 WiFi에서 실�
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "웹에서 수행한 Arduino 제어, 웹을 통해 수행한 Arduino 제어"
 ROBOTS: NOINDEX
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4f9feb665ac93028023df86889ca53a64ac2ec0e
 ms.openlocfilehash: 63113841ca836681232e0aa43b15b444f8bb92e2
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/28/2017
-
 
 ---
 # <a name="run-a-sample-application-to-receive-cloud-to-device-messages"></a>샘플 응용 프로그램을 실행하여 클라우드-장치 메시지 받기

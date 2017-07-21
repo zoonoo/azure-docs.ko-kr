@@ -3,8 +3,8 @@ title: "Xamarin.iOS 앱용 Azure App Service Mobile Apps 시작 | Microsoft Docs
 description: "이 자습서에 따라 모바일 앱을 사용하여 Xamarin.iOS 개발을 시작할 수 있습니다."
 services: app-service\mobile
 documentationcenter: xamarin
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
+ms.author: syntaxc4
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: ed289d0755bbad08de01b0f311d14f5514ce0631
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="create-a-xamarinios-app"></a>Xamarin.iOS 앱 만들기
@@ -38,8 +38,8 @@ ms.lasthandoff: 01/20/2017
 
 > [!NOTE]
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](https://azure.microsoft.com/try/app-service/mobile/)로 이동하세요. 여기서 신용 카드와 약정 없이 App Service에서 수명이 짧은 스타터 모바일 앱을 즉시 만들 수 있습니다.
-> 
-> 
+>
+>
 
 ## <a name="create-an-azure-mobile-app-backend"></a>새 Azure Mobile App 백 엔드 만들기
 다음 단계에 따라 새 Mobile App 백 엔드를 만드세요.
@@ -56,24 +56,24 @@ ms.lasthandoff: 01/20/2017
 ## <a name="download-and-run-the-xamarinios-app"></a>Xamarin.iOS 앱 다운로드 및 실행
 1. 브라우저 창에서 [Azure 포털] 을 엽니다.
 2. Mobile App의 설정 블레이드에서 **시작** > **Xamarin.iOS**를 클릭합니다. 3단계 아래에서 **새 앱 만들기** 가 선택되어 있지 않으면 클릭합니다.  그런 다음 **다운로드** 단추를 클릭합니다.
-   
+
       모바일 백 엔드에 연결되는 클라이언트 응용 프로그램이 다운로드됩니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
 3. 다운로드한 프로젝트를 추출하고 Xamarin Studio(또는 Visual Studio)에서 엽니다.
-   
+
     ![][9]
-   
+
     ![][8]
 4. F5 키를 눌러 프로젝트를 빌드하고 iPhone 에뮬레이터에서 앱을 시작합니다.
 5. 앱에서 *Learn Xamarin*과 같은 의미 있는 텍스트를 입력한 후 **+** 단추를 클릭합니다.
-   
+
     ![][10]
-   
+
     요청에서 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 앱 백 엔드에서 반환된 후 데이터가 목록에 표시됩니다.
 
 > [!NOTE]
 > 모바일 앱 백 엔드에 액세스하여 QSTodoService.cs C# 파일에서 데이터를 쿼리 및 삽입하는 코드를 검토할 수 있습니다.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>다음 단계
 * [앱에 오프라인 동기화 추가](app-service-mobile-xamarin-ios-get-started-offline-data.md)

@@ -3,7 +3,7 @@ title: "Azure AD Connect: LocalDB 10GB 제한 문제에서 복구하는 방법 |
 description: "이 항목에서는 LocalDB 10GB 제한 문제가 발생한 경우 Azure AD Connect 동기화 서비스를 복구하는 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: billmath
+author: cychua
 manager: femila
 editor: 
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
-ms.author: cychua
-translationtype: Human Translation
+ms.date: 07/17/2017
+ms.author: billmath
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
 ms.openlocfilehash: 533d3db2a9b49f3077b7cdb699cac797c7a931b3
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/24/2017
-
 
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: LocalDB 10GB 제한에서 복구하는 방법
@@ -79,13 +79,13 @@ Azure AD Connect에 대해 만든 데이터베이스의 이름은 **ADSync**입�
 ### <a name="delete-run-history-data"></a>실행 기록 데이터 삭제
 기본적으로 Azure AD Connect는 7일 동안 실행 기록 데이터를 유지합니다. 이 단계에서는 실행 기록 데이터를 삭제하여 Azure AD Connect 동기화 서비스가 동기화를 다시 시작할 수 있도록 DB 공간을 확보합니다.
 
-1.    시작 → 동기화 서비스로 이동하여 **Synchronization Service Manager**를 시작합니다.
+1.  시작 → 동기화 서비스로 이동하여 **Synchronization Service Manager**를 시작합니다.
 
-2.    **Operations** 탭으로 이동합니다.
+2.  **Operations** 탭으로 이동합니다.
 
-3.    **Actions** 아래에서 **Clear Runs**를 선택합니다.
+3.  **Actions** 아래에서 **Clear Runs**를 선택합니다.
 
-4.    **Clear all runs** 또는 **Clear runs before… <date>** 옵션 중에서 선택할 수 있습니다. 2일보다 오래된 실행 기록 데이터를 삭제하여 시작하는 것이 좋습니다. DB 크기 문제가 계속되면 **Clear all runs** 옵션을 선택합니다.
+4.  **Clear all runs** 또는 **Clear runs before… <date>** 옵션 중에서 선택할 수 있습니다. 2일보다 오래된 실행 기록 데이터를 삭제하여 시작하는 것이 좋습니다. DB 크기 문제가 계속되면 **Clear all runs** 옵션을 선택합니다.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>실행 기록 데이터에 대한 보존 기간 단축
 이 단계는 여러 동기화 주기 후 10GB 제한 문제의 발생 가능성을 줄이는 것입니다.

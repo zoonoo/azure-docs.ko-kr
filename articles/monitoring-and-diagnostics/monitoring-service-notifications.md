@@ -2,7 +2,7 @@
 title: "서비스 상태 알림 정의 | Microsoft Docs"
 description: "서비스 상태 알림을 통해 Microsoft Azure에서 게시한 서비스 상태 메시지를 볼 수 있습니다."
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: c7ea129346c5fddcff9f824dc69478cf6fb1c67a
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="service-health-notifications"></a>서비스 상태 알림
@@ -50,7 +50,7 @@ resourceProviderName | 영향을 받는 리소스의 리소스 공급자 이름�
 resourceType| 영향을 받는 리소스의 리소스 형식입니다.
 subStatus | 일반적으로 해당 REST 호출의 HTTP 상태 코드이지만 다음과 같이 하위 상태를 설명하는 다른 문자열을 포함할 수 있습니다. 예를 들어 이러한 일반적인 값은 다음과 같습니다. OK(HTTP 상태 코드: 200), Created(HTTP 상태 코드: 201), Accepted(HTTP 상태 코드: 202), No Content(HTTP 상태 코드: 204), Bad Request(HTTP 상태 코드: 400), Not Found(HTTP 상태 코드: 404), Conflict(HTTP 상태 코드: 409), Internal Server Error(HTTP 상태 코드: 500), Service Unavailable(HTTP 상태 코드:503), Gateway Timeout(HTTP 상태 코드: 504).
 eventTimestamp | 이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다.
-submissionTimestamp |     이벤트를 쿼리할 수 있게 되는 타임스탬프입니다.
+submissionTimestamp |   이벤트를 쿼리할 수 있게 되는 타임스탬프입니다.
 subscriptionId | 이 이벤트가 로깅된 Azure 구독입니다.
 status | 작업의 상태를 설명하는 문자열. 일반적인 값: Started, In Progress, Succeeded, Failed, Active, Resolved.
 operationName | 작업의 이름입니다.
@@ -68,15 +68,15 @@ Properties.communicationId | 이 이벤트가 연결된 통신입니다.
 
 
 ## <a name="viewing-your-service-health-notifications-in-the-azure-portal"></a>Azure Portal에서 서비스 상태 알림 보기
-1.    [포털](https://portal.azure.com)에서 **모니터** 서비스로 이동합니다.
+1.  [포털](https://portal.azure.com)에서 **모니터** 서비스로 이동합니다.
 
     ![모니터](./media/monitoring-service-notifications/home-monitor.png)
-2.    **모니터** 옵션을 클릭하여 모니터 블레이드를 엽니다. 이 블레이드에서는 모든 모니터링 설정과 데이터를 하나의 통합 보기로 모읍니다. 처음에는 **활동 로그** 섹션이 열립니다.
+2.  **모니터** 옵션을 클릭하여 모니터 블레이드를 엽니다. 이 블레이드에서는 모든 모니터링 설정과 데이터를 하나의 통합 보기로 모읍니다. 처음에는 **활동 로그** 섹션이 열립니다.
 
-3.    이제 **서비스 알림** 섹션을 클릭합니다.
+3.  이제 **서비스 알림** 섹션을 클릭합니다.
 
     ![모니터](./media/monitoring-service-notifications/service-health-summary.png)
-4.    자세한 내용을 보려면 품목을 클릭합니다.
+4.  자세한 내용을 보려면 품목을 클릭합니다.
 
 5. **+활동 로그 경고 추가** 작업을 클릭하여 알림을 수신하면 이 유형의 향후 서비스 알림을 전달받을 수 있습니다. 서비스 알림에서 경고 구성에 대한 자세한 내용을 보려면 [여기를 클릭](monitoring-activity-log-alerts-on-service-notifications.md)하세요.
 

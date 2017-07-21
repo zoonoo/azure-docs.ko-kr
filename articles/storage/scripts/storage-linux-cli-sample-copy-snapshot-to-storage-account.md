@@ -1,14 +1,14 @@
 ---
 title: "Azure CLI 스크립트 샘플 - 스냅숏을 VHD로 다른 지역의 저장소 계정으로 내보내기/복사 | Microsoft Docs"
 description: "Azure CLI 스크립트 샘플 - 스냅숏을 VHD로 동일한 구독 또는 다른 구독의 저장소 계정으로 내보내기/복사"
-services: managed-disks-linux
+services: virtual-machines-linux
 documentationcenter: storage
-author: ramankum
+author: ramankumarlive
 manager: kavithag
-editor: ramankum
+editor: tysonn
 tags: azure-service-management
 ms.assetid: 
-ms.service: managed-disks-linux
+ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux

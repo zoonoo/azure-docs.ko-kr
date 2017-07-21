@@ -1,5 +1,4 @@
 ---
-
 title: "문제 해결: 다운로드한 Azure Active Directory 활동 로그의 누락된 데이터 | Microsoft Docs"
 description: "다운로드한 Azure Active Directory 활동 로그에서 누락된 데이터에 대한 해결 방법을 제공합니다."
 services: active-directory
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 9109c698e4e8b43eeb7534c338adc99476012a3f
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/08/2017
-
 
 ---
 

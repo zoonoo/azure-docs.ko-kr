@@ -2,7 +2,7 @@
 title: "Azure Monitor 메트릭 - 리소스 유형별 지원 메트릭 | Microsoft Docs"
 description: "Azure Monitor의 각 리소스 유형별로 사용 가능한 메트릭 목록"
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,6 @@ ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: b034251438c65dd13d9ca0bb116699532e3960ef
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭

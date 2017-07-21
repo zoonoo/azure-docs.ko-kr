@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
+ms.reviewer: jairoc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
 ms.openlocfilehash: 39bd4fcbe1b9a197bcf5b8bb33bf6fffae2063fc
 ms.contentlocale: ko-kr
 ms.lasthandoff: 03/11/2017
-
 
 ---
 # <a name="connect-domain-joined-devices-to-azure-ad-for-windows-10-experiences"></a>Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결

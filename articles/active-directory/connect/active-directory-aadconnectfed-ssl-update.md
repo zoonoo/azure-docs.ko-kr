@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2016
+ms.date: 07/17/2017
 ms.author: anandy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 9bb29624324305f5295e0a50ef79d8f4c6d063c0
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/21/2017
-
 
 ---    
 
@@ -65,10 +65,10 @@ AD FS 팜 서버에 대한 정보가 확인된 후 Azure AD Connect는 새 SSL �
 
 인증서를 제공하면 Azure AD Connect가 일련의 필수 조건을 진행합니다. 인증서에서 다음 사항을 확인하여 AD FS 팜의 인증서가 올바른지 확인합니다.
 
--    인증서의 주체 이름/주체 대체 이름은 페더레이션 서비스 이름과 같거나 와일드카드 인증서입니다.
--    인증서가 30일 이상 유효합니다.
--    인증서 신뢰 체인이 유효합니다.
--    인증서가 암호로 보호됩니다.
+-   인증서의 주체 이름/주체 대체 이름은 페더레이션 서비스 이름과 같거나 와일드카드 인증서입니다.
+-   인증서가 30일 이상 유효합니다.
+-   인증서 신뢰 체인이 유효합니다.
+-   인증서가 암호로 보호됩니다.
 
 ## <a name="step-3-select-servers-for-the-update"></a>3단계: 업데이트할 서버 선택
 

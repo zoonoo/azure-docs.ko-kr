@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 07/17/2017
 ms.author: davidmu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: cda53c43d4524ddcc8139f60f6b605a1f26c2658
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/27/2017
-
 
 ---
 
@@ -97,7 +97,7 @@ VNet을 설정할 때 사용 가능한 주소 공간과 서브넷을 포함하�
 
 기본적으로 서브넷 간에는 보안 경계가 없기 때문에 이러한 각 서브넷의 VM 간에 서로 통신할 수 있습니다. 그러나 서브넷 간 및 VM 간의 트래픽 흐름을 제어할 수 있는 NSG(네트워크 보안 그룹)를 설정할 수 있습니다. 
 
-다음 표에서는 VNet과 서브넷을 만드는 데 사용할 수 있는 방법을 나열하고 있습니다.    
+다음 표에서는 VNet과 서브넷을 만드는 데 사용할 수 있는 방법을 나열하고 있습니다. 
 
 | 메서드 | 설명 |
 | ------ | ----------- |

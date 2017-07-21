@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 07/19/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c3c5a3ee123fe021444370583c7f37737a03edce
 ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="output-metadata"></a>출력 메타데이터
@@ -33,7 +34,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 >
 >
 
-## <a name="a-nameassetfiles-a-assetfiles-root-element"></a><a name="AssetFiles "></a> AssetFiles 루트 요소
+## <a name="AssetFiles "></a> AssetFiles 루트 요소
 인코딩 작업에 대한 AssetFile 항목의 컬렉션입니다.  
 
 ### <a name="child-elements"></a>자식 요소
@@ -41,7 +42,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |AssetFiles 콜렉션의 일부인 [AssetFile 요소](media-services-output-metadata-schema.md)입니다. |
 
-## <a name="a-nameassetfile-a-assetfile-element"></a><a name="AssetFile "></a> AssetFile 요소
+## <a name="AssetFile "></a> AssetFile 요소
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
@@ -58,7 +59,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 이 요소는 이러한 모든 비디오 트랙의 컬렉션입니다. 자세한 내용은 [VideoTracks 요소](media-services-output-metadata-schema.md)를 참조하세요. |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 이 요소는 이러한 모든 오디오 트랙의 컬렉션입니다. 자세한 내용은 [AudioTracks 요소](media-services-output-metadata-schema.md)를 참조하세요. |
 
-## <a name="a-namesources-a-sources-element"></a><a name="Sources "></a> Sources 요소
+## <a name="Sources "></a> Sources 요소
 이 AssetFile을 생성하기 위해 처리된 입력/원본 미디어 파일의 컬렉션입니다.  
 
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
@@ -68,7 +69,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | --- | --- |
 | **원본**<br/><br/> minOccurs="1" maxOccurs="unbounded" |이 자산을 생성할 때 사용되는 입력/원본 파일입니다. 자세한 내용은 [Source 요소](media-services-output-metadata-schema.md)를 참조하세요. |
 
-## <a name="a-namesource-a-source-element"></a><a name="Source "></a> Source 요소
+## <a name="Source "></a> Source 요소
 이 자산을 생성할 때 사용되는 입력/원본 파일입니다.  
 
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
@@ -78,7 +79,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | --- | --- | --- |
 | **Name**<br/><br/> 필수 |**xs:string** |입력 원본 파일 이름입니다. |
 
-## <a name="a-namevideotracks-a-videotracks-element"></a><a name="VideoTracks "></a> VideoTracks 요소
+## <a name="VideoTracks "></a> VideoTracks 요소
 각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 이 요소는 이러한 모든 비디오 트랙의 컬렉션입니다.  
 
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
@@ -88,7 +89,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |부모 AssetFile의 특정 비디오 트랙입니다. 자세한 내용은 [VideoTrack 요소](media-services-output-metadata-schema.md#VideoTrack)를 참조하세요. |
 
-## <a name="a-namevideotracka-videotrack-element"></a><a name="VideoTrack"></a> VideoTrack 요소
+## <a name="VideoTrack"></a> VideoTrack 요소
 부모 AssetFile의 특정 비디오 트랙입니다.  
 
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
@@ -110,7 +111,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |인코딩 기본 설정을 통해 요청된 대로 이 비디오 트랙의 대상 평균 비트 전송률(Kbps)입니다. |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |이 비디오 트랙의 최대 GOP 평균 비트 전송률(Kb/초)입니다. |
 
-## <a name="a-nameaudiotracks-a-audiotracks-element"></a><a name="AudioTracks "></a> AudioTracks 요소
+## <a name="AudioTracks "></a> AudioTracks 요소
 각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 이 요소는 이러한 모든 오디오 트랙의 컬렉션입니다.  
 
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
@@ -120,7 +121,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |부모 AssetFile의 특정 오디오 트랙입니다. 자세한 내용은 [AudioTrack 요소](media-services-output-metadata-schema.md)를 참조하세요. |
 
-## <a name="a-nameaudiotrack-a-audiotrack-element"></a><a name="AudioTrack "></a> AudioTrack 요소
+## <a name="AudioTrack "></a> AudioTrack 요소
 부모 AssetFile의 특정 오디오 트랙입니다.  
 
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
@@ -141,7 +142,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |음량 측정 결과 매개 변수입니다. 자세한 내용은 [LoudnessMeteringResultParameters 요소](media-services-output-metadata-schema.md)를 참조하세요. |
 
-## <a name="a-nameloudnessmeteringresultparameters-a-loudnessmeteringresultparameters-element"></a><a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters 요소
+## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters 요소
 음량 측정 결과 매개 변수입니다.  
 
 [XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
@@ -509,7 +510,7 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 
 
 
-## <a name="a-namexmla-xml-example"></a><a name="xml"></a> XML 예제
+## <a name="xml"></a> XML 예제
  다음은 출력 메타데이터 파일의 예제입니다.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
@@ -603,9 +604,4 @@ ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

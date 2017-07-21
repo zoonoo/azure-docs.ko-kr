@@ -1,5 +1,4 @@
 ---
-
 title: "문제 해결: Azure Active Directory 활동 로그의 누락된 데이터 | Microsoft Docs"
 description: "Azure Active Directory 보고에 사용할 수 있는 다양한 보고서 나열"
 services: active-directory
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/15/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 18af51e95a283a5cd33688484a0d7477eb4b957d
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/08/2017
-
 
 ---
 

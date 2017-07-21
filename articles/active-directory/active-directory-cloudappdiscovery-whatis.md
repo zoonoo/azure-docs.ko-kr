@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
+ms.reviewer: nigu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 011cdf5f1e1b78832a8e4f18f4eef0f376860c45
 ms.contentlocale: ko-kr
 ms.lasthandoff: 12/29/2016
-
 
 ---
 # <a name="finding-unmanaged-cloud-applications-with-cloud-app-discovery"></a>클라우드 앱 검색을 사용하여 관리되지 않은 클라우드 응용 프로그램 찾기

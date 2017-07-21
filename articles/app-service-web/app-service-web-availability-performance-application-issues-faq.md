@@ -3,7 +3,7 @@ title: "Azure Web Apps에 대한 응용 프로그램 성능 FAQ | Microsoft Docs
 description: "Azure App Service의 Web Apps 기능에서 가용성, 성능 및 응용 프로그램 문제에 대한 질문과 대답을 확인합니다."
 services: app-service\web
 documentationcenter: 
-author: simonxjx
+author: genlin
 manager: cshepard
 editor: 
 tags: top-support-issue
@@ -13,14 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 5/16/2017
-ms.author: v-six
+ms.date: 7/10/2017
+ms.author: genli
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 5c3e0a7f731fa3f7b34902c93bae8f67a0e8153d
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 응용 프로그램 성능 FAQ
