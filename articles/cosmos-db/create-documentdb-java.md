@@ -13,23 +13,25 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 06/27/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 6ffa6a538139f3d68f9bc79dc61a8fdd4034b71e
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c178646f0ec10cb08e90c1eda544a2488782187f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Java 및 Azure Portal에서 DocumentDB API 앱 작성
+# Azure Cosmos DB: Java 및 Azure Portal에서 DocumentDB API 앱 작성
+<a id="azure-cosmos-db-build-a-documentdb-api-app-with-java-and-the-azure-portal" class="xliff"></a>
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정, 문서 데이터베이스 및 컬렉션을 만드는 방법을 보여 줍니다. 그런 다음, [DocumentDB Java API](documentdb-sdk-java.md)에서 작성한 콘솔 앱을 빌드 및 실행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## 필수 조건
+<a id="prerequisites" class="xliff"></a>
 
 * 이 샘플을 실행하기 전에 다음 필수 조건이 있어야 합니다.
    * JDK 1.7+(JDK가 없는 경우 `apt-get install default-jdk` 실행)
@@ -37,15 +39,18 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
+## 데이터베이스 계정 만들기
+<a id="create-a-database-account" class="xliff"></a>
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>컬렉션 추가
+## 컬렉션 추가
+<a id="add-a-collection" class="xliff"></a>
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## 샘플 응용 프로그램 복제
+<a id="clone-the-sample-application" class="xliff"></a>
 
 이제 github에서 DocumentDB API 앱을 복제하고 연결 문자열을 설정한 후 실행해 보도록 하겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
@@ -54,12 +59,13 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 2. 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-java-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
     ```
 
-## <a name="review-the-code"></a>코드 검토
+## 코드 검토
+<a id="review-the-code" class="xliff"></a>
 
-앱에서 어떤 일이 일어나는지 빠르게 검토해 보겠습니다. `app.js` 파일을 열어 보면 이들 코드 줄에서 Azure Cosmos DB 리소스를 만드는 것을 알 수 있습니다. 
+앱에서 어떤 상황이 발생하고 있는지 빠르게 살펴보겠습니다. `Program.java` 파일을 열어 보면 이들 코드 줄에서 Azure Cosmos DB 리소스를 만드는 것을 알 수 있습니다. 
 
 * `DocumentClient`가 초기화됩니다.
 
@@ -126,7 +132,8 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     }
     ```    
 
-## <a name="update-your-connection-string"></a>연결 문자열 업데이트
+## 연결 문자열 업데이트
+<a id="update-your-connection-string" class="xliff"></a>
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
@@ -140,30 +147,32 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     `"https://FILLME.documents.azure.com"`
 
-4. 그런 다음, 포털에서 기본 키 값을 복사한 후 이 값을 'Program.java'의 DocumentClient 생성자에 대한 마스터 키 값으로 만듭니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
-
-    `config.primaryKey "FILLME"`
+4. 그런 다음, 포털에서 PRIMARY KEY 값을 복사한 후 두 번째 매개 변수 “FILL ME”를 'Program.java'의 DocumentClient 생성자에 있는 키로 바꿉니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
     
-## <a name="run-the-app"></a>앱 실행
+## 앱 실행
+<a id="run-the-app" class="xliff"></a>
 
-1. 터미널에서 `mvn package`를 실행하여 필요한 npm 모듈을 설치합니다.
+1. 터미널에서 `mvn package`를 실행하여 필요한 Java 패키지를 설치합니다.
 
 2. 터미널에서 `mvn exec:java -D exec.mainClass=GetStarted.Program`을 실행하여 Java 응용 프로그램을 시작합니다.
 
 이제 데이터 탐색기로 돌아가서 이 새 데이터를 쿼리 및 수정하고 작업에 사용할 수 있습니다. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
+## Azure Portal에서 SLA 검토
+<a id="review-slas-in-the-azure-portal" class="xliff"></a>
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>리소스 정리
+## 리소스 정리
+<a id="clean-up-resources" class="xliff"></a>
 
 이 앱을 계속 사용하지 않으려면 Azure Portal에서 다음 단계에 따라 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다. 
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.
 
-## <a name="next-steps"></a>다음 단계
+## 다음 단계
+<a id="next-steps" class="xliff"></a>
 
 이 빠른 시작에서, Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 컬렉션을 만들고, 앱을 실행하는 방법을 알아보았습니다. 이제 사용자의 Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다. 
 

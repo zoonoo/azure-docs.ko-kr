@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 스크립트 - 데이터베이스 감사 및 위협 감지 구성 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - PowerShell을 사용하여 SQL Database 감사 및 위협 감지 구성"
+title: "PowerShell 예제 감사 위협 감지 - Azure SQL Database | Microsoft Docs"
+description: "Azure SQL Database에서 감사 및 위협 감지를 구성하는 Azure PowerShell 예제 스크립트"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 5bb1f0b4b6e548cf4164dae55d13cbebb660232f
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 228772ff6710596c916165a132db31f449d0a327
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="configure-sql-database-auditing-and-threat-detection-using-powershell"></a>PowerShell을 사용하여 SQL Database 감사 및 위협 감지 구성
+# <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>PowerShell을 사용하여 SQL Database 감사 및 위협 감지 구성
 
-이 샘플 PowerShell은 SQL Database 감사 및 위협 감지를 구성합니다. 
+이 PowerShell 예제는 SQL Database 감사 및 위협 감지를 구성합니다. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

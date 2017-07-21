@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4503810769d88ea554885f39902349046981ec88
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -62,10 +64,5 @@ Azure Mobile Engagement는 특히 **디지털 마케팅 담당자/CMO**를 대�
 정리하자면, Mobile Engagement의 목적은 단지 분석을 수집하는 것이 아니며 "Microsoft의 또 다른 분석 제품"이 아닙니다. 대상 지정된 푸시 알림을 전송하는 것을 포함하며 이 대상 지정을 위해 행동 분석 데이터를 수집하지만 앱 사용자가 스팸으로 지나치지 않도록 가장 이해하기 쉬운 푸시 알림을 보내는 데 초점을 둡니다. 
 
 자세한 내용은 Mobile Engagement에 대해 간단하게 설명하는 이 [짧은 비디오](mobile-engagement-overview.md) 를 살펴보세요. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

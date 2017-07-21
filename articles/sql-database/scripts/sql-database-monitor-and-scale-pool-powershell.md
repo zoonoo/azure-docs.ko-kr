@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 스크립트 - SQL 탄력적 풀 모니터링 및 크기 조정 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - PowerShell을 사용하여 SQL Database 탄력적 풀 모니터링 및 크기 조정"
+title: "PowerShell 예제 모니터링 크기 조정 SQL 탄력적 풀 - Azure SQL Database | Microsoft Docs"
+description: "Azure SQL Database에서 SQL 탄력적 풀을 모니터링하고 크기를 조정하는 Azure PowerShell 예제 스크립트"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 5231f5b13c3502a5a45ceea0b329f30a2e1c311c
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 6536158d4fc2e2c8fbb4e78305d28d063eb12696
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="monitor-and-scale-a-sql-database-elastic-pool-using-powershell"></a>PowerShell을 사용하여 SQL Database 탄력적 풀 모니터링 및 크기 조정
+# <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>PowerShell을 사용하여 Azure SQL Database에서 SQL 탄력적 풀 모니터링 및 크기 조정
 
-이 샘플 PowerShell 스크립트는 탄력적 풀의 성능 메트릭을 모니터링하고, 더 높은 성능 수준으로 확장하고, 성능 메트릭 중 하나에 경고 규칙을 만듭니다. 
+이 PowerShell 스크립트 예제는 탄력적 풀의 성능 메트릭을 모니터링하고, 더 높은 성능 수준으로 확장하고, 성능 메트릭 중 하나에 경고 규칙을 만듭니다. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

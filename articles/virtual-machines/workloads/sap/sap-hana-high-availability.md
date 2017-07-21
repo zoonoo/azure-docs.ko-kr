@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 258ccee349e07448ebebaebe64cd6fb6888d7ed4
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 7fa853983119ef4e570b768ca177d169c6e17153
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -46,8 +46,8 @@ ms.lasthandoff: 05/20/2017
 
 * SAP 참고 [2205917] SAP 응용 프로그램용 SUSE Linux Enterprise Server에 권장되는 OS 설정
 * SAP 참고 [1944799] SAP 응용 프로그램용 SUSE Linux Enterprise Server의 SAP HANA 지침
-* [SAP HANA SR 성능 최적화된 시나리오][suse-hana-ha-guide]  
-  이 가이드에는 온-프레미스에 SAP HANA 시스템 복제를 설정하는 데 필요한 모든 정보가 들어 있습니다. 이 가이드를 기준으로 사용합니다.
+* [SAP HANA SR 성능 최적화된 시나리오][suse-hana-ha-guide] 이 가이드에는 온-프레미스에 SAP HANA 시스템 복제를 설정하는 데 필요한 모든 정보가 들어 있습니다. 이 가이드를 기준으로 사용합니다.
+  
 ## <a name="deploying-linux"></a>Linux 배포
 
 SAP HANA의 리소스 에이전트는 SAP 응용 프로그램의 SUSE Linux Enterprise Server에 포함되어 있습니다.

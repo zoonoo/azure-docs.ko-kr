@@ -33,9 +33,10 @@
 
 
 # 리소스
-## [샘플 응용 프로그램](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [JavaScript embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 ## [JavaScript Git 리포지토리](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Power BI C# Git 리포지토리](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Power BI 커뮤니티](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [샘플 응용 프로그램](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/powerbi)

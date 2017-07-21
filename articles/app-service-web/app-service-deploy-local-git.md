@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6e476e1dc550f246027c015dee75850236baa9a9
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: da848aec495a8248fd4791f350d439e937831d01
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -43,8 +44,10 @@ ms.lasthandoff: 04/27/2017
 1. **GitBash** (Windows) 또는 **Bash** (Unix Shell)와 같은 명령줄 도구를 시작합니다. OS X 시스템에서는 **터미널** 응용 프로그램을 통해 명령줄에 액세스할 수 있습니다.
 2. 배포할 콘텐츠가 있는 디렉터리로 이동합니다.
 3. 다음 명령을 사용하여 새 Git 리포지토리를 초기화합니다.
-   
-        git init
+
+```bash  
+git init
+```
 
 ## <a name="Step2"></a>2단계: 콘텐츠 커밋
 앱 서비스는 다양한 프로그래밍 언어로 만들어진 응용 프로그램을 지원합니다. 
@@ -54,11 +57,15 @@ ms.lasthandoff: 04/27/2017
    * 텍스트 편집기를 사용하여 Git 리포지토리의 루트에 **index.html** 이라는 새 파일을 만듭니다.
    * index.html 파일 내용으로 *Hello Git!*
 2. 명령줄에서 Git 리포지토리의 루트 아래에 있는지 확인합니다. 다음 명령을 사용하여 리포지토리에 파일을 추가합니다.
-   
-        git add -A 
+
+```bash  
+git add -A
+```
 3. 그리고 나서 다음 명령을 사용하여 리포지토리에 변경 내용을 커밋합니다.
-   
-        git commit -m "Hello Azure App Service"
+
+```bash  
+git commit -m "Hello Azure App Service"
+```  
 
 ## <a name="Step3"></a>3단계: App Service 앱 리포지토리 사용
 앱 서비스 앱에서 Git 리포지토리를 사용할 수 있도록 하려면 다음 단계를 수행합니다.
@@ -88,10 +95,11 @@ ms.lasthandoff: 04/27/2017
    > 
    > 
 4. 방금 만든 새 **azure** 원격을 사용하여 앱 서비스에 콘텐츠를 푸시합니다.
-   
-        git push azure master
-   
-    Azure 포털에서 배포 자격 증명을 다시 설정할 때 이전에 만든 암호를 입력하라는 메시지가 나타납니다. 암호를 입력합니다(Gitbash는 암호를 입력할 때 콘솔에 별표를 표시하지 않음). 
+
+```bash  
+git push azure master
+```
+    You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
 5. Azure 포털에서 앱으로 돌아갑니다. 가장 최근 푸시의 로그 항목이 **배포** 블레이드에 표시됩니다. 
    
     ![](./media/app-service-deploy-local-git/deployment_history.png)
@@ -121,8 +129,9 @@ ms.lasthandoff: 04/27/2017
 
 **해결 방법**: 마스터 분기를 지정하고 push 작업을 다시 수행하세요. 예:
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **증상**: src refspec [branchname]이 전혀 일치하지 않음
 
@@ -130,8 +139,9 @@ ms.lasthandoff: 04/27/2017
 
 **해결 방법**: 마스터 분기를 지정하고 push 작업을 다시 수행하세요. 예:
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **증상**: RPC 실패; 결과=22, HTTP 코드 = 502.
 
@@ -139,8 +149,9 @@ ms.lasthandoff: 04/27/2017
 
 **해결 방법**: 더 큰 postBuffer를 만들도록 로컬 컴퓨터에서 git 구성을 변경합니다.
 
-    git config --global http.postBuffer 524288000
-
+```bash  
+git config --global http.postBuffer 524288000
+```
 - - -
 **증상**: 오류 - 변경 내용이 원격 리포지토리에 커밋되었으나 웹앱이 업데이트되지 않음
 

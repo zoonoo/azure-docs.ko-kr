@@ -12,12 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 05/25/2017
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e99294069f92f51d212b38b1c5ee12232c6dc77d
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: f3336d4b0036e1dc181de1f1296da521f68b9464
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/27/2017
 Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성할 수 있습니다. Blob 저장소의 기본 끝점은 `<storage-account-name>.blob.core.windows.net`입니다. **www.contoso.com**과 같은 사용자 지정 도메인 및 하위 도메인을 저장소 계정의 Blob 끝점에 매핑하면 사용자도 해당 도메인을 사용하여 저장소 계정의 Blob 데이터에 액세스할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Storage는 아직 사용자 지정 도메인으로 HTTPS를 지원하지 않습니다. 지원하는 시기를 확실하게 언급할 수는 없지만 고객이 이 기능에 관심이 있음을 알고 있습니다.
+> Azure Storage는 아직 기본적으로 사용자 지정 도메인으로 HTTPS를 지원하지 않습니다. 현재 [Azure CDN을 사용하여 HTTP를 통한 사용자 지정 도메인으로 Blob에 액세스](./storage-https-custom-domain-cdn.md)할 수 있습니다.
 >
 
 다음 표는 이름이 **mystorageaccount**인 저장소 계정에 있는 Blob 데이터에 액세스하기 위한 여러 샘플 URL을 보여 줍니다. 저장소 계정에 등록된 사용자 지정 도메인은 **www.contoso.com**입니다.
@@ -70,7 +71,7 @@ Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용
 1. CNAME을 관리하기 위한 섹션을 찾습니다. 고급 설정 페이지로 이동하여 **CNAME**, **별칭** 또는 **하위 도메인**과 같은 단어를 찾아야 할 수도 있습니다.
 1. 새 CNAME 레코드를 만들어 **www** 또는 **photos**와 같은 하위 도메인 별칭을 지정합니다. 그런 다음 Blob service 끝점인 호스트 이름을 **mystorageaccount.blob.core.windows.net** 형식으로 지정합니다. 여기에서 *mystorageaccount*는 저장소 계정의 이름입니다. 사용할 호스트 이름은 [Azure Portal](https://portal.azure.com)에 *사용자 지정 도메인* 블레이드의 항목 #1에 표시됩니다.
 1. [Azure Portal](https://portal.azure.com)에서 *사용자 지정 도메인* 블레이드의 텍스트 상자에 하위 도메인을 포함하여 사용자 지정 도메인 이름을 입력합니다. 예를 들어 도메인이 **contoso.com**이고 하위 도메인 별칭이 **www**이면 **www.contoso.com**을 입력합니다. 하위 도메인이 **photos**이면 **photos.contoso.com**을 입력합니다. 하위 도메인은 *필수*입니다.
-1. *사용자 지정 도메인* 블레이드에서 **저장**을 선택하여 사용자 지정 도메인을 등록합니다. 등록에 성공한 경우 저장소 계정이 성공적으로 업데이트되었음을 알리는 메시지가 표시됩니다.
+1. *사용자 지정 도메인* 블레이드에서 **저장**을 선택하여 사용자 지정 도메인을 등록합니다. 등록에 성공한 경우 저장소 계정이 성공적으로 업데이트되었음을 알리는 포털 알림이 표시됩니다.
 
 새 CNAME 레코드가 DNS를 통해 전파된 후 적절한 사용 권한이 있는 사용자는 사용자 지정 도메인을 사용하여 Blob 데이터를 볼 수 있습니다.
 
@@ -86,7 +87,7 @@ Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용
 1. 새 CNAME 레코드를 만들어 *asverify* 하위 도메인을 포함한 하위 도메인 별칭을 제공합니다. 예를 들어 **asverify.www** 또는 **asverify.photos**입니다. 그런 다음 Blob service 끝점인 호스트 이름을 **asverify.mystorageaccount.blob.core.windows.net** 형식으로 지정합니다. 여기에서 **mystorageaccount**는 저장소 계정의 이름입니다. 사용할 호스트 이름이 [Azure Portal](https://portal.azure.com)에서 *사용자 지정 도메인* 블레이드의 항목 #2에 나타납니다.
 1. [Azure Portal](https://portal.azure.com)에서 *사용자 지정 도메인* 블레이드의 텍스트 상자에 하위 도메인을 포함하여 사용자 지정 도메인 이름을 입력합니다. *asverify*를 포함하지 않습니다. 예를 들어 도메인이 **contoso.com**이고 하위 도메인 별칭이 **www**이면 **www.contoso.com**을 입력합니다. 하위 도메인이 **photos**이면 **photos.contoso.com**을 입력합니다. 하위 도메인은 필수입니다.
 1. **간접 CNAME 유효성 검사 사용** 확인란을 선택합니다.
-1. *사용자 지정 도메인* 블레이드에서 **저장**을 선택하여 사용자 지정 도메인을 등록합니다. 등록에 성공한 경우 저장소 계정이 성공적으로 업데이트되었음을 알리는 메시지가 표시됩니다. 이제 사용자 지정 도메인이 Azure에서 확인되었지만 도메인에 대한 트래픽은 아직 저장소 계정으로 라우팅되지 않습니다.
+1. *사용자 지정 도메인* 블레이드에서 **저장**을 선택하여 사용자 지정 도메인을 등록합니다. 등록에 성공한 경우 저장소 계정이 성공적으로 업데이트되었음을 알리는 포털 알림이 표시됩니다. 이제 사용자 지정 도메인이 Azure에서 확인되었지만 도메인에 대한 트래픽은 아직 저장소 계정으로 라우팅되지 않습니다.
 1. DNS 공급자의 웹 사이트로 돌아가 하위 도메인을 Blob service 끝점에 매핑한 CNAME 레코드를 하나 더 만듭니다. 예를 들어 하위 도메인을 **www** 또는 **photos**(*asverify* 없이)로 지정하고 호스트 이름을 **mystorageaccount.blob.core.windows.net**으로 지정합니다. 여기서 **mystorageaccount**는 저장소 계정의 이름입니다. 이 단계에서 사용자 지정 도메인 등록이 완료됩니다.
 1. 마지막으로 **asverify** 하위 도메인을 포함하여 만든 CNAME 레코드는 중간 단계로만 필요하므로 삭제할 수 있습니다.
 
@@ -105,6 +106,17 @@ Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용
 ## <a name="deregister-a-custom-domain"></a>사용자 지정 도메인 등록 취소
 
 Blob Storage 끝점에 대한 사용자 지정 도메인 등록을 취소하려면 다음 절차 중 하나를 사용합니다.
+
+### <a name="azure-portal"></a>Azure 포털
+
+Azure Portal에서 다음을 수행하여 사용자 지정 도메인 설정을 제거합니다.
+
+1. [Azure Portal](https://portal.azure.com)의 저장소 계정으로 이동합니다.
+1. 메뉴 블레이드의 **BLOB SERVICE**에서 **사용자 지정 도메인**을 선택하여 *사용자 지정 도메인* 블레이드를 엽니다.
+1. 사용자 지정 도메인 이름이 포함된 텍스트 상자의 콘텐츠를 지웁니다.
+1. **저장** 단추를 선택합니다.
+
+사용자 지정 도메인이 성공적으로 제거된 경우 저장소 계정이 성공적으로 업데이트되었음을 알리는 포털 알림이 표시됩니다.
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
@@ -133,7 +145,7 @@ Blob Storage 끝점에 대한 사용자 지정 도메인 등록을 취소하려�
 [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount) PowerShell cmdlet을 사용하고 `-CustomDomainName` 인수 값에 빈 문자열(`""`)을 지정하여 사용자 지정 도메인 등록을 제거합니다.
 
 * 명령 형식:
-  
+
   ```powershell
   Set-AzureRmStorageAccount `
       -ResourceGroupName "<resource-group-name>" `
@@ -150,11 +162,7 @@ Blob Storage 끝점에 대한 사용자 지정 도메인 등록을 취소하려�
       -CustomDomainName ""
   ```
 
-### <a name="azure-portal"></a>Azure 포털
-
-현재 Azure Portal을 사용하여 사용자 지정 도메인 등록을 제거할 수 없습니다. 이는 알려진 문제입니다. 아직 정확한 해결 날짜가 결정되지 않았지만 문제가 해결되면 이 문서가 업데이트될 예정입니다. 그 사이에 Azure CLI 2.0 또는 Azure PowerShell을 사용하여 사용자 지정 도메인 설정을 제거합니다.
-
 ## <a name="next-steps"></a>다음 단계
 * [사용자 지정 도메인을 Azure CDN(Content Delivery Network) 끝점에 매핑](../cdn/cdn-map-content-to-custom-domain.md)
-
+* [Azure CDN을 사용하여 HTTPS를 통한 사용자 지정 도메인으로 Blob 액세스](./storage-https-custom-domain-cdn.md)
 

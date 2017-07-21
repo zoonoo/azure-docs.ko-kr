@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/11/2016
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 94a4d2b85c845b135201fd919e8eac64a5e1cb37
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 2bcdff44f6c3169779c3dd018706eea8275825ca
 ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -29,15 +29,6 @@ Windows는 광범위한 [성능 카운터](http://www.codeproject.com/Articles/8
 ![Application Insights에서 보고하는 시스템 성능 카운터](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
 (성능 카운터는 Azure Web Apps에서 사용할 수 없습니다. 하지만 [Azure 진단을 Application Insights에 보낼 수 있습니다](app-insights-azure-diagnostics.md).)
-
-## <a name="configure"></a>구성
-Application Insights 상태 모니터가 아직 서버 컴퓨터에 설치되지 않은 경우에는 이 모니터를 설치하여 성능 카운터를 확인해야 합니다.
-
-각 서버 인스턴스에서 [상태 모니터 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=506648)를 다운로드하고 실행합니다. Application Insights 상태 모니터가 이미 설치되어 있으면 다시 설치할 필요가 없습니다.
-
-* *개발 중인 [Application Insights SDK를 내 앱에 설치](app-insights-asp-net.md)했습니다. 그래도 상태 모니터가 필요합니까?*
-  
-    예, ASP.NET 웹앱에 대한 성능 카운터도 수집하므로 상태 모니터가 필요합니다. 이미 알고 있듯이 상태 모니터는 개발 중인 SDK를 설치하지 않고도 [이미 라이브 상태인 웹앱을 모니터링](app-insights-monitor-performance-live-website-now.md)하는 데 사용할 수 있습니다.
 
 ## <a name="view-counters"></a>카운터 보기
 서버 블레이드에서 성능 카운터의 기본 집합을 보여 줍니다. 

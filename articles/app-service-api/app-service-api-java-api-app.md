@@ -1,6 +1,6 @@
 ---
 title: "Azure 앱 서비스에서 Java API 앱 빌드 및 배포"
-description: "Java API 앱 패키지를 만들고 Azure 엡 서비스에 배포하는 방법을 알아봅니다."
+description: "Java API 앱 패키지를 만들고 Azure 앱 서비스에 배포하는 방법을 알아봅니다."
 services: app-service\api
 documentationcenter: java
 author: rmcmurray
@@ -14,10 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 ms.author: rachelap;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 26f2fba953870564292ef3e986a3151373f6babf
-ms.lasthandoff: 01/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 26011d72644f8b13a711d847d83175ce384f2053
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -31,7 +32,7 @@ ms.lasthandoff: 01/05/2017
 2. [Maven] 설치됨
 3. [Git] 설치됨
 4. [Microsoft Azure]에 대한 유료 또는 [무료 평가판] 구독
-5.  [Postman]
+5. [Postman]
 
 ## <a name="scaffold-the-api-using-swaggerio"></a>Swagger.IO를 사용하여 API 스캐폴드
 swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swagger JSON 또는 YAML 코드를 입력할 수 있습니다. API 노출 영역이 설계되면 다양한 플랫폼 및 프레임워크에 코드를 내보낼 수 있습니다. 다음 섹션에서 스캐폴드된 코드는 모의 기능을 포함하도록 수정됩니다. 
@@ -153,7 +154,7 @@ swagger.io 온라인 편집기를 사용하여 API의 구조를 나타내는 Swa
 1. [Visual Studio Code] 또는 원하는 텍스트 편집기를 사용하여 *src/gen/java/io/swagger/model* 폴더에 위치한 *Contact.java* 모델 파일을 엽니다. 
    
     ![연락처 모델 파일 열기][open-contact-model-file]
-2. **연락처** 클래스에 다음 생성자를 추가합니다. 
+2. **연락처** 클래스 내에 다음 생성자를 추가합니다. 
    
         public Contact(Integer id, String name, String email) 
         {
@@ -291,7 +292,7 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
-[온라인 Swagger 편집기]: http://editor.swagger.io/
+[온라인 Swagger 편집기]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
 [Java용 저장소 SDK]: ../storage/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/

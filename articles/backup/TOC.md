@@ -48,7 +48,7 @@
 #### [리소스 관리자가 배포된 가상 컴퓨터 준비](backup-azure-arm-vms-prepare.md)
 ### 환경 계획
 #### [VM 백업 인프라 계획](backup-azure-vms-introduction.md)
-### 서버 및 워크로드 백업
+### VM 백업
 #### [백업 자격 증명 모음에 Azure Virtual Machines 백업](backup-azure-vms.md)
 #### [Recovery Services 자격 증명 모음에 Azure 가상 컴퓨터 백업](backup-azure-arm-vms.md)
 #### [암호화된 가상 컴퓨터 백업](backup-azure-vms-encryption.md)
@@ -91,6 +91,8 @@
 ## [Azure Backup 자격 증명 모음 삭제](backup-azure-delete-vault.md)
 ## [역할 기반 액세스 제어](backup-rbac-rs-vault.md)
 ## [하이브리드 백업 보안](backup-azure-security-feature.md)
+## [Azure Backup 보고서 구성](backup-azure-configure-reports.md)
+## [Azure Backup 보고서용 데이터 모델](backup-azure-reports-data-model.md)
 ## [오프라인 백업 구성](backup-azure-backup-import-export.md)
 ## [테이프 라이브러리 교체](backup-azure-backup-cloud-as-tape.md)
 ## [Linux VM의 응용 프로그램 일치 백업](backup-azure-linux-app-consistent.md)
@@ -100,7 +102,8 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/backup/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=backup)
+## [가격 책정](https://azure.microsoft.com/pricing/details/backup/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=backup)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=backup)

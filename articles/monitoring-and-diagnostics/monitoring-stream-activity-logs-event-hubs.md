@@ -2,7 +2,7 @@
 title: "Azure 활동 로그를 이벤트 허브로 스트림 | Microsoft Docs"
 description: "Azure 활동 로그를 이벤트 허브로 스트림하는 방법에 대해 알아봅니다."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
 ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
 ms.contentlocale: ko-kr
 ms.lasthandoff: 12/10/2016
-
 
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure 활동 로그를 이벤트 허브로 스트림

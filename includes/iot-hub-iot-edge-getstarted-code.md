@@ -1,6 +1,6 @@
 ## <a name="typical-output"></a>일반적인 출력
 
-다음은 Hello World 샘플을 통해 파일을 기록하기 위해 작성한 출력의 예입니다. 쉽게 읽을 수 있도록 출력 형식을 지정합니다.
+다음은 Hello World 샘플을 통해 로그 파일에 기록된 출력의 예입니다. 쉽게 읽을 수 있도록 출력 형식을 지정합니다.
 
 ```json
 [{
@@ -36,9 +36,9 @@
 
 ### <a name="iot-edge-gateway-creation"></a>IoT Edge 게이트웨이 만들기
 
-개발자는 *게이트웨이 프로세스*를 작성해야 합니다. 이 프로그램은 내부 인프라(broker)를 만들고, IoT Edge 모듈을 로드하며, 모든 기능이 제대로 작동하도록 설정합니다. IoT Edge는 JSON 파일에서 게이트웨이를 부트스트랩할 수 있도록 **Gateway\_Create\_From\_JSON** 함수를 제공합니다. **Gateway\_Create\_From\_JSON** 함수를 사용하려면 로드할 IoT Edge 모듈을 지정하는 JSON 파일에 대한 경로를 이 함수에 전달해야 합니다.
+*게이트웨이 프로세스*를 구현해야 합니다. 이 프로그램은 내부 인프라(broker)를 만들고, IoT Edge 모듈을 로드하며, 게이트웨이 프로세스를 구성합니다. IoT Edge는 JSON 파일에서 게이트웨이를 부트스트랩할 수 있도록 **Gateway\_Create\_From\_JSON** 함수를 제공합니다. **Gateway\_Create\_From\_JSON** 함수를 사용하려면 로드할 IoT Edge 모듈을 지정하는 JSON 파일에 대한 경로를 이 함수에 전달합니다.
 
-Hello World 샘플의 게이트웨이 프로세스에 대한 코드는 [main.c][lnk-main-c] 파일에서 찾을 수 있습니다. 읽기 쉽도록, 다음 코드 조각에서는 게이트웨이 프로세스 코드의 간략한 버전을 보여줍니다. 이 예제 프로그램은 게이트웨이를 만든 다음 게이트웨이를 허물기 전에 사용자가 **ENTER** 키를 누를 때까지 대기합니다.
+*Hello World* 샘플의 게이트웨이 프로세스에 대한 코드는 [main.c][lnk-main-c] 파일에서 찾을 수 있습니다. 읽기 쉽도록, 다음 코드 조각에서는 게이트웨이 프로세스 코드의 간략한 버전을 보여줍니다. 이 예제 프로그램은 게이트웨이를 만든 다음 게이트웨이를 허물기 전에 사용자가 **ENTER** 키를 누를 때까지 대기합니다.
 
 ```c
 int main(int argc, char** argv)
@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 JSON 설정 파일에는 로드할 IoT Edge 모듈의 목록과 모듈 간의 링크가 포함되어 있습니다. 각각의 IoT Edge 모듈에서 다음을 지정해야 합니다.
 
 * **name**: 모듈의 고유한 이름.
-* **loader**: 원하는 모듈을 로드하는 방법을 알고 있는 로더. 로더는 다양한 유형의 모듈을 로드하기 위한 확장 지점입니다. Native C, Node.js, Java 및 .NET으로 작성된 모듈을 사용하기 위해 로더를 제공합니다. 헬로 월드 샘플에 있는 모든 모듈이 C 언어로 작성된 동적 라이브러리이므로 이 샘플에서는 네이티브 C 로더만 사용합니다. 다른 언어로 작성된 IoT Edge 모듈을 사용하는 방법에 대한 자세한 내용은 [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample) 또는 [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) 샘플을 참조하세요.
+* **loader**: 원하는 모듈을 로드하는 방법을 알고 있는 로더. 로더는 다양한 유형의 모듈을 로드하기 위한 확장 지점입니다. IoT Edge는 Native C, Node.js, Java 및 .NET으로 작성된 모듈을 사용하기 위해 로더를 제공합니다. 헬로 월드 샘플에 있는 모든 모듈이 C 언어로 작성된 동적 라이브러리이므로 이 샘플에서는 네이티브 C 로더만 사용합니다. 다른 언어로 작성된 IoT Edge 모듈을 사용하는 방법에 대한 자세한 내용은 [Node.js](https://github.com/Azure/iot-edge/blob/master/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample) 또는 [.NET](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample) 샘플을 참조하세요.
     * **name**: 모듈을 로드하는 데 사용되는 로더의 이름.
     * **entrypoint**: 모듈을 포함하는 라이브러리에 대한 경로. 이 라이브러리는 Linux에서 .so 파일이고 Windows에서 .dll 파일입니다. 진입점은 사용된 로더의 유형에 따라 지정됩니다. Node.js 로더의 진입점은 .js 파일입니다. Java 로더의 진입점은 클래스 경로와 클래스 이름입니다. .NET 로더의 진입점은 어셈블리 이름과 클래스 이름입니다.
 
@@ -98,10 +98,10 @@ JSON 설정 파일에는 로드할 IoT Edge 모듈의 목록과 모듈 간의 �
 
 또한 JSON 파일에는 broker에 전달되는 모듈 간의 링크가 포함되어 있습니다. 링크에는 두 가지 속성이 있습니다.
 
-* **source**: `modules` 섹션 또는 "\*"의 모듈 이름입니다.
+* **source**: `modules` 섹션 또는 `\*`의 모듈 이름입니다.
 * **sink**: `modules` 섹션의 모듈 이름입니다.
 
-각 링크는 메시지 경로 및 방향을 정의합니다. 모듈 `source`의 메시지는 모듈 `sink`에 전달됩니다. `source`은 "\*"로 설정되며 이는 모듈의 메세지가 `sink`에서 수신된다는 사실을 나타냅니다.
+각 링크는 메시지 경로 및 방향을 정의합니다. **source** 모듈의 메시지는 **sink** 모듈에 전달됩니다. **source** 모듈을 `\*`로 설정할 수 있습니다. 이것은 **sink** 모듈이 모든 모듈에서 메시지를 수신함을 의미합니다.
 
 다음 코드에서는 Linux의 hello\_world 샘플에서 사용된 모듈 간의 링크를 구성하는 데 사용된 JSON을 보여 줍니다. 모듈 `hello_world`에 의해 생성된 모든 메시지는 모듈 `logger`에서 사용됩니다.
 
@@ -223,14 +223,13 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Edge를 사용하는 방법에 대해 알아보려면 다음 문서를 참조하세요.
+이 문서에서는 메시지를 로그 파일에 기록하는 단순한 IoT Edge 게이트웨이를 실행했습니다. 메시지를 IoT Hub에 보내는 샘플을 실행하려면 [IoT Edge – Linux를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기][lnk-gateway-simulated-linux] 또는 [IoT Edge – Windows를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기][lnk-gateway-simulated-windows]를 참조하세요.
 
-* [IoT Edge – Linux를 사용하는 시뮬레이션된 장치에서 장치-클라우드 메시지 보내기][lnk-gateway-simulated].
-* GitHub의 [Azure IoT Edge][lnk-iot-edge]
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/iot-edge/blob/master/samples/hello_world/src/main.c
 [lnk-helloworld-c]: https://github.com/Azure/iot-edge/blob/master/modules/hello_world/src/hello_world.c
 [lnk-logger-c]: https://github.com/Azure/iot-edge/blob/master/modules/logger/src/logger.c
 [lnk-iot-edge]: https://github.com/Azure/iot-edge/
-[lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md
+[lnk-gateway-simulated-linux]: ../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md
+[lnk-gateway-simulated-windows]: ../articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md

@@ -1,4 +1,5 @@
 # [개요](active-directory-developers-guide.md)
+## [Azure AD가 적합한 이유](https://azure.microsoft.com/develop/identity/signin/)
 ## [인증 기본 사항](active-directory-authentication-scenarios.md)
 ## [앱 형식](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # 시작
@@ -71,6 +72,7 @@
 ### [지원되는 토큰 및 클레임 유형](active-directory-token-and-claims.md)
 ### [서명 키 롤오버](active-directory-signing-key-rollover.md)
 ### [페더레이션 메타데이터](active-directory-federation-metadata.md)
+### [인증서 자격 증명](active-directory-certificate-credentials.md)
 ## [응용 프로그램 개체](active-directory-application-objects.md)
 ### [앱 및 Azure AD](active-directory-how-applications-are-added.md)
 ## [응용 프로그램 매니페스트](active-directory-application-manifest.md)
@@ -101,4 +103,7 @@
 #### [Oauth 2.0 클라이언트 자격 증명 부여](active-directory-v2-protocols-oauth-client-creds.md)
 #### [Oauth 2.0 On-Behalf-Of 흐름](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [토큰 참조](active-directory-v2-tokens.md)
+#### [인증서 자격 증명](active-directory-certificate-credentials.md)
 ### [범위](active-directory-v2-scopes.md)
+# 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

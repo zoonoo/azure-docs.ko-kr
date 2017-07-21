@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: ranjithr;wadeh
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 79e5329332c457c738c082277ee7b79eb8ead049
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 656c5b3e363bd2eaa7550ffc673606d26f7d06de
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -114,7 +115,7 @@ ms.lasthandoff: 04/06/2017
 ### <a name="my-node-application-is-making-too-many-outbound-calls"></a>내 노드 응용 프로그램에서 너무 많은 아웃바운드 호출을 생성합니다.
 많은 응용 프로그램에서 일반 작업의 일부로 아웃바운드 연결을 생성하려고 합니다. 예를 들어 요청이 들어오면 노드 앱은 다른 위치에서 REST API에 연결하고 요청을 처리할 일부 정보를 얻습니다. http 또는 https 호출을 수행할 때 연결 유지 에이전트를 사용하려고 합니다. 예를 들어 이러한 아웃바운드 호출을 수행할 때 연결 유지 에이전트로 agentkeepalive 모듈을 사용할 수 있습니다. 이렇게 하면 azure 웹앱 VM에서 소켓이 재사용되어 모든 아웃바운드 요청에 대해 새 소켓을 만드는 오버헤드가 감소합니다. 또한 이렇게 하면 적은 수의 소켓을 사용하여 많은 아웃바운드 요청을 만들 수 있으므로 VM당 할당된 maxSockets를 초과하지 않습니다. Azure 웹앱에 대한 권장 사항은 agentKeepAlive maxSockets 값을 VM당 총 160개 소켓으로 설정합니다. VM에서 실행되는 4개의 node.exe가 있는 경우 agentKeepAlive maxSockets를 node.exe당 40(VM당 총 160)으로 설정합니다.
 
-agentKeepALive 구성 예:
+[agentKeepALive](https://www.npmjs.com/package/agentkeepalive) 구성 예제:
 
 ```
 var keepaliveAgent = new Agent({    

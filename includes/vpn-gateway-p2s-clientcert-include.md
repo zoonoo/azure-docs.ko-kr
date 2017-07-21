@@ -9,4 +9,4 @@
   - 엔터프라이즈 인증서 솔루션을 사용하는 경우, 'domain name\username' 형식이 아닌 일반 이름 값 형식 'name@yourdomain.com'으로 클라이언트 인증서를 생성합니다.
   - 클라이언트 인증서가 사용 목록의 첫 번째 항목으로 스마트 카드 로그온 등이 아닌 '클라이언트 인증'이 있는 '사용자' 인증서 템플릿을 기반으로 하는지 확인합니다. 클라이언트 인증서를 두 번 클릭하고 *세부 정보 > 확장된 키 사용*을 확인하여 인증서를 확인할 수 있습니다.
 
-- **자체 서명된 루트 인증서:** [지점 및 사이트 간 연결에 자체 서명된 루트 인증서 만들기](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientcert) 문서 지침을 사용하여 자체 서명된 루트 인증서에서 클라이언트 인증서를 생성하는 경우 생성하는 데 사용한 컴퓨터에 자동으로 설치됩니다. 다른 클라이언트 컴퓨터에 클라이언트 인증서를 설치하려는 경우 내보내야 합니다. 문서의 지침에 따라 [인증서를 내보냅니다](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).
+- **자체 서명된 루트 인증서:** 클라이언트 인증서를 생성하려면 [PowerShell 및 Windows 10을 사용하여 클라이언트 인증서 생성](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientcert) 지침을 따릅니다. 지침에는 P2S 호환 클라이언트 인증서를 만드는 데 필요한 매개 변수가 있습니다. 클라이언트 인증서를 생성하는 경우 생성하는 데 사용한 컴퓨터에 자동으로 설치됩니다. 다른 클라이언트 컴퓨터에 클라이언트 인증서를 설치하려는 경우 전체 인증서 체인과 함께 .pfx로 내보내야 합니다. 이렇게 하면 필수 루트 인증서 정보를 포함하는 클라이언트 컴퓨터에 설치할 수 있는 .pfx 파일이 만들어집니다. 지침에 따라 [인증서를 내보냅니다](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).

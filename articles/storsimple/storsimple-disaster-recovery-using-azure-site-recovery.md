@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/13/2017
+ms.date: 06/09/2017
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 3c7c972cdc395e2e20e7f6a296a2ffab6efad66d
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 19346f2e4f2860258c421d76729abeb82f0e8987
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -89,7 +90,7 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
       > 파일 이름은 버전에 따라 변경될 수 있습니다.
       >
       >
-3. **다음**을 클릭합니다.
+3. **다음**을 누릅니다.
 4. **Terms of Agreement(계약 조건)**에 동의하고 **다음**을 클릭합니다.
 5. **Finish**를 클릭합니다.
 6. StorSimple 저장소의 잘라낸 볼륨을 사용하여 파일 공유를 만듭니다. 자세한 내용은 [StorSimple Manager 서비스를 사용하여 볼륨 관리](storsimple-manage-volumes.md)를 참조하세요.
@@ -140,9 +141,18 @@ StorSimple 볼륨에 대해 **이 볼륨에 대한 기본 백업 사용** 옵션
 ## <a name="create-a-recovery-plan"></a>복구 계획 만들기
 ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) 프로세스를 자동화할 수 있습니다. 중단이 발생할 경우 클릭 한 번으로 몇 분 만에 파일 공유를 온라인 상태로 만들 수 있습니다. 이 자동화를 사용하도록 설정하려면 Azure 자동화 계정이 필요합니다.
 
-#### <a name="to-create-the-account"></a>계정을 만들려면
+#### <a name="to-create-an-automation-account"></a>Automation 계정을 만들려면
 1. Azure 포털의 &gt; **자동화** 섹션으로 이동합니다.
-2. 새 자동화 계정을 만듭니다. 이 계정을 StorSimple Cloud Appliance 및 저장소 계정을 만든 것과 동일한 지역/하위 지역에 유지합니다.
+2. **+ 추가** 단추를 클릭하면 아래에 블레이드가 열립니다.
+
+   ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image11.png)
+
+   * 이름 - 새 Automation 계정을 입력합니다.
+   * 구독 - 구독을 선택합니다.
+   * 리소스 그룹 - 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.
+   * 위치 - 위치를 선택하고 이 위치를 StorSimple Cloud Appliance 및 저장소 계정을 만든 것과 같은 지역/하위 지역에 유지합니다.
+   * Azure 실행 계정 만들기 - **예** 옵션을 선택합니다.
+
 3. 자동화 계정에서 **Runbooks** &gt; **갤러리 찾아보기**를 클릭하여 필요한 모든 Runbook을 자동화 계정으로 가져옵니다.
 4. 갤러리의 **재해 복구** 태그를 찾아서 다음 Runbook을 추가합니다.
 
@@ -153,13 +163,12 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
    * StorSimple 가상 어플라이언스 시작
 
      ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image3.png)
+
 5. 자동화 계정에서 Runbook을 선택하여 모든 스크립트를 게시하고 **편집** &gt; **게시**를 차례로 클릭한 다음 확인 메시지에 **예**를 클릭합니다. 이 단계 후에 **Runbook** 탭은 다음과 같이 표시됩니다.
 
     ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image4.png)
-6. 자동화 계정에서 **자산** 탭 &gt;으로 이동하여 **자격 증명** &gt; **+ 자격 증명 추가**를 클릭하고 Azure 자격 증명을 추가한 후 자산 이름을 AzureCredential로 지정합니다.
 
-   Windows PowerShell 자격 증명을 사용합니다. 이 자격 증명은 이 Azure 구독에 대한 액세스 권한이 있고 다단계 인증이 사용하지 않도록 설정된 조직 ID 사용자 이름 및 암호를 포함하는 자격 증명이어야 합니다. 이 자격 증명은 장애 조치(failover) 중에 사용자를 대신하여 인증하고 DR 사이트에서 파일 서버 볼륨을 온라인 상태로 만드는 데 필요합니다.
-7. 자동화 계정에서 **자산** 탭 &gt;을 선택한 다음 **변수** &gt; **변수 추가**를 클릭하고 다음 변수를 추가합니다. 이러한 자산을 암호화하도록 선택할 수 있습니다. 이러한 변수는 복구 계획과 관련됩니다. 복구 계획(다음 단계에서 만듦) 이름이 TestPlan이면 변수는 TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName 등과 같아야 합니다.
+6. 자동화 계정에서 **자산** 탭 &gt;을 선택한 다음 **변수** &gt; **변수 추가**를 클릭하고 다음 변수를 추가합니다. 이러한 자산을 암호화하도록 선택할 수 있습니다. 이러한 변수는 복구 계획과 관련됩니다. 복구 계획(다음 단계에서 만듦) 이름이 TestPlan이면 변수는 TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName 등과 같아야 합니다.
 
    * *RecoveryPlanName***-StorSimRegKey**: StorSimple Manager 서비스의 등록 키입니다.
    * *RecoveryPlanName***-AzureSubscriptionName**: Azure 구독의 이름입니다.
@@ -178,8 +187,8 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
 
    ![](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
-8. **복구 서비스** 섹션으로 이동하여 앞서 만든 Azure Site Recovery 자격 증명 모음을 선택합니다.
-9. **관리** 그룹에서 **복구 계획 (사이트 복구)** 옵션을 선택하여 다음과 같이 새로운 복구 계획을 만듭니다.
+7. **복구 서비스** 섹션으로 이동하여 앞서 만든 Azure Site Recovery 자격 증명 모음을 선택합니다.
+8. **관리** 그룹에서 **복구 계획 (사이트 복구)** 옵션을 선택하여 다음과 같이 새로운 복구 계획을 만듭니다.
 
    a.  **+ 복구 계획** 단추를 클릭하여 아래의 블레이드를 엽니다.
 
@@ -291,7 +300,7 @@ VM에서 [Azure 가상 컴퓨터 준비 평가 도구](http://azure.microsoft.co
 
   > [!IMPORTANT]
   > Azure 포털에서 수동으로 백업을 실행한 다음 다시 복구 계획을 실행합니다.
-  
+
 * 복제 작업 시간 제한: 볼륨의 복제에 스크립트당 Azure Site Recovery 제한(현재 120분)보다 많은 시간이 걸리는 경우 StorSimple 스크립트 시간 제한이 초과합니다.
 * 시간 동기화 오류: 포털에서 백업에 성공한 경우에도 백업에 실패했다는 StorSimple 스크립트 오류가 발생합니다. 이 오류의 가능한 원인은 StorSimple 어플라이언스의 시간이 표준 시간대의 현재 시간과 동기화되지 않았기 때문일 수 있습니다.
 

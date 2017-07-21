@@ -16,23 +16,28 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 16d04d0f470dde3917f5a12f527ecceb493b2a57
+ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
+ms.openlocfilehash: 89001404fa7255efc656b98983502d1f1d84fd73
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/12/2017
 
 
 ---
-# <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Linux 가상 컴퓨터에서 Azure 사용자 지정 스크립트 확장
+# Linux 가상 컴퓨터에서 Azure 사용자 지정 스크립트 확장
+<a id="using-the-azure-custom-script-extension-with-linux-virtual-machines" class="xliff"></a>
 사용자 지정 스크립트 확장은 Azure 가상 컴퓨터에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure 저장소 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임으로 제공할 수 있습니다. 사용자 지정 스크립트 확장은 Azure Resource Manager 템플릿과 통합되고, Azure CLI, PowerShell, Azure Portal 또는 Azure 가상 컴퓨터 REST API를 사용하여 실행할 수도 있습니다.
 
 이 문서에서는 Azure CLI 및 Azure Resource Manager 템플릿에서 사용자 지정 스크립트 확장을 사용하는 방법을 자세히 설명하고 Linux 시스템에서의 문제 해결 단계도 제공합니다.
 
-## <a name="extension-configuration"></a>확장 구성
+## 확장 구성
+<a id="extension-configuration" class="xliff"></a>
 사용자 지정 스크립트 확장 구성은 스크립트 위치 및 실행할 명령 등을 지정합니다. 이 구성은 명령줄 또는 Azure Resource Manager 템플릿에 지정된 구성 파일에 저장될 수 있습니다. 중요한 데이터는 보호된 구성에 저장되고 암호화된 후 가상 컴퓨터 내에서만 해독됩니다. 보호된 구성은 실행 명령에 암호와 같은 기밀 정보가 포함될 때 유용합니다.
 
-### <a name="public-configuration"></a>공용 구성
+### 공용 구성
+<a id="public-configuration" class="xliff"></a>
 스키마:
+
+**참고** - 이러한 속성 이름은 대/소문자를 구분합니다. 배포 문제를 방지하려면 아래와 같이 이름을 사용합니다.
 
 * **commandToExecute**: (필수, 문자열) 실행할 진입점 스크립트
 * **fileUris**: (옵션, 문자열 배열) 파일을 다운로드할 URL
@@ -45,8 +50,11 @@ ms.lasthandoff: 04/27/2017
 }
 ```
 
-### <a name="protected-configuration"></a>보호된 구성
+### 보호된 구성
+<a id="protected-configuration" class="xliff"></a>
 스키마:
+
+**참고** - 이러한 속성 이름은 대/소문자를 구분합니다. 배포 문제를 방지하려면 아래와 같이 이름을 사용합니다.
 
 * **commandToExecute**: (옵션, 문자열) 실행할 진입점 스크립트. 명령에 암호와 같은 기밀 정보가 포함되는 경우 이 필드를 대신 사용합니다.
 * **storageAccountName**: (옵션, 문자열) 저장소 계정의 이름. 저장소 자격 증명을 지정하는 경우 모든 fileUris는 Azure Blob에 대한 URL이어야 합니다.
@@ -60,7 +68,8 @@ ms.lasthandoff: 04/27/2017
 }
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## Azure CLI
+<a id="azure-cli" class="xliff"></a>
 Azure CLI를 사용하여 사용자 지정 스크립트 확장을 실행할 때 최소한 파일 URI 및 스크립트 실행 명령을 포함하는 구성 파일을 만듭니다.
 
 ```azurecli
@@ -78,7 +87,8 @@ az vm extension set '
   --settings '{"fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],"commandToExecute": "./test.sh"}'
 ```
 
-### <a name="azure-cli-examples"></a>Azure CLI 예제
+### Azure CLI 예제
+<a id="azure-cli-examples" class="xliff"></a>
 
 **예제 1** - 스크립트 파일이 있는 공용 구성.
 
@@ -133,10 +143,12 @@ Azure CLI 명령:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings
 ```
 
-## <a name="resource-manager-template"></a>Resource Manager 템플릿
+## Resource Manager 템플릿
+<a id="resource-manager-template" class="xliff"></a>
 Azure 사용자 지정 스크립트 확장은 Resource Manager 템플릿을 사용하여 가상 컴퓨터 배포 시에 실행할 수 있습니다. 이렇게 하려면 올바른 형식의 JSON을 배포 템플릿에 추가합니다.
 
-### <a name="resource-manager-examples"></a>Resource Manager 예제
+### Resource Manager 예제
+<a id="resource-manager-examples" class="xliff"></a>
 **예제 1** - 공용 구성
 
 ```json
@@ -199,7 +211,8 @@ Azure 사용자 지정 스크립트 확장은 Resource Manager 템플릿을 사�
 
 전체 예제에 대해서는 .NET Core Music Store 데모 참조 [Music Store 데모](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db)를 참조하세요.
 
-## <a name="troubleshooting"></a>문제 해결
+## 문제 해결
+<a id="troubleshooting" class="xliff"></a>
 사용자 지정 스크립트 확장이 실행되면 스크립트 생성되거나 다음 예제와 비슷한 디렉터리에 다운로드됩니다. 또한 명령 출력은 이 디렉터리의 `stdout` 및 `stderr` 파일에 저장됩니다.
 
 ```bash
@@ -230,7 +243,8 @@ data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2
 info:    vm extension get command OK
 ```
 
-## <a name="next-steps"></a>다음 단계
+## 다음 단계
+<a id="next-steps" class="xliff"></a>
 다른 VM 스크립트 확장에 대한 자세한 내용은 [Linux용 Azure 스크립트 확장 개요](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 

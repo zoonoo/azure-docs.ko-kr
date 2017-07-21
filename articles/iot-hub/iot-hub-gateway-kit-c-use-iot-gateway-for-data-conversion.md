@@ -4,7 +4,7 @@ description: "IoT 게이트웨이를 사용하여 Azure IoT Edge의 사용자 �
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "IoT 게이트웨이 데이터 변환, IoT 게이트웨이 데이터 변환"
 ms.assetid: 75f2573d-500b-4405-bff7-61021c4c3500
@@ -13,20 +13,19 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 06/25/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7bf9e64db91cb0fec37ff242bea94dbbd0833054
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 5f5151c9e250fb8a19a953c6212dd2675004dc55
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/26/2017
 
 ---
 # <a name="use-iot-gateway-for-sensor-data-transformation-with-azure-iot-edge"></a>IoT 게이트웨이를 사용하여 Azure IoT Edge를 통해 센서 데이터 변환
 
 > [!NOTE]
-> 이 자습서을 시작하기 전에 순서대로 다음 단원을 완료했는지 확인합니다.
+> 이 자습서를 시작하기 전에 순서대로 다음 단원을 완료했는지 확인합니다.
 > * [Intel NUC를 IoT 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 > * [IoT 게이트웨이를 사용하여 클라우드에 작업 연결 - SensorTag에서 Azure IoT Hub로](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 
@@ -73,11 +72,11 @@ SensorTag의 메시지를 다른 형식으로 변환하는 모듈을 만드는 �
 모듈을 컴파일하려면 다음 명령을 실행합니다.
 
 ```bash
-cd iot-hub-c-intel-nuc-gateway-customized-module
+cd iot-hub-c-intel-nuc-gateway-customized-module/my_module
 # change the build script runnable
 chmod 777 build.sh
 # remove the invalid windows character
-sed -i -e "s/\r$\/\/" build.sh
+sed -i -e "s/\r$//" build.sh
 # run the build shell script
 ./build.sh
 ```
@@ -149,3 +148,4 @@ sed -i -e "s/\r$\/\/" build.sh
 IoT 게이트웨이를 사용하여 SensorTag의 메시지를 .json 형식으로 성공적으로 변환했습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

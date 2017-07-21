@@ -1,8 +1,8 @@
 ---
 title: "Azure 활동 로그 경고에 대한 webhook 호출 | Microsoft Docs"
 description: "활동 로그 이벤트를 사용자 지정 작업에 대한 다른 서비스로 라우팅할 수 있습니다. 예를 들어 SMS를 전송하거나, 버그를 기록하거나, 채팅/메시징 서비스를 통해 팀에 알릴 수 있습니다."
-author: kamathashwin
-manager: carmonm
+author: johnkemnetz
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: ashwink
-translationtype: Human Translation
+ms.author: johnkem
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
 ms.openlocfilehash: 4ee65a10616fff81044c181fce8708a596e9e6de
+ms.contentlocale: ko-kr
 ms.lasthandoff: 01/31/2017
-
 
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 webhook 호출

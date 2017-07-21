@@ -6,13 +6,15 @@
 # [시작](iot-hub-get-started.md)
 
 ## 장치 설정
-### 시뮬레이션된 장치 사용
+### [사용자 PC에서 장치 시뮬레이션](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.JS](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
-### 실제 장치 사용
+### [온라인 시뮬레이터 사용](iot-hub-raspberry-pi-web-simulator-get-started.md)
+
+### [실제 장치 사용](iot-hub-get-started-physical.md)
 #### [Node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [C를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-c-get-started.md)
 
@@ -28,15 +30,14 @@
 ##### [게이트웨이를 IoT Hub에 연결](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [데이터 변환에 게이트웨이 사용](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
 
-### [온라인 장치 시뮬레이터 사용](iot-hub-raspberry-pi-web-simulator-get-started.md)
-
-## [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
-## [IoT Hub 메시지를 Azure 데이터 저장소에 저장](iot-hub-store-data-in-azure-table-storage.md)
-## [Power BI에서 데이터 시각화](iot-hub-live-data-visualization-in-power-bi.md)
-## [Web Apps를 사용하여 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)
-## [Azure Machine Learning을 사용한 날씨 예측](iot-hub-weather-forecast-machine-learning.md)
-## [iothub-explorer를 사용하여 장치 관리](iot-hub-device-management-iothub-explorer.md)
-## [Logic Apps를 사용하여 원격 모니터링 및 알림](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+## 확장된 IoT 시나리오
+### [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
+### [IoT Hub 메시지를 Azure 데이터 저장소에 저장](iot-hub-store-data-in-azure-table-storage.md)
+### [Power BI에서 데이터 시각화](iot-hub-live-data-visualization-in-power-bi.md)
+### [Web Apps를 사용하여 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)
+### [Azure Machine Learning을 사용한 날씨 예측](iot-hub-weather-forecast-machine-learning.md)
+### [iothub-explorer를 사용하여 장치 관리](iot-hub-device-management-iothub-explorer.md)
+### [Logic Apps를 사용하여 원격 모니터링 및 알림](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # 방법
 ## 계획
@@ -54,13 +55,13 @@
 ##### [장치-클라우드 메시지에 대한 사용자 지정 끝점 및 라우팅 규칙 사용](iot-hub-devguide-messages-read-custom.md)
 ##### [IoT Hub에서 클라우드-장치 메시지 보내기](iot-hub-devguide-messages-c2d.md)
 ##### [IoT Hub 메시지 만들기 및 읽기](iot-hub-devguide-messages-construct.md)
+##### [통신 프로토콜 선택](iot-hub-devguide-protocols.md)
 #### [장치에서 파일 업로드](iot-hub-devguide-file-upload.md)
 #### [장치 ID 관리](iot-hub-devguide-identity-registry.md)
 #### [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)
 #### [쌍 장치 이해](iot-hub-devguide-device-twins.md)
 #### [장치에서 직접 메서드 호출](iot-hub-devguide-direct-methods.md)
 #### [여러 장치에서 작업 예약](iot-hub-devguide-jobs.md)
-#### [통신 프로토콜 선택](iot-hub-devguide-protocols.md)
 #### [IoT Hub 끝점](iot-hub-devguide-endpoints.md)
 #### [쿼리 언어](iot-hub-devguide-query-language.md)
 #### [할당량 및 제한](iot-hub-devguide-quotas-throttling.md)
@@ -122,7 +123,8 @@
 ### [보안 모범 사례](iot-hub-security-best-practices.md)
 ### [보안 아키텍처](iot-hub-security-architecture.md)
 ### [IoT 배포 보안 유지](iot-hub-security-deployment.md)
-## IoT Edge
+## Azure IoT Edge
+### [개요](iot-hub-iot-edge-overview.md)
 ### 시작
 #### [Linux](iot-hub-linux-iot-edge-get-started.md)
 #### [Windows](iot-hub-windows-iot-edge-get-started.md)
@@ -130,9 +132,23 @@
 #### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
 #### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
 ### [실제 장치 사용](iot-hub-iot-edge-physical-device.md)
+### 모듈 만들기
+#### [Java](iot-hub-iot-edge-create-module-java.md)
+#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-the-net-module-sample-windows-10)
+#### [.NET Standard](iot-hub-iot-edge-create-module-dotnet-core.md)
+#### [Node.JS](iot-hub-iot-edge-create-module-js.md)
+### 빌드
+#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
+#### [.NET Core 모듈](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
+#### [.NET Core 관리 게이트웨이](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
+#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
+#### [Node.JS](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
+#### [동적으로 모듈 추가](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
+#### [Out of Process 프록시 모듈](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
+#### [네이티브 모듈 호스트](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # 참조
-## [Azure CLI 2.0](/cli/azure/iot)
+## [Azure CLI](/cli/azure/iot)
 ## [.NET(서비스)](/dotnet/api/microsoft.azure.devices)
 ## [.NET(장치)](/dotnet/api/microsoft.azure.devices.client)
 ## [.NET(서비스)](/java/api/com.microsoft.azure.sdk.iot.service)
@@ -153,15 +169,16 @@
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # 리소스
-## [iothub-explorer 도구](https://github.com/Azure/iothub-explorer)
-## [iothub-diagnostics 도구](https://github.com/Azure/iothub-diagnostics)
-## [DeviceExplorer 도구](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
-## [가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-iot-hub)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=iot-hub)
-## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
-## [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot/)
 ## [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/)
-## [기술 사례 연구](https://microsoft.github.io/techcasestudies/#technology=IoT)
+## [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [DeviceExplorer 도구](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
+## [iothub-diagnostics 도구](https://github.com/Azure/iothub-diagnostics)
+## [iothub-explorer 도구](https://github.com/Azure/iothub-explorer)
+## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
+## [가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=iot-hub)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-iot-hub)
+## [기술 사례 연구](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)

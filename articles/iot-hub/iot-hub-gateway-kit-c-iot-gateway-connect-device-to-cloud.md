@@ -4,7 +4,7 @@ description: "Intel NUC를 IoT 게이트웨이로 사용하여 클라우드에�
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "iot 게이트웨이로 장치를 클라우드에 연결"
 ms.assetid: cb851648-018c-4a7e-860f-b62ed3b493a5
@@ -13,14 +13,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 06/25/2017
 ms.author: xshi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2b772afc946f1637cb8d61c198bc9cf18f42e1ba
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 61cb8eb0ad23a7d4b333bf54342b872a3a8ae1da
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/28/2017
 
 ---
 # <a name="use-iot-gateway-to-connect-things-to-the-cloud---sensortag-to-azure-iot-hub"></a>IoT 게이트웨이를 사용하여 장치를 클라우드에 연결 - SensorTag-Azure IoT Hub
@@ -42,7 +41,8 @@ IoT 게이트웨이를 사용하여 Texas Instruments SensorTag(CC2650STK)를 Az
 ## <a name="what-you-need"></a>필요한 항목
 
 - [Intel NUC를 IoT 게이트웨이로 설정](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md) 자습서를 완료하여 Intel NUC를 IoT 게이트웨이로 설정.
-- 호스트 컴퓨터에서 실행되는 SSH 클라이언트. Windows의 경우 PuTTY를 사용하는 것이 좋습니다. Linux와 macOS의 경우 이미 SSH 클라이언트와 함께 제공됩니다.
+- * 활성 Azure 구독. Azure 계정이 없는 경우 몇 분 만에 [Azure 평가판 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
+- 호스트 컴퓨터에서 실행되는 SSH 클라이언트 - Windows의 경우 PuTTY를 사용하는 것이 좋습니다. Linux와 macOS의 경우 이미 SSH 클라이언트와 함께 제공됩니다.
 - SSH 클라이언트에서 게이트웨이에 액세스하기 위한 IP 주소와 사용자 이름 및 암호.
 - 인터넷 연결.
 
@@ -123,7 +123,7 @@ SensorTag와 IoT 게이트웨이와 간의 연결이 설정되었습니다.
 
 ## <a name="run-a-ble-sample-application-to-send-sensortag-data-to-your-iot-hub"></a>BLE 샘플 응용 프로그램을 실행하여 IoT Hub로 SensorTag 데이터 전송
 
-BLE(Bluetooth Low Energy) 샘플 응용 프로그램은 Azure IoT Edge에서 제공됩니다. 샘플 응용 프로그램은 BLE 연결에서 데이터를 수집하여 IoT hub로 보냅니다. 샘플 응용 프로그램을 실행하려면 다음 작업을 수행해야 합니다.
+BLE(Bluetooth Low Energy) 응용 프로그램 예제는 Azure IoT Edge에서 제공됩니다. 샘플 응용 프로그램은 BLE 연결에서 데이터를 수집하여 IoT hub로 보냅니다. 샘플 응용 프로그램을 실행하려면 다음 작업을 수행해야 합니다.
 
 1. 샘플 응용 프로그램을 구성합니다.
 1. IoT 게이트웨이에서 샘플 응용 프로그램을 실행합니다.
@@ -133,7 +133,7 @@ BLE(Bluetooth Low Energy) 샘플 응용 프로그램은 Azure IoT Edge에서 제
 1. 다음 명령을 실행하여 샘플 응용 프로그램의 폴더로 이동합니다.
 
    ```bash
-   cd /user/share/azureiotgatewaysdk/samples
+   cd /usr/share/azureiotgatewaysdk/samples/ble_gateway
    ```
 
 1. 다음 명령을 실행하여 구성 파일을 엽니다.

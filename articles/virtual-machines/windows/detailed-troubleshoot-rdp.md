@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/26/2017
+ms.date: 05/31/2017
 ms.author: genli
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 3ba81282cd7b58cc118497c14e911fc89815d6d4
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: bd832efd3902dd61be1a8b64396eaadf1cd76e24
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -49,7 +49,7 @@ ms.lasthandoff: 05/26/2017
 ## <a name="preliminary-steps"></a>준비 단계
 자세한 문제 해결을 계속하기 전에 다음을 수행합니다.
 
-* Azure 클래식 포털 또는 Azure Portal에서 확실한 문제가 있는지 가상 컴퓨터의 상태를 확인합니다.
+* Azure Portal에서 확실한 문제가 있는지 가상 컴퓨터의 상태를 확인합니다.
 * [기본적인 문제 해결 가이드의 일반적인 RDP 오류에 대한 빠른 해결 단계](troubleshoot-rdp-connection.md#quick-troubleshooting-steps)를 진행합니다.
 
 이 단계를 거친 후 원격 데스크톱을 통해 VM에 다시 연결하세요.

@@ -1,9 +1,9 @@
 ---
 title: "OMS Log Analytics에서 Syslog 메시지 수집 및 분석 | Microsoft Docs"
-description: "Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.   이 문서에서는 Log Analytics의 Syslog 메시지 수집을 구성하는 방법을 설명하고, OMS 리포지토리에 생성되는 레코드에 대한 자세한 정보를 제공합니다."
+description: "Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 이 문서에서는 Log Analytics의 Syslog 메시지 수집을 구성하는 방법을 설명하고, OMS 리포지토리에 생성되는 레코드에 대한 자세한 정보를 제공합니다."
 services: log-analytics
 documentationcenter: 
-author: bwren
+author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
-ms.author: bwren
+ms.date: 06/12/2017
+ms.author: magoedte;bwren
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: 6e92a79c0b7ea35f110c779922255d6ddc93ed7c
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 783b9b48251c5f092121288af8834e2caf31f5d7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/24/2017
 Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.  응용 프로그램은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다.  Linux용 OMS 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다.  그러면 에이전트는 Log Analytics에 해당 메시지를 보내며 OMS 리포지토리에 해당 레코드가 만들어집니다.  
 
 > [!NOTE]
-> Log Analytics는 rsyslog 또는 syslog-ng에서 보낸 메시지의 수집을 지원합니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 [rsyslog 디먼](http://rsyslog.com) 을 설치하고 sysklog를 대체하도록 구성해야 합니다.
+> Log Analytics는 rsyslog 또는 syslog-ng에서 보낸 메시지의 컬렉션을 지원합니다. 여기서 rsyslog는 기본 디먼입니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 [rsyslog 디먼](http://rsyslog.com)을 설치하고 sysklog를 대체하도록 구성해야 합니다.
 > 
 > 
 
@@ -137,20 +137,50 @@ syslog-ng의 구성 파일은 **/etc/syslog-ng/syslog-ng.conf**에 있습니다.
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
 
-### <a name="changing-the-syslog-port"></a>Syslog 포트 변경
-OMS 에이전트는 포트 25224에서 로컬 클라이언트의 Syslog 메시지를 수신합니다.  **/etc/opt/microsoft/omsagent/conf/omsagent.conf**에 있는 OMS 에이전트 구성 파일에 다음 섹션을 추가하여 이 포트를 변경할 수 있습니다.  **포트** 항목의 25224를 원하는 포트 번호로 바꿉니다.  이 포트로 메시지를 보내기 위해 Syslog 디먼의 구성 파일도 수정해야 합니다.
+### <a name="collecting-data-from-additional-syslog-ports"></a>추가 Syslog 포트에서 데이터 수집
+OMS 에이전트는 포트 25224에서 로컬 클라이언트의 Syslog 메시지를 수신합니다.  에이전트가 설치될 때 기본 syslog 구성이 적용되며 다음 위치에서 찾을 수 있습니다. 
 
-    <source>
-      type syslog
-      port 25224
-      bind 127.0.0.1
-      protocol_type udp
-      tag oms.syslog
-    </source>
+* Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
+* Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
 
+두 개의 구성 파일을 만들어 포트 번호를 변경할 수 있습니다. 설치한 Syslog 디먼에 따라 rsyslog 또는 syslog-ng 파일과 FluentD 구성 파일입니다.  
 
-## <a name="data-collection"></a>데이터 수집
-OMS 에이전트는 포트 25224에서 로컬 클라이언트의 Syslog 메시지를 수신합니다. Syslog 디먼의 구성 파일은 응용 프로그램에서 보낸 Syslog 메시지를 이 포트로 전달하며, 해당 메시지는 Log Analytics에서 수집됩니다.
+* FluentD 구성 파일은 `/etc/opt/microsoft/omsagent/conf/omsagent.d`에 있는 새 파일이어야 합니다. **포트** 항목의 값을 사용자 지정 포트 번호로 바꿉니다.
+
+        <source>
+          type syslog
+          port %SYSLOG_PORT%
+          bind 127.0.0.1
+          protocol_type udp
+          tag oms.syslog
+        </source>
+        <filter oms.syslog.**>
+          type filter_syslog
+        </filter>
+
+* rsyslog의 경우 `/etc/rsyslog.d/`에 있는 새 구성 파일을 만들어야 합니다. %SYSLOG_PORT% 값을 사용자 지정 포트 번호로 바꿉니다.  
+
+    > [!NOTE]
+    > 구성 파일 `95-omsagent.conf`에서 이 값을 수정하는 경우 에이전트가 기본 구성을 적용할 때 덮어쓰게 됩니다.
+    > 
+
+        # OMS Syslog collection for workspace %WORKSPACE_ID%
+        kern.warning              @127.0.0.1:%SYSLOG_PORT%
+        user.warning              @127.0.0.1:%SYSLOG_PORT%
+        daemon.warning            @127.0.0.1:%SYSLOG_PORT%
+        auth.warning              @127.0.0.1:%SYSLOG_PORT%
+
+* syslog-ng 구성 파일은 아래 표시된 예제 구성을 복사하고 사용자 지정 수정된 설정을 `/etc/syslog-ng/`에 있는 syslog-ng.conf 구성 파일의 끝에 추가하여 수정해야 합니다.  기본 레이블 **% WORKSPACE_ID % _oms** 또는 **%WORKSPACE_ID_OMS**를 사용하지 **않습니다**. 변경 내용을 구분하기 위해 사용자 지정 레이블을 정의합니다.  
+
+    > [!NOTE]
+    > 구성 파일에서 기본 값을 수정하는 경우 에이전트가 기본 구성을 적용할 때 덮어쓰게 됩니다.
+    > 
+
+        filter f_custom_filter { level(warning) and facility(auth; };
+        destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
+        log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
+
+변경을 완료한 후, Syslog와 OMS 에이전트 서비스를 다시 시작하여 구성 변경 내용이 적용되도록 해야 합니다.   
 
 ## <a name="syslog-record-properties"></a>Syslog 레코드 속성
 Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니다.

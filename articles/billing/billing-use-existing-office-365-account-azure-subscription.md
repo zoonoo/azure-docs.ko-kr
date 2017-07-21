@@ -4,7 +4,7 @@ description: "Office 365 계정을 사용하여 Azure 구독을 만드는 방법
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: vikdesai
+manager: adpick
 editor: 
 tags: billing,top-support-issue
 ms.assetid: 129cdf7a-2165-483d-83e4-8f11f0fa7f8b
@@ -15,9 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: cjiang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: d62ec023605573e4b0804da00c75f65c8dea5173
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/12/2017
 
 

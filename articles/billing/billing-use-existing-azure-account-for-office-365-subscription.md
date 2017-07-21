@@ -4,7 +4,7 @@ description: "Azure 계정을 사용하여 Office 365 구독을 만드는 방법
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: vikdesai
+manager: adpick
 editor: 
 tags: billing,top-support-issue
 ms.assetid: 
@@ -15,19 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: cjiang
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 553c896b01c78922d992b132ac897d272eb27517
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/12/2017
 
 
 ---
-# <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Azure 계정으로 Office 365 구독에 등록
+<a id="sign-up-for-an-office-365-subscription-with-your-azure-account" class="xliff"></a>
+# Azure 계정으로 Office 365 구독에 등록
 Azure 구독자인 경우 Azure 계정을 사용하여 Office 365 구독에 등록합니다. Azure 구독이 있는 조직의 일부인 경우 기존 Azure AD(Azure Active Directory)에서 사용자를 위한 Office 365 구독을 만들 수 있습니다. Azure Active Directory 테넌트에서 전역 관리자 또는 대금 청구 관리자 디렉터리 역할의 구성원인 계정을 사용하여 Office 365에 등록합니다. 자세한 내용은 [Azure AD에서 계정 권한 확인](#RoleInAzureAD) 및 [Azure Active Directory에서 관리자 역할 할당](../active-directory/active-directory-assign-admin-roles.md)을 참조하세요.
 
 Office 365 계정과 Azure 구독이 둘 다 이미 있는 경우 [Azure 구독에 Office 365 테넌트 연결](billing-add-office-365-tenant-to-azure-subscription.md)을 참조하세요.
 
-## <a name="get-an-office-365-subscription-by-using-your-azure-account"></a>Azure 계정을 사용하여 Office 365 구독 가져오기
+<a id="get-an-office-365-subscription-by-using-your-azure-account" class="xliff"></a>
+## Azure 계정을 사용하여 Office 365 구독 가져오기
 
 1. [Office 365 제품 페이지](https://products.office.com/business)로 이동한 후 계획을 선택합니다.
 2. 페이지의 오른쪽 위에서 **로그인**을 클릭합니다.
@@ -69,5 +72,6 @@ Office 365 계정과 Azure 구독이 둘 다 이미 있는 경우 [Azure 구독�
 
     ![Azure Portal 디렉터리 역할 대금 청구 관리자를 보여 주는 스크린샷](./media/billing-use-existing-azure-account-office-365-subscription/billing-directoryrole-limited.png)
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의하세요.
+<a id="need-help-contact-support" class="xliff"></a>
+## 도움이 필요하세요? 지원에 문의하세요.
 다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요. 

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f74379c3e310a7bbcf659ef610727bff19639022
 ms.openlocfilehash: c495af3e818758cc5fe99af9b5f07506a16b59ef
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -70,10 +72,5 @@ ms.openlocfilehash: c495af3e818758cc5fe99af9b5f07506a16b59ef
 현재 선호도 그룹에 있는 VM을 선호도 그룹에서 제거할 필요는 없습니다.
 
 VM을 배포하면 단일 배율 단위에 배포됩니다. 선호도 그룹이 새 VM 배포에 대해 사용 가능한 VM 크기의 집합을 제한할 수 있지만 배포된 모든 기존 VM은 VM이 배포되는 배율 단위에서 사용 가능한 VM 크기의 집합으로 이미 제한되어 있습니다. 이 때문에 선호도 그룹에서 VM을 제거해도 아무런 효과가 없습니다.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/28/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80d58a6ab5f2148b2391d4d63e70371724e5990b
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a61c57cd74a0df8363648dd8df40e433b0e6489d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -156,7 +158,7 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
    
    1. **컴퓨터 관리** ->**디스크 관리**로 이동합니다.
    2. **디스크 관리**를 마우스 오른쪽 단추로 클릭하고 **디스크 다시 검사**를 선택합니다.
-   3. 디스크 목록에서 업데이트한 볼륨을 선택하고 마우스 오른쪽 단추를 클릭한 다음 **볼륨 확장**을 선택합니다. 볼륨 확장 마법사가 시작됩니다. **다음**을 클릭합니다.
+   3. 디스크 목록에서 업데이트한 볼륨을 선택하고 마우스 오른쪽 단추를 클릭한 다음 **볼륨 확장**을 선택합니다. 볼륨 확장 마법사가 시작됩니다. **다음**을 누릅니다.
    4. 기본값을 적용하여 마법사를 완료합니다. 마법사가 완료되면 볼륨에 증가된 크기가 표시되어야 합니다.
       
       > [!NOTE]
@@ -253,7 +255,7 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 5. 확인하라는 메시지가 표시되면 **예**를 클릭합니다. 이제 볼륨이 삭제되며 **볼륨** 페이지가 컨테이너 내의 업데이트된 볼륨 목록을 보여줍니다.
    
    > [!NOTE]
-   > 로컬에 고정된 볼륨을 삭제하면 새 볼륨에 사용할 수 있는 공간이 즉시 업데이트되지 않을 수 있습니다. StorSimple Manager 서비스는 사용 가능한 로컬 공간을 주기적으로 업데이트합니다. 새 볼륨을 만들기 전에 몇 분 동안 기다려 주세요.<br>  또한 로컬로 고정된 볼륨을 삭제한 다음 그 후에 다른 로컬로 고정된 볼륨을 즉시 삭제하는 경우 볼륨 삭제 작업은 순차적으로 실행됩니다. 첫 번째 볼륨 삭제 작업은 다음 볼륨 삭제 작업을 시작하기 전에 완료해야 합니다.
+   > 로컬에 고정된 볼륨을 삭제하면 새 볼륨에 사용할 수 있는 공간이 즉시 업데이트되지 않을 수 있습니다. StorSimple Manager 서비스는 사용 가능한 로컬 공간을 주기적으로 업데이트합니다. 새 볼륨을 만들기 전에 몇 분 동안 기다려 주세요.<br> 또한 로컬로 고정된 볼륨을 삭제한 다음 그 후에 다른 로컬로 고정된 볼륨을 즉시 삭제하는 경우 볼륨 삭제 작업은 순차적으로 실행됩니다. 첫 번째 볼륨 삭제 작업은 다음 볼륨 삭제 작업을 시작하기 전에 완료해야 합니다.
    > 
    > 
 
@@ -272,10 +274,5 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 볼륨 복제](storsimple-clone-volume.md)방법에 대해 배웁니다.
 * [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

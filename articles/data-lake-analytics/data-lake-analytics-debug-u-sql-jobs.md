@@ -14,17 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: a5bb452582f05981a17c2514e0e40db0571bf61d
-ms.openlocfilehash: f9b485bfbfbeb8a95ae1908ef6b1733b9cc6999a
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: aac455520ab62d69b406a254a54b0f000ea2e5bc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/26/2017
 
 
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>실패한 U-SQL 작업에 대한 사용자 정의 C# 코드 디버그
-
-Azure Data Lake Tools for Visual Studio를 사용하여 사용자 정의 코드 버그로 인해 실패한 U-SQL 작업을 디버그하는 방법을 알아봅니다.
-
-## <a name="background"></a>백그라운드
 
 U-SQL은 C#를 통해 확장성 모델을 제공하며, 사용자는 사용자 정의 추출기, 리듀서와 같은 사용자 정의 C# 코드를 작성하여 보다 높은 확장성을 달성할 수 있습니다([U-SQL 사용자 정의 코드](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#user-defined-functions---udf)에 대해 자세히 알아보기). 그러나 개발자는 누구나 코드를 작성할 때 실수를 하며, 빅 데이터 시스템의 경우 여러 시스템이 로그 등과 같은 제한된 런타임 디버깅 정보만 제공하므로 디버그하기 어렵습니다. 
 
@@ -34,15 +32,10 @@ ADL Tools for Visual Studio가 제공하는 **실패한 꼭짓점 디버그**라
 
 > [!VIDEO https://e0d1.wpc.azureedge.net/80E0D1/OfficeMixProdMediaBlobStorage/asset-d3aeab42-6149-4ecc-b044-aa624901ab32/b0fc0373c8f94f1bb8cd39da1310adb8.mp4?sv=2012-02-12&sr=c&si=a91fad76-cfdd-4513-9668-483de39e739c&sig=K%2FR%2FdnIi9S6P%2FBlB3iLAEV5pYu6OJFBDlQy%2FQtZ7E7M%3D&se=2116-07-19T09:27:30Z&rscd=attachment%3B%20filename%3DDebugyourcustomcodeinUSQLADLA.mp4]
 >
->
 
 > [!NOTE]
 > Visual Studio는 두 가지 Windows 업그레이드, [Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트 2](https://www.microsoft.com/download/details.aspx?id=51682), [Windows용 유니버설 C 런타임](https://www.microsoft.com/download/details.aspx?id=50410&wa=wsignin1.0)이 없으면 중단되거나 응답하지 않을 수 있습니다.
 > 
-> 
-
-## <a name="prerequisites"></a>필수 조건
-* [시작](data-lake-analytics-data-lake-tools-get-started.md) 문서를 숙지합니다.
 
 ## <a name="download-failed-vertex-to-local"></a>로컬에 실패한 꼭짓점 다운로드
 
@@ -95,7 +88,7 @@ U-SQL 스크립트에 등록된 어셈블리를 사용할 경우 시스템에서
 
 1. **어셈블리 소스 코드 프로젝트** > **다시 빌드**를 마우스 오른쪽 단추로 클릭하여 LocalVertexHost 작업 디렉터리로 pdb 파일을 출력합니다.
 
-2. **F5** 키를 누르면 예외에 의해 중지될 때까지 프로젝트가 자동으로 실행됩니다. 처음으로 다음과 같은 메시지가 표시될 수 있습니다. 이 메시지는 무시해도 됩니다. 디버그 화면으로 이동하는 데 최대&1;분 정도 걸릴 수 있습니다.
+2. **F5** 키를 누르면 예외에 의해 중지될 때까지 프로젝트가 자동으로 실행됩니다. 처음으로 다음과 같은 메시지가 표시될 수 있습니다. 이 메시지는 무시해도 됩니다. 디버그 화면으로 이동하는 데 최대 1분 정도 걸릴 수 있습니다.
 
     ![Azure Data Lake Analytics U-SQL 디버그 Visual Studio 경고](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-visual-studio-u-sql-debug-warning.png)
 
@@ -127,13 +120,7 @@ U-SQL 스크립트에 등록된 어셈블리를 사용할 경우 시스템에서
 
 * [U-SQL 프로그래밍 기능 가이드](data-lake-analytics-u-sql-programmability-guide.md)
 * [Azure 데이터 레이크 분석 작업에 대한 U-SQL 사용자 정의 연산자를 개발합니다.](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-* [자습서: Azure 데이터 레이크 분석 U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)
 * [자습서: Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

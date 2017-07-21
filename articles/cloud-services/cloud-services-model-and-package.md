@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 40add25104b2d86a5d68d297ad7a52cc111002f4
-ms.openlocfilehash: e0c03a4aff4f84d0f4f2d79220e34e8c86791bff
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cca4d126a5c5f012af6afb9a31d0aedc0f7eb155
+ms.openlocfilehash: 7aebd5bd168799e1a88bad0e78ba3a164bfcfccd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>클라우드 서비스 모델 정의 및 패키지 방법
@@ -295,9 +296,4 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

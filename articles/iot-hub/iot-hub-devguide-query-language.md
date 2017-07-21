@@ -12,18 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 05/25/17
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1eacd13562adcff96fdd0dd3fd91c78ef6a26dbf
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 32d5baf404efddd2e3ce122b14ea8c256bf56299
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/01/2017
 
 
 ---
-# <a name="reference---iot-hub-query-language-for-device-twins-and-jobs"></a>참조 - 장치 쌍 및 작업에 대한 IoT Hub 쿼리 언어
-## <a name="overview"></a>개요
-IoT Hub는 [장치 쌍][lnk-twins] 및 [작업][lnk-jobs]과 관련된 정보 검색을 위한 강력한 SQL 유형의 언어를 제공합니다. 이 문서에 제공되는 내용:
+# <a name="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>참조 - 장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
+
+IoT Hub는 [장치 쌍][lnk-twins] 및 [작업][lnk-jobs] 그리고 [메시지 라우팅][lnk-devguide-messaging-routes]과 관련된 정보를 검색할 수 있는 강력한 SQL 유형의 언어를 제공합니다. 이 문서에 제공되는 내용:
 
 * IoT Hub 쿼리 언어의 주요 기능 소개 및
 * 언어에 대한 자세한 설명
@@ -32,100 +33,114 @@ IoT Hub는 [장치 쌍][lnk-twins] 및 [작업][lnk-jobs]과 관련된 정보 �
 [장치 쌍][lnk-twins]은 임의의 JSON 개체를 태그와 속성으로 포함할 수 있습니다. IoT Hub를 사용하면 모든 장치 쌍 정보를 포함하는 단일 JSON 문서로 장치 쌍을 쿼리할 수 있습니다.
 예를 들어 IoT Hub 장치 쌍에 다음과 같은 구조가 있다고 가정하겠습니다.
 
-        {                                                                      
-            "deviceId": "myDeviceId",                                            
-            "etag": "AAAAAAAAAAc=",                                              
-            "tags": {                                                            
-                "location": {                                                      
-                    "region": "US",                                                  
-                    "plant": "Redmond43"                                             
-                }                                                                  
-            },                                                                   
-            "properties": {                                                      
-                "desired": {                                                       
-                    "telemetryConfig": {                                             
-                        "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",            
-                        "sendFrequencyInSecs": 300                                          
-                    },                                                               
-                    "$metadata": {                                                   
-                    ...                                                     
-                    },                                                               
-                    "$version": 4                                                    
-                },                                                                 
-                "reported": {                                                      
-                    "connectivity": {                                                
-                        "type": "cellular"                            
-                    },                                                               
-                    "telemetryConfig": {                                             
-                        "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",            
-                        "sendFrequencyInSecs": 300,                                         
-                        "status": "Success"                                            
-                    },                                                               
-                    "$metadata": {                                                   
-                    ...                                                
-                    },                                                               
-                    "$version": 7                                                    
-                }                                                                  
-            }                                                                    
+```json
+{
+    "deviceId": "myDeviceId",
+    "etag": "AAAAAAAAAAc=",
+    "tags": {
+        "location": {
+            "region": "US",
+            "plant": "Redmond43"
         }
+    },
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",
+                "sendFrequencyInSecs": 300
+            },
+            "$metadata": {
+            ...
+            },
+            "$version": 4
+        },
+        "reported": {
+            "connectivity": {
+                "type": "cellular"
+            },
+            "telemetryConfig": {
+                "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",
+                "sendFrequencyInSecs": 300,
+                "status": "Success"
+            },
+            "$metadata": {
+            ...
+            },
+            "$version": 7
+        }
+    }
+}
+```
 
 IoT Hub는 **devices**라는 문서 컬렉션으로 장치 쌍을 노출합니다.
 따라서 다음 쿼리는 전체적인 장치 쌍을 검색합니다.
 
-        SELECT * FROM devices
+```sql
+SELECT * FROM devices
+```
 
 > [!NOTE]
 > [Azure IoT SDK][lnk-hub-sdks]는 큰 결과에 대한 페이징을 지원합니다.
->
->
 
 IoT Hub는 임의의 조건으로 장치 쌍 필터링을 검색하도록 허용합니다. 예를 들어
 
-        SELECT * FROM devices
-        WHERE tags.location.region = 'US'
+```sql
+SELECT * FROM devices
+WHERE tags.location.region = 'US'
+```
 
 위 코드는 **location.region** 태그가 **US**로 설정된 장치 쌍을 검색합니다.
 예를 들어, 부울 연산자 및 산술 비교도 지원됩니다. 예를 들어
 
-        SELECT * FROM devices
-        WHERE tags.location.region = 'US'
-            AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
+```sql
+SELECT * FROM devices
+WHERE tags.location.region = 'US'
+    AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
+```
 
 위 코드는 미국 내에 있는 1분 이하의 간격으로 원격 분석을 보내도록 구성된 모든 장치 쌍을 검색합니다. 편의를 위해 **IN** 및**NIN**(IN이 아님) 연산자와 함께 배열 상수를 사용할 수도 있습니다. 예를 들어
 
-        SELECT * FROM devices
-        WHERE property.reported.connectivity IN ['wired', 'wifi']
+```sql
+SELECT * FROM devices
+WHERE properties.reported.connectivity IN ['wired', 'wifi']
+```
 
 위 코드는 WiFi 또는 유선 연결을 보고한 모든 장치 쌍을 검색합니다. 특정 속성을 포함하는 모든 장치 쌍을 식별해야 하는 경우가 종종 있습니다. IoT Hub는 이러한 용도로 `is_defined()` 함수를 지원합니다. 예를 들어
 
-        SELECT * FROM devices
-        WHERE is_defined(property.reported.connectivity)
+```SQL
+SELECT * FROM devices
+WHERE is_defined(properties.reported.connectivity)
+```
 
 위 코드는 `connectivity` reported 속성을 정의하는 모든 장치 쌍을 검색합니다. 필터링 기능에 대한 전체 참조는 [WHERE 절][lnk-query-where] 섹션을 참조하세요.
 
 그룹화 및 집계도 지원됩니다. 예를 들어
 
-        SELECT properties.reported.telemetryConfig.status AS status,
-            COUNT() AS numberOfDevices
-        FROM devices
-        GROUP BY properties.reported.telemetryConfig.status
+```sql
+SELECT properties.reported.telemetryConfig.status AS status,
+    COUNT() AS numberOfDevices
+FROM devices
+GROUP BY properties.reported.telemetryConfig.status
+```
 
 위 코드는 원격 분석 구성 상태 각각의 장치 수를 반환합니다.
 
-        [
-            {
-                "numberOfDevices": 3,
-                "status": "Success"
-            },
-            {
-                "numberOfDevices": 2,
-                "status": "Pending"
-            },
-            {
-                "numberOfDevices": 1,
-                "status": "Error"
-            }
-        ]
+```json
+[
+    {
+        "numberOfDevices": 3,
+        "status": "Success"
+    },
+    {
+        "numberOfDevices": 2,
+        "status": "Pending"
+    },
+    {
+        "numberOfDevices": 1,
+        "status": "Error"
+    }
+]
+```
 
 위의 예제는 세 장치에서 성공적인 구성을 보고하고, 두 장치에서 아직 구성을 적용하고 있고, 한 장치에서 오류를 보고한 상황을 보여 줍니다.
 
@@ -133,15 +148,17 @@ IoT Hub는 임의의 조건으로 장치 쌍 필터링을 검색하도록 허용
 쿼리 기능은 [C# 서비스 SDK][lnk-hub-sdks]의 **RegistryManager** 클래스에서 공개합니다.
 다음은 간단한 예제 쿼리입니다.
 
-        var query = registryManager.CreateQuery("SELECT * FROM devices", 100);
-        while (query.HasMoreResults)
-        {
-            var page = await query.GetNextAsTwinAsync();
-            foreach (var twin in page)
-            {
-                // do work on twin object
-            }
-        }
+```csharp
+var query = registryManager.CreateQuery("SELECT * FROM devices", 100);
+while (query.HasMoreResults)
+{
+    var page = await query.GetNextAsTwinAsync();
+    foreach (var twin in page)
+    {
+        // do work on twin object
+    }
+}
+```
 
 **query** 개체가 페이지 크기(최대 1000)로 인스턴스화되는 방식과, **GetNextAsTwinAsync** 메서드를 여러 번 호출하여 여러 페이지를 가져오는 방식에 주목합니다.
 쿼리 개체는 장치 쌍이나 작업 개체 또는 프로젝션을 사용할 때 사용되는 일반 JSON과 같은 쿼리에 필요한 역직렬화 옵션에 따라 여러 **Next\***를 표시합니다.
@@ -150,22 +167,24 @@ IoT Hub는 임의의 조건으로 장치 쌍 필터링을 검색하도록 허용
 쿼리 기능은 [Node.js용 Azure IoT 서비스 SDK][lnk-hub-sdks]의 **Registry** 개체에서 공개합니다.
 다음은 간단한 예제 쿼리입니다.
 
-        var query = registry.createQuery('SELECT * FROM devices', 100);
-        var onResults = function(err, results) {
-            if (err) {
-                console.error('Failed to fetch the results: ' + err.message);
-            } else {
-                // Do something with the results
-                results.forEach(function(twin) {
-                    console.log(twin.deviceId);
-                });
+```nodejs
+var query = registry.createQuery('SELECT * FROM devices', 100);
+var onResults = function(err, results) {
+    if (err) {
+        console.error('Failed to fetch the results: ' + err.message);
+    } else {
+        // Do something with the results
+        results.forEach(function(twin) {
+            console.log(twin.deviceId);
+        });
 
-                if (query.hasMoreResults) {
-                    query.nextAsTwin(onResults);
-                }
-            }
-        };
-        query.nextAsTwin(onResults);
+        if (query.hasMoreResults) {
+            query.nextAsTwin(onResults);
+        }
+    }
+};
+query.nextAsTwin(onResults);
+```
 
 **query** 개체가 페이지 크기(최대 1000)로 인스턴스화되는 방식과, **nextAsTwin** 메서드를 여러 번 호출하여 여러 페이지를 가져오는 방식에 주목합니다.
 쿼리 개체는 장치 쌍이나 작업 개체 또는 프로젝션을 사용할 때 사용되는 일반 JSON과 같은 쿼리에 필요한 역직렬화 옵션에 따라 여러 **next\***를 표시합니다.
@@ -173,8 +192,6 @@ IoT Hub는 임의의 조건으로 장치 쌍 필터링을 검색하도록 허용
 ### <a name="limitations"></a>제한 사항
 > [!IMPORTANT]
 > 쿼리 결과는 장치 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID별로 개별 장치 쌍을 쿼리하는 경우 항상 최신 값을 포함하며 더 높은 조정 제한을 가지는 장치 쌍 검색 API를 사용하는 것이 항상 바람직합니다.
->
->
 
 현재 비교는 기본 형식(개체 없음) 간에만 지원됩니다. 예를 들어 `... WHERE properties.desired.config = properties.reported.config`는 해당 속성에 기본 값이 있는 경우에만 지원됩니다.
 
@@ -182,32 +199,34 @@ IoT Hub는 임의의 조건으로 장치 쌍 필터링을 검색하도록 허용
 [작업][lnk-jobs]은 장치 집합에 대해 작업을 실행하는 방법을 제공합니다. 각 장치 쌍은 작업에 대한 정보를 포함하며 이것은 **jobs**라는 컬렉션에 속합니다.
 로컬에서,
 
-        {                                                                      
-            "deviceId": "myDeviceId",                                            
-            "etag": "AAAAAAAAAAc=",                                              
-            "tags": {                                                            
-                ...                                                              
-            },                                                                   
-            "properties": {                                                      
-                ...                                                                 
-            },
-            "jobs": [
-                {
-                    "deviceId": "myDeviceId",
-                    "jobId": "myJobId",    
-                    "jobType": "scheduleTwinUpdate",            
-                    "status": "completed",                    
-                    "startTimeUtc": "2016-09-29T18:18:52.7418462",
-                    "endTimeUtc": "2016-09-29T18:20:52.7418462",
-                    "createdDateTimeUtc": "2016-09-29T18:18:56.7787107Z",
-                    "lastUpdatedDateTimeUtc": "2016-09-29T18:18:56.8894408Z",
-                    "outcome": {
-                        "deviceMethodResponse": null   
-                    }                                         
-                },
-                ...
-            ]                                                             
-        }
+```json
+{
+    "deviceId": "myDeviceId",
+    "etag": "AAAAAAAAAAc=",
+    "tags": {
+        ...
+    },
+    "properties": {
+        ...
+    },
+    "jobs": [
+        {
+            "deviceId": "myDeviceId",
+            "jobId": "myJobId",
+            "jobType": "scheduleTwinUpdate",
+            "status": "completed",
+            "startTimeUtc": "2016-09-29T18:18:52.7418462",
+            "endTimeUtc": "2016-09-29T18:20:52.7418462",
+            "createdDateTimeUtc": "2016-09-29T18:18:56.7787107Z",
+            "lastUpdatedDateTimeUtc": "2016-09-29T18:18:56.8894408Z",
+            "outcome": {
+                "deviceMethodResponse": null
+            }
+        },
+        ...
+    ]
+}
+```
 
 현재 이 컬렉션은 IoT Hub 쿼리 언어를 사용하여 **devices.jobs**로 쿼리할 수 있습니다.
 
@@ -218,25 +237,31 @@ IoT Hub는 임의의 조건으로 장치 쌍 필터링을 검색하도록 허용
 
 예를 들어 단일 장치에 영향을 미치는 모든 작업(지난 작업 및 예정된 작업)을 가져오려면 다음 쿼리를 사용합니다.
 
-        SELECT * FROM devices.jobs
-        WHERE devices.jobs.deviceId = 'myDeviceId'
+```sql
+SELECT * FROM devices.jobs
+WHERE devices.jobs.deviceId = 'myDeviceId'
+```
 
 이 쿼리가 반환된 각 작업의 장치별 상태(및 가능한 경우 직접 메서드 응답)를 제공하는 방법에 유의합니다.
 **devices.jobs** 컬렉션의 모든 개체 속성에 대해 임의의 부울 조건으로 필터링할 수도 있습니다.
 예를 들어, 다음 쿼리는:
 
-        SELECT * FROM devices.jobs
-        WHERE devices.jobs.deviceId = 'myDeviceId'
-            AND devices.jobs.jobType = 'scheduleTwinUpdate'
-            AND devices.jobs.status = 'completed'
-            AND devices.jobs.createdTimeUtc > '2016-09-01'
+```sql
+SELECT * FROM devices.jobs
+WHERE devices.jobs.deviceId = 'myDeviceId'
+    AND devices.jobs.jobType = 'scheduleTwinUpdate'
+    AND devices.jobs.status = 'completed'
+    AND devices.jobs.createdTimeUtc > '2016-09-01'
+```
 
 2016년 9월 이후에 생성된 장치 **myDeviceId**에 대해 완료된 모든 장치 쌍 업데이트 작업을 검색합니다.
 
 단일 작업의 장치별 출력을 검색할 수도 있습니다.
 
-        SELECT * FROM devices.jobs
-        WHERE devices.jobs.jobId = 'myJobId'
+```sql
+SELECT * FROM devices.jobs
+WHERE devices.jobs.jobId = 'myJobId'
+```
 
 ### <a name="limitations"></a>제한 사항
 현재 **devices.jobs**에 대한 쿼리는 다음을 지원하지 않습니다.
@@ -249,25 +274,31 @@ IoT Hub는 임의의 조건으로 장치 쌍 필터링을 검색하도록 허용
 
 [장치-클라우드 경로][lnk-devguide-messaging-routes]를 사용하면 개별 메시지에 대해 평가된 식에 따라 장치-클라우드 메시지를 다른 끝점으로 전달하도록 IoT Hub를 구성할 수 있습니다.
 
-경로 [조건][lnk-query-expressions]은 쌍 및 작업 쿼리의 조건과 동일한 IoT Hub 쿼리 언어를 사용합니다. 경로 조건은 다음 JSON 표현을 가정하는 메시지 속성에서 평가됩니다.
+경로 [조건][lnk-query-expressions]은 쌍 및 작업 쿼리의 조건과 동일한 IoT Hub 쿼리 언어를 사용합니다. 메시지 헤더 및 본문에서 경로 조건이 평가됩니다. 라우팅 쿼리 식에 메시지 본문 헤더만 포함될 수도 있고, 메시지 본문만 포함될 수도 있고, 메시지 헤더와 메시지 본문이 모두 포함될 수도 있습니다. IoT Hub는 메시지를 전달하기 위해 헤더와 메시지 본문에 대한 특정 스키마를 가정하며, 다음 섹션에서는 IoT Hub가 적절히 라우팅하려면 무엇이 필요한지 설명합니다.
 
-        {
-            "$messageId": "",
-            "$enqueuedTime": "",
-            "$to": "",
-            "$expiryTimeUtc": "",
-            "$correlationId": "",
-            "$userId": "",
-            "$ack": "",
-            "$connectionDeviceId": "",
-            "$connectionDeviceGenerationId": "",
-            "$connectionAuthMethod": "",
-            "$content-type": "",
-            "$content-encoding": ""
+### <a name="routing-on-message-headers"></a>메시지 헤더에서 라우팅
 
-            "userProperty1": "",
-            "userProperty2": ""
-        }
+IoT Hub는 메시지 라우팅에 대해 메시지 헤더의 다음 JSON 표현을 가정합니다.
+
+```json
+{
+    "$messageId": "",
+    "$enqueuedTime": "",
+    "$to": "",
+    "$expiryTimeUtc": "",
+    "$correlationId": "",
+    "$userId": "",
+    "$ack": "",
+    "$connectionDeviceId": "",
+    "$connectionDeviceGenerationId": "",
+    "$connectionAuthMethod": "",
+    "$content-type": "",
+    "$content-encoding": "",
+
+    "userProperty1": "",
+    "userProperty2": ""
+}
+```
 
 메시지 시스템 속성 앞에 `'$'` 기호를 붙입니다.
 사용자 속성은 항상 이름을 사용하여 액세스됩니다. 사용자 속성 이름이 시스템 속성과 일치하는 것으로 나타나면(예: `$to`) 사용자 속성을 `$to` 식을 사용하여 검색합니다.
@@ -281,25 +312,47 @@ IoT Hub는 임의의 조건으로 장치 쌍 필터링을 검색하도록 허용
 
 예를 들어 `messageType` 속성을 사용하는 경우 모든 원격 분석을 하나의 끝점으로 라우팅하고, 모든 경고를 다른 끝점으로 라우팅할 수 있습니다. 다음 식을 작성하면 원격 분석을 라우팅할 수 있습니다.
 
-        messageType = 'telemetry'
+```sql
+messageType = 'telemetry'
+```
 
 그리고 다음 식으로 경고 메시지를 라우팅합니다.
 
-        messageType = 'alert'
+```sql
+messageType = 'alert'
+```
 
 부울 식 및 함수도 지원됩니다. 이 기능을 사용하면 심각도 수준을 구분할 수 있습니다. 예를 들어 다음과 같습니다.
 
-        messageType = 'alerts' AND as_number(severity) <= 2
+```sql
+messageType = 'alerts' AND as_number(severity) <= 2
+```
 
 지원되는 연산자와 함수의 전체 목록은 [식 및 조건][lnk-query-expressions] 섹션을 참조하세요.
+
+### <a name="routing-on-message-bodies"></a>메시지 본문에서 라우팅
+
+메시지 본문이 UTF-8, UTF-16 또는 UTF-32로 적절하게 인코딩된 JSON 형식이어야 IoT Hub가 메시지 본문 콘텐츠를 기반으로 라우팅할 수 있습니다. IoT Hub가 본문 내용을 기반으로 메시지를 라우팅할 수 있도록 메시지의 콘텐츠 유형을 `application/json`으로 설정하고 콘텐츠 인코딩을 메시지 헤더에서 지원되는 UTF 인코딩 중 하나로 설정합니다. 헤더 중 하나를 지정하지 않으면 IoT Hub는 메시지에 대한 본문과 관련된 쿼리 식을 평가하지 않습니다. 메시지가 JSON 메시지가 아니거나 메시지에서 콘텐츠 유형 및 콘텐츠 인코딩을 지정하지 않더라도 여전히 메시지 라우팅을 사용하여 메시지 헤더를 기반으로 메시지를 라우팅할 수도 있습니다.
+
+쿼리 식에 `$body`를 사용하여 메시지를 라우팅할 수 있습니다. 쿼리 식에 간단한 본문 참조, 본문 배열 참조 또는 여러 본문 참조를 사용할 수 있습니다. 쿼리 식에서 본문 참조를 메시지 헤더 참조와 결합할 수도 있습니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다.
+
+```sql
+$body.message.Weather.Location.State = 'WA'
+$body.Weather.HistoricalData[0].Month = 'Feb'
+$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+length($body.Weather.Location.State) = 2
+$body.Weather.Temperature = 50 AND Status = 'Active'
+```
 
 ## <a name="basics-of-an-iot-hub-query"></a>IoT Hub 쿼리의 기초
 모든 IoT Hub 쿼리는 SELECT 및 FROM 절로 이루어지며 선택적으로 WHERE 및 GROUP BY 절을 포함합니다. 모든 쿼리는 JSON 문서(예: 장치 쌍) 컬렉션에 대해 실행됩니다. FROM 절은 반복이 수행될 문서 컬렉션을 나타냅니다(예: **devices** 또는 **devices.jobs**). 그런 다음 WHERE 절의 필터가 적용됩니다. 집계를 사용하면 이 단계의 결과가 GROUP BY 절에 지정된 대로 그룹화되며, 각 그룹에 대해서는 SELECT 절에 지정된 대로 행이 생성됩니다.
 
-        SELECT <select_list>
-        FROM <from_specification>
-        [WHERE <filter_condition>]
-        [GROUP BY <group_specification>]
+```sql
+SELECT <select_list>
+FROM <from_specification>
+[WHERE <filter_condition>]
+[GROUP BY <group_specification>]
+```
 
 ## <a name="from-clause"></a>FROM 절
 **FROM <from_specification>** 절은 두 가지 값만 가정할 수 있습니다. **FROM devices**는 장치 쌍을 쿼리하기 위해 **FROM devices.jobs**는 장치별 작업 세부 정보를 쿼리하기 위해 가정합니다.
@@ -315,23 +368,25 @@ FROM 컬렉션의 필터링된(그리고 선택적으로 그룹화된) 하위 �
 
 다음은 SELECT 절의 문법입니다.
 
-        SELECT [TOP <max number>] <projection list>
+```
+SELECT [TOP <max number>] <projection list>
 
-        <projection_list> ::=
-            '*'
-            | <projection_element> AS alias [, <projection_element> AS alias]+
+<projection_list> ::=
+    '*'
+    | <projection_element> AS alias [, <projection_element> AS alias]+
 
-        <projection_element> :==
-            attribute_name
-            | <projection_element> '.' attribute_name
-            | <aggregate>
+<projection_element> :==
+    attribute_name
+    | <projection_element> '.' attribute_name
+    | <aggregate>
 
-        <aggregate> :==
-            count()
-            | avg(<projection_element>)
-            | sum(<projection_element>)
-            | min(<projection_element>)
-            | max(<projection_element>)
+<aggregate> :==
+    count()
+    | avg(<projection_element>)
+    | sum(<projection_element>)
+    | min(<projection_element>)
+    | max(<projection_element>)
+```
 
 **attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 말합니다. SELECT 절에 대한 예제는 [장치 쌍 쿼리 시작][lnk-query-getstarted] 섹션에서 찾을 수 있습니다.
 
@@ -342,17 +397,21 @@ FROM 컬렉션의 필터링된(그리고 선택적으로 그룹화된) 하위 �
 
 GROUP BY를 사용한 쿼리의 예:
 
-        SELECT properties.reported.telemetryConfig.status AS status,
-            COUNT() AS numberOfDevices
-        FROM devices
-        GROUP BY properties.reported.telemetryConfig.status
+```sql
+SELECT properties.reported.telemetryConfig.status AS status,
+    COUNT() AS numberOfDevices
+FROM devices
+GROUP BY properties.reported.telemetryConfig.status
+```
 
 GROUP BY에 대한 형식 구문:
 
-        GROUP BY <group_by_element>
-        <group_by_element> :==
-            attribute_name
-            | < group_by_element > '.' attribute_name
+```
+GROUP BY <group_by_element>
+<group_by_element> :==
+    attribute_name
+    | < group_by_element > '.' attribute_name
+```
 
 **attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 말합니다.
 
@@ -368,29 +427,31 @@ GROUP BY에 대한 형식 구문:
 
 식에 대한 구문:
 
-        <expression> ::=
-            <constant> |
-            attribute_name |
-            <function_call> |
-            <expression> binary_operator <expression> |
-            <create_array_expression> |
-            '(' <expression> ')'
+```
+<expression> ::=
+    <constant> |
+    attribute_name |
+    <function_call> |
+    <expression> binary_operator <expression> |
+    <create_array_expression> |
+    '(' <expression> ')'
 
-        <function_call> ::=
-            <function_name> '(' expression ')'
+<function_call> ::=
+    <function_name> '(' expression ')'
 
-        <constant> ::=
-            <undefined_constant>
-            | <null_constant>
-            | <number_constant>
-            | <string_constant>
-            | <array_constant>
+<constant> ::=
+    <undefined_constant>
+    | <null_constant>
+    | <number_constant>
+    | <string_constant>
+    | <array_constant>
 
-        <undefined_constant> ::= undefined
-        <null_constant> ::= null
-        <number_constant> ::= decimal_literal | hexadecimal_literal
-        <string_constant> ::= string_literal
-        <array_constant> ::= '[' <constant> [, <constant>]+ ']'
+<undefined_constant> ::= undefined
+<null_constant> ::= null
+<number_constant> ::= decimal_literal | hexadecimal_literal
+<string_constant> ::= string_literal
+<array_constant> ::= '[' <constant> [, <constant>]+ ']'
+```
 
 설명:
 
@@ -426,7 +487,7 @@ GROUP BY에 대한 형식 구문:
 | ABS(x) | 지정한 숫자 식의 절대(양수) 값을 반환합니다. |
 | EXP(x) | 지정한 숫자 식(e^x)의 지수 값을 반환합니다. |
 | POWER(x,y) | 지정한 식의 값을 지정한 거듭제곱(x^y)으로 반환합니다.|
-| SQUARE(x)    | 지정한 숫자 값의 제곱을 반환합니다. |
+| SQUARE(x) | 지정한 숫자 값의 제곱을 반환합니다. |
 | CEILING(x) | 지정한 숫자 식보다 크거나 같은 가장 작은 정수 값을 반환합니다. |
 | FLOOR(x) | 지정한 숫자 식보다 작거나 같은 가장 큰 정수 값을 반환합니다. |
 | SIGN(x) | 지정한 숫자 식의 양수(+1), 0(0) 또는 음수(-1) 부호를 반환합니다.|
@@ -472,9 +533,9 @@ GROUP BY에 대한 형식 구문:
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messaging.md#routing-rules
-[lnk-devguide-messaging-format]: iot-hub-devguide-messaging.md#message-format
-
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-read-custom.md
+[lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
+[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 

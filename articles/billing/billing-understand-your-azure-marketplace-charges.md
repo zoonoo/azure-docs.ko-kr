@@ -4,7 +4,7 @@ description: "이전에는 마켓플레이스로 알려진 외부 서비스의 �
 services: 
 documentationcenter: 
 author: adpick
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/03/2017
 
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Azure 외부 서비스 요금 청구의 이해
-외부 서비스는 Azure Marketplace로 불렸습니다. 일반적으로 Azure에 대해 사용 가능한 제&3;자에 의해 게시되었으나 Azure 내에 완전하게 통합된 서비스입니다. 예를 들어 ClearDB 및 SendGrid는 Azure에서 구입할 수 있지만 Microsoft에서 게시되지 않은 외부 서비스입니다.
+외부 서비스는 Azure Marketplace로 불렸습니다. 일반적으로 Azure에 대해 사용 가능한 제 3자에 의해 게시되었으나 Azure 내에 완전하게 통합된 서비스입니다. 예를 들어 ClearDB 및 SendGrid는 Azure에서 구입할 수 있지만 Microsoft에서 게시되지 않은 외부 서비스입니다.
 
 새 외부 서비스 또는 리소스를 프로비전하면 다음 경고가 표시됩니다.
 

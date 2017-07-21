@@ -20,7 +20,6 @@ ms.openlocfilehash: 81fdae033afd90b77d3725f8c39b8a6c6bbc3812
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/05/2017
 
-
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 
@@ -76,7 +75,7 @@ cmdlet은 Azure Active Directory PowerShell V2 모듈의 일부입니다. 이 �
 5. 마지막으로 설정을 적용합니다.
   
   ```
-  New-AzureADDirectorySetting -DirectorySetting $settings
+  New-AzureADDirectorySetting -DirectorySetting $setting
   ```
 
 성공적으로 완료되면 cmdlet이 새 설정 개체의 ID를 반환합니다.

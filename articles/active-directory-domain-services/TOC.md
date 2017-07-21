@@ -7,10 +7,10 @@
 ## [호환 가능한 타사 소프트웨어](active-directory-ds-compatible-software.md)
 
 # 시작
-## [관리 그룹 만들기](active-directory-ds-getting-started.md)
+## [관리 그룹 만들기](active-directory-ds-getting-started-create-group.md)
 ## [가상 네트워크 만들기 또는 선택](active-directory-ds-getting-started-vnet.md)
 ## [Azure AD DS 활성화](active-directory-ds-getting-started-enableaadds.md)
-## [DNS 설정 업데이트](active-directory-ds-getting-started-dns.md)
+## [DNS 설정 업데이트](active-directory-ds-getting-started-update-dns.md)
 ## 암호 동기화 사용
 ### [클라우드 전용 테넌트](active-directory-ds-getting-started-password-sync.md)
 ### [동기화된 테넌트](active-directory-ds-getting-started-password-sync-synced-tenant.md)
@@ -41,12 +41,8 @@
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [Azure AD 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [문의처](active-directory-ds-contact-us.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-ds)

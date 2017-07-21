@@ -17,7 +17,7 @@ ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: de9453e6764279c481e569542433d095772f304d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -33,10 +33,10 @@ Data Factory는 **미국 서부**, **미국 동부** 및 **북유럽** 지역에
 Azure Data Factory 자체는 인증서를 사용하여 암호화된 클라우드 데이터 저장소에 대한 링크된 서비스 자격 증명을 제외한 모든 데이터를 저장하지 않습니다. 데이터 기반 워크플로를 만들어서 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 간의 데이터 이동을 조정하고 다른 지역 또는 온-프레미스 환경에서 [계산 서비스](data-factory-compute-linked-services.md)를 사용하여 데이터의 처리를 조정할 수 있습니다. 또한 프로그래밍 방식 및 UI 메커니즘을 모두 사용하여 [워크플로를 모니터링하고 관리](data-factory-monitor-manage-pipelines.md) 할 수 있습니다.
 
 Azure Data Factory를 사용한 데이터 이동은 다음에 대해 **인증을 받았습니다**.
--    [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
--    [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--    [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--    [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
+-   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
+-   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
+-   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
 Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있을 경우 [Microsoft 보안 센터](https://www.microsoft.com/TrustCenter/default.aspx)를 방문하세요. 
 
@@ -120,7 +120,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
  
 또한 [IPSec VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md) 또는 [ExpressRoute](../expressroute/expressroute-introduction.md)를 사용하여 온-프레미스 네트워크와 Azure 사이의 통신 채널을 더욱 안전하게 보호할 수 있습니다.
 
-가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 논리적으로 나타내는 표현입니다. IPSec VPN(사이트 간) 또는 Express Route(비공개 피어링)를 설정하여 온-프레미스 네트워크를 Azure 가상 네트워크(VNet)에 연결할 수 있습니다.        
+가상 네트워크(VNet)는 클라우드의 사용자 네트워크를 논리적으로 나타내는 표현입니다. IPSec VPN(사이트 간) 또는 Express Route(비공개 피어링)를 설정하여 온-프레미스 네트워크를 Azure 가상 네트워크(VNet)에 연결할 수 있습니다.     
 
 다음 표는 하이브리드 데이터 이동을 위한 원본 및 대상 위치의 다양한 조합에 따라 네트워크 및 게이트웨이 구성 권장 사항을 요약한 것입니다.
 
@@ -142,7 +142,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 ### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>게이트웨이의 방화벽 구성 및 화이트리스트 IP 주소
 
-#### <a name="firewall-requirements-for-on-premiseprivate-network"></a>온-프레미스/개인 네트워크에 대한 방화벽 요구 사항    
+#### <a name="firewall-requirements-for-on-premiseprivate-network"></a>온-프레미스/개인 네트워크에 대한 방화벽 요구 사항   
 기업에서는 **기업 방화벽**이 중앙 라우터에서 실행됩니다. 그리고 **Windows 방화벽**은 게이트웨이가 설치된 로컬 시스템에서 데몬으로 실행됩니다. 
 
 다음 표는 **아웃바운드 포트** 및 **회사 방화벽**에 대한 도메인 요구 사항을 제공합니다.
@@ -152,7 +152,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 | `*.servicebus.windows.net` | 443, 80 | Data Factory에서 데이터 이동 서비스에 연결하기 위해 게이트웨이가 필요합니다. |
 | `*.core.windows.net` | 443 | [복사 준비](data-factory-copy-activity-performance.md#staged-copy) 기능을 사용할 때 게이트웨이가 Azure Storage 계정에 연결하는 데 사용합니다. | 
 | `*.frontend.clouddatahub.net` | 443 | Azure Data Factory 서비스에 연결하기 위해 게이트웨이가 필요합니다. | 
-| `*.database.windows.net` | 1433    | (선택 사항) 목적지가 Azure SQL Database/Azure SQL Data Warehouse 인 경우 필요합니다. 단계적 복사 기능을 사용하여 포트 1433을 열지 않고 Azure SQL Database/Azure SQL Data Warehouse에 데이터를 복사합니다. | 
+| `*.database.windows.net` | 1433   | (선택 사항) 목적지가 Azure SQL Database/Azure SQL Data Warehouse 인 경우 필요합니다. 단계적 복사 기능을 사용하여 포트 1433을 열지 않고 Azure SQL Database/Azure SQL Data Warehouse에 데이터를 복사합니다. | 
 | `*.azuredatalakestore.net` | 443 | (선택 사항) 목적지가 Azure Data Lake 매장인 경우 필요 | 
 
 > [!NOTE] 

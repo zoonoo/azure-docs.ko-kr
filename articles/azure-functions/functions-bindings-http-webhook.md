@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 06958522139d621f86afd8bf25128ee64cf822b3
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 56d6f7b5858a0e2122021e02718050a26e6defe4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -35,10 +36,7 @@ Azure Functions에서 제공하는 바인딩은 다음과 같습니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!TIP]
->
-> [HTTPClient](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md)에서 이 모범 사례 문서를 읽는 것이 좋습니다.
->
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 <a name="httptrigger"></a>
 
@@ -58,7 +56,7 @@ HTTP 트리거는 function.json의 `bindings` 배열에 다음과 유사한 JSON
     "type": "httpTrigger",
     "direction": "in",
     "authLevel": "function",
-    "methods": [ "GET" ],
+    "methods": [ "get" ],
     "route": "values/{id}"
 },
 ```
@@ -269,7 +267,7 @@ function.json의 `bindings` 배열에 다음과 같은 HTTP 트리거가 있다�
 
 
 <a name="httptriggercsharp"></a>
-### <a name="http-trigger-sample-in-c"></a>C의 HTTP 트리거 샘플# #
+### <a name="http-trigger-sample-in-c"></a>C#의 HTTP 트리거 샘플 #
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
@@ -296,7 +294,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 <a name="httptriggerfsharp"></a>
-### <a name="http-trigger-sample-in-f"></a>F의 HTTP 트리거 샘플# #
+### <a name="http-trigger-sample-in-f"></a>F#의 HTTP 트리거 샘플 #
 ```fsharp
 open System.Net
 open System.Net.Http
@@ -381,7 +379,7 @@ GitHub 문제 설명을 기록하는 언어 특정 샘플을 참조하세요.
 
 <a name="hooktriggercsharp"></a>
 
-### <a name="webhook-sample-in-c"></a>C의 Webhook 샘플# #
+### <a name="webhook-sample-in-c"></a>C#의 웹후크 샘플 #
 ```csharp
 #r "Newtonsoft.Json"
 
@@ -405,7 +403,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 <a name="hooktriggerfsharp"></a>
 
-### <a name="webhook-sample-in-f"></a>F의 Webhook 샘플# #
+### <a name="webhook-sample-in-f"></a>F#의 웹후크 샘플 #
 ```fsharp
 open System.Net
 open System.Net.Http

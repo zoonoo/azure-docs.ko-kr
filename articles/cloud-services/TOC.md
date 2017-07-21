@@ -102,7 +102,11 @@
 ### [일반적인 배포 문제](cloud-services-troubleshoot-deployment-problems.md)
 ### [역할 시작 실패](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [복구 지침](cloud-services-disaster-recovery-guidance.md)
-### [Cloud Services FAQ](cloud-services-faq.md)
+### 클라우드 서비스 FAQ
+#### [응용 프로그램 및 서비스 가용성 FAQ](cloud-services-application-and-service-availability-faq.md)
+#### [구성 및 관리 FAQ](cloud-services-configuration-and-management-faq.md)
+#### [연결 및 네트워킹 FAQ](cloud-services-connectivity-and-networking-faq.md)
+#### [배포 FAQ](cloud-services-deployment-faq.md)
 
 # 참조
 ## [.csdef XML 스키마](https://msdn.microsoft.com/library/azure/ee758711)
@@ -110,8 +114,9 @@
 ## [REST (영문)](https://msdn.microsoft.com/library/azure/ee460812)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/cloud-services/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
+## [가격 책정](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

@@ -2,7 +2,7 @@
 title: "Azure 진단 로그 보관 | Microsoft Docs"
 description: "저장소 계정에 장기 보존을 위해 Azure 진단 로그를 보관하는 방법에 대해 알아봅니다."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3e82377c36da1563931bc0301daa4534e6f82377
 ms.openlocfilehash: e3413236445f3f6034a228dc93624d3fdc9b87ad
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/10/2016
 
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure 진단 로그 보관
@@ -133,10 +134,5 @@ PT1H.json 파일 내에서 각 이벤트는 이 형식에 따라 "레코드" 배
 * [분석을 위한 Blob 다운로드](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
 * [이벤트 허브로 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [진단 로그에 대해 자세히 알아보기](monitoring-overview-of-diagnostic-logs.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

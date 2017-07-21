@@ -16,14 +16,15 @@ ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 899c710318fee46a93b3f54a68cb9027589f7177
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: d17f90d5ed5440dc336d1e3ae890a13077e33c4d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: .NET 및 Azure Portal에서 DocumentDB API 웹앱 작성
+# Azure Cosmos DB: .NET 및 Azure Portal에서 DocumentDB API 웹앱 작성
+<a id="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal" class="xliff"></a>
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
@@ -31,28 +32,32 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ![샘플 데이터를 사용한 Todo 앱](./media/create-documentdb-dotnet/azure-comosdb-todo-app-list.png)
 
-## <a name="prerequisites"></a>필수 조건
+## 필수 조건
+<a id="prerequisites" class="xliff"></a>
 
 Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설정하는 동안 **Azure 개발**을 사용할 수 있는지 확인합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 <a id="create-account"></a>
-## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
+## 데이터베이스 계정 만들기
+<a id="create-a-database-account" class="xliff"></a>
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-collection"></a>
-## <a name="add-a-collection"></a>컬렉션 추가
+## 컬렉션 추가
+<a id="add-a-collection" class="xliff"></a>
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 <a id="add-sample-data"></a>
-## <a name="add-sample-data"></a>샘플 데이터 추가
+## 샘플 데이터 추가
+<a id="add-sample-data" class="xliff"></a>
 
 이제 데이터 탐색기를 사용하여 새 컬렉션에 데이터를 추가할 수 있습니다.
 
-1. 데이터 탐색기에서 새 데이터베이스가 컬렉션 창에 나타납니다. **항목** 데이터베이스를 확장하고 **ToDoList** 컬렉션을 확장하고 **문서**를 클릭한 후 **새 문서**를 클릭합니다. 
+1. 데이터 탐색기에서 새 데이터베이스가 컬렉션 창에 나타납니다. **작업** 데이터베이스를 확장하고 **Items** 컬렉션을 확장하고 **문서**를 클릭한 후 **새 문서**를 클릭합니다. 
 
    ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-new-document.png)
   
@@ -63,15 +68,21 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
          "id": "1",
          "category": "personal",
          "name": "groceries",
-         "description": "Pick up apples and strawberries."
+         "description": "Pick up apples and strawberries.",
+         "isComplete": false
      }
      ```
+
+3. **문서** 탭에 Json을 추가했으면 **저장**을 클릭합니다.
+
+    ![Azure Portal의 데이터 탐색기에서 Json 데이터를 복사하고 저장을 클릭합니다.](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
      이제 데이터 탐색기에서 쿼리를 사용하여 데이터를 검색할 수 있습니다. 기본적으로 데이터 탐색기에서는 `SELECT * FROM c`를 사용하여 컬렉션의 모든 문서를 검색하지만, 이를 `SELECT * FROM c ORDER BY c.name ASC`로 변경하면 name 속성의 영문자 오름차순으로 모든 문서를 반환할 수 있습니다. 
  
      또한 서버 쪽 비즈니스 논리를 수행하고 처리량을 확장할 수 있도록 데이터 탐색기를 사용하여 저장 프로시저, UDF 및 트리거를 만들 수도 있습니다. 데이터 탐색기는 API에서 사용할 수 있는 모든 기본 제공 프로그래밍 방식 데이터 액세스를 표시하지만 Azure Portal의 데이터에도 쉽게 액세스할 수 있습니다.
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## 샘플 응용 프로그램 복제
+<a id="clone-the-sample-application" class="xliff"></a>
 
 이제 github에서 DocumentDB API 앱을 복제하고 연결 문자열을 설정한 후 실행해 보도록 하겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
@@ -83,25 +94,26 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
     git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
     ```
 
-3. 그런 다음 Visual Studio에서 솔루션을 엽니다. 
+3. 그런 다음 Visual Studio에서 todo 솔루션 파일을 엽니다. 
 
-## <a name="review-the-code"></a>코드 검토
+## 코드 검토
+<a id="review-the-code" class="xliff"></a>
 
 앱에서 어떤 상황이 발생하고 있는지 빠르게 살펴보겠습니다. DocumentDBRepository.cs 파일을 열어 보면 이들 코드 줄이 Azure Cosmos DB 리소스를 만드는 것을 알 수 있습니다. 
 
-* DocumentClient가 초기화됩니다.
+* 73번 줄에서 DocumentClient가 초기화됩니다.
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
     ```
 
-* 새 데이터베이스가 만들어집니다.
+* 88번 줄에서 새 데이터베이스가 만들어집니다.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* 새 컬렉션이 만들어집니다.
+* 107번 줄에서 새 컬렉션이 만들어집니다.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
@@ -110,11 +122,12 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
         new RequestOptions { OfferThroughput = 1000 });
     ```
 
-## <a name="update-your-connection-string"></a>연결 문자열 업데이트
+## 연결 문자열 업데이트
+<a id="update-your-connection-string" class="xliff"></a>
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. [Azure Portal](http://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 창의 **키**를 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 web.config 파일에 복사하게 됩니다.
+1. [Azure Portal](http://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **키**를 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 web.config 파일에 복사하게 됩니다.
 
     ![Azure Portal에서 선택 키 보기 및 복사, 키 블레이드](./media/create-documentdb-dotnet/keys.png)
 
@@ -128,14 +141,15 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
     `<add key="authKey" value="FILLME" />`
     
-## <a name="run-the-web-app"></a>웹앱 실행
+## 웹앱 실행
+<a id="run-the-web-app" class="xliff"></a>
 1. Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다. 
 
 2. NuGet **찾아보기** 상자에 *DocumentDB*를 입력합니다.
 
 3. 결과에서 **Microsoft.Azure.DocumentDB** 라이브러리를 설치합니다. 그러면 Microsoft.Azure.DocumentDB 패키지 뿐만 아니라 모든 종속성도 설치됩니다.
 
-4. Ctrl + F5를 눌러 응용 프로그램을 실행합니다. 앱이 브라우저에 표시됩니다. 
+4. Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 앱이 브라우저에 표시됩니다. 
 
 5. 브라우저에서 **새로 만들기**를 클릭하고 Todo 앱에서 몇 가지 새 작업을 만듭니다.
 
@@ -143,18 +157,21 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 이제 데이터 탐색기로 돌아가서 이 새 데이터를 쿼리 및 수정하고 작업에 사용할 수 있습니다. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
+## Azure Portal에서 SLA 검토
+<a id="review-slas-in-the-azure-portal" class="xliff"></a>
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>리소스 정리
+## 리소스 정리
+<a id="clean-up-resources" class="xliff"></a>
 
 이 앱을 계속 사용하지 않으려면 Azure Portal에서 다음 단계에 따라 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다. 
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.
 
-## <a name="next-steps"></a>다음 단계
+## 다음 단계
+<a id="next-steps" class="xliff"></a>
 
 이 빠른 시작에서, Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 컬렉션을 만들고, 웹앱을 실행하는 방법을 알아보았습니다. 이제 사용자의 Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다. 
 

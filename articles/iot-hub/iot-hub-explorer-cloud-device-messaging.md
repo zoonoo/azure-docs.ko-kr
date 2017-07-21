@@ -4,7 +4,7 @@ description: "iothub-explorer CLI 도구를 사용하여 Azure IoT Hub에서 D2C
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "iothub explorer, 클라우드 장치 메시지, IoT Hub 클라우드-장치 메시지, 클라우드-장치 메시지"
 ms.assetid: 04521658-35d3-4503-ae48-51d6ad3c62cc
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 38121cccc81ef82226e9ea7cbc197e294bb723e3
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: a7abb8fb279e134b7f23df779f1c4548a9feb82d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/08/2017
 
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>iothub-explorer를 사용하여 장치와 IoT Hub 간에 메시지 보내기 및 받기
@@ -55,11 +55,11 @@ iothub-explorer를 사용하여 장치-클라우드 메시지를 모니터링하
 1. 다음 명령을 실행합니다.
 
    ```bash
-   iothub-explorer monitor-events <device-id> --login <IoTHubConnectionString>
+   iothub-explorer monitor-events <device-id> --login "<IoTHubConnectionString>"
    ```
 
    > [!Note]
-   > IoT Hub에서 `<device-id>`과 `<IoTHubConnectionString>`을 가져옵니다. 이전 자습서를 완료했는지 확인합니다.
+   > IoT Hub에서 `<device-id>`과 `<IoTHubConnectionString>`을 가져옵니다. 이전 자습서를 완료했는지 확인합니다. 또는 `HostName`, `SharedAccessKeyName` 및 `SharedAccessKey`가 있는 경우 `iothub-explorer monitor-events <device-id> --login "HostName=<my-hub>.azure-devices.net;SharedAccessKeyName=<my-policy>;SharedAccessKey=<my-policy-key>"`을(를) 사용할 수 있습니다.
 
 ## <a name="send-cloud-to-device-messages"></a>클라우드-장치 메시지 보내기
 
@@ -69,7 +69,7 @@ IoT Hub에서 장치로 메시지를 보내려면 다음 단계를 수행합니�
 1. 다음 명령을 실행하여 IoT Hub에서 세션을 시작합니다.
 
    ```bash
-   iothub-explorer login <IoTHubConnectionString>
+   iothub-explorer login `<IoTHubConnectionString>`
    ```
 
 1. 다음 명령을 실행하여 메시지를 장치로 보냅니다.
@@ -88,3 +88,4 @@ IoT Hub에서 장치로 메시지를 보내려면 다음 단계를 수행합니�
 IoT 장치와 Azure IoT Hub 간에 장치-클라우드 메시지를 모니터링하고 클라우드-장치 메시지를 보내는 방법을 알아보았습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

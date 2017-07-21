@@ -15,9 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2015
 ms.author: garye
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 87a27dbe9042973dcfa7e9a5a438773d1bbab4d3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -29,9 +31,4 @@ ms.openlocfilehash: 87a27dbe9042973dcfa7e9a5a438773d1bbab4d3
 ![에너지 수요 예측을 위한 Microsoft Cortana Intelligence 솔루션 템플릿 아키텍처 다이어그램][image]
 
 [image]: ./media/cortana-analytics-architecture-demand-forecasting-energy/ca-topologies-energy-forecasting.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

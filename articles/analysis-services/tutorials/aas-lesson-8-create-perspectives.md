@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: eea5c20f348e462282e22b7dd2f9274c344b68c4
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 491500909b0de0360afae45e172e85999d764fe0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-8-create-perspectives"></a>단원 8: 큐브 뷰 만들기
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/05/2017
 
 이 단원에서는 인터넷 판매 큐브 뷰를 만듭니다. 큐브 뷰는 포커스가 있는, 비즈니스 또는 응용 프로그램별 관점을 제공하는 모델의 볼 수 있는 하위 집합을 정의합니다. 사용자가 큐브 뷰를 사용하여 모델에 연결하면 해당 큐브 뷰에 정의된 필드로 해당 모델 개체(테이블, 열, 측정값, 계층 구조 및 KPI)만 표시됩니다. 자세한 내용은 [큐브 뷰](https://docs.microsoft.com/sql/analysis-services/tabular-models/perspectives-ssas-tabular)를 참조하세요.
   
-이 단원에서 만드는 인터넷 판매 큐브 뷰에서는 DimCustomer 테이블 개체가 제외됩니다. 뷰에서 특정 개체가 제외된 큐브 뷰를 만드는 경우 이 개체는 모델에 계속 존재하지만 보고 클라이언트 필드 목록에 표시되지 않습니다. 큐브 뷰에 포함되었거나 포함되지 않은 계산된 열과 측정값은 여전히 제외된 개체 데이터에서 계산할 수 있습니다.  
+이 단원에서 만드는 인터넷 판매 큐브 뷰에서는 DimCustomer 테이블 개체가 제외됩니다. 뷰에서 특정 개체가 제외된 큐브 뷰를 만드는 경우 이 개체는 모델에 계속 존재합니다. 그러나 보고 클라이언트 필드 목록에 표시되지 않습니다. 큐브 뷰에 포함되었거나 포함되지 않은 계산된 열과 측정값은 여전히 제외된 개체 데이터에서 계산할 수 있습니다.  
   
 이 단원의 목적은 큐브 뷰를 만드는 방법을 설명하고 사용자가 테이블 형식 모델 작성 도구를 습득하도록 하는 것입니다. 나중에 다른 테이블을 포함하도록 이 모델을 확장하면 모델의 다양한 관점(예: 재고 및 판매)을 정의하는 추가 큐브 뷰를 만들 수 있습니다.  
   

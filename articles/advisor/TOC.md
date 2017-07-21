@@ -21,3 +21,4 @@
 
 # 리소스
 ## [Azure Advisor 비디오](https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

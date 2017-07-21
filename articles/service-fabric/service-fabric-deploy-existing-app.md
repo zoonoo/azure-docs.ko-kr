@@ -12,17 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/07/2016
+ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 16000dcb751bd96fba247c6209e85c581833681d
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: a1db3dda674ffe43587333d88f3816549af3019c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>서비스 패브릭에 게스트 실행 파일 배포
-Azure 서비스 패브릭에서 Node.js, Java 또는 네이티브 응용 프로그램과 같은 모든 유형의 응용 프로그램을 실행할 수 있습니다. Service Fabric에서는 이러한 유형의 응용 프로그램을 게스트 실행 파일이라고 합니다.
+Azure Service Fabric에서 Node.js, Java 또는 C++과 같은 모든 종류의 코드를 서비스로 실행할 수 있습니다. Service Fabric에서는 이러한 유형의 서비스를 게스트 실행 파일이라고 합니다.
+
 게스트 실행 파일은 서비스 패브릭에서 상태 비저장 서비스처럼 취급됩니다. 결과적으로 가용성 및 기타 메트릭을 기반으로 클러스터의 노드에 배치됩니다. 이 문서에서는 Visual Studio 또는 명령줄 유틸리티를 사용하여 Service Fabric 클러스터에 게스트 실행 파일을 패키징 및 배포하는 방법을 설명합니다.
 
 이 문서에서는 게스트 실행 파일을 패키징하고 Service Fabric에 배포하는 단계를 다룹니다.  
@@ -34,6 +36,7 @@ Service Fabric 클러스터에서 게스트 실행 파일을 실행하면 다음
 * 상태 모니터링. Service Fabric 상태 모니터링은 응용 프로그램이 실행 중인지 감지하고 오류가 있으면 진단 정보를 제공합니다.   
 * 응용 프로그램 수명 주기 관리. Service Fabric은 가동 중지 시간 없이 업그레이드를 제공할 뿐 아니라 업그레이드 중에 나쁜 상태 이벤트가 보고되면 이전 버전으로 자동 롤백을 제공합니다.    
 * 밀도. 한 클러스터에서 여러 응용 프로그램을 실행할 수 있으므로 응용 프로그램을 고유의 하드웨어에서 실행할 필요가 없습니다.
+* 검색 가능성: REST 사용 Service Fabric 명명 서비스를 호출하여 클러스터에서 다른 서비스를 찾을 수 있습니다. 
 
 ## <a name="samples"></a>샘플
 * [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
@@ -43,7 +46,7 @@ Service Fabric 클러스터에서 게스트 실행 파일을 실행하면 다음
 게스트 실행 파일을 배포하는 일환으로 [응용 프로그램 모델](service-fabric-application-model.md)에 설명된 Service Fabric 패키징 및 배포 모델을 이해하는 것이 유용합니다. Service Fabric 패키징 모델은 두 XML 파일(응용 프로그램 및 서비스 매니페스트)에 의존합니다. ApplicationManifest.xml 및 ServiceManifest.xml에 대한 스키마 정의는 Service Fabric SDK와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다.
 
 * **응용 프로그램 매니페스트** 응용 프로그램 매니페스트는 응용 프로그램을 설명하는 데 사용되며 응용 프로그램을 구성하는 서비스와 하나 이상의 서비스 배포 방법(예: 인스턴스 수)을 정의하는 데 사용되는 기타 매개 변수를 나열합니다.
-  
+
   Service Fabric에서 응용 프로그램은 배포 및 업그레이드 단위입니다. 응용 프로그램은 잠재적인 오류 및 잠재적 롤백이 관리되는 하나의 단위로 업그레이드될 수 있습니다. Service Fabric은 업그레이드 프로세스의 성공을 보장하며, 업그레이드가 실패할 경우 응용 프로그램을 알 수 없거나 불안정한 상태로 남겨 두지 않습니다.
 * **서비스 매니페스트** 서비스 매니페스트는 서비스의 구성 요소를 설명합니다. 서비스의 이름 및 유형과 같은 데이터와 그에 대한 코드 및 구성을 포함합니다. 또한 서비스 매니페스트는 서비스가 배포되면 서비스를 구성하는 데 사용할 수 있는 몇 가지 추가 매개 변수도 포함하고 있습니다.
 
@@ -70,18 +73,17 @@ ApplicationPackageRoot는 응용 프로그램을 정의하는 ApplicationManifes
 
 > [!NOTE]
 > `config` 및 `data` 디렉터리가 필요 없으면 만들지 않아도 됩니다.
-> 
-> 
+>
+>
 
 ## <a name="package-an-existing-executable"></a>기존 실행 파일 패키징
 게스트 실행 파일을 패키징할 경우 Visual Studio 프로젝트 템플릿을 사용하거나 [응용 프로그램 패키지를 수동으로 만들도록](#manually) 선택할 수 있습니다. Visual Studio를 사용하면 새 프로젝트 템플릿에 의해 응용 프로그램 패키지 구조 및 매니페스트 파일이 생성됩니다.
 
 > [!TIP]
-> 기존 Windows 실행 파일을 서비스로 패키징하는 가장 쉬운 방법은 Visual Studio를 사용하는 것입니다.
-> 
-> 
+> 기존 Windows 실행 파일을 서비스로 패키징하는 가장 쉬운 방법은 Visual Studio 및 Linux의 Yeoman을 사용하는 것입니다.
+>
 
-## <a name="use-visual-studio-to-package-an-existing-executable"></a>Visual Studio를 사용하여 기존 실행 파일 패키징
+## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>Visual Studio를 사용하여 기존 실행 파일 패키징 및 배포
 Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 배포할 수 있도록 서비스 패브릭 서비스 템플릿을 제공합니다.
 
 1. **파일** > **새 프로젝트**를 선택하여 Service Fabric 응용 프로그램을 만듭니다.
@@ -98,6 +100,16 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
 5. 서비스에서 통신에 끝점이 필요한 경우 이제 프로토콜, 포트, 형식을 ServiceManifest.xml 파일에 추가할 수 있습니다. 예: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
 6. 이제 패키지를 사용하고 Visual Studio에서 솔루션을 디버깅하여 로컬 클러스터에 대해 작업을 게시할 수 있습니다. 준비가 되면 원격 클러스터로 응용 프로그램을 게시하거나 원본 제어에 대한 솔루션을 체크 인합니다.
 7. Service Fabric Explorer에서 실행 중인 게스트 실행 파일 서비스를 보는 방법을 보려면 이 문서의 끝으로 이동합니다.
+
+## <a name="use-yoeman-to-package-and-deploy-an-existing-executable-on-linux"></a>Yoeman을 사용하여 Linux에서 기존 실행 파일을 수동으로 패키징 및 배포
+
+Linux에서 실행되는 게스트를 만들고 배포하는 절차는 csharp 또는 java 응용 프로그램 배포와 동일합니다.
+
+1. 터미널에서 `yo azuresfguest`을 입력합니다.
+2. 응용 프로그램의 이름을 지정합니다.
+3. 서비스 이름을 지정하고 호출해야 하는 실행 파일 및 매개 변수의 경로를 포함하는 세부 정보를 제공합니다.
+
+Yeoman은 설치 및 제거 스크립트와 함께 해당 응용 프로그램과 매니페스트 파일로 응용 프로그램 패키지를 만듭니다.
 
 <a id="manually"></a>
 
@@ -123,8 +135,8 @@ Service Fabric은 응용 프로그램 루트 디렉터리의 내용에 대한 `x
 
 > [!NOTE]
 > 응용 프로그램이 필요한 모든 파일 및 종속성을 포함했는지 확인합니다. Service Fabric은 응용 프로그램의 서비스를 배포할 클러스터의 모든 노드에서 응용 프로그램 패키지의 콘텐츠를 복사합니다. 패키지에는 응용 프로그램 실행에 필요한 모든 코드가 있어야 합니다. 종속성이 이미 설치되어 있다고 가정하지 마세요.
-> 
-> 
+>
+>
 
 ### <a name="edit-the-service-manifest-file"></a>서비스 매니페스트 파일 편집
 다음 정보를 포함하도록 서비스 매니페스트 파일을 편집하는 것이 다음 단계입니다.
@@ -268,8 +280,8 @@ WorkingFolder는 응용 프로그램 또는 초기화 스크립트에서 상대 
 
 > [!WARNING]
 > 절대 프로덕션에 배포된 응용 프로그램의 콘솔 리디렉션 정책은 사용하지 마세요. 응용 프로그램 장애 조치(failover)에 영향을 줄 수 있기 때문입니다. 로컬 개발 및 디버깅 목적으로*만* 사용하세요.  
-> 
-> 
+>
+>
 
 ```xml
 <EntryPoint>
@@ -331,19 +343,9 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 
 ![디스크 상의 위치](./media/service-fabric-deploy-existing-app/locationondisk2.png)
 
-서버 탐색기를 사용하여 디렉터리를 찾아보면 다음 스크린샷과 같이 작업 디렉터리 및 서비스의 로그 폴더를 찾을 수 있습니다.
+서버 탐색기를 사용하여 디렉터리를 찾아보면 다음 스크린샷과 같이 작업 디렉터리 및 서비스의 로그 폴더를 찾을 수 있습니다. 
 
 ![로그 위치](./media/service-fabric-deploy-existing-app/loglocation.png)
-
-## <a name="creating-a-guest-executable-using-yeoman-for-service-fabric-on-linux"></a>Linux에서 Service Fabric용 Yeoman를 사용하여 게스트 실행 파일 만들기
-
-Linux에서 실행되는 게스트를 만들고 배포하는 절차는 csharp 또는 java 응용 프로그램 배포와 동일합니다. 
-
-1. 터미널에서 `yo azuresfguest`을 입력합니다.
-2. 응용 프로그램의 이름을 지정합니다.
-3. 첫 번째 서비스의 형식을 선택하고 이름을 지정합니다. 게스트 실행 파일에 대한 **게스트 이진**(및 컨테이너에 대한 **게스트 컨테이너**)를 선택하고, 호출되어야 하는 매개 변수와 실행 파일의 경로를 포함한 세부 정보를 제공합니다.
-
-Yeoman는 설치 및 제거 스크립트와 함께 해당 응용 프로그램과 매니페스트 파일로 응용 프로그램 패키지를 작성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 게스트 실행 파일을 패키징하고 서비스 패브릭에 배포하는 방법을 배웠습니다. 관련 정보 및 작업에 대해 다음 문서를 참조하세요.
@@ -352,5 +354,4 @@ Yeoman는 설치 및 제거 스크립트와 함께 해당 응용 프로그램과
 * [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
 * [Visual Studio를 사용하여 처음으로 서비스 패브릭 응용 프로그램 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
-
 

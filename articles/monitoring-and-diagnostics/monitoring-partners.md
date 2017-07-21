@@ -2,7 +2,7 @@
 title: "Azure Monitor 파트너 통합 | Microsoft Docs"
 description: "Azure Monitor의 파트너와, 파트너 통합을 위한 설명서에 액세스하는 방법을 살펴봅니다."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,11 +15,10 @@ ms.topic: article
 ms.date: 5/9/2017
 ms.author: johnkem
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 18a45dd16e51e477758c3ba08f936a2e831dddb3
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 5914e8be1cf2671da7af1d190811e0e809039135
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
@@ -67,10 +66,7 @@ Datadog는 클라우드급 응용 프로그램을 위한 세계 선두의 모니
 [설명서로 이동합니다.][datadog-doc]
 
 ## <a name="dynatrace"></a>Dynatrace
-Dynatrace OneAgent는 해당하는 Azure 확장 메커니즘을 통해 Azure VM 및 App Services와 통합됩니다.
-이러한 방식으로 호스트, 네트워크 및 서비스에 대한 성능 메트릭을 수집할 수 있습니다.
-메트릭을 단순히 표시하는 것 외에도 전체 환경을 시각화하여 클라이언트 측에서 데이터베이스 계층으로 가는 트랜잭션을 나타낼 수 있습니다.
-문제의 AI 기반 상관과, 메서드 수준 코드 및 데이터베이스 정보를 포함하여 완전 통합된 근본 원인 분석을 통해 문제 해결과 성능 최적화가 매우 간편해집니다.
+Dynatrace OneAgent는 해당하는 Azure 확장 메커니즘을 통해 Azure VM 및 App Services와 통합됩니다. 이러한 방식으로 Dynatrace OneAgent는 호스트, 네트워크 및 서비스에 대한 성능 메트릭을 수집할 수 있습니다. 메트릭을 단순히 표시하는 것 외에도 Dynatrace는 전체 환경을 시각화하여 클라이언트 측에서 데이터베이스 계층으로 가는 트랜잭션을 나타낼 수 있습니다. 문제의 AI 기반 상관과, 메서드 수준 코드 및 데이터베이스 정보를 포함하여 완전 통합된 근본 원인 분석을 통해 문제 해결과 성능 최적화가 매우 간편해집니다.
 
 [설명서로 이동합니다.][dynatrace-doc]
 
@@ -148,7 +144,7 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix 소개."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn 소개."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog 설명서."
-[dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Dynatrace 설명서."
+[dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace 설명서."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic 설명서."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie 설명서."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty 설명서."

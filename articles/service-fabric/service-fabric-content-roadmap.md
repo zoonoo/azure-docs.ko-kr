@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 살펴보기 | Microsoft Azure"
-description: "Azure Service Fabric에 대한 개요 및 시작 가이드입니다. Service Fabric에 대해 배우고 마이크로 서비스로 구성된 확장 가능하고 안정적이며 쉽게 관리되는 응용 프로그램을 개발합니다."
+title: "Azure Service Fabric에 대해 자세히 알아보기 | Microsoft Docs"
+description: "Azure Service Fabric의 주요 영역과 핵심 개념에 대해 알아봅니다. Service Fabric 및 마이크로 서비스를 만드는 방법의 확장된 개요를 제공합니다."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,64 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/18/2017
+ms.date: 06/14/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e1b8eba3e6ed91f87c4f2adfbba19d8fe2712920
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: a4bc09d4b8b9f3bd207ffca977e9098d562bb9fd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
-이 입문서에서는 Service Fabric에 대한 간략한 개요, 핵심 개념과 용어에 대한 소개, 시작 가이드 및 Service Fabric의 각 영역에 대한 개요를 제공합니다. 이 입문서에는 포괄적인 콘텐츠 목록이 포함되어 있지 않지만 Service Fabric의 모든 영역에 대한 개요 및 시작 문서에 대한 링크가 있습니다. 
-
-## <a name="the-five-minute-overview"></a>5분 개요
-Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. Service Fabric은 클라우드 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. Service Fabric을 사용하면 개발자와 관리자가 복잡한 인프라 문제를 해결할 필요가 없습니다. 대신 확장성, 안정성 및 관리 용이성을 제공하므로 까다로운 중요 업무용 작업을 구현하는 데 주력할 수 있습니다. 서비스 패브릭은 엔터프라이즈급 계층 1 클라우드 규모의 응용 프로그램을 빌드 및 관리하기 위한 차세대 미들웨어 플랫폼을 나타냅니다. 
-
-이 짧은 Channel9 비디오에서는 Service Fabric 및 마이크로 서비스를 소개합니다.<center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
-<img src="./media/service-fabric-content-roadmap/OverviewVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
-
-## <a name="the-detailed-overview"></a>자세한 개요
-Service Fabric을 사용하면 마이크로 서비스로 구성된 확장 가능하고 안정적인 응용 프로그램을 빌드하고 관리할 수 있습니다. 이러한 마이크로 서비스는 클러스터라고 하는 공유된 컴퓨터 풀에서 높은 밀도로 실행됩니다. 분산되고 확장 가능한 상태 비저장 및 상태 저장 마이크로 서비스를 빌드하는 정교한 런타임을 제공합니다. 또한 배포된 응용 프로그램을 프로비전, 배포, 모니터링, 업그레이드/패치 및 삭제하는 포괄적인 응용 프로그램 관리 기능을 제공합니다. 자세한 내용은 [Service Fabric 개요](service-fabric-overview.md)를 참조하세요.
-
-마이크로 서비스 설계 방법이 필요한 이유는 무엇일까요? 모든 응용 프로그램은 시간에 따라 진화합니다. 성공적인 응용 프로그램은 사람들에게 유용하게 되어 진화합니다. 현재의 요구 사항에 대해 얼마나 알고 있으며 그러한 요구 사항이 향후 어떻게 될까요? 응용 프로그램이 향후 재설계될 수 있다는 점을 알고 있는 상황에서 개념 증명의 형태로 간단한 앱을 가지고 있으면 추진 동력이 되기도 합니다. 반면 회사에서 클라우드를 위한 구축을 이야기할 때 기대하는 것은 성장과 사용입니다. 이러한 성장과 확장에서의 문제는 예측할 수 없습니다. 개발자는 예측할 수 없는 성장 및 사용에 맞게 앱이 조정될 수 있다는 사실을 인지하는 동시에 신속하게 프로토타입을 마련하고자 합니다. [마이크로 서비스란?](service-fabric-overview-microservices.md)에서는 어떻게 마이크로 서비스 설계 방법이 이러한 과제에 부응하며, 독립적으로 확장/축소, 테스트, 배포 및 관리할 수 있는 마이크로 서비스를 만드는 방법에 대해 살펴봅니다.
-
-Service Fabric은 다양한 유형의 비즈니스 응용 프로그램 및 서비스를 쓰고 실행할 수 있도록 하는 안정적이고 유연한 플랫폼을 제공합니다. 또한 기존 응용 프로그램(모든 언어로 작성된)도 실행할 수 있습니다. 이러한 응용 프로그램 및 마이크로 서비스는 상태를 저장하지 않을 수도 있고 상태를 저장할 수도 있으며, 가상 컴퓨터 간에 리소스를 분산하여 효율성을 극대화합니다. 서비스 패브릭의 고유한 아키텍처는 응용 프로그램에서 거의 실시간으로 데이터 분석, 메모리 내 계산, 병렬 트랜잭션 및 이벤트 처리가 가능합니다. 리소스 요구 사항의 변화에 따라 간단하게 [응용 프로그램의 규모](service-fabric-concepts-scalability.md)를 확장 또는 축소(실제 내부 또는 외부)할 수 있습니다. [응용 프로그램 시나리오](service-fabric-application-scenarios.md)와 [패턴 및 시나리오](service-fabric-patterns-and-scenarios.md)에서 만들 수 있는 응용 프로그램 및 서비스의 범주와 고객 사례 연구에 대해 확인해 보세요.
-
-이 긴 Microsoft Virtual Academy 비디오에서는 Service Fabric의 핵심 개념을 설명합니다.<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">  
-<img src="./media/service-fabric-content-roadmap/CoreConceptsVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
-
-## <a name="get-started-and-create-your-first-app"></a>첫 번째 앱 시작하기 및 만들기 
-Service Fabric SDK 및 도구를 사용하여 Windows, Linux 또는 MacOS 환경에서 앱을 개발하고, 개발한 앱을 Windows 또는 Linux 기반 클러스터에 배포할 수 있습니다. 다음 가이드에서는 몇 분 안에 앱을 배포합니다. 첫 번째 응용 프로그램을 실행한 후 일부 [샘플 앱](http://aka.ms/servicefabricsamples)을 다운로드하여 실행합니다. 특별히 [샘플 시작하기](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)로 시작
-
-### <a name="on-windows"></a>Windows 
-서비스 패브릭 SDK는 서비스 패브릭 응용 프로그램을 만들고, 배포하고, 디버그하는 도구를 제공하는 Visual Studio용 추가 기능을 포함합니다. 이 항목에서는 Visual Studio에서 최초 응용 프로그램을 만들어 개발 컴퓨터에서 실행하는 과정을 안내합니다.
-
-[개발 환경 설정](service-fabric-get-started.md)
-[첫 번째 앱 만들기(C#)](service-fabric-create-your-first-application-in-visual-studio.md)
-
-#### <a name="practical-hands-on-labs"></a>실용적인 실습 랩
-이 광범위한 [실습 랩 파트1](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx)을 통해 포괄적인 Service Fabric 개발 흐름을 익힙니다. 상태 비저장 서비스를 만들고 모니터링 및 상태 보고서를 구성하고 응용 프로그램 업그레이드를 수행하는 방법을 학습합니다. 파트 1 후에 상태 저장 서비스를 안내하는 [실습 랩 파트 2](http://aka.ms/sflab2)를 진행합니다.
-
-다음 Channel9 비디오에서는 Visual Studio에서 C# 앱을 만드는 과정을 안내합니다.  
-<center><a target="_blank" href="https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio">  
-<img src="./media/service-fabric-content-roadmap/first-app-vid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
-
-### <a name="on-linux"></a>Linux
-Service Fabric은 .NET Core 및 Java 모두에서 Linux에 대한 서비스를 구축하는 SDK를 제공합니다. [개발 환경 준비](service-fabric-get-started-linux.md), [첫 번째 앱 만들기(Java)](service-fabric-create-your-first-linux-application-with-java.md) 및 [첫 번째 앱 만들기(C#)](service-fabric-create-your-first-linux-application-with-csharp.md) 항목에서는 Linux에서 첫 번째 Java 또는 C# 응용 프로그램을 만들어 개발 컴퓨터에서 실행하는 과정을 안내합니다.
-
-다음 Microsoft Virtual Academy 비디오는 Linux에서 Java 앱을 만드는 과정을 안내합니다.  
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
-<img src="./media/service-fabric-content-roadmap/LinuxVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
-
-### <a name="on-macos"></a>MacOS 
-Linux 클러스터에서 실행되도록 MacOS X에서 Service Fabric 응용 프로그램을 빌드할 수 있습니다. 다음 문서에서는 개발을 위해 Mac을 설정하는 방법을 설명하고 MacOS에서 Java 응용 프로그램을 만들어 Ubuntu 가상 컴퓨터에서 실행하는 방법을 안내합니다. [개발 환경 설정](service-fabric-get-started-mac.md) 및 [첫 번째 앱 만들기(Java)](service-fabric-create-your-first-linux-application-with-java.md).
+Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  그러나 Service Fabric은 노출 영역이 대규모이므로 학습할 내용이 많습니다.  이 문서에서는 Service Fabric의 개요를 제공하고 핵심 개념, 프로그래밍 모델, 응용 프로그램 수명 주기, 테스트, 클러스터 및 상태 모니터링에 대해 설명합니다. 내용 소개 및 Service Fabric을 사용하여 마이크로 서비스를 만드는 방법은 [개요](service-fabric-overview.md) 및 [마이크로 서비스란?](service-fabric-overview-microservices.md)을 읽어보세요. 이 문서에는 포괄적인 콘텐츠 목록이 포함되어 있지 않지만 Service Fabric의 모든 영역에 대한 개요 및 시작 문서에 대한 링크가 있습니다. 
 
 ## <a name="core-concepts"></a>핵심 개념
 [Service Fabric 용어](service-fabric-technical-overview.md), [응용 프로그램 모델](service-fabric-application-model.md) 및 [지원되는 프로그래밍 모델](service-fabric-choose-framework.md)은 기초 수준에서 자세한 개념과 설명을 제공합니다.
@@ -82,7 +36,7 @@ Linux 클러스터에서 실행되도록 MacOS X에서 Service Fabric 응용 프
 <img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td></tr>
 </table>
 
-### <a name="design-time-app-type-service-type-app-package-and-manifest-service-package-and-manifest"></a>설계 시간: 앱 프로그램 형식, 서비스 형식, 앱 패키지 및 매니페스트, 서비스 패키지 및 매니페스트
+### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>디자인 타임: 응용 프로그램 형식, 서비스 형식, 응용 프로그램 패키지 및 매니페스트, 서비스 패키지 및 매니페스트
 응용 프로그램 형식은 서비스 형식 컬렉션에 할당된 이름/버전입니다. 응용 프로그램 패키지 디렉터리에 포함된 *ApplicationManifest.xml* 파일에서 정의됩니다. 그런 다음 응용 프로그램 패키지는 Service Fabric 클러스터의 이미지 저장소에 복사됩니다. 그런 다음 클러스터 내에서 실행되는 이 응용 프로그램 형식으로부터 명명된 응용 프로그램을 만들 수 있습니다. 
 
 서비스 형식은 서비스의 코드 패키지, 데이터 패키지 및 구성 패키지에 할당된 이름/버전입니다. 서비스 패키지 디렉터리에 포함된 ServiceManifest.xml 파일에서 정의됩니다. 그런 다음 서비스 패키지 디렉터리는 응용 프로그램 패키지의 *ApplicationManifest.xml* 파일에서 참조됩니다. 클러스터 내에서 명명된 응용 프로그램을 만든 후에 응용 프로그램 형식의 서비스 형식 중 하나에서 명명된 서비스를 만들 수 있습니다. 서비스 형식은 *ServiceManifest.xml* 파일로 설명되며, 런타임에 로드되는 실행 가능한 코드 서비스 구성 설정과 서비스가 소비하는 정적 데이터로 구성됩니다.
@@ -93,7 +47,7 @@ Linux 클러스터에서 실행되도록 MacOS X에서 Service Fabric 응용 프
 
 서비스 패키지는 서비스 형식의 *ServiceManifest.xml* 파일이 들어 있는 디스크 디렉터리로, 서비스 형식에 대한 코드, 정적 데이터 및 구성 패키지를 참조합니다. 서비스 패키지 디렉터리의 파일은 응용 프로그램 형식의 *ApplicationManifest.xml* 파일에서 참조합니다. 예를 들어, 서비스 패키지는 데이터베이스 서비스를 구성하는 코드, 정적 데이터 및 구성 패키지를 참조할 수 있습니다.
 
-### <a name="run-time-clusters-and-nodes-named-apps-named-services-partitions-and-replicas"></a>런타임: 클러스터 및 노드, 명명된 앱, 명명된 서비스, 파티션 및 복제본
+### <a name="run-time-clusters-and-nodes-named-applications-named-services-partitions-and-replicas"></a>런타임: 클러스터 및 노드, 명명된 응용 프로그램, 명명된 서비스, 파티션 및 복제본
 [Service Fabric 클러스터](service-fabric-deploy-anywhere.md): 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 컴퓨터 집합입니다. 클러스터의 규모를 컴퓨터 수천 대로 확장할 수 있습니다.
 
 클러스터의 일부인 컴퓨터나 VM을 노드라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM이 Windows 서비스인 `FabricHost.exe`를 자동으로 시작하여 부팅을 실행하기 시작한 다음 `Fabric.exe` 및 `FabricGateway.exe`이라는 두 개의 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 개발 또는 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
@@ -117,14 +71,21 @@ Linux 클러스터에서 실행되도록 MacOS X에서 Service Fabric 응용 프
 
 상태 저장 서비스에 복제본이 있는 반면 파티션 내에서 명명된 상태 비저장 서비스에는 인스턴스가 있습니다. 일반적으로 명명된 상태 비저장 서비스는 내부 상태가 없기 때문에 하나의 파티션만을 가질 수 있습니다. 파티션 인스턴스는 [가용성](service-fabric-availability-services.md)을 제공합니다. 한 인스턴스가 실패하고 다른 인스턴스가 계속 정상적으로 작동하는 경우 Service Fabric은 새 인스턴스를 만듭니다. 명명된 상태 저장 서비스는 복제본 내에서 해당 상태를 유지하고 각 파티션에는 고유한 복제본 세트가 있습니다. 읽기 및 쓰기 작업은 하나의 복제본(주라고 함)에서 수행됩니다. 쓰기 작업에 의한 상태 변경은 다른 여러 복제본(활성 보조라고 함)으로 복제됩니다. 복제가 실패하면 서비스 패브릭은 기존 복제본에서 새 복제본을 작성해야 합니다.
 
+## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Service Fabric용 상태 비저장 및 상태 저장 마이크로 서비스
+Service Fabric을 사용하면 마이크로 서비스 또는 컨테이너로 구성된 응용 프로그램을 빌드할 수 있습니다. 상태 비저장 마이크로 서비스(프로토콜 게이트웨이, 웹 프록시 등)는 서비스의 요청 및 응답 이외에 변경 가능한 상태를 관리하지 않습니다. Azure 클라우드 서비스 작업자 역할이 상태 비저장 서비스의 예입니다. 상태 저장 마이크로 서비스(사용자 계정, 데이터베이스, 장치, 쇼핑 카트, 큐 등)는 요청 및 응답 이외에 변경 가능하고 신뢰할 수 있는 상태를 관리합니다. 오늘날 인터넷 범위의 서비스는 상태 비저장 및 상태 저장 마이크로 서비스의 조합으로 구성됩니다. 
+
+Service Fabric의 주요 차이점은 [기본 제공 프로그래밍 모델 ](service-fabric-choose-framework.md) 또는 컨테이너화된 상태 저장 서비스 중 하나를 사용하여 상태 저장 서비스를 빌드하는 데 집중한다는 것입니다. [응용 프로그램 시나리오](service-fabric-application-scenarios.md)는 상태 저장 서비스를 사용하는 시나리오를 설명합니다.
+
+상태 저장 마이크로 서비스가 상태 비저장 마이크로 서비스와 함께 있는 이유는 무엇인가요? 두 가지 주요 이유가 있습니다.
+
+* 동일한 컴퓨터에 코드와 데이터를 거의 유지하여 높은 처리량, 낮은 대기 시간, 내결함성 온라인 트랜잭션 처리(OLTP) 서비스를 빌드할 수 있습니다. 대화형 인터넷 상점, 검색, IoT(사물 인터넷) 시스템, 거래 시스템, 신용 카드 처리 및 사기 감지 시스템,개인 레코드 관리를 몇 가지 예로 들 수 있습니다.
+* 응용 프로그램 디자인을 간소화할 수 있습니다. 상태 저장 마이크로 서비스를 사용하면 순수한 상태 비저장 응용 프로그램의 가용성 및 대기 시간 요구 사항을 해결하기 위해 일반적으로 필요로 했던 추가 큐 및 캐시가 필요하지 않습니다. 상태 저장 서비스는 기본적으로 가용성이 높고 대기 시간이 낮아 전체적으로 응용 프로그램에서 관리하는 이동 부분 수가 줄어듭니다.
+
 ## <a name="supported-programming-models"></a>지원되는 프로그래밍 모델
 서비스 패브릭은 서비스의 작성 및 관리를 위한 여러 방법을 제공합니다. 서비스는 플랫폼의 기능과 응용 프로그램 프레임워크를 최대한 활용하기 위해 Service Fabric API를 사용할 수 있습니다. 서비스는 모든 언어로 작성되고 Service Fabric 클러스터에서 호스트되는 컴파일된 실행 프로그램일 수도 있습니다. 자세한 내용은 [지원되는 프로그래밍 모델](service-fabric-choose-framework.md)을 참조하세요.
 
-### <a name="guest-executables"></a>게스트 실행 파일
-[게스트 실행 파일](service-fabric-deploy-existing-app.md)은 Service Fabric 클러스터에서 다른 서비스와 함께 호스트된 임의의 기존 실행 파일입니다. 그러나 게스트 실행 파일은 Service Fabric API와 직접 통합되지 않습니다. 게스트 실행 파일은 사용자 지정 상태 및 로드 보고, 서비스 끝점 등록, 상태 저장 계산 등, 플랫폼이 제공하는 전체 기능을 활용하지는 않습니다.
-
 ### <a name="containers"></a>컨테이너
-기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 [컨테이너](service-fabric-containers-overview.md)에 서비스를 배포할 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 응용 프로그램의 컨테이너의 서비스를 혼합할 수 있습니다. Service Fabric은 현재 Linux에서 Docker 컨테이너의 배포를 지원하고 Windows Server 2016에서 Windows Server 컨테이너의 배포를 지원합니다. Service Fabric 응용 프로그램 모델에서 컨테이너는 다수의 서비스 복제본이 배치되는 응용 프로그램 호스트를 나타냅니다. Service Fabric을 사용하여 컨테이너에서 기존 응용 프로그램, 상태 비저장 서비스 또는 상태 저장 서비스를 배포할 수 있습니다. 
+기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 [컨테이너](service-fabric-containers-overview.md)에 서비스를 배포할 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 응용 프로그램의 컨테이너의 서비스를 혼합할 수 있습니다. Service Fabric은 Windows Server 2016에서 Linux 컨테이너 및 Windows 컨테이너의 배포를 지원합니다. 컨테이너에서 기존 응용 프로그램, 상태 비저장 서비스 또는 상태 저장 서비스를 배포할 수 있습니다. 
 
 ### <a name="reliable-services"></a>Reliable Services
 [Reliable Services](service-fabric-reliable-services-introduction.md)는 Service Fabric 플랫폼과 통합하여 전체 플랫폼 기능을 활용하는 서비스 작성을 위한 간단한 프레임워크입니다. Reliable Services는 웹 서버나 Azure Cloud Services의 작업자 역할 등, 대부분의 서비스 플랫폼과 유사하게 상태 비저장이 될 수 있습니다. 여기서는 상태가 Azure DB나 Azure Table Storage 같은 외부 솔루션에서 유지됩니다. Reliable Services는 Reliable Collections를 사용하여 서비스 자체에 직접 유지되게 상태를 저장할 수도 있습니다. 상태는 복제를 통해 [고가용성](service-fabric-availability-services.md)이 유지되고 [분할](service-fabric-concepts-partitioning.md)을 통해 배포되며, 모두 Service Fabric에서 자동으로 관리합니다.
@@ -132,7 +93,13 @@ Linux 클러스터에서 실행되도록 MacOS X에서 Service Fabric 응용 프
 ### <a name="reliable-actors"></a>Reliable Actors
 Reliable Services의 최상위에 구축되는 [Reliable Actor](service-fabric-reliable-actors-introduction.md) 프레임워크는 행위자 설계 패턴을 기준으로 가상 행위자 패턴을 구현하는 응용 프로그램 프레임워크입니다. Reliable Actor 프레임워크는 행위자라고 하는 단일 스레드 실행을 통해 독립적인 계산 단위 및 상태를 사용합니다. Reliable Actor 프레임워크는 행위자와 사전 설정 상태 지속성 및 확장 구성에 대해 기본 포함된 통신을 제공합니다.
 
-## <a name="app-lifecycle"></a>앱 수명 주기
+### <a name="aspnet-core"></a>ASP.NET Core
+Service Fabric은 웹 및 API 응용 프로그램 빌드를 위한 첫 번째 클래스 프로그래밍 모델로 [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)와 통합됩니다.
+
+### <a name="guest-executables"></a>게스트 실행 파일
+[게스트 실행 파일](service-fabric-deploy-existing-app.md)은 Service Fabric 클러스터에서 다른 서비스와 함께 호스트된 임의의 기존 실행 파일입니다. 게스트 실행 파일은 Service Fabric API와 직접 통합되지 않습니다. 그러나 사용자 지정 상태 및 로드 보고, REST API 호출에 의한 서비스 검색 가능성과 같이 플랫폼에서 제공하는 기능을 계속 활용합니다. 또한 전체 응용 프로그램 수명 주기 지원도 포함합니다. 
+
+## <a name="application-lifecycle"></a>응용 프로그램 수명 주기
 다른 플랫폼과 마찬가지로, Service Fabric 기반의 응용 프로그램은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. 서비스 패브릭은 개발부터 배포, 일상적인 관리, 유지 관리 및 최종적인 서비스 해제에 이르기까지 클라우드 응용 프로그램의 전체 응용 프로그램 수명 주기 관리에 대해 최고 수준의 지원을 제공합니다. 여러 역할이 응용 프로그램 수명 주기에 독립적으로 참가할 수 있는 서비스 모델이 제공됩니다. [Service Fabric 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)에서는 API에 대한 개요 및 API가 Service Fabric 응용 프로그램 수명 주기의 전체 단계에서 여러 역할에 의해 사용되는 방법을 제공합니다. 
 
 전체 앱 수명 주기는 [PowerShell cmdlet](/powershell/module/ServiceFabric/), [C# API](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API](/java/api/system.fabric._application_management_client) 및 [REST API](/rest/api/servicefabric/)를 사용하여 관리할 수 있습니다. [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) 또는 [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)와 같은 도구를 사용하여 지속적인 통합/지속적인 배포 파이프라인을 설정할 수도 있습니다.
@@ -141,8 +108,8 @@ Reliable Services의 최상위에 구축되는 [Reliable Actor](service-fabric-r
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
-## <a name="test-apps-and-services"></a>앱 및 서비스 테스트
-진정한 클라우드 규모 서비스를 만들려면 앱과 서비스가 실제 오류를 견딜 수 있도록 하는 것이 중요합니다. 오류 분석 서비스는 Service Fabric에서 작성된 서비스 테스트를 위해 설계되었습니다. 오류 분석 서비스(service-fabric-testability-overview.md)를 통해 의미 있는 결함을 유도하고 응용 프로그램에 대해 전체 테스트 시나리오를 실행할 수 있습니다. 이러한 오류와 시나리오는 다양한 상태를 실행하고 유효성을 검사하며 서비스가 수명 전반에서 일관되게 제어되고 안전한 방식으로 경험할 수 있도록 전환합니다.
+## <a name="test-applications-and-services"></a>응용 프로그램 및 서비스 테스트
+진정한 클라우드 규모 서비스를 만들려면 응용 프로그램과 서비스가 실제 오류를 견딜 수 있도록 하는 것이 중요합니다. 오류 분석 서비스는 Service Fabric에서 작성된 서비스 테스트를 위해 설계되었습니다. 오류 분석 서비스(service-fabric-testability-overview.md)를 통해 의미 있는 결함을 유도하고 응용 프로그램에 대해 전체 테스트 시나리오를 실행할 수 있습니다. 이러한 오류와 시나리오는 다양한 상태를 실행하고 유효성을 검사하며 서비스가 수명 전반에서 일관되게 제어되고 안전한 방식으로 경험할 수 있도록 전환합니다.
 
 [작업](service-fabric-testability-actions.md)은 개별 오류를 사용하여 테스트할 서비스를 대상으로 합니다. 서비스 개발자는 이러한 기본 구성 요소를 사용하여 복잡한 시나리오를 작성할 수 있습니다. 시뮬레이트된 오류의 예는 다음과 같습니다.
 
@@ -166,7 +133,7 @@ Windows Server 또는 Linux를 실행하는 가상 또는 물리적 컴퓨터에
 </a></center>
 
 ### <a name="clusters-on-azure"></a>Azure의 클러스터
-Azure에서 Service Fabric 클러스터를 실행하면 클러스터의 작업 및 관리를 더 용이하고 안정적으로 해주는 다음과 같은 다른 Azure 기능 및 서비스와 통합할 수 있습니다. 클러스터는 Azure Resource Manager 리소스이므로 Azure에서 다른 리소스처럼 클러스터를 모델링할 수 있습니다. 또한 Resource Manager는 클러스터가 단일 단위로 사용하는 모든 리소스를 손쉽게 관리할 수 있습니다. Azure에서 클러스터는 Azure 진단 및 Log Analytics와 통합됩니다. 클러스터 노드 형식은 [가상 컴퓨터 크기 집합](/azure/virtual-machine-scale-sets/index)이므로 자동 크기 조정 기능을 기본 제공합니다.
+Azure에서 Service Fabric 클러스터를 실행하면 클러스터의 작업 및 관리를 더 용이하고 안정적으로 해주는 다음과 같은 다른 Azure 기능 및 서비스와 통합할 수 있습니다. 클러스터는 Azure Resource Manager 리소스이므로 Azure에서 다른 리소스처럼 클러스터를 모델링할 수 있습니다. 또한 Resource Manager는 클러스터가 단일 단위로 사용하는 모든 리소스를 손쉽게 관리할 수 있습니다. Azure에서 클러스터는 Azure 진단 및 Log Analytics와 통합됩니다. 클러스터 노드 형식은 [가상 컴퓨터 확장 집합](/azure/virtual-machine-scale-sets/index)이므로 자동 크기 조정 기능을 기본 제공합니다.
 
 [Azure Portal](service-fabric-cluster-creation-via-portal.md), [템플릿](service-fabric-cluster-creation-via-arm.md) 또는 [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md)를 통해 Azure에 클러스터를 만들 수 있습니다.
 
@@ -175,7 +142,7 @@ Linux의 서비스 패브릭 미리 보기를 사용하면 Windows에서와 마�
 Linux의 Service Fabric이 미리 보기 상태이므로 Linux가 아닌 Windows에서만 지원되는 몇 가지 기능도 있습니다. 자세한 내용은 [Linux와 Windows의 Service Fabric 간의 차이점](service-fabric-linux-windows-differences.md)을 참조하세요.
 
 ### <a name="standalone-clusters"></a>독립 실행형 클러스터
-Service Fabric은 온-프레미스 또는 클라우드 공급자에서 독립 실행형 Service Fabric 클러스터를 만들 수 있는 설치 패키지를 제공합니다. 독립 실행형 클러스터를 사용하면 원하는 위치에서 클러스터를 호스트할 수 있습니다. 데이터가 규정 준수 또는 규제 제약을 받는 경우 또는 데이터를 로컬로 유지하려는 경우 고유한 클러스터 및 앱을 호스트할 수 있습니다. Service Fabric 앱은 변경 없이 여러 호스팅 환경에서 실행할 수 있으므로 하나의 호스팅 환경에서 습득한 앱 빌드에 대한 지식을 다른 환경에서도 사용할 수 있습니다. 
+Service Fabric은 온-프레미스 또는 클라우드 공급자에서 독립 실행형 Service Fabric 클러스터를 만들 수 있는 설치 패키지를 제공합니다. 독립 실행형 클러스터를 사용하면 원하는 위치에서 클러스터를 호스트할 수 있습니다. 데이터가 규정 준수 또는 규제 제약을 받는 경우 또는 데이터를 로컬로 유지하려는 경우 고유한 클러스터 및 응용 프로그램을 호스트할 수 있습니다. Service Fabric 응용 프로그램은 변경 없이 여러 호스팅 환경에서 실행할 수 있으므로 하나의 호스팅 환경에서 습득한 응용 프로그램 빌드에 대한 정보를 다른 환경에서도 사용할 수 있습니다. 
 
 [첫 번째 Service Fabric 독립 실행형 클러스터 만들기](service-fabric-get-started-standalone-cluster.md)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1aebecdaacd3525bec07a9359e52d2bc3d1539de
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: fc0fd0188261263aac550b0f0784076efc807215
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -52,9 +52,7 @@ Azure 가져오기/내보내기 서비스를 사용하여 데이터를 **블록*
 Blob 저장소에서 가져오기 또는 내보내기 프로세스를 시작하려면 먼저 작업을 만듭니다. 작업은 가져오기 작업 또는 내보내기 작업이 될 수 있습니다.
 
 * 온-프레미스에 있는 데이터를 Azure 저장소 계정의 Blob으로 전송하려면 가져오기 작업을 만듭니다.
-* 저장소 계정에 Blob으로 현재 저장되어 있는 데이터를 배송 받을 하드 드라이브로 전송하려면 내보내기 작업을 만듭니다.
-
-작업을 만들 때 Azure 데이터 센터로 하나 이상의 하드 드라이브가 발송된다는 것을 가져오기/내보내기 서비스에 알립니다.
+* 저장소 계정에 Blob으로 현재 저장되어 있는 데이터를 배송 받을 하드 드라이브로 전송하려면 내보내기 작업을 만듭니다. 작업을 만들 때 하나 이상의 하드 드라이브를 Azure 데이터 센터로 배송할 것임을 가져오기/내보내기 서비스에 알립니다.
 
 * 가져오기 작업의 경우 데이터가 포함된 하드 드라이브가 발송됩니다.
 * 내보내기 작업의 경우 빈 하드 드라이브가 발송됩니다.
@@ -69,7 +67,7 @@ Azure Portal 또는 [Azure Storage Import/Export REST API](/rest/api/storageimpo
 
 WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 특정 OS 버전에 대해서는 [운영 체제](#operating-system) 섹션을 참조하세요.
 
-최신 버전의 [WAImportExport 도구](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)를 다운로드합니다. WAImportExport 도구 사용에 대한 자세한 내용은 [WAImportExport 도구 사용](storage-import-export-tool-how-to.md)(영문)을 참조하세요.
+최신 버전의 [WAImportExport 도구](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip)를 다운로드합니다. WAImportExport 도구 사용에 대한 자세한 내용은 [WAImportExport 도구 사용](storage-import-export-tool-how-to.md)(영문)을 참조하세요.
 
 >[!NOTE]
 >**이전 버전:** 도구의 [WAImportExpot V1 버전을 다운로드](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)하고 [WAImportExpot V1 사용 가이드](storage-import-export-tool-how-to-v1.md)을 참조할 수 있습니다. 도구의 WAImportExpot V1 버전은 **이미 디스크에 데이터가 미리 기록되어 있을 때 디스크를 준비**하도록 지원합니다. 또한 사용할 수 있는 유일한 키가 SAS 키인 경우에는 WAImportExpot V1 도구를 사용해야 합니다.
@@ -85,6 +83,8 @@ WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다
 > 기본 제공 USB 어댑터와 함께 제공되는 외부 하드 디스크 드라이브는 이 서비스에서 지원하지 않습니다. 외장 HDD 케이스 안의 디스크도 사용할 수 없습니다. 외장 HDD를 발송하지 마세요.
 > 
 > 
+
+다음은 데이터를 내부 HDD에 복사하는 데 사용되는 외부 USB 어댑터 목록입니다. Anker 68UPSATAA-02BU Anker 68UPSHHDS-BU Startech SATADOCK22UE Orico 6628SUS3-C-BK(6628 Series) Thermaltake BlacX 핫스왑 SATA 외부 하드 드라이브 도킹 스테이션(USB 2.0 및 eSATA)
 
 ### <a name="encryption"></a>암호화
 드라이브의 데이터는 BitLocker 드라이브 암호화를 사용하여 암호화되어야 합니다. 이렇게 하면 전송 중 데이터가 보호됩니다.
@@ -264,8 +264,8 @@ Azure Import/Export 서비스를 사용하여 데이터를 가져올 때 첫 번
 1. 가져올 데이터를 식별합니다. 이는 로컬 서버에 있는 디렉터리 및 독립 실행형 파일이거나 또는 네트워크 공유일 수 있습니다.  
 2. 전체 데이터 크기에 따라 필요한 드라이브 수를 결정합니다. 필요한 2.5" SSD 또는 2.5"/3.5" SATA II/III 하드 디스크 드라이브 수를 확보합니다.
 3. 대상 저장소 계정, 컨테이너, 가상 디렉터리 및 Blob을 식별합니다.
-4.    각 하드 디스크 드라이브에 복사할 독립 실행형 파일 및/또는 디렉터리를 결정합니다.
-5.    데이터 집합/드라이브 집합을 위한 CSV 파일을 만듭니다.
+4.  각 하드 디스크 드라이브에 복사할 독립 실행형 파일 및/또는 디렉터리를 결정합니다.
+5.  데이터 집합/드라이브 집합을 위한 CSV 파일을 만듭니다.
     
     **데이터 집합 CSV 파일**
     
@@ -299,8 +299,8 @@ Azure Import/Export 서비스를 사용하여 데이터를 가져올 때 첫 번
 
     [드라이브 집합 CSV 파일 준비](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file)에 대해 자세히 알아보세요.
 
-6.    [WAImportExport 도구](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)를 사용하여 하나 이상의 하드 드라이브에 데이터를 복사합니다.
-7.    드라이브 집합 CSV의 Encryption 필드에 "Encrypt"를 지정하여 하드 디스크 드라이브에서 BitLocker 암호화를 사용하도록 설정할 수 있습니다. 또는 도구를 실행하는 동안 하드 디스크 드라이브에서 BitLocker 암호화를 사용하도록 수동으로 설정하고, 드라이브 집합 CSV에 "AlreadyEncrypted"를 지정한 다음 키를 제공할 수도 있습니다.
+6.  [WAImportExport 도구](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)를 사용하여 하나 이상의 하드 드라이브에 데이터를 복사합니다.
+7.  드라이브 집합 CSV의 Encryption 필드에 "Encrypt"를 지정하여 하드 디스크 드라이브에서 BitLocker 암호화를 사용하도록 설정할 수 있습니다. 또는 도구를 실행하는 동안 하드 디스크 드라이브에서 BitLocker 암호화를 사용하도록 수동으로 설정하고, 드라이브 집합 CSV에 "AlreadyEncrypted"를 지정한 다음 키를 제공할 수도 있습니다.
 
 8. 디스크 준비를 완료한 후 하드 디스크 드라이브 또는 저널 파일에 있는 데이터를 수정하지 마세요.
 
@@ -471,9 +471,11 @@ Azure 데이터 센터에서는 지원 요구 사항에 맞지 않는 드라이�
 
 아니요. 가져오기 및 내보내기 작업 모두에 대해 사용자가 자체 드라이브를 발송해야 합니다.
 
+** 이 서비스를 통해 가져오는 데이터에 액세스하는 방법 ** Azure Portal을 사용하거나 Storage Explorer라는 독립 실행형 도구를 사용하여 Azure Storage 계정으로 데이터에 액세스할 수 있습니다. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+
 **가져오기 작업 완료 후 저장소 계정에서 데이터는 어떻게 표시되나요? 디렉터리 계층 구조가 유지되나요?**
 
-가져오기 작업을 위해 하드 드라이브를 준비할 때 대상은 데이터 집합 CSV의 DstBlobPathOrPrefix 필드로 지정됩니다. 이는 하드 드라이브로부터 데이터가 복사되는 저장소 계정의 대상 컨테이너입니다. 이 대상 컨테이너 내에 하드 드라이브의 폴더에 대해 가상 디렉터리가 만들어지며 파일에 대해 Blob이 만들어집니다.
+가져오기 작업을 위해 하드 드라이브를 준비할 때 대상은 데이터 집합 CSV의 DstBlobPathOrPrefix 필드로 지정됩니다. 이는 하드 드라이브로부터 데이터가 복사되는 저장소 계정의 대상 컨테이너입니다. 이 대상 컨테이너 내에 하드 드라이브의 폴더에 대해 가상 디렉터리가 만들어지며 파일에 대해 Blob이 만들어집니다. 
 
 **저장소 계정에 이미 있는 파일이 드라이브에 있는 경우 서비스가 저장소 계정에 있는 기존 Blob을 덮어쓰나요?**
 
@@ -498,9 +500,9 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같이 알려진 모든 운송업�
 
 일부 저장소 계정 위치는 대체 배송 위치로 매핑됩니다. 이전에 사용 가능했던 배송 위치 또한 일시적으로 대체 위치로 매핑될 수 있습니다. 드라이브를 발송하기 전에 작업을 만들 때 제공한 배송지 주소를 항상 확인합니다.
 
-**드라이브를 발송할 때 운송업체에서 데이터 센터 연락처 이름 및 전화 번호를 요청합니다. 무엇을 제공해야 하나요?**
+**드라이브를 발송할 때 운송업체에서 데이터 센터 연락처 주소 및 전화 번호를 요청합니다. 무엇을 제공해야 하나요?**
 
-전화 번호는 작업을 만드는 동안 제공됩니다. 연락처 이름이 필요한 경우 waimportexport@microsoft.com 에 문의하시면 해당 정보를 제공합니다.
+전화 번호와 DC 주소는 작업을 만드는 동안 제공됩니다.
 
 **Azure 가져오기/내보내기 서비스를 사용하여 PST 사서함 및 SharePoint 데이터를 O365에 복사할 수 있나요?**
 
@@ -510,11 +512,11 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같이 알려진 모든 운송업�
 
 [Azure 백업의 오프라인 백업 워크플로](../backup/backup-azure-backup-import-export.md)를 참조하세요.
 
-**각 배송에 허용되는 최대 HDD 수는 몇 개인가요?
+**각 배송에 허용되는 최대 HDD 수는 몇 개인가요?**
 
 각 배송에 허용되는 HDD 수에 대한 제한은 없으며, 디스크가 여러 작업에 속하는 경우 a) 해당 작업 이름으로 디스크에 레이블을 지정하고, b) 추적 번호에 접미사 -1, -2 등을 추가하여 작업을 업데이트하는 것이 좋습니다.
   
-**디스크 Import/Export에서 지원되는 최대 블록 Blob 및 페이지 Blob 크기는 무엇인가요?
+**디스크 Import/Export에서 지원되는 최대 블록 Blob 및 페이지 Blob 크기는 무엇인가요?**
 
 최대 블록 Blob 크기는 약 4.768TB 또는 5,000,000MB입니다.
 최대 페이지 Blob 크기는 1TB입니다.

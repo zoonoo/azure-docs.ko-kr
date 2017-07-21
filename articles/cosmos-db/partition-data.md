@@ -16,17 +16,17 @@ ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cd3b13b9988f51fd3755ced48714fdc18cf1ea3c
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 5f501bdb0a3c478a436d729dfe045ad8e39bd3bb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
 
 # <a name="how-to-partition-and-scale-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할 및 확장하는 방법
 
-[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)는 전역적으로 배포된 다중 모델 데이터베이스 서비스로써 신속하고 예측 가능한 성능을 얻을 수 있고, 응용 프로그램 증가에 따라 효율적인 확장이 가능하도록 설계되었습니다. 이 문서에서는 Azure Cosmos DB에서 모든 데이터 모델에 분할이 작동하는 방식을 개괄적으로 살펴보고, 응용 프로그램을 효과적으로 확장하도록 Azure Cosmos DB 컨테이너를 구성하는 방법을 설명합니다.
+[Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 전역적으로 배포된 다중 모델 데이터베이스 서비스로써 신속하고 예측 가능한 성능을 얻을 수 있고, 응용 프로그램 증가에 따라 효율적인 확장이 가능하도록 설계되었습니다. 이 문서에서는 Azure Cosmos DB에서 모든 데이터 모델에 분할이 작동하는 방식을 개괄적으로 살펴보고, 응용 프로그램을 효과적으로 확장하도록 Azure Cosmos DB 컨테이너를 구성하는 방법을 설명합니다.
 
 Scott Hanselman과 Azure Cosmos DB 수석 엔지니어링 관리자 Shireesh Thota가 진행하는 이 Azure Friday 비디오에서는 분할 및 파티션 키에 대해서도 다룹니다.
 
@@ -104,7 +104,7 @@ DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
 ```
 
 ### <a name="mongodb-api"></a>MongoDB API
-MongoDB API에서 선호하는 도구, 드라이버 또는 SDK를 통해 분할된 컬렉션을 만들 수 있습니다. 이 예에서는 Mongo Shell을 사용하여 컬렉션을 만들겠습니다.
+MongoDB API를 사용하면 선호하는 도구, 드라이버 또는 SDK를 통해 공유 컬렉션을 만들 수 있습니다. 이 예에서는 Mongo Shell을 사용하여 컬렉션을 만들겠습니다.
 
 Mongo Shell에서:
 

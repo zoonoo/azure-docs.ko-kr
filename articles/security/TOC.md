@@ -11,6 +11,7 @@
 ### [로깅 및 감사](azure-log-audit.md)
 ### [공용 클라우드에서 격리](azure-isolation.md)
 ### [보안 기술 기능](azure-security-technical-capabilities.md)
+### [Azure에서 거버넌스](governance-in-azure.md)
 
 # 시작
 ## [Azure 보안 시작하기](azure-security-getting-started.md)
@@ -41,6 +42,7 @@
 #### [Azure 로그 통합 시작](security-azure-log-integration-get-started.md)
 #### [Azure Active Directory 감사 로그 통합](security-azure-log-integration-ad.md)
 #### [Security Center 경고 통합](security-azure-log-integration-security-center.md)
+#### [이벤트 허브를 사용하여 Key Vault의 로그 통합](security-azure-log-integration-keyvault-eventhub.md)
 #### [FAQ](security-azure-log-integration-faq.md)
 
 ## ID 관리
@@ -71,9 +73,10 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # 리소스
-## [보안 및 규정 준수 블로그](http://blogs.msdn.com/b/azuresecurity/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [Azure 보안 MVP 프로그램](azure-security-mvp.md)
 ## [사이버 보안 컨설팅](azure-security-cyber-services.md)
+## [보안 및 규정 준수 블로그](http://blogs.msdn.com/b/azuresecurity/)
 ## [Virtual Academy의 보안 과정](security-microsoft-virtual-academy.md)
 ## [Channel 9의 보안 동영상](security-channel-nine.md)
 ## [위협 모델링 도구](azure-security-threat-modeling-tool.md)

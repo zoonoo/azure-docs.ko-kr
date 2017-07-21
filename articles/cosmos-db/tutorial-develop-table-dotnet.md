@@ -1,25 +1,25 @@
 ---
 title: "Azure Cosmos DB: .NET의 Table API를 사용하여 개발 | Microsoft Docs"
 description: ".NET을 사용하는 Azure Cosmos DB의 Table API를 통해 개발하는 방법에 대해 알아봅니다."
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 4b22cb49-8ea2-483d-bc95-1172cd009498
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: arramac
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fff65034ea725fced95a291a8f206b993e8404a4
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 061e79be546a80d254f2915313d747cf69cee9d2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET의 Table API를 사용하여 개발
@@ -42,18 +42,18 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
  
 ## <a name="tables-in-azure-cosmos-db"></a>Azure Cosmos DB의 테이블 
 
-Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요한 응용 프로그램을 위해 [Table API](table-introduction.md)(미리 보기)를 제공합니다. [Azure Table 저장소](../storage/storage-introduction.md) SDK 및 REST API를 사용하여 Azure Cosmos DB와 작업할 수 있습니다. Azure Cosmos DB를 사용하여 처리량이 많은 테이블을 만들 수 있습니다. Azure Cosmos DB는 현재 공개 미리 보기에서 처리량 액세스에 최적화된 테이블(비공식적으로 "프리미엄 테이블"이라고 함)을 지원합니다. 
+Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요한 응용 프로그램을 위해 [Table API](table-introduction.md)(미리 보기)를 제공합니다. [Azure Table 저장소](../storage/storage-introduction.md) SDK 및 REST API를 사용하여 Azure Cosmos DB와 작업할 수 있습니다. Azure Cosmos DB를 사용하면 높은 처리량 요구 사항의 테이블을 만들 수 있습니다. Azure Cosmos DB는 현재 공개 미리 보기에서 처리량 액세스에 최적화된 테이블(비공식적으로 "프리미엄 테이블"이라고 함)을 지원합니다. 
 
 저장 용량이 크고 처리량이 낮은 테이블에 대해 Azure Table 저장소를 계속 사용할 수 있습니다. Azure Cosmos DB는 향후 업데이트에서 처리량 액세스에 최적화된 테이블을 지원하고, 기존 Azure Table 저장소 계정을 Azure Cosmos DB로 완벽하게 업그레이드할 것입니다.
 
 현재 Azure Table 저장소를 사용하는 경우 "프리미엄 테이블" 미리 보기를 사용하면 다음과 같은 이점이 있습니다.
 
-- 멀티 호밍 및 [자동 및 수동 장애 조치](../documentdb/documentdb-regional-failovers.md)와 함께 턴키 방식으로 [전역 배포](../documentdb/documentdb-distribute-data-globally.md)
+- 멀티 호밍 및 [자동 및 수동 장애 조치](regional-failover.md)와 함께 턴키 방식으로 [전역 배포](distribute-data-globally.md)
 - 모든 속성("보조 인덱스")에 대한 스키마 독립적 자동 인덱싱 및 빠른 쿼리 지원 
 - 여러 지역 간에 [독립적인 저장소 및 처리량 크기 조정](partition-data.md) 지원
-- 초당 수백 개에서 수백만 개의 요청으로 확장할 수 있는 [테이블당 전용 처리량](../documentdb/documentdb-request-units.md) 지원
-- 응용 프로그램 요구 사항에 따라 가용성, 대기 시간 및 일관성을 조정할 수 있는 [튜닝 가능한 5가지 일관성 수준](../documentdb/documentdb-consistency-levels.md) 지원
-- 단일 지역 내 99.99% 가용성, 더 높은 가용성을 위해 더 많은 지역을 추가할 수 있는 기능 및 일반 가용성에 대한 [업계 최고의 포괄적 SLA](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/)
+- 초당 수백 개에서 수백만 개의 요청으로 확장할 수 있는 [테이블당 전용 처리량](request-units.md) 지원
+- 응용 프로그램 요구 사항에 따라 가용성, 대기 시간 및 일관성을 조정할 수 있는 [튜닝 가능한 5가지 일관성 수준](consistency-levels.md) 지원
+- 단일 지역 내 99.99% 가용성, 더 높은 가용성을 위해 더 많은 지역을 추가할 수 있는 기능 및 일반 가용성에 대한 [업계 최고의 포괄적 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)
 - 기존 Azure 저장소 .NET SDK 사용 및 응용 프로그램에 대한 코드 변경 없음
 
 미리 보기에서 Azure Cosmos DB는 .NET SDK를 사용하여 Table API를 지원합니다. NuGet에서 [Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage)와 동일한 클래스와 메서드 서명이 있는 [Azure Storage 미리 보기 SDK](https://aka.ms/premiumtablenuget)를 다운로드할 수 있지만, Table API를 사용하여 Azure Cosmos DB 계정에 연결할 수도 있습니다 .
@@ -77,11 +77,11 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 > [!TIP]
 > * Azure Cosmos DB 계정이 이미 있나요? 그렇다면 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다.
 > * Azure DocumentDB 계정이 있나요? 그렇다면 이 계정은 이제 Azure Cosmos DB 계정이 되며, [Visual Studio 솔루션 설치](#SetupVS)를 건너뛸 수 있습니다.  
-> * Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](../documentdb/documentdb-nosql-local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다. 
+> * Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Visual Studio 솔루션 설치](#SetupVS)로 건너뜁니다. 
 >
 >
 
-[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmosdb-create-dbaccount-table.md)] 
+[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
@@ -143,9 +143,9 @@ Azure Cosmos DB는 Azure Table 저장소 API에서 사용할 수 없는 기능�
 | TableConnectionMode  | Azure Cosmos DB는 두 가지 연결 모드를 지원합니다. `Gateway` 모드에서는 항상 Azure Cosmos DB 게이트웨이로 요청을 보내고, Azure Cosmos DB 게이트웨이는 해당 데이터 파티션으로 전달합니다. `Direct` 연결 모드에서는 클라이언트에서 테이블에 대한 매핑을 파티션으로 인출하고 데이터 파티션에 대해 직접 요청합니다. 기본값인 `Direct`를 사용하는 것이 좋습니다.  |
 | TableConnectionProtocol | Azure Cosmos DB는 두 가지 연결 프로토콜, 즉 `Https`과 `Tcp`를 지원합니다. 더 간단하기 때문에 기본값인 `Tcp`를 사용하는 것이 좋습니다. |
 | TablePreferredLocations | 읽기에 대해 기본 설정된(멀티 홈) 위치를 쉼표로 구분한 목록입니다. Azure Cosmos DB 계정은 각각 1-30개 이상의 지역과 연결할 수 있습니다. 각 클라이언트 인스턴스는 대기 시간이 짧은 읽기에 대해 기본 설정된 순서대로 이러한 지역의 하위 집합을 지정할 수 있습니다. 지역 이름은 [표시 이름](https://msdn.microsoft.com/library/azure/gg441293.aspx)(예: `West US`)을 사용하여 지정해야 합니다. [멀티 호밍 API](tutorial-global-distribution-table.md)도 참조하세요.
-| TableConsistencyLevel | 잘 정의된 5가지 일관성 수준, 즉 `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix` 및 `Eventual` 중에서 선택하여 대기 시간, 일관성 및 가용성 간에 균형을 유지할 수 있습니다. 기본값은 `Session`입니다. 선택하는 일관성 수준에 따라 다중 지역 설정에 상당한 성능 차이가 있습니다. 자세한 내용은 [일관성 수준](../documentdb/documentdb-consistency-levels.md)을 참조하세요. |
-| TableThroughput | 테이블에 대해 예약되는 처리량이며, 초당 요청 단위(RU/s)로 표시됩니다. 테이블당 100-수백만 RU/s를 지원할 수 있습니다. [요청 단위](../documentdb/documentdb-request-units.md)를 참조하세요. 기본값은 `400`입니다. |
-| TableIndexingPolicy | 테이블 내 모든 열에 대해 일관된 자동 보조 인덱싱입니다. | 인덱싱 정책 사양을 준수하는 JSON 문자열입니다. 특정 열을 포함/제외하도록 인덱싱 정책을 변경하는 방법은 [인덱싱 정책](../documentdb/documentdb-indexing-policies.md)을 참조하세요. | 모든 속성의 자동 인덱싱(문자열에 대한 해시 및 숫자에 대한 범위) |
+| TableConsistencyLevel | 잘 정의된 5가지 일관성 수준, 즉 `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix` 및 `Eventual` 중에서 선택하여 대기 시간, 일관성 및 가용성 간에 균형을 유지할 수 있습니다. 기본값은 `Session`입니다. 선택하는 일관성 수준에 따라 다중 지역 설정에 상당한 성능 차이가 있습니다. 자세한 내용은 [일관성 수준](consistency-levels.md)을 참조하세요. |
+| TableThroughput | 테이블에 대해 예약되는 처리량이며, 초당 요청 단위(RU/s)로 표시됩니다. 테이블당 100-수백만 RU/s를 지원할 수 있습니다. [요청 단위](request-units.md)를 참조하세요. 기본값은 `400`입니다. |
+| TableIndexingPolicy | 테이블 내 모든 열에 대해 일관된 자동 보조 인덱싱입니다. | 인덱싱 정책 사양을 준수하는 JSON 문자열입니다. 특정 열을 포함/제외하도록 인덱싱 정책을 변경하는 방법은 [인덱싱 정책](indexing-policies.md)을 참조하세요. | 모든 속성의 자동 인덱싱(문자열에 대한 해시 및 숫자에 대한 범위) |
 | TableQueryMaxItemCount | 단일 왕복에서 테이블 쿼리당 반환되는 최대 항목 수를 구성합니다. 기본값은 `-1`이며, Azure Cosmos DB에서 런타임에 값을 동적으로 결정할 수 있게 합니다. |
 | TableQueryEnableScan | 쿼리에서 모든 필터에 대해 인덱스를 사용할 수 없더라도 스캔을 통해 인덱싱을 실행합니다. 기본값은 `false`입니다.|
 | TableQueryMaxDegreeOfParallelism | 파티션 간 쿼리 실행에 대한 병렬 처리 수준입니다. `0`은 프리페치(pre-fetch)가 없는 직렬 처리이고, `1`는 프리페치가 있는 직렬 처리이며, 값이 높을수록 병렬 처리 속도가 빨라집니다. 기본값은 `-1`이며, Azure Cosmos DB에서 런타임에 값을 동적으로 결정할 수 있게 합니다. |
@@ -167,7 +167,7 @@ Azure Cosmos DB는 Azure Table 저장소 API에서 사용할 수 없는 기능�
 
       <!--Table creation options -->
       <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}">
+      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}"/>
 
       <!-- Table query options -->
       <add key="TableQueryMaxItemCount" value="-1"/>
@@ -201,11 +201,11 @@ table.CreateIfNotExists();
 테이블을 만드는 방법에는 중요한 차이가 있습니다. Azure Cosmos DB는 트랜잭션에 대한 Azure 저장소의 사용량 기반 모델과 달리 처리량을 예약합니다. 예약 모델에는 두 가지 주요 이점이 있습니다.
 
 * 처리량은 전용/예약되어 있으므로 요청 속도가 프로비전된 처리량 이하인 경우에는 절대로 제한할 수 없습니다
-* 예약 모델은 [처리량이 많은 워크로드에 대해 비용 효율적입니다](../documentdb/documentdb-key-value-store-cost.md).
+* 예약 모델은 [처리량이 많은 워크로드에 대해 비용 효율적입니다](key-value-store-cost.md).
 
 초당 RU(요청 단위)로 `TableThroughput`의 설정을 구성하여 기본 처리량을 구성할 수 있습니다. 
 
-1KB 엔터티의 읽기는 1RU로 정규화되며, 다른 작업은 CPU, 메모리 및 IOPS 사용량에 따라 고정된 RU 값으로 정규화됩니다. [Azure Cosmos DB의 요청 단위](../ documentdb/documentdb-request-units.md)에 대해 자세히 알아보세요.
+1KB 엔터티의 읽기는 1RU로 정규화되며, 다른 작업은 CPU, 메모리 및 IOPS 사용량에 따라 고정된 RU 값으로 정규화됩니다. [Azure Cosmos DB의 요청 단위](request-units.md)에 대해 자세히 알아보세요.
 
 > [!NOTE]
 > Table 저장소 SDK는 현재 처리량을 수정하도록 지원하지는 않지만, Azure Portal 또는 Azure CLI를 사용하여 언제든지 처리량을 즉시 변경할 수 있습니다.
@@ -308,7 +308,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-미리 보기에서 Azure Cosmos DB는 Table API에 대한 Azure Table 저장소와 동일한 쿼리 기능을 지원합니다. 또한 Azure Cosmos DB는 정렬, 집계, 지리 공간적 쿼리, 계층 구조 및 다양한 기본 제공 함수도 지원합니다. 추가 기능은 향후 서비스 업데이트의 Table API에서 제공됩니다. 이러한 기능에 대한 개요는 [Azure Cosmos DB 쿼리](../documentdb/documentdb-sql-query.md)를 참조하세요. 
+미리 보기에서 Azure Cosmos DB는 Table API에 대한 Azure Table 저장소와 동일한 쿼리 기능을 지원합니다. 또한 Azure Cosmos DB는 정렬, 집계, 지리 공간적 쿼리, 계층 구조 및 다양한 기본 제공 함수도 지원합니다. 추가 기능은 향후 서비스 업데이트의 Table API에서 제공됩니다. 이러한 기능에 대한 개요는 [Azure Cosmos DB 쿼리](documentdb-sql-query.md)를 참조하세요. 
 
 ## <a name="replace-an-entity"></a>엔터티 바꾸기
 엔터티를 업데이트하려면 테이블 서비스에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 테이블 서비스에 저장합니다. 다음 코드에서는 기존 고객의 전화 번호를 변경합니다. 

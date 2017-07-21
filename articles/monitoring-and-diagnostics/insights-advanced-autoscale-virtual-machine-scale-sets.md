@@ -1,8 +1,8 @@
 ---
 title: "Azure Virtual Machines를 사용한 고급 자동 크기 조정 | Microsoft Docs"
 description: "크기 조정 작업에 대한 전자 메일을 전송하고 웹후크 URL을 호출하는 여러 규칙 및 프로필에 Resource Manager 및 VM Scale Sets를 사용합니다."
-author: kamathashwin
-manager: carmonm
+author: anirudhcavale
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
-ms.author: ashwink
+ms.author: ancav
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 6f1234381a6aad9632d88825aab1a5bf304a20fb
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/10/2017
-
 
 ---
 

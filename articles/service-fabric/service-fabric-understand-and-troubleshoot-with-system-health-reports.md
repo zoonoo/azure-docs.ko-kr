@@ -605,7 +605,7 @@ System.Hosting은 노드에서 서비스 패키지 활성화가 성공하면 확
 **System.Hosting** 은 활성화가 성공한 경우 각 코드 패키지에 대해 확인을 보고합니다. 활성화에 실패하는 경우 구성된 대로 경고를 보고합니다. **CodePackage**가 활성화에 실패하거나 구성된 **CodePackageHealthErrorThreshold**보다 큰 오류와 함께 종료되면 호스팅이 오류를 보고합니다. 서비스 패키지에 여러 코드 패키지가 있다면 각 패키지에 대해 생성된 활성화 보고서가 있습니다.
 
 * **SourceId**: System.Hosting
-* **Property**: 접두사 **CodePackageActivation**을 사용하고 코드 패키지 및 진입점의 이름을 **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint***로 포함합니다(예: **CodePackageActivation:Code:SetupEntryPoint**).
+* **Property** : 접두사 **CodePackageActivation** 을 사용하고 코드 패키지 및 진입점의 이름을 **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** 로 포함합니다 (예: **CodePackageActivation:Code:SetupEntryPoint**).
 
 ### <a name="service-type-registration"></a>서비스 유형 등록
 **System.Hosting** 이 정상 상태로 보고합니다. 등록이 제시간에 완료되지 않으면 오류를 보고합니다( **ServiceTypeRegistrationTimeout**을 사용하여 구성된 대로). 서비스 유형이 노드로부터 등록되지 않았다면 런타임이 닫혔기 때문입니다. 호스팅이 경고를 보고합니다.

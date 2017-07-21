@@ -2,7 +2,7 @@
 title: "Microsoft Azure 및 Azure Monitor의 경고 개요 | Microsoft Docs"
 description: "경고를 통해 Azure 리소스 메트릭, 이벤트 또는 로그를 모니터링하고 사용자가 지정한 조건에 부합하면 알림을 받을 수 있습니다."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: 76c8feb077cca27dc96f43e708cdef4fbb0f824c
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고란?

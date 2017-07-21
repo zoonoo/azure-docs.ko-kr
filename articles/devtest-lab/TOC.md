@@ -64,4 +64,6 @@
 ## [팀 블로그](https://blogs.msdn.microsoft.com/devtestlab/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
-## [가격](https://azure.microsoft.com/pricing/details/devtest-lab/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/devtest-lab/)
+# 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 07/05/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: be5bd67ed977a62b1574d8a48de0cfcfe8876bb4
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7b1b50f71158e62da6b8ceb741a5b8cf9795e3a4
+ms.openlocfilehash: cbe7da8670693a6bbc895ce06f000b6a7d6f0ae1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>클라우드 서비스에 대한 시작 작업 구성 및 실행 방법
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/17/2016
 
 시작 작업은 재부팅 사이에 여러 번 실행할 수도 있습니다. 예를 들어 시작 작업은 역할 재활용 때마다 실행되고 역할 재활용은 재부팅을 항상 포함하지 않을 수도 있습니다. 시작 작업은 문제 없이 여러 번 실행할 수 있도록 하는 방식으로 작성되어야 합니다.
 
-시작 작업은 완료할 시작 프로세스에 대해&0;의 **errorlevel** (또는 종료 코드)로 끝나야 합니다. 시작 작업이&0;이 아닌 **errorlevel**로 끝나는 경우 역할이 시작되지 않습니다.
+시작 작업은 완료할 시작 프로세스에 대해 0의 **errorlevel** (또는 종료 코드)로 끝나야 합니다. 시작 작업이 0이 아닌 **errorlevel**로 끝나는 경우 역할이 시작되지 않습니다.
 
 ## <a name="role-startup-order"></a>역할 시작 순서
 다음은 Azure에서 역할 시작 절차를 나열합니다.
@@ -112,10 +112,10 @@ EXIT /B 0
 **taskType** -시작 작업이 실행되는 방식을 지정합니다.
 
 * **간단한**  
-  작업이 동기적으로 한 번에 하나씩 [작업] 파일에 지정된 순서로 실행됩니다. 하나의 **간단** 시작 작업이&0;의 **errorlevel**로 끝나는 경우 다음 **간단** 시작 작업이 실행됩니다. 더 이상 실행할 **간단** 시작 작업이 없는 경우 역할 자체가 시작됩니다.   
+  작업이 동기적으로 한 번에 하나씩 [작업] 파일에 지정된 순서로 실행됩니다. 하나의 **간단** 시작 작업이 0의 **errorlevel**로 끝나는 경우 다음 **간단** 시작 작업이 실행됩니다. 더 이상 실행할 **간단** 시작 작업이 없는 경우 역할 자체가 시작됩니다.   
   
   > [!NOTE]
-  > **간단** 작업이&0;이 아닌 **errorlevel**로 끝나는 경우 인스턴스가 차단됩니다. 후속 **간단** 시작 작업과 역할 자체는 시작되지 않습니다.
+  > **간단** 작업이 0이 아닌 **errorlevel**로 끝나는 경우 인스턴스가 차단됩니다. 후속 **간단** 시작 작업과 역할 자체는 시작되지 않습니다.
   > 
   > 
   

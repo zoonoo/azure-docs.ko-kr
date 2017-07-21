@@ -14,43 +14,50 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 9b2d456d8dba33af224ea147f5f8ec49ba7397f9
-ms.openlocfilehash: 202134cd03bf776c1d646ae24c09a79e14fdc5d3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
+ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/11/2017
 
 
 ---
-# <a name="debugging-apps-in-a-local-docker-container"></a>로컬 Docker 컨테이너에서 앱 디버깅
-## <a name="overview"></a>개요
+# 로컬 Docker 컨테이너에서 앱 디버깅
+<a id="debugging-apps-in-a-local-docker-container" class="xliff"></a>
+## 개요
+<a id="overview" class="xliff"></a>
 Visual Studio Tools for Docker는 Linux Docker 컨테이너에서 로컬로 응용 프로그램을 개발하고 유효성을 검사하는 일관된 방법을 제공합니다.
 코드를 변경할 때마다 컨테이너를 다시 시작할 필요가 없습니다.
 이 문서에서는 "편집 및 새로 고침" 기능을 사용하여 로컬 Docker 컨테이너에서 ASP.NET Core 웹앱을 시작하고 필요한 내용을 변경한 다음 브라우저를 새로 고쳐 변경 내용을 확인하는 방법을 설명합니다.
-또한 디버깅을 위한 중단점 설정 방법도 보여 줍니다.
+또한 이 문서에서는 디버깅을 위한 중단점 설정 방법도 보여 줍니다.
 
 > [!NOTE]
 > Windows 컨테이너 지원은 향후 릴리스에서 제공됩니다.
 >
 >
 
-## <a name="prerequisites"></a>필수 조건
+## 필수 조건
+<a id="prerequisites" class="xliff"></a>
 다음과 같은 도구를 설치해야 합니다.
 
-* [Visual Studio 2015 업데이트 2](https://go.microsoft.com/fwlink/?LinkId=691978)
-* [Visual Studio 2015 업데이트 3](https://go.microsoft.com/fwlink/?LinkId=691129)
+* [최신 버전의 Visual Studio](https://www.visualstudio.com/downloads/)
 * [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 
 로컬에서 Docker 컨테이너를 실행하려면 로컬 Docker 클라이언트가 필요합니다.
-릴리스된 [Docker 도구 상자](https://www.docker.com/products/overview#/docker_toolbox)는 Hyper-V를 비활성화한 후 사용할 수 있습니다. 또는 [Windows용 Docke 베타](https://beta.docker.com)(Hyper-V를 사용하고 Windows 10을 필요로 함)를 사용할 수 있습니다.
+[Docker 도구 상자](https://www.docker.com/products/docker-toolbox)는 Hyper-V를 비활성화한 후 사용할 수 있습니다. 또는 [Windows용 Docker](https://www.docker.com/get-docker)(Hyper-V를 사용하고 Windows 10을 필요로 함)를 사용할 수 있습니다.
 
 Docker 도구 상자를 사용하는 경우 [Docker 클라이언트를 구성](vs-azure-tools-docker-setup.md)해야 합니다.
 
-## <a name="1-create-a-web-app"></a>1. 웹앱 만들기
+## 1. 웹앱 만들기
+<a id="1-create-a-web-app" class="xliff"></a>
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## <a name="2-add-docker-support"></a>2. Docker 지원 추가
+## 2. Docker 지원 추가
+<a id="2-add-docker-support" class="xliff"></a>
 [!INCLUDE [Add docker support](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
-## <a name="3-edit-your-code-and-refresh"></a>3. 코드 편집 및 새로 고침
+## 3. 코드 편집 및 새로 고침
+<a id="3-edit-your-code-and-refresh" class="xliff"></a>
 변경을 신속하게 반복할 수 있도록, 응용 프로그램을 컨테이너에서 시작하고, IIS Express에서 하는 것처럼 변경 내용을 보며, 계속해서 변경해 나갈 수 있습니다.
 
 1. 솔루션 구성을 `Debug`로 설정하고 **&lt;CTRL + F5>** 키를 눌러 Docker 이미지를 빌드하고 로컬에서 실행합니다.
@@ -72,7 +79,8 @@ Docker 도구 상자를 사용하는 경우 [Docker 클라이언트를 구성](v
    ```
 6. 변경 내용이 적용되었습니다.
 
-## <a name="4-debug-with-breakpoints"></a>4. 중단점으로 디버깅
+## 4. 중단점으로 디버깅
+<a id="4-debug-with-breakpoints" class="xliff"></a>
 흔히 변경은 Visual Studio의 디버깅 기능을 활용한 추가적인 검사를 필요로 합니다.
 
 1. Visual Studio로 돌아가서 `Controllers\HomeController.cs`
@@ -89,13 +97,16 @@ Docker 도구 상자를 사용하는 경우 [Docker 클라이언트를 구성](v
 
    ![][2]
 
-## <a name="summary"></a>요약
+## 요약
+<a id="summary" class="xliff"></a>
 [Visual Studio 2015용 Docker 도구](https://aka.ms/DockerToolsForVS)를 사용하여, Docker 컨테이너 내에서 개발하는 프로덕션 현실감과 함께 로컬에서 작업하는 생산성을 얻을 수 있습니다.
 
-## <a name="troubleshooting"></a>문제 해결
+## 문제 해결
+<a id="troubleshooting" class="xliff"></a>
 [Visual Studio Docker 개발 문제 해결](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
-## <a name="more-about-docker-with-visual-studio-windows-and-azure"></a>Visual Studio, Windows 및 Azure와 함께 Docker에 대해 자세히 알아보기
+## Visual Studio, Windows 및 Azure와 함께 Docker에 대해 자세히 알아보기
+<a id="more-about-docker-with-visual-studio-windows-and-azure" class="xliff"></a>
 * [Visual Studio용 Docker 도구](http://aka.ms/dockertoolsforvs) - 컨테이너에서 .NET Core 코드를 개발함
 * [Visual Studio Team Services용 Docker 도구](http://aka.ms/dockertoolsforvsts) -docker 컨테이너를 빌드하고 배포함
 * [Visual Studio Code용 Docker 도구](http://aka.ms/dockertoolsforvscode) - 향후 제공될 더 많은 E2E 시나리오와 함께, docker 파일을 편집하기 위한 언어 서비스
@@ -103,21 +114,19 @@ Docker 도구 상자를 사용하는 경우 [Docker 클라이언트를 구성](v
 * [Azure Container Service](https://azure.microsoft.com/services/container-service/) - [Azure Container Service 콘텐츠](http://aka.ms/AzureContainerService)
 * Docker를 사용한 더 많은 예는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)의 [Docker 작업](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker)을 참조하세요. HealthClinic.biz 데모에서 더 빠른 시작은 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
 
-## <a name="various-docker-tools"></a>다양한 Docker 도구
+## 다양한 Docker 도구
+<a id="various-docker-tools" class="xliff"></a>
 [일부 뛰어난 docker 도구 (Steve Lasker의 블로그)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)
 
-## <a name="good-articles"></a>좋은 문서
+## 좋은 문서
+<a id="good-articles" class="xliff"></a>
 [NGINX의 마이크로 서비스 소개](https://www.nginx.com/blog/introduction-to-microservices/)
 
-## <a name="presentations"></a>프레젠테이션
+## 프레젠테이션
+<a id="presentations" class="xliff"></a>
 * [Steve Lasker: VS 라이브 Las Vegas 2016 - Docker e2e](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
 * [ASP.NET Core @ 빌드 2016 - Where You At Demo 소개](https://channel9.msdn.com/Events/Build/2016/B810)
 * [컨테이너에서 .NET 앱 개발, Channel 9](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

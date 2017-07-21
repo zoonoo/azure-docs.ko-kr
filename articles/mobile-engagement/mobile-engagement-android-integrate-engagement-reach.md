@@ -12,12 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 06/27/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd8ba95ee1fb2703926fb35cdb49e6a503637a7d
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -28,11 +29,6 @@ ms.lasthandoff: 11/17/2016
 > 
 
 ## <a name="standard-integration"></a>표준 통합
-Reach SDK에는 **Android 지원 라이브러리(v4)**가 필요합니다.
-
-**Eclipse**의 프로젝트에 라이브러리를 추가하는 가장 빠른 방법은 `Right click on your project -> Android Tools -> Add Support Library...`입니다.
-
-Eclipse를 사용하지 않는 경우 [여기]에서 지침을 읽어볼 수 있습니다.
 
 프로젝트의 SDK에서 도달률 리소스 파일을 다음과 같이 복사합니다.
 
@@ -107,10 +103,6 @@ Eclipse를 사용하지 않는 경우 [여기]에서 지침을 읽어볼 수 있
           <uses-permission android:name="android.permission.VIBRATE" />
   
   도달률 캠페인 관리자에서 신호음 또는 진동 옵션을 선택한 경우 이 권한이 없으면 Android에서 시스템 알림이 표시되지 않도록 방지합니다.
-* **ProGuard**를 사용하여 응용 프로그램을 빌드하는데 Android 지원 라이브러리 또는 참여 jar과 관련된 오류가 발생한 경우 `proguard.cfg` 파일에 다음 줄을 추가합니다.
-  
-          -dontwarn android.**
-          -keep class android.support.v4.** { *; }
 
 ## <a name="native-push"></a>네이티브 푸시
 이제 도달률 모듈을 구성했으므로 장치에서 캠페인을 받을 수 있도록 네이티브 푸시를 구성해야 합니다.
@@ -243,7 +235,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
-#### <a name="a-namecategoriesa-categories"></a><a name="categories"></a> 범주
+#### <a name="categories"></a> 범주
 제공된 레이아웃을 수정할 경우 모든 알림 모양을 수정하게 됩니다. 범주를 사용하면 알림의 여러 대상 모양을 정의할 수 있으며 경우에 따라서는 동작도 정의할 수 있습니다. 도달률 캠페인을 만들 때 범주를 지정할 수 있습니다. 범주를 사용하면 알림과 설문 조사도 사용자 지정할 수 있습니다. 여기에 대해서는 이 문서의 뒷부분에서 설명합니다.
 
 알림의 범주 처리기를 등록하려면 응용 프로그램이 초기화될 때 호출을 추가해야 합니다.
@@ -636,7 +628,7 @@ Reach SDK에서 제공하는 `Engagement*Activity` 클래스 중 하나를 확�
 
 여기에서 알 수 있듯이 `actionContent(this)`을(를) 호출한 후 작업을 완료하는 경우 `exitContent(this)`이(가) 영향을 받지 않고 안전하게 호출될 수 있습니다.
 
-[여기]:http://developer.android.com/tools/extras/support-library.html#Downloading
+[here]:http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
 

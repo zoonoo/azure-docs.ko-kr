@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/10/2017
 ms.author: seanmck
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 2bfbb3b8f7282ec8ae8abe9597230a3485221ecf
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 0d1d795a4d6965de6cdc2b9bd81a24a27a255566
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/25/2017
 
 ---
 
@@ -77,9 +77,14 @@ Service Fabric 클러스터는 이름 지정 서비스 및 장애 조치(Failove
 
 배포하기 전 응용 프로그램 테스트를 위해 클러스트를 만드는 경우 해당 클러스터를 [연속 통합/연속 배포 파이프라인](service-fabric-set-up-continuous-integration.md)의 일부로 동적으로 만드는 것이 좋습니다.
 
+
+### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>운영 체제를 업그레이드(예: Windows Server 2012를 Windows Server 2016으로)하려면 어떻게 해야 하나요?
+
+Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 대한 책임은 귀하에게 있습니다. 클러스터의 가상 컴퓨터에서 OS 이미지를 업그레이드하고 한 번에 하나의 VM에서 수행해야 합니다. 
+
 ## <a name="container-support"></a>컨테이너 지원
 
-### <a name="why-are-my-containers-that-are-deployed-to-sf-are-unable-to-resolve-dns-addresses"></a>SF에 배포된 내 컨테이너에서 DNS 주소를 확인할 수 없는 이유는 무엇인가요?
+### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>SF에 배포된 내 컨테이너에서 DNS 주소를 확인할 수 없는 이유는 무엇인가요?
 
 이 문제는 5.6.204.9494 버전의 클러스터에 대해 보고되었습니다. 
 

@@ -3,7 +3,7 @@ title: "VMAccess 확장 및 Azure CLI 2.0을 사용하여 액세스 다시 설�
 description: "VMAccess 확장 및 Azure CLI 2.0을 사용하여 사용자를 관리하고 Linux VM에 대한 액세스를 다시 설정하는 방법"
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: v-livech
-translationtype: Human Translation
+ms.author: danlep
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: e23e2b2d5f30a2ec30564287c96ffc9c671c0dbf
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Azure CLI 2.0에서 VMAccess 확장을 사용하여 사용자, SSH 관리 및 Linux VM의 디스크 검사 또는 복구

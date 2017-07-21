@@ -3,7 +3,7 @@ title: "Azure에서 Linux VM용 SSH 키 쌍을 만드는 자세한 단계 | Micr
 description: "다양한 사용 사례에 대한 특정 인증서와 함께 Azure에서 Linux VM용 SSH 공개 및 개인 키 쌍을 만드는 추가 단계에 대해 알아봅니다."
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
+author: dlepow
 manager: timlt
 editor: 
 tags: 
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 2/6/2016
-ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f452e8b3802bef5dc61bff64a8ac9ec5bb2a5bd9
-ms.lasthandoff: 04/03/2017
-
+ms.date: 6/28/2017
+ms.author: danlep
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 0cb70d36bd6e8d4cf5fcd5ed4a3e85c42f3cf81d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/30/2017
 
 ---
 
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Azure에서 Linux VM용 SSH 키 쌍 및 추가 인증서를 만드는 자세한 연습
-SSH 키 쌍을 사용하면 인증을 위해 기본적으로 SSH 키를 사용하는 Virtual Machines를 Azure에서 만들 수 있으며 로그인하기 위해 암호가 필요하지 않게 됩니다. 암호는 추측할 수 있으며 철저한 무차별 암호 대입 시도로 인해 VM을 오픈하여 암호를 추측합니다. Azure CLI 또는 Resource Manager 템플릿을 사용하여 만든 VM은 배포의 일부로 SSH 공개 키를 포함할 수 있으며 SSH에 대한 암호 로그인을 사용하지 않도록 설정하는 게시 배포 구성 단계를 제거합니다. 이 문서에서는 클래식 포털에서 사용 등을 위한 자세한 단계 및 인증서 생성에 대한 추가 예제를 제공합니다. SSH 키 쌍을 신속하게 만들고 사용하려면 [Azure에서 Linux VM용 SSH 공개 및 개인 키 쌍을 만드는 방법](mac-create-ssh-keys.md)을 참조하세요.
+SSH 키 쌍을 사용하면 인증을 위해 기본적으로 SSH 키를 사용하는 Virtual Machines를 Azure에서 만들 수 있으며 로그인하기 위해 암호가 필요하지 않게 됩니다. 암호는 추측할 수 있으며 철저한 무차별 암호 대입 시도로 인해 VM을 오픈하여 암호를 추측합니다. Azure CLI 또는 Resource Manager 템플릿을 사용하여 만든 VM은 배포의 일부로 SSH 공개 키를 포함할 수 있으며 SSH에 대한 암호 로그인을 사용하지 않도록 설정하는 게시 배포 구성 단계를 제거합니다. 이 문서에서는 Linux 가상 컴퓨터에서 사용 등을 위한 자세한 단계 및 인증서 생성에 대한 추가 예제를 제공합니다. SSH 키 쌍을 신속하게 만들고 사용하려면 [Azure에서 Linux VM용 SSH 공개 및 개인 키 쌍을 만드는 방법](mac-create-ssh-keys.md)을 참조하세요.
 
 ## <a name="understanding-ssh-keys"></a>SSH 키 이해
 
@@ -36,7 +36,7 @@ SSH 공개 키와 개인 키를 사용하는 것이 Linux 서버에 로그인하
 
 ## <a name="ssh-keys-use-and-benefits"></a>SSH 키 용도 및 이점
 
-Azure에는 최소 2048비트, SSH 프로토콜 버전 2 RSA 형식 공개 및 개인 키가 필요하며 공개 키 파일은 `.pub` 컨테이너 형식을 포함합니다. (클래식 포털은 `.pem` 파일 형식을 사용합니다. ) 키를 만들려면 일련의 사항을 질문한 다음 개인 키와 일치하는 공개 키를 작성하는 `ssh-keygen`을 사용합니다. Azure VM을 만드는 경우 Azure에서는 공개 키를 VM의 `~/.ssh/authorized_keys` 폴더에 복사합니다. `~/.ssh/authorized_keys` 에서 SSH 키는 SSH 로그인 연결에 대한 해당 개인 키를 일치하도록 클라이언트의 문제를 해결하는 데 사용됩니다.  인증을 위해 SSH 키를 사용하도록 Azure Linux VM이 만들어지면 Azure는 SSH 키만 허용하고 암호 로그인은 허용하지 않도록 SSHD 서버를 구성합니다.  따라서 SSH 키를 사용하여 Azure Linux VM을 만들면 VM 배포 보안을 유지하고 **sshd_config** 파일에서 암호를 사용하지 않도록 설정하는 일반 사후 배포 구성 단계를 줄일 수 있습니다.
+Azure에는 최소 2048비트, SSH 프로토콜 버전 2 RSA 형식 공개 및 개인 키가 필요하며 공개 키 파일은 `.pub` 컨테이너 형식을 포함합니다. 키를 만들려면 일련의 사항을 질문한 다음 개인 키와 일치하는 공개 키를 작성하는 `ssh-keygen`을 사용합니다. Azure VM을 만드는 경우 Azure에서는 공개 키를 VM의 `~/.ssh/authorized_keys` 폴더에 복사합니다. `~/.ssh/authorized_keys` 에서 SSH 키는 SSH 로그인 연결에 대한 해당 개인 키를 일치하도록 클라이언트의 문제를 해결하는 데 사용됩니다.  인증을 위해 SSH 키를 사용하도록 Azure Linux VM이 만들어지면 Azure는 SSH 키만 허용하고 암호 로그인은 허용하지 않도록 SSHD 서버를 구성합니다.  따라서 SSH 키를 사용하여 Azure Linux VM을 만들면 VM 배포 보안을 유지하고 **sshd_config** 파일에서 암호를 사용하지 않도록 설정하는 일반 사후 배포 구성 단계를 줄일 수 있습니다.
 
 ## <a name="using-ssh-keygen"></a>ssh-keygen 사용
 
@@ -63,21 +63,6 @@ ssh-keygen \
 
 `-C "azureuser@myserver"` = 쉽게 식별할 수 있도록 공개 키 파일의 끝에 추가된 주석  일반적으로 전자 메일은 주석으로 사용되지만 인프라에 가장 적합한 것을 사용할 수 있습니다.
 
-## <a name="classic-portal-and-x509-certs"></a>클래식 포털 및 X.509 인증서
-
-Azure [클래식 포털](https://manage.windowsazure.com/)을 사용하는 경우 SSH 키에 X.509 인증서 .pem 파일이 필요합니다.  다른 형식의 SSH 공개 키는 허용되지 않으며 *X.509 인증서여야 합니다*.
-
-기존 SSH-RSA 개인 키에서 X.509 인증서를 만들려면 다음을 수행합니다.
-
-```bash
-openssl req -x509 \
--key ~/.ssh/id_rsa \
--nodes \
--days 365 \
--newkey rsa:2048 \
--out ~/.ssh/id_rsa.pem
-```
-
 ## <a name="classic-deploy-using-asm"></a>`asm`을 사용하여 클래식 배포
 
 클래식 배포 모델(CLI에서 `asm` 모드)을 사용하는 경우 pem 컨테이너에서 SSH-RSA 공개 키 또는 RFC4716 형식 키를 사용할 수 있습니다.  SSH-RSA 공개 키는 이 문서의 앞부분에서 `ssh-keygen`을 사용하여 작성한 키입니다.
@@ -96,7 +81,7 @@ ssh-keygen \
 ```bash
 ssh-keygen -t rsa -b 2048 -C "azureuser@myserver"
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/azureuser/.ssh/id_rsa): 
+Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
 Your identification has been saved in /home/azureuser/.ssh/id_rsa.

@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 8f1f22d1609dc34369a131e79eb2a1c0be9fe552
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: e33f69bf04b32a31aae3c311c41aa44e4da5016a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -95,7 +95,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 데이터베이스 경고 규칙에 대한 자세한 내용은 [경고 알림 수신](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) 및 [서비스 상태 추적](../monitoring-and-diagnostics/insights-service-health.md)을 참조하세요.
 
 ### <a name="enable-auditing"></a>감사 사용
-데이터베이스에 액세스하기 위해 감사가 필요한 경우, 데이터베이스 복구 후에 감사 사용을 설정해야 합니다. 감사는 클라이언트 응용 프로그램이 *.database.secure.windows.net 패턴의 보안 연결 문자열을 사용한다는 것을 나타내기 위해 필요한 훌륭한 지표입니다. 자세한 내용은 [Database 감사](sql-database-auditing.md)를 참조하세요.
+데이터베이스에 액세스하기 위해 감사가 필요한 경우, 데이터베이스 복구 후에 감사 사용을 설정해야 합니다. 자세한 내용은 [Database 감사](sql-database-auditing.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * Azure SQL 데이터베이스 자동화 백업에 대한 자세한 내용은 [SQL 데이터베이스 자동화 백업](sql-database-automated-backups.md)

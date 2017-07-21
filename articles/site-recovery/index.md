@@ -10,17 +10,18 @@ ms.service: site-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 06/05/2017
 ms.author: carolz
-translationtype: Human Translation
-ms.sourcegitcommit: 491bbfe61cf387f18b903caa45529be206876d49
-ms.openlocfilehash: fe253f5d95b0b9351d6ffd382cbba0c490074f15
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: ef7a25de4536cfd54331e1bce7d22f351768585c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/06/2017
 
 ---
 # <a name="site-recovery-documentation"></a>Site Recovery 설명서
 
-사설 클라우드에 대한 비즈니스 연속성 및 재해 복구 전략에 Site Recovery를 사용하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 온-프레미스 물리적 서버 및 가상 컴퓨터를 클라우드 또는 보조 데이터 센터에 복제하는 오케스트레이션을 계획, 배포 및 관리하는 방법을 보여 줍니다.
+Site Recovery를 사용하여 비즈니스 연속성 및 재해 복구 전략에 참여하고 가동 중지 시간에도 앱과 워크로드를 사용 가능한 상태로 유지하는 방법에 대해 알아봅니다. 자습서 및 기타 문서에서는 온-프레미스 컴퓨터 및 Azure VM의 복제, 장애 조치(failover) 및 복구를 계획, 배포 및 관리하는 방법을 설명합니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -42,7 +43,7 @@ ms.lasthandoff: 02/28/2017
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=recovery-manager">
+        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=site-recovery">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -145,6 +146,4 @@ ms.lasthandoff: 02/28/2017
         </div>
     </li>
 </ul>
-
-
 

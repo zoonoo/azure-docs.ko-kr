@@ -12,18 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: e15ac73051297665a2880a7818273e304d539624
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 1b2f9c3fc59a83b384a63db00d2d039cab8679e8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
+
+![DNS 분석 기호](./media/log-analytics-dns/dns-analytics-symbol.png)
 
 이 문서에서는 Azure Log Analytics의 Azure DNS 분석 솔루션을 설정 및 사용하여 보안, 성능 및 작업 관련 정보를 DNS 인프라에 수집하는 방법을 설명합니다.
 
@@ -155,7 +157,7 @@ Operations Manager 관리 그룹이 Operations Management Suite 작업 영역에
 - **사용되지 않은 리소스 레코드**. 사용되지 않은/부실 리소스 레코드의 목록을 보여 줍니다. 이 목록에는 리소스 레코드 이름, 리소스 레코드 유형, 연결된 DNS 서버, 레코드 생성 시간 및 영역 이름이 포함됩니다. 이 목록을 사용해서 더 이상 사용되지 않는 DNS 리소스 레코드를 식별할 수 있습니다. 이 정보에 따라 DNS 서버에서 해당 항목을 제거할 수 있습니다.
 - **DNS 서버 쿼리 로드**. DNS 서버에서 DNS 로드 상황을 파악할 수 있도록 정보를 표시합니다. 이 정보는 서버에 대한 용량을 계획하는 데 도움이 될 수 있습니다. **메트릭** 탭으로 이동하여 보기를 그래픽 시각화로 변경할 수 있습니다. 이 보기를 사용하면 DNS 서버에서 DNS 부하가 분산되는 방식을 이해할 수 있습니다. 각 서버에 대한 DNS 쿼리 속도 추세가 표시됩니다.
 
-    ![DNS 서버 쿼리 로그 검색 결과](./media/log-analytics-dns/dns-servers-query-load.png) 
+    ![DNS 서버 쿼리 로그 검색 결과](./media/log-analytics-dns/dns-servers-query-load.png)
 
 - **DNS 영역 쿼리 로드**. 솔루션에서 관리되는 DNS 서버의 모든 영역에 대한 DNS 초당 영역 쿼리 통계를 표시합니다. **메트릭** 탭을 클릭하여 상세한 레코드에서 결과의 그래픽 시각화로 보기를 변경할 수 있습니다.
 - **구성 이벤트**. 모든 DNS 구성 변경 이벤트 및 연결된 메시지를 표시합니다. 그런 후 이벤트 시간, 이벤트 ID, DNS 서버 또는 작업 범주에 따라 이러한 이벤트를 필터링할 수 있습니다. 이 데이터는 특정 시간에 특정 DNS 서버에 대한 변경 내용을 감사하는 데 도움이 됩니다.

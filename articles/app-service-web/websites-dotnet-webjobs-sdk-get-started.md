@@ -1,6 +1,6 @@
 ---
 title: "Azure App Service에서 .NET WebJob 만들기 | Microsoft Docs"
-description: "ASP.NET MVC 및 Azure를 사용하여 다중 계층 앱을 만듭니다. 프런트 엔드는 Azure 앱 서비스의 웹앱에서 실행되고 백 엔드는 WebJob으로 실행됩니다. 앱에서는 Entity Framework, SQL 데이터베이스 및 Azure 저장소 큐와 Blob을 사용합니다."
+description: "ASP.NET MVC 및 Azure를 사용하여 다중 계층 앱을 만듭니다. 프런트 엔드는 Azure App Service의 웹앱에서 실행되고 백 엔드는 WebJob으로 실행됩니다. 앱에서는 Entity Framework, SQL 데이터베이스 및 Azure 저장소 큐와 Blob을 사용합니다."
 services: app-service
 documentationcenter: .net
 author: tdykstra
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 6/14/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 31fa57771aaa2d4d6e4e0d387e045fb28e378887
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 31fd4523794d71b5fbf6d55ba97f3b744b8d5d38
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -37,24 +38,22 @@ ms.lasthandoff: 04/10/2017
 ## <a id="prerequisites"></a>필수 조건
 이 자습서에서는 Visual Studio에서 [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 프로젝트를 작업하는 방법도 알고 있다고 가정합니다.
 
-이 자습서는 Visual Studio 2013용으로 작성되었습니다. Visual Studio가 없는 경우 Azure SDK for .NET을 설치할 때 자동으로 설치됩니다.
-
-Visual Studio 2015와 함께 자습서를 사용할 수 있지만 응용 프로그램을 로컬로 실행하기 전에 Web.config 및 App.config에서 SQL Server LocalDB 연결 문자열의 `Data Source` 부분을 `Data Source=(localdb)\v11.0`에서 `Data Source=(LocalDb)\MSSQLLocalDB`로 변경해야 합니다.
+이 자습서는 원래 Visual Studio 2013용으로 작성되었지만 이후 버전의 Visual Studio에서 사용할 수 있습니다. Visual Studio 2015 또는 2017을 사용하는 경우 응용 프로그램을 로컬로 실행하기 전에 Web.config 및 App.config에서 SQL Server LocalDB 연결 문자열의 `Data Source` 부분을 `Data Source=(localdb)\v11.0`에서 `Data Source=(LocalDb)\MSSQLLocalDB`로 변경해야 합니다.
 
 > [!NOTE]
 > <a name="note"></a>이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
 >
 > * [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음: 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스)를 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
-> * [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음: MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> * [Visual Studio 구독자에 대한 월별 Azure 크레딧을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 >
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. 여기서 App Service의 단기 시작 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 >
 >
 
 ## <a id="learn"></a>학습할 내용
 이 자습서에서는 다음 작업의 수행 방법을 보여 줍니다.
 
-* Azure SDK를 설치하여 사용자 컴퓨터에서 Azure를 개발합니다.
+* Azure SDK를 설치하여 사용자 컴퓨터에서 Azure를 개발할 수 있도록 지원(Visual Studio 2013 및 2015 사용자에만 해당)
 * 연결된 웹 프로젝트를 배포할 때 Azure WebJob으로 자동 배포되는 콘솔 응용 프로그램 프로젝트를 만듭니다.
 * 개발 컴퓨터에서 로컬로 WebJob SDK 백 엔드를 테스트합니다.
 * 앱 서비스에서 웹앱에 있는 WebJob 백엔드로 응용 프로그램을 게시합니다.
@@ -72,21 +71,24 @@ Visual Studio 2015와 함께 자습서를 사용할 수 있지만 응용 프로�
 
 ![Contoso Ads 아키텍처](./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png)
 
-[!INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
-
+[!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]  
 자습서 지침은 2.7.1.NET 이후에 Azure SDK를 적용합니다.
 
 ## <a id="storage"></a>Azure 저장소 계정 만들기
 Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기 위한 리소스를 제공합니다. WebJob SDK에서 대시보드에 대한 로깅 데이터를 저장하기 위해서도 사용됩니다.
 
-실제 응용 프로그램에서는 일반적으로 응용 프로그램 데이터와 로깅 데이터를 위한 별도의 계정 및 테스트 데이터와 프로덕션 데이터를 위한 별도의 계정을 만듭니다. 이 자습서에서는 한 계정만 사용합니다.
+실제 응용 프로그램에서는 일반적으로 응용 프로그램 데이터와 로깅 데이터를 위한 별도의 계정 및 테스트 데이터와 프로덕션 데이터를 위한 별도의 계정을 만듭니다. 이 자습서에서는 하나의 계정만 사용합니다.
 
 1. Visual Studio에서 **서버 탐색기** 창을 엽니다.
-2. **Azure** 노드를 마우스 오른쪽 단추로 클릭하고 **Microsoft Azure에 연결**을 클릭합니다.
+2. **Azure** 노드를 마우스 오른쪽 단추로 클릭하고 **Microsoft Azure 구독에 연결...**을 클릭합니다.
+   
    ![Azure에 연결](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+
 3. Azure 자격 증명을 사용하여 로그인합니다.
 4. Azure 노드 아래에서 **저장소**를 마우스 오른쪽 단추로 클릭하고 **저장소 계정 만들기**를 클릭합니다.
+   
    ![저장소 계정 만들기](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+   
 5. **저장소 계정 만들기** 대화 상자에서 저장소 계정의 이름을 입력합니다.
 
     이 이름은 고유해야 합니다(다른 Azure 저장소 계정이 동일한 이름을 사용할 수 없음). 입력한 이름이 이미 사용 중이면 변경할 수 있습니다.
@@ -120,18 +122,19 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
     저장소 연결 문자열은 저장소 계정 이름과 액세스 키에 대한 자리 표시자가 있는 예입니다. 이를 저장소 계정의 이름과 키가 포함된 연결 문자열로 바꿉니다.  
 
-    <pre class="prettyprint">&lt;connectionStrings&gt;
-      &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
-      &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-    &lt;/connectionStrings&gt;</pre>
-
+    ```
+    <connectionStrings>
+        <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+        <add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
+    </connectionStrings>
+    ```
     저장소 연결 문자열 이름은 WebJob SDK에서 기본적으로 사용하는 이름인 AzureWebJobsStorage입니다. Azure 환경에서 하나의 연결 문자열 값만 설정하면 되도록, 여기서는 같은 이름이 사용됩니다.
 2. **서버 탐색기**에서 **저장소** 노드 아래에 있는 저장소 계정을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
     ![저장소 계정 속성 클릭](./media/websites-dotnet-webjobs-sdk-get-started/storppty.png)
 3. **속성** 창에서 **저장소 계정 키**를 클릭하고 줄임표를 클릭합니다.
 
-    ![새 저장소 계정](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
+    ![저장소 계정 키](./media/websites-dotnet-webjobs-sdk-get-started/stor-account-keys.png)
 4. **연결 문자열**을 복사합니다.
 
     ![저장소 계정 키 대화 상자](./media/websites-dotnet-webjobs-sdk-get-started/cpak.png)
@@ -140,16 +143,19 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
     이 파일에는 응용 프로그램 데이터를 위한 저장소 연결 문자열과 로깅을 위한 저장소 연결 문자열이 있습니다. 응용 프로그램 데이터와 로깅에 대한 별도의 저장소 계정을 사용할 수 있으며 [데이터에 대해 여러 저장소 계정](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs)을 사용할 수 있습니다. 이 자습서에서는 단일 저장소 계정을 사용합니다. 연결 문자열에는 저장소 계정 키의 자리 표시자가 있습니다.
 
-      <pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-    &lt;/connectionStrings&gt;
-        &lt;startup&gt;
-            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-    &lt;/startup&gt;
-   &lt;/configuration&gt;</pre>
+    ```
+    <configuration>
+        <connectionStrings>
+            <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
+            <add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
+            <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/>
+    </connectionStrings>
+        <startup>
+            <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+    </startup>
+    </configuration>
+
+    ```
 
     기본적으로 WebJob SDK는 AzureWebJobsStorage 및 AzureWebJobsDashboard라는 연결 문자열을 찾습니다. 또는 [원하는 연결 문자열을 저장한 후 `JobHost` 개체에 명시적으로 전달할 수 있습니다](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 7. 저장소 연결 문자열을 둘 다 앞에서 복사한 연결 문자열로 바꿉니다.
@@ -194,71 +200,12 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 클라우드에서 실행되는 동안 일부 광고를 만든 후에는 WebJob SDK 대시보드를 확인하면서 이 대시보드가 제공해야 하는 풍부한 모니터링 기능을 확인할 것입니다.
 
 ### <a name="deploy-to-web-apps"></a>웹앱에 배포
+
 1. 브라우저 및 콘솔 응용 프로그램 창을 닫습니다.
-2. **솔루션 탐색기**에서 ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
-3. **웹 게시** 마법사의 **프로필** 단계에서 **Microsoft Azure 웹앱**을 클릭합니다.
+2. [SQL Database를 사용하여 Azure에 게시](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase#publish-to-azure-with-sql-database) 섹션의 단계를 따릅니다.
+3. 배포 단계를 완료한 후 이 문서의 나머지 작업을 계속 수행합니다.
 
-    ![Azure 웹앱 게시 대상 선택](./media/websites-dotnet-webjobs-sdk-get-started/pubweb.png)
-4. 아직 로그인하지 않았다면 Azure에 로그인합니다.
-5. **새로 만들기**를 클릭합니다.
-
-    대화 상자는 설치된 Azure SDK for.NET의 버전에 따라 약간 다르게 보일 수 있습니다.
-
-    ![새로 만들기 클릭](./media/websites-dotnet-webjobs-sdk-get-started/clicknew.png)
-6. **Microsoft Azure에서 웹앱 만들기** 대화 상자에서 **웹앱 이름** 상자에 고유 이름을 입력합니다.
-
-    완전한 URL은 여기에 입력한 항목과 .azurewebsites.net( **웹 앱 이름** 텍스트 상자 옆에 표시된 대로)으로 구성됩니다. 예를 들어 웹앱 이름이 ContosoAds이면 URL은 ContosoAds.azurewebsites.net이 됩니다.
-7. [앱 서비스 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) 드롭다운 목록에서 **새 앱 서비스 계획 만들기**를 선택합니다. ContosoAdsPlan 등의 앱 서비스 계획에 대한 이름을 입력합니다.
-8. [리소스 그룹](../azure-resource-manager/resource-group-overview.md) 드롭다운 목록에서 **새 리소스 그룹 만들기**를 선택합니다.
-9. ContosoAdsGroup 등의 리소스 그룹 이름을 입력합니다.
-10. **지역** 드롭다운 목록에서 저장소 계정에 대해 선택한 것과 동일한 지역을 선택합니다.
-
-    이 설정은 웹앱이 실행되는 Azure 데이터 센터를 지정합니다. 동일한 데이터 센터의 웹앱 및 저장소 계정을 유지하면 대기 시간 및 데이터 송신 요금을 최소화합니다.
-11. **데이터베이스 서버** 드롭다운 목록에서 **새 서버 만들기**를 선택합니다.
-12. 서버 이름에 contosoadsserver + 숫자 또는 서버 이름을 고유하게 만드는 이름과 같은 이름을 입력합니다.
-
-    서버 이름은 고유해야 합니다. 소문자, 숫자 및 하이픈을 포함할 수 있습니다. 후행 하이픈을 포함할 수 없습니다.
-
-    또는 이미 구독에 서버가 있는 경우에는 드롭다운 목록에서 해당 서버를 선택할 수 있습니다.
-13. 관리자 **데이터베이스 사용자 이름** 및 **데이터베이스 암호**를 입력합니다.
-
-    **새 SQL 데이터베이스 서버** 를 선택한 경우 여기서 기존 이름과 암호를 입력하지 않고 나중에 데이터베이스에 액세스할 때 사용하기 위해 지금 정의하는 새 이름과 암호를 입력합니다. 이전에 만든 서버를 선택한 경우 이미 만든 관리자 계정에 대한 암호를 입력하라는 메시지가 나타납니다.
-14. **만들기**를 클릭합니다.
-
-    ![Microsoft Azure에서 웹앱 만들기 대화 상자](./media/websites-dotnet-webjobs-sdk-get-started/newdb.png)
-
-    Visual Studio는 이 솔루션, 웹 프로젝트, Azure 웹앱 및 Azure SQL 데이터베이스 인스턴스를 만듭니다.
-15. **웹 게시** 마법사의 **연결** 단계에서 **다음**을 클릭합니다.
-
-    ![연결 단계](./media/websites-dotnet-webjobs-sdk-get-started/connstep.png)
-16. **설정** 단계에서 **런타임에 이 연결 문자열 사용** 확인란을 선택 취소하고 **다음**을 클릭합니다.
-
-    ![설정 단계](./media/websites-dotnet-webjobs-sdk-get-started/settingsstep.png)
-
-    나중에 Azure 환경에서 SQL 연결 문자열 값을 설정하게 되므로 게시 대화 상자에서 이 값을 설정할 필요는 없습니다.
-
-    이 페이지의 경고는 무시해도 됩니다.
-
-    * 일반적으로 Azure에서 실행할 때 사용하는 저장소 계정은 로컬로 실행할 때 사용하는 저장소 계정과 다르지만 이 자습서에서는 두 환경에서 동일한 저장소 계정을 사용합니다. 따라서 AzureWebJobsStorage 연결 문자열을 변환할 필요가 없습니다. 클라우드에서 다른 저장소 계정을 사용하려고 했더라도 앱이 Azure에서 실행될 때 Azure 환경 설정을 사용하게 되므로 이 연결 문자열을 변환할 필요가 없습니다. 이 내용은 자습서의 뒷부분에 나옵니다.
-    * 이 자습서에서는 ContosoAdsContext 데이터베이스에 사용되는 데이터 모델을 변경하지 않을 것이므로 배포를 위해 Entity Framework Code First 마이그레이션을 사용할 필요가 없습니다. Code First는 앱이 처음 SQL 데이터에 액세스하려고 할 때 자동으로 새 데이터베이스를 만듭니다.
-
-    이 자습서에서는 **파일 게시 옵션** 아래의 옵션에 대한 기본값을 그대로 사용해도 됩니다.
-17. **미리 보기** 단계에서 **미리 보기 시작**을 클릭합니다.
-
-    ![미리 보기 시작 클릭](./media/websites-dotnet-webjobs-sdk-get-started/previewstep.png)
-
-    데이터베이스가 게시되지 않는다는 내용의 경고는 무시해도 됩니다. Entity Framework Code First에서 게시할 필요가 없는 데이터베이스가 만들어집니다.
-
-    미리 보기 창에는 WebJob 프로젝트의 이진 및 구성 파일이 웹앱의 *app_data\jobs\continuous* 폴더로 복사되는 모습이 표시됩니다.
-
-    ![미리 보기 창의 WebJob 파일](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
-18. **게시**를 클릭합니다.
-
-    Visual Studio에서는 응용 프로그램을 배포하고 브라우저에서 홈 페이지 URL을 엽니다.
-
-    다음 섹션에서 Azure 환경에 연결 문자열을 설정할 때까지 웹앱을 사용할 수 없습니다. 이전에 선택한 웹앱 및 데이터베이스 만들기 옵션에 따라 오류 페이지나 홈페이지가 표시됩니다.
-
-### <a name="configure-the-web-app-to-use-your-azure-sql-database-and-storage-account"></a>Azure SQL 데이터베이스 및 저장소 계정을 사용하도록 웹앱을 구성합니다.
+### <a name="configure-the-web-app-to-use-your-azure-sql-database-and-storage-account"></a>Azure SQL Database 및 저장소 계정을 사용하도록 웹앱 구성
 [연결 문자열과 같은 민감한 정보를 소스 코드 리포지토리에 저장된 파일에 두지 않는 방식](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)(영문)이 보안 모범 사례입니다. Azure에서 이 작업을 수행할 수 있습니다. 즉, Azure 환경에서 연결 문자열 및 기타 설정 값을 지정하면 앱이 Azure에서 실행될 때 ASP.NET 구성 API가 해당 값을 자동으로 선택합니다. **서버 탐색기**, Azure Portal, Windows PowerShell 또는 플랫폼 간 명령줄 인터페이스를 사용하여 Azure에서 이러한 값을 설정할 수 있습니다. 자세한 내용은 [응용 프로그램 문자열 및 연결 문자열 작동 방식](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조하세요.
 
 이 섹션에서는 **서버 탐색기** 를 사용하여 Azure에서 연결 문자열 값을 설정합니다.
@@ -266,10 +213,10 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 1. **서버 탐색기**의 **Azure > App Service > {리소스 그룹}**에서 웹앱을 마우스 오른쪽 단추로 클릭한 다음 **설정 보기**를 클릭합니다.
 
     **Azure 웹앱** 창이 **구성** 탭에서 열립니다.
-2. DefaultConnection 연결 문자열의 이름을 ContosoAdsContext로 변경합니다.
+2. DefaultConnection 연결 문자열의 이름을 [SQL Database를 사용하여 Azure에 게시](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase#publish-to-azure-with-sql-database) 문서에서 SQL Database를 구성할 때 선택한 이름으로 변경합니다.
 
     Azure는 연결된 데이터베이스로 이 웹앱을 만들 때 이 연결 문자열을 자동으로 만들기 때문에 이미 적절한 연결 문자열 값이 지정되어 있을 것입니다. 코드가 찾는 이름으로 변경하면 됩니다.
-3. AzureWebJobsStorage 및 AzureWebJobsDashboard의 두 연결 문자열을 추가합니다. 유형을 사용자 지정으로 설정하고 연결 문자열 값을 이전에 *Web.config* 및 *App.config* 파일에 사용했던 것과 동일한 값으로 설정합니다. (액세스 키만이 아니라 전체 연결 문자열을 포함해야 하며 따옴표는 제외합니다.)
+3. AzureWebJobsStorage 및 AzureWebJobsDashboard의 두 연결 문자열을 추가합니다. 데이터베이스 유형을 **사용자 지정**으로 설정하고 연결 문자열 값을 이전에 *Web.config* 및 *App.config* 파일에 사용했던 것과 동일한 값으로 설정합니다. 액세스 키만이 아니라 전체 연결 문자열을 포함해야 하며 따옴표는 제외합니다.
 
     이러한 연결 문자열은 WebJob SDK에서 응용 프로그램 데이터와 로깅에 각각 사용됩니다. 앞서 살펴본 것처럼 응용 프로그램 데이터용 연결 문자열은 웹 프런트 엔드 코드에도 사용됩니다.
 4. **Save**를 클릭합니다.
@@ -278,23 +225,22 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 5. **서버 탐색기**에서 웹앱을 마우스 오른쪽 단추로 클릭하고 **중지**를 클릭합니다.
 6. 웹앱이 중지된 후 웹앱을 마우스 오른쪽 단추로 다시 클릭하고 **시작**을 클릭합니다.
 
-   WebJob은 게시될 때 자동으로 시작되지만 구성을 변경하면 중지됩니다. WebJob을 다시 시작하려면 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 웹 앱을 다시 시작하거나 WebJob을 다시 시작합니다. 일반적으로는 구성을 변경한 후에는 웹앱을 다시 시작하는 것이 좋습니다.
+   WebJob은 게시될 때 자동으로 시작되지만 구성을 변경하면 중지됩니다. WebJob을 다시 시작하려면 [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715)에서 웹앱을 다시 시작하거나 WebJob을 다시 시작합니다. 일반적으로는 구성을 변경한 후에는 웹앱을 다시 시작하는 것이 좋습니다.
 7. 주소 표시줄에 웹앱 URL이 표시되는 브라우저 창을 새로 고칩니다.
 
     홈 페이지가 나타납니다.
-8. 응용 프로그램을 로컬로 실행했을 때처럼 광고를 만듭니다.
+8. [응용 프로그램을 로컬로 실행](https://docs.microsoft.com/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started#a-idrunarun-the-application-locally)했을 때처럼 광고를 만듭니다.
 
    처음에 미리 보기 없이 인덱스 페이지가 표시됩니다.
 9. 몇 초 후에 페이지를 새로 고치면 미리 보기가 나타납니다.
 
-   축소판 그림이 표시되지 않으면 WebJob을 다시 시작하기 위해 일 분 정도 대기해야 합니다. 잠시 후에도 페이지를 새로 고칠 때 축소판 그림이 여전히 표시되지 않으면 WebJob은 자동으로 시작되지 않을 수 있습니다. 이 경우에 웹앱에 대한 [클래식 포털](https://manage.windowsazure.com) 페이지에서 WebJob 탭으로 이동한 다음 **시작**을 클릭합니다.
+   축소판 그림이 표시되지 않으면 WebJob을 다시 시작하기 위해 일 분 정도 대기해야 합니다. 잠시 후에도 페이지를 새로 고칠 때 축소판 그림이 여전히 표시되지 않으면 WebJob은 자동으로 시작되지 않을 수 있습니다. 이 경우 [Azure Portal](https://portal.azure.com/)의 **App Services** 블레이드로 이동하여 웹앱을 찾은 다음 **시작**을 클릭합니다.
 
 ### <a name="view-the-webjobs-sdk-dashboard"></a>WebJob SDK 대시보드 보기
-1. [클래식 포털](https://manage.windowsazure.com)에서 해당 웹앱을 선택합니다.
-2. **WebJob** 탭을 클릭합니다.
-3. WebJob의 로그 열에서 URL을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **App Services 블레이드**를 선택하고 웹앱을 찾은 후 **WebJobs**를 선택합니다.
+3. **로그** 탭을 선택합니다.
 
-    ![WebJob 탭](./media/websites-dotnet-webjobs-sdk-get-started/wjtab.png)
+    ![로그 탭](./media/websites-dotnet-webjobs-sdk-get-started/log-tab.png)
 
     새 브라우저 탭에서 WebJob SDK 대시보드가 열립니다. 이 대시보드에는 WebJob이 실행 중이라고 표시되며 WebJob SDK가 트리거한 코드의 함수 목록이 표시됩니다.
 4. 함수 중 하나를 클릭하여 실행에 대한 세부 정보를 확인합니다.
@@ -306,9 +252,18 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
     이 페이지의 **Replay Function(함수 재생)** 단추를 클릭하면 WebJob SDK 프레임워크가 해당 함수를 다시 호출하며 처음에 함수에 전달된 데이터를 변경할 기회가 제공됩니다.
 
 > [!NOTE]
-> 테스트를 마치면 웹앱 및 SQL 데이터베이스 인스턴스를 삭제합니다. 이 웹앱은 무료이지만 SQL 데이터베이스 인스턴스와 저장소 계정은 요금이 부과됩니다(크기가 작으므로 소량 부과됨). 또한 이 앱을 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. 클래식 포털에서 웹앱에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 그런 후 SQL 데이터베이스 인스턴스를 동시에 삭제하기 위한 확인란을 선택할 수 있습니다. 임시로 다른 사람이 웹 앱에 액세스하지 못하도록 하려면 대신 **중지** 를 클릭합니다. 이 경우에는 SQL 데이터베이스 및 저장소 계정에 대해 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
+> 테스트를 마치면 웹앱, 저장소 계정 및 SQL Database 인스턴스를 삭제하는 것이 좋습니다. 웹앱은 무료이지만 SQL 저장소 계정 및 데이터베이스 인스턴스는 요금이 부과됩니다(크기가 작으므로 소량 부과됨). 또한 이 앱을 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. 
 >
 >
+
+### <a name="delete-your-web-app"></a>웹앱 삭제
+포털에서 **App Services** 블레이드로 이동하여 웹앱을 찾아서 선택하고 **삭제**를 클릭합니다. 임시로 다른 사람이 웹 앱에 액세스하지 못하도록 하려면 대신 **중지** 를 클릭합니다. 이 경우에는 SQL 데이터베이스 및 저장소 계정에 대해 요금이 계속해서 발생합니다.
+
+### <a name="delete-your-storage-account"></a>저장소 계정 삭제
+저장소 계정을 삭제하려면 [저장소 계정 삭제](https://docs.microsoft.com/azure/storage/storage-create-storage-account#delete-a-storage-account)를 참조하세요. 
+
+### <a name="delete-your-database"></a>데이터베이스 삭제
+SQL Database를 삭제하려면 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) 설명서를 참조하세요.
 
 ## <a id="create"></a>처음부터 응용 프로그램 만들기
 이 섹션에서는 다음 작업을 수행합니다.
@@ -322,26 +277,23 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 * Azure Blob 및 큐와 WebJob SDK를 사용하는 코드 부분을 검토합니다.
 
 ### <a name="create-a-visual-studio-solution-with-a-web-project-and-class-library-project"></a>웹 프로젝트 및 클래스 라이브러리 프로젝트를 사용하여 Visual Studio 솔루션 만들기
-1. Visual Studio의 **파일** 메뉴에서 **새로 만들기** > **프로젝트**를 선택합니다.
-2. **새 프로젝트** 대화 상자에서 **Visual C#** > **웹** > **ASP.NET 웹 응용 프로그램**을 클릭합니다.
+1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
+2. **새 프로젝트** 대화 상자에서 **Visual C#** > **웹** > **ASP.NET 웹 응용 프로그램(.NET Framework)**을 클릭합니다.
 3. 프로젝트 이름을 ContosoAdsWeb으로, 솔루션 이름을 ContosoAdsWebJobsSDK로 지정하고(다운로드한 솔루션과 같은 폴더에 배치하는 경우에는 솔루션 이름 변경) **확인**을 클릭합니다.
 
     ![새 프로젝트](./media/websites-dotnet-webjobs-sdk-get-started/newproject.png)
-4. **새 ASP.NET 프로젝트** 대화 상자에서 MVC 템플릿을 선택하고 **Microsoft Azure** 아래의 **Host in the cloud(클라우드의 호스트)** 확인란을 선택 취소합니다.
-
-    **클라우드의 호스트** 를 선택하면 Visual Studio에서 새 Azure 웹 앱과 SQL 데이터베이스를 자동으로 만들 수 있습니다. 이러한 항목을 이전에 이미 만들었으므로 프로젝트를 만드는 동안 이 작업을 수행할 필요는 없습니다. 새 항목을 만들려면 해당 확인란을 선택합니다. 그런 후 이전에 응용 프로그램을 배포했을 때 수행했던 것과 같은 방식으로 새 웹앱과 SQL 데이터베이스를 구성할 수 있습니다.
-5. **인증 변경**을 클릭합니다.
+4. **새 ASP.NET 웹 응용 프로그램** 대화 상자에서 MVC 템플릿을 선택하고 **인증 변경**을 선택합니다.
 
     ![인증 변경](./media/websites-dotnet-webjobs-sdk-get-started/chgauth.png)
-6. **인증 변경** 대화 상자에서 **인증 없음**을 선택한 다음 **확인**을 클릭합니다.
+5. **인증 변경** 대화 상자에서 **인증 없음**을 선택한 다음 **확인**을 클릭합니다.
 
     ![인증 없음](./media/websites-dotnet-webjobs-sdk-get-started/noauth.png)
-7. **새 ASP.NET 프로젝트** 대화 상자에서 **확인**을 클릭합니다.
+6. **새 ASP.NET 웹 응용 프로그램** 대화 상자에서 **확인**을 클릭합니다.
 
     Visual Studio에서 솔루션 및 웹 프로젝트를 만듭니다.
-8. **솔루션 탐색기**에서 솔루션(프로젝트 아님)을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트**를 선택합니다.
-9. **새 프로젝트 추가** 대화 상자에서 **Visual C#** > **Windows 데스크톱** > **클래스 라이브러리** 템플릿을 선택합니다.  
-10. 프로젝트의 이름을 *ContosoAdsCommon*으로 지정한 다음 **확인**을 클릭합니다.
+7. **솔루션 탐색기**에서 솔루션(프로젝트 아님)을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트**를 선택합니다.
+8. **새 프로젝트 추가** 대화 상자에서 **Visual C#** > **Windows 클래식 데스크톱** > **클래스 라이브러리(.NET Framework)** 템플릿을 선택합니다.  
+9. 프로젝트의 이름을 *ContosoAdsCommon*으로 지정한 다음 **확인**을 클릭합니다.
 
     이 프로젝트에는 프런트 엔드 및 백 엔드 둘 다에서 사용할 Entity Framework 컨텍스트와 데이터 모델이 포함됩니다. 또는 웹 프로젝트에서 EF 관련 클래스를 정의하고 WebJob 프로젝트에서 이 프로젝트를 참조할 수 있습니다. 하지만 WebJob 프로젝트에는 필요 없는 웹 어셈블리 참조가 포함됩니다.
 
@@ -377,11 +329,12 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJob SDK 종속성 중 하
 ### <a name="set-project-references"></a>프로젝트 참조 설정
 웹 및 WebJob 프로젝트 둘 다에서 SQL 데이터베이스를 사용하므로 ContosoAdsCommon 프로젝트에 대한 참조가 필요합니다.
 
-1. ContosoAdsWeb 프로젝트에서 ContosoAdsCommon 프로젝트에 대한 참조를 설정합니다. ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **참조**를 사용하는 간단한 다중 계층 ASP.NET MVC 5 응용 프로그램에 코드를 작성하는 방법을 보여줍니다. **참조 관리자** 대화 상자에서 **솔루션** > **프로젝트** > **ContosoAdsCommon**을 차례로 선택한 후 **확인**을 클릭합니다.
-2. ContosoAdsWebJob 프로젝트에서 ContosAdsCommon 프로젝트에 대한 참조를 설정합니다.
-
+1. ContosoAdsWeb 프로젝트에서 ContosoAdsCommon 프로젝트에 대한 참조를 설정합니다. ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **참조**를 사용하는 간단한 다중 계층 ASP.NET MVC 5 응용 프로그램에 코드를 작성하는 방법을 보여줍니다. 
+2. **참조 관리자** 대화 상자에서 **프로젝트** > **솔루션** > **ContosoAdsCommon**을 차례로 선택한 후 **확인**을 클릭합니다.
+   
     WebJob 프로젝트는 이미지를 사용하고 연결 문자열에 액세스하기 위해 참조가 필요합니다.
-3. ContosoAdsWebJob 프로젝트에서 `System.Drawing` 및 `System.Configuration`에 대한 참조를 설정합니다.
+
+4. ContosoAdsWebJob 프로젝트에서 `System.Drawing` 및 `System.Configuration`에 대한 참조를 설정합니다.
 
 ### <a name="add-code-and-configuration-files"></a>코드 및 구성 파일 추가
 이 자습서에 [스캐폴딩을 사용하여 MVC 컨트롤러 및 보기를 만드는 방법](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)(영문), [SQL Server 데이터베이스를 사용하는 Entity Framework 코드를 작성하는 방법](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)(영문) 또는 [ASP.NET 4.5의 비동기 프로그래밍에 대한 기본 사항](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async)(영문)은 나와 있지 않습니다. 이 작업을 수행하려면 다운로드한 솔루션에서 새 솔루션으로 코드 및 구성 파일을 복사합니다. 이 작업을 수행한 후에는 다음 섹션에서 코드의 핵심 부분에 대한 설명을 확인할 수 있습니다.
@@ -392,7 +345,7 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJob SDK 종속성 중 하
 
    * *Ad.cs*
    * *ContosoAdscontext.cs*
-   * *BlobInformation.cs*<br/><br/>
+   * *BlobInformation.cs*
 2. ContosoAdsWeb 프로젝트에 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 
    * *Web.config*
@@ -400,7 +353,7 @@ WebJob 프로젝트에서 자동으로 설치되는 WebJob SDK 종속성 중 하
    * *Controllers* 폴더: *AdController.cs*
    * *Views\Shared* 폴더: *_Layout.cshtml* 파일
    * *Views\Home* 폴더: *Index.cshtml*
-   * *Views\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일<br/><br/>
+   * *Views\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일
 3. ContosoAdsWebJob 프로젝트에서 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 
    * *App.config* (파일 형식 필터를 **모든 파일**로 변경)
@@ -542,7 +495,7 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 *AdController.cs* 파일에서 생성자는 `InitializeStorage` 메서드를 호출하여 Blob 및 큐 작업을 위한 API를 제공하는 Azure Storage 클라이언트 라이브러리 개체를 만듭니다.
 
-그런 다음 이 코드는 앞서 *Global.asax.cs*에서 확인한 *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) (영문)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기서 지정된 재시도 정책은 시도 횟수 최대 3회까지 각 시도 이후에 3초 동안 대기합니다.
+그런 다음 이 코드는 앞서 *Global.asax.cs*에서 확인한 *images* Blob 컨테이너에 대한 참조를 가져옵니다. 그 과정에서 웹앱에 해당하는 기본 [재시도 정책](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) (영문)을 설정합니다. 기본 지수 백오프 재시도 정책은 일시적 오류에 대해 반복적으로 재시도하는 경우 1분 넘게 웹앱을 중지시킬 수 있습니다. 여기에 지정된 재시도 정책은 각 시도 후 3초 동안 최대 3회까지 대기합니다.
 
         var blobClient = storageAccount.CreateCloudBlobClient();
         blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);

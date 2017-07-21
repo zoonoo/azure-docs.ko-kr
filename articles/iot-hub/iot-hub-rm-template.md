@@ -20,7 +20,6 @@ ms.openlocfilehash: 5281f6af0e93da7aa1c72891c179afea99c6a26c
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Azure Resource Manager 템플릿을 사용하여 IoT Hub 만들기(.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -121,6 +120,7 @@ JSON 템플릿과 매개 변수 파일을 사용하여 리소스 그룹에 IoT H
       }
     }
     ```
+  [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 5. **서버 탐색기**에서 Azure 구독에 연결하고 Azure Storage 계정에서 **templates**라는 컨테이너를 만듭니다. **속성** 패널에서 **templates** 컨테이너의 **공용 읽기 액세스** 권한을 **Blob**으로 설정합니다.
 6. **서버 탐색기**에서 **templates** 컨테이너를 마우스 오른쪽 단추로 클릭한 다음 **Blob 컨테이너 보기**를 클릭합니다. **Blob 업로드** 단추를 클릭하고, **parameters.json** 및 **templates.json** 파일을 선택한 다음 **열기**를 클릭하여 JSON 파일을 **templates** 컨테이너에 업로드합니다. JSON 데이터를 포함하는 BLob의 URL은 다음과 같습니다.
    

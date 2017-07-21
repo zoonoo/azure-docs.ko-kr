@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/24/2017
+ms.date: 6/28/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f47fbe0e9c6cb4d09e6233f6d26211969a5c1f00
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 48e4ad774164b87d0cacb42f709e54af1d6f07b9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -175,6 +175,17 @@ PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApp
 마찬가지로 압축된 버전의 패키지를 업로드했고 압축되지 않은 패키지를 사용하려는 경우 체크섬이 일치하지 않도록 버전을 업데이트해야 합니다.
 
 이제 패키지를 올바르게 패키지하고, 유효성을 검사하고, 압축하여(필요한 경우) 하나 이상의 Service Fabric 클러스터에 [배포](service-fabric-deploy-remove-applications.md)할 준비가 되었습니다.
+
+### <a name="compress-packages-when-deploying-using-visual-studio"></a>Visual Studio를 사용하여 배포하는 경우 패키지 압축
+`CopyPackageParameters` 요소를 게시 프로필에 추가하여 배포 중인 패키지를 압축하고 `CompressPackage` 특성을 `true`으로 설정하도록 Visual Studio에 지시할 수 있습니다.
+
+``` xml
+    <PublishProfile xmlns="http://schemas.microsoft.com/2015/05/fabrictools">
+        <ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com" />
+        <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
+        <CopyPackageParameters CompressPackage="true"/>
+    </PublishProfile>
+```
 
 ## <a name="next-steps"></a>다음 단계
 [응용 프로그램 배포 및 제거][10]에서는 PowerShell을 사용하여 응용 프로그램 인스턴스를 관리하는 방법을 설명합니다.

@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 3/10/2017
 ms.author: markgal;giridham;arunak;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: aabd0481e6dd264e9a5e91c2e4b2b83f01227db1
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 17b0740f11fcfe200191f8695b6d885df41e68e2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -155,10 +156,13 @@ Azure Backup 에이전트는 NTFS에 의존합니다. [파일 경로 길이 사�
 예. 게스트 Windows OS에 Azure Backup 에이전트를 설치하고 임시 저장소에 파일 및 폴더를 백업합니다. 임시 저장소 데이터가 초기화된 후에는 백업 작업이 실패합니다. 또한 임시 저장소 데이터가 삭제된 경우 비휘발성 저장소에만 복원할 수 있습니다.
 
 
-## <a name="azure-backup-server-and-data-protection-manager"></a>Azure Backup Server 및 Data Protection Manager
+## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Azure Backup Server 및 System Center Data Protection Manager
 
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Azure Backup 서버를 사용하여 물리적 서버에 대한 BMR(완전 복구) 백업을 만들 수 있나요? <br/>
 예.
+
+### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>여러 자격 증명 모음에 DPM 서버를 등록할 수 있나요? <br/>
+아니요. DPM 또는 MABS 서버는 하나의 자격 증명 모음에만 등록할 수 있습니다.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>지원되는 System Center Data Protection Manager의 버전은 무엇인가요? <br/>
 System Center DPM(Data Protection Manager)용 최신 업데이트 롤업(UR)에 [최신](http://aka.ms/azurebackup_agent) Azure Backup 에이전트를 설치하는 것이 좋습니다. 2016년 8월을 기준으로 업데이트 롤업 11이 최신 업데이트입니다.

@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 23ca92cc12ed0ff70a4ad6147609289eef061a93
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c0fabf155d4feb6d88ef7d7e087cc1654f44978b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/28/2017
 
 ---
 # <a name="azure-storage-infrastructure-guidelines-for-windows-vms"></a>Windows VM에 대한 Azure Storage 인프라 지침
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/31/2017
 
 * Azure Managed Disks를 사용할 것인가? 아니면 관리되지 않는 디스크를 사용할 것인가?
 * 작업을 위해 표준 저장소를 사용해야 하나? 아니면 프리미엄 저장소를 사용해야 하나?
-* 1023GB보다 큰 디스크를 만들기 위해 디스크 스트라이프가 필요한가?
+* 4TB보다 큰 디스크를 만들기 위해 디스크 스트라이프가 필요한가?
 * 작업에 대한 최적의 I/O 성능을 얻기 위해 디스크 스트라이프가 필요한가?
 * IT 작업 또는 인프라를 호스트하는 데 필요한 저장소 계정 집합은 무엇인가?
 
@@ -63,20 +63,19 @@ Azure는 운영 체제 디스크, 임시 디스크를 및 0개 이상의 선택�
 
 [고가용성을 위한 복제 옵션에 대해 좀 더 자세히](../../storage/storage-introduction.md#replication-for-durability-and-high-availability)읽어보세요.
 
-운영 체제 디스크 및 데이터 디스크 크기는 최대 1023기가바이트(GB)입니다. Blob의 최대 크기는 1024GB이며 VHD 파일의 메타데이터(바닥글)를 포함해야 합니다(1GB는 1024<sup>3</sup>바이트임). Windows Server 2012의 저장 공간을 사용하면 데이터 디스크를 함께 풀링하여 1023GB보다 큰 논리 볼륨을 VM에 제공함으로써 이러한 제한을 극복할 수 있습니다.
+운영 체제 디스크 및 데이터 디스크의 최대 크기는 4TB입니다. Windows Server 2012 이상의 저장 공간을 사용하면 데이터 디스크를 함께 풀링하여 4TB보다 큰 논리 볼륨을 VM에 제공함으로써 이러한 제한을 극복할 수 있습니다.
 
 Azure Storage 배포를 디자인할 때는 확장성이 어느 정도 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-subscription-service-limits.md#storage-limits)을 참조하세요. [Azure Storage 확장성 및 성능 목표](../../storage/storage-scalability-targets.md)도 참조하세요.
 
 응용 프로그램 저장소의 경우 문서, 이미지, 백업, 구성 데이터, 로그 등의 구조화되지 않은 개체 데이터를 저장할 수 있습니다. Blob Storage를 사용합니다. 응용 프로그램이 VM에 연결된 가상 디스크에 쓰는 대신, Azure Blob 저장소에 직접 쓸 수 있습니다. Blob Storage는 가용성 요구와 비용 제약에 따라 [핫 및 콜드 저장소 계층](../../storage/storage-blob-storage-tiers.md) 옵션도 제공합니다.
 
 ## <a name="striped-disks"></a>스트라이프 디스크
-데이터 디스크의 스트라이프는 대부분의 경우에 1023GB보다 큰 디스크를 만들 수 있을 뿐만 아니라 단일 볼륨에 대한 저장소를 지원하기 위해 여러 Blob을 허용하여 성능을 강화합니다. 스트라이프에서는 단일 논리적 디스크에서 데이터를 읽고 쓰는 데 필요한 I/O가 병렬로 진행됩니다.
+데이터 디스크의 스트라이프는 대부분의 경우에 4TB보다 큰 디스크를 만들 수 있을 뿐만 아니라 단일 볼륨에 대한 저장소를 지원하기 위해 여러 blob을 허용하여 성능을 강화합니다. 스트라이프에서는 단일 논리적 디스크에서 데이터를 읽고 쓰는 데 필요한 I/O가 병렬로 진행됩니다.
 
-Azure는 VM 크기에 따라 사용 가능한 데이터 디스크 수 및 대역폭의 양에 제한을 둡니다. 자세한 내용은 [가상 컴퓨터의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+Azure는 VM 크기에 따라 사용 가능한 데이터 디스크 수 및 대역폭의 양에 제한을 둡니다. 자세한 내용은 [가상 컴퓨터의 크기](sizes.md)를 참조하세요.
 
 Azure 데이터 디스크에 디스크 스트라이프를 사용하고 있는 경우 다음 지침을 고려합니다.
 
-* 데이터 디스크는 항상 최대 크기(1023GB)여야 합니다.
 * VM 크기에 허용된 최대 데이터 디스크를 연결합니다.
 * 저장소 공간을 사용합니다.
 * Azure 데이터 디스크 캐싱 옵션을 사용하지 않습니다(캐싱 정책 = 없음).

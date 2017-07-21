@@ -16,10 +16,10 @@ ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 17289f6401b36ff6e6a201564aa387f42c712699
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 2d6e1ba60d1f81aa1a9d3afde4ac9b621b01f04d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, 가상 컴퓨터, Service Fabric 및 Cloud Services 비교
@@ -33,7 +33,7 @@ Service Fabric은 새 앱을 만들거나 마이크로 서비스 아키텍처를
 App Service 또는 Service Fabric에서 실행하려면 기존 응용 프로그램을 크게 수정해야 하는 경우에는 클라우드로의 마이그레이션을 간소화하기 위해 가상 컴퓨터를 선택할 수 있습니다. 그러나 VM을 올바르게 구성, 보호 및 유지 관리하려면 Azure App Service와 Service Fabric에 비해 훨씬 많은 시간과 IT 전문 지식이 필요합니다. Azure 가상 컴퓨터를 고려 중인 경우 VM 환경 패치/업데이트/관리에 필요한 지속적인 유지 관리 작업을 고려해야 합니다. Azure 가상 컴퓨터는 IaaS(Infrastructure-as-a-Service)이지만 App Service 및 Service Fabric은 PaaS(Platform-as-a-Service)입니다. 
 
 ## <a name="features"></a>기능 비교
-다음 표에서는 최상의 옵션 선택에 도움이 되도록 App Service, Cloud Services, 가상 컴퓨터 및 Service Fabric의 기능을 비교합니다. 각 옵션의 SLA에 대한 최신 정보는 [Azure Service Level Agreements(서비스 수준 약정)](/support/legal/sla/)를 참조하세요.
+다음 표에서는 최상의 옵션 선택에 도움이 되도록 App Service, Cloud Services, 가상 컴퓨터 및 Service Fabric의 기능을 비교합니다. 각 옵션의 SLA에 대한 최신 정보는 [Azure Service Level Agreements(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 
 | 기능 | App Service(웹앱) | Cloud Services(웹 역할) | 가상 컴퓨터 | Service Fabric | 참고 사항 |
 | --- | --- | --- | --- | --- | --- |
@@ -56,8 +56,8 @@ App Service 또는 Service Fabric에서 실행하려면 기존 응용 프로그�
 | Visual Studio 통합 |X |X |X |X | |
 | 원격 디버깅 |X |X |X | | |
 | TFS를 사용하여 코드 배포 |X |X |X |X | |
-| [Azure Virtual Network](/services/virtual-network/)를 사용한 네트워크 격리 |X |X |X |X |[Azure 웹 사이트 Virtual Network 통합](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)도 참조하세요. |
-| [Azure Traffic Manager](/services/traffic-manager/) 지원 |X |X |X |X | |
+| [Azure Virtual Network](/azure/virtual-network/)를 사용한 네트워크 격리 |X |X |X |X |[Azure 웹 사이트 Virtual Network 통합](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)도 참조하세요. |
+| [Azure Traffic Manager](/azure/traffic-manager/) 지원 |X |X |X |X | |
 | 통합된 끝점 모니터링 |X |X |X | | |
 | 서버에 대한 원격 데스크톱 액세스 | |X |X |X | |
 | 사용자 지정 MSI 설치 | |X |X |X |Service Fabric을 사용하면 모든 실행 파일을 [게스트 실행 파일](../service-fabric/service-fabric-deploy-existing-app.md)로 호스트하거나 VM에 모든 응용 프로그램을 설치할 수 있습니다. |
@@ -144,7 +144,7 @@ App Service에서 오픈 소스 프레임워크가 지원되는 경우 응용 �
 App Service에서 오픈 소스 프레임워크가 지원되지 않는 경우에는 나머지 Azure 웹 호스팅 옵션 중 하나에서 해당 프레임워크를 실행할 수 있습니다. 가상 컴퓨터를 선택하는 경우 Windows 또는 Linux 기반일 수 있는 컴퓨터 이미지에 소프트웨어를 설치 및 구성합니다.
 
 ### <a id="lob"></a>회사 네트워크에 연결해야 하는 LOB(기간 업무) 애플리케이션이 있는 경우
-LOB(기간 업무) 애플리케이션을 만들려는 경우 웹 사이트에 회사 네트워크의 서비스 또는 데이터에 대한 직접 액세스 권한이 필요할 수 있습니다. App Service, Service Fabric 및 가상 컴퓨터에서 [Azure Virtual Network 서비스](/services/virtual-network/)를 사용하면 이와 같은 직접 액세스가 가능합니다. App Service에서 [VNET 통합 기능](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)을 사용하면 Azure 응용 프로그램을 회사 네트워크에서와 같이 실행할 수 있습니다.
+LOB(기간 업무) 애플리케이션을 만들려는 경우 웹 사이트에 회사 네트워크의 서비스 또는 데이터에 대한 직접 액세스 권한이 필요할 수 있습니다. App Service, Service Fabric 및 가상 컴퓨터에서 [Azure Virtual Network 서비스](/azure/virtual-network/)를 사용하면 이와 같은 직접 액세스가 가능합니다. App Service에서 [VNET 통합 기능](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)을 사용하면 Azure 응용 프로그램을 회사 네트워크에서와 같이 실행할 수 있습니다.
 
 ### <a id="mobile"></a>모바일 클라이언트를 위해 REST API 또는 웹 서비스를 호스트하려는 경우
 HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하여 다양한 클라이언트를 지원할 수 있습니다. ASP.NET Web API와 같은 프레임워크는 REST 서비스를 더 쉽게 만들고 소비할 수 있도록 Visual Studio와 통합됩니다.  이러한 서비스는 웹 끝점에서 노출되므로 Azure의 모든 웹 호스팅 기법을 사용하여 이 시나리오를 지원할 수 있습니다. 그러나 REST API를 호스트하는 데 적합한 옵션은 App Service입니다. App Service를 통해 다음 작업을 수행할 수 있습니다.
@@ -164,29 +164,29 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
 
 응용 프로그램에 대해 선택한 옵션 사용을 시작하려면 다음 리소스를 참조하세요.
 
-* [Azure App Service](/documentation/services/app-service/)
-* [Azure Cloud Services](/documentation/services/cloud-services/)
-* [Azure 가상 컴퓨터](/documentation/services/virtual-machines/)
-* [Service Fabric](/documentation/services/service-fabric)
+* [Azure App Service](/azure/app-service/)
+* [Azure Cloud Services](/azure/cloud-services/)
+* [Azure 가상 컴퓨터](/azure/virtual-machines/)
+* [Service Fabric](/azure/service-fabric/)
 
 <!-- URL List -->
 
-[Azure App Service]: /services/app-service/
-[Cloud Services]: http://go.microsoft.com/fwlink/?LinkId=306052
-[Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
-[Service Fabric]: /services/service-fabric
+[Azure App Service]: /azure/app-service/
+[Cloud Services]: /azure/cloud-services/
+[Virtual Machines]: /azure/virtual-machines/
+[Service Fabric]: /azure/service-fabric/
 [ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-[Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
-[azurestore]: http://www.windowsazure.com/gallery/store/
-[scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
-[dotnet]: http://www.windowsazure.com/develop/net/
-[nodejs]: http://www.windowsazure.com/develop/nodejs/
-[PHP]: http://www.windowsazure.com/develop/php/
-[Python]: http://www.windowsazure.com/develop/python/
-[servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
-[sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
-[Storage]: http://www.windowsazure.com/documentation/services/storage/
+[Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
+[azurestore]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps
+[scripting]: https://azure.microsoft.com/documentation/scripts/?services=web-sites
+[dotnet]: https://azure.microsoft.com/develop/net/
+[nodejs]: https://azure.microsoft.com/develop/nodejs/
+[PHP]: https://azure.microsoft.com/develop/php/
+[Python]: https://azure.microsoft.com/develop/python/
+[servicebus]: /azure/service-bus/
+[sqldatabase]: /azure/sql-database/
+[Storage]: /azure/storage/
 
 <!-- IMG List -->
 

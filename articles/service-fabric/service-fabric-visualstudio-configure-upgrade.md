@@ -3,8 +3,8 @@ title: "Service Fabric 응용 프로그램의 업그레이드 구성 | Microsoft
 description: "Microsoft Visual Studio를 사용하여 서비스 패브릭 응용 프로그램을 업그레이드하기 위한 설정을 구성하는 방법에 대해 알아봅니다."
 services: service-fabric
 documentationcenter: na
-author: cawaMS
-manager: paulyuk
+author: mikkelhegn
+manager: mfussell
 editor: tglee
 ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
 ms.service: service-fabric
@@ -12,21 +12,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/18/2016
-ms.author: cawa
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 121f1d485e34ba30d3e6c2e5d91da633771e80ab
+ms.date: 06/29/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 314b29a56e4651222822f40a116af97a7372ff2c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/01/2017
 
 
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Visual Studio에서 서비스 패브릭 응용 프로그램의 업그레이드 구성
-Azure 서비스 패브릭에 대한 Visual Studio Tools는 로컬 또는 원격 클러스터에 게시하기 위한 업그레이드를 지원합니다. 테스트 및 디버그 중에 응용 프로그램을 바꾸지 않고 새 버전으로 업그레이드하면 두 가지 이점이 있습니다.
+Azure 서비스 패브릭에 대한 Visual Studio Tools는 로컬 또는 원격 클러스터에 게시하기 위한 업그레이드를 지원합니다. 테스트 및 디버그 중에 응용 프로그램을 바꾸지 않고 새 버전으로 업그레이드하려는 세 가지 시나리오가 있습니다.
 
 * 업그레이드하는 동안 응용 프로그램 데이터가 손실되지 않습니다.
 * 업그레이드 도메인에 서비스 인스턴스가 충분히 퍼져 있는 경우 가용성이 높은 상태를 유지하므로 업그레이드 중 서비스 중단이 발생하지 않습니다.
-
-업그레이드하는 동안 응용 프로그램에 대해 테스트를 실행할 수 있습니다.
+* 업그레이드하는 동안 응용 프로그램에 대해 테스트를 실행할 수 있습니다.
 
 ## <a name="parameters-needed-to-upgrade"></a>업그레이드하기 위해 필요한 매개 변수
 두 가지의 배포 형식(일반 또는 업그레이드)에서 선택할 수 있습니다. 일반 배포는 클러스터에서 이전 배포 정보 및 데이터를 지우는 반면 업그레이드 배포는 이러한 정보 및 데이터를 유지합니다. Visual Studio에서 서비스 패브릭 응용 프로그램을 업그레이드하는 경우 응용 프로그램 업그레이드 매개 변수 및 상태 검사 정책을 제공해야 합니다. 응용 프로그램 업그레이드 매개 변수는 업그레이드를 제어하는 반면 상태 검사 정책은 업그레이드가 성공적인지 여부를 확인합니다. 자세한 내용은 [서비스 패브릭 응용 프로그램 업그레이드: 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 를 참조하세요.
@@ -88,9 +89,3 @@ PowerShell cmdlet을 사용하여 서비스 패브릭 응용 프로그램을 업
 ```
 ## <a name="next-steps"></a>다음 단계
 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [Azure 서비스 패브릭에서 기존 응용 프로그램 배포](service-fabric-deploy-existing-app.md)를 참조하세요.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

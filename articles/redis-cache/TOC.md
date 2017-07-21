@@ -55,6 +55,7 @@
 ## [REST (영문)](https://docs.microsoft.com/rest/api/redis/)
 
 # 리소스
-## [Redis Cache 샘플](cache-redis-samples.md)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/cache/)
+## [Redis Cache 샘플](cache-redis-samples.md)
 

@@ -1,17 +1,37 @@
-가상 네트워크 게이트웨이를 만들 때 사용하려는 게이트웨이 SKU를 지정해야 합니다. 더 높은 게이트웨이 SKU를 선택하고 더 많은 CPU 및 네트워크 대역폭을 게이트웨이에 할당하면 결과적으로 게이트웨이는 가상 네트워크에 더 높은 네트워크 처리량을 지원할 수 있습니다.
+가상 네트워크 게이트웨이를 만들 때 사용하려는 게이트웨이 SKU를 지정해야 합니다. 작업 부하, 처리량, 기능 및 SLA의 종류를 기반으로 하는 요구 사항을 충족하는 SKU를 선택합니다.
 
-VPN Gateway는 다음 SKU를 사용할 수 있습니다.
+[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
 
-* Basic
-* Standard
-* HighPerformance
+[!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-VPN Gateway는 UltraPerformance 게이트웨이 SKU를 사용하지 않습니다. UltraPerformance SKU에 대한 내용은 [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) 설명서를 참조하세요.
+###  <a name="workloads"></a>프로덕션 *vs.* 개발=테스트 워크로드
 
-SKU를 선택할 때 다음을 고려합니다.
+SLA 및 기능 집합의 차이로 인해 프로덕션 *vs.* 개발-테스트에 다음과 같은 SKU를 사용하는 것이 좋습니다.
 
-* 정책 기반 VPN 유형을 사용하려는 경우 기본 SKU를 사용해야 합니다. 정책 기반 VPN(이전에는 정적 라우팅이라고 함)은 다른 SKU에서 지원되지 않습니다.
-* BGP는 기본 SKU에 지원되지 않습니다.
-* ExpressRoute-VPN Gateway 공존 구성은 기본 SKU에서 지원되지 않습니다.
-* 활성-활성 S2S VPN Gateway 연결은 HighPerformance SKU에서만 구성할 수 있습니다.
+| **워크로드**                       | **SKU**               |
+| ---                                | ---                    |
+| **프로덕션, 중요한 워크로드** | VpnGw1, VpnGw2, VpnGw3 |
+| **개발-테스트 또는 개념 증명**   | Basic                  |
+|                                    |                        |
 
+이전 SKU를 사용하는 경우 프로덕션 SKU 권장 사항은 표준 및 HighPerformance SKU입니다. 이전 SKU에 대한 정보는 [게이트웨이 SKU(이전)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)을 참조하세요.
+
+###  <a name="feature"></a>게이트웨이 SKU 기능 집합
+
+새 게이트웨이 SKU는 게이트웨이에서 제공한 기능 집합을 간소화합니다.
+
+| **SKU**| **기능**|
+| ---    | ---         |
+| VpnGw1<br>VpnGw2<br>VpnGw3|경로 기반 VPN 최대 30개의 터널* <br>P2S, BGP, 활성-활성, 사용자 지정 IPsec/IKE 정책, ExpressRoute/VPN 공존 <br><br>* "PolicyBasedTrafficSelectors"를 구성하여 경로 기반 VPN Gateway(VpnGw1, VpnGw2, VpnGw3)를 여러 온-프레미스 정책 기반 방화벽 장치에 연결할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 VPN Gateway를 여러 온-프레미스 정책 기반 VPN 장치에 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요. |
+|Basic   | 경로 기반: P2S와 10개의 터널<br>정책 기반(IKEv1): 1개의 터널; P2S 없음|
+|        |             |
+
+###  <a name="resize"></a>게이트웨이 SKU 크기 조정
+
+1. VpnGw1, VpnGw2와 VpnGw3 SKU 간에 크기를 조정할 수 있습니다.
+2. 이전 게이트웨이 SKU로 작동하는 경우 Basic, Standard 및 HighPerformance SKU 간에 크기를 조정할 수 있습니다.
+2. Basic/Standard/HighPerformance SKU에서 새 VpnGw1/VpnGw2/VpnGw3 SKU까지 크기를 조정할 수 **없습니다**. 대신 새 SKU으로 [마이그레이션](#migrate)해야 합니다.
+
+###  <a name="migrate"></a>이전 SKU에서 새 SKU로 마이그레이션
+
+[!INCLUDE [Migrate SKU](./vpn-gateway-migrate-legacy-sku-include.md)]

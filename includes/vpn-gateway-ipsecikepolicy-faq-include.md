@@ -1,5 +1,5 @@
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>사용자 지정 IPsec/IKE 정책은 모든 Azure VPN Gateway SKU에서 지원되나요?
-사용자 지정 IPsec/IKE 정책은 **표준** 및 **HighPerformance** VPN 게이트웨이에서 지원됩니다. **기본** SKU는 지원되지 않습니다.
+사용자 지정 IPsec/IKE 정책은 **VpnGw1, VpnGw2, VpnGw3, 표준** 및 **HighPerformance** VPN Gateway에서 지원됩니다. **기본** SKU는 지원되지 않습니다.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>연결에서 얼마나 많은 정책을 지정할 수 있나요?
 지정된 연결에 대해 ***하나의*** 정책 조합만 지정할 수 있습니다.
@@ -16,10 +16,10 @@
 | IKEv2 무결성  | SHA384, SHA256, SHA1, MD5                                                   |
 | DH 그룹         | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, 없음 |
 | IPsec 암호화 | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, 없음    |
-| IPsec 무결성  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
+| IPsec 무결성  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
 | PFS 그룹        | ECP384, ECP256, PFS24, PFS2048, PFS14, PFS2, PFS1, 없음                     |
-| QM SA 수명*  | 초(정수) 및 KB(정수)                                      |
-| 트래픽 선택기 | UsePolicyBasedTrafficSelectors** ($True/$False)                             |
+| QM SA 수명*  | 초(정수, **최소 300**) 및 KB(정수, **최소 1024**)                                      |
+| 트래픽 선택기 | UsePolicyBasedTrafficSelectors** ($True/$False; default $False)                             |
 |                  |                                                                             |
 
 * (*) IKEv2 주 모드 SA 수명은 Azure VPN Gateway에서 28,800초로 고정됩니다.

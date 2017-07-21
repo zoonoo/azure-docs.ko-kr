@@ -1,0 +1,250 @@
+---
+title: "PHP에서 MySQL용 Azure Database에 연결 | Microsoft Docs"
+description: "이 빠른 시작에서는 MySQL용 Azure Database의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 여러 PHP 코드 샘플을 제공합니다."
+services: mysql
+author: mswutao
+ms.author: wuta
+manager: jhubbard
+editor: jasonwhowell
+ms.service: mysql-database
+ms.custom: mvc
+ms.topic: hero-article
+ms.date: 06/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: e3ac0e1813022d1b3544fc2c784719d6c98a0cf3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/28/2017
+
+---
+
+# MySQL용 Azure Database: PHP를 사용하여 데이터 연결 및 쿼리
+<a id="azure-database-for-mysql-use-php-to-connect-and-query-data" class="xliff"></a>
+이 빠른 시작에서는 [PHP](http://php.net/manual/intro-whatis.php) 응용 프로그램을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서에서는 개발자가 PHP를 사용하여 개발하는 것에 익숙하고 MySQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
+
+## 필수 조건
+<a id="prerequisites" class="xliff"></a>
+이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
+- [Azure Portal을 사용한 MySQL용 Azure Database 서버 만들기](./quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Azure CLI를 사용한 MySQL용 Azure Database 서버 만들기](./quickstart-create-mysql-server-database-using-azure-cli.md)
+
+## PHP 설치
+<a id="install-php" class="xliff"></a>
+사용자의 서버에 PHP를 설치하거나 PHP를 포함하는 Azure [웹앱](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview)을 만듭니다.
+
+### MacOS
+<a id="macos" class="xliff"></a>
+- [PHP 7.1.4 버전](http://php.net/downloads.php) 다운로드
+- PHP를 설치하고 [PHP 매뉴얼](http://php.net/manual/install.macosx.php)에서 자세한 구성 정보 참조
+
+### Linux(Ubuntu)
+<a id="linux-ubuntu" class="xliff"></a>
+- [PHP 7.1.4 스레드로부터 안전하지 않은(x64) 버전](http://php.net/downloads.php) 다운로드
+- PHP를 설치하고 [PHP 매뉴얼](http://php.net/manual/install.unix.php)에서 자세한 구성 정보 참조
+
+### Windows
+<a id="windows" class="xliff"></a>
+- [PHP 7.1.4 스레드로부터 안전하지 않은(x64) 버전](http://windows.php.net/download#php-7.1) 다운로드
+- PHP를 설치하고 [PHP 매뉴얼](http://php.net/manual/install.windows.php)에서 자세한 구성 정보 참조
+
+## 연결 정보 가져오기
+<a id="get-connection-information" class="xliff"></a>
+MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 방금 만든 서버를 검색합니다(예: **myserver4demo**).
+3. 서버 이름을 클릭합니다.
+4. 서버의 **속성** 페이지를 선택합니다. **서버 이름** 및 **서버 관리자 로그인 이름**을 기록해 둡니다.
+ ![MySQL용 Azure Database 서버 이름](./media/connect-php/1_server-properties-name-login.png)
+5. 서버 로그인 정보를 잊어버린 경우 **개요** 페이지로 이동하여 서버 관리자 로그인 이름을 확인하고 필요한 경우 암호를 다시 설정합니다.
+
+## 테이블 연결 및 생성
+<a id="connect-and-create-a-table" class="xliff"></a>
+**CREATE TABLE** SQL 문을 사용하여 테이블을 연결하고 생성하려면 다음 코드를 사용하세요. 
+
+이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_init](http://php.net/manual/mysqli.init.php) 및 [mysqli_real_connect](http://php.net/manual/mysqli.real-connect.php) 메서드를 호출하여 MySQL에 연결합니다. 그리고 [mysqli_query](http://php.net/manual/mysqli.query.php) 메서드를 호출하여 쿼리를 실행합니다. 그런 다음 [mysqli_close](http://php.net/manual/mysqli.close.php) 메서드를 호출하여 연결을 닫습니다.
+
+host, username, password 및 db_name 매개 변수는 원하는 값으로 바꾸세요. 
+
+```php
+<?php
+$host = 'myserver4demo.mysql.database.azure.com';
+$username = 'myadmin@myserver4demo';
+$password = 'your_password';
+$db_name = 'your_database';
+
+//Establishes the connection
+$conn = mysqli_init();
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
+if (mysqli_connect_errno($conn)) {
+die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
+
+// Run the create table query
+if (mysqli_query($conn, '
+CREATE TABLE Products (
+`Id` INT NOT NULL AUTO_INCREMENT ,
+`ProductName` VARCHAR(200) NOT NULL ,
+`Color` VARCHAR(50) NOT NULL ,
+`Price` DOUBLE NOT NULL ,
+PRIMARY KEY (`Id`)
+);
+')) {
+printf("Table created\n");
+}
+
+//Close the connection
+mysqli_close($conn);
+?>
+```
+
+## 데이터 삽입
+<a id="insert-data" class="xliff"></a>
+**INSERT** SQL 문을 사용하여 데이터를 연결하고 삽입하려면 다음 코드를 사용하세요.
+
+이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) 메서드를 사용하여 준비된 INSERT 문을 만든 후 [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php) 메서드를 사용하여 삽입된 각 열 값의 매개 변수를 바인딩합니다. [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) 메서드를 사용하여 문을 실행한 후 [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php) 메서드를 사용하여 문을 닫습니다.
+
+host, username, password 및 db_name 매개 변수는 원하는 값으로 바꾸세요. 
+
+```php
+<?php
+$host = 'myserver4demo.mysql.database.azure.com';
+$username = 'myadmin@myserver4demo';
+$password = 'your_password';
+$db_name = 'your_database';
+
+//Establishes the connection
+$conn = mysqli_init();
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
+if (mysqli_connect_errno($conn)) {
+die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
+
+//Create an Insert prepared statement and run it
+$product_name = 'BrandNewProduct';
+$product_color = 'Blue';
+$product_price = 15.5;
+if ($stmt = mysqli_prepare($conn, "INSERT INTO Products (ProductName, Color, Price) VALUES (?, ?, ?)")) {
+mysqli_stmt_bind_param($stmt, 'ssd', $product_name, $product_color, $product_price);
+mysqli_stmt_execute($stmt);
+printf("Insert: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
+mysqli_stmt_close($stmt);
+}
+
+// Close the connection
+mysqli_close($conn);
+?>
+```
+
+## 데이터 읽기
+<a id="read-data" class="xliff"></a>
+**SELECT** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요.  이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. [mysqli_query](http://php.net/manual/mysqli.query.php) 메서드를 사용하여 sql 쿼리를 수행하고 [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) 메서드를 사용하여 결과 행을 가져옵니다.
+
+host, username, password 및 db_name 매개 변수는 원하는 값으로 바꾸세요. 
+
+```php
+<?php
+$host = 'myserver4demo.mysql.database.azure.com';
+$username = 'myadmin@myserver4demo';
+$password = 'your_password';
+$db_name = 'your_database';
+
+//Establishes the connection
+$conn = mysqli_init();
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
+if (mysqli_connect_errno($conn)) {
+die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
+
+//Run the Select query
+printf("Reading data from table: \n");
+$res = mysqli_query($conn, 'SELECT * FROM Products');
+while ($row = mysqli_fetch_assoc($res)) {
+var_dump($row);
+}
+
+//Close the connection
+mysqli_close($conn);
+?>
+```
+
+## 데이터 업데이트
+<a id="update-data" class="xliff"></a>
+**UPDATE** SQL 문을 사용하여 데이터를 연결하고 업데이트하려면 다음 코드를 사용하세요.
+
+이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) 메서드를 사용하여 준비된 UPDATE 문을 만든 후 [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php) 메서드를 사용하여 업데이트된 각 열 값의 매개 변수를 바인딩합니다. [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) 메서드를 사용하여 문을 실행한 후 [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php) 메서드를 사용하여 문을 닫습니다.
+
+host, username, password 및 db_name 매개 변수는 원하는 값으로 바꾸세요. 
+
+```php
+<?php
+$host = 'myserver4demo.mysql.database.azure.com';
+$username = 'myadmin@myserver4demo';
+$password = 'your_password';
+$db_name = 'your_database';
+
+//Establishes the connection
+$conn = mysqli_init();
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
+if (mysqli_connect_errno($conn)) {
+die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
+
+//Run the Update statement
+$product_name = 'BrandNewProduct';
+$new_product_price = 15.1;
+if ($stmt = mysqli_prepare($conn, "UPDATE Products SET Price = ? WHERE ProductName = ?")) {
+mysqli_stmt_bind_param($stmt, 'ds', $new_product_price, $product_name);
+mysqli_stmt_execute($stmt);
+printf("Update: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
+
+//Close the connection
+mysqli_stmt_close($stmt);
+}
+
+mysqli_close($conn);
+?>
+```
+
+
+## 데이터 삭제
+<a id="delete-data" class="xliff"></a>
+**DELETE** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 
+
+이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) 메서드를 사용하여 준비된 DELETE 문을 만든 후 [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php) 메서드를 사용하여 문의 Where 절에 대한 매개 변수를 바인딩합니다. [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) 메서드를 사용하여 문을 실행한 후 [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php) 메서드를 사용하여 문을 닫습니다.
+
+host, username, password 및 db_name 매개 변수는 원하는 값으로 바꾸세요. 
+
+```php
+<?php
+$host = 'myserver4demo.mysql.database.azure.com';
+$username = 'myadmin@myserver4demo';
+$password = 'your_password';
+$db_name = 'your_database';
+
+//Establishes the connection
+$conn = mysqli_init();
+mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
+if (mysqli_connect_errno($conn)) {
+die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
+
+//Run the Delete statement
+$product_name = 'BrandNewProduct';
+if ($stmt = mysqli_prepare($conn, "DELETE FROM Products WHERE ProductName = ?")) {
+mysqli_stmt_bind_param($stmt, 's', $product_name);
+mysqli_stmt_execute($stmt);
+printf("Delete: Affected %d rows\n", mysqli_stmt_affected_rows($stmt));
+mysqli_stmt_close($stmt);
+}
+
+//Close the connection
+mysqli_close($conn);
+?>
+```
+
+## 다음 단계
+<a id="next-steps" class="xliff"></a>
+> [!div class="nextstepaction"]
+> [Azure에서 PHP 및 MySQL 웹앱 빌드](../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
+

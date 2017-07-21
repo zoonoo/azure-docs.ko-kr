@@ -1,4 +1,4 @@
---- 
+---
 title: "Eclipse용 Azure Service Fabric 플러그 인 | Microsoft Docs"
 description: "Eclipse용 Azure Service Fabric 플러그 인을 시작합니다."
 services: service-fabric
@@ -12,7 +12,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/03/2016
+ms.date: 06/29/2016
 ms.author: saysa
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
@@ -38,7 +38,7 @@ Eclipse에서 Service Fabric 플러그 인을 설치할 수 있습니다. 플러
   1.    **Work with**(사용할 플러그인) 상자에 **http://dl.microsoft.com/eclipse**를 입력합니다.
   2.    **추가**를 클릭합니다.
 
-         ![Eclipse Neon용 Service Fabric 플러그 인][sf-eclipse-plugin-install] 
+         ![Eclipse Neon용 Service Fabric 플러그 인][sf-eclipse-plugin-install]
   3.    Service Fabric 플러그 인을 선택한 다음 **다음**을 클릭합니다.
   4.    설치 단계를 완료한 다음 Microsoft 소프트웨어 사용 조건에 동의합니다.
 

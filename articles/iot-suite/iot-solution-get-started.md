@@ -14,9 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/25/2016
 ms.author: harikm
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c6366d42b91748963ec14c258f92746e5d2fde92
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 031b492df1f186087e7b91102cbb44f552999293
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -49,7 +51,7 @@ Android, iOS 또는 Windows 10 장치를 사용하는 경우 MyDriving 앱을 �
    
    두 가지 항목이 있습니다. **신뢰할 수 있는 사용자**에 인증서를 설치합니다. 그런 다음 앱을 설치합니다.
 
-*Windows 10 Mobile에서 앱을 시작하는 데 문제가 있나요?*  휴대폰이 업데이트되었거나 너무 오래되었을 수 있습니다. 최신 업데이트가 있는지 확인하거나 다음을 설치합니다.
+*Windows 10 Mobile에서 앱을 시작하는 데 문제가 있나요?* 휴대폰이 업데이트되었거나 너무 오래되었을 수 있습니다. 최신 업데이트가 있는지 확인하거나 다음을 설치합니다.
 
 * [Microsoft.NET.Native.Framework.1.2.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Framework.1.2.appx) 
 * [Microsoft.NET.Native.Runtime.1.1.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Runtime.1.1.appx) 
@@ -144,9 +146,4 @@ MyDriving 앱 자체 내에서 기본 제공되는 HockeyApp 피드백 메커니
 [ScanTool OBDLink MX Wi-Fi: OBD Adapter/Diagnostic Scanner]: http://www.amazon.com/gp/product/B00OCYXTYY/ref=s9_simh_gw_g263_i1_r?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=desktop-2&pf_rd_r=1MWRMKXK4KK9VYMJ44MP
 [HockeyApp 포털]: https://rink.hockeyapp.org
 [GitHub의 문제점]: https://github.com/Azure-Samples/MyDriving/issues
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

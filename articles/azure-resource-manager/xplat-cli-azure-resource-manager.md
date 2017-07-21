@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: bd6f81ee12a7bb655166cf059236175bfb9994e5
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 3ad4e68b90979fd7f9d3ddf5278e65e19cb07152
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -49,14 +50,14 @@ Azure 명령줄 인터페이스 (Azure CLI)는 리소스 관리자를 사용하�
 
     azure resource list testRG
 
-이름이 *MyUbuntuVM*인 VM 등, 그룹 내의 개별 리소스를 보려면 다음과 비슷한 명령을 사용합니다.
+이름이 *MyUbuntuVM*인 VM 등, 그룹 내의 개별 리소스를 보려면 다음과 같은 명령을 사용합니다.
 
     azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
 **Microsoft.Compute/virtualMachines** 매개 변수에 유의하세요. 이 매개 변수는 정보를 요청하는 대상 리소스의 유형을 나타냅니다.
 
 > [!NOTE]
-> **list** 명령이 아닌 **azure resource** 명령을 사용할 경우 **-o** 매개 변수를 사용하여 리소스의 API 버전을 지정해야 합니다. API 버전에 관해 확실하지 않은 경우 템플릿 파일을 참조하여 리소스의 apiVersion 필드를 찾아봅니다. Resource Manager의 API 버전에 관한 자세한 내용은 [Resource Manager 공급자, 영역, API 버전 및 스키마](resource-manager-supported-services.md)를 참조하세요.
+> **list** 명령이 아닌 **azure resource** 명령을 사용할 경우 **-o** 매개 변수를 사용하여 리소스의 API 버전을 지정해야 합니다. API 버전에 관해 확실하지 않은 경우 템플릿 파일을 참조하여 리소스의 apiVersion 필드를 찾아봅니다. Resource Manager의 API 버전에 대한 자세한 내용은 [리소스 공급자 및 형식](resource-manager-supported-services.md)을 참조하세요.
 > 
 > 
 
@@ -81,7 +82,7 @@ Azure 명령줄 인터페이스 (Azure CLI)는 리소스 관리자를 사용하�
 
 **-o** 매개 변수를 사용하여 리소스의 API 버전을 지정하는 외에도 **-p** 매개 변수를 사용하여 JSON 형식 문자열을 필수 또는 추가적인 속성과 함께 전달합니다.
 
-가상 컴퓨터와 같은 기존 리소스를 삭제하려면 다음과 비슷한 명령을 사용합니다.
+가상 컴퓨터 리소스와 같은 기존 리소스를 삭제하려면 다음과 같은 명령을 사용합니다.
 
     azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
 
@@ -110,7 +111,7 @@ Azure CLI를 사용하여 Azure 리소스에 대한 액세스를 제어하는 �
 
     azure policy definition create MyPolicy -p c:\temp\policy.json
 
-이 명령의 출력은 다음과 유사합니다.
+이 명령은 다음과 유사한 출력을 표시합니다.
 
     + Creating policy definition MyPolicy data:    PolicyName:             MyPolicy data:    PolicyDefinitionId:     /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: e917385cb9afc13ba459aed48e5f06cc156efac5
-ms.lasthandoff: 05/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 3dfe8571114d936cc07d887392ec294ec8a67120
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/04/2017
 
 ---
 
@@ -43,11 +44,11 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Azure Portal에서 JavaScript 사용자 정의 함수 추가
 기존 Stream Analytics 작업에서 간단한 JavaScript 사용자 정의 함수를 작성하려면 다음 단계를 수행하세요.
 
-1.    Azure Portal에서 Stream Analytics 작업을 찾습니다.
+1.  Azure Portal에서 Stream Analytics 작업을 찾습니다.
 2.  **작업 토폴로지** 아래에서 함수를 선택합니다. 함수의 빈 목록이 표시됩니다.
-3.    새 사용자 정의 함수를 만들려면 **추가**를 선택합니다.
-4.    **새 함수** 블레이드에서 **함수 유형**에 대해 **JavaScript**를 선택합니다. 기본 함수 템플릿이 편집기에 나타납니다.
-5.    **UDF 별칭**의 경우 **hex2Int**를 입력하고 함수 구현을 다음과 같이 변경합니다.
+3.  새 사용자 정의 함수를 만들려면 **추가**를 선택합니다.
+4.  **새 함수** 블레이드에서 **함수 유형**에 대해 **JavaScript**를 선택합니다. 기본 함수 템플릿이 편집기에 나타납니다.
+5.  **UDF 별칭**의 경우 **hex2Int**를 입력하고 함수 구현을 다음과 같이 변경합니다.
 
     ```
     // Convert Hex value to integer.
@@ -56,13 +57,13 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
     }
     ```
 
-6.    **저장**을 선택합니다. 함수가 함수의 목록에 나타납니다.
-7.    새 **hex2Int** 함수를 선택하고 함수 정의를 확인합니다. 모든 함수는 함수 별칭에 **UDF** 접두사가 추가됩니다. Stream Analytics 쿼리에서 함수를 호출할 때 *접두사를 포함*해야 합니다. 이 경우 **UDF.hex2Int**를 호출합니다.
+6.  **저장**을 선택합니다. 함수가 함수의 목록에 나타납니다.
+7.  새 **hex2Int** 함수를 선택하고 함수 정의를 확인합니다. 모든 함수는 함수 별칭에 **UDF** 접두사가 추가됩니다. Stream Analytics 쿼리에서 함수를 호출할 때 *접두사를 포함*해야 합니다. 이 경우 **UDF.hex2Int**를 호출합니다.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>쿼리에서 JavaScript 사용자 정의 함수 호출
 
 1. 쿼리 편집기에서 **작업 토폴로지** 아래에 있는 **쿼리**를 선택합니다.
-2.    쿼리에 편집하고 다음과 같은 사용자 정의 함수를 호출합니다.
+2.  쿼리에 편집하고 다음과 같은 사용자 정의 함수를 호출합니다.
 
     ```
     SELECT
@@ -74,8 +75,8 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
         InputStream
     ```
 
-3.    샘플 데이터 파일 업로드하려면 작업 입력을 마우스 오른쪽 단추로 클릭합니다.
-4.    쿼리를 테스트하려면 **테스트**를 선택합니다.
+3.  샘플 데이터 파일 업로드하려면 작업 입력을 마우스 오른쪽 단추로 클릭합니다.
+4.  쿼리를 테스트하려면 **테스트**를 선택합니다.
 
 
 ## <a name="supported-javascript-objects"></a>지원되는 JavaScript 개체
@@ -144,7 +145,7 @@ FROM
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
+* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

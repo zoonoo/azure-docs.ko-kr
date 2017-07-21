@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 0786e54c288f30b0039c1d0b88f5c5b5965eecef
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 46a036c5f1646197522874b1302b95947e90cdd8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -210,8 +210,15 @@ Azure CLI를 사용하여 다운로드한 Azure Resource Manager 템플릿을 �
 
 ## <a name="providing-certificate-data-to-resource-manager-templates"></a>Resource Manager 템플릿에 인증서 데이터 제공
 
-템플릿과 함께 SSL을 사용하는 경우 인증서를 업로드하는 대신 base64 문자열에 제공해야 합니다. .pfx 또는 .cer을 base64 문자열로 변환하려면 다음 PowerShell 명령을 실행합니다. 이 코드 조각은 인증서를 템플릿에 제공될 수 있는 base64 문자열로 변환합니다. 예상 출력은 변수에 저장되고 템플릿에 붙여넣을 수 있는 문자열입니다.
+템플릿과 함께 SSL을 사용하는 경우 인증서를 업로드하는 대신 base64 문자열에 제공해야 합니다. .pfx 또는 .cer을 base64 문자열로 변환하려면 다음 명령 중 하나를 사용합니다. 다음 명령은 인증서를 base64 문자열로 변환하며, 그러면 인증서를 템플릿에 제공할 수 있습니다. 예상 출력은 변수에 저장되고 템플릿에 붙여넣을 수 있는 문자열입니다.
 
+### <a name="macos"></a>macOS
+```bash
+cert=$( base64 <certificate path and name>.pfx )
+echo $cert
+```
+
+### <a name="windows"></a>Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```

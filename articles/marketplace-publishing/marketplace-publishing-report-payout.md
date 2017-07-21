@@ -22,8 +22,12 @@ ms.lasthandoff: 02/11/2017
 
 
 ---
-# <a name="understand-your-azure-marketplace-payout-reports"></a>Azure 마켓플레이스 지급 보고서 이해
-## <a name="access-and-view-your-payout-reports"></a>지급 보고서 액세스 및 보기
+<a id="understand-your-azure-marketplace-payout-reports" class="xliff"></a>
+
+# Azure 마켓플레이스 지급 보고서 이해
+<a id="access-and-view-your-payout-reports" class="xliff"></a>
+
+## 지급 보고서 액세스 및 보기
 개발자 센터로 전환함에 따라 일부 지급 보고서는 https://dev.windows.com/en-us의 개발자 센터에서 제공되지만 일부는 https://publish.windowsazure.com의 게시 포털에서 확인할 수 있습니다.
 
 지급 보고는 최신 지급과 관련된 모든 마켓플레이스 제품에 대한 **개발자 센터** 에서 제공되며 현재 다음을 포함합니다.
@@ -38,7 +42,9 @@ ms.lasthandoff: 02/11/2017
 
 보고서는 분기가 끝난 후 45일이 지나면 사용할 수 있으며 모든 환불이 이루어진 후에 계산됩니다.
 
-### <a name="access-payout-reports-in-dev-center"></a>개발자 센터에서 지급액 보고서 액세스
+<a id="access-payout-reports-in-dev-center" class="xliff"></a>
+
+### 개발자 센터에서 지급액 보고서 액세스
 1. https://dev.windows.com/en-us에서 개발자 센터로 이동합니다.
 2. **대시보드**를 클릭합니다.
 
@@ -47,7 +53,9 @@ ms.lasthandoff: 02/11/2017
 
     ![DashboardPayoutSummary][2]
 
-## <a name="view-your-payout-reports-in-dev-center"></a>개발자 센터에서 지급 보고서 확인
+<a id="view-your-payout-reports-in-dev-center" class="xliff"></a>
+
+## 개발자 센터에서 지급 보고서 확인
 각 분기에 대한 지급 보고서는 해당 분기 내에 발생한 모든 트랜잭션을 기록합니다.
 
 * 예약된 금액은 예정된 결제 주기를 벗어나 발생하는 모든 지급을 나타냅니다(예: 이 금액은 다음 달 다음 결제로 이월됨).  이 금액은 일반적으로 $0(고객이 사전에 제대로 지불하지 않은 경우)입니다.
@@ -60,7 +68,9 @@ ms.lasthandoff: 02/11/2017
 
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
-## <a name="view-your-payout-reports-in-publishing-portal"></a>게시 포털에서 지급 보고서 보기
+<a id="view-your-payout-reports-in-publishing-portal" class="xliff"></a>
+
+## 게시 포털에서 지급 보고서 보기
 각 분기에 대한 지급 보고서는 해당 분기 내에 발생한 모든 트랜잭션을 기록합니다.
 
 1. https://publish.windowsazure.com에서 게시 포털로 이동합니다.
@@ -69,7 +79,9 @@ ms.lasthandoff: 02/11/2017
 
     ![accessingpayoutreport][5]
 
-### <a name="read-your-payout-reports"></a>지급 보고서 읽기
+<a id="read-your-payout-reports" class="xliff"></a>
+
+### 지급 보고서 읽기
 각 분기에 대한 지급 보고서는 해당 분기 내에 발생한 모든 트랜잭션을 기록합니다.
 
 * 특정 분기와 관련된 원장 항목을 찾으려면 드롭다운에서 해당 분기에 대한 지급 보고서를 선택합니다. 예를 들어 2015년 4~6월에 대한 원장 항목을 보려면 드롭다운 메뉴에서 해당 날짜 범위를 선택합니다.
@@ -78,7 +90,9 @@ ms.lasthandoff: 02/11/2017
 * 재무 요약 패널은 잔액, 대변과 차변을 범주별로 보여 줍니다.
 * 원장 항목은 개별 트랜잭션을 표시합니다.
 
-## <a name="definitions"></a>정의
+<a id="definitions" class="xliff"></a>
+
+## 정의
 **재무 요약 패널:**
 
 ![financialdefinitions][7]
@@ -87,7 +101,9 @@ ms.lasthandoff: 02/11/2017
 
 ![ledgerdefinitions][8]
 
-## <a name="payout-questions"></a>지급 질문
+<a id="payout-questions" class="xliff"></a>
+
+## 지급 질문
 지급에 관한 질문이 있는 경우 지원 팀에 문의하세요.
 
 ![payoutquestions][9]
@@ -97,7 +113,9 @@ ms.lasthandoff: 02/11/2017
 3. **지급액 관련 문의**를 선택합니다.
 4. **요청 시작**을 클릭합니다.
 
-## <a name="next-steps"></a>다음 단계
+<a id="next-steps" class="xliff"></a>
+
+## 다음 단계
 기타 지원 쿼리는 <https://portal.azure.com>에서 문제를 기록하세요.
 
 [1]: ./media/marketplace-publishing-report-payout/LandingPage-DashboardHighlight.png

@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/19/2017
 ms.author: juliako
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: b35390c6eb912db966648bff4efb59cece2837b3
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: f8e6e1da776d680d48737ecb5ac7b9319901f121
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 스키마
@@ -56,13 +55,21 @@ ms.lasthandoff: 05/16/2017
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs: boolean** |현재는 1 패스 인코딩만 지원됩니다. |
-| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs: time** |IDR 프레임 사이의 (기본) 간격을 결정합니다. |
+| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs: time** |IDR 프레임 사이의 고정 간격을 초 단위로 결정합니다. 이를 GOP 기간이라고도 합니다. 인코더가 이 값에서 벗어날 수 있는지 여부를 제어하려면 **SceneChangeDetection**(아래)을 참조하세요. |
 | **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default=”false” |**xs: boolean** |true로 설정된 경우 인코더에서 비디오 장면 변경을 감지하고 IDR 프레임을 삽입합니다. |
 | **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |인코딩 속도와 비디오 품질 간의 균형을 제어합니다. **Speed**, **Balanced** 또는 **Quality** 값 중 하나일 수 있습니다.<br/><br/> 기본값: **Balanced** |
 | **SyncMode**<br/><br/> minOccurs="0" | |향후 릴리스에서 공개될 기능입니다. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |출력 비디오 레이어의 컬렉션입니다. |
 
+### <a name="attributes"></a>특성
+| 이름 | 형식 | 설명 |
+| --- | --- | --- |
+| **Condition** |**xs:string** | 입력에 비디오가 없으면 인코더가 단색 비디오 트랙을 삽입하도록 강제 지정할 수 있습니다. 이렇게 하려면 Condition="InsertBlackIfNoVideoBottomLayerOnly"(최저 비트 전송률에서만 비디오 삽입) 또는 Condition="InsertBlackIfNoVideo"(모든 출력 비트 전송률에서 비디오 삽입)를 사용합니다. 자세한 내용은 [이 항목](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) 을 참조하세요.|
+
 ## <a name="H264Layers"></a> H264Layers
+
+기본적으로 오디오만 포함하며 비디오는 없는 입력을 인코더로 보내면 출력 자산에는 오디오 데이터만 들어 있는 파일이 포함됩니다. 일부 플레이어는 해당 출력 스트림을 처리할 수 없습니다. 해당 시나리오에서는 H264Video의 **InsertBlackIfNoVideo** 특성 설정을 사용하여 인코더가 출력에 비디오 트랙을 추가하도록 강제 지정할 수 있습니다. 자세한 내용은 [이 항목](media-services-advanced-encoding-with-mes.md#a-idnovideoainsert-a-video-track-when-input-has-no-video) 을 참조하세요.
+              
 ### <a name="elements"></a>요소
 | 이름 | 형식 | 설명 |
 | --- | --- | --- |

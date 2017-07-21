@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 859f9a1ca9dbe166fd514c8eba868b466dbc4d2c
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 41fcccae7b3d306c25f4429d47e81884d88cd83e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -101,6 +101,8 @@ Azure Logic Apps에 대한 현재 한도 및 구성 정보는 다음과 같습�
 |허용된 작업 중첩 깊이|5|중첩된 워크플로를 추가하여 필요에 따라 확장할 수 있음|
 |구독당 지역별 워크플로|1000||
 |워크플로당 트리거|10||
+|Switch 범위 사례 제한|25||
+|워크플로당 변수의 수|250||
 |식당 최대 문자 수|8,192||
 |최대 `trackedProperties` 크기(자)|16,000|
 |`action`/`trigger` 이름 제한|80||

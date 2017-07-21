@@ -2,6 +2,7 @@
 title: "Azure Application Insights의 Analytics로 데이터 가져오기 | Microsoft Docs"
 description: "앱 원격 분석에 연결할 정적 데이터를 가져오거나 Analytics로 쿼리할 별도 데이터 스트림을 가져옵니다."
 services: application-insights
+keywords: "개방형 스키마, 데이터 가져오기"
 documentationcenter: 
 author: CFreemanwa
 manager: carmonm
@@ -13,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: d649644959d907ff7fd6c1de360b091682f13d5b
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 8504be28baf202c0b04ee89b18122b29a93588ab
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6408fdf494035b37e0025dd8439e800a80bffb4e
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 18719a8f49c74973947517161f7306c233a9323f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -41,7 +41,7 @@ X12 메시지 디코드 커넥터를 사용하여 거래 업체 규약과 비교
 
 2. X12 메시지 디코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
 
-3.    검색 상자에서 필터에 "x12"를 입력합니다. **X12 - X12 메시지 디코딩**을 선택합니다.
+3.  검색 상자에서 필터에 "x12"를 입력합니다. **X12 - X12 메시지 디코딩**을 선택합니다.
    
     !["x12" 검색](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
 
@@ -56,7 +56,7 @@ X12 메시지 디코드 커넥터를 사용하여 거래 업체 규약과 비교
     | 연결 이름 * |연결의 이름을 입력합니다. |
     | 통합 계정 * |통합 계정의 이름을 입력합니다. 통합 계정 및 논리 앱이 동일한 Azure 위치에 있어야 합니다. |
 
-5.    완료되면 연결 정보는 이 예제와 유사해야 합니다. 연결 만들기를 완료하려면 **만들기**를 선택합니다.
+5.  완료되면 연결 정보는 이 예제와 유사해야 합니다. 연결 만들기를 완료하려면 **만들기**를 선택합니다.
    
     ![통합 계정 연결 세부 사항](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
 

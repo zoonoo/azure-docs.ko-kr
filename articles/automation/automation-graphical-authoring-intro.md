@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 1e61e3717a9006f67c0b57c33573c2d0f5fbfa05
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 417fceb0961165d96ece000f95c8a3f973f4f75b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -254,7 +255,7 @@ Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습
 검사점은 그래픽 PowerShell 워크플로 runbook에서 사용할 수 있고 그래픽 runbook에서는 사용할 수 없습니다.  Runbook이 Azure cmdlet를 사용하면 다른 작업자의 이 검사점에서 Runbook이 일시 중지되었다가 다시 시작되는 경우 AzureRMAccount를 사용하여 검사점이 지정된 작업을 수행해야 합니다. 
 
 ## <a name="authenticating-to-azure-resources"></a>Azure 리소스 인증
-Azure 리소스를 관리하는 Azure 자동화의 Runbook에는 Azure에 대한 인증이 필요합니다.  [실행 계정](automation-offering-get-started.md#automation-account)(서비스 주체라고도 함)은 Automation runbook을 사용하여 구독의 Azure Resource Manager 리소스에 액세스하는 기본 방법입니다.  **AzureRunAsConnection** 연결 자산을 추가하여 그래픽 runbook에 추가 이 기능을 추가할 수 있습니다. 이는 PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet을 사용하고 캔버스에 [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 사용합니다. 다음 예제에 이 내용이 나와 있습니다.<br>![실행 인증 작업](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
+Azure 리소스를 관리하는 Azure 자동화의 Runbook에는 Azure에 대한 인증이 필요합니다.  [실행 계정](automation-offering-get-started.md#creating-an-automation-account)(서비스 주체라고도 함)은 Automation runbook을 사용하여 구독의 Azure Resource Manager 리소스에 액세스하는 기본 방법입니다.  **AzureRunAsConnection** 연결 자산을 추가하여 그래픽 runbook에 추가 이 기능을 추가할 수 있습니다. 이는 PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet을 사용하고 캔버스에 [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet을 사용합니다. 다음 예제에 이 내용이 나와 있습니다.<br>![실행 인증 작업](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 실행 연결 가져오기 작업(즉, Get-AutomationConnection)은 AzureRunAsConnection라는 상수 값 데이터 원본으로 구성됩니다.<br>![실행 연결 구성](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
 다음 활동인 Add-AzureRmAccount는 runbook에서 사용하기 위해 인증된 실행 계정을 추가합니다.<br>
 ![Add-AzureRmAccount 매개 변수 집합](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>

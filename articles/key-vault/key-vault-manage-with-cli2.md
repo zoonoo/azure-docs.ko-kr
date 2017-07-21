@@ -12,20 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 05/08/2017
 ms.author: ambapat
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: e53b45ef180362f7554c7819b9ae2eb3dbfe3300
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 5da9f5eceda71ac85259193e0f183c72813e1679
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/09/2017
 
 
 ---
-# <a name="manage-key-vault-using-cli-20"></a>CLI 2.0을 사용하여 Key Vault 관리
+<a id="manage-key-vault-using-cli-20" class="xliff"></a>
+
+# CLI 2.0을 사용하여 Key Vault 관리
 Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
 
-## <a name="introduction"></a>소개
+<a id="introduction" class="xliff"></a>
+
+## 소개
 이 자습서를 사용하면 Azure 키 자격 증명 모음으로 시작하여 확정된 컨테이너(자격 증명 모음)를 Azure에 만들고 Azure에서 암호화 키와 비밀을 저장하고 관리하는 데 도움이 됩니다. Azure 플랫폼 간 명령줄 인터페이스를 사용하여 Azure 응용 프로그램과 함께 사용할 수 있는 키 또는 암호를 포함하는 자격 증명 모음을 만드는 과정을 안내합니다. 응용 프로그램이 수 해당 키 또는 암호를 사용할 수 있는 방법을 나타냅니다.
 
 **예상 완료 시간:** 20분
@@ -33,20 +37,24 @@ Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니
 > [!NOTE]
 > 이 자습서에는 단계 중 하나에 포함되는 Azure 응용 프로그램을 작성하는 방법에 대한 지침을 포함하지 않으며, 키 자격 증명 모음에서 키나 비밀을 사용하도록 응용 프로그램을 인증하는 방법을 나타냅니다.
 >
-> 이 자습서에서는 최신 Azure CLI 2.0을 사용합니다. 이전(node.js 기반) CLI를 사용하는 지침에 대해서는 [해당 자습서](key-vault-manage-with-cli.md)를 참조하세요.
+> 이 자습서에서는 최신 Azure CLI 2.0을 사용합니다.
 >
 >
 
 Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모음이란?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>필수 조건
+<a id="prerequisites" class="xliff"></a>
+
+## 필수 조건
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Microsoft Azure 구독. 아직 구독하지 않은 경우 [무료 평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 * 명령줄 인터페이스 버전 2.0 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure 플랫폼 간 명령줄 인터페이스 2.0 설치 및 구성](/cli/azure/install-azure-cli)을 참조하세요.
 * 이 자습서에서 만드는 키 또는 암호를 사용하여 구성되는 응용 프로그램입니다. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](http://www.microsoft.com/download/details.aspx?id=45343)에서 사용할 수 있습니다. 자세한 내용은 해당 추가 정보 파일을 참조하세요.
 
-## <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Azure 플랫폼 간 명령줄 인터페이스 도움말 보기
+<a id="getting-help-with-azure-cross-platform-command-line-interface" class="xliff"></a>
+
+## Azure 플랫폼 간 명령줄 인터페이스 도움말 보기
 이 자습서에서는 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)를 잘 알고 있다고 가정합니다.
 
 --help 또는 -h 매개 변수를 사용하여 특정 명령에 대한 도움말을 볼 수 있습니다. 또는 azure help [command] [options] 형식을 사용하여 동일한 정보를 반환할 수도 있습니다. 예를 들어 다음 명령은 모두 동일한 정보를 반환합니다.
@@ -63,7 +71,9 @@ az account set -h
 * [Azure CLI 설치](/cli/azure/install-azure-cli)
 * [Azure CLI 2.0 시작](/cli/azure/get-started-with-azure-cli)
 
-## <a name="connect-to-your-subscriptions"></a>구독에 연결
+<a id="connect-to-your-subscriptions" class="xliff"></a>
+
+## 구독에 연결
 조직 계정을 사용하여 로그인하려면 다음 명령을 사용합니다.
 
 ```
@@ -90,7 +100,9 @@ az account set --subscription <subscription name or ID>
 
 Azure 플랫폼 간 명령줄 인터페이스를 구성하는 방법에 대한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="create-a-new-resource-group"></a>새 리소스 그룹 만들기
+<a id="create-a-new-resource-group" class="xliff"></a>
+
+## 새 리소스 그룹 만들기
 Azure 리소스 관리자를 사용하면 관련된 모든 리소스는 리소스 그룹의 내부에 만들어집니다. 이 자습서에서는 'ContosoResourceGroup'이라는 새 리소스 그룹을 만듭니다.
 
 ```
@@ -99,7 +111,9 @@ az group create -n 'ContosoResourceGroup' -l 'East Asia'
 
 첫 번째 매개 변수는 리소스 그룹 이름이고, 두 번째 매개 변수 위치입니다. 위치의 경우, `az account list-locations` 명령을 사용하여 이 예에서 대체 위치를 지정하는 방법을 식별합니다. 자세한 정보가 필요한 경우 `az account list-locations -h`를 입력합니다.
 
-## <a name="register-the-key-vault-resource-provider"></a>키 자격 증명 모음 리소스 공급자 등록
+<a id="register-the-key-vault-resource-provider" class="xliff"></a>
+
+## 키 자격 증명 모음 리소스 공급자 등록
 키 자격 증명 모음 리소스 공급자가 구독에 등록되어 있는지 확인합니다.
 
 ```
@@ -108,7 +122,9 @@ az provider register -n Microsoft.KeyVault
 
 구독당 한 번만 수행하면 됩니다.
 
-## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
+<a id="create-a-key-vault" class="xliff"></a>
+
+## 키 자격 증명 모음 만들기
 `az keyvault create` 명령을 사용하여 키 자격 증명 모음을 만듭니다. 이 스크립트에는 3개의 필수 매개 변수, 리소스 그룹 이름, 키 자격 증명 모음 이름 및 지리적 위치가 있습니다.
 
 예를 들어, 이름이 ContosoKeyVault이고, 리소스 그룹 이름이 ContosoResourceGroup이며 위치가 동아시아인 형식의 자격 증명 모음인 경우, 다음을 입력합니다.
@@ -123,7 +139,9 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 
 Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수행할 권한을 가지게 됩니다. 아직 다른 사람은 권한이 없습니다.
 
-## <a name="add-a-key-or-secret-to-the-key-vault"></a>키 또는 암호를 키 자격 증명 모음에 추가
+<a id="add-a-key-or-secret-to-the-key-vault" class="xliff"></a>
+
+## 키 또는 암호를 키 자격 증명 모음에 추가
 소프트웨어 보호 키를 만들도록 Azure 키 자격 증명 모음을 사용하려면, `az key create` 명령을 사용하여 다음을 입력합니다.
 ```
 az keyvault key create --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --protection software
@@ -145,7 +163,9 @@ az keyvault secret set --vault-name 'ContosoKeyVault' --name 'SQLPassword' --val
 * 사용자의 키를 보려면 다음을 입력 합니다. `az keyvault key list --vault-name 'ContosoKeyVault'`
 * 사용자의 비밀을 보려면 다음을 입력 합니다. `az keyvault secret list --vault-name 'ContosoKeyVault'`
 
-## <a name="register-an-application-with-azure-active-directory"></a>Azure Active Directory에 응용 프로그램 등록
+<a id="register-an-application-with-azure-active-directory" class="xliff"></a>
+
+## Azure Active Directory에 응용 프로그램 등록
 이 단계는 일반적으로 별도의 컴퓨터에서 개발자가 수행할 수 있습니다. Azure 키 자격 증명 모음에 특정한 것은 아니지만 완전성을 위해 포함됩니다.
 
 > [!IMPORTANT]
@@ -160,7 +180,11 @@ az keyvault secret set --vault-name 'ContosoKeyVault' --name 'SQLPassword' --val
 Azure Active Directory에 응용 프로그램을 등록하려면:
 
 1. Azure 포털에 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory**를 클릭한 다음 응용 프로그램을 등록할 디렉터리를 선택합니다. <br> <br> 참고: 사용자 키 자격 증명 모음을 만든 Azure 구독을 포함하는 동일한 디렉터리를 선택해야 합니다. 이 디렉터리를 모르는 경우, **설정**을 클릭하고, 사용자 키 자격 증명 모음을 만든 구독을 식별하고 마지막 열에 표시되는 디렉터리의 이름을 확인합니다.
+2. 왼쪽에서 **Azure Active Directory**를 클릭한 다음 응용 프로그램을 등록할 디렉터리를 선택합니다. <br> <br> 
+
+> [!Note] 
+> 주요 자격 증명 모음을 만든 Azure 구독을 포함하는 동일한 디렉터리를 선택해야 합니다. 이 디렉터리를 모르는 경우, **설정**을 클릭하고, 사용자 키 자격 증명 모음을 만든 구독을 식별하고 마지막 열에 표시되는 디렉터리의 이름을 확인합니다.
+
 3. **APPLICATIONS**를 클릭합니다. 디렉터리에 추가한 앱이 없는 경우,이 페이지는 **앱 추가** 링크만을 표시합니다. 링크를 클릭하거나 명령 모음에서 **추가** 를 클릭할 수 있습니다.
 4. **응용 프로그램 추가** 마법사에서 **무엇을 하고 싶나요?** 페이지를 클릭하고, **조직에서 개발 중인 응용 프로그램 추가**를 클릭합니다.
 5. **응용 프로그램에 대해 알려주세요** 페이지에서, 응용 프로그램 이름을 지정하고 **웹 응용 프로그램 및/또는 Web API**(기본값)을 선택합니다. 다음 아이콘을 클릭합니다.
@@ -170,7 +194,9 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 9. **키** 섹션으로 스크롤하고 기간을 선택한 다음 **저장**을 클릭합니다. 페이지가 새로 고쳐지고 이제 키 값을 표시합니다. 이 키 값 및 **클라이언트 ID** 가 있는 응용 프로그램을 구성해야 합니다. (이 구성에 대한 지침은 응용 프로그램에 특정된 것입니다.)
 10. 사용자 자격 증명 모음에 사용 권한을 설정하려면 다음 단계에서 사용하는 이 페이지에서 클라이언트 ID 값을 복사 합니다.
 
-## <a name="authorize-the-application-to-use-the-key-or-secret"></a>응용 프로그램에 키 또는 암호를 사용하도록 권한 부여
+<a id="authorize-the-application-to-use-the-key-or-secret" class="xliff"></a>
+
+## 응용 프로그램에 키 또는 암호를 사용하도록 권한 부여
 응용 프로그램이 자격 증명 모음의 키 또는 암호에 대한 액세스를 인증하려면 `az keyvault set-policy` 명령을 사용합니다.
 
 예를 들어, 자격 증명 모음 이름은 ContosoKeyVault이고 권한을 부여하려는 응용 프로그램에 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed의 클라이언트 ID가 있고 자격 증명 모음에 있는 키로 서명하고 암호 해제하도록 응용 프로그램을 인증하려면, 다음을 실행합니다.
@@ -182,7 +208,9 @@ az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec
 ```
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
-## <a name="if-you-want-to-use-a-hardware-security-module-hsm"></a>하드웨어 보안 모듈(HSM)을 사용하려는 경우
+<a id="if-you-want-to-use-a-hardware-security-module-hsm" class="xliff"></a>
+
+## 하드웨어 보안 모듈(HSM)을 사용하려는 경우
 추가된 보증을 위해, HSM 경계를 절대로 떠나지 않는 하드웨어 보안 모듈(HSMs)에서 키를 가져오거나 생성할 수 있습니다. HSM은 FIPS 140-2 Level 2 유효성 검사가 적용됩니다. 이 요구 사항이 사용자에게 적용되지 않는 경우, 이 섹션을 건너뛰고 [키 자격 증명 모음 및 연결된 키와 암호 삭제](#delete-the-key-vault-and-associated-keys-and-secrets)로 이동합니다.
 
 이러한 HSM 보호되는 키를 만들려면, HSM 보호되는 키를 지원하는 자격 증명 모음 구독이 있어야 합니다.
@@ -210,7 +238,9 @@ az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSM
 ```
 이 BYOK 패키지를 생성하는 방법에 대한 자세한 내용은 [Azure 키 자격 증명 모음과 HSM-보호된 키를 사용하는 방법](key-vault-hsm-protected-keys.md)을 참조하세요.
 
-## <a name="delete-the-key-vault-and-associated-keys-and-secrets"></a>키 자격 증명 모음 및 연결된 키와 암호 삭제
+<a id="delete-the-key-vault-and-associated-keys-and-secrets" class="xliff"></a>
+
+## 키 자격 증명 모음 및 연결된 키와 암호 삭제
 Key Vault 및 이를 포함하는 키나 비밀이 더 이상 필요하지 않은 경우, `az keyvault delete` 명령을 사용하여 Key Vault를 삭제할 수 있습니다.
 
 ```
@@ -223,7 +253,9 @@ az keyvault delete --name 'ContosoKeyVault'
 az group delete --name 'ContosoResourceGroup'
 ```
 
-## <a name="other-azure-cross-platform-command-line-interface-commands"></a>다른 Azure 플랫폼 간 명령줄 인터페이스 명령
+<a id="other-azure-cross-platform-command-line-interface-commands" class="xliff"></a>
+
+## 다른 Azure 플랫폼 간 명령줄 인터페이스 명령
 Azure 키 자격 증명 모음을 관리하는 데 유용할 수 있는 다른 명령입니다.
 
 이 명령은 모든 키와 선택한 속성을 테이블 형식으로 나열합니다.
@@ -247,7 +279,9 @@ az keyvault key delete --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey'
 az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 
 
-## <a name="next-steps"></a>다음 단계
+<a id="next-steps" class="xliff"></a>
+
+## 다음 단계
 Key Vault 명령에 대한 전체 Azure CLI 참조에 대해서는 [Key Vault CLI 참조](/cli/azure/keyvault)를 참조하세요.
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.

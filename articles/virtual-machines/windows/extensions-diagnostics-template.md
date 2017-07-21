@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 1/23/2017
+ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 52d83b21f2f2346bfeb8d469a9bfb1b64dd4ba23
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: e9bb11645a0f45449bfc102e1d0cefd6fbf3ffd9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -74,7 +74,7 @@ Windows 가상 컴퓨터에서 진단 확장을 사용하도록 설정하려면 
 
 *publisher* 속성의 값이 **Microsoft.Azure.Diagnostics**이고 *type* 속성의 값이 **IaaSDiagnostics**이면, Azure 진단 확장이 고유하게 식별됩니다.
 
-*name* 속성의 값은 리소스 그룹에서 확장을 참조하는 데 사용될 수 있습니다. 특히 **Microsoft.Insights.VMDiagnosticsSettings**는 Azure 클래식 포털에 의해 쉽게 식별할 수 있게 해줍니다. 이 포털은 Azure 클래식 포털에서 모니터링 차트를 올바르게 나타내줍니다.
+*name* 속성의 값은 리소스 그룹에서 확장을 참조하는 데 사용될 수 있습니다. 특히 **Microsoft.Insights.VMDiagnosticsSettings**로 설정하면 Azure Portal에서 모니터링 차트가 올바르게 표시되도록 Azure Portal에서 쉽게 식별할 수 있습니다.
 
 *typeHandlerVersion* 은 사용할 확장의 버전을 지정합니다. *autoUpgradeMinorVersion* 부 버전을 **true** 로 설정하면 사용 가능한 최신의 부 버전 확장이 제공됩니다. 새로운 기능과 버그 수정을 모두 포함하는 최신의 진단 확장을 사용하려면 항상 *autoUpgradeMinorVersion* 을 **true** 로 설정하는 것이 좋습니다. 
 

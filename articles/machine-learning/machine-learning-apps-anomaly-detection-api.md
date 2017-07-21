@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 04/24/2017
+ms.date: 06/05/2017
 ms.author: alok;rotimpe
-translationtype: Human Translation
-ms.sourcegitcommit: a384756abaca45fc6863f8bc59dc3d6cb4fa974a
-ms.openlocfilehash: ae9a4f99d5b38944f38534021523e2153ce7f0d0
-ms.lasthandoff: 01/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 5ddc02905fbb7f9f7c5deb9b970101788d824642
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -61,17 +62,19 @@ API를 사용하려면 Azure Machine Learning 웹 서비스로 호스팅되는 A
 API를 호출하려면 끝점 위치 및 API 키를 알고 있어야 합니다.  이 두 항목은 모두 API를 호출하는 샘플 코드와 함께 [AzureML 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 사용할 수 있습니다.  원하는 API로 이동한 다음 "사용" 탭을 클릭하여 찾습니다.  API를 Swagger API(즉 `format=swagger` URL 매개 변수 있음) 또는 비Swagger API(즉 `format` URL 매개 변수 없음)로 호출할 수 있습니다.  샘플 코드에서는 Swagger 형식을 사용합니다.  아래는 Swagger가 아닌 형식의 예제 요청 및 응답입니다.  이러한 예제는 계절성 끝점에 관한 것이며,  비계절성 끝점도 비슷합니다.
 
 ### <a name="sample-request-body"></a>샘플 요청 본문
-요청에는 두 개의 개체, 즉 `input1`과 `GlobalParameters`가 있습니다.  아래 예제 요청에서는 일부 매개 변수가 명시적으로 전송되는 반면 다른 매개 변수는 전송되지 않습니다(각 끝점의 전체 매개 변수 목록을 보려면 아래로 스크롤함).  요청에서 명시적으로 전송되지 않은 매개 변수는 아래에 지정된 기본값을 사용합니다.
+요청에는 두 개의 개체, 즉 `Inputs`과 `GlobalParameters`가 있습니다.  아래 예제 요청에서는 일부 매개 변수가 명시적으로 전송되는 반면 다른 매개 변수는 전송되지 않습니다(각 끝점의 전체 매개 변수 목록을 보려면 아래로 스크롤함).  요청에서 명시적으로 전송되지 않은 매개 변수는 아래에 지정된 기본값을 사용합니다.
 
     {
-        "input1": {
-            "ColumnNames": ["Time", "Data"],
-            "Values": [
-                ["5/30/2010 18:07:00", "1"],
-                ["5/30/2010 18:08:00", "1.4"],
-                ["5/30/2010 18:09:00", "1.1"]
-            ]
-        },
+                "Inputs": {
+                        "input1": {
+                                "ColumnNames": ["Time", "Data"],
+                                "Values": [
+                                        ["5/30/2010 18:07:00", "1"],
+                                        ["5/30/2010 18:08:00", "1.4"],
+                                        ["5/30/2010 18:09:00", "1.1"]
+                                ]
+                        }
+                },
         "GlobalParameters": {
             "tspikedetector.sensitivity": "3",
             "zspikedetector.sensitivity": "3",

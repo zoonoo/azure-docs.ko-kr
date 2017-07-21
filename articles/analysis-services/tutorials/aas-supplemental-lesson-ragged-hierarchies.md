@@ -22,7 +22,8 @@ ms.contentlocale: ko-kr
 ms.lasthandoff: 05/05/2017
 
 ---
-# <a name="supplemental-lesson---ragged-hierarchies"></a>추가 단원 - 불규칙한 계층 구조
+<a id="supplemental-lesson---ragged-hierarchies" class="xliff"></a>
+# 추가 단원 - 불규칙한 계층 구조
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -34,14 +35,17 @@ ms.lasthandoff: 05/05/2017
   
 이 단원을 완료하기 위한 예상 시간: **20분**  
   
-## <a name="prerequisites"></a>필수 조건  
+<a id="prerequisites" class="xliff"></a>
+## 필수 조건  
 이 추가 단원 항목은 테이블 형식 모델링 자습서에 포함됩니다. 이 추가 단원의 작업을 수행하기 전에 이전의 모든 단원을 완료하거나 완료된 Adventure Works Internet Sales 샘플 모델 프로젝트가 있어야 합니다. 
 
 자습서의 일부로 AW Internet Sales 프로젝트를 만들었으면 모델에는 아직 데이터 또는 불규칙한 계층 구조가 포함되지 않습니다. 이 추가 단원을 완료하려면 먼저 몇 가지 테이블을 더 추가하고, 관계, 계산된 열, 측정값 및 새 조직 계층 구조를 만들어서 문제를 만들어야 합니다. 이 부분에는 약 15분 정도 걸립니다. 그런 다음 몇 분 안에 문제를 해결합니다.  
 
-## <a name="add-tables-and-objects"></a>테이블 및 개체 추가
+<a id="add-tables-and-objects" class="xliff"></a>
+## 테이블 및 개체 추가
   
-### <a name="to-add-new-tables-to-your-model"></a>모델에 새 테이블을 추가하려면
+<a id="to-add-new-tables-to-your-model" class="xliff"></a>
+### 모델에 새 테이블을 추가하려면
   
 1.  테이블 형식 모델 탐색기에서 **데이터 원본**을 확장한 후 연결을 마우스 오른쪽 단추로 클릭한 다음 > **새 테이블 가져오기**를 클릭합니다.
   
@@ -112,7 +116,8 @@ ms.lasthandoff: 05/05/2017
 
     피벗 테이블에서 볼 수 있는 것처럼 계층 구조에 불규칙한 행이 표시됩니다. 빈 멤버가 표시된 많은 행이 있습니다.
 
-## <a name="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property"></a>멤버 숨기기 속성을 설정하여 불규칙한 계층 구조를 수정하려면
+<a id="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property" class="xliff"></a>
+## 멤버 숨기기 속성을 설정하여 불규칙한 계층 구조를 수정하려면
 
 1.  **테이블 형식 모델 탐색기**에서 **테이블** > **DimEmployee** > **계층 구조** > **조직**을 확장합니다.
 
@@ -126,7 +131,8 @@ ms.lasthandoff: 05/05/2017
 
     이제 훨씬 좋아 보입니다.
 
-## <a name="see-also"></a>참고 항목   
+<a id="see-also" class="xliff"></a>
+## 참고 항목   
 [단원 9: 계층 구조 만들기](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [추가 단원 - 동적 보안](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [추가 단원 - 세부 정보 행](../tutorials/aas-supplemental-lesson-detail-rows.md)  

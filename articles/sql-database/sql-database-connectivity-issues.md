@@ -14,13 +14,13 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 06/13/2017
 ms.author: daleche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 608cbc0fd1cc1d73d28056909ed06618457bd9c0
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ae081fc0432e36bf9f4d4f06f289386ddce37990
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/10/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -40,7 +40,7 @@ ms.lasthandoff: 04/10/2017
 다음에 따라, SQL 연결을 다시 시도하거나 다시 설정합니다.
 
 * **연결 시도 중 일시적 오류가 발생할 경우**: 몇 초 지연한 후에 연결을 다시 시도해야 합니다.
-* **SQL 쿼리 명령 중 일시적 오류가 발생할 경우**: 명령을 즉시 다시 시도하면 안 됩니다. 대신, 지연 후에 연결을 새로 고쳐야 합니다. 그런 다음 명령을 다시 시도할 수 있습니다.
+* **SQL 쿼리 명령 중에 일시적 오류가 발생할 경우**: 명령을 즉시 다시 시도하면 안 됩니다. 대신, 지연 후에 연결을 새로 고쳐야 합니다. 그런 다음 명령을 다시 시도할 수 있습니다.
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
@@ -157,14 +157,14 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 <a id="c-connection-string" name="c-connection-string"></a>
 
 ### <a name="connection-connection-string"></a>연결: 연결 문자열
-Azure SQL 데이터베이스에 연결하는 데 필요한 연결 문자열은 Microsoft SQL Server에 연결하기 위한 문자열과 약간 다릅니다. [Azure 포털](https://portal.azure.com/)에서 데이터베이스에 대한 연결 문자열을 복사할 수 있습니다.
+Azure SQL 데이터베이스에 연결하는 데 필요한 연결 문자열은 Microsoft SQL Server에 연결하기 위한 문자열과 약간 다릅니다. [Azure Portal](https://portal.azure.com/)에서 데이터베이스에 대한 연결 문자열을 복사할 수 있습니다.
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
 ### <a name="connection-ip-address"></a>연결: IP 주소
-SQL 데이터베이스 서버가 사용자의 클라이언트 프로그램을 호스팅하는 컴퓨터의 IP 주소의 통신을 수락하도록 구성해야 합니다. 이 작업은 [Azure 포털](https://portal.azure.com/)에서 방화벽 설정을 편집하여 수행할 수 있습니다.
+SQL 데이터베이스 서버가 사용자의 클라이언트 프로그램을 호스팅하는 컴퓨터의 IP 주소의 통신을 수락하도록 구성해야 합니다. 이 작업은 [Azure Portal](https://portal.azure.com/)에서 방화벽 설정을 편집하여 수행할 수 있습니다.
 
 IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 오류 메시지로 필요한 IP 주소를 표시합니다.
 

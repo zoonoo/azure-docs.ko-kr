@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/09/2017
+ms.date: 07/17/2017
 ms.author: anandy; billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
 ms.openlocfilehash: 22f2bcfdd8c3978a6924c8c8cdea2744001000fe
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/10/2017
 
 ---
@@ -65,3 +66,4 @@ fabrikam.com 관리되는 도메인을 페더레이션된 도메인으로 변환
 
 ## <a name="next-steps"></a>다음 단계
 [Active Directory와 Azure Active Directory 연결](active-directory-aadconnect.md)
+

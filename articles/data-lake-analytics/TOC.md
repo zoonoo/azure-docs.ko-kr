@@ -3,43 +3,34 @@
 
 # 시작
 ## [Azure 포털](data-lake-analytics-get-started-portal.md)
-## [PowerShell](data-lake-analytics-get-started-powershell.md)
-## [.NET SDK](data-lake-analytics-get-started-net-sdk.md)
-## [Java SDK](data-lake-analytics-get-started-java-sdk.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [Azure CLI](data-lake-analytics-get-started-cli.md)
+## [PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI 2.0](data-lake-analytics-get-started-cli2.md)
-## [REST API](data-lake-analytics-get-started-rest-api.md)
-## [Python](data-lake-analytics-get-started-python.md)
 
 # 방법
-## 개발
+
+## Data Lake Analytics 계정 관리
+### [Azure 포털](data-lake-analytics-manage-use-portal.md)
+### [Azure CLI](data-lake-analytics-manage-use-cli.md)
+### [PowerShell](data-lake-analytics-manage-use-powershell.md)
+### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
+### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
+### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
+### [Node.JS](data-lake-analytics-manage-use-nodejs.md)
+### [진단 로그 액세스](data-lake-analytics-diagnostic-logs.md)
+
+## U-SQL 프로그램 개발
 ### [U-SQL 기본 사항](data-lake-analytics-u-sql-get-started.md)
+### [U-SQL 언어 참조](https://msdn.microsoft.com/library/azure/mt591959)
 ### [U-SQL 카탈로그](data-lake-analytics-u-sql-catalog.md)
-### [U-SQL 조인](data-lake-analytics-u-sql-combine-data-with-joins.md)
-### [U-SQL 매개 변수](data-lake-analytics-u-sql-parameterize_scripts.md)
-### [U-SQL 창 함수](data-lake-analytics-use-window-functions.md)
 ### [U-SQL 사용자 정의 연산자](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 ### [U-SQL Python 확장](data-lake-analytics-u-sql-python-extensions.md)
 ### [U-SQL R 확장](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL 인지 확장](data-lake-analytics-u-sql-cognitive.md)
-
-## 솔루션 만들기
 ### [웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
-### [대화식 자습서: 웹 사이트 로그 분석](data-lake-analytics-use-interactive-tutorials.md)
 
-
-## 관리
-### [Azure Portal](data-lake-analytics-manage-use-portal.md)
-### [Azure CLI](data-lake-analytics-manage-use-cli.md)
-### [PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Node.JS](data-lake-analytics-manage-use-nodejs.md)
-### [코드 및 데이터 구조화를 위한 U-SQL 카탈로그](data-lake-analytics-use-u-sql-catalog.md)
-
-## 문제 해결
+## U-SQL 프로그램 디버그
 ### [작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-### [진단 로그 액세스](data-lake-analytics-diagnostic-logs.md)
 ### [U-SQL에서 C# 코드 디버그](data-lake-analytics-debug-u-sql-jobs.md)
 ### [작업 브라우저 및 작업 보기 사용](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Vertex 실행 보기 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
@@ -49,14 +40,14 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
-## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST (영문)](/rest/api/datalakeanalytics/)
 ## [CLI 2.0](https://docs.microsoft.com/cli/azure/dla)
 
 # 리소스
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-analytics)
-## [가격 책정](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
 ## [Azure Data Lake 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [가격 책정](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-analytics)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-lake)

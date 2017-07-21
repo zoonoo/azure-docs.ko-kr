@@ -65,8 +65,9 @@
 ## [REST (영문)](/rest/api/notificationhubs)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
+## [가격 책정](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=notification-hubs)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=notification-hubs)

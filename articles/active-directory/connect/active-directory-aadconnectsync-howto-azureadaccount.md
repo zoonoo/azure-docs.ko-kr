@@ -13,12 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4e6ef568f510d9db4df115e25d66f53feffc829e
 ms.openlocfilehash: c607830466d7f942f1d0a43ebeccea07ed0877a9
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 02/06/2017
 
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect 동기화: Azure AD 서비스 계정을 관리하는 방법
@@ -52,10 +53,5 @@ AADSTS70002: 자격 증명의 유효성 검사 오류. AADSTS70002: 자격 증�
 
 * [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

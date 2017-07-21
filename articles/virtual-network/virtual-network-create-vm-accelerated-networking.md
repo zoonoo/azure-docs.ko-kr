@@ -17,16 +17,16 @@ ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 43663ed8becfa69c06699709a18623652df28ed6
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 0d74a13968338d5dc88eab3353316c77c7544615
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>가속화된 네트워킹을 사용하는 가상 컴퓨터 만들기
 
-이 자습서에서는 가속화된 네트워킹을 사용하는 Azure VM(가상 컴퓨터)을 만드는 방법에 대해 알아봅니다. 가속화된 네트워킹을 사용하면 VM에 대한 단일 루트 I/O 가상화(SR-IOV)를 구현할 수 있어 네트워킹 성능이 크게 향상됩니다. 이 고성능 경로는 데이터 경로에서 호스트를 우회함으로써 대기 시간, 지터 및 CPU 사용률을 줄이므로 지원되는 VM 유형에서 가장 까다로운 네트워크 워크로드에 사용합니다. 다음 그림에서는 가속화된 네트워킹을 사용하거나 사용하지 않는 경우의 두 VM(가상 컴퓨터) 간 통신을 보여 줍니다.
+이 자습서에서는 가속화된 네트워킹을 사용하는 Azure VM(가상 컴퓨터)을 만드는 방법에 대해 알아봅니다. 가속화된 네트워킹은 Windows용 GA이고 특정 Linux 배포를 위한 공개 미리 보기로 제공됩니다. 가속화된 네트워킹을 사용하면 VM에 대한 단일 루트 I/O 가상화(SR-IOV)를 구현할 수 있어 네트워킹 성능이 크게 향상됩니다. 이 고성능 경로는 데이터 경로에서 호스트를 우회함으로써 대기 시간, 지터 및 CPU 사용률을 줄이므로 지원되는 VM 유형에서 가장 까다로운 네트워크 워크로드에 사용합니다. 다음 그림에서는 가속화된 네트워킹을 사용하거나 사용하지 않는 경우의 두 VM(가상 컴퓨터) 간 통신을 보여 줍니다.
 
 ![비교](./media/virtual-network-create-vm-accelerated-networking/image1.png)
 
@@ -48,8 +48,8 @@ ms.lasthandoff: 05/16/2017
 
 * **네트워크 인터페이스 만들기:** 가속화된 네트워킹은 새 NIC에서만 사용할 수 있으며, 기존 NIC에서는 사용할 수 없습니다.
 * **VM 만들기:** VM을 만들 때 가속화된 네트워킹을 사용하도록 설정된 NIC만 VM에 연결할 수 있습니다. 기존 VM에는 이 NIC를 연결할 수 없습니다.
-* **지역:** 가속화된 네트워킹 기능을 갖춘 Windows VM은 대부분의 Azure 지역에서 제공됩니다. 가속화된 네트워킹 기능을 갖춘 Linux VM은 두 지역, 즉 미국 중남부 및 미국 서부 2에서만 제공됩니다. 이 기능을 사용할 수 있는 지역은 앞으로 확장될 예정입니다.
-* **지원되는 운영 체제:** Windows: Microsoft Windows Server 2012 R2 Datacenter 및 Windows Server 2016. Linux: Ubuntu Server 16.04 LTS(커널 4.4.0-77 이상) 추가 배포가 곧 추가될 예정입니다.
+* **지역:** 가속화된 네트워킹 기능을 갖춘 Windows VM은 대부분의 Azure 지역에서 제공됩니다. 가속화된 네트워킹 기능을 갖춘 Linux VM은 여러 지역에서 제공됩니다. 이 기능을 사용할 수 있는 지역은 확장되고 있습니다. 최신 정보는 Azure 가상 네트워킹 업데이트 블로그를 참조하세요.   
+* **지원되는 운영 체제:** Windows: Microsoft Windows Server 2012 R2 Datacenter 및 Windows Server 2016. Linux: Ubuntu Server 16.04 LTS(커널 4.4.0-77 이상), SLES 12 SP2, RHEL 7.3 및 CentOS 7.3(“Rogue Wave Software”에 의해 게시됨).
 * **VM 크기:** 8개 이상의 코어가 있는 범용 및 계산 용도로 최적화된 인스턴스 크기입니다. 자세한 내용은 [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM 크기 문서를 참조하세요. 지원되는 VM 인스턴스 크기 집합은 앞으로 확장될 예정입니다.
 
 이러한 제한 사항이 변경되면 [Azure 가상 네트워킹 업데이트](https://azure.microsoft.com/updates/accelerated-networking-in-preview) 페이지를 통해 발표됩니다.
@@ -72,7 +72,7 @@ Azure Portal 또는 Azure [PowerShell](#windows-powershell)을 사용하여 VM�
 
     Azure를 처음 사용하는 경우 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 및 [위치](https://azure.microsoft.com/regions)(지역이라고도 함)에 대해 자세히 알아봅니다.
 5. 표시되는 **크기 선택** 블레이드의 **최소 코어 수** 상자에서 *8*을 입력한 다음 **모두 보기**를 클릭합니다.
-6. **DS4_V2 표준**를 클릭한 다음 **선택** 단추를 클릭합니다.
+6. **DS4_V2 표준** 또는 지원되는 VM을 클릭한 다음 **선택** 단추를 클릭합니다.
 7. 표시되는 **설정** 블레이드에서 모든 설정은 그대로 두는 한편, **가속화된 네트워킹** 아래에서 **사용**을 클릭한 다음 **확인** 단추를 클릭합니다. **참고:** 이 문서의 [제한 사항](#Limitations) 섹션에서 설명하지 않은 VM 크기, 운영 체제 또는 위치에 대한 값을 이전 단계에서 선택한 경우 **가속화된 네트워킹**은 표시되지 않습니다.
 8. 표시되는 **요약** 블레이드에서 **확인** 단추를 클릭합니다. Azure VM을 만들기 시작합니다. VM을 만드는 데 몇 분이 걸립니다.
 9. Windows용 가속화된 네트워킹 드라이버를 설치하려면 이 문서의 [Windows 구성](#configure-windows)섹션에서 설명하는 단계를 완료합니다.
@@ -157,28 +157,20 @@ Azure에서 VM을 만든 후에는 Windows용 가속화된 네트워킹 드라�
 5. 원격 연결의 게시자를 식별할 수 없다고 알리는 메시지와 함께 표시되는 **원격 데스크톱 연결** 상자에서 **연결** 단추를 클릭합니다.
 6. 표시되는 **Windows 보안** 상자에서 **추가 선택 항목**을 클릭한 다음 **다른 계정 사용**을 클릭합니다. 4단계에서 입력한 사용자 이름과 암호를 입력한 다음 **확인** 단추를 클릭합니다.
 7. 원격 컴퓨터의 ID를 확인할 수 없다고 알리는 메시지와 함께 표시되는 [원격 데스크톱 연결] 상자에서 **예** 단추를 클릭합니다.
-8. MyVm VM에서 [Windows 시작 단추], **Internet Explorer**를 차례로 클릭합니다.
-9. 표시되는 **Internet Explorer 11**에서 **권장 보안, 개인 정보 및 호환성 설정 사용**을 클릭한 다음 **확인**을 클릭합니다.
-10. Internet Explorer 주소 표시줄에서 https://gallery.technet.microsoft.com/Azure-Accelerated-471b5d84를 입력한 다음 Enter 키를 누릅니다.
-11. 표시되는 **보안 경고** 상자에서 **확인**을 클릭합니다.
-12. 표시되는 **Internet Explorer** 상자에서 **추가**를 클릭하고, **신뢰할 수 있는 사이트** 상자에서 **추가** 단추를 클릭한 다음, **닫기** 단추를 클릭합니다. 표시되는 모든 후속 상자에 대해 이러한 단계를 완료합니다.
-13. 파일을 다운로드하려면 해당 파일을 클릭합니다.
-14. **라이선스, 사용 약관** 상자가 표시되면 **동의함**을 클릭합니다.
-15. 화면 아래쪽의 상자에서 **저장** 단추를 클릭하여 Internet Explorer에서 파일을 저장하도록 허용한 다음 **폴더 열기** 단추를 클릭합니다.
-16. 가속화된 네트워킹 드라이버를 설치하려면 파일을 두 번 클릭합니다. 설치 마법사에서 모든 기본값을 적용한 다음 마법사의 끝 단계에서 **예** 단추를 클릭하여 VM을 다시 시작합니다.
-17. VM이 다시 시작되면 9-12단계를 다시 수행하여 VM에 연결합니다.
-18. [Windows 시작] 단추를 마우스 오른쪽 단추로 클릭한 다음 **장치 관리자**를 클릭합니다. **네트워크 어댑터** 노드를 펼칩니다. 다음 그림과 같이 **Mellanox ConnectX-3 Virtual Function Ethernet Adapter**가 나타나는지 확인합니다.
+8. [Windows 시작] 단추를 마우스 오른쪽 단추로 클릭한 다음 **장치 관리자**를 클릭합니다. **네트워크 어댑터** 노드를 펼칩니다. 다음 그림과 같이 **Mellanox ConnectX-3 Virtual Function Ethernet Adapter**가 나타나는지 확인합니다.
    
     ![장치 관리자](./media/virtual-network-create-vm-accelerated-networking/image2.png)
 
+9. 이제 가속화된 네트워킹을 VM에 사용할 수 있습니다.
+
 ## <a name="create-a-linux-vm"></a>Linux VM 만들기
-Azure Portal 또는 Azure [PowerShell](#linux-powershell)을 사용하여 VM을 만들 수 있습니다.
+Azure Portal 또는 Azure [PowerShell](#linux-powershell)을 사용하여 Ubuntu 또는 SLES VM을 만들 수 있습니다. RHEL 및 CentOS VM의 경우 다른 워크플로가 있습니다.  아래의 지침을 참조하세요.
 
 ### <a name="linux-portal"></a>포털
 1. 이 문서의 [Linux VM 만들기 - PowerShell](#linux-powershell) 섹션에 나오는 1-5단계를 수행하여 Linux 가속화된 네트워킹 미리 보기에 등록합니다.  포털에서는 미리 보기에 등록할 수 없습니다.
 2. 이 문서의 [Windows VM 만들기 - 포털](#windows-portal) 섹션에 나오는 1-8단계를 수행합니다. 2단계에서 **Windows Server 2016 Datacenter** 대신 **Ubuntu Server 16.04 LTS**를 클릭합니다. 이 자습서에서는 SSH 키 대신 암호를 사용하도록 선택하지만, 프로덕션 배포에서는 둘 중 하나를 사용할 수 있습니다. 이 문서의 [Windows VM 만들기 - 포털](#windows-portal) 섹션의 7단계를 수행할 때 **가속화된 네트워킹**이 나타나지 않으면 다음과 같은 이유 중 하나로 인해 발생할 수 있습니다.
     - 아직 미리 보기에 등록되지 않았습니다. 이 문서의 [Linux VM 만들기 - Powershell](#linux-powershell) 섹션의 4단계에서 설명한 대로 등록 상태가 **등록됨**인지 확인합니다. **참고:** Windows VM용 가속화된 네트워킹 미리 보기에 참여한 경우 Windows VM용 가속화된 네트워킹을 사용하기 위해 더 이상 등록할 필요가 없지만, Linux VM용 가속화된 네트워킹 미리 보기에서는 자동으로 등록되지 않습니다. 따라서 참여할 Linux VM 가속화된 네트워킹 미리 보기에 등록해야 합니다.
-    - 이 문서의 [제한 사항](#simitations) 섹션에서 설명하는 VM 크기, 운영 체제 또는 위치를 선택하지 않았습니다.
+    - 이 문서의 [제한 사항](#limitations) 섹션에서 설명하는 VM 크기, 운영 체제 또는 위치를 선택하지 않았습니다.
 3. Linux용 가속화된 네트워킹 드라이버를 설치하려면 이 문서의 [Linux 구성](#configure-linux)섹션에서 설명하는 단계를 완료합니다.
 
 ### <a name="linux-powershell"></a>PowerShell
@@ -191,28 +183,26 @@ Azure Portal 또는 Azure [PowerShell](#linux-powershell)을 사용하여 VM을 
 2. [Windows 시작] 단추를 클릭하고 **powershell**을 입력한 다음 검색 결과에서 **PowerShell**을 클릭하여 PowerShell 세션을 시작합니다.
 3. PowerShell 창에서 `login-azurermaccount` 명령을 입력하여 Azure [계정](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)으로 로그인합니다. 아직 계정이 없는 경우 [평가판](https://azure.microsoft.com/offers/ms-azr-0044p)을 등록할 수 있습니다.
 4. 다음 단계를 완료하여 Azure 가속화된 네트워킹 미리 보기에 등록합니다.
-    - 다음 명령을 입력합니다.
-
-        ```powershell
-        Register-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingFeature -ProviderNamespace Microsoft.Network
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-        ```
-    - Azure 구독 ID 및 의도된 용도가 포함된 전자 메일을 [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e)에 보냅니다. 
+    - Azure 구독 ID 및 의도된 용도가 포함된 전자 메일을 [axnpreview@microsoft.com](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e)에 보냅니다. Microsoft에서 보내는 구독 활성화에 대한 메일 확인을 기다려 주세요.
     - 다음 명령을 입력하여 미리 보기에 등록되었는지 확인합니다.
     
-        `Get-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingFeature -ProviderNamespace Microsoft.Network`
+        ```powershell
+        Get-AzureRmProviderFeature -FeatureName AllowAcceleratedNetworkingForLinux -ProviderNamespace Microsoft.Network
+        ```
 
         이전 명령을 입력한 후 출력에 **등록됨**이 나타날 때까지 5단계로 진행하지 마세요. 계속 진행하기 전에 출력은 다음과 같아야 합니다.
     
+        ```powershell
+        FeatureName                        ProviderName      RegistrationState
+        -----------                        ------------      -----------------
+        AllowAcceleratedNetworkingForLinux Microsoft.Network Registered
         ```
-        FeatureName                       ProviderName      RegistrationState
-        -----------                       ------------      -----------------
-        AllowAcceleratedNetworkingFeature Microsoft.Network Registered
-        ```
+        
       >[!NOTE]
       >Windows VM용 가속화된 네트워킹 미리 보기에 참여한 경우 Windows VM용 가속화된 네트워킹을 사용하기 위해 더 이상 등록할 필요가 없지만, Linux VM용 가속화된 네트워킹 미리 보기에서는 자동으로 등록되지 않습니다. 따라서 참여할 Linux VM 가속화된 네트워킹 미리 보기에 등록해야 합니다.
       >
-5. 브라우저에서 다음 스크립트를 복사합니다.
+5. 브라우저에서 Ubuntu 또는 SLES를 원하는 대로 대체하는 다음 스크립트를 복사합니다.  또한 Redhat 및 CentOS에는 아래에서 간략하게 설명되는 다른 워크플로가 있습니다.
+
     ```powershell
     $RgName="MyResourceGroup"
     $Location="westus2"
@@ -251,6 +241,14 @@ Azure Portal 또는 Azure [PowerShell](#linux-powershell)을 사용하여 VM을 
       -PublicIpAddressId $Pip.Id `
       -EnableAcceleratedNetworking
      
+    # Create a new Storage account and define the new VM’s OSDisk name and its URI
+    # Must end with ".vhd" extension
+    $OSDiskName = "MyOsDiskName.vhd"
+    # Storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    $OSDiskSAName = "thestorageaccountname"  
+    $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $RgName -Name $OSDiskSAName -Type "Standard_GRS" -Location $Location
+    $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName
+ 
     # Define a credential object for the VM. PowerShell prompts you for a username and password.
     $Cred = Get-Credential
 
@@ -266,15 +264,18 @@ Azure Portal 또는 Azure [PowerShell](#linux-powershell)을 사용하여 VM을 
       -Offer UbuntuServer `
       -Skus 16.04-LTS `
       -Version latest | `
-    Add-AzureRmVMNetworkInterface -Id $Nic.Id 
+    Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
+    Set-AzureRmVMOSDisk -Name $OSDiskName `
+      -VhdUri $OSDiskUri `
+      -CreateOption FromImage 
 
     # Create the virtual machine.    
     New-AzureRmVM `
       -ResourceGroupName $RgName `
       -Location $Location `
       -VM $VmConfig
-    #
     ```
+    
 6. PowerShell 창에서 마우스 오른쪽 단추를 클릭하여 스크립트를 붙여넣고 실행을 시작합니다. 사용자 이름과 암호를 묻는 메시지가 나타납니다. 다음 단계에서 VM에 연결할 때 이 자격 증명을 사용하여 해당 VM에 로그인합니다. 스크립트가 실패하면 다음을 확인합니다.
     - 4단계에서 설명한 대로 미리 보기에 등록되어 있습니다.
     - 스크립트를 실행하기 전에 스크립트에서 VM 크기, 운영 체제 유형 및 위치의 값을 변경한 경우 해당 값이 이 문서의 [제한 사항](#Limitations) 섹션에서 설명하는 값인지 확인합니다.
@@ -291,19 +292,161 @@ Azure에서 VM을 만든 후에는 Linux용 가속화된 네트워킹 드라이�
 5. Azure에서 `ssh adminuser@<ipaddress>`를 입력하라는 상자를 엽니다. 이 명령을 클라우드 셸에서 입력하거나 4단계에서 표시되는 상자에서 복사하여 클라우드 셸에 붙여넣은 다음 Enter 키를 누릅니다.
 6. 연결을 계속할 것인지 묻는 질문에 **예**를 입력한 다음 Enter 키를 누릅니다.
 7. VM을 만들 때 입력한 암호를 입력합니다. VM에 성공적으로 로그인하면 adminuser@MyVm:~$ 프롬프트가 표시됩니다. 이제 클라우드 셸 세션을 통해 VM에 로그인했습니다. **참고:** 클라우드 셸 세션을 10분 동안 사용하지 않으면 시간이 초과됩니다.
-8. 프롬프트에서 `uname -r`을 입력하고 출력이 "4.4.0-77-generic" 버전과 일치하는지 확인합니다.
-9.    다음 명령을 실행하여 표준 네트워킹 vNIC와 가속화된 네트워킹 vNIC 간에 본드를 만듭니다. 네트워크 트래픽은 고성능 가속화된 네트워킹 vNIC를 사용하는 반면, 본드는 특정 구성 변경에서 네트워킹 트래픽이 중단되지 않도록 합니다. 
-    - `wget https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/plain/tools/hv/bondvf.sh`
-    - `chmod +x ./bondvf.sh`
-    - `sudo ./bondvf.sh`
-    - `sudo mv ~/bondvf.sh /etc/init.d`
-    - `sudo update-rc.d bondvf.sh defaults`참고: *insserv: warning: script 'bondvf.sh' missing LSB tags and overrides*(insserv: 경고: 'bondvf.sh' 스크립트에 LSB 태그가 누락되었으며 재정의됩니다.)라는 오류가 표시되면 이 오류를 무시할 수 있습니다.
-    - `sudo nano /etc/network/interfaces.d/50-cloud-init.cfg` 파일을 편집하기 위해 GNU nano 편집기를 엽니다.
-    - 편집기에서 각 줄의 시작 부분에 *#*을 추가하여 *auto etho0* 및 *iface eth0 inet dhcp* 줄을 주석으로 처리합니다. 각 줄에 *#*을 추가한 줄은 다음 예제와 같습니다.
-        - #<a name="auto-eth0"></a>auto eth0
-        - #<a name="iface-eth0-inet-dhcp"></a>iface eth0 inet dhcp
-10. **Ctrl+X** 키를 누른 채 **Y**를 입력한 다음 **Enter** 키를 눌러 파일을 저장합니다.
-11. `sudo shutdown -r now` 명령을 입력하여 VM을 다시 시작합니다.
-12. VM이 다시 시작되면 5-7단계를 다시 수행하여 VM에 다시 연결합니다.
-13.    `ifconfig` 명령을 실행하고 bond0이 나타나고 인터페이스가 UP으로 표시되는지 확인합니다. **참고:** 가속화된 네트워킹을 사용하는 응용 프로그램은 *eth0*이 아닌 *bond0* 인터페이스를 통해 통신해야 합니다.  가속화된 네트워킹이 일반적으로 공급되기 전에 인터페이스 이름이 변경될 수 있습니다.
+
+이때 지침은 사용 중인 배포에 따라 달라집니다. 
+
+#### <a name="ubuntusles"></a>Ubuntu/SLES
+
+1. 프롬프트에 `uname -r`을 입력하고 버전을 확인합니다.
+
+    * Ubuntu는 "4.4.0-77-generic" 이상임
+    * SLES는 "4.4.59-92.20-default" 이상임
+
+2. 다음 명령을 실행하여 표준 네트워킹 vNIC와 가속화된 네트워킹 vNIC 간에 본드를 만듭니다. 네트워크 트래픽은 고성능 가속화된 네트워킹 vNIC를 사용하는 반면, 본드는 특정 구성 변경에서 네트워킹 트래픽이 중단되지 않도록 합니다.
+          
+     ```bash
+     wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/configure_hv_sriov.sh
+     chmod +x ./configure_hv_sriov.sh
+     sudo ./configure_hv_sriov.sh
+     ```
+3. 스크립트를 실행한 후 VM은 60초 일시 정지된 후 다시 시작됩니다.
+4. VM이 다시 시작되면 5-7단계를 다시 수행하여 VM에 다시 연결합니다.
+5. `ifconfig` 명령을 실행하고 bond0이 나타나고 인터페이스가 UP으로 표시되는지 확인합니다. 
+ 
+ >[!NOTE]
+      >가속화된 네트워킹을 사용하는 응용 프로그램은 *eth0*이 아닌 *bond0* 인터페이스를 통해 통신해야 합니다.  가속화된 네트워킹이 일반적으로 공급되기 전에 인터페이스 이름이 변경될 수 있습니다.
+
+#### <a name="rhelcentos"></a>RHEL/CentOS
+
+Red Hat Enterprise Linux 또는 CentOS 7.3 VM을 만들려면 SR-IOV에 필요한 드라이버와 네트워크 카드용 VF(Virtual Function) 드라이버를 로드하는 추가적인 몇 단계가 필요합니다. 지침의 첫 번째 단계에서는 드라이버가 미리 로드된 하나 이상의 가상 컴퓨터를 만드는 데 사용할 수 있는 이미지를 준비합니다.
+
+##### <a name="phase-one-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>1단계: Red Hat Enterprise Linux 또는 CentOS 7.3 기본 이미지를 준비합니다. 
+
+1.  Azure에서 비SRIOV CentOS 7.3 VM 프로비전
+
+2.  LIS 4.2.1을 설치합니다.
+    
+    ```bash
+    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
+    tar -xvf lis-rpms-4.2.1-1.tar.gz
+    cd LISISO && sudo ./install.sh
+    ```
+
+3.  구성 파일을 다운로드합니다.
+    
+    ```bash
+    cd /etc/udev/rules.d/  
+    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/60-hyperv-vf-name.rules 
+    cd /usr/sbin/
+    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/hv_vf_name 
+    sudo chmod +x hv_vf_name
+    cd /etc/sysconfig/network-scripts/
+    sudo wget https://raw.githubusercontent.com/LIS/lis-next/master/tools/sriov/ifcfg-vf1   
+    ```
+
+4.  이 VM의 프로비전 해제
+
+    ```bash
+    sudo waagent -deprovision+user 
+    ```
+
+5.  Azure Portal에서 이 VM을 중지하고 VM의 "디스크"로 이동하여 OSDisk의 VHD URI를 캡처합니다. 이 URI에는 기본 이미지의 VHD 이름 및 저장소 계정이 포함됩니다. 
+ 
+##### <a name="phase-two-provision-new-vms-on-azure"></a>2단계: Azure에서 새 VM 프로비전
+
+1.  vNIC에서 AcceleratedNetworking을 사용하도록 설정하고 1단계에서 캡처된 기본 이미지 VHD를 사용하는 New-AzureRMVMConfig를 기반으로 새 VM을 프로비전합니다.
+
+    ```powershell
+    $RgName="MyResourceGroup"
+    $Location="westus2"
+    
+    # Create a resource group
+    New-AzureRmResourceGroup `
+     -Name $RgName `
+     -Location $Location
+
+    # Create a subnet
+    $Subnet = New-AzureRmVirtualNetworkSubnetConfig `
+     -Name MySubnet `
+     -AddressPrefix 10.0.0.0/24
+
+    # Create a virtual network
+    $Vnet=New-AzureRmVirtualNetwork `
+     -ResourceGroupName $RgName `
+     -Location $Location `
+     -Name MyVnet `
+     -AddressPrefix 10.0.0.0/16 `
+     -Subnet $Subnet
+    
+    # Create a public IP address
+    $Pip = New-AzureRmPublicIpAddress `
+     -Name MyPublicIp `
+     -ResourceGroupName $RgName `
+     -Location $Location `
+     -AllocationMethod Static
+    
+    # Create a virtual network interface and associate the public IP address to it
+    $Nic = New-AzureRmNetworkInterface `
+     -Name MyNic `
+     -ResourceGroupName $RgName `
+     -Location $Location `
+     -SubnetId $Vnet.Subnets[0].Id `
+     -PublicIpAddressId $Pip.Id `
+     -EnableAcceleratedNetworking
+    
+    # Specify the base image's VHD URI (from phase one step 5). 
+    # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
+    # See more from here: https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption
+    # This is just an example URI, you will need to replace this when running this script
+    $sourceUri="https://myexamplesa.blob.core.windows.net/vhds/CentOS73-Base-Test120170629111341.vhd" 
+
+    # Specify a URI for the location from which the new image binary large object (BLOB) is copied to start the virtual machine. 
+    # Must end with ".vhd" extension
+    $destOsDiskName = "MyOsDiskName.vhd" 
+    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $destOsDiskName
+    
+    # Define a credential object for the VM. PowerShell prompts you for a username and password.
+    $Cred = Get-Credential
+    
+    # Create a custom virtual machine configuration
+    $VmConfig = New-AzureRmVMConfig `
+     -VMName MyVM -VMSize Standard_DS4_v2 | `
+    Set-AzureRmVMOperatingSystem `
+     -Linux `
+     -ComputerName myVM `
+     -Credential $Cred | `
+    Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
+    Set-AzureRmVMOSDisk `
+     -Name $OSDiskName `
+     -SourceImageUri $sourceUri `
+     -VhdUri $destOsDiskUri `
+     -CreateOption FromImage `
+     -Linux
+    
+    # Create the virtual machine.    
+    New-AzureRmVM `
+     -ResourceGroupName $RgName `
+     -Location $Location `
+     -VM $VmConfig
+    ```
+
+2.  VM이 부팅된 후 "lspci"를 사용하여 VF 장치를 확인하고 Mellanox 항목을 확인합니다. 예를 들어 lspci 출력에 다음 항목이 표시되어야 합니다.
+    
+    ```
+    0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]
+    ```
+    
+3.  다음을 사용하여 본딩 스크립트를 실행합니다.
+
+    ```bash
+    sudo bondvf.sh
+    ```
+
+4.  새 VM을 다시 부팅합니다.
+
+    ```bash
+    sudo reboot
+    ```
+
+VM은 bond0이 구성되고 가속화된 네트워킹 경로가 사용하도록 설정된 상태로 시작되어야 합니다.  `ifconfig`를 실행하여 확인합니다.
 

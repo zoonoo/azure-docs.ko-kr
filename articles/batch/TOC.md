@@ -22,6 +22,8 @@
 ### [우선 순위가 낮은 VM](batch-low-pri-vms.md)
 ### [배치 관리 .NET을 사용하여 배치 계정 관리](batch-management-dotnet.md)
 ### [작업 유지 및 태스크 출력](batch-task-output.md)
+#### [Batch API를 사용하여 출력 유지](batch-task-output-files.md)
+#### [파일 규칙 라이브러리를 사용하여 출력 유지](batch-task-output-file-conventions.md)
 ### [MPI 작업 일괄 실행](batch-mpi.md)
 ### [작업 종속성](batch-task-dependencies.md)
 ### [작업 실행을 위한 사용자 계정](batch-user-accounts.md)
@@ -60,14 +62,15 @@
 ## [Azure 클라우드의 배치 및 HPC 솔루션](batch-hpc-solutions.md)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/batch/)
-## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-batch)
-## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=batch)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [C# 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Python 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [큰 계산 리소스](big-compute-resources.md)
 ## [블로그](https://blogs.technet.microsoft.com/windowshpc/)
+## [C# 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [가격 책정](https://azure.microsoft.com/pricing/details/batch/)
+## [Python 코드 샘플](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [서비스 업데이트](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-batch)
+## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
 

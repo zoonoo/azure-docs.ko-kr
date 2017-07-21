@@ -10,16 +10,16 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: abe9edb0cbcdae18964731b1ab90a27117fc0c15
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d628dc621335acf231342a6d9186079de16e85f4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-9-create-hierarchies"></a>단원 9: 계층 구조 만들기
@@ -58,7 +58,7 @@ ms.lasthandoff: 05/05/2017
   
 #### <a name="to-create-hierarchies-in-the-dimdate-table"></a>DimDate 테이블에서 계층 구조를 만들려면  
   
-1.  **DimDate** 테이블에서 **Calendar**라는 새 계층 구조를 만듭니다.  
+1.  **DimDate** 테이블에서 **Calendar**라는 계층 구조를 만듭니다.  
   
 3.  다음 열을 순서대로 추가합니다.
 

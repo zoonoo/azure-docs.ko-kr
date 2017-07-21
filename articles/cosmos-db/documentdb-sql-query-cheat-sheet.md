@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 06/05/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: e714d3585b78d28aba069464a444162103739657
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 04810ffa33d90d31003d0919c3edb2710fed453c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB SQL 쿼리 참고 자료 PDF
-**Azure Cosmos DB SQL 쿼리 참고 자료**를 사용하면 일반적인 데이터베이스 쿼리, 키워드, 기본 제공 함수 및 연산자를 쉽게 인쇄할 수 있는 PDF 참조 시트로 표시하여 Azure Cosmos DB 데이터에 대한 쿼리를 신속하게 작성할 수 있습니다. 
+# <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: DocumentDB API SQL 쿼리 참고 자료 PDF
+**Azure Cosmos DB: DocumentDB API SQL 쿼리 참고 자료**를 사용하면 인쇄하기 쉬운 PDF 참조 시트에 일반적인 데이터베이스 쿼리, 키워드, 기본 제공 함수 및 연산자를 표시하여 DocumentDB API 데이터에 대한 쿼리를 빠르게 작성할 수 있습니다. 
 
 Cosmos DB는 스키마 또는 보조 인덱스를 지정하지 않고도 [SQL](documentdb-sql-query.md)을 사용하여 JSON 문서의 관계형, 계층형 및 공간형 쿼리를 지원합니다. 표준 ANSI-SQL 키워드 및 연산자 외에도 Cosmos DB는 JavaScript UDF(사용자 정의 함수), JavaScript 연산자 및 다양한 기본 제공 함수를 지원합니다.
 

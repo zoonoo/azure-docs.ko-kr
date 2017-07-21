@@ -78,6 +78,7 @@
 
 
 # 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [국가별 가용성](https://azure.microsoft.com/regions/services)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

@@ -22,7 +22,6 @@
 ## 계획 및 디자인
 ### [설계 개념](active-directory-aadconnect-design-concepts.md)
 ### [Azure AD Connect에 대한 토폴로지](active-directory-aadconnect-topologies.md)
-### [Single Sign-On](active-directory-aadconnect-sso.md)
 ### [Azure의 Active Directory Federation Services](active-directory-aadconnect-azure-adfs.md)
 ### [인스턴스에 대한 특별 고려 사항](active-directory-aadconnect-instances.md)
 ### [Azure AD가 이미 있는 경우](active-directory-aadconnect-existing-tenant.md)
@@ -30,6 +29,17 @@
 ### [O365 및 Azure AD에 대한 인증서 갱신](active-directory-aadconnect-o365-certs.md)
 ### [장치 쓰기 저장 사용](active-directory-aadconnect-feature-device-writeback.md)
 ### [사용자 로그인 옵션](active-directory-aadconnect-user-signin.md)
+#### [Seamless Single Sign-On](active-directory-aadconnect-sso.md)
+##### [빠른 시작](active-directory-aadconnect-sso-quick-start.md)
+##### [작동 원리](active-directory-aadconnect-sso-how-it-works.md)
+##### [질문과 대답](active-directory-aadconnect-sso-faq.md)
+##### [문제 해결](active-directory-aadconnect-troubleshoot-sso.md)
+#### [통과 인증](active-directory-aadconnect-pass-through-authentication.md)
+##### [빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md)
+##### [현재 제한 사항](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
+##### [작동 원리](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [질문과 대답](active-directory-aadconnect-pass-through-authentication-faq.md)
+##### [문제 해결](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ### [페더레이션에 대한 여러 도메인 지원](active-directory-aadconnect-multiple-domains.md)
 ### [자동 업그레이드](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용](active-directory-aadconnect-federation-saml-idp.md)
@@ -39,7 +49,6 @@
 ## Azure AD Connect 동기화 관리
 ### [실수로 인한 삭제 방지](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [암호 동기화](active-directory-aadconnectsync-implement-password-synchronization.md)
-### [통과 인증](active-directory-aadconnect-pass-through-authentication.md)
 ### [Azure AD 서비스 계정](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [설치 마법사](active-directory-aadconnectsync-installation-wizard.md)
 ### [기본 구성 변경](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
@@ -96,5 +105,6 @@
 
 
 # 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ##[Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
 ##[DirSync 사용 중단](active-directory-aadconnect-dirsync-deprecated.md)

@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 691caf95971ccdd37b12bbc178627f25b228a782
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: ecde5dd3211bfbb290e6910d7d55136d079c6cf3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -57,9 +58,13 @@ Azure는 사용자가 업로드한 이미지와 함께 해당 이미지를 **Ima
 4. **Exit** 를 입력하여 SSH 클라이언트를 닫습니다.
 
    > [!NOTE]
-   > 나머지 단계에서는 클라이언트 컴퓨터에 이미 [Azure CLI를 설치](../../../cli-install-nodejs.md) 했다고 가정합니다. 다음 모든 단계는 [Azure 클래식 포털][Azure classic portal]에서도 수행할 수 있습니다.
+   > 나머지 단계에서는 클라이언트 컴퓨터에 이미 [Azure CLI를 설치](../../../cli-install-nodejs.md) 했다고 가정합니다. 다음 모든 단계는 [Azure Portal](http://portal.azure.com)에서도 수행할 수 있습니다.
 
 5. 클라이언트 컴퓨터에서 Azure CLI를 열고 Azure 구독에 로그인합니다. 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](../../../xplat-cli-connect.md)을 참조하세요.
+
+   > [!NOTE]
+   > Azure Portal에서 포털에 로그인합니다.
+
 6. 서비스 관리 모드에 있는지 확인합니다.
 
     ```azurecli
@@ -71,9 +76,10 @@ Azure는 사용자가 업로드한 이미지와 함께 해당 이미지를 **Ima
     ```azurecli
     azure vm shutdown myVM
     ```
+   필요한 경우 `azure vm list`를 사용하여 구독에서 만든 모든 VM 목록을 볼 수 있습니다.
 
    > [!NOTE]
-   > `azure vm list`를 사용하여 구독에서 만든 모든 VM 목록을 볼 수 있습니다.
+   > Azure Portal을 사용하는 경우 VM을 선택하고 **중지**를 클릭하여 VM을 종료합니다.
 
 8. VM이 중지되면 이미지를 캡처합니다. 다음 예에서는 `myVM`이라는 VM을 캡처하고 `myNewVM`이라는 범용 이미지를 만듭니다.
 
@@ -82,6 +88,9 @@ Azure는 사용자가 업로드한 이미지와 함께 해당 이미지를 **Ima
     ```
 
     `-t` 하위 명령은 원래 가상 컴퓨터를 삭제합니다.
+
+    > [!NOTE]
+    > Azure Portal의 허브 메뉴에서 **이미지**를 선택하여 이미지를 캡처할 수 있습니다. 이미지에 대한 다음 정보를 제공해야 합니다. 이름, 리소스 그룹, 위치, 운영 체제 유형 및 저장소 Blob 경로
 
 9. 이제 새 VM을 구성하는 데 사용할 수 있는 이미지 목록에서 새 이미지를 사용할 수 있습니다. 다음 명령을 사용하여 볼 수 있습니다.
 
@@ -96,11 +105,10 @@ Azure는 사용자가 업로드한 이미지와 함께 해당 이미지를 **Ima
 ## <a name="next-steps"></a>다음 단계
 이제 이미지를 사용하여 VM을 만들 수 있습니다. Azure CLI 명령 `azure vm create` 을 사용하고 만든 이미지 이름을 제공할 수 있습니다. 자세한 내용은 [클래식 배포 모델에서 Azure CLI 사용](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)을 참조하세요.
 
-또는 [Azure 클래식 포털][Azure classic portal]에서 **갤러리에서** 방법을 사용한 후 만든 이미지를 선택하여 사용자 지정 VM을 만듭니다. 자세한 내용은 [사용자 지정 VM을 만드는 방법][How to Create a Custom Virtual Machine]을 참조하세요
+또는 [Azure Portal](http://portal.azure.com)에서 **이미지** 방법을 사용하고 만든 이미지를 선택하여 사용자 지정 VM을 만듭니다. 자세한 내용은 [사용자 지정 VM을 만드는 방법][How to Create a Custom Virtual Machine]을 참조하세요
 
 **참고 항목:** [Azure Linux 에이전트 사용자 가이드](../agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Azure classic portal]:http://manage.windowsazure.com
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
 [How to Create a Custom Virtual Machine]:create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk.md

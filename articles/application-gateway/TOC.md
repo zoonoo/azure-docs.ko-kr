@@ -41,6 +41,7 @@
 ### [포털](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell(클래식)](application-gateway-create-probe-classic-ps.md)
+## [Azure Security Center 통합](application-gateway-integration-security-center.md)
 ## [부하 분산 서비스 조합](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## 문제 해결
 ### [Application Gateway의 오류 해결](application-gateway-troubleshooting-502.md)
@@ -63,8 +64,9 @@
 ## [부하 분산 장치](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-application-gateway)
+## [가격 책정](https://azure.microsoft.com/pricing/details/application-gateway/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-application-gateway)

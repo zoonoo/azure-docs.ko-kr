@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 209d1cbe4f1ad08a98caf0a8d16f5b0ee45468ca
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 008952b4fee6bffe1e20259dc86fd6d5122777ec
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -71,7 +72,7 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 > 
 
 ### <a name="the-web-service"></a>웹 서비스
-예측 실험이 준비되었으면 서비스를 기존 웹 서비스 또는 Azure Resource Manager에 기반한 새 웹 서비스로 배포할 수 있습니다. 모델을 *기존 Machine Learning 웹 서비스*로 배포하여 조작하려면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]**를 선택합니다. *새 Machine Learning 웹 서비스*를 배포하려면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]**를 선택합니다. 이제 사용자가 웹 서비스 REST API를 통해 데이터를 모델로 전송하고 그 결과를 다시 받을 수 있습니다. 자세한 내용은 [Machine Learning 실험에서 배포된 Azure Machine Learning 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
+예측 실험이 준비되었으면 서비스를 기존 웹 서비스 또는 Azure Resource Manager에 기반한 새 웹 서비스로 배포할 수 있습니다. 모델을 *기존 Machine Learning 웹 서비스*로 배포하여 조작하려면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]**를 선택합니다. *새 Machine Learning 웹 서비스*를 배포하려면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]**를 선택합니다. 이제 사용자가 웹 서비스 REST API를 통해 데이터를 모델로 전송하고 그 결과를 다시 받을 수 있습니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 사용 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
 ## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>비일반적 경우: 비예측 웹 서비스 만들기
 실험에서 예측 분석 모델을 학습하지 않은 경우 학습 실험 및 점수 매기기 실험을 모두 만들 필요가 없습니다. 하나의 실험만 있으며 이 실험을 웹 서비스로 배포할 수 있습니다. Machine Learning Studio에서는 사용한 모듈을 분석하여 예측 모델이 실험에 포함되는지를 감지합니다.

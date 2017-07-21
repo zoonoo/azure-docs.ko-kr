@@ -12,16 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 7e9ca0c15c29fb670b742d939107bb5d4a48245c
-ms.lasthandoff: 03/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 5c2cb05ced7841899c2bd19f627d13b86a4b05cc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
 
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Log Analytics의 네트워크 성능 모니터 솔루션
+
+![네트워크 성능 모니터 기호](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
 이 문서는 Log Analytics에서 네트워크 성능을 거의 실시간으로 모니터링하여 네트워크 성능 병목을 감지하고 찾을 수 있는 Log Analytics의 네트워크 성능 모니터 솔루션을 설정하고 사용하는 방법에 대해 설명합니다. 네트워크 성능 모니터 솔루션에서는 두 네트워크, 서브넷 또는 서버 간 손실과 대기 시간을 모니터링할 수 있습니다. 네트워크 성능 모니터는 트래픽 블랙홀, 라우팅 오류 등의 네트워크 문제와 기존 네트워크 모니터링 방법으로 감지할 수 없는 문제를 감지합니다. 네트워크 성능 모니터는 네트워크 링크의 임계값이 위반될 때 경고와 알림을 표시합니다. 이러한 임계값은 시스템에서 자동으로 학습할 수 있으며 사용자 지정 경고 규칙을 사용하도록 구성할 수도 있습니다. 네트워크 성능 모니터는 네트워크 성능 문제를 빠르게 감지하고 문제의 소스를 특정 네트워크 세그먼트 또는 장치로 지역화합니다.
 
@@ -199,9 +202,9 @@ PowerShell 스크립트를 사용하여 Windows를 실행하는 컴퓨터에서 
 배포하는 동안 ICMP를 사용하도록 선택한 경우에는 기본 모니터링 규칙을 편집하여 TCP로 언제든 전환할 수 있습니다.
 
 ##### <a name="to-edit-the-default-monitoring-rule"></a>기본 모니터링 규칙을 편집하려면
-1.    **네트워크 성능** > **모니터** > **구성** > **모니터**로 이동한 다음 **기본 규칙**을 클릭합니다.
-2.    **프로토콜** 섹션으로 스크롤하여 사용할 프로토콜을 선택합니다.
-3.    **저장**을 클릭하여 설정을 적용합니다.
+1.  **네트워크 성능** > **모니터** > **구성** > **모니터**로 이동한 다음 **기본 규칙**을 클릭합니다.
+2.  **프로토콜** 섹션으로 스크롤하여 사용할 프로토콜을 선택합니다.
+3.  **저장**을 클릭하여 설정을 적용합니다.
 
 기본 규칙에서 특정 프로토콜을 사용하더라도 다른 프로토콜로 새 규칙을 만들 수 있습니다. 일부 규칙은 ICMP를 사용하고 다른 곳에서는 TCP를 사용하는 혼합 규칙을 만들 수도 있습니다.
 

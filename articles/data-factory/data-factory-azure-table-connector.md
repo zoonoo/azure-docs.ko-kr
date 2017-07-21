@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 06/22/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d688b5c6f918542b73d95c795f5dbb82070b17c8
+ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
+ms.openlocfilehash: 792a551ae3dae46c503e5f0dda74cd0ac3a69c3a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/27/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -460,7 +460,7 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
    }
 }
 ```
-### <a name="type-mapping-for-azure-table"></a>Azure 테이블에 대한 형식 매핑
+## <a name="type-mapping-for-azure-table"></a>Azure 테이블에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
@@ -475,8 +475,8 @@ Azure 테이블에서 데이터를 이동하는 경우 다음 [Azure 테이블 �
 | Edm.DateTime |DateTime |UTC(협정 세계시)로 표현되는 64비트 값입니다. 지원되는 DateTime 범위는 서기 1601년 1월 1일 자정 12시부터 시작합니다. (서기), UTC입니다. 범위는 9999년 12월 31일에 끝납니다. |
 | Edm.Double |double |64비트 부동 소수점 값입니다. |
 | Edm.Guid |Guid |전역적으로 고유한 128 비트 식별자입니다. |
-| Edm.Int32 |Int32 또는 int |32비트 정수입니다. |
-| Edm.Int64 |Int64 또는 long |64비트 정수입니다. |
+| Edm.Int32 |Int32 |32비트 정수입니다. |
+| Edm.Int64 |Int64 |64비트 정수입니다. |
 | Edm.String |문자열 |UTF-16으로 인코딩된 값입니다. 문자열 값은 최대 64KB입니다. |
 
 ### <a name="type-conversion-sample"></a>형식 변환 샘플

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 387b274a993454814f7238f4cd89a52351a6fc1f
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 303cdffa15fdfe9b83d0612edecafc6943d218f3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -41,10 +43,5 @@ ms.openlocfilehash: 387b274a993454814f7238f4cd89a52351a6fc1f
 | 8 |장치 장애 조치 |동일한 원본 장치에서 다른 대상 장치로의 볼륨 컨테이너의 다중 장애 조치는 지원되지 않습니다. 단일 데드 장치에서 여러 장치로의 장애 조치로 첫 번째 장애 조치된 장치의 볼륨 컨테이너에서 데이터 소유권이 손실됩니다. 이러한 장애 조치 후 Azure 클래식 포털에서 볼 때 이 볼륨 컨테이너가 나타나거나 다르게 동작합니다. | |예 |아니요 |
 | 9 |설치 |SharePoint용 StorSimple 어댑터 설치 중, 성공적으로 설치를 완료하려면 장비 IP를 입력해야 합니다. | |예 |아니요 |
 | 10 |네트워크 인터페이스 |네트워크 인터페이스 데이터 2 및 데이터 3은 소프트웨어에서 전환되었습니다. |이러한 인터페이스를 구성해야 하는 경우 Microsoft 지원에 문의하세요. |예 |아니요 |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

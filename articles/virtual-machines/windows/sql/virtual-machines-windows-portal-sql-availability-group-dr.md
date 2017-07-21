@@ -14,17 +14,20 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/09/2017
+ms.date: 05/02/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 088f9fc332f04edfd154450726c4e175ccaf3db3
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: e9a2c3230ec5081a0cfb57ef1dbf311a87bb26b5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/05/2017
 
 
 ---
 
-# <a name="configure-a-sql-server-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>다른 지역의 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 구성
+<a id="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions" class="xliff"></a>
+
+# 다른 하위 지역의 Azure Virtual Machines에서 Always On 가용성 그룹 구성
 
 이 문서에서는 원격 Azure 위치의 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 복제본을 구성하는 방법을 설명합니다. 이 구성을 사용하여 재해 복구를 지원합니다.
 
@@ -59,7 +62,9 @@ ms.lasthandoff: 04/21/2017
 >[!IMPORTANT]
 >이 아키텍처에서는 Azure 지역 간에 복제되는 데이터에 대해 아웃바운드 데이터 요금이 부과됩니다. [대역폭 가격 책정](http://azure.microsoft.com/pricing/details/bandwidth/)을 참조하세요.  
 
-## <a name="create-remote-replica"></a>원격 복제본 만들기
+<a id="create-remote-replica" class="xliff"></a>
+
+## 원격 복제본 만들기
 
 원격 데이터 센터에서 복제본을 만들려면 다음 단계를 수행합니다.
 
@@ -92,7 +97,7 @@ ms.lasthandoff: 04/21/2017
 
 1. [도메인 계정을 사용하도록 새 SQL Server 서비스 계정을 설정합니다](virtual-machines-windows-portal-sql-availability-group-prereq.md#setServiceAccount).
 
-1. [새 SQL Server 를 Windows Server 장애 조치 클러스터에 추가합니다](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
+1. [새 SQL Server를 Windows Server 장애 조치 클러스터에 추가합니다](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
 
 1. 클러스터에서 IP 주소 리소스를 만듭니다.
 
@@ -105,7 +110,7 @@ ms.lasthandoff: 04/21/2017
    - 원격 데이터 센터의 네트워크를 사용합니다.
    - 새 Azure Load Balancer에서 IP 주소를 할당합니다. 
 
-1. 새 SQL Server의 SQL Server 구성 관리자에서 [AlwaysOn 가용성 그룹을 사용하도록 설정합니다](http://msdn.microsoft.com/library/ff878259.aspx).
+1. 새 SQL Server의 SQL Server 구성 관리자에서 [Always On 가용성 그룹을 사용하도록 설정합니다](http://msdn.microsoft.com/library/ff878259.aspx).
 
 1. [새 SQL Server에서 방화벽 포트를 엽니다](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm).
 
@@ -139,7 +144,9 @@ ms.lasthandoff: 04/21/2017
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-## <a name="set-connection-for-multiple-subnets"></a>여러 서브넷에 대한 연결 설정
+<a id="set-connection-for-multiple-subnets" class="xliff"></a>
+
+## 여러 서브넷에 대한 연결 설정
 
 원격 데이터 센터의 복제본은 가용성 그룹의 일부이지만 다른 서브넷에 있습니다. 이 복제본이 주 복제본이 되면 응용 프로그램 연결 시간 초과가 발생할 수 있습니다. 이 동작은 다중 서브넷 배포의 온-프레미스 가용성 그룹과 동일합니다. 클라이언트 응용 프로그램에서의 연결을 허용하려면 클라이언트 연결을 업데이트하거나 클러스터 네트워크 이름 리소스에 대해 이름 확인 캐시를 구성합니다.
 
@@ -147,19 +154,21 @@ ms.lasthandoff: 04/21/2017
 
 연결 문자열을 수정할 수 없는 경우 이름 확인 캐시를 구성할 수 있습니다. [다중 서브넷 가용성 그룹의 연결 시간 제한](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/)을 참조하세요.
 
-## <a name="fail-over-to-remote-region"></a>원격 지역으로 장애 조치
+<a id="fail-over-to-remote-region" class="xliff"></a>
+
+## 원격 지역으로 장애 조치
 
 원격 지역에 대한 수신기 연결을 테스트하려면 복제본을 원격 지역으로 장애 조치할 수 있습니다. 복제본이 비동기인 경우 장애 조치 시 잠재적 데이터 손실이 발생하기 쉽습니다. 데이터 손실 없이 장애 조치를 수행하려면 가용성 모드를 동기로 변경하고 장애 조치 모드를 자동으로 설정합니다. 다음 단계를 사용하세요.
 
 1. **개체 탐색기**에서 주 복제본을 호스트하는 SQL Server의 인스턴스에 연결합니다.
-1. **AlwaysOn 가용성 그룹**, **가용성 그룹** 아래에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
+1. **Always On 가용성 그룹**, **가용성 그룹** 아래에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 1. **일반** 페이지의 **가용성 복제본**에서 DR 사이트의 보조 복제본을 **동기 커밋** 가용성 모드 및 **자동** 장애 조치 모드를 사용하도록 설정합니다.
 1. 보조 복제본의 고가용성을 위해 주 복제본과 같은 사이트에 있는 경우 이 복제본을 **비동기 커밋** 및 **수동**으로 설정합니다.
 1. 확인을 클릭합니다.
 1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **대시보드 표시**를 클릭합니다.
 1. 대시보드에서 DR 사이트의 복제본이 동기화되었는지 확인합니다.
 1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **장애 조치...**를 클릭합니다. SQL Server Management Studio는 SQL Server를 장애 조치하는 마법사를 엽니다.  
-1. **다음**을 클릭하고 DR 사이트의 SQL Server 인스턴스를 선택합니다. 다시 **다음** 을 클릭합니다.
+1. **다음**을 클릭하고 DR 사이트의 SQL Server 인스턴스를 선택합니다. 다시 **다음**을 클릭합니다.
 1. DR 사이트에서 SQL Server 인스턴스에 연결하고 **다음**을 클릭합니다.
 1. **요약** 페이지에서 설정을 확인한 다음 **마침**을 클릭합니다.
 
@@ -172,14 +181,18 @@ ms.lasthandoff: 04/21/2017
 | 보조 또는 원격 데이터 센터 | SQL-3 | 주 | 비동기 | 설명서
 
 
-### <a name="more-information-about-planned-and-forced-manual-failover"></a>계획된 및 강제 수동 장애 조치에 대한 자세한 내용
+<a id="more-information-about-planned-and-forced-manual-failover" class="xliff"></a>
+
+### 계획된 및 강제 수동 장애 조치에 대한 자세한 내용
 
 자세한 내용은 다음 항목을 참조하십시오.
 
 - [가용성 그룹의 계획된 수동 장애 조치 수행(SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
 - [가용성 그룹의 강제 수동 장애 조치 수행(SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="additional-links"></a>추가 링크
+<a id="additional-links" class="xliff"></a>
+
+## 추가 링크
 
 * [Always On 가용성 그룹](http://msdn.microsoft.com/library/hh510230.aspx)
 * [Azure 가상 컴퓨터](http://docs.microsoft.com/azure/virtual-machines/windows/)

@@ -11,21 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 06/23/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.reviewer: jairoc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 2faf328e6622b9a1e3b529d62b61061659041fbd
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/10/2017
-
 
 ---
 # <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad--windows-10-and-windows-server-2016"></a>Windows 10 및 Windows Server 2016에 대한 Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결
 
 이 항목은 다음 클라이언트에 적용됩니다.
 
--    Windows 10
--    Windows Server 2016
+-   Windows 10
+-   Windows Server 2016
 
 기타 Windows 클라이언트의 경우 [Windows 하위 수준 클라이언트에 대한 Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결](active-directory-device-registration-troubleshoot-windows-legacy.md)을 참조하세요.
 

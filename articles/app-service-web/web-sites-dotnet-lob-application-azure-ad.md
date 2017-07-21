@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: a00e3c5ed41aff48a6845c2f07ea3e43580045ee
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 2576b658eaf1df95aa9700e06559edf6066cc534
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -175,18 +176,26 @@ Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어
    <pre class="prettyprint">
    @model WebApplication1.Models.WorkItem
    
-   @{  ViewBag.Title = &quot;Create&quot;; }
+   @{
+    ViewBag.Title = &quot;Create&quot;;
+   }
    
    &lt;h2&gt;Create&lt;/h2&gt;
    
-   @using (Html.BeginForm(<mark>&quot;Create&quot;, &quot;WorkItems&quot;, FormMethod.Post, new { id = &quot;main-form&quot; }</mark>)) {  @Html.AntiForgeryToken()
+   @using (Html.BeginForm(<mark>&quot;Create&quot;, &quot;WorkItems&quot;, FormMethod.Post, new { id = &quot;main-form&quot; }</mark>)) 
+   {
+    @Html.AntiForgeryToken()
    
     &lt;div class=&quot;form-horizontal&quot;&gt;
         &lt;h4&gt;WorkItem&lt;/h4&gt;
         &lt;hr /&gt;
-        @Html.ValidationSummary(true, &quot;&quot;, new { @class = &quot;text-danger&quot; })      &lt;div class=&quot;form-group&quot;&gt;
-            @Html.LabelFor(model =&gt; model.AssignedToID, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })          &lt;div class=&quot;col-md-10&quot;&gt;
-                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = &quot;form-control&quot;<mark>, @type = &quot;hidden&quot;</mark> } })              @Html.ValidationMessageFor(model =&gt; model.AssignedToID, &quot;&quot;, new { @class = &quot;text-danger&quot; })          &lt;/div&gt;
+        @Html.ValidationSummary(true, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+        &lt;div class=&quot;form-group&quot;&gt;
+            @Html.LabelFor(model =&gt; model.AssignedToID, htmlAttributes: new { @class = &quot;control-label col-md-2&quot; })
+            &lt;div class=&quot;col-md-10&quot;&gt;
+                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = &quot;form-control&quot;<mark>, @type = &quot;hidden&quot;</mark> } })
+                @Html.ValidationMessageFor(model =&gt; model.AssignedToID, &quot;&quot;, new { @class = &quot;text-danger&quot; })
+            &lt;/div&gt;
         &lt;/div&gt;
    
         &lt;div class=&quot;form-group&quot;&gt;
@@ -222,10 +231,15 @@ Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어
    }
    
    &lt;div&gt;
-    @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;) &lt;/div&gt;
+    @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;)
+   &lt;/div&gt;
    
-   @section Scripts {  @Scripts.Render(&quot;~/bundles/jqueryval&quot;)  <mark>&lt;script&gt;
-        // People/Group Picker Code      var maxResultsPerPage = 14;      var input = document.getElementById(&quot;AssignedToName&quot;);
+   @section Scripts {
+    @Scripts.Render(&quot;~/bundles/jqueryval&quot;)
+    <mark>&lt;script&gt;
+        // People/Group Picker Code
+        var maxResultsPerPage = 14;
+        var input = document.getElementById(&quot;AssignedToName&quot;);
    
         // Access token from request header, and tenantID from claims identity
         var token = &quot;@Request.Headers[&quot;X-MS-TOKEN-AAD-ACCESS-TOKEN&quot;]&quot;;
@@ -241,7 +255,8 @@ Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어
                 return;
             $(&quot;#main-form&quot;).get()[0].elements[&quot;AssignedToID&quot;].value = picker.Selected().objectId;
         });
-    &lt;/script&gt;</mark> }
+    &lt;/script&gt;</mark>
+   }
    </pre>
    
    `token` 및 `tenant`는 `AadPicker` 개체에서 사용하여 Azure Active Directory Graph API를 호출합니다. 나중에 `AadPicker` 를 추가합니다.     
@@ -265,7 +280,12 @@ Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어
 13. ~\App_Start\BundleConfig.cs를 열고 다음 강조 표시된 사항을 변경합니다.  
     
     <pre class="prettyprint">
-    public static void RegisterBundles(BundleCollection bundles) { bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;).Include( &quot;~/Scripts/jquery-{version}.js&quot;<mark>, &quot;~/Scripts/jquery-ui-{version}.js&quot;, &quot;~/Scripts/AadPickerLibrary.js&quot;</mark>));
+    public static void RegisterBundles(BundleCollection bundles)
+    {
+        bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;).Include(
+                    &quot;~/Scripts/jquery-{version}.js&quot;<mark>,
+                    &quot;~/Scripts/jquery-ui-{version}.js&quot;,
+                    &quot;~/Scripts/AadPickerLibrary.js&quot;</mark>));
     
         bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;).Include(
                     &quot;~/Scripts/jquery.validate*&quot;));
@@ -328,6 +348,4 @@ LOB(기간 업무)가 온-프레미스 데이터에 대한 액세스 권한이 �
 * [App Services 인증 및 Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Microsoft Azure Active Directory 샘플 및 설명서](https://github.com/AzureADSamples)
 * [Azure Active Directory 지원 토큰 및 클레임 유형](http://msdn.microsoft.com/library/azure/dn195587.aspx)
-
-[Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 

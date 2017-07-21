@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL 데이터베이스 간 데이터 이동 | Microsoft Docs"
-description: "Azure Data Factory를 사용하여 Azure SQL 데이터베이스 간 데이터를 이동하는 방법에 대해 알아봅니다."
+title: "Azure SQL Database 간 데이터 복사 | Microsoft Docs"
+description: "Azure Data Factory를 사용하여 Azure SQL Database 간에 데이터를 복사하는 방법에 대해 알아봅니다."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -12,20 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 06/04/2017
 ms.author: jingwang
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 4bc3ab14d7b2960a0732743edc31e12eb320b5ad
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: a64d13fa7dc5f50c259b98774be80b603dce400a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="move-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure SQL 데이터베이스 간 데이터 이동
+<a id="copy-data-to-and-from-azure-sql-database-using-azure-data-factory" class="xliff"></a>
+
+# Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure SQL Database 간에 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.  
 
-## <a name="supported-scenarios"></a>지원되는 시나리오
+<a id="supported-scenarios" class="xliff"></a>
+
+## 지원되는 시나리오
 **Azure SQL Database**에서 다음 데이터 저장소로 데이터를 복사할 수 있습니다.
 
 [!INCLUDE [data-factory-supported-sinks](../../includes/data-factory-supported-sinks.md)]
@@ -34,10 +38,14 @@ ms.lasthandoff: 05/05/2017
 
 [!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
-## <a name="supported-authentication-type"></a>지원되는 인증 유형
+<a id="supported-authentication-type" class="xliff"></a>
+
+## 지원되는 인증 유형
 Azure SQL Database 커넥터는 기본 인증을 지원합니다.
 
-## <a name="getting-started"></a>시작
+<a id="getting-started" class="xliff"></a>
+
+## 시작
 다른 도구/API를 사용하여 Azure SQL Database 간에 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
@@ -55,7 +63,9 @@ Azure SQL Database 커넥터는 기본 인증을 지원합니다.
 
 다음 섹션에서는 Azure SQL Database에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다. 
 
-## <a name="linked-service-properties"></a>연결된 서비스 속성
+<a id="linked-service-properties" class="xliff"></a>
+
+## 연결된 서비스 속성
 Azure SQL Database를 데이터 팩터리에 연결하는 Azure SQL 연결된 서비스입니다. 다음 테이블은 Azure SQL 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
 | 속성 | 설명 | 필수 |
@@ -66,7 +76,9 @@ Azure SQL Database를 데이터 팩터리에 연결하는 Azure SQL 연결된 �
 > [!IMPORTANT]
 > 데이터베이스 서버인 [Azure SQL Database 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)을 구성하여 [Azure 서비스가 서버에 액세스할 수 있도록](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) 해야 합니다. 또한 데이터 팩터리 게이트웨이를 사용하여 온-프레미스 데이터 원본을 포함한 Azure 외부에서 Azure SQL 데이터베이스로 데이터를 복사하는 경우 데이터를 Azure SQL Database로 보내는 컴퓨터에 대한 적절한 IP 주소 범위를 구성합니다.
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+<a id="dataset-properties" class="xliff"></a>
+
+## 데이터 집합 속성
 Azure SQL Database에서 입력 또는 출력 데이터를 표시할 데이터 집합을 지정하려면 데이터 집합의 형식 속성을 **AzureSqlTable**로 설정합니다. 데이터 집합의 **linkedServiceName** 속성을 Azure SQL 연결된 서비스의 이름으로 설정합니다.  
 
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
@@ -77,7 +89,9 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Azure SQL 데이터베이스 인스턴스에서 테이블 또는 보기의 이름입니다. |예 |
 
-## <a name="copy-activity-properties"></a>복사 작업 속성
+<a id="copy-activity-properties" class="xliff"></a>
+
+## 복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
 
 > [!NOTE]
@@ -87,7 +101,9 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 Azure SQL Database에서 데이터를 이동하는 경우 복사 작업의 원본 유형을 **SqlSource**로 설정합니다. 마찬가지로 Azure SQL Database로 데이터를 이동하는 경우 복사 작업의 싱크 유형을 **SqlSink**로 설정합니다. 이 섹션에서는 SqlSource 및 SqlSink에서 지원되는 속성의 목록을 제공합니다.
 
-### <a name="sqlsource"></a>SqlSource
+<a id="sqlsource" class="xliff"></a>
+
+### SqlSource
 원본이 **SqlSource** 형식인 복사 작업의 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
@@ -105,7 +121,9 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 �
 >
 >
 
-### <a name="sqlsource-example"></a>SqlSource 예제
+<a id="sqlsource-example" class="xliff"></a>
+
+### SqlSource 예제
 
 ```JSON
 "source": {
@@ -137,20 +155,24 @@ END
 GO
 ```
 
-### <a name="sqlsink"></a>파이프라인
+<a id="sqlsink" class="xliff"></a>
+
+### 파이프라인
 **SqlSink** 는 다음 속성을 지원합니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예: “00:30:00”(30분). |아니요 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 10000) |
-| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. 자세한 내용은 [반복성 섹션](#repeatability-during-copy)을 참조하세요. |쿼리 문입니다. |아니요 |
-| sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. 자세한 내용은 [반복성 섹션](#repeatability-during-copy)을 참조하세요. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
+| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. 자세한 내용은 [반복 가능한 복사](#repeatable-copy)를 참조하세요. |쿼리 문입니다. |아니요 |
+| sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. 자세한 내용은 [반복 가능한 복사](#repeatable-copy)를 참조하세요. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
 | sqlWriterStoredProcedureName |대상 테이블에 대한 데이터 Upsert(업데이트/삽입)를 수행하는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. |아니요 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다. |이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |아니요 |
 | sqlWriterTableType |저장 프로시저에 사용할 테이블 형식 이름을 지정합니다. 복사 작업을 사용하면 이 테이블 형식으로 임시 테이블에서 사용할 수 있는 데이터를 이동시킵니다. 그러면 저장 프로시저 코드가 복사되는 데이터를 기존 데이터와 병합할 수 있습니다. |테이블 유형 이름 |아니요 |
 
-#### <a name="sqlsink-example"></a>SqlSink 예제
+<a id="sqlsink-example" class="xliff"></a>
+
+#### SqlSink 예제
 
 ```JSON
 "sink": {
@@ -167,10 +189,14 @@ GO
 }
 ```
 
-## <a name="json-examples-for-copying-data-to-and-from-sql-database"></a>SQL Database로/에서 데이터를 복사하는 JSON 예제
+<a id="json-examples-for-copying-data-to-and-from-sql-database" class="xliff"></a>
+
+## SQL Database로/에서 데이터를 복사하는 JSON 예제
 다음 예에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. Azure Blob 저장소 및 Azure SQL 데이터베이스 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
 
-### <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>예제: Azure SQL Database에서 Azure Blob에 데이터 복사
+<a id="example-copy-data-from-azure-sql-database-to-azure-blob" class="xliff"></a>
+
+### 예제: Azure SQL Database에서 Azure Blob에 데이터 복사
 샘플이 다음 데이터 팩터리 엔터티를 정의합니다.
 
 1. [AzureSqlDatabase](#linked-service-properties)형식의 연결된 서비스입니다.
@@ -362,7 +388,9 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 �
 
 SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsource) 섹션 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 참조하세요.
 
-### <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>예제: Azure Blob에서 Azure SQL Database로 데이터 복사
+<a id="example-copy-data-from-azure-blob-to-azure-sql-database" class="xliff"></a>
+
+### 예제: Azure Blob에서 Azure SQL Database로 데이터 복사
 샘플이 다음 데이터 팩터리 엔터티를 정의합니다.  
 
 1. [AzureSqlDatabase](#linked-service-properties)형식의 연결된 서비스입니다.
@@ -548,7 +576,9 @@ SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsour
 ```
 SqlSink 및 BlobSource에서 지원하는 속성 목록은 [Sql 싱크](#sqlsink) 섹션 및 [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties)를 참조하세요.
 
-## <a name="identity-columns-in-the-target-database"></a>대상 데이터베이스의 ID 열
+<a id="identity-columns-in-the-target-database" class="xliff"></a>
+
+## 대상 데이터베이스의 ID 열
 이 섹션에서는 ID 열이 없는 원본 테이블에서 ID 열이 있는 대상 테이블로 데이터를 복사하는 예제를 제공합니다.
 
 **원본 테이블:**
@@ -619,24 +649,20 @@ create table dbo.TargetTbl
 
 원본 테이블과 대상 테이블의 스키마가 서로 다릅니다(대상에 ID가 포함된 추가 열이 있음). 이 시나리오에서는 ID 열을 포함하지 않는 대상 데이터 집합 정의에서 **structure** 속성을 지정해야 합니다.
 
-## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
-원본 데이터 집합의 열을 싱크 데이터 집합의 열로 매핑하는 방법은 [Azure Data Factory의 데이터 집합 열 매핑](data-factory-map-columns.md)을 참조하세요.
+<a id="invoke-stored-procedure-from-sql-sink" class="xliff"></a>
 
-## <a name="repeatable-copy"></a>반복 가능한 복사
-SQL Server 데이터베이스로 데이터를 복사할 때 복사 작업은 기본적으로 싱크 테이블에 데이터를 추가합니다. 그 대신 UPSERT를 수행하려면 [SqlSink에 반복 가능한 쓰기](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) 문서를 참조하세요. 
-
-관계형 데이터 저장소에서 데이터를 복사할 때는 의도치 않는 결과를 방지하기 위해 반복성을 염두에 두어야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 집합에 대한 재시도 정책을 구성할 수 있습니다. 어느 쪽이든 조각이 재실행되는 경우 조각이 실행되는 횟수에 관계없이 같은 데이터를 읽어야 합니다. [관계형 원본에서 반복 가능한 읽기](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)를 참조하세요.
-
-## <a name="invoke-stored-procedure-from-sql-sink"></a>SQL 싱크에서 저장된 프로시저 호출
+## SQL 싱크에서 저장된 프로시저 호출
 파이프라인의 복사 작업에서, SQL 싱크에서 저장된 프로시저를 호출하는 예를 보려면 [복사 작업에서 SQL 싱크에 대한 저장 프로시저 호출](data-factory-invoke-stored-procedure-from-copy-activity.md) 문서를 참조하세요. 
 
-## <a name="sql-database-to-net-type-mapping"></a>SQL Database에서 .NET 형식으로 매핑
+<a id="type-mapping-for-azure-sql-database" class="xliff"></a>
+
+## Azure SQL Database에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
 
-Azure SQL 간에 데이터를 이동할 때는 SQL 형식에서 .NET 형식으로 또는 그 반대로 다음과 같은 매핑이 사용됩니다. 매핑은 ADO.NET에 대한 SQL Server 데이터 형식 매핑과 같습니다.
+Azure SQL Database 간에 데이터를 이동할 때는 다음과 같은 매핑이 SQL 형식에서 .NET 형식으로 또는 그 반대로 사용됩니다. 매핑은 ADO.NET에 대한 SQL Server 데이터 형식 매핑과 같습니다.
 
 | SQL Server 데이터베이스 엔진 형식 | .NET Framework 형식 |
 | --- | --- |
@@ -673,6 +699,20 @@ Azure SQL 간에 데이터를 이동할 때는 SQL 형식에서 .NET 형식으�
 | varchar |String, Char[] |
 | xml |xml |
 
-## <a name="performance-and-tuning"></a>성능 및 튜닝
+<a id="map-source-to-sink-columns" class="xliff"></a>
+
+## 원본을 싱크 열로 매핑
+원본 데이터 집합의 열을 싱크 데이터 집합의 열로 매핑하는 방법은 [Azure Data Factory의 데이터 집합 열 매핑](data-factory-map-columns.md)을 참조하세요.
+
+<a id="repeatable-copy" class="xliff"></a>
+
+## 반복 가능한 복사
+SQL Server 데이터베이스로 데이터를 복사할 때 복사 작업은 기본적으로 싱크 테이블에 데이터를 추가합니다. 그 대신 UPSERT를 수행하려면 [SqlSink에 반복 가능한 쓰기](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) 문서를 참조하세요. 
+
+관계형 데이터 저장소에서 데이터를 복사할 때는 의도치 않는 결과를 방지하기 위해 반복성을 염두에 두어야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 집합에 대한 재시도 정책을 구성할 수 있습니다. 어느 쪽이든 조각이 재실행되는 경우 조각이 실행되는 횟수에 관계없이 같은 데이터를 읽어야 합니다. [관계형 원본에서 반복 가능한 읽기](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)를 참조하세요.
+
+<a id="performance-and-tuning" class="xliff"></a>
+
+## 성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 

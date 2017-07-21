@@ -41,8 +41,8 @@ ms.lasthandoff: 05/11/2017
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-            "storageAccountName": {
-                "type": "String"
+          "storageAccountName": {
+              "type": "String"
           }
       },
       "resources": [{
@@ -54,10 +54,10 @@ ms.lasthandoff: 05/11/2017
               "name": "Standard_LRS"
           },
           "kind": "Storage",
-          "properties": {        
+          "properties": {       
           }
       }],
-      "outputs": {        
+      "outputs": {      
       }
   }
   ```
@@ -102,7 +102,7 @@ ms.lasthandoff: 05/11/2017
               "Parameters": {
                   "storageAccountName": {
                       "value": "[parameters('storageAccountName')]"
-                  }                
+                  }             
               }
           }
       }]
@@ -118,13 +118,13 @@ ms.lasthandoff: 05/11/2017
 다음으로 고객을 대신하여 리소스를 관리하는 데 사용하려는 사용자 그룹 또는 응용 프로그램을 만듭니다. 이 사용자 그룹 또는 응용 프로그램에는 역할에서 설명한 대로 관리되는 리소스 그룹에 대한 권한이 있습니다. 역할은 **소유자** 또는 **참가자**와 같은 기본 제공 RBAC 역할일 수 있습니다. 개별 사용자에게도 리소스를 관리할 수 있는 권한을 부여할 수 있지만, 일반적으로 사용자 그룹을 사용하기 위해 이 권한을 할당합니다. 새 활성 디렉터리 사용자 그룹을 작성하려면 다음을 사용합니다.
 
 ```azurecli
-az ad group create –display-name "name" –mail-nickname "nickname"
+az ad group create --display-name "name" --mail-nickname "nickname"
 ```
 
 기존 그룹을 사용할 수도 있습니다. 새로 만든 그룹이나 기존 사용자 그룹의 개체 ID가 필요합니다. 다음 예제에서는 그룹을 만드는 데 사용된 표시 이름에서 개체 ID를 가져오는 방법을 보여 줍니다.
 
 ```azurecli
-az ad group show –group "groupName"
+az ad group show --group "groupName"
 ```
 
 예제:
@@ -210,3 +210,4 @@ az managedapp definition create -n ravtestAppDef4 -l "westcentralus"
 * 파일의 예제는 [Managed Application 샘플](https://github.com/Azure/azure-managedapp-samples/tree/master/samples)을 참조하세요.
 * 소비자 환경을 이해하려면 [Azure Managed Application 사용](managed-application-consumption.md)을 참조하세요.
 * 관리되는 응용 프로그램에 대한 UI 정의 파일을 만드는 방법은 [CreateUiDefinition 시작](managed-application-createuidefinition-overview.md)을 참조하세요.
+

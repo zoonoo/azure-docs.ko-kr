@@ -22,7 +22,8 @@
 ## [Hadoop 샌드박스](hdinsight-hadoop-emulator-get-started.md)
 ## [Hortonworks 샌드박스를 사용한 Data Lake 도구](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Visual Studio용 도구](hdinsight-hadoop-visual-studio-tools-get-started.md)
-## [HDInsight 저장소 옵션](hdinsight-hadoop-use-blob-storage.md)
+## [Azure Storage를 사용하는 HDInsight](hdinsight-hadoop-use-blob-storage.md)
+## [Azure Data Lake Store를 사용하는 HDInsight](hdinsight-hadoop-use-data-lake-store.md)
 
 # 방법
 ## 쿼리 일괄 처리에 Hadoop 사용
@@ -74,7 +75,7 @@
 ### [스크립트 동작을 사용하는 Jupyter에서 외부 패키지 사용](hdinsight-apache-spark-python-package-installation.md)
 ### [로컬 Jupyter Notebook 사용](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Livy를 사용하는 원격 작업](hdinsight-apache-spark-livy-rest-interface.md)
-### [IntelliJ를 사용하여 원격으로 작업 디버깅](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+### [IntelliJ를 사용하여 VPN을 통해 원격으로 작업 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [리소스 관리](hdinsight-apache-spark-resource-manager.md)
 ### [작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 ### [알려진 문제](hdinsight-apache-spark-known-issues.md)
@@ -105,14 +106,18 @@
 ### [Hive 정책 구성](hdinsight-domain-joined-run-hive.md)
 ## Kafka 사용(미리 보기)
 ### [Kafka 데이터 복제](hdinsight-apache-kafka-mirroring.md)
+### [저장소 및 Kafka의 확장성 구성](hdinsight-apache-kafka-scalability.md)
+### [데이터 고가용성 구성](hdinsight-apache-kafka-high-availability.md)
 ### [가상 네트워크와 함께 사용](hdinsight-apache-kafka-connect-vpn-gateway.md)
-### [Spark와 함께 사용](hdinsight-apache-spark-with-kafka.md)
+### [Spark(구조화 된 스트리밍)와 함께 사용](hdinsight-apache-kafka-spark-structured-streaming.md)
+### [Spark(DStream)와 함께 사용](hdinsight-apache-spark-with-kafka.md)
 ### [Storm과 함께 사용](hdinsight-apache-storm-with-kafka.md)
 ## 개발
 ### [C# 스트리밍 MapReduce 프로그램 개발](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 ### [Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Scalding MapReduce 작업 개발](hdinsight-hadoop-mapreduce-scalding.md)
 ### [HDInsight 도구를 사용하여 Spark 앱 만들기](hdinsight-apache-spark-eclipse-tool-plugin.md)
+### [HDInsight 도구를 사용하여 SSH를 통해 원격으로 Spark 앱 디버그](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 ### [빈 에지 노드 사용](hdinsight-apps-use-edge-node.md)
 ### [Python 스트리밍 프로그램 개발](hdinsight-hadoop-streaming-python.md)
 ### [JSON 문서 처리 및 분석](hdinsight-using-json-in-hive.md)
@@ -141,7 +146,7 @@
 ### [R 사용](hdinsight-hadoop-r-scripts-linux.md)
 ### [Solr 사용](hdinsight-hadoop-solr-install-linux.md)
 ### [Virtual Network 사용](hdinsight-extend-hadoop-virtual-network.md)
-### [Zeppelin 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Zeppelin 사용](hdinsight-apache-spark-zeppelin-notebook.md)
 ### HDInsight 응용 프로그램 빌드
 #### [HDInsight 앱 설치](hdinsight-apps-install-applications.md)
 #### [사용자 지정 앱 설치](hdinsight-apps-install-custom-applications.md)
@@ -222,6 +227,8 @@
 ### [Ambari API를 사용하여 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md)
 
 # 리소스
-## [HDInsight에 대한 Windows 도구](hdinsight-hadoop-windows-tools.md)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
+## [빅 데이터에 대한 Microsoft 전문가 프로그램](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [HDInsight에 대한 Windows 도구](hdinsight-hadoop-windows-tools.md)

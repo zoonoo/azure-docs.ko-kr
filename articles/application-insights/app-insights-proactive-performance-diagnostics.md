@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 5/04/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 080b732d78731e6281e82ddc28a3e84ae8755ffa
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 0e9c10b77110efe90239863ee603acbd54b17ead
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -63,7 +63,7 @@ Application Insights가 응용 프로그램 성능이 다음과 같은 방식 �
   
   ![스마트 검색 설정](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
   
-  * 스마트 검색 전자 메일의 **구독 취소** 링크 
+  * 스마트 검색 전자 메일에서 **구독 취소** 링크를 사용하여 전자 메일 알림 수신을 중지할 수 있습니다.
 
 스마트 검색 성능 이상에 대한 전자 메일은 Application Insights 리소스당 매일 하나의 전자 메일로 제한됩니다. 이 전자 메일은 해당 날에 하나 이상의 새 문제가 검색된 경우에만 전송됩니다. 모든 메시지는 중복으로 보내지 않습니다. 
 

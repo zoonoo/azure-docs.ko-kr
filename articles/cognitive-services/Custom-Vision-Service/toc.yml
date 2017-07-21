@@ -1,32 +1,36 @@
 
-- name: 사용자 지정 비전 설명서
+- name: Custom Vision Documentation
   href: ../index.md
-- name: 개요
+- name: Overview
   href: home.md
-- name: 빠른 시작
+- name: Quickstarts
   expanded: true
   items: 
-  - name: 분류자 빌드
+  - name: Build a classifier
     href: getting-started-build-a-classifier.md
-  - name: 분류자 개선
+  - name: Improve your classifier
     href: getting-started-improving-your-classifier.md
-  - name: 모델 테스트
+  - name: Test your model
     href: test-your-model.md
-  - name: 예측 API 사용
+  - name: Use the prediction API
     href: use-prediction-api.md
-- name: 자습서
+- name: Tutorials
   items:
-  - name: 'C# 자습서'
+  - name: 'C# Tutorial'
     href: csharp-tutorial.md
-- name: 참조
+- name: Reference
   items:
-  - name: 사용자 지정 비전 예측 API 참조
+  - name: Custom Vision Prediction API Reference
  
     href: https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814 
-  - name: 사용자 지정 비전 교육 API 참조
+  - name: Custom Vision Training API Reference
   
     href: https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3
-  - name: 용어
+  - name: Glossary
     href: glossary-of-terms.md
-  - name: SDK)
+  - name: SDK
     href: http://github.com/Microsoft/Cognitive-CustomVision-Windows/
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

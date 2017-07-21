@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2017
+ms.date: 06/15/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 3a3730821b88062fdccf18732630be0bcb6ae7a7
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 4bae56abfdc609ad40e6fbefe120493f1cd4e66d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -47,23 +48,24 @@ Azure Managed Disks를 사용할 수 있는 위치를 선택합니다. 프리미
 
 **프리미엄 Managed Disks**
 
-VM에서 사용할 수 있는 프리미엄 Managed Disks에는 세 종류가 있으며 각 종류에는 특정 IOP 및 처리량 제한이 있습니다. 용량, 성능, 확장성 및 최대 로드 측면에서 응용 프로그램의 필요에 따라 VM에 대한 프리미엄 디스크 유형을 선택할 때 이 제한을 고려합니다.
+VM에서 사용할 수 있는 프리미엄 관리 디스크에는 7가지 형식이 있으며 각 형식에는 특정 IOP 및 처리량 한도가 있습니다. 용량, 성능, 확장성 및 최대 로드 측면에서 응용 프로그램의 필요에 따라 VM에 대한 프리미엄 디스크 유형을 선택할 때 이 제한을 고려합니다.
 
-| 프리미엄 디스크 유형  | P10               | P20               | P30               |
-|---------------------|-------------------|-------------------|-------------------|
-| 디스크 크기           | 128GB            | 512GB            | 1024GB(1TB)    |
-| 디스크당 IOPS       | 500               | 2300              | 5000              |
-| 디스크당 처리량 | 초당 100MB | 초당 150MB | 초당 200MB |
+| 프리미엄 디스크 유형  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| 디스크 크기           | 128GB| 512GB| 128GB| 512GB            | 1,024GB(1TB)    | 2,048GB(2TB)    | 4,095GB(4TB)    | 
+| 디스크당 IOPS       | 120   | 240   | 500   | 2,300              | 5,000              | 7,500              | 7,500              | 
+| 디스크당 처리량 | 초당 25MB  | 초당 50MB  | 초당 100MB | 초당 150MB | 초당 200MB | 초당 250MB | 초당 250MB | 
 
 **표준 Managed Disks**
 
-VM에서 사용할 수 있는 표준 Managed Disks에는 다섯 가지 종류가 있습니다. 각각은 용량이 다르지만 동일한 IOPS 및 처리량이 제한됩니다. 응용 프로그램의 용량 요구 사항에 따라 표준 Managed Disks의 종류를 선택합니다.
+VM에서 사용할 수 있는 표준 관리 디스크에는 7가지 형식이 있습니다. 각각은 용량이 다르지만 동일한 IOPS 및 처리량이 제한됩니다. 응용 프로그램의 용량 요구 사항에 따라 표준 Managed Disks의 종류를 선택합니다.
 
-| 표준 디스크 유형  | S4               | S6               | S10              | S20              | S30              |
-|---------------------|------------------|------------------|------------------|------------------|------------------|
-| 디스크 크기           | 30GB            | 64GB            | 128GB           | 512GB           | 1024GB(1TB)   |
-| 디스크당 IOPS       | 500              | 500              | 500              | 500              | 500              |
-| 디스크당 처리량 | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second |
+| 표준 디스크 유형  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
+|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
+| 디스크 크기           | 30GB            | 64GB            | 128GB           | 512GB           | 1,024GB(1TB)   | 2,048GB(2TB)    | 4,095GB(4TB)   | 
+| 디스크당 IOPS       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
+| 디스크당 처리량 | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 
+
 
 ### <a name="disk-caching-policy"></a>디스크 캐싱 정책 
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: fef61e6155471a0459957ea0c510698cfa787fdc
-ms.lasthandoff: 03/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: f40ceb542a0ee51e17ee539db4dbc91c11e056f2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -31,8 +32,10 @@ ms.lasthandoff: 03/18/2017
 아래 계획 질문에 응답하기 전에 다음을 고려합니다.
 
 * Azure에서 만드는 모든 항목은 하나 이상의 리소스로 구성됩니다. 가상 컴퓨터(VM)는 리소스이며 VM에 사용되는 NIC(네트워크 어댑터 인터페이스)는 리소스이며 NIC에 사용된 공용 IP 주소는 리소스이며 NIC가 연결되는 VNet은 리소스입니다.
-* [Azure 지역](https://azure.microsoft.com/regions/#services) 및 구독 내에서 리소스를 만듭니다. 또한 리소스는 리소스가 있는 동일한 하위 지역 및 구독에 있는 VNet에만 연결할 수 있습니다.
-* Azure [VPN 게이트웨이](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)를 사용하여 VNet을 서로 연결할 수 있습니다. 이러한 방식으로 VNet을 하위 지역 및 구독 간으로도 연결할 수 있습니다.
+* [Azure 지역](https://azure.microsoft.com/regions/#services) 및 구독 내에서 리소스를 만듭니다. 리소스는 리소스가 있는 동일한 하위 지역 및 구독에 있는 가상 네트워크에만 연결할 수 있습니다.
+* 다음을 사용하여 가상 네트워크를 서로 연결할 수 있습니다.
+    * **[가상 네트워크 피어링](virtual-network-peering-overview.md)**: 피어링된 가상 네트워크는 동일한 Azure 지역에 있어야 합니다. 리소스가 같은 가상 네트워크에 연결된 것처럼 피어링된 가상 네트워크의 리소스 간 대역폭은 동일합니다.
+    * **Azure [VPN Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)**: 가상 네트워크는 같은 Azure 지역에 있을 수도 있고 다른 Azure 지역에 있을 수도 있습니다. VPN Gateway를 통해 연결된 가상 네트워크의 리소스 간 대역폭은 VPN Gateway의 대역폭에 의해 제한됩니다.
 * Azure에서 제공하는 [연결 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) 중 하나를 사용하여 VNet을 온-프레미스 네트워크에 연결할 수 있습니다.
 * [리소스 그룹](../azure-resource-manager/resource-group-overview.md#resource-groups)에서 다양한 리소스를 함께 그룹화하여 리소스를 단위로 보다 쉽게 관리할 수 있습니다. 리소스 그룹은 해당 리소스가 동일한 구독에 속하기만 하면 여러 하위 지역의 리소스를 포함할 수 있습니다.
 
@@ -174,7 +177,7 @@ VNet에는 다음 속성이 포함될 수 있습니다.
     예. 온-프레미스 데이터 센터에 연결된 사용자는 암호화된 터널을 통해 응용 프로그램에 액세스할 수 있어야 합니다.
 4. 솔루션에 IaaS VM이 얼마나 필요합니까?
 
-    200개의 IaaS VM입니다. App1, App2 및 App3에는 각각 5개의 웹 서버, 각각 2개의 응용 프로그램 서버, 각각 2개의 데이터베이스 서버가 필요합니다. 응용 프로그램당 총 9개의 IaaS VM 또는 36개의 IaaS VM입니다. App5 및 App6에는 5개의 웹 서버와 각각 2개의 데이터베이스 서버가 필요합니다. 응용 프로그램당 총 7개의 IaaS VM 또는 14개의 IaaS VM입니다. 따라서 각 Azure 지역에 있는 모든 응용 프로그램에 대해 50개의 IaaS VM이 필요합니다. 4개의 하위 지역이 필요하므로 200개의 IaaS VM이 됩니다.
+    200개의 IaaS VM입니다. App1, App2, App3 및 App4에는 각각 5개의 웹 서버, 각각 2개의 응용 프로그램 서버, 각각 2개의 데이터베이스 서버가 필요합니다. 응용 프로그램당 총 9개의 IaaS VM 또는 36개의 IaaS VM입니다. App5 및 App6에는 5개의 웹 서버와 각각 2개의 데이터베이스 서버가 필요합니다. 응용 프로그램당 총 7개의 IaaS VM 또는 14개의 IaaS VM입니다. 따라서 각 Azure 지역에 있는 모든 응용 프로그램에 대해 50개의 IaaS VM이 필요합니다. 4개의 하위 지역이 필요하므로 200개의 IaaS VM이 됩니다.
 
     각 VNet 또는 온-프레미스 데이터 센터에는 Azure IaaS VM 및 온-프레미스 네트워크 간의 이름을 확인하기 위해 DNS 서버를 제공해야 합니다.
 5. VM 그룹을 기반으로 트래픽을 격리해야 합니까(예: 프런트 엔드 웹 서버 및 백 엔드 데이터베이스 서버)?

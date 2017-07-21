@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 424889a00a20c8daf770098a43576783b813340c
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 633b88761de4d2c99cfd196cfac8e664fc83c546
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 및 Azure App Service Web Apps 배포
-이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/), [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 설명합니다.
+이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 설명합니다.
 
 Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 구성을 쉽게 자동화할 수 있습니다.  이 자습서에서는 웹 응용 프로그램을 배포하고 자동으로 Azure Cosmos DB 계정 연결 정보를 구성하는 방법을 보여 줍니다.
 
@@ -85,7 +85,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
    
    ![샘플 Todo 응용 프로그램](./media/create-website/image2.png)
 9. 계속해서 웹앱에서 몇 가지 작업을 만든 다음 Azure 포털의 리소스 그룹 블레이드로 돌아옵니다. 리소스 목록에서 Azure Cosmos DB 계정 리소스를 클릭한 다음 **쿼리 탐색기**를 클릭합니다.
-    ![myotherdocumentdbwebapp 웹앱이 강조 표시된 요약 렌즈의 스크린샷](./media/create-website/TemplateDeployment8.png)  
+    ![웹앱이 강조 표시된 요약 렌즈의 스크린샷](./media/create-website/TemplateDeployment8.png)  
 10. 기본 쿼리 "SELECT * FROM c"를 실행하고 결과를 검사합니다.  쿼리가 위의 7단계에서 만든 todo 항목의 JSON 표현을 검색했음을 알 수 있습니다.  자유롭게 쿼리를 실험합니다. 예를 들어 SELECT * FROM c WHERE c.isComplete = true를 실행하면 완료로 표시된 모든 todo 항목이 반환됩니다.
     
     ![쿼리 결과를 보여주는 쿼리 탐색기 및 결과 블레이드의 스크린샷](./media/create-website/image5.png)

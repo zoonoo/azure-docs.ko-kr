@@ -15,10 +15,10 @@ ms.workload: search
 ms.date: 05/01/2017
 ms.author: brjohnst
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ea3fc801074bb6d7e7c32574bc94702c79a61185
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: e6ad5c964bfa8421be2706cb4015980e01a271b7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -259,7 +259,7 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
 
 `name` - 필드의 이름을 설정합니다.
 
-`type` - 필드의 데이터 형식을 설정합니다. 지원되는 형식 목록은 [지원되는 데이터 형식](#DataTypes) 을 참조하세요.
+`type` - 필드의 데이터 형식을 설정합니다.
 
 `searchable` - 필드를 전체 텍스트 검색 가능 필드로 표시합니다. 이렇게 표시된 필드의 경우 인덱싱 중에 단어 분리 등의 분석이 수행됩니다. `searchable` 필드를 "sunny day" 등의 값으로 설정하면 내부적으로 해당 필드가 개별 토큰 "sunny"와 "day"로 분할됩니다. 따라서 이러한 용어에 대한 전체 텍스트 검색을 수행할 수 있습니다. 형식이 `Edm.String` 또는 `Collection(Edm.String)`인 필드는 기본적으로 `searchable`로 설정됩니다. 다른 형식의 필드는 `searchable`로 설정할 수 없습니다.
 
@@ -1461,7 +1461,7 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 > 
 > 
 
-`$filter=[string]` (선택) - 표준 OData 구문의 구조화된 검색 식입니다. Azure 검색에서 지원하는 OData 식 문법의 하위 집합에 대한 자세한 내용은 [OData 식 구문](#ODataExpressionSyntax) 을 참조하세요.
+`$filter=[string]` (선택) - 표준 OData 구문의 구조화된 검색 식입니다.
 
 > [!NOTE]
 > POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$filter` 대신 `filter`입니다.

@@ -12,13 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 06/28/2017
 ms.author: manayar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 08a4d0fa673a37c61e57daed66ab6768e0276ca8
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 9dd74014bf05234a83c7678b67b42b96cd8b8d64
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -26,7 +26,11 @@ ms.lasthandoff: 05/12/2017
 
 Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 팀 내 책임을 구분하고, 특정 작업을 수행하는 데 필요한 사용자에게 특정 액세스 권한만 부여할 수 있습니다.
 
-Azure는 리소스 관리 작업을 제어하는 다양한 기본 제공 역할을 제공합니다. [Azure RBAC 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)에 대해 알아보기
+Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기본 제공 역할을 제공합니다. [Azure RBAC 기본 제공 역할](../active-directory/role-based-access-built-in-roles.md)에 대해 알아보기
+
+* [Site Recovery 참가자](../active-directory/role-based-access-built-in-roles.md#site-recovery-contributor) - 이 역할에는 Recovery Services 자격 증명 모음에서 Azure Site Recovery 작업을 관리하는 데 필요한 모든 사용 권한이 있습니다. 그러나 이 역할의 사용자는 Recovery Services 자격 증명 모음을 만들거나 삭제할 수 없고 액세스 권한을 다른 사용자에게 할당할 수 없습니다. 이 역할은 응용 프로그램이나 전체 조직에 재해 복구를 사용하도록 설정하고 관리할 수 있는 재해 복구 관리자에 대해 가장 적합합니다.
+* [Site Recovery 연산자](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) - 이 역할에는 장애 조치 및 장애 복구 작업을 실행하고 관리하는 사용 권한이 있습니다. 이 역할의 사용자는 복제를 활성화하거나 비활성화할 수 없고, 자격 증명 모음을 만들거나 삭제할 수 없으며, 새로운 인프라를 등록하거나 다른 사용자에게 액세스 권한을 할당할 수 없습니다. 이 역할은 실제 또는 시뮬레이션된 재해 상황에서 DR 드릴과 같은 응용 프로그램 소유자 및 IT 관리자가 지시하는 경우 가상 컴퓨터 또는 응용 프로그램을 장애 조치할 수 있는 재해 복구 연산자에 가장 적합합니다. 재해를 해결한 후에 게시 DR 연산자는 가상 컴퓨터를 다시 보호하고 장애 복구할 수 있습니다.
+* [Site Recovery 읽기 권한자](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) - 이 역할은 모든 Site Recovery 관리 작업을 볼 수 있는 권한을 갖습니다. 이 역할은 현재 보호 상태를 모니터링하고 필요한 경우 지원 티켓을 발행할 수 있는 IT 모니터링 경영자에게 가장 적합합니다.
 
 더 많은 제어를 위해 사용자 고유의 역할을 정의하려는 경우 Azure의 [사용자 지정 역할 작성](../active-directory/role-based-access-control-custom-roles.md) 방법을 참조하세요.
 

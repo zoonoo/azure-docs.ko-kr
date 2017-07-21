@@ -9,28 +9,29 @@ manager: jhubbard
 editor: 
 ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
 ms.service: sql-database
-ms.custom: development
+ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
 ms.date: 02/01/2017
 ms.author: srinia
-translationtype: Human Translation
-ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
-ms.openlocfilehash: c30f1d879f46805cf802679613089a16dc47ad40
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="design-patterns-for-multitenant-saas-applications-and-azure-sql-database"></a>다중 테넌트 SaaS 응용 프로그램 및 Azure SQL 데이터베이스에 대한 디자인 패턴
+# <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>다중 테넌트 SaaS 응용 프로그램 및 Azure SQL Database에 대한 디자인 패턴
 이 문서에서는 클라우드 환경에서 실행되는 다중 테넌트 SaaS(Software-as-a-Service) 데이터베이스 응용 프로그램의 요구 사항 및 일반적인 데이터 아키텍처 패턴에 대해 알아봅니다. 또한 고려해야 하는 요인 및 서로 다른 디자인 패턴의 장단점도 설명합니다. Azure SQL Database의 탄력적 풀 및 탄력적 도구를 사용하면 다른 목표도 달성하면서 특정 요구 사항을 충족할 수 있습니다.
 
 때때로 개발자는 다중 테넌트 응용 프로그램의 데이터 계층에 대한 테넌시 모델을 디자인할 때 장기적으로 가장 큰 이익에 적합한 선택을 합니다. 적어도 초기에 개발자는 개발의 편리성과 낮은 클라우드 서비스 공급자 비용을 테넌트 격리 또는 응용 프로그램 확장성보다 중요한 것으로 인식합니다. 하지만 이러한 선택으로 인해 나중에 고객 만족도 관련 문제가 발생하여 관련 과정을 수정하는 데 비용이 많이 소요될 수 있습니다.
 
-클라우드 환경에서 호스트되는 응용 프로그램인 다중 테넌트 응용 프로그램은 서로 데이터를 공유하거나 다른 테넌트의 데이터를 확인하지 않는 매우 많은 수의 테넌트에게 동일한 서비스 집합을 제공합니다. 예를 들어 클라우드 호스팅 환경에서 테넌트에 서비스를 제공하는 SaaS 응용 프로그램이 있습니다.
+다중 테넌트 응용 프로그램은 클라우드 환경에서 호스팅되는 응용 프로그램이며, 서로의 데이터를 공유하거나 보지 않는 수백 또는 수천 명의 테넌트에게 동일한 서비스 집합을 제공합니다. 예를 들어 클라우드 호스팅 환경에서 테넌트에 서비스를 제공하는 SaaS 응용 프로그램이 있습니다.
 
-## <a name="multitenant-applications"></a>다중 테넌트 응용 프로그램
+## <a name="multi-tenant-applications"></a>다중 테넌트 응용 프로그램
 다중 테넌트 응용 프로그램에서는 데이터 및 워크로드를 쉽게 분할할 수 있습니다. 대부분의 요청은 테넌트의 범위 내에서 발생하므로, 예를 들어 테넌트 경계를 따라 데이터 및 워크로드를 분할할 수 있습니다. 이러한 속성은 데이터 및 워크로드에 내재되어 있으며, 이 문서에서 설명하는 응용 프로그램 패턴을 선호합니다.
 
 개발자는 다음을 포함하여 클라우드 기반 응용 프로그램 전반에 걸쳐 이러한 유형의 응용 프로그램을 사용합니다.
@@ -48,7 +49,7 @@ ms.lasthandoff: 02/16/2017
 
 모든 테이블 및 응용 프로그램의 워크로드 전반에 걸친 작업에 적용할 수 있는 단일 파티션 전략은 없습니다. 이 문서는 쉽게 분할이 가능한 데이터 및 워크로드를 포함한 다중 테넌트 응용 프로그램에 초점을 맞춥니다.
 
-## <a name="multitenant-application-design-trade-offs"></a>다중 테넌트 응용 프로그램 디자인의 장단점
+## <a name="multi-tenant-application-design-trade-offs"></a>다중 테넌트 응용 프로그램 디자인의 장단점
 다중 테넌트 응용 프로그램 개발자는 일반적으로 다음과 같은 요인을 고려하여 디자인 패턴을 선택합니다.
 
 * **테넌트 격리**. 개발자는 테넌트가 다른 테넌트의 데이터에 대해 불필요한 액세스 권한을 갖지 않도록 해야 합니다. 격리 요구 사항은 노이즈가 많은 주변 환경으로부터의 보호, 테넌트의 데이터를 복원하는 기능, 테넌트 전용 사용자 지정 구현 등과 같은 그 밖의 속성으로 확장됩니다.
@@ -62,7 +63,7 @@ ms.lasthandoff: 02/16/2017
 
 테넌트 격리는 기업과 조직에 제공하는 SaaS 다중 테넌트 응용 프로그램의 기본 요구 사항인 경우가 많습니다. 개발자들은 테넌트 격리 및 확장성보다 단순성과 비용에서 인지된 장점의 유혹에 넘어갈 수도 있습니다. 이렇게 선택을 하면 서비스가 성장하면서 복잡성과 비용이 높아지고, 테넌트 격리 요구 사항이 더 중요해지면서 응용 프로그램 계층에서 이러한 요구 사항을 관리해야 하는 상황이 될 수 있습니다. 그러나 소비자에게 표시되는 서비스를 고객에게 직접 제공하는 다중 테넌트 응용 프로그램의 경우 테넌트 격리는 클라우드 리소스 비용 최적화보다 우선 순위가 더 낮을 수 있습니다.
 
-## <a name="multitenant-data-models"></a>다중 테넌트 데이터 모델
+## <a name="multi-tenant-data-models"></a>다중 테넌트 데이터 모델
 테넌트 데이터 배치에 대한 일반적인 디자인 방식은 그림 1과 같은 세 가지로 구분되는 모델을 따릅니다.
 
 ![다중 테넌트 응용 프로그램 데이터 모델](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
@@ -78,7 +79,7 @@ ms.lasthandoff: 02/16/2017
 > 
 > 
 
-## <a name="popular-multitenant-data-models"></a>인기 있는 다중 테넌트 데이터 모델
+## <a name="popular-multi-tenant-data-models"></a>인기 있는 다중 테넌트 데이터 모델
 이미 확인한 응용 프로그램 디자인 장단점에 의해 다양한 유형의 다중 테넌트 데이터 모델을 평가해야 합니다. 이러한 요인은 앞에서 설명한 세 가지 가장 일반적인 다중 테넌트 데이터 모델 및 해당 모델의 그림 2와 같은 데이터베이스 사용의 특성을 설명하는 데 도움이 됩니다.
 
 * **격리**. 테넌트 간의 격리 정도는 데이터 모델이 달성하는 테넌트 격리의 정도에 대한 척도일 수 있습니다.
@@ -105,12 +106,12 @@ ms.lasthandoff: 02/16/2017
 
 그림 2와 같은 디자인 절충을 가정하면 최적의 다중 테넌트 모델은 테넌트 간에 최적의 리소스 공유와 함께 우수한 테넌트 경리 속성을 포함해야 합니다. 이 모델은 그림 2의 오른쪽 위 사분면에 설명되어 있는 범주에 해당합니다.
 
-## <a name="multitenancy-support-in-azure-sql-database"></a>Azure SQL 데이터베이스에서 다중 테넌트 지원
-Azure SQL 데이터베이스는 그림 2에 제시한 다중 테넌트 응용 프로그램 패턴을 모두 지원합니다. 탄력적 풀을 사용하는 경우에는 테넌트별 데이터베이스 방식의 격리 이점과 효율적인 리소스 공유 기능이 모두 제공되는 응용 프로그램 패턴도 사용 가능합니다(그림 3의 오른쪽 위 사분면 참조). 탄력적 데이터베이스 도구와 SQL Database의 기능은 많은 데이터베이스를 포함하는 응용 프로그램(그림 3에서 어둡게 표시된 영역에 나와 있음)을 개발 및 운영하는 비용을 줄이는 데 도움이 될 수 있습니다. 이러한 도구는 복수 데이터베이스 패턴을 사용하는 응용 프로그램을 구축 및 관리하는 데 도움이 될 수 있습니다.
+## <a name="multi-tenancy-support-in-azure-sql-database"></a>Azure SQL Database에서 다중 테넌트 지원
+Azure SQL Database는 그림 2에 제시한 다중 테넌트 응용 프로그램 패턴을 모두 지원합니다. 탄력적 풀을 사용하는 경우에는 테넌트별 데이터베이스 방식의 격리 이점과 효율적인 리소스 공유 기능이 모두 제공되는 응용 프로그램 패턴도 사용 가능합니다(그림 3의 오른쪽 위 사분면 참조). 탄력적 데이터베이스 도구와 SQL Database의 기능은 많은 데이터베이스를 포함하는 응용 프로그램(그림 3에서 어둡게 표시된 영역에 나와 있음)을 개발 및 운영하는 비용을 줄이는 데 도움이 될 수 있습니다. 이러한 도구는 복수 데이터베이스 패턴을 사용하는 응용 프로그램을 구축 및 관리하는 데 도움이 될 수 있습니다.
 
 ![Azure SQL 데이터베이스의 패턴](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png)
 
-그림 3: Azure SQL 데이터베이스의 다중 테넌트 응용 프로그램 패턴
+그림 3: Azure SQL Database의 다중 테넌트 응용 프로그램 패턴
 
 ## <a name="database-per-tenant-model-with-elastic-pools-and-tools"></a>탄력적 풀 및 도구를 사용하는 테넌트별 데이터베이스 모델
 SQL Database의 탄력적 풀은 테넌트 격리 기능과 테넌트 데이터베이스 간의 리소스 공유 기능을 함께 제공함으로써 테넌트별 데이터베이스 방식을 보다 효율적으로 지원합니다. SQL Database는 다중 테넌트 응용 프로그램을 작성하는 SaaS 공급자용 데이터 계층 솔루션입니다. 테넌트 간의 리소스 공유는 응용 프로그램 계층이 아닌 데이터베이스 서비스 계층에서 처리됩니다. 탄력적 작업, 탄력적 쿼리, 탄력적 트랜잭션 및 탄력적 데이터베이스 클라이언트 라이브러리를 사용하면 전체 데이터베이스의 복잡한 대규모 관리 및 쿼리 작업이 간소화됩니다.
@@ -142,7 +143,7 @@ SQL Database의 탄력적 풀은 테넌트 격리 기능과 테넌트 데이터�
 
 대부분의 클라우드 데이터베이스 서비스 공급자에게는 이러한 단점이 중요한 문제가 될 수 있지만, Azure SQL Database는 탄력적 풀 및 탄력적 데이터베이스 기능을 통해 이러한 문제를 방지해 줍니다. SaaS 개발자는 탄력적 풀 및 관련 도구를 사용하여 테넌트별 데이터베이스 모델의 격리 특성을 제공하는 동시에 여러 데이터베이스 간의 리소스 공유를 최적화하고 관리 효율을 개선할 수 있습니다.
 
-테넌트 격리 요구 사항이 없으며 테넌트를 데이터베이스에 높은 밀도로 압축할 수 있는 다중 테넌트 응용 프로그램 공급자의 경우 공유 데이터 모델을 사용하면 리소스 공유의 효율성을 추가로 개선하고 전체 비용을 줄일 수 있습니다. Azure SQL 데이터베이스 탄력적 데이터베이스 도구, 분할 라이브러리 및 보안 기능은 SaaS 공급자가 다중 테넌트 응용 프로그램을 구축하고 관리하는 데 도움을 제공합니다.
+테넌트 격리 요구 사항이 없으며 테넌트를 데이터베이스에 높은 밀도로 압축할 수 있는 다중 테넌트 응용 프로그램 공급자의 경우 공유 데이터 모델을 사용하면 리소스 공유의 효율성을 추가로 개선하고 전체 비용을 줄일 수 있습니다. Azure SQL Database 탄력적 데이터베이스 도구, 분할 라이브러리 및 보안 기능은 SaaS 공급자가 다중 테넌트 응용 프로그램을 구축하고 관리하는 데 도움을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [탄력적 데이터베이스 도구를 시작](sql-database-elastic-scale-get-started.md) 합니다.
@@ -156,6 +157,8 @@ Azure Portal을 사용하여 탄력적 풀을 만들려면 [탄력적 풀 만들
 [탄력적 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)방법에 대해 알아보세요.
 
 ## <a name="additional-resources"></a>추가 리소스
+
+* [Azure SQL Database를 사용하는 다중 테넌트 응용 프로그램 배포 및 탐색 - Wingtip SaaS](sql-database-saas-tutorial.md)
 * [Azure 탄력적 풀이란?](sql-database-elastic-pool.md)
 * [Azure SQL 데이터베이스를 사용하여 확장](sql-database-elastic-scale-introduction.md)
 * [탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램](sql-database-elastic-tools-multi-tenant-row-level-security.md)
@@ -164,6 +167,7 @@ Azure Portal을 사용하여 탄력적 풀을 만들려면 [탄력적 풀 만들
 
 
 ## <a name="questions-and-feature-requests"></a>질문 및 기능 요청
+
 궁금한 사항이 있는 경우 [SQL Database 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)을 방문하세요. [SQL 데이터베이스 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에서 기능 요청을 추가하세요.
 
 

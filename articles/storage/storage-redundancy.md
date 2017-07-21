@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: marsma
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 6a5ba89d8b17e0646cd8a6185da6d1094fd64d12
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: 0237d10ccd9424da0ec10bc2773b978ffc11a294
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/23/2017
 
 ---
 # <a name="azure-storage-replication"></a>Azure 저장소 복제
@@ -111,7 +111,9 @@ GRS를 사용하면 기본 지역 및 보조 지역은 LRS에 설명된 바와 �
 | 인도 중부 |인도 남부 |
 | 인도 서부 |인도 남부 |
 | 미국 정부 아이오와 |미국 정부 버지니아 |
-| 미국 정부 버지니아 |미국 정부 아이오와 |
+| 미국 정부 버지니아 |미국 정부 텍사스 |
+| 미국 정부 텍사스 |미국 정부 애리조나 |
+| 미국 정부 애리조나 |미국 정부 텍사스 |
 | 캐나다 중부 |캐나다 동부 |
 | 캐나다 동부 |캐나다 중부 |
 | 영국 서부 |영국 남부 |
@@ -122,6 +124,11 @@ GRS를 사용하면 기본 지역 및 보조 지역은 LRS에 설명된 바와 �
 | 미국 중서부 |미국 서부 2 |
 
 Azure에서 지원되는 지역에 대한 최신 정보는 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.
+
+>[!NOTE]  
+> 미국 버지니아 주 정부 보조 지역은 미국 텍사스 주 정부입니다. 이전에는 미국 버지니아 주 정부가 보조 지역으로 미국 아이오와 주 정부를 활용했습니다. 보조 지역으로 미국 아이오와 주 정부를 활용하는 저장소 계정은 보조 지역으로 미국 텍사스 주 정부를 활용하는 계정으로 마이그레이션됩니다. 
+> 
+> 
 
 ## <a name="read-access-geo-redundant-storage"></a>읽기 액세스 지역 중복 저장소
 읽기 액세스 지역 중복 저장소(RA-GRS)는 GRS에서 제공한 두 지역에 걸쳐 복제하는 것 외에도 보조 위치에서 데이터에 대한 읽기 전용 액세스를 제공하여 저장소 계정의 가용성을 최대화합니다.
@@ -135,6 +142,49 @@ Azure에서 지원되는 지역에 대한 최신 정보는 [Azure 지역](https:
 * Microsoft가 보조 지역에 장애 조치(Failover)를 시작하면 장애 조치(Failover)가 완료된 후 해당 데이터에 대한 읽기 및 쓰기 액세스를 갖게 됩니다. 자세한 내용은 [재해 복구 지침](storage-disaster-recovery-guidance.md)을 참조하세요. 
 * RA-GRS는 높은 가용성을 위해 제공됩니다. 확장성 지침은 [성능 검사 목록](storage-performance-checklist.md)을 검토하세요.
 
+## <a name="frequently-asked-questions"></a>질문과 대답
+
+<a id="howtochange"></a>
+#### <a name="1-how-can-i-change-the-geo-replication-type-of-my-storage-account"></a>1. 내 저장소 계정의 지역에서 복제 유형을 변경하려면 어떻게 하나요?
+
+   [Azure Portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md) 또는 여러 저장소 클라이언트 라이브러리 중 하나를 프로그래밍 방식으로 사용하여 저장소 계정의 지역에서 복제 유형을 LRS, GRS 및 RA-GRS 간에 변경할 수 있습니다. ZRS 계정은 LRS 또는 GRS로 변환할 수 없습니다. 마찬가지로, 기존 LRS 또는 GRS 계정도 ZRS 계정으로 변환할 수 없습니다.
+
+<a id="changedowntime"></a>
+#### <a name="2-will-there-be-any-down-time-if-i-change-the-replication-type-of-my-storage-account"></a>2. 저장소 계정의 복제 유형을 변경하면 중단 시간이 발생하나요?
+
+   아니요, 중단 시간이 발생하지 않습니다.
+
+<a id="changecost"></a>
+#### <a name="3-will-there-be-any-additional-cost-if-i-change-the-replication-type-of-my-storage-account"></a>3. 저장소 계정의 복제 유형을 변경하면 추가 비용이 발생하나요?
+
+   예. 저장소 계정에 대해 LRS에서 GRS(또는 RA-GRS)로 변경하는 경우 기본 위치에서 보조 위치로 기존 데이터를 복사하는 송신과 관련하여 추가 비용이 발생합니다. 초기 데이터가 복사된 후에는 주 위치에서 보조 위치로 데이터를 지역에서 복제하는 데 추가 송신 비용이 발생하지 않습니다. 대역폭 요금에 대한 자세한 내용은 [Azure Storage 가격 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)에서 확인할 수 있습니다. GRS에서 LRS로 변경하는 경우 추가 비용은 없지만 보조 위치에서 데이터가 삭제됩니다.
+
+<a id="ragrsbenefits"></a>
+#### <a name="4-how-can-ra-grs-help-me"></a>4. RA-GRS가 어떻게 도움이 되나요?
+   
+   GRS 저장소는 주 지역에서 수백 마일 떨어져 있는 보조 지역에 데이터 복제를 제공합니다. 이 경우 전체 지역 가동 중단 또는 주 지역을 복구할 수 없는 재해가 발생하더라도 데이터는 지속됩니다. RA-GRS 저장소에는 이외에도 보조 위치에서 데이터를 읽을 수 있는 기능이 추가됩니다. 이 기능을 활용하는 방법에 대한 몇 가지 아이디어는 [RA-GRS 저장소를 사용하여 항상 사용 가능한 응용 프로그램 설계](storage-designing-ha-apps-with-ragrs.md)를 참조하세요. 
+
+<a id="lastsynctime"></a>
+#### <a name="5-is-there-a-way-for-me-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. 주 지역에서 보조 지역으로 데이터를 복제하는 데 시간이 얼마나 걸리는지 확인하는 방법이 있나요?
+   
+   RA-GRS 저장소를 사용하는 경우 저장소 계정의 마지막 동기화 시간을 확인할 수 있습니다. 마지막 동기화 시간은 GMT 날짜/시간 값입니다. 마지막 동기화 시간 이전의 모든 주 쓰기는 보조 위치에 성공적으로 기록되었으므로 보조 위치에서 읽을 수 있습니다. 마지막 동기화 시간 이후 주 쓰기는 읽기에 사용 또는 사용하지 못할 수 있습니다. [Azure Portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md)을 사용하거나 REST API를 사용하여 프로그래밍 방식으로 또는 저장소 클라이언트 라이브러리 중 하나를 사용하여 이 값을 쿼리할 수 있습니다. 
+
+<a id="outage"></a>
+#### <a name="6-how-can-i-switch-to-the-secondary-region-if-there-is-an-outage-in-the-primary-region"></a>6. 주 지역에 가동 중단이 있는 경우 보조 지역으로 어떻게 전환할 수 있나요?
+   
+   자세한 내용은 [Azure Storage 중단이 발생할 경우 수행할 작업](storage-disaster-recovery-guidance.md)을 참조하세요.
+
+<a id="rpo-rto"></a>
+#### <a name="7-what-is-the-rpo-and-rto-with-grs"></a>7. GRS에서 RPO 및 RTO란?
+   
+   RPO(복구 지점 목표): GRS 및 RA-GRS에서는 저장소 서비스가 주 위치에서 보조 위치로 데이터를 비동기식으로 지역에서 복제합니다. 중대한 지역 재해 발생이 있고 장애 조치(failover)를 수행해야 하는 경우 아직 지역에서 복제되지 않은 최근 델타 변경 내용이 손실될 수 있습니다. 잠재적인 데이터 손실 시간(분)을 RPO(즉, 데이터를 복구할 수 있는 특정 시점)라고 합니다. 현재 지역에서 복제를 수행하는 데 소요되는 시간에 대한 SLA는 없지만 일반적으로 RPO는 15분 미만입니다.
+
+   RTO(복구 시간 목표): 장애 조치(failover)를 수행하고 장애 조치를 수행해야 하는 경우 저장소 계정을 다시 온라인으로 가져오는 데 소요되는 시간에 대한 측정값입니다. 장애 조치를 수행하는 시간에는 다음이 포함됩니다.
+    * 기본 위치에서 데이터를 복구할 수 있는지 또는 장애 조치를 수행해야 하는지를 조사하고 결정하는 데 걸리는 시간입니다.
+    * 보조 위치를 가리키도록 주 DNS 항목을 변경하여 계정을 장애 조치합니다.
+
+   Microsoft는 사용자의 데이터를 매우 중요하게 보존할 책임이 있으며, 따라서 데이터를 복구할 기회가 있는 경우 장애 조치를 보류하고 기본 위치에서 데이터를 복구하는 데 주력할 것입니다. 향후에는 계정 수준에서 장애 조치(failover)를 트리거할 수 있는 API를 제공하여 RTO를 직접 제어하도록 할 계획입니다(아직은 제공되지 않음).
+   
 ## <a name="next-steps"></a>다음 단계
 * [RA-GRS 저장소를 사용하여 항상 사용 가능한 응용 프로그램 설계](storage-designing-ha-apps-with-ragrs.md)
 * [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)

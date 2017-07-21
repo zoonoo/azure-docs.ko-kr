@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4e0a0a711ffb0b474606863187acaab4474c3459
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 9b212bcfcb604319ff9bc39fd284a5eb98c0d2c3
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/27/2017
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. 무료 평가판에 대한 내용은 [무료 1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * 탄력적 데이터베이스 도구로 만든 데이터 집합. [탄력적 데이터베이스 도구 시작하기](sql-database-elastic-scale-get-started.md)를 참조하세요.
-* Azure PowerShell. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
+* Azure PowerShell. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](https://docs.microsoft.com/powershell/azure/overview)을 참조하세요.
 * **탄력적 데이터베이스 작업** PowerShell 패키지: [Installing 탄력적 데이터베이스 작업](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Azure 구독 선택
@@ -217,7 +217,7 @@ ms.lasthandoff: 04/27/2017
 * 자격 증명에 작업 태스크를 수행하는 데 필요한 최소한의 권한만 있어야 합니다.  자세한 내용은 이 [권한 부여 및 사용 권한](https://msdn.microsoft.com/library/bb669084.aspx) SQL Server MSDN 문서에서 확인할 수 있습니다.
 
 ### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>데이터베이스에 대한 작업 실행을 위한 암호화된 자격 증명을 만들려면
-새 암호화된 자격 증명을 만들기 위해 [**Get-Credential cmdlet**](https://technet.microsoft.com/library/hh849815.aspx)에서 [**New-AzureSqlJobCredential cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential?view=azureelasticdbjobsps-0.8.33)에 전달할 수 있는 사용자 이름 및 암호를 묻는 메시지를 표시합니다.
+새 암호화된 자격 증명을 만들기 위해 [**Get-Credential cmdlet**](https://technet.microsoft.com/library/hh849815.aspx)에서 [**New-AzureSqlJobCredential cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential)에 전달할 수 있는 사용자 이름 및 암호를 묻는 메시지를 표시합니다.
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential
@@ -225,7 +225,7 @@ ms.lasthandoff: 04/27/2017
     Write-Output $credential
 
 ### <a name="to-update-credentials"></a>자격 증명을 업데이트하려면
-암호가 변경될 때 [**Set-AzureSqlJobCredential cmdlet**](/powershell/module/elasticdatabasejobs/set-azuresqljobcredential?view=azureelasticdbjobsps-0.8.33)을 사용하고 **CredentialName** 매개 변수를 설정합니다.
+암호가 변경될 때 [**Set-AzureSqlJobCredential cmdlet**](/powershell/module/elasticdatabasejobs/set-azuresqljobcredential)을 사용하고 **CredentialName** 매개 변수를 설정합니다.
 
     $credentialName = "{Credential Name}"
     Set-AzureSqlJobCredential -CredentialName $credentialName -Credential $credential 
@@ -246,7 +246,7 @@ ms.lasthandoff: 04/27/2017
 ## <a name="create-a-t-sql-script-for-execution-across-databases"></a>데이터베이스에서 실행할 T-SQL 스크립트 만들기
 실행할 T-SQL 스크립트를 만드는 경우 [idempotent](https://en.wikipedia.org/wiki/Idempotence) 이고 오류로부터 복구되도록 작성하는 것이 좋습니다. 탄력적 데이터베이스 작업은 실행이 실패할 때마다 오류 분류에 관계없이 스크립트 실행을 다시 시도합니다.
 
-[**New-AzureSqlJobContent cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent?view=azureelasticdbjobsps-0.8.33)을 사용하여 실행할 스크립트를 만들고 저장한 다음 **-ContentName** 및 **-CommandText** 매개 변수를 설정합니다.
+[**New-AzureSqlJobContent cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent)을 사용하여 실행할 스크립트를 만들고 저장한 다음 **-ContentName** 및 **-CommandText** 매개 변수를 설정합니다.
 
     $scriptName = "Create a TestTable"
 
@@ -329,7 +329,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
     Write-Output $jobExecution
 
 ## <a name="to-retrieve-the-state-of-a-single-job-execution"></a>단일 작업 실행의 상태를 검색하려면
-[**Get-AzureSqlJobExecution cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33)을 사용하고 **JobExecutionId** 매개 변수를 설정하여 작업 실행의 상태를 표시합니다.
+[**Get-AzureSqlJobExecution cmdlet**](/powershell/module/elasticdatabasejobs/get-azuresqljobexecution)을 사용하고 **JobExecutionId** 매개 변수를 설정하여 작업 실행의 상태를 표시합니다.
 
     $jobExecutionId = "{Job Execution Id}"
     $jobExecution = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId
@@ -342,7 +342,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
     Write-Output $jobExecutions 
 
 ## <a name="to-view-the-state-across-multiple-job-executions"></a>여러 작업 실행 간에 상태를 보려면
-[**Get-AzureSqlJobExecution cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33)에는 제공된 매개 변수를 통해 필터링되는 여러 작업 실행을 표시하는 데 사용할 수 있는 여러 선택적 매개 변수가 있습니다. 아래에서는 Get-AzureSqlJobExecution을 사용할 수 있는 여러 방법을 보여 줍니다.
+[**Get-AzureSqlJobExecution cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljob)에는 제공된 매개 변수를 통해 필터링되는 여러 작업 실행을 표시하는 데 사용할 수 있는 여러 선택적 매개 변수가 있습니다. 아래에서는 Get-AzureSqlJobExecution을 사용할 수 있는 여러 방법을 보여 줍니다.
 
 모든 활성 최상위 작업 실행을 검색합니다.
 
@@ -465,7 +465,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
 
 부모 작업에 대해 작업 취소가 요청된 경우 부모 작업 및 모든 자식 작업에 대해 취소 요청이 적용됩니다.
 
-취소 요청을 제출하려면 [**Stop-AzureSqlJobExecution cmdlet**](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33)을 사용하고 **JobExecutionId** 매개 변수를 설정합니다.
+취소 요청을 제출하려면 [**Stop-AzureSqlJobExecution cmdlet**](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution)을 사용하고 **JobExecutionId** 매개 변수를 설정합니다.
 
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
@@ -473,9 +473,9 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
 ## <a name="to-delete-a-job-and-job-history-asynchronously"></a>비동기적으로 작업 기록 및 작업을 삭제하려면
 탄력적 데이터베이스 작업은 비동기 작업 삭제를 지원합니다. 작업을 삭제되도록 표시할 수 있으며, 작업에 대한 모든 작업 실행이 완료된 후 작업 및 모든 작업 기록이 삭제됩니다. 활성 작업 실행은 자동으로 취소되지 않습니다.  
 
-활성 작업 실행을 취소하려면 [**Stop-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33)을 호출합니다.
+활성 작업 실행을 취소하려면 [**Stop-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution)을 호출합니다.
 
-작업 삭제를 트리거하려면 [**Remove-AzureSqlJob cmdlet**](/powershell/module/elasticdatabasejobs/remove-azuresqljob?view=azureelasticdbjobsps-0.8.33)을 사용하고 **JobName** 매개 변수를 설정합니다.
+작업 삭제를 트리거하려면 [**Remove-AzureSqlJob cmdlet**](/powershell/module/elasticdatabasejobs/remove-azuresqljob)을 사용하고 **JobName** 매개 변수를 설정합니다.
 
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
@@ -490,7 +490,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
     New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
 
 ## <a name="to-create-a-custom-database-collection-target"></a>사용자 지정 데이터베이스 컬렉션 대상을 만들려면
-[**New-AzureSqlJobTarget cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget?view=azureelasticdbjobsps-0.8.33)을 사용하여 정의된 여러 데이터베이스 대상에서 실행할 수 있도록 사용자 지정 데이터베이스 컬렉션 대상을 정의할 수 있습니다. 데이터베이스 그룹을 만든 후 사용자 지정 컬렉션 대상에 데이터베이스를 연결할 수 있습니다.
+[**New-AzureSqlJobTarget cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget)을 사용하여 정의된 여러 데이터베이스 대상에서 실행할 수 있도록 사용자 지정 데이터베이스 컬렉션 대상을 정의할 수 있습니다. 데이터베이스 그룹을 만든 후 사용자 지정 컬렉션 대상에 데이터베이스를 연결할 수 있습니다.
 
 원하는 사용자 지정 컬렉션 대상 구성이 반영되도록 다음 변수를 설정합니다.
 
@@ -498,7 +498,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
 
 ### <a name="to-add-databases-to-a-custom-database-collection-target"></a>사용자 지정 데이터베이스 컬렉션 대상에 데이터베이스를 추가하려면
-특정 사용자 지정 컬렉션에 데이터베이스를 추가하려면 [**Add-AzureSqlJobChildTarget**](/powershell/module/elasticdatabasejobs/add-azuresqljobchildtarget?view=azureelasticdbjobsps-0.8.33) cmdlet을 사용합니다.
+특정 사용자 지정 컬렉션에 데이터베이스를 추가하려면 [**Add-AzureSqlJobChildTarget**](/powershell/module/elasticdatabasejobs/add-azuresqljobchildtarget) cmdlet을 사용합니다.
 
     $databaseServerName = "{Database Server Name}"
     $databaseName = "{Database Name}"
@@ -506,7 +506,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
     Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
 
 #### <a name="review-the-databases-within-a-custom-database-collection-target"></a>사용자 지정 데이터베이스 컬렉션 대상 내의 데이터베이스 검토
-[**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget?view=azureelasticdbjobsps-0.8.33) cmdlet을 사용하여 사용자 지정 데이터베이스 컬렉션 대상 내의 자식 데이터베이스를 검색할 수 있습니다. 
+[**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) cmdlet을 사용하여 사용자 지정 데이터베이스 컬렉션 대상 내의 자식 데이터베이스를 검색할 수 있습니다. 
 
     $customCollectionName = "{Custom Database Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
@@ -514,7 +514,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
     Write-Output $childTargets
 
 ### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>사용자 지정 데이터베이스 컬렉션 대상에서 스크립트를 실행하는 작업 만들기
-[**New-AzureSqlJob**](/powershell/module/elasticdatabasejobs/new-azuresqljob?view=azureelasticdbjobsps-0.8.33) cmdlet을 사용하여 사용자 지정 데이터베이스 컬렉션 대상에서 정의된 데이터베이스 그룹에 대한 작업을 만들 수 있습니다. 탄력적 데이터베이스 작업은 각각 사용자 지정 데이터베이스 컬렉션 대상과 연결된 데이터베이스에 해당하는 여러 자식 작업으로 작업을 확장하고 각 데이터베이스에 대해 스크립트가 실행되도록 합니다. 스크립트는 재시도 복구에 대해 idempotent여야 합니다.
+[**New-AzureSqlJob**](/powershell/module/elasticdatabasejobs/new-azuresqljob) cmdlet을 사용하여 사용자 지정 데이터베이스 컬렉션 대상에서 정의된 데이터베이스 그룹에 대한 작업을 만들 수 있습니다. 탄력적 데이터베이스 작업은 각각 사용자 지정 데이터베이스 컬렉션 대상과 연결된 데이터베이스에 해당하는 여러 자식 작업으로 작업을 확장하고 각 데이터베이스에 대해 스크립트가 실행되도록 합니다. 스크립트는 재시도 복구에 대해 idempotent여야 합니다.
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -531,7 +531,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
 
 다음 PowerShell 스크립트는 스크립트를 실행하고 지정된 테이블에 결과를 수집합니다. 이 스크립트는 단일 결과 집합을 출력하는 T-SQL 스크립트가 생성되었으며 사용자 지정 데이터베이스 컬렉션 대상이 생성되었다고 가정합니다.
 
-이 스크립트는 [**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget?view=azureelasticdbjobsps-0.8.33) cmdlet을 사용합니다. 스크립트, 자격 증명 및 실행 대상에 대한 매개 변수를 설정합니다.
+이 스크립트는 [**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) cmdlet을 사용합니다. 스크립트, 자격 증명 및 실행 대상에 대한 매개 변수를 설정합니다.
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -545,7 +545,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 
 ### <a name="to-create-and-start-a-job-for-data-collection-scenarios"></a>데이터 수집 시나리오에 대한 작업을 만들고 시작하려면
-이 스크립트는 [**Start-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/start-azuresqljobexecution?view=azureelasticdbjobsps-0.8.33) cmdlet을 사용합니다.
+이 스크립트는 [**Start-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/start-azuresqljobexecution) cmdlet을 사용합니다.
 
     $job = New-AzureSqlJob -JobName $jobName 
     -CredentialName $executionCredentialName 
@@ -561,7 +561,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
     Write-Output $jobExecution
 
 ## <a name="to-schedule-a-job-execution-trigger"></a>작업 실행 트리거를 예약하려면
-다음 PowerShell 스크립트를 사용하여 되풀이 일정을 만들 수 있습니다. 이 스크립트는 분 간격을 사용하지만 [**New-AzureSqlJobSchedule**](/powershell/module/elasticdatabasejobs/new-azuresqljobschedule?view=azureelasticdbjobsps-0.8.33)은 -DayInterval, -HourInterval, -MonthInterval 및 -WeekInterval 매개 변수도 지원합니다. -OneTime을 전달하여 한 번만 실행되는 일정을 만들 수 있습니다.
+다음 PowerShell 스크립트를 사용하여 되풀이 일정을 만들 수 있습니다. 이 스크립트는 분 간격을 사용하지만 [**New-AzureSqlJobSchedule**](/powershell/module/elasticdatabasejobs/new-azuresqljobschedule)은 -DayInterval, -HourInterval, -MonthInterval 및 -WeekInterval 매개 변수도 지원합니다. -OneTime을 전달하여 한 번만 실행되는 일정을 만들 수 있습니다.
 
 새 일정을 만듭니다.
 
@@ -577,7 +577,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
 ### <a name="to-trigger-a-job-executed-on-a-time-schedule"></a>시간 일정에 따라 실행되는 작업을 트리거하려면
 시간 일정에 따라 작업을 실행하는 작업 트리거를 정의할 수 있습니다. 다음 PowerShell 스크립트를 사용하여 작업 트리거를 만들 수 있습니다.
 
-[New-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/new-azuresqljobtrigger?view=azureelasticdbjobsps-0.8.33) 를 사용하고 원하는 작업 및 일정에 맞게 다음 변수를 설정합니다.
+[New-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/new-azuresqljobtrigger) 를 사용하고 원하는 작업 및 일정에 맞게 다음 변수를 설정합니다.
 
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
@@ -587,7 +587,7 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
     Write-Output $jobTrigger
 
 ### <a name="to-remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>일정에 따라 작업이 실행되지 않도록 예약된 연결을 제거하려면
-작업 트리거를 통한 되풀이 작업 실행을 중단하려면 작업 트리거를 제거할 수 있습니다. [**Remove-AzureSqlJobTrigger cmdlet**](/powershell/module/elasticdatabasejobs/remove-azuresqljobtrigger?view=azureelasticdbjobsps-0.8.33)을 사용하여 일정에 따라 작업이 실행되지 않도록 작업 트리거를 제거합니다.
+작업 트리거를 통한 되풀이 작업 실행을 중단하려면 작업 트리거를 제거할 수 있습니다. [**Remove-AzureSqlJobTrigger cmdlet**](/powershell/module/elasticdatabasejobs/remove-azuresqljobtrigger)을 사용하여 일정에 따라 작업이 실행되지 않도록 작업 트리거를 제거합니다.
 
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
@@ -603,14 +603,14 @@ T-SQL 스크립트가 파일 내에서 정의된 경우 다음을 사용하여 �
     Write-Output $jobTriggers
 
 ### <a name="to-retrieve-job-triggers-bound-to-a-job"></a>작업에 바인딩된 작업 트리거를 검색하려면
-[Get-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/get-azuresqljobtrigger?view=azureelasticdbjobsps-0.8.33) 를 사용하여 등록된 작업을 포함하는 일정을 가져오고 표시합니다.
+[Get-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/get-azuresqljobtrigger) 를 사용하여 등록된 작업을 포함하는 일정을 가져오고 표시합니다.
 
     $jobName = "{Job Name}"
     $jobTriggers = Get-AzureSqlJobTrigger -JobName $jobName
     Write-Output $jobTriggers
 
 ## <a name="to-create-a-data-tier-application-dacpac-for-execution-across-databases"></a>데이터베이스에서 실행할 DACPAC(데이터 계층 응용 프로그램)를 만들려면
-DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.microsoft.com/library/ee210546.aspx)을 참조하세요. DACPAC를 배포하려면 [New-AzureSqlJobContent cmdlet](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent?view=azureelasticdbjobsps-0.8.33)을 사용합니다. DACPAC는 서비스에 액세스할 수 있어야 합니다. 생성된 DACPAC를 Azure 저장소에 업로드하고 DACPAC에 대한 서 [공유 액세스 서명](../storage/storage-dotnet-shared-access-signature-part-1.md) 을 만드는 것이 좋습니다.
+DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.microsoft.com/library/ee210546.aspx)을 참조하세요. DACPAC를 배포하려면 [New-AzureSqlJobContent cmdlet](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent)을 사용합니다. DACPAC는 서비스에 액세스할 수 있어야 합니다. 생성된 DACPAC를 Azure 저장소에 업로드하고 DACPAC에 대한 서 [공유 액세스 서명](../storage/storage-dotnet-shared-access-signature-part-1.md) 을 만드는 것이 좋습니다.
 
     $dacpacUri = "{Uri}"
     $dacpacName = "{Dacpac Name}"
@@ -618,7 +618,7 @@ DACPAC를 만들려면 [데이터 계층 응용 프로그램](https://msdn.micro
     Write-Output $dacpac
 
 ### <a name="to-update-a-data-tier-application-dacpac-for-execution-across-databases"></a>데이터베이스에서 실행할 DACPAC(데이터 계층 응용 프로그램)를 업데이트하려면
-탄력적 데이터베이스 작업 내에 등록된 기존 DACPAC를 새 URI를 가리키도록 업데이트할 수 있습니다. [**Set-AzureSqlJobContentDefinition cmdlet**](/powershell/module/elasticdatabasejobs/set-azuresqljobcontentdefinition?view=azureelasticdbjobsps-0.8.33)을 사용하여 기존에 등록된 DACPAC에서 DACPAC URI를 업데이트합니다.
+탄력적 데이터베이스 작업 내에 등록된 기존 DACPAC를 새 URI를 가리키도록 업데이트할 수 있습니다. [**Set-AzureSqlJobContentDefinition cmdlet**](/powershell/module/elasticdatabasejobs/set-azuresqljobcontentdefinition)을 사용하여 기존에 등록된 DACPAC에서 DACPAC URI를 업데이트합니다.
 
     $dacpacName = "{Dacpac Name}"
     $newDacpacUri = "{Uri}"

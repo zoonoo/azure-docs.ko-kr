@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 05/30/2017
 ms.author: donnam
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f7d0ed4f43c68c73c967a401509f1a5ccac7da0b
+ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
+ms.openlocfilehash: cc41debb2523df77be4db05817a4c7ac55604439
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -190,6 +190,23 @@ let Run(input: WorkItem, log: TraceWriter) =
     json
 ```
 
+## <a name="binding-datatype-property"></a>dataType 속성 바인딩
+
+.NET에서는 형식을 사용하여 입력 데이터에 대한 데이터 형식을 정의합니다. 예를 들어 `string`을 사용하여 이진으로 읽을 바이트 배열 및 큐 트리거의 텍스트에 바인딩합니다.
+
+JavaScript와 같은 동적으로 형식화되는 언어의 경우 바인딩 정의에 `dataType` 속성을 사용합니다. 예를 들어 이진 형식의 HTTP 요청 내용을 읽으려면 `binary` 형식을 사용합니다.
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+`dataType`에 대한 다른 옵션은 `stream` 및 `string`입니다.
+
 ## <a name="resolving-app-settings"></a>앱 설정 해결
 비밀과 연결 문자열은 구성 파일이 아닌 앱 설정을 사용하여 관리하는 것이 가장 좋습니다. 그럴 경우 이러한 비밀에 대한 액세스가 제한되고 *function.json*을 공용 원본 제어 리포지토리에 안전하게 저장할 수 있습니다.
 
@@ -307,6 +324,19 @@ Azure Functions는 `{rand-guid}` 바인딩 식을 통해 바인딩에서 GUID를
 }
 ```
 
+### <a name="current-time"></a>현재 시간
+
+`DateTime.UtcNow`로 확인되는 바인딩 식 `DateTime`을 사용할 수 있습니다.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
 ## <a name="bind-to-custom-input-properties-in-a-binding-expression"></a>바인딩 식에서 사용자 지정 입력 속성에 바인딩
 
 바인딩 식은 트리거 페이로드 자체에 정의된 속성도 참조할 수 있습니다. 예를 들어 webhook에 제공된 파일 이름에서 Blob Storage 파일에 동적으로 바인딩하는 경우가 있습니다.
@@ -377,6 +407,10 @@ module.exports = function (context, info) {
     context.done();
 }
 ```
+
+## <a name="configuring-binding-data-at-runtime"></a>런타임에 바인딩 데이터 구성
+
+C# 및 기타 .NET 언어에서는 *function.json*의 선언적 바인딩과 달리 명령적 바인딩 패턴을 사용할 수 있습니다. 명령적 바인딩은 바인딩 매개 변수를 디자인 타임이 아닌 런타임에 계산해야 할 경우 유용합니다. 자세한 내용은 C# 개발자 참조에서 [명령적 바인딩을 통해 런타임 시 바인딩](functions-reference-csharp.md#imperative-bindings)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 특성 바인딩에 대한 자세한 내용은 다음 문서를 참조하십시오.

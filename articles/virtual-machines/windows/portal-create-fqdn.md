@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 07/05/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 3feec792f906d7d0c6b12d22e1b8baa3f79a5c77
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: da91ce0f14f904530a1a53af00485f5a2ac1757b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-windows-vm"></a>Windows VM용 Azure Portal에서 정규화된 도메인 이름 만들기
 
-Resource Manager 배포 모델을 사용하여 [Azure 포털](https://portal.azure.com) 에서 VM(가상 컴퓨터)을 만들 때, 가상 컴퓨터의 공용 IP 리소스가 자동으로 만들어집니다. 이 IP 주소를 사용하여 VM에 원격으로 액세스합니다. 기본적으로 포털에서는 FQDN( [정규화된 도메인 이름](https://en.wikipedia.org/wiki/Fully_qualified_domain_name))을 만들지는 않지만 VM을 만든 후에 FQDN을 만들 수 있습니다. 이 문서에서는 DNS 이름 또는 FQDN을 만드는 단계를 보여 줍니다.
+[Azure Portal](https://portal.azure.com)에서 VM(가상 컴퓨터)을 만들 때, 가상 컴퓨터의 공용 IP 리소스가 자동으로 만들어집니다. 이 IP 주소를 사용하여 VM에 원격으로 액세스합니다. 포털에서 [정규화된 도메인 이름](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) 또는 FQDN을 만들지는 않지만 VM을 만들면 이름을 만들 수 있습니다. 이 문서에서는 DNS 이름 또는 FQDN을 만드는 단계를 보여 줍니다.
+
+## <a name="create-fqdn"></a>FQDN 만들기
+이 문서에서는 사용자가 VM을 이미 만들었다고 가정합니다. 필요한 경우 [포털에서](quick-create-portal.md) 또는 [Azure PowerShell을 사용하여](quick-create-powershell.md) VM을 만들 수 있습니다. VM이 실행되면 다음 단계를 따릅니다.
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 

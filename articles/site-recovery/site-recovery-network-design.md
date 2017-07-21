@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: pratshar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e6d05d7a7595e17d026be6a448b2fa2cca9b816
-ms.openlocfilehash: a62fe406af18c9c7d9b58839bfa0d6e785b614ef
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 2d8d0feb5c391017e02413b009aafe4d5c012976
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -41,7 +41,7 @@ BCDR 계획에 중요한 것은 복구 시간 목표(RTO) 및 복구 지점 목�
 
 복구 사이트에 대한 네트워크를 디자인하는 동안 관리자는 두 가지를 선택할 수 있습니다.
 
-* 복구 사이트에서 네트워크에 다른 IP 주소 범위를 사용합니다. 이 시나리오에서 장애 조치 후의 가상 컴퓨터는 새 IP 주소를 가져오고 관리자는 DNS 업데이트를 수행해야 합니다. [여기](site-recovery-test-failover-vmm-to-vmm.md#preparing-infrastructure-for-test-failover)에서 자세히 알아보기
+* 복구 사이트에서 네트워크에 다른 IP 주소 범위를 사용합니다. 이 시나리오에서 장애 조치 후의 가상 컴퓨터는 새 IP 주소를 가져오고 관리자는 DNS 업데이트를 수행해야 합니다. [여기](site-recovery-test-failover-vmm-to-vmm.md#prepare-the-infrastructure-for-test-failover)에서 자세히 알아보기
 * 복구 사이트에서 네트워크에 동일한 IP 주소 범위를 사용합니다. 특정 시나리오에서 관리자는 장애 조치 후에 기본 사이트에 있는 IP 주소를 유지하려 합니다. 일반적인 시나리오에서 관리자는 IP 주소의 새 위치를 나타내도록 경로를 업데이트해야 합니다. 하지만 기본 데이터베이스와 복구 사이트 간의 확대 VLAN를 배포할 경우에는 가상 컴퓨터에 대한 IP 주소를 유지하는 것이 유용한 옵션입니다. 동일한 IP 주소를 유지하면 장애 조치 후 단계와 관련된 네트워크를 정리하여 복구 과정을 단순화합니다.
 
 관리자가 재해 복구 솔루션을 배포하려는 경우 한 가지 핵심적인 질문은 장애 조치를 완료한 후에 응용 프로그램을 연결할 수 있는 방법입니다. 최신 응용 프로그램은 거의 항상 어느 정도 네트워킹에 종속되어 있으므로 한 사이트에서 다른 사이트로 물리적으로 서비스를 이동하면 네트워킹 문제가 발생합니다. 재해 복구 솔루션에서 이 문제를 처리하는 두 가지 방법이 있습니다. 첫 번째 방법은 고정 IP 주소를 유지 관리하는 것입니다. 비록 서로 다른 물리적 위치에서 서비스가 이동하고 호스팅 서버가 존재하기는 하지만 응용 프로그램이 IP 주소 구성을 새 위치로 함께 가지고 갑니다. 두 번째 방법은 복구된 사이트로 전환하는 동안 IP 주소를 완전히 변경하는 작업을 포함합니다. 각 방법에는 아래에 요약된 것처럼 여러 가지 구현 변형이 있습니다.

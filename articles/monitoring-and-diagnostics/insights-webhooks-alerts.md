@@ -1,7 +1,7 @@
 ---
 title: "Azure 메트릭 경고에 대한 webhook 구성 | Microsoft 문서"
 description: "Azure 경고를 다른 비Azure 시스템으로 경로를 전환합니다."
-author: kamathashwin
+author: johnkemnetz
 manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
-ms.author: ashwink
-translationtype: Human Translation
+ms.author: johnkem
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 7282de704a1053e2052a189990fb2b30b2adad6f
+ms.contentlocale: ko-kr
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Azure 활동 메트릭 경고에 대한 웹후크 구성

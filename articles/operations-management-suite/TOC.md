@@ -36,6 +36,7 @@
 ### 통찰 및 분석
 #### [AD 평가](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD 복제 상태](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [에이전트 상태](oms-solution-agenthealth.md)
 #### [경고 관리](../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [컨테이너](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -73,3 +74,5 @@
 # 참조
 ## [SDK](operations-management-suite-sdk.md)
 
+# 리소스
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

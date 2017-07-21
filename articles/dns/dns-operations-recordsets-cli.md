@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: jonatul
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: cbd906d7fb9756eabc95cb79961fcf285170561a
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 9543759d7ba88c7c5068021cebbeec6b8d63633e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 07/06/2017
 
 ---
 
@@ -51,7 +51,7 @@ Azure DNS의 DNS 레코드에 대한 자세한 내용은 [DNS 영역 및 레코�
 
 ## <a name="create-a-dns-record"></a>DNS 레코드 만들기
 
-DNS 레코드를 만들려면 `az network dns record-set <record-type> add-record` 명령을 사용합니다(여기서 `<record-type>`은 a, srv, txt 등의 레코드 형식임). 도움말을 보려면 `az network dns record-set --help`을 참조하세요.
+DNS 레코드를 만들려면 `az network dns record-set <record-type> set-record` 명령을 사용합니다(여기서 `<record-type>`은 a, srv, txt 등의 레코드 형식임). 도움말을 보려면 `az network dns record-set --help`을 참조하세요.
 
 레코드를 만드는 경우 리소스 그룹 이름, 영역 이름, 레코드 집합 이름, 레코드 유형 및 만드는 레코드의 세부 정보를 지정해야 합니다. 레코드 집합 이름은 *상대* 이름이어야 합니다. 즉, 영역 이름을 제외해야 합니다.
 
@@ -62,13 +62,13 @@ DNS 레코드를 만들려면 `az network dns record-set <record-type> add-recor
 다음 예제에서는 *MyResourceGroup* 리소스 그룹의 *contoso.com* 영역에 *www*라는 A 레코드를 만듭니다. A 레코드의 IP 주소는 *1.2.3.4*입니다.
 
 ```azurecli
-az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
+az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
 영역의 구로에서 레코드 집합을 만들려면(이 경우 "contoso.com"), 따옴표를 포함한 레코드 이름 "@"를 사용합니다.
 
 ```azurecli
-az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
+az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
 ```
 
 ## <a name="create-a-dns-record-set"></a>DNS 레코드 집합 만들기
@@ -91,13 +91,13 @@ az network dns record-set a create --resource-group myresourcegroup --zone-name 
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --metadata "dept=finance" "environment=production"
 ```
 
-비어 있는 레코드 집합을 만들었으므로 [DNS 레코드 만들기](#create-a-dns-record)에 설명된 대로 `azure network dns record-set <record-type> add-record`를 사용하여 레코드를 추가할 수 있습니다.
+비어 있는 레코드 집합을 만들었으므로 [DNS 레코드 만들기](#create-a-dns-record)에 설명된 대로 `azure network dns record-set <record-type> set-record`를 사용하여 레코드를 추가할 수 있습니다.
 
 ## <a name="create-records-of-other-types"></a>다른 형식의 레코드 만들기
 
 지금까지 'A' 레코드를 만드는 방법에 대해 자세히 살펴보았으며, 다음 예제에서는 Azure DNS에서 지원하는 다른 레코드 형식의 레코드를 만드는 방법을 보여 줍니다.
 
-레코드 데이터를 지정하는 데 사용되는 매개 변수는 레코드 유형에 따라 다릅니다. 예를 들어 "A" 유형의 레코드의 경우 `--ipv4-address <IPv4 address>` 매개 변수로 IPv4 주소를 지정합니다. 각 레코드 형식에 대한 매개 변수는 `az network dns record-set <record-type> add-record --help`를 사용하여 나열할 수 있습니다.
+레코드 데이터를 지정하는 데 사용되는 매개 변수는 레코드 유형에 따라 다릅니다. 예를 들어 "A" 유형의 레코드의 경우 `--ipv4-address <IPv4 address>` 매개 변수로 IPv4 주소를 지정합니다. 각 레코드 형식에 대한 매개 변수는 `az network dns record-set <record-type> set-record --help`를 사용하여 나열할 수 있습니다.
 
 각각의 경우에 단일 레코드를 만드는 방법을 보여줍니다. 레코드는 기존 레코드 집합 또는 암시적으로 생성된 레코드 집합에 추가됩니다. 레코드 집합 생성 및 레코드 집합 매개 변수를 명시적으로 정의하는 방법은 [DNS 레코드 집합 만들](#create-a-dns-record-set)를 참조하세요.
 
@@ -106,7 +106,7 @@ SOA가 각 DNS 영역과 함께 만들어지고 삭제되며 별도로 만들어
 ### <a name="create-an-aaaa-record"></a>AAAA 레코드 만들기
 
 ```azurecli
-az network dns record-set aaaa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
+az network dns record-set aaaa set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-aaaa --ipv6-address 2607:f8b0:4009:1803::1005
 ```
 
 ### <a name="create-a-cname-record"></a>CNAME 레코드 만들기
@@ -117,7 +117,7 @@ az network dns record-set aaaa add-record --resource-group myresourcegroup --zon
 > 자세한 내용은 [CNAME 레코드](dns-zones-records.md#cname-records)를 참조하세요.
 
 ```azurecli
-az network dns record-set cname add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.contoso.com
+az network dns record-set cname set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-cname --cname www.contoso.com
 ```
 
 ### <a name="create-an-mx-record"></a>MX 레코드 만들기
@@ -125,13 +125,13 @@ az network dns record-set cname add-record --resource-group myresourcegroup --zo
 이 예제에서는 레코드 집합 이름을 "@"로 사용하여 영역 구로에 MX 레코드를 만듭니다(이 경우 "contoso.com").
 
 ```azurecli
-az network dns record-set mx add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
+az network dns record-set mx set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --exchange mail.contoso.com --preference 5
 ```
 
 ### <a name="create-an-ns-record"></a>NS 레코드 만들기
 
 ```azurecli
-az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
+az network dns record-set ns set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-ns --nsdname ns1.contoso.com
 ```
 
 ### <a name="create-a-ptr-record"></a>PTR 레코드 만들기
@@ -139,7 +139,7 @@ az network dns record-set ns add-record --resource-group myresourcegroup --zone-
 이 경우에 'my-arpa-zone.com'은 IP 범위를 나타내는 ARPA 영역을 나타냅니다. 이 영역의 각 PTR 레코드 집합은 IP 범위 내의 IP 주소에 해당합니다.  레코드 이름 '10'은 이 레코드에서 나타내는 이 IP 범위 내에서 IP 주소의 마지막 옥텟입니다.
 
 ```azurecli
-az network dns record-set ptr add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
+az network dns record-set ptr set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name my-arpa.zone.com --ptrdname myservice.contoso.com
 ```
 
 ### <a name="create-an-srv-record"></a>SRV 레코드 만들기
@@ -147,7 +147,7 @@ az network dns record-set ptr add-record --resource-group myresourcegroup --zone
 [SRV 레코드 집합](dns-zones-records.md#srv-records)을 만들 경우 레코드 집합 이름에 *\_서비스* 및 *\_프로토콜*을 지정합니다. 영역 apex에 SRV 레코드 집합을 만드는 경우 레코드 집합 이름에서 "@"을 포함할 필요가 없습니다.
 
 ```azurecli
-az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
+az network dns record-set srv set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com
 ```
 
 ### <a name="create-a-txt-record"></a>TXT 레코드 만들기
@@ -155,7 +155,7 @@ az network dns record-set srv add-record --resource-group myresourcegroup --zone
 다음 예제에서는 TXT 레코드를 만드는 방법을 보여 줍니다. TXT 레코드에서 지원되는 최대 문자열 길이에 대한 자세한 내용은 [TXT 레코드](dns-zones-records.md#txt-records)를 참조하세요.
 
 ```azurecli
-az network dns record-set txt add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
+az network dns record-set txt set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-txt --value "This is a TXT record"
 ```
 
 ## <a name="get-a-record-set"></a>레코드 집합 가져오기
@@ -188,7 +188,7 @@ az network dns record-set a list --resource-group myresourcegroup --zone-name co
 
 ## <a name="add-a-record-to-an-existing-record-set"></a>기존 레코드 집합에 레코드 추가
 
-`az network dns record-set <record-type> add-record`를 사용하여 새 레코드 집합에 레코드를 만들거나 기존 레코드 집합에 레코드를 추가할 수 있습니다.
+`az network dns record-set <record-type> set-record`를 사용하여 새 레코드 집합에 레코드를 만들거나 기존 레코드 집합에 레코드를 추가할 수 있습니다.
 
 자세한 내용은 위의 [DNS 레코드 만들기](#create-a-dns-record) 및 [다른 형식의 레코드 만들기](#create-records-of-other-types)를 참조하세요.
 
@@ -198,7 +198,7 @@ az network dns record-set a list --resource-group myresourcegroup --zone-name co
 
 이 명령은 레코드 집합에서 DNS 레코드를 삭제합니다. 레코드 집합에서 마지막 레코드가 삭제되면 레코드 집합 자체도 삭제됩니다. 대신, 빈 레코드 집합을 유지하려면 `--keep-empty-record-set` 옵션을 사용합니다.
 
-`az network dns record-set <record-type> add-record`를 사용하여 레코드를 만들 때와 동일한 매개 변수를 사용하여 삭제할 레코드와 레코드를 삭제할 영역을 지정해야 합니다. 이러한 매개 변수는 위의 [DNS 레코드 만들기](#create-a-dns-record) 및 [다른 형식의 레코드 만들기](#create-records-of-other-types)에 설명됩니다
+`az network dns record-set <record-type> set-record`를 사용하여 레코드를 만들 때와 동일한 매개 변수를 사용하여 삭제할 레코드와 레코드를 삭제할 영역을 지정해야 합니다. 이러한 매개 변수는 위의 [DNS 레코드 만들기](#create-a-dns-record) 및 [다른 형식의 레코드 만들기](#create-records-of-other-types)에 설명됩니다
 
 다음 예제에서는 *MyResourceGroup* 리소스 그룹의 *contoso.com* 영역에 *www*라는 레코드 집합에서 값이 '1.2.3.4'인 A 레코드를 삭제합니다.
 
@@ -217,7 +217,7 @@ A, AAAA, MX, NS, PTR, SRV 또는 TXT 형식의 기존 레코드를 수정하려�
 다음 예제에서는 IP 주소 1.2.3.4~IP 주소 5.6.7.8 범위에서 'A' 레코드를 수정하는 방법을 보여 줍니다.
 
 ```azurecli
-az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
+az network dns record-set a set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 5.6.7.8
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
@@ -258,7 +258,7 @@ az network dns record-set soa update --resource-group myresourcegroup --zone-nam
 다음 예제에서는 영역 루트의 NS 레코드 집합에 추가 이름 서버를 추가하는 방법을 보여 줍니다.
 
 ```azurecli
-az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
+az network dns record-set ns set-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>기존 레코드 집합의 TTL을 수정하려면

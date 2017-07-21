@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 3d30024920295298ad2a8a6e22e11ef829934255
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/02/2017
 
 ---
 
@@ -45,7 +45,7 @@ Azure Portal을 사용하여 Traffic Manager 프로필을 만들 수 있습니�
 
 ## <a name="disable-enable-or-delete-a-profile"></a>프로필 사용 안 함, 사용 또는 삭제
 
-기존 프로필을 사용하지 않도록 설정하면 Traffic Manager에서 구성된 끝점의 사용자 요청을 참조하지 않을 수 있습니다. Traffic Manager 프로필을 사용하지 않도록 설정하면 프로필 및 프로필에 포함된 정보는 그대로 유지되며 Traffic Manager 인터페이스에서 편집할 수 있습니다.  프로필을 다시 사용하도록 설정하는 경우 조회가 다시 시작됩니다. Azure 클래식 포털에서 Traffic Manager 프로필을 만들면 자동으로 사용하도록 설정됩니다. 프로필이 더 이상 필요하지 않으면 해당 프로필을 삭제할 수 있습니다.
+기존 프로필을 사용하지 않도록 설정하면 Traffic Manager에서 구성된 끝점의 사용자 요청을 참조하지 않을 수 있습니다. Traffic Manager 프로필을 사용하지 않도록 설정하면 프로필 및 프로필에 포함된 정보는 그대로 유지되며 Traffic Manager 인터페이스에서 편집할 수 있습니다.  프로필을 다시 사용하도록 설정하는 경우 조회가 다시 시작됩니다. Azure Portal에서 Traffic Manager 프로필을 만들면 자동으로 활성화됩니다. 프로필이 더 이상 필요하지 않으면 해당 프로필을 삭제할 수 있습니다.
 
 ### <a name="to-disable-a-profile"></a>프로필을 사용하지 않도록 설정하려면
 

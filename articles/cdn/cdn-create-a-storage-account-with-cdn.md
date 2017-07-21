@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 0ea23f4f59737123f4400dafc7506e121f24ae34
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 35896cc9891e2439df004cc4eab339219d47b805
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -42,7 +42,7 @@ CDN을 사용하도록 설정하여 Azure 저장소의 콘텐츠를 캐시할 �
     
     **저장소 계정 만들기** 블레이드가 나타납니다.   
 
-       ![Create Storage Account][create-new-storage-account]  
+    ![저장소 계정 만들기][create-new-storage-account]  
 
 3. **이름** 필드에 하위 도메인 이름을 입력합니다. 이 입력에는 3-24자의 소문자와 숫자를 사용할 수 있습니다.
    
@@ -75,7 +75,7 @@ CDN을 사용하도록 설정하여 Azure 저장소의 콘텐츠를 캐시할 �
     - **CDN 끝점 이름**: 원하는 끝점 이름을 입력합니다.
 
     > [!TIP]
-       > 만든 CDN 끝점은 기본적으로 저장소 계정의 호스트 이름을 토대로 이름이 지정됩니다.
+    > 만든 CDN 끝점은 기본적으로 저장소 계정의 호스트 이름을 토대로 이름이 지정됩니다.
 
     ![cdn new endpoint creation][cdn-new-endpoint-creation]
 
@@ -123,3 +123,4 @@ CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료�
 [cdn-enable-navigation]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png
 [cdn-storage-new-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-list.png
 [cdn-storage-cdn-configuration]: ./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png 
+

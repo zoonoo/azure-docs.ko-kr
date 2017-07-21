@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 146aa7706b5ff2a613dd94c75f3ad447ace82834
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 3b0fe2a300038e13cc488bdb4f50f8be270ea8f4
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="how-to-use-properties-in-azure-api-management-policies"></a>Azure API 관리 정책에 속성을 사용하는 방법
+<a id="how-to-use-properties-in-azure-api-management-policies" class="xliff"></a>
+
+# Azure API 관리 정책에 속성을 사용하는 방법
 API 관리 정책은 게시자가 구성을 통해 API 동작을 변경할 수 있도록 하는 시스템의 강력한 기능입니다. 정책은 API의 요청이나 응답에 따라 순차적으로 실행되는 명령문의 컬렉션입니다. 정책 설명은 리터럴 텍스트 값, 정책 식 및 속성을 사용하여 생성할 수 있습니다. 
 
 각 API 관리 서비스 인스턴스에는 해당 서비스 인스턴스에 전역인 키/값 쌍의 속성 컬렉션이 있습니다. 이러한 속성을 사용하여 모든 API 구성 및 정책에서 상수 문자열 값을 관리할 수 있습니다. 각 속성에는 다음과 같은 특성이 있습니다.
@@ -44,7 +48,9 @@ API 관리 정책은 게시자가 구성을 통해 API 동작을 변경할 수 �
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
 | ExpressionProperty |@(DateTime.Now.ToString()) |False | |
 
-## <a name="to-use-a-property"></a>속성을 사용하려면
+<a id="to-use-a-property" class="xliff"></a>
+
+## 속성을 사용하려면
 정책에서 속성을 사용하려면 다음 예제와 같이 이중 중괄호 쌍 안에 속성 이름을 배치합니다(예: `{{ContosoHeader}}`).
 
 ```xml
@@ -77,7 +83,9 @@ API 관리 정책은 게시자가 구성을 통해 API 동작을 변경할 수 �
 
 속성 값은 정책 식을 포함할 수 있지만 다른 속성을 포함할 수는 없습니다. 속성 참조를 포함하는 텍스트가 속성 값에 사용된 경우(예: `Property value text {{MyProperty}}`) 해당 속성 참조는 바뀌지 않으며 속성 값의 일부로 포함됩니다.
 
-## <a name="to-create-a-property"></a>속성을 만들려면
+<a id="to-create-a-property" class="xliff"></a>
+
+## 속성을 만들려면
 속성을 만들려면 **속성** 탭에서 **속성 추가**를 클릭합니다.
 
 ![속성 추가][api-management-properties-add-property-menu]
@@ -92,7 +100,9 @@ API 관리 정책은 게시자가 구성을 통해 API 동작을 변경할 수 �
 
 REST API를 사용하여 속성을 만드는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 만들기](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put)를 참조하세요.
 
-## <a name="to-edit-a-property"></a>속성을 편집하려면
+<a id="to-edit-a-property" class="xliff"></a>
+
+## 속성을 편집하려면
 속성을 편집하려면 편집할 속성 옆의 **편집** 을 클릭합니다.
 
 ![속성 편집][api-management-properties-edit]
@@ -103,7 +113,9 @@ REST API를 사용하여 속성을 만드는 방법에 대한 자세한 내용�
 
 REST API를 사용하여 속성을 편집하는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 편집](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch)을 참조하세요.
 
-## <a name="to-delete-a-property"></a>속성을 삭제하려면
+<a id="to-delete-a-property" class="xliff"></a>
+
+## 속성을 삭제하려면
 속성을 삭제하려면 삭제할 속성 옆의 **삭제** 를 클릭합니다.
 
 ![속성 삭제][api-management-properties-delete]
@@ -119,7 +131,9 @@ REST API를 사용하여 속성을 편집하는 방법에 대한 자세한 내�
 
 REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내용은 [REST API를 사용하여 속성 삭제](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete)를 참조하세요.
 
-## <a name="to-search-and-filter-properties"></a>속성을 검색하고 필터링하려면
+<a id="to-search-and-filter-properties" class="xliff"></a>
+
+## 속성을 검색하고 필터링하려면
 **속성** 탭에는 속성을 관리하는 데 유용한 검색 및 필터링 기능이 있습니다. 속성 이름으로 속성 목록을 필터링하려면 **속성 검색** 텍스트 상자에 검색 용어를 입력합니다. 모든 속성을 표시하려면 **속성 검색** 텍스트 상자를 지우고 Enter 키를 누릅니다.
 
 ![검색][api-management-properties-search]
@@ -128,13 +142,17 @@ REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내�
 
 ![Filter][api-management-properties-filter]
 
-## <a name="next-steps"></a>다음 단계
+<a id="next-steps" class="xliff"></a>
+
+## 다음 단계
 * 정책 작업에 대한 자세한 정보
   * [API 관리의 정책](api-management-howto-policies.md)
   * [정책 참조](https://msdn.microsoft.com/library/azure/dn894081.aspx)
   * [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
-## <a name="watch-a-video-overview"></a>비디오 개요 보기
+<a id="watch-a-video-overview" class="xliff"></a>
+
+## 비디오 개요 보기
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Use-Properties-in-Policies/player]
 > 
 > 
@@ -151,10 +169,5 @@ REST API를 사용하여 속성을 삭제하는 방법에 대한 자세한 내�
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

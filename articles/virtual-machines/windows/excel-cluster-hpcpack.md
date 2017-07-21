@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/11/2017
+ms.date: 06/01/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8c40a0d44463c75e92444b393336db1daf270ee1
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: acd2ee7fb94c43493ffd9ffee157f2c3e795b63e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -60,7 +61,7 @@ Azure 빠른 시작 템플릿을 사용하여 Azure 포털에서 HPC Pack 클러
    
    a. **매개 변수** 페이지에서 템플릿 매개 변수의 값을 입력하거나 수정합니다. 도움말 정보를 보려면 각 설정 옆에 있는 아이콘을 클릭합니다. 다음 화면에는 샘플 값이 표시되어 있습니다. 이 예제에서는 *hpc.local* 도메인에 헤드 노드 1개와 컴퓨터 노드 2개로 구성된 *hpc01*이라는 클러스터를 만듭니다. 컴퓨터 노드는 Microsoft Excel을 포함하는 HPC Pack VM 이미지에서 생성됩니다.
    
-   ![매개 변수 입력][parameters]
+   ![매개 변수 입력][parameters-new-portal]
    
    > [!NOTE]
    > 헤드 노드 VM은 Windows Server 2012 R2에서 HPC Pack 2012 R2의 [최신 마켓플레이스 이미지](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) 로부터 자동으로 생성됩니다. 현재 이미지는 HPC Pack 2012 R2 업데이트 3을 기반으로 합니다.
@@ -78,9 +79,9 @@ Azure 빠른 시작 템플릿을 사용하여 Azure 포털에서 HPC Pack 클러
    e. **약관** 페이지에서 약관 내용을 검토합니다. 해당 내용에 동의하는 경우 **구매**를 클릭합니다. 그런 다음 템플릿에 대한 값 설정을 마쳤으면 **만들기**를 클릭합니다.
 4. 배포가 완료되면(일반적으로 약 30분 소요) 클러스터 헤드 노드에서 클러스터 인증서 파일을 내보냅니다. 이후 단계에서 보안 HTTP 바인딩을 위한 서버 쪽 인증을 제공하기 위해 클라이언트 컴퓨터에서 이 공용 인증서를 가져옵니다.
    
-   a. Azure 포털에서 원격 데스크톱을 통해 헤드 노드에 연결합니다.
+   a. Azure Portal에서 대시보드로 이동하여 헤드 노드를 선택하고, 원격 데스크톱을 사용하여 연결하려면 페이지 위쪽에 있는 **연결**을 클릭합니다.
    
-    ![헤드 노드에 연결][connect]
+    <!-- ![Connect to the head node][connect] -->
    
    b. 인증서 관리자의 표준 절차에 따라 개인 키 없이 Cert:\LocalMachine\My 아래에 있는 헤드 노드 인증서를 내보냅니다. 이 예제에서는 *CN = hpc01.eastus.cloudapp.azure.com*을 내보냅니다.
    
@@ -332,12 +333,12 @@ Azure Storage 큐 없이 HTTP 바인딩을 사용하려면 SessionStartInfo에�
 ```
 
 ### <a name="use-nettcp-binding"></a>NetTcp 바인딩 사용
-NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 연결하는 것과 유사합니다. 헤드 노드 VM에서 몇 개의 끝점을 열어야 합니다. 예를 들어 HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 만든 경우 다음을 수행하여 Azure 클래식 포털에서 끝점을 설정합니다.
+NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 연결하는 것과 유사합니다. 헤드 노드 VM에서 몇 개의 끝점을 열어야 합니다. 예를 들어 HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 만든 경우 다음과 같이 Azure Portal에서 끝점을 설정합니다.
 
 1. VM을 중지합니다.
 2. 세션, 브로커, 브로커 작업자 및 데이터 서비스에 대해 각각 TCP 포트 9090, 9087, 9091, 9094를 추가합니다.
    
-    ![끝점 구성][endpoint]
+    ![끝점 구성][endpoint-new-portal]
 3. VM을 시작합니다.
 
 헤드 이름을 IaaS 클러스터 전체 이름으로 변경하는 것을 제외하고 SOA 클라이언트 응용 프로그램에 필요한 변경 내용은 없습니다.
@@ -351,6 +352,7 @@ NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 �
 [github]: ./media/excel-cluster-hpcpack/github.png
 [template]: ./media/excel-cluster-hpcpack/template.png
 [parameters]: ./media/excel-cluster-hpcpack/parameters.png
+[parameters-new-portal]: ./media/excel-cluster-hpcpack/parameters-new-portal.png
 [create]: ./media/excel-cluster-hpcpack/create.png
 [connect]: ./media/excel-cluster-hpcpack/connect.png
 [cert]: ./media/excel-cluster-hpcpack/cert.png
@@ -359,5 +361,6 @@ NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 �
 [options]: ./media/excel-cluster-hpcpack/options.png
 [run]: ./media/excel-cluster-hpcpack/run.png
 [endpoint]: ./media/excel-cluster-hpcpack/endpoint.png
+[endpoint-new-portal]: ./media/excel-cluster-hpcpack/endpoint-new-portal.png
 [udf]: ./media/excel-cluster-hpcpack/udf.png
 

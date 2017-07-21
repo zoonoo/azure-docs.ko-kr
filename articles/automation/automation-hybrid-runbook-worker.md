@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 06/29/2017
 ms.author: bwren
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: a63778c300a3d215a2a0025824f6363e1d9e9675
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 5cd863c3e357b67d281adb8484376295ad9099ec
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -57,7 +57,7 @@ Hybrid Worker에 대한 다음 권장 사항을 고려하십시오.
 * 작업이 완료되면 작업 데이터가 Azure 자동화로 다시 전송되므로 자동화 계정 지역이나 그와 가까운 위치에 있는 컴퓨터를 사용하는 것이 좋습니다.
 
 ### <a name="configure-proxy-and-firewall-settings"></a>프록시 및 방화벽 설정 구성
-온-프레미스 Hybrid Runbook Worker를 사용하여 Microsoft Operations Management Suite(OMS) 서비스에 연결하고 등록하려면 아래 설명된 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다.  [Microsoft Monitoring Agent에 필요한 포트 및 URL](../log-analytics/log-analytics-windows-agents.md) 외에도 OMS에 연결합니다. 에이전트와 OMS 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인해야 합니다. 방화벽을 사용하여 인터넷에 대한 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다.
+온-프레미스 Hybrid Runbook Worker를 사용하여 Microsoft Operations Management Suite(OMS) 서비스에 연결하고 등록하려면 아래 설명된 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다.  [Microsoft Monitoring Agent에 필요한 포트 및 URL](../log-analytics/log-analytics-windows-agents.md#network) 외에도 OMS에 연결합니다. 에이전트와 OMS 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인해야 합니다. 방화벽을 사용하여 인터넷에 대한 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다.
 
 아래 정보는 Hybrid Runbook Worker에서 자동화와 통신하는 데 필요한 포트 및 URL을 나열합니다.
 
@@ -81,11 +81,11 @@ Hybrid Worker에 대한 다음 권장 사항을 고려하십시오.
 | 영국 남부 | uks-jobruntimedata-prod-su1.azure-automation.net |
 | 미국 정부 버지니아 | usge-jobruntimedata-prod-su1.azure-automation.us |
 
-이름 대신 IP 주소 목록을 보려면 Microsoft 다운로드 센터에서 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653) xml 파일을 다운로드하여 검토하세요.
+이름 대신 IP 주소 목록을 보려면 Microsoft 다운로드 센터에서 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653) xml 파일을 다운로드하여 검토하세요. 
 
 > [!NOTE]
-> 이 파일에는 Microsoft Azure 데이터 센터에서 사용되는 IP 주소 범위(Compute, SQL 및 Storage 범위 포함)가 포함되어 있습니다. 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영하는 업데이트 파일이 매주 게시됩니다. 파일에 표시되는 새 범위는 적어도 1주일 동안 데이터 센터에서 사용되지 않습니다. Azure에서 실행되는 서비스를 정확하게 식별할 수 있도록 매주 새로운 xml 파일을 다운로드하고 사이트에서 필요한 변경 작업을 수행하세요. ExpressRoute 사용자는 매월 첫 번째 주에 Azure 공간의 BGP 광고를 업데이트하는 데 이 파일이 사용되고 있음을 알 수 있습니다.
->
+> 이 파일에는 Microsoft Azure 데이터 센터에서 사용되는 IP 주소 범위(Compute, SQL 및 Storage 범위 포함)가 포함되어 있습니다. 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영하는 업데이트 파일이 매주 게시됩니다. 파일에 표시되는 새 범위는 적어도 1주일 동안 데이터 센터에서 사용되지 않습니다. Azure에서 실행되는 서비스를 정확하게 식별할 수 있도록 매주 새로운 xml 파일을 다운로드하고 사이트에서 필요한 변경 작업을 수행하세요. ExpressRoute 사용자는 매월 첫 번째 주에 Azure 공간의 BGP 광고를 업데이트하는 데 이 파일이 사용되고 있음을 알 수 있습니다. 
+> 
 
 ## <a name="installing-hybrid-runbook-worker"></a>Hybrid Runbook Worker 설치
 
@@ -101,20 +101,20 @@ Hybrid Runbook Worker를 설치 및 구성하려면 2가지 방법을 사용할 
 
   * *AutomationAccountName*(필수) - 자동화 계정의 이름  
   * *ResourceGroupName*(필수) - Automation 계정과 연결된 리소스 그룹의 이름  
-  * *HybridGroupName*(필수) - 이 시나리오를 지원하는 Runbook에 대한 대상으로 지정할 Hybrid Runbook Worker 그룹의 이름
+  * *HybridGroupName*(필수) - 이 시나리오를 지원하는 Runbook에 대한 대상으로 지정할 Hybrid Runbook Worker 그룹의 이름 
   *  *SubscriptionID*(필수) - Automation 계정이 있는 Azure 구독 ID
   *  *WorkspaceName*(선택) - OMS 작업 영역 이름  OMS 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다.  
 
      > [!NOTE]
      > 현재 OMS와 통합되도록 지원되는 Automation 영역은 **오스트레일리아 남동부**, **미국 동부 2**, **동남 아시아** 및 **서유럽**뿐입니다.  이러한 영역 중 하나에 Automation 계정에 없는 경우 스크립트에서 OMS 작업 영역을 만들지만 연결할 수 없다고 경고합니다.
-     >
+     > 
 2. 컴퓨터에서 관리자 모드의 **시작** 화면에서 **Windows PowerShell**을 시작합니다.  
 3. PowerShell 명령줄 셸에서 다운로드한 스크립트가 포함된 폴더로 이동한 후 *-AutomationAccountName*, *-ResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* 및 *-WorkspaceName* 매개 변수 값을 변경하여 실행합니다.
 
-     > [!NOTE]
+     > [!NOTE] 
      > 스크립트를 실행한 후에 Azure 인증을 묻는 메시지가 나타납니다.  구독 관리자 역할의 멤버이자 구독의 공동 관리자인 계정으로 **로그인해야** 합니다.  
      >  
-
+    
         .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> `
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
@@ -123,7 +123,7 @@ Hybrid Runbook Worker를 설치 및 구성하려면 2가지 방법을 사용할 
 
 5. 스크립트가 완료되면 Hybrid Worker 그룹 블레이드에 새 그룹 및 멤버 수가 표시되고, 기존 그룹이 있으면 해당 멤버 수가 증가됩니다.  **Hybrid Worker 그룹** 블레이드의 목록에서 그룹을 선택하고 **Hybrid Worker** 타일을 선택합니다.  **Hybrid Worker** 블레이드에서 나열된 그룹의 각 멤버를 확인합니다.  
 
-### <a name="manual-deployment"></a>수동 배포
+### <a name="manual-deployment"></a>수동 배포 
 자동화 환경에 대해 처음 두 단계를 한 번 수행한 후 각 Worker 컴퓨터에 대해 나머지 단계를 반복합니다.
 
 #### <a name="1-create-operations-management-suite-workspace"></a>1. Operations Management Suite 작업 영역 만들기
@@ -166,9 +166,9 @@ Azure 포털의 **키 관리** 블레이드에서 이 cmdlet에 필요한 정보
 #### <a name="5-install-powershell-modules"></a>5. PowerShell 모듈 설치
 Runbook은 Azure 자동화 환경에 설치된 모듈에 정의된 활동 및 cmdlet을 사용할 수 있습니다.  이러한 모듈은 온-프레미스 컴퓨터에 자동으로 배포되지 않으므로 수동으로 설치해야 합니다.  단, 기본적으로 설치되어 Azure Automation의 모든 Azure 서비스 및 활동에 사용되는 cmdlet에 대한 액세스를 제공하는 Azure 모듈은 예외입니다.
 
-Hybrid Runbook Worker 기능의 주 목적은 로컬 리소스를 관리하는 것이므로 이러한 리소스를 지원하는 모듈을 설치해야 할 수 있습니다.  Windows PowerShell 모듈 설치에 대한 자세한 내용은 [모듈 설치](http://msdn.microsoft.com/library/dd878350.aspx) 를 참조하세요.  설치된 모듈은 Hybrid Worker가 자동으로 가져올 수 있도록 PSModulePath 환경 변수가 참조하는 위치에 있어야 합니다.  추가 정보는 [PSModulePath 설치 경로 수정](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx)을 참조하세요.
+Hybrid Runbook Worker 기능의 주 목적은 로컬 리소스를 관리하는 것이므로 이러한 리소스를 지원하는 모듈을 설치해야 할 수 있습니다.  Windows PowerShell 모듈 설치에 대한 자세한 내용은 [모듈 설치](http://msdn.microsoft.com/library/dd878350.aspx) 를 참조하세요.  설치된 모듈은 Hybrid Worker가 자동으로 가져올 수 있도록 PSModulePath 환경 변수가 참조하는 위치에 있어야 합니다.  추가 정보는 [PSModulePath 설치 경로 수정](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx)을 참조하세요. 
 
-## <a name="removing-hybrid-runbook-worker"></a>Hybrid Runbook Worker 제거
+## <a name="removing-hybrid-runbook-worker"></a>Hybrid Runbook Worker 제거 
 그룹에서 하나 이상의 Hybrid Runbook Worker를 제거하거나 요구 사항에 따라 그룹을 제거할 수 있습니다.  온-프레미스 컴퓨터에서 Hybrid Runbook Worker를 제거하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 Automation 계정으로 이동합니다.  
@@ -242,21 +242,21 @@ Azure에서 리소스를 배포하는 자동화된 빌드 프로세스의 일부
     .GUID 3a796b9a-623d-499d-86c8-c249f10a6986
     .AUTHOR Azure Automation Team
     .COMPANYNAME Microsoft
-    .COPYRIGHT
-    .TAGS Azure Automation
-    .LICENSEURI
-    .PROJECTURI
-    .ICONURI
-    .EXTERNALMODULEDEPENDENCIES
-    .REQUIREDSCRIPTS
-    .EXTERNALSCRIPTDEPENDENCIES
+    .COPYRIGHT 
+    .TAGS Azure Automation 
+    .LICENSEURI 
+    .PROJECTURI 
+    .ICONURI 
+    .EXTERNALMODULEDEPENDENCIES 
+    .REQUIREDSCRIPTS 
+    .EXTERNALSCRIPTDEPENDENCIES 
     .RELEASENOTES
     #>
 
     <#  
     .SYNOPSIS  
-    Exports the Run As certificate from an Azure Automation account to a hybrid worker in that account.
-
+    Exports the Run As certificate from an Azure Automation account to a hybrid worker in that account. 
+  
     .DESCRIPTION  
     This runbook exports the Run As certificate from an Azure Automation account to a hybrid worker in that account.
     Run this runbook in the hybrid worker where you want the certificate installed.
@@ -266,11 +266,11 @@ Azure에서 리소스를 배포하는 자동화된 빌드 프로세스의 일부
     .\Export-RunAsCertificateToHybridWorker
 
     .NOTES
-    AUTHOR: Azure Automation Team
+    AUTHOR: Azure Automation Team 
     LASTEDIT: 2016.10.13
     #>
 
-    [OutputType([string])]
+    [OutputType([string])] 
 
     # Set the password used for this certificate
     $Password = "YourStrongPasswordForTheCert"
@@ -280,28 +280,28 @@ Azure에서 리소스를 배포하는 자동화된 빌드 프로세스의 일부
 
     # Get the management certificate that will be used to make calls into Azure Service Management resources
     $RunAsCert = Get-AutomationCertificate -Name "AzureRunAsCertificate"
-
+       
     # location to store temporary certificate in the Automation service host
     $CertPath = Join-Path $env:temp  "AzureRunAsCertificate.pfx"
-
+   
     # Save the certificate
     $Cert = $RunAsCert.Export("pfx",$Password)
-    Set-Content -Value $Cert -Path $CertPath -Force -Encoding Byte | Write-Verbose
+    Set-Content -Value $Cert -Path $CertPath -Force -Encoding Byte | Write-Verbose 
 
-    Write-Output ("Importing certificate into local machine root store from " + $CertPath)
+    Write-Output ("Importing certificate into $env:computername local machine root store from " + $CertPath)
     $SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
     Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword -Exportable | Write-Verbose
 
     # Test that authentication to Azure Resource Manager is working
-    $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
-
+    $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection" 
+    
     Add-AzureRmAccount `
       -ServicePrincipal `
       -TenantId $RunAsConnection.TenantId `
       -ApplicationId $RunAsConnection.ApplicationId `
       -CertificateThumbprint $RunAsConnection.CertificateThumbprint | Write-Verbose
 
-    Select-AzureRmSubscription -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbose
+    Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbose
 
     # List automation accounts to confirm Azure Resource Manager calls are working
     Get-AzureRmAutomationAccount | Select AutomationAccountName

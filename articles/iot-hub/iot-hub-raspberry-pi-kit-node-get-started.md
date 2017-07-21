@@ -7,35 +7,38 @@ author: shizn
 manager: timtl
 tags: 
 keywords: "azure iot raspberry pi, raspberry pi iot hub, raspberry pi에서 클라우드로 데이터 전송, raspberry pi-클라우드"
-experimental: true
-experiment_id: xshi-happypathemu-20161202
 ms.assetid: b0e14bfa-8e64-440a-a6ec-e507ca0f76ba
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/14/2017
+ms.date: 5/27/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 6f09d2244d0a1f6dbd7cff164c6d9e35379ee131
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d82480c013f3d5f13fdbf49ff89f19cf71c1a50f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
 
-# <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
+<a id="connect-raspberry-pi-to-azure-iot-hub-nodejs" class="xliff"></a>
+
+# Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 이 자습서에서는 Raspbian을 실행하는 Raspberry Pi 작업의 기초부터 학습합니다. 그런 다음 [Azure IoT Hub](iot-hub-what-is-iot-hub.md)를 사용하여 장치를 클라우드에 원활하게 연결하는 방법을 알아봅니다. Windows 10 IoT Core 샘플이 필요하면 [Windows 개발자 센터](http://www.windowsondevices.com/)로 이동하세요.
 
-아직 키트가 없으세요? [여기](https://azure.microsoft.com/develop/iot/starter-kits)서 새 키트를 구입하세요.
+아직 키트가 없으세요? [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md)를 사용해 보세요. 또는 새 키트를 [여기](https://azure.microsoft.com/develop/iot/starter-kits)에서 구입합니다.
 
 
-## <a name="what-you-do"></a>수행할 작업
+<a id="what-you-do" class="xliff"></a>
+
+## 수행할 작업
 
 * Raspberry Pi를 설치합니다.
 * IoT Hub를 만듭니다.
@@ -44,14 +47,18 @@ ms.lasthandoff: 04/18/2017
 
 앞에서 만든 IoT Hub에 Raspberry Pi를 연결합니다. 그런 다음 Pi에서 샘플 응용 프로그램을 실행하여 BME280에서 온도 및 습도 데이터를 수집합니다. 마지막으로 센서 데이터를 IoT Hub로 보냅니다.
 
-## <a name="what-you-learn"></a>학습 내용
+<a id="what-you-learn" class="xliff"></a>
+
+## 학습 내용
 
 * Azure IoT Hub를 만들고 새 장치 연결 문자열을 가져오는 방법.
 * Pi를 BME280 센서와 연결하는 방법.
 * Pi에서 샘플 응용 프로그램을 실행하여 센서 데이터를 수집하는 방법.
 * IoT Hub로 센서 데이터를 보내는 방법.
 
-## <a name="what-you-need"></a>필요한 항목
+<a id="what-you-need" class="xliff"></a>
+
+## 필요한 항목
 
 ![필요한 항목](media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
 
@@ -77,9 +84,13 @@ ms.lasthandoff: 04/18/2017
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-## <a name="setup-raspberry-pi"></a>Raspberry Pi 설치
+<a id="setup-raspberry-pi" class="xliff"></a>
 
-### <a name="install-the-raspbian-operating-system-for-pi"></a>Pi용 Raspbian 운영 체제 설치
+## Raspberry Pi 설치
+
+<a id="install-the-raspbian-operating-system-for-pi" class="xliff"></a>
+
+### Pi용 Raspbian 운영 체제 설치
 
 Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
@@ -94,26 +105,31 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
    1. 설치가 완료되면 컴퓨터에서 microSD 카드를 제거합니다. 완료되면 Etcher가 microSD 카드를 자동으로 배출하거나 탑재를 해제하므로 microSD 카드를 바로 제거하는 것이 안전합니다.
    1. Pi에 microSD 카드를 삽입합니다.
 
-### <a name="enable-ssh-and-i2c"></a>SSH 및 I2C를 사용하도록 설정
+<a id="enable-ssh-and-i2c" class="xliff"></a>
+
+### SSH 및 I2C를 사용하도록 설정
 
 1. 사용자 이름으로 `pi`, 암호로 `raspberry`를 사용하여 Pi를 모니터, 키보드, 마우스에 연결하고, Pi를 시작한 다음 Raspbian에 로그인합니다.
 1. Raspberry 아이콘 > **기본 설정** > **Raspberry Pi 구성**을 클릭합니다.
 
    ![Raspbian 기본 설정 메뉴](media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
 
-1. **인터페이스** 탭에서 **I2C** 및 **SSH**를 **사용**으로 설정한 다음 **확인**을 클릭합니다.
+1. **인터페이스** 탭에서 **I2C** 및 **SSH**를 **사용**으로 설정한 다음 **확인**을 클릭합니다. 실제 센서가 없고 시뮬레이트된 센서 데이터를 사용하려는 경우 이 단계는 선택 사항입니다.
 
    ![Raspberry Pi에서 I2C 및 SSH를 사용하도록 설정](media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-SSH 및 I2C를 사용하려는 경우 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 및 [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2)에서 더 많은 참조 문서를 찾을 수 있습니다.
+SSH 및 I2C를 사용하려는 경우 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 및 [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c)에서 더 많은 참조 문서를 찾을 수 있습니다.
 
-### <a name="connect-the-sensor-to-pi"></a>Pi에 센서 연결
+<a id="connect-the-sensor-to-pi" class="xliff"></a>
+
+### Pi에 센서 연결
 
 실험용 회로판과 점퍼 와이어를 사용하여 LED 및 BME280 Pi를 다음과 같이 연결합니다. 센서가 없는 경우 이 섹션을 건너뛰세요.
 
 ![Raspberry Pi와 센서 연결](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
+BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 그리고 장치와 클라우드 간에 통신이 있으면 LED가 깜박입니다. 
 
 센서 핀의 경우 다음 배선을 사용합니다.
 
@@ -132,18 +148,46 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 
 ![Pi와 BME280 연결](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
-마이크로 USB 케이블 및 전원 공급 장치를 사용하여 Pi를 켭니다. 이더넷 케이블을 사용하여 Pi를 유선 네트워크에 연결하거나 [Raspberry Pi Foundation의 지침](https://www.raspberrypi.org/learning/software-guide/wifi/)에 따라 Pi를 무선 네트워크에 연결합니다.
+<a id="connect-pi-to-the-network" class="xliff"></a>
+
+### 네트워크에 Pi 연결
+
+마이크로 USB 케이블 및 전원 공급 장치를 사용하여 Pi를 켭니다. 이더넷 케이블을 사용하여 Pi를 유선 네트워크에 연결하거나 [Raspberry Pi Foundation의 지침](https://www.raspberrypi.org/learning/software-guide/wifi/)에 따라 Pi를 무선 네트워크에 연결합니다. Pi가 네트워크에 성공적으로 연결된 후 [Pi의 IP 주소](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address)를 적어 두어야 합니다.
 
 ![유선 네트워크에 연결](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
+> [!NOTE]
+> Pi가 컴퓨터와 같은 네트워크에 연결되어 있어야 합니다. 예를 들어 컴퓨터는 무선 네트워크, Pi는 유선 네트워크에 연결되었다면 devdisco 출력에 IP 주소가 표시되지 않을 수 있습니다.
 
-## <a name="run-a-sample-application-on-pi"></a>Pi에서 샘플 응용 프로그램 실행
+<a id="run-a-sample-application-on-pi" class="xliff"></a>
 
-### <a name="clone-sample-application-and-install-the-prerequisite-packages"></a>샘플 응용 프로그램을 복제하고 필수 구성 요소 패키지 설치
+## Pi에서 샘플 응용 프로그램 실행
+
+<a id="clone-sample-application-and-install-the-prerequisite-packages" class="xliff"></a>
+
+### 샘플 응용 프로그램을 복제하고 필수 구성 요소 패키지 설치
 
 1. 호스트 컴퓨터에서 다음 SSH 클라이언트 중 하나를 사용하여 Raspberry Pi에 연결합니다.
-    - Windows용 [PuTTY](http://www.putty.org/)
-    - Ubuntu 또는 macOS에 있는 기본 제공 SSH 클라이언트
+    - Windows용 [PuTTY](http://www.putty.org/) SSH를 통해 연결하려면 Pi의 IP 주소가 필요합니다.
+    - Ubuntu 또는 macOS에 있는 기본 제공 SSH 클라이언트 SSH를 통해 Pi를 연결하려면 `ssh pi@<ip address of pi>`를 실행해야 할 수도 있습니다.
+
+   > [!NOTE] 
+   기본 사용자 이름은 `pi`이며 암호는 `raspberry`입니다.
+
+1. Node.js 및 NPM을 Pi에 설치합니다.
+   
+   먼저 다음 명령을 사용하여 Node.js 버전을 확인해야 합니다. 
+   
+   ```bash
+   node -v
+   ```
+
+   버전이 4.x보다 낮거나 Pi에 Node.js가 없는 경우 다음 명령을 실행하여 Node.js를 설치 또는 업데이트합니다.
+
+   ```bash
+   curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
+   sudo apt-get -y install nodejs
+   ```
 
 1. 다음 명령을 실행하여 샘플 응용 프로그램을 복제합니다.
 
@@ -154,13 +198,15 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 1. 다음 명령을 사용하여 모든 패키지를 설치합니다. Azure IoT 장치 SDK, BME280 센서 라이브러리 및 배선 Pi 라이브러리가 포함되어 있습니다.
 
    ```bash
-   cd iot-hub-node-raspberry-pi-clientapp
-   npm install
+   cd iot-hub-node-raspberrypi-client-app
+   sudo npm install
    ```
    > [!NOTE] 
    네트워크 연결에 따라 이 설치 프로세스를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-### <a name="configure-the-sample-application"></a>샘플 응용 프로그램 구성
+<a id="configure-the-sample-application" class="xliff"></a>
+
+### 샘플 응용 프로그램 구성
 
 1. 다음 명령을 실행하여 config 파일을 엽니다.
 
@@ -176,7 +222,9 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 
 1. Control-O > Enter > Control-X를 눌러 저장하고 종료합니다.
 
-### <a name="run-the-sample-application"></a>샘플 응용 프로그램 실행
+<a id="run-the-sample-application" class="xliff"></a>
+
+### 샘플 응용 프로그램 실행
 
 1. 다음 명령을 실행하여 샘플 응용 프로그램을 실행합니다.
 
@@ -192,7 +240,9 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
 ![출력 - Raspberry Pi에서 IoT Hub로 전송된 센서 데이터](media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
 
-## <a name="next-steps"></a>다음 단계
+<a id="next-steps" class="xliff"></a>
+
+## 다음 단계
 
 샘플 응용 프로그램을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다.
 

@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 2cdfbadfc4cc28afe34b4d558f40bba6451f7388
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: bf45f4c80c73ab47698a39e310324e34a3e21e67
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -144,6 +145,7 @@ IoT Hub와 사서함을 연결하여 온도를 모니터링하고 알림을 보�
    1. 앞에서 만든 큐를 선택하고 **최대 메시지 수**에 `175`를 입력합니다.
 
       ![논리 앱에서 Service Bus 연결의 최대 메시지 수 지정](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8_specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
+   1. “저장” 단추를 클릭하여 변경 내용을 저장합니다.
 
 1. SMTP 서비스 연결을 만듭니다.
    1. **다음 단계** > **작업 추가**를 클릭합니다.
@@ -175,3 +177,4 @@ IoT Hub와 사서함을 연결하여 온도를 모니터링하고 알림을 보�
 IoT Hub와 사서함을 연결하여 온도를 모니터링하고 알림을 보내는 논리 앱을 성공적으로 만들었습니다.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

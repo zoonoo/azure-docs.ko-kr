@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 스크립트 - 단일 SQL Database 모니터링 및 크기 조정 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정"
+title: "PowerShell 예제 모니터링 크기 조정 단일 Azure SQL Database | Microsoft Docs"
+description: "단일 Azure SQL Database를 모니터링하고 크기를 조정하는 Azure PowerShell 예제 스크립트"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: fab0994ff9ec4471e0a6814e681b2d3e36433301
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: bfe2875b204d35abba12ee21c749e0a2919b2d1d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
 # <a name="monitor-and-scale-a-single-sql-database-using-powershell"></a>PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정
 
-이 샘플 PowerShell 스크립트는 데이터베이스의 성능 메트릭을 모니터링하고, 더 높은 성능 수준으로 확장하고, 성능 메트릭 중 하나에 경고 규칙을 만듭니다. 
+이 PowerShell 스크립트 예제는 데이터베이스의 성능 메트릭을 모니터링하고, 더 높은 성능 수준으로 확장하고, 성능 메트릭 중 하나에 경고 규칙을 만듭니다. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

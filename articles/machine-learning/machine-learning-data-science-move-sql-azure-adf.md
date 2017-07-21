@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b34362203984a368bb74395e3e9f466b086b7521
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 5d887e20a03e160df70ac4f3484da1ada4b592d2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/08/2017
 
 
 ---
-# <a name="move-data-from-an-on-premise-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 온-프레미스 SQL server에서 SQL Azure로 데이터 이동
-이 토픽에서는 Azure 데이터 팩터리(ADF)를 사용하여 Azure Blob Storage를 통해 온-프레미스 SQL Server 데이터베이스에서 SQL Azure 데이터베이스로 데이터를 이동하는 방법을 보여 줍니다.
+# <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동
+이 토픽에서는 ADF(Azure Data Factory)를 사용하여 Azure Blob Storage를 통해 온-프레미스 SQL Server Database에서 SQL Azure Database로 데이터를 이동하는 방법을 보여 줍니다.
 
 Azure SQL Database로 데이터를 이동하는 다양한 옵션을 요약한 표는 [Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동](machine-learning-data-science-move-sql-azure.md)을 참조하세요.
 
@@ -39,13 +40,13 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스크립트를 사용하여 작업 예약 및 모니터링이 가능합니다. 또한 복잡한 작업을 지원하는 기타 기능도 포함하고 있습니다. ADF에 대한 자세한 내용은 [Azure 데이터 팩터리(ADF)](https://azure.microsoft.com/services/data-factory/)를 참조하세요.
 
 ## <a name="scenario"></a>시나리오
-두 가지 데이터 마이그레이션 작업을 구성하는 ADF 파이프라인을 설정했습니다. 데이터는 매일 온-프레미스 SQL 데이터베이스와 클라우드의 Azure SQL 데이터베이스 간에 이동됩니다. 두 활동은 다음과 같습니다.
+두 가지 데이터 마이그레이션 작업을 구성하는 ADF 파이프라인을 설정했습니다. 데이터는 매일 온-프레미스 SQL 데이터베이스와 클라우드의 Azure SQL Database 간에 이동됩니다. 두 활동은 다음과 같습니다.
 
-* 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소 계정으로 데이터 복사
+* 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage 계정으로 데이터 복사
 * Azure Blob 저장소 계정에서 Azure SQL 데이터베이스로 데이터 복사
 
 > [!NOTE]
-> 여기에 나오는 단계는 ADF 팀이 제공한 더 자세한 자습서 [데이터 관리 게이트웨이 클라우드를 사용하여 온-프레미스 원본과 클라우드 간에 데이터 이동](../data-factory/data-factory-move-data-between-onprem-and-cloud.md) 을 인용하고 새롭게 구성하였으며 해당하는 경우 해당 항목의 관련 섹션에 대한 참조를 제공합니다.
+> 여기에 나오는 단계는 ADF 팀이 제공한 더 자세한 자습서 [데이터 관리 게이트웨이 클라우드를 사용하여 온-프레미스 원본과 클라우드 간에 데이터 이동](../data-factory/data-factory-move-data-between-onprem-and-cloud.md)을 인용하고 새롭게 구성하였으며 해당하는 경우 해당 항목의 관련 섹션에 대한 참조를 제공합니다.
 >
 >
 
@@ -65,13 +66,13 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 ## <a name="upload-data"></a> 온-프레미스 SQL Server에 데이터 업로드
 [NYC Taxi 데이터 집합](http://chriswhong.com/open-data/foil_nyc_taxi/)을 사용하여 마이그레이션 프로세스를 시연합니다. 해당 게시물에서 설명한 것처럼 NYC Taxi 데이터 집합은 Azure Blob Storage [NYC Taxi 데이터](http://www.andresmh.com/nyctaxitrips/)에서 제공됩니다. 데이터에는 두 개 파일이 있습니다. trip_data.csv 파일에는 여정 세부 정보가 들어 있고 trip_far.csv 파일에는 각 여정에 대한 요금 세부 정보가 들어 있습니다. 이러한 파일의 샘플 및 설명은 [NYC Taxi Trips 데이터 집합 설명](machine-learning-data-science-process-sql-walkthrough.md#dataset)에 제공됩니다.
 
-자신의 데이터 집합에 여기에 제공된 절차를 도입하거나 NYC Taxi 데이터 집합을 사용하여 설명된 대로 단계를 따릅니다. NYC Taxi 데이터 집합을 온-프레미스 SQL Server 데이터베이스에 업로드하려면 [SQL Server 데이터베이스로 대량 데이터 가져오기](machine-learning-data-science-process-sql-walkthrough.md#dbload)에 설명된 절차를 따릅니다. 이러한 지침은 Azure 가상 컴퓨터의 SQL Server에 대한 내용이지만 온-프레미스 SQL Server로 업로드하는 절차는 동일합니다.
+자신의 데이터 집합에 여기에 제공된 절차를 도입하거나 NYC Taxi 데이터 집합을 사용하여 설명된 대로 단계를 따릅니다. NYC Taxi 데이터 집합을 온-프레미스 SQL Server 데이터베이스에 업로드하려면 [SQL Server Database로 대량 데이터 가져오기](machine-learning-data-science-process-sql-walkthrough.md#dbload)에 설명된 절차를 따릅니다. 이러한 지침은 Azure Virtual Machine의 SQL Server에 대한 내용이지만 온-프레미스 SQL Server로 업로드하는 절차는 동일합니다.
 
 ## <a name="create-adf"></a> Azure 데이터 팩터리 만들기
 [Azure Portal](https://portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](../data-factory/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp*이고 생성된 리소스 그룹은 *adfdsprg*입니다.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>데이터 관리 게이트웨이 설치 및 구성
-Azure 데이터 팩터리의 파이프라인에서 온-프레미스 SQL Server를 사용할 수 있게 하려면 데이터 팩터리에 연결된 서비스로 추가해야 합니다. 온-프레미스 SQL Server에 대한 연결된 서비스를 만들려면 다음을 수행해야 합니다.
+온-프레미스 SQL Server와 작업하도록 Azure Data Factory의 파이프라인을 활성화하려면 데이터 팩터리에 대해 연결된 서비스로 추가해야 합니다. 온-프레미스 SQL Server에 대한 연결된 서비스를 만들려면 다음을 수행해야 합니다.
 
 * 온-프레미스 컴퓨터에 Microsoft 데이터 관리 게이트웨이를 다운로드한 후 설치합니다.
 * 온-프레미스 데이터 원본에 대한 연결된 서비스를 게이트웨이를 사용하도록 구성합니다.
@@ -90,9 +91,9 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 SQL Server�
 3. [Azure SQL 데이터베이스에 대한 연결된 서비스](#adf-linked-service-azure-sql)
 
 ### <a name="adf-linked-service-onprem-sql"></a>온-프레미스 SQL Server 데이터베이스에 대한 연결된 서비스
-온-프레미스 SQL Server에 대한 연결된 서비스를 만들려면
+온-프레미스 SQL Server에 대한 연결된 서비스를 만들려면 다음을 수행합니다.
 
-* Azure 클래식 포털의 ADF 방문 페이지에서 **데이터 저장소** 를 클릭합니다.
+* Azure 클래식 포털의 ADF 방문 페이지에서 **데이터 저장소**를 클릭합니다.
 * **SQL**을 선택하고 온-프레미스 SQL Server에 대한 *사용자 이름* 및 *암호* 자격 증명을 입력합니다. servername을 **정규화된 서버 이름 백슬래시 인스턴스 이름(servername\instancename)**으로 입력해야 합니다. 연결된 서비스 이름을 *adfonpremsql*로 지정합니다.
 
 ### <a name="adf-linked-service-blob-store"></a>Blob에 대한 연결된 서비스
@@ -118,7 +119,7 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면
 
 테이블에서 JSON 기반 정의는 다음 이름을 사용합니다.
 
-* 온 프레미스 SEL 서버의 **테이블 이름**은 *nyctaxi_data*임
+* 온-프레미스 SQL Server의 **테이블 이름**은 *nyctaxi_data*
 * the **컨테이너 이름** 은 *containername*  
 
 이 ADF 파이프라인에는 3개의 테이블 정의가 필요합니다.
@@ -245,12 +246,12 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
             "name": "AMLDSProcessPipeline",
             "properties":
             {
-                "description" : "This pipeline has one Copy activity that copies data from an on-premise SQL to Azure blob",
+                "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL to Azure blob",
                  "activities":
                 [
                     {
                         "name": "CopyFromSQLtoBlob",
-                        "description": "Copy data from on-premise SQL server to blob",     
+                        "description": "Copy data from on-premises SQL server to blob",     
                         "type": "CopyActivity",
                         "inputs": [ {"name": "OnPremSQLTable"} ],
                         "outputs": [ {"name": "OutputBlobTable"} ],

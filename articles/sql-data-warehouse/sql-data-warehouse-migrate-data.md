@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
-ms.date: 10/31/2016
+ms.date: 06/29/2017
 ms.author: joeyong;barbkess
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
@@ -23,12 +23,14 @@ ms.lasthandoff: 03/17/2017
 
 
 ---
-# <a name="migrate-your-data"></a>데이터 마이그레이션
+<a id="migrate-your-data" class="xliff"></a>
+# 데이터 마이그레이션
 다양한 도구를 사용하여 다양한 원본의 데이터를 SQL 데이터 웨어하우스로 이동할 수 있습니다.  이 작업을 위해 ADF Copy, SSIS 및 bcp를 모두 사용할 수 있습니다. 그러나 데이터 크기가 증가하면 단계별로 데이터 마이그레이션 프로세스 세분화를 고려해야 합니다. 부드러운 데이터 마이그레이션이 되도록 성능 및 복원 모두를 위한 각 단계를 최적화하는 기회를 제공합니다.
 
 이 문서에서는 먼저 ADF Copy, SSIS 및 bcp의 간단한 마이그레이션 시나리오를 설명합니다. 그런 다음 마이그레이션이 최적화되는 방법을 좀 더 깊게 살펴봅니다.
 
-## <a name="azure-data-factory-adf-copy"></a>Azure 데이터 팩터리(ADF) 복사본
+<a id="azure-data-factory-adf-copy" class="xliff"></a>
+## Azure 데이터 팩터리(ADF) 복사본
 [ADF 복사본][ADF Copy]은 [Azure Data Factory][Azure Data Factory]의 일부입니다. SQL 데이터 웨어하우스로 직접 또는 Azure blob 저장소에 있는 원격 플랫 파일, 로컬 저장소에 상주하는 플랫 파일로 데이터를 내보내는 데 ADF 복사본을 사용할 수 있습니다.
 
 데이터가 플랫 파일에서 생성되는 경우 SQL Data Warehouse로 데이터 로드를 시작하기 전에 먼저 Azure Storage Blob에 데이터를 전송해야 합니다. 데이터가 Azure Blob Storage로 전송되면 [ADF 복사본][ADF Copy]을 다시 사용하도록 선택하여 SQL Data Warehouse로 데이터를 푸시합니다.
@@ -41,7 +43,8 @@ PolyBase는 데이터 로드를 위한 고성능 옵션도 제공합니다. 그�
 
 일부 훌륭한 [ADF 샘플][ADF samples]에 대한 다음 문서를 읽어 보세요.
 
-## <a name="integration-services"></a>Integration Services
+<a id="integration-services" class="xliff"></a>
+## Integration Services
 Integration Services(SSIS)는 강력하고 유연한 변환 및 로드(ETL) 도구로, 복잡한 워크플로, 데이터 변환 및 여러 데이터 로드 옵션을 지원합니다. SSIS를 사용하여 광범위한 마이그레이션의 일부로 또는 Azure로 데이터를 전송합니다.
 
 > [!NOTE]
@@ -60,7 +63,8 @@ SSIS는 SQL Server 배포에 연결한 것처럼 SQL 데이터 웨어하우스�
 
 자세한 내용은 [SSIS 설명서][SSIS documentation]를 참조하세요.
 
-## <a name="bcp"></a>bcp
+<a id="bcp" class="xliff"></a>
+## bcp
 bcp는 플랫 파일 데이터 가져오기 및 내보내기를 위해 설계된 명령줄 유틸리티입니다. 일부 변환은 데이터를 내보내는 중에 수행될 수 있습니다. 수행하려면 간단한 변환은 쿼리를 사용하여 데이터를 선택하고 변환합니다. 내보낸 후 플랫 파일이 직접 대상 SQL 데이터 웨어하우스 데이터베이스로 로드될 수 있습니다.
 
 > [!NOTE]
@@ -82,7 +86,8 @@ bcp의 제한 사항은 다음과 같습니다.
 
 자세한 내용은 [bcp를 사용하여 SQL Data Warehouse로 데이터 로드][Use bcp to load data into SQL Data Warehouse]를 참조하세요.
 
-## <a name="optimizing-data-migration"></a>데이터 마이그레이션 최적화
+<a id="optimizing-data-migration" class="xliff"></a>
+## 데이터 마이그레이션 최적화
 불연속 세 단계로 SQLDW 데이터 마이그레이션 프로세스를 효과적으로 나눌 수 있습니다.
 
 1. 원본 데이터의 내보내기
@@ -91,34 +96,40 @@ bcp의 제한 사항은 다음과 같습니다.
 
 단계마다 성능을 최대화하는 강력하고 다시 시작 가능하며 복원력 있는 마이그레이션 프로세스를 만들도록 각 단계를 개별적으로 최적화할 수 있습니다.
 
-## <a name="optimizing-data-load"></a>데이터 로드 최적화
+<a id="optimizing-data-load" class="xliff"></a>
+## 데이터 로드 최적화
 잠시 반대 순서로 살펴보면 데이터를 로드하는 가장 빠른 방법은 PolyBase를 통해서입니다. PolyBase 로드 프로세스를 최적화하는 경우 이전 단계에서 필수 구성 요소를 충족해야 하므로, 이 작업은 미리 숙지해 두는 것이 좋습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 1. 데이터 파일의 인코딩
 2. 데이터 파일의 형식
 3. 데이터 파일의 위치
 
-### <a name="encoding"></a>인코딩
+<a id="encoding" class="xliff"></a>
+### 인코딩
 PolyBase를 사용하려면 데이터 파일이 UTF-8 또는 UTF-16FE여야 합니다. 
 
 
 
-### <a name="format-of-data-files"></a>데이터 파일의 형식
+<a id="format-of-data-files" class="xliff"></a>
+### 데이터 파일의 형식
 PolyBase는 \n 또는 새 줄의 고정된 행 종결자를 규정합니다. 데이터 파일은 이 표준을 준수해야 합니다. 문자열 또는 열 종결자에 제한이 없습니다.
 
 PolyBase에서 외부 테이블의 일부로 파일에서 모든 열을 정의해야 합니다. 내보낸 모든 열이 필요하고 해당 형식은 필요한 표준을 준수해야 합니다.
 
 지원되는 데이터 형식은 [스키마 마이그레이션] 문서를 다시 참조하세요.
 
-### <a name="location-of-data-files"></a>데이터 파일의 위치
+<a id="location-of-data-files" class="xliff"></a>
+### 데이터 파일의 위치
 SQL 데이터 웨어하우스는 PolyBase를 사용하여 Azure blob 저장소에 데이터를 독점적으로 로드합니다. 따라서 데이터가 먼저 blob 저장소로 전송되어야 합니다.
 
-## <a name="optimizing-data-transfer"></a>데이터 전송 최적화
+<a id="optimizing-data-transfer" class="xliff"></a>
+## 데이터 전송 최적화
 데이터 마이그레이션의 느린 부분 중 하나는 Azure에 데이터를 전송하는 것입니다. 네트워크 대역폭 문제가 발생할 수 뿐만 아니라 네트워크 안정성 진행률 심각하게 방해가 될 수도 있습니다. 기본적으로 데이터를 Azure로 마이그레이션하는 전송 오류 발생 가능성 합리적으로 가능성이 있으므로 인터넷을 통해 됩니다. 그러나 이러한 오류는 데이터를 전부 또는 일부를 다시 보내어야 할 수 있습니다.
 
 다행히 속도 및 이 프로세스의 복원력을 향상시키는 여러 옵션이 있습니다.
 
-### <a name="expressrouteexpressroute"></a>[ExpressRoute][ExpressRoute]
+<a id="expressrouteexpressroute" class="xliff"></a>
+### [ExpressRoute][ExpressRoute]
 [ExpressRoute][ExpressRoute]를 사용하여 전송의 속도를 높일 수 있습니다. [ExpressRoute][ExpressRoute]는 Azure에 대한 개인 연결을 설정하므로 공용 인터넷을 통해 연결되지 않습니다. 이 단계는 필수 단계는 아닙니다. 그러나 온-프레미스 또는 공동 배치 위치에서 데이터를 Azure로 푸시하는 경우, 처리량이 향상됩니다.
 
 [ExpressRoute][ExpressRoute] 사용의 이점은 다음과 같습니다.
@@ -132,7 +143,8 @@ SQL 데이터 웨어하우스는 PolyBase를 사용하여 Azure blob 저장소�
 
 관심이 있나요? 자세한 내용 및 가격은 [ExpressRoute 설명서][ExpressRoute documentation]를 참조하세요.
 
-### <a name="azure-import-and-export-service"></a>Azure 가져오기 및 내보내기 서비스
+<a id="azure-import-and-export-service" class="xliff"></a>
+### Azure 가져오기 및 내보내기 서비스
 Azure 가져오기 및 내보내기 서비스는 큰(GB++) 데이터에서 대용량(TB++) 데이터까지 Azure로 전송하기 위해 설계된 데이터 전송 프로세스입니다. 디스크에 데이터 작성 및 Azure 데이터 센터에 배송이 포함됩니다. 사용자를 대신해 Azure Storage Blob에 디스크 콘텐츠가 로드됩니다.
 
 아래에는 가져오기/내보내기 프로세스가 대략적으로 표시되어 있습니다.
@@ -145,7 +157,8 @@ Azure 가져오기 및 내보내기 서비스는 큰(GB++) 데이터에서 대�
 6. Azure Blob 저장소 컨테이너로 데이터 전송
 7. PolyBase를 사용하여 SQLDW로 데이터 로드
 
-### <a name="azcopyazcopy-utility"></a>[AZCopy][AZCopy] 유틸리티
+<a id="azcopyazcopy-utility" class="xliff"></a>
+### [AZCopy][AZCopy] 유틸리티
 [AZCopy][AZCopy] 유틸리티는 Azure 저장소 Blob으로 데이터를 전송하기 위한 훌륭한 도구입니다. 작은 데이터 전송(MB++)에서부터 매우 큰 데이터 전송(GB++)까지 설계되어 있습니다. [AZCopy] 도 좋은 복원력 있는 처리량 등 Azure에 데이터를 전송 하는 경우에 데이터 전송 단계에 대한 훌륭한 선택이 제공하도록 설계되었습니다. 한 번 전송되면, PolyBase를 사용하여 SQL 데이터 웨어하우스로 데이터를 로드할 수 있습니다. 또한 "프로세스 실행" 작업을 사용하여 SSIS 패키지로 AZCopy를 통합할 수 있습니다.
 
 AZCopy를 사용하려면 먼저 다운로드하고 설치해야 합니다. [프로덕션 버전][production version] 및 [미리 보기 버전][preview version]을 사용할 수 있습니다.
@@ -165,22 +178,26 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
 
 사용 가능한 전체 설명서는 [AZCopy][AZCopy]입니다.
 
-## <a name="optimizing-data-export"></a>데이터 내보내기 최적화
+<a id="optimizing-data-export" class="xliff"></a>
+## 데이터 내보내기 최적화
 내보내기가 PolyBase에서 설계한 배치 요구 사항에 맞는지 확인하는 것 외에도 데이터 내보내기를 최적화하여 프로세스가 더 향상되도록 시도할 수도 있습니다.
 
 
 
-### <a name="data-compression"></a>데이터 압축
+<a id="data-compression" class="xliff"></a>
+### 데이터 압축
 PolyBase는 gzip 압축된 데이터를 읽을 수 있습니다. gzip 파일로 데이터를 압축할 수 있는 경우 네트워크를 통해 푸시되는 데이터의 양을 최소화합니다.
 
-### <a name="multiple-files"></a>여러 파일
+<a id="multiple-files" class="xliff"></a>
+### 여러 파일
 대형 테이블을 여러 파일로 분할하면 내보내기 속도를 향상시킬 수 뿐만 아니라 전송을 다시 시작 및 Azure blob 저장소에서의 전반적인 데이터 관리 효율성에도 도움이 됩니다. PolyBase의 여러 유용한 기능 중 하나는 폴더 내 모든 파일을 읽고 하나의 테이블로 처리된다는 점입니다. 따라서 각 테이블의 파일을 자체 폴더로 격리하는 것이 좋습니다.
 
 또한 PolyBase는 "재귀적 폴더 이동"이라는 기능을 지원합니다. 내보낸 데이터의 조직의 데이터 관리를 개선하도록 이 기능을 사용할 수 있습니다.
 
 PolyBase 사용한 데이터 로드에 대해 자세히 알려면 [PolyBase를 사용하여 SQL Data Warehouse로 데이터 로드][Use PolyBase to load data into SQL Data Warehouse]를 참조하세요.
 
-## <a name="next-steps"></a>다음 단계
+<a id="next-steps" class="xliff"></a>
+## 다음 단계
 마이그레이션에 대한 자세한 내용은 [SQL Data Warehouse로 솔루션 마이그레이션][Migrate your solution to SQL Data Warehouse]을 참조하세요.
 더 많은 개발 팁은 [개발 개요][development overview]를 참조하세요.
 

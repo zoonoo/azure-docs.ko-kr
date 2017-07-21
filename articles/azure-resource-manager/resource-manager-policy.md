@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 06/27/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 951a7849beb9653083ed0112dbbb6cf57175469d
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: f27bc3689f228809e9db8f61485ea0c8b4b302d1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -31,8 +31,6 @@ ms.lasthandoff: 05/11/2017
 * 정책 할당 - 정책 정의를 범위(구독 또는 리소스 그룹)에 적용합니다.
 
 이 항목은 정책 정의에 중점을 둡니다. 정책 할당에 대한 자세한 내용은 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](resource-manager-policy-portal.md) 또는 [스크립트를 통해 리소스 정책 할당 및 관리](resource-manager-policy-create-assign.md)를 참조하세요.
-
-Azure에서는 일부 기본 제공 정책 정의을 제공하여 정의해야 하는 정책의 수를 줄일 수 있습니다. 기본 제공 정책이 시나리오에서 작동하는 경우 해당 정의를 범위에 할당할 때 사용합니다.
 
 리소스(PUT 및 PATCH 작업)를 만들고 업데이트할 때 정책이 평가됩니다.
 
@@ -50,6 +48,22 @@ Azure에서는 일부 기본 제공 정책 정의을 제공하여 정의해야 �
 * 정책을 할당할 수 있는 `Microsoft.Authorization/policyassignments/write` 사용 권한 
 
 이러한 사용 권한은 **참가자** 역할에 포함되지 않습니다.
+
+## <a name="built-in-policies"></a>기본 제공 정책
+
+Azure에서는 일부 기본 제공 정책 정의을 제공하여 정의해야 하는 정책의 수를 줄일 수 있습니다. 정책 정의를 진행하기 전에 기본 제공 정책에서 필요한 정의를 이미 제공하는지 고려해야 합니다. 기본 제공 정책은 다음과 같습니다.
+
+* 허용되는 위치
+* 허용되는 리소스 유형
+* 허용되는 저장소 계정 SKU
+* 허용되는 가상 컴퓨터 SKU
+* 태그 및 기본값 적용
+* 태그 및 값 적용
+* 허용되지 않는 리소스 종류
+* SQL Server 버전 12.0 필요
+* 저장소 계정 암호화 필요
+
+[포털](resource-manager-policy-portal.md), [PowerShell](resource-manager-policy-create-assign.md#powershell) 또는 [Azure CLI](resource-manager-policy-create-assign.md#azure-cli)를 통해 이러한 정책을 할당할 수 있습니다.
 
 ## <a name="policy-definition-structure"></a>정책 정의 구조
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
@@ -149,7 +163,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 **not** 구문은 조건의 결과를 반전시킵니다. **allOf** 구문(논리 **And** 작업과 비슷함)은 모든 조건이 true여야 합니다. **anyOf** 구문(논리 **Or** 작업과 비슷함)은 하나 이상의 조건이 true여야 합니다.
 
-논리 연산자를 중첩할 수 있습니다. 다음 예제에서는 **And** 작업 내에 중첩된 **Not** 작업을 표시합니다. 
+논리 연산자를 중첩할 수 있습니다. 다음 예제에서는 **allOf** 작업 내에 중첩된 **not** 작업을 표시합니다. 
 
 ```json
 "if": {
@@ -194,27 +208,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 * `location`
 * `tags`
 * `tags.*` 
-* 속성 별칭
-
-리소스 유형에 대한 특정 속성에 액세스하려면 속성 별칭을 사용합니다. 지원되는 별칭은 다음과 같습니다.
-
-* Microsoft.CDN/profiles/sku.name
-* Microsoft.Compute/virtualMachines/imageOffer
-* Microsoft.Compute/virtualMachines/imagePublisher
-* Microsoft.Compute/virtualMachines/sku.name
-* Microsoft.Compute/virtualMachines/imageSku 
-* Microsoft.Compute/virtualMachines/imageVersion
-* Microsoft.SQL/servers/databases/edition
-* Microsoft.SQL/servers/databases/elasticPoolName
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveId
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveName
-* Microsoft.SQL/servers/elasticPools/dtu
-* Microsoft.SQL/servers/elasticPools/edition
-* Microsoft.SQL/servers/version
-* Microsoft.Storage/storageAccounts/accessTier
-* Microsoft.Storage/storageAccounts/enableBlobEncryption
-* Microsoft.Storage/storageAccounts/sku.name
-* Microsoft.Web/serverFarms/sku.name
+* 속성 별칭 - 목록은 [별칭](#aliases)을 참조하세요.
 
 ### <a name="effect"></a>결과
 정책은 `deny`, `audit` 및 `append`이라는 세 가지 종류의 효과를 지원합니다. 
@@ -237,127 +231,131 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 값은 문자열 또는 JSON 형식의 개체일 수 있습니다. 
 
+## <a name="aliases"></a>Aliases
+
+리소스 유형에 대한 특정 속성에 액세스하려면 속성 별칭을 사용합니다. 
+
+**Microsoft.Cache/Redis**
+
+| Alias | 설명 |
+| ----- | ----------- |
+| Microsoft.Cache/Redis/enableNonSslPort | 비-ssl Redis 서버 포트(6379)가 사용하도록 설정되었는지 여부를 설정합니다. |
+| Microsoft.Cache/Redis/shardCount | 프리미엄 클러스터 캐시에 만들 분할된 데이터베이스 수를 설정합니다.  |
+| Microsoft.Cache/Redis/sku.capacity | 배포할 Redis Cache의 크기를 설정합니다.  |
+| Microsoft.Cache/Redis/sku.family | 사용할 SKU 제품군을 설정합니다. |
+| Microsoft.Cache/Redis/sku.name | 배포할 Redis Cache 유형을 설정합니다. |
+
+**Microsoft.Cdn/profiles**
+
+| Alias | 설명 |
+| ----- | ----------- |
+| Microsoft.CDN/profiles/sku.name | 가격 책정 계층의 이름을 설정합니다. |
+
+**Microsoft.Compute/disks**
+
+| Alias | 설명 |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지 제안을 설정합니다. |
+| Microsoft.Compute/imagePublisher | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 게시자를 설정합니다. |
+| Microsoft.Compute/imageSku | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 SKU를 설정합니다. |
+| Microsoft.Compute/imageVersion | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 버전을 설정합니다. |
+
+
+**Microsoft.Compute/virtualMachines**
+
+| Alias | 설명 |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지 제안을 설정합니다. |
+| Microsoft.Compute/imagePublisher | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 게시자를 설정합니다. |
+| Microsoft.Compute/imageSku | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 SKU를 설정합니다. |
+| Microsoft.Compute/imageVersion | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 버전을 설정합니다. |
+| Microsoft.Compute/licenseType | 온-프레미스로 사용이 허가된 이미지 또는 디스크를 설정합니다. 이 값은 Windows Server 운영 체제를 포함하는 이미지에만 사용됩니다.  |
+| Microsoft.Compute/virtualMachines/imageOffer | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지 제안을 설정합니다. |
+| Microsoft.Compute/virtualMachines/imagePublisher | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 게시자를 설정합니다. |
+| Microsoft.Compute/virtualMachines/imageSku | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 SKU를 설정합니다. |
+| Microsoft.Compute/virtualMachines/imageVersion | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 버전을 설정합니다. |
+| Microsoft.Compute/virtualMachines/osDisk.Uri | Vhd URI를 설정합니다. |
+| Microsoft.Compute/virtualMachines/sku.name | 가상 컴퓨터의 크기를 설정합니다. |
+
+**Microsoft.Compute/virtualMachines/extensions**
+
+| Alias | 설명 |
+| ----- | ----------- |
+| Microsoft.Compute/virtualMachines/extensions/publisher | 확장의 게시자 이름을 설정합니다. |
+| Microsoft.Compute/virtualMachines/extensions/type | 확장 유형을 설정합니다. |
+| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | 확장 버전을 설정합니다. |
+
+**Microsoft.Compute/virtualMachineScaleSets**
+
+| Alias | 설명 |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지 제안을 설정합니다. |
+| Microsoft.Compute/imagePublisher | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 게시자를 설정합니다. |
+| Microsoft.Compute/imageSku | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 SKU를 설정합니다. |
+| Microsoft.Compute/imageVersion | 플랫폼 이미지 또는 가상 컴퓨터를 만드는 데 사용된 Marketplace 이미지의 버전을 설정합니다. |
+| Microsoft.Compute/licenseType | 온-프레미스로 사용이 허가된 이미지 또는 디스크를 설정합니다. 이 값은 Windows Server 운영 체제를 포함하는 이미지에만 사용됩니다. |
+| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | 확장 집합에서 모든 가상 컴퓨터에 대해 컴퓨터 이름 접두사를 설정합니다. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | 사용자 이미지에 대한 Blob URI를 설정합니다. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | 확장 집합에 대한 운영 체제 디스크를 저장하는 데 사용되는 컨테이너 URL을 설정합니다. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.name | 확장 집합에서 가상 컴퓨터 크기를 설정합니다. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | 확장 집합에서 가상 컴퓨터 계층을 설정합니다. |
+  
+**Microsoft.Network/applicationGateways**
+
+| Alias | 설명 |
+| ----- | ----------- |
+| Microsoft.Network/applicationGateways/sku.name | 게이트웨이의 크기를 설정합니다. |
+
+**Microsoft.Network/virtualNetworkGateways**
+
+| Alias | 설명 |
+| ----- | ----------- |
+| Microsoft.Network/virtualNetworkGateways/gatewayType | 이 가상 네트워크 게이트웨이의 형식을 설정합니다. |
+| Microsoft.Network/virtualNetworkGateways/sku.name | 게이트웨이 SKU 이름을 설정합니다. |
+
+**Microsoft.Sql/servers**
+
+| Alias | 설명 |
+| ----- | ----------- |
+| Microsoft.Sql/servers/version | 서버 버전을 설정합니다. |
+
+**Microsoft.Sql/databases**
+
+| Alias | 설명 |
+| ----- | ----------- |
+| Microsoft.Sql/servers/databases/edition | 데이터베이스의 버전을 설정합니다. |
+| Microsoft.Sql/servers/databases/elasticPoolName | 데이터베이스가 들어 있는 탄력적 풀의 이름을 설정합니다. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | 데이터베이스의 구성된 서비스 수준 목표 ID를 설정합니다. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | 데이터베이스의 구성된 서비스 수준 목표의 이름을 설정합니다.  |
+
+**Microsoft.Sql/elasticpools**
+
+| Alias | 설명 |
+| ----- | ----------- |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | 탄력적 데이터베이스 풀에 대한 총 공유 DTU를 설정합니다. |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | 탄력적 풀의 버전을 설정합니다. |
+
+**Microsoft.Storage/storageAccounts**
+
+| Alias | 설명 |
+| ----- | ----------- |
+| Microsoft.Storage/storageAccounts/accessTier | 청구에 사용되는 액세스 계층을 설정합니다. |
+| Microsoft.Storage/storageAccounts/accountType | SKU 이름을 설정합니다. |
+| Microsoft.Storage/storageAccounts/enableBlobEncryption | 서비스에서 데이터가 Blob Storage 서비스에 저장될 때 데이터를 암호화할지 여부를 설정합니다. |
+| Microsoft.Storage/storageAccounts/enableFileEncryption | 서비스에서 데이터가 File Storage 서비스에 저장될 때 데이터를 암호화할지 여부를 설정합니다. |
+| Microsoft.Storage/storageAccounts/sku.name | SKU 이름을 설정합니다. |
+| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | 저장소 서비스에 https 트래픽만 허용하도록 설정합니다. |
+
+
 ## <a name="policy-examples"></a>정책 예제
 
 다음 항목에는 정책 예제가 포함됩니다.
 
 * 태그 정책의 예제는 [태그에 리소스 정책 적용](resource-manager-policy-tags.md)을 참조하세요.
+* 이름 지정 및 텍스트 패턴의 예는 [이름 및 텍스트에 대한 리소스 정책 적용](resource-manager-policy-naming-convention.md)을 참조하세요.
 * 저장소 정책의 예제는 [저장소 계정에 리소스 정책 적용](resource-manager-policy-storage.md)을 참조하세요.
 * 가상 컴퓨터 정책의 예제는 [Linux VM에 리소스 정책 적용](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 및 [Windows VM에 리소스 정책 적용](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)을 참조하세요.
 
-### <a name="allowed-resource-locations"></a>허용된 리소스 위치
-허용된 위치를 지정하려면 [정책 정의 구조](#policy-definition-structure) 섹션에서 예제를 참조하세요. 이 정책 정의를 할당하려면 리소스 ID `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`로 기본 제공 정책을 사용합니다.
-
-### <a name="not-allowed-resource-locations"></a>허용되지 않은 리소스 위치
-허용되지 않은 위치를 지정하려면 다음 정책 정의를 사용합니다.
-
-```json
-{
-  "properties": {
-    "parameters": {
-      "notAllowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that are not allowed when deploying resources",
-          "strongType": "location",
-          "displayName": "Not allowed locations"
-        }
-      }
-    },
-    "displayName": "Not allowed locations",
-    "description": "This policy enables you to block locations that your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "field": "location",
-        "in": "[parameters('notAllowedLocations')]"
-      },
-      "then": {
-        "effect": "deny"
-      }
-    }
-  }
-}
-```
-
-### <a name="allowed-resource-types"></a>허용되는 리소스 유형
-다음 예제에서는 Microsoft.Resources, Microsoft.Compute, Microsoft.Storage, Microsoft.Network 리소스 형식에 대한 배포가 가능한 정책을 보여 줍니다. 다른 모든 정책은 거부됩니다.
-
-```json
-{
-  "if": {
-    "not": {
-      "anyOf": [
-        {
-          "field": "type",
-          "like": "Microsoft.Resources/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Compute/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Storage/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Network/*"
-        }
-      ]
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-### <a name="set-naming-convention"></a>명명 규칙 설정
-아래 예제에서는 **like** 조건으로 지원되는 와일드 카드의 사용을 보여 줍니다. 이 조건은 앞에서 언급된 패턴(namePrefix\*nameSuffix)과 일치하는 이름이면 요청을 거부한다는 것을 나타냅니다.
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "like": "namePrefix*nameSuffix"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-리소스 이름이 패턴과 일치하도록 지정하려면 match 조건을 사용합니다. 다음 예제에서는 `contoso`로 시작하고 여섯 개의 추가 문자가 포함된 이름이 필요합니다.
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "match": "contoso??????"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-2자리 숫자, 대시, 3개 문자, 대시 및 4자리 숫자로 구성되는 날짜 패턴이 필요하면 다음을 사용합니다.
-
-```json
-{
-  "if": {
-    "field": "tags.date",
-    "match": "##-???-####"
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
 
 ## <a name="next-steps"></a>다음 단계
 * 정책 규칙을 정의한 후에 범위에 할당합니다. 포털을 통해 정책을 할당하려면 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](resource-manager-policy-portal.md)를 참조하세요. REST API, PowerShell 또는 Azure CLI를 통해 정책을 할당하려면 [스크립트를 통해 정책 할당 및 관리](resource-manager-policy-create-assign.md)를 참조하세요.

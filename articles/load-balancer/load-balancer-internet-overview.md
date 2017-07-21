@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 1a0f69e6530f1ab3734e1a44e5be056aacb0fff0
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c420b38fbe8054bc4b701f89ebc417677ca47a27
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -32,7 +32,7 @@ Azure 부하 분산 장치는 들어오는 트래픽의 공용 IP 주소 및 포
 
 다음 그림에서는 공용 및 개인 TCP 포트 80에 대해 3개의 가상 컴퓨터 간에 공유되는 웹 트래픽의 부하가 분산된 끝점을 보여줍니다. 이 세 대의 가상 컴퓨터는 부하 분산 집합에 속합니다.
 
-![공용 부하 분산 장치 예](./media/load-balancer-internet-overview/IC727496.png))
+![공용 부하 분산 장치 예](./media/load-balancer-internet-overview/IC727496.png)
 
 그림 1 - 웹 트래픽에 대한 부하 분산 끝점
 

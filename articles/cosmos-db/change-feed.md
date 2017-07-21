@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 8e0516585e2191caaef70bc973f027925df91bf6
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: d04d1240fb353a973953b2a90eadc65705219edb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -167,7 +167,7 @@ ReadDocumentFeed의 작동 방식에 대해 간략하게 살펴보겠습니다. 
     <tr>
         <td>minInclusive</td>
         <td>파티션 키 범위에 대한 파티션 키 해시의 최소 값입니다. 내부에 사용합니다.</td>
-    </tr>        
+    </tr>       
 </table>
 
 지원되는 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 수행할 수 있습니다. 예를 들어, 다음 코드 조각에서는 .NET에서 파티션 키 범위를 검색하는 방법을 보여 줍니다.
@@ -402,5 +402,5 @@ ReadDocumentFeed는 Azure Cosmos DB 컬렉션의 변경 내용을 증분 처리�
 
 ## <a name="next-steps"></a>다음 단계
 * [GitHub의 Azure Cosmos DB 변경 피드 코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed) 사용
-* [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 코딩 시작
+* [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 또는 [REST API](/rest/api/documentdb/)를 사용하여 코딩 시작
 

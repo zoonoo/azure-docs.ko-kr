@@ -13,88 +13,135 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2016
+ms.date: 06/28/2017
 ms.author: singhkay
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: b48a4e2fa913b865cf4b57693ef281e446541328
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: c1ad80a56627695f3594f4d9b60cd623fa9bcce3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/30/2017
 
 
 ---
-# <a name="apply-security-and-policies-to-linux-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Linux VM에 보안 및 정책 적용
-조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다. 이 문서에서는 Azure Resource Manager 정책을 사용하여 조직의 가상 컴퓨터에 대해 원하는 동작을 정의하는 방법을 설명합니다.
+# <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Linux VM에 정책 적용
+조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다. 이 문서에서는 Azure Resource Manager 정책을 사용하여 조직의 Virtual Machines에 대해 원하는 동작을 정의하는 방법을 설명합니다.
 
-이 작업을 수행하는 개략적인 단계는 다음과 같습니다.
+정책에 대한 소개는 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](../../azure-resource-manager/resource-manager-policy.md)를 참조하세요.
 
-1. Azure Resource Manager 정책 101
-2. 가상 컴퓨터에 대한 정책 정의
-3. 정책 만들기
-4. 정책 적용
+## <a name="define-policy-for-permitted-virtual-machines"></a>허용된 Virtual Machines에 대한 정책 정의
+조직에 대한 가상 컴퓨터가 응용 프로그램과 호환되는지 확인하기 위해 허용된 운영 체제를 제한할 수 있습니다. 다음 정책 예제에서는 Ubuntu 14.04.2-LTS Virtual Machines만 만들 수 있도록 허용합니다.
 
-## <a name="azure-resource-manager-policy-101"></a>Azure Resource Manager 정책 101
-Azure Resource Manager 정책을 시작하려면 아래 문서를 읽은 다음 문서에 있는 단계를 계속하는 것이 좋습니다. 아래 문서에서 정책의 기본 정의 및 구조, 정책 평가 방법을 설명하고 정책 정의의 다양한 예제를 제공합니다.
-
-* [정책을 사용하여 리소스 및 컨트롤 액세스 관리](../../azure-resource-manager/resource-manager-policy.md)
-
-## <a name="define-a-policy-for-your-virtual-machine"></a>가상 컴퓨터에 대한 정책 정의
-엔터프라이즈에 대한 일반적인 시나리오 중 하나는 LOB 응용 프로그램과 호환되도록 테스트된 특정 운영 체제에서 사용자에게만 가상 컴퓨터를 만들 수 있도록 하는 것일 수 있습니다. Azure Resource Manager 정책을 사용하여 몇 단계만으로 이 작업을 수행할 수 있습니다.
-이 정책 예제에서는 Ubuntu 14.04.2-LTS 가상 컴퓨터만 만들 수 있도록 허용합니다. 정책 정의는 아래와 같습니다.
-
-```
-"if": {
-  "allOf": [
-    {
-      "field": "type",
-      "equals": "Microsoft.Compute/virtualMachines"
-    },
-    {
-      "not": {
-        "allOf": [
-          {
-            "field": "Microsoft.Compute/virtualMachines/imagePublisher",
-            "equals": "Canonical"
-          },
-          {
-            "field": "Microsoft.Compute/virtualMachines/imageOffer",
-            "equals": "UbuntuServer"
-          },
-          {
-            "field": "Microsoft.Compute/virtualMachines/imageSku",
-            "equals": "14.04.2-LTS"
-          }
+```json
+{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "in": [
+          "Microsoft.Compute/disks",
+          "Microsoft.Compute/virtualMachines",
+          "Microsoft.Compute/VirtualMachineScaleSets"
         ]
+      },
+      {
+        "not": {
+          "allOf": [
+            {
+              "field": "Microsoft.Compute/imagePublisher",
+              "in": [
+                "Canonical"
+              ]
+            },
+            {
+              "field": "Microsoft.Compute/imageOffer",
+              "in": [
+                "UbuntuServer"
+              ]
+            },
+            {
+              "field": "Microsoft.Compute/imageSku",
+              "in": [
+                "14.04.2-LTS"
+              ]
+            },
+            {
+              "field": "Microsoft.Compute/imageVersion",
+              "in": [
+                "latest"
+              ]
+            }
+          ]
+        }
       }
-    }
-  ]
-},
-"then": {
-  "effect": "deny"
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
 }
 ```
 
-위의 정책은 아래 변경으로 가상 컴퓨터 배포에 모든 Ubuntu LTS 이미지를 사용할 수 있도록 하는 시나리오로 쉽게 수정할 수 있습니다.
+와일드 카드를 사용하여 모든 Ubuntu LTS 이미지를 허용하도록 이전 정책을 수정합니다. 
 
-```
+```json
 {
   "field": "Microsoft.Compute/virtualMachines/imageSku",
   "like": "*LTS"
 }
 ```
 
-#### <a name="virtual-machine-property-fields"></a>가상 컴퓨터 속성 필드
-아래 표에서 정책 정의의 필드로 사용할 수 있는 가상 컴퓨터 속성에 대해 설명합니다. 정책 필드에 대한 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](../../resource-manager-policy.md)를 참조하세요.
+정책 필드에 대한 자세한 내용은 [정책 별칭](../../azure-resource-manager/resource-manager-policy.md#aliases)을 참조하세요.
 
-| 필드 이름 | 설명 |
-| --- | --- |
-| imagePublisher |이미지 게시자 지정 |
-| imageOffer |선택된 이미지 게시자에 대한 제품 지정 |
-| imageSku |선택한 제품에 대한 SKU 지정 |
-| imageVersion |선택한 SKU에 대한 이미지 버전 지정 |
+## <a name="define-policy-for-using-managed-disks"></a>관리 디스크 사용을 위한 정책 정의
 
-## <a name="create-the-policy"></a>정책 만들기
-정책은 REST API를 직접 사용하거나 PowerShell cmdlet을 사용하여 쉽게 만들 수 있습니다. [정책 만들기 및 할당](../../resource-manager-policy.md)에 대해 읽어볼 수 있습니다.
+관리 디스크 사용을 요구하려면 다음 정책을 사용합니다.
 
-## <a name="apply-the-policy"></a>정책 적용
-정책을 만든 후 정의된 범위에 적용해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수도 있습니다. [정책 만들기 및 할당](../../resource-manager-policy.md)에 대해 읽어볼 수 있습니다.
+```json
+{
+  "if": {
+    "anyOf": [
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/virtualMachines"
+          },
+          {
+            "field": "Microsoft.Compute/virtualMachines/osDisk.uri",
+            "exists": true
+          }
+        ]
+      },
+      {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/VirtualMachineScaleSets"
+          },
+          {
+            "anyOf": [
+              {
+                "field": "Microsoft.Compute/VirtualMachineScaleSets/osDisk.vhdContainers",
+                "exists": true
+              },
+              {
+                "field": "Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl",
+                "exists": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
+```
+
+## <a name="next-steps"></a>다음 단계
+* 앞의 예제와 표시된 바와 같이 정책 규칙을 정의한 후에는 정책 정의를 만들고 범위에 할당해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. 포털을 통해 정책을 할당하려면 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](../../azure-resource-manager/resource-manager-policy-portal.md)를 참조하세요. REST API, PowerShell 또는 Azure CLI를 통해 정책을 할당하려면 [스크립트를 통해 정책 할당 및 관리](../../azure-resource-manager/resource-manager-policy-create-assign.md)를 참조하세요.
+* 리소스 정책에 대한 소개는 [리소스 정책 개요](../../azure-resource-manager/resource-manager-policy.md)를 참조하세요.
+* 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](../../azure-resource-manager/resource-manager-subscription-governance.md)를 참조하세요.
 

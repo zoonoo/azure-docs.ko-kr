@@ -12,7 +12,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/06/2017
+ms.date: 06/23/2017
 ms.author: raynew
 ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
@@ -22,7 +22,9 @@ ms.lasthandoff: 04/03/2017
 
 
 ---
-# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
+<a id="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure" class="xliff"></a>
+
+# Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
@@ -33,20 +35,26 @@ ms.lasthandoff: 04/03/2017
 
 Azure Site Recovery 서비스는 가상 컴퓨터와 물리적 서버의 복제, 장애 조치(Failover) 및 복구를 오케스트레이션하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. 컴퓨터는 Azure 또는 보조 온-프레미스 데이터 센터로 복제할 수 있습니다. 빠른 개요를 알아보려면 [Azure Site Recovery란?](site-recovery-overview.md)
 
-## <a name="overview"></a>개요
+<a id="overview" class="xliff"></a>
+
+## 개요
 이 문서에서는 사이트 복구를 배포하여 VMM 사설 클라우드에 있는 Hyper-V 호스트 서버의 Hyper-V 가상 컴퓨터를 Azure에 복제하는 방법을 설명합니다.
 
 문서에는 시나리오에 대한 필수 조건이 포함되어 있으며, 사이트 복구 자격 증명 모음을 설정하고, 원본 VMM 서버에 설치된 Azure Site Recovery 공급자를 가져오고, 서버를 자격 증명 모음에 등록하고, Azure 저장소 계정을 추가하고, Hyper-V 호스트 서버에 Azure 복구 서비스 에이전트를 설치하고, 보호된 모든 가상 컴퓨터에 적용되는 VMM 클라우드에 대한 보호 설정을 구성하고, 해당 가상 컴퓨터에 대해 보호를 사용하도록 설정하는 방법을 설명합니다. 끝으로, 장애 조치(Failover)를 테스트하여 모두 예상대로 작동하는지 확인합니다.
 
 이 문서의 하단 또는 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에서 의견이나 질문을 게시합니다.
 
-## <a name="architecture"></a>아키텍처
+<a id="architecture" class="xliff"></a>
+
+## 아키텍처
 ![아키텍처](./media/site-recovery-vmm-to-azure-classic/topology.png)
 
 * Azure 사이트 복구 공급자는 사이트 복구를 배포하는 동안 VMM에 설치되고 사이트 복구 자격 증명 모음에서 VMM 서버가 등록됩니다. 공급자는 복제 오케스트레이션을 처리하는 사이트 복구와 통신합니다.
 * 사이트 복구 배포 중에 Azure 복구 서비스 에이전트는 Hyper-V 호스트 서버에 설치됩니다. Azure 저장소에 데이터 복제를 처리합니다.
 
-## <a name="azure-prerequisites"></a>Azure 필수 조건
+<a id="azure-prerequisites" class="xliff"></a>
+
+## Azure 필수 조건
 Azure에서 다음 항목이 필요합니다.
 
 | **필수 요소** | **세부 정보** |
@@ -55,7 +63,9 @@ Azure에서 다음 항목이 필요합니다.
 | **Azure 저장소** |복제된 데이터를 저장하려면 Azure 저장소 계정이 있어야 합니다. 복제된 데이터는 Azure 저장소에 저장되고 장애 조치(Failover) 발생 시 Azure VM이 작동합니다. <br/><br/>[표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage)이 필요합니다. 계정은 사이트 복구와 같은 하위 지역에 있고 같은 구독과 연결되어 있어야 합니다. 프리미엄 저장소 계정으로 복제는 현재 지원되지 않으며 사용할 수 없습니다.<br/><br/>[자세히 알아보세요](../storage/storage-introduction.md) . |
 | **Azure 네트워크** |장애 조치(Failover) 발생 시 Azure VM에서 연결할 Azure 가상 네트워크가 필요합니다. Azure 가상 네트워크는 사이트 복구 자격 증명 모음과 동일한 지역에 있어야 합니다. |
 
-## <a name="on-premises-prerequisites"></a>온-프레미스 필수 조건
+<a id="on-premises-prerequisites" class="xliff"></a>
+
+## 온-프레미스 필수 조건
 온-프레미스에서 다음 항목이 필요합니다.
 
 | **필수 요소** | **세부 정보** |
@@ -64,7 +74,9 @@ Azure에서 다음 항목이 필요합니다.
 | **Hyper-V** |VMM 클라우드에 있는 하나 이상의 Hyper-V 호스트 서버 또는 클러스터가 필요합니다. 호스트 서버는 하나 이상의 VM이 있어야 합니다. <br/><br/>Hyper-V 서버는 **Windows Server 2012 R2** 이상(Hyper-V 역할 수행) 또는 **Microsoft Hyper-V Server 2012 R2**를 실행하고 최신 업데이트가 설치되어 있어야 합니다.<br/><br/>보호하려는 VM을 포함하는 Hyper-V 서버는 모두 VMM 클라우드에 위치해야 합니다.<br/><br/>클러스터에서 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. [자세히 알아보세요](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) . |
 | **보호된 컴퓨터** | 보호하려는 VM은 [Azure 요구 사항을](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)준수해야 합니다. |
 
-## <a name="network-mapping-prerequisites"></a>네트워크 매핑 필수 조건
+<a id="network-mapping-prerequisites" class="xliff"></a>
+
+## 네트워크 매핑 필수 조건
 Azure 네트워크에서 가상 컴퓨터를 보호하는 경우 매핑은 원본 VMM 서버의 VM 네트워크와 대상 Azure 네트워크 간을 매핑하여 다음을 가능하게 합니다.
 
 * 동일한 네트워크에서 장애 조치(Failover)되는 모든 컴퓨터는 복구 계획이 있는지 여부와 상관 없이 서로 연결할 수 있습니다.
@@ -83,7 +95,9 @@ VMM에서 네트워크 준비:
    * [VM 네트워크를 설정합니다](https://technet.microsoft.com/library/jj721575.aspx).
 
 
-## <a name="step-1-create-a-site-recovery-vault"></a>1단계: 사이트 복구 자격 증명 모음 만들기
+<a id="step-1-create-a-site-recovery-vault" class="xliff"></a>
+
+## 1단계: 사이트 복구 자격 증명 모음 만들기
 1. 등록할 VMM 서버에서 [관리 포털](https://portal.azure.com) 에 로그인합니다.
 2. **Data Services** > **Recovery Services** > **Site Recovery 자격 증명 모음**을 차례로 클릭합니다.
 3. **새로 만들기** > **빠른 생성**을 클릭합니다.
@@ -95,7 +109,9 @@ VMM에서 네트워크 준비:
 
 상태 표시줄을 점검하여 자격 증명 모음이 성공적으로 만들어졌는지 확인합니다. 자격 증명 모음은 기본 복구 서비스 페이지에서 **활성** 으로 나열됩니다.
 
-## <a name="step-2-generate-a-vault-registration-key"></a>2단계: 자격 증명 모음 등록 키 생성
+<a id="step-2-generate-a-vault-registration-key" class="xliff"></a>
+
+## 2단계: 자격 증명 모음 등록 키 생성
 자격 증명 모음에 등록 키를 생성합니다. Azure Site Recovery 공급자를 다운로드하고 VMM 서버에 설치한 후 이 키를 사용하여 VMM 서버를 자격 증명 모음에 등록합니다.
 
 1. **복구 서비스** 페이지에서 자격 증명 모음을 클릭하여 빠른 시작 페이지를 엽니다. 빠른 시작은 언제든지 아이콘을 사용하여 열 수도 있습니다.
@@ -106,7 +122,9 @@ VMM에서 네트워크 준비:
 
     ![등록 키](./media/site-recovery-vmm-to-azure-classic/register-key.png)
 
-## <a name="step-3-install-the-azure-site-recovery-provider"></a>3단계: Azure Site Recovery 공급자 설치
+<a id="step-3-install-the-azure-site-recovery-provider" class="xliff"></a>
+
+## 3단계: Azure Site Recovery 공급자 설치
 1. **빠른 시작** > **VMM 서버 준비**에서 **VMM 서버 설치용 Microsoft Azure Site Recovery Provider 다운로드**를 클릭하여 최신 버전의 공급자 설치 파일을 받습니다.
 2. 원본 VMM 서버에서 이 파일을 실행합니다.
 
@@ -151,7 +169,9 @@ VMM에서 네트워크 준비:
 
 등록 후에 VMM 서버의 메타데이터가 Azure Site Recovery에 의해 검색됩니다. 자격 증명 모음의 **서버** 페이지에 있는 **VMM 서버** 탭에 해당 서버가 표시됩니다.
 
-### <a name="command-line-installation"></a>명령줄 설치
+<a id="command-line-installation" class="xliff"></a>
+
+### 명령줄 설치
 다음 명령줄을 사용하여 Azure Site Recovery 공급자를 설치할 수도 있습니다. 이 방법은 Windows Server 2012 R2용 Server Core에 대한 공급자를 설치하는 데 사용할 수 있습니다.
 
 1. 공급자 설치 파일 및 등록 키를 폴더로 다운로드합니다. 예: C:\ASR.
@@ -178,7 +198,9 @@ VMM에서 네트워크 준비:
 * **/proxyUsername** : 프록시 사용자 이름을 지정하는 선택적 매개 변수입니다.
 * **/proxyPassword** : 프록시 암호를 지정하는 선택적 매개 변수입니다.  
 
-## <a name="step-4-create-an-azure-storage-account"></a>4단계: Azure 저장소 계정 만들기
+<a id="step-4-create-an-azure-storage-account" class="xliff"></a>
+
+## 4단계: Azure 저장소 계정 만들기
 1. Azure Storage 계정이 없으면 **Azure Storage 계정 추가** 를 클릭하여 계정을 만듭니다.
 2. 지역에서 복제를 사용하는 계정을 만듭니다. 계정은 Azure Site Recovery 서비스와 같은 하위 지역에 있고 같은 구독과 연결되어야 합니다.
 
@@ -189,7 +211,9 @@ VMM에서 네트워크 준비:
 >
 >
 
-## <a name="step-5-install-the-azure-recovery-services-agent"></a>5단계: Azure 복구 서비스 에이전트 설치
+<a id="step-5-install-the-azure-recovery-services-agent" class="xliff"></a>
+
+## 5단계: Azure 복구 서비스 에이전트 설치
 VMM 클라우드의 각 Hyper-V 호스트 서버에 Azure 복구 서비스 에이전트를 설치합니다.
 
 1. **빠른 시작** > **Azure Site Recovery Services Agent 다운로드 및 호스트에 설치**를 클릭하여 최신 버전의 에이전트 설치 파일을 받습니다.
@@ -204,12 +228,16 @@ VMM 클라우드의 각 Hyper-V 호스트 서버에 Azure 복구 서비스 에�
 
     ![MARS 에이전트 등록](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
 
-### <a name="command-line-installation"></a>명령줄 설치
+<a id="command-line-installation" class="xliff"></a>
+
+### 명령줄 설치
 이 명령을 사용하여 명령줄에서 Microsoft Azure 복구 서비스 에이전트를 설치할 수도 있습니다.
 
     marsagentinstaller.exe /q /nu
 
-## <a name="step-6-configure-cloud-protection-settings"></a>6단계: 클라우드 보호 설정 구성
+<a id="step-6-configure-cloud-protection-settings" class="xliff"></a>
+
+## 6단계: 클라우드 보호 설정 구성
 VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니다. 공급자를 설치할 때 **클라우드 데이터를 자격 증명 모음과 동기화** 옵션을 사용하도록 설정했으므로 자격 증명 모음의 <b>보호된 항목</b> 탭에 VMM 서버에 있는 모든 클라우드가 표시됩니다.
 
 ![게시된 클라우드](./media/site-recovery-vmm-to-azure-classic/clouds-list.png)
@@ -230,7 +258,9 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 저장하고 나면 클라우드 설정은 **구성** 탭에서 수정할 수 있습니다. 대상 위치 또는 대상 저장소 계정을 수정하려면 클라우드 구성을 제거한 후 클라우드를 다시 구성해야 합니다. 저장소 계정을 변경하면 변경 내용은 저장소 계정이 수정된 후에 보호하도록 설정된 가상 컴퓨터에만 적용됩니다. 기존 가상 컴퓨터는 새 저장소 계정으로 마이그레이션되지 않습니다.
 
-## <a name="step-7-configure-network-mapping"></a>7단계: 네트워크 매핑 구성
+<a id="step-7-configure-network-mapping" class="xliff"></a>
+
+## 7단계: 네트워크 매핑 구성
 네트워크 매핑을 시작하기 전에 원본 VMM 서버의 가상 컴퓨터가 VM 네트워크에 연결되었는지 확인합니다. 또한 Azure 가상 네트워크를 하나 이상 만듭니다. 단일 Azure 네트워크에 여러 개의 VM 네트워크를 매핑할 수 있습니다.
 
 1. 빠른 시작 페이지에서 **네트워크 매핑**을 클릭합니다.
@@ -251,7 +281,9 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 >
 >
 
-## <a name="step-8-enable-protection-for-virtual-machines"></a>8단계: 가상 컴퓨터의 보호 활성화
+<a id="step-8-enable-protection-for-virtual-machines" class="xliff"></a>
+
+## 8단계: 가상 컴퓨터의 보호 활성화
 서버, 클라우드 및 네트워크가 제대로 구성되었으면 클라우드에서 가상 컴퓨터에 대한 보호를 설정할 수 있습니다. 다음 사항에 유의하세요.
 
 * 가상 컴퓨터는 [Azure 요구 사항](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 충족해야 합니다.
@@ -291,7 +323,9 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 >
 >
 
-## <a name="test-the-deployment"></a>배포 테스트
+<a id="test-the-deployment" class="xliff"></a>
+
+## 배포 테스트
 배포를 테스트하려면 단일 가상 컴퓨터에 대한 테스트 장애 조치(Failover)를 실행하거나, 여러 개의 가상 컴퓨터로 구성된 복구 계획을 만들고 이 계획에 대한 테스트 장애 조치(Failover)를 실행하면 됩니다.  
 
 테스트 장애 조치(Failover)에서는 격리된 네트워크에서 장애 조치(Failover) 및 복구 메커니즘을 시뮬레이션합니다. 다음 사항에 유의하세요.
@@ -304,7 +338,9 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 >
 >
 
-### <a name="create-a-recovery-plan"></a>복구 계획 만들기
+<a id="create-a-recovery-plan" class="xliff"></a>
+
+### 복구 계획 만들기
 1. **복구 계획** 탭에서 새 계획을 추가합니다. **원본 유형**에 **VMM**, **원본**에 원본 VMM 서버의 이름을 지정합니다. 대상은 Azure입니다.
 
     ![복구 계획 만들기](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
@@ -317,7 +353,9 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 만든 복구 계획은 **복구 계획** 탭에 표시됩니다. 복구 계획에 [Azure 자동화 Runbook](site-recovery-runbook-automation.md) 을 추가하여 장애 조치(Failover) 중 작업을 자동화할 수 있습니다.
 
-### <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
+<a id="run-a-test-failover" class="xliff"></a>
+
+### 테스트 장애 조치(Failover) 실행
 Azure로의 테스트 장애 조치(Failover)를 실행하는 두 가지 방법이 있습니다.
 
 * **Azure 네트워크를 사용하지 않는 테스트 장애 조치(Failover)**- 이 유형의 테스트 장애 조치는 Azure에서 가상 컴퓨터가 제대로 작동하는지 확인합니다. 장애 조치(Failover) 후에 가상 컴퓨터가 Azure 네트워크에 연결되지 않습니다.
@@ -347,6 +385,8 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
    * **참고** 를 클릭하여 테스트 장애 조치(Failover)와 연관된 항목을 기록한 후 저장합니다.
 
 
-## <a name="next-steps"></a>다음 단계
+<a id="next-steps" class="xliff"></a>
+
+## 다음 단계
 [복구 계획 설정](site-recovery-create-recovery-plans.md) 및 [장애 조치(failover)](site-recovery-failover.md)에 대해 알아봅니다.
 

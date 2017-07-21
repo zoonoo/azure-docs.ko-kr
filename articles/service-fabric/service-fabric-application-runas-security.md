@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 06/30/2017
 ms.author: mfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: ce1291261cd8f65d44873217345ae6efaa515534
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: e673b45a43a06d18040c3437caf8765704d5c36a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -202,7 +203,7 @@ Echo "Test console redirection which writes to the application log folder on the
 이전 단계에서 SetupEntryPoint에 RunAs 정책을 적용하는 방법을 살펴보았습니다. 이번에는 서비스 정책으로 적용할 수 있는 다양한 주체를 만드는 방법을 좀 더 자세히 살펴보겠습니다.
 
 ### <a name="create-local-user-groups"></a>로컬 사용자 그룹 만들기
-그룹에 사용자를 한 명 이상 추가하도록 사용자 그룹을 정의하고 만들 수 있습니다. 이 기능은 여러 서비스 진입점에 대한 사용자가 여러 명 있고 그 사용자들에게 그룹 수준에서 특정 공통 권한을 부여해야 하는 경우에 특히 유용합니다. 다음은 관리자 권한이 있는 **LocalAdminGroup**이라는 로컬 그룹을 보여 줍니다. 두 사용자 Customer1과 Customer2를 이 그룹 구성원으로 만듭니다.
+그룹에 사용자를 한 명 이상 추가하도록 사용자 그룹을 정의하고 만들 수 있습니다. 이 기능은 여러 서비스 진입점에 대한 사용자가 여러 명 있고 그 사용자들에게 그룹 수준에서 특정 공통 권한을 부여해야 하는 경우 유용합니다. 다음은 관리자 권한이 있는 **LocalAdminGroup**이라는 로컬 그룹을 보여 줍니다. 두 사용자 Customer1과 Customer2를 이 그룹 구성원으로 만듭니다.
 
 ```xml
 <Principals>
@@ -239,7 +240,7 @@ Echo "Test console redirection which writes to the application log folder on the
 </Principals>
 ```
 
-응용 프로그램에서 사용자 계정과 암호가 모든 컴퓨터에서 같도록 요구할 경우(예: NTLM 인증을 사용하기 위해) 클러스터 매니페스트는 NTLMAuthenticationEnabled를 true로 설정해야 합니다. 클러스터 매니페스트는 모든 컴퓨터에서 동일한 암호를 생성하는 데 사용될 NTLMAuthenticationPasswordSecret도 지정해야 합니다.
+응용 프로그램에서 사용자 계정과 암호가 모든 컴퓨터에서 같도록 요구할 경우(예: NTLM 인증을 사용하기 위해) 클러스터 매니페스트는 NTLMAuthenticationEnabled를 true로 설정해야 합니다. 클러스터 매니페스트는 모든 컴퓨터에서 동일한 암호를 생성하는 데 사용된 NTLMAuthenticationPasswordSecret도 지정해야 합니다.
 
 ```xml
 <Section Name="Hosting">
@@ -304,7 +305,7 @@ Echo "Test console redirection which writes to the application log folder on the
 ```
 New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
 ```
-2. 각 Serivce Fabric 클러스터 노드(예: `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`)에서 gMSA를 설치하고 테스트합니다.
+2. 각 Service Fabric 클러스터 노드(예: `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`)에서 gMSA를 설치하고 테스트합니다.
 ```
 Add-WindowsFeature RSAT-AD-PowerShell
 Install-AdServiceAccount svc-Test$
@@ -330,7 +331,7 @@ Test-AdServiceAccount svc-Test$
 ```
 
 ## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>HTTP 및 HTTPS 끝점에 보안 액세스 정책 할당
-서비스에 RunAs 정책을 적용하고 서비스 매니페스트에서 HTTP 프로토콜을 사용하여 끝점 리소스를 선언할 경우 이러한 끝점에 할당된 포트가 서비스가 실행되는 RunAs 사용자 계정에 대해 올바르게 액세스 제어 나열되도록 **SecurityAccessPolicy**를 지정해야 합니다. 그러지 않으면 **http.sys** 가 해당 서비스에 액세스할 수 없고 클라이언트의 호출과 함께 오류가 발생합니다. 다음은 **ServiceEndpointName**이라는 끝점에 Customer3이라는 계정을 적용하여 전체 액세스 권한을 부여하는 예제입니다.
+서비스에 RunAs 정책을 적용하고 서비스 매니페스트에서 HTTP 프로토콜을 사용하여 끝점 리소스를 선언할 경우 이러한 끝점에 할당된 포트가 서비스가 실행되는 RunAs 사용자 계정에 대해 올바르게 액세스 제어 나열되도록 **SecurityAccessPolicy**를 지정해야 합니다. 그러지 않으면 **http.sys** 가 해당 서비스에 액세스할 수 없고 클라이언트의 호출과 함께 오류가 발생합니다. 다음은 **EndpointName**이라는 끝점에 Customer1 계정을 적용하여 전체 액세스 권한을 부여하는 예제입니다.
 
 ```xml
 <Policies>
@@ -351,7 +352,12 @@ Test-AdServiceAccount svc-Test$
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
 ```
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>https 끝점으로 여러 응용 프로그램 업그레이드
+http**s**를 사용할 때는 동일한 응용 프로그램의 서로 다른 인스턴스에 대해 **동일한 포트**를 사용하지 않도록 주의해야 합니다. Service Fabric에서 응용 프로그램 인스턴스 중 하나에 대해 인증서를 업그레이드할 수 없기 때문입니다. 예를 들어, 응용 프로그램 1 또는 응용 프로그램 2 모두 해당 인증서 1을 인증서 2로 업그레이드하려고 합니다. 업그레이드가 발생할 때 Service Fabric은 다른 응용 프로그램에서 아직 사용 중이라고 하더라도 http.sys에서 인증서 1 등록을 정리할 수 있습니다. 이러한 상황을 방지하기 위해 Service Fabric은 인증서와 함께 해당 포트에 등록된(http.sys에 따라) 다른 응용 프로그램 인스턴스가 이미 있는지 검색하고 있는 경우 작업이 실패합니다.
 
+따라서 Service Fabric은 서로 다른 응용 프로그램 인스턴스에 **동일한 포트**를 사용하는 두 가지 다른 서비스의 업그레이드를 지원하지 않습니다. 즉, 동일한 포트에서 서로 다른 서비스에 동일한 인증서를 사용할 수 없습니다. 동일한 포트에서 공유 인증서를 포함해야 하는 경우 배치 제약 조건에 따라 서비스가 서로 다른 컴퓨터에 배치되는지 확인해야 합니다. 또는 각 응용 프로그램 인스턴스에서 각 서비스에 대해 Service Fabric 동적 포트를 사용하는 것이 좋습니다(가능한 경우). 
+
+https로 업그레이드 실패가 표시되면 “The Windows HTTP Server API does not support multiple certificates for applications that share a port(Windows HTTP 서버 API에서 포트를 공유하는 응용 프로그램에 대해 여러 인증서를 지원하지 않습니다).”라는 오류 경고가 표시됩니다.
 
 ## <a name="a-complete-application-manifest-example"></a>완전한 응용 프로그램 매니페스트의 예
 다음 응용 프로그램 매니페스트는 여러 설정을 보여줍니다.

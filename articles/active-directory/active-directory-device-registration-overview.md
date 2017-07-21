@@ -13,13 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/08/2017
+ms.date: 06/23/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.reviewer: jairoc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: d19956e4964f57251f51eb8ffe5041c6a49da1a7
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/10/2017
-
 
 ---
 # <a name="get-started-with-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록 시작
@@ -56,9 +57,9 @@ Azure Active Directory에서 관리자 포털을 사용하여 등록된 장치�
 > 
 > 
 
-기본적으로&2;단계 인증은 서비스에 대해 사용되지 않습니다. 그러나 장치를 등록하는 경우&2;단계 인증을 사용하는 것이 좋습니다.
+기본적으로 2단계 인증은 서비스에 대해 사용되지 않습니다. 그러나 장치를 등록하는 경우 2단계 인증을 사용하는 것이 좋습니다.
 
-* 이 서비스에 대해&2;단계 인증을 요구하기 전에 Azure Active Directory에서&2;단계 인증 공급자를 구성하고 Multi-Factor Authentication에 대해 사용자 계정을 구성해야 합니다. [Azure Active Directory에 Multi-Factor Authentication 추가](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)를 참조하세요.
+* 이 서비스에 대해 2단계 인증을 요구하기 전에 Azure Active Directory에서 2단계 인증 공급자를 구성하고 Multi-Factor Authentication에 대해 사용자 계정을 구성해야 합니다. [Azure Active Directory에 Multi-Factor Authentication 추가](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)를 참조하세요.
 * Windows Server 2012 R2에서 AD FS를 사용하는 경우 AD FS에서 2단계 인증 모듈을 구성해야 합니다. [Active Directory Federation Services로 Multi-Factor Authentication 사용](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)을 참조하세요.
 
 ## <a name="configure-azure-active-directory-device-registration-discovery"></a>Azure Active Directory 장치 등록 검색 구성

@@ -12,11 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 05/18/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: 1d35fbbe14d1597c23d8521bc21c683b520f0ea6
-ms.openlocfilehash: 34141bb2c3c6e159e4ce3d567b830451c59ed84c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: d5a2d1f3d85b8a2212326cfcfd0ba5d80356b769
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -27,14 +29,16 @@ ms.openlocfilehash: 34141bb2c3c6e159e4ce3d567b830451c59ed84c
 >
 >
 
-이 문서는 모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인을 모니터링하고 관리하고 디버그하며, 오류에 대한 알림을 받도록 경고를 만드는 방법을 설명합니다. 모니터링 및 관리 앱에 대해 자세히 알아보려면 다음 동영상을 시청하세요.
+이 문서는 모니터링 및 관리 앱을 사용하여 Data Factory 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 또한 경고를 생성하여 오류에 대한 알림을 받는 방법에 대한 정보도 제공합니다. 다음 비디오를 시청하여 응용 프로그램 사용을 시작할 수 있습니다.
+
+> [!NOTE]
+> 비디오에 표시된 사용자 인터페이스는 포털에 표시된 것과 정확하게 일치하지 않을 수 있습니다. 약간 더 오래되었지만 개념은 동일합니다. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
 >
->
 
-## <a name="open-the-monitoring-and-management-app"></a>모니터링 및 관리 앱 열기
-모니터 및 관리 앱을 열려면 사용자 데이터 팩터리의 **Data Factory** 블레이드에서 **모니터링 및 관리** 타일을 클릭합니다.
+## <a name="launch-the-monitoring-and-management-app"></a>모니터링 및 관리 앱 시작
+모니터링 및 관리 앱을 시작하려면 사용자 데이터 팩터리의 **Data Factory** 블레이드에서 **모니터링 및 관리** 타일을 클릭합니다.
 
 ![Data Factory 홈페이지의 모니터링 타일](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
@@ -45,7 +49,13 @@ ms.openlocfilehash: 34141bb2c3c6e159e4ce3d567b830451c59ed84c
 > [!NOTE]
 > 웹 브라우저가 "권한 부여..." 상태로 중지된 것을 확인하면 **Block third-party cookies and site data**(타사 쿠키 및 사이트 데이터 차단) 확인란 선택을 해제하거나 선택된 상태로 두고 **login.microsoftonline.com**에 대한 예외를 만든 다음 앱을 다시 열어봅니다.
 
-맨 아래 목록에 활동 기간이 표시되지 않으면 도구 모음에서 **새로 고침** 단추를 클릭하여 목록을 새로 고칩니다. 또한 **시작 시간** 및 **종료 시간** 필터에 대한 올바른 값을 설정합니다.  
+
+가운데 창의 작업 창 목록에는 작업의 각 실행에 대한 작업 창이 표시됩니다. 예를 들어 5시간 동안 매시간 실행되도록 예약된 작업이 있는 경우 5개의 데이터 조각과 연결된 5개 작업 창이 표시됩니다. 아래쪽의 목록에 작업 창이 표시되지 않는 경우 다음을 수행합니다.
+ 
+- 맨 위에 있는 **시작 시간** 및 **종료 시간** 필터를 업데이트하여 파이프라인의 시작 및 종료 시간을 일치시킨 다음 **적용** 단추를 클릭합니다.  
+- 작업 창 목록은 자동으로 고쳐지지 않습니다. **작업 창** 목록의 도구 모음에서 **새로 고침** 단추를 클릭합니다.  
+
+이러한 단계를 테스트할 데이터 팩터리 응용 프로그램이 없는 경우 자습서: [데이터 팩터리를 사용하여 Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 수행합니다.
 
 ## <a name="understand-the-monitoring-and-management-app"></a>모니터링 및 관리 앱 이해
 왼쪽에 **리소스 탐색기**, **Monitoring Views**(모니터링 뷰) 및 **경고**라는 세 개의 탭이 있습니다. 첫 번째 탭(**리소스 탐색기**)은 기본적으로 선택됩니다.
@@ -54,9 +64,9 @@ ms.openlocfilehash: 34141bb2c3c6e159e4ce3d567b830451c59ed84c
 다음이 표시됩니다.
 
 * 왼쪽 창에 리소스 탐색기 **트리 뷰**.
-* 위쪽에 **다이어그램 뷰** .
+* 가운데 창의 맨 위쪽에 **다이어그램 보기**.
 * 가운데 창의 아래쪽에 **활동 기간** 목록.
-* 오른쪽 창에 **속성** 및 **활동 기간 탐색기** 탭.
+* 오른쪽 창에 **속성**, **작업 창 탐색기** 및 **스크립트** 탭.
 
 리소스 탐색기에서 데이터 팩터리의 모든 리소스(파이프라인, 데이터 집합, 연결된 서비스)를 트리 뷰로 볼 수 있습니다. 리소스 탐색기에서 개체를 선택하는 경우:
 
@@ -80,23 +90,31 @@ ms.openlocfilehash: 34141bb2c3c6e159e4ce3d567b830451c59ed84c
 
 ![파이프라인 실행](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-다이어그램 뷰에 파이프라인에 대한 세 개의 명령 모음 단추가 있습니다. 두 번째 단추를 사용하여 파이프라인을 일시 중지할 수 있습니다. 일시 중지할 경우 현재 실행 중인 활동을 종료하지 않고 완료될 때까지 계속할 수 있습니다. 세 번째 단추는 파이프라인을 일시 중지하고 실행 중인 기존의 활동을 종료합니다. 첫 번째 단추는 파이프라인을 다시 시작합니다. 파이프라인이 일시 중지되면 파이프라인 색이 노란색으로 변경됩니다.
+다이어그램 보기에서 선택하고 명령 모음에서 단추를 사용하여 파이프라인을 일시 중지, 다시 시작 또는 종료할 수 있습니다.
 
-![타일에서 일시 중지/다시 시작](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
+![명령 모음에서 일시 중지/다시 시작](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+ 
+다이어그램 뷰에 파이프라인에 대한 세 개의 명령 모음 단추가 있습니다. 두 번째 단추를 사용하여 파이프라인을 일시 중지할 수 있습니다. 일시 중지할 경우 현재 실행 중인 활동을 종료하지 않고 완료될 때까지 계속할 수 있습니다. 세 번째 단추는 파이프라인을 일시 중지하고 실행 중인 기존의 활동을 종료합니다. 첫 번째 단추는 파이프라인을 다시 시작합니다. 파이프라인이 일시 중지되면 파이프라인 색이 변경됩니다. 예를 들어, 일시 중지된 파이프라인은 다음 그림과 같이 표시됩니다. 
+
+![파이프라인 일시 중지](./media/data-factory-monitor-manage-app/PipelinePaused.png)
 
 Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 수 있습니다. 명령 모음 단추를 사용하여 여러 파이프라인을 한 번에 일시 중지/다시 시작할 수 있습니다.
 
-![명령 모음에서 일시 중지/다시 시작](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+파이프라인을 마우스 오른쪽 단추로 클릭하고 파이프라인을 일시 중단, 다시 시작 또는 종료하는 옵션을 선택할 수도 있습니다. 
 
-파이프라인 타일을 마우스 오른쪽 단추로 클릭한 다음 **파이프라인 열기**를 클릭하면 파이프라인의 모든 작업을 볼 수 있습니다.
+![파이프라인에 대한 상황에 맞는 메뉴](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
+
+**파이프라인 열기** 옵션을 선택하여 파이프라인의 모든 작업을 확인합니다. 
 
 ![파이프라인 열기 메뉴](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-열린 파이프라인 뷰에서 파이프라인의 모든 작업이 표시됩니다. 이 예제에서는 하나의 작업, 복사 작업만이 있습니다. 이전 보기로 돌아가려면 맨 위에서 breadcrumb 메뉴의 데이터 팩터리 이름을 클릭합니다.
+열린 파이프라인 뷰에서 파이프라인의 모든 작업이 표시됩니다. 이 예제에서는 하나의 작업, 복사 작업만이 있습니다. 
 
 ![열린 파이프라인](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-파이프라인 뷰에서 출력 데이터 집합을 클릭할 경우 또는 출력 데이터 집합 위로 마우스를 이동하는 경우, 해당 데이터 집합에 대한 활동 기간 팝업 창이 표시됩니다.
+이전 보기로 돌아가려면 맨 위에서 breadcrumb 메뉴의 데이터 팩터리 이름을 클릭합니다.
+
+파이프라인 뷰에서 출력 데이터 집합을 선택할 경우 또는 출력 데이터 집합 위로 마우스를 이동하는 경우, 해당 데이터 집합에 대한 활동 기간 팝업 창이 표시됩니다.
 
 ![활동 기간 팝업 창](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
@@ -316,9 +334,4 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 다음 단추(빨간색으로 강조 표시됨)를 사용하여 경고를 편집, 삭제 또는 비활성화합니다.
 
 ![경고 단추](./media/data-factory-monitor-manage-app/AlertButtons.png)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/05/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: df37f4e7975f1f399398d5c881d17cbe3833ee45
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 97e40e0081e1dcce0ed42748a053c46cecf569ba
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -36,14 +36,14 @@ ms.lasthandoff: 05/08/2017
 | [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) |[저장 프로시저](data-factory-stored-proc-activity.md) |
 
 ## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>Azure Data Factory에서 지원되는 HDInsight 버전
-Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. 각 버전을 선택하면 특정 버전의 HDP(Hortonworks Data Platform) 배포 및 배포에 포함된 구성 요소 집합이 만들어집니다. Microsoft는 지원되는 HDInsight 버전 목록을 계속 업데이트하여 최신 Hadoop 에코시스템 구성 요소 및 수정 프로그램을 제공합니다. HDInsight 3.2는 2011년 4월 1일부터 더 이상 사용되지 않으므로 자세한 내용은 [지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)을 참조하세요.
+Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. 각 버전을 선택하면 특정 버전의 HDP(Hortonworks Data Platform) 배포 및 배포에 포함된 구성 요소 집합이 만들어집니다. Microsoft는 지원되는 HDInsight 버전 목록을 계속 업데이트하여 최신 Hadoop 에코시스템 구성 요소 및 수정 프로그램을 제공합니다. HDInsight 3.2는 2017년 4월 1일부터 사용되지 않습니다. 자세한 내용은 [지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)을 참조하세요.
 
 이로 인해 HDInsight 3.2 클러스터에 대해 실행되는 활동이 있는 기존 Azure Data Factory에 영향을 미칩니다. 영향을 받는 Data Factory를 업데이트하려면 사용자는 다음 섹션의 지침을 따르는 것이 좋습니다.
 
 ### <a name="for-linked-services-pointing-to-your-own-hdinsight-clusters"></a>사용자 고유의 HDInsight 클러스터를 가리키는 연결된 서비스의 경우
 * **사용자 고유의 HDInsight 3.2 이하 클러스터를 가리키는 HDInsight 연결된 서비스:**
 
-  Azure Data Factory는 HDI 3.1에서 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)까지 사용자 고유의 HDInsight 클러스터에 제출하는 작업을 지원합니다. 그러나 [지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)에서 설명하는 사용 중단 정책에 따라 2011년 4월 1일 이후로는 더 이상 HDInsight 3.2 클러스터를 만들 수 없습니다.  
+  Azure Data Factory는 HDI 3.1에서 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)까지 사용자 고유의 HDInsight 클러스터에 제출하는 작업을 지원합니다. 그러나 [지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)에서 설명하는 사용 중단 정책에 따라 2017년 4월 1일 이후로는 더 이상 HDInsight 3.2 클러스터를 만들 수 없습니다.  
 
   **권장 사항:** 
   * 이 연결된 서비스를 참조하는 활동과 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)의 호환성을 보장하기 위해 [각 HDInsight 버전에서 제공되는 Hadoop 구성 요소](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) 및 [HDInsight 버전과 관련된 Hortonworks 릴리스 정보](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions)에서 설명하는 정보와 함께 테스트를 수행합니다.
@@ -69,24 +69,23 @@ Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버
   
   Azure Data Factory에서는 **2017년 5월 15일**부터 버전 3.3 이상의 주문형 HDInsight 클러스터 만들기를 지원합니다. 기존의 주문형 HDInsight 3.2 연결된 서비스에 대한 지원 종료는 **2017년 7월 15일**까지로 연장됩니다. 
 
-  **2017년 5월 15일** 이전까지 version 및 osType 속성의 값을 비워 두는 경우 해당 속성의 기본값은 다음과 같습니다. 
+  **2017년 7월 15일** 이전까지 version 및 osType 속성의 값을 비워 두는 경우 해당 속성의 기본값은 다음과 같습니다. 
 
   | 속성 | 기본값 | 필수 |
   | --- | --- | --- |
-  버전    | Windows 클러스터용 HDI 3.1 및 Linux 클러스터용 HDI 3.2| 아니요
+  버전   | Windows 클러스터용 HDI 3.1 및 Linux 클러스터용 HDI 3.2| 아니요
   osType | 기본값: Windows | 아니요
 
-  **2017년 5월 15일** 이후 version 및 osType 속성의 값을 비워 두는 경우 해당 속성의 기본값은 다음과 같습니다.
+  **2017년 7월 15일** 이후 version 및 osType 속성의 값을 비워 두는 경우 해당 속성의 기본값은 다음과 같습니다.
 
   | 속성 | 기본값 | 필수 |
   | --- | --- | --- |
-  버전    | Windows 클러스터용 HDI 3.3 및 Linux 클러스터용 3.5.    | 아니요
-  osType | 기본값: Linux    | 아니요
+  버전   | Windows 클러스터용 HDI 3.3 및 Linux 클러스터용 3.5.    | 아니요
+  osType | 기본값: Linux | 아니요
 
   **권장 사항:** 
-  * **2017년 5월 15일** 이전까지 연결된 서비스를 업데이트하여 주문형 HDInsight 연결된 서비스 JSON 정의에 필요한 Version 및 osType 조합을 명시적으로 정의합니다. Version을 3.2로 설정하여 이전 버전과의 호환성을 보장할 수 있습니다. 
-  * 이 연결된 서비스를 참조하는 활동과 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)의 호환성을 보장하기 위해 **2017년 5월 15일**과 **2017년 7월 15일** 사이에 [각 HDInsight 버전에서 제공되는 Hadoop 구성 요소](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) 및 [HDInsight 버전과 관련된 Hortonworks 릴리스 정보](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions)에서 설명하는 정보와 함께 테스트를 수행합니다.  
-  * **2017년 7월 15일** 이전까지 주문형 HDInsight 연결된 서비스 JSON 정의의 Version 속성을 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)으로 설정하거나, 기본값인 HDInsight 3.5를 사용하여 최신 Hadoop 생태계 구성 요소 및 수정 프로그램을 얻습니다. JSON 정의에 대한 자세한 내용은 [주문형 Azure HDInsight 연결된 서비스 샘플](#azure-hdinsight-on-demand-linked-service)을 참조하세요.
+  * **2017년 7월 15일** 이전까지 이 연결된 서비스를 참조하는 활동과 [최신의 지원되는 HDInsight 버전](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)의 호환성을 보장하기 위해 [각 HDInsight 버전에서 제공되는 Hadoop 구성 요소](../hdinsight/hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions) 및 [HDInsight 버전과 관련된 Hortonworks 릴리스 정보](../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions)에서 설명하는 정보와 함께 테스트를 수행합니다.  
+  * **2017년 7월 15일** 이후 기본 설정을 재정의하려는 경우 osType 및 Version 값을 명시적으로 지정해야 합니다. 
 
 >[!Note]
 >현재 Azure Data Factory는 Azure Data Lake Store를 기본 저장소로 사용하는 HDInsight 클러스터를 지원하지 않습니다. Azure Storage를 HDInsight 클러스터의 기본 저장소로 사용합니다. 
@@ -127,7 +126,7 @@ Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux �
             "clusterSize": 4,
             "timeToLive": "00:05:00",
             "osType": "linux",
-            "linkedServiceName": "StorageLinkedService"
+            "linkedServiceName": "AzureStorageLinkedService"
         }
     }
 }
@@ -147,7 +146,7 @@ Windows 기반 HDInsight 클러스터를 사용하려면 **osType**을 **windows
 | --- | --- | --- |
 | type |형식 속성은 **HDInsightOnDemand**로 설정해야 합니다. |예 |
 | clusterSize |클러스터의 작업자/데이터 노드 수 HDInsight 클러스터는 속성에 지정한 작업자 노드의 수와 함께 2개의 헤드 노드로 생성됩니다. 노드의 크기는 4개 코어를 포함한 Standard_D3이므로, 4개 작업자 노드 클러스터에서 24개 코어(작업자 노드용 4\*4 = 16코어 및 헤드 노드용 2\*4 = 8코어)를 사용합니다. Standard_D3 계층에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. |예 |
-| timetolive |주문형 HDInsight 클러스터에 대한 허용된 유휴 시간입니다. 클러스터에 다른 활성 작업이 없으면 작업이 완료된 후에 주문형 HDInsight 클러스터가 유지될 기간을 지정합니다.<br/><br/>예를 들어 활동 실행에 6분이 걸리고 timetolive이 5분으로 설정된 경우 클러스터는 활동을 처리하는 6분 동안 실행된 후에 5분 동안 유지됩니다. 다른 활동 실행이 6분 창을 실행하는 경우 동일한 클러스터에 의해 처리됩니다.<br/><br/>주문형 HDInsight 클러스터를 만드는 데는 많은 시간이 걸려 값 비싼 작업이 되므로 필요할 때마다 이 설정을 사용하여 주문형 HDInsight 클러스터를 다시 사용함으로써 데이터 팩터리의 성능을 향상시킵니다.<br/><br/>timetolive 값을 0으로 설정한 경우 클러스터는 활동이 처리되는 즉시 삭제됩니다. 반면 높은 값을 설정하는 경우 클러스터는 불필요하게 많은 비용이 발생하는 유휴 상태에 머무를 수 있습니다. 따라서 필요에 따라 적절한 값을 설정하는 것이 중요합니다.<br/><br/>timetolive 속성 값이 적절하게 설정되는 경우 여러 파이프라인은 주문형 HDInsight 클러스터의 인스턴스를 공유할 수 있습니다. |예 |
+| timetolive |주문형 HDInsight 클러스터에 대한 허용된 유휴 시간입니다. 클러스터에 다른 활성 작업이 없으면 작업이 완료된 후에 주문형 HDInsight 클러스터가 유지될 기간을 지정합니다.<br/><br/>예를 들어 활동 실행에 6분이 걸리고 timetolive이 5분으로 설정된 경우 클러스터는 활동을 처리하는 6분 동안 실행된 후에 5분 동안 유지됩니다. 다른 활동 실행이 6분 창을 실행하는 경우 동일한 클러스터에 의해 처리됩니다.<br/><br/>주문형 HDInsight 클러스터를 만드는 데는 많은 시간이 걸려 값 비싼 작업이 되므로 필요할 때마다 이 설정을 사용하여 주문형 HDInsight 클러스터를 다시 사용함으로써 데이터 팩터리의 성능을 향상시킵니다.<br/><br/>timetolive 값을 0으로 설정한 경우 클러스터는 작업 실행이 완료되는 즉시 삭제됩니다. 반면 높은 값을 설정하는 경우 클러스터는 불필요하게 많은 비용이 발생하는 유휴 상태에 머무를 수 있습니다. 따라서 필요에 따라 적절한 값을 설정하는 것이 중요합니다.<br/><br/>timetolive 속성 값이 적절하게 설정되는 경우 여러 파이프라인은 주문형 HDInsight 클러스터의 인스턴스를 공유할 수 있습니다.  |예 |
 | 버전 |HDInsight 클러스터의 버전입니다. 기본값은 Windows 클러스터의 경우 3.1이고 Linux 클러스터의 경우 3.2입니다. |아니요 |
 | linkedServiceName | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결 서비스입니다. HDInsight 클러스터는 Azure Storage 계정과 동일한 지역에 생성됩니다.<p>현재 Azure Data Lake Store를 저장소로 사용하는 주문형 HDInsight 클러스터를 만들 수 없습니다. HDInsight 처리의 결과 데이터를 Azure Data Lake Store에 저장하려면 복사 작업을 사용하여 Azure Blob Storage의 데이터를 Azure Data Lake Store로 복사합니다. </p>  | 예 |
 | additionalLinkedServiceNames |HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다.  이러한 저장소 계정은 linkedServiceName에 지정된 저장소 계정과 동일한 지역에 생성된 HDInsight 클러스터와 동일한 지역에 있어야 합니다. |아니요 |
@@ -307,7 +306,7 @@ Azure 배치 서비스가 처음이라면 다음 항목을 참조하십시오.
 "accountName": "mybatchaccount.eastus"
 ```
 
-다른 옵션은 다음 샘플에 표시된 것처럼 batchUri 끝점을 제공하는 것입니다.  
+다른 옵션은 다음 샘플에 표시된 것처럼 batchUri 끝점을 제공하는 것입니다.
 
 ```json
 "accountName": "adfteam",
@@ -419,8 +418,9 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
 }
 ```
+WindowsFormsWebAuthenticationDialog 클래스의 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll에 대한 참조를 추가합니다. 
 
-코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. WindowsFormsWebAuthenticationDialog 클래스의 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll에 대한 참조를 추가해야 합니다. 
+코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. 
 
 ## <a name="azure-sql-linked-service"></a>Azure SQL 연결된 서비스
 Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#linked-service-properties) 문서를 참조하세요.

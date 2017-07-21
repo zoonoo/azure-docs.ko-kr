@@ -10,20 +10,23 @@ tags:
 ms.assetid: 
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: c4977758997c91f0191e0367fb57923f43080b56
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 90833fa9744eac298b0da82cd3d12f27cc237510
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="lesson-6-create-measures"></a>단원 6: 측정값 만들기
-이 단원에서는 모델에 포함할 측정값을 만듭니다. 생성한 계산된 열과 마찬가지로, 측정값은 DAX 수식을 사용하여 만든 계산입니다. 그러나 계산된 열과 달리, 측정값은 사용자가 선택한 *필터*에 따라 평가됩니다. 예를 들어 피벗 테이블의 행 레이블 필드에 추가된 특정 열 또는 슬라이서가 있습니다. 그러면 필터의 각 셀에 대한 값이 적용된 측정값으로 계산됩니다. 측정값은 수치 데이터에 동적인 계산을 수행하기 위해 거의 모든 테이블 형식 모델에 포함하려는 강력하고 유연한 계산입니다. 자세한 내용은 [측정값](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular)을 참조하세요.
+
+[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+
+이 단원에서는 모델에 포함할 측정값을 만듭니다. 생성한 계산된 열과 마찬가지로, 측정값은 DAX 수식을 사용하여 만든 계산입니다. 그러나 계산된 열과 달리 측정값은 사용자가 선택한 *필터*를 기반으로 평가됩니다. 예를 들어 특정 열 또는 슬라이서가 피벗 테이블의 행 레이블 필드에 추가되었습니다. 그러면 필터의 각 셀에 대한 값이 적용된 측정값으로 계산됩니다. 측정값은 수치 데이터에 동적인 계산을 수행하기 위해 거의 모든 테이블 형식 모델에 포함하려는 강력하고 유연한 계산입니다. 자세한 내용은 [측정값](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular)을 참조하세요.
   
 측정값을 만들려면 *측정값 표*를 사용합니다. 기본적으로 각 테이블에는 빈 측정값 표가 있습니다. 그러나 일반적으로 모든 테이블에 대해 측정값을 만들지 않습니다. 측정값 표는 데이터 뷰의 디자이너에서 테이블 아래에 나타납니다. 테이블에 대한 측정값 표를 숨기거나 표시하려면 **테이블** 메뉴를 클릭한 다음 **측정값 표 표시**를 클릭합니다.  
   
@@ -54,12 +57,12 @@ ms.lasthandoff: 05/05/2017
     
       ![aas-lesson6-newmeasure](../tutorials/media/aas-lesson6-newmeasure.png) 
     
-    계산된 열과 달리 측정값 수식은, 측정값 이름, 쉼표, 수식 순서로 입력할 수 있습니다.
+    계산된 열과 달리 측정값 수식은, 측정값 이름, 콜론, 수식 순서로 입력할 수 있습니다.
 
   
 #### <a name="to-create-a-daysincurrentquarter-measure-in-the-dimdate-table"></a>DimDate 테이블에 DaysInCurrentQuarter 측정값을 만들려면  
   
-1.  모델 디자이너에서 **DimDate** 테이블이 활성 상태인 동안 측정값 표에서 방금 만든 측정값 아래의 빈 셀을 클릭합니다.  
+1.  모델 디자이너에서 **DimDate** 테이블이 활성 상태인 동안 측정값 표에서 만든 측정값 아래의 빈 셀을 클릭합니다.  
   
 2.  수식 입력줄에 다음 수식을 입력합니다.  
   
@@ -67,7 +70,7 @@ ms.lasthandoff: 05/05/2017
     DaysInCurrentQuarter:=COUNTROWS( DATESBETWEEN( 'DimDate'[Date], STARTOFQUARTER( LASTDATE('DimDate'[Date])), ENDOFQUARTER('DimDate'[Date])))
     ```
   
-    하나의 불완전한 기간과 이전 기간 사이의 비교 비율을 만들 때는 수식에서 경과한 기간 비율을 고려하고 이전 기간의 동일한 비율과 비교해야 합니다. 이 경우 [DaysCurrentQuarterToDate]/[DaysInCurrentQuarter]는 현재 기간에서 경과한 비율을 제공합니다.  
+    불완전한 기간과 이전 기간 사이의 비교 비율을 만드는 경우 수식은 경과된 기간의 비율을 계산하고 이전 기간의 동일한 부분과 비교해야 합니다. 이 경우 [DaysCurrentQuarterToDate]/[DaysInCurrentQuarter]는 현재 기간에서 경과한 비율을 제공합니다.  
   
 #### <a name="to-create-an-internetdistinctcountsalesorder-measure-in-the-factinternetsales-table"></a>FactInternetSales 테이블에서 InternetDistinctCountSalesOrder 측정값을 만들려면  
   

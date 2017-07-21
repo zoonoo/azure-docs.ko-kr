@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/11/2017
+ms.date: 05/30/2017
 ms.author: asaxton
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: ee480f4382a93a2420f7c73f7259ce1f0a03d595
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 1d35dc01aba57dcf8a37db757138abbd7b22c8c5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -39,11 +40,12 @@ Microsoft Azure 가상 컴퓨터의 SQL Server에 라이선스를 허여하는 �
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>Azure 가상 컴퓨터 갤러리에서 사용 가능한 SQL Server 이미지
 Microsoft Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개의 이미지가 들어 있습니다. 가상 컴퓨터 이미지에 설치된 소프트웨어는 운영 체제 버전 및 SQL Server의 버전에 따라 다릅니다. Azure 가상 컴퓨터 갤러리에서 사용 가능한 이미지 목록은 자주 변경됩니다.
 
-![Azure VM 갤러리의 SQL 이미지](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)
+<!--![SQL image in azure VM gallery](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)-->
+![Azure VM 갤러리의 SQL 이미지](./media/virtual-machines-windows-classic-ps-sql-bi/vm-sql-images.png)
 
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) 다음 PowerShell 스크립트는 ImageName에 "SQL-Server"가 포함된 Azure 이미지 목록을 반환합니다.
 
-    # assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
+    # assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "Subscriptions" menu in Azure portal.
 
     $subscriptionID = ""    # REQUIRED: Provide your subscription ID.
     $subscriptionName = "" # REQUIRED: Provide your subscription name.
@@ -66,7 +68,7 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
 * [SQL Server 2016 버전에서 지원되는 기능](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>SQL Server 가상 컴퓨터 갤러리 이미지에 설치된 BI 기능
-다음 표는 SQL Server에 대한 일반적인 Microsoft Azure 가상 컴퓨터 갤러리 이미지에 설치된 비즈니스 인텔리전스 기능을 요약합니다."
+다음 표는 SQL Server에 대한 일반적인 Microsoft Azure Virtual Machine 갤러리 이미지에 설치된 비즈니스 인텔리전스 기능을 요약합니다.
 
 * SQL Server 2016 SP1 Enterprise
 * SQL Server 2016 SP1 Standard
@@ -156,16 +158,20 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
      
       자세한 내용은 [클라우드 서비스란?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/)을 참조하세요.
 
-**Reporting Services 구성 관리자를 시작합니다.**
 
-1. **Windows Server 2012/2016**에서:
-2. **시작** 화면에서 **Reporting Services**를 입력하여 앱 목록을 봅니다.
-3. **Reporting Services 구성 관리자**를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭합니다.
-4. **Windows Server 2008 R2**에서:
-5. **시작**을 클릭한 다음 **모든 프로그램**을 클릭합니다.
-6. **Microsoft SQL Server 2016**을 클릭합니다.
-7. **구성 도구**를 클릭합니다.
-8. **Reporting Services 구성 관리자**를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭합니다.
+**Reporting Services 구성 관리자 시작**
+
+**Windows Server 2012/2016**에서:
+
+1. **시작** 화면에서 **Reporting Services**를 입력하여 앱 목록을 봅니다.
+2. **Reporting Services 구성 관리자**를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭합니다.
+
+**Windows Server 2008 R2**에서:
+
+1. **시작**을 클릭한 다음 **모든 프로그램**을 클릭합니다.
+2. **Microsoft SQL Server 2016**을 클릭합니다.
+3. **구성 도구**를 클릭합니다.
+4. **Reporting Services 구성 관리자**를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭합니다.
 
 또는
 

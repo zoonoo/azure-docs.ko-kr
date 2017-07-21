@@ -20,7 +20,8 @@
 ### [Stretch Database 사용 안 함](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # 리소스
-## [가격 책정](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [블로그](https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/)
+## [가격 책정](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-server-stretch-database)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database)

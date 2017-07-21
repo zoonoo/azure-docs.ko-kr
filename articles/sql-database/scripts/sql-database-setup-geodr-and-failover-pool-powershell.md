@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 스크립트 - 풀링된 SQL Database에 대한 지역 복제 설정 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - PowerShell을 사용하여 풀링된 Azure SQL Database에 대한 활성 지역 복제 설정"
+title: "PowerShell 예제 - 활성 지역 복제 - 풀된 Azure SQL Database | Microsoft Docs"
+description: "풀된 Azure SQL Database에 활성 지역 복제를 설정하는 Azure PowerShell 예제 스크립트"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -14,19 +14,19 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 3f62371eb84df1ba0f29ef2c6fe0da82674ed069
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 34a4970e9b0e99cbbbbc52788b00edab4a197755
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="configure-active-geo-replication-for-a-pooled-azure-sql-database-using-powershell"></a>PowerShell을 사용하여 풀링된 Azure SQL Database에 대한 활성 지역 복제 구성
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-azure-sql-database"></a>PowerShell을 사용하여 풀된 Azure SQL Database에 대한 활성 지역 복제 구성
 
-다음 샘플 PowerShell 스크립트는 탄력적 풀의 데이터베이스에 대해 활성 지역 복제를 구성하고 보조 복제본으로 장애 조치합니다.
+이 PowerShell 스크립트 예제는 탄력적 풀에서 Azure SQL Database에 대해 활성 지역 복제를 구성하고 Azure SQL Database의 보조 복제본으로 장애 조치(failover)합니다.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

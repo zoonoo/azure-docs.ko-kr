@@ -1,6 +1,6 @@
 ---
-title: "AzCopy 사용하여 저장소로 데이터 이동 또는 복사 | Microsoft Docs"
-description: "AzCopy 유틸리티를 사용하여 blob, 테이블 및 파일 콘텐츠에서 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure 저장소로 데이터를 복사하거나, 저장소 계정 내에서 데이터를 복사하거나, 저장소 계정 간에 데이터를 복사합니다. 데이터를 Azure 저장소로 손쉽게 마이그레이션할 수 있습니다."
+title: "Windows에서 AzCopy 사용하여 Azure Storage로 데이터 복사 또는 이동 | Microsoft Docs"
+description: "Windows에서 AzCopy 유틸리티를 사용하여 Blob, 테이블 및 파일 콘텐츠에서 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure 저장소로 데이터를 복사하거나, 저장소 계정 내에서 데이터를 복사하거나, 저장소 계정 간에 데이터를 복사합니다. 데이터를 Azure 저장소로 손쉽게 마이그레이션할 수 있습니다."
 services: storage
 documentationcenter: 
 author: seguler
@@ -12,30 +12,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 05/14/2017
 ms.author: seguler
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: f703da63c4243c73cf68d3df9953f73d2462ac1c
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 045778822022752295bb634bdf734daaf36ab938
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/03/2017
 
 
 ---
-# <a name="transfer-data-with-the-azcopy-command-line-utility"></a>AzCopy 명령줄 유틸리티로 데이터 전송
-## <a name="overview"></a>개요
-AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Microsoft Azure Blob, 파일 및 테이블 저장소에(로부터) 복사하도록 디자인된 Windows 명령줄 유틸리티입니다. 저장소 계정 내에서나 저장소 계정 사이에서 개체 간에 데이터 복사할 수 있습니다.
+# <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 데이터 전송
+AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Microsoft Azure Blob, File 및 Table Storage에(로부터) 복사하도록 디자인된 명령줄 유틸리티입니다. 저장소 계정 내에서나 저장소 계정 사이에서 개체 간에 데이터 복사할 수 있습니다.
 
-> [!NOTE]
-> 이 가이드는 [Azure 저장소](https://azure.microsoft.com/services/storage/)에 대해 잘 알고 있다는 것을 가정합니다. 그렇지 않은 경우, [Azure 저장소 소개](storage-introduction.md) 설명서가 유용할 것입니다. 가장 중요한 것은 [저장소 계정을 만들어](storage-create-storage-account.md#create-a-storage-account) AzCopy를 사용해야 한다는 것입니다.
-> 
-> 
+두 가지 버전의 AzCopy를 다운로드할 수 있습니다. Windows에서 AzCopy는 .NET Framework를 기반으로 하며 Windows 스타일 명령줄 옵션을 제공합니다. [Linux에서 AzCopy](storage-use-azcopy-linux.md)는 POSIX 스타일 명령줄 옵션을 제공하는 Linux 플랫폼을 대상으로 하는 .NET Core Framework를 기반으로 합니다. 이 문서에서는 Windows에서 AzCopy를 설명합니다.
 
 ## <a name="download-and-install-azcopy"></a>AzCopy 다운로드 및 설치
-### <a name="windows"></a>Windows
-[최신 버전의 AzCopy](http://aka.ms/downloadazcopy)를 다운로드합니다.
+### <a name="azcopy-on-windows"></a>Windows에서 AzCopy
+[최신 버전의 Windows에서 AzCopy](http://aka.ms/downloadazcopy)를 다운로드합니다.
 
-### <a name="maclinux"></a>Mac/Linux
-AzCopy는 Mac/Linux Os에 사용할 수 없습니다. 그러나 Azure CLI는 Azure 저장소에(로부터) 데이터를 복사하기 위한 적절한 대안입니다. 자세한 내용은 [Azure 저장소에서 Azure CLI 사용](storage-azure-cli.md) 을 읽어보세요.
+#### <a name="installation-on-windows"></a>Windows에서 설치
+설치 관리자를 사용하여 Windows에 AzCopy를 설치한 후에는 명령 창을 열고 컴퓨터의 AzCopy 설치 디렉터리로 이동합니다. 이 디렉터리에 `AzCopy.exe` 실행 파일이 있습니다. 원할 경우 시스템 경로에 AzCopy 설치 위치를 추가할 수 있습니다. 기본적으로 AzCopy는 `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` 또는 `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`에 설치됩니다.
 
 ## <a name="writing-your-first-azcopy-command"></a>첫 번째 AzCopy 명령 작성
 AzCopy 명령의 기본 구문은 다음과 같습니다.
@@ -43,8 +40,6 @@ AzCopy 명령의 기본 구문은 다음과 같습니다.
 ```azcopy
 AzCopy /Source:<source> /Dest:<destination> [Options]
 ```
-
-명령 창을 열고 컴퓨터의 AzCopy 설치 디렉터리로 이동합니다. 이 디렉터리에 `AzCopy.exe` 실행 파일이 있습니다. 원할 경우 시스템 경로에 AzCopy 설치 위치를 추가할 수 있습니다. 기본적으로 AzCopy는 `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` 또는 `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`에 설치됩니다.
 
 다음 예제는 Microsoft Azure Blob, 파일 및 테이블에(로부터) 데이터를 복사하는 여러 시나리오를 보여줍니다. 각 샘플에 사용된 매개 변수에 대 한 자세한 정보는 [AzCopy 매개 변수](#azcopy-parameters) 섹션을 참고하세요.
 
@@ -897,6 +892,7 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 * [.NET에서 파일 저장소를 사용하는 방법](storage-dotnet-how-to-use-files.md)
 * [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)
 * [저장소 계정을 만들거나, 관리하거나, 삭제하는 방법](storage-create-storage-account.md)
+* [Linux에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy-linux.md)
 
 ### <a name="azure-storage-blog-posts"></a>Azure 저장소 블로그 게시물:
 * [Azure 저장소 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)

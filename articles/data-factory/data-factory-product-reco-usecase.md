@@ -12,23 +12,31 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 2/24/2017
 ms.author: shlo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: deda1cc7be197fc3d59b71038224dc6e8089267b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 
 ---
-# <a name="use-case---product-recommendations"></a>사용 사례 - 제품 추천
+<a id="use-case---product-recommendations" class="xliff"></a>
+
+# 사용 사례 - 제품 추천
 Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  이 제품군에 대한 자세한 내용은 [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) 페이지를 참조하세요. 이 문서에서는 Azure 사용자가 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 이미 해결하고 구현한 경험이 있는 일반적인 사용 사례를 설명합니다.
 
-## <a name="scenario"></a>시나리오
+<a id="scenario" class="xliff"></a>
+
+## 시나리오
 일반적으로 온라인 소매점은 제품을 구매할 고객이 관심 있어할 가능성이 높은 제품을 제시하여 제품을 구매하도록 유도하려고 합니다. 이를 수행하기 위해 온라인 소매점은 특정 사용자에 대해 개인 설정된 제품 추천을 사용하여 사용자의 온라인 환경을 사용자 지정해야 합니다. 이러한 개인 설정된 권장 사항은 현재 또는 과거 쇼핑 동작 데이터, 제품 정보, 새로 도입된 브랜드, 제품 및 고객 구분 데이터를 기반으로 만들어집니다.  또한 사용자의 전반적인 사용 동작을 분석한 내용을 기반으로 사용자에게 제품 추천을 제공할 수 있습니다.
 
 이러한 소매점은 사용자의 클릭-판매(click-to-sale) 변환을 최적화하여 판매 수익을 높이는 것을 목표로 합니다.  고객의 관심사와 작업을 기반으로 상황에 맞는 동작 기반 제품 추천을 제공하여 이러한 변환을 달성합니다. 이 사용 사례에서는 고객을 위해 최적화하려는 비즈니스의 예로 온라인 소매점을 사용합니다. 하지만 이러한 원칙은 상품 및 서비스에 고객을 참여시키고 개인 설정된 제품 추천으로 고객의 구매 환경을 개선하고자 하는 모든 비즈니스에 적용됩니다.
 
-## <a name="challenges"></a>과제
+<a id="challenges" class="xliff"></a>
+
+## 과제
 온라인 소매점은 이러한 유형의 사용 사례를 구현하려고 할 때 다양한 과제를 해결해야 합니다. 
 
 먼저, 여러 데이터 원본에서 다양한 크기 및 모양의 데이터를 온-프레미스 및 클라우드 형태로 수집해야 합니다. 이 데이터에는 제품 데이터, 고객 동작 기록 데이터, 사용자가 온라인 소매점 사이트에서 탐색한 사용자 데이터가 포함됩니다. 
@@ -39,7 +47,9 @@ Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구�
 
 마지막으로, 소매점은 전체적인 상향 판매 및 교차 판매의 클릭-판매 변환 성공을 추적하여 이러한 접근법의 효율성을 측정하고 향후 추천 방향을 조정해야 합니다.
 
-## <a name="solution-overview"></a>솔루션 개요
+<a id="solution-overview" class="xliff"></a>
+
+## 솔루션 개요
 이 사용 사례 예에서는 실제 Azure 사용자가 [HDInsight](https://azure.microsoft.com/services/hdinsight/) 및 [Power BI](https://powerbi.microsoft.com/)를 포함한 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 해결 및 구현했습니다.
 
 이 온라인 소매점은 전체 워크플로에서 Azure Blob 저장소, 온-프레미스 SQL server, Azure SQL DB 및 관계형 데이터 마트를 데이터 저장소 옵션으로 사용합니다.  Blob 저장소는 고객 정보, 고객 동작 데이터 및 제품 정보 데이터를 포함합니다. 제품 정보 데이터는 SQL 데이터 웨어하우스에 온-프레미스로 저장된 제품 브랜드 정보와 제품 카탈로그를 포함합니다. 
@@ -54,14 +64,11 @@ Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구�
 
 마지막으로, 개인 설정된 제품 추천의 결과 집합이 소매점 웹 사이트에서 사용되도록 관계형 데이터 마트로 이동됩니다.  결과 집합은 blob 저장소에서도 다른 응용 프로그램으로 직접 액세스할 수 있으며 다른 소비자 및 사용 사례를 위한 추가 저장소로 이동할 수 있습니다.
 
-## <a name="benefits"></a>이점
+<a id="benefits" class="xliff"></a>
+
+## 이점
 제품 추천 전략을 최적화하고 비즈니스 목표에 부합하도록 한다면 이 솔루션은 온라인 소매점의 머천다이징 및 마케팅 목표를 충족합니다. 또한 제품 추천 워크플로를 효율적이고 안정적이며 비용 효율적인 방식으로 운영 및 관리할 수 있습니다. 이 방법에서는 자신의 모델을 쉽게 업데이트하고 클릭-판매 변환 성공을 측정한 결과에 따라 효율성을 미세하게 조정할 수 있습니다. Azure Data Factory를 사용하면 시간과 비용이 많이 드는 수동 클라우드 리소스 관리를 중단하고 주문형 클라우드 리소스 관리로 전환할 수 있습니다. 따라서 시간, 비용을 절약하고 솔루션 배포 시간을 단축할 수 있습니다. 데이터 계보 뷰 및 작업 서비스 상태를 직관적인 데이터 팩터리 모니터링과 Azure 포털에서 제공되는 관리 UI로 손쉽게 시각화하고 문제 해결할 수 있습니다. 이제 이러한 솔루션을 예약 및 관리할 수 있으므로 완료된 데이터를 안정적으로 생성하고 사용자에게 전달할 수 있으며 데이터 및 처리 종속성이 사용자의 개입 없이 자동으로 관리됩니다.
 
 이러한 개인 설정된 쇼핑 경험을 제공함으로써 온라인 소매점은 보다 경쟁력 있고 뛰어난 고객 환경을 만들어 결과적으로 매출이 증가하며 전체적인 고객 만족도가 향상됩니다.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

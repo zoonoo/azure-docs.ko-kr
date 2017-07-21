@@ -1,6 +1,6 @@
 ---
-title: "지점 및 사이트 간에 대한 인증서 만들기 및 내보내기: makecert: Azure | Microsoft Docs"
-description: "이 문서에는 makecert를 사용하여 자체 서명된 루트 인증서를 만들고, 공용 키를 내보내고, 클라이언트 인증서를 생성하는 단계가 나와 있습니다."
+title: "지점 및 사이트 간에 대한 인증서 생성 및 내보내기: MakeCert: Azure | Microsoft Docs"
+description: "이 문서에는 MakeCert를 사용하여 자체 서명된 루트 인증서를 만들고, 공용 키를 내보내고, 클라이언트 인증서를 생성하는 단계가 나와 있습니다."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,43 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 06/19/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 0800a7754241eb409dbd86db82b586a3e19a29fc
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: bb61222ae01d1613ec27bb016ff1f94bcdaf8935
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>makecert를 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>MakeCert를 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
 
 > [!NOTE]
-> Windows 10 컴퓨터에 액세스할 수 없는 경우에만 이러한 지침을 사용하여 지점 및 사이트 간 연결에 대한 자체 서명된 인증서를 생성합니다. makecert는 더 이상 사용되지 않습니다. 또한 makecert는 SHA-2 인증서를 만들 수 없으며, 여전히 P2S에 유효한 SHA-1만 만들 수 있습니다. 이러한 이유로, 가능한 경우 [PowerShell 단계](vpn-gateway-certificates-point-to-site.md)를 사용하는 것이 좋습니다. PowerShell 또는 makecert를 사용하여 만든 인증서는 해당 인증서를 만드는 데 사용한 운영 체제뿐 아니라 [지원되는 모든 클라이언트 운영 체제](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)에 설치할 수 있습니다.
->
+> 이 문서의 지침을 사용하여 Windows 10을 실행하는 컴퓨터에 액세스할 수 없는 경우에만 인증서를 생성할 수 있습니다. 그렇지 않은 경우 대신 [Windows 10 PowerShell을 사용하여 자체 서명된 인증서를 생성](vpn-gateway-certificates-point-to-site.md)하는 것이 좋습니다.
 >
 
-
-이 문서에서는 자체 서명된 루트 인증서를 만들고, 공용 키를 내보내고, 클라이언트 인증서를 생성하는 방법을 보여 줍니다. 이 문서에서는 지점 및 사이트 간 구성 지침 또는 지점 및 사이트 간 FAQ는 포함하지 않습니다. 다음 목록에서 '지점 및 사이트 간 구성' 문서 중 하나를 선택하여 정보를 확인할 수 있습니다.
+지점 및 사이트 간 연결은 인증서를 사용하여 인증을 합니다. 이 문서에서는 MakeCert를 사용하여 자체 서명된 루트 인증서를 만들고 클라이언트 인증서를 생성하는 방법을 보여 줍니다. 루트 인증서 업로드 방법 등 지점 및 사이트 간 구성 단계를 찾고 있는 경우 다음 목록에서 '지점 및 사이트 간 구성' 문서 중 하나를 선택합니다.
 
 > [!div class="op_single_selector"]
 > * [자체 서명된 인증서 만들기 - PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [자체 서명된 인증서 만들기 - Makecert](vpn-gateway-certificates-point-to-site-makecert.md)
+> * [자체 서명된 인증서 만들기 - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
 > * [지점 및 사이트 간 구성 - Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [지점 및 사이트 간 구성 - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [지점 및 사이트 간 구성 - Classic - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 > 
 > 
 
-지점 및 사이트 간 연결은 인증서를 사용하여 인증을 합니다. 지점 및 사이트 간 연결을 구성할 때 루트 인증서의 공용 키(.cer 파일)를 Azure에 업로드해야 합니다. 또한 클라이언트 인증서는 루트 인증서에서 생성되고 VNet에 연결되는 모든 클라이언트 컴퓨터에 설치되어야 합니다. 클라이언트 인증서를 통해 클라이언트가 인증할 수 있습니다.
+[Windows 10 PowerShell 단계](vpn-gateway-certificates-point-to-site.md)를 사용하여 인증서를 만드는 것이 좋지만 하나의 선택적 방법으로 이러한 MakeCert 지침을 제공합니다. 두 방법 중 하나를 사용하여 생성하는 인증서는 [지원되는 모든 클라이언트 운영 체제](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)에 설치할 수 있습니다. 그러나 MakeCert에는 다음과 같은 제한이 있습니다.
+
+* MakeCert는 SHA-1 인증서만 생성하고 SHA-2 인증서는 생성할 수 없습니다. SHA-1 인증서는 지점 및 사이트 간 연결에 여전히 유효하지만 SHA-2에 비해 강력하지 않은 암호화 해시를 사용합니다.
+* MakeCert는 더 이상 사용되지 않습니다. 즉, 언제든지 이 도구가 제거될 수 있습니다. MakeCert를 더 이상 사용할 수 없는 경우 MakeCert를 사용하여 이미 생성한 인증서는 영향을 받지 않습니다. MakeCert는 메커니즘 유효성 검사에 사용되지 않으며 인증서를 생성하는 데에만 사용됩니다.
 
 ## <a name="rootcert"></a>자체 서명된 루트 인증서 만들기
 
-다음 단계에서는 makecert를 사용하여 자체 서명된 인증서를 만드는 방법을 보여 줍니다. 이러한 단계는 배포 모델에 한정되지 않습니다. 리소스 관리자와 클래식에 대해 모두 유효합니다.
+다음 단계에서는 MakeCert를 사용하여 자체 서명된 인증서를 만드는 방법을 보여 줍니다. 이러한 단계는 배포 모델에 한정되지 않습니다. 리소스 관리자와 클래식에 대해 모두 유효합니다.
 
-1. [makecert](https://msdn.microsoft.com/en-us/library/windows/desktop/aa386968(v=vs.85).aspx)를 다운로드 및 설치합니다.
-2. 설치가 끝나면 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>' 경로 아래에서 makecert.exe 유틸리티를 찾을 수 있습니다. 관리자 권한으로 명령 프롬프트를 열고 makecert 유틸리티의 위치로 이동합니다. 다음 예제를 사용할 수 있습니다.
+1. [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx)를 다운로드 및 설치합니다.
+2. 설치가 끝나면 일반적으로 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>' 경로 아래에서 makecert.exe 유틸리티를 찾을 수 있습니다. 하지만 다른 위치에 설치되었을 수도 있습니다. 관리자 권한으로 명령 프롬프트를 열고 MakeCert 유틸리티의 위치로 이동합니다. 적절한 위치에 대해 조정하여 다음 예제를 사용할 수 있습니다.
 
   ```cmd
   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
@@ -57,14 +58,14 @@ ms.lasthandoff: 05/10/2017
 3. 사용자 컴퓨터의 개인 인증서 저장소에 인증서를 만들고 설치합니다. 다음 예제에서는 P2S를 구성할 때 Azure에 업로드하는 해당 *.cer* 파일을 만듭니다. 'P2SRootCert' 및 'P2SRootCert.cer'을 인증서에 사용하려는 이름으로 바꿉니다. 인증서는 'Certificates - Current User\Personal\Certificates'에 위치합니다.
 
   ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha1 -len 2048 -ss My "P2SRootCert.cer"
+  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha1 -len 2048 -ss My
   ```
 
 ## <a name="cer"></a>공개 키(.cer) 내보내기
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
 
-exported.cer 파일을 Azure에 업로드해야 합니다. 자세한 내용은 [지점 및 사이트 간 연결 구성](vpn-gateway-howto-point-to-site-rm-ps.md#upload)을 참조하세요.
+exported.cer 파일을 Azure에 업로드해야 합니다. 자세한 내용은 [지점 및 사이트 간 연결 구성](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile)을 참조하세요. 신뢰할 수 있는 루트 인증서를 추가하려면 문서의 [이 섹션](vpn-gateway-howto-point-to-site-resource-manager-portal.md#add)을 참조하세요.
 
 ### <a name="export-the-self-signed-certificate-and-private-key-to-store-it-optional"></a>자체 서명된 인증서 및 개인 키를 내보낸 다음 저장(선택 사항)
 
@@ -105,3 +106,4 @@ exported.cer 파일을 Azure에 업로드해야 합니다. 자세한 내용은 [
 
 * **Resource Manager** 배포 모델 단계의 경우 [VNet에 지점 및 사이트 간 연결 구성](vpn-gateway-howto-point-to-site-resource-manager-portal.md)을 참조하세요.
 * **클래식** 배포 모델 단계의 경우 [VNet에 지점 및 사이트 간 VPN 연결 구성(클래식)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)을 참조하세요.
+

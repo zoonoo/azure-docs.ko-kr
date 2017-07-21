@@ -1,19 +1,18 @@
 ---
-
 title: "Azure AD 셀프 서비스 암호 재설정 개요 | Microsoft Docs"
 description: "Azure AD의 셀프 서비스 암호 재설정이 조직에서 어떤 작업을 수행할 수 있나요?"
 services: active-directory
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
@@ -21,7 +20,6 @@ ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
 ms.openlocfilehash: 9f72a4900f20282827ff939aa41bc4f306e547a3
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/20/2017
-
 
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>IT 전문가를 위한 Azure AD 셀프 서비스 암호 재설정

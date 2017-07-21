@@ -13,8 +13,6 @@
     items:
     - name: .NET
       href: create-documentdb-dotnet.md
-    - name: .NET Core
-      href: create-documentdb-dotnet-core.md
     - name: Java
       href: create-documentdb-java.md
     - name: Node.js
@@ -31,6 +29,8 @@
       href: create-mongodb-dotnet.md
     - name: 자바
       href: create-mongodb-java.md
+    - name: Golang
+      href: create-mongodb-golang.md
   - name: 그래프
     items:
     - name: .NET
@@ -188,12 +188,10 @@
           href: documentdb-nodejs-samples.md
         - name: Python 샘플
           href: documentdb-python-samples.md
-        - name: SQL 구문
-          href: https://msdn.microsoft.com/library/azure/dn782250.aspx
-        - name: SQL 문법 치트 시트
-          href: documentdb-sql-query-cheat-sheet.md
       - name: 리소스
         items:
+        - name: SQL 문법 치트 시트
+          href: documentdb-sql-query-cheat-sheet.md
         - name: 스택 오버플로
           href: http://stackoverflow.com/questions/tagged/azure-cosmosdb
         - name: 비디오
@@ -302,6 +300,8 @@
       href: /rest/api/documentdb/
     - name: REST 리소스 공급자
       href: /rest/api/documentdbresourceprovider/
+    - name: SQL
+      href: documentdb-sql-query-reference.md
   - name: 테이블 API
     items:
     - name: .NET
@@ -312,6 +312,8 @@
       href: graph-sdk-dotnet.md
 - name: 리소스
   items:
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
   - name: 가격
     href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: FAQ
