@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cfreeman
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7dd240c4e1a6fcc9c89bf4418e635e7ef8ef0617
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 587d73bc91aa10b79c1d1488f98f05b73801d8c8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -32,7 +32,7 @@ Application Insights에서 수집한 데이터를 통해 다음과 같은 일반
 
 * [**요청**](application-insights-data-model-request-telemetry.md) - 앱에서 받은 요청을 기록하기 위해 생성됩니다. 예를 들어 Application Insights 웹 SDK는 웹앱에서 받은 각 HTTP 요청에 대한 요청 원격 분석 항목을 자동으로 생성합니다. 
 
-    **작업**은 요청을 처리하는 실행 스레드입니다. 또한 [코드를 작성](app-insights-api-custom-events-metrics.md#trackrequest)하여 정기적으로 데이터를 처리하는 웹 작업 또는 함수의 "절전 모드 해제"와 같은 다른 유형의 작업을 모니터링할 수 있습니다.  각 작업에는 앱에서 요청을 처리하는 동안 생성된 다른 원격 분석과 함께 그룹화하는 데 사용할 수 있는 ID가 있습니다. 각 작업은 성공하거나 실패하며 일정 기간 동안 지속됩니다.
+    **작업**은 요청을 처리하는 실행 스레드입니다. 또한 [코드를 작성](app-insights-api-custom-events-metrics.md#trackrequest)하여 정기적으로 데이터를 처리하는 웹 작업 또는 함수의 "절전 모드 해제"와 같은 다른 유형의 작업을 모니터링할 수 있습니다.  각 작업에는 ID가 있습니다. 이 ID를 사용하여 앱에서 요청을 처리하는 동안 생성된 모든 원격 분석을 그룹화(application-insights-correlation.md)할 수 있습니다. 각 작업은 성공하거나 실패하며 일정 기간 동안 지속됩니다.
 * [**예외**](application-insights-data-model-exception-telemetry.md) - 일반적으로 작업이 실패하게 하는 예외를 나타냅니다.
 * [**종속성**](application-insights-data-model-dependency-telemetry.md) - REST API 또는 SQL과 같은 외부 서비스나 저장소에 대한 앱의 호출을 나타냅니다. ASP.NET에서 SQL에 대한 종속성 호출은 `System.Data`으로 정의됩니다. HTTP 끝점에 대한 호출은 `System.Net`으로 정의됩니다. 
 
@@ -41,6 +41,8 @@ Application Insights는 사용자 지정 원격 분석을 위한 데이터 형�
 * [추적](application-insights-data-model-trace-telemetry.md) - `Log4Net` 또는 `System.Diagnostics`와 같이 친숙한 계측 프레임워크를 사용하는 진단 로깅을 구현하는 데 직접 사용되거나 어댑터를 통해 사용됩니다.
 * [이벤트](application-insights-data-model-event-telemetry.md) - 일반적으로 사용 패턴을 분석하기 위해 서비스와 사용자 간의 상호 작용을 캡처하는 데 사용됩니다.
 * [메트릭](application-insights-data-model-metric-telemetry.md) - 정기적인 스칼라 측정을 보고하는 데 사용됩니다.
+
+모든 원격 분석 항목은 응용 프로그램 버전 또는 사용자 세션 ID와 같은 [컨텍스트 정보](application-insights-data-model-context.md)를 정의할 수 있습니다. 컨텍스트는 특정 시나리오를 차단 해제하는 강력한 형식의 필드 집합입니다. 응용 프로그램 버전이 올바르게 초기화된 경우 Application Insights는 재배포와 상호 관련된 응용 프로그램 동작에서 새 패턴을 검색할 수 있습니다. 세션 ID를 사용하여 가동 중단 또는 문제가 사용자에게 미치는 영향을 계산할 수 있습니다. 실패한 특정 종속성, 오류 추적 또는 중요한 예외에 대한 세션 ID 값의 고유 개수를 계산하면 영향을 쉽게 이해할 수 있습니다.
 
 Application Insights 원격 분석 모델은 원격 분석과 해당 분석에 속하는 작업 간의 [상관 관계를 지정](application-insights-correlation.md)하는 방법을 정의합니다. 예를 들어 요청은 SQL Database 호출을 수행하고 기록된 진단 정보를 작성할 수 있습니다. 요청 원격 분석과 다시 연결할 해당 원격 분석 항목에 대한 상관 관계 컨텍스트를 설정할 수 있습니다.
 
