@@ -13,22 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/7/2017
+ms.date: 05/22/2017
 ms.author: cynthn
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: e308b75581ca5372a4de168895f2eeb140a69a78
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 527f3f33e2b5996c6fa7b7dc874123bba5ab39dd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
-# <a name="create-a-vm-from-a-generalized-managed-vm-image"></a>일반화된 관리 VM 이미지로 VM 만들기
+# <a name="create-a-vm-from-a-managed-image"></a>관리되는 이미지에서 VM 만들기
 
 Azure에서 관리 VM 이미지로 여러 VM을 만들 수 있습니다. 관리 VM 이미지는 OS 및 데이터 디스크를 비롯하여 VM을 만드는 데 필요한 정보를 포함하고 있습니다. OS 디스크와 데이터 디스크를 포함하여 이미지를 구성하는 VHD는 관리 디스크로 저장됩니다. 
-
-일반화된 VM에는 [Sysprep](generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 제거된 모든 개인 계정 정보가 포함되어 있습니다. 온-프레미스 VM에서 Sysprep을 실행한 후 [VHD를 Azure에 업로드](upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하거나 기존 Azure VM에서 Sysprep을 실행한 후 [VM 이미지를 캡처](capture-image-resource.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)하여 일반화된 VM을 만들 수 있습니다.
-
 
 
 ## <a name="prerequisites"></a>필수 조건
