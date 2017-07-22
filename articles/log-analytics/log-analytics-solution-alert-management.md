@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/07/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 885de1e94e3ce520621dc8dc7a4a495501f6a429
-ms.openlocfilehash: 35b4c30de20c46312bd7e4524a4264450184138a
-ms.lasthandoff: 02/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3714730dce9c856f602cf46e013b1ff6a89cfb07
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>OMS(Operations Management Suite)의 경고 관리 솔루션
 
 ![경고 관리 아이콘](media/log-analytics-solution-alert-management/icon.png)
 
-경고 관리 솔루션을 통해 Log Analytics 리포지토리에서 모든 경고를 분석할 수 있습니다.  [Log Analytics에서 만든](log-analytics-alerts.md) 또는 [Nagios 또는 Zabbix에서 가져온](log-analytics-linux-agents.md#linux-alerts) 원본을 포함하여 다양한 원본에서 이러한 경고가 발생합니다.  또한 솔루션은 [연결된 System Center Operations Manager(SCOM) 관리 그룹](log-analytics-om-agents.md)에서 경고를 발생시킵니다.
+경고 관리 솔루션을 통해 Log Analytics 리포지토리에서 모든 경고를 분석할 수 있습니다.  [Log Analytics에서 만든](log-analytics-alerts.md) 또는 [Nagios 또는 Zabbix에서 가져온](log-analytics-linux-agents.md) 원본을 포함하여 다양한 원본에서 이러한 경고가 발생합니다.  또한 솔루션은 [연결된 System Center Operations Manager(SCOM) 관리 그룹](log-analytics-om-agents.md)에서 경고를 발생시킵니다.
 
 ## <a name="prerequisites"></a>필수 조건
 솔루션은 **경고**의 유형을 사용하여 Log Analytics 리포지토리에서 모든 레코드를 사용하므로 이러한 레코드를 수집하는 데 필요한 구성을 모두 수행해야 합니다.
 
 - Log Analytics 경고의 경우 [경고 규칙을 만들어서](log-analytics-alerts.md) 리포지토리에서 직접 경고 레코드를 만듭니다.
-- Nagios 및 Zabbix 경고의 경우 [해당 서버를 구성하여](log-analytics-linux-agents.md#linux-alerts) Log Analytics에 경고를 보냅니다.
+- Nagios 및 Zabbix 경고의 경우 [해당 서버를 구성하여](log-analytics-linux-agents.md) Log Analytics에 경고를 보냅니다.
 - SCOM 경고의 경우 [Log Analytics 작업 영역에 Operations Manager 관리 그룹을 연결](log-analytics-om-agents.md)합니다.  SCOM에서 만든 모든 경고를 Log Analytics으로 가져옵니다.  
 
 ## <a name="configuration"></a>구성

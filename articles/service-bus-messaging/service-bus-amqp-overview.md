@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 91b138ee9590a66c63e2055eaeace82b4e719ae5
-ms.lasthandoff: 01/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0aeb02c8a07728cd17aa937614c5c20dd0bf102b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="amqp-10-support-in-service-bus"></a>서비스 버스의 AMQP 1.0 지원
@@ -90,16 +90,12 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 
 * [AMQP를 사용하여 .NET에서 Service Bus 사용]
 * [AMQP를 사용하여 Java에서 Service Bus 사용]
-* [AMQP를 사용하여 Python에서 Service Bus 사용]
-* [AMQP를 사용하여 PHP에서 Service Bus 사용]
 * [Azure Linux VM에 Apache Qpid Proton-C 설치]
 * [Windows Server용 Service Bus의 AMQP]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [AMQP를 사용하여 .NET에서 Service Bus 사용]: service-bus-amqp-dotnet.md
 [AMQP를 사용하여 Java에서 Service Bus 사용]: service-bus-amqp-java.md
-[AMQP를 사용하여 Python에서 Service Bus 사용]: service-bus-amqp-python.md
-[AMQP를 사용하여 PHP에서 Service Bus 사용]: service-bus-amqp-php.md
 [Azure Linux VM에 Apache Qpid Proton-C 설치]: service-bus-amqp-apache.md
 [Windows Server용 Service Bus의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 

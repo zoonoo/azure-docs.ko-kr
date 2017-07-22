@@ -16,11 +16,11 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: ef3b147e0249e41c65fa88002cbb883d001bd382
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3df211cdc8878033c8b792da00cce9773ae57a36
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -51,9 +51,9 @@ az group delete --name myResourceGroup
 | 명령 | 참고 사항 |
 |---|---|
 | [az group create](/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az cosmosdb update](/cli/azure/cosmosdb/name#update) | Azure Cosmos DB 계정을 업그레이드합니다. |
-| [az cosmosdb list-keys](/cli/azure/sql/server#create) | SQL Database를 호스팅하는 논리 서버를 만듭니다. |
-| [az group delete](/cli/azure/resource#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | Azure Cosmos DB 계정을 업그레이드합니다. |
+| [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) | SQL Database를 호스팅하는 논리 서버를 만듭니다. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
