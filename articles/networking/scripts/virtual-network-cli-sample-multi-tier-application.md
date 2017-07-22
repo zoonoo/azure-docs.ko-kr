@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 07/07/2017
 ms.author: jdial
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: a7c7bc0e6321a4169609b60f270b701a743dad92
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: de65d820f2d9eea49b58185c81d815675fd76740
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -32,10 +32,11 @@ ms.lasthandoff: 05/10/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+
 ## <a name="sample-script"></a>샘플 스크립트
 
 
-[!code-azurecli[주](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh  "다중 계층 응용 프로그램용 가상 네트워크")]
+[!code-azurecli-interactive[주](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh  "다중 계층 응용 프로그램용 가상 네트워크")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 

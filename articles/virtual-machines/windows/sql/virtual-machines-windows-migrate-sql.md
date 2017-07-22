@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 07/17/2017
 ms.author: carlasab
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 789e1eabcd284c17c5728156cf185d2ca168f0eb
-ms.lasthandoff: 03/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8403b5454b387fa7062d188b18cdd595bf24aecd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Azure VM에서 SQL Server로 SQL Server 데이터베이스 마이그레이션
@@ -56,9 +56,9 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 
 | 메서드 | 원본 데이터베이스 버전 | 대상 데이터베이스 버전 | 원본 데이터베이스 백업 크기 제약 조건 | 참고 사항 |
 | --- | --- | --- | --- | --- |
-| [압축을 사용하여 온-프레미스 백업을 수행하고 Azure 가상 컴퓨터에 백업 파일을 수동으로 복사](#backup-to-file-and-copy-to-vm-and-restore) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 컴퓨터 간에 데이터베이스를 이동하는 매우 간단하고 검증된 방법입니다. |
+| [압축을 사용하여 온-프레미스 백업을 수행하고 Azure 가상 컴퓨터에 백업 파일을 수동으로 복사](#backup-and-restore) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) | 컴퓨터 간에 데이터베이스를 이동하는 매우 간단하고 검증된 방법입니다. |
 | [URL에 백업을 수행하고 URL에서 Azure 가상 컴퓨터로 복원](#backup-to-url-and-restore) |SQL Server 2012 SP1 CU2 이상 |SQL Server 2012 SP1 CU2 이상 |SQL Server 2016의 경우 12.8TB 미만, 그렇지 않은 경우 1TB 미만 | 이 방법은 Azure Storage를 사용하여 VM에 백업 파일을 이동하는 또 다른 방법입니다. |
-| [데이터와 로그 파일을 분리하여 Azure Blob 저장소에 복사한 후 URL로 Azure 가상 컴퓨터의 SQL Server에 첨부](#detach-and-copy-to-url-and-attach-from-url) |SQL Server 2005 이상 |SQL Server 2014 이상 |[Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |특히 매우 큰 데이터베이스에 대해 [Azure Blob 저장소 서비스를 사용하여 파일을 저장](https://msdn.microsoft.com/library/dn385720.aspx) 하고 Azure VM에서 실행되는 SQL Server에 연결하려는 경우 이 메서드를 사용합니다. |
+| [데이터와 로그 파일을 분리하여 Azure Blob 저장소에 복사한 후 URL로 Azure 가상 컴퓨터의 SQL Server에 첨부](#detach-and-attach-from-url) |SQL Server 2005 이상 |SQL Server 2014 이상 |[Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |특히 매우 큰 데이터베이스에 대해 [Azure Blob 저장소 서비스를 사용하여 파일을 저장](https://msdn.microsoft.com/library/dn385720.aspx) 하고 Azure VM에서 실행되는 SQL Server에 연결하려는 경우 이 메서드를 사용합니다. |
 | [온-프레미스 컴퓨터를 Hyper-V VHD로 변환하고 Azure Blob 저장소에 업로드한 후 업로드된 VHD를 사용하여 새 가상 컴퓨터 배포](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |[자체 SQL Server 라이선스를 소유](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)하는 경우, 이전 버전의 SQL Server에서 실행되는 데이터베이스를 마이그레이션하는 경우, 또는 다른 사용자 데이터베이스 및/또는 시스템 데이터베이스에 종속되는 데이터베이스 마이그레이션의 일부로 시스템과 사용자 데이터베이스를 함께 마이그레이션하는 경우에 사용합니다. |
 | [Windows 가져오기/내보내기 서비스를 사용하여 하드 드라이브 제공](#ship-hard-drive) |SQL Server 2005 이상 |SQL Server 2005 이상 |[Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |매우 큰 데이터베이스에 사용하는 경우와 같이 수동 복사 메서드가 너무 느린 경우 [Windows 가져오기/내보내기 서비스](../../../storage/storage-import-export-service.md) 를 사용 |
 | [Azure Replica Wizard 추가 사용](../classic/sql-onprem-availability.md) |SQL Server 2012 이상 |SQL Server 2012 이상 |[Azure VM 저장소 제한](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |가동 중지 시간을 최소화하고 AlwaysOn 온-프레미스 배포가 있을 경우 사용 |
@@ -85,7 +85,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 ## <a name="convert-to-vm-and-upload-to-url-and-deploy-as-new-vm"></a>VM으로 변환하고 URL에 업로드하고 새 VM으로 배포
 이 메서드를 사용하여 온-프레미스 SQL Server 인스턴스의 모든 시스템과 사용자 데이터베이스를 Azure 가상 컴퓨터로 마이그레이션합니다. 수동 메서드를 사용하여 전체 SQL Server 인스턴스를 마이그레이션하려면 다음과 같은 일반적인 단계를 사용합니다.
 
-1. [Microsoft Virtual Machine Converter](http://technet.microsoft.com/library/dn873998.aspx)를 사용하여 물리적 컴퓨터 또는 가상 컴퓨터를 Hyper-V VHD로 변환합니다.
+1. [Microsoft Virtual Machine Converter](https://technet.microsoft.com/library/dn874008(v=ws.11).aspx)를 사용하여 물리적 컴퓨터 또는 가상 컴퓨터를 Hyper-V VHD로 변환합니다.
 2. [Add-AzureVHD cmdlet](https://msdn.microsoft.com/library/windowsazure/dn495173.aspx)을 사용하여 VHD 파일을 Azure 저장소에 업로드합니다.
 3. 업로드된 VHD를 사용하여 새 가상 컴퓨터를 배포합니다.
 

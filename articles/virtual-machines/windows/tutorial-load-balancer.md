@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: c9df0fedfb39ee162334304d56eb4df3a96dcd3e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 342a305a4bbdc1526a9316a35819d06996702a5b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -112,12 +112,20 @@ Add-AzureRmLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
+[Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer)를 사용하여 부하 분산 장치를 업데이트합니다.
+
+```powershell
+Set-AzureRmLoadBalancer -LoadBalancer $lb
+```
+
 ### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 정상 VM만 트래픽을 수신하도록 하려면 사용할 상태 프로브도 정의합니다.
 
 [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRule*이라는 부하 분산 장치 규칙을 만든 후 *80* 포트에 대한 트래픽 부하를 분산합니다.
 
 ```powershell
+$probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name myHealthProbe
+
 Add-AzureRmLoadBalancerRuleConfig `
   -Name myLoadBalancerRule `
   -LoadBalancer $lb `
@@ -125,7 +133,8 @@ Add-AzureRmLoadBalancerRuleConfig `
   -BackendAddressPool $lb.BackendAddressPools[0] `
   -Protocol Tcp `
   -FrontendPort 80 `
-  -BackendPort 80
+  -BackendPort 80 `
+  -Probe $probe
 ```
 
 [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer)를 사용하여 부하 분산 장치를 업데이트합니다.
@@ -142,9 +151,12 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVnet*이라는 가상 네트워크와 *mySubnet*을 만듭니다.
 
 ```powershell
+# Create subnet config
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -Name mySubnet `
   -AddressPrefix 192.168.1.0/24
+
+# Create the virtual network
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupLoadBalancer `
   -Location EastUS `
@@ -158,6 +170,7 @@ $vnet = New-AzureRmVirtualNetwork `
 다음 예제에서는 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹 규칙을 만들어서 *mySubnet*에 적용합니다.
 
 ```powershell
+# Create security rule config
 $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -Name myNetworkSecurityGroupRule `
   -Protocol Tcp `
@@ -168,16 +181,22 @@ $nsgRule = New-AzureRmNetworkSecurityRuleConfig `
   -DestinationAddressPrefix * `
   -DestinationPortRange 80 `
   -Access Allow
+
+# Create the network security group
 $nsg = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroupLoadBalancer `
   -Location EastUS `
   -Name myNetworkSecurityGroup `
   -SecurityRules $nsgRule
+
+# Apply the network security group to a subnet
 Set-AzureRmVirtualNetworkSubnetConfig `
   -VirtualNetwork $vnet `
   -Name mySubnet `
   -NetworkSecurityGroup $nsg `
   -AddressPrefix 192.168.1.0/24
+
+# Update the virtual network
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 

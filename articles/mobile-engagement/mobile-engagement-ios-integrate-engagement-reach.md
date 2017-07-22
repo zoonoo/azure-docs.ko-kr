@@ -14,10 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: c8bb1161e874a3adda4a71ee889ca833db881e20
-ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>iOS에서 Engagement 도달률을 통합하는 방법
@@ -33,8 +34,8 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 
 > [!IMPORTANT]
 > 이 iOS API는 더 이상 사용되지 않으므로 예정된(부분적인) iOS 버전 업그레이드에서는 이 동작이 달라질 수 있습니다. 따라서 **이 해결 방법은 권장되지 않습니다**. 가능한 한 빨리 XCode 8로 전환해야 합니다.
-> 
-> 
+>
+>
 
 ### <a name="enable-your-app-to-receive-silent-push-notifications"></a>앱이 자동 푸시 알림을 받을 수 있도록 설정
 [!INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
@@ -45,33 +46,33 @@ ms.openlocfilehash: 7e24bbc1832c6a85181c943e4e1c705785358527
 
 ### <a name="modify-your-application-delegate"></a>응용 프로그램 대리자 수정
 * 구현 파일 맨 위에서 Engagement 도달률 모듈을 가져옵니다.
-  
+
       [...]
       #import "AEReachModule.h"
 * 이렇게 하려면 `applicationDidFinishLaunching:` 또는 `application:didFinishLaunchingWithOptions:` 메서드 내에서 도달률 모듈을 만든 다음 기존 Engagement 초기화 줄에 전달합니다.
-  
+
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
         [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
         [...]
-  
+
         return YES;
       }
 * 알림 아이콘에 사용할 이미지 이름으로 **'icon.png'** 문자열을 수정합니다.
 * 도달률 캠페인에서 *배지 값 업데이트* 옵션을 사용하거나 네이티브 푸시 \</SaaS/Reach API/Campaign format/Native Push\> 캠페인을 사용하려는 경우에는 도달률 모듈이 배지 아이콘을 자체적으로 관리하도록 허용해야 합니다. 그러면 응용 프로그램을 시작하거나 포그라운드에 표시할 때마다 응용 프로그램 배지가 자동으로 지워지며 Engagement에서 저장한 값도 다시 설정됩니다. 이렇게 하려면 도달률 모듈 초기화 다음에 아래 줄을 추가합니다.
-  
+
       [reach setAutoBadgeEnabled:YES];
 * 도달률 데이터 푸시를 처리하려면 응용 프로그램 대리자가 `AEReachDataPushDelegate` 프로토콜을 따르도록 지정해야 합니다. 이렇게 하려면 도달률 모듈 초기화 다음에 아래 줄을 추가합니다.
-  
+
       [reach setDataPushDelegate:self];
 * 그리고 나면 응용 프로그램 대리자에서 `onDataPushStringReceived:` 및 `onDataPushBase64ReceivedWithDecodedBody:andEncodedBody:` 메서드를 구현할 수 있습니다.
-  
+
       -(BOOL)didReceiveStringDataPushWithCategory:(NSString*)category body:(NSString*)body
       {
          NSLog(@"String data push message with category <%@> received: %@", category, body);
          return YES;
       }
-  
+
       -(BOOL)didReceiveBase64DataPushWithCategory:(NSString*)category decodedBody:(NSData *)decodedBody encodedBody:(NSString *)encodedBody
       {
          NSLog(@"Base64 data push message with category <%@> received: %@", category, encodedBody);
@@ -98,10 +99,10 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 해당 인증서가 없는 경우에는 응용 프로그램이 푸시 알림을 받도록 등록해야 합니다.
 
 * `User Notification` 프레임워크 가져오기:
-  
+
         #import <UserNotifications/UserNotifications.h>
 * 응용 프로그램 시작 시 다음 줄을 추가합니다. 일반적으로는 `application:didFinishLaunchingWithOptions:`에 이 줄을 추가합니다.
-  
+
         if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
         {
             if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
@@ -132,21 +133,10 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
         [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
     }
 
-> [!NOTE]
-> 위의 메서드는 iOS 7에서에서 도입되었습니다. iOS&7; 이전 버전을 대상으로 하는 경우 응용 프로그램 대리자에서 메서드 `application:didReceiveRemoteNotification:`를 구현하고 `handler` 인수 대신에 nil을 전달하여 EngagementAgent에서 `applicationDidReceiveRemoteNotification`를 호출해야 합니다.
-> 
-> 
-
-    - (void)application:(UIApplication*)application
-    didReceiveRemoteNotification:(NSDictionary*)userInfo
-    {
-        [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
-    }
-
 > [!IMPORTANT]
 > 기본적으로 Engagement 도달률이 completionHandler를 제어합니다. 코드의 `handler` 블록에 수동으로 응답하려는 경우 `handler` 인수에 대한 nil을 전달하고 완료 블록을 제어할 수 있습니다. 가능한 값의 목록에 대한 `UIBackgroundFetchResult` 형식을 참조하세요.
-> 
-> 
+>
+>
 
 ### <a name="full-example"></a>전체 예제
 통합의 전체 예제는 다음과 같습니다.
@@ -251,7 +241,7 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Any other code
-  
+
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
@@ -308,8 +298,8 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 
 > [!TIP]
 > 제공된 nib 파일 `AENotificationView.xib`을(를) 복사하여 해당 위치에서 작업을 시작하면 됩니다. 그러나 이 nib 파일 내의 뷰는 클래스 `AENotificationView`에 연결되어 있습니다. 이 클래스는 컨텍스트에 따라 하위 뷰를 이동하고 크기를 조정하도록 메서드 `layoutSubViews` 을(를) 다시 정의합니다. 해당 메서드를 `UIView` 또는 사용자 지정 뷰 클래스로 바꿀 수 있습니다.
-> 
-> 
+>
+>
 
 코드에서 뷰를 직접 로드하려는 등의 경우 알림을 보다 상세하게 사용자 지정하려면 제공된 소스 코드와 `Protocol ReferencesDefaultNotifier` 및 `AENotifier`의 클래스 설명서를 확인하는 것이 좋습니다.
 
@@ -334,8 +324,8 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 
 > [!WARNING]
 > `handleNotification:`에서 예외를 throw하는 경우 콘텐츠가 삭제되고 `drop`이(가) 호출되며 이 예외가 통계에 보고됩니다. 그리고 나면 다음 캠페인을 처리할 수 있습니다.
-> 
-> 
+>
+>
 
 #### <a name="include-notification-as-part-of-an-existing-view"></a>기존 뷰의 일부로 알림 포함
 오버레이는 통합을 빠르게 수행하는 데 유용하지만 사용이 불편하거나 원치 않는 부작용을 야기하는 경우도 있습니다.
@@ -345,12 +335,12 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 기존 뷰에 알림 레이아웃을 포함할 수 있습니다. 이렇게 하려는 경우 두 가지 구현 스타일을 사용할 수 있습니다.
 
 1. 인터페이스 작성기를 사용하여 알림 뷰 추가
-   
+
    * *인터페이스 작성기*
    * 알림을 표시할 320x60(iPad의 경우 768x60) 크기의 `UIView` 을(를) 배치합니다.
    * 이 뷰의 태그 값 설정: **36822491**
 2. 프로그래밍 방식으로 알림 뷰를 추가합니다. 이렇게 하려면 뷰가 초기화된 후 다음 코드만 추가하면 됩니다.
-   
+
        UIView* notificationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)]; //Replace x and y coordinate values to your needs.
        notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
        [self.view addSubview:notificationView];
@@ -359,8 +349,8 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 
 > [!NOTE]
 > 기본 알림 구성 요소는 이 뷰에 알림 레이아웃이 포함되어 있음을 자동으로 검색하여 해당 뷰에 대한 오버레이를 추가하지 않습니다.
-> 
-> 
+>
+>
 
 ### <a name="announcements-and-polls"></a>알림 및 설문 조사
 #### <a name="layouts"></a>레이아웃
@@ -377,8 +367,8 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 
 > [!NOTE]
 > 사용자가 "my\_category" 범주의 알림에 대한 알림을 클릭하면 `initWithAnnouncement:` 메서드를 호출하여 등록된 뷰 컨트롤러(여기서는 `MyCustomAnnouncementViewController`)를 초기화한 다음 현재 응용 프로그램 창에 뷰를 추가합니다.
-> 
-> 
+>
+>
 
 `AEAnnouncementViewController` 클래스 구현에서는 하위 뷰를 초기화하려면 속성 `announcement`을(를) 읽어야 합니다. 두 개의 레이블이 `AEReachAnnouncement` 클래스의 `title` 및 `body` 속성을 사용하여 초기화되는 아래 예제를 살펴보세요.
 
@@ -413,8 +403,8 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 
 > [!IMPORTANT]
 > 뷰 컨트롤러가 해제되기 전에 `action`(사용자 지정 설문 조사 뷰 컨트롤러의 경우 `submitAnswers:`) 또는 `exit` 메서드를 호출해야 합니다. 이렇게 하지 않으면 통계가 전송되지 않아 캠페인이 분석되지 않습니다. 또한 응용 프로그램 프로세스를 다시 시작할 때까지 다음 캠페인에 알림이 전달되지 않습니다.
-> 
-> 
+>
+>
 
 ##### <a name="implementation-example"></a>구현 예제
 이 구현에서는 사용자 지정 알림 뷰를 외부 xib 파일에서 로드합니다.
@@ -512,9 +502,4 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
     }
 
     @end
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

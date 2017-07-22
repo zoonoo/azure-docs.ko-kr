@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 08a84ace63465e7c058add69a25687fe46c7ea07
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9e19618a1b24bbdf3163ddfc3423c5c932dcd7af
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-a-web-app-in-azure-app-service"></a>Azure 앱 서비스에서 웹 앱 관리
@@ -78,10 +77,6 @@ Azure 앱 서비스는 5개의 계층, 무료, 공유, 기본, 표준 및 프리
 
 [단계적 배포](web-sites-staged-publishing.md)를 사용할 수 있습니다. 이 옵션을 사용하면 프로덕션 배포와 나란히 실행되는 스테이징 배포에 업데이트를 게시할 수 있습니다. 
 
-Visual Studio Team Services를 사용하는 경우 소스 제어에서 연속 배포를 설정할 수 있습니다.
-
-* [TFVC(Team Foundation Version Control) 사용](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
-* [Git 사용](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
 
 <!-- Anchors. -->
 
