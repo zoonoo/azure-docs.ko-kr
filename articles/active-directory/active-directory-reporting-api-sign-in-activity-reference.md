@@ -3,7 +3,7 @@ title: "Azure Active Directory 로그인 활동 보고서 API 참조 | Microsoft
 description: "Azure Active Directory 로그인 활동 보고서 API에 대한 참조"
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 077c39d1a6f61aba7b184ee616a93f30cdb7d12c
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d83f1a899ba38dab2c1c1661adede87db6f88c20
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Azure Active Directory 로그인 활동 보고서 API 참조
@@ -29,10 +29,9 @@ Azure AD Reporting은 코드 또는 관련된 도구를 사용하여 로그인 �
 
 다음을 참조하세요.
 
-* [로그인 활동](active-directory-reporting-azure-portal.md#sign-in-activities) 을 참조하세요.
+* [로그인 활동](active-directory-reporting-azure-portal.md#activity-reports) 을 참조하세요.
 * [Azure Active Directory Reporting API 시작](active-directory-reporting-api-getting-started.md) 을 참조하세요.
 
-질문, 문제 또는 피드백은 [AAD Reporting 도움말](mailto:aadreportinghelp@microsoft.com)에 문의하세요.
 
 ## <a name="who-can-access-the-api-data"></a>API 데이터에 액세스할 수 있는 사용자는 누구인가요?
 * 보안 관리자 또는 보안 읽기 권한자 역할의 사용자 및 서비스 주체

@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 9b23f34300248ff87ed4a6abbeb6cfdda6570581
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 945b09ccdb7537987da33d32d94a3ccacd829ffd
 ms.contentlocale: ko-kr
 
 
@@ -35,7 +35,7 @@ ms.contentlocale: ko-kr
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app)로 이동해 응용 프로그램을 등록합니다.
 2. 응용 프로그램 이름과 메일을 입력합니다. 
 3. 안내식 설정 옵션이 선택 취소되어 있는지 확인합니다.
-4. `Add Platforms`를 클릭한 다음 `Native Application`을 선택하고 [저장]을 누릅니다.
+4. `Add Platform`를 클릭한 다음 `Native Application`을 선택하고 [저장]을 누릅니다.
 5.  (`app` > `java` > *`{host}.{namespace}`*에서) `MainActivity`를 엽니다.
 6.  `final static String CLIENT_ID`로 시작하는 줄에서 *[여기에 응용 프로그램 ID 입력]*을 방금 등록한 응용 프로그램 ID로 바꿉니다.
 

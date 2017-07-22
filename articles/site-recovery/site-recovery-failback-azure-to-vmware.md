@@ -14,12 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 795dd0c05daf560e5a271fef5356eb83d72a6112
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dde0bb6b4f6bc10afdd7d40adc6689d42b37de81
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>온-프레미스 사이트로 VMWare 가상 컴퓨터 및 물리적 서버 장애 복구
@@ -70,7 +69,7 @@ VMware VM을 장애 조치한 후에도 동일한 원본 VM이 여전히 온-프
 ## <a name="prerequisites"></a>필수 조건
 * VMware VM 및 물리적 서버를 장애 복구하려면 VMware 환경이 필요합니다. 물리적 서버로 장애 복구는 지원되지 않습니다.
 * 장애 복구하려면 보호를 처음 설정할 때 Azure 네트워크를 만들어야 합니다. 장애 복구는 온-프레미스 사이트에 있는 Azure VM이 있는 Azure 네트워크에서 VPN 또는 Express 경로 연결이 필요합니다.
-* 장애 복구하려는 VM을 vCenter Server에서 관리하는 경우 vCenter 서버에서 VM을 검색하는 데 필요한 권한이 있는지 확인합니다. 자세한 내용은 [Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)를 참조하세요.
+* 장애 복구하려는 VM을 vCenter Server에서 관리하는 경우 vCenter 서버에서 VM을 검색하는 데 필요한 권한이 있는지 확인합니다. 자세한 내용은 [Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-vmware-to-azure-classic.md)를 참조하세요.
 * 스냅숏이 VM에 있는 경우 다시 보호에 실패합니다. 스냅숏 또는 디스크를 삭제할 수 있습니다.
 * 장애 복구하기 전에 다음 구성 요소를 만듭니다.
   * **Azure에 프로세스 서버 만들기**: 이 구성 요소는 장애 복구 중에 만들고 계속 실행하는 Azure VM입니다. 장애 복구가 완료되면 VM을 삭제할 수 있습니다.
@@ -110,7 +109,7 @@ Azure VM에서 데이터를 온-프레미스 마스터 대상 서버로 다시 �
  * 이미지 이름은 *Microsoft Azure Site Recovery 프로세스 서버 V2*입니다. 배포 모델로 **클래식**을 선택합니다.
 
        ![Select "Classic" as the Process Server deployment model](./media/site-recovery-failback-azure-to-vmware-classic/templatename.png)
- * [Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)의 지침에 따라 프로세스 서버를 설치합니다.
+ * [Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-vmware-to-azure-classic.md)의 지침에 따라 프로세스 서버를 설치합니다.
 7. *Resource Manager* Azure 네트워크를 선택하는 경우 다음 정보를 제공하여 프로세스 서버를 배포합니다.
 
   * 서버를 배포하려는 리소스 그룹 이름
@@ -123,7 +122,7 @@ Azure VM에서 데이터를 온-프레미스 마스터 대상 서버로 다시 �
 
     !["프로세스 서버 추가" 대화 상자에 정보 입력](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
 
-8. **확인**을 클릭합니다. 이 작업은 프로세스 서버 설치 중에 Resource Manager 배포 유형 가상 컴퓨터를 만드는 작업을 트리거합니다. 서버를 구성 서버에 등록하려면 [Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)의 지침에 따라 VM 내에서 설정을 실행합니다. 프로세스 서버를 배포하는 작업도 트리거합니다.
+8. **확인**을 클릭합니다. 이 작업은 프로세스 서버 설치 중에 Resource Manager 배포 유형 가상 컴퓨터를 만드는 작업을 트리거합니다. 서버를 구성 서버에 등록하려면 [Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-vmware-to-azure-classic.md)의 지침에 따라 VM 내에서 설정을 실행합니다. 프로세스 서버를 배포하는 작업도 트리거합니다.
 
   프로세스 서버가 **구성 서버** > **연결된 서버** > **프로세스 서버** 탭에 나열됩니다.
 
@@ -142,7 +141,7 @@ Azure VM에서 데이터를 온-프레미스 마스터 대상 서버로 다시 �
 1. Windows에서 마스터 대상 서버를 설정하는 경우 마스터 대상 서버를 설치하는 VM에서 빠른 시작 페이지를 엽니다.
 2. Azure Site Recovery 통합 설치 마법사의 설치 파일을 다운로드합니다.
 3. 설치 마법사를 실행하고 **시작하기 전에**에서 **배포 규모 확장을 위해 추가 프로세스 서버 추가**를 선택합니다.
-4. [관리 서버를 설정](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server)했을 때 수행한 것과 동일한 방식으로 마법사를 완료합니다. **구성 서버 세부 정보** 페이지에서 마스터 대상 서버의 IP 주소를 지정하고 VM에 액세스하기 위한 암호를 입력합니다.
+4. [관리 서버를 설정](site-recovery-vmware-to-azure-classic.md)했을 때 수행한 것과 동일한 방식으로 마법사를 완료합니다. **구성 서버 세부 정보** 페이지에서 마스터 대상 서버의 IP 주소를 지정하고 VM에 액세스하기 위한 암호를 입력합니다.
 
 ### <a name="set-up-a-linux-vm-as-the-master-target-server"></a>마스터 대상 서버로 Linux VM 설정
 마스터 대상 서버를 실행하는 관리 서버를 Linux VM으로 설정하려면 CentOS 6.6 minimal 운영 체제를 설치합니다. 다음으로 각 SCSI 하드 디스크의 SCSI ID를 검색하고 몇 가지 추가 패키지를 설치한 다음 일부 사용자 지정 변경 내용을 적용합니다.
@@ -232,7 +231,7 @@ VM을 다시 보호한 후에는 Azure에서 온-프레미스로 장애 조치�
 다시 보호가 완료되면 VM이 Azure로 다시 복제하고 장애 조치를 수행할 수 있습니다.
 
 ### <a name="resolve-common-failback-issues"></a>일반적인 장애 복구 문제 해결
-* 읽기 전용 사용자 vCenter 검색을 수행하고 가상 컴퓨터를 보호하면 작업에 성공하고 장애 조치가 작동합니다. 다시 보호 중에는 데이터 저장소를 검색할 수 없기 때문에 장애 조치가 실패합니다. 하나의 증상으로, 다시 보호하는 동안 나열된 데이터 저장소가 표시되지 않습니다. 이 문제를 해결하려면 vCenter 자격 증명을 권한이 있는 적절한 계정으로 업데이트하고 작업을 다시 시도하면 됩니다. 자세한 내용은 [Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access)를 참조하세요.
+* 읽기 전용 사용자 vCenter 검색을 수행하고 가상 컴퓨터를 보호하면 작업에 성공하고 장애 조치가 작동합니다. 다시 보호 중에는 데이터 저장소를 검색할 수 없기 때문에 장애 조치가 실패합니다. 하나의 증상으로, 다시 보호하는 동안 나열된 데이터 저장소가 표시되지 않습니다. 이 문제를 해결하려면 vCenter 자격 증명을 권한이 있는 적절한 계정으로 업데이트하고 작업을 다시 시도하면 됩니다. 자세한 내용은 [Azure Site Recovery를 사용하여 Azure에 VMware 가상 컴퓨터 및 물리적 서버 복제](site-recovery-vmware-to-azure-classic.md)를 참조하세요.
 * Linux VM을 장애 복구하고 이 VM을 온-프레미스에서 실행하면 네트워크 관리자 패키지가 컴퓨터에서 제거되었음을 알 수 있습니다. 이 제거는 Azure에서 VM을 복구할 때 네트워크 관리자 패키지가 제거되었기 때문에 발생합니다.
 * VM을 고정 IP 주소로 구성하고 Azure로 장애 조치하면 DHCP를 통해 IP 주소를 가져옵니다. 온-프레미스로 다시 장애 조치하면 VM에서 DHCP를 사용하여 IP 주소를 계속 가져옵니다. 컴퓨터에 수동으로 로그인하고, 필요한 경우 IP 주소를 고정 주소로 다시 설정합니다.
 * ESXi 5.5 무료 버전 또는 vSphere 6 하이퍼바이저 무료 버전을 사용하는 경우 장애 조치는 성공하지만 장애 복구가 실패합니다. 장애 복구를 사용하도록 설정하려면 평가판 라이선스로 업그레이드합니다.

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: dineshmurthy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 85ef906d680df8f6848b323d79a09b8414ed0817
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 620efda06d8225b21b6bb9b104b79061ebb6515c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-storage-client-tools"></a>Azure 저장소 클라이언트 도구
@@ -156,7 +155,7 @@ Azure 저장소의 사용자는 Azure 저장소 클라이언트 도구를 사용
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://azurestorageexplorer.codeplex.com/">Azure 저장소 탐색기</a></td>
+    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure 저장소 탐색기</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>

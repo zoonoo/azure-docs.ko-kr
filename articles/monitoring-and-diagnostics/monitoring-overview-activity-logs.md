@@ -2,7 +2,7 @@
 title: "Azure 활동 로그 개요 | Microsoft Docs"
 description: "Azure 활동 로그란 무엇이고 Azure 구독 내에서 발생하는 이벤트를 파악하는 데 어떻게 사용할 수 있는지 알아봅니다."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: c123b76b0e4c95cfebcc79063fb1c3a27efc8646
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d0e436e2392a532cec813e0a8c5ab15c9ca35cf1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-the-azure-activity-log"></a>Azure 활동 로그 개요

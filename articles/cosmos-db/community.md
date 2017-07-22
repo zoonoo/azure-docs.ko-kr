@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: b78d8d257ea31e7cb6b4e1abfb32c81fcea67b6d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="community-portal"></a>커뮤니티 포털
@@ -105,7 +104,7 @@ fluent-plugin-documentdb는 Azure Cosmos DB DocumentDB API로 출력하기 위�
 |[사우스 플로리다 코드 캠프: Azure DocumentDB를 사용하여 10분 이내에 .NET 개발자용 NoSQL](http://www.fladotnet.com/codecamp/Agenda.aspx)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, FL|2017년 3월 11일|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
 |[올랜도 코드 캠프: Azure DocumentDB를 사용하여 10분 이내에 .NET 개발자용 NoSQL](http://orlandocodecamp.com/Sessions/Details/20)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, FL|2017년 4월 8일|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
 |[Global Azure Bootcamp: Azure Functions 및 DocumentDB를 사용하여 Azure에서 서버 없이 컴퓨팅](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638)| [Josh Lane](https://twitter.com/jplane)|애틀랜타, GA|2017년 4월 22일|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
-|[NDC Olso 2017: Azure DocumentDB - The Best NoSQL Database You're Probably Not Using (Yet)](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/)(NDC Olso 2017: Azure DocumentDB - 아마도 아직 사용하고 있지 않을 최고의 NoSQL 데이터베이스)|[Josh Lane](https://twitter.com/jplane)|노르웨어 오슬로|2017년 6월 14|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
+|[NDC Olso 2017: Azure DocumentDB - The Best NoSQL Database You're Probably Not Using (Yet)](http://ndcoslo.com/talk/azure-cosmos-db-the-best-nosql-database-youre-probably-not-using-yet/)(NDC Olso 2017: Azure DocumentDB - 아마도 아직 사용하고 있지 않을 최고의 NoSQL 데이터베이스)|[Josh Lane](https://twitter.com/jplane)|노르웨어 오슬로|2017년 6월 14|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
 
 *연설하거나 이벤트를 호스팅했습니까? 도울 방법을 [알려주세요](mailto:askcosmosdb@microsoft.com)!*
 

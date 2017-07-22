@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 3f6ae31f577eb1bc70a06e183518aadbc6279159
+ms.reviewer: asteen
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ea2dc2762b556da837fa1d6674e01aba32face92
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스
@@ -203,7 +203,7 @@ Azure Active Directory는 여러 보고서 및 경고를 제공하여 응용 프
 | 특정 응용 프로그램에 액세스할 수 있는 사용자에 대한 변경 내용 추적 |[Azure Active Directory 감사 보고서 이벤트](active-directory-reporting-audit-events.md) |
 | 보고 API를 사용하여 원하는 도구에 이러한 보고서의 데이터 내보내기 |[Azure AD Reporting API 시작하기](active-directory-reporting-api-getting-started.md) |
 
-Azure Active Directory의 다른 버전에 포함된 보고서를 보려면 [여기를 클릭](active-directory-view-access-usage-reports.md#report-editions)합니다.
+Azure Active Directory의 다른 버전에 포함된 보고서를 보려면 [여기를 클릭](active-directory-view-access-usage-reports.md)합니다.
 
 ## <a name="see-also"></a>참고 항목
 [Azure Active Directory란?](active-directory-whatis.md)
