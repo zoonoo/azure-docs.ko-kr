@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/31/2017
 ms.author: bsiva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: b2420da03b83a355215d7beeffd5b4cff10da75b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b3c0727a279649f4f7dae30d41027129ce5b04ee
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="migrate-virtual-machines-in-amazon-web-services-aws-to-azure-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 AWS(Amazon Web Services)의 가상 컴퓨터를 Azure로 마이그레이션
@@ -43,7 +42,7 @@ Site Recovery는 다음 운영 체제 중 하나를 실행하는 EC2 인스턴�
 
 이 배포에 대해 필요한 사항은 다음과 같습니다.
 
-* **구성 서버**: 구성 서버 역할로 배포된 Windows Server 2012 R2를 실행 중인 Amazon EC2 VM입니다. 기본적으로 다른 Azure Site Recovery 구성 요소(프로세스 서버와 마스터 대상 서버)는 구성 서버를 배포할 때 설치됩니다. 이 문서에서는 Azure Portal에서 마이그레이션하기 위한 단계를 설명하고 [자세한 정보](site-recovery-components.md#vmware-to-azure)의 지침을 기준으로 합니다.
+* **구성 서버**: 구성 서버 역할로 배포된 Windows Server 2012 R2를 실행 중인 Amazon EC2 VM입니다. 기본적으로 다른 Azure Site Recovery 구성 요소(프로세스 서버와 마스터 대상 서버)는 구성 서버를 배포할 때 설치됩니다. 이 문서에서는 Azure Portal에서 마이그레이션하기 위한 단계를 설명하고 [자세한 정보](site-recovery-components.md)의 지침을 기준으로 합니다.
 
 * **EC2 인스턴스**: 마이그레이션하려는 Amazon EC2 가상 컴퓨터 인스턴스입니다.
 

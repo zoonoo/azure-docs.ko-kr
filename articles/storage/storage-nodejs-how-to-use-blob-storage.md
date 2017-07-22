@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: b5ed7853c696d9e8477a31aba8a9cc9ab8558fa8
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 38c3fd3cd271c3f9d60c44fff17715062b4979ae
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Node.js에서 Blob Storage를 사용하는 방법
@@ -418,7 +418,7 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 * [Node용 Azure Storage SDK API 참조][Azure Storage SDK for Node API Reference]
 * [Azure Storage 팀 블로그][Azure Storage Team Blog]
 * GitHub의 [Azure Storage SDK for Node][Azure Storage SDK for Node] 리포지토리
-* [Node.js 개발자 센터](/develop/nodejs/)
+* [Node.js 개발자 센터](https://azure.microsoft.com/develop/nodejs/)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node

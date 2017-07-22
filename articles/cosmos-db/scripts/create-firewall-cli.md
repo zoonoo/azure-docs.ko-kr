@@ -16,11 +16,11 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: c37d4ed3353d302ecfb2f673e890ffc3869f1844
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 51f61901e1b1615e48582690dea701a01a56ebca
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -50,10 +50,10 @@ az group delete --name myResourceGroup
 
 | 명령 | 참고 사항 |
 |---|---|
-| [az group create](/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az cosmosdb create](/cli/azure/cosmosdb/name#create) | Azure Cosmos DB 계정을 만듭니다. |
-| [az cosmosdb update](/cli/azure/sql/server#create) | 방화벽 설정을 포함하도록 Azure CosmosDB 계정을 업데이트합니다. |
-| [az group delete](/cli/azure/resource#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | Azure Cosmos DB 계정을 만듭니다. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | 방화벽 설정을 포함하도록 Azure CosmosDB 계정을 업데이트합니다. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

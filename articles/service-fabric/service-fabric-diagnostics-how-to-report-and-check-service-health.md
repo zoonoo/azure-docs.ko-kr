@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2017
 ms.author: dekapur
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: e2b969151876fac34b2a5c05ce050ee6b51004d0
-ms.lasthandoff: 04/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ad779784a6a8092ad44f5b564db2d3b207989d86
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="report-and-check-service-health"></a>서비스 상태 보고 및 확인
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/18/2017
 ## <a name="prerequisites"></a>필수 조건
 다음이 설치되어 있어야 합니다.
 
-* Visual Studio 2015
+* Visual Studio 2015 또는 Visual Studio 2017
 * 서비스 패브릭 SDK
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>로컬 보안 개발자 클러스터를 만들려면

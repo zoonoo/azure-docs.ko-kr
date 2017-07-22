@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 12c89a6fcbb6d299b64e6b0ec9d1dba29bb41d16
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1dfaa7ade664e43dcb9aa788b0197ca17e6ec4cc
 ms.contentlocale: ko-kr
 
 
@@ -35,7 +35,7 @@ ms.contentlocale: ko-kr
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app)로 이동해 응용 프로그램을 등록합니다.
 2. 응용 프로그램 이름과 메일을 입력합니다. 
 3. 안내식 설정 옵션이 선택 취소되어 있는지 확인합니다.
-4. `Add Platforms`를 클릭한 다음 `Native Application`을 선택하고 [저장]을 누릅니다.
+4. `Add Platform`를 클릭한 다음 `Native Application`을 선택하고 [저장]을 누릅니다.
 5. 응용 프로그램 ID의 GUID를 복사하고, Visual Studio로 이동한 다음 `App.xaml.cs`를 열어 `your_client_id_here`를 방금 등록한 응용 프로그램 ID로 바꿉니다.
 
 ```csharp

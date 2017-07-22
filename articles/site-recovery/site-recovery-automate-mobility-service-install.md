@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: krnese
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2b9a8b5d7b889926f1cdbb6787fea1579dd21190
-ms.openlocfilehash: 941bc07fa9be765403e8fe541caf660eef15585e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3e9321255b65d46af59d0ee478e214df795664ac
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/22/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>VM 복제를 위해 Azure Automation DSC를 사용하여 모바일 서비스 배포
@@ -512,5 +511,5 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## <a name="next-steps"></a>다음 단계
-모바일 서비스 에이전트를 배포한 후 가상 컴퓨터에 대해 [복제를 사용하도록 설정](site-recovery-vmware-to-azure.md#enable-replication) 할 수 있습니다.
+모바일 서비스 에이전트를 배포한 후 가상 컴퓨터에 대해 [복제를 사용하도록 설정](site-recovery-vmware-to-azure.md) 할 수 있습니다.
 

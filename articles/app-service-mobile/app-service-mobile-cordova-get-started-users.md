@@ -3,8 +3,8 @@ title: "모바일 앱을 사용하여 Apache Cordova에 인증 추가 | Microsof
 description: "Azure 앱 서비스에서 모바일 앱을 사용하여 Google, Facebook, Twitter, Microsoft를 비롯한 다양한 ID 공급자를 통해 Apache Cordova 앱의 사용자를 인증하는 방법을 알아봅니다."
 services: app-service\mobile
 documentationcenter: javascript
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 15a3f9f40bdb84b939b30e33e5f2033411adc3cc
-ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
-ms.lasthandoff: 12/01/2016
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b7362b7f26859de541f792e714502851d74c98e5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Apache Cordova 앱에 인증 추가
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/01/2016
 
    | 공급자 | SDK 공급자 이름 | OAuth 호스트 |
    |:--- |:--- |:--- |
-   | Azure Active Directory | aad | https://login.windows.net |
+   | Azure Active Directory | aad | https://login.microsoftonline.com |
    | Facebook | Facebook | https://www.facebook.com |
    | Google | Google | https://accounts.google.com |
    | Microsoft | microsoftaccount | https://login.live.com |
@@ -58,9 +58,9 @@ ms.lasthandoff: 12/01/2016
     다음은 Content-Security-Policy(Azure Active Directory용으로 구현됨) 예제입니다.
 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
-            data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+            data: gap: https://login.microsoftonline.com https://yourapp.azurewebsites.net; style-src 'self'">
 
-    `https://login.windows.net`을 위 표의 OAuth 호스트로 바꿉니다.  content-security-policy 메타 태그에 대한 자세한 내용은 [Content-Security-Policy 설명서]를 참조하세요.
+    `https://login.microsoftonline.com`을 위 표의 OAuth 호스트로 바꿉니다.  content-security-policy 메타 태그에 대한 자세한 내용은 [Content-Security-Policy 설명서]를 참조하세요.
 
     일부 인증 공급자에서는 적절한 모바일 장치에서 사용하는 경우 Content-Security-Policy 변경이 필요하지 않습니다.  예를 들어 Android 장치에서 Google 인증을 사용하는 경우 Content-Security-Policy를 변경하지 않아도 됩니다.
 

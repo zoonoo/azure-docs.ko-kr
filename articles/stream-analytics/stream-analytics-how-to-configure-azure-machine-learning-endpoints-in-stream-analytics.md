@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 64dbff3e5e8cff538effe8a0623e48e81420f16a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: df60686e7eeb4902bb9df045e28442ade2ad2cb7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Stream Analytics의 Machine Learning 통합
@@ -37,7 +36,7 @@ Microsoft Azure Machine Learning은 데이터에 대한 예측 분석 솔루션�
 각 끝점에는 배치 실행 및 동기 실행을 위한 API가 있습니다. Stream Analytics은 동기 실행을 사용합니다. 특정 서비스는 AzureML 스튜디오에 있는 [Request/Response Service](../machine-learning/machine-learning-consume-web-services.md) 라는 서비스입니다.
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Stream Analytics 작업에 필요한 Machine Learning 리소스
-Stream Analytics 작업을 처리하려면 요청/응답 끝점, [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md#get-an-azure-machine-learning-authorization-key)및 swagger 정의가 모두 있어야 성공적으로 실행됩니다. Stream Analytics에는 swagger 끝점에 대한 url을 생성하고, 인터페이스를 조회하고, 사용자에게 기본 UDF 정의를 반환하는 추가 끝점이 있습니다.
+Stream Analytics 작업을 처리하려면 요청/응답 끝점, [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md)및 swagger 정의가 모두 있어야 성공적으로 실행됩니다. Stream Analytics에는 swagger 끝점에 대한 url을 생성하고, 인터페이스를 조회하고, 사용자에게 기본 UDF 정의를 반환하는 추가 끝점이 있습니다.
 
 ## <a name="configure-a-stream-analytics-and-machine-learning-udf-via-rest-api"></a>REST API를 통해 Stream Analytics 및 Machine Learning UDF 구성
 REST API를 사용하여 Azure 기계 언어 함수를 호출하는 작업을 구성할 수 있습니다. 단계는 다음과 같습니다.

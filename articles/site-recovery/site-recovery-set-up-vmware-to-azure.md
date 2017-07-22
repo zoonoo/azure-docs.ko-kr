@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: fd331d805c0c6ddcfb492db2902a8e53b23dcab3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a2fabc56463c8cbf0b8a76b7a84369ed8e535486
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 06/30/2017
 
 이 문서에서는 사용자가 다음 항목을 이미 만들었다고 가정합니다.
 - [Azure Portal](http://portal.azure.com "Azure Portal")의 Recovery Services 자격 증명 모음
-- [자동 검색](./site-recovery-vmware-to-azure.md#vmware-account-permissions)에 사용할 수 있는 VMware vCenter의 전용 계정
+- [자동 검색](./site-recovery-vmware-to-azure.md)에 사용할 수 있는 VMware vCenter의 전용 계정
 - 구성 서버를 설치할 가상 컴퓨터
 
 ## <a name="configuration-server-minimum-requirements"></a>구성 서버 최소 요구 사항
