@@ -5,18 +5,20 @@ services: active-directory
 documentationcenter: 
 author: asmalser-msft
 writer: asmalser-msft
-manager: stevenpo
+manager: sakula
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 07/20/2017
 ms.author: asmalser-msft
-translationtype: Human Translation
+ms.reviewer: asmalser
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a3c339de98250f43c71f7dd9706888c6715ca2ef
 ms.openlocfilehash: e39f2202e83cdf66b85f1cc02a9320ec9e31472e
+ms.contentlocale: ko-kr
 ms.lasthandoff: 02/08/2017
 
 ---
@@ -46,9 +48,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="important-tips-for-assigning-users-to-slack"></a>Slack에 사용자 할당을 위한 주요 팁
 
-*    프로비전 구성을 테스트하기 위해 단일 Azure AD 사용자를 Slack에 할당하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
+*   프로비전 구성을 테스트하기 위해 단일 Azure AD 사용자를 Slack에 할당하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-*    사용자를 Slack에 할당할 때 할당 대화 상자에서 **사용자** 또는 "그룹" 역할을 선택해야 합니다. "기본 액세스" 역할은 프로비전에 작동하지 않습니다.
+*   사용자를 Slack에 할당할 때 할당 대화 상자에서 **사용자** 또는 "그룹" 역할을 선택해야 합니다. "기본 액세스" 역할은 프로비전에 작동하지 않습니다.
 
 
 ## <a name="configuring-user-provisioning-to-slack"></a>Slack에 사용자 프로비전 구성 
@@ -61,17 +63,17 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Azure AD에서 Slack에 자동 사용자 계정 프로비전을 구성하려면 다음을 수행합니다.
 
 
-1)    [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
+1)  [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
 
 2) Single Sign-On에 대한 Slack을 이미 구성한 경우 검색 필드를 사용하여 Slack의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **Slack**을 검색합니다. 검색 결과에서 Slack을 선택하고 응용 프로그램의 목록에 추가합니다.
 
-3)    Slack의 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
+3)  Slack의 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
 
-4)    **프로비전 모드**를 **자동**으로 설정합니다.
+4)  **프로비전 모드**를 **자동**으로 설정합니다.
 
 ![Slack 프로비전](./media/active-directory-saas-slack-provisioning-tutorial/Slack1.PNG)
 
-5)    **관리자 자격 증명** 섹션에서 **권한 부여**를 클릭합니다. 그러면 새 브라우저 창에서 Slack 권한 부여 대화 상자가 열립니다. 
+5)  **관리자 자격 증명** 섹션에서 **권한 부여**를 클릭합니다. 그러면 새 브라우저 창에서 Slack 권한 부여 대화 상자가 열립니다. 
 
 6) 새 창에서 팀 관리자 계정을 사용하여 Slack에 로그인합니다. 표시된 권한 부여 대화 상자에서 프로비전을 사용하도록 설정하려는 Slack 팀을 선택한 다음, **권한 부여**를 선택합니다. 완료되면 Azure Portal로 돌아가서 프로비전 구성을 완료합니다.
 

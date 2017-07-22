@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 42dcc653b50698cf8ce8145dfb51f27be7ece440
+ms.reviewer: jairoc
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 16543c7bb7b6b236dcc24093c9963bc218ca1fa6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Windows 장치 상에서 '여기에서 가져올 수 없습니다'
@@ -47,7 +47,7 @@ ms.lasthandoff: 04/12/2017
 
 ![지원되지 않은 브라우저에 대한 "여기에서 가져올 수 없습니다" 메시지](./media/active-directory-conditional-access-device-remediation/02.png "시나리오")
 
-유일하게 수정된 부분은 응용 프로그램이 장치 플랫폼에 지원하는 브라우저를 사용하는 것입니다. 지원되는 브라우저의 전체 목록은 [지원되는 브라우저](active-directory-conditional-access-supported-apps.md#supported-browsers)를 참조하세요.  
+유일하게 수정된 부분은 응용 프로그램이 장치 플랫폼에 지원하는 브라우저를 사용하는 것입니다. 지원되는 브라우저의 전체 목록은 [지원되는 브라우저](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies)를 참조하세요.  
 
 
 ## <a name="supported-versions-of-windows"></a>지원되는 Windows 버전
@@ -69,7 +69,7 @@ ms.lasthandoff: 04/12/2017
 
 ### <a name="is-your-device-joined-to-an-on-premises-active-directory"></a>장치가 온-프레미스 Active Directory에 조인되어 있습니까?
 
-**장치가 조직의 온-프레미스 Active Directory로 도메인에 조인된 경우**
+**장치가 조직의 온-프레미스 Active Directory에 조인된 경우 다음을 수행합니다.**
 
 1. 작업 계정(Active Directory 계정)을 사용하여 Windows에 로그인하는지 확인합니다.
 2. 가상 사설망(VPN) 또는 DirectAccess를 통해 회사 네트워크에 연결합니다.

@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/20/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.reviewer: jeedes
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 8b0417d131bc25225e777285b9e4bfbaa97aad8f
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>자습서: GitHub와 Azure Active Directory 통합
@@ -126,10 +127,10 @@ GitHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 4. **사용자 특성** 섹션에서 **사용자 식별자**를 user.mail로 선택합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-github-tutorial/tutorial_github_attribute_new01.png)
-     
+    
 5. **SAML 서명 인증서** 섹션에서 **새 인증서 만들기**를 클릭합니다.
 
-     ![Single Sign-on 구성](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
+    ![Single Sign-on 구성](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
 
 6. **새 인증서 만들기** 대화 상자에서 달력 아이콘을 클릭하고 **만료 날짜**를 선택합니다. 그런 후 **저장** 단추를 클릭합니다.
 
@@ -167,9 +168,9 @@ GitHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **로그인 URL**: Azure AD의 **GitHub 구성** 섹션에서 **SAML Single Sign-On 서비스 URL**을 입력합니다.
 
-      b. **발급자**: Azure AD의 **GitHub 구성** 섹션에서 **SAML 엔터티 ID**를 입력합니다.
+    b. **발급자**: Azure AD의 **GitHub 구성** 섹션에서 **SAML 엔터티 ID**를 입력합니다.
 
-       c. **공용 인증서**: Azure AD에서 다운로드한 인증서를 메모장에서 열고 "BEGIN CERTIFICATE"(인증서 시작) 및 "END CERTIFICATE"(인증서 끝)를 포함한 내용을 복사합니다.
+    c. **공용 인증서**: Azure AD에서 다운로드한 인증서를 메모장에서 열고 "BEGIN CERTIFICATE"(인증서 시작) 및 "END CERTIFICATE"(인증서 끝)를 포함한 내용을 복사합니다.
 
     ![설정](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_051.png)
 

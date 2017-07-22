@@ -20,7 +20,6 @@ ms.openlocfilehash: 97e40e0081e1dcce0ed42748a053c46cecf569ba
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
 이 문서는 프로세스 또는 변환 데이터에 사용할 수 있는 다양한 계산 환경을 설명합니다. 또한 이러한 계산 환경을 Azure 데이터 팩터리에 연결하는 연결된 서비스를 구성하는 경우 데이터 팩터리에서 지원하는 다른 구성(주문형 vs. 사용자 고유)에 대한 자세한 내용을 제공합니다.
@@ -123,9 +122,10 @@ Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux �
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "clusterSize": 4,
+            "version": "3.5",
+            "clusterSize": 1,
             "timeToLive": "00:05:00",
-            "osType": "linux",
+            "osType": "Linux",
             "linkedServiceName": "AzureStorageLinkedService"
         }
     }

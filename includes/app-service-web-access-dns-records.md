@@ -1,17 +1,3 @@
 ### <a name="access-dns-records-with-domain-provider"></a>도메인 공급자로 DNS 레코드 액세스
 
-첫째, 도메인 공급자의 웹 사이트에 로그인합니다.
-
-DNS 레코드를 관리하기 위한 페이지를 찾습니다. 각 도메인 공급자에는 자체 DNS 레코드 인터페이스가 있으므로 공급자의 설명서를 참조해야 합니다. **도메인 이름**, **DNS** 또는 **이름 서버 관리** 레이블이 지정된 사이트의 링크 또는 영역을 찾습니다.
-
-계정 정보를 확인한 다음 **내 도메인**과 같은 링크를 검색하여 링크를 찾을 수 있습니다. 그런 다음 DNS 레코드를 관리할 수 있는 링크를 찾습니다. 이 링크는 **영역 파일**, **DNS 레코드** 또는 **고급 구성**이란 이름일 수 있습니다.
-
-다음 스크린샷은 DNS 레코드 페이지의 예입니다.
-
-![DNS 레코드 페이지 예](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-예제 스크린샷에서 **추가**를 클릭하여 레코드를 만듭니다. 일부 공급자에는 다른 레코드 형식을 추가하는 다양한 링크가 있습니다. 다시 공급자의 설명서를 참조하세요.
-
-> [!NOTE]
-> GoDaddy 같은 특정 공급자의 경우 DNS 레코드를 변경해도 별도의 **변경 내용 저장** 링크를 클릭하기 전에는 변경 내용이 적용되지 않습니다.
->
+[!INCLUDE [Access DNS records with domain provider](app-service-web-access-dns-records-no-h.md)]
