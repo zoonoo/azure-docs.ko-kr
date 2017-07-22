@@ -3,7 +3,7 @@ title: "Azure 진단을 사용하여 로그 수집 | Microsoft Docs"
 description: "이 문서는 Azure에서 실행 중인 서비스 패브릭에서 로그를 수집하도록 Azure 진단을 설정하는 방법을 설명합니다."
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: 9f7e1fa5-6543-4efd-b53f-39510f18df56
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
-ms.author: dekapur
+ms.author: ryanwi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: e8b6709d4b2cbb71fdf2d83c9a95998ab147b4ba
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # <a name="collect-logs-by-using-azure-diagnostics"></a>Azure 진단을 사용하여 로그 수집

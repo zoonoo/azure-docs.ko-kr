@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: Human Translation
@@ -174,8 +174,8 @@ az mysql server create \
     --name <mysql_server_name> \
     --resource-group myResourceGroup \
     --location "North Europe" \
-    --user adminuser \
-    --password MySQLAzure2017
+    --admin-user adminuser \
+    --admin-password MySQLAzure2017
 ```
 
 MySQL 서버를 만들면 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.

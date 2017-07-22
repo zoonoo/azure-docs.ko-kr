@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 07/20/2017
 ms.author: jeedes
+ms.reviewer: jeedes
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 61999ebea05371c53e5ff27644a68039db1aef96
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/18/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory 통합
@@ -133,7 +133,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     | 특성 이름  | 특성 값 | 네임스페이스 |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | 역할               | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
+    | 역할            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >AWS 콘솔에서 모든 역할을 가져오려면 Azure AD에서 사용자 프로비전을 구성해야 합니다. 프로비전 단계는 아래에서 참조하세요.
@@ -172,13 +172,13 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
    
     ![Single Sign-On 구성][14]
  
-      a. **공급자 유형**으로 **SAML**을 선택합니다.
+    a. **공급자 유형**으로 **SAML**을 선택합니다.
 
-      b. **공급자 이름** 텍스트 상자에 공급자 이름(예: *WAAD*)을 입력합니다.
+    b. **공급자 이름** 텍스트 상자에 공급자 이름(예: *WAAD*)을 입력합니다.
 
-      c. 다운로드한 메타데이터 파일을 업로드하려면 **파일 선택**을 클릭합니다.
+    c. 다운로드한 메타데이터 파일을 업로드하려면 **파일 선택**을 클릭합니다.
 
-      d. **다음 단계**를 클릭합니다.
+    d. **다음 단계**를 클릭합니다.
 
 13. **공급자 정보 확인** 대화 상자 페이지에서 **만들기**를 클릭합니다. 
     
@@ -192,25 +192,25 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     
     ![Single Sign-On 구성][17] 
 
-      a. **역할 이름** 텍스트 상자에 역할 이름(예: *TestUser*)을 입력합니다. 
+    a. **역할 이름** 텍스트 상자에 역할 이름(예: *TestUser*)을 입력합니다. 
 
-      b. **다음 단계**를 클릭합니다.
+    b. **다음 단계**를 클릭합니다.
 
 16. **역할 유형 선택** 대화 상자에서 다음 단계를 수행합니다. 
     
     ![Single Sign-On 구성][18] 
 
-      a. **ID 공급자 액세스에 대한 역할**을 선택합니다. 
+    a. **ID 공급자 액세스에 대한 역할**을 선택합니다. 
 
-      b. **SAML 공급자에게 WebSSO(웹 Single Sign-On) 액세스 권한 부여** 섹션에서 **선택**을 클릭합니다.
+    b. **SAML 공급자에게 WebSSO(웹 Single Sign-On) 액세스 권한 부여** 섹션에서 **선택**을 클릭합니다.
 
 17. **트러스트 설정** 대화 상자에서 다음 단계를 수행합니다.  
     
     ![Single Sign-On 구성][19] 
 
-      a. 이전에 만든 SAML 공급자(예: *WAAD*)를 SAML 공급자로 선택합니다.
+    a. 이전에 만든 SAML 공급자(예: *WAAD*)를 SAML 공급자로 선택합니다.
   
-      b. **다음 단계**를 클릭합니다.
+    b. **다음 단계**를 클릭합니다.
 
 18. **역할 트러스트 확인** 대화 상자에서 **다음 단계**를 클릭합니다.
     
@@ -224,7 +224,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     
     ![Single Sign-On 구성][34]
  
-      a. **역할 만들기**를 클릭합니다.
+    a. **역할 만들기**를 클릭합니다.
 
     b. 필요한 만큼 역할을 만들어서 ID 공급자에 매핑합니다.
 

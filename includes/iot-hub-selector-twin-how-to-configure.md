@@ -1,10 +1,12 @@
 > [!div class="op_single_selector"]
 > * [Node.JS](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
-> * [C#](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
+> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
+> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md)
 > 
 > 
 
 ## <a name="introduction"></a>소개
+
 [IoT Hub 장치 쌍 시작][lnk-twin-tutorial]에서 *태그*를 사용하여 솔루션 백 엔드에서 장치 메타데이터를 설정하고, *보고된 속성*을 사용하여 장치 앱에서 장치 조건을 보고하며, SQL 유사 언어를 사용하여 이 정보를 쿼리하는 방법을 배웠습니다.
 
 이 자습서에서는 장치 앱을 원격으로 구성하기 위해 장치 쌍의 *desired 속성*을 *reported 속성*과 함께 사용하는 방법을 알아봅니다. 더 구체적으로 말하자면, 이 자습서에서는 장치 쌍의 reported 및 desired 속성이 장치 응용 프로그램의 다중 구성을 사용하도록 설정하는 방법을 보여주고 모든 장치에서 이 작업 상태의 솔루션 백 엔드에 대한 가시성을 제공합니다. 장치 구성의 역할과 관련된 자세한 내용은 [IoT Hub를 사용한 장치 관리 개요][lnk-dm-overview]에서 찾아볼 수 있습니다.
