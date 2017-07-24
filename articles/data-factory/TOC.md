@@ -29,6 +29,7 @@
 ### [데이터 팩터리 복사 마법사](data-factory-azure-copy-wizard.md)
 #### [15분 내에 1TB 로드](data-factory-load-sql-data-warehouse.md)
 ### [성능 및 튜닝 가이드](data-factory-copy-activity-performance.md)
+### [내결함성](data-factory-copy-activity-fault-tolerance.md)
 ### [보안 고려 사항](data-factory-data-movement-security-considerations.md)
 ### 커넥터
 #### [Amazon Redshift](data-factory-amazon-redshift-connector.md)

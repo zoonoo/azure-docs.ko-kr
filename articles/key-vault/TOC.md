@@ -17,6 +17,7 @@
 ### 개요
 #### [보안 워크로드 개요](key-vault-ovw-security-worlds.md)
 #### [일시 삭제 개요](key-vault-ovw-soft-delete.md)
+#### [저장소 계정 키 개요](key-vault-ovw-storage-keys.md)
 #### [제한 개요](key-vault-ovw-throttling.md)
 
 ## 관리

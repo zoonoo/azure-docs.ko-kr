@@ -7,6 +7,7 @@
 ## [URL 라우팅](application-gateway-url-route-overview.md)
 ## [다중 사이트](application-gateway-multi-site-overview.md)
 ## [종단 간 SSL](application-gateway-backend-ssl.md)
+## [리디렉션](application-gateway-redirect-overview.md)
 ## [Websocket](application-gateway-websocket.md)
 ## [서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # 시작
@@ -37,6 +38,8 @@
 ## 멀티 사이트 호스팅 구성
 ### [포털](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+## 리디렉션 구성
+### [PowerShell](application-gateway-configure-redirect-powershell.md)
 ## 상태 프로브 구성
 ### [포털](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)

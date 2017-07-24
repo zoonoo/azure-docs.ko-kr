@@ -21,8 +21,6 @@
 #### [큐 저장소 및 연결된 서비스](../storage/vs-storage-cloud-services-getting-started-queues.md)
 #### [테이블 저장소 및 연결된 서비스](../storage/vs-storage-cloud-services-getting-started-tables.md)
 ### 연속 빌드 및 배포에 대한 패키지 구성
-#### [Visual Studio Team Services 및 Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS 및 팀 빌드](cloud-services-dotnet-continuous-delivery.md)
 ### [역할에 대한 트래픽 규칙 구성](cloud-services-enable-communication-role-instances.md)
 ### [클라우드 서비스 수명 주기 이벤트 처리](cloud-services-role-lifecycle-dotnet.md)
