@@ -19,6 +19,7 @@
 
 ## 예방
 ### [보안 정책 설정](security-center-policies.md)
+### [JIT(Just-In-Time) 액세스](security-center-just-in-time.md)
 ### [보안 권장 사항 구현](security-center-recommendations.md)
 
 ### [응용 프로그램 권장 사항](security-center-application-recommendations.md)
