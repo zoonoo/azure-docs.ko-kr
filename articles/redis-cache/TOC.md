@@ -34,6 +34,7 @@
 ###[출력 캐시 공급자](cache-aspnet-output-cache-provider.md)
 ## 관리
 ###[포털에서 구성](cache-configure.md)
+###[지역에서 복제 구성](cache-how-to-geo-replication.md)
 ###[데이터 가져오기/내보내기](cache-how-to-import-export-data.md)
 ###[Reboot](cache-administration.md#reboot)
 ###[업데이트 예약](cache-administration.md#schedule-updates)

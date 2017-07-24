@@ -38,6 +38,7 @@
 ##### [빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [현재 제한 사항](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [작동 원리](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [스마트 잠금](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [질문과 대답](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [문제 해결](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ### [페더레이션에 대한 여러 도메인 지원](active-directory-aadconnect-multiple-domains.md)

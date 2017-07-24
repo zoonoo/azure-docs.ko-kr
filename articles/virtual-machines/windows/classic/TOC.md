@@ -43,6 +43,7 @@
 ### [Trend Micro Deep Security를 서비스로 설치 및 구성](install-trend.md)
 ### [가용성 집합 구성](configure-availability.md)
 ### [클래식 배포 모델에서 만든 Windows VM 크기 조정](resize-vm.md)
+### [유지 관리](planned-maintenance-schedule.md)
 
 ## 관리
 ### [클래식에서 Resource Manager로 마이그레이션](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
@@ -55,7 +56,6 @@
 ## 계획
 ### [이미지 정보](about-images.md)
 ### [VM의 크기](../../virtual-machines-windows-sizes.md)
-#### [H 시리즈 및 계산 집약적인 A 시리즈 VM 정보](../../virtual-machines-windows-a8-a9-a10-a11-specs.md)
 ### [Azure VM에 대한 계획된 유지 관리](../../virtual-machines-windows-planned-maintenance.md)
 ### [Azure 인프라 서비스 구현 지침](../../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
@@ -70,11 +70,7 @@
 #### [온-프레미스에서 Azure로 작업 제출](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
-####[Azure용 Oracle Data Guard 구성](configure-oracle-data-guard.md)
-####[Azure용 Oracle GoldenGate 구성](configure-oracle-goldengate.md)
-####[이미지에 대한 기타 고려 사항](oracle-considerations.md)
-####[Oracle VM 이미지 목록](oracle-images.md)
+### [Oracle](../../workloads/oracle/oracle-considerations.md)
 ### [SAP](sap-get-started.md)
 ### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)

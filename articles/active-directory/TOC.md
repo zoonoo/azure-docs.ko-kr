@@ -1,9 +1,9 @@
 # 개요
 ## [Azure Active Directory란?](active-directory-whatis.md)
-## [버전 선택](active-directory-editions.md)
 ## [Azure ID 관리 정보](identity-fundamentals.md)
 ## [Azure ID 솔루션 이해](understand-azure-identity-solutions.md)
 ## [하이브리드 ID 솔루션 선택](choose-hybrid-identity-solution.md)
+## [FAQ](active-directory-faq.md)
 
 # 시작
 ## [Azure AD 테넌트 가져오기](active-directory-howto-tenant.md)
@@ -18,22 +18,18 @@
 #### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
 #### [그룹 기반 라이선스에 대한 추가 시나리오](active-directory-licensing-group-advanced.md)
 #### [그룹 기반 라이선스에 대한 PowerShell 예제](active-directory-licensing-ps-examples.md)
-## [FAQ](active-directory-faq.md)
 ## [Azure Active Directory를 지원하는 방법](active-directory-troubleshooting-support-howto.md)
 ## [SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)
-
-
 
 # 방법
 ## 계획 및 디자인
 ### [Azure AD 아키텍처 이해](active-directory-architecture.md)
-### [전자 메일 정책 및 구성 보안](secure-email-introduction.md)
-#### [권장된 정책](secure-email-recommended-policies.md)
-#### [배포 정책 및 구성](secure-email-deploy-recommended-policies.md)
-#### [EMS 및 Office 365 서비스 설명](secure-email-ems-office365-service-descriptions.md)
+### [권장되는 보안 정책 및 구성](secure-email-introduction.md)
+#### [권장되는 보안 전자 메일 정책](secure-email-recommended-policies.md)
+##### [권장되는 보안 전자 메일 정책 배포](secure-email-deploy-recommended-policies.md)
+#### [EMS 및 Office 365 서비스 개요](secure-email-ems-office365-service-descriptions.md)
 ### [하이브리드 ID 솔루션 배포](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Azure Active Directory의 클레임 매핑](active-directory-claims-mapping.md)
-
 #### 요구 사항 결정
 ##### [ID](active-directory-hybrid-identity-design-considerations-business-needs.md)
 ##### [디렉터리 동기화](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -105,13 +101,16 @@
 ### [위험에 노출된 사용자](active-directory-reporting-security-user-at-risk.md)
 ### [위험한 로그인](active-directory-reporting-security-risky-sign-ins.md)
 ### [위험 이벤트](active-directory-reporting-risk-events.md)
-### [보존](active-directory-reporting-retention.md)
-### [대기 시간](active-directory-reporting-latencies-azure-portal.md)
 ### [FAQ](active-directory-reporting-faq.md)
 ### 작업
 #### [명명된 위치 구성](active-directory-named-locations.md)
 #### [활동 보고서 보기](active-directory-reporting-migration.md)
-#### [Azure Active Directory Power BI 콘텐츠 팩 사용](active-directory-reporting-power-bi-content-pack-how-to.md)  
+#### [Azure Active Directory Power BI 콘텐츠 팩 사용](active-directory-reporting-power-bi-content-pack-how-to.md)
+### 참조
+#### [보존](active-directory-reporting-retention.md)
+#### [대기 시간](active-directory-reporting-latencies-azure-portal.md)
+#### [Notifications](active-directory-reporting-notifications.md)
+#### [로그인 작업 오류 코드](active-directory-reporting-activity-sign-ins-errors.md)
 ### 문제 해결
 #### [누락된 감사 데이터](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [다운로드에서 누락된 데이터](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -123,23 +122,6 @@
 #### [감사 샘플](active-directory-reporting-api-audit-samples.md)
 #### [로그인 샘플](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [인증서 사용](active-directory-reporting-api-with-certificates.md)
-### [클래식 포털](active-directory-view-access-usage-reports.md)
-#### [Azure AD 보고](active-directory-reporting-getting-started.md)
-#### [보고 가이드](active-directory-reporting-guide.md)
-#### [알려진 네트워크](active-directory-known-networks.md)
-#### [API](active-directory-reporting-api-getting-started.md)
-##### [필수 구성 요소](active-directory-reporting-api-prerequisites.md)
-#### [감사 이벤트](active-directory-reporting-audit-events.md)
-#### [대기 시간](active-directory-reporting-latencies.md)
-#### [Notifications](active-directory-reporting-notifications.md)
-#### 보고서 이해
-##### [비정상적인 로그인](active-directory-reporting-irregular-sign-in-activity.md)
-##### [여러 번의 로그인 실패](active-directory-reporting-sign-ins-after-multiple-failures.md)
-##### [의심스러운 IP 주소](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
-##### [여러 지리적 위치](active-directory-reporting-sign-ins-from-multiple-geographies.md)
-##### [감염 가능성이 있는 장치](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)
-##### [알 수 없는 원본](active-directory-reporting-sign-ins-from-unknown-sources.md)
-##### [비정상적인 로그인](active-directory-reporting-users-with-anomalous-sign-in-activity.md)
 
 ## [암호 관리](active-directory-passwords-overview.md)
 ### 사용자 문서
@@ -219,6 +201,7 @@
 #### 게시 연습
 ##### [원격 데스크톱](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Microsoft 팀](application-proxy-teams.md)
 #### [문제 해결](active-directory-application-proxy-troubleshoot.md)
 #### 클래식 포털 사용
 ##### [커넥터 다운로드](application-proxy-enable-classic-portal.md)

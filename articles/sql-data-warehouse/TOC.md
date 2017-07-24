@@ -50,6 +50,7 @@
 #### [인덱스](sql-data-warehouse-tables-index.md)
 #### [ID](sql-data-warehouse-tables-identity.md)
 #### [파티션](sql-data-warehouse-tables-partition.md)
+#### [복제된 테이블](design-guidance-for-replicated-tables.md)
 #### [통계](sql-data-warehouse-tables-statistics.md)
 #### [임시](sql-data-warehouse-tables-temporary.md)
 

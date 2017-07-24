@@ -3,6 +3,7 @@
 ## [개념](devtest-lab-concepts.md)
 ## 시나리오
 ### [개발자용 랩 사용](devtest-lab-developer-lab.md)
+### [테스트 환경용 랩 사용](devtest-lab-test-env.md)
 ### [학습에 랩 사용](devtest-lab-training-lab.md)
 
 # 시작
@@ -40,6 +41,7 @@
 
 ## 재사용 가능한 템플릿 관리
 ### [아티팩트 및 템플릿에 Git 리포지토리 추가](devtest-lab-add-artifact-repo.md)
+### [Resource Manager 템플릿 사용](devtest-lab-use-resource-manager-template.md)
 ### [사용자 지정 아티팩트 만들기](devtest-lab-artifact-author.md)
 ### [수식 관리](devtest-lab-manage-formulas.md)
 
@@ -64,6 +66,4 @@
 ## [팀 블로그](https://blogs.msdn.microsoft.com/devtestlab/)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
-## [가격 책정](https://azure.microsoft.com/pricing/details/devtest-lab/)
-# 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [가격](https://azure.microsoft.com/pricing/details/devtest-lab/)

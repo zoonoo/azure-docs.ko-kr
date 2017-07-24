@@ -32,6 +32,7 @@
 ### [배치 PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
 ### [Azure CLI](batch-cli-get-started.md)
 #### [배치 계정 만들기](./scripts/batch-cli-sample-create-account.md)
+#### [코드 없이 배치 작업 실행](batch-cli-templates.md)
 #### [응용 프로그램 추가](./scripts/batch-cli-sample-add-application.md)
 #### [풀 관리](./scripts/batch-cli-sample-manage-pool.md)
 #### [작업 및 태스크 실행](./scripts/batch-cli-sample-run-job.md)

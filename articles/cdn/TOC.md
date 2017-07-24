@@ -14,6 +14,7 @@
 ### [최적화 개요](cdn-optimization-overview.md)
 ####[큰 파일 최적화](cdn-large-file-optimization.md)
 ####[미디어 스트리밍 최적화](cdn-media-streaming-optimization.md)
+####[동적 사이트 가속](cdn-dynamic-site-acceleration.md)
  
 ## 관리
 ### [사용자 지정 도메인에 HTTPS 사용](cdn-custom-ssl.md)
@@ -58,6 +59,9 @@
 
 # 리소스
 ##  [규칙 엔진 참조](cdn-rules-engine-reference.md)
+### [규칙 엔진 조건식](cdn-rules-engine-reference-conditional-expressions.md)
+### [규칙 엔진 기능](cdn-rules-engine-reference-features.md)
+### [규칙 엔진 일치 조건](cdn-rules-engine-reference-match-conditions.md)
 ## [Azure CDN POP 위치](cdn-pop-locations.md)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
@@ -65,6 +69,4 @@
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=cdn)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
-### [규칙 엔진 조건식](cdn-rules-engine-reference-conditional-expressions.md)
-### [규칙 엔진 기능](cdn-rules-engine-reference-features.md)
-### [규칙 엔진 일치 조건](cdn-rules-engine-reference-match-conditions.md)
+

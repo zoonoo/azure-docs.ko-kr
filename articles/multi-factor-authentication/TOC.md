@@ -15,6 +15,7 @@
 ### [설정 구성](multi-factor-authentication-whats-next.md)
 ### [MFA 보고서](multi-factor-authentication-manage-reports.md)
 ### [기존 네트워크 정책 서버 사용](multi-factor-authentication-nps-extension.md)
+#### [NPS 확장에 대한 고급 구성](nps-extension-advanced-configuration.md)
 ### [인증 공급자 만들기](multi-factor-authentication-get-started-auth-provider.md)
 ### 온-프레미스에서 Azure MFA
 #### [사용자 포털 설치](multi-factor-authentication-get-started-portal.md)

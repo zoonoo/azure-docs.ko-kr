@@ -4,9 +4,10 @@
 ## [가상 네트워크 피어링](virtual-network-peering-overview.md)
 ## [비즈니스 연속성](virtual-network-disaster-recovery-guidance.md)
 ## [FAQ](virtual-networks-faq.md)
-## IP 주소
-### [리소스 관리자](virtual-network-ip-addresses-overview-arm.md)
-### [클래식](virtual-network-ip-addresses-overview-classic.md)
+## [IP 주소 지정](virtual-network-ip-addresses-overview-arm.md)
+## 클래식
+### [IP 주소 지정](virtual-network-ip-addresses-overview-classic.md)
+### [액세스 제어 목록](virtual-networks-acl.md)
 
 # 시작
 ## [첫 가상 네트워크 만들기](virtual-network-get-started-vnet-subnet.md)
@@ -43,7 +44,11 @@
 ##### [PowerShell](virtual-network-create-udr-classic-ps.md)
 ##### [CLI](virtual-network-create-udr-classic-cli.md)
 
-### [가상 네트워크 피어링](virtual-network-create-peering.md)
+### 가상 네트워크 피어링
+#### [동일한 배포 모델 - 동일한 구독](virtual-network-create-peering.md)
+#### [동일한 배포 모델 - 다른 구독](create-peering-different-subscriptions.md)
+#### [다른 배포 모델 - 동일한 구독](create-peering-different-deployment-models.md)
+#### [다른 배포 모델 - 다른 구독](create-peering-different-deployment-models-subscriptions.md)
 
 ### 가상 컴퓨터
 #### 정적 공용 IP 주소를 사용하는 VM 만들기
@@ -95,15 +100,15 @@
 ##### [샘플 응용 프로그램](virtual-networks-sample-app.md)
 
 ## 구성
-
-### 액세스 제어 목록
-#### [클래식 포털](virtual-networks-acl.md)
-#### [PowerShell](virtual-networks-acl-powershell.md)
 ### 가상 컴퓨터
 #### [네트워크 인터페이스 추가 또는 제거](virtual-network-network-interface-vm.md)
 #### [VM 및 클라우드 서비스의 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 #### [네트워크 처리량 최적화](virtual-network-optimize-network-bandwidth.md)
 #### [호스트 이름 보기 및 수정](virtual-networks-viewing-and-modifying-hostnames.md)
+### 클래식
+#### 액세스 제어 목록
+##### [포털](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [PowerShell](virtual-networks-acl-powershell.md)
 
 ## 관리
 ### [가상 네트워크](virtual-network-manage-network.md)
@@ -132,6 +137,7 @@
 #### [포털](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [처리량 테스트](virtual-network-bandwidth-testing.md)
+### [가상 네트워크를 삭제할 수 없음](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # 참조
 ## [PowerShell(리소스 관리자)](/powershell/module/azurerm.network)
