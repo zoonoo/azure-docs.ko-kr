@@ -62,14 +62,14 @@
 
 ## 관리 및 모니터링
 ### [Visual Studio에서 논리 앱 관리](logic-apps-manage-from-vs.md)
-### [논리 앱 모니터링](logic-apps-monitor-your-logic-apps.md)
 ### [통합 계정 관리](logic-apps-enterprise-integration-accounts.md)
+### [논리 앱 상태 모니터링](logic-apps-monitor-your-logic-apps.md)
 ### [B2B 메시지 모니터링](logic-apps-monitor-b2b-message.md)
+#### [OMS에서 B2B 메시지 추적](logic-apps-track-b2b-messages-omsportal.md)
+#### [B2B 메시지에 대한 OMS 쿼리](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 #### [AS2 추적 스키마](logic-apps-track-integration-account-as2-tracking-schemas.md)
 #### [X12 추적 스키마](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [사용자 지정 추적 스키마](logic-apps-track-integration-account-custom-tracking-schema.md)
-#### [OMS에서 B2B 메시지 추적](logic-apps-track-b2b-messages-omsportal.md)
-#### [메시지에 대한 OMS 쿼리](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 
 ## 예제, 시나리오 및 연습
 ### [개요](logic-apps-examples-and-scenarios.md)
@@ -81,7 +81,6 @@
 ## 가격 및 청구
 ### [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)
 ### [사용량 계량](logic-apps-pricing.md)
-
 
 # 서버를 사용하지 않음
 ## 개요

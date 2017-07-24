@@ -74,7 +74,7 @@
 
 ### [Azure Blob 저장소](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [.NET을 사용하여 Azure Blob 저장소 시작](../../storage/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Windows에서 Azure 파일 저장소 시작](../../storage/storage-dotnet-how-to-use-files.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### [Windows에서 Azure 파일 저장소 시작](../../storage/storage-file-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
 ### [Linux에서 Azure 파일 저장소 사용 방법](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Table Storage 시작](../../storage/storage-dotnet-how-to-use-tables.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Queue Storage 시작](../../storage/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

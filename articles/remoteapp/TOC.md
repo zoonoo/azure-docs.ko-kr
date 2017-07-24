@@ -25,6 +25,7 @@
 # 방법
 
 ## [Azure RemoteApp에서 사용자 데이터 마이그레이션](remoteapp-migrate.md)
+## [MyCloudIT로 마이그레이션](remoteapp-migrate-mycloudit.md)
 ## [Citrix XenApp Essentials로 마이그레이션](remoteapp-migrate-citrix.md)
 ## RemoteApp 컬렉션 만들기
 ### [어떤 컬렉션이 필요한가요?](remoteapp-collections.md)

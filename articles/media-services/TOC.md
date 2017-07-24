@@ -1,4 +1,5 @@
 # [개요](media-services-overview.md)
+## [시나리오 및 가용성](scenarios-and-availability.md)
 ## [개념](media-services-concepts.md)
 
 # 시작
@@ -130,16 +131,15 @@
 ### [Widevine 라이선스 템플릿 개요](media-services-widevine-license-template-overview.md)
 ### [DRM 라이선스 배달](media-services-deliver-keys-and-licenses.md)
 ### [파트너를 사용하여 Media Services에 Widevine 라이선스 제공](media-services-licenses-partner-integration.md)
+#### [Axinom을 사용하여 Media Services에 Widevine 라이선스 제공](media-services-axinom-integration.md)
+#### [castLabs를 사용하여 Media Services에 Widevine 라이선스 제공](media-services-castlabs-integration.md)
 ### [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-drm.md)
 ### [Apple FairPlay로 보호되는 HLS 콘텐츠 스트림](media-services-protect-hls-with-fairplay.md)
+### [DRM 하위 시스템의 하이브리드 디자인](hybrid-design-drm-sybsystem.md)
 ### [다중 DRM 및 액세스 제어가 포함된 CENC](media-services-cenc-with-multidrm-access-control.md)
-### [Axinom을 사용하여 Media Services에 Widevine 라이선스 제공](media-services-axinom-integration.md)
-### [castLabs를 사용하여 Media Services에 Widevine 라이선스 제공](media-services-castlabs-integration.md)
-
-### 자산 배달
-#### 자산 배달 정책 구성
-##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
-##### [REST](media-services-rest-configure-asset-delivery-policy.md)
+### 자산 배달 정책 구성
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Contentkey 만들기
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
@@ -152,6 +152,7 @@
 ### [포털을 사용하여 미디어 분석](media-services-portal-analyze.md)
 ### [Indexer 2를 사용하여 처리](media-services-process-content-with-indexer2.md)
 ### [Indexer를 사용하여 처리](media-services-index-content.md)
+#### [태스크 사전 설정](indexer-task-preset.md)
 ### [Hyperlapse를 사용하여 처리](media-services-hyperlapse-content.md)
 ### [Face Detector를 사용하여 처리](media-services-face-and-emotion-detection.md)
 ### [Motion Detector를 사용하여 처리](media-services-motion-detection.md)

@@ -61,6 +61,9 @@
 ### [PowerShell(클래식)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [VPN Gateway(클래식) 구성](vpn-gateway-configure-vpn-gateway-mp.md)
 ## [게이트웨이 SKU(이전)](vpn-gateway-about-skus-legacy.md)
+## 타사 VPN 장치 구성
+### [개요 및 Azure 구성](vpn-gateway-3rdparty-device-config-overview.md)
+### [샘플: Cisco ASA 장치(IKEv2/BGP 아님)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## 문제 해결
 ### [VNet에 대한 VPN 처리량의 유효성 검사](vpn-gateway-validate-throughput-to-vnet.md)
 ### [커뮤니티에서 제안한 VPN 또는 방화벽 장치 설정](vpn-gateway-third-party-settings.md)

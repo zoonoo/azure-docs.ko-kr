@@ -122,6 +122,7 @@
 ### [확장 프로세스 서버 관리](site-recovery-vmware-to-azure-manage-scaleout-process-server.md)
 ### [vCenter 서버 관리](site-recovery-vmware-to-azure-manage-vCenter.md)
 ### [서버 제거 및 보호 사용 안 함](site-recovery-manage-registration-and-protection.md)
+### [Recovery Services 자격 증명 모음 삭제](delete-vault.md)
 
 ## 모니터링 및 문제 해결
 ### [Azure 간 복제 문제](site-recovery-azure-to-azure-troubleshoot-errors.md)

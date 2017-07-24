@@ -74,3 +74,4 @@
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [PowerShell 샘플](insights-powershell-samples.md)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=monitor)
+## [빠른 시작 템플릿](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

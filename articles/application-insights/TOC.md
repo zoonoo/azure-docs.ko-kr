@@ -92,7 +92,7 @@
 ### 사용
 #### [개요](app-insights-usage-overview.md)
 #### [사용자, 세션, 이벤트](app-insights-usage-segmentation.md)
-#### [깔때기](app-insights-understand-usage-patterns.md)
+#### [깔때기](usage-funnels.md)
 #### [보존](app-insights-usage-retention.md)
 #### [통합 문서](app-insights-usage-workbooks.md)
 
@@ -116,6 +116,7 @@
 ## 개발
 
 ### [사용자 지정 이벤트 및 메트릭용 API ](app-insights-api-custom-events-metrics.md)
+### [.NET SDK에서 사용자 지정 작업 추적](application-insights-custom-operations-tracking.md)
 ### [필터링 및 원격 분석 전처리](app-insights-api-filtering-sampling.md)
 ### [샘플링](app-insights-sampling.md)
 

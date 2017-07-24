@@ -14,6 +14,7 @@
 ### [크기 집합 템플릿에 대해 알아보기](virtual-machine-scale-sets-mvss-start.md)
 ### [기존 가상 네트워크 사용](virtual-machine-scale-sets-mvss-existing-vnet.md)
 ### [사용자 지정 이미지 사용](virtual-machine-scale-sets-mvss-custom-image.md)
+### [Linux 크기 집합 템플릿을 사용하여 게스트 기반 자동 크기 조정 사용](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## 배포
 ### [포털을 사용하여 만들기](virtual-machine-scale-sets-portal-create.md)
@@ -32,10 +33,11 @@
 ## 관리
 ### [PowerShell을 사용한 Windows 크기 집합](virtual-machine-scale-sets-windows-manage.md)
 ### [자동 크기 조정 및 크기 집합](virtual-machine-scale-sets-autoscale-overview.md)
+### [고급 자동 크기 조정](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [크기 집합에서 수직적 크기 조정](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [크기 집합을 위한 업그레이드](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [고급 자동 크기 조정](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [DSC 및 크기 집합 사용](virtual-machine-scale-sets-dsc.md)
+### [크기 집합에 대한 네트워킹](virtual-machine-scale-sets-networking.md)
 ### [템플릿을 관리 디스크로 변환](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## 문제 해결
