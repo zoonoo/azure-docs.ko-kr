@@ -85,11 +85,11 @@
 ### [v1-v2 비교](active-directory-v2-compare.md)
 ## 시작
 ### 모바일 및 데스크톱 앱
-#### [iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift)
+#### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
 #### [Windows 데스크톱 .NET](guidedsetups/active-directory-windesktop.md)
 ### 웹 앱
-#### [Javascript SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
 #### [ASP.NET 웹 서버](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS 웹앱](active-directory-v2-devquickstarts-node-web.md)
 ## 가이드

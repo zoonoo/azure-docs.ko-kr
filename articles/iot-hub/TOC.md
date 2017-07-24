@@ -87,6 +87,7 @@
 ### 직접 메서드 사용
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-direct-methods.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-direct-methods.md)
+#### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java 백 엔드/Java 장치](iot-hub-java-java-direct-methods.md)
 ### 장치 관리 시작
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-device-management-get-started.md)
@@ -95,6 +96,7 @@
 ### 쌍 속성 사용 방법
 #### [Node.js 백 엔드/Node.js 장치](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-twin-how-to-configure.md)
+#### [.NET 백 엔드/.NET 장치](iot-hub-csharp-csharp-twin-how-to-configure.md)
 ### 장치 작업을 사용하여 장치 펌웨어 업데이트
 #### [노드 백 엔드/노드 장치](iot-hub-node-node-firmware-update.md)
 #### [.NET 백 엔드/Node.js 장치](iot-hub-csharp-node-firmware-update.md)
