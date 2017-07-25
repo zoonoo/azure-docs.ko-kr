@@ -12,14 +12,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/25/2017
 ms.author: dobett
 ms.translationtype: Human Translation
 ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: 522fa6a45521ab917a540e8cc6bc619b05ab262e
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/03/2017
-
 
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-c"></a>Raspberry Pi 3를 원격 모니터링 솔루션에 연결하고 C를 사용하여 시뮬레이트된 원격 분석 전송
@@ -50,15 +49,18 @@ ms.lasthandoff: 05/03/2017
 
 아직 해당 작업을 수행하지 않은 경우 Pi의 터미널에서 다음 명령을 실행하여 필요한 리포지토리를 복제합니다.
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git
+```
 
 ### <a name="update-the-device-connection-string"></a>장치 연결 문자열 업데이트
 
 다음 명령을 사용하여 **nano** 편집기에서 샘플 원본 파일을 엽니다.
 
-`nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/simulator/remote_monitoring/remote_monitoring.c`
+```sh
+nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/simulator/remote_monitoring/remote_monitoring.c
+```
 
 다음 줄을 찾습니다.
 
@@ -73,19 +75,23 @@ static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;
 
 Raspberry Pi의 터미널에서 다음 명령을 실행하여 C용 Microsoft Azure IoT 장치 SDK의 필수 구성 요소 패키지를 설치합니다.
 
-`sudo apt-get update`
-
-`sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev`
+```sh
+sudo apt-get update
+sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev
+```
 
 이제 Raspberry Pi에서 업데이트된 샘플 솔루션을 빌드할 수 있습니다.
 
-`chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/simulator/build.sh`
-
-`~/iot-remote-monitoring-c-raspberrypi-getstartedkit/simulator/build.sh`
+```sh
+chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/simulator/build.sh
+~/iot-remote-monitoring-c-raspberrypi-getstartedkit/simulator/build.sh
+```
 
 이제 Raspberry Pi에서 샘플 프로그램을 실행할 수 있습니다. 다음 명령을 입력합니다.
 
-  `sudo ~/cmake/remote_monitoring/remote_monitoring`
+```sh
+sudo ~/cmake/remote_monitoring/remote_monitoring
+```
 
 다음 샘플 출력은 Raspberry Pi의 명령 프롬프트에 표시되는 출력의 예입니다.
 
@@ -98,7 +104,6 @@ Raspberry Pi의 터미널에서 다음 명령을 실행하여 C용 Microsoft Azu
 ## <a name="next-steps"></a>다음 단계
 
 Azure IoT에 대한 추가 샘플 및 설명서를 보려면 [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot/)를 방문하세요.
-
 
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-c-get-started-simulator/appoutput.png
 

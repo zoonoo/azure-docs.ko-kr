@@ -69,19 +69,21 @@ Windows 폴더를 공유하려면 Raspberry Pi Samba 서버를 구성합니다. 
 
 샘플 응용 프로그램을 실행하기 전에 Raspberry Pi에서 SPI(Serial Peripheral Interface) 버스를 사용하도록 설정해야 합니다. Raspberry Pi는 SPI 버스를 통해 BME280 센서 장치와 통신합니다. 다음 명령을 사용하여 구성 파일을 편집합니다.
 
-`sudo nano /boot/config.txt`
+```sh
+sudo nano /boot/config.txt
+```
 
 다음과 같은 줄을 찾습니다.
 
-```
-#dtparam=spi=on
-```
+`#dtparam=spi=on`
 
 - 줄의 주석 처리를 제거하려면 시작 부분에서 `#`을 삭제합니다.
 - 변경 내용을 저장하고(**Ctrl-O**, **Enter**) 편집기를 종료합니다(**Ctrl-X**).
 - SPI를 사용하려면 Raspberry Pi를 다시 부팅합니다. 다시 부팅하면 터미널의 연결이 끊어지므로 Raspberry Pi를 다시 시작할 경우 다시 로그인해야 합니다.
 
-  `sudo reboot`
+  ```sh
+  sudo reboot
+  ```
 
 
 [img-connection-diagram]: media/iot-suite-raspberry-pi-kit-prepare-pi/rpi2_remote_monitoring.png
