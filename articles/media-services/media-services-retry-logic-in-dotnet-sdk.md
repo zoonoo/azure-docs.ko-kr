@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 07/21/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: e22a16c0929b28c475aa4caa0465651603713112
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>.NET용 Media Services SDK의 다시 시도 논리
@@ -47,7 +48,7 @@ Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 
 | StorageException |아니요 |예 |아니요 |아니요 |
 | IOException |아니요 |예 |아니요 |아니요 |
 
-### <a name="a-namewebexceptionstatusa-webexception-status-codes"></a><a name="WebExceptionStatus"></a> WebException 상태 코드
+### <a name="WebExceptionStatus"></a> WebException 상태 코드
 다음 테이블은 어떤 WebException 오류 코드에 대해 재시도 논리가 구현되었는지 보여줍니다. [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) 열거형은 상태 코드를 정의합니다.  
 
 | 가동 상태 | 웹 요청 | 저장소 | 쿼리 | SaveChanges |
@@ -65,7 +66,7 @@ Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 
 | 시간 제한 |예 |예 |예 |아니요 |
 | ProtocolError <br/>ProtocolError 시의 재시도는 HTTP 상태 코드 처리에 의해 제어됩니다. 자세한 내용은 [HTTP 오류 상태 코드](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode)를 참조하세요. |예 |예 |예 |예 |
 
-### <a name="a-namehttpstatuscodea-http-error-status-codes"></a><a name="HTTPStatusCode"></a> HTTP 오류 상태 코드
+### <a name="HTTPStatusCode"></a> HTTP 오류 상태 코드
 Query 및 SaveChanges 작업에서 DataServiceClientException, DataServiceQueryException 또는 DataServiceQueryException를 던질 경우 HTTP 오류 상태 코드가 StatusCode 속성에 반환됩니다.  다음 테이블은 어떤 오류 코드에 대해 재시도 논리가 구현되었는지 보여줍니다.  
 
 | 가동 상태 | 웹 요청 | 저장소 | 쿼리 | SaveChanges |
@@ -86,10 +87,5 @@ Query 및 SaveChanges 작업에서 DataServiceClientException, DataServiceQueryE
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
