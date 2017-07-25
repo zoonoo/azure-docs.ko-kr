@@ -13,12 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
+ms.date: 07/20/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.reviewer: jesakowi
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 095497656a1c6ed1fe5322b6015de750d8fd6f15
 ms.openlocfilehash: 3706ed729a525526a415d3a3367e6b8245ead812
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/07/2016
 
 ---
 
@@ -215,10 +217,5 @@ FabrikamMail의 경우 다음과 같이 나타납니다.
 (**ClientId**는 FabrikamMail의 서비스 주체 개체 ID(방금 생성)이고, **PrincipalId**는 사용자 개체 ID(동의한 사용자의)이며, **ResourceId**는 Exchange의 서비스 주체 개체 ID입니다. 범위는 동의한 Exchange에서의 권한입니다.)
 
 사용자가 동의할 수 없는 경우 권한이 필요하다는 화면이 표시됩니다.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

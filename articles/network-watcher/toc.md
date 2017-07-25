@@ -7,6 +7,7 @@
 ## [보안 그룹 보기](network-watcher-security-group-view-overview.md)
 ## [다음 홉](network-watcher-next-hop-overview.md)
 ## [VPN 연결 문제 해결](network-watcher-troubleshoot-overview.md)
+## [연결 확인](network-watcher-connectivity-overview.md)
 ## [서비스 한도](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 # 시작
 ## [Network Watcher 구성](network-watcher-create.md)
@@ -44,6 +45,10 @@
 ### [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [CLI 2.0](network-watcher-security-group-view-cli.md)
 ### [REST (영문)](network-watcher-security-group-view-rest.md)
+## 연결 테스트
+### [PowerShell](network-watcher-connectivity-powershell.md)
+### [CLI 2.0](network-watcher-connectivity-cli.md)
+### [REST (영문)](network-watcher-connectivity-rest.md)
 ## NSG 흐름 로그 구성
 ### [포털](network-watcher-nsg-flow-logging-portal.md)
 ### [PowerShell](network-watcher-nsg-flow-logging-powershell.md)

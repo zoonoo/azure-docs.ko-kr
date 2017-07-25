@@ -4,7 +4,7 @@ description: "SharePoint 서버 팜에서 SharePoint용 StorSimple 어댑터를 
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 36c20b75-f2e5-4184-a6b5-9c5e618f79b2
 ms.service: storsimple
@@ -12,11 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/11/2016
+ms.date: 06/06/2017
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
-ms.openlocfilehash: 8c7bcc959c15399e8be96eb8f37634d2763a3115
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8910471e09b9ecc797005818538ccfc6a91c68a9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -28,8 +30,7 @@ SharePoint용 StorSimple 어댑터는 RBS(Remote BLOB Storage) 공급자로서 �
 
 > [!NOTE]
 > SharePoint용 StorSimple 어댑터는 SharePoint Server 2010 RBS(Remote BLOB Storage)를 지원합니다. SharePoint Server 2010 EBS(External BLOB Storage)를 지원하지 않습니다.
-> 
-> 
+
 
 * SharePoint용 StorSimple 어댑터를 다운로드하려면 Microsoft 다운로드 센터에서 [SharePoint용 StorSimple 어댑터][1]로 이동합니다.
 * RBS 및 RBS 제한을 위한 계획에 대한 내용을 보려면 [SharePoint 2013에서 RBS 사용 결정][2] 또는 [RBS(SharePoint Server 2010)을 위한 계획][3]으로 이동합니다.
@@ -85,11 +86,9 @@ RBS를 구성하기 전에 다음을 검토합니다.
 
 > [!WARNING]
 > RBS를 사용하도록 설정하지 않은 경우 콘텐츠 데이터베이스를 StorSimple 장치로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
-> 
-> 
 
 ## <a name="storsimple-adapter-for-sharepoint-installation"></a>SharePoint 설치용 StorSimple 어댑터
-SharePoint용 StorSimple 어댑터를 설치하기 전에 StorSimple 장치를 구성해야 하고 SharePoint 서버 팜 및 SQL Server 인스턴스화가 필수 구성 요소를 충족하는지 확인합니다. 이 자습서에서는 SharePoint용 StorSimple 어댑터 설치 및 업그레이드에 대한 절차와 더불어 구성 요구 사항도 설명합니다. 
+SharePoint용 StorSimple 어댑터를 설치하기 전에 StorSimple 장치를 구성해야 하고 SharePoint 서버 팜 및 SQL Server 인스턴스화가 필수 구성 요소를 충족하는지 확인합니다. 이 자습서에서는 SharePoint용 StorSimple 어댑터 설치 및 업그레이드에 대한 절차와 더불어 구성 요구 사항도 설명합니다.
 
 ## <a name="configure-prerequisites"></a>필수 조건 구성
 SharePoint용 StorSimple 어댑터를 설치하기 전에 StorSimple 장치, SharePoint 서버 팜 및 SQL Server 인스턴스화가 다음 필수 구성 요소를 충족하는지 확인합니다.
@@ -97,47 +96,44 @@ SharePoint용 StorSimple 어댑터를 설치하기 전에 StorSimple 장치, Sha
 ### <a name="system-requirements"></a>시스템 요구 사항
 SharePoint용 StorSimple 어댑터는 다음 하드웨어 및 소프트웨어와 함께 작동합니다.
 
-* 지원되는 운영 체제 – Windows Server 2008 R2 SP1, Windows Server 2012 또는 Windows Server 2012 R2 
+* 지원되는 운영 체제 – Windows Server 2008 R2 SP1, Windows Server 2012 또는 Windows Server 2012 R2
 * 지원되는 SharePoint 버전 – SharePoint Server 2010 또는 SharePoint Server 2013
 * 지원되는 SQL Server 버전 – SQL Server 2008 Enterprise Edition, SQL Server 2008 R2 Enterprise Edition 또는 SQL Server 2012 Enterprise Edition
 * 지원되는 StorSimple 장치 – StorSimple 8000 시리즈, StorSimple 7000 시리즈 또는 StorSimple 5000 시리즈입니다.
 
 ### <a name="storsimple-device-configuration-prerequisites"></a>StorSimple 장치 필수 구성 요소
-StorSimple 장치는 블록 장치이며 따라서 데이터를 호스팅할 수 있는 파일 서버가 필요합니다. SharePoint 팜의 기존 서버보다 별도 서버를 사용하는 것이 좋습니다. 이 파일 서버는 콘텐츠 데이터베이스를 호스팅하는 SQL Server 컴퓨터와 동일한 LAN(로컬 영역 네트워크)에 있어야 합니다. 
+StorSimple 장치는 블록 장치이며 따라서 데이터를 호스팅할 수 있는 파일 서버가 필요합니다. SharePoint 팜의 기존 서버보다 별도 서버를 사용하는 것이 좋습니다. 이 파일 서버는 콘텐츠 데이터베이스를 호스팅하는 SQL Server 컴퓨터와 동일한 LAN(로컬 영역 네트워크)에 있어야 합니다.
 
 > [!TIP]
 > * 또한 고가용성을 위해 SharePoint 팜을 구성하는 경우 고가용성을 위해 파일 서버를 배포해야 합니다.
 > * StorSimple 장치에 콘텐츠 데이터베이스를 저장하지 않는 경우 RBS를 지원하는 기존의 고가용성 모범 사례를 사용합니다. SQL Server 미러링이 지원하지 않는 반면 SQL Server 클러스터링은 RBS를 지원합니다. 
-> 
-> 
 
-StorSimple 장치를 제대로 구성하고 SharePoint 배포를 지원하기 위해 적절한 볼륨이 SQL Server 컴퓨터에서 구성되고 액세스할 수 있는지 확인합니다. StorSimple 장치를 배포 및 구성하려면 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)로 이동합니다. StorSimple 장치의 IP 주소는 SharePoint용 StorSimple 어댑터를 설치하는 동안 필요합니다. 
+
+StorSimple 장치를 제대로 구성하고 SharePoint 배포를 지원하기 위해 적절한 볼륨이 SQL Server 컴퓨터에서 구성되고 액세스할 수 있는지 확인합니다. StorSimple 장치를 배포 및 구성하려면 [온-프레미스 StorSimple 장치 배포](storsimple-8000-deployment-walkthrough-u2.md)로 이동합니다. StorSimple 장치의 IP 주소는 SharePoint용 StorSimple 어댑터를 설치하는 동안 필요합니다.
 
 또한 BLOB 표면화에 사용할 볼륨이 다음 요구 사항을 충족하는지 확인합니다.
 
 * 볼륨은 64KB 할당 단위 크기로 포맷되어야 합니다.
-* WFE(웹 프런트 엔드) 및 응용 프로그램 서버는 UNC(범용 명명 규칙) 경로를 통해 이 볼륨에 액세스할 수 있어야 합니다. 
+* WFE(웹 프런트 엔드) 및 응용 프로그램 서버는 UNC(범용 명명 규칙) 경로를 통해 이 볼륨에 액세스할 수 있어야 합니다.
 * SharePoint 서버 팜을 구성하여 볼륨에 써야 합니다.
 
 > [!NOTE]
 > 어댑터를 설치하고 구성한 후에 모든 BLOB 표면화는 StorSimple 장치를 통해 이동해야 합니다.(장치는 볼륨을 SQL Server에 표시하고 저장소 계층을 관리합니다.) BLOB 표면화에 다른 대상을 사용할 수 없습니다.
-> 
-> 
 
-StorSimple Snapshot Manager를 사용하여 BLOB 및 데이터베이스 데이터의 스냅숏을 만드는 경우 데이터베이스 서버에 StorSimple Snapshot Manager를 설치하므로 SQL 기록기 서비스를 사용하여 Windows VSS(볼륨 섀도 복사본 서비스)를 구현할 수 있습니다. 
+
+StorSimple Snapshot Manager를 사용하여 BLOB 및 데이터베이스 데이터의 스냅숏을 만드는 경우 데이터베이스 서버에 StorSimple Snapshot Manager를 설치하므로 SQL 기록기 서비스를 사용하여 Windows VSS(볼륨 섀도 복사본 서비스)를 구현할 수 있습니다.
 
 > [!IMPORTANT]
-> StorSimple Snapshot Manager는 SharePoint VSS 기록기를 지원하지 않으며 응용 프로그램이 일관된 SharePoint 데이터의 스냅숏을 사용할 수 없습니다. SharePoint 시나리오에서 StorSimple Snapshot Manager는 크래시 일관성이 있는 백업만 제공합니다. 
-> 
-> 
+> StorSimple Snapshot Manager는 SharePoint VSS 기록기를 지원하지 않으며 응용 프로그램이 일관된 SharePoint 데이터의 스냅숏을 사용할 수 없습니다. SharePoint 시나리오에서 StorSimple Snapshot Manager는 크래시 일관성이 있는 백업만 제공합니다.
+
 
 ## <a name="sharepoint-farm-configuration-prerequisites"></a>SharePoint 팜 필수 구성 요소
 SharePoint 서버 팜이 올바르게 구성되어있는지 다음과 같이 확인합니다.
 
-* SharePoint 서버 팜이 정상 상태인지 확인하고 다음을 확인합니다. 
+* SharePoint 서버 팜이 정상 상태인지 확인하고 다음을 확인합니다.
 * 팜에 등록된 모든 SharePoint WFE와 응용 프로그램 서버는 실행 중이며 SharePoint용 StorSimple 어댑터를 설치하는 서버에서 ping을 실행할 수 있습니다.
 * SharePoint 타이머 서비스(SPTimerV3 또는 SPTimerV4)는 각 WFE 서버 및 응용 프로그램 서버에서 실행됩니다.
-* SharePoint 중앙 관리 사이트가 실행 중인 SharePoint 타이머 서비스 및 IIS 응용 프로그램 풀은 관리 권한을 가집니다. 
+* SharePoint 중앙 관리 사이트가 실행 중인 SharePoint 타이머 서비스 및 IIS 응용 프로그램 풀은 관리 권한을 가집니다.
 * Internet Explorer 보안 강화 컨텍스트(IE ESC)가 사용되지 않는지 확인합니다. 다음 단계를 수행하여 IE ESC를 사용하지 않도록 설정합니다.
   
   1. Internet Explorer의 모든 인스턴스를 닫습니다.
@@ -168,8 +164,7 @@ SharePoint용 StorSimple 어댑터를 설치한 후에 다음 절차에서 설�
 
 > [!TIP]
 > SharePoint 중앙 관리 페이지에 SharePoint용 StorSimple 어댑터를 연결하면 SharePoint 팜의 각 콘텐츠 데이터베이스에서 RBS를 사용하거나 사용하지 못하도록 합니다. 그러나 콘텐츠 데이터베이스에서 RBS를 활성화 또는 비활성화하면 IIS가 재설정되어 팜 구성에 따라 일시적으로 SharePoint WFE(웹 프런트 엔드)의 가용성을 중단될 수 있습니다. (프런트 엔드 부하 분산 장치의 사용, 현재 서버 워크로드 등의 요인으로 이 중단을 제거하거나 제한할 수 있습니다.) 중단에서 사용자를 보호하려면 계획된 유지 관리 기간 동안 RBS를 사용하거나 사용하지 않도록 설정하는 것이 좋습니다.
-> 
-> 
+
 
 [!INCLUDE [storsimple-sharepoint-adapter-configure-rbs](../../includes/storsimple-sharepoint-adapter-configure-rbs.md)]
 
@@ -182,8 +177,7 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 
 > [!IMPORTANT]
 > RBS 유지 관리 프로그램은 많은 리소스를 사용합니다. SharePoint 팜에서 활동이 적은 기간 동안 실행되도록 예약해야 합니다.
-> 
-> 
+
 
 ### <a name="delete-orphaned-blobs-immediately"></a>분리된 BLOB 즉시 삭제
 분리된 BLOB를 즉시 삭제해야 하는 경우 다음 지침을 사용할 수 있습니다. 이러한 지침은 다음 구성 요소가 있는 SharePoint 2013 환경에서 이를 수행하는 방법의 예시입니다.
@@ -195,7 +189,7 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 [!INCLUDE [storsimple-sharepoint-adapter-garbage-collection](../../includes/storsimple-sharepoint-adapter-garbage-collection.md)]
 
 ## <a name="upgrade-or-reinstall-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터 업그레이드 또는 다시 설치
-다음 절차를 사용하여 SharePoint 서버를 업그레이드한 다음 SharePoint용 StorSimple 어댑터를 다시 설치하거나 기존 SharePoint 서버 팜에서 어댑터를 업그레이드하거나 다시 설치합니다. 
+다음 절차를 사용하여 SharePoint 서버를 업그레이드한 다음 SharePoint용 StorSimple 어댑터를 다시 설치하거나 기존 SharePoint 서버 팜에서 어댑터를 업그레이드하거나 다시 설치합니다.
 
 > [!IMPORTANT]
 > SharePoint 소프트웨어를 업그레이드 및/또는 SharePoint용 StorSimple 어댑터를 업그레이드하거나 다시 설치하기 전에 다음 정보를 검토합니다.
@@ -204,8 +198,7 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 > * 업그레이드/다시 설치에 필요한 시간은 SharePoint 서버 팜에서 SharePoint 데이터베이스의 총 수에 따라 달라집니다.
 > * 업그레이드/다시 설치가 완료되면 콘텐츠 데이터베이스에 RBS를 사용하도록 설정해야 합니다. 자세한 내용은 [RBS 구성](#configure-rbs)을 참조하세요.
 > * 매우 많은(200개 초과) 데이터베이스가 있는 SharePoint 팜에 RBS를 구성하는 경우 **SharePoint 중앙 관리** 페이지가 시간을 초과할 수 있습니다. 발생하는 경우 페이지를 새로 고칩니다. 구성 프로세스에는 영향을 주지 않습니다.
-> 
-> 
+
 
 [!INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
 
@@ -213,9 +206,8 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 다음 절차에서는 Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 다음 SharePoint용 StorSimple 어댑터를 제거하는 방법을 설명합니다. 
 
 > [!IMPORTANT]
-> 어댑터 소프트웨어를 제거하기 전에 Blob을 콘텐츠 데이터베이스로 다시 이동해야 합니다. 
-> 
-> 
+> 어댑터 소프트웨어를 제거하기 전에 Blob을 콘텐츠 데이터베이스로 다시 이동해야 합니다.
+
 
 ### <a name="before-you-begin"></a>시작하기 전에
 데이터를 SQL Server 콘텐츠 데이터베이스로 다시 이동하고 어댑터 제거 프로세스를 시작하기 전에 다음 정보를 수집합니다.
@@ -230,7 +222,7 @@ SharePoint용 StorSimple 어댑터 소프트웨어를 제거하기 전에 표면
 
 #### <a name="to-move-the-blobs-back-to-the-content-databases"></a>Blob을 콘텐츠 데이터베이스로 다시 이동하려면
 1. 각 표면화된 개체를 다운로드합니다.
-2. **SharePoint 중앙 관리** 페이지를 열고 **시스템 설정**으로 이동합니다. 
+2. **SharePoint 중앙 관리** 페이지를 열고 **시스템 설정**으로 이동합니다.
 3. **Azure StorSimple**에서 **StorSimple 어댑터 구성**을 클릭합니다.
 4. **StorSimple 어댑터 구성** 페이지에서 EBS(External BLOB Storage)로부터 제거하려는 각 콘텐츠 데이터베이스 아래의 **사용 안 함** 단추를 클릭합니다. 
 5. SharePoint에서 개체를 삭제한 다음 다시 업로드합니다.
@@ -247,7 +239,7 @@ Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 �
 2. SharePoint용 StorSimple 어댑터 설치 관리자를 두 번 클릭합니다. 설치 마법사가 시작됩니다.
    
     ![설치 마법사](./media/storsimple-adapter-for-sharepoint/sasp2.png)
-3. **다음**을 클릭합니다. 다음 페이지가 나타납니다.
+3. **다음**을 누릅니다. 다음 페이지가 나타납니다.
    
     ![설치 마법사 제거 페이지](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 4. **제거** 를 클릭하여 제거 프로세스를 선택합니다. 다음 페이지가 나타납니다.
@@ -260,7 +252,7 @@ Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 �
 
 #### <a name="to-use-the-control-panel-to-uninstall-the-adapter"></a>제어판을 사용하여 어댑터를 제거하려면
 1. 제어판을 열고 **프로그램 및 기능**을 클릭합니다.
-2. **SharePoint용 StorSimple 어댑터**를 선택하고 **제거**를 클릭합니다. 
+2. **SharePoint용 StorSimple 어댑터**를 선택하고 **제거**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple에 대해 자세히 알아봅니다](storsimple-overview.md).
@@ -272,9 +264,4 @@ Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 �
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

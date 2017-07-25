@@ -72,13 +72,16 @@
 ### 예
 #### [태그](resource-manager-policy-tags.md)
 #### [명명 규칙](resource-manager-policy-naming-convention.md)
+#### [네트워크](resource-manager-policy-network.md)
 #### [저장소](resource-manager-policy-storage.md)
 #### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## 관리되는 응용 프로그램 사용
-### [관리되는 응용 프로그램 게시](managed-application-publishing.md)
-### [관리되는 응용 프로그램 사용](managed-application-consumption.md)
+### [서비스 카탈로그 응용 프로그램 게시](managed-application-publishing.md)
+### [서비스 카탈로그 응용 프로그램 사용](managed-application-consumption.md)
+### [마켓플레이스 응용 프로그램 게시](managed-application-author-marketplace.md)
+### [마켓플레이스 응용 프로그램 사용](managed-application-consume-marketplace.md)
 ### [UI 정의 만들기](managed-application-createuidefinition-overview.md)
 
 ## 감사
@@ -87,6 +90,11 @@
 
 ## 문제 해결
 ### [일반적인 배포 오류](resource-manager-common-deployment-errors.md)
+### [배포 오류 이해](resource-manager-troubleshoot-tips.md)
+### [RequestDisallowedByPolicy 오류](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### 가상 컴퓨터 배포 오류
+#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # 참조
 ## [템플릿 형식](/azure/templates/)

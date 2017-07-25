@@ -20,6 +20,8 @@
 ## [데이터 자산 관리](data-catalog-how-to-manage.md)
 ## [검색 및 pin 데이터 자산 저장](data-catalog-how-to-save-pin.md)
 ## [비즈니스 용어집 설정](data-catalog-how-to-business-glossary.md)
+## [데이터 카탈로그에 안전하게 액세스](data-catalog-how-to-secure-catalog.md)
+## [관련된 데이터 자산 보기](data-catalog-how-to-view-related-data-assets.md) 
 
 # 참조
 ## [REST (영문)](/rest/api/datacatalog/)

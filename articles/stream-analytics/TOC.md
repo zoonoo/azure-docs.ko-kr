@@ -28,7 +28,7 @@
 ### [Data Lake Store로 출력](stream-analytics-data-lake-output.md)
 ### [DocumentDB로 출력](stream-analytics-documentdb-output.md)
 
-## 모니터링 &amp; 최적화
+## 모니터링 및 최적화
 ### [경고 추가](stream-analytics-set-up-alerts.md)
 ### [작업 모니터링](stream-analytics-monitoring.md)
 ### [프로그래밍 방식으로 작업 모니터링](stream-analytics-monitor-jobs.md)

@@ -46,6 +46,10 @@
 ### [Git를 사용하여 구성](api-management-configuration-repository-git.md)
 ### [Azure Monitor를 사용한 모니터링](api-management-howto-use-azure-monitor.md)
 ### [역할 기반 액세스 제어 사용](api-management-role-based-access-control.md)
+### Service Fabric과 통합
+#### [개요](../service-fabric/service-fabric-api-management-overview.md)
+#### [빠른 시작](../service-fabric/service-fabric-api-management-quick-start.md)
+
 # 참조
 ## [PowerShell](/powershell/azure/overview)
 ## [REST (영문)](/rest/api/apimanagement/)

@@ -37,13 +37,18 @@
 ### [Python](storage-python-how-to-use-table-storage.md)
 ### [Ruby](storage-ruby-how-to-use-table-storage.md)
 
-## File Storage
-### [Windows, .NET, PowerShell](storage-dotnet-how-to-use-files.md)
+## [File Storage](storage-files-introduction.md)
+### [포털](storage-file-how-to-use-files-portal.md)
+### [.NET](storage-dotnet-how-to-use-files.md)
+### [PowerShell](storage-file-how-to-use-files-powershell.md)
+### [Windows](storage-file-how-to-use-files-windows.md)
 ### [Linux](storage-how-to-use-files-linux.md)
+### [Mac](storage-file-how-to-use-files-mac.md)  
 ### [Java](storage-java-how-to-use-file-storage.md)
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
-
+### [파일 공유 만들기](storage-file-how-to-create-file-share.md)
+### [FAQ](storage-files-faq.md)
 ## 디스크 저장소 
 ### [Resource Manager 및 PowerShell을 사용하여 VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md)
 ### [Azure CLI 2.0을 사용하여 Linux VM 만들기](../virtual-machines/linux/quick-create-cli.md)
@@ -122,6 +127,8 @@
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 ## 모니터링 및 문제 해결
+### [재해 복구 지침](storage-disaster-recovery-guidance.md)
+### [IAAS 디스크에 대한 백업 및 DR](storage-backup-and-disaster-recovery-for-azure-iaas-disks.md)
 ### [Storage 탐색기 문제 해결](storage-explorer-troubleshooting.md)
 ### 메트릭 및 로깅
 #### [저장소 분석](storage-analytics.md)
@@ -132,7 +139,6 @@
 #### [Resource Manager 배포](storage-resource-manager-cannot-delete-storage-account-container-vhd.md)
 #### [클래식 배포](storage-cannot-delete-storage-account-container-vhd.md)
 ### [파일 저장소 문제 해결](storage-troubleshoot-file-connection-problems.md)
-### [재해 복구 지침](storage-disaster-recovery-guidance.md)
 ## 데이터 전송
 ### [저장소로 또는 반대로 데이터 이동](storage-moving-data.md)
 ### [Windows에서 AzCopy](storage-use-azcopy.md)

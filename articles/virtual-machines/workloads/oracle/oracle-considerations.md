@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 8f95c79637db39208267e477735aefb9bec14512
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9174f7c8d16ff311312980fbe4d35996ec7ac832
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Microsoft Azure의 Oracle 솔루션 및 배포
@@ -65,7 +64,7 @@ Azure에서 Oracle 데이터베이스를 사용할 때, 사용자는 모든 가�
 
 Azure에서 Oracle Database Enterprise Edition(RAC 제외)에 대한 고가용성 및 재해 복구는 두 가상 컴퓨터에 있는 두 개의 데이터베이스와 함께 [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 또는 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate)를 사용하여 수행할 수 있습니다. 두 가상 컴퓨터는 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 동일한 [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에 있어야 합니다.  또한 Azure가 개별 장애 도메인 및 업그레이드 도메인에 가상 컴퓨터를 배치할 수 있도록 동일한 가용성 집합에 VM을 배치하는 것이 좋습니다.  지리적 중복을 포함하려는 경우 다른 두 지역 간에 이 두 데이터베이스를 복제하고 VPN 게이트웨이로 두 인스턴스를 연결할 수 있습니다.
 
-Azure에서 이를 평가해 볼 수 있도록 기본 설치 절차를 안내하는 "[Azure에서 Oracle DataGuard 구현](configuring-oracle-dataguard.md)" 자습서가 있습니다.  
+Azure에서 이를 평가해 볼 수 있도록 기본 설치 절차를 안내하는 "[Azure에서 Oracle DataGuard 구현](configure-oracle-dataguard.md)" 자습서가 있습니다.  
 
 Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 다른 가상 컴퓨터에서 보조(대기) 데이터 베이스에서 고가용성을 얻을 수 있으며, 양 데이터베이스 간에 단방향 복제를 설정할 수 있습니다. 결과는 해당 데이터 베이스의 복사본에 대한 읽기 엑세스입니다. Oracle 골든 게이트로, 두 개의 데이터베이스 간의 양방향 복제를 구성할 수 있습니다. 이러한 도구를 사용하여 데이터베이스에 대한 고가용성 솔루션을 설정하는 방법을 알아보려면 Oracle 웹 사이트에서 [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) 및 [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) 설명서를 참조하세요. 데이터베이스의 복사본에 대한 읽기-쓰기 권한이 필요한 경우 [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)를 사용할 수 있습니다.
 

@@ -20,6 +20,7 @@
 ### [진단 VM 확장의 v2.x를 사용하여 VM 모니터링](diagnostic-extension-v2.md)
 ### [사용자 지정 데이터 삽입](inject-custom-data.md)
 ### [Linux 암호 또는 키 다시 설정, SSH 수정, 디스크 확인](reset-access.md)
+### [유지 관리](planned-maintenance-schedule.md)
 ### [CLI를 사용하여 Docker 호스트 만들기](cli-use-docker.md)
 ### [포털을 사용하여 Docker 호스트 만들기](portal-use-docker.md)
 ### [Docker 및 Swarm을 사용하는 방법](../../virtual-machines-linux-docker-swarm.md)

@@ -28,12 +28,15 @@
 ### [U-SQL R 확장](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL 인지 확장](data-lake-analytics-u-sql-cognitive.md)
 ### [웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)
+### [Visual Studio 코드용 U-SQL](data-lake-analytics-data-lake-tools-for-vscode.md)
 
 ## U-SQL 프로그램 디버그
 ### [작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 ### [U-SQL에서 C# 코드 디버그](data-lake-analytics-debug-u-sql-jobs.md)
 ### [작업 브라우저 및 작업 보기 사용](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Vertex 실행 보기 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+### [VSCode에서 로컬 실행 및 로컬 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)
+### [U-SQL 프로그래밍 기능 가이드](data-lake-analytics-u-sql-programmability-guide.md)
 
 # 참조
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)

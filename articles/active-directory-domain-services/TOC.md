@@ -7,13 +7,18 @@
 ## [호환 가능한 타사 소프트웨어](active-directory-ds-compatible-software.md)
 
 # 시작
-## [관리 그룹 만들기](active-directory-ds-getting-started-create-group.md)
-## [가상 네트워크 만들기 또는 선택](active-directory-ds-getting-started-vnet.md)
-## [Azure AD DS 활성화](active-directory-ds-getting-started-enableaadds.md)
-## [DNS 설정 업데이트](active-directory-ds-getting-started-update-dns.md)
-## 암호 동기화 사용
-### [클라우드 전용 테넌트](active-directory-ds-getting-started-password-sync.md)
-### [동기화된 테넌트](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+## Azure 클래식 포털
+### [작업 1: 관리자 그룹 만들기](active-directory-ds-getting-started-create-group.md)
+### [작업 2: 가상 네트워크 만들기 또는 선택](active-directory-ds-getting-started-vnet.md)
+### [작업 3: Azure AD Domain Services 활성화](active-directory-ds-getting-started-enableaadds.md)
+### [작업 4: 가상 네트워크에 대한 DNS 설정 업데이트](active-directory-ds-getting-started-update-dns.md)
+### [작업 5: 암호 동기화 사용](active-directory-ds-getting-started-password-sync.md)
+## Azure Portal(미리 보기)
+### [작업 1: 기본 설정 구성](active-directory-ds-getting-started.md)
+### [작업 2: 네트워크 설정 구성](active-directory-ds-getting-started-network.md)
+### [작업 3: 관리자 그룹 구성 및 Azure AD Domain Services 활성화](active-directory-ds-getting-started-admingroup.md)
+### [작업 4: 가상 네트워크에 대한 DNS 설정 업데이트](active-directory-ds-getting-started-dns.md)
+### [작업 5: 암호 동기화 사용](active-directory-ds-getting-started-password-sync.md)
 
 # 방법
 ## 관리되는 도메인 가입
@@ -23,7 +28,12 @@
 ## 관리되는 도메인 관리
 ### [관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
 ### [관리되는 도메인에서 DNS 관리](active-directory-ds-admin-guide-administer-dns.md)
-### [관리되는 도메인에 대한 LDAP 구성](active-directory-ds-admin-guide-configure-secure-ldap.md)
+### 관리되는 도메인에 대한 LDAP 구성
+#### [작업 1: 보안 LDAP를 위한 인증서 가져오기](active-directory-ds-admin-guide-configure-secure-ldap.md)
+#### [작업 2: 보안 LDAP 인증서 내보내기](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
+#### [작업 3: Azure 클래식 포털을 사용하여 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
+#### [작업 3: Azure Portal(미리 보기)을 사용하여 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+
 ### [관리되는 도메인에 OU 만들기](active-directory-ds-admin-guide-create-ou.md)
 ### [관리되는 도메인에서 그룹 정책 관리](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [가상 네트워크 선택](active-directory-ds-networking.md)
@@ -34,6 +44,8 @@
 ## 문제 해결
 ### [FAQ](active-directory-ds-faqs.md)
 ### [문제 해결 가이드](active-directory-ds-troubleshooting.md)
+### [Azure Portal 환경 미리 보기 사용](active-directory-ds-azure-portal-enable-preview-access.md)
+### [일치하지 않는 테넌트 오류 해결](active-directory-ds-mismatched-tenant-error.md)
 
 # 관련 항목
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

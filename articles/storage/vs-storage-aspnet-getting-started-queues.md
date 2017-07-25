@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/23/2016
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 5840ec74f6af2e373d9ebb34b0f6e13094c33f19
-ms.openlocfilehash: 4e5638938c8e9fa0de12aa273d03f3eead35a383
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 76b0d5e270e16a317ce8a7b424c06c867b537a8e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Azure Queue Storage 및 Visual Studio 연결 서비스 시작(ASP.NET)
@@ -31,7 +32,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
 
 ##<a name="prerequisites"></a>필수 조건
 
-* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure 저장소 계정](storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
@@ -579,8 +580,4 @@ Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내�
 
   * [Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)](./vs-storage-aspnet-getting-started-blobs.md)
   * [Azure 테이블 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)](./vs-storage-aspnet-getting-started-tables.md)
-
-
-<!--HONumber=Jan17_HO1-->
-
 

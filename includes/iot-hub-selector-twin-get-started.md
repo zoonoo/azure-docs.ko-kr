@@ -2,10 +2,8 @@
 > * [Node.JS](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
 > * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
-> 
-> 
+> * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 
-## <a name="introduction"></a>소개
 장치 쌍은 장치의 상태 정보(메타데이터, 상태 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 여기에 연결하는 각 장치에 대해 하나의 장치 쌍을 유지합니다.
 
 장치 쌍의 용도:
@@ -17,8 +15,6 @@
 
 > [!NOTE]
 > 장치 쌍은 장치 구성 및 상태를 동기화하고 쿼리하기 위해 설계되었습니다. 장치 쌍을 사용하는 경우 자세한 내용은 [장치 쌍 이해][lnk-twins]에서 찾을 수 있습니다.
-> 
-> 
 
 장치 쌍은 IoT hub에 저장되고 다음을 포함합니다.
 
@@ -33,8 +29,6 @@
 
 > [!NOTE]
 > 현재 장치 쌍은 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 장치에서만 액세스할 수 있습니다. 기존 장치 앱이 MQTT를 사용하도록 변환하는 방법에 관한 설명은 [MQTT 지원][lnk-devguide-mqtt] 문서를 참조하세요.
-> 
-> 
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 

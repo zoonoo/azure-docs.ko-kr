@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/09/2017
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 19346f2e4f2860258c421d76729abeb82f0e8987
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b4d575587eec1bcf43c33c7faeb8360ec67b5214
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>StorSimple에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 자동화된 재해 복구 솔루션
@@ -124,7 +123,7 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
    > 이렇게 하면 파일 공유를 일시적으로 사용할 수 없게 됩니다.
    >
    >
-2. Azure Site Recovery 포털에서 파일 서버 VM의 [가상 컴퓨터 보호를 사용](../site-recovery/site-recovery-hyper-v-site-to-azure.md#enable-replication)하도록 설정합니다.
+2. Azure Site Recovery 포털에서 파일 서버 VM의 [가상 컴퓨터 보호를 사용](../site-recovery/site-recovery-hyper-v-site-to-azure.md)하도록 설정합니다.
 3. 초기 동기화가 시작되면 대상을 다시 연결할 수 있습니다. iSCSI 초기자로 이동하여 StorSimple 장치를 선택한 다음 **연결**을 클릭합니다.
 4. 동기화가 완료되고 VM 상태가 **보호됨**이면 VM을 선택하고 **구성** 탭을 선택한 다음 VM 네트워크(장애 조치(failover)된 VM이 속할 네트워크)를 적절하게 업데이트합니다. 네트워크가 표시되지 않으면 동기화가 아직 진행되고 있는 것입니다.
 

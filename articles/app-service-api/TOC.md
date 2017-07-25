@@ -146,6 +146,7 @@
 ## 통합
 ### [하이브리드 연결을 사용하여 온-프레미스 리소스 액세스](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Azure에서 SendGrid를 사용하여 전자 메일을 보내는 방법](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [PowerApps 및 Microsoft Flow로 내보내기](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## 문제 해결
 ### [진단 로깅 사용](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-api%2ftoc.json)

@@ -9,6 +9,8 @@
 ## 사용량 및 비용 모니터링
 ### [청구서 및 사용량 가져오기](billing-download-azure-invoice-daily-usage-date.md)
 ### [요금 청구 방식](billing-understand-your-bill.md)
+### [청구서에서 용어 이해](billing-understand-your-invoice.md)
+### [사용량에서 용어 이해](billing-understand-your-usage.md)
 ### [외부 서비스 요금 이해](billing-understand-your-azure-marketplace-charges.md)
 ### [지출 한도 이해](billing-spending-limit.md)
 ### [청구 경고 설정](billing-set-up-alerts.md)

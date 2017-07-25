@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 590e2bc759567cf3d679e261592dff1e699ba295
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 746cad19093fd2a1ad23ddd9412394f8d9da331c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="integrate-azure-ad-into-an-android-app"></a>Android 앱에 Azure AD 통합
@@ -174,7 +173,7 @@ maven 리포지토리에서 JAR 파일을 가져와 프로젝트의 **libs** 폴
             ....
         <application/>
 
-4. 기본 활동에서 AuthenticationContext의 인스턴스를 만듭니다. 이 호출의 세부 정보는 이 항목에서 다루지 않지만 [Android 네이티브 클라이언트 샘플](https://github.com/AzureADSamples/NativeClient-Android)에서 유용한 정보를 얻을 수 있습니다. 다음 예제에서 SharedPreferences는 기본 캐시이며 권한은 `https://login.windows.net/yourtenant.onmicrosoft.com` 형태입니다.
+4. 기본 활동에서 AuthenticationContext의 인스턴스를 만듭니다. 이 호출의 세부 정보는 이 항목에서 다루지 않지만 [Android 네이티브 클라이언트 샘플](https://github.com/AzureADSamples/NativeClient-Android)에서 유용한 정보를 얻을 수 있습니다. 다음 예제에서 SharedPreferences는 기본 캐시이며 권한은 `https://login.microsoftonline.com/yourtenant.onmicrosoft.com` 형태입니다.
 
     `mContext = new AuthenticationContext(MainActivity.this, authority, true); // mContext is a field in your activity`
 
@@ -264,7 +263,7 @@ broker 사용을 위해 특수한 RedirectUri를 등록해야 합니다. Redirec
 ### <a name="authority-url-and-ad-fs"></a>기관 URL 및 AD FS
 AD FS(Active Directory Federation Services)는 프로덕션 STS로 인식되지 않으므로 인스턴스 검색을 해제하고 AuthenticationContext 생성자에 false를 전달해야 합니다.
 
-기관 URL에는 STS 인스턴스 및 [테넌트 이름](https://login.windows.net/yourtenant.onmicrosoft.com)이 필요합니다.
+기관 URL에는 STS 인스턴스 및 [테넌트 이름](https://login.microsoftonline.com/yourtenant.onmicrosoft.com)이 필요합니다.
 
 ### <a name="querying-cache-items"></a>캐시 항목 쿼리
 ADAL은 일부 간단한 캐시 쿼리 함수를 사용하여 SharedPreferences에서 기본 캐시를 제공합니다. 다음을 사용하여 AuthenticationContext에서 현재 캐시를 가져올 수 있습니다.

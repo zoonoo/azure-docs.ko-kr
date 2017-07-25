@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 0ce6114073b80c1d9bb719654ab8cebc30dfefac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/19/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -55,7 +55,7 @@ Site Recovery는 지원되는 컴퓨터에서 실행 중인 모든 앱을 복제
 | System Center Operations Manager |Y |Y |Y |Y |
 | Sharepoint |Y |Y |Y |Y |
 | SAP<br/><br/>비 클러스터에 대해 Azure에 SAP 사이트 복제 |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |
-| Exchange(비 DAG) |Y |서비스 예정 |Y |Y |
+| Exchange(비 DAG) |Y |Y |Y |Y |
 | 원격 데스크톱/VDI |Y |Y |Y |해당 없음 |
 | Linux(운영 체제 및 앱) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |
 | Dynamics AX |Y |Y |Y |Y |
@@ -138,11 +138,11 @@ Site Recovery를 사용하여 다음과 같이 IIS 배포를 보호합니다.
 
 Azure Site Recovery는 환경에서 중요한 구성 요소를 콜드 원격 사이트 또는 Microsoft Azure와 같은 공용 클라우드에 복제하여 재해 복구를 제공합니다. 웹 서버와 데이터베이스를 사용하는 가상 컴퓨터가 복구 사이트에 복제되므로 구성 파일 또는 인증서를 별도로 백업할 필요가 없습니다. 변경된 사후 장애 조치인 환경 변수에 따라 달라지는 응용 프로그램 매핑 및 바인딩은 재해 복구 계획에 통합되는 스크립트를 통해 업데이트될 수 있습니다. Virtual Machines는 장애 조치 시에만 복구 사이트에서 사용됩니다. 이 뿐만 아니라 Azure Site Recovery를 통해 다음과 같은 기능을 제공하여 종단 간 장애 조치를 오케스트레이션할 수 있습니다.
 
--    다양한 계층에서 가상 컴퓨터의 종료 및 시작 순서를 지정합니다.
--    가상 컴퓨터가 시작된 후에 응용 프로그램 종속성 및 바인딩을 업데이트할 수 있는 스크립트를 추가합니다. 스크립트는 복구 사이트를 가리키기 위해 DNS 서버를 업데이트하는 데 사용할 수 있습니다.
--    기본 및 복구 네트워크를 매핑하여 가상 컴퓨터 사전 장애 조치에 IP 주소를 할당하고 사후 장애 조치가 업데이트되지 않아도 되는 스크립트를 사용합니다.
--    웹 서버의 여러 웹 응용 프로그램에서 한 번의 클릭으로 장애 조치하는 기능은 재해가 발생한 경우 혼동을 일으키는 범위를 제거합니다.
--    DR 드릴의 격리된 환경에서 복구 계획을 테스트하는 기능입니다.
+-   다양한 계층에서 가상 컴퓨터의 종료 및 시작 순서를 지정합니다.
+-   가상 컴퓨터가 시작된 후에 응용 프로그램 종속성 및 바인딩을 업데이트할 수 있는 스크립트를 추가합니다. 스크립트는 복구 사이트를 가리키기 위해 DNS 서버를 업데이트하는 데 사용할 수 있습니다.
+-   기본 및 복구 네트워크를 매핑하여 가상 컴퓨터 사전 장애 조치에 IP 주소를 할당하고 사후 장애 조치가 업데이트되지 않아도 되는 스크립트를 사용합니다.
+-   웹 서버의 여러 웹 응용 프로그램에서 한 번의 클릭으로 장애 조치하는 기능은 재해가 발생한 경우 혼동을 일으키는 범위를 제거합니다.
+-   DR 드릴의 격리된 환경에서 복구 계획을 테스트하는 기능입니다.
 
 IIS 웹 팜을 보호하는 방법에 대한 [자세한 내용](https://aka.ms/asr-iis)
 

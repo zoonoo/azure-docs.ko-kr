@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 7de37f106e33d425b3b497cec640bac3fa4afa74
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Azure Portal에서 Site Recovery를 사용하여 VMM 클라우드의 Hyper-V 가상 컴퓨터를 Azure에 복제
@@ -42,7 +41,7 @@ ms.lasthandoff: 05/17/2017
 문서에 따라 다음 배포 단계를 완료합니다.
 
 
-1. 이 배포에 대한 아키텍처를 [알아봅니다](site-recovery-components.md#hyper-v-to-azure). 또한 Site Recovery에서 Hyper-V 복제가 작동하는 방식을 [알아봅니다](site-recovery-hyper-v-azure-architecture.md).
+1. 이 배포에 대한 아키텍처를 [알아봅니다](site-recovery-components.md). 또한 Site Recovery에서 Hyper-V 복제가 작동하는 방식을 [알아봅니다](site-recovery-hyper-v-azure-architecture.md).
 2. 필수 조건 및 제한 사항을 확인합니다.
 3. Azure 네트워크 및 저장소 계정을 설정합니다.
 4. 온-프레미스 VMM 서버 및 Hyper-V 호스트를 준비합니다.
@@ -60,7 +59,7 @@ ms.lasthandoff: 05/17/2017
 **지원 요구 사항** | **세부 정보**
 --- | ---
 **Azure** | [Azure 요구 사항](site-recovery-prereq.md#azure-requirements)에 대해 알아봅니다.
-**온-프레미스 서버** | 온-프레미스 VMM 서버 및 Hyper-V 호스트에 대한 요구 사항을 [알아봅니다](site-recovery-prereq.md#disaster-recovery-of-hyper-v-virtual-machines-in-virtual-machine-manager-clouds-to-azure).
+**온-프레미스 서버** | 온-프레미스 VMM 서버 및 Hyper-V 호스트에 대한 요구 사항을 [알아봅니다](site-recovery-prereq.md#disaster-recovery-of-hyper-v-vms-in-vmm-clouds-to-azure).
 **온-프레미스 Hyper-V VM** | 복제하려는 VM은 [지원되는 운영 체제](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)를 실행하고 [Azure 필수 조건](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)을 준수해야 합니다.
 **Azure URL** | VMM 서버에서 다음 URL에 액세스해야 합니다.<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> IP 주소 기반 방화벽 규칙이 있는 경우 해당 규칙이 Azure와의 통신을 허용하는지 확인합니다.<br/></br> [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 포트를 허용합니다.<br/></br> 구독하는 Azure 지역과 미국 서부에 해당하는 IP 주소 범위를 허용하세요(Access Control 및 ID 관리에 사용됨).
 
