@@ -101,7 +101,7 @@ SSH를 통해 로그인한 경우.다음 명령을 실행합니다.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>끝점 추가
-1. [Azure Portal][https://portal.azure.com]로 이동하고 VM을 선택합니다.
+1. [Azure Portal] [https://portal.azure.com] 로 이동하고 VM을 선택합니다.
 
 2. 페이지의 왼쪽 가장자리에 있는 **설정**에서 **끝점**을 선택합니다.
 
