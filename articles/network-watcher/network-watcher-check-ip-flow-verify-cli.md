@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 73d398613fc726ebd51ab6b107dc46c44caffdcc
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0b52257a6c38a4392573672b7190d2269c2f145a
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -26,12 +27,16 @@ ms.lasthandoff: 03/28/2017
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
-> - [CLI](network-watcher-check-ip-flow-verify-cli.md)
+> - [CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
+> - [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)
 > - [Azure REST API](network-watcher-check-ip-flow-verify-rest.md)
+
 
 IP 흐름 확인은 가상 컴퓨터 간에 트래픽을 허용하는지를 확인할 수 있는 Network Watcher의 기능입니다. 이 시나리오는 가상 컴퓨터가 외부 리소스 또는 백 엔드에 연결할 수 있는지에 대한 현재 상태를 가져올 때 유용합니다. IP 흐름 확인은 NSG(네트워크 보안 그룹) 규칙이 모두 제대로 구성되었는지 확인하고 NSG 규칙에 의해 차단되는 흐름 문제를 해결하는 데 사용될 수 있습니다. IP 흐름 확인을 사용하여 차단하려는 트래픽이 NSG에서 제대로 차단되었는지 확인할 수도 있습니다.
 
-이 문서에서는 Windows, Mac 및 Linux에 사용할 수 있는 플랫폼 간 Azure CLI 1.0을 사용합니다. Network Watcher는 현재 CLI 지원을 위한 Azure CLI 1.0을 사용합니다.
+이 문서에서는 Windows, Mac 및 Linux에서 사용할 수 있는 리소스 관리 배포 모델용 차세대 CLI인 Azure CLI 2.0을 사용합니다.
+
+이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)를 설치](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)해야 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -41,29 +46,28 @@ IP 흐름 확인은 가상 컴퓨터 간에 트래픽을 허용하는지를 확�
 
 이 시나리오에서는 IP 확인 흐름을 사용하여 가상 컴퓨터가 알려진 Bing IP 주소에 연결할 수 있는지 확인합니다. 트래픽이 거부된 경우 해당 트래픽을 거부하는 보안 규칙을 반환합니다. IP 흐름 확인에 대한 자세한 내용을 보려면 [IP 흐름 확인 개요](network-watcher-ip-flow-verify-overview.md)를 방문하세요.
 
-
 ## <a name="get-a-vm"></a>VM 확인
 
 IP 흐름 확인은 원격 대상 간에 가상 컴퓨터의 트래픽 또는 IP 주소를 테스트합니다. 가상 컴퓨터의 ID가 cmdlet에 대해 필요합니다. 사용할 가상 컴퓨터의 ID를 이미 알고 있는 경우 이 단계를 건너뛸 수 있습니다.
 
-```
-azure vm show -g resourceGroupName -n virtualMachineName
+```azurecli
+az vm show --resource-group MyResourceGroup5431 --name MyVM-Web
 ```
 
 ## <a name="get-the-nics"></a>NIC 가져오기
 
 가상 컴퓨터에 있는 NIC의 IP 주소가 필요합니다. 이 예제에서는 가상 컴퓨터의 NIC를 검색합니다. 가상 컴퓨터에서 테스트하려는 IP 주소를 이미 알고 있는 경우 이 단계를 건너뛸 수 있습니다.
 
-```
-azure network nic show -g resourceGroupName -n nicName
+```azurecli
+az network nic show --resource-group MyResourceGroup5431 --name MyNic-Web
 ```
 
 ## <a name="run-ip-flow-verify"></a>IP 흐름 확인 실행
 
-이제 cmdlet을 실행하는 데 필요한 정보가 있으므로 `network watcher ip-flow-verify` cmdlet을 실행하여 트래픽을 테스트합니다. 이 예제에서는 첫 번째 NIC에 있는 첫 번째 IP 주소를 사용합니다.
+이제 cmdlet을 실행하는 데 필요한 정보가 있으므로 `az network watcher test-ip-flow` cmdlet을 실행하여 트래픽을 테스트합니다. 이 예제에서는 첫 번째 NIC에 있는 첫 번째 IP 주소를 사용합니다.
 
-```
-azure network watcher ip-flow-verify -g resourceGroupName -n networkWatcherName -t targetResourceId -d directionInboundorOutbound -p protocolTCPorUDP -o localPort -m remotePort -l localIpAddr -r remoteIpAddr
+```azurecli
+az network watcher test-ip-flow --resource-group resourceGroupName --direction directionInboundorOutbound --protocol protocolTCPorUDP --local ipAddressandPort --remote ipAddressandPort --vm vmNameorID --nic nicNameorID
 ```
 
 > [!NOTE]
@@ -71,12 +75,13 @@ azure network watcher ip-flow-verify -g resourceGroupName -n networkWatcherName 
 
 ## <a name="review-results"></a>결과 검토
 
-다음 예제는 결과가 반환된 `network watcher ip-flow-verify`을 실행한 후에 이전 단계에서 반환된 결과입니다.
+다음 예제는 결과가 반환된 `az network watcher test-ip-flow`을 실행한 후에 이전 단계에서 반환된 결과입니다.
 
-```
-data:    Access                          : Deny
-data:    Rule Name                       : defaultSecurityRules/DefaultInboundDenyAll
-info:    network watcher ip-flow-verify command OK
+```azurecli
+{
+    "access": "Allow",
+    "ruleName": "defaultSecurityRules/AllowInternetOutBound"
+}
 ```
 
 ## <a name="next-steps"></a>다음 단계

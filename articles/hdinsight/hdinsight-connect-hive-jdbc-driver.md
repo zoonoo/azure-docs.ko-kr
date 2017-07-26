@@ -1,6 +1,6 @@
 ---
-title: "JDBC를 통해 Hive 쿼리 - Azure HDInsight | Microsoft Docs"
-description: "JDBC를 사용하여 Azure HDInsight에서 Hadoop 클러스터의 Hive에 연결하는 방법을 알아봅니다."
+title: "JDBC 드라이버를 통해 Hive 쿼리 - Azure HDInsight | Microsoft Docs"
+description: "Java 응용 프로그램에서 JDBC 드라이버를 사용하여 HDInsight의 Hadoop에 Hive 쿼리를 제출합니다. 프로그래밍 방식으로 SQuirrel SQL 클라이언트에서 연결합니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -9,26 +9,26 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 928f8d2a-684d-48cb-894c-11c59a5599ae
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2017
+ms.date: 05/22/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: dd76e2450be2b05d011de7ded49bfa9630190e71
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 10692e977578a268975d4d0d8e78db8ccb7fb177
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="query-hive-through-jdbc"></a>JDBC를 통해 Hive 쿼리
+# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Hive 쿼리
 
 [!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Java 응용 프로그램에서 JDBC를 사용하여 Azure HDInsight의 Hadoop에 Hive 쿼리를 제출하는 방법을 알아봅니다. 이 문서의 정보는 프로그래밍 방식으로 SQuirrel SQL 클라이언트에서 연결하는 방법을 보여 줍니다.
+Java 응용 프로그램에서 JDBC 드라이버를 사용하여 Azure HDInsight의 Hadoop에 Hive 쿼리를 제출하는 방법을 알아봅니다. 이 문서의 정보는 프로그래밍 방식으로 SQuirrel SQL 클라이언트에서 연결하는 방법을 보여 줍니다.
 
 Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface)를 참조하세요.
 
@@ -37,7 +37,7 @@ Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](http
 * HDInsight 클러스터의 Hadoop. Linux 또는 Windows 기반의 클러스터가 작동합니다.
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.3 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.3 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL은 JDBC 클라이언트 응용 프로그램입니다.
 
@@ -49,7 +49,7 @@ Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](http
 
 Azure에서 HDInsight 클러스터에 대한 JDBC가 443을 통해 연결되어 트래픽이 SSL을 사용하여 보호됩니다. 클러스터가 뒤에 있는 공용 게이트웨이는 HiveServer2에서 실제로 수신하는 포트로 트래픽을 리디렉션합니다. 다음은 예제 연결 문자열입니다.
 
-    jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
+    jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
 `CLUSTERNAME` 을 HDInsight 클러스터 이름으로 바꿉니다.
 
@@ -117,7 +117,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 4. 드라이버 추가 대화 상자에 다음 정보를 추가합니다.
 
     * **이름**: Hive
-    * **예제 URL**: `jdbc:hive2://localhost:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`
+    * **예제 URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
     * **추가 클래스 경로**: [추가] 단추를 사용하여 이전에 다운로드한 jar 파일을 추가합니다.
     * **클래스 이름**: org.apache.hive.jdbc.HiveDriver
 
@@ -135,7 +135,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     * **드라이버**: 드롭다운에서 **Hive** 드라이버를 선택합니다.
 
-    * **URL**: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
+    * **URL**: jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
         **CLUSTERNAME** 을 HDInsight 클러스터의 이름으로 바꿉니다.
 

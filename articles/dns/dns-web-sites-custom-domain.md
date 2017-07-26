@@ -13,9 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: dd020bf625510eb90af2e1ad19c155831abd7e75
-ms.openlocfilehash: a2a429873c30f526a0de05d4018f53f3a83bbe28
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: b054a41ecd69ee1c802d8403fe4b25128f016e3c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -41,7 +43,7 @@ Azure에서 웹앱에 대한 A 레코드를 만드는 경우 웹앱의 기본 IP
 
 ## <a name="1-create-an-a-record-for-your-custom-domain"></a>1. 사용자 지정 도메인에 대한 A 레코드 만들기
 
-A 레코드는 이름을 해당 IP 주소에 매핑하는 데 사용됩니다. 다음 예제에서는 IPv4 주소에 @를 A 레코드로 할당합니다.
+A 레코드는 이름을 해당 IP 주소에 매핑하는 데 사용됩니다. 다음 예제에서는 IPv4 주소에 @을 A 레코드로 할당합니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -55,7 +57,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 할당된 $rs 변수를 사용하여 이전에 만든 레코드 집합 "@"에 IPv4 값을 추가합니다. 할당된 IPv4 값은 웹앱의 IP 주소가 됩니다.
 
-웹앱의 IP 주소를 찾으려면 [Azure App Service에서 사용자 지정 도메인 이름 구성](../app-service-web/web-sites-custom-domain-name.md#vip)의 단계를 따르세요.
+웹앱의 IP 주소를 찾으려면 [Azure App Service에서 사용자 지정 도메인 이름 구성](../app-service-web/app-service-web-tutorial-custom-domain.md)의 단계를 따르세요.
 
 ```powershell
 Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"
@@ -201,9 +203,4 @@ Set-AzureRMDnsRecordSet -RecordSet $rs
 ## <a name="next-steps"></a>다음 단계
 
 [Configuring a custom domain name for App Service](../app-service-web/web-sites-custom-domain-name.md) (앱 서비스에 대한 사용자 지정 도메인 이름 구성)의 단계에 따라 사용자 지정 도메인을 사용하도록 웹앱을 구성합니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

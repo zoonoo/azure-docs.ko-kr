@@ -1,5 +1,5 @@
 ---
-title: "PowerShell에서 Mahout HDInsight를 사용하여 추천 생성 | Microsoft Docs"
+title: "PowerShell에서 Mahout HDInsight를 사용하여 추천 생성 - Azure | Microsoft Docs"
 description: "Apache Mahout Machine Learning 라이브러리를 사용하여 클라이언트에서 실행 중인 PowerShell에서 HDInsight(Hadoop)로 영화 추천을 생성하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 102cd55a0b55e18ec5240bf6ddf94a1909c08ebb
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 6d8f7799c618adcfceda7e210bb6988dbe869db4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/22/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

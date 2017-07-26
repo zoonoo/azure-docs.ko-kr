@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/23/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 423731710c5584f91188a72702b188636d3104e5
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4d62bee573aba4c8b0445b1f4c44190496fb3a18
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -29,9 +29,9 @@ ms.lasthandoff: 05/17/2017
 ## <a name="to-use-excel-data"></a>Excel 데이터를 사용하려면
 Excel 데이터를 저장소 폴더(예: [OneDrive](connectors-create-api-onedrive.md))에 쉼표로 구분된 값(CSV)으로 저장할 수 있습니다. 또한 이 CSV 파일을 [플랫 파일 커넥터](../logic-apps/logic-apps-enterprise-integration-flatfile.md)와 함께 사용할 수도 있습니다.
 
-## <a name="view-the-swagger"></a>swagger 보기
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
-[swagger 정보](/connectors/excel/)를 참조하세요.
+[커넥터 세부 정보](/connectors/excel/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
 
 ## <a name="more-connectors"></a>추가 커넥터
 [API 목록](apis-list.md)으로 돌아갑니다.

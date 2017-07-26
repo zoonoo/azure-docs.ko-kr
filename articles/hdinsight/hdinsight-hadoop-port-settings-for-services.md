@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 사용하는 포트 | Microsoft 문서"
+title: "HDInsight의 Hadoop 서비스에서 사용하는 포트 - Azure | Microsoft Docs"
 description: "HDInsight에서 실행 중인 Hadoop 서비스에 사용된 포트 목록입니다."
 services: hdinsight
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/17/2017
+ms.date: 06/02/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 3bf5ff732b03a1ecffb4e149d7805a6216ab0019
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: ffd8c494d821d41532c9a31613b10b521ff4d86b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="ports-and-uris-used-by-hdinsight"></a>HDInsight에 사용되는 포트 및 URI
+# <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight의 Hadoop 서비스에서 사용하는 포트
 
 이 문서에서는 Linux 기반 HDInsight 클러스터에서 실행되는 Hadoop 서비스에 사용되는 포트 목록을 제공합니다. 또한 SSH를 사용하여 클러스터에 연결하는 데 사용된 포트에 대한 정보도 제공합니다.
 
@@ -105,8 +105,8 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 
 | 부여 | 노드 | 포트 | 프로토콜 | 설명 |
 | --- | --- | --- | --- | --- |
-| HiveServer2 |헤드 노드 |10001 |Thrift |프로그래밍 방식으로 Hive에 연결하기 위한 서비스(Thrift/JDBC) |
-| Hive Metastore |헤드 노드 |9083 |Thrift |프로그래밍 방식으로 Hive 메타데이터에 연결하기 위한 서비스(Thrift/JDBC) |
+| HiveServer2 |헤드 노드 |10001 |Thrift |Hive에 연결하기 위한 서비스(Thrift/JDBC) |
+| Hive Metastore |헤드 노드 |9083 |Thrift |Hive 메타데이터에 연결하기 위한 서비스(Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>WebHCat 포트
 
@@ -152,4 +152,8 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 | Broker |작업자 노드 |9092 |[Kafka 유선 프로토콜](http://kafka.apache.org/protocol.html) |클라이언트 통신에 사용됨 |
 | &nbsp; |Zookeeper 노드 |2181 |&nbsp; |클라이언트가 ZooKeeper 연결에 사용하는 포트 |
 
+### <a name="spark-ports"></a>Spark 포트
 
+| 부여 | 노드 | 포트 | 프로토콜 | 설명 |
+| --- | --- | --- | --- | --- |
+| Spark Thrift 서버 |헤드 노드 |10002 |Thrift |Spark SQL에 연결하기 위한 서비스(Thrift/JDBC) |

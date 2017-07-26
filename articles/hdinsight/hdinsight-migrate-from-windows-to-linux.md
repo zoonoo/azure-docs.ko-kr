@@ -1,5 +1,5 @@
 ---
-title: "Windows 기반 HDInsight에서 Linux 기반 HDInsight로 마이그레이션 | Microsoft Docs"
+title: "Windows 기반 HDInsight에서 Linux 기반 HDInsight로 마이그레이션 - Azure | Microsoft Docs"
 description: "Windows 기반 HDInsight 클러스터에서 Linux 기반 HDInsight 클러스터로 마이그레이션하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/12/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: f2c4956ba296781907498226a18708684281692b
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 2efd8e9981ac5d8f2ff28df9ffe1e6b5c01ba953
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/10/2017
 
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows 기반 HDInsight 클러스터에서 Linux 기반 클러스터로 마이그레이션

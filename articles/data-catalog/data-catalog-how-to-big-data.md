@@ -1,6 +1,6 @@
 ---
-title: "&quot;빅 데이터&quot; 데이터 원본으로 작업하는 방법 | Microsoft Docs"
-description: "방법 문서는 Azure Blob Storage, Azure Data Lake 및 Hadoop HDFS 등 &quot;빅 데이터&quot; 데이터 원본과 함께 Azure Data Catalog를 사용하기 위한 패턴을 강조 표시합니다."
+title: "'빅 데이터' 데이터 원본으로 작업하는 방법 | Microsoft Docs"
+description: "방법 문서는 Azure Blob Storage, Azure Data Lake 및 Hadoop HDFS 등 '빅 데이터' 데이터 원본과 함께 Azure Data Catalog를 사용하기 위한 패턴을 강조 표시합니다."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -16,18 +16,18 @@ ms.workload: data-catalog
 ms.date: 05/15/2017
 ms.author: maroche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8cf7ea7ca69753c12469dff9dc352d616c276ddd
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: e31bcfce2c66d9428535fb51c4bbe11bc103a1ad
 ms.contentlocale: ko-kr
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 06/21/2017
 
 
 ---
 # <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Azure 데이터 카탈로그의 빅 데이터 소스로 작업하는 방법
 ## <a name="introduction"></a>소개
-**Microsoft Azure 데이터 카탈로그**는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 **Azure 데이터 카탈로그**는 사람들이 데이터 원본을 검색하고 이해하고 사용하도록 도우면서 빅 데이터를 포함하여 조직의 기존 데이터 소스로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다.
+**Microsoft Azure 데이터 카탈로그**는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 데이터 카탈로그는 사람들이 데이터 원본을 검색하고 이해하고 사용하도록 도우면서 빅 데이터를 포함하여 조직의 기존 데이터 원본으로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다.
 
-**Azure 데이터 카탈로그**는 Azure 블로그 저장소 BLOB 및 디렉터리뿐만 아니라 Hadoop HDFS 파일 및 디렉터리의 등록을 지원합니다. 이러한 데이터 소스의 반 구조화된 특성은 뛰어난 유연성을 제공하지만, 사용자가 데이터 소스를 **Azure 데이터 카탈로그**에 등록하는 것에서 최대한의 가치를 얻기 위해 데이터 소스를 구성하는 방법을 고려해야 함을 의미하기도 합니다.
+**Azure 데이터 카탈로그**는 Azure 블로그 저장소 BLOB 및 디렉터리뿐만 아니라 Hadoop HDFS 파일 및 디렉터리의 등록을 지원합니다. 이러한 데이터 원본의 반 구조화된 특성은 뛰어난 유연성을 제공합니다. 그러나 **Azure Data Catalog**를 사용하여 등록에서 가치를 극대화하려면 사용자는 데이터 원본이 구성되는 방법을 고려해야 합니다.
 
 ## <a name="directories-as-logical-data-sets"></a>논리적 데이터 집합으로 디렉터리 처리
 빅 데이터 소스를 구성하기 위한 일반적인 패턴은 논리 데이터 집합으로 디렉터리를 처리하는 것입니다. 하위 폴더가 파티션을 정의하는 동안 최상위 디렉터리는 데이터 집합을 정의하는 데 사용되며, 포함된 파일은 데이터를 저장합니다.
@@ -62,10 +62,10 @@ ms.lasthandoff: 11/17/2016
 
 분석가나 데이터 과학자가 보다 큰 디렉터리 구조에 포함된 데이터로 작업하는 경우, 이러한 참조 파일의 데이터는 보다 큰 데이터 집합에서 이름 또는 ID로만 참조되는 엔터티에 대해 보다 자세한 정보를 제공하는 데 사용할 수 있습니다.
 
-이 패턴에서 개별 참조 데이터 파일을 **Azure 데이터 카탈로그**에 등록할 때 의미가 있습니다. 각 파일은 데이터 집합을 나타내며, 각각에 대해 개별적으로 주석을 추가하고 검색할 수 있습니다.
+이 패턴에서 개별 참조 데이터 파일을 **Azure Data Catalog**에 등록할 때 의미가 있습니다. 각 파일은 데이터 집합을 나타내며, 각각에 대해 개별적으로 주석을 추가하고 검색할 수 있습니다.
 
 ## <a name="alternate-patterns"></a>대체 패턴
-위에서 설명한 패턴은 빅 데이터 저장소를 정리하는 두 가지 방법이 있지만, 각 구현 방식은 달라집니다. 데이터 소스의 구조화는 방식과 빅 데이터 소스를 **Azure 데이터 카탈로그**에 등록하는 시점에 관계 없이, 조직 내 다른 사람에게 가치가 있는 데이터 집합을 나타내는 파일 및 디렉터리를 등록하는 것에 집중합니다. 모든 파일 및 디렉터리를 등록하면 카탈로그를 복잡하게 만들어, 사용자가 필요한 정보를 찾기 어려워집니다.
+이전 섹션에서 설명한 패턴은 빅 데이터 저장소를 정리하는 두 가지 방법이 있지만, 각 구현 방식은 달라집니다. 데이터 소스의 구조화는 방식과 빅 데이터 소스를 **Azure Data Catalog**에 등록하는 시점에 관계 없이, 조직 내 다른 사람에게 가치가 있는 데이터 집합을 나타내는 파일 및 디렉터리를 등록하는 것에 집중합니다. 모든 파일 및 디렉터리를 등록하면 카탈로그를 복잡하게 만들어, 사용자가 필요한 정보를 찾기 어려워집니다.
 
 ## <a name="summary"></a>요약
 데이터 소스를 **Azure 데이터 카탈로그**에 등록하면 보다 쉽게 검색하고 이해할 수 있습니다. 논리 데이터 집합을 나타내는 빅 데이터 파일 및 디렉터리를 등록하고 주석을 추가하면, 사용자는 필요한 빅 데이터 소스를 찾아 사용할 수 있습니다.

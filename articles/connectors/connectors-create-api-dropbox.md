@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 953a99a1fc09a960c94eebbc0486e4782e5dd87c
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0d09580c60fd620811b539147439d0922839fe7e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -62,9 +62,9 @@ Dropbox에 연결하여 파일을 관리합니다. Dropbox에서 파일 업로�
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
 6. 작업을 저장하고 Dropbox에 새 파일을 만들어 워크플로를 활성화합니다.  
 
-## <a name="view-the-swagger"></a>swagger 보기
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
-[swagger 정보](/connectors/dropbox/)를 참조하세요.
+[커넥터 세부 정보](/connectors/dropbox/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
 
 ## <a name="more-connectors"></a>추가 커넥터
 [API 목록](apis-list.md)으로 돌아갑니다.

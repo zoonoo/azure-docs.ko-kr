@@ -1,6 +1,7 @@
 ---
-title: "HDInsight Linux 클러스터에서 Hadoop으로 Hue 사용 | Microsoft 문서"
-description: "HDInsight Linux에서 Hadoop 클러스터로 Hue를 설치하고 사용하는 방법을 알아봅니다."
+title: "HDInsight Linux 기반 클러스터에서 Hadoop으로 Hue - Azure | Microsoft Docs"
+description: "HDInsight 클러스터에서 Hue를 설치하고 터널링을 사용하여 Hue로 요청을 라우팅하는 방법을 알아봅니다. Hue를 사용하여 저장소를 찾은 후 Hive 또는 Pig를 실행합니다."
+keywords: hue hadoop
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -8,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 66884a73a8ea1cbf72a48f9a776fa45ae1976591
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 45fcd318c58a73e0ff94320d9473b12c97e1ac26
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -51,7 +52,7 @@ Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 �
 
 Linux 기반 HDInsight 클러스터에 Hue를 설치하는 스크립트는 https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh에 있습니다. 이 스크립트를 사용하여 Azure Storage Blobs(WASB) 또는 Azure Data Lake Store를 기본 스토리지로 클러스터에 Hue를 설치할 수 있습니다.
 
-이 섹션에서는 Azure 포털을 사용하여 클러스터를 프로비전할 때 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
+이 섹션에서는 Azure Portal을 사용하여 클러스터를 프로비전할 때 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
 > [!NOTE]
 > Azure PowerShell, Azure CLI, HDInsight .NET SDK 또는 Azure Resource Manager 템플릿을 스크립트 동작을 적용하는 데 사용할 수도 있습니다. 이미 실행 중인 클러스터에도 스크립트 동작을 적용할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
@@ -138,7 +139,7 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 2. 설치하는 동안 구성을 업데이트하기 위해 여러 Hadoop 서비스(HDFS, YARN, MR2, Oozie)를 다시 시작합니다. 스크립트가 Hue의 설치를 완료한 후에 다른 Hadoop 서비스를 시작하려면 시간이 걸릴 수 있습니다. 처음에 Hue의 성능이 달라질 수 있습니다. 모든 서비스를 시작하면 Hue는 완벽하게 작동합니다.
 3. Hue는 Hive의 현재 기본값인 Tez 작업을 인식하지 못합니다. MapReduce를 Hive 실행 엔진으로 사용하려는 경우 스크립트를 업데이트하여 스크립트에서 다음 명령을 사용합니다.
 
-         set hive.execution.engine=mr;
+        set hive.execution.engine=mr;
 
 4. Linux 클러스터의 경우 보조 헤드 노드에서 Resource Manager를 실행하는 반면 기본 헤드 노드에서 서비스를 실행하는 시나리오가 있을 수 있습니다. Hue를 사용하여 클러스터에서 실행 중인 작업의 세부 정보를 보려면  이러한 시나리오에 오류가 발생할 수 있습니다. 그러나 작업이 완료되었을 때 작업 세부 정보를 볼 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 Mono 설치 또는 업데이트 | Microsoft Docs"
+title: "HDInsight에서 Mono 설치 또는 업데이트 - Azure | Microsoft Docs"
 description: "HDInsight 클러스터에서 특정 버전의 Mono를 사용하는 방법을 알아봅니다. Mono는 Linux 기반 HDInsight 클러스터에서 .NET 응용 프로그램을 실행하는 데 사용됩니다."
 services: hdinsight
 documentationCenter: 
@@ -16,10 +16,10 @@ ms.date: 05/01/2017
 ms.author: larryfr
 ms.custom: hdinsightactive
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: dc303b5386d48cd7daad1630a35c8b8366a9c19f
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 2721b41e8736c9ebd75cd098ad376018b4563d3f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

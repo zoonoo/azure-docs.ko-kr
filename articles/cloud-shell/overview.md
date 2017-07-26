@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 63f1c468b5f8f4b0bb298cb67adea8c01b065427
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 6b4bbb13dbb86f82dd6a70acaccfcf38eec951c6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Azure Cloud Shell(미리 보기) 개요
@@ -77,4 +77,11 @@ $Home 디렉터리를 유지하기 위해 탑재된 Azure 파일 공유의 필�
 
 ## <a name="supported-browsers"></a>지원되는 브라우저
 Cloud Shell은 Chrome, Edge 및 Safari에 권장됩니다. Cloud Shell은 Chrome, Firefox, Safari, IE 및 Edge에서 지원되지만 특정 브라우저 설정에 따라 다릅니다.
+
+## <a name="troubleshooting"></a>문제 해결
+* 저장소를 만들 때 오류: 409 MissingSubscriptionRegistration이 수신됩니다.
+  * 이 오류는 구독이 저장소 네임스페이스용으로 등록되지 않았음을 나타냅니다. [이러한 단계별 세부 정보](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#noregisteredproviderfound)를 확인하고 완료되면 다시 시도하세요.
+* Azure Active Directory 구독을 사용할 경우 오류: 400 DisallowedOperation으로 인해 저장소를 만들 수 없습니다.
+  * AD 구독에 Azure 리소스를 만들기 위한 액세스 권한이 부여되지 않았습니다. 저장소 리소스를 만들 수 있는 Azure 구독을 사용하세요.
+
 알려진 특별한 제한 사항은 [Cloud Shell 제한 사항](limitations.md)을 방문하세요.

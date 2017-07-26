@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2017
 ms.author: bburns
-translationtype: Human Translation
-ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
-ms.openlocfilehash: 5987b1034fc9c52b13606c469683adff06729984
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 5cc5860025e8f6fb3eaf7ab213e4655e9519ae0c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -61,7 +62,7 @@ $ az acs kubernetes install-cli
 $ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
-그러면 보안 프록시에 로컬 시스템을 Kubernetes 웹 UI에 연결할 것을 지정하도록 구성된 웹 브라우저가 열립니다.
+그러면 로컬 컴퓨터를 Kubernetes 웹 UI에 연결하는 보안 프록시와 통신하도록 구성된 웹 브라우저가 열립니다.
 
 ### <a name="create-and-expose-a-service"></a>서비스 만들기 및 공개
 1. Kubernetes 웹 UI의 오른쪽 위에 있는 창에서 **만들기** 단추를 클릭합니다.

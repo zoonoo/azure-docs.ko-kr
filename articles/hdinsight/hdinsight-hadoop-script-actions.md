@@ -1,5 +1,5 @@
 ---
-title: "HDInsight를 사용하여 스크립트 동작 개발 | Microsoft 문서"
+title: "HDInsight를 사용하여 스크립트 작업 개발 - Azure | Microsoft Docs"
 description: "스크립트 작업을 사용하여 Hadoop 클러스터를 사용자 지정하는 방법을 알아봅니다. 스크립트 작업은 Hadoop 클러스터에서 실행되는 추가 소프트웨어를 설치하거나 클러스터에 설치된 응용 프로그램의 구성을 변경하기 위해 사용할 수 있습니다."
 services: hdinsight
 documentationcenter: 
@@ -13,13 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 989f45eed033409b1ade183827719acdd9a4b0b4
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 25f46e3b9b905329c7e861acb8df2054fe918e2f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -29,7 +30,7 @@ HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아�
 
 
 > [!IMPORTANT]
-> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요. Linux 기반 클러스터로 스크립트 작업 사용에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발(Linux)](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요. Linux 기반 클러스터로 스크립트 작업 사용에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발(Linux)](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
 >
 >
 
@@ -46,7 +47,7 @@ HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아�
 >
 
 ## <a name="sample-scripts"></a>샘플 스크립트
-Windows 운영 체제에서 HDInsight 클러스터를 만드는 경우 스크립트 작업은 Azure PowerShell 스크립트입니다. 다음은 사이트 구성 파일 구성에 대한 샘플 스크립트입니다.
+Windows 운영 체제에서 HDInsight 클러스터를 만들기 위한 스크립트 작업은 Azure PowerShell 스크립트입니다. 다음 스크립트는 사이트 구성 파일을 구성하기 위한 예제입니다.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -118,7 +119,7 @@ HDInsight는 HDInsight 클러스터에 추가 구성 요소를 설치하는 여�
 >
 
 ## <a name="helper-methods-for-custom-scripts"></a>사용자 지정 스크립트에 대한 도우미 메서드
-스크립트 작업 도우미 메서드는 사용자 지정 스크립트를 쓰는 동안 사용할 수 있는 유틸리티입니다. 이러한 메서드는 [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1)에 정의되어 있으며 다음을 사용하여 스크립트에 포함할 수 있습니다.
+스크립트 작업 도우미 메서드는 사용자 지정 스크립트를 쓰는 동안 사용할 수 있는 유틸리티입니다. 이러한 메서드는 [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1)에 정의되어 있으며 다음 예제를 사용하여 스크립트에 포함할 수 있습니다.
 
     # Download config action module from a well-known directory.
     $CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
@@ -182,7 +183,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
     헤드 노드 역할이 *ClusterRoleCollection* 매개 변수에 값으로 지정된 경우 두 헤드 노드 모두에서 HDInsight 스크립트 동작 명령이 실행됩니다. 따라서 사용자 지정 스크립트를 설계할 때는 스크립트에서 이 설정을 인식하는지 확인해야 합니다. 두 헤드 노드 모두에서 동일한 서비스가 설치 및 시작되어 서로 경쟁하게 되는 문제가 발생해서는 안 됩니다. 또한 재이미징 동안 데이터가 손실되므로 스크립트 작업을 통해 설치된 소프트웨어는 이러한 이벤트에 대해 복원력이 있어야 합니다. 응용 프로그램은 여러 노드에 배포되는 고가용성 데이터와 작동하도록 설계되어야 합니다. 클러스터의 노드 중 1/5 정도가 동시에 재이미징될 수 있다는 점에 유의하세요.
 * Azure Blob 저장소를 사용하도록 사용자 지정 구성 요소 구성
 
-    클러스터 노드에 설치하는 사용자 지정 구성 요소에는 HDFS(Hadoop Distributed File System) 저장소를 사용하기 위한 기본 구성이 있을 수 있습니다. Azure Blob 저장소를 사용하도록 구성을 변경해야 합니다. 클러스터 재이미지 시 HDFS 파일 시스템은 포맷되고 거기에 저장된 데이터를 잃게 됩니다. 대신 Azure Blob 저장소를 사용하면 데이터가 유지됩니다.
+    클러스터 노드에 설치하는 사용자 지정 구성 요소에는 HDFS(Hadoop Distributed File System) 저장소를 사용하기 위한 기본 구성이 있을 수 있습니다. Azure Blob 저장소를 사용하도록 구성을 변경해야 합니다. 클러스터 재이미지 시 HDFS 파일 시스템은 포맷되고 거기에 저장된 데이터를 잃게 됩니다. 대신 Azure Blob Storage를 사용하면 데이터가 유지됩니다.
 
 ## <a name="common-usage-patterns"></a>일반적인 사용 패턴
 이 섹션에서는 사용자 고유의 사용자 지정 스크립트를 작성하는 동안 실행할 수 있는 일반적인 사용 패턴 중 일부를 구현하는 방법에 대한 지침을 제공합니다.

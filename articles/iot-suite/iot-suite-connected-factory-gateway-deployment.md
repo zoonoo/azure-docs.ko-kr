@@ -15,15 +15,28 @@ ms.workload: na
 ms.date: 04/22/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: e8774cc290847d48ecdc5dcdac1f2533fdc7d072
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 09585a8e2ffbe0c825ee63f459218c7945cdd243
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 06/08/2017
 
 ---
 
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>연결된 팩터리의 미리 구성된 솔루션을 위해 Windows 또는 Linux에 게이트웨이 배포
+
+연결된 팩터리 미리 구성된 솔루션의 게이트웨이를 배포하는 데 필요한 소프트웨어에는 구성 요소가 두 개 있습니다.
+
+* *OPC 프록시*는 IoT Hub에 대한 연결을 설정하고 연결된 팩터리 솔루션 포털에서 실행되는 통합된 OPC 브라우저의 명령 및 제어 메시지를 기다립니다.
+* *OPC 게시자*는 기존 온-프레미스 OPC UA 서버에 연결하고 해당 서버의 원격 분석 메시지를 IoT Hub에 전달합니다.
+
+두 구성 요소는 오픈 소스이며 GitHub의 원본 및 Docker 컨테이너로 사용할 수 있습니다.
+
+| GitHub | DockerHub |
+| ------ | --------- |
+| [OPC 게시자][lnk-publisher-github] | [OPC 게시자][lnk-publisher-docker] |
+| [OPC 프록시][lnk-proxy-github] | [OPC 프록시][lnk-proxy-docker] |
+
+각 구성 요소에는 게이트웨이 방화벽에 공용 IP 주소 또는 빈 영역이 필요합니다. OPC 프록시와 OPC 게시자는 443, 5671 및 8883 아웃바운드 포트만 사용합니다.
 
 이 문서의 단계에서는 Windows 또는 Linux에서 Docker를 사용하여 게이트웨이를 배포하는 방법을 보여 줍니다. 게이트웨이를 사용하면 연결된 팩터리의 미리 구성된 솔루션에 대한 연결을 사용하도록 설정할 수 있습니다.
 
@@ -58,7 +71,7 @@ Windows 기반 게이트웨이 장치에 [Windows용 Docker]를 설치합니다.
 
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
-    * **&lt;ApplicationName&gt;** 은 게이트웨이가 **게시자.&lt;정규화된 도메인 이름&gt;** 형식으로 만드는 OPC UA 응용 프로그램의 이름입니다. 예를 들면 **publisher.microsoft.com**과 같습니다.
+    * **&lt;ApplicationName&gt;**은 **게시자.&lt;정규화된 도메인 이름&gt;** 형식으로 OPC UA 게시자에 지정하는 이름입니다. 예를 들어 팩터리 네트워크 이름이 **myfactorynetwork.com**일 경우 **ApplicationName** 값은 **publisher.myfactorynetwork.com**입니다.
     * **&lt;IoTHubOwnerConnectionString&gt;**은 이전 단계에서 복사한 **iothubowner** 연결 문자열입니다. 이 연결 문자열은 이 단계에서만 사용하며 다시 필요하지 않습니다.
 
     매핑된 D:\\docker 폴더(`-v` 인수)는 게이트웨이 모듈에서 사용되는 두 X.509 인증서를 유지하기 위해 나중에 사용됩니다.
@@ -67,7 +80,7 @@ Windows 기반 게이트웨이 장치에 [Windows용 Docker]를 설치합니다.
 
 1. 다음 명령을 사용하여 게이트웨이를 다시 시작합니다.
 
-    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e \_GW\_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
+    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
 
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 
@@ -152,5 +165,10 @@ Linux 게이트웨이 장치에서 [Docker를 설치]합니다.
 [Azure Portal]: http://portal.azure.com/
 [오픈 소스 OPC UA 클라이언트]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
 [Docker를 설치]: https://www.docker.com/community-edition#/download
-[lnk-walkthrough]: iot-suite-overview.md
+[lnk-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [Azure IoT Edge]: https://github.com/Azure/iot-edge
+
+[lnk-publisher-github]: https://github.com/Azure/iot-edge-opc-publisher
+[lnk-publisher-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua
+[lnk-proxy-github]: https://github.com/Azure/iot-edge-opc-proxy
+[lnk-proxy-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua-proxy

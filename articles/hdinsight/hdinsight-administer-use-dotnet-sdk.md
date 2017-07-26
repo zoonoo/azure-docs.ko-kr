@@ -1,5 +1,5 @@
 ---
-title: ".NET SDK를 사용하여 HDInsight의 Hadoop 클러스터 관리 | Microsoft Docs"
+title: ".NET SDK를 사용하여 HDInsight의 Hadoop 클러스터 관리 - Azure | Microsoft Docs"
 description: "HDInsight .NET SDK를 사용하여 HDInsight에서 Hadoop 클러스터에 대해 관리 작업을 수행하는 방법에 대해 알아봅니다."
 services: hdinsight
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ec710057c2016175f65578a9d6884f7273b65169
-ms.openlocfilehash: f2a762ad64feeef91802429cdd959cec67b73473
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: c10471425fa1202ddb7fe35d0adf4ef33509f268
 ms.contentlocale: ko-kr
-ms.lasthandoff: 12/20/2016
+ms.lasthandoff: 05/26/2017
 
 
 ---

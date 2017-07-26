@@ -12,21 +12,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/08/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 540cd10066e055e2dc132445b9adba5a4112d63a
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 9f5883a2a611b986aa305087084d05d6fab1ab7d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
 # <a name="persisting-files-in-azure-cloud-shell"></a>Azure Cloud Shell에서 파일 유지
-Azure Cloud Shell은 처음 시작 시 사용자에게 LRS 저장소 계정과 Azure 파일 공유를 만들 구독을 요청합니다.
+Azure Cloud Shell은 처음 시작 시 사용자에게 LRS 저장소 계정과 Azure 파일 공유를 만들 구독을 요청합니다. Cloud Shell에 액세스하려면 저장소 계정을 만들 수 있는 권한이 있어야 합니다.
 
 ![](media/storage-prompt.png)
 
+## <a name="how-it-works"></a>작동 방법
 ### <a name="three-resources-will-be-created-on-your-behalf-in-a-supported-region-nearest-to-you"></a>지원되는 가장 가까운 지역에서 사용자 대신 세 개의 리소스를 만듭니다.
 1. 리소스 그룹: `cloud-shell-storage-<region>`
 2. 저장소 계정: `cs-uniqueGuid`
@@ -42,6 +43,9 @@ Azure Cloud Shell은 처음 시작 시 사용자에게 LRS 저장소 계정과 A
  
 > [!Note]
 > SSH 키와 같이 $Home 디렉터리의 모든 파일은 탑재된 파일 공유에 저장된 사용자 디스크 이미지에서 유지됩니다. $Home 디렉터리 및 탑재된 파일 공유에서 정보를 유지하는 경우 모범 사례를 적용합니다.
+
+### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Azure 리소스 정책으로 리소스 만들기 제한
+저장소 계정에는 "ms-resource-usage:azure-cloud-shell"이라는 태그가 지정됩니다. 조직에서 사용자가 Cloud Shell의 저장소 계정을 만드는 것을 거부하려면 이 특정 키와 값으로 트리거되는 [태그에 대한 Azure 리소스 정책](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags)을 만듭니다.
 
 ## <a name="using-clouddrive"></a>clouddrive 사용
 Cloud Shell을 사용하면 사용자가 Cloud Shell에 탑재된 파일 공유를 수동으로 업데이트하는 `clouddrive`라는 명령을 실행할 수 있습니다.
@@ -132,6 +136,6 @@ justin@Azure:~$
 이제 Cloud Shell의 clouddrive 디렉터리에서 액세스할 수 있는 파일이 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Cloud Shell 빠른 시작](quickstart.md) 
-[Azure File Storage에 대한 자세한 정보](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
-[저장소 태그에 대한 자세한 정보](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) 
+[Cloud Shell 빠른 시작](quickstart.md) <br>
+[Azure File Storage에 대해 알아보기](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Storage 태그에 대해 알아보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

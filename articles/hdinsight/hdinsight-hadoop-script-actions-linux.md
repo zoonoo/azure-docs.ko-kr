@@ -1,5 +1,5 @@
 ---
-title: "Linux 기반 HDInsight를 사용하여 스크립트 동작 개발 | Microsoft 문서"
+title: "Linux 기반 HDInsight를 사용하여 스크립트 작업 개발 - Azure | Microsoft Docs"
 description: "스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터를 사용자 지정하는 방법 스크립트 작업은 클러스터 구성 설정을 지정하거나 클러스터에서 추가 서비스, 도구 또는 기타 소프트웨어를 설치하여 Azure HDInsight 클러스터를 사용자 지정하는 방법입니다. "
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/02/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: aaa5134fafea387e63fc9c9819422d24de6baed0
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: f0ad9a30235412bca9a5b820705960e7b1158d9b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

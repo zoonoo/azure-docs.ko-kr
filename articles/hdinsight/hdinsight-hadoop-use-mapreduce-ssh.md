@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 Hadoop과 MapReduce 및 SSH 연결 사용 | Microsoft Docs"
+title: "HDInsight에서 Hadoop과 MapReduce 및 SSH 연결 사용 - Azure | Microsoft Docs"
 description: "SSH를 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업을 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: d13e6782115bf4f229ed232dc6e3c21ff81c86eb
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 1eb46b8315a0f87b10fb7a202eb2d9641785de87
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

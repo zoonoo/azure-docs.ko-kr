@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-translationtype: Human Translation
-ms.sourcegitcommit: 21b4d574705d589406f50cac106a47ada71d24cd
-ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f77329f9838d6e824afa7234de90f62257a004de
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -26,13 +28,13 @@ ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
 U-SQL에 대한 인식 기능은 개발자가 빅 데이터 프로그램에서 인텔리전스를 사용하도록 합니다. 전체 프로세스는 간단합니다.
 
 * 참조 어셈블리 문을 사용하여 U-SQL 스크립트에 대한 인식 기능을 사용합니다.
-* 처리 작업을 사용하여 인식 기능 사용 
+* 처리 작업을 호출하여 인식 기능 사용 
 
 ## <a name="imaging-scenarios"></a>이미징 시나리오
 
-### <a name="a-simple-example-image-tagging"></a>간단한 예: 이미지 태그 지정
+### <a name="example-image-tagging"></a>예: 이미지 태그 지정
 
-다음 예제는 이미지에 있는 개체를 감지하기 위한 이미징 기능의 종단 간 사용을 보여줍니다.
+다음 예제는 이미지에 있는 개체를 감지하기 위한 이미징 기능의 종단 간 사용을 보여 줍니다.
 
     REFERENCE ASSEMBLY ImageCommon;
     REFERENCE ASSEMBLY FaceSdk;
@@ -104,7 +106,7 @@ U-SQL에 대한 인식 기능은 개발자가 빅 데이터 프로그램에서 �
         FROM @"/usqlext/samples/cognition/war_and_peace.csv"
         USING Extractors.Csv();
 
-### <a name="extract-key-phrases-for-each-paragraph"></a>각 단락에 대한 핵심 문구를 추출합니다.
+### <a name="extract-key-phrases-for-each-paragraph"></a>각 단락에 대한 핵심 문구 추출
 
     @keyphrase =
         PROCESS @WarAndPeace
@@ -150,10 +152,5 @@ U-SQL에 대한 인식 기능은 개발자가 빅 데이터 프로그램에서 �
                 Chapter,
                 Text
         USING new Cognition.Text.SentimentAnalyzer(true);
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

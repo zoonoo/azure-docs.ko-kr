@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 pig와 함께 DataFu 사용"
+title: "HDInsight에서 Pig와 함께 DataFu 사용 - Azure | Microsoft Docs"
 description: "DataFu는 Hadoop과 함께 사용하기 위한 라이브러리의 컬렉션입니다. HDInsight 클러스터에서 Pig와 함께 DataFu를 사용하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: b9dcb069003c647073c978feb588debb689d560e
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: fb9ce3f3ecc8b08c02b31316d69c68589f25f363
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

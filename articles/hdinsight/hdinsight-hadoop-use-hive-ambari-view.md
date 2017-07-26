@@ -1,5 +1,5 @@
 ---
-title: "HDInsight(Hadoop)에서 Ambari 보기를 사용하는 Hive 작업| Microsoft 문서"
+title: "Ambari 보기를 사용하여 HDInsight(Hadoop)에서 Hive 작업 - Azure | Microsoft Docs"
 description: "웹 브라우저에서 Hive 뷰를 사용하여 Hive 쿼리를 제출하는 방법을 알아봅니다. Hive 뷰는 Linux 기반 HDInsight 클러스터와 함께 제공되는 Ambari 웹 UI의 일부입니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/05/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 8789643474ac84d4509cd25206091e49925c9dcd
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 418b7bf2c1b2e6f66f6aebef48e2209c6b3ce5fb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

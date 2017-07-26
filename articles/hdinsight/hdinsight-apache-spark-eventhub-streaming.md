@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 05/25/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 86ec34dccb4518c31d9762e68f272382ee544713
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 41019b4ae022602d2688399d1fc309151174e157
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -31,9 +31,9 @@ ms.lasthandoff: 05/15/2017
 
 1. 독립 실행형 응용 프로그램을 사용하여 Azure 이벤트 허브로 메시지를 수집합니다.
 
-2. HDInsight의 Spark 클러스터에서 실행 중인 응용 프로그램을 사용하여 실시간으로 이벤트 허브에서 메시지를 읽습니다.
+2. 두 가지 방법으로 Azure HDInsight의 Spark 클러스터에서 실행 중인 응용 프로그램을 사용하여 실시간으로 Event Hub에서 메시지를 검색합니다.
 
-3. Azure Storage Blob, Hive 테이블 및 SQL 테이블과 같은 다른 출력에 데이터를 라우팅합니다. 
+3. 스트리밍 분석 파이프라인을 빌드하여 데이터를 다른 저장소 시스템에 유지하거나 즉석에서 데이터의 정보를 가져옵니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 05/15/2017
 
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
-## <a name="what-is-apache-spark-streaming"></a>Apache Spark 스트리밍이란?
+## <a name="spark-streaming-concepts"></a>Spark 스트리밍 개념
 
 Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개요](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)를 참조하세요. HDInsight는 Azure에서 Spark 클러스터에 동일한 스트리밍 기능을 제공합니다.  
 
@@ -53,28 +53,28 @@ Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개�
 
 2. 이벤트를 생성하고 Azure 이벤트 허브를 푸시하는 로컬 독립 실행형 응용 프로그램을 실행합니다. 이 작업을 수행하는 샘플 응용 프로그램은 [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples)에 게시되어 있습니다.
 
-3. Azure 이벤트 허브에서 스트리밍 이벤트를 읽고 다른 위치(예: Azure Blob, Hive 테이블 및 SQL 데이터베이스 테이블)에 작성하는 Spark 클러스터에서 이벤트 허브 Azure 샘플을 실행합니다.
+3. Azure Event Hub에서 스트리밍 이벤트를 읽는 Spark 클러스터에서 원격으로 스트리밍 응용 프로그램을 실행하고 다양한 데이터 처리/분석을 수행합니다.
 
 ## <a name="create-an-azure-event-hub"></a>Azure 이벤트 허브 만들기
 
-1. [Azure Portal](https://manage.windowsazure.com)에 로그온하고 화면 왼쪽 위에 있는 **새로 만들기**를 클릭합니다.
+1. [Azure Portal](https://ms.portal.azure.com)에 로그온하고 화면 왼쪽 위에 있는 **새로 만들기**를 클릭합니다.
 
 2. **사물 인터넷**을 클릭한 다음 **Event Hubs**를 클릭합니다.
-   
+
     ![Spark 스트리밍 예제에 대한 이벤트 허브 만들기](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Spark 스트리밍 예제에 대한 이벤트 허브 만들기")
 
 3. **네임스페이스 만들기** 블레이드에서 네임스페이스 이름을 입력합니다. 가격 책정 계층(기본 또는 표준)을 선택합니다. 또한 리소스를 만들 Azure 구독, 리소스 그룹 및 위치를 선택합니다. **만들기** 를 클릭하여 네임스페이스를 만듭니다.
-   
-    ![Spark 스트리밍 예제에 대한 이벤트 허브 이름 제공](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Spark 스트리밍 예제에 대한 이벤트 허브 이름 제공")
+
+      ![Spark 스트리밍 예제에 대한 이벤트 허브 이름 제공](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Spark 스트리밍 예제에 대한 이벤트 허브 이름 제공")
 
     > [!NOTE]
-       > 대기 시간 및 비용을 줄이려면 HDInsight의 Apache Spark 클러스터와 동일한 **위치** 를 선택해야 합니다.
-       > 
-       > 
+    > 대기 시간 및 비용을 줄이려면 HDInsight의 Apache Spark 클러스터와 동일한 **위치** 를 선택해야 합니다.
+    >
+    >
 
 4. Event Hubs 네임스페이스 목록에서 새로 만든 네임스페이스를 클릭합니다.      
-   
-    
+
+
 5. 네임스페이스 블레이드에서 **이벤트 허브**를 클릭하고 **+ 이벤트 허브**를 클릭하여 새 이벤트 허브를 만듭니다.
    
     ![Spark 스트리밍 예제에 대한 이벤트 허브 만들기](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-open-event-hubs-blade-for-spark-streaming-example.png "Spark 스트리밍 예제에 대한 이벤트 허브 만들기")
@@ -102,13 +102,123 @@ Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개�
 1. 이 응용 프로그램을 실행하는 컴퓨터에 다음 항목이 설치되어 있는지 확인해야 합니다.
 
     * Oracle Java Development 키트. [여기](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)에서 설치할 수 있습니다.
-    * Java IDE. 이 문서에서는 IntelliJ IDEA 15.0.1을 사용합니다. [여기](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
+    * Apache Maven [여기](https://maven.apache.org/download.cgi)에서 다운로드할 수 있습니다. Maven 설치 지침은 [여기](https://maven.apache.org/install.html)에서 제공됩니다.
 
-2. IntelliJ IDEA에서 응용 프로그램, **EventhubsSampleEventProducer**를 엽니다.
+2. 명령 프롬프트를 열고 샘플 Scala 응용 프로그램의 GitHub 리포지토리를 복제한 위치로 이동하고 다음 명령을 실행하여 응용 프로그램을 빌드합니다.
 
-3. 프로젝트를 빌드합니다. **빌드** 메뉴에서 **프로젝트 만들기**를 클릭합니다. IntelliJ IDEA 구성에 따른 위치에 출력 jar가 만들어집니다. 일반적으로 **\classes\artifacts** 아래에 만들어집니다.
+        mvn package
+
+3. 응용 프로그램의 출력 jar인 **com-microsoft-azure-eventhubs-client-example-0.2.0.jar**은 **/target** 디렉터리 아래에 생성됩니다. 이 문서의 뒷부분에 나오는 이 jar 파일을 사용하여 전체 솔루션을 테스트합니다.
 
 ## <a name="create-application-to-receive-messages-from-event-hub-into-a-spark-cluster"></a>이벤트 허브에서 Spark 클러스터로 메시지를 수신하는 응용 프로그램 만들기 
+
+두 가지 방법으로 Spark 스트리밍 및 Azure Event Hubs, 수신기 기반 연결 및 Direct-DStream 기반 연결에 연결할 수 있습니다. Direct-DStream 기반은 2017년 1월에 도입된 2.0.3 릴리스에 포함됩니다. 이 기능은 성능이 우수하고 리소스 효율적이기 때문에 원래 수신기 기반 연결을 대체합니다. 자세한 내용은 [https://github.com/hdinsight/spark-eventhubs](https://github.com/hdinsight/spark-eventhubs)에서 확인하세요. Direct DStream은 Spark 2.0+만을 지원합니다.
+
+### <a name="build-applications-with-the-dependency-to-spark-eventhubs-connector"></a>spark-eventhubs 커넥터에 종속된 응용 프로그램을 빌드합니다.
+
+GitHub의 Spark-EventHubs 준비 버전도 발표할 예정입니다. Spark-EventHubs 준비 버전을 사용하려면 첫 번째 단계로 pom.xml에 다음 항목을 추가하여 GitHub를 소스 리포지토리로 사용합니다.
+
+```xml
+<repository>
+      <id>spark-eventhubs</id>
+      <url>https://raw.github.com/hdinsight/spark-eventhubs/maven-repo/</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+</repository>
+```
+
+그런 다음 프로젝트에 다음 종속성을 추가하여 이전에 릴리스된 버전을 사용할 수 있습니다.
+
+Maven 종속성
+
+```xml
+<!-- https://mvnrepository.com/artifact/com.microsoft.azure/spark-streaming-eventhubs_2.11 -->
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spark-streaming-eventhubs_2.11</artifactId>
+    <version>2.0.4</version>
+</dependency>
+```
+
+SBT 종속성
+
+```
+// https://mvnrepository.com/artifact/com.microsoft.azure/spark-streaming-eventhubs_2.11
+libraryDependencies += "com.microsoft.azure" % "spark-streaming-eventhubs_2.11" % "2.0.4"
+```
+
+### <a name="direct-dstream-connection"></a>Direct DStream 연결
+
+[http://central.maven.org/maven2/com/microsoft/azure/spark-streaming-eventhubs_2.11/2.0.4/spark-streaming-eventhubs_2.11-2.0.4.jar](http://central.maven.org/maven2/com/microsoft/azure/spark-streaming-eventhubs_2.11/2.0.4/spark-streaming-eventhubs_2.11-2.0.4.jar)에서 Direct DStream을 사용하는 예제를 포함하는 미리 작성된 jar 파일을 다운로드할 수 있습니다.
+
+jar 파일은 [https://github.com/hdinsight/spark-eventhubs/tree/master/examples/src/main/scala/com/microsoft/spark/streaming/examples/directdstream](https://github.com/hdinsight/spark-eventhubs/tree/master/examples/src/main/scala/com/microsoft/spark/streaming/examples/directdstream)에서 소스 코드를 사용할 수 있는 세 가지 예제를 포함합니다.
+
+[WindowingWordCount](https://github.com/hdinsight/spark-eventhubs/blob/master/examples/src/main/scala/com/microsoft/spark/streaming/examples/directdstream/WindowingWordCount.scala)를 예로 듭니다.
+
+```scala
+private def createStreamingContext(
+  sparkCheckpointDir: String,
+  batchDuration: Int,
+  namespace: String,
+  eventHunName: String,
+  eventhubParams: Map[String, String],
+  progressDir: String) = {
+val ssc = new StreamingContext(new SparkContext(), Seconds(batchDuration))
+ssc.checkpoint(sparkCheckpointDir)
+val inputDirectStream = EventHubsUtils.createDirectStreams(
+  ssc,
+  namespace,
+  progressDir,
+  Map(eventHunName -> eventhubParams))
+
+inputDirectStream.map(receivedRecord => (new String(receivedRecord.getBody), 1)).
+  reduceByKeyAndWindow((v1, v2) => v1 + v2, (v1, v2) => v1 - v2, Seconds(batchDuration * 3),
+    Seconds(batchDuration)).print()
+
+ssc
+}
+
+def main(args: Array[String]): Unit = {
+
+if (args.length != 8) {
+  println("Usage: program progressDir PolicyName PolicyKey EventHubNamespace EventHubName" +
+    " BatchDuration(seconds) Spark_Checkpoint_Directory maxRate")
+  sys.exit(1)
+}
+
+val progressDir = args(0)
+val policyName = args(1)
+val policykey = args(2)
+val namespace = args(3)
+val name = args(4)
+val batchDuration = args(5).toInt
+val sparkCheckpointDir = args(6)
+val maxRate = args(7)
+
+val eventhubParameters = Map[String, String] (
+  "eventhubs.policyname" -> policyName,
+  "eventhubs.policykey" -> policykey,
+  "eventhubs.namespace" -> namespace,
+  "eventhubs.name" -> name,
+  "eventhubs.partition.count" -> "32",
+  "eventhubs.consumergroup" -> "$Default",
+  "eventhubs.maxRate" -> s"$maxRate"
+)
+
+val ssc = StreamingContext.getOrCreate(sparkCheckpointDir,
+  () => createStreamingContext(sparkCheckpointDir, batchDuration, namespace, name,
+    eventhubParameters, progressDir))
+
+ssc.start()
+ssc.awaitTermination()
+}
+```
+
+위의 예에서 `eventhubParameters`는 단일 EventHubs 인스턴스에 지정된 매개 변수로서 `createDirectStreams` API에 전달되어야 합니다. 여기에서 Event Hubs 네임스페이스에 매핑된 Direct DStream 개체를 생성합니다. Direct DStream 개체에 대해 Spark 스트리밍 API Framework에서 제공하는 모든 DStream API를 호출할 수 있습니다. 이 예제에서는 최근 3번의 마이크로 배치 간격 내에서 각 단어의 빈도를 계산합니다.
+
+### <a name="receiver-based-connection"></a>수신기 기반 연결
 
 이벤트를 받고 이를 다른 대상으로 라우팅하는 Scala로 작성된 Spark 스트리밍 예제 응용 프로그램은 [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples)에서 사용 가능합니다. 다음 단계를 수행하여 이벤트 허브 구성에 대한 응용 프로그램을 업데이트하고 출력 jar을 만듭니다.
 
@@ -126,7 +236,7 @@ Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개�
    
     ![Apache Spark 스트리밍 예제 - 컴파일러 설정](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-java-8-compiler.png "Apache Spark 스트리밍 예제 - 컴파일러 설정")
 5. **pom.xml** 을 열고 Spark 버전이 정확한지 확인합니다. `<properties>` 노드 아래에서 다음 코드 조각을 찾고 Spark 버전을 확인합니다.
-   
+
         <scala.version>2.11.8</scala.version>
         <scala.compat.version>2.11.8</scala.compat.version>
         <scala.binary.version>2.11</scala.binary.version>
@@ -136,14 +246,14 @@ Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개�
      
      1. 응용 프로그램이 열려 있는 IntelliJ IDEA 창에서 **파일**, **프로젝트 구조**, **라이브러리**를 차례로 클릭합니다. 
      2. 추가 아이콘(![추가 아이콘](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png))을 클릭하고 **Java**를 클릭한 다음 JDBC 드라이버 jar를 다운로드한 위치로 이동합니다. 지시에 따라 프로젝트 라이브러리에 jar 파일을 추가합니다.
-        
+
          ![누락된 종속성 추가](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "누락된 종속성 jar 추가")
      3. **Apply**를 클릭합니다.
 
 7. 출력 jar 파일을 만듭니다. 다음 단계를 수행합니다.
-   
-   1. **프로젝트 구조** 대화 상자에서 **아티팩트**를 클릭한 다음 +(더하기) 기호를 클릭합니다. 팝업 대화 상자에서 **JAR**, **종속성이 있는 모듈에서**를 차례로 클릭합니다.
-      
+
+   1. **프로젝트 구조** 대화 상자에서 **아티팩트**를 클릭한 다음 +(더하기) 기호를 클릭합니다. 팝업 대화 상자에서 **JAR**, **종속성이 있는 모듈에서**를 차례로 클릭합니다.      
+       
        ![Apache Spark 스트리밍 예제 - JAR 만들기](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar.png "Apache Spark 스트리밍 예제 - JAR 만들기")
    2. **모듈에서 JAR 만들기** 대화 상자에서 **주 클래스**에 대한 ![ellipsis](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png)(줄임표)를 클릭합니다.
    3. **주 클래스 선택** 대화 상자에서 사용 가능한 클래스를 선택한 다음 **확인**을 클릭합니다.
@@ -152,7 +262,7 @@ Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개�
    4. **모듈에서 JAR 만들** 대화 상자에서 **대상 JAR에 추출** 옵션이 선택되었는지 확인한 다음 **확인**을 클릭합니다. 이렇게 하면 모든 종속성이 있는 단일 JAR이 만들어집니다.
       
        ![Apache Spark 스트리밍 예제 - 모듈에서 jar 만들기](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar-from-modules.png "Apache Spark 스트리밍 예제 - 모듈에서 jar 만들기")
-   5. **출력 레이아웃** 탭에는 Maven 프로젝트의 일부분으로 포함된 jar이 모두 나열됩니다. 직접 종속성이 없는 Scala 응용 프로그램을 선택하고 삭제할 수 있습니다. 여기에서 만든 응용 프로그램의 경우 마지막을 제외한 모두를 제거할 수 있습니다(**microsoft-spark-streaming-examples compile output**). 삭제할 jar을 선택한 다음 ![delete icon](./media/hdinsight-apache-spark-eventhub-streaming/delete-icon.png)(**삭제**) 아이콘을 클릭합니다.
+   5. **출력 레이아웃** 탭에는 Maven 프로젝트의 일부분으로 포함된 jar이 모두 나열됩니다. 직접 종속성이 없는 Scala 응용 프로그램을 선택하고 삭제할 수 있습니다. 여기에서 만든 응용 프로그램의 경우 마지막을 제외한 모두를 제거할 수 있습니다(**spark-streaming-data-persistence-examples 컴파일 출력**). 삭제할 jar을 선택한 다음 ![delete icon](./media/hdinsight-apache-spark-eventhub-streaming/delete-icon.png)(**삭제**) 아이콘을 클릭합니다.
       
        ![Apache Spark 스트리밍 예제 - 추출된 jar 삭제](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-delete-output-jars.png "Apache Spark 스트리밍 예제 - 추출된 jar 삭제")
       
@@ -175,8 +285,8 @@ Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개�
 이 문서에서는 Livy를 사용하여 Spark 클러스터에서 Apache Spark 스트리밍 응용 프로그램을 원격으로 실행합니다. HDInsight Spark 클러스터와 함께 Livy를 사용하는 방법에 대한 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터에 원격으로 작업 제출](hdinsight-apache-spark-livy-rest-interface.md)을 참조하세요. Spark 스트리밍 응용 프로그램 실행을 시작하기 전에 몇 가지 작업을 수행해야 합니다.
 
 1. 로컬 독립 실행형 응용 프로그램을 시작하여 이벤트를 생성하고 이벤트 허브로 전송합니다. 이렇게 하려면 다음 명령을 사용합니다.
-   
-        java -cp com-microsoft-azure-eventhubs-client-example.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
+
+        java -cp com-microsoft-azure-eventhubs-client-example-0.2.0.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
 
 2. 스트리밍 jar(**spark-streaming-data-persistence-examples.jar**)을 클러스터와 연결된 Azure Blob Storage에 복사합니다. 이렇게 하면 jar이 Livy에 액세스할 수 있습니다. [**AzCopy**](../storage/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
 3. 이러한 응용 프로그램을 실행 중인 컴퓨터에 CURL을 설치합니다. Livy 끝점을 호출하는 CURL을 사용하여 작업을 원격으로 실행합니다.
@@ -201,8 +311,8 @@ Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개�
 
 > [!NOTE]
 > 매개 변수로 사용되는 출력 폴더(EventCheckpoint, EventCount/EventCount10)를 만들 필요가 없습니다. 스트리밍 응용 프로그램은 이를 만듭니다.
-> 
-> 
+>
+>
 
 명령을 실행하면 다음과 유사한 출력이 표시됩니다.
 
@@ -320,6 +430,7 @@ hive 테이블이 성공적으로 만들어졌는지 확인하려면 클러스�
 
 ## <a name="seealso"></a>참고 항목
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
+* [수신기 기반 연결 및 Direct DStream 설계](https://www.slideshare.net/NanZhu/seattle-sparkmeetup032317)
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)
@@ -334,7 +445,7 @@ hive 테이블이 성공적으로 만들어졌는지 확인하려면 클러스�
 ### <a name="tools-and-extensions"></a>도구 및 확장
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
@@ -350,6 +461,5 @@ hive 테이블이 성공적으로 만들어졌는지 확인하려면 클러스�
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/ 
+[azure-create-storageaccount]: ../storage-create-storage-account/
 

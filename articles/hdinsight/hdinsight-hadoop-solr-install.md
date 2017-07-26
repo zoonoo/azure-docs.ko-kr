@@ -1,5 +1,5 @@
 ---
-title: "스크립트 동작을 사용하여 Hadoop 클러스터에 Solr 설치 | Microsoft 문서"
+title: "스크립트 작업을 사용하여 Hadoop 클러스터에 Solr 설치- Azure | Microsoft Docs"
 description: "스크립트 작업을 사용하여 Solr로 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 12b5194656dd5c55eb7adba96f698cbeca6fd1b5
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: b29b0721aea21126744483d5e21253109829923a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

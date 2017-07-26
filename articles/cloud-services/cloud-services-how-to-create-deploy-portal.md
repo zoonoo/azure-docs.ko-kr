@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 542817c562e10ff32c62afd186cf012abbe82ac5
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
+ms.openlocfilehash: e5ce666f1d826c7901c9fd5e7fafe6171139c3ad
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/22/2017
 
 
 ---
@@ -55,33 +56,27 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 세 가지 클라우드 서비스 기능은 서비스 패키지를 내보내기 전에 특별히 구성해야 합니다.
 
 * 데이터 암호화에 SSL(Secure Sockets Layer)을 사용하는 클라우드 서비스를 배포하려는 경우 SSL에 맞게 [응용 프로그램을 구성](cloud-services-configure-ssl-certificate-portal.md#modify) 합니다.
-* 역할 인스턴스에 대한 원격 데스크톱 연결을 구성하려면 원격 데스크톱에 대한 [역할을 구성](cloud-services-role-enable-remote-desktop.md) 합니다. 이 클래식 포털에서 수행할 수 있습니다.
+* 역할 인스턴스에 대한 원격 데스크톱 연결을 구성하려면 원격 데스크톱에 대한 [역할을 구성](cloud-services-role-enable-remote-desktop-new-portal.md) 합니다.
 * 클라우드 서비스에 대해 자세한 모니터링을 구성하려면 클라우드 서비스에 Azure 진단을 사용하도록 설정합니다. *최소 모니터링* (기본 모니터링 수준)에서는 역할 인스턴스(가상 컴퓨터)에 대해 호스트 운영 체제에서 수집된 성능 카운터를 사용합니다. *세부 정보 표시 모니터링* 에서는 역할 인스턴스 내 성능 데이터를 기반으로 추가 메트릭을 수집하여 응용 프로그램 처리 중 발생하는 문제를 보다 자세히 분석할 수 있습니다. Azure 진단을 사용하도록 설정하는 방법에 대해 알아보려면 [Azure에서 진단 사용](cloud-services-dotnet-diagnostics.md)을 참조하세요.
 
 웹 역할 또는 작업자 역할 배포를 통해 클라우드 서비스를 만들려면 [서비스 패키지를 만들어야](cloud-services-model-and-package.md#servicepackagecspkg)합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 * Azure SDK를 설치하지 않은 경우 **Azure SDK 설치** 를 클릭하여 [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)를 열고 코드를 개발하려는 언어의 SDK를 다운로드합니다. 이 작업은 나중에 수행할 수 있습니다.
-* 역할 인스턴스에 인증서가 필요한 경우 인증서를 만듭니다. 클라우드 서비스에는 개인 키가 포함된 .pfx 파일이 필요합니다. [Azure에 인증서를 업로드]() 할 수 있습니다.
-* 클라우드 서비스를 선호도 그룹에 배포하려면 선호도 그룹을 만듭니다. 선호도 그룹을 사용하면 클라우드 서비스 및 다른 Azure 서비스를 지역의 동일한 위치에 배포할 수 있습니다. 선호도 그룹은 Azure 클래식 포털의 **네트워크** 영역에 있는 **선호도 그룹** 페이지에서 만들 수 있습니다.
+* 역할 인스턴스에 인증서가 필요한 경우 인증서를 만듭니다. 클라우드 서비스에는 개인 키가 포함된 .pfx 파일이 필요합니다. 클라우드 서비스를 만들고 배포할 때 Azure에 인증서를 업로드할 수 있습니다.
 
 ## <a name="create-and-deploy"></a>만들기 및 배포
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **새로 만들기 > 계산**을 클릭한 다음 아래로 스크롤하여 **클라우드 서비스**를 클릭합니다.
 
     ![클라우드 서비스 게시](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. 표시 되는 정보 페이지의 아래쪽에서 **만들기**를 클릭합니다.
-4. 새 **클라우드 서비스** 블레이드에서 **DNS 이름**의 값을 입력합니다.
-5. 새 **리소스 그룹** 을 만들거나 기존 항목을 선택합니다.
-6. **위치**를 선택합니다.
-7. **패키지**를 클릭합니다. 그러면 **패키지 업로드** 블레이드가 열립니다. 필수 필드를 입력합니다. 역할에 단일 인스턴스가 포함된 경우 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포합니다.** 가 선택되어 있어야 합니다.
-
-    > [!IMPORTANT]
-    > 클라우드 서비스는 [클래식 저장소 계정](../azure-resource-manager/resource-manager-deployment-model.md)에만 연결될 수 있습니다. 구독 및 위치에 대한 저장소 계정을 찾을 수 없다는 메시지가 표시되면 해당 위치에 클라우드 서비스에 대한 클래식 저장소 계정을 만들었는지 확인합니다.
-
-8. **배포 시작** 이 선택되어 있는지 확인합니다.
-9. **확인**을 클릭하면 **패키지 업로드** 블레이드가 닫힙니다.
-10. 추가할 인증서가 없는 경우 **만들기**를 클릭합니다.
+3. 새 **클라우드 서비스** 블레이드에서 **DNS 이름**의 값을 입력합니다.
+4. 새 **리소스 그룹** 을 만들거나 기존 항목을 선택합니다.
+5. **위치**를 선택합니다.
+6. **패키지**를 클릭합니다. 그러면 **패키지 업로드** 블레이드가 열립니다. 필수 필드를 입력합니다. 역할에 단일 인스턴스가 포함된 경우 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포합니다.** 가 선택되어 있어야 합니다.
+7. **배포 시작** 이 선택되어 있는지 확인합니다.
+8. **확인**을 클릭하면 **패키지 업로드** 블레이드가 닫힙니다.
+9. 추가할 인증서가 없는 경우 **만들기**를 클릭합니다.
 
     ![클라우드 서비스 게시](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 

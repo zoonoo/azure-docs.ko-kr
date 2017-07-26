@@ -1,5 +1,5 @@
 ---
-title: "Data Factory를 사용하여 Azure HDInsight(Hadoop) 만들기 | Microsoft Docs"
+title: "Data Factory를 사용하여 주문형 Hadoop 클러스터 만들기 - Azure HDInsight | Microsoft Docs"
 description: "Azure Data Factory를 사용하여 HDInsight에서 주문형 Hadoop 클러스터를 만드는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/23/2017
+ms.date: 07/20/2017
 ms.author: spelluru
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b515ffeebb2ebb4455c48b98d085acef7556291b
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 657c436cc45bb3818f89b922d74e03cae894778e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HDInsight에서 주문형 Hadoop 클러스터 만들기
@@ -312,12 +312,12 @@ Azure Storage 연결된 서비스는 Azure Storage 계정을 데이터 팩터리
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "osType": "linux",
-            "version": "3.2",
+            "version": "3.5",
             "clusterSize": 1,
+            "timeToLive": "00:05:00",
+            "osType": "Linux",
             "sshUserName": "myuser",                            
             "sshPassword": "MyPassword!",
-            "timeToLive": "00:30:00",
             "linkedServiceName": "[variables('storageLinkedServiceName')]"
         }
     }
@@ -550,12 +550,12 @@ Azure Data Factory에서 출력 데이터 집합 가용성이 파이프라인을
         "properties": {
             "type": "HDInsightOnDemand",
             "typeProperties": {
-                "osType": "linux",
-                "version": "3.2",
+                "version": "3.5",
                 "clusterSize": 1,
+                "timeToLive": "00:05:00",
+                "osType": "Linux",
                 "sshUserName": "myuser",                            
                 "sshPassword": "MyPassword!",
-                "timeToLive": "00:30:00",
                 "linkedServiceName": "[variables('storageLinkedServiceName')]",
                 "additionalLinkedServiceNames": "[variables('defaultStorageLinkedServiceName')]"
             }
@@ -573,7 +573,9 @@ Azure Data Factory에서 출력 데이터 집합 가용성이 파이프라인을
 ## <a name="appendix"></a>부록
 
 ### <a name="azure-cli-script"></a>Azure CLI 스크립트
-Azure PowerShell을 사용하는 대신 Azure CLI를 사용하여 자습서를 수행할 수 있습니다. Azure CLI를 사용하려면 다음 지침에 따라 먼저 Azure CLI를 설치합니다. [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+Azure PowerShell을 사용하는 대신 Azure CLI를 사용하여 자습서를 수행할 수 있습니다. Azure CLI를 사용하려면 다음 지침에 따라 먼저 Azure CLI를 설치합니다.
+
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 #### <a name="use-azure-cli-to-prepare-the-storage-and-copy-the-files"></a>Azure CLI를 사용하여 저장소 준비 및 파일 복사
 

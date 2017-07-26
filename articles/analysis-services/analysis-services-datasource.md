@@ -1,6 +1,6 @@
 ---
-title: "데이터 원본 연결 | Microsoft Docs"
-description: "Azure Analysis Services에서 데이터 모델에 대한 데이터 원본 연결에 대해 설명합니다."
+title: "Azure Analysis Services에서 지원되는 데이터 원본 | Microsoft Docs"
+description: "Azure Analysis Services의 데이터 모델에 지원되는 데이터 원본에 대해 설명합니다."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,22 +13,49 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: aebabd15e781e726def545960ce3c1ec7674c530
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: a0fe91568d747148b3940e9c90db15481c765a9c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
-# <a name="datasource-connections"></a>데이터 원본 연결
+# <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
+Azure Analysis Services는 조직의 클라우드 및 온-프레미스 데이터 원본에 대한 연결을 지원합니다. 지원되는 데이터 원본이 항상 추가되고 있습니다. 자주 확인하세요. 
+
+현재 지원되는 데이터 원본은 다음과 같습니다.
+
+| 클라우드  |
+|---|
+| Azure Blob Storage*  |
+| Azure SQL 데이터베이스  |
+| Azure Data Warehouse |
+
+
+| 온-프레미스  |   |   |   |
+|---|---|---|---|
+| Access 데이터베이스  | 폴더* | Oracle 데이터베이스  | Teradata 데이터베이스 |
+| Active Directory*  | JSON 문서*  | Postgre SQL Database*  |XML 테이블* |
+| Analysis Services  | 이진의 줄*  | SAP HANA*  |
+| 분석 플랫폼 시스템  | MySQL 데이터베이스  | SAP Business Warehouse*  | |
+| Dynamics CRM*  | OData 피드*  | SharePoint*  |
+| Excel 통합 문서  | ODBC 쿼리  | SQL Database  |
+| Exchange*  | OLE DB  | Sybase 데이터베이스  |
+
+\* 테이블 형식 1400 모델에만 해당합니다. 
+
+> [!IMPORTANT]
+> 온-프레미스 데이터 원본에 연결하려면 사용 중인 환경의 컴퓨터에 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)가 설치되어 있어야 합니다.
+
+## <a name="data-providers"></a>데이터 공급자
+
 특정 데이터 원본에 연결할 때 Azure Analysis Service의 데이터 모델은 서로 다른 데이터 공급자가 필요할 수 있습니다. 경우에 따라 SQL Server Native Client(SQLNCLI11)와 같은 네이티브 공급자를 사용하여 데이터 원본에 연결하는 테이블 형식 모델은 오류를 반환할 수 있습니다.
 
-Azure SQL Database와 같은 클라우드 데이터 원본에 연결되는 메모리 내 또는 직접 쿼리 데이터 모델의 경우 SQLOLEDB 이외의 네이티브 공급자를 사용하는 경우 **"'SQLNCLI11.1'은 등록되지 않은 공급자입니다."**라는 오류 메시지가 나타날 수 있습니다. 또는 온-프레미스 데이터 원본에 DirectQuery 모델을 연결한 경우, 네이티브 공급자를 사용하는 경우 **"OLE DB 행 집합을 만드는 데 오류가 발생했습니다. 'LIMIT' 가까이에 잘못된 구문이 있습니다."**라는 오류 메시지가 나타날 수 있습니다.
+Azure SQL Database 같은 클라우드 데이터 원본에 연결되는 데이터 모델의 경우 SQLOLEDB 이외의 네이티브 공급자를 사용하면 **"'SQLNCLI11.1'은 등록되지 않은 공급자입니다."**라는 오류 메시지가 나타날 수 있습니다. 또는 온-프레미스 데이터 원본에 DirectQuery 모델을 연결한 경우, 네이티브 공급자를 사용하는 경우 **"OLE DB 행 집합을 만드는 데 오류가 발생했습니다. 'LIMIT' 가까이에 잘못된 구문이 있습니다."**라는 오류 메시지가 나타날 수 있습니다.
 
-## <a name="data-source-providers"></a>데이터 원본 공급자
 다음 데이터 원본 공급자는 클라우드 또는 온-프레미스의 데이터 원본에 연결할 경우 메모리 내 또는 직접 쿼리 데이터 모델에 지원됩니다.
 
 ### <a name="cloud"></a>클라우드

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 06/14/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ddf4affe72c6413501ffa00747c110f8761ed70e
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: ef26a16e79d9c9b0654634960b57dc59827b2c24
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -118,9 +118,9 @@ LinkedIn Sales Navigator에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Single Sign-on 구성](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
-6. Azure Portaldml **LinkedIn Sales Navigator 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+6. Azure Portal의 **LinkedIn Sales Navigator 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
+    ![Single Sign-on 구성](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
 
     a. **식별자** 텍스트 상자에 LinkedIn 포털에서 복사한 **엔티티 ID**를 입력합니다. 
 
@@ -136,17 +136,22 @@ LinkedIn Sales Navigator에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Single Sign-on 구성](./media/active-directory-saas-linkedinsalesnavigator-tutorial/updateusermail.png)
     
-9. **사용자 특성** 섹션에서 **기타 모든 사용자 특성 보기 및 편집**을 클릭하고 특성을 설정합니다. 사용자는 **department**라는 또 다른 클레임을 추가해야 하고 값은 **user.department**에 매핑됩니다.
+9. **사용자 특성** 섹션에서 **기타 모든 사용자 특성 보기 및 편집**을 클릭하고 특성을 설정합니다. 사용자는 **전자 메일**, **부서**, **이름** 및 **성**이라는 이름의 4개 클레임을 추가해야 하며, 값은 **user.mail**, **user.department**, **user.givenname** 및 **user.surname**으로 각각 매핑됩니다.
 
     | 특성 이름 | 특성 값 |
     | --- | --- |    
+    | email| user.mail |
     | department| user.department |
-
-   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
-
-    a. **특성 추가**를 클릭하여 [특성] 대화 상자를 엽니다.
-
-   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
+    | firstname| user.givenname |
+    | lastname| user.surname |
+    
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
+    
+    a. **특성 추가**를 클릭하여 특성 대화 상자를 엽니다.
+    
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_04.png)
+    
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_05.png)
    
     b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     
@@ -154,19 +159,29 @@ LinkedIn Sales Navigator에서 Azure AD Single Sign-On을 구성하고 테스트
     
     d. **확인**을 클릭합니다.
 
-10. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
+10. **이름** 특성에서 다음 단계를 수행합니다.
+
+    a. 특성을 클릭하여 **특성 편집** 창을 엽니다.
+
+    ![Single Sign-on 구성](./media/active-directory-saas-linkedinsalesnavigator-tutorial/url_update.png)
+
+    b. **네임스페이스**에서 URL 값을 삭제합니다.
+    
+    c. **확인**을 클릭하여 설정을 저장합니다.
+
+11. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_certificate.png) 
 
-11. **저장** 단추를 클릭합니다.
+12. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_general_400.png)
 
-12. **LinkedIn 관리 설정** 섹션으로 이동합니다. **XML 파일 업로드**를 클릭하여 Azure Portal에서 다운로드한 메타데이터 XML을 업로드합니다.
+13. **LinkedIn 관리 설정** 섹션으로 이동합니다. **XML 파일 업로드**를 클릭하여 Azure Portal에서 다운로드한 메타데이터 XML을 업로드합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
-13. **설정**을 클릭하여 SSO를 사용하도록 설정합니다. SSO 상태가 **연결 안 됨**에서 **연결됨**으로 변경됩니다.
+14. **설정**을 클릭하여 SSO를 사용하도록 설정합니다. SSO 상태가 **연결 안 됨**에서 **연결됨**으로 변경됩니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 

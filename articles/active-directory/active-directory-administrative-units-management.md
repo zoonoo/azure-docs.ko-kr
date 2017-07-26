@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 5bf0e7f631a86a9d413415ab73e03fa00a0e9325
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 355ae7a13ab3d32b69a2b90e5410d5fc90fb6916
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/11/2017
 이는 각각 독립된 많은 자치 학교(경영대학, 공과대학 등)로 구성된 종합 대학교와 같이 독립된 부서가 있는 조직에서 유용합니다. 그러한 부서는 자체 IT 관리자를 통해 액세스를 제어하고, 사용자를 관리하고, 특히 부서에 대한 정책을 설정합니다. 중앙 관리자는 특정 부서의 사용자에게 부서 관리자 권한을 부여할 수 있습니다. 이 예를 통해 보다 구체적으로 설명하자면, 중앙 관리자는 특정 학교(경영대학)에 대해 관리 단위를 만들고 경영대학 사용자만 채울 수 있습니다. 그런 다음 중앙 관리자는 경영대학 IT 직원을 범위 역할에 추가할 수 있습니다. 즉, IT 직원의 경영대학 관리 권한을 경영대학 관리 단위에만 부여할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Active Directory Premium을 사용할 수 있는 경우에만 관리 단위를 만들고 사용할 수 있습니다. 자세한 내용은 [Azure AD Premium 시작을 참조하세요](active-directory-get-started-premium.md).
+> Azure Active Directory Premium을 사용하도록 설정한 경우에만 관리 단위 범위가 지정된 관리자 역할을 할당할 수 있습니다. 자세한 내용은 [Azure AD Premium 시작을 참조하세요](active-directory-get-started-premium.md).
 >
 
 

@@ -1,5 +1,5 @@
 ---
-title: "HBase를 사용하여 Twitter 데이터 실시간 분석 | Microsoft Docs"
+title: "HBase를 사용하여 Twitter 데이터 실시간 분석 - Azure | Microsoft Docs"
 description: "이 문서에서는 HDInsight(Hadoop) 클러스터에서 HBase를 사용하여 Twitter의 빅 데이터를 실시간으로 데이터 분석하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 5fa91c0fb1858a46745ff50991b843530f0a5d23
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 7a16a1c2a10279b5e7fb523addfdfcd433c8937e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/10/2017
 
 
 ---

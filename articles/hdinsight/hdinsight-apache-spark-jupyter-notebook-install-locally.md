@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: c2949fbda0503c779b117aebb14d4d7b76bae426
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: fe9dcdb643aa6a8ee5d55738b7a446e4b0153986
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -44,7 +44,7 @@ HDInsight 클러스터의 Jupyter Notebook에 사용할 수 있는 사용자 지
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>컴퓨터에 Jupyter 노트북 설치
 
-Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. Python 및 Jupyter 둘 다 [Ananconda 배포](https://www.continuum.io/downloads)의 일부로 사용할 수 있습니다. Anaconda를 설치할 때 Python 배포를 설치하게 됩니다. Anaconda를 설치한 후 적절한 명령을 실행하여 Jupyter 설치를 추가합니다.
+Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. Python 및 Jupyter 둘 다 [Anaconda 배포](https://www.continuum.io/downloads)의 일부로 사용할 수 있습니다. Anaconda를 설치할 때 Python 배포를 설치하게 됩니다. Anaconda를 설치한 후 적절한 명령을 실행하여 Jupyter 설치를 추가합니다.
 
 1. 사용하는 플랫폼용 [Anaconda 설치 관리자](https://www.continuum.io/downloads) 를 다운로드하고 설치 프로그램을 실행합니다. 설치 마법사를 실행하는 동안 PATH 변수에 Anaconda를 추가하는 옵션을 선택해야 합니다.
 2. 다음 명령을 실행하여 Jupyter를 설치합니다.
@@ -109,7 +109,7 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
             "heartbeat_retry_seconds": 1
 
     >[!TIP]
-    >세션이 유출되지 않도록 하트 비트가 전송됩니다. 컴퓨터가 절전 모드로 전환되거나 종료되면, 하트 비트가 전송되지 않아 세션이 삭제됩니다. 클러스터 v3.4의 경우, 이 동작을 사용하지 않도록 설정하려면 Ambari UI에서 Livy 구성 `livy.server.interactive.heartbeat.timeout`를 `0`로 설정할 수 있습니다. 클러스터 v 3.5의 경우, 위의 3.5 구성을 설정하지 않으면 세션이 삭제되지 않습니다.
+    >세션이 유출되지 않도록 하트 비트가 전송됩니다. 컴퓨터가 절전 모드로 전환되거나 종료되면, 하트비트가 전송되지 않으므로 세션이 삭제됩니다. 클러스터 v3.4의 경우, 이 동작을 사용하지 않도록 설정하려면 Ambari UI에서 Livy 구성 `livy.server.interactive.heartbeat.timeout`를 `0`로 설정할 수 있습니다. 클러스터 v 3.5의 경우, 위의 3.5 구성을 설정하지 않으면 세션이 삭제되지 않습니다.
 
 6. Jupyter를 시작합니다. 명령 프롬프트에서 다음 명령을 사용합니다.
 
@@ -162,7 +162,7 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
 ### <a name="tools-and-extensions"></a>도구 및 확장
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 

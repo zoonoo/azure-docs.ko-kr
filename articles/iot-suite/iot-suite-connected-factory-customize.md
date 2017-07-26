@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/04/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 4e466f34880bf6ffce5012353f539ee93160892b
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: ec4b2808e6984821200be182183e53b69887b912
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="introduction"></a>소개
 
-연결된 공장 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 집계하고 표시합니다. 솔루션에서 OPC UA 서버를 찾아 명령을 보낼 수 있습니다.
+연결된 공장 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 집계하고 표시합니다. 솔루션에서 OPC UA 서버를 찾아 명령을 보낼 수 있습니다. OPC UA에 대한 자세한 내용은 [FAQ][lnk-faq]를 참조하세요.
 
 솔루션에서 집계된 데이터의 예로 팩터리, 라인 및 스테이션 수준의 대시보드에서 볼 수 있는 OEE(Overall Equipment Efficiency) 및 KPI(핵심 성과 지표)를 들 수 있습니다. 다음 스크린샷은 **Munich** 공장, **Production line 1**의 **Assembly** 스테이션에 대한 OEE 및 KPI 값을 보여 줍니다.
 
@@ -174,7 +174,7 @@ JSON 파일 내용은 공장, 생산 라인 및 스테이션 노드의 계층 �
 다음 문서를 참조하여 연결된 공장 미리 구성된 솔루션에 대해 자세히 알아봅니다.
 
 * [연결된 공장 미리 구성된 솔루션 연습][lnk-rm-walkthrough]
-* [연결된 공장 미리 구성된 솔루션에 장치 연결][lnk-connect-cf]
+* [연결된 공장에 대한 게이트웨이 배포][lnk-connect-cf]
 * [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]
 * [FAQ][lnk-faq]
 
@@ -188,7 +188,7 @@ JSON 파일 내용은 공장, 생산 라인 및 스테이션 노드의 계층 �
 [img-server-uris]: ./media/iot-suite-connected-factory-customize/serveruris.png
 [lnk-kpi]: ./media/iot-suite-connected-factory-customize/kpidisplay.png
 
-[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-suite-permissions.md
 [lnk-faq]: iot-suite-faq.md

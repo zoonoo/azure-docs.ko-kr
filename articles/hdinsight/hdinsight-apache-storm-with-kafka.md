@@ -1,10 +1,10 @@
 ---
-title: "HDInsight의 Storm에서 Apache Kafka 사용 | Microsoft 문서"
+title: "HDInsight의 Storm에서 Apache Kafka 사용 - Azure | Microsoft Docs"
 description: "Apache Kafka는 HDInsight에 Apache Storm과 함께 설치됩니다. Storm에서 제공하는 KafkaBolt 및 KafkaSpout 구성 요소를 사용하여 Kafka에(서) 쓰고 읽는 방법에 대해 알아봅니다. 또한 Flux 프레임워크를 사용하여 Storm 토폴로지를 정의하고 제출하는 방법도 알아봅니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
 ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
 ms.service: hdinsight
@@ -13,12 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/20/2017
+ms.date: 06/13/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: dcda5e27cbcadff054c8085b72a1b6fb1c07b889
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: d241dbcdd9dc711769faa69488e3f32acbe5d40c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/21/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>HDInsight의 Storm에서 Apache Kafka(미리 보기) 사용
@@ -57,9 +58,12 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
 
 1. Azure에 로그인하고 Azure Portal에서 템플릿을 열려면 다음 단추를 사용합니다.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet.1.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
     Azure Resource Manager 템플릿은 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet.json**에 있습니다.
+
+    > [!WARNING]
+    > HDInsight에서 Kafka의 사용 가능성을 보장하려면 클러스터에 작업자 노드가 3개 이상 포함되어야 합니다. 이 템플릿은 세 개의 작업자 노드를 포함하는 Kafka 클러스터를 만듭니다.
 
 2. 다음 지침을 사용하여 **사용자 지정 배포** 블레이드의 항목을 채웁니다.
    
@@ -101,11 +105,11 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
 이 프로젝트에는 다음 두 가지 토폴로지가 있습니다.
 
 * **KafkaWriter**: **writer.yaml** 파일에 정의된 토폴로지이며, Apache Storm에서 제공하는 KafkaBolt를 사용하여 Kafka에 임의의 문장을 씁니다.
-  
+
     이 토폴로지는 사용자 지정 **SentenceSpout** 구성 요소를 사용하여 임의의 문장을 생성합니다.
 
 * **KafkaReader**: **reader.yaml** 파일에 정의된 토폴로지이며, Apache Storm에서 제공하는 KafkaSpout을 사용하여 Kafka에서 데이터를 읽은 다음 stdout에 데이터를 로깅합니다.
-  
+
     이 토폴로지는 사용자 지정 **PrinterBolt** 구성 요소를 사용하여 Kafka에서 읽은 데이터를 로깅합니다.
 
 ### <a name="flux"></a>Flux
@@ -125,11 +129,13 @@ Azure 가상 네트워크, Kafka 클러스터 및 Storm 클러스터를 수동�
 ## <a name="create-a-kafka-topic"></a>Kafka 토픽 만들기
 
 1. SSH를 사용하여 Kafka 클러스터에 연결합니다. `USERNAME`은 클러스터를 만들 때 사용한 SSH 사용자 이름으로 바꿉니다. `BASENAME`은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
-   
-        ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.net
-   
+
+    ```bash
+    ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.net
+    ```
+
     메시지가 표시되면 클러스터를 만들 때 사용한 암호를 입력합니다.
-   
+
     자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. SSH 연결에서 Kafka 클러스터로 다음 명령을 사용하여 HTTP 로그인 및 클러스터 이름에 대한 변수를 설정합니다. 이 섹션의 다른 단계에서 이러한 값을 사용합니다.
@@ -195,8 +201,6 @@ Kafka 클러스터에 대한 SSH 연결은 Storm 토폴로지에서 메시지를
 ## <a name="download-and-compile-the-project"></a>프로젝트 다운로드 및 컴파일
 
 1. 개발 환경에서 [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka)로부터 프로젝트를 다운로드하고, 명령줄을 열어 다운로드한 위치로 디렉터리를 변경합니다.
-
-    잠시 시간을 내어 코드를 살펴보고 프로젝트의 작동 방식을 이해합니다.
 
 2. **hdinsight-storm-java-kafka** 디렉터리에서 다음 명령을 사용하여 프로젝트를 컴파일하고 배포할 패키지를 만듭니다.
 
@@ -350,5 +354,3 @@ Storm 클러스터에 대한 SSH 세션에서 다음 명령을 사용하여 Stor
 HDInsight의 Storm에서 사용할 수 있는 더 많은 예제 토폴로지는 [예제 Storm 토폴로지 및 구성 요소](hdinsight-storm-example-topology.md)를 참조하세요.
 
 Linux 기반 HDInsight에서 토폴로지 배포 및 모니터링에 대한 정보는 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)를 참조하세요.
-
-

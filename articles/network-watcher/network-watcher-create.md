@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 7d8eb5972d35eac6cb55fc393090cfcc21ec341c
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 2aeaffdd5ab552e18677cbd1a24a748dd14bf172
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/02/2017
 
 ---
 
@@ -33,6 +34,12 @@ Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나
 **더 많은 서비스** > **네트워킹** > **Network Watcher**로 이동합니다. Network Watcher에 대해 사용하도록 설정하려는 모든 구독을 선택할 수 있습니다. 이 작업은 사용할 수 있는 모든 지역에서 Network Watcher를 만듭니다.
 
 ![Network Watcher 만들기][1]
+
+포털을 사용하여 Network Watcher를 활성화하면 Network Watcher 인스턴스의 이름이 NetworkWatcher_region_name으로 자동 설정됩니다. 여기서 region_name은 인스턴스가 설정된 Azure 지역에 해당됩니다.  예를 들어 미국 중서부에서 활성화된 Network Watcher의 이름은 NetworkWatcher_westcentralus입니다.
+
+또한 Network Watcher 인스턴스는 NetworkWatcherRG라는 리소스 그룹에 자동으로 추가됩니다.  이 리소스 그룹은 아직 존재하지 않는 경우 만들어집니다.
+
+Network Watcher 인스턴스와 이 인스턴스가 배치된 리소스 그룹의 이름을 사용자 지정하려면 아래에 설명된 Powershell, REST API 또는 ARMClient 메서드를 사용할 수 있습니다.  각 옵션에서 Network Watcher를 배치하기 전에 리소스 그룹이 있어야 합니다.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>PowerShell을 사용하여 Network Watcher 만들기
 

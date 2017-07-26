@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/28/2017
+ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 68155ebaa6af36500bfe856c9bcd49f5efb6cbc2
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 21ba840f62ea50e943bf5b82f8cc0afd94bb0fef
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -33,7 +34,26 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 그룹 기반 라이선스를 사용하는 경우 같은 오류가 발생할 수 있지만 Azure AD 서비스에서 라이선스를 할당하면 문제가 백그라운드에서 발생합니다. 이러한 이유로 사용자에게 즉시 오류를 전달 수 없습니다. 대신 오류가 사용자 개체에 기록된 후 관리 포털을 통해 보고됩니다. 사용자에게 라이선스를 부여하는 원래의 의도는 절대 없어지지 않지만 향후 조사 및 문제 해결을 위해 라이선스를 오류 상태로 기록됩니다.
 
-각 그룹의 오류 상태에 있는 사용자를 찾으려면 각 그룹에 대한 블레이드를 엽니다. 오류 상태인 사용자가 있는 경우 **라이선스**에 알림이 표시됩니다. 알림을 선택하면 영향을 받는 모든 사용자 목록이 열립니다. 사용자를 개별적으로 보고 근본 문제를 파악할 수 있습니다. 이 문서에서는 잠재적인 각 문제 및 문제 해결 방법을 설명합니다.
+## <a name="how-to-find-license-assignment-errors"></a>라이선스 할당 오류를 찾는 방법
+
+1. 특정 그룹에서 오류 상태인 사용자를 찾으려면 그룹의 블레이드를 엽니다. 오류 상태인 사용자가 있는 경우 **라이선스**에 알림이 표시됩니다.
+
+![그룹, 오류 알림](media/active-directory-licensing-group-problem-resolution-azure-portal/group-error-notification.png)
+
+2. 알림을 클릭하면 영향을 받는 모든 사용자 목록이 열립니다. 자세한 내용을 보려면 개별적으로 각 사용자를 클릭하면 됩니다.
+
+![그룹, 오류 상태인 사용자의 목록](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-users-with-errors.png)
+
+3. 하나 이상의 오류를 포함하는 모든 그룹을 찾으려면 **Azure Active Directory** 블레이드에서 **라이선스** 및 **개요**를 차례로 선택합니다. 일부 그룹에서 주의가 필요한 경우 정보 상자가 표시됩니다.
+
+![개요, 오류 상태인 그룹에 대한 정보](media/active-directory-licensing-group-problem-resolution-azure-portal/group-errors-widget.png)
+
+4. 오류가 발생한 모든 그룹의 목록을 보려면 상자를 클릭합니다. 자세한 내용은 각 그룹을 클릭하면 됩니다.
+
+![개요, 오류가 발생한 그룹의 목록](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-groups-with-errors.png)
+
+
+아래에서는 잠재적인 문제 및 문제 해결 방법을 설명합니다.
 
 ## <a name="not-enough-licenses"></a>라이선스 부족
 

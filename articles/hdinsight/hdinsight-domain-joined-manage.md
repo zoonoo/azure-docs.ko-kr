@@ -1,5 +1,5 @@
 ---
-title: "도메인 가입 HDInsight 클러스터 관리 | Microsoft 문서"
+title: "도메인 가입 HDInsight 클러스터 관리 - Azure | Microsoft Docs"
 description: "도메인에 가입된 HDInsight 클러스터를 관리하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: e2b2e8d6110062efb99201f4daac1e1295d9b904
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 9b56ce6cc5bdd3b8d48d047751e978cad08598e1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/13/2017
 
 
 ---

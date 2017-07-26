@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 Hadoop 서비스의 힙 덤프 사용 | Microsoft 문서"
+title: "HDInsight에서 Hadoop 서비스의 힙 덤프 사용 - Azure | Microsoft Docs"
 description: "디버깅 및 분석을 위해 Linux 기반 HDInsight 클러스터에서 Hadoop 서비스에 힙 덤프를 사용하도록 설정합니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3811e3ee1a741230c4499d18f48a5208905cf300
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 86834d3fff15c2d004f25af7c33d5c83c1a450ff
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---

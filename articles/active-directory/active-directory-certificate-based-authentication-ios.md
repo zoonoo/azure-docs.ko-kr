@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/30/2017
+ms.date: 06/07/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e30d5c81817eb3501615763553d501509c559f0c
-ms.lasthandoff: 04/27/2017
-
+ms.reviewer: nigu
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 162be9faa51047f4d0be0e73e3dbe6a3dc87ba4c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/08/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>iOS에서 Azure Active Directory 인증서 기반 인증
@@ -29,7 +30,7 @@ CBA(인증서 기반 인증)를 사용하면 Exchange Online 계정을 다음에
 
 이 기능을 구성하면 모바일 장치의 특정 메일 및 Microsoft Office 응용 프로그램에 사용자 이름 및 암호 조합을 입력해야 합니다. 
 
-이 항목에서는 Office 365 Enterprise, Business, Education 및 미국 정부 계획에서 테넌트 사용자가 iOS 장치에서 CBA를 구성하는 데 지원되는 시나리오 및 요구 사항에 대해 설명합니다. 
+이 항목에서는 Office 365 Enterprise, Business, Education, 미국 정부 및 중국 계획의 테넌트 사용자를 위해 iOS 장치에서 CBA를 구성하기 위한 요구 사항 및 지원되는 시나리오를 설명합니다.
 
 이 기능은 Office 365 미국 국방부 및 연방 정부 계획에서 미리 보기 상태로 제공됩니다.
 
@@ -46,6 +47,7 @@ CBA(인증서 기반 인증)를 사용하면 Exchange Online 계정을 다음에
 | Outlook |![확인][1] |
 | Yammer |![확인][1] |
 | 비즈니스용 Skype |![확인][1] |
+| Microsoft 팀 |![확인][1] |
 
 ## <a name="requirements"></a>요구 사항 
 

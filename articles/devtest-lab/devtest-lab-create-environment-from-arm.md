@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 0b402602ed80d9eef5313fb29ba2bd05644f11f8
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -29,24 +29,30 @@ ms.lasthandoff: 05/15/2017
 
 - Azure Resource Manager 템플릿은 소스 제어 리포지토리(GitHub 또는 Team Services Git)에서 직접 로드됩니다.
 - 일단 구성되면 사용자가 Azure Portal에서 다른 유형의 [VM 자료](./devtest-lab-comparing-vm-base-image-types.md)를 처리할 수 있는 것처럼 Azure Resource Manager 템플릿을 선택하여 환경을 만들 수 있습니다.
-- Azure Resource Manager 템플릿과 IaasS VM의 환경에서 Azure PaaS 리소스를 프로비전할 수 있습니다.
+- Azure Resource Manager 템플릿과 IaaS VM의 환경에서 Azure PaaS 리소스를 프로비전할 수 있습니다.
 - 다른 유형의 자료로 만든 개별 VM 외에도 랩에서 환경의 비용을 추적할 수 있습니다.
+- PaaS 리소스가 만들어지고 비용 추적에 표시되지만 VM 자동 종료는 PaaS 리소스에 적용되지 않습니다.
 - 사용자가 단일 랩 VM 환경과 동일한 VM 정책을 제어할 수 있습니다.
 
+단일 작업에서 모든 랩 리소스를 배포, 업데이트 또는 삭제하는 데 많은 [Resource Manager 템플릿 사용의 이점](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager)에 대해 자세히 알아봅니다.
+
 > [!NOTE]
-> 이 연습에서는 ARM 템플릿을 통해 Microsoft.DevTestLab/labs(또는 Microsoft.DevTestLab/labs/virtualmachines 같은 중첩된 리소스 유형) 리소스 유형을 배포하는 방법이 지원되지 않습니다. VM을 배포하려면 Microsoft.Compute/virtualmachines을 사용해야 합니다. 더 많은 ARM 템플릿 샘플은 [Azure 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-customdata/azuredeploy.json)에서 찾을 수 있습니다.
+> 더 많은 랩 VM을 만드는 기준으로 Resource Manager 템플릿을 사용하는 경우 다중 VM 또는 단일 VM을 만드는지 염두에 둘 차이점이 있습니다. 가상 컴퓨터의 Azure Resource Manager 템플릿 사용은 이러한 차이점을 더 자세히 설명합니다.
 >
 >
 
 ## <a name="configure-azure-resource-manager-template-repositories"></a>Azure Resource Manager 템플릿 리포지토리 구성
 
-코드 기반 인프라와 코드 기반 구성을 사용하는 모범 사례 중 하나인 환경 템플릿은 소스 제어에서 관리해야 합니다. Azure DevTest Labs에서는 이 사례를 따르고 GitHub 또는 VSTS Git 리포지토리에서 직접 Azure Resource Manager 템플릿을 모두 로드합니다. 리포지토리에 Azure Resource Manager 템플릿을 구성하는 몇 가지 규칙이 있습니다.
+코드 기반 인프라와 코드 기반 구성을 사용하는 모범 사례 중 하나인 환경 템플릿은 소스 제어에서 관리해야 합니다. Azure DevTest Labs에서는 이 사례를 따르고 GitHub 또는 VSTS Git 리포지토리에서 직접 Azure Resource Manager 템플릿을 모두 로드합니다. 결과적으로, Resource Manager 템플릿은 테스트 환경에서 프로덕션 환경까지 전체 릴리스 주기에서 사용될 수 있습니다.
+
+리포지토리에 Azure Resource Manager 템플릿을 구성하는 따라야 할 몇 가지 규칙이 있습니다.
 
 - 마스터 템플릿 파일의 이름은 `azuredeploy.json`으로 지정해야 합니다. 
 
     ![주요 Azure Resource Manager 템플릿 파일](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - 매개 변수 파일에 정의한 매개 변수 값을 사용하려면 매개 변수 파일의 이름을 `azuredeploy.parameters.json`으로 지정해야 합니다.
+- DevTest Labs에서 중첩된 템플릿을 자동으로 관리할 수 있도록 매개 변수 `_artifactsLocation` 및 `_artifactsLocationSasToken`을 사용하여 parametersLink URI 값을 생성합니다. 자세한 내용은 [Azure DevTest Labs에서 테스트 환경에 대해 더 쉽게 중첩된 Resource Manager 템플릿 배포를 만드는 방법](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/)을 참조하세요.
 - 템플릿 표시 이름과 설명을 지정하기 위해 메타데이터를 정의할 수 있습니다. 이 메타데이터는 `metadata.json`이라는 파일에 있어야 합니다. 다음 예제 메타데이터 파일에서는 표시 이름과 설명을 지정하는 방법을 보여 줍니다. 
 
 ```json
@@ -111,7 +117,11 @@ ms.lasthandoff: 05/15/2017
     > - GEN-PASSWORD 
  
 1. **추가**를 선택하여 환경을 만듭니다. 환경에서는 **내 가상 컴퓨터** 목록에 상태를 표시하는 즉시 프로비전을 시작합니다. Azure Resource Manager 템플릿에 정의된 모든 리소스를 프로비전하기 위해 랩에서 새 리소스 그룹을 자동으로 만듭니다.
-1. 환경이 만들어지면 **내 가상 컴퓨터** 목록에서 환경을 선택하여 리소스 그룹 블레이드를 열고 환경에 프로비전된 리소스를 찾습니다.
+1. 환경이 만들어지면 **내 가상 컴퓨터** 목록에서 환경을 선택하여 리소스 그룹 블레이드를 열고 환경에 프로비전된 모든 리소스를 찾습니다.
+    
+    ![내 가상 컴퓨터 목록](./media/devtest-lab-create-environment-from-arm/all-environment-resources.png)
+   
+   또한 환경을 확장하여 환경에서 프로비전되는 VM의 목록만 볼 수 있습니다.
     
     ![내 가상 컴퓨터 목록](./media/devtest-lab-create-environment-from-arm/my-vm-list.png)
 
@@ -121,5 +131,6 @@ ms.lasthandoff: 05/15/2017
 
 ## <a name="next-steps"></a>다음 단계
 * VM을 만든 후에는 해당 VM의 블레이드에서 **연결** 을 선택하여 VM에 연결할 수 있습니다.
+* 랩의 **내 가상 컴퓨터** 목록에서 환경을 선택하여 환경에서 리소스를 보고 관리합니다. 
 * [Azure 빠른 시작 템플릿 갤러리의 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates)(영문)을 탐색합니다.
 

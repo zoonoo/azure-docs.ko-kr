@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/25/2016
+ms.date: 05/22/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 226e86703843b026d20123543cf5311a5355aad4
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: 333d2f26ce043a167fb84858c8327cb39e868ffa
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -32,9 +33,9 @@ Azure 진단의 배경은 [Azure 진단 개요](../azure-diagnostics.md)를 참�
 
 ### <a name="step-1-create-a-worker-role"></a>1단계: 작업자 역할 만들기
 1. **Visual Studio**를 시작합니다.
-2. .NET Framework 4.5를 대상으로 하는 **Cloud** 템플릿에서 새 **Azure 클라우드 서비스** 프로젝트를 만듭니다.  프로젝트의 이름을 "WadExample"로 지정하고 확인을 클릭합니다.
+2. .NET Framework 4.5를 대상으로 하는 **Cloud** 템플릿에서 **Azure Cloud Service** 프로젝트를 만듭니다.  프로젝트의 이름을 "WadExample"로 지정하고 확인을 클릭합니다.
 3. **작업자 역할**을 선택하고 확인을 클릭합니다. 프로젝트가 만들어집니다.
-4. **솔루션 Explorer**에서 **WorkerRole1** 속성 파일을 두 번 클릭합니다.
+4. **솔루션 탐색기**에서 **WorkerRole1** 속성 파일을 두 번 클릭합니다.
 5. **구성** 탭에서 **진단 사용**을 선택 취소하여 진단 1.0을 사용하지 않도록 설정합니다(Azure SDK 2.4 이전 버전).
 6. 솔루션을 빌드하여 오류가 없는지 확인합니다.
 
@@ -132,7 +133,7 @@ namespace WorkerRole1
 4. **클라우드 서비스 및 저장소 계정 만들기** 대화 상자에서 **이름**(예: "WadExample")을 입력하고 지역 또는 선호도 그룹을 선택합니다.
 5. **환경**을 **스테이징**으로 설정합니다.
 6. 다른 **설정**을 적절히 수정하고 **게시**를 클릭합니다.
-7. 배포가 완료되면 Azure 클래식 포털에서 클라우드 서비스가 **실행 중** 상태인지 확인합니다.
+7. 배포가 완료되면 Azure Portal에서 클라우드 서비스가 **실행 중** 상태인지 확인합니다.
 
 ### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>4단계: 진단 구성 파일 만들기 및 확장 설치
 1. 다음 PowerShell 명령을 실행하여 공용 구성 파일 스키마 정의를 다운로드합니다.
@@ -186,7 +187,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 ```
 
 ### <a name="step-6-look-at-your-telemetry-data"></a>6단계: 원격 분석 데이터 확인
-Visual Studio **서버 Explorer**에서 wadexample 저장소 계정으로 이동합니다. 클라우드 서비스가 5분 정도 실행된 후에는 **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** 및 **WADSetOtherTable** 테이블이 표시됩니다. 수집된 원격 분석을 보려는 테이블 중 하나를 더블 클릭합니다.
+Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이동합니다. 클라우드 서비스가 5분 정도 실행된 후에는 **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** 및 **WADSetOtherTable** 테이블이 표시됩니다. 수집된 원격 분석을 보려는 테이블 중 하나를 두 번 클릭합니다.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
@@ -197,7 +198,7 @@ Visual Studio **서버 Explorer**에서 wadexample 저장소 계정으로 이동
 문제가 있는 경우 일반적인 문제에 대한 도움말인 [Azure 진단 문제 해결](../azure-diagnostics-troubleshooting.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-수집한 데이터를 변경하거나 문제를 해결하거나 일반적인 진단에 대해 자세히 알아보려면 [가상 컴퓨터 관련 Azure 진단 문서 목록](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics)을 참조하세요.
+수집한 데이터를 변경하거나 문제를 해결하거나 일반적인 진단에 대해 자세히 알아보려면 [관련된 Azure Virtual Machine 진단 문서 목록을 참조하세요](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics).
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

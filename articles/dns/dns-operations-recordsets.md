@@ -15,18 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 54389c0b6dfbe5483106ca74e379dff9091fb907
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 2962e30e5d9c60b8e786e2ba79647cabfc5925cd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/01/2017
 
 ---
 
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI](dns-operations-recordsets-cli.md)
+> * [Azure 포털](dns-operations-recordsets-portal.md)
+> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
+> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 이 문서는 Azure PowerShell을 사용하여 DNS 영역에 대한 DNS 레코드를 관리하는 방법을 보여줍니다. 크로스 플랫폼인 [Azure CLI](dns-operations-recordsets-cli.md) 또는 [Azure Portal](dns-operations-recordsets-portal.md)을 사용하여 DNS 레코드를 관리할 수도 있습니다.
@@ -46,7 +47,7 @@ Azure DNS의 DNS 레코드에 대한 자세한 내용은 [DNS 영역 및 레코�
 
 새 레코드가 기존 레코드와 이름 및 형식이 똑같은 경우 [기존 레코드 집합에 추가](#add-a-record-to-an-existing-record-set)해야 합니다. 새 레코드가 기존 레코드와 이름 및 형식이 다른 경우 새 레코드 집합을 만들어야 합니다. 
 
-### <a name="create-a-records-in-a-new-record-set"></a>새 레코드 집합에서 A 레코드 만들기
+### <a name="create-a-records-in-a-new-record-set"></a>새 레코드 집합에서 ‘A’ 레코드 만들기
 
 `New-AzureRmDnsRecordSet` cmdlet을 사용하여 레코드 집합을 만듭니다. 레코드 집합을 만들 때, 레코드 집합 이름, 영역, TTL(Time-to-Live), 레코드 형식 및 만들 레코드를 지정해야 합니다.
 
@@ -164,7 +165,7 @@ New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -ZoneName "contoso.com"
 $rs = Get-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup"
 ```
 
-또는 `-Zone' 매개 변수를 사용하여 전달된 영역 개체를 사용하는 영역도 지정할 수 있습니다. 
+또는 `-Zone` 매개 변수를 사용하여 전달된 영역 개체를 사용하는 영역도 지정할 수 있습니다.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name "contoso.com" -ResourceGroupName "MyResourceGroup"

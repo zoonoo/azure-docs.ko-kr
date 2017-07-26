@@ -15,14 +15,15 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: ed82300211f54f39423c24039ca418fca9da94c3
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 0a0d91d622ed72ed22cfaaa0350b31ca653de483
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 06/02/2017
 
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 ## <a name="what-are-custom-policies"></a>사용자 지정 정책이란?
 
@@ -62,33 +63,25 @@ Azure AD B2C의 기본 제공 정책은 위에 표시된 3개의 파일 패턴�
 Azure의 CIAM(고객 ID 및 액세스 관리) 서비스입니다. 서비스에는 다음이 포함됩니다.
 
 1. 특수한 용도의 Azure Active Directory 형태인 사용자 디렉터리는 Microsoft Graph를 통해 액세스할 수 있고 로컬 계정 및 페더레이션된 계정 모두에 대한 사용자 데이터를 보유합니다. 
-2. **ID 경험 엔진**에 대한 액세스는 사용자와 엔터티 간의 신뢰를 조정하고 이들 간에 클레임을 전달하여 ID/액세스 관리 작업을 완료합니다. 
+2. **ID 경험 프레임워크**에 액세스하여 사용자와 엔터티 간의 신뢰를 조정하고, ID/액세스 관리 작업을 완료하기 위해 이들 간에 클레임을 전달합니다. 
 3. STS(보안 토큰 서비스)는 ID 토큰, 새로 고침 토큰 및 액세스 토큰(및 해당하는 SAML 어설션)을 발급하고 유효성을 검사하여 리소스를 보호합니다.
 
-Azure AD B2C는 시퀀스에서 ID 공급자, 사용자, 다른 시스템 및 로컬 사용자 디렉터리와 상호 작용하여 ID 작업(예: 사용자 로그인, 새 사용자 등록, 암호 재설정)을 수행합니다. 다자간 트러스트를 설정하고 이러한 단계를 실행하는 기본 플랫폼을 ID 경험 엔진이라고 합니다(사용자 경험 또는 신뢰 프레임워크 정책이라고도 함). 또한 정책은 행위자, 작업, 프로토콜 및 일련의 완료할 단계를 명시적으로 정의합니다.
+Azure AD B2C는 시퀀스에서 ID 공급자, 사용자, 다른 시스템 및 로컬 사용자 디렉터리와 상호 작용하여 ID 작업(예: 사용자 로그인, 새 사용자 등록, 암호 재설정)을 수행합니다. 다자간 신뢰를 설정하고 이러한 단계를 실행하는 기본 플랫폼을 ID 경험 프레임워크라고 하며, 정책(사용자 경험 또는 보안 프레임워크 정책이라고도 함)은 수행할 행위자, 작업, 프로토콜 및 일련의 단계를 명시적으로 정의합니다.
 
-### <a name="identity-experience-engine"></a>ID 경험 엔진
+### <a name="identity-experience-framework"></a>ID 경험 프레임워크
 
-OpenIDConnect, OAuth, SAML, WSFed 및 일부 비표준 형식(예: REST API 기반 시스템 간 클레임 교환)과 같은 표준 프로토콜 형식인 엔터티(광범위하게 클레임 공급자) 간의 신뢰를 조정하는 완전히 구성 가능한 정책 기반이며 클라우드 기반인 Azure 플랫폼입니다. I2E는 HTML, CSS 및 jscript를 지원하는 사용자에게 친숙한 white labelled 환경을 만듭니다.  현재 ID 경험 엔진은 Azure AD B2C 서비스 상에서만 사용할 수 있으며 CIAM와 관련된 작업에서 우선합니다.
+OpenIDConnect, OAuth, SAML, WSFed 및 일부 비표준 형식(예: REST API 기반 시스템 간 클레임 교환)과 같은 표준 프로토콜 형식인 엔터티(광범위하게 클레임 공급자) 간의 신뢰를 조정하는 완전히 구성 가능한 정책 기반이며 클라우드 기반인 Azure 플랫폼입니다. I2E는 HTML, CSS 및 jscript를 지원하는 사용자에게 친숙한 white labelled 환경을 만듭니다.  현재 ID 경험 프레임워크는 Azure AD B2C 서비스의 컨텍스트에서만 사용할 수 있으며 CIAM과 관련된 작업에 우선적으로 적용됩니다.
 
 ### <a name="built-in-policies"></a>기본 제공 정책
 
-Azure AD B2C의 동작을 지시하는 미리 정의된 구성 파일은 가장 일반적으로 사용되는 ID 작업(즉, 사용자 등록, 로그인, 암호 재설정)을 수행하고 Azure AD B2C에서 관계를 미리 정의한 신뢰할 수 있는 당사자(예: Facebook ID 공급자, LinkedIn, Microsoft 계정, Google 계정)와 상호 작용합니다.  나중에 일반적으로 Azure Active Directory Premium, Active Directory/ADFS, Salesforce ID Provider와 같은 엔터프라이즈 영역에 있는 ID 공급자의 사용자 지정을 위해 기본 제공 정책을 제공할 수도 있습니다.
+가장 일반적으로 사용되는 ID 작업(예: 사용자 등록, 로그인, 암호 재설정)을 수행하고 Azure AD B2C에서 관계가 미리 정의된 신뢰할 수 있는 대상(예: Facebook ID 공급자, LinkedIn, Microsoft 계정, Google 계정)과 상호 작용하도록 Azure AD B2C의 동작을 지시하는 미리 정의된 구성 파일입니다.  나중에 일반적으로 Azure Active Directory Premium, Active Directory/ADFS, Salesforce ID Provider와 같은 엔터프라이즈 영역에 있는 ID 공급자의 사용자 지정을 위해 기본 제공 정책을 제공할 수도 있습니다.
 
 
 ### <a name="custom-policies"></a>사용자 지정 정책
 
-Azure AD B2C 테넌트에서 ID 경험 엔진의 동작을 정의하는 구성 파일입니다. 사용자 지정 정책은 신뢰 당사자(예: 응용 프로그램)에 의해 호출되는 경우 ID 경험 엔진에 의해 실행되는 하나 또는 여러 개의 XML 파일(정책 파일 정의 참조)로서 액세스할 수 있습니다. 사용자 지정 정책은 ID 개발자가 직접 편집하여 거의 무제한의 작업을 완료할 수 있습니다. 사용자 지정 정책을 구성하는 개발자는 신뢰할 수 있는 관계를 세부적으로 신중하게 정의하여 메타데이터 끝점, 정확한 클레임 정의 교환을 포함하고 ID 공급자 각각의 필요에 따라 암호, 키 및 인증서를 구성해야 합니다.
+Azure AD B2C 테넌트에서 ID 경험 프레임워크의 동작을 정의하는 구성 파일입니다. 사용자 지정 정책은 신뢰 당사자(예: 응용 프로그램)에서 호출할 때 ID 경험 프레임워크에서 실행하는 하나 이상의 XML 파일(정책 파일 정의 참조)로 액세스할 수 있습니다. 사용자 지정 정책은 ID 개발자가 직접 편집하여 거의 무제한의 작업을 완료할 수 있습니다. 사용자 지정 정책을 구성하는 개발자는 신뢰할 수 있는 관계를 세부적으로 신중하게 정의하여 메타데이터 끝점, 정확한 클레임 정의 교환을 포함하고 ID 공급자 각각의 필요에 따라 암호, 키 및 인증서를 구성해야 합니다.
 
-### <a name="policy-files"></a>정책 파일
-
-사용자 지정 정책은 계층 구조 체인에서 서로를 참조하는 하나 또는 여러 XML 형식 파일로 표시됩니다. XML 요소는 다른 요소 간에 클레임 스키마, 클레임 변환, 콘텐츠 정의, 클레임 공급자/기술 프로필 및 Userjourney 오케스트레이션 단계를 정의합니다. 세 가지 종류의 정책 파일을 사용하는 것이 좋습니다.
-
-- **기본 파일**은 Azure에서 전체 샘플을 제공하므로 대부분의 정의를 포함합니다.  문제 해결 및 정책을 장기적인 유지 관리에 도움이 되도록 이 파일을 최소한으로 변경하는 것이 좋습니다.
-- **확장 파일**은 테넌트에 대한 고유한 구성 변경 내용을 보유합니다.
-- **RP(신뢰 당사자) 파일**은 응용 프로그램 또는 서비스(즉, 신뢰 당사자)에 의해 직접 호출되는 단일 작업 중심 파일입니다.  자세한 정보는 정책 파일 정의에 대한 문서를 읽어보세요.  각 고유 작업에는 고유한 RP이 필요하고 브랜딩 요구 사항에 따라 "전체 응용 프로그램 x 전체 사용 사례 수"일 수 있습니다.
-
-## <a name="policy-file-definitions-for-identity-experience-engine-trustframeworks"></a>ID 경험 엔진 신뢰 프레임워크에 대한 정책 파일 정의
+## <a name="policy-file-definitions-for-identity-experience-framework-trustframeworks"></a>Trustframeworks ID 경험 프레임워크에 대한 정책 파일 정의
 
 ### <a name="policy-files"></a>정책 파일
 
@@ -108,7 +101,7 @@ Azure AD B2C 테넌트에서 ID 경험 엔진의 동작을 정의하는 구성 �
 
 ### <a name="inheritance-model"></a>상속 모델
 
-응용 프로그램이 RP 정책 파일을 호출하는 경우 B2C의 ID 경험 엔진은 기본 원본, 확장 원본 및 마지막으로 RP 정책 파일에서 모든 요소를 추가하여 현재 정책을 효과적으로 어셈블합니다.  RP 파일에서 동일한 형식 및 이름이라는 요소는 확장에 있는 동일한 요소를 재정의하고 확장의 요소는 기본 요소를 재정의합니다.
+응용 프로그램에서 RP 정책 파일을 호출하면 B2C의 ID 경험 프레임워크에서 기본 파일, 확장 파일 및 마지막으로 RP 정책 파일의 모든 요소를 추가하여 현재 적용 중인 정책을 효과적으로 조합합니다.  RP 파일에서 동일한 형식 및 이름이라는 요소는 확장에 있는 동일한 요소를 재정의하고 확장의 요소는 기본 요소를 재정의합니다.
 
 Azure AD B2C의 **기본 제공 정책**은 위에 표시된 3개의 파일 패턴을 따르지만 개발자는 포털이 확장 파일에 대한 변경 내용을 백그라운드에서 수행하는 동안 개발자는 RP(신뢰 당사자) 파일만을 확인할 수 있습니다.  모든 Azure AD B2C는 Azure B2C 팀의 제어 아래에서 자주 업데이트되는 기본 정책 파일을 공유합니다.
 

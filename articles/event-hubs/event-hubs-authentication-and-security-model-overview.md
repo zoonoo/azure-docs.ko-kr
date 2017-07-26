@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 05/30/2017
 ms.author: sethm;clemensv
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 31bf24034558582eb138251207580e8f7fd7ddaf
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 5abdbf70d4fdb2c7feb0f3537ecc0f2abf0775a0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -41,7 +41,8 @@ Event Hubs 보안 모델은 [공유 액세스 서명(SAS)](../service-bus-messag
 모든 토큰은 SAS 키로 서명됩니다. 일반적으로 모든 토큰은 동일한 키로 서명됩니다. 클라이언트는 키를 인식하지 않기 때문에 다른 클라이언트가 토큰을 제조하지 못합니다.
 
 ### <a name="create-the-sas-key"></a>SAS 키 만들기
-Azure 이벤트 허브 네임스페이스를 만들면, 서비스는 **RootManageSharedAccessKey**라는 256비트 SAS 키를 생성합니다. 이 키는 네임스페이스에 대한 송신, 수신 및 관리 권한을 부여합니다. 추가 키를 만들 수 있습니다. 특정 이벤트 허브에 대한 전송 권한을 부여하는 키를 생성하는 것이 좋습니다. 이 항목의 나머지 부분에서는 이 키의 이름을 **EventHubSendKey**로 지정했다고 가정합니다.
+
+Event Hubs 네임스페이스를 만들면, 서비스는 **RootManageSharedAccessKey**라는 256비트 SAS 키를 생성합니다. 이 키는 네임스페이스에 대한 송신, 수신 및 관리 권한을 부여합니다. 추가 키를 만들 수도 있습니다. 특정 이벤트 허브에 대한 전송 권한을 부여하는 키를 생성하는 것이 좋습니다. 이 항목의 나머지 부분에서는 이 키의 이름을 **EventHubSendKey**로 지정했다고 가정합니다.
 
 다음 예제에서는 이벤트 허브를 만들 때 전송 전용 키를 만듭니다.
 
@@ -64,6 +65,7 @@ nm.CreateEventHub(ed);
 ```
 
 ### <a name="generate-tokens"></a>토큰 생성
+
 SAS 키를 사용하여 토큰을 생성할 수 있습니다. 클라이언트당 하나의 토큰만 생성해야 합니다. 다음 메서드를 사용하여 토큰을 생성할 수 있습니다. 모든 토큰은 **EventHubSendKey** 키를 사용하여 생성됩니다. 각 토큰에는 고유한 URI가 할당됩니다.
 
 ```csharp
@@ -89,7 +91,7 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 ### <a name="sending-data"></a>데이터 전송
 토큰이 생성된 후에 각 클라이언트는 자체의 고유한 토큰과 함께 프로비전됩니다.
 
-클라이언트가 이벤트 허브로 데이터를 전송할 경우 클라이언트는 토큰에 보내기 요청으로 태그를 지정합니다. 공격자가 도청 및 토큰 가로채기를 하지 못하도록 방지하려면 클라이언트와 이벤트 허브 간의 통신은 암호화된 채널을 통해 이루어져야 합니다.
+클라이언트가 이벤트 허브로 데이터를 전송할 경우 토큰을 사용해서 보내기 요청에 태그를 지정합니다. 공격자가 도청 및 토큰 가로채기를 하지 못하도록 방지하려면 클라이언트와 이벤트 허브 간의 통신은 암호화된 채널을 통해 이루어져야 합니다.
 
 ### <a name="blacklisting-clients"></a>클라이언트 차단 목록
 토큰이 공격자에 의해 도난당한 경우 공격자가 토큰을 도난당한 클라이언트로 가장할 수 있습니다. 클라이언트를 차단할 경우 해당 클라이언트는 다른 게시자를 사용하는 새 토큰을 수신할 때까지 사용할 수 없게 됩니다.
@@ -97,7 +99,6 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 ## <a name="authentication-of-back-end-applications"></a>백 엔드 응용 프로그램의 인증
 
 Event Hubs는 이 이벤트 허브 클라이언트에서 생성된 데이터를 사용하는 백 엔드 응용 프로그램을 인증하기 위해 Service Bus 항목에 사용된 모델과 유사한 보안 모델을 사용합니다. 이벤트 허브 소비자 그룹은 서비스 버스 토픽에 대한 구독과 같습니다. 소비자 그룹 생성 요청에 이벤트 허브 또는 이벤트 허브가 속한 네임스페이스에 대한 관리 권한을 부여하는 토큰이 함께 지정된 경우 클라이언트는 소비자 그룹을 만들 수 있습니다. 수신 요청이 소비자 그룹, 이벤트 허브 또는 이벤트 허브가 속한 네임스페이스에서의 수신 권한을 부여하는 토큰과 함께 지정된 경우 클라이언트는 해당 소비자 그룹의 데이터를 사용할 수 있습니다.
-
 
 서비스 버스의 현재 버전은 개별 구독에 대한 SAS 규칙을 지원하지 않습니다. 이벤트 허브 소비자 그룹에 대해서도 마찬가지입니다. SAS 지원은 나중에 두 기능에 대해 추가됩니다.
 

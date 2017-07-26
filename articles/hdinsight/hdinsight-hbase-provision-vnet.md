@@ -1,5 +1,5 @@
 ---
-title: "가상 네트워크에 HBase 클러스터 만들기 | Microsoft Docs"
+title: "가상 네트워크에 HBase 클러스터 만들기 - Azure | Microsoft Docs"
 description: "Azure HDInsight에서 HBase 사용 시작 Azure 가상 네트워크에 HDInsight HBase 클러스터를 만드는 방법을 알아봅니다."
 keywords: 
 services: hdinsight,virtual-network
@@ -17,14 +17,14 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: fbd5c31a4ca1fa26d14001ba5765adfc91142a10
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 244fc64dd6d13d52e38878d919feea7882e886eb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
-# <a name="create-hbase-clusters-in-azure-virtual-network"></a>Azure Virtual Network에 HBase 클러스터 만들기
+# <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure Virtual Network의 HDInsight에서 HBase 클러스터 만들기
 [Azure Virtual Network][1]에서 Azure HDInsight HBase 클러스터를 만드는 방법을 알아봅니다.
 
 가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다. 이점은 다음과 같습니다.
