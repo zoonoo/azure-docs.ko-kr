@@ -11,12 +11,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 05/05/2017
 ms.author: markscu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 5f37bc9dc3b754e7900883263a2b8fdcbf4b707f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0f839072d9603e83b0ca493c9a7bab0e71a682c5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -30,7 +29,7 @@ Azure 배치는 낮은 우선 순위 VM(가상 컴퓨터)을 사용하여 Batch 
 
 우선 순위가 낮은 VM은 전용 VM보다 훨씬 덜 비쌉니다. 가격 책정 세부 정보에 대해서는 [Batch 가격 책정](https://azure.microsoft.com/pricing/details/batch/)을 참조하세요.
 
-우선 순위가 낮은 VM에 대한 추가 토론 내용을 보려면 [보다 저렴한 가격으로 일괄 컴퓨팅 수행](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/preview/)을 참조하세요.
+우선 순위가 낮은 VM에 대한 추가 토론 내용을 보려면 [보다 저렴한 가격으로 일괄 컴퓨팅 수행](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-batch-low-priority-vms/)을 참조하세요.
 
 > [!IMPORTANT]
 > 우선 순위가 낮은 VM은 현재 미리 보기 상태이며 Batch에서 실행되는 워크로드에만 사용할 수 있습니다. 
