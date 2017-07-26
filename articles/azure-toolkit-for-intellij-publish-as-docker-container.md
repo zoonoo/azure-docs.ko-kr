@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 37a9de5909cf4d6b4568e40de001861d083a85df
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 96680319a6c4c0f0a4673cd6303a5b172f428797
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -106,12 +106,14 @@ Docker 컨테이너는 웹 응용 프로그램을 배포하는 데 널리 사용
 
       * **새 로그인 자격 증명**: 새 로그인 자격 증명 집합을 만듭니다. 이 옵션을 선택하는 경우 다음을 수행합니다.
 
-        a. **VM 자격 증명** 탭에서 Docker 호스트의 가상 컴퓨터 로그인 자격 증명에 대한 다음 정보를 제공합니다.      * **Username**: 가상 컴퓨터 로그인 자격 증명에 대한 사용자 이름을 입력합니다.
+        a. **VM 자격 증명** 탭에서 Docker 호스트의 가상 컴퓨터 로그인 자격 증명에 대한 다음 정보를 제공합니다. * **Username**: 가상 컴퓨터 로그인 자격 증명에 대한 사용자 이름을 입력합니다.
              * **암호** 및 **확인**: 가상 컴퓨터 로그인 자격 증명에 사용할 암호를 입력합니다.
-             * **SSH**: Docker 호스트에 사용할 SSH(Secure Shell) 설정을 입력합니다. 다음 옵션 중 하나를 선택할 수 있습니다.         * **None**: 가상 컴퓨터가 SSH 연결을 허용하지 않도록 지정합니다.
+             * **SSH**: Docker 호스트에 사용할 SSH(Secure Shell) 설정을 입력합니다. 다음 옵션 중 하나를 선택할 수 있습니다. * **None**: 가상 컴퓨터가 SSH 연결을 허용하지 않도록 지정합니다.
                 * **자동 생성**: SSH를 통해 연결하는 데 필요한 설정을 자동으로 만듭니다.
-                * **디렉터리에서 가져오기**: 이전에 저장된 SSH 설정 집합을 포함하는 디렉터리를 지정할 수 있습니다. 디렉터리에는 다음 두 파일이 포함되어야 합니다.            * *id_rsa*: 사용자에 대한 RSA ID를 포함합니다.
-                   * *id_rsa.pub*: 인증에 사용되는 RSA 공개 키를 포함합니다.
+                * **디렉터리에서 가져오기**: 이전에 저장된 SSH 설정 집합을 포함하는 디렉터리를 지정할 수 있습니다. 디렉터리에 다음 두 파일이 포함되어야 합니다.
+                
+                  * *id_rsa*: Contains the RSA identification for a user.
+                  * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
             
         b. **Docker 데몬 액세스** 탭에서 다음 정보를 제공합니다.
 
@@ -188,7 +190,7 @@ Java IDE용 Azure 도구 키트에 대한 자세한 내용은 다음 리소스�
   * [Eclipse용 Azure 도구 키트의 새로운 기능]
   * [Eclipse용 Azure 도구 키트 설치]
   * [Eclipse용 Azure 도구 키트에 대한 로그인 지침]
-  * [Eclipse에서 Azure용 헬로 월드 웹앱 만들기]
+  * [Eclipse에서 Azure용 Hello World 웹앱 만들기]
 * [IntelliJ용 Azure 도구 키트]
   * [IntelliJ용 Azure 도구 키트의 새로운 기능]
   * [IntelliJ용 Azure 도구 키트 설치]
@@ -203,7 +205,7 @@ Docker의 추가 리소스는 공식 [Docker 웹 사이트]를 참조하세요.
 
 [Eclipse용 Azure 도구 키트]: ./azure-toolkit-for-eclipse.md
 [IntelliJ용 Azure 도구 키트]: ./azure-toolkit-for-intellij.md
-[Eclipse에서 Azure용 헬로 월드 웹앱 만들기]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Eclipse에서 Azure용 Hello World 웹앱 만들기]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [IntelliJ에서 Azure용 헬로 월드 웹앱 만들기]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Eclipse용 Azure 도구 키트 설치]: ./azure-toolkit-for-eclipse-installation.md
 [IntelliJ용 Azure 도구 키트 설치]: ./azure-toolkit-for-intellij-installation.md

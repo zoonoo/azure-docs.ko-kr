@@ -1,6 +1,7 @@
 ---
-title: ".NET 및 Azure HDInsight를 사용하여 Sqoop 작업 실행 | Microsoft Docs"
+title: ".NET 및 HDInsight를 사용하여 Sqoop 작업 실행 - Azure | Microsoft Docs"
 description: "HDInsight .NET SDK를 사용하여 Hadoop 클러스터와 Azure SQL 데이터베이스 사이에서 Sqoop 가져오기 및 내보내기를 실행하는 방법을 알아봅니다."
+keywords: "sqoop 작업"
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -9,17 +10,18 @@ tags: azure-portal
 author: mumian
 ms.assetid: 87bacd13-7775-4b71-91da-161cb6224a96
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: 9cadb72e065f82de8e007b38e909d2bc07d18126
-ms.lasthandoff: 01/24/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: c95641fc6d20e2911e007d1974b9e2c2398b3133
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -34,14 +36,14 @@ HDInsight에서 HDInsight .NET SDK를 사용하여 HDInsight 클러스터와 Azu
 > 
 
 ### <a name="prerequisites"></a>필수 조건
-이 자습서를 시작하기 전에 다음이 있어야 합니다.
+이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **HDInsight에 Hadoop 클러스터**. [클러스터 및 SQL 데이터베이스 만들기](hdinsight-use-sqoop.md#create-cluster-and-sql-database)를 참조하세요.
 
-## <a name="run-sqoop-using-net-sdk"></a>.NET SDK를 사용하여 Sqoop 실행
-HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 이 섹션에서는 C# 콘솔 응용 프로그램을 만들어 이 자습서의 앞 부분에서 만든 SQL 데이터베이스 테이블에 hivesampletable 내보냅니다.
+## <a name="use-sqoop-on-hdinsight-clusters-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight 클러스터에서 Sqoop 사용
+HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 이 섹션에서는 C# 콘솔 응용 프로그램을 만들어 이 자습서의 앞 부분에서 만든 SQL Database 테이블에 hivesampletable을 내보냅니다.
 
-**Sqoop 작업을 제출하려면**
+## <a name="submit-a-sqoop-job"></a>Sqoop 작업 제출
 
 1. Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 만듭니다.
 2. Visual Studio 패키지 관리자 콘솔에서 다음 Nuget 명령을 실행하여 패키지를 가져옵니다.
@@ -114,7 +116,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 ## <a name="limitations"></a>제한 사항
 * 대량 내보내기 - Linux 기반 HDInsight와 함께 Microsoft SQL Server 또는 Azure SQL 데이터베이스에 데이터를 내보내는 데 사용된 Sqoop 커넥터도 현재 대량 삽입을 지원하지 않습니다.
-* 배치 - Linux 기반 HDInsight와 함께 삽입을 수행할 때 `-batch` 스위치를 사용하는 경우 Sqoop는 삽입 작업을 일괄 처리하는 대신 여러 삽입 작업을 수행합니다.
+* 배치 - Linux 기반 HDInsight에서 삽입을 수행할 때 `-batch` 스위치를 사용하는 경우 Sqoop는 삽입 작업을 일괄 처리하는 대신 여러 번의 삽입 작업을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 Sqoop을 사용하는 방법에 대해 알아봤습니다. 자세한 내용은 다음을 참조하세요.

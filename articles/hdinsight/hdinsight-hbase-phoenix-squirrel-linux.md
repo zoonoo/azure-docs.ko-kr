@@ -1,5 +1,5 @@
 ---
-title: "Azure HDinsight(HBase)에서 Apache Phoenix 및 SQuirreL 사용 | Microsoft Docs"
+title: "HBase에서 Apache Phoenix & SQuirreL 사용 - Azure HDInsight | Microsoft Docs"
 description: "HDInsight에서 Apache Phoenix를 사용하는 방법 및 워크스테이션에서 SQuirreL을 설치 및 구성하여 HDInsight에서 HBase 클러스터에 연결하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 05/26/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 04e078d662c861d5c587c571a42478603e291587
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 13d17083bbe26fa9745ce4c5fef9f56859243c2e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -31,21 +32,21 @@ HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/) 를 사용하는 �
 >
 
 ## <a name="use-sqlline"></a>SQLLine 사용
-[SQLLine](http://sqlline.sourceforge.net/) 은 SQL을 실행하는 명령줄 유틸리티입니다.
+[SQLLine](http://sqlline.sourceforge.net/)은 SQL을 실행하는 명령줄 유틸리티입니다.
 
 ### <a name="prerequisites"></a>필수 조건
 SQLLine을 시작하려면 다음이 있어야 합니다.
 
 * **HDInsight의 HBase 클러스터**. HBase 클러스터 프로비전에 대한 자세한 내용은 [HDInsight에서 Apache HBase 시작][hdinsight-hbase-get-started]을 참조하세요.
-* **원격 데스크톱 프로토콜을 통해 HBase 클러스터에 연결**. 자세한 내용은 [Azure 클래식 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리][hdinsight-manage-portal]를 참조하세요.
+* **원격 데스크톱 프로토콜을 통해 HBase 클러스터에 연결**. 지침의 경우 [Azure Portal을 사용하여 HDInsight에서 Hadoop 클러스터 관리][hdinsight-manage-portal]를 참조하세요.
 
-HBase 클러스터에 연결할 때 Zookeeper 중 하나에 연결해야 합니다. 각 HDInsight 클러스터에는 3개의 Zookeeper,
+HBase 클러스터에 연결할 때 Zookeeper 중 하나에 연결해야 합니다. 각 HDInsight 클러스터에는 3개의 Zookeeper가 있습니다.
 
 **Zookeeper 호스트 이름을 확인하려면**
 
 1. **https://<ClusterName>.azurehdinsight.net**으로 이동하여 Ambari를 엽니다.
 2. HTTP(클러스터) 사용자 이름 및 암호를 입력하여 로그인합니다.
-3. 왼쪽 메뉴에서 **Zookeeper** 를 클릭합니다. 3개의 **ZooKeeper 서버** 가 나열됩니다.
+3. 왼쪽 메뉴에서 **Zookeeper** 를 클릭합니다. 나열된 **ZooKeeper 서버** 중 하나를 클릭합니다.
 4. 나열된 **ZooKeeper 서버** 중 하나를 클릭합니다. 요약 창에서 **호스트 이름**을 찾습니다. *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*과 비슷합니다.
 
 **SQLLine을 사용하려면**

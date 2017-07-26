@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: c40d7107e407a089ea1515357cf9f47d5833edc9
-ms.lasthandoff: 03/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -39,7 +40,7 @@ Data Lake U-SQL SDK에는 다음과 같은 종속성이 필요합니다.
 - [Microsoft .NET Framework 4.6 이상](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 및 Windows SDK 10.0.10240.0 이상(이 문서에서는 CppSDK로 지칭함). CppSDK는 다음 두 가지 방법으로 다운로드할 수 있습니다.
 
-    - [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou)을 설치합니다. 프로그램 파일 폴더 아래에 \Windows Kits\10 폴더가 생성됩니다(예: C:\Program Files (x86)\Windows Kits\10)\. 또한 \Windows Kits\10\Lib 아래에서 Windows 10 SDK 버전을 찾습니다. 이들 폴더가 보이지 않으면 Visual Studio를 다시 설치하고 설치하는 동중 Windows 10 SDK를 선택해야 합니다. Visual Studio와 함께 설치된 경우에는 U-SQL 로컬 컴파일러가 해당 버전을 자동으로 찾습니다.
+    - [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou)을 설치합니다. 프로그램 파일 폴더 아래에 \Windows Kits\10 폴더가 생성됩니다(예: C:\Program Files (x86)\Windows Kits\10\). 또한 \Windows Kits\10\Lib 아래에서 Windows 10 SDK 버전을 찾습니다. 이들 폴더가 보이지 않으면 Visual Studio를 다시 설치하고 설치하는 동중 Windows 10 SDK를 선택해야 합니다. Visual Studio와 함께 설치된 경우에는 U-SQL 로컬 컴파일러가 해당 버전을 자동으로 찾습니다.
 
     ![Data Lake Tools for Visual Studio의 Windows 10 SDK 로컬 실행](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
@@ -144,21 +145,21 @@ U-SQL 로컬 실행을 위해서는 지정된 데이터 루트가 로컬 저장�
 다음은 **run**에 대한 선택적 인수입니다.
 
 
-|인수|설명|
-|--------|-----------|
-|-CodeBehind [기본값 'False']|스크립트에는 .cs 코드 숨김이 있습니다.|
-|-CppSDK [기본값 '']|CppSDK 디렉터리입니다.|
-|-DataRoot [기본값 'DataRoot 환경 변수']|로컬 실행을 위한 데이터 루트이며, 기본값은 'LOCALRUN_DATAROOT' 환경 변수입니다.|
-|-MessageOut [기본값 '']|콘솔의 메시지를 파일에 덤프합니다.|
-|-Parallel [기본값 '1']|지정된 병렬 처리로 계획을 실행합니다.|
-|-References [기본값 '']|';'(세미콜론)으로 구분된 코드 참조의 추가 참조 어셈블리 또는 데이터 파일의 경로 목록입니다.|
-|-UdoRedirect [기본값 'False']|Udo 어셈블리 리디렉션 구성을 생성합니다.|
-|-UseDatabase [기본값 'master']|코드 숨김 임시 어셈블리 등록에 사용할 데이터베이스입니다.|
-|-Verbose [기본값 'False']|런타임의 자세한 출력을 표시합니다.|
-|-WorkDir [기본값 '현재 디렉터리']|컴파일러 사용 및 출력을 위한 디렉터리입니다.|
-|-RunScopeCEP [기본값 '0']|사용할 ScopeCEP 모드입니다.|
-|-ScopeCEPTempPath [기본값 'temp']|데이터 스트리밍에 사용할 임시 경로입니다.|
-|-OptFlags [기본값 '']|쉼표로 구분된 최적화 프로그램 플래그 목록입니다.|
+|인수|기본값|설명|
+|--------|-------------|-----------|
+|-CodeBehind|False|스크립트에는 .cs 코드 숨김이 있습니다.|
+|-CppSDK| |CppSDK 디렉터리입니다.|
+|-DataRoot| DataRoot 환경 변수|로컬 실행을 위한 데이터 루트이며, 기본값은 'LOCALRUN_DATAROOT' 환경 변수입니다.|
+|-MessageOut| |콘솔의 메시지를 파일에 덤프합니다.|
+|-Parallel|1|지정된 병렬 처리로 계획을 실행합니다.|
+|-References| |';'(세미콜론)으로 구분된 코드 참조의 추가 참조 어셈블리 또는 데이터 파일의 경로 목록입니다.|
+|-UdoRedirect|False|Udo 어셈블리 리디렉션 구성을 생성합니다.|
+|-UseDatabase|master|코드 숨김 임시 어셈블리 등록에 사용할 데이터베이스입니다.|
+|-Verbose|False|런타임의 자세한 출력을 표시합니다.|
+|-WorkDir|현재 디렉터리|컴파일러 사용 및 출력을 위한 디렉터리입니다.|
+|-RunScopeCEP|0|사용할 ScopeCEP 모드입니다.|
+|-ScopeCEPTempPath|temp|데이터 스트리밍에 사용할 임시 경로입니다.|
+|-OptFlags| |쉼표로 구분된 최적화 프로그램 플래그 목록입니다.|
 
 
 예를 들면 다음과 같습니다.
@@ -392,10 +393,7 @@ E_CSC_SYSTEM_INTERNAL: 내부 오류입니다. 파일 또는 어셈블리 'Scope
 
 ## <a name="next-steps"></a>다음 단계
 
-* Data Lake Analytics에 대한 개요를 보려면 [Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)를 참조하세요.
-* U-SQL 응용 프로그램 개발을 시작하려면 [Visual Studio용 Data Lake 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 * U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.
-* 관리 작업을 보려면 [Azure Portal을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 * 진단 정보를 기록하려면 [Azure Data Lake Analytics에 대한 진단 로그에 액세스](data-lake-analytics-diagnostic-logs.md)를 참조하세요.
 * 더 복잡한 쿼리를 보려면 [Azure Data Lake Analytics을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
 * 작업 세부 정보를 보려면, [Azure Data lake Analytics 작업에 대한 작업 브라우저 및 작업 보기 사용하기](data-lake-analytics-data-lake-tools-view-jobs.md)를 참조하세요.

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/6/2017
+ms.date: 7/26/2017
 ms.author: v-six
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 55d8e38462691c77a34eb5fca6ac79e2e0f69c37
+ms.contentlocale: ko-kr
 ms.lasthandoff: 11/17/2016
-
 
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>클라우드 서비스 웹/작업자 역할에서 기본 TEMP 폴더 크기가 너무 작습니다.

@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 REST와 Hadoop Pig 사용 | Microsoft Docs"
+title: "HDInsight에서 REST와 Hadoop Pig 사용 - Azure | Microsoft Docs"
 description: "Azure HDInsight의 Hadoop 클러스터에서 REST를 사용하여 Pig Latin 작업을 실행하는 방법에 대해 배웁니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 1c719a33001654755ec8d83f4bf43ca1fc52954e
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: d56cdec958dfe68f321fc3d6c84e8869446e1346
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

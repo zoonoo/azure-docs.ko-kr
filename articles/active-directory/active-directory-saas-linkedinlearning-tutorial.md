@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 06/15/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: a61cf0ffce8bede930744d445df88dde22061a59
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 6ad28cb3adaa63ddc3d3769a650d26ca6a7e2695
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -29,7 +29,7 @@ LinkedIn Learning을 Azure AD와 통합하면 다음과 같은 이점이 제공�
 
 - LinkedIn Learning에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자의 Azure AD 계정으로 LinkedIn Learning에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure 관리 포털에서 계정을 관리할 수 있습니다.
+- 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
 
@@ -45,7 +45,7 @@ LinkedIn Learning과 Azure AD 통합을 구성하려면 다음 항목이 필요�
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
-- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
+- 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -59,7 +59,7 @@ LinkedIn Learning이 Azure AD에 통합되도록 구성하려면 LinkedIn Learni
 
 **갤러리에서 LinkedIn Learning을 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure 관리 포털](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Active Directory][1]
 
@@ -92,15 +92,15 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 LinkedIn Learning 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 LinkedIn Learning 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **LinkedIn Learning에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털의 **LinkedIn Learning** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **LinkedIn Learning** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
-    ![Single Sign-On 구성][4]
+    ![Single Sign-on 구성][4]
 
-2. **Single sign on** 대화 상자에서 **모드**로 **SAML 기반 로그온**을 선택하여 Single Sign-On을 사용하도록 설정합니다.
+2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Single Sign-on 구성](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedin_01.png)
 
@@ -110,19 +110,19 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Single Sign-on 구성](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
-5. **OR Click Here to load and copy individual fields from the form**(또는 양식에서 개별 필드를 로드하여 복사하려면 여기를 클릭)을 클릭하고 **엔터티 Id** 및 **ACS(Assertion Consumer Access) URL**을 복사합니다.
+5. **OR Click Here to load and copy individual fields from the form(또는 폼에서 개별 필드를 로드하여 복사하려면 여기를 클릭)**을 클릭하고 **엔터티 ID** 및 **ACS(Assertion Consumer Access) URL**을 복사합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
 6. **IdP 시작** 모드에서 SSO를 구성하려면 Azure Portal의 **LinkedIn Learning 도메인 및 URL**에서 다음 단계를 수행합니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_signon_01.png)
+    ![Single Sign-on 구성](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_signon_01.png)
 
     a. **식별자** 텍스트 상자에 LinkedIn 포털에서 복사한 **엔티티 ID**를 입력합니다. 
 
     b. **회신 URL** 텍스트 상자에 LinkedIn 포털에서 복사한 **ACS(Assertion Consumer Access) URL**을 입력합니다.
 
-7. **SP 시작**에서 SSO를 구성하려면 구성 섹션에서 고급 URL 설정 표시 옵션을 클릭하고 다음 패턴으로 로그인 URL을 구성합니다.
+7. **SP 시작**에서 SSO를 구성하려면 구성 섹션에서 고급 URL 설정 표시 옵션을 클릭하고 다음 패턴으로 로그온 URL을 구성합니다.
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
@@ -132,52 +132,71 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Single Sign-on 구성](./media/active-directory-saas-linkedinlearning-tutorial/updateusermail.png)
     
-9. **사용자 특성** 섹션에서 **기타 모든 사용자 특성 보기 및 편집**을 클릭하고 특성을 설정합니다. **department**라는 또 다른 클레임을 추가하고 값을 **user.department**에 매핑해야 합니다.
+9. **사용자 특성** 섹션에서 **기타 모든 사용자 특성 보기 및 편집**을 클릭하고 특성을 설정합니다. 사용자는 **전자 메일**, **부서**, **이름** 및 **성**이라는 이름의 4개 클레임을 추가해야 하며, 값은 **user.mail**, **user.department**, **user.givenname** 및 **user.surname**으로 각각 매핑됩니다.
 
     | 특성 이름 | 특성 값 |
-    | --- | --- |    
+    | --- | --- |
+    | email| user.mail |    
     | department| user.department |
+    | firstname| user.givenname |
+    | lastname| user.surname |
+    
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
+    
+    a. **특성 추가**를 클릭하여 특성 대화 상자를 엽니다.
 
-   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinlearning-tutorial/userattribute.png)
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinLearning-tutorial/tutorial_attribute_04.png)
 
-   a. [특성 추가]를 클릭하여 특성 세부 정보 페이지를 열고, 아래와 같이 부서 특성을 추가합니다.
+    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinLearning-tutorial/tutorial_attribute_05.png)
+    
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    
+    c. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
+    
+    d. **확인**을 클릭합니다.
 
-   ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinLearning-tutorial/adduserattribute.png)
-   
-   b. **확인**을 클릭하여 해당 특성을 저장합니다.
+10. **이름** 특성에서 다음 단계를 수행합니다.
 
-10. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
+    a. 특성을 클릭하여 **특성 편집** 창을 엽니다.
+
+    ![Single Sign-on 구성](./media/active-directory-saas-linkedinLearning-tutorial/url_update.png)
+
+    b. **네임스페이스**에서 URL 값을 삭제합니다.
+    
+    c. **확인**을 클릭하여 설정을 저장합니다.
+
+11. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png) 
 
-11. **Save**를 클릭합니다.
+12. **Save**를 클릭합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_400.png)
 
-12. **LinkedIn 관리 설정** 섹션으로 이동합니다. XML 파일 업로드 옵션을 클릭하여 Azure Portal에서 방금 다운로드한 XML 파일을 업로드합니다.
+13. **LinkedIn 관리 설정** 섹션으로 이동합니다. XML 파일 업로드 옵션을 클릭하여 Azure Portal에서 다운로드한 XML 파일을 업로드합니다.
 
     ![Single Sign-on 구성](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_metadata_03.png)
 
-13. **설정**을 클릭하여 SSO를 사용하도록 설정합니다. SSO 상태가 **연결 안 됨**에서 **연결됨**으로 변경됩니다.
+14. **설정**을 클릭하여 SSO를 사용하도록 설정합니다. SSO 상태가 **연결 안 됨**에서 **연결됨**으로 변경됩니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
+    ![Single Sign-on 구성](./media/active-directory-saas-linkedinlearning-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
-이 섹션의 목적은 Azure 관리 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
+이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
 ![Azure AD 사용자 만들기][100]
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
+1. **Azure Portal**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_01.png) 
 
-2. **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭하여 사용자 목록을 표시합니다.
+2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_02.png) 
 
-3. 대화 상자 위쪽에서 **추가**를 클릭하여 **사용자** 대화 상자를 엽니다.
+3. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinlearning-tutorial/create_aaduser_03.png) 
 
@@ -195,7 +214,7 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="creating-a-linkedin-learning-test-user"></a>LinkedIn Learning 테스트 사용자 만들기
 
-LinkedIn Learning 응용 프로그램이 JIT(Just-in-time) 사용자 프로비저닝을 지원하며 인증 후에 응용 프로그램에서 사용자가 자동으로 만들어집니다. LinkedIn Learning 포털의 관리 설정 페이지에서 **Automatically Assign licenses**(라이선스 자동 할당) 스위치를 전환하여 JIT(Just-in-time) 프로비저닝을 사용하도록 활성화하면 사용자에게 라이선스가 할당됩니다.
+LinkedIn Learning 응용 프로그램은 Just-In-Time 사용자 프로비전을 지원하며 인증 후에는 응용 프로그램에서 자동으로 사용자가 생성됩니다. LinkedIn Learning 포털의 관리 설정 페이지에서 **Automatically Assign licenses**(라이선스 자동 할당) 스위치를 전환하여 JIT(Just-in-time) 프로비저닝을 사용하도록 활성화하면 사용자에게 라이선스가 할당됩니다.
    
    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinLearning-tutorial/LinkedinUserprovswitch.png)
 
@@ -207,7 +226,7 @@ LinkedIn Learning 응용 프로그램이 JIT(Just-in-time) 사용자 프로비�
 
 **Britta Simon을 LinkedIn Learning에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털에서 응용 프로그램 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
 
     ![사용자 할당][201] 
 
@@ -240,7 +259,6 @@ LinkedIn Learning 응용 프로그램이 JIT(Just-in-time) 사용자 프로비�
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_01.png
@@ -254,4 +272,3 @@ LinkedIn Learning 응용 프로그램이 JIT(Just-in-time) 사용자 프로비�
 [201]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinlearning-tutorial/tutorial_general_203.png
-

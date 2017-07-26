@@ -4,7 +4,7 @@ description: "U-SQL 스크립트에서 Python 코드를 실행하는 방법을 �
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
-manager: sukvg
+manager: jhubbard
 editor: cgronlun
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
+ms.date: 06/20/2017
 ms.author: saveenr
-translationtype: Human Translation
-ms.sourcegitcommit: 624b0370a85827cb9feaa48924bfa76d9ae19d0f
-ms.openlocfilehash: b3a9434df566d391e50e7755f9ab7fa880fe1d53
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 6f3477b67b27a30e6b69f6015e9063bfa27834f7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -25,10 +26,10 @@ ms.openlocfilehash: b3a9434df566d391e50e7755f9ab7fa880fe1d53
 
 U-SQL용 Python 확장을 사용하면 개발자가 Python 코드를 대량으로 병렬 실행할 수 있습니다. 다음 예제에서는 기본 단계를 설명합니다.
 
-* REFERENCE ASSEMBLY 문을 사용하여 U-SQL 스크립트에 대한 Python 확장을 사용하도록 설정합니다.
-* REDUCE 연산을 사용하여 키의 입력 데이터 분할
-* U-SQL용 Python 확장에는 감속기에 할당된 각 정점에서 Python 코드를 실행하는 기본 제공 감속기(Extension.Python.Reducer)가 포함되어 있습니다
-* U-SQL 스크립트에는 pandas DataFrame을 입력으로 받아들이고 pandas DataFrame을 출력으로 반환하는 usqlml_main이라는 함수가 있는 포함된 Python 코드가 포함되어 있습니다.
+* `REFERENCE ASSEMBLY` 문을 사용하여 U-SQL 스크립트에 대한 Python 확장을 사용하도록 설정합니다.
+* `REDUCE` 연산을 사용하여 키의 입력 데이터 분할
+* U-SQL용 Python 확장에는 감속기에 할당된 각 꼭짓점에서 Python 코드를 실행하는 기본 제공 감속기(`Extension.Python.Reducer`)가 포함되어 있습니다
+* U-SQL 스크립트에는 pandas DataFrame을 입력으로 받아들이고 pandas DataFrame을 출력으로 반환하는 `usqlml_main`이라는 함수가 있는 포함된 Python 코드가 포함되어 있습니다.
 
 --
 
@@ -68,7 +69,7 @@ U-SQL용 Python 확장을 사용하면 개발자가 Python 코드를 대량으�
 ### <a name="datatypes"></a>데이터 형식
 
 * U-SQL의 문자열 및 숫자 열은 Pandas와 U-SQL 간에 있는 그대로 변환됩니다.
-* U-SQL Null은 Pandas "NA" 값으로 변환됩니다.
+* U-SQL Null은 Pandas `NA` 값으로 변환됩니다.
 
 ### <a name="schemas"></a>스키마
 
@@ -99,10 +100,5 @@ Python 3.5.1(Windows용으로 컴파일)만 지원됩니다.
 * [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)
 * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
 * [Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

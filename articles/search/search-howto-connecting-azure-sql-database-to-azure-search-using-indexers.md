@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/15/2017
+ms.date: 06/01/2017
 ms.author: eugenesh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 54b8e16504e1170058dd021f7f7e2fba7b99bba7
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 80ede2ffc7380145e3bfca48abf0d05f0a79585a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/02/2017
 
 ---
 
@@ -182,9 +182,10 @@ SQL 데이터베이스에서 [변경 내용 추적](https://msdn.microsoft.com/l
 * SQL Server 2008 R2 이상(Azure VM의 SQL Server를 사용하는 경우)
 * Azure SQL 데이터베이스 V12(Azure SQL 데이터베이스를 사용하는 경우)
 
-SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 삭제 검색 정책을 지정하지 마세요. 이 정책은 삭제된 행 식별을 기본적으로 지원합니다.
-
-이 정책은 테이블에만 사용할 수 있으며 보기에는 사용할 수 없습니다. 이 정책을 사용하려면 사용 중인 테이블에 대해 변경 내용 추적을 사용하도록 설정해야 합니다. 지침은 [변경 내용 추적 설정 및 해제](https://msdn.microsoft.com/library/bb964713.aspx) 를 참조하세요.
+> [!IMPORTANT] 
+> 이 정책은 테이블에만 사용할 수 있으며 보기에는 사용할 수 없습니다. 이 정책을 사용하려면 사용 중인 테이블에 대해 변경 내용 추적을 사용하도록 설정해야 합니다. 지침은 [변경 내용 추적 설정 및 해제](https://msdn.microsoft.com/library/bb964713.aspx) 를 참조하세요.
+> 
+> 또한 테이블이 복합 기본 키(둘 이상의 열을 포함하는 기본 키)를 사용하는 경우 이 정책을 사용할 수 없습니다.  
 
 이 정책을 사용하려면 다음과 같이 데이터 원본을 만들거나 업데이트합니다.
 
@@ -197,6 +198,8 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
            "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy"
       }
     }
+
+SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 삭제 검색 정책을 지정하지 마세요. 이 정책은 삭제된 행 식별을 기본적으로 지원합니다. 그러나 삭제가 "자동"으로 탐지되려면 검색 인덱스의 문서 키가 SQL 테이블의 기본 키와 동일해야 합니다. 
 
 <a name="HighWaterMarkPolicy"></a>
 

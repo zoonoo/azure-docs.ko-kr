@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 .NET과 Hadoop Pig 사용 | Microsoft Docs"
+title: "Hadoop용 .NET SDK로 Apache Pig 작업 실행 - Azure HDInsight | Microsoft Docs"
 description: "HDInsight에서 Hadoop로 Pig 작업을 제출하기 위해 Hadoop용 .NET SDK를 사용하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: .net
@@ -14,19 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/03/2017
+ms.date: 05/25/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 10e2f35bdaf1b6e00e3d8dde34dd5809a89cde30
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: cf9290e37fa7c3b3a79ef80970147ea9556a58cd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop용 .NET SDK를 사용하여 Pig 작업 실행
+
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-이 문서는 HDInsight 클러스터의 Hadoop에 Pig 작업을 제출하기 위해 Hadoop용 .NET SDK를 사용하는 예시를 보여 줍니다.
+Azure HDInsight에서 Hadoop로 Apache Pig 작업을 제출하기 위해 Hadoop용 .NET SDK를 사용하는 방법에 대해 알아봅니다.
 
 HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. Pig를 사용하면 일련의 데이터 변환을 모델링하여 MapReduce 작업을 만들 수 있습니다. 이 문서에서는 기본 C# 응용 프로그램을 사용하여 HDInsight 클러스터에 Pig 작업을 제출하는 방법에 대해 배웁니다.
 
@@ -37,7 +39,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 * Azure HDInsight(HDInsight의 Hadoop) 클러스터(Windows 또는 Linux 기반)
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
 
 * Visual Studio 2012, 2013, 2015 또는 2017.
 

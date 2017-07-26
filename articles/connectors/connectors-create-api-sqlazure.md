@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 3c228be32539050123b01c5ccd74547b0d04ed28
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -32,11 +32,6 @@ SQL 데이터베이스를 사용하여 다음과 같은 작업을 수행합니�
 * 데이터의 행을 가져오고, 새 행을 삽입하고, 삭제하는 작업을 사용합니다. 예를 들어 Dynamics CRM Online에서 레코드가 만들어지면(트리거) Azure SQL Database에 행을 삽입합니다(작업). 
 
 이 항목에서는 논리 앱에서 SQL Database 커넥터를 사용하는 방법을 보여 주고, 트리거 및 작업을 나열합니다.
-
-> [!NOTE]
-> 이 버전의 문서는 논리 앱 GA(일반 공급)에 적용됩니다. 
-> 
-> 
 
 Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요?](../logic-apps/logic-apps-what-are-logic-apps.md) 및 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)를 참조하세요.
 
@@ -73,8 +68,9 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱이란 무엇인가요
    > 
 5. 변경 내용을 **저장**합니다(도구 모음 왼쪽 위 모서리). 논리 앱이 저장되며 이 논리 앱이 사용 상태로 자동 설정될 수 있습니다.
 
-## <a name="view-the-swagger"></a>swagger 보기
-[swagger 정보](/connectors/sql/)를 참조하세요. 
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+
+[커넥터 세부 정보](/connectors/sql/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.

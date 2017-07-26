@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 Hadoop과 MapReduce 및 Curl 사용 | Microsoft Docs"
+title: "HDInsight에서 Hadoop과 MapReduce 및 Curl 사용 - Azure | Microsoft Docs"
 description: "원격으로 Curl을 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업을 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/11/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: ee7f4536a2d58966f0bcecf19f2a5fec5df68bc2
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: df22c7315cc55df0e7963bc03a215ab09589b25b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/10/2017
 
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업 실행

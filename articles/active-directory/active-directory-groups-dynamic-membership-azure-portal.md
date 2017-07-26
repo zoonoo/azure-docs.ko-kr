@@ -17,10 +17,10 @@ ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: da03dc8afa58ddfe97301dabed186ed325410937
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 2f1d68c7127324477cfc8b87df0fd82dee7cd1d6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -51,13 +51,13 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 * 이항 연산자
 * 오른쪽 상수
 
-고급 규칙의 전체 모양은 (leftParameter binaryOperator "RightConstant")와 유사합니다. 여기서 열기 및 닫기 괄호는 전체 이진 식에 필요하고 큰 따옴표는 오른쪽 상수에 필요하며 왼쪽 매개 변수에 대한 구문은 user.property입니다. 고급 규칙은 -and, -or 및 -not 논리 연산자로 구분된 두 개 이상의 이진 식으로 구성될 수 있습니다.
+전체 고급 규칙은 (leftParameter binaryOperator "RightConstant")와 유사합니다. 여기서 열기 및 닫기 괄호는 전체 이진 식에 선택적이고, 큰 따옴표는 문자열인 오른쪽 상수에도 선택적이며 왼쪽 매개 변수의 구문은 user.property입니다. 고급 규칙은 -and, -or 및 -not 논리 연산자로 구분된 두 개 이상의 이진 식으로 구성될 수 있습니다.
 
 다음은 제대로 구성된 고급 규칙의 예입니다.
-
-* (user.department -eq "Sales") -or (user.department -eq "Marketing")
-* (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
-
+```
+(user.department -eq "Sales") -or (user.department -eq "Marketing")
+(user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
+```
 지원되는 매개 변수 및 식 규칙 연산자의 전체 목록은 아래 섹션을 참조하세요. 장치 규칙에 사용되는 특성은 [특성을 사용하여 장치 개체에 대한 규칙 만들기](#using-attributes-to-create-rules-for-device-objects)를 참조하세요.
 
 고급 규칙 본문의 총 길이는 2048자를 초과할 수 없습니다.
@@ -81,6 +81,31 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 | 포함 |-contains |
 | 일치하지 않음 |-notMatch |
 | 일치 |-match |
+| 내용 | -in |
+| 속하지 않음 | -notIn |
+
+## <a name="operator-precedence"></a>연산자 우선 순위
+
+모든 연산자는 낮은 우선 순위에서 높은 우선 순위까지 나열되며(-any -all -or -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn), 같은 줄의 연산자는 동등한 우선 순위를 가집니다.
+
+모든 연산자는 하이픈(-) 접두사를 사용하거나 사용하지 않을 수 있습니다.
+
+괄호는 항상 필요한 것이 아니지만, 우선 순위가 요구 사항을 충족하지 못할 경우 괄호를 추가하면 됩니다. 예를 들면 다음과 같습니다.
+```
+   user.department –eq "Marketing" –and user.country –eq "US"
+```
+이는 다음과 동등합니다.
+```
+   (user.department –eq "Marketing") –and (user.country –eq "US")
+```
+## <a name="using-the--in-and--notin-operators"></a>-In 및 -notIn 연산자 사용
+
+사용자 특성의 값을 다양한 값과 비교하려면 -In 또는 -notIn 연산자를 사용할 수 있습니다. 다음은 -In 연산자를 사용하는 예제입니다.
+```
+    user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+```
+값 목록의 처음과 끝에 "[" 및 "]"를 사용합니다. user.department 값이 목록의 값 중 하나와 같으면 이 조건에서 True로 평가합니다.
+
 
 ## <a name="query-error-remediation"></a>쿼리 오류 수정
 다음 표에서는 잠재적인 오류와 오류가 발생할 경우 이를 수정하는 방법을 나열합니다.
@@ -104,8 +129,8 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 
 | 속성 | 허용되는 값 | 사용 현황 |
 | --- | --- | --- |
-| accountEnabled |true false |user.accountEnabled -eq true) |
-| dirSyncEnabled |true false null |(user.dirSyncEnabled -eq true) |
+| accountEnabled |true false |user.accountEnabled -eq true |
+| dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>문자열 형식의 속성
 허용되는 연산자
@@ -118,6 +143,8 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 * -notContains
 * -match
 * -notMatch
+* -in
+* -notIn
 
 | 속성 | 허용되는 값 | 사용 현황 |
 | --- | --- | --- |
@@ -133,6 +160,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 | mailNickName |임의의 문자열 값(사용자의 메일 별칭) |(user.mailNickName -eq "value") |
 | mobile |임의의 문자열 값 또는 $null입니다. |(user.mobile -eq "value") |
 | objectId |사용자 개체의 GUID입니다. |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | 온-프레미스에서 클라우드로 동기화된 사용자의 온-프레미스 SID(보안 식별자)입니다. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |임의의 문자열 값 또는 $null입니다. |(user.physicalDeliveryOfficeName -eq "value") |
 | postalCode |임의의 문자열 값 또는 $null입니다. |(user.postalCode -eq "value") |
@@ -157,57 +185,101 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 | otherMails |임의의 문자열 값입니다. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## <a name="multi-value-properties"></a>다중 값 속성
+허용되는 연산자
+
+* -any(컬렉션에서 적어도 하나의 항목이 조건과 일치하는 경우 충족)
+* -all(컬렉션에서 모든 항목이 조건과 일치하는 경우 충족)
+
+| 속성 | 값 | 사용 |
+| --- | --- | --- |
+| assigendPlans |컬렉션에 있는 각 개체는 다음 문자열 속성을 표시합니다. capabilityStatus, service, servicePlanId |user.assignedPlans -any(assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+
+다중 값 속성은 동일한 유형인 개체의 컬렉션입니다. -any 및 -all 연산자를 사용하여 각각 컬렉션의 항목 중 하나 또는 모두에 조건을 적용할 수 있습니다. 예:
+
+assignedPlans는 사용자에게 할당된 모든 서비스 계획을 나열하는 다중 값 속성입니다. 아래 식은 사용 상태인 Exchange Online(계획 2) 서비스 계획을 가진 사용자를 선택합니다.
+
+```
+user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+(Guid 식별자는 Exchange Online(계획 2) 서비스 계획을 식별합니다.)
+
+> [!NOTE]
+> 예를 들어 특정 정책 집합이 포함된 대상으로 지정하는 데 Office 365(또는 기타 Microsoft 온라인 서비스) 기능을 사용하기 위해 모든 사용자를 식별하려는 경우에 유용합니다.
+
+다음 식은 Intune 서비스("SCO" 서비스 이름으로 식별)와 연결된 서비스 계획이 있는 모든 사용자를 선택합니다.
+```
+user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+## <a name="use-of-null-values"></a>Null 값 사용
+
+규칙에 null 값을 지정하려면 "null" 또는 $null을 사용하면 됩니다. 예제:
+```
+   user.mail –ne null
+```
+이는 다음과 동등합니다.
+```
+   user.mail –ne $null
+   ```
+
 ## <a name="extension-attributes-and-custom-attributes"></a>확장 특성 및 사용자 지정 특성
 확장 특성 및 사용자 지정 특성은 동적 멤버 자격 규칙에서 지원됩니다.
 
 확장 특성은 온-프레미스 Windows Server AD에서 동기화되고 "ExtensionAttributeX" 형식을 사용하며 여기서 X는 1 - 15입니다.
 확장 특성을 사용하는 규칙의 예는 다음과 같습니다.
-
+```
 (user.extensionAttribute15 -eq "Marketing")
-
+```
 사용자 지정 특성은 온-프레미스 Windows Server AD 또는 연결된 SaaS 응용 프로그램에서 동기화되고 "user.extension_[GUID]\__[Attribute]" 형식입니다. 여기서 [GUID]는 AAD에서 특성을 만든 응용 프로그램에 대한 AAD의 고유한 식별자이고 [Attribute]는 만들어진 특성 이름입니다.
 사용자 지정 특성을 사용하는 규칙의 예는 다음과 같습니다.
-
+```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
-
+```
 사용자 지정 특성 이름은 Graph Explorer를 사용하여 사용자의 특성을 쿼리하거나 특성 이름을 검색하여 디렉터리에서 찾을 수 있습니다.
 
-## <a name="direct-reports-rule"></a>직접 보고 규칙
-이제 사용자의 관리자 특성에 따라 그룹의 멤버를 채울 수 있습니다.
+## <a name="direct-reports-rule"></a>"직접 보고" 규칙
+관리자의 직접 보고서를 모두 포함하는 그룹을 만들 수 있습니다. 관리자의 직접 보고서가 나중에 변경될 경우 그룹의 멤버 자격은 자동으로 조정됩니다.
 
-**"관리자" 그룹으로 그룹을 구성하려면**
+> [!NOTE]
+> 1. 규칙이 작동하려면 테넌트의 사용자에 대해 **관리자 ID** 속성이 올바르게 설정되어야 합니다. 해당 **프로필 탭**에서 사용자의 현재 값을 확인할 수 있습니다.
+> 2. 이 규칙은 **직접** 보고서만을 지원합니다. 예를 들어 현재는 직접 보고서 및 해당 보고서를 포함하는 그룹과 같이 중첩된 계층에 그룹을 만들 수 없습니다.
 
-1. [고급 규칙을 만들려면](#to-create-the-advanced-rule)의 1~5단계에 따르고 **동적 사용자**의 **멤버 자격 유형**을 선택합니다.
+**그룹을 구성하려면**
+
+1. [고급 규칙을 만들려면](#to-create-the-advanced-rule) 섹션의 1~5단계에 따르고 **동적 사용자**의 **멤버 자격 형식**을 선택합니다.
 2. **동적 멤버 자격 규칙** 블레이드에서 다음 구문을 사용하여 규칙을 입력합니다.
 
-    *Direct Reports for {obectID_of_manager}*에 대한 직접 보고. 직접 보고에 대해 유효한 규칙의 예는 다음과 같습니다.
+    *"{obectID_of_manager}"의 직접 보고서*
 
-                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-
-    여기서 "62e19b97-8b3d-4d4a-a106-4ce66896a863"은 관리자의 objectID입니다. 개체 ID는 관리자인 사용자의 사용자 페이지의 **프로필 탭** 에 있는 Azure AD에서 찾을 수 있습니다.
-3. 이 규칙을 저장하면 규칙을 만족하는 모든 사용자가 그룹의 구성원으로 가입됩니다. 그룹을 처음 채울 때는 몇 분 정도 걸릴 수 있습니다.
+    올바른 규칙의 예제:
+```
+                    Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
+```
+    where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
+3. 규칙을 저장한 후에 지정한 관리자 ID 값을 가진 모든 사용자가 그룹에 추가됩니다.
 
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>특성을 사용하여 장치 개체에 대한 규칙 만들기
 또한 그룹의 멤버 자격에 대한 장치 개체를 선택하는 규칙을 만들 수 있습니다. 다음과 같은 장치 특성을 사용할 수 있습니다.
 
 | 속성              | 허용되는 값                  | 사용 현황                                                       |
 |-------------------------|---------------------------------|-------------------------------------------------------------|
+| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
 | displayName             | 임의의 문자열 값입니다.                | (device.displayName -eq "Rob Iphone”)                       |
 | deviceOSType            | 임의의 문자열 값입니다.                | (device.deviceOSType -eq "IOS")                             |
 | deviceOSVersion         | 임의의 문자열 값입니다.                | (device.OSVersion -eq "9.1")                                |
-| isDirSynced             | true false null                 | (device.isDirSynced -eq "true")                             |
-| isManaged               | true false null                 | (device.isManaged -eq "false")                              |
-| isCompliant             | true false null                 | (device.isCompliant -eq "true")                             |
 | deviceCategory          | 임의의 문자열 값입니다.                | (device.deviceCategory -eq "")                              |
 | deviceManufacturer      | 임의의 문자열 값입니다.                | (device.deviceManufacturer -eq "Microsoft")                 |
 | deviceModel             | 임의의 문자열 값입니다.                | (device.deviceModel -eq "IPhone 7+")                        |
 | deviceOwnership         | 임의의 문자열 값입니다.                | (device.deviceOwnership -eq "")                             |
 | domainName              | 임의의 문자열 값입니다.                | (device.domainName -eq "contoso.com")                       |
 | enrollmentProfileName   | 임의의 문자열 값입니다.                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false null                 | (device.deviceOSType -eq "true")                            |
+| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
 | managementType          | 임의의 문자열 값입니다.                | (device.managementType -eq "")                              |
 | organizationalUnit      | 임의의 문자열 값입니다.                | (device.organizationalUnit -eq "")                          |
-| deviceId                | 유효한 deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+| deviceId                | 유효한 deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId                | 유효한 AAD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 
 

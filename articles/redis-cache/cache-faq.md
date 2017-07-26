@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/12/2017
 ms.author: sdanie
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: eeddc0da23192a0082f2fcddbb0cc5f3e4a72074
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 88ed466053efd62370afd31f68c9617e79936267
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -105,7 +105,7 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 
 캐시 제품을 선택할 때는 다음을 고려해야 합니다.
 
-* **메모리**: 기본 및 표준 계층에서 250MB-53GB를 제공합니다. 프리미엄 계층은 [요청 시](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)추가적으로 사용 가능한 최대 530GB를 제공합니다. 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
+* **메모리**: 기본 및 표준 계층에서 250MB-53GB를 제공합니다. 프리미엄 계층은 최대 530GB를 제공합니다. 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
 * **네트워크 성능**: 높은 처리량이 필요한 워크로드가 있는 경우 프리미엄 계층이 표준이나 기본에 비해 더 높은 대역폭을 제공합니다. 또한 각 계층 안에서는 캐시를 호스팅하는 기본 VM으로 인해 캐시 크기가 클수록 대역폭이 큽니다. 자세한 내용은 [다음 테이블](#cache-performance)을 참조하세요.
 * **처리량**: 프리미엄 계층은 사용 가능한 최대 처리량을 제공합니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 측에서 시간 초과를 수신할 수 있습니다. 자세한 내용은 다음 표를 참조하세요.
 * **고가용성/SLA**: Azure Redis Cache는 표준/프리미엄 캐시가 최소 99.9% 시간 동안 사용할 수 있도록 보장합니다. SLA에 대한 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)을 참조하세요. SLA에서는 캐시 끝점에 대한 연결만 다룹니다. SLA는 데이터 손실로부터의 보호는 다루지 않습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다.
@@ -467,10 +467,14 @@ Redis 성공의 또 다른 중요한 측면은 이를 기반으로 구축된 정
 Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Redis Cache를 사용하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md) 및 [Azure Redis Cache 설명서](index.md)를 참조하세요.
 
 ### <a name="managed-cache-service"></a>관리된 캐시 서비스
-[Managed Cache Service는 2016년 11월 30일에 사용이 중지되었습니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[Managed Cache Service는 2016년 11월 30일에 사용이 중지되었습니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)(영문)
+
+보관된 설명서를 보려면 [보관된 Managed Cache Service 설명서](https://msdn.microsoft.com/library/azure/dn386094.aspx)를 참조하세요.
 
 ### <a name="in-role-cache"></a>In-Role Cache
-[In-Role Cache는 2016년 11월 30일에 사용이 중지되었습니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[In-Role Cache는 2016년 11월 30일에 사용이 중지되었습니다.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)(영문)
+
+보관된 설명서를 보려면 [보관된 In-Role Cache 설명서](https://msdn.microsoft.com/library/azure/dn386103.aspx)를 참조하세요.
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 

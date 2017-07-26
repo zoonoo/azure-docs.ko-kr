@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 05/08/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: d129ea9e5f3e320ccd705028f9860188babe2fe4
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 77eb83b80312eca401e6f60d57ed6a5668ea442e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -33,11 +33,9 @@ Azure PowerShell을 사용하여 Azure Data Lake Store를 기본 저장소로 �
 
 Data Lake Store에서 HDInsight를 사용하는 몇 가지 중요한 고려 사항은 다음과 같습니다.
 
-* 기본 저장소인 Data Lake Store에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.5에서 사용할 수 있습니다.
+* 기본 저장소인 Data Lake Store에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.5 및 3.6에서 사용할 수 있습니다.
 
 * 기본 저장소인 Data Lake Store에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight Premium 클러스터에서 *사용할 수 없습니다*.
-
-* HBase 클러스터(Windows 및 Linux)의 경우 Data Lake Store는 기본 및 추가 저장소 중 하나에 대해서도 저장소 옵션으로 *지원되지 않습니다*.
 
 PowerShell을 사용하여 Data Lake Store를 사용하도록 HDInsight를 구성하려면 다음 5개 섹션의 지침을 따릅니다.
 
@@ -46,7 +44,7 @@ PowerShell을 사용하여 Data Lake Store를 사용하도록 HDInsight를 구�
 
 * **Azure 구독**: [Azure 무료 평가판 받기](https://azure.microsoft.com/pricing/free-trial/)로 이동하세요.
 * **Azure PowerShell 1.0 이상**: [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
-* **Windows SDK(소프트웨어 개발 키트)**: Windows SDK를 설치하려면 [Windows 10용 도구 다운로드](https://dev.windows.com/en-us/downloads)로 이동합니다. Windows SDK를 사용하여 보안 인증서를 만듭니다.
+* **Windows SDK(소프트웨어 개발 키트)**: Windows SDK를 설치하려면 [Windows 10용 도구 다운로드](https://dev.windows.com/en-us/downloads)로 이동합니다. 보안 인증서를 만드는 데 SDK가 사용됩니다.
 * **Azure Active Directory 서비스 주체**: 이 자습서에서는 Azure AD(Azure Active Directory)에서 서비스 주체를 만드는 방법을 설명합니다. 그러나 서비스 주체를 만들려면 Azure AD 관리자여야 합니다. 관리자인 경우 이 필수 요소를 건너뛰고 자습서를 진행할 수 있습니다.
 
     >[!NOTE]
@@ -187,7 +185,7 @@ Azure Data Lake에 대한 Active Directory 인증을 설정하려면 다음 두 
         # Set these variables
 
         $location = "East US 2"
-        $storageAccountName = $dataLakeStoreName                          # Data Lake Store account name
+        $storageAccountName = $dataLakeStoreName                       # Data Lake Store account name
         $storageRootPath = "<Storage root path you specified earlier>" # E.g. /clusters/hdiadlcluster
         $clusterName = "<unique cluster name>"
         $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
@@ -205,7 +203,7 @@ Azure Data Lake에 대한 Active Directory 인증을 설정하려면 다음 두 
                -DefaultStorageAccountType AzureDataLakeStore `
                -DefaultStorageAccountName "$storageAccountName.azuredatalakestore.net" `
                -DefaultStorageRootPath $storageRootPath `
-               -Version "3.5" `
+               -Version "3.6" `
                -SshCredential $sshCredentials `
                -AadTenantId $tenantId `
                -ObjectId $objectId `

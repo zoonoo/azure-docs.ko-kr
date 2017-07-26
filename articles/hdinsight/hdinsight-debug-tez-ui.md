@@ -1,5 +1,5 @@
 ---
-title: "Windows 기반 HDInsight에서 Tez UI 사용 | Microsoft 문서"
+title: "Windows 기반 HDInsight에서 Tez UI 사용 - Azure | Microsoft Docs"
 description: "Windows 기반 HDInsight 클러스터에서 Tez UI를 사용하여 Tez 작업 디버깅하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 870d8001b67b43d09427a626761ede1833101ddf
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 1549f20b4c5d37a3d18fc664ddc7ca0686aa9b44
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: "HDInsight 클러스터에서 SSH와 Hadoop Pig 사용 | Microsoft Docs"
+title: "HDInsight 클러스터에서 SSH와 Hadoop Pig 사용 - Azure | Microsoft Docs"
 description: "SSH를 사용하여 Linux 기반 Hadoop 클러스터에 연결한 다음 Pig 명령을 사용하여 Pig Latin 문을 대화형으로 실행하거나 일괄 처리 작업으로 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 04/14/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 36ede2b1c2964f85c454ffd1a653c90296bb307a
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 2c9bba249a6793de1083f1266146a5b631bb18d9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 384f4bc285f62b102778118a92a912e73d241663
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 57f465df99ac234466459b8031f61805d8334b59
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -60,8 +60,8 @@ Azure AD(Azure Active Directory)는 보호된 리소스에 액세스해야 하�
 <app-scheme>://<bundle-id>
 ```
 
-* **aap-scheme**: XCode 프로젝트에 등록됩니다. 다른 응용 프로그램이 사용자를 호출할 수 있는 방법입니다. 이 내용은 XCode 프로젝트의 **Info.plist** > **URL 형식** > **URL ID**에 있을 수 있습니다. 하나 이상이 구성되어 있지 않으면 하나를 만들어야 합니다.
-* **bundle-id**: XCode 프로젝트 설정의 **ID** 아래에 있는 번들 ID입니다.
+* **app-scheme** - XCode 프로젝트에 등록됩니다. 다른 응용 프로그램이 사용자를 호출할 수 있는 방법입니다. Info.plist -> URL 형식 -> URL ID에 있을 수 있습니다. 하나 이상이 구성되어 있지 않으면 하나를 만들어야 합니다.
+* **bundle-id** - XCode의 프로젝트 설정의 "ID" 아래에 있는 번들 ID입니다.
 
 이 빠른 시작 코드는 ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***를 예로 들 수 있습니다.
 

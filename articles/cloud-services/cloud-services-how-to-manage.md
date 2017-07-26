@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2016
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 76f59384db37967a9210ba5efa49b25788d21cdc
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: e66a3390c08b66e0f2f38725425cd78a36004118
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
@@ -112,7 +113,7 @@ Azure 클래식 포털의 **데이터베이스** 노드에서 데이터베이스
     ![연결 페이지1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
 4. **새 리소스 만들기** 또는 **기존 리소스에 연결**을 클릭합니다.
-5. 연결할 리소스 종류를 선택합니다. [Azure 클래식 포털](http://manage.windowsazure.com/)에서 **SQL 데이터베이스**를 클릭합니다. (Preview Azure 클래식 포털에서는 저장소 계정을 클라우드 서비스에 연결할 수 없습니다.)
+5. 연결할 리소스 종류를 선택합니다. [Azure 클래식 포털](http://manage.windowsazure.com/)에서 **SQL 데이터베이스**를 클릭합니다. (Azure 클래식 포털에서만 저장소 계정을 클라우드 서비스에 연결할 수 있습니다.)
 6. 데이터베이스 구성을 완료하려면 도움말에서 Azure 클래식 포털의 **SQL 데이터베이스** 영역에 대한 지침을 따르세요.
 
     메시지 영역에서 연결 작업의 진행률을 확인할 수 있습니다.

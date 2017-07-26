@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 07/17/2017
+ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 08df9939eb31c224d62d96a0d034d1cda10ba270
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 32b5e5a8025be3381e20aad0b22289b2c641f74e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
@@ -54,6 +53,7 @@ ms.lasthandoff: 05/12/2017
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | 도우미 |X |X | | |
+| altRecipient |X | | |Azure AD Connect 빌드 1.1.552.0 이상이 필요합니다. |
 | authOrig |X |X |X | |
 | C |X |X | | |
 | cn |X | |X | |
@@ -432,6 +432,7 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 | msExchUCVoiceMailSettings |X | | |UM(통합 메시징)-온라인 음성 메일 사용: Microsoft Lync Server Intergration 사용자가 온라인 서비스에 음성 메일이 있는지 Lync Server 온-프레미스에 나타내기 위해서 사용합니다. |
 | msExchUserHoldPolicies |X | | |소송 보류: 어떤 사용자가 소송을 보류 중인지 확인하기 위해 클라우드 서비스를 사용합니다. |
 | proxyAddresses |X |X |X |Exchange Online의 x500 주소만 삽입됩니다. |
+| publicDelegates |X | | |Exchange Online 사서함에 온-프레미스 Exchange 사서함이 있는 사용자에게 SendOnBehalfTo 권한을 부여할 수 있습니다. Azure AD Connect 빌드 1.1.552.0 이상이 필요합니다. |
 
 ## <a name="exchange-mail-public-folder"></a>Exchange 메일 공용 폴더
 이러한 특성은 **Exchange 메일 공용 폴더**를 사용하도록 설정할 때 온-프레미스 Active Directory에서 Azure AD에서 동기화됩니다.

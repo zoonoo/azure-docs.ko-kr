@@ -1,5 +1,5 @@
 ---
-title: "파워 쿼리로 Hadoop에 Excel 연결 | Microsoft 문서"
+title: "파워 쿼리로 Hadoop에 Excel 연결 - Azure HDInsight | Microsoft Docs"
 description: "비즈니스 인텔리전스 구성 요소를 사용하는 방법과 Excel용 파워 쿼리를 사용하여 HDInsight의 Hadoop에 저장된 데이터에 액세스하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
-ms.openlocfilehash: 26383db7a3fe6736fb739121dd545518784c098a
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: c83328a2b349e92bfdbcba6474040ac930483354
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/07/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 44be67cd5c59a57cafd244ce0a49a6fadf44bdda
-ms.openlocfilehash: 8abde97ecb906384cd6e62811fcbb833bdc8be51
-ms.lasthandoff: 01/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 04e6c03dfd10c7dab50299f8ff0a5313274e4c60
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -80,7 +81,7 @@ Windows 컴퓨터에서 새로 자체 서명된 인증서를 만들려면 **관�
 
     New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
 
-앞의 샘플에서 'contoso100.com'을 Azure AD 도메인 서비스 관리되는 도메인의 DNS 도메인 이름으로 대체합니다.
+위의 샘플에서는 '*.contoso100.com'을 Azure AD Domain Services 관리되는 도메인의 DNS 도메인 이름으로 바꿉니다.(따라서 예를 들어 'contoso100.onmicrosoft.com'이라는 AD Domain Services의 DNS 도메인 이름을 생성하는 경우 위의 스크립트에서 '*.contoso100.com'을 '*.conotoso100.onmicrosoft.com'으로 바꿉니다.)
 
 ![Azure AD 디렉터리 선택](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 

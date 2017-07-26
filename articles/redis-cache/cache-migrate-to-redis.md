@@ -12,17 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 03/08/2017
+ms.date: 05/30/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: af5e181ce254fefe55c847d9988dd8245c75e864
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 0fbfb945c66926794721f2ce8cc183dac51ecb27
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션
 Azure 관리된 캐시 서비스를 Azure Redis Cache에 사용하는 응용 프로그램을 마이그레이션하는 작업은 캐싱 응용 프로그램에서 사용하는 관리된 캐시 서비스 기능에 따라 응용 프로그램을 최소한으로 변경하여 수행할 수 있습니다. API가 정확히 동일하지 않고 유사하며 캐시에 액세스하는 데 관리된 캐시 서비스를 사용하는 기존 코드의 대부분은 변경을 최소화하면서 다시 사용할 수 있습니다. 이 항목에서는 필요한 구성을 만들고 응용 프로그램을 변경하여 관리된 캐시 서비스 응용 프로그램이 Azure Redis Cache를 사용하도록 마이그레이션하는 방법을 보여 줍니다. 그리고 Azure Redis Cache의 기능 일부가 관리된 캐시 서비스 캐시의 기능을 구현하는 데 사용될 수 있는 방법을 보여 줍니다.
+
+>[!NOTE]
+>Managed Cache Service와 In-Role Cache는 2016년 11월 30일에 [사용 중지](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)되었습니다. Azure Redis Cache로 마이그레이션하려는 In-Role Cache 배포가 있는 경우 이 문서의 단계를 따를 수 있습니다.
 
 ## <a name="migration-steps"></a>마이그레이션 단계
 다음 단계에서는 관리된 캐시 서비스 응용 프로그램을 마이그레이션하여 Azure Redis Cache를 사용해야 합니다.
@@ -59,7 +63,7 @@ Microsoft Azure Redis 캐시는 다음 계층에서 사용할 수 있습니다.
 
 * **기본** – 단일 노드. 최대 53GB까지 여러 개의 크기
 * **표준** – 2노드 주/복제본. 최대 53GB까지 여러 개의 크기 99.9% SLA
-* **프리미엄** – 최대 10개 분할 데이터베이스와 2노드 주/복제본. 6GB에서 530GB에 이르는 다양한 크기(자세한 내용 문의). 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure 가상 네트워크](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 99.9% SLA
+* **프리미엄** – 최대 10개 분할 데이터베이스와 2노드 주/복제본. 6GB ~ 530GB에 이르는 여러 개의 크기 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure 가상 네트워크](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 99.9% SLA
 
 각 계층은 기능과 가격이 다릅니다. 기능에 대해서는 이 가이드의 뒷부분에서 다룹니다. 가격에 대한 자세한 내용은 [캐시 가격 정보](https://azure.microsoft.com/pricing/details/cache/)를 참조하세요.
 

@@ -3,7 +3,7 @@ title: "node.js를 사용하여 Azure AD 로그인 및 로그아웃 시작 | Mic
 description: "로그인을 위해 Azure AD와 통합되는 Node.js Express MVC 웹앱을 빌드하는 방법에 대해 알아봅니다."
 services: active-directory
 documentationcenter: nodejs
-author: xerners
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: xerners
+ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 8d91d551cbb508485ca27d77b23eb319293e4237
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: 13317b016f9ff3955f376b858645c42668b0de42
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -144,8 +144,8 @@ Passport는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 
     ```
 Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 전략(Twitter, Facebook 등)에 대해 사용합니다. 전략을 보면 토큰 및 완료가 매개 변수로 포함된 함수에 전달되는 것을 확인할 수 있습니다. 전략은 작업을 완료한 후에 사용자에게 돌아갑니다. 그러면 사용자를 저장하고 토큰을 다시 요청할 필요가 없도록 보관하려 합니다.
 
-    > [!IMPORTANT]
-    > The previous code takes any user that happens to authenticate to our server. This is known as auto-registration. We recommend that you don't let anyone authenticate to a production server without first having them register via a process that you decide on. This is usually the pattern you see in consumer apps, which allow you to register with Facebook but then ask you to provide additional information. If this weren't a sample application, we could have extracted the user's email address from the token object that is returned and then asked the user to fill out additional information. Because this is a test server, we add them to the in-memory database.
+> [!IMPORTANT]
+이전 코드는 서버에 인증하는 모든 사용자를 사용합니다. 이를 자동 등록이라고 합니다. 사용자가 결정한 프로세스를 통해 등록하지 않은 프로덕션 서버에는 누구도 인증하지 않는 것이 좋습니다. 이것은 Facebook에 등록할 수 있도록 허용하지만 추가 정보를 입력하도록 요구하는 소비자 앱에서 주로 나타나는 패턴입니다. 응용 프로그램 예제가 아니라면 반환된 토큰 개체에서 사용자의 전자 메일 주소를 추출하고 사용자에게 추가 정보를 입력하도록 요구할 수 있습니다. 테스트 서버이므로 메모리 내 데이터베이스에 추가합니다.
 
 
 4. 다음에는 Passport에서 요구하는 대로 로그인한 사용자를 추적할 수 있는 메서드를 추가하겠습니다. 이러한 메서드에는 사용자 정보의 직렬화 및 역직렬화가 포함됩니다.
@@ -210,9 +210,9 @@ Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 �
 
 6. 마지막으로 실제 로그인 요청을 `passport-azure-ad` 엔진에 전달하는 경로를 추가합니다.
 
-       
+
        ```JavaScript
- 
+
         // Our Auth routes (section 3)
 
         // GET /auth/openid

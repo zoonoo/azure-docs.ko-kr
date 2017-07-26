@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 31574a82d190b9b157f8df3308fac298924eada5
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: d3a3d3efe1c43caff3b8d2956c14e8c90d05d22b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 12/29/2016
+ms.lasthandoff: 06/06/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/29/2016
 ## <a name="what-is-azure-active-directory-join"></a>Azure Active Directory 조인이란?
 Azure AD 조인(Azure Active Directory 조인)은 Azure Active Directory에 회사 소유의 장치를 등록하여 장치의 중앙 관리를 가능하게 하는 기능입니다. 이 기능으로 직원 및 학생과 같은 사용자가 Azure Active Directory를 통해 엔터프라이즈 클라우드에 연결할 수 있습니다. 이를 통해 회사 소유 또는 개인 소유(BYOD)를 막론하고 어떤 Windows 장치에서도 Windows 배포가 간편해졌으며 조직 앱 및 리소스에 쉽게 액세스할 수 있게 되었습니다.
 
-Azure AD 조인은 클라우드 우선/클라우드 전용인 기업(일반적으로 온-프레미스 Windows Server Active Directory 인프라가 없는 중소 규모 기업)을 위한 것입니다. 즉, Azure AD 조인은 기존의 도메인 가입을 수행할 수 없는 장치(예: 모바일 장치)를 사용하는 대기업 또는 Office 365나 다른 Azure AD SaaS 앱에 주로 액세스해야 하는 사용자에 의해 사용될 수 있거나 사용됩니다.
+Azure AD 조인은 클라우드 우선/클라우드 전용인 기업(일반적으로 온-프레미스 Windows Server Active Directory 인프라가 없는 중소 규모 기업)을 위한 것입니다. 그렇지만 기존의 도메인 가입을 수행할 수 없는 장치(예: 모바일 장치) 또는 Azure AD와 통합된 Office 365 또는 다른 SaaS 앱에 주로 액세스해야 하는 사용자를 대상으로 하는 대규모 조직에서도 Azure AD 조인을 사용할 수 있습니다.
 
 기존의 도메인 가입이 도메인 가입이 가능한 장치에서 최고의 온-프레미스 환경을 제공하기는 하지만 Azure AD 조인은 도메인 가입이 불가능한 장치에 적합합니다. Azure AD 조인은 클라우드에서 사용자를 관리하는 데도 적합합니다. 그룹 정책 및 SCCM(System Center Configuration Manager)과 같은 기존의 도메인 관리 도구를 사용하는 대신 모바일 장치 관리 기능을 사용하여 수행합니다.
 
@@ -53,7 +53,7 @@ Azure AD 조인을 사용하면 다음과 같은 이점을 누릴 수 있습니�
 ## <a name="how-do-different-devices-work-with-azure-ad-join"></a>다양한 장치가 Azure AD 조인에서 어떻게 작동하나요?
 | 회사 장치(온-프레미스 도메인에 가입) | 회사 장치(클라우드에 가입) | 개인 장치 |
 | --- | --- | --- |
-| 사용자는 회사 자격 증명을 사용하여 Windows에 로그인할 수 있습니다(현재 방식). |사용자는 Azure AD에서 관리되는 회사 자격 증명을 사용하여 Windows에 로그인할 수 있습니다. 이러한 방식은 다음과 같은 세 가지 경우의 회사 장치에 적합합니다. 1)조직에 Active Directory 온-프레미스가 없습니다(예: 소규모 기업). 2)조직이 Active Directory에 모든 사용자 계정을 다 만드는 것은 아닙니다(예: 학생, 컨설턴트, 비정규직 근로자를 위한 계정이 Active Directory에 만들어지지 않음). 3)조직에 모바일 SKU(예: 공장/소매 매장의 보조 장치)가 실행되는 휴대폰이나 태블릿과 같이 (온-프레미스) 도메인에 가입할 수 없는 회사 장치가 있습니다. Azure AD 조인은 관리 및 페더레이션 조직 모두를 위한 회사 장치의 가입을 지원합니다. |사용자는 개인 Microsoft 계정 자격 증명을 사용하여 Windows에 로그인합니다(변경 없음). |
+| 사용자는 회사 자격 증명을 사용하여 Windows에 로그인할 수 있습니다(현재 방식). |사용자는 Azure AD에서 관리되는 회사 자격 증명을 사용하여 Windows에 로그인할 수 있습니다. 이 방식은 다음 세 가지 경우의 회사 장치와 관련됩니다. <ol><li>조직의 온-프레미스에 Active Directory가 없습니다(예: 소규모 기업).</li><li>조직에서 Active Directory에 모든 사용자 계정을 만들지는 않습니다(예: Active Directory에 학생, 컨설턴트 또는 계절적 근로자를 위한 계정을 만들지 않음).</li><li>조직에 모바일 SKU가 실행되는 휴대폰이나 태블릿(예: 공장/소매 매장의 보조 장치)과 같이 도메인(온-프레미스)에 가입할 수 없는 회사 장치가 있습니다.</li></ol> Azure AD 조인은 관리 및 페더레이션 조직 모두를 위한 회사 장치의 가입을 지원합니다. |사용자는 개인 Microsoft 계정 자격 증명을 사용하여 Windows에 로그인합니다(변경 없음). |
 | 사용자는 로밍 설정 및 엔터프라이즈 Windows 스토어에 액세스할 수 있습니다. 이러한 서비스는 회사 계정으로 작업하고 개인 Microsoft 계정이 필요하지 않습니다. 이 경우 조직이 자신의 온-프레미스 Active Directory를 Azure AD에 연결해야 합니다. |사용자는 셀프 서비스 설정을 수행할 수 있습니다. 사용자는 IT 부서의 장치 프로비전 대신 회사 계정을 통해 FRX(첫 실행 경험)를 거칠 수 있으며 두 방법 모두 지원됩니다. |사용자가 Active Directory 또는 Azure AD에서 관리되는 회사 계정을 쉽게 추가할 수 있습니다. |
 | 사용자는 데스크톱에서, 회사 앱, 웹 사이트 및 리소스(인증을 위해 Azure AD를 사용하는 클라우드 앱 및 온-프레미스 리소스를 포함)까지 SSO 기능을 보유합니다. |장치는 엔터프라이즈 디렉터리(Azure AD)에 자동으로 등록되며 모바일 장치 관리에 자동으로 등록됩니다. (Azure AD Premium 기능) |사용자는 이 회사 계정을 사용하여 앱 간 및 웹 사이트/리소스에 대한 SSO 기능을 보유합니다. |
 | 사용자는 엔터프라이즈 데이터에 영향을 주지 않고 자신의 개인 사진 및 파일에 액세스하는 개인 Microsoft 계정을 추가할 수 있습니다. (로밍 설정이 해당 회사 계정으로 계속 작동합니다.) Microsoft 계정을 통해 SSO가 가능하며 더 이상 설정을 로밍하도록 유도하지 않습니다. |사용자는 winlogon에서 셀프 서비스 암호 재설정(SSPR)을 수행할 수 있으므로 잊어버린 암호를 재설정할 수 있습니다. (Azure AD Premium 기능) |사용자는 자신의 개인 장치에서 기간 업무 앱을 획득 및 사용할 수 있도록 엔터프라이즈 Windows 스토어에 액세스할 수 있습니다. |

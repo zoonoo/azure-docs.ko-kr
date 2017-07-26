@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e8a22545e00b16f02124980cba4a8831e0df207a
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 0807e37632f9d817b22735103514f7bd03c05d59
 ms.contentlocale: ko-kr
 
 
@@ -26,7 +27,7 @@ ms.contentlocale: ko-kr
 
 이 섹션에서는 ASP.NET 프로젝트에서 OpenID Connect를 사용하여 OWIN 미들웨어를 통해 인증 파이프라인을 설치 및 구성하는 단계를 보여 줍니다. 
 
-> 이 샘플의 Visual Studio 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) 하면 실행 전 코드 샘플을 구성하는 [구성](#create-an-application-express) 단계를 건너뛸 수 있습니다.
+> 이 샘플의 Visual Studio 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)하면 실행 전 코드 샘플을 구성하는 [구성](#create-an-application-express "구성 단계")의 단계를 건너뛸 수 있습니다.
 
 <!--start-collapse-->
 > ### <a name="create-your-aspnet-project"></a>ASP.NET 프로젝트 만들기

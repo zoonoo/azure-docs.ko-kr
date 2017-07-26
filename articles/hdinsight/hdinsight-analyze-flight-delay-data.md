@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 Hadoop을 사용하여 비행 지연 데이터 분석 | Microsoft 문서"
+title: "HDInsight에서 Hadoop을 사용하여 비행 지연 데이터 분석 - Azure | Microsoft Docs"
 description: "하나의 Windows PowerShell 스크립트를 사용하여 HDInsight 클러스터를 만들고, Hive 작업을 실행하고, Sqoop 작업을 실행하고, 클러스터를 삭제하는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -12,13 +12,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 0875b40045387a9695c8b86a01a708433016c1ee
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: b5c68c9b6176aa23161e21f5e8f0ea51228f3d1d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/11/2017
 Hive에서는 대규모 데이터의 요약, 쿼리, 분석에 적용할 수 있는 SQL 스타일 스크립트 언어인 *[HiveQL][hadoop-hiveql]*을 통해 Hadoop MapReduce 작업을 실행할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요. Linux 기반 클러스터를 사용하는 단계는 [HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석(Linux)](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
+> 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요. Linux 기반 클러스터를 사용하는 단계는 [HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석(Linux)](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
 
 Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기능을 분리할 수 있다는 것입니다. HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. 일반적인 작업은 세 부분으로 구성되어 있습니다.
 
@@ -59,7 +60,7 @@ Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기
 * **Azure PowerShell이 포함된 워크스테이션**.
 
     > [!IMPORTANT]
-    > Azure 서비스 관리자를 사용하여 HDInsight 리소스를 관리하는 Azure PowerShell 지원은 더 이상 **지원되지 않고** 2017년 1월 1일에 제거됩니다. 이 문서의 단계에서는 Azure Resource Manager로 작동하는 새 HDInsight cmdlet을 사용합니다.
+    > Azure Service Manager를 사용하여 HDInsight 리소스를 관리하는 Azure PowerShell 지원은 더 이상 **지원되지 않고** 2017년 1월 1일에 제거되었습니다. 이 문서의 단계에서는 Azure Resource Manager로 작동하는 새 HDInsight cmdlet을 사용합니다.
     >
     > [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 단계를 수행하여 최신 버전의 Azure PowerShell을 설치합니다. Azure Resource Manager로 작동하는 새로운 cmdlet을 사용하도록 수정해야 하는 스크립트가 있는 경우 자세한 내용은 [HDInsight 클러스터에 대한 Azure Resource Manager 기반 개발 도구에 마이그레이션](hdinsight-hadoop-development-using-azure-resource-manager.md) 을 참조하세요.
 

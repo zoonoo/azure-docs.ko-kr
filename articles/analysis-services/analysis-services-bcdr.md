@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: d71bf041585af101d6aa67ba2697f5192bdfd048
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 0a9bdf3afba87ba1e7a1047907ab9eeb0ef8a842
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -32,7 +32,7 @@ ms.lasthandoff: 05/03/2017
 
 * 다른 지역의 중복 서버에 모델을 배포합니다. 이 방법을 적용할 경우 모든 서버가 동기화되도록 기본 서버와 중복 서버에서 모두 병렬로 데이터를 처리해야 합니다.
 
-* 기본 서버에서 데이터베이스를 백업하고 중복 서버에서 복원합니다. 예를 들어 야간에 Azure Storage에 백업하는 작업을 자동화하고 다른 지역의 다른 중복 서버로 복원할 수 있습니다. 
+* 기본 서버에서 데이터베이스를 백업하고 중복 서버에 복원합니다. 예를 들어 야간에 Azure Storage에 백업하는 작업을 자동화하고 다른 지역의 다른 중복 서버로 복원할 수 있습니다. 
 
 어느 경우에나 기본 서버에서 작동 중단이 발생하면 다른 지역 데이터 센터의 서버에 연결하기 위해 보고 클라이언트에서 연결 문자열을 변경해야 합니다. 이 변경은 마지막 수단으로, 치명적인 지역 데이터 센터 작동 중단이 발생한 경우에만 고려해야 합니다. 모든 클라이언트에서 연결을 업데이트하기 전에 기본 서버를 호스트하는 데이터 센터 작동 중단 상태에서 다시 온라인 상태로 전환될 가능성이 높습니다. 
 

@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/18/2017
+ms.date: 06/14/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 9a298a5869d449c974267483eb779f45bc6b7abc
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: d41dc3c05d0d0cd0d9466c43bbebadcffd21e0dd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/20/2017
 Azure에 Analysis Services 서버를 만들었으면 즉시 또는 조만간에 수행해야 하는 몇 가지 운영 및 관리 작업이 있습니다. 예를 들어 데이터 새로 고침 처리를 실행하거나, 서버의 모델에 대한 액세스 권한이 있는 사용자를 제어하거나, 서버의 상태를 모니터링합니다. 일부 관리 작업은 Azure 포털에서만, 일부 다른 작업은 SSMS(SQL Server Management Studio)에서만, 일부 작업은 둘 중 하나에서 수행할 수 있습니다.
 
 ## <a name="azure-portal"></a>Azure 포털
-[Azure 포털](http://portal.azure.com/)은 서버를 만들며 삭제하고, 서버 리소스를 모니터링하며, 크기를 변경하고, 서버에 대한 액세스 권한이 있는 사용자를 관리할 수 있는 포털입니다.  몇 가지 문제가 발생하면 지원 요청을 제출할 수도 있습니다.
+[Azure Portal](http://portal.azure.com/)은 서버를 생성 및 삭제하고, 서버 리소스를 모니터링하고, 크기를 변경하고, 서버에 액세스할 수 있는 사용자를 관리할 수 있는 포털입니다.  몇 가지 문제가 발생하면 지원 요청을 제출할 수도 있습니다.
 
 ![Azure에서 서버 이름 가져오기](./media/analysis-services-manage/aas-manage-portal.png)
 
@@ -48,7 +49,7 @@ Azure에서 서버를 연결하는 것은 조직에서 서버 인스턴스를 �
    
     ![Azure에서 서버 이름 가져오기](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. SSMS > **개체 탐색기**에서 **연결** > **Analysis Services**를 클릭합니다.
-3. **서버에 연결** 대화 상자에서 서버 이름을 붙여넣은 다음 **인증**에서 다음 중 하나를 선택합니다.
+3. **서버에 연결** 대화 상자에서 서버 이름을 붙여넣은 다음 **인증**에서 다음 인증 유형 중 하나를 선택합니다.
    
     **Windows 인증** - Windows 도메인\사용자 이름 및 암호 자격 증명을 사용합니다.
 
@@ -59,7 +60,7 @@ Azure에서 서버를 연결하는 것은 조직에서 서버 인스턴스를 �
     ![SSMS에서 연결](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 ## <a name="server-administrators-and-database-users"></a>서버 관리자 및 데이터베이스 사용자
-Azure Analysis Services에서는 두 가지 유형의 사용자, 서버 관리자 및 데이터베이스 사용자가 있습니다. 두 가지 유형의 사용자 모두 Azure Active Directory에 포함되어야 하며 조직 전자 메일 주소 또는 UPN으로 지정해야 합니다. 이는 Windows 도메인 사용자 이름으로 서버 관리자 및 데이터베이스 사용자를 지원하는 온-프레미스 테이블 형식 모델 데이터베이스와 다릅니다. 자세한 내용은 [Azure Analysis Services의 사용자 관리](analysis-services-manage-users.md)를 참조하세요.
+Azure Analysis Services에서는 두 가지 유형의 사용자, 서버 관리자 및 데이터베이스 사용자가 있습니다. 두 가지 유형의 사용자 모두 Azure Active Directory에 포함되어야 하며 조직 전자 메일 주소 또는 UPN으로 지정해야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
 
 
 ## <a name="troubleshooting-connection-problems"></a>연결 문제 해결

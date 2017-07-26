@@ -14,40 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5fd017b6f7645220ee7572e50c02265de41e938c
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 70e78af25c7087aa0eb59697aa9b51d615480085
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/18/2017
 
 
 ---
-# <a name="use-packet-capture-to-do-proactive-network-monitoring-with-alerts-and-azure-functions"></a>패킷 캡처를 사용하여 경고 및 Azure Functions로 자동 관리 네트워크 모니터링 수행
+# <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>경고 및 Azure Functions를 통한 사전 네트워크 모니터링을 위해 패킷 캡처 사용
 
 Network Watcher 패킷 캡처는 가상 컴퓨터 간에 트래픽을 추적하는 캡처 세션을 만듭니다. 캡처 파일은 모니터링할 트래픽만 추적하도록 정의된 필터를 포함할 수 있습니다. 이 데이터는 저장소 BLOB이나 게스트 컴퓨터에 로컬로 저장됩니다.
 
 이 기능은 Azure Functions와 같은 다른 자동화 시나리오에서 원격으로 시작할 수 있습니다. 패킷 캡처는 정의된 네트워크 예외에 따라 사전 캡처를 실행하는 기능을 제공합니다. 또한 네트워크 침입에 대한 정보를 가져오는 네트워크 통계를 수집하는 것을 포함하여 클라이언트 서버 간 통신을 디버깅할 수 있습니다.
 
-Azure에 배포된 리소스는 연중 무휴(24/7) 실행됩니다. 사용자 또는 직원은 연중 무휴 실행되는 모든 리소스의 상태를 적극적으로 모니터링할 수 없습니다. 오전 2시에 문제가 발생하면 어떻게 하나요?
+Azure에 배포된 리소스는 연중 무휴(24/7) 실행됩니다. 사용자 또는 직원은 연중 무휴 실행되는 모든 리소스의 상태를 적극적으로 모니터링할 수 없습니다. 예를 들어 오전 2시에 문제가 발생하면 어떻게 할까요?
 
-Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사용하면 데이터와 도구를 사용하여 네트워크의 문제에 사전에 대체하고 문제를 해결할 수 있습니다.
+Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사용하면 데이터와 도구에 미리 응답함으로써 네트워크 문제를 해결할 수 있습니다.
 
 ![시나리오][scenario]
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Azure PowerShell](/powershell/azure/install-azurerm-ps) 최신 버전 설치
-* Network Watcher의 기존 인스턴스가 있거나 [Network Watcher의 인스턴스 만들기](network-watcher-create.md)
-* [Windows 확장](../virtual-machines/windows/extensions-nwa.md) 또는 [Linux 가상 컴퓨터 확장](../virtual-machines/linux/extensions-nwa.md)이 있고 이전 Network Watcher와 동일한 지역에 기존 가상 컴퓨터가 있음.
+* 최신 버전의 [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+* Network Watcher의 기존 인스턴스. [Network Watcher 인스턴스](network-watcher-create.md)가 아직 없는 경우에는 새로 만듭니다.
+* [Windows 확장](../virtual-machines/windows/extensions-nwa.md) 또는 [Linux 가상 컴퓨터 확장](../virtual-machines/linux/extensions-nwa.md)이 있고 Network Watcher와 동일한 지역에 기존 가상 컴퓨터가 있음
 
 ## <a name="scenario"></a>시나리오
 
 이 예제에서는 VM이 평소보다 더 많은 TCP 세그먼트를 보내고 있으며 이를 경고하려고 합니다. 여기서는 TCP 세그먼트가 예로 사용되지만 경고 조건을 사용할 수 있습니다.
 
-경고를 보낸 경우, 통신이 증가한 이유를 알기 위해 패킷 수준 데이터를 포함하려고 합니다. 이렇게 컴퓨터를 일반 통신으로 반환하는 단계를 수행할 수 있습니다.
+경고를 보낸 경우, 통신이 증가한 이유를 알기 위해 패킷 수준 데이터를 수신하려고 할 것입니다. 그런 후에는 가상 컴퓨터를 일반 통신으로 반환하는 단계를 수행할 수 있습니다.
 
-이 시나리오에서는 Network Watcher의 기존 인스턴스가 있고 사용할 수 있는 유효한 가상 컴퓨터가 있는 리소스 그룹이 있다고 가정합니다.
-
-이 예제에서는 VM이 평소보다 더 많은 TCP 세그먼트를 보내고 있으며 이를 경고하려고 합니다. TCP 세그먼트는 예로 사용되며 경고 조건을 사용할 수 있습니다. 경고를 보낸 경우, 통신이 증가한 이유를 알기 위해 패킷 수준 데이터를 포함하려고 하므로 컴퓨터를 일반 통신으로 반환하는 단계를 수행할 수 있습니다.
+이 시나리오에서는 Network Watcher의 기존 인스턴스가 있고 유효한 가상 컴퓨터를 포함하는 리소스 그룹이 있다고 가정합니다.
 
 다음 목록은 수행되는 워크플로 개요입니다.
 
@@ -57,39 +56,41 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 1. 패킷 캡처는 VM에서 실행되고 트래픽을 수집합니다.
 1. 이 패킷 캡처 파일은 검토 및 진단을 위해 저장소 계정에 업로드됩니다.
 
-이 프로세스를 자동화하려면, 인시던트가 발생할 때 VM에서 트리거할 경고를 만들고 연결하며 Network Watcher를 호출할 함수를 만들고 연결합니다.
+이 프로세스를 자동화하려면, 인시던트가 발생할 때 VM에서 트리거할 경고를 만들고 연결합니다. 또한 Network Watcher를 호출하기 위한 함수를 만듭니다.
 
 이 시나리오는 다음을 수행합니다.
 
 * 패킷 캡처를 시작하는 Azure 함수를 만듭니다.
 * 가상 컴퓨터에 대한 경고 규칙을 만들고 Azure Function을 호출할 경고 규칙을 구성합니다.
 
-## <a name="creating-an-azure-function"></a>Azure Function 만들기
+## <a name="create-an-azure-function"></a>Azure Function 만들기
 
 첫 번째 단계는 경고를 처리할 Azure Function을 만들고 패킷 캡처를 만드는 것입니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **새로 만들기** > **계산** > **함수 앱**을 차례로 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **새로 만들기** > **계산** > **함수 앱**을 차례로 선택합니다.
 
     ![함수 앱 만들기][1-1]
 
-2. **함수 앱**에서 다음 값을 입력하고 **확인**을 클릭하여 함수 앱을 만듭니다.
+2. **함수 앱** 블레이드에서 다음 값을 입력하고 **확인**을 선택하여 앱을 만듭니다.
 
     |**설정** | **값** | **세부 정보** |
     |---|---|---|
-    |**앱 이름**|PacketCaptureExample|함수 앱의 이름|
-    |**구독**|[사용자의 구독]|함수 앱을 만들 구독을 선택합니다.||
-    |**리소스 그룹**|PacketCaptureRG|함수 앱을 포함할 리소스 그룹의 이름입니다.|
-    |**호스팅 계획**|소비 계획| 함수 앱이 사용할 계획 유형입니다. 옵션은 소비 계획 또는 App Service 계획입니다. |
+    |**앱 이름**|PacketCaptureExample|함수 앱의 이름입니다.|
+    |**구독**|[구독]함수 앱을 만들 구독입니다.||
+    |**리소스 그룹**|PacketCaptureRG|함수 앱을 포함할 리소스 그룹입니다.|
+    |**호스팅 계획**|소비 계획| 함수 앱이 사용하는 계획 유형입니다. 옵션은 소비 계획 또는 Azure App Service 계획입니다. |
     |**위치**:|미국 중부| 함수 앱을 만들 지역입니다.|
     |**저장소 계정**|{autogenerated}| 범용 저장소용으로 Azure Functions에 필요한 저장소 계정입니다.|
 
-3. **PacketCaptureExample** 함수 앱 블레이드에서 **함수** > **사용자 지정 함수** 아래 **+**를 클릭합니다. **HttpTrigger-Powershell**을 선택한 후 나머지 정보를 채우고 **만들기**를 클릭하여 함수를 만듭니다.
+3. **PacketCaptureExample** 함수 앱 블레이드에서 **함수** > **사용자 지정 함수** >**+**를 선택합니다.
+
+4. **HttpTrigger-Powershell**을 선택하고 나머지 정보를 입력합니다. 마지막으로 함수를 만들려면 **만들기**를 선택합니다.
 
     |**설정** | **값** | **세부 정보** |
     |---|---|---|
     |**시나리오**|실험적|시나리오 유형|
     |**함수 이름 지정**|AlertPacketCapturePowerShell|함수의 이름|
-    |**권한 부여 수준**|함수|함수에 대한 권한 부여 수준입니다.|
+    |**권한 부여 수준**|함수|함수에 대한 권한 부여 수준|
 
 ![함수 예제][functions1]
 
@@ -98,9 +99,9 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 
 이 예제에는 사용자 지정이 필요하며 다음 단계에서 설명합니다.
 
-### <a name="adding-modules"></a>모듈 추가
+### <a name="add-modules"></a>모듈 추가
 
-Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을 함수 앱에 업로드해야 합니다.
+Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을 함수 앱에 업로드합니다.
 
 1. 최신 Azure PowerShell 모듈이 설치된 로컬 컴퓨터에서 다음 PowerShell 명령을 실행합니다.
 
@@ -118,13 +119,15 @@ Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을
 
     ![PowerShell 폴더][functions5]
 
-1. **함수 앱 설정** > **App Service 편집기로 이동**으로 차례로 이동합니다.
+1. **함수 앱 설정** > **App Service 편집기로 이동**을 선택합니다.
 
-    ![Kudu 함수][functions2]
+    ![함수 앱 설정][functions2]
 
-1. AlertPacketCapturePowershell 폴더를 마우스 오른쪽 단추로 클릭하고 **azuremodules**라는 폴더를 만듭니다. 필요한 각 모듈에 대한 하위 폴더를 계속 만듭니다.
+1. **AlertPacketCapturePowershell** 폴더를 마우스 오른쪽 단추로 클릭하고 **azuremodules**라는 폴더를 만듭니다. 
 
-    ![Kudu 함수][functions3]
+4. 필요한 각 모듈에 대한 하위 폴더를 만듭니다.
+
+    ![폴더 및 하위 폴더][functions3]
 
     * AzureRM.Network
 
@@ -132,7 +135,11 @@ Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을
 
     * AzureRM.Resources
 
-1. **AzureRM.Network** 하위 폴더를 마우스 오른쪽 단추로 클릭하고 **파일 업로드**를 클릭합니다. Azure 모듈이 설치된 위치로 이동하고 로컬 AzureRM.Network 폴더에서 폴더의 모든 파일을 선택하고 **확인**을 클릭합니다.  AzureRM.Profile 및 AzureRM.Resources에 대해 이러한 단계를 반복합니다.
+1. **AzureRM.Network** 하위 폴더를 마우스 오른쪽 단추로 클릭하고 **파일 업로드**를 선택합니다. 
+
+6. Azure 모듈로 이동합니다. 로컬 **AzureRM.Network** 폴더에서 폴더의 모든 파일을 선택합니다. 그런 다음 **확인**을 선택합니다. 
+
+7. **AzureRM.Profile** 및 **AzureRM.Resources**에 대해 이러한 단계를 반복합니다.
 
     ![파일 업로드][functions6]
 
@@ -142,39 +149,39 @@ Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을
 
 ### <a name="authentication"></a>인증
 
-PowerShell cmdlet을 사용하려면 인증해야 합니다. 함수 앱에서 인증을 구성해야 합니다. 인증을 구성하려면 환경 변수를 구성하고 암호화된 키 파일을 함수 앱에 업로드해야 합니다.
+PowerShell cmdlet을 사용하려면 인증해야 합니다. 함수 앱에서 인증을 구성합니다. 인증을 구성하려면 환경 변수를 구성하고 암호화된 키 파일을 함수 앱에 업로드합니다.
 
 > [!NOTE]
-> 이 시나리오에서는 Azure Functions를 사용하여 인증을 구현하는 방법에 대한 하나의 예제를 제공하며, 이를 수행하는 다른 방법들이 있습니다.
+> 이 시나리오에서는 Azure Functions를 사용하여 인증을 구현하는 방법에 대한 하나의 예제를 제공합니다. 이 작업은 다른 방법으로도 수행할 수 있습니다.
 
 #### <a name="encrypted-credentials"></a>암호화된 자격 증명
 
-다음 PowerShell 스크립트는 **PassEncryptKey.key**라는 키 파일을 만들고, 제공된 암호의 암호화된 버전을 제공합니다.  이 암호는 인증에 사용되는 Azure AD 응용 프로그램에 대해 정의된 것과 동일한 암호입니다.
+다음 PowerShell 스크립트는 **PassEncryptKey.key**라는 키 파일을 만듭니다. 또한 제공된 암호의 암호화된 버전을 제공합니다. 이 암호는 인증에 사용되는 Azure Active Directory 응용 프로그램에 대해 정의된 것과 동일한 암호입니다.
 
 ```powershell
-#variables
+#Variables
 $keypath = "C:\temp\PassEncryptKey.key"
 $AESKey = New-Object Byte[] 32
 $Password = "<insert a password here>"
 
-#keys
+#Keys
 [Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($AESKey) 
 Set-Content $keypath $AESKey
 
-#get encrypted password
+#Get encrypted password
 $secPw = ConvertTo-SecureString -AsPlainText $Password -Force
 $AESKey = Get-content $KeyPath
 $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
 $Encryptedpassword
 ```
 
-함수 앱의 App Service 편집기에서 **AlertPacketCapturePowerShell** 아래에 **keys**라는 폴더를 만들고, 이전의 PowerShell 샘플로 만든 **PassEncryptKey.key** 파일을 업로드합니다.
+함수 앱의 App Service 편집기에서 **AlertPacketCapturePowerShell** 아래에 **keys**라는 폴더를 만듭니다. 그런 다음 이전 PowerShell 샘플에서 만든 **PassEncryptKey.key** 파일을 업로드합니다.
 
-![키 함수][functions8]
+![함수 키][functions8]
 
-### <a name="retrieve-values-for-environment-variables"></a>환경 변수 값 검색
+### <a name="retrieve-values-for-environment-variables"></a>환경 변수의 값 검색
 
-필요한 최종 구성은 인증에 대한 값에 액세스하는 데 필요한 환경 변수를 설정하는 것입니다. 다음은 만들어지는 환경 변수의 목록입니다.
+최종 요구 사항은 인증에 대한 값에 액세스하는 데 필요한 환경 변수를 설정하는 것입니다. 다음은 만들어지는 환경 변수의 목록입니다.
 
 * AzureClientID
 
@@ -199,13 +206,13 @@ $Encryptedpassword
    > [!NOTE]
    > 응용 프로그램을 만들 때 사용되는 암호는 이전에 키 파일을 저장할 때 만든 암호와 동일해야 합니다.
 
-1. Azure Portal에서 **구독** > 사용할 구독 선택 > **액세스 제어(IAM)**로 차례로 이동합니다.
+1. Azure Portal에서 **구독**을 선택합니다. 사용할 구독을 선택하고 **액세스 제어(IAM)**를 선택합니다.
 
-    ![IAM 함수][functions9]
+    ![함수 IAM][functions9]
 
-1. 사용할 계정을 선택하고 [속성]을 클릭합니다. 응용 프로그램 ID를 복사합니다.
+1. 사용할 계정을 선택하고 **속성**을 클릭합니다. 응용 프로그램 ID를 복사합니다.
 
-    ![응용 프로그램 ID 함수][functions10]
+    ![함수 응용 프로그램 ID][functions10]
 
 #### <a name="azuretenant"></a>AzureTenant
 
@@ -217,19 +224,19 @@ $Encryptedpassword
 
 #### <a name="azurecredpassword"></a>AzureCredPassword
 
-AzureCredPassword 환경 변수의 값은 다음 PowerShell 샘플을 실행하여 얻는 값입니다. 이 예제는 이전의 **암호화된 자격 증명** 섹션에서 보여 준 것과 동일한 예제입니다. 필요한 값은 `$Encryptedpassword` 변수의 출력입니다.  이 암호는 PowerShell 스크립트를 사용하여 암호화한 서비스 주체 암호입니다.
+AzureCredPassword 환경 변수의 값은 다음 PowerShell 샘플을 실행하여 얻는 값입니다. 이 예제는 이전의 **암호화된 자격 증명** 섹션에 표시된 것과 동일합니다. 필요한 값은 `$Encryptedpassword` 변수의 출력입니다.  이 암호는 PowerShell 스크립트를 사용하여 암호화한 서비스 주체 암호입니다.
 
 ```powershell
-#variables
+#Variables
 $keypath = "C:\temp\PassEncryptKey.key"
 $AESKey = New-Object Byte[] 32
 $Password = "<insert a password here>"
 
-#keys
+#Keys
 [Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($AESKey) 
 Set-Content $keypath $AESKey
 
-#get encrypted password
+#Get encrypted password
 $secPw = ConvertTo-SecureString -AsPlainText $Password -Force
 $AESKey = Get-content $KeyPath
 $Encryptedpassword = $secPw | ConvertFrom-SecureString -Key $AESKey
@@ -238,92 +245,92 @@ $Encryptedpassword
 
 ### <a name="store-the-environment-variables"></a>환경 변수 저장
 
-1. 함수 앱으로 이동하여 **함수 앱 설정** > **앱 설정 구성**을 차례로 클릭합니다.
+1. 함수 앱으로 돌아갑니다. 그런 후 **함수 앱 설정** > **앱 설정 구성**을 선택합니다.
 
     ![앱 설정 구성][functions11]
 
-1. 환경 변수와 해당 값을 앱 설정에 추가하고 **저장**을 클릭합니다.
+1. 환경 변수와 해당 값을 앱 설정에 추가하고 **저장**을 선택합니다.
 
     ![앱 설정][functions12]
 
 ### <a name="add-powershell-to-the-function"></a>함수에 PowerShell 추가
 
-이제 Azure Function 내에서 Network Watcher를 호출할 차례입니다. 요구 사항에 따라 이 함수의 구현이 달라집니다. 하지만 코드의 일반적인 흐름은 다음과 같습니다.
+이제 Azure Function 내에서 Network Watcher를 호출할 차례입니다. 요구 사항에 따라 이 함수의 구현이 달라질 수 있습니다. 하지만 코드의 일반적인 흐름은 다음과 같습니다.
 
-1. 입력 매개 변수 처리
-2. 기존 패킷 캡처를 쿼리하여 한도 확인 및 이름 충돌 해결
-3. 적절한 매개 변수를 사용하여 패킷 캡처 만들기
-4. 완료될 때까지 패킷 캡처를 주기적으로 폴링
-5. 사용자에게 패킷 캡처 세션이 완료됨을 알림
+1. 입력 매개 변수를 처리합니다.
+2. 기존 패킷 캡처를 쿼리하여 한도를 확인하고 이름 충돌을 해결합니다.
+3. 적절한 매개 변수를 사용하여 패킷 캡처를 만듭니다.
+4. 완료될 때까지 패킷 캡처를 주기적으로 폴링합니다.
+5. 사용자에게 패킷 캡처 세션이 완료되었음을 알립니다.
 
-다음 예제는 Azure 함수에서 사용할 수 있는 PowerShell입니다. subscriptionId, resourceGroupName 및 storageAccountName에 대해 바꿔야 하는 값이 있습니다.
+다음 예제는 함수에서 사용할 수 있는 PowerShell 코드입니다. **subscriptionId**, **resourceGroupName** 및 **storageAccountName**에 대해 바꿔야 하는 값이 있습니다.
 
 ```powershell
-#Import Azure PowerShell modules required to make calls to Network Watcher
-Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
-Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
-Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Resources\AzureRM.Resources.psd1" -Global
+            #Import Azure PowerShell modules required to make calls to Network Watcher
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Profile\AzureRM.Profile.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Network\AzureRM.Network.psd1" -Global
+            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\AzureRM.Resources\AzureRM.Resources.psd1" -Global
 
-#Process Alert Request Body
-$requestBody = Get-Content $req -Raw | ConvertFrom-Json
+            #Process alert request body
+            $requestBody = Get-Content $req -Raw | ConvertFrom-Json
 
-#Storage Account Id to save captures in
-$storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
+            #Storage account ID to save captures in
+            $storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
 
-#Packet Capture Vars
-$packetcapturename = "PSAzureFunction"
-$packetCaptureLimit = 10
-$packetCaptureDuration = 10
+            #Packet capture vars
+            $packetcapturename = "PSAzureFunction"
+            $packetCaptureLimit = 10
+            $packetCaptureDuration = 10
 
-#Credentials
-$tenant = $env:AzureTenant
-$pw = $env:AzureCredPassword
-$clientid = $env:AzureClientId
-$keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key"
+            #Credentials
+            $tenant = $env:AzureTenant
+            $pw = $env:AzureCredPassword
+            $clientid = $env:AzureClientId
+            $keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key"
 
-#Authentication
-$secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
-$credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
-Add-AzureRMAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+            #Authentication
+            $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
+            $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
+            Add-AzureRMAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
 
-#Get the VM that fired the Alert
-if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
-{
-    Write-Output ("Subscription ID: {0}" -f $requestBody.context.subscriptionId)
-    Write-Output ("Resource Group:  {0}" -f $requestBody.context.resourceGroupName)
-    Write-Output ("Resource Name:  {0}" -f $requestBody.context.resourceName)
-    Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
+            #Get the VM that fired the alert
+            if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
+            {
+                Write-Output ("Subscription ID: {0}" -f $requestBody.context.subscriptionId)
+                Write-Output ("Resource Group:  {0}" -f $requestBody.context.resourceGroupName)
+                Write-Output ("Resource Name:  {0}" -f $requestBody.context.resourceName)
+                Write-Output ("Resource Type:  {0}" -f $requestBody.context.resourceType)
 
-    #Get the Network Watcher in the VM's Region
-    $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
-    $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+                #Get the Network Watcher in the VM's region
+                $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $requestBody.context.resourceRegion}
+                $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
-    #Get existing packetCaptures
-    $packetCaptures = Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
+                #Get existing packetCaptures
+                $packetCaptures = Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher
 
-    #Remove existing packet capture created by the function if it exists
-    $packetCaptures | %{if($_.Name -eq $packetCaptureName)
-    { 
-        Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
-    }}
+                #Remove existing packet capture created by the function (if it exists)
+                $packetCaptures | %{if($_.Name -eq $packetCaptureName)
+                { 
+                    Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName
+                }}
 
-    #Initiate Packet Capture on the VM that fired the alert
-    if ((Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
-        echo "Initiating Packet Capture"
-        New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
-        Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
-    }
-} 
-``` 
+                #Initiate packet capture on the VM that fired the alert
+                if ((Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher).Count -lt $packetCaptureLimit){
+                    echo "Initiating Packet Capture"
+                    New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration
+                    Out-File -Encoding Ascii -FilePath $res -inputObject "Packet Capture created on ${requestBody.context.resourceID}"
+                }
+            } 
+ ``` 
+#### <a name="retrieve-the-function-url"></a>함수 URL 검색 
+1. 함수를 만들었으면 함수와 연결된 URL을 호출하는 경고를 구성합니다. 이 값을 가져오려면 함수 앱에서 함수 URL을 복사합니다.
 
-함수를 만들었으면 함수와 연결된 URL을 호출하는 경고를 구성합니다. 이 값을 가져오려면 함수 앱에서 함수 URL을 복사합니다.
+    ![함수 URL 찾기][functions13]
 
-![함수 URL 1 찾기][functions13]
+2. 함수 앱의 함수 URL을 복사합니다.
 
-함수 앱의 함수 URL을 복사합니다.
-
-![함수 URL 2 찾기][2]
+    ![함수 URL 복사][2]
 
 웹후크 POST 요청의 페이로드에 사용자 지정 속성이 필요한 경우 [Azure 메트릭 경고에 대한 웹후크 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md)을 참조하세요.
 
@@ -333,7 +340,7 @@ if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
 
 ### <a name="create-the-alert-rule"></a>경고 규칙 만들기
 
-기존 가상 컴퓨터로 이동하고 경고 규칙을 추가합니다. 경고 구성에 대한 보다 자세한 설명서는 [Azure 서비스에 대한 Azure Monitor에서 경고 만들기 - Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)에서 확인할 수 있습니다. 블레이드에서 다음 값을 입력하고 **확인**을 클릭합니다.
+기존 가상 컴퓨터로 이동하고 경고 규칙을 추가합니다. 경고 구성에 대한 보다 자세한 설명서는 [Azure 서비스에 대한 Azure Monitor에서 경고 만들기 - Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)에서 확인할 수 있습니다. **경고 규칙** 블레이드에 다음 값을 입력하고 **확인**을 선택합니다.
 
   |**설정** | **값** | **세부 정보** |
   |---|---|---|
@@ -341,8 +348,8 @@ if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
   |**설명**|전송된 TCP 세그먼트가 임계값을 초과함|경고 규칙에 대한 설명입니다.||
   |**메트릭**|전송된 TCP 세그먼트| 경고를 트리거하는 데 사용할 메트릭입니다. |
   |**Condition**|다음보다 큼| 메트릭을 평가할 때 사용할 조건입니다.|
-  |**임계값**|100| 경고를 트리거할 메트릭 값입니다. 이 값은 환경에 대해 유효한 값으로 설정되어야 합니다.|
-  |**기간**|지난 5분| 메트릭에서 임계값을 검색할 기간을 결정합니다.|
+  |**임계값**|100| 경고를 트리거하는 메트릭의 값입니다. 이 값은 사용자 환경에 적합한 값으로 설정해야 합니다.|
+  |**기간**|지난 5분 이상| 메트릭에서 임계값을 검색할 기간을 결정합니다.|
   |**웹후크**|[함수 앱에서 웹후크 URL]| 이전 단계에서 만든 함수 앱의 웹후크 URL입니다.|
 
 > [!NOTE]
@@ -350,13 +357,13 @@ if($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines")
 
 ## <a name="review-the-results"></a>결과 검토
 
-경고 트리거에 대한 기준에 도달하면 패킷 캡처가 만들어집니다. Network Watcher로 이동하고 **패킷 캡처**를 클릭합니다. 이 페이지에서 패킷 캡처 파일 링크를 클릭하여 패킷 캡처를 다운로드할 수 있습니다.
+경고 트리거에 대한 기준에 도달하면 패킷 캡처가 만들어집니다. Network Watcher로 이동한 다음 **패킷 캡처**를 선택합니다. 이 페이지에서 패킷 캡처 파일 링크를 선택하여 패킷 캡처를 다운로드할 수 있습니다.
 
 ![패킷 캡처 보기][functions14]
 
 캡처 파일이 로컬에 저장된 경우 가상 컴퓨터에 로그인하여 캡처 파일을 검색합니다.
 
-Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 저장소 탐색기입니다. 저장소 탐색기에 대한 자세한 내용은 여기에 있는 [저장소 탐색기](http://storageexplorer.com/) 링크에서 찾을 수 있습니다.
+Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 [저장소 탐색기](http://storageexplorer.com/)입니다.
 
 캡처를 다운로드했으면 **.cap** 파일을 읽을 수 있는 도구를 사용하여 볼 수 있습니다. 다음은 이러한 두 도구에 대한 링크입니다.
 

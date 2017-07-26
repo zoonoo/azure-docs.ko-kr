@@ -14,36 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 5d15ad7a4e75410390891b5e11f72c6a649ebf53
-ms.lasthandoff: 03/23/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 7a28c92e921354cd4a623af29098a40e1c8b56b0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
-
-
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: 액세스 토큰 요청
-
 
 액세스 토큰(**액세스\_토큰**으로 표시됨)은 클라이언트가 웹 API와 같은 [권한 부여 서버](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics)로 보호되는 리소스에 액세스하는 데 사용할 수 있는 보안 토큰의 형식입니다. 액세스 토큰은 [JWT](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens)로 표시되고 원하는 리소스 서버에 대한 정보 및 서버에 부여된 사용 권한을 포함합니다. 리소스 서버를 호출할 때 액세스 토큰은 HTTP 요청에 있어야 합니다.
 
 이 문서에서는 클라이언트 응용 프로그램을 구성하고 `authorize` 및 `token` 끝점에서 **액세스\_토큰**을 획득하기 위한 요청을 만드는 방법을 설명합니다.
 
+> [!NOTE]
+> **Azure AD B2C에서는 Web API 체인(On-Behalf-Of)을 지원하지 않습니다.**
+>
+> 많은 아키텍처에는 다른 다운스트림 Web API를 호출해야 하는 Web API가 포함되어 있으며 둘 다 Azure AD B2C로 보안됩니다. 이 시나리오는 Web API 백 엔드를 포함하는 네이티브 클라이언트에서 일반적이며, Web API 백 엔드가 다시 Azure AD Graph API와 같은 Microsoft 온라인 서비스를 호출합니다.
+>
+> On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 Jwt 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다. 그러나 On-Behalf-Of 흐름은 현재 Azure AD B2C에 구현되어 있지 않습니다.
+
 ## <a name="prerequisite"></a>필수 요소
 
-액세스 토큰을 요청하기 전에 먼저 웹 API를 등록하고 클라이언트 응용 프로그램에 부여할 수 있는 권한을 게시해야 합니다. [웹 API 등록](active-directory-b2c-app-registration.md) 섹션의 단계에 따라 시작합니다.
+액세스 토큰을 요청하기 전에 먼저 웹 API를 등록하고 클라이언트 응용 프로그램에 부여할 수 있는 권한을 게시해야 합니다. [웹 API 등록](active-directory-b2c-app-registration.md#register-a-web-api) 섹션의 단계에 따라 시작합니다.
 
 ## <a name="granting-permissions-to-a-web-api"></a>웹 API에 대한 권한 부여
 
 클라이언트 응용 프로그램에서 API에 대한 특정 사용 권한을 가지려면 클라이언트 응용 프로그램은 Azure Portal을 통해 이러한 사용 권한을 부여 받아야 합니다. 클라이언트 응용 프로그램에 권한을 부여하려면:
 
 1. B2C 기능 블레이드의 **응용 프로그램** 메뉴로 이동합니다.
-2. 클라이언트 응용 프로그램을 클릭합니다(없는 경우 [응용 프로그램 등록](active-directory-b2c-app-registration.md)).
-3. **API 액세스**를 선택합니다.
-4. **추가**를 클릭합니다.
-5. 웹 API 및 부여하려는 범위(권한)를 선택합니다.
-6. **확인**을 클릭합니다.
+1. 이미 없는 클라이언트 응용 프로그램([웹앱](active-directory-b2c-app-registration.md#register-a-web-application) 또는 [네이티브 클라이언트](active-directory-b2c-app-registration.md#register-a-mobilenative-application))을 등록합니다.
+1. 응용 프로그램의 [설정] 블레이드에서 **API 액세스**를 선택합니다.
+1. **추가**를 클릭합니다.
+1. 웹 API 및 부여하려는 범위(권한)를 선택합니다.
+1. **확인**을 클릭합니다.
 
 > [!NOTE]
 > Azure AD B2C는 클라이언트 응용 프로그램 사용자의 동의를 묻지 않습니다. 대신 모든 동의는 위에서 설명한 응용 프로그램 간에 구성된 권한에 따라 관리자에 의해 제공됩니다. 응용 프로그램에 대한 권한 부여가 해지되면 이전에 해당 권한을 획득할 수 있었던 모든 사용자는 더 이상 권한을 획득할 수 없습니다.
@@ -51,6 +56,9 @@ ms.lasthandoff: 03/23/2017
 ## <a name="requesting-a-token"></a>토큰 요청
 
 리소스 응용 프로그램에 대한 액세스 토큰을 가져오려면 클라이언트 응용 프로그램에서 요청의 **범위** 매개 변수에서 원하는 사용 권한을 지정해야 합니다. 예를 들어 `https://contoso.onmicrosoft.com/notes`의 앱 ID URI를 가진 리소스 응용 프로그램에 대한 "읽기" 권한을 얻으려면 범위는 `https://contoso.onmicrosoft.com/notes/read`가 됩니다. 다음은 `authorize` 끝점에 대한 인증 코드 요청의 예입니다.
+
+> [!NOTE]
+> 이 시점에서 사용자 지정 도메인은 액세스 토큰과 함께 지원되지 않습니다. 요청 URL에서 yourtenantId.onmicrosoft.com 도메인을 사용해야 합니다.
 
 ```
 https://login.microsoftonline.com/<yourTenantId>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
@@ -97,3 +105,4 @@ OpenID Connect 표준은 몇 가지 특별한 "범위" 값을 지정합니다. �
 API에서 **액세스\_토큰**을 받으면 [토큰의 유효성을 검사](active-directory-b2c-reference-tokens.md)하여 토큰이 인증되었으며 올바른 클레임을 가졌음을 증명해야 합니다.
 
 Microsoft는 사용자 의견 및 제안을 항상 환영합니다! 이 토픽을 완료하기가 어렵거나 이 콘텐츠를 개선할 사항이 있는 경우 페이지의 맨 아래에 의견을 보내주시면 감사하겠습니다. 기능 요청이 있는 경우 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)에 추가해 주세요.
+

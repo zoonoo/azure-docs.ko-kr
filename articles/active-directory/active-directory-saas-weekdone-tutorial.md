@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4172a4e4c7add3fc75d1c83e32e41ea9a596b647
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 1e99bdc4509d8cbab9012d36207f21be2cc75e5e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -113,19 +114,19 @@ Weekdone에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요
 
    1. **회신 URL** 텍스트 상자에 **"https://weekdone.com/a/azure"** 패턴으로 URL을 입력합니다.
    2. **식별자** 텍스트 상자에 **"https://weekdone.com/a/azure/metadata"** 패턴으로 URL을 입력합니다.
-   3. **다음**을 클릭합니다.
+   3. **다음**을 누릅니다.
 4. **앱 설정 구성** 대화 상자 페이지에서 **SP 시작 모드**로 응용 프로그램을 구성하려는 경우 **"고급 설정 표시(선택 사항)"**를 클릭하고 **로그온 URL** 및 **식별자**를 입력한 후 **다음**을 클릭합니다.
    
-    ![Single Sign-On 구성](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_06.png) 
+    ![Single Sign-on 구성](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_06.png) 
    
-   1. **로그온 URL** 텍스트 상자에 **“https://weekdone.com/a/azure”** 패턴을 사용하여 사용자가 Weekdone 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
+   1. **로그온 URL** 텍스트 상자에 **"https://weekdone.com/a/azure"** 패턴을 사용하여 사용자가 Weekdone 응용 프로그램에 로그온하는 데 사용할 URL을 입력합니다.
    2. **식별자** 텍스트 상자에 **"https://weekdone.com/a/azure/metadata"** 패턴으로 URL을 입력합니다.
-   3. **다음**을 클릭합니다.
+   3. **다음**을 누릅니다.
 2. **Weekdone에서 Single Sign-On 구성** 페이지에서 다음 단계를 수행하고 **다음**을 클릭합니다.
    
     ![Single Sign-on 구성](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_05.png) 
    1. **인증서 다운로드**를 클릭하고 인증서를 컴퓨터에 저장합니다.
-   2. **다음**을 클릭합니다.
+   2. **다음**을 누릅니다.
     
 3. 응용 프로그램에 대해 SSO를 구성하려면 hello@weekdone.com을 통해 Weekdone 지원 팀에 문의하세요. 
 4. SSO를 Weekdone 쪽에서 설정하려면 다운로드한 인증서 파일을 메일에 첨부하고 Weekdone 팀과 메타데이터 URL(발급자 URL, SAML SSO URL 및 SINGLE SIGN-OUT 서비스 URL)을 공유합니다.
@@ -162,7 +163,7 @@ Weekdone에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요
    
    1. 사용자 유형에서 조직의 새 사용자를 선택합니다.
    2. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
-   3. **다음**을 클릭합니다.
+   3. **다음**을 누릅니다.
     
 6. **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -172,7 +173,7 @@ Weekdone에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요
    2. **성** 텍스트 상자에 **Simon**을 입력합니다.
    3. **표시 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    4. **역할** 목록에서 **사용자**를 선택합니다.
-   5. **다음**을 클릭합니다.
+   5. **다음**을 누릅니다.
   
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 

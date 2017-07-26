@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 05/25/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4ae08f16db8c0b8cd2e918d25aa546f1da615af1
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 42229b338063634480551f26896963d8add5e071
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -34,12 +35,13 @@ Azure AD(Azure Active Directory) B2B 공동 작업과 관련된 일반적인 문
 
 ## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>B2B 게스트 사용자가 SharePoint Online/OneDrive 사용자 선택에 표시되지 않습니다. 
  
-SharePoint Online 사용자 선택에서 기존 게스트 사용자를 검색하는 기능은 기존 동작과의 일치를 위해 기본적으로 꺼져 있습니다.
-이 기능은 테넌트 및 사이트 모음 수준에서 설정 'ShowPeoplePickerSuggestionsForGuestUsers'를 통해 사용하도록 설정할 수 있습니다. 또한 멤버가 디렉터리에서 모든 기존 게스트 사용자를 검색할 수 있도록 허용하는 Set-SPOTenant 및 Set-SPOSite cmdlet을 사용하여 설정할 수 있습니다. 테넌트 범위에 대한 변경 내용은 이미 프로비전된 SPO 사이트에 영향을 주지 않습니다.
+SPO(SharePoint Online) 사용자 선택에서 기존 게스트 사용자를 검색하는 기능은 기존 동작과의 일치를 위해 기본적으로 꺼져 있습니다.
+
+이 기능은 테넌트 및 사이트 모음 수준에서 설정 'ShowPeoplePickerSuggestionsForGuestUsers'를 통해 이 기능을 사용하도록 설정할 수 있습니다. 또한 멤버가 디렉터리에서 모든 기존 게스트 사용자를 검색할 수 있도록 허용하는 Set-SPOTenant 및 Set-SPOSite cmdlet을 사용하여 이 기능을 설정할 수 있습니다. 테넌트 범위에 대한 변경 내용은 이미 프로비전된 SPO 사이트에 영향을 주지 않습니다.
 
 ## <a name="invitations-have-been-disabled-for-directory"></a>디렉터리에 대한 초대가 사용하도록 설정되지 않았습니다.
 
-사용자를 초대할 수 있는 권한이 없다는 오류 메시지가 나타나면 사용자 계정이 외부 사용자를 초대할 권한이 있는지 확인합니다. 이 작업은 다음과 같이 [사용자 설정] 아래에서 수행할 수 있습니다.
+사용자를 초대할 수 있는 권한이 없다는 알림이 표시되면 사용자 설정에서 사용자 계정이 외부 사용자를 초대할 권한이 있는지 확인합니다.
 
 ![](media/active-directory-b2b-troubleshooting/external-user-settings.png)
 
@@ -57,13 +59,13 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>외부 사용자가 이미 페더레이션된 도메인에 존재하지 않습니다.
 
-외부 사용자가 온-프레미스에서 인증을 수행하고 사용자가 Azure Active Directory에 아직 존재하지 않는 페더레이션 솔루션을 사용하는 경우 사용자를 초대할 수 없습니다.
+페더레이션 인증을 사용하려고 하며 사용자가 Azure Active Directory에 아직 없는 경우에는 사용자를 초대할 수 없습니다.
 
 이 문제를 해결하려면 외부 사용자의 관리자가 사용자 계정을 Azure Active Directory와 동기화해야 합니다.
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>일반적으로 잘못된 문자인 ‘\#’은 Azure AD와 어떻게 동기화됩니까?
 
-"\#"은 Azure AD B2B 공동 작업 또는 외부 사용자를 위한 UPN의 예약된 문자이므로(즉 user@contoso.com이 초대되면 user_contoso.com#EXT@fabrikam.onmicrosoft.com이 되므로) 온-프레미스에서 나온 UPN의 \#은 Azure Portal에 로그인할 수 없습니다.
+초대된 계정 user@contoso.com은 user_contoso.com#EXT@fabrikam.onmicrosoft.com이므로 "\#"은 Azure AD B2B 공동 작업 또는 외부 사용자에 대해 예약된 UPN 문자입니다. 따라서 온-프레미스에서 가져온 UPN의 \#은 Azure Portal에 로그인할 때 허용되지 않습니다. 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>동기화된 그룹에 외부 사용자를 추가할 때 오류가 발생합니다.
 
@@ -75,7 +77,12 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>사용자 지정 메시지가 초대 메시지에 포함되지 않는다는 것을 확인했습니다.
 
-개인 정보 보호 법률을 준수하기 위해 초대자가 리소스 조직(초대 테넌시)에 전자 메일을 유지하고 있지 않거나 App Service 사용자가 초대를 전송할 때 API는 전자 메일 초대에 사용자 지정 메시지를 포함하지 않습니다. 이것이 중요한 시나리오인 경우 초대를 전송하는 API를 표시하지 않고 선택한 전자 메일 메커니즘을 통해 전송할 수 있습니다. 조직의 법률 자문에게 문의하여 이러한 방식으로 전송하는 전자 메일이 개인 정보 보호 법률을 준수하는지도 확인하세요.
+개인 정보 보호 법률을 준수하기 위해 다음 경우에 API에는 전자 메일 초대의 사용자 지정 메시지가 포함되지 않습니다.
+
+- 초대자에게 초대하는 테넌트의 전자 메일 주소가 없는 경우
+- AppService 보안 주체가 초대를 보내는 경우
+
+이 시나리오가 중요한 경우 API 초대 전자 메일을 표시하지 않으면서 선택한 전자 메일 메커니즘을 통해 전송할 수 있습니다. 조직의 법률 자문에게 문의하여 이러한 방식으로 전송하는 전자 메일이 개인 정보 보호 법률을 준수하는지도 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

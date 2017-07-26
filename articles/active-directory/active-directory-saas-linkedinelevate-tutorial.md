@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: c175d54fcc7e55bae5057adbb4b9dba0a8843fe2
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 5949ae254233aa32384aab50b188fdd6527787a0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -140,11 +140,14 @@ LinkedIn Elevate에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
 
-    a. [특성 추가]를 클릭하여 특성 세부 정보 페이지를 열고, 아래와 같이 부서 특성을 추가합니다.
-    
-    ![Azure AD 테스트 사용자 만들기](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+       a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
 
-    b. **확인**을 클릭하여 해당 특성을 저장합니다.
+       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+
+       b. Click on **Ok** to save the attribute.
+
+    c. 특성 **emailaddress**의 이름을 **email**로 변경합니다.
+
 
 10. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
 
@@ -237,6 +240,7 @@ Linked Elevate 응용 프로그램이 JIT(Just-in-time) 사용자 프로비저�
 
 ## <a name="additional-resources"></a>추가 리소스
 
+* [자습서: Azure Active Directory를 사용한 자동 사용자 프로비전을 위한 LinkedIn Elevate 구성](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
@@ -254,4 +258,3 @@ Linked Elevate 응용 프로그램이 JIT(Just-in-time) 사용자 프로비저�
 [201]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_203.png
-

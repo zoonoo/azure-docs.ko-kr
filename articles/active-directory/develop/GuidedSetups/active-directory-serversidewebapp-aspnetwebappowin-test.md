@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 77030e3e6375682c416d99ef22d754b908ad484d
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 00cb963e85111274c36c3a84489894811ad2dabd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -48,7 +49,7 @@ ms.lasthandoff: 05/10/2017
 | 제목| {Subject}|웹에서 사용자 로그온을 고유하게 식별하는 문자열|
 | 테넌트 ID| {Guid}| 사용자의 Azure Active Directory 조직을 고유하게 나타내는 *guid*.|
 
-또한 인증 요청에 포함된 모든 사용자 클레임을 포함하는 표가 표시됩니다. 모든 클레임과 ID 토큰 및 설명 목록은 이 [문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)를 참조하세요.
+또한 인증 요청에 포함된 모든 사용자 클레임을 포함하는 표가 표시됩니다. 모든 클레임과 ID 토큰 및 설명 목록은 이 [문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims "ID 토큰의 클레임 목록")을 참조하세요.
 
 
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>*[Authorize]* 특성이 있는 메서드 액세스 테스트(선택 사항)
@@ -82,6 +83,6 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 > 특정 조직 목록의 사용자만 허용하려면 `ValidateIssuer`를 true로 설정하고 `ValidIssuers` 매개 변수를 사용하여 조직 목록을 지정합니다.
 
-> 또 다른 방법으로 IssuerValidator 매개 변수를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현합니다. `TokenValidationParameters`에 대한 자세한 내용은 [이](https://msdn.microsoft.com/en-us/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) MSDN 문서를 참조하세요.
+> 또 다른 방법으로 IssuerValidator 매개 변수를 사용하여 발급자의 유효성을 검사하는 사용자 지정 메서드를 구현합니다. `TokenValidationParameters`에 대한 자세한 내용은 [이](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN 문서") MSDN 문서를 참조하세요.
 
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: bbea08798a601989d06774475cb25ee67e99add6
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 41cb5ffab9bd3a3bed75ffdb6a7383ca1690f810
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/02/2017
 
 
 ---
@@ -26,69 +26,78 @@ ms.lasthandoff: 05/26/2017
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Azure Portal에서 네트워크 보안 그룹 흐름 로그 관리
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure 포털](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
-네트워크 보안 그룹 흐름 로그는 네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 볼 수 있는 Network Watcher의 기능입니다. 이러한 흐름 로그는 json 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜)를 보여 줍니다.
+네트워크 보안 그룹 흐름 로그는 네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 볼 수 있는 Network Watcher의 기능입니다. 이러한 흐름 로그는 JSON 형식으로 작성되며 다음과 같은 중요한 정보를 제공합니다. 
+
+- 규칙 단위 기반의 아웃바운드 및 인바운드 흐름
+- 흐름이 적용되는 NIC
+- 흐름에 대한 5-튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜)
+- 트래픽에 대한 허용 또는 거부 여부 정보
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 컴퓨터를 포함한 리소스 그룹을 사용할 수 있다고 가정합니다.
+이 시나리오에서는 [Network Watcher 인스턴스 생성](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 컴퓨터가 있는 리소스 그룹이 있다고 가정합니다.
 
 ## <a name="register-insights-provider"></a>Insights 공급자 등록
 
-흐름 로깅이 성공적으로 작동하기 위해서 **Microsoft.Insights** 공급자를 등록해야 합니다. 공급자를 등록하려면 **구독**으로 이동한 후 흐름 로그를 사용하도록 설정할 구독을 선택합니다. **구독** 블레이드에서 **리소스 공급자**를 선택합니다. 공급자의 목록을 탐색하고 **microsoft.insights** 공급자가 등록되어 있는지 확인합니다. 등록되어 있지 않으면 **등록**을 클릭합니다.
+흐름 로깅이 성공적으로 작동하기 위해서 **Microsoft.Insights** 공급자를 등록해야 합니다. 공급자를 등록하려면 다음 단계를 수행합니다. 
+
+1. **구독**으로 이동한 다음 흐름 로그를 사용하도록 설정할 구독을 선택합니다. 
+2. **구독** 블레이드에서 **리소스 공급자**를 선택합니다. 
+3. 공급자의 목록을 살펴보고 **microsoft.insights** 공급자가 등록되어 있는지 확인합니다. 그렇지 않으면 **등록**을 선택합니다.
 
 ![공급자 보기][providers]
 
 ## <a name="enable-flow-logs"></a>흐름 로그를 사용하도록 설정
 
-다음 단계는 네트워크 보안 그룹에서 흐름 로그를 사용하도록 설정하는 방법을 안내합니다.
+다음 단계는 네트워크 보안 그룹에서 흐름 로그를 사용하도록 설정하는 프로세스를 안내합니다.
 
 ### <a name="step-1"></a>1단계
 
-Network Watcher 인스턴스로 이동하고 **흐름 로그**를 선택합니다.
+Network Watcher 인스턴스로 이동한 다음 **NSG 흐름 로그**를 선택합니다.
 
 ![흐름 로그 개요][1]
 
 ### <a name="step-2"></a>2단계
 
-목록에서 클릭하여 네트워크 보안 그룹을 선택합니다.
+목록에서 네트워크 보안 그룹을 선택합니다.
 
 ![흐름 로그 개요][2]
 
 ### <a name="step-3"></a>3단계 
 
-**흐름 로그 설정** 블레이드에서 상태를 **켜기**로 설정하고 저장소 계정을 구성합니다.  완료되면 **확인**을 클릭하고 **저장**을 클릭합니다.
+**흐름 로그 설정** 블레이드에서 상태를 **켜기**로 설정한 다음 저장소 계정을 구성합니다.  완료되면 **확인**을 선택합니다. 그런 다음 **저장**을 선택합니다.
 
 ![흐름 로그 개요][3]
 
 ## <a name="download-flow-logs"></a>흐름 로그 다운로드
 
-흐름 로그는 저장소 계정에 저장됩니다. 흐름 로그를 보려면 다운로드해야 합니다.
+흐름 로그는 저장소 계정에 저장됩니다. 보려는 흐름 로그를 다운로드합니다.
 
 ### <a name="step-1"></a>1단계
 
-흐름 로그를 다운로드하려면 **구성된 저장소 계정에서 흐름 로그를 다운로드할 수 있습니다**를 클릭합니다.  그러면 저장소 계정 보기가 표시되며 여기에서 다운로드할 로그에 이동할 수 있습니다.
+흐름 로그를 다운로드하려면 **구성된 저장소 계정에서 흐름 로그를 다운로드할 수 있습니다**를 선택합니다. 이 단계에서는 저장소 계정 보기로 이동하여 다운로드할 로그를 선택할 수 있습니다.
 
 ![흐름 로그 설정][4]
 
 ### <a name="step-2"></a>2단계
 
-올바른 저장소 계정으로 이동한 후 **컨테이너** > **insights-log-networksecuritygroupflowevent**로 이동합니다.
+올바른 저장소 계정으로 이동합니다. 그런 다음 **컨테이너** > **insights-log-networksecuritygroupflowevent**를 선택합니다.
 
 ![흐름 로그 설정][5]
 
 ### <a name="step-3"></a>3단계
 
-흐름 로그 위치로 드릴다운하고 흐름 로그를 선택하고 **다운로드**를 클릭합니다.
+흐름 로그의 위치로 이동하여 선택한 다음 **다운로드**를 선택합니다.
 
 ![흐름 로그 설정][6]
 
-로그의 구조에 대한 내용은 [네트워크 보안 그룹 흐름 로그 개요](network-watcher-nsg-flow-logging-overview.md)를 방문하세요.
+로그의 구조에 대한 내용은 [네트워크 보안 그룹 흐름 로그 개요](network-watcher-nsg-flow-logging-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -102,3 +111,4 @@ Network Watcher 인스턴스로 이동하고 **흐름 로그**를 선택합니�
 [5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
 [6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
 [providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png
+

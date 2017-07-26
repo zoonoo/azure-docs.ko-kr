@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/25/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 68972d9422dd0861318b0f26a4543f7596d9a680
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 7acd83cf477f9294c75e1bf11f093be50c32e786
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -32,14 +32,14 @@ ms.lasthandoff: 01/24/2017
 
 다음이 있어야 합니다.
 
-* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* Azure 구독. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 ## <a name="how-do-i-launch-the-ambari-web-ui"></a>Ambari 웹 UI를 시작하는 방법
 1. [Azure 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
 2. Spark 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-    ![Ambari 시작](./media/hdinsight-apache-spark-resource-manager/hdispark.cluster.launch.dashboard.png "Resource Manager 시작")
+    ![Ambari 시작](./media/hdinsight-apache-spark-resource-manager/hdinsight-launch-cluster-dashboard.png "Resource Manager 시작")
 3. 이렇게 하면 아래와 같이 Ambari 웹 UI가 시작됩니다.
 
     ![Ambari 웹 UI](./media/hdinsight-apache-spark-resource-manager/ambari-web-ui.png "Ambari 웹 UI")   
@@ -170,7 +170,7 @@ Spark 동적 할당을 사용하기 때문에 Thrift 서버에서 사용되는 �
 ### <a name="tools-and-extensions"></a>도구 및 확장
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](hdinsight-apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
@@ -186,6 +186,5 @@ Spark 동적 할당을 사용하기 때문에 Thrift 서버에서 사용되는 �
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 

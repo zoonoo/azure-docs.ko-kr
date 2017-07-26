@@ -1,5 +1,5 @@
 ---
-title: "Hadoop과 MapReduce 및 PowerShell 사용 | Microsoft Docs"
+title: "Hadoop과 MapReduce 및 PowerShell 사용 - Azure HDInsight | Microsoft Docs"
 description: "PowerShell을 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업을 원격으로 실행하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/21/2017
+ms.date: 06/16/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: b24bfb08e692ec7ab6da9c60515d7cbeec9589b3
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 0f4b9ee03e4c5470ea4824e51d1d1870ddbb34f1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -57,7 +57,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 다음 단계는 HDInsight 클러스터에서 작업을 실행하기 위해 이러한 cmdlet을 사용하는 방법에 대해 설명합니다.
 
-1. 편집기를 사용하여 다음 코드를 **mapreducejob.ps1**으로 저장합니다.
+1. 편집기를 사용하여 다음 코드를 **mapreducejob.ps1**로 저장합니다.
 
     [!code-powershell[기본](../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 

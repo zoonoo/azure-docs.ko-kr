@@ -1,5 +1,5 @@
 ---
-title: "Azure AD B2C에서 사용자 지정 정책에서 유효성 검사로 REST API 클레임 교환 통합 | Microsoft Docs"
+title: "Azure Active Directory B2C: REST API 클레임 교환을 유효성 검사로 통합 | Microsoft Docs"
 description: "Azure Active Directory B2C 사용자 지정 정책에 대한 항목"
 services: active-directory-b2c
 documentationcenter: 
@@ -15,41 +15,41 @@ ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 46abe48c3c9a7aab3fe013811d088a63957fe500
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: eb44a0d2234c9ee3801d8b3a1655d877aa2f4fef
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/24/2017
 
 ---
 
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journeys-as-validation-on-user-input"></a>연습: Azure AD B2C 사용자 경험에서 사용자 입력에 대한 유효성 검사로 REST API 클레임 교환 통합
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력에 대한 유효성 검사로 통합
 
-**Identity Experience Framework**(IEF) 기반 Azure AD B2C를 통해 ID 개발자는 사용자 경험에서 RESTful API와의 상호 작용을 통합할 수 있습니다.  
+Azure AD B2C(Azure Active Directory B2C)의 기반이 되는 IEF(ID 경험 프레임워크)를 사용하면 ID 개발자가 사용자 경험에서 RESTful API와의 상호 작용을 통합할 수 있습니다.  
 
-이 연습 끝부분에서는 RESTful 서비스와 상호 작용하는 Azure AD B2C 사용자 경험을 만들 수 있습니다.
+이 연습의 끝부분에서는 RESTful 서비스와 상호 작용하는 Azure AD B2C 사용자 경험을 만들 수 있습니다.
 
-IEF는 클레임으로 데이터를 보내고 다시 클레임으로 데이터를 받습니다.  API와 상호 작용을 오케스트레이션 단계 내부에서 발생하는 유효성 검사 프로필과 REST API 클레임 교환으로 디자인할 수 있습니다.
+IEF는 클레임으로 데이터를 보내고 다시 클레임으로 데이터를 받습니다. API와의 상호 작용은 다음과 같습니다.
 
-- 이 과정은 일반적으로 사용자의 입력을 유효성 검사합니다.
-- 사용자의 값이 거부되면 사용자는 사용자에게 오류 메시지를 반환하는 기회와 함께 유효한 값을 다시 입력하려고 할 수 있습니다.
+- API와 상호 작용을 오케스트레이션 단계 내부에서 발생하는 REST API 클레임 교환 또는 유효성 검사 프로필로 설계할 수 있습니다.
+- 일반적으로 사용자 입력의 유효성을 검사합니다. 사용자의 값이 거부되면 사용자는 오류 메시지를 반환하는 기회와 함께 유효한 값을 다시 입력하려고 시도할 수 있습니다.
 
-상호 작용은 오케스트레이션 단계로도 디자인할 수 있습니다. 자세한 내용은 [연습: Azure AD B2C 사용자 경험에서 오케스트레이션 단계로 REST API 클레임 교환 통합](active-directory-b2c-rest-api-step-custom.md)을 참조하세요.
+또한 상호 작용은 오케스트레이션 단계로도 설계할 수 있습니다. 자세한 내용은 [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 오케스트레이션 단계로 통합](active-directory-b2c-rest-api-step-custom.md)을 참조하세요.
 
-유효성 검사 프로필 예로 시작 팩 파일 ProfileEdit.xml에서 프로필 편집 사용자 경험을 사용합니다.
+유효성 검사 프로필 예제의 경우 ProfileEdit.xml 시작 팩 파일에서 프로필 편집 사용자 경험을 사용합니다.
 
-프로필 편집에서 사용자가 제공한 지정된 이름이 제외된 목록에 속하지 않은 것을 확인할 수 있습니다.
+프로필 편집에서 사용자가 제공한 이름이 제외 목록에 속하지 않은 것을 확인할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [시작하기](active-directory-b2c-get-started-custom.md)에 설명된 대로 로컬 계정 등록/로그인을 완료하기 위한 Azure AD B2C 테넌트 구성
-- 상호 작용할 REST API 끝점 데모 사이트 [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/)가 이 연습에 사용될 REST API 서비스로 설정되었습니다.
+- [시작](active-directory-b2c-get-started-custom.md)에서 설명한 대로 로컬 계정 등록/로그인을 완료하도록 구성된 Azure AD B2C 테넌트
+- 상호 작용할 REST API 끝점 이 연습에서는 REST API 서비스를 사용하여 [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/)라는 데모 사이트를 설정했습니다.
 
-## <a name="step-1---prepare-the-rest-api-function"></a>1단계 - REST API 함수 준비
+## <a name="step-1-prepare-the-rest-api-function"></a>1단계 - REST API 함수 준비
 
 > [!NOTE]
-> REST API 함수를 설정하는 것은 이 문서의 범위를 벗어나는 것입니다. [Azure Function Apps](https://docs.microsoft.com/azure/azure-functions/functions-reference)는 클라우드에서 RESTful 서비스를 만들 수 있는 뛰어난 도구 키트를 제공합니다.
+> REST API 함수 설정은 이 문서의 범위를 벗어납니다. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference)는 클라우드에서 RESTful 서비스를 만들 수 있는 뛰어난 도구 키트를 제공합니다.
 
-“playerTag”로 예상되는 클레임을 수신하고 이 클레임이 존재하는지 여부를 검증하는 Azure Function을 만들었습니다. 전체 Azure Function 코드는 [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples)에서 액세스할 수 있습니다.
+`playerTag`로 예상하는 클레임을 받는 Azure 함수를 만들었습니다. 함수는 이 클레임의 존재 여부에 대한 유효성을 검사합니다. 전체 Azure Function 코드는 [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples)에서 액세스할 수 있습니다.
 
 ```csharp
 if (requestContentAsJObject.playerTag == null)
@@ -76,14 +76,14 @@ if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcott
 return request.CreateResponse(HttpStatusCode.OK);
 ```
 
-Azure Function에 의해 반환된 `userMessage` 클레임은 Identity Experience Framework에 필요하며 유효성 검사가 실패한 경우(예: 위의 예에서 409 충돌 상태가 반환된 경우) 사용자에게 문자열로 표시됩니다.
+IEF는 Azure 함수에서 반환하는 `userMessage` 클레임을 예상합니다. 위의 예제에서는 409 충돌 상태가 반환된 경우와 같이 유효성 검사에 실패하면 이 클레임이 사용자에게 문자열로 표시됩니다.
 
-## <a name="step-2---configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>2단계 - TrustFrameworkExtensions.xml 파일에서 기술적 프로필로 RESTful API 클레임 교환 구성
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>2단계 - TrustFrameworkExtensions.xml 파일에서 RESTful API 클레임 교환을 기술 프로필로 구성
 
-기술적 프로필은 RESTful 서비스에서 원하는 교환의 전체 구성입니다. `TrustFrameworkExtensions.xml` 파일을 열고 아래 XML 코드 조각을 `<ClaimsProviders>` 요소 내에 추가합니다.
+기술적 프로필은 RESTful 서비스에서 원하는 교환의 전체 구성입니다. TrustFrameworkExtensions.xml 파일을 열고 `<ClaimsProviders>` 요소 내에 다음 XML 코드 조각을 추가합니다.
 
 > [!NOTE]
-> 아래 설명된 “Restful Provider, Version 1.0.0.0”을 외부 서비스와 상호 작용할 함수(프로토콜)로 간주합니다.  스키마에 대한 전체 정의를 확인할 수 있습니다. <!-- TODO: Link to RESTful Provider schema definition>-->
+> 다음 XML에서 `Version=1.0.0.0` RESTful 공급자는 프로토콜로 설명되며, 외부 서비스와 상호 작용할 함수로 간주됩니다. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
 
 ```xml
 <ClaimsProvider>
@@ -111,27 +111,27 @@ Azure Function에 의해 반환된 `userMessage` 클레임은 Identity Experienc
 </ClaimsProvider>
 ```
 
-`InputClaims` 요소는 IEE에서 REST 서비스로 전송할 클레임을 정의합니다. 위의 예제에서는 클레임 `givenName`의 내용이 REST 서비스에 `playerTag`로 전송됩니다. 이 예제에서는 IEE가 클레임이 다시 반환될 것을 기대하지 않고 대신 REST 서비스의 응답을 기다리고 수신된 상태 코드에 따라 동작합니다.
+`InputClaims` 요소는 IEF에서 REST 서비스로 전송할 클레임을 정의합니다. 이 예제에서는 REST 서비스에 `givenName` 클레임의 내용을 `playerTag`로 보냅니다. 그리고 IEF에서 클레임을 다시 예상하지 않습니다. 대신 REST 서비스의 응답을 기다리고, 받는 상태 코드에 따라 작동합니다.
 
-## <a name="step-3---include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-wish-to-validate-the-user-input"></a>3단계 - 사용자 입력의 유효성을 검사하려는 자체 어설션된 기술 프로필에 RESTful 서비스 클레임 교환을 포함
+## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>3단계 - 사용자 입력의 유효성을 검사하려는 자체 어설션된 기술 프로필에 RESTful 서비스 클레임 교환을 포함
 
-유효성 검사의 가장 일반적인 용도는 사용자와의 상호 작용입니다.  사용자가 입력을 제공해야 하는 모든 상호 작용은 **자세 어설션된 기술 프로필**입니다. 이 예에서는 이 유효성 검사를 **Self-Asserted-ProfileUpdate** 기술 프로필(TP)에 추가합니다.  RP 정책 파일 `Profile Edit`에 사용된 TP입니다.
+유효성 검사의 가장 일반적인 용도는 사용자와의 상호 작용입니다. 사용자가 입력을 제공해야 하는 모든 상호 작용은 *자체 어설션된 기술 프로필*입니다. 이 예제에서는 Self-Asserted-ProfileUpdate 기술 프로필에 유효성 검사를 추가합니다. 이는 `Profile Edit` RP(신뢰 당사자) 정책 파일에서 사용하는 기술 프로필입니다.
 
 자체 어설션된 기술 프로필에 클레임 교환을 추가하려면
 
 1. TrustFrameworkBase 파일을 열고 `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`를 검색합니다.
-2. 이 TP의 구성을 검토하고 사용자와의 교환이 사용자에게 요청할 클레임(입력 클레임) 및 자체 어설션된 공급자에서 다시 반환될 클레임(출력 클레임)으로 어떻게 정의되는지 검토합니다.
-3. `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`를 검색하고 이 프로필이 `<UserJourney Id="ProfileEdit">`의 오케스트레이션 6단계로 호출되는 것을 확인합니다.
+2. 이 기술 프로필의 구성을 검토합니다. 사용자와의 교환이 사용자에게 요청할 클레임(입력 클레임) 및 자체 어설션된 공급자에서 반환될 클레임(출력 클레임)으로 정의되는 방식을 검토합니다.
+3. `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`를 검색하고 이 프로필이 `<UserJourney Id="ProfileEdit">`의 6 오케스트레이션 단계로 호출되었는지 확인합니다.
 
-## <a name="step-4---upload-and-test-the-profile-edit-rp-policy-file"></a>4단계 - 프로필 편집 RP 정책 파일 업로드 및 테스트
+## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>4단계 - 프로필 편집 RP 정책 파일 업로드 및 테스트
 
-1. `TrustframeworkExtensions` 파일의 새 버전을 업로드합니다.
+1. 새 버전의 TrustFrameworkExtensions.xml 정책 파일을 업로드합니다.
 2. **지금 실행**을 사용하여 프로필 편집 RP 정책 파일을 테스트합니다.
-3. **지정된 이름** 필드에 기존 이름(예: mcvinny) 중 하나를 제공하여 유효성 검사를 테스트합니다. 모든 항목이 제대로 설정되면 사용자는 `player tag`가 이미 사용되었음을 알리는 메시지를 받게 됩니다.
+3. **지정된 이름** 필드에 기존 이름(예: mcvinny) 중 하나를 제공하여 유효성 검사를 테스트합니다. 모든 항목이 올바르게 설정되면 플레이어 태그가 이미 사용되었음을 사용자에게 알리는 메시지를 받아야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[프로필 편집 및 사용자 등록을 수정하여 사용자로부터 추가 정보를 수집하는 방법](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+[프로필 편집 및 사용자 등록을 수정하여 사용자로부터 추가 정보 수집](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 
-[연습: Azure AD B2C 사용자 경험에서 오케스트레이션 단계로 REST API 클레임 교환 통합](active-directory-b2c-rest-api-step-custom.md)
+[연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 오케스트레이션 단계로 통합](active-directory-b2c-rest-api-step-custom.md)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 347984aae91a9fa99f88001effe2cba49f92deb9
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 6fbe0dbe159fecb73833260d18aade7d294f040f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/09/2017
 
 ---
 
@@ -72,5 +72,6 @@ SSH 연결을 설정할 때 Ubuntu 시작 프롬프트가 표시되어야 합니
 `az group delete -n MyRG`을 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Cloud Shell에서 영구 저장소에 대한 자세한 정보](persisting-shell-storage.md) [Azure CLI 2.0에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) [Azure File Storage에 대한 자세한 정보](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) 
-
+[Cloud Shell의 저장소 유지 알아보기](persisting-shell-storage.md) <br>
+[Azure CLI 2.0에 대해 알아보기](https://docs.microsoft.com/cli/azure/) <br>
+[Azure File Storage에 대해 알아보기](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>

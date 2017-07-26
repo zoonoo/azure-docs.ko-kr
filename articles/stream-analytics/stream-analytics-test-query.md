@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 039ea499f3bfc594472ddc6de59220c4600769f1
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 9ca96196d2d4b898c79556867b5ff8d8be0f66dc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -37,7 +37,7 @@ Azure Stream Analytics를 사용하면 작업을 시작하거나 중지하지 �
 
     ![Stream Analytics 쿼리 편집기 샘플 데이터 테스트](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
-나중에 사용하기 위해 테스트 출력을 저장하려는 경우 사용자 쿼리의 출력이 다운로드 결과에 대한 링크와 함께 브라우저에 표시됩니다. 이제 쉽고 반복적으로 쿼리를 수정하고 반복적으로 테스트하여 출력이 어떻게 변화하는지 확인할 수 있습니다.
+나중에 사용하기 위해 테스트 출력을 저장하려는 경우 사용자 쿼리의 출력이 다운로드 결과 링크와 함께 브라우저에 표시됩니다. 이제 쉽고 반복적으로 쿼리를 수정하고 반복적으로 테스트하여 출력이 어떻게 변화하는지 확인할 수 있습니다.
 
 ![Stream Analytics 쿼리 편집기 샘플 출력](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
@@ -52,7 +52,7 @@ Azure Stream Analytics를 사용하면 작업을 시작하거나 중지하지 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
+* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

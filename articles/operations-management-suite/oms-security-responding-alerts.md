@@ -4,7 +4,7 @@ description: "이 문서는 OMS 보안 및 감사에서 사용 가능한 위협 
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 7d45a32b-1341-4bb5-a436-1f42a8a2590a
 ms.service: operations-management-suite
@@ -13,12 +13,13 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7161cacfd371aa73974e635a343793bbec76d858
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -83,7 +84,19 @@ OMS 보안 및 감사 솔루션의 **위협 인텔리전스** 정보를 활용�
 > [!NOTE]
 > 인시던트 응답 프로세스 중에 이 기능을 사용하는 방법에 대한 데모는 Microsoft Ignite에서 제공하는 [Operations Management Suite를 사용하여 안내식 조사를 통해 데이터 센터 보안 위협 완화](https://myignite.microsoft.com/videos/5000) 프레젠테이션을 참조하세요.
 > 
-> 
+
+### <a name="responding-to-distinct-malicious-ip-accessed"></a>액세스한 명확한 악성 IP에 대한 대응
+일부 시나리오에서는 모니터링되는 한 컴퓨터에서 잠재적인 악성 IP에 액세스한 것을 확인할 수 있습니다.
+
+![위협 인텔리전스 맵](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+이 경고와 같은 범주 내의 다른 경고는 [Microsoft 위협 인텔리전스](https://youtu.be/O4WtxgUrDc8)를 활용하여 OMS 보안을 통해 생성됩니다. 위협 인텔리전스 데이터는 Microsoft에서 수집하며 업계 선두적인 위협 인텔리전스 공급자로부터 구입합니다. 이 데이터는 자주 업데이트되며 빠르게 변화하는 위협에 대해 대응합니다. 이러한 특성으로 인해 보안 경고를 [조사](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/)하는 동안 다른 보안 정보 원본과 결합되어야 합니다. 
+
+## <a name="customize-alerts-received-via-e-mail"></a>전자 메일을 통해 수신한 경고를 사용자 지정
+
+OMS 보안을 통해 보안 경고가 트리거되면 조직의 어떤 사용자에게 통보할지 사용자 지정할 수 있습니다. 이 옵션은 OMS 대시보드의 개요/설정에서 사용할 수 있습니다.
+
+![Email](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig7.png)
 
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 OMS 보안 및 감사 솔루션의 **위협 인텔리전스** 옵션을 사용하여 보안 경고에 대응하는 방법에 대해 알아보았습니다. OMS 보안에 대해 자세히 알아보려면 다음 문서를 참조하세요.

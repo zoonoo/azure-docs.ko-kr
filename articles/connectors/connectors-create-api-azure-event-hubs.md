@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fd691f898e26bea0a304bcf52e5df9ee7db8b818
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -123,8 +123,9 @@ Event Hub에 액세스하는 논리 앱의 경우 Event Hubs 네임스페이스�
 
     이제 논리 앱에서 이벤트를 보내는 작업을 설정했습니다. 
 
-## <a name="view-the-swagger"></a>swagger 보기
-[swagger 정보](/connectors/eventhubs/)를 참조하세요. 
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+
+[커넥터 세부 정보](/connectors/eventhubs/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
 
 ## <a name="get-help"></a>도움말 보기
 

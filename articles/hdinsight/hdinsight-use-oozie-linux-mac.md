@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3ca1184bfbd6af3a63e62bce9dfe1baf1729b4ac
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 88b23f844610a16ebca05a20499f4c7e82bf598a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -32,6 +32,9 @@ HDInsight에서 Hadoop와 함께 Apache Oozie를 사용하는 방법을 알아�
 
 > [!NOTE]
 > HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure 데이터 팩터리입니다. Azure 데이터 팩터리에 대한 자세한 내용은 [데이터 팩터리에서 Pig 및 Hive 사용][azure-data-factory-pig-hive]을 참조하세요.
+
+> [!IMPORTANT]
+> 도메인에 가입된 HDInsight에서는 Oozie를 사용할 수 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

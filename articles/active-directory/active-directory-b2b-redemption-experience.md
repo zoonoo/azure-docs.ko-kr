@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/01/2017
+ms.date: 05/24/2017
 ms.author: sasubram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: fd02c79d967c5076353f1f9219c22f068b56fb1d
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: aea802af038786c58d9640333458ad88fe8f90bd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -32,9 +32,10 @@ ms.lasthandoff: 05/02/2017
 기존 Azure AD 계정 또는 Microsoft 계정이 있는 사용자의 경우 상환 환경은 로그인하는 것만큼 쉽습니다.
 
 ## <a name="social-id-user-first-time-redemption"></a>소셜 ID 사용자의 최초 상환
-Azure AD B2B 공동 작업을 사용하면 어떤 전자 메일 주소로도 쉽게 상환을 수행할 수 있습니다. Microsoft 이외 전자 메일 주소를 B2B 공동 작업에 사용하는 상환 환경을 살펴보겠습니다. 이러한 환경은 상환 시에 계정을 만들어야 할 수 있으므로 상환 흐름에 좀 더 적합합니다. 다음 비디오에서 확인해보세요.
+Azure AD B2B 공동 작업을 사용하면 어떤 전자 메일 주소로도 쉽게 상환을 수행할 수 있습니다. Microsoft 이외 전자 메일 주소를 B2B 공동 작업에 사용하는 상환 환경을 살펴보겠습니다. 상환 시에 계정을 만들어야 할 수 있으므로 이러한 상환 흐름이 좀 더 적합합니다. 다음 비디오에서 확인해보세요.
 
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-collaboration-redemption/Player]
+> 
 
 ## <a name="next-steps"></a>다음 단계
 

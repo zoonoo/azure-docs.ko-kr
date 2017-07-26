@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2017
+ms.date: 06/09/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 5f2615b3df14c82147ff8a2cd997458756581d01
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 518e6a481ab6385b03dd3ddc2e155fb724e677fe
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -43,13 +43,29 @@ AAD 역할은 권한 프로비전 미리 구성된 솔루션을 제어하고 미
 
 AAD에서 사용자 및 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당][lnk-aad-admin]에서 찾을 수 있습니다. 현재 문서에서는 미리 구성된 솔루션에서 사용된 대로 **전역 관리자** 및 **사용자** 디렉터리 역할에 중점을 둡니다.
 
-**전역 관리자:** AAD 테넌트에는 여러 명의 전역 관리자가 있을 수 있습니다. AAD 테넌트를 만들 때, 만드는 사람은 기본적으로 해당 테넌트의 전역 관리자입니다. 전역 관리자는 미리 구성된 솔루션을 프로비전할 수 있으며 해당 AAD 테넌트 내부의 응용 프로그램에 대해 **관리자** 역할이 할당됩니다. 하지만, 동일한 AAD 테넌트의 다른 사용자가 응용 프로그램을 만들 경우, 전역 사용자에게 부여되는 기본 역할은 **읽기 전용**입니다. 전역 관리자는 [Azure Portal][lnk-portal]을 사용하여 사용자를 응용 프로그램의 역할에 할당할 수 있습니다.
+### <a name="global-administrator"></a>전역 관리자
 
-**사용자:** AAD 테넌트에는 여러 명의 도메인 사용자가 있을 수 있습니다. 도메인 사용자는 [azureiotsuite.com][lnk-azureiotsuite] 사이트를 통해 미리 구성된 솔루션을 프로비전할 수 있습니다. 자신이 프로비전하는 응용 프로그램에 부여되는 기본 역할은 **관리자**입니다. [azure-iot-remote-monitoring][lnk-rm-github-repo] 또는 [azure-iot-predictive-maintenance][lnk-pm-github-repo] 리포지토리에서 build.cmd 스크립트를 사용하여 응용 프로그램을 만들 수 있습니다. 그러나 역할을 할당할 수 있는 사용 권한을 갖지 않은 경우 부여된 기본 역할은 **읽기 전용**입니다. 동일한 AAD 테넌트의 다른 사용자가 응용 프로그램을 만들 경우, 이들에게는 해당 응용 프로그램에 대해 기본적으로 **읽기 전용** 역할이 할당됩니다. 응용 프로그램에 역할을 할당할 수 없기 때문에, 응용 프로그램을 프로비전했더라도 응용 프로그램에 사용자를 추가하거나 사용자에 대한 역할을 추가할 수 없습니다.
+AAD 테넌트에는 여러 명의 전역 관리자가 있을 수 있습니다.
 
-**게스트 사용자:** AAD 테넌트에는 여러 명의 게스트 사용자가 있을 수 있습니다. 게스트 사용자는 AAD 테넌트 내에서 제한된 권한 집합을 갖습니다. 결과적으로 게스트 사용자는 AAD 테넌트 내에서 미리 구성된 솔루션을 프로비전할 수 없습니다.
+* AAD 테넌트를 만들 때, 만드는 사람은 기본적으로 해당 테넌트의 전역 관리자입니다.
+* 전역 관리자는 미리 구성된 솔루션을 프로비전할 수 있으며 해당 AAD 테넌트 내부의 응용 프로그램에 대해 **관리자** 역할이 할당됩니다.
+* 동일한 AAD 테넌트의 다른 사용자가 응용 프로그램을 만들 경우, 전역 사용자에게 부여되는 기본 역할은 **읽기 전용**입니다.
+* 전역 관리자는 [Azure Portal][lnk-portal]을 사용하여 사용자를 응용 프로그램의 역할에 할당할 수 있습니다.
 
-자세한 내용은 다음 리소스를 참조하세요.
+### <a name="domain-user"></a>도메인 사용자
+
+AAD 테넌트에는 여러 명의 도메인 사용자가 있을 수 있습니다.
+
+* 도메인 사용자는 [azureiotsuite.com][lnk-azureiotsuite] 사이트를 통해 미리 구성된 솔루션을 프로비전할 수 있습니다. 기본적으로 도메인 사용자에게는 프로비전된 응용 프로그램의 **Admin** 역할이 부여됩니다.
+* 도메인 사용자는 [azure-iot-remote-monitoring][lnk-rm-github-repo], [azure-iot-predictive-maintenance][lnk-pm-github-repo] 또는 [azure-iot-connected-factory][lnk-cf-github-repo] 리포지토리에서 build.cmd 스크립트를 사용하여 응용 프로그램을 만들 수 있습니다. 하지만 도메인 사용자에게는 역할을 할당할 권한이 없으므로 도메인 사용자에게 부여되는 기본 역할은 **읽기 전용**입니다.
+* 동일한 AAD 테넌트의 다른 사용자가 응용 프로그램을 만들 경우, 해당 도메인 사용자에게는 기본적으로 해당 응용 프로그램에 대한 **읽기 전용** 역할이 할당됩니다.
+* 도메인 사용자는 응용 프로그램에 역할을 할당할 수 없기 때문에, 응용 프로그램을 프로비전했더라도 응용 프로그램에 사용자를 추가하거나 사용자에 대한 역할을 추가할 수 없습니다.
+
+### <a name="guest-user"></a>게스트 사용자
+
+AAD 테넌트에는 여러 명의 게스트 사용자가 있을 수 있습니다. 게스트 사용자는 AAD 테넌트 내에서 제한된 권한 집합을 갖습니다. 결과적으로 게스트 사용자는 AAD 테넌트 내에서 미리 구성된 솔루션을 프로비전할 수 없습니다.
+
+AAD의 사용자 및 역할에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [Azure AD에서 사용자 만들기][lnk-create-edit-users]
 * [앱에 사용자 할당][lnk-assign-app-roles]
@@ -58,13 +74,13 @@ AAD에서 사용자 및 관리자 역할에 대한 자세한 내용은 [Azure AD
 
 Azure 관리자 역할은 Azure 구독을 AD 텐넌트에 매핑할 수 있는 권한을 제어합니다.
 
-Azure 공동 관리자, 서비스 관리자, 계정 관리자 역할에 대한 자세한 내용은 [Azure 공동 관리자, 서비스 관리자 및 계정 관리자를 추가 또는 변경하는 방법][lnk-admin-roles] 문서에서 찾아볼 수 있습니다.
+[Azure 공동 관리자, 서비스 관리자 및 계정 관리자를 추가 또는 변경하는 방법][lnk-admin-roles] 문서에서 Azure 관리자 역할에 대해 자세히 알아보세요.
 
 ## <a name="application-roles"></a>응용 프로그램 역할
 
 응용 프로그램 역할은 미리 구성된 솔루션의 장치에 대한 액세스를 제어합니다.
 
-응용 프로그램에는 미리 구성된 솔루션을 프로비전할 때 생성되는 정의된 역할 2개와 암시적 역할 1개가 있습니다.
+프로비전된 응용 프로그램에는 정의된 역할 두 개와 정의된 암시적 역할 한 개가 있습니다.
 
 * **관리:** 설정을 추가, 관리, 장치, 제거 및 수정하는 모든 권한을 가집니다.
 * **읽기 전용:** 장치, 규칙, 작업, 작업 및 원격 분석을 볼 수 있습니다.
@@ -99,7 +115,7 @@ Azure 공동 관리자, 서비스 관리자, 계정 관리자 역할에 대한 �
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>AAD 테넌트의 도메인 사용자/회원이 미리 구성된 솔루션을 만들었습니다. 응용 프로그램에 대한 역할을 어떻게 할당하나요?
 
-자신에게 역할을 할당하는 권한을 얻으려면 전역 관리자가 AAD 테넌트에서 글로벌 관리자로 할당해 줄 것을 요청하거나 전역 관리자에게 역할 할당을 요청합니다. 미리 구성된 솔루션이 배포된 AAD 테넌트를 변경하려면 다음 질문을 참조하세요.
+전역 관리자에게 AAD 테넌트에 대한 전역 관리자로 만들어 달라고 요청한 후 사용자에게 직접 역할을 할당하세요. 또는 전역 관리자에게 역할을 직접 할당해 달라고 요청하세요. 미리 구성된 솔루션이 배포된 AAD 테넌트를 변경하려면 다음 질문을 참조하세요.
 
 ### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>원격 모니터링 미리 구성된 솔루션 및 응용 프로그램이 할당되어 있는 AAD 테넌트를 어떻게 변경하나요?
 
@@ -135,6 +151,7 @@ IoT Suite에 대해 계속 알아보려면 [미리 구성된 솔루션을 사용
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
+[lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/

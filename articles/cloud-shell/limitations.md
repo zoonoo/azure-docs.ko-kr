@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/20/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: c007b73375c8c82248228f4e549c0ac95640d7ec
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: 411301df9647f64f9d4a0405d35d08f000d792a8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/21/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/17/2017
 Azure Cloud Shell에는 다음과 같이 알려진 제한 사항이 있습니다.
 
 ## <a name="system-state-and-persistence"></a>시스템 상태 및 지속성
-Cloud Shell 세션을 제공하는 컴퓨터는 일시적이며 세션이 10분 동안 비활성화된 후 재순환됩니다. Cloud Shell에 파일 공유를 탑재해야 합니다.
+Cloud Shell 세션을 제공하는 컴퓨터는 일시적이며 세션이 10분 동안 비활성화된 후 재순환됩니다. Cloud Shell에 파일 공유를 탑재해야 합니다. 따라서 구독이 Cloud Shell에 액세스할 저장소 리소스를 프로비전할 수 있어야 합니다.
 * 탑재된 저장소에서 `$Home` 디렉터리 또는 `clouddrive` 디렉터리 내 수정 사항만 유지됩니다.
   * 파일 공유는 [할당된 지역](persisting-shell-storage.md#pre-requisites-for-manual-mounting) 내에서만 탑재될 수 있습니다.
   * Azure Files는 LRS 및 GRS 저장소 계정만 지원합니다.
@@ -42,6 +42,9 @@ Cloud Shell은 Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozil
 Ctrl + V 및 Ctrl + C는 Windows 컴퓨터에서 복사/붙여넣기로 작동하지 않습니다. Ctrl + Insert 및 Shift + Insert로 복사/붙여넣기하세요.
 복사 붙여넣기 옵션을 마우스 오른쪽 단추로 클릭할 수도 있지만 브라우저 전용 클립보드 액세스의 적용을 받습니다.
 
+## <a name="editing-bashrc"></a>.bashrc 편집
+.bashrc를 편집할 때는 Cloud Shell에 예기치 않은 오류가 발생할 수 있으니 주의하세요.
+
 ## <a name="usage-limits"></a>사용 제한
 Cloud Shell은 대화형 사용 사례를 위해 고안되었으므로 비대화형 세션을 오래 실행하면 경고 없이 종료됩니다.
 
@@ -50,3 +53,4 @@ Cloud Shell의 대기 시간은 로컬 인터넷 연결의 영향을 받으며, 
 
 ## <a name="next-steps"></a>다음 단계
 [Cloud Shell 빠른 시작](quickstart.md)
+

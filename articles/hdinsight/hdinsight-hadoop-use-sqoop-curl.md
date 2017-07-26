@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 Curl과 Hadoop Sqoop 사용 | Microsoft Docs"
+title: "HDInsight에서 Curl과 Hadoop Sqoop 사용 - Azure | Microsoft Docs"
 description: "원격으로 Curl을 사용하여 HDInsight에 Sqoop 작업을 제출하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: eabcd8b70411a915722a2f1b8e8b70271cd8c7c2
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: b30ae2441170d352851505a38ff5215743942a03
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

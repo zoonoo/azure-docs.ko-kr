@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 3cf443e378ee1310ea8dfdccf647c92cdee7d552
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: b075e2eb36f54afb7544e0aeb698701cd224ff93
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -38,9 +38,9 @@ ProjectOnline으로 논리 앱을 만들려면 먼저 **연결**을 만든 후�
 > [!INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 > 
 
-## <a name="view-the-swagger"></a>swagger 보기
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
-[swagger 정보](/connectors/projectonline/)를 참조하세요.
+[커넥터 세부 정보](/connectors/projectonline/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
 
 ## <a name="more-connectors"></a>추가 커넥터
 [API 목록](apis-list.md)으로 돌아갑니다.

@@ -6,21 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: end-user
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: bd0175558a94a146a365e8c1a32522f1e54c184e
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 485dfa067bd64312f6ae68a533117db1556318ed
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="register-for-self-service-password-reset"></a>셀프 서비스 암호 재설정 등록
@@ -45,6 +45,16 @@ ms.lasthandoff: 05/03/2017
 인증 전화 또는 인증 전자 메일에 데이터를 입력하면 전역 디렉터리에 표시되지 않습니다. 이 데이터를 볼 수 있는 유일한 사람은 사용자와 관리자입니다. 보안 질문에 대한 대답만 볼 수 있습니다.
 
 관리자는 적절한 방법을 등록했는지 확인하기 위해 일정 기간 후에 인증 방법을 확인해야 할 수 있습니다.
+
+## <a name="common-problems-and-their-solutions"></a>일반적인 문제 및 해결 방법
+
+ 다음은 일반적인 오류 사례 및 해결 방법입니다.
+
+| 오류 사례| 어떤 오류가 표시되나요?| 해결 방법 |
+| --- | --- | --- |
+| 내 사용자 ID를 입력한 후에 "관리자에게 문의하세요" 페이지가 보입니다. | 관리자에게 문의하세요 <br> <br> Microsoft에서 사용자 계정 암호가 관리되지 않는 것이 감지되었습니다. 결과적으로 자동으로 암호를 재설정할 수 없습니다. <br> <br> IT 직원에게 추가 지원을 요청해야 합니다. | IT 직원이 온-프레미스 환경에서 암호를 관리하고 [계정 링크에 액세스할 수 없음]에서 암호를 재설정할 수 없기 때문에 이 메시지가 표시됩니다. <br> <br> 암호를 재설정하려면 도움을 얻기 위해 직접 IT 직원에게 문의하고 암호를 재설정하려고 한다고 알려서 사용자가 이 기능을 사용할 수 있도록 합니다.|
+| 내 사용자 ID를 입력한 후에 "계정은 암호 재설정에 사용할 수 없습니다." 오류가 발생합니다. | 암호 재설정을 위해 계정을 사용할 수 없습니다. <br> <br> 죄송하지만 IT 직원이 계정을 이 서비스와 함께 사용하도록 설정하지 않습니다. <br> <br> 원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | IT 직원이 [계정에 액세스할 수 없음] 링크에서 조직에 대해 암호 재설정을 활성화하지 않았거나 기능을 사용하도록 허가하지 않았기 때문에 이 메시지가 표시됩니다. <br> <br> 암호를 재설정하려면 도움을 얻기 위해 직접 관리자에게 문의 링크를 클릭하여 회사의 IT 직원에게 메일을 보내고 암호를 재설정하려고 한다고 알려서 사용자가 이 기능을 사용할 수 있도록 합니다. |
+| 내 사용자 ID를 입력한 후에 "계정을 확인하지 못했습니다" 오류가 발생합니다. | 계정을 확인하지 못했습니다. <br> <br> 원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | 암호 재설정에 사용할 수 있지만 서비스를 사용하도록 등록하지 않았기 때문에 이 메시지가 표시됩니다. 암호 재설정을 등록하려면 계정에 대한 액세스를 회복한 후에 http://aka.ms/ssprsetup로 이동합니다. <br> <br> 암호를 재설정하려면 관리자에게 문의 링크를 클릭하여 회사의 IT 직원에게 전자 메일을 보냅니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

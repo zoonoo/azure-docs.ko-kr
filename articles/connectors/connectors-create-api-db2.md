@@ -16,20 +16,15 @@ ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2dc4c912f018f5d71d8c874763f204cf6c2c415b
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="get-started-with-the-db2-connector"></a>DB2 커넥터 시작
 DB2용 Microsoft 커넥터는 Logic Apps를 IBM DB2 데이터베이스에 저장된 리소스에 연결합니다. 이 커넥터는 TCP/IP 네트워크를 통해 원격 DB2 서버 컴퓨터와 통신하는 Microsoft 클라이언트를 포함합니다. Azure 가상화에서 실행되는 Windows용 IBM Bluemix dashDB 또는 IBM DB2와 같은 클라우드 데이터베이스, 온-프레미스 데이터 게이트웨이를 사용하는 온-프레미스 데이터베이스를 포함합니다. IBM DB2 플랫폼 및 버전의 [지원되는](connectors-create-api-db2.md#supported-db2-platforms-and-versions) 목록을 참조하세요(이 항목에서).
-
-> [!NOTE]
-> 이 버전의 문서는 논리 앱 GA(일반 공급)에 적용됩니다. 
-> 
-> 
 
 DB2 커넥터에서 지원하는 데이터베이스 작업은 다음과 같습니다.
 
@@ -283,8 +278,9 @@ DRDA (Distributed Relational Database Architecture) SQLAM (SQL Access Manager) �
 * LUW용 IBM DB2 11
 * LUW용 IBM DB2 10.5
 
-## <a name="view-the-swagger"></a>swagger 보기
-[swagger 정보](/connectors/db2/)를 참조하세요. 
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+
+[커넥터 세부 정보](/connectors/db2/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md) [API 목록](apis-list.md)에서 Logic Apps의 사용 가능한 다른 커넥터를 확인하세요.

@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 10/05/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bbf5de2d38cc351d48384ff24e87bbf2881f2e1e
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: c2e2efd356382df9404f5c4ed54f24758b2cd22b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -55,8 +55,9 @@ Salesforce 커넥터는 Salesforce 개체와 함께 작동하는 API를 제공�
 > 
 > 
 
-## <a name="view-the-swagger"></a>swagger 보기
-[swagger 정보](/connectors/salesforce/)를 참조하세요. 
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+
+[커넥터 세부 정보](/connectors/salesforce/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [논리 앱 만들기](../logic-apps/logic-apps-create-a-logic-app.md)

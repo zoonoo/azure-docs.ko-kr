@@ -1,5 +1,5 @@
 ---
-title: "Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석 | Microsoft 문서"
+title: "HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석 - Azure | Microsoft Docs"
 description: "Hive를 사용하여 Linux 기반 HDInsight에서 비행 데이터를 분석한 다음 Sqoop을 사용하여 SQL 데이터베이스에 데이터를 내보내는 방법에 대해 알아봅니다 "
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.date: 05/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: cf460eed4bd290fbdcb9670a4ec4999f4c96c275
+ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
+ms.openlocfilehash: 860f2eb388f47d2682841c2b63aa634fb754f4c2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 05/18/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/05/2017
 Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분석한 다음 Sqoop을 사용하여 Azure SQL 데이터베이스에 데이터를 내보내는 방법에 대해 알아봅니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중단](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date)을 참조하세요.
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
 
 ### <a name="prerequisites"></a>필수 조건
 

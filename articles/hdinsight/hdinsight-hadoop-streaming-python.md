@@ -1,7 +1,8 @@
 ---
-title: "HDInsight에서 Python MapReduce 작업 개발 | Microsoft Aure"
-description: "Linux 기반 HDInsight 클러스터에서 Python MapReduce 작업을 만들고 실행하는 방법에 대해 알아봅니다."
+title: "HDInsight에서 Python MapReduce 작업 개발 - Azure | Microsoft Docs"
+description: "MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법 알아보기 Hadoop은 Java 이외의 언어로 작성하기 위해 MapReduce용 스트리밍 API를 제공합니다."
 services: hdinsight
+keyword: mapreduce python,python map reduce,python mapreduce
 documentationcenter: 
 author: Blackmist
 manager: jhubbard
@@ -9,7 +10,7 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,16 +18,16 @@ ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: ce96113ad979997c555bc64698c0b78822b525ad
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 1af26abb77f6bca1daad5e919d579772ff68111c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/22/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
-# <a name="develop-python-streaming-programs-for-hdinsight"></a>HDInsight용 Python 스트리밍 프로그램 개발
+# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>HDInsight용 Python 스트리밍 MapReduce 프로그램 개발
 
-MapReduce 작업에서 Python을 사용하는 방법을 알아봅니다. Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하여 Java 이외의 언어로 map 및 reduce 함수를 작성할 수 있습니다. 이 문서의 단계는 맵을 구현하고 Python의 구성 요소를 줄입니다.
+MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법 알아보기 Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하여 Java 이외의 언어로 map 및 reduce 함수를 작성할 수 있습니다. 이 문서의 단계는 맵을 구현하고 Python의 구성 요소를 줄입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

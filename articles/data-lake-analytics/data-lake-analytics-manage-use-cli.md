@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 66834674e37d3b46a4a754b2b743cb223a6961d7
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: d04d33fede00fbc083d71bc486b726bd7f86c6d0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/10/2017
 
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Azure 명령줄 인터페이스(CLI)를 사용하여 Azure 데이터 레이크 분석 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Azure를 사용하여 Azure 데이터 레이크 분석 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법에 대해 알아봅니다. 다른 도구를 사용하여 관리 항목을 보려면 위의 탭 선택을 클릭합니다.
+Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법에 대해 알아봅니다. 다른 도구를 사용하여 관리 항목을 보려면 위의 탭 선택을 클릭합니다.
+
 
 **필수 구성 요소**
 
@@ -165,15 +167,6 @@ U-SQL 카탈로그는 U-SQL 스크립트에서 공유할 수 있도록 데이터
     azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
 
 데이터베이스, 스키마, 어셈블리, 외부 데이터 소스, 테이블, 테이블 값 함수 또는 테이블 통계가 형식에 포함됩니다.
-
-### <a name="create-catalog-secret"></a>카탈로그 암호 만들기
-    azure datalake analytics catalog secret create -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### <a name="modify-catalog-secret"></a>카탈로그 암호 수정
-      azure datalake analytics catalog secret set -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
-
-### <a name="delete-catalog-secret"></a>카탈로그 암호 삭제
-    azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
 <!-- ################################ -->
 <!-- ################################ -->

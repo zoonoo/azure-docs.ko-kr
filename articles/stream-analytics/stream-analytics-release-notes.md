@@ -15,19 +15,39 @@ ms.workload: data-services
 ms.date: 05/03/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6a5ec66172e7920a89ff8c0592224f01f19c9e41
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: e1ab8dd89c0590c8ee309a032efc17edeacf4d0e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="stream-analytics-release-notes"></a>Stream Analytics 릴리스 정보
 
+## <a name="notes-for-06142017-update-of-stream-analytics-tools-for-visual-studio"></a>Stream Analytics Tools for Visual Studio 06/14/2017 업데이트 정보
+이 업데이트는 Visual Studio Tools에 대한 내용입니다. 이 릴리스에는 다음과 같은 새로운 기능이 포함되어 있습니다.
+
+| 제목 | 설명 |
+| --- | --- |
+| Java 스크립트 편집기 지원 |java 스크립트 함수를 만든 후 원시 java 스크립트 편집기 환경을 즐길 수 있습니다.|
+| 작업 실행 시간 오류 메시지 보기 | 작업 실행 중에 런타임 오류가 있는 경우 표시 시간 창을 조정하여 오류 탭에서 이를 확인할 수 있습니다. 기본적으로 마지막 30분 동안의 오류 메시지를 보여 줍니다. |
+| 로컬 테스트 입력에 대한 CSV 및 Avro 지원 | JSON,외에도 이제 로컬 테스트 입력에 CSV 및 Avro 파일 형식을 사용할 수 있습니다.|
+
 ## <a name="notes-for-05032017-update-of-stream-analytics"></a>Stream Analytics의 2017/05/03 업데이트에 대한 정보
 이 업데이트는 문제 해결 설명서 릴리스용입니다.
 
 [문제 해결 가이드](stream-analytics-troubleshooting-guide.md) 및 다른 문서가 릴리스되었습니다. 검토해 보시고 의견을 보내 주세요.
+
+## <a name="notes-for-04242017-update-of-stream-analytics-tools-for-visual-studio"></a>Stream Analytics Tools for Visual Studio 04/24/2017 업데이트 정보
+이 업데이트는 Visual Studio Tools에 대한 내용입니다. 이 릴리스에는 다음과 같은 새로운 기능이 포함되어 있습니다.
+
+| 제목 | 설명 |
+| --- | --- |
+| Visual Studio에서 로컬 테스트 결과 보기 | 로컬 테스트의 출력 결과를 보려면 출력 콘솔 창에서 ENTER 키를 누르거나 창을 닫습니다. 결과는 Visual Studio의 창에 테이블 형식으로 표시됩니다. |
+| JSON 형식의 출력 로컬 결과 | 로컬 테스트를 실행하는 경우 JSON 및 CSV 파일 형식으로 출력 결과가 생성됩니다. |
+| Blob/Table Storage 입/출력 데이터 미리 보기 | 작업 보기에서 Blob 또는 Table Storage 입/출력을 두 번 클릭하면 Visual Studio 내에서 데이터를 매우 쉽게 미리 볼 수 있습니다. |
+| 입/출력에 대한 오류 메시지 보기 | 작업의 입력 또는 출력과 관련된 몇 가지 런타임 오류가 있는 경우 오류가 작업 다이어그램에 표시되며 마우스로 오류를 가리키면 자세한 오류 메시지가 표시됩니다.|
+
 
 ## <a name="notes-for-02012017-release-of-stream-analytics"></a>Stream Analytics 2017/02/01 릴리스 정보
 이 릴리스에는 다음 업데이트가 포함됩니다.
@@ -147,7 +167,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
-* [Azure Stream Analytics 사용 시작](stream-analytics-get-started.md)
+* [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
 * [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 * [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)

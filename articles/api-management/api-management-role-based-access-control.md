@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: b048a1db135d217b319541b92cf3c30b345d1a66
-ms.openlocfilehash: cedab98452ad336748d805f0efbf50633badf8ab
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: fa757a591d788f52d759bc24accedd3c55149ae7
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -31,7 +33,7 @@ API Management는 현재 3가지 기본 제공 역할을 제공하며 곧 2가�
 
 | 역할          | 읽기 액세스<sup>[1]</sup> | 쓰기 액세스<sup>[2]</sup> | 서비스 만들기, 삭제, 크기 조정, VPN 및 사용자 지정 도메인 구성 | 기존 게시자 포털에 대한 액세스 | 설명
 | ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
-| API Management 서비스 참가자 | ✓ | ✓  | ✓  | ✓ | 슈퍼 사용자. API Management 서비스 및 엔터티(예: API, 정책)에 대한 전체 CRUD 액세스 권한을 보유합니다. 기존 게시자 포털에 대한 액세스 권한을 보유합니다. |
+| API Management 서비스 참가자 | ✓ | ✓ | ✓ | ✓ | 슈퍼 사용자. API Management 서비스 및 엔터티(예: API, 정책)에 대한 전체 CRUD 액세스 권한을 보유합니다. 기존 게시자 포털에 대한 액세스 권한을 보유합니다. |
 | Azure API Management 서비스 독자 | ✓ | | || API Management 서비스 및 엔터티에 대한 읽기 전용 액세스 권한을 보유합니다. |
 | Azure API Management 서비스 연산자 | ✓ | | ✓ | | 엔터티가 아닌 API Management 서비스를 관리할 수 있습니다.|
 | Azure API Management 서비스 편집기<sup>*</sup> | ✓ | ✓ | |  | API Management 엔터티는 관리할 수 있지만 서비스는 관리할 수 없습니다.|
@@ -73,9 +75,4 @@ New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinit
   * [Azure 포털에서 액세스 관리 시작](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-what-is/)
   * [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-what-is/)
   * [Azure RBAC에서 사용자 지정 역할](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

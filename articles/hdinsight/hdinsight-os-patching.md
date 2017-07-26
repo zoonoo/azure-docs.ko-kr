@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: f39dfdff2239bb0b55eca50a1e7c706a5408b83a
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -47,7 +48,7 @@ ms.lasthandoff: 03/22/2017
 
 이 스크립트를 사용하는 경우 다음 정보가 필요합니다.
 1. 스크립트 위치: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh
-     HDInsight는 이 URI를 사용하여 클러스터의 모든 가상 컴퓨터에서 스크립트를 찾아 실행합니다.
+    HDInsight는 이 URI를 사용하여 클러스터의 모든 가상 컴퓨터에서 스크립트를 찾아 실행합니다.
   
 2. 스크립트를 적용하는 클러스터 노드 유형: 헤드 노드, workernode, zookeeper 이 스크립트는 클러스터의 모든 노드 유형에 적용되어야 합니다. 노드 유형에 적용되지 않으면 해당 노드 유형인 가상 컴퓨터는 계속 이전 패치 일정을 사용합니다.
 

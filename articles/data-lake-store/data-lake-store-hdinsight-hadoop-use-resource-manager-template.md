@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/06/2017
+ms.date: 05/04/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: cfa0320b6c83cf169c64eb5f1932e96bd172f827
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
+ms.openlocfilehash: 6f43423096f0e74f41afea275e4ec9801dc2cea5
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/19/2017
 
 
 ---
@@ -38,12 +39,9 @@ Azure PowerShell을 사용하여 Azure Data Lake Store에서 HDInsight 클러스
 
 Data Lake Store에서 HDInsight를 사용하는 몇 가지 중요한 고려 사항은 다음과 같습니다.
 
-* 기본 저장소로 Data Lake Store에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.5에서 사용할 수 있습니다.
+* 기본 저장소로 Data Lake Store에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.5 및 3.6에서 사용할 수 있습니다.
 
-* 추가 저장소로 Data Lake Store에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.2, 3.4 및 3.5에서 사용할 수 있습니다.
-
-* HBase 클러스터(Windows 및 Linux)의 경우 Data Lake Store는 기본 저장소뿐만 아니라 추가 저장소에 대해서도 저장소 옵션으로 **지원되지 않습니다**.
-
+* 추가 저장소로 Data Lake Store에 액세스할 수 있는 HDInsight 클러스터를 만드는 옵션은 HDInsight 버전 3.2, 3.4, 3.5 및 3.6에서 사용할 수 있습니다.
 
 이 문서에서 데이터 레이크 저장소를 추가 저장소로 사용하여 Hadoop 클러스터를 프로비저닝합니다. 기본 저장소로 Data Lake Store를 사용하여 Hadoop 클러스터를 만드는 방법에 대한 지침은 [Azure Portal을 사용하여 Data Lake 저장소를 포함한 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
 
@@ -93,7 +91,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
    ```
    hive
    ```
-2. CLI를 사용하여 다음 문을 입력하여 Data Lake 저장소에서 샘플 데이터를 사용한 **vehicles** 라는 새 테이블을 만듭니다.
+2. CLI를 사용하여 다음 문을 입력하여 Data Lake 저장소에서 샘플 데이터를 사용한 **vehicles**라는 새 테이블을 만듭니다.
 
    ```
    DROP TABLE vehicles;

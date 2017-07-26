@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/14/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 69316d271fc4847565d183293013580b61695731
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 024f2ea5ba574444bc096d655a8aa9f313f7f2fe
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -32,9 +32,10 @@ Cloud Shell을 사용하면 각 세션이 별도의 Bash 프로세스로 존재�
 
 ## <a name="restart-cloud-shell"></a>Cloud Shell 다시 시작
 ![](media/recycle.png)
-* Cloud Shell 컴퓨터를 다시 설정하려면 도구 모음에서 다시 시작 아이콘을 클릭합니다.
+> [!WARNING]
+> Cloud Shell을 다시 시작하면 컴퓨터 상태가 다시 설정되고 파일 공유에서 유지하지 않는 파일은 모두 손실됩니다.
 
-> ![경고] Cloud Shell을 다시 시작하면 컴퓨터 상태가 다시 설정되고 클라우드 드라이브에서 유지하지 않는 파일은 모두 손실됩니다.
+* Cloud Shell 컴퓨터를 다시 설정하려면 도구 모음에서 다시 시작 아이콘을 클릭합니다.
 
 ## <a name="minimize--maximize-cloud-shell-window"></a>Cloud Shell 창 최소화 및 최대화
 ![](media/minmax.png)

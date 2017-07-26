@@ -12,13 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 03/02/2017
+ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: 12b121783f6d95a952441f1a570d58af9ec1eb7a
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 465306d2de8d1dbe6ba1f0cd74be720b78a50de3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -153,10 +154,11 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 종속성 작업은 상위 태스크에 대한 종료 조건을 기반으로 합니다. 다음과 같은 종료 조건에 대한 종속성 작업을 지정할 수 있습니다. .NET에 대한 세부 정보는 [ExitConditions][net_exitconditions]를 참조하세요.
 
-- 예약 오류가 발생할 경우
-- 태스크가 **ExitCodes** 속성에 정의된 종료 코드로 인해 종료되는 경우
+- 전처리 오류가 발생할 때
+- 파일을 업로드 오류가 발생할 때 태스크가 **exitCodes** 또는 **exitCodeRanges**를 통해 지정된 종료 코드로 인해 종료된 다음 파일 업로드 오류가 발생하면 해당 종료 코드로 지정된 작업이 우선적으로 적용됩니다.
+- 태스크가 **ExitCodes** 속성으로 정의된 종료 코드로 인해 종료되는 경우
 - 태스크가 **ExitCodeRanges** 속성에서 지정한 범위 내에서 실패한 종료 코드로 인해 종료되는 경우
-- 기본적으로 태스크가 **ExitCodes** 또는 **ExitCodeRanges**에서 정의되지 않은 종료 코드로 인해 종료되거나 예약 오류로 인해 종료되고 **SchedulingError** 속성이 설정되지 않은 경우 
+- 기본적인 경우(태스크가 **ExitCodes** 또는 **ExitCodeRanges**로 정의되지 않은 종료 코드로 인해 종료되거나 태스크가 전처리 오류와 함께 종료되고 **PreProcessingError** 속성이 설정되지 않았거나, 태스크가 파일 업로드 오류로 인해 실패하고 **FileUploadError** 속성이 설정되지 않은 경우) 
 
 .NET의 종속성 작업을 지정하려면 종료 조건에 대한 [ExitOptions][net_exitoptions].[DependencyAction][net_dependencyaction] 속성을 설정합니다. **DependencyAction** 속성은 다음 두 값 중 하나를 사용합니다.
 
@@ -165,29 +167,29 @@ new CloudTask("4", "cmd.exe /c echo 4")
 
 **DependencyAction** 속성에 대한 기본 설정은 종료 코드 0의 경우 **충족**이고 다른 모든 종료 조건의 경우 **차단**입니다.
 
-다음 코드 조각에서는 상위 태스크에 대한 **DependencyAction** 속성을 설정합니다. 예약 오류 또는 지정된 오류 코드로 인해 상위 태스크가 종료되면 종속 태스크가 차단됩니다. 상위 태스크가 다른&0;이 아닌 오류로 인해 종료되면 종속 태스크를 실행할 수 있습니다.
+다음 코드 조각에서는 상위 태스크에 대한 **DependencyAction** 속성을 설정합니다. 전처리 오류 또는 지정된 오류 코드로 인해 상위 태스크가 종료되면 종속 태스크가 차단됩니다. 상위 태스크가 다른 0이 아닌 오류로 인해 종료되면 종속 태스크를 실행할 수 있습니다.
 
 ```csharp
 // Task A is the parent task.
 new CloudTask("A", "cmd.exe /c echo A")
 {
     // Specify exit conditions for task A and their dependency actions.
-    ExitConditions = new ExitConditions()
+    ExitConditions = new ExitConditions
     {
-        // If task A exits with a scheduling error, block any downstream tasks (in this example, task B).
-        SchedulingError = new ExitOptions()
+        // If task A exits with a pre-processing error, block any downstream tasks (in this example, task B).
+        PreProcessingError = new ExitOptions
         {
             DependencyAction = DependencyAction.Block
         },
         // If task A exits with the specified error codes, block any downstream tasks (in this example, task B).
-        ExitCodes = new List<ExitCodeMapping>()
+        ExitCodes = new List<ExitCodeMapping>
         {
             new ExitCodeMapping(10, new ExitOptions() { DependencyAction = DependencyAction.Block }),
             new ExitCodeMapping(20, new ExitOptions() { DependencyAction = DependencyAction.Block })
         },
         // If task A succeeds or fails with any other error, any downstream tasks become eligible to run 
         // (in this example, task B).
-        Default = new ExitOptions()
+        Default = new ExitOptions
         {
             DependencyAction = DependencyAction.Satisfy
         }

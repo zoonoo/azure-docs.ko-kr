@@ -1,5 +1,5 @@
 ---
-title: "웹 브라우저를 사용하여 Azure HDInsight(Hadoop) 만들기 | Microsoft Docs"
+title: "웹 브라우저를 사용하여 Hadoop 클러스터 만들기 - Azure HDInsight | Microsoft Docs"
 description: "웹 브라우저와 Azure Preview 포털을 사용하여 Linux 기반 HDInsight에서 Hadoop, HBase, Storm 또는 Spark 클러스터를 만드는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 030935ec304cc9b26bd2369fdadf2d99bd094c5d
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 678b2847f9bf39995fa214f181a05c96df9e49f2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -41,11 +41,11 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **+**, **인텔리전스 + 분석** 및 **HDInsight**를 차례로 클릭합니다.
    
-    ![Azure Portal에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Azure Portal에서 새 클러스터 만들기")
+    ![Azure Portal에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster.png "Azure Portal에서 새 클러스터 만들기")
 
 3. **HDInsight** 블레이드에서 **(크기, 설정, 응용 프로그램) 사용자 지정**을 클릭한 다음 **기본 사항**을 클릭하고 다음 정보를 입력합니다.
 
-    ![Azure Portal에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.basics.png "Azure Portal에서 새 클러스터 만들기")
+    ![Azure Portal에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-basics.png "Azure Portal에서 새 클러스터 만들기")
 
     * **클러스터 이름**입력: 이 이름은 전역적으로 고유해야 합니다.
 
@@ -55,10 +55,10 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
    
         * **클러스터 유형**: 어떤 유형을 선택할지 잘 모르는 경우 **Hadoop**을 선택합니다. 가장 인기 있는 클러스터 유형입니다.
      
-             > [!IMPORTANT]
-             > HDInsight 클러스터는 작업 부하 또는 클러스터에 대한 튜닝 기술에 해당하는 다양한 형식을 제공합니다. 하나의 클러스터에서 Storm 및 HBase 등의 여러 유형을 결합하는 클러스터를 만들기 위해 지원되는 메서드가 없습니다. 
-             > 
-             > 
+            > [!IMPORTANT]
+            > HDInsight 클러스터는 작업 부하 또는 클러스터에 대한 튜닝 기술에 해당하는 다양한 형식을 제공합니다. 하나의 클러스터에서 Storm 및 HBase 등의 여러 유형을 결합하는 클러스터를 만들기 위해 지원되는 메서드가 없습니다. 
+            > 
+            > 
         
         * **운영 체제**: **Linux**를 선택합니다.
         
@@ -75,11 +75,11 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
 
     * 클러스터를 만들 데이터 센터 **위치**를 지정합니다.
 
-    * **다음**을 클릭합니다.
+    * **다음**을 누릅니다.
 
 4. **저장소** 블레이드에서 Azure Storage(WASB) 또는 Data Lake Store를 기본 저장소로 사용할지 여부를 지정합니다. 자세한 내용은 아래 테이블을 살펴보세요.
 
-    ![Azure Portal에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.storage.png "Azure Portal에서 새 클러스터 만들기")
+    ![Azure Portal에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Azure Portal에서 새 클러스터 만들기")
 
     | 저장소                                      | 설명 |
     |----------------------------------------------|-------------|
@@ -87,7 +87,7 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
     | **기본 저장소로 Azure Data Lake Store** | **기본 저장소 유형**에서 **데이터 레이크 저장소**를 선택하고 지침은 [Azure Portal을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 문서를 참조합니다. |
     | **외부 Metastore**                      | 필요에 따라 SQL Database를 지정하여 클러스터와 연결된 Hive 및 Oozie 메타데이터를 저장할 수 있습니다. **Hive용 SQL Database 사용**에 대해 SQL Database를 클릭하고 데이터베이스의 사용자 이름/암호를 입력합니다. Oozie 메타데이터에 대해 이러한 단계를 반복합니다.<br><br>metastores에 대한 Azure SQL Database를 사용하는 동안 몇 가지 고려 사항입니다. <ul><li>메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.</li><li>Metastore를 만들 때 클러스터를 만드는 프로세스가 실패할 수 있으므로 대시 또는 하이픈을 포함하는 데이터베이스 이름을 사용하지 않습니다.</li></ul>                                                                                                                                                                       |
 
-    **다음**을 클릭합니다. 
+    **다음**을 누릅니다. 
 
     > [!WARNING]
     > HDInsight 클러스터와 다른 위치에서는 추가 저장소 계정을 사용할 수 없습니다.
@@ -97,7 +97,7 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
 
 6. **클러스터 크기**를 클릭하여 이 클러스터에 대해 만들어질 노드에 대한 정보를 표시합니다. 클러스터에 필요한 작업자 노드 수를 설정합니다. 클러스터의 예상 비용이 블레이드 내에 표시됩니다.
    
-    ![노드 가격 책정 계층 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.nodes.png "클러스터 노드 수 지정")
+    ![노드 가격 책정 계층 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-nodes.png "클러스터 노드 수 지정")
    
    > [!IMPORTANT]
    > 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
@@ -110,18 +110,18 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
 
 7. **고급 설정**을 클릭하여 **스크립트 작업**을 사용하는 등 다른 선택적 설정을 구성하고 **가상 네트워크**에 조인하여 사용자 지정 구성 요소를 설치하도록 클러스터를 사용자 지정합니다. 자세한 내용은 아래 테이블을 살펴보세요.
 
-    ![노드 가격 책정 계층 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.advanced.png "클러스터 노드 수 지정")
+    ![노드 가격 책정 계층 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "클러스터 노드 수 지정")
 
     | 옵션 | 설명 |
     |--------|-------------|
     | **스크립트 작업** | 클러스터를 만들 때 사용자 지정 스크립트를 사용하여 클러스터를 사용자 지정하려는 경우에 이 옵션을 사용합니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요. |
     | **Virtual Network** | 클러스터를 가상 네트워크에 배치하려는 경우 Azure Virtual Network 및 서브넷을 선택합니다. 가상 네트워크에 대한 특정 구성 요구 사항을 포함하여 가상 네트워크로 HDInsight를 사용하는 방법에 대한 자세한 내용은 [Azure 가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요. |
 
-    **다음**을 클릭합니다.
+    **다음**을 누릅니다.
 
 8. **요약** 블레이드에서 이전에 입력한 정보를 확인한 다음 **만들기**를 클릭합니다.
 
-    ![노드 가격 책정 계층 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.summary.png "클러스터 노드 수 지정")
+    ![노드 가격 책정 계층 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "클러스터 노드 수 지정")
     
     > [!NOTE]
     > 클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 프로비전 프로세스를 확인하세요.
@@ -129,7 +129,7 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
     > 
 12. 생성 프로세스가 완료되면 시작 보드에서 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다. 클러스터 블레이드에서는 다음 정보를 제공합니다.
     
-    ![클러스터 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.completed.png "클러스터 속성")
+    ![클러스터 블레이드](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "클러스터 속성")
     
     다음을 사용하여 이 블레이드의 위쪽에 있는 아이콘을 이해합니다.
     

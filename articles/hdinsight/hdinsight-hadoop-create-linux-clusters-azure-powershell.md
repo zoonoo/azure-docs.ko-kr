@@ -1,5 +1,5 @@
 ---
-title: "PowerShell을 사용하여 Azure HDInsight(Hadoop) 만들기 | Microsoft Docs"
+title: "PowerShell를 사용하여 Hadoop 클러스터 만들기 - Azure HDInsight | Microsoft Docs"
 description: "Azure PowerShell을 사용하여 Linux 기반 HDInsight에서 Hadoop, HBase, Storm 또는 Spark 클러스터를 만드는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: f22fc9e9306d34b66e89966a0f4485461539899d
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: ca75974e6ec4f60739137d4cb5458bbfd735de3e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
@@ -55,69 +55,16 @@ Azure PowerShell을 사용하여 HDInsight 클러스터를 만들려면 다음 �
 * Azure Blob 컨테이너 만들기
 * HDInsight 클러스터 만들기
 
-Linux 클러스터를 만들기 위해 설정해야 하는 두 가지 중요한 매개 변수는 OS 종류를 지정하는 매개 변수와 SSH 사용자 정보를 지정하는 매개 변수입니다.
-
-* **-OSType** 매개 변수는 **Linux**로 지정해야 합니다.
-* 클러스터의 원격 세션에 SSH를 사용하기 위해 SSH 사용자 암호 또는 SSH 공개 키를 지정할 수 있습니다. SSH 사용자 암호와 SSH 공개 키를 둘 다 지정한 경우에는 키가 무시됩니다. 원격 세션에 SSH 키를 사용하려면 SSH 암호를 묻는 메시지가 나타날 때 빈 SSH 암호를 지정해야 합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-
 다음 스크립트는 새 클러스터를 만드는 방법을 보여 줍니다.
 
-    $token ="<SpecifyAnUniqueString>"
-    $subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
+[!code-powershell[기본](../../powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-71)]
 
-    $resourceGroupName = $token + "rg"      # Provide a Resource Group name
-    $clusterName = $token
-    $defaultStorageAccountName = $token + "store"   # Provide a Storage account name
-    $defaultStorageContainerName = $token + "container"
-    $location = "East US 2"     # Change the location if needed
-    $clusterNodes = 1           # The number of nodes in the HDInsight cluster
+클러스터 로그인에 대해 지정한 값은 클러스터의 Hadoop 사용자 계정을 만드는 데 사용됩니다. 이 계정을 사용하여 웹 UI 또는 REST API 등의 클러스터에서 호스팅된 서비스에 연결합니다.
 
-    # Sign in to Azure
-    Login-AzureRmAccount
-
-    # Select the subscription to use if you have multiple subscriptions
-    Select-AzureRmSubscription -SubscriptionId $subscriptionID
-
-    # Create an Azure Resource Group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-
-    # Create an Azure Storage account and container used as the default storage
-    New-AzureRmStorageAccount `
-        -ResourceGroupName $resourceGroupName `
-        -StorageAccountName $defaultStorageAccountName `
-        -Location $location `
-        -Type Standard_LRS
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $defaultStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
-    $destContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
-    New-AzureStorageContainer -Name $defaultStorageContainerName -Context $destContext
-
-    # Create an HDInsight cluster
-    $credentials = Get-Credential -Message "Enter Cluster user credentials" -UserName "admin"
-    $sshCredentials = Get-Credential -Message "Enter SSH user credentials"
-
-    # The location of the HDInsight cluster must be in the same data center as the Storage account.
-    $location = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $defaultStorageAccountName | %{$_.Location}
-
-    New-AzureRmHDInsightCluster `
-        -ClusterName $clusterName `
-        -ResourceGroupName $resourceGroupName `
-        -HttpCredential $credentials `
-        -Location $location `
-        -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultStorageContainer $defaultStorageContainerName  `
-        -ClusterSizeInNodes $clusterNodes `
-        -ClusterType Hadoop `
-        -OSType Linux `
-        -Version "3.4" `
-        -SshCredential $sshCredentials
-
-**$clusterCredentials** 에 대해 지정한 값은 클러스터의 Hadoop 사용자 계정을 만드는 데 사용됩니다. 이 계정을 사용하여 클러스터에 연결합니다.
-
-**$sshCredentials** 에 대해 지정한 값은 클러스터의 SSH 사용자를 만드는 데 사용됩니다. 이 계정을 사용하여 클러스터에서 원격 SSH 세션을 시작하고 작업을 실행합니다.
+SSH 사용자에 대해 지정한 값은 클러스터의 SSH 사용자를 만드는 데 사용됩니다. 이 계정을 사용하여 클러스터에서 원격 SSH 세션을 시작하고 작업을 실행합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
 
 > [!IMPORTANT]
-> 이 스크립트에서 클러스터에 있을 작업자 노드의 수를 지정해야 합니다. 클러스터를 생성할 때 또는 생성 후 클러스터를 확장할 때 32개 이상의 작업자 노드를 사용하려는 경우 최소한 8개의 노드와 14GB RAM으로 헤드 노드의 크기를 지정해야 합니다.
+> 클러스터를 생성할 때 또는 생성 후 클러스터를 확장할 때 32개 이상의 작업자 노드를 사용하려는 경우 최소한 8개의 노드와 14GB RAM으로 헤드 노드의 크기를 지정해야 합니다.
 >
 > 노드 크기 및 관련된 비용에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
@@ -129,43 +76,7 @@ Linux 클러스터를 만들기 위해 설정해야 하는 두 가지 중요한 
 
 다음 스크립트는 HDInsight 클러스터 유형에 R Server를 구성하기 위해 구성 개체를 만듭니다. 이 구성은 에지 노드, RStudio, 추가 저장소 계정을 활성화합니다.
 
-    # Create another storage account used as additional storage account
-    $additionalStorageAccountName = $token + "store2"
-    New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName `
-        -StorageAccountName $additionalStorageAccountName `
-        -Location $location `
-        -Type Standard_LRS
-    $additionalStorageAccountKey = (Get-AzureRmStorageAccountKey -Name $additionalStorageAccountName -ResourceGroupName $resourceGroupName)[0].Value
-
-    # Create a new configuration for RServer cluster type
-    # Use -EdgeNodeSize to set the size of the edge node for RServer clusters
-    # if you want a specific size. Otherwise, the default size is used.
-    $config = New-AzureRmHDInsightClusterConfig `
-        -ClusterType "RServer" `
-        -EdgeNodeSize "Standard_D12_v2"
-
-    # Add RStudio to the configuration
-    $rserverConfig = @{"RStudio"="true"}
-    $config = $config | Add-AzureRmHDInsightConfigValues `
-        -RServer $rserverConfig
-
-    # Add an additional storage account
-    Add-AzureRmHDInsightStorage -Config $config -StorageAccountName "$additionalStorageAccountName.blob.core.windows.net" -StorageAccountKey $additionalStorageAccountKey
-
-    # Create a new HDInsight cluster
-    New-AzureRmHDInsightCluster `
-        -ClusterName $clusterName `
-        -ResourceGroupName $resourceGroupName `
-        -HttpCredential $credentials `
-        -Location $location `
-        -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultStorageContainer $defaultStorageContainerName  `
-        -ClusterSizeInNodes $clusterNodes `
-        -OSType Linux `
-        -Version "3.5" `
-        -SshCredential $sshCredentials `
-        -Config $config
+[!code-powershell[기본](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 
 > [!WARNING]
 > HDInsight 클러스터와 다른 위치에서는 저장소 계정을 사용할 수 없습니다. 이 예제를 사용할 경우 서버와 동일한 위치에 추가 저장소 계정을 만듭니다.

@@ -1,5 +1,5 @@
 ---
-title: ".NET을 사용하여 Azure HDInsight(Hadoop) 만들기 | Microsoft Docs"
+title: ".NET를 사용하여 Hadoop 클러스터 만들기 - Azure HDInsight | Microsoft Docs"
 description: "HDInsight .NET SDK를 사용하여 Linux 기반 HDInsight에서 Hadoop, HBase, Storm 또는 Spark 클러스터를 만드는 방법을 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 04/27/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 173869858ba7891fcea8a0207e9b192b81ae4840
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 823508c0bd9e379361dd26f70b3960259a8d4292
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---

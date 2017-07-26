@@ -1,5 +1,5 @@
 ---
-title: "Hadoop에서 웹 사이트 로그 분석에 Hive 사용 | Microsoft Docs"
+title: "Hadoop에서 웹 사이트 로그 분석에 Hive 사용 - Azure HDInsight | Microsoft Docs"
 description: "HDInsight와 함께 Hive를 사용하여 웹 사이트 로그를 분석하는 방법에 대해 알아봅니다. 로그 파일을 HDInsight 테이블에 대한 입력으로 사용하고 HiveQL을 사용해 데이터를 쿼리합니다."
 services: hdinsight
 documentationcenter: 
@@ -17,10 +17,10 @@ ms.date: 05/17/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3322a585de591010925efe8699cc48e32bd8a607
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: caa7881e8139f86af7c95c23cac5b3eaf1587dc8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

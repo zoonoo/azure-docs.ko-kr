@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/15/2017
+ms.date: 06/13/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 0b8de346d8209dcfd665baf18ce054e5556a883b
+ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
+ms.openlocfilehash: 06c09658d09bc05d2f5e2a0f17a9047ee8044486
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/21/2017
 
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>MirrorMaker를 사용하여 HDInsight에서 Kafka와 함께 Apache Kafka 토픽 복제(미리 보기)
@@ -68,9 +68,12 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 
 1. Azure에 로그인하고 Azure Portal에서 템플릿을 열려면 다음 단추를 사용합니다.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure Resource Manager 템플릿은 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.json**에 있습니다.
+    Azure Resource Manager 템플릿은 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**에 있습니다.
+
+    > [!WARNING]
+    > HDInsight에서 Kafka의 사용 가능성을 보장하려면 클러스터에 작업자 노드가 3개 이상 포함되어야 합니다. 이 템플릿은 세 개의 작업자 노드를 포함하는 Kafka 클러스터를 만듭니다.
 
 2. 다음 정보를 사용하여 **사용자 지정 배포** 블레이드의 항목을 채웁니다.
     
@@ -104,30 +107,32 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 ## <a name="create-topics"></a>토픽 만들기
 
 1. SSH를 사용하여 **원본** 클러스터에 연결합니다.
-   
-        ssh sshuser@source-BASENAME-ssh.azurehdinsight.net
-   
+
+    ```bash
+    ssh sshuser@source-BASENAME-ssh.azurehdinsight.net
+    ```
+
     **sshuser**은 클러스터를 만들 때 사용한 SSH 사용자 이름으로 바꿉니다. **BASENAME**은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
-   
+
     자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. 다음 명령을 사용하여 Zookeeper 호스트를 찾고 `SOURCE_ZKHOSTS` 변수를 설정한 다음 `testtopic`이라는 새 토픽을 여러 개 만듭니다.
-   
+
     ```bash
     SOURCE_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
     ```
 
 3. 다음 명령을 사용하여 토픽이 만들어졌는지 확인합니다.
-   
+
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $SOURCE_ZKHOSTS
     ```
-   
+
     응답에 `testtopic`이 있습니다.
 
 4. 다음 명령을 사용하여 이 클러스터(**원본**)에 대한 Zookeeper 호스트 정보를 봅니다.
-   
+
     ```bash
     echo $SOURCE_ZKHOSTS
     ```
@@ -141,40 +146,44 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 ## <a name="configure-mirroring"></a>미러링 구성
 
 1. 다른 SSH 세션을 사용하여 **대상** 클러스터에 연결합니다.
-   
-        ssh sshuser@dest-BASENAME-ssh.azurehdinsight.net
-   
+
+    ```bash
+    ssh sshuser@dest-BASENAME-ssh.azurehdinsight.net
+    ```
+
     **sshuser**은 클러스터를 만들 때 사용한 SSH 사용자 이름으로 바꿉니다. **BASENAME**은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
-   
+
     자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. 다음 명령을 사용하여 **원본** 클러스터와 통신하는 방법을 설명하는 `consumer.properties` 파일을 만듭니다.
-   
+
     ```bash
     nano consumer.properties
     ```
-   
+
     `consumer.properties` 파일의 내용으로 다음 텍스트를 사용합니다.
-   
-        zookeeper.connect=SOURCE_ZKHOSTS
-        group.id=mirrorgroup
-   
+
+    ```yaml
+    zookeeper.connect=SOURCE_ZKHOSTS
+    group.id=mirrorgroup
+    ```
+
     **SOURCE_ZKHOSTS**를 **원본** 클러스터의 Zookeeper 호스트 정보로 바꿉니다.
-   
+
     이 파일은 원본 Kafka 클러스터에서 읽을 때 사용할 소비자 정보를 설명합니다. 소비자 구성에 대한 자세한 내용은 kafka.apache.org의 [소비자 구성](https://kafka.apache.org/documentation#consumerconfigs)(영문)을 참조하세요.
-   
+
     파일을 저장하려면 **Ctrl + X**, **Y** 및 **Enter** 키를 사용합니다.
 
 3. 대상 클러스터와 통신하는 생산자를 구성하기 전에 **대상** 클러스터에 대한 broker 호스트를 찾아야 합니다. 다음 명령을 사용하여 이 정보를 검색합니다.
-   
+
     ```bash
     sudo apt -y install jq
     DEST_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
     echo $DEST_BROKERHOSTS
     ```
-   
+
     이러한 명령은 다음과 비슷한 정보를 반환합니다.
-   
+
         wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092
 
 4. 다음을 사용하여 **대상** 클러스터와 통신하는 방법을 설명하는 `producer.properties` 파일을 만듭니다.
@@ -184,42 +193,44 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
     ```
 
     `producer.properties` 파일의 내용으로 다음 텍스트를 사용합니다.
-   
-        bootstrap.servers=DEST_BROKERS
-        compression.type=none
-   
-    **DEST_BROKERS**를 이전 단계의 broker 정보로 바꿉니다. 
-   
+
+    ```yaml
+    bootstrap.servers=DEST_BROKERS
+    compression.type=none
+    ```
+
+    **DEST_BROKERS**를 이전 단계의 broker 정보로 바꿉니다.
+
     생산자 구성에 대한 자세한 내용은 kafka.apache.org의 [생산자 구성](https://kafka.apache.org/documentation#producerconfigs)(영문)을 참조하세요.
 
 ## <a name="start-mirrormaker"></a>MirrorMaker 시작
 
 1. **대상** 클러스터에 대한 SSH 연결에서 다음 명령을 사용하여 MirrorMaker 프로세스를 시작합니다.
-   
+
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.tools.MirrorMaker --consumer.config consumer.properties --producer.config producer.properties --whitelist testtopic --num.streams 4
     ```
-   
+
     이 예제에 사용된 매개 변수는 다음과 같습니다.
-   
+
     * **--consumer.config**: 소비자 속성이 포함된 파일을 지정합니다. 이러한 속성은 *원본* Kafka 클러스터에서 읽는 소비자를 만드는 데 사용됩니다.
 
     * **--producer.config**: 생산자 속성이 포함된 파일을 지정합니다. 이러한 속성은 *대상* Kafka 클러스터에 쓰는 생산자를 만드는 데 사용됩니다.
 
     * **--whitelist**: MirrorMaker를 통해 원본 클러스터에서 대상 클러스터로 복제하는 항목의 목록입니다.
-    
+
     * **--num.streams**: 생성할 소비자 스레드 수입니다.
-     
+
     시작할 때 MirrorMaker는 다음 텍스트와 비슷한 정보를 반환합니다.
-        
-    ```
+
+    ```json
     {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
     metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-kafka.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-2, security.protocol=PLAINTEXT}
     metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-1, security.protocol=PLAINTEXT}
     ```
 
 2. SSH 연결부터 **원본** 클러스터까지, 다음 명령을 사용하여 Producer를 시작하고 토픽에 메시지를 전송합니다.
-    
+
     ```bash
     sudo apt -y install jq
     SOURCE_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
@@ -229,13 +240,13 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
  커서로 빈 라인에 도달하면 몇 개의 텍스트 메시지를 입력합니다. 이러한 메시지는 **원본** 클러스터의 토픽으로 보내집니다. 완료되면 **Ctrl + C**를 클릭하여 프로듀서 프로세스를 종료합니다.
 
 3. **대상** 클러스터에 대한 SSH 연결에서 **Ctrl + C**를 사용하여 MirrorMaker 프로세스를 종료합니다. 그런 다음, 다음 명령을 사용하여 `testtopic` 항목이 만들어졌으며 항목의 해당 데이터가 이 미러로 복제되었는지 확인합니다.
-    
+
     ```bash
     DEST_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
-    
+
   이제 항목 목록에 MirrorMaster가 원본 클러스터에서 대상으로 토픽을 미러링할 때 만들어진 `testtopic`이(가) 포함됩니다. 이 항목에서 검색한 메시지는 원본 클러스터에 입력한 것과 동일합니다.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제

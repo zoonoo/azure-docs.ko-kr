@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 9c780d89093a6d29a22cd1e5504dcc36b39056ea
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: 0ebed0c2605862426384c0e219e52c9d626b6246
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
@@ -31,7 +31,7 @@ ScaleX Enterprise를 Azure AD와 통합하면 다음과 같은 이점이 제공�
 - 사용자의 Azure AD 계정으로 ScaleX Enterprise에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

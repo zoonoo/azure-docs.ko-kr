@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 8f544b781bbf11214183bc0f46215bb9e16c9f55
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 330f733440932a769eb0fe6031cd0d947a820080
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -40,9 +40,9 @@ Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 �
 
 연결을 만든 후 사용자 ID 등의 Office 365 사용자 속성을 입력합니다. 이 항목의 **REST API 참조** 에서는 이러한 속성에 대해 설명합니다.
 
-## <a name="view-the-swagger"></a>swagger 보기
+## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
-[swagger 정보](/connectors/officeusers/)를 참조하세요.
+[커넥터 세부 정보](/connectors/officeusers/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
 
 ## <a name="more-connectors"></a>추가 커넥터
 [API 목록](apis-list.md)으로 돌아갑니다.

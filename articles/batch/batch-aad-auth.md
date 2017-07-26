@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 92090975e8e4e38b3ea99045c226a2777ef86405
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 9c03bde919c46cd301229255c0b12ee69dda6f78
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -108,7 +108,11 @@ Azure AD에 응용 프로그램을 등록하는 방법에 대한 자세한 내�
 
 3. 응용 프로그램에 대한**설정** 블레이드를 엽니다. **API 액세스** 섹션에서 **필요한 사용 권한**을 선택합니다.
 4. **필요한 사용 권한** 블레이드에서 **추가** 단추를 클릭합니다.
-5. 1단계에서 **MicrosoftAzureBatch**를 검색하고 **Microsoft Azure Batch(MicrosoftAzureBatch)**를 선택하고 **선택** 단추를 클릭합니다.
+5. 1단계에서 Batch API를 검색합니다. API를 찾을 때까지 다음 문자열 각각을 검색합니다.
+    1. **MicrosoftAzureBatch**
+    2. **Microsoft Azure Batch** - 최신 Azure AD 테넌트에서는 이 이름을 사용할 수도 있습니다.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864**는 Batch API에 대한 ID입니다. 
+6. Batch API를 찾으면 해당 API를 선택하고 **선택** 단추를 클릭합니다.
 6. 2단계에서 **Azure Batch 서비스에 액세스** 옆의 확인란을 선택하고 **선택** 단추를 클릭합니다.
 7. **완료** 단추를 클릭합니다.
 

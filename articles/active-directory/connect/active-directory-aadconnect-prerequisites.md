@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 0ce1dbf9f2baf9369875370866690010fe8e9e37
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: eb9697edc5a6085417ec1339c334db6451ebbf12
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
@@ -63,7 +62,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect에서 사용하는 SQL Server
 * Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치됩니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 해야 합니다.
 * 별도의 SQL Server를 사용하는 경우 다음 요구 사항이 적용됩니다.
-  * Azure AD Connect는 SQL Server 2008(최신 서비스 팩)에서 SQL Server 2016까지 Microsoft SQL Server의 모든 버전을 지원합니다. Microsoft Azure SQL 데이터베이스는 데이터베이스로 **지원되지 않습니다** .
+  * Azure AD Connect는 SQL Server 2008(최신 서비스 팩)에서 SQL Server 2016 SP1까지 Microsoft SQL Server의 모든 버전을 지원합니다. Microsoft Azure SQL 데이터베이스는 데이터베이스로 **지원되지 않습니다** .
   * 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이러한 데이터 정렬은 이름에 \_CI_를 사용하여 식별됩니다. 이름에 \_CS_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은 **지원되지 않습니다**.
   * SQL 인스턴스당 동기화 엔진을 한 개만 사용할 수 있습니다. SQL 인스턴스를 FIM/MIM 동기화, DirSync 또는 Azure AD Sync와 공유하는 것은 **지원되지 않습니다**.
 
