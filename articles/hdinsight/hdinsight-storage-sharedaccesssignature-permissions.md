@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 05/22/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
-ms.openlocfilehash: 353ec1ff1973e3ffaab0f1c5e1a289407114071c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5cd05743425069925e71e85a616967c812bd3491
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -44,7 +44,7 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 * Linux 기반 HDInsight 클러스터 또는 [Azure PowerShell][powershell] - 기존 Linux 기반 클러스터가 있는 경우 Ambari를 사용하여 클러스터에 공유 액세스 서명을 추가할 수 있습니다. 그렇지 않으면 Azure PowerShell을 사용하여 클러스터를 만들고 클러스터를 만들 때 공유 액세스 서명을 추가합니다.
 
     > [!IMPORTANT]
-    > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+    > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)의 예제 파일입니다. 이 리포지토리에는 다음 항목이 포함됩니다.
 

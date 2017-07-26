@@ -16,10 +16,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: ca41ad125a63bea9a2a277a070aa6c8d631b634f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fa22c0dd4da1117980adb43c937197274f08760b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 05/26/2017
 이 자습서에서는 Twitter 스트리밍 API를 사용해 트윗을 가져온 다음 Azure HDInsight의 Apache Hive를 사용하여 특정 단어가 포함된 트윗을 가장 많이 보낸 Twitter 사용자 목록을 가져옵니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요. Linux 기반 클러스터에 대한 단계는 [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석(Linux)](hdinsight-analyze-twitter-data-linux.md)을 참조하세요.
+> 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 클러스터에 대한 단계는 [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석(Linux)](hdinsight-analyze-twitter-data-linux.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.

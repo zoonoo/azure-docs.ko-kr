@@ -17,10 +17,10 @@ ms.date: 05/17/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: caa7881e8139f86af7c95c23cac5b3eaf1587dc8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e1cdb786bb6049980aafc0213abf53013e342618
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 06/10/2017
 HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하는 방법에 대해 알아봅니다. 웹 사이트 로그 분석을 통해 비슷한 활동을 기준으로 대상을 구분하고, 인구 통계별로 사이트 방문자를 분류하고, 방문자가 보는 콘텐츠와 이전에 방문했던 웹 사이트 등을 확인할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> 이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. HDInsight는 HDInsight 3.4 이하 버전의 경우 Windows에서만 사용 가능합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 이 샘플에서는 HDInsight 클러스터를 사용하여 웹 사이트 로그 파일을 분석해 외부 웹 사이트로부터의 방문 빈도를 파악하고, 사용자에게 발생하는 웹 사이트 오류의 요약을 확인합니다. 다음 방법을 알게 됩니다.
 
