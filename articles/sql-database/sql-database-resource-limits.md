@@ -3,7 +3,7 @@ title: "Azure SQL Database 리소스 제한 | Microsoft Docs"
 description: "이 페이지에서는 Azure SQL 데이터베이스에 대한 몇 가지 일반적인 리소스 제한을 설명합니다."
 services: sql-database
 documentationcenter: na
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/12/2017
-ms.author: janeng
+ms.author: carlrab
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
 ms.openlocfilehash: a7887839b7a3672e824ed6662f6ba5dc4e318fab

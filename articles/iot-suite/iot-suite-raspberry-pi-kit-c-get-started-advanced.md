@@ -12,14 +12,13 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
 ms.translationtype: Human Translation
 ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: 971f23a01b53ed6d7d19438567392e0b43b57120
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/03/2017
-
 
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>Raspberry Pi 3를 원격 모니터링 솔루션에 연결하고 C를 사용하여 원격 펌웨어 업데이트를 사용하도록 설정
@@ -33,17 +32,17 @@ ms.lasthandoff: 05/03/2017
 
 이 자습서에서는 다음을 사용하여 작업을 수행합니다.
 
-- Raspbian OS, C 프로그래밍 언어 및 C용 Microsoft Azure IoT SDK를 사용하여 샘플 장치를 구현합니다.
-- 클라우드 기반 백 엔드로 미리 구성된 IoT Suite 원격 모니터링 솔루션
+* Raspbian OS, C 프로그래밍 언어 및 C용 Microsoft Azure IoT SDK를 사용하여 샘플 장치를 구현합니다.
+* 클라우드 기반 백 엔드로 미리 구성된 IoT Suite 원격 모니터링 솔루션
 
 ## <a name="overview"></a>개요
 
 이 자습서에서는 다음 단계를 완료합니다.
 
-- Azure 구독에서 미리 구성된 원격 모니터링 솔루션의 인스턴스를 배포합니다. 이 단계에서는 여러 Azure 서비스를 자동으로 배포하고 구성합니다.
-- 사용자 컴퓨터 및 원격 모니터링 솔루션과 통신하도록 장치 및 센서를 설정합니다.
-- 샘플 장치 코드를 업데이트하여 원격 모니터링 솔루션에 연결하고 솔루션 대시보드에서 볼 수 있는 원격 분석을 보냅니다.
-- 샘플 장치 코드를 사용하여 클라이언트 응용 프로그램을 업데이트합니다.
+* Azure 구독에서 미리 구성된 원격 모니터링 솔루션의 인스턴스를 배포합니다. 이 단계에서는 여러 Azure 서비스를 자동으로 배포하고 구성합니다.
+* 사용자 컴퓨터 및 원격 모니터링 솔루션과 통신하도록 장치 및 센서를 설정합니다.
+* 샘플 장치 코드를 업데이트하여 원격 모니터링 솔루션에 연결하고 솔루션 대시보드에서 볼 수 있는 원격 분석을 보냅니다.
+* 샘플 장치 코드를 사용하여 클라이언트 응용 프로그램을 업데이트합니다.
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-prerequisites](../../includes/iot-suite-raspberry-pi-kit-prerequisites.md)]
 
@@ -64,15 +63,18 @@ ms.lasthandoff: 05/03/2017
 
 아직 해당 작업을 수행하지 않은 경우 Pi에서 다음 명령을 실행하여 필요한 리포지토리를 복제합니다.
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git
+```
 
 ### <a name="update-the-device-connection-string"></a>장치 연결 문자열 업데이트
 
 다음 명령을 사용하여 **nano** 편집기에서 샘플 구성 파일을 엽니다.
 
-`nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/config/deviceinfo`
+```sh
+nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/config/deviceinfo
+```
 
 자리 표시자 값을 이 자습서를 시작할 때 만들어 저장한 장치 ID 및 IoT Hub 정보로 바꿉니다.
 
@@ -89,19 +91,23 @@ HostName=youriothubname.azure-devices.net;DeviceId=yourdeviceid;SharedAccessKey=
 
 아직 해당 작업을 수행하지 않은 경우 Raspberry Pi의 터미널에서 다음 명령을 실행하여 C용 Microsoft Azure IoT 장치 SDK의 필수 구성 요소 패키지를 설치합니다.
 
-`sudo apt-get update`
-
-`sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev`
+```sh
+sudo apt-get update
+sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev
+```
 
 이제 Raspberry Pi에서 샘플 솔루션을 빌드할 수 있습니다.
 
-`chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh`
-
-`~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh`
+```sh
+chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh
+~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh
+```
 
 이제 Raspberry Pi에서 샘플 프로그램을 실행할 수 있습니다. 다음 명령을 입력합니다.
 
-  `sudo ~/cmake/remote_monitoring/remote_monitoring`
+  ```sh
+  sudo ~/cmake/remote_monitoring/remote_monitoring
+  ```
 
 다음 샘플 출력은 Raspberry Pi의 명령 프롬프트에 표시되는 출력의 예입니다.
 

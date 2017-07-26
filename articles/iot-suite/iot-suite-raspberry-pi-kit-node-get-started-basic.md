@@ -12,14 +12,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/25/2017
 ms.author: dobett
 ms.translationtype: Human Translation
 ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: 6d8e6ef070c3b9d9623f4b29ab97a5d20f69d499
 ms.contentlocale: ko-kr
 ms.lasthandoff: 05/03/2017
-
 
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-telemetry-from-a-real-sensor-using-nodejs"></a>Raspberry Pi 3를 원격 모니터링 솔루션에 연결하고 Node.js를 사용하여 실제 센서에서 원격 분석 전송
@@ -60,33 +59,44 @@ Raspberry Pi에 Node.js를 설치합니다. Node.js용 IoT SDK에는 Node.js 0.1
 
 1. 다음 명령을 사용하여 Raspberry Pi를 업데이트합니다.
 
-    `sudo apt-get update`
+    ```sh
+    sudo apt-get update
+    ```
 
 1. 다음 명령을 사용하여 Raspberry Pi에 Node.js 이진 파일을 다운로드합니다.
 
-    `wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. 다음 명령을 사용하여 이진 파일을 설치합니다.
 
-    `sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. 다음 명령을 사용하여 Node.js v6.10.2를 성공적으로 설치했는지 확인합니다.
 
-    `node --version`
+    ```sh
+    node --version
+    ```
 
 ### <a name="clone-the-repositories"></a>리포지토리 복제
 
 아직 해당 작업을 수행하지 않은 경우 Pi에서 다음 명령을 실행하여 필요한 리포지토리를 복제합니다.
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
+```
 
 ### <a name="update-the-device-connection-string"></a>장치 연결 문자열 업데이트
 
 다음 명령을 사용하여 **nano** 편집기에서 샘플 원본 파일을 엽니다.
 
-`nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js`
+```sh
+nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js
+```
 
 다음과 같은 줄을 찾습니다.
 
@@ -100,13 +110,16 @@ var connectionString = 'HostName=[Your IoT hub name].azure-devices.net;DeviceId=
 
 다음 명령을 실행하여 이 샘플에 대한 필수 구성 요소 패키지를 설치합니다.
 
-`cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic`
-
-`npm install`
+```sh
+cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic
+npm install
+```
 
 이제 Raspberry Pi에서 샘플 프로그램을 실행할 수 있습니다. 다음 명령을 입력합니다.
 
-`sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js`
+```sh
+sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/basic/remote_monitoring.js
+```
 
 다음 샘플 출력은 Raspberry Pi의 명령 프롬프트에 표시되는 출력의 예입니다.
 
@@ -119,7 +132,6 @@ var connectionString = 'HostName=[Your IoT hub name].azure-devices.net;DeviceId=
 ## <a name="next-steps"></a>다음 단계
 
 Azure IoT에 대한 추가 샘플 및 설명서를 보려면 [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot/)를 방문하세요.
-
 
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-node-get-started-basic/app-output.png
 
