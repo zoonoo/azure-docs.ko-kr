@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 04/21/2017
+ms.date: 07/07/2017
 ms.author: kumud
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 07c16b63ff6af172ea68eb60cc7bf8109d2cd2d7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 69a7753cc75b028e2bf093053d9a5fc0890562e8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 06/08/2017
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli[기본](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "VM 빠른 생성")]
+[!code-azurecli-interactive[기본](../../../cli_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.sh "VM 빠른 생성")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
 

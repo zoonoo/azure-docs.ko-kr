@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 8ebb361ff5af1659f57e44c956c7b3763bfd18c3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ad2ba8688761a7fa2541906fe04987dfb1997a81
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -31,7 +31,7 @@ HDInsight는 클러스터를 사용자 지정하는 사용자 지정 스크립�
 > [!IMPORTANT]
 > 이미 실행 중인 클러스터에 스크립트 작업을 사용하는 기능은 Linux 기반 HDInsight 클러스터에만 제공됩니다.
 >
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 스크립트 작업을 Azure 마켓플레이스에 HDInsight 응용 프로그램으로 게시할 수도 있습니다. 이 문서의 일부 예제는 PowerShell 및.NET SDK의 스크립트 작업 명령을 사용하여 HDInsight 응용 프로그램을 설치하는 방법을 보여 줍니다. HDInsight 응용 프로그램에 대한 자세한 내용은 [Azure 마켓플레이스에 HDInsight 응용 프로그램 게시](hdinsight-apps-publish-applications.md)를 참조하세요.
 
@@ -663,8 +663,7 @@ Ambari 웹 UI를 사용하여 스크립트 작업에서 기록한 정보를 볼 
 
 * 같은 이름으로 반복해서 스크립트 작업 클러스터를 만들 수 있습니다. 이 경우에는 날짜 폴더 이름을 기준으로 관련 로그를 구분할 수 있습니다. 예를 들어, 서로 다른 날짜에 만든 클러스터(mycluster)의 폴더 구조는 다음 로그 항목과 유사하게 나타납니다.
 
-    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04`
-    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
+    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 
 * 같은 날 같은 이름으로 스크립트 작업 클러스터를 만든 경우 고유의 접두사를 사용하여 관련 로그 파일을 식별할 수 있습니다.
 

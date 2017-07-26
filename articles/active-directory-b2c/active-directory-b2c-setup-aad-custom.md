@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 6c073d70debfdc3560405955d65fa9ccaa7d8b1f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 976c4752cc3c3cc1c74adf7d57c3539d39aef556
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: Azure AD 계정을 사용하여 로그인
@@ -99,7 +98,7 @@ Azure AD B2C 테넌트에 contoso.com 응용 프로그램 키를 저장해야 �
                 <Protocol Name="OpenIdConnect"/>
                 <OutputTokenFormat>JWT</OutputTokenFormat>
                 <Metadata>
-                    <Item Key="METADATA">https://login.windows.net/contoso.com/.well-known/openid-configuration</Item>
+                    <Item Key="METADATA">https://login.microsoftonline.com/contoso.com/.well-known/openid-configuration</Item>
                     <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
                     <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
                     <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
@@ -143,7 +142,7 @@ Azure AD 끝점에서 토큰을 가져오려면 Azure AD B2C에서 Azure AD와 �
 
 앞에서 언급한 XML의 `<Metadata>` 섹션을 업데이트하여 특정 Azure AD 테넌트의 구성 설정을 반영해야 합니다. XML 파일에서 다음과 같이 메타데이터 값을 업데이트합니다.
 
-1. `<Item Key="METADATA">`를 `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`으로 설정합니다. 여기서 `yourAzureADtenant`는 Azure AD 테넌트 이름(예: contoso.com)입니다.
+1. `<Item Key="METADATA">`를 `https://login.microsoftonline.com/yourAzureADtenant/.well-known/openid-configuration`으로 설정합니다. 여기서 `yourAzureADtenant`는 Azure AD 테넌트 이름(예: contoso.com)입니다.
 1. 브라우저를 열고 방금 업데이트한 `METADATA` URL로 이동합니다.
 1. 브라우저에서 '발급자' 개체를 찾아 해당 값을 복사합니다. `https://sts.windows.net/{tenantId}/`과 같아야 합니다.
 1. XML 파일에서 `<Item Key="ProviderName">` 값을 붙여넣습니다.

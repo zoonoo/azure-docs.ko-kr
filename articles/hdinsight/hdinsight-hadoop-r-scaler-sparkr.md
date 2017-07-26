@@ -3,7 +3,7 @@ title: "Azure HDInsight에서 ScaleR 및 SparkR 사용 | Microsoft Docs"
 description: "R Server와 HDInsight에서 ScaleR 및 SparkR을 사용합니다."
 services: hdinsight
 documentationcenter: 
-author: jeffstokes72
+author: bradsev
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -14,33 +14,36 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: bab5268c4aab2210e8ace2c3a1db23b34887c2ed
-ms.lasthandoff: 04/04/2017
+ms.date: 06/19/2017
+ms.author: bradsev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: 2f79c8123eda9127596ef23a4212f66c709cebd1
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/20/2017
 
 
 ---
 
-# <a name="combining-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 조합
+# <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 
-Spark에서 데이터를 조작하기 위한 ScaleR의 기능을 분석을 위해 Microsoft R Server와 조합하는 방법을 알아봅니다. 두 패키지는 모두 Hadoop의 Spark 실행 엔진에서 실행되어 최신의 분산 처리 기능을 활용하지만, 자체의 Spark 세션을 요구하여 메모리 내 데이터 공유를 차단합니다. R Server의 향후 버전에서 이 문제를 해결할 때까지는 겹치지 않는 Spark 세션을 유지하고 중간 파일을 통해 데이터를 교환해야 합니다. 보시다시피 이 두 가지 요구 사항은 모두 매우 간단하게 수행할 수 있습니다.
+이 문서는 **SparkR**과 조인된 항공기 지연 및 날씨에 대한 데이터에서 **ScaleR** 로지스틱 회귀 모델을 사용하여 항공기 도착 지연을 예측하는 방법을 보여줍니다. 이 시나리오에서는 분석을 위해 Microsoft R Server와 함께 사용하는 Spark에서 데이터를 조작하기 위한 ScaleR의 기능을 보여줍니다. 이러한 기술 조합을 통해 분산 처리에서 최신 기능을 적용할 수 있습니다.
 
-Marin Inchiosa와 Roni Burd가 Stratata 2016에서 처음으로 발표했고 [R로 확장 가능한 데이터 과학 플랫폼 구축](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio)(영문) 웹 세미나를 통해 제공되는 예제를 사용하여 설명하겠습니다. 여기서는 SparkR을 사용하여 출발 및 도착 공항의 날씨 데이터와 잘 알려진 항공사의 도착 지연 데이터 집합을 결합하여 항공편 도착 지연을 예측하기 위한 ScaleR 로지스틱 회귀 모델의 입력으로 사용합니다.
+두 패키지 모두 Hadoop의 Spark 실행 엔진에서 실행되지만 각각 고유한 각 Spark 세션이 필요하므로 메모리 내 데이터 공유에서 차단됩니다. R Server의 향후 버전에서 이 문제를 해결할 때까지는 겹치지 않는 Spark 세션을 유지하고 중간 파일을 통해 데이터를 교환하는 것이 해결 방법입니다. 아래 지침은 이러한 요구 사항을 간단하게 달성할 수 있음을 보여줍니다.
 
-이제부터 살펴볼 코드는 원래 Azure의 HDInsight 클러스터에 있는 Spark에서 실행되는 R Server용으로 작성되었지만, 한 스크립트에서 SparkR과 ScaleR을 혼합하여 사용한다는 개념은 온 프레미스 환경에도 똑같이 적용됩니다. 다음에 나오는 예제에서는 R 및 R Server의 [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) 라이브러리에 대한 중간 수준의 지식을 가정하고, 이 과정에서 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)을 사용하는 방법을 소개합니다.
+여기에서는 Marin Inchiosa와 Roni Burd가 Stratata 2016에서 처음으로 발표했고 [R로 확장 가능한 데이터 과학 플랫폼 구축](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio)(영문) 웹 세미나를 통해 공유한 예제를 사용하겠습니다. 이 예제에서는 SparkR을 사용하여 잘 알려져 있는 항공기 도착 지연 데이터 집합을 출도착 공항 날씨 데이터와 조인합니다. 그런 다음, 조인된 데이터는 항공기 도착 지연 예측을 위한 ScaleR 로지스틱 회귀에 대한 입력으로 사용됩니다.
+
+안내한 코드는 원래 Azure HDInsight 클러스터의 Spark에서 실행 중인 R Server용으로 작성된 것입니다. 하지만 하나의 스크립트에서 SparkR과 ScaleR을 혼합하여 사용하는 개념도 온-프레미스 환경의 컨텍스트에서 유효합니다. 다음에 나오는 예제에서는 R 및 R Server의 [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) 라이브러리에 대한 중간 수준의 지식을 가정하고, 이 시나리오를 진행하면서 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)을 사용하는 방법도 소개합니다.
 
 ## <a name="the-airline-and-weather-datasets"></a>항공사 및 날씨 데이터 집합
 
-AirOnTime08to12CSV 항공사의 공용 데이터 집합에는 1987년 10월부터 2012년 12월까지 미국 내 모든 상용 항공편에 대한 항공편 도착 및 출발 세부 정보가 포함되어 있습니다. 이는 총 1억 5천만 개의 레코드를 포함하고 있는 큰 데이터 집합입니다. 압축을 풀면 4GB에 해당하는 크기입니다. [미국 정부 아카이브](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)에서 제공되며, [Revolution Analytics 데이터 집합 저장소](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/)에 있는 303개의 별도 월간 CSV 파일 집합을 포함하는 zip 파일(AirOnTimeCSV.zip)로 더 편리하게 사용할 수 있습니다.
+**AirOnTime08to12CSV** 항공사의 공용 데이터 집합에는 1987년 10월부터 2012년 12월까지 미국 내 모든 상용 항공편에 대한 항공편 도착 및 출발 세부 정보가 포함되어 있습니다. 이는 총 1억 5천만 개의 레코드를 포함하고 있는 큰 데이터 집합입니다. 압축을 풀면 4GB에 해당하는 크기입니다. [미국 정부 아카이브](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)에서 제공되며, [Revolution Analytics 데이터 집합 리포지토리](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/)에 있는 303개의 별도 월간 CSV 파일 집합을 포함하는 zip 파일(AirOnTimeCSV.zip)로 더 편리하게 사용할 수 있습니다.
 
-비행 지연에 대한 날씨의 영향을 확인하려면 각 공항의 날씨 데이터도 필요합니다. 이 데이터는 [National Oceanic and Atmospheric Administration(미국해양대기관리처) 저장소](http://www.ncdc.noaa.gov/orders/qclcd/)에서 원시 형식의 zip 파일로 다운로드할 수 있습니다. 이 예제에서는 2007년 5월부터 2012년 12월까지의 날씨 데이터를 가져와서 68개 월별 zip 파일 각각에 포함된 시간별 데이터 파일을 사용했습니다. 또한 월별 zip 파일에는 항공사 지연 데이터와 결합할 때 필요한 기상 관측소 ID(WBAN), 연결된 공항(CallSign) 및 UTC 공항 표준 시간대 오프셋(TimeZone) 사이의 매핑(YYYYMMstation.txt)도 포함되어 있습니다.
+항공기 지연에 대한 날씨의 영향을 확인하려면 각 공항의 날씨 데이터도 필요합니다. 이 데이터는 [National Oceanic and Atmospheric Administration(미국해양대기관리처) 리포지토리](http://www.ncdc.noaa.gov/orders/qclcd/)에서 월별로 원시 형식의 zip 파일로 다운로드할 수 있습니다. 이 예제에서는 2007년 5월부터 2012년 12월까지의 날씨 데이터를 가져와서 68개 월별 zip 파일 각각에 포함된 시간별 데이터 파일을 사용했습니다. 또한 월별 zip 파일에는 기상 관측소 ID(WBAN), 연결된 공항(CallSign) 및 UTC 공항 표준 시간대 오프셋(TimeZone) 사이의 매핑(YYYYMMstation.txt)도 포함되어 있습니다. 항공편 지연과 날씨 데이터를 조인할 때 이 모든 정보가 필요합니다.
 
 ## <a name="setting-up-the-spark-environment"></a>Spark 환경 설정
 
-날씨 데이터를 준비하기 전에 첫 번째 단계로 Spark 환경을 설정하고 모델링하기 전에 항공사 데이터와 병합합니다. 먼저 다음과 같이 입력 데이터 디렉터리를 포함하고 있는 디렉터리를 가리키고, Spark 계산 컨텍스트를 만들고, 정보 로깅을 위한 로깅 함수를 콘솔에 만듭니다.
+첫 번째 단계는 Spark 환경을 설정하는 것입니다. 먼저 다음과 같이 입력 데이터 디렉터리를 포함하고 있는 디렉터리를 가리키고, Spark 계산 컨텍스트를 만들고, 정보 로깅을 위한 로깅 함수를 콘솔에 만듭니다.
 
 ```
 workDir        <- '~'  
@@ -85,7 +88,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-다음으로 "Spark_Home"을 R 패키지의 검색 경로에 추가하여 SparkR을 사용할 수 있게 하고, SparkR 세션을 초기화합니다.
+다음으로 SparkR을 사용하고 SparkR 세션을 초기화할 수 있도록 "Spark_Home"을 R 패키지의 검색 경로에 추가합니다.
 
 ```
 #..setup for use of SparkR  
@@ -108,9 +111,18 @@ sqlContext <- sparkRSQL.init(sc)
 
 ## <a name="preparing-the-weather-data"></a>날씨 데이터 준비
 
-날씨 데이터를 준비하려면 모델링에 필요한 열("Visibility", "DryBulbCelsius", "DewPointCelsius", "RelativeHumidity", "WindSpeed" 및 "Altimeter")로 하위 집합을 구성하고, 기상 관측소와 관련된 공항 코드를 추가하며, 측정 단위를 현지 시간에서 UTC로 변환합니다.
+날씨 데이터를 준비하려면 모델링에 필요한 열에 하위 집합으로 넣습니다. 
 
-기상 관측소(WBAN) 정보를 공항 코드에 매핑하는 파일을 만들어 시작합니다. 날씨 데이터 파일의 CallSign(예: LAX) 필드를 항공 데이터의 Origin에 매핑하여 날씨 데이터에 포함된 매핑 파일에서 이 정보를 얻을 수 있습니다. 그러나 다음과 같이 WBAN을 AirportID(예: LAX의 경우 12892)에 매핑하는 또 다른 매핑이 있으며, "wban-to-airport-id-tz.CSV"라는 CSV 파일에 저장된 TimeZone을 포함하고 있습니다.
+- "Visibility"
+- "DryBulbCelsius"
+- "DewPointCelsius"
+- "RelativeHumidity"
+- "WindSpeed"
+- "Altimeter"
+
+그런 다음 기상 관측소와 연결된 공항 코드를 추가하고 측정값을 현지 시간에서 UTC로 변환합니다.
+
+기상 관측소(WBAN) 정보를 공항 코드에 매핑하는 파일을 만들어 시작합니다. 날씨 데이터에 포함된 매핑 파일에서 이 상관 관계를 가져올 수 있습니다. 날씨 데이터의 *CallSign*(예: LAX) 필드를 항공사 데이터의 *Origin*에 매핑합니다. 그러나 *WBAN*을 *AirportID*(예: LAX의 경우 12892)에 매핑하고 “wban-to-airport-id-tz.CSV”라고 하는 CSV 파일로 저장된 *TimeZone*을 포함한 사용 가능한 다른 매핑이 있었습니다. 예:
 
 | AirportID | WBAN | TimeZone
 |-----------|------|---------
@@ -118,7 +130,7 @@ sqlContext <- sparkRSQL.init(sc)
 | 14871 | 24232 | -8
 | .. | .. | ..
 
-다음 코드는 시간별 원시 날씨 데이터 파일 각각을 읽고, 필요한 열로 하위 집합을 구성하며, 기상 관측소 매핑 파일을 병합하고, 측정 날짜 시간을 UTC로 조정한 다음, 파일의 새 버전을 작성합니다.
+다음 코드는 각 시간별 원시 날씨 데이터 파일을 읽어서 필요한 열에 하위 집합으로 넣고 기상 관측소 매핑 파일을 병합한 다음 측정값의 날씨 시간을 UTC로 조정한 후 파일의 새 버전을 기록합니다.
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time
@@ -198,7 +210,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Spark DataFrame으로 항공사 및 날씨 데이터 가져오기
 
-이제 SparkR [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) 함수를 사용하여 날씨 및 항공사 데이터를 Spark DataFrame으로 가져옵니다. 이 함수는 다른 많은 Spark 메서드와 마찬가지로 느리게 실행됩니다. 즉 실행 큐에 있지만 실제로 필요할 때까지는 실행되지 않습니다.
+이제 SparkR [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) 함수를 사용하여 날씨 및 항공사 데이터를 Spark DataFrame으로 가져옵니다. 이 함수는 다른 많은 Spark 메서드와 마찬가지로 느리게 실행됩니다. 즉 실행 큐에 있지만 필요할 때까지는 실행되지 않습니다.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -222,7 +234,7 @@ weatherDF <- read.df(sqlContext, weatherPath, source = "com.databricks.spark.csv
 
 ## <a name="data-cleansing-and-transformation"></a>데이터 정리 및 변환
 
-다음으로 가져온 항공사 데이터를 정리하여 열 이름을 바꾸고, 필요한 변수만 유지하고, 출발 예정 시간을 가장 가까운 시간으로 반올림함으로써 출발하기 전에 최신 날씨 데이터와 병합할 수 있습니다.
+다음으로, 열 이름을 변경하기 위해 가져온 항공기 데이터에 대한 일부 정리 작업을 수행합니다. 필요한 변수만을 유지하며, 출발 시 최신 날짜와 병합할 수 있도록 예정된 출발 시간을 가장 가까운 시간으로 받아 내립니다.
 
 ```
 logmsg('clean the airline data') 
@@ -335,7 +347,7 @@ joinedDF5 <- rename(joinedDF4,
 
 ## <a name="save-results-to-csv-for-exchange-with-scaler"></a>ScaleR과 교환하기 위해 CSV로 결과 저장
 
-SparkR을 사용하는 데 필요한 조인이 완료되었습니다. ScaleR에 입력할 수 있도록 최종적인 "joinedDF5" Spark DataFrame의 데이터를 CSV로 저장한 다음 SparkR 세션을 닫습니다. 80개의 개별 파티션에 결과 CSV를 저장하도록 SparkR에 명시적으로 지시하여 ScaleR 처리에서 병렬로 충분하게 처리할 수 있도록 합니다.
+이것으로 SparkR을 사용하는 데 필요한 조인이 완료됩니다. ScaleR에 입력할 수 있도록 최종적인 "joinedDF5" Spark DataFrame의 데이터를 CSV로 저장한 다음 SparkR 세션을 닫습니다. 80개의 개별 파티션에 결과 CSV를 저장하도록 SparkR에 명시적으로 지시하여 ScaleR 처리에서 병렬로 충분하게 처리할 수 있도록 합니다.
 
 ```
 logmsg('output the joined data from Spark to CSV') 
@@ -353,7 +365,7 @@ rxHadoopRemove(file.path(dataDir, "joined5Csv/_SUCCESS"))
 
 ## <a name="import-to-xdf-for-use-by-scaler"></a>ScaleR에서 사용할 XDF로 가져오기
 
-조인한 항공사 및 날씨 데이터의 CSV 파일을 사용하여 ScaleR 텍스트 데이터 원본을 통해 모델링할 수 있지만, 데이터 집합에서 여러 작업을 실행할 때 더 효율적이므로 XDF로 가져옵니다.
+ScaleR 텍스트 데이터 원본을 통해 모델링하기 위해 조인된 항공사 및 날짜 데이터의 CSV 파일을 그대로 사용합니다. 하지만 데이터 집합에서 여러 작업 실행 시 더 효율적이므로 먼저 XDF로 가져옵니다.
 
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
@@ -438,7 +450,7 @@ finalData <- RxXdfData(file.path(dataDir, "joined5XDF"), fileSystem = hdfsFS)
 
 ## <a name="splitting-data-for-training-and-test"></a>학습 및 테스트를 위한 데이터 분할
 
-rxDataStep을 사용하여 테스트를 위해 2012년 데이터를 분할하고, 나머지 데이터는 학습을 위해 그대로 유지합니다.
+rxDataStep을 사용하여 테스트를 위해 2012년 데이터를 분할하고, 나머지 데이터는 교육을 위해 그대로 유지합니다.
 
 ```
 # split out the training data
@@ -463,7 +475,7 @@ rxGetInfo(testDS)
 
 ## <a name="train-and-test-a-logistic-regression-model"></a>로지스틱 회귀 모델 학습 및 테스트
 
-이제 모델을 빌드할 준비가 되었습니다. 도착 시간 지연에 대한 날씨 데이터의 영향을 확인하기 위해 ScaleR의 로지스틱 회귀 루틴을 사용하여 15분 이상의 도착 지연이 관련된 날짜, 출발 및 도착 공항, 출발 및 도착 공항의 날씨 등으로 인해 영향을 받는지 여부를 모델링합니다.
+이제 모델을 빌드할 준비가 되었습니다. 도착 시간 지연에 날짜 데이터가 미치는 영향을 확인하기 위해 ScaleR의 로지스틱 회귀 루틴을 사용합니다. 이 루틴을 사용하여 15분 이상의 도착 지연이 출도착 공항의 날씨 영향을 받는지 모델링합니다.
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
@@ -510,7 +522,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>다른 곳에서 점수 매기기
 
-다른 플랫폼에서 데이터의 점수를 매기는 모델을 사용하여 해당 데이터를 RDS 파일에 저장한 다음, 해당 RDS를 대상 점수 매기기 환경(예; SQL Server R Services)으로 전송하고 가져올 수도 있습니다. 이렇게 하는 경우 모델이 빌드된 요소 수준과 점수를 매길 데이터의 요소 수준이 일치하는지 확인하는 것이 중요합니다. 이는 ScaleR의 rxCreateColInfo() 함수를 통해 모델링 데이터와 관련된 열 정보를 추출하고 저장한 다음, 해당 열 정보를 입력 데이터 원본에 적용하여 예측함으로써 구현할 수 있습니다. 다음 예제에서는 테스트 데이터 집합의 몇 개 행만 저장하고 예측 스크립트에서 이 샘플의 열 정보를 추출하여 사용합니다.
+또한, 다른 플랫폼의 데이터에 점수를 매기기 위해 이 모델을 사용할 수도 있습니다. RDS 파일로 저장한 다음 전송하여 해당 RDS를 SQL Server R 서비스 등의 대상 점수 매기기 환경으로 가져옵니다. 모델이 빌드된 요소 수준과 점수를 매길 데이터의 요소 수준이 일치하는지 확인하는 것이 중요합니다. 이러한 일치는 ScaleR의 `rxCreateColInfo()` 함수를 통해 모델링 데이터와 관련된 열 정보를 추출하고 저장한 다음, 해당 열 정보를 입력 데이터 원본에 적용하여 예측함으로써 구현할 수 있습니다. 다음 예제에서는 테스트 데이터 집합의 몇 개 행만 저장하고 예측 스크립트에서 이 샘플의 열 정보를 추출하여 사용합니다.
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,7 +547,7 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="summary"></a>요약
 
-끝났습니다. 이 문서에서는 Spark 세션을 별도로 유지하고 한 번에 하나의 세션만 실행하며 CSV 파일을 통해 데이터를 교환하는 한, Hadoop Spark에서 모델을 개발하기 위한 ScaleR과 데이터를 조작하기 위한 SparkR을 결합하는 방법을 보여 주었습니다. SparkR과 ScaleR에서 Spark 세션을 공유하고 이에 따라 Spark DataFrame을 공유할 수 있는 경우 이 프로세스가 간단하지만 예정된 R Server 릴리스에서 훨씬 더 쉽게 수행될 것입니다.
+이 문서에서는 Hadoop Spark에서 모델 개발을 위해 ScaleR과 데이터 조작을 위해 SparkR의 사용을 결합하는 것이 어떻게 가능한지 보여주었습니다. 이 시나리오에서는 한 번에 하나의 세션만 실행하면서 별도의 Spark 세션을 유지하고 CSV 파일을 통해 데이터를 교환해야 합니다. SparkR과 ScaleR에서 Spark 세션을 공유하고 이에 따라 Spark DataFrame을 공유할 수 있는 경우 이 프로세스가 간단하지만 예정된 R Server 릴리스에서 훨씬 더 쉽게 수행될 것입니다.
 
 ## <a name="next-steps-and-more-information"></a>다음 단계 및 자세한 정보
 
@@ -543,7 +555,7 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 - R Server에 대한 일반 정보는 [R 시작](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node)(영문)을 참조하세요.
 
-- 관심 있는 다른 문서로 [Azure HDInsight에서 R Server 사용](hdinsight-hadoop-r-server-get-started.md) 및 [Azure HDInsight의 R Server 개요](hdinsight-hadoop-r-server-overview.md)가 있습니다.
+- HDInsight의 R Server에 대한 자세한 내용은 [Azure HDInsight의 R Server 개요](hdinsight-hadoop-r-server-overview.md) 및 [Azure HDInsight의 R Server](hdinsight-hadoop-r-server-get-started.md)를 참조하세요.
 
 SparkR 사용에 대한 자세한 내용은 다음을 참조하세요.
 

@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 05/22/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: c37b90738f117d5d60b33e8239bd71a58ec842ae
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 178d7a53ec1f05d79a077a016ef869df2bb014b1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -47,7 +47,7 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 프로젝트에 사용하는 Microsoft.SCP.Net.SDK NuGet 패키지는 HDInsight에 설치된 Storm의 주 버전과 일치해야 합니다. HDInsight 버전 3.3 및 3.4의 Storm은 Storm 버전 0.10.x를 사용하므로 SCP.NET 버전 0.10.x.x를 사용해야 합니다. HDInsight 버전 3.5 및 3.6은 Storm 1.x를 사용하므로 이 클러스터와 함께 SCP.NET 버전 1.0.x.x를 사용해야 합니다.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 HDInsight 3.4 이상은 Mono를 사용하여 C# 토폴로지를 실행합니다. [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/) 문서에서 잠재적인 비호환성을 확인하세요.
 

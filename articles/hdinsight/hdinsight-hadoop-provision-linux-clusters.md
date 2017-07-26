@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 06/06/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 857a030987f9f0768fa68b8e37379a471645df4f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8d7f397145bbecf0c651872f04b81cf44e25dbff
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -61,7 +61,7 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 컴
 * [위치](#location)
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.3 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.3 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 >
 
 ## <a name="resource-group-name"></a>리소스 그룹 이름 
