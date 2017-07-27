@@ -56,7 +56,7 @@
 ## [할당량](event-hubs-quotas.md)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [코드 샘플](event-hubs-samples.md)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)

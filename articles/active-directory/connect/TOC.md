@@ -106,6 +106,6 @@
 
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
 ##[DirSync 사용 중단](active-directory-aadconnect-dirsync-deprecated.md)

@@ -66,7 +66,7 @@
 ## [SQLRuleAction 구문](service-bus-messaging-sql-rule-action.md)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [블로그](https://blogs.msdn.microsoft.com/servicebus/)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [가격 정보](service-bus-pricing-billing.md)

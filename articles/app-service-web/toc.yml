@@ -48,16 +48,13 @@
 - name: 개념
   items:
     - name: App Service 작동 방법
-      href: >-
-        ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: 앱 서비스 계획
-      href: >-
-        ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: App Service 환경
       href: ../app-service/app-service-environment/intro.md
     - name: 인증 및 권한 부여
-      href: >-
-        ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+      href: ../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: 온-프레미스 AD를 사용하여 인증
       href: web-sites-authentication-authorization.md
 - name: 방법 가이드
@@ -161,8 +158,6 @@
               href: custom-dns-web-site-buydomains-web-app.md
             - name: Traffic Manager로 도메인 매핑
               href: web-sites-traffic-manager-custom-domain-name.md
-            - name: GoDaddy 도메인 매핑
-              href: web-sites-godaddy-custom-domain-name.md
             - name: 활성 도메인 마이그레이션
               href: app-service-custom-domain-name-migrate.md
         - name: IIS에서 마이그레이션
@@ -186,20 +181,15 @@
         - name: 사용자 인증
           items:
             - name: Azure AD를 사용하여 인증
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Facebook을 사용하여 인증
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Google을 사용하여 인증
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Microsoft 계정을 사용하여 인증
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: Twitter를 사용하여 인증
-              href: >-
-                ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+              href: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json
             - name: 온-프레미스 AD를 사용하여 인증
               href: web-sites-authentication-authorization.md
             - name: 다중 테넌트 데이터베이스를 사용하는 앱
@@ -213,20 +203,17 @@
         - name: 강화
           href: web-sites-scale.md
         - name: 확장
-          href: >-
-            ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Traffic Manager로 부하 분산
           href: web-sites-traffic-manager.md
         - name: 대규모 App Service 환경
-          href: >-
-            ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: 글로벌 접근을 위한 Azure CDN 사용
           href: cdn-websites-with-cdn.md
         - name: Memcache를 통해 Redis Cache에 연결
           href: web-sites-connect-to-redis-using-memcache-protocol.md
         - name: Redis Cache 만들기
-          href: >-
-            ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Azure Redis Cache를 사용하는 세션 상태
           href: web-sites-dotnet-session-state-caching.md
     - name: 모니터
@@ -260,8 +247,7 @@
     - name: 통합
       items:
         - name: PowerApps 및 Microsoft Flow로 내보내기
-          href: >-
-            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: App Service 환경
       items:
         - name: App Service 환경 사용
@@ -309,8 +295,7 @@
         - name: FAQ
           items:
             - name: '가용성, 성능 및 응용 프로그램 FAQ'
-              href: >-
-                app-service-web-availability-performance-application-issues-faq.md
+              href: app-service-web-availability-performance-application-issues-faq.md
             - name: 배포 FAQ
               href: app-service-web-deployment-faq.md
             - name: 오픈 소스 기술 FAQ
@@ -338,11 +323,9 @@
         - name: 인바운드 트래픽을 제어하는 방법
           href: app-service-app-service-environment-control-inbound-traffic.md
         - name: 백 엔드 리소스에 안전하게 연결
-          href: >-
-            app-service-app-service-environment-securely-connecting-to-backend-resources.md
+          href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: ExpressRoute를 사용하기 위한 네트워크 구성 세부 정보
-          href: >-
-            app-service-app-service-environment-network-configuration-expressroute.md
+          href: app-service-app-service-environment-network-configuration-expressroute.md
         - name: App Service 환경에서 자동 크기 조정
           href: ../app-service/app-service-environment-auto-scale.md
     - name: 가격

@@ -20,6 +20,6 @@
 ## [하이브리드 ID 디자인 가이드](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 

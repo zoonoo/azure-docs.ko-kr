@@ -89,7 +89,7 @@
 
 # 리소스
 ## [Azure AD B2C 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [질문과 대답](active-directory-b2c-faqs.md)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-b2c)
