@@ -110,7 +110,7 @@ cd spring-boot-mysql-todo
 mvnw package spring-boot:run
 ```
 
-브라우저를 열어 http://localhost:8080에 접속하여 작업의 샘플에서 봅니다. 목록에 작업을 추가하여 MySQL 프롬프트에서 다음 SQL 명령을 사용하여 MySQL에 저장된 데이터를 봅니다.
+브라우저를 열어 http://localhost:8080 에 접속하여 작업의 샘플에서 봅니다. 목록에 작업을 추가하여 MySQL 프롬프트에서 다음 SQL 명령을 사용하여 MySQL에 저장된 데이터를 봅니다.
 
 ```SQL
 use testdb;
