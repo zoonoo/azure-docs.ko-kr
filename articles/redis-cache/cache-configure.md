@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 05/11/2017
+ms.date: 07/05/2017
 ms.author: sdanie
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: fefa78f7e0ba4bd40e6c0985080403237d6eb916
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: f78735afd8aa8f560455c3fd47e6833c37644583
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -52,6 +52,7 @@ Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache**
     * [Redis 클러스터 크기](#cluster-size)
     * [Redis 데이터 지속성](#redis-data-persistence)
     * [업데이트 예약](#schedule-updates)
+    * [지역에서 복제](#geo-replication)
     * [Virtual Network](#virtual-network)
     * [방화벽](#firewall)
     * [속성](#properties)
@@ -146,7 +147,7 @@ Azure Redis Cache 설정은 **리소스 메뉴**를 사용하여 **Redis Cache**
 
 `maxmemory` 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/topics/lru-cache#eviction-policies)을 참조하세요.
 
-**maxmemory-reserved** 설정은 장애 조치(failover) 중 복제와 같은 비캐시 작업을 위해 예약되는 메모리의 양을 MB 단위로 구성합니다. 조각화 비율이 높을 때 사용할 수도 있습니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에서 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 저장에는 사용할 수 없습니다.
+**maxmemory-reserved** 설정은 장애 조치(failover) 중 복제와 같은 비캐시 작업을 위해 예약되는 메모리의 양을 MB 단위로 구성합니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에서 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 저장에는 사용할 수 없습니다.
 
 > [!IMPORTANT]
 > **maxmemory-reserved** 설정은 표준 및 프리미엄 캐시에만 사용할 수 있습니다.
@@ -263,9 +264,16 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 > 
 > 
 
+### <a name="geo-replication"></a>지역에서 복제
 
+**지역에서 복제** 블레이드에서는 두 개의 프리미엄 계층 Azure Redis Cache 인스턴스를 연결하는 메커니즘을 제공합니다. 한 캐시는 주 연결된 캐시로 지정하고 다른 캐시는 보조 연결된 캐시로 지정합니다. 보조 연결된 캐시는 읽기 전용이 되고 주 캐시에 쓴 데이터는 보조 연결된 캐시에 복제됩니다. 이 기능은 Azure 지역 간에 캐시를 복제하는 데 사용할 수 있습니다.
 
-### <a name="virtual-network"></a>Virtual Network
+> [!IMPORTANT]
+> **지역에서 복제**는 프리미엄 계층 캐시에서만 사용할 수 있습니다. 자세한 내용 및 지침은 [Azure Redis Cache에 대해 지역에서 복제를 구성하는 방법](cache-how-to-geo-replication.md)을 참조하세요.
+> 
+> 
+
+### <a name="virtual-network"></a>가상 네트워크
 **Virtual Network** 섹션에서 캐시의 가상 네트워크 설정을 구성할 수 있습니다. VNET 지원을 통해 프리미엄 캐시를 만들고 설정을 업데이트하는 방법에 대한 자세한 내용은 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
 
 > [!IMPORTANT]
@@ -301,7 +309,7 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 미래 배포를 위해 배포된 리소스의 템플릿을 빌드하고 내보내려면 **자동화 스크립트**를 클릭합니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요.
 
 ## <a name="administration-settings"></a>관리 설정
-**관리** 섹션의 설정을 사용하여 프리미엄 캐시에 대해 다음과 같은 관리 작업을 수행할 수 있습니다. 
+**관리** 섹션의 설정을 사용하여 캐시에 대해 다음과 같은 관리 작업을 수행할 수 있습니다. 
 
 ![관리](./media/cache-configure/redis-cache-administration.png)
 
@@ -309,11 +317,6 @@ Redis 지속성을 사용하려면 **사용** 을 클릭하여 RDB(Redis 데이�
 * [데이터 내보내기](#importexport)
 * [Reboot](#reboot)
 
-
-> [!IMPORTANT]
-> 이 섹션의 설정은 프리미엄 계층 캐시에만 사용할 수 있습니다.
-> 
-> 
 
 ### <a name="importexport"></a>가져오기/내보내기
 Import/Export는 Azure Redis Cache 데이터 관리 작업으로 프리미엄 캐시에서 Azure Storage 계정의 페이지 Blob으로 Redis Cache 데이터베이스(RDB) 스냅숏을 가져오고 내보냄으로써 캐시에서 데이터를 가져오고 내보낼 수 있습니다. 가져오기/내보내기를 통해 다양한 Azure Redis Cache 인스턴스 간에 마이그레이션이 가능하고, 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
@@ -339,7 +342,7 @@ Import/Export는 Azure Redis Cache 데이터 관리 작업으로 프리미엄 �
 하나 이상의 캐시 노드를 다시 부팅하려면 원하는 노드를 선택하고 **다시 부팅**을 클릭합니다. 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 다시 부팅할 분할을 선택하고 **다시 부팅**을 클릭합니다. 몇 분 후 선택된 노드가 재부팅되고, 다시 몇 분 후에 온라인 상태가 됩니다.
 
 > [!IMPORTANT]
-> 재부팅은 프리미엄 계층 캐시에만 사용할 수 있습니다. 자세한 내용 및 지침은 [Azure Redis Cache 관리 - 재부팅](cache-administration.md#reboot)을 참조하세요.
+> 이제 모든 가격 책정 계층에서 다시 부팅을 사용할 수 있습니다. 자세한 내용 및 지침은 [Azure Redis Cache 관리 - 재부팅](cache-administration.md#reboot)을 참조하세요.
 > 
 > 
 
@@ -355,17 +358,20 @@ Import/Export는 Azure Redis Cache 데이터 관리 작업으로 프리미엄 �
 * [진단](#diagnostics)
 
 ### <a name="redis-metrics"></a>Redis 메트릭
-캐시에 대한 [메트릭을 보려면](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) **Redis 메트릭**을 클릭합니다.
+캐시에 대한 [메트릭을 보려면](cache-how-to-monitor.md#view-cache-metrics) **Redis 메트릭**을 클릭합니다.
 
 ### <a name="alert-rules"></a>경고 규칙
 
-**경고 규칙**을 클릭하여 Redis Cache 메트릭을 기반으로 경고를 구성합니다. 자세한 내용은 [작업 및 경고](cache-how-to-monitor.md#operations-and-alerts)를 참조하세요.
+**경고 규칙**을 클릭하여 Redis Cache 메트릭을 기반으로 경고를 구성합니다. 자세한 내용은 [경고](cache-how-to-monitor.md#alerts)를 참조하세요.
 
 ### <a name="diagnostics"></a>진단
 
-**진단** 을 클릭하여 캐시 진단을 저장하는 데 사용되는 [저장소 계정을 구성](cache-how-to-monitor.md#enable-cache-diagnostics) 할 수 있습니다.
+기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive)되었다가 삭제됩니다. 30일 이후에도 캐시 메트릭을 유지하려면 **진단**을 클릭하여 캐시 진단을 저장하는 데 사용되는 [저장소 계정을 구성](cache-how-to-monitor.md#export-cache-metrics)합니다.
 
-![Redis 캐시 진단](./media/cache-configure/redis-cache-diagnostics-settings.png)
+>[!NOTE]
+>캐시 메트릭을 저장소에 보관할 뿐만 아니라 [파일을 이벤트 허브에 스트리밍하거나 Log Analytics로 보낼 수](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics)도 있습니다.
+>
+>
 
 ## <a name="support--troubleshooting-settings"></a>설정 지원 및 문제 해결
 **설정 지원 + 문제 해결** 섹션의 설정은 캐시로 문제를 해결하는 옵션을 제공합니다.
@@ -407,7 +413,7 @@ Import/Export는 Azure Redis Cache 데이터 관리 작업으로 프리미엄 �
 | `databases` |16 |데이터베이스의 기본 수는 16이지만 가격 책정 계층에 따라 다른 숫자를 구성할 수 있습니다.<sup>1</sup> 기본 데이터베이스는 DB 0입니다. `connection.GetDatabase(dbid)`을 사용하여 연결 단위로 다른 데이터베이스를 선택할 수 있습니다. 여기서 `dbid`는 `0`에서 `databases - 1` 사이의 숫자입니다. |
 | `maxclients` |가격 책정 계층에 따라 달라집니다.<sup>2</sup> |이 값은 동시에 연결이 허용되는 클라이언트의 최대 수입니다. 제한에 도달하면 Redis는 'max number of clients reached' 오류를 반환하고 모든 새 연결을 닫습니다. |
 | `maxmemory-policy` |`volatile-lru` |`maxmemory` 정책은 최대 메모리(캐시를 만들 때 선택한 캐시의 크기)에 도달했을 때 Redis가 어떤 것을 제거할지 선택하는 방법에 대한 설정입니다. Azure Redis Cache를 사용할 때의 기본 설정은 `volatile-lru`로, LRU 알고리즘을 사용하여 만료 설정이 있는 키를 제거합니다. 이 설정은 Azure 포털에서 구성할 수 있습니다. 자세한 내용은 [Maxmemory-policy 및 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)를 참조하세요. |
-| `maxmemory-sample`s |3 |메모리를 절약하기 위해 LRU 및 최소 TTL 알고리즘은 정밀한 알고리즘이 아닌 대략적인 알고리즘입니다. 기본적으로 Redis는 세 개의 키를 확인하고 가장 오래 전에 사용된 키를 선택합니다. |
+| `maxmemory-samples` |3 |메모리를 절약하기 위해 LRU 및 최소 TTL 알고리즘은 정밀한 알고리즘이 아닌 대략적인 알고리즘입니다. 기본적으로 Redis는 세 개의 키를 확인하고 가장 오래 전에 사용된 키를 선택합니다. |
 | `lua-time-limit` |5, 000 |밀리초 단위의 Lua 스크립트 최대 실행 시간입니다. 최대 실행 시간에 도달하면 Redis는 허용된 시간 이후에도 실행 중인 스크립트를 기록하고 쿼리에 오류로 응답하기 시작합니다. |
 | `lua-event-limit` |500 |스크립트 이벤트 큐의 최대 크기 |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |클라이언트 출력 버퍼 제한은 어떤 이유로 서버에서 데이터를 읽는 속도가 충분히 빠르지 않은 클라이언트의 연결을 강제로 끊는 데 사용할 수 있습니다. 속도가 느린 일반적인 이유는 게시/구독 클라이언트가 게시자의 생성 속도만큼 빠르게 메시지를 소화하지 못하기 때문입니다. 자세한 내용은 [http://redis.io/topics/clients](http://redis.io/topics/clients)를 참조하세요. |
@@ -428,7 +434,7 @@ Import/Export는 Azure Redis Cache 데이터 관리 작업으로 프리미엄 �
   * P2(13GB-130GB)-최대 32개의 데이터베이스
   * P3(26GB-260GB)-최대 48개의 데이터베이스
   * P4(53GB-530GB)-최대 64개의 데이터베이스
-  * Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시 - Redis 클러스터는 0 데이터베이스의 사용만을 지원하므로 Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시에 대한 `databases` 제한은 사실상 1이며 [Select](http://redis.io/commands/select) 명령은 허용되지 않습니다. 자세한 내용은 [클러스터링을 사용하려면 클라이언트 응용 프로그램을 변경해야 합니까?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시 - Redis 클러스터는 0 데이터베이스의 사용만을 지원하므로 Redis 클러스터를 사용할 수 있는 모든 프리미엄 캐시에 대한 `databases` 제한은 사실상 1이며 [Select](http://redis.io/commands/select) 명령은 허용되지 않습니다. 자세한 내용은 [클러스터링을 사용하려면 클라이언트 응용 프로그램을 변경해야 합니까?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 데이터베이스에 대한 자세한 내용은 [Redis 데이터베이스란?](cache-faq.md#what-are-redis-databases)을 참조하세요.
 
@@ -480,10 +486,11 @@ Import/Export는 Azure Redis Cache 데이터 관리 작업으로 프리미엄 �
 Redis 명령에 대한 자세한 내용은 [http://redis.io/commands](http://redis.io/commands)를 참조하세요.
 
 ## <a name="redis-console"></a>Redis 콘솔
-표준 및 프리미엄 캐시에서 사용할 수 있는 **Redis 콘솔**을 사용하면 Azure Redis Cache 인스턴스에 대해 안전하게 명령을 실행할 수 있습니다.
+Azure Portal에서 모든 캐시에 대해 제공되는 **Redis 콘솔**을 사용하면 Azure Redis Cache 인스턴스에 대해 안전하게 명령을 실행할 수 있습니다.
 
 > [!IMPORTANT]
-> Redis 콘솔이 [VNET](cache-how-to-premium-vnet.md)에서 작동하지 않습니다. 캐시가 VNET의 일부인 경우 VNET의 클라이언트만 캐시에 액세스할 수 있습니다. Redis 콘솔은 VNET 외부에 있는 로컬 브라우저에서 실행되기 때문에 캐시에 연결할 수 없습니다.
+> - Redis 콘솔이 [VNET](cache-how-to-premium-vnet.md)에서 작동하지 않습니다. 캐시가 VNET의 일부인 경우 VNET의 클라이언트만 캐시에 액세스할 수 있습니다. Redis 콘솔은 VNET 외부에 있는 로컬 브라우저에서 실행되기 때문에 캐시에 연결할 수 없습니다.
+> - 일부 Redis 명령은 Azure Redis Cache에서 지원되지 않습니다. Azure Redis Cache에서 사용할 수 없는 Redis 명령 목록은 이전 [Azure Redis Cache에서 지원되지 않는 Redis 명령](#redis-commands-not-supported-in-azure-redis-cache) 섹션을 참조하세요. Redis 명령에 대한 자세한 내용은 [http://redis.io/commands](http://redis.io/commands)를 참조하세요.
 > 
 > 
 
@@ -495,7 +502,22 @@ Redis 콘솔에 액세스하려면 **Redis Cache** 블레이드에서 **콘솔**
 
 ![Redis 콘솔](./media/cache-configure/redis-console.png)
 
-Azure Redis Cache에 대해 사용할 수 없도록 설정된 Redis 명령 목록은 이전 [Azure Redis Cache에서 지원되지 않는 Redis 명령](#redis-commands-not-supported-in-azure-redis-cache) 섹션을 참조하세요. Redis 명령에 대한 자세한 내용은 [http://redis.io/commands](http://redis.io/commands)를 참조하세요. 
+
+### <a name="using-the-redis-console-with-a-premium-clustered-cache"></a>프리미엄 클러스터형 캐시에서 Redis 콘솔 사용
+
+프리미엄 클러스터형 캐시에서 Redis 콘솔을 사용하는 경우 캐시의 단일 분할된 데이터베이스에 대해 명령을 실행할 수 있습니다. 특정 분할된 데이터베이스에 대해 명령을 실행하려면 분할된 데이터베이스 선택에서 원하는 분할된 데이터베이스를 클릭하여 연결합니다.
+
+![Redis 콘솔](./media/cache-configure/redis-console-premium-cluster.png)
+
+연결된 분할된 데이터베이스가 아닌 다른 분할된 데이터베이스에 저장된 키에 액세스하려고 하면 다음과 같은 오류 메시지가 표시됩니다.
+
+```
+shard1>get myKey
+(error) MOVED 866 13.90.202.154:13000 (shard 0)
+```
+
+이전 예제에서 분할된 데이터베이스 1은 선택된 분할된 데이터베이스이지만 `myKey`는 오류 메시지의 `(shard 0)` 부분에 표시된 대로 분할된 데이터베이스 0에 있습니다. 이 예제에서 `myKey`에 액세스하려면 분할된 데이터베이스 선택을 사용하여 분할된 데이터베이스 0을 선택한 다음 원하는 명령을 실행합니다.
+
 
 ## <a name="move-your-cache-to-a-new-subscription"></a>캐시를 새 구독으로 이동
 **이동**을 클릭하여 캐시를 새 구독으로 이동할 수 있습니다.

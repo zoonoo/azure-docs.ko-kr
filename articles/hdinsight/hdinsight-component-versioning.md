@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: f6f50906766408226ad3ab9fdfd67b4707961b9b
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 54254203b79c6d69a2febc5987b0a24077a84939
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/06/2017
 
  
 
@@ -74,40 +74,84 @@ HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 
 Windows 기반 클러스터만 해당: 구성 요소 버전을 가져오는 다른 방법은 원격 데스크톱을 사용하여 클러스터에 로그인하고 "C:\apps\dist\" 디렉터리의 콘텐츠를 직접 검토하는 것입니다.
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.3 사용 중단](#hdi-version-33-nearing-deprecation-date)을 참조하세요. 
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight에서 Windows 사용 중지](#hdi-version-33-nearing-retirement-date)를 참조하세요. 
 
 ### <a name="release-notes"></a>릴리스 정보
 
 최신 HDInsight 버전과 관련된 추가 릴리스 정보에 대해서는 [HDInsight 릴리스 정보](hdinsight-release-notes.md) 를 참조하세요.
 
 ## <a name="supported-hdinsight-versions"></a>지원되는 HDInsight 버전
-다음 표는 현재 사용 가능한 HDInsight 버전, 버전에서 사용하는 해당 Hortonworks Data Platform 버전 및 릴리스 날짜를 나열합니다. 알려진 경우 지원 만료 날짜와 사용이 중단된 날짜도 나와 있습니다. 다음 버전 정보 참고:
+다음 표는 현재 사용 가능한 HDInsight 버전, 버전에서 사용하는 해당 Hortonworks Data Platform 버전 및 릴리스 날짜를 나열합니다. 알려진 경우 지원 만료 날짜와 사용 중지 날짜도 나와 있습니다. 다음 버전 정보 참고:
 
 * 헤드 노드가 2개 있는 고가용성 클러스터는 기본적으로 HDInsight 2.1 이상에 대해 배포됩니다. HDInsight 1.6 클러스터에서는 사용할 수 없습니다.
-* 특정 버전에 대한 지원이 만료되면 Azure 포털을 통해 사용할 수 없게 됩니다. 다음 표에는 Azure 클래식 포털에서 사용할 수 있는 버전이 나와 있습니다. 클러스터 버전은 사용이 중단될 때까지 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
+* 특정 버전에 대한 지원이 만료되면 Azure 포털을 통해 사용할 수 없게 됩니다. 다음 표에는 Azure 클래식 포털에서 사용할 수 있는 버전이 나와 있습니다. 클러스터 버전은 사용 중지 날짜까지 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
 
-| HDInsight 버전 | HDP 버전 | VM OS | 고가용성 | 릴리스 날짜 | Azure 포털에서 사용 가능 여부 | 지원 만료 날짜 | 사용 중단 날짜 |
+| HDInsight 버전 | HDP 버전 | VM OS | 고가용성 | 릴리스 날짜 | Azure 포털에서 사용 가능 여부 | 지원 만료 날짜 | 사용 중지 날짜 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDI 3.6 |HDP 2.6 |Ubuntu 16 |예 |04/06/2017 |예 | | |
 | HDI 3.5 |HDP 2.5 |Ubuntu 16 |예 |9/30/2016 |예 |07/05/2017 |05/31/2018 |
 | HDI 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |예 |2016/03/29 |예 |12/29/2016 |1/9/2018 |
-| HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS 또는 Windows Server 2012R2 |예 |12/02/2015 |예 |06/27/2016 |07/31/2017 |
+| HDI 3.3 |HDP 2.3 |Windows Server 2012R2 |예 |12/02/2015 |예 |06/27/2016 |07/31/2018 |
+| HDI 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |예 |12/02/2015 |예 |06/27/2016 |07/31/2017 |
 | HDI 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 또는 Windows Server 2012R2 |예 |2/18/2015 |아니요 |3/1/2016 |04/01/2017 |
 | HDI 3.1 |HDP 2.1 |Windows Server 2012R2 |예 |6/24/2014 |아니요 |05/18/2015 |06/30/2016 |
 | HDI 3.0 |HDP 2.0 |Windows Server 2012R2 |예 |2014/02/11 |아니요 |2014/09/17 |2015/06/30 |
 | HDI 2.1 |HDP 1.3 |Windows Server 2012R2 |예 |2013/10/28 |아니요 |2014/05/12 |2015/05/31 |
 | HDI 1.6 |HDP 1.1 | |아니요 |2013/10/28 |아니요 |2014/04/26 |2015/05/31 |
 
-## <a name="hdi-version-33-nearing-deprecation-date"></a>HDI 버전 3.3(곧 사용 중단됨)
-HDI 3.3 클러스터에 대한 지원은 2016년 6월 27일 만료되었으며 2017년 7월 31일부터는 사용되지 않습니다. HDI 3.3 클러스터가 있는 경우에는 최신 버전인 HDI 3.5 또는 HDI 3.6으로 빨리 클러스터를 업그레이드하세요. HDI 3.3 Windows의 사용 중단 기한은 지역별로 다를 수 있습니다. 해당 지역의 계획된 사용 중단 날짜가 다른 경우 별도로 알림을 받습니다.
+## <a name="hdinsight-windows-retirement"></a>HDInsight Windows 사용 중지
 
-### <a name="the-service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 클러스터 버전의 서비스 수준 계약
-SLA는 **지원 기간** 면에서 정의됩니다. 지원 기간은 Microsoft 고객 지원에서 HDInsight 클러스터 버전을 지원하는 기간을 나타냅니다. HDInsight 클러스터는 해당 버전의 **지원 만료 날짜** 가 현재 날짜를 지난 경우 지원 기간을 넘긴 것입니다. 지원되는 HDInsight 클러스터 버전 목록은 위의 표에서 찾아볼 수 있습니다. 새로운 X+1 버전이 사용 가능해질 경우 지정된 HDInsight 버전의 지원 만료 날짜는 다음 수식 중 후자로 계산됩니다.  
+Microsoft Azure HDInsight(HDI) 버전 3.3은 Windows용 HDInsight의 마지막 버전이었으며 2018년 7월 31일에 사용이 중지됩니다. Windows에서 실행되는 HDI 클러스터(3.3 또는 이전 버전)가 있는 경우 HDI 클러스터를 만들거나 크기를 조정하는 기능을 유지하려면 2018년 7월 31일 전에 Linux HDInsight(HDI 3.5 이상)로 마이그레이션해야 합니다. Windows의 HDI 3.3에 대한 지원은 2016년 6월 27일에 만료되었습니다. 
+ 
+HDInsight 버전 3.4부터 Microsoft는 Linux OS에서만 HDInsight를 릴리스했습니다. 따라서 Apache Ranger, Kafka, Interactive Hive, Spark, HDInsight 응용 프로그램, 기본 파일 시스템인 Azure Data Lake Store 등 HDInsight 내의 일부 구성 요소는 Linux에만 사용할 수 있습니다. HDInsight의 향후 릴리스는 Linux OS에서만 사용할 수 있습니다. Windows OS에 대한 향후 HDInsight 릴리스는 더 이상 없습니다.
+
+### <a name="faqs"></a>FAQ
+
+### <a name="what-is-the-timeline-for-retiring-hdinsight-on-windows"></a>Windows HDInsight의 사용 중지 타임라인은 어떻게 되나요?
+Windows HDInsight의 사용 중지 날짜는 2018년 7월 31일입니다. 해당 지역의 계획된 사용 중지 날짜가 다른 경우 별도로 알림을 받습니다. 
+
+### <a name="what-will-be-the-impact-of-retiring-hdinsight-on-windows-for-existing-customers"></a>Windows HDInsight의 사용 중지는 기존 고객에게 어떤 영향을 주나요?
+* 사용 중지 날짜 후에는 Windows 클러스터에 새 HDI를 만들 수 없습니다.
+* 사용 중지 날짜 후에는 Windows 클러스터에서 기존 HDInsight의 크기를 조정할 수 없습니다. 
+ * HDInsight의 이후 릴리스는 Linux OS에서만 사용할 수 있습니다. Windows OS에 대한 향후 HDInsight 릴리스는 더 이상 없습니다.
+* HDInsight 3.3에 대한 지원은 2016년 6월 27일에 만료되었습니다. 따라서 HDInsight 3.3 또는 이전 버전에 대한 지원이나 버그 수정은 없습니다. 
+ 
+### <a name="which-versions-of-hdinsight-on-windows-are-impacted"></a>영향을 받는 Windows HDInsight 버전은 무엇인가요?
+Azure HDInsight 버전 3.3은 Windows용 HDInsight의 마지막 버전이었습니다. HDI 클러스터를 새로 만들거나 기존 HDI 클러스터의 크기를 조정하는 기능을 유지하려면 사용 중지 날짜 전에 Windows에서 실행되는 HDInsight 클러스터(3.3 또는 이전 버전)를 Linux HDInsight(3.5 이상)로 마이그레이션해야 합니다. 
+
+### <a name="what-do-i-need-to-do"></a>수행하려면 무엇이 필요한가요?
+2018년 7월 31일 전에 Windows 기반 HDInsight 클러스터를 지원되는 Linux 기반 HDInsight 클러스터로 마이그레이션하려면 [이](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) 문서를 참조하세요. 지원되는 HDI 버전에 대한 자세한 내용은 [여기](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)를 참조하세요. 
+
+### <a name="where-do-i-find-the-cluster-os-type"></a>클러스터 OS 유형은 어디서 확인할 수 있나요?
+Azure Portal에서 HDInsight 클러스터 개요 페이지로 이동합니다. 해당 페이지의 Essentials 아래에 클러스터 유형이 표시됩니다. 이는 클러스터의 OS 유형을 나타냅니다. 
+
+### <a name="what-will-be-the-impact-to-my-hdinsight-windows-cluster-if-i-cant-migrate-to-a-linux-based-cluster-by-jul-31st-2018"></a>2018년 7월 31일까지 Linux 기반 클러스터로 마이그레이션할 수 없는 경우 내 HDInsight Windows 클러스터에 어떤 영향을 주나요?
+HDInsight Windows 클러스터는 현재 상태대로 실행되지만, Windows 클러스터에 새 HDInsight를 만들거나 Windows 클러스터에서 기존 HDInsight의 크기를 조정할 수 없습니다. 
+
+### <a name="my-cluster-has-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>내 클러스터에 .NET 종속성이 있습니다. Linux에서 이 종속성을 해결하려면 어떻게 하나요?
+.NET의 오픈 소스 구현인 [Mono](http://www.mono-project.com/)는 HDInsight Linux 클러스터에서 사용할 수 있습니다. 자세한 내용은 [이](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) 문서를 참조하세요. 
+
+### <a name="i-am-a-new-customer-trying-to-create-an-hdinsight-windows-based-cluster-however-i-dont-see-the-option-in-the-azure-portal-or-i-am-unable-to-create-this-from-powershell-or-sdk-how-can-i-create-an-hdi-windows-based-cluster"></a>HDInsight Windows 기반 클러스터를 만들려는 새 고객인데, Azure Portal에 옵션이 표시되지 않거나 PowerShell 또는 SDK에서 이 클러스터를 만들 수 없습니다. HDI Windows 기반 클러스터를 만들려면 어떻게 하나요?
+2017년 7월 3일을 기준으로, 기존 HDInsight Windows 기반 고객만 (사용 중지 날짜까지) 새 HDI Windows 기반 클러스터를 만들 수 있습니다. Linux 기반 HDI 클러스터를 만드는 것이 좋습니다. 
+
+### <a name="is-there-pricing-impact-associated-with-moving-from-hdinsight-on-windows-to-hdinsight-on-linux"></a>Windows의 HDInsight에서 Linux의 HDInsight로 이동할 경우 가격 책정에 영향을 주나요?
+아니요, 가격 책정은 두 OS의 HDInsight에 대해 동일합니다. 
+
+### <a name="what-are-the-customer-advantages-associated-with-the-move-to-hdinsight-only-on-the-linux-os"></a>Linux OS에서만 HDInsight로 이동할 경우 고객에게 어떤 장점이 있나요?
+* HDInsight 서비스를 통해 오픈 소스 빅 데이터 기술의 출시 시간 단축
+* 지원을 위한 대규모 커뮤니티 및 에코시스템
+* Hadoop 및 최신 빅 데이터 기술에 대한 오픈 소스 커뮤니티의 활발한 개발 활용 능력 향상
+
+### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-that-available-in-hdinsight-on-windows"></a>Linux HDInsight는 Windows HDInsight에서 사용할 수 있는 기능 이외의 추가 기능을 제공하나요?
+HDInsight 버전 3.4부터 MSFT는 Linux OS에서만 HDInsight를 릴리스했습니다. 따라서 Apache Ranger, Kafka, Interactive Hive, Spark, HDInsight 응용 프로그램, 기본 FS인 Azure Data Lake Store 등 HDInsight 내의 일부 구성 요소는 Linux에만 사용할 수 있습니다. 
+
+## <a name="the-service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 클러스터 버전의 서비스 수준 계약
+SLA는 **지원 기간** 면에서 정의됩니다. 지원 기간은 Microsoft 고객 지원에서 HDInsight 클러스터 버전을 지원하는 기간을 나타냅니다. 해당 버전의 **지원 만료 날짜**가 이전 날짜인 경우 HDInsight 클러스터에 대한 지원 기간이 종료된 것입니다. 지원되는 HDInsight 클러스터 버전 목록은 앞의 표에서 확인할 수 있습니다. 새로운 X+1 버전이 사용 가능해질 경우 지정된 HDInsight 버전의 지원 만료 날짜는 다음 수식 중 후자로 계산됩니다.  
 
 * 수식 1: HDInsight 클러스터 버전 X가 릴리스된 날짜에 180일을 추가합니다.
 * 수식 2: HDInsight 클러스터 버전 X+1(X 이후의 후속 버전)을 포털에서 사용할 수 있는 날짜에 90일을 추가합니다.
 
-**사용 중단 날짜** 는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다. 2017년 7월 31일부터 사용 중단 날짜 이후에는 클러스터의 크기를 조정할 수 없습니다. 
+**사용 중지 날짜**는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다. 2017년 7월 31일부터 사용 중지 날짜 이후에는 클러스터의 크기를 조정할 수 없습니다. 
 
 > [!NOTE]
 > Windows 기반 HDInsight 클러스터(버전 2.1, 3.0, 3.1, 3.2 및 3.3 포함)는 Azure Guest OS Family 4에서 실행되고 64비트 버전의 Windows Server 2012 R2를 사용하고 .NET Framework 4.0, 4.5, 4.5.1 및 4.5.2를 지원합니다.
@@ -132,7 +176,7 @@ SLA는 **지원 기간** 면에서 정의됩니다. 지원 기간은 Microsoft �
 
 ## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard 및 HDInsight Premium
 
-Azure HDInsight는 빅 데이터 클라우드 제품을 **Standard** 및 **Premium**의 두 범주로 제공합니다. 아래 섹션의 표에는 **Premium에서만** 사용 가능한 기능이 나와 있습니다. 표에 명시적으로 나와 있지 않은 기능은 Standard에서 제공됩니다.
+Azure HDInsight는 빅 데이터 클라우드 제품을 **Standard** 및 **Premium**의 두 범주로 제공합니다. 다음 섹션의 표에는 **Premium에서만** 사용 가능한 기능이 나와 있습니다. 표에 명시적으로 나와 있지 않은 기능은 Standard에서 제공됩니다.
 
 > [!NOTE]
 > HDInsight Premium 제품은 현재 Preview 상태이며 Linux 클러스터에서만 사용할 수 있습니다.
@@ -167,6 +211,45 @@ Azure HDInsight는 빅 데이터 클라우드 제품을 **Standard** 및 **Premi
 ### <a name="pricing-and-sla"></a>가격 및 SLA
 HDInsight Premium의 가격 및 SLA에 대한 자세한 내용은 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
+## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>클러스터에 대한 기본 노드 구성 및 가상 컴퓨터 크기
+다음 표에는 HDInsight 클러스터에 대한 기본 VM(가상 컴퓨터) 크기가 나와 있습니다.
+
+> [!IMPORTANT]
+> 클러스터에 필요한 작업자 노드 수가 32개를 초과하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
+>
+>
+
+* 브라질 남부 및 일본 서부를 제외하고 지원되는 모든 지역:
+
+  | 클러스터 유형 | Hadoop은 | HBase | Storm | Spark | R 서버 |
+  | --- | --- | --- | --- | --- | --- |
+  | 헤드: 기본 VM 크기 |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
+  | 헤드: 권장되는 VM 크기 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | 작업자: 기본 VM 크기 |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
+  | 작업자: 권장되는 VM 크기 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Zookeeper: 기본 VM 크기 | |A3 |A2 | | |
+  | Zookeeper: 권장되는 VM 크기 | |A3, A4, A5 |A2, A3, A4 | | |
+  | Edge: 기본 VM 크기 | | | | |Windows: D12 v2; Linux: D4 v2 |
+  | Edge: 권장되는 VM 크기 | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+* 브라질 남부 및 일본 서부만 (v2 크기는 여기 없음):
+
+  | 클러스터 유형 | Hadoop은 | HBase | Storm | Spark | R 서버 |
+  | --- | --- | --- | --- | --- | --- |
+  | 헤드: 기본 VM 크기 |D3 |D3 |A3 |D12 |D12 |
+  | 헤드: 권장되는 VM 크기 |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
+  | 작업자: 기본 VM 크기 |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
+  | 작업자: 권장되는 VM 크기 |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | Zookeeper: 기본 VM 크기 | |A2 |A2 | | |
+  | Zookeeper: 권장되는 VM 크기 | |A2, A3, A4 |A2, A3, A4 | | |
+  | Edge: 기본 VM 크기 | | | | |Windows: D12; Linux: D4 |
+  | Edge: 권장되는 VM 크기 | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+
+> [!NOTE]
+> 헤드는 Storm 클러스터 유형에 대한 *Nimbus*로 알려져 있습니다. 작업자는 HBase 클러스터 유형에 대한 *영역* 및 Storm 클러스터 유형에 대한 *감독자*로 알려져 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+- [HDInsight의 Hadoop, Spark 등에 대한 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)
+- [Windows PC에서 HDInsight의 Hadoop 작업](hdinsight-hadoop-windows-tools.md)
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 

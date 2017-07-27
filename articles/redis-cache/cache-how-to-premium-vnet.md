@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 06/07/2017
 ms.author: sdanie
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 945da7ce2ab5f2d479d96a6ed2896a0ba7e0747e
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 84d55b7c86b6cf1964941d45748cde95c4f0f90f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -40,7 +40,7 @@ VNet(가상 네트워크) 지원은 캐시를 만드는 중에 **새 Redis 캐�
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-프리미엄 가격 책정 계층을 선택한 경우 캐시와 동일한 구독 및 위치에 있는 VNet을 선택하여 Redis VNet 통합을 구성할 수 있습니다. 새 VNet을 사용하려면 먼저 [Azure Portal을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 또는 [Azure Portal을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-portal.md)의 단계에 따라 VNet을 만든 다음 **새 Redis Cache** 블레이드로 돌아가 프리미엄 캐시를 만들고 구성합니다.
+프리미엄 가격 책정 계층을 선택한 경우 캐시와 동일한 구독 및 위치에 있는 VNet을 선택하여 Redis VNet 통합을 구성할 수 있습니다. 새 VNet을 사용하려면 먼저 [Azure Portal을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 또는 [Azure Portal을 사용하여 가상 네트워크(클래식) 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)의 단계에 따라 VNet을 만든 다음 **새 Redis Cache** 블레이드로 돌아가 프리미엄 캐시를 만들고 구성합니다.
 
 새 캐시에 대해 VNet을 구성하려면 **새 Redis Cache** 블레이드에서 **가상 네트워크**를 클릭하고 드롭다운 목록에서 원하는 VNet을 선택합니다.
 
@@ -85,6 +85,7 @@ VNet을 사용하는 경우 Azure Redis Cache 인스턴스에 연결하려면 �
 다음 목록에는 Azure Redis Cache 크기 조정에 대해 일반적으로 묻는 질문과 답변이 들어 있습니다.
 
 * [Azure Redis Cache 및 VNet의 몇 가지 일반적인 구성 오류 문제는 무엇인가요?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+* [캐시가 VNET에서 작동하는지 확인하려면 어떻게 해야 하나요?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * [표준 또는 기본 캐시에 VNet을 사용할 수 있나요?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * [일부 서브넷에서만 Redis Cache 생성이 실패하는 이유는 무엇인가요?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
 * [서브넷 주소 공간 요구 사항은 무엇입니까?](#what-are-the-subnet-address-space-requirements)
@@ -143,6 +144,26 @@ Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용�
 * *ocsp.msocsp.com*, *mscrl.microsoft.com* 및 *crl.microsoft.com*에 대한 아웃바운드 네트워크 연결입니다. 이 연결은 SSL 기능을 지원하는 데 필요합니다.
 * 가상 네트워크에 대한 DNS 구성은 이전 시점에 언급된 끝점 및 도메인을 모두 해결할 수 있어야 합니다. 유효한 DNS 인프라를 구성하고 가상 네트워크에 유지 관리하여 DNS 요구를 충족할 수 있습니다.
 * 다음 DNS 도메인에서 확인되는 다음 Azure 모니터링 끝점에 대한 아웃바운드 네트워크 연결: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net
+
+### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>캐시가 VNET에서 작동하는지 확인하려면 어떻게 해야 하나요?
+
+>[!IMPORTANT]
+>VNET에서 호스트되는 Azure Redis Cache 인스턴스에 연결할 때 테스트 응용 프로그램이나 진단 ping 도구를 포함하여 캐시 클라이언트는 동일한 VNET에 있어야 합니다.
+>
+>
+
+이전 섹션에 설명된 대로 포트 요구 사항이 구성되면 다음 단계를 수행하여 캐시가 작동하는지 확인할 수 있습니다.
+
+- 모든 캐시 노드를 [다시 부팅](cache-administration.md#reboot)합니다. [인바운드 포트 요구 사항](cache-how-to-premium-vnet.md#inbound-port-requirements) 및 [아웃바운드 포트 요구 사항](cache-how-to-premium-vnet.md#outbound-port-requirements)에 설명된 대로 모든 필요한 캐시 종속성에 연결할 수 없는 경우 캐시가 다시 시작되지 않을 수 있습니다.
+- Azure Portal의 캐시 상태에 보고된 대로 캐시 노드가 다시 시작되었으면 다음 테스트를 수행할 수 있습니다.
+  - 캐시와 동일한 VNET 내에 있는 컴퓨터에서 [tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용하여 캐시 끝점(포트 6380 사용)을 ping합니다. 예:
+    
+    `tcping.exe contosocache.redis.cache.windows.net 6380`
+    
+    `tcping` 도구에서 포트가 열려 있다고 보고하면 VNET에 있는 클라이언트에서 연결하는 데 캐시를 사용할 수 있습니다.
+
+  - 또 다른 테스트 방법은 캐시에 연결하고 캐시에서 일부 항목을 추가 및 검색하는 테스트 캐시 클라이언트(StackExchange.Redis를 사용하는 간단한 콘솔 응용 프로그램일 수 있음)를 만드는 것입니다. 캐시와 동일한 VNET에 있는 VM에 샘플 클라이언트 응용 프로그램을 설치하고 실행하여 캐시에 대한 연결을 확인합니다.
+
 
 ### <a name="can-i-use-vnets-with-a-standard-or-basic-cache"></a>표준 또는 기본 캐시에 VNet을 사용할 수 있나요?
 VNet은 프리미엄 캐시에만 사용할 수 있습니다.

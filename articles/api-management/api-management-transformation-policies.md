@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c46a85aaf5237a2a7643cc9069255bdad9ab1d69
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>API Management 변환 정책
@@ -227,15 +228,28 @@ ms.lasthandoff: 04/07/2017
     </outbound>  
 </policies>  
 ```  
+이 예제에서 백 엔드 서비스 설정 정책은 쿼리 문자열에 전달된 버전 값에 기반한 요청을 API에 지정된 것과 다른 백 엔드 서비스로 라우팅합니다.
   
- 이 예제에서 백 엔드 서비스 설정 정책은 쿼리 문자열에 전달된 버전 값에 기반한 요청을 API에 지정된 것과 다른 백 엔드 서비스로 라우팅합니다.  
+처음에는 백 엔드 서비스 기준 URL이 API 설정에서 파생되었습니다. 따라서 `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` 요청 URL은 `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef`가 되고, 여기서 `http://contoso.com/api/10.4/`는 API 설정에 지정된 백 엔드 서비스 URL입니다.  
   
- 처음에는 백 엔드 서비스 기준 URL이 API 설정에서 파생되었습니다. 따라서 `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` 요청 URL은 `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef`가 되고, 여기서 `http://contoso.com/api/10.4/`는 API 설정에 지정된 백 엔드 서비스 URL입니다.  
+[<choose\>](api-management-advanced-policies.md#choose) 정책 문을 적용하면 백 엔드 서비스 기준 URL은 버전 요청 쿼리 매개 변수의 값에 따라 `http://contoso.com/api/8.2` 또는 `http://contoso.com/api/9.1`로 다시 변경될 수 있습니다. 예를 들어 값이 `"2013-15"`이면 최종 요청 URL은 `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`가 됩니다.  
   
- [<choose\>](api-management-advanced-policies.md#choose) 정책 문을 적용하면 백 엔드 서비스 기준 URL은 버전 요청 쿼리 매개 변수의 값에 따라 `http://contoso.com/api/8.2` 또는 `http://contoso.com/api/9.1`로 다시 변경될 수 있습니다. 예를 들어 값이 `"2013-15"`이면 최종 요청 URL은 `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`가 됩니다.  
+추가 변환 요청이 필요한 경우 다른 [변환 정책](api-management-transformation-policies.md#TransformationPolicies)을 사용할 수 있습니다. 예를 들어 요청이 버전 특정 백 엔드로 라우팅되고 있어 버전 쿼리 매개 변수를 제거하려면 [쿼리 문자열 설정 매개 변수](api-management-transformation-policies.md#SetQueryStringParameter) 정책을 사용하여 현재의 중복 버전 특성을 제거할 수 있습니다.  
   
- 추가 변환 요청이 필요한 경우 다른 [변환 정책](api-management-transformation-policies.md#TransformationPolicies)을 사용할 수 있습니다. 예를 들어 요청이 버전 특정 백 엔드로 라우팅되고 있어 버전 쿼리 매개 변수를 제거하려면 [쿼리 문자열 설정 매개 변수](api-management-transformation-policies.md#SetQueryStringParameter) 정책을 사용하여 현재의 중복 버전 특성을 제거할 수 있습니다.  
+### <a name="example"></a>예제  
   
+```xml  
+<policies>  
+    <inbound>  
+        <set-backend-service backend-id="my-sf-service" sf-partition-key="@(context.Request.Url.Query.GetValueOrDefault("userId","")" sf-replica-type="primary" /> 
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+```  
+이 예제에서 정책은 userId 쿼리 문자열을 파티션 키로 사용하고 파티션의 주 복제본을 사용하여 서비스 패브릭 백 엔드로 요청을 라우팅합니다.  
+
 ### <a name="elements"></a>요소  
   
 |이름|설명|필수|  
@@ -246,8 +260,13 @@ ms.lasthandoff: 04/07/2017
   
 |이름|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|base-url|새 백 엔드 서비스 기준 URL입니다.|예|해당 없음|  
-  
+|base-url|새 백 엔드 서비스 기준 URL입니다.|아니요|해당 없음|  
+|backend-id|라우팅할 백 엔드의 식별자입니다.|아니요|해당 없음|  
+|sf-partition-key|백 엔드가 Service Fabric 서비스이고 'backend-id'를 사용하여 지정된 경우에만 적용됩니다. 이름 확인 서비스에서 특정 파티션을 확인하는 데 사용됩니다.|아니요|해당 없음|  
+|sf-replica-type|백 엔드가 Service Fabric 서비스이고 'backend-id'를 사용하여 지정된 경우에만 적용됩니다. 요청이 파티션의 주 복제본으로 이동되는지, 보조 복제본으로 이동되는지를 제어합니다. |아니요|해당 없음|    
+|sf-resolve-condition|백 엔드가 Service Fabric 서비스인 경우에만 적용됩니다. 새로 확인할 때마다 Service Fabric 백 엔드에 대한 호출을 반복해야 하는지를 식별하는 조건입니다.|아니요|해당 없음|    
+|sf-service-instance-name|백 엔드가 Service Fabric 서비스인 경우에만 적용됩니다. 런타임에 서비스 인스턴스를 변경할 수 있습니다. |아니요|해당 없음|    
+
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
@@ -655,7 +674,7 @@ OriginalUrl.
   <outbound>  
       <base />  
       <xsl-transform>  
-          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -663,7 +682,7 @@ OriginalUrl.
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-          </xsl:stylesheet>  
+        </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  

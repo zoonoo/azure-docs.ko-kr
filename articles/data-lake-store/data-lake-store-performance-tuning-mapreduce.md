@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-translationtype: Human Translation
-ms.sourcegitcommit: c145642c06e477dd47e4d8d651262046519b656b
-ms.openlocfilehash: 564141d09bc54fbf4beb36d28bec160a7097f897
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 9528148792f083cb0e48d356e61cf61762ee954f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -40,7 +42,7 @@ MapReduce 작업을 실행할 때 ADLS에서 성능을 향상시키기 위해 �
 * **Mapreduce.reduce.memory.mb** – 각 리듀서에 할당할 메모리 양
 * **Mapreduce.job.reduces** – 작업당 reduce 태스크 수
 
-**Mapreduce.map.memory / Mapreduce.reduce.memory** 맵 및/또는 리듀스 태스크에 필요한 메모리 양에 따라 이 숫자를 조정해야 합니다  mapreduce.map.memory 및 mapreduce.reduce.memory에 대한 기본 값은 Yarn 구성을 통해 Ambari에서 볼 수 있습니다.  Ambari에서 YARN으로 이동한 후 Configs 탭을 확인합니다.  메모리를 볼 수 있습니다.     
+**Mapreduce.map.memory / Mapreduce.reduce.memory** 맵 및/또는 리듀스 태스크에 필요한 메모리 양에 따라 이 숫자를 조정해야 합니다  mapreduce.map.memory 및 mapreduce.reduce.memory에 대한 기본 값은 Yarn 구성을 통해 Ambari에서 볼 수 있습니다.  Ambari에서 YARN으로 이동한 후 Configs 탭을 확인합니다.  YARN 메모리가 표시됩니다.  
 
 **Mapreduce.job.maps / Mapreduce.job.reduces** 생성할 최대 매퍼 또는 리듀서 수가 결정됩니다.  분할 수에 따라 MapReduce 작업에 대해 생성될 매퍼 수가 결정됩니다.  따라서 분할 수가 요청한 매퍼 수보다 적은 경우 요청한 것보다 적은 수의 매퍼를 얻을 수 있습니다.       
 
@@ -58,10 +60,10 @@ MapReduce 작업을 실행할 때 ADLS에서 성능을 향상시키기 위해 �
 **4단계: YARN 컨테이너 수 계산** – YARN 컨테이너는 작업에 대해 사용 가능한 동시성의 양을 결정합니다.  총 YARN 메모리를 가져와 mapreduce.map.memory로 나눕니다.  
 
     # of YARN containers = total YARN memory / mapreduce.map.memory
-    
-가장 많은 동시성을 얻으려면 YARN 컨테이너 수 이상의 매퍼 및 리듀서 수를 사용해야 합니다.  매퍼 및 리듀서 수를 늘리면 더 나은 성능을 얻을 수 있는지 실험해볼 수 있습니다.  매퍼 수가 늘어나면 추가 오버헤드가 발생하므로 매퍼 수가 너무 많으면 성능이 저하될 수 있음에 유의해야 합니다.  
 
-참고: 기본적으로 CPU 예약 및 CPU 격리는 해제되어 있으므로 YARN 컨테이너 수가 메모리로 제한됩니다.
+**5단계: mapreduce.job.maps/mapreduce.job.reduces 설정** mapreduce.job.maps/mapreduce.job.reduces를 사용 가능한 컨테이너 수 이상의 값으로 설정합니다.  매퍼 및 리듀서 수를 늘리면 더 나은 성능을 얻을 수 있는지 실험해볼 수 있습니다.  매퍼 수가 늘어나면 추가 오버헤드가 발생하므로 매퍼 수가 너무 많으면 성능이 저하될 수 있음에 유의해야 합니다.  
+
+기본적으로 CPU 예약 및 CPU 격리는 해제되어 있으므로 YARN 컨테이너 수가 메모리로 제한됩니다.
 
 ## <a name="example-calculation"></a>계산 예
 
@@ -72,16 +74,20 @@ MapReduce 작업을 실행할 때 ADLS에서 성능을 향상시키기 위해 �
 **2단계: mapreduce.map.memory/mapreduce.reduce.memory 설정** – 이 예에서는 I/O 집약적인 작업을 실행 중이고 맵 태스크에 대해 3GB 메모리면 충분하다고 결정합니다.
 
     mapreduce.map.memory = 3GB
-**3단계: 총 YARN 메모리 결정** 
+**3단계: 총 YARN 메모리 결정**
 
     total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
 **4단계: YARN 컨테이너 수 결정**
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
 
+**5단계: mapreduce.job.maps/mapreduce.job.reduces 설정**
+
+    mapreduce.map.jobs = 256
+
 ## <a name="limitations"></a>제한 사항
 
-**ADLS 제한** 
+**ADLS 제한**
 
 다중 테넌트 서비스로 ADLS는 계정 수준 대역폭 제한을 설정합니다.  이러한 제한에 도달하면 태스크 실패가 표시되기 시작합니다. 이것은 태스크 로그에서 제한 오류를 확인하여 파악할 수 있습니다.  작업에 대한 대역폭이 더 필요한 경우 문의하세요.   
 
@@ -98,24 +104,19 @@ MapReduce 작업을 실행할 때 ADLS에서 성능을 향상시키기 위해 �
 Azure Data Lake Store에서 MapReduce가 실행되는 방식을 보여 주기 위해 다음 설정으로 클러스터에서 실행된 샘플 코드가 아래에 제공됩니다.
 
 * 16 노드 D14v2
-* HDI 3.5를 실행하는 Hadoop 클러스터
+* HDI 3.6을 실행하는 Hadoop 클러스터
 
 다음은 출발점으로 MapReduce Teragen, Terasort 및 Teravalidate를 실행할 몇 가지 명령 예입니다.  리소스에 따라 이러한 명령을 조정할 수 있습니다.
 
 **Teragen**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=2048 -Dmapred.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
 
 **Terasort**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=2048 -Dmapred.map.memory.mb=3072 -Dmapred.reduce.tasks=512 -Dmapred.reduce.memory.mb=3072 adl://example/data/1TB-sort-input adl://example/data/1TB-sort-output
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 adl://example/data/1TB-sort-input adl://example/data/1TB-sort-output
 
 **Teravalidate**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=512 -Dmapred.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate
-
-
-
-<!--HONumber=Jan17_HO2-->
-
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate
 

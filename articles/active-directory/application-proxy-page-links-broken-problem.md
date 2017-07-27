@@ -1,5 +1,5 @@
 ---
-title: Links on the page don't work for an Application Proxy application | Microsoft Docs
+title: "페이지의 링크가 응용 프로그램 프록시 응용 프로그램에서 작동하지 않음 | Microsoft Docs"
 description: "Azure AD와 통합한 응용 프로그램 프록시 응용 프로그램에 대한 링크가 끊어지는 문제를 해결하는 방법"
 services: active-directory
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 165536dcaa7a5db1c913121895634659d70d5c9c
 ms.openlocfilehash: e4b2556533fcb22556ca526d5815908fdefb0788
-ms.lasthandoff: 04/18/2017
-
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/30/2017
 
 ---
 

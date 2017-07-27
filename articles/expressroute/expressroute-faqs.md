@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 07/05/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 3f9fb86a5bf63d24432c1ba9945a4da6cf794f13
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 42e53835c49f502ac41c08031a477e3c6bbd60fa
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -104,7 +104,7 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 아니요. Azure까지의 계층 2 연결 확장을 지원하지 않습니다.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>내 구독에 둘 이상의 Express 경로 회로가 있을 수 있나요?
-예. 사용자 구독에 둘 이상의 Express 경로 회로가 있을 수 있습니다. 전용 회로의 수에 대한 기본 제한은 10으로 설정됩니다 필요한 경우 제한을 늘리려면 Microsoft 지원에 문의할 수 있습니다.
+예. 사용자 구독에 둘 이상의 Express 경로 회로가 있을 수 있습니다. 기본 제한은 10으로 설정되어 있습니다. 필요한 경우 제한을 늘리려면 Microsoft 지원에 문의할 수 있습니다.
 
 ### <a name="can-i-have-expressroute-circuits-from-different-service-providers"></a>다른 서비스 공급자의 Express 경로 회로를 사용할 수 있나요?
 예. 여러 서비스 공급자의 Express 경로 회로가 있을 수 있습니다. 각 Express 경로 회로는 하나의 서비스 공급자화만 연결됩니다. 
@@ -185,7 +185,7 @@ BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설
 예, Azure Portal에서 또는 PowerShell을 사용하여 ExpressRoute 회로의 대역폭을 늘릴 수 있습니다. 회로가 생성된 물리적 포트에 사용 가능한 용량이 있는 경우 변경에 성공합니다. 변경에 실패하면 현재 포트에 남아 있는 용량이 부족하며 보다 높은 대역폭으로 새로운 ExpressRoute 회로를 만들어야 합니다. 그렇지 않으면 해당 위치에 추가 용량이 없으며 이 경우 대역폭을 늘릴 수 없습니다. 또한 연결 공급자는 네트워크 내 제한을 업데이트하여 대역폭 증가를 지원하도록 후속 작업해야 합니다. 하지만 ExpressRoute 회로의 대역폭은 줄일 수 없습니다. 낮은 대역폭으로 새 ExpressRoute 회로를 만들고 이전 회로를 삭제해야 합니다.
 
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Express 경로 회로의 대역폭을 변경하려면 어떻게 해야 하나요?
-업데이트 전용 회로 API 및 PowerShell cmdlet을 사용하여 Express 경로 회로의 대역폭을 업데이트할 수 있습니다.
+REST API 및 PowerShell cmdlet을 사용하여 ExpressRoute 회로의 대역폭을 업데이트할 수 있습니다.
 
 ## <a name="expressroute-premium"></a>Express 경로 프리미엄:
 ### <a name="what-is-expressroute-premium"></a>Express 경로 프리미엄이란?
@@ -202,10 +202,10 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 [!INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 ### <a name="how-do-i-enable-expressroute-premium"></a>Express 경로 프리미엄을 사용하려면 어떻게 하나요?
-기능이 활성화되어 있고 회로 상태를 업데이트하여 종료될 수 있는 경우, Express 경로 프리미엄 기능을 사용할 수 있습니다. 경로 작성 시 Express 경로 프리미엄을 사용하거나 업데이트 전용 회로 API / PowerShell cmdlet을 호출하여 Express 경로 프리미엄을 사용할 수 있습니다.
+기능이 활성화되어 있고 회로 상태를 업데이트하여 종료될 수 있는 경우, Express 경로 프리미엄 기능을 사용할 수 있습니다. 회로 생성 시 ExpressRoute 프리미엄을 사용하도록 설정하거나, REST API/PowerShell cmdlet을 호출하여 ExpressRoute 프리미엄을 사용하도록 설정할 수 있습니다.
 
 ### <a name="how-do-i-disable-expressroute-premium"></a>Express 경로 프리미엄을 사용하지 않도록 하려면 어떻게 하나요?
-전용 회로 API/PowerShell cmdlet을 호출하여 ExpressRoute 프리미엄을 사용하지 않도록 설정할 수 있습니다. ExpressRoute 프리미엄을 사용하지 않도록 설정하기 전에 기본 제한을 충족하도록 연결 요구를 확장했는지 확인해야 합니다. 사용률이 확장 기본 제한을 초과 하는 경우, Express 경로 프리미엄을 사용하지 않도록 하는 요청이 실패합니다.
+REST API/PowerShell cmdlet을 호출하여 ExpressRoute 프리미엄을 사용하지 않도록 설정할 수 있습니다. ExpressRoute 프리미엄을 사용하지 않도록 설정하기 전에 기본 제한을 충족하도록 연결 요구를 확장했는지 확인해야 합니다. 사용률이 확장 기본 제한을 초과 하는 경우, Express 경로 프리미엄을 사용하지 않도록 하는 요청이 실패합니다.
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>프리미엄 기능 집합에서 원하는 기능을 선택할 수 있나요?
 아니요. 필요한 기능을 선택할 수 없습니다. Express 경로 프리미엄을 켜면 모든 기능을 사용합니다.
