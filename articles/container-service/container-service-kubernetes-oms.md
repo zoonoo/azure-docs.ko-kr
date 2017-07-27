@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
-translationtype: Human Translation
-ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
-ms.openlocfilehash: 46240f3dc99a8c8a103a1e7919ad4f5e7a8ea62a
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 0ada599549d1c94a6be5199111f20f9d3708793f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -37,7 +38,8 @@ ms.lasthandoff: 04/04/2017
 $ az --version
 ```
 
-`az` 도구가 설치되어 있지 않으면 [여기](https://github.com/azure/azure-cli#installation)의 지침을 따르세요.
+`az` 도구가 설치되어 있지 않으면 [여기](https://github.com/azure/azure-cli#installation)의 지침을 따르세요.  
+또는 사용자를 위해 이미 `az` Azure cli 및 `kubectl` 도구를 설치한 [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)을 사용할 수 있습니다.  
 
 다음을 실행하여 `kubectl` 도구가 설치되어 있는지 테스트할 수 있습니다.
 
@@ -46,9 +48,20 @@ $ kubectl version
 ```
 
 `kubectl`이 설치되어 있지 않으면 다음을 실행할 수 있습니다.
-
 ```console
 $ az acs kubernetes install-cli
+```
+
+kubectl 도구에 kubernetes 키를 설치했는지를 테스트하려면 다음을 실행하면 됩니다.
+```console
+$ kubectl get nodes
+```
+
+위의 명령을 실행한 결과 오류가 출력되면 kubernetes 클러스터 키를 kubectl 도구에 설치해야 합니다. 이 작업은 다음 명령을 사용하여 수행할 수 있습니다.
+```console
+RESOURCE_GROUP=my-resource-group
+CLUSTER_NAME=my-acs-name
+az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
 ## <a name="monitoring-containers-with-operations-management-suite-oms"></a>OMS(Operations Management Suite)를 사용하여 컨테이너 모니터링
@@ -78,6 +91,43 @@ DaemonSet은 Kubernetes가 클러스터의 각 호스트에서 컨테이너의 �
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
+
+### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>Kubernetes 비밀을 사용하여 OMS 에이전트 설치
+OMS 작업 영역 ID 및 키를 보호하려면 Kubernetes 비밀을 DaemonSet YAML 파일의 일부로 사용하면 됩니다.
+
+ - [리포지토리](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)에서 스크립트, 비밀 템플릿 파일 및 DaemonSet YAML 파일을 복사하고 이러한 항목이 같은 디렉터리에 있는지 확인합니다. 
+      - 비밀 생성 스크립트 - secret-gen.sh
+      - 비밀 템플릿 - secret-template.yaml
+   - DaemonSet YAML 파일 - omsagent-ds-secrets.yaml
+ - 스크립트를 실행합니다. 스크립트에서 OMS 작업 영역 ID 및 기본 키를 요청합니다. 이러한 ID와 키를 삽입하면 스크립트는 사용자가 실행할 수 있도록 비밀 yaml 파일을 만듭니다.   
+   ```
+   #> sudo bash ./secret-gen.sh 
+   ```
+
+   - 다음을 실행하여 비밀 Pod를 만듭니다. ``` kubectl create -f omsagentsecret.yaml ```
+ 
+   - 확인하려면 다음을 실행합니다. 
+
+   ``` 
+   root@ubuntu16-13db:~# kubectl get secrets
+   NAME                  TYPE                                  DATA      AGE
+   default-token-gvl91   kubernetes.io/service-account-token   3         50d
+   omsagent-secret       Opaque                                2         1d
+   root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+   Name:           omsagent-secret
+   Namespace:      default
+   Labels:         <none>
+   Annotations:    <none>
+
+   Type:   Opaque
+
+   Data
+   ====
+   WSID:   36 bytes
+   KEY:    88 bytes 
+   ```
+ 
+  - ``` kubectl create -f omsagent-ds-secrets.yaml ```을 실행하여 omsagent daemon-set 만들기
 
 ### <a name="conclusion"></a>결론
 이것으로 끝입니다. 몇 분 후 OMS 대시보드로 이동하는 데이터를 볼 수 있습니다.

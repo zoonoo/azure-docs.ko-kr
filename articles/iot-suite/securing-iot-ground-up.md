@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2017
+ms.date: 07/03/2017
 ms.author: yurid
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ad88c17e0c6bad7cb58c8517a47bbe5fe0fae763
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 4e02b55272fee8460886bb807a45cad99612dd86
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -57,7 +57,7 @@ Azure IoT Suite에 기본 제공되는 보안 및 개인 정보 기능을 가장
 ![Azure IoT Suite](media/securing-iot-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>보안 장치를 프로비전 및 인증
-Azure IoT Suite는 각 장치에 대해 IoT 인프라에서 작업 중인 장치와 통신하는 데 사용할 수 있는 고유한 ID 키를 제공하여 현장에 없는 동안 장치를 보안 설정합니다. 이 프로세스는 빠르고 쉽게 설정합니다. 사용자가 선택한 장치 ID로 생성된 키는 장치와 Azure IoT Hub 간의 모든 통신에 사용되는 토큰의 기초를 구성합니다.
+Azure IoT Suite는 각 장치에 대해 IoT 인프라에서 작업 중인 장치와 통신하는 데 사용할 수 있는 고유한 ID 키를 제공하여 현장에 없는 동안 장치를 보안 설정합니다. 이 프로세스는 빠르고 쉽게 설정할 수 있습니다. 사용자가 선택한 장치 ID로 생성된 키는 장치와 Azure IoT Hub 간의 모든 통신에 사용되는 토큰의 기초를 구성합니다.
 
 장치 ID는 제조 중에 장치에 연결하거나(예: 하드웨어 트러스트 모듈에서 플래시됨) 기존 고정된 ID를 프록시로 사용할 수 있습니다(예: CPU 일련 번호). 장치에서 이 식별 정보를 변경하는 것은 간단하지 않으므로 기본 장치 하드웨어가 변경되지만 논리적 장치는 동일하게 유지되는 경우 논리적 장치 ID를 도입하는 것이 중요합니다. 일부 경우 장치 ID의 연결이 장치 배포 시 발생할 수 있습니다(즉, 솔루션 백 엔드와 통신하는 동안 인증된 현장 엔지니어가 새 장치를 물리적으로 구성). [Azure IoT Hub ID 레지스트리](../iot-hub/iot-hub-devguide.md) 는 장치 ID에 대한 보안 저장소와 솔루션을 위한 보안 키를 제공합니다. 개별 또는 그룹 장치 ID를 허용 목록 또는 차단 목록에 추가하여 장치 액세스를 완벽하게 제어할 수 있습니다.
 

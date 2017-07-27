@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/15/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 3979593a399ed701fb1985152379818a0417f122
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 45c04c395c474f1fe6ff042776ef0e89470b280f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -52,6 +52,10 @@ Event Hubs는 파티션 키 값을 공유하는 모든 이벤트가 동일한 �
 ```
 
 시간에 앞서 게시자 이름을 미리 만들 필요가 없지만, 독립 게시자 ID를 보장하기 위해 이벤트를 게시하는 경우 사용하는 SAS 토큰과 일치해야 합니다. 게시자 정책을 사용하는 경우 **PartitionKey** 값이 게시자 이름으로 설정됩니다. 제대로 작동하려면 이 값이 일치해야 합니다.
+
+## <a name="capture"></a>캡처
+
+[Event Hubs 캡처](event-hubs-capture-overview.md)를 사용하면 Event Hubs의 스트리밍 데이터를 자동으로 캡처하고 선택한 Blob 저장소 계정에 보관할 수 있습니다. Azure Portal에서 캡처를 사용하도록 설정하고 캡처를 수행할 최소 크기와 기간을 지정할 수 있습니다. Event Hubs 캡처를 사용할 경우 캡처된 데이터를 저장하는 데 사용되는 고유한 Azure Blob Storage 계정 및 컨테이너를 지정합니다. 캡처된 데이터는 Apache Avro 형식으로 기록됩니다.
 
 ## <a name="partitions"></a>파티션
 

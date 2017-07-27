@@ -1,5 +1,5 @@
 ---
-title: "Azure PowerShell을 사용하여 도메인 가입 HDInsight 클러스터 구성 | Microsoft 문서"
+title: "PowerShell을 사용하여 도메인 가입 HDInsight 클러스터 구성 - Azure | Microsoft Docs"
 description: "Azure PowerShell을 사용하여 도메인 가입 HDInsight 클러스터를 설정 및 구성하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -16,15 +16,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6f4189cb30d528a106dd8889c06acd621aebb699
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: d31ad53525ef75bdb61c42409dc07bba4138fc25
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/28/2017
 
 
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Azure PowerShell을 사용하여 도메인 가입 HDInsight 클러스터 구성(미리 보기)
 Azure PowerShell을 사용하여 Azure AD(Azure Active Directory) 및 [Apache Ranger](http://hortonworks.com/apache/ranger/)와 함께 Azure HDInsight 클러스터를 설정하는 방법에 대해 알아봅니다. Azure PowerShell 스크립트는 보다 빠르게 구성하고 구성 오류를 줄이기 위해 제공됩니다. 도메인에 가입된 HDInsight는 Linux 기반 클러스터에만 구성할 수 있습니다. 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 소개](hdinsight-domain-joined-introduction.md)를 참조하세요.
+
+> [!IMPORTANT]
+> 도메인에 연결된 HDInsight에서는 Oozie를 사용할 수 없습니다.
 
 일반적인 도메인 가입 HDInsight 클러스터 구성 단계는 다음과 같습니다.
 
@@ -59,7 +63,7 @@ Azure PowerShell을 사용하여 Azure AD(Azure Active Directory) 및 [Apache Ra
 * Azure PowerShell.  [Azure PowerShell 설치 및 구성](/powershell/azure/overview)을 참조하세요.
 
 ## <a name="create-an-azure-classic-vnet-for-your-azure-ad"></a>Azure AD에 대한 Azure 클래식 VNet을 만듭니다.
-지침에 대해서는 [여기](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet)를 참조하세요.
+지침에 대해서는 [여기](hdinsight-domain-joined-configure.md#create-an-azure-virtual-network-classic)를 참조하세요.
 
 ## <a name="create-and-configure-azure-ad-and-azure-ad-ds"></a>Azure AD 및 Azure AD DS를 만들고 구성합니다.
 지침에 대해서는 [여기](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad)를 참조하세요.
@@ -73,7 +77,7 @@ PowerShell 스크립트는 [GitHub](https://github.com/hdinsight/DomainJoinedHDI
 2. 다음 변수의 값을 채웁니다.
    
    * **$SubscriptionName** - HDInsight 클러스터를 만들 Azure 구독의 이름입니다. 클래식 가상 네트워크는 이미 이 구독에 만들어졌으며, 구독 중인 HDInsight 클러스터를 위한 Azure Resource Manager 가상 네트워크를 만들 것입니다.
-   * **$ClassicVNetName** - Azure AD DS가 포함된 클래식 가상 네트워크입니다. 이 가상 네트워크는 위에서 제공된 동일한 구독에 있어야 합니다. 이 가상 네트워크는 클래식 포털을 사용하지 않고 Azure Portal을 사용하여 만들어야 합니다. [도메인 가입 HDInsight 클러스터 구성(미리 보기)](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet)의 지침을 따르는 경우 기본 이름은 contosoaadvnet입니다.
+   * **$ClassicVNetName** - Azure AD DS가 포함된 클래식 가상 네트워크입니다. 이 가상 네트워크는 위에서 제공된 동일한 구독에 있어야 합니다. 이 가상 네트워크는 클래식 포털을 사용하지 않고 Azure Portal을 사용하여 만들어야 합니다. [도메인 가입 HDInsight 클러스터 구성(미리 보기)](hdinsight-domain-joined-configure.md#create-an-azure-virtual-network-classic)의 지침을 따르는 경우 기본 이름은 contosoaadvnet입니다.
    * **$ClassicResourceGroupName** - 위에서 언급한 클래식 가상 네트워크의 Resource Manager 그룹 이름입니다. 예를 들어 contosoaadrg과 같습니다. 
    * **$ArmResourceGroupName** - HDInsight 클러스터를 만들려는 리소스 그룹 이름입니다. $ArmResourceGroupName과 동일한 리소스 그룹을 사용할 수 있습니다.  리소스 그룹이 없으면 스크립트에서 리소스 그룹을 만듭니다.
    * **$ArmVNetName** - HDInsight 클러스터를 만들려는 Resource Manager 가상 네트워크 이름입니다. 이 가상 네트워크는 $ArmResourceGroupName에 배치됩니다.  VNet이 없으면 PowerShell 스크립트에서 해당 VNet을 만듭니다. VNet이 있으면 위에서 제공하는 리소스 그룹의 일부여야 합니다.

@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/15/2017
 ms.author: eugenesh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: faa6d403aa130738ae0b58ba1ffc828a1e37e9f4
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 509682297a3db090caa73bd9438f6434257d558f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -34,7 +34,8 @@ BLOB 인덱서는 다음과 같은 문서 형식에서 텍스트를 추출할 �
 * XML
 * ZIP
 * EML
-* 일반 텍스트 파일  
+* RTF
+* 일반 텍스트 파일
 * JSON([JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 미리 보기 기능 참조)
 * CSV([CSV BLOB 인덱싱](search-howto-index-csv-blobs.md) 미리 보기 기능 참조)
 
@@ -141,7 +142,7 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 
 > [!NOTE]
 > 기본적으로 JSON 또는 CSV와 같이 구조화된 콘텐츠를 포함하는 Blob은 단일 텍스트 청크로 인덱싱됩니다. 구조화된 방식으로 JSON 및 CSV Blob을 인덱싱하려면 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md) 및 [CSV BLOB 인덱싱](search-howto-index-csv-blobs.md) 미리 보기 기능을 참조하세요.
-> 
+>
 > 복합 또는 포함된 문서(예: ZIP 보관 파일 또는 첨부 파일이 있는 Outlook 메일이 포함된 Word 문서)도 단일 문서로 인덱싱됩니다.
 
 * 문서의 텍스트 콘텐츠가 `content`라는 문자열 필드로 추출됩니다.
@@ -366,7 +367,9 @@ BLOB 인덱싱은 시간이 오래 걸리는 프로세스입니다. 인덱싱할
 | XML(application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |XML 태그를 제거하고 텍스트 추출 |
 | JSON(application/json) |`metadata_content_type`</br>`metadata_content_encoding` |텍스트 추출<br/>참고: JSON BLOB에서 여러 문서 필드를 추출해야 하는 경우 자세한 내용은 [JSON BLOB 인덱싱](search-howto-index-json-blobs.md)을 참조하세요. |
 | EML(메시지/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |첨부 파일을 비롯한 텍스트 추출 |
-| 일반 텍스트(text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | |
+| RTF(application/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | 텍스트 추출|
+| 일반 텍스트(text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | 텍스트 추출|
+
 
 ## <a name="help-us-make-azure-search-better"></a>Azure 검색 개선 지원
 요청할 기능이 있거나 개선을 위한 아이디어가 있는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search/)를 통해 알려주세요.

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
+ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 1c6b79c5f67cee5d62c9879bdeec926091253af6
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: a1e385c235c3530744a83527574880c5f37caadd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="azure-active-directory-reporting-latencies---preview"></a>Azure Active Directory 보고 대기 시간 - 미리 보기
+# <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 보고 대기 시간
 
-Azure Active Directory [미리 보기](active-directory-preview-explainer.md)에서 보고를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다. 보고 데이터가 Azure Porta에 표시되는 데 걸리는 시간을 대기 시간이라고도 합니다. 
+Azure Active Directory에서 [보고](active-directory-preview-explainer.md)를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다. 보고 데이터가 Azure Porta에 표시되는 데 걸리는 시간을 대기 시간이라고도 합니다. 
 
 이 항목에서는 Azure Portal의 모든 보고 범주에 대한 대기 시간 정보를 나열합니다. 
 
@@ -91,3 +91,4 @@ Azure Portal의 보안 보고서에 자세히 알아보려면 다음을 참조�
 - [Azure Active Directory 포털에서 제공하는 위험한 로그인 보고서](active-directory-reporting-security-risky-sign-ins.md)
 
 위험 이벤트에 대한 자세한 내용은 [Azure Active Directory 위험 이벤트](active-directory-reporting-risk-events.md)를 참조하세요.
+

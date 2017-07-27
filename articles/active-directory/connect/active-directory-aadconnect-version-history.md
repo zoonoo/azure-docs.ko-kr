@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 4703cd03db398d8dc59fb5f5c0cf71214c606bc8
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 3ab0f37147330cb55da8b0955a359cca27750e70
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -35,6 +35,154 @@ Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure A
 Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](active-directory-aadconnect-upgrade-previous-version.md) 하는 다른 방법입니다.
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](./active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 다운로드| [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="115570"></a>1.1.557.0
+상태: 2017년 7월
+
+>[!NOTE]
+>이 빌드는 Azure AD Connect 자동 업그레이드 기능을 통해 고객에게 제공되지 않습니다.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+
+#### <a name="fixed-issue"></a>해결된 문제
+* 기존 서비스 연결 지점 개체에 구성된 확인된 도메인이 여전히 유효한 도메인인 경우에도 변경되도록 하는, Initialize-ADSyncDomainJoinedComputerSync cmdlet과 관련된 문제가 해결되었습니다. 이 문제는 서비스 연결 지점을 구성하는 데 사용할 수 있는 확인된 도메인이 Azure AD 테넌트에 둘 이상 있는 경우에 발생합니다.
+
+#### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+* 이제 비밀번호 쓰기 저장이 Microsoft Azure Government 클라우드 및 Microsoft Cloud Germany에서 미리 보기로 제공됩니다. 다양한 서비스 인스턴스에 대한 Azure AD Connect 지원과 관련된 자세한 내용은 [Azure AD Connect: 인스턴스에 대한 특별 고려 사항](active-directory-aadconnect-instances.md)을 참조하세요.
+
+* 이제 Initialize-ADSyncDomainJoinedComputerSync cmdlet에 AzureADDomain이라는 새로운 선택적 매개 변수가 있습니다. 이 매개 변수를 사용하면 서비스 연결 지점을 구성하는 데 사용할 확인된 도메인을 지정할 수 있습니다.
+
+### <a name="pass-through-authentication"></a>통과 인증
+
+#### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+* 통과 인증에 필요한 에이전트 이름이 *Microsoft Azure AD 응용 프로그램 프록시 커넥터*에서 *Microsoft Azure AD Connect 인증 에이전트*로 변경되었습니다.
+
+* 통과 인증을 사용하도록 설정하면 기본적으로 암호 해시 동기화가 더 이상 활성화되지 않습니다.
+
+
+## <a name="115530"></a>1.1.553.0
+상태: 2017년 6월
+
+> [!IMPORTANT]
+> 이 빌드에서는 스키마 및 동기화 규칙이 변경되었습니다. Azure AD Connect 동기화 서비스는 업그레이드 후에 전체 가져오기 및 전체 동기화 단계를 트리거합니다. 자세한 변경 내용은 다음과 같습니다. 업그레이드 후 전체 가져오기 및 전체 동기화 단계를 일시적으로 연기하려면 [업그레이드 후 전체 동기화를 연기하는 방법](active-directory-aadconnect-upgrade-previous-version.md#how-to-defer-full-synchronization-after-upgrade) 문서를 참조하세요.
+>
+>
+
+### <a name="azure-ad-connect-sync"></a>Azure AD Connect 동기화
+
+#### <a name="known-issue"></a>알려진 문제
+* Azure AD Connect 동기화와 함께 [OU 기반 필터링](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering)을 사용하는 고객에게 영향을 주는 문제가 있습니다. Azure AD Connect 마법사의 [도메인 및 OU 필터링 페이지](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)로 이동할 경우 다음과 같은 동작이 예상됩니다.
+  * OU 기반 필터링이 사용되는 경우 **선택한 도메인 및 OU 동기화** 옵션이 선택됩니다.
+  * 그렇지 않은 경우 **모든 도메인 및 OU 동기화** 옵션이 선택됩니다.
+
+발생하는 문제는 마법사를 실행할 때 항상 **모든 도메인 및 OU 동기화**가 선택된다는 것입니다.  이 문제는 OU 기반 필터링이 이전에 구성된 경우에도 발생합니다. AAD Connect 구성 변경 내용을 저장하기 전에 **선택한 도메인 및 OU 동기화 옵션이 선택되었는지** 확인하고 동기화해야 하는 모든 OU가 다시 활성화되었는지 확인합니다. 그렇지 않으면 OU 기반 필터링이 비활성화됩니다.
+
+#### <a name="fixed-issues"></a>해결된 문제
+
+* Azure AD 관리자가 온-프레미스 AD 권한 있는 사용자 계정의 암호를 다시 설정할 수 있도록 하는, 비밀번호 쓰기 저장과 관련된 문제가 해결되었습니다. 이 문제는 Azure AD Connect에 권한 있는 계정에 대한 암호 다시 설정 권한이 부여된 경우에 발생합니다. 이 버전의 Azure AD Connect에서는 Azure AD 관리자가 계정의 소유자가 아닌 경우 임의의 온-프레미스 AD 권한 있는 사용자 계정의 암호를 다시 설정할 수 없도록 하여 이 문제를 해결합니다. 자세한 내용은 [보안 권고 4033453](https://technet.microsoft.com/library/security/4033453)을 참조하세요.
+
+* Azure AD Connect가 온-프레미스 AD msDS-ConsistencyGuid 특성에 쓰기 저장하지 않는, [원본 앵커로서의 msDS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) 기능과 관련된 문제가 해결되었습니다. 이 문제는 여러 개의 온-프레미스 AD 포리스트가 Azure AD Connect에 추가되어 있고 *사용자 ID가 여러 디렉터리에 있습니다. 옵션*이 선택된 경우에 발생합니다. 이러한 구성을 사용하면 결과로 생성된 동기화 규칙이 메타버스의 sourceAnchorBinary 특성을 채우지 않습니다. sourceAnchorBinary 특성은 msDS-ConsistencyGuid 특성에 대한 원본 특성으로 사용됩니다. 결과적으로 ms-DSConsistencyGuid 특성에 대한 쓰기 저장이 발생하지 않습니다. 이 문제를 해결하기 위해 메타버스의 sourceAnchorBinary 특성이 항상 채워지도록 다음 동기화 규칙이 업데이트되었습니다.
+  * In from AD - InetOrgPerson AccountEnabled.xml
+  * In from AD - InetOrgPerson Common.xml
+  * In from AD - User AccountEnabled.xml
+  * In from AD - User Common.xml
+  * In from AD - User Join SOAInAAD.xml
+
+* 이전에는 [원본 앵커로서의 msDS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) 기능이 사용되지 않는 경우에도 “Out to AD – User ImmutableId” 동기화 규칙이 Azure AD Connect에 추가되었습니다. 영향은 무해하며, msDS-ConsistencyGuid 특성의 쓰기 저장이 발생하지 않습니다. 혼동을 피하기 위해 기능이 사용되는 경우에만 동기화 규칙이 추가되도록 논리가 추가되었습니다.
+
+* 암호 해시 동기화가 오류 이벤트 611로 실패하게 만드는 문제가 해결되었습니다. 이 문제는 온-프레미스 AD에서 하나 이상의 도메인 컨트롤러가 제거된 후에 발생합니다. 각 암호 동기화 주기가 끝나면 온-프레미스 AD에서 발급된 동기화 쿠키에 제거된 도메인 컨트롤러의 호출 ID와 USN(업데이트 시퀀스 번호) 값 0이 포함됩니다. 암호 동기화 관리자는 USN 값 0이 포함된 동기화 쿠키를 유지할 수 없으며 오류 이벤트 611로 실패합니다. 다음 동기화 주기 동안 암호 동기화 관리자는 USN 값 0을 포함하지 않는 마지막으로 유지된 동기화 쿠키를 다시 사용합니다. 이 경우 동일한 암호 변경 내용을 다시 동기화됩니다. 이 문제가 해결되어 암호 동기화 관리자가 동기화 쿠키를 올바르게 유지합니다.
+
+* 이전에는 자동 업그레이드가 Set-ADSyncAutoUpgrade cmdlet을 사용하여 비활성화된 경우에도 자동 업그레이드 프로세스에서 계속 업그레이드를 정기적으로 확인하고, 다운로드한 설치 관리자를 통해 비활성 상태를 유지했습니다. 이 문제가 해결되어 자동 업그레이드 프로세스에서 더 이상 업그레이드를 정기적으로 확인하지 않습니다. 이 Azure AD Connect 버전용 업그레이드 설치 관리자를 한 번 실행하면 수정 버전이 자동으로 적용됩니다.
+
+#### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+
+* 이전에는 [원본 앵커로서의 msDS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) 기능을 새 배포에만 사용할 수 있었습니다. 이제 기존 배포에도 사용할 수 있습니다. 더 구체적으로 살펴보면 다음과 같습니다.
+  * 기능에 액세스하려면 Azure AD Connect 마법사를 시작하고 *원본 앵커 업데이트* 옵션을 선택합니다.
+  * 이 옵션은 objectGuid를 sourceAnchor 특성으로 사용하는 기존 배포에만 표시됩니다.
+  * 옵션을 구성할 때 마법사는 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 사용자 개체에 구성되어 있지 않으면, 마법사는 msDS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 사용자 개체에 구성되어 있으면, 마법사는 특성이 다른 응용 프로그램에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정하고 원본 앵커 변경이 진행되지 않도록 합니다. 기존 응용 프로그램에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
+
+* 장치 개체의 **userCertificate** 특성과 관련해서, Azure AD Connect는 이제 [Windows 10 환경용 Azure AD에 도메인 가입 장치를 연결](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy)하는 데 필요한 인증서 값을 찾은 다음 Azure AD에 동기화하기 전에 나머지 값을 필터링합니다. 이 동작을 사용하도록 설정하기 위해 기본 제공 동기화 규칙 "Out to AAD - Device Join SOAInAD"가 업데이트되었습니다.
+
+* 이제 Azure AD Connect에서 Exchange Online **cloudPublicDelegates** 특성을 온-프레미스 AD **publicDelegates** 특성에 쓰기 저장하는 기능을 지원합니다. 이렇게 하면 Exchange Online 사서함에 온-프레미스 Exchange 사서함이 있는 사용자에 대한 SendOnBehalfTo 권한을 부여할 수 있는 시나리오가 가능합니다. 이 기능을 지원하기 위해 새로운 기본 제공 동기화 규칙 “Out to AD – User Exchange Hybrid PublicDelegates writeback”이 추가되었습니다. 이 동기화 규칙은 Exchange 하이브리드 기능이 사용되는 경우에만 Azure AD Connect에 추가됩니다.
+
+*   이제 Azure AD Connect에서 Azure AD의 **altRecipient** 특성 동기화를 지원합니다. 이 변경 내용은 지원하기 위해 다음과 같은 기본 제공 동기화 규칙이 필수 특성 흐름을 포함하도록 업데이트되었습니다.
+  * AD에서 들어오기 – 사용자 Exchange
+  * Out to AAD – User ExchangeOnline
+  
+* 메타버스의 **cloudSOAExchMailbox** 특성은 지정된 사용자에게 Exchange Online 사서함에 있는지 여부를 나타냅니다. 해당 정의가 Equipment and Conference Room 사서함 등의 추가 Exchange Online RecipientDisplayTypes를 포함하도록 업데이트되었습니다. 이 변경 내용을 사용하도록 설정하기 위해 기본 제공 동기화 규칙 “In from AAD – User Exchange Hybrid” 아래에 있는 cloudSOAExchMailbox 특성의 정의가
+
+```
+CBool(IIF(IsNullOrEmpty([cloudMSExchRecipientDisplayType]),NULL,BitAnd([cloudMSExchRecipientDisplayType],&amp;HFF) = 0))
+```
+
+에서 다음으로 업데이트되었습니다.
+
+```
+CBool(
+  IIF(IsPresent([cloudMSExchRecipientDisplayType]),(
+    IIF([cloudMSExchRecipientDisplayType]=0,True,(
+      IIF([cloudMSExchRecipientDisplayType]=2,True,(
+        IIF([cloudMSExchRecipientDisplayType]=7,True,(
+          IIF([cloudMSExchRecipientDisplayType]=8,True,(
+            IIF([cloudMSExchRecipientDisplayType]=10,True,(
+              IIF([cloudMSExchRecipientDisplayType]=16,True,(
+                IIF([cloudMSExchRecipientDisplayType]=17,True,(
+                  IIF([cloudMSExchRecipientDisplayType]=18,True,(
+                    IIF([cloudMSExchRecipientDisplayType]=1073741824,True,(
+                       IF([cloudMSExchRecipientDisplayType]=1073741840,True,False)))))))))))))))))))),False))
+
+```
+
+* userCertificate 특성의 인증서 값을 처리할 동기화 규칙 식을 만들기 위해 다음과 같은 X509Certificate2 호환 함수 집합이 추가되었습니다.
+
+    ||||
+    | --- | --- | --- |
+    |CertSubject|CertIssuer|CertKeyAlgorithm|
+    |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
+    |CertSubjectNameOid|CertIssuerDN|IsCert|
+    |CertFriendlyName|CertThumbprint|CertExtensionOids|
+    |CertFormat|CertNotAfter|CertPublicKeyOid|
+    |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
+    |CertVersion|CertSignatureAlgorithmOid|여기서|
+    |CertKeyAlgorithmParams|CertHashString|Where|
+    |||With|
+
+* 고객이 그룹 개체에 대한 sAMAccountName, domainNetBios 및 domainFQDN과 사용자 개체에 대한 distinguishedName을 전달하는 사용자 지정 동기화 규칙을 만들 수 있도록 스키마가 다음과 같이 변경되었습니다.
+
+  * 다음 특성이 MV 스키마에 추가되었습니다.
+    * 그룹: AccountName
+    * 그룹: domainNetBios
+    * 그룹: domainFQDN
+    * 사용자: distinguishedName
+
+  * 다음 특성이 Azure AD Connector 스키마에 추가되었습니다.
+    * 그룹: OnPremisesSamAccountName
+    * 그룹: NetBiosName
+    * 그룹: DnsDomainName
+    * 사용자: OnPremisesDistinguishedName
+
+* 이제 ADSyncDomainJoinedComputerSync cmdlet 스크립트에 AzureEnvironment라는 새로운 선택적 매개 변수가 있습니다. 이 매개 변수는 해당 Azure Active Directory 테넌트가 호스트되는 지역을 지정하는 데 사용됩니다. 유효한 값은 다음과 같습니다.
+  * AzureCloud(기본값)
+  * AzureChinaCloud
+  * AzureGermanyCloud
+  * USGovernment
+ 
+* 동기화 규칙을 만드는 동안 링크 형식의 기본값으로 준비 대신 연결을 사용하도록 동기화 규칙 편집기를 업데이트합니다.
+
+### <a name="ad-fs-management"></a>AD FS 관리
+
+#### <a name="issues-fixed"></a>해결된 문제
+
+* 다음 URL은 Azure AD에서 인증 중단 시 복원력을 향상하기 위해 도입된 새로운 WS-Federation 끝점으로, 온-프레미스 AD FS 신뢰 당사자 트러스트 구성에 추가됩니다.
+  * https://ests.login.microsoftonline.com/login.srf
+  * https://stamp2.login.microsoftonline.com/login.srf
+  * https://ccs.login.microsoftonline.com/login.srf
+  * https://ccs-sdf.login.microsoftonline.com/login.srf
+  
+* AD FS에서 IssuerID에 대해 잘못된 클레임 값이 생성되도록 하는 문제가 해결되었습니다. 이 문제는 Azure AD 테넌트에 확인된 도메인이 여러 개 있고 IssuerID 클레임을 생성하는 데 사용된 userPrincipalName 특성의 도메인 접미사가 3 수준 이상의 깊이(예: johndoe@us.contoso.com)인 경우에 발생합니다. 클레임 규칙에 사용된 정규식을 업데이트하면 문제가 해결됩니다.
+
+#### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+* 이전에는 Azure AD Connect에서 제공하는 ADFS 인증서 관리 기능을 Azure AD Connect로 관리되는 ADFS 팜에서만 사용할 수 있었습니다. 이제 Azure AD Connect를 사용하여 관리되지 않는 ADFS 팜에서 이 기능을 사용할 수 있습니다.
 
 ## <a name="115240"></a>1.1.524.0
 릴리스 날짜: 2017년 5월
@@ -72,8 +220,8 @@ Azure AD Connect 동기화
   * **userType**을 메타버스 스키마 및 AAD 커넥터 스키마에 추가했습니다. Azure AD에서 두 특성 중 하나를 업데이트하려는 고객은 사용자 지정 동기화 규칙을 구현하여 해당 특성을 업데이트할 수 있습니다.
 
 * Azure AD Connect는 이제 ConsistencyGuid 특성을 온-프레미스 AD 개체에 대한 원본 앵커 특성으로 사용하도록 자동으로 설정합니다. 또한 Azure AD Connect는 ConsistencyGuid 특성이 비어 있는 경우 이 특성을 objectGuid 특성 값으로 채웁니다. 이 기능은 새 배포에만 적용됩니다. 이 기능에 대한 자세한 내용은 [Azure AD Connect: 디자인 개념 - msDS-ConsistencyGuid를 sourceAnchor로 사용](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)을 참조하세요.
-* 암호 해시 동기화 관련 문제를 진단하는 데 도움이 되는 새 Invoke-ADSyncDiagnostics 문제 해결 cmdlet을 추가했습니다.
-* Azure AD Connect는 이제 온-프레미스 AD에서 Azure AD로 메일 사용 가능 공용 폴더 개체 동기화를 지원합니다. Azure AD Connect 마법사를 사용하여 [선택적 기능]에서 이 기능을 사용하도록 설정할 수 있습니다.
+* 암호 해시 동기화 관련 문제를 진단하는 데 도움이 되는 새 Invoke-ADSyncDiagnostics 문제 해결 cmdlet을 추가했습니다. cmdlet 사용 방법에 대한 자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 동기화 문제 해결](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization) 문서를 참조하세요.
+* Azure AD Connect는 이제 온-프레미스 AD에서 Azure AD로 메일 사용 가능 공용 폴더 개체 동기화를 지원합니다. Azure AD Connect 마법사를 사용하여 [선택적 기능]에서 이 기능을 사용하도록 설정할 수 있습니다. 이 기능에 대한 자세한 내용은 [Office 365 Directory Based Edge Blocking support for on-premises Mail Enabled Public Folders](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders)(온-프레미스 메일 사용이 가능한 공용 폴더에 대한 Office 365 디렉터리 기반 에지 차단 지원) 문서를 참조하세요.
 * 온-프레미스 AD에서 동기화하려면 Azure AD Connect에 AD DS 계정이 필요합니다. 이전에는 기본 모드를 사용하여 Azure AD Connect를 설치하는 경우 엔터프라이즈 관리자 계정의 자격 증명을 제공할 수 있었습니다. 이 계정을 Azure AD Connect에 그대로 두고 필요한 AD DS 계정을 만듭니다. 그러나 사용자 지정 설치하거나 기존 배포에 포리스트를 추가하는 경우에는 AD DS 계정을 대신 제공해야 합니다. 이제는 사용자 지정 설치 중에 엔터프라이즈 관리자 계정의 자격 증명을 제공하고 Azure AD Connect에서 필요한 AD DS 계정을 만들 수 있습니다.
 * Azure AD Connect는 이제 SQL AOA를 지원합니다. Azure AD Connect를 설치하기 전에 SQL을 사용하도록 설정해야 합니다. Azure AD Connect는 설치 중에 제공된 SQL 인스턴스에서 SQL AOA를 사용하도록 설정되었는지 여부를 검색합니다. SQL AOA를 사용하도록 설정된 경우 Azure AD Connect는 SQL AOA에서 동기 복제 또는 비동기 복제를 사용하도록 구성되어 있는지 확인합니다. 가용성 그룹 수신기를 설정할 때 RegisterAllProvidersIP 속성을 0으로 설정하는 것이 좋습니다. 이는 Azure AD Connect에서 현재 SQL Native Client를 사용하여 SQL에 연결하고, SQL Native Client에서는 MultiSubNetFailover 속성 사용을 지원하지 않기 때문입니다.
 * Azure AD Connect 서버의 데이터베이스로 LocalDB를 사용하고 10GB 크기 제한에 도달하면 동기화 서비스가 더 이상 시작되지 않습니다. 이전에는 LocalDB에서 ShrinkDatabase 작업을 수행하여 동기화 서비스를 시작할 수 있을 만큼 충분한 DB 공간을 확보해야 했습니다. 그런 후에 더 많은 DB 공간을 확보할 수 있도록 동기화 서비스 관리자를 사용하여 실행 기록을 삭제했습니다. 이제는 Start-ADSyncPurgeRunHistory cmdlet을 사용하여 LocalDB의 실행 기록 데이터를 제거하여 DB 공간을 확보할 수 있습니다. 또한 이 cmdlet은 동기화 서비스가 실행되고 있지 않을 때 -offline 매개 변수를 지정하여 사용할 수 있는 오프라인 모드를 지원합니다. 참고: 오프라인 모드는 동기화 서비스가 실행되고 있지 않고 사용되는 데이터베이스가 LocalDB인 경우에만 사용할 수 있습니다.
@@ -373,14 +521,6 @@ AD FS 관리
   * 동기화에 포함할 새 OU를 선택하는 데에는 전체 암호 동기화가 필요하지 않습니다.
   * 비활성화된 사용자가 설정된 경우 암호가 동기화되지 않습니다.
   * 암호 재시도 큐에는 제한이 없으며, 사용 중지될 개체 5, 000개에 대한 이전의 제한이 제거되었습니다.
-<<<<<<< HEAD <<<<<<< HEAD
-  * [개선된 문제 해결](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
-=======
-  * [개선된 문제 해결](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
->>>>>>> <a name="487b660b6d3bb5ce9e64b6fdbde2ae621cb91922"></a>487b660b6d3bb5ce9e64b6fdbde2ae621cb91922
-=======
-  * [개선된 문제 해결](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
->>>>>>> 4b2e846c2cd4615f4e4be7195899de11e3957c83
 * Windows Server 2016 포리스트 기능 수준으로 Active Directory에 연결할 수 없습니다.
 * 초기 설치 후 그룹 필터링에 사용된 그룹을 변경할 수 없습니다.
 * 비밀번호 쓰기 저장을 활성화하고 암호 변경을 수행하는 모든 사용자에 대해 더 이상 Azure AD Connect 서버에 새로운 사용자 프로필을 만들지 않습니다.

@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 56e8f5579da2b5bed7975f25f0779c54d70cb886
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: f3f69ed8d3a985afe07e648e7512a88b25278ced
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -72,8 +72,10 @@ ms.lasthandoff: 04/26/2017
 | [응용 프로그램](batch-application-packages.md)  |20 |
 | 응용 프로그램당 응용 프로그램 패키지 |40 |
 | 각 응용 프로그램 패키지 크기 |약 195GB<sup>1</sup> |
+| 최대 시작 태스크 크기 | 32768자<sup>2</sup> |
 
-<sup>1</sup> 최대 블록 Blob 크기에 대한 Azure 저장소 용량 한도
+<sup>1</sup> 최대 블록 Blob 크기에 대한 Azure 저장소 용량 한도<br />
+<sup>2</sup> 리소스 파일 및 환경 변수를 포함합니다.
 
 ## <a name="view-batch-quotas"></a>배치 할당량 보기
 [Azure 포털][portal]에서 Batch 계정 할당량을 봅니다.
@@ -111,14 +113,14 @@ ms.lasthandoff: 04/26/2017
    
     d. **지원 계획** > **할당량 지원 - 포함됨**
    
-    **다음**을 클릭합니다.
+    **다음**을 누릅니다.
 4. **문제** 블레이드:
    
     a. [비즈니스 영향][support_sev]에 따라 **심각도**를 선택합니다.
    
     b. **세부 정보**에서 변경하려는 각 할당량과 배치 계정 이름, 새로운 제한을 지정합니다.
    
-    **다음**을 클릭합니다.
+    **다음**을 누릅니다.
 5. **연락처 정보** 블레이드:
    
     a. **기본 연락 방법**을 선택합니다.

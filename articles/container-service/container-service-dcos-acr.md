@@ -16,111 +16,144 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
 ms.author: juliens
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: a8a3716f8d03b596285026426c7514b7b642cb25
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: a394f7ec3f7985b97eec2eb649a8a310a31ac657
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/04/2017
 
 
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>DC/OS 클러스터에 ACR을 사용하여 응용 프로그램 배포
 
-이 문서에서는 DC/OS 클러스터에 ACR(Azure Container Registry)과 같은 개인 컨테이너 레지스터를 사용하는 방법을 살펴봅니다. ACR을 사용하면 이미지를 개인적으로 저장하고 버전 및/또는 업데이트와 같은 제어를 유지할 수 있습니다.
+이 문서에서는 DC/OS 클러스터에 Azure Container Registry를 사용하는 방법을 살펴봅니다. ACR을 사용하여 컨테이너 이미지를 비공개로 저장하고 관리할 수 있습니다. 이 자습서에서 다루는 작업은 다음과 같습니다.
 
-이 예제에 따라 작업하려면 다음이 필요합니다. 
-* Azure Container Service에 구성된 DC/OS 클러스터. [Azure Container Service 클러스터 배포](container-service-deployment.md)를 참조하세요.
-* Azure Container Service가 배포되어 있어야 합니다. [Azure Portal을 사용하여 개인 Docker 컨테이너 레지스트리 만들기](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal) 또는 [Azure CLI 2.0을 사용하여 개인 Docker 컨테이너 레지스트리 만들기](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)를 참조하세요.
-* DC/OS 클러스터 내부에 구성된 파일 공유. [DC/OS 클러스터에 파일 공유 만들기 및 탑재](container-service-dcos-fileshare.md)를 참조하세요.
-* [웹 UI](container-service-mesos-marathon-ui.md) 또는 [REST API](container-service-mesos-marathon-rest.md)를 사용하여 DC/OS 클러스터에 Docker 이미지를 배포하는 방법을 이해하려면
+> [!div class="checklist"]
+> * Azure Container Registry 배포(필요한 경우)
+> * DC/OS 클러스터에서 ACR 인증 구성
+> * Azure Container Registry에 이미지 업로드
+> * Azure Container Registry에서 컨테이너 이미지 실행
 
-## <a name="manage-the-authentication-inside-your-cluster"></a>클러스터 내에서 인증 관리
+이 자습서의 단계를 완료하려면 ACS DC/OS 클러스터가 필요합니다. 필요한 경우 [이 스크립트 샘플](./scripts/container-service-cli-deploy-dcos.md)을 사용하여 클러스터를 만들 수 있습니다.
 
-개인 레지스트리에서 이미지를 밀어넣고 가져오는 편리한 방법은 먼저 레지스트리를 인증하는 것입니다. 이렇게 하려면 개인 레지스트리를 사용하는 데 필요한 docker 클라이언트 프로세스에서 `docker login` 명령줄을 사용해야 합니다.
-프로덕션 환경에서는 이 경우 DC/OS를 사용하여 노드에서 이미지를 가져올 수 있는지 확인하고자 합니다. 즉, 인증 프로세스를 자동화하려고 하므로 각 컴퓨터에서 명령줄을 실행하지 마세요. 예상할 수 있듯이 클러스터 크기에 따라 문제가 발생하고 부담스러운 작업일 수 있습니다. 
+이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
-[DC/OS 내에 파일 공유를 이미 설정](container-service-dcos-fileshare.md)했다고 가정하면 다음을 수행하여 이를 활용합니다.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-### <a name="from-any-client-machine-recommended-method"></a>클라이언트 컴퓨터에서[권장 방법]
+## <a name="deploy-azure-container-registry"></a>Azure Container Registry 배포
 
-모든 환경에서 다음 명령을 실행할 수 있음(Windows/Mac/Linux):
+필요한 경우 [az acr create](/cli/azure/acr#create) 명령으로 Azure Container Registry를 만듭니다. 
 
-1. 다음 필수 조건을 충족하고 있는지 확인:
-  * TAR 도구
-    * [Windows](http://gnuwin32.sourceforge.net/packages/gtar.htm)
-  * Docker 
-    * [Windows](https://www.docker.com/docker-windows)
-    * [MAC](https://www.docker.com/docker-mac)
-    * [Ubuntu](https://www.docker.com/docker-ubuntu)
-    * [기타](https://www.docker.com/get-docker)
-  * [다음 방법](container-service-dcos-fileshare.md)을 사용하여 클러스터 내부에 탑재된 파일 공유
+다음 예제에서는 임의로 생성된 이름으로 레지스트리를 만듭니다. 또한 레지스트리는 `--admin-enabled` 인수를 사용하여 관리자 계정으로 구성됩니다.
 
-2. 자주 사용하는 터미널에서 다음 명령을 사용하여 ACR 서비스에 대한 인증 시작: `sudo docker login --username=<USERNAME> --password=<PASSWORD> <ACR-REGISTRY-NAME>.azurecr.io`. `USERNAME`, `PASSWORD` 및 `ACR-REGISTRY-NAME` 변수를 Azure Portal에 제공된 값으로 바꿔야 합니다.
+```azurecli-interactive
+az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic --admin-enabled true
+```
 
-3. `docker login` 작업을 수행할 때 값이 컴퓨터의 홈 폴더(Mac 및 Linux의 경우 `cd ~/.docker`, Windows의 경우 `cd %HOMEPATH%`) 아래에 로컬로 저장된다는 사실이 흥미롭습니다. `tar czf` 명령을 사용하여 이 폴더의 내용을 압축합니다.
+레지스트리가 만들어지면 Azure CLI에서 다음과 유사한 데이터를 출력합니다. `name` 및 `loginServer`는 이후 단계에서 사용되므로 기록해 둡니다.
 
-4. 마지막 단계는 [필수 조건으로 만들어야 하는](container-service-dcos-fileshare.md) 파일 공유 내에 방금 만든 tar 파일을 복사하는 것입니다. 다음 명령으로 Azure-CLI를 사용하여 이 작업을 수행할 수 있습니다. `az storage file upload -s <shareName> --account-name <storageAccountName> --account-key <storageAccountKey> -source <pathToTheTarFile>`
+```azurecli
+{
+  "adminUserEnabled": false,
+  "creationDate": "2017-06-06T03:40:56.511597+00:00",
+  "id": "/subscriptions/f2799821-a08a-434e-9128-454ec4348b10/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry23489",
+  "location": "eastus",
+  "loginServer": "mycontainerregistry23489.azurecr.io",
+  "name": "myContainerRegistry23489",
+  "provisioningState": "Succeeded",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "storageAccount": {
+    "name": "mycontainerregistr034017"
+  },
+  "tags": {},
+  "type": "Microsoft.ContainerRegistry/registries"
+}
+```
 
-마지막으로 다음 설정을 사용하는 예입니다(windows 환경 사용).
-* ACR 이름: **`demodcos`**
-* 사용자 이름: **`demodcos`**
-* 암호: **`+js+/=I1=L+D=+eRpU+/=wI/AjvDo=J0`**
-* 저장소 계정 이름: **`anystorageaccountname`**
-* 저장소 계정 키: **`aYGl6Nys4De5J3VPldT1rXxz2+VjgO7dgWytnoWClurZ/l8iO5c5N8xXNS6mpJhSc9xh+7zkT7Mr+xIT4OIVMg==`**
-* 저장소 계정 내에서 생성된 공유 이름: **`share`**
-* 업로드할 tar 아카이브 경로: **`%HOMEPATH%/.docker/docker.tar.gz`**
+[az acr credential show](/cli/azure/acr/credential) 명령을 사용하여 컨테이너 레지스트리 자격 증명을 가져옵니다. `--name`을 마지막 단계에서 기록한 이름으로 대체합니다. 이후 단계에서 필요하므로 하나의 암호를 기록해 둡니다.
 
-```bash
-# Changing directory to the home folder of the default user
-cd %HOMEPATH%
+```azurecli-interactive
+az acr credential show --name myContainerRegistry23489
+```
 
-# Authentication into my ACR
-docker login --username=demodcos --password=+js+/=I1=L+D=+eRpU+/=wI/AjvDo=J0 demodcos.azurecr.io
+Azure Container Registry에 대한 자세한 내용은 [개인 Docker 컨테이너 레지스트리 소개](../container-registry/container-registry-intro.md)를 참조하세요. 
 
-# Tar the contains of the .docker folder
+## <a name="manage-acr-authentication"></a>ACR 인증 관리
+
+개인 레지스트리에서 이미지를 밀어넣고 끌어오는 일반적인 방법은 먼저 레지스트리를 인증하는 것입니다. 이렇게 하려면 개인 레지스트리에 액세스해야 하는 모든 클라이언트에서 `docker login` 명령을 사용합니다. DC/OS 클러스터는 모두 ACR에 인증되어야 하는 많은 노드를 포함할 수 있으므로 각 노드에서 이 프로세스를 자동화하면 유용합니다. 
+
+### <a name="create-shared-storage"></a>공유 저장소 만들기
+
+이 프로세스에서는 클러스터의 각 노드에 탑재된 Azure 파일 공유를 사용합니다. 아직 공유 저장소를 설정하지 않은 경우 [DC/OS 클러스터 내부에서 파일 공유 설정](container-service-dcos-fileshare.md)을 참조하세요.
+
+### <a name="configure-acr-authentication"></a>ACR 인증 구성
+
+먼저 DC/OS 마스터의 FQDN을 가져와서 변수에 저장합니다.
+
+```azurecli-interactive
+FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv)
+```
+
+DC/OS 기반 클러스터의 마스터(또는 첫 번째 마스터)와의 SSH 연결을 만듭니다. 클러스터를 만들 때 기본값이 아닌 값이 사용된 경우 사용자 이름을 업데이트합니다.
+
+```azurecli-interactive
+ssh azureuser@$FQDN
+```
+
+다음 명령을 실행하여 Azure Container Registry에 로그인합니다. `--username`을 컨테이너 레지스트리의 이름으로 바꾸고 `--password`를 제공된 암호 중 하나로 바꿉니다. 예제의 마지막 인수 *mycontainerregistry.azurecr.io*를 컨테이너 레지스트리의 loginServer 이름으로 바꿉니다. 
+
+이 명령은 `~/.docker` 경로 아래에 로컬로 인증 값을 저장합니다.
+
+```azurecli-interactive
+docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry.azurecr.io
+```
+
+컨테이너 레지스트리 인증 값이 포함된 압축 파일을 만듭니다.
+
+```azurecli-interactive
 tar czf docker.tar.gz .docker
-
-# Upload the tar archive in the fileshare
-az storage file upload -s share --account-name anystorageaccountname --account-key aYGl6Nys4De5J3VPldT1rXxz2+VjgO7dgWytnoWClurZ/l8iO5c5N8xXNS6mpJhSc9xh+7zkT7Mr+xIT4OIVMg== --source %HOMEPATH%/docker.tar.gz
 ```
 
-### <a name="from-the-master-not-recommended-method"></a>마스터에서[권장하지 않는 방법]
+클러스터 공유 저장소에 이 파일을 복사합니다. 이 단계를 수행하면 DC/OS 클러스터의 모든 노드에서 파일을 사용할 수 있습니다.
 
-실수 및 전체 환경에 미치는 영향을 피하기 위해 마스터에서 실행 작업은 권장되지 않습니다.
-
-1. 우선 DC/OS 기반 클러스터의 마스터(또는 첫 번째 마스터)에 SSH를 사용합니다. 예: `ssh userName@masterFQDN –A –p 22`. 여기서 masterFQDN은 마스터 VM의 정규화된 도메인 이름입니다. [자세한 정보를 보려면 여기를 클릭](https://docs.microsoft.com/azure/container-service/container-service-connect#connect-to-a-dcos-or-swarm-cluster)
-
-2. 다음 명령을 사용하여 ACR 서비스에 대한 인증 시작: `sudo docker login --username=<USERNAME> --password=<PASSWORD> <ACR-REGISTRY-NAME>.azurecr.io`. `USERNAME`, `PASSWORD` 및 `ACR-REGISTRY-NAME` 변수를 Azure Portal에 제공된 값으로 바꿔야 합니다.
-
-3. `docker login` 작업을 수행할 때 값이 컴퓨터의 홈 폴더 `~/.docker` 아래에 로컬로 저장된다는 사실이 흥미롭습니다. `tar czf` 명령을 사용하여 이 폴더의 내용을 압축합니다.
-
-4. 마지막 단계는 공유 내에 방금 만든 tar 파일을 복사하는 것입니다. 이 작업을 통해 클러스터 내에 있는 모든 가상 컴퓨터에서 이 자격 증명을 사용하고 Azure Container Registry에서 인증 할 수 있습니다.
-
-마지막으로 다음 설정을 사용하는 예입니다.
-* ACR 이름: **`demodcos`**
-* 사용자 이름: **`demodcos`**
-* 암호: **`+js+/=I1=L+D=+eRpU+/=wI/AjvDo=J0`**
-* 클러스터 내 탑재 지점: **`/mnt/share`**
-
-```bash
-# Changing directory to the home folder of the default user
-cd ~
-
-# Authentication into my ACR
-sudo docker login --username=demodcos --password=+js+/=I1=L+D=+eRpU+/=wI/AjvDo=J0 demodcos.azurecr.io
-
-# Tar the contains of the .docker folder
-sudo tar czf docker.tar.gz .docker
-
-# Copy of the tar file in the file share of my cluster
-sudo cp docker.tar.gz /mnt/share
+```azurecli-interactive
+cp docker.tar.gz /mnt/share/dcosshare
 ```
 
+## <a name="upload-image-to-acr"></a>ACR에 이미지 업로드
 
-## <a name="deploy-an-image-from-acr-with-marathon"></a>Marathon을 사용하여 ACR에서 이미지 배포
+이제 개발 컴퓨터나 Docker가 설치된 다른 시스템에서 이미지를 만들어 Azure Container Registry에 업로드합니다.
 
-아마도 컨테이너 레지스트리 내부에 배포하려는 이미지를 이미 밀어넣었을 것입니다. [Docker CLI를 사용하여 개인 Docker 컨테이너 레지스트리로 이미지 밀어넣기](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli)를 참조하세요.
+Ubuntu 이미지에서 컨테이너를 만듭니다.
 
-Azure (ACR)에서 호스팅되는 개인 레지스트리의 **simple-web** 이미지를 **2.1** 태그와 함께 배포한다면 다음 구성을 사용합니다.
+```azurecli-interactive
+docker run ubunut --name base-image
+```
+
+이제 컨테이너를 새 이미지에 캡처합니다. 이미지 이름은 `loginServer/imageName` 형식으로 컨테이너 레지스트리의 `loginServer` 이름을 포함해야 합니다.
+
+```azurecli-interactive
+docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
+````
+
+Azure Container Registry에 로그인합니다. 이름을 loginServer 이름으로 바꾸고, --username을 컨테이너 레지스트리의 이름으로 바꾸고, --password를 제공된 암호 중 하나로 바꿉니다.
+
+```azurecli-interactive
+docker login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry2675.azurecr.io
+```
+
+마지막으로 ACR 레지스트리에 이미지를 업로드합니다. 이 예제에서는 dcos-demo라는 이미지를 업로드합니다.
+
+```azurecli-interactive
+docker push mycontainerregistry30678.azurecr.io/dcos-demo
+```
+
+## <a name="run-an-image-from-acr"></a>ACR에서 이미지 실행
+
+ACR 레지스트리에서 이미지를 사용하려면 파일 이름 *acrDemo.json*을 만들고 다음 텍스트를 이 파일에 복사합니다. 이미지 이름을 컨테이너 레지스트리 loginServer 이름 및 이미지 이름(예: `loginServer/imageName`)으로 바꿉니다. `uris` 속성을 기록해 둡니다. 이 속성은 컨테이너 레지스트리 인증 파일의 위치를 저장하며, 이 경우에는 DC/OS 클러스터의 각 노드에 탑재된 Azure 파일 공유입니다.
 
 ```json
 {
@@ -128,10 +161,16 @@ Azure (ACR)에서 호스팅되는 개인 레지스트리의 **simple-web** 이�
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "demodcos.azurecr.io/simple-web:2.1",
+      "image": "mycontainerregistry30678.azurecr.io/dcos-demo",
       "network": "BRIDGE",
       "portMappings": [
-        { "hostPort": 0, "containerPort": 80, "servicePort": 10000 }
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp",
+          "name": "80",
+          "labels": null
+        }
       ],
       "forcePullImage":true
     }
@@ -148,21 +187,25 @@ Azure (ACR)에서 호스팅되는 개인 레지스트리의 **simple-web** 이�
       "intervalSeconds": 2,
       "maxConsecutiveFailures": 10
   }],
-  "labels":{
-    "HAPROXY_GROUP":"external",
-    "HAPROXY_0_VHOST":"YOUR FQDN",
-    "HAPROXY_0_MODE":"http"
-  },
   "uris":  [
-       "file:///mnt/share/docker.tar.gz"
+       "file:///mnt/share/dcosshare/docker.tar.gz"
    ]
 }
 ```
 
-> [!NOTE] 
-> 여기에서 볼 수 있듯이 **uris** 옵션을 사용하여 자격 증명이 저장된 위치를 지정합니다.
->
+DC/OC CLI를 사용하여 응용 프로그램을 배포합니다.
+
+```azurecli-interactive
+dcos marathon app add acrDemo.json
+```
 
 ## <a name="next-steps"></a>다음 단계
-* [DC/OS 컨테이너 관리](container-service-mesos-marathon-ui.md)에 대해 자세히 알아보세요.
-* [Marathon REST API](container-service-mesos-marathon-rest.md)를 통해 DC/OS 컨테이너 관리.
+
+이 자습서에서는 다음 작업을 포함하여 Azure Container Registry를 사용하도록 DC/OS를 구성했습니다.
+
+> [!div class="checklist"]
+> * Azure Container Registry 배포(필요한 경우)
+> * DC/OS 클러스터에서 ACR 인증 구성
+> * Azure Container Registry에 이미지 업로드
+> * Azure Container Registry에서 컨테이너 이미지 실행
+

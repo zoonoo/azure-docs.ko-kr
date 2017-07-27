@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 06/27/2017
 ms.author: juluk
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: e789283ab9b25f634c50b341ca882bbf9c70a225
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 2b434ccb9218a0a2731642da6125031592ea8ce6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
@@ -29,25 +29,27 @@ Cloud Shell은 컴퓨터의 직접 설치, 버전 관리 및 유지 관리에 �
 
 Cloud Shell은 요청별로 컴퓨터를 프로비전하므로 결과적으로 컴퓨터 상태는 세션 간에 유지되지 않습니다. Cloud Shell은 대화형 세션용으로 빌드되었기 때문에 셸은 셸 비활성 시간 10분 후 자동으로 종료됩니다.
 
-## <a name="tools"></a>도구
+## <a name="bash-in-cloud-shell"></a>Cloud Shell의 Bash
+### <a name="tools"></a>도구
 |Category   |이름   |
 |---|---|
 |Linux 셸 인터프리터|Bash<br> sh               |
-|Azure 도구            |Azure CLI 2.0 및 1.0     |
+|Azure 도구            |Azure CLI 2.0 및 1.0<br> AzCopy     |
 |텍스트 편집기           |vim<br> nano<br> emacs       |
 |소스 제어         |git                    |
 |빌드 도구            |make<br> maven<br> npm<br> pip         |
-|컨테이너             |Docker<br> Kubectl<br> DC/OS CLI         |
+|컨테이너             |Docker CLI/Docker Machine<br> Kubectl<br> DC/OS CLI         |
 |데이터베이스              |MySQL 클라이언트<br> PostgreSql 클라이언트<br> sqlcmd 유틸리티      |
-|기타                  |iPython 클라이언트 |
+|기타                  |iPython 클라이언트<br> Cloud Foundry CLI<br> |
 
-## <a name="language-support"></a>언어 지원
+### <a name="language-support"></a>언어 지원
 |language   |버전   |
 |---|---|
 |.NET       |1.01       |
 |Go         |1.7        |
+|자바       |1.8        |
 |Node.js    |6.9.4      |
-|Python     |2.7 및 3.5|
+|파이썬     |2.7 및 3.5(기본값)|
 
 ## <a name="secure-automatic-authentication"></a>안전한 자동 인증
 Cloud Shell은 Azure CLI 2.0에 대한 계정 액세스를 안전하고 자동으로 인증합니다.
@@ -57,8 +59,8 @@ Cloud Shell은 임시 컴퓨터를 사용하여 요청별로 할당되므로 Hom
 세션 간에 파일을 유지하기 위해 Cloud Shell에서는 처음 시작할 때 Azure 파일 공유 연결을 안내합니다.
 작업이 완료되면 Cloud Shell은 이후의 모든 세션에 대해 저장소를 자동으로 연결합니다.
 
-[Azure 파일 공유를 Cloud Shell에 연결하는 것에 대해 자세히 알아보세요.](persisting-shell-storage.md)
+[Azure 파일 공유를 Cloud Shell에 연결하는 방법에 대해 자세히 알아봅니다.](persisting-shell-storage.md)
 
 ## <a name="next-steps"></a>다음 단계
-[Cloud Shell 빠른 시작](quickstart.md) 
-[Azure CLI 2.0 알아보기](https://docs.microsoft.com/cli/azure/)
+[Cloud Shell 빠른 시작](quickstart.md) <br>
+[Azure CLI 2.0에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) <br>

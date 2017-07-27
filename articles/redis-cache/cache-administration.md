@@ -12,22 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 07/05/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0355c8a943947f5d53d7cd6892db3567c3bf0cce
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Azure Redis Cache를 관리하는 방법
 이 토픽에서는 [재부팅](#reboot) 및 Azure Redis Cache 인스턴스의 [업데이트 예약](#schedule-updates)과 같은 관리 작업을 수행하는 방법을 설명합니다.
-
-> [!IMPORTANT]
-> 이 문서에 설명된 설정 및 기능은 프리미엄 계층 캐시에 대해서만 사용할 수 있습니다.
-> 
-> 
 
 ## <a name="reboot"></a>Reboot
 **재부팅** 블레이드에서는 하나 이상의 캐시 노드를 재부팅할 수 있습니다. 이 다시 부팅 기능을 사용하면 캐시 노드에 오류가 발생하는 경우 응용 프로그램의 복원력을 테스트할 수 있습니다.
@@ -52,7 +48,7 @@ ms.lasthandoff: 04/27/2017
 * **클러스터링이 설정된 프리미엄 캐시 노드** - 클러스터링이 설정된 프리미엄 캐시 중 하나 이상의 노드를 다시 부팅하면 선택한 노드에서도 해당하는 노드 또는 클러스터링되지 않은 캐시의 노드를 다시 부팅할 때와 같은 동작이 나타납니다.
 
 > [!IMPORTANT]
-> 재부팅은 프리미엄 계층 캐시에만 사용할 수 있습니다.
+> 이제 모든 가격 책정 계층에서 다시 부팅을 사용할 수 있습니다.
 > 
 > 
 
@@ -83,10 +79,10 @@ ms.lasthandoff: 04/27/2017
 예, PowerShell 소개는 [Redis Cache를 다시 부팅하려면](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache)을 참조하세요.
 
 ### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>어떤 가격 책정 계층에서 다시 부팅 기능을 사용할 수 있나요?
-다시 부팅은 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.
+모든 가격 책정 계층에서 다시 부팅을 사용할 수 있습니다.
 
-## <a name="schedule-updates"></a>업데이트 예약
-**업데이트 예약** 블레이드에서는 캐시 유지 관리 기간을 지정할 수 있습니다. 유지 관리 기간이 지정되면 이 기간 동안 Redis 서버 업데이트가 진행됩니다. 
+## <a name="schedule-updates"></a>업데이트를 예약
+**업데이트 예약** 블레이드에서는 프리미엄 계층 캐시의 유지 관리 기간을 지정할 수 있습니다. 유지 관리 기간이 지정되면 이 기간 동안 Redis 서버 업데이트가 진행됩니다. 
 
 > [!NOTE] 
 > 유지 관리 기간은 Redis 서버 업데이트에만 적용되며 Azure 업데이트나 캐시를 호스트하는 VM의 운영 체제에 대한 업데이트에는 적용되지 않습니다.

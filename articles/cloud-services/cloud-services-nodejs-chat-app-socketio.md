@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: e9607d2426192eca990261e5ef3b4e06b25b1dec
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: efa459f6b382ff22c94802e1250836d5f622b4ed
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -80,6 +81,7 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
          , nib = require('nib')
        //, sio = require('..//..//lib//socket.io'); //Original
          , sio = require('socket.io');                //Updated
+         var port = process.env.PORT || 3000;         //Updated
 3. 응용 프로그램이 올바른 포트에서 수신하도록 메모장 또는 좋아하는 편집기에서 server.js를 연 후 아래와 같이 다음 줄에서 **3000**을 **process.env.port**로 변경합니다.
    
        //app.listen(3000, function () {            //Original
@@ -105,6 +107,15 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
 1. 다음 명령을 실행하여 에뮬레이터를 시작합니다.
    
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
+   
+   > [!NOTE]
+   > 에뮬레이터 시작 문제가 발생하는 경우(예: Start-AzureEmulator: 예기치 않은 오류가 발생했습니다.  세부 정보: 예기치 않은 오류가 발생했습니다. 통신 개체 System.ServiceModel.Channels.ServiceChannel은(는) Faulted 상태이기 때문에 통신에 사용할 수 없습니다.)
+   
+      AzureAuthoringTools v 2.7.1 및 AzureComputeEmulator v 2.7을 다시 설치하세요. 버전이 일치하는지 확인하세요.
+   >
+   >
+
+
 2. 브라우저를 열고 **http://127.0.0.1**로 이동합니다.
 3. 브라우저 창이 열리면 애칭을 입력하고 Enter 키를 누릅니다.
    이렇게 하면 특정 애칭으로 메시지를 게시할 수 있습니다. 다중 사용자 기능을 테스트하려면 같은 URL을 사용하여 브라우저 창을 추가로 열고 다른 애칭을 입력합니다.

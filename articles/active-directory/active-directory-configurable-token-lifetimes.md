@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2016
+ms.date: 07/20/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 7d0c5f83d907af9109e27d69806d6106d4bc3214
-ms.lasthandoff: 03/28/2017
-
+ms.custom: aaddev
+ms.reviewer: anchitn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: d1d72932d8156fdada44ad6f375fe81c0428846c
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory에서 구성 가능한 토큰 수명(공개 미리 보기)
@@ -73,8 +75,8 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
 | --- | --- | --- | --- | --- | --- |
 | 액세스 토큰 수명 |AccessTokenLifetime |액세스 토큰, ID 토큰, SAML2 토큰 |1시간 |10분 |1일 |
 | 새로 고침 토큰 최대 비활성 시간 |MaxInactiveTime |새로 고침 토큰 |14일 |10분 |90일 |
-| 단일 단계 새로 고침 토큰 최대 기간 |MaxAgeSingleFactor |새로 고침 토큰(모든 사용자) |90일 |10분 |Until-revoked<sup>1</sup> |
-| 다단계 새로 고침 토큰 최대 기간 |MaxAgeMultiFactor |새로 고침 토큰(모든 사용자) |90일 |10분 |Until-revoked<sup>1</sup> |
+| 단일 단계 새로 고침 토큰 최대 기간 |MaxAgeSingleFactor |새로 고침 토큰(모든 사용자) |Until-revoked |10분 |Until-revoked<sup>1</sup> |
+| 다단계 새로 고침 토큰 최대 기간 |MaxAgeMultiFactor |새로 고침 토큰(모든 사용자) |Until-revoked |10분 |Until-revoked<sup>1</sup> |
 | 단일 단계 세션 토큰 최대 기간 |MaxAgeSessionSingleFactor<sup>2</sup> |세션 토큰(영구 및 비영구) |Until-revoked |10분 |Until-revoked<sup>1</sup> |
 | 다단계 세션 토큰 최대 기간 |MaxAgeSessionMultiFactor<sup>3</sup> |세션 토큰(영구 및 비영구) |Until-revoked |10분 |Until-revoked<sup>1</sup> |
 
@@ -85,9 +87,11 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
 ### <a name="exceptions"></a>예외
 | 속성 | 영향 | 기본값 |
 | --- | --- | --- |
-| 새로 고침 토큰 최대 비활성 시간(해지 정보가 부족한 페더레이션된 사용자에 대해 발급됨) |새로 고침 토큰(해지 정보가 부족한 페더레이션된 사용자에 대해 발급됨) |12시간 |
+| 새로 고침 토큰 최대 기간(해지 정보가 부족한 페더레이션된 사용자에 대해 발급됨<sup>1</sup>) |새로 고침 토큰(해지 정보가 부족한 페더레이션된 사용자에 대해 발급됨<sup>1</sup>) |12시간 |
 | 새로 고침 토큰 최대 비활성 시간(비밀 클라이언트에 대해 발급됨) |새로 고침 토큰(비밀 클라이언트에 대해 발급됨) |90일 |
 | 새로 고침 토큰 최대 기간(비밀 클라이언트에 대해 발급됨) |새로 고침 토큰(비밀 클라이언트에 대해 발급됨) |Until-revoked |
+
+* <sup>1</sup>해지 정보가 부족한 페더레이션된 사용자에는 "LastPasswordChangeTimestamp" 특성이 동기화되지 않은 모든 사용자가 포함됩니다. 이러한 사용자의 경우 AAD가 이전 자격 증명(예: 변경된 암호)에 연결된 토큰을 해지할 시기를 확인할 수 없어 이 짧은 최대 사용 기간이 제공되며, 사용자 및 연결된 토큰이 여전히 양호한 상태인지 자주 확인해야 합니다. 이 환경을 개선하기 위해 테넌트 관리자는 "LastPasswordChangeTimestamp" 특성을 동기화해야 합니다. 이 특성은 Powershell을 사용하거나 AADSync를 통해 사용자 개체에 설정할 수 있습니다.
 
 ### <a name="policy-evaluation-and-prioritization"></a>정책 평가 및 우선 순위 지정
 토큰 수명 정책을 만들어서 특정 응용 프로그램, 조직 및 서비스 주체에 할당할 수 있습니다. 특정 응용 프로그램에 여러 정책이 적용될 수 있습니다. 적용되는 토큰 수명 정책은 다음 규칙을 따릅니다.
@@ -366,7 +370,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 | <code>&#8209;DisplayName</code> |정책 이름의 문자열입니다. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;IsOrganizationDefault</code> |true이면 정책을 조직의 기본 정책으로 설정하고 false이면 아무 작업도 수행하지 않습니다. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |정책의 유형입니다. 토큰 수명의 경우 항상 "TokenLifetimePolicy"를 사용합니다. | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> [선택 사항] |정책에 대한 대체 ID를 설정합니다. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code>[선택 사항] |정책에 대한 대체 ID를 설정합니다. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -379,7 +383,7 @@ Get-AzureADPolicy
 
 | 매개 변수 | 설명 | 예 |
 | --- | --- | --- |
-| <code>&#8209;Id</code> [선택 사항] |원하는 정책의 **ObjectId(ID)**입니다. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code>[선택 사항] |원하는 정책의 **ObjectId(ID)**입니다. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -390,7 +394,7 @@ Get-AzureADPolicy
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| 매개 변수 | 설명 | 예제 |
+| 매개 변수 | 설명 | 예 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |원하는 정책의 **ObjectId(ID)**입니다. |`-Id <ObjectId of Policy>` |
 
@@ -407,10 +411,10 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 | --- | --- | --- |
 | <code>&#8209;Id</code> |원하는 정책의 **ObjectId(ID)**입니다. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |정책 이름의 문자열입니다. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code> [선택 사항] |정책의 모든 규칙을 포함하는 문자열로 변환된 JSON 배열입니다. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code> [선택 사항] |true이면 정책을 조직의 기본 정책으로 설정하고 false이면 아무 작업도 수행하지 않습니다. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code> [선택 사항] |정책의 유형입니다. 토큰 수명의 경우 항상 "TokenLifetimePolicy"를 사용합니다. |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> [선택 사항] |정책에 대한 대체 ID를 설정합니다. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code>[선택 사항] |정책의 모든 규칙을 포함하는 문자열로 변환된 JSON 배열입니다. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code>[선택 사항] |true이면 정책을 조직의 기본 정책으로 설정하고 false이면 아무 작업도 수행하지 않습니다. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code>[선택 사항] |정책의 유형입니다. 토큰 수명의 경우 항상 "TokenLifetimePolicy"를 사용합니다. |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code>[선택 사항] |정책에 대한 대체 ID를 설정합니다. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
