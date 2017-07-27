@@ -75,7 +75,7 @@ ms.lasthandoff: 05/26/2017
    java -jar gs-spring-boot-0.1.0.jar
    ```
 
-1. 웹 브라우저를 통해 http://localhost:8080으로 이동하여 웹앱을 테스트하거나 사용 가능한 curl이 있는 경우 다음 예제와 같이 구문을 사용합니다.
+1. 웹 브라우저를 통해 http://localhost:8080 으로 이동하여 웹앱을 테스트하거나 사용 가능한 curl이 있는 경우 다음 예제와 같이 구문을 사용합니다.
    ```
    curl http://localhost:8080
    ```

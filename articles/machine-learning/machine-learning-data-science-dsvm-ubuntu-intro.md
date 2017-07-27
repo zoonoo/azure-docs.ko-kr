@@ -153,7 +153,7 @@ CNTK라고도 하는 Microsoft Cognitive Toolki는 오픈 소스, 심층 학습 
 Caffe는 Berkeley Vision and Learning Center의 심층 학습 프레임워크입니다. /opt/caffe에서 사용할 수 있습니다. 예제는 /opt/caffe/examples에서 찾을 수 있습니다.
 
 #### <a name="h2o"></a>H2O
-H2O는 빠른 메모리 내 분산형 기계 학습 및 예측 분석 플랫폼입니다. Python 패키지는 루트 및 py35 Anaconda 환경 둘 다에 설치됩니다. R 패키지도 설치됩니다. 실행 명령줄에서 H2O 를 시작하려면 `java -jar /dsvm/tools/h2o/current/h2o.jar`을 실행합니다. 다양한 [명령줄 옵션](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line)을 구성할 수 있습니다. 흐름 웹 UI는 시작할 http://localhost:54321을 검색하여 액세스할 수 있습니다. 샘플 노트북은 JupyterHub에서도 사용할 수 있습니다.
+H2O는 빠른 메모리 내 분산형 기계 학습 및 예측 분석 플랫폼입니다. Python 패키지는 루트 및 py35 Anaconda 환경 둘 다에 설치됩니다. R 패키지도 설치됩니다. 실행 명령줄에서 H2O 를 시작하려면 `java -jar /dsvm/tools/h2o/current/h2o.jar`을 실행합니다. 다양한 [명령줄 옵션](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line)을 구성할 수 있습니다. 흐름 웹 UI는 시작할 http://localhost:54321 을 검색하여 액세스할 수 있습니다. 샘플 노트북은 JupyterHub에서도 사용할 수 있습니다.
 
 #### <a name="keras"></a>Keras
 Keras는 Tensorflow 또는 Theano에서 실행될 수 있는 Python의 고급 신경망 네트워크 API입니다. 루트 및 py35 Python 환경에서 사용할 수 있습니다. 
@@ -164,7 +164,7 @@ MXNet은 효율성과 유연성을 위해 디자인된 심층 학습 프레임�
 #### <a name="nvidia-digits"></a>NVIDIA DIGITS
 DIGITS라고도 하는 NVIDIA 심층 학습 GPU 교육 시스템은 데이터 관리, GPU 시스템에서의 신경망 네트워크 설계 및 교육, 고급 시각화를 사용한 실시간 성능 모니터링 등의 일반적인 심층 학습 작업을 간소화하기 위한 시스템입니다. 
 
-DIGITS는 digits라는 서비스로 사용할 수 있습니다. 이 서비스를 시작하고 http://localhost:5000으로 이동하여 시작합니다.
+DIGITS는 digits라는 서비스로 사용할 수 있습니다. 이 서비스를 시작하고 http://localhost:5000 으로 이동하여 시작합니다.
 
 DIGITS는 Conda 루트 환경에서 Python 모듈로도 설치됩니다.
 
