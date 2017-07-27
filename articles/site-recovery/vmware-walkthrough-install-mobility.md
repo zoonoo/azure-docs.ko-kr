@@ -48,7 +48,7 @@ VM에 대해 복제가 설정된 경우 프로세스 서버에서 모바일 서�
 
 ## <a name="other-methods"></a>다른 방법
 
-[Configuration Manager 또는 [Azure Automation DSC](site-recovery-automate-mobility-service-install.md)를 사용하여 모바일 서비스를 설치](site-recovery-install-mobility-service-using-sccm.md)하는 방법에 대해 자세히 알아봅니다.
+[Configuration Manager 또는](site-recovery-install-mobility-service-using-sccm.md) [Azure Automation DSC](site-recovery-automate-mobility-service-install.md)를 사용하여 모바일 서비스를 설치하는 방법에 대해 자세히 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
