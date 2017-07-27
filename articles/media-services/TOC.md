@@ -222,7 +222,7 @@
 
 # 리소스
 ## [Azure Media Services 커뮤니티](media-services-community.md)
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)
 ## [릴리스 정보](media-services-release-notes.md)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=media-services)

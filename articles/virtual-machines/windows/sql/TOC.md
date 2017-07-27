@@ -43,7 +43,7 @@
 ## [REST (영문)](/rest/api/)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
 ## [SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx)
 ## [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)

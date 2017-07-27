@@ -54,7 +54,7 @@
 
 # 리소스
 ## [Azure AD 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [문의처](active-directory-ds-contact-us.md)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/active-directory-ds/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory-ds)

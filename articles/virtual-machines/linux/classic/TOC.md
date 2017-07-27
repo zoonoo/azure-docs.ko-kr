@@ -66,6 +66,7 @@
 ## 문제 해결
 ### [VM 배포](troubleshoot-deployment-new-vm.md)
 ### [VM 다시 시작 또는 크기 조정](restart-resize-error-troubleshooting.md)
+### [VM 문제 해결에 가상 하드 디스크 연결](troubleshoot-recovery-disks-portal.md)
 
 # 참조
 ## [PowerShell](/powershell/azure/overview)
@@ -79,7 +80,7 @@
 
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [국가별 가용성](https://azure.microsoft.com/regions/services)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
