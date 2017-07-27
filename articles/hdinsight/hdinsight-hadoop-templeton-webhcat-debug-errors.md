@@ -1,5 +1,5 @@
 ---
-title: "HDInsight에서 WebHCat 오류를 해결하고 이해합니다."
+title: "HDInsight에서 WebHCat 오류 파악 및 해결 - Azure | Microsoft Docs"
 description: "HDInsight의 WebHCat에서 반환된 일반 오류 및 문제를 해결하는 방법에 대해 알아봅니다."
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 140d061fefbd9b8cd1b45061bf4dee607f2df44b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6d8162e0d64ec9fc42690392b7c822593c0c2767
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -42,7 +42,7 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 * **Linux** 클러스터: Ambari(웹 또는 REST API)를 사용하여 값을 수정합니다. 자세한 내용은 [Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)
 
 > [!IMPORTANT]
-> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ### <a name="default-configuration"></a>기본 구성
 
@@ -87,7 +87,7 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 | 원인 | 해결 방법 |
 | --- | --- |
 | WebHCat 프로세스 내에서 내부 가비지 컬렉션이 발생합니다. |가비지 컬렉션이 WebHCat 서비스 다시 시작 또는 완료를 대기합니다. |
-| ResourceManager 서비스에서 응답을 기다리는 동안 시간이 초과되었습니다. 활성 응용 프로그램 수가 구성된 최대값(기본값 10, 000)이면 발생할 수 있습니다. |현재 실행 중인 작업을 완료하거나 `yarn.scheduler.capacity.maximum-applications`을 수정하여 동시 작업 제한을 늘릴 때까지 대기합니다. 자세한 내용은 [구성 수정](#modifying-configuration) 을 참조하세요. |
+| ResourceManager 서비스에서 응답을 기다리는 동안 시간이 초과되었습니다. 이 오류는 활성 응용 프로그램 수가 구성된 최대값(기본값 10,000)에 도달할 때 발생할 수 있습니다. |현재 실행 중인 작업을 완료하거나 `yarn.scheduler.capacity.maximum-applications`을 수정하여 동시 작업 제한을 늘릴 때까지 대기합니다. 자세한 내용은 [구성 수정](#modifying-configuration) 섹션을 참조하세요. |
 | `Fields`가 `*`로 설정되어 있는 동안 [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) 호출을 통해 모든 작업을 검색하려고 시도합니다. |*모든* 작업 세부 정보를 검색하지는 마세요. 대신 `jobid`를 사용하여 특정 작업 ID보다 큰 작업에 대한 세부 정보만 검색하세요. 또는 `Fields`를 사용하지 마십시오. |
 | 헤드 노드의 장애 조치 중 WebHCat 서비스가 종료됩니다. |2분을 기다린 후 작업을 다시 시도합니다. |
 | WebHCat을 통해 전송되는 500개 이상의 보류 중인 작업이 있습니다. |더 많은 작업을 제출하기 전에 현재 보류 중인 작업이 완료될 때까지 대기합니다. |

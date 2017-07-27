@@ -6,20 +6,21 @@ keywords: "Active Directory 암호 관리, 암호 관리, Azure AD 셀프 서비
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 0c586692720512d2822e67994e22e1f6d50fd921
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4b35c5d126375735f070a7fe2331896c524b5a61
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
@@ -72,7 +73,7 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 
 | 속성 | UserPrincipalName 요구 사항 |
 | --- | --- |
-| 허용되는 문자 |<ul> <li>A-Z</li> <li>a-z</li><li>0-9</li> <li> 을 참조하세요. - \_ ! \# ^ \~</li></ul> |
+| 허용되는 문자 |<ul> <li>A-Z</li> <li>a-z</li><li>0-9</li> <li> 등 4가지 유형의 클러스터가 제공됩니다. - \_ ! \# ^ \~</li></ul> |
 | 허용되지 않는 문자 |<ul> <li>도메인에서 사용자 이름을 구분하지 않는 모든 '@' 문자입니다.</li> <li>'@' 기호 바로 앞에는 '.'(마침표) 문자를 사용할 수 없습니다.</li></ul> |
 | 길이 제약 조건 |<ul> <li>총 길이는 113자를 초과할 수 없습니다.</li><li>'@' 기호 앞에 64자</li><li>'@' 기호 뒤에 48자</li></ul> |
 
@@ -103,7 +104,7 @@ Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Mi
 
 ## <a name="set-or-check-password-policies-using-powershell"></a>PowerShell을 사용하여 암호 정책 설정 또는 확인
 
-시작하려면 [Azure AD PowerShell 모듈을 다운로드하고 설치](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule)해야 합니다. 설치를 완료한 후에는 아래 단계에 따라서 각 필드를 구성합니다.
+시작하려면 [Azure AD PowerShell 모듈을 다운로드하고 설치](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0)해야 합니다. 설치를 완료한 후에는 아래 단계에 따라서 각 필드를 구성합니다.
 
 ### <a name="how-to-check-expiration-policy-for-a-password"></a>암호에 대한 만료 정책 확인 방법
 1. 회사 관리자 자격 증명을 사용하여 Windows PowerShell에 연결합니다.

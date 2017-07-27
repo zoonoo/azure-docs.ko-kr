@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Network Watcher 문제 해결로 VPN Gateway 모니터링 | Microsoft Docs"
 description: "이 문서에서는 Azure Automation 및 Network Watcher로 온-프레미스 연결을 진단하는 방법을 설명합니다."
 services: network-watcher
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 9a6f42e9b7b737e9316dcc1ff39ea532c4b923c5
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 655469b88a77bcf54b775cbde991b8cba415c024
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -47,13 +46,14 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 - Azure Automation에 구성된 자격 증명 집합이 있어야 합니다. [Azure Automation 보안](../automation/automation-security-overview.md)에서 자세히 알아보세요.
 - Azure Automation에 정의된 유효한 SMTP 서버(Office 365, 온-프레미스 전자 메일 또는 기타) 및 자격 증명
 - Azure에 구성된 Virtual Network 게이트웨이입니다.
+- 로그를 저장할 기존 저장소 계정입니다.
 
 > [!NOTE]
 > 이전 이미지에 나와 있는 인프라는 설명을 위한 것이며 이 문서에 포함된 단계로는 만들어지지 않습니다.
 
 ### <a name="create-the-runbook"></a>Runbook 만들기
 
-예제를 구성하는 첫 번째 단계는 Runbook을 만드는 것입니다. 이 예제에서는 실행 계정을 사용합니다. 실행 계정에 대해 자세히 알아보려면 [Azure 실행 계정으로 Runbook 인증](../automation/automation-sec-configure-azure-runas-account.md#create-an-automation-account-from-the-azure-portal)을 참조하세요.
+예제를 구성하는 첫 번째 단계는 Runbook을 만드는 것입니다. 이 예제에서는 실행 계정을 사용합니다. 실행 계정에 대해 자세히 알아보려면 [Azure 실행 계정으로 Runbook 인증](../automation/automation-sec-configure-azure-runas-account.md)을 참조하세요.
 
 ### <a name="step-1"></a>1단계
 
@@ -89,6 +89,7 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 # Get credentials for Office 365 account
 $MyCredential = "Office 365 account"
 $Cred = Get-AutomationPSCredential -Name $MyCredential
+$username = "<from email address>"
 
 # Get the connection "AzureRunAsConnection "
 $connectionName = "AzureRunAsConnection"
@@ -103,17 +104,17 @@ Add-AzureRmAccount `
 "Setting context to a specific subscription"
 Set-AzureRmContext -SubscriptionId $subscriptionId
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "<Azure Region>" }
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
-$sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
+$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "<vpn connection name>" -ResourceGroupName "<resource group name>"
+$sa = Get-AzureRmStorageAccount -Name "<storage account name>" -ResourceGroupName "<resource group name>" 
 $result = Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)logs"
 
 
 if($result.code -ne "Healthy")
     {
-        $Body = "Connection for ${vpnconnectionName} is: $($result.code). View the logs at $($sa.PrimaryEndpoints.Blob)logs to learn more."
-        $subject = "${connectionname} Status"
+        $Body = "Connection for $($connection.name) is: $($result.code). View the logs at $($sa.PrimaryEndpoints.Blob)logs to learn more."
+        $subject = "$($connection.name) Status"
         Send-MailMessage `
         -To 'admin@contoso.com' `
         -Subject $subject `
@@ -121,17 +122,15 @@ if($result.code -ne "Healthy")
         -UseSsl `
         -Port 587 `
         -SmtpServer 'smtp.office365.com' `
-        -From "${$username}" `
+        -From $username `
         -BodyAsHtml `
         -Credential $Cred
     }
 else
     {
-    Write-Output ("Connection Status is: $($result.connectionStatus)")
+    Write-Output ("Connection Status is: $($result.code)")
     }
 ```
-
-![5단계][5]
 
 ### <a name="step-6"></a>6단계
 
