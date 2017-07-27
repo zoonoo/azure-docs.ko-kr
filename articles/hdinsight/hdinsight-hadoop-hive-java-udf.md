@@ -1,6 +1,6 @@
 ---
-title: "HDInsight에서 Hive와 함께 Java UDF(사용자 정의 함수) 사용 | Microsoft 문서"
-description: "HDInsight의 Hive에서 Java UDF(사용자 정의 함수)를 만들고 사용하는 방법을 알아봅니다."
+title: "HDInsight의 Hive 및 Java UDF(사용자 정의 함수) - Azure | Microsoft Docs"
+description: "Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제 UDF는 텍스트 문자열 테이블을 소문자로 변환합니다."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -8,33 +8,33 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 06/26/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 229bebe16b619f61f2dd4acb73602b97e64cb294
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6fe228ee8967c1d290e9bd515733d8207a721466
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>HDInsight에서 Hive와 함께 Java UDF 사용
 
-Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다.
+Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제의 Java UDF는 텍스트 문자열 테이블을 모두 소문자로 변환합니다.
 
 ## <a name="requirements"></a>요구 사항
 
-* HDInsight 클러스터(Windows 또는 Linux 기반)
+* HDInsight 클러스터 
 
     > [!IMPORTANT]
-    > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+    > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-    이 문서의 단계 대부분은 두 클러스터 형식 모두에 대해 작동합니다. 그러나 클러스터에 컴파일된 UDF를 업로드하고 실행하는 데 사용하는 단계는 Linux 기반 클러스터와 관련이 있습니다. Windows 기반 클러스터와 함께 사용할 수 있는 정보에 대한 링크가 제공됩니다.
+    이 문서의 단계는 대부분 Windows 및 Linux 기반 클러스터 둘 다에서 작동합니다. 그러나 클러스터에 컴파일된 UDF를 업로드하고 실행하는 데 사용하는 단계는 Linux 기반 클러스터와 관련이 있습니다. Windows 기반 클러스터와 함께 사용할 수 있는 정보에 대한 링크가 제공됩니다.
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 이상(또는 OpenJDK와 같은 이와 동등한 프로그램)
 
@@ -43,9 +43,9 @@ Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 �
 * 텍스트 편집기 또는 Java IDE
 
     > [!IMPORTANT]
-    > Linux 기반 HDInsight 서버를 사용하지만 Windows 클라이언트에서 Python 파일을 만드는 경우 LF를 줄 끝으로 사용하는 편집기를 사용해야 합니다. 편집기에서 LF 또는 CRLF를 사용하는지 여부가 확실하지 않은 경우 HDInsight 클러스터에서 유틸리티를 사용하여 CR 문자를 제거하는 단계는 [문제 해결](#troubleshooting) 섹션을 참조하세요.
+    > Windows 클라이언트에서 Python 파일을 만드는 경우 LF를 줄 끝으로 사용하는 편집기를 이용해야 합니다. 편집기에서 LF 또는 CRLF를 사용하는지 여부가 확실하지 않은 경우 CR 문자를 제거하는 단계는 [문제 해결](#troubleshooting) 섹션을 참조하세요.
 
-## <a name="create-an-example-udf"></a>UDF 예제 만들기
+## <a name="create-an-example-java-udf"></a>예제 Java UDF 만들기 
 
 1. 명령줄에서 새 Maven을 만들려면 다음을 참조하세요.
 
@@ -60,7 +60,7 @@ Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 �
 
 2. 프로젝트를 만들면 프로젝트의 일부로 작성된 **exampleudf/src/test** 디렉터리를 삭제합니다.
 
-3. **exampleudf/pom.xml**을 열고 기존 `<dependencies>` 항목을 다음으로 바꿉니다.
+3. **exampleudf/pom.xml**을 열고 기존 `<dependencies>` 항목을 다음 XML로 바꿉니다.
 
     ```xml
     <dependencies>
@@ -81,7 +81,7 @@ Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 �
 
     이러한 항목은 HDInsight 3.5와 함께 포함된 Hadoop 및 Hive의 버전을 지정합니다. [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md) 문서에서 HDInsight를 제공하는 Hadoop 및 Hive의 버전에 대한 정보를 찾을 수 있습니다.
 
-    파일 끝의 `</project>` 줄 앞에 `<build>` 섹션을 추가합니다. 이 섹션은 다음을 포함합니다.
+    파일 끝의 `</project>` 줄 앞에 `<build>` 섹션을 추가합니다. 이 섹션에는 다음 XML이 포함되어야 합니다.
 
     ```xml
     <build>
@@ -178,7 +178,7 @@ Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 �
     mvn compile package
     ```
 
-    그러면 UDF가 빌드되고 **exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar**에 패키징됩니다.
+    이 명령은 `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` 파일에 UDF를 빌드하고 패키지합니다.
 
 2. `scp` 명령을 사용하여 파일을 HDInsight 클러스터에 복사합니다.
 
@@ -186,7 +186,7 @@ Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 �
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
     ```
 
-    **myuser** 를 클러스터의 SSH 사용자 계정으로 바꿉니다. **mycluster** 를 클러스터 이름으로 바꿉니다. 암호를 사용하여 SSH 계정을 보호할 경우 암호를 입력하라는 메시지가 나타납니다. 인증서를 사용하는 경우, `-i` 매개 변수를 사용하여 개인 키를 지정해야 합니다.
+    `myuser`를 클러스터의 SSH 사용자 계정으로 바꿉니다. `mycluster`를 클러스터 이름으로 바꿉니다. 암호를 사용하여 SSH 계정을 보호할 경우 암호를 입력하라는 메시지가 나타납니다. 인증서를 사용하는 경우, `-i` 매개 변수를 사용하여 개인 키를 지정해야 합니다.
 
 3. SSH를 사용하여 클러스터에 연결합니다.
 
@@ -228,7 +228,7 @@ Hive에서 작동하는 Java 기반 UDF(사용자 정의 함수)를 만드는 �
     SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
     ```
 
-    이 쿼리는 테이블에서 장치 플랫폼(Android, Windows, iOS 등)을 선택하고 문자열을 소문자로 변환한 다음 표시하게 됩니다. 출력은 다음과 유사합니다.
+    이 쿼리는 테이블에서 장치 플랫폼(Android, Windows, iOS 등)을 선택하고 문자열을 소문자로 변환한 다음 표시하게 됩니다. 출력은 다음 텍스트와 유사합니다.
 
         +----------+--+
         |   _c0    |
