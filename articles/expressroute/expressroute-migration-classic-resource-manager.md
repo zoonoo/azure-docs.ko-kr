@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 07/06/2017
 ms.author: ganesr;cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 23b88e4dd3af3cd3e1e13f80890311bdbfb7fe84
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 964ea38569062a7127f60dd6309b328db263bf6f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>클래식에서 Resource Manager로 ExpressRoute 연결된 가상 네트워크 마이그레이션
@@ -57,43 +56,6 @@ ExpressRoute 회로에 연결된 리소스를 마이그레이션하기 전에 Ex
 
 이 작업에는 가동 중지 시간이 없습니다. 마이그레이션을 진행하는 동안 프레미스와 Microsoft 간 데이터 전송을 계속할 수 있습니다.
 
-## <a name="prepare-your-virtual-network-for-migration"></a>마이그레이션을 위한 가상 네트워크 준비
-마이그레이션할 가상 네트워크의 네트워크에 불필요한 아티팩트가 없도록 확인해야 합니다. 가상 네트워크 구성을 다운로드하고 필요에 따라 업데이트하려면 다음 PowerShell cmdlet을 실행합니다.
-
-```powershell
-Add-AzureAccount
-Select-AzureSubscription -SubscriptionName <VNET Subscription>
-Get-AzureVNetConfig -ExportToFile C:\virtualnetworkconfig.xml
-```
-      
-마이그레이션할 가상 네트워크에서 <ConnectionsToLocalNetwork>에 대한 모든 참조가 제거 되었는지 확인해야 합니다. 샘플 네트워크 구성이 다음 코드 조각에 나와 있습니다.
-
-```
-    <VirtualNetworkSite name="MyVNet" Location="East US">
-        <AddressSpace>
-            <AddressPrefix>10.0.0.0/8</AddressPrefix>
-        </AddressSpace>
-        <Subnets>
-            <Subnet name="Subnet-1">
-                <AddressPrefix>10.0.0.0/11</AddressPrefix>
-            </Subnet>
-            <Subnet name="GatewaySubnet">
-                <AddressPrefix>10.32.0.0/28</AddressPrefix>
-            </Subnet>
-        </Subnets>
-        <Gateway>
-            <ConnectionsToLocalNetwork>
-            </ConnectionsToLocalNetwork>
-        </Gateway>
-    </VirtualNetworkSite>
-```
- 
-<ConnectionsToLocalNetwork>가 비어 있지 않은 경우 참조를 삭제하고 네트워크 구성에 제출합니다. 다음 PowerShell cmdlet을 실행하여 이 작업을 수행할 수 있습니다.
-
-```powershell
-Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml
-```
-
 ## <a name="migrate-virtual-networks-gateways-and-associated-deployments"></a>가상 네트워크, 게이트웨이 및 연결된 배포 마이그레이션
 
 마이그레이션을 위해 수행하는 단계는 리소스가 동일한 구독에 있는지, 서로 다른 구독에 있는지 또는 둘 다에 따라 달라집니다.
@@ -121,71 +83,6 @@ Set-AzureVNetConfig -ConfigurationPath c:\virtualnetworkconfig.xml
 
   ```powershell
   Move-AzureVirtualNetwork -Abort $vnetName
-  ```
-
-### <a name="migrate-virtual-networks-gateways-and-associated-deployments-in-a-different-subscription-from-that-of-the-expressroute-circuit"></a>ExpressRoute 회로와 다른 구독의 가상 네트워크, 게이트웨이 및 연결된 배포 마이그레이션
-
-1. ExpressRoute 회로를 클래식에서 Resource Manager 환경으로 이동하였는지 확인합니다.
-2. 가상 네트워크를 마이그레이션에 적합하게 준비하였는지 확인합니다.
-3. ExpressRoute 회로가 클래식과 Resource Manager 환경에서 모두 작동할 수 있는지 확인합니다. 회로를 클래식 및 Resource Manager 환경 모두에서 사용하도록 허용하려면 다음 PowerShell 스크립트를 사용합니다.
-
-  ```powershell
-  Login-AzureRmAccount
-  Select-AzureRmSubscription -SubscriptionName <My subscription>
-  $circuit = Get-AzureRmExpressRouteCircuit -Name <CircuitName> -ResourceGroupName <ResourceGroup Name> 
-  $circuit.AllowClassicOperations = $true
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
-  ```
-4. Resource Manager 환경에서 권한 부여를 만듭니다. 권한 부여를 만드는 방법을 알아보려면 [가상 네트워크를 ExpressRoute 회로에 연결하는 방법](expressroute-howto-linkvnet-arm.md)을 참조합니다. 권한 부여를 만들려면 다음 PowerShell 코드 조각을 사용합니다.
-
-  ```powershell
-  circuit = Get-AzureRmExpressRouteCircuit -Name <CircuitName> -ResourceGroupName <ResourceGroup Name> 
-  Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "AuthorizationForMigration"
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
-  $circuit = Get-AzureRmExpressRouteCircuit -Name MigrateCircuit -ResourceGroupName MigrateRGWest
-
-  $id = $circuit.id 
-  $auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "AuthorizationForMigration"
-
-  $key=$auth1.AuthorizationKey 
- ```
-
-    회로 ID와 권한 부여 키를 적어둡니다. 이러한 요소는 마이그레이션이 완료된 후 회로를 가상 네트워크에 연결할 때 사용됩니다.
-  
-5. 가상 네트워크와 연결된 전용 회로 링크를 삭제합니다. 클래식 환경에서 회로 링크를 제거하려면 다음 cmdlet을 사용합니다.
-
-  ```powershell
-  $skey = Get-AzureDedicatedCircuit | select ServiceKey
-  Remove-AzureDedicatedCircuitLink -ServiceKey $skey -VNetName $vnetName
-  ```  
-
-6. 리소스 마이그레이션을 위해 구독을 등록합니다. 리소스 마이그레이션을 위해 구독을 등록하려면 다음 PowerShell 코드 조각을 사용합니다.
-
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName <Your Subscription Name>
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  ```
-7. 유효성을 검사하고 준비한 후, 마이그레이션합니다. 가상 네트워크를 이동하려면 다음 PowerShell 코드 조작을 사용합니다.
-
-  ```powershell
-  Move-AzureVirtualNetwork -Prepare $vnetName  
-  Move-AzureVirtualNetwork -Commit $vnetName
-  ```
-
-    또한 다음 PowerShell cmdlet을 실행하여 마이그레이션을 중단할 수 있습니다.
-
-  ```powershell
-  Move-AzureVirtualNetwork -Abort $vnetName
-  ```
-8. 가상 네트워크를 ExpressRoute 회로에 다시 연결합니다. 다음 PowerShell 코드 조각은 가상 네트워크가 생성된 구독의 컨텍스트에서 실행됩니다. 회로가 생성되는 구독에서는 이 코드 조각을 실행해서는 안 됩니다. 4단계에서 적어둔 회로 ID(PeerID로) 및 권한 부여 키를 사용합니다.
-
-  ```powershell
-  Select-AzureRMSubscription –SubscriptionName <customer subscription>  
-  $gw = Get-AzureRmVirtualNetworkGateway -Name $vnetName-Default-Gateway -ResourceGroupName ($vnetName + "-Migrated")
-  $vnet = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroup  ($vnetName + "-Migrated")  
-
-  New-AzureRmVirtualNetworkGatewayConnection -Name  ($vnetName + "-GwConn") -ResourceGroupName ($vnetName + "-Migrated")  -Location $vnet.Location -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey $key
   ```
 
 ## <a name="next-steps"></a>다음 단계
