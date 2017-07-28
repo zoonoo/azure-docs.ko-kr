@@ -39,6 +39,8 @@
       href: tutorial-azure-security.md
     - name: 12 - Jenkins 배포
       href: tutorial-jenkins-github-docker-cicd.md
+    - name: 13 - Team Services를 통해 CI/CD 설정
+      href: tutorial-build-deploy-jenkins.md
 - name: 샘플
   items:
     - name: Azure CLI
@@ -62,23 +64,18 @@
     - name: 컨테이너
       href: containers.md
     - name: 리소스 관리자
-      href: >-
-        ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       items:
         - name: 배포 모델
-          href: >-
-            ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: VM용 템플릿
-          href: >-
-            ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Azure Linux 에이전트
       href: agent-user-guide.md
     - name: Azure 보안 센터
-      href: >-
-        ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: 재해 복구
-      href: >-
-        ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: 계획된 유지 보수
       href: planned-maintenance.md
       items:
@@ -177,8 +174,7 @@
         - name: VM 크기 조정
           href: change-vm-size.md
         - name: 태그 사용
-          href: >-
-            ../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
           items:
             - name: VM에 태그 지정
               href: tag.md
@@ -187,8 +183,7 @@
         - name: Azure Linux 에이전트 업데이트
           href: update-agent.md
         - name: Recovery Services를 사용한 백업
-          href: >-
-            ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Azure Active Directory Domain Service에 RedHat VM 조인
           href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
     - name: SSH를 사용하여 연결
@@ -233,12 +228,10 @@
     - name: VM 저장소 관리
       items:
         - name: Azure Managed Disks
-          href: >-
-            ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
           items:
             - name: FAQ
-              href: >-
-                ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Linux VM에 파일 복사
           href: copy-files-to-linux-vm-using-scp.md
         - name: VM을 Managed Disks로 변환
@@ -264,8 +257,7 @@
     - name: VM 네트워킹
       items:
         - name: 가상 네트워크 만들기
-          href: >-
-            ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: 기존 가상 네트워크에 VM 배포
           items:
             - name: Azure CLI
@@ -275,8 +267,7 @@
         - name: 여러 NIC를 사용하여 VM 만들기
           href: multiple-nics.md
         - name: 고정 공용 IP 만들기
-          href: >-
-            ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: '포트, 끝점 및 보안 구성'
           href: endpoints-in-resource-manager.md
         - name: VM에 대한 액세스 허용
@@ -290,18 +281,15 @@
         - name: FQDN 만들기
           href: portal-create-fqdn.md
         - name: 사용자 정의 경로 만들기
-          href: >-
-            ../../virtual-network/virtual-network-create-udr-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-network/virtual-network-create-udr-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: 크기 조정 및 가용성
       items:
         - name: VM 가용성
           href: manage-availability.md
         - name: 부하 분산 장치 만들기
-          href: >-
-            ../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: 크기 집합으로 여러 VM 만들기
-          href: >-
-            ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Azure Automation을 사용하여 VM 세로로 확장
           href: vertical-scaling-automation.md
         - name: VM 모니터링
@@ -339,8 +327,7 @@
             - name: 첫 번째 앱 배포
               href: cloudfoundry-deploy-your-first-app.md
         - name: 데이터 과학 VM 개요
-          href: >-
-            ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: MongoDB
           href: install-mongodb.md
         - name: MySQL
@@ -354,8 +341,7 @@
         - name: 3노드 Deis 클러스터 배포
           href: deis-cluster.md
         - name: Node.js 응용 프로그램 배포
-          href: >-
-            ../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../virtual-machines-linux-nodejs-deploy.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Django 웹앱
           href: python-django-web-app.md
         - name: Jupyter 노트북
@@ -392,8 +378,7 @@
         - name: 일반적인 마이그레이션 오류
           href: migration-classic-resource-manager-errors.md
         - name: 마이그레이션을 위한 커뮤니티 도구
-          href: >-
-            ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: FAQ
           href: migration-classic-resource-manager-faq.md
     - name: 문제 해결
@@ -450,8 +435,7 @@
 - name: 리소스
   items:
     - name: 작성자 템플릿
-      href: >-
-        ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 커뮤니티 템플릿
@@ -463,7 +447,6 @@
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: 비디오
-      href: >-
-        https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
     - name: FAQ
       href: faq.md

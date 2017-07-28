@@ -1,5 +1,6 @@
 # [개요](azure-security.md)
 ## [네트워크 보안](security-network-overview.md)
+## [데이터베이스 보안](azure-database-security-overview.md)
 ## [저장소 보안](security-storage-overview.md)
 ## [보안 계산](security-virtual-machines-overview.md)
 ## [보안 관리 및 모니터링](security-management-and-monitoring-overview.md)
@@ -12,6 +13,7 @@
 ### [공용 클라우드에서 격리](azure-isolation.md)
 ### [보안 기술 기능](azure-security-technical-capabilities.md)
 ### [Azure에서 거버넌스](governance-in-azure.md)
+### [휴지 상태의 데이터 암호화](azure-security-encryption-atrest.md)
 
 # 시작
 ## [Azure 보안 시작하기](azure-security-getting-started.md)
@@ -51,6 +53,7 @@
 ## PaaS 서비스
 ### [PaaS 배포 보안](security-paas-deployments.md)
 #### [SQL을 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-sql.md)
+#### [SQL Database 모범 사례](azure-database-security-best-practices.md)
 #### [App Services를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-app-services.md)
 
 ## 사물 인터넷
@@ -73,7 +76,7 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Azure 보안 MVP 프로그램](azure-security-mvp.md)
 ## [사이버 보안 컨설팅](azure-security-cyber-services.md)
 ## [보안 및 규정 준수 블로그](http://blogs.msdn.com/b/azuresecurity/)

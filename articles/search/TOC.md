@@ -31,6 +31,7 @@
 ### [SDK 업그레이드](search-dotnet-sdk-migration.md)
 ### [REST API 업그레이드](search-api-migration.md)
 ### [복합 데이터 형식 모델링](search-howto-complex-data-types.md)
+### [동시 업데이트 처리](search-howto-concurrency.md)
 
 ## 관리
 ### Azure Search 관리
@@ -75,7 +76,7 @@
 
 # 리소스
 ## [API 버전](search-api-versions.md)
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/search/)
 ## [서비스 REST(미리 보기)](search-api-2015-02-28-preview.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=search)
