@@ -12,13 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/20/2017
+ms.date: 06/01/2017
 ms.author: TomSh
+ms.custom: azlog
 ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 616a29b3f7db817e63a3a3673b845cc86752af77
+ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
+ms.openlocfilehash: 1adabc7f249d9b01f3ad1a819f75b2ef47f72998
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 06/06/2017
+
 
 
 ---
@@ -45,6 +47,9 @@ Azure에서는 모든 Azure 서비스에 대해 광범위한 로깅을 생성합
 
 Azure 로그 통합 기능은 현재 Azure 활동 로그, Azure 구독의 Windows 가상 컴퓨터에서 제공된 Windows 이벤트 로그, Azure Security Center 경고, Azure 진단 로그 및 Azure Active Directory 감사 로그를 통합하도록 지원합니다.
 
+>[!NOTE]
+Azure 로그 통합은 무료 솔루션이지만 로그 파일 정보 저장소로 인한 Azure Storage 비용이 발생합니다.
+
 다음 표에서는 로그 범주 및 SIEM 통합 세부 설명을 제공합니다.
 
 | 로그 형식  |JSON(Splunk, ELK)을 지원하는 Log Analytics| ArcSight  | QRadar  |   
@@ -55,8 +60,8 @@ Azure 로그 통합 기능은 현재 Azure 활동 로그, Azure 구독의 Window
 | 진단 로그(리소스 로그) | 예 | 최종 사용자는 FlexConnector JSON 파서 파일을 만들어야 합니다. 이 작업을 수행하는 방법은 ArcSight 설명서를 참조하세요. | 로그 원본 확장을 만들어야 합니다. 자세한 내용은 QRadar 설명서를 참조하세요. |
 | VM 로그 | 예(JSON이 아닌 전달 이벤트를 통해) | 예(전달 이벤트를 통해) | 예(전달 이벤트를 통해) |
 
->[!NOTE]
-Azure 로그 통합은 무료 솔루션이지만 로그 파일 정보 저장소로 인한 Azure Storage 비용이 발생합니다.
+지원되는 로그 형식에 대한 자세한 내용은 [FAQ](security-azure-log-integration-faq.md)를 참조하세요.
+
 
 [Azure 로그 통합 MSDN 포럼](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration)을 통해 커뮤니티의 지원을 받을 수 있습니다. 이 포럼은 Azure 로그 통합을 최대한 활용하는 방법에 대한 질문, 답변, 팁, 요령 등 서로 지원할 수 있는 기능을 AzLog 커뮤니티에 제공합니다. 또한 Azure 로그 통합 팀이 이 포럼을 모니터링하며 가능한 한 언제든지 도움을 드릴 것입니다.
 
