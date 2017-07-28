@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 06/01/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: db9f2174e9928083957f160be8c268fe21cd4169
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e44f04b3492ac07822b0842864f84a5f16dc3f5b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 
@@ -57,23 +57,23 @@ StopByResourceGroup-MS-Mgmt-VM | 이 Runbook은 주어진 목록의 Azure 리소
 **SendMailO365-MS-Mgmt** Runbook ||
 SendMailO365-IsSendEmail-MS-Mgmt | StartByResourceGroup-MS-Mgmt-VM 및 StopByResourceGroup-MS-Mgmt-VM Runbook이 완료 시 전자 메일 알림을 보낼 수 있는지를 지정합니다.  전자 메일 경고를 사용하려면 **True**를 사용하지 않으려면 **False**를 선택합니다. 기본값은 **False**입니다.| 
 **StartByResourceGroup-MS-Mgmt-VM** Runbook ||
-StartByResourceGroup-ExcludeList-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.|
+StartByResourceGroup-ExcludeList-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 공백 없이 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.|
 StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | 전자 메일 메시지 본문의 시작 부분에 추가될 수 있는 텍스트입니다.|
 StartByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | 전자 메일 Runbook을 포함하는 Automation 계정의 이름을 지정합니다.  **이 변수를 수정하지 마십시오.**|
 StartByResourceGroup-SendMailO365-EmailRunbookName-MS-Mgmt | 전자 메일 Runbook의 이름을 지정합니다.  StartByResourceGroup-MS-Mgmt-VM 및 StopByResourceGroup-MS-Mgmt-VM Runbook이 전자 메일을 보내는 데 사용됩니다.  **이 변수를 수정하지 마십시오.**|
 StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | 전자 메일 Runbook을 포함하는 리소스 그룹의 이름을 지정합니다.  **이 변수를 수정하지 마십시오.**|
 StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | 전자 메일의 제목 줄에 대한 텍스트를 지정합니다.|  
-StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | 전자 메일의 받는 사람을 지정합니다.  이름을 세미콜론(;)으로 구분하여 입력합니다.|
-StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.  기본 값(별표)은 구독 내 모든 리소스 그룹을 포함합니다.|
+StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | 전자 메일의 받는 사람을 지정합니다.  공백 없이 세미콜론(;)을 사용하여 구분한 이름을 입력합니다.|
+StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 공백 없이 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.  기본 값(별표)은 구독 내 모든 리소스 그룹을 포함합니다.|
 StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | 이 솔루션으로 관리될 VM을 포함하는 구독을 지정합니다.  이 솔루션의 Automation 계정이 상주하는 구독과 같은 구독이어야 합니다.|
 **StopByResourceGroup-MS-Mgmt-VM** Runbook ||
-StopByResourceGroup-ExcludeList-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.|
+StopByResourceGroup-ExcludeList-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 공백 없이 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.|
 StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | 전자 메일 메시지 본문의 시작 부분에 추가될 수 있는 텍스트입니다.|
 StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | 전자 메일 Runbook을 포함하는 Automation 계정의 이름을 지정합니다.  **이 변수를 수정하지 마십시오.**|
 StopByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | 전자 메일 Runbook을 포함하는 리소스 그룹의 이름을 지정합니다.  **이 변수를 수정하지 마십시오.**|
 StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | 전자 메일의 제목 줄에 대한 텍스트를 지정합니다.|  
-StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | 전자 메일의 받는 사람을 지정합니다.  이름을 세미콜론(;)으로 구분하여 입력합니다.|
-StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.  기본 값(별표)은 구독 내 모든 리소스 그룹을 포함합니다.|
+StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | 전자 메일의 받는 사람을 지정합니다.  공백 없이 세미콜론(;)을 사용하여 구분한 이름을 입력합니다.|
+StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | 관리 작업에서 제외될 VM 이름을 공백 없이 세미콜론(;)으로 구분하여 입력합니다. 값은 대/소문자가 구분되며 와일드카드(별표)가 지원됩니다.  기본 값(별표)은 구독 내 모든 리소스 그룹을 포함합니다.|
 StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | 이 솔루션으로 관리될 VM을 포함하는 구독을 지정합니다.  이 솔루션의 Automation 계정이 상주하는 구독과 같은 구독이어야 합니다.|  
 <br>
 

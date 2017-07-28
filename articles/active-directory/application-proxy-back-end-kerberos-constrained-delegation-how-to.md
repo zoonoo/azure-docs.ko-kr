@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 209d4f3874123b3f630d3648264e9afc438da184
-ms.lasthandoff: 04/18/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 0651f497de446bd6b66f8eaccd7114d262925afd
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/03/2017
 
 ---
 
@@ -47,7 +47,7 @@ Azure 응용 프로그램 프록시는 거의 모든 유형의 인프라 또는 
 
 특히 이전 버전의 Windows에서 KCD를 구성할 때는 근본적으로 다른 접근 방식을 사용하기 때문에 2012R2에서 KCD를 구성하는 섹션뿐 아니라 다음과 같은 여러 가지 고려 사항을 염두에 두어야 합니다.
 
--   도메인 구성원 서버가 특정 도메인 컨트롤러와 통신하는 보안 채널을 변경하는 것은 흔한 일입니다. 나중에 언제든지 변경되므로 일반적으로 커넥터 호스트를 특정 로컬 사이트 DC와만 통신할 수 있도록 제한해서는 안 됩니다.
+-   도메인 구성원 서버가 특정 도메인 컨트롤러가 있는 보안 채널 대화 상자를 여는 것은 흔한 일입니다. 그런 다음 언제든지 다른 대화 상자로 이동되므로 일반적으로 커넥터 호스트를 특정 로컬 사이트 DC와만 통신할 수 있도록 제한해서는 안 됩니다.
 
 -   위와 마찬가지로 크로스 도메인 시나리오는 커넥터 호스트를 로컬 네트워크 경계 외부에 있는 DC로 연결하는 참조를 사용합니다. 이 시나리오에서는 다른 각 도메인을 나타내는 DC에 트래픽을 허용하거나 위임이 실패하는지 확인하는 것도 중요합니다.
 

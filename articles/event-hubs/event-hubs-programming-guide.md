@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 05/17/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 6d0a1501b97ddb2c819361b00a85ebec12f7b50e
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: f65b992297c429eda2090f744b9b88b1ede39533
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -59,7 +59,7 @@ var description = manager.CreateEventHubIfNotExists("MyEventHub");
 [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription) 클래스에는 권한 부여 규칙, 메시지 보존 간격, 파티션 ID, 상태 및 경로를 포함하는 이벤트 허브에 대한 세부 정보가 포함됩니다. 이 클래스를 사용하여 이벤트 허브에서 메타데이터를 업데이트할 수 있습니다.
 
 ## <a name="create-an-event-hubs-client"></a>이벤트 허브 클라이언트 만들기
-이벤트 허브와 상호작용하기 위한 기본 클래스는 [Microsoft.ServiceBus.Messaging.EventHubClient][]입니다. 이 클래스는 발신자와 수신자 기능을 모두 제공합니다. 다음 예와 같이 [만들기](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) 메서드를 사용하여 이 클래스를 인스턴스화할 수 있습니다.
+Event Hubs와 상호 작용하기 위한 기본 클래스는 [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]입니다. 이 클래스는 발신자와 수신자 기능을 모두 제공합니다. 다음 예와 같이 [만들기](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) 메서드를 사용하여 이 클래스를 인스턴스화할 수 있습니다.
 
 ```csharp
 var client = EventHubClient.Create(description.Path);
@@ -109,6 +109,8 @@ var client = factory.CreateEventHubClient("MyEventHub");
 - 삭제(메시지가 중요하지 않을 경우에는 삭제)
 - 다시 시도(적합하게 보이도록 메시지를 다시 시도)
 - [배달 못 한 편지](../service-bus-messaging/service-bus-dead-letter-queues.md)(처리할 수 없는 메시지만 배달 못 한 편지에 큐 또는 다른 이벤트 허브 사용)
+
+가용성과 일관성 간의 절충에 대한 자세한 내용은 [Event Hubs의 가용성 및 일관성](event-hubs-availability-and-consistency.md)을 참조하세요. 
 
 ## <a name="batch-event-send-operations"></a>배치 이벤트가 작업을 보냅니다
 배치에서 이벤트를 보내면 처리량을 크게 향상시킬 수 있습니다. [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) 메서드는 [EventData][] 형식의 **IEnumerable** 매개 변수를 사용하고 이벤트 허브에 원자성 작업으로 전체 배치를 보냅니다.
@@ -187,6 +189,7 @@ while(receive)
 
 * [이벤트 허브 API 개요](event-hubs-api-overview.md)
 * [Event Hubs의 정의](event-hubs-what-is-event-hubs.md)
+* [Event Hubs의 가용성 및 일관성](event-hubs-availability-and-consistency.md)
 * [이벤트 프로세서 호스트 API 참조](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager

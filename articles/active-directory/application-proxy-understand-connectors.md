@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/02/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 16a000074ae742cc6bc1b25bf359990fe73608f7
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: cd02855717c7de00e8b12aaa6d7578a0ab6079bf
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -25,14 +26,14 @@ ms.lasthandoff: 04/21/2017
 
 커넥터는 Azure AD 응용 프로그램 프록시를 가능하게 만듭니다. 커넥터는 간단하고 배포 및 유지 관리가 쉬우며 기능이 매우 강력합니다. 이 문서에서는 커넥터가 무엇인지, 작동 방식 및 배포를 최대한 활용할 수 있는 몇 가지 모범 사례를 설명합니다. 
 
-## <a name="connector-deployment"></a>커넥터 배포
+## <a name="deployment"></a>배포
 
 응용 프로그램 프록시는 네트워크에서 커넥터라는 Windows Server 서비스를 설치해야 작동합니다. 고가용성 및 확장성 요구에 따라 여러 커넥터를 설치할 수 있습니다. 한 개의 커넥터로 시작하고 필요에 따라 더 추가합니다. 커넥터가 설치될 때마다 테넌트를 제공하는 커넥터 풀에 추가됩니다.
 
 응용 프로그램을 호스트하는 동일한 서버에 커넥터를 설치하지 않는 것이 좋습니다. 그러나 커넥터를 설치한 서버에서 응용 프로그램에 액세스할 수 있어야 합니다.
 
 
-## <a name="connector-maintenance"></a>커넥터 유지 관리
+## <a name="maintenance"></a>유지 관리
 커넥터와 서비스는 모든 고가용성 작업을 처리합니다. 동적으로 추가하거나 제거할 수 있습니다. 새 요청이 수신될 때마다 현재 사용할 수 있는 커넥터 중 하나로 라우팅됩니다. 일시적으로 커넥터를 사용할 수 없는 경우 이 트래픽에 응답하지 않습니다.
 
 커넥터는 상태 비저장이며, 서비스 설정으로 연결 및 이 커넥터를 인증하는 인증서 이외의 구성 데이터를 컴퓨터에 포함하지 않습니다. 서비스에 연결할 때 필요한 모든 구성 데이터를 끌어오고 몇 분마다 새로 고쳐집니다.
@@ -44,19 +45,17 @@ ms.lasthandoff: 04/21/2017
 
 사용하지 않은 커넥터를 수동으로 삭제할 필요가 없습니다. 커넥터가 실행 중인 경우 서비스에 연결됨에 따라 활성 상태가 유지됩니다. 사용되지 않는 커넥터는 _비활성_으로 태그 지정되고 비활성 상태가 된 10일 후 제거됩니다. 
 
-## <a name="automatic-updates-to-the-connector"></a>커넥터 자동 업데이트
+## <a name="automatic-updates"></a>자동 업데이트
 
-커넥터 업데이터 서비스를 통해 자동으로 최신 상태가 유지됩니다. 따라서 모든 새로운 기능, 보안 및 성능 개선을 지속적으로 활용할 수 있습니다.
+Azure AD에서는 사용자가 배포하는 모든 커넥터에 대해 자동 업데이트를 지원합니다. 응용 프로그램 프록시 커넥터 업데이터 서비스가 실행 중인 동안에는 커넥터가 자동으로 업데이트됩니다. 서버에 커넥터 업데이터 서비스가 표시되지 않는 경우 업데이트를 받으려면 [커넥터를 다시 설치](active-directory-application-proxy-enable.md)해야 합니다. 다중 커넥터가 있는 테넌트의 경우 자동 업데이트는 각 그룹에서 한 번에 하나의 커넥터를 대상으로 하여 사용자 환경의 가동 중지 시간을 방지합니다. 
 
-Azure AD에서는 사용자가 배포하는 모든 커넥터에 대해 자동 업데이트를 지원합니다. 응용 프로그램 프록시 커넥터 업데이터 서비스가 실행 중인 동안에는 커넥터가 자동으로 업데이트됩니다. 서버에 커넥터 업데이터 서비스가 표시되지 않는 경우 업데이트를 받으려면 [커넥터를 다시 설치](active-directory-application-proxy-enable.md)해야 합니다.
+커넥터에 대한 자동 업데이트를 기다리지 않으려면 수동 업그레이드를 수행할 수 있습니다. 커넥터가 있는 서버에서 [커넥터 다운로드 페이지](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)로 이동하여 **다운로드**를 선택합니다. 그러면 로컬 커넥터의 업그레이드가 시작됩니다. 
 
-다음과 같은 경우 커넥터를 업데이트할 때 가동 중지 시간이 발생할 수 있습니다.
-
-- 하나의 커넥터만 있습니다. 가동 중지를 피하고 고가용성을 개선하려면 두 번째 커넥터를 설치하고 [커넥터 그룹을 만드는](active-directory-application-proxy-connectors-azure-portal.md) 것이 좋습니다.
-
+다음과 같은 경우 커넥터를 업데이트할 때 가동 중지 시간이 발생할 수 있습니다.  
+- 하나의 커넥터만 있습니다. 가동 중지를 피하고 고가용성을 개선하려면 두 번째 커넥터를 설치하고 [커넥터 그룹을 만드는](active-directory-application-proxy-connectors-azure-portal.md) 것이 좋습니다.  
 - 업데이트를 시작했을 때 커넥터가 트랜잭션 중에 있었습니다. 브라우저에서 작업을 자동으로 다시 시도해야 하거나 페이지를 새로 고칠 수 있습니다. 요청을 다시 보내면 백업 커넥터에 트래픽이 라우팅됩니다.
 
-## <a name="all-networking-is-outbound"></a>모든 네트워킹이 아웃바운드됨
+## <a name="outbound-only-networking"></a>아웃바운드 전용 네트워킹
 커넥터는 아웃바운드 요청만 보내므로 항상 커넥터에서 연결이 시작됩니다. 세션이 설정된 후에는 트래픽이 양방향으로 흐르므로 인바운드 포트를 열지 않아도 됩니다.
 
 아웃바운드 트래픽은 응용 프로그램 프록시 서비스와 게시된 응용 프로그램으로 전송됩니다. 서비스에 대한 트래픽은 Azure 데이터 센터에 여러 개의 서로 다른 포트 번호로 전송됩니다. 사용되는 포트에 대한 자세한 내용은 [Azure Portal에서 응용 프로그램 프록시 사용](active-directory-application-proxy-enable.md)을 참조하세요.

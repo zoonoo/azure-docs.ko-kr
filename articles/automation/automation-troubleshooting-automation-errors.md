@@ -14,11 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 06/26/2017
 ms.author: sngun; v-reagie
-translationtype: Human Translation
-ms.sourcegitcommit: a8ecffbc5f9c7e2408708d59459a0d39e59d6e1e
-ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 64548d91e98754210cc5185d9d759141cc0621d3
+ms.contentlocale: ko-kr
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -64,6 +66,22 @@ ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 **문제 해결 팁:** Azure 서비스 관리 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../azure-resource-manager/resource-group-authenticate-service-principal.md)을 참조하세요.
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook을 사용할 때 발생하는 일반적인 오류
+### <a name="scenario-the-runbook-job-start-was-attempted-three-times-but-it-failed-to-start-each-time"></a>시나리오: Runbook 작업 시작을 세 번 시도했지만 매번 시작하지 못했습니다.
+**오류:** "작업을 세 번 시도했지만 실패했습니다." 오류가 발생하여 Runbook이 실패합니다.
+
+**오류의 원인:** 이 오류는 다음과 같은 원인으로 인해 발생할 수 있습니다.  
+
+1. 메모리 제한.  샌드박스 [Automation 서비스 제한](../azure-subscription-service-limits.md#automation-limits)에 할당 된 메모리 양에 대한 제한이 문서화되어 있으므로 400MB 이상의 메모리를 사용하는 경우 작업이 실패할 수 있습니다. 
+
+2. 모듈이 호환되지 않음.  이는 모듈 종속성이 올바르지 않은 경우에 발생할 수 있으며 그렇지 않은 경우 일반적으로 Runbook은 "명령을 찾을 수 없습니다." 또는 "매개 변수를 바인드할 수 없습니다." 메시지를 반환합니다. 
+
+**문제 해결 팁:** 다음 해결 방법 중 하나로 이 문제를 해결할 수 있습니다.  
+
+* 메모리 제한 내에서 작업하는 경우 여러 Runbook 간에 워크로드를 분할하고, 메모리에서 많은 데이터를 처리하지 않고, Runbook에서 불필요한 출력을 작성하지 않으며, PowerShell 워크플로 Runbook에 작성하는 검사점의 수를 고려하는 것이 좋습니다.  
+
+* [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](automation-update-azure-modules.md) 단계에 따라 Azure 모듈을 업데이트해야 합니다.  
+
+
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>시나리오: 역직렬화된 개체로 인해 Runbook 실패
 **오류:** "``<ParameterName>`` 매개 변수를 바인딩할 수 없습니다. 역직렬화된 형식 ``<ParameterType>``의 ``<ParameterType>`` 값을 ``<ParameterType>`` 형식으로 변환할 수 없습니다." 오류와 함께 Runbook이 실패합니다.
 
@@ -172,9 +190,4 @@ ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 * Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동한 다음 **기술 및 대금 청구 지원**에서 **지원 받기**를 클릭합니다.
 * Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 [스크립트 센터](https://azure.microsoft.com/documentation/scripts/) 에 스크립트 요청을 게시하세요.
 * Azure 자동화에 대한 의견이나 기능 요청이 있으면 [사용자 의견](https://feedback.azure.com/forums/34192--general-feedback)에 게시하세요.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
