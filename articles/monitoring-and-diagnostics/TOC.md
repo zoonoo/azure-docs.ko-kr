@@ -59,8 +59,9 @@
 ### [문제 해결](azure-diagnostics-troubleshooting.md)
 
 # 참조
-## [지원 메트릭 목록](monitoring-supported-metrics.md)
 ## [모니터링 데이터의 원본](monitoring-data-sources.md)
+## [지원 메트릭 목록](monitoring-supported-metrics.md)
+## [활동 로그 이벤트 스키마](monitoring-activity-log-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST (영문)](/rest/api/monitor/)
@@ -71,7 +72,7 @@
 
 # 리소스
 ## [Azure CLI 1.0 샘플](insights-cli-samples.md)
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [PowerShell 샘플](insights-powershell-samples.md)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [빠른 시작 템플릿](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

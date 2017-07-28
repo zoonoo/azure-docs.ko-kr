@@ -17,7 +17,7 @@
 ### VM 백업
 #### [Recovery Services 자격 증명 모음에 Azure 가상 컴퓨터 백업](backup-azure-arm-vms.md)
 #### [암호화된 가상 컴퓨터 백업](backup-azure-vms-encryption.md)
-#### [백업 자격 증명 모음에 Azure Virtual Machines 백업](backup-azure-vms.md)
+#### [Azure 가상 컴퓨터 백업](backup-azure-vms.md)
 ### VM 관리 및 모니터링
 #### [Azure 포털에서 Azure VM 백업 관리](backup-azure-manage-vms.md)
 #### [Azure 포털에서 Azure VM 백업에 대한 경고 모니터링](backup-azure-monitor-vms.md)
@@ -57,7 +57,7 @@
 ### [Azure 포털에서 DPM 작업 준비](backup-azure-dpm-introduction.md)
 ### [클래식 포털에서 DPM 작업 준비](backup-azure-dpm-introduction-classic.md)
 ### [Exchange 서버를 백업하기 위해 System Center DPM 사용](backup-azure-backup-exchange-server.md)
-### [Backup 자격 증명 모음에 있는 데이터를 대체 DPM 서버로 복구](backup-azure-alternate-dpm-server.md)
+### [다른 DPM 서버에 데이터 복구](backup-azure-alternate-dpm-server.md)
 ### [SQL Server 작업을 백업하기 위해 DPM 사용](backup-azure-backup-sql.md)
 ### [SharePoint 팜을 백업하기 위해 DPM 사용](backup-azure-backup-sharepoint.md)
 
@@ -90,11 +90,12 @@
 # 개념
 ## [Recovery Services 자격 증명 모음 개요](backup-azure-recovery-services-vault-overview.md)
 ## [Recovery Services 자격 증명 모음으로 백업 자격 증명 모음 업그레이드](backup-azure-upgrade-backup-to-recovery-services.md)
-## [Azure Backup 자격 증명 모음 삭제](backup-azure-delete-vault.md)
+## [복구 서비스 자격 증명 모음 삭제](backup-azure-delete-vault.md)
 ## [역할 기반 액세스 제어](backup-rbac-rs-vault.md)
 ## [하이브리드 백업 보안](backup-azure-security-feature.md)
 ## [Azure Backup 보고서 구성](backup-azure-configure-reports.md)
 ## [Azure Backup 보고서용 데이터 모델](backup-azure-reports-data-model.md)
+## [Azure Backup용 Log Analytics 데이터 모델](backup-azure-log-analytics-data-model.md)
 ## [오프라인 백업 구성](backup-azure-backup-import-export.md)
 ## [테이프 라이브러리 교체](backup-azure-backup-cloud-as-tape.md)
 ## [Linux VM의 응용 프로그램 일치 백업](backup-azure-linux-app-consistent.md)

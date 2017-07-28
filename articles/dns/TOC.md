@@ -40,6 +40,7 @@
 ## [DNS 영역 및 레코드 보호](dns-protect-zones-recordsets.md)
 ## [.NET SDK를 사용하여 DNS 작업 자동화](dns-sdk.md)
 
+## [Azure DNS와 Azure 리소스 통합](dns-custom-domain.md)
 ## 문제 해결
 ### [문제 해결 가이드](dns-troubleshoot.md)
 
@@ -62,7 +63,7 @@
 ## [웹앱](/azure/app-service-web/)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [기능 요청](https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)

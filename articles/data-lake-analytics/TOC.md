@@ -18,6 +18,7 @@
 ### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
 ### [Node.JS](data-lake-analytics-manage-use-nodejs.md)
 ### [진단 로그 액세스](data-lake-analytics-diagnostic-logs.md)
+### [할당량 한도 조정](data-lake-analytics-quota-limits.md)
 
 ## U-SQL 프로그램 개발
 ### [U-SQL 기본 사항](data-lake-analytics-u-sql-get-started.md)
@@ -48,7 +49,7 @@
 
 # 리소스
 ## [Azure Data Lake 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [가격 책정](https://azure.microsoft.com/pricing/details/data-lake-analytics/)

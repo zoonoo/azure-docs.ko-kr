@@ -13,7 +13,12 @@
 
 # 시작
 ## [Hadoop으로 시작](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Spark로 시작](hdinsight-apache-spark-jupyter-spark-sql.md)
+## Spark로 시작
+### [Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)
+### [Spark 클러스터에서 쿼리 실행](hdinsight-apache-spark-load-data-run-query.md)
+### [BI 도구를 사용하여 데이터 분석](hdinsight-apache-spark-use-bi-tools.md)
+### [클러스터 리소스 관리](hdinsight-apache-spark-resource-manager.md)
+### [Spark 작업 디버그](hdinsight-apache-spark-job-debugging.md)
 ## [R 서버 시작](hdinsight-hadoop-r-server-get-started.md)
 ## [HBase 및 NoSQL로 시작](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Storm으로 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)
@@ -59,7 +64,6 @@
 ### [ScaleR 및 SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## 메모리 내 처리에 Spark 사용
 ### [Data Lake Store와 함께](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [BI 도구와 함께](hdinsight-apache-spark-use-bi-tools.md)
 ### [독립 실행형 앱 만들기](hdinsight-apache-spark-create-standalone-application.md)
 ### [Eclipse를 사용하여 앱 만들기](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [IntelliJ를 사용하여 앱 만들기](hdinsight-apache-spark-intellij-tool-plugin.md)
@@ -76,8 +80,6 @@
 ### [로컬 Jupyter Notebook 사용](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Livy를 사용하는 원격 작업](hdinsight-apache-spark-livy-rest-interface.md)
 ### [IntelliJ를 사용하여 VPN을 통해 원격으로 작업 디버그](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-### [리소스 관리](hdinsight-apache-spark-resource-manager.md)
-### [작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 ### [알려진 문제](hdinsight-apache-spark-known-issues.md)
 ## HBase 사용
 ### [Phoenix 및 SQLLine 사용](hdinsight-hbase-phoenix-squirrel-linux.md)
@@ -234,7 +236,7 @@
 ### [Ambari API를 사용하여 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [학습 경로](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [빅 데이터에 대한 Microsoft 전문가 프로그램](https://academy.microsoft.com/en-us/professional-program/big-data/)
