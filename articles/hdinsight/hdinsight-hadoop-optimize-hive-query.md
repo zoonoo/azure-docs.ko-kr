@@ -22,7 +22,6 @@ ms.openlocfilehash: 7d269a5805da405e4e5f7a3caf5a58fa454b9abb
 ms.contentlocale: ko-kr
 ms.lasthandoff: 04/28/2017
 
-
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Hive 쿼리를 최적화
 
@@ -100,7 +99,7 @@ Hive 분할은 원시 데이터를 자체 디렉터리가 있는 각 파티션�
         WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
   
         ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-        LOCATION ‘wasbs://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+        LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
 * **동적 분할** 은 하이브가 파티션을 자동으로 만들수 있음을 의미합니다. 스테이징 테이블에서 분할 테이블을 이미 만들었으므로, 분할된 테이블에 데이터를 삽입하기만 하면 됩니다.
   
         SET hive.exec.dynamic.partition = true;

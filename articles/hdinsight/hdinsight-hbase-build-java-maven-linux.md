@@ -21,7 +21,6 @@ ms.openlocfilehash: 9cf2a997e3016995b0dbb0e0adf9f388f70c2599
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase에 대한 Java 응용 프로그램 빌드
 
@@ -459,7 +458,7 @@ Java에서 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만�
     $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
 
     # The JAR
-    $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
+    $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
     # The job definition
     $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `

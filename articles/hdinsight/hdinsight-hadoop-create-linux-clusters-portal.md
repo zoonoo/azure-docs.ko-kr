@@ -22,7 +22,6 @@ ms.openlocfilehash: 678b2847f9bf39995fa214f181a05c96df9e49f2
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/13/2017
 
-
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -37,6 +36,9 @@ Azure 포털은 Microsoft Azure 클라우드에 호스트된 서비스와 리소
 
 ## <a name="create-clusters"></a>클러스터 만들기
 Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resource Manager 템플릿을 사용하여 이러한 많은 속성을 숨길 수 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
+
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **+**, **인텔리전스 + 분석** 및 **HDInsight**를 차례로 클릭합니다.

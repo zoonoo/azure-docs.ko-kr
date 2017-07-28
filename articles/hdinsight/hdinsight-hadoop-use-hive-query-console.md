@@ -22,7 +22,6 @@ ms.openlocfilehash: 9e3b4dbda4ba753ac93540d121b3831a6ed3b75e
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>쿼리 콘솔을 사용하여 Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
@@ -52,7 +51,7 @@ ms.lasthandoff: 07/08/2017
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     이러한 문은 다음 작업을 수행합니다.
