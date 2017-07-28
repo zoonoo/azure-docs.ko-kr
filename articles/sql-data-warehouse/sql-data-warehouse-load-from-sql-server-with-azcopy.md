@@ -3,8 +3,8 @@ title: "SQL Server에서 Azure SQL Data Warehouse로 데이터 로드(PolyBase) 
 description: "bcp를 사용하여 SQL Server에서 플랫 파일로 데이터를 내보내고 AZCopy를 사용하여 Azure Blob 저장소로 데이터를 가져오고, PolyBase를 사용하여 Azure SQL 데이터 웨어하우스로 데이터를 수집합니다."
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
-manager: barbkess
+author: barbkess
+manager: jhubbard
 editor: 
 ms.assetid: 4d42786a-fb28-43c9-9c3b-72d19c0ecc11
 ms.service: sql-data-warehouse
@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
 ms.openlocfilehash: 21b4cc704e271ac220fd606305f8f97c9b2593bb
+ms.contentlocale: ko-kr
 ms.lasthandoff: 03/22/2017
-
-
 
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-azcopy"></a>SQL Server에서 Azure SQL 데이터 웨어하우스로 데이터 로드(AZCopy)

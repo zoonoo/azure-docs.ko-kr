@@ -23,7 +23,6 @@ ms.openlocfilehash: 8d7f397145bbecf0c651872f04b81cf44e25dbff
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정
 
@@ -130,6 +129,9 @@ Hadoop의 온-프레미스 설치가 클러스터의 저장소에 HDFS(Hadoop �
 구성하는 동안 기본 저장소 끝점에 대해 Azure Storage 계정 또는 Data Lake Store의 Blob 컨테이너를 지정합니다 기본 저장소에는 응용 프로그램 및 시스템 로그가 포함되어 있습니다. 필요에 따라 클러스터에서 액세스할 수 있는 추가 Azure Storage 계정(연결된 저장소) 및 Data Lake Store 계정을 지정할 수 있습니다. HDInsight 클러스터와 종속된 저장소 계정은 같은 Azure 위치에 있어야 합니다.
 
 ![클러스터 저장소 설정: HDFS 호환 저장소 끝점](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
+
+[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+
 
 ### <a name="optional-metastores"></a>선택적 Metastore
 선택적 하이브 또는 Oozie Metastore를 만들 수 있습니다. 그러나 일부 클러스터 형식은 Metastore를 지원하지 않으며, Azure SQL Data Warehouse는 Metastore와 호환되지 않습니다. 

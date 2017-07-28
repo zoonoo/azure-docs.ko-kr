@@ -22,7 +22,6 @@ ms.openlocfilehash: 41275f8264353e7158ca42e5cfc089b2fbaa556d
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>HDInsight에서 Spark 클러스터와 함께 사용자 지정 Python 라이브러리를 사용하여 웹 사이트 로그 분석
 
@@ -69,7 +68,7 @@ ms.lasthandoff: 06/07/2017
 
 1. 클러스터에서 이미 사용할 수 있는 샘플 로그 데이터를 사용하는 RDD를 만듭니다. **\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log**에서 클러스터와 연결된 기본 저장소 계정의 데이터에 액세스할 수 있습니다.
 
-        logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
+        logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
 
 1. 샘플 로그 설정을 검색하여 이전 단계가 성공적으로 완료되었는지 확인합니다.
@@ -93,7 +92,7 @@ ms.lasthandoff: 06/07/2017
 
     그러나 이 라이브러리는 `PYTHONPATH`에 있지 않으므로 `import iislogparser`와(과) 같은 import 문을 사용하여 사용할 수 없습니다. 이 라이브러리를 사용하려면 모든 작업자 노드에 배포해야 합니다. 다음 조각을 실행합니다.
 
-        sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
+        sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
 1. `iislogparser`은(는) 로그 줄이 머리글 행인 경우 함수 `None`을(를) 반환하고 로그 줄을 발견하는 경우 `LogLine` 클래스의 인스턴스를 반환하는 함수 `parse_log_line`을(를) 제공합니다. `LogLine` 클래스를 사용하여 RDD에서 로그 줄만을 추출합니다.
@@ -120,7 +119,7 @@ ms.lasthandoff: 06/07/2017
        numLines = logLines.count()
        numErrors = errors.count()
        print 'There are', numErrors, 'errors and', numLines, 'log entries'
-       errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
+       errors.map(lambda p: str(p)).saveAsTextFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
 
    다음과 유사한 출력이 표시됩니다.
 

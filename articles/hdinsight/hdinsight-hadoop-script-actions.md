@@ -22,7 +22,6 @@ ms.openlocfilehash: 04f79442b72a58abb0eba9c2162e0b7b9d390e41
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>HDInsight Windows 기반 클러스터용 스크립트 작업 스크립트 개발
 HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아봅니다. 스크립트 동작 스크립트 사용에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요. Linux 기반 HDInsight 클러스터용으로 작성된 동일한 문서를 보려면 [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
@@ -206,7 +205,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Add-AzureRmHDInsightScriptAction cmdlet에 매개 변수 전달
 여러 매개 변수를 Add-AzureRmHDInsightScriptAction cmdlet에 전달하려면 스크립트에 대한 모든 매개 변수를 포함하도록 문자열 값의 형식을 지정해야 합니다. 예:
 
-    "-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
+    "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 
 또는
 

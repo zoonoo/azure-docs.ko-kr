@@ -21,7 +21,6 @@ ms.openlocfilehash: 5cd05743425069925e71e85a616967c812bd3491
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 
@@ -225,25 +224,25 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
 1. 프롬프트에 다음을 입력합니다. **SASCONTAINER** 를 SAS 저장소 계정에 대해 만든 컨테이너의 이름으로 바꿉니다. **SASACCOUNTNAME** 을 SAS에 사용된 저장소 계정의 이름으로 바꿉니다.
 
-        hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+        hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
 
     이 명령은 컨테이너의 내용을 나열하며 여기에는 컨테이너 및 SAS를 만들 때 업로드한 파일도 포함됩니다.
 
 2. 다음 명령을 사용하여 파일의 내용을 읽을 수 있는지 확인합니다. 이전 단계처럼 **SASCONTAINER** 및 **SASACCOUNTNAME**을 바꿉니다. **FILENAME** 을 이전 명령에 표시된 파일 이름으로 바꿉니다.
 
-        hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+        hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
 
     이 명령은 파일 내용을 나열합니다.
 
 3. 다음 명령을 사용하여 파일을 로컬 파일 시스템에 다운로드합니다.
 
-        hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+        hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
 
     이 명령은 파일을 **testfile.txt**라는 로컬 파일에 다운로드합니다.
 
 4. 다음 명령을 사용하여 로컬 파일을 SAS 저장소의 새 **testupload.txt** 파일에 업로드합니다.
 
-        hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+        hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
 
     다음 텍스트와 유사한 메시지가 표시됩니다.
 
@@ -251,7 +250,7 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
     저장소 위치가 읽기 + 목록 전용이므로 이 오류가 발생합니다. 다음 명령을 사용하여 쓰기 가능한 클러스터의 기본 저장소에 데이터를 저장합니다.
 
-        hdfs dfs -put testfile.txt wasbs:///testupload.txt
+        hdfs dfs -put testfile.txt wasb:///testupload.txt
 
     이때 작업이 성공적으로 완료되어야 합니다.
 

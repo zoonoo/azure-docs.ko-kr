@@ -22,7 +22,6 @@ ms.openlocfilehash: 9ab67d21b65323b7f927cb2197c0e123ebe3351e
 ms.contentlocale: ko-kr
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>원격 데스크탑 연결에서 Pig 작업 실행
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
@@ -52,7 +51,7 @@ HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정�
     `grunt>` 프롬프트가 나타납니다.
 3. 다음 문을 입력합니다.
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
 
     이 명령은 sample.log 파일의 내용을 LOGS 파일에 로드합니다. 다음 명령을 사용하여 파일의 내용을 볼 수 있습니다.
 
@@ -83,7 +82,7 @@ HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정�
     </table>
 6. `STORE` 문을 사용하여 변환 결과를 저장할 수도 있습니다. 예를 들어 다음 명령은 클러스터의 기본 저장소 컨테이너에 있는 **/example/data/pigout** 디렉터리에 `RESULT`를 저장합니다.
 
-        STORE RESULT into 'wasbs:///example/data/pigout'
+        STORE RESULT into 'wasb:///example/data/pigout'
 
    > [!NOTE]
    > 데이터는 지정된 디렉터리에 **part-nnnnn**이라는 파일로 저장됩니다. 해당 디렉터리가 이미 존재하는 경우 오류 메시지가 발생합니다.
@@ -99,7 +98,7 @@ Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있
 1. 성가신 프롬프트를 종료한 후 **메모장**을 열고 **%PIG_HOME%** 디렉터리에 **pigbatch.pig**라는 새 파일을 만듭니다.
 2. 다음 줄을 **pigbatch.pig** 파일에 입력하거나 붙여 넣은 다음 저장합니다.
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
         GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;

@@ -23,7 +23,6 @@ ms.openlocfilehash: 47cbb4ba34bb075f51306cc9481afd308ff672b4
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/09/2017
 
-
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Spark MLlib을 사용하여 Machine Learning 응용 프로그램 빌드 및 데이터 집합 분석
 
@@ -93,7 +92,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
             sio.close()
             return value
 
-        inspections = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+        inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
 1. 이제 RDD로 CSV 파일이 생겼습니다.  데이터 스키마를 이해하기 위해 RDD의 한 행을 검색해 보겠습니다.
 
@@ -253,7 +252,7 @@ MLlib은 이 작업을 간단하게 수행할 수 있는 방법을 제공합니�
 
 1. 다음은 모델에서 생성한 예측을 포함하는 새 데이터 프레임 **predictionsDf**를 만드는 코드 조각입니다. 이 조각은 데이터 프레임을 기반으로 **Predictions**라는 임시 테이블도 만듭니다.
 
-        testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+        testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                  .map(csvParse) \
                  .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
         testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
