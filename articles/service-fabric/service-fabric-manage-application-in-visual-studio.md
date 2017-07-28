@@ -40,7 +40,7 @@ Visual Studio에서 **F5** 키를 누르면 응용 프로그램이 배포되고 
 Visual Studio는 Visual Studio에서 디버깅의 일부로 응용 프로그램 배포를 처리하는 방법을 제어하는 **응용 프로그램 디버그 모드**라는 속성을 제공합니다.
 
 #### <a name="to-set-the-application-debug-mode-property"></a>응용 프로그램 디버그 모드 속성을 설정하려면
-1. Service Fabric 응용 프로그램 프로젝트의(*.sfproj) 바로 가기 메뉴에서 **속성**을 선택합니다. (또는 **F4** 키를 누릅니다.)
+1. Service Fabric 응용 프로그램 프로젝트의 (*.sfproj) 바로 가기 메뉴에서 **속성** 을 선택합니다. (또는 **F4** 키를 누릅니다.)
 2. **속성** 창에서 **응용 프로그램 디버그 모드** 속성을 설정합니다.
 
 ![응용 프로그램 디버그 모드 속성 설정][debugmodeproperty]
