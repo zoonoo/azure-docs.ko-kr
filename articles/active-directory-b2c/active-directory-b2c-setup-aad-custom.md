@@ -98,7 +98,7 @@ Azure AD B2C 테넌트에 contoso.com 응용 프로그램 키를 저장해야 �
                 <Protocol Name="OpenIdConnect"/>
                 <OutputTokenFormat>JWT</OutputTokenFormat>
                 <Metadata>
-                    <Item Key="METADATA">https://login.microsoftonline.com/contoso.com/.well-known/openid-configuration</Item>
+                    <Item Key="METADATA">https://login.windows.net/contoso.com/.well-known/openid-configuration</Item>
                     <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
                     <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
                     <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>

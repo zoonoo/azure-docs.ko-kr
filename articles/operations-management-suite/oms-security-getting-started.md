@@ -13,14 +13,13 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 07/18/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite 보안 및 감사 솔루션 시작
@@ -73,6 +72,8 @@ OMS 보안 및 감사 대시보드는 네 가지 주요 범주로 구성되어 �
 ![시간별 보안 기록](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
 이 타일을 클릭하면 아래와 같이 지난 7일간 데이터의 **보안 이벤트**(Type=SecurityEvents) 쿼리 결과가 표시된 **Search** 블레이드가 열립니다.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![시간별 보안 기록](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 

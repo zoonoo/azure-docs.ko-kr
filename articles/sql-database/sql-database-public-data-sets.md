@@ -4,7 +4,7 @@ description: "Azure 분석 서비스 및 솔루션의 프로토타입을 생성�
 services: sql-database
 documentationcenter: 
 author: douglaslMS
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.custom: reference
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 53ae23dba61cf835c6a4826b528772b1cd2e1622
 ms.contentlocale: ko-kr
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>테스트 및 프로토타입 생성을 위한 공용 데이터 집합

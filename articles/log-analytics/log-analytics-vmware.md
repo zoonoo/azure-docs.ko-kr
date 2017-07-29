@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 07/18/2017
 ms.author: banders
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
@@ -151,7 +151,10 @@ ESXi 호스트마다 가상 컴퓨터를 만들고 삭제할 수 있습니다. �
 #### <a name="common-search-queries"></a>일반적 검색 쿼리
 솔루션에는 대규모 저장소 공간, 저장소 대기 시간, 경로 오류 등 ESXi 호스트를 관리하는 데 유용한 쿼리들이 포함되어 있습니다.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ![쿼리](./media/log-analytics-vmware/queries.png)
+
 
 #### <a name="save-queries"></a>쿼리 저장
 OMS 표준 기능인 검색 쿼리 저장은 유용한 것으로 확인된 쿼리를 유지하는 데 도움이 됩니다. 만든 쿼리가 유용하다고 생각되면 **즐겨찾기**를 클릭하여 해당 쿼리를 저장합니다. 저장된 쿼리를 사용하면 나중에 사용자 지정 대시보드를 만들 수 있는 [내 대시보드](log-analytics-dashboards.md) 페이지에서 해당 쿼리를 손쉽게 다시 활용할 수 있습니다.

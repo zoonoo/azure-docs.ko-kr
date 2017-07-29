@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB Graph API 소개 | Microsoft Docs"
 description: "Azure Cosmos DB를 사용하여 Apache TinkerPop의 Gremlin 그래프 쿼리 언어로 대기 시간을 단축하면서 대량의 그래프를 저장하고 쿼리하고 트래버스하는 방법을 알아봅니다."
 services: cosmos-db
-author: arramac
+author: dennyglee
 documentationcenter: 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
@@ -11,13 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/21/2017
-ms.author: arramac
+ms.author: denlee
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 4ee52c2665d5856cb0022365edf0485458b629fe
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/15/2017
-
 
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB: Graph API 소개

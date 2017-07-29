@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 07/18/2017
 ms.author: banders
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 297c85d2aa5609729e394dc527fb3a1ca5810ffa
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/30/2017
-
 
 ---
 
@@ -86,6 +85,8 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 ![Application Insights 대시보드](./media/log-analytics-app-insights-connector/app-insights-dash02.png)
 
 표에 표시된 블레이드가 대시보드에 포함되어 있습니다. 각 블레이드에는 지정된 범위 및 시간 범위에 대한 해당 블레이드의 기준과 일치하는 항목이 최대 10개까지 나열됩니다. 블레이드 맨 아래에서 **모두 보기**를 클릭하거나 블레이드 헤더를 클릭하면 모든 레코드를 반환하는 로그 검색을 실행할 수 있습니다.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **열** | **설명** |
 | --- | --- |

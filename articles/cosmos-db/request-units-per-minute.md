@@ -3,7 +3,7 @@ title: "Azure CosmosDB: 분당 요청 단위(RU/m) | Microsoft Docs"
 description: "분당 요청 단위를 활용하여 비용을 절감하는 방법을 알아봅니다."
 services: cosmos-db
 documentationcenter: 
-author: arnomicrosoft
+author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: acomet
+ms.author: mimig
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
 ms.openlocfilehash: 0c597fa4afa816f9731edb744ae494b6ef928b9e
 ms.contentlocale: ko-kr
 ms.lasthandoff: 06/20/2017
-
 
 ---
 # <a name="request-units-per-minute-in-azure-cosmos-db"></a>Azure Cosmos DB의 분당 요청 단위
