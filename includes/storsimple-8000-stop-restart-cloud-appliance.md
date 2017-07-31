@@ -1,5 +1,4 @@
-#### 클라우드 어플라이언스를 중지 및 시작하려면
-<a id="to-stop-and-start-a-cloud-appliance" class="xliff"></a>
+#### <a name="to-stop-and-start-a-cloud-appliance"></a>클라우드 어플라이언스를 중지 및 시작하려면
 
 1. 클라우드 어플라이언스를 중지하려면 클라우드 어플라이언스에 대한 VM으로 이동합니다.
     ![StorSimple Cloud Appliance 가상 컴퓨터](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart1.png)
@@ -26,8 +25,7 @@
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-#### 클라우드 어플라이언스를 다시 시작하려면
-<a id="to-restart-a-cloud-appliance" class="xliff"></a>
+#### <a name="to-restart-a-cloud-appliance"></a>클라우드 어플라이언스를 다시 시작하려면
 
 클라우드 어플라이언스를 다시 시작하려면 클라우드 어플라이언스에 대한 VM으로 이동합니다. 명령 모음에서 **다시 시작**을 클릭합니다. 메시지가 표시되면 다시 시작을 확인합니다. 클라우드 어플라이언스를 사용할 준비가 되면 상태는 **실행 중**입니다.
 
