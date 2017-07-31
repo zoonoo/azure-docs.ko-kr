@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
+ms.contentlocale: ko-kr
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -137,10 +139,5 @@ Azure 가상 네트워크를 만들면 vNet에서 vNet 서브넷 간의 직접 �
 [Microsoft 클라우드 솔루션 공급자 프로그램](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview).  
 [클라우드 솔루션 공급자로 거래 준비](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Microsoft 클라우드 솔루션 공급자 리소스](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
