@@ -1,8 +1,7 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### StorSimple 백업 일정을 추가 또는 수정하려면
-<a id="to-add-or-modify-a-storsimple-backup-schedule" class="xliff"></a>
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>StorSimple 백업 일정을 추가 또는 수정하려면
 
 1. StorSimple 장치로 이동하고 **백업 정책**을 클릭합니다.
 

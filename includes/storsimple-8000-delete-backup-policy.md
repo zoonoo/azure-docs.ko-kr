@@ -1,8 +1,7 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### StorSimple 백업 정책을 삭제하려면
-<a id="to-delete-a-storsimple-backup-policy" class="xliff"></a>
+#### <a name="to-delete-a-storsimple-backup-policy"></a>StorSimple 백업 정책을 삭제하려면
 
 1. StorSimple 장치로 이동하고 **백업 정책**을 클릭합니다.
 

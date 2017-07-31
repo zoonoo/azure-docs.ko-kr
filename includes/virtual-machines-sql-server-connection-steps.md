@@ -1,5 +1,4 @@
-### Windows 방화벽에서 데이터베이스 엔진의 기본 인스턴스용 TCP 포트 열기
-<a id="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine" class="xliff"></a>
+### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Windows 방화벽에서 데이터베이스 엔진의 기본 인스턴스용 TCP 포트 열기
 1. 원격 데스크톱을 사용하여 가상 컴퓨터에 연결합니다. VM에 연결하는 방법에 대한 자세한 내용은 [원격 데스크톱으로 SQL VM 열기](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop)를 참조하세요.
 2. 시작 화면에서 로그인한 후 **WF.msc**를 입력하고 ENTER를 누릅니다.
    
@@ -28,8 +27,7 @@
 
 필요한 경우 다른 구성 요소의 추가 포트를 엽니다. 자세한 내용은 [SQL Server 액세스를 허용하도록 Windows 방화벽 구성](http://msdn.microsoft.com/library/cc646023.aspx)을 참조하십시오.
 
-### TCP 프로토콜을 수신 대기하도록 SQL Server 구성
-<a id="configure-sql-server-to-listen-on-the-tcp-protocol" class="xliff"></a>
+### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>TCP 프로토콜을 수신 대기하도록 SQL Server 구성
 1. 가상 컴퓨터에 연결되어 있는 동안 시작 페이지에서 **SQL Server 구성 관리자** 를 입력하고 ENTER 키를 누릅니다.
    
     ![SSCM 열기](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
@@ -44,8 +42,7 @@
 
 SQL Server 데이터베이스 엔진용 프로토콜 사용 설정에 대한 자세한 내용은 [서버 네트워크 프로토콜 설정 또는 해제](http://msdn.microsoft.com/library/ms191294.aspx)를 참조하십시오.
 
-### 혼합 모드 인증을 위해 SQL Server 구성
-<a id="configure-sql-server-for-mixed-mode-authentication" class="xliff"></a>
+### <a name="configure-sql-server-for-mixed-mode-authentication"></a>혼합 모드 인증을 위해 SQL Server 구성
 SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증을 사용할 수 있습니다. 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 혼합 모드 인증을 위해 SQL Server를 구성하십시오. 혼합 모드 인증은 SQL Server 인증과 Windows 인증을 모두 허용합니다.
 
 > [!NOTE]
@@ -71,8 +68,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
     ![다시 시작](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. SQL Server Management Studio 대화 상자에서 **예** 를 클릭하여 SQL Server를 다시 시작한다는 데 동의합니다.
 
-### SQL Server 인증 로그인 만들기
-<a id="create-sql-server-authentication-logins" class="xliff"></a>
+### <a name="create-sql-server-authentication-logins"></a>SQL Server 인증 로그인 만들기
 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 SQL Server 인증 로그인을 하나 이상 만들어야 합니다.
 
 1. SQL Server Management Studio 개체 탐색기에서 새 로그인을 만들 서버 인스턴스의 폴더를 확장합니다.
