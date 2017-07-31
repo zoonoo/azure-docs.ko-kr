@@ -15,17 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: f9cc157f25e70a8154614b659fb7e59b7fd06ed1
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Azure VM 크기 집합 및 관리 디스크
 
-이제 Azure [가상 컴퓨터 크기 집합](/azure/virtual-machine-scale-sets/)은 관리 디스크가 있는 가상 컴퓨터를 지원합니다. 크기 집합이 있는 관리 디스크를 사용하면 다음과 같은 여러 가지 이점이 있습니다.
+Azure [가상 컴퓨터 확장 집합](/azure/virtual-machine-scale-sets/)에서는 관리 디스크가 있는 가상 컴퓨터를 지원합니다. 크기 집합이 있는 관리 디스크를 사용하면 다음과 같은 여러 가지 이점이 있습니다.
 
 * 크기 집합 VM에 대한 OS 디스크를 저장하기 위해 더 이상 저장소 계정을 미리 만들어서 관리할 필요가 없습니다.
 
@@ -43,10 +42,6 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 ```
 
 또는 `vmss`가 포함된 폴더에 대한 [Azure 빠른 시작 템플릿 GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)에서 크기 집합을 배포하는 미리 작성된 템플릿 예제를 볼 수 있습니다. 이미 관리 디스크를 사용하는 템플릿을 알아보려면 [이 목록](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)을 참조하세요.
-
-## <a name="api-versions"></a>API 버전
-
-관리되는 디스크가 포함된 확장 집합에는 `2016-04-30-preview` 이상의 Microsoft.Compute APi 버전이 필요합니다. 비관리 디스크를 사용하는 크기 집합은 계속해서 현재와 같이 작동할 것이며, 심지어 관리 디스크를 지원하는 새 API 버전에서도 마찬가지입니다. 하지만 비관리 디스크를 사용하는 크기 집합은 새 api 버전에서도 관리 디스크의 이점을 누릴 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

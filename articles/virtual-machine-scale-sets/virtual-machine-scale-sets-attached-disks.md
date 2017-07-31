@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: d991adb8fa8f71a8785327be244ad9749a837dfd
-ms.lasthandoff: 04/26/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Azure VM Scale Sets 및 연결된 데이터 디스크
@@ -112,7 +112,7 @@ az vmss disk detach -g dsktest -n dskvmss --lun 2
 마찬가지로 _storageProfile_에 있는 _dataDisks_ 속성에서 항목을 제거하고 변경 내용을 적용하여 크기 집합에서 디스크를 제거할 수도 있습니다. 
 
 ## <a name="additional-notes"></a>추가적인 참고 사항
-Azure Managed Disks 및 크기 집합 연결 데이터 디스크에 대한 지원이 Microsoft.Compute API의 [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) 버전에 추가되었습니다. 이 버전 이상의 API를 사용하여 빌드된 SDK 또는 명령줄 도구를 사용할 수 있습니다.
+Azure Managed Disks 및 확장 집합 연결 데이터 디스크에 대한 지원은 Microsoft.Compute API [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) 이상의 API 버전에서 사용할 수 있습니다.
 
 크기 집합에 대한 연결된 디스크 지원의 초기 구현 중에 크기 집합에 있는 개별 VM 간에 데이터 디스크를 연결하거나 분리할 수 없습니다.
 

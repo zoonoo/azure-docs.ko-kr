@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 391870380280d6783223849ce383113bf1dd6d31
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="what-is-log-analytics"></a>Log Analytics란?
@@ -28,7 +27,7 @@ Log Analytics는 클라우드 및 온-프레미스 환경을 모니터링하여 
 ## <a name="is-log-analytics-for-you"></a>Log Analytics를 사용하시겠습니까?
 현재 사용자의 Azure 환경에 모니터링을 설정하지 않은 경우 Azure 리소스에 대한 모니터링 데이터를 수집하고 분석하는 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)를 시작해야 합니다.  Log Analytics는 [Azure Monitor의 데이터를 수집](log-analytics-azure-storage.md)하여 다른 데이터와 상호 연결하고 추가 분석을 제공할 수 있습니다.
 
-온-프레미스 환경을 모니터링하거나 Azure Monitor 또는 System Center Operations Manager 같은 서비스를 사용하는 기존 모니터링이 있는 경우 Log Analytics를 유용하게 사용할 수 있습니다.  에이전트 및 이러한 다른 도구에서 단일 리포지토리로 직접 데이터를 수집할 수 있습니다.  로그 검색, 뷰 및 솔루션과 같은 Log Analytics의 분석 도구는 전체 사용자 환경의 중앙 집중식 분석을 제공하는 모든 수집된 데이터에 대해 작동합니다.
+온-프레미스 환경을 모니터링하거나 Azure Monitor 또는 System Center Operations Manager와 같은 서비스를 사용하는 기존 모니터링이 있는 경우 Log Analytics를 유용하게 사용할 수 있습니다.  에이전트 및 이러한 다른 도구에서 단일 리포지토리로 직접 데이터를 수집할 수 있습니다.  로그 검색, 뷰 및 솔루션과 같은 Log Analytics의 분석 도구는 전체 사용자 환경의 중앙 집중식 분석을 제공하는 모든 수집된 데이터에 대해 작동합니다.
 
 
 ## <a name="using-log-analytics"></a>Log Analytics 사용

@@ -16,15 +16,14 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 0120a63ed398cf3e0e91cd4329c4024ba2fbfdca
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 93f80018d71368c800abd3dceb42b2ab51e60659
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# Batch를 사용하여 대규모 병렬 계산 솔루션 개발
-<a id="develop-large-scale-parallel-compute-solutions-with-batch" class="xliff"></a>
+# <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
 Azure Batch 서비스의 핵심 구성 요소 개요에서는 Batch 개발자가 대규모 병렬 계산 솔루션을 구축하는 데 사용할 수 있는 기본 서비스 기능 및 리소스를 설명합니다.
 
@@ -35,8 +34,7 @@ Azure Batch 서비스의 핵심 구성 요소 개요에서는 Batch 개발자가
 >
 >
 
-## Batch 서비스 워크플로
-<a id="batch-service-workflow" class="xliff"></a>
+## <a name="batch-service-workflow"></a>Batch 서비스 워크플로
 병렬 워크로드를 처리하기 위해 Batch 서비스를 사용하는 대부분의 응용 프로그램 및 서비스에서는 다음과 같은 높은 수준의 워크플로를 일반적으로 사용합니다.
 
 1. [Azure Storage][azure_storage] 계정으로 처리하려는 **데이터 파일**을 업로드합니다. Batch는 Azure Blob Storage에 액세스하기 위한 기본 제공 지원을 포함하고 태스크는 실행 시 이러한 파일을 [계산 노드](#compute-node) 로 다운로드할 수 있습니다.
@@ -53,8 +51,7 @@ Azure Batch 서비스의 핵심 구성 요소 개요에서는 Batch 개발자가
 >
 >
 
-## Batch 서비스 리소스
-<a id="batch-service-resources" class="xliff"></a>
+## <a name="batch-service-resources"></a>Batch 서비스 리소스
 계정, 계산 노드, 풀, 작업, 태스크 등 다음 리소스 중 일부는 Batch 서비스를 사용하는 모든 솔루션에 필요합니다. 작업 일정, 응용 프로그램 패키지 등의 기타 리소스는 유용하기는 하지만 선택적 기능입니다.
 
 * [계정](#account)
@@ -72,8 +69,7 @@ Azure Batch 서비스의 핵심 구성 요소 개요에서는 Batch 개발자가
   * [작업 종속성](#task-dependencies)
 * [응용 프로그램 패키지](#application-packages)
 
-## 계정
-<a id="account" class="xliff"></a>
+## <a name="account"></a>계정
 Batch 계정은 Batch 서비스 내에서 고유 하게 식별되는 엔터티입니다. 모든 처리는 Batch 계정과 연결됩니다.
 
 [Azure Portal](batch-account-create-portal.md) 또는 프로그래밍 방식(예: [Batch 관리 .NET 라이브러리](batch-management-dotnet.md))를 통해 Azure Batch 계정을 만들 수 있습니다. 계정을 만들 때 Azure Storage 계정을 연결할 수 있습니다.
@@ -105,8 +101,7 @@ Batch에서는 두 가지 계정 구성을 지원하며, Batch 계정을 만들 
 >
 
 
-## Compute 노드
-<a id="compute-node" class="xliff"></a>
+## <a name="compute-node"></a>Compute 노드
 계산 노드는 응용 프로그램의 워크로드 중 일부를 처리하도록 전담하는 Azure VM(가상 컴퓨터) 또는 클라우드 서비스 VM입니다. 노드의 크기에 따라 노드에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. Azure Cloud Services 또는 Virtual Machines Marketplace 이미지를 사용하여 Windows 또는 Linux 노드의 풀을 만들 수 있습니다. 이러한 옵션에 대한 자세한 내용은 다음 [풀](#pool) 을 참조하세요.
 
 노드는 노드의 운영 체제 환경에서 지원하는 실행 파일이나 스크립트를 실행할 수 있습니다. 여기에 Windows용 \*.exe, \*.cmd, \*.bat 및 PowerShell 스크립트, Linux용 이진 파일, 셸 및 Python 스크립트를 포함합니다.
@@ -117,8 +112,7 @@ Batch의 모든 계산 노드는 다음 사항도 포함합니다.
 * **방화벽** 설정
 * [원격 액세스](#connecting-to-compute-nodes) 
 
-## 풀
-<a id="pool" class="xliff"></a>
+## <a name="pool"></a>풀
 풀은 응용 프로그램이 실행되는 노드 컬렉션입니다. 사용자가 풀을 만들 수도 있고, 완료할 작업을 지정한 경우에는 Batch 서비스에서 자동으로 풀을 만듭니다. 응용 프로그램의 리소스 요구 사항을 충족하는 풀을 만들고 관리할 수 있습니다. 풀은 풀이 생성된 Batch 계정을 통해서만 사용할 수 있습니다. 하나의 Batch 계정에는 둘 이상의 풀이 있을 수 있습니다.
 
 Azure Batch 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. Batch 풀은 대규모 할당, 응용 프로그램 설치, 데이터 배포, 상태 모니터링 및 풀 내의 유연한 계산 노드 수 조정([크기 조정](#scaling-compute-resources)) 기능을 제공합니다.
@@ -144,8 +138,7 @@ Azure Batch 풀은 코어 Azure 계산 플랫폼을 기반으로 합니다. Batc
 >
 >사용자 구독 구성으로 만든 Batch 계정은 Batch 서비스 할당량을 지원하지 않습니다. 대신 지정된 구독에 대한 코어 할당량을 공유합니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에서 [Virtual Machines 제한](../azure-subscription-service-limits.md#virtual-machines-limits)을 참조하세요.
 
-### Compute 노드 운영 체제 및 버전
-<a id="compute-node-operating-system-and-version" class="xliff"></a>
+### <a name="compute-node-operating-system-and-version"></a>Compute 노드 운영 체제 및 버전
 
 Batch 풀을 만들 때 Azure 가상 컴퓨터 구성과 풀의 각 계산 노드에서 실행하려는 운영 체제 유형을 지정할 수 있습니다. Batch에서 사용할 수 있는 두 가지 유형의 구성은 다음과 같습니다.
 
@@ -163,8 +156,7 @@ Batch 풀을 만들 때 Azure 가상 컴퓨터 구성과 풀의 각 계산 노�
 
 Batch 계정을 만들 때 풀 할당 모드를 설정하는 방법은 [계정](#account) 섹션을 참조하세요.
 
-#### 가상 컴퓨터 풀에 대한 사용자 지정 이미지
-<a id="custom-images-for-virtual-machine-pools" class="xliff"></a>
+#### <a name="custom-images-for-virtual-machine-pools"></a>가상 컴퓨터 풀에 대한 사용자 지정 이미지
 
 가상 컴퓨터 풀에 대한 사용자 지정 이미지를 사용하려면 사용자 구독 계정 구성으로 Batch 계정을 만듭니다. 이 구성을 사용하면 해당 계정이 있는 구독에 Batch 풀이 할당됩니다. Batch 계정을 만들 때 풀 할당 모드를 설정하는 방법은 [계정](#account) 섹션을 참조하세요.
 
@@ -191,8 +183,7 @@ Azure Portal을 사용하여 사용자 지정 이미지에서 풀을 만들려�
 6. 풀이 사용자 지정 이미지를 기반으로 하는지 확인하려면 **풀** 블레이드의 리소스 요약 섹션에 있는 **운영 체제** 속성을 참조하세요. 이 속성의 값은 **사용자 지정 VM 이미지**입니다.
 7. 풀과 연결된 모든 사용자 지정 VHD가 해당 풀의 **속성** 블레이드에 표시됩니다.
 
-### Compute 노드 유형 및 대상 노드 수
-<a id="compute-node-type-and-target-number-of-nodes" class="xliff"></a>
+### <a name="compute-node-type-and-target-number-of-nodes"></a>Compute 노드 유형 및 대상 노드 수
 
 풀을 만들 때 각각에 대해 원하는 계산 노드 유형 및 대상 수를 지정할 수 있습니다. 계산 노드의 두 가지 유형은 다음과 같습니다.
 
@@ -210,8 +201,7 @@ Azure Portal을 사용하여 사용자 지정 이미지에서 풀을 만들려�
 
 우선 순위가 낮은 계산 노드 및 전용 계산 노드에 대한 가격 정보는 [Batch 가격 책정](https://azure.microsoft.com/pricing/details/batch/)을 참조하세요.
 
-### 계산 노드 크기
-<a id="size-of-the-compute-nodes" class="xliff"></a>
+### <a name="size-of-the-compute-nodes"></a>계산 노드 크기
 
 **Cloud Services 구성** 계산 노드 크기는 [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열됩니다. Batch는 `ExtraSmall`, `STANDARD_A1_V2` 및 `STANDARD_A2_V2`를 제외한 모든 Cloud Services 크기를 지원합니다.
 
@@ -221,13 +211,11 @@ Azure Portal을 사용하여 사용자 지정 이미지에서 풀을 만들려�
 
 풀에 포함된 모든 노드의 크기가 같습니다. 상이한 시스템 요구 사항 및/또는 부하 수준으로 응용 프로그램을 실행하려면 별도의 풀을 사용하는 것이 좋습니다.
 
-### 크기 조정 정책
-<a id="scaling-policy" class="xliff"></a>
+### <a name="scaling-policy"></a>크기 조정 정책
 
 동적 워크로드의 경우 풀에 [자동 크기 조정 수식](#scaling-compute-resources)을 작성하고 적용할 수 있습니다. Batch 서비스는 수식을 주기적으로 평가하여 사용자가 지정할 수 있는 여러 풀, 작업 및 태스크에 따라 풀 내의 노드 수를 조정합니다.
 
-### 태스크 예약 정책
-<a id="task-scheduling-policy" class="xliff"></a>
+### <a name="task-scheduling-policy"></a>태스크 예약 정책
 
 [노드당 최대 태스크](batch-parallel-node-tasks.md) 구성은 풀 내의 각 계산 노드에서 병렬로 실행할 수 있는 최대 태스크 수를 결정합니다.
 
@@ -235,8 +223,7 @@ Azure Portal을 사용하여 사용자 지정 이미지에서 풀을 만들려�
 
 *채우기 유형*을 지정할 수도 있습니다. 이는 태스크를 다른 노드에 할당하기 전에 Batch가 태스크를 풀의 모든 노드에 균등하게 분산시킬지 또는 각 노드를 최대 태스크 수로 패키지할지를 결정합니다.
 
-### 계산 노드의 통신 상태
-<a id="communication-status-for-compute-nodes" class="xliff"></a>
+### <a name="communication-status-for-compute-nodes"></a>계산 노드의 통신 상태
 
 대부분의 시나리오에서 태스크는 독립적으로 작동하고 다른 노드와 통신할 필요가 없습니다. 하지만 [MPI 시나리오](batch-mpi.md)와 같이 태스크가 통신해야 하는 응용 프로그램이 있습니다.
 
@@ -244,24 +231,25 @@ Azure Portal을 사용하여 사용자 지정 이미지에서 풀을 만들려�
 
 노드 간 통신을 사용하도록 설정하면 클러스터 내의 노드 배치에도 영향을 주며 배포 제한 때문에 풀의 노드 최대 수를 제한할 수 있습니다. 응용 프로그램에 노드 간 통신이 필요하지 않은 경우 Batch 서비스는 잠재적으로 여러 다른 클러스터 및 데이터 센터의 많은 노드를 풀에 할당하여 병렬 처리 능력을 증가시킬 수 있습니다.
 
-### 계산 노드의 시작 태스크
-<a id="start-tasks-for-compute-nodes" class="xliff"></a>
+### <a name="start-tasks-for-compute-nodes"></a>계산 노드의 시작 태스크
 
 선택적인 *시작 태스크* 는 노드가 다시 시작하거나 이미지로 다시 설치할 때 뿐만 아니라 해당 노드가 풀을 연결할 때에도 각 노드에서 실행됩니다. 시작 태스크는 태스크가 계산 노드에서 실행하는 응용 프로그램을 설치하는 등 태스크를 실행하기 위해 계산 노드를 준비하는 데 특히 유용합니다.
 
-### 응용 프로그램 패키지
-<a id="application-packages" class="xliff"></a>
+### <a name="application-packages"></a>응용 프로그램 패키지
 
-[응용 프로그램 패키지](#application-packages) 를 지정하여 풀에 계산 노드를 배포할 수 있습니다. 응용 프로그램 패키지는 태스크가 실행하는 응용 프로그램의 간소화된 배포 및 버전 관리를 제공합니다. 풀에 지정할 응용 프로그램 패키지는 해당 풀에 조인되거나 다시 부팅 또는 이미지로 다시 설치되는 모든 노드에 설치됩니다. 현재 응용 프로그램 패키지는 Linux 계산 노드에서 지원되지 않습니다.
+[응용 프로그램 패키지](#application-packages) 를 지정하여 풀에 계산 노드를 배포할 수 있습니다. 응용 프로그램 패키지는 태스크가 실행하는 응용 프로그램의 간소화된 배포 및 버전 관리를 제공합니다. 풀에 지정할 응용 프로그램 패키지는 해당 풀에 조인되거나 다시 부팅 또는 이미지로 다시 설치되는 모든 노드에 설치됩니다.
 
-### 네트워크 구성
-<a id="network-configuration" class="xliff"></a>
+> [!NOTE]
+> 응용 프로그램 패키지는 2017년 7월 5일 이후에 만든 모든 Batch 풀에서 지원됩니다. Cloud Service 구성을 사용하여 풀을 만든 경우에만 2016년 3월 10일에서 2017년 7월 5일 사이에 만든 Batch 풀에서 지원됩니다. 2016년 3월 10일 이전에 만든 Batch 풀에서는 응용 프로그램 패키지를 지원하지 않습니다. 응용 프로그램 패키지를 사용하여 Batch 노드에 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
+>
+>
+
+### <a name="network-configuration"></a>네트워크 구성
 
 풀의 계산 노드를 만들어야 하는 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md)의 서브넷을 지정할 수 있습니다. 자세한 내용은 [풀 네트워크 구성](#pool-network-configuration) 섹션을 참조하세요.
 
 
-## 작업
-<a id="job" class="xliff"></a>
+## <a name="job"></a>작업
 작업은 태스크의 컬렉션입니다. 풀의 계산 노드에서 해당 태스크에 의해 수행된 계산 방식을 관리합니다.
 
 * 작업은 작업이 실행되는 **풀**을 지정합니다. 각 작업에 새 풀을 만들거나 많은 작업에 하나의 풀을 사용할 수 있습니다. 작업 일정과 연결된 각 작업 또는 작업 일정과 연결된 모든 작업에 풀을 만들 수 있습니다.
@@ -276,20 +264,17 @@ Azure Portal을 사용하여 사용자 지정 이미지에서 풀을 만들려�
 
     Batch 서비스는 태스크가 *없는* 작업을 모든 태스크를 완료한 것으로 간주합니다. 따라서 이 옵션은 [작업 관리자 태스크](#job-manager-task)와 함께 가장 일반적으로 사용됩니다. 작업 관리자 없이 작업 자동 종료를 사용하려는 경우 처음부터 새 작업의 **onAllTasksComplete** 속성을 *noaction*으로 설정한 다음 작업에 태스크의 추가를 완료한 후에 *terminatejob*으로 설정해야 합니다.
 
-### 작업 우선 순위
-<a id="job-priority" class="xliff"></a>
+### <a name="job-priority"></a>작업 우선 순위
 Batch에서 만드는 작업에 우선 순위를 할당할 수 있습니다. Batch 서비스는 작업의 우선 순위 값을 사용하여 계정 내의 작업 예약 순서를 결정합니다( [예약된 작업](#scheduled-jobs)과 혼동하지 않아야 합니다). 우선 순위 값의 범위는 -1000에서 1000까지이며 -1000이 가장 낮은 우선 순위를, 1000이 가장 높은 우선 순위를 나타냅니다. 작업의 우선 순위를 업데이트하려면, [작업 속성 업데이트][rest_update_job] 작업(Batch REST)을 사용하거나 [CloudJob.Priority][net_cloudjob_priority] 속성(Batch .NET)을 수정합니다.
 
 동일한 계정 내에서 우선 순위가 높은 작업은 우선 순위가 낮은 작업보다 먼저 예약됩니다. 하나의 계정에서 우선 순위가 더 높은 작업이 다른 계정에서 우선 순위가 더 낮은 다른 작업보다 먼저 예약되는 것은 아닙니다.
 
 풀 간의 예약 작업은 서로 별개입니다. 다양한 풀 사이에서, 연결된 풀에 유휴 노드가 부족한 경우 우선 순위가 높은 작업이 먼저 예약된다고 보장할 수 없습니다. 동일한 풀에서는 우선 순위가 같은 작업이 예약될 기회가 동일합니다.
 
-### Scheduled jobs
-<a id="scheduled-jobs" class="xliff"></a>
+### <a name="scheduled-jobs"></a>Scheduled jobs
 [작업 일정][rest_job_schedules]을 사용하여 Batch 서비스 내에서 되풀이되는 작업을 만들 수 있습니다. 작업 일정은 작업을 실행할 시간을 지정하며, 실행할 작업에 대한 사양을 포함합니다. 일정의 빈도, 즉 일정이 시행되는 시점 및 기간, 일정의 기간 동안 작업을 만들어야 하는 빈도를 지정할 수 있습니다.
 
-## 작업
-<a id="task" class="xliff"></a>
+## <a name="task"></a>작업
 태스크는 작업과 연결되는 계산의 단위입니다. 노드에서 실행됩니다. 태스크는 실행을 위해 노드에 할당되거나, 노드를 사용할 수 있을 때까지 큐에 대기됩니다. 간단히 말해 태스크는 계산 노드에서 하나 이상의 프로그램이나 스크립트를 실행하여 완료해야 하는 작업을 수행합니다.
 
 태스크를 만들 때 다음을 지정할 수 있습니다.
@@ -316,8 +301,7 @@ Batch에서 만드는 작업에 우선 순위를 할당할 수 있습니다. Bat
 * [MPI(다중 인스턴스 태스크)](#multi-instance-tasks)
 * [작업 종속성](#task-dependencies)
 
-### 시작 태스크
-<a id="start-task" class="xliff"></a>
+### <a name="start-task"></a>시작 태스크
 풀과 **시작 태스크** 를 연결하여 해당 노드의 운영 환경을 준비할 수 있습니다. 예를 들어, 태스크를 실행하는 응용 프로그램을 설치하거나 백그라운드 프로세스를 시작하는 등의 작업을 수행할 수 있습니다. 시작 태스크는 노드가 풀에 처음 추가된 경우 및 다시 시작되거나 이미지로 다시 설치되는 경우를 포함하여 풀에 남아 있는 한, 노드가 시작될 때마다 실행됩니다.
 
 시작 태스크의 주요 이점은 태스크 실행에 필요한 계산 노드를 구성하고 응용 프로그램을 설치하는 데 필요한 모든 정보를 포함할 수 있다는 것입니다. 따라서 풀 내의 노드 수를 늘리려면 간단히 새 대상 노드 수를 지정하면 됩니다. 시작 태스크는 Batch 서비스에 새 노드를 구성하고 태스크를 수락할 준비가 되게 하는 데 필요한 정보를 제공합니다.
@@ -335,15 +319,14 @@ Batch에서 만드는 작업에 우선 순위를 할당할 수 있습니다. Bat
 >[!NOTE]
 > 리소스 파일 및 환경 변수를 포함한 시작 태스크의 전체 크기는 32768자 이하여야 합니다. 시작 태스크가 이러한 요구 사항을 충족하도록 하려면 두 가지 방법 중 하나를 사용할 수 있습니다.
 >
-> 1. 응용 프로그램 패키지를 사용하여 Batch 풀의 각 노드에 응용 프로그램 또는 데이터를 배포할 수 있습니다. 응용 프로그램 패키지에 대한 자세한 내용은 [Azure Batch 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
+> 1. 응용 프로그램 패키지를 사용하여 Batch 풀의 각 노드에 응용 프로그램 또는 데이터를 배포할 수 있습니다. 응용 프로그램 패키지에 대한 자세한 내용은 [Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 > 2. 응용 프로그램 파일이 포함된 압축 보관 파일을 수동으로 만들 수 있습니다. 압축 보관 파일을 Azure Storage에 BLOB으로 업로드하세요. 압축 보관 파일을 시작 작업에 대한 리소스 파일로 지정합니다. 시작 작업을 위해 명령줄을 실행하기 전에 명령줄에서 보관 파일의 압축을 푸세요. 
 >
 >    보관 파일의 압축을 풀 때 원하는 보관 도구를 사용할 수 있습니다. 시작 작업에 대한 리소스 파일로 보관 파일의 압축을 풀 때 사용할 도구를 포함해야 합니다.
 >
 >
 
-### 작업 관리자 태스크
-<a id="job-manager-task" class="xliff"></a>
+### <a name="job-manager-task"></a>작업 관리자 태스크
 일반적으로 **작업 관리자 태스크**를 사용하여 작업 실행을 제어 및/또는 모니터링합니다. 예를 들어 작업에 대한 태스크를 만들고 제출하고 실행할 추가 작업을 결정하고 작업이 완료되는 시점을 결정합니다. 그러나 작업 관리자 태스크는 이러한 작업에 제한되지 않습니다. 이 작업에 필요한 모든 작업을 수행할 수 있는 완전한 태스크입니다. 예를 들어 작업 관리자 태스크는 매개 변수로 지정된 파일을 다운로드하고, 해당 파일의 내용을 분석하고, 이러한 내용에 따라 추가 태스크를 제출할 수 있습니다.
 
 작업 관리자 태스크는 다른 모든 작업이 시작되기 전에 시작됩니다. 다음과 같은 기능을 제공합니다.
@@ -355,8 +338,7 @@ Batch에서 만드는 작업에 우선 순위를 할당할 수 있습니다. Bat
 * 작업 관리자 태스크는 다시 시작해야 할 경우 가장 높은 우선 순위가 지정됩니다. 유휴 노드를 사용할 수 없는 경우 Batch 서비스는 풀에서 실행 중인 다른 태스크 중 하나를 종료하여 작업 관리자 태스크를 실행할 공간을 확보할 수 있습니다.
 * 작업의 작업 관리자 태스크는 다른 작업의 태스크보다 우선 순위가 높지 않습니다. 작업 간에는 작업 수준 우선 순위만 준수됩니다.
 
-### 작업 준비 및 해제 태스크
-<a id="job-preparation-and-release-tasks" class="xliff"></a>
+### <a name="job-preparation-and-release-tasks"></a>작업 준비 및 해제 태스크
 Batch는 사전 작업 실행 설치를 위한 작업 준비 태스크를 제공합니다. 작업 릴리스 태스크는 사후 작업 유지 관리 또는 정리를 위한 작업입니다.
 
 * **작업 준비 태스크**: 작업 준비 태스크는 다른 모든 작업 태스크가 실행되기 전에 태스크를 실행하도록 예약된 모든 계산 노드에서 실행됩니다. 예를 들어 작업 준비 태스크를 사용하여 모든 태스크에서 공유하는 데이터를 복사할 수 있지만 작업에 고유해야 합니다.
@@ -366,14 +348,12 @@ Batch는 사전 작업 실행 설치를 위한 작업 준비 태스크를 제공
 
 작업 준비 및 해제 태스크에 대한 자세한 내용은 [Azure Batch 계산 노드에서 작업 준비 및 완료 태스크 실행](batch-job-prep-release.md)을 참조하세요.
 
-### 다중 인스턴스 태스크
-<a id="multi-instance-task" class="xliff"></a>
+### <a name="multi-instance-task"></a>다중 인스턴스 태스크
 [다중 인스턴스 태스크](batch-mpi.md) 는 둘 이상의 계산 노드에서 동시에 실행될 수 있도록 구성된 태스크입니다. 다중 인스턴스 태스크와 함께 할당되는 계산 노드 그룹이 필요한 MPI(Message Passing Interface)와 같은 고성능 컴퓨팅 시나리오를 사용하여 단일 워크로드를 처리할 수 있습니다.
 
 Batch .NET 라이브러리를 사용하여 일괄 처리에서 MPI 작업 실행에 대한 자세한 내용은 [다중 인스턴스 태스크를 사용하여 Azure Batch에서 MPI(Message Passing Interface) 응용 프로그램 실행](batch-mpi.md)을 확인합니다.
 
-### 작업 종속성
-<a id="task-dependencies" class="xliff"></a>
+### <a name="task-dependencies"></a>작업 종속성
 [작업 종속성](batch-task-dependencies.md)은 그 이름에서 알 수 있듯이, 한 작업이 실행되기 전까지 다른 작업에 종속되도록 지정할 수 있습니다. 이 기능은 "다운스트림" 태스크가 "업스트림" 태스크의 출력을 사용하거나 업스트림 태스크가 다운스트림 태스크에 필요한 몇 가지 초기화를 수행하는 상황에 대한 지원을 제공합니다. 이 기능을 사용하려면 먼저 Batch 작업에서 태스크 종속성을 사용하도록 설정해야 합니다. 그런 다음 다른(또는 여러 다른) 태스크에 종속된 각 태스크에 대해 해당 태스크가 종속된 태스크를 지정합니다.
 
 태스크 종속성을 통해 다음과 같은 시나리오를 구성할 수 있습니다.
@@ -384,8 +364,7 @@ Batch .NET 라이브러리를 사용하여 일괄 처리에서 MPI 작업 실행
 
 이 기능에 대한 자세한 정보는 [azure-batch-samples][github_samples] GitHub 리포지토리에서 [Azure Batch에서 태스크 종속성](batch-task-dependencies.md) 및 [TaskDependencies][github_sample_taskdeps] 코드 예제를 확인합니다.
 
-## 태스크에 대한 환경 설정
-<a id="environment-settings-for-tasks" class="xliff"></a>
+## <a name="environment-settings-for-tasks"></a>태스크에 대한 환경 설정
 Batch 서비스에 의해 실행되는 각 태스크는 계산 노드에 설정된 환경 변수에 액세스할 수 있습니다. 여기에는 Batch 서비스에 의해 정의된([서비스 정의][msdn_env_vars]) 환경 변수와 태스크에 대해 정의할 수 있는 사용자 지정 환경 변수가 포함됩니다. 태스크가 실행하는 응용 프로그램 및 스크립트는 실행 중에 이러한 환경 변수에 액세스할 수 있습니다.
 
 이러한 엔터티에 대한 *환경 설정* 속성을 채워서 태스크 또는 작업 수준에서 사용자 지정 환경 변수를 설정할 수 있습니다. 예를 들어 [작업에 태스크 추가][rest_add_task] 작업(Batch REST API) 또는 Batch .NET의 [CloudTask.EnvironmentSettings][net_cloudtask_env] 및 [CloudJob.CommonEnvironmentSettings][net_job_env] 속성을 참조하세요.
@@ -394,8 +373,7 @@ Batch 서비스에 의해 실행되는 각 태스크는 계산 노드에 설정�
 
 [Compute 노드 환경 변수][msdn_env_vars]에서 모든 서비스 정의 환경 변수의 전체 목록을 찾을 수 있습니다.
 
-## 파일 및 디렉터리
-<a id="files-and-directories" class="xliff"></a>
+## <a name="files-and-directories"></a>파일 및 디렉터리
 각 태스크에는 *작업 디렉터리* 가 있으며 여기서 0개 이상의 파일 및 디렉터리를 만듭니다. 태스크가 실행하는 프로그램, 처리하는 데이터 및 수행하는 처리의 출력을 저장하는 데 작업 디렉터리를 사용할 수 있습니다. 태스크의 모든 파일 및 디렉터리는 태스크 사용자가 소유합니다.
 
 Batch 서비스는 노드의 파일 시스템 일부를 *루트 디렉터리*로 노출합니다. 태스크는 `AZ_BATCH_NODE_ROOT_DIR` 환경 변수를 참조하여 루트 디렉터리에 액세스할 수 있습니다. 환경 변수 사용에 대한 자세한 내용은 [태스크에 대한 환경 설정](#environment-settings-for-tasks)을 참조하세요.
@@ -417,23 +395,21 @@ Batch 서비스는 노드의 파일 시스템 일부를 *루트 디렉터리*로
 >
 >
 
-## 응용 프로그램 패키지
-<a id="application-packages" class="xliff"></a>
+## <a name="application-packages"></a>응용 프로그램 패키지
 [응용 프로그램 패키지](batch-application-packages.md) 기능은 풀의 계산 노드에 응용 프로그램을 간편하게 관리 및 배포할 수 있는 방법을 제공합니다. 해당 이진 및 지원 파일을 포함하여 태스크에서 실행하는 여러 버전의 응용 프로그램을 업로드하고 관리할 수 있습니다. 풀의 계산 노드에 이러한 응용 프로그램을 하나 이상 자동으로 배포할 수 있습니다.
 
 풀 및 태스크 수준에서 응용 프로그램 패키지를 지정할 수 있습니다. 풀 응용 프로그램 패키지를 지정하면 응용 프로그램은 풀의 모든 노드에 배포됩니다. 태스크 응용 프로그램 패키지를 지정하면 태스크의 명령줄이 실행되기 전에 작업의 태스크 중 하나에서 실행되도록 예약된 노드에만 응용 프로그램이 배포됩니다.
 
 Batch는 세부적인 Azure Storage 작업을 처리하여 응용 프로그램 패키지를 저장하고 계산 노드에 배포합니다. 따라서 코드와 관리 오버헤드가 간소화될 수 있습니다.
 
-응용 프로그램 패키지 기능에 대한 자세한 내용은 [Azure Batch 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
+응용 프로그램 패키지 기능에 대한 자세한 내용은 [Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 
 > [!NOTE]
 > *기존* 풀에 풀 응용 프로그램 패키지를 추가하는 경우 노드에 배포될 응용 프로그램 패키지에 대한 해당 계산 노드를 다시 부팅해야 합니다.
 >
 >
 
-## 풀 및 계산 노드 수명
-<a id="pool-and-compute-node-lifetime" class="xliff"></a>
+## <a name="pool-and-compute-node-lifetime"></a>풀 및 계산 노드 수명
 Azure Batch 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 해당 풀 내의 계산 노드를 사용 가능한 상태로 유지할 기간에 대해 설계를 결정해야 합니다.
 
 하나의 극단적인 예로, 제출하는 각 작업에 대해 풀을 만들고 태스크 실행이 완료되는 즉시 그 풀을 제거할 수 있습니다. 이렇게 하면 노드가 필요할 때만 할당되고 유휴 상태가 되는 즉시 종료되므로 사용률이 최대화됩니다. 이것은 작업이 노드가 할당되기를 기다려야 한다는 것을 의미하지만 노드가 개별적으로 사용이 가능해지고 할당되고 시작 태스크가 완료되는 즉시 태스크의 실행이 예약된다는 점이 중요합니다. Batch는 태스크를 노드에 할당하기 전에 풀 내의 모든 노드를 사용할 수 있을 때까지 기다리지 *않습니다*. 이렇게 하면 사용 가능한 모든 노드의 최대 사용률을 보장합니다.
@@ -442,8 +418,7 @@ Azure Batch 솔루션을 설계할 때 풀을 만드는 방법 및 시기와 해
 
 통합 접근 방식은 일반적으로 가변적이지만 지속적인 부하를 처리하는 데 사용됩니다. 여러 작업이 제출되는 하나의 풀을 사용하되 작업 부하에 따라 노드 수를 확장하거나 축소할 수 있습니다(다음 섹션에서 [계산 리소스 크기 조정](#scaling-compute-resources) 참조). 이는 현재 부하에 따라 사후 대응적으로 수행하거나 부하를 예측할 수 있는 경우 사전 대응적으로 수행할 수 있습니다.
 
-## 풀 네트워크 구성
-<a id="pool-network-configuration" class="xliff"></a>
+## <a name="pool-network-configuration"></a>풀 네트워크 구성
 
 Azure Batch에서 계산 노드의 풀을 만드는 경우 풀의 계산 노드를 생성해야 하는 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md)의 서브넷 ID를 지정할 수 있습니다.
 
@@ -480,8 +455,7 @@ Azure Batch에서 계산 노드의 풀을 만드는 경우 풀의 계산 노드�
 
 VNet에 대한 추가 설정은 Batch 계정의 풀 할당 모드에 따라 다릅니다.
 
-### Batch 서비스에서 프로비전된 풀에 대한 VNet
-<a id="vnets-for-pools-provisioned-in-the-batch-service" class="xliff"></a>
+### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Batch 서비스에서 프로비전된 풀에 대한 VNet
 
 Batch 서비스 할당 모드에서는 **Cloud Services 구성** 풀만 VNet을 할당할 수 있습니다. 또한 지정된 VNet은 **클래식** VNet이어야 합니다. Azure Resource Manager 배포 모델을 사용하여 만든 VNet은 지원되지 않습니다.
 
@@ -496,15 +470,13 @@ Batch 서비스 할당 모드에서는 **Cloud Services 구성** 풀만 VNet을 
 
 
 
-### 사용자 구독에서 프로비전된 풀에 대한 VNet
-<a id="vnets-for-pools-provisioned-in-a-user-subscription" class="xliff"></a>
+### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>사용자 구독에서 프로비전된 풀에 대한 VNet
 
 사용자 구독 할당 모드에서는 **가상 컴퓨터 구성** 풀만 지원되며, VNet을 할당할 수 있습니다. 또한 지정된 VNet은 **Resource Manager** 기반 VNet이어야 합니다. 클래식 배포 모델을 사용하여 만든 VNet은 지원되지 않습니다.
 
 
 
-## 계산 리소스 크기 조정
-<a id="scaling-compute-resources" class="xliff"></a>
+## <a name="scaling-compute-resources"></a>계산 리소스 크기 조정
 [자동 크기 조정](batch-automatic-scaling.md)으로 Batch 서비스가 계산 시나리오의 현재 워크로드 및 리소스 사용량에 따라 풀의 계산 노드 수를 동적으로 조정하도록 할 수 있습니다. 그러면 필요한 리소스만을 사용하고 필요하지 않은 리소스를 해제하여 응용 프로그램을 실행하는 전체 비용을 낮출 수 있습니다.
 
 [자동 크기 조정 수식](batch-automatic-scaling.md#automatic-scaling-formulas) 을 작성하고 해당 수식의 풀과 연결하여 자동 크기 조정을 사용하도록 설정합니다. Batch 서비스는 이 수식을 사용하여 다음 크기 조정 간격(구성할 수 있는 간격)에 대한 풀의 노드 대상 수를 확인합니다. 풀을 만들 때 자동 크기 조정 설정을 지정하거나 나중에 풀에 자동 크기 조정을 사용하도록 설정할 수 있습니다. 크기 조정을 사용하는 풀에 크기 조정 설정을 업데이트할 수도 있습니다.
@@ -526,20 +498,17 @@ Batch 서비스 할당 모드에서는 **Cloud Services 구성** 풀만 VNet을 
 >
 >
 
-## 인증서를 사용한 보안
-<a id="security-with-certificates" class="xliff"></a>
+## <a name="security-with-certificates"></a>인증서를 사용한 보안
 일반적으로 태스크에 대한 중요한 정보(예: [Azure Storage 계정][azure_storage]의 키)를 암호화하거나 암호를 해독할 때는 인증서를 사용해야 합니다. 이를 지원하려면 노드에 인증서를 설치할 수 있습니다. 암호화된 암호는 명령줄 매개 변수를 통해 태스크에 전달되거나 태스크 리소스 중 하나에 포함되며 암호를 해독하는 데 설치된 인증서를 사용할 수 있습니다.
 
 [인증서 추가][rest_add_cert] 작업(Batch REST) 또는 [CertificateOperations.CreateCertificate][net_create_cert] 메서드(Batch .NET)를 사용하여 Batch 계정에 인증서를 추가할 수 있습니다. 그런 다음 인증서를 기존 풀이나 새 풀에 연결할 수 있습니다. 인증서가 풀에 연결되면 Batch 서비스가 풀의 각 노드에 인증서를 설치합니다. Batch 서비스는 노드가 시작되면 시작 태스크 및 작업 관리자 태스크를 포함하여 모든 태스크를 시작하기 전에 해당 인증서를 설치합니다.
 
 *기존* 풀에 풀 인증서를 추가하는 경우 노드에 적용될 인증서에 대한 해당 계산 노드를 다시 부팅해야 합니다.
 
-## 오류 처리
-<a id="error-handling" class="xliff"></a>
+## <a name="error-handling"></a>오류 처리
 Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모두 처리해야 할 수 있습니다.
 
-### 태스크 오류 처리
-<a id="task-failure-handling" class="xliff"></a>
+### <a name="task-failure-handling"></a>태스크 오류 처리
 태스크 오류는 다음 범주로 분류됩니다.
 
 * **사전 처리 실패**
@@ -566,8 +535,7 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 
     최대 기간을 초과하면 태스크가 *완료됨*으로 표시되지만 종료 코드가 `0xC000013A`로 설정되고 *schedulingError* 필드가 `{ category:"ServerError", code="TaskEnded"}`로 표시됩니다.
 
-### 응용 프로그램 오류 디버그
-<a id="debugging-application-failures" class="xliff"></a>
+### <a name="debugging-application-failures"></a>응용 프로그램 오류 디버그
 * `stderr` 및 `stdout`
 
     실행하는 동안 응용 프로그램에서 문제를 해결하는 데 사용할 수 있는 진단 출력을 생성할 수 있습니다. 앞서 [파일 및 디렉터리](#files-and-directories) 섹션에서 설명했듯이, Batch 서비스는 계산 노드의 태스크 디렉터리에 있는 `stdout.txt` 및 `stderr.txt` 파일에 표준 출력 및 표준 오류 출력을 작성합니다. Azure Portal 또는 Batch SDK 중 하나를 사용하여 이러한 파일을 다운로드할 수 있습니다. 예를 들어, Batch .NET API에서 [ComputeNode.GetNodeFile][net_getfile_node] 및 [CloudTask.GetNodeFile][net_getfile_task]을 사용하여 문제 해결을 위해 이러한 파일 및 다른 파일을 검색할 수 있습니다.
@@ -576,14 +544,12 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 
     앞서 설명했듯이 태스크에서 실행하는 프로세스가 0이 아닌 종료 코드를 반환하는 경우 태스크는 Batch 서비스에서 실패했다고 표시됩니다. 태스크가 프로세스를 실행하는 경우 Batch는 *프로세스의 반환 코드*를 사용하여 태스크의 종료 코드 속성을 채웁니다. 태스크의 종료 코드는 Batch 서비스에 의해 결정되지 **않는**다는 점에 주의해야 합니다. 태스크의 종료 코드는 프로세스 자체 또는 프로세스가 실행되는 운영 체제에 의해 결정됩니다.
 
-### 태스크 실패 또는 중단에 대한 조정
-<a id="accounting-for-task-failures-or-interruptions" class="xliff"></a>
+### <a name="accounting-for-task-failures-or-interruptions"></a>태스크 실패 또는 중단에 대한 조정
 간혹 태스크가 실패하거나 중단될 수 있습니다. 태스크 응용 프로그램 자체가 실패하거나, 태스크를 실행 중인 노드가 다시 부팅되거나, 풀의 할당 취소 정책이 태스크가 완료되기를 기다리지 않고 즉시 노드를 제거하도록 설정된 상태에서 크기 조정 작업 중에 풀에서 노드가 제거되었을 수 있습니다. 어떤 경우든지 태스크는 다른 노드에서 실행되도록 Batch에 의해 자동으로 큐에 다시 대기할 수 있습니다.
 
 일시적인 문제로 인해 태스크가 응답하지 않거나 실행하는 데 너무 오래 걸릴 수도 있습니다. 태스크에 대한 최대 실행 간격을 설정할 수 있습니다. 최대 실행 간격을 초과하면 Batch 서비스가 태스크 응용 프로그램을 중단합니다.
 
-### 계산 노드 연결
-<a id="connecting-to-compute-nodes" class="xliff"></a>
+### <a name="connecting-to-compute-nodes"></a>계산 노드 연결
 계산 노드에 원격으로 로그인하여 추가 디버깅 및 문제 해결을 수행할 수 있습니다. Azure Portal을 사용하여 Windows 노드에 RDP(원격 데스크톱 프로토콜) 파일을 다운로드하고 Linux 노드에 SSH(Secure Shell) 연결 정보를 가져올 수 있습니다. 또한 [Batch .NET][net_rdpfile] 또는 [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)과 같은 Batch API를 사용하여 수행할 수 있습니다.
 
 > [!IMPORTANT]
@@ -591,8 +557,7 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 >
 >
 
-### 문제가 있는 계산 노드 문제 해결
-<a id="troubleshooting-problematic-compute-nodes" class="xliff"></a>
+### <a name="troubleshooting-problematic-compute-nodes"></a>문제가 있는 계산 노드 문제 해결
 태스크가 실패한 경우 Batch 클라이언트 응용 프로그램 또는 서비스는 실패한 작업의 메타데이터를 검사하여 오동작 노드를 식별할 수 있습니다. 풀의 각 노드에는 고유 ID가 지정되며, 태스크가 실행되는 노드는 태스크 메타데이터에 포함됩니다. 문제 노드를 식별하면 다음과 같은 몇 가지 작업을 수행할 수 있습니다.
 
 * **노드 다시 시작**([REST][rest_reboot] | [.NET][net_reboot])
@@ -613,8 +578,7 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 >
 >
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 * Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.
 * [.NET용 Azure Batch 라이브러리 시작](batch-dotnet-get-started.md)에서 샘플 Batch 응용 프로그램을 단계별로 안내합니다. 또한 Linux 계산 노드에서 워크로드를 실행하는 [Python 버전](batch-python-tutorial.md) 자습서가 있습니다.
 * Batch 솔루션을 개발하는 동안 사용할 [Batch Explorer][github_batchexplorer] 샘플 프로젝트를 다운로드하여 빌드합니다. Batch Explorer를 사용하여 다음과 같은 작업을 수행할 수 있습니다.

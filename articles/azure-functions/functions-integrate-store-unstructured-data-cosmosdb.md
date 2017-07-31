@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/08/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 46022530c69b292878a4500c0e325bda878e6188
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 492c916a493bb8d5c5415fc517506e5c1ccffc56
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Azure Functions 및 Cosmos DB를 사용하여 구조화되지 않은 데이터 저장
@@ -159,9 +159,7 @@ Cosmos DB 데이터베이스에 항목이 만들어졌는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Functions에 대한 자세한 내용은 다음 항목을 참조하세요.
-
-[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
-
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
+
+Cosmos DB 데이터베이스에 바인딩하는 자세한 내용은 [Azure Functions Cosmos DB 바인딩](functions-bindings-documentdb.md)을 참조하세요.
 

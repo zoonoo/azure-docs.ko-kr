@@ -16,10 +16,10 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 19014e65920b16d2efbaa475b7c17b2a4e3a8471
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -180,13 +180,14 @@ Azure CLI 문제를 해결할 때 도움이 될 수 있는 팁은 다음과 같�
 * `-h` 을 사용하여 모든 CLI 명령의 **도움말 텍스트** 를 봅니다.
 * `-v` 및 `-vv`를 사용하여 **자세한 정보 표시** 명령 출력을 표시합니다. `-vv` 플래그가 포함되면 Azure CLI에서 실제 REST 요청과 응답을 표시합니다. 이러한 스위치는 전체 오류 출력을 표시하는 데 유용합니다.
 * `--json` 옵션을 사용하여 **명령 출력을 JSON으로** 볼 수 있습니다. 예를 들어 `az batch pool show pool001 --json` 은 JSON 형식으로 pool001의 속성을 표시합니다. 그런 다음 이 출력을 복사하고 수정하여 `--json-file` 에서 사용할 수 있습니다(이 문서의 앞부분에서 [JSON 파일](#json-files) 참조).
+<!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 * [Batch 포럼][batch_forum]은 Batch 팀 구성원들이 모니터링합니다. 문제가 발생하거나 특정 작업에 도움이 필요한 경우 질문을 여기에 게시할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 * Batch 리소스에 대한 자세한 내용은 [개발자를 위한 Azure Batch 개요](batch-api-basics.md)를 참조하세요.
-* [Azure Batch 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md) 를 참조하여 Batch 계산 노드에서 실행하는 응용 프로그램을 관리하고 배포하는 데 이 기능을 사용하는 방법을 알아봅니다.
+* 이 기능을 사용하여 Batch 계산 노드에서 실행하는 응용 프로그램을 관리하고 배포하는 방법을 알아보려면 [Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

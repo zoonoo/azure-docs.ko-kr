@@ -15,12 +15,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 06/19/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 0265503689e189a3e2e30c2ae9fff39641647d0c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d1b887e68b1040ea9340235cd215028300c14fac
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: 기존 Node.js MongoDB 웹앱 마이그레이션 
@@ -93,10 +92,10 @@ az group create --name myResourceGroup --location "West Europe"
 
 [az cosmosdb create](/cli/azure/cosmosdb#create) 명령을 사용하여 Azure Cosmos DB 계정을 만듭니다.
 
-다음 명령에서 `<cosmosdb_name>` 자리 표시자를 표시하는 고유한 Azure Cosmos DB 이름을 바꿉니다. 이 고유한 이름은 Azure Cosmos DB 끝점의 일부(`https://<cosmosdb_name>.documents.azure.com/`)로 사용되므로, Azure의 모든 Azure Cosmos DB 계정에서 고유해야 합니다. 
+다음 명령에서 `<cosmosdb-name>` 자리 표시자를 표시하는 고유한 Azure Cosmos DB 이름을 바꿉니다. 이 고유한 이름은 Azure Cosmos DB 끝점의 일부(`https://<cosmosdb-name>.documents.azure.com/`)로 사용되므로, Azure의 모든 Azure Cosmos DB 계정에서 고유해야 합니다. 
 
 ```azurecli-interactive
-az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
+az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
 ```
 
 `--kind MongoDB` 매개 변수는 MongoDB 클라이언트 연결을 사용하도록 설정합니다.
@@ -106,17 +105,17 @@ Azure Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정
 ```json
 {
   "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://<cosmosdb_name>.documents.azure.com:443/",
+  "documentEndpoint": "https://<cosmosdb-name>.documents.azure.com:443/",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Document
-DB/databaseAccounts/<cosmosdb_name>",
+DB/databaseAccounts/<cosmosdb-name>",
   "kind": "MongoDB",
   "location": "West Europe",
-  "name": "<cosmosdb_name>",
+  "name": "<cosmosdb-name>",
   "readLocations": [
     {
-      "documentEndpoint": "https://<cosmosdb_name>-westeurope.documents.azure.com:443/",
+      "documentEndpoint": "https://<cosmosdb-name>-westeurope.documents.azure.com:443/",
       "failoverPriority": 0,
-      "id": "<cosmosdb_name>-westeurope",
+      "id": "<cosmosdb-name>-westeurope",
       "locationName": "West Europe",
       "provisioningState": "Succeeded"
     }
@@ -125,9 +124,9 @@ DB/databaseAccounts/<cosmosdb_name>",
   "type": "Microsoft.DocumentDB/databaseAccounts",
   "writeLocations": [
     {
-      "documentEndpoint": "https://<cosmosdb_name>-westeurope.documents.azure.com:443/",
+      "documentEndpoint": "https://<cosmosdb-name>-westeurope.documents.azure.com:443/",
       "failoverPriority": 0,
-      "id": "<cosmosdb_name>-westeurope",
+      "id": "<cosmosdb-name>-westeurope",
       "locationName": "West Europe",
       "provisioningState": "Succeeded"
     }
@@ -139,48 +138,38 @@ DB/databaseAccounts/<cosmosdb_name>",
 
 이 단계에서는 MongoDB 연결 문자열을 사용하여 MEAN.js 샘플 응용 프로그램을 방금 만든 Azure Cosmos DB 데이터베이스에 연결합니다. 
 
-## <a name="retrieve-the-key"></a>키 검색
-
-Azure Cosmos DB 데이터베이스에 연결하기 위해 데이터베이스 키가 필요합니다. [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) 명령을 사용하여 기본 키를 검색합니다.
-
-```azurecli-interactive
-az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
-```
-
-Azure CLI는 다음 예와 유사한 정보를 출력합니다. 
-
-```json
-{
-  "primaryMasterKey": "RUayjYjixJDWG5xTqIiXjC...",
-  "primaryReadonlyMasterKey": "...",
-  "secondaryMasterKey": "...",
-  "secondaryReadonlyMasterKey": "..."
-}
-```
-
-`primaryMasterKey` 값을 텍스트 편집기에 복사합니다. 이 정보는 다음 단계에서 필요합니다.
-
 <a name="devconfig"></a>
 ## <a name="configure-the-connection-string-in-your-nodejs-application"></a>Node.js 응용 프로그램에 연결 문자열 구성
 
 MEAN.js 리포지토리에서 `config/env/local-development.js`를 엽니다.
 
-이 파일 내용을 다음 코드로 바꿉니다. 두 개의 `<cosmosdb_name>` 자리 표시자를 Azure Cosmos DB 계정 이름으로 바꾸고 `<primary_master_key>` 자리 표시자를 이전 단계에서 복사한 키로 바꿔야 합니다.
+이 파일 내용을 다음 코드로 바꿉니다. 또한 두 개의 `<cosmosdb-name>` 자리 표시자를 Azure Cosmos DB 계정 이름으로 바꿔야 합니다.
 
 ```javascript
 'use strict';
 
 module.exports = {
   db: {
-    uri: 'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean-dev?ssl=true&sslverifycertificate=false'
+    uri: 'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.com:10255/mean-dev?ssl=true&sslverifycertificate=false'
   }
 };
 ```
 
-> [!NOTE] 
-> `ssl=true` 옵션은 [Azure Cosmos DB에서 SSL이 필요](connect-mongodb-account.md#connection-string-requirements)하기 때문에 중요합니다. 
->
->
+## <a name="retrieve-the-key"></a>키 검색
+
+Azure Cosmos DB 데이터베이스에 연결하기 위해 데이터베이스 키가 필요합니다. [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) 명령을 사용하여 기본 키를 검색합니다.
+
+```azurecli-interactive
+az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
+```
+
+Azure CLI는 다음 예와 유사한 정보를 출력합니다. 
+
+```json
+"RUayjYjixJDWG5xTqIiXjC..."
+```
+
+`primaryMasterKey`의 값을 복사합니다. `local-development.js`에 있는 `<primary_master_key>`에 덮어씁니다.
 
 변경 내용을 저장합니다.
 
@@ -222,8 +211,13 @@ MEAN.js 리포지토리에서 `config/env/production.js`를 엽니다.
 `db` 개체에서 다음 예에 표시된 것과 같이 `uri` 값을 바꿉니다. 전과 같이 자리 표시자를 바꿔야 합니다.
 
 ```javascript
-'mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false',
+'mongodb://<cosmosdb-name>:<primary_master_key>@<cosmosdb-name>.documents.azure.com:10255/mean?ssl=true&sslverifycertificate=false',
 ```
+
+> [!NOTE] 
+> `ssl=true` 옵션은 [Azure Cosmos DB에서 SSL이 필요](connect-mongodb-account.md#connection-string-requirements)하기 때문에 중요합니다. 
+>
+>
 
 터미널에서 Git에 모든 변경 내용을 커밋합니다. 두 명령을 복사하여 함께 실행할 수 있습니다.
 

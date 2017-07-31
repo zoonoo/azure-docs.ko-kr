@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory Power BI 콘텐츠 팩 사용 방법 | Microsoft Docs"
 description: "Azure Active Directory Power BI 콘텐츠 팩 사용 방법 알아보기"
 services: active-directory
@@ -11,25 +10,23 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2017
+ms.date: 07/15/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: ab95f61e2d88f82bf2b24aea786c7dbadfb9c0fe
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5c642bb814a279756e8391f12fdc86b6ec0b4a8f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# Azure Active Directory Power BI 콘텐츠 팩 사용 방법
-<a id="how-to-use-the-azure-active-directory-power-bi-content-pack" class="xliff"></a>
+# <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI 콘텐츠 팩 사용 방법
 
 사용자가 Azure Active Directory 기능을 채택하고 사용하는 방법을 이해하는 것은 IT 관리자로서 중요한 일입니다. IT 인프라와 통신을 계획하여 사용량을 늘리고 AAD 기능을 최대한 활용할 수 있습니다. Azure Active Directory용 Power BI 콘텐츠 팩을 통해 사용자는 데이터를 보다 세부적으로 분석하여 이 데이터를 사용하는 방법을 이해하고 Azure Active Directory를 통해 사용자가 크게 의존하는 다양한 기능의 상황에 대해 더 많은 정보를 수집할 수 있습니다.  Azure Active Directory API를 Power BI에 통합하면 미리 빌드된 콘텐츠 팩을 쉽게 다운로드하고 Power BI가 제공하는 풍부한 시각화 환경을 사용하여 Azure Active Directory 내에서 모든 작업에 대한 정보를 얻을 수 있습니다. 사용자 고유의 대시보드를 만들고 조직 내 사람들과 쉽게 공유할 수 있습니다. 
 
 이 항목에서는 사용자 환경에서 콘텐츠 팩을 설치하고 사용하는 방법에 대한 단계별 지침을 제공합니다.
 
-## 설치
-<a id="installation" class="xliff"></a>  
+## <a name="installation"></a>설치  
 
 **Power BI 콘텐츠 팩을 설치하려면:**
 
@@ -70,13 +67,11 @@ ms.lasthandoff: 06/22/2017
  
     ![Azure Active Directory Power BI 콘텐츠 팩](./media/active-directory-reporting-power-bi-content-pack-how-to/08.png) 
 
-## 이 콘텐츠 팩으로 무엇을 할 수 있습니까?
-<a id="what-can-i-do-with-this-content-pack" class="xliff"></a>
+## <a name="what-can-i-do-with-this-content-pack"></a>이 콘텐츠 팩으로 무엇을 할 수 있습니까?
 
 이 콘텐츠 팩으로 할 수 있는 작업으로 이동하기 전에 콘텐츠 팩의 다양 한 보고서의 빠른 미리 보기가 여기에 나와 있습니다. **지난 30일** 간의 보고서 데이터가 나와 있습니다.
 
-### 이 버전의 Azure Active Directory 로그 콘텐츠 팩에 포함된 보고서
-<a id="reports-included-in-this-version-of-azure-active-directory-logs-content-pack" class="xliff"></a>
+### <a name="reports-included-in-this-version-of-azure-active-directory-logs-content-pack"></a>이 버전의 Azure Active Directory 로그 콘텐츠 팩에 포함된 보고서
 
 **앱 사용 및 추세 보고서**: 조직에서 사용된 앱과 어떤 앱이 언제 가장 많이 사용되는지에 대한 정보를 얻습니다. 조직에서 최근에 출시된 앱이 어떻게 사용되고 있는지에 대한 정보를 수집하고 어떤 앱이 인기가 있는지 파악하기 위해 이 보고서를 사용할 수 있습니다. 이 작업을 수행하면 앱이 사용되고 있지 않는지 확인할 때 활용도를 높일 수 있습니다.
 
@@ -101,8 +96,7 @@ ms.lasthandoff: 06/22/2017
 
 **SSPR 깔때기**: 조직에서 암호 재설정이 어떻게 수행되는지 알 수 있습니다. SSPR 도구를 통해 암호를 재설정하는 데 몇 개의 암호가 필요하고 그 중 몇 개가 성공하는지 확인합니다. SSPR 깔때기를 사용하여 암호 재설정 실패를 심층적으로 분석하고 특정 오류가 발생하는 이유를 이해합니다. 이 보고서를 통해 SSPR 도구가 조직 내에서 어떻게 사용되는지 자세히 알 수 있어 올바른 결정을 내릴 수 있습니다.
 
-## Azure AD 활동 콘텐츠 팩 사용자 지정
-<a id="customizing-azure-ad-activity-content-pack" class="xliff"></a>
+## <a name="customizing-azure-ad-activity-content-pack"></a>Azure AD 활동 콘텐츠 팩 사용자 지정
 
 **시각화 변경**: **보고서 편집**을 클릭하여 보고서 시각화를 변경하고 원하는 시각화를 선택할 수 있습니다.
  
@@ -130,15 +124,13 @@ ms.lasthandoff: 06/22/2017
 
 
 
-## Power BI 보고서의 매일 새로 고침 예약
-<a id="scheduling-a-daily-refresh-of-your-power-bi-report" class="xliff"></a>
+## <a name="scheduling-a-daily-refresh-of-your-power-bi-report"></a>Power BI 보고서의 매일 새로 고침 예약
 
 Power BI 보고서의 매일 새로 고침을 예약하려면 **데이터 집합 > 설정 > 새로 고침 예약**으로 이동하고 아래와 같이 설정합니다.
  
 ![Azure Active Directory Power BI 콘텐츠 팩](./media/active-directory-reporting-power-bi-content-pack-how-to/15.png) 
 
-## 콘텐츠 팩의 최신 버전으로 업데이트
-<a id="updating-to-newer-version-of-content-pack" class="xliff"></a>
+## <a name="updating-to-newer-version-of-content-pack"></a>콘텐츠 팩의 최신 버전으로 업데이트
 
 최신 버전을 얻기 위해 콘텐츠 팩을 업데이트 하려면:
 
@@ -150,11 +142,12 @@ Power BI 보고서의 매일 새로 고침을 예약하려면 **데이터 집합
 
 콘텐츠 팩의 새 버전이 작동하면 필요한 경우 이전 버전의 콘텐츠 팩과 연결된 기본 보고서 및 데이터 집합을 삭제하여 이전 버전을 제거할 수 있습니다.
 
-## 아직도 문제가 있으십니까?
-<a id="still-having-issues" class="xliff"></a> 
+## <a name="still-having-issues"></a>아직도 문제가 있으십니까? 
 
 [문제 해결 가이드](active-directory-reporting-troubleshoot-content-pack.md)를 확인하세요. Power BI와 관련된 일반적인 도움말은 이 [도움말 문서](https://powerbi.microsoft.com/en-us/documentation/powerbi-service-get-started/)을 확인하세요.
  
 
+## <a name="next-steps"></a>다음 단계
 
+보고 개요는 [Azure Active Directory 보고](active-directory-reporting-azure-portal.md)를 참조하세요.
 

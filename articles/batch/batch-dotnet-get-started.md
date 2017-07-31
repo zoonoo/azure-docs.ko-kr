@@ -16,15 +16,14 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 5144c27ccbef6cc0e1e8c0b168bbfd86b736331b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9776bd4f703227f49f83f563489cfa7c44604fb8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# .NET용 Batch 클라이언트 라이브러리를 사용한 솔루션 빌드 시작
-<a id="get-started-building-solutions-with-the-batch-client-library-for-net" class="xliff"></a>
+# <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>.NET용 Batch 클라이언트 라이브러리를 사용한 솔루션 빌드 시작
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
@@ -37,12 +36,10 @@ ms.lasthandoff: 06/30/2017
 
 ![Batch 솔루션 워크플로(기본)][11]<br/>
 
-## 필수 조건
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>필수 조건
 이 문서에는 사용자에게 C# 및 Visual Studio에 대한 실용적인 지식이 있다고 가정합니다. 또한 Azure와 Batch 및 Storage 서비스에 대해 아래 지정된 계정 생성 요구 사항을 충족할 수 있다고 가정합니다.
 
-### 계정
-<a id="accounts" class="xliff"></a>
+### <a name="accounts"></a>계정
 * **Azure 계정**: Azure 구독이 아직 없는 경우 [무료 Azure 계정][azure_free_account]을 만듭니다.
 * **Batch 계정**: Azure 구독이 있으면 [Azure Batch 계정을 만듭니다](batch-account-create-portal.md).
 * **Storage 계정**: [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account) 섹션을 참조하세요.
@@ -52,22 +49,18 @@ ms.lasthandoff: 06/30/2017
 >
 >
 
-### Visual Studio
-<a id="visual-studio" class="xliff"></a>
+### <a name="visual-studio"></a>Visual Studio
 샘플 프로젝트를 빌드하려면 **Visual Studio 2015 이상**이 있어야 합니다. [Visual Studio 제품 개요][visual_studio]에서 Visual Studio의 무료 및 평가판 버전을 찾을 수 있습니다.
 
-### *DotNetTutorial* 코드 샘플
-<a id="dotnettutorial-code-sample" class="xliff"></a>
+### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial* 코드 샘플
 [DotNetTutorial][github_dotnettutorial] 샘플은 GitHub의 [azure-batch-samples][github_samples] 리포지토리에서 찾은 많은 Batch 코드 샘플 중 하나입니다. 리포지토리 홈 페이지에서 **복제 또는 다운로드 > ZIP 다운로드** 단추를 클릭하거나 [azure-batch-samples-master.zip][github_samples_zip] 직접 다운로드 링크를 클릭하여 모든 샘플을 다운로드할 수 있습니다. ZIP 파일의 내용을 추출하면 다음 폴더에서 솔루션을 찾을 수 있습니다.
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
-### Azure Batch 탐색기(선택 사항)
-<a id="azure-batch-explorer-optional" class="xliff"></a>
+### <a name="azure-batch-explorer-optional"></a>Azure Batch 탐색기(선택 사항)
 [Azure Batch 탐색기][github_batchexplorer]는 GitHub의 [azure-batch-samples][github_samples] 리포지토리에 포함된 무료 유틸리티입니다. 이 자습서를 완료하는 것이 필수는 아니지만 Batch 솔루션을 개발하고 디버깅하는 과정에서 유용할 수 있습니다.
 
-## DotNetTutorial 샘플 프로젝트 개요
-<a id="dotnettutorial-sample-project-overview" class="xliff"></a>
+## <a name="dotnettutorial-sample-project-overview"></a>DotNetTutorial 샘플 프로젝트 개요
 *DotNetTutorial* 코드 샘플은 두 프로젝트 **DotNetTutorial** 및 **TaskApplication**으로 구성된 Visual Studio 솔루션입니다.
 
 * **DotNetTutorial** 은 계산 노드(가상 컴퓨터)에서 병렬 워크로드를 실행하기 위해 Batch 및 Storage 서비스와 상호 작용하는 클라이언트 응용 프로그램입니다. DotNetTutorial은 로컬 워크스테이션에서 실행합니다.
@@ -91,8 +84,7 @@ ms.lasthandoff: 06/30/2017
 
 언급한 바와 같이, 모든 Batch 솔루션이 정확히 이러한 단계를 수행하는 것은 아니며, 훨씬 더 많은 단계를 포함할 수 있지만, *DotNetTutorial* 샘플 응용 프로그램은 Batch 솔루션에서 찾을 수 있는 일반적인 프로세스를 보여줍니다.
 
-## *DotNetTutorial* 샘플 프로젝트 빌드
-<a id="build-the-dotnettutorial-sample-project" class="xliff"></a>
+## <a name="build-the-dotnettutorial-sample-project"></a>*DotNetTutorial* 샘플 프로젝트 빌드
 샘플을 성공적으로 실행할 수 있으려면, *DotNetTutorial* 프로젝트의 `Program.cs` 파일에 Batch 및 Storage 계정 자격 증명을 지정해야 합니다. 아직 수행하지 않은 경우 `DotNetTutorial.sln` 솔루션 파일을 두 번 클릭하여 Visual Studio에서 솔루션을 엽니다. 또는 **파일 > 열기 > 프로젝트/솔루션** 메뉴를 사용하여 Visual Studio 내에서 솔루션을 엽니다.
 
 *DotNetTutorial* 프로젝트 내에서 `Program.cs`를 엽니다. 파일의 위쪽에 지정된 대로 자격 증명을 추가합니다.
@@ -133,8 +125,7 @@ private const string StorageAccountKey  = "";
 
 *DotNetTutorial* 프로젝트의 `Program.cs` 파일에서 `MainAsync` 메서드의 맨 위로 이동하여 단계1부터 시작합니다. 아래 각 단계 후 `MainAsync`에서 메서드 호출의 진행을 따릅니다.
 
-## 1단계: Storage 컨테이너 만들기
-<a id="step-1-create-storage-containers" class="xliff"></a>
+## <a name="step-1-create-storage-containers"></a>1단계: Storage 컨테이너 만들기
 ![Azure Storage에 컨테이너 만들기][1]
 <br/>
 
@@ -202,8 +193,7 @@ private static async Task CreateContainerIfNotExistAsync(
 >
 >
 
-## 2단계: 작업 응용 프로그램 및 데이터 파일 업로드
-<a id="step-2-upload-task-application-and-data-files" class="xliff"></a>
+## <a name="step-2-upload-task-application-and-data-files"></a>2단계: 작업 응용 프로그램 및 데이터 파일 업로드
 ![컨테이너에 작업 응용 프로그램 및 입력(데이터) 파일 업로드][2]
 <br/>
 
@@ -280,8 +270,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 }
 ```
 
-### ResourceFiles
-<a id="resourcefiles" class="xliff"></a>
+### <a name="resourcefiles"></a>ResourceFiles
 [ResourceFile][net_resourcefile]은 해당 작업을 실행하기 전에 계산 노드에 다운로드되는 Azure Storage의 파일에 대한 URL로 Batch 작업을 제공합니다. [ResourceFile.BlobSource][net_resourcefile_blobsource] 속성은 Azure Storage에 있는 파일의 전체 URL을 지정합니다. URL에는 파일에 대한 보안 액세스를 제공하는 SAS(공유 액세스 서명)가 포함될 수 있습니다. Batch .NET 내에서 대부분의 작업 형식은 다음을 포함하는 *ResourceFiles* 속성을 포함합니다.
 
 * [CloudTask][net_task]
@@ -291,8 +280,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 
 DotNetTutorial 샘플 응용 프로그램은 JobPreparationTask 또는 JobReleaseTask 태스크 유형을 사용하지 않지만 [Azure Batch 계산 노드에서 작업 준비와 완료 태스크 실행](batch-job-prep-release.md)에서 이에 대해 자세히 알아볼 수 있습니다.
 
-### 공유 액세스 서명(SAS)
-<a id="shared-access-signature-sas" class="xliff"></a>
+### <a name="shared-access-signature-sas"></a>공유 액세스 서명(SAS)
 공유 액세스 서명은 URL의 일부분으로 포함되는 경우 Azure Storage의 컨테이너 및 Blob에 대한 보안 액세스를 제공하는 문자열입니다. DotNetTutorial 응용 프로그램은 Blob 및 컨테이너 공유 액세스 서명 URL 모두를 사용하고 Storage 서비스에서 이러한 공유 액세스 서명 문자열을 가져오는 방법을 보여 줍니다.
 
 * **Blob 공유 액세스 서명**: DotNetTutorial에서 풀의 StartTask는 Storage에서 응용 프로그램 이진 및 입력 데이터 파일을 다운로드하는 경우 Blob 공유 액세스 서명을 사용합니다(아래 #3단계 참조). DotNetTutorial의 `Program.cs`에서 `UploadFileToContainerAsync` 메서드는 각 Blob의 공유 액세스 서명을 가져오는 코드를 포함합니다. [CloudBlob.GetSharedAccessSignature][net_sas_blob]를 호출하여 작업을 수행합니다.
@@ -303,8 +291,7 @@ DotNetTutorial 샘플 응용 프로그램은 JobPreparationTask 또는 JobReleas
 >
 >
 
-## 3단계: Batch 풀 만들기
-<a id="step-3-create-batch-pool" class="xliff"></a>
+## <a name="step-3-create-batch-pool"></a>3단계: Batch 풀 만들기
 ![Batch 풀 만들기][3]
 <br/>
 
@@ -388,7 +375,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 이 샘플 응용 프로그램에서 StartTask는 Storage([StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles] 속성을 사용하여 지정됨)에서 다운로드하는 파일을 StartTask 작업 디렉터리에서 노드에서 실행되는 *모든* 태스크를 액세스할 수 있는 공유 디렉터리에 복사합니다. 기본적으로 노드가 풀에 조인하면 `TaskApplication.exe` 및 해당 종속성이 각 노드의 공유 디렉터리에 복사되므로 노드에서 실행되는 모든 작업이 공유 디렉터리에 액세스할 수 있습니다.
 
 > [!TIP]
-> Azure Batch의 **응용 프로그램 패키지** 기능은 풀의 계산 노드로 응용 프로그램을 가져올 수 있는 또 다른 방법을 제공합니다. 자세한 내용은 [Azure Batch 응용 프로그램 패키지를 사용하여 응용 프로그램 배포](batch-application-packages.md) 를 참조하세요.
+> Azure Batch의 **응용 프로그램 패키지** 기능은 풀의 계산 노드로 응용 프로그램을 가져올 수 있는 또 다른 방법을 제공합니다. 자세한 내용은 [Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 >
 >
 
@@ -399,8 +386,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 >
 >
 
-## 4단계: Batch 작업 만들기
-<a id="step-4-create-batch-job" class="xliff"></a>
+## <a name="step-4-create-batch-job"></a>4단계: Batch 작업 만들기
 ![Batch 작업 만들기][4]<br/>
 
 Batch **작업** 은 태스크의 컬렉션이며 계산 노드의 풀과 관련됩니다. 작업의 태스크는 연결된 풀의 계산 노드에서 실행됩니다.
@@ -427,8 +413,7 @@ private static async Task CreateJobAsync(
 
 이제 작업이 만들어졌으므로 작업은 작업 수행에 추가됩니다.
 
-## 5단계: 작업에 태스크 추가
-<a id="step-5-add-tasks-to-job" class="xliff"></a>
+## <a name="step-5-add-tasks-to-job"></a>5단계: 작업에 태스크 추가
 ![작업에 태스크 추가][5]<br/>
 *(1) 태스크가 작업에 추가됨, (2) 태스크가 노드에서 실행되도록 예약됨, (3) 태스크가 처리할 데이터 파일을 다운로드함*
 
@@ -519,8 +504,7 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 }
 ```
 
-## 6단계: 작업 모니터링
-<a id="step-6-monitor-tasks" class="xliff"></a>
+## <a name="step-6-monitor-tasks"></a>6단계: 작업 모니터링
 ![작업 모니터링][6]<br/>
 *클라이언트 응용 프로그램이 (1) 태스크의 완료 및 성공 상태를 모니터링하고 (2) 태스크는 결과 데이터를 Azure Storage에 업로드합니다.*
 
@@ -616,8 +600,7 @@ private static async Task<bool> MonitorTasks(
 }
 ```
 
-## 7단계: 작업 출력 다운로드
-<a id="step-7-download-task-output" class="xliff"></a>
+## <a name="step-7-download-task-output"></a>7단계: 작업 출력 다운로드
 ![Storage에서 작업 출력 다운로드][7]<br/>
 
 이제 작업이 완료되었으므로 태스크의 출력을 Azure Storage에서 다운로드할 수 있습니다. 이 작업은 *DotNetTutorial*의 `Program.cs`에서 `DownloadBlobsFromContainerAsync`에 대한 호출로 수행됩니다.
@@ -655,8 +638,7 @@ private static async Task DownloadBlobsFromContainerAsync(
 >
 >
 
-## 8단계: 컨테이너 삭제
-<a id="step-8-delete-containers" class="xliff"></a>
+## <a name="step-8-delete-containers"></a>8단계: 컨테이너 삭제
 Azure Storage에 있는 데이터에 대한 요금이 부과되므로 Batch 작업에 더 이상 필요 없는 모든 Blob을 제거하는 것이 좋습니다. DotNetTutorial의 `Program.cs`에서 도우미 메서드 `DeleteContainerAsync`에 대한 세 번의 호출로 수행됩니다.
 
 ```csharp
@@ -687,8 +669,7 @@ private static async Task DeleteContainerAsync(
 }
 ```
 
-## 9단계: 작업 및 풀 삭제
-<a id="step-9-delete-the-job-and-the-pool" class="xliff"></a>
+## <a name="step-9-delete-the-job-and-the-pool"></a>9단계: 작업 및 풀 삭제
 마지막 단계로, DotNetTutorial 응용 프로그램에서 만든 작업 및 풀을 삭제하라는 메시지가 표시됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 계산 노드에 대한 요금이 청구 *됩니다*. 따라서 노드를 필요할 때만 할당하는 것이 좋습니다. 사용하지 않는 풀을 삭제하는 것이 유지 관리 프로세스의 일부가 될 수 있습니다.
 
 BatchClient의 [JobOperations][net_joboperations] 및 [PoolOperations][net_pooloperations]에는 사용자가 삭제를 확인하는 경우 호출되는 것에 해당하는 삭제 메서드가 있습니다.
@@ -716,8 +697,7 @@ if (response != "n" && response != "no")
 >
 >
 
-## *DotNetTutorial* 샘플 실행
-<a id="run-the-dotnettutorial-sample" class="xliff"></a>
+## <a name="run-the-dotnettutorial-sample"></a>*DotNetTutorial* 샘플 실행
 샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 유사하게 됩니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Awaiting task completion, timeout in 00:30:00...` 에서 일시 중지가 발생합니다. [Azure Portal][azure_portal]을 사용하여 실행 중 및 실행 후에 풀, 계산 노드, 작업 및 태스크를 모니터링합니다. [Azure portal][azure_portal] 또는 [Azure Storage 탐색기][storage_explorers]를 사용하여 응용 프로그램에서 만든 Storage 리소스(컨테이너 및 Blob)를 봅니다.
 
 기본 구성에서 응용 프로그램을 실행하는 경우 일반적인 실행 시간은 **약 5분** 입니다.
@@ -753,8 +733,7 @@ Delete pool? [yes] no: yes
 Sample complete, hit ENTER to exit...
 ```
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 다른 계산 시나리오를 실험하려면 *DotNetTutorial* 및 *TaskApplication*을 자유롭게 변경합니다. 예를 들어, 포털에서 장기 실행 태스크를 시뮬레이션하고 이를 모니터링하려면 [Thread.Sleep][net_thread_sleep] 등을 사용하여 *TaskApplication*에 실행 지연을 추가해 봅니다. 더 많은 태스크를 추가하거나 계산 노드 수를 조정합니다. 실행 시간을 줄이기 위해 기존 풀의 사용을 검사 및 허용하도록 논리를 추가합니다(*힌트*: [azure-batch-samples][github_samples]의 [Microsoft.Azure.Batch.Samples.Common][github_samples_common] 프로젝트에서 `ArticleHelpers.cs`을 확인).
 
 이제 Batch 솔루션의 기본 워크플로에 익숙하다면 Batch 서비스의 추가 기능을 살펴볼 시간입니다.

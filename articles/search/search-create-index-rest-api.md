@@ -1,5 +1,5 @@
 ---
-title: "REST API를 사용하여 Azure 검색 인덱스 만들기 | Microsoft Docs"
+title: "인덱스 만들기(REST API - Azure Search) | Microsoft Docs"
 description: "Azure 검색 HTTP REST API를 사용하여 코드에 인덱스를 만듭니다."
 services: search
 documentationcenter: 
@@ -15,10 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
-ms.openlocfilehash: 7f4bccda8a7cebff0d80627320d34062d4d55add
-ms.lasthandoff: 01/14/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9a64d1436471e406b7d9b700257d3dd96b5edcde
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure 검색 인덱스 만들기
@@ -107,5 +108,5 @@ Azure 검색 서비스를 프로비전했다면 REST API를 사용하여 서비�
 
 
 ## <a name="next-steps"></a>다음 단계
-Azure 검색 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md) 할 준비가 되었습니다.
+Azure Search 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md) 할 준비가 되었습니다.
 

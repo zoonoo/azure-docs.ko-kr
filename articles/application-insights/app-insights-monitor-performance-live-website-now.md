@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 769377af7bf62d35c45c6e2e7b0ae3311b784894
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 457ba9c9f74bc9d88800607a2f78a3c3c96cea07
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights를 사용한 런타임 시 웹앱 계측
@@ -42,10 +41,10 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
 | [자세한 예외 정보](app-insights-asp-net-exceptions.md) | |예 |
 | [종속성 진단](app-insights-asp-net-dependencies.md) |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
 | [시스템 성능 카운터](app-insights-performance-counters.md) |예 |예 |
-| [사용자 지정 원격 분석에 대 한 API][api] |예 | |
-| [추적 로그 통합](app-insights-asp-net-trace-logs.md) |예 | |
-| [페이지 보기 및 사용자 데이터](app-insights-javascript.md) |예 | |
-| 코드를 다시 빌드할 필요 없음 |아니요 | |
+| [사용자 지정 원격 분석에 대 한 API][api] |예 |아니요 |
+| [추적 로그 통합](app-insights-asp-net-trace-logs.md) |예 |아니요 |
+| [페이지 보기 및 사용자 데이터](app-insights-javascript.md) |예 |아니요 |
+| 코드를 다시 빌드해야 함 |예 | 아니요 |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>라이브 Azure 웹앱 모니터링

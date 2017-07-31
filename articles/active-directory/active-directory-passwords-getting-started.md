@@ -6,22 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 5a338029cea5f448fc4d84a1a9c01c867ecd5028
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 23715879b46dd6d56a91fac2908964ea87fe569a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/13/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="quick-start-azure-ad-self-service-password-reset"></a>빠른 시작: Azure AD 셀프 서비스 암호 재설정
@@ -40,23 +39,23 @@ IT 관리자는 SSPR(셀프 서비스 암호 재설정)을 사용하여 사용�
     * 모든 사람 - Azure AD 테넌트에 계정이 있는 모든 사용자가 SSPR 기능을 사용할 수 있음
 
 3. **"인증 방법"** 화면에서 다음을 선택합니다.
-    * "재설정에 필요한 방법 수" - 최소 한 가지 또는 최대 두 가지를 지원합니다.
-    * "사용자가 사용할 수 있는 방법" - 적어도 한 가지 이상이 필요하지만 그보다 많아도 상관 없습니다.
+    * 재설정에 필요한 방법 수 - 하나(최소) 또는 둘(최대)을 지원합니다.
+    * 사용자가 사용할 수 있는 방법 - 적어도 하나 이상이 필요합니다.
         * **전자 메일**은 사용자가 구성한 인증 전자 메일 주소로 코드가 포함된 전자 메일을 보냅니다.
         * **휴대폰**은 사용자가 구성한 휴대폰 번호로 코드가 포함된 전화 또는 문자 메시지 중에 무엇을 받을 것인지 선택할 수 있습니다.
         * **사무실 전화**는 사용자가 구성한 사무실 전화 번호로 코드가 포함된 전화를 겁니다.
         * **보안 질문**에서는 다음을 선택해야 합니다.
-            * "등록에 필요한 질문 수"는 등록에 필요한 최소 수입니다. 즉, 사용자는 더 많은 질문에 답하도록 선택하여 질문을 가져올 질문 풀을 만들 수 있습니다. 이 옵션은 3-5로 설정해야 하며 재설정에 필요한 질문 수보다 많거나 같아야 합니다.
-            * "재설정에 필요한 질문 수"는 3-5개 질문으로 설정할 수 있으며, 질문에 정확하게 대답해야만 사용자 암호를 재설정하거나 잠금 해제할 수 있습니다.
+            * 등록에 필요한 질문 수 - 성공적인 등록에 필요한 최소 수입니다. 즉, 사용자가 더 많이 대답하도록 선택하여 질문을 가져올 질문 풀을 만들 수 있습니다. 이 옵션은 3-5로 설정해야 하며 재설정에 필요한 질문 수보다 많거나 같아야 합니다.
                 * 사용자 지정 질문은 보안 질문을 선택할 때 "사용자 지정" 단추를 클릭하여 추가할 수 있습니다.
+            * 재설정에 필요한 질문 수 - 사용자 암호를 재설정하거나 잠금 해제하도록 허용하기 전에 3-5개 질문에 대해 정확하게 대답하도록 설정할 수 있습니다.
 
 4. 권장 사항: **"사용자 지정"**을 사용하여 "관리자에게 문의" 링크가 사용자가 정의한 페이지 또는 전자 메일 주소를 가리키도록 변경할 수 있습니다
 
 5. 선택 사항: **"등록"** 화면은 관리자에게 다음 옵션을 제공합니다.
-    * "로그인 시 사용자가 등록하도록 요구"
-    * "사용자가 인증 정보를 다시 확인해야 하기 전의 일 수"
+    * 로그인 시 사용자가 등록하도록 요구
+    * 사용자가 인증 정보를 다시 확인해야 하기 전의 일 수
 
-6. 선택 사항: **"알림"** 화면은 관리자에게 다음 옵션을 제공합니다.
+6. 선택 사항: **"알림"** 화면에서 관리자에게 제공되는 옵션은 다음과 같습니다.
     * 사용자에게 암호 재설정에 대해 알림
     * 다른 관리자가 암호를 재설정하면 모든 관리자에게 알림
 
@@ -67,7 +66,7 @@ IT 관리자는 SSPR(셀프 서비스 암호 재설정)을 사용하여 사용�
 
 ## <a name="configure-synchronization-to-existing-identity-source"></a>기존 ID 소스에 동기화 구성
 
-Azure AD에 온-프레미스 ID 동기화를 사용하려면 조직의 서버에 [Azure AD Connect](./connect/active-directory-aadconnect.md)를 설치하고 구성해야 합니다. 이 응용 프로그램은 기존 ID 소스에서 Azure AD 도메인으로의 사용자 및 그룹 동기화를 처리합니다.
+Azure AD에 온-프레미스 ID 동기화를 사용하려면 조직의 서버에 [Azure AD Connect](./connect/active-directory-aadconnect.md)를 설치하고 구성해야 합니다. 이 응용 프로그램은 사용자 및 그룹을 기존 ID 원본에서 Azure AD 테넌트로 동기화합니다.
 
 * [DirSync 또는 Azure AD Sync에서 Azure AD Connect로 업그레이드](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [기본 설정을 사용하여 Azure AD Connect 시작](./connect/active-directory-aadconnect-get-started-express.md)
@@ -75,7 +74,7 @@ Azure AD에 온-프레미스 ID 동기화를 사용하려면 조직의 서버에
 
 ## <a name="disabling-self-service-password-reset"></a>셀프 서비스 암호 재설정 해제
 
-셀프 서비스 암호 재설정을 해제하는 방법은 아주 간단합니다. Azure AD 테넌트를 열고, **암호 재설정**, **속성**으로 이동하여 **셀프 서비스 암호 재설정이 사용하도록 설정됨** 아래에서 **아무도 없음**을 선택하면 됩니다.
+셀프 서비스 암호 재설정을 사용하지 않도록 설정하려면 Azure AD 테넌트를 열고 **암호 재설정 > 속성**으로 이동하여 **셀프 서비스 암호 재설정이 사용하도록 설정됨** 아래에서 **아무도 없음**을 선택하면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음 링크는 Azure AD를 사용한 암호 재설정에 대한 추가 정보를 제공합니다.

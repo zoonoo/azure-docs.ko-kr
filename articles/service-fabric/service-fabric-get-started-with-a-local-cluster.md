@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 07/13/2017
 ms.author: ryanwi;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c0c5ab8a9db60ff375b7d823e40f83cbc4d2b4c3
-ms.lasthandoff: 04/07/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 359677972c7e1fa3f7435052021ddfae5b1ed85e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>로컬 클러스터에서 응용 프로그램 배포 및 업그레이드 시작
@@ -114,7 +114,7 @@ SDK는 Windows PowerShell 스크립트 및 로컬 클러스터 관리자 시스�
    
     ![PowerShell에서 응용 프로그램에 대한 서비스 목록][ps-getsfsvc]
    
-    응용 프로그램은 단어를 관리하는 웹 프런트 엔드 및 상태 저장 서비스라는 두 서비스로 구성됩니다.
+    응용 프로그램은 두 서비스, 즉 웹 프런트 엔드 및 단어를 관리하는 상태 저장 서비스로 구성됩니다.
 3. 마지막으로 WordCountService에 대한 파티션의 목록을 살펴봅니다.
    
     ```powershell

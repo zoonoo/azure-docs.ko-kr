@@ -1,5 +1,5 @@
 ---
-title: "포털에서 첫 번째 Azure Search 인덱스 만들기 | Microsoft Docs"
+title: "자습서: 포털에서 첫 번째 Azure Search 인덱스 만들기 | Microsoft Docs"
 description: "Azure Portal에서 미리 정의된 샘플 데이터를 사용하여 인덱스를 생성합니다. 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색 등을 살펴봅니다."
 services: search
 documentationcenter: 
@@ -13,17 +13,16 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 06/26/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="build-and-query-your-first-azure-search-index-in-the-portal"></a>포털에서 첫 번째 Azure Search 인덱스를 만들고 쿼리
+# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>자습서: 포털에서 첫 번째 Azure Search 인덱스 만들기
 
 Azure Portal에서 미리 정의된 샘플 데이터 집합을 시작하고 **데이터를 가져오기** 마법사를 사용하여 신속하게 인덱스를 생성합니다. **검색 탐색기**를 사용하여 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색을 살펴봅니다.  
 

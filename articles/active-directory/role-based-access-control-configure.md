@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2017
+ms.date: 07/17/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 9fb0fdf1a2a48c5c9daf7d0ec22e85221bfb6b28
-ms.lasthandoff: 04/07/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리
@@ -41,7 +41,7 @@ Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 �
    
     ![사용자 블레이드 - 상속된 및 할당된 액세스 스크린샷](./media/role-based-access-control-configure/view-access.png)
 
-일부 사용자는 액세스가 **할당되는** 반면 일부는 **상속됩**니다. 액세스는 리소스 그룹에 특별히 할당되거나 부모 구독에 할당된 내용에서 상속됩니다.
+일부 역할의 범위는 **이 리소스**이지만 나머지는 다른 범위에서 **상속**됩니다. 액세스는 리소스 그룹에 특별히 할당되거나 부모 구독에 할당된 내용에서 상속됩니다.
 
 > [!NOTE]
 > 클래식 구독 관리자와 공동 관리자는 새 RBAC 모델에서 구독의 소유자로 간주됩니다.
@@ -60,9 +60,10 @@ Azure RBAC(역할 기반 액세스 제어)를 통해 Azure에 대한 세밀한 �
 역할 할당을 성공적으로 추가한 후에 **사용자** 블레이드가 나타납니다.
 
 ## <a name="remove-access"></a>액세스 제거
-1. 액세스 제어 블레이드의 확인란을 사용하여 하나 이상의 역할 할당을 선택합니다.
+1. 제거하려는 할당의 이름 위로 마우스를 가져갑니다. 이름 옆에 확인란이 나타납니다.
+2. 확인란을 사용하여 하나 이상의 역할 할당을 선택합니다.
 2. **제거**를 선택합니다.  
-3. 작업 확인을 요청하는 팝업 메시지가 표시됩니다. **예**를 선택하여 역할 할당을 제거합니다.
+3. **예**를 선택하여 제거를 확인합니다.
 
 상속된 할당을 제거할 수 있습니다. 상속된 할당을 제거하려면 역할 할당이 만들어진 범위에서 할당을 제거해야 합니다. **범위** 열에서 **상속됨** 옆쪽을 이 역할이 할당된 리소스로 이동하는 링크가 있습니다. 여기에 나열된 리소스로 이동하여 역할 할당을 제거합니다.
 

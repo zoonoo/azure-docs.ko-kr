@@ -16,10 +16,6 @@ Visual Studio를 Azure 계정에 아직 연결하지 않았으면 **계정 추�
 | **[App Service 계획](../articles/azure-functions/functions-scale.md)** | 소비 계획 | 새 계획을 만들 때 **크기** 아래에서 **소비**를 선택해야 합니다.  |
 | **[Storage 계정](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | 전역적으로 고유한 이름 | 기존 저장소 계정을 사용하거나 새 저장소 계정을 만듭니다.   |
 
-**만들기**를 클릭하여 Azure에서 이러한 설정이 포함된 함수 앱을 만듭니다. 
-
-프로비전이 완료되면 **게시**를 클릭하여 프로젝트 코드를 새 함수 앱에 배포합니다. 
+**만들기**를 클릭하여 Azure에서 이러한 설정이 포함된 함수 앱을 만듭니다. 프로비전이 완료된 후에 Azure에서 함수 앱의 주소인 **사이트 URL** 값을 기록해 둡니다. 
 
 ![Azure 로컬 런타임](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
-
-Azure에서 함수 앱의 주소인 **사이트 URL** 값을 기록해 둡니다. 

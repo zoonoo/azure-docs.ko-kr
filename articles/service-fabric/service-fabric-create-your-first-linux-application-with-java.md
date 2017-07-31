@@ -1,6 +1,6 @@
 ---
-title: "Java를 사용하여 Linux에서 첫 번째 Azure 마이크로 서비스 만들기 | Microsoft Docs"
-description: "Java를 사용하여 Service Fabric 응용 프로그램 만들기 및 배포"
+title: "Linux에서 Azure Service Fabric Reliable Actors Java 응용 프로그램 만들기 | Microsoft Docs"
+description: "5분 안에 Java Service Fabric Reliable Actors 응용 프로그램을 만들고 배포하는 방법을 알아봅니다."
 services: service-fabric
 documentationcenter: java
 author: rwike77
@@ -12,35 +12,25 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/02/2017
+ms.date: 06/29/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: e229602b4bfa72977c9b15e854d796ed09fa55d2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 254f38a600ea4026120bc411368eeb01310e56b2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기
-<a id="create-your-first-service-fabric-java-application-on-linux" class="xliff"></a>
-> [!div class="op_single_selector"]
-> * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
->
->
+# <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 응용 프로그램 만들기
 
-이 빠른 시작을 통해 몇 분만에 Linux 개발 환경에서 첫 번째 Azure Service Fabric Java 응용 프로그램을 만들 수 있습니다.  작업이 완료되면 간단한 Java 단일 서비스 앱이 로컬 개발 클러스터에서 실행됩니다.  
+이 빠른 시작을 통해 몇 분만에 Linux 개발 환경에서 첫 번째 Azure Service Fabric Java 응용 프로그램을 만들 수 있습니다.  작업이 완료되면 간단한 Java 단일 서비스 응용 프로그램이 로컬 개발 클러스터에서 실행됩니다.  
 
-## 필수 조건
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>필수 조건
 시작하기 전에 Service Fabric SDK, Azure CLI를 설치하고 [Linux 개발 환경](service-fabric-get-started-linux.md)에 개발 클러스터를 설치합니다. Mac OS X을 사용하는 경우 [Vagrant를 사용하여 가상 컴퓨터에서 Linux 개발 환경을 설정](service-fabric-get-started-mac.md)할 수 있습니다.
 
 응용 프로그램을 배포하기 위해 [Azure CLI 2.0](service-fabric-azure-cli-2-0.md)(권장) 또는 [XPlat CLI](service-fabric-azure-cli.md)를 구성할 수도 있습니다.
 
-## 응용 프로그램 만들기
-<a id="create-the-application" class="xliff"></a>
+## <a name="create-the-application"></a>응용 프로그램 만들기
 Service Fabric 응용 프로그램은 응용 프로그램의 기능을 제공하는 특정 역할이 있는 하나 이상의 서비스를 포함합니다. Linux용 Service Fabric SDK는 쉽게 첫 번째 서비스를 만들고 나중에 더 추가할 수 있는 [Yeoman](http://yeoman.io/) 생성기를 포함합니다.  Eclipse용 플러그 인을 사용하여 Service Fabric Java 응용 프로그램을 만들고 빌드하고 배포할 수 있습니다. [Eclipse를 사용하여 첫 번째 Java 응용 프로그램 만들기 및 배포](service-fabric-get-started-eclipse.md)를 참조하세요. 빠른 시작에서 Yeoman을 사용하여 카운터 값을 저장하고 가져오는 단일 서비스를 포함한 응용 프로그램을 만듭니다.
 
 1. 터미널에서 ``yo azuresfjava``을 입력합니다.
@@ -48,21 +38,18 @@ Service Fabric 응용 프로그램은 응용 프로그램의 기능을 제공하
 3. 첫 번째 서비스의 형식을 선택하고 이름을 지정합니다. 이 자습서에서 Reliable Actor 서비스를 선택합니다. 다른 종류의 서비스에 대한 자세한 내용은 [Service Fabric 프로그래밍 모델 개요](service-fabric-choose-framework.md)를 참조하세요.
    ![Java용 Service Fabric Yeoman 생성기][sf-yeoman]
 
-## 응용 프로그램 빌드
-<a id="build-the-application" class="xliff"></a>
-Service Fabric Yeoman 템플릿은 [Gradle](https://gradle.org/)에 대한 빌드 스크립트를 포함하며 이것을 사용하여 터미널에서 앱을 빌드할 수 있습니다. 앱을 빌드하고 패키징하려면 다음을 실행합니다.
+## <a name="build-the-application"></a>응용 프로그램 빌드
+Service Fabric Yeoman 템플릿은 [Gradle](https://gradle.org/)에 대한 빌드 스크립트를 포함하며 이것을 사용하여 터미널에서 응용 프로그램을 빌드할 수 있습니다. 응용 프로그램을 빌드하고 패키징하려면 다음을 실행합니다.
 
   ```bash
   cd myapp
   gradle
   ```
 
-## 응용 프로그램 배포
-<a id="deploy-the-application" class="xliff"></a>
+## <a name="deploy-the-application"></a>응용 프로그램 배포
 응용 프로그램이 빌드되면 로컬 클러스터에 배포할 수 있습니다.
 
-### 플랫폼 간 CLI 사용
-<a id="using-xplat-cli" class="xliff"></a>
+### <a name="using-xplat-cli"></a>플랫폼 간 CLI 사용
 
 1. 로컬 Service Fabric 클러스터에 연결합니다.
 
@@ -76,8 +63,7 @@ Service Fabric Yeoman 템플릿은 [Gradle](https://gradle.org/)에 대한 빌�
     ./install.sh
     ```
 
-### Azure CLI 2.0 사용
-<a id="using-azure-cli-20" class="xliff"></a>
+### <a name="using-azure-cli-20"></a>Azure CLI 2.0 사용
 
 빌드된 응용 프로그램을 배포하는 방법은 다른 Service Fabric 응용 프로그램과 같습니다. 자세한 지침은 [Azure CLI로 Service Fabric 응용 프로그램 관리](service-fabric-application-lifecycle-azure-cli-2-0.md)에 대한 설명서를 참조하세요.
 
@@ -86,8 +72,7 @@ Service Fabric Yeoman 템플릿은 [Gradle](https://gradle.org/)에 대한 빌�
 응용 프로그램이 배포되면 브라우저를 열고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다.
 그런 다음 **응용 프로그램** 노드를 확장하면 응용 프로그램 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
-## 테스트 클라이언트 시작 및 장애 조치 수행
-<a id="start-the-test-client-and-perform-a-failover" class="xliff"></a>
+## <a name="start-the-test-client-and-perform-a-failover"></a>테스트 클라이언트 시작 및 장애 조치 수행
 행위자는 자체적으로 아무 작업도 수행하지 않습니다. 따라서 메시지를 보낼 다른 서비스 또는 클라이언트가 필요합니다. 행위자 템플릿은 행위자 서비스와 상호 작용하는 데 사용할 수 있는 간단한 테스트 스크립트를 포함합니다.
 
 1. 행위자 서비스의 출력을 확인하려면 조사식 유틸리티를 사용하여 스크립트를 실행합니다.  테스트 스크립트는 행위자의 `setCountAsync()` 메서드를 호출하여 카운터를 증가시키고 행위자의 `getCountAsync()` 메서드를 호출하여 새 카운터 값을 가져오고 해당 값을 콘솔에 표시합니다.
@@ -103,16 +88,8 @@ Service Fabric Yeoman 템플릿은 [Gradle](https://gradle.org/)에 대한 빌�
 
 3. **노드**에서는 이전 단계에서 찾은 노드를 클릭한 다음 작업 메뉴에서 **비활성화(다시 시작)**를 선택합니다. 이 작업은 주 서비스 복제본을 실행하는 노드를 다시 시작하고 다른 노드에서 실행 중인 보조 복제본 중 하나에 장애 조치를 강제합니다.  해당 보조 복제본이 주 복제본으로 승격되면 다른 노드에서 다른 보조 복제본이 생성되며 주 복제본이 읽기/쓰기 작업을 수행하기 시작합니다. 노드가 다시 시작되면 테스트 클라이언트의 출력에 주의하고 장애 조치에도 불구하고 카운터가 계속 증가하게 됩니다.
 
-## 응용 프로그램에 다른 서비스 추가
-<a id="add-another-service-to-the-application" class="xliff"></a>
-`yo`을 사용하는 기존 응용 프로그램에 다른 서비스를 추가하려면 다음 단계를 수행합니다.
-1. 기존 응용 프로그램의 루트로 디렉터리를 변경합니다.  예를 들어 `MyApplication`이 Yeoman에서 만든 응용 프로그램인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
-2. `yo azuresfjava:AddService`을 실행합니다.
-3. 앞 단계에 따라 앱을 빌드하고 배포합니다.
-
-## 응용 프로그램을 제거합니다.
-<a id="remove-the-application" class="xliff"></a>
-템플릿에 제공된 설치 제거 스크립트를 사용하여 앱 인스턴스를 제거하고 클러스터의 이미지 저장소에서 응용 프로그램 패키지를 제거합니다.
+## <a name="remove-the-application"></a>응용 프로그램을 제거합니다.
+템플릿에 제공된 설치 제거 스크립트를 사용하여 응용 프로그램 인스턴스를 제거하고 클러스터의 이미지 저장소에서 응용 프로그램 패키지를 제거합니다.
 
 ```bash
 ./uninstall.sh
@@ -120,16 +97,14 @@ Service Fabric Yeoman 템플릿은 [Gradle](https://gradle.org/)에 대한 빌�
 
 Service Fabric Explorer에서 응용 프로그램이 표시되고 응용 프로그램 형식이 **응용 프로그램** 노드에 더 이상 표시되지 않습니다.
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 * [Eclipse를 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기](service-fabric-get-started-eclipse.md)
 * [Reliable Actors에 대해 자세히 알아보기](service-fabric-reliable-actors-introduction.md)
 * [Azure CLI를 사용하여 Service Fabric 클러스터와 상호 작용](service-fabric-azure-cli.md)
 * [배포 문제 해결](service-fabric-azure-cli.md#troubleshooting)
 * [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 
-## 관련된 문서
-<a id="related-articles" class="xliff"></a>
+## <a name="related-articles"></a>관련된 문서
 
 * [Service Fabric 및 Azure CLI 2.0 시작](service-fabric-azure-cli-2-0.md)
 * [Service Fabric 및 XPlat CLI 시작](service-fabric-azure-cli.md)

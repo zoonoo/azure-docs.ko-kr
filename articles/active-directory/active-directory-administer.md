@@ -4,7 +4,6 @@ description: "Azure AD 테넌트의 정의 및 Azure Active Directory를 통해 
 services: active-directory
 documentationcenter: 
 author: curtand
-writer: markvi
 manager: femila
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -12,13 +11,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/06/2017
+ms.date: 07/20/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
-ms.lasthandoff: 12/08/2016
-
+ms.reviewer: jeffsta
+ms.custom: it-pro;oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 07b9f4626e9129c7eeb94d43883417f324da5292
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="administer-your-azure-ad-directory"></a>Azure AD 디렉터리 관리
@@ -55,7 +56,7 @@ Azure AD 디렉터리는 이러한 Microsoft 클라우드 서비스에 등록하
 Azure AD와 온-프레미스 디렉터리 통합에 대한 자세한 내용은 [디렉터리 통합](active-directory-aadconnect.md)을 참조하세요.
 
 ### <a name="associate-an-azure-ad-directory-with-a-new-azure-subscription"></a>새 Azure 구독과 Azure AD 디렉터리 연결
-기존 Office 365 또는 Microsoft Intune 구독에 대한 로그인을 인증하는 동일한 디렉터리와 새 Azure 구독을 연결할 수 있습니다. 회사 또는 학교 계정을 사용하여 Azure 관리 포털에 로그인합니다. 관리 포털에서 해당 계정에 대한 구독을 찾을 수 없다는 메시지를 반환합니다. **Azure에 등록**을 선택하면 포털 내에서 디렉터리를 관리할 수 있습니다. 자세한 내용은 [Azure에서 Office 365 구독의 디렉터리 관리](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure)를 참조하세요.
+기존 Office 365 또는 Microsoft Intune 구독에 대한 로그인을 인증하는 동일한 디렉터리와 새 Azure 구독을 연결할 수 있습니다. 회사 또는 학교 계정을 사용하여 Azure Portal에 로그인합니다. 포털에서 해당 계정에 대한 구독을 찾을 수 없다는 메시지를 반환합니다. **Azure에 등록**을 선택하면 포털 내에서 디렉터리를 관리할 수 있습니다. 자세한 내용은 [Azure에서 Office 365 구독의 디렉터리 관리](active-directory-how-subscriptions-associated-directory.md#manage-the-directory-for-your-office-365-subscription-in-azure)를 참조하세요.
 
 일반적인 Azure AD 사용 관련 질문에 대한 비디오는 [Azure Active Directory - 일반적인 등록, 로그인 및 사용 관련 질문](http://channel9.msdn.com/Series/Windows-Azure-Active-Directory/WAADCommonSignupsigninquestions)(영문)을 참조하세요.
 
@@ -76,7 +77,7 @@ Azure AD 사용에 따른 비용은 없습니다. 디렉터리는 무료 리소�
 디렉터리의 표시 이름을 변경하려면 포털에서 디렉터리를 클릭하고 **구성**을 클릭합니다. 이 항목의 뒷부분에서 설명한 대로 새 디렉터리를 추가하거나 더 이상 필요 없는 디렉터리를 삭제할 수 있습니다. 구독을 다른 디렉터리와 연결하려면 왼쪽 탐색 창에서 **설정** 확장을 클릭하고 **구독** 페이지의 맨 아래에서 **디렉터리 편집**을 클릭합니다. 또한 기본 *.onmicrosoft.com 도메인 대신 등록한 DNS 이름을 사용하여 사용자 지정 도메인을 만들 수 있으며, SharePoint Online과 같은 서비스에 적합할 수 있습니다.
 
 ## <a name="how-can-i-manage-directory-data"></a>디렉터리 데이터를 관리하는 방법
-여러 Microsoft 클라우드 서비스 구독의 관리자는 Azure 관리 포털, Microsoft Intune 계정 포털 또는 Office 365 관리 센터를 사용하여 조직 디렉터리 데이터를 관리할 수 있습니다. 또한 [Windows PowerShell용 Microsoft Azure Active Directory 모듈](https://msdn.microsoft.com/library/azure/jj151815.aspx) cmdlet을 다운로드하고 실행하여 Azure AD에 저장된 데이터를 관리할 수 있습니다.
+하나 이상의 Microsoft 클라우드 서비스 구독의 관리자는 [Azure AD 관리 센터](https://aad.portal.azure.com), Microsoft Intune 계정 포털 또는 Office 365 관리 센터를 사용하여 조직의 디렉터리 데이터를 관리할 수 있습니다. 또한 [Windows PowerShell용 Microsoft Azure Active Directory 모듈](https://msdn.microsoft.com/library/azure/jj151815.aspx) cmdlet을 다운로드하고 실행하여 Azure AD에 저장된 데이터를 관리할 수 있습니다.
 
 이러한 포털(또는 cmdlet)에서는 다음을 수행할 수 있습니다.
 
@@ -84,7 +85,7 @@ Azure AD 사용에 따른 비용은 없습니다. 디렉터리는 무료 리소�
 * 조직이 구독하는 관련 클라우드 서비스 관리
 * 디렉터리 서비스와 온-프레미스 통합 설정
 
-Azure 관리 포털, Office 365 관리 센터, Microsoft Intune 계정 포털 및 Azure AD cmdlet은 모두 다음 그림에 표시된 대로 조직의 디렉터리와 연결된 Azure AD의 단일 공유 인스턴스에서 읽고 씁니다. 이러한 방식으로 포털(또는 cmdlet)은 디렉터리 데이터를 가져오거나 수정하는 프런트 엔드 인터페이스 역할을 합니다.
+다음 그림과 같이 [Azure AD 관리 센터](https://aad.portal.azure.com), Office 365 관리 센터, Microsoft Intune 계정 포털 및 Azure AD cmdlet은 모두 조직의 디렉터리와 연결된 Azure AD의 단일 공유 인스턴스에서 읽고 씁니다. 이러한 방식으로 포털(또는 cmdlet)은 디렉터리 데이터를 가져오거나 수정하는 프런트 엔드 인터페이스 역할을 합니다.
 
 ![][2]
 
@@ -94,7 +95,7 @@ Azure 관리 포털, Office 365 관리 센터, Microsoft Intune 계정 포털 �
 예를 들어 Office 365 관리 센터를 사용하여 사용자의 로그인을 차단한 경우 조직에서 현재 구독하는 다른 모든 서비스에 대한 사용자의 로그인도 차단됩니다. Microsoft Intune 계정 포털 컨텍스트에서 동일한 사용자의 계정을 가져오려고 하면 사용자가 차단되었다고 표시됩니다.
 
 ## <a name="how-can-i-add-and-manage-multiple-directories"></a>여러 디렉터리를 추가하고 관리하려면 어떻게 하나요?
-Azure 관리 포털에서 Azure AD 디렉터리를 추가할 수 있습니다. 왼쪽에서 **Active Directory** 확장을 선택하고 **추가**를 클릭합니다.
+[Azure AD 클래식 포털](https://manage.windowsazure.com)에서 Azure AD 디렉터리를 추가할 수 있습니다. **개요** 창에서 왼쪽의 **Active Directory** 확장을 선택한 다음 **새로 만들기**를 클릭합니다.
 
 각 디렉터리를 완전히 독립된 리소스로 관리할 수 있습니다. 각 디렉터리는 관리하는 다른 디렉터리와 논리적으로 독립된 완전한 기능을 갖춘 피어이며, 디렉터리 간에 부모-자식 관계가 없습니다. 디렉터리 간 독립성에는 리소스 독립성, 관리 독립성 및 동기화 독립성이 포함됩니다.
 
@@ -116,7 +117,7 @@ Azure 관리 포털에서 Azure AD 디렉터리를 추가할 수 있습니다. �
 전역 관리자는 포털에서 Azure AD 디렉터리를 삭제할 수 있습니다. 디렉터리가 삭제되면 디렉터리에 포함된 모든 리소스도 삭제됩니다. 따라서 디렉터리를 삭제하기 전에 필요 없는 디렉터리인지 확인해야 합니다.
 
 > [!NOTE]
-> 사용자가 회사 또는 학교 계정을 사용하여 로그인하는 경우 사용자는 자신의 홈 디렉터리를 삭제하려고 하면 안 됩니다. 예를 들어 사용자가 joe@contoso.onmicrosoft.com,으로 로그인하는 경우 해당 사용자는 contoso.onmicrosoft.com을 기본 도메인으로 사용하는 디렉터리를 삭제할 수 없습니다.
+> 사용자가 회사 또는 학교 계정을 사용하여 로그인하는 경우 사용자는 자신의 홈 디렉터리를 삭제하려고 하면 안 됩니다. 예를 들어 사용자가 joe@contoso.onmicrosoft.com으로 로그인한 경우 해당 사용자는 contoso.onmicrosoft.com을 기본 도메인으로 사용하는 디렉터리를 삭제할 수 없습니다.
 > 
 > 
 
@@ -130,7 +131,7 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 * Microsoft Azure, Office 365 또는 Azure AD Premium 등 Microsoft Online Services에 대한 구독이 디렉터리에 연결되어 있지 않습니다. 예를 들어 Azure에서 직접 기본 디렉터리를 만든 경우 Azure 구독에서 인증에 이 디렉터리를 계속 사용하면 이 디렉터리를 삭제할 수 없습니다. 마찬가지로 다른 사용자가 구독을 연결한 경우 디렉터리를 삭제할 수 없습니다. 구독을 다른 디렉터리와 연결하려면 Azure 관리 포털에 로그인하고 왼쪽 탐색 영역에서 **설정** 을 클릭합니다. 그런 다음 **구독** 페이지의 맨 아래에서 **디렉터리 편집**을 클릭합니다. Azure 구독에 대한 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
 > [!NOTE]
-> 사용자가 회사 또는 학교 계정을 사용하여 로그인하는 경우 사용자는 자신의 홈 디렉터리를 삭제하려고 하면 안 됩니다. 예를 들어 사용자가 joe@contoso.onmicrosoft.com,으로 로그인하는 경우 해당 사용자는 contoso.onmicrosoft.com을 기본 도메인으로 사용하는 디렉터리를 삭제할 수 없습니다.
+> 사용자가 회사 또는 학교 계정을 사용하여 로그인하는 경우 사용자는 자신의 홈 디렉터리를 삭제하려고 하면 안 됩니다. 예를 들어 사용자가 joe@contoso.onmicrosoft.com으로 로그인한 경우 해당 사용자는 contoso.onmicrosoft.com을 기본 도메인으로 사용하는 디렉터리를 삭제할 수 없습니다.
 > 
 > 
 

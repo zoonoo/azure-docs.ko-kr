@@ -1,8 +1,10 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-#### 최소 StorSimple 장치 설치를 완료하려면
-<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>최소 StorSimple 장치 설치를 완료하려면
 
+   > [!NOTE]
+   > 최소 장치 설정이 완료되면 장치 이름을 변경할 수 없습니다.
+   
 1. **장치** 블레이드의 테이블 형식 장치 목록에서 장치를 선택하고 클릭합니다. 장치가 **설정 준비 완료** 상태입니다. **장치 구성** 블레이드가 열립니다.
 
      ![StorSimple 최소 장치 설치 네트워크 인터페이스](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
@@ -26,9 +28,6 @@
 1. **확인**을 클릭합니다. 장치 구성이 시작됩니다. 장치 구성이 완료되면 알림이 표시됩니다. 장치 상태가 **장치** 블레이드에서 **온라인**으로 변경됩니다.
 
     ![StorSimple 최소 장치 설치 네트워크 인터페이스](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
-
-   > [!NOTE]
-   > **장치 설정** 블레이드에 액세스하여 언제든지 다른 모든 장치 설정을 수정할 수 있습니다.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

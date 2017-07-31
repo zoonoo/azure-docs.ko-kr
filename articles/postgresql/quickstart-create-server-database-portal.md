@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 06/19/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 7bbf70786bff83ad3cfae9cb9b893f41736874b5
+ms.date: 07/12/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c065d692d2a4ac369cb13a70d09b30498e6c9106
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -38,12 +38,12 @@ PostgreSQL용 Azure Database 서버는 정의된 [계산 및 저장소 리소스
  ![PostgreSQL용 Azure Database - 데이터베이스 만들기](./media/quickstart-create-database-portal/1-create-database.png)
 
 3.  위 이미지와 같이 다음 정보를 사용하여 새 서버 세부 정보 양식을 채웁니다.
-    - 서버 이름: **mypgserver-20170401**(서버 이름은 DNS 이름에 매핑되므로 전역적으로 고유해야 합니다.) 
+    - 서버 이름: **mypgserver-20170401**(이 이름이 DNS 이름에 매핑되므로 전역적으로 고유 서버 이름을 선택)
     - 구독: 구독이 여러 개인 경우 리소스가 있거나 요금이 청구되는 적절한 구독을 선택합니다.
     - 리소스 그룹: **myresourcegroup**
     - 서버 관리자 로그인 및 선택한 암호
-    - 위치
-    - PostgreSQL 버전
+    - 위치: 사용자에게 가장 가까운 위치를 선택합니다.
+    - PostgreSQL 버전: 최신 버전을 선택합니다.
 
   > [!IMPORTANT]
   > 여기에 지정한 서버 관리자 로그인 및 암호는 이 빠른 시작의 뒷부분에 나오는 서버 및 데이터베이스에 로그인해야 합니다. 나중에 사용하기 위해 이 정보를 기억하거나 기록합니다.
@@ -104,12 +104,12 @@ Azure Database for PostgreSQL 서버를 만들 때 기본 **postgres** 데이터
 
    ![PostgreSQL용 Azure Database - Azure Shell Bash 프롬프트](./media/quickstart-create-database-portal/8-bash.png)
 
-3. Cloud Shell 프롬프트에서 psql 명령을 사용하여 PostgreSQL용 Azure Database 서버에 연결합니다. 다음 형식은 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 유틸리티를 사용하여 PostgreSQL용 Azure Database 서버에 연결하는 데 사용됩니다.
+3. Cloud Shell 프롬프트에서 psql 명령줄을 입력하여 PostgreSQL 서버용 Azure Database에 연결합니다. 다음 형식은 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 유틸리티를 사용하여 PostgreSQL용 Azure Database 서버에 연결하는 데 사용됩니다.
    ```bash
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   예를 들어 다음 명령은 액세스 자격 증명을 사용하여 **mypgserver-20170401.postgres.database.azure.com** PostgreSQL 서버의 **postgres**라는 기본 데이터베이스에 연결합니다. 메시지가 표시되면 서버 관리자 암호를 입력합니다.
+   예를 들어 다음 명령은 액세스 자격 증명을 사용하여 **mypgserver-20170401.postgres.database.azure.com** PostgreSQL 서버의 **postgres**라는 기본 데이터베이스에 연결합니다. 연결할 때 항상 포트 **5432**를 사용합니다. 메시지가 표시되면 서버 관리자 암호를 입력합니다. 표시된 대로 명령에서 스위치 사이에 공백을 사용하세요. 하지만 등호 및 매개 변수 값 사이에 공백을 넣지 않습니다.
 
    ```bash
    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
