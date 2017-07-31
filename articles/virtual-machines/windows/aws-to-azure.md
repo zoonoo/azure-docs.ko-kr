@@ -24,17 +24,13 @@ ms.lasthandoff: 07/06/2017
 
 ---
 
-<a id="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell" class="xliff"></a>
-
-# PowerShell을 사용하여 AWS(Amazon Web Services)에서 Azure로 Windows VM 이동
+# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>PowerShell을 사용하여 AWS(Amazon Web Services)에서 Azure로 Windows VM 이동
 
 워크로드를 호스팅하기 위해 Azure 가상 컴퓨터를 평가하는 경우 기존 AWS(Amazon Web Services) EC2 Windows VM 인스턴스를 내보낸 다음 VHD(가상 하드 디스크)를 Azure로 업로드할 수 있습니다. VHD를 업로드하면 VHD에서 Azure로 새 VM을 만들 수 있습니다. 
 
 이 항목에서는 단일 VM을 AWS에서 Azure로 이동하는 방법에 대해 설명합니다. VM을 AWS에서 Azure로 대규모로 이동하려면 [Azure Site Recovery를 사용하여 AWS(Amazon Web Services)의 가상 컴퓨터를 Azure로 마이그레이션](../../site-recovery/site-recovery-migrate-aws-to-azure.md)을 참조하세요.
 
-<a id="prepare-the-vm" class="xliff"></a>
-
-## VM 준비 
+## <a name="prepare-the-vm"></a>VM 준비 
  
 일반화된 VHD 및 특수한 VHD 모두를 Azure에 업로드할 수 있습니다. 각 유형은 AWS에서 내보내기 전에 VM을 준비해야 합니다. 
 
@@ -50,9 +46,7 @@ ms.lasthandoff: 07/06/2017
     * VM이 DHCP를 통해 해당 IP 주소 및 DNS 설정을 가져오도록 구성되었는지 확인합니다. 이렇게 하면 서버를 시작할 때 VNet 내의 IP 주소를 가져옵니다.  
 
 
-<a id="export-and-download-the-vhd" class="xliff"></a>
-
-## VHD 내보내기 및 다운로드 
+## <a name="export-and-download-the-vhd"></a>VHD 내보내기 및 다운로드 
 
 EC2 인스턴스를 Amazon S3 버킷의 VHD로 내보냅니다. Amazon 설명서의 [VM 가져오기/내보내기를 사용하여 인스턴스를 VM으로 내보내기](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html)(영문) 항목에서 설명하는 단계를 수행하고, [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) 명령을 실행하여 EC2 인스턴스를 VHD 파일로 내보냅니다. 
 
@@ -69,9 +63,7 @@ VHD를 내보낸 후에 [S3 버킷에서 개체를 다운로드하려면 어떻�
 > AWS에서는 VHD 다운로드에 대한 데이터 전송 요금을 청구합니다. 자세한 내용은 [Amazon S3 요금](https://aws.amazon.com/s3/pricing/)을 참조하세요.
 
 
-<a id="next-steps" class="xliff"></a>
-
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 이제 VHD를 Azure에 업로드하고 새 VM을 만들 수 있습니다. 
 

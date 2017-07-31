@@ -22,9 +22,7 @@ ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl" class="xliff"></a>
-
-# CSDL을 통해 기존 웹 서비스를 OData에 매핑하는 노드 스키마 이해
+# <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>CSDL을 통해 기존 웹 서비스를 OData에 매핑하는 노드 스키마 이해
 > [!IMPORTANT]
 > **현재는 새 데이터 서비스 게시자 등록을 더 이상 받지 않고 있습니다. 따라서 새 데이터 서비스 등재 승인을 받을 수 없습니다.** SaaS 비즈니스 응용 프로그램을 AppSource에 게시하려는 경우 [여기](https://appsource.microsoft.com/partners)에서 자세한 내용을 확인할 수 있습니다. IaaS 응용 프로그램 또는 개발자 서비스를 Azure Marketplace에 게시하려는 경우에는 [여기](https://azure.microsoft.com/marketplace/programs/certified/)에서 자세한 내용을 확인할 수 있습니다.
 >
@@ -32,9 +30,7 @@ ms.lasthandoff: 07/06/2017
 
 이 문서는 OData 프로토콜을 CSDL에 매핑하는 노드 구조를 명확하게 이해하는 데 도움이 됩니다. 노드 구조는 올바르게 구성된 XML입니다. 따라서 OData 매핑을 설계할 때 루트, 부모 및 자식 스키마를 적용할 수 있습니다.
 
-<a id="ignored-elements" class="xliff"></a>
-
-## 무시되는 요소
+## <a name="ignored-elements"></a>무시되는 요소
 다음은 웹 서비스의 메타데이터를 가져오는 동안 Azure 마켓플레이스 백 엔드에서 사용하지 않는 상위 수준 CSDL 요소(XML 노드)입니다. 이러한 요소가 있더라도 무시됩니다.
 
 | 요소 | 범위 |
@@ -51,9 +47,7 @@ ms.lasthandoff: 07/06/2017
 
 다음은 다양한 CSDL XML 노드의 변경 내용(추가된 요소 및 무시된 요소)을 자세히 설명합니다.
 
-<a id="functionimport-node" class="xliff"></a>
-
-## FunctionImport 노드
+## <a name="functionimport-node"></a>FunctionImport 노드
 FunctionImport 노드는 최종 사용자에게 서비스를 노출하는 하나의 URL(진입점)을 나타냅니다. 노드를 사용하여 URL이 처리되는 방식, 최종 사용자에게 제공되는 매개 변수, 매개 변수가 제공되는 방식을 설명할 수 있습니다.
 
 이 노드에 대한 세부 정보는 [여기][MSDNFunctionImportLink](https://msdn.microsoft.com/library/cc716710.aspx)에서 확인할 수 있습니다.
@@ -155,9 +149,7 @@ FunctionImport 노드의 추가 자식 노드(CSDL 문서에서는 다루지 않
 
 **d:ErrorMessage** - OData로 선택적 확장
 
-<a id="parameter-node" class="xliff"></a>
-
-## 매개 변수 노드
+## <a name="parameter-node"></a>매개 변수 노드
 이 노드는 FunctionImport 노드에서 지정된 URI 템플릿/요청 본문의 일부로 노출되는 하나의 매개 변수를 나타냅니다.
 
 [여기](http://msdn.microsoft.com/library/ee473431.aspx)에서 "매개 변수 요소" 노드에 대해 자세하게 설명하는 매우 유용한 문서 페이지를 확인할 수 있습니다. 문서를 보기 위해 필요한 경우 **다른 버전** 드롭다운을 사용하여 다른 버전을 선택할 수 있습니다. *예제:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
@@ -180,9 +172,7 @@ FunctionImport 노드의 추가 자식 노드(CSDL 문서에서는 다루지 않
 | **d: Nullable** *(선택 사항)* |매개 변수가 null일 수 있는지 여부를 정의할 수 있습니다. 기본값은 true입니다. 그러나 URI 템플릿에서 경로의 일부로 노출되는 매개 변수는 null일 수 없습니다. 이러한 매개 변수에 대한 특성이 false로 설정되면 사용자 입력이 무시됩니다. **예제:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
 | **d:SampleValue** *(선택 사항)* |UI에 클라이언트에 대한 메모로 표시되는 샘플 값입니다.  즉, 파이프로 구분된 목록을 사용하여 여러 값을 추가할 수 있습니다. `a |
 
-<a id="entitytype-node" class="xliff"></a>
-
-## EntityType 노드
+## <a name="entitytype-node"></a>EntityType 노드
 이 노드는 마켓플레이스에서 최종 사용자에게 반환되는 유형 중 하나를 나타냅니다. 또한 콘텐츠 공급자의 서비스가 반환하는 출력에서 최종 사용자에게 반환되는 값으로의 매핑을 포함합니다.
 
 이 노드에 대한 자세한 내용은 [여기](http://msdn.microsoft.com/library/bb399206.aspx)에서 확인할 수 있습니다. 문서를 보기 위해 필요한 경우 **다른 버전** 드롭다운을 사용하여 다른 버전을 선택할 수 있습니다.
@@ -206,9 +196,7 @@ XPath 식은 /foo/bar가 됩니다. 각 bar 노드는 출력의 반복 노드이
 
 **Key** - 이 특성은 마켓플레이스에서 무시됩니다. 일반적으로 REST 기반 웹 서비스는 기본 키를 노출하지 않습니다.
 
-<a id="property-node" class="xliff"></a>
-
-## 속성 노드
+## <a name="property-node"></a>속성 노드
 이 노드는 레코드의 한 속성을 포함합니다.
 
 이 노드에 대한 자세한 내용은 [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx)에서 찾을 수 있습니다. 문서를 보기 위해 필요한 경우 **다른 버전** 드롭다운을 사용하여 다른 버전을 선택할 수 있습니다. *예제:* `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
@@ -264,9 +252,7 @@ XPath 식은 /foo/bar가 됩니다. 각 bar 노드는 출력의 반복 노드이
 
 **d:DatabaseDataType** - 데이터베이스에 있는 열의 데이터 유형, 다시 말해서 SQL 데이터 유형입니다. DataService CSDL 예를 참조하세요.
 
-<a id="supported-parametersproperty-types" class="xliff"></a>
-
-## 지원되는 매개 변수/속성 유형
+## <a name="supported-parametersproperty-types"></a>지원되는 매개 변수/속성 유형
 다음은 매개 변수 및 속성에 대해 지원되는 유형입니다. (대/소문자 구분)
 
 | 기본 유형 | 설명 |
@@ -284,9 +270,7 @@ XPath 식은 /foo/bar가 됩니다. 각 bar 노드는 출력의 반복 노드이
 | Int64 |부호 있는 64비트 정수 값을 나타냅니다. |
 | String |고정 또는 가변 길이 문자 데이터를 나타냅니다. |
 
-<a id="see-also" class="xliff"></a>
-
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 * 전체 OData 매핑 프로세스와 목적을 이해하려는 경우 문서 [데이터 서비스 OData 매핑](marketplace-publishing-data-service-creation-odata-mapping.md) 을 읽고 정의, 구조 및 지침을 검토하세요.
 * 예제를 검토하고 싶으면 [데이터 서비스 OData 매핑 예제](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 문서를 통해 샘플 코드를 살펴보고 코드 구문 및 컨텍스트를 이해하세요.
 * Azure 마켓플레이스에 데이터 서비스를 게시하기 위한 규정된 경로로 반환하려면 문서 [데이터 서비스 게시 가이드](marketplace-publishing-data-service-creation.md)를 읽어 보세요.
