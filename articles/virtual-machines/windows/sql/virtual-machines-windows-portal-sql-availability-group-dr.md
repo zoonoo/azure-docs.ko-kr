@@ -25,9 +25,7 @@ ms.lasthandoff: 05/05/2017
 
 ---
 
-<a id="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions" class="xliff"></a>
-
-# 다른 하위 지역의 Azure Virtual Machines에서 Always On 가용성 그룹 구성
+# <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>다른 하위 지역의 Azure Virtual Machines에서 Always On 가용성 그룹 구성
 
 이 문서에서는 원격 Azure 위치의 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 복제본을 구성하는 방법을 설명합니다. 이 구성을 사용하여 재해 복구를 지원합니다.
 
@@ -62,9 +60,7 @@ ms.lasthandoff: 05/05/2017
 >[!IMPORTANT]
 >이 아키텍처에서는 Azure 지역 간에 복제되는 데이터에 대해 아웃바운드 데이터 요금이 부과됩니다. [대역폭 가격 책정](http://azure.microsoft.com/pricing/details/bandwidth/)을 참조하세요.  
 
-<a id="create-remote-replica" class="xliff"></a>
-
-## 원격 복제본 만들기
+## <a name="create-remote-replica"></a>원격 복제본 만들기
 
 원격 데이터 센터에서 복제본을 만들려면 다음 단계를 수행합니다.
 
@@ -144,9 +140,7 @@ ms.lasthandoff: 05/05/2017
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
-<a id="set-connection-for-multiple-subnets" class="xliff"></a>
-
-## 여러 서브넷에 대한 연결 설정
+## <a name="set-connection-for-multiple-subnets"></a>여러 서브넷에 대한 연결 설정
 
 원격 데이터 센터의 복제본은 가용성 그룹의 일부이지만 다른 서브넷에 있습니다. 이 복제본이 주 복제본이 되면 응용 프로그램 연결 시간 초과가 발생할 수 있습니다. 이 동작은 다중 서브넷 배포의 온-프레미스 가용성 그룹과 동일합니다. 클라이언트 응용 프로그램에서의 연결을 허용하려면 클라이언트 연결을 업데이트하거나 클러스터 네트워크 이름 리소스에 대해 이름 확인 캐시를 구성합니다.
 
@@ -154,9 +148,7 @@ ms.lasthandoff: 05/05/2017
 
 연결 문자열을 수정할 수 없는 경우 이름 확인 캐시를 구성할 수 있습니다. [다중 서브넷 가용성 그룹의 연결 시간 제한](http://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/)을 참조하세요.
 
-<a id="fail-over-to-remote-region" class="xliff"></a>
-
-## 원격 지역으로 장애 조치
+## <a name="fail-over-to-remote-region"></a>원격 지역으로 장애 조치
 
 원격 지역에 대한 수신기 연결을 테스트하려면 복제본을 원격 지역으로 장애 조치할 수 있습니다. 복제본이 비동기인 경우 장애 조치 시 잠재적 데이터 손실이 발생하기 쉽습니다. 데이터 손실 없이 장애 조치를 수행하려면 가용성 모드를 동기로 변경하고 장애 조치 모드를 자동으로 설정합니다. 다음 단계를 사용하세요.
 
@@ -181,18 +173,14 @@ ms.lasthandoff: 05/05/2017
 | 보조 또는 원격 데이터 센터 | SQL-3 | 주 | 비동기 | 설명서
 
 
-<a id="more-information-about-planned-and-forced-manual-failover" class="xliff"></a>
-
-### 계획된 및 강제 수동 장애 조치에 대한 자세한 내용
+### <a name="more-information-about-planned-and-forced-manual-failover"></a>계획된 및 강제 수동 장애 조치에 대한 자세한 내용
 
 자세한 내용은 다음 항목을 참조하십시오.
 
 - [가용성 그룹의 계획된 수동 장애 조치 수행(SQL Server)](http://msdn.microsoft.com/library/hh231018.aspx)
 - [가용성 그룹의 강제 수동 장애 조치 수행(SQL Server)](http://msdn.microsoft.com/library/ff877957.aspx)
 
-<a id="additional-links" class="xliff"></a>
-
-## 추가 링크
+## <a name="additional-links"></a>추가 링크
 
 * [Always On 가용성 그룹](http://msdn.microsoft.com/library/hh510230.aspx)
 * [Azure 가상 컴퓨터](http://docs.microsoft.com/azure/virtual-machines/windows/)

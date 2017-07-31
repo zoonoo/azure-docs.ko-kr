@@ -22,16 +22,12 @@ ms.lasthandoff: 05/09/2017
 
 
 ---
-<a id="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery" class="xliff"></a>
-
-# Azure Site Recovery를 사용하여 재해 복구를 위해 다중 계층 SharePoint 응용 프로그램 복제 | Microsoft Docs
+# <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 재해 복구를 위해 다중 계층 SharePoint 응용 프로그램 복제 | Microsoft Docs
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 SharePoint 응용 프로그램을 보호하는 방법을 자세히 설명합니다.
 
 
-<a id="overview" class="xliff"></a>
-
-## 개요
+## <a name="overview"></a>개요
 
 Microsoft SharePoint는 그룹 또는 부서가 정보를 구성, 공동 작업 및 공유하도록 도울 수 있는 강력한 응용 프로그램입니다. SharePoint는 인트라넷 포털, 문서 및 파일 관리, 공동 작업, 소셜 네트워크, 엑스트라넷, 웹 사이트, 엔터프라이즈 검색 및 비즈니스 인텔리전스를 제공합니다. 또한 시스템 통합, 프로세스 통합 및 워크플로 자동화 기능도 갖추고 있습니다. 일반적으로 조직은 이를 가동 중지 시간과 데이터 손실에 민감한 계층 1 응용 프로그램으로 여깁니다.
 
@@ -46,9 +42,7 @@ Microsoft SharePoint는 그룹 또는 부서가 정보를 구성, 공동 작업 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음 항목을 이해해야 합니다.
 
@@ -59,9 +53,7 @@ Microsoft SharePoint는 그룹 또는 부서가 정보를 구성, 공동 작업 
 5. 방법: [도메인 컨트롤러 복제](site-recovery-active-directory.md)
 6. 방법: [SQL Server 복제](site-recovery-sql.md)
 
-<a id="sharepoint-architecture" class="xliff"></a>
-
-## SharePoint 아키텍처
+## <a name="sharepoint-architecture"></a>SharePoint 아키텍처
 
 SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 이상의 서버에 배포되어 특정 목적 및 목표를 충족하는 팜 디자인을 구현할 수 있습니다. 수 많은 동시 사용자 및 콘텐츠 항목을 지원하는 일반적인 큰 규모의 많은 처리량을 요구하는 SharePoint 서버 팜은 확장성 전략의 일부로 서비스 그룹화를 사용합니다. 이 접근 방식에는 전용 서버에서 서버를 실행하고, 이러한 서비스를 함께 그룹화한 다음, 서버를 그룹으로 확장하는 것이 포함됩니다. 다음과 같은 토폴로지는 3계층 SharePoint 서버 팜에 대한 서비스 및 서버 그룹화를 보여 줍니다. 다양한 SharePoint 토폴로지에 대한 자세한 지침은 SharePoint 문서 및 제품 라인 아키텍처를 참조하세요. SharePoint 2013 배포에 대한 자세한 내용은 [이 문서](https://technet.microsoft.com/en-us/library/cc303422.aspx)에서 확인할 수 있습니다.
 
@@ -70,15 +62,11 @@ SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 �
 ![배포 패턴 1](./media/site-recovery-sharepoint/sharepointarch.png)
 
 
-<a id="site-recovery-support" class="xliff"></a>
-
-## Site Recovery 지원
+## <a name="site-recovery-support"></a>Site Recovery 지원
 
 이 문서를 작성하기 위해 Windows Server 2012 R2 Enterprise가 있는 VMware 가상 컴퓨터가 사용되었습니다. SharePoint 2013 Enterprise Edition 및 SQL server 2014 Enterprise Edition이 사용되었습니다. Site Recovery 복제는 응용 프로그램을 제한하지 않으므로 여기서 제시하는 권장 사항은 다음 시나리오에서도 유지됩니다.
 
-<a id="source-and-target" class="xliff"></a>
-
-### 원본 및 대상
+### <a name="source-and-target"></a>원본 및 대상
 
 **시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
@@ -86,9 +74,7 @@ SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 �
 **VMware** | 예 | 예
 **물리적 서버** | 예 | 예
 
-<a id="sharepoint-versions" class="xliff"></a>
-
-### SharePoint 버전
+### <a name="sharepoint-versions"></a>SharePoint 버전
 다음 SharePoint Server 버전이 지원됩니다.
 
 * SharePoint Server 2013 Standard
@@ -96,15 +82,11 @@ SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 �
 * SharePoint Server 2016 Standard
 * SharePoint Server 2016 Enterprise
 
-<a id="things-to-keep-in-mind" class="xliff"></a>
-
-### 주의할 사항
+### <a name="things-to-keep-in-mind"></a>주의할 사항
 
 공유 디스크 기반 클러스터를 응용 프로그램에서 모든 계층으로 사용하는 경우 Site Recovery 복제를 사용하여 해당 가상 컴퓨터를 복제할 수 없습니다. 응용 프로그램에서 제공하는 기본 복제를 사용한 다음 [복구 계획](site-recovery-create-recovery-plans.md)을 사용하여 모든 계층을 장애 조치합니다.
 
-<a id="replicating-virtual-machines" class="xliff"></a>
-
-## 가상 컴퓨터 복제
+## <a name="replicating-virtual-machines"></a>가상 컴퓨터 복제
 
 [이 지침](site-recovery-vmware-to-azure.md)에 따라 가상 컴퓨터를 Azure로 복제합니다.
 
@@ -116,13 +98,9 @@ SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 �
 
 * SQL Server에서 실행되는 데이터베이스 계층 보호에 관한 지침은 [SQL Server 보호](site-recovery-active-directory.md) 문서를 참조하세요.
 
-<a id="networking-configuration" class="xliff"></a>
+## <a name="networking-configuration"></a>네트워킹 구성
 
-## 네트워킹 구성
-
-<a id="network-properties" class="xliff"></a>
-
-### 네트워크 속성
+### <a name="network-properties"></a>네트워크 속성
 
 * 앱 및 웹 계층 VM의 경우 Azure Portal에서 네트워크 설정을 구성하여 장애 조치 후에 VM이 올바른 DR 네트워크에 연결되도록 합니다.
 
@@ -133,9 +111,7 @@ SharePoint은 계층된 토폴로지 및 서버 역할을 사용하여 한 개 �
 
     ![고정 IP 설정](./media/site-recovery-sharepoint/set-static-ip.png)
 
-<a id="dns-and-traffic-routing" class="xliff"></a>
-
-### DNS 및 트래픽 라우팅
+### <a name="dns-and-traffic-routing"></a>DNS 및 트래픽 라우팅
 
 인터넷 연결 사이트의 경우 Azure 구독에서 [‘우선 순위’ 형식의 Traffic Manager 프로필을 만듭니다](../traffic-manager/traffic-manager-create-profile.md) . 그런 다음, 다음과 같은 방법으로 DNS 및 Traffic Manager 프로필을 구성합니다.
 
@@ -156,15 +132,11 @@ Traffic Manager가 가용성 사후 장애 조치(Failover)를 자동으로 감�
 * DNS TTL(Time to live) - ‘30초’
 * 끝점 모니터 설정 - 익명 인증을 사용하도록 설정할 수 있는 경우 특정 웹 사이트 끝점을 지정할 수 있습니다. 또는 특정 포트(예: 800)에서 테스트 페이지를 사용할 수 있습니다.
 
-<a id="creating-a-recovery-plan" class="xliff"></a>
-
-## 복구 계획 만들기
+## <a name="creating-a-recovery-plan"></a>복구 계획 만들기
 
 복구 계획을 사용하면 다중 계층 응용 프로그램에서 다양한 계층의 장애 조치를 시퀀싱하여 응용 프로그램의 일관성을 유지할 수 있습니다. 다중 계층 웹 응용 프로그램에 대한 복구 계획을 만드는 동안 아래 단계를 수행합니다. [복구 계획 만들기에 대한 자세한 정보](site-recovery-runbook-automation.md#customize-the-recovery-plan)
 
-<a id="adding-virtual-machines-to-failover-groups" class="xliff"></a>
-
-### 장애 조치 그룹에 가상 컴퓨터 추가
+### <a name="adding-virtual-machines-to-failover-groups"></a>장애 조치 그룹에 가상 컴퓨터 추가
 
 1. 앱 및 웹 계층 VM을 추가하여 복구 계획을 만듭니다.
 2. ‘사용자 지정’을 클릭하여 VM을 그룹화합니다. 기본적으로 모든 VM은 ‘그룹 1’에 속합니다.
@@ -174,9 +146,7 @@ Traffic Manager가 가용성 사후 장애 조치(Failover)를 자동으로 감�
 3. 다른 그룹(그룹 2)을 만들고 웹 계층 VM을 새 그룹으로 이동합니다. 앱 계층 VM은 ‘그룹 1’의 일부여야 하며, 웹 계층 VM은 ‘그룹 2’의 일부여야 합니다. 이렇게 해야 앱 계층 VM이 먼저 부팅되고, 그 뒤에 웹 계층 VM이 이어집니다.
 
 
-<a id="adding-scripts-to-the-recovery-plan" class="xliff"></a>
-
-### 복구 계획에 스크립트 추가
+### <a name="adding-scripts-to-the-recovery-plan"></a>복구 계획에 스크립트 추가
 
 아래 ‘Azure로 배포’ 단추를 클릭하면 가장 일반적으로 사용되는 Azure Site Recovery 스크립트를 Automation 계정에 배포할 수 있습니다. 게시된 스크립트를 사용하는 경우 스크립트에 있는 지침을 따라야 합니다.
 
@@ -221,9 +191,7 @@ Traffic Manager가 가용성 사후 장애 조치(Failover)를 자동으로 감�
 
     ![저장된 RP](./media/site-recovery-sharepoint/saved-rp.png)
 
-<a id="doing-a-test-failover" class="xliff"></a>
-
-## 테스트 장애 조치 수행
+## <a name="doing-a-test-failover"></a>테스트 장애 조치 수행
 [이 지침](site-recovery-test-failover-to-azure.md)에 따라 테스트 장애 조치를 수행합니다.
 
 1.  Azure Portal로 이동하여 복구 서비스 자격 증명 모음을 선택합니다.
@@ -237,9 +205,7 @@ AD 및 DNS에 대한 테스트 장애 조치(Failover) 수행에 관한 지침�
 
 SQL Always ON 가용성 그룹에 대한 테스트 장애 조치(Failover) 수행에 관해서는 [SQL Server Always On에 대한 테스트 장애 조치(Failover) 수행](site-recovery-sql.md#steps-to-do-a-test-failover) 문서를 참조하세요.
 
-<a id="doing-a-failover" class="xliff"></a>
-
-## 장애 조치 수행
+## <a name="doing-a-failover"></a>장애 조치 수행
 장애 조치(Failover)를 수행할 때 [이 지침](site-recovery-failover.md)을 따릅니다.
 
 1.  Azure Portal로 이동하여 Recovery Services 자격 증명 모음을 선택합니다.
@@ -247,8 +213,6 @@ SQL Always ON 가용성 그룹에 대한 테스트 장애 조치(Failover) 수�
 3.  '장애 조치'를 클릭합니다.
 4.  복구 지점을 선택하여 장애 조치 프로세스를 시작합니다.
 
-<a id="next-steps" class="xliff"></a>
-
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 Site Recovery를 사용하여 [다른 응용 프로그램을 복제](site-recovery-workload.md)하는 것에 대해 자세히 알아볼 수 있습니다.
 

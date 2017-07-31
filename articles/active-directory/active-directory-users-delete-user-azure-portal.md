@@ -25,14 +25,10 @@ ms.lasthandoff: 05/08/2017
 
 ---
 
-<a id="delete-a-user-from-a-directory-in-azure-active-directory" class="xliff"></a>
-
-# Azure Active Directory의 디렉터리에서 사용자 삭제
+# <a name="delete-a-user-from-a-directory-in-azure-active-directory"></a>Azure Active Directory의 디렉터리에서 사용자 삭제
 이 문서는 Azure AD(Azure Active Directory)의 디렉터리에서 사용자를 삭제하는 방법을 설명합니다. 조직에 새 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-users-create-azure-portal.md)를 참조하세요.
 
-<a id="to-delete-a-user" class="xliff"></a>
-
-## 사용자를 삭제하려면
+## <a name="to-delete-a-user"></a>사용자를 삭제하려면
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **더 많은 서비스**를 선택하고 텍스트 상자에 **사용자 및 그룹**을 입력한 다음 **Enter**를 선택합니다.
 
@@ -45,9 +41,7 @@ ms.lasthandoff: 05/08/2017
 
     ![삭제 명령 선택](./media/active-directory-users-delete-user-azure-portal/create-users-delete-command.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory에 새 사용자 추가](active-directory-users-create-azure-portal.md)
 * [Azure Active Directory에서 사용자 암호 재설정](active-directory-users-reset-password-azure-portal.md)
 * [Azure Active Directory에서 관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)

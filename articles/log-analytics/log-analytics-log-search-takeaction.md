@@ -22,21 +22,15 @@ ms.lasthandoff: 05/09/2017
 
 ---
 
-<a id="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result" class="xliff"></a>
-
-# Log Analytics 로그 검색 결과에서 Automation Runbook으로 작업 수행
+# <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Log Analytics 로그 검색 결과에서 Automation Runbook으로 작업 수행
 
 Azure Log Analytics의 로그 검색 결과에서 이제 Automation Runbook을 실행하도록 **작업 수행**을 선택할 수 있습니다.  Runbook은 문제를 해결하거나 문제 해결 정보 수집, 전자 메일 전송 또는 서비스 요청 만들기와 같은 다른 작업을 수행하는 데 사용될 수 있습니다. 
 
-<a id="components-and-features-used" class="xliff"></a>
-
-## 사용된 구성 요소 및 기능
+## <a name="components-and-features-used"></a>사용된 구성 요소 및 기능
 * [Azure Automation 계정](../automation/automation-offering-get-started.md)
 * [Log Analytics 작업 영역](../log-analytics/log-analytics-overview.md)
 
-<a id="to-initiate-runbook-from-log-search" class="xliff"></a>
-
-## 로그 검색에서 Runbook을 시작하려면
+## <a name="to-initiate-runbook-from-log-search"></a>로그 검색에서 Runbook을 시작하려면
 
 이벤트에서 작업을 수행하고 로그 검색 결과에서 Runbook을 시작하려면 로그 검색을 생성하여 시작하고 결과에서 요청 시 Runbook을 호출할 수 있습니다.  Azure 또는 [OMS 포털](../log-analytics/log-analytics-log-searches.md)의 로그 검색 기능에서 수행할 수도 있습니다.  이 예제에서는 이 기능의 기본적인 데모를 사용하여 Azure Portal에서 로그 검색을 수행합니다.
 
@@ -54,9 +48,7 @@ Azure Log Analytics의 로그 검색 결과에서 이제 Automation Runbook을 �
 
 [Log Analytics 경고에서 호출](../automation/automation-invoke-runbook-from-omsla-alert.md)되도록 구성된 Runbook을 선택하는 경우 **개체** 유형인 **WebhookData**라는 입력 매개 변수를 갖습니다.  입력 매개 변수가 필수인 경우 JSON 형식 문자열을 Runbook 작업에서 참조할 특정 항목을 필터링할 수 있도록 하는 개체 형식으로 변환할 수 있도록 검색 결과를 Runbook에 전달해야 합니다.  드롭다운 목록에서 **검색 결과(개체)**를 선택하여 수행합니다.<br><br> ![Runbook 매개 변수에 대한 웹후크 데이터 개체 선택](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
     
-<a id="next-steps" class="xliff"></a>
-
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 * Log Analytics에 제공되는 모든 검색 필드 및 패싯을 보려면 [Log Analytics log search reference](log-analytics-search-reference.md) (Log Analytics 로그 검색 참조)를 검토합니다.
 * Automation Runbook을 자동으로 호출하는 방법을 알아보려면 [OMS Log Analytics 경고에서 Azure Automation Runbook 호출](../automation/automation-invoke-runbook-from-omsla-alert.md)을 참조하세요.  

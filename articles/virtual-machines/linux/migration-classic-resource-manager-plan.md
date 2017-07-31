@@ -23,9 +23,7 @@ ms.lasthandoff: 05/08/2017
 
 ---
 
-<a id="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager" class="xliff"></a>
-
-# 클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
+# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연하게 이전할 수 있도록 마이그레이션 과정을 계획하는 것이 매우 중요합니다. 계획에 시간을 들이면 마이그레이션 활동을 수행하는 동안 문제가 발생하지 않습니다. 
 
 > [!NOTE] 
@@ -35,13 +33,9 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 
 ![마이그레이션 단계](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-<a id="plan" class="xliff"></a>
+## <a name="plan"></a>계획
 
-## 계획
-
-<a id="technical-considerations-and-tradeoffs" class="xliff"></a>
-
-### 기술적 고려 사항 및 장단점
+### <a name="technical-considerations-and-tradeoffs"></a>기술적 고려 사항 및 장단점
 
 기술 요구 사항 크기, 지역 및 운영 방식에 따라 다음과 같이 고려할 수 있습니다.
 
@@ -57,9 +51,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 10. 마이그레이션을 위한 프로그램 관리 또는 프로젝트 관리 계획은 무엇인가요?
 11. Azure Resource Manager 마이그레이션 및 기타 관련 기술 로드맵의 일정은 무엇인가요?  최적으로 정렬되어 있나요?
 
-<a id="patterns-of-success" class="xliff"></a>
-
-### 성공 패턴
+### <a name="patterns-of-success"></a>성공 패턴
 
 성공적인 고객은 위의 질문에 대해 토론하고, 문서화하며, 관리하는 세부 계획을 세웁니다.  마이그레이션 계획을 스폰서와 이해 관계자에게 널리 알릴 수 있는지 확인합니다.  마이그레이션 옵션에 대한 지식을 갖추기 위해 아래의 마이그레이션 관련 문서를 참조하는 것이 좋습니다.
 
@@ -72,18 +64,14 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 * [가장 일반적인 마이그레이션 오류 검토](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [클래식에서 Azure Resource Manager로의 IaaS 리소스 마이그레이션과 관련된 가장 자주 묻는 질문 검토](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-<a id="pitfalls-to-avoid" class="xliff"></a>
-
-### 문제 방지
+### <a name="pitfalls-to-avoid"></a>문제 방지
 
 - 계획 실패  이 마이그레이션의 기술 단계를 검증하고 결과를 예측할 수 있습니다.
 - 플랫폼에서 지원하는 마이그레이션 API가 모든 시나리오를 설명한다고 가정 지원되는 시나리오를 이해하려면 [지원되지 않는 기능 및 구성](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations)을 참조하세요.
 - 최종 사용자에게 잠재적인 응용 프로그램 중단을 계획하지 않음  잠재적으로 사용할 수 없는 응용 프로그램 시간을 최종 사용자에게 적절하게 경고할 수 있을 만큼 충분한 버퍼를 계획합니다.
 
 
-<a id="lab-test" class="xliff"></a>
-
-## 랩 테스트 
+## <a name="lab-test"></a>랩 테스트 
 
 **환경 복제 및 테스트 마이그레이션 수행**
   > [!NOTE]
@@ -97,9 +85,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 
   이 작업은 AsmMetadataParser 도구를 사용하여 수행할 수 있습니다. [이 도구에 대해 자세히 알아보기 ](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
-<a id="patterns-of-success" class="xliff"></a>
-
-### 성공 패턴
+### <a name="patterns-of-success"></a>성공 패턴
 
 다음은 다양한 대규모 마이그레이션에서 발견된 문제입니다. 전체적인 목록이 아니므로 자세한 내용에 대해서는 [지원되지 않는 기능 및 구성](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations)을 참조해야 합니다. 이러한 기술적인 문제가 발생할 수도 있고 그렇지 않을 수도 있지만, 마이그레이션을 시도하기 전에 문제를 해결하면 더 원활한 환경을 갖출 수 있습니다.
 
@@ -165,20 +151,14 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 
 - **패브릭 클러스터가 존재하지 않음** - 경우에 따라 뜻밖의 다양한 이유로 특정 VM을 마이그레이션할 수 없습니다. 이러한 알려진 사례 중 하나는 VM이 최근에(지난 1주일 이내) 만들어져 Azure Resource Manager 워크로드에 아직 준비되지 않은 Azure 클러스터를 배치한 경우입니다.  **패브릭 클러스터가 존재하지 않음**이라는 오류 메시지가 표시되고 VM을 마이그레이션할 수 없습니다. 머지 않아 클러스터에서 Azure Resource Manager를 사용할 수 있게 되므로 대개 며칠 정도 기다리면 이 특정 문제가 해결됩니다. 그러나 즉각적인 해결 방법 중 하나는 VM을 `stop-deallocate`한 다음, 마이그레이션을 계속 진행하고, 마이그레이션 후에 Azure Resource Manager에서 VM 백업을 시작하는 것입니다.
 
-<a id="pitfalls-to-avoid" class="xliff"></a>
-
-### 문제 방지
+### <a name="pitfalls-to-avoid"></a>문제 방지
 
 - 바로 가기를 사용하지 않고, 유효성 검사/준비/시험 실행 중단 마이그레이션을 생략하지 않습니다.
 - 잠재적인 문제 중 전부는 아니지만 대부분이 유효성 검사/준비/시험 실행 중단 단계 중에 나타납니다.
 
-<a id="migration" class="xliff"></a>
+## <a name="migration"></a>마이그레이션
 
-## 마이그레이션
-
-<a id="technical-considerations-and-tradeoffs" class="xliff"></a>
-
-### 기술적 고려 사항 및 장단점
+### <a name="technical-considerations-and-tradeoffs"></a>기술적 고려 사항 및 장단점
 
 환경과 관련된 알려진 문제를 통해 작업했으므로 이제 준비가 되었습니다.
 
@@ -189,25 +169,17 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 3. **(선택 사항)** 예기치 않은 문제가 발생할 경우에 대비하여 충분한 양의 버퍼로 유지 관리 가동 중지 시간을 예약합니다.
 4. 문제가 발생할 경우 지원 팀과 연락하여 조정합니다.
 
-<a id="patterns-of-success" class="xliff"></a>
-
-### 성공 패턴
+### <a name="patterns-of-success"></a>성공 패턴
 
 앞서의 랩 테스트 섹션에서 언급한 기술 지침은 실제 마이그레이션 이전에 고려되고 완화되어야 합니다.  적절한 테스트를 수행하기 때문에 마이그레이션은 실제로 이벤트가 아닙니다.  프로덕션 환경의 경우 신뢰할 수 있는 Microsoft 파트너 또는 Microsoft 프리미어 서비스와 같은 추가 지원이 도움이 될 수 있습니다.
 
-<a id="pitfalls-to-avoid" class="xliff"></a>
-
-### 문제 방지
+### <a name="pitfalls-to-avoid"></a>문제 방지
 
 완전히 테스트하지 않으면 문제가 발생할 수 있으며 마이그레이션이 지연될 수 있습니다.  
 
-<a id="beyond-migration" class="xliff"></a>
+## <a name="beyond-migration"></a>마이그레이션 외
 
-## 마이그레이션 외
-
-<a id="technical-considerations-and-tradeoffs" class="xliff"></a>
-
-### 기술적 고려 사항 및 장단점
+### <a name="technical-considerations-and-tradeoffs"></a>기술적 고려 사항 및 장단점
 
 Azure Resource Manager에 있으므로 이제 플랫폼을 극대화합니다.  [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하여 추가 혜택에 대해 알아봅니다.
 
@@ -217,9 +189,7 @@ Azure Resource Manager에 있으므로 이제 플랫폼을 극대화합니다.  
 - Azure Resource Manager의 기술적 이유와 비즈니스상 이유를 다시 살펴봅니다. 환경에 적용되는 Azure Resource Manager에서만 사용할 수 있는 추가 서비스를 사용하도록 설정합니다.
 - PaaS 서비스를 사용하여 환경을 현대화합니다.
 
-<a id="patterns-of-success" class="xliff"></a>
-
-### 성공 패턴
+### <a name="patterns-of-success"></a>성공 패턴
 
 이제 Azure Resource Manager에서 사용하도록 설정하려는 서비스에 대해 분명한 목적이 있어야 합니다.  많은 고객들이 Azure 환경에서 다음과 같은 강력한 요소를 찾고 있습니다.
 
@@ -229,16 +199,12 @@ Azure Resource Manager에 있으므로 이제 플랫폼을 극대화합니다.  
 - [활동 제어](../../azure-resource-manager/resource-group-audit.md)
 - [리소스 정책](../../azure-resource-manager/resource-manager-policy.md)
 
-<a id="pitfalls-to-avoid" class="xliff"></a>
-
-### 문제 방지
+### <a name="pitfalls-to-avoid"></a>문제 방지
 
 이 클래식을 Azure Resource Manager 마이그레이션 과정으로 시작한 이유를 기억합니다.  원래의 비즈니스상 이유는 무엇입니까? 비즈니스상 이유를 달성했습니까?
 
 
-<a id="next-steps" class="xliff"></a>
-
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 * [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션 개요](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
