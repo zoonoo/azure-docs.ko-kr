@@ -1,7 +1,8 @@
 
 1. [Azure Portal]을 방문합니다.
-2. **모두 찾아보기** > **Mobile Apps** > 만든 백 엔드를 클릭합니다.
+2. **App Services** > 생성한 백 엔드를 차례로 클릭합니다.
 3. 모바일 앱 설정에서 **빠른 시작** > **Cordova**를 클릭합니다.
+![Mobile Apps가 있는 Azure Portal - 강조 표시된 빠른 시작][quickstart]
 4. **클라이언트 응용 프로그램 구성**에서 **새 앱 만들기**를 선택한 다음 **다운로드**를 클릭합니다.
 2. 하드 드라이브의 디렉터리에 다운로드한 ZIP 파일 압축을 풀고, 솔루션 파일(.sln)로 이동하여 Visual Studio를 사용하여 엽니다.
 3. Visual Studio에서 시작 화살표 옆에 있는 드롭다운 목록에서 솔루션 플랫폼(Android, iOS 또는 Windows)을 선택합니다. 녹색 화살표의 드롭다운을 클릭하여 특정 배포 장치 또는 에뮬레이터를 선택합니다. 기본 Android 플랫폼 및 Ripple 에뮬레이터를 사용할 수 있습니다. 더 많은 고급 자습서(예: 푸시 알림)를 보려면 지원되는 장치 또는 에뮬레이터를 선택해야 합니다.
@@ -10,8 +11,10 @@
 
 요청의 백 엔드 데이터가 SQL Database의 TodoItem 테이블에 삽입되고 새로 저장된 항목에 대한 정보를 모바일 앱으로 다시 반환합니다. 모바일 앱이 이 데이터를 목록에 표시합니다.
 
-![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
-
 다른 플랫폼에 대해 3-5단계를 반복할 수 있습니다.
 
+<!-- Images. -->
+[quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
+
+<!-- URLs -->
 [Azure Portal]: https://portal.azure.com/

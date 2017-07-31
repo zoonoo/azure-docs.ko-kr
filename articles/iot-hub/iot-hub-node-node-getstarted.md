@@ -1,6 +1,6 @@
 ---
 title: "Azure IoT Hub 시작(Node) | Microsoft Docs"
-description: "Node.js용 Azure IoT SDK를 사용하여 장치에서 Azure IoT Hub로 장치-클라우드 메시지를 보내는 방법입니다. 메시지를 보내는 시뮬레이션된 장치 앱, ID 레지스트리에서 장치를 등록할 서비스 앱 및 IoT Hub에서 장치-클라우드로 메시지를 읽는 서비스 앱을 만듭니다."
+description: "Node.js용 IoT SDK를 사용하여 Azure IoT Hub에 장치-클라우드 메시지를 보내는 방법을 알아봅니다. 시뮬레이션된 장치 및 서비스 앱을 만들어서 장치를 등록하고 메시지를 전송하고 IoT Hub의 메시지를 읽습니다."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: b04fe441cf83ed616b0464eec83a6caf3a449532
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5ce485575416b863d34117807c6dccd96e88eb42
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Node를 사용하여 IoT Hub에 시뮬레이션된 장치 연결
@@ -95,6 +94,8 @@ IoT Hub를 만들었습니다. 이 자습서 나머지 부분을 완료하는 �
       }
     }
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 7. **CreateDeviceIdentity.js** 파일을 저장하고 닫습니다.
 8. **createdeviceidentity** 응용 프로그램을 실행하려면 createdeviceidentity 폴더의 명령 프롬프트에서 다음 명령을 실행합니다.
    

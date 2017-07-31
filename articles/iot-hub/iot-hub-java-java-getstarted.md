@@ -1,6 +1,6 @@
 ---
 title: "Azure IoT Hub 시작(Java) | Microsoft Docs"
-description: "Java용 Azure IoT SDK를 사용하여 장치에서 Azure IoT Hub로 장치-클라우드 메시지를 보내는 방법입니다. 메시지를 보내는 시뮬레이션된 장치 앱, ID 레지스트리에서 장치를 등록할 서비스 앱 및 IoT Hub에서 장치-클라우드로 메시지를 읽는 서비스 앱을 만듭니다."
+description: "Java용 IoT SDK를 사용하여 Azure IoT Hub에 장치-클라우드 메시지를 보내는 방법을 알아봅니다. 시뮬레이션된 장치 및 서비스 앱을 만들어서 장치를 등록하고 메시지를 전송하고 IoT Hub의 메시지를 읽습니다."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -15,22 +15,20 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 7b44762ffea876d628886192376b6275bbc0b83b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7f0fbaf5d8e0379fc67ad62ea7c9ab63c6737150
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# Java를 사용하여 IoT Hub에 시뮬레이션된 장치 연결
-<a id="connect-your-simulated-device-to-your-iot-hub-using-java" class="xliff"></a>
+# <a name="connect-your-device-to-your-iot-hub-using-java"></a>Java를 사용하여 IoT Hub에 장치 연결
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 이 자습서의 끝 부분에서 다음의 세 가지 Java 콘솔 앱이 만들어집니다.
 
-* **create-device-identity**는 장치 ID 및 시뮬레이션된 보안 키를 만들어 시뮬레이션된 장치 앱에 연결합니다.
-* **read-d2c-messages**는 시뮬레이션된 장치 앱에서 보낸 원격 분석을 표시합니다.
+* **create-device-identity**는 장치 ID 및 연결된 보안 키를 만들어 장치 앱에 연결합니다.
+* **read-d2c-messages**는 장치 앱에서 보낸 원격 분석을 표시합니다.
 * **simulated-device**는 앞에서 만든 장치 ID로 IoT Hub에 연결하고 MQTT 프로토콜을 사용하여 매초마다 원격 분석 메시지를 보냅니다.
 
 > [!NOTE]
@@ -50,8 +48,7 @@ ms.lasthandoff: 07/04/2017
 
 IoT Hub를 만들었습니다. 이 자습서를 완료하는 데 필요한 IoT Hub 호스트 이름, IoT Hub 연결 문자열, IoT Hub 기본 키, Event Hub 호환 이름 및 Event Hub 호환 끝점이 있습니다.
 
-## 장치 ID 만들기
-<a id="create-a-device-identity" class="xliff"></a>
+## <a name="create-a-device-identity"></a>장치 ID 만들기
 이 섹션에서는 IoT Hub의 ID 레지스트리에서 장치 ID를 만드는 Java 콘솔 앱을 작성합니다. ID 레지스트리에 항목이 없는 경우 장치를 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 **ID 레지스트리** 섹션을 참조하세요. 이 콘솔 앱을 실행하면 장치-클라우드 메시지를 IoT Hub로 보낼 때 장치가 자체적으로 ID를 식별하는 데 사용할 수 있는 고유한 장치 ID와 키를 생성합니다.
 
 1. iot-java-get-started라는 빈 폴더를 만듭니다. 명령 프롬프트에서 다음 명령을 사용하여 iot-java-get-started 폴더에 **create-device-identity**라는 새 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
@@ -96,6 +93,7 @@ IoT Hub를 만들었습니다. 이 자습서를 완료하는 데 필요한 IoT H
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "myFirstJavaDevice";
     ```
+[!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
 8. **main** 메서드의 서명을 수정하여 다음과 같은 예외를 포함합니다.
 
@@ -166,8 +164,7 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
 > [!NOTE]
 > IoT Hub ID 레지스트리는 장치 ID만 저장하여 IoT Hub에 보안 액세스를 사용합니다. 보안 자격 증명으로 사용하기 위해 장치 ID 및 키와 개별 장치에 대해 액세스하지 못하도록 설정할 수 있는 사용/사용 안 함 플래그를 저장합니다. 앱이 다른 장치별 메타데이터를 저장해야 할 경우 앱별 저장소를 사용해야 합니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.
 
-## 장치-클라우드 메시지 받기
-<a id="receive-device-to-cloud-messages" class="xliff"></a>
+## <a name="receive-device-to-cloud-messages"></a>장치-클라우드 메시지 받기
 
 이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Java 콘솔 앱을 만듭니다. IoT Hub가 [Event Hub][lnk-event-hubs-overview] 호환 끝점을 노출하여 장치-클라우드 메시지를 읽을 수 있습니다. 작업을 단순화하기 위해 이 자습서에서는 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. [장치-클라우드 메시지 처리][lnk-process-d2c-tutorial] 자습서는 대량의 장치-클라우드 메시지를 처리하는 방법을 보여 줍니다. [Event Hubs 시작][lnk-eventhubs-tutorial] 자습서는 Event Hubs의 메시지를 처리하는 방법에 대해 추가 정보를 제공하며 IoT Hub Event Hub 호환 끝점에 적용됩니다.
 
@@ -306,10 +303,12 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
     mvn clean package -DskipTests
     ```
 
-## 시뮬레이션된 장치 앱 만들기
-<a id="create-a-simulated-device-app" class="xliff"></a>
+<<<<<<< HEAD
+## <a name="create-a-device-app"></a>장치 앱 만들기
+=======
+## <a name="create-a-simulated-device-app"></a>시뮬레이션된 장치 앱 만들기
 
-이 섹션에서는 IoT Hub로 장치-클라우드 메시지를 전송하는 장치를 시뮬레이션하는 Java 콘솔 앱을 작성합니다.
+>>>>>>> master 이 섹션에서는 IoT Hub로 장치-클라우드 메시지를 전송하는 장치를 시뮬레이션하는 Java 콘솔 앱을 작성합니다.
 
 1. *장치 ID 만들기* 섹션에서 만든 iot-java-get-started 폴더의 명령 프롬프트에서 다음 명령을 사용하여 **simulated-device**라는 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
 
@@ -379,11 +378,19 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
       }
     }
     ```
+<<<<<<< HEAD
+9. 다음의 중첩된 **EventCallback** 클래스를 **App** 클래스 안에 추가하여 장치 앱의 메시지를 처리할 때 IoT Hub가 반환하는 확인 상태를 표시합니다. 이 메서드는 또한 메시지가 처리되면 앱에서 메인 스레드를 알립니다.
+   
+    ```
+    private static class EventCallback implements IotHubEventCallback
+    {
+=======
 
-9. 다음의 중첩된 **EventCallback** 클래스를 **App** 클래스 안에 추가하여 시뮬레이션된 장치 앱의 메시지를 처리할 때 IoT Hub가 반환하는 확인 상태를 표시합니다. 이 메서드는 또한 메시지가 처리되면 앱에서 메인 스레드를 알립니다.
+9. Add the following nested **EventCallback** class inside the **App** class to display the acknowledgement status that the IoT hub returns when it processes a message from the simulated device app. This method also notifies the main thread in the app when the message has been processed:
 
     ```java
     private static class EventCallback implements IotHubEventCallback {
+>>>>>>> master
       public void execute(IotHubStatusCode status, Object context) {
         System.out.println("IoT Hub responded to message with status: " + status.name());
    
@@ -468,8 +475,7 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
 > [!NOTE]
 > 간단히 하기 위해 이 자습서에서는 다시 시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 MSDN 문서 [일시적인 오류 처리][lnk-transient-faults]에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
-## 앱 실행
-<a id="run-the-apps" class="xliff"></a>
+## <a name="run-the-apps"></a>앱 실행
 
 이제 앱을 실행할 준비가 되었습니다.
 
@@ -493,10 +499,12 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
 
     ![IoT Hub에 전송된 메시지의 수를 보여주는 Azure Portal 사용량 타일][43]
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
+<<<<<<< HEAD 이 자습서에서는 Azure Portal에서 새 IoT Hub를 구성한 다음, IoT Hub의 ID 레지스트리에서 장치 ID를 만들었습니다. 이 장치 ID를 사용하여 장치-클라우드 메시지를 IoT Hub로 보내기 위해 장치 앱을 사용하도록 설정했습니다. IoT Hub에서 받은 메시지를 표시하는 앱도 만들었습니다. 
+=======
 
 이 자습서에서는 Azure Portal에서 새 IoT Hub를 구성한 다음, IoT Hub의 ID 레지스트리에서 장치 ID를 만들었습니다. 장치-클라우드 메시지를 IoT Hub로 보내기 위해 시뮬레이션된 장치 앱을 사용하는 이 장치 ID를 사용했습니다. IoT Hub에서 받은 메시지를 표시하는 앱도 만들었습니다.
+>>>>>>> master
 
 계속해서 IoT Hub을 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
 

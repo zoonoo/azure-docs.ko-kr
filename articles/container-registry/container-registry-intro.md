@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ba82a5e25750fc6d9bd047ace3abb087e5dedfb3
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 4eb32dd18c57af8d46e7afb63047c0985458705d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>개인 Docker 컨테이너 레지스트리 소개
@@ -72,6 +72,6 @@ Azure Container Registry에서 다양한 배포 대상으로 이미지 끌어오
 * [Azure Portal을 사용하여 컨테이너 레지스트리 만들기](container-registry-get-started-portal.md)
 * [Azure CLI를 사용하여 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)
 * [Docker CLI를 사용하여 첫 번째 이미지 푸시](container-registry-get-started-docker-cli.md)
-* Visual Studio Team Services, Azure Container Service 및 Azure Container Registry를 사용하여 연속 통합 및 배포 워크플로를 작성하려면 [이 자습서](../container-service/container-service-docker-swarm-setup-ci-cd.md)를 참조하세요.
+* Visual Studio Team Services, Azure Container Service 및 Azure Container Registry를 사용하여 연속 통합 및 배포 워크플로를 작성하려면 [이 자습서](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md)를 참조하세요.
 * Azure에서 공용 끝점 없는 자체 Docker 개인 레지스트리를 설정하려면 [Azure에서 자체 개인 Docker 레지스트리 배포하기](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md)를 참조하세요.
 

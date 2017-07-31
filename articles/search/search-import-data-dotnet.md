@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7676262b7bca47444aee7b10a131c01e6b697e7b
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: bdd952869143c6ca6374bb9264db5bcba1f32b50
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure 검색에 데이터 업로드
@@ -34,7 +34,8 @@ ms.lasthandoff: 07/21/2017
 
 이 연습을 시작하기 전에 [Azure 검색 인덱스를 만들어야](search-what-is-an-index.md)합니다. 이 문서에서는 [.NET SDK를 사용하여 Azure 검색 인덱스 만들기](search-create-index-dotnet.md#CreateSearchServiceClient)에서 보여준 것처럼 `SearchServiceClient` 개체를 이미 만들었다고 가정합니다.
 
-이 문서의 모든 샘플 코드는 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](http://aka.ms/search-dotnet-howto)를 참조하세요.
+> [!NOTE]
+> 이 문서의 모든 샘플 코드는 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](http://aka.ms/search-dotnet-howto)를 참조하세요. 좀 더 구체적인 샘플 코드 연습은 [Azure Search .NET SDK](search-howto-dotnet-sdk.md)를 참조하세요.
 
 .NET SDK를 사용하여 인덱스에 문서를 푸시하기 위해 다음을 수행해야 합니다.
 
