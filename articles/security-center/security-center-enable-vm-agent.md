@@ -15,16 +15,14 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83328eb874485d4541ff2131f736a30f350a0eb6
+ms.sourcegitcommit: f532f1aea9b8c4be6707862be4001099aa3c1d32
+ms.openlocfilehash: 337a7adfd93c76882a749685702bea6d1524c96a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 07/06/2017
 
 
 ---
-<a id="enable-vm-agent-in-azure-security-center" class="xliff"></a>
-
-# Azure 보안 센터에서 VM 에이전트 사용
+# <a name="enable-vm-agent-in-azure-security-center"></a>Azure 보안 센터에서 VM 에이전트 사용
 [데이터 컬렉션을 사용하도록 설정](security-center-enable-data-collection.md)하려면 VM(가상 컴퓨터)에 VM 에이전트를 설치해야 합니다.  Azure 보안 센터에서 VM 에이전트가 필요한 VM을 확인하고 해당 VM에서 VM 에이전트를 사용하는 것이 좋습니다.
 
 Azure 마켓플레이스에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. [VM 에이전트 및 확장 - 2부](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) 문서에 VM 에이전트 설치 방법이 설명되어 있습니다.
@@ -34,17 +32,13 @@ Azure 마켓플레이스에서 배포된 VM에 VM 에이전트가 기본적으�
 >
 >
 
-<a id="implement-the-recommendation" class="xliff"></a>
-
-## 권장 사항 구현
+## <a name="implement-the-recommendation"></a>권장 사항 구현
 1. **권장 사항 블레이드**에서 **VM 에이전트 활성화**를 선택합니다.
    ![VM 에이전트 사용][1]
 2. 이렇게 하면 **VM 에이전트가 없거나 응답하지 않습니다.**블레이드가 열립니다. 이 블레이드에 VM 에이전트가 필요한 VM을 나열합니다. VM 에이전트를 설치하려면 블레이드의 지침을 따릅니다.
    ![VM 에이전트가 없습니다][2]
 
-<a id="see-also" class="xliff"></a>
-
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure 보안 센터에서 보안 정책 설정](security-center-policies.md)-- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
