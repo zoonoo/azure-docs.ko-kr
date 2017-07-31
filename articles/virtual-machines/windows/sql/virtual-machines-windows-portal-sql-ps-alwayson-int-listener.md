@@ -22,9 +22,7 @@ ms.lasthandoff: 05/05/2017
 
 
 ---
-<a id="configure-one-or-more-always-on-availability-group-listeners---resource-manager" class="xliff"></a>
-
-# 하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
+# <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
 이 문서에서는 다음을 수행하는 방법을 보여 줍니다.
 
 * PowerShell cmdlet을 사용하여 SQL Server 가용성 그룹에 대한 내부 부하 분산 장치를 만듭니다.
@@ -43,14 +41,10 @@ ms.lasthandoff: 05/05/2017
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
-<a id="configure-the-windows-firewall" class="xliff"></a>
-
-## Windows 방화벽 구성
+## <a name="configure-the-windows-firewall"></a>Windows 방화벽 구성
 SQL Server 액세스를 허용하도록 Windows 방화벽을 구성합니다. 방화벽 규칙에서 SQL Server 인스턴스 및 수신기 프로브에서 사용하는 포트에 TCP 연결을 허용합니다. 자세한 지침은 [데이터베이스 엔진 액세스를 위해 Windows 방화벽 구성](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1)을 참조하세요. SQL Server 포트 및 프로브 포트에 대한 인바운드 규칙을 만듭니다.
 
-<a id="example-script-create-an-internal-load-balancer-with-powershell" class="xliff"></a>
-
-## 예제 스크립트: PowerShell을 사용하여 내부 부하 분산 장치 만들기
+## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>예제 스크립트: PowerShell을 사용하여 내부 부하 분산 장치 만들기
 > [!NOTE]
 > [Microsoft 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)으로 가용성 그룹을 만든 경우 내부 부하 분산 장치는 이미 만들어져 있습니다. 
 > 
@@ -158,15 +152,11 @@ $BEConfig = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $ILB.BackendAd
 $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort  $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP | Set-AzureRmLoadBalancer   
 ```
 
-<a id="configure-the-listener" class="xliff"></a>
-
-## 수신기 구성
+## <a name="configure-the-listener"></a>수신기 구성
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
-<a id="set-the-listener-port-in-sql-server-management-studio" class="xliff"></a>
-
-## SQL Server Management Studio에서 수신기 포트 설정
+## <a name="set-the-listener-port-in-sql-server-management-studio"></a>SQL Server Management Studio에서 수신기 포트 설정
 
 1. SQL Server Management Studio를 시작하고 주 복제본에 연결합니다.
 
@@ -176,9 +166,7 @@ $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConf
 
 1. **포트** 상자에서 이전에 사용한 $EndpointPort(1433이 기본값임)를 사용하여 가용성 그룹 수신기에 대한 포트 번호를 지정한 다음 **확인**을 클릭합니다.
 
-<a id="test-the-connection-to-the-listener" class="xliff"></a>
-
-## 수신기에 대한 연결 테스트
+## <a name="test-the-connection-to-the-listener"></a>수신기에 대한 연결 테스트
 
 연결을 테스트하려면
 
@@ -203,22 +191,16 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 > 
 > 
 
-<a id="guidelines-and-limitations" class="xliff"></a>
-
-## 지침 및 제한 사항
+## <a name="guidelines-and-limitations"></a>지침 및 제한 사항
 내부 부하 분산 장치를 사용하는 Azure에서는 가용성 그룹 수신기에 다음과 같은 지침이 적용됩니다.
 
 * 내부 부하 분산 장치를 사용할 경우 동일한 가상 네트워크 내에서만 수신기에 액세스합니다.
 
 
-<a id="for-more-information" class="xliff"></a>
-
-## Blob에 대한 자세한 내용은
+## <a name="for-more-information"></a>Blob에 대한 자세한 내용은
 자세한 내용은 [수동으로 Azure VM의 Always On 가용성 그룹 구성](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)을 참조하세요.
 
-<a id="powershell-cmdlets" class="xliff"></a>
-
-## PowerShell cmdlet
+## <a name="powershell-cmdlets"></a>PowerShell cmdlet
 다음 PowerShell cmdlet을 사용하여 Azure 가상 컴퓨터에 대한 내부 부하 분산 장치를 만듭니다.
 
 * [New-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt619450.aspx)는 부하 분산 장치를 만듭니다. 
