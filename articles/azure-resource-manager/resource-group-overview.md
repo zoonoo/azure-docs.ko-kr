@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 07/19/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: db97edd3c4fbfdbe955c49cc9a58de30c5085305
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b382225b9e355148279181fbf6238eb1e08f382d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
@@ -82,7 +81,7 @@ Azure Resource Manager가 처음이라면 익숙하지 않은 용어가 있을 �
 ## <a name="resource-providers"></a>리소스 공급자
 각 리소스 공급자는 Azure 서비스를 사용하는 일련의 리소스 및 작업을 제공합니다. 예를 들어 키와 암호를 저장하려는 경우 **Microsoft.KeyVault** 리소스 공급자로 작업합니다. 이 리소스 공급자는 키 자격 증명 모음을 만드는 데 **자격 증명 모음**이라는 리소스 유형을 제공합니다. 
 
-리소스 종류의 이름은 **{resource-provider}/{resource-type}** 양식입니다. 예를 들어 키 자격 증명 모음 형식은 **Microsoft.KeyVault\vaults**입니다.
+리소스 종류의 이름은 **{resource-provider}/{resource-type}** 양식입니다. 예를 들어 키 자격 증명 모음 형식은 **Microsoft.KeyVault/vaults**입니다.
 
 리소스 배포를 시작하기 전에 사용 가능한 리소스 공급자를 이해해야 합니다. 리소스 공급자 및 리소스의 이름을 알고 있으면 Azure에 배포하려는 리소스를 정의할 수 있습니다. 또한 각 리소스 종류에 대한 유효한 위치와 API 버전을 알아야 합니다. 자세한 내용은 [리소스 공급자 및 형식](resource-manager-supported-services.md)을 참조하세요.
 
@@ -258,49 +257,28 @@ JSON을 사용하여 정책을 정의하고 구독 전체 또는 리소스 그�
 더 다양한 유형의 정책을 만들 수 있습니다. 자세한 내용은 [정책을 사용하여 리소스 및 컨트롤 액세스 관리](resource-manager-policy.md)를 참조하세요.
 
 ## <a name="sdks"></a>SDK
-Azure SDK는 여러 언어 및 플랫폼에 사용할 수 있습니다.
-이러한 언어 구현은 각각 해당 에코 시스템 패키지 관리자 및 GitHub를 통해 사용할 수 있습니다.
-
-이러한 SDK의 각 코드는 Azure RESTful API 사양에서 생성됩니다.
-이러한 사양은 오픈 소스이며 Swagger 2.0 사양을 기반으로 합니다.
-SDK 코드는 AutoRest라는 오픈 소스 프로젝트를 통해 생성됩니다.
-AutoRest는 이러한 RESTful API 사양을 여러 언어의 클라이언트 라이브러리로 변환합니다.
-SDK에서 생성된 코드의 어떤 측면을 개선하려면, SDK를 만드는 전체 도구는 오픈되어 자유롭게 사용 가능하고 광범위하게 채택된 API 사양 형식에 기반으로 해야 합니다.
+Azure SDK는 여러 언어 및 플랫폼에 사용할 수 있습니다. 이러한 언어 구현은 각각 해당 에코 시스템 패키지 관리자 및 GitHub를 통해 사용할 수 있습니다.
 
 다음은 오픈 소스 SDK 리포지토리입니다. 피드백, 문제 및 끌어오기 요청을 환영합니다.
 
-[.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
+* [Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net)
+* [Java용 Azure 관리 라이브러리](https://github.com/Azure/azure-sdk-for-java)
+* [Node.js용 Azure SDK](https://github.com/Azure/azure-sdk-for-node)
+* [PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php)
+* [Python용 Azure SDK](https://github.com/Azure/azure-sdk-for-python)
+* [Ruby용 Azure SDK](https://github.com/Azure/azure-sdk-for-ruby)
+
+사용자 리소스에서 이러한 언어를 사용하는 방법에 대한 정보는 다음을 확인합니다.
+
+* [.NET 개발자용 Azure](/dotnet/azure/?view=azure-dotnet)
+* [Java 개발자용 Azure](/java/azure/)
+* [Node.js 개발자용 Azure](/nodejs/azure/)
+* [Python 개발자용 Azure](/python/azure/)
 
 > [!NOTE]
 > SDK가 필요한 기능을 제공하지 않는 경우 [Azure REST API](https://docs.microsoft.com/rest/api/resources/)에 직접 요청할 수 있습니다.
 > 
 > 
-
-## <a name="samples"></a>샘플
-### <a name="net"></a>.NET
-* [Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-* [템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-
-### <a name="java"></a>자바
-* [Azure 리소스 관리](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
-* [Azure 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-* [템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-
-### <a name="nodejs"></a>Node.js
-* [Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-* [템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-
-### <a name="python"></a>파이썬
-* [Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-* [템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-
-### <a name="ruby"></a>루비
-* [Azure 리소스 및 리소스 그룹 관리](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-* [템플릿을 사용하여 SSH 사용 VM 배포](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-
-이러한 샘플 외에도 갤러리 샘플을 통해 검색할 수 있습니다.
-
-[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## <a name="next-steps"></a>다음 단계
 * 템플릿으로 작업하는 방법에 대한 간단한 소개는 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.

@@ -10,20 +10,24 @@
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>사용자 지정 정책에서 지원되는 알고리즘과 키 강도는 어떻게 되나요?
 아래 표에는 고객이 구성 가능하도록 지원되는 암호화 알고리즘 및 키 강도가 나와 있습니다. 모든 필드에 대해 한 가지 옵션을 선택해야 합니다.
 
-| **IPsec/IKEv2**  | **옵션**                                                                 |
-| ---              | ---                                                                         |
-| IKEv2 암호화 | AES256, AES192, AES128, DES3, DES                                           |
-| IKEv2 무결성  | SHA384, SHA256, SHA1, MD5                                                   |
-| DH 그룹         | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, 없음 |
-| IPsec 암호화 | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, 없음    |
-| IPsec 무결성  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
-| PFS 그룹        | ECP384, ECP256, PFS24, PFS2048, PFS14, PFS2, PFS1, 없음                     |
-| QM SA 수명*  | 초(정수, **최소 300**) 및 KB(정수, **최소 1024**)                                      |
-| 트래픽 선택기 | UsePolicyBasedTrafficSelectors** ($True/$False; default $False)                             |
-|                  |                                                                             |
+| **IPsec/IKEv2**  | **옵션**                                                                   |
+| ---              | ---                                                                           |
+| IKEv2 암호화 | AES256, AES192, AES128, DES3, DES                                             |
+| IKEv2 무결성  | SHA384, SHA256, SHA1, MD5                                                     |
+| DH 그룹         | DHGroup24, ECP384, ECP256, DHGroup14(DHGroup2048), DHGroup2, DHGroup1, 없음 |
+| IPsec 암호화 | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, 없음      |
+| IPsec 무결성  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
+| PFS 그룹        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, 없음                              |
+| QM SA 수명   | 초(정수, **최소 300**/기본값 27,000초)<br>KB(정수, **최소 1,024**/기본값 102,400,000KB)           |
+| 트래픽 선택기 | UsePolicyBasedTrafficSelectors($True/$False, 기본값: $False)                 |
+|                  |                                                                               |
 
-* (*) IKEv2 주 모드 SA 수명은 Azure VPN Gateway에서 28,800초로 고정됩니다.
-* (**) "UsePolicyBasedTrafficSelectors"에 대한 다음 FAQ 항목을 참조하세요.
+> [!IMPORTANT]
+> 1. DHGroup2048 및 PFS2048은 IKE 및 IPsec PFS의 Diffie-Hellman 그룹 **14**와 동일합니다. 전체 매핑은 [Diffie-Hellman 그룹](#DH)을 참조하세요.
+> 2. GCMAES 알고리즘의 경우 IPsec 암호화 및 무결성 모두에 대해 동일한 GCMAES 알고리즘 및 키 길이를 지정해야 합니다.
+> 3. IKEv2 주 모드 SA 수명은 Azure VPN Gateway에서 28,800초로 고정됩니다.
+> 4. QM SA 수명은 선택적 매개 변수입니다. 지정되지 않으면 기본값인 27,000초(7.5시간) 및 102,400,000KB(102GB)가 사용됩니다.
+> 5. UsePolicyBasedTrafficSelector는 연결에 대한 옵션 매개 변수입니다. "UsePolicyBasedTrafficSelectors"에 대한 다음 FAQ 항목을 참조하세요.
 
 ### <a name="does-everything-need-to-match-between-the-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations"></a>Azure VPN Gateway 정책과 온-프레미스 VPN 장치 구성 간에 모든 항목이 일치해야 하나요?
 온-프레미스 VPN 장치 구성은 Azure IPsec/IKE 정책에서 지정한 다음 알고리즘 및 매개 변수가 일치하거나 포함해야 합니다.
@@ -45,6 +49,21 @@ SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 * 10.2.0.0/16 <====> 172.16.0.0/16
 
 이 옵션을 사용하는 방법에 대한 자세한 내용은 [여러 온-프레미스 정책 기반 VPN 장치 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
+
+### <a name ="DH"></a>어떤 Diffie-Hellman 그룹이 지원됩니까?
+아래 표에는 IKE(DHGroup) 및 IPsec(PFSGroup)에 지원되는 Diffie-Hellman 그룹이 나열되어 있습니다.
+
+| **Diffie-Hellman 그룹**  | **DHGroup**              | **PFSGroup** | **키 길이** |
+| ---                       | ---                      | ---          | ---            |
+| 1                         | DHGroup1                 | PFS1         | 768비트 MODP   |
+| 2                         | DHGroup2                 | PFS2         | 1024비트 MODP  |
+| 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048비트 MODP  |
+| 19                        | ECP256                   | ECP256       | 256비트 ECP    |
+| 20                        | ECP384                   | ECP284       | 384비트 ECP    |
+| 24                        | DHGroup24                | PFS24        | 2048비트 MODP  |
+|                           |                          |              |                |
+
+자세한 내용은 [RFC3526](https://tools.ietf.org/html/rfc3526) 및 [RFC5114](https://tools.ietf.org/html/rfc5114)를 참조하세요.
 
 ### <a name="does-the-custom-policy-replace-the-default-ipsecike-policy-sets-for-azure-vpn-gateways"></a>사용자 지정 정책이 Azure VPN Gateway에 대한 기본 IPsec/IKE 정책 집합을 대체하나요?
 예, 연결에 사용자 지정 정책이 지정되면 Azure VPN Gateway는 IKE 개시 장치 및 IKE 응답기로의 연결에만 정책을 사용합니다.

@@ -12,35 +12,74 @@ Version
 3.5.0
 ```
 
-리소스 또는 리소스 그룹에 태그를 적용할 때마다 해당 리소스 또는 리소스 그룹의 기존 태그가 덮어써집니다. 따라서 리소스 또는 리소스 그룹에 유지하려는 기존 태그가 있는지에 따라 다른 방법을 사용해야 합니다. 경우에 따라 태그를 추가하는 방법은 다음과 같습니다.
+**리소스 그룹**에 대한 기존 태그를 보려면 다음을 사용합니다.
 
-* 기존 태그를 유지하지 않고 리소스 그룹에 태그를 추가하는 경우.
+```powershell
+(Get-AzureRmResourceGroup -Name examplegroup).Tags
+```
 
-  ```powershell
-  Set-AzureRmResourceGroup -Name TagTestGroup -Tag @{ Dept="IT"; Environment="Test" }
-  ```
+그러면 다음 형식이 반환됩니다.
 
-* 기존 태그를 유지하고 리소스 그룹에 태그를 추가하는 경우.
+```powershell
+Name                           Value
+----                           -----
+Dept                           IT
+Environment                    Test
+```
 
-  ```powershell
-  $tags = (Get-AzureRmResourceGroup -Name TagTestGroup).Tags
-  $tags += @{Status="Approved"}
-  Set-AzureRmResourceGroup -Tag $tags -Name TagTestGroup
-  ```
+**지정된 리소스 ID를 포함한 리소스**에 대한 기존 태그를 보려면 다음을 사용합니다.
 
-* 기존 태그를 유지하지 않고 리소스에 태그를 추가하는 경우.
+```powershell
+(Get-AzureRmResource -ResourceId {resource-id}).Tags
+```
 
-  ```powershell
-  Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-  ```
+또는 **지정된 이름 및 리소스 그룹을 포함한 리소스**에 대한 기존 태그를 보려면 다음을 사용합니다.
 
-* 기존 태그를 유지하고 리소스에 태그를 추가하는 경우.
+```powershell
+(Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+```
 
-  ```powershell
-  $tags = (Get-AzureRmResource -ResourceName storageexample -ResourceGroupName TagTestGroup).Tags
-  $tags += @{Status="Approved"}
-  Set-AzureRmResource -Tag $tags -ResourceName storageexample -ResourceGroupName TagTestGroup -ResourceType Microsoft.Storage/storageAccounts
-  ```
+**특정 태그가 있는 리소스 그룹**을 가져오려면 다음을 사용합니다.
+
+```powershell
+(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
+```
+
+**특정 태그가 있는 리소스**를 가져오려면 다음을 사용합니다.
+
+```powershell
+(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+```
+
+리소스 또는 리소스 그룹에 태그를 적용할 때마다 해당 리소스 또는 리소스 그룹의 기존 태그가 덮어써집니다. 따라서 리소스 또는 리소스 그룹에 기존 태그가 있는지에 따라 다른 방법을 사용해야 합니다. 
+
+**기존 태그를 포함하지 않는 리소스 그룹**에 태그를 추가하려면 다음을 사용합니다.
+
+```powershell
+Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
+```
+
+**기존 태그를 포함하는 리소스 그룹**에 태그를 추가하려면 기존 태그를 검색하고, 새 태그를 추가하고, 태그를 다시 적용합니다.
+
+```powershell
+$tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
+```
+
+**기존 태그를 포함하지 않는 리소스**에 태그를 추가하려면 다음을 사용합니다.
+
+```powershell
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName exampleroup
+```
+
+**기존 태그를 포함하는 리소스**에 태그를 추가하려면
+
+```powershell
+$tags = (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+$tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $tags -ResourceName examplevnet -ResourceGroupName examplegroup
+```
 
 **리소스의 기존 태그를 유지하지 않고** 리소스 그룹의 모든 태그를 리소스에 적용하려면 다음 스크립트를 사용합니다.
 
@@ -77,18 +116,8 @@ foreach ($g in $groups)
 모든 태그를 제거하려면 빈 해시 테이블을 전달합니다.
 
 ```powershell
-Set-AzureRmResourceGroup -Tag @{} -Name TagTestGgroup
+Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
 
-특정 태그가 있는 리소스 그룹을 가져오려면 `Find-AzureRmResourceGroup` cmdlet을 사용합니다.
 
-```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
-```
-
-특정 태그 및 값이 있는 모든 리소스를 가져오려면 `Find-AzureRmResource` cmdlet을 사용합니다.
-
-```powershell
-(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
-```
 

@@ -12,24 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/16/2017
+ms.date: 07/12/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: eb7d58c71f6d0daf072045797e30208ffe966ee0
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0e80e0a1c334bcca0bb15dd16c54306a60f2486e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# Azure Automation 시작
-<a id="getting-started-with-azure-automation" class="xliff"></a>
+# <a name="getting-started-with-azure-automation"></a>Azure Automation 시작
 
 이 시작 가이드에서는 Azure Automation 배포와 관련된 핵심 개념을 소개합니다. Azure Automation을 처음 사용하거나 System Center Orchestrator와 같은 자동화 워크플로 소프트웨어를 사용해 보았으면 이 가이드를 통해 Automation을 준비하고 등록하는 방법을 이해할 수 있습니다.  그런 후에는 프로세스 자동화 요구 사항을 지원하기 위해 runbook을 개발할 준비가 됩니다. 
 
 
-## Automation 아키텍처 개요
-<a id="automation-architecture-overview" class="xliff"></a>
+## <a name="automation-architecture-overview"></a>Automation 아키텍처 개요
 
 ![Azure Automation 개요](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
@@ -45,12 +43,10 @@ HRW에서 실행되는 Runbook은 컴퓨터의 로컬 시스템 계정이라는 
 
 Azure Automation에 저장된 DSC 구성은 Azure 가상 컴퓨터에 직접 적용할 수 있습니다. 기타 물리적 및 가상 컴퓨터는 Azure Automation DSC 풀 서버에서 구성을 요청할 수 있습니다.  온-프레미스 물리적 또는 가상 Windows 및 Linux 시스템의 구성을 관리하려면 OMS 서비스에 TCP 포트 443을 통해 통신하기 때문에 Automation DSC에 의해 관리되는 각 시스템의 아웃바운드 인터넷 액세스인 Automation DSC 끌어오기 서버를 지원하는 인프라를 배포할 필요가 없습니다.   
 
-## 필수 조건
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>필수 조건
 
-### Automation DSC
-<a id="automation-dsc" class="xliff"></a>
-Azure Automation DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니다.
+### <a name="automation-dsc"></a>자동화 DSC
+Azure 자동화 DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니다.
 
 * Windows 또는 Linux를 실행 중인 Azure 가상 컴퓨터(클래식)
 * Windows 또는 Linux를 실행 중인 Azure 가상 컴퓨터
@@ -60,8 +56,7 @@ Azure Automation DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니
 
 Windows용 PowerShell DSC 에이전트가 Azure Automation과 통신하려면 최신 버전의 WMF 5가 설치되어 있어야 합니다. 최신 버전 [Linux용 PowerShell DSC 에이전트](https://www.microsoft.com/en-us/download/details.aspx?id=49150)가 Azure Automation과 통신하려면 Linux용으로 설치되어야 합니다.
 
-### Hybrid Runbook Worker
-<a id="hybrid-runbook-worker" class="xliff"></a>  
+### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker  
 하이브리드 Runbook 작업을 실행하는 컴퓨터를 지정할 때 이 컴퓨터에는 다음 항목이 있어야 합니다.
 
 * Windows Server 2012 이상
@@ -69,8 +64,7 @@ Windows용 PowerShell DSC 에이전트가 Azure Automation과 통신하려면 �
 * 최소 두 개의 코어
 * 최소 4GB의 RAM
 
-### Automation 계정을 만드는 데 필요한 권한
-<a id="permissions-required-to-create-automation-account" class="xliff"></a>
+### <a name="permissions-required-to-create-automation-account"></a>Automation 계정을 만드는 데 필요한 권한
 Automation 계정을 만들거나 업데이트하려면 이 항목을 완료하는 데 필요한 다음과 같은 특정 권한이 있어야 합니다.   
  
 * Automation 계정을 만들려면 [Azure Automation에서 역할 기반 액세스 제어](automation-role-based-access-control.md#contributor-role-permissions) 문서에 설명된 대로 Microsoft.Automation 리소스에 대한 참가자 역할과 동일한 권한을 가진 역할에 AD 사용자 계정을 추가해야 합니다.  
@@ -78,12 +72,10 @@ Automation 계정을 만들거나 업데이트하려면 이 항목을 완료하�
 
 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 구독 Active Directory 인스턴스의 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 상황에서는 “만들 수 있는 사용 권한이 없습니다…”라는 메시지를 받습니다. **Automation 계정 추가** 블레이드의 경고. 전역 관리자/공동 관리자 역할에 처음 추가된 사용자는 구독 Active Directory 인스턴스에서 제거한 다음 다시 추가하여 Active Directory의 완전한 사용자로 만들 수 있습니다. Azure Portal의 **Azure Active Directory** 창에서 이 상황을 확인하려면 **사용자 및 그룹**을 선택한 다음 **모든 사용자**를 선택하거나 특정 사용자를 선택한 후 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 유형** 속성의 값은 **Guest**와 같지 않아야 합니다.
 
-## 인증 계획
-<a id="authentication-planning" class="xliff"></a>
+## <a name="authentication-planning"></a>인증 계획
 Azure Automation을 사용하여 Azure, 온-프레미스 및 다른 클라우드 공급자의 리소스에 대해 작업을 자동화할 수 있습니다.  Runbook이 필요한 작업을 수행하려면 구독 내에서 최소의 권한으로 리소스에 안전하게 액세스할 수 있는 권한이 있어야 합니다.  
 
-### Automation 계정이란?
-<a id="what-is-an-automation-account" class="xliff"></a> 
+### <a name="what-is-an-automation-account"></a>Automation 계정이란? 
 Azure Automation에서 Azure cmdlet을 사용하여 리소스에 대해 수행하는 모든 자동화 작업은 Azure Active Directory 조직 ID 자격 증명 기반 인증을 사용하여 Azure에 인증합니다.  Automation 계정을 포털에 로그인하는 데 사용한 계정과 분리하여 Azure 리소스를 구성하고 사용합니다.  계정에 포함된 Automation 리소스는 다음과 같습니다.
 
 * **인증서** - runbook 또는 DSC 구성의 인증에 사용되는 인증서를 포함하거나 추가합니다.
@@ -92,6 +84,8 @@ Azure Automation에서 Azure cmdlet을 사용하여 리소스에 대해 수행�
 * **통합 모듈** - runbook 및 DSC 구성 내에서 cmdlet을 사용할 수 있도록 Azure Automation 계정에 포함된 PowerShell 모듈입니다.
 * **일정** - 반복되는 빈도를 포함하여 지정된 시간에 runbook을 시작하거나 중지하는 일정을 포함합니다.
 * **변수** - runbook 또는 DSC 구성에서 사용할 수 있는 값을 포함합니다.
+* **DSC 구성** - 운영 체제 기능을 구성하거나 Windows 또는 Linux 컴퓨터에 응용 프로그램을 설정하거나 설치하는 방법을 설명하는 PowerShell 스크립트입니다.  
+* **Runbook** - Windows PowerShell을 기반으로 하는 Azure Automation에서 자동화된 프로세스 일부를 수행하는 일단의 작업입니다.    
 
 각 Automation 계정의 Automation 리소스는 단일 Azure 지역과 연결되지만 Automation 계정은 구독 내 모든 리소스를 관리할 수 있습니다. 데이터 및 리소스를 특정 지역으로 격리해야 하는 정책이 있는 경우 여러 지역에서 Automation 계정을 만듭니다.
 
@@ -106,8 +100,7 @@ Azure Portal에서 Automation 계정을 만들 경우 두 개의 인증 엔터�
 
 Azure Resource Manager에서 역할 기반 액세스 제어를 사용하여 Azure AD 사용자 계정 및 실행 계정에 허용된 작업을 수락하고 서비스 주체를 인증할 수 있습니다.  Automation 사용 권한 관리 모델을 개발하는 방법에 대한 자세한 내용은 [Azure Automation에서 역할 기반 액세스 제어 문서](automation-role-based-access-control.md)를 참조하세요.  
 
-#### 인증 방법
-<a id="authentication-methods" class="xliff"></a>
+#### <a name="authentication-methods"></a>인증 방법
 다음 표에는 Azure Automation에서 지원하는 각 환경에 대한 다양한 인증 방법이 요약되어 있습니다.
 
 | 메서드 | Environment 
@@ -119,8 +112,7 @@ Azure Resource Manager에서 역할 기반 액세스 제어를 사용하여 Azur
 
 **인증 및 보안 방법** 섹션에는 이러한 환경에 대해 기존 계정 또는 새 계정을 사용하여 해당 환경에 대한 인증을 구성하기 위한 개요 및 구현 단계를 제공하는 문서가 있습니다.  Azure 실행 계정 및 클래식 실행 계정과 관련하여 원래 실행 계정 또는 클래식 실행 계정으로 구성되지 않은 경우 [Automation 실행 계정 업데이트](automation-create-runas-account.md) 항목에서 포털 또는 PowerShell을 사용하여 기존 Automation 계정을 실행 계정으로 업데이트하는 방법을 설명합니다. 엔터프라이즈 CA(인증 기관)에서 발급한 인증서로 실행 계정 및 클래식 실행 계정을 만들려면 이 문서를 검토하여 이 구성을 사용하여 계정을 만드는 방법에 대해 알아봅니다.     
  
-## 네트워크 계획
-<a id="network-planning" class="xliff"></a>
+## <a name="network-planning"></a>네트워크 계획
 Hybrid Runbook Worker를 사용하여 Microsoft Operations Management Suite(OMS)에 연결하고 등록하려면 아래 설명된 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다.  [Microsoft Monitoring Agent에 필요한 포트 및 URL](../log-analytics/log-analytics-windows-agents.md#network) 외에도 OMS에 연결합니다. 에이전트와 OMS 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인해야 합니다. 방화벽을 사용하여 인터넷에 대한 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다.
 
 아래 정보는 Hybrid Runbook Worker에서 Automation과 통신하는 데 필요한 포트 및 URL을 나열합니다.
@@ -151,8 +143,7 @@ Hybrid Runbook Worker를 사용하여 Microsoft Operations Management Suite(OMS)
 > 이 파일에는 Microsoft Azure 데이터 센터에서 사용되는 IP 주소 범위(Compute, SQL 및 Storage 범위 포함)가 포함되어 있습니다. 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영하는 업데이트 파일이 매주 게시됩니다. 파일에 표시되는 새 범위는 적어도 1주일 동안 데이터 센터에서 사용되지 않습니다. Azure에서 실행되는 서비스를 정확하게 식별할 수 있도록 매주 새로운 xml 파일을 다운로드하고 사이트에서 필요한 변경 작업을 수행하세요. ExpressRoute 사용자는 각 달의 첫 번째 주에 Azure 공간의 BGP 광고를 업데이트하는 데 이 파일이 사용되는 것을 보게 될 수도 있습니다. 
 > 
 
-## Automation 계정 만들기
-<a id="creating-an-automation-account" class="xliff"></a>
+## <a name="creating-an-automation-account"></a>Automation 계정 만들기
 
 여러 가지 방법으로 Azure Portal에서 Automation 계정을 만들 수 있습니다.  다음 표에서는 각 유형의 배포 환경 및 이들 간의 차이점을 소개합니다.  
 
@@ -164,8 +155,7 @@ Hybrid Runbook Worker를 사용하여 Microsoft Operations Management Suite(OMS)
 
 이 항목에서는 Automation 및 컨트롤 제품을 등록하여 Automation 계정 및 OMS 작업 영역을 만드는 방법을 설명합니다.  테스트하기 위해 독립 실행형 Automation 계정을 만들거나 서비스를 미리 보려면 다음 [독립 실행형 Automation 계정 만들기](automation-create-standalone-account.md) 문서를 검토합니다.  
 
-### OMS와 통합된 Automation 계정 만들기
-<a id="create-automation-account-integrated-with-oms" class="xliff"></a>
+### <a name="create-automation-account-integrated-with-oms"></a>OMS와 통합된 Automation 계정 만들기
 Automation을 등록하려면 Marketplace에서 Automation 및 컨트롤 제품을 선택하는 것이 좋습니다.  그러면 Automation 계정을 만들고 제품에 사용할 수 있는 관리 솔루션을 설 하는 옵션을 포함하는 OMS 작업 영역과 통합을 설정할 수 있습니다.  
 
 1. 구독 관리자 역할의 멤버이자 구독의 공동 관리자인 계정으로 Azure Portal에 로그인합니다.
@@ -199,8 +189,7 @@ Automation을 등록하려면 Marketplace에서 Automation 및 컨트롤 제품�
 
 제품이 등록된 후에는 runbook을 만들고, 사용하도록 설정된 관리 솔루션으로 작업하며, [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) 역할을 배포할 수 있거나 [Log Analytics](https://docs.microsoft.com/azure/log-analytics)를 통해 클라우드 또는 온-프레미스 환경의 리소스에서 생성한 데이터를 수집할 수 있습니다.   
 
-## 다음 단계
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>다음 단계
 * [Azure Automation 실행 계정 인증 테스트](automation-verify-runas-authentication.md)를 검토하여 새 Automation 계정이 Azure 리소스에 대해 인증할 수 있는지 확인할 수 있습니다.
 * Runbook을 만들기 시작하려면 먼저 지원되는 [Automation runbook 형식](automation-runbook-types.md) 및 관련 고려 사항을 검토합니다.
 

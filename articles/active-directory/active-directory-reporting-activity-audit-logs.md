@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory 포털의 감사 작업 보고서 | Microsoft Docs"
 description: "Azure Active Directory 포털의 감사 작업 보고서 소개"
 services: active-directory
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: d8c49272789e7d33c6f0684875765a1ecea5a2ff
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
@@ -131,7 +130,7 @@ Azure Active Directory의 감사 로그는 규정 준수를 위한 시스템 활
 
 **활동** 필터는 사용자가 선택한 범주와 활동 리소스 종류를 기반으로 합니다. 보려는 특정 활동을 선택하거나 모두 선택할 수 있습니다. 
 
-Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta(여기서 $tenantdomain = 도메인 이름)를 사용하여 모든 감사 활동 목록을 가져오거나 [감사 보고서 이벤트](active-directory-reporting-audit-events.md#list-of-audit-report-events) 문서를 참조할 수 있습니다.
+Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta(여기서 $tenantdomain = 도메인 이름)를 사용하여 모든 감사 활동 목록을 가져오거나 [감사 보고서 이벤트](active-directory-reporting-audit-events.md) 문서를 참조할 수 있습니다.
 
 
 ## <a name="audit-logs-shortcuts"></a>감사 로그 바로 가기
@@ -185,6 +184,7 @@ Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)를 참조하세요.
+
+보고 개요는 [Azure Active Directory 보고](active-directory-reporting-azure-portal.md)를 참조하세요.
 
 

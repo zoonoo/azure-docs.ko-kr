@@ -17,19 +17,18 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: e74c5428f0e31d9d3cf06b85aa8cefde868e9d67
-ms.lasthandoff: 03/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2cd5a08cc74473be594fc3c7a4fb934d65ffe0ab
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
 # <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Azure Portal을 사용하여 개인 Docker 컨테이너 레지스트리 만들기
-Azure Portal을 사용하여 컨테이너 레지스트리를 만들고 설정을 관리합니다. [Azure CLI 2.0 명령](container-registry-get-started-azure-cli.md)을 사용하거나 Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376)에서 프로그래밍 방식으로 컨테이너 레지스트리를 만들고 관리할 수도 있습니다.
+Azure Portal을 사용하여 컨테이너 레지스트리를 만들고 설정을 관리합니다. [Azure CLI 2.0 명령](container-registry-get-started-azure-cli.md), [Azure PowerShell](container-registry-get-started-powershell.md)을 사용하거나 Container Registry [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376)를 통해 프로그래밍 방식으로 컨테이너 레지스트리를 만들고 관리할 수도 있습니다.
 
 배경 지식 및 개념은 [개요](container-registry-intro.md)를 참조하세요.
-
-
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 1. [Azure Portal](https://portal.azure.com)에서 **+ 새로 만들기**를 클릭합니다.

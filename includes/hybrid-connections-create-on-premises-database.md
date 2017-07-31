@@ -35,7 +35,7 @@
 4. 개체 탐색기에서 **데이터베이스**를 확장하면 새로운 데이터베이스가 생성된 것을 볼 수 있습니다.
 
 ### <a name="create-a-new-sql-server-login-and-set-permissions"></a>새 SQL Server 로그인 만들기 및 사용 권한 설정
-마지막으로 제한된 권한으로 새 SQL Server 로그인을 만듭니다. Azure 서비스는 서버에 대한 모든 권한을 가진 기본 제공 sa 로그인 대신 이 로그인을 사용하여 온-프레미스 SQL Server에 연결합니다.
+마지막으로 제한된 권한으로 새 SQL Server 로그인을 만듭니다. Azure 서비스는 서버에 대한 모든 권한을 가진 기본 제공 SA 로그인 대신 이 로그인을 사용하여 온-프레미스 SQL Server에 연결합니다.
 
 1. SQL Server Management Studio 개체 탐색기에서 마우스 오른쪽 단추로 **OnPremisesDB** 데이터베이스를 클릭하고 **새 쿼리**를 클릭합니다.
 2. 다음 TSQL 쿼리를 쿼리 창에 붙여넣습니다.
@@ -64,9 +64,4 @@
        GO  
 3. 위의 스크립트에서 `<**secure_password**>` 문자열을 새 *HybridConnectionsLogin*에 대한 보안 암호로 대체합니다.
 4. **실행** 하여 새 로그인을 만들고 온-프레미스 데이터베이스에 필요한 권한을 부여합니다.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

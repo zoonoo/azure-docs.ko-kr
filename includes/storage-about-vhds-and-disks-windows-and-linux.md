@@ -1,6 +1,5 @@
 
-## VHD에 대하여
-<a id="about-vhds" class="xliff"></a>
+## <a name="about-vhds"></a>VHD에 대하여
 
 Azure에서 사용되는 VHD는 Azure의 표준 또는 프리미엄 저장소 계정에서 페이지 blob으로 저장되는 .vhd 파일입니다. 페이지 Blob에 대한 자세한 내용은 [블록 Blob 및 페이지 Blob 이해하기](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/)를 참조하세요. 프리미엄 저장소에 대한 자세한 내용은 [고성능 프리미엄 저장소와 Azure VM](../articles/storage/storage-premium-storage.md)을 참조하세요.
 
@@ -16,30 +15,28 @@ Azure는 고정 디스크 VHD 형식을 지원합니다. 고정 형식은 디스
 > 저장소에서 원본 .vhd 파일을 삭제하거나, 사용자의 저장소 계정을 삭제한 경우, Microsoft는 해당 데이터를 복구할 수 없습니다.
 > 
 
-## 디스크 유형
-<a id="types-of-disks" class="xliff"></a> 
+## <a name="types-of-disks"></a>디스크 유형 
 
-디스크(Standard Storage 및 Premium Storage)를 만들 때 선택할 수 있는 저장소에는 두 가지 성능 계층이 있습니다. 또한 디스크에도 두 가지 유형(비관리 및 관리)이 있으며, 두 성능 계층 중 한 계층에 있을 수 있습니다.  
+Azure 디스크는 99.999% 가용성을 위해 설계되었습니다. Azure 디스크는 업계 최고의 0% 연간 실패율(Annualized Failure Rate)로 엔터프라이즈급 내구성을 일관되게 제공합니다.
 
-### Standard Storage
-<a id="standard-storage" class="xliff"></a> 
+디스크(Standard Storage 및 Premium Storage)를 만들 때 선택할 수 있는 저장소에는 두 가지 성능 계층이 있습니다. 또한 디스크에도 두 가지 유형(비관리 및 관리)이 있으며, 두 성능 계층 중 한 계층에 있을 수 있습니다.
+
+
+### <a name="standard-storage"></a>Standard Storage 
 
 Standard Storage는 HDD에 의해 지원되며 성능은 그대로이면서 비용 효율적인 저장소를 제공합니다. Standard Storage는 하나의 데이터센터에 로컬로 복제되거나 기본 및 보조 데이터센터와 함께 지역 중복 저장소가 될 수 있습니다. 저장소 복제에 대한 자세한 내용은 [Azure Storage 복제](../articles/storage/storage-redundancy.md)를 참조하세요. 
 
 VM 디스크로 Standard Storage를 사용하는 방법에 대한 자세한 내용은 [Standard Storage 및 디스크](../articles/storage/storage-standard-storage.md)를 참조하세요.
 
-### Premium Storage
-<a id="premium-storage" class="xliff"></a> 
+### <a name="premium-storage"></a>Premium Storage 
 
 Premium Storage는 SSD에 의해 지원되며 I/O 사용량이 많은 작업을 실행하는 VM을 위해 고성능의 낮은 대기 시간의 디스크를 지원합니다. Premium Storage는 DS, DSv2, GS, Ls 또는 FS 시리즈 Azure VM과 함께 사용할 수 있습니다. 자세한 내용은 [Premium Storage](../articles/storage/storage-premium-storage.md)를 참조하세요.
 
-### 관리되지 않는 디스크
-<a id="unmanaged-disks" class="xliff"></a>
+### <a name="unmanaged-disks"></a>관리되지 않는 디스크
 
 관리되지 않는 디스크는 VM에서 사용되는 전통적인 유형의 디스크입니다. 이 디스크를 통해 자신만의 저장소 계정을 만들어 디스크를 만들 때 해당 저장소 계정을 지정합니다. 동일한 저장소 계정에 너무 많은 디스크를 배치하지 않도록 해야 합니다. 그 이유는 저장소 계정의 [확장성 목표](../articles/storage/storage-scalability-targets.md)(예: 20,000개의 IOPS)를 초과하여, VM이 제한됩니다. 관리되지 않는 디스크를 사용하는 경우 VM에서 최상의 성능을 얻을 수 있도록 하나 이상의 저장소 계정 사용을 극대화하는 방법을 파악해야 합니다.
 
-### 관리 디스크
-<a id="managed-disks" class="xliff"></a> 
+### <a name="managed-disks"></a>관리 디스크 
 
 Managed Disks는 백그라운드에서 저장소 계정 만들기/관리 작업을 처리하기 때문에 저장소 계정의 확장성 제한에 걱정할 필요가 없습니다. 디스크 크기와 성능 계층(Standard/Premium)을 지정하면, Azure가 디스크를 만들고 관리합니다. 디스크를 추가하거나 VM을 확장/축소하더라도 사용 중인 저장소에 대해 걱정할 필요가 없습니다. 
 
@@ -47,8 +44,7 @@ Managed Disks는 백그라운드에서 저장소 계정 만들기/관리 작업�
 
 새 VM에 Azure Managed Disks를 사용하고 이전의 관리되지 않은 디스크를 관리 디스크로 변환하여 Managed Disks에서 사용할 수 있는 많은 기능을 활용하는 것이 좋습니다.
 
-### 디스크 비교
-<a id="disk-comparison" class="xliff"></a>
+### <a name="disk-comparison"></a>디스크 비교
 
 다음 표는 용도에 맞게 관리되지 않는 디스크를 사용할지 관리 디스크를 사용할지 결정할 수 있도록 Premium과 Standard를 비교한 내용을 제공합니다.
 

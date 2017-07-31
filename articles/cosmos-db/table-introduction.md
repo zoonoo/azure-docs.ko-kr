@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/09/2017
 ms.author: arramac
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 07dc5e1520cf60e19a1961ad85d2aea0cc7bd15f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ef57753aeeace0086c815d83600f92422996032a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -42,7 +42,7 @@ Azure Cosmos DB는 유연한 스키마, 예측 가능한 성능, 글로벌 배�
 | 글로벌 배포 | HA에 대해 선택적으로 읽을 수 있는 보조 읽기 지역이 하나 있는 단일 지역. 장애 조치를 시작할 수 없음 | 1 ~ 30개 이상 지역까지 [턴키 글로벌 배포](distribute-data-globally.md), 전 세계 어디에서 언제든 [자동 및 수동 장애 조치](regional-failover.md) 지원 |
 | 인덱싱 | PartitionKey 및 RowKey에 대한 기본 인덱스만 제공. 보조 인덱스 없음 | 모든 속성에 대한 자동 및 전체 인덱싱, 인덱스 관리 없음 |
 | 쿼리 | 쿼리 실행 시 기본 키에 대한 인덱스를 사용하고 그렇지 않은 경우 검색합니다. | 쿼리는 빠른 쿼리 시간을 위해 속성에 대해 자동 인덱싱을 활용할 수 있습니다. Azure Cosmos DB의 데이터베이스 엔진은 집계, 지리 공간 및 정렬을 지원할 수 있습니다. |
-| 일관성 | 주 지역 내에서 강력, 보조 지역에서 최종적 | 응용 프로그램 요구 사항에 따라 가용성, 대기 시간, 처리량 및 일관성을 조정할 수 있는 [5가지 잘 정의된 일관성 수준](consistency-levels.md) |
+| 일관성 | 주 지역 내에서 강력, 보조 지역에서 최종적 | 응용 프로그램 요구 사항에 따라 가용성, 대기 시간, 처리량 및 일관성을 절충할 수 있는 [잘 정의된 5가지 일관성 수준](consistency-levels.md) |
 | 가격 | 저장소 최적화  | 처리량 최적화 |
 | SLA | 99.9% 가용성 | 단일 지역 내에서 99.99% 가용성 및 더 높은 가용성이 필요한 경우 더 많은 지역을 추가하는 기능. 일반 공급에서 [업계 최고의 포괄적인 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) |
 

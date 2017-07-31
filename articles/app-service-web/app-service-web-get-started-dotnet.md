@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 2b447bcc5930550af3996cb40925ab59d203dc7c
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: b5a7f3ebe5e95d3838e71b7b17b91e85da0d51a2
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>Azure에서 ASP.NET 웹앱 만들기
@@ -32,7 +32,7 @@ ms.lasthandoff: 06/20/2017
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)을 설치합니다.
+* 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
     - **ASP.NET 및 웹 배포**
     - **Azure 개발**
 
@@ -74,7 +74,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-**App Service 만들기** 대화 상자에서 **계정 추가**를 선택한 다음 Azure 구독에 로그인합니다. 이미 로그인한 경우 계정에 Azure 구독이 있는지 확인합니다. 올바른 계정을 추가할 로그인 계정을 선택할 수 있습니다.
+**App Service 만들기** 대화 상자에서 **계정 추가**를 선택하고 Azure 구독에 로그인합니다. 이미 로그인한 경우 드롭다운에서 원하는 구독이 포함된 계정을 선택합니다.
 
 > [!NOTE]
 > 이미 로그인한 경우 **만들기**를 선택하지 마십시오.
@@ -82,8 +82,6 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 >
    
 ![Azure에 로그인](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
-
-일단 로그인되면 이 대화 상자에서 Azure 웹앱에 필요한 모든 리소스를 만들 준비가 되었습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -113,9 +111,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 ## <a name="create-and-publish-the-web-app"></a>웹앱 만들기 및 게시
 
-**웹앱 이름**에서 고유한 앱 이름을 입력합니다(유효한 문자는 `a-z`, `0-9` 및 `-`). 웹앱의 URL은 `http://<app_name>.azurewebsites.net`이며, 여기서 `<app_name>`은 웹앱 이름입니다. 
-
-자동으로 생성된 이름을 적용할 수 있습니다. 이 이름은 고유합니다.
+**웹앱 이름**에서 고유한 앱 이름(유효한 문자는 `a-z`, `0-9` 및 `-`)을 입력하거나 자동으로 생성된 고유한 이름을 적용합니다. 웹앱의 URL은 `http://<app_name>.azurewebsites.net`이며, 여기서 `<app_name>`은 웹앱 이름입니다.
 
 **만들기**를 선택하여 Azure 리소스 만들기를 시작합니다.
 
@@ -125,7 +121,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 ![Azure에서 게시된 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
 
-URL은 `http://<app_name>.azurewebsites.net` 형식으로 이전에 지정한 웹앱 이름을 사용합니다. 
+[작성 및 게시 단계](#create-and-publish-the-web-app)에서 지정한 웹앱 이름이 `http://<app_name>.azurewebsites.net` 형식의 URL 접두사로 사용됩니다.
 
 축하합니다. ASP.NET 웹앱이 Azure App Service에서 실시간으로 실행 중입니다.
 

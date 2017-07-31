@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/03/2017
+ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: fac46780cfd591a00ce73ea1bb4ce73893d22967
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -38,7 +38,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 1. Azure Portal의 왼쪽 위에 있는 **새로 만들기** 단추를 클릭합니다.
 
-2. **계산**을 선택하고 **Windows Server 2016 Datacenter**를 선택한 다음 **Resource Manager**가 선택한 배포 모델을 확인합니다. **만들기** 단추를 클릭합니다. 
+2. **계산**을 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
 
 3. 가상 컴퓨터 정보를 입력합니다. 여기에서 입력한 이사용자 이름과 암호는 가상 컴퓨터에 로그인하는 데 사용됩니다 완료되면 **확인**을 클릭합니다.
 
@@ -48,7 +48,7 @@ Azure Portal( http://portal.azure.com )에 로그인합니다.
 
     ![VM 크기를 보여 주는 스크린샷](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. 설정 블레이드의 **Managed Disks 사용**에서 **예**를 선택하고 나머지 설정에 대해 기본값을 그대로 적용한 후 **확인**을 클릭합니다.
+5. 설정 블레이드에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
 
 6. 요약 페이지에서 **확인**을 클릭하여 가상 컴퓨터 배포를 시작합니다.
 

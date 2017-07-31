@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/07/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
-ms.openlocfilehash: 08ba157ba783d00069750cdc1c80d13111b6a670
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7049af4567947d3d799a38c5a3940ba25a2c0f18
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -35,7 +37,7 @@ Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드
 DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 [관련 설명서](#related-documentation) 를 참조하세요.
 
 ## <a name="upgrade-from-dirsync"></a>DirSync에서 업그레이드
-현재 DirSync 배포에 따라 업그레이드에 대한 여러 옵션이 있습니다. 예상되는 업그레이드 시간이&3;시간 미만인 경우 전체 업그레이드를 수행하는 것이 좋습니다. 예상되는 업그레이드 시간이&3;시간 이상인 경우 다른 서버에서 병렬 배포를 수행하는 것이 좋습니다. 50,000개 이상의 개체가 있는 경우 업그레이드를 수행하는 데 3시간 이상이 걸릴 수 있습니다.
+현재 DirSync 배포에 따라 업그레이드에 대한 여러 옵션이 있습니다. 예상되는 업그레이드 시간이 3시간 미만인 경우 전체 업그레이드를 수행하는 것이 좋습니다. 예상되는 업그레이드 시간이 3시간 이상인 경우 다른 서버에서 병렬 배포를 수행하는 것이 좋습니다. 50,000개 이상의 개체가 있는 경우 업그레이드를 수행하는 데 3시간 이상이 걸릴 수 있습니다.
 
 | 시나리오 |
 | --- | --- |
@@ -134,7 +136,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 1. Azure AD Connect 설치 관리자(MSI)를 실행합니다.
 2. **Azure AD Connect 시작** 화면이 표시되면 창 오른쪽 위 모서리에서 "X"를 클릭하여 설치 마법사를 종료합니다.
 3. 명령 프롬프트를 엽니다.
-4. Azure AD Connect 설치 위치(기본값: C:\Program Files\Microsoft Azure Active Directory Connect)에서  `AzureADConnect.exe /ForceExport` 명령을 실행합니다.
+4. Azure AD Connect 설치 위치(기본값: C:\Program Files\Microsoft Azure Active Directory Connect)에서 `AzureADConnect.exe /ForceExport` 명령을 실행합니다.
 5. **설정 내보내기** 단추를 클릭합니다. 별도 서버에 Azure AD Connect를 설치하면 이 설정을 현재 DirSync에서 새 Azure AD Connect 설치로 이미그레이션됩니다.
 
 ![분석 완료](./media/active-directory-aadconnect-dirsync-upgrade-get-started/forceexport.png)
@@ -147,7 +149,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 1. Azure AD Connect 설치 관리자(MSI)를 실행합니다.
 2. **Azure AD Connect 시작** 화면이 표시되면 창 오른쪽 위 모서리에서 "X"를 클릭하여 설치 마법사를 종료합니다.
 3. 명령 프롬프트를 엽니다.
-4. Azure AD Connect 설치 위치(기본값: C:\Program Files\Microsoft Azure Active Directory Connect)에서  `AzureADConnect.exe /migrate` 명령을 실행합니다.
+4. Azure AD Connect 설치 위치(기본값: C:\Program Files\Microsoft Azure Active Directory Connect)에서 `AzureADConnect.exe /migrate` 명령을 실행합니다.
    Azure AD Connect 설치 마법사가 시작되면 다음 화면이 표시됩니다.  
    ![Azure AD 자격 증명 입력](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ImportSettings.png)
 5. DirSync 설치에서 내보낸 설정 파일을 선택합니다.
@@ -157,7 +159,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
    * SQL Server에 연결하는 데 사용되는 서비스 계정(SQL Server 데이터베이스가 원격인 경우에는 이 계정이 도메인 서비스 계정이어야 함) 이러한 옵션은 이 화면에서 볼 수 있습니다.
      이러한 옵션은 이 화면에서 볼 수 있습니다.  
      ![Azure AD 자격 증명 입력](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
-7. **다음**을 클릭합니다.
+7. **다음**을 누릅니다.
 8. **구성 준비 완료** 페이지에서 **구성이 완료되자마자 동기화 프로세스를 시작합니다.**를 선택한 상태로 둡니다. 서버가 이제 [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode) 이므로 변경 내용을 Azure AD로 내보내지 않습니다.
 9. **Install**을 클릭합니다.
 10. 설치가 완료된 후 로그아웃하고 Synchronization Service Manager, 동기화 규칙 편집기 또는 다른 구성의 변경을 시도하기 전에 Windows에 다시 로그인합니다.
@@ -216,9 +218,4 @@ Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 �
 공통 항목인 [스케줄러 및 동기화를 트리거하는 방법](active-directory-aadconnectsync-feature-scheduler.md)에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

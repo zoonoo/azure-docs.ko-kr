@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 7/17/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: fbcd35529c5d2360f5b0c9de4d3c9c4a08a0cc8f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0b1f7711586cdfacbbfb28af121c7f37ba564cde
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>저장소 탐색기(미리 보기) 시작
@@ -69,80 +68,7 @@ Azure Storage 탐색기(미리 보기)는 Windows, macOS 및 Linux에서 Azure S
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Azure Stack 구독에 연결
 
-저장소 탐색기가 Azure Stack 구독에 원격으로 액세스하려면 VPN 연결이 필요합니다. Azure Stack에 VPN 연결을 설정하는 방법은 [VPN을 사용하여 Azure Stack에 연결](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn)을 참조하세요.
-
-Azure Stack POC(개념 증명)의 경우 Azure Stack 기관 루트 인증서를 내보내야 합니다. 이렇게 하려면 다음을 수행합니다.
-
-1. Azure Stack에 대한 VPN 연결을 사용하여 MAS-CON01, Azure Stack 호스트 컴퓨터 또는 로컬 컴퓨터에서 `mmc.exe`을 엽니다. 
-
-2. **파일**에서 **스냅인 추가/제거**를 선택하고, **인증서**를 추가하여 **로컬 컴퓨터**의 **컴퓨터 계정**을 관리합니다.
-
-    ![mmc.exe를 통해 Azure Stack 루트 인증서 로드][25]   
-
-3. **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** 아래에서 **AzureStackCertificationAuthority**를 찾습니다. 
-
-4. 항목을 마우스 오른쪽 단추로 클릭하고, **모든 작업** > **내보내기**를 선택한 다음 지침에 따라 **Base-64로 인코딩된 X.509(. CER)**를 사용하여 인증서를 내보냅니다.  
-
-    내보낸 인증서는 다음 단계에서 사용됩니다.   
-
-    ![Azure Stack 기관 루트 인증서 내보내기][26]   
-
-5. 저장소 탐색기(미리 보기)의 **편집** 메뉴에서 **SSL 인증서**를 가리킨 다음 **인증서 가져오기**를 선택합니다. 파일 선택 대화 상자를 사용하여 이전 단계에서 내보낸 인증서를 찾아 엽니다.  
-
-    인증서를 가져오면 저장소 탐색기를 다시 시작하라는 메시지가 표시됩니다.
-
-    ![저장소 탐색기(미리 보기)로 인증서 가져오기][27]
-
-6. 저장소 탐색기(미리 보기)가 다시 시작되면 **편집** 메뉴를 선택하고, **대상 Azure Stack**이 선택되었는지 확인합니다. 선택되지 않았으면 선택한 다음 저장소 탐색기를 다시 시작하여 변경 내용을 적용합니다. 이 구성은 Azure Stack 환경과의 호환성을 위해 필요합니다.
-
-    ![대상 Azure Stack이 선택되었는지 확인][28]
-
-7. 왼쪽 창에서 **계정 관리**를 선택합니다.  
-    로그인된 모든 Microsoft 계정이 표시됩니다.
-
-8. Azure Stack 계정에 연결하려면 **계정 추가**를 선택합니다.
-
-    ![Azure Stack 계정 추가][29]
-
-9. **새 계정 추가** 대화 상자의 **Azure 환경** 아래에서 **사용자 지정 환경 만들기**를 선택하고 **다음**을 클릭합니다.
-
-10. Azure Stack 사용자 지정 환경에 필요한 모든 정보를 입력한 다음 **로그인**을 클릭합니다. 
-
-11. 하나 이상의 활성 Azure Stack 구독과 연결되어 있는 Azure Stack 계정을 사용하여 로그인하려면 **사용자 지정 클라우드 환경에 로그인** 대화 상자에 정보를 입력합니다.  
-
-    각 필드에 대한 세부 정보는 다음과 같습니다.
-
-    * **환경 이름**: 사용자가 필드를 사용자 지정할 수 있습니다.
-    * **기관**: 값은 https://login.windows.net이어야 합니다. Azure 중국의 경우 https://login.chinacloudapi.cn을 사용하세요.
-    * **리소스 ID에 로그인**: 다음 PowerShell 스크립트 중 하나를 실행하여 값을 검색합니다.
-
-        사용자가 클라우드 관리자인 경우:
-
-        ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-        ```
-
-        사용자가 테넌트인 경우:
-
-        ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-        ```
-
-    * **그래프 끝점**: 값은 https://graph.windows.net이어야 합니다. Azure 중국의 경우 https://graph.chinacloudapi.cn을 사용하세요.
-    * **ARM 리소스 id**: 동일한 값을 **로그인 리소스 id**로 사용합니다.
-    * **ARM 리소스 끝점**: Azure Resource Manager 리소스 끝점의 샘플입니다.
-
-        * 클라우드 관리자의 경우: https://adminmanagement.local.azurestack.external   
-        * 테넌트의 경우: https://management.local.azurestack.external
- 
-    * **테넌트 id**: 선택 사항입니다. 디렉터리를 지정해야 하는 경우 값을 지정합니다.
-
-12. Azure Stack 계정으로 성공적으로 로그인하면 왼쪽 창이 해당 계정과 연결된 Azure Stack 구독으로 채워집니다. 작업하려는 Azure Stack 구독을 선택한 후 **적용**을 선택합니다. (**모든 구독** 확인란을 선택하면 나열된 모든 Azure Stack 구독이 선택되고, 선택 취소하면 아무 구독도 선택되지 않습니다.)
-
-    ![클라우드 환경 사용자 지정 대화 상자에 정보를 입력한 후 Azure Stack 구독 선택][30]  
-    왼쪽 창은 선택한 Azure Stack 구독과 연결된 저장소 계정을 표시합니다.
-
-    ![Azure Stack 구독 계정을 포함한 저장소 계정 목록][31]
+Azure Stack 구독에 연결하는 방법에 대한 자세한 내용은 [Azure Stack 구독에 저장소 탐색기 연결](azure-stack/azure-stack-storage-connect-se.md)을 참조하세요.
 
 ## <a name="work-with-local-development-storage"></a>로컬 개발 저장소로 작업
 저장소 탐색기(미리 보기)를 사용하면 Azure Storage 에뮬레이터를 사용하여 로컬 저장소에서 작업할 수 있습니다. 이 방식은 Azure에 저장소 계정을 배포하지 않고도 저장소에 대한 코드를 작성하고 테스트할 수 있습니다. 저장소 계정이 Azure Storage 에뮬레이터에서 에뮬레이트되기 때문입니다.

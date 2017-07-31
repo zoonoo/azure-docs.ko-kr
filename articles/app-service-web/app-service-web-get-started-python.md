@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 233db1cb74a6c81cf044953ecdf6e9de6cc50ee8
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 754c381cb242e0bdf7c56bd2a763d46acc80fbda
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Azure에서 Python 웹앱 만들기
@@ -59,6 +59,12 @@ cd Python-docs-hello-world
 ```
 
 ## <a name="run-the-app-locally"></a>로컬에서 앱 실행
+
+`pip`를 사용하여 필요한 패키지를 설치합니다.
+
+```bash
+pip install -r requirements.txt
+```
 
 Python 웹 서버에서 기본 제공을 시작하려면 터미널 창을 열고 `Python` 명령을 사용하여 응용 프로그램을 로컬로 실행합니다.
 
