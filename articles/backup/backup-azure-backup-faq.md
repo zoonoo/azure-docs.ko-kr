@@ -1,7 +1,7 @@
 
 ---
 title: "Azure Backup FAQ | Microsoft 문서"
-description: "Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한과 관련된 일반적인 질문에 대한 대답입니다."
+description: "Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. "
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -14,13 +14,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/10/2017
-ms.author: markgal;giridham;arunak;trinadhk;
+ms.date: 7/21/2017
+ms.author: markgal;arunak;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 865d8faef47e333e30c5d4084a93a52efc5eb2ad
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 6f204f2f0dca33e68b9853af3c94934af65ca1f9
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup 서비스에 대한 질문
@@ -61,6 +61,13 @@ ms.lasthandoff: 07/21/2017
 
 ## <a name="azure-vm-backup"></a>Azure VM 백업
 자세한 질문 목록은 [Azure VM 백업 FAQ](backup-azure-vm-backup-faq.md)에 있습니다.
+
+## <a name="back-up-vmware-servers"></a>VMware 서버 백업
+
+### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>VMware vCenter 서버를 Azure에 백업할 수 있나요?
+
+예. VMware vCenter 및 ESXi를 Azure에 백업하는 데 Azure Backup Server를 사용할 수 있습니다. 지원되는 VMware 버전에 대 한 자세한 내용은 [Azure Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)를 참조하세요. 단계별 지침은 [Azure Backup Server를 사용하여 VMware 서버 백업](backup-azure-backup-server-vmware.md)을 참조하세요.
+
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Azure Backup Server 및 System Center Data Protection Manager
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Azure Backup 서버를 사용하여 물리적 서버에 대한 BMR(완전 복구) 백업을 만들 수 있나요? <br/>

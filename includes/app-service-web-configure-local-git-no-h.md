@@ -16,4 +16,4 @@ https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 
 `<username>`은 이전 단계에서 만든 [배포 사용자](#configure-a-deployment-user)입니다.
 
-표시된 URI를 저장합니다. 다음 단계에서 사용합니다. 
+다음 단계에서 사용하므로 표시된 URI를 저장합니다.

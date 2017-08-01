@@ -12,10 +12,10 @@ ms.devlang: go
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ffe09758d0bf5dd4a6e599b1a606d9ae5fce4bf9
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 42a6b1c37de08971674c8b38f1e13bfd657f8b03
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -38,6 +38,7 @@ ms.lasthandoff: 07/21/2017
 5. 소스 코드 디렉터리를 가리키도록 GOPATH에 대한 환경 변수를 설정합니다. `set GOPATH=%USERPROFILE%\go`.
 6. `go get github.com/go-sql-driver/mysql` 명령을 실행하여 [MySQL용 go-sql-driver(영문)](https://github.com/go-sql-driver/mysql#installation)를 설치합니다.
 
+   요약하자면, Go 설치 후 명령 프롬프트에서 다음이 명령을 실행합니다.
    ```cmd
    mkdir  %USERPROFILE%\go\src\mysqlgo
    cd %USERPROFILE%\go\src\mysqlgo
@@ -53,6 +54,7 @@ ms.lasthandoff: 07/21/2017
 5. 현재 홈 디렉터리의 go 폴더와 같이 유효한 소스 디렉터리를 가리키도록 GOPATH 환경 변수를 설정합니다. Bash 셸에서 `export GOPATH=~/go`를 실행하여 go 디렉터리를 현재 셸 세션에 대한 GOPATH로 추가합니다.
 6. `go get github.com/go-sql-driver/mysql` 명령을 실행하여 [MySQL용 go-sql-driver(영문)](https://github.com/go-sql-driver/mysql#installation)를 설치합니다.
 
+   요약하자면, 다음과 같은 Bash 명령을 실행합니다.
    ```bash
    sudo apt-get install golang-go
    mkdir -p ~/go/src/mysqlgo/
@@ -69,13 +71,13 @@ ms.lasthandoff: 07/21/2017
 5. 현재 홈 디렉터리의 go 폴더와 같이 유효한 소스 디렉터리를 가리키도록 GOPATH 환경 변수를 설정합니다. Bash 셸에서 `export GOPATH=~/go`를 실행하여 go 디렉터리를 현재 셸 세션에 대한 GOPATH로 추가합니다.
 6. `go get github.com/go-sql-driver/mysql` 명령을 실행하여 [MySQL용 go-sql-driver(영문)](https://github.com/go-sql-driver/mysql#installation)를 설치합니다.
 
+   요약하자면, Go 설치 후 다음 bash 명령을 실행합니다.
    ```bash
    mkdir -p ~/go/src/mysqlgo/
    cd ~/go/src/mysqlgo/
    export GOPATH=~/go/
    go get github.com/go-sql-driver/mysql
    ```
-
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
@@ -89,10 +91,12 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
    
 
 ## <a name="build-and-run-go-code"></a>Go 코드 작성 및 실행 
-1. 아래 섹션에서 Go 코드를 텍스트 파일에 붙여넣고 `%USERPROFILE%\go\src\mysqlgo\createtable.go`(Windows 경로) 또는 `~/go/src/mysqlgo/createtable.go`(Linux 경로)와 같이 *.go 파일 확장명이 포함된 프로젝트 폴더에 저장합니다.
-2. 명령 프롬프트 또는 Bash 셸을 시작합니다. 디렉터리를 프로젝트 폴더로 변경합니다. 예를 들어 Windows에서는 `cd %USERPROFILE%\go\src\mysqlgo\`이고, Linux에서는 `cd ~/go/src/mysqlgo/`입니다.
-3. 응용 프로그램을 컴파일하고 실행하려면 `go run createtable.go` 명령을 입력하여 코드를 실행합니다.
-4. 또는 `go build createtable.go` 네이티브 응용 프로그램에 코드를 빌드하려면 `createtable.exe`를 시작하여 응용 프로그램을 실행합니다.
+1. Golang 코드를 작성하려면 Microsoft Windows의 메모장, Ubuntu의 [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) 또는 [Nano](https://www.nano-editor.org/), macOS의 TextEdit과 같은 간단한 텍스트 편집기를 사용할 수 있습니다. 보다 풍부한 IDE(대화형 개발 환경)를 선호하는 경우 Jetbrains의 [Gogland](https://www.jetbrains.com/go/), Microsoft의 [Visual Studio Code](https://code.visualstudio.com/) 또는 [Atom](https://atom.io/)을 사용해 보세요.
+2. 아래 섹션에서 Go 코드를 텍스트 파일에 붙여넣고 `%USERPROFILE%\go\src\mysqlgo\createtable.go`(Windows 경로) 또는 `~/go/src/mysqlgo/createtable.go`(Linux 경로)와 같이 \*.go 파일 확장명이 포함된 프로젝트 폴더에 저장합니다.
+3. 코드에서 `HOST`, `DATABASE`, `USER` 및 `PASSWORD` 상수를 찾아 예제 값을 사용자 고유의 값으로 바꿉니다. 
+4. 명령 프롬프트 또는 Bash 셸을 시작합니다. 디렉터리를 프로젝트 폴더로 변경합니다. 예를 들어 Windows에서는 `cd %USERPROFILE%\go\src\mysqlgo\`이고, Linux에서는 `cd ~/go/src/mysqlgo/`입니다.  언급된 일부 IDE 편집기에서는 셸 명령 없이 디버그 및 런타임 기능을 제공합니다.
+5. 응용 프로그램을 컴파일하고 실행하려면 `go run createtable.go` 명령을 입력하여 코드를 실행합니다. 
+6. 또는 `go build createtable.go` 네이티브 응용 프로그램에 코드를 빌드하려면 `createtable.exe`를 시작하여 응용 프로그램을 실행합니다.
 
 ## <a name="connect-create-table-and-insert-data"></a>테이블 연결, 생성 및 데이터 삽입
 다음 코드를 사용하여 서버에 연결하고, 테이블을 만들고, **INSERT** SQL 문을 통해 데이터를 로드합니다. 

@@ -12,13 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 07/24/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
-ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
-ms.lasthandoff: 02/11/2017
-
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 2cc2b63312b331a19c61cd7b59a4cac78edf32e6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="managing-groups-in-azure-active-directory"></a>Azure Active Directory에서 그룹 관리
@@ -35,6 +38,9 @@ Azure AD(Azure Active Directory) 사용자 관리의 주요 기능 중 하나는
 * SaaS 응용 프로그램, Azure 서비스, SharePoint 사이트 또는 온-프레미스 리소스와 같은 디렉터리 외부에 있는 리소스입니다.
 
 또한 리소스 소유자는 다른 사람이 소유한 Azure AD 그룹에 리소스에 대한 액세스를 할당할 수도 있습니다. 이 할당은 해당 그룹의 멤버에게 리소스에 대한 액세스 권한을 부여합니다. 그런 다음 그룹의 소유자는 그룹의 멤버 자격을 관리합니다. 실질적으로 리소스 소유자는 그룹의 소유자에게 권한을 위임하여 해당 리소스에 사용자를 할당합니다.
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. Azure AD 관리 센터에서 그룹을 관리하는 방법은 [Azure Active Directory에서 그룹 만들기 및 멤버 추가](active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 ## <a name="how-do-i-create-a-group"></a>그룹을 만드는 방법
 조직에서 구독하는 서비스에 따라 다음 중 하나를 사용하여 그룹을 만들 수 있습니다.

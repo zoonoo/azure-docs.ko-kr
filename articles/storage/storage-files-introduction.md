@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 16fdd3aafef1a50554932a0e7843d347182c9b6a
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: bae2e9825bf158bb015ec0affa56f15ce5baa201
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
 # <a name="introduction-to-azure-file-storage"></a>Azure File Storage 소개
-Azure File Storage는 업계 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) 및 [Samba/CIFS(Common Internet File System)](https://technet.microsoft.com/library/cc939973.aspx)를 사용하여 클라우드에 네트워크 파일 공유를 제공합니다. Azure 파일 공유는 Windows, macOS, Linux의 온-프레미스 환경 또는 Azure Virtual Machines와 같은 클라이언트에서 동시에 탑재할 수 있습니다. 범용 저장소 계정을 사용하면 단일 계정을 통해 Azure File Storage 및 다른 서비스(예: Blob, Azure 가상 컴퓨터 디스크, 큐)에 액세스할 수 있습니다.
+Azure File Storage는 업계 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) 및 [CIFS(Common Internet File System)](https://technet.microsoft.com/library/cc939973.aspx)를 사용하여 클라우드에 네트워크 파일 공유를 제공합니다. Azure 파일 공유는 Windows, macOS, Linux의 온-프레미스 환경 또는 Azure Virtual Machines와 같은 클라이언트에서 동시에 탑재할 수 있습니다. 범용 저장소 계정을 사용하면 단일 계정을 통해 Azure File Storage 및 다른 서비스(예: Blob, Azure 가상 컴퓨터 디스크, 큐)에 액세스할 수 있습니다.
 
 
 

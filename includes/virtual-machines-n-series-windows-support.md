@@ -4,8 +4,8 @@
 
 | OS | 드라이버 |
 | -------- |------------- |
-| Windows Server 2016 | [369.95](https://go.microsoft.com/fwlink/?linkid=836843)(.zip) |
-| Windows Server 2012 R2 | [369.95](https://go.microsoft.com/fwlink/?linkid=836844)(.zip)  |
+| Windows Server 2016 | [370.12](https://go.microsoft.com/fwlink/?linkid=836843)(.exe) |
+| Windows Server 2012 R2 | [370.12](https://go.microsoft.com/fwlink/?linkid=836844)(.exe)  |
 
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>NC 인스턴스-NVIDIA Tesla 드라이버
 

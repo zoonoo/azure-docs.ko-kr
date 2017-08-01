@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 053e2ae7f382bc55a6638ccd612289ab2ba64e52
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 331d08da8a70eee893fb1b01b1fef4475cc8bca0
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
@@ -152,7 +151,7 @@ ms.lasthandoff: 06/20/2017
 
 배치 계정에서 배타적으로 사용할 수 있도록 새로운 저장소 계정을 만드는 것이 좋습니다.
 
-!["범용" 저장소 계정 만들기][storage_account]
+![범용 저장소 계정 만들기][storage_account]
 
 > [!NOTE]
 > Azure 배치는 현재 범용 저장소 계정 유형만 지원합니다. 이 계정 유형은 [Azure 저장소 계정 정보](../storage/storage-create-storage-account.md)의 5단계 [저장소 계정 만들기](../storage/storage-create-storage-account.md#create-a-storage-account)에서 설명하고 있습니다.

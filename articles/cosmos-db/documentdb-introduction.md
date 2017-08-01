@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 79156c0b511dafcb43ed91800f01338dbb7ee5f3
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: dba483c21afc46b1b9f0a74ebfb24ed644080e09
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB 소개: DocumentDB API
@@ -51,7 +50,7 @@ Azure Cosmos DB는 DocumentDB API를 통해 다음과 같은 주요 기능 및 �
 * **자동 인덱싱:** Azure Cosmos DB는 기본적으로 데이터베이스에 있는 모든 문서를 자동으로 인덱싱하고 스키마 또는 보조 인덱스 생성을 예상하거나 요구하지 않습니다. 모든 항목을 인덱스하지 않으시겠습니까? 걱정하지 마세요. [JSON 파일에서 경로를 옵트아웃](indexing-policies.md)할 수 있습니다.
 
 ## <a name="data-management"></a>DocumentDB API를 사용하여 데이터를 어떻게 관리하나요?
-DocumentDB API는 잘 정의된 데이터베이스 리소스를 통해 JSON 데이터를 관리합니다. 이러한 리소스는 고가용성을 위해 복제되며 논리적 URI로 고유한 주소 지정이 가능합니다. DocumentDB는 모든 리소스에 대해 단순한 HTTP 기반 RESTful 프로그래밍 모델을 제공합니다. 
+DocumentDB API는 잘 정의된 데이터베이스 리소스를 통해 JSON 데이터를 관리합니다. 이러한 리소스는 고가용성을 위해 복제되며 논리적 URI로 고유한 주소 지정이 가능합니다. DocumentDB API는 모든 리소스에 대해 단순한 HTTP 기반 RESTful 프로그래밍 모델을 제공합니다. 
 
 
 Azure Cosmos DB 데이터베이스 계정은 Azure Cosmos DB에 대한 액세스 권한을 제공하는 고유 네임스페이스입니다. 데이터베이스 계정을 만들려면 먼저 다양한 Azure 서비스에 액세스할 수 있는 Azure 구독이 있어야 합니다. 
@@ -87,16 +86,16 @@ Azure Cosmos DB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로
 기본적인 만들기, 읽기, 업데이트 및 삭제 작업 외에도 DocumentDB API는 JSON 문서 검색을 위한 풍부한 SQL 쿼리 인터페이스 및 JavaScript 응용 프로그램 논리의 트랜잭션 실행에 대한 서버 쪽 지원을 제공합니다. 쿼리 및 스크립트 실행 인터페이스는 모든 플랫폼 라이브러리 및 REST API를 통해 사용할 수 있습니다. 
 
 ### <a name="sql-query"></a>SQL 쿼리
-DocumentDB API는 관계적, 계층적 및 공간적 쿼리를 지원하는 JavaScript 유형 시스템 및 식을 기반으로 하는 SQL 언어를 사용하여 문서 쿼리를 지원합니다. DocumentDB 쿼리 언어는 JSON 문서를 쿼리하는 단순하지만 강력한 인터페이스입니다. 이 언어는 ANSI SQL 문법의 하위 집합을 지원하며 JavaScript 개체, 배열, 개체 생성 및 함수 호출의 전체 통합을 추가합니다. DocumentDB는 개발자의 명시적 스키마 또는 인덱싱 힌트 없이 해당 쿼리 모델을 제공합니다.
+DocumentDB API는 관계적, 계층적 및 공간적 쿼리를 지원하는 JavaScript 유형 시스템 및 식을 기반으로 하는 SQL 언어를 사용하여 문서 쿼리를 지원합니다. DocumentDB 쿼리 언어는 JSON 문서를 쿼리하는 단순하지만 강력한 인터페이스입니다. 이 언어는 ANSI SQL 문법의 하위 집합을 지원하며 JavaScript 개체, 배열, 개체 생성 및 함수 호출의 전체 통합을 추가합니다. DocumentDB API는 개발자의 명시적 스키마 또는 인덱싱 힌트 없이 해당 쿼리 모델을 제공합니다.
 
 UDF(사용자 정의 함수)를 DocumentDB API에 등록하고 SQL 쿼리의 일부로 참조하여 사용자 지정 응용 프로그램 논리를 지원하도록 문법을 확장할 수 있습니다. 이 UDF는 JavaScript 프로그램으로 작성되며 데이터베이스 내에서 실행됩니다. 
 
-.NET 개발자를 위해 DocumentDB [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx)도 LINQ 쿼리 공급자를 제공합니다. 
+.NET 개발자를 위해 DocumentDB API [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx)도 LINQ 쿼리 공급자를 제공합니다. 
 
 ### <a name="transactions-and-javascript-execution"></a>트랜잭션 및 JavaScript 실행
 DocumentDB API를 사용하면 JavaScript로만 작성된 명명된 프로그램으로 응용 프로그램 논리를 작성할 수 있습니다. 이 프로그램은 컬렉션에 대해 등록되며 지정된 컬렉션 내 문서에 대한 데이터베이스 작업을 실행할 수 있습니다. 트리거, 저장 프로시저 또는 사용자 정의 함수로 실행하기 위해 JavaScript를 등록할 수 있습니다. 트리거와 저장 프로시저는 문서를 만들고 읽고 업데이트하고 삭제할 수 있는 반면 사용자 정의 함수는 컬렉션에 대한 쓰기 권한 없이 쿼리 실행 논리의 일부로 실행됩니다.
 
-DocumentDB API 내의 JavaScript 실행은 JavaScript를 Transact-SQL의 최신 대체로 사용하여 관계형 데이터베이스 시스템이 지원하는 개념을 따라 모델링됩니다. 모든 JavaScript 논리는 스냅숏 격리를 사용하여 앰비언트 ACID 트랜잭션 내에서 실행됩니다. 실행 중 JavaScript에서 예외가 발생하면 전체 트랜잭션이 중단됩니다.
+Cosmos DB 내의 JavaScript 실행은 JavaScript를 Transact-SQL의 최신 대체로 사용하여 관계형 데이터베이스 시스템이 지원하는 개념을 따라 모델링됩니다. 모든 JavaScript 논리는 스냅숏 격리를 사용하여 앰비언트 ACID 트랜잭션 내에서 실행됩니다. 실행 중 JavaScript에서 예외가 발생하면 전체 트랜잭션이 중단됩니다.
 
 ## <a name="are-there-any-online-courses-on-azure-cosmos-db"></a>Azure Cosmos DB에 온라인 과정이 있나요?
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6d38dd6802a25b147fd014b4d26ca432ca87a07d
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Azure 리소스 관리자를 사용하여 응용 프로그램 게이트웨이 만들기, 시작 또는 삭제
@@ -171,10 +170,10 @@ $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPA
 
 ### <a name="step-3"></a>3단계
 
-백 엔드 풀에서 부하가 분산된 네트워크 트래픽에 대해 응용 프로그램 게이트웨이 설정 **poolsetting01**을 구성합니다. 각 백 엔드 풀에는 고유한 백 엔드 풀 설정이 있을 수 있습니다.  백 엔드 HTTP 설정은 올바른 백 엔드 풀 멤버에게 트래픽을 라우팅하는 규칙에서 사용되며, 백 엔드 풀 멤버에 트래픽을 보낼 때 사용되는 프로토콜과 포트를 결정합니다. 쿠키 기반 세션도 백 엔드 HTTP 설정에 따라 결정됩니다.  이 설정이 활성화되면 쿠키 기반 세션 선호도는 각 패킷에 대한 이전 요청과 동일한 백 엔드로 트래픽을 보냅니다.
+백 엔드 풀에서 부하가 분산된 네트워크 트래픽에 대해 응용 프로그램 게이트웨이 설정 **poolsetting**을 구성합니다. 각 백 엔드 풀에는 고유한 백 엔드 풀 설정이 있을 수 있습니다.  백 엔드 HTTP 설정은 올바른 백 엔드 풀 멤버에게 트래픽을 라우팅하는 규칙에서 사용되며, 백 엔드 풀 멤버에 트래픽을 보낼 때 사용되는 프로토콜과 포트를 결정합니다. 쿠키 기반 세션도 백 엔드 HTTP 설정에 따라 결정됩니다.  이 설정이 활성화되면 쿠키 기반 세션 선호도는 각 패킷에 대한 이전 요청과 동일한 백 엔드로 트래픽을 보냅니다.
 
 ```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
+$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 ```
 
 ### <a name="step-4"></a>4단계
@@ -206,7 +205,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 부하 분산 장치 동작을 구성하는 **rule01**이라는 부하 분산 장치 라우팅 규칙을 만듭니다. 이전 단계에서 만든 백 엔드 풀 설정, 수신기 및 백 엔드 풀이 규칙을 구성합니다. 정의된 기준에 따라 트래픽이 적절한 백 엔드로 라우팅됩니다.
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting01 -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 ### <a name="step-8"></a>8단계

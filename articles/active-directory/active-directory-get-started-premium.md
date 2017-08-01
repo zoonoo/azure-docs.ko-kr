@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Premium 시작하기"
-description: "볼륨 라이선스 웹 사이트를 통해 Azure Active Directory Premium Edition을 등록하는 방법을 설명하는 항목입니다."
+description: "볼륨 라이선스 웹 사이트를 통해 Azure Active Directory Premium Edition을 등록하는 방법을 설명입니다."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,17 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73cbbce9ae3d727632b8cac2a29c2b1b92332ae7
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: fac41a05c97088b55f07455133d960687227af0e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 12/08/2016
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="getting-started-with-azure-active-directory-premium"></a>Azure Active Directory Premium 시작하기
+이 문서에서는 볼륨 라이선스 프로그램을 통해 구입한 Azure Active Directory Premium을 시작하는 방법을 보여 줍니다. 아직 다른 버전의 Azure Active Directory에 익숙하지 않은 경우 [Azure Active Directory Edition](active-directory-editions.md)을 참조하세요.  
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. 
+
 Active Directory Premium에 등록하는 데는 몇 가지 옵션이 있습니다. 
 
 **Azure 또는 Office 365** - Azure 또는 Office 365 구독자는 Active Directory Premium을 온라인으로 구입할 수 있습니다. 자세한 단계는 [Azure Active Directory Premium을 구입하는 방법 - 기존 고객](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) 또는 [Azure Active Directory Premium을 구입하는 방법 - 새로운 고객](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers)을 참조하세요.  
@@ -30,10 +35,8 @@ Active Directory Premium에 등록하는 데는 몇 가지 옵션이 있습니�
 
 **Microsoft 볼륨 라이선스** - Azure Active Directory Premium은 [Microsoft 기업 계약](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)(250개 이상의 라이선스) 또는 [오픈 볼륨 라이선스](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)(5–250개 라이선스) 프로그램을 통해 사용할 수 있습니다.
 
-이 항목에서는 볼륨 라이선스 프로그램을 통해 구입한 Azure Active Directory Premium을 시작하는 방법을 보여 줍니다. 아직 다른 버전의 Azure Active Directory에 익숙하지 않은 경우 [Azure Active Directory Edition](active-directory-editions.md)을 참조하세요.  
-
 > [!NOTE]
-> 중국 고객의 경우 전 세계의 Azure Active Directory 인스턴스를 사용하여 Azure Active Directory Premium 및 Basic 버전을 사용할 수 있습니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
+> Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
 > 
 > 
 

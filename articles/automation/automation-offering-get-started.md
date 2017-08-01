@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0e80e0a1c334bcca0bb15dd16c54306a60f2486e
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 7ef31d7d72844c0ed3be0701549e49e26aac9abf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -35,9 +35,9 @@ Azure Automation은 Azure, 다른 클라우드 서비스 또는 온-프레미스
 
 Azure에서 실행하는 Runbook은 Azure PaaS(platform as a service) 가상 컴퓨터에서 호스팅되는 Automation 샌드박스에서 실행됩니다.  Automation 샌드박스는 모듈, 저장소, 메모리, 네트워크 통신, 작업 스트림 등의 Runbook을 실행하는 모든 측면에서 테넌트를 격리합니다. 이 역할은 서비스에 의해 관리되고 사용자가 제어할 Azure 또는 Azure Automation 계정에서 액세스할 수 없습니다.         
 
-로컬 데이터 센터 또는 다른 클라우드 서비스에서 리소스의 배포 및 관리를 자동화하려면 Automation 계정을 만든 후 하나 이상의 컴퓨터에서 [HRW(Hybrid Runbook Worker)](automation-hybrid-runbook-worker.md) 역할을 실행하도록 지정할 수 있습니다.  각 HRW에는 Log Analytics 작업 영역 및 Automation 계정에 연결된 MMA(Microsoft Management Agent)가 필요합니다.  Log Analytics는 설치를 부트스트랩하고 MMA 에이전트를 유지 관리하며 HRW의 기능을 모니터링하는 데 사용됩니다.  Runbook 및 Runbook 실행 지침은 Azure Automation에 의해 전달됩니다.
+로컬 데이터 센터 또는 다른 클라우드 서비스에서 리소스의 배포 및 관리를 자동화하려면 Automation 계정을 만든 후 하나 이상의 컴퓨터에서 [HRW(Hybrid Runbook Worker)](automation-hybrid-runbook-worker.md) 역할을 실행하도록 지정할 수 있습니다.  각 HRW에는 Log Analytics 작업 영역 및 Automation 계정에 연결된 Microsoft Management Agent가 필요합니다.  Log Analytics는 설치를 부트스트랩하고 Microsoft Management Agent를 유지 관리하며 HRW의 기능을 모니터링하는 데 사용됩니다.  Runbook 및 Runbook 실행 지침은 Azure Automation에 의해 전달됩니다.
 
-여러 HRW를 배포하여 Runbook에 고가용성을 제공하고, Runbook 작업의 부하를 분산하고, 일부 경우에 특정 워크로드 또는 환경에 대한 전용으로 사용할 수 있습니다.  HRW는 TCP 아웃바운드 포트 443을 통해 Automation 서비스와 통신합니다.  Runbook이 데이터 센터 내의 HRW에서 실행 중이고 Runbook에서 다른 컴퓨터에 대한 관리 작업 또는 데이터 센터 내의 서비스를 수행하려는 경우 Runbook이 액세스해야 하는 다른 포트가 있을 수 있습니다.  IT 보안 정책이 네트워크에 있는 컴퓨터를 인터넷에 연결하지 않는 경우 [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md) 문서를 검토합니다. 해당 게이트웨이는 작업 상태를 수집하고 Automation 계정에서 구성 정보를 수신하는 HRW의 프록시 역할을 수행합니다.
+여러 HRW를 배포하여 Runbook에 고가용성을 제공하고, Runbook 작업의 부하를 분산하고, 일부 경우에 특정 워크로드 또는 환경에 대한 전용으로 사용할 수 있습니다.  HRW에서 Microsoft Monitoring Agent는 TCP 포트 443을 통해 Automation 서비스와 통신을 시작하고 인바운드 방화벽 요구 사항은 없습니다.  Runbook이 환경 내의 HRW에서 실행 중이고 Runbook에서 다른 컴퓨터에 대한 관리 작업 또는 환경 내의 서비스를 수행하려는 경우 Runbook이 액세스해야 하는 다른 포트가 있을 수 있습니다.  IT 보안 정책이 네트워크에 있는 컴퓨터를 인터넷에 연결하지 않는 경우 [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md) 문서를 검토합니다. 해당 게이트웨이는 작업 상태를 수집하고 Automation 계정에서 구성 정보를 수신하는 HRW의 프록시 역할을 수행합니다.
 
 HRW에서 실행되는 Runbook은 컴퓨터의 로컬 시스템 계정이라는 컨텍스트에서 실행되며 로컬 Windows 컴퓨터에서 관리 작업을 수행할 때 권장되는 보안 컨텍스트입니다. Runbook이 로컬 컴퓨터 외부에서 리소스에 대한 작업을 실행하려면 Runbook에서 액세스할 수 있는 Automation 계정에서 보안 자격 증명 자산을 정의하고 외부 리소스를 사용하여 인증하는 데 사용할 수도 있습니다. 이를 인증할 수 있도록 자격 증명을 지정할 수 있는 cmdlet과 함께 Runbook의 [자격 증명](automation-credentials.md), [인증서](automation-certificates.md) 및 [연결](automation-connections.md) 자산을 사용할 수 있습니다.
 

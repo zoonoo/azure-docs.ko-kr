@@ -12,18 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 7a82dcddcd051c88c2a6a515ed2353961307182a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/08/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Azure 구독과 Azure Active Directory의 연관 관계
 이 문서에서는 Microsoft Azure 로그인 및 Azure 구독과 Azure Active Directory(Azure AD) 간의 관계와 같은 관련 문제에 대한 정보를 제공합니다.
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다.
 
 ## <a name="accounts-that-you-can-use-to-sign-in"></a>로그인에 사용할 수 있는 계정
 로그인에 사용할 수 있는 계정부터 살펴보겠습니다. 두 가지 유형의 계정, 즉 Microsoft 계정(이전의 Microsoft Live ID)과 Azure AD에 저장되는 회사 또는 학교 계정이 있습니다.
@@ -120,8 +124,7 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 ## <a name="next-steps"></a>다음 단계
 * Azure 구독에 대한 관리자를 변경하는 방법을 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing/billing-add-change-azure-subscription-administrator.md)
 * Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](active-directory-understanding-resource-access.md)
-* Azure AD에서 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory의 관리자 역할 할당](active-directory-assign-admin-roles.md)
-* [조직으로 Azure에 등록](sign-up-organization.md)
+* Azure AD에서 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png

@@ -6,7 +6,7 @@
 
 | 배포 | 드라이버 |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS 기반 7.3 | NVIDIA GRID 4.2, 드라이버 분기 R367|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS 기반 7.3 | NVIDIA GRID 4.3, 드라이버 분기 R367|
 
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>NC 인스턴스-NVIDIA Tesla 드라이버
 | 배포 | 드라이버 |
