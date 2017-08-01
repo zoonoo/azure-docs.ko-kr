@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3874cba5f0e09145a29159690fd740eeddad209a
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 452acde571164a3ab4ce2dcccf99d2aed90361fe
+ms.contentlocale: ko-kr
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-resource-group-guidelines-for-linux-vms"></a>Linux VM에 대한 Azure 리소스 그룹 지침 
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/03/2017
 * 명명 규칙을 사용하여 리소스 그룹 집합을 만듭니다. Azure CLI 또는 포털을 사용할 수 있습니다.
 
 ## <a name="resource-groups"></a>리소스 그룹
-Azure에서 저장소 계정, 가상 네트워크 및 가상 컴퓨터(VM)와 같은 관련된 리소스를 논리적으로 그룹화하여 단일 엔터티로 배포, 관리 및 유지 관리합니다. 이 방법을 통해 관리 관점에서 관련된 모든 리소스를 함께 유지하면서 응용 프로그램을 보다 배포할 수도 있고, 다른 사용자에게 해당 리소스 그룹에 대한 액세스 권한을 부여할 수도 있습니다. 리소스 그룹을 보다 포괄적으로 이해하려면 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 읽어보세요.
+Azure에서 저장소 계정, 가상 네트워크 및 가상 컴퓨터(VM)와 같은 관련된 리소스를 논리적으로 그룹화하여 단일 엔터티로 배포, 관리 및 유지 관리합니다. 이 방법을 통해 관리 관점에서 관련된 모든 리소스를 함께 유지하면서 응용 프로그램을 보다 배포할 수도 있고, 다른 사용자에게 해당 리소스 그룹에 대한 액세스 권한을 부여할 수도 있습니다. 리소스 그룹 이름은 90자까지 지정할 수 있습니다. 리소스 그룹을 보다 포괄적으로 이해하려면 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 읽어보세요.
 
 리소스 그룹의 핵심 기능은 저장소, 네트워킹 및 계산 리소스를 선언하는 JSON 파일을 사용하여 작업 환경을 구축하는 것입니다. 관련된 모든 사용자 지정 스크립트 또는 적용할 구성을 정의할 수도 있습니다. 이러한 JSON 템플릿을 사용하여 응용 프로그램에 대해 일관되고 재현 가능한 배포를 만듭니다. 이 방법을 통해 개발 환경을 쉽게 구축한 다음 동일한 템플릿을 사용하여 프로덕션 배포를 만들 수도 있고 그 반대도 가능합니다. 템플릿 사용에 대해 자세히 알아보려면 JSON 템플릿을 구축하는 각 단계를 안내하는 [템플릿 연습](../../azure-resource-manager/resource-manager-template-walkthrough.md) 을 읽어보세요.
 
