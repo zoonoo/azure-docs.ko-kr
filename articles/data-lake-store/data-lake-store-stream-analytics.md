@@ -22,8 +22,7 @@ ms.lasthandoff: 01/06/2017
 
 
 ---
-<a id="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics" class="xliff"></a>
-# Azure 스트림 분석을 사용하여 Azure 저장소 Blob에서 Data Lake 저장소에 데이터 스트리밍
+# <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Azure 스트림 분석을 사용하여 Azure 저장소 Blob에서 Data Lake 저장소에 데이터 스트리밍
 이 문서는 Azure 스트림 분석 작업에 대한 출력으로 Azure Data Lake 저장소를 사용하는 방법을 알아봅니다. 이 문서에서는 Azure 저장소 Blob(입력)에서 데이터를 읽고 Data Lake 저장소(출력)에 데이터를 기록하는 간단한 시나리오를 보여줍니다.
 
 > [!NOTE]
@@ -31,8 +30,7 @@ ms.lasthandoff: 01/06/2017
 >
 >
 
-<a id="prerequisites" class="xliff"></a>
-## 필수 조건
+## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -41,8 +39,7 @@ ms.lasthandoff: 01/06/2017
   
 * **Azure Data Lake Store 계정**. [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다. **asadatalakestore**라는 Data Lake Store 계정이 있다고 가정합니다. 
 
-<a id="create-a-stream-analytics-job" class="xliff"></a>
-## 스트림 분석 작업 만들기
+## <a name="create-a-stream-analytics-job"></a>스트림 분석 작업 만들기
 입력 원본 및 출력 대상을 포함하는 스트림 분석 작업을 만들어 시작합니다. 이 자습서의 경우 원본은 Azure blob 컨테이너이고 대상은 Data Lake 저장소입니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
@@ -55,8 +52,7 @@ ms.lasthandoff: 01/06/2017
     > 저장소 계정과 동일한 지역에 작업을 만들지 않으면 지역 간에 데이터를 이동하는 데 추가 비용이 발생합니다.
     >
 
-<a id="create-a-blob-input-for-the-job" class="xliff"></a>
-## 작업에 대한 Blob 입력 만들기
+## <a name="create-a-blob-input-for-the-job"></a>작업에 대한 Blob 입력 만들기
 
 1. Stream Analytics 작업 페이지를 열고 왼쪽 창에서 **입력** 탭을 클릭한 다음 **추가**를 클릭합니다.
 
@@ -79,8 +75,7 @@ ms.lasthandoff: 01/06/2017
     **만들기**를 클릭합니다. 이제 포털에 입력이 추가되고 연결을 테스트합니다.
 
 
-<a id="create-a-data-lake-store-output-for-the-job" class="xliff"></a>
-## 작업에 대한 Data Lake 저장소 출력 만들기
+## <a name="create-a-data-lake-store-output-for-the-job"></a>작업에 대한 Data Lake 저장소 출력 만들기
 
 1. Stream Analytics 작업에 대한 페이지를 열고 **출력** 탭을 클릭한 다음 **추가**를 클릭합니다.
 
@@ -108,8 +103,7 @@ ms.lasthandoff: 01/06/2017
     
     **만들기**를 클릭합니다. 이제 포털에 출력이 추가되고 연결을 테스트합니다.
     
-<a id="run-the-stream-analytics-job" class="xliff"></a>
-## 스트림 분석 작업 실행
+## <a name="run-the-stream-analytics-job"></a>스트림 분석 작업 실행
 
 1. Stream Analytics 작업을 실행하려면 **쿼리** 탭에서 쿼리를 실행해야 합니다. 이 자습서에서는 아래의 화면 캡처와 같이 작업 입력 및 출력 별칭으로 자리 표시자를 대체하여 샘플 쿼리를 실행할 수 있습니다.
 
@@ -133,7 +127,6 @@ ms.lasthandoff: 01/06/2017
 
     데이터 탐색기 창에서 Data Lake Store 출력 설정(`streamanalytics/job/output/{date}/{time}`)에 지정된 대로 출력이 폴더 경로에 기록됩니다.  
 
-<a id="see-also" class="xliff"></a>
-## 참고 항목
+## <a name="see-also"></a>참고 항목
 * [HDInsight 클러스터를 만들어 Data Lake 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
