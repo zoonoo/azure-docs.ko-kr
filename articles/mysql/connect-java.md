@@ -12,10 +12,10 @@ ms.topic: hero-article
 ms.devlang: java
 ms.date: 06/20/2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0190fb5a88f766369e6462965e47686c5f289551
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6ffcf3b38a3d868dfa10ea2e2a9d097441387d4f
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/21/2017
 
 다음과 같은 작업도 필요합니다.
 - JDBC 드라이버 [MySQL 커넥터/J](https://dev.mysql.com/downloads/connector/j/) 다운로드
-- 응용 프로그램 classpath에 JDBC jar 파일(예: mysql-connector-java-5.1.42-bin.jar)을 포함합니다.
+- 응용 프로그램 classpath에 JDBC jar 파일(예: mysql-connector-java-5.1.42-bin.jar)을 포함합니다. 이 문제가 있는 경우 해당 환경(예: [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) 또는 [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html))에 대한 설명서에서 클래스 경로 세부 사항을 참조하세요.
 - 방화벽이 응용 프로그램에 열려 있고 SSL 설정이 응용 프로그램에 맞게 조정되어 있는 등 MySQL용 Azure Database 연결 보안이 올바른 연결에 맞게 구성되어 있는지 확인합니다.
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기

@@ -12,24 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 661470454775d43ce88410a6c995bbcc5e06264c
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Azure Active Directory의 다른 디렉터리 또는 파트너 회사의 사용자 추가
-> [!div class="op_single_selector"]
-> * [Azure 포털](active-directory-users-create-external-azure-portal.md )
-> * [Azure 클래식 포털](active-directory-create-users-external.md)
->
->
 
-이 문서에서는 Azure Active Directory에 있는 다른 디렉터리의 사용자를 추가하거나 파트너 회사의 사용자를 추가하는 방법을 설명합니다. 조직 내에서 새 사용자 추가 및 Microsoft 계정이 있는 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-create-users.md)를 참조하세요. 기본적으로 추가된 사용자에게는 관리자 권한이 없지만 언제든 역할을 할당할 수 있습니다.
+이 문서에서는 Azure Active Directory에 있는 다른 디렉터리의 사용자를 추가하거나 파트너 회사의 사용자를 추가하는 방법을 설명합니다. 조직 내에서 새 사용자 추가 및 Microsoft 계정이 있는 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-create-users.md)를 참조하세요. 
+
+> [!IMPORTANT]
+> 이 문서에서 참조되는 Azure 클래식 포털을 사용하는 대신 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것이 좋습니다. Azure AD 관리 센터에서 B2B 공동 작업 게스트 사용자를 추가하는 방법은 [Azure AD B2B 공동 작업이란?](active-directory-b2b-what-is-azure-ad-b2b.md)을 참조하세요.
+
+기본적으로 추가된 사용자에게는 관리자 권한이 없지만 언제든 역할을 할당할 수 있습니다.
 
 ## <a name="add-a-user"></a>사용자 추가
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 클래식 포털](https://manage.windowsazure.com) 에 로그인합니다.

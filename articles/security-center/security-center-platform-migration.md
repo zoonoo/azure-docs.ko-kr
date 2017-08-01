@@ -12,18 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d49f7986e09a90c5c4c49c0d3963d0cd8514713a
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
-# Azure Security Center 플랫폼 마이그레이션
-<a id="azure-security-center-platform-migration" class="xliff"></a>
+# <a name="azure-security-center-platform-migration"></a>Azure Security Center 플랫폼 마이그레이션
 
 2017년 6월 초를 시작으로 Azure Security Center에서는 보안 데이터를 수집하고 저장하는 방법에 대한 중요한 변경 사항을 공개합니다.  이러한 변경 사항으로 쉽게 보안 데이터를 검색하는 등 새로운 기능의 잠금을 해제하고 다른 Azure Management 및 모니터링 서비스와 연계합니다.
 
@@ -31,15 +29,13 @@ ms.lasthandoff: 06/28/2017
 > 플랫폼 마이그레이션은 프로덕션 리소스에 영향을 주지 않고 사용자 측에서 작업을 수행하지 않아야 합니다.
 
 
-## 이 플랫폼 마이그레이션 도중 어떤 상황이 발생합니까?
-<a id="whats-happening-during-this-platform-migration" class="xliff"></a>
+## <a name="whats-happening-during-this-platform-migration"></a>이 플랫폼 마이그레이션 도중 어떤 상황이 발생합니까?
 
 이전에 Security Center는 Azure Monitoring Agent를 사용하여 VM에서 보안 데이터를 수집했습니다. 이 기능은 취약점 및 보안 이벤트를 식별하는 데 사용되는 보안 구성에 대한 정보를 포함하며 위협을 검색하는 데 사용됩니다. 이 데이터는 Azure의 Storage 계정에 저장되었습니다.
 
 또한 Security Center는 Microsoft Monitoring Agent를 사용하며 이는 Operations Management Suite 및 Log Analytics 서비스에서 사용하는 동일한 에이전트입니다. 이 에이전트에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역에 연결된 기존 *Log Analytics* [작업 영역](../log-analytics/log-analytics-manage-access.md) 중 하나에 저장됩니다.
 
-## 에이전트
-<a id="agent" class="xliff"></a>
+## <a name="agent"></a>에이전트
 
 전환의 일부로 Microsoft Monitoring Agent([Windows](../log-analytics/log-analytics-windows-agents.md)용 또는 [Linux](../log-analytics/log-analytics-linux-agents.md)용)가 현재 데이터를 수집하는 모든 Azure VM에 설치됩니다.  VM이 Microsoft Monitoring Agent에 이미 설치된 경우 Security Center는 현재 설치된 에이전트를 활용합니다.
 
@@ -53,8 +49,7 @@ Windows용 Microsoft Monitoring Agent는 TCP 포트 443을 사용해야 합니�
 > [!NOTE] 
 > 다른 Azure Management 및 모니터링 서비스에서 Microsoft Monitoring Agent를 사용할 수 있기 때문에 Security Center에서 데이터 수집을 끄는 경우에도 자동으로 에이전트를 제거하지 않습니다. 그러나 필요한 경우 에이전트를 수동으로 제거할 수 있습니다.
 
-## 작업 영역
-<a id="workspace" class="xliff"></a>
+## <a name="workspace"></a>작업 영역
 
 위에서 설명한 대로 (Security Center 대신) Microsoft Monitoring Agent에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역에 연결된 기존 Log Analytics 작업 영역 중 하나에 저장됩니다.
 
@@ -68,14 +63,12 @@ Security Center에서 만든 작업 영역의 경우 데이터는 30일 동안 �
 > [!NOTE]
 > Security Center에서 이전에 수집된 데이터는 Storage 계정에 남아 있습니다. 마이그레이션이 완료된 후에 이러한 Storage 계정을 삭제할 수 있습니다.
 
-### OMS 보안 솔루션
-<a id="oms-security-solution" class="xliff"></a> 
+### <a name="oms-security-solution"></a>OMS 보안 솔루션 
 
 OMS 보안 솔루션을 설치하지 않은 기존 고객의 경우 Microsoft에서는 이를 해당 작업 영역에 설치하고 Azure VM만을 대상으로 지정합니다. OMS 관리 콘솔에 설치된 경우 자동으로 재구성되지 않으므로 이 솔루션을 제거하지 않습니다.
 
 
-## 다른 업데이트
-<a id="other-updates" class="xliff"></a>
+## <a name="other-updates"></a>다른 업데이트
 
 플랫폼 마이그레이션과 함께 몇 가지 부분적인 추가 업데이트를 공개합니다.
 
@@ -84,5 +77,6 @@ OMS 보안 솔루션을 설치하지 않은 기존 고객의 경우 Microsoft에
 - [가격 책정](https://azure.microsoft.com/pricing/details/security-center/)은 매시간(이전에는 매일) 비례 배분되며, 이로 인해 일부 고객의 비용이 절감될 수 있습니다.
 - 데이터 수집이 필요하며 표준 가격 책정 계층의 고객에게 자동으로 설정됩니다.
 - Azure Security Center는 Azure 확장을 통해 배포되지 않은 맬웨어 방지 솔루션을 검색하기 시작합니다. Symantec Endpoint Protection 검색 및 Windows 2016용 Defender를 먼저 사용할 수 있습니다.
+- 방지 정책 및 알림은 *구독* 수준에서만 구성 가능하지만 가격은 여전히 *리소스 그룹* 수준에서 설정 가능합니다.
 
 

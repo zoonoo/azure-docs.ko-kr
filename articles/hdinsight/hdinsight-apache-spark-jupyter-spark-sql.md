@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 0625984bf10588fe50a2632285f565eb79b66ab7
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: ad4330a1fc7f8de154d9aaa8df3acc2ab59b9dc1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터 만들기
 
-이 문서에서는 Azure HDInsight에서 Apache Spark 클러스터를 만드는 방법에 대해 설명합니다.
+이 문서에서는 Azure HDInsight에서 Apache Spark 클러스터를 만드는 방법에 대해 설명합니다. HDInsight의 Spark에 대한 자세한 내용은 [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)를 참조하세요.
 
    ![Azure HDInsight에서 Apache Spark 클러스터를 만드는 단계를 설명하는 빠른 시작 다이어그램](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "HDInsight에서 Apache Spark를 사용하여 Spark 빠른 시작. 다음을 보여 주는 단계: 클러스터 만들기, Spark 대화형 쿼리 실행")
 
@@ -115,10 +115,17 @@ HDInsight Spark 클러스터에 구성된 Jupyter Notebook을 사용하는 경�
 
 7. 응용 프로그램 실행을 완료한 후 클러스터 리소스를 해제하도록 Notebook을 종료합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다.
 
-## <a name="next-step"></a>다음 단계
+8. 나중에 다음 단계를 완료하려는 경우 이 문서에서 만든 HDInsight 클러스터를 삭제해야 합니다. 
 
-이 문서에서는 HDInsight Spark 클러스터를 만들고 기본 Spark SQL 쿼리를 실행하는 방법을 알아보았습니다. 이제 [HDInsight Spark에 데이터를 로드하고 대화형 쿼리를 실행](hdinsight-apache-spark-load-data-run-query.md)하는 방법에 대해 알아봅니다.
+    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-나중에 다음 단계를 완료하려는 경우 HDInsight 클러스터를 삭제해야 합니다. 
+## <a name="next-step"></a>다음 단계 
 
-[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+이 문서에서는 HDInsight Spark 클러스터를 만들고 기본 Spark SQL 쿼리를 실행하는 방법을 알아보았습니다. 다음 문서를 진행하여 샘플 데이터에서 대화형 쿼리를 실행하는 데 HDInsight Spark 클러스터를 사용하는 방법에 대해 알아보세요.
+
+> [!div class="nextstepaction"]
+>[HDInsight Spark 클러스터에서 대화형 쿼리 실행](hdinsight-apache-spark-load-data-run-query.md)
+
+
+
+
