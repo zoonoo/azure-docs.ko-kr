@@ -14,26 +14,23 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: robmcm;asirveda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 6de5a3632aee3ddb401fd39d252c6afb43260acb
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: ae0aca6a739b443e57724424d6a4a5e8c6eef89a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 
 # <a name="azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트
-Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프로그램을 쉽게 작성, 개발, 테스트 및 배포할 수 있는 템플릿과 기능을 제공합니다. 다음 프로젝트 사이트를 통해 MIT 라이선스에 따라 소스 코드 사용이 허가된 오픈 소스 프로젝트입니다.
-
-* <https://github.com/microsoft/azure-tools-for-java>
+Eclipse용 Azure 도구 키트는 Eclipse IDE(통합 개발 환경)에서 Azure 응용 프로그램을 쉽게 작성, 개발, 테스트 및 배포할 수 있는 템플릿과 기능을 제공합니다. [프로젝트 사이트의 MIT 라이선스](https://github.com/microsoft/azure-tools-for-java)에 따라 소스 코드 사용이 허가되는 오픈 소스 프로젝트입니다.
 
 > [!NOTE]
 > IntelliJ IDE용 Azure 도구 키트도 있습니다. 자세한 내용은 [IntelliJ용 Azure 도구 키트](azure-toolkit-for-intellij.md)를 참조하세요.
 > 
 > 
 
-## <a name="getting-started-with-the-azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트 시작
+## <a name="get-started-with-the-azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트 시작
 다음은 Eclipse용 Azure 도구 키트 사용을 시작할 때 유용한 문서입니다.
 
 * [Eclipse용 Azure 도구 키트의 새로운 기능](azure-toolkit-for-eclipse-whats-new.md)
@@ -42,17 +39,17 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 * [Eclipse에서 Azure용 Hello World 클라우드 서비스 만들기](azure-toolkit-for-eclipse-creating-a-hello-world-application.md)
 * [Eclipse에서 Azure용 Hello World 웹앱 만들기](app-service-web/app-service-web-eclipse-create-hello-world-web-app.md)
 
-## <a name="configuring-azure-project-settings"></a>Azure 프로젝트 설정 구성
+## <a name="configure-azure-project-settings"></a>Azure 프로젝트 설정 구성
 다음 문서는 Eclipse용 Azure 도구 키트를 사용하여 Azure 프로젝트의 설정을 구성하는 방법을 보여 줍니다.
 
 * [Azure 프로젝트 속성](azure-toolkit-for-eclipse-azure-project-properties.md)
 * [Azure 역할 속성](azure-toolkit-for-eclipse-azure-role-properties.md)
 * [Azure 서비스 끝점](azure-toolkit-for-eclipse-azure-service-endpoints.md)
-* [Azure 저장소 계정 목록](azure-toolkit-for-eclipse-azure-storage-account-list.md)
+* [Azure Storage 계정 목록](azure-toolkit-for-eclipse-azure-storage-account-list.md)
 * [세션 선호도 사용](azure-toolkit-for-eclipse-enable-session-affinity.md)
 * [Eclipse에서 Azure 배포에 대한 원격 액세스를 사용하도록 설정](azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md)
 
-## <a name="using-the-azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트 사용
+## <a name="use-the-azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트 사용
 다음 문서는 Eclipse용 Azure 도구 키트를 사용하여 Java 프로젝트에 Azure 기능을 추가하는 방법을 보여 줍니다.
 
 * [Eclipse에서 Java용 Azure 라이브러리 패키지의 Javadoc 콘텐츠 표시](azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md)
@@ -67,12 +64,10 @@ Eclipse용 Azure 도구 키트는 Eclipse 개발 환경에서 Azure 응용 프�
 
 [!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
-Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터] 및 [Visual Studio Team Services용 Java 도구]를 참조하세요.
-
 <!-- URL List -->
 
-[Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
-[Visual Studio Team Services용 Java 도구]: https://java.visualstudio.com/
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
 <!-- Temporarily Deprecated URLs -->
 

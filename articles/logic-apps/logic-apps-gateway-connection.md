@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 06/9/2017
+ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 4b6f21c7949493ac1f95e7c0f255e5c96613adf1
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 24793b83ca284fe9510fe21bc2d13b0589209d36
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용하여 논리 앱에서 온-프레미스 데이터 원본에 액세스
@@ -29,7 +28,7 @@ ms.lasthandoff: 06/13/2017
 
 게이트웨이는 다음과 같이 온-프레미스 데이터 원본에 대한 연결을 지원합니다.
 
-*   BizTalk Server
+*   BizTalk Server 2016
 *   DB2  
 *   파일 시스템
 *   Informix
@@ -39,18 +38,18 @@ ms.lasthandoff: 06/13/2017
 *   PostgreSQL
 *   SAP 응용 프로그램 서버 
 *   SAP 메시지 서버
-*   HTTPS가 아닌 HTTP에만 해당되는 SharePoint
+*   SharePoint
 *   SQL Server
 *   Teradata
 
 이러한 단계에서는 논리 앱에서 작동하도록 온-프레미스 데이터 게이트웨이를 설정하는 방법을 보여줍니다. 지원되는 커넥터에 대한 자세한 내용은 [Azure Logic Apps용 커넥터](../connectors/apis-list.md)를 참조하세요. 
 
-다른 Microsoft 서비스의 게이트웨이 데이터에 대한 자세한 내용은 다음 문서를 참조하세요.
+다른 서비스에서 게이트웨이를 사용하는 방법에 대한 내용은 다음 문서를 참조하세요.
 
-*   [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/): [Application Gateway 개요](../application-gateway/application-gateway-introduction.md)
 *   [Microsoft Power BI 온-프레미스 데이터 게이트웨이](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 *   [Azure Analysis Services 온-프레미스 데이터 게이트웨이](../analysis-services/analysis-services-gateway.md)
 *   [Microsoft Flow 온-프레미스 데이터 게이트웨이](https://flow.microsoft.com/documentation/gateway-manage/)
+*   [Microsoft PowerApps 온-프레미스 데이터 게이트웨이](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 ## <a name="requirements"></a>요구 사항
 
@@ -105,7 +104,7 @@ ms.lasthandoff: 06/13/2017
 
     ![온-프레미스 데이터 게이트웨이를 만들기 위해 세부 정보 제공](./media/logic-apps-gateway-connection/createblade.png)
 
-    기본 Azure 왼쪽 메뉴에서 언제든지 데이터 게이트웨이를 찾아 보려면  **추가 서비스** > **엔터프라이즈 통합** > **온-프레미스 데이터 게이트웨이**로 이동합니다.
+    기본 Azure 왼쪽 메뉴에서 언제든지 데이터 게이트웨이를 찾아 보려면 **추가 서비스** > **엔터프라이즈 통합** > **온-프레미스 데이터 게이트웨이**로 이동합니다.
 
     !["추가 서비스", "엔터프라이즈 통합", "온-프레미스 데이터 게이트웨이"로 이동](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 

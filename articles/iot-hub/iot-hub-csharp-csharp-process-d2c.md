@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: f8917ca67aa5f15ccc11030fd0292ac803d9e994
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8c02e911770577bd51bc2bebbb3e29b66ed0235b
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>경로를 사용하여 IoT Hub 장치-클라우드 메시지 처리(.Net)
@@ -34,8 +33,8 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 이 자습서의 끝 부분에서 다음의 세 가지 .NET 콘솔 앱을 실행합니다.
 
 * **SimulatedDevice** - [IoT Hub 시작] 자습서에서 만든 수정된 버전의 앱이며, 매초 데이터 요소 장치-클라우드 메시지를 보내고 10초마다 대화형 장치-클라우드 메시지를 보냅니다. 이 앱에서는 IoT Hub와 통신하는 데 AMQP 프로토콜을 사용합니다.
-* **ReadDeviceToCloudMessages** - 시뮬레이션된 장치 앱에서 보낸 중요하지 않은 원격 분석을 표시합니다.
-* **ReadCriticalQueue** - IoT Hub에 연결된 Service Bus 큐에서 시뮬레이션된 장치 앱이 보낸 중요한 메시지를 큐에서 제거합니다.
+* **ReadDeviceToCloudMessages** - 장치 앱에서 보낸 중요하지 않은 원격 분석을 표시합니다.
+* **ReadCriticalQueue** - IoT Hub에 연결된 Service Bus 큐에서 장치 앱이 보낸 중요한 메시지를 큐에서 제거합니다.
 
 > [!NOTE]
 > IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 JavaScript 포함)에 SDK를 지원합니다. 물리적 장치를 사용하여 이 자습서의 시뮬레이션된 장치를 바꾸는 방법 및 장치를 IoT Hub에 연결하는 방법에 대해 알아보려면 [Azure IoT 개발자 센터]를 참조하세요.
@@ -49,8 +48,8 @@ Azure IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적
 
 [Azure Storage] 및 [Azure Service Bus]에 대한 기본 지식이 있어야 합니다.
 
-## <a name="send-interactive-messages-from-a-simulated-device-app"></a>시뮬레이션된 장치 앱에서 대화형 메시지 보내기
-이 섹션에서는 [IoT Hub 시작] 자습서에서 만든 시뮬레이션된 장치 앱을 수정하여 즉시 처리해야 하는 메시지를 가끔씩 보낼 수 있습니다.
+## <a name="send-interactive-messages-from-a-device-app"></a>장치 앱에서 대화형 메시지 보내기
+이 섹션에서는 [IoT Hub 시작] 자습서에서 만든 장치 앱을 수정하여 즉시 처리해야 하는 메시지를 가끔씩 보낼 수 있습니다.
 
 Visual Studio의 **SimulatedDevice** 프로젝트에서 `SendDeviceToCloudMessagesAsync` 메서드를 다음 코드로 바꿉니다.
 

@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: bbd57547a0cc486a9cf7c8030dccaaf6f46c9860
-ms.lasthandoff: 04/11/2017
-
+ms.reviwer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 28d91237adf745e591b02322de7881c8122827ac
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -63,14 +64,12 @@ ms.lasthandoff: 04/11/2017
 
 -   Internet Explorer 8, 9, 10, 11 - Windows 7 이상
 
+-   Windows 10 Anniversary Edition 이상 Edge 
+
 -   Chrome - Windows 7 이상 및 Mac OS X 이상
 
 -   Firefox 26.0 이상 - Windows XP SP2 이상 및 Mac OS X 10.6 이상
 
->[!NOTE] 
->브라우저 확장이 Edge에서 지원되는 경우 Windows 10의 Edge에 암호 기반 SSO 확장을 사용할 수 있습니다.
->
->
 
 ## <a name="problems-with-the-users-account"></a>사용자의 계정과 관련된 문제
 

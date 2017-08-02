@@ -8,20 +8,18 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql-database
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/06/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 5197a3f44a085d25d964f355154d92b08e65560b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 43123486f21178a5ba657caa9d4b090922435913
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="azure-database-for-postgresql-servers"></a>PostgreSQL용 Azure 데이터베이스 서버
-
 이 항목에서는 PostgreSQL용 Azure 데이터베이스 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure 데이터베이스 서버란?
-
 PostgreSQL용 Azure 데이터베이스 서버는 여러 데이터베이스에 대한 중앙 관리 지점입니다. 온-프레미스 환경에서도 익숙할 수 있는 동일한 PostgreSQL 서버 구문입니다. 특히, PostgreSQL 서비스는 관리되며, 성능 보장을 제공하고, 서버 수준에서 액세스 권한 및 기능을 노출합니다.
 
 PostgreSQL용 Azure 데이터베이스 서버:
@@ -36,8 +34,9 @@ PostgreSQL용 Azure 데이터베이스 서버:
 - 여러 버전으로 제공됩니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](concepts-supported-versions.md)을 참조하세요.
 - 사용자가 확장할 수 있습니다. 자세한 내용은 [PostgreSQL 확장](concepts-extensions.md)을 참조하세요.
 
-## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure 데이터베이스 서버에 연결하고 인증을 받으려면 어떻게 해야 하나요?
+PostgreSQL 서버용 Azure Database 내에서 하나 이상의 데이터베이스를 만들 수 있습니다. 서버당 단일 데이터베이스를 만들어 모든 리소스를 활용하도록 하거나 여러 데이터베이스를 만들어 리소스를 공유하도록 할 수 있습니다. 가격은 가격 책정 계층, 계산 단위, 저장소(GB)의 구성에 따라 서버별로 구성됩니다. 자세한 내용은 [가격 책정 계층](./concepts-service-tiers.md)을 참조하세요.
 
+## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure 데이터베이스 서버에 연결하고 인증을 받으려면 어떻게 해야 하나요?
 다음과 같은 요소가 데이터베이스에 안전하게 액세스할 수 있도록 도와줍니다.
 
 |||
@@ -49,11 +48,9 @@ PostgreSQL용 Azure 데이터베이스 서버:
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>서버는 어떻게 관리해야 하나요?
-
 Azure Portal 또는 [Azure CLI](/cli/azure/postgres)를 사용하여 PostgreSQL용 Azure 데이터베이스 서버를 관리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-
 - 서비스 개요를 보려면 [PostgreSQL용 Azure 데이터베이스 개요](overview.md)를 참조하세요.
 - **서비스 계층**에 따른 특정 리소스 할당량 및 제한 사항에 대한 자세한 내용은 [서비스 계층](concepts-service-tiers.md)을 참조하세요.
 - 서비스 연결에 대한 자세한 내용은 [PostgreSQL용 Azure 데이터베이스에 대한 연결 라이브러리](concepts-connection-libraries.md)를 참조하세요.

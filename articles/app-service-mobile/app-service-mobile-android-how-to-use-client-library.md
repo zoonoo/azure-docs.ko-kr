@@ -3,8 +3,8 @@ title: "Android용 Azure Mobile Apps SDK를 사용하는 방법 | Microsoft Docs
 description: "Android용 Azure Mobile Apps SDK를 사용하는 방법"
 services: app-service\mobile
 documentationcenter: android
-author: adrianhall
-manager: adrianhall
+author: ggailey777
+manager: syntaxc4
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: adrianha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 2709a67f1586f9c43d5d696909aef8ca945583f8
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4b15d024ca6d5bbafe83d321a64021aecd78c4a8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android용 Azure Mobile Apps SDK를 사용하는 방법
@@ -1099,7 +1099,7 @@ dependencies {
 
 1. 응용 프로그램에 아래 코드를 추가하여 다음과 같이 대체합니다.
 
-* **INSERT-AUTHORITY-HERE** 를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.windows.net/contoso.onmicrosoft.com이어야 합니다.
+* **INSERT-AUTHORITY-HERE** 를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다.
 * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
 * **INSERT-CLIENT-ID-HERE** 를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
 * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 끝점으로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 유사합니다.

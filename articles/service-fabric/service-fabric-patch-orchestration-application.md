@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 3fc66d775f97333ad497cf3773643c188ec7c1d6
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: db6e654de074fc6651fd0d7479ee52038f944745
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -60,7 +59,7 @@ ms.lasthandoff: 06/08/2017
 #### <a name="azure-clusters"></a>Azure 클러스터
 패치 오케스트레이션 앱은 Service Fabric 런타임 버전 v5.5 이상이 설치된 Azure 클러스터에서 실행되어야 합니다.
 
-#### <a name="standalone-on-premise-clusters"></a>독립 실행형 온-프레미스 클러스터
+#### <a name="standalone-on-premises-clusters"></a>독립 실행형 온-프레미스 클러스터
 패치 오케스트레이션 앱은 Service Fabric 런타임 버전 v5.6 이상이 설치된 독립 실행형 클러스터에서 실행되어야 합니다.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>복구 관리자 서비스 사용(아직 실행되지 않은 경우)
@@ -149,10 +148,9 @@ Azure 진단을 사용하도록 설정하는 방법에 대한 자세한 내용�
 - 24afa313-0d3b-4c7c-b485-1047fd964b60
 - 05dc046c-60e9-4ef7-965e-91660adffa68
 
-Resource Manager 템플릿의 `WadCfg` 섹션 내에 다음 섹션을 추가합니다. 
+Resource Manager 템플릿에서 `WadCfg` 아래의 `EtwEventSourceProviderConfiguration` 섹션으로 이동한 후 다음 항목을 추가합니다.
 
 ```json
-"PatchOrchestrationApplication": [
   {
     "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
     "scheduledTransferPeriod": "PT5M",
@@ -180,8 +178,7 @@ Resource Manager 템플릿의 `WadCfg` 섹션 내에 다음 섹션을 추가합�
     "DefaultEvents": {
     "eventDestination": " PatchOrchestrationApplicationTable"
     }
-  },
-]
+  }
 ```
 
 > [!NOTE]

@@ -3,7 +3,7 @@ title: "Azure Active Directory를 사용하는 셀프 서비스 응용 프로그
 description: "이 문서는 Azure Active Directory를 사용하는 셀프 서비스 응용 프로그램 액세스 및 위임된 관리를 사용하는 방법을 설명합니다."
 services: active-directory
 documentationcenter: 
-author: asmalser-msft
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 448a7fe8-a162-475e-9ba2-2e3ab59302bc
@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 57093159c0b9c63b6e2dc0971e3aea645a33aa55
+ms.date: 07/13/2017
+ms.author: curtand
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1724376c55d196f1b2b0b82180e4f59432e506ed
 ms.contentlocale: ko-kr
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Azure Active Directory를 사용하는 셀프 서비스 응용 프로그램 액세스 및 위임된 관리
 최종 사용자에 대한 셀프 서비스 기능을 사용하는 작업은 엔터프라이즈 IT에 대한 일반적인 시나리오입니다. 사용자가 많고 응용 프로그램의 많으며 액세스 권한 부여 결정을 내리는 가장 많은 정보를 가진 사람은 디렉터리 관리자가 아닐 수도 있습니다. 종종 응용 프로그램에 액세스할 수 있는 사용자를 결정하는 최상의 사용자는 팀 리더는 또는 다른 위임된 관리자입니다. 하루가 끝날 때 앱을 사용하는 사용자이며 이 사용자는 작업을 수행하는 데 필요한 사항을 압니다.
 
-셀프 서비스 응용 프로그램 액세스는 디렉터리 관리자가 다음을 수행할 수 있도록 하는 [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/)의 기능입니다.
+셀프 서비스 응용 프로그램 액세스는 디렉터리 관리자가 다음을 수행할 수 있도록 하는 [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) P1 및 P2 라이선스의 기능입니다.
 
-*  [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+* 사용자가 [Azure AD 액세스 패널](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)에서 “응용 프로그램 더 가져오기” 타일을 사용하여 응용 프로그램에 대한 액세스를 요청할 수 있습니다.
 * 액세스를 요청할 수 있는 응용 프로그램 사용자 설정
 * 사용자가 응용 프로그램에 대한 액세스를 자체 할당할 수 있도록 승인이 필요한지 여부 설정
 * 각 응용 프로그램에 대한 요청을 승인하고 액세스를 관리해야 하는 사용자 설정

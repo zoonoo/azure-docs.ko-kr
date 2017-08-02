@@ -18,10 +18,10 @@ ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 21ba840f62ea50e943bf5b82f8cc0afd94bb0fef
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bfa951a897c9b383072c0d29c9a4266c163fe753
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -108,6 +108,20 @@ Azure AD가 사용 위치가 지원되지 않는 사용자에게 그룹 라이�
 Azure AD는 그룹에 지정된 모든 라이선스를 각 사용자에게 할당하려고 시도합니다. Azure AD는 비즈니스 논리 문제(예를 들어 라이선스가 부족하거나 사용자에 대해 사용하도록 설정된 다른 서비스와 충돌이 있는 경우)로 인해 제품 중 하나를 할당할 수 없는 경우 그룹의 다른 라이선스를 할당하지 않습니다.
 
 할당이 실패한 사용자를 확인하고 이로 인해 영향을 받는 제품을 확인할 수 있습니다.
+
+## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>Exchange Online의 중복된 프록시 주소 때문에 라이선스 할당이 자동으로 실패함
+
+Exchange Online을 사용 중인 경우 테넌트의 일부 사용자가 동일한 프록시 주소 값으로 올바르게 구성되지 않을 수 있습니다. 그룹 기반 라이선스가 이러한 사용자에게 라이선스를 할당하려고 하면 실패하며 오류는 기록되지 않습니다(위에 설명된 다른 오류 경우와 다름) 이 기능의 미리 보기 버전이 제한되어 있기 때문입니다. 이 문제는 *일반 공급* 이전에 해결될 예정입니다.
+
+> [!TIP]
+> 일부 사용자가 라이선스를 받지 못했으며 해당 사용자에 대해 기록된 오류가 없는 경우 먼저 중복된 프록시 주소를 갖고 있는지 확인합니다.
+> Exchange Online에 대해 다음 PowerShell cmdlet을 실행하여 이 작업을 수행할 수 있습니다.
+```
+Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+```
+> [이 문서](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)에는 [원격 PowerShell을 사용하여 Exchange Online에 연결하는 방법](https://technet.microsoft.com/library/jj984289.aspx)에 대한 정보 등, 이 문제에 대한 자세한 정보가 포함되어 있습니다.
+
+영향을 받는 사용자에 대해 프록시 주소 문제가 해결된 후에 그룹에 대해 강제로 라이선스 처리를 수행하여 라이선스가 다시 적용될 수 있게 하세요.
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>오류를 해결하기 위해 그룹의 라이선스를 강제로 처리하는 방법
 

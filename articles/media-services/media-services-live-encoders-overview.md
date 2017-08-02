@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 0ebed14fe5a24f2b161c0bab0a0e1d36dadb6b5b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7c883c53fd3d151401173e4569818ee769505113
 ms.contentlocale: ko-kr
-ms.lasthandoff: 01/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="how-to-configure-on-premise-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure 미디어 서비스를 사용할 때 온-프레미스 인코더를 구성하여 다중 비트 전송률 스트림을 만드는 방법
+# <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용할 때 온-프레미스 인코더를 구성하여 다중 비트 전송률 스트림을 만드는 방법
 이 토픽에서는 추가 처리를 위해 라이브 이벤트를 캡처하고 단일 비트 전송률 라이브 스트림을 AMS 채널(라이브 인코딩 사용)로 보내는 데 사용할 수 있는 온-프레미스 라이브 인코더를 나열합니다. 또한 나열된 인코더의 구성 방법을 보여 주는 자습서에 연결합니다.
 
 ## <a name="elemental-live"></a>Elemental Live

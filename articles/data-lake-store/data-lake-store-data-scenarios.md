@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 15e81bd1bc8a7b718313afc487dbab89b36f2760
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f173111fb827a1f25fad857596fef13447bcca38
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>빅 데이터 요구 사항에 Azure Data Lake 저장소 사용
@@ -77,7 +76,7 @@ ms.lasthandoff: 06/10/2017
 * [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure 데이터 팩터리](../data-factory/data-factory-azure-datalake-connector.md)
 
-### <a name="data-stored-in-on-premise-or-iaas-hadoop-clusters"></a>온-프레미스 또는 IaaS Hadoop 클러스터에 저장된 데이터
+### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>온-프레미스 또는 IaaS Hadoop 클러스터에 저장된 데이터
 HDFS를 사용하여 로컬 컴퓨터의 기존 Hadoop 클러스터에 대량의 데이터를 저장할 수 있습니다. Hadoop 클러스터는 온-프레미스 배포 또는 Azure의 IaaS 클러스터에 있을 수 있습니다. 이러한 데이터를 Azure Data Lake 저장소에 일회성 또는 반복적으로 복사하는 데는 요구 사항이 있을 수 있습니다. 이 작업을 수행하는 방법은 다양한 옵션이 있습니다. 다음은 이를 대체할 수 있는 방법 목록과 관련 절충 사항입니다.
 
 | 접근 방식 | 세부 정보 | 장점 | 고려 사항 |

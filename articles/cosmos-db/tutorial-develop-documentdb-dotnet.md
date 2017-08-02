@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 485fb2e8ac96e2cdb8e4293b63971af1c1b9baf4
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2eed74ae9bd173b0944ec190dfe5d9a4bdc54c37
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -108,7 +108,7 @@ Azure Portal에서 Azure Cosmos DB 계정으로 이동하고 **키**를 클릭�
 
 포털에서 URI를 복사하고 program.cs 파일의 `<your endpoint URL>`에 붙여넣습니다. 그런 다음 포털에서 기본 키를 복사하고 `<your primary key>`에 붙여넣습니다. 값에서 `<`과 `>`를 제거해야 합니다.
 
-![NoSQL 자습서에서 C# 콘솔 응용 프로그램을 만드는 데 사용하는 Azure Portal의 스크린샷입니다. Azure Cosmos DB 계정 블레이드에서 강조 표시된 키 및 키 블레이드에서 강조 표시된 URI와 키 값이 있는 Azure Cosmos DB 계정을 보여 줍니다.][키]
+![C# 콘솔 응용 프로그램을 만들기 위해 NoSQL 자습서에서 사용하는 Azure Portal의 스크린샷 Azure Cosmos DB 계정 블레이드에서 강조 표시된 키 및 키 블레이드에서 강조 표시된 URI와 키 값이 있는 Azure Cosmos DB 계정을 보여 줍니다.](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-keys.png)
 
 ## <a id="instantiate"></a>DocumentClient 인스턴스화
 

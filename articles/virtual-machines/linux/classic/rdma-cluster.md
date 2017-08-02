@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: b002d21b198fa4887e30d30c20ec67d21ae30579
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정
-Azure에서 [H 시리즈 또는 계산 집약적 A 시리즈 VM](../a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Linux RDMA 클러스터를 설정하는 방법을 알아봅니다. 이 문서는 클러스터에서 Intel MPI를 실행하도록 Linux HPC 이미지를 준비하기 위한 단계를 제공합니다. 준비가 끝나면 이 이미지와 RDMA 지원 Azure VM 크기(현재 H16r, H16mr, A8 또는 A9) 중 하나를 사용하여 VM 클러스터를 배포합니다. RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 짧은 대기 시간, 높은 처리량의 네트워크에서 효율적으로 통신하는 MPI 응용 프로그램을 실행하려면 클러스터를 사용합니다.
+Azure에서 [고성능 계산 VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Linux RDMA 클러스터를 설정하는 방법을 알아봅니다. 이 문서는 클러스터에서 Intel MPI를 실행하도록 Linux HPC 이미지를 준비하기 위한 단계를 제공합니다. 준비가 끝나면 이 이미지와 RDMA 지원 Azure VM 크기(현재 H16r, H16mr, A8 또는 A9) 중 하나를 사용하여 VM 클러스터를 배포합니다. RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 짧은 대기 시간, 높은 처리량의 네트워크에서 효율적으로 통신하는 MPI 응용 프로그램을 실행하려면 클러스터를 사용합니다.
 
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 사용하기 위한 별도의 두 가지 배포 모델, 즉 [Azure Resource Manager](../../../resource-manager-deployment-model.md)와 클래식 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.

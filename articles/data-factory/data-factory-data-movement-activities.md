@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 07/19/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b60105297fb84ce1240a33d576653f5fa7c950e9
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0cefbe1303de1cfa46cc4b771c0cd3aa7819597c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
@@ -187,6 +186,12 @@ Azure 포털, Visual Studio 또는 Azure PowerShell에서 Data Factory Editor를
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 활동) 성능에 영향을 주는 주요 요인에 대해 설명하는 [복사 작업 성능 및 튜닝 가이드](data-factory-copy-activity-performance.md)를 참조하세요. 이 문서에서는 내부 테스트 중에 관찰되는 성능 관련 정보도 제공하며, 복사 활동의 성능을 최적화하는 여러 가지 방법에 대해서도 설명합니다.
+
+## <a name="fault-tolerance"></a>내결함성
+기본적으로 복사 작업은 원본과 싱크 간에 호환되지 않는 데이터가 발견되면 데이터 복사를 중지하고 오류를 반환합니다. 물론 호환되지 않는 행을 건너뛰고 로깅한 후 호환되는 데이터만 복사하여 복사가 성공적으로 수행되도록 명시적으로 구성할 수도 있습니다. 자세한 내용은 [복사 활동 내결함성](data-factory-copy-activity-fault-tolerance.md)을 참조하세요.
+
+## <a name="security-considerations"></a>보안 고려 사항
+Azure Data Factory의 데이터 이동 서비스가 데이터를 보호하는 데 사용하는 기본 보안 인프라에 대해 설명하는 [보안 고려 사항](data-factory-data-movement-security-considerations.md)을 참조하세요.
 
 ## <a name="scheduling-and-sequential-copy"></a>예약 및 순차 복사
 Data Factory에서 예약 및 실행이 작동하는 방식에 대한 자세한 내용은 [예약 및 실행](data-factory-scheduling-and-execution.md) 을 참조하세요. 순차/순서가 지정된 방식으로 하나씩 여러 복사 작업을 실행하는 것이 가능합니다. [순차적으로 복사](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) 섹션을 참조하세요.

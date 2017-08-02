@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 605e68dd86e5188f8a872745164ac879c40a1278
-ms.lasthandoff: 04/18/2017
-
+ms.reviwer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9ea5744d77b90929598ea5feb80c7bbdff3772fc
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/18/2017
 
 액세스 패널은 웹 기반 포털로 Azure AD(Azure Active Directory)에 회사 또는 학교 계정이 있는 사용자가 Azure AD 관리자를 통해 액세스 권한을 부여받은 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 합니다. 이러한 응용 프로그램은 Azure AD 포털에서 사용자를 대신하여 구성됩니다. 응용 프로그램을 액세스 패널에 표시하려면 응용 프로그램이 올바르게 구성되어 있고, 사용자나 그 사용자가 속한 그룹에 할당되어 있어야 합니다.
 
-사용자가 볼 수 있는 응용 프로그램의 형식은 다음과 같은 범주로 분류됩니다.
+사용자가 볼 수 있는 앱의 종류는 다음과 같은 범주로 분류됩니다.
 
 -   Office 365 응용 프로그램
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 04/18/2017
 
 ### <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 
-Azure AD 갤러리에서 Enterprise Single Sign-On 기능을 사용하도록 설정된 모든 응용 프로그램은 단계별 자습서를 사용할 수 있습니다. [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)에 액세스하면 자세한 단계별 지침을 볼 수 있습니다.
+Azure AD 갤러리에서 Enterprise Single Sign-On 기능을 사용하도록 설정된 모든 응용 프로그램은 단계별 자습서를 사용할 수 있습니다. [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)에 액세스하면 자세한 단계별 지침을 볼 수 있습니다.
 
 Azure AD 갤러리에서 응용 프로그램을 구성하려면 다음을 수행해야 합니다.
 
@@ -75,7 +76,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -99,7 +100,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -127,7 +128,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 12. **선택 사항:** 사용자가 로그인할 때 SAML 토큰을 통해 응용 프로그램으로 보낼 특성을 편집하려면 **다른 모든 사용자 특성 보기 및 편집**을 클릭합니다.
 
-   특성을 추가 하려면:
+   특성을 추가하려면:
 
    1. **특성 추가**를 클릭합니다. **이름**을 입력하고 드롭다운에서 **값**을 선택합니다.
 
@@ -135,7 +136,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 13. 응용 프로그램의 Single Sign-On을 구성하는 방법에 관한 문서에 액세스하려면 **&lt;응용 프로그램 이름&gt; 구성**을 클릭합니다. 또한 응용 프로그램에 SSO를 설정하는 데 필요한 메타데이터 URL 및 인증서는 있습니다.
 
-14. 구성을 저장하려면 **Save**를 클릭합니다.
+14. 구성을 저장하려면 **저장**을 클릭합니다.
 
 15. 응용 프로그램에 사용자를 할당합니다.
 
@@ -145,7 +146,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -168,7 +169,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 9.  사용자 특성을 추가하려면 **다른 모든 사용자 특성 보기 및 편집**을 클릭하여 사용자가 로그인할 때 SAML 토큰을 통해 응용 프로그램으로 보낼 특성을 편집합니다.
 
-   특성을 추가 하려면:
+   특성을 추가하려면:
 
    1. **특성 추가**를 클릭합니다. **이름**을 입력하고 드롭다운에서 **값**을 선택합니다.
 
@@ -180,7 +181,7 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -216,7 +217,7 @@ Azure AD 갤러리에 없는 응용 프로그램에 대해 Single Sign-On을 구
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -244,7 +245,7 @@ Azure AD 갤러리에 없는 응용 프로그램에 대해 Single Sign-On을 구
 
 13. **선택 사항:** 사용자가 로그인할 때 SAML 토큰을 통해 응용 프로그램으로 보낼 특성을 편집하려면 **다른 모든 사용자 특성 보기 및 편집**을 클릭합니다.
 
-   특성을 추가 하려면:
+   특성을 추가하려면:
 
    1. **특성 추가**를 클릭합니다. **이름**을 입력하고 드롭다운에서 **값**을 선택합니다.
 
@@ -258,7 +259,7 @@ Azure AD 갤러리에 없는 응용 프로그램에 대해 Single Sign-On을 구
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -281,7 +282,7 @@ Azure AD 갤러리에 없는 응용 프로그램에 대해 Single Sign-On을 구
 
 9.  사용자 특성을 추가하려면 **다른 모든 사용자 특성 보기 및 편집**을 클릭하여 사용자가 로그인할 때 SAML 토큰을 통해 응용 프로그램으로 보낼 특성을 편집합니다.
 
-   특성을 추가 하려면:
+   특성을 추가하려면:
 
    1. **특성 추가**를 클릭합니다. **이름**을 입력하고 드롭다운에서 **값**을 선택합니다.
 
@@ -293,7 +294,7 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -325,7 +326,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -345,11 +346,11 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 #### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 응용 프로그램 구성
 
-응용 프로그램에 대한 Single Sign-On을 구성하려면 아래 단계를 따릅니다.
+응용 프로그램에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -383,7 +384,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 1.  [Azure Portal](https://portal.azure.com)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -399,11 +400,11 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 #### <a name="configure-the-application-for-password-single-sign-on"></a>암호 Single Sign-On에 대한 응용 프로그램 구성
 
-응용 프로그램에 대한 Single Sign-On을 구성하려면 아래 단계를 따릅니다.
+응용 프로그램에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -417,7 +418,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
-8.  **암호 기반의 로그온** 모드를 선택합니다.
+8.  **암호 기반 로그온** 모드를 선택합니다.
 
 9.  **로그온 URL**을 입력합니다. 사용자가 로그인하기 위해 사용자 이름과 암호를 입력하는 URL입니다. URL에서 로그인 필드가 표시되는지 확인합니다.
 
@@ -443,7 +444,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -483,11 +484,11 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 9.  **할당 추가** 블레이드에서 **사용자 및 그룹** 선택기를 클릭합니다.
 
-10. **이름 또는 메일 주소로 검색** 검색 상자에 할당하려는 사용자의 **전체 이름** 또는 **메일 주소**를 입력합니다.
+10. **이름 또는 전자 메일 주소로 검색** 검색 상자에 할당하려는 사용자의 **전체 이름** 또는 **전자 메일 주소**를 입력합니다.
 
 11. 목록의 **사용자** 위로 마우스를 이동하여 **확인란**을 표시합니다. 사용자의 프로필 사진이나 로고 옆의 확인란을 클릭하여 사용자를 **선택됨** 목록에 추가합니다.
 
-12. **선택 사항:** **둘 이상의 사용자를 추가**하려는 경우 **이름 또는 메일 주소로 검색** 검색 상자에 다른 **전체 이름** 또는 **메일 주소**를 입력하고 확인란을 클릭하여 이 사용자를 **선택됨** 목록에 추가합니다.
+12. **선택 사항:** **둘 이상의 사용자를 추가**하려는 경우 **이름 또는 전자 메일 주소로 검색** 검색 상자에 다른 **전체 이름** 또는 **전자 메일 주소**를 입력하고 확인란을 클릭하여 이 사용자를 **선택됨** 목록에 추가합니다.
 
 13. 사용자 선택이 완료되면 **선택** 단추를 클릭하여 응용 프로그램에 할당되도록 사용자 및 그룹의 목록에 추가합니다.
 
@@ -503,7 +504,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -523,7 +524,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -561,7 +562,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -619,7 +620,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
@@ -643,7 +644,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
 3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 

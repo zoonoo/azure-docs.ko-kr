@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: raymondl;garye;v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: 0dc0f84ed65e76a95dcac523e42268039212773c
-ms.openlocfilehash: 5032e66556622e44e5f5bba84c4ddf5318b1e194
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cf7a39e14a935d0d0e0df07e66a8f37480ec9687
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>프로그래밍 방식으로 기계 학습 모델 다시 학습
@@ -91,7 +91,7 @@ ms.lasthandoff: 03/02/2017
 
 재학습 API를 호출하려면:
 
-1. Visual Studio(New->Project->Windows Desktop->Console Application)에서 C# 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio(**새로 만들기** > **프로젝트** > **Visual C#** > **Windows 클래식 바탕 화면** > **콘솔 앱(.NET Framework)**)에서 C# 콘솔 응용 프로그램을 만듭니다.
 2. Machine Learning 웹 서비스 포털에 로그인합니다.
 3. 기존 웹 서비스를 사용하여 작업하는 경우 **Classic Web Services**를 클릭합니다.
    1. 현재 작업 중인 웹 서비스를 클릭합니다.

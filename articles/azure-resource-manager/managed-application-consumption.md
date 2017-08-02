@@ -10,15 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/17/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 041254b07584a52ae92e603f60a439050b747af1
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8745db3abe6ddec6da1f92da6b7cf8bf82b96d79
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="consume-an-azure-managed-application"></a>Azure Managed Application 사용
+# <a name="consume-a-service-catalog-managed-application"></a>서비스 카탈로그 관리되는 응용 프로그램 사용
 
 [Managed Application 개요](managed-application-overview.md) 문서에서 설명한 대로 종단 간 환경에는 두 가지 시나리오가 있습니다. 하나는 관리되는 응용 프로그램을 만들어 고객이 사용할 수 있게 하려는 게시자 또는 ISV입니다. 다른 하나는 관리되는 응용 프로그램의 최종 고객 또는 소비자입니다. 이 문서에서는 두 번째 시나리오를 다루며, 최종 고객이 ISV에서 제공하는 관리되는 응용 프로그램을 사용하는 방법에 대해 설명합니다.
 
@@ -69,10 +68,10 @@ az group deployment create --name managedAppDeployment --resourceGroup mainResou
 ```azurecli
 az managedapp create --name ravtestappliance401 --location "westcentralus" 
     --kind "Servicecatalog" --resource-group "ravApplianceCustRG401" 
-       --managedapp-definition-id "/subscriptions/{guid}/resourceGroups/ravApplianceDefRG401/providers/Microsoft.Solutions/applianceDefinitions/ravtestAppDef401" 
-       --managed-rg-id "/subscriptions/{guid}/resourceGroups/ravApplianceCustManagedRG401" 
-       --parameters "{\"storageAccountName\": {\"value\": \"ravappliancedemostore1\"}}" 
-       --debug
+    --managedapp-definition-id "/subscriptions/{guid}/resourceGroups/ravApplianceDefRG401/providers/Microsoft.Solutions/applianceDefinitions/ravtestAppDef401" 
+    --managed-rg-id "/subscriptions/{guid}/resourceGroups/ravApplianceCustManagedRG401" 
+    --parameters "{\"storageAccountName\": {\"value\": \"ravappliancedemostore1\"}}" 
+    --debug
 ```
 
 **appliance-definition-Id** - 이전 단계에서 만든 어플라이언스 정의의 리소스 ID입니다. 이 ID를 얻으려면 다음 명령을 실행합니다.
@@ -118,4 +117,6 @@ Azure Portal의 [만들기] 블레이드에서 [서비스 카탈로그 관리되
 ## <a name="next-steps"></a>다음 단계
 
 * 관리되는 응용 프로그램에 대한 소개는 [Azure Managed Application 개요](managed-application-overview.md)를 참조하세요.
-* 공급업체 환경을 이해하려면 [Azure Managed Application 만들기 및 게시](managed-application-publishing.md)를 참조하세요.
+* 서비스 카탈로그 관리되는 응용 프로그램을 게시하는 방법에 대한 자세한 내용은 [서비스 카탈로그 관리되는 응용 프로그램 만들기 및 게시](managed-application-publishing.md)를 참조하세요.
+* Marketplace에 관리되는 응용 프로그램을 게시하는 방법에 대한 자세한 내용은 [Marketplace의 Azure Managed Application](managed-application-author-marketplace.md)을 참조하세요.
+* Marketplace의 관리되는 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [Marketplace의 Azure Managed Application 사용](managed-application-consume-marketplace.md)을 참조하세요.

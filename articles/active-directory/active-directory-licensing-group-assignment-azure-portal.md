@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory에서 그룹에 라이선스 할당 | Microsoft Docs"
 description: "Azure Active Directory 그룹 기반 라이선스를 사용하여 사용자에게 라이선스를 할당하는 방법"
 services: active-directory
@@ -17,12 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 2af42c34306dd6fe3174187892c109ae866a2f87
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 42b18eab9cb419e6ada72ba72dc8be8d7f7b2eed
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/24/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -85,6 +83,8 @@ ms.lasthandoff: 06/24/2017
    - 활동: **사용자에게 그룹 기반 라이선스 할당 시작**. 시스템이 그룹에 대한 라이선스 할당 변경을 선택하고 모든 사용자 멤버에게 적용하기 시작하면 로깅됩니다. 수행된 변경 내용에 대한 정보가 포함됩니다.
 
    - 활동: **사용자에게 그룹 기반 라이선스 할당 완료**. 시스템이 그룹의 모든 사용자에 대한 처리를 완료하면 로깅됩니다. 성공적으로 처리된 사용자 수와 그룹 라이선스를 할당하지 못한 사용자 수에 대한 요약 정보가 포함되어 있습니다.
+
+   [이 섹션을 읽고](./active-directory-licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) 감사 로그를 사용하여 그룹 기반 라이선스에 의한 변경 내용을 분석하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>3단계: 라이선스 문제 확인 및 해결
 

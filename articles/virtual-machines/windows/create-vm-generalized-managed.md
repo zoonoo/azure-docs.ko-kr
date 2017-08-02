@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 527f3f33e2b5996c6fa7b7dc874123bba5ab39dd
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 4b2593067193fe928cb8ac2b662fc3fd8ba7aedf
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>관리되는 이미지에서 VM 만들기
@@ -32,10 +31,10 @@ Azure에서 관리 VM 이미지로 여러 VM을 만들 수 있습니다. 관리 
 
 새 VM을 만들려면 [만들어 놓은 관리 VM 이미지가 있어야 합니다](capture-image-resource.md). 
 
-AzureRM.Compute PowerShell 모듈이 최신 버전인지 확인합니다. 다음 명령을 실행하여 PowerShell을 설치합니다.
+최신 버전의 AzureRM.Compute 및 AzureRM.Network PowerShell 모듈을 사용하고 있는지 확인합니다. 관리자 권한으로 PowerShell 프롬프트를 열고 다음 명령을 실행하여 설치합니다.
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute,AzureRM.Network
 ```
 자세한 내용은 [Azure PowerShell 버전 관리](/powershell/azure/overview)를 참조하세요.
 

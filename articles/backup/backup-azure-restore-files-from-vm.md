@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/6/2017
+ms.date: 07/20/2017
 ms.author: pullabhk;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c65976c7394c7f9691526c0914854ef09184ab07
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: ae7c345c11a7db25413d60ad822f16f84ca37362
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="recover-files-from-azure-virtual-machine-backup-preview"></a>Azure 가상 컴퓨터 백업에서 파일 복구(미리 보기)
+# <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
 Azure 백업에서는 Azure VM 백업에서 [Azure VM 및 디스크](./backup-azure-arm-restore-vms.md)를 복원하는 기능을 제공합니다. 이제 이 문서에서는 Azure VM 백업에서 파일 및 폴더와 같은 항목을 어떻게 복구할 수 있는지 설명합니다.
 
@@ -35,7 +34,7 @@ Azure 백업에서는 Azure VM 백업에서 [Azure VM 및 디스크](./backup-az
 
 1. [Azure 포털](http://portal.Azure.com)에 로그인합니다. 관련 Recovery Services 자격 증명 모음 및 필요한 백업 항목을 찾습니다.
 
-2. 백업 항목 블레이드에서 **파일 복구(미리 보기)**를 클릭합니다.
+2. 백업 항목 블레이드에서 **파일 복구**를 클릭합니다.
 
     ![Recovery Services 자격 증명 모음 백업 항목 열기](./media/backup-azure-restore-files-from-vm/open-vault-item.png)
 
@@ -49,13 +48,19 @@ Azure 백업에서는 Azure VM 백업에서 [Azure VM 및 디스크](./backup-az
 
   실행 파일/스크립트는 로컬 컴퓨터와 지정된 복구 지점 간에 연결을 생성합니다.
 
-5. 파일을 복구할 컴퓨터에서 실행 파일/스크립트를 실행합니다. 관리자 자격 증명으로 실행해야 합니다. 제한된 액세스를 포함하는 컴퓨터에서 스크립트를 실행하는 경우 다음에 대한 액세스 권한이 있는지 확인합니다.
+5. 다운로드한 스크립트/실행 파일을 실행하려면 암호가 필요합니다. 생성된 암호 옆에 있는 복사 단추를 사용하여 포털에서 암호를 복사할 수 있습니다.
 
-    - go.microsoft.com
+    ![생성된 암호](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
+
+6. 파일을 복구할 컴퓨터에서 실행 파일/스크립트를 실행합니다. 관리자 자격 증명으로 실행해야 합니다. 제한된 액세스를 포함하는 컴퓨터에서 스크립트를 실행하는 경우 다음에 대한 액세스 권한이 있는지 확인합니다.
+
+    - download.microsoft.com
     - Azure VM 백업에 사용된 Azure 끝점
     - 아웃바운드 포트 3260
 
    Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' 및 'lshw' 구성 요소가 필요합니다. 해당 구성 요소가 실행되는 컴퓨터에 존재하지 않는 경우 관련 구성 요소를 설치할 수 있는 권한을 요청하고 승인 시 이를 설치합니다.
+   
+   암호를 입력하라는 메시지가 표시되면 포털에서 복사한 암호를 입력합니다. 올바른 암호를 입력하면 스크립트가 복구 지점에 연결됩니다.
       
     ![파일 복구 블레이드](./media/backup-azure-restore-files-from-vm/executable-output.png)
     

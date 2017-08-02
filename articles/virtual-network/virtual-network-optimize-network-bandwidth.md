@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/30/2017
+ms.date: 07/07/2017
 ms.author: steveesp
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 1340048d5d518caff3397f671d0c75caaab4b5ac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a7c32f07516ca83bc2fb5ad5a9a526631932ad4a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -29,7 +29,7 @@ Azure VM(Virtual Machine)에는 네트워크 처리량에 대해 추가로 최�
 
 ## <a name="windows-vm"></a>Windows VM
 
-RSS(수신측 배율)를 사용하는 VM은 RSS 없는 VM보다 더 높은 최대 처리량에 도달할 수 있습니다. RSS는 Windows VM에서 기본적으로 사용되지 않도록 설정될 수 있습니다. 다음 단계를 완료하여 RSS가 사용되도록 설정되어 있는지 여부를 확인하고 사용되지 않도록 설정되어 있으면 사용되도록 설정합니다.
+Windows VM이 [가속화된 네트워킹](virtual-network-create-vm-accelerated-networking.md)으로 지원되는 경우 해당 기능을 사용하도록 설정하는 것이 최적의 처리량을 얻기 위한 구성입니다. RSS(수신측 배율)를 사용하는 다른 모든 Windows VM은 RSS 없는 VM보다 더 높은 최대 처리량에 도달할 수 있습니다. RSS는 Windows VM에서 기본적으로 사용되지 않도록 설정될 수 있습니다. 다음 단계를 완료하여 RSS가 사용되도록 설정되어 있는지 여부를 확인하고 사용되지 않도록 설정되어 있으면 사용되도록 설정합니다.
 
 1. `Get-NetAdapterRss` PowerShell 명령을 입력하여 RSS가 네트워크 어댑터에 대해 사용되도록 설정되어 있는지 확인합니다. `Get-NetAdapterRss`에서 반환된 다음 예제 출력에서 RSS는 사용되도록 설정되어 있지 않습니다.
 

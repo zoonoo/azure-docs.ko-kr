@@ -3,7 +3,7 @@ title: "Azure Data Factory의 데이터 이동에 대한 보안 고려 사항 | 
 description: "Azure Data Factory에서 데이터 이동 보안에 대해 알아봅니다."
 services: data-factory
 documentationcenter: 
-author: abnarain
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
-ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: de9453e6764279c481e569542433d095772f304d
+ms.date: 07/27/2017
+ms.author: abnarain
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 33ccb820b786b9aa28f9e10c35ef1d2c00eaf7f1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -142,7 +141,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 ### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>게이트웨이의 방화벽 구성 및 화이트리스트 IP 주소
 
-#### <a name="firewall-requirements-for-on-premiseprivate-network"></a>온-프레미스/개인 네트워크에 대한 방화벽 요구 사항   
+#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>온-프레미스/개인 네트워크에 대한 방화벽 요구 사항  
 기업에서는 **기업 방화벽**이 중앙 라우터에서 실행됩니다. 그리고 **Windows 방화벽**은 게이트웨이가 설치된 로컬 시스템에서 데몬으로 실행됩니다. 
 
 다음 표는 **아웃바운드 포트** 및 **회사 방화벽**에 대한 도메인 요구 사항을 제공합니다.

@@ -1,5 +1,5 @@
 ---
-title: "데이터에서 응답할 수 있는 질문하기 - 데이터 과학 문제 - Azure | Microsoft Docs"
+title: "데이터에서 응답할 수 있는 질문하기 - 데이터 과학 문제 - Azure Machine Learning | Microsoft Docs"
 description: "초급자를 위한 데이터 과학 비디오 3에서 정확한 데이터 과학 질문을 작성하는 방법을 알아봅니다. 분류 및 회귀 질문에 대한 비교가 포함되어 있습니다."
 keywords: "데이터 과학 문제, 데이터 과학 질문,질문 작성,회귀 질문,분류 질문,정확한 질문"
 services: machine-learning
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 07/13/2017
 ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 403c496d4f032d1f373dacc16868abb40f968b6f
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>데이터로 대답할 수 있는 질문하기
@@ -26,6 +27,7 @@ ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
 초급자를 위한 데이터 과학 비디오 3에서 데이터 과학 문제를 질문으로 작성하는 방법을 알아봅니다. 이 비디오에는 분류 및 회귀 알고리즘 질문에 대한 비교가 포함되어 있습니다.
 
 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
 >
@@ -41,7 +43,7 @@ ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
 * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
 ## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>비디오 내용: 데이터로 대답할 수 있는 질문하기
-"초급자를 위한 데이터 과학" 시리즈 중&3;번째 비디오를 시작합니다.  
+"초급자를 위한 데이터 과학" 시리즈 중 3번째 비디오를 시작합니다.  
 
 여기에서는 데이터로 답할 수 있는 질문을 작성하는 방법과 관련된 몇 가지 팁을 얻을 수 있습니다.
 
@@ -65,7 +67,7 @@ ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
 
 질문이 "내가 보유한 자동차 중 가장 먼저 고장 날 자동차는 어떤 것일까요"인 경우 데이터에 이전 고장에 대한 정보가 포함되어 있는지 확인해야 합니다.
 
-![대상 데이터 - 답변에 대한 사례. 데이터 과학 질문 작성.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-target-data.png)
+![대상 데이터 - 답변에 대한 사례. 데이터 과학 질문 작성.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
 
 답변에 대한 이러한 사례를 대상이라고 부릅니다. 대상은 향후 데이터 요소에 대해 예측하려고 하는 것입니다. 이것은 범주나 숫자가 될 수도 있습니다.
 
@@ -82,7 +84,7 @@ ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
 
 하지만, “이 목록에 있는 스토리가 독자들에게 얼마나 흥미롭습니까?”라고 말을 바꾸면, 쉬운 질문이 될 수 있습니다. 이제 각 스토리에 숫자 점수를 부여하면, 최고 득점을 한 스토리를 식별하는 것이 쉬워집니다. 이것이 분류 질문을 회귀 질문 또는 얼마나?로 바꾸어 말하는 것입니다.
 
-![질문 다시 작성. 분류 질문 및 회귀 질문.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-classification-question-vs-regression-question.png)
+![질문 다시 작성. 분류 질문 및 회귀 질문.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
 
 질문을 하는 방식은 답을 줄 수 있는 알고리즘을 알아내는 단서입니다.
 
@@ -97,9 +99,4 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
 * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

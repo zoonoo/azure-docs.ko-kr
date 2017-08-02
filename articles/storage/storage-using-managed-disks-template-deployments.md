@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: f2c0355068bc6dfd9a4e1aab52e4f4f9f23a9512
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f7ca0c1aa67b8a5f5487dd93a142ac9da094f945
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 06/09/2017
             "dataDisks": [
                 {
                     "name": "datadisk1",
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "vhd": {
                         "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob, 'vhds/datadisk1.vhd')]"
@@ -123,7 +123,7 @@ Azure Managed Disks를 사용하면 디스크가 최상위 리소스가 되며 �
             },
             "dataDisks": [
                 {
-                    "diskSizeGB": "1023",
+                    "diskSizeGB": 1023,
                     "lun": 0,
                     "createOption": "Empty"
                 }
@@ -209,8 +209,8 @@ Azure Managed Disks를 사용하면 디스크가 최상위 리소스가 되며 �
     "location": "[resourceGroup().location]",
     "name": "[variables('avSetName')]",
     "properties": {
-        "PlatformUpdateDomainCount": "3",
-        "PlatformFaultDomainCount": "2"
+        "PlatformUpdateDomainCount": 3,
+        "PlatformFaultDomainCount": 2
     },
     "sku": {
         "name": "Aligned"

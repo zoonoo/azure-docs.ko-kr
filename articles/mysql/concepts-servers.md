@@ -8,16 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/06/2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 33508edb1b1aee058bff4b186f76d172f11f272f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a2556206ac53829fcd6ab92ffe292859349790d7
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스의 서버 개념
-
 이 항목에서는 MySQL용 Azure 데이터베이스 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
 
 ## <a name="what-is-an-azure-database-for-mysql-server"></a>MySQL용 Azure 데이터베이스 서버란?
@@ -34,6 +33,8 @@ MySQL용 Azure 데이터베이스 서버:
 - 서버 및 데이터베이스 액세스에 대한 연결 끝점을 제공합니다.
 - 로그인, 방화벽, 사용자, 역할 구성 등 해당 데이터베이스에 적용되는 관리 정책에 대한 범위를 제공합니다.
 - 여러 버전으로 제공됩니다. 자세한 내용은 [지원되는 MySQL용 Azure 데이터베이스 버전](./concepts-supported-versions.md)을 참조하세요.
+
+MySQL 서버용 Azure Database 내에서 하나 이상의 데이터베이스를 만들 수 있습니다. 서버당 단일 데이터베이스를 만들어 모든 리소스를 활용하도록 하거나 여러 데이터베이스를 만들어 리소스를 공유하도록 할 수 있습니다. 가격은 가격 책정 계층, 계산 단위, 저장소(GB)의 구성에 따라 서버별로 구성됩니다. 자세한 내용은 [가격 책정 계층](./concepts-service-tiers.md)을 참조하세요.
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>MySQL용 Azure 데이터베이스 서버에 연결하고 인증을 받으려면 어떻게 해야 하나요?
 

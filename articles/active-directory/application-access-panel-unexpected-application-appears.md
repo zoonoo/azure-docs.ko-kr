@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 2429ebef69aaddf28d10cd77bf4ce9072ea71476
-ms.lasthandoff: 04/11/2017
-
+ms.reviewr: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f8ccf2cf66b49940bc7f2b9f4764020efc04838e
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -29,9 +30,9 @@ ms.lasthandoff: 04/11/2017
 
 -   응용 프로그램이 사용자 또는 사용자가 구성원인 그룹에서 제거된 경우 몇 분 후에 사용자의 액세스 패널에 로그인하고 다시 로그아웃하여 응용 프로그램이 제거되었는지 확인합니다.
 
--   라이선스가 사용자 또는 사용자가 구성원인 그룹에서 제거된 경우 변경 사항이 만들어질 그룹의 크기 및 복잡성에 따라 시간이 오래 걸릴 수 있습니다. 액세스 패널에 로그인하기 전에 추가 시간을 허용합니다.
+-   라이선스가 사용자 또는 사용자가 구성원인 그룹에서 제거된 경우 변경 사항이 만들어질 그룹의 크기 및 복잡성에 따라 시간이 오래 걸릴 수 있습니다. 액세스 패널에 로그인하기 전에 잠시 여유 시간을 둡니다.
 
-## <a name="problems-related-to-assigning-applications-to-users"></a>사용자에게 응용 프로그램 할당과 관련된 문제
+## <a name="problems-related-to-assigning-applications-to-users"></a>사용자의 응용 프로그램 할당과 관련된 문제
 
 사용자는 이전에 할당되었기 때문에 액세스 패널에 응용 프로그램이 표시될 수 있습니다. 다음은 확인할 몇 가지 방법입니다.
 
@@ -46,9 +47,9 @@ ms.lasthandoff: 04/11/2017
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 클릭합니다.
 
@@ -68,9 +69,9 @@ ms.lasthandoff: 04/11/2017
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -84,7 +85,7 @@ ms.lasthandoff: 04/11/2017
 
 ## <a name="problems-related-to-assigning-applications-to-groups"></a>그룹에 응용 프로그램 할당과 관련된 문제
 
-사용자는 응용 프로그램 할당되었던 그룹에 속하므로 액세스 패널에 응용 프로그램이 표시될 수 있습니다. 다음은 확인할 몇 가지 방법입니다.
+사용자는 응용 프로그램이 할당된 그룹에 속해 있으므로 액세스 패널에 응용 프로그램이 표시될 수 있습니다. 다음은 확인할 몇 가지 방법입니다.
 
 -   [사용자의 그룹 멤버 자격 확인](#check-a-users-group-memberships)
 
@@ -96,9 +97,9 @@ ms.lasthandoff: 04/11/2017
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -116,9 +117,9 @@ ms.lasthandoff: 04/11/2017
 
 1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **더 많은 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2.  왼쪽 주 탐색 메뉴의 맨 아래에서 **추가 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4.  탐색 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 

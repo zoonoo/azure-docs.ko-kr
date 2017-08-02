@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 07/07/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: e0cd2a14b4102797024925a72783ecaf56919aec
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ec289cf53f2cfecd2744b739667ef831dafd59a4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -28,11 +27,12 @@ ms.lasthandoff: 05/02/2017
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
-## <a name="supported-operating-systems"></a>지원되는 운영 체제
-
-지원되는 운영 체제 및 드라이버 요구 사항은 [Linux용 N-시리즈 드라이버 설치](n-series-driver-setup.md)를 참조하세요.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+[!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
+
+드라이버 설치 및 확인 단계에 대해서는 [Linux용 N 시리즈 드라이버 설치](n-series-driver-setup.md)를 참조하세요.
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 

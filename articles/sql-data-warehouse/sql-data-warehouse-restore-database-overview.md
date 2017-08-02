@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 104986e88ededf2137725fe258b6ce51f608b37d
-ms.lasthandoff: 01/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ea42b7135d0695b66d569095e70bb3d9f8b9594b
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-data-warehouse-restore"></a>SQL Data Warehouse 복원
@@ -58,7 +58,12 @@ Yes, you can restore the last available restore point.
 Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points. -->
 
 ## <a name="geo-redundant-restore"></a>지역 중복 복원
-지역 중복 저장소를 사용하는 경우 다른 지역에 [쌍으로 구성된 데이터 센터](../best-practices-availability-paired-regions.md)에 데이터 웨어하우스를 복원할 수 있습니다. 데이터 웨어하우스는 마지막 일일 백업에서 복원됩니다. 
+선택한 성능 수준에서 Azure SQL Data Warehouse를 지원하는 모든 영역에 데이터 웨어하우스를 복원할 수 있습니다. 미리 보기 동안에는 일부 지역에서만 9000 및 18000 DWU가 지원될 수 있습니다.
+
+> [!NOTE]
+> 지역 중복 복원을 수행하려면 이 기능에서 옵트아웃(opt out)하지 않아야 합니다.
+> 
+> 
 
 ## <a name="restore-timeline"></a>복원 타임라인
 지난 7일 이내의 사용 가능한 복원 지점으로 데이터베이스를 복원할 수 있습니다. 스냅숏은 4~8시간마다 시작되며 7일 동안 사용할 수 있습니다. 7일보다 오래된 스냅숏은 만료되고 해당 복원 지점을 더 이상 사용할 수 없게 됩니다.

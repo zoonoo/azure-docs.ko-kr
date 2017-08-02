@@ -1,9 +1,32 @@
+---
+title: "Azure 서비스 알림에 대한 활동 로그 경고 수신 | Microsoft Docs"
+description: "Azure 서비스에서 문제가 발생할 때 SMS, 전자 메일 또는 웹후크를 통해 알림을 받습니다."
+author: johnkemnetz
+manager: orenr
+editor: 
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: johnkem
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c8339c08333aaa471b42f6468ca2a59ee4efacf9
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
+
+---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
 작업 그룹 정의의 일부로 활동 로그 경고 알림을 받기 위한 웹후크 끝점을 구성할 수 있습니다. 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 이러한 알림을 다른 시스템으로 라우팅할 수 있습니다. 이 문서는 Webhook에 대한 HTTP POST의 페이로드 형태를 보여 줍니다.
 
-한편 Azure 활동 로그 경고에 대한 설정과 스키마에 대해서는 [이 페이지를 대신 참조하세요](monitoring-activity-log-alerts.md).
+한편 Azure 활동 로그 경고를 만드는 방법에 대한 자세한 내용은 [이 페이지를 대신 참조하세요](monitoring-activity-log-alerts.md).
 
-작업 그룹에 대한 설정과 스키마에 대해서는 [이 페이지를 대신 참조하세요](monitoring-action-groups.md)
+작업 그룹을 만드는 방법에 대한 자세한 내용은 [이 페이지를 대신 참조하세요](monitoring-action-groups.md).
 
 ## <a name="authenticating-the-webhook"></a>웹후크 인증
 웹후크는 토큰 기반 인증을 사용하여 인증할 수 있습니다. 토큰 ID를 사용하여 webhook URI를 저장합니다. 예를 들면 `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`와 같습니다.
@@ -90,7 +113,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
                     "stage": "Active",
                     "communicationId": "...",
                     "version": "0.1"
-                },
+                }
             }
         },
         "properties": {}
@@ -136,3 +159,4 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 * [논리 앱을 사용하여 Azure 경고에서 Twilio 통해 SMS 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
 * [논리 앱을 사용하여 Azure 경고에서 Slack 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
 * [논리 앱을 사용하여 Azure 경고에서 Azure Queue에 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
+

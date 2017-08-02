@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 4c373eef77605ab45c9a08ed7f60476abafa229c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: fe6a28afbee573351186e361126ddca7db764311
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
@@ -125,6 +124,7 @@ ms.lasthandoff: 06/30/2017
 ## <a name="services-that-do-not-enable-move"></a>이동을 사용하지 않는 서비스
 현재 리소스 이동을 사용하지 않는 서비스는 다음과 같습니다.
 
+* AD Domain Services
 * AD 하이브리드 상태 관리 서비스
 * Application Gateway
 * Managed Disks를 포함하는 Virtual Machines의 가용성 집합

@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 07/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
-ms.openlocfilehash: d2aa7985bbaea318fa075cb128da3a58dce5ef92
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3411c59fee73aa2e26a05d70e1dae11cdfc865ff
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Data Lake Tools for Visual Studio를 사용하여 Hive 쿼리 실행
@@ -33,11 +32,11 @@ Data Lake Tools for Visual Studio를 사용하여 Apache Hive를 쿼리하는 �
 * Azure HDInsight(HDInsight의 Hadoop) 클러스터
 
   > [!IMPORTANT]
-  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+  > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * Visual Studio(다음 버전 중 하나)
 
-    * Visual Studio 2013 Community/Professional/Premium/Ultimate [업데이트 4](https://www.microsoft.com/download/details.aspx?id=44921)
+    * Visual Studio 2013 Community/Professional/Premium/Ultimate 업데이트 4
 
     * Visual Studio 2015(모든 버전)
 

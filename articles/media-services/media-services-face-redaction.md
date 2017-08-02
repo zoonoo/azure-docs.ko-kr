@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/16/2017
+ms.date: 07/18/2017
 ms.author: juliako;
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 2600c5cec36a8a44a85a62d6672d6ae57343f20c
-ms.lasthandoff: 04/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7f5d43e337b610f0bcf8273432b4dcd0a757937d
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 편집
@@ -60,37 +60,51 @@ ms.lasthandoff: 04/18/2017
 | 출력 자산 |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |검색된 각 얼굴을 잘라낸 jpg(숫자는 얼굴의 레이블 ID) |
 
 #### <a name="output-example"></a>출력 예제:
+
     {
       "version": 1,
-      "timescale": 50,
+      "timescale": 24000,
       "offset": 0,
-      "framerate": 25.0,
+      "framerate": 23.976,
       "width": 1280,
       "height": 720,
       "fragments": [
         {
           "start": 0,
-          "duration": 2,
-          "interval": 2,
+          "duration": 48048,
+          "interval": 1001,
           "events": [
-            [  
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
               {
-                "id": 1,
-                "x": 0.306415737,
-                "y": 0.03199235,
-                "width": 0.15357475,
-                "height": 0.322126418
+                "index": 13,
+                "id": 1138,
+                "x": 0.29537,
+                "y": -0.18987,
+                "width": 0.36239,
+                "height": 0.80335
               },
               {
-                "id": 2,
-                "x": 0.5625317,
-                "y": 0.0868245438,
-                "width": 0.149155334,
-                "height": 0.355517566
+                "index": 13,
+                "id": 2028,
+                "x": 0.60427,
+                "y": 0.16098,
+                "width": 0.26958,
+                "height": 0.57943
               }
-            ]
-          ]
-        },
+            ],
 
     … truncated
 
@@ -120,14 +134,14 @@ IDList에서 하나의 ID가 선택된 출력입니다.
      2
      3
  
-## <a name="attribute-descriptions"></a>특성 설명
+## <a name="elements-of-the-output-json-file"></a>출력 JSON 파일의 요소
+
 편집 MP는 한 동영상 프레임 내에서 최대 64명의 얼굴을 검색할 수 있는 고정밀도 얼굴 위치 검색 및 추적을 제공합니다. 정면이 최상의 결과를 제공하며 측면 또는 작은 얼굴(24x24 픽셀보다 작거나 같음)의 경우에는 어려울 수 있습니다.
 
-검색 및 추적된 얼굴은 개별적인 추적을 나타내는 얼굴 ID 번호뿐만 아니라 얼굴의 위치를 나타내는 좌표와 함께 반환됩니다. 얼굴 ID 번호는 프레임 안에 정면 얼굴이 없거나 겹쳐진 상황에서 재설정될 가능성이 크므로 결과적으로 일부 사용자에게 여러 ID가 할당될 수 있습니다.
+[!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
-특성에 대한 자세한 내용은 [Azure Media Analytics로 얼굴 및 감정 검색](media-services-face-and-emotion-detection.md) 항목을 참조하세요.
+## <a name="net-sample-code"></a>.NET 샘플 코드
 
-## <a name="sample-code"></a>샘플 코드
 다음 프로그램은 방법을 보여 줍니다.
 
 1. 자산을 만들고 미디어 파일을 자산에 업로드합니다.
@@ -135,169 +149,170 @@ IDList에서 하나의 ID가 선택된 출력입니다.
    
         {'version':'1.0', 'options': {'mode':'combined'}}
 3. 출력 JSON 파일을 다운로드합니다. 
-   
-        using System;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System.Threading;
-        using System.Threading.Tasks;
-   
-        namespace FaceRedaction
+
+#### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
+
+개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+
+#### <a name="example"></a>예제
+
+    using System;
+    using System.Configuration;
+    using System.IO;
+    using System.Linq;
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using System.Threading;
+    using System.Threading.Tasks;
+
+    namespace FaceRedaction
+    {
+        class Program
         {
-            class Program
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+
+        // Field for service context.
+        private static CloudMediaContext _context = null;
+
+        static void Main(string[] args)
+        {
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+
+            // Run the FaceRedaction job.
+            var asset = RunFaceRedactionJob(@"C:\supportFiles\FaceRedaction\SomeFootage.mp4",
+                        @"C:\supportFiles\FaceRedaction\config.json");
+
+            // Download the job output asset.
+            DownloadAsset(asset, @"C:\supportFiles\FaceRedaction\Output");
+        }
+
+        static IAsset RunFaceRedactionJob(string inputMediaFilePath, string configurationFile)
+        {
+            // Create an asset and upload the input media file to storage.
+            IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
+            "My Face Redaction Input Asset",
+            AssetCreationOptions.None);
+
+            // Declare a new job.
+            IJob job = _context.Jobs.Create("My Face Redaction Job");
+
+            // Get a reference to Azure Media Redactor.
+            string MediaProcessorName = "Azure Media Redactor";
+
+            var processor = GetLatestMediaProcessorByName(MediaProcessorName);
+
+            // Read configuration from the specified file.
+            string configuration = File.ReadAllText(configurationFile);
+
+            // Create a task with the encoding details, using a string preset.
+            ITask task = job.Tasks.AddNew("My Face Redaction Task",
+            processor,
+            configuration,
+            TaskOptions.None);
+
+            // Specify the input asset.
+            task.InputAssets.Add(asset);
+
+            // Add an output asset to contain the results of the job.
+            task.OutputAssets.AddNew("My Face Redaction Output Asset", AssetCreationOptions.None);
+
+            // Use the following event handler to check job progress.  
+            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
+
+            // Launch the job.
+            job.Submit();
+
+            // Check job execution and wait for job to finish.
+            Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
+
+            progressJobTask.Wait();
+
+            // If job state is Error, the event handling
+            // method for job progress should log errors.  Here we check
+            // for error state and exit if needed.
+            if (job.State == JobState.Error)
             {
-                // Read values from the App.config file.
-                private static readonly string _mediaServicesAccountName =
-                    ConfigurationManager.AppSettings["MediaServicesAccountName"];
-                private static readonly string _mediaServicesAccountKey =
-                    ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-   
-                // Field for service context.
-                private static CloudMediaContext _context = null;
-                private static MediaServicesCredentials _cachedCredentials = null;
-   
-                static void Main(string[] args)
-                {
-   
-                    // Create and cache the Media Services credentials in a static class variable.
-                    _cachedCredentials = new MediaServicesCredentials(
-                                    _mediaServicesAccountName,
-                                    _mediaServicesAccountKey);
-                    // Used the cached credentials to create CloudMediaContext.
-                    _context = new CloudMediaContext(_cachedCredentials);
-   
-                    // Run the FaceRedaction job.
-                    var asset = RunFaceRedactionJob(@"C:\supportFiles\FaceRedaction\SomeFootage.mp4",
-                                                @"C:\supportFiles\FaceRedaction\config.json");
-   
-                    // Download the job output asset.
-                    DownloadAsset(asset, @"C:\supportFiles\FaceRedaction\Output");
-                }
-   
-                static IAsset RunFaceRedactionJob(string inputMediaFilePath, string configurationFile)
-                {
-                    // Create an asset and upload the input media file to storage.
-                    IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
-                        "My Face Redaction Input Asset",
-                        AssetCreationOptions.None);
-   
-                    // Declare a new job.
-                    IJob job = _context.Jobs.Create("My Face Redaction Job");
-   
-                    // Get a reference to Azure Media Redactor.
-                    string MediaProcessorName = "Azure Media Redactor";
-   
-                    var processor = GetLatestMediaProcessorByName(MediaProcessorName);
-   
-                    // Read configuration from the specified file.
-                    string configuration = File.ReadAllText(configurationFile);
-   
-                    // Create a task with the encoding details, using a string preset.
-                    ITask task = job.Tasks.AddNew("My Face Redaction Task",
-                        processor,
-                        configuration,
-                        TaskOptions.None);
-   
-                    // Specify the input asset.
-                    task.InputAssets.Add(asset);
-   
-                    // Add an output asset to contain the results of the job.
-                    task.OutputAssets.AddNew("My Face Redaction Output Asset", AssetCreationOptions.None);
-   
-                    // Use the following event handler to check job progress.  
-                    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-   
-                    // Launch the job.
-                    job.Submit();
-   
-                    // Check job execution and wait for job to finish.
-                    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-   
-                    progressJobTask.Wait();
-   
-                    // If job state is Error, the event handling
-                    // method for job progress should log errors.  Here we check
-                    // for error state and exit if needed.
-                    if (job.State == JobState.Error)
-                    {
-                        ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-                        Console.WriteLine(string.Format("Error: {0}. {1}",
-                                                        error.Code,
-                                                        error.Message));
-                        return null;
-                    }
-   
-                    return job.OutputMediaAssets[0];
-                }
-   
-                static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
-                {
-                    IAsset asset = _context.Assets.Create(assetName, options);
-   
-                    var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
-                    assetFile.Upload(filePath);
-   
-                    return asset;
-                }
-   
-                static void DownloadAsset(IAsset asset, string outputDirectory)
-                {
-                    foreach (IAssetFile file in asset.AssetFiles)
-                    {
-                        file.Download(Path.Combine(outputDirectory, file.Name));
-                    }
-                }
-   
-                static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-                {
-                    var processor = _context.MediaProcessors
-                        .Where(p => p.Name == mediaProcessorName)
-                        .ToList()
-                        .OrderBy(p => new Version(p.Version))
-                        .LastOrDefault();
-   
-                    if (processor == null)
-                        throw new ArgumentException(string.Format("Unknown media processor",
-                                                                   mediaProcessorName));
-   
-                    return processor;
-                }
-   
-                static private void StateChanged(object sender, JobStateChangedEventArgs e)
-                {
-                    Console.WriteLine("Job state changed event:");
-                    Console.WriteLine("  Previous state: " + e.PreviousState);
-                    Console.WriteLine("  Current state: " + e.CurrentState);
-   
-                    switch (e.CurrentState)
-                    {
-                        case JobState.Finished:
-                            Console.WriteLine();
-                            Console.WriteLine("Job is finished.");
-                            Console.WriteLine();
-                            break;
-                        case JobState.Canceling:
-                        case JobState.Queued:
-                        case JobState.Scheduled:
-                        case JobState.Processing:
-                            Console.WriteLine("Please wait...\n");
-                            break;
-                        case JobState.Canceled:
-                        case JobState.Error:
-                            // Cast sender as a job.
-                            IJob job = (IJob)sender;
-                            // Display or log error details as needed.
-                            // LogJobStop(job.Id);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-   
+            ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+            Console.WriteLine(string.Format("Error: {0}. {1}",
+                            error.Code,
+                            error.Message));
+            return null;
+            }
+
+            return job.OutputMediaAssets[0];
+        }
+
+        static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
+        {
+            IAsset asset = _context.Assets.Create(assetName, options);
+
+            var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
+            assetFile.Upload(filePath);
+
+            return asset;
+        }
+
+        static void DownloadAsset(IAsset asset, string outputDirectory)
+        {
+            foreach (IAssetFile file in asset.AssetFiles)
+            {
+            file.Download(Path.Combine(outputDirectory, file.Name));
             }
         }
+
+        static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
+            var processor = _context.MediaProcessors
+            .Where(p => p.Name == mediaProcessorName)
+            .ToList()
+            .OrderBy(p => new Version(p.Version))
+            .LastOrDefault();
+
+            if (processor == null)
+            throw new ArgumentException(string.Format("Unknown media processor",
+                                   mediaProcessorName));
+
+            return processor;
+        }
+
+        static private void StateChanged(object sender, JobStateChangedEventArgs e)
+        {
+            Console.WriteLine("Job state changed event:");
+            Console.WriteLine("  Previous state: " + e.PreviousState);
+            Console.WriteLine("  Current state: " + e.CurrentState);
+
+            switch (e.CurrentState)
+            {
+            case JobState.Finished:
+                Console.WriteLine();
+                Console.WriteLine("Job is finished.");
+                Console.WriteLine();
+                break;
+            case JobState.Canceling:
+            case JobState.Queued:
+            case JobState.Scheduled:
+            case JobState.Processing:
+                Console.WriteLine("Please wait...\n");
+                break;
+            case JobState.Canceled:
+            case JobState.Error:
+                // Cast sender as a job.
+                IJob job = (IJob)sender;
+                // Display or log error details as needed.
+                // LogJobStop(job.Id);
+                break;
+            default:
+                break;
+            }
+        }
+        }
+    }
 
 ## <a name="next-step"></a>다음 단계
 미디어 서비스 학습 경로를 검토합니다.

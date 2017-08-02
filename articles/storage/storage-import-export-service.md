@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: fc0fd0188261263aac550b0f0784076efc807215
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0e3998f806aae71002e65ad79079a1bef448cfe6
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage로 데이터 전송
@@ -232,7 +231,7 @@ Azure Portal의 이 이미지는 예제 작업의 드라이브 상태를 나타�
 | 해당 없음 | 작업에 포함되지 않은 드라이브가 다른 작업의 일부로 데이터 센터에 도착했습니다. | 드라이브가 추가 드라이브로 표시되며 원래 패키지와 관련된 작업이 완료되면 고객에게 반송됩니다. |
 
 ### <a name="time-to-process-job"></a>작업 처리 시간
-가져오기/내보내기 작업을 처리하는 데 소요되는 총 시간은 발송 시간, 작업 유형, 복사되는 데이터 유형 및 크기, 제공된 디스크 크기와 같은 다양한 요소에 따라 다릅니다. Import/Export 서비스에는 SLA가 없습니다. REST API를 사용하여 작업 진행 상태를 좀 더 자세히 추적할 수 있습니다. 작업 나열 작업에는 복사 진행 상태를 나타내는 완료율 매개 변수가 있습니다. 시간이 매우 중요한 가져오기/내보내기 작업을 완료하는 예상 시간이 필요한 경우 문의하세요.
+가져오기/내보내기 작업을 처리하는 데 소요되는 총 시간은 발송 시간, 작업 유형, 복사되는 데이터 유형 및 크기, 제공된 디스크 크기와 같은 다양한 요소에 따라 다릅니다. Import/Export 서비스에는 SLA가 없지만 이 서비스는 디스크가 수신되고 7~10일 내에 복사를 완료하려고 합니다. REST API를 사용하여 작업 진행 상태를 좀 더 자세히 추적할 수 있습니다. 작업 나열 작업에는 복사 진행 상태를 나타내는 완료율 매개 변수가 있습니다. 시간이 매우 중요한 가져오기/내보내기 작업을 완료하는 예상 시간이 필요한 경우 문의하세요.
 
 ### <a name="pricing"></a>가격
 **드라이브 취급 수수료**
@@ -250,13 +249,12 @@ Blob 저장소로 데이터를 가져올 때는 트랜잭션 비용이 없습니
 ## <a name="quick-start"></a>빠른 시작
 이 섹션에서 가져오기 및 내보내기 작업을 만드는 단계별 지침을 제공합니다. 계속 진행하기 전에 모든 [필수 구성 요소](#pre-requisites) 를 충족하는지 확인하세요.
 
+> [!IMPORTANT]
+> 이 서비스는 가져오기 또는 내보내기 작업당 한 개의 표준 저장소 계정만 지원하며 프리미엄 저장소 계정을 지원하지 않습니다. 
+> 
+> 
 ## <a name="create-an-import-job"></a>가져오기 작업 만들기
 데이터를 포함하는 하나 이상의 드라이브를 지정된 데이터 센터로 발송하여 하드 드라이브에서 Azure 저장소 계정으로 데이터를 복사하는 가져오기 작업을 만듭니다. 가져오기 작업은 하드 디스크 드라이브, 복사할 데이터, 대상 저장소 계정 및 발송 정보에 대한 세부 정보를 Azure 가져오기/내보내기 서비스에 전달합니다. 가져오기 작업 만들기는 3단계 프로세스입니다. 첫째, WAImportExport 도구를 사용하여 드라이브를 준비합니다. 둘째, Azure Portal을 사용하여 가져오기 작업을 제출합니다. 셋째, 작업을 만드는 동안 제공된 배송지 주소로 드라이브를 발송하고 작업 세부 정보에서 발송 정보를 업데이트합니다.   
-
-> [!IMPORTANT]
-> 저장소 계정당 하나의 작업만 제출할 수 있습니다. 발송하는 각 드라이브를 하나의 저장소 계정으로 가져올 수 있습니다. 예를 들어 두 개의 저장소 계정으로 데이터를 가져오고 싶다고 가정해 보겠습니다. 각 저장소 계정에 대해 별도의 하드 디스크 드라이브를 사용해야 하며 저장소 계정당 별도의 작업을 만들어야 합니다.
-> 
-> 
 
 ### <a name="prepare-your-drives"></a>드라이브 준비
 Azure Import/Export 서비스를 사용하여 데이터를 가져올 때 첫 번째 단계는 WAImportExport 도구를 사용하여 드라이브를 준비하는 것입니다. 아래 단계를 따라 드라이브를 준비합니다.
@@ -431,9 +429,9 @@ WAImportExport 도구 사용에 대한 자세한 내용은 [가져오기 작업�
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-**Azure 가져오기/내보내기 서비스를 사용하여 Azure Files를 복사할 수 있나요?**
+**Azure Import/Export 서비스를 사용하여 Azure File Storage를 복사할 수 있나요?**
 
-아니요. Azure 가져오기/내보내기 서비스는 블록 Blob 및 페이지 Blob만 지원합니다. Azure Files, Tables 및 Queues를 포함한 다른 모든 저장소 유형은 지원되지 않습니다.
+아니요. Azure 가져오기/내보내기 서비스는 블록 Blob 및 페이지 Blob만 지원합니다. Azure File Storage, Table Storage 및 Queue Storage를 포함한 다른 모든 저장소 유형은 지원되지 않습니다.
 
 **Azure 가져오기/내보내기 서비스를 CSP 구독에 사용할 수 있나요?**
 
@@ -471,7 +469,9 @@ Azure 데이터 센터에서는 지원 요구 사항에 맞지 않는 드라이�
 
 아니요. 가져오기 및 내보내기 작업 모두에 대해 사용자가 자체 드라이브를 발송해야 합니다.
 
-** 이 서비스를 통해 가져오는 데이터에 액세스하는 방법 ** Azure Portal을 사용하거나 Storage Explorer라는 독립 실행형 도구를 사용하여 Azure Storage 계정으로 데이터에 액세스할 수 있습니다. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+** 이 서비스를 통해 가져오는 데이터에 액세스하는 방법 **
+
+Azure Portal을 사용하거나 Storage Explorer라는 독립 실행형 도구를 사용하여 Azure Storage 계정으로 데이터에 액세스할 수 있습니다. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **가져오기 작업 완료 후 저장소 계정에서 데이터는 어떻게 표시되나요? 디렉터리 계층 구조가 유지되나요?**
 
@@ -520,6 +520,20 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같이 알려진 모든 운송업�
 
 최대 블록 Blob 크기는 약 4.768TB 또는 5,000,000MB입니다.
 최대 페이지 Blob 크기는 1TB입니다.
+
+**디스크 Import/Export는 AES 256 암호화를 지원하나요?**
+
+Azure Import/Export 서비스는 기본적으로 AES 128 bitlocker 암호화로 암호화되지만 데이터를 복사하기 전에 bitlocker를 사용하여 수동으로 암호화하여 AES 256으로 늘릴 수 있습니다. 
+
+[WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)을 사용하는 경우 샘플 명령은 아래와 같습니다.
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
+```
+[WAImportExport 도구](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)를 사용하는 경우 "AlreadyEncrypted"를 지정하고 드라이브 집합 CSV에 해당 키를 제공합니다.
+```
+DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
+```
 ## <a name="next-steps"></a>다음 단계
 
 * [WAImportExport 도구 설정](storage-import-export-tool-how-to.md)

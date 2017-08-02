@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2017
+ms.date: 07/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 59ccb7a043e1db750e596f173af0791099ea1827
-ms.lasthandoff: 03/14/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ed3417f69bb13043db0affc9249f3ff5e49d7c79
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-media-services-concepts"></a>Azure 미디어 서비스 개념
@@ -45,7 +45,8 @@ ms.lasthandoff: 03/14/2017
 ### <a name="asset-encryption-options"></a>자산 암호화 옵션
 업로드, 저장 및 배달하려는 콘텐츠의 유형에 따라 미디어 서비스는 선택할 수 있는 다양한 암호화 옵션을 제공합니다.
 
-**없음** - 암호화가 사용되지 않습니다. 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 저장소에 저장된 상태일 때 보호되지 않습니다.
+>[!NOTE]
+>암호화가 사용되지 않습니다. 기본값입니다. 이 옵션을 사용하면 콘텐츠가 전송 중인 상태이거나 저장소에 저장된 상태일 때 보호되지 않습니다.
 
 점진적 다운로드를 사용하여 MP4를 배달하려는 경우 이 옵션을 사용하여 콘텐츠를 업로드합니다.
 
@@ -66,17 +67,18 @@ ms.lasthandoff: 03/14/2017
 ### <a name="blob-container"></a>Blob 컨테이너
 Blob 컨테이너는 Blob 집합의 그룹화를 제공합니다. Blob 컨테이너는 미디어 서비스에서 액세스 제어의 경계 지점 및 자산에 대한 SAS(공유 액세스 서명)으로 사용됩니다. 한 Azure 저장소 계정에 포함될 수 있는 Blob 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
 
-> [!NOTE]
+>[!NOTE]
 > 미디어 서비스 API를 사용하지 않고 미디어 서비스에서 생성된 Blob 컨테이너의 콘텐츠를 변경하려고 하면 안 됩니다.
 > 
 > 
 
 ### <a id="locators"></a>로케이터
-[로케이터](https://docs.microsoft.com/rest/api/media/operations/locator)는 자산에 포함된 파일에 액세스할 수 있는 진입점을 제공합니다. 액세스 정책은 클라이언트가 지정된 자산에 액세스할 수 있는 권한 및 기간을 정의하는 데 사용됩니다. 로케이터는 액세스 정책과 다 대 일 관계가 있으므로 로케이터에 따라 여러 클라이언트에 다양한 시작 시간 및 연결 유형을 제공할 수 있지만 모두 동일한 권한 및 기간을 사용합니다. 그러나 Azure 저장소 서비스에 의해 설정된 공유 액세스 정책 제한으로 인해 한 번에&5;개 이상의 고유한 로케이터를 지정된 자산에 연결할 수 없습니다. 
+[로케이터](https://docs.microsoft.com/rest/api/media/operations/locator)는 자산에 포함된 파일에 액세스할 수 있는 진입점을 제공합니다. 액세스 정책은 클라이언트가 지정된 자산에 액세스할 수 있는 권한 및 기간을 정의하는 데 사용됩니다. 로케이터는 액세스 정책과 다 대 일 관계가 있으므로 로케이터에 따라 여러 클라이언트에 다양한 시작 시간 및 연결 유형을 제공할 수 있지만 모두 동일한 권한 및 기간을 사용합니다. 그러나 Azure 저장소 서비스에 의해 설정된 공유 액세스 정책 제한으로 인해 한 번에 5개 이상의 고유한 로케이터를 지정된 자산에 연결할 수 없습니다. 
 
 미디어 서비스는 두 가지 유형의 로케이터를 지원합니다. 미디어를 스트리밍(예: MPEG DASH, HLS 또는 부드러운 스트리밍)하거나 미디어 및 SAS URL 로케이터를 점진적으로 다운로드하는 데 사용되는 OnDemandOrigin 로케이터는 Azure 저장소에서 미디어 파일을 업로드하거나 다운로드하는 데 사용됩니다. 
 
-OnDemandOrigin 로케이터를 만들 때는 목록 권한(AccessPermissions.List)을 사용할 수 없습니다. 
+>[!NOTE]
+>OnDemandOrigin 로케이터를 만들 때는 목록 권한(AccessPermissions.List)을 사용할 수 없습니다. 
 
 ### <a name="storage-account"></a>저장소 계정
 Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 미디어 서비스 계정은 하나 이상의 저장소 계정에 연결될 수 있습니다. 전체 크기가 저장소 계정당 500TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다.  미디어 서비스는 SDK 수준 도구를 제공하여 여러 저장소 계정을 관리하고 메트릭 또는 임의 분산에 따라 이러한 계정에 업로드하는 동안 자산 분산의 부하를 분산할 수 있습니다. 자세한 내용은 [Azure 저장소](https://msdn.microsoft.com/library/azure/dn767951.aspx)작업을 참조하세요. 
@@ -96,7 +98,7 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 
 [동적 패키징](media-services-dynamic-packaging-overview.md)을 활용하려면 mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩해야 하며 하나 이상의 표준 또는 프리미엄 스트리밍 끝점이 시작된 상태여야 합니다.
 
-미디어 서비스는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
+Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
 
 * [미디어 인코더 표준](media-services-encode-asset.md#media-encoder-standard)
 * [미디어 인코더 Premium 워크플로](media-services-encode-asset.md#media-encoder-premium-workflow)
@@ -117,7 +119,7 @@ Azure 미디어 서비스에서 채널은 라이브 스트리밍 콘텐츠를 �
 각 미디어 서비스 계정에는 여러 채널, 여러 프로그램 및 여러 StreamingEndpoints가 포함될 수 있습니다. 대역폭 및 보안 요구 사항에 따라 하나 이상의 채널에 StreamingEndpoint 서비스를 전용으로 사용할 수 있습니다. 모든 StreamingEndpoint는 모든 채널에서 가져올 수 있습니다.
 
 ### <a name="program-event"></a>프로그램(이벤트)
-[프로그램(이벤트)](https://docs.microsoft.com/rest/api/media/operations/program)에서는 라이브 스트림의 세그먼트 게시 및 저장을 제어할 수 있습니다. 채널은 프로그램(이벤트)을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 매우 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
+[프로그램(이벤트)](https://docs.microsoft.com/rest/api/media/operations/program)에서는 라이브 스트림의 세그먼트 게시 및 저장을 제어할 수 있습니다. 채널은 프로그램(이벤트)을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다.
 **ArchiveWindowLength** 속성을 설정하여 프로그램에 대해 기록된 콘텐츠를 유지할 시간을 지정할 수 있습니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다.
 
 또한 ArchiveWindowLength는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. 프로그램은 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.
@@ -157,10 +159,10 @@ Azure 미디어 서비스를 사용하면 컴퓨터를 떠날 때부터 저장, 
 
 ## <a name="delivering"></a>배달
 ### <a id="dynamic_packaging"></a>동적 패키징
-미디어 서비스를 사용할 때는 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 집합을 원하는 형식으로 변환하는 것이 좋습니다.
+Media Services를 사용할 때는 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 집합을 원하는 형식으로 변환하는 것이 좋습니다.
 
 ### <a name="streaming-endpoint"></a>스트리밍 끝점
-StreamingEndpoint는 추가 배포를 위해 콘텐츠를 클라이언트 플레이어 응용 프로그램이나 CDN(콘텐츠 배달 네트워크)에 직접 배달할 수 있는 스트리밍 서비스를 나타냅니다. 이제 Azure 미디어 서비스는 Azure CDN 통합을 제공합니다. 스트리밍 끝점 서비스의 아웃 바운드 스트림은 라이브 스트림 또는 Media Services 계정에 주문형 비디오 자산이 될 수 있습니다. Media Services 고객은 필요에 따라 **표준** 스트리밍 끝점이나 하나 이상의 **프리미엄** 스트리밍 끝점을 선택합니다. 표준 스트리밍 끝점은 대부분의 스트리밍 워크로드에 적합합니다. 
+StreamingEndpoint는 추가 배포를 위해 콘텐츠를 클라이언트 플레이어 응용 프로그램이나 CDN(콘텐츠 배달 네트워크)에 직접 배달할 수 있는 스트리밍 서비스를 나타냅니다. 이제 Azure 미디어 서비스는 Azure CDN 통합을 제공합니다. 스트리밍 끝점 서비스의 아웃바운드 스트림은 라이브 스트림 또는 Media Services 계정에 주문형 비디오 자산이 될 수 있습니다. Media Services 고객은 필요에 따라 **표준** 스트리밍 끝점이나 하나 이상의 **프리미엄** 스트리밍 끝점을 선택합니다. 표준 스트리밍 끝점은 대부분의 스트리밍 워크로드에 적합합니다. 
 
 표준 스트리밍 끝점은 대부분의 스트리밍 워크로드에 적합합니다. 표준 스트리밍 끝점은 HLS, MPEG DASH 및 부드러운 스트리밍으로의 동적 패키징뿐만 아니라 Microsoft PlayReady, Google Widevine, Apple Fairplay 및 AES128에 대한 동적 암호화를 통해 거의 모든 장치에 콘텐츠를 제공할 수 있는 유연성을 제공합니다.  또한 Azure CDN 통합을 통해 매우 작은 대상 그룹에서 수천 명의 동시 시청자가 있는 매우 큰 대상 그룹으로 확장됩니다. 고급 워크로드가 있거나 스트리밍 용량 요구 사항이 표준 스트리밍 끝점 처리량 목표에 맞지 않거나 증가하는 대역폭 요구를 처리하도록 스트리밍 끝점 서비스의 용량을 제어하려는 경우 배율 단위(프리미엄 스트리밍 단위라고도 함)를 할당하는 것이 좋습니다.
 
@@ -183,7 +185,8 @@ StreamingEndpoint는 추가 배포를 위해 콘텐츠를 클라이언트 플레
 ### <a name="progressive-download"></a>점진적 다운로드
 점진적 다운로드를 사용하면 전체 파일이 다운로드되기 전에 미디어 재생을 시작할 수 있습니다. MP4 파일만 점진적으로 다운로드할 수 있습니다.
 
-암호화된 자산을 점진적 다운로드에 사용할 수 있도록 하려면 해당 자산의 암호를 해독해야 합니다.
+>[!NOTE]
+>암호화된 자산을 점진적 다운로드에 사용할 수 있도록 하려면 해당 자산의 암호를 해독해야 합니다.
 
 사용자에게 점진적 다운로드 ,URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 자산에 대한 기본 경로가 제공됩니다. 그러면 MP4 파일의 이름을 추가해야 합니다. 예:
 
@@ -194,7 +197,8 @@ http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba01
 
 SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다. 현재 AMS는 사용자 지정 도메인을 사용하는 SSL을 지원하지 않습니다.  
 
-콘텐츠를 배달하는 출발점이 될 스트리밍 끝점이 2014년 9월 10일 이후에 만들어진 경우에만 SSL을 통해 스트리밍할 수 있습니다. 스트리밍 URL이 9월 10일 이후에 만들어진 스트리밍 끝점을 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"(새 형식)이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 SSL을 지원하지 않습니다. URL이 이전 형식인 경우 SSL을 통해 스트리밍할 수 있도록 하려면 새 스트리밍 끝점을 만듭니다. 새 스트리밍 끝점을 기반으로 만들어진 URL을 사용하여 SSL을 통해 콘텐츠를 스트리밍합니다.
+>[!NOTE]
+>콘텐츠를 배달하는 출발점이 될 스트리밍 끝점이 2014년 9월 10일 이후에 만들어진 경우에만 SSL을 통해 스트리밍할 수 있습니다. 스트리밍 URL이 9월 10일 이후에 만들어진 스트리밍 끝점을 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"(새 형식)이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 SSL을 지원하지 않습니다. URL이 이전 형식인 경우 SSL을 통해 스트리밍할 수 있도록 하려면 새 스트리밍 끝점을 만듭니다. 새 스트리밍 끝점을 기반으로 만들어진 URL을 사용하여 SSL을 통해 콘텐츠를 스트리밍합니다.
 
 다음 목록에서는 다양한 스트리밍 형식에 대해 설명하고 예제를 제공합니다.
 

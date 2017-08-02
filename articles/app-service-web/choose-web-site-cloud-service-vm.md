@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 2d6e1ba60d1f81aa1a9d3afde4ac9b621b01f04d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ec6f0b10e68e024292384e9b45891ccd905372ff
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, 가상 컴퓨터, Service Fabric 및 Cloud Services 비교
@@ -78,7 +78,7 @@ App Service 또는 Service Fabric에서 실행하려면 기존 응용 프로그�
 * [LOB(기간 업무) 응용 프로그램을 회사 네트워크에 연결해야 하는 경우](#lob)
 * [모바일 클라이언트를 위해 REST API 또는 웹 서비스를 호스트하려는 경우](#mobile)
 
-### <a id="onprem"></a> 온-프레미스 자산과 통합된 비즈니스 응용 프로그램을 실행하기 위한 데이터베이스 백 엔드 및 백그라운드 처리 기능이 있는 웹 프런트 엔드가 필요한 경우
+### <a id="onprem"></a>온-프레미스 자산과 통합된 비즈니스 응용 프로그램을 실행하기 위한 데이터베이스 백 엔드 및 백그라운드 처리 기능이 있는 웹 프런트 엔드가 필요한 경우
 Azure App Service는 복잡한 비즈니스 응용 프로그램에 적합한 솔루션입니다. 부하 분산된 플랫폼에서 자동으로 확장되고 Active Directory를 통해 보호되며 온-프레미스 리소스에 연결되는 앱을 개발할 수 있습니다. 또한 최고 수준의 포털과 API를 통해 이러한 앱을 쉽게 관리할 수 있으며 앱 정보 도구를 사용하여 고객이 앱을 사용하는 방법을 파악할 수 있습니다. [Webjobs][Webjobs] 기능을 사용하면 웹 계층의 일부분으로 백그라운드 프로세스와 작업을 실행할 수 있으며 하이브리드 연결 및 VNET 기능을 사용하면 온-프레미스 리소스에 쉽게 다시 연결할 수 있습니다. Azure App Service는 웹앱에 대해 9의 SLA를 제공하며 다음 작업을 수행할 수 있게 해줍니다.
 
 * 자동 복구 및 패치되는 클라우드 플랫폼에서 응용 프로그램을 안정적으로 실행할 수 있습니다.

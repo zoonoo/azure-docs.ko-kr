@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 532afb45c73d68d6dc259fa504d9520eecdb23b7
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 3ecd6ff8edf189b9389cd239b20236a2a228ed94
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 미디어 서비스 릴리스 정보
@@ -44,6 +44,13 @@ ms.lasthandoff: 04/25/2017
 
 ## <a id="rest_version_history"></a>REST API 버전 기록
 미디어 서비스 REST API 버전 기록에 대한 자세한 내용은 [Azure 미디어 서비스 REST API 참조]를 참조하세요.
+
+## <a name="june-2017-release"></a>2017년 6월 릴리스
+
+이제 Media Services는 [Azure AD(Azure Active Directory) 기반 인증](media-services-use-aad-auth-to-access-ams-api.md)을 지원합니다.
+
+> [!IMPORTANT]
+> 현재 Media Services는 Azure Access Control 서비스 인증 모델을 지원합니다. 그러나 Access Control 권한 부여는 2018년 6월 1일부로 더 이상 사용되지 않을 예정입니다. 가능한 빨리 Azure AD 인증 모델로 마이그레이션하는 것이 좋습니다.
 
 ## <a name="march-2017-release"></a>2017년 3월 릴리스
 

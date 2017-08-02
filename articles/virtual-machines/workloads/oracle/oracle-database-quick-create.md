@@ -1,9 +1,9 @@
 ---
-title: "Azure Virtual Machines에서 Oracle Database 12c 데이터베이스 만들기 | Microsoft Docs"
+title: "Azure VM에서 Oracle 데이터베이스 만들기 | Microsoft Docs"
 description: "Azure 환경에서 Oracle Database 12c 데이터베이스를 신속하게 가동하고 실행합니다."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: tonyguid
+author: rickstercdn
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,31 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 95e37d57ad92ef47a358527189997e7dd29d7b8d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8683b016c4db2c66fb1dd994405b70c3d137a7fc
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
-<a id="create-an-oracle-database-12c-database-in-an-azure-virtual-machine" class="xliff"></a>
+# <a name="create-an-oracle-database-in-an-azure-vm"></a>Azure VM에서 Oracle 데이터베이스 만들기
 
-# Azure Virtual Machines에서 Oracle Database 12c 데이터베이스 만들기
+이 가이드에서는 Oracle 12c 데이터베이스를 만들기 위해 Azure CLI를 사용하여 [Oracle 마켓플레이스 갤러리 이미지](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview)에서 Azure 가상 컴퓨터를 배포하는 방법에 대해 자세히 설명합니다. 서버가 배포된 후 Oracle 데이터베이스를 구성하려면 SSH를 통해 연결합니다. 
 
-이 가이드에서는 Oracle 12c 데이터베이스를 만들기 위해 Azure CLI를 사용하여 [Oracle 마켓플레이스 갤러리 이미지](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview)에서 Azure 가상 컴퓨터를 배포하는 방법에 대해 자세히 설명합니다. 서버가 배포되면 Oracle 데이터베이스를 추가로 구성하기 위해 SSH 연결을 만들게 됩니다. 
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## 리소스 그룹 만들기
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 [az group create](/cli/azure/group#create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
@@ -46,9 +42,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-<a id="create-virtual-machine" class="xliff"></a>
-
-## 가상 컴퓨터 만들기
+## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 
 VM(가상 컴퓨터)을 만들려면 [az vm create](/cli/azure/vm#create) 명령을 사용합니다. 
 
@@ -79,19 +73,15 @@ VM을 만든 후 Azure CLI는 다음 예제와 비슷한 정보를 표시합니�
 }
 ```
 
-<a id="connect-to-the-vm" class="xliff"></a>
-
-## VM에 연결
+## <a name="connect-to-the-vm"></a>VM에 연결
 
 VM으로 SSH 세션을 만들려면 다음 명령을 사용합니다. 해당 IP 주소를 VM의 `publicIpAddress` 값으로 바꿉니다.
 
 ```bash 
-ssh azureuser@<publicIpAddress>
+ssh <publicIpAddress>
 ```
 
-<a id="create-the-database" class="xliff"></a>
-
-## 데이터베이스 만들기
+## <a name="create-the-database"></a>데이터베이스 만들기
 
 Oracle 소프트웨어는 이미 Marketplace 이미지에 설치되어 있습니다. 다음과 같이 샘플 데이터베이스를 만듭니다. 
 
@@ -133,7 +123,7 @@ Oracle 소프트웨어는 이미 Marketplace 이미지에 설치되어 있습니
 2.  데이터베이스를 만듭니다.
 
     ```bash
-    $ dbca -silent \
+    dbca -silent \
            -createDatabase \
            -templateName General_Purpose.dbc \
            -gdbname cdb1 \
@@ -159,72 +149,74 @@ Oracle 소프트웨어는 이미 Marketplace 이미지에 설치되어 있습니
 연결하기 전에 먼저 두 환경 변수, 즉 *ORACLE_HOME* 및 *ORACLE_SID*를 설정해야 합니다.
 
 ```bash
-$ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-$ ORACLE_SID=cdb1; export ORACLE_SID
+ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
+ORACLE_SID=cdb1; export ORACLE_SID
 ```
-ORACLE_HOME 및 ORACLE_SID 변수를 .bashrc 파일에 추가할 수도 있습니다. 그러면 나중의 로그인을 위한 환경 변수가 저장됩니다. 원하는 편집기를 사용하여 .bashrc 파일에 다음 문을 추가합니다.
+ORACLE_HOME 및 ORACLE_SID 변수를 .bashrc 파일에 추가할 수도 있습니다. 그러면 나중의 로그인을 위한 환경 변수가 저장됩니다. 선택한 편집기를 사용하여 다음 문이 `~/.bashrc`에 추가되었는지 확인합니다.
 
-```
+```bash
 # Add ORACLE_HOME. 
 export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1 
 # Add ORACLE_SID. 
 export ORACLE_SID=cdb1 
 ```
 
-<a id="oracle-em-express-connectivity" class="xliff"></a>
-
-## Oracle EM Express 연결
+## <a name="oracle-em-express-connectivity"></a>Oracle EM Express 연결
 
 데이터베이스를 탐색할 수 있는 GUI 관리 도구의 경우 Oracle EM Express를 설정합니다. Oracle EM Express에 연결하려면 먼저 Oracle에서 포트를 구성해야 합니다. 
 
 1. sqlplus를 사용하여 데이터베이스에 연결합니다.
 
     ```bash
-    $ sqlplus / as sysdba
+    sqlplus / as sysdba
     ```
 
 2. 연결되면 EM Express에 대해 5502 포트를 설정합니다.
 
     ```bash
-    SQL> exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
+    exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
     ```
 
 3. PDB1 컨테이너를 아직 열지 않았으면 이 컨테이너를 열어 먼저 상태를 확인합니다.
 
     ```bash
-    SQL> select con_id, name, open_mode from v$pdbs;
- 
+    select con_id, name, open_mode from v$pdbs;
+    ```
+
+    다음과 유사하게 출력됩니다.
+
+    ```bash
       CON_ID NAME                           OPEN_MODE 
       ----------- ------------------------- ---------- 
       2           PDB$SEED                  READ ONLY 
       3           PDB1                      MOUNT
     ```
 
-4. OPEN_MODE가 READ WRITE가 아닌 경우 다음 명령을 실행하여 PDB1을 엽니다.
+4. `PDB1`의 OPEN_MODE가 READ WRITE가 아닌 경우 다음 명령을 실행하여 PDB1을 엽니다.
 
    ```bash
-    SQL> alter session set container=pdb1;
-    SQL> alter database open;
+    alter session set container=pdb1;
+    alter database open;
    ```
 
-<a id="automate-database-startup-and-shutdown" class="xliff"></a>
+`quit`를 입력하여 sqlplus 세션을 종료하고 `exit`를 입력하여 oracle 사용자를 로그아웃해야 합니다.
 
-## 데이터베이스 시작 및 종료 자동화
+## <a name="automate-database-startup-and-shutdown"></a>데이터베이스 시작 및 종료 자동화
 
 Oracle 데이터베이스는 기본적으로 VM을 다시 시작할 때 자동으로 시작되지 않습니다. Oracle 데이터베이스가 자동으로 시작되도록 설정하려면 먼저 루트로 로그인합니다. 그런 다음 일부 시스템 파일을 만들고 업데이트합니다.
 
 1. 루트로 로그인합니다.
     ```bash
-    $ sudo su -
+    sudo su -
     ```
 
-2.  */etc/oratab* 파일을 편집하고 `N`기본값을 `Y`로 변경합니다.
+2.  원하는 편집기를 사용하여 파일 `/etc/oratab`를 편집하고 기본값 `N`을 `Y`로 변경합니다.
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
     ```
 
-3.  */etc/init.d/dbora*라는 파일을 만들고 다음 내용을 붙여넣습니다.
+3.  `/etc/init.d/dbora`라는 파일을 만들고 다음 콘텐츠를 붙여 넣습니다.
 
     ```
     #!/bin/sh
@@ -258,33 +250,31 @@ Oracle 데이터베이스는 기본적으로 VM을 다시 시작할 때 자동�
 4.  *chmod*를 사용하여 다음과 같이 파일에 대한 권한을 변경합니다.
 
     ```bash
-    # chgrp dba /etc/init.d/dbora
-    # chmod 750 /etc/init.d/dbora
+    chgrp dba /etc/init.d/dbora
+    chmod 750 /etc/init.d/dbora
     ```
 
 5.  다음과 같이 시작 및 종료에 대한 기호 링크를 만듭니다.
 
     ```bash
-    # ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
-    # ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
-    # ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
+    ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
+    ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
+    ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
     ```
 
 6.  변경 내용을 테스트하려면 VM을 다시 시작합니다.
 
     ```bash
-    # reboot
+    reboot
     ```
 
-<a id="open-ports-for-connectivity" class="xliff"></a>
-
-## 연결을 위한 포트 열기
+## <a name="open-ports-for-connectivity"></a>연결을 위한 포트 열기
 
 마지막 작업은 일부 외부 끝점을 구성하는 것입니다. VM을 보호하는 Azure 네트워크 보안 그룹을 설정하려면 먼저 VM에서 SSH 세션을 종료합니다(이전 단계에서 다시 부팅 할 때 SSH에서 제외되어 있어야 함). 
 
 1.  Oracle 데이터베이스에 원격으로 액세스하는 데 사용하는 끝점을 열려면 다음과 같이 [az network nsg rule create](/cli/azure/network/nsg/rule#create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. 
 
-    ```azurecli
+    ```azurecli-interactive
     az network nsg rule create \
         --resource-group myResourceGroup\
         --nsg-name myVmNSG \
@@ -296,7 +286,7 @@ Oracle 데이터베이스는 기본적으로 VM을 다시 시작할 때 자동�
 
 2.  Oracle EM Express에 원격으로 액세스하는 데 사용하는 끝점을 열려면 다음과 같이 [az network nsg rule create](/cli/azure/network/nsg/rule#create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az network nsg rule create \
         --resource-group myResourceGroup \
         --nsg-name myVmNSG \
@@ -308,7 +298,7 @@ Oracle 데이터베이스는 기본적으로 VM을 다시 시작할 때 자동�
 
 3. 필요한 경우 다음과 같이 [az network public-ip show](/cli/azure/network/public-ip#show)를 사용하여 VM의 공용 IP 주소를 다시 가져옵니다.
 
-    ```azurecli
+    ```azurecli-interactive
     az network public-ip show \
         --resource-group myResourceGroup \
         --name myVMPublicIP \
@@ -316,29 +306,25 @@ Oracle 데이터베이스는 기본적으로 VM을 다시 시작할 때 자동�
         --output tsv
     ```
 
-4.  브라우저에서 EM Express를 연결합니다. 
+4.  브라우저에서 EM Express를 연결합니다. 브라우저가 EM Express와 호환되는지 확인합니다(Flash 설치 필요). 
 
     ```
     https://<VM ip address or hostname>:5502/em
     ```
 
-*SYS* 계정을 사용하여 로그인하고 *as sysdba* 확인란을 선택합니다. 설치 중에 설정한 *OraPasswd1* 암호를 사용합니다. 브라우저가 EM Express와 호환되는지 확인합니다(플래시를 설치해야 할 수도 있음).
+**SYS** 계정을 사용하여 로그인하고 **as sysdba** 확인란을 선택합니다. 설치 중에 설정한 **OraPasswd1** 암호를 사용합니다. 
 
 ![Oracle OEM Express 로그인 페이지의 스크린샷](./media/oracle-quick-start/oracle_oem_express_login.png)
 
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>리소스 정리
 
-## 리소스 정리
-
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#delete) 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
+Azure에서 첫 번째 Oracle 데이터베이스 탐색이 끝나고 VM이 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#delete) 명령을 사용하여 리소스 그룹, VM 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## 다음 단계
+## <a name="next-steps"></a>다음 단계
 
 [Azure의 다른 Oracle 솔루션](oracle-considerations.md)에 대해 알아봅니다. 
 

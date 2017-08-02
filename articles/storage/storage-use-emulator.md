@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 9820cef564e291d1c8aee7c360198de1dc05379e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5b9e497078fe0b276ec8a717b43a0080e1667592
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
@@ -209,6 +208,10 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 에뮬레이터에서 큐 저장소에 특정 차이점이 있습니다.
 
 ## <a name="storage-emulator-release-notes"></a>저장소 에뮬레이터 릴리스 정보
+### <a name="version-52"></a>버전 5.2
+* 저장소 에뮬레이터는 이제 Blob, 큐 및 테이블 서비스 끝점에서 2017-04-17 버전의 저장소 서비스를 지원합니다.
+* 테이블 속성 값이 제대로 인코딩되지 않는 버그를 수정했습니다.
+
 ### <a name="version-51"></a>버전 5.1
 * 서비스가 `DataServiceVersion` 헤더를 반환하지 않았던 일부 응답에서 저장소 에뮬레이터가 이 헤더를 반환하는 버그를 수정했습니다.
 

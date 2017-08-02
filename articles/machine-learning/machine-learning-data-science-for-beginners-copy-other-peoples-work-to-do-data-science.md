@@ -1,5 +1,5 @@
 ---
-title: "다른 사용자의 데이터 과학 예제 복사 - Machine Learning - Azure | Microsoft Docs"
+title: "다른 사용자의 데이터 과학 예제 복사 - Azure Machine Learning | Microsoft Docs"
 description: "데이터 과학의 비밀: 다른 사람들이 사용자의 작업을 수행하도록 유도 Cortana Analytics 갤러리에서 Machine Learning 예제를 가져옵니다."
 keywords: "데이터 과학 예제,Machine Learning 예제,클러스터링 알고리즘,클러스터링 알고리즘 예제"
 services: machine-learning
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 07/13/2017
 ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 1e941778c194462b311e6347c56670d3e0193e90
-ms.openlocfilehash: ebc44a4190bac697697e0b651039a0e8ee8e4a95
-ms.lasthandoff: 02/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 440a1ded1f1dc1b8fbe73e3bbcbbd68ec9422bf8
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>데이터 과학을 수행하기 위해 다른 사람의 작품 복사
@@ -27,6 +27,7 @@ ms.lasthandoff: 02/10/2017
 데이터 과학의 비밀 중 하나는 다른 사람들이 사용자의 작업을 수행하도록 하는 것입니다. Cortana Analytics 갤러리에서 사용자 고유의 Machine Learning 실험에 사용할 클러스터링 알고리즘 예제를 찾습니다.
 
 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
 >
@@ -51,7 +52,7 @@ ms.lasthandoff: 02/10/2017
 ## <a name="find-examples-in-the-cortana-intelligence-gallery"></a>Cortana Intelligence Gallery에서 예제 찾기
 Microsoft에는 무료로 사용해 볼 수 있는 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)이라는 클라우드 기반 서비스가 있습니다. 이 서비스는 여러 다른 기계 학습 알고리즘을 시험해 볼 수 있는 작업 영역을 제공하며, 솔루션을 계획할 때 웹 서비스로 실행될 수 있습니다.
 
-이 서비스의 일부를 **[Cortana 인텔리전스 갤러리](http://aka.ms/CortanaIntelligenceGallery)**라고 합니다. 여기에는 다양한 리소스가 있으며 사용자들이 작성한 후 다른 사용자를 위해 제공한 Azure 기계 학습 실험 또는 모델 컬렉션도 여기에 포함됩니다. 이러한 실험은 다른 사람이 생각한 내용과 힘들게 작업한 결과를 자신의 솔루션에 활용할 수 있는 좋은 방법입니다.
+이 서비스의 일부를 **[Cortana 인텔리전스 갤러리](http://aka.ms/CortanaIntelligenceGallery)**라고 합니다. 여기에는 사용자들이 작성한 후 다른 사용자를 위해 제공한 Azure Machine Learning 실험 또는 모델 컬렉션을 비롯한 리소스가 포함됩니다. 이러한 실험은 다른 사람이 생각한 내용과 힘들게 작업한 결과를 자신의 솔루션에 활용할 수 있는 좋은 방법입니다.
 
 갤러리([aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery))에서 찾을 수 있습니다. 누구나 검색할 수 있습니다.
 
@@ -60,7 +61,7 @@ Microsoft에는 무료로 사용해 볼 수 있는 [Azure Machine Learning](http
 맨 위에 있는 **실험** 을 클릭하면 갤러리에 가장 최근 및 인기 있는 실험이 다양하게 표시됩니다. 화면 맨 위에 있는 **모두 찾아보기** 를 클릭하여 나머지 실험을 검색하고 여기서 검색 용어를 입력하고 검색 필터를 선택할 수 있습니다.
 
 ## <a name="find-and-use-a-clustering-algorithm-example"></a>클러스터링 알고리즘 예제 찾기 및 사용
-예를 들어 클러스터링 작동 방식을 보여 주는 예제를 보려는 경우 **"클러스터링"** 실험을 검색합니다.
+예를 들어 클러스터링 작동 방식을 보여 주는 예제를 보려는 경우 **"클러스터링 비우기"** 실험을 검색합니다.
 
 ![클러스터링 실험 검색](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 

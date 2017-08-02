@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 40164cfba8b54634278194c599a4493a5b7910b2
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4153056bd21006061c6ad8ff9cf3c17de9248628
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>자습서:FilesAnywhere와 Azure Active Directory 통합
@@ -117,6 +117,8 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     ![Single Sign-on 구성](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url.png)
     
     a. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<company name>.filesanywhere.com/saml20.aspx?c=215`
+> [!NOTE]
+> 값 **215**가 **clientid**이지만 이것은 예제일 뿐입니다. 이 값을 실제 clientid 값으로 대체해야 합니다.
 
 4. **FilesAnywhere 도메인 및 URL** 섹션에서 **SP 시작 모드**로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
     
@@ -170,7 +172,7 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Single Sign-on 구성](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_configuresignon.png)
 
-10.    FilesAnywhere 쪽에서 응용 프로그램에 대한 SSO 구성이 완료되도록 하려면 [FilesAnywhere 지원 팀](mailto:support@FilesAnywhere.com)에 문의하고 다운로드된 SAML 토큰 서명 인증서 및 SSO(Single Sign On) URL을 제공하십시오.
+10. FilesAnywhere 쪽에서 응용 프로그램에 대한 SSO 구성이 완료되도록 하려면 [FilesAnywhere 지원 팀](mailto:support@FilesAnywhere.com)에 문의하고 다운로드된 SAML 토큰 서명 인증서 및 SSO(Single Sign On) URL을 제공하십시오.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure 관리 포털에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.

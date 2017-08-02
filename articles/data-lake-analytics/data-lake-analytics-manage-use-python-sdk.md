@@ -3,8 +3,8 @@ title: "Python을 사용하여 Azure Data Lake Analytics 관리 | Microsoft Docs
 description: "Python을 사용하여 Data Lake Store 계정을 만들고 작업을 제출하는 방법을 알아봅니다. "
 services: data-lake-analytics
 documentationcenter: 
-author: saveenr
-manager: saveenr
+author: matt1883
+manager: jhubbard
 editor: cgronlun
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.service: data-lake-analytics
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: ab652d6e1e8e6d9bc443af324943bfe24ce4bdc1
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0d69207c0b8bcbba6dee42a1dc856e9085629734
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -28,14 +27,14 @@ ms.lasthandoff: 06/20/2017
 
 ## <a name="python-versions"></a>Python 버전
 
-* Python의 64비트 버전을 사용해야 합니다.
-* **[Python.org 다운로드](https://www.python.org/downloads/)**에서 찾을 수 있는 표준 python 배포를 사용할 수 있습니다. 
+* Python의 64비트 버전을 사용합니다.
+* **[Python.org 다운로드](https://www.python.org/downloads/)**에서 찾을 수 있는 표준 Python 배포를 사용할 수 있습니다. 
 * 대부분의 개발자는 **[Anaconda Python 배포](https://www.continuum.io/downloads)** 사용을 편리하게 여깁니다.  
 * 이 문서는 표준 Python 배포의 Python 버전 3.6을 사용하여 작성되었습니다.
 
 ## <a name="install-azure-python-sdk"></a>Azure Python SDK 설치
 
-다음 모듈을 설치해야 합니다.
+다음 모듈을 설치합니다.
 
 * **azure-mgmt-resource** 모듈에는 Active Directory에 대한 다른 Azure 모듈이 포함됩니다.
 * **azure-mgmt-datalake-store** 모듈에는 Azure Data Lake Store 계정 관리 작업이 포함됩니다.
@@ -63,7 +62,7 @@ pip install azure-mgmt-datalake-analytics
 
 다음 코드를 스크립트에 붙여 넣습니다.
 
-```
+```python
 ## Use this only for Azure AD service-to-service authentication
 #from azure.common.credentials import ServicePrincipalCredentials
 
@@ -104,21 +103,21 @@ import logging, getpass, pprint, uuid, time
 
 이 메서드는 지원되지 않습니다.
 
-### <a name="interactice-user-authentication-with-a-device-code"></a>장치 코드로 대화형 사용자 인증
+### <a name="interactive-user-authentication-with-a-device-code"></a>장치 코드로 대화형 사용자 인증
 
-```
+```python
 user = input('Enter the user to authenticate with that has permission to subscription: ')
 password = getpass.getpass()
 credentials = UserPassCredentials(user, password)
 ```
 
-### <a name="noninteractive-authentication-with-a-spi-and-a-secret"></a>SPI 및 암호로 비대화형 인증
+### <a name="noninteractive-authentication-with-spi-and-a-secret"></a>SPI 및 암호로 비대화형 인증
 
-```
+```python
 credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = 'FILL-IN-HERE', tenant = 'FILL-IN-HERE')
 ```
 
-### <a name="noninteractive-authentication-with-a-api-and-a-cetificate"></a>API 및 인증서로 비대화형 인증
+### <a name="noninteractive-authentication-with-api-and-a-certificate"></a>API 및 인증서로 비대화형 인증
 
 이 메서드는 지원되지 않습니다.
 
@@ -126,7 +125,7 @@ credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = '
 
 이러한 변수는 샘플에서 사용됩니다.
 
-```
+```python
 subid= '<Azure Subscription ID>'
 rg = '<Azure Resource Group Name>'
 location = '<Location>' # i.e. 'eastus2'
@@ -136,7 +135,7 @@ adls = '<Azure Data Lake Analytics Account Name>'
 
 ## <a name="create-the-clients"></a>클라이언트 만들기
 
-```
+```python
 resourceClient = ResourceManagementClient(credentials, subid)
 adlaAcctClient = DataLakeAnalyticsAccountManagementClient(credentials, subid)
 adlaJobClient = DataLakeAnalyticsJobManagementClient( credentials, 'azuredatalakeanalytics.net')
@@ -144,7 +143,7 @@ adlaJobClient = DataLakeAnalyticsJobManagementClient( credentials, 'azuredatalak
 
 ## <a name="create-an-azure-resource-group"></a>Azure 리소스 그룹 만들기
 
-```
+```python
 armGroupResult = resourceClient.resource_groups.create_or_update( rg, ResourceGroup( location=location ) )
 ```
 
@@ -152,7 +151,7 @@ armGroupResult = resourceClient.resource_groups.create_or_update( rg, ResourceGr
 
 먼저 저장소 계정을 만듭니다.
 
-```
+```python
 adlaAcctResult = adlaAcctClient.account.create(
     rg,
     adla,
@@ -165,7 +164,7 @@ adlaAcctResult = adlaAcctClient.account.create(
 ```
 그런 다음 해당 저장소를 사용하는 ADLA 계정을 만듭니다.
 
-```
+```python
 adlaAcctResult = adlaAcctClient.account.create(
     rg,
     adla,
@@ -177,9 +176,9 @@ adlaAcctResult = adlaAcctClient.account.create(
 ).wait()
 ```
 
-## <a name="submit-data-lake-analytics-jobs"></a>데이터 레이크 분석 작업 제출
+## <a name="submit-a-job"></a>작업 제출
 
-```
+```python
 script = """
 @a  = 
     SELECT * FROM 
@@ -195,7 +194,7 @@ OUTPUT @a
 
 jobId = str(uuid.uuid4())
 jobResult = adlaJobClient.job.create(
-    adlaAccountName,
+    adla,
     jobId,
     JobInformation(
         name='Sample Job',
@@ -205,15 +204,53 @@ jobResult = adlaJobClient.job.create(
 )
 ```
 
-## <a name="wait-for-the-job-to-finish"></a>작업이 완료될 때까지 대기
+## <a name="wait-for-a-job-to-end"></a>작업이 종료될 때까지 대기
 
-```
+```python
+jobResult = adlaJobClient.job.get(adla, jobId)
 while(jobResult.state != JobState.ended):
     print('Job is not yet done, waiting for 3 seconds. Current state: ' + jobResult.state.value)
     time.sleep(3)
-    jobResult = adlaJobClient.job.get(adlaAccountName, jobId)
+    jobResult = adlaJobClient.job.get(adla, jobId)
 
 print ('Job finished with result: ' + jobResult.result.value)
+```
+
+## <a name="list-pipelines-and-recurrences"></a>파이프라인 및 되풀이 나열
+작업에 파이프라인 또는 되풀이 메타데이터가 첨부되어 있는지에 따라, 파이프라인 및 되풀이를 나열할 수 있습니다.
+
+```python
+pipelines = adlaJobClient.pipeline.list(adla)
+for p in pipelines:
+    print('Pipeline: ' + p.name + ' ' + p.pipelineId)
+
+recurrences = adlaJobClient.recurrence.list(adla)
+for r in recurrences:
+    print('Recurrence: ' + r.name + ' ' + r.recurrenceId)
+```
+
+## <a name="manage-compute-policies"></a>계산 정책 관리
+
+DataLakeAnalyticsAccountManagementClient 개체는 Data Lake Analytics 계정에 대한 계산 정책을 관리하는 메서드를 제공합니다.
+
+### <a name="list-compute-policies"></a>계산 정책 나열
+
+다음 코드는 Data Lake Analytics 계정에 대한 계산 정책 목록을 검색합니다.
+
+```python
+policies = adlaAccountClient.computePolicies.listByAccount(rg, adla)
+for p in policies:
+    print('Name: ' + p.name + 'Type: ' + p.objectType + 'Max AUs / job: ' + p.maxDegreeOfParallelismPerJob + 'Min priority / job: ' + p.minPriorityPerJob)
+```
+
+### <a name="create-a-new-compute-policy"></a>새 계산 정책 만들기
+
+다음 코드는 지정된 사용자가 사용할 수 있는 최대 AU를 50으로, 최소 작업 우선 순위를 250으로 설정하는, Data Lake Analytics 계정에 대한 새 계산 정책을 만듭니다.
+
+```python
+userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde"
+newPolicyParams = ComputePolicyCreateOrUpdateParameters(userAadObjectId, "User", 50, 250)
+adlaAccountClient.computePolicies.createOrUpdate(rg, adla, "GaryMcDaniel", newPolicyParams)
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 2576b658eaf1df95aa9700e06559edf6066cc534
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6eadf0a521a32c5bc580908e4e4b7f4305e2bf7e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>Azure Active Directory 인증을 사용하여 LOB(기간 업무) Azure 앱 만들기

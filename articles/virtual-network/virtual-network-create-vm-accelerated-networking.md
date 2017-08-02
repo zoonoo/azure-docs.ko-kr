@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 0d74a13968338d5dc88eab3353316c77c7544615
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: c852a1297261504015a3a985fe14a38957d1a64a
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>가속화된 네트워킹을 사용하는 가상 컴퓨터 만들기
@@ -36,7 +35,8 @@ ms.lasthandoff: 07/06/2017
 
 가속화된 네트워킹의 이점은 사용하도록 설정된 VM에만 적용된다는 것입니다. 최상의 결과를 얻으려면 동일한 Azure VNet(가상 네트워크)에 연결된 둘 이상의 VM에서 이 기능을 사용하도록 설정하는 것이 좋습니다. VNet에서 통신하거나 온-프레미스에 연결할 때 이 기능을 사용하면 전체 대기 시간에 미치는 영향을 최소화할 수 있습니다.
 
-[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
+> [!WARNING]
+> 이 Linux Public Preview는 현재 미리 보기로 있으며 일반 공급 릴리스에 있는 기능과 동일한 수준의 가용성 및 안정성을 제공하지 못할 수도 있습니다. 이 기능은 지원되지 않으며, 기능이 제한될 수 있으며 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 이 기능의 가용성 및 상태에 대한 최신 알림을 보려면 Azure Virtual Network 업데이트 페이지를 참조하세요.
 
 ## <a name="benefits"></a>이점
 * **더 낮은 대기 시간/더 높은 초당 패킷 수(pps):** 데이터 경로에서 가상 스위치를 제거하면 패킷이 정채 처리를 위해 호스트에서 소요하는 시간이 제거되고 VM 내에서 처리될 수 있는 패킷 수가 늘어납니다.
@@ -51,6 +51,7 @@ ms.lasthandoff: 07/06/2017
 * **지역:** 가속화된 네트워킹 기능을 갖춘 Windows VM은 대부분의 Azure 지역에서 제공됩니다. 가속화된 네트워킹 기능을 갖춘 Linux VM은 여러 지역에서 제공됩니다. 이 기능을 사용할 수 있는 지역은 확장되고 있습니다. 최신 정보는 Azure 가상 네트워킹 업데이트 블로그를 참조하세요.   
 * **지원되는 운영 체제:** Windows: Microsoft Windows Server 2012 R2 Datacenter 및 Windows Server 2016. Linux: Ubuntu Server 16.04 LTS(커널 4.4.0-77 이상), SLES 12 SP2, RHEL 7.3 및 CentOS 7.3(“Rogue Wave Software”에 의해 게시됨).
 * **VM 크기:** 8개 이상의 코어가 있는 범용 및 계산 용도로 최적화된 인스턴스 크기입니다. 자세한 내용은 [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM 크기 문서를 참조하세요. 지원되는 VM 인스턴스 크기 집합은 앞으로 확장될 예정입니다.
+* **ARM(Azure Resource Manager)을 통한 배포:** 가속화된 네트워킹은 ASM/RDFE를 통해 배포할 수 없습니다.
 
 이러한 제한 사항이 변경되면 [Azure 가상 네트워킹 업데이트](https://azure.microsoft.com/updates/accelerated-networking-in-preview) 페이지를 통해 발표됩니다.
 
@@ -324,11 +325,11 @@ Red Hat Enterprise Linux 또는 CentOS 7.3 VM을 만들려면 SR-IOV에 필요�
 
 1.  Azure에서 비SRIOV CentOS 7.3 VM 프로비전
 
-2.  LIS 4.2.1을 설치합니다.
+2.  LIS 4.2.2를 설치합니다.
     
     ```bash
-    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1-1.tar.gz
-    tar -xvf lis-rpms-4.2.1-1.tar.gz
+    wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
+    tar -xvf lis-rpms-4.2.2-2.tar.gz
     cd LISISO && sudo ./install.sh
     ```
 
@@ -402,8 +403,8 @@ Red Hat Enterprise Linux 또는 CentOS 7.3 VM을 만들려면 SR-IOV에 필요�
 
     # Specify a URI for the location from which the new image binary large object (BLOB) is copied to start the virtual machine. 
     # Must end with ".vhd" extension
-    $destOsDiskName = "MyOsDiskName.vhd" 
-    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $destOsDiskName
+    $OsDiskName = "MyOsDiskName.vhd" 
+    $destOsDiskUri = "https://myexamplesa.blob.core.windows.net/vhds/" + $OsDiskName
     
     # Define a credential object for the VM. PowerShell prompts you for a username and password.
     $Cred = Get-Credential
@@ -417,7 +418,7 @@ Red Hat Enterprise Linux 또는 CentOS 7.3 VM을 만들려면 SR-IOV에 필요�
      -Credential $Cred | `
     Add-AzureRmVMNetworkInterface -Id $Nic.Id | `
     Set-AzureRmVMOSDisk `
-     -Name $OSDiskName `
+     -Name $OsDiskName `
      -SourceImageUri $sourceUri `
      -VhdUri $destOsDiskUri `
      -CreateOption FromImage `

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 07/19/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3ed3972354f88aee66d762c75ab4f56f3f8c6849
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9f08f73eb4ce8fc46b4f4ba5c2d1fd22319537d2
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="protecting-your-virtual-machines-in-azure-security-center"></a>Azure 보안 센터에서 가상 컴퓨터 보호
@@ -33,6 +33,7 @@ Azure 보안 센터에서는 Azure 리소스의 보안 상태를 분석합니다
 | [Azure Storage 계정에 암호화 사용](security-center-enable-encryption-for-storage-account.md) | 미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하도록 권장합니다. SSE(Storage 서비스 암호화)는 Azure Storage에 기록되는 데이터를 암호화하고 검색 전 해독하는 방식으로 작동합니다. SSE는 현재 Azure Blob service에만 사용할 수 있으며 블록 blob, 페이지 blob 및 추가 blob에 사용할 수 있습니다. 자세한 내용을 알아보려면 [미사용 데이터에 대한 Storage 서비스 암호화](../storage/storage-service-encryption.md)를 참조하세요.</br>SSE는 Resource Manager 저장소 계정에만 지원됩니다. 클래식 저장소 계정은 현재 지원되지 않습니다. 클래식 및 Resource Manager 배포 모델을 이해하려면 [Azure 배포 모델](../azure-classic-rm.md)을 참조하세요. |
 | [OS 취약성 해결](security-center-remediate-os-vulnerabilities.md) |OS 구성을 권장 구성 규칙과 정렬하라는 권장 사항입니다. 예를 들어 암호 저장을 허용하지 않습니다. |
 | [시스템 업데이트 적용](security-center-apply-system-updates.md) |누락된 시스템 보안 및 중요 업데이트를 VM에 배포하는 것이 좋습니다. |
+| [Just-In-Time 네트워크 액세스 제어 적용](security-center-just-in-time.md) | Just-In-Time VM 액세스만 적용해야 합니다. Just-In-Time 기능은 미리 보기로 제공되며 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. |
 | [시스템 업데이트 후 다시 부팅](security-center-apply-system-updates.md#reboot-after-system-updates) |시스템 업데이트 적용 프로세스를 완료하려면 VM을 다시 부팅하는 것이 좋습니다. |
 | [Endpoint Protection 설치](security-center-install-endpoint-protection.md) |VM(Windows VM만 해당)에 맬웨어 방지 프로그램을 프로비전하는 것이 좋습니다. |
 | [Endpoint Protection 상태 경고 해결](security-center-resolve-endpoint-protection-health-alerts.md) |끝점 보호 오류를 해결하는 것이 좋습니다. |
@@ -40,7 +41,7 @@ Azure 보안 센터에서는 Azure 리소스의 보안 상태를 분석합니다
 | [디스크 암호화 적용](security-center-apply-disk-encryption.md) |Azure 디스크 암호화(Windows 및 Linux VM)를 사용하여 VM 디스크를 암호화하는 것이 좋습니다. VM에서 OS 및 데이터 볼륨에 암호화를 사용하는 것이 좋습니다. |
 | [OS 버전 업데이트](security-center-update-os-version.md) |클라우드 서비스의 OS(운영 체제) 버전을 OS 제품군에 대해 사용할 수 있는 가장 최신 버전으로 업데이트하는 것이 좋습니다.  클라우드 서비스에 대한 자세한 내용은 [클라우드 서비스 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요. |
 | [취약점 평가 설치되지 않음](security-center-vulnerability-assessment-recommendations.md) |VM에 취약점 평가 솔루션을 설치하는 것이 좋습니다. |
-| [취약점 해결](security-center-vulnerability-assessment-recommendations.md#review-recommendation) |VM에 설치된 취약점 평가 솔루션에 감지되는 시스템 및 응용 프로그램 취약점을 볼 수 있습니다. |
+| [취약점 해결](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |VM에 설치된 취약점 평가 솔루션에 감지되는 시스템 및 응용 프로그램 취약점을 볼 수 있습니다. |
 
 ## <a name="see-also"></a>참고 항목
 다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음을 참조하세요.

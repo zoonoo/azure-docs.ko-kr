@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: banders
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: f5f9aa186480926df1110928983566e05f79efb8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 165568731debf2cd81a88170833f95ca2e7080e5
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -104,19 +104,28 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ### <a name="analyze-data-and-create-alerts"></a>데이터 분석 및 경고 만들기
 
-이 솔루션에는 데이터를 분석하는 데 유용한 쿼리가 포함됩니다. 오른쪽으로 스크롤하면 대시보드는 일반 쿼리 여러 개를 나열하며, 이 쿼리를 클릭하면 Azure SQL 데이터에 대한 [로그 검색](log-analytics-log-searches.md)을 수행할 수 있습니다.
+Azure SQL Database 리소스에서 가져온 데이터와 경고를 쉽게 만들 수 있습니다. 다음은 경고 생성에 사용할 수 있는 몇 가지 유용한 [로그 검색](log-analytics-log-searches.md) 쿼리입니다.
 
-![쿼리](./media/log-analytics-azure-sql/azure-sql-queries.png)
+*Azure SQL Database에 대한 높은 DTU*
 
-이 솔루션에는 일부 *경고 기반 쿼리*가 포함되며 위와 같이 Azure SQL Database와 탄력적 풀에 대한 특정 임계값을 경고하는 데 사용할 수 있습니다.
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/DATABASES/"* MetricName=dtu_consumption_percent | measure Avg(Average) by Resource interval 5minutes
+```
+
+*Azure SQL Database 탄력적 풀에 대한 높은 DTU*
+
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource interval 5minutes
+```
+
+이러한 경고 기반 쿼리를 사용하여 Azure SQL Database와 탄력적 풀에 대한 특정 임계값에 대해 경고를 발생할 수 있습니다. OMS 작업 영역에 대해 경고를 구성하려면
 
 #### <a name="to-configure-an-alert-for-your-workspace"></a>작업 영역에 대해 경고를 구성하려면
 
 1. [OMS 포털](http://mms.microsoft.com/)로 이동하고 로그인합니다.
 2. 솔루션에 대해 구성된 작업 영역을 엽니다.
 3. 개요 페이지에서 **Azure SQL Analytics(미리 보기)** 타일을 클릭합니다.
-4. 오른쪽으로 스크롤한 다음 쿼리를 클릭하여 경고 만들기를 시작합니다.  
-![경고 쿼리](./media/log-analytics-azure-sql/alert-query.png)
+4. 예제 쿼리 중 하나를 실행합니다.
 5. 로그 검색에서 **경고**를 클릭합니다.  
 ![검색에서 경고 만들기](./media/log-analytics-azure-sql/create-alert01.png)
 6. **경고 규칙 추가** 페이지에서 원하는 적절한 속성과 특정 임계값을 구성한 후 **저장**을 클릭합니다.  

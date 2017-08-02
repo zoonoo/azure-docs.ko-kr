@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c88b2b5cff70e7a4b3642c53502f348f2e789e81
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -75,7 +74,7 @@ Resource Manager 템플릿의 "WadCfg"에서 다음 두 가지 변경 사항을 
 
 위의 두 코드 조각에서 "applicationInsights"라는 이름이 싱크를 설명하는 데 사용되었습니다. 이는 요구 사항은 아니며 싱크의 이름이 "sinks"에 포함되어 있는 한 이름을 임의의 문자열로 설정할 수 있습니다.
 
-현재 클러스터의 로그는 AI의 로그 뷰어에 추적으로 표시됩니다. 인프라 수준에서 발생하는 대부분의 추적은 "정보" 유형이므로 "위험" 또는 "오류" 유형의 로그만 보내도록 싱크 구성을 변경할 수도 있습니다. 이 작업은 [이 문서](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)에서 설명한 것처럼 싱크에 "채널"을 추가하여 수행할 수 있습니다.
+현재 클러스터의 로그는 AI의 로그 뷰어에 추적으로 표시됩니다. 플랫폼에서 발생하는 대부분의 추적은 "정보" 수준이므로 "위험" 또는 "오류" 유형의 로그만 보내도록 싱크 구성을 변경할 수도 있습니다. 이 작업은 [이 문서](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)에서 설명한 것처럼 싱크에 "채널"을 추가하여 수행할 수 있습니다.
 
 >[!NOTE]
 >포털 또는 Resource Manager 템플릿에서 잘못된 AI IKey를 사용하는 경우 수동으로 키를 변경하고 클러스터를 업데이트/재배포해야 합니다. 

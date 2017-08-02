@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: babanisa;sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 775900fcae1b2832a5d0951e2a4053562c21455e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 72e18444c83b84c5191a0aab3dc6983517167dd1
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -33,11 +33,11 @@ Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습
 
 진단 로그는 기본적으로 해제되어 있습니다. 진단 로그를 활성화하려면 다음 단계를 수행합니다.
 
-1.  [Azure Portal](https://portal.azure.com)에서 스트리밍 작업 블레이드로 이동합니다.
+1.  [Azure Portal](https://portal.azure.com)의 **모니터링 + 관리**에서 **진단 로그**를 클릭합니다.
 
-2.  **모니터링** 아래의 **진단 로그** 블레이드로 이동합니다.
+    ![진단 로그에 대한 블레이드 탐색](./media/service-bus-diagnostic-logs/image1.png)
 
-    ![진단 로그에 대한 블레이드 탐색](./media/service-bus-diagnostic-logs/image1.png)  
+2. 모니터링하려는 리소스를 클릭합니다.  
 
 3.  **진단 켜기**를 클릭합니다.
 
@@ -49,9 +49,7 @@ Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습
 
 5.  저장소 계정, 이벤트 허브 또는 Azure Log Analytics와 같이 원하는 보관 대상을 설정합니다.
 
-6.  수집할 로그의 범주(예: **실행** 또는 **작성**)를 선택합니다.
-
-7.  새 진단 설정을 저장합니다.
+6.  새 진단 설정을 저장합니다.
 
 새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 블레이드에 로그가 나타납니다.
 
@@ -61,7 +59,7 @@ Azure Service Bus에 대해 다음 두 가지 유형의 로그를 볼 수 있습
 
 모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 섹션에 설명된 형식을 사용하는 문자열 필드가 있습니다.
 
-## <a name="operation-logs-example"></a>작업 로그 예제
+## <a name="operational-logs-schema"></a>작업 로그 스키마
 
 **OperationalLogs** 범주의 로그는 Service Bus 작업 중 발생하는 일을 캡처합니다. 특히 이러한 로그는 큐 만들기, 사용된 리소스 및 작업 상태를 비롯한 작업 형식을 캡처합니다.
 

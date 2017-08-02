@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
-translationtype: Human Translation
-ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
-ms.openlocfilehash: dc4716a26ba5c2ba93dda83890dbff81f22cbd2a
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: bdc994daf441d397157f8e6cbcf84d72584927f0
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>기존 예측 웹 서비스 재학습
@@ -64,7 +64,7 @@ ms.lasthandoff: 03/02/2017
 
 재학습 API를 호출하려면:
 
-1. Visual Studio(**New** > **Project** > **Windows Desktop** > **Console Application**)에서 C# 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio(**새로 만들기** > **프로젝트** > **Visual C#** > **Windows 클래식 바탕 화면** > **콘솔 앱(.NET Framework)**)에서 C# 콘솔 응용 프로그램을 만듭니다.
 2. Machine Learning Web Service 포털에 로그인합니다.
 3. 현재 작업 중인 웹 서비스를 클릭합니다.
 4. **사용**을 클릭합니다.

@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 07/13/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 715f76377947baaf1a72871cfe291f17e1cc0baf
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 0a5c95eab3fd01f611fc049e80c5c506857e0b81
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Redis Cache 관리
@@ -249,7 +249,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
-`RedisConfiguration` 매개 변수에 대한 값을 지정하려면 `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`처럼 키/값 쌍으로 값을 `{}`로 묶습니다. 다음 예제에서는 `allkeys-random` 최대 정책을 사용하고 `KEA`의 keyspace 알림이 구성된 표준 1GB 캐시를 만듭니다. 자세한 내용은 [Keyspace 알림(고급 설정)](cache-configure.md#keyspace-notifications-advanced-settings) 및 [maxmemory-policy 및 maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)를 참조하세요.
+`RedisConfiguration` 매개 변수에 대한 값을 지정하려면 `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`처럼 키/값 쌍으로 값을 `{}`로 묶습니다. 다음 예제에서는 `allkeys-random` 최대 정책을 사용하고 `KEA`의 keyspace 알림이 구성된 표준 1GB 캐시를 만듭니다. 자세한 내용은 [Keyspace 알림(고급 설정)](cache-configure.md#keyspace-notifications-advanced-settings) 및 [메모리 정책](cache-configure.md#memory-policies)을 참조하세요.
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 

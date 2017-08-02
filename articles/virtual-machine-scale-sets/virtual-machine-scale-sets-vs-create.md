@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 5f02d36bfc5aa390bba345f084ce530c27bb6520
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Visual Studio에서 가상 컴퓨터 크기 집합을 만드는 방법
@@ -91,7 +91,7 @@ Visual Studio에서 가상 컴퓨터 크기 집합 배포를 시작하려면 다
 
 ![Cloud Explorer][cloud_explorer]
 
- 포털은 웹 브라우저를 사용하여 Azure 인프라를 시각적으로 관리하는 최고의 방법을 제공하며, Azure 리소스 탐색기는 Azure 리소스를 탐색하고 디버그하는 손쉬운 방법을 제공하고, “인스턴스 뷰”에 대한 창을 제공하며 표시되는 리소스에 대한 PowerShell 명령을 보여 줍니다. 가상 컴퓨터 크기 집합이 미리 보기로 제공되는 동안, 리소스 탐색기에는 가상 컴퓨터 크기 집합이 자세히 표시됩니다.
+ 포털은 웹 브라우저를 사용하여 Azure 인프라를 시각적으로 관리하는 최고의 방법을 제공하며, Azure 리소스 탐색기는 Azure 리소스를 탐색하고 디버그하는 손쉬운 방법을 제공하고, “인스턴스 뷰”에 대한 창을 제공하며 표시되는 리소스에 대한 PowerShell 명령을 보여 줍니다.
 
 ## <a name="next-steps"></a>다음 단계
 Visual Studio를 통해 가상 컴퓨터 크기 집합을 성공적으로 배포하면 응용 프로그램 요구 사항에 맞게 프로젝트를 추가로 사용자 지정할 수 있습니다. 예를 들어, **Insights** 리소스를 추가하거나, 독립 실행형 VM처럼 템플릿에 인프라를 추가하거나, 사용자 지정 스크립트 확장을 사용하는 응용 프로그램을 배포하여 자동 크기 조정을 구성할 수 있습니다. [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates) GitHub 리포지토리에서 유용한 예제 템플릿을 찾을 수 있습니다("vmss" 검색).

@@ -1,9 +1,9 @@
 ---
-title: "Windows VM 이미지 탐색 및 선택 | Microsoft Docs"
-description: "리소스 관리자 배포 모델로 Windows 가상 컴퓨터를 만들 경우 이미지의 게시자, 제품 및 SKU를 확인하는 방법에 대해 알아보세요."
+title: "Azure에서 Windows VM 이미지 선택 | Microsoft Docs"
+description: "Azure PowerSHell을 사용하여 Marketplace VM 이미지의 게시자, 제품, SKU 및 버전을 확인하는 방법을 알아봅니다."
 services: virtual-machines-windows
 documentationcenter: 
-author: squillace
+author: dlepow
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,37 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/23/2016
-ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 28bb214570fcca94c5ceb6071c4851b81ec00c8d
-ms.lasthandoff: 04/27/2017
-
+ms.date: 07/12/2017
+ms.author: danlep
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 630f555b003b0efc45b372a7009dbf036aa8c737
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="navigate-and-select-windows-virtual-machine-images-in-azure-with-powershell"></a>Azure에서 PowerShell을 사용하여 Windows 가상 컴퓨터 이미지 이동 및 선택
-이 항목은 배포할 수 있는 각 위치에 대한 VM 이미지 게시자, 제안, SKU 및 버전을 찾는 방법을 설명합니다. 예를 들면 일부 자주 사용되는 Windows VM 이미지는 다음과 같습니다.
+# <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Marketplace에서 Windows VM 이미지를 찾는 방법
+
+이 항목에서는 Azure PowerShell을 사용하여 Azure Marketplace에서 VM 이미지를 찾는 방법을 설명합니다. 이 정보를 사용하여 Windows VM을 만들 때 Marketplace 이미지를 지정합니다.
+
+최신 [Azure PowerShell 모듈](/powershell/azure/install-azurerm-ps)을 설치 및 구성했는지 확인합니다.
+
+
 
 ## <a name="table-of-commonly-used-windows-images"></a>일반적으로 사용하는 Windows 이미지 테이블
 | PublisherName | 제안 | SKU |
 |:--- |:--- |:--- |:--- |
-| MicrosoftDynamicsNAV |DynamicsNAV |2015 |
-| MicrosoftSharePoint |MicrosoftSharePointServer |2013 |
-| MicrosoftSQLServer |SQL2014-WS2012R2 |Enterprise-Optimized-for-DW |
-| MicrosoftSQLServer |SQL2014-WS2012R2 |Enterprise-Optimized-for-OLTP |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-with-Containers |
+| MicrosoftWindowsServer |WindowsServer |2016-Nano-Server |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
-| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
-| MicrosoftWindowsServer |WindowsServer |Windows-Server-Technical-Preview |
-| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
+| MicrosoftDynamicsNAV |DynamicsNAV |2017 |
+| MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
+| MicrosoftSQLServer |SQL2016-WS2016 |Enterprise |
+| MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Enterprise |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
+| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
 
-## <a name="find-azure-images-with-powershell"></a>PowerShell을 사용하여 Azure 이미지 찾기
-> [!NOTE]
-> [최신 Azure PowerShell](/powershell/azure/overview)을 설치하고 구성합니다. Azure PowerShell 모듈 1.0 이전을 사용 중인 경우 다음 명령을 사용하지만 먼저 `Switch-AzureMode AzureResourceManager`를 사용해야 합니다. 
-> 
-> 
+## <a name="find-specific-images"></a>특정 이미지 찾기
+
 
 Azure 리소스 관리자를 사용하여 새 가상 컴퓨터를 만들 때 다음 이미지 속성을 조합하여 이미지를 지정해야 하는 경우도 있습니다.
 
@@ -51,9 +55,9 @@ Azure 리소스 관리자를 사용하여 새 가상 컴퓨터를 만들 때 다
 * 제안
 * SKU
 
-예를 들어 만들 가상 컴퓨터 형식을 지정해야 하는 리소스 그룹 템플릿 파일 또는 `Set-AzureRMVMSourceImage` PowerShell cmdlet에 대해 이러한 값이 필요합니다.
+예를 들어 [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet 또는 만든 VM 유형을 지정해야 하는 리소스 그룹 템플릿에서 이러한 값을 사용합니다.
 
-이러한 값을 결정해야 하는 경우 이미지를 탐색하여 다음의 값을 결정할 수 있습니다.
+이러한 값을 확인해야 할 경우 [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) 및 [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku)를 실행하여 이미지를 탐색할 수 있습니다. 다음 값을 확인합니다.
 
 1. 이미지 게시자를 나열합니다.
 2. 지정된 게시자에 제안을 나열합니다.
@@ -80,14 +84,19 @@ $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-`Get-AzureRMVMImageSku` 명령 표시에 새 가상 컴퓨터에 대한 이미지를 지정하는 데 필요한 모든 정보가 있습니다.
+`Get-AzureRMVMImageSku` 명령 출력에 새 가상 컴퓨터에 대한 이미지를 지정하는 데 필요한 모든 정보가 있습니다.
 
 전체 예제는 다음과 같습니다.
 
 ```powershell
-PS C:\> $locName="West US"
-PS C:\> Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
+$locName="West US"
+Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
+```
+
+출력:
+
+```
 PublisherName
 -------------
 a10networks
@@ -106,32 +115,48 @@ Canonical
 게시자가 "MicrosoftWindowsServer"인 경우:
 
 ```powershell
-PS C:\> $pubName="MicrosoftWindowsServer"
-PS C:\> Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+$pubName="MicrosoftWindowsServer"
+Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+```
 
+출력:
+
+```
 Offer
 -----
+Windows-HUB
 WindowsServer
+WindowsServer-HUB
 ```
 
 "WindowsServer" 제품인 경우:
 
 ```powershell
-PS C:\> $offerName="WindowsServer"
-PS C:\> Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+$offerName="WindowsServer"
+Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+```
 
+출력:
+
+```
 Skus
 ----
 2008-R2-SP1
+2008-R2-SP1-smalldisk
 2012-Datacenter
+2012-Datacenter-smalldisk
 2012-R2-Datacenter
-2016-Nano-Server-Technical-Previe
-2016-Technical-Preview-with-Conta
-Windows-Server-Technical-Preview
+2012-R2-Datacenter-smalldisk
+2016-Datacenter
+2016-Datacenter-Server-Core
+2016-Datacenter-Server-Core-smalldisk
+2016-Datacenter-smalldisk
+2016-Datacenter-with-Containers
+2016-Nano-Server
 ```
 
 이 목록에서 선택한 SKU 이름을 복사합니다. 그러면 `Set-AzureRMVMSourceImage` PowerShell cmdlet 또는 리소스 그룹 템플릿에 대한 모든 정보를 알 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 사용할 이미지를 정밀하게 선택할 수 있습니다. 방금 찾은 이미지 정보를 사용하여 가상 컴퓨터를 빠르게 만들거나 해당 이미지 정보로 템플릿을 사용하려면 [Resource Manager 및 PowerShell을 사용하여 Windows VM 만들기](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+이제 사용할 이미지를 정밀하게 선택할 수 있습니다. 방금 찾은 이미지 정보를 사용하여 가상 컴퓨터를 빠르게 만들려면 [PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](quick-create-powershell.md)를 참조하세요.
 

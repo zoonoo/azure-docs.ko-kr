@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/02/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: ffd8c494d821d41532c9a31613b10b521ff4d86b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b1a4ca17a53a6d337d704bc4eef6d441de1f32d8
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight의 Hadoop 서비스에서 사용하는 포트
@@ -75,6 +74,14 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 
 > [!NOTE]
 > 일부 서비스는 특정 클러스터 형식에서만 사용할 수 있습니다. 예를 들어 HBase는 HBase 클러스터 형식에서만 사용할 수 있습니다.
+
+### <a name="ambari"></a>Ambari
+
+| 부여 | 노드 | 포트 | Path | 프로토콜 | 
+| --- | --- | --- | --- | --- |
+| Ambari 웹 UI | 헤드 노드 | 8080 | / | http |
+| Ambari REST API | 헤드 노드 | 8080 | /api/v1 | http |
+
 
 ### <a name="hdfs-ports"></a>HDFS 포트
 

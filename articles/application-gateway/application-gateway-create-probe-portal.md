@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a12e9d342daf41ee9f83cadb9e29ee867be055de
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 65e9bba4ce9ac41ae2a9a8c3fa7f661165fc1403
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>포털을 사용하여 응용 프로그램 게이트웨이에 대한 사용자 지정 프로브 만들기
@@ -74,7 +73,7 @@ ms.lasthandoff: 04/27/2017
 1. **appGatewayBackEndHttpSettings** 설정 블레이드에서 **사용자 지정 프로브 사용** 확인란을 선택하고, 앞서의 [프로브 만들기](#createprobe) 섹션에서 만든 프로브를 **사용자 지정 프로브** 드롭다운에서 선택합니다.
 완료되면 **저장**을 클릭하여 해당 설정을 적용합니다.
 
-기본 프로브는 웹 응용 프로그램에 대한 기본 액세스를 확인합니다. 사용자 지정 프로브를 만들었으므로 응용 프로그램 게이트웨이에서 정의된 사용자 지정 경로를 사용하여 선택된 백 엔드 서버의 상태를 모니터링합니다. 정의된 기준에 따라 응용 프로그램 게이트웨이에서 프로브에 지정된 경로를 확인합니다. host:Port/path에 대한 호출에서 HTTP 200-299 상태 응답을 반환하지 않으면 비정상 임계값에 도달한 후에 서버가 회전에서 제외됩니다. 비정상 인스턴스에 대해 프로빙이 계속되며 다시 정상 상태가 되는지 확인합니다. 인스턴스가 정상 서버 풀에 다시 추가되면 트래픽이 다시 흐르기 시작하고 평소처럼 사용자가 지정한 간격으로 인스턴스에 대한 프로빙이 계속됩니다.
+기본 프로브는 웹 응용 프로그램에 대한 기본 액세스를 확인합니다. 사용자 지정 프로브를 만들었으므로 응용 프로그램 게이트웨이에서 정의된 사용자 지정 경로를 사용하여 선택된 백 엔드 서버의 상태를 모니터링합니다. 정의된 기준에 따라 응용 프로그램 게이트웨이에서 프로브에 지정된 경로를 확인합니다. host:Port/path에 대한 호출에서 HTTP 200-399 상태 응답을 반환하지 않으면 비정상 임계값에 도달한 후에 서버가 회전에서 제외됩니다. 비정상 인스턴스에 대해 프로빙이 계속되며 다시 정상 상태가 되는지 확인합니다. 인스턴스가 정상 서버 풀에 다시 추가되면 트래픽이 다시 흐르기 시작하고 평소처럼 사용자가 지정한 간격으로 인스턴스에 대한 프로빙이 계속됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

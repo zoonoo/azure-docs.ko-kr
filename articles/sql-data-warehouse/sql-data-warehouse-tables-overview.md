@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
+ms.date: 06/29/2016
 ms.author: shigu;jrj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 914d85267e82ce6a2e60f3841889935046f17c87
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c16fef2f302dbc56f257eaf2f0d2b68b6a3c1852
 ms.contentlocale: ko-kr
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>SQL 데이터 웨어하우스의 테이블 개요
@@ -50,7 +49,7 @@ RENAME OBJECT Customer TO CustomerOrig;
  ```
 
 ## <a name="distributed-tables"></a>분산 테이블
-SQL 데이터 웨어하우스와 같은 분산 시스템에 의해 도입된 새로운 기본 특성은 **배포 열**입니다.  배포 열은 표현 그대로입니다.  백그라운드에서 데이터를 분산 또는 분할하는 방법을 결정하는 열입니다.  배포 열을 지정하지 않고 테이블을 만들면 테이블이 **라운드 로빈**을 사용하여 자동으로 분산됩니다.  일부 시나리오에서는 라운드 로빈 테이블로 충분할 수 있지만 배포 열을 정의하면 쿼리 중에 데이터 이동을 크게 줄일 수 있으므로 성능이 최적화됩니다.  배포 열을 선택하는 방법에 대한 자세한 내용을 [테이블 배포][Distribute] 를 참조하세요.
+SQL 데이터 웨어하우스와 같은 분산 시스템에 의해 도입된 새로운 기본 특성은 **배포 열**입니다.  배포 열은 표현 그대로입니다.  백그라운드에서 데이터를 분산 또는 분할하는 방법을 결정하는 열입니다.  배포 열을 지정하지 않고 테이블을 만들면 테이블이 **라운드 로빈**을 사용하여 자동으로 분산됩니다.  일부 시나리오에서는 라운드 로빈 테이블로 충분할 수 있지만 배포 열을 정의하면 쿼리 중에 데이터 이동을 크게 줄일 수 있으므로 성능이 최적화됩니다.  테이블에 적은 양의 데이터가 있는 경우 **복제** 배포 유형을 사용하여 테이블을 만들도록 선택하면 데이터가 각 계산 노드로 복사되므로 쿼리 실행 시에 데이터 이동 작업이 줄어듭니다. 배포 열을 선택하는 방법에 대한 자세한 내용을 [테이블 배포][Distribute] 를 참조하세요.
 
 ## <a name="indexing-and-partitioning-tables"></a>테이블 인덱싱 및 분할
 더욱 수준 높은 방식으로 SQL 데이터 웨어하우스를 사용하고 성능을 최적화하기 위해 테이블 디자인에 대해 알아보려고 할 수 있습니다.  자세히 알아보려면 [테이블 데이터 형식][Data Types], [테이블 배포][Distribute], [테이블 인덱싱][Index], [테이블 분할][Partition]에 대한 문서를 참조하세요.
@@ -69,7 +68,6 @@ SQL 데이터 웨어하우스에는 다른 데이터베이스에서 제공하는
 
 | 지원되지 않는 기능 |
 | --- |
-| [ID 속성][Identity Property]([대체 키 해결 방법 할당][Assigning Surrogate Key Workaround] 참조) |
 | 기본 키, 외래 키, 고유 및 검사 [테이블 제약 조건][Table Constraints] |
 | [고유 인덱스][Unique Indexes] |
 | [계산된 열][Computed Columns] |
@@ -202,7 +200,7 @@ FROM size
 ```
 
 ### <a name="table-space-summary"></a>테이블 공간 요약
-이 쿼리는 테이블에 의해 행 및 공간을 반환합니다.  가장 큰 테이블이 어느 테이블인지 그리고 해당 테이블이 라운드 로빈인지 또는 해시 분산인지를 확인하는 것이 좋은 쿼리입니다.  해시 분산 테이블의 경우 배포 열도 보여 줍니다.  대부분의 경우 가장 큰 테이블은 클러스터된 columnstore 인덱스로 배포된 해시여야 합니다.
+이 쿼리는 테이블에 의해 행 및 공간을 반환합니다.  가장 큰 테이블이 어느 테이블인지 그리고 해당 테이블이 라운드 로빈인지, 복제되는지 또는 해시 분산되는지 확인하는 것이 좋은 쿼리입니다.  해시 분산 테이블의 경우 배포 열도 보여 줍니다.  대부분의 경우 가장 큰 테이블은 클러스터된 columnstore 인덱스로 배포된 해시여야 합니다.
 
 ```sql
 SELECT 
@@ -295,8 +293,6 @@ ORDER BY    distribution_id
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 [DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[Identity Property]: https://msdn.microsoft.com/library/ms186775.aspx
-[Assigning Surrogate Key Workaround]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
 [Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
 [Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
 [Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx

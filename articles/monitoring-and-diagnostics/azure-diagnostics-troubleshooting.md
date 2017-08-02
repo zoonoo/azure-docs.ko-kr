@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 07/12/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 0764b9f3ac262b7c65944d6e2c82490daefa54c3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: df53e92b877b4790bb700f176a1988d265ec4678
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 진단 문제 해결
@@ -43,6 +42,7 @@ Azure 진단 사용과 관련된 문제 해결 정보입니다. Azure 진단에 
 | **모니터링 에이전트 구성 파일** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Azure 진단 확장 패키지** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **로그 컬렉션 유틸리티 경로** | %SystemDrive%\Packages\GuestAgent\ |
+| **MonAgentHost 로그 파일** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>가상 컴퓨터
 | 아티팩트 | Path |
@@ -54,9 +54,12 @@ Azure 진단 사용과 관련된 문제 해결 정보입니다. Azure 진단에 
 | **상태 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Azure 진단 확장 패키지** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **로그 컬렉션 유틸리티 경로** | C:\WindowsAzure\Packages |
+| **MonAgentHost 로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="azure-diagnostics-is-not-starting"></a>Azure 진단이 시작되지 않음
-진단을 시작하지 못한 이유에 대한 정보는 위에서 제공한 로그 파일의 위치에서 **DiagnosticsPluginLauncher.log** 및 **DiagnosticsPlugin.log** 파일을 검토합니다.  
+진단을 시작하지 못한 이유에 대한 정보는 위에서 제공한 로그 파일의 위치에서 **DiagnosticsPluginLauncher.log** 및 **DiagnosticsPlugin.log** 파일을 검토합니다. 
+
+이러한 로그가 `Monitoring Agent not reporting success after launch`를 표시하는 경우 MonAgentHost.exe를 시작하지 못한 것을 의미합니다. 위 섹션의 `MonAgentHost log file`에 대해 지정된 위치에서 해당 로그를 찾습니다.
 
 로그 파일의 마지막 줄에는 종료 코드가 포함됩니다.  
 
@@ -86,7 +89,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 - **성능 카운터**: perfmon을 열고 카운터를 확인합니다.
 - **추적 로그**: 원격 데스크톱을 VM에 연결하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  텍스트 수신기를 설정하려면 http://msdn.microsoft.com/en-us/library/sk36c28t.aspx를 참조하세요.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
 생성된 추적 로그가 표시되지 않으면 [누락된 추적 로그에 대한 자세한 정보](#more-about-trace-logs-missing)를 따릅니다.
- - **ETW 추적**: 원격 데스크톱을 VM에 연결하고 PerfView를 설치합니다.  PerfView에서 파일 -> 사용자 명령 -> Listen etwprovder1,etwprovider2, 등을 차례로 실행합니다.  Listen 명령은 대/소문자를 구분하며, 쉼표로 구분된 ETW 공급자 목록 사이에는 공백이 없어야 합니다.  명령을 실행하지 못하는 경우 Perfview 도구의 오른쪽 아래에 있는 '로그' 단추를 클릭하여 실행하려고 시도한 내용과 그 결과를 확인할 수 있습니다.  입력이 올바르다고 가정하면 새 창이 팝업되고 몇 초 후에 ETW 추적을 볼 수 있습니다.
+- **ETW 추적**: 원격 데스크톱을 VM에 연결하고 PerfView를 설치합니다.  PerfView에서 파일 -> 사용자 명령 -> Listen etwprovder1,etwprovider2, 등을 차례로 실행합니다.  Listen 명령은 대/소문자를 구분하며, 쉼표로 구분된 ETW 공급자 목록 사이에는 공백이 없어야 합니다.  명령을 실행하지 못하는 경우 Perfview 도구의 오른쪽 아래에 있는 '로그' 단추를 클릭하여 실행하려고 시도한 내용과 그 결과를 확인할 수 있습니다.  입력이 올바르다고 가정하면 새 창이 팝업되고 몇 초 후에 ETW 추적을 볼 수 있습니다.
 - **이벤트 로그**: 원격 데스크톱을 VM에 연결합니다. `Event Viewer`를 열고 이벤트가 있는지 확인합니다.
 #### <a name="is-data-getting-captured-locally"></a>데이터가 로컬로 캡처되고 있습니까?
 다음으로 데이터가 로컬에서 캡처되고 있는지 확인합니다.
@@ -241,4 +244,3 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 - 성능 카운터 이름에 와일드카드(\*)를 사용하면 포털에서 구성된 카운터와 수집된 카운터 사이의 상관 관계를 지정할 수 없습니다.
 
 **완화 방법**: 시스템 계정에 대한 컴퓨터의 언어를 영어로 변경합니다. 제어판 -> 지역 -> 관리 -> 복사 설정으로 차례로 이동한 다음 "시작 화면 및 시스템 계정"을 선택 취소하여 사용자 지정 언어가 시스템 계정에 적용되지 않도록 합니다. 또한 포털이 기본 사용 환경이 되도록 하려면 와일드카드를 사용하지 않도록 합니다.
-

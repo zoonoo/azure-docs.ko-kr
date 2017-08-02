@@ -1,5 +1,5 @@
 ---
-title: "단순 회귀 모델을 사용하여 답변 예측 - Azure | Microsoft Docs"
+title: "단순 회귀 모델을 사용하여 답변 예측 - Azure Machine Learning | Microsoft Docs"
 description: "초급자를 위한 데이터 과학 비디오 4에는 가격을 예측하는 단순 회귀 모델을 만드는 방법이 나옵니다. 대상 데이터와 함께 선형 회귀가 포함됩니다."
 keywords: "모델 만들기,단순 모델,가격 예측,단순 회귀 모델"
 services: machine-learning
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
+ms.date: 07/13/2017
 ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ef651e3faa2abd7c1becb5dc2888d465330d4d73
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>단순 모델을 사용하여 답변 예측
@@ -26,6 +27,7 @@ ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
 초급자를 위한 데이터 과학 비디오 4에서는 다이아몬드의 가격을 예측하는 단순 회귀 모델을 만드는 방법을 알아봅니다. 대상 데이터를 사용하여 회귀 모델을 그려볼 것입니다.
 
 시리즈를 최대한 활용하려면 모두 시청하는 것이 좋습니다. [비디오 목록으로 이동](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
 >
@@ -41,7 +43,7 @@ ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
 * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
 ## <a name="transcript-predict-an-answer-with-a-simple-model"></a>비디오 내용: 단순 모델을 사용하여 답변 예측
-“초급자를 위한 데이터 과학” 시리즈 중&4;번째 비디오를 시작합니다. 여기서는 간단한 모델을 빌드하고 예측을 진행할 것입니다.
+“초급자를 위한 데이터 과학” 시리즈 중 4번째 비디오를 시작합니다. 여기서는 간단한 모델을 빌드하고 예측을 진행할 것입니다.
 
 *모델* 은 데이터에 대한 간소화된 이야기입니다. 무슨 의미인지 보여드리겠습니다.
 
@@ -52,7 +54,7 @@ ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
 
 ![다이아몬드 데이터 열](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/diamond-data.png)
 
-목록에는 두 개의 열이 있습니다. 각 열은 캐럿 무게와 가격의 두 가지 다른 특성을 포함하며 각 행은&1;개의 다이아몬드를 나타내는 단일 데이터 요소를 포함합니다.
+목록에는 두 개의 열이 있습니다. 각 열은 캐럿 무게와 가격의 두 가지 다른 특성을 포함하며 각 행은 1개의 다이아몬드를 나타내는 단일 데이터 요소를 포함합니다.
 
 실제로 여기에 작은 데이터 집합인 표를 만들었습니다. 이 표가 우리의 품질 기준을 충족한다는 것을 알 수 있습니다.
 
@@ -123,7 +125,7 @@ ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
 
 그러면 더 많은 열이 형성될 것입니다. 이 경우에는 수학이 도움이 됩니다. 열이 두 개보다 많은 경우 종이에 점을 그리기가 어렵습니다. 수학을 사용하면 데이터에 좀 더 잘 맞는 선이나 평면을 그릴 수 있습니다.
 
-또한 다이아몬드 몇 개가 아니라&2;,000개 또는&2;백만 개가 있다면 컴퓨터로 훨씬 더 빠르게 이러한 작업을 처리할 수 있습니다.
+또한 다이아몬드 몇 개가 아니라 2,000개 또는 2백만 개가 있다면 컴퓨터로 훨씬 더 빠르게 이러한 작업을 처리할 수 있습니다.
 
 오늘은 선형 회귀를 수행하는 방법을 논의했으며 데이터를 사용해서 예측을 수행했습니다.
 
@@ -132,9 +134,4 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
 * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

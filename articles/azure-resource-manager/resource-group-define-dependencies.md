@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 5617f6453cb5dbb1c86ec41d7b9649356a3d9c78
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3d6a46116ae9d7d940bc10dfa832540f42c0af7e
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의
@@ -154,7 +153,7 @@ Resource Manager는 템플릿의 유효성을 검사하는 동안 순환적 종�
 3. vm1의 확장은 vm1 및 vm2에 종속됩니다. 이 확장은 vm2에서 얻은 값을 vm1에 설정합니다.
 4. vm2의 확장은 vm1 및 vm2에 종속됩니다. 이 확장은 vm1에서 얻은 값을 vm2에 설정합니다.
 
-배포 순서를 평가하고 종속성 오류를 해결하는 방법에 대한 내용은 [배포 시퀀스 확인](resource-manager-common-deployment-errors.md#check-deployment-sequence)을 참조하세요.
+배포 순서를 평가하고 종속성 오류를 해결하는 방법에 대한 자세한 내용은 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 배포 중 종속성 문제 해결에 대해 알아보려면 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.

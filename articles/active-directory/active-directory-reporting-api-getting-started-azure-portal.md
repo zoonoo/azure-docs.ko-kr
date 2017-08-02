@@ -1,5 +1,4 @@
 ---
-
 title: "Azure AD Reporting API 시작 | Microsoft Docs"
 description: "Azure Active Directory Reporting API를 시작하는 방법"
 services: active-directory
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/18/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: fd750c1bf960678e0fecef61a67b73781d9777ef
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b0ff68902f671518ff53772b1956272a7f6e1614
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Azure Active Directory Reporting API 시작
@@ -44,6 +43,6 @@ Azure Active Directory는 다양한 보고서를 제공합니다. 이러한 보�
    * [로그인 활동 보고서 API 참조 사용](active-directory-reporting-api-sign-in-activity-reference.md)
 
 ## <a name="next-steps"></a>다음 단계
-궁금하시다면 [https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta)로 이동하여 모든 사용 가능한 Azure AD Graph API 끝점을 볼 수 있습니다.
+궁금하시다면 [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta)로 이동하여 모든 사용 가능한 Azure AD Graph API 끝점을 볼 수 있습니다.
 
 

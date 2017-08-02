@@ -1,5 +1,5 @@
 ---
-title: "Visual Studio에서 Azure Application Insights로 작업 | Microsoft Docs"
+title: "Visual Studio에서 Azure Application Insights로 응용 프로그램 디버그 | Microsoft Docs"
 description: "디버깅 및 프로덕션 중에 웹앱 성능 분석 및 진단입니다."
 services: application-insights
 documentationcenter: .net
@@ -11,17 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2016
+ms.date: 07/7/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 7fe1b572104416fec62261c60228fa966d197dd9
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 93e97cbc5d9bf55334a481183f40083a6f3b99a4
 ms.contentlocale: ko-kr
-ms.lasthandoff: 03/21/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="working-with-azure-application-insights-in-visual-studio"></a>Visual Studio에서 Azure Application Insights로 작업
+# <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Visual Studio에서 Azure Application Insights로 응용 프로그램 디버그
 Visual Studio(2015 이상)에서 [Azure Application Insights](app-insights-overview.md)의 원격 분석을 사용하여 디버깅 및 프로덕션의 성능을 분석하고 ASP.NET 웹앱의 문제를 진단할 수 있습니다.
 
 Visual Studio 2017 이상을 사용하여 ASP.NET 웹앱을 만든 경우 이미 Application Insights SDK가 설치되어 있습니다. 그렇지 않은 경우 아직 수행하지 않았다면 [앱에 Application Insights를 추가합니다](app-insights-asp-net.md).
@@ -58,14 +57,14 @@ Application Insights 검색 창에서는 기록된 이벤트가 표시됩니다.
 
 ![요청 세부 정보에서 관련된 항목까지 아래로 스크롤합니다.](./media/app-insights-visual-studio/41.png)
 
-## <a name="exceptions-and-failed-requests"></a>예외 및 실패한 요청
+## <a name="view-exceptions-and-failed-requests"></a>예외 및 실패한 요청 보기
 검색 창에서 예외 보고서가 표시됩니다. (일부 ASP.NET 응용 프로그램의 이전 유형에서는 [예외 모니터링을 설정](app-insights-asp-net-exceptions.md)하여 프레임워크에 의해 처리되는 예외를 볼 수 있습니다.)
 
 예외를 클릭하여 스택 추적을 가져옵니다. 앱의 코드가 Visual Studio에서 열린 경우 스택 추적에서 코드의 관련된 줄까지 클릭할 수 있습니다.
 
 ![예외 스택 추적](./media/app-insights-visual-studio/17.png)
 
-## <a name="request-and-exception-summaries-in-the-code"></a>코드의 요청 및 예외 요약
+## <a name="view-request-and-exception-summaries-in-the-code"></a>코드의 요청 및 예외 요약 보기
 각 처리기 메서드 위의 코드 렌즈 줄에서는 지난 24시간 동안 Application Insights에 의해 기록된 요청 및 예외 수를 표시합니다.
 
 ![예외 스택 추적](./media/app-insights-visual-studio/21.png)
@@ -100,10 +99,10 @@ Application Insights 도구 모음 단추 또는 Application Insights 검색 창
   * 포털에 전송되는 원격 분석을 중지하려면 ApplicationInsights.config에서 `<instrumentationkey>...` 줄을 주석으로 처리합니다. 원격 분석을 포털에 다시 보낼 준비가 되면 주석 처리를 제거합니다.
 
 
-## <a name="whats-next"></a>다음 작업
+## <a name="next-steps"></a>다음 단계
 |  |  |
 | --- | --- |
 | **[더 많은 데이터 추가](app-insights-asp-net-more.md)**<br/>사용량, 가용성, 종속성, 예외를 모니터링합니다. 로깅 프레임 워크의 추적을 통합합니다. 사용자 지정 원격 분석을 작성합니다. |![Visual studio](./media/app-insights-visual-studio/64.png) |
-| **[Application Insights 포털 사용](app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 응용 프로그램의 라이브 종속성 맵 및 원격 분석 내보내기입니다. |![Visual studio](./media/app-insights-visual-studio/62.png) |
+| **[Application Insights 포털 사용](app-insights-dashboards.md)**<br/>대시보드, 강력한 분석 및 진단 도구, 경고, 응용 프로그램의 라이브 종속성 맵 및 내보낸 원격 분석 데이터를 봅니다. |![Visual studio](./media/app-insights-visual-studio/62.png) |
 
 

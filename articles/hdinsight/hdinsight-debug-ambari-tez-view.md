@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: c30fa8b1c2de13a0dd9ba43546d8e9ffb83942aa
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 65d89309b9eea8544b85d16687baa90d49688d77
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>HDInsight에서 Ambari 뷰를 사용하여 Tez 작업 디버깅
@@ -28,7 +27,7 @@ ms.lasthandoff: 06/09/2017
 HDInsight의 Ambari Web UI에는 Tez를 사용하는 작업을 이해 및 디버깅하는 데 사용할 수 있는 Tez 보기가 포함되어 있습니다. Tez 뷰를 사용하면 연결된 항목의 그래프로 작업을 시각화하고 각 항목을 자세히 알아보며 통계 및 로깅 정보를 검색할 수 있습니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date)를 참조하세요.
+> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -85,55 +84,26 @@ Tez를 사용하는 Hive 쿼리를 실행하려면 다음 단계를 사용합니
 
     ![Tez 뷰 선택](./media/hdinsight-debug-ambari-tez-view/selecttez.png)
 
-2. Tez 뷰가 로드되면 클러스터에서 현재 실행 중이거나 실행된 DAG의 목록이 표시됩니다.
+2. Tez 뷰가 로드되면 클러스터에서 현재 실행 중이거나 실행된 Hive 쿼리 목록이 표시됩니다.
 
-    ![모든 DAG](./media/hdinsight-debug-ambari-tez-view/alldags.png)
+    ![모든 DAG](./media/hdinsight-debug-ambari-tez-view/tez-view-home.png)
 
-3. 항목이 하나만 있는 경우 이전 섹션에서 실행한 쿼리에 대한 것입니다. 여러 항목이 있는 경우 **응용 프로그램 ID** 필드에 응용 프로그램 ID를 입력하여 검색한 다음 Enter 키를 누르면 됩니다.
+3. 항목이 하나만 있는 경우 이전 섹션에서 실행한 쿼리에 대한 것입니다. 항목이 여러 개 있는 경우 페이지 맨 위에 있는 필드를 사용하여 검색할 수 있습니다.
 
-4. **DAG 이름**을 선택합니다. DAG에 대한 정보가 표시됩니다. 또한 이 정보가 포함된 JSON 파일의 압축 파일을 다운로드할 수 있습니다.
+4. Hive 쿼리에 대한 **쿼리 ID**를 선택합니다. 쿼리에 대한 정보가 표시됩니다.
 
-    ![DAG 세부 정보](./media/hdinsight-debug-ambari-tez-view/dagdetails.png)
+    ![DAG 세부 정보](./media/hdinsight-debug-ambari-tez-view/query-details.png)
 
-5. 위 **DAG 세부 정보**에는 DAG 정보를 표시하는 데 사용될 수 있는 링크가 여러 개 있습니다.
+5. 이 페이지에 있는 탭에서 다음 정보를 볼 수 있습니다.
 
-   * **DAG 카운터**: 해당 DAG에 대한 카운터 정보를 표시합니다.
-   * **그래픽 보기**: 해당 DAG의 그래픽 표시를 나타냅니다.
-   * **모든 꼭짓점**: 해당 DAG의 꼭짓점에 대한 목록을 표시합니다.
-   * **모든 태스크**는 해당 DAG의 꼭짓점에 대한 태스크 목록을 표시합니다.
-   * **모든 태스크 시도**: 해당 DAG의 태스크를 실행하려는 시도에 대한 정보를 표시합니다.
+    * **쿼리 세부 정보**: Hive 쿼리에 대한 세부 정보입니다.
+    * **타임라인**: 각 처리 단계가 진행되는 데 걸린 시간에 대한 정보입니다.
+    * **구성**: 이 쿼리에 사용된 구성입니다.
 
-     > [!NOTE]
-     > 꼭짓점, 태스크 및 TaskAttempts에 대한 열 표시를 스크롤하는 경우 각 행에 대한 **카운터** 및 **로그 보기 또는 다운로드** 링크를 볼 수 있습니다.
-
-     작업에 오류가 발생한 경우 DAG 세부 정보는 실패한 태스크에 대한 정보의 링크와 함께 실패 상태가 표시됩니다. 진단 정보는 DAG 세부 정보 아래에 표시됩니다.
-
-     ![오류를 자세히 설명하는 DAG 세부 정보 화면](./media/hdinsight-debug-ambari-tez-view/faileddag.png)
-
-6. **그래픽 보기**를 선택합니다. 이 뷰는 DAG의 그래픽 표시를 나타냅니다. 보기에서 각 꼭짓점 위로 마우스를 두어 그에 대한 정보를 표시할 수 있습니다.
-
-    ![그래픽 보기](./media/hdinsight-debug-ambari-tez-view/dagdiagram.png)
-
-7. 꼭짓점을 선택하면 해당 항목에 대한 **꼭짓점 세부 정보**가 로드됩니다. **맵 1** 꼭짓점을 선택하면 이 항목에 대한 세부 정보가 표시됩니다.
-
-    ![꼭짓점 세부 정보](./media/hdinsight-debug-ambari-tez-view/vertexdetails.png)
-
-8. 이제 꼭짓점 및 태스크에 관련된 페이지의 위쪽에 링크가 있습니다.
-
-   > [!NOTE]
-   > 또한 **DAG 세부 정보**로 다시 이동하고 **꼭짓점 세부 정보**를 선택한 다음 **맵 1** 꼭짓점을 선택하면 이 페이지로 이동할 수 있습니다.
-
-   * **꼭짓점 카운터**: 이 꼭짓점에 대한 카운터 정보를 표시합니다.
-   * **태스크**: 이 꼭짓점에 대한 태스크를 표시합니다.
-   * **태스크 시도**: 이 꼭짓점의 태스크를 실행하려는 시도에 대한 정보를 표시합니다.
-   * **원본 및 싱크**: 이 꼭짓점에 대한 데이터 원본 및 싱크를 표시합니다.
-
-     > [!NOTE]
-     > 이전 메뉴 작업으로 태스크, 태스크 시도, 원본 및 싱크__에 대한 열 표시를 스크롤하여 각 항목에 대한 자세한 정보의 링크를 표시할 수 있습니다.
-
-9. **태스크**를 선택한 다음 **00_000000**이라는 항목을 선택합니다. 이 태스크에 대한 **태스크 세부 정보**가 나타납니다. 이 화면에서 **태스크 카운터** 및 **태스크 시도**를 볼 수 있습니다.
-
-   ![태스크 세부 정보](./media/hdinsight-debug-ambari-tez-view/taskdetails.png)
+    __쿼리 세부 정보__에서 링크를 사용하여 이 쿼리에 대한 __응용 프로그램__ 또는 __DAG__ 관련 정보를 찾을 수 있습니다.
+    
+    * __응용 프로그램__ 링크를 클릭하면 이 쿼리의 YARN 응용 프로그램에 대한 정보가 표시됩니다. 여기에서 YARN 응용 프로그램 로그에 액세스할 수 있습니다.
+    * __DAG__ 링크를 클릭하면 이 쿼리에 대해 지정된 비순환 그래프 관련 정보가 표시됩니다. 여기에서 DAG의 그래픽 표시를 볼 수 있습니다. DAG 내에서 꼭짓점에 대한 정보를 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

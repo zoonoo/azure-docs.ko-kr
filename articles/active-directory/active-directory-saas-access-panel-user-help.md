@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 07/15/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 2f28a63b2c3310523fb85d5aba9602359c7c2d87
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 613c68d5c13793a3b696b6afbfc0e1a31595e201
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="do-you-need-help-with-the-myapps-portal"></a>MyApps portal에 대한 도움이 필요합니까?
+# <a name="do-you-need-help-with-the-my-apps-portal"></a>MyApps portal에 대한 도움이 필요합니까?
 
 아마도 MyApps portal을 사용할 때 안타깝게도 문제가 발생했기 때문에 이 페이지에 도달했을 것입니다. 문제를 해결하기 위해 기술 지원팀 또는 관리자에게 문의해야 하는 경우 도움이 될 수 있는 몇 가지 문제 해결 항목은 다음과 같습니다.
 
-## <a name="i-cannot-sign-in-to-myappsmicrosoftcom"></a>myapps.microsoft.com에 로그인할 수 없습니다.
+## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>MyApps portal에 로그인하는 데 문제가 발생했습니다.
 
 확인해야 할 일반적인 문제:
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 06/23/2017
 
 암호를 잊어버린 경우, IT 부서에서 암호를 받지 못한 경우, 계정에서 암호가 잠긴 경우 또는 암호를 변경하려는 경우 자세한 내용은 [Azure AD 암호를 잊어버렸어요. 도와주세요!](active-directory-passwords-update-your-own-password.md)를 참조하세요.
 
-##<a name="how-do-i-register-for-password-reset"></a>암호 재설정을 위해 등록하려면 어떻게 할까요?
+## <a name="how-do-i-register-for-password-reset"></a>암호 재설정을 위해 등록하려면 어떻게 할까요?
 
 최종 사용자로서 SSPR(셀프 서비스 암호 재설정)을 사용하는 사람에게 문의하지 않고도 암호를 재설정하거나 계정 잠금을 해제할 수 있습니다. 이 기능을 사용하려면 먼저 인증 방법을 등록하거나 관리자가 입력한 미리 정의된 인증 방법을 확인해야 합니다. 자세한 내용은 [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)을 참조하세요.
 
@@ -64,21 +64,19 @@ ms.lasthandoff: 06/23/2017
     - Windows 7 이상 및 Mac OS X 이상 Chrome
     - Windows XP SP2 이상 및 Mac OS X 10.6 이상 Firefox 26.0 이상
 
-아래와 같은 직접 링크에서 Chrome, Edge 및 Firefox에 대한 확장을 다운로드할 수 있습니다.
+아래와 같은 직접 링크에서 Chrome 및 Edge에 대한 확장을 다운로드할 수 있습니다.
 
 - [Chrome 확장](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 - [Edge 확장](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-- [Firefox 확장](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
-
 설치한 후에 문제가 발생하는 경우 다음 단계를 시도합니다.
 
 - 확장을 사용할 수 있는 브라우저 확장 설정을 확인합니다.
 
-- 브라우저를 다시 시작하고 My Apps portal에 로그인해봅니다.
+- 브라우저를 다시 시작하고 My Apps portal에 로그합니다.
 
-- 브라우저의 쿠키를 지우고 다시 로그인해봅니다.
+- 브라우저의 쿠키를 지우고 My Apps portal에 로그인합니다.
 
 ## <a name="how-do-i-add-a-new-app"></a>새 앱을 추가하려면 어떻게 할까요?
 

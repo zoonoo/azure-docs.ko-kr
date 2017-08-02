@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/16/2017
+ms.date: 07/12/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: e76077fcf6be6a1fb6ed224313a05d36cdc12cab
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: fb184222be7ede5aeda12215ad1c1fec708ca9bd
 ms.contentlocale: ko-kr
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 06/09/2017
 
 | 형식                     | 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [범용](sizes-general.md)          | DSv2, Dv2, DS, D, Av2, A0-7,  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
+| [범용](sizes-general.md)          | Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7,  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
 | [Compute에 최적화](sizes-compute.md)        | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 응용 프로그램 서버에 적합합니다.        |
-| [메모리에 최적화](sizes-memory.md)         | M, GS, G, DSv2, DS, Dv2, D   | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
+| [메모리에 최적화](sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | 메모리 대 코어 비율이 높습니다. 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
 | [Storage에 최적화](sizes-storage.md)        | Ls                | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
 | [GPU](sizes-gpu.md)            | NV, NC            | 대량의 그래픽 렌더링 및 비디오 편집에 적합한 전문 가상 컴퓨터로, 한 개 이상의 GPU를 사용할 수 있습니다.       |
 | [고성능 계산](sizes-hpc.md) | H, A8-11          | Microsoft의 가장 빠르고 강력한 CPU 가상 컴퓨터로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. 

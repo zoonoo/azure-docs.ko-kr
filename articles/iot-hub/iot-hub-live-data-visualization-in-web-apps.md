@@ -4,7 +4,7 @@ description: "Microsoft Azure App Service의 Web Apps 기능을 사용하여 센
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "실시간 데이터 시각화, 라이브 데이터 시각화, 센서 데이터 시각화"
 ms.assetid: e42b07a8-ddd4-476e-9bfb-903d6b033e91
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 74f95d571da2e3066958cf3c5ab1938a5c631f7d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4f30643926def3259e603a94c741b8f65427b8da
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Azure App Service의 Web Apps 기능을 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
@@ -84,7 +83,7 @@ GitHub에서 IoT Hub의 실시간 센서 데이터를 표시하는 웹 응용 �
 
    ![로컬 Git 리포지토리를 사용하도록 웹앱 배포 구성](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-2. **배포 자격 증명**을 클릭하고 Azure에서 Git 리포지토리에 연결하는 데 사용할 사용자 이름과 암호를 만든 다음 **확인**을 클릭합니다.
+2. **배포 자격 증명**을 클릭하고 Azure에서 Git 리포지토리에 연결하는 데 사용할 사용자 이름과 암호를 만든 다음 **저장**을 클릭합니다.
 
 3. **개요**를 클릭하고 **Git 복제 URL** 값을 기록해 둡니다.
 

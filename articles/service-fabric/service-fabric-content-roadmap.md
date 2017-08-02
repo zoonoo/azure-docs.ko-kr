@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/14/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: a4bc09d4b8b9f3bd207ffca977e9098d562bb9fd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4a5ccfa671e6780a3d4305d4e3238c55de8e577c
 ms.contentlocale: ko-kr
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -109,7 +109,7 @@ Service Fabric은 웹 및 API 응용 프로그램 빌드를 위한 첫 번째 �
 </a></center>
 
 ## <a name="test-applications-and-services"></a>응용 프로그램 및 서비스 테스트
-진정한 클라우드 규모 서비스를 만들려면 응용 프로그램과 서비스가 실제 오류를 견딜 수 있도록 하는 것이 중요합니다. 오류 분석 서비스는 Service Fabric에서 작성된 서비스 테스트를 위해 설계되었습니다. 오류 분석 서비스(service-fabric-testability-overview.md)를 통해 의미 있는 결함을 유도하고 응용 프로그램에 대해 전체 테스트 시나리오를 실행할 수 있습니다. 이러한 오류와 시나리오는 다양한 상태를 실행하고 유효성을 검사하며 서비스가 수명 전반에서 일관되게 제어되고 안전한 방식으로 경험할 수 있도록 전환합니다.
+진정한 클라우드 규모 서비스를 만들려면 응용 프로그램과 서비스가 실제 오류를 견딜 수 있도록 하는 것이 중요합니다. 오류 분석 서비스는 Service Fabric에서 작성된 서비스 테스트를 위해 설계되었습니다. [오류 분석 서비스](service-fabric-testability-overview.md)를 통해 의미 있는 결함을 유도하고 응용 프로그램에 대해 전체 테스트 시나리오를 실행할 수 있습니다. 이러한 오류와 시나리오는 다양한 상태를 실행하고 유효성을 검사하며 서비스가 수명 전반에서 일관되게 제어되고 안전한 방식으로 경험할 수 있도록 전환합니다.
 
 [작업](service-fabric-testability-actions.md)은 개별 오류를 사용하여 테스트할 서비스를 대상으로 합니다. 서비스 개발자는 이러한 기본 구성 요소를 사용하여 복잡한 시나리오를 작성할 수 있습니다. 시뮬레이트된 오류의 예는 다음과 같습니다.
 
@@ -182,7 +182,7 @@ Service Fabric은 특정 엔터티(예: 클러스터 노드 및 서비스 복제
 기본적으로 Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 바로 보고합니다. [시스템 상태 보고서](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)는 상태를 통해 클러스터 및 응용 프로그램의 기능 및 플래그 문제에 대한 가시성을 제공합니다. 응용 프로그램 및 서비스의 경우, 시스템 상태 보고서는 Service Fabric 런타임 관점에서 엔터티가 올바르게 구현되고 동작하는지 확인합니다. 보고서는 서비스의 비즈니스 논리의 상태 모니터링을 제공하거나 응답이 없는 프로세스를 감지하지 않습니다. 서비스 논리에 맞는 상태 정보를 추가하려면 서비스에서 [사용자 지정 상태 보고를 구현](service-fabric-report-health.md)합니다.
 
 Service Fabric은 여러 가지 다음 방법으로 상태 저장소에 집계된 [상태 보고서를 볼](service-fabric-view-entities-aggregated-health.md) 수 있습니다.
-* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 또는 기타 시각화 도구/
+* [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 또는 기타 시각화 도구
 * 상태 쿼리([PowerShell](/powershell/module/ServiceFabric/), [C# FabricClient API](/api/system.fabric.fabricclient.healthclient) 및 [Java FabricClient API](/java/api/system.fabric._health_client) 또는 [REST API](/rest/api/servicefabric)를 통해)
 * PowerShell, API 또는 REST를 통해 속성 중 하나로 상태를 가지고 있는 엔터티 목록을 반환하는 일반 쿼리
 

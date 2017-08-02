@@ -2,8 +2,8 @@
 title: "Mobile App을 사용하여 UWP(유니버설 Windows 플랫폼) 앱에 오프라인 동기화 사용 | Microsoft Docs"
 description: "Azure 모바일 앱을 사용하여 UWP(유니버설 Windows 플랫폼) 앱에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다."
 documentationcenter: windows
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 services: app-service\mobile
 ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 7da4d87c6225754fe878a1812701c4dbafaea07a
-ms.lasthandoff: 03/09/2017
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4b0a57c3bab688487eb9a50461b406e1a6e477c6
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Windows 앱에 대해 오프라인 동기화 사용
@@ -45,8 +45,8 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 1. [유니버설 Windows 플랫폼용 SQLite 런타임](http://sqlite.org/2016/sqlite-uwp-3120200.vsix)을 설치합니다.
 2. Visual Studio에서 [Windows 앱 만들기] 자습서에서 완료한 UWP 앱용 NuGet 패키지 관리자 프로젝트를 엽니다.
     **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 패키지를 검색하고 설치합니다.
-3. 솔루션 탐색기에서 **참조** > **참조 추가...** > **유니버설 Windows** > **확장**을 마우스 오른쪽 단추로 클릭한 다음 **유니버설 Windows 플랫폼용 SQLite** 및 **유니버설 Windows 플랫폼 앱용 Visual C++ 2015 런타임**을 모두 사용합니다.
-   
+3. 솔루션 탐색기에서 마우스 오른쪽 단추로 **참조** > **참조 추가...** > **유니버설 Windows** > **확장**을 클릭하고 **유니버설 Windows 플랫폼용 SQLite** 및 **유니버설 Windows 플랫폼 앱용 Visual C++ 2015 런타임**을 둘 다 사용하도록 설정합니다.
+
     ![SQLite UWP 참조 추가][1]
 4. MainPage.xaml.cs 파일을 열고 `#define OFFLINE_SYNC_ENABLED` 정의의 주석 처리를 제거합니다.
 5. Visual Studio에서 **F5** 키를 눌러 클라이언트 앱을 다시 빌드하고 실행합니다. 오프라인 동기화를 활성화하기 전에 수행한 것과 동일하게 앱이 작동합니다. 그러나 로컬 데이터베이스는 이제 오프라인 시나리오에서 사용할 수 있는 데이터로 채워집니다.
@@ -55,9 +55,9 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 이 섹션에서는 모바일 앱 백 엔드에 대한 연결을 끊고 오프라인 상황을 시뮬레이션합니다. 데이터 항목을 추가하면 예외 처리기는 앱이 오프라인 모드임을 사용자에게 알립니다. 이 상태에서 로컬 저장소에 추가된 새 항목은 푸시가 연결된 상태에서 다음에 실행될 경우 모바일 앱 백 엔드에 동기화됩니다.
 
 1. 공유 프로젝트에서 App.xaml.cs를 편집합니다. **MobileServiceClient**의 초기화를 주석 처리하고 잘못된 모바일 앱 URL을 사용하는 다음 줄을 추가합니다.
-   
+
          public static MobileServiceClient MobileService = new MobileServiceClient("https://your-service.azurewebsites.fail");
-   
+
     장치에서 Wi-Fi 및 셀룰러 네트워크를 사용하지 않도록 설정하여 오프라인 동작을 시연하거나 비행기 모드를 사용할 수 있습니다.
 2. **F5** 를 눌러 응용 프로그램을 빌드 및 실행합니다. 앱을 시작하는 경우 동기화는 새로 고침에 실패합니다.
 3. 새 항목을 입력하고 [저장] 을 클릭할 때마다 푸시가 **CancelledByNetworkError**상태로 실패하는지 확인합니다. 그러나 새 todo 항목은 모바일 앱 백 엔드에 푸시할 수 있을 때까지 로컬 저장소에 위치합니다.  프로덕션 앱에서 이러한 예외를 무시하는 경우 클라이언트 앱은 모바일 앱 백 엔드에 연결된 것처럼 작동합니다.
@@ -74,16 +74,14 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 2. **F5** 를 눌러 앱을 다시 빌드하고 실행합니다. 앱은 푸시 및 끌어오기 작업을 사용하여 `OnNavigatedTo` 이벤트 처리기가 실행되면 로컬 변경 내용을 Azure Mobile App 백 엔드와 동기화합니다.
 3. (선택 사항) SQL Server 개체 탐색기 또는 Fiddler와 같은 REST 도구를 사용하여 업데이트된 데이터를 봅니다. Azure 모바일 앱 백 엔드 데이터베이스와 로컬 저장소 간에 데이터는 동기화되었습니다.
 4. 앱에서 로컬 저장소에서 완료할 몇 개 항목 옆의 확인란을 클릭합니다.
-   
+
    `UpdateCheckedTodoItem`은 `SyncAsync`를 호출하여 Mobile App 백 엔드와 전체 항목을 동기화합니다. `SyncAsync` 는 푸시와 끌어오기를 둘 다 호출합니다. 그러나 **클라이언트가 변경한 테이블에 대해 끌어오기를 실행할 때마다 푸시도 항상 자동으로 실행됩니다**. 따라서 로컬 저장소의 모든 테이블 및 관계가 동기화된 상태로 유지될 수 있습니다. 이 동작으로 예기치 않은 푸시가 발생할 수도 있습니다.  이 동작에 대한 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화]를 참조하세요.
 
 ## <a name="api-summary"></a>API 요약
 모바일 서비스의 오프라인 기능을 지원하기 위해 [IMobileServiceSyncTable] 인터페이스를 사용하고 로컬 SQLite 데이터베이스에서 [MobileServiceClient.SyncContext][synccontext]를 초기화했습니다. 오프라인의 경우 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결되어 있는 것처럼 작동하는 반면 작업은 로컬 저장소에 발생합니다. 다음 메서드는 서버와 로컬 저장소를 동기화하는 데 사용됩니다.
 
 * **[PushAsync]** 이 메서드가 [IMobileServicesSyncContext]의 멤버이기 때문에 모든 테이블의 변경 사항을 백 엔드에 푸시합니다. 로컬 변경 내용이 포함된 레코드만이 서버에 전송됩니다.
-* **[PullAsync]**
-   끌어오기는 [IMobileServiceSyncTable]에서 시작됩니다. 테이블에 추적된 변경 내용이 있는 경우 암시적 푸시가 실행되어 관계와 함께 로컬 저장소의 모든 테이블이 일관성을 유지하는지 확인합니다. *pushOtherTables*은 다른 컨텍스트에서 테이블이 암시적 푸시에 푸시되는지를 제어합니다. *query* 매개 변수는 [IMobileServiceTableQuery<T>][IMobileServiceTableQuery]
-   또는 OData 쿼리 문자열을 사용하여 반환된 데이터를 필터링합니다. *queryId* 매개 변수를 사용하여 증분 동기화를 정의할 수 있습니다. 자세한 내용은  [Azure Mobile Apps에서 오프라인 데이터 동기화](app-service-mobile-offline-data-sync.md#how-sync-works)를 참조하세요.
+* **[PullAsync]** 끌어오기는 [IMobileServiceSyncTable]에서 시작됩니다. 테이블에 추적된 변경 내용이 있는 경우 암시적 푸시가 실행되어 관계와 함께 로컬 저장소의 모든 테이블이 일관성을 유지하는지 확인합니다. *pushOtherTables*은 다른 컨텍스트에서 테이블이 암시적 푸시에 푸시되는지를 제어합니다. *query* 매개 변수는 [IMobileServiceTableQuery<T>][IMobileServiceTableQuery] 또는 OData 쿼리 문자열을 사용하여 반환된 데이터를 필터링합니다. *queryId* 매개 변수를 사용하여 증분 동기화를 정의할 수 있습니다. 자세한 내용은 [Azure Mobile Apps에서 오프라인 데이터 동기화](app-service-mobile-offline-data-sync.md#how-sync-works)를 참조하세요.
 * **[PurgeAsync]** 앱은 주기적으로 이 메서드를 호출하여 로컬 저장소에서 오래된 데이터를 삭제해야 합니다. 아직 동기화되지 않은 변경 내용을 삭제해야 하는 경우 *force* 매개 변수를 사용합니다.
 
 이 개념에 대한 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화](app-service-mobile-offline-data-sync.md#how-sync-works)를 참조하세요.

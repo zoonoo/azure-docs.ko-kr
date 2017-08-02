@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2017
+ms.date: 07/07/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: edc1a2b42f1148923b8acfd8b3ee35f790d7f230
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ebe8b9f0cace419125bde84a9ff2a912af061156
 ms.contentlocale: ko-kr
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -55,7 +55,7 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>응용 프로그램 패키지 업로드
-Visual Studio 2015에서 *MyApplication*이라는 응용 프로그램을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 응용 프로그램 유형 이름은 "MyApplicationType"입니다.  필요한 응용 프로그램 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함된 응용 프로그램 패키지는 *C:\Users\\<username\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*에 있습니다.
+Visual Studio에서 *MyApplication*이라는 응용 프로그램을 빌드하고 패키지한다고 가정해 보겠습니다. 기본적으로 ApplicationManifest.xml에 나열된 응용 프로그램 유형 이름은 "MyApplicationType"입니다.  필요한 응용 프로그램 매니페스트, 서비스 매니페스트 및 코드/구성/데이터 패키지가 포함된 응용 프로그램 패키지는 *C:\Users\&lt;username&gt;\Documents\Visual Studio 2017\Projects\MyApplication\MyApplication\pkg\Debug*에 있습니다.
 
 응용 프로그램 패키지를 업로드하면 내부 Service Fabric 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. Service Fabric은 응용 프로그램 패키지를 등록하는 동안 응용 프로그램 패키지를 확인합니다. 단, 로컬로 응용 프로그램 패키지를 확인하려는 경우(예: 업로드하기 전에) [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet을 사용합니다.
 
@@ -180,7 +180,7 @@ static void Main(string[] args)
     string serviceName = "fabric:/MyApplication/Stateless1";
     string imageStoreConnectionString = "file:C:\\SfDevCluster\\Data\\ImageStoreShare";
     string packagePathInImageStore = "MyApplication";
-    string packagePath = "C:\Users\username\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug";
+    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2017\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
     string serviceType = "Stateless1Type";
 
     // Connect to the cluster.

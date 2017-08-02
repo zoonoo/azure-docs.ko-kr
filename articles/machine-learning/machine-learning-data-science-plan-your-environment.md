@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a712baabf2674bda0a53de63e7c204b08ba9d105
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9297b241c047bf9feb68ced8da467c62e7f5acca
+ms.contentlocale: ko-kr
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>시나리오를 파악하고 고급 분석 데이터 처리를 계획하는 방법
@@ -47,7 +47,7 @@ ms.lasthandoff: 04/27/2017
    
    * [분석용 저장소 환경에 데이터 로드](machine-learning-data-science-ingest-data.md)
    * [다양한 데이터 원본에서 Azure Machine Learning Studio로 학습 데이터를 가져옵니다](machine-learning-data-science-import-data.md).
-4. **데이터를 정기적으로 이동해야 하나요? 마이그레이션 중에 수정되어야 하나요?** 온-프레미스 및 클라우드 리소스를 모두 액세스하는 하이브리드 시나리오에서 데이터를 지속적으로 마이그레이션해야 하는 경우, 데이터를 트랜잭션 처리하거나 수정해야 하거나 마이그레이션 과정 중에 비즈니스 로직을 추가해야 하는 경우 Azure Data Factory(ADF)를 사용하는 것이 좋습니다. 자세한 내용은 [Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동](machine-learning-data-science-move-sql-azure-adf.md)
+4. **데이터를 정기적으로 이동해야 하나요? 마이그레이션 중에 수정되어야 하나요?** 온-프레미스 및 클라우드 리소스를 모두 액세스하는 하이브리드 시나리오에서 데이터를 지속적으로 마이그레이션해야 하는 경우, 데이터를 트랜잭션 처리하거나 수정해야 하거나 마이그레이션 과정 중에 비즈니스 로직을 추가해야 하는 경우 ADF(Azure Data Factory)를 사용하는 것이 좋습니다. 자세한 내용은 [Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동](machine-learning-data-science-move-sql-azure-adf.md)을 참조하세요.
 5. **얼마나 많은 양의 데이터를 Azure로 이동해야 하나요?** 대량의 데이터 집합은 특정 환경의 저장소 용량을 초과할 수 있습니다. 예를 들어, 다음 섹션에서 기계 학습 스튜디오의 크기 제한에 대한 논의를 참조하세요. 이런 경우, 분석하는 동안 데이터 샘플이 사용될 수 있습니다. 다양한 Azure 환경에서 데이터 집합을 다운 샘플링하는 방법에 대한 자세한 내용은 [팀 데이터 과학 프로세스의 데이터 샘플링](machine-learning-data-science-sample-data.md)을 참조하세요.
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>데이터 특성 질문: 유형, 형식, 크기
